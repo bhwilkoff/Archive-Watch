@@ -1646,39 +1646,56 @@ struct ShareSheet: View {   // reused by SeriesDetailView (series + episodes)
 
 
 /// Long-form text a tvOS viewer can actually READ: focusable so the focus
-/// engine will stop on it (and the ScrollView will scroll to it), expanding to
-/// its full length while focused.
-///
-/// The playbook's rule for a non-interactive view that must participate in
-/// focus is `.focusable(true)` plus a rendered focus state — a focus ring the
-/// viewer can see, since a focused element that looks identical to an
+/// engine will stop on it and the ScrollView will scroll to it, with a focus
+/// ring the viewer can see — a focused element that looks identical to an
 /// unfocused one is a trap by another name.
+///
+/// It is a Button rather than a bare `.focusable(true)` because expanding must
+/// be a DELIBERATE Select. It used to expand from six lines to its full length
+/// simply on gaining focus, and since focus passes through this block on the
+/// way down the page, the page reflowed every time — twice per pass, out and
+/// back (owner, 2026-09-04: "the description text reflows multiple times as
+/// you scroll down the page"). `ReadingCardStyle` changes no geometry on
+/// focus, so scrolling past is silent.
 struct ReadableTextBlock: View {
     let text: String
-    /// nil = never clamp; the block is focusable purely so the viewer can
-    /// SCROLL to it. That is the common case in Settings, where the text is
-    /// short enough to show in full but was unreachable all the same.
+    /// nil = never clamp. Otherwise the block shows this many lines and Select
+    /// expands it — focus alone MUST NOT, because focus passes through this
+    /// block on the way down the page and a block that resizes then makes
+    /// everything below it jump (owner, 2026-09-04).
     var collapsedLines: Int? = 6
     var dimmed: Double = 0.85
-    @FocusState private var focused: Bool
+    @State private var expanded = false
+
+    /// Only offer the expansion when the clamp can actually be hiding
+    /// something — roughly 42 characters a line at this size and width.
+    private var canExpand: Bool {
+        guard let n = collapsedLines else { return false }
+        return text.count > n * 42
+    }
 
     var body: some View {
-        Text(text)
-            .foregroundStyle(.white.opacity(focused ? 1.0 : dimmed))
-            .lineLimit(focused ? nil : collapsedLines)
-            .multilineTextAlignment(.leading)
-            .padding(focused ? 16 : 0)
-            .background {
-                if focused {
-                    RoundedRectangle(cornerRadius: 12)
-                        .fill(.white.opacity(0.10))
+        Button {
+            guard canExpand else { return }
+            withAnimation(.easeInOut(duration: 0.2)) { expanded.toggle() }
+        } label: {
+            VStack(alignment: .leading, spacing: 8) {
+                Text(text)
+                    .foregroundStyle(.white.opacity(dimmed))
+                    .lineLimit(expanded ? nil : collapsedLines)
+                    .multilineTextAlignment(.leading)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                if canExpand {
+                    Text(expanded ? "Show less" : "Show more")
+                        .font(.caption)
+                        .foregroundStyle(.white.opacity(0.6))
                 }
             }
-            .focusable(true)
-            .focused($focused)
-            // Scoped to the focus change only — the playbook forbids a blanket
-            // .animation on a view that participates in focus.
-            .animation(.easeInOut(duration: 0.18), value: focused)
+        }
+        .buttonStyle(ReadingCardStyle())
+        // This file's own header rule: a custom ButtonStyle still gets tvOS's
+        // default halo on top of it unless the call site disables it.
+        .focusEffectDisabled()
     }
 }
 

@@ -213,6 +213,53 @@ struct CircleIconStyle: ButtonStyle {
 // black text on a solid white capsule. Replaces the system `.bordered` (which
 // rendered low-contrast ACCENT text on dark) and the `.tint(.white)` hack (which
 // produced white-text-on-white-fill when focused).
+// MARK: - Reading block
+//
+// For long-form text a viewer must be able to reach, scroll to and READ: a
+// synopsis, a review. Focus changes NOTHING about the geometry — no padding
+// swing, no line-limit swing, no scale. That rule is the whole point of this
+// style: the previous synopsis block expanded from 6 lines to its full length
+// while focused, so the page reflowed every time focus passed through it on
+// the way down (owner, 2026-09-04: "the description text reflows multiple
+// times as you scroll down the page"). A block that resizes as focus crosses
+// it makes everything below it jump, repeatedly, while the viewer is trying
+// to read.
+//
+// Focus is shown by a ring and a lift in contrast, both of which are free.
+// Expanding is a deliberate Select, never a side effect of scrolling.
+struct ReadingCardStyle: ButtonStyle {
+    var padded: Bool = true
+
+    func makeBody(configuration: Configuration) -> some View {
+        StyleBody(configuration: configuration, padded: padded)
+    }
+
+    struct StyleBody: View {
+        @Environment(\.isFocused) private var isFocused
+        let configuration: ButtonStyleConfiguration
+        let padded: Bool
+
+        var body: some View {
+            configuration.label
+                .frame(maxWidth: .infinity, alignment: .leading)
+                // CONSTANT padding — not `isFocused ? 16 : 0`.
+                .padding(padded ? 16 : 0)
+                .background {
+                    RoundedRectangle(cornerRadius: 12)
+                        .fill(.white.opacity(isFocused ? 0.10 : 0.0))
+                }
+                .overlay {
+                    RoundedRectangle(cornerRadius: 12)
+                        .strokeBorder(.white.opacity(isFocused ? 0.55 : 0.0),
+                                      lineWidth: 2)
+                }
+                // No scaleEffect either: a scaled block shifts the text under
+                // the viewer's eye mid-sentence.
+                .animation(Motion.focus, value: isFocused)
+        }
+    }
+}
+
 struct BarButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         StyleBody(configuration: configuration)

@@ -76,7 +76,10 @@ private struct ReviewCard: View {
         #endif
     }
 
-    var body: some View {
+    /// The card's content. Identical on every platform; only what WRAPS it
+    /// differs, because tvOS reaches it with a remote and the others with a
+    /// finger.
+    @ViewBuilder private var cardContent: some View {
         VStack(alignment: .leading, spacing: 4) {
             HStack(spacing: 8) {
                 if let s = review.stars, s > 0 {
@@ -95,45 +98,52 @@ private struct ReviewCard: View {
             if let b = review.body, !b.isEmpty {
                 reviewBody(b)
                 if maybeTruncated {
-                    Button(expanded ? "Show less" : "Show more") {
-                        withAnimation(.easeInOut(duration: 0.2)) { expanded.toggle() }
-                    }
-                    .font(.caption)
-                    // NEVER .plain on tvOS — it destroys focusability, and on
-                    // this screen focusability is the whole point: a card the
-                    // remote can reach is a card the viewer can scroll to and
-                    // read (owner, 2026-08-28).
-                    #if os(tvOS)
-                    .buttonStyle(.borderless)
-                    #else
-                    .buttonStyle(.plain)
-                    // `.tint` and NOT Brand.accent: this file is shared by
-                    // every platform, and Brand is declared `#if os(iOS)` —
-                    // so naming it here compiles on the phone and breaks the
-                    // Mac archive, which is exactly how it reached the cloud
-                    // build (2026-08-29). The environment tint is the same
-                    // accent on iOS and resolves everywhere.
-                    .foregroundStyle(.tint)
-                    #endif
+                    Text(expanded ? "Show less" : "Show more")
+                        .font(.caption)
+                        #if os(tvOS)
+                        .foregroundStyle(.white.opacity(0.6))
+                        #else
+                        .foregroundStyle(.tint)
+                        #endif
                 }
             }
             Text(review.displayName + (review.date.map { " · \($0)" } ?? ""))
                 .font(.caption2).foregroundStyle(.tertiary)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
-        .padding(12)
-        .background(.quaternary.opacity(0.4), in: RoundedRectangle(cornerRadius: 10))
-        // The whole card is the target as well as the button — on a phone the
-        // text is what a thumb lands on.
-        #if !os(tvOS)
-        // The whole card is the target as well as the button — on a phone the
-        // text is what a thumb lands on. tvOS has no tap; it uses the button,
-        // which the remote can focus.
-        .contentShape(.rect)
-        .onTapGesture {
+    }
+
+    var body: some View {
+        #if os(tvOS)
+        // EVERY card is focusable, not only the long ones. Previously the only
+        // focusable thing in a card was the "Show more" button, which exists
+        // only when the body runs past 260 characters — so a short review had
+        // nothing for the focus engine to stop on, the ScrollView never
+        // scrolled to it, and it could not be highlighted or read (owner,
+        // 2026-09-04: "each review from archive.org does not scroll as it
+        // should"). Now Up/Down walks review to review.
+        //
+        // The style changes no geometry on focus, so walking the list does not
+        // reflow the page; Select expands a long one deliberately.
+        Button {
             guard maybeTruncated else { return }
             withAnimation(.easeInOut(duration: 0.2)) { expanded.toggle() }
+        } label: {
+            cardContent
         }
+        .buttonStyle(ReadingCardStyle())
+        .focusEffectDisabled()
+        #else
+        cardContent
+            .padding(12)
+            .background(.quaternary.opacity(0.4), in: RoundedRectangle(cornerRadius: 10))
+            // The whole card is the target — on a phone the text is what a
+            // thumb lands on.
+            .contentShape(.rect)
+            .onTapGesture {
+                guard maybeTruncated else { return }
+                withAnimation(.easeInOut(duration: 0.2)) { expanded.toggle() }
+            }
         #endif
     }
 }
