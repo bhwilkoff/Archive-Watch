@@ -136,9 +136,33 @@ def main():
         # excluded. One bit per row; older consumers ignore the extra column.
         docs = 1 if ("Documentary" in (it.get("genres") or [])
                      and (it.get("contentType") or "") != "animation") else 0
+        # Columns 10-12 (schema 10). The apps read these from the SQLite
+        # catalog; the web plane had no equivalent, which left Top Rated,
+        # director shelves and genre facets unbuildable on web AND Roku — the
+        # only two clients that read this index. Additive, so every existing
+        # consumer ignores them (Decision 020).
+        #
+        # rating is x10 as an INTEGER: 7.4 becomes 74. A float per row costs
+        # more bytes in JSON than the precision is worth on a 27,000-row index.
+        r = it.get("imdbRating")
+        try:
+            rating = int(round(float(r) * 10)) if r else None
+        except (TypeError, ValueError):
+            rating = None
+        votes = it.get("imdbVotes")
+        try:
+            votes = int(votes) if votes else None
+        except (TypeError, ValueError):
+            votes = None
+        director = it.get("director") or None
+        genres = it.get("genres") or None
+        if genres:
+            # Joined, not a nested array: three short strings per row as one
+            # string is materially smaller than three JSON arrays.
+            genres = "|".join(g for g in genres if g)[:80] or None
         rows.append([aid, it.get("title") or aid, it.get("year"),
                      it.get("contentType") or "", poster, pro, search, backdrop,
-                     playable, docs])
+                     playable, docs, rating, votes, director, genres])
         for k in keywords:
             keyword_freq[k] = keyword_freq.get(k, 0) + 1
         for s in studios:
@@ -199,7 +223,7 @@ def main():
     }
 
     out = {
-        "schema": 9,
+        "schema": 10,
         "updatedAt": catalog.get("updatedAt") or "",
         "count": len(rows),
         # Must list EVERY column. Rows carry 10 entries at schema 9 and this
@@ -207,7 +231,8 @@ def main():
         # position could not find `playable` or `documentary` at all — they
         # were shipping, undeclared, for two schema bumps.
         "fields": ["id", "title", "year", "contentType", "poster", "pro", "search",
-                   "backdrop", "playable", "documentary"],
+                   "backdrop", "playable", "documentary", "rating10", "votes",
+                   "director", "genres"],
         "facets": facets,
         "shelves": shelves,
         "collections": collections,

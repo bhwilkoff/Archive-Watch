@@ -34,7 +34,7 @@ sub init()
     m.chipDefs = [
         { id: "type",   label: "Type",   values: ["All", "Feature Film", "Classic TV", "Silent Era", "Animation", "Short Film", "Newsreel", "Documentary"] },
         { id: "decade", label: "Decade", values: ["All", "1900s", "1910s", "1920s", "1930s", "1940s", "1950s", "1960s", "1970s"] },
-        { id: "sort",   label: "Sort",   values: ["Popular", "Newest", "Oldest", "A-Z", "Shuffle"] }
+        { id: "sort",   label: "Sort",   values: ["Popular", "Newest", "Oldest", "A-Z", "Top Rated", "Shuffle"] }
     ]
     m.chipIndex = [0, 0, 0]
     m.chips = []
@@ -151,6 +151,7 @@ sub submit()
     end if
     sv = LCase(m.chipDefs[2].values[m.chipIndex[2]])
     if sv = "a-z" then sv = "alpha"
+    if sv = "top rated" then sv = "rating"
     svc.qSort = sv
     svc.qText = ""
     ' One bump, after every field is set — the service triggers on this alone.
@@ -159,6 +160,16 @@ sub submit()
 end sub
 
 sub showResults(root as Object, total as Integer)
+    ' Top Rated needs index columns that only exist from schema 10. A device
+    ' holding an older cached index gets an empty result, and an empty result
+    ' with no explanation is the dead control this build keeps re-learning.
+    if total = 0 and m.chipDefs[2].values[m.chipIndex[2]] = "Top Rated"
+        m.grid.content = invalid
+        m.grid.visible = false
+        m.empty.visible = true
+        m.empty.text = "Ratings are not in this catalog yet. They arrive with the next catalog refresh — try another sort in the meantime."
+        return
+    end if
     m.grid.content = root
     m.empty.visible = (total = 0)
     if total = 0

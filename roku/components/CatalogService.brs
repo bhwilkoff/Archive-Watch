@@ -49,6 +49,11 @@ end sub
 
 ' Index row order (build_catalog_index.py fields):
 '   0 id  1 title  2 year  3 contentType  4 poster  5 pro  6 search  7 backdrop
+'   8 playable  9 documentary  10 rating10  11 votes  12 director  13 genres
+'
+' Columns 10-13 arrived at schema 10. EVERY read of them is guarded, because a
+' device that has cached an older index must keep working — the catalog is
+' fetched at launch and a client is not entitled to assume today's schema.
 ' One pass over 26,965 rows collecting only the ~3,100 ids the 26 curated
 ' collections name — the same shape HomeTask uses, and for the same reason:
 ' scanning once per collection would be 26 passes on the wrong thread.
@@ -302,6 +307,21 @@ sub runQuery()
         hits = sorted
     else if sort = "newest" or sort = "oldest"
         hits = sortByYear(hits, sort = "oldest")
+    else if sort = "rating"
+        ' Top Rated. A vote floor is not optional: without it a single 10/10
+        ' rating outranks Citizen Kane, which is the exact bug Decision 050
+        ' records on the apps.
+        rated = []
+        for each r in hits
+            if r.Count() > 11 and r[10] <> invalid and r[11] <> invalid
+                if Int(r[11]) >= 1000 then rated.Push({ s: Int(r[10]), r: r })
+            end if
+        end for
+        rated.SortBy("s", "r")
+        hits = []
+        for each w in rated
+            hits.Push(w.r)
+        end for
     else if sort = "alpha"
         ' A-Z was in the chip list and in NO branch of this chain, so it fell
         ' through and returned popularity order under an alphabetical label.
