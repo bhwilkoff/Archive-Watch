@@ -16,6 +16,19 @@ function getJson(url as String) as Object
     return ParseJson(body)
 end function
 
+' The shelves a hero may lead with. Curated editorial rows and the canon —
+' never a genre dragnet, and never a shelf built from a popularity signal
+' alone, which is how an adult title reaches the top of Home.
+function isHeroShelf(id as String) as Boolean
+    ok = ["editors-picks", "all-time-features", "wikidata-pd", "popular-features",
+          "film-noir", "silent-era", "silent-hall-of-fame", "melies",
+          "classic-cartoons", "hidden-gems", "top-rated"]
+    for each k in ok
+        if k = id then return true
+    end for
+    return false
+end function
+
 sub run()
     span = CreateObject("roTimespan")
     span.Mark()
@@ -56,6 +69,14 @@ sub run()
 
     ' ---- collect the ids the shelves name, then ONE pass over the catalog ----
     MAX_PER_ROW = 20
+    ' Every id a shelf names is resolved, not the first 20 — the professional-
+    ' poster gate below is applied to what comes back, and truncating first
+    ' means judging a shelf on a slice of itself. Measured: Prelinger names 48
+    ' ids of which 7 carry a professional poster and NONE is in the first 20,
+    ' so the shelf was hidden entirely while qualifying for a full row. Same
+    ' shape as Decision 049, where a contiguous slice of a priority list
+    ' rendered a shelf nothing like the pool it came from.
+    MAX_RESOLVE = 60
     wanted = {}
     plan = []
     for each id in order
@@ -63,7 +84,7 @@ sub run()
         if ids <> invalid and ids.Count() > 0
             take = []
             n = ids.Count()
-            if n > MAX_PER_ROW then n = MAX_PER_ROW
+            if n > MAX_RESOLVE then n = MAX_RESOLVE
             for i = 0 to n - 1
                 take.Push(ids[i])
                 wanted[ids[i]] = true
@@ -116,11 +137,13 @@ sub run()
     for each p in plan
         kids = []
         for each aid in p.ids
+            if kids.Count() >= MAX_PER_ROW then exit for
             r = found[aid]
             if r <> invalid
                 ' ROKU-DESIGN §6.2 — Home shows professional posters only
                 ' (Decision 097). A shelf that cannot field six hides rather
-                ' than padding itself with frame grabs.
+                ' than padding itself with frame grabs. The cap is applied to
+                ' the QUALIFYING items, above, not to the ids beforehand.
                 if r[5] = 1 and r[4] <> invalid and r[4] <> ""
                     kids.Push(r)
                 end if
@@ -135,14 +158,21 @@ sub run()
                 fillItem(it, r)
             end for
             rowCount = rowCount + 1
-            ' The hero pool is drawn from items that carry a real backdrop, so
-            ' the hero is never a 2:3 poster stretched into a wide box.
-            for each r in kids
-                if r[7] <> invalid and r[7] <> "" and heroPool.GetChildCount() < 12
-                    h = heroPool.CreateChild("ContentNode")
-                    fillItem(h, r)
-                end if
-            end for
+            ' The hero pool needs a real backdrop (never a 2:3 poster stretched
+            ' into a wide box) AND a shelf worth leading with. Drawing from
+            ' every shelf put a 1971 sexploitation still at the top of Home —
+            ' technically eligible, and not what "a warm introduction to the
+            ' films" means. The hero comes from the CURATED shelves only, the
+            ' ones featured.json names, which is the editorial judgement this
+            ' project already keeps in one place.
+            if isHeroShelf(p.id)
+                for each r in kids
+                    if r[7] <> invalid and r[7] <> "" and heroPool.GetChildCount() < 12
+                        h = heroPool.CreateChild("ContentNode")
+                        fillItem(h, r)
+                    end if
+                end for
+            end if
         end if
     end for
 

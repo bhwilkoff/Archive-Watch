@@ -14,6 +14,7 @@ sub init()
     m.wash = m.top.FindNode("heroWash")
     m.scrim = m.top.FindNode("heroScrim")
     m.art = m.top.FindNode("heroArt")
+    m.hKind = m.top.FindNode("heroKind")
     m.hTitle = m.top.FindNode("heroTitle")
     m.hMeta = m.top.FindNode("heroMeta")
     m.rows = m.top.FindNode("rows")
@@ -27,7 +28,12 @@ sub init()
     ' y=54 and painting over the brand, which is the kind of thing only a
     ' screenshot catches.
     heroTop = 0
-    heroH = 480
+    ' tvOS's hero is 940 of 1080, and that is WHY its backdrops look right: a
+    ' 16:9 image filling a 1920x940 frame loses 13% off the top and bottom. The
+    ' same image filling a 1920x384 band loses 64% — which is what "cropped
+    ' terribly" was. The band is now 880 (18% crop) and it SCROLLS AWAY on
+    ' Down, exactly as tvOS's does, so the shelves are never far.
+    heroH = 880
     m.heroH = heroH
 
     ' The hero is a PICTURE, full width, with the copy over it — the shape
@@ -38,70 +44,56 @@ sub init()
     ' Decision 097 still binds: a real landscape backdrop may be cropped to
     ' fill; a 2:3 poster may NOT, so that case keeps the fitted-art-on-the-
     ' right shape over an ambient wash.
+    ' The BACKDROP is the hero. It fills the band at full brightness and the
+    ' gradient above it does the legibility work — a dimmed picture under a
+    ' dark ramp is why this band "could hardly be seen".
+    ' This Group sits at x = railW, so a 1920-wide band starting at -150 ends
+    ' 66 px short of the right edge — a dark strip down the side of every
+    ' hero, plainly visible in the screenshot and missed twice.
     m.wash.translation = [-150, 0]
-    m.wash.width = 1920 : m.wash.height = heroH
+    m.wash.width = 2070 : m.wash.height = heroH
     m.wash.loadDisplayMode = "scaleToZoom"
     m.wash.opacity = 1.0
 
-    m.scrim.translation = [-150, 0]
-    m.scrim.width = 1920 : m.scrim.height = heroH
-    m.scrim.color = "0x0B0B0C00"
+    ' Retained but inert: the gradient PNG replaced it.
+    m.scrim.visible = false
 
-    ' Roku has no gradient node, so the fade into the copy is a ramp of narrow
-    ' rectangles. THREE steps was not enough — each boundary read as a vertical
-    ' seam across the still on the glass, and the floor band read as a hard
-    ' horizontal box under the title. Sixteen steps at this width are invisible
-    ' at ten feet.
+    ' tvOS layers a top-to-bottom LinearGradient over the backdrop — clear,
+    ' clear, .45, .9, black — so the picture stays a picture and the copy sits
+    ' on darkness at its foot. A left-to-right ramp (the previous build) dims
+    ' the subject instead of the caption area, which is why the band read as
+    ' murky. Roku has no gradient node, so this is that gradient as a PNG:
+    ' geometry-based fakes band, and the owner saw the lines.
     fade = m.top.FindNode("heroFade")
+    fade.uri = "pkg:/images/hero_scrim_v.png"
     fade.translation = [-150, 0]
-    rampW = 1500
-    steps = 16
-    stepW = Int(rampW / steps)
-    for i = 0 to steps - 1
-        r = fade.CreateChild("Rectangle")
-        r.translation = [i * stepW, 0]
-        ' +1 so neighbouring steps overlap; a rounded width leaves hairlines.
-        r.width = stepW + 1
-        r.height = heroH
-        ' 0xF2 down to 0x00 across the ramp, quadratic so the dark end holds
-        ' longer under the copy and the bright end clears the picture fast.
-        f = i / (steps - 1)
-        a = Int(242 * (1 - f) * (1 - f))
-        r.color = "0x0B0B0C" + alphaHex(a)
-    end for
+    fade.width = 2070 : fade.height = heroH
+    fade.loadDisplayMode = "scaleToFill"
 
-    ' The floor the first shelf label sits on, ramped the same way so it is a
-    ' fade rather than a band.
     floor = m.top.FindNode("heroFloor")
-    floor.translation = [-150, heroH - 220]
-    for i = 0 to 10
-        r = floor.CreateChild("Rectangle")
-        r.translation = [0, i * 20]
-        r.width = 1920
-        r.height = 21
-        a = Int(20 + (i * 21))
-        r.color = "0x0B0B0C" + alphaHex(a)
-    end for
+    floor.visible = false
 
     ' Used only when the item has no landscape backdrop.
     m.art.translation = [1010, 96]
     m.art.width = 740 : m.art.height = 348
     m.art.loadDisplayMode = "scaleToFit"
 
+    m.hKind.font = m.t.uMeta
+    m.hKind.translation = [m.t.readX, heroH - 316]
     m.hTitle.font = m.t.uMarquee
     m.hTitle.color = m.t.textPri
     ' §4.3 — prose the viewer READS starts at the title-safe inset (192 from
     ' the screen edge; this Group is already 150 in).
-    m.hTitle.translation = [m.t.readX, 246]
+    m.hTitle.translation = [m.t.readX, heroH - 260]
     m.hTitle.width = 780
     m.hTitle.maxLines = 2
     m.hTitle.wrap = true
 
     m.hMeta.font = m.t.uMeta
     m.hMeta.color = m.t.textSec
-    m.hMeta.translation = [m.t.readX, 318]
+    m.hMeta.translation = [m.t.readX, heroH - 140]
 
-    m.rows.translation = [m.t.safeX, 504]
+    m.rows.translation = [m.t.safeX, 908]
     m.rows.itemComponentName = "PosterTile"
     m.rows.numRows = 3
     ' §2.1 / §3.1 — Left from the FIRST column must reach the rail. With
@@ -120,7 +112,7 @@ sub init()
     ' wraps to two lines and the meta line under it: 48 + 432 + 9 + ~100 + 40.
     ' At +180 the meta ran into the NEXT row's label — the same overlap class
     ' three surfaces over, because all three shelves share these numbers.
-    m.rows.itemSize = [1740, m.t.posterFH + 240]
+    m.rows.itemSize = [1740, m.t.posterFH + 196]
     m.rows.rowItemSize = [[m.t.posterFW, m.t.posterFH]]
     m.rows.rowItemSpacing = [[m.t.gutter, 0]]
     ' `rowSpacing` DOES NOT EXIST on RowList — the field is `rowSpacings`, an
@@ -150,6 +142,10 @@ sub init()
     ' whole band. A carousel is the shape a hero is.
     m.heroTimer = m.top.FindNode("heroTimer")
     m.heroTimer.ObserveField("fire", "onHeroTick")
+    ' A dead backdrop falls back to the film's poster rather than to whatever
+    ' was on screen a moment ago.
+    m.wash.ObserveField("loadStatus", "onHeroArtStatus")
+    m.heroFallback = ""
     m.heroArtTimer = m.top.FindNode("heroArtTimer")
     m.heroArtTimer.ObserveField("fire", "onHeroArtDue")
     m.heroIndex = 0
@@ -171,19 +167,25 @@ sub init()
     m.ringB.translation = [rx, ry + rh - th] : m.ringB.width = rw : m.ringB.height = th
     m.ringL.translation = [rx, ry]           : m.ringL.width = th : m.ringL.height = rh
     m.ringR.translation = [rx + rw - th, ry] : m.ringR.width = th : m.ringR.height = rh
+    ' No ring. A 1920x880 orange rectangle is not a focus indicator, it is a
+    ' border around the screen — and the hero is the only focusable thing up
+    ' here, so the moment focus leaves it the whole band scrolls away. That
+    ' movement IS the indicator.
     for each r in [m.ringT, m.ringB, m.ringL, m.ringR]
-        r.color = m.t.marquee
         r.visible = false
     end for
 
     ' Says what OK does. A focusable hero with no affordance reads as a poster.
     m.hint.font = m.t.uMeta : m.hint.color = m.t.textPri
-    m.hint.translation = [m.t.readX, 396]
-    m.hint.text = "OK to open  ·  Left / Right for more"
+    m.hint.translation = [m.t.readX, heroH - 84]
+    ' No instructions. A hero that has to explain Left and Right is a hero
+    ' that does not read as one — the dots below it already say there is more,
+    ' and OK on a focused thing is the platform's own contract.
+    m.hint.text = ""
     m.hint.visible = false
 
     ' Page indicator, the tvOS capsule row rendered as Rectangles.
-    m.dots.translation = [m.t.readX, 360]
+    m.dots.translation = [m.t.readX, heroH - 84]
     m.dotNodes = []
 
     m.focusZone = "hero"
@@ -276,25 +278,65 @@ sub paintHero(it as Object)
     if it = invalid then return
     m.hTitle.text = it.title
     m.hMeta.text = it.SHORTDESCRIPTIONLINE1
+    ' The category, in the category's own accent (Decision 013) — the line
+    ' tvOS leads its hero copy with.
+    kind = ""
+    if it.HasField("awType") then kind = fmt(it.awType)
+    if kind = "" then kind = "feature-film"
+    m.hKind.text = UCase(kind)
+    m.hKind.color = AccentFor(kind)
     m.heroId = it.id
     m.pendingHeroArt = it
     m.heroArtTimer.control = "stop"
     m.heroArtTimer.control = "start"
 end sub
 
+sub onHeroArtStatus()
+    if m.wash.loadStatus <> "failed" then return
+    print "AWHERO backdrop failed, falling back"
+    if m.heroFallback <> "" and m.wash.uri <> m.heroFallback
+        f = m.heroFallback
+        m.heroFallback = ""
+        m.wash.uri = f
+        m.wash.opacity = 0.85
+        m.art.uri = f
+        m.art.visible = true
+    else
+        m.wash.uri = ""
+    end if
+end sub
+
 sub onHeroArtDue()
-    paintHeroArt(m.pendingHeroArt)
+    it = m.pendingHeroArt
+    if it = invalid
+        print "AWHERO art due but nothing pending"
+        return
+    end if
+    print "AWHERO art -> "; it.title
+    paintHeroArt(it)
 end sub
 
 sub paintHeroArt(it as Object)
     if it = invalid then return
+    ' Clear FIRST. A backdrop that fails to load leaves the previous one on
+    ' screen, so the band showed "She Killed in Ecstasy" under the title "The
+    ' Longest Day" — a picture that is merely absent is honest, one that
+    ' belongs to a different film is not.
+    m.wash.uri = ""
+    m.art.visible = false
+    m.heroFallback = ""
+    if it.HDPOSTERURL <> invalid then m.heroFallback = it.HDPOSTERURL
     if it.awBackdrop <> invalid and it.awBackdrop <> ""
         m.wash.uri = it.awBackdrop
         m.wash.opacity = 1.0
         m.art.visible = false
-    else if it.HDPOSTERURL <> invalid and it.HDPOSTERURL <> ""
-        m.wash.uri = it.HDPOSTERURL
-        m.wash.opacity = 0.5
+    else
+        ' tvOS puts a CATEGORY-ACCENT FIELD here when a film has no backdrop —
+        ' never a 2:3 poster. A poster in a 2.2:1 band can only be cropped to
+        ' ribbon or letterboxed into a box, and both look broken. Nothing to
+        ' crop means nothing cropped.
+        m.wash.uri = ""
+        m.wash.opacity = 1.0
         m.art.uri = it.HDPOSTERURL
         m.art.visible = true
     end if
@@ -327,10 +369,7 @@ sub enterRows()
 end sub
 
 sub paintHeroFocus(lit as Boolean)
-    for each r in [m.ringT, m.ringB, m.ringL, m.ringR]
-        r.visible = lit
-    end for
-    m.hint.visible = lit
+    m.hint.visible = false
     if m.dots <> invalid then m.dots.visible = (m.focusZone = "hero")
 end sub
 

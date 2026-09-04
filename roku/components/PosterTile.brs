@@ -103,9 +103,20 @@ sub onContent()
     hideRing()
     m.tileLabel.visible = true
     m.tileLabel.text = c.title
-    m.tileLabel.color = m.t.textSec
+    ' A film with no artwork gets a DESIGNED card, not a grey line on a dark
+    ' plate. The owner read the old one as "completely blank", and they were
+    ' right: secondary grey on 0x1C1C22 is barely a card at all. White type
+    ' under the category accent rule is the same language Detail uses.
+    m.tileLabel.color = m.t.textPri
     m.tileLabel.width = m.t.posterW - 36
-    m.tileLabel.translation = [18, 36]
+    m.tileLabel.translation = [18, 66]
+    kind = ""
+    if c.HasField("awType") then kind = fmt(c.awType)
+    if kind = "" then kind = "feature-film"
+    m.tileRule.translation = [18, 36]
+    m.tileRule.width = 72 : m.tileRule.height = 6
+    m.tileRule.color = AccentFor(kind)
+    m.tileRule.visible = true
     if c.HDPOSTERURL <> invalid and c.HDPOSTERURL <> "" then m.art.uri = c.HDPOSTERURL
     m.caption.text = c.title
     m.caption.visible = true
@@ -123,6 +134,7 @@ sub onArtLoaded()
     ' title reads straight across the artwork — the label is declared after the
     ' Poster in the XML, so it draws on top of it.
     m.tileLabel.visible = false
+    m.tileRule.visible = false
     positionRing()
 end sub
 

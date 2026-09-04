@@ -342,25 +342,76 @@ sub moreLike(spec as Object)
     m.top.results = root
 end sub
 
+' Normalised for matching: letters and digits only, lower case. "Adam 12
+' Season 1" -> "adam12season1"; the series "Adam-12" -> "adam12".
+function normKey(t as String) as String
+    out = ""
+    low = LCase(t)
+    for i = 1 to Len(low)
+        c = Mid(low, i, 1)
+        if (c >= "a" and c <= "z") or (c >= "0" and c <= "9") then out = out + c
+    end for
+    return out
+end function
+
 sub resolveIds(ids as Object)
     want = {}
     for each i in ids
         want[fmt(i)] = true
     end for
     found = {}
+    ' Series rows, indexed by normalised title, so a poster-less TV item can
+    ' borrow its spine's artwork. An EPISODE carries no art of its own in this
+    ' index — measured: adam-12.-s-01 and 26Men-TheRecruit both have an empty
+    ' poster field AND no backdrop in their detail shard, so the series is the
+    ' only source there is. Continue Watching drew blank cards without this.
+    seriesByKey = {}
     for each r in m.items
         aid = fmt(r[0])
         if want[aid] <> invalid then found[aid] = r
+        if fmt(r[3]) = "tv-series" and r[4] <> invalid and fmt(r[4]) <> ""
+            k = normKey(fmt(r[1]))
+            ' Short keys match too loosely — "tv", "men" would sweep up
+            ' unrelated titles.
+            if Len(k) >= 6 and seriesByKey[k] = invalid then seriesByKey[k] = r
+        end if
     end for
     root = CreateObject("roSGNode", "ContentNode")
     for each i in ids
         r = found[fmt(i)]
-        if r <> invalid then appendRow(root, r)
+        if r <> invalid
+            if (r[4] = invalid or fmt(r[4]) = "") and Left(fmt(r[3]), 2) = "tv"
+                r = withSeriesArt(r, seriesByKey)
+            end if
+            appendRow(root, r)
+        end if
     end for
     print "AWSVC resolveIds asked="; ids.Count(); " found="; root.GetChildCount()
     m.top.total = root.GetChildCount()
     m.top.results = root
 end sub
+
+' A copy of the row with the spine's poster attached. The ITEM stays the
+' episode — only the picture comes from its series, matched on the episode
+' title STARTING WITH the series title once both are normalised.
+function withSeriesArt(r as Object, seriesByKey as Object) as Object
+    k = normKey(fmt(r[1]))
+    if k = "" then return r
+    for each sk in seriesByKey
+        if Len(sk) <= Len(k)
+            if Left(k, Len(sk)) = sk
+                out = []
+                for each v in r
+                    out.Push(v)
+                end for
+                out[4] = seriesByKey[sk][4]
+                print "AWSVC borrowed series art for "; r[0]; " from "; seriesByKey[sk][0]
+                return out
+            end if
+        end if
+    end for
+    return r
+end function
 
 sub appendRow(root as Object, r as Object)
     it = root.CreateChild("ContentNode")

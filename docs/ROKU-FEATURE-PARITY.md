@@ -34,10 +34,10 @@ Legend: ✅ built + verified on the device · 🔨 built, not yet verified ·
 | Hero carousel | ✅ | pool of 12, backdrop-only |
 | Curated + dynamic shelves | ✅ | 23 rows from featured.json + index |
 | Continue Watching | ✅ | leads Home, resolved against the WHOLE index |
-| Hidden Gems (Decision 050) | ⏳ | computed column exists in the DB plane, not the web index |
+| Hidden Gems (Decision 050) | ✅ | the index publishes a `hidden-gems` shelf computed from the DB's flag (Decision 050 holds: the client never restates the rule). It had been rendering for ticks while this table said "not built" — the row was written from the code, not from the glass |
 | Top Rated | ✅ | Home shelf and Browse sort, both on the 1,000-vote floor |
 | Public Domain Day | ✅ | derived as current year minus 95, so it is right on 1 January with nobody editing a file |
-| Community Favorites / Most Discussed | ⏳ | |
+| Community Favorites / Most Discussed | ✅ | both published as shelves and both on Home; verified by name in the on-device report |
 | Director shelves | ✅ | top 3 of 538 eligible directors, ≥6 professionally-presented films each |
 | Browse by Category tiles | ✅ | typographic cards, 8 categories, route to a scoped Browse |
 | Browse by Era tiles | ✅ | 1900s–1970s; verified landing on "The 1920s · 3428 titles" |
@@ -66,10 +66,10 @@ Legend: ✅ built + verified on the device · 🔨 built, not yet verified ·
 | Episode list with still, number, blurb | ✅ | |
 | Honest episode count | ✅ | "18 of 39 episodes here" |
 | Per-episode resume bar | ✅ | read from the registry |
-| Play episode | ✅ | verified: position advancing |
+| Play episode | ✅ | verified: position advancing. An episode a spine names but the detail shards do not carry now SAYS so and, inside a queue, skips to the next — it used to do nothing at all, with the reason in a console the viewer cannot read |
 | Autoplay next episode | ✅ | honours the Options setting |
 | Favorite a series | ✅ | verified: saved from `*`, resolved 4/4, card renders in Favorites |
-| Add series to playlist | ⏳ | film-level playlists ship; a series is not an item |
+| Add series to playlist | ✅ | a playlist stores ids and a `series:` slug is an id — the store needed no change; the verb was simply never offered, and the picker read `m.detail.item.id` unconditionally so a series could not name itself as the subject |
 
 ## Channels
 
@@ -79,7 +79,7 @@ Legend: ✅ built + verified on the device · 🔨 built, not yet verified ·
 | Tune in joins live | ✅ | verified at 4795 s in |
 | Never writes resume progress | ✅ | |
 | Commercial breaks woven | ✅ | 1–2 vintage ads per break; lineup shape printed as evidence |
-| VHS look | ⏳ | |
+| VHS look | 🚫 | a fragment shader on tvOS; SceneGraph exposes no shader stage and no per-pixel filter over a `Video` node, so there is nothing to port it onto |
 | User-created channels | ✅ | two option lists (type, then era) name the channel themselves; deletable from `*` |
 
 ## Library
@@ -125,7 +125,7 @@ Legend: ✅ built + verified on the device · 🔨 built, not yet verified ·
 | Mature content toggle | 🚫 | the web index this platform reads drops adult items upstream, so the control would change nothing |
 | Sign in / sync across devices | 🚫 | Roku has no Apple or Google identity; `roRegistrySection` is device-local (32 KB) |
 | Commercial breaks toggle | ✅ | in the `*` panel, default on |
-| VHS look | ⏳ | a shader effect; Roku has no equivalent to the tvOS filter |
+| VHS look | 🚫 | a shader effect; SceneGraph has no shader stage, so this is not deferred — it is unavailable |
 | Idle screensaver | 🚫 | ROKU-DESIGN §11 — a channel may not draw one; Roku owns the screensaver |
 
 ## Player
@@ -139,7 +139,7 @@ Legend: ✅ built + verified on the device · 🔨 built, not yet verified ·
 | Title / description overlay | ✅ native | Roku's transport already draws it; ours was a duplicate and was removed |
 | Subtitles | ✅ | WebVTT accepted directly; display governed by the device's caption mode |
 | Stall recovery | ✅ | watchdog re-issues play at the last position |
-| Next / previous episode | ✅ | next via the queue; previous ⏳ |
+| Next / previous episode | ✅ | Down and Up during playback; verified on 26 Men season 1, 0→1→0. Roku's Video node owns Left/Right/Rev/Fwd for trick play and the transport keys are not delivered outside video at all, so Up/Down are the only pair free for this |
 
 
 ## Why cast is a line and not a row of faces

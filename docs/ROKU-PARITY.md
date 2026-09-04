@@ -804,6 +804,144 @@ playlists, the version picker, the channel guide, the player and Back.
 58. **The Roku font has no emoji.** `⏩` rendered as a tofu box on the glass.
     Words only.
 
+## Tick 36 — auditing the parity table against the glass
+
+59. **Three rows said "not built" and had been rendering for ticks.** Hidden
+    Gems, Community Favorites and Most Discussed are published as shelves in
+    `catalog-index.json`, and `HomeTask` renders every shelf the index
+    publishes — including ones `featured.json` does not name. The table had
+    been written from the code that *would* have to exist rather than from
+    what the app draws. A row COUNT could not settle it either, so
+    `awReport` now names every rendered row and the audit asserts the shelves
+    by name.
+
+60. **A shelf was judged on a slice of itself.** `HomeTask` took the first 20
+    ids a shelf names and THEN applied the professional-poster gate, so
+    Prelinger — 48 ids, 7 with professional posters, none in the first 20 —
+    was hidden entirely while qualifying for a full row. Resolve what the
+    shelf names, filter, then cap: rows 30 -> 31, items 370 -> 423. Same
+    shape as Decision 049, where a contiguous slice of a priority list
+    rendered a shelf nothing like the pool behind it.
+
+61. **`step` is reserved — and I wrote it again two ticks after writing it
+    down.** Lesson 44 exists precisely for this and did not prevent the
+    repeat. The compile error names only a line number, so the recognition
+    has to come from the parameter list.
+
+62. **A Task's error status reached nobody.** `DetailTask` sets
+    `status = "error"` when a spine names an episode the detail shards do not
+    carry (13 Demon Street does), and MainScene observed only `detail` — so
+    Select on that episode did NOTHING, with the reason in a console the
+    viewer cannot read. Observing `status` gives the queue a skip and the
+    viewer a sentence. Whenever a Task has both a payload field and a status
+    field, observing one of them is observing half of it.
+
+63. **Roku's Video node owns Left, Right, Rev and Fwd for trick play**, and
+    the transport keys are not delivered outside video at all (lesson 57), so
+    Up and Down are the only pair free for previous/next inside a queue.
+    Verified on 26 Men season 1 — nine episodes, so both directions have
+    somewhere to go. Adam-12's seasons hold one episode apiece and would have
+    passed the test vacuously.
+
+## Tick 36 (later) — the Home screen, rebuilt after the owner looked at it
+
+Reported: "the hero row can hardly be seen and there are line artifacts all
+over the poster. The continue watching posters aren't loading." All three were
+real, and two of them were mine.
+
+64. **A gradient made of Rectangles BANDS.** Sixteen stacked rectangles at
+    descending alpha is the obvious way to fake a gradient on a platform with
+    no gradient node, and every boundary reads as a line across the picture —
+    which is exactly what the owner saw. The answer is a real gradient PNG
+    authored at display size (`hero_scrim_h.png`, `hero_scrim_v.png`); it
+    scales without seams and is 5 KB. Never approximate a gradient with
+    geometry.
+
+65. **The scrim was doing the picture's job.** The backdrop was dimmed to 0.5
+    and then covered by a ramp holding alpha 224 across the left third, so the
+    band "could hardly be seen". The picture now runs at full brightness and
+    the gradient does the legibility work alone.
+
+66. **A failed backdrop left the PREVIOUS film's picture under the new
+    title.** The band read "The Longest Day" over the still from "She Killed
+    in Ecstasy" — because a Poster keeps its last successful image when a new
+    uri fails. Clear the uri BEFORE assigning, and observe `loadStatus` to
+    fall back to the film's own poster. A picture that is merely absent is
+    honest; one belonging to a different film is not.
+
+67. **`posterW/posterH` is the drawn tile; `posterFW/posterFH` is the CELL,
+    and the cell must stay larger.** The caption is anchored at `posterFH`, so
+    shrinking the cell below the art put every title across its own poster.
+    Two names one letter apart, with a constraint between them that nothing
+    enforced.
+
+68. **An episode carries no artwork of its own.** Measured in the published
+    index: `26Men-TheRecruit` and `adam-12.-s-01` both have an EMPTY poster
+    field, so Continue Watching drew grey title cards where every other
+    platform shows the series art. The progress row gained a fourth field
+    naming the spine (~20 bytes; older three-field rows parse unchanged), and
+    Home borrows that series' poster. The ITEM stays the episode — only the
+    picture comes from its series.
+
+69. **A hero drawn from every shelf will eventually lead with something you
+    would not choose.** The pool took any item with a backdrop, and a 1971
+    sexploitation title sat at the top of Home: technically eligible, and not
+    what "a warm introduction to the films" means. The hero now draws from
+    the CURATED shelves only — the editorial judgement this project already
+    keeps in one place.
+
+## Tick 36 (later still) — the hero, measured against tvOS instead of guessed
+
+The owner, on a screenshot I had just called "enormously better": "The poster
+is cropped terribly on the hero row. One of the posters in the continue
+watching row is completely blank. The selection rectangle is not well sized.
+You have fixed almost nothing." Every one of those was visible in the PNG I
+had looked at. **Read a screenshot adversarially — list what is wrong before
+saying anything is right.** Reporting my own work as good is how three
+defects survived a screenshot review.
+
+70. **The aspect ratio of the band IS the crop.** tvOS's hero is 940 of 1080:
+    a 16:9 still filling 1920x940 loses 13% off the top and bottom. The same
+    still filling a 1920x384 band loses **64%** — that is "cropped terribly",
+    and no amount of scaling flags fixes it. The band is 880 now (18%). Check
+    the SOURCE before blaming the frame: The Longest Day's backdrop is itself
+    a 1280x720 close-up, so the remaining tightness is the still, not us.
+
+71. **tvOS never puts a poster in the hero.** With no backdrop it draws a
+    category-accent field. A 2:3 poster in a 2.2:1 band can only be cropped to
+    a ribbon or letterboxed into a box; both look broken. Nothing to crop
+    means nothing cropped.
+
+72. **The gradient runs top-to-bottom, not left-to-right.** tvOS layers
+    clear → clear → .45 → .9 → black downward, so the picture stays a picture
+    and the copy sits on darkness at its foot. A side ramp dims the subject
+    instead of the caption area, which is why the band read as murky.
+
+73. **A 1920x880 orange rectangle is not a focus indicator, it is a border
+    around the screen.** The hero is the only focusable thing up there, and
+    the moment focus leaves it the whole band scrolls away — that movement is
+    the indicator. Ring removed.
+
+74. **Navigation must not be narrated.** "OK to open · Left / Right for more"
+    was on screen. The owner: "There are words telling you how to navigate
+    whereas it should be entirely intuitive." The page dots already say there
+    is more; OK on a focused thing is the platform's own contract.
+
+75. **This Group sits at x = railW**, so a 1920-wide band starting at -150
+    ends 66 px short of the right edge — a dark strip down the side of every
+    hero, plainly in the screenshot, missed twice. Full-bleed here means 2070.
+
+76. **`str.replace` that matches nothing is a silent no-op.** The category
+    accent line was written into `paintHero` against a version of that
+    function an earlier edit had already replaced, so it never landed and the
+    label never drew. Every scripted edit in this session now asserts its
+    match first.
+
+77. **A "placeholder" has to be a designed thing.** Secondary grey type on a
+    dark plate reads as a blank box — the owner called it "completely blank"
+    and that is a fair description. The card now carries the category accent
+    rule and white type, the same language Detail uses.
+
 ## Tick 25 — the ring rule applied everywhere it belongs
 
 The art-hugging ring shipped for `PosterTile` only. Browse and Search draw

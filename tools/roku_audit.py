@@ -328,6 +328,40 @@ def main():
     check("Back leaves the player and keeps the position", bool(bm) and bool(ret),
           (bm or "no bookmark") if not ret else bm)
 
+    # Shelf presence by NAME. A row COUNT cannot answer "is Hidden Gems on
+    # Home", which is why three rows in the parity table said "not built"
+    # while they had been rendering for ticks.
+    m = con.mark()
+    link("go%3Ahome")
+    time.sleep(3)
+    link("selftest%3Areport")
+    rep = con.wait_for(m, "AWREPORT route=home", timeout=12) or ""
+    want = ["Hidden Gems", "Community Favorites", "Most Discussed",
+            "The Prelinger Archive", "Top Rated", "Public Domain Day"]
+    missing = [w for w in want if w not in rep]
+    check("every shelf the index can fill is on Home", not missing,
+          "missing: " + ", ".join(missing) if missing else f"{len(want)} named shelves present")
+
+    # Previous and next episode inside a queue. 26 Men season 1 carries nine
+    # episodes, so both directions have somewhere to go — Adam-12's seasons
+    # hold one apiece and would have passed vacuously.
+    m = con.mark()
+    link("series%3A26-men-1957")
+    time.sleep(6)
+    key("right"); key("select")
+    con.wait_for(m, "AWPLAY state=playing", timeout=30)
+    m = con.mark()
+    key("down", settle=4.0)
+    fwd = con.wait_for(m, "AWSER queue move", timeout=10)
+    m = con.mark()
+    key("up", settle=4.0)
+    bwd = con.wait_for(m, "AWSER queue move", timeout=10)
+    ok_fwd = bool(fwd) and "->  1" in fwd
+    ok_bwd = bool(bwd) and "->  0" in bwd
+    check("next and previous episode inside a queue", ok_fwd and ok_bwd,
+          f"next={fwd or 'none'} / prev={bwd or 'none'}")
+    key("back", settle=2.0)
+
     print("\nstate")
     m = con.mark()
     link("selftest%3Astore")

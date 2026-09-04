@@ -103,6 +103,20 @@ function awReportLists(node as Object, out as Object) as Object
         id = node.id
         if id = "" then id = st
         out.Push(id + "=" + fmt(rows) + "/" + fmt(items))
+        ' A row COUNT cannot answer "is Hidden Gems on Home". Name the rows,
+        ' so a shelf claimed in the parity table is provable rather than
+        ' asserted — three rows were marked "not built" that had been
+        ' rendering all along.
+        if st = "RowList" and c <> invalid
+            names = ""
+            for i = 0 to rows - 1
+                t = fmt(c.GetChild(i).title)
+                if t <> ""
+                    if names = "" then names = t else names = names + " | " + t
+                end if
+            end for
+            if names <> "" then out.Push("ROWS[" + names + "]")
+        end if
     end if
     for i = 0 to node.GetChildCount() - 1
         awReportLists(node.GetChild(i), out)

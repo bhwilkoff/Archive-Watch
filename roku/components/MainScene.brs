@@ -106,7 +106,15 @@ sub onRailSelectedID(id as String)
     if m.route = "player" then closePlayer()
         print "AWROKU rail-select "; id
     if id = "home"
-        closeBrowse()
+        ' Home is a SURFACE like any other, and choosing it from the rail has
+        ' to clear whatever is painted over the content column. This closed
+        ' Browse only, so picking Home from a Detail screen left Detail on
+        ' screen and focused: the audit's own report came back `route=detail`
+        ' and read every Home shelf as missing.
+        hideAllSurfaces()
+        m.content.visible = true
+        if m.home <> invalid then m.home.onScreen = true
+        m.route = "home"
         focusContent()
     else if id = "movies" or id = "tv"
         openBrowse(id)
@@ -258,6 +266,14 @@ sub requestUserItems()
     ids = []
     for each e in awContinueWatching()
         ids.Push(e.id)
+        ' Resolve the SERIES too, so an episode with no poster of its own can
+        ' borrow the spine's.
+        if e.owner <> invalid and e.owner <> ""
+            ids.Push("series:" + e.owner)
+            print "AWCW owner "; e.id; " -> series:"; e.owner
+        else
+            print "AWCW no owner for "; e.id
+        end if
     end for
     for each f in awFavorites()
         ids.Push(f)
@@ -314,7 +330,18 @@ function withContinueWatching(rows as Object) as Object
     for each e in cw
         src = byId[e.id]
         if src <> invalid
-            lead.AppendChild(src.Clone(false))
+            it = src.Clone(false)
+            ' An episode carries no artwork in the web index, so Continue
+            ' Watching drew a grey title card where every other platform shows
+            ' the series poster. Borrow the spine's art — the item stays the
+            ' EPISODE, only the picture comes from its series.
+            if (it.HDPOSTERURL = invalid or it.HDPOSTERURL = "") and e.owner <> invalid and e.owner <> ""
+                sp = byId["series:" + e.owner]
+                if sp <> invalid and sp.HDPOSTERURL <> invalid and sp.HDPOSTERURL <> ""
+                    it.HDPOSTERURL = sp.HDPOSTERURL
+                end if
+            end if
+            lead.AppendChild(it)
             n = n + 1
         end if
     end for
@@ -482,6 +509,10 @@ sub openSeriesOptions()
     else
         opts.Push({ id: "ssave", label: "Save this series to Library" })
     end if
+    ' A playlist stores ids, and a series id is an id — the same `series:` slug
+    ' Library already resolves into a series card. Nothing about the store had
+    ' to change; the verb was simply never offered here.
+    opts.Push({ id: "splaylist", label: "Add this series to a playlist" })
     opts.Push({ id: "settings", label: "App settings…" })
     opts.Push({ id: "cancel", label: "Done" })
     m.moreMode = "series"
@@ -495,6 +526,11 @@ sub onSeriesOptionPicked(pick as String)
         r = awToggleFavorite(sid)
         if r = invalid then print "AWSER library full"
         requestUserItems()
+    else if pick = "splaylist"
+        m.plTargetID = sid
+        m.plFrom = "series"
+        openAddToPlaylist()
+        return
     else if pick = "settings"
         openOptions()
         return
@@ -568,6 +604,7 @@ sub playIDLineup()
     if m.dtask = invalid
         m.dtask = CreateObject("roSGNode", "DetailTask")
         m.dtask.ObserveField("detail", "onDetailLoaded")
+        m.dtask.ObserveField("status", "onDetailTaskStatus")
     end if
     m.dtask.archiveID = l.ids[l.index]
     m.dtask.control = "RUN"
@@ -688,17 +725,34 @@ sub onNamerButton()
     print "AWPL namer button="; k.buttonSelected; " text='"; k.text; "'"
     ' Button 0 is OK, 1 is Cancel on Roku's own dialog.
     if k.buttonSelected = 0
+        ' Same target rule as the picker: whoever opened it. A new playlist
+        ' created from a series used to receive the film on the Detail screen
+        ' behind it.
+        tid = m.plTargetID
+        if tid = invalid or tid = "" then tid = m.detail.item.id
         id = awCreatePlaylist(k.text)
         if id = invalid
-            m.detail.toast = "You have the maximum number of playlists. Delete one in Library first."
+            if m.plFrom = "series"
+                print "AWSER playlist limit reached"
+            else
+                m.detail.toast = "You have the maximum number of playlists. Delete one in Library first."
+            end if
         else
-            awAddToPlaylist(id, m.detail.item.id)
-            m.detail.toast = "Added to " + awSanitizeName(k.text) + "."
+            awAddToPlaylist(id, tid)
+            if m.plFrom = "series"
+                print "AWSER created playlist and added the series"
+            else
+                m.detail.toast = "Added to " + awSanitizeName(k.text) + "."
+            end if
         end if
     end if
     m.top.dialog = invalid
     m.namer = invalid
-    refocus(m.detail)
+    if m.plFrom = "series"
+        refocus(m.series)
+    else
+        refocus(m.detail)
+    end if
 end sub
 
 sub onWantLike()
@@ -766,7 +820,18 @@ sub onPlaylistPicked(pick as String)
     end if
     if Left(pick, 3) = "pl:"
         plID = Mid(pick, 4)
-        if awAddToPlaylist(plID, m.detail.item.id)
+        ' The target is whoever OPENED the picker. This used to read
+        ' m.detail.item.id unconditionally, which is why a playlist could only
+        ' ever hold films: a series had no way to name itself as the subject.
+        tid = m.plTargetID
+        if tid = invalid or tid = "" then tid = m.detail.item.id
+        ok = awAddToPlaylist(plID, tid)
+        if m.plFrom = "series"
+            if ok then print "AWSER added to playlist "; plID else print "AWSER playlist full"
+            refocus(m.series)
+            return
+        end if
+        if ok
             m.detail.toast = "Added to your playlist."
         else
             m.detail.toast = "That playlist is full."
@@ -807,6 +872,8 @@ sub onMorePicked()
     end if
     id = m.detail.item.id
     if pick = "playlist"
+        m.plTargetID = id
+        m.plFrom = "detail"
         openAddToPlaylist()
         return
     end if
@@ -1148,6 +1215,7 @@ sub onPlayEpisode()
     if m.dtask = invalid
         m.dtask = CreateObject("roSGNode", "DetailTask")
         m.dtask.ObserveField("detail", "onDetailLoaded")
+        m.dtask.ObserveField("status", "onDetailTaskStatus")
     end if
     m.dtask.archiveID = e.id
     m.dtask.control = "RUN"
@@ -1184,6 +1252,13 @@ sub playPendingEpisode(d as Object)
     ' and Party Play, and only the first of those has ever opened a series.
     if m.series <> invalid then m.series.visible = false
     m.player.archiveID = e.id
+    ' The spine this episode belongs to, so Continue Watching can borrow its
+    ' poster — an episode has none of its own in the web index.
+    if m.series <> invalid and m.series.seriesID <> invalid and Left(m.series.seriesID, 7) = "series:"
+        m.player.progressOwner = Mid(m.series.seriesID, 8)
+    else
+        m.player.progressOwner = ""
+    end if
     m.player.startAt = awGetProgress(e.id)
     t = e.title
     if t = "" and d.canonicalTitle <> invalid then t = fmt(d.canonicalTitle)
@@ -1729,9 +1804,42 @@ sub openDetail(archiveID as String)
     if m.dtask = invalid
         m.dtask = CreateObject("roSGNode", "DetailTask")
         m.dtask.ObserveField("detail", "onDetailLoaded")
+        m.dtask.ObserveField("status", "onDetailTaskStatus")
     end if
     m.dtask.archiveID = archiveID
     m.dtask.control = "RUN"
+end sub
+
+' The shard lookup can fail — a spine can name an episode the detail shards
+' do not carry (13 Demon Street does). Nothing observed `status`, so the
+' viewer pressed Select on an episode and NOTHING happened, with the reason
+' sitting in a console they cannot read.
+sub onDetailTaskStatus()
+    if m.dtask.status <> "error" then return
+    print "AWROKU detail task error for "; m.dtask.archiveID
+    e = m.pendingEpisode
+    m.pendingEpisode = invalid
+    q = m.episodeQueue
+    if e <> invalid and q <> invalid and q.queue <> invalid
+        ' Inside a queue a dead item skips rather than ending the run — the
+        ' rule the channel queue already follows.
+        nxt = e.index + 1
+        if nxt < q.queue.Count()
+            print "AWSER skipping unresolvable episode, advancing to "; nxt
+            m.pendingEpisode = { id: q.queue[nxt], title: q.queueTitles[nxt],
+                                 meta: q.meta, queue: q.queue,
+                                 queueTitles: q.queueTitles, index: nxt }
+            m.dtask.archiveID = q.queue[nxt]
+            m.dtask.control = "RUN"
+            return
+        end if
+    end if
+    if m.route = "series" and m.series <> invalid
+        m.series.callFunc("showNotice", "This episode is not in the catalog yet — archive.org has it under an id the index does not carry.")
+        refocus(m.series)
+    else if m.detail <> invalid and m.route = "detail"
+        m.detail.toast = "This title could not be loaded. Try another copy from More."
+    end if
 end sub
 
 sub onDetailLoaded()
@@ -1865,6 +1973,7 @@ sub onPlay()
     m.player.visible = true
     m.detail.visible = false
     m.player.archiveID = m.detail.item.id
+    m.player.progressOwner = ""
     m.player.startAt = m.detail.playFrom
     m.player.playTitle = m.detail.item.title
     m.player.playMeta = m.detail.item.SHORTDESCRIPTIONLINE1
@@ -2071,6 +2180,33 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
     if key = "options" and m.route <> "player"
         openOptions()
         return true
+    end if
+    ' Previous / next inside a queue, during playback. Roku's Video node owns
+    ' Left, Right, Rev and Fwd for trick play, and the transport keys are not
+    ' delivered outside video at all — Up and Down are the only pair free for
+    ' this, and several Roku channels use them the same way. tvOS puts prev and
+    ' next on screen; here they are keys, and the player says so once.
+    if m.route = "player" and (key = "up" or key = "down")
+        q = m.episodeQueue
+        if q <> invalid and q.queue <> invalid
+            ' `step` is reserved (ROKU-PARITY lesson 44) — written down two
+            ' ticks ago and repeated here anyway.
+            delta = 1
+            if key = "up" then delta = -1
+            nxt = q.index + delta
+            if nxt >= 0 and nxt < q.queue.Count()
+                print "AWSER queue move "; q.index; " -> "; nxt
+                m.pendingEpisode = { id: q.queue[nxt], title: q.queueTitles[nxt],
+                                     meta: q.meta, queue: q.queue,
+                                     queueTitles: q.queueTitles, index: nxt }
+                m.dtask.archiveID = q.queue[nxt]
+                m.dtask.control = "RUN"
+                return true
+            end if
+            print "AWSER queue move refused at edge "; q.index
+            return true
+        end if
+        return false
     end if
     if key = "back"
         if m.route = "player"

@@ -22,11 +22,15 @@
       <Poster id="heroWash" />
       <Rectangle id="heroScrim" />
       <Poster id="heroArt" />
-      <!-- Roku has no gradient node, so the wash into the copy is a RAMP of
-           narrow rectangles. Three steps left visible vertical seams on the
-           glass; the ramp is built in code from one list. -->
-      <Group id="heroFade" />
-      <Group id="heroFloor" />
+      <!-- Roku has no gradient node. Sixteen stacked Rectangles was the
+           workaround and it BANDED: the owner saw "line artifacts all over
+           the poster". These are real gradient PNGs, authored at display
+           size, and they scale without seams. -->
+      <Poster id="heroFade" />
+      <Poster id="heroFloor" />
+      <!-- tvOS leads the hero copy with a category label in the category
+           accent. -->
+      <Label id="heroKind" />
       <Label id="heroTitle" />
       <Label id="heroMeta" />
       <!-- The focus ring for the hero itself: a hero the viewer can act on has

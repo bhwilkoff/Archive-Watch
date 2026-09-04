@@ -65,10 +65,22 @@ sub init()
     m.episodes.ObserveField("itemSelected", "onEpisodeSelected")
 
     m.empty.font = m.t.uBody : m.empty.color = m.t.textSec
-    m.empty.translation = [150, 420] : m.empty.width = 1200 : m.empty.wrap = true
+    ' Below the episode list, clear of it, so a notice never covers the rows
+    ' the viewer is choosing from.
+    m.empty.translation = [342, 942] : m.empty.width = 1200 : m.empty.wrap = true
+    m.empty.maxLines = 2 : m.empty.color = m.t.marquee
 
     m.col = 0
     m.series = invalid
+end sub
+
+' An episode that cannot be resolved must SAY so. Pressing Select and having
+' nothing happen is the single most expensive failure on this platform, and it
+' is what a missing detail shard produced: the task set status="error" and the
+' scene observed only `detail`, so the error reached nobody.
+sub showNotice(msg as String)
+    m.empty.visible = (msg <> "")
+    m.empty.text = msg
 end sub
 
 sub showSeries(d as Object)

@@ -177,7 +177,7 @@ sub onWatchdog()
     if m.top.archiveID <> "" and posn > 0
         d = Int(m.video.duration)
         if d > 0
-            awSetProgress(m.top.archiveID, Int(posn), d)
+            awSetProgress(m.top.archiveID, Int(posn), d, m.top.progressOwner)
             ' Printed so an external audit can SEE the bookmark being written.
             ' The registry cannot be read over ECP, so the console is the only
             ' account of it that does not come from the app asking itself.
@@ -206,7 +206,7 @@ sub stopPlayback()
     if m.top.archiveID <> "" and m.video.position > 0
         d = Int(m.video.duration)
         if d > 0
-            awSetProgress(m.top.archiveID, Int(m.video.position), d)
+            awSetProgress(m.top.archiveID, Int(m.video.position), d, m.top.progressOwner)
             print "AWPLAY bookmark-final "; m.top.archiveID; " "; Int(m.video.position); "/"; d
         end if
     end if

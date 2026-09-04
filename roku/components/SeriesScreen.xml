@@ -10,6 +10,7 @@
     <field id="seriesID" type="string" />
     <function name="showSeries" />
     <function name="refreshProgress" />
+    <function name="showNotice" />
   </interface>
   <script type="text/brightscript" uri="pkg:/components/Theme.brs" />
   <script type="text/brightscript" uri="pkg:/components/UserStore.brs" />

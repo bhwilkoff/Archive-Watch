@@ -43,10 +43,18 @@ function Theme() as Object
         colW:     1728
 
         ' §4.6 — resting and focused sizes are STATED, never a scale factor.
-        posterW:  264
-        posterH:  396
-        posterFW: 288
-        posterFH: 432
+        ' The DRAWN tile. posterFW/FH below is the CELL, and the cell must stay
+        ' LARGER than the drawn tile — the caption is anchored at posterFH,
+        ' so a cell smaller than the art puts the title across the poster.
+        posterW:  224
+        posterH:  336
+        ' Two rows of shelf must be reachable under the hero — at 288x432 one
+        ' row filled the screen and Home read as a single shelf under a
+        ' banner, which is not "a warm introduction to the films". 224x336 is
+        ' the size Roku's own rows use for 2:3 art and it still reads at ten
+        ' feet.
+        posterFW: 248
+        posterFH: 360
         gutter:   24
         ' The rail is COLLAPSED by default and content is laid out against this
         ' width. It expands OVER the content when focused, so nothing moves —

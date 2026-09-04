@@ -92,7 +92,11 @@ function awProgressRows() as Object
     for each line in awSplit(awReadKey("prog"), Chr(10))
         parts = awSplit(line, "|")
         if parts.Count() >= 3
-            rows.Push({ id: parts[0], posn: Int(Val(parts[1])), dur: Int(Val(parts[2])) })
+            ' A fourth field, added later, names the SERIES an episode belongs
+            ' to. Older rows have three fields and parse exactly as before.
+            own = ""
+            if parts.Count() >= 4 then own = parts[3]
+            rows.Push({ id: parts[0], posn: Int(Val(parts[1])), dur: Int(Val(parts[2])), owner: own })
         end if
     end for
     return rows
@@ -113,15 +117,27 @@ function awGetDuration(id as String) as Integer
 end function
 
 ' Newest first, so the oldest row is the one evicted when the budget runs out.
-sub awSetProgress(id as String, posn as Integer, dur as Integer)
+sub awSetProgress(id as String, posn as Integer, dur as Integer, owner = "" as String)
     rows = awProgressRows()
-    out = [{ id: id, posn: posn, dur: dur }]
+    ' An episode carries no poster of its own in the web index — measured:
+    ' 26Men-TheRecruit and adam-12.-s-01 both have an EMPTY poster field, so
+    ' Continue Watching drew two grey title cards where every other platform
+    ' shows the series art. The series slug is remembered here, at ~20 bytes
+    ' a row, and Home borrows that series' poster. Written once at the start
+    ' of playback; the 5-second bookmark ticks must not erase it.
+    own = owner
+    if own = ""
+        for each r in rows
+            if r.id = id and r.owner <> "" then own = r.owner
+        end for
+    end if
+    out = [{ id: id, posn: posn, dur: dur, owner: own }]
     for each r in rows
         if r.id <> id and out.Count() < awMaxProgress() then out.Push(r)
     end for
     lines = []
     for each r in out
-        lines.Push(r.id + "|" + fmt(r.posn) + "|" + fmt(r.dur))
+        lines.Push(r.id + "|" + fmt(r.posn) + "|" + fmt(r.dur) + "|" + r.owner)
     end for
     awWriteKey("prog", awJoin(lines, Chr(10)))
 end sub

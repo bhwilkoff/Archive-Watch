@@ -11,6 +11,9 @@
     <field id="playUrl" type="string" onChange="onUrl" />
     <field id="playTitle" type="string" />
     <field id="playMeta" type="string" />
+    <!-- The series an episode belongs to, so Continue Watching can borrow the
+         spine's poster: an episode carries none of its own. -->
+    <field id="progressOwner" type="string" />
     <field id="archiveID" type="string" />
     <field id="startAt" type="integer" value="0" />
     <field id="captionUrl" type="string" />
