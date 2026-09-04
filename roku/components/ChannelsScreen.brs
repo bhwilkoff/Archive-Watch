@@ -136,11 +136,22 @@ end sub
 sub tuneIn(idx as Integer)
     if m.slots.Count() = 0 then return
     nowS = nowLocalSeconds()
-    for each s in m.slots
+    for i = 0 to m.slots.Count() - 1
+        s = m.slots[i]
         if s.startS <= nowS and nowS < s.endS
+            ' The programmes that FOLLOW travel with the tune-in, so the
+            ' channel keeps playing when this one ends instead of dumping the
+            ' viewer back to the guide. A channel that stops after one
+            ' programme is a playlist with a clock painted on it.
+            queue = []
+            for j = i + 1 to m.slots.Count() - 1
+                queue.Push({ url: fmt(m.slots[j].prog[3]), title: fmt(m.slots[j].prog[1]) })
+                if queue.Count() >= 12 then exit for
+            end for
             m.top.tune = { url: fmt(s.prog[3]), title: fmt(s.prog[1]),
                            meta: fmt(m.channels[idx].title) + "  ·  live",
-                           startAt: nowS - s.startS }
+                           channel: fmt(m.channels[idx].title),
+                           startAt: nowS - s.startS, queue: queue }
             return
         end if
     end for

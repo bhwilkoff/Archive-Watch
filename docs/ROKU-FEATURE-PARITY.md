@@ -67,7 +67,7 @@ Legend: ✅ built + verified on the device · 🔨 built, not yet verified ·
 | Per-episode resume bar | ✅ | read from the registry |
 | Play episode | ✅ | verified: position advancing |
 | Autoplay next episode | ✅ | honours the Options setting |
-| Favorite a series | 🔨 | `*` on the series screen; not yet driven on the glass |
+| Favorite a series | ✅ | verified: saved from `*`, resolved 4/4, card renders in Favorites |
 | Add series to playlist | ⏳ | film-level playlists ship; a series is not an item |
 
 ## Channels
@@ -77,7 +77,7 @@ Legend: ✅ built + verified on the device · 🔨 built, not yet verified ·
 | Guide with real listings | ✅ | schedule proven identical to the other platforms |
 | Tune in joins live | ✅ | verified at 4795 s in |
 | Never writes resume progress | ✅ | |
-| Commercial breaks woven | ⏳ | pool ships 60 commercials; not yet scheduled between programmes |
+| Commercial breaks woven | ✅ | 1–2 vintage ads per break; lineup shape printed as evidence |
 | VHS look | ⏳ | |
 | User-created channels | ⏳ | |
 
@@ -122,7 +122,8 @@ Legend: ✅ built + verified on the device · 🔨 built, not yet verified ·
 | Clear Continue Watching | ✅ | |
 | Mature content toggle | 🚫 | the web index this platform reads drops adult items upstream, so the control would change nothing |
 | Sign in / sync across devices | 🚫 | Roku has no Apple or Google identity; `roRegistrySection` is device-local (32 KB) |
-| Commercial breaks / VHS look toggles | ⏳ | blocked on the features themselves |
+| Commercial breaks toggle | ✅ | in the `*` panel, default on |
+| VHS look | ⏳ | a shader effect; Roku has no equivalent to the tvOS filter |
 | Idle screensaver | 🚫 | ROKU-DESIGN §11 — a channel may not draw one; Roku owns the screensaver |
 
 ## Player

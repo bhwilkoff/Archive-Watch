@@ -43,6 +43,7 @@ sub init()
     m.defs = [
         { id: "hidewatched", label: "Hide watched titles" },
         { id: "autoplay", label: "Autoplay next episode" },
+        { id: "breaks",   label: "Commercial breaks on Channels" },
         { id: "clearcw",  label: "Clear Continue Watching" },
         { id: "close",    label: "Done" }
     ]
@@ -74,6 +75,12 @@ sub paint()
             else
                 t = t + "   Off"
             end if
+        else if d.id = "breaks"
+            if awGetSetting("breaks", true)
+                t = t + "   On"
+            else
+                t = t + "   Off"
+            end if
         else if d.id = "autoplay"
             if awGetSetting("autoplay", true)
                 t = t + "   On"
@@ -99,6 +106,8 @@ sub onRow()
     else
         if d.id = "hidewatched"
             awSetSetting("hidewatched", not awGetSetting("hidewatched", false))
+        else if d.id = "breaks"
+            awSetSetting("breaks", not awGetSetting("breaks", true))
         else
             awSetSetting("autoplay", not awGetSetting("autoplay", true))
         end if

@@ -48,6 +48,7 @@ sub init()
     m.pendingRandom = false
     m.pendingMarathon = false
     m.lineup = invalid
+    m.chQueue = invalid
     m.pendingUserItems = false
     m.userItems = invalid
     m.pendingLike = ""
@@ -923,6 +924,7 @@ sub onRandomPicked()
     m.pendingRandom = false
     m.pendingMarathon = false
     m.lineup = invalid
+    m.chQueue = invalid
     m.pendingUserItems = false
     m.userItems = invalid
     m.pendingLike = ""
@@ -998,7 +1000,12 @@ sub playPendingEpisode(d as Object)
     if d = invalid or d.url = invalid or d.url = ""
         print "AWSER queued item has no playable url: "; e.id
         ' A dead item must not end the whole queue — skip to the next.
-        if m.idLineup <> invalid
+        if m.chQueue <> invalid
+        m.chQueue.index = m.chQueue.index + 1
+        playChannelItem()
+        return
+    end if
+    if m.idLineup <> invalid
             m.idLineup.index = m.idLineup.index + 1
             playIDLineup()
             return
@@ -1029,6 +1036,65 @@ sub playPendingEpisode(d as Object)
     if e.fromLibrary = true then m.cameFrom = "library" else m.cameFrom = "series"
     m.route = "player"
     print "AWFOCUS player (queued "; e.id; ")"
+end sub
+
+' Weaves the pool's vintage commercials between programmes. One or two per
+' break, never more: this is a period detail, not a revenue model, and a
+' viewer who wanted three minutes of adverts would not be here.
+function weaveBreaks(t as Object) as Object
+    items = [{ url: t.url, title: t.title, meta: t.meta, startAt: t.startAt, isAd: false }]
+    if t.queue = invalid then return items
+    ads = []
+    if m.chtask <> invalid and m.chtask.channels <> invalid and m.chtask.channels.ads <> invalid
+        ads = m.chtask.channels.ads
+    end if
+    wantAds = awGetSetting("breaks", true)
+    for each q in t.queue
+        if wantAds and ads.Count() > 0
+            n = 1
+            if Rnd(2) = 2 then n = 2
+            for k = 1 to n
+                a = ads[Rnd(ads.Count()) - 1]
+                if a[3] <> invalid and a[3] <> ""
+                    items.Push({ url: fmt(a[3]), title: fmt(a[1]),
+                                 meta: t.channel + "  ·  break", startAt: 0, isAd: true })
+                end if
+            end for
+        end if
+        items.Push({ url: q.url, title: q.title, meta: t.channel + "  ·  live", startAt: 0, isAd: false })
+    end for
+    return items
+end function
+
+sub playChannelItem()
+    q = m.chQueue
+    if q = invalid or q.index >= q.items.Count()
+        m.chQueue = invalid
+        closePlayer()
+        return
+    end if
+    it = q.items[q.index]
+    if m.player = invalid
+        m.player = m.overlay.CreateChild("PlayerScreen")
+        m.player.translation = [0, 0]
+        m.player.ObserveField("ended", "onPlaybackEnded")
+        m.player.ObserveField("failed", "onPlaybackFailed")
+    end if
+    hideAllSurfaces()
+    m.player.visible = true
+    ' A channel NEVER writes resume progress — not the programme and certainly
+    ' not the advert.
+    m.player.archiveID = ""
+    m.player.startAt = it.startAt
+    m.player.playTitle = it.title
+    m.player.playMeta = it.meta
+    m.player.captionUrl = ""
+    setChromeVisible(false)
+    m.player.playUrl = it.url
+    m.player.setFocus(true)
+    m.cameFrom = "channels"
+    m.route = "player"
+    print "AWCH play "; q.index + 1; "/"; q.items.Count(); " ad="; it.isAd; " "; it.title
 end sub
 
 sub openChannels()
@@ -1085,25 +1151,24 @@ end sub
 sub onTune()
     t = m.channels.tune
     if t = invalid or t.url = invalid or t.url = "" then return
-    if m.player = invalid
-        m.player = m.overlay.CreateChild("PlayerScreen")
-        m.player.translation = [0, 0]
-        m.player.ObserveField("ended", "onPlaybackEnded")
-        m.player.ObserveField("failed", "onPlaybackFailed")
-    end if
-    m.player.visible = true
-    m.channels.visible = false
-    m.player.archiveID = ""
-    m.player.startAt = t.startAt
-    m.player.playTitle = t.title
-    m.player.playMeta = t.meta
-    m.player.captionUrl = ""
-    setChromeVisible(false)
-    m.player.playUrl = t.url
-    m.player.setFocus(true)
-    m.cameFrom = "channels"
-    m.route = "player"
-    print "AWFOCUS player (channel, join at "; t.startAt; "s)"
+    ' The channel becomes a queue: this programme, then a commercial break, then
+    ' the next programme, and so on. The ads have shipped in channel-pools.json
+    ' since the guide was built and nothing had ever played one.
+    m.chQueue = { items: weaveBreaks(t), index: 0, channel: t.channel }
+    ' Print the shape of the woven lineup. Waiting for a 43-minute programme to
+    ' end is not a test; the composition is what can actually be checked.
+    shape = ""
+    nAds = 0
+    for i = 0 to m.chQueue.items.Count() - 1
+        if m.chQueue.items[i].isAd
+            shape = shape + "a"
+            nAds = nAds + 1
+        else
+            shape = shape + "P"
+        end if
+    end for
+    print "AWCH lineup "; m.chQueue.items.Count(); " items, "; nAds; " ads: "; shape
+    playChannelItem()
 end sub
 
 sub openCollections()
@@ -1522,6 +1587,11 @@ sub onPlaybackEnded()
         playLineup()
         return
     end if
+    if m.chQueue <> invalid
+        m.chQueue.index = m.chQueue.index + 1
+        playChannelItem()
+        return
+    end if
     if m.idLineup <> invalid
         m.idLineup.index = m.idLineup.index + 1
         playIDLineup()
@@ -1548,6 +1618,7 @@ sub closePlayer()
     m.episodeQueue = invalid
     m.lineup = invalid
     m.idLineup = invalid
+    m.chQueue = invalid
     m.player.callFunc("stopPlayback")
     m.player.visible = false
     setChromeVisible(true)
