@@ -57,7 +57,7 @@ sub showRows(payload as Object)
     m.rows.visible = (n > 0)
     m.empty.visible = (n = 0)
     if n = 0
-        m.empty.text = "Nothing saved yet. Press Save on any film, add one to a playlist from More, or just start watching — where you stopped shows up here."
+        m.empty.text = "Nothing here yet. Films you save, playlists you make, and anything you start watching will gather here."
     end if
     m.budget.text = payload.budget
 end sub

@@ -1023,3 +1023,23 @@ three art cases, Series, Surprise, Collections, Library, Options, Channels,
 the rail expanded and collapsed. Still to do with the same adversarial pass:
 Search results (unloaded plates), the player HUD, the ON NOW chip corners,
 Library's full/empty states, Cartoon Mode.
+
+87. **A shared helper that assumes the art sits at the group's origin is
+    right for tiles and wrong everywhere else.** `AWFramePlace` placed corners
+    at the frame group's [0,0] offset by the ART's aspect but not the art's
+    TRANSLATION — so tile art (at [0,0]) rounded, while the Detail poster
+    (at [42,318]), the rail pill ([12,0]) and the ON NOW chip ([840,18]) drew
+    their corners at the parent's top-left, invisible on the canvas, and
+    stayed square through two "verified" passes. The screenshot showed a
+    square poster and I read it as rounded because the tiles beside it were.
+    Offsetting by `art.translation` fixed all four at once.
+
+88. **A sub-surface reached by an ACTION (a Surprise door) inherits the rail
+    state of whatever came before it.** Cartoon Mode marked Channels. Every
+    surface entry syncs the rail, including the ones no rail item opens.
+
+89. **`tools/roku_design_lint.py` mechanises §13.11.** System fonts by name,
+    instruction sentences, raw slugs, orange focused labels, the old ring
+    bitmap, flat-plate buttons — each a shape that came back at least once
+    after being fixed. It reads source; the adversarial screenshot pass still
+    owns "does it look designed".

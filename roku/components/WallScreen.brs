@@ -38,7 +38,8 @@ sub init()
     ' Says only what it does. The first version promised "Press OK for the
     ' film on the wall" with no cursor behind it — the dead-control class this
     ' build keeps re-learning, and I nearly shipped another one.
-    m.hint.text = "Press Back to leave the wall."
+    ' Back is the platform's own contract; a line saying so is narration.
+    m.hint.text = ""
 
     m.swap.ObserveField("fire", "onSwap")
     m.pool = invalid

@@ -124,7 +124,7 @@ sub paintChannel(idx as Integer)
         m.chTitle.text = c.title
         m.tagline.text = "Your channel"
         m.accent.color = m.t.marquee
-        m.onNow.text = "Press OK to start. Plays " + describeFacets(c.userType, c.userDecade) + ", shuffled."
+        m.onNow.text = "Plays " + describeFacets(c.userType, c.userDecade) + ", shuffled."
         m.episodes = invalid
         m.guide.content = CreateObject("roSGNode", "ContentNode")
         m.slots = []

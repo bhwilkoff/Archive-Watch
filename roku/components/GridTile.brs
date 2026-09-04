@@ -9,7 +9,8 @@ sub init()
     m.caption.font = m.t.uMeta
     m.caption.color = m.t.textPri
     m.caption.width = 210
-    m.caption.maxLines = 2
+    m.caption.maxLines = 1
+    m.caption.ellipsizeOnBoundary = true
     m.caption.wrap = true
     m.art.ObserveField("loadStatus", "onArtLoaded")
     setSize(192, 288)

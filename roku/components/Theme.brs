@@ -310,6 +310,15 @@ sub AWFramePlace(f as Object, art as Object, lit as Boolean)
         dw = Int(bw * sc) : dh = Int(bh * sc)
     end if
     x = Int((w - dw) / 2) : y = Int((h - dh) / 2)
+    ' The frame group sits at the PARENT's origin; the art may not. A tile's
+    ' art is at [0,0], but the Detail poster is at [42,318], the rail pill at
+    ' [12,0] and the ON NOW chip at [840,18] — their corners were landing at
+    ' the parent's top-left, invisible on the canvas, and the art stayed
+    ' square. Offset by the art's own translation.
+    t = art.translation
+    if t <> invalid and t.Count() = 2
+        x = x + Int(t[0]) : y = y + Int(t[1])
+    end if
     ready = true
     if art.HasField("loadStatus") then ready = (art.loadStatus = "ready")
     ' Corners: on the art's own rectangle, only once there IS art.

@@ -1452,6 +1452,9 @@ sub closeWall()
 end sub
 
 sub openCartoonMode()
+    ' A Surprise door, so the rail says Surprise — it was left marking
+    ' whatever surface came before (Channels, on the glass).
+    if m.rail <> invalid then m.rail.syncID = "surprise"
     openShelfSurface()
     m.collections.callFunc("setHeading", { title: "Cartoons",
         empty: "No cartoon characters have enough films for a shelf yet." })
@@ -1624,7 +1627,7 @@ sub onQueryResults()
         if m.svc.total = 0
             m.channels.callFunc("sayNoMatch", "Nothing in the catalog matches that combination. Delete this channel with * and try a wider one.")
         else
-            m.channels.callFunc("sayNoMatch", "Channel created — " + fmt(m.svc.total) + " films match. Press OK to start.")
+            m.channels.callFunc("sayNoMatch", "Channel created — " + fmt(m.svc.total) + " films match.")
         end if
         return
     end if
@@ -1886,6 +1889,10 @@ sub onDeepLink()
     ' with counted key presses, and a miscount looks exactly like a bug —
     ' twice it sent me hunting defects that were only my own choreography.
     ' A viewer never sees this; a harness needs it.
+    if id = "go:cartoonmode"
+        openCartoonMode()
+        return
+    end if
     if Left(id, 3) = "go:"
         onRailSelectedID(Mid(id, 4))
         return

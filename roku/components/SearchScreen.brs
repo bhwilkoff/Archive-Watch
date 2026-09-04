@@ -43,8 +43,9 @@ sub init()
         b.text = d.label
         b.textColor = m.t.textPri
         b.focusedTextColor = m.t.marquee
-        b.focusBitmapUri = "pkg:/images/ring_focus.9.png"
-        b.focusFootprintBitmapUri = "pkg:/images/ring_footprint.9.png"
+        b.focusBitmapUri = "pkg:/images/pill_focus.9.png"
+        b.focusFootprintBitmapUri = "pkg:/images/pill_rest.9.png"
+        b.focusedTextColor = m.t.canvas
         b.iconUri = ""
         b.focusedIconUri = ""
         b.ObserveField("buttonSelected", "onDoorSelected")
@@ -65,31 +66,37 @@ sub init()
     ]
     m.chipIndex = [0, 0]
     m.chips = []
+    m.restPills = []
     cx = 0
     for i = 0 to m.chipDefs.Count() - 1
+        ' §13.5 — the same pill chips as Browse: a resting pill we draw (a
+        ' Button paints only its focus bitmap), a solid light pill on focus.
+        rest = AWPillBuild(m.chipGroup)
+        AWPillLayout(rest, cx, 0, 300)
+        m.restPills.Push(rest)
         b = m.chipGroup.CreateChild("Button")
         b.translation = [cx, 0]
-        b.minWidth = 396
+        b.minWidth = 300
         b.height = 60
         b.iconUri = "" : b.focusedIconUri = ""
         b.textColor = m.t.textPri
-        b.focusedTextColor = m.t.marquee
-        b.focusBitmapUri = "pkg:/images/ring_focus.9.png"
-        b.focusFootprintBitmapUri = "pkg:/images/ring_footprint.9.png"
+        b.focusedTextColor = m.t.canvas
+        b.focusBitmapUri = "pkg:/images/pill_focus.9.png"
+        b.focusFootprintBitmapUri = "pkg:/images/pill_rest.9.png"
         b.ObserveField("buttonSelected", "onChipPressed")
         m.chips.Push(b)
-        cx = cx + 426
+        cx = cx + 336
     end for
     m.chipGroup.visible = false
     m.chipFocus = 0
 
-    m.grid.translation = [660, 372]
+    m.grid.translation = [660, 360]
     m.grid.itemComponentName = "GridTile"
     m.grid.numColumns = 4
     m.grid.numRows = 2
     m.grid.numRows = 2
-    m.grid.itemSize = [210, 393]
-    m.grid.itemSpacing = [24, 24]
+    m.grid.itemSize = [210, 351]
+    m.grid.itemSpacing = [24, 12]
     ' The TILE rings its own art (ROKU-DESIGN §5.4a). An explicitly transparent
     ' 9-patch is required: with no bitmap the list draws its own grey box.
     m.grid.focusBitmapUri = "pkg:/images/focus_none.9.png"
@@ -190,7 +197,12 @@ end function
 sub paintChips()
     for i = 0 to m.chips.Count() - 1
         d = m.chipDefs[i]
-        m.chips[i].text = d.label + ":  " + d.values[m.chipIndex[i]]
+        v = d.values[m.chipIndex[i]]
+        if v = "All"
+            if d.id = "type" then v = "All films"
+            if d.id = "decade" then v = "Any decade"
+        end if
+        m.chips[i].text = v
     end for
 end sub
 
