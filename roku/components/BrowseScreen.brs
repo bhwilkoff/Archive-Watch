@@ -34,7 +34,7 @@ sub init()
     ' of this screen came out completely inert while looking correct in a
     ' screenshot.
     m.chipDefs = [
-        { id: "type",   label: "Type",   values: ["All", "Feature Film", "Classic TV", "Silent Era", "Animation", "Short Film", "Newsreel", "Documentary"] },
+        { id: "type",   label: "Type",   values: ["All", "Feature Film", "Classic TV", "TV Specials", "Silent Era", "Animation", "Short Film", "Newsreel", "Documentary"] },
         { id: "decade", label: "Decade", values: ["All", "1900s", "1910s", "1920s", "1930s", "1940s", "1950s", "1960s", "1970s"] },
         { id: "genre",  label: "Genre",  values: ["All", "Drama", "Comedy", "Animation", "Crime", "Romance", "Action", "Western", "Documentary", "Thriller", "Horror", "Mystery", "Adventure", "War", "Family", "Fantasy"] },
         { id: "sort",   label: "Sort",   values: ["Popular", "Newest", "Oldest", "A-Z", "Top Rated", "Shuffle"] }
@@ -129,6 +129,10 @@ function typeValueToId(v as String) as String
     if v = "All" then return ""
     if v = "Feature Film" then return "feature-film"
     if v = "Classic TV" then return "tv-series"
+    ' A one-off broadcast, a complete-series upload, a variety special: real
+    ' television that is not a spine. It has its own scope so neither kind
+    ' crowds the other out.
+    if v = "TV Specials" then return "tv-special"
     if v = "Silent Era" then return "silent-film"
     if v = "Animation" then return "animation"
     if v = "Short Film" then return "short-film"

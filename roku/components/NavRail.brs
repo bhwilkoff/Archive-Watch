@@ -95,7 +95,9 @@ sub paint()
             r.label.color = m.t.textSec
             r.mark.blendColor = "0x8A8F98FF"
         end if
-        if isSel then r.mark.blendColor = m.t.marquee
+        ' Selected but NOT focused: the pill is a dim wash, so the glyph is the
+        ' thing carrying the state and stays marquee.
+        if isSel and not expanded then r.mark.blendColor = m.t.marquee
     end for
 end sub
 

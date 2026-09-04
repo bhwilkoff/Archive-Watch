@@ -133,6 +133,69 @@ sub onSeasonFocused()
     paintSeason(m.seasons.itemFocused)
 end sub
 
+' An unanchored episode usually carries the SERIES title verbatim, so a
+' season reads as the same line repeated and the viewer cannot tell one
+' episode from another. The archive id is the only thing that distinguishes
+' them, and it is usually the episode name: 13_demon_street_fever_1959 ->
+' "Fever". Falls back to the original title when nothing is left over.
+function episodeTitle(e as Object) as String
+    t = StripHTML(fmt(e.title))
+    aid = fmt(e.archiveID)
+    if aid = "" then return t
+    ' Only intervene when the title tells the viewer nothing.
+    seriesT = ""
+    if m.series <> invalid then seriesT = LCase(StripHTML(fmt(m.series.title)))
+    if LCase(t) <> seriesT then return t
+
+    words = []
+    cur = ""
+    for i = 1 to Len(aid)
+        c = Mid(aid, i, 1)
+        if c = "_" or c = "-" or c = "."
+            if cur <> "" then words.Push(cur)
+            cur = ""
+        else
+            cur = cur + c
+        end if
+    end for
+    if cur <> "" then words.Push(cur)
+
+    ' Drop the leading tokens the series title already accounts for, and a
+    ' trailing year.
+    seriesWords = {}
+    cw = ""
+    for i = 1 to Len(seriesT)
+        c = Mid(seriesT, i, 1)
+        if c = " " or c = "-" or c = ":"
+            if cw <> "" then seriesWords[cw] = true
+            cw = ""
+        else
+            cw = cw + c
+        end if
+    end for
+    if cw <> "" then seriesWords[cw] = true
+
+    kept = []
+    for each w in words
+        lw = LCase(w)
+        if kept.Count() = 0 and seriesWords[lw] = true then continue for
+        kept.Push(w)
+    end for
+    if kept.Count() > 1
+        last = kept[kept.Count() - 1]
+        if Len(last) = 4 and Val(last) > 1870 and Val(last) < 2100 then kept.Pop()
+    end if
+    if kept.Count() = 0 then return t
+
+    outStr = ""
+    for each w in kept
+        head = UCase(Left(w, 1))
+        tail = Mid(w, 2)
+        if outStr = "" then outStr = head + tail else outStr = outStr + " " + head + tail
+    end for
+    return outStr
+end function
+
 sub paintSeason(idx as Integer)
     if m.series = invalid or idx < 0 or idx >= m.series.seasons.Count() then return
     s = m.series.seasons[idx]
@@ -141,8 +204,16 @@ sub paintSeason(idx as Integer)
         for each e in s.episodes
             n = root.CreateChild("ContentNode")
             n.id = fmt(e.archiveID)
-            n.title = StripHTML(fmt(e.title))
-            n.SHORTDESCRIPTIONLINE1 = "S" + fmt(e.seasonNumber) + " · E" + fmt(e.episodeNumber)
+            n.title = episodeTitle(e)
+            ' A spine whose episodes were never anchored carries no season or
+            ' episode number, and printing "S · E" with the numbers missing is
+            ' noise pretending to be information. Say nothing instead — the
+            ' honest answer, and the one the rest of this app already gives.
+            if e.seasonNumber <> invalid and e.episodeNumber <> invalid
+                n.SHORTDESCRIPTIONLINE1 = "S" + fmt(e.seasonNumber) + " · E" + fmt(e.episodeNumber)
+            else
+                n.SHORTDESCRIPTIONLINE1 = ""
+            end if
             if e.overview <> invalid then n.SHORTDESCRIPTIONLINE2 = StripHTML(fmt(e.overview))
             if e.stillURL <> invalid then n.HDPOSTERURL = fmt(e.stillURL)
         end for

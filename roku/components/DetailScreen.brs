@@ -4,6 +4,7 @@ sub onToast()
     ' The toast field was being SET by the save path and rendered by nothing,
     ' so every confirmation and every refusal was invisible. A state the app
     ' knows about and does not show is the same to the viewer as no state.
+    print "AWTOAST "; msg
     m.toastText.text = msg
     m.toastText.visible = true
     m.toastPlate.visible = true
@@ -66,7 +67,7 @@ sub init()
     ' around content whose height varies.
     m.toastPlate.translation = [0, 972]
     m.toastPlate.width = 1836 : m.toastPlate.height = 96
-    m.toastPlate.color = "0x1C1C22F2"
+    m.toastPlate.color = "0x14141AFF"
     m.toastText.translation = [m.t.readX, 996]
     m.toastText.width = 1600 : m.toastText.wrap = true
     m.toastText.maxLines = 2
@@ -93,8 +94,11 @@ sub init()
 
     ' Decision 097 — the art is FITTED at its own aspect. It sits right so the
     ' reading column on the left is never over a busy still.
-    m.art.translation = [1002, 168]
-    m.art.width = 636 : m.art.height = 750
+    ' Ends at 786, clear of the "More like this" label at 834. At 750 tall from
+    ' y=168 it reached 918 and ran behind the row — the poster was literally
+    ' underneath the shelf.
+    m.art.translation = [1060, 126]
+    m.art.width = 580 : m.art.height = 660
     m.art.loadDisplayMode = "scaleToFit"
 
     ' §4.3 — prose the viewer READS starts at the title-safe inset.
@@ -121,9 +125,10 @@ sub init()
 
     m.btns.translation = [x, 738]
     m.buttons = []
-    addButton("play", "Play", 0, 396)
-    addButton("save", "Save", 420, 210)
-    addButton("more", "More", 654, 210)
+    addButton("play", "Play")
+    addButton("save", "Save")
+    addButton("more", "More")
+    layoutButtons()
     m.focusIndex = 0
     paintButtons()
 end sub
@@ -131,18 +136,34 @@ end sub
 function waitY() as Integer : return 456 : end function
 function componentY() as Integer : return 420 : end function
 
-sub addButton(id as String, label as String, dx as Integer, w = 234 as Integer)
+' Buttons are laid out by MEASURING their text, not by guessing a width. Three
+' fixed slabs of 396/210/210 left "Save" and "More" swimming in empty plate
+' while "Resume · 83m left" was clipped — blocky and badly proportioned at the
+' same time.
+sub layoutButtons()
+    if m.buttons = invalid then return
+    x = 0
+    for i = 0 to m.buttons.Count() - 1
+        b = m.buttons[i]
+        tw = b.label.boundingRect().width
+        if tw <= 0 then tw = 120
+        w = Int(tw) + 72
+        if w < 174 then w = 174
+        b.plate.width = w
+        b.group.translation = [x, 0]
+        b.label.translation = [Int((w - tw) / 2), 18]
+        x = x + w + 24
+    end for
+end sub
+
+sub addButton(id as String, label as String)
     g = m.btns.CreateChild("Group")
-    g.translation = [dx, 0]
     r = g.CreateChild("Rectangle")
-    ' Play is wider than the others because its label carries the runtime or
-    ' the resume position — "Resume · 83m left" was clipped at 234.
-    r.width = w : r.height = 72 : r.color = "0x22222AFF"
+    r.height = 66 : r.color = "0x22222AFF"
     l = g.CreateChild("Label")
     l.font = m.t.uRow : l.color = m.t.textPri
-    l.translation = [24, 18]
     l.text = label
-    m.buttons.Push({ id: id, plate: r, label: l })
+    m.buttons.Push({ id: id, plate: r, label: l, group: g })
 end sub
 
 ' §5.5 — focus is a ring plus a fill change. There is no scale transform on
@@ -194,6 +215,7 @@ sub paintSave()
     else
         m.buttons[1].label.text = "Save"
     end if
+    layoutButtons()
 end sub
 
 sub onDetail()
@@ -216,6 +238,7 @@ sub onDetail()
     m.runtime = dur
     m.top.runtimeSeconds = dur
     paintPlayLabel()
+    layoutButtons()
     m.playUrl = d.url
 
     ' Cast as one honest line rather than a row of faces: the shard carries
@@ -268,6 +291,7 @@ sub onFocusOn()
     ' went straight past them to Home underneath.
     if m.top.focusOn
         m.inLike = false
+        if m.like <> invalid then m.like.opacity = 0.55
         m.top.setFocus(true)
     end if
     paintButtons()
@@ -298,8 +322,14 @@ sub paintPlayLabel()
     end if
 end sub
 
+function iif(c as Boolean, a as String, b as String) as String
+    if c then return a
+    return b
+end function
+
 function onKeyEvent(key as String, press as Boolean) as Boolean
     if not press then return false
+    if press then print "AWDETAIL key="; key; " zone="; iif(m.inLike = true, "like", "buttons"); " btn="; m.focusIndex
     if not m.top.focusOn then return false
     if key = "right"
         if m.focusIndex < m.buttons.Count() - 1
@@ -314,6 +344,7 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
     else if key = "down"
         if m.likeRow = true and m.inLike <> true
             m.inLike = true
+            m.like.opacity = 1.0
             m.like.setFocus(true)
             return true
         end if
@@ -321,6 +352,12 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
     else if key = "up"
         if m.inLike = true
             m.inLike = false
+            ' A RowList item keeps focusPercent = 1 after the LIST loses focus,
+            ' so its ring stays lit and the screen shows two focus rings at
+            ' once. Roku treats that lit item as the focus FOOTPRINT, which is
+            ' right — but it must read as a footprint, not as focus, so the
+            ' whole row dims when it is not the active zone.
+            m.like.opacity = 0.55
             m.top.setFocus(true)
             paintButtons()
             return true

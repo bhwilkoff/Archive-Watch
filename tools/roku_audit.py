@@ -199,6 +199,69 @@ def main():
     else:
         check("remote response", False, "no key traces observed")
 
+    # ---------------------------------------------------------------- controls
+    #
+    # Everything above drives the app through DEEP LINKS, which is why the
+    # audit sat at 20/20 while OK on the More button did nothing at all: no
+    # assertion had ever pressed Select on a control. (And `roku.py keys OK`
+    # could not have — the ECP key is `Select`, and Roku answers 200 for a name
+    # it does not know.) These press real buttons and assert the app ACTED.
+    print("\nlive controls")
+
+    def key(name, settle=0.9):
+        roku.press(name, settle=settle)
+
+    # Home opens ON the hero, which pages and then scrolls away.
+    m = con.mark()
+    link("go%3Ahome")
+    time.sleep(3)
+    key("right")
+    hero = con.wait_for(m, "AWHERO index=", timeout=8)
+    check("hero pages on Right", bool(hero), hero or "no AWHERO index trace")
+
+    m = con.mark()
+    key("down")
+    zone = con.wait_for(m, "AWHERO zone=rows", timeout=8)
+    check("hero scrolls away on Down", bool(zone), zone or "hero never yielded to the shelves")
+
+    m = con.mark()
+    key("up")
+    zone = con.wait_for(m, "AWHERO zone=hero", timeout=8)
+    check("shelves return to the hero on Up", bool(zone), zone or "no way back to the hero")
+
+    # A tile opens Detail on a real Select.
+    m = con.mark()
+    key("down")
+    time.sleep(0.6)
+    key("select")
+    det = con.wait_for(m, "AWROKU detail ok", timeout=15)
+    check("Select on a tile opens Detail", bool(det), det or "Select did nothing")
+
+    # The More button is a control, not a label.
+    m = con.mark()
+    key("right"); key("right"); key("select")
+    panel = con.wait_for(m, "AWPANEL open more", timeout=10)
+    check("Select on More opens the menu", bool(panel), panel or "More is inert")
+
+    # ... and its actions reach the screen.
+    m = con.mark()
+    for _ in range(4):
+        key("down", settle=0.6)
+    key("select")
+    tst = con.wait_for(m, "AWTOAST", timeout=10)
+    check("a More action reports back", bool(tst), tst or "no toast rendered")
+    key("back", settle=1.2)
+
+    # Browse -> TV must reach SERIES SPINES, not standalone TV uploads.
+    m = con.mark()
+    link("go%3Atv")
+    time.sleep(4)
+    key("down")
+    time.sleep(0.6)
+    key("select")
+    ser = con.wait_for(m, "AWSER ", timeout=20)
+    check("Browse to TV opens a series spine", bool(ser), ser or "TV browse opened a film, not a spine")
+
     print("\nstate")
     m = con.mark()
     link("selftest%3Astore")

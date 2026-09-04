@@ -1,3 +1,14 @@
+' Two-digit hex for an 8-bit alpha. BrightScript has no format specifier for
+' this and Str() on a number carries a leading space.
+function alphaHex(a as Integer) as String
+    if a < 0 then a = 0
+    if a > 255 then a = 255
+    d = "0123456789ABCDEF"
+    hi = Int(a / 16)
+    lo = a - (hi * 16)
+    return Mid(d, hi + 1, 1) + Mid(d, lo + 1, 1)
+end function
+
 sub init()
     m.t = Theme()
     m.wash = m.top.FindNode("heroWash")
@@ -6,6 +17,11 @@ sub init()
     m.hTitle = m.top.FindNode("heroTitle")
     m.hMeta = m.top.FindNode("heroMeta")
     m.rows = m.top.FindNode("rows")
+    m.scroll = m.top.FindNode("scroll")
+    m.scrollAnim = m.top.FindNode("scrollAnim")
+    m.scrollInterp = m.top.FindNode("scrollInterp")
+    m.hint = m.top.FindNode("heroHint")
+    m.dots = m.top.FindNode("heroDots")
 
     ' §4.4 — content begins BELOW the Overhang. The hero art was starting at
     ' y=54 and painting over the brand, which is the kind of thing only a
@@ -31,20 +47,41 @@ sub init()
     m.scrim.width = 1920 : m.scrim.height = heroH
     m.scrim.color = "0x0B0B0C00"
 
-    ' Roku has no gradient node, so the fade is four stacked rectangles. At ten
-    ' feet the steps are invisible; what matters is that the copy always has
-    ' something dark under it whatever the still happens to contain.
-    fa = m.top.FindNode("heroFadeA")
-    fb = m.top.FindNode("heroFadeB")
-    fc = m.top.FindNode("heroFadeC")
-    fbase = m.top.FindNode("heroFadeBase")
-    fa.translation = [-150, 0] : fa.width = 800 : fa.height = heroH : fa.color = "0x0B0B0CF2"
-    fb.translation = [650, 0]  : fb.width = 260 : fb.height = heroH : fb.color = "0x0B0B0CB3"
-    fc.translation = [910, 0]  : fc.width = 260 : fc.height = heroH : fc.color = "0x0B0B0C66"
-    ' The band under the hero, so the first shelf label never sits on a bright
-    ' patch of film.
-    fbase.translation = [-150, heroH - 120] : fbase.width = 1920 : fbase.height = 120
-    fbase.color = "0x0B0B0CCC"
+    ' Roku has no gradient node, so the fade into the copy is a ramp of narrow
+    ' rectangles. THREE steps was not enough — each boundary read as a vertical
+    ' seam across the still on the glass, and the floor band read as a hard
+    ' horizontal box under the title. Sixteen steps at this width are invisible
+    ' at ten feet.
+    fade = m.top.FindNode("heroFade")
+    fade.translation = [-150, 0]
+    rampW = 1500
+    steps = 16
+    stepW = Int(rampW / steps)
+    for i = 0 to steps - 1
+        r = fade.CreateChild("Rectangle")
+        r.translation = [i * stepW, 0]
+        ' +1 so neighbouring steps overlap; a rounded width leaves hairlines.
+        r.width = stepW + 1
+        r.height = heroH
+        ' 0xF2 down to 0x00 across the ramp, quadratic so the dark end holds
+        ' longer under the copy and the bright end clears the picture fast.
+        f = i / (steps - 1)
+        a = Int(242 * (1 - f) * (1 - f))
+        r.color = "0x0B0B0C" + alphaHex(a)
+    end for
+
+    ' The floor the first shelf label sits on, ramped the same way so it is a
+    ' fade rather than a band.
+    floor = m.top.FindNode("heroFloor")
+    floor.translation = [-150, heroH - 220]
+    for i = 0 to 10
+        r = floor.CreateChild("Rectangle")
+        r.translation = [0, i * 20]
+        r.width = 1920
+        r.height = 21
+        a = Int(20 + (i * 21))
+        r.color = "0x0B0B0C" + alphaHex(a)
+    end for
 
     ' Used only when the item has no landscape backdrop.
     m.art.translation = [1010, 96]
@@ -62,7 +99,7 @@ sub init()
 
     m.hMeta.font = m.t.uMeta
     m.hMeta.color = m.t.textSec
-    m.hMeta.translation = [m.t.readX, 366]
+    m.hMeta.translation = [m.t.readX, 318]
 
     m.rows.translation = [m.t.safeX, 504]
     m.rows.itemComponentName = "PosterTile"
@@ -86,7 +123,11 @@ sub init()
     m.rows.itemSize = [1740, m.t.posterFH + 240]
     m.rows.rowItemSize = [[m.t.posterFW, m.t.posterFH]]
     m.rows.rowItemSpacing = [[m.t.gutter, 0]]
-    m.rows.rowSpacing = 24
+    ' `rowSpacing` DOES NOT EXIST on RowList — the field is `rowSpacings`, an
+    ' array. Setting the singular logged "Tried to set nonexistent field" as a
+    ' warning, not an error, so row spacing had simply never applied since the
+    ' first build (ROKU-PARITY lesson 43).
+    m.rows.rowSpacings = [24]
     m.rows.rowLabelOffset = [[0, 0]]
     m.rows.showRowLabel = [true]
     m.rows.rowTitleComponentName = ""
@@ -112,6 +153,39 @@ sub init()
     m.heroIndex = 0
     m.rows.ObserveField("rowItemSelected", "onTileSelected")
     m.rows.ObserveField("rowItemFocused", "onRowFocusTrace")
+
+    ' The hero is a CONTROL, not a band. It takes focus, pages with Left/Right,
+    ' opens the film on OK, and slides off the top when the viewer goes down —
+    ' the tvOS HeroCarousel contract, expressed with the nodes Roku has.
+    m.ringT = m.top.FindNode("heroRingT")
+    m.ringB = m.top.FindNode("heroRingB")
+    m.ringL = m.top.FindNode("heroRingL")
+    m.ringR = m.top.FindNode("heroRingR")
+    ' INSET into the title-safe area. Drawn flush to the screen edge the ring
+    ' read as clipped — the top edge sat in overscan, which on a real panel is
+    ' the half that gets cut.
+    rx = 0 : ry = 30 : rw = 1812 : rh = heroH - 60 : th = 4
+    m.ringT.translation = [rx, ry]           : m.ringT.width = rw : m.ringT.height = th
+    m.ringB.translation = [rx, ry + rh - th] : m.ringB.width = rw : m.ringB.height = th
+    m.ringL.translation = [rx, ry]           : m.ringL.width = th : m.ringL.height = rh
+    m.ringR.translation = [rx + rw - th, ry] : m.ringR.width = th : m.ringR.height = rh
+    for each r in [m.ringT, m.ringB, m.ringL, m.ringR]
+        r.color = m.t.marquee
+        r.visible = false
+    end for
+
+    ' Says what OK does. A focusable hero with no affordance reads as a poster.
+    m.hint.font = m.t.uMeta : m.hint.color = m.t.textPri
+    m.hint.translation = [m.t.readX, 396]
+    m.hint.text = "OK to open  ·  Left / Right for more"
+    m.hint.visible = false
+
+    ' Page indicator, the tvOS capsule row rendered as Rectangles.
+    m.dots.translation = [m.t.readX, 360]
+    m.dotNodes = []
+
+    m.focusZone = "hero"
+    m.heroOffset = 0
 end sub
 
 sub onRows()
@@ -127,15 +201,69 @@ sub onHero()
     end if
     print "AWHERO pool n="; pool.GetChildCount()
     m.heroIndex = 0
+    buildDots(pool.GetChildCount())
     paintHero(pool.GetChild(0))
     m.heroTimer.control = "start"
 end sub
 
+sub buildDots(n as Integer)
+    while m.dots.GetChildCount() > 0
+        m.dots.RemoveChildIndex(0)
+    end while
+    m.dotNodes = []
+    if n <= 1 then return
+    x = 0
+    for i = 0 to n - 1
+        d = m.dots.CreateChild("Rectangle")
+        d.translation = [x, 0]
+        d.height = 8
+        d.width = 10
+        d.color = "0xFFFFFF59"
+        m.dotNodes.Push(d)
+        x = x + 22
+    end for
+    paintDots()
+end sub
+
+sub paintDots()
+    if m.dotNodes = invalid then return
+    for i = 0 to m.dotNodes.Count() - 1
+        if i = m.heroIndex
+            m.dotNodes[i].width = 30
+            m.dotNodes[i].color = "0xFFFFFFFF"
+        else
+            m.dotNodes[i].width = 10
+            m.dotNodes[i].color = "0xFFFFFF59"
+        end if
+    end for
+    ' The dots move as the widths change, so lay them out every time rather
+    ' than once — a fixed 22px stride leaves the active capsule overlapping
+    ' its neighbour.
+    x = 0
+    for i = 0 to m.dotNodes.Count() - 1
+        m.dotNodes[i].translation = [x, 0]
+        x = x + m.dotNodes[i].width + 12
+    end for
+end sub
+
 sub onHeroTick()
+    ' Rotating a hero nobody can see wastes image loads and, worse, means the
+    ' banner has silently changed under the viewer by the time they scroll back
+    ' up. tvOS advances a hero that is on screen; so does this.
+    if m.focusZone <> "hero" then return
+    advanceHero(1)
+end sub
+
+' `step` is RESERVED (`for … step`) and fails to compile as a parameter name —
+' the same class as `pos`, `run` and `on` (ROKU-PARITY lesson 44).
+sub advanceHero(delta as Integer)
     pool = m.top.heroContent
     if pool = invalid or pool.GetChildCount() = 0 then return
-    m.heroIndex = (m.heroIndex + 1) mod pool.GetChildCount()
+    n = pool.GetChildCount()
+    m.heroIndex = ((m.heroIndex + delta) + n) mod n
+    print "AWHERO index="; m.heroIndex
     paintHero(pool.GetChild(m.heroIndex))
+    paintDots()
 end sub
 
 sub paintHero(it as Object)
@@ -153,6 +281,40 @@ sub paintHero(it as Object)
     m.hTitle.text = it.title
     m.hMeta.text = it.SHORTDESCRIPTIONLINE1
     m.heroId = it.id
+end sub
+
+' The hero slides off the top and the shelves come with it — one Group, one
+' animation, so nothing can drift out of register.
+sub slideTo(y as Integer)
+    if m.heroOffset = y then return
+    m.scrollAnim.control = "stop"
+    m.scrollInterp.keyValue = [[0, m.heroOffset], [0, y]]
+    m.scrollAnim.control = "start"
+    m.heroOffset = y
+end sub
+
+sub enterHero()
+    print "AWHERO zone=hero"
+    m.focusZone = "hero"
+    slideTo(0)
+    paintHeroFocus(true)
+    m.top.setFocus(true)
+end sub
+
+sub enterRows()
+    print "AWHERO zone=rows"
+    m.focusZone = "rows"
+    slideTo(-m.heroH)
+    paintHeroFocus(false)
+    m.rows.setFocus(true)
+end sub
+
+sub paintHeroFocus(lit as Boolean)
+    for each r in [m.ringT, m.ringB, m.ringL, m.ringR]
+        r.visible = lit
+    end for
+    m.hint.visible = lit
+    if m.dots <> invalid then m.dots.visible = (m.focusZone = "hero")
 end sub
 
 ' Timestamped focus trace. Roku certification requires a response to a remote
@@ -176,7 +338,10 @@ sub onTileSelected()
 end sub
 
 sub onFocusOn()
-    if m.top.focusOn then m.rows.setFocus(true)
+    ' Home opens ON the hero, the way it does on every other platform: the
+    ' marquee is the first thing the viewer can act on, not a row of thumbnails
+    ' under it.
+    if m.top.focusOn then enterHero()
 end sub
 
 ' §2.1 / §3.1 — Left from the FIRST column reaches the rail. Roku's focus
@@ -184,17 +349,58 @@ end sub
 ' Left goes, exactly as the Android TV build had to.
 function onKeyEvent(key as String, press as Boolean) as Boolean
     if not press then return false
-    if key = "left"
-        idx = m.rows.rowItemFocused
-        if idx <> invalid and idx[1] = 0
-            m.top.exitLeft = true
-            return true
-        end if
-    else if key = "play"
-        ' §3.1 — Play/Pause plays the featured item WITHOUT moving focus.
+
+    ' Play/Pause plays the featured item from anywhere, without moving focus.
+    if key = "play"
         if m.heroId <> invalid
             print "AWROKU play-shortcut id="; m.heroId
             m.top.chosen = m.heroId
+            return true
+        end if
+        return false
+    end if
+
+    if m.focusZone = "hero"
+        ' RIGHT advances and wraps. LEFT steps BACK through the pool until the
+        ' first hero, and only then falls through to the rail — the tvOS
+        ' left-catcher contract, which needs no catcher here because this
+        ' component sees the press itself.
+        if key = "right"
+            advanceHero(1)
+            return true
+        else if key = "left"
+            if m.heroIndex > 0
+                advanceHero(-1)
+                return true
+            end if
+            m.top.exitLeft = true
+            return true
+        else if key = "down"
+            enterRows()
+            return true
+        else if key = "up"
+            return true
+        else if key = "OK"
+            if m.heroId <> invalid and m.heroId <> ""
+                print "AWROKU hero-select id="; m.heroId
+                m.top.chosen = m.heroId
+            end if
+            return true
+        end if
+        return false
+    end if
+
+    ' In the shelves.
+    if key = "up"
+        idx = m.rows.rowItemFocused
+        if idx <> invalid and idx[0] = 0
+            enterHero()
+            return true
+        end if
+    else if key = "left"
+        idx = m.rows.rowItemFocused
+        if idx <> invalid and idx[1] = 0
+            m.top.exitLeft = true
             return true
         end if
     end if

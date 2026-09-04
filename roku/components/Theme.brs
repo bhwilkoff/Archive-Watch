@@ -209,12 +209,15 @@ sub AWRing(art as Object, ring as Object, focused as Boolean)
         dw = Int(bw * sc)
         dh = Int(bh * sc)
     end if
-    pad = 5
+    ' The ring sits just INSIDE the art, overlapping its edge by a few pixels.
+    ' Drawn outside it, a tile whose art fills its cell put the ring beyond the
+    ' cell bounds and the list clipped the top and the left edges off — which is
+    ' exactly what "the selection rectangle is cut off" looks like.
     th = 4
-    x = Int((w - dw) / 2) - pad
-    y = Int((h - dh) / 2) - pad
-    rw = dw + pad * 2
-    rh = dh + pad * 2
+    x = Int((w - dw) / 2)
+    y = Int((h - dh) / 2)
+    rw = dw
+    rh = dh
     ring[0].translation = [x, y] : ring[0].width = rw : ring[0].height = th
     ring[1].translation = [x, y + rh - th] : ring[1].width = rw : ring[1].height = th
     ring[2].translation = [x, y] : ring[2].width = th : ring[2].height = rh

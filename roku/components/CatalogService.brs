@@ -440,12 +440,13 @@ sub runQuery()
     for each r in m.items
         if wantType <> "" and wantType <> "all"
             t = LCase(fmt(r[3]))
-            ' TV browse shows SERIES, never loose episodes (Decision 036).
-            if wantType = "tv-series"
-                if t <> "tv-series" and t <> "tv-special" then goto_next = true else goto_next = false
-            else
-                goto_next = (t <> wantType)
-            end if
+            ' TV browse shows SERIES SPINES ONLY — the tvOS `seriesCards()`
+            ' contract (Decision 036). Folding `tv-special` in here meant the
+            ' 2,038 standalone TV uploads outnumbered the 290 spines seven to
+            ' one and, being more popular, filled the whole grid: Browse -> TV
+            ' looked exactly like a shelf of films, which is what the owner
+            ' reported. Specials stay reachable under their own chip value.
+            goto_next = (t <> wantType)
             if goto_next then continue for
         end if
         ' Genres arrived at schema 10 as a pipe-joined string. 17,726 of 26,960

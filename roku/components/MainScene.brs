@@ -123,9 +123,12 @@ sub onRailSelectedID(id as String)
     else
         ' A surface that does not exist yet SAYS so rather than swallowing the
         ' press — an inert rail item reads as a broken app.
+        ' Every rail id IS implemented, so this is only reachable from a
+        ' malformed harness deep link. It used to paint the LOADING label and
+        ' leave it there — the message then bled through every later surface,
+        ' drawn over the Detail synopsis. Say it to the console instead.
+        print "AWROKU rail-select UNKNOWN id="; id
         closeBrowse()
-        m.loading.visible = true
-        m.loading.text = titleFor(id) + " arrives in a later build."
         focusContent()
     end if
 end sub
@@ -736,6 +739,7 @@ sub onDetailMore()
     opts.Push({ id: "share", label: "Watch this on another device" })
     opts.Push({ id: "cancel", label: "Done" })
     m.moreMode = "detail"
+    print "AWPANEL open more n="; opts.Count()
     m.more.callFunc("open", { title: "More", options: opts })
 end sub
 
@@ -1665,6 +1669,9 @@ sub openDetail(archiveID as String)
     end if
     if m.route <> "detail" then m.cameFrom = m.route
     m.cameFromBrowse = (m.route = "browse")
+    ' A surface that paints over the whole content column must clear the
+    ' status label, or a stale line sits under the synopsis forever.
+    m.loading.visible = false
     it = findItem(archiveID)
     if it = invalid and m.deepLinkItem <> invalid and m.deepLinkItem.id = archiveID
         it = m.deepLinkItem

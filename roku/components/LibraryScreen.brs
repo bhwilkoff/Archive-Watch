@@ -24,7 +24,7 @@ sub init()
     m.rows.itemSize = [1740, m.t.posterFH + 240]
     m.rows.rowItemSize = [[m.t.posterFW, m.t.posterFH]]
     m.rows.rowItemSpacing = [[m.t.gutter, 0]]
-    m.rows.rowSpacing = 24
+    m.rows.rowSpacings = [24]
     m.rows.showRowLabel = [true]
     m.rows.rowLabelFont = m.t.uRow
     m.rows.rowLabelColor = m.t.textPri

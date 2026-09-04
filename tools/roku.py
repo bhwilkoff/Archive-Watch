@@ -62,7 +62,12 @@ REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 QA_DIR = os.path.join(REPO, "build", "qa", f"roku-{datetime.date.today().isoformat()}")
 
 # ECP key names we use. Roku also accepts Lit_<urlencoded char> for text.
+# ECP key names are a CLOSED set. Roku answers 200 for a name it does not
+# recognise and does nothing, so `keys OK` looked like a working press for
+# thirty-odd ticks while the app never saw it — every OK assertion in the
+# harness was vacuous. `ok` is an alias for Select; an unknown name now raises.
 KEYS = {"home": "Home", "rev": "Rev", "fwd": "Fwd", "play": "Play", "select": "Select",
+        "ok": "Select",
         "left": "Left", "right": "Right", "down": "Down", "up": "Up", "back": "Back",
         "instantreplay": "InstantReplay", "info": "Info", "backspace": "Backspace",
         "search": "Search", "enter": "Enter", "star": "Info"}
@@ -220,7 +225,17 @@ def cmd_playstate(_args):
 
 
 def press(key, settle=0.9):
-    name = KEYS.get(key.lower(), key)
+    if key.lower() in KEYS:
+        name = KEYS[key.lower()]
+    elif key.startswith("Lit_"):
+        name = key
+    elif key in KEYS.values():
+        name = key
+    else:
+        raise SystemExit(
+            f"unknown ECP key {key!r}. Roku returns HTTP 200 for a name it does "
+            f"not know and does nothing, so this would have looked like a press. "
+            f"Valid: {', '.join(sorted(set(KEYS.values())))}")
     code = curl("-o", "/dev/null", "-w", "%{http_code}", "-X", "POST",
                 f"{ECP}/keypress/{name}").strip()
     if code != "200":

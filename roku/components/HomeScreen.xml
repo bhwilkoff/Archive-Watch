@@ -12,19 +12,36 @@
   <script type="text/brightscript" uri="pkg:/components/Theme.brs" />
   <script type="text/brightscript" uri="pkg:/components/HomeScreen.brs" />
   <children>
-    <!-- Hero. Decision 097 binds: the art renders at its OWN aspect over an
-         ambient wash of itself, never cropped into a wide box. -->
-    <Poster id="heroWash" />
-    <Rectangle id="heroScrim" />
-    <Poster id="heroArt" />
-    <Rectangle id="heroFadeA" />
-    <Rectangle id="heroFadeB" />
-    <Rectangle id="heroFadeC" />
-    <Rectangle id="heroFadeBase" />
-    <Label id="heroTitle" />
-    <Label id="heroMeta" />
+    <!-- Everything that scrolls lives in one Group so the hero can SLIDE AWAY
+         when the viewer moves down into the shelves, the way it does on tvOS.
+         The hero is not a permanent band. -->
+    <Group id="scroll">
+      <!-- Hero. Decision 097 binds: the art renders at its OWN aspect over an
+           ambient wash of itself, never cropped into a wide box. -->
+      <Poster id="heroWash" />
+      <Rectangle id="heroScrim" />
+      <Poster id="heroArt" />
+      <!-- Roku has no gradient node, so the wash into the copy is a RAMP of
+           narrow rectangles. Three steps left visible vertical seams on the
+           glass; the ramp is built in code from one list. -->
+      <Group id="heroFade" />
+      <Group id="heroFloor" />
+      <Label id="heroTitle" />
+      <Label id="heroMeta" />
+      <!-- The focus ring for the hero itself: a hero the viewer can act on has
+           to LOOK actionable, and Roku draws no ring for a Group. -->
+      <Rectangle id="heroRingT" />
+      <Rectangle id="heroRingB" />
+      <Rectangle id="heroRingL" />
+      <Rectangle id="heroRingR" />
+      <Label id="heroHint" />
+      <Group id="heroDots" />
 
-    <RowList id="rows" />
+      <RowList id="rows" />
+    </Group>
     <Timer id="heroTimer" duration="9" repeat="true" />
+    <Animation id="scrollAnim" duration="0.25" easeFunction="outQuad">
+      <Vector2DFieldInterpolator id="scrollInterp" key="[0.0,1.0]" fieldToInterp="scroll.translation" />
+    </Animation>
   </children>
 </component>

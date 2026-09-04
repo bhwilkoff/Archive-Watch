@@ -689,6 +689,54 @@ of harness: press the chip, read `AWSVC query sort=…`, compare the grid. The
 missing query line is what exposed it, not the screenshot — the screen looked
 plausible throughout, because a stale grid under a changed label always does.
 
+43. **`rowSpacing` does not exist on `RowList` — the field is `rowSpacings`,
+    an array.** Setting the singular logged `Tried to set nonexistent field`
+    as a WARNING, not an error, so three screens had simply never had row
+    spacing since their first build. Roku reports a misspelled field and
+    carries on; the console is the only place it appears.
+
+44. **`step` and `on` are reserved, like `pos` and `run`.** `sub
+    advanceHero(step as Integer)` fails with a bare `Syntax Error (compile
+    error &h02)` naming the line and nothing else. The list of names that
+    cannot be parameters keeps growing; when a one-line signature will not
+    compile, suspect the parameter name before the body.
+
+45. **THE HARNESS HAD NEVER PRESSED OK.** ECP key names are a closed set and
+    `Select` is the name; `/keypress/OK` answers **HTTP 200** and does
+    nothing. `roku.py keys OK` had therefore been a silent no-op for the
+    whole build, and — worse — the end-to-end audit drove every surface
+    through DEEP LINKS, so no assertion had ever pressed a control at all.
+    That is why it read 20/20 while the More button was inert: not a wrong
+    assertion, an absent one. `press()` now REFUSES an unknown key name, and
+    the audit presses Select on the hero, a tile, More, a More action and a
+    TV card, asserting the app acted each time.
+
+46. **A status label is not a message channel.** The unimplemented-surface
+    branch painted its message into the LOADING label and left it there, so
+    "Home arrives in a later build." was still on screen, drawn across the
+    Detail synopsis, several surfaces later. A label that belongs to one
+    state must be cleared by every surface that paints over it — Detail now
+    does, and the branch prints instead.
+
+47. **Browse -> TV was showing television that is not a series.** The type
+    filter folded `tv-special` into `tv-series` "so TV browse has enough
+    content". There are 290 spines and 2,038 specials, the specials are more
+    popular, and they filled the entire grid: TV browse looked exactly like a
+    shelf of films, which is what the owner reported. Specials now have their
+    own chip value, so both are reachable and neither crowds the other out.
+
+48. **An unanchored spine repeats the series title on every episode.** 13
+    Demon Street's two episodes both read "13 Demon Street" with an empty
+    "S · E" line. The archive id is the only thing that distinguishes them —
+    and it is usually the episode name (`13_demon_street_fever_1959` ->
+    "Fever"). Print nothing rather than "S · E" with the numbers missing:
+    punctuation with no data is noise pretending to be information.
+
+49. **A RowList item keeps `focusPercent = 1` after the LIST loses focus**, so
+    its ring stays lit and two rings appear at once. That lit item is Roku's
+    focus FOOTPRINT and keeping it is right — but it has to read as a
+    footprint, so the row dims to 0.55 when it is not the active zone.
+
 ## Tick 25 — the ring rule applied everywhere it belongs
 
 The art-hugging ring shipped for `PosterTile` only. Browse and Search draw
