@@ -111,6 +111,7 @@ sub init()
     m.heroTimer.ObserveField("fire", "onHeroTick")
     m.heroIndex = 0
     m.rows.ObserveField("rowItemSelected", "onTileSelected")
+    m.rows.ObserveField("rowItemFocused", "onRowFocusTrace")
 end sub
 
 sub onRows()
@@ -152,6 +153,15 @@ sub paintHero(it as Object)
     m.hTitle.text = it.title
     m.hMeta.text = it.SHORTDESCRIPTIONLINE1
     m.heroId = it.id
+end sub
+
+' Timestamped focus trace. Roku certification requires a response to a remote
+' press within 250ms, and the only way to know is to measure from the press to
+' the moment the app acts on it — a screenshot cannot time anything.
+sub onRowFocusTrace()
+    idx = m.rows.rowItemFocused
+    if idx = invalid then return
+    print "AWTILE focus "; idx[0]; ","; idx[1]
 end sub
 
 sub onTileSelected()

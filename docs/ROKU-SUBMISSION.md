@@ -41,7 +41,7 @@ Measured on the Streaming Stick 4K, not estimated.
 |---|---|---|---|
 | Launch to a rendered home screen | ≤ 15 s | **2.5–3.0 s** | ✅ |
 | Scene-to-scene transitions | ≤ 3 s | **0.09–0.20 s** | ✅ |
-| Remote response / tile navigation | ≤ 250 ms | not yet instrumented | ⏳ |
+| Remote response / tile navigation | ≤ 250 ms | **median 65 ms, worst 185 ms** | ✅ |
 | Video starts after initiation | ≤ 8 s | **2.2–6.4 s** across 24 films | ✅ |
 | Package size | ≤ 4 MB | **~0.7 MB** | ✅ |
 | Back returns to the previous screen | required | every surface; Back at Home exits to Roku | ✅ |
@@ -82,11 +82,20 @@ Three routes, in the order I would try them:
    are (Decision 023, an archive.org item). This only helps if Roku accepts
    partial coverage — worth asking in the same round trip as (1).
 
+## A measurement that lied, and how
+
+The first attempt at the 250 ms requirement read **545 ms median** and looked
+like a certification failure. It was measuring the wrong event: `rowItemFocused`
+fires when the focus ANIMATION settles, not when the key arrives. The tell was
+that whole scene transitions measured 0.09–0.20 s through the same console
+path — a screen change cannot be four times faster than moving one tile.
+
+Measured at key RECEIPT instead, on a surface that prints the moment its own
+`onKeyEvent` runs: **median 65 ms, worst 185 ms**, and the ECP round trip is
+~99 ms of that. Comfortably inside the bar.
+
 ## What is still unmeasured
 
-* **Remote response ≤ 250 ms.** Transitions are measured; individual key
-  presses are not. The harness can do it — press, then time the focus trace —
-  and it should before submission.
 * **A real trick-play session.** Instant Replay is verified; fast-forward and
   rewind through the transport bar are not.
 

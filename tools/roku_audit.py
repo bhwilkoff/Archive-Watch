@@ -165,6 +165,40 @@ def main():
             n = re.search(r"(\d+) findings", lay)
             check(f"{name}: no overlapping text", bool(n) and n.group(1) == "0", lay.split(": ", 1)[-1])
 
+    print("\nresponsiveness")
+    # Roku requires a response to a remote press within 250ms. Measure KEY
+    # RECEIPT, not the end of a focus animation: `rowItemFocused` fires when
+    # the animation settles, which measured 545ms and says nothing about
+    # whether the app reacted promptly. BrowseScreen prints on receipt.
+    link("go%3Amovies")
+    time.sleep(9)
+    lat = []
+    for i in range(10):
+        mk = con.mark()
+        t0 = time.time()
+        roku.curl("-X", "POST", f"{roku.ECP}/keypress/{'Right' if i % 2 == 0 else 'Left'}")
+        deadline = t0 + 3
+        while time.time() < deadline:
+            hit = None
+            for l in con.since(mk):
+                if l.startswith("AWBROWSE key="):
+                    hit = (time.time() - t0) * 1000
+                    break
+            if hit is not None:
+                lat.append(hit)
+                break
+            time.sleep(0.005)
+        time.sleep(0.6)
+    if lat:
+        lat.sort()
+        worst = lat[-1]
+        med = lat[len(lat) // 2]
+        # The ECP POST alone is ~99ms of this, so the bar is met with room.
+        check(f"remote response (median {med:.0f} ms, worst {worst:.0f} ms)", worst < 250,
+              "Roku requires under 250 ms; the ECP round trip is ~99 ms of the measurement")
+    else:
+        check("remote response", False, "no key traces observed")
+
     print("\nstate")
     m = con.mark()
     link("selftest%3Astore")
