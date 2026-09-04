@@ -71,3 +71,50 @@ function awAuditLayout(root as Object, screenName as String) as String
     end for
     return out
 end function
+
+' A compact, machine-readable description of whatever is on screen: the route,
+' and every list's name plus how many things it is actually showing.
+'
+' The point is to assert CONTENT, not just that a screen drew. A surface with
+' its heading, its chrome and an empty list looks fine in a screenshot and is
+' the exact failure this build has hit repeatedly — Library's empty state
+' beside its own "2 in progress" line, Classic TV's zero-row shelves, a Browse
+' grid frozen under a changed sort label.
+function awReportLists(node as Object, out as Object) as Object
+    if node = invalid then return out
+    if node.HasField("visible")
+        if node.visible = false then return out
+    end if
+    st = node.subtype()
+    if st = "RowList" or st = "MarkupGrid" or st = "LabelList" or st = "MarkupList"
+        rows = 0
+        items = 0
+        c = node.content
+        if c <> invalid
+            rows = c.GetChildCount()
+            if st = "RowList"
+                for i = 0 to rows - 1
+                    items = items + c.GetChild(i).GetChildCount()
+                end for
+            else
+                items = rows
+            end if
+        end if
+        id = node.id
+        if id = "" then id = st
+        out.Push(id + "=" + fmt(rows) + "/" + fmt(items))
+    end if
+    for i = 0 to node.GetChildCount() - 1
+        awReportLists(node.GetChild(i), out)
+    end for
+    return out
+end function
+
+function awReport(root as Object, route as String) as String
+    lists = awReportLists(root, [])
+    s = "AWREPORT route=" + route
+    for each l in lists
+        s = s + " " + l
+    end for
+    return s
+end function

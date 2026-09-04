@@ -1699,6 +1699,10 @@ sub onDeepLink()
         onRailSelectedID(Mid(id, 4))
         return
     end if
+    if id = "selftest:report"
+        print awReport(m.top, m.route)
+        return
+    end if
     if id = "selftest:layout"
         ' Audits whatever is on screen right now, so the harness can walk the
         ' app and measure each surface as it arrives at it.

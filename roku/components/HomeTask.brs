@@ -75,10 +75,25 @@ sub run()
     span.Mark()
     found = {}
     byDirector = {}
+    topRated = []
+    pdDay = []
+    ' Public Domain Day: the films entering the US public domain THIS year, which
+    ' is the current year minus 95. Derived from the index rather than curated,
+    ' so it is right on the 1st of January without anyone editing a file.
+    dt = CreateObject("roDateTime")
+    pdYear = dt.GetYear() - 95
     for each row in index.items
         aid = row[0]
         ' A director shelf recommends, so it takes professionally-presented
         ' films only (Decision 097) and never a series spine.
+        if row[5] = 1 and Left(fmt(aid), 7) <> "series:"
+            if row.Count() > 11 and row[10] <> invalid and row[11] <> invalid
+                ' The same 1,000-vote floor Browse uses: without it a single
+                ' 10/10 rating outranks Citizen Kane (Decision 050).
+                if Int(row[11]) >= 1000 then topRated.Push({ s: Int(row[10]), r: row })
+            end if
+            if row[2] <> invalid and Int(row[2]) = pdYear and pdDay.Count() < 20 then pdDay.Push(row)
+        end if
         if row.Count() > 12 and row[12] <> invalid and row[12] <> "" and row[5] = 1
             if Left(fmt(aid), 7) <> "series:"
                 d = fmt(row[12])
@@ -95,6 +110,7 @@ sub run()
     ' ---- build the ContentNode tree ----
     root = CreateObject("roSGNode", "ContentNode")
     heroPool = CreateObject("roSGNode", "ContentNode")
+    m.extraRows = 0
     rowCount = 0
 
     for each p in plan
@@ -135,11 +151,22 @@ sub run()
         rows: rowCount, items: index.items.Count(),
         hero: heroPool.GetChildCount()
     }
+    ' Top Rated and Public Domain Day, both from the same single pass.
+    topRated.SortBy("s", "r")
+    addRankedRow(root, "Top Rated", topRated, 20)
+    addPlainRow(root, "Public Domain Day " + fmt(pdYear + 95), pdDay)
+
     ' Director shelves, from index column 12 (schema 10). Built in the SAME
     ' pass that already walked every row — a second walk to count directors
     ' would double the 41ms scan for nothing.
     addDirectorRows(root, index.items, byDirector)
-    rowCount = rowCount + m.directorRowsAdded
+    rowCount = rowCount + m.directorRowsAdded + m.extraRows
+
+    ' Cross-shelf dedup, LAST, so it sees every row: no title appears twice
+    ' anywhere on Home. tvOS guarantees this and it is the difference between a
+    ' page of shelves and the same twenty films arranged six ways.
+    dropped = dedupeRows(root)
+    print "AWROKU dedup dropped="; dropped
 
     ' Two navigation rows at the END, the way tvOS orders them: films first,
     ' then the doors into the rest of the catalog. They carry no artwork and
@@ -177,6 +204,61 @@ end sub
 ' The directors with the deepest professionally-presented shelves. Six films
 ' is the floor: fewer than that is a coincidence of the catalog, not a body of
 ' work worth a shelf of its own.
+' Walks the rows IN ORDER and removes any item already shown above. Order
+' matters: the first shelf to claim a film keeps it, so a curated row wins over
+' a generated one simply by being higher.
+function dedupeRows(root as Object) as Integer
+    seen = {}
+    dropped = 0
+    for i = 0 to root.GetChildCount() - 1
+        row = root.GetChild(i)
+        keep = []
+        for j = 0 to row.GetChildCount() - 1
+            it = row.GetChild(j)
+            id = fmt(it.id)
+            ' Navigation tiles are not films and must never be deduped away.
+            if Left(id, 7) = "browse:"
+                keep.Push(it)
+            else if seen[id] = invalid
+                seen[id] = true
+                keep.Push(it)
+            else
+                dropped = dropped + 1
+            end if
+        end for
+        if keep.Count() <> row.GetChildCount()
+            row.RemoveChildrenIndex(row.GetChildCount(), 0)
+            for each k in keep
+                row.AppendChild(k)
+            end for
+        end if
+    end for
+    return dropped
+end function
+
+sub addRankedRow(root as Object, title as String, ranked as Object, limit as Integer)
+    if ranked.Count() < 6 then return
+    row = root.CreateChild("ContentNode")
+    row.title = title
+    n = 0
+    for each e in ranked
+        fillItem(row.CreateChild("ContentNode"), e.r)
+        n = n + 1
+        if n >= limit then exit for
+    end for
+    m.extraRows = m.extraRows + 1
+end sub
+
+sub addPlainRow(root as Object, title as String, rows as Object)
+    if rows.Count() < 6 then return
+    row = root.CreateChild("ContentNode")
+    row.title = title
+    for each r in rows
+        fillItem(row.CreateChild("ContentNode"), r)
+    end for
+    m.extraRows = m.extraRows + 1
+end sub
+
 sub addDirectorRows(root as Object, items as Object, byDirector as Object)
     m.directorRowsAdded = 0
     if byDirector = invalid then return

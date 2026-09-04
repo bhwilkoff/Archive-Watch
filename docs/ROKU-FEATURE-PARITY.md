@@ -35,13 +35,13 @@ Legend: ✅ built + verified on the device · 🔨 built, not yet verified ·
 | Curated + dynamic shelves | ✅ | 23 rows from featured.json + index |
 | Continue Watching | ✅ | leads Home, resolved against the WHOLE index |
 | Hidden Gems (Decision 050) | ⏳ | computed column exists in the DB plane, not the web index |
-| Top Rated | ⏳ | index has no rating column (the same gap PARITY records for web) |
-| Public Domain Day | ⏳ | |
+| Top Rated | ✅ | Home shelf and Browse sort, both on the 1,000-vote floor |
+| Public Domain Day | ✅ | derived as current year minus 95, so it is right on 1 January with nobody editing a file |
 | Community Favorites / Most Discussed | ⏳ | |
 | Director shelves | ✅ | top 3 of 538 eligible directors, ≥6 professionally-presented films each |
 | Browse by Category tiles | ✅ | typographic cards, 8 categories, route to a scoped Browse |
 | Browse by Era tiles | ✅ | 1900s–1970s; verified landing on "The 1920s · 3428 titles" |
-| Cross-shelf dedup | ⏳ | tvOS guarantees no title repeats across Home |
+| Cross-shelf dedup | ✅ | 67 repeats dropped on the live catalog; first shelf to claim a film keeps it |
 
 ## Browse (Movies / TV)
 
