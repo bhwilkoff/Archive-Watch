@@ -41,6 +41,8 @@ sub init()
     m.route = "home"
     m.pendingDeepLink = ""
     m.queuedDeepLink = ""
+    m.pendingCollections = false
+    m.collectionsBuilt = false
     m.autoPlay = false
 
     m.rail.ObserveField("selected", "onRailSelected")
@@ -104,6 +106,8 @@ sub onRailSelected()
         openSearch()
     else if id = "library"
         openLibrary()
+    else if id = "collections"
+        openCollections()
     else
         ' A surface that does not exist yet SAYS so rather than swallowing the
         ' press — an inert rail item reads as a broken app.
@@ -124,6 +128,7 @@ sub openBrowse(scope as String)
     end if
     closeLibrary()
     closeSearch()
+    closeCollections()
     m.content.visible = false
     m.loading.visible = false
     if m.detail <> invalid then m.detail.visible = false
@@ -216,6 +221,8 @@ sub onOptionsClosed()
         refocus(m.search)
     else if m.route = "library"
         refocus(m.library)
+    else if m.route = "collections"
+        refocus(m.collections)
     else
         focusRail()
     end if
@@ -230,6 +237,47 @@ sub onOptionsChanged()
     end if
 end sub
 
+sub openCollections()
+    if m.collections = invalid
+        m.collections = m.overlay.CreateChild("CollectionsScreen")
+        m.collections.translation = [m.t.railW, 0]
+        m.collections.ObserveField("chosen", "onCollectionChosen")
+        m.collections.ObserveField("exitLeft", "focusRail")
+    end if
+    closeBrowse()
+    closeSearch()
+    closeLibrary()
+    m.content.visible = false
+    m.loading.visible = false
+    if m.detail <> invalid then m.detail.visible = false
+    m.collections.visible = true
+    m.rail.focusOn = false
+    m.route = "collections"
+    print "AWFOCUS collections"
+    ' Built once per session: 26 rows over a 27,000-row index is a real scan,
+    ' and the membership cannot change while the channel is open.
+    if m.collectionsBuilt = true
+        m.collections.focusOn = true
+    else
+        m.pendingCollections = true
+        m.svc.qCollections = true
+        m.svc.queryId = m.svc.queryId + 1
+    end if
+end sub
+
+sub closeCollections()
+    if m.collections <> invalid
+        m.collections.visible = false
+        m.collections.focusOn = false
+    end if
+    m.content.visible = true
+end sub
+
+sub onCollectionChosen()
+    id = m.collections.chosen
+    if id <> invalid and id <> "" then openDetail(id)
+end sub
+
 sub openLibrary()
     if m.library = invalid
         m.library = m.overlay.CreateChild("LibraryScreen")
@@ -239,6 +287,7 @@ sub openLibrary()
     end if
     closeBrowse()
     closeSearch()
+    closeCollections()
     m.content.visible = false
     m.loading.visible = false
     if m.detail <> invalid then m.detail.visible = false
@@ -277,6 +326,7 @@ sub openSearch()
     end if
     closeBrowse()
     closeLibrary()
+    closeCollections()
     m.content.visible = false
     m.loading.visible = false
     if m.detail <> invalid then m.detail.visible = false
@@ -331,6 +381,14 @@ sub onQueryResults()
     ' A deep-link lookup borrows the same results field as Browse and Search,
     ' so it is claimed FIRST and consumed — otherwise a one-row result would
     ' repaint whichever of those happens to be visible.
+    if m.pendingCollections = true
+        m.pendingCollections = false
+        m.svc.qCollections = false
+        m.collectionsBuilt = true
+        m.collections.callFunc("showResults", m.svc.results, m.svc.total)
+        m.collections.focusOn = true
+        return
+    end if
     if m.pendingDeepLink <> invalid and m.pendingDeepLink <> ""
         id = m.pendingDeepLink
         m.pendingDeepLink = ""
@@ -384,6 +442,7 @@ sub openDetail(archiveID as String)
     if m.browse <> invalid then m.browse.visible = false
     if m.search <> invalid then m.search.visible = false
     if m.library <> invalid then m.library.visible = false
+    if m.collections <> invalid then m.collections.visible = false
     m.detail.visible = true
     m.detail.item = it
     m.detail.detail = {}
@@ -536,6 +595,12 @@ sub closeDetail()
     end if
     ' Back returns to the screen the viewer CAME FROM (§2.6), which is Browse
     ' when Detail was opened from a grid.
+    if m.collections <> invalid and m.cameFrom = "collections"
+        m.collections.visible = true
+        m.collections.focusOn = true
+        m.route = "collections"
+        return
+    end if
     if m.library <> invalid and m.cameFrom = "library"
         m.library.visible = true
         m.library.callFunc("reload", m.task.rows)
@@ -620,6 +685,11 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
             return true
         else if m.route = "library"
             closeLibrary()
+            focusContent()
+            m.route = "home"
+            return true
+        else if m.route = "collections"
+            closeCollections()
             focusContent()
             m.route = "home"
             return true

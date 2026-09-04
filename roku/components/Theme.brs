@@ -80,3 +80,25 @@ function fmt(v as Dynamic) as String
     end if
     return ""
 end function
+
+
+' Roku's broadcast-safe rule (ROKU-DESIGN §4.5): no channel above 235, because
+' a TV set to a video-range signal clips anything brighter and a "pure" colour
+' blooms. The shared editorial palette is authored for phones and the web, so
+' its accents arrive above the ceiling (#FF5C35 has a 255 red) and have to be
+' clamped before they reach the screen.
+function BroadcastSafe(hex as String) as String
+    h = hex
+    if Left(h, 1) = "#" then h = Mid(h, 2)
+    if Len(h) < 6 then return "0xEBEBEBFF"
+    out = "0x"
+    for i = 0 to 2
+        v = Val("&H" + Mid(h, i * 2 + 1, 2))
+        if v > 235 then v = 235
+        d = Int(v)
+        digits = "0123456789ABCDEF"
+        hi = Int(d / 16) : lo = d - hi * 16
+        out = out + Mid(digits, hi + 1, 1) + Mid(digits, lo + 1, 1)
+    end for
+    return out + "FF"
+end function

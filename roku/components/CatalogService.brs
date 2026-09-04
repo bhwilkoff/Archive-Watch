@@ -27,7 +27,16 @@ sub run()
         return
     end if
     m.items = idx.items
-    print "AWSVC ready items="; m.items.Count()
+    m.collections = idx.collections
+    ' The curated titles and blurbs ride in the package (see tools/roku.py),
+    ' the MEMBERSHIP rides in the index. Neither is fetched twice.
+    m.colMeta = []
+    cm = ReadAsciiFile("pkg:/collections.json")
+    if cm <> ""
+        parsed = ParseJson(cm)
+        if parsed <> invalid and parsed.collections <> invalid then m.colMeta = parsed.collections
+    end if
+    print "AWSVC ready items="; m.items.Count(); " collections="; m.colMeta.Count()
     m.top.ready = true
 
     while true
@@ -40,6 +49,67 @@ end sub
 
 ' Index row order (build_catalog_index.py fields):
 '   0 id  1 title  2 year  3 contentType  4 poster  5 pro  6 search  7 backdrop
+' One pass over 26,965 rows collecting only the ~3,100 ids the 26 curated
+' collections name — the same shape HomeTask uses, and for the same reason:
+' scanning once per collection would be 26 passes on the wrong thread.
+sub buildCollections()
+    span = CreateObject("roTimespan")
+    span.Mark()
+    if m.collections = invalid or m.colMeta.Count() = 0
+        m.top.results = CreateObject("roSGNode", "ContentNode")
+        m.top.total = 0
+        return
+    end if
+
+    want = {}
+    for each c in m.colMeta
+        ids = m.collections[c.id]
+        if ids <> invalid
+            for each aid in ids
+                want[aid] = true
+            end for
+        end if
+    end for
+
+    found = {}
+    for each r in m.items
+        aid = fmt(r[0])
+        if want[aid] <> invalid then found[aid] = r
+    end for
+
+    root = CreateObject("roSGNode", "ContentNode")
+    shown = 0
+    for each c in m.colMeta
+        ids = m.collections[c.id]
+        if ids = invalid then continue for
+        row = root.CreateChild("ContentNode")
+        row.title = c.title
+        row.AddField("awBlurb", "string", false)
+        row.AddField("awAccent", "string", false)
+        if c.blurb <> invalid then row.awBlurb = c.blurb
+        if c.accent <> invalid then row.awAccent = BroadcastSafe(c.accent)
+        n = 0
+        for each aid in ids
+            r = found[aid]
+            if r <> invalid
+                appendRow(row, r)
+                n = n + 1
+                if n >= 60 then exit for
+            end if
+        end for
+        ' A collection thinner than a screenful is a gap in the data, not a
+        ' shelf — the same minimum Home applies.
+        if n < 6
+            root.RemoveChild(row)
+        else
+            shown = shown + 1
+        end if
+    end for
+    print "AWSVC collections rows="; shown; " of "; m.colMeta.Count(); " in "; span.TotalMilliseconds(); "ms"
+    m.top.total = shown
+    m.top.results = root
+end sub
+
 sub appendRow(root as Object, r as Object)
     it = root.CreateChild("ContentNode")
     it.id = r[0]
@@ -55,6 +125,11 @@ end sub
 sub runQuery()
     span = CreateObject("roTimespan")
     span.Mark()
+
+    if m.top.qCollections
+        buildCollections()
+        return
+    end if
 
     ' A deep link asks for ONE id and must not pay for a full scan-and-sort.
     wantId = m.top.qId

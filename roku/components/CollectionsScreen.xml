@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- ROKU-DESIGN §6.8 — the curated collections, one row each.
+     The blurb belongs to the FOCUSED row and sits in the heading area rather
+     than under every row: 26 permanent subtitles is noise, one that answers
+     "what is this shelf" as you arrive at it is orientation. -->
+<component name="CollectionsScreen" extends="Group">
+  <interface>
+    <field id="focusOn" type="boolean" onChange="onFocusOn" />
+    <field id="chosen" type="string" alwaysNotify="true" />
+    <field id="exitLeft" type="boolean" alwaysNotify="true" />
+    <function name="showResults" />
+  </interface>
+  <script type="text/brightscript" uri="pkg:/components/Theme.brs" />
+  <script type="text/brightscript" uri="pkg:/components/CollectionsScreen.brs" />
+  <children>
+    <Label id="heading" />
+    <Rectangle id="accent" />
+    <Label id="blurb" />
+    <Label id="empty" visible="false" />
+    <RowList id="rows" />
+  </children>
+</component>

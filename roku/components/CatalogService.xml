@@ -20,6 +20,9 @@
          never browsed to. The index is already parsed on this thread; asking
          it is free next to fetching anything. -->
     <field id="qId" type="string" />
+    <!-- Ask for the whole Collections surface: one row per curated collection,
+         built in ONE pass over the index on this thread. -->
+    <field id="qCollections" type="boolean" value="false" />
     <field id="queryId" type="integer" alwaysNotify="true" />
     <field id="results" type="node" alwaysNotify="true" />
     <field id="total" type="integer" />

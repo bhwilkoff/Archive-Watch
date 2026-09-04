@@ -116,6 +116,12 @@ def zip_channel(src_dir):
                     continue
                 full = os.path.join(root, f)
                 z.write(full, os.path.relpath(full, src))
+        # Shared editorial data is packaged from its ONE home in the repo
+        # rather than copied into roku/, so the collection titles and blurbs
+        # can never drift from what the other platforms show.
+        shared = os.path.join(REPO, "shared", "editorial", "collection_metadata.json")
+        if os.path.isfile(shared):
+            z.write(shared, "collections.json")
     return buf.getvalue()
 
 

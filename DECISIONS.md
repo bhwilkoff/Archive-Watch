@@ -172,6 +172,7 @@ an entry in place.
 - 101 — The App Store submission is fully API-driven, and AppVersion.xcconfig is the ONE version number
 - 102 — Google is Android's sync island and the WEB holds both; a deletion without a tombstone is a resurrection
 - 103 — The player is not a tab: full-screen video renders outside the navigation scaffold, and PiP gets no chrome at all
+- 104 — A `private` archive.org file is never a playable copy; the guard belongs in the picker, not the sweep
 
 ---
 
@@ -1451,3 +1452,51 @@ a full screen of height, pushing the title and the options button off screen.
 bar fades with the transport, the sheet lists the item's REAL files
 ("576p · MPEG4 · 109 MB — uploader original") rather than invented quality
 names, and the PiP tile is picture only.
+
+## 104 — A `private` archive.org file is never a playable copy; the guard belongs in the picker, not the sweep
+*Date: 2026-09-04*
+
+`archive_lib.pick_video` drops every file archive.org marks `private: true`
+before ranking derivatives. An item whose only video files are private
+therefore has no playable derivative, which routes it into `check_liveness`'s
+existing `dead` path — with a reason naming which kind of dead it is,
+`access_restricted` or `private_files`.
+
+**Why**: the Roku playback audit's first varied sample of eight films found one
+that would not play — *Heart to Heart*, `cubanc_000437` — and it was shipping
+on every platform, not just Roku. archive.org states the reason plainly in the
+metadata the pipeline already fetches:
+
+    access-restricted-item: true
+    collection: [bancroftlibraryucberkeley, californiarevealed, stream_only, americana]
+    cubanc_000437_access.HD.ia.mp4   private: true   (derivative)
+    cubanc_000437_access.HD.mp4      private: true   (original)
+
+Every gate passed because none of them looked at those fields. The metadata was
+healthy, a derivative existed, and the storage node's **403 is deliberately
+treated as TRANSIENT** — Decision 088's rule that throttling must never demote
+a film, which is correct and must stay. The distinction the pipeline was
+missing is that a restricted file returns 401/403 *from every node, forever*,
+and no retry will ever clear it. HTTP cannot tell those apart cheaply;
+`private: true` can, definitively, for free, in a call already being made.
+
+**How to apply**: put this kind of guard in the SHARED PICKER, never in the
+downstream sweep. The same `pick_video` feeds `ingest_candidates`,
+`backfill_tv_episodes` and `repick_derivatives` — filtering only in
+`check_liveness` would keep admitting restricted items and lean on a later
+sweep to hide them, which is a race the catalog loses every time a new one
+lands. Do NOT respond to this by adding 401/403 to `PLAYBACK_DEAD_CODES`: that
+would strip good films during a rate-limit episode, which is a worse fault than
+the one being fixed and is exactly what Decision 088 protects against. And
+preserve the mixed case — a public derivative sitting beside a private original
+must still play; `tools/test_private_derivative.py` asserts that one first and
+was checked to FAIL (3/5) with the guard removed.
+
+**Consequences**: existing catalog items carry a stale `livenessChecked` and
+will not be re-judged by an ordinary run — the marker trap recorded in Decision
+087's amendment. A metadata-only sweep (`--refresh --no-probe`) re-reads all
+27k items and applies the new rule without a single byte probe, because the
+signal lives in metadata. Found alongside it: `build_catalog_index` declared 8
+field names for rows that have carried 10 since schema 9, so `playable` and
+`documentary` were shipping undeclared and a client resolving a column by name
+could not find them.
