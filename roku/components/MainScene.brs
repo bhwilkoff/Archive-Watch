@@ -50,6 +50,8 @@ sub init()
     m.lineup = invalid
     m.pendingUserItems = false
     m.userItems = invalid
+    m.idLineup = invalid
+    m.moreMode = "detail"
     m.autoPlay = false
 
     m.rail.ObserveField("selected", "onRailSelected")
@@ -203,6 +205,11 @@ sub requestUserItems()
     for each f in awFavorites()
         ids.Push(f)
     end for
+    for each p in awPlaylists()
+        for each a in p.ids
+            ids.Push(a)
+        end for
+    end for
     if ids.Count() = 0 then return
     m.pendingUserItems = true
     m.svc.qIds = ids
@@ -297,6 +304,134 @@ end sub
 ' The More button's menu. Built fresh each time because every entry depends on
 ' the CURRENT state of this film — a menu that offers "Mark as watched" for a
 ' film already watched is the same dead control in a new costume.
+' Add-to-playlist, in two steps because Roku has no menu-with-inline-text:
+' pick an existing list, or open the platform keyboard to name a new one.
+' `*` in Library is contextual: it acts on the row the viewer is standing in.
+' Roku reserves `*` for options, and the option a viewer wants here is about
+' THIS playlist, not about the app.
+sub openLibraryOptions()
+    if m.more = invalid
+        m.more = m.top.FindNode("options").CreateChild("OptionsList")
+        m.more.ObserveField("chosen", "onMorePicked")
+        m.more.ObserveField("closed", "onMoreClosed")
+    end if
+    plID = m.library.focusedPlaylist
+    opts = [{ id: "playall", label: "Play all in this row" }]
+    if plID <> ""
+        opts.Push({ id: "removeitem", label: "Remove this film from the playlist" })
+        opts.Push({ id: "deletelist", label: "Delete this playlist" })
+    end if
+    opts.Push({ id: "settings", label: "App settings…" })
+    opts.Push({ id: "cancel", label: "Done" })
+    m.moreMode = "library"
+    m.more.callFunc("open", { title: "Options", options: opts })
+end sub
+
+sub onLibraryOptionPicked(pick as String)
+    plID = m.library.focusedPlaylist
+    if pick = "playall"
+        ids = m.library.callFunc("focusedRowIDs")
+        if ids <> invalid and ids.Count() > 0 then startIDLineup(ids)
+        return
+    else if pick = "removeitem" and plID <> ""
+        awRemoveFromPlaylist(plID, m.library.focusedItem)
+        m.library.callFunc("reload", userCatalog())
+    else if pick = "deletelist" and plID <> ""
+        awDeletePlaylist(plID)
+        m.library.callFunc("reload", userCatalog())
+    else if pick = "settings"
+        openOptions()
+        return
+    end if
+    refocus(m.library)
+end sub
+
+' Play All over a list of archiveIDs. Each url is resolved one at a time as the
+' queue advances, because a playlist of 100 films must not fetch 100 shards to
+' start the first one.
+sub startIDLineup(ids as Object)
+    m.idLineup = { ids: ids, index: 0 }
+    playIDLineup()
+end sub
+
+sub playIDLineup()
+    l = m.idLineup
+    if l = invalid or l.index >= l.ids.Count()
+        m.idLineup = invalid
+        closePlayer()
+        return
+    end if
+    m.pendingEpisode = { id: l.ids[l.index], title: "", meta: "Playlist  ·  " + fmt(l.index + 1) + " of " + fmt(l.ids.Count()),
+                         queue: l.ids, queueTitles: l.ids, index: l.index, fromLibrary: true }
+    if m.dtask = invalid
+        m.dtask = CreateObject("roSGNode", "DetailTask")
+        m.dtask.ObserveField("detail", "onDetailLoaded")
+    end if
+    m.dtask.archiveID = l.ids[l.index]
+    m.dtask.control = "RUN"
+end sub
+
+sub openAddToPlaylist()
+    if m.more = invalid
+        m.more = m.top.FindNode("options").CreateChild("OptionsList")
+        m.more.ObserveField("chosen", "onMorePicked")
+        m.more.ObserveField("closed", "onMoreClosed")
+    end if
+    opts = []
+    for each p in awPlaylists()
+        opts.Push({ id: "pl:" + p.id, label: p.name + "   (" + fmt(p.ids.Count()) + ")" })
+    end for
+    opts.Push({ id: "pl:new", label: "New playlist…" })
+    opts.Push({ id: "cancel", label: "Done" })
+    m.moreMode = "playlist"
+    m.more.callFunc("open", { title: "Add to playlist", options: opts })
+end sub
+
+' Roku's own keyboard. TWO things are not optional and neither is obvious:
+'
+'  * A dialog is presented by assigning it to the SCENE's `dialog` field.
+'    Declaring a <KeyboardDialog> child and setting visible = true renders
+'    nothing at all — no error, no dialog, and the press that opened it looks
+'    like a dead control.
+'  * Without `buttons` there is a keyboard to type into and NOTHING to confirm
+'    with: `buttonSelected` never fires and the only exit is Back.
+sub openNamer()
+    k = CreateObject("roSGNode", "KeyboardDialog")
+    k.title = "Name this playlist"
+    k.buttons = ["Save", "Cancel"]
+    k.ObserveField("buttonSelected", "onNamerButton")
+    ' A dialog dismissed with Back closes itself; without this the Scene keeps
+    ' a dead dialog assigned and every later key goes to it.
+    k.ObserveField("wasClosed", "onNamerClosed")
+    m.namer = k
+    m.top.dialog = k
+end sub
+
+sub onNamerClosed()
+    m.top.dialog = invalid
+    m.namer = invalid
+    refocus(m.detail)
+end sub
+
+sub onNamerButton()
+    k = m.namer
+    if k = invalid then return
+    print "AWPL namer button="; k.buttonSelected; " text='"; k.text; "'"
+    ' Button 0 is OK, 1 is Cancel on Roku's own dialog.
+    if k.buttonSelected = 0
+        id = awCreatePlaylist(k.text)
+        if id = invalid
+            m.detail.toast = "You have the maximum number of playlists. Delete one in Library first."
+        else
+            awAddToPlaylist(id, m.detail.item.id)
+            m.detail.toast = "Added to " + awSanitizeName(k.text) + "."
+        end if
+    end if
+    m.top.dialog = invalid
+    m.namer = invalid
+    refocus(m.detail)
+end sub
+
 sub onDetailMore()
     if m.more = invalid
         m.more = m.top.FindNode("options").CreateChild("OptionsList")
@@ -318,17 +453,51 @@ sub onDetailMore()
     else
         opts.Push({ id: "save", label: "Save to Library" })
     end if
+    opts.Push({ id: "playlist", label: "Add to playlist" })
     opts.Push({ id: "cancel", label: "Done" })
+    m.moreMode = "detail"
     m.more.callFunc("open", { title: "More", options: opts })
 end sub
 
 sub onMoreClosed()
+    if m.moreMode = "library"
+        refocus(m.library)
+    else
+        refocus(m.detail)
+    end if
+end sub
+
+sub onPlaylistPicked(pick as String)
+    if pick = "pl:new"
+        openNamer()
+        return
+    end if
+    if Left(pick, 3) = "pl:"
+        plID = Mid(pick, 4)
+        if awAddToPlaylist(plID, m.detail.item.id)
+            m.detail.toast = "Added to your playlist."
+        else
+            m.detail.toast = "That playlist is full."
+        end if
+    end if
     refocus(m.detail)
 end sub
 
 sub onMorePicked()
     pick = m.more.chosen
+    if m.moreMode = "playlist"
+        onPlaylistPicked(pick)
+        return
+    end if
+    if m.moreMode = "library"
+        onLibraryOptionPicked(pick)
+        return
+    end if
     id = m.detail.item.id
+    if pick = "playlist"
+        openAddToPlaylist()
+        return
+    end if
     if pick = "watch"
         awMarkWatched(id, m.detail.runtimeSeconds)
         m.detail.toast = "Marked as watched."
@@ -558,6 +727,8 @@ sub onRandomPicked()
     m.lineup = invalid
     m.pendingUserItems = false
     m.userItems = invalid
+    m.idLineup = invalid
+    m.moreMode = "detail"
     m.svc.qRandomType = ""
     res = m.svc.results
     if res = invalid or res.GetChildCount() = 0
@@ -633,7 +804,13 @@ sub playPendingEpisode(d as Object)
     e = m.pendingEpisode
     m.pendingEpisode = invalid
     if d = invalid or d.url = invalid or d.url = ""
-        print "AWSER episode has no playable url: "; e.id
+        print "AWSER queued item has no playable url: "; e.id
+        ' A dead item must not end the whole queue — skip to the next.
+        if m.idLineup <> invalid
+            m.idLineup.index = m.idLineup.index + 1
+            playIDLineup()
+            return
+        end if
         if m.series <> invalid then m.series.visible = true
         return
     end if
@@ -648,15 +825,18 @@ sub playPendingEpisode(d as Object)
     m.series.visible = false
     m.player.archiveID = e.id
     m.player.startAt = awGetProgress(e.id)
-    m.player.playTitle = e.title
+    t = e.title
+    if t = "" and d.canonicalTitle <> invalid then t = fmt(d.canonicalTitle)
+    if t = "" then t = e.id
+    m.player.playTitle = t
     m.player.playMeta = e.meta
     m.player.captionUrl = ""
     setChromeVisible(false)
     m.player.playUrl = d.url
     m.player.setFocus(true)
-    m.cameFrom = "series"
+    if e.fromLibrary = true then m.cameFrom = "library" else m.cameFrom = "series"
     m.route = "player"
-    print "AWFOCUS player (episode "; e.id; ")"
+    print "AWFOCUS player (queued "; e.id; ")"
 end sub
 
 sub openChannels()
@@ -971,10 +1151,14 @@ sub openDetail(archiveID as String)
     m.detail.visible = true
     m.detail.item = it
     m.detail.detail = {}
-    m.detail.focusOn = true
     m.home.focusOn = false
     m.rail.focusOn = false
-    m.detail.setFocus(true)
+    ' refocus(), never `focusOn = true`. On the SECOND visit the field is
+    ' already true, onChange does not fire, and `setFocus` on a Group does
+    ' nothing — so Detail draws with its buttons unreachable and every press
+    ' falls through to the Scene. Silent failure #18, in a path that predates
+    ' the helper.
+    refocus(m.detail)
     m.route = "detail"
     print "AWFOCUS detail "; archiveID
 
@@ -1018,6 +1202,10 @@ end sub
 sub onDeepLink()
     id = m.top.deepLinkContentId
     if id = invalid or id = "" then return
+    if id = "selftest:store"
+        print awStoreSelfTest()
+        return
+    end if
     print "AWDEEP contentId="; id; " mediaType="; m.top.deepLinkMediaType
     if m.svc = invalid or not m.svc.ready
         m.queuedDeepLink = id
@@ -1127,6 +1315,11 @@ sub onPlaybackEnded()
         playLineup()
         return
     end if
+    if m.idLineup <> invalid
+        m.idLineup.index = m.idLineup.index + 1
+        playIDLineup()
+        return
+    end if
     q = m.episodeQueue
     if q <> invalid and awGetSetting("autoplay", true)
         nxt = q.index + 1
@@ -1147,6 +1340,7 @@ sub closePlayer()
     if m.player = invalid then return
     m.episodeQueue = invalid
     m.lineup = invalid
+    m.idLineup = invalid
     m.player.callFunc("stopPlayback")
     m.player.visible = false
     setChromeVisible(true)
@@ -1155,6 +1349,13 @@ sub closePlayer()
     ' left the viewer on a BLANK screen with the rail focused — nothing hidden
     ' was ever shown again. Where the player was entered from decides where
     ' Back lands, which is the same rule every other surface here follows.
+    if m.cameFrom = "library" and m.library <> invalid
+        m.library.visible = true
+        m.library.callFunc("reload", userCatalog())
+        refocus(m.library)
+        m.route = "library"
+        return
+    end if
     if m.cameFrom = "series" and m.series <> invalid
         m.series.visible = true
         m.series.callFunc("refreshProgress")
@@ -1270,6 +1471,10 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
     ' `*` opens Options everywhere EXCEPT playback, where Roku reserves the
     ' key for its own transport overlay (ROKU-DESIGN §3.1) — a channel that
     ' takes it there fails certification.
+    if key = "options" and m.route = "library" and m.library <> invalid
+        openLibraryOptions()
+        return true
+    end if
     if key = "options" and m.route <> "player"
         openOptions()
         return true

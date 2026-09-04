@@ -32,6 +32,8 @@ sub init()
     m.rows.focusFootprintBitmapUri = "pkg:/images/focus_footprint.9.png"
     m.rows.drawFocusFeedbackOnTop = true
     m.rows.ObserveField("rowItemSelected", "onSelected")
+    m.rows.ObserveField("rowItemFocused", "onRowFocused")
+    m.rowMeta = []
 end sub
 
 ' Built from the ids the registry holds, resolved against the catalog the
@@ -41,14 +43,21 @@ sub reload(catalog as Object)
     cw = awContinueWatching()
     favs = awFavorites()
 
-    added = addRow(root, "Continue Watching", cw, catalog, true)
-    added = added + addRow(root, "Favorites", favs, catalog, false)
+    m.rowMeta = []
+    print "AWPL library playlists="; awPlaylists().Count()
+    added = addRow(root, "Continue Watching", cw, catalog, true, "")
+    added = added + addRow(root, "Favorites", favs, catalog, false, "")
+    ' Playlists follow the two built-in rows, in creation order — the viewer
+    ' made them, so they are not re-sorted underneath them.
+    for each p in awPlaylists()
+        added = added + addRow(root, p.name, p.ids, catalog, false, p.id)
+    end for
 
     m.rows.content = root
     m.rows.visible = (added > 0)
     m.empty.visible = (added = 0)
     if added = 0
-        m.empty.text = "Nothing saved yet. Press Save on any film, or just start watching — where you stopped shows up here."
+        m.empty.text = "Nothing saved yet. Press Save on any film, add one to a playlist from More, or just start watching — where you stopped shows up here."
     end if
 
     ' §7.2 — the budget is real and finite, so say where it stands rather than
@@ -57,13 +66,13 @@ sub reload(catalog as Object)
     ' Report BYTES until there are kilobytes to report — "0 KB of 32 KB" reads
     ' like a broken meter when the truth is that a few saves cost almost nothing.
     if used < 1024
-        m.budget.text = fmt(favs.Count()) + " saved  ·  " + fmt(cw.Count()) + " in progress  ·  " + fmt(used) + " bytes of 32 KB used"
+        m.budget.text = fmt(favs.Count()) + " saved  ·  " + fmt(cw.Count()) + " in progress  ·  " + fmt(awPlaylists().Count()) + " playlists  ·  " + fmt(used) + " bytes of 32 KB used"
     else
-        m.budget.text = fmt(favs.Count()) + " saved  ·  " + fmt(cw.Count()) + " in progress  ·  " + fmt(Int(used / 1024)) + " KB of 32 KB used"
+        m.budget.text = fmt(favs.Count()) + " saved  ·  " + fmt(cw.Count()) + " in progress  ·  " + fmt(awPlaylists().Count()) + " playlists  ·  " + fmt(Int(used / 1024)) + " KB of 32 KB used"
     end if
 end sub
 
-function addRow(root as Object, title as String, entries as Object, catalog as Object, isProgress as Boolean) as Integer
+function addRow(root as Object, title as String, entries as Object, catalog as Object, isProgress as Boolean, plID as String) as Integer
     if entries.Count() = 0 then return 0
     row = root.CreateChild("ContentNode")
     row.title = title
@@ -85,7 +94,38 @@ function addRow(root as Object, title as String, entries as Object, catalog as O
         root.RemoveChild(row)
         return 0
     end if
+    m.rowMeta.Push(plID)
     return 1
+end function
+
+sub onRowFocused()
+    idx = m.rows.rowItemFocused
+    if idx = invalid then return
+    if idx[0] >= 0 and idx[0] < m.rowMeta.Count()
+        m.top.focusedPlaylist = m.rowMeta[idx[0]]
+    else
+        m.top.focusedPlaylist = ""
+    end if
+    if m.rows.content <> invalid
+        row = m.rows.content.GetChild(idx[0])
+        if row <> invalid
+            it = row.GetChild(idx[1])
+            if it <> invalid then m.top.focusedItem = it.id
+        end if
+    end if
+end sub
+
+' The ids in the focused row, in order — what Play All needs.
+function focusedRowIDs() as Object
+    out = []
+    idx = m.rows.rowItemFocused
+    if idx = invalid or m.rows.content = invalid then return out
+    row = m.rows.content.GetChild(idx[0])
+    if row = invalid then return out
+    for i = 0 to row.GetChildCount() - 1
+        out.Push(row.GetChild(i).id)
+    end for
+    return out
 end function
 
 function findInCatalog(catalog as Object, id as String) as Object

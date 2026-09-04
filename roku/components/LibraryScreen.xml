@@ -8,7 +8,12 @@
     <field id="focusOn" type="boolean" onChange="onFocusOn" />
     <field id="chosen" type="string" alwaysNotify="true" />
     <field id="exitLeft" type="boolean" alwaysNotify="true" />
+    <!-- Which playlist the focus is sitting in, so `*` can act on it. Empty
+         when the focused row is Continue Watching or Favorites. -->
+    <field id="focusedPlaylist" type="string" />
+    <field id="focusedItem" type="string" />
     <function name="reload" />
+    <function name="focusedRowIDs" />
   </interface>
   <script type="text/brightscript" uri="pkg:/components/Theme.brs" />
   <script type="text/brightscript" uri="pkg:/components/UserStore.brs" />

@@ -19,7 +19,7 @@ Legend: ✅ built + verified on the device · 🔨 built, not yet verified ·
 | More → Start from the beginning | ✅ | offered only when a bookmark exists |
 | More → Save / Remove from Library | ✅ | duplicated in the menu deliberately: the menu is where a viewer looks for verbs |
 | Choose version (pick a copy) | ⏳ | needs the item's file list from archive.org; see CATALOG-VERSION-SELECTION §2 for why this matters |
-| Add to Playlist | ⏳ | blocked on playlists |
+| Add to Playlist | ✅ | existing lists, or a new one named on Roku's keyboard |
 | More Like This row | ⏳ | |
 | Next Episode button | ✅ | via the series queue, not a Detail button |
 | Also known as (Decision 100) | ✅ | |
@@ -68,7 +68,7 @@ Legend: ✅ built + verified on the device · 🔨 built, not yet verified ·
 | Play episode | ✅ | verified: position advancing |
 | Autoplay next episode | ✅ | honours the Options setting |
 | Favorite a series | ⏳ | |
-| Add series to playlist | ⏳ | blocked on playlists |
+| Add series to playlist | ⏳ | film-level playlists ship; a series is not an item |
 
 ## Channels
 
@@ -87,8 +87,8 @@ Legend: ✅ built + verified on the device · 🔨 built, not yet verified ·
 |---|---|---|
 | Favorites | ✅ | |
 | Continue Watching | ✅ | |
-| Watched list | ⏳ | |
-| Playlists (create / add / Play All / remove / delete) | ⏳ | now the largest single gap |
+| Watched list | ⏳ | watched state exists; no dedicated row yet |
+| Playlists (create / add / Play All / remove / delete) | ✅ | store proven by an 18-assertion on-device self-test; Roku's own KeyboardDialog names them |
 | Storage budget stated | ✅ | Roku-specific: 32 KB registry |
 
 ## Search

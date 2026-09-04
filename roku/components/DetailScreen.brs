@@ -188,6 +188,12 @@ sub onDetail()
 end sub
 
 sub onFocusOn()
+    ' The component CLAIMS focus itself, the way every other screen here does.
+    ' It used to rely on the Scene calling setFocus after setting focusOn, so
+    ' converting the Scene to refocus() (which only toggles the field) left
+    ' Detail painted but unfocused — the buttons drew correctly and every press
+    ' went straight past them to Home underneath.
+    if m.top.focusOn then m.top.setFocus(true)
     paintButtons()
 end sub
 

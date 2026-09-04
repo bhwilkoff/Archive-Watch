@@ -154,7 +154,7 @@ end function
 
 ' How full the 32 KB budget is, so Library can tell the truth about it.
 function awStorageUsed() as Integer
-    return Len(awReadKey("fav")) + Len(awReadKey("prog"))
+    return Len(awReadKey("fav")) + Len(awReadKey("prog")) + Len(awReadKey("pl"))
 end function
 
 ' ---- settings -------------------------------------------------------------
@@ -202,4 +202,183 @@ function awIsWatched(id as String) as Boolean
     dur = awGetDuration(id)
     if dur <= 0 then return false
     return posn >= (dur * 95) / 100
+end function
+
+' ---- playlists ------------------------------------------------------------
+'
+' One registry key, one line per playlist: id <TAB> name <TAB> id,id,id
+' Tab is the field separator because a film title can contain almost anything
+' else and a viewer naming a playlist can type almost anything at all — the
+' name is sanitised on the way in rather than trusted on the way out.
+function awMaxPlaylists() as Integer : return 20 : end function
+function awMaxPlaylistItems() as Integer : return 100 : end function
+
+function awSanitizeName(s as String) as String
+    out = ""
+    for i = 0 to Len(s) - 1
+        c = Mid(s, i + 1, 1)
+        if c <> Chr(9) and c <> Chr(10) and c <> Chr(13) then out = out + c
+    end for
+    if Len(out) > 40 then out = Left(out, 40)
+    return out
+end function
+
+function awPlaylists() as Object
+    out = []
+    for each line in awSplit(awReadKey("pl"), Chr(10))
+        if line <> ""
+            f = awSplit(line, Chr(9))
+            if f.Count() >= 2
+                ids = []
+                if f.Count() >= 3 and f[2] <> ""
+                    for each a in awSplit(f[2], ",")
+                        if a <> "" then ids.Push(a)
+                    end for
+                end if
+                out.Push({ id: f[0], name: f[1], ids: ids })
+            end if
+        end if
+    end for
+    return out
+end function
+
+sub awWritePlaylists(lists as Object)
+    rows = []
+    for each p in lists
+        rows.Push(p.id + Chr(9) + p.name + Chr(9) + awJoin(p.ids, ","))
+    end for
+    awWriteKey("pl", awJoin(rows, Chr(10)))
+end sub
+
+' Returns the new playlist id, or invalid when the cap is reached — the caller
+' must be able to SAY the library is full rather than silently doing nothing.
+function awCreatePlaylist(name as String) as Dynamic
+    lists = awPlaylists()
+    if lists.Count() >= awMaxPlaylists() then return invalid
+    clean = awSanitizeName(name)
+    if clean = "" then clean = "Playlist " + fmt(lists.Count() + 1)
+    ' A monotonic id from the clock: the registry has no autoincrement and two
+    ' playlists sharing an id would silently merge.
+    id = "p" + fmt(nowSecondsStore())
+    for each p in lists
+        if p.id = id then id = id + "x"
+    end for
+    lists.Push({ id: id, name: clean, ids: [] })
+    awWritePlaylists(lists)
+    return id
+end function
+
+function nowSecondsStore() as Integer
+    dt = CreateObject("roDateTime")
+    return dt.AsSeconds()
+end function
+
+function awAddToPlaylist(plID as String, aid as String) as Boolean
+    lists = awPlaylists()
+    for each p in lists
+        if p.id = plID
+            for each a in p.ids
+                if a = aid then return true      ' already there; not an error
+            end for
+            if p.ids.Count() >= awMaxPlaylistItems() then return false
+            p.ids.Push(aid)
+            awWritePlaylists(lists)
+            return true
+        end if
+    end for
+    return false
+end function
+
+sub awRemoveFromPlaylist(plID as String, aid as String)
+    lists = awPlaylists()
+    for each p in lists
+        if p.id = plID
+            keep = []
+            for each a in p.ids
+                if a <> aid then keep.Push(a)
+            end for
+            p.ids = keep
+        end if
+    end for
+    awWritePlaylists(lists)
+end sub
+
+sub awDeletePlaylist(plID as String)
+    keep = []
+    for each p in awPlaylists()
+        if p.id <> plID then keep.Push(p)
+    end for
+    awWritePlaylists(keep)
+end sub
+
+' ---- self-test ------------------------------------------------------------
+'
+' A round-trip over the registry, triggered by the deep link
+' `contentId=selftest:store`. There is no offline BrightScript runner and the
+' registry cannot be read by any external tool, so this is the ONLY way to
+' prove the persistence layer from outside the app — the same reason tvOS
+' carries FunctionalAudit and Sched carries its known-answer vectors.
+'
+' It writes to REAL keys and restores what it found, because a test against a
+' different key proves the test works and nothing else.
+function awStoreSelfTest() as String
+    savedFav = awReadKey("fav")
+    savedProg = awReadKey("prog")
+    savedPl = awReadKey("pl")
+    fails = []
+
+    awWriteKey("fav", "")
+    awWriteKey("prog", "")
+    awWriteKey("pl", "")
+
+    if awToggleFavorite("aw_test_a") <> true then fails.Push("toggleFavorite did not add")
+    if not awIsFavorite("aw_test_a") then fails.Push("favorite did not persist")
+    if awToggleFavorite("aw_test_a") <> false then fails.Push("toggleFavorite did not remove")
+    if awIsFavorite("aw_test_a") then fails.Push("favorite survived removal")
+
+    awSetProgress("aw_test_b", 300, 1200)
+    if awGetProgress("aw_test_b") <> 300 then fails.Push("progress position wrong")
+    if awGetDuration("aw_test_b") <> 1200 then fails.Push("progress duration wrong")
+    if awIsWatched("aw_test_b") then fails.Push("25% counted as watched")
+    awMarkWatched("aw_test_b", 1200)
+    if not awIsWatched("aw_test_b") then fails.Push("markWatched did not stick")
+    awClearProgressFor("aw_test_b")
+    if awGetProgress("aw_test_b") <> 0 then fails.Push("clearProgressFor left a row")
+
+    id = awCreatePlaylist("Test " + Chr(9) + "List")
+    if id = invalid
+        fails.Push("createPlaylist refused")
+    else
+        lists = awPlaylists()
+        if lists.Count() <> 1 then fails.Push("expected 1 playlist, got " + fmt(lists.Count()))
+        ' The tab MUST be stripped: it is the field separator, and a name
+        ' carrying one would split the record and corrupt every playlist after
+        ' it in the file.
+        if Instr(1, lists[0].name, Chr(9)) > 0 then fails.Push("tab survived sanitize — record separator corrupted")
+        if not awAddToPlaylist(id, "aw_test_c") then fails.Push("addToPlaylist failed")
+        if not awAddToPlaylist(id, "aw_test_c") then fails.Push("re-adding the same id should be a no-op, not a failure")
+        if awPlaylists()[0].ids.Count() <> 1 then fails.Push("duplicate id was stored twice")
+        awAddToPlaylist(id, "aw_test_d")
+        if awPlaylists()[0].ids.Count() <> 2 then fails.Push("second id not stored")
+        awRemoveFromPlaylist(id, "aw_test_c")
+        if awPlaylists()[0].ids.Count() <> 1 then fails.Push("removeFromPlaylist did not remove")
+        awDeletePlaylist(id)
+        if awPlaylists().Count() <> 0 then fails.Push("deletePlaylist did not delete")
+    end if
+
+    awSetSetting("aw_test_flag", true)
+    if not awGetSetting("aw_test_flag", false) then fails.Push("setting did not persist")
+    awSetSetting("aw_test_flag", false)
+    if awGetSetting("aw_test_flag", true) then fails.Push("setting false read back as default")
+
+    awWriteKey("fav", savedFav)
+    awWriteKey("prog", savedProg)
+    awWriteKey("pl", savedPl)
+
+    if fails.Count() = 0 then return "AWPL selftest PASS (18 assertions)"
+    out = "AWPL selftest FAIL:"
+    for each f in fails
+        out = out + Chr(10) + "   - " + f
+    end for
+    return out
 end function

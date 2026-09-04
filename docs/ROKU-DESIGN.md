@@ -461,3 +461,17 @@ The rail, the overhang, the brand mark and the clock are all hidden during
 playback, and the player is full-bleed at `[0, 0]` rather than inset by the
 rail. This is Decision 103's rule arriving on a fourth platform: chrome that is
 right for browsing is never right over a picture.
+
+
+### §2.1b — The collapsed rail carries ICONS, not bars
+
+Amends §2.1a. The first collapsed rail drew a 42x6 bar per surface, which
+carries POSITION — which of eight you are on — and not IDENTITY. Identity is
+the whole point of a collapsed rail: it has to answer "which one is Search"
+without expanding, or the viewer expands it every time and the collapse saved
+nothing.
+
+Eight single-colour 48x48 PNGs under `images/nav/`, tinted through `blendColor`
+so one asset serves the dim, selected and focused states. The icon does NOT
+disappear when the rail expands — the label appears BESIDE it — because a rail
+whose glyphs vanish on expand reads as two different navigations.

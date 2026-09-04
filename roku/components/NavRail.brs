@@ -34,18 +34,19 @@ sub init()
         pill.translation = [12, 0]
         pill.color = "0x00000000"
 
-        ' Collapsed, each surface is a short bar. It carries POSITION — which
-        ' of seven you are on — without any label to read or any icon asset to
-        ' invent, and it is legible at ten feet because it is the only coloured
-        ' thing in an 84px column.
-        mark = g.CreateChild("Rectangle")
-        mark.width = 42 : mark.height = 6
-        mark.translation = [21, 30]
-        mark.color = m.t.textSec
+        ' Collapsed, each surface is its ICON. A bar carries POSITION — which
+        ' of eight you are on — but not IDENTITY, and identity is the whole
+        ' point of a collapsed rail: it has to answer "which one is Search"
+        ' without expanding. The glyphs are single-colour PNGs tinted through
+        ' blendColor, so one asset serves the dim, selected and focused states.
+        mark = g.CreateChild("Poster")
+        mark.uri = "pkg:/images/nav/" + it.id + ".png"
+        mark.width = 48 : mark.height = 48
+        mark.translation = [18, 9]
 
         lbl = g.CreateChild("Label")
         lbl.text = it.label
-        lbl.translation = [30, 18]
+        lbl.translation = [84, 18]
         lbl.color = m.t.textSec
         lbl.font = m.t.uMeta
         lbl.visible = false
@@ -78,20 +79,23 @@ sub paint()
         ' hero title beside it — visible only on the glass.
         r.pill.width = pw
         r.label.visible = expanded
-        r.mark.visible = not expanded
+        ' The icon stays put when the rail expands and the label appears BESIDE
+        ' it — a rail whose icons vanish on expand makes the two states look
+        ' like different navigations.
+        r.mark.visible = true
         if hasFocus
             r.pill.color = m.t.marquee
             r.label.color = "0x0B0B0CFF"
         else if isSel
             r.pill.color = "0xEB553144"
             r.label.color = m.t.textPri
-            r.mark.color = m.t.marquee
+            r.mark.blendColor = m.t.marquee
         else
             r.pill.color = "0x00000000"
             r.label.color = m.t.textSec
-            r.mark.color = "0x55555AFF"
+            r.mark.blendColor = "0x8A8F98FF"
         end if
-        if isSel and not expanded then r.mark.color = m.t.marquee
+        if isSel then r.mark.blendColor = m.t.marquee
     end for
 end sub
 
