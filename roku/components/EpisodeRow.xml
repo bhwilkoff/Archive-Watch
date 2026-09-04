@@ -14,6 +14,7 @@
     <Rectangle id="card" />
     <Label id="cardText" />
     <Poster id="still" />
+    <Group id="stillFrame" />
     <Label id="num" />
     <Label id="title" />
     <Label id="blurb" />

@@ -28,10 +28,10 @@ sub init()
     m.rowsG.numRows = 4
     m.rowsG.font = m.t.uBody
     m.rowsG.color = m.t.textPri
-    m.rowsG.focusedColor = m.t.marquee
-    m.rowsG.focusBitmapUri = "pkg:/images/ring_focus.9.png"
-    m.rowsG.focusFootprintBitmapUri = "pkg:/images/ring_footprint.9.png"
-    m.rowsG.drawFocusFeedbackOnTop = true
+    m.rowsG.focusedColor = m.t.canvas
+    m.rowsG.focusBitmapUri = "pkg:/images/pill_focus.9.png"
+    m.rowsG.focusFootprintBitmapUri = "pkg:/images/pill_rest.9.png"
+    m.rowsG.drawFocusFeedbackOnTop = false
     m.rowsG.vertFocusAnimationStyle = "floatingFocus"
     m.rowsG.ObserveField("itemSelected", "onRow")
 

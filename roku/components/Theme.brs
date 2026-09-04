@@ -275,6 +275,9 @@ function AWFrameBuild(parent as Object) as Object
         p = parent.CreateChild("Poster")
         p.uri = "pkg:/images/slices/corner_" + n + ".png"
         p.width = 12 : p.height = 12
+        ' Hidden until placed: an unplaced corner is four 12 px canvas squares
+        ' at the component's origin.
+        p.visible = false
         f.corners.Push(p)
     end for
     for each n in ["tl", "tr", "bl", "br", "t", "b", "l", "r"]
@@ -292,7 +295,14 @@ end function
 sub AWFramePlace(f as Object, art as Object, lit as Boolean)
     if f = invalid or art = invalid then return
     w = art.width : h = art.height
-    bw = art.bitmapWidth : bh = art.bitmapHeight
+    ' A Rectangle has no bitmap fields; the frame then fits the node itself.
+    ' (`bw > 0` on Invalid is a Type Mismatch that halts the whole component —
+    ' the Surprise grid and the rail both went down on it.)
+    bw = 0 : bh = 0
+    if art.HasField("bitmapWidth")
+        if art.bitmapWidth <> invalid then bw = art.bitmapWidth
+        if art.bitmapHeight <> invalid then bh = art.bitmapHeight
+    end if
     dw = w : dh = h
     if bw > 0 and bh > 0
         sx = w / bw : sy = h / bh
@@ -300,7 +310,8 @@ sub AWFramePlace(f as Object, art as Object, lit as Boolean)
         dw = Int(bw * sc) : dh = Int(bh * sc)
     end if
     x = Int((w - dw) / 2) : y = Int((h - dh) / 2)
-    ready = (art.loadStatus = "ready")
+    ready = true
+    if art.HasField("loadStatus") then ready = (art.loadStatus = "ready")
     ' Corners: on the art's own rectangle, only once there IS art.
     c = f.corners
     c[0].translation = [x, y]

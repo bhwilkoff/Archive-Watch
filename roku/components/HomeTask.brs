@@ -20,7 +20,9 @@ end function
 ' never a genre dragnet, and never a shelf built from a popularity signal
 ' alone, which is how an adult title reaches the top of Home.
 function isHeroShelf(id as String) as Boolean
-    ok = ["editors-picks", "all-time-features", "wikidata-pd", "popular-features",
+    ' NOT popular-features: it is a popularity signal, and a 1971 sexploitation
+    ' title led Home from it twice. Curated and canon only.
+    ok = ["editors-picks", "all-time-features", "wikidata-pd",
           "film-noir", "silent-era", "silent-hall-of-fame", "melies",
           "classic-cartoons", "hidden-gems", "top-rated"]
     for each k in ok

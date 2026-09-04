@@ -16,6 +16,7 @@ sub init()
     ' own width, so the chip read as "ON N". Sized to the text, not guessed.
     m.chip.translation = [840, 18] : m.chip.width = 168 : m.chip.height = 34
     m.chip.color = m.t.marquee
+    m.chipFrame = AWFrameBuild(m.top.FindNode("chipFrame"))
     m.chipText.font = m.t.uMeta : m.chipText.color = "0x0B0B0CFF"
     m.chipText.translation = [864, 22]
     m.chipText.text = "ON NOW"
@@ -29,13 +30,21 @@ sub onContent()
     isNow = (c.SHORTDESCRIPTIONLINE2 = "now")
     m.chip.visible = isNow
     m.chipText.visible = isNow
+    ' §13.4 — the ON NOW chip is a rounded tag, not a slab.
+    if isNow
+        AWFramePlace(m.chipFrame, m.chip, false)
+    else
+        for each c in m.chipFrame.corners
+            c.visible = false
+        end for
+    end if
 end sub
 
 sub onFocus()
     ' §5.4 — focus is a colour step, never a scale: the row sits in a list whose
     ' geometry must not move when the selection does.
     if m.top.focusPercent > 0.5
-        m.title.color = m.t.marquee
+        m.title.color = m.t.textPri
     else
         m.title.color = m.t.textPri
     end if

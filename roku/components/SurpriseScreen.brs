@@ -41,8 +41,10 @@ sub init()
     m.grid.numRows = 5
     m.grid.itemSize = [528, 162]
     m.grid.itemSpacing = [24, 24]
-    m.grid.focusBitmapUri = "pkg:/images/ring_focus.9.png"
-    m.grid.focusFootprintBitmapUri = "pkg:/images/ring_footprint.9.png"
+    ' The TILE draws its own ring (§13.3); the grid's bitmap would be a
+    ' second, concentric one — which is what the glass showed.
+    m.grid.focusBitmapUri = "pkg:/images/focus_none.9.png"
+    m.grid.focusFootprintBitmapUri = "pkg:/images/focus_none.9.png"
     m.grid.drawFocusFeedbackOnTop = true
     m.grid.vertFocusAnimationStyle = "floatingFocus"
     m.grid.ObserveField("itemSelected", "onSelected")

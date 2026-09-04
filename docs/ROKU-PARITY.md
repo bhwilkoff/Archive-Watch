@@ -973,3 +973,53 @@ cell-sized ring look absurd.
 5. Whether the resilient-playback gap (Decisions 021/031/034) can be partly
    recovered on the `Video` node — the owner asked for this to be investigated
    before the rest of the app is built on top of it.
+
+
+## The design upgrade (ROKU-DESIGN §13) — lessons 78-86
+
+78. **Roku's system fonts have no size.** Every level was one of six named
+    faces at whatever size the OS chose; Theme.brs said so in a comment
+    nobody acted on. A `Font` node with `uri` + `size` on a bundled TTF is the
+    whole answer, and a Latin subset of six faces is 516 KB against a 4 MB
+    cap. This one change did more for "looks designed" than everything after
+    it.
+
+79. **A gradient built from rectangles bands; a ring built from a `.9.png`
+    on a Poster keeps its guides.** Both are the "obvious workaround" and both
+    fail visibly. Gradients are PNGs; tile rings are corner + edge slices; only
+    a LIST may consume a nine-patch.
+
+80. **`bitmapWidth` on a Rectangle is Invalid, and `Invalid > 0` halts the
+    component.** The frame helper took a Rectangle (the Surprise plate, the
+    rail pill) and the whole channel sat on its splash — five screenshots of
+    the splash before the console said why. `HasField` first.
+
+81. **An unplaced corner is four canvas squares at the origin.** Frame
+    corners start hidden and appear when placed.
+
+82. **The console REPLAYS its backlog on connect**, so an error read after a
+    redeploy may be the previous run's. Mark the line count after launch and
+    read only what follows.
+
+83. **A `str.replace` that matches nothing is a silent no-op** — the third
+    time this session. Every scripted edit asserts its match; a regex that
+    "framed 0" chips was caught only because it printed its count.
+
+84. **The rail's cursor is the rail's own `m.index`**, not the `selectedIndex`
+    field; a surface opened by deep link, Surprise door or Back left the rail
+    marking Home. `syncID` moves the cursor.
+
+85. **Two rings at once is a bug with two causes**: a grid's own focus bitmap
+    drawn around a tile that draws its own (Surprise), and a list's footprint
+    at 35% reading as live (Series). Tiles that ring themselves get
+    `focus_none`; the footprint is 22%.
+
+86. **The hero pool must not include a popularity shelf.** `popular-features`
+    put *She Killed in Ecstasy* at the top of Home twice — once after the
+    pool had been "curated". Curated and canon only, by shelf id.
+
+**Verified on the glass this pass**: Home, Browse (chips + grid), Detail on
+three art cases, Series, Surprise, Collections, Library, Options, Channels,
+the rail expanded and collapsed. Still to do with the same adversarial pass:
+Search results (unloaded plates), the player HUD, the ON NOW chip corners,
+Library's full/empty states, Cartoon Mode.

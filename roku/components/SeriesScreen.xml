@@ -16,11 +16,15 @@
   <script type="text/brightscript" uri="pkg:/components/UserStore.brs" />
   <script type="text/brightscript" uri="pkg:/components/SeriesScreen.brs" />
   <children>
+    <!-- §13.7 — the same scene as Detail: backdrop across the top under the
+         gradient, the spine's poster inset over the seam, copy to its right,
+         seasons and episodes below the seam. -->
     <Poster id="wash" />
-    <Rectangle id="scrim" />
-    <!-- The spine's own poster. The right half of this screen was empty on
-         every series, while Detail shows the art for a single film. -->
+    <Poster id="fade" />
+    <Rectangle id="scrim" visible="false" />
     <Poster id="art" />
+    <Group id="artFrame" />
+    <Label id="kind" />
     <Label id="title" />
     <Label id="meta" />
     <Label id="overview" />

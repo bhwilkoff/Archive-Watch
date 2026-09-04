@@ -14,5 +14,6 @@
     <Label id="title" />
     <Rectangle id="nowChip" visible="false" />
     <Label id="nowText" visible="false" />
+    <Group id="chipFrame" />
   </children>
 </component>

@@ -9,34 +9,46 @@ sub init()
     m.episodes = m.top.FindNode("episodes")
     m.empty = m.top.FindNode("empty")
 
-    m.wash.translation = [0, 0]
-    m.wash.width = 1836 : m.wash.height = 480
-    m.wash.loadDisplayMode = "scaleToFill"
-    m.wash.opacity = 0.10
-
-    m.scrim.translation = [0, 0]
-    m.scrim.width = 1836 : m.scrim.height = 480
-    m.scrim.color = "0x0B0B0CCC"
+    ' §13.7 — the backdrop is the scene, at full brightness under the tvOS
+    ' gradient. It was a 0.10 wash behind an opaque scrim: a ghost of the
+    ' title card that read as a rendering fault.
+    m.wash.translation = [-150, 0]
+    m.wash.width = 2070 : m.wash.height = 648
+    m.wash.loadDisplayMode = "scaleToZoom"
+    m.wash.opacity = 1.0
+    m.fade = m.top.FindNode("fade")
+    m.fade.uri = "pkg:/images/hero_scrim_v.png"
+    m.fade.translation = [-150, 0]
+    m.fade.width = 2070 : m.fade.height = 648
+    m.fade.loadDisplayMode = "scaleToFill"
 
     ' Decision 097 — fitted at the art's OWN aspect, never cropped into a box.
     m.art = m.top.FindNode("art")
-    m.art.translation = [1300, 126]
-    m.art.width = 480 : m.art.height = 720
+    m.art.translation = [42, 318]
+    m.art.width = 288 : m.art.height = 432
     m.art.loadDisplayMode = "scaleToFit"
     m.art.visible = false
+    m.artFrame = AWFrameBuild(m.top.FindNode("artFrame"))
+    m.art.ObserveField("loadStatus", "onArtLoaded")
+    m.kind = m.top.FindNode("kind")
+    m.kind.font = m.t.uEyebrow : m.kind.color = AccentFor("tv-series")
+    m.kind.translation = [378, 318]
+    m.kind.text = AWTracked("TELEVISION")
 
-    m.title.font = m.t.uScreen : m.title.color = m.t.textPri
-    m.title.translation = [42, 126] : m.title.width = 1220
+    m.title.font = m.t.uTitle : m.title.color = m.t.textPri
+    m.title.translation = [378, 348] : m.title.width = 1380
     m.title.maxLines = 1 : m.title.ellipsizeOnBoundary = true
 
     m.meta.font = m.t.uMeta : m.meta.color = m.t.textSec
-    m.meta.translation = [42, 192]
+    m.meta.translation = [378, 432]
 
-    m.overview.font = m.t.uMeta : m.overview.color = m.t.textSec
-    m.overview.translation = [42, 234] : m.overview.width = 1220
+    m.overview.font = m.t.uBody : m.overview.color = m.t.textPri
+    m.overview.translation = [378, 480] : m.overview.width = 1140
     m.overview.wrap = true : m.overview.maxLines = 2
+    m.overview.ellipsizeOnBoundary = true
 
-    m.seasons.translation = [42, 342]
+    ' Seasons and episodes below the seam, right of the poster column.
+    m.seasons.translation = [378, 606]
     m.seasons.itemSize = [252, 60]
     m.seasons.itemSpacing = [0, 12]
     m.seasons.numRows = 9
@@ -52,12 +64,12 @@ sub init()
     m.seasons.vertFocusAnimationStyle = "floatingFocus"
     m.seasons.ObserveField("itemFocused", "onSeasonFocused")
 
-    m.episodes.translation = [342, 342]
+    m.episodes.translation = [654, 606]
     m.episodes.itemComponentName = "EpisodeRow"
     ' Left of the poster, which starts at 1300.
-    m.episodes.itemSize = [930, 159]
+    m.episodes.itemSize = [1140, 141]
     m.episodes.itemSpacing = [0, 12]
-    m.episodes.numRows = 4
+    m.episodes.numRows = 3
     m.episodes.focusBitmapUri = "pkg:/images/ring_focus.9.png"
     m.episodes.focusFootprintBitmapUri = "pkg:/images/ring_footprint.9.png"
     m.episodes.drawFocusFeedbackOnTop = true
@@ -67,7 +79,7 @@ sub init()
     m.empty.font = m.t.uBody : m.empty.color = m.t.textSec
     ' Below the episode list, clear of it, so a notice never covers the rows
     ' the viewer is choosing from.
-    m.empty.translation = [342, 942] : m.empty.width = 1200 : m.empty.wrap = true
+    m.empty.translation = [654, 1002] : m.empty.width = 1200 : m.empty.wrap = true
     m.empty.maxLines = 2 : m.empty.color = m.t.marquee
 
     m.col = 0
@@ -81,6 +93,10 @@ end sub
 sub showNotice(msg as String)
     m.empty.visible = (msg <> "")
     m.empty.text = msg
+end sub
+
+sub onArtLoaded()
+    if m.art.loadStatus = "ready" then AWFramePlace(m.artFrame, m.art, false)
 end sub
 
 sub showSeries(d as Object)
@@ -125,8 +141,12 @@ sub showSeries(d as Object)
     if d.overview <> invalid then m.overview.text = StripHTML(fmt(d.overview))
     if d.backdropURL <> invalid and d.backdropURL <> ""
         m.wash.uri = fmt(d.backdropURL)
+        m.wash.opacity = 1.0
     else if d.posterURL <> invalid
         m.wash.uri = fmt(d.posterURL)
+        m.wash.opacity = 0.6
+    else
+        m.wash.uri = ""
     end if
 
     root = CreateObject("roSGNode", "ContentNode")

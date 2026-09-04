@@ -100,6 +100,8 @@ sub onRailSelected()
 end sub
 
 sub onRailSelectedID(id as String)
+    ' Whatever opened this surface, the rail says so (NavRail.syncID).
+    if m.rail <> invalid then m.rail.syncID = id
     ' Navigating away from a playing film stops it. startDeepLink already does
     ' this for a content id; the rail path did not, so a `go:` link arriving
     ' mid-playback left the player running and every later key went to it.

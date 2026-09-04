@@ -7,6 +7,10 @@ sub init()
 
     m.plate.width = 528 : m.plate.height = 162
     m.plate.color = "0x1C1C22FF"
+    ' §13.4 — a rounded card. The frame's corner overlays round the plate;
+    ' its ring lights on focus.
+    m.frame = AWFrameBuild(m.top.FindNode("frame"))
+    AWFramePlace(m.frame, m.plate, false)
 
     ' A short accent rule instead of an icon: no asset to ship, no glyph to
     ' misread at ten feet, and it carries the per-category colour the rest of
@@ -34,11 +38,7 @@ sub onContent()
 end sub
 
 sub onFocus()
-    if m.top.focusPercent > 0.5
-        m.label.color = m.t.marquee
-        m.plate.color = "0x26262EFF"
-    else
-        m.label.color = m.t.textPri
-        m.plate.color = "0x1C1C22FF"
-    end if
+    lit = (m.top.focusPercent > 0.5)
+    if lit then m.plate.color = "0x26262EFF" else m.plate.color = "0x1C1C22FF"
+    AWFramePlace(m.frame, m.plate, lit)
 end sub

@@ -12,6 +12,10 @@
   <interface>
     <field id="selectedIndex" type="integer" value="0" />
     <field id="selected" type="string" alwaysNotify="true" />
+    <!-- Set by the scene when a surface opens by ANY route (a deep link, a
+         Surprise door, Back), so the rail never marks Home while Library is
+         on screen. Repaints; does not fire `selected`. -->
+    <field id="syncID" type="string" onChange="onSyncID" />
     <field id="expanded" type="boolean" value="false" />
     <field id="focusOn" type="boolean" onChange="onFocusOn" />
   </interface>

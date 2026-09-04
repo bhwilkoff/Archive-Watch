@@ -620,8 +620,13 @@ full-bleed across the top 60% with the §13.3 gradient; the poster inset
 lower-left over the seam at its own aspect (Decision 097); title in Fraunces
 to the right of the poster with eyebrow above and meta below; the pill row at
 the seam with Play focused; synopsis at the title-safe inset below; then
-cast, More Like This. A film with no backdrop gets a category-accent field
-(never a stretched poster), exactly as the hero does.
+cast, More Like This. A film with no backdrop gets its own POSTER as an
+ambient wash at 0.6 behind the copy (the Apple TV app's treatment for
+poster-only titles) — measured on the glass against a flat accent field, the
+ambient read as a designed page and the field read as a missing image. The
+HERO keeps the accent field, because a hero is a rotation and a missing
+picture there is one of twelve. A film whose only art is LANDSCAPE is a
+still, not a poster: no inset, the copy takes the column.
 
 **13.8 Nothing on screen tells the viewer how to navigate.** "Press OK on a
 channel to tune in", "Press Right past the keyboard", "OK to open · Left /
@@ -635,6 +640,10 @@ nearly-full / full state with a Remove affordance, not as a counter.
 **13.10 Rhythm.** Amends §4.6 for Browse: the 8-column grid left 126 px of
 dead space between rows. Rows sit on a 24 px gutter both ways; captions ride
 INSIDE the cell reserve, and the reserve is exactly caption + gutter.
+
+**13.10a A focus bitmap that is opaque draws UNDER the text.** Roku's
+`drawFocusFeedbackOnTop` was true on the option lists; with the light pill
+it hid the focused row's own label. Rings go on top, fills go underneath.
 
 **13.11 The ship gate gains four lines** (amends §9): a raw slug on screen; a
 second lit focus ring; a hard-edged poster; an instruction sentence.

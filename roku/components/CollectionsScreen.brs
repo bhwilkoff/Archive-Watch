@@ -12,12 +12,12 @@ sub init()
 
     ' A short rule in the collection's own accent, the same device Detail uses
     ' for its category chip — colour carries MEANING here, never decoration.
-    m.accent.translation = [42, 202]
-    m.accent.width = 96 : m.accent.height = 6
-    m.accent.color = m.t.marquee
-
-    m.blurb.font = m.t.uMeta : m.blurb.color = m.t.textSec
-    m.blurb.translation = [156, 186]
+    ' The accent rule read as a stray dash beside a floating sentence. The
+    ' focused collection's blurb is a TAGLINE under the heading, in the
+    ' display italic, and the row title below says which collection.
+    m.accent.visible = false
+    m.blurb.font = m.t.uTagline : m.blurb.color = m.t.textSec
+    m.blurb.translation = [42, 186]
     m.blurb.width = 1400 : m.blurb.maxLines = 1
 
     m.empty.font = m.t.uBody : m.empty.color = m.t.textSec
@@ -28,7 +28,7 @@ sub init()
     m.rows.numRows = 2
     m.rows.rowFocusAnimationStyle = "floatingFocus"
     m.rows.vertFocusAnimationStyle = "fixedFocus"
-    m.rows.itemSize = [1740, m.t.posterFH + 240]
+    m.rows.itemSize = [1740, m.t.posterFH + 196]
     m.rows.rowItemSize = [[m.t.posterFW, m.t.posterFH]]
     m.rows.rowItemSpacing = [[m.t.gutter, 0]]
     m.rows.rowSpacings = [24]

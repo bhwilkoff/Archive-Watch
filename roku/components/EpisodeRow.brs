@@ -9,35 +9,41 @@ sub init()
     m.bar = m.top.FindNode("bar")
 
     ' 16:9 still, never reshaped (Decision 097 applies to episode art too).
-    m.still.width = 240 : m.still.height = 135
+    m.still.width = 208 : m.still.height = 117
     m.still.translation = [12, 12]
     m.still.loadDisplayMode = "scaleToFit"
+    m.stillFrame = AWFrameBuild(m.top.FindNode("stillFrame"))
+    m.still.ObserveField("loadStatus", "onStillLoaded")
 
     m.card.translation = [12, 12]
-    m.card.width = 240 : m.card.height = 135
+    m.card.width = 208 : m.card.height = 117
     m.card.color = "0x1C1C22FF"
-    m.cardText.translation = [12, 56]
-    m.cardText.width = 240
+    m.cardText.translation = [12, 48]
+    m.cardText.width = 208
     m.cardText.horizAlign = "center"
     m.cardText.font = m.t.uRow
     m.cardText.color = "0x6B6B76FF"
 
     m.num.font = m.t.uMeta : m.num.color = m.t.textSec
-    m.num.translation = [270, 18]
+    m.num.translation = [240, 12]
 
     m.title.font = m.t.uBody : m.title.color = m.t.textPri
-    m.title.translation = [270, 48] : m.title.width = 720
+    m.title.translation = [240, 42] : m.title.width = 870
     m.title.maxLines = 1 : m.title.ellipsizeOnBoundary = true
 
     m.blurb.font = m.t.uMeta : m.blurb.color = m.t.textSec
-    m.blurb.translation = [270, 96] : m.blurb.width = 720
+    m.blurb.translation = [240, 84] : m.blurb.width = 870
     m.blurb.maxLines = 1 : m.blurb.ellipsizeOnBoundary = true
 
     ' Resume progress for THIS episode — the shelf-level answer to "where was I"
     ' that a series with 39 episodes needs more than a film does.
     ' Clear of the blurb's descenders — at 132 it read as an underline of the
     ' text above it rather than as progress.
-    m.bar.translation = [270, 141] : m.bar.height = 5 : m.bar.color = m.t.marquee
+    m.bar.translation = [240, 126] : m.bar.height = 5 : m.bar.color = m.t.marquee
+end sub
+
+sub onStillLoaded()
+    if m.still.loadStatus = "ready" then AWFramePlace(m.stillFrame, m.still, false)
 end sub
 
 sub onContent()
@@ -77,7 +83,7 @@ end sub
 
 sub onFocus()
     if m.top.focusPercent > 0.5
-        m.title.color = m.t.marquee
+        m.title.color = m.t.textPri
     else
         m.title.color = m.t.textPri
     end if

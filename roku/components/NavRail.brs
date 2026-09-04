@@ -33,6 +33,8 @@ sub init()
         pill.height = 66
         pill.translation = [12, 0]
         pill.color = "0x00000000"
+        ' §13.4 — rounded, via the shared frame's corner overlays.
+        frame = AWFrameBuild(g)
 
         ' Collapsed, each surface is its ICON. A bar carries POSITION — which
         ' of eight you are on — but not IDENTITY, and identity is the whole
@@ -51,7 +53,7 @@ sub init()
         lbl.font = m.t.uMeta
         lbl.visible = false
 
-        m.rows.Push({ pill: pill, label: lbl, mark: mark })
+        m.rows.Push({ pill: pill, label: lbl, mark: mark, frame: frame })
         y = y + 78
     end for
 
@@ -83,9 +85,16 @@ sub paint()
         ' it — a rail whose icons vanish on expand makes the two states look
         ' like different navigations.
         r.mark.visible = true
+        ' Corner overlays are canvas-coloured; over a TRANSPARENT pill they
+        ' showed as four dark notches on every unselected row.
+        AWFramePlace(r.frame, r.pill, false)
+        for each c in r.frame.corners
+            c.visible = (hasFocus or isSel)
+        end for
         if hasFocus
-            r.pill.color = m.t.marquee
+            r.pill.color = m.t.textPri
             r.label.color = "0x0B0B0CFF"
+            r.mark.blendColor = "0x0B0B0CFF"
         else if isSel
             r.pill.color = "0xEB553144"
             r.label.color = m.t.textPri
@@ -129,3 +138,18 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
     end if
     return false
 end function
+
+
+sub onSyncID()
+    id = m.top.syncID
+    if id = "" then return
+    for i = 0 to m.items.Count() - 1
+        if m.items[i].id = id
+            m.top.selectedIndex = i
+            ' paint() reads the rail's own cursor, and so does the next Up or
+            ' Down press — both must land on the surface actually on screen.
+            m.index = i
+        end if
+    end for
+    paint()
+end sub
