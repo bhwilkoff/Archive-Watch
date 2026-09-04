@@ -74,8 +74,18 @@ sub run()
 
     span.Mark()
     found = {}
+    byDirector = {}
     for each row in index.items
         aid = row[0]
+        ' A director shelf recommends, so it takes professionally-presented
+        ' films only (Decision 097) and never a series spine.
+        if row.Count() > 12 and row[12] <> invalid and row[12] <> "" and row[5] = 1
+            if Left(fmt(aid), 7) <> "series:"
+                d = fmt(row[12])
+                if byDirector[d] = invalid then byDirector[d] = []
+                if byDirector[d].Count() < 20 then byDirector[d].Push(row)
+            end if
+        end if
         if wanted[aid] <> invalid
             found[aid] = row
         end if
@@ -125,6 +135,12 @@ sub run()
         rows: rowCount, items: index.items.Count(),
         hero: heroPool.GetChildCount()
     }
+    ' Director shelves, from index column 12 (schema 10). Built in the SAME
+    ' pass that already walked every row — a second walk to count directors
+    ' would double the 41ms scan for nothing.
+    addDirectorRows(root, index.items, byDirector)
+    rowCount = rowCount + m.directorRowsAdded
+
     ' Two navigation rows at the END, the way tvOS orders them: films first,
     ' then the doors into the rest of the catalog. They carry no artwork and
     ' route to Browse rather than to a Detail screen.
@@ -158,6 +174,33 @@ end sub
 ' no error, and the reader gets `invalid`. Our own keys are added explicitly.
 ' A row of typographic navigation tiles: no artwork, a label, and an accent
 ' that carries the category's meaning (Decision 013).
+' The directors with the deepest professionally-presented shelves. Six films
+' is the floor: fewer than that is a coincidence of the catalog, not a body of
+' work worth a shelf of its own.
+sub addDirectorRows(root as Object, items as Object, byDirector as Object)
+    m.directorRowsAdded = 0
+    if byDirector = invalid then return
+    ranked = []
+    for each name in byDirector
+        n = byDirector[name].Count()
+        if n >= 6 then ranked.Push({ n: n, name: name })
+    end for
+    ranked.SortBy("n", "r")
+    made = 0
+    for each e in ranked
+        row = root.CreateChild("ContentNode")
+        row.title = "Directed by " + e.name
+        for each r in byDirector[e.name]
+            n = row.CreateChild("ContentNode")
+            fillItem(n, r)
+        end for
+        made = made + 1
+        if made >= 3 then exit for
+    end for
+    m.directorRowsAdded = made
+    print "AWROKU director shelves="; made; " of "; ranked.Count(); " eligible directors"
+end sub
+
 sub addTileRow(root as Object, title as String, tiles as Object)
     row = root.CreateChild("ContentNode")
     row.title = title

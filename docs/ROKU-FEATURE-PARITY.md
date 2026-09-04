@@ -38,7 +38,7 @@ Legend: ✅ built + verified on the device · 🔨 built, not yet verified ·
 | Top Rated | ⏳ | index has no rating column (the same gap PARITY records for web) |
 | Public Domain Day | ⏳ | |
 | Community Favorites / Most Discussed | ⏳ | |
-| Director shelves | ⏳ | index has no director column |
+| Director shelves | ✅ | top 3 of 538 eligible directors, ≥6 professionally-presented films each |
 | Browse by Category tiles | ✅ | typographic cards, 8 categories, route to a scoped Browse |
 | Browse by Era tiles | ✅ | 1900s–1970s; verified landing on "The 1920s · 3428 titles" |
 | Cross-shelf dedup | ⏳ | tvOS guarantees no title repeats across Home |
@@ -51,7 +51,8 @@ Legend: ✅ built + verified on the device · 🔨 built, not yet verified ·
 | Decade / Era facet | ✅ | |
 | Sort (Popular / Newest / Oldest / A–Z) | ✅ | all five measured on the device at 422–602 ms; year-less rows sort LAST |
 | Top Rated sort | ✅ | index schema 10 carries rating and votes; 1,000-vote floor |
-| Genre / Keyword / Studio facets | ⏳ | index carries a search blob, not facet columns |
+| Genre facet | ⏳ | index now carries genres (schema 10); the Browse chip is not built yet |
+| Keyword / Studio facets | ⏳ | searchable via the blob; no facet columns |
 | Result count in the heading | ✅ | |
 | Empty state that says what to change | ✅ | |
 | Shuffle again | ✅ | a fifth sort mode; verified returning a different set |
