@@ -103,7 +103,13 @@ sub init()
     m.rows.rowLabelFont = m.t.uRow
     m.rows.rowLabelColor = m.t.textPri
 
-    m.rows.ObserveField("rowItemFocused", "onTileFocused")
+    ' The hero ROTATES through the pool, the way it does on every other
+    ' platform. It used to follow the focused tile, which meant the marquee
+    ' changed on every press — busy, and it made a poster-less title blank the
+    ' whole band. A carousel is the shape a hero is.
+    m.heroTimer = m.top.FindNode("heroTimer")
+    m.heroTimer.ObserveField("fire", "onHeroTick")
+    m.heroIndex = 0
     m.rows.ObserveField("rowItemSelected", "onTileSelected")
 end sub
 
@@ -114,60 +120,35 @@ end sub
 
 sub onHero()
     pool = m.top.heroContent
-    if pool = invalid
-        print "AWHERO pool invalid"
+    if pool = invalid or pool.GetChildCount() = 0
+        print "AWHERO pool empty"
         return
     end if
     print "AWHERO pool n="; pool.GetChildCount()
-    if pool.GetChildCount() = 0 then return
-    m.heroPool = pool
     m.heroIndex = 0
-    paintHero()
+    paintHero(pool.GetChild(0))
+    m.heroTimer.control = "start"
 end sub
 
-sub paintHero()
-    h = m.heroPool.GetChild(m.heroIndex)
-    if h = invalid then return
-    print "AWHERO paint "; h.title; " uri="; h.awBackdrop
-    m.wash.uri = h.awBackdrop
-    m.art.uri = h.awBackdrop
-    m.hTitle.text = h.title
-    m.hMeta.text = h.SHORTDESCRIPTIONLINE1
-    m.heroId = h.id
+sub onHeroTick()
+    pool = m.top.heroContent
+    if pool = invalid or pool.GetChildCount() = 0 then return
+    m.heroIndex = (m.heroIndex + 1) mod pool.GetChildCount()
+    paintHero(pool.GetChild(m.heroIndex))
 end sub
 
-' The ambient hero follows the focused tile, the way the Google TV build does —
-' but on a DEBOUNCE, because promoting every focus stop while the viewer skims
-' a row would strobe the whole screen.
-sub onTileFocused()
-    idx = m.rows.rowItemFocused
-    if idx = invalid or m.rows.content = invalid then return
-    row = m.rows.content.GetChild(idx[0])
-    if row = invalid then return
-    it = row.GetChild(idx[1])
+sub paintHero(it as Object)
     if it = invalid then return
-    ' A navigation tile is not a film. Letting one drive the hero put "The
-    ' 1900s" over whatever backdrop happened to be up, which reads as a broken
-    ' hero rather than as a shelf of doors.
-    if Left(fmt(it.id), 7) = "browse:" then return
-    ' A real landscape backdrop fills the band. A poster does not: it goes in
-    ' the fitted box on the right, with a dimmed copy of itself as the wash.
     if it.awBackdrop <> invalid and it.awBackdrop <> ""
         m.wash.uri = it.awBackdrop
         m.wash.opacity = 1.0
         m.art.visible = false
     else if it.HDPOSTERURL <> invalid and it.HDPOSTERURL <> ""
-        ' 0.22 was invisible against a black ground, so a poster-only item left
-        ' the band looking empty — the wash exists to give the marquee a
-        ' SURFACE, and a surface nobody can see is not one.
         m.wash.uri = it.HDPOSTERURL
         m.wash.opacity = 0.5
         m.art.uri = it.HDPOSTERURL
         m.art.visible = true
     end if
-    ' An item with NO art of its own leaves the previous picture up. Blanking
-    ' the marquee because the viewer moved onto a poster-less title looks like
-    ' a failure; holding the last image looks like a marquee.
     m.hTitle.text = it.title
     m.hMeta.text = it.SHORTDESCRIPTIONLINE1
     m.heroId = it.id

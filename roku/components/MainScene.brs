@@ -8,27 +8,12 @@ sub init()
     ' a font: system URI renders NOTHING — no error, no warning, an empty
     ' screen with a healthy console. Proven by a three-way experiment on the
     ' device in tick 2 and the reason half this shell was invisible.
-    brand = m.top.FindNode("brand")
-    brand.font = m.t.uRow
-    brand.text = "ARCHIVE WATCH"
-    brand.color = m.t.marquee
-    ' Clear the rail: the content column starts at railW, and the brand is
-    ' content chrome, not rail chrome.
-    brand.translation = [m.t.railW + m.t.readX, 39]
-
-    clock = m.top.FindNode("clock")
-    clock.font = m.t.uMeta : clock.color = m.t.textSec
-    clock.translation = [1560, 45]
-    clock.text = nowString()
-
-    ' §5.7 — the (*) indicator, shown because Options ARE available here.
-    opt = m.top.FindNode("optHint")
-    opt.font = m.t.uMeta : opt.color = m.t.textSec
-    opt.translation = [1770, 45]
-    opt.text = "(*)"
 
     m.loading.font = m.t.uBody : m.loading.color = m.t.textSec
-    m.loading.translation = [m.t.railW + m.t.readX, 480]
+    ' Clear of the EXPANDED rail, not the collapsed one. The rail holds focus
+    ' at launch — something must — so it is 288 wide exactly when this text is
+    ' on screen, and at railW + readX the words sat underneath it.
+    m.loading.translation = [m.t.railExpandedW + m.t.readX, 480]
     m.loading.text = "Loading the archive…"
 
     ' The home screen lives in the content column, right of the rail.
@@ -1839,10 +1824,6 @@ end function
 ' over a picture.
 sub setChromeVisible(on as Boolean)
     m.rail.visible = on
-    m.top.FindNode("overhang").visible = on
-    m.top.FindNode("brand").visible = on
-    m.top.FindNode("clock").visible = on
-    m.top.FindNode("optHint").visible = on
 end sub
 
 sub onPlay()

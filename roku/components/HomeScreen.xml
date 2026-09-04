@@ -25,5 +25,6 @@
     <Label id="heroMeta" />
 
     <RowList id="rows" />
+    <Timer id="heroTimer" duration="9" repeat="true" />
   </children>
 </component>

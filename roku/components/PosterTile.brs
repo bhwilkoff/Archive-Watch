@@ -48,8 +48,11 @@ sub setSize(w as Integer, h as Integer)
     ' them. At h+48 a two-line title ran straight through it — "The Smith
     ' Family (Season 1)" over "1971 · TV" — which is the overlap class the
     ' owner reported. One line of uItem is ~34px, so two plus a gap is 78.
-    m.caption.translation = [0, h + 9]
-    m.meta.translation = [0, h + 114]
+    ' Pinned to the UNFOCUSED height, so the caption does not jump when a tile
+    ' grows under focus — a row of titles that dances as you scroll is worse
+    ' than no titles at all.
+    m.caption.translation = [0, m.t.posterFH + 9]
+    m.meta.translation = [0, m.t.posterFH + 114]
     if m.isTile = true
         m.tileRule.translation = [18, 24]
         m.tileRule.width = 72 : m.tileRule.height = 6
@@ -105,6 +108,7 @@ sub onContent()
     m.tileLabel.translation = [18, 36]
     if c.HDPOSTERURL <> invalid and c.HDPOSTERURL <> "" then m.art.uri = c.HDPOSTERURL
     m.caption.text = c.title
+    m.caption.visible = true
     m.meta.text = c.SHORTDESCRIPTIONLINE1
 end sub
 
@@ -151,7 +155,12 @@ sub onFocusChanged()
         end if
         return
     end if
-    m.caption.visible = focused
+    ' The title is ALWAYS on. Showing it only under the focused tile meant a
+    ' shelf of unlabelled pictures, which is not how any other platform in this
+    ' project presents a shelf — the owner's words were "why are the titles not
+    ' all listed on the shelves". The META line stays focus-only: year and type
+    ' are detail, and six of them per row is noise.
+    m.caption.visible = not m.isTile
     m.meta.visible = focused
     positionRing()
 end sub

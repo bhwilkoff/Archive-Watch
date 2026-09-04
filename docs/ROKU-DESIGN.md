@@ -522,3 +522,30 @@ slice the top off the picture.
 An item with no art of its own leaves the previous picture up. Blanking the
 marquee because the viewer moved onto a poster-less title looks like a
 failure; holding the last image looks like a marquee.
+
+
+### §4.4b — There is no persistent overhang
+
+Superseded: §4.4's 115px brand bar with a clock and a "(*)" indicator. All
+three were permanent elements telling the viewer nothing they did not already
+know, and the owner's question — "what is the (*) in the top right corner?" —
+is the whole argument against it. Roku's own channels carry no persistent title
+bar, every surface already names itself in its heading, and removing it returns
+115px to the hero. `*` remains the options key; it is a platform-wide
+convention and does not need a badge to announce it.
+
+### §5.2b — Every tile carries its title
+
+Superseded: a caption shown only under the FOCUSED tile. That left a shelf of
+unlabelled pictures, which is not how any other platform in this project
+presents a shelf. The title is always on; the META line (year, type) stays
+focus-only, because six of those per row is noise. The caption is pinned to
+the UNFOCUSED poster height so it does not jump as focus travels — a row of
+titles that dances while you scroll is worse than no titles.
+
+### §4.4c — The hero ROTATES
+
+Superseded: a hero that followed the focused tile. It changed the marquee on
+every key press, and a poster-less title blanked the whole band. It now
+rotates through the backdrop pool on a 9-second timer, which is what a hero is
+on every other platform in this project.

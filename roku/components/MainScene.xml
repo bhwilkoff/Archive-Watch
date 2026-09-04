@@ -20,16 +20,12 @@
     <Group id="content" />
     <Group id="overlay" />
 
-    <!-- §4.4 Overhang, 115px. The (*) indicator is the platform's own "there
-         are options here" affordance and using it is the cheapest way to look
-         native (§5.7). -->
-    <!-- Translucent, not solid: the hero is a full-bleed picture now, and an
-         opaque bar would slice its top off. A scrim keeps the brand and the
-         clock legible over whatever the still contains. -->
-    <Rectangle id="overhang" width="1920" height="115" color="0x0B0B0CB3" />
-    <Label id="brand" />
-    <Label id="clock" />
-    <Label id="optHint" />
+    <!-- No overhang. The brand bar, the clock and a bare "(*)" were three
+         permanent elements that told the viewer nothing they did not already
+         know — the owner's question "what is the (*) in the corner?" is the
+         whole argument. Roku's own channels do not carry a persistent title
+         bar, every surface already names itself, and removing it gives the
+         hero its full 115px back. -->
 
     <NavRail id="rail" />
 
