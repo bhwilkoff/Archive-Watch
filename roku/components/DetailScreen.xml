@@ -28,6 +28,12 @@
     <!-- §13.7 — a SCENE: backdrop full-bleed across the top, the tvOS
          gradient over it, the poster inset over the seam, copy to its right.
          With no backdrop the field carries the category accent. -->
+    <!-- §13.7 (revised 2026-09-04): a soft AMBIENT base decoded tiny and
+         scaled up — a real blur, since SceneGraph has no shader — so a poster
+         forced into a 3.19:1 band is never a hard cropped/pixelated image.
+         The sharp `wash` (a true 16:9 backdrop) rides on top of it when one
+         exists; poster-only titles show only the blur. -->
+    <Poster id="washBlur" />
     <Poster id="wash" />
     <Rectangle id="field" visible="false" />
     <Poster id="fade" />

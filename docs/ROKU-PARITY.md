@@ -1210,3 +1210,26 @@ Select sweeps clean.
     still paints the pill Detail behind that banner; a real card or launch
     only ever carries an id that exists, so no user meets it, and gold-plating
     an unreachable path was declined.
+
+108. **The Detail background: a blurred ambient base, not a cropped poster.**
+    The owner reported the Detail background as pixelated and poorly cropped.
+    Root cause, measured: the wash band is 2070x648 (3.19:1) while sources are
+    16:9 backdrops (w1280) and mostly 2:3 posters (w500) — so a poster was
+    zoom-cropped to a thin slice of its middle and upscaled ~4x, which is
+    exactly "pixelated and poorly cropped". SceneGraph has no shader, so the
+    fix is the standard no-GPU-blur technique plus a source-size trick:
+      - A `washBlur` Poster fills the whole band from a TINY source and
+        scaleToZoom — the bilinear upscale IS the blur, so there are no crop
+        edges and no visible pixels. loadWidth alone did NOT work: Roku caches
+        a decoded bitmap per URL, and the inset poster uses the SAME url at
+        full size, so the blur node got the big decode. `blurSrc()` rewrites
+        the url to a genuinely small rendition (tmdb w92, commons width=120,
+        amazon _SX120), forcing a distinct small decode.
+      - The sharp `wash` layer renders ONLY a true 16:9 backdrop (w1280 ->
+        ~1920 on screen, crisp, crops acceptably). A poster never renders as a
+        hard background (Decision 097).
+      - The scrim darkens conditionally: light (0x0A0A0A33) over a vivid
+        backdrop, heavy (0x0A0A0A80) over a poster blur so it recedes.
+      - No image at all -> the category-accent field, as the hero does.
+    Verified on the glass across a TMDb poster, a Commons poster, a real
+    backdrop, and reading mode (the blur dims to 0.10). Build 18.

@@ -233,6 +233,20 @@ focus / layout / animation bugs.
 
 ## Session Log
 
+### 2026-09-04 (owner report) — Detail background rebuilt: blurred ambient base; build 18
+Owner: the Detail background cover art was "very rough ... pixelated and almost
+always poorly cropped". Root cause: a 3.19:1 wash band fed 16:9 backdrops and
+2:3 posters, so a poster was cropped to a thin middle slice and upscaled ~4x.
+Fix (lesson 108): a `washBlur` layer fills the band from a TINY source
+(scaleToZoom bilinear upscale = a real blur, no crop edges, no pixels); the
+sharp layer renders only a true 16:9 backdrop; a conditional scrim (light over
+a backdrop, heavy over a poster blur) keeps the copy legible; no-image ->
+accent field. loadWidth alone failed (Roku's per-URL decode cache served the
+inset's big decode), so `blurSrc()` rewrites to a small rendition (tmdb w92,
+commons width=120, amazon _SX120). Verified on the glass across TMDb/Commons
+posters, a backdrop, and reading mode. Roku build_version 18. (Loop remains
+stopped; this was a direct owner request.)
+
 ### 2026-09-04 (Roku loop, evening +1) — Series polish, empty/error states, loop STOPPED at parity; build 17
 Series scene: "Unsorted" -> "Episodes" / "More Episodes" (tvOS treatment,
 lesson 105); the full-width empty footprint box removed (lesson 106). Reading

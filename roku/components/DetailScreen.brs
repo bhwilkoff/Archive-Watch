@@ -88,6 +88,24 @@ sub init()
     ' with the tvOS gradient (clear, clear, .45, .9, black) over it so the copy
     ' sits on darkness at the seam. The previous build washed it to 0.22
     ' behind an opaque scrim: a picture nobody could see, next to a form.
+    ' The ambient blur base: decode the source at ~200 px, then let the
+    ' compositor scale that tiny texture up to fill the whole 2070x648 band.
+    ' The bilinear upscale IS the blur (Roku has no shader stage), so a 2:3
+    ' poster in a 3.19:1 band reads as a soft wash of the film's own colour
+    ' rather than a hard slice cropped from its middle and pixelated 4x.
+    m.washBlur = m.top.FindNode("washBlur")
+    m.washBlur.width = 2070 : m.washBlur.height = 648
+    m.washBlur.translation = [-150, 0]
+    m.washBlur.loadDisplayMode = "scaleToZoom"
+    ' 96x54: a 10x-plus upscale to the band, heavy enough that even a poster
+    ' with large title text dissolves into pure colour atmosphere rather than
+    ' staying semi-legible behind the copy. Measured at 200 the tablet text on
+    ' The Ten Commandments was still readable; at 96 it is a soft field.
+    m.washBlur.loadWidth = 96 : m.washBlur.loadHeight = 54
+    m.washBlur.opacity = 1.0
+
+    ' The SHARP layer, on top of the blur: only ever a real 16:9 backdrop
+    ' (w1280 -> ~1920 on screen, ~1.5x, crisp). A poster never renders here.
     m.wash.width = 2070 : m.wash.height = 648
     m.wash.translation = [-150, 0]
     m.wash.loadDisplayMode = "scaleToZoom"
@@ -102,6 +120,15 @@ sub init()
     m.field = m.top.FindNode("field")
     m.field.width = 2070 : m.field.height = 648
     m.field.translation = [-150, 0]
+
+    ' A low uniform scrim over the band: the vertical gradient darkens the
+    ' seam, but a colourful poster blur can still be bright up top where the
+    ' eyebrow and title sit. 30% black tames it without dimming a backdrop
+    ' into mud.
+    m.scrim.width = 2070 : m.scrim.height = 648
+    m.scrim.translation = [-150, 0]
+    m.scrim.color = "0x0A0A0A4D"
+    m.scrim.visible = true
 
     ' Decision 097 — the poster FITTED at its own aspect, inset over the seam
     ' lower-left, with the rounded frame every tile carries.
@@ -261,6 +288,40 @@ sub layoutCopy(withPoster as Boolean)
     m.cast.translation = [x, y + 228]
 end sub
 
+
+' A tiny rendition of an image URL, for the ambient blur base only. Roku
+' caches a decoded bitmap per URL, so the blur node reusing the inset poster's
+' URL got the inset's LARGE decode and loadWidth was ignored — the background
+' stayed semi-sharp. A distinct small URL forces a distinct small decode, which
+' is what actually produces the heavy blur. Hosts without a size lever fall
+' through and lean on loadWidth + the scrim.
+function blurSrc(url as String) as String
+    if url = "" then return ""
+    if Instr(1, url, "image.tmdb.org") > 0
+        ' /t/p/w780/hash.jpg or /t/p/original/hash.jpg -> /t/p/w92/hash.jpg
+        r = CreateObject("roRegex", "/(w\d+|original)/", "")
+        return r.ReplaceAll(url, "/w92/")
+    end if
+    if Instr(1, url, "commons.wikimedia.org") > 0 or Instr(1, url, "upload.wikimedia.org") > 0
+        if Instr(1, url, "width=") > 0
+            r = CreateObject("roRegex", "width=\d+", "")
+            return r.ReplaceAll(url, "width=120")
+        end if
+        if Instr(1, url, "?") > 0 then return url + "&width=120"
+        return url + "?width=120"
+    end if
+    if Instr(1, url, "m.media-amazon.com") > 0
+        r = CreateObject("roRegex", "_S[XY]\d+", "")
+        return r.ReplaceAll(url, "_SX120")
+    end if
+    if Instr(1, url, "artworks.thetvdb.com") > 0
+        ' TVDB serves a downscaled copy under /banners/... _t suffix variants;
+        ' no universal lever, so let loadWidth + scrim carry it.
+        return url
+    end if
+    return url
+end function
+
 sub onItem()
     it = m.top.item
     if it = invalid then return
@@ -282,22 +343,43 @@ sub onItem()
     ' ambient wash at 0.6 — the Apple TV app's treatment for poster-only
     ' titles — which on the glass read better than a flat accent field.
     m.art.visible = true
-    if it.awBackdrop <> invalid and it.awBackdrop <> ""
+    hasBd = (it.awBackdrop <> invalid and it.awBackdrop <> "")
+    hasPoster = (it.HDPOSTERURL <> invalid and it.HDPOSTERURL <> "")
+
+    ' The ambient blur base is drawn from the best image we have — a backdrop
+    ' if there is one, otherwise the poster. It always fills the band softly.
+    if hasBd
+        m.washBlur.uri = blurSrc(it.awBackdrop)
+    else if hasPoster
+        m.washBlur.uri = blurSrc(it.HDPOSTERURL)
+    else
+        m.washBlur.uri = ""
+    end if
+    m.washBlur.opacity = 1.0
+
+    ' The sharp layer is ONLY a true 16:9 backdrop. A poster never renders as a
+    ' hard background (Decision 097) — it is the inset, and its colour lives in
+    ' the blur behind. The accent field shows only when there is no image at all.
+    if hasBd
         m.wash.uri = it.awBackdrop
-        m.wash.opacity = 1.0
-        if it.HDPOSTERURL <> invalid and it.HDPOSTERURL <> ""
-            m.art.uri = it.HDPOSTERURL
-        else
-            m.art.uri = ""
-            m.art.visible = false
-            layoutCopy(false)
-        end if
-    else if it.HDPOSTERURL <> invalid and it.HDPOSTERURL <> ""
-        m.wash.uri = it.HDPOSTERURL
-        m.wash.opacity = 0.6
-        m.art.uri = it.HDPOSTERURL
+        m.wash.visible = true
+        m.field.visible = false
+        ' A true backdrop is the hero — keep the scrim light so it stays vivid.
+        m.scrim.color = "0x0A0A0A33"
     else
         m.wash.uri = ""
+        m.wash.visible = false
+        m.field.visible = not hasPoster
+        ' A poster blur is atmosphere, not a picture — darken it further so it
+        ' recedes behind the copy and a high-contrast poster (a green tablet,
+        ' a title card) never competes.
+        m.scrim.color = "0x0A0A0A80"
+    end if
+    m.wash.opacity = 1.0
+
+    if hasPoster
+        m.art.uri = it.HDPOSTERURL
+    else
         m.art.uri = ""
         m.art.visible = false
         layoutCopy(false)
@@ -306,11 +388,17 @@ sub onItem()
     ' exactly what this decided.
     m.artShown = m.art.visible
     m.washOpacity = m.wash.opacity
+    m.washBlurOpacity = m.washBlur.opacity
     if it.awType <> invalid
         m.chip.color = AccentFor(it.awType)
         m.kind.text = AWTracked(UCase(KindLabel(fmt(it.awType))))
         m.kind.color = AccentFor(fmt(it.awType))
         m.chipText.color = AccentFor(it.awType)
+        ' The no-image field carries the category accent at ~15% over black,
+        ' so an imageless Detail still reads as "a silent film" / "a newsreel"
+        ' rather than a blank rectangle (the hero's treatment).
+        acc = AccentFor(fmt(it.awType))
+        m.field.color = Left(acc, 8) + "26"
     end if
     m.aka.text = ""
     m.syn.text = ""
@@ -599,6 +687,7 @@ sub enterReading()
         p.visible = false
     end for
     m.wash.opacity = 0.18
+    m.washBlur.opacity = 0.10
     m.readTitle.text = m.title.text
     m.readTitle.translation = [42, 150]
     m.readTitle.visible = true
@@ -625,5 +714,6 @@ sub exitReading()
         p.visible = (m.artShown = true and m.art.loadStatus = "ready")
     end for
     m.wash.opacity = m.washOpacity
+    m.washBlur.opacity = m.washBlurOpacity
     layoutCopy(m.artShown = true)
 end sub
