@@ -135,6 +135,12 @@ sub init()
     m.syn.translation = [x, 690] : m.syn.width = 1140
     m.syn.wrap = true : m.syn.maxLines = 3
     m.syn.lineSpacing = 6
+    m.reading = false
+    ' §13.12 — the reading header: the title in the row voice, shown only
+    ' while the synopsis is expanded and the scene above it has slid away.
+    m.readTitle = m.top.CreateChild("Label")
+    m.readTitle.font = m.t.uRow : m.readTitle.color = m.t.textSec
+    m.readTitle.visible = false
     m.syn.ellipsizeOnBoundary = true
 
     ' The old accent rule + slug chip is retired: the eyebrow IS the category.
@@ -219,6 +225,7 @@ sub onArtLoaded()
     ' the copy take the column from the title-safe edge.
     landscape = (m.art.bitmapWidth > m.art.bitmapHeight)
     m.art.visible = not landscape
+    m.artShown = not landscape
     for each p in m.artFrame.corners
         p.visible = not landscape
     end for
@@ -260,6 +267,15 @@ sub onItem()
     m.archiveID = it.id
     m.title.text = it.title
     m.meta.text = it.SHORTDESCRIPTIONLINE1
+    ' The audience's rating rides the meta line, as on tvOS — only when a
+    ' real audience produced it (100+ votes; the item carries none otherwise).
+    print "AWDETAIL rating hasField="; it.HasField("awRating"); iif(it.HasField("awRating"), " v=" + fmt(it.awRating), "")
+    if it.HasField("awRating")
+        if it.awRating > 0
+            m.meta.text = m.meta.text + "  ·  " + AWStar() + " " + Left(fmt(it.awRating / 10.0), 3)
+        end if
+    end if
+    exitReading()
     layoutCopy(true)
     ' §13.7 — the backdrop is the SCENE; the poster is the INSET. They were
     ' both being set to the backdrop, so the inset was the same still twice.
@@ -287,6 +303,10 @@ sub onItem()
         m.art.visible = false
         layoutCopy(false)
     end if
+    ' Remembered for reading mode, which hides the scene and must restore
+    ' exactly what this decided.
+    m.artShown = m.art.visible
+    m.washOpacity = m.wash.opacity
     if it.awType <> invalid
         m.chip.color = AccentFor(it.awType)
         m.kind.text = AWTracked(UCase(KindLabel(fmt(it.awType))))
@@ -399,7 +419,11 @@ sub onFocusOn()
         ' Select meant to start the film opened a menu instead. Seen in a
         ' depth-2 sweep: "press Select to play" opened the options panel.
         m.focusIndex = 0
-        if m.like <> invalid then m.like.opacity = 0.55
+        if m.like <> invalid
+            m.like.opacity = 0.55
+            m.like.setFocus(false)
+        end if
+        m.inLike = false
         m.top.setFocus(true)
     end if
     paintButtons()
@@ -450,6 +474,22 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
         end if
         return false          ' let the Scene decide (rail / back)
     else if key = "down"
+        if m.reading = true
+            exitReading()
+            if m.likeRow = true
+                m.inLike = true
+                m.like.opacity = 1.0
+                m.like.setFocus(true)
+            end if
+            return true
+        end if
+        ' §13.12 — a synopsis the label had to cut is READABLE: the first Down
+        ' expands it in place (the tvOS reading block), and only then does
+        ' Down reach More Like This. A synopsis that fits is never a stop.
+        if m.inLike <> true and m.syn.isTextEllipsized = true
+            enterReading()
+            return true
+        end if
         if m.likeRow = true and m.inLike <> true
             m.inLike = true
             m.like.opacity = 1.0
@@ -457,7 +497,17 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
             return true
         end if
         return false
+    else if key = "back"
+        if m.reading = true
+            exitReading()
+            return true
+        end if
+        return false
     else if key = "up"
+        if m.reading = true
+            exitReading()
+            return true
+        end if
         if m.inLike = true
             m.inLike = false
             ' A RowList item keeps focusPercent = 1 after the LIST loses focus,
@@ -466,7 +516,13 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
             ' right — but it must read as a footprint, not as focus, so the
             ' whole row dims when it is not the active zone.
             m.like.opacity = 0.55
+            ' Lesson 98: the RowList holds focus here, and claiming the Group
+            ' over it is a silent no-op — the pills LOOKED focused while
+            ' Left/Right kept sliding tiles and Select opened one. Release
+            ' the row first.
+            m.like.setFocus(false)
             m.top.setFocus(true)
+            print "AWDETAIL leave-like topFocus="; m.top.hasFocus(); " likeFocus="; m.like.hasFocus()
             paintButtons()
             return true
         end if
@@ -527,4 +583,48 @@ sub onLikeSelected()
     if row = invalid then return
     it = row.GetChild(idx[1])
     if it <> invalid then m.top.chosen = it.id
+end sub
+
+' §13.12 — reading mode. The scene dims to an ambient wash, the copy above
+' the synopsis leaves, and the synopsis takes the whole column from the
+' title-safe top: 16 lines against the 3 it is cut to at rest. Nothing is
+' narrated; Up or Back restores the page, Down continues to More Like This.
+sub enterReading()
+    if m.reading = true then return
+    m.reading = true
+    print "AWDETAIL reading on"
+    for each n in [m.kind, m.title, m.aka, m.meta, m.btns, m.cast, m.chip, m.chipText, m.art, m.likeLabel, m.like]
+        if n <> invalid then n.visible = false
+    end for
+    for each p in m.artFrame.corners
+        p.visible = false
+    end for
+    m.wash.opacity = 0.18
+    m.readTitle.text = m.title.text
+    m.readTitle.translation = [42, 150]
+    m.readTitle.visible = true
+    m.syn.translation = [42, 232]
+    m.syn.width = 1500
+    m.syn.maxLines = 16
+end sub
+
+sub exitReading()
+    if m.reading <> true then return
+    m.reading = false
+    print "AWDETAIL reading off"
+    m.readTitle.visible = false
+    m.syn.width = 1140
+    m.syn.maxLines = 3
+    for each n in [m.kind, m.title, m.meta, m.btns, m.cast, m.chip, m.chipText]
+        if n <> invalid then n.visible = true
+    end for
+    m.aka.visible = (m.aka.text <> "")
+    m.likeLabel.visible = m.likeRow = true
+    m.like.visible = m.likeRow = true
+    m.art.visible = m.artShown = true
+    for each p in m.artFrame.corners
+        p.visible = (m.artShown = true and m.art.loadStatus = "ready")
+    end for
+    m.wash.opacity = m.washOpacity
+    layoutCopy(m.artShown = true)
 end sub

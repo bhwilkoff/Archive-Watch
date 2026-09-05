@@ -424,3 +424,8 @@ sub AWRing(art as Object, ring as Object, focused as Boolean)
         r.visible = true
     end for
 end sub
+
+' The audience star on a meta line. One glyph, from the font, never an image.
+function AWStar() as String
+    return Chr(9733)
+end function

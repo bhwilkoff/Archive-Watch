@@ -233,6 +233,19 @@ focus / layout / animation bugs.
 
 ## Session Log
 
+### 2026-09-04 (Roku loop, later still) — Detail reading mode, meta line, hero-under-Detail; build 14
+Full lesson-94/98 focus audit across every screen (traces, not screenshots):
+the only live setFocus no-op left was Detail's leave-like (fixed like the
+hero). Then Detail depth: a **reading mode** for the capped synopsis (Down
+expands it in place, tvOS §13.12; verified AWDETAIL reading on/off), the meta
+line rebuilt to **year + up to two Title-Case genres** dropping the eyebrow's
+duplicated kind (His Girl Friday "1940 · Drama", was "Drama · comedy drama"),
+the audience star plumbed through the shared item builders (reaches Detail;
+0 on Continue Watching nodes — a per-path follow-up), and the **hero rotation
+gated off under Detail** (it advanced 8s in and Back returned to a different
+film). Both sweep readers now RECONNECT across relaunch (lesson 95 in tooling).
+Roku build_version 14.
+
 ### 2026-09-04 (Roku loop, later) — dead chips, focus no-ops, accent-drop titles; build 13
 Console-traced verification of the two flows the last tick left "unverified",
 plus what the tracing turned up. Roku `build_version` 13.

@@ -427,8 +427,12 @@ sub appendRow(root as Object, r as Object)
     it.SHORTDESCRIPTIONLINE1 = metaFor(r)
     it.AddField("awBackdrop", "string", false)
     it.AddField("awType", "string", false)
+    it.AddField("awRating", "integer", false)
     if r[7] <> invalid then it.awBackdrop = r[7]
     if r[3] <> invalid then it.awType = r[3]
+    if r.Count() > 11 and r[10] <> invalid and r[11] <> invalid
+        if r[11] >= 100 then it.awRating = r[10]
+    end if
 end sub
 
 sub runQuery()
@@ -653,11 +657,34 @@ function sortByYear(rows as Object, ascending as Boolean) as Object
 end function
 
 function metaFor(r as Object) as String
+    ' Year, then up to two genres. The content KIND is the eyebrow above the
+    ' title on every hero and Detail (§13.7), so repeating it here put the
+    ' same word twice within sixty pixels; genres are what the eyebrow does
+    ' not say. The year stays FIRST — Detail parses it from this string.
     out = ""
     if r[2] <> invalid then out = fmt(r[2])
-    if r[3] <> invalid and r[3] <> ""
-        if out <> "" then out = out + "  ·  "
-        out = out + prettyType(fmt(r[3]))
+    g = ""
+    if r.Count() > 13 and r[13] <> invalid then g = fmt(r[13])
+    added = 0
+    if g <> ""
+        for each part in g.Split("|")
+            ' The index mixes CANONICAL genres (Drama, Comedy, Film Noir —
+            ' Title-Case) with lowercase TMDb descriptor tags ("comedy drama",
+            ' "romantic comedy", "comedy of remarriage"). The descriptors read
+            ' as clutter beside the real genre and duplicate it; keep only the
+            ' Title-Case canon, at most two.
+            if part <> "" and added < 2
+                c0 = Left(part, 1)
+                if c0 = UCase(c0) and c0 <> LCase(c0)
+                    if out <> "" then out = out + "  ·  "
+                    out = out + part
+                    added = added + 1
+                end if
+            end if
+        end for
+    end if
+    if added = 0 and r[3] <> invalid and r[3] <> "" and r[2] = invalid
+        out = prettyType(fmt(r[3]))
     end if
     return out
 end function

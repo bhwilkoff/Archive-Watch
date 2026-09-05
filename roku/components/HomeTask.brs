@@ -324,6 +324,7 @@ sub addTileRow(root as Object, title as String, tiles as Object)
         n.title = t.label
         n.AddField("awBackdrop", "string", false)
         n.AddField("awType", "string", false)
+        n.AddField("awRating", "integer", false)
         n.awType = t.acc
     end for
 end sub
@@ -333,23 +334,48 @@ sub fillItem(n as Object, r as Object)
     n.title = StripHTML(fmt(r[1]))
     n.HDPOSTERURL = r[4]
     n.SHORTDESCRIPTIONLINE1 = metaLine(r)
+    if r.Count() > 11 and r[10] <> invalid and r[11] <> invalid
+        if r[11] >= 100 then n.awRating = r[10]
+    end if
     n.AddField("awBackdrop", "string", false)
     n.AddField("awType", "string", false)
     n.AddField("awBif", "boolean", false)
+    n.AddField("awRating", "integer", false)
     if r.Count() > 15 then n.awBif = (r[15] = 1)
     if r[7] <> invalid then n.awBackdrop = r[7]
     if r[3] <> invalid then n.awType = r[3]
 end sub
 
 function metaLine(r as Object) as String
-    parts = []
-    if r[2] <> invalid then parts.Push(fmt(r[2]))
-    if r[3] <> invalid and r[3] <> "" then parts.Push(prettyType(r[3]))
+    ' Year, then up to two genres. The content KIND is the eyebrow above the
+    ' title on every hero and Detail (§13.7), so repeating it here put the
+    ' same word twice within sixty pixels; genres are what the eyebrow does
+    ' not say. The year stays FIRST — Detail parses it from this string.
     out = ""
-    for i = 0 to parts.Count() - 1
-        if i > 0 then out = out + "  ·  "
-        out = out + parts[i]
-    end for
+    if r[2] <> invalid then out = fmt(r[2])
+    g = ""
+    if r.Count() > 13 and r[13] <> invalid then g = fmt(r[13])
+    added = 0
+    if g <> ""
+        for each part in g.Split("|")
+            ' The index mixes CANONICAL genres (Drama, Comedy, Film Noir —
+            ' Title-Case) with lowercase TMDb descriptor tags ("comedy drama",
+            ' "romantic comedy", "comedy of remarriage"). The descriptors read
+            ' as clutter beside the real genre and duplicate it; keep only the
+            ' Title-Case canon, at most two.
+            if part <> "" and added < 2
+                c0 = Left(part, 1)
+                if c0 = UCase(c0) and c0 <> LCase(c0)
+                    if out <> "" then out = out + "  ·  "
+                    out = out + part
+                    added = added + 1
+                end if
+            end if
+        end for
+    end if
+    if added = 0 and r[3] <> invalid and r[3] <> "" and r[2] = invalid
+        out = prettyType(fmt(r[3]))
+    end if
     return out
 end function
 

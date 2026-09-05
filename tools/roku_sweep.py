@@ -15,23 +15,23 @@ import roku
 
 lines = []
 def reader():
-    s = socket.create_connection((roku.HOST, 8085), timeout=5)
-    s.settimeout(1.0)
-    buf = b""
+    # RECONNECT on EOF: Roku DROPS the 8085 console when the channel
+    # relaunches, so a reader connected once went silent for every step
+    # after the first /launch/dev and the sweep reported NO TRACE (lesson 95).
     while not stop[0]:
         try:
-            c = s.recv(4096)
-        except socket.timeout:
-            continue
+            s=socket.create_connection((roku.HOST,8085),timeout=5); s.settimeout(1.0); buf=b""
+            while not stop[0]:
+                try: c=s.recv(4096)
+                except socket.timeout: continue
+                if not c: break
+                buf+=c
+                while b"\n" in buf:
+                    l,buf=buf.split(b"\n",1); lines.append(l.decode(errors="replace").strip())
+            s.close()
         except OSError:
-            break
-        if not c: break
-        buf += c
-        while b"\n" in buf:
-            l, buf = buf.split(b"\n", 1)
-            lines.append(l.decode(errors="replace").strip())
-    s.close()
-
+            pass
+        time.sleep(1.0)
 stop = [False]
 t = threading.Thread(target=reader, daemon=True); t.start()
 time.sleep(1.5)

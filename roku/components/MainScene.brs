@@ -1797,6 +1797,10 @@ sub openDetail(archiveID as String)
     m.detail.visible = true
     m.detail.item = it
     m.detail.detail = {}
+    ' The hero kept rotating (and fetching art) under Detail, so a viewer
+    ' came back to a different film than they left. Measured in the trace:
+    ' AWHERO index advanced 8 s after Detail opened.
+    m.home.onScreen = false
     m.home.focusOn = false
     m.rail.focusOn = false
     ' refocus(), never `focusOn = true`. On the SECOND visit the field is

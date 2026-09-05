@@ -1129,3 +1129,33 @@ Select sweeps clean.
     returns to the remembered tile. Every screen that hands focus between its
     own zones is a candidate for this; measure with `hasFocus()` in the
     trace, never with a screenshot of the slide.
+
+99. **Reading mode: a cut synopsis is a place to go, not a dead end.** Detail
+    capped the synopsis at 3 lines with a source-level "…" and nothing behind
+    it — the film's own description was unreadable on the one platform whose
+    input is a d-pad. Down from the buttons now expands it in place (the tvOS
+    reading block, §13.12): the scene dims to an ambient wash, the copy above
+    leaves, and the synopsis takes the column at 16 lines; Up or Back
+    restores, a second Down continues to More Like This. Gated on
+    `isTextEllipsized`, so a synopsis that already fits is never a stop.
+    Verified on the glass + trace (AWDETAIL reading on/off).
+
+100. **The meta line said the kind twice and the genre in lower case.** Detail
+    and every hero already carry the content KIND in the accent eyebrow, so
+    repeating "Feature Film" on the meta line below wasted the line; and the
+    index genres field mixes canonical Title-Case genres with lowercase TMDb
+    descriptor tags ("Drama|comedy drama|romantic comedy|comedy of
+    remarriage"), so the raw first-two read "Drama · comedy drama" — a
+    duplicate in two cases. metaFor/metaLine now emit year + up to two
+    Title-Case genres and drop the eyebrow's kind; His Girl Friday reads
+    "1940 · Drama". The audience star rides the same line where the item
+    carries a rating (100+ votes) — plumbed through the shared builders and
+    reaching Detail (hasField=true in the trace); it is 0 on Continue
+    Watching nodes, which HomeTask builds from progress rows rather than
+    index rows — a per-path follow-up, noted not hidden.
+
+101. **The hero kept rotating under Detail.** openDetail did not clear
+    HomeScreen.onScreen, so the carousel advanced and fetched art the whole
+    time a film's Detail was open (AWHERO index += 1 eight seconds in), and
+    Back returned to a different featured film than the viewer left. Gated
+    off in openDetail, restored in closeDetail's Home branch.
