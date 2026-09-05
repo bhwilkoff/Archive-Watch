@@ -233,6 +233,22 @@ focus / layout / animation bugs.
 
 ## Session Log
 
+### 2026-09-05 (night) — Mature content is ONE predicate (Decision 105)
+Owner: the parity target is the apps' DEFAULT-OFF setting; nothing mature may
+show with it off. Roku/web read the index, which has no toggle, so the index
+build now IMPORTS `build_sqlite._is_adult` instead of a looser copy. Measuring
+the drift found the apps' own predicate hiding Mon Oncle / Jour de Fête / Black
+Girl — a user named adult_z favourited them and "fav-adult_z" matched the
+substring marker; fav- lists are skipped now on every platform. Classification
+gained three tiers (subjects: strippers/stag/fetish; title-start `^strippers?`;
+strict TMDb keywords: early pornographic film/softcore/sexploitation/nudie),
+each measured against the live catalog before shipping and narrowed where it
+touched a classic. Verified cold-launched on the Roku: "stripper" 42 → 11
+legitimate films, "porno" 9 → 4. Two traps: my first index edit died with a
+NameError and the job stayed GREEN (the index step is non-fatal); ECP
+/launch/dev on a running channel RESUMES it with the old index in memory —
+press Home first.
+
 ### 2026-09-05 (later) — Roku: batches 2–3 of the owner's feedback; 18 of 22 closed (build 22)
 Structural items, each verified on the glass by screenshot + trace: Surprise
 twelve doors on screen, Random Film = a feature, Party Play an ephemeral MUTED
