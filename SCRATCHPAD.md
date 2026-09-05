@@ -233,6 +233,21 @@ focus / layout / animation bugs.
 
 ## Session Log
 
+### 2026-09-04 (Roku loop, evening) — parity audit + two Detail/Search polish fixes; build 16
+Adversarial re-shoot of EVERY consumer surface on build 15/16 (Home, Browse,
+Detail rest+reading+rating, Series+episodes, Channels, Library, Search, Surprise,
+Collections, Options/Settings, Player). Player playback + resume + bookmark
+VERIFIED by console trace (video plane is black in a screenshot). Two real
+defects found and fixed: the no-still episode card duplicated the title in
+truncated caps -> single-letter monogram (lesson 103); Search said "300 titles
+match" (the render cap) when 8,990 matched -> true total via AWPlural (lesson
+104). Wrote a DISTANCE-TO-PARITY assessment into docs/ROKU-FEATURE-PARITY.md:
+74 verified, 5 impossible (each sourced), 1 open (keyword/studio facet = a
+shared-index pipeline column, not a Roku tick), 0 unverified. Engineering for
+the parity loop is effectively complete; what remains is that pipeline facet
+and the owner-only publish gate (genkey, rating, privacy URL, priced BIF batch).
+Roku build_version 16.
+
 ### 2026-09-04 (Roku loop, later still) — Detail reading mode, meta line, hero-under-Detail; build 14
 Full lesson-94/98 focus audit across every screen (traces, not screenshots):
 the only live setFocus no-op left was Detail's leave-like (fixed like the

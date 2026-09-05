@@ -1173,3 +1173,17 @@ Select sweeps clean.
     declared awRating AFTER assigning it — a set to an undeclared ContentNode
     field is dropped, so every Home-card rating was 0; reordered, verified
     ★ 7.8 on Dr. Mabuse's Detail).
+
+103. **A monogram is a placeholder; a truncated title is a duplicate.** The
+    no-still episode card rendered the episode title in uppercase inside the
+    grey box — "BLACK HA..." beside the label "Black Hand" — saying the same
+    thing twice, and the width-truncation read as broken. A single uppercase
+    initial (F, B) in the display face is a placeholder, not a repeat; the
+    episode number already lives in its own slot. Verified on 13 Demon Street.
+
+104. **A result count states matches, not the render cap.** Search said "300
+    titles match 'the'" — the grid's 300-item cap — while the service had
+    found 8,990, and Browse honestly shows its full total. showResults already
+    received the true total; the status was using the wrong number. Now
+    "8,990 titles match" when unfiltered, the filtered subset count when a
+    facet chip narrows it. AWPlural keeps the agreement.

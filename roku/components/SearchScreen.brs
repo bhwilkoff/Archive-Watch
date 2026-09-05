@@ -112,6 +112,7 @@ sub init()
     m.grid.visible = false
     m.grid.ObserveField("itemSelected", "onSelected")
 
+    m.matchTotal = 0
     m.zone = 0        ' 0 = keyboard, 1 = doors, 2 = results
 end sub
 
@@ -139,6 +140,7 @@ end sub
 sub showResults(root as Object, total as Integer)
     if Len(m.kb.text) < 2 then return
     m.allResults = root
+    m.matchTotal = total
     ' The facet vocabularies are rebuilt from THESE results, so the chips can
     ' only ever offer something that exists in them.
     buildFacets(root)
@@ -264,7 +266,12 @@ sub applyFilters()
         ' The line states the RESULT and nothing else. "Press Right past the
         ' keyboard" was instruction, and the owner's rule is that navigation
         ' is never narrated on screen — the results are visibly to the right.
-        m.status.text = fmt(n) + " titles match “" + m.kb.text + "”"
+        ' The TRUE match count, not the grid's render cap. The service found
+        ' thousands for a common stem; "300 titles match" (the cap) undersold
+        ' it, where Browse honestly shows its full total.
+        shown = m.matchTotal
+        if wantType <> "" or wantDec <> "" then shown = n
+        m.status.text = AWPlural(shown, "title") + " match “" + m.kb.text + "”"
     end if
 end sub
 

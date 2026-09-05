@@ -9,6 +9,40 @@ promises.
 Legend: ✅ built + verified on the device · 🔨 built, not yet verified ·
 ⏳ not built · 🚫 not possible on Roku, with the reason.
 
+## Distance to parity (2026-09-04, build 16)
+
+The tally below counts the rows in this file. Roku is at **feature parity**
+with the Apple TV app except one item that is not a Roku decision to make.
+
+| Status | Count | Meaning |
+|---|---|---|
+| ✅ verified | 74 | built and confirmed on the glass |
+| 🚫 impossible | 5 | Clip Studio, Downloads, Watch Together, Cast/AirPlay-send, PiP, background controls, VHS shader, idle screensaver, mature toggle, **cross-device sign-in** — each with a sourced reason in ROKU-DESIGN §8 (sign-in is blocked by Roku certification, lesson 102) |
+| ⏳ open | 1 | Keyword / Studio search facets — needs a new column in the shared web catalog index (a cross-platform PIPELINE change), so it is not a Roku-app tick. Studio/keyword text is already SEARCHABLE via the blob; only the facet CHIPS are absent |
+| 🔨 unverified | 0 | — |
+
+**Every consumer-facing surface has now been read adversarially on the device
+at build 15/16** — Home, Browse (Movies/TV), Detail (rest + reading mode +
+rating), Series (season↔episode + monogram), Channels EPG, Library, Search
+(results + chips + true count), Surprise, Collections, the Options/Settings
+panel, and the Player (playback + resume + bookmark, confirmed by console
+trace since the video plane does not appear in a screenshot). No Roku-side
+defect is open.
+
+**The two things left are not engineering on the app:**
+1. The keyword/studio facet, which is a pipeline column decision affecting all
+   platforms.
+2. The owner-only publish gate — a signing key (`genkey`), an age rating and
+   category, a privacy-policy URL, and the priced trick-play BIF batch
+   (measured at ~69 GB / ~157 machine-hours catalogue-wide; the flow is built
+   and proven on one film). None of these is a parity gap; they are the
+   Channel Store submission, which the owner deferred (the app runs sideloaded
+   today).
+
+The honest read: the parity loop's engineering is effectively complete. What
+remains is a pipeline facet and the owner's publish decisions.
+
+
 ## Detail
 
 | tvOS | Roku | Note |

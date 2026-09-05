@@ -18,11 +18,11 @@ sub init()
     m.card.translation = [12, 12]
     m.card.width = 208 : m.card.height = 117
     m.card.color = "0x1C1C22FF"
-    m.cardText.translation = [12, 48]
-    m.cardText.width = 208
-    m.cardText.horizAlign = "center"
-    m.cardText.font = m.t.uRow
-    m.cardText.color = "0x6B6B76FF"
+    m.cardText.translation = [12, 30]
+    m.cardText.width = 208 : m.cardText.height = 80
+    m.cardText.horizAlign = "center" : m.cardText.vertAlign = "center"
+    m.cardText.font = m.t.uScreen
+    m.cardText.color = "0x54545EFF"
 
     m.num.font = m.t.uMeta : m.num.color = m.t.textSec
     m.num.translation = [240, 12]
@@ -58,12 +58,13 @@ sub onContent()
     m.card.visible = (art = "")
     m.cardText.visible = (art = "")
     if art = ""
-        n = fmt(c.SHORTDESCRIPTIONLINE1)
-        if n <> ""
-            m.cardText.text = n
-        else
-            m.cardText.text = Left(UCase(fmt(c.title)), 12)
-        end if
+        ' A monogram, not the title. The card sat LEFT of the title label, so
+        ' rendering the (uppercased, width-truncated) title inside it —
+        ' "BLACK HA..." beside "Black Hand" — said the same thing twice and
+        ' the truncation read as broken. One clean initial is a placeholder,
+        ' not a duplicate; the episode number already sits in `num`.
+        t = fmt(c.title)
+        if t <> "" then m.cardText.text = UCase(Left(t, 1)) else m.cardText.text = ""
     end if
     m.num.text = c.SHORTDESCRIPTIONLINE1
     m.title.text = c.title
