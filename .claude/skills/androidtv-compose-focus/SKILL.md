@@ -178,6 +178,8 @@ adb shell "run-as <pkg> cat files/catalog.sqlite" > live.sqlite
 
 ## See also
 
+- `ten-foot-detail-design` — the platform-agnostic Detail/Series/Search patterns these Compose screens render
+
 - `docs/TV-DESIGN.md` — the binding rules any surface must cite
 - `android-production-gotchas` — the data-layer/`produceState`/`dbVersion`
   discipline, unchanged on TV
