@@ -1159,3 +1159,17 @@ Select sweeps clean.
     time a film's Detail was open (AWHERO index += 1 eight seconds in), and
     Back returned to a different featured film than the viewer left. Gated
     off in openDetail, restored in closeDetail's Home branch.
+
+102. **A NEXT note is not a binding rule.** A tick's STATE named cross-device
+    Google sign-in the "biggest remaining capability" and planned the full
+    device-code flow — merge rules, tombstones, an Account panel. Re-reading
+    the binding doc first (as the discipline requires) found ROKU-DESIGN §8
+    already lists it 🚫, sourced: Roku certification prohibits "off-device
+    sign-up or sign-in", and the limited-input device-code flow (enter a code
+    on a phone) IS off-device sign-in. Building it would guarantee a
+    certification failure on the publish path the whole effort targets. Not
+    built; the misdirection was corrected in the loop memory so no later tick
+    re-attempts it. The rating fix that shared the tick stands (fillItem
+    declared awRating AFTER assigning it — a set to an undeclared ContentNode
+    field is dropped, so every Home-card rating was 0; reordered, verified
+    ★ 7.8 on Dr. Mabuse's Detail).

@@ -330,6 +330,15 @@ sub addTileRow(root as Object, title as String, tiles as Object)
 end sub
 
 sub fillItem(n as Object, r as Object)
+    ' Custom fields are DECLARED before they are assigned. A set to an
+    ' undeclared field on a ContentNode is silently dropped, so the earlier
+    ' order (assign awRating, then AddField) left every rating 0 — the star
+    ' was absent on Home cards' Detail while present on service-query cards,
+    ' because only this builder had the two lines the wrong way round.
+    n.AddField("awBackdrop", "string", false)
+    n.AddField("awType", "string", false)
+    n.AddField("awBif", "boolean", false)
+    n.AddField("awRating", "integer", false)
     n.id = r[0]
     n.title = StripHTML(fmt(r[1]))
     n.HDPOSTERURL = r[4]
@@ -337,10 +346,6 @@ sub fillItem(n as Object, r as Object)
     if r.Count() > 11 and r[10] <> invalid and r[11] <> invalid
         if r[11] >= 100 then n.awRating = r[10]
     end if
-    n.AddField("awBackdrop", "string", false)
-    n.AddField("awType", "string", false)
-    n.AddField("awBif", "boolean", false)
-    n.AddField("awRating", "integer", false)
     if r.Count() > 15 then n.awBif = (r[15] = 1)
     if r[7] <> invalid then n.awBackdrop = r[7]
     if r[3] <> invalid then n.awType = r[3]

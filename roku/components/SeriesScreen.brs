@@ -135,7 +135,7 @@ sub showSeries(d as Object)
     if total > have
         bits.Push(fmt(have) + " of " + fmt(total) + " episodes here")
     else
-        bits.Push(fmt(have) + " episodes")
+        bits.Push(AWPlural(have, "episode"))
     end if
     m.meta.text = joinStr(bits, "   ·   ")
     if d.overview <> invalid then m.overview.text = StripHTML(fmt(d.overview))

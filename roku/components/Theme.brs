@@ -429,3 +429,11 @@ end sub
 function AWStar() as String
     return Chr(9733)
 end function
+
+' n + a noun that agrees with it: AWPlural(1,"playlist") = "1 playlist",
+' AWPlural(3,"playlist") = "3 playlists". Thousands-grouped, so 1,240 titles.
+function AWPlural(n as Integer, noun as String) as String
+    out = AWGroup(n) + " " + noun
+    if n <> 1 then out = out + "s"
+    return out
+end function

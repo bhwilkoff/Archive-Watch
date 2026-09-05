@@ -269,7 +269,6 @@ sub onItem()
     m.meta.text = it.SHORTDESCRIPTIONLINE1
     ' The audience's rating rides the meta line, as on tvOS — only when a
     ' real audience produced it (100+ votes; the item carries none otherwise).
-    print "AWDETAIL rating hasField="; it.HasField("awRating"); iif(it.HasField("awRating"), " v=" + fmt(it.awRating), "")
     if it.HasField("awRating")
         if it.awRating > 0
             m.meta.text = m.meta.text + "  ·  " + AWStar() + " " + Left(fmt(it.awRating / 10.0), 3)

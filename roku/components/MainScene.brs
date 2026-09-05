@@ -220,7 +220,7 @@ function libraryPayload() as Object
     ' budget (§7.2) and it matters — but as a FULL state with a Remove
     ' affordance, not as a byte counter under the title. The line says what
     ' the viewer has.
-    budget = fmt(favs.Count()) + " saved  ·  " + fmt(cw.Count()) + " in progress  ·  " + fmt(awPlaylists().Count()) + " playlists"
+    budget = AWPlural(favs.Count(), "saved item") + "  ·  " + fmt(cw.Count()) + " in progress  ·  " + AWPlural(awPlaylists().Count(), "playlist")
     if awStorageUsed() > 29000 then budget = budget + "  ·  Library nearly full"
     return { rows: root, meta: meta, budget: budget }
 end function
