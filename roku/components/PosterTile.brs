@@ -8,7 +8,10 @@ sub init()
     m.caption.font = m.t.uItem
     m.caption.color = m.t.textPri
     m.caption.width = m.t.posterFW
-    m.caption.maxLines = 2
+    ' F10 — "never abbreviate": three full lines, no ellipsis; the row cell
+    ' reserves the height (posterFH + 232) and the meta line sits below them.
+    m.caption.maxLines = 3
+    m.caption.ellipsizeOnBoundary = false
     m.caption.wrap = true
     m.meta.font = m.t.uMeta
     m.meta.color = m.t.textSec
@@ -49,7 +52,7 @@ sub setSize(w as Integer, h as Integer)
     ' grows under focus — a row of titles that dances as you scroll is worse
     ' than no titles at all.
     m.caption.translation = [0, m.t.posterFH + 9]
-    m.meta.translation = [0, m.t.posterFH + 114]
+    m.meta.translation = [0, m.t.posterFH + 150]
     if m.isTile = true
         m.tileRule.translation = [18, 24]
         m.tileRule.width = 72 : m.tileRule.height = 6

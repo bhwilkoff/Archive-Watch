@@ -133,6 +133,7 @@ sub run()
     ' ---- build the ContentNode tree ----
     root = CreateObject("roSGNode", "ContentNode")
     heroPool = CreateObject("roSGNode", "ContentNode")
+    m.heroAnim = 0
     m.extraRows = 0
     rowCount = 0
 
@@ -151,7 +152,9 @@ sub run()
                 end if
             end if
         end for
-        if kids.Count() >= 6
+        ' F2 — "no shelf should display as less than a full row": 7 tiles are
+        ' visible across the content column, so 7 is the floor.
+        if kids.Count() >= 7
             rowNode = root.CreateChild("ContentNode")
             rowNode.title = titles[p.id]
             if subtitles[p.id] <> invalid then rowNode.SHORTDESCRIPTIONLINE2 = subtitles[p.id]
@@ -170,8 +173,14 @@ sub run()
             if isHeroShelf(p.id)
                 for each r in kids
                     if r[7] <> invalid and r[7] <> "" and heroPool.GetChildCount() < 12
+                        ' F1 — the owner: "at most one animated feature" in the
+                        ' hero. Cartoons are short, bright and plentiful in the
+                        ' curated shelves, so unchecked they took half the row.
+                        isAnim = (fmt(r[3]) = "animation")
+                        if isAnim and m.heroAnim >= 1 then continue for
                         h = heroPool.CreateChild("ContentNode")
                         fillItem(h, r)
+                        if isAnim then m.heroAnim = m.heroAnim + 1
                     end if
                 end for
             end if
@@ -222,6 +231,25 @@ sub run()
 
     print "AWROKU home rows="; rowCount; " heroPool="; heroPool.GetChildCount(); " fetchMs="; fetchMs; " scanMs="; scanMs
 
+    ' F18 — "the hero row never changes": the pool came out in shelf order every
+    ' launch. A Fisher-Yates pass with Roku's own Rnd (seeded per process)
+    ' gives a fresh lead each time the channel opens.
+    n = heroPool.GetChildCount()
+    if n > 1
+        for i = n - 1 to 1 step -1
+            j = Rnd(i + 1) - 1
+            if j <> i
+                a = heroPool.GetChild(i) : b = heroPool.GetChild(j)
+                heroPool.ReplaceChild(b.Clone(true), i)
+                heroPool.ReplaceChild(a.Clone(true), j)
+            end if
+        end for
+    end if
+    kinds = ""
+    for i = 0 to heroPool.GetChildCount() - 1
+        kinds = kinds + fmt(heroPool.GetChild(i).awType) + " "
+    end for
+    print "AWHERO pool kinds="; kinds
     m.top.hero = heroPool
     m.top.rows = root
     m.top.stats = stats

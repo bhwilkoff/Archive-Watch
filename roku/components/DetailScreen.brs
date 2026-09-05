@@ -101,7 +101,7 @@ sub init()
     ' with large title text dissolves into pure colour atmosphere rather than
     ' staying semi-legible behind the copy. Measured at 200 the tablet text on
     ' The Ten Commandments was still readable; at 96 it is a soft field.
-    m.washBlur.loadWidth = 96 : m.washBlur.loadHeight = 54
+    m.washBlur.loadWidth = 64 : m.washBlur.loadHeight = 36
     m.washBlur.opacity = 1.0
 
     ' The SHARP layer, on top of the blur: only ever a real 16:9 backdrop
@@ -314,12 +314,14 @@ function blurSrc(url as String) as String
         r = CreateObject("roRegex", "_S[XY]\d+", "")
         return r.ReplaceAll(url, "_SX120")
     end if
-    if Instr(1, url, "artworks.thetvdb.com") > 0
-        ' TVDB serves a downscaled copy under /banners/... _t suffix variants;
-        ' no universal lever, so let loadWidth + scrim carry it.
-        return url
-    end if
-    return url
+    ' Every other host (archive.org frame covers, tvdb, upload.wikimedia): there
+    ' is no size lever in the URL, and Roku's per-URL decode cache hands this
+    ' node the inset's FULL decode, so loadWidth is ignored and the "blur" is a
+    ' near-sharp crop — the owner: "a pixelated crop of a screenshot". A query
+    ' string the host ignores makes the cache key distinct, so this node's own
+    ' tiny loadWidth finally applies.
+    if Instr(1, url, "?") > 0 then return url + "&aw=blur"
+    return url + "?aw=blur"
 end function
 
 sub onItem()
@@ -414,8 +416,10 @@ sub paintSave()
     if m.archiveID = invalid then return
     if awIsFavorite(m.archiveID)
         m.buttons[1].label.text = "Saved"
+        layoutButtons()
     else
         m.buttons[1].label.text = "Save"
+        layoutButtons()
     end if
     layoutButtons()
 end sub
@@ -539,12 +543,11 @@ sub paintPlayLabel()
         m.buttons[0].label.text = "Play  ·  " + fmt(mins) + "m"
         m.top.playFrom = 0
     end if
+    ' F6 — a longer label ("Resume · 83m left") in a pill measured for
+    ' "Play · 91m" overflowed its ends; re-measure after every text change.
+    layoutButtons()
 end sub
 
-function iif(c as Boolean, a as String, b as String) as String
-    if c then return a
-    return b
-end function
 
 function onKeyEvent(key as String, press as Boolean) as Boolean
     if not press then return false
@@ -559,7 +562,11 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
         if m.focusIndex > 0
             m.focusIndex = m.focusIndex - 1 : paintButtons() : return true
         end if
-        return false          ' let the Scene decide (rail / back)
+        if m.inLike <> true and m.reading <> true
+            m.top.exitLeft = true
+            return true
+        end if
+        return false
     else if key = "down"
         if m.reading = true
             exitReading()

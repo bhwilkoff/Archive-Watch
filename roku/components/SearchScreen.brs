@@ -40,11 +40,14 @@ sub init()
         ' §13.5 — a door is a pill at rest too; a Button paints only its
         ' focus bitmap, so the rest state is ours to draw.
         rest = AWPillBuild(m.doorGroup)
-        AWPillLayout(rest, 0, y + 3, 420)
+        ' F19 — a door pill fits its label (+ 2 x 36 px), not a fixed 420.
+        dw = AWTextWidth(m.doorGroup, m.t.uRow, d.label) + 80
+        if dw < 200 then dw = 200
+        AWPillLayout(rest, 0, y + 3, dw)
         m.doorPills.Push(rest)
         b = m.doorGroup.CreateChild("Button")
         b.translation = [0, y]
-        b.minWidth = 420
+        b.minWidth = dw
         b.height = 66
         b.text = d.label
         b.textColor = m.t.textPri
@@ -58,6 +61,12 @@ sub init()
         m.doors.Push(b)
         y = y + 84
     end for
+    if m.fitTimer = invalid
+        m.fitTimer = m.top.CreateChild("Timer")
+        m.fitTimer.duration = 0.05
+        m.fitTimer.ObserveField("fire", "onFitPills")
+    end if
+    m.fitTimer.control = "start"
     m.doorGroup.translation = [660, 288]
     m.doorIndex = 0
 
@@ -101,7 +110,8 @@ sub init()
     m.grid.numColumns = 4
     m.grid.numRows = 2
     m.grid.numRows = 2
-    m.grid.itemSize = [210, 351]
+    ' F10 — the cell reserves two caption lines under the focused 315 px art.
+    m.grid.itemSize = [210, 434]
     m.grid.itemSpacing = [24, 12]
     ' The TILE rings its own art (ROKU-DESIGN §5.4a). An explicitly transparent
     ' 9-patch is required: with no bitmap the list draws its own grey box.
@@ -212,6 +222,7 @@ sub paintChips()
         end if
         m.chips[i].text = v
     end for
+    layoutChips()
 end sub
 
 sub onChipPressed()
@@ -383,4 +394,30 @@ sub resetSearch()
     m.doorsLabel.visible = true
     m.status.text = "Type to search 26,965 titles — or pick a door."
     focusHere()
+end sub
+
+' F9/F19 — search chips fit their value, laid left to right (see BrowseScreen).
+sub layoutChips()
+    x = 0
+    for i = 0 to m.chips.Count() - 1
+        b = m.chips[i]
+        w = AWTextWidth(m.chipGroup, m.t.uRow, b.text) + 72
+        if w < 150 then w = 150
+        w = Int(w / 3) * 3
+        b.minWidth = w
+        b.translation = [x, 0]
+        AWPillLayout(m.restPills[i], x, 0, w)
+        x = x + w + 18
+    end for
+    if m.fitTimer = invalid
+        m.fitTimer = m.top.CreateChild("Timer")
+        m.fitTimer.duration = 0.05
+        m.fitTimer.ObserveField("fire", "onFitPills")
+    end if
+    m.fitTimer.control = "start"
+end sub
+
+sub onFitPills()
+    AWFitPillRow(m.chips, m.restPills, 18)
+    AWFitPillColumn(m.doors, m.doorPills)
 end sub

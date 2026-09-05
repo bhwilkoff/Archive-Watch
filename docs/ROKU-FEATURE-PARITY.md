@@ -9,7 +9,18 @@ promises.
 Legend: ✅ built + verified on the device · 🔨 built, not yet verified ·
 ⏳ not built · 🚫 not possible on Roku, with the reason.
 
-## Distance to parity (2026-09-04, build 16)
+## Distance to parity — CORRECTED 2026-09-05
+
+The assessment below was WRONG at the bar that matters. The owner used the
+build and returned twenty defects (`docs/ROKU-FEEDBACK-LEDGER.md`): shelves
+below a full row, a non-functional More Like This, a Channels view that is not
+the EPG every other platform has, Collections duplicating Home, filters that
+cycle instead of pick, titles hidden until focused, no archive.org metadata,
+a long link where a QR belongs. Rows marked ✅ counted surfaces that EXISTED,
+not surfaces that were FINISHED to the tvOS standard. Treat the ledger as the
+truth until it is clear; this section stays as a record of the mistake.
+
+## Distance to parity (2026-09-04, build 16) — superseded
 
 The tally below counts the rows in this file. Roku is at **feature parity**
 with the Apple TV app except one item that is not a Roku decision to make.

@@ -22,7 +22,8 @@ sub init()
     m.grid.numRows = 2
     ' §13.10 — the cell reserve is the focused poster plus a two-line
     ' caption and nothing more; 393 left 126 px of black between rows.
-    m.grid.itemSize = [210, 351]
+    ' F10 — the cell reserves two caption lines under the focused 315 px art.
+    m.grid.itemSize = [210, 434]
     m.grid.itemSpacing = [24, 12]
     ' The TILE rings its own art (ROKU-DESIGN §5.4a). An explicitly transparent
     ' 9-patch is required: with no bitmap the list draws its own grey box.
@@ -113,6 +114,35 @@ sub paintChips()
         if d.id = "sort" and v = "Popular" then v = "Most popular"
         m.chips[i].text = v
     end for
+    layoutChips()
+end sub
+
+' F9 — a chip pill fits its VALUE. Four fixed 300 px slabs left "A-Z" swimming
+' in plate and "Most popular" cramped; each is now its label + 2 x 32 px, laid
+' left to right with an 18 px gap, and the rest pill under it re-drawn to match.
+sub layoutChips()
+    x = 0
+    for i = 0 to m.chips.Count() - 1
+        b = m.chips[i]
+        w = AWTextWidth(m.chipGroup, m.t.uRow, b.text) + 72
+        if w < 150 then w = 150
+        w = Int(w / 3) * 3
+        b.minWidth = w
+        b.translation = [x, 0]
+        AWPillLayout(m.restPills[i], x, 0, w)
+        x = x + w + 18
+    end for
+    ' The Button's own font decides the real width; fit after one layout pass.
+    if m.fitTimer = invalid
+        m.fitTimer = m.top.CreateChild("Timer")
+        m.fitTimer.duration = 0.05
+        m.fitTimer.ObserveField("fire", "onFitChips")
+    end if
+    m.fitTimer.control = "start"
+end sub
+
+sub onFitChips()
+    AWFitPillRow(m.chips, m.restPills, 18)
 end sub
 
 ' Open Browse already scoped — used by the Surprise doors, where "a decade" is
@@ -140,6 +170,10 @@ end sub
 
 sub onScope()
     s = m.top.scope
+    ' F14 — "the filters should reset when you go from films to tv": decade,
+    ' genre and sort carried over, so TV opened pre-narrowed by a Movies pick.
+    m.chipIndex[1] = 0 : m.chipIndex[2] = 0 : m.chipIndex[3] = 0
+    m.focusChip = 0
     if s = "tv"
         m.heading.text = "TV"
         m.chipIndex[0] = 2

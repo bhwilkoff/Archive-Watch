@@ -233,6 +233,21 @@ focus / layout / animation bugs.
 
 ## Session Log
 
+### 2026-09-05 — Roku: owner's 20-item feedback; ledger + first batch (build 19)
+The owner used the Roku build and returned twenty defects. My "at parity" claim
+was WRONG at the design-quality bar (surfaces existed; they were not finished).
+`docs/ROKU-FEEDBACK-LEDGER.md` is now the binding truth and the parity doc says
+so. First batch, each verified on the glass: one animated hero at most (F1),
+7-tile shelf floor (F2), pills re-measured on label change (F6), Left from
+Detail reaches the rail (F7), chips/doors fit their labels via the Button's
+rendered width — a Label-font estimate ellipsized them ("Featur…") because
+Roku's Button draws in its own font (F9 sizing, F19), captions always visible
+and 3 lines with no ellipsis on grids and rows (F10), blur cache-bust so every
+host decodes tiny (F13), filters reset on Movies→TV (F14), hero shuffled per
+launch (F18). Still open: F3 F4 F5 F8 F9-picker F11 F12 F15 F16 F17 F20 — the
+structural ones (More Like This, filter picker, Collections, Surprise, Back
+memory, Channels EPG, archive.org metadata, QR, adult filter, poster audit).
+
 ### 2026-09-04 (owner ask) — Google TV: the Series scene is TV-native (TV-DESIGN §4.9)
 Owner: "go ahead and close that structural gap now." `Route.Series` on the TV
 rendered the shared PHONE screen (a centred poster card under a back-arrow app

@@ -112,7 +112,7 @@ sub init()
     ' wraps to two lines and the meta line under it: 48 + 432 + 9 + ~100 + 40.
     ' At +180 the meta ran into the NEXT row's label — the same overlap class
     ' three surfaces over, because all three shelves share these numbers.
-    m.rows.itemSize = [1740, m.t.posterFH + 196]
+    m.rows.itemSize = [1740, m.t.posterFH + 232]
     m.rows.rowItemSize = [[m.t.posterFW, m.t.posterFH]]
     m.rows.rowItemSpacing = [[m.t.gutter, 0]]
     ' `rowSpacing` DOES NOT EXIST on RowList — the field is `rowSpacings`, an

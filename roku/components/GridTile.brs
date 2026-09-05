@@ -8,10 +8,13 @@ sub init()
     m.caption = m.top.FindNode("caption")
     m.caption.font = m.t.uMeta
     m.caption.color = m.t.textPri
+    ' F10 — "titles should always show and never abbreviate": two full lines,
+    ' visible at rest, no ellipsis. The cell reserves the height (BrowseScreen).
     m.caption.width = 210
-    m.caption.maxLines = 1
-    m.caption.ellipsizeOnBoundary = true
+    m.caption.maxLines = 3
+    m.caption.ellipsizeOnBoundary = false
     m.caption.wrap = true
+    m.caption.lineSpacing = 2
     m.art.ObserveField("loadStatus", "onArtLoaded")
     setSize(192, 288)
 end sub
@@ -34,6 +37,9 @@ sub onContent()
     m.plate.visible = true
     m.art.uri = c.HDPOSTERURL
     m.caption.text = c.title
+    ' F10 — the XML starts the caption hidden and only the focus handler showed
+    ' it, so a grid at rest had NO titles at all.
+    m.caption.visible = true
 end sub
 
 sub onFocusChanged()
@@ -43,6 +49,7 @@ sub onFocusChanged()
     f = m.top.itemHasFocus and m.top.gridHasFocus
     m.focused = f
     if f then setSize(210, 315) else setSize(192, 288)
-    m.caption.visible = f
+    m.caption.visible = true
+    m.caption.color = iif(f, m.t.textPri, m.t.textSec)
     AWFramePlace(m.frame, m.art, f)
 end sub

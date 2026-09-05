@@ -17,6 +17,8 @@
     <!-- Raised when Detail wants its "more like this" row filled. -->
     <field id="wantLike" type="assocarray" alwaysNotify="true" />
     <field id="chosen" type="string" alwaysNotify="true" />
+    <!-- F7 — Left from the first pill hands focus to the rail (§2.1), as every other screen. -->
+    <field id="exitLeft" type="boolean" alwaysNotify="true" />
     <function name="showLike" />
     <field id="toast" type="string" alwaysNotify="true" onChange="onToast" />
     <function name="refresh" />

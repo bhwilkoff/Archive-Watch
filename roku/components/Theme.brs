@@ -437,3 +437,54 @@ function AWPlural(n as Integer, noun as String) as String
     if n <> 1 then out = out + "s"
     return out
 end function
+
+' Inline conditional. Shared: GridTile needs it too, and a function defined in
+' one component's own script is invisible to another's.
+function iif(c as Boolean, a as String, b as String) as String
+    if c then return a
+    return b
+end function
+
+' The rendered width of `text` in `font`, via a hidden scratch Label under
+' `parent` (created once, reused). Label.boundingRect() measures synchronously,
+' which is what lets a pill be sized to its label instead of to a guess —
+' the owner: "the filter pills are not well formed to match the size of the
+' contents within them" / "start here items are in poorly sized pills".
+function AWTextWidth(parent as Object, font as Object, text as String) as Integer
+    l = parent.FindNode("awMeasure")
+    if l = invalid
+        l = parent.CreateChild("Label")
+        l.id = "awMeasure"
+        l.visible = false
+    end if
+    l.font = font
+    l.text = text
+    return Int(l.boundingRect().width)
+end function
+
+' Roku's Button draws with its OWN font (not one of ours), so a width measured
+' from our Label fonts under-shoots and a clamped maxWidth ellipsizes the label
+' ("Featur…"). The honest width is the Button's rendered boundingRect(), which
+' exists only after a layout pass — so callers set minWidth to an estimate,
+' start a 50 ms Timer, and on fire call these to re-lay the rest pills and the
+' positions to the real widths. Horizontal (chips) and vertical (doors) forms.
+sub AWFitPillRow(buttons as Object, pills as Object, gap as Integer)
+    x = 0
+    for i = 0 to buttons.Count() - 1
+        b = buttons[i]
+        w = Int(b.boundingRect().width)
+        if w < 120 then w = Int(b.minWidth)
+        b.translation = [x, b.translation[1]]
+        AWPillLayout(pills[i], x, pills[i].l.translation[1], w)
+        x = x + w + gap
+    end for
+end sub
+
+sub AWFitPillColumn(buttons as Object, pills as Object)
+    for i = 0 to buttons.Count() - 1
+        b = buttons[i]
+        w = Int(b.boundingRect().width)
+        if w < 120 then w = Int(b.minWidth)
+        AWPillLayout(pills[i], pills[i].l.translation[0], pills[i].l.translation[1], w)
+    end for
+end sub

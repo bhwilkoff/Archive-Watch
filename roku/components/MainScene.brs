@@ -1783,6 +1783,7 @@ sub openDetail(archiveID as String)
         m.detail.ObserveField("showMore", "onDetailMore")
         m.detail.ObserveField("wantLike", "onWantLike")
         m.detail.ObserveField("chosen", "onDetailChosen")
+        m.detail.ObserveField("exitLeft", "focusRail")
     end if
     ' The overlay must actually COVER: with Home still composited beneath it,
     ' Home's own hero title and rows read through the scrim as ghosts.
