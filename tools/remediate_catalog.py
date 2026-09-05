@@ -1016,6 +1016,23 @@ def _norm_words(s):
     return [w for w in re.split(r"[^0-9a-z]+", (s or "").lower()) if w]
 
 
+def _accent_dropped(title, canonical):
+    """An uploader title that is the canonical title with its NON-ASCII letters
+    DELETED — "La fe des roches noires" for "La fée des roches noires",
+    "Le mystre des roches de Kador" for "Le mystère…". Measured on the
+    published index: 28 titles, every one a `silent-*` ingest whose source
+    lost the accented characters outright (the archive ids carry the same
+    holes). Deleting a letter makes a different word, so this is a WRONG
+    title, not a variant, and the canonical is adopted whole. The test is
+    exact equality after the deletion, so a canonical that merely shares
+    words cannot get in through this door."""
+    if not canonical or not any(ord(ch) > 127 for ch in canonical):
+        return False
+    stripped = "".join(ch for ch in canonical if ord(ch) < 128)
+    t = re.sub(r"\s+", " ", (title or "")).strip().lower()
+    return bool(t) and t == re.sub(r"\s+", " ", stripped).strip().lower()
+
+
 def _canonical_clean(it):
     """The AUTHORITATIVE title (TMDb/OMDb `canonicalTitle`) to ADOPT over the uploader title — but
     only when it's clearly a clean version of what the uploader typed: every significant word of the
@@ -1030,6 +1047,8 @@ def _canonical_clean(it):
     un = set(_norm_words(it.get("title") or ""))
     if not cn:
         return None
+    if _accent_dropped(it.get("title") or "", c):
+        return c
     if len(cn) >= 2 and set(cn).issubset(un):   # multi-word canonical fully present → adopt
         if _PART_MARKER.search(it.get("title") or ""):
             return None                        # part markers are identity, not cruft

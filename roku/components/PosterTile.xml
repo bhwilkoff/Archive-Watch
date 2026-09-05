@@ -6,6 +6,8 @@
   <interface>
     <field id="itemContent" type="node" onChange="onContent" />
     <field id="itemHasFocus" type="boolean" onChange="onFocusChanged" />
+    <field id="rowHasFocus" type="boolean" onChange="onFocusChanged" />
+    <field id="rowListHasFocus" type="boolean" onChange="onFocusChanged" />
     <field id="focusPercent" type="float" />
   </interface>
   <script type="text/brightscript" uri="pkg:/components/Theme.brs" />

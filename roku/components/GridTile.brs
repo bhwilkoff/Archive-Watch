@@ -37,7 +37,10 @@ sub onContent()
 end sub
 
 sub onFocusChanged()
-    f = m.top.itemHasFocus
+    ' §13.3 — one lit thing at a time. A tile that stays ringed after focus
+    ' moves to the chips above it is a second lit thing; MarkupGrid keeps
+    ' itemHasFocus on the last item, so the grid's OWN focus must gate it.
+    f = m.top.itemHasFocus and m.top.gridHasFocus
     m.focused = f
     if f then setSize(210, 315) else setSize(192, 288)
     m.caption.visible = f

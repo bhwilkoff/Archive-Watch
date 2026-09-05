@@ -1996,7 +1996,15 @@ sub onPlay()
     m.detail.visible = false
     m.player.archiveID = m.detail.item.id
     m.player.progressOwner = ""
+    ' Trick-play thumbnails by convention: a film the index flags (`bif`,
+    ' column 15, schema 12+) has `archivewatch-bifs/<id>.bif` on archive.org.
+    ' The flag exists so no play ever pays a HEAD probe for a file that is
+    ' not there. The harness door overrides it for measurement.
     m.player.bifUrl = ""
+    it = m.detail.item
+    if it <> invalid and it.HasField("awBif")
+        if it.awBif = true then m.player.bifUrl = "https://archive.org/download/archivewatch-bifs/" + it.id + ".bif"
+    end if
     if m.devBif <> invalid and m.devBif <> "" then m.player.bifUrl = m.devBif
     m.player.startAt = m.detail.playFrom
     m.player.playTitle = m.detail.item.title

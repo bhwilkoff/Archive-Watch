@@ -98,7 +98,7 @@ Legend: ✅ built + verified on the device · 🔨 built, not yet verified ·
 |---|---|---|
 | Keyboard search over the catalog | ✅ | ~400 ms across 26,965 items |
 | No-typing doors | ✅ | five |
-| Result filters (type / era) | ✅ | present-facets-only: a filter is offered only when the results contain more than one value for it |
+| Result filters (type / era) | ✅ | present-facets-only: a filter is offered only when the results contain more than one value for it. Was UNREACHABLE by remote until build 13 (no key handler on the chip zone — lesson 94); verified on the glass 2026-09-04: Up from the top result row lights the chip, Select cycles it, 300 → 2 titles |
 | Series results route to the series | ✅ | now that series drill-in exists |
 
 ## Surprise

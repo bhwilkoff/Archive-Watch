@@ -1074,3 +1074,58 @@ Select sweeps clean.
     the chip, both ended as "unverified", not "failed" — and must be written
     up that way. A harness step that does not reach its target proves
     nothing about the target.
+
+94. **A zone with no key handler is a dead control that screenshots call
+    finished.** The Search filter chips were drawn, styled and listed as
+    ✅ "present-facets-only" — and had NO `onKeyEvent` branch, while the
+    results grid never sent Up to them. Reachable by nothing. The first
+    trace-driven attempt reported `SEARCH: []` (lesson 93: the presses never
+    got there), the second typed a "5" into the query because Up from the
+    keyboard climbs to its number row. Wired now: grid top row + Up → chips,
+    chip Left/Right/Down, Select cycles. VERIFIED on the glass: "All films"
+    lit after Up, "Short Film" applied, 300 → 2 titles. The rule for the
+    audit: every focusable zone must appear in the component's key handler,
+    or it is a picture of a control.
+
+95. **The 8085 console DROPS on relaunch.** A reader connected before
+    `/launch/dev` receives the replayed backlog and then EOF the moment the
+    channel restarts — every line the new run prints goes to nobody, and the
+    filter reads as "no trace". Connect AFTER the launch (six seconds is
+    enough), then mark the line count. Two "unverified" verdicts this tick
+    were this and nothing else.
+
+96. **"La fe des roches noires" is a pipeline wound, not a decode bug.** The
+    index literally stores the title without its é while the SAME row's
+    search text carries "la fée des roches noires" and the archive id is
+    `silent-la-fe-des-roches-noires` — the source dropped the letter, Roku
+    rendered exactly what it was given. Measured on the published index: 28
+    titles, every one a `silent-*` ingest. Fixed at the source:
+    `remediate_catalog._accent_dropped` adopts the canonical title when the
+    uploader title equals it with the non-ASCII letters DELETED (exact
+    equality, so a look-alike canonical cannot get in), locked by
+    `tools/test_accent_title.py` (10/10; the old code adopted nothing).
+    Lands with the next publish on every platform.
+
+97. **One lit thing at a time needs the LIST's focus, not the item's.**
+    MarkupGrid keeps `itemHasFocus` on the last item after the grid loses
+    focus, and RowList keeps `rowHasFocus` on the current row — so a tile
+    stayed enlarged under a focused hero or a lit chip. GridTile now gates on
+    `gridHasFocus`, PosterTile on `rowListHasFocus` (`rowHasFocus` alone was
+    measured insufficient). And two "hard white borders" read adversarially
+    as ring defects were the artwork: L'X Noir and the 26 Men DVD cover are
+    scans with white margins, visible inside the ring at 3x zoom. Zoom before
+    filing.
+
+98. **`m.top.setFocus(true)` from INSIDE a component whose descendant holds
+    focus is a silent no-op.** `enterHero` claimed the screen while its own
+    RowList had focus; the trace read `enter topFocus=false rowsFocus=true`,
+    so Up LOOKED like it entered the hero (the rows slid, the dots lit) while
+    every following press still belonged to the row — Left walked the tiles
+    instead of paging the hero, and only from column 0, where the RowList
+    does not consume Left, did the press bubble up and "work". The parent
+    scene can hand a Group focus at launch, which is why it passed every
+    launch-time check. Release the descendant first (`m.rows.setFocus(false)`),
+    then claim. Verified: `topFocus=true rowsFocus=false`, Left pages, Down
+    returns to the remembered tile. Every screen that hands focus between its
+    own zones is a candidate for this; measure with `hasFocus()` in the
+    trace, never with a screenshot of the slide.

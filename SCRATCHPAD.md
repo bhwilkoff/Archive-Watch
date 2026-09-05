@@ -233,6 +233,34 @@ focus / layout / animation bugs.
 
 ## Session Log
 
+### 2026-09-04 (Roku loop, later) — dead chips, focus no-ops, accent-drop titles; build 13
+Console-traced verification of the two flows the last tick left "unverified",
+plus what the tracing turned up. Roku `build_version` 13.
+- **Search filter chips were UNREACHABLE by remote** — drawn, styled, listed ✅,
+  and with no key handler at all (lesson 94). Wired; verified on the glass,
+  300 → 2 titles. Roku does not deliver Fwd to a non-video screen (re-learned;
+  the comment already said so).
+- **Hero handoff was a focus no-op** — `m.top.setFocus(true)` from inside the
+  component while its RowList held focus did nothing (measured
+  `topFocus=false rowsFocus=true`); Up appeared to enter the hero while Left
+  walked the row. Release the descendant first (lesson 98).
+- **One lit thing at a time** — GridTile gates on `gridHasFocus`, PosterTile on
+  `rowListHasFocus` (`rowHasFocus` measured insufficient). Two "hard white
+  borders" were the artwork's own scan margins (lesson 97).
+- **Console drops on relaunch** (lesson 95) — two false "no trace" verdicts.
+- **Accent-dropped titles are a pipeline wound**: 28 `silent-*` items whose
+  titles lost their é/è/ä while the canonical kept them. `_accent_dropped`
+  rule in remediate_catalog + `tools/test_accent_title.py` (10/10; old code
+  adopted nothing). Lands on every platform at the next publish.
+- **BIF batch tool drafted** (`tools/batch_bifs.py`, dry-run default, IAS3
+  keys env-only, NOT run) + the `awBif` index-flag convention wired in the
+  player. The batch is the owner's priced decision.
+- **NOT verified**: the tvOS Detail fix (48877fc19). The Bedroom Apple TV
+  launched, but pyatv Companion presses landed nowhere — twice, including
+  after a devicectl reboot — so the on-glass check needs an in-app audit door
+  (the FunctionalAudit shape), not a remote.
+
+
 ### 2026-09-03 (later) — Android TV focus + posters, Google sign-in sync, phone player rebuilt (1.42.2/vc52)
 Owner's six-item list, plus a mid-session user report on the phone player.
 

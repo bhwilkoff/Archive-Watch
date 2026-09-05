@@ -335,6 +335,8 @@ sub fillItem(n as Object, r as Object)
     n.SHORTDESCRIPTIONLINE1 = metaLine(r)
     n.AddField("awBackdrop", "string", false)
     n.AddField("awType", "string", false)
+    n.AddField("awBif", "boolean", false)
+    if r.Count() > 15 then n.awBif = (r[15] = 1)
     if r[7] <> invalid then n.awBackdrop = r[7]
     if r[3] <> invalid then n.awType = r[3]
 end sub

@@ -357,7 +357,14 @@ sub enterHero()
     m.focusZone = "hero"
     slideTo(0)
     paintHeroFocus(true)
+    ' MEASURED: setFocus(true) on this component while its own RowList holds
+    ' focus is a silent no-op (topFocus=false, rowsFocus=true in the trace),
+    ' so Up looked like it entered the hero while every following press was
+    ' still the row's. The parent scene can hand this Group focus at launch;
+    ' from inside, the descendant must release it first.
+    m.rows.setFocus(false)
     m.top.setFocus(true)
+    print "AWHERO enter topFocus="; m.top.hasFocus(); " rowsFocus="; m.rows.hasFocus(); " idx="; m.heroIndex
 end sub
 
 sub enterRows()
@@ -379,7 +386,7 @@ end sub
 sub onRowFocusTrace()
     idx = m.rows.rowItemFocused
     if idx = invalid then return
-    print "AWTILE focus "; idx[0]; ","; idx[1]
+    print "AWTILE focus "; idx[0]; ","; idx[1]; " rowsFocus="; m.rows.hasFocus()
 end sub
 
 sub onTileSelected()
@@ -417,6 +424,7 @@ end sub
 ' Left goes, exactly as the Android TV build had to.
 function onKeyEvent(key as String, press as Boolean) as Boolean
     if not press then return false
+    print "AWHOME key="; key; " zone="; m.focusZone; " idx="; m.heroIndex; " rowsFocus="; m.rows.hasFocus(); " topFocus="; m.top.hasFocus()
 
     ' Play/Pause plays the featured item from anywhere, without moving focus.
     if key = "play"

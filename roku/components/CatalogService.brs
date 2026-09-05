@@ -421,6 +421,8 @@ sub appendRow(root as Object, r as Object)
     it = root.CreateChild("ContentNode")
     it.id = r[0]
     it.title = StripHTML(fmt(r[1]))
+    it.AddField("awBif", "boolean", false)
+    if r.Count() > 15 then it.awBif = (r[15] = 1)
     it.HDPOSTERURL = r[4]
     it.SHORTDESCRIPTIONLINE1 = metaFor(r)
     it.AddField("awBackdrop", "string", false)

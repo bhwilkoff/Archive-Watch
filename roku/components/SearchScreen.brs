@@ -304,8 +304,8 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
 
     if m.zone = 0
         ' Right reaches here only once the MiniKeyboard has run out of columns
-        ' — it owns its own arrows and consumes every Right until then. Fwd is
-        ' the direct jump, and the on-screen line says so.
+        ' — it owns its own arrows and consumes every Right until then. Roku
+        ' does not deliver Fwd to a non-video screen (measured; see onResults).
         if key = "right"
             if m.grid.visible then m.zone = 2 else m.zone = 1
             focusHere()
@@ -326,10 +326,34 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
         else if key = "left"
             m.zone = 0 : focusHere() : return true
         end if
+    else if m.zone = 3
+        ' The filter chips. They had NO handler and the grid never sent Up to
+        ' them, so the row the parity table called "present-facets-only" was
+        ' unreachable by remote — a dead control found only by tracing the
+        ' flow to its console line (lesson 93).
+        if key = "right"
+            if m.chipFocus < m.chips.Count() - 1
+                m.chipFocus = m.chipFocus + 1 : focusHere()
+            end if
+            return true
+        else if key = "left"
+            if m.chipFocus > 0
+                m.chipFocus = m.chipFocus - 1 : focusHere() : return true
+            end if
+            m.zone = 0 : focusHere() : return true
+        else if key = "down"
+            if m.grid.visible then m.zone = 2 else m.zone = 0
+            focusHere() : return true
+        end if
     else
         if key = "left"
             if m.grid.itemFocused mod m.grid.numColumns = 0
                 m.zone = 0 : focusHere() : return true
+            end if
+        else if key = "up"
+            ' Top row of results -> the chips above them.
+            if m.grid.itemFocused < m.grid.numColumns and m.chipGroup.visible
+                m.zone = 3 : focusHere() : return true
             end if
         end if
     end if

@@ -142,7 +142,12 @@ sub positionRing()
 end sub
 
 sub onFocusChanged()
-    focused = m.top.itemHasFocus
+    ' §13.3 — same gate as GridTile: RowList keeps itemHasFocus on the
+    ' last item after focus leaves the row, so the ROW's focus gates the ring.
+    ' rowHasFocus stays true on the current row after the LIST loses focus
+    ' (measured: the tile stayed enlarged under a focused hero); the list's
+    ' own flag is the one that flips.
+    focused = m.top.itemHasFocus and m.top.rowHasFocus and m.top.rowListHasFocus
     m.focused = focused
     if focused
         setSize(m.t.posterFW, m.t.posterFH)
