@@ -103,6 +103,7 @@ def main():
         # on the Roku's and the web's screens.
         if _is_adult(it):
             continue
+        cols = {c.lower() for c in (it.get("collections") or [])}
         aid = it.get("archiveID")
         if not aid:
             continue
