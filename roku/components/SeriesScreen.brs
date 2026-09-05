@@ -71,7 +71,11 @@ sub init()
     m.episodes.itemSpacing = [0, 12]
     m.episodes.numRows = 3
     m.episodes.focusBitmapUri = "pkg:/images/ring_focus.9.png"
-    m.episodes.focusFootprintBitmapUri = "pkg:/images/ring_footprint.9.png"
+    ' No persistent footprint box: at 1140 px wide the footprint outline read
+    ' as a big empty container while the season column had focus. The active
+    ' ring (when the list IS focused) plus the lit season pill are enough to
+    ' say where the viewer is; a transparent 9-patch removes the box.
+    m.episodes.focusFootprintBitmapUri = "pkg:/images/focus_none.9.png"
     m.episodes.drawFocusFeedbackOnTop = true
     m.episodes.vertFocusAnimationStyle = "floatingFocus"
     m.episodes.ObserveField("itemSelected", "onEpisodeSelected")
@@ -150,13 +154,15 @@ sub showSeries(d as Object)
     end if
 
     root = CreateObject("roSGNode", "ContentNode")
+    ' The tvOS label for an unnumbered season (Catalog.swift): "More Episodes"
+    ' when it sits beside numbered seasons, and — Roku's own touch, cleaner
+    ' for the many shows here that are ENTIRELY unnumbered — just "Episodes"
+    ' when it is the only group. "Unsorted" read as a system word, not a shelf.
+    only = (d.seasons.Count() = 1)
     for each s in d.seasons
         n = root.CreateChild("ContentNode")
-        ' A season with no number is real in this data — archive uploads that
-        ' could not be placed. "Season " with nothing after it reads as a bug;
-        ' naming it does not.
         if s.seasonNumber = invalid or fmt(s.seasonNumber) = "" or Int(s.seasonNumber) = 0
-            n.title = "Unsorted"
+            if only then n.title = "Episodes" else n.title = "More Episodes"
         else
             n.title = "Season " + fmt(s.seasonNumber)
         end if

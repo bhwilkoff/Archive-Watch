@@ -1187,3 +1187,26 @@ Select sweeps clean.
     received the true total; the status was using the wrong number. Now
     "8,990 titles match" when unfiltered, the filtered subset count when a
     facet chip narrows it. AWPlural keeps the agreement.
+
+105. **"Unsorted" is a system word; the shelf wants a shelf word.** An
+    unnumbered season was labelled "Unsorted", which read like a database
+    state. tvOS says "More Episodes" (Catalog.swift). Roku now says "Episodes"
+    when it is the only group (the common case here — most spines are entirely
+    unnumbered) and "More Episodes" when it sits beside numbered seasons.
+
+106. **A focus footprint is a hint, not a container.** The episodes list drew
+    its footprint 9-patch at the full 1140 px row width while the season
+    column held focus, so an empty rounded box filled the right two-thirds of
+    the Series scene. A transparent footprint removes it; the active ring when
+    the list IS focused, plus the lit season pill, already say where the
+    viewer is. Verified on 13 Demon Street: the box is gone, the monogram
+    cards stand alone.
+
+107. **The empty and error states are doors, checked adversarially.** Empty
+    search ("qzxwk") shows "Nothing matches" plus an "Or start here" panel of
+    genre doors — not a dead end. A film that cannot load shows a bottom
+    banner "This title could not be loaded. Try another copy from More."
+    Known minor edge, NOT user-reachable: a fabricated deep-link id (found=0)
+    still paints the pill Detail behind that banner; a real card or launch
+    only ever carries an id that exists, so no user meets it, and gold-plating
+    an unreachable path was declined.

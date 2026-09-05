@@ -233,6 +233,19 @@ focus / layout / animation bugs.
 
 ## Session Log
 
+### 2026-09-04 (Roku loop, evening +1) — Series polish, empty/error states, loop STOPPED at parity; build 17
+Series scene: "Unsorted" -> "Episodes" / "More Episodes" (tvOS treatment,
+lesson 105); the full-width empty footprint box removed (lesson 106). Reading
+mode verified both ways (long synopsis expands; short synopsis correctly does
+not trigger). Empty search offers genre doors; failed-load shows a banner
+(lesson 107); the only imperfection is a non-user-reachable fabricated-deeplink
+Detail, deliberately not gold-plated. Every consumer surface is now verified on
+the glass and the feature-parity doc reads 74 verified / 5 impossible / 1
+pipeline-open / 0 unverified. **The Roku parity loop was STOPPED here** — the
+app is at feature parity; what remains is the keyword/studio facet (a
+shared-index pipeline column) and the owner-only publish gate (genkey, rating,
+privacy URL, priced BIF batch). Roku build_version 17.
+
 ### 2026-09-04 (Roku loop, evening) — parity audit + two Detail/Search polish fixes; build 16
 Adversarial re-shoot of EVERY consumer surface on build 15/16 (Home, Browse,
 Detail rest+reading+rating, Series+episodes, Channels, Library, Search, Surprise,
