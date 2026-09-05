@@ -28,7 +28,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.draw.blur
+import androidx.compose.ui.unit.sp
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -118,15 +122,33 @@ fun BackdropImage(
     contentDescription: String? = null,
     accent: Color = Color(0xFFFF5C35),
     modifier: Modifier = Modifier,
+    /** True when the image is a POSTER standing in for a backdrop. A 2:3
+     *  poster crop-filled into a ~2.4:1 box is a pixelated slice of its middle
+     *  (the Roku Detail lesson, 2026-09-04, and the Fire TV report before it).
+     *  Soft = decode it tiny and let the upscale blur it, plus a real Gaussian
+     *  blur on API 31+, so it becomes an ambient wash of the film's colour
+     *  rather than a picture the viewer tries to read. */
+    soft: Boolean = false,
 ) {
     var failed by remember(url) { mutableStateOf(false) }
     if (!failed && url != null) {
+        val ctx = LocalContext.current
+        val model: Any = if (soft) {
+            coil3.request.ImageRequest.Builder(ctx)
+                .data(url)
+                // ~96 px wide: the bilinear upscale to the full box is the blur
+                // on every API level; precision INEXACT lets Coil hand back a
+                // small bitmap instead of insisting on the source size.
+                .size(96, 54)
+                .precision(coil3.size.Precision.INEXACT)
+                .build()
+        } else url
         AsyncImage(
-            model = url,
+            model = model,
             contentDescription = contentDescription,
             contentScale = ContentScale.Crop,
             onError = { failed = true },
-            modifier = modifier,
+            modifier = if (soft) modifier.blur(28.dp) else modifier,
         )
     } else {
         Box(
@@ -291,4 +313,44 @@ fun EmptyState(message: String, modifier: Modifier = Modifier, onRetry: (() -> U
             }
         }
     }
+}
+
+/** The content KIND as a shelf word, never the slug. Same table as tvOS and
+ *  the Roku `KindLabel`, so the eyebrow reads identically on every screen. */
+fun kindLabel(contentType: String): String = when (contentType) {
+    "feature-film" -> "Feature Film"
+    "silent-film" -> "Silent Era"
+    "tv-series" -> "Classic TV"
+    "tv-special" -> "Television"
+    "tv-episode" -> "Episode"
+    "animation" -> "Animation"
+    "newsreel" -> "Newsreel"
+    "documentary" -> "Documentary"
+    "ephemeral" -> "Ephemera"
+    "short-film" -> "Short Film"
+    "commercial" -> "Commercial"
+    else -> contentType.replace('-', ' ').replaceFirstChar { it.uppercase() }
+}
+
+/** Up to two CANONICAL genres for a meta line. The catalog's genres field
+ *  mixes Title-Case genres (Drama, Film Noir) with lowercase TMDb descriptor
+ *  tags ("comedy drama", "comedy of remarriage"); the descriptors duplicate
+ *  the real genre in a second case and read as clutter, so only Title-Case
+ *  entries are kept. */
+fun metaGenres(genres: List<String>): List<String> =
+    genres.filter { it.isNotBlank() && it.first().isUpperCase() }.take(2)
+
+/** The category eyebrow: the kind in its accent, tracked small caps, above a
+ *  title. It is the ONE place the kind is stated, so meta lines below it carry
+ *  year, genres and rating instead of repeating it. */
+@Composable
+fun KindEyebrow(contentType: String, accent: Color, modifier: Modifier = Modifier) {
+    Text(
+        kindLabel(contentType).uppercase(),
+        fontSize = 13.sp,
+        letterSpacing = 2.sp,
+        fontWeight = FontWeight.SemiBold,
+        color = accent,
+        modifier = modifier,
+    )
 }

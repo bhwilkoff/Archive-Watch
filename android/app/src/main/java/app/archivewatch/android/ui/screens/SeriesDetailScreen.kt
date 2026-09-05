@@ -173,7 +173,7 @@ fun SeriesDetailScreen(container: AppContainer, nav: Nav, slug: String) {
             }
         }
         items(season?.episodes.orEmpty(), key = { it.archiveID ?: "${it.seasonNumber}x${it.episodeNumber}-${it.title}" }) { episode ->
-            EpisodeRow(episode) {
+            EpisodeRow(episode, current.title) {
                 // Open the episode's OWN Detail page (favorite / playlist / share / play,
                 // Decision 045) — like any film. Falls back to inline play only if the episode
                 // has no archiveID to resolve a Detail.
@@ -186,7 +186,7 @@ fun SeriesDetailScreen(container: AppContainer, nav: Nav, slug: String) {
                             PlaySpec(
                                 id = episode.downloadURL!!,
                                 title = current.title,
-                                subtitle = episodeLabel(episode),
+                                subtitle = episodeLabel(episode, current.title),
                                 url = episode.downloadURL!!,
                                 runtimeSeconds = episode.runtimeSeconds,
                             ),
@@ -201,32 +201,64 @@ fun SeriesDetailScreen(container: AppContainer, nav: Nav, slug: String) {
 @Composable
 private fun SeasonMenu(seasonNumbers: List<Int?>, selected: Int, onSelect: (Int) -> Unit) {
     var open by remember { mutableStateOf(false) }
+    val only = seasonNumbers.size == 1
     TextButton(onClick = { open = true }) {
-        Text(seasonLabel(seasonNumbers.getOrNull(selected)))
+        Text(seasonLabel(seasonNumbers.getOrNull(selected), only))
     }
     DropdownMenu(expanded = open, onDismissRequest = { open = false }) {
         seasonNumbers.forEachIndexed { index, number ->
             DropdownMenuItem(
-                text = { Text(seasonLabel(number)) },
+                text = { Text(seasonLabel(number, only)) },
                 onClick = { onSelect(index); open = false },
             )
         }
     }
 }
 
-/** seasonNumber may be null — render as "More Episodes" (contract §6.3). */
-private fun seasonLabel(number: Int?): String =
-    number?.let { "Season $it" } ?: "More Episodes"
+/** seasonNumber may be null — "More Episodes" beside numbered seasons (contract
+ *  §6.3), and plain "Episodes" when it is the ONLY group: most archive spines
+ *  are entirely unnumbered, and "More" than nothing reads wrong. */
+private fun seasonLabel(number: Int?, only: Boolean = false): String =
+    number?.let { "Season $it" } ?: if (only) "Episodes" else "More Episodes"
 
-private fun episodeLabel(episode: SeriesEpisode): String {
+private fun episodeLabel(episode: SeriesEpisode, seriesTitle: String?): String {
     val sxe = if (episode.seasonNumber != null && episode.episodeNumber != null) {
         "S%02dE%02d".format(episode.seasonNumber, episode.episodeNumber)
     } else null
-    return listOfNotNull(sxe, episode.title).joinToString(" · ")
+    return listOfNotNull(sxe, episodeName(episode, seriesTitle)).joinToString(" · ")
+}
+
+/** An unanchored episode usually carries the SERIES title verbatim, so a
+ *  season read as the same line repeated and the viewer could not tell one
+ *  episode from another (seen on the Google TV: two rows both "13 Demon
+ *  Street"). The archive id is the only thing that distinguishes them, and
+ *  it is usually the episode name: 13_demon_street_fever_1959 -> "Fever".
+ *  Ported from the Roku SeriesScreen rule; intervenes ONLY when the title
+ *  tells the viewer nothing, and falls back to the title when nothing is
+ *  left after dropping the series words and a trailing year. */
+private fun episodeName(episode: SeriesEpisode, seriesTitle: String?): String? {
+    val t = episode.title?.trim().orEmpty()
+    val aid = episode.archiveID.orEmpty()
+    if (aid.isEmpty()) return episode.title
+    val st = seriesTitle?.trim()?.lowercase().orEmpty()
+    if (t.isNotEmpty() && t.lowercase() != st) return t
+    val seriesWords = st.split(Regex("[ \\-:]+")).filter { it.isNotEmpty() }.toSet()
+    val words = aid.split(Regex("[_\\-.]+")).filter { it.isNotEmpty() }
+    val kept = ArrayList<String>()
+    for (w in words) {
+        if (kept.isEmpty() && w.lowercase() in seriesWords) continue
+        kept += w
+    }
+    if (kept.size > 1) {
+        val last = kept.last()
+        if (last.length == 4 && last.toIntOrNull()?.let { it in 1871..2099 } == true) kept.removeAt(kept.size - 1)
+    }
+    if (kept.isEmpty()) return episode.title
+    return kept.joinToString(" ") { w -> w.replaceFirstChar { it.uppercase() } }
 }
 
 @Composable
-private fun EpisodeRow(episode: SeriesEpisode, onPlay: () -> Unit) {
+private fun EpisodeRow(episode: SeriesEpisode, seriesTitle: String?, onPlay: () -> Unit) {
     val playable = episode.downloadURL != null
     Row(
         modifier = Modifier
@@ -266,7 +298,7 @@ private fun EpisodeRow(episode: SeriesEpisode, onPlay: () -> Unit) {
         }
         Column(Modifier.weight(1f)) {
             Text(
-                episodeLabel(episode).ifEmpty { "Episode" },
+                episodeLabel(episode, seriesTitle).ifEmpty { "Episode" },
                 style = MaterialTheme.typography.bodyMedium,
                 fontWeight = FontWeight.Medium,
                 maxLines = 2,

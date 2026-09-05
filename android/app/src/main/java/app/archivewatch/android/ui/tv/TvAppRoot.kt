@@ -97,6 +97,10 @@ fun TvAppRoot(container: AppContainer) {
                 when (action) {
                     "surprise" -> nav.push(Route.Surprise)
                     "channels" -> { nav.stack.clear(); nav.tab = Tab.Channels }
+                    // archivewatch://search — the Roku `go:search` twin, and the
+                    // one door a harness can open deterministically (synthetic
+                    // taps are ignored on TV and Compose exposes no rail focus).
+                    "search" -> { nav.stack.clear(); nav.tab = Tab.Search }
                 }
             }
         }

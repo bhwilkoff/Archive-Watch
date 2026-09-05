@@ -70,6 +70,7 @@
                 <data android:scheme="archivewatch" android:host="item"/>
                 <data android:host="surprise"/>
                 <data android:host="channels"/>
+                <data android:host="search"/>
                 <data android:host="series"/>
             </intent-filter>
 

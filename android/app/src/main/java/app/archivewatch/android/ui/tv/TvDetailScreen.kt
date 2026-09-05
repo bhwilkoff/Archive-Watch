@@ -65,6 +65,8 @@ import app.archivewatch.android.data.CatalogItem
 import app.archivewatch.android.data.PlaySpec
 import app.archivewatch.android.ui.AvatarImage
 import app.archivewatch.android.ui.BackdropImage
+import app.archivewatch.android.ui.metaGenres
+import app.archivewatch.android.ui.KindEyebrow
 import app.archivewatch.android.ui.Nav
 import app.archivewatch.android.ui.Route
 import app.archivewatch.android.ui.accentColor
@@ -174,19 +176,27 @@ fun TvDetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
                 val heroPoster = current.posterURL
                 // Ambient wash only. Cropping is correct for this layer because
                 // it is texture behind a scrim, never something the viewer reads.
+                val posterOnly = heroBackdrop == null
                 BackdropImage(
                     url = heroBackdrop ?: heroPoster,
                     contentDescription = if (heroBackdrop != null) current.title else null,
                     accent = current.accentColor,
                     modifier = Modifier.fillMaxSize(),
+                    // A poster is never a hard background: blur it into atmosphere.
+                    soft = posterOnly,
                 )
+                // A backdrop is the hero and stays vivid; a poster blur is
+                // atmosphere and is pushed further back so it never competes
+                // with the copy (a high-contrast poster survives blur).
+                val top = if (posterOnly) Color(0xB3000000) else Color(0x99000000)
+                val mid = if (posterOnly) Color(0x8C000000) else Color(0x66000000)
                 Box(
                     Modifier
                         .fillMaxSize()
                         .background(
                             Brush.verticalGradient(
-                                0f to Color(0x99000000),
-                                0.5f to Color(0x66000000),
+                                0f to top,
+                                0.5f to mid,
                                 1f to Color(0xFF000000),
                             ),
                         ),
@@ -214,6 +224,8 @@ fun TvDetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
                         .padding(start = TvDims.OverscanH, end = TvDims.OverscanH, bottom = 24.dp)
                         .fillMaxWidth(0.6f),
                 ) {
+                    // The category eyebrow — the kind stated once, in its accent.
+                    KindEyebrow(current.contentType, current.accentColor, Modifier.padding(bottom = 6.dp))
                     Text(
                         current.title,
                         fontSize = 36.sp,
@@ -236,11 +248,17 @@ fun TvDetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
                             overflow = TextOverflow.Ellipsis,
                         )
                     }
-                    val meta = listOfNotNull(
-                        current.year?.toString(),
-                        current.runtimeSeconds?.let { "${it / 60} min" },
-                        current.contentType.replace('-', ' ').replaceFirstChar { it.uppercase() },
-                        current.imdbRating?.takeIf { it > 0 }?.let { "★ " + it },
+                    // Year, runtime, up to two canonical genres, and the star only
+                    // past 100 votes. The kind lives in the eyebrow above, so it is
+                    // not repeated here (the Roku meta-line lesson, 2026-09-04).
+                    val meta = (
+                        listOfNotNull(
+                            current.year?.toString(),
+                            current.runtimeSeconds?.let { "${it / 60} min" },
+                        ) + metaGenres(current.genres) + listOfNotNull(
+                            current.imdbRating?.takeIf { it > 0 && (current.imdbVotes ?: 0) >= 100 }
+                                ?.let { "★ " + it },
+                        )
                     ).joinToString("  ·  ")
                     Text(
                         meta,

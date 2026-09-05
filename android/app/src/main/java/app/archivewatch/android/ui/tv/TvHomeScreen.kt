@@ -41,6 +41,8 @@ import app.archivewatch.android.BuildConfig
 import app.archivewatch.android.app.AppContainer
 import app.archivewatch.android.data.CatalogItem
 import app.archivewatch.android.ui.BackdropImage
+import app.archivewatch.android.ui.metaGenres
+import app.archivewatch.android.ui.KindEyebrow
 import app.archivewatch.android.ui.Nav
 import app.archivewatch.android.ui.accentColor
 import app.archivewatch.android.ui.Route
@@ -306,6 +308,9 @@ private fun TvHero(
                         .padding(start = TvDims.OverscanH, bottom = 28.dp, end = TvDims.OverscanH)
                         .fillMaxWidth(0.55f),
                 ) {
+                    if (h.contentType.isNotBlank()) {
+                        KindEyebrow(h.contentType, h.accentColor, Modifier.padding(bottom = 6.dp))
+                    }
                     Text(
                         h.title,
                         fontSize = 36.sp,
@@ -315,11 +320,9 @@ private fun TvHero(
                         maxLines = 2,
                         overflow = TextOverflow.Ellipsis,
                     )
-                    val meta = listOfNotNull(
-                        h.year?.toString(),
-                        h.contentType.replace('-', ' ').replaceFirstChar { it.uppercase() }
-                            .takeIf { h.contentType.isNotBlank() },
-                    ).joinToString("  ·  ")
+                    // The kind is the eyebrow; the meta line carries year + genres.
+                    val meta = (listOfNotNull(h.year?.toString()) + metaGenres(h.genres))
+                        .joinToString("  ·  ")
                     if (meta.isNotEmpty()) {
                         Text(
                             meta,

@@ -327,6 +327,23 @@ class CatalogDatabase private constructor(
         )
     }
 
+    /** The TRUE number of matches for a query, independent of the render cap.
+     *  `search()` returns at most `limit` rows; showing that as the count
+     *  under-sold a common stem ("200 results" for a stem with thousands),
+     *  where Browse honestly shows its full total (the Roku lesson,
+     *  2026-09-04). */
+    suspend fun searchCount(query: String): Int {
+        val match = ftsQuery(query) ?: return 0
+        return dbCall {
+            queryRaw(
+                """SELECT COUNT(*) FROM items_fts f
+                   JOIN items i ON i.archiveID = f.archiveID
+                   WHERE items_fts MATCH ?$adultAnd$notCommercial$typeAnd""",
+                listOf(match),
+            ) { it.getLong(0).toInt() }.firstOrNull() ?: 0
+        }
+    }
+
     /** Query hygiene per contract §5: quote each token + `*` suffix. */
     private fun ftsQuery(raw: String): String? {
         val tokens = raw.lowercase()

@@ -116,7 +116,7 @@ class MainActivity : ComponentActivity() {
             uri.pathSegments.firstOrNull()?.let { DeepLinks.pendingItem.value = "series:" + it }
             return
         }
-        if (uri.scheme == "archivewatch" && uri.host in setOf("surprise", "channels")) {
+        if (uri.scheme == "archivewatch" && uri.host in setOf("surprise", "channels", "search")) {
             DeepLinks.pendingAction.value = uri.host
             return
         }

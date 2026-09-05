@@ -150,6 +150,26 @@ UI is fatiguing at 10 feet. Light mode is not offered on TV.
 **exactly** those in CLAUDE.md and Decision 013. The split is binding: never a
 brand color for content meaning, never a semantic color for chrome.
 
+**4.7 The Detail background is a scene, never a cropped poster.** The hero box
+is ~2.4:1; a true 16:9 backdrop crop-fills it crisply and is the hero. A 2:3
+POSTER never renders as a hard background — crop-filled it becomes a pixelated
+slice of its middle (the Fire TV report of 2026-08-31 and the Roku Detail fix of
+2026-09-04). With no backdrop the poster is decoded tiny and blurred into an
+**ambient wash** of the film's own colour (`BackdropImage(soft = true)`: a ~96px
+decode whose upscale is the blur on every API, plus a Gaussian blur on 31+),
+under a heavier scrim than a backdrop gets, and the poster itself is shown WHOLE
+as the fitted inset (Decision 097). The two scrim weights are deliberate: a
+backdrop stays vivid, a blur recedes behind the copy.
+
+**4.8 The category eyebrow states the kind once.** Above a hero or Detail title,
+the content kind (`kindLabel`: Feature Film, Silent Era, Classic TV, Television,
+Ephemera…) sits in its Decision-013 accent as tracked small caps. Because the
+eyebrow says it, the meta line below never repeats it: that line carries year,
+runtime (Detail), up to two CANONICAL genres (`metaGenres` keeps Title-Case
+entries and drops the lowercase TMDb descriptor tags that duplicate them), and
+the audience star only past 100 votes. Same table and same rule as tvOS and
+Roku §13.7, so the four screens read as one product.
+
 **4.6 Rows over grids at the root.** Home is horizontal rows (the 10-foot idiom).
 Grids are for a *chosen* scope — a category, a decade, search results — where the
 user has already narrowed and wants density.

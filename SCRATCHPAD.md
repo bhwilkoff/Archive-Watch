@@ -233,6 +233,35 @@ focus / layout / animation bugs.
 
 ## Session Log
 
+### 2026-09-04 (owner ask) — Android/Google TV: the Roku-loop design lessons applied
+Owner: "do a pass on the Android/Google TV app version that can apply what you
+have learned for design elements and polish from the Roku loop from tonight."
+All verified on the real Google TV (SEI Dongle R 4K, SDK 34) by screenshot +
+accessibility tree; both flavors compile (google + amazon).
+- **Detail background** (TV-DESIGN §4.7): `BackdropImage(soft = true)` for a
+  poster standing in for a backdrop — a ~96px Coil decode whose upscale is the
+  blur on every API plus `Modifier.blur(28.dp)` on 31+ — under a heavier
+  scrim; a true 16:9 backdrop stays sharp and vivid. Poster never hard-crops.
+- **Category eyebrow + meta line** (§4.8): `KindEyebrow`/`kindLabel` above the
+  Detail and Home-hero titles; meta = year · runtime · up to two Title-Case
+  genres (`metaGenres` drops lowercase TMDb descriptor tags) · ★ past 100
+  votes (`imdbVotes` added to the model). "1947 · 84 min · Drama · Crime · ★ 6.4".
+- **Series episode names**: two rows both read "13 Demon Street"; ported the
+  Roku rule — when the title is just the series name, derive the episode from
+  the archive id (`13_demon_street_fever_1959` -> "Fever"). Season label
+  "Episodes" when it is the only group, else "More Episodes".
+- **Search**: true FTS count (`searchCount`) — "21,273 titles match" where it
+  said "200 results"; facet chips use the shelf word ("Episode", not "Tv
+  episode"); a miss shows the message AND the decade/theme doors (TvMessage
+  fills its box, so a plain Text sits above the doors); `archivewatch://search`
+  deep link added (manifest host + action) — the one deterministic harness door.
+- Harness notes: synthetic taps are ignored on Android TV; the Search keyboard
+  is a Compose key grid so `adb input text` types nothing — drive it by D-pad
+  from the "A" key the deep link focuses (assert bounds [266,212] first).
+- NOT done (structural, bigger than a polish pass): Series on TV still renders
+  the shared PHONE screen (poster card, back-arrow app bar); a TV-native Series
+  scene like Roku's is the next design item for Android TV.
+
 ### 2026-09-04 (owner report) — Detail background rebuilt: blurred ambient base; build 18
 Owner: the Detail background cover art was "very rough ... pixelated and almost
 always poorly cropped". Root cause: a 3.19:1 wash band fed 16:9 backdrops and

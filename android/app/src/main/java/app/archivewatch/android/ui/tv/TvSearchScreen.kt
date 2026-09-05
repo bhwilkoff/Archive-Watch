@@ -25,6 +25,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -38,6 +39,7 @@ import androidx.compose.ui.unit.sp
 import app.archivewatch.android.app.AppContainer
 import app.archivewatch.android.data.CatalogItem
 import app.archivewatch.android.ui.Nav
+import app.archivewatch.android.ui.kindLabel
 import app.archivewatch.android.ui.Route
 import kotlinx.coroutines.delay
 
@@ -69,6 +71,7 @@ fun TvSearchScreen(container: AppContainer, nav: Nav) {
     val dbVersion by container.catalog.dbVersion.collectAsState()
     var query by remember { mutableStateOf("") }
     var results by remember { mutableStateOf<List<CatalogItem>>(emptyList()) }
+    var total by remember { mutableIntStateOf(0) }
     // Result filters (tvOS audit fix #4 parity): only facets PRESENT in the
     // results are offered; the active chip clears itself; reset on new query.
     var typeFilter by remember { mutableStateOf<String?>(null) }
@@ -88,11 +91,13 @@ fun TvSearchScreen(container: AppContainer, nav: Nav) {
     LaunchedEffect(query, dbVersion) {
         if (query.isBlank()) {
             results = emptyList()
+            total = 0
             return@LaunchedEffect
         }
         delay(180)
         val db = container.catalog.awaitDb()
         results = db.search(query)
+        total = db.searchCount(query)
         typeFilter = null
         decadeFilter = null
     }
@@ -151,7 +156,19 @@ fun TvSearchScreen(container: AppContainer, nav: Nav) {
             if (query.isBlank()) {
                 TvSearchDoors(decades, keywords, nav)
             } else if (results.isEmpty()) {
-                TvMessage("No titles match “$query”.")
+                // Not a dead end: say so, then offer the doors (the Roku empty
+                // state — a viewer who typed a miss is one press from a shelf).
+                Column(Modifier.fillMaxSize()) {
+                    // A plain line, not TvMessage: that one fills the whole box
+                    // to centre itself and left the doors with zero height.
+                    Text(
+                        "No titles match “$query”.",
+                        fontSize = 16.sp,
+                        color = Color(0xFFB0B0B0),
+                        modifier = Modifier.padding(top = TvDims.OverscanV, bottom = 12.dp),
+                    )
+                    TvSearchDoors(decades, keywords, nav)
+                }
             } else {
                 val shown = results.filter {
                     (typeFilter == null || it.contentType == typeFilter) &&
@@ -162,8 +179,12 @@ fun TvSearchScreen(container: AppContainer, nav: Nav) {
                 val decadesPresent = results.mapNotNull { it.decade }
                     .groupingBy { it }.eachCount().entries.sortedBy { it.key }
                 Column(Modifier.fillMaxSize()) {
+                    // The true match count when no chip narrows the view; the
+                    // narrowed subset (over the fetched rows) when one does.
+                    val narrowed = typeFilter != null || decadeFilter != null
+                    val n = if (narrowed) shown.size else maxOf(total, results.size)
                     Text(
-                        "${shown.size} result${if (shown.size == 1) "" else "s"}",
+                        "${"%,d".format(n)} title${if (n == 1) "" else "s"} match",
                         fontSize = 16.sp,
                         color = Color(0xFFB0B0B0),
                         modifier = Modifier.padding(top = TvDims.OverscanV, bottom = 10.dp),
@@ -178,8 +199,8 @@ fun TvSearchScreen(container: AppContainer, nav: Nav) {
                                 items(typesPresent.size, key = { "t" + typesPresent[it].key }) { i ->
                                     val (ct, n) = typesPresent[i]
                                     TvFilterChip(
-                                        label = ct.replace('-', ' ')
-                                            .replaceFirstChar { c -> c.uppercase() } + " ($n)",
+                                        // The shelf word, not the slug: "Episode", not "Tv episode".
+                                        label = kindLabel(ct) + " ($n)",
                                         selected = typeFilter == ct,
                                     ) { typeFilter = if (typeFilter == ct) null else ct }
                                 }

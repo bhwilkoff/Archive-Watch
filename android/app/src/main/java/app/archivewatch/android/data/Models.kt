@@ -55,6 +55,9 @@ data class CatalogItem(
     val numFavorites: Int? = null,
     val avgRating: Double? = null,
     val imdbRating: Double? = null,
+    // The audience behind the star. Detail shows the star only past 100
+    // votes (tvOS/Roku floor): a 9.8 from six people is noise, not a rating.
+    val imdbVotes: Int? = null,
     val imdbID: String? = null,
     val numReviews: Int? = null,
     val viewsAllTime: Int? = null,
