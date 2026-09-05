@@ -71,6 +71,9 @@ sub run()
     if r.Count() > 5 then d.runtime = r[5]
     if r.Count() > 6 then d.backdrop = r[6]
     if r.Count() > 7 then d.captions = r[7]
+    ' archive.org community signals (Decision 041): { r: avg rating, v: views,
+    ' f: favorites, rv: [[stars, title, body, reviewer, date], ...] }.
+    if r.Count() > 8 and r[8] <> invalid then d.community = r[8]
     if r.Count() > 9 and r[9] <> invalid
         ' Decision 100 — a film's other release title is SHOWN, never
         ' reconciled. `ct` is the canonical title from the external match.

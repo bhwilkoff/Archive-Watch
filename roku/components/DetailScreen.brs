@@ -64,6 +64,17 @@ sub init()
     m.like.drawFocusFeedbackOnTop = false
     m.like.ObserveField("rowItemSelected", "onLikeSelected")
 
+    ' F4 — the community section: built per film from the shard's `community`
+    ' record, laid out below the shelf. Zone order down the page: pills →
+    ' More Like This → reviews.
+    m.community = m.top.FindNode("community")
+    m.communityY = m.likeY + m.t.posterFH + 232 + 24
+    m.community.translation = [42, m.communityY]
+    m.reviews = []
+    m.revIndex = 0
+    m.inCommunity = false
+    m.revFrame = AWFrameBuild(m.community)
+
     m.toastPlate = m.top.FindNode("toastPlate")
     m.toastText = m.top.FindNode("toastText")
     m.toastTimer = m.top.FindNode("toastTimer")
@@ -416,8 +427,184 @@ sub onItem()
     m.like.visible = false
     m.likeRow = false
     m.inLike = false
+    m.inCommunity = false
+    m.community.visible = false
+    m.hasCommunity = false
     slidePage(0)
     paintSave()
+end sub
+
+' F4 — archive.org's viewers: a stats line and up to six reviews as cards.
+' Stars ride the meta voice; a review body is capped at six lines and Select
+' on the card opens the rest, the tvOS ReviewCard contract.
+sub buildCommunity(cm as Object)
+    while m.community.GetChildCount() > 0
+        m.community.RemoveChildIndex(0)
+    end while
+    m.revFrame = AWFrameBuild(m.community)
+    m.reviews = []
+    m.hasCommunity = false
+    if cm = invalid then return
+    stats = ""
+    if cm.r <> invalid and cm.r > 0
+        stats = AWStar() + " " + Left(fmt(cm.r), 3) + " on archive.org"
+    end if
+    if cm.v <> invalid and cm.v > 0
+        if stats <> "" then stats = stats + "  ·  "
+        stats = stats + AWGroup(Int(cm.v)) + " views"
+    end if
+    if cm.f <> invalid and cm.f > 0
+        if stats <> "" then stats = stats + "  ·  "
+        stats = stats + AWPlural(Int(cm.f), "favorite")
+    end if
+    rv = cm.rv
+    if stats = "" and (rv = invalid or rv.Count() = 0) then return
+    head = m.community.CreateChild("Label")
+    head.font = m.t.uRow : head.color = m.t.textPri
+    head.translation = [0, 0]
+    head.text = "From archive.org viewers"
+    y = 48
+    if stats <> ""
+        sl = m.community.CreateChild("Label")
+        sl.font = m.t.uMeta : sl.color = m.t.textSec
+        sl.translation = [0, y]
+        sl.text = stats
+        y = y + 48
+    end if
+    if rv <> invalid
+        for each r in rv
+            if r.Count() >= 3 and m.reviews.Count() < 6
+                card = m.community.CreateChild("Group")
+                plate = card.CreateChild("Rectangle")
+                plate.width = 1740
+                plate.color = "0x131317FF"
+                ' The heading line: stars, then the review's title.
+                line = ""
+                if r[0] <> invalid and r[0] > 0
+                    for k = 1 to 5
+                        if k <= Int(r[0]) then line = line + AWStar() else line = line + "☆"
+                    end for
+                end if
+                if r[1] <> invalid and fmt(r[1]) <> ""
+                    if line <> "" then line = line + "   "
+                    line = line + StripHTML(fmt(r[1]))
+                end if
+                hl = card.CreateChild("Label")
+                hl.font = m.t.uItem : hl.color = m.t.textPri
+                hl.translation = [24, 18] : hl.width = 1692
+                hl.maxLines = 1 : hl.ellipsizeOnBoundary = true
+                hl.text = line
+                body = card.CreateChild("Label")
+                body.font = m.t.uBody : body.color = m.t.textSec
+                body.translation = [24, 60] : body.width = 1692
+                body.wrap = true : body.maxLines = 6 : body.lineSpacing = 4
+                body.ellipsizeOnBoundary = true
+                body.text = StripHTML(fmt(r[2]))
+                by = ""
+                if r.Count() > 3 and r[3] <> invalid and fmt(r[3]) <> "" then by = "— " + fmt(r[3])
+                if r.Count() > 4 and r[4] <> invalid and fmt(r[4]) <> ""
+                    if by <> "" then by = by + ", "
+                    by = by + Left(fmt(r[4]), 10)
+                end if
+                bl = card.CreateChild("Label")
+                bl.font = m.t.uMeta : bl.color = m.t.textSec
+                bl.translation = [24, 0]
+                bl.text = by
+                m.reviews.Push({ card: card, plate: plate, body: body, byline: bl, expanded: false })
+            end if
+        end for
+    end if
+    m.hasCommunity = true
+    layoutCommunity()
+    m.community.visible = true
+end sub
+
+' Cards stack under one another at their RENDERED heights, so an expanded
+' review pushes the ones below it down rather than over them.
+sub layoutCommunity()
+    y = 48
+    if m.community.GetChildCount() > 1
+        second = m.community.GetChild(1)
+        if second.subtype() = "Label" then y = 96
+    end if
+    for each rv in m.reviews
+        rv.card.translation = [0, y]
+        bh = 0
+        r = rv.body.boundingRect()
+        if r <> invalid then bh = Int(r.height)
+        if rv.body.text = "" then bh = 0
+        by = 60 + bh + 12
+        rv.byline.translation = [24, by]
+        h = by + 48
+        rv.plate.height = h
+        y = y + h + 18
+    end for
+    m.communityH = y
+end sub
+
+sub enterCommunity()
+    if m.hasCommunity <> true or m.reviews.Count() = 0 then return
+    m.inCommunity = true
+    m.inLike = false
+    ' The shelf above would leave its captions peeking at the top of the
+    ' screen once the page has scrolled to the reviews; it goes with the scene.
+    m.like.opacity = 0.0
+    m.like.setFocus(false)
+    m.top.setFocus(true)
+    m.revIndex = 0
+    scrollToReview()
+    print "AWDETAIL zone=community"
+end sub
+
+sub leaveCommunity()
+    m.inCommunity = false
+    for each p in m.revFrame.ring
+        p.visible = false
+    end for
+    m.like.opacity = 0.55
+    if m.likeRow = true
+        enterLike()
+    else
+        slidePage(0)
+        m.cast.opacity = 1.0
+        m.syn.opacity = 1.0
+        paintButtons()
+    end if
+end sub
+
+sub scrollToReview()
+    rv = m.reviews[m.revIndex]
+    ' The section heading sits at the heading line for the first card; later
+    ' cards sit a little below it so the one above stays in view.
+    top = m.communityY + rv.card.translation[1]
+    if m.revIndex = 0
+        slidePage(-(m.communityY - 132))
+    else
+        slidePage(-(top - 300))
+    end if
+    for each p in m.revFrame.ring
+        p.visible = false
+    end for
+    AWFramePlace(m.revFrame, rv.plate, true)
+    ' AWFramePlace offsets by the plate's translation, which is 0 inside the
+    ' card; the ring lives in the section group, so shift it to the card.
+    ct = rv.card.translation
+    for each p in m.revFrame.ring
+        t = p.translation
+        p.translation = [t[0] + ct[0], t[1] + ct[1]]
+    end for
+    for each p in m.revFrame.corners
+        p.visible = false
+    end for
+end sub
+
+sub toggleReview()
+    rv = m.reviews[m.revIndex]
+    if rv.body.isTextEllipsized <> true and rv.expanded <> true then return
+    rv.expanded = not rv.expanded
+    if rv.expanded then rv.body.maxLines = 40 else rv.body.maxLines = 6
+    layoutCommunity()
+    scrollToReview()
 end sub
 
 ' The page slides as one Group, the way Home's hero does (one animation, so
@@ -536,6 +723,8 @@ sub onDetail()
         end if
     end if
 
+    buildCommunity(d.community)
+
     ' Ask the Scene for similar films once the type and year are known.
     yr = 0
     if m.top.item <> invalid and m.top.item.SHORTDESCRIPTIONLINE1 <> invalid
@@ -579,6 +768,12 @@ sub onFocusOn()
             m.like.setFocus(false)
         end if
         m.inLike = false
+        m.inCommunity = false
+        if m.revFrame <> invalid
+            for each p in m.revFrame.ring
+                p.visible = false
+            end for
+        end if
         slidePage(0)
         m.cast.opacity = 1.0
         m.syn.opacity = 1.0
@@ -620,6 +815,33 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
     if not press then return false
     if press then print "AWDETAIL key="; key; " zone="; iif(m.inLike = true, "like", "buttons"); " btn="; m.focusIndex
     if not m.top.focusOn then return false
+    if m.inCommunity = true
+        if key = "down"
+            if m.revIndex < m.reviews.Count() - 1
+                m.revIndex = m.revIndex + 1
+                scrollToReview()
+            end if
+            return true
+        else if key = "up"
+            if m.revIndex > 0
+                m.revIndex = m.revIndex - 1
+                scrollToReview()
+            else
+                leaveCommunity()
+            end if
+            return true
+        else if key = "OK"
+            toggleReview()
+            return true
+        else if key = "back"
+            leaveCommunity()
+            return true
+        else if key = "left"
+            m.top.exitLeft = true
+            return true
+        end if
+        return true
+    end if
     if key = "right"
         if m.focusIndex < m.buttons.Count() - 1
             m.focusIndex = m.focusIndex + 1 : paintButtons() : return true
@@ -633,6 +855,13 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
             m.top.exitLeft = true
             return true
         end if
+        if m.inLike = true
+            idx = m.like.rowItemFocused
+            if idx <> invalid and idx[1] = 0
+                m.top.exitLeft = true
+                return true
+            end if
+        end if
         return false
     else if key = "down"
         if m.reading = true
@@ -644,6 +873,14 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
         ' path; a cut synopsis is read from the More menu.
         if m.likeRow = true and m.inLike <> true
             enterLike()
+            return true
+        end if
+        if m.inLike = true and m.hasCommunity = true and m.reviews.Count() > 0
+            enterCommunity()
+            return true
+        end if
+        if m.inLike <> true and m.likeRow <> true and m.hasCommunity = true and m.reviews.Count() > 0
+            enterCommunity()
             return true
         end if
         return false

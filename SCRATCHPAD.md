@@ -233,6 +233,28 @@ focus / layout / animation bugs.
 
 ## Session Log
 
+### 2026-09-05 (later) — Roku: batches 2–3 of the owner's feedback; 18 of 22 closed (build 22)
+Structural items, each verified on the glass by screenshot + trace: Surprise
+twelve doors on screen, Random Film = a feature, Party Play an ephemeral MUTED
+lineup (no bookmarks, Back to the doors) (F17); More Like This a real shelf on a
+SCROLLING Detail page, the synopsis read from More (F12); chips open a picker on
+the current value (F9); Collections a grid of curated cards → a collection grid
+(F16); Back returns to the place — Home keeps its row (F8); grid title cards
+(F11); **Channels rebuilt as a proportional EPG** (ruler, blocks by minutes,
+now-line, accent-filled focus, Up/Down by time, paging) (F15); **archive.org
+reviews on Detail** as a third zone (F4); **a QR encoder in BrightScript** —
+proven cell-for-cell against a reference and decoded by OpenCV from a
+screenshot (F5); hero copy bottom-anchored so two-line titles never overlap
+(F22). Adult leak measured ("stripper" → 42 stag reels): archive.org tags them
+only as SUBJECTS, so the pipeline's subject tier now carries strippers/stag/
+fetish/grind house; lands with publish-db (F20/F21). Four BrightScript traps
+recorded in the code: `rem` is a keyword; `2 ^ i` is a Float; Val("&H..") is 0;
+a nested for-each over ONE roArray shares its enumerator (that one cost the
+alignment pattern). FindNode with repeated ids answered the wrong block on the
+device — keep direct references. Open: F3 (index columns for the community
+shelves), F9's picker on Search facets is done, F11 audit of Library rows,
+F20/F21 verify on the fresh index.
+
 ### 2026-09-05 — Roku: owner's 20-item feedback; ledger + first batch (build 19)
 The owner used the Roku build and returned twenty defects. My "at parity" claim
 was WRONG at the design-quality bar (surfaces existed; they were not finished).

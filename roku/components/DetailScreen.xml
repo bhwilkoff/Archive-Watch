@@ -61,6 +61,10 @@
     <Label id="cast" />
     <Label id="likeLabel" visible="false" />
     <RowList id="like" visible="false" />
+    <!-- F4 — what archive.org's own viewers made of this film: the stats
+         line and their reviews, below More Like This on the scrolling page
+         (the tvOS CommunityDetailSection). -->
+    <Group id="community" visible="false" />
     </Group>
     <Animation id="pageAnim" duration="0.3" easeFunction="outQuad">
       <Vector2DFieldInterpolator id="pageInterp" key="[0.0,1.0]" fieldToInterp="page.translation" />

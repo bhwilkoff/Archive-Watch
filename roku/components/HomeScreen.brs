@@ -278,6 +278,18 @@ sub paintHero(it as Object)
     if it = invalid then return
     m.hTitle.text = it.title
     m.hMeta.text = it.SHORTDESCRIPTIONLINE1
+    ' The copy is anchored from the BOTTOM: the meta line keeps its place
+    ' above the page dots and a two-line title grows UPWARD from it. At fixed
+    ' positions a two-line marquee (66 px Fraunces, ~150 px tall) ran through
+    ' the meta line — the owner: "make sure text doesn't overlap in the hero
+    ' row when the title goes to two lines".
+    th = 84
+    r = m.hTitle.boundingRect()
+    if r <> invalid and r.height > 0 then th = Int(r.height)
+    metaY = m.heroH - 140
+    titleY = metaY - 12 - th
+    m.hTitle.translation = [m.t.readX, titleY]
+    m.hKind.translation = [m.t.readX, titleY - 42]
     ' The category, in the category's own accent (Decision 013) — the line
     ' tvOS leads its hero copy with.
     kind = ""

@@ -700,3 +700,30 @@ Browse and Search may show a frame cover, never a blank plate.
 **14.7 (amends §13.1) The meta line sits under the caption's rendered
 height**, never under the three-line reserve — pinned to the reserve it
 floated 100 px below a one-line title.
+
+**14.8 (amends §6.7) Channels is a proportional guide grid.** A ruler across
+a three-hour window (NOW in marquee, then half-hour ticks), one row per
+channel with its name cell on its accent, programme blocks whose width is
+their minutes, a now-line, join-in-progress. The focused block fills with
+the channel accent and grows to a readable width over its neighbours; the
+info line above the ruler spells out the focused programme and its times,
+because an eleven-minute block cannot. Up/Down land on what is on the air at
+the same time in the next row; Right past the last block pages the window
+ninety minutes. The rail cell or the ON NOW block tunes in; a later block
+opens its Detail. The old channel-list-beside-one-schedule is retired.
+
+**14.9 (amends §6.5) The Detail page carries archive.org's viewers.** Below
+More Like This: the stats line (rating, views, favorites) and the reviews
+as cards — stars and title, the body capped at six lines, a byline; Select
+opens a long one. Third zone down the scrolling page; Up returns to the
+shelf.
+
+**14.10 (amends §8) The QR code is built here.** "Watch this on another
+device" draws a card with a QR code (our own encoder, `QR.brs`), the film's
+title and the URL — the sheet every other platform draws. A URL stated as a
+sentence is not a share affordance at ten feet.
+
+**14.11 (amends §4.4a) The hero copy is anchored from the bottom.** The meta
+line keeps its place above the page dots; a two-line title grows upward from
+it, and the eyebrow rides above the title. Nothing on the hero may overlap
+whatever the title's length.

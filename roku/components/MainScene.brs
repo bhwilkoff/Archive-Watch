@@ -990,13 +990,9 @@ sub onMorePicked()
         return
     end if
     if pick = "share"
-        ' tvOS, iOS and macOS draw a QR here. Roku has no QR API, and hand-
-        ' rolling an encoder — Reed-Solomon, masking, format bits — is a
-        ' disproportionate amount of risk for one label, so this states the
-        ' URL instead. Recorded as a deliberate divergence in ROKU-PARITY
-        ' rather than quietly skipped.
-        refocus(m.detail)
-        m.detail.toast = "Watch it anywhere: archivewatch.org/item/" + id
+        ' F5 — the QR sheet every other platform draws. The encoder is ours
+        ' (QR.brs): Roku has no QR API.
+        openShareCard(id, m.detail.item.title)
         return
     end if
     if pick = "watch"
@@ -1019,6 +1015,18 @@ sub onMorePicked()
         end if
     end if
     m.detail.callFunc("refresh")
+    refocus(m.detail)
+end sub
+
+sub openShareCard(id as String, title as String)
+    if m.share = invalid
+        m.share = m.top.FindNode("options").CreateChild("ShareCard")
+        m.share.ObserveField("closed", "onShareClosed")
+    end if
+    m.share.callFunc("open", { id: id, title: title })
+end sub
+
+sub onShareClosed()
     refocus(m.detail)
 end sub
 

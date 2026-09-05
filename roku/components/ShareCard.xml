@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- F5 — "Watch this on another device": a QR code the viewer points a phone
+     at, with the URL under it, the same sheet tvOS/iOS/macOS draw. -->
+<component name="ShareCard" extends="Group">
+  <interface>
+    <field id="closed" type="boolean" alwaysNotify="true" />
+    <function name="open" />
+  </interface>
+  <script type="text/brightscript" uri="pkg:/components/Theme.brs" />
+  <script type="text/brightscript" uri="pkg:/components/QR.brs" />
+  <script type="text/brightscript" uri="pkg:/components/ShareCard.brs" />
+  <children>
+    <Rectangle id="dim" />
+    <Rectangle id="plate" />
+    <Label id="head" />
+    <Poster id="code" />
+    <Label id="url" />
+    <Label id="title" />
+    <Group id="frame" />
+  </children>
+</component>

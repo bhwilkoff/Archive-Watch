@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<!-- ROKU-DESIGN §6.7 — the guide.
-     Roku ships no EPG component, its remote has no colour keys, and a
-     time-proportional horizontal grid needs custom focus handling that fights
-     the platform's own engine. So the guide is the shape Roku live-TV channels
-     actually use: the channel list beside the selected channel's schedule.
-     Divergence from the tvOS/iOS/web proportional grid is deliberate and is
-     recorded in ROKU-PARITY. -->
+<!-- ROKU-DESIGN §6.7 / §14.8 — the guide is a proportional EPG: a time ruler
+     over a three-hour window, one row per channel, each programme a block
+     whose width is its runtime, a now-line, join-in-progress. The tvOS
+     ChannelGuide, built from the nodes Roku has: Roku ships no EPG component
+     and a RowList cannot size items by minute, so the grid is drawn and
+     focused by this component. The old "channel list beside one channel's
+     schedule" is gone — the owner: "not an old-school TV guide grid like the
+     other platforms; selecting anything besides the current movie doesn't
+     work". -->
 <component name="ChannelsScreen" extends="Group">
   <interface>
     <field id="focusOn" type="boolean" onChange="onFocusOn" />
@@ -23,13 +25,17 @@
   <script type="text/brightscript" uri="pkg:/components/ChannelsScreen.brs" />
   <children>
     <Label id="heading" />
-    <Label id="hint" />
-    <LabelList id="chList" />
-    <Rectangle id="accent" />
-    <Label id="chTitle" />
-    <Label id="tagline" />
-    <Label id="onNow" />
-    <MarkupList id="guide" />
+    <Label id="info" />
+    <Group id="ruler" />
+    <!-- Rows scroll vertically inside this clip so the ruler stays put. -->
+    <Group id="clip" clippingRect="[0, 0, 1800, 830]">
+      <Group id="rows" />
+    </Group>
+    <Rectangle id="nowLine" visible="false" />
+    <Group id="ring" />
     <Label id="empty" visible="false" />
+    <Animation id="scrollAnim" duration="0.22" easeFunction="outQuad">
+      <Vector2DFieldInterpolator id="scrollInterp" key="[0.0,1.0]" fieldToInterp="rows.translation" />
+    </Animation>
   </children>
 </component>
