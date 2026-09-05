@@ -233,6 +233,34 @@ focus / layout / animation bugs.
 
 ## Session Log
 
+### 2026-09-04 (owner ask) — Google TV: the Series scene is TV-native (TV-DESIGN §4.9)
+Owner: "go ahead and close that structural gap now." `Route.Series` on the TV
+rendered the shared PHONE screen (a centred poster card under a back-arrow app
+bar). New `ui/tv/TvSeriesScreen.kt`, the tvOS `SeriesDetailView` on the TV
+Detail's idiom: §4.7 hero (blurred poster wash + fitted poster, or a sharp
+backdrop), "CLASSIC TV" eyebrow, meta "1955–1962 · 8 of 268 episodes · 8
+seasons · Aired on CBS", favorite (under `series:<slug>`, as tvOS) + share
+(archivewatch.org/series/<slug>), focusable overview, season chips that SELECT
+ON FOCUS, episode rows (still or monogram plate, `S1 · E25`, derived name,
+blurb, resume bar), and the "N of M episodes available" footer. VERIFIED on the
+Google TV by screenshot + accessibility tree on 13 Demon Street (one unnumbered
+group, monograms, "Episodes") and Alfred Hitchcock Presents (8 seasons + "More
+Episodes"; Season 5 focus → "S5 · E24 Madame Mystery").
+Three measured traps, each a wrong hypothesis first:
+- The hero showed as a 300 px band "at rest". Not a scroll: bare siblings in a
+  lazy item are NOT stacked — the action Row drew over the hero. The TV Detail
+  wraps its hero Box + Row in ONE `Column`, and pins the list to the top 300 ms
+  after the focus claim; mirrored both.
+- The season chips swallowed the FIRST Right (573 → 576 → 780 px), unchanged
+  by a 3 s settle or `focusGroup`, as a LazyRow AND as a `horizontalScroll`
+  Row — a scrollable's bring-into-view was eating the key, while the
+  non-scrolling action Row in the same column walks on the first press. Nine
+  chips now wrap in a `FlowRow` (no scrolling): 573 → 817 → 1061.
+- `Modifier.blur`/tiny-decode art appeared black at a 9 s capture: series
+  JSON, then images — latency, not a defect; 16 s captures show the art.
+`archivewatch://search` deep link + episode-name rule from the earlier pass
+are in the same build. google + amazon flavors compile.
+
 ### 2026-09-04 (owner ask) — Android/Google TV: the Roku-loop design lessons applied
 Owner: "do a pass on the Android/Google TV app version that can apply what you
 have learned for design elements and polish from the Roku loop from tonight."

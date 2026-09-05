@@ -170,6 +170,21 @@ entries and drops the lowercase TMDb descriptor tags that duplicate them), and
 the audience star only past 100 votes. Same table and same rule as tvOS and
 Roku §13.7, so the four screens read as one product.
 
+**4.9 A series is a scene, never the phone screen scaled.** `Route.Series` on
+Android TV renders `TvSeriesScreen`, the tvOS `SeriesDetailView` in this
+platform's Detail idiom: the §4.7 hero (a sharp 16:9 backdrop, or the poster
+blurred into an ambient wash with the poster fitted whole at the trailing
+edge), the §4.8 eyebrow ("Classic TV"), a meta line of year range · episode
+count ("32 of 431 episodes" when the canonical run is known) · seasons ·
+"Aired on <network>", favorite + share for the whole series (favorited under
+its `series:<slug>` id so it agrees with tvOS), the full overview (focusable,
+never cut), season chips that **select on focus** with no extra press, and
+episode rows: a 16:9 still or a monogram plate (never the title repeated), the
+`S1 · E3` number label, the episode name derived from the archive id when the
+title is only the series name, a two-line blurb, and a resume bar. The shared
+phone `SeriesDetailScreen` (poster card under a back-arrow app bar) is a phone
+surface and does not ship on the ten-foot build.
+
 **4.6 Rows over grids at the root.** Home is horizontal rows (the 10-foot idiom).
 Grids are for a *chosen* scope — a category, a decade, search results — where the
 user has already narrowed and wants density.

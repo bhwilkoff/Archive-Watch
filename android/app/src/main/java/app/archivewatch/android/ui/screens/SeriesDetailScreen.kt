@@ -218,10 +218,10 @@ private fun SeasonMenu(seasonNumbers: List<Int?>, selected: Int, onSelect: (Int)
 /** seasonNumber may be null — "More Episodes" beside numbered seasons (contract
  *  §6.3), and plain "Episodes" when it is the ONLY group: most archive spines
  *  are entirely unnumbered, and "More" than nothing reads wrong. */
-private fun seasonLabel(number: Int?, only: Boolean = false): String =
+internal fun seasonLabel(number: Int?, only: Boolean = false): String =
     number?.let { "Season $it" } ?: if (only) "Episodes" else "More Episodes"
 
-private fun episodeLabel(episode: SeriesEpisode, seriesTitle: String?): String {
+internal fun episodeLabel(episode: SeriesEpisode, seriesTitle: String?): String {
     val sxe = if (episode.seasonNumber != null && episode.episodeNumber != null) {
         "S%02dE%02d".format(episode.seasonNumber, episode.episodeNumber)
     } else null
@@ -236,7 +236,7 @@ private fun episodeLabel(episode: SeriesEpisode, seriesTitle: String?): String {
  *  Ported from the Roku SeriesScreen rule; intervenes ONLY when the title
  *  tells the viewer nothing, and falls back to the title when nothing is
  *  left after dropping the series words and a trailing year. */
-private fun episodeName(episode: SeriesEpisode, seriesTitle: String?): String? {
+internal fun episodeName(episode: SeriesEpisode, seriesTitle: String?): String? {
     val t = episode.title?.trim().orEmpty()
     val aid = episode.archiveID.orEmpty()
     if (aid.isEmpty()) return episode.title

@@ -652,7 +652,7 @@ private fun TvPlaylistOverlay(
  * (§3.2 — scale + ring + lift), so the button is a focusable surface.
  */
 @Composable
-private fun TvActionButton(
+internal fun TvActionButton(
     label: String,
     icon: @Composable () -> Unit,
     accent: Color,

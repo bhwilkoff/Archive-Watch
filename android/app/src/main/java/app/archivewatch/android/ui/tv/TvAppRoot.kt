@@ -214,7 +214,7 @@ fun TvAppRoot(container: AppContainer) {
                     ) {
                         when (route) {
                             is Route.Detail -> TvDetailScreen(container, nav, route.archiveID)
-                            is Route.Series -> SeriesDetailScreen(container, nav, route.slug)
+                            is Route.Series -> TvSeriesScreen(container, nav, route.slug)
                             is Route.Player -> PlayerScreen(container, nav, route.spec)
                             is Route.Filtered -> FilteredGridScreen(container, nav, route)
                             is Route.Playlist -> PlaylistScreen(container, nav, route.playlistID)

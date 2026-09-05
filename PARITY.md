@@ -83,7 +83,7 @@ macOS) since they share the Swift Core.
 |---|---|---|---|---|---|---|
 | Movies grid + facets + sort | ✅ | ✅ | ✅ `LazyVGrid` + decade/sort `Picker`s + real counts + paging | ✅ CSS grid + chips | ✅ grid + chips | shared `CatalogDB.browse` |
 | Infinite scroll / paging | ✅ | ✅ | ✅ offset paging | ✅ IntersectionObserver | ✅ | |
-| TV series → season → episode | ✅ | ✅ | ✅ `seriesCards()` → `SeriesDetail` → episode play | ✅ `#/series/{slug}` | ✅ | `series/*.json` shared |
+| TV series → season → episode | ✅ | ✅ | ✅ `seriesCards()` → `SeriesDetail` → episode play | ✅ `#/series/{slug}` | ✅ phone `SeriesDetailScreen`; **Google TV: `TvSeriesScreen`, a TV-native scene** (TV-DESIGN §4.9, 2026-09-04) — hero, eyebrow, meta, favorite/share, season chips selecting on focus, episode rows | `series/*.json` shared |
 | TV never appears in Movies | ✅ | ✅ | ✅ | ✅ | ✅ | Decision 036 (shared `CatalogDB`) |
 | TV Specials surface | ✅ | ✅ | ✅ TVBrowseView | ✅ | ✅ | Decision 036 |
 | Orphan episodes fold into spines | ✅ pipeline | — | — | — | — | Decision 036; pipeline-side, benefits all via `series/*.json` |
