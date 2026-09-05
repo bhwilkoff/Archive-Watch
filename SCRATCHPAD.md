@@ -233,6 +233,23 @@ focus / layout / animation bugs.
 
 ## Session Log
 
+### 2026-09-06 — QR links open the film on phones; documented leftovers closed
+Owner: "make it so that the QR codes … actually open the right movies within
+the mobile apps (right now they just open the app but not the movie)". Two
+causes, one per platform. ANDROID: the Play-signed build's certificate was
+never in assetlinks.json (upload + debug keys only) — read off the installed
+APK with apksigner, added, and the Pixel now reports archivewatch.org VERIFIED;
+a cold start from the https link lands on the film's Detail (verified). iOS:
+`onOpenURL` resolved the item immediately and a cold launch has no catalog,
+so `store.item` was nil and the film dropped; https links now go through the
+IntentInbox and are retried on every catalog swap (builds; iPhone not
+reachable for the on-device check). Also: `_clear_wrong_artwork` takes the
+match's title residue with its ids and TV items shed orphaned residue every
+build (81 — "Betty White Show" was "also known as The Life and Death of Peter
+Sellers"); publish-db's index BUILD is fatal again (a NameError had left the
+job green); `tools/roku.py launch` goes Home first; ledger F3 corrected (the
+community shelves were already on Roku Home — AWROWS trace) and F11 closed.
+
 ### 2026-09-05 (night) — Mature content is ONE predicate (Decision 105)
 Owner: the parity target is the apps' DEFAULT-OFF setting; nothing mature may
 show with it off. Roku/web read the index, which has no toggle, so the index
