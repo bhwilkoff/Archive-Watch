@@ -2,22 +2,25 @@
 ' land on a random film's Detail; `browse:` doors open Browse already scoped,
 ' because "show me a decade" is a place to wander, not one film.
 function surpriseDoors() as Object
+    ' F17 — twelve doors, four rows of three, ALL on screen: the fifth row of
+    ' the old fifteen sat below 1080 and the grid never scrolled to it. The
+    ' set mirrors the tvOS SurpriseView (a dozen tiles). "Random Film" is a
+    ' FEATURE — the "anything at all" door handed the owner a TV special —
+    ' and TV is a random SERIES (the show), as tvOS does, never a loose
+    ' episode without art. Documentary is gone: the catalog holds four.
     return [
-        { id: "type:",            label: "Random Film",        sub: "Anything at all",            cat: "feature-film" },
-        { id: "type:feature-film",label: "Random Feature",     sub: "A full-length picture",      cat: "feature-film" },
-        { id: "type:silent-film", label: "Random Silent",      sub: "Before the talkies",         cat: "silent-film" },
-        { id: "type:animation",   label: "Random Animation",   sub: "Ink, paint and cels",        cat: "animation" },
-        { id: "type:short-film",  label: "Random Short",       sub: "Under twenty minutes",       cat: "short-film" },
-        { id: "type:newsreel",    label: "Random Newsreel",    sub: "The week as it was told",    cat: "newsreel" },
-        { id: "type:ephemeral",   label: "Random Ephemera",    sub: "Industrial and educational", cat: "ephemeral" },
-        { id: "type:commercial",  label: "Random Commercial",  sub: "Vintage advertising",        cat: "commercial" },
-        { id: "type:documentary", label: "Random Documentary", sub: "The record of a thing",      cat: "documentary" },
-        { id: "type:tv-episode",  label: "Random TV Episode",  sub: "Drop into a series",         cat: "tv-series" },
-        { id: "browse:decade",    label: "Random Decade",      sub: "Wander a whole era",         cat: "feature-film" },
-        { id: "party",            label: "Party Play",         sub: "Colour films, shuffled",     cat: "animation" },
-        { id: "wall",             label: "Cover Art Wall",     sub: "The archive, as posters",    cat: "feature-film" },
-        { id: "cartoonmode",      label: "Cartoon Mode",       sub: "Shelves by character",       cat: "animation" },
-        { id: "cartoons",         label: "Cartoon Marathon",   sub: "Press play and stay",        cat: "animation" }
+        { id: "type:feature-film", label: "Random Film",       sub: "A full-length picture",         cat: "feature-film" },
+        { id: "type:silent-film",  label: "Random Silent",     sub: "Before the talkies",            cat: "silent-film" },
+        { id: "type:animation",    label: "Random Animation",  sub: "Ink, paint and cels",           cat: "animation" },
+        { id: "type:tv-series",    label: "Random TV Series",  sub: "Drop into a show",              cat: "tv-series" },
+        { id: "type:newsreel",     label: "Random Newsreel",   sub: "The week as it was told",       cat: "newsreel" },
+        { id: "type:ephemeral",    label: "Random Ephemera",   sub: "Industrial and educational",    cat: "ephemeral" },
+        { id: "type:commercial",   label: "Random Commercial", sub: "Vintage advertising",           cat: "commercial" },
+        { id: "type:short-film",   label: "Random Short",      sub: "Under twenty minutes",          cat: "short-film" },
+        { id: "browse:decade",     label: "Random Decade",     sub: "Wander a whole era",            cat: "feature-film" },
+        { id: "party",             label: "Party Play",        sub: "Colour films, shuffled, muted", cat: "animation" },
+        { id: "cartoonmode",       label: "Cartoon Mode",      sub: "Shelves by character",          cat: "animation" },
+        { id: "wall",              label: "Cover Art Wall",    sub: "The archive, as posters",       cat: "feature-film" }
     ]
 end function
 
@@ -33,12 +36,12 @@ sub init()
 
     m.hint.font = m.t.uMeta : m.hint.color = m.t.textSec
     m.hint.translation = [42, 204]
-    m.hint.text = "Fifteen doors into 26,000 films. Every one of them re-rolls."
+    m.hint.text = "Twelve doors into 26,000 films. Every one of them re-rolls."
 
     m.grid.translation = [42, 276]
     m.grid.itemComponentName = "ActionTile"
     m.grid.numColumns = 3
-    m.grid.numRows = 5
+    m.grid.numRows = 4
     m.grid.itemSize = [528, 162]
     m.grid.itemSpacing = [24, 24]
     ' The TILE draws its own ring (§13.3); the grid's bitmap would be a

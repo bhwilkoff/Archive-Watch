@@ -127,7 +127,12 @@ _ADULT_STRONG = re.compile(
 # these means them. NOTE: bare "burlesque" is deliberately excluded (ambiguous).
 _ADULT_SUBJECT = re.compile(
     r"\b(nudity|nude|topless|adult\s+film|adult\s+movie|softcore|sexploitation"
-    r"|erotica|pornographic|striptease|playboy|playmate|penthouse)\b", re.I)
+    r"|erotica|pornographic|striptease|playboy|playmate|penthouse"
+    # 2026-09-05: the Roku owner found stag reels in search. archive.org tags
+    # them "Stripper - Strippers - Stag - Burlesque", "vintage stripper",
+    # "fetishism; grind house" — subjects, never titles ("The Stripper" 1963
+    # is a Joanne Woodward drama, so the title tier must not carry this).
+    r"|strippers?|stag|fetish|fetishism|grind\s?house|bdsm)\b", re.I)
 # Curated known-adult titles that evade the keyword tiers (extend as found).
 # NOTE: a bare "playboy" title is NOT adult ("The Playboy of the Western World"),
 # so the Playboy brand is caught by exact title here + the subject tier above.
@@ -135,6 +140,9 @@ _ADULT_TITLES = {
     "ubalda all naked and warm", "hysterical history",
     "from show girl to burlesque queen",
     "playboy after dark", "playboys penthouse", "playboy after dark complete",
+    # Uploads whose only subject is "vintage" — the title is the tell.
+    "vintage stripper", "trapeze stripper",
+    "i dreamed of being a teen age stripper",
 }
 _CARTOON = re.compile(r"\b(cartoon|animation|animated)\b", re.I)
 

@@ -139,6 +139,7 @@ sub onText()
         m.status.text = "Type to search 26,965 titles — or pick a door."
         return
     end if
+    svc.qCollection = ""
     svc.qType = ""
     svc.qDecade = 0
     svc.qSort = "popular"
@@ -215,20 +216,39 @@ end function
 sub paintChips()
     for i = 0 to m.chips.Count() - 1
         d = m.chipDefs[i]
-        v = d.values[m.chipIndex[i]]
-        if v = "All"
-            if d.id = "type" then v = "All films"
-            if d.id = "decade" then v = "Any decade"
-        end if
-        m.chips[i].text = v
+        m.chips[i].text = displayValue(d, d.values[m.chipIndex[i]])
     end for
     layoutChips()
 end sub
 
+' F9 — a chip opens a picker (ROKU-DESIGN §6.3), never cycles.
 sub onChipPressed()
     i = m.chipFocus
     d = m.chipDefs[i]
-    m.chipIndex[i] = (m.chipIndex[i] + 1) mod d.values.Count()
+    vals = []
+    for each v in d.values
+        vals.Push(displayValue(d, v))
+    end for
+    t = "Type"
+    if d.id = "decade" then t = "Decade"
+    m.top.pickChip = { index: i, title: t, values: vals, current: m.chipIndex[i] }
+end sub
+
+function displayValue(d as Object, v as String) as String
+    if v = "All"
+        if d.id = "type" then return "All films"
+        if d.id = "decade" then return "Any decade"
+    end if
+    return v
+end function
+
+sub applyChip(spec as Object)
+    if spec = invalid or spec.index = invalid then return
+    i = spec.index
+    if i < 0 or i >= m.chipDefs.Count() then return
+    if spec.value <> invalid and spec.value >= 0 and spec.value < m.chipDefs[i].values.Count()
+        m.chipIndex[i] = spec.value
+    end if
     paintChips()
     applyFilters()
 end sub

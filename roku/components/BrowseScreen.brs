@@ -86,33 +86,72 @@ sub init()
     m.chipGroup.translation = [42, 240]
     m.focusRow = 0      ' 0 = chips, 1 = grid
     m.focusChip = 0
+    m.collectionID = ""
     paintChips()
 end sub
 
+' F9 — ROKU-DESIGN §6.3: "a chip opens a dialog". Cycling in place was the
+' wrong reading of that rule; a chip now hands the Scene a picker spec and
+' the Scene opens the options panel on the current value.
 sub onChipSelected()
     print "AWBROWSE chipSelected "; m.focusChip
-    ' Cycle the chip in place. A dialog is the design's answer for long lists;
-    ' with at most nine values, cycling is fewer presses and no new surface.
     i = m.focusChip
     d = m.chipDefs[i]
-    m.chipIndex[i] = (m.chipIndex[i] + 1) mod d.values.Count()
+    vals = []
+    for each v in d.values
+        vals.Push(displayValue(d, v))
+    end for
+    m.top.pickChip = { index: i, title: chipTitle(d.id), values: vals, current: m.chipIndex[i] }
+end sub
+
+function chipTitle(id as String) as String
+    if id = "type" then return "Type"
+    if id = "decade" then return "Decade"
+    if id = "genre" then return "Genre"
+    if id = "sort" then return "Sort by"
+    return id
+end function
+
+function displayValue(d as Object, v as String) as String
+    ' A chip states its VALUE. "Type: Feature Film" read as a settings
+    ' form; "Feature Film" reads as what is on the grid.
+    if v = "All"
+        if d.id = "type" then return "All films"
+        if d.id = "decade" then return "Any decade"
+        if d.id = "genre" then return "Any genre"
+    end if
+    if d.id = "sort" and v = "Popular" then return "Most popular"
+    return v
+end function
+
+sub applyChip(spec as Object)
+    if spec = invalid or spec.index = invalid then return
+    i = spec.index
+    if i < 0 or i >= m.chipDefs.Count() then return
+    if spec.value <> invalid and spec.value >= 0 and spec.value < m.chipDefs[i].values.Count()
+        m.chipIndex[i] = spec.value
+    end if
     paintChips()
+    submit()
+end sub
+
+' F16 — a collection browsed as a grid: the heading is the collection, the
+' chips leave (its membership IS the filter), and the service answers from
+' the collection's own member list.
+sub applyCollection(spec as Object)
+    if spec = invalid or spec.id = invalid then return
+    m.collectionID = spec.id
+    m.heading.text = fmt(spec.title)
+    m.chipIndex = [0, 0, 0, 0]
+    m.chipGroup.visible = false
+    m.focusRow = 1
     submit()
 end sub
 
 sub paintChips()
     for i = 0 to m.chips.Count() - 1
         d = m.chipDefs[i]
-        v = d.values[m.chipIndex[i]]
-        ' A chip states its VALUE. "Type: Feature Film" read as a settings
-        ' form; "Feature Film" reads as what is on the grid.
-        if v = "All"
-            if d.id = "type" then v = "All films"
-            if d.id = "decade" then v = "Any decade"
-            if d.id = "genre" then v = "Any genre"
-        end if
-        if d.id = "sort" and v = "Popular" then v = "Most popular"
-        m.chips[i].text = v
+        m.chips[i].text = displayValue(d, d.values[m.chipIndex[i]])
     end for
     layoutChips()
 end sub
@@ -148,6 +187,9 @@ end sub
 ' Open Browse already scoped — used by the Surprise doors, where "a decade" is
 ' a place to wander rather than one film.
 sub applyFilter(spec as Object)
+    m.collectionID = ""
+    m.chipGroup.visible = true
+    m.focusRow = 0
     if spec.type <> invalid and spec.type <> ""
         for i = 0 to m.chipDefs[0].values.Count() - 1
             if typeValueToId(m.chipDefs[0].values[i]) = spec.type then m.chipIndex[0] = i
@@ -174,6 +216,9 @@ sub onScope()
     ' genre and sort carried over, so TV opened pre-narrowed by a Movies pick.
     m.chipIndex[1] = 0 : m.chipIndex[2] = 0 : m.chipIndex[3] = 0
     m.focusChip = 0
+    m.collectionID = ""
+    m.chipGroup.visible = true
+    m.focusRow = 0
     if s = "tv"
         m.heading.text = "TV"
         m.chipIndex[0] = 2
@@ -207,6 +252,7 @@ sub submit()
         print "AWBROWSE submit ABORTED — no service node"
         return
     end if
+    svc.qCollection = m.collectionID
     svc.qType = typeValueToId(m.chipDefs[0].values[m.chipIndex[0]])
     dv = m.chipDefs[1].values[m.chipIndex[1]]
     if dv = "All"
@@ -268,7 +314,7 @@ end sub
 
 sub focusHere()
     print "AWBROWSE focusHere row="; m.focusRow; " chip="; m.focusChip
-    if m.focusRow = 1
+    if m.focusRow = 1 or not m.chipGroup.visible
         m.grid.setFocus(true)
     else
         m.chips[m.focusChip].setFocus(true)
@@ -299,7 +345,7 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
         end if
     else
         if key = "up"
-            if m.grid.itemFocused < m.grid.numColumns
+            if m.grid.itemFocused < m.grid.numColumns and m.chipGroup.visible
                 m.focusRow = 0 : focusHere() : return true
             end if
         else if key = "left"

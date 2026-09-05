@@ -44,6 +44,10 @@ sub init()
     m.idLineup = invalid
     m.moreMode = "detail"
     m.autoPlay = false
+    m.browseFrom = "home"
+    m.cameFromSeries = "home"
+    m.pendingCards = false
+    m.cardsBuilt = false
 
     m.rail.ObserveField("selected", "onRailSelected")
 
@@ -115,7 +119,12 @@ sub onRailSelectedID(id as String)
         ' and read every Home shelf as missing.
         hideAllSurfaces()
         m.content.visible = true
-        if m.home <> invalid then m.home.onScreen = true
+        if m.home <> invalid
+            m.home.onScreen = true
+            ' Choosing Home from the rail is the one time the TOP is right;
+            ' Back into Home keeps the row the viewer left (F8).
+            m.home.callFunc("resetTop")
+        end if
         m.route = "home"
         focusContent()
     else if id = "movies" or id = "tv"
@@ -144,12 +153,14 @@ sub onRailSelectedID(id as String)
 end sub
 
 sub openBrowse(scope as String)
+    m.browseFrom = "home"
     if m.browse = invalid
         m.browse = m.overlay.CreateChild("BrowseScreen")
         m.browse.translation = [m.t.railW, 0]
         m.browse.service = m.svc
         m.browse.ObserveField("chosen", "onBrowseChosen")
         m.browse.ObserveField("exitLeft", "focusRail")
+        m.browse.ObserveField("pickChip", "onBrowsePickChip")
     end if
     hideAllSurfaces()
     m.browse.visible = true
@@ -475,6 +486,7 @@ sub onChannelDecadePicked(pick as String)
     ' Check it can actually play something, now, while the viewer is still
     ' here to change it — rather than letting them discover it on Play.
     m.pendingChCheck = { type: m.newChType, decade: dec }
+    m.svc.qCollection = ""
     m.svc.qType = m.newChType
     m.svc.qDecade = dec
     m.svc.qSort = "popular"
@@ -498,6 +510,32 @@ sub reloadChannels()
     if m.chtask <> invalid and m.chtask.status = "ready"
         m.channels.callFunc("showChannels", m.chtask.channels)
     end if
+end sub
+
+' The Cartoon Marathon left the Surprise doors (twelve fit the screen); it
+' lives on Cartoon Mode's own options, where the cartoons are.
+sub openCartoonOptions()
+    if m.more = invalid
+        m.more = m.top.FindNode("options").CreateChild("OptionsList")
+        m.more.ObserveField("chosen", "onMorePicked")
+        m.more.ObserveField("closed", "onMoreClosed")
+    end if
+    opts = [{ id: "marathon", label: "Start a cartoon marathon" }]
+    opts.Push({ id: "settings", label: "App settings…" })
+    opts.Push({ id: "cancel", label: "Done" })
+    m.moreMode = "cartoons"
+    m.more.callFunc("open", { title: "Cartoons", options: opts })
+end sub
+
+sub onCartoonOptionPicked(pick as String)
+    if pick = "marathon"
+        startCartoonMarathon()
+        return
+    else if pick = "settings"
+        openOptions()
+        return
+    end if
+    refocus(m.collections)
 end sub
 
 sub openSeriesOptions()
@@ -565,7 +603,7 @@ sub onLibraryOptionPicked(pick as String)
     plID = m.library.focusedPlaylist
     if pick = "playall"
         ids = m.library.callFunc("focusedRowIDs")
-        if ids <> invalid and ids.Count() > 0 then startIDLineup(ids)
+        if ids <> invalid and ids.Count() > 0 then startIDLineup(ids, "library", "playlist")
         return
     else if pick = "removeitem" and plID <> ""
         awRemoveFromPlaylist(plID, m.library.focusedItem)
@@ -591,8 +629,12 @@ function idsOf(q as Object) as Object
     return out
 end function
 
-sub startIDLineup(ids as Object)
-    m.idLineup = { ids: ids, index: 0 }
+' `origin` is the surface Back returns to when the lineup ends or is left;
+' `kind` names it. A party is a CLOCK, like a channel (F17): it never writes
+' resume progress — the owner's Continue Watching was filling with cartoons
+' a party had shown the room — and it plays MUTED, as tvOS's does.
+sub startIDLineup(ids as Object, origin as String, kind as String)
+    m.idLineup = { ids: ids, index: 0, origin: origin, kind: kind }
     playIDLineup()
 end sub
 
@@ -603,8 +645,13 @@ sub playIDLineup()
         closePlayer()
         return
     end if
-    m.pendingEpisode = { id: l.ids[l.index], title: "", meta: "Playlist  ·  " + fmt(l.index + 1) + " of " + fmt(l.ids.Count()),
-                         queue: l.ids, queueTitles: l.ids, index: l.index, fromLibrary: true }
+    label = "Playlist"
+    if l.kind = "party" then label = "Party Play"
+    if l.kind = "channel" then label = "Channel"
+    ephemeral = (l.kind = "party" or l.kind = "channel")
+    m.pendingEpisode = { id: l.ids[l.index], title: "", meta: label + "  ·  " + fmt(l.index + 1) + " of " + fmt(l.ids.Count()),
+                         queue: l.ids, queueTitles: l.ids, index: l.index, fromLibrary: (l.kind = "playlist"),
+                         origin: l.origin, ephemeral: ephemeral, muted: (l.kind = "party") }
     if m.dtask = invalid
         m.dtask = CreateObject("roSGNode", "DetailTask")
         m.dtask.ObserveField("detail", "onDetailLoaded")
@@ -759,6 +806,41 @@ sub onNamerButton()
     end if
 end sub
 
+' F9 — a filter chip opens the options panel ON its current value
+' (ROKU-DESIGN §6.3: "a chip opens a dialog, never a pushed screen").
+sub onBrowsePickChip()
+    openChipPicker(m.browse.pickChip, m.browse)
+end sub
+
+sub onSearchPickChip()
+    openChipPicker(m.search.pickChip, m.search)
+end sub
+
+sub openChipPicker(spec as Object, target as Object)
+    if spec = invalid or spec.values = invalid then return
+    if m.more = invalid
+        m.more = m.top.FindNode("options").CreateChild("OptionsList")
+        m.more.ObserveField("chosen", "onMorePicked")
+        m.more.ObserveField("closed", "onMoreClosed")
+    end if
+    opts = []
+    for i = 0 to spec.values.Count() - 1
+        opts.Push({ id: "cv:" + fmt(i), label: spec.values[i] })
+    end for
+    m.chipTarget = target
+    m.chipSpecIndex = spec.index
+    m.moreMode = "chip"
+    print "AWPANEL open chip "; spec.title; " n="; opts.Count(); " current="; spec.current
+    m.more.callFunc("open", { title: spec.title, options: opts, selected: spec.current })
+end sub
+
+sub onChipPicked(pick as String)
+    if Left(pick, 3) = "cv:" and m.chipTarget <> invalid
+        m.chipTarget.callFunc("applyChip", { index: m.chipSpecIndex, value: Int(Val(Mid(pick, 4))) })
+    end if
+    refocus(m.chipTarget)
+end sub
+
 sub onWantLike()
     spec = m.detail.wantLike
     if spec = invalid or spec.id = invalid then return
@@ -783,6 +865,11 @@ sub onDetailMore()
     end if
     id = m.detail.item.id
     opts = []
+    ' F12 — a synopsis the page had to cut is read from here, in the §13.12
+    ' reading block; Down on the page goes to More Like This instead.
+    if m.detail.callFunc("synopsisCut") = true
+        opts.Push({ id: "read", label: "Read the full synopsis" })
+    end if
     if awIsWatched(id)
         opts.Push({ id: "unwatch", label: "Mark as not watched" })
     else
@@ -806,7 +893,11 @@ sub onDetailMore()
 end sub
 
 sub onMoreClosed()
-    if m.moreMode = "library"
+    if m.moreMode = "chip"
+        refocus(m.chipTarget)
+    else if m.moreMode = "cartoons"
+        refocus(m.collections)
+    else if m.moreMode = "library"
         refocus(m.library)
     else if m.moreMode = "series"
         refocus(m.series)
@@ -846,6 +937,14 @@ end sub
 
 sub onMorePicked()
     pick = m.more.chosen
+    if m.moreMode = "chip"
+        onChipPicked(pick)
+        return
+    end if
+    if m.moreMode = "cartoons"
+        onCartoonOptionPicked(pick)
+        return
+    end if
     if m.moreMode = "playlist"
         onPlaylistPicked(pick)
         return
@@ -875,6 +974,11 @@ sub onMorePicked()
         return
     end if
     id = m.detail.item.id
+    if pick = "read"
+        refocus(m.detail)
+        m.detail.callFunc("readSynopsis")
+        return
+    end if
     if pick = "playlist"
         m.plTargetID = id
         m.plFrom = "detail"
@@ -961,6 +1065,8 @@ sub onOptionsClosed()
         refocus(m.library)
     else if m.route = "collections"
         refocus(m.collections)
+    else if m.route = "colcards"
+        refocus(m.colCards)
     else if m.route = "channels"
         refocus(m.channels)
     else if m.route = "series"
@@ -1000,6 +1106,7 @@ sub hideAllSurfaces()
     closeChannels()
     closeSeries()
     if m.surprise <> invalid then m.surprise.visible = false
+    if m.colCards <> invalid then m.colCards.visible = false
     m.content.visible = false
     if m.home <> invalid then m.home.onScreen = false
     m.loading.visible = false
@@ -1013,6 +1120,62 @@ sub openBrowseFiltered(wantType as String, decade as Integer)
     ' Back returns where the viewer actually came from — Home for a tile,
     ' Surprise for a door — not to whichever caller was written first.
     m.cameFrom = from
+    m.browseFrom = from
+end sub
+
+' F8 — Back returns to the surface the viewer was on, with that surface's
+' focus intact: the screens keep their own state while hidden, so showing
+' one again is enough. Unknown destinations land on Home.
+sub returnTo(dest as String)
+    if dest = "colcards" and m.colCards <> invalid
+        openCollections()
+        return
+    end if
+    if dest = "surprise" and m.surprise <> invalid
+        openSurprise()
+        return
+    end if
+    if dest = "library" and m.library <> invalid
+        openLibrary()
+        return
+    end if
+    if dest = "search" and m.search <> invalid
+        hideAllSurfaces()
+        m.search.visible = true
+        if m.rail <> invalid then m.rail.syncID = "search"
+        refocus(m.search)
+        m.route = "search"
+        return
+    end if
+    if dest = "browse" and m.browse <> invalid
+        hideAllSurfaces()
+        m.browse.visible = true
+        refocus(m.browse)
+        m.route = "browse"
+        return
+    end if
+    if dest = "collections" and m.collections <> invalid
+        hideAllSurfaces()
+        m.collections.visible = true
+        if m.rail <> invalid then m.rail.syncID = "surprise"
+        refocus(m.collections)
+        m.route = "collections"
+        return
+    end if
+    if dest = "channels" and m.channels <> invalid
+        hideAllSurfaces()
+        m.channels.visible = true
+        if m.rail <> invalid then m.rail.syncID = "channels"
+        refocus(m.channels)
+        m.route = "channels"
+        return
+    end if
+    hideAllSurfaces()
+    m.content.visible = true
+    if m.home <> invalid then m.home.onScreen = true
+    if m.rail <> invalid then m.rail.syncID = "home"
+    focusContent()
+    m.route = "home"
 end sub
 
 ' A marathon is a QUEUE, not a channel: it starts at the beginning of the first
@@ -1062,6 +1225,7 @@ sub buildMarathon()
     end for
     if urls.Count() = 0 then return
     m.lineup = { urls: urls, titles: titles, index: 0 }
+    m.surpriseLineup = true
     playLineup()
 end sub
 
@@ -1255,7 +1419,9 @@ sub playPendingEpisode(d as Object)
     ' Guarded: this queue path is shared by episodes, playlists, user channels
     ' and Party Play, and only the first of those has ever opened a series.
     if m.series <> invalid then m.series.visible = false
-    m.player.archiveID = e.id
+    ' An ephemeral lineup (a party, a channel) writes NO bookmark.
+    if e.ephemeral = true then m.player.archiveID = "" else m.player.archiveID = e.id
+    m.player.muted = (e.muted = true)
     ' The spine this episode belongs to, so Continue Watching can borrow its
     ' poster — an episode has none of its own in the web index.
     if m.series <> invalid and m.series.seriesID <> invalid and Left(m.series.seriesID, 7) = "series:"
@@ -1273,9 +1439,15 @@ sub playPendingEpisode(d as Object)
     setChromeVisible(false)
     m.player.playUrl = d.url
     m.player.setFocus(true)
-    if e.fromLibrary = true then m.cameFrom = "library" else m.cameFrom = "series"
+    if e.origin <> invalid and e.origin <> ""
+        m.cameFrom = e.origin
+    else if e.fromLibrary = true
+        m.cameFrom = "library"
+    else
+        m.cameFrom = "series"
+    end if
     m.route = "player"
-    print "AWFOCUS player (queued "; e.id; ")"
+    print "AWFOCUS player (queued "; e.id; " from "; m.cameFrom; " ephemeral="; (e.ephemeral = true); ")"
 end sub
 
 ' Weaves the pool's vintage commercials between programmes. One or two per
@@ -1394,6 +1566,7 @@ sub onTune()
     if t = invalid then return
     if t.userChannel = true
         m.pendingUserChannel = t
+        m.svc.qCollection = ""
         m.svc.qType = t.type
         m.svc.qDecade = t.decade
         m.svc.qSort = "shuffle"
@@ -1494,25 +1667,68 @@ sub openShelfSurface()
     end if
 end sub
 
+' F16 — Collections is a grid of curated CARDS (ROKU-DESIGN §6.8, amended
+' 2026-09-05), the tvOS CollectionsView shape. The shelf-per-collection
+' surface duplicated Home almost row for row and now serves Cartoon Mode only.
 sub openCollections()
-    openShelfSurface()
-    m.collections.callFunc("setHeading", { title: "Collections",
-        empty: "Collections could not be loaded. Check the network and try again." })
-    if m.collectionsBuilt = true and m.lastShelf = "collections"
-        refocus(m.collections)
-        return
+    if m.colCards = invalid
+        m.colCards = m.overlay.CreateChild("CollectionCardsScreen")
+        m.colCards.translation = [m.t.railW, 0]
+        m.colCards.ObserveField("chosen", "onCollectionCardChosen")
+        m.colCards.ObserveField("exitLeft", "focusRail")
     end if
-    m.lastShelf = "collections"
-    m.pendingCollections = true
-    m.svc.qCollections = true
-    m.svc.qCartoons = false
-    m.svc.queryId = m.svc.queryId + 1
+    hideAllSurfaces()
+    m.colCards.visible = true
+    m.rail.focusOn = false
+    if m.rail <> invalid then m.rail.syncID = "collections"
+    m.route = "colcards"
+    print "AWFOCUS collections"
+    ' Built once per session: 26 cards over a 27,000-row index is a real
+    ' scan, and the membership cannot change while the channel is open.
+    if m.cardsBuilt = true
+        refocus(m.colCards)
+    else
+        m.pendingCards = true
+        m.svc.qCollectionCards = true
+        m.svc.queryId = m.svc.queryId + 1
+    end if
+end sub
+
+sub onCollectionCardChosen()
+    id = m.colCards.chosen
+    if id = invalid or id = "" then return
+    openCollectionBrowse(id, m.colCards.chosenTitle)
+end sub
+
+' A collection opens as the Browse grid with the collection as its heading
+' and no chips — the membership is the filter. Back returns to the cards.
+sub openCollectionBrowse(id as String, title as String)
+    if m.browse = invalid
+        m.browse = m.overlay.CreateChild("BrowseScreen")
+        m.browse.translation = [m.t.railW, 0]
+        m.browse.service = m.svc
+        m.browse.ObserveField("chosen", "onBrowseChosen")
+        m.browse.ObserveField("exitLeft", "focusRail")
+        m.browse.ObserveField("pickChip", "onBrowsePickChip")
+    end if
+    hideAllSurfaces()
+    m.browse.visible = true
+    m.rail.focusOn = false
+    m.browse.callFunc("applyCollection", { id: id, title: title })
+    refocus(m.browse)
+    m.route = "browse"
+    m.browseFrom = "colcards"
+    print "AWFOCUS browse collection "; id
 end sub
 
 sub closeCollections()
     if m.collections <> invalid
         m.collections.visible = false
         m.collections.focusOn = false
+    end if
+    if m.colCards <> invalid
+        m.colCards.visible = false
+        m.colCards.focusOn = false
     end if
     m.content.visible = true
     if m.home <> invalid then m.home.onScreen = true
@@ -1566,6 +1782,7 @@ sub openSearch()
         m.search.ObserveField("chosen", "onSearchChosen")
         m.search.ObserveField("door", "onSearchDoor")
         m.search.ObserveField("exitLeft", "focusRail")
+        m.search.ObserveField("pickChip", "onSearchPickChip")
     end if
     hideAllSurfaces()
     m.search.visible = true
@@ -1641,6 +1858,7 @@ sub onQueryResults()
     if m.pendingParty = true
         m.pendingParty = false
         m.svc.qParty = false
+        m.surpriseLineup = true
         res = m.svc.results
         ids = []
         if res <> invalid
@@ -1650,7 +1868,7 @@ sub onQueryResults()
         end if
         if ids.Count() > 0
             m.cameFrom = "surprise"
-            startIDLineup(ids)
+            startIDLineup(ids, "surprise", "party")
         end if
         return
     end if
@@ -1679,7 +1897,7 @@ sub onQueryResults()
         end if
         ' Urls are resolved as the queue advances, the same way a playlist does
         ' — 20 shard fetches to start one film would be absurd.
-        startIDLineup(idsOf(q))
+        startIDLineup(idsOf(q), "channels", "channel")
         return
     end if
     if m.pendingLike <> invalid and m.pendingLike <> ""
@@ -1698,6 +1916,16 @@ sub onQueryResults()
     end if
     if m.pendingRandom = true
         onRandomPicked()
+        return
+    end if
+    if m.pendingCards = true
+        m.pendingCards = false
+        m.svc.qCollectionCards = false
+        m.cardsBuilt = true
+        if m.colCards <> invalid
+            m.colCards.callFunc("showCards", m.svc.results, m.svc.total)
+            if m.route = "colcards" then refocus(m.colCards)
+        end if
         return
     end if
     if m.pendingCollections = true
@@ -1769,6 +1997,7 @@ sub openDetail(archiveID as String)
     end if
     if m.route <> "detail" then m.cameFrom = m.route
     m.cameFromBrowse = (m.route = "browse")
+    m.surpriseLineup = false
     ' A surface that paints over the whole content column must clear the
     ' status label, or a stale line sits under the synopsis forever.
     m.loading.visible = false
@@ -2101,6 +2330,15 @@ sub closePlayer()
         print "AWFOCUS channels (from player)"
         return
     end if
+    ' A party or marathon started from a Surprise door has no Detail under
+    ' it: it returns to the doors. A film opened from a door still returns
+    ' to its Detail (surpriseLineup is cleared when a Detail opens).
+    if m.cameFrom = "surprise" and m.surpriseLineup = true and m.surprise <> invalid
+        m.surpriseLineup = false
+        openSurprise()
+        print "AWFOCUS surprise (from player)"
+        return
+    end if
 
     if m.detail = invalid
         focusContent()
@@ -2138,6 +2376,10 @@ sub closeDetail()
         m.collections.visible = true
         refocus(m.collections)
         m.route = "collections"
+        return
+    end if
+    if m.colCards <> invalid and m.cameFrom = "colcards"
+        openCollections()
         return
     end if
     if m.library <> invalid and m.cameFrom = "library"
@@ -2214,6 +2456,10 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
         openSeriesOptions()
         return true
     end if
+    if key = "options" and m.route = "collections" and m.lastShelf = "cartoons" and m.collections <> invalid
+        openCartoonOptions()
+        return true
+    end if
     if key = "options" and m.route <> "player"
         openOptions()
         return true
@@ -2253,9 +2499,10 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
             closeDetail()
             return true
         else if m.route = "browse"
+            ' F8 — a grid opened from a Surprise door, a Home tile or a
+            ' collection card returns THERE, not to the top of Home.
             closeBrowse()
-            focusContent()
-            m.route = "home"
+            returnTo(m.browseFrom)
             return true
         else if m.route = "search"
             closeSearch()
@@ -2268,6 +2515,16 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
             m.route = "home"
             return true
         else if m.route = "collections"
+            ' Cartoon Mode is a Surprise door.
+            closeCollections()
+            if m.lastShelf = "cartoons" and m.surprise <> invalid
+                openSurprise()
+            else
+                focusContent()
+                m.route = "home"
+            end if
+            return true
+        else if m.route = "colcards"
             closeCollections()
             focusContent()
             m.route = "home"
@@ -2278,9 +2535,9 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
             m.route = "home"
             return true
         else if m.route = "series"
+            ' F8 — a series opened from Browse → TV goes back to that grid.
             closeSeries()
-            focusContent()
-            m.route = "home"
+            returnTo(m.cameFromSeries)
             return true
         else if m.route = "wall"
             closeWall()

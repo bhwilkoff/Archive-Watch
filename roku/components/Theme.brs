@@ -174,7 +174,10 @@ function BroadcastSafe(hex as String) as String
     if Len(h) < 6 then return "0xEBEBEBFF"
     out = "0x"
     for i = 0 to 2
-        v = Val("&H" + Mid(h, i * 2 + 1, 2))
+        ' Val's radix form. The "&H" prefix form is a LITERAL syntax, not a
+        ' string one: Val("&HFF") answers 0, and every collection accent was
+        ' coming out BLACK — a dash of nothing beside "120+ titles".
+        v = Val(Mid(h, i * 2 + 1, 2), 16)
         if v > 235 then v = 235
         d = Int(v)
         digits = "0123456789ABCDEF"

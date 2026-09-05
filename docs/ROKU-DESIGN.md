@@ -651,3 +651,52 @@ it hid the focused row's own label. Rings go on top, fills go underneath.
 
 **13.11 The ship gate gains four lines** (amends §9): a raw slug on screen; a
 second lit focus ring; a hard-edged poster; an instruction sentence.
+
+## 14. Amendments from the owner's feedback (2026-09-05)
+
+**Binding.** The owner used build 18 and returned twenty defects
+(`docs/ROKU-FEEDBACK-LEDGER.md`). Each rule below amends the section it
+names; everything else stands.
+
+**14.1 (amends §6.3) A chip opens a PICKER, never cycles.** The rule
+already said "a chip opens a dialog"; cycling in place was the wrong
+reading of it. Select on a chip opens the options panel ON the current
+value; the pill states the value chosen. Applies to Browse and Search.
+
+**14.2 (amends §6.5 / §13.7) More Like This is a shelf, and the page
+scrolls.** The Detail is one Group. Down from the pill row slides it up so
+the "More like this" row label sits at the heading line and the poster row
+under it, exactly as the tvOS detail page scrolls; Up returns. The row is
+the same PosterTile shelf Home draws. A synopsis the page had to cut is read
+from More → "Read the full synopsis" (§13.12's reading block) — Down is never
+a stop on the description.
+
+**14.3 (amends §6.8) Collections is a grid of curated CARDS.** Two columns
+of 852×324 cards: a three-poster montage under the §13.3 gradient, an
+accent rule, the count ("120+" at the index's cap — a floor, never a false
+total), the title in the display face, the blurb. A card opens the
+collection as the Browse grid with the collection as its heading and no
+chips. The shelf-per-collection surface duplicated Home and now serves
+Cartoon Mode only.
+
+**14.4 (amends §6.12) Twelve doors, all on screen.** Four rows of three;
+a door below the fold is not a door. Random Film is a FEATURE; Random TV
+Series opens a show, never a loose episode. Party Play is an ephemeral,
+muted lineup: it writes no bookmark and Back returns to the doors. The
+Cartoon Marathon lives on `*` in Cartoon Mode.
+
+**14.5 (amends §2.6) Back returns to the PLACE, not the top.** Every
+surface keeps its focus while hidden; Back into Home restores the row and
+tile; a grid opened from a door, a tile or a card returns to that door,
+tile or card; a series opened from a grid returns to the grid. Choosing
+Home from the rail is the one path to the top.
+
+**14.6 (amends §5.2b) A grid tile carries the title card too.** Every
+tile type draws the designed accent-rule-and-name card until its art
+arrives, and keeps it when the art never does. Home, the hero, random
+picks, More Like This and collection cards require professional art;
+Browse and Search may show a frame cover, never a blank plate.
+
+**14.7 (amends §13.1) The meta line sits under the caption's rendered
+height**, never under the three-line reserve — pinned to the reserve it
+floated 100 px below a one-line title.

@@ -16,6 +16,8 @@
     <field id="exitLeft" type="boolean" alwaysNotify="true" />
     <function name="showResults" />
     <function name="resetSearch" />
+    <field id="pickChip" type="assocarray" alwaysNotify="true" />
+    <function name="applyChip" />
   </interface>
   <script type="text/brightscript" uri="pkg:/components/Theme.brs" />
   <script type="text/brightscript" uri="pkg:/components/SearchScreen.brs" />

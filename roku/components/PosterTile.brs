@@ -174,5 +174,14 @@ sub onFocusChanged()
     ' are detail, and six of them per row is noise.
     m.caption.visible = not m.isTile
     m.meta.visible = focused
+    ' The meta line sits under the caption's RENDERED height, not under the
+    ' three-line reserve: pinned at the reserve it floated 100 px below a
+    ' one-line title, detached from the tile it describes.
+    if focused
+        ch = 34
+        r = m.caption.boundingRect()
+        if r <> invalid and r.height > 0 then ch = Int(r.height)
+        m.meta.translation = [0, m.t.posterFH + 9 + ch + 6]
+    end if
     positionRing()
 end sub

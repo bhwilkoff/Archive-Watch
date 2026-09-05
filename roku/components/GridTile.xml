@@ -14,6 +14,10 @@
     <Rectangle id="plate" color="0x16161AFF" />
     <Poster id="art" />
     <Label id="caption" visible="false" />
+    <!-- F11 — a film with no art gets a DESIGNED title card, as PosterTile
+         does: never an empty plate beside real posters. -->
+    <Rectangle id="tileRule" visible="false" />
+    <Label id="tileLabel" visible="false" />
     <!-- Four rectangles, not a 9-patch: a .9.png only loses its guide border
          when a LIST consumes it, so as a plain Poster it draws a pale block. -->
     <Group id="frame" />

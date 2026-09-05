@@ -32,29 +32,36 @@ sub init()
     m.cast.translation = [378, 834]
 
     m.likeLabel = m.top.FindNode("likeLabel")
-    m.likeLabel.font = m.t.uRow : m.likeLabel.color = m.t.textPri
-    m.likeLabel.translation = [42, 882]
-    m.likeLabel.text = "More like this"
+    m.likeLabel.visible = false
 
-    ' A single short row at the foot of the screen. Tiles are smaller than a
-    ' shelf's because this is a footnote to the film, not a shelf in its own
-    ' right, and the buttons above it must stay the obvious thing to press.
+    ' F12 — More Like This is a SHELF, the same PosterTile row Home draws,
+    ' with its own row label. The 90 px MiniTile strip at the foot of the
+    ' screen read as "rectangles shoved together"; the owner was right. At
+    ' rest the row's posters peek above the bottom edge, which says there is
+    ' more; Down brings the page up so the shelf sits where the title was.
+    m.page = m.top.FindNode("page")
+    m.pageAnim = m.top.FindNode("pageAnim")
+    m.pageInterp = m.top.FindNode("pageInterp")
+    m.pageY = 0
+    m.likeY = 900
     m.like = m.top.FindNode("like")
-    m.like.translation = [42, 927]
-    m.like.itemComponentName = "MiniTile"
+    m.like.translation = [42, m.likeY]
+    m.like.itemComponentName = "PosterTile"
     m.like.numRows = 1
     m.like.rowFocusAnimationStyle = "floatingFocus"
-    ' 108x162 keeps the row's bottom at 1056 on a 1080 screen — a taller tile
-    ' runs off the bottom, which is invisible in code and obvious on a TV.
-    m.like.itemSize = [1740, 144]
-    m.like.rowItemSize = [[90, 135]]
-    m.like.rowItemSpacing = [[18, 0]]
-    m.like.showRowLabel = [false]
+    m.like.vertFocusAnimationStyle = "fixedFocus"
+    m.like.itemSize = [1740, m.t.posterFH + 232]
+    m.like.rowItemSize = [[m.t.posterFW, m.t.posterFH]]
+    m.like.rowItemSpacing = [[m.t.gutter, 0]]
+    m.like.rowLabelOffset = [[0, 0]]
+    m.like.showRowLabel = [true]
+    m.like.rowLabelFont = m.t.uRow
+    m.like.rowLabelColor = m.t.textPri
     ' The TILE rings its own art (ROKU-DESIGN §5.4a). An explicitly transparent
     ' 9-patch is required: with no bitmap the list draws its own grey box.
     m.like.focusBitmapUri = "pkg:/images/focus_none.9.png"
     m.like.focusFootprintBitmapUri = "pkg:/images/focus_none.9.png"
-    m.like.drawFocusFeedbackOnTop = true
+    m.like.drawFocusFeedbackOnTop = false
     m.like.ObserveField("rowItemSelected", "onLikeSelected")
 
     m.toastPlate = m.top.FindNode("toastPlate")
@@ -165,7 +172,7 @@ sub init()
     m.reading = false
     ' §13.12 — the reading header: the title in the row voice, shown only
     ' while the synopsis is expanded and the scene above it has slid away.
-    m.readTitle = m.top.CreateChild("Label")
+    m.readTitle = m.page.CreateChild("Label")
     m.readTitle.font = m.t.uRow : m.readTitle.color = m.t.textSec
     m.readTitle.visible = false
     m.syn.ellipsizeOnBoundary = true
@@ -407,9 +414,60 @@ sub onItem()
     m.syn.color = m.t.textPri
     m.cast.text = ""
     m.like.visible = false
-    m.likeLabel.visible = false
     m.likeRow = false
+    m.inLike = false
+    slidePage(0)
     paintSave()
+end sub
+
+' The page slides as one Group, the way Home's hero does (one animation, so
+' nothing can drift out of register).
+sub slidePage(y as Integer)
+    if m.pageY = y then return
+    m.pageAnim.control = "stop"
+    m.pageInterp.keyValue = [[0, m.pageY], [0, y]]
+    m.pageAnim.control = "start"
+    m.pageY = y
+end sub
+
+sub enterLike()
+    m.inLike = true
+    m.like.opacity = 1.0
+    ' The row label lands at the screen heading line (132), the posters
+    ' under it, the scene above scrolled away.
+    slidePage(-(m.likeY - 132))
+    ' The cast line would sit alone above the row label once the scene has
+    ' scrolled off — one orphaned sentence at the top of the screen. Hide it
+    ' with the scene; it returns with it.
+    m.cast.opacity = 0.0
+    m.syn.opacity = 0.0
+    m.like.setFocus(true)
+    print "AWDETAIL zone=like likeFocus="; m.like.hasFocus()
+end sub
+
+sub leaveLike()
+    m.inLike = false
+    ' A RowList item keeps focusPercent = 1 after the LIST loses focus, so
+    ' its ring stays lit. Roku treats that lit item as the focus FOOTPRINT,
+    ' which is right — but it must read as a footprint, so the row dims.
+    m.like.opacity = 0.55
+    slidePage(0)
+    m.cast.opacity = 1.0
+    m.syn.opacity = 1.0
+    ' Lesson 98: the RowList holds focus here, and claiming the Group over
+    ' it is a silent no-op — release the row first.
+    m.like.setFocus(false)
+    m.top.setFocus(true)
+    paintButtons()
+    print "AWDETAIL zone=buttons topFocus="; m.top.hasFocus(); " likeFocus="; m.like.hasFocus()
+end sub
+
+function synopsisCut() as Boolean
+    return (m.syn.isTextEllipsized = true)
+end function
+
+sub readSynopsis()
+    enterReading()
 end sub
 
 sub paintSave()
@@ -427,6 +485,12 @@ end sub
 sub onDetail()
     d = m.top.detail
     if d = invalid then return
+    ' The Scene assigns {} to reset the screen before the shard answers. That
+    ' placeholder used to run this whole handler — including a "more like
+    ' this" request — so two requests raced on the service and the results
+    ' handler's clear wiped the second: the trace showed a bare full-catalog
+    ' scan after every Detail open.
+    if d.Count() = 0 then return
     if d.synopsis <> invalid then m.syn.text = StripHTML(fmt(d.synopsis))
     ' A film with no synopsis left a 300 px void under the pills. Say so,
     ' quietly — the honest line about this archive, in the secondary voice.
@@ -515,6 +579,9 @@ sub onFocusOn()
             m.like.setFocus(false)
         end if
         m.inLike = false
+        slidePage(0)
+        m.cast.opacity = 1.0
+        m.syn.opacity = 1.0
         m.top.setFocus(true)
     end if
     paintButtons()
@@ -570,24 +637,13 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
     else if key = "down"
         if m.reading = true
             exitReading()
-            if m.likeRow = true
-                m.inLike = true
-                m.like.opacity = 1.0
-                m.like.setFocus(true)
-            end if
             return true
         end if
-        ' §13.12 — a synopsis the label had to cut is READABLE: the first Down
-        ' expands it in place (the tvOS reading block), and only then does
-        ' Down reach More Like This. A synopsis that fits is never a stop.
-        if m.inLike <> true and m.syn.isTextEllipsized = true
-            enterReading()
-            return true
-        end if
+        ' F12 — Down goes to More Like This, and nowhere else. The reading
+        ' stop ("Down just highlights the description") is gone from this
+        ' path; a cut synopsis is read from the More menu.
         if m.likeRow = true and m.inLike <> true
-            m.inLike = true
-            m.like.opacity = 1.0
-            m.like.setFocus(true)
+            enterLike()
             return true
         end if
         return false
@@ -603,21 +659,7 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
             return true
         end if
         if m.inLike = true
-            m.inLike = false
-            ' A RowList item keeps focusPercent = 1 after the LIST loses focus,
-            ' so its ring stays lit and the screen shows two focus rings at
-            ' once. Roku treats that lit item as the focus FOOTPRINT, which is
-            ' right — but it must read as a footprint, not as focus, so the
-            ' whole row dims when it is not the active zone.
-            m.like.opacity = 0.55
-            ' Lesson 98: the RowList holds focus here, and claiming the Group
-            ' over it is a silent no-op — the pills LOOKED focused while
-            ' Left/Right kept sliding tiles and Select opened one. Release
-            ' the row first.
-            m.like.setFocus(false)
-            m.top.setFocus(true)
-            print "AWDETAIL leave-like topFocus="; m.top.hasFocus(); " likeFocus="; m.like.hasFocus()
-            paintButtons()
+            leaveLike()
             return true
         end if
         return false
@@ -650,9 +692,9 @@ end function
 
 
 sub showLike(items as Object)
-    if items = invalid or items.GetChildCount() = 0
+    ' Fewer than four is a coincidence of the catalog, not a shelf.
+    if items = invalid or items.GetChildCount() < 4
         m.like.visible = false
-        m.likeLabel.visible = false
         m.likeRow = false
         return
     end if
@@ -661,12 +703,13 @@ sub showLike(items as Object)
     ' children — as an empty box with a focus ring around it.
     root = CreateObject("roSGNode", "ContentNode")
     row = root.CreateChild("ContentNode")
+    row.title = "More like this"
     for i = 0 to items.GetChildCount() - 1
         row.AppendChild(items.GetChild(i).Clone(false))
     end for
     m.like.content = root
+    m.like.opacity = 0.55
     m.like.visible = true
-    m.likeLabel.visible = true
     m.likeRow = true
 end sub
 
@@ -687,7 +730,7 @@ sub enterReading()
     if m.reading = true then return
     m.reading = true
     print "AWDETAIL reading on"
-    for each n in [m.kind, m.title, m.aka, m.meta, m.btns, m.cast, m.chip, m.chipText, m.art, m.likeLabel, m.like]
+    for each n in [m.kind, m.title, m.aka, m.meta, m.btns, m.cast, m.chip, m.chipText, m.art, m.like]
         if n <> invalid then n.visible = false
     end for
     for each p in m.artFrame.corners
@@ -714,7 +757,6 @@ sub exitReading()
         if n <> invalid then n.visible = true
     end for
     m.aka.visible = (m.aka.text <> "")
-    m.likeLabel.visible = m.likeRow = true
     m.like.visible = m.likeRow = true
     m.art.visible = m.artShown = true
     for each p in m.artFrame.corners

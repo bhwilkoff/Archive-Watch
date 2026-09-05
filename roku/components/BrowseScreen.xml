@@ -9,8 +9,13 @@
     <field id="focusOn" type="boolean" onChange="onFocusOn" />
     <field id="chosen" type="string" alwaysNotify="true" />
     <field id="exitLeft" type="boolean" alwaysNotify="true" />
+    <!-- F9 — a chip asks the Scene to open a picker; the Scene answers
+         through applyChip. -->
+    <field id="pickChip" type="assocarray" alwaysNotify="true" />
     <function name="showResults" />
     <function name="applyFilter" />
+    <function name="applyChip" />
+    <function name="applyCollection" />
   </interface>
   <script type="text/brightscript" uri="pkg:/components/Theme.brs" />
   <script type="text/brightscript" uri="pkg:/components/BrowseScreen.brs" />

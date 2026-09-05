@@ -413,10 +413,22 @@ sub onOnScreen()
 end sub
 
 sub onFocusOn()
-    ' Home opens ON the hero, the way it does on every other platform: the
-    ' marquee is the first thing the viewer can act on, not a row of thumbnails
-    ' under it.
-    if m.top.focusOn then enterHero()
+    if not m.top.focusOn then return
+    ' F8 — "Back should take you to where you were": a viewer who opened a
+    ' film from the fourth shelf comes back to the fourth shelf, not to the
+    ' hero. The RowList keeps its focused item; the zone is remembered here.
+    ' Choosing Home from the rail goes through resetTop, which is the one
+    ' time the top is the right place.
+    if m.focusZone = "rows"
+        enterRows()
+    else
+        enterHero()
+    end if
+end sub
+
+sub resetTop()
+    m.focusZone = "hero"
+    if m.rows <> invalid then m.rows.jumpToRowItem = [0, 0]
 end sub
 
 ' §2.1 / §3.1 — Left from the FIRST column reaches the rail. Roku's focus

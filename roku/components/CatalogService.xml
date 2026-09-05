@@ -31,6 +31,10 @@
          where possible. The picker lives on THIS thread because it needs the
          parsed index, and a caller only ever wants the winner. -->
     <field id="qRandomType" type="string" />
+    <!-- F16 — the Collections landing as cards (one node per curated
+         collection), and one collection's members as a Browse result. -->
+    <field id="qCollectionCards" type="boolean" value="false" />
+    <field id="qCollection" type="string" />
     <!-- Resolve a LIST of ids in one pass. Home's shelves name ~600 items of
          26,965, so anything the viewer saved or half-watched outside them
          cannot be found by searching the shelves — which is exactly what

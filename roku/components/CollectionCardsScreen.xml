@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- F16 / ROKU-DESIGN §6.8 (amended 2026-09-05) — the Collections landing is
+     a two-column grid of curated collection CARDS, the tvOS CollectionsView
+     shape. A card opens that collection as a Browse grid. The old shelf-per-
+     collection surface duplicated Home almost row for row; it survives only
+     as Cartoon Mode's character shelves (CollectionsScreen). -->
+<component name="CollectionCardsScreen" extends="Group">
+  <interface>
+    <field id="focusOn" type="boolean" onChange="onFocusOn" />
+    <field id="chosenTitle" type="string" />
+    <field id="chosen" type="string" alwaysNotify="true" />
+    <field id="exitLeft" type="boolean" alwaysNotify="true" />
+    <function name="showCards" />
+  </interface>
+  <script type="text/brightscript" uri="pkg:/components/Theme.brs" />
+  <script type="text/brightscript" uri="pkg:/components/CollectionCardsScreen.brs" />
+  <children>
+    <Label id="heading" />
+    <Label id="tagline" />
+    <Label id="empty" visible="false" />
+    <MarkupGrid id="grid" />
+  </children>
+</component>

@@ -42,7 +42,12 @@ sub open(payload as Object)
     end for
     m.list.content = root
     m.top.visible = true
-    m.list.jumpToItem = 0
+    ' A picker opens ON the value already chosen (F9): the viewer sees where
+    ' they are and one press keeps it.
+    sel = 0
+    if payload.selected <> invalid then sel = payload.selected
+    if sel < 0 or sel >= m.ids.Count() then sel = 0
+    m.list.jumpToItem = sel
     m.list.setFocus(true)
 end sub
 

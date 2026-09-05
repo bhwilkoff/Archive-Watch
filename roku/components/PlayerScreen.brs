@@ -98,6 +98,7 @@ sub onUrl()
     m.hasNotice = (meta <> "")
     m.capReported = false
     m.video.content = c
+    m.video.mute = m.top.muted
     m.video.control = "play"
     m.video.setFocus(true)
     showHud()

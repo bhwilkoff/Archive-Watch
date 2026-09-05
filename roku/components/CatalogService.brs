@@ -271,6 +271,117 @@ sub buildCollections()
     m.top.results = root
 end sub
 
+
+' F16 — the Collections landing is a grid of CARDS, one per curated
+' collection (the tvOS CollectionsView shape): title, blurb, accent, a count
+' and three posters for a composite. One pass over the index, as
+' buildCollections does; the membership lists cap at 120 in the published
+' index, so a count at the cap is stated as "120+".
+sub buildCollectionCards()
+    span = CreateObject("roTimespan")
+    span.Mark()
+    root = CreateObject("roSGNode", "ContentNode")
+    if m.collections = invalid or m.colMeta.Count() = 0
+        m.top.total = 0
+        m.top.results = root
+        return
+    end if
+    want = {}
+    for each c in m.colMeta
+        ids = m.collections[c.id]
+        if ids <> invalid
+            for each aid in ids
+                want[aid] = true
+            end for
+        end if
+    end for
+    found = {}
+    for each r in m.items
+        aid = fmt(r[0])
+        if want[aid] <> invalid then found[aid] = r
+    end for
+    shown = 0
+    for each c in m.colMeta
+        ids = m.collections[c.id]
+        if ids = invalid then continue for
+        n = 0
+        pro = []
+        anyArt = []
+        for each aid in ids
+            r = found[aid]
+            if r <> invalid
+                n = n + 1
+                if r[4] <> invalid and fmt(r[4]) <> ""
+                    if r[5] = 1 and pro.Count() < 3 then pro.Push(fmt(r[4]))
+                    if anyArt.Count() < 3 then anyArt.Push(fmt(r[4]))
+                end if
+            end if
+        end for
+        ' Thinner than a screenful is a gap in the data, not a collection.
+        if n < 6 then continue for
+        if pro.Count() < 3 then pro = anyArt
+        card = root.CreateChild("ContentNode")
+        card.id = c.id
+        card.title = c.title
+        card.AddField("awBlurb", "string", false)
+        card.AddField("awAccent", "string", false)
+        card.AddField("awCount", "integer", false)
+        card.AddField("awPosters", "array", false)
+        if c.blurb <> invalid then card.awBlurb = c.blurb
+        if c.accent <> invalid then card.awAccent = BroadcastSafe(c.accent)
+        card.awCount = n
+        card.awPosters = pro
+        shown = shown + 1
+    end for
+    print "AWSVC collection cards="; shown; " of "; m.colMeta.Count(); " in "; span.TotalMilliseconds(); "ms"
+    m.top.total = shown
+    m.top.results = root
+end sub
+
+' A collection's members as a Browse result, in the index's own order (which
+' is popularity), professional posters first (§6.2).
+sub browseCollection(cid as String)
+    root = CreateObject("roSGNode", "ContentNode")
+    order = invalid
+    if m.collections <> invalid then order = m.collections[cid]
+    if order = invalid
+        print "AWSVC collection '"; cid; "' unknown"
+        m.top.total = 0
+        m.top.results = root
+        return
+    end if
+    want = {}
+    for each aid in order
+        want[fmt(aid)] = true
+    end for
+    found = {}
+    for each r in m.items
+        aid = fmt(r[0])
+        if want[aid] <> invalid then found[aid] = r
+    end for
+    pro = []
+    rest = []
+    for each aid in order
+        r = found[fmt(aid)]
+        if r <> invalid
+            if r[5] = 1
+                pro.Push(r)
+            else
+                rest.Push(r)
+            end if
+        end if
+    end for
+    for each r in pro
+        appendRow(root, r)
+    end for
+    for each r in rest
+        appendRow(root, r)
+    end for
+    print "AWSVC collection '"; cid; "' members="; root.GetChildCount()
+    m.top.total = root.GetChildCount()
+    m.top.results = root
+end sub
+
 ' Reservoir sampling: one pass, one row kept, no second array of 26,965
 ' candidates built only to throw all but one of them away.
 sub pickRandom(spec as String)
@@ -279,6 +390,9 @@ sub pickRandom(spec as String)
     rnd = CreateObject("roDeviceInfo").GetRandomUUID()
     seen = 0
     keep = invalid
+    ' F17 — "tv-series" asks for a SHOW: the series spines are the only rows
+    ' of that type, so they are admitted here and nowhere else.
+    wantSeries = (want = "tv-series")
     for each r in m.items
         if not anyType
             t = LCase(fmt(r[3]))
@@ -287,7 +401,7 @@ sub pickRandom(spec as String)
         ' Professional artwork only: a random pick is a RECOMMENDATION, and
         ' Decision 097 keeps frame grabs off surfaces that recommend.
         if r[5] <> 1 then continue for
-        if Left(fmt(r[0]), 7) = "series:" then continue for
+        if Left(fmt(r[0]), 7) = "series:" and not wantSeries then continue for
         seen = seen + 1
         if Rnd(seen) = 1 then keep = r
     end for
@@ -473,6 +587,15 @@ sub runQuery()
     ids = m.top.qIds
     if ids <> invalid and ids.Count() > 0
         resolveIds(ids)
+        return
+    end if
+
+    if m.top.qCollectionCards
+        buildCollectionCards()
+        return
+    end if
+    if m.top.qCollection <> ""
+        browseCollection(m.top.qCollection)
         return
     end if
 
