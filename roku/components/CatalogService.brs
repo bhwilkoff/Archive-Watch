@@ -10,7 +10,12 @@ sub run()
     m.top.ObserveField("queryId", port)
 
     x = CreateObject("roUrlTransfer")
-    x.SetUrl("https://archivewatch.org/catalog-index.json")
+    ' A per-launch cache-buster: the Pages CDN holds the index for ten
+    ' minutes per variant, and a device that fetches ONCE per launch was
+    ' reading a copy from before the mature-content republish (measured:
+    ' 9 hits on the device against 7 in the fresh file). The origin serves
+    ' the current file for any query string.
+    x.SetUrl("https://archivewatch.org/catalog-index.json?t=" + fmt(CreateObject("roDateTime").AsSeconds()))
     x.SetCertificatesFile("common:/certs/ca-bundle.crt")
     x.InitClientCertificates()
     x.AddHeader("User-Agent", "ArchiveWatch-Roku/0.4 (+https://archivewatch.org)")

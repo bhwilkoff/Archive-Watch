@@ -37,7 +37,7 @@ sub run()
     m.top.status = "loading"
 
     featured = getJson("https://archivewatch.org/featured.json")
-    index = getJson("https://archivewatch.org/catalog-index.json")
+    index = getJson("https://archivewatch.org/catalog-index.json?t=" + fmt(CreateObject("roDateTime").AsSeconds()))
     if index = invalid or index.items = invalid
         m.top.status = "error"
         print "AWROKU home: index unavailable"
