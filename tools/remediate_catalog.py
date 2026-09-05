@@ -236,9 +236,28 @@ def has_animation_signal(item):
 _ADULT_TITLE_START = re.compile(r"^\s*(vintage\s+)?strippers?\b", re.I)
 
 
+# TMDb KEYWORDS are curated sub-genre tags and carry what neither the title
+# nor the uploader's subjects say: "Betty's Bath" (1928) is subject "Short"
+# and keywords ["erotic movie", "early pornographic film"]. Strict set only —
+# bare "erotic" sits on Belle de Jour, and "pornography" on The Pornographers
+# (Imamura) and Hardcore (Schrader), so neither is here.
+# Measured on the live catalog before shipping: "erotic movie" also tags
+# Pasolini's Arabian Nights and Invasion of the Bee Girls, "striptease" tags
+# The Killing of a Chinese Bookie and two film noirs, "nudist camp" tags Carry
+# On Camping — so none of those are here either.
+_ADULT_KEYWORD = re.compile(
+    r"\b(early pornographic film|pornographic|softcore|soft-core|nudie"
+    r"|stag films?|sexploitation|adult films?|adult movies?)\b", re.I)
+
+
 def is_adult_signal(item):
     title = item.get("title") or ""
     if _ADULT_TITLE_START.search(title):
+        return True
+    kw = item.get("keywords") or []
+    if isinstance(kw, str):
+        kw = [kw]
+    if _ADULT_KEYWORD.search(" | ".join(str(k) for k in kw)):
         return True
     subj_genre = " ".join((item.get("subjects") or []) + (item.get("genres") or []))
     # strong markers anywhere; soft markers only in subject/genre tags
