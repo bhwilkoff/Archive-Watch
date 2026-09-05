@@ -173,6 +173,7 @@ an entry in place.
 - 102 — Google is Android's sync island and the WEB holds both; a deletion without a tombstone is a resurrection
 - 103 — The player is not a tab: full-screen video renders outside the navigation scaffold, and PiP gets no chrome at all
 - 104 — A `private` archive.org file is never a playable copy; the guard belongs in the picker, not the sweep
+- 105 — The mature-content rule is ONE predicate: the apps' default-off setting and the web index's drop are the same function
 
 ---
 
@@ -1500,3 +1501,39 @@ signal lives in metadata. Found alongside it: `build_catalog_index` declared 8
 field names for rows that have carried 10 since schema 9, so `playable` and
 `documentary` were shipping undeclared and a client resolving a column by name
 could not find them.
+
+## 105 — The mature-content rule is ONE predicate: the apps' default-off setting and the web index's drop are the same function
+*Date: 2026-09-05*
+
+`build_catalog_index.py` now decides what to drop by calling
+`build_sqlite._is_adult` — the function that computes the `isAdult` column
+the Apple and Android apps hide behind their default-off "mature content"
+setting (Decision 012). Roku and the web viewer read that index and have no
+toggle, so the index's dropped set IS their "setting off" state, and it must
+be exactly the apps' one.
+
+**Why**: the owner, on the Roku: "every other app version has them turned off
+by default at the settings level, so they shouldn't show up anywhere in the
+app with that global setting switched off." They were showing up. Two
+reasons, found in order. First, the classification itself missed a class —
+archive.org tags stag reels only as SUBJECTS ("Stripper - Strippers - Stag -
+Burlesque"), and thirteen Prelinger reels titled "Stripper - <name>" carry no
+subjects at all; `remediate_catalog.is_adult_signal` gained a subject tier and
+a title-START tier (`^strippers?`, so *The Stripper*, 1963, is untouched).
+That fix reaches every platform, because `isAdult` is the item flag all of
+them read. Second, and the part this decision is about: the index build had
+its OWN, looser copy of the rule — exact adult-collection names and the item
+flag, without the apps' explicit title markers (`porno|xxx|hentai`) or their
+substring collection markers. A title the Apple TV hid with the setting off
+could be on the Roku's screen with no setting at all.
+
+**How to apply**: never re-implement the predicate; import it. The index has
+no adult column on purpose — the web viewer has no settings surface, so
+"visible with a toggle" is not a state it can offer, and a Roku toggle that
+reveals nothing on the device would be a dead control (ROKU-DESIGN §8.3,
+OptionsPanel says so in place). If a platform ever needs the "on" state, the
+index gains an additive `adult` column and every index reader gains the
+default-off filter in the same change — not before. Verified after the
+publish: the index holds zero titles beginning with "Stripper" and the Roku's
+"stripper" search shows eleven legitimate films where it showed forty-two
+reels.

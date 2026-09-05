@@ -35,6 +35,9 @@ Reads ./catalog.json (fetch it first via catalog_release.py). Writes
 import json
 import sys
 from pathlib import Path
+import sys as _sys
+_sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parent))
+from build_sqlite import _is_adult  # noqa: E402  (Decision 105: one adult predicate)
 
 REPO = Path(__file__).resolve().parent.parent
 CATALOG = REPO / "catalog.json"
@@ -91,10 +94,14 @@ def main():
     for it in items:
         if it.get("excluded"):          # rights audit (Decision 027)
             continue
-        if it.get("isAdult"):           # item-level flag (Decision 012) — the
-            continue                    # apps' isAdult column ORs this in too
-        cols = {c.lower() for c in (it.get("collections") or [])}
-        if adult & cols:
+        # Decision 105 — ONE predicate. The apps hide mature titles behind a
+        # default-off setting computed by build_sqlite._is_adult (item flag +
+        # explicit title markers + collection-name markers as SUBSTRINGS); the
+        # index has no toggle, so what it DROPS must be exactly what that
+        # setting hides. This used to be a looser copy (exact collection names,
+        # no title markers), and the two drifted: a title the Apple TV hid was
+        # on the Roku's and the web's screens.
+        if _is_adult(it):
             continue
         aid = it.get("archiveID")
         if not aid:

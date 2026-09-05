@@ -727,3 +727,10 @@ sentence is not a share affordance at ten feet.
 line keeps its place above the page dots; a two-line title grows upward from
 it, and the eyebrow rides above the title. Nothing on the hero may overlap
 whatever the title's length.
+
+**14.12 (amends §8.3) Mature content: the same rule as every app, applied
+upstream.** The apps hide mature titles behind a default-off setting; this
+platform reads the web index, which is built by dropping exactly what that
+setting hides (Decision 105 — one predicate, imported, never copied). There
+is no toggle here because nothing mature reaches the device to turn on; a
+switch that reveals nothing is a dead control.

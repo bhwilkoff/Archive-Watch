@@ -163,6 +163,12 @@ def _is_adult(it):
         return 1
     for c in (it.get("collections") or []):
         cl = str(c).lower()
+        # `fav-<username>` is an archive.org user's favourites list, not a
+        # collection: a viewer called adult_z favourited Jacques Tati, and
+        # "adult" in "fav-adult_z" hid Mon Oncle and Jour de Fête behind the
+        # mature setting on every app (measured 2026-09-05, Decision 105).
+        if cl.startswith("fav-"):
+            continue
         if any(m in cl for m in ADULT_MARKERS):
             return 1
     return 0
