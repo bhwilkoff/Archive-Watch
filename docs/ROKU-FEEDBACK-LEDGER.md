@@ -32,7 +32,7 @@ surfaces that existed rather than surfaces that were finished.
 
 | # | Feedback | Status | Notes / evidence |
 |---|---|---|---|
-| F21 | Adult films filtered out as a rule, as on every other platform | 🔨 | Same rule as the apps and web: the pipeline's `isAdult`, which the index build drops. Round 1 (subject tier: strippers/stag/fetish/grind house) VERIFIED on the fresh index — the 42 stag reels are gone from the device's search. Round 2: thirteen Prelinger reels titled "Stripper - <name>" carry NO subjects, so a title-START tier (`^strippers?`) was added — "The Stripper" 1963 untouched, 9/9 cases; publish-db dispatched again; verify the device search shows none |
+| F21 | Adult films filtered out as a rule, as on every other platform | ✅ | Same rule as the apps and web: the pipeline's `isAdult`, which the index build drops. Two tiers added: subjects (strippers/stag/fetish/grind house/bdsm) and a title-START rule (`^strippers?` — thirteen Prelinger reels carry no subjects; "The Stripper" 1963 untouched). VERIFIED after two publish-db runs: the index holds 0 titles beginning with Stripper and the device's "stripper" search shows 11 legitimate films (Lady of Burlesque, The Crimson Kimono, Sunset Murder Case…) where it showed 42 stag reels |
 | F22 | Hero text must not overlap when the title wraps to two lines | ✅ | the hero copy is anchored from the BOTTOM: meta keeps its line above the dots and a two-line title grows upward. Verified on "Les Aventures de Robinson Crusoé" (two lines, no overlap) |
 
 ## Order of work
