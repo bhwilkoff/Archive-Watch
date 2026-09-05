@@ -229,8 +229,17 @@ def has_animation_signal(item):
     return False
 
 
+# A title that BEGINS with "Stripper" is a burlesque reel ("Stripper - Betty
+# Rowland", "Stripper #1", thirteen of them in the Prelinger collection with
+# no subjects at all). "The Stripper" (1963, Joanne Woodward) begins with
+# "The" and is untouched — the anchor is the whole rule.
+_ADULT_TITLE_START = re.compile(r"^\s*(vintage\s+)?strippers?\b", re.I)
+
+
 def is_adult_signal(item):
     title = item.get("title") or ""
+    if _ADULT_TITLE_START.search(title):
+        return True
     subj_genre = " ".join((item.get("subjects") or []) + (item.get("genres") or []))
     # strong markers anywhere; soft markers only in subject/genre tags
     if _ADULT_STRONG.search(title) or _ADULT_STRONG.search(subj_genre):

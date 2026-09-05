@@ -32,7 +32,7 @@ surfaces that existed rather than surfaces that were finished.
 
 | # | Feedback | Status | Notes / evidence |
 |---|---|---|---|
-| F21 | Adult films filtered out as a rule, as on every other platform | 🔨 | Same rule as the apps and web: the pipeline's `isAdult` (title/subject/genre tiers + adult collections), which the index build drops. The stag reels reached the index because archive.org tags them only as SUBJECTS; the subject tier now carries them. publish-db dispatched; verify the fresh index drops the 42 "stripper" hits (§8.3 upstream-only, no client divergence) |
+| F21 | Adult films filtered out as a rule, as on every other platform | 🔨 | Same rule as the apps and web: the pipeline's `isAdult`, which the index build drops. Round 1 (subject tier: strippers/stag/fetish/grind house) VERIFIED on the fresh index — the 42 stag reels are gone from the device's search. Round 2: thirteen Prelinger reels titled "Stripper - <name>" carry NO subjects, so a title-START tier (`^strippers?`) was added — "The Stripper" 1963 untouched, 9/9 cases; publish-db dispatched again; verify the device search shows none |
 | F22 | Hero text must not overlap when the title wraps to two lines | ✅ | the hero copy is anchored from the BOTTOM: meta keeps its line above the dots and a two-line title grows upward. Verified on "Les Aventures de Robinson Crusoé" (two lines, no overlap) |
 
 ## Order of work
