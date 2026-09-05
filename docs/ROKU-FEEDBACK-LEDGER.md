@@ -26,7 +26,7 @@ surfaces that existed rather than surfaces that were finished.
 | F17 | Party Play broken; Random Film returns TV; Surprise bottom rows unreachable | ✅ | 12 doors, 4 rows, all on screen; Random Film = a feature (trace `random type=feature-film`); Random TV Series opens a show; Party Play is an EPHEMERAL, MUTED lineup (trace `ephemeral=true`, zero `AWPLAY bookmark` lines) that returns to Surprise on Back; Cartoon Marathon moved to `*` on Cartoon Mode |
 | F18 | Hero never changes between launches | ✅ | hero pool shuffled per launch; two launches led with different films (trace) |
 | F19 | Search "start here" pills poorly sized | ✅ | doors fit their labels — "Feature Films", "Classic TV", "Silent Era", "Animation", "Surprise Me" verified |
-| F20 | Search titles only when focused; adult films in search with no filter | 🔨 | titles ✅. Adult: measured on the glass — "stripper" returns 42 stag reels. archive.org tags them as SUBJECTS ("Stripper - Strippers - Stag - Burlesque", "fetishism; grind house"), so `remediate_catalog.is_adult_signal` gained a subject-tier rule (+ 3 curated titles), tested 8/8 incl. "The Stripper" 1963 and "Stagecoach" NOT flagged. Lands in the index at the next publish-db; Roku has no adult column and shows what the index serves (§8.3 upstream-only, as web) |
+| F20 | Search titles only when focused; adult films in search with no filter | ✅ | titles always shown (F10). Adult: see F21 — the pipeline rule, verified on the device after the index refresh (42 stag reels → 0) |
 
 ## Owner additions (2026-09-05, mid-session)
 
