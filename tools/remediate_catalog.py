@@ -218,6 +218,32 @@ def _clear_wrong_artwork(it, new_year):
     if (it.get("synopsisSource") or "").lower() in ("tmdb", "omdb"):
         it["synopsis"] = None
         it["synopsisSource"] = None
+    # The match's TITLE residue goes with its ids. Two 1950s game shows kept
+    # `canonicalTitle: "Hi, Mom!"` (and De Palma's keywords and tagline) after
+    # Tier 0b cleared their ids, so Detail read "Also known as Hi, Mom!" and
+    # search for "porno" found them by keyword (2026-09-05).
+    for k in ("canonicalTitle", "akaTitles", "keywords", "tagline", "originalTitle"):
+        it.pop(k, None)
+
+
+# A TV item carries a canonical title, keywords or a tagline ONLY from an
+# external match; with both ids gone the rest is residue of a match that was
+# cleared before _clear_wrong_artwork learned to take it. Films are left
+# alone: many carry a legitimate release title with no surviving id.
+_TV_RESIDUE_KINDS = {"tv-special", "tv-episode"}
+
+
+def strip_orphan_match_residue(item):
+    if item.get("contentType") not in _TV_RESIDUE_KINDS:
+        return False
+    if item.get("tmdbID") or item.get("imdbID"):
+        return False
+    hit = False
+    for k in ("canonicalTitle", "akaTitles", "keywords", "tagline", "originalTitle"):
+        if item.get(k):
+            item.pop(k, None)
+            hit = True
+    return hit
 
 
 def has_animation_signal(item):
@@ -1846,6 +1872,8 @@ def remediate(items):
         if not it.get("isAdult") and is_adult_signal(it):
             it["isAdult"] = True
             stats["adult_flagged"] += 1
+        if strip_orphan_match_residue(it):
+            stats["match_residue_stripped"] = stats.get("match_residue_stripped", 0) + 1
 
         # 5) GENRES from subjects (Track B): fill empty genres with no network.
         if not it.get("genres"):

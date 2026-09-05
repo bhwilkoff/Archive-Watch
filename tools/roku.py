@@ -238,7 +238,8 @@ def press(key, settle=0.9):
             f"Valid: {', '.join(sorted(set(KEYS.values())))}")
     code = curl("-o", "/dev/null", "-w", "%{http_code}", "-X", "POST",
                 f"{ECP}/keypress/{name}").strip()
-    if code != "200":
+    # ECP answers 200 or 202 (accepted, queued) for a keypress; both are fine.
+    if not code.startswith("2"):
         raise SystemExit(f"keypress {name} → HTTP {code} (is ECP permissive?)")
     time.sleep(settle)
 
@@ -303,6 +304,12 @@ def cmd_log(args):
 
 def cmd_launch(args):
     app = args.app or "dev"
+    # /launch on a channel that is ALREADY RUNNING resumes it: the process,
+    # its parsed index and its screens survive. Every data verification
+    # (index, featured.json, pools) needs a cold start, so go Home first.
+    # Measured 2026-09-05: three "relaunches" kept a 26,749-item index in
+    # memory while the CDN served 26,743.
+    press("Home", settle=3.0)
     url = f"{ECP}/launch/{app}"
     if args.params:
         url += "?" + args.params

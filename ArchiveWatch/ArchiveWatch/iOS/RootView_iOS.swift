@@ -89,6 +89,10 @@ struct RootView: View {
             // Siri/Shortcuts + deep links land in the inbox; act once foreground.
             .onChange(of: inbox.request) { handle(inbox.request) }
             .task { handle(inbox.request) }
+            // A deep-linked item that is not in the catalog YET (cold start on
+            // the bundled seed; the full DB swaps in seconds later) stays in
+            // the inbox and is retried on every catalog swap.
+            .task(id: store.dbVersion) { handle(inbox.request) }
             .task { CaptionCapability.shared.probe() }
             // On-device end-to-end audit of offline downloads (AW_DOWNLOAD_AUDIT=1).
             // No-op otherwise; see tools/download_audit.py.
@@ -174,7 +178,19 @@ struct RootView: View {
         case .randomCategory:
             router.tab = .browse
         case .openItem(let id):
-            if let item = store.item(id) { router.openDetail(item) }
+            guard let item = store.item(id) else {
+                // Not resolvable yet — keep the request for the next catalog
+                // swap rather than consuming it into nothing. A film that is
+                // in NO catalog is dropped once the full DB is in.
+                if store.dbVersion > 1 { inbox.request = nil }
+                return
+            }
+            router.tab = .home
+            if item.contentType == "tv-series" {
+                router.push(SeriesRef(card: item))
+            } else {
+                router.openDetail(item)
+            }
         }
         inbox.request = nil
     }

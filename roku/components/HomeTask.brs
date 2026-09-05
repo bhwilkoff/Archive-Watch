@@ -230,6 +230,13 @@ sub run()
     rowCount = rowCount + 2
 
     print "AWROKU home rows="; rowCount; " heroPool="; heroPool.GetChildCount(); " fetchMs="; fetchMs; " scanMs="; scanMs
+    ' Every row by name, so a shelf-set comparison against the other
+    ' platforms (F3) reads from the console instead of from a scroll of shots.
+    names = ""
+    for i = 0 to root.GetChildCount() - 1
+        names = names + root.GetChild(i).title + " | "
+    end for
+    print "AWROWS "; names
 
     ' F18 — "the hero row never changes": the pool came out in shelf order every
     ' launch. A Fisher-Yates pass with Roku's own Rnd (seeded per process)

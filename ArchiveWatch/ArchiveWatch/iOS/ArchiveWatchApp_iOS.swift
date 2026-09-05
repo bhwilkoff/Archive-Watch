@@ -36,11 +36,17 @@ struct ArchiveWatchApp: App {
                 // Deep links + Universal Links. archivewatch:// surprise/random/item
                 // routes go through the IntentInbox (same path Siri uses); https item
                 // links resolve directly.
+                // An https item/series link goes through the SAME inbox as the
+                // scheme, never straight to the router: a QR scanned from a TV
+                // opens the app COLD, and `store.item(id)` is nil until the
+                // catalog is up — so the film was dropped and only the app
+                // opened (owner, 2026-09-06). The inbox holds the request until
+                // RootView can resolve it (it re-tries on every catalog swap).
                 .onOpenURL { url in
                     if let request = IntentInbox.request(for: url) {
                         IntentInbox.shared.request = request
-                    } else if let id = DeepLink.itemID(from: url), let item = store.item(id) {
-                        router.openDetail(item)
+                    } else if let id = DeepLink.itemID(from: url) {
+                        IntentInbox.shared.request = .openItem(id)
                     }
                 }
         }
@@ -74,10 +80,14 @@ struct ArchiveWatchApp: App {
 
 enum DeepLink {
     /// archivewatch://item/{id} or https://…/item/{id}
+    /// `/item/<archiveID>` → the id; `/series/<slug>` → `series:<slug>`, the
+    /// catalog's series-card id (the same rule the Android App Link uses).
     static func itemID(from url: URL) -> String? {
         let parts = url.pathComponents.filter { $0 != "/" }
         if let i = parts.firstIndex(of: "item"), i + 1 < parts.count { return parts[i + 1] }
+        if let i = parts.firstIndex(of: "series"), i + 1 < parts.count { return "series:" + parts[i + 1] }
         if url.host == "item", let id = parts.first { return id }
+        if url.host == "series", let slug = parts.first { return "series:" + slug }
         return nil
     }
 }

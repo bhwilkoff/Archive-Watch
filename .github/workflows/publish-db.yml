@@ -176,7 +176,20 @@ jobs:
       # (Release assets have no CORS). SECONDARY + non-fatal: it commits to main,
       # which races other writers / local pushes, so retry with rebase and NEVER
       # fail the job (the DB already shipped above).
-      - name: Build + commit catalog search index
+      # The BUILD is fatal: an index that fails to build is broken (Decision
+      # 093 — a red X is reserved for broken), and on 2026-09-05 a NameError
+      # here left the job green while the live index stayed a day stale. Only
+      # the COMMIT/PUSH below is non-fatal, because that is the part that
+      # races other writers.
+      - name: Build catalog search index + shards
+        if: always()
+        run: |
+          python tools/build_catalog_index.py
+          python tools/build_web_details.py
+          python tools/build_channel_pools.py
+          python tools/build_episode_index.py
+
+      - name: Commit catalog search index
         # Publish what finished. A killed compute step above must not
         # discard the run's work, which is how faststart-derivatives lost
         # two monthly passes in a row.
@@ -185,10 +198,6 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          python tools/build_catalog_index.py
-          python tools/build_web_details.py
-          python tools/build_channel_pools.py
-          python tools/build_episode_index.py
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           # Stage FIRST, then ask the index. `git diff --quiet` is blind to
