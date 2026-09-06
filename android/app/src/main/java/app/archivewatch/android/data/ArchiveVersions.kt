@@ -103,9 +103,30 @@ object ArchiveVersions {
      *  pipeline's pick unchanged. Rebuilt from the stored NAME so honouring
      *  a choice never waits on /metadata. */
     fun preferredURL(context: Context, archiveID: String, fallback: String): String {
-        val name = chosenName(context, archiveID) ?: return fallback
+        val name = chosenName(context, archiveID) ?: return playable(fallback)
         return downloadURL(archiveID, name)
     }
+
+    /**
+     * Belt-and-braces for a raw archive.org url, matching what Apple's
+     * `Catalog.playableURL` and Roku's `AWEncodeSpaces` already do. Every
+     * playback path reaches the player through preferredURL, so this is the
+     * one place it needs to happen.
+     *
+     * archive.org filenames routinely contain spaces and `#`. The pipeline
+     * encodes them (`remediate_catalog.encode_download_urls`), but it only
+     * ever ran over catalog.json — and TV episodes are not catalog items, so
+     * 48% of the 4,702 episodes in the spines shipped with raw spaces
+     * (measured 2026-09-06, fixed at source the same day). Apple and Roku
+     * survived that because they carry this guard; Android had none.
+     *
+     * Only the two genuinely invalid characters are touched. Parentheses and
+     * commas are legal in a url, and existing %XX escapes are left alone so
+     * this cannot double-encode.
+     */
+    fun playable(url: String): String =
+        if (!url.contains(' ') && !url.contains('#')) url
+        else url.replace(" ", "%20").replace("#", "%23")
 
     private fun downloadURL(itemID: String, name: String): String {
         val encoded = name.split("/").joinToString("/") {

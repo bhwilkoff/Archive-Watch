@@ -43,6 +43,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import app.archivewatch.android.BuildConfig
 import app.archivewatch.android.app.AppContainer
+import app.archivewatch.android.data.BrowseSort
 import app.archivewatch.android.data.CatalogItem
 import app.archivewatch.android.ui.BackdropImage
 import app.archivewatch.android.ui.LoadingBox
@@ -53,6 +54,7 @@ import app.archivewatch.android.ui.ShelfRow
 import coil3.compose.AsyncImage
 import kotlinx.coroutines.delay
 import java.util.Calendar
+import kotlin.random.Random
 
 internal data class HomePayload(
     val hero: List<CatalogItem> = emptyList(),
@@ -178,12 +180,32 @@ internal fun rememberHomePayload(container: AppContainer): State<HomePayload> {
         // hero gets its backdrop and description back. (Without this it filtered
         // on a null backdrop and came up empty — a banner that silently
         // disappeared while every shelf still rendered.)
-        val heroCandidates = shelves.flatMap { it.second }
-            .filter { it.hasProfessionalArtwork }
+        //
+        // The candidates were the FIRST 40 items in shelf order, with no
+        // shuffle anywhere, so the hero was the same six films on every
+        // launch — for good. (Found 2026-09-06 while fixing the identical
+        // defect on Roku, where the owner reported it: "the same films every
+        // single time I open the app".) tvOS has drawn from a deep
+        // popularity window and shuffled the whole pool since 2026-06-29;
+        // this brings Android to the same rule.
+        //
+        // The order matters for COST, not just variety. `backdropURL` lives
+        // only in the item_json blob — it is not an `items` column — so it
+        // cannot be filtered on cheaply. Shuffle the cheap LIST rows first,
+        // then decode a bounded slice of them: 60 decodes, a different 60
+        // each launch, instead of a thousand (the load-perf lesson that took
+        // Google TV cold start from 32s to 6.3s).
+        val heroSeed = System.currentTimeMillis()
+        val heroPool = db.browse(
+            sort = BrowseSort.POPULAR, limit = 1500, homeOnly = true,
+        ).filter { it.hasProfessionalArtwork }
             .distinctBy { it.archiveID }
-            .take(40)
+        val heroCandidates = heroPool.shuffled(Random(heroSeed)).take(60)
         val hero = db.itemsByIDs(heroCandidates.map { it.archiveID })
             .filter { it.backdropURL != null }
+            // itemsByIDs does not promise the order it was asked in, so shuffle
+            // again rather than let an id ordering decide which six lead.
+            .shuffled(Random(heroSeed))
             .take(6)
 
         val pdYear = Calendar.getInstance().get(Calendar.YEAR) - 95
