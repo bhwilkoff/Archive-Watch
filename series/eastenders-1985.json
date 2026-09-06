@@ -149,7 +149,7 @@
     }
   ],
   "episodesCount": 7,
-  "canonicalEpisodesCount": 7305,
+  "canonicalEpisodesCount": 7309,
   "tvdbID": "71753",
   "artworkSource": "tvdb",
   "cast": [
@@ -256,13 +256,10 @@
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/9097796/photo/64b97167343f5.jpg"
     },
     {
-      "name": "Elijah Holloway",
-      "character": "Harry Mitchell",
+      "name": "Krysstina Frempong",
+      "character": "Grace Larson",
       "order": 17,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/9128577/photo/667c0083db3ac.jpg"
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/9157161/photo/6a95bf1168e07.jpg"
     }
-  ],
-  "seriesImdbID": "tt0088512",
-  "canonicalEpisodeCount": 100,
-  "canonicalSeasons": 1
+  ]
 }

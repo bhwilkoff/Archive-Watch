@@ -45,7 +45,7 @@
         {
           "archiveID": "the-good-life-s-1-ep-1-1975",
           "seasonNumber": null,
-          "episodeNumber": null,
+          "episodeNumber": 9,
           "title": "The Good Life",
           "overview": null,
           "stillURL": null,
@@ -116,8 +116,5 @@
       "order": 7,
       "profilePath": null
     }
-  ],
-  "seriesImdbID": "tt0075511",
-  "canonicalEpisodeCount": 2,
-  "canonicalSeasons": 3
+  ]
 }

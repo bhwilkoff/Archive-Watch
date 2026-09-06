@@ -1,81 +1,79 @@
 {
-  "version": 2,
-  "seriesID": "game-of-thrones-inside-the-episode-2019",
-  "tvmazeID": 42281,
-  "title": "Game of Thrones: Inside the Episode",
-  "yearStart": 2019,
-  "yearEnd": 2019,
-  "overview": "Behind the scenes of Game of Thrones.",
-  "posterURL": null,
-  "backdropURL": null,
-  "genres": [],
-  "networks": [
-    "HBO"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "game-of-thrones-inside-the-episode-2019",
+ "tvmazeID": 42281,
+ "title": "Game of Thrones: Inside the Episode",
+ "yearStart": 2019,
+ "yearEnd": 2019,
+ "overview": "Behind the scenes of Game of Thrones.",
+ "posterURL": null,
+ "backdropURL": null,
+ "genres": [],
+ "networks": [
+  "HBO"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": null,
+   "episodes": [
     {
-      "seasonNumber": null,
-      "episodes": [
-        {
-          "archiveID": "EpisodeOfTheDinahShoreShowFrom1956",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Episode of \"The Dinah Shore Show\" from 1956",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/EpisodeOfTheDinahShoreShowFrom1956",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "DinahShore1956.mp4",
-            "format": "h.264",
-            "sizeBytes": 89106160,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/EpisodeOfTheDinahShoreShowFrom1956/DinahShore1956.mp4"
-        },
-        {
-          "archiveID": "georgeburnsandgracieallen",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Episode of \"The George Burns and Gracie Allen Show\"",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/georgeburnsandgracieallen",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "georgeburnsandgracieallen.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 169593382,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/georgeburnsandgracieallen/georgeburnsandgracieallen.ia.mp4"
-        },
-        {
-          "archiveID": "Quick-as-a-flash",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Episode of 'Quick as a Flash' from 1952",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/Quick-as-a-flash",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "QuickAsAFlash.mp4",
-            "format": "h.264",
-            "sizeBytes": 134032460,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/Quick-as-a-flash/QuickAsAFlash.mp4"
-        }
-      ]
+     "archiveID": "EpisodeOfTheDinahShoreShowFrom1956",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Episode of \"The Dinah Shore Show\" from 1956",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/EpisodeOfTheDinahShoreShowFrom1956",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "DinahShore1956.mp4",
+      "format": "h.264",
+      "sizeBytes": 89106160,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/EpisodeOfTheDinahShoreShowFrom1956/DinahShore1956.mp4"
+    },
+    {
+     "archiveID": "georgeburnsandgracieallen",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Episode of \"The George Burns and Gracie Allen Show\"",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/georgeburnsandgracieallen",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "georgeburnsandgracieallen.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 169593382,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/georgeburnsandgracieallen/georgeburnsandgracieallen.ia.mp4"
+    },
+    {
+     "archiveID": "Quick-as-a-flash",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Episode of 'Quick as a Flash' from 1952",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/Quick-as-a-flash",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "QuickAsAFlash.mp4",
+      "format": "h.264",
+      "sizeBytes": 134032460,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/Quick-as-a-flash/QuickAsAFlash.mp4"
     }
-  ],
-  "episodesCount": 3,
-  "canonicalEpisodesCount": 5,
-  "seriesImdbID": null,
-  "canonicalEpisodeCount": 0
+   ]
+  }
+ ],
+ "episodesCount": 3,
+ "canonicalEpisodesCount": 5
 }

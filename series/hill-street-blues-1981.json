@@ -93,11 +93,11 @@
         {
           "archiveID": "hill.street.blues.s-04e-01.heres.adventure.heres.romance.sdtv.x-264",
           "seasonNumber": 4,
-          "episodeNumber": 1,
-          "title": "Here's Adventure, Here's Romance",
-          "overview": null,
+          "episodeNumber": 17,
+          "title": "The End of Logan's Run",
+          "overview": "Belker has a final run in with his bald headed pickpocket with many names; Joyce defends a man whose brother plans to threaten the prosecution witness into silence; and Operation Stop 'N Cop begins.",
           "stillURL": "https://archive.org/services/img/hill.street.blues.s-04e-01.heres.adventure.heres.romance.sdtv.x-264",
-          "airDate": null,
+          "airDate": "1984-03-01",
           "year": 1984,
           "runtimeSeconds": 3600,
           "videoFile": {
@@ -293,8 +293,5 @@
       "order": 17,
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/287170/photo/6512e26caf85a.jpg"
     }
-  ],
-  "seriesImdbID": "tt0081873",
-  "canonicalEpisodeCount": 89,
-  "canonicalSeasons": 7
+  ]
 }

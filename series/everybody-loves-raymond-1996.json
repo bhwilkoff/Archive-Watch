@@ -62,7 +62,7 @@
       "seasonNumber": 5,
       "episodes": [
         {
-          "archiveID": "everybody-loves-raymond-complete-series_202601",
+          "archiveID": "everybody-loves-raymond-complete-series_202512",
           "seasonNumber": 5,
           "episodeNumber": 2,
           "title": "Italy",
@@ -77,10 +77,10 @@
             "sizeBytes": 90237125,
             "tier": 1
           },
-          "downloadURL": "https://archive.org/download/everybody-loves-raymond-complete-series_202601/Everybody%20Loves%20Raymond%20S05E02%20-%20Italy%20%28Part%202%29.mp4"
+          "downloadURL": "https://archive.org/download/everybody-loves-raymond-complete-series_202512/Everybody%20Loves%20Raymond%20S05E02%20-%20Italy%20%28Part%202%29.mp4"
         },
         {
-          "archiveID": "everybody-loves-raymond-complete-series_202512",
+          "archiveID": "everybody-loves-raymond-complete-series_202601",
           "seasonNumber": 5,
           "episodeNumber": 2,
           "title": "Italy (2)",
@@ -95,7 +95,7 @@
             "sizeBytes": 90237125,
             "tier": 1
           },
-          "downloadURL": "https://archive.org/download/everybody-loves-raymond-complete-series_202512/Everybody%20Loves%20Raymond%20S05E02%20-%20Italy%20%28Part%202%29.mp4"
+          "downloadURL": "https://archive.org/download/everybody-loves-raymond-complete-series_202601/Everybody%20Loves%20Raymond%20S05E02%20-%20Italy%20%28Part%202%29.mp4"
         }
       ]
     },
@@ -218,8 +218,5 @@
       "order": 11,
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/261871/photo/65a09cac9bf98.jpg"
     }
-  ],
-  "seriesImdbID": "tt0115167",
-  "canonicalEpisodeCount": 204,
-  "canonicalSeasons": 9
+  ]
 }

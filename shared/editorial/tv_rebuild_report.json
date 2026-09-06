@@ -61,11 +61,15 @@
     },
     {
      "kind": "orphan-episode",
-     "ref": "murphy-brown-s06E11-it-s-not-easy-being-brown"
+     "ref": "murphy-brown-s06E18-fjord-eyes-only"
     },
     {
      "kind": "orphan-episode",
      "ref": "murphy-brown-s06E10-reaper-madness"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "murphy-brown-s06E11-it-s-not-easy-being-brown"
     },
     {
      "kind": "orphan-episode",
@@ -169,15 +173,15 @@
     },
     {
      "kind": "orphan-episode",
+     "ref": "murphy-brown-s04E04-male-call"
+    },
+    {
+     "kind": "orphan-episode",
      "ref": "murphy-brown-s04E06-full-circle"
     },
     {
      "kind": "orphan-episode",
      "ref": "murphy-brown-s03E23-small"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "murphy-brown-s04E04-male-call"
     },
     {
      "kind": "orphan-episode",
@@ -297,6 +301,10 @@
     },
     {
      "kind": "orphan-episode",
+     "ref": "murphy-brown-s02E17-frankly-speaking"
+    },
+    {
+     "kind": "orphan-episode",
      "ref": "murphy-brown-s02E21-on-the-road-again"
     },
     {
@@ -305,19 +313,15 @@
     },
     {
      "kind": "orphan-episode",
-     "ref": "murphy-brown-s02E17-frankly-speaking"
-    },
-    {
-     "kind": "orphan-episode",
      "ref": "murphy-brown-s02E27-going-to-the-chapel-2"
     },
     {
      "kind": "orphan-episode",
-     "ref": "murphy-brown-s02E25-the-bitch-s-back"
+     "ref": "murphy-brown-s02E26-going-to-the-chapel-1"
     },
     {
      "kind": "orphan-episode",
-     "ref": "murphy-brown-s02E26-going-to-the-chapel-1"
+     "ref": "murphy-brown-s02E25-the-bitch-s-back"
     },
     {
      "kind": "orphan-episode",
@@ -357,11 +361,11 @@
     },
     {
      "kind": "orphan-episode",
-     "ref": "murphy-brown-s02E01-the-brothers-silverberg"
+     "ref": "murphy-brown-s01E09-i-would-have-danced-all-night"
     },
     {
      "kind": "orphan-episode",
-     "ref": "murphy-brown-s01E09-i-would-have-danced-all-night"
+     "ref": "murphy-brown-s02E01-the-brothers-silverberg"
     },
     {
      "kind": "orphan-episode",
@@ -381,11 +385,11 @@
     },
     {
      "kind": "orphan-episode",
-     "ref": "murphy-brown-s01E11-off-the-job-experience"
+     "ref": "murphy-brown-s01E16-moscow-on-the-potomac"
     },
     {
      "kind": "orphan-episode",
-     "ref": "murphy-brown-s01E16-moscow-on-the-potomac"
+     "ref": "murphy-brown-s01E11-off-the-job-experience"
     },
     {
      "kind": "orphan-episode",
@@ -393,11 +397,11 @@
     },
     {
      "kind": "orphan-episode",
-     "ref": "murphy-brown-s01E12-why-do-fools-fall-in-love"
+     "ref": "murphy-brown-s02E10-brown-like-me-1"
     },
     {
      "kind": "orphan-episode",
-     "ref": "murphy-brown-s02E10-brown-like-me-1"
+     "ref": "murphy-brown-s01E12-why-do-fools-fall-in-love"
     },
     {
      "kind": "orphan-episode",
@@ -478,14 +482,6 @@
     {
      "kind": "orphan-episode",
      "ref": "murphy-brown-s01E06-baby-love"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "murphy-brown-s06E18-fjord-eyes-only"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "murphy-brown-s06E17-the-anchorman"
     }
    ]
   },
@@ -600,7 +596,7 @@
     "orphan-episode",
     "series"
    ],
-   "mergedFrom": 3,
+   "mergedFrom": 2,
    "consumedRefs": [
     {
      "kind": "series",
@@ -613,6 +609,10 @@
     {
      "kind": "orphan-episode",
      "ref": "knight.-rider.-s-03-e-09.-blu-ray.-1080p.-ac-3.-h-265-d-3g"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "knight.-rider.-s-03-e-01.-blu-ray.-1080p.-ac-3.-h-265-d-3g"
     },
     {
      "kind": "orphan-episode",
@@ -656,44 +656,11 @@
     },
     {
      "kind": "orphan-episode",
-     "ref": "knight.-rider.-s-01-e-10.-blu-ray.-1080p.-ac-3.-h-265-d-3g"
-    },
-    {
-     "kind": "orphan-episode",
      "ref": "knight.-rider.-s-01-e-01-e-02.-blu-ray.-1080p.-ac-3.-h-265-d-3g"
     },
     {
      "kind": "orphan-episode",
      "ref": "knight.-rider.-s-01-e-05.-blu-ray.-1080p.-ac-3.-h-265-d-3g"
-    }
-   ]
-  },
-  {
-   "slug": "one-step-beyond-1959",
-   "tvmazeID": 18552,
-   "title": "One Step Beyond",
-   "matched": true,
-   "canonEps": 97,
-   "ourItems": 95,
-   "mappedEps": 90,
-   "extras": 5,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "availableEps": 95,
-   "kinds": [
-    "orphan-episode",
-    "series"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "one-step-beyond-1959"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "OSB-38_The_Justice_Tree"
     }
    ]
   },
@@ -726,11 +693,11 @@
     },
     {
      "kind": "orphan-episode",
-     "ref": "the-dukes-of-hazzard-s-01-e-02-daisys-song"
+     "ref": "the-dukes-of-hazzard-s-01-e-05-high-octane"
     },
     {
      "kind": "orphan-episode",
-     "ref": "the-dukes-of-hazzard-s-01-e-05-high-octane"
+     "ref": "the-dukes-of-hazzard-s-01-e-02-daisys-song"
     },
     {
      "kind": "orphan-episode",
@@ -738,15 +705,7 @@
     },
     {
      "kind": "orphan-episode",
-     "ref": "the-dukes-of-hazzard-s-01-e-13-double-sting"
-    },
-    {
-     "kind": "orphan-episode",
      "ref": "the-dukes-of-hazzard-s-01-e-06-swamp-molly"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "the-dukes-of-hazzard-s-01-e-03-mary-kayes-baby"
     },
     {
      "kind": "orphan-episode",
@@ -754,11 +713,56 @@
     },
     {
      "kind": "orphan-episode",
+     "ref": "the-dukes-of-hazzard-s-01-e-13-double-sting"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "the-dukes-of-hazzard-s-01-e-03-mary-kayes-baby"
+    },
+    {
+     "kind": "orphan-episode",
      "ref": "the-dukes-of-hazzard-s-01-e-09-limo-one-is-missing"
     },
     {
      "kind": "orphan-episode",
+     "ref": "the-dukes-of-hazzard-s-01-e-07-lukes-love-story"
+    },
+    {
+     "kind": "orphan-episode",
      "ref": "the-dukes-of-hazzard-s-01-e-12-route-7-11"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "the.-dukes.-of.-hazzard-s-02-e-01-days-of-shine-and-roses"
+    }
+   ]
+  },
+  {
+   "slug": "one-step-beyond-1959",
+   "tvmazeID": 18552,
+   "title": "One Step Beyond",
+   "matched": true,
+   "canonEps": 97,
+   "ourItems": 95,
+   "mappedEps": 90,
+   "extras": 5,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "availableEps": 95,
+   "kinds": [
+    "orphan-episode",
+    "series"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "one-step-beyond-1959"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "OSB-38_The_Justice_Tree"
     }
    ]
   },
@@ -1708,6 +1712,10 @@
     },
     {
      "kind": "orphan-episode",
+     "ref": "grange-hill-series-11"
+    },
+    {
+     "kind": "orphan-episode",
      "ref": "grange-hill-series-3"
     },
     {
@@ -1716,7 +1724,7 @@
     },
     {
      "kind": "orphan-episode",
-     "ref": "grange-hill-series-11"
+     "ref": "grange-hill-series-9"
     },
     {
      "kind": "orphan-episode",
@@ -1725,10 +1733,6 @@
     {
      "kind": "orphan-episode",
      "ref": "grange-hill-series-12"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "grange-hill-series-9"
     },
     {
      "kind": "orphan-episode",
@@ -1971,11 +1975,11 @@
     },
     {
      "kind": "orphan-episode",
-     "ref": "are-you-being-served-2"
+     "ref": "are-you-being-served-5"
     },
     {
      "kind": "orphan-episode",
-     "ref": "are-you-being-served-5"
+     "ref": "are-you-being-served-2"
     },
     {
      "kind": "orphan-episode",
@@ -2288,7 +2292,7 @@
    "tvmazeID": 2100,
    "title": "The Challenge",
    "matched": true,
-   "canonEps": 643,
+   "canonEps": 644,
    "ourItems": 19,
    "mappedEps": 6,
    "extras": 13,
@@ -2530,11 +2534,11 @@
     },
     {
      "kind": "orphan-episode",
-     "ref": "the-dick-van-dyke-show-season-4-of-5-mkv"
+     "ref": "the-dick-van-dyke-show-season-5-of-5-mkv"
     },
     {
      "kind": "orphan-episode",
-     "ref": "the-dick-van-dyke-show-season-5-of-5-mkv"
+     "ref": "the-dick-van-dyke-show-season-4-of-5-mkv"
     },
     {
      "kind": "single",
@@ -4820,7 +4824,7 @@
    "tvmazeID": 793,
    "title": "EastEnders",
    "matched": true,
-   "canonEps": 7305,
+   "canonEps": 7309,
    "ourItems": 7,
    "mappedEps": 0,
    "extras": 7,
@@ -5825,11 +5829,11 @@
    ]
   },
   {
-   "slug": "treehouse-detectives-2018",
-   "tvmazeID": 21822,
-   "title": "Treehouse Detectives",
+   "slug": "treehouse-masters-2013",
+   "tvmazeID": 1446,
+   "title": "Treehouse Masters",
    "matched": true,
-   "canonEps": 20,
+   "canonEps": 98,
    "ourItems": 3,
    "mappedEps": 3,
    "extras": 0,
@@ -5845,7 +5849,7 @@
    "consumedRefs": [
     {
      "kind": "series",
-     "ref": "treehouse-detectives-2018"
+     "ref": "treehouse-masters-2013"
     },
     {
      "kind": "single",
@@ -7408,6 +7412,39 @@
    ]
   },
   {
+   "slug": "the-good-life-1975",
+   "tvmazeID": 6021,
+   "title": "The Good Life",
+   "matched": true,
+   "canonEps": 28,
+   "ourItems": 2,
+   "mappedEps": 1,
+   "extras": 1,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "availableEps": 2,
+   "kinds": [
+    "series",
+    "single"
+   ],
+   "mergedFrom": 3,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "the-good-life-1975"
+    },
+    {
+     "kind": "single",
+     "ref": "thegoodlifes01e06"
+    },
+    {
+     "kind": "single",
+     "ref": "the-good-life-s-1-ep-1-1975"
+    }
+   ]
+  },
+  {
    "slug": "the-new-adventures-of-gilligan-1974",
    "tvmazeID": 32019,
    "title": "The New Adventures of Gilligan",
@@ -7739,6 +7776,35 @@
     {
      "kind": "series",
      "ref": "beat-the-clock-1950"
+    }
+   ]
+  },
+  {
+   "slug": "big-break-x-good-good-2003",
+   "tvmazeID": 15939,
+   "title": "Big Break x Good Good",
+   "matched": true,
+   "canonEps": 255,
+   "ourItems": 2,
+   "mappedEps": 2,
+   "extras": 0,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "availableEps": 2,
+   "kinds": [
+    "orphan-episode",
+    "series"
+   ],
+   "mergedFrom": 2,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "big-break-x-good-good-2003"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "Dragnet_TheBigBreak"
     }
    ]
   },
@@ -8364,68 +8430,6 @@
    ]
   },
   {
-   "slug": "big-break-x-good-good-2003",
-   "tvmazeID": 15939,
-   "title": "Big Break x Good Good",
-   "matched": true,
-   "canonEps": 255,
-   "ourItems": 2,
-   "mappedEps": 2,
-   "extras": 0,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "availableEps": 2,
-   "kinds": [
-    "orphan-episode",
-    "series"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "the-big-break-2003"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "Dragnet_TheBigBreak"
-    }
-   ]
-  },
-  {
-   "slug": "the-good-life-1975",
-   "tvmazeID": 6021,
-   "title": "The Good Life",
-   "matched": true,
-   "canonEps": 28,
-   "ourItems": 2,
-   "mappedEps": 1,
-   "extras": 1,
-   "repicked": 1,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "availableEps": 2,
-   "kinds": [
-    "series",
-    "single"
-   ],
-   "mergedFrom": 3,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "the-good-life-1975"
-    },
-    {
-     "kind": "single",
-     "ref": "thegoodlifes01e06"
-    },
-    {
-     "kind": "single",
-     "ref": "the-good-life-s-1-ep-1-1975"
-    }
-   ]
-  },
-  {
    "slug": "the-nutt-house-1989",
    "tvmazeID": 24046,
    "title": "The Nutt House",
@@ -8484,11 +8488,11 @@
    ]
   },
   {
-   "slug": "treehouse-masters-2013",
-   "tvmazeID": 1446,
-   "title": "Treehouse Masters",
+   "slug": "treehouse-detectives-2018",
+   "tvmazeID": 21822,
+   "title": "Treehouse Detectives",
    "matched": true,
-   "canonEps": 98,
+   "canonEps": 20,
    "ourItems": 3,
    "mappedEps": 3,
    "extras": 0,
@@ -8503,7 +8507,7 @@
    "consumedRefs": [
     {
      "kind": "series",
-     "ref": "treehouse-masters-2013"
+     "ref": "treehouse-detectives-2018"
     }
    ]
   },
@@ -11831,11 +11835,11 @@
    ]
   },
   {
-   "slug": "malibu-rescue-the-series-2019",
-   "tvmazeID": 40171,
-   "title": "Malibu Rescue: The Series",
+   "slug": "rico-to-the-rescue-2023",
+   "tvmazeID": 65820,
+   "title": "Rico to the Rescue",
    "matched": true,
-   "canonEps": 8,
+   "canonEps": 17,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -11973,7 +11977,7 @@
    "tvmazeID": 9539,
    "title": "NBC Nightly News",
    "matched": true,
-   "canonEps": 4820,
+   "canonEps": 4825,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -12057,6 +12061,29 @@
     {
      "kind": "single",
      "ref": "the-persuaders-1971-72"
+    }
+   ]
+  },
+  {
+   "slug": "hotel-1982",
+   "tvmazeID": 7365,
+   "title": "Hotel",
+   "matched": true,
+   "canonEps": 115,
+   "ourItems": 1,
+   "mappedEps": 0,
+   "extras": 1,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "kinds": [
+    "single"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "single",
+     "ref": "hotel_202312"
     }
    ]
   },
@@ -12157,7 +12184,7 @@
    "tvmazeID": 10275,
    "title": "The Herbie Awards",
    "matched": true,
-   "canonEps": 8,
+   "canonEps": 9,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -12402,6 +12429,29 @@
     {
      "kind": "single",
      "ref": "the-new-alfred-hitchcock-presents-complete"
+    }
+   ]
+  },
+  {
+   "slug": "static-shock-2000",
+   "tvmazeID": 5950,
+   "title": "Static Shock",
+   "matched": true,
+   "canonEps": 52,
+   "ourItems": 1,
+   "mappedEps": 0,
+   "extras": 1,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "kinds": [
+    "single"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "single",
+     "ref": "IMB_SF_R30_C10"
     }
    ]
   },
@@ -12935,11 +12985,11 @@
    ]
   },
   {
-   "slug": "bless-this-house-1971",
-   "tvmazeID": 7763,
+   "slug": "bless-this-house-1995",
+   "tvmazeID": 56547,
    "title": "Bless This House",
    "matched": true,
-   "canonEps": 65,
+   "canonEps": 16,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -13119,11 +13169,11 @@
    ]
   },
   {
-   "slug": "doctor-in-the-house-2015",
-   "tvmazeID": 27875,
+   "slug": "doctor-in-the-house-1969",
+   "tvmazeID": 8096,
    "title": "Doctor in the House",
    "matched": true,
-   "canonEps": 7,
+   "canonEps": 157,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -13947,11 +13997,11 @@
    ]
   },
   {
-   "slug": "daniel-sloss-live-shows-2018",
-   "tvmazeID": 45198,
-   "title": "Daniel Sloss: Live Shows",
+   "slug": "big-brother-best-shows-ever-2020",
+   "tvmazeID": 48066,
+   "title": "Big Brother: Best Shows Ever",
    "matched": true,
-   "canonEps": 2,
+   "canonEps": 10,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -14154,11 +14204,11 @@
    ]
   },
   {
-   "slug": "alice-2020",
-   "tvmazeID": 49255,
+   "slug": "alice-2009",
+   "tvmazeID": 1024,
    "title": "Alice",
    "matched": true,
-   "canonEps": 16,
+   "canonEps": 2,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -16638,11 +16688,11 @@
    ]
   },
   {
-   "slug": "dr-slump-1981",
-   "tvmazeID": 55244,
+   "slug": "dr-slump-1997",
+   "tvmazeID": 55245,
    "title": "Dr. Slump",
    "matched": true,
-   "canonEps": 243,
+   "canonEps": 74,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -17765,11 +17815,11 @@
    ]
   },
   {
-   "slug": "harry-2016",
-   "tvmazeID": 6373,
+   "slug": "harry-2013",
+   "tvmazeID": 7272,
    "title": "Harry",
    "matched": true,
-   "canonEps": 176,
+   "canonEps": 6,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -20179,6 +20229,75 @@
      "ref": "SanfordSeason1"
     }
    ]
+  },
+  {
+   "slug": "2point4-children-1991",
+   "tvmazeID": 8047,
+   "title": "2Point4 Children",
+   "matched": true,
+   "canonEps": 56,
+   "ourItems": 1,
+   "mappedEps": 0,
+   "extras": 1,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "kinds": [
+    "single"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "single",
+     "ref": "s-1-ep-1-leader-of-the-pack-1991"
+    }
+   ]
+  },
+  {
+   "slug": "nanny-and-the-professor-1970",
+   "tvmazeID": 17424,
+   "title": "Nanny and the Professor",
+   "matched": true,
+   "canonEps": 54,
+   "ourItems": 1,
+   "mappedEps": 0,
+   "extras": 1,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "kinds": [
+    "single"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "single",
+     "ref": "NannyandtheProfessorSeason3"
+    }
+   ]
+  },
+  {
+   "slug": "the-munsters-1964",
+   "tvmazeID": 3884,
+   "title": "The Munsters",
+   "matched": true,
+   "canonEps": 70,
+   "ourItems": 1,
+   "mappedEps": 0,
+   "extras": 1,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "kinds": [
+    "single"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "single",
+     "ref": "munsters-complete"
+    }
+   ]
   }
  ],
  "reclassifyArchiveIDs": [
@@ -20234,6 +20353,7 @@
   "TheBigHands",
   "1958NflChampionship",
   "the-persuaders-1971-72",
+  "hotel_202312",
   "The_Crow_Stairway_To_Heaven_Season_1",
   "peacock_202107",
   "ranma-nibunnoichi-espanol-latino-y-japones",
@@ -20249,6 +20369,7 @@
   "fleabag.-s-01-e-05.-hdtv.-subtitulado-esp.-sc",
   "The.adventures.of.Tintin.animated.series",
   "the-new-alfred-hitchcock-presents-complete",
+  "IMB_SF_R30_C10",
   "little-bill-complete-series",
   "azumanga-daioh-subbed-dubbed",
   "incredible-hulk-1994-complete-series",
@@ -20585,7 +20706,10 @@
   "my-life-me-complete-series",
   "Wayside2007Reupload",
   "Mgm-Tom-and-Jerry",
-  "SanfordSeason1"
+  "SanfordSeason1",
+  "s-1-ep-1-leader-of-the-pack-1991",
+  "NannyandtheProfessorSeason3",
+  "munsters-complete"
  ],
  "orphanSeriesSlugs": [],
  "unmatched": [
@@ -21568,13 +21692,6 @@
    "items": 1,
    "kind": "orphan-episode",
    "ref": "1941-Sieg-im-Westen"
-  },
-  {
-   "title": "Der Ewige Jude",
-   "year": 1940,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "1940-Der-Ewige-Jude-2"
   },
   {
    "title": "Junge Adler",
@@ -23586,6 +23703,20 @@
    "ref": "capture-a-3474"
   },
   {
+   "title": "The A Team S 02 E 15 The Battle Of Bel Air",
+   "year": 1984,
+   "items": 1,
+   "kind": "orphan-episode",
+   "ref": "the-a-team-s-02-e-15-the-battle-of-bel-air"
+  },
+  {
+   "title": "The A Team S 01 E 09 West Coast Turnaround",
+   "year": 1983,
+   "items": 1,
+   "kind": "orphan-episode",
+   "ref": "the-a-team-s-01-e-10-west-coast-turnaround"
+  },
+  {
    "title": "The Kojak Chronicles",
    "year": 2026,
    "items": 1,
@@ -24277,20 +24408,6 @@
    "items": 1,
    "kind": "orphan-episode",
    "ref": "Bonanza_-_The_Abduction"
-  },
-  {
-   "title": "The A Team S 02 E 15 The Battle Of Bel Air",
-   "year": 1984,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "the-a-team-s-02-e-15-the-battle-of-bel-air"
-  },
-  {
-   "title": "The A Team S 01 E 09 West Coast Turnaround",
-   "year": 1983,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "the-a-team-s-01-e-10-west-coast-turnaround"
   },
   {
    "title": "Lucy meets John Wayne",
@@ -25392,13 +25509,6 @@
    "ref": "GangBusters195455CreatedByPhillipsH.Lord"
   },
   {
-   "title": "Hotel (1983-1988) complete series",
-   "year": null,
-   "items": 1,
-   "kind": "single",
-   "ref": "hotel_202312"
-  },
-  {
    "title": "Jed Buys The Freeway",
    "year": null,
    "items": 1,
@@ -26342,13 +26452,6 @@
    "items": 1,
    "kind": "single",
    "ref": "60s70s80skidstv"
-  },
-  {
-   "title": "TV Static",
-   "year": 2007,
-   "items": 1,
-   "kind": "single",
-   "ref": "IMB_SF_R30_C10"
   },
   {
    "title": "Little Miss, Jr. Miss and Teen Miss Pageants - 2013 W.C. Fair",
@@ -40552,6 +40655,34 @@
    "items": 1,
    "kind": "single",
    "ref": "the-munsters-complete"
+  },
+  {
+   "title": "Tales of Tomorrow (1951 - 53) Complete Available Episodes",
+   "year": 1951,
+   "items": 1,
+   "kind": "single",
+   "ref": "tales-of-tomorrow-1951-53"
+  },
+  {
+   "title": "McMafia S01",
+   "year": null,
+   "items": 1,
+   "kind": "single",
+   "ref": "mcmafia-s01"
+  },
+  {
+   "title": "INVINCIBLE Seasons 1-3",
+   "year": null,
+   "items": 1,
+   "kind": "single",
+   "ref": "s-1-e-2_202505"
+  },
+  {
+   "title": "Parker Lewis Can't Lose - Full Series",
+   "year": 1990,
+   "items": 1,
+   "kind": "single",
+   "ref": "parker-lewis-cant-lose-series"
   }
  ]
 }
