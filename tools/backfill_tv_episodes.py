@@ -129,10 +129,45 @@ def adv_search_raw(q, session, rows=20):
     return r.json().get("response", {}).get("docs", [])
 
 
-def build_episode(iaid, doc, meta):
+def rights_ok(md, series_doc) -> bool:
+    """Refuse an episode we have no reason to believe is public domain.
+
+    This gate did not exist, and that is how 2 Stupid Dogs — a 1993
+    Hanna-Barbera show — reached the app as public domain. `audit_rights.py`
+    runs over `catalog.json` and episodes are not catalog items, so nothing
+    downstream was ever going to catch it: this function is the only place a
+    TV episode is judged at all.
+
+    The rules are the FILM audit's own (Decision 105: ask the thing that owns
+    the rule, do not restate it) — `MODERN` for the cutoff Decision 027 set,
+    `GOV` for government collections, `license_rescues` for whether an
+    uploader's licence claim can be trusted on a modern work.
+    """
+    import audit_rights as AR
+    year = series_doc.get("yearStart")
+    for src in (md.get("year"), md.get("date")):
+        if src:
+            m = re.search(r"(\d{4})", str(src))
+            if m:
+                year = int(m.group(1))
+                break
+    if not isinstance(year, int) or year < AR.MODERN:
+        return True
+    coll = md.get("collection") or []
+    if isinstance(coll, str):
+        coll = [coll]
+    if {str(c).lower() for c in coll} & AR.GOV:
+        return True
+    return AR.license_rescues(md.get("licenseurl"), year, None)
+
+
+def build_episode(iaid, doc, meta, series_doc=None):
     if not meta_ok(meta):
         return None
     md = meta.get("metadata", {})
+    if series_doc is not None and not rights_ok(md, series_doc):
+        print(f"    [rights] skip {iaid} — modern, no free licence")
+        return None
     files = meta.get("files", [])
     title = md.get("title") or doc.get("title") or iaid
     vf = pick_video(files)
@@ -320,7 +355,7 @@ def per_want_search(doc, series_wants, have, session, *, throttle, cap):
             continue
         if meta.get("metadata", {}).get("mediatype") not in (None, "movies", "video"):
             time.sleep(throttle); continue
-        ep = build_episode(iaid, match_doc, meta)
+        ep = build_episode(iaid, match_doc, meta, series_doc=doc)
         if ep:
             # Force the correct S/E from the want (the upload's own title
             # may be ambiguous, but the want came from OMDb's canonical list).
@@ -376,7 +411,7 @@ def backfill_one(path, session, *, dry_run, throttle, per_series_cap, series_wan
                 continue
             if meta.get("metadata", {}).get("mediatype") not in (None, "movies", "video"):
                 time.sleep(throttle); continue
-            ep = build_episode(iaid, d, meta)
+            ep = build_episode(iaid, d, meta, series_doc=doc)
             if ep:
                 added.append(ep)
                 have.add(iaid)
