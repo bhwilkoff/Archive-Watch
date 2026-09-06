@@ -32,6 +32,7 @@ import concurrent.futures as cf
 import json
 import sys
 import time
+import re
 import urllib.parse
 import urllib.request
 from pathlib import Path
@@ -51,6 +52,21 @@ except AttributeError:  # pragma: no cover
     pass
 
 
+def title_year_of(d) -> int | None:
+    """A year or decade stated in the SHOW'S OWN TITLE. "Minder 80s TV" and
+    "The Flockton Flyer 1977" both say what they are; the spine's yearStart
+    was simply never filled in."""
+    t = str(d.get("title") or "")
+    m = re.search(r"\b(19|20)(\d{2})\b", t)
+    if m:
+        return int(m.group(0))
+    m = re.search(r"\b(\d0)s\b", t)
+    if m:
+        n = int(m.group(1))
+        return 1900 + n if n >= 20 else 2000 + n
+    return None
+
+
 def spine_year(d) -> int | None:
     y = d.get("yearStart")
     return y if isinstance(y, int) else None
@@ -67,7 +83,15 @@ def fetch(aid: str) -> dict:
             coll = m.get("collection") or []
             if isinstance(coll, str):
                 coll = [coll]
+            yr = None
+            for src in (m.get("year"), m.get("date")):
+                if src:
+                    mm = re.search(r"(\d{4})", str(src))
+                    if mm:
+                        yr = int(mm.group(1))
+                        break
             return {"licenseurl": m.get("licenseurl") or "",
+                    "year": yr,
                     "rights": m.get("rights") or "",
                     "collections": [str(c) for c in coll],
                     "ok": True}
@@ -75,26 +99,45 @@ def fetch(aid: str) -> dict:
             time.sleep(1.5 * (attempt + 1))
     # A failed fetch is NEVER a hide (Decision 027: an unconfirmed item stays
     # visible). It is reported so it can be re-run.
-    return {"licenseurl": "", "rights": "", "collections": [], "ok": False}
+    return {"licenseurl": "", "rights": "", "collections": [], "year": None,
+            "ok": False}
 
 
-def verdict(year: int | None, meta: dict) -> tuple[str, str]:
-    """(keep|remove|unconfirmed, why) — using the FILM audit's own rules."""
+def verdict(year: int | None, meta: dict, title_year: int | None = None) -> tuple[str, str]:
+    """(keep|remove|unconfirmed, why) — the FILM audit's rules, one notch
+    stricter on licences.
+
+    An uploader LICENCE CLAIM does not rescue a modern television show here,
+    and that is deliberately stricter than the film rule. `license_rescues`
+    leans on a real commercial footprint (IMDb votes) to override a bogus CC
+    tag — its own docstring says uploaders "routinely re-upload copyrighted
+    studio films with a bogus CC0/CC license" — and a spine carries no votes,
+    so that override can never fire. Run with the film rule, the sweep KEPT
+    Farscape, Hi-de-Hi!, Kappa Mikey, a Korean drama from 2018 and a Kojak
+    upload dated 2026, every one of them tagged CC0 or CC-BY by whoever
+    uploaded it. Only archive.org's OWN curation (a government / public-domain
+    COLLECTION) rescues a modern show, because that is a claim the Archive
+    makes rather than a field an uploader types.
+    """
     if not meta.get("ok"):
         return "unconfirmed", "archive.org did not answer"
+    # A spine with no yearStart used to be kept unjudged, and that is how
+    # "Minder 80s TV" survived a sweep that removed Minder: the duplicate
+    # carried no year. The ITEM's own year is consulted when the show has
+    # none, and a title that states its own decade is read as a last resort.
+    if year is None:
+        year = meta.get("year")
+    if year is None:
+        year = title_year
     if year is None or year < AR.MODERN:
         return "keep", f"pre-{AR.MODERN}"
     cl = {c.lower() for c in meta["collections"]}
     if cl & AR.GOV:
         return "keep", "government / public-domain collection"
     lic = meta["licenseurl"]
-    # votes=None: a spine carries no IMDb footprint, so the commercial
-    # override cannot fire. That is the documented residual class in
-    # license_rescues, and it errs toward KEEPING, which is the safe side.
-    if AR.license_rescues(lic, year, None):
-        return "keep", f"licence: {lic}"
-    return "remove", (f"{year}, no free licence"
-                      + (f" (licence claim: {lic})" if lic else " and none claimed"))
+    return "remove", (f"{year}, modern television"
+                      + (f"; uploader licence claim {lic} does not rescue it"
+                         if lic else ", no licence claimed"))
 
 
 def main() -> int:
@@ -117,15 +160,17 @@ def main() -> int:
     # Only MODERN shows need a licence check; the rest are kept by the same
     # rule the film audit uses, without a network call.
     need = {}
+    title_years = {}
     for f, d in spines.items():
         y = spine_year(d)
-        if y is None or y < AR.MODERN:
-            continue
+        if y is not None and y < AR.MODERN:
+            continue          # judged by year alone; no network call needed
         for s in d.get("seasons") or []:
             for e in s.get("episodes") or []:
                 aid = e.get("archiveID")
                 if aid:
                     need.setdefault(str(aid), y)
+                    title_years.setdefault(str(aid), title_year_of(d))
     ids = sorted(need)
     if args.limit:
         ids = ids[: args.limit]
@@ -155,7 +200,7 @@ def main() -> int:
     removed_rows, kept, unconfirmed = [], 0, 0
     drop_ids = {}
     for aid, year in need.items():
-        v, why = verdict(year, cache.get(aid, {"ok": False}))
+        v, why = verdict(year, cache.get(aid, {"ok": False}), title_years.get(aid))
         if v == "remove":
             drop_ids[aid] = why
         elif v == "unconfirmed":
@@ -166,7 +211,7 @@ def main() -> int:
     changed_files = emptied = eps_removed = 0
     for f, d in spines.items():
         y = spine_year(d)
-        if y is None or y < AR.MODERN:
+        if y is not None and y < AR.MODERN:
             continue
         hit = False
         for s in d.get("seasons") or []:
@@ -208,10 +253,19 @@ def main() -> int:
     if removed_rows:
         MANIFEST.parent.mkdir(parents=True, exist_ok=True)
         import csv
-        with MANIFEST.open("w", newline="", encoding="utf-8") as fh:
+        import datetime as _dt
+        # APPEND. The manifest is the record of what was taken off the app and
+        # why, and a second run must not erase the first: the initial sweep
+        # removed 1,929 episodes and a follow-up run of three overwrote the
+        # file, so the evidence had to be rebuilt from git.
+        new_file = not MANIFEST.exists()
+        stamp = _dt.datetime.now(_dt.timezone.utc).isoformat(timespec="seconds")
+        with MANIFEST.open("a", newline="", encoding="utf-8") as fh:
             w = csv.writer(fh)
-            w.writerow(["spine", "show", "year", "archiveID", "episode", "why"])
-            w.writerows(removed_rows)
+            if new_file:
+                w.writerow(["removedAt", "spine", "show", "year", "archiveID",
+                            "episode", "why"])
+            w.writerows([stamp] + list(r) for r in removed_rows)
         print(f"  manifest -> {MANIFEST.relative_to(REPO)}")
         shows = {}
         for slug, show, yr, aid, ep, why in removed_rows:

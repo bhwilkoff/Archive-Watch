@@ -44,26 +44,23 @@ def main() -> int:
     check("a string collection field is handled",
           rights_ok({"year": "2020", "collection": gov}, new), True)
 
-    # Licences: only the free-culture variants rescue a MODERN work, and the
-    # old-style bare publicdomain URL does not (uploaders claim it on studio
-    # films). These are license_rescues' rules, asserted here so a change to
-    # them is visible from the TV side too.
-    check("CC0 rescues a modern episode",
-          rights_ok({"year": "1993",
-                     "licenseurl": "http://creativecommons.org/publicdomain/zero/1.0/"}, new),
-          True)
-    check("a bare publicdomain claim does NOT rescue a modern episode",
-          rights_ok({"year": "1993",
-                     "licenseurl": "http://creativecommons.org/licenses/publicdomain/"}, new),
-          False)
-    check("CC-BY-NC does NOT rescue a modern episode",
-          rights_ok({"year": "1993",
-                     "licenseurl": "http://creativecommons.org/licenses/by-nc/4.0/"}, new),
-          False)
-    check("CC-BY rescues a modern episode",
-          rights_ok({"year": "1993",
-                     "licenseurl": "http://creativecommons.org/licenses/by/4.0/"}, new),
-          True)
+    # NO uploader licence claim rescues a modern show. Stricter than the film
+    # rule on purpose: license_rescues leans on IMDb votes to override a bogus
+    # CC tag, a spine carries none, and with that override unable to fire the
+    # first full sweep KEPT Farscape, Hi-de-Hi!, Kappa Mikey and a Kojak
+    # upload dated 2026 — every one tagged CC0 or CC-BY by its uploader.
+    for lic in ("http://creativecommons.org/publicdomain/zero/1.0/",
+                "https://creativecommons.org/licenses/by/4.0/",
+                "http://creativecommons.org/licenses/by-sa/3.0/",
+                "http://creativecommons.org/licenses/publicdomain/",
+                "http://creativecommons.org/licenses/by-nc/4.0/"):
+        variant = lic.rstrip("/").rsplit("/", 2)[-2]
+        check(f"an uploader {variant} claim does NOT rescue a modern show",
+              rights_ok({"year": "1993", "licenseurl": lic}, new), False)
+    # ...but a licence on a PRE-cutoff show is never even consulted, because
+    # the year already keeps it.
+    check("a pre-cutoff show is kept regardless of licence",
+          rights_ok({"year": "1960", "licenseurl": ""}, old), True)
 
     # A show with no year at all must not be a loophole.
     check("an unknown year on a modern-looking item is refused",

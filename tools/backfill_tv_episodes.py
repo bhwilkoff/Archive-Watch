@@ -158,7 +158,12 @@ def rights_ok(md, series_doc) -> bool:
         coll = [coll]
     if {str(c).lower() for c in coll} & AR.GOV:
         return True
-    return AR.license_rescues(md.get("licenseurl"), year, None)
+    # An uploader's licence claim does NOT rescue a modern show — stricter
+    # than the film rule, and for a measured reason: license_rescues leans on
+    # IMDb votes to override a bogus CC tag, a spine has none, and with that
+    # override unable to fire the sweep kept Farscape, Hi-de-Hi! and a Kojak
+    # upload dated 2026. Only archive.org's own curation rescues here.
+    return False
 
 
 def build_episode(iaid, doc, meta, series_doc=None):

@@ -45,6 +45,25 @@ FEATURED = REPO / "featured.json"
 OUT = REPO / "catalog-index.json"
 
 
+def _spine_exists(archive_id) -> bool:
+    """A `series:<slug>` card is only real if its spine file is still there.
+
+    The cards live in catalog.json, but the EPISODES live in series/*.json,
+    and the rights sweep deletes a spine outright. Without this a removed show
+    kept its card on every platform and opened onto an empty page — the card
+    and the content have two different sources, so removing one has to check
+    the other. Applies to the app database and the web index alike, because
+    both build their cards from catalog.json.
+    """
+    aid = str(archive_id or "")
+    if not aid.startswith("series:"):
+        return True
+    slug = aid[len("series:"):]
+    if not slug or "/" in slug or "\\" in slug:
+        return False
+    return (REPO / "series" / f"{slug}.json").exists()
+
+
 def main():
     if not CATALOG.exists():
         print("[index] no catalog.json — run tools/catalog_release.py fetch first", file=sys.stderr)
@@ -106,6 +125,9 @@ def main():
         cols = {c.lower() for c in (it.get("collections") or [])}
         aid = it.get("archiveID")
         if not aid:
+            continue
+        # A series CARD whose spine was deleted opens onto nothing.
+        if not _spine_exists(aid):
             continue
         poster = it.get("posterURL")
         if poster and "archive.org/services/img" in poster:

@@ -942,6 +942,9 @@ def populate_items(db, items, rotate_seed="0", skip_aids=frozenset()):
         # every app surface. Mirrors the isAdult gate but harder — a full skip.
         if it.get("excluded") or _is_courseware(it) or _is_compilation(it):
             continue
+        # A series CARD whose spine was deleted opens onto nothing.
+        if not _spine_exists(it.get("archiveID")):
+            continue
         aid = it["archiveID"]
         # This archive item is a canonical episode — drop the standalone duplicate so
         # the episode-item (materialized in populate_series) is the single card for it
@@ -1339,6 +1342,25 @@ def build_seed_db(full_catalog_path, out_db, rotate_seed="0"):
     seed = dict(cat)
     seed["items"] = select_seed_items(cat["items"])
     return build_db_obj(seed, out_db, rotate_seed=rotate_seed, materialize_episodes=False)
+
+
+def _spine_exists(archive_id) -> bool:
+    """A `series:<slug>` card is only real if its spine file is still there.
+
+    The cards live in catalog.json, but the EPISODES live in series/*.json,
+    and the rights sweep deletes a spine outright. Without this a removed show
+    kept its card on every platform and opened onto an empty page — the card
+    and the content have two different sources, so removing one has to check
+    the other. Applies to the app database and the web index alike, because
+    both build their cards from catalog.json.
+    """
+    aid = str(archive_id or "")
+    if not aid.startswith("series:"):
+        return True
+    slug = aid[len("series:"):]
+    if not slug or "/" in slug or "\\" in slug:
+        return False
+    return (REPO / "series" / f"{slug}.json").exists()
 
 
 def main():
