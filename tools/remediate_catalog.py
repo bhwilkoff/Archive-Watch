@@ -128,6 +128,12 @@ _ADULT_STRONG = re.compile(
 _ADULT_SUBJECT = re.compile(
     r"\b(nudity|nude|topless|adult\s+film|adult\s+movie|softcore|sexploitation"
     r"|erotica|pornographic|striptease|playboy|playmate|penthouse"
+    # 2026-09-06: a community upload whose TITLE and SUBJECT are both "incest"
+    # (a modern activism video mis-dated 1929) was visible in the catalog and
+    # was selected by the social programme for a Sunday post. As a subject tag
+    # these are unambiguous — nobody tags a film this way casually — while as
+    # title words they are not, which is why they sit in the SUBJECT tier.
+    r"|incest|incestuous|bestiality|child\s+porn"
     # 2026-09-05: the Roku owner found stag reels in search. archive.org tags
     # them "Stripper - Strippers - Stag - Burlesque", "vintage stripper",
     # "fetishism; grind house" — subjects, never titles ("The Stripper" 1963

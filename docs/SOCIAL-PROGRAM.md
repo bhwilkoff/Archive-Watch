@@ -212,6 +212,41 @@ this system that must never be lost.
 
 ---
 
+## 6a. The programme posts only from a CURATED shelf
+
+A fourteen-day rehearsal scheduled, for a Sunday post to Facebook, a
+community upload **titled "incest"** — subject "incest", a synopsis about
+rape, and a 1929 date that is plainly false for a modern activism video. It
+passed every gate in §1 and §6: professional artwork, playable, rights-
+cleared, and a public-domain basis computed from that false year.
+
+No keyword list would have been the right answer to that. The real
+distinction is that archive.org's `opensource_movies` / `community`
+collections are an open dumping ground where anyone may upload anything,
+while the 26 curated collections and the editorial shelves are the ones this
+project vetted. **A repertory programme draws from a curated shelf; that is
+what the word means.** So `eligible()` now requires membership in one.
+
+Measured: the eligible pool falls from 13,305 films to 1,344 — still a
+3.7-year programme at one post a day. And it did not merely make the
+programme safer, it made it BETTER: the same fourteen days went from 3 posts
+carrying a real viewer quote to 9, because a curated film is one people
+actually watched and reviewed. The run became Alice Guy-Blaché in 1902,
+Charley Chase, Capra's *Our Mr. Sun*, Huston's *Let There Be Light*.
+
+The item was separately flagged at the PIPELINE level (its subject tag is
+unambiguous), so it leaves every platform, not just this one. Both fixes
+were made: the app-level one because the item should never have been
+visible, and this one because promoting is a louder act than listing and
+deserves the stricter gate.
+
+**A correction while doing this.** The "United States government production"
+basis was reading the index's search blob, which is EMPTY for 14,581 of
+26,743 rows — it fired 7 times in the entire catalog. It reads the
+collections map now, which is exact.
+
+---
+
 ## 7a. Variety is a rule, not an accident
 
 A ten-day rehearsal came out **8 of 10 feature films** — every card carrying

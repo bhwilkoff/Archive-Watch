@@ -324,18 +324,52 @@ def pick_line(film_id: str, captions, runtime, seed_key: str) -> dict | None:
 # Decision 027 left visible-but-unverifiable, and an unverifiable film is one
 # we must not stand behind in public.
 PD_BY_AGE = 1930
-GOV_COLLECTIONS = {"prelinger", "prelingerhomemovies", "nasa", "nasaeclips",
-                   "jsc-pao-video-collection", "usgovfilms", "nationalarchives",
-                   "fedflix", "dl-archive"}
+GOV_COLLECTIONS = {"prelinger", "nasa", "usgovfilms", "nationalarchives",
+                   "fedflix", "newsandpublicaffairs"}
 
 
-def pd_basis(row: list, detail: list) -> tuple[str, str] | None:
+def curated_ids(index: dict) -> tuple[set, set]:
+    """(everything on a curated shelf or in a curated collection, the gov subset).
+
+    THE PROGRAMME ONLY PROMOTES FROM A CURATED SHELF. A rehearsal scheduled a
+    community upload titled "incest" — subject "incest", a synopsis about
+    rape, and a 1929 date that is plainly wrong for a modern user upload — for
+    a Sunday post to Facebook. It passed every gate I had: professional
+    artwork, playable, rights-cleared, and a public-domain basis derived from
+    that false year.
+
+    No keyword list would have been the right answer. The real distinction is
+    that archive.org's `opensource_movies` / `community` collections are an
+    open dumping ground, while the 26 curated collections and the editorial
+    shelves are the ones this project actually vetted. A repertory programme
+    draws from a curated shelf; that is what the word means.
+
+    Cost, measured: the eligible pool falls from 13,305 to 1,344 — still a
+    3.7-year programme at one post a day, and every day of it is a film
+    somebody chose.
+    """
+    curated, gov = set(), set()
+    for name, ids in (index.get("collections") or {}).items():
+        curated.update(ids)
+        if name.lower() in GOV_COLLECTIONS:
+            gov.update(ids)
+    for name, ids in (index.get("shelves") or {}).items():
+        curated.update(ids)
+        if name.lower() in GOV_COLLECTIONS:
+            gov.update(ids)
+    return curated, gov
+
+
+def pd_basis(row: list, detail: list, gov_ids: set | None = None) -> tuple[str, str] | None:
     """A statable public-domain basis, or None — and None means not posted."""
     year = row[I_YEAR]
-    blob = (row[I_SEARCH] or "").lower() if len(row) > I_SEARCH and row[I_SEARCH] else ""
-    if any(c in blob for c in GOV_COLLECTIONS):
+    # The index's COLLECTIONS MAP, not the search blob. The blob is empty for
+    # 14,581 of 26,743 rows (55%), so the original blob test fired 7 times in
+    # the whole catalog — it read like a working basis and was effectively
+    # dead code. The map is exact.
+    if gov_ids and row[I_ID] in gov_ids:
         return ("A United States government production, and therefore in the "
-                "public domain."), "index.search (gov collection)"
+                "public domain."), "index.collections (nasa/prelinger/gov)"
     if year and year < PD_BY_AGE:
         return (f"Published in {year}. Its US copyright has expired.",
                 "index.year < 1930 (audit_rights.PD_BY_AGE)")
@@ -345,7 +379,7 @@ def pd_basis(row: list, detail: list) -> tuple[str, str] | None:
     return None
 
 
-def eligible(row: list) -> bool:
+def eligible(row: list, curated: set | None = None) -> bool:
     """The app's own gates. A film we promote must be one the app will show:
     professional artwork (Decision 097), playable, a real poster, and never a
     series spine (a spine has no film to watch)."""
@@ -357,6 +391,8 @@ def eligible(row: list) -> bool:
         return False
     if len(row) > I_PLAYABLE and row[I_PLAYABLE] == 0:
         return False
+    if curated is not None and row[I_ID] not in curated:
+        return False
     return True
 
 
@@ -364,8 +400,8 @@ def popularity(row: list) -> int:
     return int(row[I_VOTES] or 0) if len(row) > I_VOTES and row[I_VOTES] else 0
 
 
-def candidates(index: dict, slot: str) -> list:
-    rows = [r for r in index["items"] if eligible(r)]
+def candidates(index: dict, slot: str, curated: set | None = None) -> list:
+    rows = [r for r in index["items"] if eligible(r, curated)]
     if slot == "from-the-vaults":
         keep = {"ephemeral", "newsreel", "documentary", "commercial", "short-film"}
         return [r for r in rows if r[I_TYPE] in keep]
@@ -482,7 +518,8 @@ def fetch_details(ids: list, verbose: bool = False) -> dict:
 
 
 def build_spec(row: list, detail: list, slot: str, review: dict | None,
-               partner: tuple | None = None, line: dict | None = None) -> dict:
+               partner: tuple | None = None, line: dict | None = None,
+               gov_ids: set | None = None) -> dict:
     """Assemble the post spec: fragments plus, for each, its source."""
     film_id = row[I_ID]
     title = row[I_TITLE]
@@ -511,7 +548,7 @@ def build_spec(row: list, detail: list, slot: str, review: dict | None,
     r = rating_line(row)
     if r:
         add("rating", r[0], r[1])
-    basis = pd_basis(row, detail)
+    basis = pd_basis(row, detail, gov_ids)
     if basis:
         add("rights", basis[0], basis[1])
 
@@ -582,7 +619,8 @@ def main() -> int:
     skip = recently_posted(ledger)
     used_reviews = quoted_reviews(ledger)
 
-    rows = [r for r in candidates(index, slot) if r[I_ID] not in skip]
+    curated, gov = curated_ids(index)
+    rows = [r for r in candidates(index, slot, curated) if r[I_ID] not in skip]
     if not rows:
         print("no eligible film — nothing posted today", file=sys.stderr)
         return 3
@@ -613,7 +651,7 @@ def main() -> int:
         url = d[D_URL] if len(d) > D_URL else None
         if not url:                      # not playable right now — never promote it
             continue
-        if not pd_basis(row, d):
+        if not pd_basis(row, d, gov):
             continue          # cannot state why it is free — do not promote it
         if slot == "one-line":
             caps = d[D_CAPTIONS] if len(d) > D_CAPTIONS else None
@@ -648,7 +686,7 @@ def main() -> int:
             od = details.get(other[I_ID])
             if not od or not (od[D_URL] if len(od) > D_URL else None):
                 continue
-            if not pd_basis(other, od):
+            if not pd_basis(other, od, gov):
                 continue
             odir = (od[D_DIRECTOR] if len(od) > D_DIRECTOR else None) or other[I_DIRECTOR]
             if director and odir and director == odir:
@@ -660,7 +698,7 @@ def main() -> int:
         if not partner:
             slot = "now-showing"
 
-    spec = build_spec(row, detail, slot, review, partner, quote_line)
+    spec = build_spec(row, detail, slot, review, partner, quote_line, gov)
     spec["date"] = when.isoformat()
 
     if args.explain:
