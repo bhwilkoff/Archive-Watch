@@ -42,6 +42,9 @@ import re
 import sys
 import time
 import urllib.parse
+
+import audit_rights as _AR  # the film audit owns the rights rules
+AR_MODERN = _AR.MODERN
 import urllib.request
 from pathlib import Path
 
@@ -685,7 +688,12 @@ def gather_raw_targets(titles_filter):
                         collect_our_episodes_from_series(d), "series", f.stem))
     cat = json.loads(FULL_CATALOG.read_text())
     for it in cat["items"]:
-        if it.get("contentType") == "tv-series" and not it.get("seriesID"):
+        # A catalog item the rights audit HID must not be re-served through a
+        # spine. Only the orphan branch below carried this check, so an
+        # excluded tv-series single walked straight back in — "the gate said
+        # hide, the spine served it anyway".
+        if (it.get("contentType") == "tv-series" and not it.get("seriesID")
+                and not it.get("excluded")):
             ep = {"archiveID": it["archiveID"], "title": it.get("title"),
                   "downloadURL": _safe_url(it.get("downloadURL")), "videoFile": it.get("videoFile"),
                   "stillURL": it.get("posterURL"), "year": it.get("year"),
@@ -717,6 +725,13 @@ def gather_raw_targets(titles_filter):
         for it in json.loads(disc.read_text()).get("items", []):
             aid = it.get("archiveID")
             if not aid or aid in have_targets:
+                continue
+            # Discovery items have never been near catalog.json, so the rights
+            # audit has never seen them either. Judge on the year we have;
+            # backfill_tv_episodes.rights_ok does the licence-aware check when
+            # the episodes themselves are fetched.
+            y = it.get("year")
+            if isinstance(y, int) and y >= AR_MODERN:
                 continue
             ep = {"archiveID": aid, "title": it.get("title"),
                   "downloadURL": None, "videoFile": None,
