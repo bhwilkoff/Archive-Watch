@@ -190,6 +190,7 @@ sub init()
 
     m.focusZone = "hero"
     m.heroOffset = 0
+    m.heroWant = ""
 end sub
 
 sub onRows()
@@ -305,16 +306,25 @@ end sub
 
 sub onHeroArtStatus()
     if m.wash.loadStatus <> "failed" then return
-    print "AWHERO backdrop failed, falling back"
-    if m.heroFallback <> "" and m.wash.uri <> m.heroFallback
-        f = m.heroFallback
-        m.heroFallback = ""
-        m.wash.uri = f
-        m.wash.opacity = 0.85
-        m.art.uri = f
+    ' The rotation changes this uri every few seconds, and replacing a uri
+    ' CANCELS a load in flight — which reports as "failed". Measured on the
+    ' device: White Mane and Camille both "failed" while their backdrops
+    ' answer 200 with a valid JPEG. Only the uri we are still asking for can
+    ' really have failed.
+    if m.wash.uri <> m.heroWant
+        print "AWHERO stale load ignored"
+        return
+    end if
+    print "AWHERO backdrop failed: "; m.wash.uri
+    ' NEVER substitute the poster into the wide band. That fallback is what
+    ' the owner saw as "absolutely terrible for everything else": a 2:3
+    ' poster stretched across a 2.2:1 band. A band with nothing in it is
+    ' honest; a band with the wrong shape in it is not. The poster still
+    ' appears, as the INSET, which is where a poster belongs.
+    m.wash.uri = ""
+    if m.heroFallback <> ""
+        m.art.uri = m.heroFallback
         m.art.visible = true
-    else
-        m.wash.uri = ""
     end if
 end sub
 
@@ -338,7 +348,9 @@ sub paintHeroArt(it as Object)
     m.art.visible = false
     m.heroFallback = ""
     if it.HDPOSTERURL <> invalid then m.heroFallback = it.HDPOSTERURL
+    m.heroWant = ""
     if it.awBackdrop <> invalid and it.awBackdrop <> ""
+        m.heroWant = it.awBackdrop
         m.wash.uri = it.awBackdrop
         m.wash.opacity = 1.0
         m.art.visible = false

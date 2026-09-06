@@ -1447,10 +1447,14 @@ sub playPendingEpisode(d as Object)
         m.player.ObserveField("failed", "onPlaybackFailed")
     end if
     m.episodeQueue = e
+    ' F31 — "Party play... plays things with the surprise tiles in the
+    ' foreground". This path is shared by episodes, playlists, user channels,
+    ' Channels and Party Play, and it hid only the SERIES screen — so every
+    ' other origin left its own surface composited over the video. Hide them
+    ' all, then show the player: the set of surfaces grows, and naming them
+    ' one at a time is how this was missed.
+    hideAllSurfaces()
     m.player.visible = true
-    ' Guarded: this queue path is shared by episodes, playlists, user channels
-    ' and Party Play, and only the first of those has ever opened a series.
-    if m.series <> invalid then m.series.visible = false
     ' An ephemeral lineup (a party, a channel) writes NO bookmark.
     if e.ephemeral = true then m.player.archiveID = "" else m.player.archiveID = e.id
     m.player.muted = (e.muted = true)

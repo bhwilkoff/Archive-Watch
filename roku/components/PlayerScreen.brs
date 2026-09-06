@@ -49,6 +49,8 @@ end sub
 sub onUrl()
     url = m.top.playUrl
     if url = invalid or url = "" then return
+    ' Whatever the last film said about itself does not apply to this one.
+    m.diag.visible = false
 
     c = CreateObject("roSGNode", "ContentNode")
     c.title = m.top.playTitle
@@ -133,8 +135,13 @@ sub onState()
         ' Say WHY. A silent failure here is the single most expensive thing on
         ' this platform, and the error fields are the only account we get.
         print "AWPLAY error code="; m.video.errorCode; " msg="; m.video.errorMsg
-        m.diag.visible = true
-        m.diag.text = "Playback error " + fmt(m.video.errorCode) + " — " + fmt(m.video.errorMsg)
+        ' The code goes to the CONSOLE, never the screen. The comment below
+        ' has always said so; the line above it did the opposite, and left
+        ' "Playback error -5" sitting in the bottom-left corner. It was set
+        ' visible on error and cleared NOWHERE, so the first failure of a
+        ' session pinned it there over every film that played afterwards —
+        ' which is what the owner saw survive Party Play.
+        m.diag.visible = false
         ' Hand it up so the viewer is TOLD. A film that dies silently and drops
         ' the viewer back on the same Detail screen looks like a broken remote,
         ' not like a film archive.org will not serve.
