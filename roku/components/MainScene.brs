@@ -2223,6 +2223,20 @@ end sub
 ' Walk the rows we already hold rather than re-querying: the Home content tree
 ' IS the model, and Detail is opened from it.
 function findItem(archiveID as String) as Object
+    ' The HERO POOL FIRST. It is a separate tree from the shelves
+    ' (m.task.hero, not m.task.rows), and since F24 the hero is drawn from
+    ' 843 popular films rather than from the curated shelves — so most hero
+    ' films are NOT on any Home row and this function returned invalid for them.
+    ' DetailScreen.onItem returns early on an invalid item, so Detail kept
+    ' whatever was on it: no poster, no backdrop, and a Play button carrying
+    ' no film. That is both of the owner's reports, from one cause.
+    if m.task <> invalid and m.task.hero <> invalid
+        hero = m.task.hero
+        for i = 0 to hero.GetChildCount() - 1
+            it = hero.GetChild(i)
+            if it.id = archiveID then return it
+        end for
+    end if
     rows = m.task.rows
     if rows = invalid then return invalid
     for i = 0 to rows.GetChildCount() - 1

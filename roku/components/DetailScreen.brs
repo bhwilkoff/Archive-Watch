@@ -374,7 +374,25 @@ end function
 
 sub onItem()
     it = m.top.item
-    if it = invalid then return
+    if it = invalid
+        ' NEVER keep the previous film on screen. Returning early here is how
+        ' an unresolvable id left the last film's poster, title and Play
+        ' button in place — the viewer sees a page that looks fine and plays
+        ' something else, or nothing. Clear to an honest empty state; the
+        ' shard fetch that follows fills in whatever it can.
+        m.archiveID = ""
+        m.title.text = ""
+        m.meta.text = ""
+        m.syn.text = ""
+        m.cast.text = ""
+        m.aka.text = ""
+        m.art.uri = "" : m.art.visible = false
+        m.wash.uri = "" : m.washBlur.uri = ""
+        m.field.visible = true
+        exitReading()
+        layoutCopy(false)
+        return
+    end if
     m.archiveID = it.id
     m.title.text = it.title
     m.meta.text = it.SHORTDESCRIPTIONLINE1
