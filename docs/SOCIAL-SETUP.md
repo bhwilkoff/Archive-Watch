@@ -76,6 +76,27 @@ favours and the code already renders it.
 
 ---
 
+## 3a. YouTube — a browser flow once, then it runs
+
+The daily teaser is already 1080×1920 and about 18 seconds, which is what
+makes it a Short: YouTube classifies by shape and length, not by a flag.
+
+1. **console.cloud.google.com** → new project → enable **YouTube Data API v3**.
+2. **Credentials → OAuth client ID → Desktop app.** Note the client ID and
+   secret.
+3. Mint a refresh token once, in a browser, with the scope
+   `https://www.googleapis.com/auth/youtube.upload`. Google's OAuth Playground
+   does this in two minutes: tick that scope, authorise your channel, exchange
+   the code, and copy the **refresh token**.
+4. Secrets: `YOUTUBE_CLIENT_ID`, `YOUTUBE_CLIENT_SECRET`,
+   `YOUTUBE_REFRESH_TOKEN`.
+
+No app review. Uploads bill to their own daily bucket, so one a day is far
+from any ceiling. Videos are published public and marked not-made-for-kids,
+with the film's own facts in the description.
+
+---
+
 ## 4. `SOCIAL_MEDIA_BASE_URL` — why Meta needs it
 
 Bluesky takes the image bytes directly. **Meta does not**: you hand it a public
@@ -112,14 +133,9 @@ Nothing else to create; the first run makes the release if it is missing.
   which reviews your app's UX — and there is no UX here, only a scheduler.
   A TikTok presence is realistic, but it wants a person, and probably a
   different kind of post (a clip with a voice) than this programme makes.
-- **YouTube.** Uploading needs a Google Cloud project and an OAuth refresh
-  token, and the quota is no longer the old six-a-day. The *material* now
-  exists: `tools/social_clip.py` cuts a vertical teaser from the film itself
-  (see SOCIAL-PROGRAM §3a), and the daily run already produces one as an
-  artifact you can watch. What remains is the upload adapter.
-- **Bluesky video** is the nearest win of the three, because Bluesky needs no
-  review: it takes video up to 100 MB / 3 minutes, and the teasers come out
-  around 3.5 MB. That adapter is the next thing to build.
+YouTube and Bluesky video are BUILT (see §1 and §3a). Bluesky posts the
+teaser instead of the card whenever a clip was cut, which needs no review at
+all — moving pictures the day you paste the app password.
 
 ---
 

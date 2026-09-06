@@ -101,6 +101,9 @@ jobs:
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
           FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
           FB_PAGE_ACCESS_TOKEN: ${{ secrets.FB_PAGE_ACCESS_TOKEN }}
+          YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
+          YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
+          YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
           SOCIAL_MEDIA_BASE_URL: ${{ secrets.SOCIAL_MEDIA_BASE_URL }}
         run: |
           # A scheduled run is LIVE; a manual run is a dry run unless the box
@@ -114,11 +117,16 @@ jobs:
           if [ -n "${{ github.event.inputs.only }}" ]; then
             ONLY="--only ${{ github.event.inputs.only }}"
           fi
+          # The teaser is optional: --video is passed only if the cut
+          # succeeded, and each adapter decides what to do with it (Bluesky
+          # posts it instead of the card; YouTube needs it or skips).
+          VIDEO=""
+          if [ -s social/out/clip.mp4 ]; then VIDEO="--video social/out/clip.mp4"; fi
           python tools/social_post.py \
             --spec social/out/post.json \
             --card social/out/card-square.jpg \
             --card-portrait social/out/card-portrait.jpg \
-            $LIVE $ONLY
+            $VIDEO $LIVE $ONLY
 
       # §7 — the ledger is the memory that stops a film repeating inside a
       # year. It is the one piece of this system that must not be lost, so it
