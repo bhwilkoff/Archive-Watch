@@ -1,0 +1,17 @@
+{
+  "_": "The weekly programme (docs/SOCIAL-PROGRAM.md §3). Change a day's slot here; the code reads it, never hardcodes it.",
+  "timezone": "America/Denver",
+  "weekly": {
+    "monday": "now-showing",
+    "tuesday": "viewer-said",
+    "wednesday": "double-bill",
+    "thursday": "now-showing",
+    "friday": "viewer-said",
+    "saturday": "now-showing",
+    "sunday": "from-the-vaults"
+  },
+  "notes": {
+    "on-this-day": "Fires only on a real dated anniversary; run it by hand on a date you know matches.",
+    "public-domain-day": "Automatic on 1 January."
+  }
+}

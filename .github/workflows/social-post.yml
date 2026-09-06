@@ -1,0 +1,126 @@
+name: Social post
+
+# The daily marquee (docs/SOCIAL-PROGRAM.md). One film, one card, one post per
+# connected platform — and NOTHING happens on a platform whose credentials are
+# absent, so this workflow is safe to enable before any account exists.
+#
+# The whole job is read-only against the published catalog: it fetches the same
+# catalog-index.json + detail shards the apps read, so a film it promotes is a
+# film the apps can show. It never touches the catalog pipeline.
+
+on:
+  schedule:
+    # 16:10 UTC = 10:10 America/Denver. One post a day, on purpose (§4):
+    # the catalog holds a 37-year programme at this rate, and an account that
+    # posts six times a day reads as a bot, which is the one thing this
+    # programme must never read as.
+    - cron: "10 16 * * *"
+  workflow_dispatch:
+    inputs:
+      slot:
+        description: "Programme slot (auto follows the calendar)"
+        default: "auto"
+        type: choice
+        options: [auto, now-showing, viewer-said, on-this-day, double-bill, from-the-vaults, public-domain-day]
+      dry_run:
+        description: "Compose and render, but do not post"
+        default: true
+        type: boolean
+      only:
+        description: "Platforms to post to (blank = all connected)"
+        default: ""
+
+concurrency:
+  group: social-post
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Pillow
+        run: pip install --quiet Pillow
+
+      - name: Choose the day's film
+        id: select
+        run: |
+          python tools/social_select.py \
+            --slot "${{ github.event.inputs.slot || 'auto' }}" \
+            --out social/out/post.json --explain
+          echo "title=$(python -c "import json;print(json.load(open('social/out/post.json'))['title'])")" >> "$GITHUB_OUTPUT"
+
+      - name: Render the cards
+        run: |
+          python tools/social_card.py --spec social/out/post.json --size square \
+                                      --out social/out/card-square.jpg
+          python tools/social_card.py --spec social/out/post.json --size portrait \
+                                      --out social/out/card-portrait.jpg
+
+      # The card is the evidence. A run that posted something ugly should be
+      # readable after the fact without re-running anything.
+      - name: Keep the cards as an artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: social-card
+          path: social/out/
+          retention-days: 30
+
+      - name: Post
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BLUESKY_HANDLE: ${{ secrets.BLUESKY_HANDLE }}
+          BLUESKY_APP_PASSWORD: ${{ secrets.BLUESKY_APP_PASSWORD }}
+          THREADS_USER_ID: ${{ secrets.THREADS_USER_ID }}
+          THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
+          FB_PAGE_ACCESS_TOKEN: ${{ secrets.FB_PAGE_ACCESS_TOKEN }}
+          SOCIAL_MEDIA_BASE_URL: ${{ secrets.SOCIAL_MEDIA_BASE_URL }}
+        run: |
+          # A scheduled run is LIVE; a manual run is a dry run unless the box
+          # is unticked. The default on the button is the safe one.
+          LIVE="--live"
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && \
+             [ "${{ github.event.inputs.dry_run }}" != "false" ]; then
+            LIVE=""
+          fi
+          ONLY=""
+          if [ -n "${{ github.event.inputs.only }}" ]; then
+            ONLY="--only ${{ github.event.inputs.only }}"
+          fi
+          python tools/social_post.py \
+            --spec social/out/post.json \
+            --card social/out/card-square.jpg \
+            --card-portrait social/out/card-portrait.jpg \
+            $LIVE $ONLY
+
+      # §7 — the ledger is the memory that stops a film repeating inside a
+      # year. It is the one piece of this system that must not be lost, so it
+      # is committed, and the commit carries [skip ci] like the index's does.
+      - name: Commit the ledger
+        if: always()
+        run: |
+          if git diff --quiet -- social/posted.json; then
+            echo "ledger unchanged (nothing posted)"; exit 0
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add social/posted.json
+          git commit -m "Social: posted ${{ steps.select.outputs.title }} [skip ci]"
+          for i in 1 2 3 4 5; do
+            if git pull --rebase --autostash origin main && git push; then
+              echo "ledger pushed on attempt $i"; exit 0
+            fi
+            sleep $((i * 3))
+          done
+          echo "::warning::ledger push kept racing; it will be retried next run"
