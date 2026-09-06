@@ -261,8 +261,15 @@ def post_threads(spec, text, media_url, live: bool):
         return "DRY-RUN", None
 
     api = "https://graph.threads.net/v1.0"
+    # Only DOCUMENTED fields. Threads' create-container reference lists
+    # media_type / image_url / video_url / text / is_carousel_item /
+    # link_attachment / topic_tag / gif_attachment / access_token — and NOT
+    # alt_text (Instagram's endpoint does document it, since March 2025, and
+    # keeps it below). Checked 2026-09-06 because the live-endpoint probe
+    # cannot tell a bad field from a bad token: Meta validates the token
+    # first, so both answer the same OAuthException.
     fields = {"media_type": "IMAGE", "image_url": media_url, "text": text,
-              "alt_text": f"Poster for {spec['title']}", "access_token": token}
+              "access_token": token}
     container = form(f"{api}/{uid}/threads", fields)["id"]
     time.sleep(30)          # Meta's documented container processing window
     res = form(f"{api}/{uid}/threads_publish",

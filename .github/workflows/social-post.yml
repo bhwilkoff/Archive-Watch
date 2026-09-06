@@ -65,6 +65,22 @@ jobs:
           python tools/social_card.py --spec social/out/post.json --size portrait \
                                       --out social/out/card-portrait.jpg
 
+      # The teaser. Non-fatal: a film with no usable mid-film scene still gets
+      # its card, and a missing clip must never cost the day's post.
+      - name: Cut the vertical teaser
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+          gh release download stock-index --pattern "clips.sqlite.zz" --dir /tmp --clobber || exit 0
+          python - <<'PY'
+          import zlib, pathlib
+          p = pathlib.Path("/tmp/clips.sqlite.zz")
+          pathlib.Path("/tmp/clips.sqlite").write_bytes(zlib.decompress(p.read_bytes(), -15))
+          PY
+          python tools/social_clip.py --spec social/out/post.json                  --index /tmp/clips.sqlite --out social/out/clip.mp4 || true
+
       # The card is the evidence. A run that posted something ugly should be
       # readable after the fact without re-running anything.
       - name: Keep the cards as an artifact

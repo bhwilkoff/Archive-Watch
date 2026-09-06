@@ -82,6 +82,28 @@ editorial format with its own source material and its own selection rule.
 **Never more than one post per platform per day.** A second post in a day is
 how a marquee becomes a billboard.
 
+### 3a. The teaser (video)
+
+A clip is the most honest promotion there is: an actual scene, not a claim
+about one. Four rules, each of which was a defect first:
+
+1. **From the first two-thirds, never the ending.** The cut is taken around
+   35% of the runtime. A teaser cannot spoil a film it never reaches.
+2. **Never a title card.** The scene is found by running shot detection in a
+   60-second window and then MEASURING MOTION — position alone is not enough.
+   Hercules Unchained's credits run past four minutes and move (a ship sails
+   behind them), so a naive "skip the first 60 s" rule cut the credit roll.
+3. **Never reshape the picture** (Decision 097). A 4:3 film is fitted whole
+   into 9:16 over a blurred fill of itself; baked-in letterboxing is detected
+   and removed first, or the picture renders as a strip.
+4. **It must work muted**, because that is how it will be seen: the title,
+   year and address are burned into a lower third.
+
+The shot index (`clips.sqlite`, Decision 042 — 944,954 detected shots across
+32,573 films) is the FALLBACK, not the primary: it only analyses each film's
+opening ~300 seconds, which for a feature is titles and setup. It is the
+right source for a short or a cartoon, where 300 seconds is most of the film.
+
 ---
 
 ## 4. Cadence, and why it is deliberately slow

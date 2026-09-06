@@ -112,13 +112,14 @@ Nothing else to create; the first run makes the release if it is missing.
   which reviews your app's UX — and there is no UX here, only a scheduler.
   A TikTok presence is realistic, but it wants a person, and probably a
   different kind of post (a clip with a voice) than this programme makes.
-- **YouTube.** Uploading is straightforward with an OAuth refresh token, and
-  the quota is no longer the old six-a-day. It is not built because **there is
-  nothing to upload yet**: a Short needs a vertical clip of an iconic scene,
-  and cutting one well is a genuinely different problem from rendering a card.
-  The scene material exists (the Creation Studio's stock index already scores
-  frames), so this is the natural next build — but a bad clip would be worse
-  than no clip.
+- **YouTube.** Uploading needs a Google Cloud project and an OAuth refresh
+  token, and the quota is no longer the old six-a-day. The *material* now
+  exists: `tools/social_clip.py` cuts a vertical teaser from the film itself
+  (see SOCIAL-PROGRAM §3a), and the daily run already produces one as an
+  artifact you can watch. What remains is the upload adapter.
+- **Bluesky video** is the nearest win of the three, because Bluesky needs no
+  review: it takes video up to 100 MB / 3 minutes, and the teasers come out
+  around 3.5 MB. That adapter is the next thing to build.
 
 ---
 
