@@ -265,17 +265,33 @@ end sub
 
 sub onArtLoaded()
     if m.art.loadStatus <> "ready" then return
-    ' If the only art is LANDSCAPE it is a still, and a still inset beside
-    ' the same still full-bleed is the picture twice. Hide the inset and let
-    ' the copy take the column from the title-safe edge.
-    landscape = (m.art.bitmapWidth > m.art.bitmapHeight)
-    m.art.visible = not landscape
-    m.artShown = not landscape
+    ' A LANDSCAPE still used to be hidden here, because it was also being
+    ' drawn full-bleed behind the copy and the inset made it the picture
+    ' twice. F29 removed that wash — a film without a real backdrop now gets
+    ' a designed accent field — so hiding the inset left those films with NO
+    ' art at all, and the copy running the full width of the screen. That is
+    ' what Dishonored Lady and Inner Sanctum looked like: an empty hero.
+    '
+    ' It is shown now, at its OWN aspect inside the same 288-wide column
+    ' (Decision 097: never reshape art). A landscape still is simply a
+    ' shorter block than a poster; the copy column does not move, so the page
+    ' composes identically either way.
+    w = m.art.bitmapWidth
+    h = m.art.bitmapHeight
+    m.art.width = 288
+    if w > 0 and h > 0
+        m.art.height = Int(288.0 * h / w)
+        if m.art.height > 432 then m.art.height = 432
+    else
+        m.art.height = 432
+    end if
+    m.art.visible = true
+    m.artShown = true
     for each p in m.artFrame.corners
-        p.visible = not landscape
+        p.visible = true
     end for
-    layoutCopy(not landscape)
-    if not landscape then AWFramePlace(m.artFrame, m.art, false)
+    layoutCopy(true)
+    AWFramePlace(m.artFrame, m.art, false)
 end sub
 
 ' The copy column starts right of the poster, or at the title-safe edge when

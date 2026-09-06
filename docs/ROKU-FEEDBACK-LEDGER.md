@@ -50,7 +50,7 @@ surfaces that existed rather than surfaces that were finished.
 | F30 | Collection films do not all show professional posters | ⬜ | |
 | F31 | Party Play plays with the Surprise tiles still in the foreground | ✅ | The queued-playback path hid only the SERIES screen, so every other origin left its surface composited over the video — Party Play showed the Surprise tiles. It now calls `hideAllSurfaces()` before showing the player: the set of surfaces grows, and naming them one at a time is how this was missed |
 | F32 | "Playback error -5" appears when it should not, and persists on screen | ✅ | `m.diag` drew "Playback error -5" at the bottom-left, set visible on error and cleared NOWHERE — so the first failure of a session pinned it over every film afterwards. The comment beside it already argued the code should stay in the console; the line above it did the opposite. Now console-only, and cleared on every new film |
-| F33 | Library / Continue Watching must survive between sessions | ⬜ | |
+| F33 | Library / Continue Watching must survive between sessions | ✅ | VERIFIED across cold relaunches on the device: a film Saved on one launch reads "Saved" after a Home-press + cold start, and a part-watched film reads "Resume · 83m left". Continue Watching held the same items across every relaunch of the session. Party Play correctly writes NO bookmark (`ephemeral=true`), which is the designed exception |
 
 ## Order of work
 Visible-and-fast first (F1 F2 F6 F7 F13 F14 F18 F19 F10/F20-titles), then the
