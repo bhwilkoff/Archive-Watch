@@ -29,6 +29,7 @@ import argparse
 import datetime as dt
 import hashlib
 import json
+import os
 import random
 import re
 import sys
@@ -298,19 +299,39 @@ def on_this_day(rows: list, when: dt.date, shards: dict) -> list:
 
 
 def fetch_details(ids: list, verbose: bool = False) -> dict:
-    """Fetch only the shards the shortlist needs (256 exist; a shortlist of 40
-    touches ~30 of them)."""
+    """Fetch only the shards the shortlist needs (256 exist; a shortlist of 60
+    touches ~50 of them).
+
+    Cached on disk under AW_SOCIAL_CACHE when it is set. One selection is ~50
+    HTTP round trips, which is fine once a day and is most of the wall clock
+    of a ten-day rehearsal — the shards barely change between days, so the
+    rehearsal (and a CI retry) reads them once.
+    """
+    cache_dir = os.environ.get("AW_SOCIAL_CACHE")
+    cache = Path(cache_dir) if cache_dir else None
+    if cache:
+        cache.mkdir(parents=True, exist_ok=True)
     want = {}
     for i in ids:
         want.setdefault(shard_of(i), []).append(i)
     out = {}
     for sh, members in want.items():
-        try:
-            data = http_json(f"{SITE}/details/{sh}.json")
-        except Exception as e:  # noqa: BLE001
-            if verbose:
-                print(f"  shard {sh}: {e}", file=sys.stderr)
-            continue
+        data = None
+        cached = (cache / f"{sh}.json") if cache else None
+        if cached and cached.exists():
+            try:
+                data = json.loads(cached.read_text(encoding="utf-8"))
+            except Exception:  # noqa: BLE001
+                data = None
+        if data is None:
+            try:
+                data = http_json(f"{SITE}/details/{sh}.json")
+            except Exception as e:  # noqa: BLE001
+                if verbose:
+                    print(f"  shard {sh}: {e}", file=sys.stderr)
+                continue
+            if cached:
+                cached.write_text(json.dumps(data), encoding="utf-8")
         for i in members:
             if i in data:
                 out[i] = data[i]
