@@ -108,6 +108,17 @@ jobs:
           echo "## Rights gate" >> $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY; tail -3 rights-apply.log >> $GITHUB_STEP_SUMMARY; echo '```' >> $GITHUB_STEP_SUMMARY
 
+      # PERSIST the exclusions. The apply writes catalog.json into the runner
+      # and the runner is destroyed, so every run re-derived the same 6,934
+      # hides from a catalog that never carried them — which is fine until a
+      # run's apply is skipped or fails, and then the index ships built from
+      # an UNAPPLIED catalog. That is how Dr. Strangelove (Columbia, 549,187
+      # IMDb votes), Rosemary's Baby, Carrie and The Social Dilemma were live
+      # on the store index while the audit had correctly judged every one of
+      # them a hide. The audit was right; its answer was thrown away.
+      - name: Persist the rights decisions
+        run: python tools/catalog_release.py publish
+
       - name: Metadata quality audit (report)
         run: |
           python tools/audit_metadata.py --top 2000 | tee audit.log
