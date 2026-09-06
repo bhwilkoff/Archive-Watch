@@ -46,6 +46,10 @@
     <Poster id="washBlur" />
     <Poster id="wash" />
     <Rectangle id="field" visible="false" />
+    <!-- The copy sits on the LEFT of the scene, so the scene is darkened on
+         the left and left alone on the right — the ten-foot idiom. A flat
+         scrim strong enough for the copy dims the whole picture. -->
+    <Poster id="fadeH" />
     <Poster id="fade" />
     <Rectangle id="scrim" visible="false" />
     <Poster id="art" />

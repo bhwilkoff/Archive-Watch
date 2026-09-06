@@ -112,7 +112,14 @@ sub init()
     ' poster in a 3.19:1 band reads as a soft wash of the film's own colour
     ' rather than a hard slice cropped from its middle and pixelated 4x.
     m.washBlur = m.top.FindNode("washBlur")
-    m.washBlur.width = 2070 : m.washBlur.height = 648
+    ' 880, not 648, and it is the same number Home's hero uses. scaleToZoom
+    ' fills by WIDTH, so the band's aspect decides how much of the picture
+    ' survives: at 648 a 2070-wide band is 3.19:1 and shows 56% of a 16:9
+    ' backdrop — it threw away nearly half the frame, top and bottom, which
+    ' is what the owner saw as the hero films "not showing correctly" on
+    ' Detail. At 880 the band is 2.35:1 and keeps 76%, the same crop Home
+    ' has always had on the same art.
+    m.washBlur.width = 2070 : m.washBlur.height = 880
     m.washBlur.translation = [-150, 0]
     m.washBlur.loadDisplayMode = "scaleToZoom"
     ' 96x54: a 10x-plus upscale to the band, heavy enough that even a poster
@@ -124,26 +131,33 @@ sub init()
 
     ' The SHARP layer, on top of the blur: only ever a real 16:9 backdrop
     ' (w1280 -> ~1920 on screen, ~1.5x, crisp). A poster never renders here.
-    m.wash.width = 2070 : m.wash.height = 648
+    m.wash.width = 2070 : m.wash.height = 880
     m.wash.translation = [-150, 0]
     m.wash.loadDisplayMode = "scaleToZoom"
     m.wash.opacity = 1.0
     m.fade = m.top.FindNode("fade")
+    m.fadeH = m.top.FindNode("fadeH")
     m.fade.uri = "pkg:/images/hero_scrim_v.png"
-    m.fade.width = 2070 : m.fade.height = 648
+    ' Horizontal first, then vertical: the copy column reads against the
+    ' darkened left while the right of the frame keeps its contrast.
+    m.fadeH.uri = "pkg:/images/hero_scrim_h.png"
+    m.fadeH.width = 2070 : m.fadeH.height = 880
+    m.fadeH.translation = [-150, 0]
+    m.fadeH.loadDisplayMode = "scaleToFill"
+    m.fade.width = 2070 : m.fade.height = 880
     m.fade.translation = [-150, 0]
     m.fade.loadDisplayMode = "scaleToFill"
     ' A film with no backdrop gets a category-accent FIELD (as the hero
     ' does), never a stretched poster.
     m.field = m.top.FindNode("field")
-    m.field.width = 2070 : m.field.height = 648
+    m.field.width = 2070 : m.field.height = 880
     m.field.translation = [-150, 0]
 
     ' A low uniform scrim over the band: the vertical gradient darkens the
     ' seam, but a colourful poster blur can still be bright up top where the
     ' eyebrow and title sit. 30% black tames it without dimming a backdrop
     ' into mud.
-    m.scrim.width = 2070 : m.scrim.height = 648
+    m.scrim.width = 2070 : m.scrim.height = 880
     m.scrim.translation = [-150, 0]
     m.scrim.color = "0x0A0A0A4D"
     m.scrim.visible = true
@@ -406,8 +420,9 @@ sub onItem()
         m.wash.uri = it.awBackdrop
         m.wash.visible = true
         m.field.visible = false
-        ' A true backdrop is the hero — keep the scrim light so it stays vivid.
-        m.scrim.color = "0x0A0A0A33"
+        ' A true backdrop is the hero. The horizontal gradient already
+        ' protects the copy, so the flat scrim only has to take the edge off.
+        m.scrim.color = "0x0A0A0A1A"
     else
         m.wash.uri = ""
         m.wash.visible = false
