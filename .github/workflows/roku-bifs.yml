@@ -1,0 +1,65 @@
+name: Roku trick-play BIFs
+
+# Roku certification requires trick-play thumbnails for VOD over fifteen
+# minutes. 16,563 films in the catalog qualify — 62 GB and ~151 machine-hours,
+# computed from the catalog's own runtimes rather than extrapolated (one frame
+# per 10 s at a MEASURED 9,497 bytes/frame). It is the shape of
+# cover-generation, not a programme: network-bound and embarrassingly
+# parallel, so it runs as 26 shards.
+#
+# Resumable with NO persisted state: --skip-published asks archive.org which
+# .bif files the item already holds and takes the rest. A shard that is
+# killed simply leaves its remainder for the next run.
+
+on:
+  workflow_dispatch:
+    inputs:
+      max_minutes:
+        description: "Budget per shard (minutes)"
+        default: "300"
+      shards:
+        description: "How many shards"
+        default: "26"
+
+concurrency:
+  group: roku-bifs
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  bifs:
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    strategy:
+      fail-fast: false
+      max-parallel: 8          # archive.org rate-limits an IP; the -1004
+                               # storm lesson from Creation Studio applies to
+                               # a runner pool just as it did to the Mac.
+      matrix:
+        shard: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25]
+    steps:
+      - uses: actions/checkout@v5
+      - name: ffmpeg
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+      - name: Generate and publish this shard
+        env:
+          IAS3_ACCESS_KEY: ${{ secrets.IAS3_ACCESS_KEY }}
+          IAS3_SECRET_KEY: ${{ secrets.IAS3_SECRET_KEY }}
+        run: |
+          python3 tools/batch_bifs.py \
+            --index https://archivewatch.org/catalog-index.json \
+            --out build/bifs \
+            --shard ${{ matrix.shard }}/${{ github.event.inputs.shards || 26 }} \
+            --skip-published \
+            --max-minutes ${{ github.event.inputs.max_minutes || 300 }} \
+            --run --upload
+      - name: Manifest
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: bif-manifest-${{ matrix.shard }}
+          path: build/bifs/manifest.jsonl
+          if-no-files-found: ignore
+          retention-days: 14

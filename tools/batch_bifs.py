@@ -103,6 +103,16 @@ def main() -> int:
     ap.add_argument("--out", default="build/bifs")
     ap.add_argument("--limit", type=int, default=20)
     ap.add_argument("--min-runtime", type=int, default=900, help="seconds; Roku requires BIFs over 15 min")
+    ap.add_argument("--skip-published", action="store_true",
+                    help="ask archive.org ONCE which .bif files the item already "
+                         "holds and skip those. The local manifest does not "
+                         "survive a CI runner, so this is what makes a sharded "
+                         "batch resumable across runs with no persisted state.")
+    ap.add_argument("--shard", default="", metavar="i/n",
+                    help="take only shard i of n (0-based) — one CI job per shard. "
+                         "Split on a HASH of the id, not on position: the index is "
+                         "popularity-ordered, so a positional split would give job 0 "
+                         "every long feature and the last job every short.")
     ap.add_argument("--width", type=int, default=320, help="320 = HD, 240 = SD")
     ap.add_argument("--max-minutes", type=float, default=0)
     ap.add_argument("--run", action="store_true", help="actually generate (default is a dry run)")
@@ -119,6 +129,28 @@ def main() -> int:
     # popularity-first: the index is already ordered that way by the pipeline
     todo = [r for r in idx["items"] if r[F["playable"]] and done.get(r[F["id"]]) != "done"]
     print(f"[bif] {len(idx['items'])} items, {len(todo)} not done, taking {a.limit}", flush=True)
+    if a.skip_published:
+        try:
+            meta = json.load(urllib.request.urlopen(
+                f"https://archive.org/metadata/{ITEM}", timeout=60))
+            have = {f["name"][:-4] for f in (meta.get("files") or [])
+                    if f.get("name", "").endswith(".bif")}
+            before = len(todo)
+            todo = [r for r in todo if str(r[F["id"]]) not in have]
+            print(f"[bif] archive.org already holds {len(have)} bifs; "
+                  f"{before} -> {len(todo)} to do")
+        except Exception as e:  # noqa: BLE001
+            # Never skip everything on a failed lookup — that would look like
+            # a finished batch. Proceed as if nothing is published.
+            print(f"[bif] could not read the published list ({e}); "
+                  f"proceeding with all {len(todo)}")
+
+    if a.shard:
+        si, sn = (int(x) for x in a.shard.split("/"))
+        before = len(todo)
+        todo = [r for r in todo if fnv1a_low(str(r[F["id"]])) % sn == si]
+        print(f"[bif] shard {si}/{sn}: {len(todo)} of {before}")
+
     shard_cache: dict[str, dict] = {}
     made = 0
     for r in todo:
