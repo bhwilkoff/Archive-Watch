@@ -124,6 +124,9 @@ end sub
 ' is what a missing detail shard produced: the task set status="error" and the
 ' scene observed only `detail`, so the error reached nobody.
 sub showNotice(msg as String)
+    ' Back to the inline position — showSeries moves it when the whole page
+    ' is empty, and a notice must not inherit that.
+    m.empty.translation = [654, 1002]
     m.empty.visible = (msg <> "")
     m.empty.text = msg
 end sub
@@ -134,6 +137,29 @@ end sub
 
 sub showSeries(d as Object)
     if d = invalid or d.seasons = invalid or d.seasons.Count() = 0
+        ' CLEAR before saying so. This returned with the PREVIOUS show still
+        ' painted — its title, poster, seasons and episodes — so the error
+        ' read as a warning about a series that was plainly right there. It
+        ' matters more now that 203 spines were removed for rights: a stale
+        ' index or a cached card can still ask for one, and what the viewer
+        ' must see then is the message, not the last show they opened.
+        m.series = invalid
+        m.top.seriesID = ""
+        m.title.text = "" : m.meta.text = "" : m.overview.text = ""
+        m.kind.text = ""
+        m.art.uri = "" : m.art.visible = false
+        m.wash.uri = "" : m.field.visible = false
+        for each p in m.artFrame.corners
+            p.visible = false
+        end for
+        m.seasons.content = CreateObject("roSGNode", "ContentNode")
+        m.episodes.content = CreateObject("roSGNode", "ContentNode")
+        ' This label does double duty: an inline NOTICE under the episode list
+        ' (showNotice) and this full-screen failure. Its resting place is the
+        ' bottom of the page, which is right for a notice sitting under
+        ' content and wrong for a screen with nothing else on it — the message
+        ' read as an afterthought in the corner. Put it where the title goes.
+        m.empty.translation = [378, 380]
         m.empty.visible = true
         m.empty.text = "This series' episode list could not be loaded. Check the network and try again."
         return

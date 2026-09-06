@@ -48,6 +48,16 @@ end sub
 
 sub showChannels(payload as Object)
     if payload = invalid or payload.list = invalid or payload.list.Count() = 0
+        ' CLEAR before saying so. Returning here left the PREVIOUS guide drawn
+        ' underneath the error, so a failed reload read as a working guide
+        ' with a warning over it — the same early-return shape that left a
+        ' stale film on Detail (F28) and a stale series below.
+        while m.rows.GetChildCount() > 0
+            m.rows.RemoveChildIndex(0)
+        end while
+        m.grid = []
+        m.row = 0 : m.col = -1
+        hideRing()
         m.empty.visible = true
         m.empty.text = "The channel guide could not be loaded. Check the network and try again."
         return
