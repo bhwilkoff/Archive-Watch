@@ -231,6 +231,42 @@ focus / layout / animation bugs.
 
 ---
 
+## OPEN — OWNER DECISION: television has never passed the rights audit
+
+Found 2026-09-06 from the owner's question "2 Stupid Dogs is a show from the
+1990s, so how is it public domain?" It is not. The gates are working — on
+FILMS. Television was built on a parallel path that never had them.
+
+**Why.** `audit_rights.py` (Decision 027) runs over `catalog.json`. Episodes
+are NOT catalog items: they live only in `series/*.json`, put there by
+`backfill_tv_episodes.py`, which searches archive.org by show title and
+applies no rights test of any kind. So **all 4,702 episodes across all 489
+spines have never been seen by the rights audit.** `2-stupid-dogs-season-1`
+is not in `catalog.json` at all — a 2024 user upload of a 1993 Hanna-Barbera
+show, no `licenseurl`, no `rights` statement.
+
+**Scope, measured.** 202 of the 489 spines have `yearStart >= 1978`, carrying
+1,949 episodes. Fed through the FILM audit's own `bucket()`, all 202 come out
+`modern_copyright_unconfirmed` — the audit wants a licence check before
+hiding, by design (it never hides on a failed fetch). A 24-show sample of
+that confirm step: **23 have no licence at all**; one (The Man from Snowy
+River, 1994) carries a genuine CC public-domain dedication and would be
+correctly rescued. Names in the hide set include Murphy Brown, Knight Rider,
+The Dukes of Hazzard, Freddy's Nightmares, Designing Women, Minder, Count
+Duckula, Honey I Shrunk the Kids, and a 2025 documentary.
+
+**The fix is understood but NOT applied**, because hiding ~194 shows and
+~1,870 episodes is a content decision of the same kind Decision 027 reserved
+for the owner (who set the 1964-77 keep and the 1995 commercials cutoff):
+  1. run `audit_rights`'s confirm pass over the spine items,
+  2. carry `excluded` into the spine build so a hidden item cannot be served,
+  3. gate `backfill_tv_episodes` at ingest so this cannot refill.
+Step 2 matters on its own: `gather_raw_targets` re-pools existing spine files
+with NO `excluded` check, so even once an item IS judged, the spine would
+keep serving it.
+
+---
+
 ## Session Log
 
 ### 2026-09-06 — Share links preview as the film; Mastodon; the programme feed
