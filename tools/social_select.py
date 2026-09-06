@@ -327,9 +327,19 @@ PD_BY_AGE = 1930
 GOV_COLLECTIONS = {"prelinger", "nasa", "usgovfilms", "nationalarchives",
                    "fedflix", "newsandpublicaffairs"}
 
+# "From the vaults" is defined by the COLLECTION a film sits in, not by its
+# contentType. The catalog types The Mating Call (1928, 70 minutes) as a
+# short-film, so a contentType filter put a feature in the vaults slot; and
+# ephemera that IS typed correctly numbers 15 rows, where these collections
+# hold 120 each. What the slot actually means is "the strange corners nobody
+# browses to", and a corner is a shelf.
+VAULT_COLLECTIONS = {"prelinger", "ephemera", "educationalfilms", "nasa",
+                     "newsandpublicaffairs", "aw_commercials", "educational",
+                     "newsreels"}
+
 
 def curated_ids(index: dict) -> tuple[set, set]:
-    """(everything on a curated shelf or in a curated collection, the gov subset).
+    """(curated ids, the government subset, the "vaults" subset).
 
     THE PROGRAMME ONLY PROMOTES FROM A CURATED SHELF. A rehearsal scheduled a
     community upload titled "incest" — subject "incest", a synopsis about
@@ -348,16 +358,15 @@ def curated_ids(index: dict) -> tuple[set, set]:
     3.7-year programme at one post a day, and every day of it is a film
     somebody chose.
     """
-    curated, gov = set(), set()
-    for name, ids in (index.get("collections") or {}).items():
-        curated.update(ids)
-        if name.lower() in GOV_COLLECTIONS:
-            gov.update(ids)
-    for name, ids in (index.get("shelves") or {}).items():
-        curated.update(ids)
-        if name.lower() in GOV_COLLECTIONS:
-            gov.update(ids)
-    return curated, gov
+    curated, gov, vault = set(), set(), set()
+    for src in ("collections", "shelves"):
+        for name, ids in (index.get(src) or {}).items():
+            curated.update(ids)
+            if name.lower() in GOV_COLLECTIONS:
+                gov.update(ids)
+            if name.lower() in VAULT_COLLECTIONS:
+                vault.update(ids)
+    return curated, gov, vault
 
 
 def pd_basis(row: list, detail: list, gov_ids: set | None = None) -> tuple[str, str] | None:
@@ -400,9 +409,12 @@ def popularity(row: list) -> int:
     return int(row[I_VOTES] or 0) if len(row) > I_VOTES and row[I_VOTES] else 0
 
 
-def candidates(index: dict, slot: str, curated: set | None = None) -> list:
+def candidates(index: dict, slot: str, curated: set | None = None,
+               vault: set | None = None) -> list:
     rows = [r for r in index["items"] if eligible(r, curated)]
     if slot == "from-the-vaults":
+        if vault:
+            return [r for r in rows if r[I_ID] in vault]
         keep = {"ephemeral", "newsreel", "documentary", "commercial", "short-film"}
         return [r for r in rows if r[I_TYPE] in keep]
     if slot == "one-line":
@@ -619,8 +631,9 @@ def main() -> int:
     skip = recently_posted(ledger)
     used_reviews = quoted_reviews(ledger)
 
-    curated, gov = curated_ids(index)
-    rows = [r for r in candidates(index, slot, curated) if r[I_ID] not in skip]
+    curated, gov, vault = curated_ids(index)
+    rows = [r for r in candidates(index, slot, curated, vault)
+            if r[I_ID] not in skip]
     if not rows:
         print("no eligible film — nothing posted today", file=sys.stderr)
         return 3
