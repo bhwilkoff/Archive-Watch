@@ -79,6 +79,27 @@ jobs:
           mkdir _site
           rsync -a --exclude='.git' --exclude='_site' ./ _site/
 
+      - name: Build share pages (/item/<id>, /series/<slug>)
+        run: |
+          # Every share URL the apps, the QR cards and the social programme
+          # emit needs a real page with Open Graph tags behind it, or the link
+          # falls through to 404.html and previews as nothing (measured
+          # 2026-09-06). Generated into the artifact, never committed —
+          # ~27,000 files is exactly the git bloat Decision 018 avoided.
+          python3 tools/build_share_pages.py --out _site
+
+          # A build that produced nothing is the failure this guard exists
+          # for: the pages would silently revert to 404 while the deploy
+          # stayed green. The floor is well under the real count (~26,700) so
+          # ordinary catalog movement never trips it.
+          n=$(find _site/item _site/series -name index.html 2>/dev/null | wc -l)
+          echo "share pages: $n"
+          if [ "$n" -lt 20000 ]; then
+            echo "::error::only $n share pages built (expected >20000) — every"
+            echo "::error::shared link would preview as nothing. Refusing to deploy."
+            exit 1
+          fi
+
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

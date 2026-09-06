@@ -38,9 +38,15 @@ end sub
 
 sub open(payload as Object)
     id = fmt(payload.id)
-    link = "https://archivewatch.org/item/" + id
+    ' A series id carries a "series:" prefix and lives at a DIFFERENT share
+    ' path on every other platform. Detail only ever holds a film today, so
+    ' this is defensive — but the wrong URL would print into a QR code, where
+    ' nobody can see it is wrong until they scan it.
+    path = "item/" + id
+    if Left(id, 7) = "series:" then path = "series/" + Mid(id, 8)
+    link = "https://archivewatch.org/" + path
     m.title.text = fmt(payload.title)
-    m.url.text = "archivewatch.org/item/" + id
+    m.url.text = "archivewatch.org/" + path
     path = AWQRPng(link, 8)
     if path = "" then path = AWQRPng("https://archivewatch.org", 8)
     m.code.uri = path
