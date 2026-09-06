@@ -305,27 +305,53 @@ sub paintHero(it as Object)
 end sub
 
 sub onHeroArtStatus()
+    ' A backdrop that loads clears the skip budget: the failures this bounds
+    ' are a run of bad urls, not a lifetime total.
+    if m.wash.loadStatus = "ready" then m.heroSkips = 0
     if m.wash.loadStatus <> "failed" then return
+    ' AN EMPTY URI IS NOT A FAILED LOAD. paintHeroArt clears the band first
+    ' (`m.wash.uri = ""`) so a dead backdrop cannot leave the PREVIOUS film's
+    ' picture on screen, and that clear itself reports "failed". The observer
+    ' runs on the render thread AFTER paintHeroArt returns, by which point
+    ' m.heroWant already holds the NEW backdrop — so the uri check below
+    ' cannot tell a deliberate clear from a real failure, and the clear was
+    ' being treated as one. That is the owner's report: the Fury POSTER
+    ' appeared for a moment before its backdrop, on a film that has a
+    ' perfectly good 16:9 backdrop.
+    if m.wash.uri = ""
+        return
+    end if
     ' The rotation changes this uri every few seconds, and replacing a uri
-    ' CANCELS a load in flight — which reports as "failed". Measured on the
-    ' device: White Mane and Camille both "failed" while their backdrops
+    ' CANCELS a load in flight — which also reports as "failed". Measured on
+    ' the device: White Mane and Camille both "failed" while their backdrops
     ' answer 200 with a valid JPEG. Only the uri we are still asking for can
     ' really have failed.
     if m.wash.uri <> m.heroWant
         print "AWHERO stale load ignored"
         return
     end if
-    print "AWHERO backdrop failed: "; m.wash.uri
-    ' NEVER substitute the poster into the wide band. That fallback is what
-    ' the owner saw as "absolutely terrible for everything else": a 2:3
-    ' poster stretched across a 2.2:1 band. A band with nothing in it is
-    ' honest; a band with the wrong shape in it is not. The poster still
-    ' appears, as the INSET, which is where a poster belongs.
-    m.wash.uri = ""
-    if m.heroFallback <> ""
-        m.art.uri = m.heroFallback
-        m.art.visible = true
+    ' Bounded. Each skip repaints, and a repaint can fail again — on a bad
+    ' connection that would walk the whole rotation in a second. Three is
+    ' enough to step over a dead url; past that the band simply stays empty
+    ' until the next tick, which is the honest state anyway.
+    if m.heroSkips = invalid then m.heroSkips = 0
+    m.heroSkips = m.heroSkips + 1
+    if m.heroSkips > 3
+        print "AWHERO backdrop failed; skip budget spent, leaving the band empty"
+        m.wash.uri = ""
+        m.art.uri = "" : m.art.visible = false
+        return
     end if
+    print "AWHERO backdrop failed, skipping: "; m.wash.uri
+    ' SKIP THE FILM, do not fall back to its poster. The hero is limited to
+    ' films that can fill the band (the owner: "films that can fill up that
+    ' big space with correctly proportioned high-resolution images"), so a
+    ' film whose backdrop will not load is simply not one of them tonight —
+    ' and the rotation has eleven others. A poster here, inset or stretched,
+    ' is the shape this row exists to avoid.
+    m.wash.uri = ""
+    m.art.uri = "" : m.art.visible = false
+    advanceHero(1)
 end sub
 
 sub onHeroArtDue()
