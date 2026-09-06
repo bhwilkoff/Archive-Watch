@@ -15,6 +15,16 @@ sub init()
     m.caption.wrap = true
     m.meta.font = m.t.uMeta
     m.meta.color = m.t.textSec
+    ' BOUND IT. An unbounded Roku Label does not wrap — it just keeps drawing,
+    ' so "1956  ·  Crime  ·  Mystery" ran straight out of its own cell and
+    ' across the NEXT film's title. The caption above has always carried a
+    ' width; the meta line never did. One line, ellipsized: the year and a
+    ' genre are a glance, and a meta line that wrapped would push into the
+    ' row below.
+    m.meta.width = m.t.posterFW
+    m.meta.maxLines = 1
+    m.meta.ellipsizeOnBoundary = true
+    m.meta.wrap = false
 
     ' A typographic card for tiles that name a PLACE rather than a film —
     ' "Silent Era", "The 1930s". They have no poster and never will, and an

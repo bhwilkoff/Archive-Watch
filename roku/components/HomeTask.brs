@@ -237,6 +237,15 @@ sub run()
     ' page of shelves and the same twenty films arranged six ways.
     dropped = dedupeRows(root)
     print "AWROKU dedup dropped="; dropped
+    ' Re-check the floor against what SURVIVED. Every shelf tests its own size
+    ' before dedup runs, and dedup then removes any film already shown above —
+    ' so a row that qualified with seven could be left with two, and nothing
+    ' looked again. That is the owner's "multiple shelves with only a couple
+    ' or a few items", and it is why the F2 floor appeared not to hold: it
+    ' held at the moment it was measured, on a set that had not been culled
+    ' yet.
+    thin = pruneThinRows(root, 7)
+    if thin > 0 then print "AWROKU pruned "; thin; " shelf/shelves left thin by dedup"
 
     ' Two navigation rows at the END, the way tvOS orders them: films first,
     ' then the doors into the rest of the catalog. They carry no artwork and
@@ -289,6 +298,30 @@ end sub
 ' Walks the rows IN ORDER and removes any item already shown above. Order
 ' matters: the first shelf to claim a film keeps it, so a curated row wins over
 ' a generated one simply by being higher.
+' Drop any shelf left below the floor. Walked BACKWARDS because removing a
+' child shifts every index after it — forwards, this skips the row that moves
+' into the slot just vacated.
+function pruneThinRows(root as Object, floor as Integer) as Integer
+    removed = 0
+    i = root.GetChildCount() - 1
+    while i >= 0
+        row = root.GetChild(i)
+        n = row.GetChildCount()
+        isNav = false
+        if n > 0 then isNav = (Left(fmt(row.GetChild(0).id), 7) = "browse:")
+        ' Navigation tile rows are a fixed set of doors, not a shelf of films,
+        ' and Continue Watching / Favorites are built elsewhere (MainScene)
+        ' so the viewer's own two-item row is never at risk here.
+        if not isNav and n < floor
+            print "AWROWS thin: "; row.title; " ("; n; ")"
+            root.RemoveChildIndex(i)
+            removed = removed + 1
+        end if
+        i = i - 1
+    end while
+    return removed
+end function
+
 function dedupeRows(root as Object) as Integer
     seen = {}
     dropped = 0

@@ -365,8 +365,38 @@ function withContinueWatching(rows as Object) as Object
     if n = 0
         out.RemoveChild(lead)
     end if
+    ' The shelves below must not repeat what the lead row is already showing.
+    ' HomeTask's dedup runs before this row exists, so Continue Watching was
+    ' the one place a film could appear twice on Home — the owner saw
+    ' Dishonored Lady in Continue Watching and again in Public-Domain Canon.
+    ' Same rule as dedupeRows: the row that claims a film first keeps it, and
+    ' Continue Watching is first by construction.
+    inLead = {}
+    for j = 0 to lead.GetChildCount() - 1
+        inLead[fmt(lead.GetChild(j).id)] = true
+    end for
     for i = 0 to rows.GetChildCount() - 1
-        out.AppendChild(rows.GetChild(i).Clone(true))
+        src = rows.GetChild(i)
+        row = src.Clone(true)
+        hit = false
+        k = row.GetChildCount() - 1
+        while k >= 0
+            if inLead[fmt(row.GetChild(k).id)] <> invalid
+                row.RemoveChildIndex(k)
+                hit = true
+            end if
+            k = k - 1
+        end while
+        ' And a shelf culled below the floor is dropped, not shown short —
+        ' the same re-check HomeTask makes after its own dedup. Navigation
+        ' tile rows are doors, not shelves, and are never culled.
+        isNav = false
+        if row.GetChildCount() > 0 then isNav = (Left(fmt(row.GetChild(0).id), 7) = "browse:")
+        if hit and not isNav and row.GetChildCount() < 7
+            print "AWROWS thin after Continue Watching: "; row.title
+        else
+            out.AppendChild(row)
+        end if
     end for
     return out
 end function
