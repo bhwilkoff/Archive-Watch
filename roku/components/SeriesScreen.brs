@@ -83,10 +83,20 @@ sub init()
     m.seasons.vertFocusAnimationStyle = "floatingFocus"
     m.seasons.ObserveField("itemFocused", "onSeasonFocused")
 
-    m.episodes.translation = [654, 606]
+    ' The seasons column ends at x=630 and BOTH lists draw their focus ~28 px
+    ' outside their own cell, so at x=654 the episode ring reached x=626 while
+    ' the season pill reached x=658 — a 32 px collision, which is the overlap
+    ' the owner reported on the episode rows. The gutter now clears both
+    ' overhangs; the right edge is unchanged, so the copy column does not move.
+    m.episodes.translation = [700, 606]
     m.episodes.itemComponentName = "EpisodeRow"
     ' Left of the poster, which starts at 1300.
-    m.episodes.itemSize = [1140, 141]
+    ' The focused ring is NOT symmetric around its cell — MEASURED on the
+    ' glass, it sits ~13 px inside the left edge and ~43 px past the right —
+    ' so the width was tuned against a screenshot rather than derived. At the
+    ' original 1140 the ring reached x=1897, twenty-three pixels off the panel
+    ' edge; at 1020 it lands inside t.safeX (96) with room to spare.
+    m.episodes.itemSize = [1020, 141]
     m.episodes.itemSpacing = [0, 12]
     m.episodes.numRows = 3
     m.episodes.focusBitmapUri = "pkg:/images/ring_focus.9.png"

@@ -125,7 +125,13 @@ function displayValue(d as Object, v as String) as String
     ' A chip states its VALUE. "Type: Feature Film" read as a settings
     ' form; "Feature Film" reads as what is on the grid.
     if v = "All"
-        if d.id = "type" then return "All films"
+        ' The chip states what is on the grid, so on the TV tab it must say
+        ' TV. "All films" was hardcoded here and survived F25's scoping — the
+        ' values array was made tab-aware and its DISPLAY was not.
+        if d.id = "type"
+            if m.scopeNow = "tv" then return "All TV"
+            return "All films"
+        end if
         if d.id = "decade" then return "Any decade"
         if d.id = "genre" then return "Any genre"
     end if

@@ -236,7 +236,10 @@ end sub
 
 function displayValue(d as Object, v as String) as String
     if v = "All"
-        if d.id = "type" then return "All films"
+        ' Search spans the whole catalog, TV included — the facet list is
+        ' built from what the RESULTS actually contain — so this chip must
+        ' not claim films.
+        if d.id = "type" then return "All types"
         if d.id = "decade" then return "Any decade"
     end if
     return v

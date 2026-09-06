@@ -27,12 +27,16 @@ sub init()
     m.num.font = m.t.uMeta : m.num.color = m.t.textSec
     m.num.translation = [240, 12]
 
+    ' The copy must END INSIDE the row, or the LIST clips it before the
+    ' label's own ellipsis can run and a blurb stops mid-word ("drowning in
+    ' t"). The row is 1020 wide, the copy starts at 240, and 30 px of right
+    ' padding keeps the text off the focus ring: 1020 - 240 - 30 = 750.
     m.title.font = m.t.uBody : m.title.color = m.t.textPri
-    m.title.translation = [240, 42] : m.title.width = 870
+    m.title.translation = [240, 42] : m.title.width = 750
     m.title.maxLines = 1 : m.title.ellipsizeOnBoundary = true
 
     m.blurb.font = m.t.uMeta : m.blurb.color = m.t.textSec
-    m.blurb.translation = [240, 84] : m.blurb.width = 870
+    m.blurb.translation = [240, 84] : m.blurb.width = 750
     m.blurb.maxLines = 1 : m.blurb.ellipsizeOnBoundary = true
 
     ' Resume progress for THIS episode — the shelf-level answer to "where was I"
