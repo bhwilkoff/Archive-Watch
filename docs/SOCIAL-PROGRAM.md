@@ -204,6 +204,38 @@ Two consequences the design takes seriously:
 
 ---
 
+## 6a. The feed — the one channel nobody else owns
+
+`archivewatch.org/feed.xml` (Atom) and `/feed.json` (JSON Feed) carry the same
+daily programme. Both are generated at deploy time by `tools/build_feed.py`
+and autodiscovered from the site's `<head>`, so a reader finds them without
+being told they exist.
+
+This is a **syndication** channel, not a discovery one, and it is priced
+accordingly — about a hundred lines. Its value is that no platform can
+deprecate it, reprice it, or throttle its reach, and that other software can
+consume it: newsreaders, Fediverse relay bots, and anything that republishes.
+
+Three rules it must keep, because a feed's failure mode is quiet and
+permanent — a reader that has already fetched an entry never re-reads it:
+
+- **The ledger is the only source.** Re-deriving the programme from the
+  date-seeded selector would not be stable, since the selector consults the
+  ledger to avoid repeats and yesterday's answer therefore moves as the ledger
+  grows. §7's record is the only fixed one.
+- **One film is one entry.** The ledger holds a row per PLATFORM, so a film
+  posted to five places would otherwise appear five times in a row.
+- **A row whose date cannot be read is DROPPED, never dated "now".** A guessed
+  date sorts to the top of the feed, takes the newest slot in every reader,
+  and stays there. A film we cannot place in time is a film we cannot
+  syndicate.
+
+Until the first account is connected the ledger is empty and so is the feed.
+That is an empty programme, not a broken feed: it fills on the first live post
+and needs no further work. `tools/test_feed.py` locks all of the above.
+
+---
+
 ## 7. The ledger, and never repeating
 
 `social/posted.json` records every post: the film, the slot, the platform,

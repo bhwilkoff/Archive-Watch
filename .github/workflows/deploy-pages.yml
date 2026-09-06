@@ -100,6 +100,13 @@ jobs:
             exit 1
           fi
 
+      - name: Build the programme feed (/feed.xml, /feed.json)
+        run: |
+          # The one channel nobody else owns. Driven by social/posted.json, so
+          # it is empty until the first account is connected and fills on its
+          # own after that — an empty programme, not a broken feed.
+          python3 tools/build_feed.py --out _site
+
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
