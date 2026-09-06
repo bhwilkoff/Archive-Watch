@@ -20,6 +20,9 @@
          gradient, the spine's poster inset over the seam, copy to its right,
          seasons and episodes below the seam. -->
     <Poster id="wash" />
+    <!-- F27/F29 — the designed accent field for a series with no real
+         backdrop. A poster zoomed across this band is a crop, not a scene. -->
+    <Rectangle id="field" visible="false" />
     <Poster id="fade" />
     <Rectangle id="scrim" visible="false" />
     <Poster id="art" />

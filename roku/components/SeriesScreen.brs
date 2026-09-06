@@ -1,6 +1,7 @@
 sub init()
     m.t = Theme()
     m.wash = m.top.FindNode("wash")
+    m.field = m.top.FindNode("field")
     m.scrim = m.top.FindNode("scrim")
     m.title = m.top.FindNode("title")
     m.meta = m.top.FindNode("meta")
@@ -16,6 +17,12 @@ sub init()
     m.wash.width = 2070 : m.wash.height = 648
     m.wash.loadDisplayMode = "scaleToZoom"
     m.wash.opacity = 1.0
+    ' The field occupies the same band as the wash and carries the Classic TV
+    ' accent (Decision 013) over black, so a spine with no backdrop still
+    ' reads as television rather than as a blank rectangle.
+    m.field.translation = [-150, 0]
+    m.field.width = 2070 : m.field.height = 648
+    m.field.color = Left(AccentFor("tv-series"), 8) + "3D"
     m.fade = m.top.FindNode("fade")
     m.fade.uri = "pkg:/images/hero_scrim_v.png"
     m.fade.translation = [-150, 0]
@@ -49,15 +56,27 @@ sub init()
 
     ' Seasons and episodes below the seam, right of the poster column.
     m.seasons.translation = [378, 606]
-    m.seasons.itemSize = [252, 60]
-    m.seasons.itemSpacing = [0, 12]
+    m.seasons.itemSize = [252, 66]
+    ' The focused pill draws ~28 px outside its own cell on each side (the
+    ' asset has no margin, so it is the list's focus animation). MEASURED on
+    ' the glass rather than assumed: at 14 px the pill reached 13 px into the
+    ' next season's row, which is the overlap the owner reported.
+    m.seasons.itemSpacing = [0, 40]
     m.seasons.numRows = 9
     m.seasons.font = m.t.uBody
     m.seasons.color = m.t.textPri
-    m.seasons.focusedColor = m.t.marquee
-    m.seasons.focusBitmapUri = "pkg:/images/ring_focus.9.png"
-    m.seasons.focusFootprintBitmapUri = "pkg:/images/ring_footprint.9.png"
-    m.seasons.drawFocusFeedbackOnTop = true
+    m.seasons.focusedColor = m.t.canvas
+    ' F27 — the owner: "the selection rectangle... overlaps the season
+    ' rectangle". It was `ring_focus.9.png`, a 74x74 asset drawn for a
+    ' PosterTile FRAME, stretched across a 252x60 label row. MEASURED on the
+    ' glass: the ring rendered at x 443-735 for an item at x 378-630 — 65 px
+    ' to the right of its own row and 43 px taller than it, so it reached into
+    ' the row below. Every other list in this app uses the pill (OptionsList,
+    ' the Browse chips); the seasons list was the only one stretching a ring,
+    ' and it is now the same idiom as the rest.
+    m.seasons.focusBitmapUri = "pkg:/images/pill_focus.9.png"
+    m.seasons.focusFootprintBitmapUri = "pkg:/images/pill_rest.9.png"
+    m.seasons.drawFocusFeedbackOnTop = false
     ' NOT fixedFocusWrap: a wrapping list draws its own contents again below a
     ' divider, so a 7-season show showed "Season 18, 19, 23, Unsorted" and then
     ' "Season 1, Season 2" again underneath. Seven items do not need wrapping.
@@ -143,14 +162,22 @@ sub showSeries(d as Object)
     end if
     m.meta.text = joinStr(bits, "   ·   ")
     if d.overview <> invalid then m.overview.text = StripHTML(fmt(d.overview))
+    ' F27 — the owner: this page "looks extremely poorly designed". The
+    ' background was the POSTER, zoomed by scaleToZoom across a 2070x648 band:
+    ' a 2:3 image cropped to 3.2:1 and upscaled, which on One Step Beyond left
+    ' a single eye filling the screen. It is the same defect F29 fixed on
+    ' Detail, and this screen never got the fix.
+    '
+    ' A real 16:9 backdrop is the scene. Anything else gets the designed
+    ' accent field — sharp, because it is not a bitmap — with the poster
+    ' beside the copy as the inset, where a poster belongs (Decision 097).
     if d.backdropURL <> invalid and d.backdropURL <> ""
         m.wash.uri = fmt(d.backdropURL)
         m.wash.opacity = 1.0
-    else if d.posterURL <> invalid
-        m.wash.uri = fmt(d.posterURL)
-        m.wash.opacity = 0.6
+        m.field.visible = false
     else
         m.wash.uri = ""
+        m.field.visible = true
     end if
 
     root = CreateObject("roSGNode", "ContentNode")
