@@ -268,6 +268,13 @@ sub paintSeason(idx as Integer)
             end if
             if e.overview <> invalid then n.SHORTDESCRIPTIONLINE2 = StripHTML(fmt(e.overview))
             if e.stillURL <> invalid then n.HDPOSTERURL = fmt(e.stillURL)
+            ' The spine ALREADY carries the playable url for every episode.
+            ' Carrying it here is what lets an episode play at all: the detail
+            ' shards are built from the same gate as the index, which excludes
+            ' episodes, so the shard lookup could never resolve one — measured
+            ' 2026-09-06, 4,702 episodes across all 489 spines, none of them in
+            ' a shard. Every one of them answered "not in the catalog yet".
+            if e.downloadURL <> invalid then n.url = fmt(e.downloadURL)
         end for
     end if
     m.episodes.content = root
@@ -289,14 +296,16 @@ sub onEpisodeSelected()
     ' the next episode without coming back here for it.
     ids = []
     titles = []
+    urls = []
     for j = 0 to m.episodes.content.GetChildCount() - 1
         c = m.episodes.content.GetChild(j)
         ids.Push(c.id)
         titles.Push(c.title)
+        urls.Push(fmt(c.url))
     end for
-    m.top.playEpisode = { id: n.id, title: n.title,
+    m.top.playEpisode = { id: n.id, title: n.title, url: fmt(n.url),
                           meta: fmt(m.series.title) + "  ·  " + n.SHORTDESCRIPTIONLINE1,
-                          queue: ids, queueTitles: titles, index: i }
+                          queue: ids, queueTitles: titles, queueUrls: urls, index: i }
 end sub
 
 sub onFocusOn()

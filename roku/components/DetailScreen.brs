@@ -366,16 +366,22 @@ sub onItem()
     hasBd = (it.awBackdrop <> invalid and it.awBackdrop <> "")
     hasPoster = (it.HDPOSTERURL <> invalid and it.HDPOSTERURL <> "")
 
-    ' The ambient blur base is drawn from the best image we have — a backdrop
-    ' if there is one, otherwise the poster. It always fills the band softly.
+    ' The ambient blur base exists ONLY under a true backdrop.
+    '
+    ' It used to be drawn from the poster too, and that is the "pixelated
+    ' blurry graphic" the owner reported on The Little Princess (1939): its
+    ' art is a 600px Commons STILL, and stretching that across a 1920-wide
+    ' band cannot look like anything else. 188 of the 250 curated films with
+    ' professional art have no backdrop, so this was the common case, not the
+    ' edge one. A poster-only film now gets a DESIGNED field in the film's
+    ' own category accent — always sharp, because it is not a bitmap.
     if hasBd
         m.washBlur.uri = blurSrc(it.awBackdrop)
-    else if hasPoster
-        m.washBlur.uri = blurSrc(it.HDPOSTERURL)
+        m.washBlur.opacity = 1.0
     else
         m.washBlur.uri = ""
+        m.washBlur.opacity = 0.0
     end if
-    m.washBlur.opacity = 1.0
 
     ' The sharp layer is ONLY a true 16:9 backdrop. A poster never renders as a
     ' hard background (Decision 097) — it is the inset, and its colour lives in
@@ -389,11 +395,13 @@ sub onItem()
     else
         m.wash.uri = ""
         m.wash.visible = false
-        m.field.visible = not hasPoster
-        ' A poster blur is atmosphere, not a picture — darken it further so it
-        ' recedes behind the copy and a high-contrast poster (a green tablet,
-        ' a title card) never competes.
-        m.scrim.color = "0x0A0A0A80"
+        ' The accent field is the treatment for EVERY film without a real
+        ' backdrop, whether or not it has a poster — a colour field the app
+        ' designed beats an upscale of a small image it did not.
+        m.field.visible = true
+        ' The field carries its own weight, so the scrim only needs to keep
+        ' the copy legible rather than hide a bad picture.
+        m.scrim.color = "0x0A0A0A40"
     end if
     m.wash.opacity = 1.0
 
@@ -414,11 +422,13 @@ sub onItem()
         m.kind.text = AWTracked(UCase(KindLabel(fmt(it.awType))))
         m.kind.color = AccentFor(fmt(it.awType))
         m.chipText.color = AccentFor(it.awType)
-        ' The no-image field carries the category accent at ~15% over black,
-        ' so an imageless Detail still reads as "a silent film" / "a newsreel"
-        ' rather than a blank rectangle (the hero's treatment).
+        ' The field carries the category accent over black, so a Detail with
+        ' no backdrop still reads as "a silent film" / "a newsreel" rather
+        ' than a blank rectangle. It is the whole background now, not a
+        ' fallback for the imageless case, so it is deepened accordingly —
+        ' the accent is the design, and it is never blurry.
         acc = AccentFor(fmt(it.awType))
-        m.field.color = Left(acc, 8) + "26"
+        m.field.color = Left(acc, 8) + "3D"
     end if
     m.aka.text = ""
     m.syn.text = ""

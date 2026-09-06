@@ -26,6 +26,7 @@ from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
 CATALOG = REPO / "catalog.json"
+INDEX = REPO / "catalog-index.json"
 OUT = REPO / "channel-pools.json"
 
 PRESETS = [
@@ -80,10 +81,34 @@ def entry(it):
             it.get("contentType")]
 
 
+def index_ids() -> set:
+    """The ids the SERVED index actually carries.
+
+    catalog.json keeps every copy of a film, including the ones the duplicate
+    merge collapsed away (Decision 040/085); the index keeps only survivors.
+    Building the pools from catalog.json therefore scheduled programmes under
+    ids the index does not carry, and selecting one on the Roku loaded nothing
+    and left the PREVIOUS film's Detail on screen. Measured 2026-09-06: 400 of
+    1,218 programmes — 32.8% of the guide — every one of them a merged-away id.
+
+    The index is the gatekeeper for every client that reads it (its own build
+    says so). This is Decision 105's rule one surface over: do not
+    re-implement the membership test, ask the thing that owns it.
+    """
+    if not INDEX.exists():
+        raise SystemExit(f"{INDEX.name} is missing — build it before the pools; "
+                         "an ungated pool schedules films the guide cannot open")
+    rows = json.loads(INDEX.read_text())["items"]
+    return {str(r[0]) for r in rows}
+
+
 def main():
     items = json.loads(CATALOG.read_text())
     items = items["items"] if isinstance(items, dict) else items
-    pool_src = [i for i in items if visible(i)]
+    served = index_ids()
+    before = sum(1 for i in items if visible(i))
+    pool_src = [i for i in items if visible(i) and i.get("archiveID") in served]
+    print(f"  eligible {before} -> {len(pool_src)} after gating on the served index")
     pool_src.sort(key=lambda i: -(i.get("popularityScore") or 0))
 
     channels = []

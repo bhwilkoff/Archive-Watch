@@ -41,8 +41,17 @@ sub init()
     ' component's onKeyEvent never runs — which is exactly how the first build
     ' of this screen came out completely inert while looking correct in a
     ' screenshot.
+    ' F25 — the Type chip's vocabulary belongs to the TAB. One shared list let
+    ' the TV tab filter to "Feature Film" and the Movies tab to "Classic TV",
+    ' which is the owner's report. "All" is scoped too, by qScope in the
+    ' service, so it means "all television" on the TV tab.
+    m.typeValues = {
+        movies: ["All", "Feature Film", "Silent Era", "Animation", "Short Film", "Newsreel", "Documentary"],
+        tv:     ["All", "Series", "Specials"]
+    }
+    m.scopeNow = "movies"
     m.chipDefs = [
-        { id: "type",   label: "Type",   values: ["All", "Feature Film", "Classic TV", "TV Specials", "Silent Era", "Animation", "Short Film", "Newsreel", "Documentary"] },
+        { id: "type",   label: "Type",   values: ["All", "Feature Film", "Silent Era", "Animation", "Short Film", "Newsreel", "Documentary"] },
         { id: "decade", label: "Decade", values: ["All", "1900s", "1910s", "1920s", "1930s", "1940s", "1950s", "1960s", "1970s"] },
         { id: "genre",  label: "Genre",  values: ["All", "Drama", "Comedy", "Animation", "Crime", "Romance", "Action", "Western", "Documentary", "Thriller", "Horror", "Mystery", "Adventure", "War", "Family", "Fantasy"] },
         { id: "sort",   label: "Sort",   values: ["Popular", "Newest", "Oldest", "A-Z", "Top Rated", "Shuffle"] }
@@ -221,11 +230,16 @@ sub onScope()
     m.focusRow = 0
     if s = "tv"
         m.heading.text = "TV"
-        m.chipIndex[0] = 2
+        m.scopeNow = "tv"
+        m.chipDefs[0].values = m.typeValues.tv
     else
         m.heading.text = "Movies"
-        m.chipIndex[0] = 1
+        m.scopeNow = "movies"
+        m.chipDefs[0].values = m.typeValues.movies
     end if
+    ' Land on "All" within the tab. Pre-selecting one value made the tab look
+    ' like it was already filtered, and on TV it hid the specials entirely.
+    m.chipIndex[0] = 0
     paintChips()
     submit()
 end sub
@@ -233,11 +247,11 @@ end sub
 function typeValueToId(v as String) as String
     if v = "All" then return ""
     if v = "Feature Film" then return "feature-film"
-    if v = "Classic TV" then return "tv-series"
-    ' A one-off broadcast, a complete-series upload, a variety special: real
-    ' television that is not a spine. It has its own scope so neither kind
-    ' crowds the other out.
-    if v = "TV Specials" then return "tv-special"
+    ' On the TV tab the two values are the two KINDS of television: a spine
+    ' (Decision 036's series card) and a one-off broadcast or complete-series
+    ' upload. Neither crowds the other out, and neither can reach a film.
+    if v = "Series" then return "tv-series"
+    if v = "Specials" then return "tv-special"
     if v = "Silent Era" then return "silent-film"
     if v = "Animation" then return "animation"
     if v = "Short Film" then return "short-film"
@@ -253,6 +267,8 @@ sub submit()
         return
     end if
     svc.qCollection = m.collectionID
+    ' A collection spans both kinds, so it is browsed unscoped.
+    if m.collectionID <> "" then svc.qScope = "" else svc.qScope = m.scopeNow
     svc.qType = typeValueToId(m.chipDefs[0].values[m.chipIndex[0]])
     dv = m.chipDefs[1].values[m.chipIndex[1]]
     if dv = "All"

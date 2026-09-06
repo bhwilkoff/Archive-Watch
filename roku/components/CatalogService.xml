@@ -13,6 +13,10 @@
   <interface>
     <field id="ready" type="boolean" alwaysNotify="true" />
     <field id="qType" type="string" />
+    <!-- "movies" | "tv" | "" — the TAB the grid belongs to. qType narrows
+         WITHIN a scope; the scope itself can never be filtered away, so the
+         TV tab cannot show films and the Movies tab cannot show television. -->
+    <field id="qScope" type="string" />
     <field id="qDecade" type="integer" value="0" />
     <field id="qSort" type="string" value="popular" />
     <field id="qText" type="string" />

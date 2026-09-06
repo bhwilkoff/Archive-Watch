@@ -16,21 +16,6 @@ function getJson(url as String) as Object
     return ParseJson(body)
 end function
 
-' The shelves a hero may lead with. Curated editorial rows and the canon —
-' never a genre dragnet, and never a shelf built from a popularity signal
-' alone, which is how an adult title reaches the top of Home.
-function isHeroShelf(id as String) as Boolean
-    ' NOT popular-features: it is a popularity signal, and a 1971 sexploitation
-    ' title led Home from it twice. Curated and canon only.
-    ok = ["editors-picks", "all-time-features", "wikidata-pd",
-          "film-noir", "silent-era", "silent-hall-of-fame", "melies",
-          "classic-cartoons", "hidden-gems", "top-rated"]
-    for each k in ok
-        if k = id then return true
-    end for
-    return false
-end function
-
 sub run()
     span = CreateObject("roTimespan")
     span.Mark()
@@ -100,6 +85,7 @@ sub run()
     byDirector = {}
     topRated = []
     pdDay = []
+    heroCand = []
     ' Public Domain Day: the films entering the US public domain THIS year, which
     ' is the current year minus 95. Derived from the index rather than curated,
     ' so it is right on the 1st of January without anyone editing a file.
@@ -116,6 +102,31 @@ sub run()
                 if Int(row[11]) >= 1000 then topRated.Push({ s: Int(row[10]), r: row })
             end if
             if row[2] <> invalid and Int(row[2]) = pdYear and pdDay.Count() < 20 then pdDay.Push(row)
+
+            ' F24 — the hero pool. The owner, twice: it must come from "a huge
+            ' selection of popular films with great artwork", and it must be
+            ' limited to "films that can fill up that big space with correctly
+            ' proportioned high-resolution images".
+            '
+            ' Both are one test, because of a fact measured in the catalog:
+            ' EVERY backdrop we hold is a TMDb w1280 — 1280x720, natively
+            ' 16:9. So requiring a real backdrop guarantees the proportion and
+            ' the resolution together, and nothing else has to be inspected.
+            ' A poster must never qualify: 188 of the 250 curated films with
+            ' professional art have no backdrop, and stretching a 2:3 poster
+            ' (or, worse, a 600px Commons still) across the band is exactly
+            ' the "absolutely terrible" the owner saw.
+            '
+            ' The popularity floor is Browse's own (Decision 050): 1,000 votes
+            ' so a single 10/10 cannot outrank Citizen Kane, plus a 6.0 rating.
+            ' It leaves 843 films — The Seventh Seal, Metropolis, M, Double
+            ' Indemnity, Nosferatu, The General — and it is why the hero no
+            ' longer needs the curated-shelf allow-list to stay respectable.
+            if row[7] <> invalid and row[7] <> ""
+                if row.Count() > 11 and row[10] <> invalid and row[11] <> invalid
+                    if Int(row[11]) >= 1000 and Int(row[10]) >= 60 then heroCand.Push(row)
+                end if
+            end if
         end if
         if row.Count() > 12 and row[12] <> invalid and row[12] <> "" and row[5] = 1
             if Left(fmt(aid), 7) <> "series:"
@@ -170,22 +181,40 @@ sub run()
             ' films" means. The hero comes from the CURATED shelves only, the
             ' ones featured.json names, which is the editorial judgement this
             ' project already keeps in one place.
-            if isHeroShelf(p.id)
-                for each r in kids
-                    if r[7] <> invalid and r[7] <> "" and heroPool.GetChildCount() < 12
-                        ' F1 — the owner: "at most one animated feature" in the
-                        ' hero. Cartoons are short, bright and plentiful in the
-                        ' curated shelves, so unchecked they took half the row.
-                        isAnim = (fmt(r[3]) = "animation")
-                        if isAnim and m.heroAnim >= 1 then continue for
-                        h = heroPool.CreateChild("ContentNode")
-                        fillItem(h, r)
-                        if isAnim then m.heroAnim = m.heroAnim + 1
-                    end if
-                end for
-            end if
+
         end if
     end for
+
+    ' Draw the hero from the WHOLE candidate set, not the front of it.
+    ' Fisher-Yates over the candidates, then take the first twelve that pass
+    ' the composition rules. Deduped by id: the curated shelves overlap, and
+    ' a film on three of them was three times as likely to lead and could
+    ' appear twice in the same row.
+    n = heroCand.Count()
+    if n > 1
+        for i = n - 1 to 1 step -1
+            j = Rnd(i + 1) - 1
+            if j <> i
+                tmp = heroCand[i] : heroCand[i] = heroCand[j] : heroCand[j] = tmp
+            end if
+        end for
+    end if
+    taken = {}
+    for each r in heroCand
+        if heroPool.GetChildCount() >= 12 then exit for
+        id = fmt(r[0])
+        if taken[id] <> invalid then continue for
+        ' F1 — the owner: "at most one animated feature" in the hero.
+        ' Cartoons are short, bright and plentiful in the curated shelves, so
+        ' unchecked they took half the row.
+        isAnim = (fmt(r[3]) = "animation")
+        if isAnim and m.heroAnim >= 1 then continue for
+        taken[id] = true
+        h = heroPool.CreateChild("ContentNode")
+        fillItem(h, r)
+        if isAnim then m.heroAnim = m.heroAnim + 1
+    end for
+    print "AWHERO candidates="; heroCand.Count(); " chosen="; heroPool.GetChildCount()
 
     stats = {
         fetchMs: fetchMs, scanMs: scanMs, totalMs: 0,
@@ -238,20 +267,6 @@ sub run()
     end for
     print "AWROWS "; names
 
-    ' F18 — "the hero row never changes": the pool came out in shelf order every
-    ' launch. A Fisher-Yates pass with Roku's own Rnd (seeded per process)
-    ' gives a fresh lead each time the channel opens.
-    n = heroPool.GetChildCount()
-    if n > 1
-        for i = n - 1 to 1 step -1
-            j = Rnd(i + 1) - 1
-            if j <> i
-                a = heroPool.GetChild(i) : b = heroPool.GetChild(j)
-                heroPool.ReplaceChild(b.Clone(true), i)
-                heroPool.ReplaceChild(a.Clone(true), j)
-            end if
-        end for
-    end if
     kinds = ""
     for i = 0 to heroPool.GetChildCount() - 1
         kinds = kinds + fmt(heroPool.GetChild(i).awType) + " "

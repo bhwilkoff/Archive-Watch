@@ -342,6 +342,10 @@ sub paintHeroArt(it as Object)
         m.wash.uri = it.awBackdrop
         m.wash.opacity = 1.0
         m.art.visible = false
+        ' Clear the URI too, not just the visibility: a Poster keeps decoding
+        ' a texture it is not showing, so the previous hero's 780x1170 poster
+        ' stayed in memory behind every backdrop.
+        m.art.uri = ""
     else
         ' tvOS puts a CATEGORY-ACCENT FIELD here when a film has no backdrop —
         ' never a 2:3 poster. A poster in a 2.2:1 band can only be cropped to

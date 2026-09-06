@@ -620,6 +620,13 @@ sub runQuery()
         return
     end if
     wantType = LCase(m.top.qType)
+    ' Consumed, then CLEARED. This one function serves Browse, Search,
+    ' Collections and the Surprise doors, so a scope left set by the TV tab
+    ' would silently narrow the next search to television. It applies to the
+    ' query that asked for it and to nothing else; BrowseScreen sets it on
+    ' every submit, so the tabs keep theirs.
+    wantScope = LCase(m.top.qScope)
+    m.top.qScope = ""
     decade = m.top.qDecade
     text = LCase(m.top.qText)
     wantGenre = m.top.qGenre
@@ -627,6 +634,16 @@ sub runQuery()
 
     hits = []
     for each r in m.items
+        ' F25 — the owner: "you shouldn't be able to filter for movies on the
+        ' tv tab and vice versa". The Type chip narrows within a tab; it can
+        ' never cross out of it. Without this an unset Type ("All") ignored
+        ' the tab completely, so Movies listed television and TV listed films.
+        if wantScope <> ""
+            t0 = LCase(fmt(r[3]))
+            isTV = (t0 = "tv-series" or t0 = "tv-special" or t0 = "tv-episode")
+            if wantScope = "tv" and not isTV then continue for
+            if wantScope = "movies" and isTV then continue for
+        end if
         if wantType <> "" and wantType <> "all"
             t = LCase(fmt(r[3]))
             ' TV browse shows SERIES SPINES ONLY — the tvOS `seriesCards()`

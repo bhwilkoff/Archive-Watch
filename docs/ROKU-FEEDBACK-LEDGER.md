@@ -37,6 +37,21 @@ surfaces that existed rather than surfaces that were finished.
 
 | F23 | QR codes from the TV apps open the phone app but not the film | ✅ | ANDROID verified on the Pixel 8a (Play build): the production certificate was missing from assetlinks.json, so the domain was UNVERIFIED and a scanned QR opened Chrome; added → `pm get-app-links` reads verified → a cold start from the https link opens the film's Detail. iOS verified on the iPhone 12: `onOpenURL` resolved the item before the catalog existed on a cold launch and dropped it; https item/series links now ride the IntentInbox and retry on every catalog swap — cold launches with `--payload-url` land on The Last Three's Detail and on Alfred Hitchcock Presents (series). Roku, tvOS and Android TV all share the same archivewatch.org/item URL, so one fix covers every QR |
 
+## Owner batch 4 (2026-09-06)
+
+| # | Feedback | Status | Notes / evidence |
+|---|---|---|---|
+| F24 | Hero is the same films every launch; needs a big pool of popular films with great artwork, changing every open | ⬜ | |
+| F25 | Movies/TV pills let you filter to the OPPOSITE content type | ⬜ | |
+| F26 | Items error "this episode is not in the catalog yet"; nothing unplayable may be displayed | ⬜ | |
+| F27 | TV spine page: focus rectangle overlaps the season rectangle; the page is poorly designed overall | ⬜ | |
+| F28 | Channels: selecting anything but the now-playing programme fails — returns to the previous Detail, or nothing | ⬜ | |
+| F29 | Detail top graphic still blurry/pixelated (e.g. The Little Princess); need a DESIGNED fallback, not a bad upscale | ⬜ | |
+| F30 | Collection films do not all show professional posters | ⬜ | |
+| F31 | Party Play plays with the Surprise tiles still in the foreground | ⬜ | |
+| F32 | "Playback error -5" appears when it should not, and persists on screen | ⬜ | |
+| F33 | Library / Continue Watching must survive between sessions | ⬜ | |
+
 ## Order of work
 Visible-and-fast first (F1 F2 F6 F7 F13 F14 F18 F19 F10/F20-titles), then the
 structural ones (F12 F9 F16 F17 F8 F11 F3), then the large builds (F15 EPG, F4

@@ -1387,7 +1387,24 @@ end sub
 sub onPlayEpisode()
     e = m.series.playEpisode
     if e = invalid or e.id = invalid then return
+    startEpisode(e)
+end sub
+
+' An episode plays from the SPINE's own url when it has one, and only falls
+' back to the detail shard when it does not.
+'
+' The shard can never answer for an episode: build_web_details applies the
+' same gate as the index, which excludes tv-episode, so all 4,702 episodes in
+' the 489 spines were asking a file that does not carry them and being told
+' "not in the catalog yet". The url was in hand the whole time — the spine the
+' Series screen had already loaded carries downloadURL for 100% of them.
+sub startEpisode(e as Object)
     m.pendingEpisode = e
+    if e.url <> invalid and e.url <> ""
+        print "AWSER play from spine "; e.id
+        playPendingEpisode({ url: e.url })
+        return
+    end if
     if m.dtask = invalid
         m.dtask = CreateObject("roSGNode", "DetailTask")
         m.dtask.ObserveField("detail", "onDetailLoaded")
@@ -1396,6 +1413,13 @@ sub onPlayEpisode()
     m.dtask.archiveID = e.id
     m.dtask.control = "RUN"
 end sub
+
+' The url the queue holds for position i, or "" when the queue predates them.
+function queueURLAt(q as Object, i as Integer) as String
+    if q = invalid or q.queueUrls = invalid then return ""
+    if i < 0 or i >= q.queueUrls.Count() then return ""
+    return fmt(q.queueUrls[i])
+end function
 
 sub playPendingEpisode(d as Object)
     e = m.pendingEpisode
@@ -2075,11 +2099,10 @@ sub onDetailTaskStatus()
         nxt = e.index + 1
         if nxt < q.queue.Count()
             print "AWSER skipping unresolvable episode, advancing to "; nxt
-            m.pendingEpisode = { id: q.queue[nxt], title: q.queueTitles[nxt],
-                                 meta: q.meta, queue: q.queue,
-                                 queueTitles: q.queueTitles, index: nxt }
-            m.dtask.archiveID = q.queue[nxt]
-            m.dtask.control = "RUN"
+            startEpisode({ id: q.queue[nxt], title: q.queueTitles[nxt],
+                           url: queueURLAt(q, nxt), meta: q.meta,
+                           queue: q.queue, queueTitles: q.queueTitles,
+                           queueUrls: q.queueUrls, index: nxt })
             return
         end if
     end if
@@ -2291,11 +2314,10 @@ sub onPlaybackEnded()
         nxt = q.index + 1
         if nxt < q.queue.Count()
             print "AWSER autoplay next episode "; q.queue[nxt]
-            m.pendingEpisode = { id: q.queue[nxt], title: q.queueTitles[nxt],
-                                 meta: q.meta, queue: q.queue,
-                                 queueTitles: q.queueTitles, index: nxt }
-            m.dtask.archiveID = q.queue[nxt]
-            m.dtask.control = "RUN"
+            startEpisode({ id: q.queue[nxt], title: q.queueTitles[nxt],
+                           url: queueURLAt(q, nxt), meta: q.meta,
+                           queue: q.queue, queueTitles: q.queueTitles,
+                           queueUrls: q.queueUrls, index: nxt })
             return
         end if
     end if
