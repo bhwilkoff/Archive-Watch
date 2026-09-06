@@ -388,7 +388,15 @@ sub onItem()
         m.aka.text = ""
         m.art.uri = "" : m.art.visible = false
         m.wash.uri = "" : m.washBlur.uri = ""
+        ' The field needs a COLOUR, not just visibility. Its accent is set
+        ' from the item's category further down, so with no item it kept
+        ' whatever the last film left — or nothing. The owner saw that as a
+        ' Detail with "no poster or backdrop image (or gradient)". A neutral
+        ' marquee-tinted field is the honest look for "this is loading".
         m.field.visible = true
+        m.field.color = Left(m.t.marquee, 8) + "26"
+        m.kind.text = ""
+        m.chip.color = m.t.marquee
         exitReading()
         layoutCopy(false)
         return

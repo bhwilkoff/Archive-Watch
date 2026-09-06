@@ -25,6 +25,7 @@ sub init()
     m.overlay = m.top.FindNode("overlay")
     m.route = "home"
     m.pendingDeepLink = ""
+    m.pendingDetailID = ""
     m.queuedDeepLink = ""
     m.pendingCollections = false
     m.collectionsBuilt = false
@@ -1973,6 +1974,23 @@ sub onQueryResults()
         refocus(m.collections)
         return
     end if
+    if m.pendingDetailID <> invalid and m.pendingDetailID <> ""
+        want = m.pendingDetailID
+        m.pendingDetailID = ""
+        m.svc.qId = ""
+        res = m.svc.results
+        if res <> invalid and res.GetChildCount() > 0 and m.detail <> invalid
+            ' Only if the viewer is still on the film they asked for — a slow
+            ' lookup must never repaint a Detail they have already left.
+            if m.route = "detail" and m.detail.item = invalid
+                m.detail.item = res.GetChild(0)
+                print "AWDETAIL resolved "; want
+            end if
+        else
+            print "AWDETAIL could not resolve "; want
+        end if
+        return
+    end if
     if m.pendingDeepLink <> invalid and m.pendingDeepLink <> ""
         id = m.pendingDeepLink
         m.pendingDeepLink = ""
@@ -2040,6 +2058,22 @@ sub openDetail(archiveID as String)
     it = findItem(archiveID)
     if it = invalid and m.deepLinkItem <> invalid and m.deepLinkItem.id = archiveID
         it = m.deepLinkItem
+    end if
+    ' Still nothing? Ask the SERVICE, which holds the whole index in memory.
+    '
+    ' findItem walks the surfaces this app happens to have built — the hero
+    ' pool, Home's shelves, the last query's results — so every new SOURCE of
+    ' ids arrives as the same bug: Detail opens with no film, and Play has
+    ' nothing to play. It was the channel guide (F28), then More Like This,
+    ' then the hero row, and now the channel guide again from a third source,
+    ' channel-pools.json, which findItem was never going to see either.
+    ' Patching it per source is how it kept coming back; resolving the id is
+    ' the fix. The lookup is one pass over an already-parsed array.
+    if it = invalid
+        m.pendingDetailID = archiveID
+        m.svc.qId = archiveID
+        m.svc.queryId = m.svc.queryId + 1
+        print "AWDETAIL resolving "; archiveID; " from the index"
     end if
     if m.detail = invalid
         m.detail = m.overlay.CreateChild("DetailScreen")
