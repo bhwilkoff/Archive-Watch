@@ -206,6 +206,100 @@ def pick_review(detail: list, film_id: str, used: set) -> dict | None:
 
 
 # --------------------------------------------------------------------------
+# A line from the film itself.
+#
+# The subtitle track is the only source that quotes the WORK rather than
+# anyone's opinion of it, which makes it the strongest hook the programme has
+# — and the strictest to handle. It is presented as "a line from the film",
+# never "the best line": we cannot measure best, so we do not claim it.
+# --------------------------------------------------------------------------
+
+# Cues carry things that are not dialogue: sound effects "(ominous music)",
+# speaker labels "[Man Voiceover]", music bars, and position cues.
+_NOT_DIALOGUE = re.compile(r"[\[\(♪#]|^\s*-\s*$|WEBVTT|X-TIMESTAMP", re.I)
+_CUE_TIME = re.compile(r"(\d{2}):(\d{2}):(\d{2})[.,](\d{3})\s*-->")
+
+
+def parse_vtt(text: str) -> list:
+    """[(seconds, line)] — cues joined into whole sentences.
+
+    A sentence is routinely split across three cues ("this tribunal of
+    justice" / "hereby sentences you," / "the Crimson Executioner,"), so
+    quoting one cue quotes a fragment. Cues are joined until a terminator.
+    """
+    out, buf, start = [], [], None
+    for raw in text.splitlines():
+        line = raw.strip()
+        m = _CUE_TIME.search(line)
+        if m:
+            if start is None:
+                h, mi, se, ms = (int(g) for g in m.groups())
+                start = h * 3600 + mi * 60 + se + ms / 1000
+            continue
+        if not line or line.isdigit():
+            continue
+        if _NOT_DIALOGUE.search(line):
+            buf, start = [], None          # a marker breaks the sentence
+            continue
+        buf.append(line)
+        joined = " ".join(buf)
+        if joined.rstrip().endswith((".", "!", "?", '."', '!"', '?"')):
+            out.append((start or 0.0, re.sub(r"\s+", " ", joined).strip()))
+            buf, start = [], None
+    return out
+
+
+def pick_line(film_id: str, captions, runtime, seed_key: str) -> dict | None:
+    """One complete line of dialogue from the film's first 60%.
+
+    First 60% for the same reason the teaser takes the first act: a line from
+    the last reel can give away an ending. Deterministic per film so a retry
+    quotes the same line.
+    """
+    if not captions:
+        return None
+    url = None
+    for track in captions:
+        if len(track) >= 3 and str(track[0]).lower().startswith("en"):
+            url = track[2]
+            break
+    if not url and captions and len(captions[0]) >= 3:
+        url = captions[0][2]
+    if not url:
+        return None
+    try:
+        req = urllib.request.Request(url, headers={"User-Agent": UA})
+        with urllib.request.urlopen(req, timeout=30) as r:
+            text = r.read().decode("utf-8", "replace")
+    except Exception:  # noqa: BLE001
+        return None
+
+    cues = parse_vtt(text)
+    if not cues:
+        return None
+    limit = (runtime or (cues[-1][0] if cues else 0)) * 0.6
+    good = []
+    for at, line in cues:
+        if limit and at > limit:
+            continue
+        if not (40 <= len(line) <= 140):
+            continue
+        if not line[:1].isupper():
+            continue
+        if line.count('"') % 2:
+            continue                       # an unbalanced quote reads as broken
+        if sum(c.isalpha() for c in line) < len(line) * 0.6:
+            continue                       # mostly punctuation or numerals
+        good.append((at, line))
+    if not good:
+        return None
+    rnd = random.Random(int(hashlib.sha256(
+        f"line|{film_id}|{seed_key}".encode()).hexdigest()[:12], 16))
+    at, line = rnd.choice(good)
+    return {"line": line, "at": at, "url": url, "pool": len(good)}
+
+
+# --------------------------------------------------------------------------
 # Selection
 # --------------------------------------------------------------------------
 
@@ -275,6 +369,10 @@ def candidates(index: dict, slot: str) -> list:
     if slot == "from-the-vaults":
         keep = {"ephemeral", "newsreel", "documentary", "commercial", "short-film"}
         return [r for r in rows if r[I_TYPE] in keep]
+    if slot == "one-line":
+        # Only ~14% of the catalog publishes a subtitle track, so this slot
+        # casts wide and lets the caption check do the filtering.
+        return rows
     if slot in ("now-showing", "viewer-said", "double-bill"):
         # A real audience has rated these — a reader might recognise one, or be
         # glad to discover it. The floor is LOWER for the kinds that rarely
@@ -384,7 +482,7 @@ def fetch_details(ids: list, verbose: bool = False) -> dict:
 
 
 def build_spec(row: list, detail: list, slot: str, review: dict | None,
-               partner: tuple | None = None) -> dict:
+               partner: tuple | None = None, line: dict | None = None) -> dict:
     """Assemble the post spec: fragments plus, for each, its source."""
     film_id = row[I_ID]
     title = row[I_TITLE]
@@ -400,6 +498,10 @@ def build_spec(row: list, detail: list, slot: str, review: dict | None,
     add("meta", meta, meta_src)
     if extras.get("tg"):
         add("tagline", strip_html(extras["tg"]), "shard.extras.tagline (the film's own)")
+    if line:
+        add("line", f'"{line["line"]}"',
+            f"the film's own subtitle track at {int(line['at'])//60}:"
+            f"{int(line['at'])%60:02d} ({line['pool']} lines qualified)")
     if review:
         add("review", f'"{sentence_cap(review["body"], 240)}"',
             f"shard.community.reviews — archive.org viewer {review['reviewer']}")
@@ -446,7 +548,7 @@ def slot_for_date(when: dt.date, program: dict) -> str:
     if weekly.get(dow):
         return weekly[dow]
     # Default week: two review days, a double bill, a vaults day, rest Now Showing.
-    default = {"tuesday": "viewer-said", "friday": "viewer-said",
+    default = {"tuesday": "viewer-said", "friday": "one-line",
                "wednesday": "double-bill", "sunday": "from-the-vaults"}
     return default.get(dow, "now-showing")
 
@@ -502,6 +604,7 @@ def main() -> int:
 
     pick = None
     partner = None
+    quote_line = None
     for row in shortlist:
         d = details.get(row[I_ID])
         if not d:
@@ -512,6 +615,14 @@ def main() -> int:
             continue
         if not pd_basis(row, d):
             continue          # cannot state why it is free — do not promote it
+        if slot == "one-line":
+            caps = d[D_CAPTIONS] if len(d) > D_CAPTIONS else None
+            rt = d[D_RUNTIME] if len(d) > D_RUNTIME else None
+            quote_line = pick_line(row[I_ID], caps, rt, when.isoformat())
+            if not quote_line:
+                continue
+            pick = (row, d, None)
+            break
         review = pick_review(d, row[I_ID], used_reviews)
         if slot == "viewer-said" and not review:
             continue
@@ -549,7 +660,7 @@ def main() -> int:
         if not partner:
             slot = "now-showing"
 
-    spec = build_spec(row, detail, slot, review, partner)
+    spec = build_spec(row, detail, slot, review, partner, quote_line)
     spec["date"] = when.isoformat()
 
     if args.explain:

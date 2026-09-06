@@ -78,9 +78,30 @@ editorial format with its own source material and its own selection rule.
 | **Public Domain Day** | 1 January | The year's new arrivals — the films that entered the public domain today. | the PD-day query the apps already run |
 | **The double bill** | weekly | Two films that genuinely share something measured: a director, a year, a cinematographer. | catalog joins only |
 | **From the vaults** | weekly | An ephemeral/industrial/newsreel item — the strange corners nobody browses to. | synopsis + collection |
+| **One line** | weekly | A verbatim line of dialogue from the film's own subtitle track. | `captions[]` (the VTT itself) |
 
 **Never more than one post per platform per day.** A second post in a day is
 how a marquee becomes a billboard.
+
+### 3b. A line from the film
+
+The subtitle track is the only source that quotes the **work** rather than
+anyone's opinion of it, which makes it the strongest hook the programme has
+and the strictest to handle:
+
+- **Verbatim, and whole.** A sentence is routinely split across three cues
+  ("this tribunal of justice" / "hereby sentences you," / "the Crimson
+  Executioner,"), so quoting one cue quotes a fragment. Cues are joined until
+  a terminator.
+- **Dialogue only.** Sound effects "(ominous music)", speaker labels
+  "[Man Voiceover]" and music bars are not dialogue and break the sentence.
+- **From the first 60%**, for the same reason the teaser takes the first act:
+  a line from the last reel can give away an ending.
+- **"A line from the film", never "the best line".** We cannot measure best,
+  so we do not claim it. The choice is deterministic per film, not curated.
+
+About 14% of the catalog publishes a subtitle track, which is plenty for a
+weekly slot and not enough for a daily one.
 
 ### 3a. The teaser (video)
 

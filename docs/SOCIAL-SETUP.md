@@ -128,11 +128,17 @@ Nothing else to create; the first run makes the release if it is missing.
 
 ## 6. Not built, and why
 
-- **TikTok.** The Content Posting API restricts every unaudited client's posts
-  to **private viewing**. Public posting needs TikTok's content-posting audit,
-  which reviews your app's UX — and there is no UX here, only a scheduler.
-  A TikTok presence is realistic, but it wants a person, and probably a
-  different kind of post (a clip with a voice) than this programme makes.
+- **TikTok** cannot be automated, and this is a property of TikTok rather
+  than a gap here: every requirement in its content-sharing guidelines is
+  about a person consenting in a UI immediately before each post (creator
+  nickname shown, music-usage confirmation, manual privacy and interaction
+  settings, a preview). Unaudited clients are capped at five users a day and
+  every post is private-only.
+
+  **What to do instead:** each daily run leaves the vertical teaser and the
+  composed caption in the `social-card` artifact. Download it and post it by
+  hand — under a minute, and the only part TikTok reserves for a person is
+  the part a person does.
 YouTube and Bluesky video are BUILT (see §1 and §3a). Bluesky posts the
 teaser instead of the card whenever a clip was cut, which needs no review at
 all — moving pictures the day you paste the app password.

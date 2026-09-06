@@ -104,7 +104,10 @@ def compose(spec: dict, platform: str) -> str:
     # The body: a viewer's words when we have them, else the film's own
     # synopsis. Both are quoted material, not our claims.
     body = []
-    if frag.get("review"):
+    if frag.get("line"):
+        body.append(frag["line"])
+        body.append(f"— {title}")
+    elif frag.get("review"):
         body.append(frag["review"])
         if frag.get("review_credit"):
             body.append(frag["review_credit"])

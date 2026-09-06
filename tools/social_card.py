@@ -187,7 +187,15 @@ def render(spec: dict, size_name: str) -> Image.Image:
     foot = 108                      # the wordmark strip
 
     frag = {f["kind"]: f["text"] for f in spec.get("fragments", [])}
-    quote, credit = frag.get("review"), frag.get("review_credit")
+    # A line of dialogue outranks a review on the card: it is the film's own
+    # voice, and it is the only thing here that quotes the WORK rather than an
+    # opinion of it. Its credit is the film, not a reviewer.
+    if frag.get("line"):
+        quote = frag["line"]
+        credit = f"— {spec.get('title', '')}" + (
+            f", {spec['year']}" if spec.get("year") else "")
+    else:
+        quote, credit = frag.get("review"), frag.get("review_credit")
 
     f_eyebrow = font("Inter-SemiBold.ttf", 26)
     f_meta = font("Inter-Regular.ttf", 27)

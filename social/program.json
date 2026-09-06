@@ -1,17 +1,18 @@
 {
-  "_": "The weekly programme (docs/SOCIAL-PROGRAM.md §3). Change a day's slot here; the code reads it, never hardcodes it.",
+  "_": "The weekly programme (docs/SOCIAL-PROGRAM.md \u00a73). Change a day's slot here; the code reads it, never hardcodes it.",
   "timezone": "America/Denver",
   "weekly": {
     "monday": "now-showing",
     "tuesday": "viewer-said",
     "wednesday": "double-bill",
     "thursday": "now-showing",
-    "friday": "viewer-said",
+    "friday": "one-line",
     "saturday": "now-showing",
     "sunday": "from-the-vaults"
   },
   "notes": {
     "on-this-day": "Fires only on a real dated anniversary; run it by hand on a date you know matches.",
-    "public-domain-day": "Automatic on 1 January."
+    "public-domain-day": "Automatic on 1 January.",
+    "one-line": "A verbatim line of dialogue from the film's own subtitle track (~14% of the catalog publishes one). Always from the first 60% \u2014 a line from the last reel can give away an ending."
   }
 }
