@@ -491,3 +491,16 @@ sub AWFitPillColumn(buttons as Object, pills as Object)
         AWPillLayout(pills[i], pills[i].l.translation[0], pills[i].l.translation[1], w)
     end for
 end sub
+
+' A raw space in a url stops Roku's Video node dead. Shared here because the
+' player is not the only thing that hands a url to the platform.
+function AWEncodeSpaces(u as String) as String
+    if u = "" then return u
+    if Instr(1, u, " ") = 0 then return u
+    parts = u.Split(" ")
+    out = parts[0]
+    for i = 1 to parts.Count() - 1
+        out = out + "%20" + parts[i]
+    end for
+    return out
+end function

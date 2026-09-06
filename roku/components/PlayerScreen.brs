@@ -51,6 +51,12 @@ sub onUrl()
     if url = invalid or url = "" then return
     ' Whatever the last film said about itself does not apply to this one.
     m.diag.visible = false
+    ' A url with a raw space is not a url, and the Video node will not open
+    ' one. The spines are repaired at the source now, but this is the single
+    ' place EVERY playback path passes through — films, episodes, channels,
+    ' Party Play — so it is the cheapest place to be certain. Idempotent: an
+    ' already-encoded url contains no spaces to replace.
+    url = AWEncodeSpaces(url)
 
     c = CreateObject("roSGNode", "ContentNode")
     c.title = m.top.playTitle

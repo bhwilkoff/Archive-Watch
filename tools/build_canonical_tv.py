@@ -253,6 +253,42 @@ def _norm(s):
     return re.sub(r"[^a-z0-9]+", " ", (s or "").lower()).strip()
 
 
+def _safe_url(u):
+    """Percent-encode the FILENAME of an archive.org download url.
+
+    Measured 2026-09-06: 2,264 of the 4,702 episodes in the spines — 48% —
+    carried a raw filename with spaces ("S01E05 - Pie in the Sky - Hot Rodney
+    - Space Dogs.ia.mp4"), because this builder passes the catalog item's url
+    straight through while `backfill_tv_episodes` routes its own through
+    `archive_lib.download_url`, which quotes. A url with a space is not a url:
+    Python refuses it outright, and the Roku's Video node fails to open it, so
+    the episode looked present and would not play. Zero FILM urls have the
+    problem, which is what made it invisible.
+
+    Idempotent — an already-encoded url is left alone, so re-running this
+    cannot double-encode a %20 into %2520.
+    """
+    if not u:
+        return u
+    sep = "://"
+    if sep not in u:
+        return u
+    scheme, _, rest = u.partition(sep)
+    host, slash, path = rest.partition("/")
+    if not slash:
+        return u
+    # EVERYTHING after the host is the path. Not urlsplit(): that reads a "#"
+    # as a fragment marker, and on archive.org a "#" in a filename is part of
+    # the NAME. Measured across the spines: zero urls carry a query or a
+    # fragment, so there is nothing here to preserve and a great deal to
+    # encode. The whole path, not just the last segment — eight spines carry
+    # a space in a FOLDER name ("Dragnet/Season 7/...", "Room 222 Season 2/").
+    # `safe="/"` keeps the separators; unquoting first makes this idempotent,
+    # so re-running the build cannot turn %20 into %2520.
+    return (scheme + sep + host + "/"
+            + urllib.parse.quote(urllib.parse.unquote(path), safe="/"))
+
+
 def _basename(url):
     """Last path component of a download URL, percent-decoded."""
     if not url:
@@ -496,7 +532,7 @@ def rebuild_show(show, our_eps, *, repick, deadline=None):
             "year": (int(cep["airDate"][:4]) if cep.get("airDate") else item.get("year")),
             "runtimeSeconds": cep["runtimeSeconds"] or item.get("runtimeSeconds"),
             "videoFile": vf,
-            "downloadURL": dl,
+            "downloadURL": _safe_url(dl),
         }
         seasons.setdefault(s, []).append(ep)
 
@@ -530,7 +566,7 @@ def rebuild_show(show, our_eps, *, repick, deadline=None):
                 "year": _clamp_year(item.get("year"), year_lo, year_hi),
                 "runtimeSeconds": item.get("runtimeSeconds"),
                 "videoFile": vf,
-                "downloadURL": dl,
+                "downloadURL": _safe_url(dl),
             }
             seasons.setdefault(s2, []).append(ep)
 
@@ -651,7 +687,7 @@ def gather_raw_targets(titles_filter):
     for it in cat["items"]:
         if it.get("contentType") == "tv-series" and not it.get("seriesID"):
             ep = {"archiveID": it["archiveID"], "title": it.get("title"),
-                  "downloadURL": it.get("downloadURL"), "videoFile": it.get("videoFile"),
+                  "downloadURL": _safe_url(it.get("downloadURL")), "videoFile": it.get("videoFile"),
                   "stillURL": it.get("posterURL"), "year": it.get("year"),
                   "runtimeSeconds": it.get("runtimeSeconds")}
             targets.append((it.get("title"), it.get("year"), [ep], "single", it["archiveID"]))
@@ -669,7 +705,7 @@ def gather_raw_targets(titles_filter):
             if not sname:
                 continue
             ep = {"archiveID": it["archiveID"], "title": it.get("title"),
-                  "downloadURL": it.get("downloadURL"), "videoFile": it.get("videoFile"),
+                  "downloadURL": _safe_url(it.get("downloadURL")), "videoFile": it.get("videoFile"),
                   "stillURL": it.get("posterURL"), "year": it.get("year"),
                   "runtimeSeconds": it.get("runtimeSeconds")}
             targets.append((sname, it.get("year"), [ep], "orphan-episode", it["archiveID"]))
