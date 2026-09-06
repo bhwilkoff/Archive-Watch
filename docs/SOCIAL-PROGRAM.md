@@ -98,6 +98,11 @@ about one. Four rules, each of which was a defect first:
    and removed first, or the picture renders as a strip.
 4. **It must work muted**, because that is how it will be seen: the title,
    year and address are burned into a lower third.
+5. **It must be LEGIBLE on a phone in daylight.** Brightness is measured and
+   gated (mean luma 42-225); the first Magic Sword cut was a dim cave that
+   passed the motion test and read as a black rectangle in the feed. When a
+   window fails, the next one is tried — 35%, 50%, 25%, 60% of the runtime —
+   and a film with no legible, moving scene simply gets no teaser that day.
 
 The shot index (`clips.sqlite`, Decision 042 — 944,954 detected shots across
 32,573 films) is the FALLBACK, not the primary: it only analyses each film's

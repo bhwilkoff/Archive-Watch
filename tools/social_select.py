@@ -183,8 +183,15 @@ def pick_review(detail: list, film_id: str, used: set) -> dict | None:
             continue
         cand = {"stars": n, "title": title, "body": body, "reviewer": who,
                 "date": (rv[4] if len(rv) > 4 else None)}
-        if best is None or len(cand["body"]) > len(best["body"]):
+        # A quote reads as a typo when it opens on a lowercase letter, even
+        # though it is verbatim ("a tad too dark at times…" — horseoftroy on
+        # The Magic Sword). Prefer one that starts like a sentence; the rule
+        # picks a DIFFERENT review, it never edits one.
+        cand["_rank"] = (1 if body[:1].isupper() else 0, len(body))
+        if best is None or cand["_rank"] > best["_rank"]:
             best = cand
+    if best:
+        best.pop("_rank", None)
     return best
 
 

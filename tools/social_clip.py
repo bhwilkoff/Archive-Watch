@@ -46,6 +46,8 @@ FONTS = REPO / "roku" / "fonts"
 TITLES_END = 60.0          # before this is idents and opening titles
 MIN_SHOT = 4.0
 TARGET = 18.0              # a teaser, not an excerpt
+MIN_LUMA = 42.0            # below this the frame reads as black on a phone
+MAX_LUMA = 225.0           # above it, a blown-out fade or a title card
 W, H = 1080, 1920
 
 
@@ -80,6 +82,27 @@ def motion_of(url: str, at: float) -> float:
         frames.append(Image.open(p).convert("L"))
     diff = ImageChops.difference(frames[0], frames[1])
     return ImageStat.Stat(diff).mean[0]
+
+
+def luma_of(url: str, at: float) -> float:
+    """Mean brightness of one frame, 0-255.
+
+    A teaser is watched on a phone, in daylight, at thumbnail size. The first
+    Magic Sword cut was a dim cave interior that measured well on motion and
+    read as a black rectangle in the feed — legibility is a separate property
+    from movement, so it gets its own measurement.
+    """
+    try:
+        from PIL import Image, ImageStat
+    except ImportError:
+        return 128.0
+    p = Path(f"/tmp/aw_luma_{int(at)}.jpg")
+    r = subprocess.run(["ffmpeg", "-y", "-nostdin", "-ss", str(at + 1.0), "-i", url,
+                        "-frames:v", "1", "-q:v", "5", "-vf", "scale=192:-2", str(p)],
+                       capture_output=True, text=True, timeout=180)
+    if r.returncode != 0 or not p.exists():
+        return 0.0
+    return ImageStat.Stat(Image.open(p).convert("L")).mean[0]
 
 
 def detect_crop(url: str, at: float) -> str | None:
@@ -121,29 +144,38 @@ def find_scene(url: str, runtime: float, min_motion: float = 3.0) -> dict | None
     """
     if not runtime or runtime < 240:
         return None                      # too short to have a "middle"
-    probe_at = max(TITLES_END, runtime * 0.35)
-    r = subprocess.run(
-        ["ffmpeg", "-nostdin", "-ss", str(probe_at), "-i", url, "-t", "60",
-         "-filter_complex", "select='gt(scene,0.35)',metadata=print:file=-",
-         "-an", "-f", "null", "-"],
-        capture_output=True, text=True, timeout=600)
-    cuts = []
-    for line in (r.stdout + r.stderr).splitlines():
-        if "pts_time:" in line:
-            try:
-                cuts.append(probe_at + float(line.split("pts_time:")[1].split()[0]))
-            except (ValueError, IndexError):
-                pass
-    # A cut gives a clean START. With no detected cut the window is still a
-    # perfectly good scene — begin a couple of seconds in and say so.
-    start = cuts[0] if cuts else probe_at + 2.0
-    m = motion_of(url, start)
-    print(f"[clip] mid-film probe at {probe_at:.0f}s "
-          f"({len(cuts)} cuts found) -> start {start:.0f}s  motion {m:.1f}")
-    if m < min_motion:
-        return None
-    return {"url": url, "start": start, "end": start + TARGET,
-            "tags": "mid-film", "motion": m}
+    # Several places to look, all in the first two-thirds. One window can be a
+    # night scene or a lull; trying three costs a few seconds and is the
+    # difference between a teaser and a black rectangle.
+    for fraction in (0.35, 0.50, 0.25, 0.60):
+        probe_at = max(TITLES_END, runtime * fraction)
+        r = subprocess.run(
+            ["ffmpeg", "-nostdin", "-ss", str(probe_at), "-i", url, "-t", "60",
+             "-filter_complex", "select='gt(scene,0.35)',metadata=print:file=-",
+             "-an", "-f", "null", "-"],
+            capture_output=True, text=True, timeout=600)
+        cuts = []
+        for line in (r.stdout + r.stderr).splitlines():
+            if "pts_time:" in line:
+                try:
+                    cuts.append(probe_at + float(line.split("pts_time:")[1].split()[0]))
+                except (ValueError, IndexError):
+                    pass
+        # A cut gives a clean START. With no detected cut the window is still a
+        # perfectly good scene — begin a couple of seconds in and say so.
+        for start in (cuts[:2] or [probe_at + 2.0]):
+            m = motion_of(url, start)
+            lum = luma_of(url, start)
+            ok = m >= min_motion and MIN_LUMA <= lum <= MAX_LUMA
+            why = ("ok" if ok else
+                   ("too dark" if lum < MIN_LUMA else
+                    ("blown out" if lum > MAX_LUMA else "static")))
+            print(f"[clip] probe {fraction:.0%} at {start:6.0f}s  "
+                  f"motion {m:5.1f}  luma {lum:5.1f}  {why}")
+            if ok:
+                return {"url": url, "start": start, "end": start + TARGET,
+                        "tags": "mid-film", "motion": m, "luma": lum}
+    return None
 
 
 def pick_shot(db_path: str, archive_id: str, min_motion: float = 3.0) -> dict | None:
@@ -163,10 +195,13 @@ def pick_shot(db_path: str, archive_id: str, min_motion: float = 3.0) -> dict | 
     # glitch — then take the first that passes the motion test.
     for url, start, end, tags in sorted(rows, key=lambda r: -(r[2] - r[1])):
         m = motion_of(url, start)
-        print(f"[clip] candidate {start:6.1f}s  len {end-start:4.1f}s  motion {m:5.1f}"
-              f"  {'ok' if m >= min_motion else 'static — likely a title card'}")
-        if m >= min_motion:
-            return {"url": url, "start": start, "end": end, "tags": tags, "motion": m}
+        lum = luma_of(url, start)
+        ok = m >= min_motion and MIN_LUMA <= lum <= MAX_LUMA
+        print(f"[clip] candidate {start:6.1f}s  len {end-start:4.1f}s  "
+              f"motion {m:5.1f}  luma {lum:5.1f}  {'ok' if ok else 'rejected'}")
+        if ok:
+            return {"url": url, "start": start, "end": end, "tags": tags,
+                    "motion": m, "luma": lum}
     print("[clip] every analysed shot is static", file=sys.stderr)
     return None
 
