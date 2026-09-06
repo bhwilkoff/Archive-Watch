@@ -49,10 +49,13 @@ def log(manifest: Path, rec: dict) -> None:
     with open(manifest, "a") as f:
         f.write(json.dumps(rec) + "\n")
 
-def pack_bif(frames_dir: Path, out: Path) -> tuple[int, int]:
+def pack_bif(frames_dir: Path, out: Path, interval_ms: int = INTERVAL_MS) -> tuple[int, int]:
     frames = sorted(frames_dir.glob("*.jpg"), key=lambda p: int(p.stem))
     n = len(frames)
-    hdr = bytearray(b"\x89BIF\r\n\x1a\n") + struct.pack("<III", 0, n, INTERVAL_MS) + bytes(44)
+    # The header's timestamp multiplier MUST equal the sampling interval, or
+    # every thumbnail is offered at the wrong position — the strip would look
+    # right and scrub to the wrong place, which is worse than no strip at all.
+    hdr = bytearray(b"\x89BIF\r\n\x1a\n") + struct.pack("<III", 0, n, interval_ms) + bytes(44)
     index = bytearray(); data = bytearray()
     off = 64 + (n + 1) * 8
     for i, f in enumerate(frames):
@@ -62,20 +65,21 @@ def pack_bif(frames_dir: Path, out: Path) -> tuple[int, int]:
     out.write_bytes(bytes(hdr) + bytes(index) + bytes(data))
     return n, out.stat().st_size
 
-def make_bif(aid: str, url: str, out_dir: Path, width: int) -> dict:
+def make_bif(aid: str, url: str, out_dir: Path, width: int,
+             interval_ms: int = INTERVAL_MS) -> dict:
     work = out_dir / "work" / aid
     if work.exists(): shutil.rmtree(work)
     work.mkdir(parents=True)
     t0 = time.time()
     cmd = ["ffmpeg", "-hide_banner", "-loglevel", "error", "-skip_frame", "nokey", "-i", url,
-           "-vf", f"fps=1/{INTERVAL_MS // 1000},scale={width}:-2", "-q:v", "6",
+           "-vf", f"fps=1/{interval_ms // 1000},scale={width}:-2", "-q:v", "6",
            "-start_number", "0", str(work / "%d.jpg")]
     r = subprocess.run(cmd, capture_output=True, text=True, timeout=1800)
     if r.returncode != 0:
         shutil.rmtree(work, ignore_errors=True)
         return {"status": "ffmpeg_failed", "err": r.stderr[-300:]}
     out = out_dir / f"{aid}.bif"
-    n, size = pack_bif(work, out)
+    n, size = pack_bif(work, out, interval_ms)
     shutil.rmtree(work, ignore_errors=True)
     if n < 2:
         out.unlink(missing_ok=True)
@@ -114,6 +118,15 @@ def main() -> int:
                          "popularity-ordered, so a positional split would give job 0 "
                          "every long feature and the last job every short.")
     ap.add_argument("--width", type=int, default=320, help="320 = HD, 240 = SD")
+    ap.add_argument("--interval", type=int, default=10, metavar="SEC",
+                    help="seconds between thumbnails (default 10, Roku's own "
+                         "example). MEASURED 2026-09-06: this is a BIGGER "
+                         "lever on size than resolution — halving the rate "
+                         "saves exactly 50%%, while HD->SD saves only 32%% on "
+                         "this catalog. Roku's docs quote 46%% for SD, but "
+                         "their sample is a modern HLS feature; archival "
+                         "scans are grain, and grain is high-frequency detail "
+                         "that does not shrink with the frame.")
     ap.add_argument("--max-minutes", type=float, default=0)
     ap.add_argument("--run", action="store_true", help="actually generate (default is a dry run)")
     ap.add_argument("--upload", action="store_true", help="also publish to archive.org (implies --run)")
@@ -128,6 +141,14 @@ def main() -> int:
     fields = idx["fields"]; F = {k: i for i, k in enumerate(fields)}
     # popularity-first: the index is already ordered that way by the pipeline
     todo = [r for r in idx["items"] if r[F["playable"]] and done.get(r[F["id"]]) != "done"]
+    # POPULARITY ORDER. A certification reviewer opens films from Home and the
+    # popular shelves, so those must be covered first — the batch is useful
+    # long before it is complete, and a partial run is a partial PASS rather
+    # than a lottery. Sharding still splits on a hash, so every shard gets a
+    # mix of long and short films; this orders WITHIN a shard.
+    vi = F.get("votes")
+    if vi is not None:
+        todo.sort(key=lambda r: -(r[vi] or 0) if len(r) > vi else 0)
     print(f"[bif] {len(idx['items'])} items, {len(todo)} not done, taking {a.limit}", flush=True)
     if a.skip_published:
         try:
@@ -171,7 +192,7 @@ def main() -> int:
             log(manifest, {"id": aid, "status": "short", "runtime": runtime}); continue
         if not a.run:
             print(f"[dry] {aid}  {runtime}s  {rec[0]}"); made += 1; continue
-        res = make_bif(aid, rec[0], out_dir, a.width)
+        res = make_bif(aid, rec[0], out_dir, a.width, a.interval * 1000)
         if res["status"] == "made" and a.upload:
             try:
                 upload(Path(res["path"]), aid); res["status"] = "done"
