@@ -180,6 +180,7 @@ most valuable first.
 | Platform | What it takes to connect | Review needed | Media |
 |---|---|---|---|
 | **Bluesky** | an app password, pasted | **none** | image ≤1 MB, ≤4; video ≤100 MB/3 min |
+| **Mastodon** | a token from the account's own settings | **none** | image + video; instance sets the size |
 | **Threads** | Meta app + long-lived token | app review for production | image at a **public URL**; 250/day |
 | **Instagram** | Business/Creator account, Meta app | `instagram_business_content_publish`, 2–4 weeks | public URL; Reels 9:16, 5–90 s |
 | **Facebook Page** | Page access token, Meta app | `pages_manage_posts` + business verification | `/{page-id}/photos` |
@@ -188,8 +189,15 @@ most valuable first.
 
 Two consequences the design takes seriously:
 
-- **Bluesky is the only platform that works the day you paste a credential.**
-  It is therefore the reference implementation and the proving ground.
+- **Bluesky and Mastodon work the day you paste a credential.** Bluesky is
+  the reference implementation and the proving ground; Mastodon is the best
+  audience fit, since the Fediverse's archivist and film-preservation
+  communities are exactly this catalog's readership.
+- **The Fediverse has no single character limit.** 500 is Mastodon's default
+  and instances set their own, so the poster asks the instance at run time
+  rather than composing against a constant. It also sends an idempotency key,
+  so a re-run returns the original post instead of publishing twice — the one
+  platform here that can promise that.
 - **Meta fetches media from a public URL**, so generated cards must be
   published somewhere public before the post is made. They go to a GitHub
   Release (Decision 018's rule: generated artifacts never bloat git).

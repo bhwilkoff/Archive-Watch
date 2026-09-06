@@ -25,8 +25,9 @@ anything; if a card looks wrong, nothing has been published.
 
 ## 1. Bluesky — 5 minutes, no review, works today
 
-The only platform with no app review, no business account, and no OAuth. Start
-here: it is where you will see the programme actually working.
+No app review, no business account, no OAuth. Start here: it is where you will
+see the programme actually working. (Mastodon, below, is the other one with no
+review — connect both and you have a real presence in an afternoon.)
 
 1. Make the account (e.g. `archivewatch.bsky.social`).
 2. **Settings → Privacy and Security → App Passwords → Add App Password.**
@@ -38,6 +39,48 @@ here: it is where you will see the programme actually working.
    `bluesky`.
 
 That is the whole setup. The next scheduled run posts on its own.
+
+---
+
+## 1a. Mastodon — 3 minutes, no review, no app at all
+
+The cheapest platform here to connect, and the best audience fit of anything
+not already listed: the Fediverse has unusually dense archivist, library and
+film-preservation communities, and an account that posts one carefully sourced
+thing a day is the norm there rather than an anomaly.
+
+There is no developer portal and no review. The token is minted inside the
+account's own settings.
+
+1. Make the account on any instance. `mastodon.social` is the safe default;
+   a film or archive themed instance is a better fit if you find one you like.
+   **Check the instance rules before pointing an automated account at it** —
+   some ask that bots be labelled, and marking the account as a bot in
+   **Preferences → Profile** is good manners either way.
+2. **Preferences → Development → New application.**
+   - Application name: `Archive Watch`
+   - Scopes: tick **`write:statuses`** and **`write:media`**. Untick
+     everything else, including `read` — the poster never needs to read.
+3. Open the application you just made and copy **"Your access token"**.
+4. Add two secrets:
+   - `MASTODON_INSTANCE` → `mastodon.social` (the bare host or the full URL,
+     either is fine)
+   - `MASTODON_ACCESS_TOKEN` → the access token
+5. **Actions → Social post → Run workflow**, untick "dry run", `only` =
+   `mastodon`.
+
+Two things this adapter does that the others cannot:
+
+- **It asks your instance how long a post may be.** 500 characters is only
+  Mastodon's default; instances set their own, and some run to 11,000. The
+  copy is composed against whatever your server actually allows, and falls
+  back to 500 if the instance cannot be reached.
+- **A retried run cannot double-post.** Every status carries an idempotency
+  key built from the film and the date, so if the workflow is re-run the
+  server returns the original post instead of publishing it again.
+
+Images always carry alt text describing the poster and the film, because on
+the Fediverse an undescribed image is a discourtesy, not an oversight.
 
 ---
 
@@ -142,6 +185,42 @@ Nothing else to create; the first run makes the release if it is missing.
 YouTube and Bluesky video are BUILT (see §1 and §3a). Bluesky posts the
 teaser instead of the card whenever a clip was cut, which needs no review at
 all — moving pictures the day you paste the app password.
+
+### Researched 2026-09-06 and deliberately not built
+
+Recorded so nobody re-walks these. Each was checked against the current API
+terms, not remembered.
+
+- **X / Twitter** — the legacy paid tiers were retired and replaced with
+  pay-per-use on 1 June 2026, and a post carrying a **URL costs more than a
+  plain one**. Every post here carries a URL. The cost at one a day is small;
+  the objection is that it is the only platform charging admission, and its
+  audience for silent film is not better than Mastodon's.
+- **Reddit** — the wrong shape twice over. Self-service API registration
+  closed in late 2025, so a new client is a manual ticket with no published
+  timeline. And subreddit self-promotion rules make a daily automated poster
+  exactly the thing moderators remove. Reddit rewards a person participating.
+  Worth your time by hand; never worth automating.
+- **Pinterest** — the closest call, and the only candidate whose value
+  compounds: pins keep pulling traffic for years where a feed post dies in
+  hours, and posters are close to ideal Pinterest content. Blocked on two
+  things. Trial access creates pins **visible only to their creator**, and
+  standard access needs a screen recording of the OAuth flow plus a review of
+  one to four weeks. Read the developer guidelines first: they forbid
+  features that let users initiate actions "without specifically considering
+  each action", which is aimed at bulk schedulers acting for third parties
+  but is a real risk to weigh before investing.
+- **Letterboxd** — the best audience on the list, over 30 million people
+  whose register is exactly classic film. But access is **by request only**
+  (email `api@letterboxd.com`), and it is a film *diary*, not a broadcast
+  channel: there is no post object that fits a marquee. What would fit is a
+  curated list, which is a different product. Worth an email, not a build.
+- **Tumblr** — genuinely alive for film culture and its post format handles
+  image-plus-text well. Old-style OAuth is fiddly but there is no heavy
+  review. The most reasonable *next* build after Mastodon.
+- **Discord** — a webhook needs no auth, no bot and no review, and is perhaps
+  fifteen lines. Low reach, near-zero cost. Worth adding the day a community
+  server exists; pointless before then.
 
 ---
 

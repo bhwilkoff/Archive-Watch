@@ -46,8 +46,12 @@ LEDGER = SOCIAL / "posted.json"
 UA = "ArchiveWatch-Social/1.0 (+https://archivewatch.org)"
 MEDIA_TAG = "social-cards"          # rolling Release; Decision 018 — never git
 
+# Mastodon's 500 is the DEFAULT, not the rule — an instance sets its own and
+# many run higher. resolve_mastodon_limit() asks the instance at run time and
+# only ever raises this floor, so an unreachable instance still composes a
+# post every server will accept.
 LIMITS = {"bluesky": 300, "threads": 500, "instagram": 2200,
-          "facebook": 5000, "youtube": 4900}
+          "facebook": 5000, "youtube": 4900, "mastodon": 500}
 
 
 # --------------------------------------------------------------------------
@@ -71,6 +75,25 @@ def http(url: str, data=None, headers=None, method=None, timeout=90):
     except urllib.error.HTTPError as e:
         detail = e.read().decode("utf-8", "replace")[:400]
         raise RuntimeError(f"HTTP {e.code} {url.split('?')[0]} — {detail}") from None
+
+
+def multipart(url: str, fields: dict, files: dict, headers=None, timeout=300):
+    """multipart/form-data, built by hand so this stays dependency-free like
+    every other tool here. `files` maps field name -> (filename, bytes)."""
+    boundary = "aw-" + dt.datetime.now(dt.timezone.utc).strftime("%Y%m%d%H%M%S%f")
+    body = b""
+    for k, v in fields.items():
+        body += (f"--{boundary}\r\nContent-Disposition: form-data; name=\"{k}\"\r\n"
+                 f"\r\n{v}\r\n").encode()
+    for k, (name, raw) in files.items():
+        mime = mimetypes.guess_type(name)[0] or "application/octet-stream"
+        body += (f"--{boundary}\r\nContent-Disposition: form-data; name=\"{k}\"; "
+                 f"filename=\"{name}\"\r\nContent-Type: {mime}\r\n\r\n").encode()
+        body += raw + b"\r\n"
+    body += f"--{boundary}--\r\n".encode()
+    return http(url, data=body, timeout=timeout,
+                headers={**(headers or {}),
+                         "Content-Type": f"multipart/form-data; boundary={boundary}"})
 
 
 def form(url: str, fields: dict, timeout=90):
@@ -459,6 +482,95 @@ def post_youtube(spec, text, video: Path | None, live: bool):
     return f"https://youtube.com/watch?v={vid}", None
 
 
+def mastodon_base() -> str | None:
+    """Normalise whatever the owner pasted into an API base. People copy the
+    instance out of the address bar, so it arrives as "mastodon.social",
+    "https://mastodon.social" or with a trailing slash."""
+    raw = (os.environ.get("MASTODON_INSTANCE") or "").strip()
+    if not raw:
+        return None
+    if not raw.startswith(("http://", "https://")):
+        raw = "https://" + raw
+    return raw.rstrip("/")
+
+
+def resolve_mastodon_limit() -> None:
+    """Ask the instance for its own character ceiling. The Fediverse has no
+    single limit — 500 is only Mastodon's default — so composing against a
+    hardcoded number either wastes room or overflows. Never LOWERS the floor,
+    so a server that answers oddly cannot produce an unpostable draft."""
+    base = mastodon_base()
+    if not base or not os.environ.get("MASTODON_ACCESS_TOKEN"):
+        return
+    try:
+        info = http(f"{base}/api/v1/instance", timeout=20)
+        n = int((info.get("configuration", {})
+                     .get("statuses", {}) or {}).get("max_characters") or 0)
+        if n > LIMITS["mastodon"]:
+            LIMITS["mastodon"] = n
+            print(f"[mastodon] {base} allows {n} characters")
+    except Exception as e:  # noqa: BLE001 — the 500 floor is always safe
+        print(f"[mastodon] using the default 500 ({e})")
+
+
+def post_mastodon(spec, text, card: Path, live: bool, video: Path | None = None):
+    """One access token the owner generates in their own account settings.
+    There is no app review anywhere in this flow, which is what makes it the
+    cheapest platform here to connect.
+    """
+    base = mastodon_base()
+    token = os.environ.get("MASTODON_ACCESS_TOKEN")
+    if not (base and token):
+        return None, "not connected"
+    if not live:
+        return "DRY-RUN", None
+
+    auth = {"Authorization": f"Bearer {token}"}
+    year = f" ({spec['year']})" if spec.get("year") else ""
+
+    # Alt text is not optional here as a matter of manners: the Fediverse
+    # treats an undescribed image as a discourtesy, and this is a community
+    # we want to arrive in well.
+    media_id = None
+    if video and video.exists() and len(video.read_bytes()) <= 40_000_000:
+        alt = f"A scene from {spec['title']}{year}."
+        up = multipart(f"{base}/api/v2/media", {"description": alt},
+                       {"file": (video.name, video.read_bytes())},
+                       headers=auth, timeout=600)
+        media_id = up.get("id")
+    elif card and card.exists():
+        alt = (f"Poster for {spec['title']}{year}, on a card reading "
+               f"\u201cFree to watch on Archive Watch\u201d.")
+        up = multipart(f"{base}/api/v2/media", {"description": alt},
+                       {"file": (card.name, card.read_bytes())}, headers=auth)
+        media_id = up.get("id")
+
+    # v2/media answers 202 while it transcodes, and attaching an unprocessed
+    # id posts a status with a broken attachment. The GET returns 206 until
+    # the file is ready, so poll for a url rather than trusting the first
+    # response.
+    if media_id:
+        for _ in range(30):
+            got = http(f"{base}/api/v1/media/{media_id}", headers=auth, timeout=30)
+            if isinstance(got, dict) and got.get("url"):
+                break
+            time.sleep(4)
+
+    fields = {"status": text, "visibility": "public", "language": "en"}
+    if media_id:
+        fields["media_ids[]"] = media_id
+    # An Idempotency-Key makes a retried workflow safe: the server returns the
+    # SAME status instead of posting the film twice. No other platform here
+    # offers this, and a duplicate post is the most visible failure a feed can
+    # have.
+    key = f"aw-{spec['date']}-{spec['id']}"[:255]
+    res = http(f"{base}/api/v1/statuses",
+               data=urllib.parse.urlencode(fields).encode(),
+               headers={**auth, "Idempotency-Key": key,
+                        "Content-Type": "application/x-www-form-urlencoded"})
+    return res.get("url") or res.get("uri") or f"{base}/", None
+
+
 def post_facebook(spec, text, media_url, card: Path, live: bool):
     page = os.environ.get("FB_PAGE_ID")
     token = os.environ.get("FB_PAGE_ACCESS_TOKEN")
@@ -523,11 +635,13 @@ def main() -> int:
     media_pt = (publish_media(card_pt, spec, args.live)
                 if card_pt and card_pt != card else media_url)
 
+    resolve_mastodon_limit()
     now = dt.datetime.now(dt.timezone.utc).isoformat()
     entries, failures = [], []
 
     plan = [
         ("bluesky", lambda t: post_bluesky(spec, t, card, args.live, video)),
+        ("mastodon", lambda t: post_mastodon(spec, t, card, args.live, video)),
         ("threads", lambda t: post_threads(spec, t, media_url, args.live)),
         ("instagram", lambda t: post_instagram(spec, t, media_pt, args.live)),
         ("facebook", lambda t: post_facebook(spec, t, media_url, card, args.live)),
