@@ -233,6 +233,72 @@ focus / layout / animation bugs.
 
 ## Session Log
 
+### 2026-09-06 — Share links preview as the film; Mastodon; the programme feed
+Owner: "do the share path work first, then mastodon, and then an RSS feed if
+we think it makes sense." All three shipped, all on `main`, deploy green.
+
+**The share path was the real find, and it was worse than reported.**
+`archivewatch.org/item/<id>` is the canonical share URL on EVERY platform —
+the apps' share buttons, the Roku QR card, the social programme, and the
+Universal / App Links that open the native apps. Nothing existed at that path
+on GitHub Pages, so it fell through to `404.html`: no per-film metadata at
+all, served with **HTTP 404**, which several crawlers decline to preview
+outright. Every link anyone had ever shared previewed as nothing. The one
+channel that scales with the audience rather than our posting rate was the one
+that looked broken. `tools/build_share_pages.py` now writes a real page per
+item and series — 26,314 deployed and VERIFIED LIVE by fetching as the
+Facebook crawler. Generated into the Pages ARTIFACT, never committed, which is
+Decision 018's reasoning applied to ~27,000 files.
+
+**Three defects while building it, each now locked by a test that was checked
+to FAIL:** a synopsis here is often a quoted review, so clipping it left a
+dangling opening quote (it shipped in the first batch); detail-shard records
+have trailing nulls trimmed, so an unguarded positional read would kill the
+build on one thin item; and two string patches SILENTLY DID NOT APPLY — I
+matched escape sequences where the file holds literal characters — leaving
+bare CSS under an orphan `</style>`. The test asserts the absence of an inline
+style block rather than assuming the edit landed.
+
+**Mastodon** (`post_mastodon`): no developer portal, no review, token minted in
+the account's own settings. Two things no other adapter here can do, both
+because the Fediverse is federated: it ASKS THE INSTANCE its character limit
+(500 is only Mastodon's default; infosec.exchange answers 11,000 — measured
+live against three servers) and only ever raises the floor; and every status
+carries an idempotency key, so a re-run returns the original instead of
+posting the film twice. Media always carries alt text.
+**NOT VERIFIED: an actual posted status** — no Mastodon account exists yet.
+Normalisation, the live limit read, the not-connected and dry-run paths and
+the multipart builder are all tested; the POST itself is compile-and-dry-run
+only.
+
+**The feed** (`/feed.xml` + `/feed.json`, autodiscovered): the one channel
+nobody else owns. Driven by `social/posted.json` ONLY, because re-deriving the
+programme from the date-seeded selector is not stable — the selector consults
+the ledger to avoid repeats, so yesterday's answer moves as the ledger grows,
+and a feed entry that changes after a reader has seen it cannot be fixed for
+the people it already reached. **The ledger is empty, so the feed ships with 0
+entries and fills on the first live post.** Its test found a real bug: a row
+with an unparseable date was stamped "now", and since a non-numeric string
+sorts above every date it went to the TOP of the feed and would have stayed
+in every reader's newest slot permanently. An unreadable date is now a drop.
+
+**Researched and deliberately NOT built** (recorded in SOCIAL-SETUP.md §6 so
+nobody re-walks it): X (pay-per-use since 1 June 2026, and a post with a URL
+costs more — every post here has one), Reddit (self-service API registration
+closed in late 2025; subreddit rules make an automated daily poster the thing
+moderators remove), Pinterest (the closest call — pins compound where feed
+posts die, but trial access creates pins visible ONLY to their creator and
+standard access needs a screen recording plus a 1-4 week review), Letterboxd
+(best audience on the list, but access is by request and it is a diary, not a
+broadcast channel — worth an email, not a build), Tumblr (the most reasonable
+NEXT build), Discord (worth adding the day a server exists).
+
+**A macOS-only trap worth knowing:** two catalog ids differ only in case
+(`macleanstoot` / `MacleansToot`), so a local run comes out one page short
+while the Linux runner and Pages, both case-sensitive, are correct. Do not
+"fix" it by folding case — the id IS the URL the apps emit.
+
+
 ### 2026-09-06 — QR links open the film on phones; documented leftovers closed
 Owner: "make it so that the QR codes … actually open the right movies within
 the mobile apps (right now they just open the app but not the movie)". Two
