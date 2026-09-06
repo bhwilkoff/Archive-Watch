@@ -91,8 +91,36 @@ def rounded(img: Image.Image, radius: int) -> Image.Image:
     return out
 
 
+def hard_break(draw: ImageDraw.ImageDraw, word: str, fnt, width: int) -> list:
+    """Split a word that cannot fit the column at all.
+
+    Nothing in a catalog of 26,000 archive titles guarantees a word narrower
+    than the text column — a German compound or a run-on id will not fit at
+    any font size the card uses. Without this it rendered straight past the
+    card edge, which is the same overflow the square layout had.
+    """
+    out, cur = [], ""
+    for ch in word:
+        if draw.textlength(cur + ch, font=fnt) <= width or not cur:
+            cur += ch
+        else:
+            out.append(cur)
+            cur = ch
+    if cur:
+        out.append(cur)
+    return out
+
+
 def wrap(draw: ImageDraw.ImageDraw, text: str, fnt, width: int, max_lines: int) -> list:
-    words, lines, cur = text.split(), [], ""
+    # Break the unbreakable FIRST, so the line-filling loop below only ever
+    # sees words that can actually fit.
+    words = []
+    for w in text.split():
+        if draw.textlength(w, font=fnt) > width:
+            words.extend(hard_break(draw, w, fnt, width))
+        else:
+            words.append(w)
+    lines, cur = [], ""
     for w in words:
         trial = f"{cur} {w}".strip()
         if draw.textlength(trial, font=fnt) <= width:
@@ -110,8 +138,19 @@ def wrap(draw: ImageDraw.ImageDraw, text: str, fnt, width: int, max_lines: int) 
     # ("1965  ·  Feature film") read "dir. David L. Hewitt …" with nothing
     # missing. Count the words instead.
     if len(" ".join(lines).split()) < len(words):
+        # Shorten the last line to make room for the ellipsis. `rsplit(" ")` on
+        # a string with NO space returns it unchanged, so the original loop
+        # spun forever on any single word wider than the column — the card
+        # renderer hung indefinitely on "Die Nibelungen: Siegfried" and took
+        # the whole daily run with it. Stop when nothing more can come off.
         while lines and draw.textlength(lines[-1] + " …", font=fnt) > width:
-            lines[-1] = lines[-1].rsplit(" ", 1)[0]
+            shorter = lines[-1].rsplit(" ", 1)[0]
+            if shorter == lines[-1]:
+                shorter = lines[-1][:-1]          # trim a character instead
+            if not shorter:
+                lines.pop()
+                break
+            lines[-1] = shorter
         if lines:
             lines[-1] += " …"
     return lines

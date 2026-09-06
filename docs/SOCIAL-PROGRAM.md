@@ -191,6 +191,29 @@ this system that must never be lost.
 
 ---
 
+## 7a. Variety is a rule, not an accident
+
+A ten-day rehearsal came out **8 of 10 feature films** — every card carrying
+the same eyebrow. Each film was individually well chosen; the WEEK was one
+note, which is the failure only a batch can show.
+
+The cause was arithmetic, not editorial: features are the rows that carry
+IMDb votes, so any popularity floor selects them. Two rules correct it:
+
+- the vote floor is **lower for the kinds that rarely carry votes at all** (a
+  1933 Fleischer cartoon has none), and
+- a kind appearing **three or more times in the last six posts** sorts behind
+  one that has not.
+
+Both are soft. Fully rotating the kinds over-corrected the other way — a
+rehearsal then produced just 2 features in 10 days, which undersells a
+catalog whose main draw is movies. Measured over 14 days, the programme now
+runs 5 features, 5 silents, 2 cartoons and 2 shorts across the 1900s to the
+1950s. **Run `tools/social_rehearse.py` before changing any selection rule**;
+the report warns when one kind or one decade takes more than 60% of a run.
+
+---
+
 ## 8. The ship gate
 
 Before any change to the program ships, all of these must hold:

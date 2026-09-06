@@ -114,20 +114,24 @@ def main() -> int:
     start = (dt.date.fromisoformat(args.start) if args.start
              else dt.date.today() + dt.timedelta(days=1))
 
-    # The real ledger is put aside for the run and restored in `finally`, so a
-    # rehearsal can never burn a film the programme has not actually posted.
-    saved = LEDGER.read_text(encoding="utf-8") if LEDGER.exists() else None
-    sim = {"_": "rehearsal (in memory)", "posts": []}
+    # A SEPARATE ledger file, never the real one. The first version wrote to
+    # social/posted.json and restored it afterwards, which left the working
+    # tree dirty mid-run and would have raced a real post.
+    sim_path = out / "rehearsal-ledger.json"
+    sim = {"_": "rehearsal only — never the real ledger", "posts": []}
+    real = LEDGER.read_text(encoding="utf-8") if LEDGER.exists() else "{}"
+    for p in json.loads(real).get("posts", []):
+        sim["posts"].append(p)          # respect what has ACTUALLY been posted
     rows, cards = [], []
     try:
         for i in range(args.days):
             day = (start + dt.timedelta(days=i)).isoformat()
-            LEDGER.write_text(json.dumps(sim), encoding="utf-8")
+            sim_path.write_text(json.dumps(sim), encoding="utf-8")
             spec_path = out / f"{day}.json"
             env = {**os.environ, "AW_SOCIAL_CACHE": str(out / "shards")}
             r = run([sys.executable, str(REPO / "tools" / "social_select.py"),
                      "--slot", "auto", "--date", day, "--out", str(spec_path),
-                     "--index", str(cached)], env=env)
+                     "--index", str(cached), "--ledger", str(sim_path)], env=env)
             if r.returncode != 0:
                 rows.append({"date": day, "error": r.stderr.strip()[:90]})
                 print(f"  {day}  COULD NOT FILL — {r.stderr.strip()[:70]}")
@@ -155,16 +159,17 @@ def main() -> int:
                          "clip": clip_note})
             if card.exists():
                 cards.append((card, f"{spec['title'][:30]} ({spec['year']})"))
-            sim["posts"].append({"at": dt.datetime.now(dt.timezone.utc).isoformat(),
+            sim["posts"].append({"at": (dt.datetime.now(dt.timezone.utc)
+                                        + dt.timedelta(seconds=i)).isoformat(),
                                  "id": spec["id"], "title": spec["title"],
                                  "slot": spec["slot"], "platform": "rehearsal",
+                                 "kind": spec["contentType"],
                                  "url": "rehearsal", "reviewer": spec.get("reviewer")})
             print(f"  {day} {rows[-1]['dow']}  {spec['slot']:16s} "
                   f"{spec['title'][:38]:38s} {str(spec['year']):5s} "
                   f"{'quote' if has_review else '     '} {clip_note}")
     finally:
-        if saved is not None:
-            LEDGER.write_text(saved, encoding="utf-8")
+        pass
 
     good = [r for r in rows if "error" not in r]
     print("\n--- the programme, as a whole ---")

@@ -553,6 +553,7 @@ def main() -> int:
         print(f"   posted: {url}\n")
         entries.append({"at": now, "id": spec["id"], "title": spec["title"],
                         "slot": spec["slot"], "platform": name, "url": url,
+                        "kind": spec.get("contentType"),
                         "reviewer": spec.get("reviewer")})
 
     if entries:

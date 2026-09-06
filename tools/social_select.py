@@ -34,6 +34,8 @@ import random
 import re
 import sys
 import urllib.request
+from collections import Counter
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
@@ -95,6 +97,13 @@ def recently_posted(ledger: list, days: int = 365) -> set:
     """Film ids posted within `days`. §7 — no film repeats inside a year."""
     cutoff = (dt.datetime.now(dt.timezone.utc) - dt.timedelta(days=days)).isoformat()
     return {p["id"] for p in ledger if p.get("at", "") >= cutoff and p.get("id")}
+
+
+def recent_kinds(ledger: list, n: int = 6) -> list:
+    """The content types of the last n posts, newest first."""
+    posts = [p for p in ledger if p.get("kind")]
+    return [p["kind"] for p in sorted(posts, key=lambda p: p.get("at", ""),
+                                      reverse=True)[:n]]
 
 
 def quoted_reviews(ledger: list) -> set:
@@ -267,19 +276,43 @@ def candidates(index: dict, slot: str) -> list:
         keep = {"ephemeral", "newsreel", "documentary", "commercial", "short-film"}
         return [r for r in rows if r[I_TYPE] in keep]
     if slot in ("now-showing", "viewer-said", "double-bill"):
-        # The backbone slots lead with films a reader might actually recognise
-        # or be glad to discover: a real audience has rated them.
-        return [r for r in rows if popularity(r) >= 500]
+        # A real audience has rated these — a reader might recognise one, or be
+        # glad to discover it. The floor is LOWER for the kinds that rarely
+        # carry IMDb votes at all (a 1933 Fleischer cartoon has none), or the
+        # programme becomes a wall of features by arithmetic rather than by
+        # editorial choice.
+        thin = {"animation", "silent-film", "short-film", "newsreel",
+                "ephemeral", "documentary"}
+        return [r for r in rows
+                if popularity(r) >= (60 if r[I_TYPE] in thin else 500)]
     return rows
 
 
-def seeded_order(rows: list, slot: str, date: str) -> list:
-    """Deterministic per (slot, date): a retry picks the same film."""
+def seeded_order(rows: list, slot: str, date: str, recent: list | None = None) -> list:
+    """Deterministic per (slot, date): a retry picks the same film.
+
+    Then VARIED by kind. A rehearsal of ten days came out 8/10 feature films —
+    every card carrying the same eyebrow, which reads as one note in a profile
+    grid even though every film was different. Features dominate because they
+    are the rows with IMDb votes, so the shuffle alone will always find them.
+    A film whose KIND is among the recent posts sorts after one whose kind is
+    not; inside each group the seeded shuffle still decides, so the pick stays
+    deterministic.
+    """
     seed = int(hashlib.sha256(f"{slot}|{date}".encode()).hexdigest()[:12], 16)
     rnd = random.Random(seed)
     out = list(rows)
     rnd.shuffle(out)
-    return out
+    if not recent:
+        return out
+    # A SOFT rule: only a kind that is genuinely over-represented in the recent
+    # window is pushed back. Sorting every seen kind behind every unseen one
+    # over-corrected the other way — a ten-day rehearsal came out with just 2
+    # feature films, which undersells a catalog whose main draw is movies.
+    # Features should lead about half the time, not eight times in ten.
+    seen = Counter(recent)
+    over = {k for k, n in seen.items() if n >= 3}
+    return sorted(out, key=lambda r: 1 if r[I_TYPE] in over else 0)
 
 
 def on_this_day(rows: list, when: dt.date, shards: dict) -> list:
@@ -314,27 +347,39 @@ def fetch_details(ids: list, verbose: bool = False) -> dict:
     want = {}
     for i in ids:
         want.setdefault(shard_of(i), []).append(i)
-    out = {}
-    for sh, members in want.items():
-        data = None
+
+    def load(sh: str):
         cached = (cache / f"{sh}.json") if cache else None
         if cached and cached.exists():
             try:
-                data = json.loads(cached.read_text(encoding="utf-8"))
+                return sh, json.loads(cached.read_text(encoding="utf-8"))
             except Exception:  # noqa: BLE001
-                data = None
-        if data is None:
+                pass
+        try:
+            data = http_json(f"{SITE}/details/{sh}.json", timeout=25)
+        except Exception as e:  # noqa: BLE001
+            if verbose:
+                print(f"  shard {sh}: {e}", file=sys.stderr)
+            return sh, None
+        if cached:
             try:
-                data = http_json(f"{SITE}/details/{sh}.json")
-            except Exception as e:  # noqa: BLE001
-                if verbose:
-                    print(f"  shard {sh}: {e}", file=sys.stderr)
-                continue
-            if cached:
                 cached.write_text(json.dumps(data), encoding="utf-8")
-        for i in members:
-            if i in data:
-                out[i] = data[i]
+            except OSError:
+                pass
+        return sh, data
+
+    # CONCURRENT, with a short per-request timeout. Sequentially this is ~50
+    # round trips: a ten-day rehearsal stalled ten minutes on a single slow
+    # shard, and the daily run had the same worst case (50 requests x a 60 s
+    # timeout) hidden behind the fact that it only ever ran once.
+    out = {}
+    with ThreadPoolExecutor(max_workers=12) as pool:
+        for sh, data in pool.map(load, list(want)):
+            if not data:
+                continue
+            for i in want[sh]:
+                if i in data:
+                    out[i] = data[i]
     return out
 
 
@@ -417,8 +462,14 @@ def main() -> int:
     ap.add_argument("--explain", action="store_true",
                     help="print every fragment with the field it came from")
     ap.add_argument("--index", default=f"{SITE}/catalog-index.json")
+    ap.add_argument("--ledger", default=None,
+                    help="use this ledger instead of social/posted.json "
+                         "(a rehearsal must never touch the real one)")
     args = ap.parse_args()
 
+    global LEDGER
+    if args.ledger:
+        LEDGER = Path(args.ledger)
     when = dt.date.fromisoformat(args.date) if args.date else dt.date.today()
     program = load_program()
     slot = args.slot if args.slot != "auto" else slot_for_date(when, program)
@@ -434,7 +485,7 @@ def main() -> int:
         print("no eligible film — nothing posted today", file=sys.stderr)
         return 3
 
-    order = seeded_order(rows, slot, when.isoformat())
+    order = seeded_order(rows, slot, when.isoformat(), recent_kinds(ledger))
 
     # "On this day" needs release dates, which live in the shards: take a wide
     # shortlist, then narrow. Every other slot needs only its own shortlist.
