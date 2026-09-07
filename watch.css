@@ -786,3 +786,15 @@ a.person:focus-visible { outline: 2px solid var(--color-primary); outline-offset
 
 /* The two mode entries under the Surprise grid. */
 .mode-links { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: .25rem; }
+
+/* Search result filters — the same chip language as Browse, but built from
+   the results in hand so a chip can never lead to an empty grid. */
+.search-filters { display: flex; flex-wrap: wrap; gap: .4rem; margin: .1rem 0 .9rem; }
+.search-filters button {
+  background: var(--bg-raise); color: var(--text-dim);
+  border: 1px solid var(--border); border-radius: 999px;
+  padding: .3rem .75rem; font-size: .82rem; cursor: pointer;
+}
+.search-filters button[aria-pressed="true"] {
+  border-color: var(--color-primary); color: var(--color-primary);
+}

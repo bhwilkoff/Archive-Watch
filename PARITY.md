@@ -90,7 +90,7 @@ macOS) since they share the Swift Core.
 | Prev/next episode in player | ✅ | ✅ | 🚧 | ✅ | ✅ | EpisodeQueue / PlaybackQueue (macOS wiring pending) |
 | Collections landing + blurbs | ✅ | ✅ | ✅ `CollectionsList` | ✅ `#/collections` | ✅ | `collection_metadata.json` shared |
 | Full-text search (FTS5) | ✅ | ✅ | ✅ `SearchView` over FTS5 | 🚧 title + keyword/AKA/writer/studio blob + **director**, accent-folded. plus **cast** via the lazily-fetched `people.json` sidecar (the `aliases.json` pattern, D085) — 27,490 people, 1.4 MB gzipped, fetched only on the first person search | ✅ debounced FTS5 | same FTS5 index |
-| Search result filters | ⏳ | ✅ type/decade menu | ✅ type/decade menu | ⏳ | ✅ chips | |
+| Search result filters | ⏳ | ✅ type/decade menu | ✅ type/decade menu | ✅ type + decade chips over the results, each facet computed against the other's selection | ✅ chips | |
 
 ## 4. Detail + Playback
 

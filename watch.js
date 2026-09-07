@@ -1314,6 +1314,13 @@
       }
       this.renderEpisodes(ehits);
 
+      // Result filters (the apps' rule: offer only facets PRESENT in the
+      // results, so a chip never leads to an empty grid). Filtering happens
+      // over the hits already in hand -- no re-query, no second scan.
+      this.hits = hits;
+      this.fType = ''; this.fDecade = '';
+      this.renderFilters();
+
       fillGrid(grid, hits);
       if (!hits.length && !ehits.length) {
         const p = document.createElement('p');
@@ -1321,6 +1328,69 @@
         p.textContent = `Nothing matches “${qs}”.`;
         grid.append(p);
       }
+    },
+
+
+    /** Chips for the types and decades actually present in the current
+        results. Rebuilt per query; hidden when there is nothing to choose
+        between, because a filter row offering one option is chrome. */
+    renderFilters() {
+      const host = $('search-filters');
+      if (!host) return;
+      const hits = this.hits || [];
+      // Each facet is computed against the OTHER facet's current selection, not
+      // against the whole result set. Offering decades from all hits while a
+      // type is active promises combinations that do not exist: measured, five
+      // decade chips emptied the grid after "Silent film" was chosen. A chip
+      // that leads nowhere is worse than a chip that is absent.
+      const byDecade = this.fDecade
+        ? hits.filter(r => r[2] && Math.floor(r[2] / 10) * 10 === Number(this.fDecade))
+        : hits;
+      const byType = this.fType ? hits.filter(r => r[3] === this.fType) : hits;
+      const types = [...new Set(byDecade.map(r => r[3]).filter(Boolean))];
+      const decades = [...new Set(byType.map(r => r[2] && Math.floor(r[2] / 10) * 10)
+        .filter(d => d && d >= 1890 && d <= 2030))].sort((a, b) => a - b);
+      if (hits.length < 2 || (types.length < 2 && decades.length < 2)) {
+        host.hidden = true; host.replaceChildren(); return;
+      }
+      const chip = (label, active, on) => {
+        const b = document.createElement('button');
+        b.textContent = label;
+        b.setAttribute('aria-pressed', String(active));
+        b.onclick = on;
+        return b;
+      };
+      const kids = [];
+      if (types.length > 1) {
+        kids.push(chip('All types', !this.fType, () => { this.fType = ''; this.applyFilters(); }));
+        for (const t of types) {
+          kids.push(chip(TYPE_LABELS[t] || t.replace(/-/g, ' '), this.fType === t,
+            () => { this.fType = t; this.applyFilters(); }));
+        }
+      }
+      if (decades.length > 1) {
+        kids.push(chip('All decades', !this.fDecade,
+          () => { this.fDecade = ''; this.applyFilters(); }));
+        for (const d of decades) {
+          kids.push(chip(`${d}s`, this.fDecade === String(d),
+            () => { this.fDecade = String(d); this.applyFilters(); }));
+        }
+      }
+      host.replaceChildren(...kids);
+      host.hidden = false;
+    },
+
+    applyFilters() {
+      // The other facet may have made this selection impossible.
+      const hits = this.hits || [];
+      if (this.fType && !hits.some(r => r[3] === this.fType)) this.fType = '';
+      if (this.fDecade && !hits.some(r =>
+          r[2] && Math.floor(r[2] / 10) * 10 === Number(this.fDecade))) this.fDecade = '';
+      const rows = hits.filter(r =>
+        (!this.fType || r[3] === this.fType) &&
+        (!this.fDecade || (r[2] && Math.floor(r[2] / 10) * 10 === Number(this.fDecade))));
+      fillGrid($('search-grid'), rows);
+      this.renderFilters();          // repaint pressed states
     },
 
     // The "Episodes" section above the film grid. Each row opens the episode's
