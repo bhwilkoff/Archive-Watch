@@ -366,3 +366,58 @@ service-worker offline shell.
   work they would do (refreshing a catalog index) is what the service worker's
   stale-while-revalidate already does on the next visit.
 
+## §12 Cold-load weight — measured, with the next moves ranked
+
+Measured against the LIVE site on 2026-09-07, because this is what a visitor
+arriving from a social post on a phone actually pays.
+
+A first paint downloads **2.38 MB**, and 98% of it is one file:
+
+| file | over the wire |
+|---|---|
+| `catalog-index.json` | 2.33 MB (gzip; 7.16 MB raw) |
+| `watch.js` | 31 KB |
+| `watch.css` | 7 KB |
+| `index.html` + `api.js` + manifest | 8 KB |
+
+Two facts settled by measurement, so nobody re-tests them:
+
+- **GitHub Pages does not serve brotli.** `Accept-Encoding: br` alone returns
+  the file UNCOMPRESSED at 7.16 MB; only gzip is negotiated. Client-side
+  brotli is not a way out either — `DecompressionStream` supports gzip and
+  deflate, not brotli.
+- **Repeat visits are already cheap.** `cache-control: max-age=600` plus an
+  ETag, and a conditional request answers **304 with 0 bytes**. The cost is
+  the FIRST visit only; do not spend effort on repeat-visit caching.
+
+Where the index's 2.30 MB of gzip actually goes:
+
+| field | gzip | share |
+|---|---|---|
+| poster | 0.61 MB | 26.4% |
+| search | 0.47 MB | 20.3% |
+| id | 0.37 MB | 16.1% |
+| title | 0.34 MB | 14.8% |
+| backdrop | 0.10 MB | 4.5% |
+| director | 0.08 MB | 3.4% |
+| everything else | 0.33 MB | 14.5% |
+
+**Ranked next moves, none taken yet — each needs a live browser to verify and
+the only one available reported a zero-width viewport:**
+
+1. **Move the `search` blob to a lazily-fetched sidecar** (the `aliases.json` /
+   `people.json` pattern, Decision 085). It is used only by Search and by
+   Browse's keyword/studio chips, so most visitors never need it: −0.47 MB,
+   a 20% cut to first paint. Key it by archiveID rather than by row position —
+   positional coupling between two separately-cached files is a silent
+   corruption waiting for a partial cache.
+2. **Template the poster URLs.** They are overwhelmingly
+   `https://image.tmdb.org/t/p/w500/<hash>.jpg`; storing a one-character source
+   code plus the hash would take a large bite out of 0.61 MB. Pure encoding,
+   round-trippable, testable in node.
+3. **`content-visibility: auto` on shelves** — see §11 for why it was refused
+   without measurement.
+
+Do not chase 3 before 1: the render cost of a 28-shelf page is invisible next
+to 2.3 MB on a phone connection.
+
