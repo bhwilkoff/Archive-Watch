@@ -156,9 +156,17 @@
     </section>
 
     <section id="view-item" hidden>
+      <!-- Ambient wash behind the Detail hero, the same device Home already
+           uses and every native app relies on (tvOS/Roku/Google TV all set a
+           blurred wash under the copy). Detail was flat #0A0A0A while the SAME
+           artwork sat two inches away in the poster -- the one page every
+           social share link lands on. Decision 097's rule holds: the wash is
+           the only thing that may crop; the poster itself is never reshaped. -->
+      <div id="item-ambient" class="detail-ambient" aria-hidden="true"></div>
       <div class="detail">
         <div class="detail-art"><img id="item-poster" alt="" loading="eager"></div>
         <div class="detail-body">
+          <p id="item-eyebrow" class="item-eyebrow" hidden></p>
           <h1 id="item-title"></h1>
           <p id="item-aka" class="item-aka muted" hidden></p>
           <p id="item-meta" class="muted"></p>
@@ -260,13 +268,21 @@
     <p id="apperror" class="error" hidden></p>
   </main>
 
+  <!-- The persistent footer (WEB-DESIGN 8.1) now names the DEVICE rather than
+       the store. Someone arriving from a social post knows they own a Fire TV,
+       not that Fire TV means "Amazon Appstore" — and the Apple record is ONE
+       universal app covering Apple TV, iPhone, iPad and Mac, which "App Store"
+       alone never communicated. Links carry no store badge images: they would
+       be third-party assets on a site that ships none (8.2). -->
   <footer class="foot">
     <img src="assets/app-icon/app-icon.png" alt="" width="30" height="18">
+    <nav class="foot-apps" aria-label="Get the app">
+      <span class="foot-apps-label">Get the app</span>
+      <a href="https://apps.apple.com/us/app/archive-watch/id6776697407" target="_blank" rel="noopener">Apple TV, iPhone, iPad &amp; Mac</a>
+      <a href="https://play.google.com/store/apps/details?id=com.archivewatch.app" target="_blank" rel="noopener">Android &amp; Google TV</a>
+    </nav>
+    <span class="foot-sep" aria-hidden="true">·</span>
     <a href="#/about">About &amp; attribution</a>
-    <span aria-hidden="true">·</span>
-    <a href="https://apps.apple.com/us/app/archive-watch/id6776697407" target="_blank" rel="noopener">App Store</a>
-    <span aria-hidden="true">·</span>
-    <a href="https://play.google.com/store/apps/details?id=com.archivewatch.app" target="_blank" rel="noopener">Google Play</a>
     <span aria-hidden="true">·</span>
     <a href="https://archive.org/donate" target="_blank" rel="noopener">Support the Archive</a>
   </footer>

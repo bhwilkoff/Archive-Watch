@@ -498,7 +498,29 @@
       manual refresh. Walk the fallback chain, then retry the whole chain up
       to twice with jittered backoff — removing src first so the browser
       actually re-requests instead of ignoring a same-value assignment. */
+  /** TMDb serves one image at many widths; the index bakes in a large one so
+   *  the DETAIL hero looks right, and every tile then paid for it. Measured on
+   *  Home: 197 tiles fetched w500/w780 renditions to draw them at 148 CSS px --
+   *  3.4x to 5.3x the pixels needed, on a site whose promise is "free, no
+   *  account" to people arriving from a phone link.
+   *
+   *  Only the rendition changes; the path and the fallback chain are untouched,
+   *  so a non-TMDb URL (commons, archive, our generated covers) passes through
+   *  unmodified. Sizes are TMDb's own steps -- never invent one, an unknown
+   *  width 404s. */
+  const TMDB_STEPS = [92, 154, 185, 342, 500, 780, 1280];
+  function tmdbAtWidth(url, cssPx) {
+    if (typeof url !== 'string' || !url.includes('image.tmdb.org/t/p/')) return url;
+    const want = Math.ceil(cssPx * (window.devicePixelRatio || 1));
+    const step = TMDB_STEPS.find(w => w >= want) || 'original';
+    return url.replace(/\/t\/p\/(w\d+|original)\//, `/t/p/${step === 'original' ? 'original' : 'w' + step}/`);
+  }
+
   function wireArt(img, urls, onLoad, onFail) {
+    // Ask for the rendition this element will actually draw at. Falls back to
+    // the original url untouched when the box has not been laid out yet.
+    const box = Math.round(img.getBoundingClientRect().width);
+    if (box > 0) urls = urls.map(u => tmdbAtWidth(u, box));
     const chain = [...new Set(urls.filter(Boolean))];
     if (!chain.length) { if (onFail) onFail(); return; }
     // Persistent imgs (detail/series posters) get re-wired on navigation; the
@@ -517,6 +539,24 @@
     if (onLoad) img.onload = () => onLoad(img.currentSrc || img.src);
     set();
   }
+
+  /** Up to two real genres for the Detail meta line. */
+  function metaGenres(genres) {
+    if (!genres) return [];
+    const list = Array.isArray(genres) ? genres : String(genres).split(/\s*,\s*/);
+    return list.filter(g => g && /^[A-Z]/.test(g)).slice(0, 2);
+  }
+
+  /** The word each content type is called on screen. Kept beside the accents
+   *  so a new type cannot gain a colour without gaining a name. */
+  const TYPE_LABELS = {
+    'feature-film': 'Feature film', 'tv-series': 'Classic TV',
+    'silent-film': 'Silent film', 'animation': 'Animation',
+    'newsreel': 'Newsreel', 'documentary': 'Documentary',
+    'ephemeral': 'Ephemeral film', 'short-film': 'Short film',
+    'commercial': 'Commercial', 'tv-special': 'Television',
+    'tv-episode': 'Episode', 'home-movie': 'Home movie',
+  };
 
   /** Decision 013 semantic accents — content meaning only, never chrome. */
   const TYPE_ACCENTS = {
@@ -1540,9 +1580,41 @@
       this.current = { id, row, summary: null, detail: null };
 
       $('item-title').textContent = row[1];
-      $('item-meta').textContent = [row[2], row[3].replace(/-/g, ' ')]
-        .filter(Boolean).join(' · ');
+      // The kind lives in the eyebrow above, so the meta line never repeats it
+      // (the same correction the Android TV Detail took, TV-DESIGN §4.8).
+      $('item-meta').textContent = [row[2]].filter(Boolean).join(' · ');
       wireArt($('item-poster'), [Data.poster(row), API.thumbnailURL(id)]);
+
+      // Category eyebrow + ambient wash. The eyebrow carries the Decision 013
+      // SEMANTIC accent (content meaning, never chrome); the wash prefers a
+      // real backdrop and falls back to the poster, which is what every native
+      // Detail does. It is set as a background-image so the blur can crop it
+      // freely -- the POSTER beside it is still never reshaped (Decision 097).
+      const ctype = row[3];
+      const eyebrow = $('item-eyebrow');
+      if (eyebrow) {
+        const label = TYPE_LABELS[ctype] || '';
+        eyebrow.textContent = label;
+        eyebrow.hidden = !label;
+        eyebrow.style.color = TYPE_ACCENTS[ctype] || 'var(--color-primary)';
+      }
+      const ambient = $('item-ambient');
+      if (ambient) {
+        const art = row[7] || Data.poster(row);
+        if (art) {
+          // A wash is blurred to 34px, so it needs no detail: ask for a small
+          // rendition rather than the hero-sized one the index carries.
+          const pre = new Image();
+          pre.onload = () => {
+            ambient.style.backgroundImage = `url("${pre.src}")`;
+            ambient.classList.add('on');
+          };
+          pre.src = tmdbAtWidth(art, 320);
+        } else {
+          ambient.classList.remove('on');
+          ambient.style.backgroundImage = '';
+        }
+      }
 
       // Episode item (Decision 045): a link back to the full series.
       const epMeta = Data.episodeMeta.get(id);
@@ -1599,7 +1671,11 @@
         const meta = [
           row[2] && String(row[2]),
           det.runtimeSeconds && `${Math.round(det.runtimeSeconds / 60)} min`,
-          row[3] && row[3].replace(/-/g, ' '),
+          // Genres in place of the kind the eyebrow already states. TMDb
+          // carries lowercase descriptor tags ("comedy drama") beside real
+          // Title-Case genres; only the latter say something the eyebrow does
+          // not, so the lowercase ones are dropped rather than Title-Cased.
+          ...metaGenres(det.genres),
           det.director && `Dir. ${det.director}`,
         ].filter(Boolean).join(' · ');
         if (meta) $('item-meta').textContent = meta;

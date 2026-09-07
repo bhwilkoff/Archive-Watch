@@ -641,7 +641,7 @@ dialog#player::backdrop { background: rgba(0, 0, 0, 0.85); }
 
 /* Cast button — matches #player-pip; `is-casting` marks an active session. */
 #player-cast { cursor: pointer; }
-#player-cast.is-casting { color: var(--color-primary, #FF5C35); }
+#player-cast.is-casting { color: var(--color-primary); }
 
 /* "Also known as" (Decision 100). One film often reached the Archive under
    several release titles, and the uploader's is what we show as the title —
@@ -651,4 +651,66 @@ dialog#player::backdrop { background: rgba(0, 0, 0, 0.85); }
   margin: 0.15rem 0 0;
   font-style: italic;
   font-size: 0.95rem;
+}
+
+
+/* --- Footer app links (WEB-DESIGN 8.1) ---------------------------------
+   Density from removing chrome (6.2): no badges, no boxes -- the links are
+   the same weight as the rest of the footer, separated by a hairline so the
+   group reads as one thing without adding a container. */
+.foot-apps { display: flex; align-items: center; gap: .55rem; flex-wrap: wrap; }
+.foot-apps-label {
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  font-size: .72rem;
+}
+.foot-apps a {
+  color: var(--text);
+  border-bottom: 1px solid transparent;
+  padding-bottom: 1px;
+}
+.foot-apps a:hover { border-bottom-color: var(--color-primary); }
+.foot-apps a + a { margin-left: .1rem; }
+.foot-apps a + a::before {
+  content: "·";
+  color: var(--text-dim);
+  margin-right: .55rem;
+}
+.foot-sep { color: var(--text-dim); }
+@media (max-width: 640px) {
+  /* On a phone the footer is one line of chrome; the app links matter more
+     than the label, so it goes rather than wrapping to two rows. */
+  .foot-apps-label { display: none; }
+}
+
+
+/* --- Detail ambient wash + category eyebrow ---------------------------
+   The wash reuses Home's .hero-ambient treatment rather than inventing a
+   second one, but sits BEHIND the whole detail block and fades out before
+   the copy starts, so text contrast never depends on the artwork.
+   No breathe animation here: Home's hero is a slideshow that benefits from
+   motion, a detail page is somewhere you READ. */
+#view-item { position: relative; }
+.detail-ambient {
+  position: absolute; inset: 0 0 auto 0; height: min(520px, 60vh);
+  background-size: cover; background-position: center 22%;
+  filter: blur(34px) saturate(1.15) brightness(0.38);
+  transform: scale(1.08);
+  opacity: 0; transition: opacity .5s ease;
+  pointer-events: none; z-index: 0;
+}
+.detail-ambient.on { opacity: 1; }
+.detail-ambient::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(10,10,10,.35) 0%, rgba(10,10,10,.75) 55%, var(--bg) 100%);
+}
+#view-item .detail { position: relative; z-index: 1; }
+
+/* Category eyebrow — the semantic accent for CONTENT meaning (Decision 013),
+   never chrome. Colour is set per item from TYPE_ACCENTS. */
+.item-eyebrow {
+  margin: 0 0 .35rem; font-size: .74rem; font-weight: 700;
+  letter-spacing: .11em; text-transform: uppercase;
+  color: var(--color-primary);
 }
