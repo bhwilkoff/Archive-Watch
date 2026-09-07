@@ -96,13 +96,36 @@ def upload(path: Path, aid: str) -> None:
     req.add_header("x-archive-meta-mediatype", "data")
     req.add_header("x-archive-meta-title", "Archive Watch trick-play thumbnails")
     req.add_header("Content-Type", "application/octet-stream")
-    with urllib.request.urlopen(req, timeout=600) as r:
-        if r.status not in (200, 201):
-            raise RuntimeError(f"upload {r.status}")
+    # RETRY. archive.org answers "503 Slow Down" when several shards push to
+    # the same item at once, and the first run lost 11 of 60 BIFs to it --
+    # each one already paid for with up to 20 minutes of ffmpeg. The bytes are
+    # in hand; only the PUT needs patience.
+    import random, time as _t
+    for attempt in range(6):
+        try:
+            with urllib.request.urlopen(req, timeout=600) as r:
+                if r.status in (200, 201):
+                    return
+                raise RuntimeError(f"upload {r.status}")
+        except Exception as e:
+            transient = "503" in str(e) or "Slow Down" in str(e) or "500" in str(e)
+            if not transient or attempt == 5:
+                raise
+            _t.sleep(min(90, (2 ** attempt) * 5) + random.uniform(0, 5))
+            # a fresh request object: the body stream of a used one is spent
+            req = urllib.request.Request(f"{S3}/{ITEM}/{aid}.bif",
+                                         data=path.read_bytes(), method="PUT")
+            req.add_header("Authorization", f"LOW {ak}:{sk}")
+            req.add_header("x-archive-auto-make-bucket", "1")
+            req.add_header("x-archive-meta-mediatype", "data")
+            req.add_header("x-archive-meta-title", "Archive Watch trick-play thumbnails")
+            req.add_header("Content-Type", "application/octet-stream")
 
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--index", default="https://archivewatch.org/catalog-index.json")
+    ap.add_argument("--no-prefilter", action="store_true",
+                    help="skip the runtime prefilter (per-item check still applies)")
     ap.add_argument("--details", default="https://archivewatch.org/details/{shard}.json")
     ap.add_argument("--out", default="build/bifs")
     ap.add_argument("--limit", type=int, default=20)
@@ -141,6 +164,37 @@ def main() -> int:
     fields = idx["fields"]; F = {k: i for i, k in enumerate(fields)}
     # popularity-first: the index is already ordered that way by the pipeline
     todo = [r for r in idx["items"] if r[F["playable"]] and done.get(r[F["id"]]) != "done"]
+
+    # DROP the short films BEFORE sharding. Roku 4.7 only asks for trick-play
+    # over 15 minutes, and the runtime lives in the detail shards -- so without
+    # this the queue carries 9,749 films that each cost a detail fetch and are
+    # then discarded as "short". Measured on the live catalog: 25,480 "to do"
+    # against 15,989 that actually need a BIF, i.e. 38% of the work was waste.
+    if not a.no_prefilter:
+        import concurrent.futures as _cf
+        def _shard(h):
+            try:
+                return json.load(urllib.request.urlopen(
+                    a.details.format(shard=f"{h:02x}"), timeout=120))
+            except Exception:
+                return {}
+        det = {}
+        with _cf.ThreadPoolExecutor(max_workers=12) as ex:
+            for part in ex.map(_shard, range(256)):
+                det.update(part)
+        if det:
+            before = len(todo)
+            kept = []
+            for r in todo:
+                rec = det.get(r[F["id"]])
+                rt = (rec[5] if rec and len(rec) > 5 else None) or 0
+                # An unknown runtime is KEPT: the per-item check still runs and
+                # will skip it if it turns out short. Never drop on ignorance.
+                if rt == 0 or rt >= a.min_runtime:
+                    kept.append(r)
+            todo = kept
+            print(f"[bif] runtime prefilter: {before} -> {len(todo)} "
+                  f"(dropped {before - len(todo)} under {a.min_runtime}s)", flush=True)
     # POPULARITY ORDER. A certification reviewer opens films from Home and the
     # popular shelves, so those must be covered first — the batch is useful
     # long before it is complete, and a partial run is a partial PASS rather
