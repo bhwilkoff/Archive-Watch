@@ -683,6 +683,12 @@
     },
     get commercials() { return this.read('aw_commercials', true); },
     set commercials(v) { this.write('aw_commercials', v); },
+    // Default OFF. The end-of-film CHOOSER is the default behaviour because a
+    // choice keeps the viewer deciding what to watch; autoplay is for people
+    // who have decided they want the opposite, and it still shows the chooser
+    // with a countdown they can stop.
+    get autoplay() { return this.read('aw_autoplay', false); },
+    set autoplay(v) { this.write('aw_autoplay', v); },
   };
 
   /** Categories the viewer has switched off. Parity with the apps' category
@@ -2733,6 +2739,8 @@
     /** Offer what to watch next instead of just closing. Returns false when
         there is nothing worth offering, in which case the caller closes as
         before — an empty chooser is worse than a clean exit. */
+    countdown: null,
+
     showEndCard() {
       Watched.refresh();          // a film just finished; Home should know
       const host = $('player-endcard');
@@ -2771,6 +2779,36 @@
       actions.append(again, done);
       host.replaceChildren(h, grid, actions);
       host.hidden = false;
+
+      // Opt-in autoplay. The chooser stays on screen with a countdown rather
+      // than the film simply starting: the viewer can see what is coming and
+      // stop it, which is the difference between a suggestion and a decision
+      // made for them.
+      clearInterval(this.countdown);
+      if (Prefs.autoplay) {
+        let left = 10;
+        const next = rows[0];
+        const stop = () => { clearInterval(this.countdown); this.countdown = null; };
+        const cancel = document.createElement('button');
+        cancel.type = 'button';
+        cancel.className = 'btn-ghost';
+        const paint = () => { cancel.textContent = `Stop autoplay (${left})`; };
+        paint();
+        cancel.onclick = () => { stop(); cancel.remove(); };
+        actions.append(cancel);
+        this.countdown = setInterval(async () => {
+          if (host.hidden) { stop(); return; }        // the viewer moved on
+          if (--left > 0) { paint(); return; }
+          stop();
+          const det = await Details.get(next[0]).catch(() => null);
+          if (det?.downloadURL) {
+            host.hidden = true;
+            this.start({ id: next[0], title: next[1], url: det.downloadURL });
+          } else {
+            cancel.remove();                           // nothing to play; say nothing
+          }
+        }, 1000);
+      }
       return true;
     },
 
@@ -2863,6 +2901,9 @@
       clearInterval(this.saveTimer);
       clearTimeout(this.stallTimer);
       clearTimeout(this.overlayHideTimer);
+      clearInterval(this.countdown);   // an autoplay timer must not outlive the player
+      this.countdown = null;
+      $('player-endcard').hidden = true;
       video.pause();
       video.removeAttribute('src');
       video.load();
@@ -2930,6 +2971,12 @@
     // Preferences (About → Preferences). Toggling re-renders Home rather than
     // waiting for a reload, so the effect of the switch is immediately visible
     // -- a setting whose result you cannot see is a setting you cannot trust.
+    const autoBox = $('pref-autoplay');
+    if (autoBox) {
+      autoBox.checked = Prefs.autoplay;
+      autoBox.onchange = () => { Prefs.autoplay = autoBox.checked; };
+    }
+
     const adsBox = $('pref-commercials');
     if (adsBox) {
       adsBox.checked = Prefs.commercials;

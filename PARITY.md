@@ -153,7 +153,7 @@ macOS) since they share the Swift Core.
 | Cartoon / Kids mode | ✅ | ✅ | ✅ `Modes_macOS` | ✅ | ✅ | color/B&W flags shared |
 | Commercial-break controls | ✅ | ✅ toggle | ⏳ | ✅ About → Preferences, default on (a channel without them is not a channel) | ⏳ | |
 | Party Play (muted) | ✅ | 🔮 | 🔮 | ✅ Surprise → Party Play; muted lineup from the channel pools, never persisted | 🔮 | ambient mode |
-| Cover-art screensaver | ✅ + idle trigger | 🔮 | 🔮 | ⏳ | 🔮 | 10-foot/lean-back idiom |
+| Cover-art screensaver | ✅ + idle trigger | 🔮 | 🔮 | 🔮 as on iOS — a web page should not take over an idle screen; the OS and browser own idle | 🔮 | 10-foot/lean-back idiom |
 | VHS effect overlay | ✅ Metal | 🔮 | 🔮 | 🔮 | 🔮 | optional polish |
 
 ## 6. Personalization + sync
@@ -183,7 +183,7 @@ macOS) since they share the Swift Core.
 |---|---|---|---|---|---|---|
 | Mature-content filter (default ON) | ✅ | ✅ | ✅ `hideAdultContent` toggle | n/a (pre-filtered) | ✅ | Decision 012 |
 | Category visibility toggles | ✅ | ✅ | ⏳ | ✅ About → Preferences; hides the tile AND the items, sharing one count with the tile row | ⏳ | |
-| Autoplay/playback options | ✅ | ✅ | ⏳ | ⏳ | 🚧 | |
+| Autoplay/playback options | ✅ | ✅ | ⏳ | ✅ About → Preferences: opt-in autoplay (countdown on the end card, stoppable), commercials, hide-watched, categories. Speed is the browser's own (§5.1a) | 🚧 | |
 | Downloads storage + Remove All | 🚫 | ✅ + cellular toggle (OFF by default) | ✅ (no cellular question on a Mac) | 🚫 | ⏳ | Decision 099 |
 | TMDb attribution (required) | ✅ | ✅ | ✅ verbatim notice | ✅ | ✅ | Decision 007 |
 | Donate to Internet Archive | ✅ | ✅ | ✅ | ✅ | ✅ | Decision 010 |
