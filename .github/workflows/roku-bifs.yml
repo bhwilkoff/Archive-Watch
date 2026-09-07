@@ -26,6 +26,13 @@ on:
       interval:
         description: "Seconds between thumbnails"
         default: "20"
+      limit:
+        description: "Films per shard. The tool's own default is 20, which is
+          what every shard used before this input existed -- 40 shards produced
+          ~720 films while using a third of their 300-minute budget. Measured
+          median is 28s per film, so ~200 fits a full budget; --max-minutes is
+          the real stop."
+        default: "200"
 
 concurrency:
   group: roku-bifs
@@ -69,6 +76,7 @@ jobs:
             --interval ${{ github.event.inputs.interval || 20 }} \
             --shard ${{ matrix.shard }}/${{ github.event.inputs.shards || 40 }} \
             --skip-published \
+            --limit ${{ github.event.inputs.limit || 200 }} \
             --max-minutes ${{ github.event.inputs.max_minutes || 300 }} \
             --run --upload
       - name: Manifest
