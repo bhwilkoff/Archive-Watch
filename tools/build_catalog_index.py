@@ -106,6 +106,7 @@ def main():
     shelf_members: dict[str, list[tuple]] = {}
     collection_members: dict[str, list[tuple]] = {}
     community: dict[str, list[tuple]] = {"watching-now": [], "community-favorites": [], "most-discussed": []}
+    top_rated: list[tuple] = []
     # Facet frequency (Decision 046) — most-common keyword/studio names for the
     # Browse filter chips; the filter runs client-side against the search column.
     keyword_freq: dict[str, int] = {}
@@ -222,6 +223,15 @@ def main():
                 community["community-favorites"].append((it["numFavorites"], aid))
             if (it.get("numReviews") or 0) > 0:
                 community["most-discussed"].append((it["numReviews"], aid))
+            # Top Rated, mirroring CatalogDB.topRated (rating DESC, votes
+            # DESC, the same 1000-vote floor that keeps a 9.8-with-a-dozen-
+            # votes curio from outranking a classic). Computed HERE and not in
+            # the client: Decision 050 was written because Hidden Gems sat
+            # empty on four platforms for five weeks when a client restated a
+            # pipeline score. Web and Roku both read this index, so one
+            # membership serves both.
+            if rating is not None and playable:
+                top_rated.append((rating, votes or 0, aid))
 
     # Sort by popularity so the most useful titles search/scroll first.
     pop = {it.get("archiveID"): (it.get("popularityScore") or 0) for it in items}
@@ -243,6 +253,9 @@ def main():
     # "high craft, low traffic": no quality signal took part at all.
     if (gems := _hidden_gem_ids()):
         shelves["hidden-gems"] = gems
+
+    if top_rated:
+        shelves["top-rated"] = [aid for _, _, aid in sorted(top_rated, reverse=True)[:60]]
 
     collections = {
         cid: [aid for _, _, aid in sorted(members, reverse=True)[:120]]

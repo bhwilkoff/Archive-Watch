@@ -704,7 +704,7 @@
       }
       // Community shelves (archive.org usage signals; index computes them vote-
       // floored). Render from the index shelves map, dedup-aware like the apps.
-      const communityShelf = (id, title, subtitle) => {
+      const indexShelf = (id, title, subtitle) => {
         const rows = (Data.shelves[id] || []).map(x => Data.byID.get(x))
           .filter(r => r && Data.isPro(r) && Data.isFilm(r) && Data.plays(r) && !used.has(dedupKey(r))).slice(0, 16);
         if (rows.length >= 4) {
@@ -712,9 +712,16 @@
           host.append(shelfSection(title, subtitle, rows));
         }
       };
-      communityShelf('watching-now', 'Watching Now', 'Most-viewed on archive.org this month');
-      communityShelf('community-favorites', 'Community Favorites', 'Most-favorited by archive.org viewers');
-      communityShelf('most-discussed', 'Most Discussed', 'The films people are talking about');
+      // Top Rated. Membership is COMPUTED by build_catalog_index (the same
+      // rating DESC / 1000-vote-floor rule as CatalogDB.topRated), never
+      // restated here -- Decision 050 exists because a client that restated a
+      // pipeline score left Hidden Gems empty on four platforms for five
+      // weeks. So there is deliberately no client fallback: an index that
+      // predates the shelf simply omits the row.
+      indexShelf('top-rated', 'Top Rated', 'The highest-rated films in the archive');
+      indexShelf('watching-now', 'Watching Now', 'Most-viewed on archive.org this month');
+      indexShelf('community-favorites', 'Community Favorites', 'Most-favorited by archive.org viewers');
+      indexShelf('most-discussed', 'Most Discussed', 'The films people are talking about');
       // Hidden Gems — the index's `hidden-gems` shelf, which the pipeline fills
       // from the SAME computed flag the apps query (build_sqlite _mark_hidden_gems).
       // This used to shuffle the popularity TAIL, which is "random obscure", not

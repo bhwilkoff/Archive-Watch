@@ -69,10 +69,10 @@ macOS) since they share the Swift Core.
 | Category tiles | ✅ | ✅ tile row → filtered grid | ✅ tile row → filtered grid | ✅ accent tiles | ✅ tile row → filtered grid | accent colors shared; count-gated ≥30 |
 | Decade tiles | ✅ | ✅ era tiles + counts | ✅ era tiles + counts | ✅ era tiles | ✅ era tiles | |
 | Hidden Gems shelf | ✅ | ✅ | ✅ | ✅ | ✅ | **shared computed `hiddenGem` column** (Decision 050) — all five query the pipeline's flag, none restates a threshold. Was silently EMPTY on all four apps 2026-06-29→08-07 (client constant vs a rescaled popularityScore); web had a different, weaker definition (popularity-tail shuffle). |
-| Top Rated shelf (IMDb) + rating sort in Browse | ✅ | ✅ | ✅ shelf + Browse sort (`CatalogDB.Sort`) | ⏳ (index lacks rating column) | ✅ | votes floor ≥1,000 |
+| Top Rated shelf (IMDb) + rating sort in Browse | ✅ | ✅ | ✅ shelf + Browse sort (`CatalogDB.Sort`) | ✅ Home shelf (index `top-rated`); Browse rating sort ⏳ | ✅ | votes floor ≥1,000. Membership is COMPUTED in `build_catalog_index`, never restated client-side (D050) |
 | Community shelves (Watching Now / Favorites / Most Discussed) | ✅ | ✅ | ✅ | ✅ | ✅ | archive.org signals; vote-floored ≥1,000 |
 | Detail community (stats + genuine reviews) | ✅ | ✅ | ✅ | ✅ | ✅ | reviews filtered in the pipeline (`comment_fit.py`), baked into the catalog |
-| Director shelves | ✅ | ✅ | ✅ | ⏳ (index lacks director data) | ✅ | shared query |
+| Director shelves | ✅ | ✅ | ✅ | ⏳ (NOT blocked — index carries `director`, 15,335 items) | ✅ | shared query |
 | Continue Watching | ✅ | ✅ | ✅ progress + widget + Home shelf | ✅ | ✅ | progress store (§6) |
 | Modes row | ✅ | ➖ removed (Channels tab; modes via Surprise grid) | ➖ (Cartoon via Modes; Channels/Surprise are sidebar) | ⏳ | ⏳ | links to §5 |
 | Public Domain Day section | ✅ | ✅ Home shelf + year-chip explorer | ⏳ | ✅ Home shelf | ✅ Home row | seasonal, shared |
@@ -107,7 +107,7 @@ macOS) since they share the Swift Core.
 | Video playback | ✅ AVPlayerVC | ✅ AVPlayerVC | ✅ AVPlayerView (AppKit) | ✅ `<video>` in `<dialog>` | ✅ Media3 | |
 | Resilient streaming | ✅ `ResilientStreamLoader` | ✅ reuse | ✅ reuse (resume-on-reset + node failover) | ✅ range + reconnect | ✅ OkHttp + patient policy | Decision 021/031/034 |
 | Resume across launches | ✅ | ✅ | ✅ `WatchProgress` | ✅ IndexedDB | ✅ user.sqlite | progress store (§6) |
-| Subtitles / audio / speed | ✅ | ✅ native AVKit | ✅ HLS captions + speed control | 🚧 speed ✅; `<track>` subs ⏳ | ✅ subtitle button + speed | Decision 039 |
+| Subtitles / audio / speed | ✅ | ✅ native AVKit | ✅ HLS captions + speed control | ✅ `<track>` subs (5,027 items) via the browser's own caption menu; speed is native too (WEB-DESIGN §5.1a) | ✅ subtitle button + speed | Decision 039 |
 | Autoplay / continuous play | ✅ | ✅ | ⏳ | ⏳ | ⏳ | F4 queue shared via Core |
 | Picture-in-Picture | ✅ AVKit | ✅ AVKit + auto-PiP | ⏳ (AVPlayerView PiP) | ✅ presentation-mode | ⏳ Activity PiP | |
 | Background play | n/a | ✅ | n/a (desktop) | ✅ | ⏳ | |
@@ -168,7 +168,7 @@ macOS) since they share the Swift Core.
 | Cross-ecosystem history sync (Drive App Data, D028) | n/a (CloudKit) | n/a (CloudKit) | n/a (CloudKit) | ✅ LIVE | ✅ LIVE (google flavor only) | OAuth configured 2026-09-03; VERIFIED Pixel 8a ↔ browser both ways incl. deletions — docs/google-oauth-setup.md |
 | Local persistence (offline-first) | ✅ SwiftData | ✅ SwiftData | ✅ SwiftData | ✅ IndexedDB | ✅ user.sqlite | |
 | Per-ecosystem sync (own cloud) | ✅ CloudKit | ✅ CloudKit | ✅ CloudKit (SAME container; Settings → Account; `CloudKitSyncService`) | ✅ Drive App Data + ⏳ CloudKit JS | ✅ Drive App Data (Settings → Sync) | Apple islands converge on one iCloud private DB; the WEB is the only client that can hold both — Apple half needs a CloudKit token (docs/web-apple-sync.md) |
-| Cross-ecosystem sync (all platforms) | 🚫 | 🚫 | 🚫 | ⏳ the meeting point | 🚫 | Out of scope as a BACKEND (D028). The web is the exception: signed into both clouds it merges Apple + Google state with one set of rules |
+| Cross-ecosystem sync (all platforms) | 🚫 | 🚫 | 🚫 | 🚧 Google Drive shipped + hardware-verified (D102); Apple half awaits a CloudKit JS token | 🚫 | Out of scope as a BACKEND (D028). The web is the exception: signed into both clouds it merges Apple + Google state with one set of rules |
 | Deletions carry tombstones | ✅ | ✅ | ✅ | ✅ | ✅ | without one, a removed favorite is resurrected by the next pull — Apple's #84, now closed on Android + web too |
 | **Download a film for offline viewing** | 🚫 **platform cannot** | ✅ Detail ⬇ → copy-picker sheet · **22/22 on iPhone 12 + iPad Pro** | ✅ Detail Download menu · **verified on this Mac** | 🚫 | ⏳ Media3 `DownloadManager` | Decision 099. tvOS has NO durable storage — a purgeable `Caches` plus ~500 KB of `NSUserDefaults`, no Documents dir — so a download there is a promise the OS may delete between launches. Web: browser quota will not hold a feature film. Background `URLSession` → Application Support, `isExcludedFromBackup` |
 | Downloads in Library (manage + remove) | 🚫 | ✅ Downloads section, swipe delete / pause / resume | ✅ Downloads rows + Remove | 🚫 | ⏳ | Downloads is the FIRST Library section and the tab opens there when offline |
