@@ -182,7 +182,7 @@ macOS) since they share the Swift Core.
 | Feature | tvOS | iOS | macOS | Web | Android | Notes |
 |---|---|---|---|---|---|---|
 | Mature-content filter (default ON) | ✅ | ✅ | ✅ `hideAdultContent` toggle | n/a (pre-filtered) | ✅ | Decision 012 |
-| Category visibility toggles | ✅ | ✅ | ⏳ | ⏳ | ⏳ | |
+| Category visibility toggles | ✅ | ✅ | ⏳ | ✅ About → Preferences; hides the tile AND the items, sharing one count with the tile row | ⏳ | |
 | Autoplay/playback options | ✅ | ✅ | ⏳ | ⏳ | 🚧 | |
 | Downloads storage + Remove All | 🚫 | ✅ + cellular toggle (OFF by default) | ✅ (no cellular question on a Mac) | 🚫 | ⏳ | Decision 099 |
 | TMDb attribution (required) | ✅ | ✅ | ✅ verbatim notice | ✅ | ✅ | Decision 007 |

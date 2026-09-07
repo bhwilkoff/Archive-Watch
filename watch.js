@@ -665,7 +665,30 @@
     if (name === 'collections') Collections.renderList();
     if (name === 'collection') Collections.renderOne(decodeURIComponent(seg[1] || ''));
     if (name === 'cartoons') Cartoons.render();
+    if (name === 'about') renderCategoryPrefs();
   }
+
+  /** Categories the viewer has switched off. Parity with the apps' category
+   *  visibility toggles. Stored as a list of contentType ids; an empty list
+   *  (the default) shows everything.
+   *
+   *  Applied at the SAME single point as "hide watched" — inside
+   *  shelfSection — plus the category tile row, so a category cannot be
+   *  switched off yet still have a door standing open to it. */
+  const Categories = {
+    hidden: new Set(),
+    load() {
+      try {
+        this.hidden = new Set(JSON.parse(localStorage.getItem('aw_hidden_cats') || '[]'));
+      } catch { this.hidden = new Set(); }
+      return this.hidden;
+    },
+    save() {
+      try { localStorage.setItem('aw_hidden_cats', JSON.stringify([...this.hidden])); }
+      catch { /* private mode */ }
+    },
+    hides(row) { return this.hidden.has(row[3]); },
+  };
 
   /** "Hide films I've finished". The DATA has been there all along --
    *  saveProgress records a durable `everDone` (Decision 078 parity, a rewatch
@@ -824,6 +847,51 @@
     meta.setAttribute('content', `app-id=6776697407, app-argument=${arg}`);
   }
 
+
+  /** How many rows each category tile would show. Documentary is
+   *  genre-resolved rather than a contentType, so a plain tally undercounts it
+   *  — the tile row knew that and the preferences list did not, which left
+   *  Documentary with a tile the viewer could not switch off. One function, so
+   *  the two cannot disagree again. */
+  function categoryCounts() {
+    const counts = {};
+    for (const r of Data.rows) counts[r[3]] = (counts[r[3]] || 0) + 1;
+    counts['documentary'] = Data.rows.reduce(
+      (n, r) => n + (r[9] === 1 && r[3] !== 'animation' ? 1 : 0), 0);
+    return counts;
+  }
+
+  /** The Preferences category list. Rendered when About OPENS, not at boot:
+   *  at boot `Data.rows` is still empty (the catalog has not loaded), so the
+   *  list came out with zero switches — measured, not theorised. Rendering on
+   *  the route also keeps it correct after the seed → full-index swap. */
+  function renderCategoryPrefs() {
+    const catHost = $('pref-categories');
+    if (!catHost) return;
+    // The same counts and the same >=30 floor the tile row uses, so the list
+    // never offers a switch for a category that would show nothing either way
+    // — and never omits one that has a tile.
+    const counts = categoryCounts();
+    const cats = (Data.featured?.categories || []).filter(c => (counts[c.id] || 0) >= 30);
+    catHost.replaceChildren(...cats.map(c => {
+      const label = document.createElement('label');
+      label.className = 'pref-cat';
+      const box = document.createElement('input');
+      box.type = 'checkbox';
+      box.checked = !Categories.hidden.has(c.id);
+      box.onchange = () => {
+        if (box.checked) Categories.hidden.delete(c.id); else Categories.hidden.add(c.id);
+        Categories.save();
+        Home.rendered = false;
+        Home.render();
+      };
+      const span = document.createElement('span');
+      span.textContent = c.displayName;
+      label.append(box, span);
+      return label;
+    }));
+  }
+
   function showView(name) {
     VIEWS.forEach(v => { $(`view-${v}`).hidden = v !== name; });
     document.querySelectorAll('.topnav a').forEach(a => {
@@ -864,7 +932,7 @@
         // ONCE rather than at a dozen call sites. A shelf that thins below its
         // floor returns an empty fragment -- appending that is a no-op, so the
         // callers' `host.append(shelfSection(...))` needs no change.
-        rows = rows.filter(r => !Watched.hides(r));
+        rows = rows.filter(r => !Watched.hides(r) && !Categories.hides(r));
         if (rows.length < 4) return document.createDocumentFragment();
         const sec = document.createElement('section');
         sec.className = 'shelf';
@@ -997,12 +1065,7 @@
     /** Category tiles (apps' Browse-by-Category row): featured.json accents,
         count-gated ≥30 so a near-empty grid never ships behind a tile. */
     categoryTiles() {
-      const counts = {};
-      for (const r of Data.rows) counts[r[3]] = (counts[r[3]] || 0) + 1;
-      // Documentary is genre-resolved, so its tile count isn't a contentType
-      // tally — count the flagged rows (index col 9) instead.
-      counts['documentary'] = Data.rows.reduce(
-        (n, r) => n + (r[9] === 1 && r[3] !== 'animation' ? 1 : 0), 0);
+      const counts = categoryCounts();
       const sec = document.createElement('section');
       sec.className = 'shelf';
       const h = document.createElement('h2');
@@ -1011,6 +1074,7 @@
       rail.className = 'shelf-row tile-row';
       for (const cat of Data.featured?.categories || []) {
         if ((counts[cat.id] || 0) < 30) continue;
+        if (Categories.hidden.has(cat.id)) continue;   // no door to a hidden room
         const a = document.createElement('a');
         a.className = 'cat-tile';
         a.href = `#/browse?type=${encodeURIComponent(cat.id)}`;
@@ -2857,29 +2921,7 @@
     }
     Watched.refresh();
 
-    const partyBtn = $('party-start');
-    if (partyBtn) {
-      partyBtn.onclick = async () => {
-        partyBtn.disabled = true;
-        const ok = await Party.start();
-        partyBtn.disabled = false;
-        // Universal feature states: say so rather than doing nothing visible.
-        if (!ok) partyBtn.textContent = '🎉 Party Play — unavailable right now';
-      };
-    }
-
-    // Connectivity notice. `navigator.onLine` is a weak signal — true behind a
-    // captive portal serving nothing — so this only ever TELLS the viewer; it
-    // never gates playback or hides content (Decision 099's rule, one platform
-    // over). The events are the reliable part: the browser fires them on a real
-    // interface change.
-    const netBanner = $('net-banner');
-    if (netBanner) {
-      const paint = () => { netBanner.hidden = navigator.onLine !== false; };
-      addEventListener('online', paint);
-      addEventListener('offline', paint);
-      paint();
-    }
+    Categories.load();
 
     showAppBanner();     // once at boot, never per navigation
 
