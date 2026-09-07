@@ -325,6 +325,11 @@
     <div class="player-stage">
       <video id="video" controls playsinline preload="auto"></video>
       <!-- Title + description overlay; fades in/out with the video controls. -->
+      <!-- End-of-film chooser. A film that ends used to close the dialog
+           outright; autoplaying the next one instead would make the viewer
+           passive, which CLAUDE.md's four-question test rules out. So the
+           player offers a CHOICE. -->
+      <div id="player-endcard" class="player-endcard" hidden></div>
       <div id="player-overlay" class="player-overlay" aria-hidden="true">
         <strong id="player-overlay-title"></strong>
         <p id="player-overlay-desc"></p>

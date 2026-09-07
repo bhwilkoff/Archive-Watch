@@ -752,3 +752,27 @@ a.person:focus-visible { outline: 2px solid var(--color-primary); outline-offset
   flex: none; background: none; border: 0; color: var(--text-dim);
   font-size: 1rem; line-height: 1; padding: .4rem; cursor: pointer;
 }
+
+/* End-of-film chooser. Sits over the video INSIDE the player dialog, so it
+   never needs position:fixed (the Safari compositor rule in CLAUDE.md).
+   Display is gated on :not([hidden]) — an author `display` beats the UA's
+   [hidden] rule, which is how the app banner shipped a 19px ghost strip. */
+.player-endcard { display: none; }
+.player-endcard:not([hidden]) {
+  display: flex; flex-direction: column; gap: 1rem;
+  position: absolute; inset: 0; z-index: 3;
+  padding: clamp(1rem, 4vw, 2rem);
+  background: rgba(10, 10, 10, .92);
+  overflow-y: auto;
+  justify-content: center;
+  /* The stage takes its height from the VIDEO, so a film that never loaded
+     leaves it at 0 and inset:0 collapses the chooser to a sliver. Measured at
+     32px with readyState 0. A floor keeps it usable in that case. */
+  min-height: 260px;
+}
+.player-endcard h3 { margin: 0; font-size: 1.05rem; letter-spacing: .02em; }
+.player-endcard-grid {
+  display: grid; gap: .8rem;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+}
+.player-endcard-actions { display: flex; gap: .6rem; flex-wrap: wrap; }

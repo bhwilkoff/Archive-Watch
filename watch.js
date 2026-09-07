@@ -667,6 +667,26 @@
     if (name === 'cartoons') Cartoons.render();
   }
 
+  /** The rows behind More Like This, as data. Shared with the end-of-film
+   *  chooser so Detail and the player can never disagree about what is
+   *  related. Same rule as before: same category, then YEAR proximity (±10y),
+   *  then POPULARITY (index order). No shuffle — that made it random on every
+   *  visit. (colorMode isn't in the index, so the apps' colour tiebreak is
+   *  app-only.) */
+  function relatedRows(row, limit) {
+    const [id, , year, type] = row;
+    return Data.rows
+      .filter(r => r[0] !== id && r[3] === type && Data.isPro(r))
+      .map((r, idx) => ({
+        r, idx,
+        near: (year && r[2] && Math.abs(r[2] - year) <= 10) ? 0 : 1,
+        dy: (year && r[2]) ? Math.abs(r[2] - year) : 9999,
+      }))
+      .sort((a, b) => a.near - b.near || a.dy - b.dy || a.idx - b.idx)
+      .slice(0, limit)
+      .map(s => s.r);
+  }
+
   /** Which store a visitor's device can actually install from: 'fire',
    *  'play', or null for everyone else (iOS has Safari's own banner, desktop
    *  has neither app).
@@ -2101,20 +2121,9 @@
         then POPULARITY (index order). No shuffle — that made it random on every visit.
         (colorMode isn't in the index, so the apps' color tiebreak is app-only.) */
     related(row) {
-      const [id, , year, type] = row;
-      const host = $('item-related');
-      const rows = Data.rows
-        .filter(r => r[0] !== id && r[3] === type && Data.isPro(r))
-        .map((r, idx) => ({
-          r, idx,
-          near: (year && r[2] && Math.abs(r[2] - year) <= 10) ? 0 : 1,
-          dy: (year && r[2]) ? Math.abs(r[2] - year) : 9999,
-        }))
-        .sort((a, b) => a.near - b.near || a.dy - b.dy || a.idx - b.idx)
-        .slice(0, 12)
-        .map(s => s.r);
+      const rows = relatedRows(row, 12);
       $('item-related-row').replaceChildren(...rows.map(card));
-      host.hidden = rows.length < 4;
+      $('item-related').hidden = rows.length < 4;
     },
 
     /** Add-to-playlist dialog: toggle membership per playlist, create new. */
@@ -2372,6 +2381,7 @@
     async start({ id, title, url, queue = null, queueIndex = 0,
                   startAt = 0, persist = true }) {
       this.ctx = { id, title, queue, queueIndex, persist };
+      $('player-endcard').hidden = true;      // never survives into the next film
       const video = $('video');
 
       $('player-title').textContent = title;
@@ -2457,10 +2467,58 @@
         if (queue && queueIndex + 1 < queue.length) {
           const next = queue[queueIndex + 1];
           this.start({ ...next, queue, queueIndex: queueIndex + 1, persist });
-        } else {
-          this.close();
+          return;
         }
+        // A standalone film used to end by closing the dialog, which drops the
+        // viewer back where they started with nothing offered. The apps have an
+        // autoplay setting; doing that here would make the viewer passive, so
+        // the player asks instead of deciding (CLAUDE.md's four-question test).
+        if (!this.showEndCard()) this.close();
       };
+    },
+
+
+    /** Offer what to watch next instead of just closing. Returns false when
+        there is nothing worth offering, in which case the caller closes as
+        before — an empty chooser is worse than a clean exit. */
+    showEndCard() {
+      const host = $('player-endcard');
+      const row = Data.byID.get(this.ctx?.id);      // episodes aren't index rows
+      if (!host || !row) return false;
+      const rows = relatedRows(row, 4);
+      if (rows.length < 4) return false;
+
+      const h = document.createElement('h3');
+      h.textContent = 'Watch next';
+      const grid = document.createElement('div');
+      grid.className = 'player-endcard-grid';
+      grid.append(...rows.map(card));
+      // A card is a link to its Detail page, so the player must get out of the
+      // way when one is chosen.
+      grid.addEventListener('click', () => this.close());
+
+      const again = document.createElement('button');
+      again.type = 'button';
+      again.className = 'btn-primary';
+      again.textContent = 'Watch again';
+      again.onclick = () => {
+        host.hidden = true;
+        const v = $('video');
+        v.currentTime = 0;
+        v.play().catch(() => {});
+      };
+      const done = document.createElement('button');
+      done.type = 'button';
+      done.className = 'btn-ghost';
+      done.textContent = 'Close';
+      done.onclick = () => this.close();
+
+      const actions = document.createElement('div');
+      actions.className = 'player-endcard-actions';
+      actions.append(again, done);
+      host.replaceChildren(h, grid, actions);
+      host.hidden = false;
+      return true;
     },
 
     /** Two-stage, buffer-preserving stall recovery. A full `recover()` throws
