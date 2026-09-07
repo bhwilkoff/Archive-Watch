@@ -58,6 +58,15 @@ CONSTRAINTS THAT SHAPED THIS TOOL
 Credentials live OUTSIDE the repo at ~/.config/amazon/appstore.json (chmod 600),
 the same pattern as the Play service account and the ASC key. Never commit them.
 """
+
+# THE PUBLIC LISTING URL. Archive Watch is live as ASIN B0HHBW6X29, so
+# https://www.amazon.com/dp/B0HHBW6X29 is the canonical page. Link to
+# https://www.amazon.com/gp/mas/dl/android?p=com.archivewatch.app instead: it
+# resolves to the same listing, survives an ASIN change, and on a Fire device
+# opens the Appstore app rather than a web page. Neither URL appears anywhere
+# in the developer console -- it is derived from the package name, which is why
+# the console is the wrong place to go looking for it.
+
 import argparse
 import json
 import os

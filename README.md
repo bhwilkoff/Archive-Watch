@@ -14,6 +14,8 @@
   &nbsp;·&nbsp;
   <a href="https://play.google.com/store/apps/details?id=com.archivewatch.app"><b>Google Play</b> (Android)</a>
   &nbsp;·&nbsp;
+  <a href="https://www.amazon.com/gp/mas/dl/android?p=com.archivewatch.app"><b>Amazon Appstore</b> (Fire TV)</a>
+  &nbsp;·&nbsp;
   <a href="https://archivewatch.org/"><b>Web</b></a>
 </p>
 
