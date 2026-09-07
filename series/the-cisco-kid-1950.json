@@ -1,1 +1,89 @@
-{"version":2,"seriesID":"the-cisco-kid-1950","tvmazeID":2141,"title":"The Cisco Kid","yearStart":1950,"yearEnd":1956,"overview":"The Cisco Kid was one of the first television programs to feature Hispanic actors as the lead characters, and it was the first show ever to be produced in color even though most TV sets in 1950 could only display black and white film. But it was the program s perfect mix of humor and adventure that kept audiences tuning in for years, and that earned the series a Primetime Emmy Award!","posterURL":"https://artworks.thetvdb.com/banners/posters/77404-1.jpg","backdropURL":null,"genres":["Action","Adventure","Western"],"networks":["Syndication"],"creator":null,"seasons":[{"seasonNumber":1,"episodes":[{"archiveID":"cisco-kid-s-01-e-08-convict-story","seasonNumber":1,"episodeNumber":8,"title":"Medicine Flats","overview":null,"stillURL":"https://static.tvmaze.com/uploads/images/original_untouched/11/29903.jpg","airDate":"1950-10-17","year":1950,"runtimeSeconds":1800,"videoFile":{"name":"Cisco Kid_S01E08_Convict Story.ia.mp4","format":"h.264 IA","sizeBytes":427612364,"tier":2},"downloadURL":"https://archive.org/download/cisco-kid-s-01-e-08-convict-story/Cisco%20Kid_S01E08_Convict%20Story.ia.mp4"}]}],"episodesCount":1,"canonicalEpisodesCount":156,"tvdbID":"77404","artworkSource":"tvdb","cast":[{"name":"Duncan Renaldo","character":"","order":0,"profilePath":null},{"name":"Leo Carrillo","character":"","order":1,"profilePath":null}]}
+{
+  "version": 2,
+  "seriesID": "the-cisco-kid-1950",
+  "tvmazeID": 2141,
+  "title": "The Cisco Kid",
+  "yearStart": 1950,
+  "yearEnd": 1950,
+  "overview": "The Cisco Kid was one of the first television programs to feature Hispanic actors as the lead characters, and it was the first show ever to be produced in color even though most TV sets in 1950 could only display black and white film. But it was the program s perfect mix of humor and adventure that kept audiences tuning in for years, and that earned the series a Primetime Emmy Award!",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/77404-1.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Action",
+    "Adventure",
+    "Western"
+  ],
+  "networks": [
+    "Syndication"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "cisco-kid-s-01-e-08-convict-story",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Medicine Flats",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/11/29903.jpg",
+          "airDate": "1950-10-17",
+          "year": 1950,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Cisco Kid_S01E08_Convict Story.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 427612364,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/cisco-kid-s-01-e-08-convict-story/Cisco%20Kid_S01E08_Convict%20Story.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "CiscoKidSpanishDagger512kb_201509",
+          "seasonNumber": 2,
+          "episodeNumber": 26,
+          "title": "Cisco Kid Spanish Dagger 512kb",
+          "overview": "<div>The Cisco Kid is a half-hour American Western television series starring Duncan Renaldo in the title role, The Cisco Kid, and Leo Carrillo as the jovial sidekick, Pancho. Cisco and Pancho were technically desperados, wanted for unspecified crimes, but instead viewed by the poor as Robin Hood figures who assisted the downtrodden when law enforcement officers proved corrupt or unwilling to help. It was also the first television series to be filmed in color, although few viewers saw it in color until the 1960s.</div><div><br /></div>",
+          "stillURL": "https://archive.org/services/img/CiscoKidSpanishDagger512kb_201509",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1574,
+          "videoFile": {
+            "name": "CiscoKid-SpanishDagger_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 126413694,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/CiscoKidSpanishDagger512kb_201509/CiscoKid-SpanishDagger_512kb.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2,
+  "canonicalEpisodesCount": 156,
+  "tvdbID": "77404",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Duncan Renaldo",
+      "character": "",
+      "order": 0,
+      "profilePath": null
+    },
+    {
+      "name": "Leo Carrillo",
+      "character": "",
+      "order": 1,
+      "profilePath": null
+    }
+  ],
+  "seriesImdbID": "tt0042093",
+  "canonicalEpisodeCount": 81,
+  "canonicalSeasons": 6
+}

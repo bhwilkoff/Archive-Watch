@@ -1,11 +1,11 @@
 {
   "schema": 1,
-  "updated_at": "2026-09-06T08:21:25Z",
+  "updated_at": "2026-09-07T09:28:26Z",
   "description": "Missing-episode queue: canonical episodes (from OMDb) that we don't yet have on Archive. Drained by tools/backfill_tv_episodes.py.",
   "stats": {
     "total": 18056,
-    "wanted": 17834,
-    "fulfilled": 222,
+    "wanted": 17833,
+    "fulfilled": 223,
     "series_with_gaps": 359
   },
   "wants": [
@@ -140986,8 +140986,9 @@
       "episode": 26,
       "title": "Spanish Dagger",
       "episodeImdbID": "tt0541895",
-      "status": "wanted",
-      "added_at": "2026-06-20T07:57:19Z"
+      "status": "fulfilled",
+      "added_at": "2026-06-20T07:57:19Z",
+      "fulfilled_at": "2026-09-07T09:28:26Z"
     },
     {
       "seriesID": "the-cisco-kid-1950",
