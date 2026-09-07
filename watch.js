@@ -746,6 +746,51 @@
         host.append(shelfSection('Public Domain Day',
           `Class of ${pdYear} — newly free to share`, pd));
       }
+      // Director shelves, the apps' topDirectors rule: a director with at
+      // least 3 qualifying films, the top 4 by count then name, titled
+      // "Directed by X" as on iOS/macOS.
+      //
+      // Computed HERE rather than in the pipeline, unlike Top Rated. Decision
+      // 050 forbids a client RESTATING a pipeline SCORE -- an internal number
+      // the client cannot see and will drift from. A director is not a score:
+      // the name is a column the index already carries per row, so grouping on
+      // it is reading the data, not re-deriving a judgement.
+      const dirFilms = new Map();
+      for (const r of Data.rows) {
+        const d = r[12];
+        if (!d || !Data.isPro(r) || !Data.isFilm(r) || !Data.plays(r)) continue;
+        let list = dirFilms.get(d);
+        if (!list) dirFilms.set(d, list = []);
+        list.push(r);
+      }
+      const topDirs = [...dirFilms.entries()]
+        .filter(([, films]) => films.length >= 3)
+        .sort((a, b) => b[1].length - a[1].length || a[0].localeCompare(b[0]))
+        // Take more candidates than shelves: the apps show 4, and skipping a
+        // director a curated shelf already covers must not cost us a row.
+        .slice(0, 12);
+      // A curated shelf may already be ABOUT this director -- featured.json
+      // carries a "Georges Melies" shelf, and adding "Directed by Georges
+      // Meliès" below it reads as padding even though dedup keeps the films
+      // distinct. Skip a director the page has already introduced.
+      const shelfTitles = [...host.querySelectorAll('.shelf h2')]
+        .map(h => h.textContent.toLowerCase());
+      const alreadyOnPage = (name) => {
+        const n = name.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+        return shelfTitles.some(t =>
+          t.normalize('NFD').replace(/[\u0300-\u036f]/g, '').includes(n));
+      };
+      let directorRows = 0;
+      for (const [name, films] of topDirs) {
+        if (directorRows >= 4) break;
+        if (alreadyOnPage(name)) continue;
+        const rows = films.filter(r => !used.has(dedupKey(r))).slice(0, 16);
+        if (rows.length < 4) continue;
+        rows.forEach(r => used.add(dedupKey(r)));
+        host.append(shelfSection(`Directed by ${name}`,
+          `${films.length} films in the archive`, rows));
+        directorRows++;
+      }
       host.append(this.eraTiles());   // last row, matching the apps
       if (!host.children.length) {
         const p = document.createElement('p');

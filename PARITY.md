@@ -72,7 +72,7 @@ macOS) since they share the Swift Core.
 | Top Rated shelf (IMDb) + rating sort in Browse | ✅ | ✅ | ✅ shelf + Browse sort (`CatalogDB.Sort`) | ✅ Home shelf (index `top-rated`); Browse rating sort ⏳ | ✅ | votes floor ≥1,000. Membership is COMPUTED in `build_catalog_index`, never restated client-side (D050) |
 | Community shelves (Watching Now / Favorites / Most Discussed) | ✅ | ✅ | ✅ | ✅ | ✅ | archive.org signals; vote-floored ≥1,000 |
 | Detail community (stats + genuine reviews) | ✅ | ✅ | ✅ | ✅ | ✅ | reviews filtered in the pipeline (`comment_fit.py`), baked into the catalog |
-| Director shelves | ✅ | ✅ | ✅ | ⏳ (NOT blocked — index carries `director`, 15,335 items) | ✅ | shared query |
+| Director shelves | ✅ | ✅ | ✅ | ✅ top 4 by film count, grouped on the index's `director` column | ✅ | shared query. Web skips a director a curated shelf already covers |
 | Continue Watching | ✅ | ✅ | ✅ progress + widget + Home shelf | ✅ | ✅ | progress store (§6) |
 | Modes row | ✅ | ➖ removed (Channels tab; modes via Surprise grid) | ➖ (Cartoon via Modes; Channels/Surprise are sidebar) | ⏳ | ⏳ | links to §5 |
 | Public Domain Day section | ✅ | ✅ Home shelf + year-chip explorer | ⏳ | ✅ Home shelf | ✅ Home row | seasonal, shared |
