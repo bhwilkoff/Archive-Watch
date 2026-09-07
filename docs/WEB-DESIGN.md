@@ -171,6 +171,15 @@ separate tool with its own conventions (CLAUDE.md) — these rules govern the
 
 - **§5.1 Native `<video controls playsinline>`** in the player dialog. The
   browser's ranged GETs handle seeking; PiP/AirPlay come free from the UA.
+- **§5.0 Web behaviour is locked by `tools/test_web.sh`.** Five suites, each
+  reading its function out of the SHIPPED `watch.js` so a test cannot drift
+  from what runs, plus a parse check and a CSS brace check (appending to a
+  stylesheet with `cat >>` silently drops every rule after a truncation). Run
+  it before any web commit. Each suite exists because a real defect got
+  through: a Fire visitor sent to Google Play, doubled PiP and speed controls,
+  a search chip that led to an empty grid, a poster fetched at w780 for a 230px
+  box, and a search box that could not find an actor. Every one of those is
+  invisible in a screenshot.
 - **§5.1a Our chrome never repeats a native control.** Because §5.1 hands the
   browser its own control bar, a control we draw beside it is a SECOND copy —
   the owner reported exactly this on iPad and Mac ("picture-in-picture and

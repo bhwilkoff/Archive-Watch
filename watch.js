@@ -695,6 +695,35 @@
     hides(row) { return this.on && this.ids.has(row[0]); },
   };
 
+  /** Decade bucket for a row, or null. */
+  function rowDecade(r) {
+    const d = r[2] && Math.floor(r[2] / 10) * 10;
+    return (d && d >= 1890 && d <= 2030) ? d : null;
+  }
+
+  function filterHits(hits, fType, fDecade) {
+    return hits.filter(r =>
+      (!fType || r[3] === fType) &&
+      (!fDecade || rowDecade(r) === Number(fDecade)));
+  }
+
+  /** Which search-result chips to offer.
+   *
+   *  Each facet is computed against the OTHER facet's current selection, never
+   *  against the whole result set. Offering decades from all hits while a type
+   *  is active promises combinations that do not exist -- measured on the live
+   *  index, five decade chips emptied the grid once "Silent film" was chosen.
+   *  A chip that leads nowhere is worse than a chip that is absent, and
+   *  tools/test_search_facets.mjs asserts exactly that property. */
+  function searchFacets(hits, fType, fDecade) {
+    const byDecade = fDecade ? hits.filter(r => rowDecade(r) === Number(fDecade)) : hits;
+    const byType = fType ? hits.filter(r => r[3] === fType) : hits;
+    return {
+      types: [...new Set(byDecade.map(r => r[3]).filter(Boolean))],
+      decades: [...new Set(byType.map(rowDecade).filter(Boolean))].sort((a, b) => a - b),
+    };
+  }
+
   /** The rows behind More Like This, as data. Shared with the end-of-film
    *  chooser so Detail and the player can never disagree about what is
    *  related. Same rule as before: same category, then YEAR proximity (±10y),
@@ -1338,18 +1367,7 @@
       const host = $('search-filters');
       if (!host) return;
       const hits = this.hits || [];
-      // Each facet is computed against the OTHER facet's current selection, not
-      // against the whole result set. Offering decades from all hits while a
-      // type is active promises combinations that do not exist: measured, five
-      // decade chips emptied the grid after "Silent film" was chosen. A chip
-      // that leads nowhere is worse than a chip that is absent.
-      const byDecade = this.fDecade
-        ? hits.filter(r => r[2] && Math.floor(r[2] / 10) * 10 === Number(this.fDecade))
-        : hits;
-      const byType = this.fType ? hits.filter(r => r[3] === this.fType) : hits;
-      const types = [...new Set(byDecade.map(r => r[3]).filter(Boolean))];
-      const decades = [...new Set(byType.map(r => r[2] && Math.floor(r[2] / 10) * 10)
-        .filter(d => d && d >= 1890 && d <= 2030))].sort((a, b) => a - b);
+      const { types, decades } = searchFacets(hits, this.fType, this.fDecade);
       if (hits.length < 2 || (types.length < 2 && decades.length < 2)) {
         host.hidden = true; host.replaceChildren(); return;
       }
@@ -1386,9 +1404,7 @@
       if (this.fType && !hits.some(r => r[3] === this.fType)) this.fType = '';
       if (this.fDecade && !hits.some(r =>
           r[2] && Math.floor(r[2] / 10) * 10 === Number(this.fDecade))) this.fDecade = '';
-      const rows = hits.filter(r =>
-        (!this.fType || r[3] === this.fType) &&
-        (!this.fDecade || (r[2] && Math.floor(r[2] / 10) * 10 === Number(this.fDecade))));
+      const rows = filterHits(hits, this.fType, this.fDecade);
       fillGrid($('search-grid'), rows);
       this.renderFilters();          // repaint pressed states
     },
