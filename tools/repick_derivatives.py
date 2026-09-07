@@ -29,6 +29,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import subprocess
 import re
 import sys
 import threading
@@ -51,6 +52,52 @@ CATALOG = REPO / "catalog.json"
 _BAD = re.compile(r"\.(ogv|mkv|avi|wmv|flv|divx)$|_mpeg2", re.I)   # NOT .mov (QuickTime plays), NOT 512kb (plays)
 
 
+def probe_durations(url: str, timeout: int = 90):
+    """(video_seconds, audio_seconds) from the container header. Reads only
+    what ffprobe needs, never the media."""
+    try:
+        out = subprocess.run(
+            ["ffprobe", "-v", "error", "-show_entries", "stream=codec_type,duration",
+             "-of", "json", url],
+            capture_output=True, text=True, timeout=timeout).stdout
+        streams = json.loads(out).get("streams", [])
+    except Exception:
+        return None, None
+    def first(kind):
+        for st in streams:
+            if st.get("codec_type") == kind and st.get("duration"):
+                try: return float(st["duration"])
+                except ValueError: pass
+        return None
+    return first("video"), first("audio")
+
+
+def audio_timeline_broken(v, a) -> bool:
+    """A track whose own duration RUNS PAST the picture's by more than half is
+    not a mastering choice, it is broken metadata.
+
+    Found on `TheSheik` (1921), reported by the owner as "the audio is
+    intermittent": archive.org's OWN h.264 derivative declares 5,164s of video
+    against 3,305,533s of audio -- 38 days -- so the samples are spread over a
+    timeline 640x too long and the sound arrives in isolated bursts. Its
+    512Kb derivative is clean (5,164s vs 5,164s).
+
+    The band is deliberately wide. Measured across 194 probeable catalog items,
+    ZERO fell outside it, so this flags genuine corruption rather than the
+    ordinary second-or-two disagreement between a video and audio track."""
+    if not v or not a or v <= 0:
+        return False
+    # ONLY the stretched case is actionable. Audio SHORTER than the picture is
+    # usually how the file was made -- a music score laid over a silent film
+    # that stops before the reel does -- and `MysteryOfTheLeapingFish_348`
+    # (1,516s of picture, 699s of music) was flagged on the first 200 items of
+    # the sweep. Re-picking those would trade a known file for an unknown one
+    # on a guess, which is precisely how this tool once de-verified 1,205
+    # playable titles (see the module docstring). Short audio is COUNTED and
+    # reported; it is never acted on.
+    return (a / v) > 1.5
+
+
 def _is_good_pick(name: str, fmt: str) -> bool:
     """A playable target = an MP4/M4V (H.264 OR MPEG-4-in-MP4 both play on iOS).
     pick_video already ranks H.264 first, so it returns the best available."""
@@ -62,6 +109,9 @@ def main() -> int:
     ap.add_argument("--limit", type=int, default=0)
     ap.add_argument("--workers", type=int, default=6)
     ap.add_argument("--sleep", type=float, default=0.1)
+    ap.add_argument("--audio-timeline", action="store_true",
+                    help="find items whose audio duration disagrees with the "
+                         "picture and re-pick to a derivative whose does not")
     args = ap.parse_args()
 
     if not CATALOG.exists():
@@ -71,6 +121,12 @@ def main() -> int:
 
     def candidate(it):
         u = it.get("downloadURL") or ""
+        if args.audio_timeline:
+            # Every playable item is a candidate here: the fault is inside a
+            # file the picker chose CORRECTLY (The Sheik's bad file is a real
+            # h.264 derivative and won its tier fairly), so no name or format
+            # pattern can find it. Only probing can.
+            return bool(u) and not it.get("audioTimelineChecked")
         return (u and not it.get("derivativeRepicked")
                 and _BAD.search(u.rsplit("/", 1)[-1]))
 
@@ -78,7 +134,9 @@ def main() -> int:
     targets.sort(key=lambda it: it.get("popularityScore") or 0, reverse=True)
     if args.limit:
         targets = targets[:args.limit]
-    print(f"[repick] {len(targets)} items with an unplayable derivative", flush=True)
+    label = ("items to probe for a broken audio timeline" if args.audio_timeline
+             else "items with an unplayable derivative")
+    print(f"[repick] {len(targets)} {label}", flush=True)
     if not targets:
         return 0
 
@@ -90,8 +148,60 @@ def main() -> int:
         json.dump(cat, open(tmp, "w"), ensure_ascii=False, separators=(",", ":"))
         tmp.replace(CATALOG)
 
+    def work_audio(it):
+        nonlocal done, upgraded, noupgrade
+        url = it.get("downloadURL") or ""
+        v, a = probe_durations(url)
+        if v is None and a is None:
+            return                                    # unreadable now; retry next run
+        if not audio_timeline_broken(v, a):
+            with lock:
+                done += 1; it["audioTimelineChecked"] = True
+                if done % 200 == 0:
+                    flush(); print(f"  [{done}/{len(targets)}] {upgraded} fixed", flush=True)
+            return
+        # Broken. Try the other derivatives on the item and take the first
+        # whose OWN timeline is sane -- never swap one bad file for another.
+        try:
+            meta = A.archive_meta(it["archiveID"], requests.Session())
+        except Exception:
+            return
+        cur_name = requests.utils.unquote((url).rsplit("/", 1)[-1])
+        fixed = None
+        for f in (meta.get("files") or []):
+            name = f.get("name") or ""
+            if name == cur_name or str(f.get("private") or "").lower() == "true":
+                continue
+            if not name.lower().endswith((".mp4", ".m4v")):
+                continue
+            cand = A.download_url(it["archiveID"], name)
+            cv, ca = probe_durations(cand)
+            if cv and ca and not audio_timeline_broken(cv, ca):
+                fixed = (name, f.get("format") or "", cand, cv, ca); break
+        with lock:
+            done += 1
+            it["audioTimelineChecked"] = True
+            if fixed:
+                name, fmt, cand, cv, ca = fixed
+                it["downloadURL"] = cand
+                if isinstance(it.get("videoFile"), dict):
+                    it["videoFile"]["name"] = name
+                    it["videoFile"]["format"] = fmt
+                upgraded += 1
+                print(f"  AUDIO-FIX {it['archiveID'][:28]:30} "
+                      f"{v:.0f}s/{a:.0f}s -> {name} ({cv:.0f}s/{ca:.0f}s)", flush=True)
+            else:
+                noupgrade += 1
+                it["audioTimelineBroken"] = True
+                print(f"  NO CLEAN COPY {it['archiveID'][:28]:30} {v:.0f}s/{a:.0f}s",
+                      flush=True)
+            flush()
+        time.sleep(args.sleep)
+
     def work(it):
         nonlocal done, upgraded, noupgrade
+        if args.audio_timeline:
+            return work_audio(it)
         try:
             meta = A.archive_meta(it["archiveID"], requests.Session())
         except Exception:
