@@ -36,6 +36,12 @@ import re
 import sys
 import threading
 import urllib.request
+
+# The SAME 1978 line the rights audit uses (Decision 027). Imported, never
+# restated: two copies of an era boundary drift, and this one decides whether a
+# poster is someone else's film.
+sys.path.insert(0, str(__import__("pathlib").Path(__file__).parent))
+from audit_rights import MODERN as AR_MODERN   # noqa: E402
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
@@ -217,6 +223,40 @@ def matched_tv_release_year(it, tmdb_token, session, omdb_key=None):
         return None
 
 
+def matched_film_release_year(it, tmdb_token, session, omdb_key=None):
+    """Release year of the FILM this item was matched to, or None.
+
+    The /movie endpoint ONLY, for the reason its TV twin documents: a TMDb id
+    is namespaced by type, so asking the wrong endpoint invents contradictions
+    out of id collisions. An id that 404s here is one we cannot interpret, and
+    abstaining is the answer.
+    """
+    tmdb = it.get("tmdbID")
+    if tmdb and tmdb_token:
+        hdr = {"Authorization": f"Bearer {tmdb_token}", "accept": "application/json"}
+        try:
+            r = session.get(f"https://api.themoviedb.org/3/movie/{tmdb}",
+                            headers=hdr, timeout=20)
+            if r.status_code == 200:
+                d = (r.json().get("release_date") or "")[:4]
+                if d.isdigit():
+                    return int(d)
+        except Exception:
+            pass
+    imdb = it.get("imdbID")
+    if not (imdb and omdb_key):
+        return None
+    try:
+        r = session.get("https://www.omdbapi.com/",
+                        params={"apikey": omdb_key, "i": imdb}, timeout=20).json()
+        if r.get("Response") != "True":
+            return None
+        m = re.search(r"(\d{4})", r.get("Year") or "")
+        return int(m.group(1)) if m else None
+    except Exception:
+        return None
+
+
 def archive_meta(aid: str):
     """Return (archive_imdb, archive_year) from the Archive item's own metadata,
     or (None, None) on any failure."""
@@ -317,6 +357,31 @@ def verify(it: dict, omdb_key, session, tmdb_token=None) -> str:
             if my is not None and min(abs(my - dec), abs(my - (dec + 9))) > _ERA_TOLERANCE:
                 R._clear_wrong_artwork(it, None)
                 return "cleared_era"
+
+    # Tier 0c — a MODERN poster on a public-domain film. The owner: "We should
+    # not have any modern posters showing up in our apps."
+    #
+    # Found while choosing art for the social banners: the catalog's most-voted
+    # items included Disney's 2010 `Alice in Wonderland` and del Toro's 2025
+    # `Frankenstein`, both matched onto public-domain uploads, and BOTH with no
+    # year stored -- which is why no other tier could touch them (Tier 2 needs
+    # an Archive date, Tier 3 a year >= 1970).
+    #
+    # The reasoning is structural rather than statistical: Decision 027's rights
+    # audit already hides genuinely modern copyrighted films, so a VISIBLE item
+    # is public-domain-era by construction. A match to a work released in the
+    # modern era is therefore wrong, and its artwork is someone else's film.
+    # Our own year, when we have one, must also not contradict that.
+    if it.get("contentType") not in ("tv-series",):
+        y = it.get("year")
+        if not isinstance(y, int) or y < AR_MODERN:
+            got = matched_film_release_year(it, tmdb_token, session, omdb_key)
+            if got and got >= AR_MODERN:
+                adopt(it, {})
+                it["matchVerified"] = True
+                it["matchVerifiedAt"] = _today()
+                it["modernPosterCleared"] = got
+                return "cleared_modern"
 
     # Tier 3 — color era-gate (no reliable year to re-resolve to).
     #
