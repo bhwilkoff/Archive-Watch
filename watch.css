@@ -816,3 +816,16 @@ a.person:focus-visible { outline: 2px solid var(--color-primary); outline-offset
 .pref-cats-list { display: flex; flex-wrap: wrap; gap: .35rem .9rem; }
 .pref-cat { display: flex; align-items: center; gap: .4rem; font-size: .88rem; cursor: pointer; }
 .pref-cat input { width: 1rem; height: 1rem; }
+
+/* View Transitions (§10 research pass). Kept SHORT: a transition long enough
+   to notice is a transition long enough to be in the way when you are moving
+   through a catalog. The whole feature is skipped under reduced-motion, in JS
+   as well as here, because a media query cannot cancel a snapshot. */
+@media (prefers-reduced-motion: no-preference) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) { animation-duration: .18s; }
+}
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) { animation: none; }
+}

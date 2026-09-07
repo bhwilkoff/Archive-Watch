@@ -330,3 +330,39 @@ down rather than left to be re-learned.
   when the window is suspect, and never "fix" CSS to satisfy a broken
   instrument.
 
+## §11 What GitHub Pages can still do, and what we deliberately did not take
+
+A research pass on 2026-09-07, prompted by "push the limits of what is
+possible with GitHub Pages web apps". Pages serves static files with gzip and
+Range support and nothing else, so every item here is a browser capability,
+not a server one.
+
+**Taken:**
+
+- **View Transitions** (`document.startViewTransition`) on route changes —
+  most of what makes a hash-routed page feel like an app rather than a
+  document, at ~15 lines and zero build. Skipped entirely under
+  `prefers-reduced-motion`, in JS as well as CSS, because a media query
+  cannot cancel a snapshot that has already been taken.
+
+**Already shipped, and checked before rebuilding** (each of these was assumed
+missing at some point today and was not): the Web Share API with a clipboard
+fallback, `<track>` subtitles from same-origin blobs, MediaSession, PiP,
+IndexedDB persistence, container queries on the Marquee hero, and the
+service-worker offline shell.
+
+**Deliberately NOT taken, with reasons:**
+
+- **`content-visibility: auto` on shelves.** Home is 28 sections and ~10,400px,
+  so skipping off-screen layout is the textbook win. Not applied because the
+  shelves carry IntersectionObserver-driven paging and scroll anchoring, and
+  the browser window available at the time reported a zero-width viewport —
+  applying a rendering optimisation that cannot be MEASURED is how you ship a
+  regression that looks like a speed-up. Revisit with real timings.
+- **Speculation Rules (prerender).** They pay off across documents; this
+  viewer is one document with hash routes, so the only candidates are the
+  ~27,000 generated share pages, which already redirect immediately.
+- **Background Sync / Periodic Sync.** Support is one engine deep, and the
+  work they would do (refreshing a catalog index) is what the service worker's
+  stale-while-revalidate already does on the next visit.
+

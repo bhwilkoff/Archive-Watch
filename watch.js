@@ -916,12 +916,28 @@
   }
 
   function showView(name) {
-    VIEWS.forEach(v => { $(`view-${v}`).hidden = v !== name; });
-    document.querySelectorAll('.topnav a').forEach(a => {
-      a.setAttribute('aria-current',
-        String(a.dataset.nav === (name === 'item' ? '' : name)));
-    });
-    $('main').scrollTop = 0;
+    const swap = () => {
+      VIEWS.forEach(v => { $(`view-${v}`).hidden = v !== name; });
+      document.querySelectorAll('.topnav a').forEach(a => {
+        a.setAttribute('aria-current',
+          String(a.dataset.nav === (name === 'item' ? '' : name)));
+      });
+      $('main').scrollTop = 0;
+    };
+    // View Transitions: a cross-fade between surfaces, which is most of what
+    // makes a hash-routed page feel like an app rather than a document. Pure
+    // progressive enhancement — where the API is absent, or the viewer has
+    // asked for reduced motion, the swap runs exactly as it did before.
+    //
+    // The callback MUST do the whole DOM update: the browser snapshots before
+    // calling it and again after it resolves, so a swap left outside gets no
+    // transition and, worse, can be captured half-done.
+    if (!document.startViewTransition ||
+        matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      swap();
+      return;
+    }
+    document.startViewTransition(swap);
   }
 
   /* ---------------------------------------------------------------- *
