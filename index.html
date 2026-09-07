@@ -37,6 +37,14 @@
        bottom of a long page. Rendered by watch.js only on those platforms,
        dismissible, and remembered -- it is an offer, not a nag. -->
   <div id="app-banner" class="app-banner" hidden></div>
+  <!-- Connectivity notice. Informational ONLY: nothing is gated on it, because
+       navigator.onLine reports true behind a captive portal that serves
+       nothing — the same reason the iOS NetworkMonitor gates no playback
+       (Decision 099). -->
+  <div id="net-banner" class="net-banner" role="status" hidden>
+    You're offline — browsing what's cached still works, but playback needs a
+    connection.
+  </div>
   <header class="topbar">
     <a class="brand" href="#/">
       <img class="brand-logo" src="assets/app-icon/app-icon.png"

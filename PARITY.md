@@ -174,7 +174,7 @@ macOS) since they share the Swift Core.
 | Downloads in Library (manage + remove) | 🚫 | ✅ Downloads section, swipe delete / pause / resume | ✅ Downloads rows + Remove | 🚫 | ⏳ | Downloads is the FIRST Library section and the tab opens there when offline |
 | Play a downloaded film with no network | 🚫 | ✅ plain `AVPlayerItem(url: file://)` — decoded off disk on both devices | ✅ **proven with the network DENIED to the process** (negative control: archive.org unreachable) | 🚫 | ⏳ | iOS-DESIGN §8.7 / macOS-DESIGN §B9b — the resilient loader is skipped; nothing to be resilient about |
 | Offline subtitles for a downloaded film | 🚫 | ✅ downloaded WebVTT via the caption overlay | ✅ same (`liveLine`) | 🚫 | ⏳ | `OfflineSubtitles`. An HLS master cannot carry it — its video rendition is a remote URL (D099) |
-| Offline state banner | n/a (always connected) | ✅ "Offline — your downloads still play" + jump to Library (OCR-verified on iPhone + iPad) | 🔮 | ⏳ | ⏳ | `NWPathMonitor`. Browse/Search keep working from the local catalog DB; only streaming stops |
+| Offline state banner | n/a (always connected) | ✅ "Offline — your downloads still play" + jump to Library (OCR-verified on iPhone + iPad) | 🔮 | ✅ informational only — never gates playback (a captive portal reports online) | ⏳ | `NWPathMonitor`. Browse/Search keep working from the local catalog DB; only streaming stops |
 | Downloads are device-local (never synced) | n/a | ✅ | ✅ | n/a | ⏳ | iOS-DESIGN §9.7 — a favorite is an intention, a download is bytes on ONE device |
 
 ## 7. Settings + account

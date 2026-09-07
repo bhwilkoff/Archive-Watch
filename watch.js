@@ -2852,6 +2852,19 @@
       };
     }
 
+    // Connectivity notice. `navigator.onLine` is a weak signal — true behind a
+    // captive portal serving nothing — so this only ever TELLS the viewer; it
+    // never gates playback or hides content (Decision 099's rule, one platform
+    // over). The events are the reliable part: the browser fires them on a real
+    // interface change.
+    const netBanner = $('net-banner');
+    if (netBanner) {
+      const paint = () => { netBanner.hidden = navigator.onLine !== false; };
+      addEventListener('online', paint);
+      addEventListener('offline', paint);
+      paint();
+    }
+
     showAppBanner();     // once at boot, never per navigation
 
     try {

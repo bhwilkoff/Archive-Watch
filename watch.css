@@ -798,3 +798,14 @@ a.person:focus-visible { outline: 2px solid var(--color-primary); outline-offset
 .search-filters button[aria-pressed="true"] {
   border-color: var(--color-primary); color: var(--color-primary);
 }
+
+/* Connectivity notice. Same gating discipline as the app banner: an author
+   `display` beats the UA's [hidden] rule, so it is stated on :not([hidden]). */
+.net-banner { display: none; }
+.net-banner:not([hidden]) {
+  display: block;
+  padding: .5rem .8rem;
+  background: #3a2a12; color: #ffd9a8;
+  border-bottom: 1px solid #5a4324;
+  font-size: .85rem;
+}
