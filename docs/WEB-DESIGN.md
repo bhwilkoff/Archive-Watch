@@ -236,6 +236,17 @@ separate tool with its own conventions (CLAUDE.md) — these rules govern the
   not endorsed or certified by TMDB.") lives on `#/about`, reachable from the
   persistent footer (Decision 007). Donate-to-Archive link rides with it
   (Decision 010).
+- **§8.1a One app banner, and only where the platform has none.** iOS gets
+  Safari's native Smart App Banner from the `apple-itunes-app` meta (retargeted
+  per route so "Open" deep-links to the film). Android and Fire have no
+  equivalent, so `showAppBanner()` renders the counterpart — and ONLY there:
+  never on iOS (it would double Safari's) and never on desktop. It links to the
+  STORE, because a page cannot detect an installed app and Play/Amazon already
+  say "Open" when it is. Fire is tested BEFORE Android — a Fire UA contains
+  "Android", so the naive order sends every Fire visitor to Play where the app
+  cannot be installed (`tools/test_app_banner.mjs` locks this). Dismissal is
+  permanent: an install offer that returns is a nag, which the CLAUDE.md
+  four-question test rules out.
 - **§8.2 No tracking, no analytics, no third-party scripts.** State never
   leaves the browser.
 - **§8.3 Adult filtering is upstream** — the index is already filtered

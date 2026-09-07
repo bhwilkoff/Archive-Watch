@@ -667,6 +667,73 @@
     if (name === 'cartoons') Cartoons.render();
   }
 
+  /** Which store a visitor's device can actually install from: 'fire',
+   *  'play', or null for everyone else (iOS has Safari's own banner, desktop
+   *  has neither app).
+   *
+   *  Fire is tested FIRST and that order is load-bearing: a Fire tablet's UA
+   *  contains "Android" too, so testing Android first sends every Fire visitor
+   *  to Google Play, where this app cannot be installed at all. Fire devices
+   *  announce themselves with Silk or an AFT<model> token. */
+  function appStorePlatform(ua) {
+    if (/\bSilk\b|\bAFT[A-Z0-9]/.test(ua)) return 'fire';
+    if (/Android/.test(ua)) return 'play';
+    return null;
+  }
+
+  /** The Android / Fire TV counterpart to iOS's native Smart App Banner.
+   *
+   *  Owner's goal for the site: someone arriving from a promotional post
+   *  should reach the native app easily. iOS gets that from Safari's own
+   *  banner (the meta tag in index.html, retargeted per page below). Android
+   *  and Fire visitors had only a footer link at the bottom of a long page.
+   *
+   *  It links to the STORE listing rather than trying to open the app: a page
+   *  cannot detect whether an app is installed, and Play/Amazon already show
+   *  "Open" when it is. Dismissal is remembered, and the banner never returns
+   *  -- an install offer that reappears is a nag, and the four-question test
+   *  in CLAUDE.md rules that out.
+   */
+  function showAppBanner() {
+    const host = $('app-banner');
+    if (!host) return;
+    const platform = appStorePlatform(navigator.userAgent || '');
+    if (!platform) return;
+    // Already installed as a PWA, or already dismissed: say nothing.
+    if (matchMedia('(display-mode: standalone)').matches) return;
+    try { if (localStorage.getItem('aw_appbanner_off')) return; } catch { /* private mode */ }
+
+    const store = platform === 'fire'
+      ? { href: 'https://www.amazon.com/gp/mas/dl/android?p=com.archivewatch.app',
+          where: 'Amazon Appstore' }
+      : { href: 'https://play.google.com/store/apps/details?id=com.archivewatch.app',
+          where: 'Google Play' };
+
+    const icon = document.createElement('img');
+    icon.src = 'assets/app-icon/app-icon.png'; icon.alt = ''; icon.width = 40; icon.height = 40;
+    const text = document.createElement('div');
+    text.className = 'app-banner-text';
+    text.innerHTML = '<strong>Archive Watch</strong>';
+    const sub = document.createElement('span');
+    sub.textContent = `Free on ${store.where}`;
+    text.append(sub);
+    const open = document.createElement('a');
+    open.className = 'btn-primary app-banner-open';
+    open.href = store.href; open.target = '_blank'; open.rel = 'noopener';
+    open.textContent = 'Get';
+    const close = document.createElement('button');
+    close.className = 'app-banner-close';
+    close.type = 'button';
+    close.setAttribute('aria-label', 'Dismiss');
+    close.textContent = '\u2715';
+    close.onclick = () => {
+      host.hidden = true;
+      try { localStorage.setItem('aw_appbanner_off', '1'); } catch { /* private mode */ }
+    };
+    host.replaceChildren(icon, text, open, close);
+    host.hidden = false;
+  }
+
   /** Point the iOS Smart App Banner's `app-argument` at the current page's
       universal link, so "Open" in the native banner deep-links into the app
       (item/series open their detail; everything else opens to home). Native
@@ -2548,6 +2615,8 @@
         }
       };
     }
+
+    showAppBanner();     // once at boot, never per navigation
 
     try {
       await Data.load();

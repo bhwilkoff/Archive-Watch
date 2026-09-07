@@ -31,6 +31,12 @@
   <link rel="stylesheet" href="tv.css">
 </head>
 <body>
+  <!-- The Android/Fire counterpart to iOS's native Smart App Banner. iOS
+       visitors arriving from a shared link get a deep-linked banner from the
+       meta tag above; Android and Fire visitors had only a footer link at the
+       bottom of a long page. Rendered by watch.js only on those platforms,
+       dismissible, and remembered -- it is an offer, not a nag. -->
+  <div id="app-banner" class="app-banner" hidden></div>
   <header class="topbar">
     <a class="brand" href="#/">
       <img class="brand-logo" src="assets/app-icon/app-icon.png"
