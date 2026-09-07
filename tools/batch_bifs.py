@@ -246,7 +246,19 @@ def main() -> int:
             log(manifest, {"id": aid, "status": "short", "runtime": runtime}); continue
         if not a.run:
             print(f"[dry] {aid}  {runtime}s  {rec[0]}"); made += 1; continue
-        res = make_bif(aid, rec[0], out_dir, a.width, a.interval * 1000)
+        # ONE FILM MUST NOT KILL THE SHARD. ffmpeg is given a 30-minute
+        # ceiling per film, and a TimeoutExpired used to propagate out of the
+        # loop: six of forty shards died that way on run 34078833334, each
+        # abandoning the ~200 films it had left. A film that cannot be read is
+        # a fact about that film; record it and move on.
+        try:
+            res = make_bif(aid, rec[0], out_dir, a.width, a.interval * 1000)
+        except Exception as e:
+            kind = type(e).__name__
+            print(f"[bif] {aid}: {kind} — skipped", flush=True)
+            log(manifest, {"id": aid, "status": "gen_failed",
+                           "err": f"{kind}: {str(e)[:160]}"})
+            continue
         if res["status"] == "made" and a.upload:
             try:
                 upload(Path(res["path"]), aid); res["status"] = "done"
