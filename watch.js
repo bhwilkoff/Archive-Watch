@@ -540,6 +540,20 @@
     set();
   }
 
+  /** What the browser's OWN <video controls> bar already shows, so our chrome
+   *  never draws a second copy of it. Pure and parameterised so the contract
+   *  can be tested for engines this machine cannot run -- Safari being the one
+   *  the report came from. Returns:
+   *    speed  — the bar (or its overflow/settings menu) offers playback speed
+   *    pip    — the bar shows a picture-in-picture button
+   *    canPiP — we could drive PiP ourselves via the standard API
+   */
+  function nativeControlSet(video, doc) {
+    const webkit = typeof video.webkitSetPresentationMode === 'function';
+    const canPiP = !!doc.pictureInPictureEnabled;
+    return { speed: webkit || (!webkit && canPiP), pip: webkit, canPiP };
+  }
+
   /** Up to two real genres for the Detail meta line. */
   function metaGenres(genres) {
     if (!genres) return [];
@@ -2201,7 +2215,7 @@
 
       $('player').showModal();
       video.playbackRate = Number(localStorage.getItem('aw_rate') || 1);
-      $('player-rate').value = String(video.playbackRate);
+      if (!$('player-rate').hidden) $('player-rate').value = String(video.playbackRate);
       try { await video.play(); } catch { /* user gesture rules; controls remain */ }
 
       // Lock-screen / media-key controls (the MediaSession parity row).
@@ -2358,16 +2372,42 @@
       localStorage.setItem('aw_rate', String(rate));
     };
     const video = $('video');
-    const pipSupported = document.pictureInPictureEnabled
-      || typeof video.webkitSetPresentationMode === 'function';
-    if (pipSupported) {
+
+    /* Owner: "I don't want controls that are native on specific platforms to
+       show twice (once in the web chrome and once in the native video
+       player)... it can get confusing with doubled up controls".
+
+       We ship <video controls> by WEB-DESIGN 5.1, so the browser draws its own
+       control set and our bar must never repeat what is already in it. What is
+       in it differs per engine, and this was MEASURED rather than assumed:
+
+         Chrome (macOS, on the glass): the overflow menu carries Captions and
+           Playback speed. There is NO picture-in-picture button in the bar --
+           Chrome puts PiP in the right-click context menu only.
+         Safari (macOS / iPadOS, owner's report, which is what started this):
+           the bar carries a PiP button AND a settings menu with speed.
+         Firefox: speed lives in the right-click menu and PiP is its own hover
+           overlay, so neither is a visible control in the bar -- ours stay.
+
+       Hence PiP splits on the WebKit presentation-mode API, and speed is the
+       browser's job wherever a Chromium overflow menu or a WebKit settings
+       menu exists. */
+    const native = nativeControlSet(video, document);
+
+    // Speed persists across films whether the viewer sets it in our control or
+    // in the browser's. Without this, hiding our select would still force the
+    // stored rate on every open and silently undo a native speed change.
+    video.addEventListener('ratechange', () => {
+      const r = video.playbackRate;
+      if (r > 0) localStorage.setItem('aw_rate', String(r));
+    });
+    $('player-rate').hidden = native.speed;
+
+    // Shown only where the browser's own bar has no PiP button.
+    if (native.canPiP && !native.pip) {
       $('player-pip').hidden = false;
       $('player-pip').onclick = () => {
-        if (typeof video.webkitSetPresentationMode === 'function') {
-          video.webkitSetPresentationMode(
-            video.webkitPresentationMode === 'picture-in-picture'
-              ? 'inline' : 'picture-in-picture');
-        } else if (document.pictureInPictureElement) {
+        if (document.pictureInPictureElement) {
           document.exitPictureInPicture().catch(() => {});
         } else {
           video.requestPictureInPicture().catch(() => {});

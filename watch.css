@@ -714,3 +714,8 @@ dialog#player::backdrop { background: rgba(0, 0, 0, 0.85); }
   letter-spacing: .11em; text-transform: uppercase;
   color: var(--color-primary);
 }
+
+/* The Cast button is a word, not a glyph: the square-brackets symbol it used
+   is the FULLSCREEN glyph, so it sat beside the browser's own fullscreen
+   button reading as a duplicate of it. */
+.player-cast { font-size: .78rem; font-weight: 600; letter-spacing: .04em; }

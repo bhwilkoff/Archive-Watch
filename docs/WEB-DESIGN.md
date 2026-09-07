@@ -171,6 +171,24 @@ separate tool with its own conventions (CLAUDE.md) — these rules govern the
 
 - **§5.1 Native `<video controls playsinline>`** in the player dialog. The
   browser's ranged GETs handle seeking; PiP/AirPlay come free from the UA.
+- **§5.1a Our chrome never repeats a native control.** Because §5.1 hands the
+  browser its own control bar, a control we draw beside it is a SECOND copy —
+  the owner reported exactly this on iPad and Mac ("picture-in-picture and
+  speed controls... it can get confusing with doubled up controls"). The bar's
+  contents differ per engine and are MEASURED, never assumed: Chrome's overflow
+  menu carries Captions and Playback speed but has no PiP button (right-click
+  only); Safari's bar carries a PiP button and a settings menu with speed;
+  Firefox has neither as a bar control. `nativeControlSet()` is the single
+  place that decides, it is pure so engines this machine cannot run are still
+  testable, and `tools/test_native_controls.mjs` locks the matrix. Our bar
+  keeps only what no engine provides: title, close, Cast, and the film-level
+  actions. A control that has no native counterpart must not IMITATE one
+  either — the Cast button is the word "Cast" because the glyph it used is the
+  fullscreen glyph, which read as a second fullscreen button.
+- **§5.1b A preference the viewer sets natively is still a preference.** Speed
+  persists via a `ratechange` listener rather than via our own control, so
+  hiding that control does not silently force the stored rate back on the next
+  film.
 - **§5.2 Reconnect wrapper** (the Decision 021 analog): on `error`, persist
   position, reload `src`, re-seek, replay immediately. On a `waiting` STALL,
   recovery is two-stage and buffer-preserving (`onStall()`): if bytes are still
