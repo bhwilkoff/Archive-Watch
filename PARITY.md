@@ -99,7 +99,7 @@ macOS) since they share the Swift Core.
 | Detail (backdrop, metadata, cast) | ✅ | ✅ | ✅ poster + metadata + cast row | ✅ | ✅ | shared item record |
 | "Also known as" alternate release title | ✅ under the hero title | ✅ under the title | ✅ under the title | ✅ under the title | ✅ phone + TV Detail | Decision 100 — `canonicalTitle` only, ligature+diacritic folded; 1,646 items. Web carries it as `extras.ct` in the detail shards |
 | More Like This | ✅ | ✅ | ✅ `store.related` | ✅ | ✅ | shared `related` query |
-| Cast → person filmography | ✅ | ✅ | ✅ cast bubble → search, resolved through the `people.json` sidecar | ⏳ | ✅ | |
+| Cast → person filmography | ✅ | ✅ | ✅ tappable cast (TMDb photos) → byPerson | ✅ cast bubble → search, resolved through the `people.json` sidecar | ✅ | |
 | Share titles / series | ✅ ShareSheet + QR | ✅ ShareLink | ✅ `ShareLink` (item + series) | ✅ share menu | ✅ ACTION_SEND | archivewatch.org URLs (Decision 030) |
 | Open in Callsheet (cast/crew app) | n/a | ✅ (App Store fallback) | ✅ `NSWorkspace` open/probe + App Store fallback | n/a | n/a | Decision 038 (+macOS amendment 2026-06-23) |
 | Now Playing / media controls | ✅ externalMetadata | ✅ AVKit (lock screen + Control Center) | ✅ AVPlayerView (system media keys) | ✅ MediaSession | ✅ Media3 MediaSession | |
@@ -108,7 +108,7 @@ macOS) since they share the Swift Core.
 | Resilient streaming | ✅ `ResilientStreamLoader` | ✅ reuse | ✅ reuse (resume-on-reset + node failover) | ✅ range + reconnect | ✅ OkHttp + patient policy | Decision 021/031/034 |
 | Resume across launches | ✅ | ✅ | ✅ `WatchProgress` | ✅ IndexedDB | ✅ user.sqlite | progress store (§6) |
 | Subtitles / audio / speed | ✅ | ✅ native AVKit | ✅ HLS captions + speed control | ✅ `<track>` subs (5,027 items) via the browser's own caption menu; speed is native too (WEB-DESIGN §5.1a) | ✅ subtitle button + speed | Decision 039 |
-| Autoplay / continuous play | ✅ | ✅ | 🚧 queue binge ✅ (episodes, channels, cartoon marathon); a standalone film ends with a **Watch next chooser** rather than autoplay — a choice, not a decision (CLAUDE.md) | ⏳ | ⏳ | F4 queue shared via Core |
+| Autoplay / continuous play | ✅ | ✅ | ⏳ | 🚧 queue binge ✅ (episodes, channels, cartoon marathon); a standalone film ends with a **Watch next chooser** rather than autoplay — a choice, not a decision (CLAUDE.md) | ⏳ | F4 queue shared via Core |
 | Picture-in-Picture | ✅ AVKit | ✅ AVKit + auto-PiP | ⏳ (AVPlayerView PiP) | ✅ presentation-mode | ⏳ Activity PiP | |
 | Background play | n/a | ✅ | n/a (desktop) | ✅ | ⏳ | |
 | **SharePlay — Watch Together** | ✅ join + start session; **cannot start the CALL** (`GroupActivitySharingController` does not exist on tvOS, checked in the 27.0 SDK) so it shows an alert instead | ✅ join + start session + start the call (UIKit sheet) | ✅ join + start session + start the call (**added 2026-09-01**; the Mac could previously only JOIN, and joining opened nothing) | 🚫 no Apple GroupActivities equivalent | 🚫 same | Shared `WatchTogether` service; coordination is by **archiveID**, never URL, since every title plays through a private `aw-stream://` scheme and Decision 077 can swap copies mid-film. Binding rules in `docs/SHAREPLAY.md`; Decision 098. Verified end to end on real hardware 2026-09-01 |
@@ -152,7 +152,7 @@ macOS) since they share the Swift Core.
 | Create / user channels | ✅ synced | ✅ synced | ⏳ | ✅ local | ✅ local | |
 | Cartoon / Kids mode | ✅ | ✅ | ✅ `Modes_macOS` | ✅ | ✅ | color/B&W flags shared |
 | Commercial-break controls | ✅ | ✅ toggle | ⏳ | ⏳ | ⏳ | |
-| Party Play (muted) | ✅ | 🔮 | ✅ Surprise → Party Play; muted lineup from the channel pools, never persisted | ⏳ | 🔮 | ambient mode |
+| Party Play (muted) | ✅ | 🔮 | 🔮 | ✅ Surprise → Party Play; muted lineup from the channel pools, never persisted | 🔮 | ambient mode |
 | Cover-art screensaver | ✅ + idle trigger | 🔮 | 🔮 | ⏳ | 🔮 | 10-foot/lean-back idiom |
 | VHS effect overlay | ✅ Metal | 🔮 | 🔮 | 🔮 | 🔮 | optional polish |
 
@@ -162,7 +162,7 @@ macOS) since they share the Swift Core.
 |---|---|---|---|---|---|---|
 | Favorites | ✅ | ✅ | ✅ Detail heart + Library | ✅ | ✅ | local store per platform |
 | Playlists | ✅ | ✅ | ✅ `PlaylistSheet` + Library | ✅ | ✅ | |
-| Watched / hide-watched | ✅ | ✅ | ✅ `everDone` tracked already; toggle in About → Preferences, applied to every Home shelf | ⏳ | ✅ | |
+| Watched / hide-watched | ✅ | ✅ | ✅ `hideWatchedOnHome` filter | ✅ `everDone` tracked already; toggle in About → Preferences, applied to every Home shelf | ✅ | |
 | Continue Watching progress | ✅ | ✅ | ✅ | ✅ | ✅ | |
 | Watch history (full ever-watched record, D078) | ✅ Library History | ✅ Library tab | ✅ Library shelves | ✅ Library grid | ✅ Library tab | durable everCompleted + playCount + firstWatchedAt; Apple synced via CloudKit |
 | Cross-ecosystem history sync (Drive App Data, D028) | n/a (CloudKit) | n/a (CloudKit) | n/a (CloudKit) | ✅ LIVE | ✅ LIVE (google flavor only) | OAuth configured 2026-09-03; VERIFIED Pixel 8a ↔ browser both ways incl. deletions — docs/google-oauth-setup.md |
