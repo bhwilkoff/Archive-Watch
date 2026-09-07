@@ -162,7 +162,7 @@ macOS) since they share the Swift Core.
 |---|---|---|---|---|---|---|
 | Favorites | ✅ | ✅ | ✅ Detail heart + Library | ✅ | ✅ | local store per platform |
 | Playlists | ✅ | ✅ | ✅ `PlaylistSheet` + Library | ✅ | ✅ | |
-| Watched / hide-watched | ✅ | ✅ | ✅ `hideWatchedOnHome` filter | ⏳ | ✅ | |
+| Watched / hide-watched | ✅ | ✅ | ✅ `everDone` tracked already; toggle in About → Preferences, applied to every Home shelf | ⏳ | ✅ | |
 | Continue Watching progress | ✅ | ✅ | ✅ | ✅ | ✅ | |
 | Watch history (full ever-watched record, D078) | ✅ Library History | ✅ Library tab | ✅ Library shelves | ✅ Library grid | ✅ Library tab | durable everCompleted + playCount + firstWatchedAt; Apple synced via CloudKit |
 | Cross-ecosystem history sync (Drive App Data, D028) | n/a (CloudKit) | n/a (CloudKit) | n/a (CloudKit) | ✅ LIVE | ✅ LIVE (google flavor only) | OAuth configured 2026-09-03; VERIFIED Pixel 8a ↔ browser both ways incl. deletions — docs/google-oauth-setup.md |

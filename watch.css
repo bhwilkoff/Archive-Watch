@@ -776,3 +776,10 @@ a.person:focus-visible { outline: 2px solid var(--color-primary); outline-offset
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
 }
 .player-endcard-actions { display: flex; gap: .6rem; flex-wrap: wrap; }
+
+/* Preferences row in About. A checkbox with its explanation, not a settings
+   page — one toggle does not earn a view of its own. */
+.pref-row { display: flex; gap: .7rem; align-items: flex-start; cursor: pointer; }
+.pref-row input { margin-top: .25rem; width: 1.05rem; height: 1.05rem; flex: none; }
+.pref-row span { display: flex; flex-direction: column; gap: .15rem; }
+.pref-row small { color: var(--text-dim); }

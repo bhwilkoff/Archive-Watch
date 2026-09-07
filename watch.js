@@ -667,6 +667,34 @@
     if (name === 'cartoons') Cartoons.render();
   }
 
+  /** "Hide films I've finished". The DATA has been there all along --
+   *  saveProgress records a durable `everDone` (Decision 078 parity, a rewatch
+   *  resets the position but never removes "you have watched this"). What was
+   *  missing was somewhere to say so, which is why PARITY recorded this as
+   *  blocked on a settings surface rather than on the feature.
+   *
+   *  The set is resident because Home.render() is synchronous; it is refreshed
+   *  at boot and whenever playback persists progress. Default OFF: a viewer who
+   *  has watched a lot should not open Home one day to a page that has quietly
+   *  emptied itself. */
+  const Watched = {
+    ids: new Set(),
+    get on() {
+      try { return localStorage.getItem('aw_hide_watched') === '1'; } catch { return false; }
+    },
+    set on(v) {
+      try { localStorage.setItem('aw_hide_watched', v ? '1' : '0'); } catch { /* private mode */ }
+    },
+    async refresh() {
+      try {
+        const rows = await DB.progress();
+        this.ids = new Set(rows.filter(p => p.everDone).map(p => p.id));
+      } catch { this.ids = new Set(); }
+    },
+    /** True when this row should be hidden from a discovery surface. */
+    hides(row) { return this.on && this.ids.has(row[0]); },
+  };
+
   /** The rows behind More Like This, as data. Shared with the end-of-film
    *  chooser so Detail and the player can never disagree about what is
    *  related. Same rule as before: same category, then YEAR proximity (±10y),
@@ -788,6 +816,11 @@
       this.rendered = true;
       const heroIDs = this.hero();
       const host = $('home-shelves');
+      // render() used to be one-shot (guarded by `rendered`), so it only ever
+      // APPENDED. The preferences toggle re-renders, and without this the
+      // shelves stacked: 28 -> 81 sections and 360 -> 1021 cards, with the
+      // stale copy still showing films the new filter had removed.
+      host.replaceChildren();
       // Cross-shelf dedup (the apps' Home rule): an item shows once, in the
       // first shelf that claims it, so Home isn't aliases of one popular list.
       // Keyed on normalized TITLE+year (not archiveID) so two uploads of the same
@@ -798,6 +831,12 @@
       };
       const used = new Set(heroIDs.map(id => Data.byID.get(id)).filter(Boolean).map(dedupKey));
       const shelfSection = (title, subtitle, rows) => {
+        // Every Home shelf funnels through here, so "hide watched" is applied
+        // ONCE rather than at a dozen call sites. A shelf that thins below its
+        // floor returns an empty fragment -- appending that is a no-op, so the
+        // callers' `host.append(shelfSection(...))` needs no change.
+        rows = rows.filter(r => !Watched.hides(r));
+        if (rows.length < 4) return document.createDocumentFragment();
         const sec = document.createElement('section');
         sec.className = 'shelf';
         const h = document.createElement('h2');
@@ -2482,6 +2521,7 @@
         there is nothing worth offering, in which case the caller closes as
         before — an empty chooser is worse than a clean exit. */
     showEndCard() {
+      Watched.refresh();          // a film just finished; Home should know
       const host = $('player-endcard');
       const row = Data.byID.get(this.ctx?.id);      // episodes aren't index rows
       if (!host || !row) return false;
@@ -2673,6 +2713,21 @@
         }
       };
     }
+
+    // Preferences (About → Preferences). Toggling re-renders Home rather than
+    // waiting for a reload, so the effect of the switch is immediately visible
+    // -- a setting whose result you cannot see is a setting you cannot trust.
+    const hideWatched = $('pref-hide-watched');
+    if (hideWatched) {
+      hideWatched.checked = Watched.on;
+      hideWatched.onchange = async () => {
+        Watched.on = hideWatched.checked;
+        await Watched.refresh();
+        Home.rendered = false;
+        Home.render();
+      };
+    }
+    Watched.refresh();
 
     showAppBanner();     // once at boot, never per navigation
 
