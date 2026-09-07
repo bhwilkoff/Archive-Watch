@@ -74,7 +74,7 @@ macOS) since they share the Swift Core.
 | Detail community (stats + genuine reviews) | ✅ | ✅ | ✅ | ✅ | ✅ | reviews filtered in the pipeline (`comment_fit.py`), baked into the catalog |
 | Director shelves | ✅ | ✅ | ✅ | ✅ top 4 by film count, grouped on the index's `director` column | ✅ | shared query. Web skips a director a curated shelf already covers |
 | Continue Watching | ✅ | ✅ | ✅ progress + widget + Home shelf | ✅ | ✅ | progress store (§6) |
-| Modes row | ✅ | ➖ removed (Channels tab; modes via Surprise grid) | ➖ (Cartoon via Modes; Channels/Surprise are sidebar) | ⏳ | ⏳ | links to §5 |
+| Modes row | ✅ | ➖ removed (Channels tab; modes via Surprise grid) | ➖ (Cartoon via Modes; Channels/Surprise are sidebar) | ➖ removed, as on iOS/macOS — Channels is top-level nav and the modes live on Surprise (Cartoon Mode, Party Play) | ⏳ | links to §5 |
 | Public Domain Day section | ✅ | ✅ Home shelf + year-chip explorer | ⏳ | ✅ Home shelf | ✅ Home row | seasonal, shared |
 
 ## 3. Discover — Movies / TV / Collections / Search
@@ -151,7 +151,7 @@ macOS) since they share the Swift Core.
 | Channels (EPG guide) | ✅ | ✅ touch EPG | ✅ `ChannelsView` (shared `ChannelScheduler`) | ✅ CSS listing | ✅ Compose guide | date-seeded scheduler ported per platform |
 | Create / user channels | ✅ synced | ✅ synced | ⏳ | ✅ local | ✅ local | |
 | Cartoon / Kids mode | ✅ | ✅ | ✅ `Modes_macOS` | ✅ | ✅ | color/B&W flags shared |
-| Commercial-break controls | ✅ | ✅ toggle | ⏳ | ⏳ | ⏳ | |
+| Commercial-break controls | ✅ | ✅ toggle | ⏳ | ✅ About → Preferences, default on (a channel without them is not a channel) | ⏳ | |
 | Party Play (muted) | ✅ | 🔮 | 🔮 | ✅ Surprise → Party Play; muted lineup from the channel pools, never persisted | 🔮 | ambient mode |
 | Cover-art screensaver | ✅ + idle trigger | 🔮 | 🔮 | ⏳ | 🔮 | 10-foot/lean-back idiom |
 | VHS effect overlay | ✅ Metal | 🔮 | 🔮 | 🔮 | 🔮 | optional polish |

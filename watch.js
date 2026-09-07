@@ -668,6 +668,23 @@
     if (name === 'about') renderCategoryPrefs();
   }
 
+  /** Small on/off preferences kept in localStorage. Each reads its default on
+   *  every access rather than caching, so a change in About takes effect on the
+   *  next tune-in without a reload. */
+  const Prefs = {
+    read(key, dflt) {
+      try {
+        const v = localStorage.getItem(key);
+        return v === null ? dflt : v === '1';
+      } catch { return dflt; }
+    },
+    write(key, v) {
+      try { localStorage.setItem(key, v ? '1' : '0'); } catch { /* private mode */ }
+    },
+    get commercials() { return this.read('aw_commercials', true); },
+    set commercials(v) { this.write('aw_commercials', v); },
+  };
+
   /** Categories the viewer has switched off. Parity with the apps' category
    *  visibility toggles. Stored as a list of contentType ids; an empty list
    *  (the default) shows everything.
@@ -1961,7 +1978,11 @@
     async tune(ch, slots, slot) {
       const idx = slots.indexOf(slot);
       const lineup = slots.slice(idx);
-      const ads = shuffle(this.data.commercials || []);
+      // Vintage commercials between programmes are half the pleasure of a
+      // channel and an interruption to some viewers, so it is a preference —
+      // parity with the tvOS/iOS toggle. Default ON, which is what a channel
+      // IS; the switch lives in About → Preferences.
+      const ads = Prefs.commercials ? shuffle(this.data.commercials || []) : [];
       const queue = [];
       lineup.forEach((s, i) => {
         queue.push({ id: s.prog[0], title: `${s.prog[1]} · ${ch.title}`, url: s.prog[3] });
@@ -2909,6 +2930,12 @@
     // Preferences (About → Preferences). Toggling re-renders Home rather than
     // waiting for a reload, so the effect of the switch is immediately visible
     // -- a setting whose result you cannot see is a setting you cannot trust.
+    const adsBox = $('pref-commercials');
+    if (adsBox) {
+      adsBox.checked = Prefs.commercials;
+      adsBox.onchange = () => { Prefs.commercials = adsBox.checked; };
+    }
+
     const hideWatched = $('pref-hide-watched');
     if (hideWatched) {
       hideWatched.checked = Watched.on;
