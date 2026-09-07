@@ -719,3 +719,12 @@ dialog#player::backdrop { background: rgba(0, 0, 0, 0.85); }
    is the FULLSCREEN glyph, so it sat beside the browser's own fullscreen
    button reading as a duplicate of it. */
 .player-cast { font-size: .78rem; font-weight: 600; letter-spacing: .04em; }
+
+/* Cast bubbles became links (they search for the person), and an <a> brings
+   the accent colour and an underline with it — which on this dark page turned
+   every cast name into blue underlined text. A bubble should still read as a
+   portrait with a name under it; the affordance is the hover, not the colour. */
+a.person { color: inherit; text-decoration: none; }
+a.person:hover figcaption,
+a.person:focus-visible figcaption { text-decoration: underline; }
+a.person:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 3px; border-radius: 8px; }

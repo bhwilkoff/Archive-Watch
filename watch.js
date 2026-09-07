@@ -554,6 +554,38 @@
     return { speed: webkit || (!webkit && canPiP), pip: webkit, canPiP };
   }
 
+  /** The cast sidecar (tools/build_people_index.py). Fetched once, on the
+   *  first person search, and never on the cold-load path. A failure is
+   *  silent by design: search still works on titles, keywords and director. */
+  const People = {
+    map: null,
+    failed: false,
+    async load() {
+      if (this.map || this.failed) return this.map;
+      try {
+        const r = await fetch('people.json');
+        if (!r.ok) throw new Error(String(r.status));
+        const raw = await r.json();
+        // Fold once, on load, so a keystroke never folds 27,000 names.
+        this.map = Object.entries(raw).map(([name, ids]) => [foldText(name), ids]);
+      } catch {
+        this.failed = true;                 // one attempt; do not retry per keystroke
+      }
+      return this.map;
+    },
+    /** archiveIDs of every person whose name matches all the search terms. */
+    async filmIDs(terms) {
+      const out = new Set();
+      if (!terms.length) return out;
+      const map = await this.load();
+      if (!map) return out;
+      for (const [name, ids] of map) {
+        if (terms.every(t => name.includes(t))) for (const id of ids) out.add(id);
+      }
+      return out;
+    },
+  };
+
   /** Lowercase and strip diacritics, so a viewer typing "melies" finds
    *  "Méliès". Used on BOTH sides of every search comparison — folding one
    *  side only is the same as not folding at all. */
@@ -1093,7 +1125,9 @@
       input.value = initial;
       this.run(initial);
     },
-    run(qs) {
+    _serial: 0,
+
+    async run(qs) {
       const grid = $('search-grid');
       if (!qs) { grid.replaceChildren(); this.renderEpisodes([]); $('search-hint').hidden = false; return; }
       $('search-hint').hidden = true;
@@ -1122,6 +1156,27 @@
         if (terms.every(t => hay.includes(t))) {
           hits.push(Data.rows[i]);
           if (hits.length >= 200) break;
+        }
+      }
+
+      // People. Cast lives in the per-item detail shards, so it can never be
+      // scanned client-side -- people.json is an inverted index built from
+      // those shards and fetched ONLY here, the first time someone searches.
+      // It is 1.4 MB gzipped, which is why it is not a column on the index
+      // every visitor loads at first paint (the aliases.json shape, D085).
+      // run() became async for this fetch, so a fast typist can have two runs
+      // in flight and the OLDER one resolve last. Serial-number each run and
+      // drop a stale one rather than painting results for a query the viewer
+      // has already moved on from.
+      const serial = ++this._serial;
+      const castIDs = await People.filmIDs(terms);
+      if (serial !== this._serial) return;
+      if (castIDs.size) {
+        const seen = new Set(hits.map(r => r[0]));
+        for (const id of castIDs) {
+          if (hits.length >= 200) break;
+          const r = Data.byID.get(id);
+          if (r && !seen.has(id)) { hits.push(r); seen.add(id); }
         }
       }
       // Episode items (Decision 045): match the episode title OR its series name.
@@ -1818,7 +1873,12 @@
       if (det.director) people.push({ name: det.director, role: 'Director', profilePath: det.directorProfilePath || null });
       for (const c of det.cast || []) people.push(c);
       host.replaceChildren(...people.slice(0, 10).map(p => {
-        const fig = document.createElement('figure');
+        // A cast bubble LINKS to a search for that name. Search resolves a
+        // person through people.json, so "cast -> filmography" needs no route
+        // of its own -- one mechanism, and it degrades to a title search if
+        // the sidecar cannot be fetched.
+        const fig = document.createElement('a');
+        fig.href = `#/search?q=${encodeURIComponent(p.name)}`;
         fig.className = 'person';
         if (p.profilePath) {
           const img = document.createElement('img');

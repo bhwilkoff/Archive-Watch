@@ -89,7 +89,7 @@ macOS) since they share the Swift Core.
 | Orphan episodes fold into spines | ✅ pipeline | — | — | — | — | Decision 036; pipeline-side, benefits all via `series/*.json` |
 | Prev/next episode in player | ✅ | ✅ | 🚧 | ✅ | ✅ | EpisodeQueue / PlaybackQueue (macOS wiring pending) |
 | Collections landing + blurbs | ✅ | ✅ | ✅ `CollectionsList` | ✅ `#/collections` | ✅ | `collection_metadata.json` shared |
-| Full-text search (FTS5) | ✅ | ✅ | ✅ `SearchView` over FTS5 | 🚧 title + keyword/AKA/writer/studio blob + **director**, accent-folded. CAST is still unsearchable — it lives in the per-item detail shards, so it needs a lazily-fetched sidecar (the `aliases.json` pattern, D085) | ✅ debounced FTS5 | same FTS5 index |
+| Full-text search (FTS5) | ✅ | ✅ | ✅ `SearchView` over FTS5 | 🚧 title + keyword/AKA/writer/studio blob + **director**, accent-folded. plus **cast** via the lazily-fetched `people.json` sidecar (the `aliases.json` pattern, D085) — 27,490 people, 1.4 MB gzipped, fetched only on the first person search | ✅ debounced FTS5 | same FTS5 index |
 | Search result filters | ⏳ | ✅ type/decade menu | ✅ type/decade menu | ⏳ | ✅ chips | |
 
 ## 4. Detail + Playback
@@ -99,7 +99,7 @@ macOS) since they share the Swift Core.
 | Detail (backdrop, metadata, cast) | ✅ | ✅ | ✅ poster + metadata + cast row | ✅ | ✅ | shared item record |
 | "Also known as" alternate release title | ✅ under the hero title | ✅ under the title | ✅ under the title | ✅ under the title | ✅ phone + TV Detail | Decision 100 — `canonicalTitle` only, ligature+diacritic folded; 1,646 items. Web carries it as `extras.ct` in the detail shards |
 | More Like This | ✅ | ✅ | ✅ `store.related` | ✅ | ✅ | shared `related` query |
-| Cast → person filmography | ✅ | ✅ | ✅ tappable cast (TMDb photos) → byPerson | ⏳ | ✅ | |
+| Cast → person filmography | ✅ | ✅ | ✅ cast bubble → search, resolved through the `people.json` sidecar | ⏳ | ✅ | |
 | Share titles / series | ✅ ShareSheet + QR | ✅ ShareLink | ✅ `ShareLink` (item + series) | ✅ share menu | ✅ ACTION_SEND | archivewatch.org URLs (Decision 030) |
 | Open in Callsheet (cast/crew app) | n/a | ✅ (App Store fallback) | ✅ `NSWorkspace` open/probe + App Store fallback | n/a | n/a | Decision 038 (+macOS amendment 2026-06-23) |
 | Now Playing / media controls | ✅ externalMetadata | ✅ AVKit (lock screen + Control Center) | ✅ AVPlayerView (system media keys) | ✅ MediaSession | ✅ Media3 MediaSession | |
