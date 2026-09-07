@@ -270,3 +270,63 @@ separate tool with its own conventions (CLAUDE.md) — these rules govern the
   whole pool — arrives with §2.4), Cartoon Mode, Surprise grid (needs genre
   facets), Google Drive sync (Sign in with Google — planned island per
   Decision 028 §6), autoplay/continuous play.
+
+## §10 Traps this codebase has already paid for
+
+Each of these produced a real defect on 2026-09-07. None of them fails
+loudly, and none is visible in a screenshot — which is why they are written
+down rather than left to be re-learned.
+
+- **§10.1 Bump `SHELL` in `sw.js` on EVERY web change.** The service worker
+  re-registers on load and serves its cached shell, so an unbumped deploy
+  reaches nobody. Verifying a change locally needed the cache cleared three
+  times before new markup appeared, and `fetch(url, {cache:'no-store'})` does
+  NOT bypass a service worker — a fetch that looks like it proves the server
+  is wrong may be the worker answering.
+
+- **§10.2 An author `display` beats the UA's `[hidden] { display: none }`.**
+  `.thing { display: flex }` on an element you toggle with `hidden` leaves it
+  on screen: the app banner shipped a 19px empty bordered strip on every
+  desktop page this way. State the display on `.thing:not([hidden])` rather
+  than reaching for `!important`.
+
+- **§10.3 Turning an element into `<a>` inherits the bare `a` rule.** Cast
+  bubbles became links and every name went accent-blue and underlined on a
+  dark page. A link that is not shaped like a link needs `color: inherit;
+  text-decoration: none`, with the affordance moved to `:hover`/`:focus-visible`.
+
+- **§10.4 A one-shot render must replace before it appends.** `Home.render()`
+  was guarded by a `rendered` flag and only ever appended. The first thing
+  that re-rendered it stacked the page — 28 sections to 81, 360 cards to 1021
+  — with the stale copy still showing what the new filter had removed.
+
+- **§10.5 A facet must be computed against the other facet's selection.**
+  Search chips built from the whole result set promise combinations that do
+  not exist; five decade chips emptied the grid once a type was chosen. The
+  property to assert is "no offered chip yields zero rows", not "the chips
+  look right" (`tools/test_search_facets.mjs`).
+
+- **§10.6 One rule, one function.** Where two callers implement the same rule
+  they drift: the category tile row counted documentary specially and the
+  preferences list did not, so Documentary had a tile that could not be
+  switched off. `categoryCounts()`, `relatedRows()`, `nativeControlSet()` and
+  `searchFacets()` all exist because of this.
+
+- **§10.7 Check what exists before building it.** Web `<track>` subtitles were
+  fully shipped — blob fetch, WEBVTT validation, SRT conversion, Cast
+  carry-over, 5,027 items — while PARITY said they were pending. Read the code
+  before believing a status column, in either direction.
+
+- **§10.8 Read `PARITY.md` columns from the HEADER.** A markdown row's
+  `split("|")` has a LEADING EMPTY element, so `parts[4]` is macOS and
+  `parts[5]` is Web. Four edits silently overwrote the macOS column. Nothing
+  fails — the table still renders and the wrong cell reads as fact.
+
+- **§10.9 Trust the instrument only while it is sane.** A Chrome window
+  collapsed to zero width reported a banner as 26x282 and a page header as
+  32px; `resize_window` returned success twice without changing anything.
+  Layout numbers from a zero-width viewport are meaningless, while DOM
+  structure queries (counts, classes, attributes) stay valid — prefer those
+  when the window is suspect, and never "fix" CSS to satisfy a broken
+  instrument.
+
