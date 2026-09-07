@@ -1469,6 +1469,42 @@
     },
   };
 
+
+  /* ---------------------------------------------------------------- *
+   * Party Play — the apps' muted eye-candy lineup                     *
+   * ---------------------------------------------------------------- */
+  const Party = {
+    /** Drawn from the CHANNEL POOLS, not the catalog index: the index has no
+     *  downloadURL, and a lineup needs one per entry. The pools already carry
+     *  [id, title, runtime, url, contentType] for 15 channels.
+     *
+     *  Colour is a PREFERENCE, never a filter (Decision 084 measured the
+     *  saturation reading as a coin flip near the threshold, so a film must
+     *  never be hidden by it). Silent films are dropped because this lineup is
+     *  muted — a silent film with the sound off is just a film. */
+    async start() {
+      const pools = (await ChannelsView.loadPools())?.channels;
+      if (!pools?.length) return false;
+      const seen = new Set();
+      const all = [];
+      for (const ch of pools) {
+        for (const prog of (ch.programs || [])) {
+          const [id, title, , url, type] = prog;
+          if (!id || !url || seen.has(id) || type === 'silent-film') continue;
+          seen.add(id);
+          const row = Data.byID.get(id);
+          all.push({ id, title, url, colour: row && row[14] === 'c' });
+        }
+      }
+      if (!all.length) return false;
+      const colour = shuffle(all.filter(p => p.colour));
+      const rest = shuffle(all.filter(p => !p.colour));
+      const queue = [...colour, ...rest].slice(0, 40);
+      Player.start({ ...queue[0], queue, queueIndex: 0, persist: false, muted: true });
+      return true;
+    },
+  };
+
   /* ---------------------------------------------------------------- *
    * Collections — curated Archive collections (PARITY §3)             *
    * ---------------------------------------------------------------- */
@@ -2418,10 +2454,15 @@
         plays. `startAt` joins a channel program in progress; `persist:false`
         keeps channel playback out of Continue Watching (the apps' rule). */
     async start({ id, title, url, queue = null, queueIndex = 0,
-                  startAt = 0, persist = true }) {
-      this.ctx = { id, title, queue, queueIndex, persist };
+                  startAt = 0, persist = true, muted = false }) {
+      this.ctx = { id, title, queue, queueIndex, persist, muted };
       $('player-endcard').hidden = true;      // never survives into the next film
       const video = $('video');
+      // Party Play is background visuals, so it starts silent. Set on every
+      // start(), not once: the queue advances by calling start() again, and a
+      // lineup that regained its audio at the first change of film would be
+      // exactly the wrong surprise at a gathering.
+      video.muted = muted;
 
       $('player-title').textContent = title;
       $('player-error').hidden = true;
@@ -2505,7 +2546,8 @@
         const { queue, queueIndex, persist } = this.ctx || {};
         if (queue && queueIndex + 1 < queue.length) {
           const next = queue[queueIndex + 1];
-          this.start({ ...next, queue, queueIndex: queueIndex + 1, persist });
+          this.start({ ...next, queue, queueIndex: queueIndex + 1, persist,
+                       muted: this.ctx?.muted });
           return;
         }
         // A standalone film used to end by closing the dialog, which drops the
@@ -2728,6 +2770,17 @@
       };
     }
     Watched.refresh();
+
+    const partyBtn = $('party-start');
+    if (partyBtn) {
+      partyBtn.onclick = async () => {
+        partyBtn.disabled = true;
+        const ok = await Party.start();
+        partyBtn.disabled = false;
+        // Universal feature states: say so rather than doing nothing visible.
+        if (!ok) partyBtn.textContent = '🎉 Party Play — unavailable right now';
+      };
+    }
 
     showAppBanner();     // once at boot, never per navigation
 

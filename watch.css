@@ -783,3 +783,6 @@ a.person:focus-visible { outline: 2px solid var(--color-primary); outline-offset
 .pref-row input { margin-top: .25rem; width: 1.05rem; height: 1.05rem; flex: none; }
 .pref-row span { display: flex; flex-direction: column; gap: .15rem; }
 .pref-row small { color: var(--text-dim); }
+
+/* The two mode entries under the Surprise grid. */
+.mode-links { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: .25rem; }

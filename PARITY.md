@@ -152,7 +152,7 @@ macOS) since they share the Swift Core.
 | Create / user channels | ✅ synced | ✅ synced | ⏳ | ✅ local | ✅ local | |
 | Cartoon / Kids mode | ✅ | ✅ | ✅ `Modes_macOS` | ✅ | ✅ | color/B&W flags shared |
 | Commercial-break controls | ✅ | ✅ toggle | ⏳ | ⏳ | ⏳ | |
-| Party Play (muted) | ✅ | 🔮 | 🔮 | ⏳ | 🔮 | ambient mode |
+| Party Play (muted) | ✅ | 🔮 | ✅ Surprise → Party Play; muted lineup from the channel pools, never persisted | ⏳ | 🔮 | ambient mode |
 | Cover-art screensaver | ✅ + idle trigger | 🔮 | 🔮 | ⏳ | 🔮 | 10-foot/lean-back idiom |
 | VHS effect overlay | ✅ Metal | 🔮 | 🔮 | 🔮 | 🔮 | optional polish |
 
