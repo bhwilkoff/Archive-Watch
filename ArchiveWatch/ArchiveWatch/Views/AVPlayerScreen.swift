@@ -1,3 +1,20 @@
+import Foundation
+// DEV BISECT for the owner's tvOS audio dropout. OTHER APPS ON THE SAME
+// APPLE TV DO NOT DROP AUDIO -- so this is ours, and the cause survives a run
+// with the caption engine off AND a plain AVURLAsset. What still differs from
+// an ordinary video app is this handful of player settings.
+//   AW_NO_PIP=1       -- PiP is the one feature whose PURPOSE is detaching
+//                        audio from the video surface, and it requires the
+//                        `audio` background mode we declare on tvOS.
+//   AW_DEFAULT_BUF=1  -- a 300s forward buffer is far past AVFoundation's
+//                        automatic default.
+enum AWPlayerBisect {
+    static let pipDisabled =
+        ProcessInfo.processInfo.environment["AW_NO_PIP"] == "1"
+    static let defaultBuffer =
+        ProcessInfo.processInfo.environment["AW_DEFAULT_BUF"] == "1"
+}
+
 #if os(tvOS)
 import SwiftUI
 import AVKit
@@ -509,11 +526,15 @@ struct AVPlayerContainer: UIViewControllerRepresentable {
     func makeUIViewController(context: Context) -> AVPlayerViewController {
         let vc = AVPlayerViewController()
         vc.player = player
+        // The audio session must be declared and OWNED for the life of
+        // playback, or an interruption ends with nobody to reactivate it and
+        // the film plays on in silence (see TVAudioSession).
+        TVAudioSession.shared.begin(player: player)
         vc.speeds = AVPlaybackSpeed.systemDefaultSpeeds   // #5: native speed menu
         vc.transportBarCustomMenuItems = menuItems
         // tvOS PiP (swipe up / TV button while playing → corner window). Needs
         // the `audio` UIBackgroundModes entry, added alongside this.
-        vc.allowsPictureInPicturePlayback = true
+        vc.allowsPictureInPicturePlayback = !AWPlayerBisect.pipDisabled
         context.coordinator.setCaptionChoice(captionChoice)
         if let src = liveCaptionURL, LiveCaptions.isSupported {
             context.coordinator.startCaptions(url: src, player: player, in: vc)
@@ -529,6 +550,7 @@ struct AVPlayerContainer: UIViewControllerRepresentable {
     static func dismantleUIViewController(_ vc: AVPlayerViewController,
                                           coordinator: CaptionCoordinator) {
         coordinator.stop()
+        TVAudioSession.shared.end()
     }
 
     func updateUIViewController(_ vc: AVPlayerViewController, context: Context) {
@@ -582,8 +604,12 @@ struct EpisodeAVPlayerContainer: UIViewControllerRepresentable {
     func makeUIViewController(context: Context) -> AVPlayerViewController {
         let vc = AVPlayerViewController()
         vc.player = player
+        // The audio session must be declared and OWNED for the life of
+        // playback, or an interruption ends with nobody to reactivate it and
+        // the film plays on in silence (see TVAudioSession).
+        TVAudioSession.shared.begin(player: player)
         vc.speeds = AVPlaybackSpeed.systemDefaultSpeeds   // #5: native speed menu
-        vc.allowsPictureInPicturePlayback = true          // tvOS PiP
+        vc.allowsPictureInPicturePlayback = !AWPlayerBisect.pipDisabled   // tvOS PiP
         context.coordinator.apply(to: vc)
         if let src = liveCaptionURL, LiveCaptions.isSupported {
             context.coordinator.captions.startCaptions(url: src, player: player, in: vc)
@@ -594,6 +620,7 @@ struct EpisodeAVPlayerContainer: UIViewControllerRepresentable {
     static func dismantleUIViewController(_ vc: AVPlayerViewController,
                                           coordinator: Coordinator) {
         coordinator.captions.stop()
+        TVAudioSession.shared.end()
     }
 
     func updateUIViewController(_ vc: AVPlayerViewController, context: Context) {
@@ -691,7 +718,8 @@ let archivePreferredForwardBufferDuration: TimeInterval = 300
 
 @MainActor
 func tunePlaybackBuffering(item: AVPlayerItem, player: AVPlayer) {
-    item.preferredForwardBufferDuration = archivePreferredForwardBufferDuration
+    item.preferredForwardBufferDuration = AWPlayerBisect.defaultBuffer
+        ? 0 : archivePreferredForwardBufferDuration
     player.automaticallyWaitsToMinimizeStalling = true
     PlaybackDiag.attach(item: item, player: player)   // no-op unless AW_PLAYBACK_DIAG=1
     PlaybackDiag.attachAudioMeter(item: item, label: "main")  // no-op unless AW_AUDIO_DIAG=1

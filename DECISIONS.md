@@ -174,6 +174,7 @@ an entry in place.
 - 103 — The player is not a tab: full-screen video renders outside the navigation scaffold, and PiP gets no chrome at all
 - 104 — A `private` archive.org file is never a playable copy; the guard belongs in the picker, not the sweep
 - 105 — The mature-content rule is ONE predicate: the apps' default-off setting and the web index's drop are the same function
+- 106 — tvOS 27 loses the audio of a NON-FRAGMENTED mp4; remux to fMP4 and serve as HLS from the existing LocalMediaServer
 
 ---
 
@@ -1537,3 +1538,73 @@ default-off filter in the same change — not before. Verified after the
 publish: the index holds zero titles beginning with "Stripper" and the Roku's
 "stripper" search shows eleven legitimate films where it showed forty-two
 reels.
+
+## 106 — tvOS 27 loses the audio of a NON-FRAGMENTED mp4; the film is remuxed to fMP4 and served as HLS by the existing LocalMediaServer
+*Date: 2026-09-06*
+
+On tvOS 27+ every film is remuxed to a FRAGMENTED mp4 on the fly
+(`MP4Fragmenter`, no re-encode) and published as an HLS VOD playlist by the
+EXISTING `LocalMediaServer` (Decision 082). `TVAssetChooser` is the ONE place
+that decision is made, and both tvOS players call it. Below 27, Decision 072's
+single pipeline is untouched.
+
+**Why**: the owner reported audio dying a few minutes into a film, on any
+film, with the picture playing on. Measured on the Bedroom Apple TV (tvOS 27.0,
+24J5360a) at the moment audio died: buffer HEALTHY (75-89s ahead), `rate` 1.00,
+`stalls` 0, the item's error log EMPTY, the audio track still enabled with 2
+channels on the route, and the player item never swapped. Nothing in the app
+was wrong, which is why six hypotheses in a row were wrong.
+
+What settled it was varying the INPUT rather than the app:
+
+| Delivery | Source | Result |
+|---|---|---|
+| progressive mp4 | archive.org | audio dies < 5.5 min |
+| progressive mp4 | this Mac, LAN, file I generated | audio dies |
+| **fragmented mp4** | same footage, same codecs | **11+ min, untouched** |
+| **HLS** | mux.dev | **whole feature** |
+
+A second Apple TV on tvOS 26.6 with the SAME build and the SAME HomePods is
+fine, and other apps on 27 are fine because they all ship HLS. This catalog is
+progressive mp4 end to end, so only we are hit.
+
+**How to apply**: do NOT try to fix this in the player. Every in-player remedy
+was tried on the glass and rejected: a mute toggle does not revive the render,
+nor does re-selecting the audio track; only stopping playback does, and even a
+single-runloop-turn stop is audible ("a movie that pauses temporarily every 2
+minutes is unwatchable"). The container is the thing to change.
+
+Four traps, each measured:
+- **A single fragmented mp4 does NOT work.** AVFoundation SCANS it before
+  playing: requests marched 0 -> 111 MB -> 430 MB -> 812 MB through a 1.8 GB
+  film, 859 MB fetched with playback still at t=0. A playlist declares the
+  index, so nothing is scanned: the same run became 8 MB and 3 fetches. An
+  early LAN test that appeared to prove the single-file shape was an ARTIFACT
+  -- an 80 MB truncated source let the scan finish in seconds.
+- **Segments must travel over real HTTP**, not the custom scheme: an HLS media
+  segment served by a resource loader is refused `-12881` (harness-proven
+  2026-07-22, and rediscovered the hard way here).
+- **Fragment boundaries come from the VIDEO keyframes**, and every other track
+  covers the SAME span. Letting each track choose independently produced 5.3s
+  of video beside 2.0s of audio in one fragment, so two seconds of sound
+  dragged five seconds of picture: ~9x the native bitrate and a stall at 100s.
+- **The init segment omits `stss`/`ctts` and declares `iso5`.** An `stss` with
+  entry_count 0 does not mean "unknown", it declares the track has NO sync
+  samples; and `default-base-is-moof` is only legal when the brands include
+  `iso5`, which a plain archive.org mp4 (isom/iso2/avc1/mp41) does not.
+
+**Consequences**: resilience is INHERITED, not rebuilt -- the origin side is
+`StreamPump`'s session and `NodePins`, so Decisions 021/031/034 apply
+unchanged. Captions are unaffected: the scout reads the origin URL through
+`ResilientStreamLoader` as a separate muted player (verified running during
+HLS playback). Seeking works (resumes at t=800/1185/1420 are mid-playlist
+seeks). Non-faststart files are handled by walking the box chain, and measured
+rare (14/14 sampled catalog films are faststart). Verified on the device
+through the REAL app path past 26 minutes of film time with the owner
+confirming audio.
+
+**A process note worth more than the fix.** Most of this session was spent
+rebuilding machinery this repo already had -- a loopback server, HLS-through-a-
+loader, and the `-12881` limit were all already written down. The decision log
+was searched for the SYMPTOM and never for the MECHANISM about to be built.
+Search for the mechanism first.

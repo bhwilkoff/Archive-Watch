@@ -24,10 +24,18 @@ struct ArchiveWatchApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environment(store)
-                .environment(router)
-                .environment(account)
+            // AW_BARE_PLAYER=<url>: play that URL and start NOTHING else --
+            // no store, no router, no account, no catalog, no sync. See
+            // BareAudioProbe for why this control exists.
+            if let raw = ProcessInfo.processInfo.environment["AW_BARE_PLAYER"],
+               let u = URL(string: raw) {
+                BareAudioProbe(url: u)
+            } else {
+                ContentView()
+                    .environment(store)
+                    .environment(router)
+                    .environment(account)
+            }
         }
         .modelContainer(modelContainer)
         .backgroundTask(.appRefresh(BackgroundRefresh.identifier)) {

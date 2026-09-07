@@ -77,6 +77,13 @@ final class LocalMediaServer: @unchecked Sendable {
     /// Decision 051 swap and is UNCHANGED by the proxy: on route engage the
     /// receiver gets the published origin URL (it could never fetch
     /// 127.0.0.1), same as it always has.
+    /// The HLS view of the same origin. Used on tvOS 27+, where a
+    /// non-fragmented mp4 loses its audio a few minutes in.
+    func hlsURL(for origin: URL) -> URL? {
+        guard let plain = proxyURL(for: origin) else { return nil }
+        return URL(string: plain.absoluteString.replacingOccurrences(of: ".mp4", with: ".m3u8"))
+    }
+
     func isProxyURL(_ url: URL) -> Bool {
         url.host == "127.0.0.1" && url.path.hasPrefix("/v/\(token)/")
     }
@@ -177,6 +184,86 @@ final class MediaResource: @unchecked Sendable {
     func setContentLength(_ v: Int64) {
         lock.lock(); _contentLength = v; lock.unlock()
     }
+
+    // --- HLS (tvOS 27 loses audio on a NON-fragmented mp4; fragmented and
+    // HLS are immune -- measured on the owner's Apple TV). The film is
+    // remuxed to fragments on the fly and published as a VOD playlist.
+    // Segments go over real HTTP because a custom-scheme HLS media segment
+    // is refused with -12881 (harness-proven 2026-07-22).
+    private var _movie: MP4Fragmenter.Movie?
+    private var _plan: MP4Fragmenter.Plan?
+    private var preparing = false
+
+    var plan: MP4Fragmenter.Plan? { lock.lock(); defer { lock.unlock() }; return _plan }
+    var movie: MP4Fragmenter.Movie? { lock.lock(); defer { lock.unlock() }; return _movie }
+
+    /// Fetch ftyp + moov and compute the whole fragment layout once.
+    /// NSLock may not be held across an `await`, so every critical section
+    /// here is a small synchronous helper.
+    private func claimPreparation() -> Bool? {
+        lock.lock(); defer { lock.unlock() }
+        if _plan != nil { return true }
+        if preparing { return false }
+        preparing = true
+        return nil
+    }
+    private func releasePreparation() { lock.lock(); preparing = false; lock.unlock() }
+    private func store(_ m: MP4Fragmenter.Movie, _ p: MP4Fragmenter.Plan) {
+        lock.lock(); _movie = m; _plan = p; lock.unlock()
+    }
+
+    func prepareHLS() async -> Bool {
+        if let early = claimPreparation() { return early }
+        defer { releasePreparation() }
+        guard let head = await StreamPump.rangeData(origin, 0, 65_535) else { return false }
+        // Header-only scan: a faststart moov is megabytes and this probe is
+        // kilobytes, so a containment-checked box walk reports "no moov".
+        let heads = MP4Fragmenter.scanHeaders(head)
+        let ftyp = heads.first { $0.type == "ftyp" }.flatMap { h -> Data? in
+            guard h.offset + h.size <= head.count else { return nil }
+            return head.subdata(in: h.offset..<(h.offset + h.size))
+        } ?? Data()
+
+        // WALK to the moov rather than assuming it is at the front. Plenty of
+        // archive.org uploads are not faststart: they are ftyp + mdat + moov,
+        // and the moov sits behind a gigabyte of media. Every box states its
+        // own size, so the chain can be skipped WITHOUT downloading the
+        // payload -- one small read per hop. Guessing by scanning bytes for
+        // "moov" would match inside media data; this cannot.
+        var mv: MP4Fragmenter.Header? = heads.first { $0.type == "moov" }
+        if mv == nil {
+            var cursor = heads.last.map { $0.offset + $0.size } ?? head.count
+            var hops = 0
+            while mv == nil, hops < 12, cursor > 0 {
+                hops += 1
+                guard let probe = await StreamPump.rangeData(origin, cursor, cursor + 4095),
+                      probe.count >= 8 else { break }
+                let hs = MP4Fragmenter.scanHeaders(probe)
+                guard let first = hs.first, first.size >= 8 else { break }
+                if let found = hs.first(where: { $0.type == "moov" }) {
+                    mv = MP4Fragmenter.Header(type: "moov",
+                                              offset: cursor + found.offset,
+                                              size: found.size)
+                    break
+                }
+                cursor += hs.reduce(0) { $0 + $1.size }
+            }
+            if mv != nil { awdiag("AWHLS moov found late (non-faststart)") }
+        }
+
+        guard let mv, mv.size > 8, mv.size < 128_000_000,
+              let moov = await StreamPump.rangeData(origin, mv.offset, mv.offset + mv.size - 1),
+              moov.count >= mv.size else {
+            awdiag("AWHLS could not locate moov for %@", origin.lastPathComponent)
+            return false
+        }
+        var buf = ftyp; buf.append(moov)
+        guard let m = try? MP4Fragmenter.parse(head: buf) else { return false }
+        let p = MP4Fragmenter.plan(m, seconds: 2.0)
+        store(m, p)
+        awdiag("AWHLS planned %d segments for %@", p.fragments.count, origin.lastPathComponent)
+        return true
+    }
 }
 
 // MARK: - Per-connection HTTP handling
@@ -246,14 +333,128 @@ private final class ConnectionHandler: @unchecked Sendable {
                 }
             }
         }
-        guard method == "GET" || method == "HEAD",
-              path.hasPrefix(server.pathPrefix),
-              let key = path.split(separator: "/").last.map({ String($0).replacingOccurrences(of: ".mp4", with: "") }),
+        guard method == "GET" || method == "HEAD", path.hasPrefix(server.pathPrefix) else {
+            send(status: "404 Not Found", headers: ["Content-Length": "0"], thenClose: true)
+            return
+        }
+        let comp = String(path.split(separator: "/").last ?? "")
+
+        // --- HLS routes. Relative URIs in the playlist resolve beside it, so
+        // every name shares the resource key and the existing lookup works.
+        if comp.hasSuffix(".m3u8"), let r = server.resource(forKey: String(comp.dropLast(5))) {
+            Task { await self.serveHLS(r, key: String(comp.dropLast(5)), what: .playlist, method: method) }
+            return
+        }
+        if comp.hasSuffix(".init.mp4"), let r = server.resource(forKey: String(comp.dropLast(9))) {
+            Task { await self.serveHLS(r, key: String(comp.dropLast(9)), what: .initSegment, method: method) }
+            return
+        }
+        if comp.hasSuffix(".m4s"), let dot = comp.range(of: ".seg", options: .backwards),
+           let idx = Int(comp[dot.upperBound...].dropLast(4)),
+           let r = server.resource(forKey: String(comp[comp.startIndex..<dot.lowerBound])) {
+            Task { await self.serveHLS(r, key: "", what: .segment(idx), method: method) }
+            return
+        }
+
+        guard let key = path.split(separator: "/").last.map({ String($0).replacingOccurrences(of: ".mp4", with: "") }),
               let resource = server.resource(forKey: key) else {
             send(status: "404 Not Found", headers: ["Content-Length": "0"], thenClose: true)
             return
         }
         Task { await self.respond(resource, method: method, range: range) }
+    }
+
+    fileprivate enum HLSWhat { case playlist, initSegment, segment(Int) }
+
+    private func serveHLS(_ resource: MediaResource, key: String,
+                          what: HLSWhat, method: String) async {
+        guard await resource.prepareHLS(), let plan = resource.plan,
+              let movie = resource.movie else {
+            send(status: "503 Service Unavailable", headers: ["Content-Length": "0"], thenClose: true)
+            return
+        }
+        var body = Data()
+        var type = "video/mp4"
+        switch what {
+        case .playlist:
+            body = Data(Self.playlist(movie, plan, key: key).utf8)
+            type = "application/vnd.apple.mpegurl"
+        case .initSegment:
+            body = plan.initSegment
+        case .segment(let i):
+            guard i >= 0, i < plan.fragments.count else {
+                send(status: "404 Not Found", headers: ["Content-Length": "0"], thenClose: true)
+                return
+            }
+            let f = plan.fragments[i]
+            // Only the byte ranges this segment needs, merged so the holes
+            // between a coarse audio/video interleave are never downloaded.
+            var want: [(Int, Int)] = []
+            for ft in f.tracks {
+                guard let ti = movie.tracks.firstIndex(where: { $0.id == ft.trackID }) else { continue }
+                let t = movie.tracks[ti]
+                for sIdx in ft.firstSample..<(ft.firstSample + ft.count) {
+                    want.append((t.samples[sIdx].offset, t.samples[sIdx].size))
+                }
+            }
+            want.sort { $0.0 < $1.0 }
+            var merged: [(lo: Int, hi: Int)] = []
+            for (off, size) in want {
+                if var last = merged.last, off <= last.hi + 262_144 {
+                    last.hi = max(last.hi, off + size); merged[merged.count - 1] = last
+                } else { merged.append((off, off + size)) }
+            }
+            var chunks: [(lo: Int, hi: Int, data: Data)] = []
+            for r in merged {
+                guard let d = await StreamPump.rangeData(resource.origin, r.lo, r.hi - 1) else {
+                    send(status: "502 Bad Gateway", headers: ["Content-Length": "0"], thenClose: true)
+                    return
+                }
+                chunks.append((r.lo, r.lo + d.count, d))
+            }
+            guard let built = try? MP4Fragmenter.fragment(movie, f, media: { off, len in
+                for c in chunks where c.lo <= off && off + len <= c.hi {
+                    return c.data.subdata(in: (off - c.lo)..<(off - c.lo + len))
+                }
+                throw URLError(.dataNotAllowed)
+            }) else {
+                send(status: "500 Internal Server Error", headers: ["Content-Length": "0"], thenClose: true)
+                return
+            }
+            body = built
+        }
+        send(status: "200 OK", headers: [
+            "Content-Type": type,
+            "Content-Length": "\(body.count)",
+            "Accept-Ranges": "bytes",
+        ], thenClose: false)
+        if method == "GET" { _ = await write(body) }
+        conn.cancel()
+    }
+
+    /// A VOD playlist naming every fragment, so the player never has to scan
+    /// the film to discover its structure.
+    fileprivate static func playlist(_ m: MP4Fragmenter.Movie,
+                                     _ p: MP4Fragmenter.Plan, key: String) -> String {
+        let ref = m.tracks.first { $0.handler == "vide" } ?? m.tracks[0]
+        var durs: [Double] = []
+        for f in p.fragments {
+            var d: UInt64 = 0
+            if let ft = f.tracks.first(where: { $0.trackID == ref.id }) {
+                for i in ft.firstSample..<(ft.firstSample + ft.count) {
+                    d += UInt64(ref.samples[i].duration)
+                }
+            }
+            durs.append(Double(d) / Double(ref.timescale))
+        }
+        var out = "#EXTM3U\n#EXT-X-VERSION:7\n#EXT-X-PLAYLIST-TYPE:VOD\n"
+        out += "#EXT-X-TARGETDURATION:\(Int(ceil(durs.max() ?? 6)))\n"
+        out += "#EXT-X-MEDIA-SEQUENCE:0\n#EXT-X-INDEPENDENT-SEGMENTS\n"
+        out += "#EXT-X-MAP:URI=\"\(key).init.mp4\"\n"
+        for (i, d) in durs.enumerated() {
+            out += String(format: "#EXTINF:%.5f,\n\(key).seg%d.m4s\n", d, i)
+        }
+        return out + "#EXT-X-ENDLIST\n"
     }
 
     private func respond(_ resource: MediaResource, method: String,
@@ -436,6 +637,30 @@ final class StreamPump: @unchecked Sendable {
             }
         }
         return !isCancelled
+    }
+
+    /// A buffered ranged read for the HLS routes, going through the SAME
+    /// session and node pins as the streaming pump so fragments inherit
+    /// Decision 031's pinning and 034's failover instead of re-inventing them.
+    static func rangeData(_ origin: URL, _ lo: Int, _ hi: Int,
+                          attempt: Int = 0) async -> Data? {
+        let target = pins.target(for: origin)
+        var req = URLRequest(url: target)
+        req.setValue("bytes=\(lo)-\(hi)", forHTTPHeaderField: "Range")
+        req.timeoutInterval = 30
+        do {
+            let (d, resp) = try await session.data(for: req)
+            if let http = resp as? HTTPURLResponse, (200...299).contains(http.statusCode) {
+                if let final = http.url, final != origin { pins.pin(final, for: origin) }
+                return d
+            }
+            throw URLError(.badServerResponse)
+        } catch {
+            guard attempt < 3 else { return nil }
+            pins.markFailed(host: target.host ?? "", for: origin)
+            try? await Task.sleep(nanoseconds: UInt64((attempt + 1) * 400_000_000))
+            return await rangeData(origin, lo, hi, attempt: attempt + 1)
+        }
     }
 
     /// Total size via one ranged probe (Content-Range total).

@@ -277,7 +277,18 @@ final class LiveCaptions {
     }
     private static let transcribeKey = "autoCaptionsEnabled"
 
-    static var isSupported: Bool { AutoCaptions.isSupported }
+    static var isSupported: Bool {
+        // DEV BISECT (AW_NO_CAPTIONS=1): the whole engine off, including the
+        // scout, at the one choke point both player containers consult. The
+        // owner's audio dropout survived a scout-contention fix AND an
+        // audio-session fix, with the buffer healthy and no interruption
+        // logged either time -- so the next move is the control run this
+        // flag exists to make: does the audio survive with NO second player
+        // on the asset at all? Decision 071 recorded this same symptom
+        // ("video advancing, buffer full, audio dead") as a scout race.
+        if ProcessInfo.processInfo.environment["AW_NO_CAPTIONS"] == "1" { return false }
+        return AutoCaptions.isSupported
+    }
 
     private var tap: MTAudioProcessingTap?
     private var scoutPlayer: AVPlayer?
@@ -611,7 +622,26 @@ final class LiveCaptions {
         // fed (the tap consumes as delivered) without letting a paused one
         // compete with the viewer's stream.
         item.preferredForwardBufferDuration = 10
-        let scout = AVPlayer(playerItem: item)
+        // ATTACHED LATER, DELIBERATELY. An AVPlayerItem begins filling from its
+        // CURRENT time — zero — the instant it belongs to a player, and the
+        // work below (`loadTracks` over the resilient loader) takes seconds on
+        // archive.org. Constructing AVPlayer(playerItem:) here therefore let
+        // the scout drag the HEAD of the film through the same pinned storage
+        // node the viewer is streaming from: measured on the Bedroom Apple TV,
+        // 88 MB read from offset 2 MB while playback sat at offset ~278 MB, and
+        // the main player's buffer collapsed from ahead=130s to ahead=1s for
+        // 45 seconds. At the low point the main item's AUDIO render died and
+        // never came back — video kept advancing at rate 1.0 on the SAME item
+        // (one pointer for the whole run, so this was no failover), which is
+        // the owner's report: "the audio goes out, resuming from the detail
+        // view brings it back."
+        //
+        // `subordinate: true` (a .background socket) and the throttle's "scout
+        // YIELDS" were both already in place and neither helped, because both
+        // act on a read that is already in flight. The window has to not exist:
+        // the item joins a player only once we are ready to seek it away from
+        // the head, with no await in between.
+        let scout = AVPlayer()
         #if os(tvOS)
         // Decision 071: the scout is MUTED on tvOS, not volume-0. A volume-0
         // scout stays in the audio OUTPUT graph, and its start/resume can race
@@ -666,6 +696,10 @@ final class LiveCaptions {
             // the tap receive a burst of pre-target audio from the start of a
             // huge interleaved audio chunk (see driftCheck). Zero tolerance
             // narrows the burst; the drift bound below catches whatever remains.
+            // The item enters the player HERE, and the seek is issued in the
+            // same turn — no suspension point between them, or the head read
+            // this whole arrangement exists to prevent reopens.
+            scout.replaceCurrentItem(with: item)
             await scout.seek(to: CMTime(seconds: self.contentOffset, preferredTimescale: 600),
                              toleranceBefore: .zero, toleranceAfter: .zero)
             scout.rate = exp == "rate1" ? 1.0 : Self.scoutRate

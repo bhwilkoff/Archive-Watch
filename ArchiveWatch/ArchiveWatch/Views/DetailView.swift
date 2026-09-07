@@ -1221,13 +1221,13 @@ struct PlayerScreen: View {
         // A loopback (proxy) URL must stay a PLAIN asset — wrapping it in the
         // custom scheme would re-disqualify it from everything the proxy
         // exists to restore (D079). The resilience lives server-side.
-        if playURL.host == "127.0.0.1" {
-            playerItem = AVPlayerItem(asset: AVURLAsset(url: playURL))
-        } else {
-            let (asset, loader) = ResilientStreamLoader.makeAsset(for: playURL)
-            streamLoader = loader
-            playerItem = AVPlayerItem(asset: asset)
-        }
+        // ONE chooser for every tvOS surface (TVAssetChooser): plain asset
+        // for loopback, HLS-over-LocalMediaServer on tvOS 27+, and Decision
+        // 072's resilient loader everywhere else.
+        let (chosenItem, chosenLoader) = TVAssetChooser.makeItem(for: playURL)
+        playerItem = chosenItem
+        streamLoader = chosenLoader
+
         // Prefetch a same-item smaller derivative WHILE the primary loads, so
         // a 25s-budget failure can switch instantly instead of paying a
         // metadata round-trip on top. Catalog-baked fallbacks need no fetch.

@@ -143,9 +143,11 @@ struct EpisodePlayerScreen: View {
         // tvOS 27 beta, is offered and almost never emits — while archive.org's
         // idle resets made the plain path stall and "refresh". Our own engine
         // captions these titles (Decision 068); the loader carries them all.
-        let (asset, loader) = ResilientStreamLoader.makeAsset(for: url)
+        // ONE chooser for every tvOS surface -- see TVAssetChooser for why
+        // tvOS 27 needs HLS and why the movie and episode players must not
+        // decide this separately.
+        let (item, loader) = TVAssetChooser.makeItem(for: url)
         streamLoader = loader
-        let item = AVPlayerItem(asset: asset)
         // Show the episode title in the transport, and suppress the MP4's bogus
         // embedded creation year (epoch-0 -> "1969") the same way the movie
         // player does (see suppressedDateMetadata).
