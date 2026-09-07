@@ -554,6 +554,13 @@
     return { speed: webkit || (!webkit && canPiP), pip: webkit, canPiP };
   }
 
+  /** Lowercase and strip diacritics, so a viewer typing "melies" finds
+   *  "Méliès". Used on BOTH sides of every search comparison — folding one
+   *  side only is the same as not folding at all. */
+  function foldText(s) {
+    return (s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+  }
+
   /** Up to two real genres for the Detail meta line. */
   function metaGenres(genres) {
     if (!genres) return [];
@@ -1090,15 +1097,30 @@
       const grid = $('search-grid');
       if (!qs) { grid.replaceChildren(); this.renderEpisodes([]); $('search-hint').hidden = false; return; }
       $('search-hint').hidden = true;
-      const terms = qs.toLowerCase().split(/\s+/).filter(Boolean);
+      const terms = foldText(qs).split(/\s+/).filter(Boolean);
       const hits = [];
-      for (const r of Data.rows) {
-        // Title + the rich-metadata search blob (Decision 046, schema 6): a film
-        // is now findable by a TMDb keyword, an AKA/original title, its writer,
-        // or its studio. r[6] is null/absent on unmatched films + older indexes.
-        const hay = r[1].toLowerCase() + ' ' + (r[6] || '');
+      // Title + the rich-metadata search blob (Decision 046, schema 6: TMDb
+      // keyword, AKA/original title, writer, studio) + the DIRECTOR, which the
+      // index has carried since schema 10 and search never looked at: measured
+      // on the live index, "dave fleischer" found 2 films and now finds 274,
+      // "griffith" 90 -> 227, "hitchcock" 14 -> 34.
+      //
+      // Everything is accent-folded, query and haystack alike. Without it a
+      // viewer typing "melies" gets 1 result while the column says "Méliès" —
+      // 112 with folding, and "bunuel" goes 0 -> 4. Decision 100 called this
+      // rule load-bearing for "also known as"; it is load-bearing here too.
+      //
+      // Built ONCE per loaded index rather than per keystroke, and keyed on the
+      // rows array itself so the seed -> full-index swap rebuilds it.
+      if (Data._hayFor !== Data.rows) {
+        Data._hay = Data.rows.map(r =>
+          foldText(r[1]) + ' ' + foldText(r[6]) + ' ' + foldText(r[12]));
+        Data._hayFor = Data.rows;
+      }
+      for (let i = 0; i < Data.rows.length; i++) {
+        const hay = Data._hay[i];
         if (terms.every(t => hay.includes(t))) {
-          hits.push(r);
+          hits.push(Data.rows[i]);
           if (hits.length >= 200) break;
         }
       }
@@ -1106,7 +1128,7 @@
       // Row: [archiveID, slug, series, season, episode, title, still, year].
       const ehits = [];
       for (const e of Data.episodes) {
-        const hay = ((e[5] || '') + ' ' + (e[2] || '')).toLowerCase();
+        const hay = foldText((e[5] || '') + ' ' + (e[2] || ''));
         if (terms.every(t => hay.includes(t))) { ehits.push(e); if (ehits.length >= 60) break; }
       }
       this.renderEpisodes(ehits);

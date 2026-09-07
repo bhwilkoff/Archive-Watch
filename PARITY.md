@@ -89,7 +89,7 @@ macOS) since they share the Swift Core.
 | Orphan episodes fold into spines | ✅ pipeline | — | — | — | — | Decision 036; pipeline-side, benefits all via `series/*.json` |
 | Prev/next episode in player | ✅ | ✅ | 🚧 | ✅ | ✅ | EpisodeQueue / PlaybackQueue (macOS wiring pending) |
 | Collections landing + blurbs | ✅ | ✅ | ✅ `CollectionsList` | ✅ `#/collections` | ✅ | `collection_metadata.json` shared |
-| Full-text search (FTS5) | ✅ | ✅ | ✅ `SearchView` over FTS5 | 🚧 client title search (FTS5 upgrade pending) | ✅ debounced FTS5 | same FTS5 index |
+| Full-text search (FTS5) | ✅ | ✅ | ✅ `SearchView` over FTS5 | 🚧 title + keyword/AKA/writer/studio blob + **director**, accent-folded. CAST is still unsearchable — it lives in the per-item detail shards, so it needs a lazily-fetched sidecar (the `aliases.json` pattern, D085) | ✅ debounced FTS5 | same FTS5 index |
 | Search result filters | ⏳ | ✅ type/decade menu | ✅ type/decade menu | ⏳ | ✅ chips | |
 
 ## 4. Detail + Playback
