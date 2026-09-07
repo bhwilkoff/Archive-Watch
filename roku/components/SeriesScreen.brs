@@ -62,7 +62,16 @@ sub init()
     ' the glass rather than assumed: at 14 px the pill reached 13 px into the
     ' next season's row, which is the overlap the owner reported.
     m.seasons.itemSpacing = [0, 40]
-    m.seasons.numRows = 9
+    ' numRows is how many rows the list SHOWS, and therefore when it starts
+    ' scrolling -- not how many it holds. At 9 the list believed it was
+    ' displaying nine rows and never scrolled, while the arithmetic puts rows
+    ' 5-9 off the bottom of the screen:
+    '   top 606 + 9 x (itemSize 66 + spacing 40) = 1560, on a 1080 screen.
+    ' The owner found it on Doctor Who: "the season list ... cannot scroll
+    ' down beyond 5". Four rows is what actually fits in the same band the
+    ' episode list uses (606 + 4 x 106 = 1030, against the episodes' 1065),
+    ' so the list now scrolls and every season is reachable.
+    m.seasons.numRows = 4
     m.seasons.font = m.t.uBody
     m.seasons.color = m.t.textPri
     m.seasons.focusedColor = m.t.canvas
