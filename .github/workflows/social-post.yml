@@ -89,6 +89,12 @@ jobs:
       # The card is the evidence. A run that posted something ugly should be
       # readable after the fact without re-running anything.
       - name: Keep the cards as an artifact
+        # Evidence, not the product. GitHub's blob storage answered 403 on
+        # FinalizeArtifact once (run 34249786099) and the job stopped there,
+        # so the POST never ran — a transient upload fault on a debugging aid
+        # cost the day's post on every platform. It can never do that again.
+        if: always()
+        continue-on-error: true
         uses: actions/upload-artifact@v4
         with:
           name: social-card
