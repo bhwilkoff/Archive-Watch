@@ -96,6 +96,11 @@ check("every teaser keeps its sound, not only the line-led ones",
 check("the sound is normalised", "loudnorm=I=-16" in src)
 check("and faded at both ends", "afade=t=in" in src and "afade=t=out" in src)
 
+check("a render that lost the source's audio is refused, not published",
+      'src_audio and not out_audio' in src and 'return 5' in src)
+check("the sidecar reports what the render actually has, not what we hoped",
+      '"audio": out_audio' in src)
+
 print("\ncaption adopts the teaser's line")
 import json
 import social_post as P

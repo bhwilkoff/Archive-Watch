@@ -239,6 +239,23 @@ def pick_shot(db_path: str, archive_id: str, min_motion: float = 3.0) -> dict | 
     return None
 
 
+def has_audio(target: str) -> bool:
+    """Does this file or URL carry an audio stream?
+
+    Asked of the SOURCE and again of the RENDER. A teaser that goes out silent
+    is the defect the owner reported twice — once on YouTube, once on Bluesky —
+    and it is invisible in a screenshot, so it has to be measured.
+    """
+    try:
+        r = subprocess.run(["ffprobe", "-v", "error", "-select_streams", "a:0",
+                            "-show_entries", "stream=codec_type",
+                            "-of", "csv=p=0", target],
+                           capture_output=True, text=True, timeout=120)
+        return "audio" in r.stdout
+    except (subprocess.SubprocessError, OSError):
+        return False
+
+
 def fetch_vtt(archive_id: str, local: str | None = None) -> str | None:
     """The film's published English subtitles, or None.
 
@@ -461,6 +478,20 @@ def main() -> int:
         print(f"[clip] ffmpeg failed: {r.stderr.strip()[-400:]}", file=sys.stderr)
         return 1
 
+    # The owner's rule: every teaser carries the film's own sound. A source
+    # that is genuinely silent is fine; losing audio the source HAD is not,
+    # and it cannot be seen in a frame — so measure both ends and refuse
+    # rather than publish a silent teaser, which sends the cards out instead.
+    src_audio = has_audio(url)
+    out_audio = has_audio(str(out))
+    if src_audio and not out_audio:
+        print("[clip] the source has audio and the render lost it — no clip today",
+              file=sys.stderr)
+        out.unlink(missing_ok=True)
+        return 5
+    if not src_audio:
+        print("[clip] this transfer carries no audio at all")
+
     size = out.stat().st_size
     print(f"[clip] {out}  {dur:.0f}s  {size/1024/1024:.1f} MB  "
           f"from {shot['start']:.0f}s  in {time.time()-t0:.0f}s")
@@ -470,7 +501,7 @@ def main() -> int:
     out.with_suffix(".json").write_text(json.dumps({
         "start": round(shot["start"], 2),
         "seconds": round(dur, 2),
-        "audio": True,
+        "audio": out_audio,
         "quote": line["text"] if line else None,
     }, indent=2) + "\n", encoding="utf-8")
     if line:

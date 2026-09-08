@@ -41,14 +41,24 @@ REPO = os.environ.get("GITHUB_REPOSITORY", "bhwilkoff/Archive-Watch")
 _REPO_DIR = pathlib.Path(__file__).resolve().parents[1]
 # These do not produce catalog yield and never will: they build, deploy, probe
 # or sweep. Flagging them as SILENT is noise that trains a reader to skim.
-NOT_PRODUCERS = {
+# Workflows whose runs print no yield line. A GREEN run of one of these says
+# nothing about what it did, so the SILENT / BROKEN / DRAINED analysis is
+# meaningless for them — but a FAILED one is failed like any other.
+#
+# This set used to mean "skip entirely", and that is how **Publish catalog DB
+# — the workflow that ships the app's catalog — failed every hour for two
+# days completely unreported** (2026-09-06 to 09-08). It was on this list
+# because it prints no yield summary, and the list was being read as "never
+# look at it". A failure is a failure whoever produced it.
+NO_YIELD_LINE = {
     "App Store build (cloud)", "Deploy Pages", "pages-build-deployment",
     "Retry infrastructure failures", "Probe speech assets (diagnostic)",
     "Probe candidate sources", "Publish catalog DB", "Faststart remux (generate + host)",
-    # Itself. Judging its own last run makes one failure permanent: it fails,
-    # then reports that failure as a finding, which fails it again.
-    "Workflow health",
 }
+
+# Judged not at all. Judging its own last run makes one failure permanent: it
+# fails, then reports that failure as a finding, which fails it again.
+SELF = {"Workflow health"}
 LOOKBACK_HOURS = int(os.environ.get("LOOKBACK_HOURS", "36"))
 # A run that took longer than this and produced nothing is not "no work to do".
 REAL_WORK_MINUTES = float(os.environ.get("REAL_WORK_MINUTES", "10"))
@@ -151,15 +161,36 @@ def cron_period_hours(path: str) -> float | None:
     return best
 
 
-def judge(name: str, run: dict) -> tuple[str, str] | None:
-    """Return (severity, explanation) when this run deserves a human's attention."""
+def displaced(run: dict) -> bool:
+    """Was this run destroyed in the concurrency queue before anything ran?
+
+    Such a run carries NO information about the workflow's health — it never
+    left the queue. Cached because both `judge` and the run-selection ask.
+    """
+    if run.get("conclusion") != "cancelled":
+        return False
+    if run["id"] not in _DISPLACED:
+        jobs = api(f"actions/runs/{run['id']}/jobs").get("jobs", [])
+        _DISPLACED[run["id"]] = not any(j.get("steps") for j in jobs)
+    return _DISPLACED[run["id"]]
+
+
+_DISPLACED: dict = {}
+
+
+def judge(name: str, run: dict, yield_ok: bool = True) -> tuple[str, str] | None:
+    """Return (severity, explanation) when this run deserves a human's attention.
+
+    `yield_ok` is False for a workflow that prints no summary line: its green
+    runs are not analysed for yield, but every other verdict still applies.
+    """
     concl = run.get("conclusion")
     mins = minutes(run)
 
     if concl == "cancelled":
-        jobs = api(f"actions/runs/{run['id']}/jobs").get("jobs", [])
-        if not any(j.get("steps") for j in jobs):
+        if displaced(run):
             return ("DROPPED", "displaced in the concurrency queue before any step ran")
+        jobs = api(f"actions/runs/{run['id']}/jobs").get("jobs", [])
         skipped = [s["name"] for j in jobs for s in j.get("steps", [])
                    if s.get("conclusion") == "skipped"]
         publishy = [s for s in skipped if re.search(r"publish|commit|upload|rebuild", s, re.I)]
@@ -170,6 +201,9 @@ def judge(name: str, run: dict) -> tuple[str, str] | None:
 
     if concl != "success":
         return ("FAILED", f"conclusion={concl}")
+
+    if not yield_ok:
+        return None                # green, and it was never going to say more
 
     # Green. Did it do anything?
     log = gh("run", "view", str(run["id"]), "--log")
@@ -230,12 +264,22 @@ def main() -> int:
         # consecutive scheduled failures (2026-08-18, 08-19) hidden behind
         # exactly that on 08-20.
         sched = [r for r in runs if r.get("event") == "schedule"]
-        run = sched[0] if sched else runs[0]
+        # A DISPLACED scheduled run never left the queue, so it is evidence of
+        # nothing — and standing it up as the verdict silences whatever else
+        # has been happening. Prefer the newest scheduled run that actually
+        # ran; if every recent one was displaced, say so AND judge the newest
+        # completed run of any event, because a failing dispatch on top of a
+        # schedule that never gets to start is real evidence that something is
+        # broken. (A SUCCESSFUL dispatch still cannot mask a failed schedule:
+        # this fires only when no scheduled run ran at all.)
+        alive = [r for r in sched if not displaced(r)]
+        all_displaced = bool(sched) and not alive
+        run = alive[0] if alive else runs[0]
         try:
             started = datetime.fromisoformat(run["run_started_at"].replace("Z", "+00:00"))
         except Exception:
             continue
-        if w["name"] in NOT_PRODUCERS:
+        if w["name"] in SELF:
             continue
         # Window sized to THIS workflow's cadence, not a fixed 36h. A weekly
         # job's newest run is always older than 36h, so the old fixed cutoff
@@ -257,7 +301,12 @@ def main() -> int:
                              f"cadence is ~{period:.0f}h", False))
             continue
         checked += 1
-        verdict = judge(w["name"], run)
+        if all_displaced:
+            findings.append(("DROPPED", w["name"],
+                             "every recent SCHEDULED run was displaced in the "
+                             "concurrency queue — the cadence is not running",
+                             False))
+        verdict = judge(w["name"], run, w["name"] not in NO_YIELD_LINE)
         if verdict:
             why = verdict[1]
             # A monthly workflow cannot confirm a fix for up to a month, so a
