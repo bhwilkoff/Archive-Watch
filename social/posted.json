@@ -1,4 +1,25 @@
 {
- "_": "The ledger (docs/SOCIAL-PROGRAM.md \u00a77). One entry per platform per post. No film repeats within 365 days; no review is ever quoted twice. Written only after a platform confirms.",
- "posts": []
+ "_": "The ledger (docs/SOCIAL-PROGRAM.md §7). One entry per platform per post. No film repeats within 365 days; no review is ever quoted twice. Written only after a platform confirms.",
+ "posts": [
+  {
+   "at": "2026-09-08T14:56:46.571225+00:00",
+   "id": "thegoldenfish",
+   "title": "The Golden Fish",
+   "slot": "viewer-said",
+   "platform": "threads",
+   "url": "DRY-RUN (video)",
+   "kind": "short-film",
+   "reviewer": "HeWhoSeesInTheDark"
+  },
+  {
+   "at": "2026-09-08T14:56:46.571225+00:00",
+   "id": "thegoldenfish",
+   "title": "The Golden Fish",
+   "slot": "viewer-said",
+   "platform": "instagram",
+   "url": "DRY-RUN (reel)",
+   "kind": "short-film",
+   "reviewer": "HeWhoSeesInTheDark"
+  }
+ ]
 }
