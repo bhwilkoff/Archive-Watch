@@ -46,8 +46,15 @@ UA = "ArchiveWatch/1.0 (+https://archivewatch.org)"
 def http(url, data=None, method=None, headers=None, timeout=60):
     req = urllib.request.Request(url, data=data, method=method,
                                  headers={"User-Agent": UA, **(headers or {})})
-    with urllib.request.urlopen(req, timeout=timeout) as r:
-        body = r.read().decode("utf-8", "replace")
+    try:
+        with urllib.request.urlopen(req, timeout=timeout) as r:
+            body = r.read().decode("utf-8", "replace")
+    except urllib.error.HTTPError as e:
+        # Meta answers a wrong endpoint with a 500 and a message that says
+        # WHICH — discarding the body turns a readable refusal into a shrug.
+        detail = (e.read().decode("utf-8", "replace") or "")[:300]
+        raise urllib.error.HTTPError(e.url, e.code, f"{e.reason} — {detail}",
+                                     e.headers, None) from None
     return json.loads(body) if body.strip().startswith(("{", "[")) else {}
 
 
