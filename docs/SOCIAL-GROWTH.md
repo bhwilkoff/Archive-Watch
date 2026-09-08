@@ -189,17 +189,27 @@ same words. The chain, in order:
    text is read from a FILE (`textfile=`), never inlined: drawtext's escaping
    cannot be trusted with a sentence somebody else wrote, and one stray colon
    would take the whole render down.
-5. The clip **keeps its audio** — a quotable line nobody can hear is a
-   caption, not a teaser — normalised with `loudnorm=I=-16:TP=-1.5:LRA=11`
-   (archive.org transfers run from whisper to clipping, and a feed autoplays
-   them beside professionally mastered video) and faded 0.6s in / 0.9s out.
-   `-map 0:a?` so a film with no audio track still renders.
-6. A sidecar `<clip>.json` names the line, and `adopt_clip_quote` REPLACES the
+5. Everything burned lives in the **upper band**. Reels, Shorts and TikTok
+   draw their own chrome over the video — account name, caption and action
+   rail across the bottom, a header across the top — and the owner watched a
+   Reel with the platform's account line printed straight through our title.
+   `TOP_SAFE`/`BOTTOM_SAFE` (250 / 480 on a 1080×1920 frame, the union of the
+   published Reels and TikTok creative specs) bound it, and the test asserts
+   no drawn element crosses either.
+6. **Every** teaser keeps its audio — not only the line-led ones. A silent
+   Short does not read as restraint, it reads as broken, and one went up that
+   way. Normalised — a quotable line nobody can hear is a
+   with `loudnorm=I=-16:TP=-1.5:LRA=11` (archive.org transfers run from
+   whisper to clipping, and a feed autoplays them beside professionally
+   mastered video) and faded 0.6s in / 0.9s out. `-map 0:a?` so a film with a
+   genuinely silent transfer still renders.
+7. A sidecar `<clip>.json` names the line, and `adopt_clip_quote` REPLACES the
    caption's own randomly chosen line with it, so what the viewer hears, what
    is on the picture and what is in the caption are the same words. Two
    different lines from one film read as a template filled twice.
 
-A shot-led teaser is unchanged: silent, 18s, no burned quote. It is the
+A shot-led teaser is 18s with no burned quote — but it now carries sound
+like every other one. It is the
 fallback for a film with no subtitles, a line too long to burn (>3 lines at 24
 columns), or a line that plays over a black frame.
 

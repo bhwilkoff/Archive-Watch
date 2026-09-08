@@ -54,8 +54,20 @@ check("without a quote there is no quote layer",
 check("without a quote the graph still ends at [out]", f_n.rstrip().endswith("[out]"))
 check("the lower third survives both ways",
       "Fraunces-Display-Black" in f_q and "Fraunces-Display-Black" in f_n)
-check("quote sits above the lower third",
-      f"y={C.H-416}-text_h" in f_q and C.H - 416 < C.H - 360)
+# Reels/Shorts/TikTok draw the account name, caption and action rail across
+# the BOTTOM of the video. The owner watched a Reel with the platform's own
+# chrome printed straight through our title, so everything we burn must live
+# in the upper band. These numbers are the whole fix; assert them.
+import re
+ys = [int(m) for m in re.findall(r"y=(\d+)", f_q)]
+check("nothing is burned into the platform's bottom chrome",
+      ys and max(ys) < C.H - C.BOTTOM_SAFE, str(sorted(ys)))
+check("nothing is burned into the platform's top chrome",
+      ys and min(ys) >= C.TOP_SAFE, str(sorted(ys)))
+check("the quote sits below the title card, not over the bottom",
+      f"y={C.QUOTE_Y}:" in f_q and C.QUOTE_Y > C.CARD_Y + C.CARD_H)
+check("the safe band leaves room to read three lines",
+      C.QUOTE_Y + 3 * 68 + 52 < C.H - C.BOTTOM_SAFE)
 check("no drawtext escaping is attempted on the quote",
       "text='" not in f_q.split("[lt]")[-1])
 
@@ -75,6 +87,14 @@ lead_start = max(0.0, seg["start"] - C.LEAD)
 check("the cut starts a beat BEFORE the line", lead_start < seg["start"])
 check("the cut runs past the line", (seg["end"] - lead_start) + C.TAIL > seg["end"] - lead_start)
 check("a teaser stays inside the platform ceilings", C.LINE_MAX <= 60.0)
+
+print("\naudio")
+import inspect
+src = inspect.getsource(C.main)
+check("every teaser keeps its sound, not only the line-led ones",
+      '"-an"' not in src and '"-map", "0:a?"' in src)
+check("the sound is normalised", "loudnorm=I=-16" in src)
+check("and faded at both ends", "afade=t=in" in src and "afade=t=out" in src)
 
 print("\ncaption adopts the teaser's line")
 import json

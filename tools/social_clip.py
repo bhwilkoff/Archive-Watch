@@ -71,6 +71,18 @@ LINE_MIN, LINE_MAX = 11.0, 22.0   # long enough to read three burned lines
 QUOTE_COLS = 24            # characters per burned line, at fontsize 54
 QUOTE_LINES = 3
 
+# Reels, Shorts and TikTok draw their OWN chrome over the video: the account
+# name, the caption and the action rail all sit across the bottom, and a
+# header sits across the top. Measured against the published creative specs
+# (Reels ~250 px top / ~420 px bottom, TikTok ~130 / ~480 on a 1080x1920
+# frame), so the union is what we must clear. Everything we burn therefore
+# lives in the UPPER band — the owner watched a Reel with the account name
+# printed straight through our title.
+TOP_SAFE = 250
+BOTTOM_SAFE = 480
+CARD_Y, CARD_H = 260, 280   # the title block, just under the platform header
+QUOTE_Y = CARD_Y + CARD_H + 40
+
 
 def ffmpeg_has(feature: str) -> bool:
     r = subprocess.run(["ffmpeg", "-hide_banner", "-filters"],
@@ -318,12 +330,12 @@ def build_filter(title: str, year, has_text: bool, crop: str | None = None,
     f_meta = str(FONTS / "Inter-Regular.ttf")
     tail = "[lt]" if quote_file else "[out]"
     chain += (
-        f";[v]drawbox=x=0:y={H-360}:w={W}:h=360:color=black@0.55:t=fill,"
+        f";[v]drawbox=x=0:y={CARD_Y}:w={W}:h={CARD_H}:color=black@0.55:t=fill,"
         f"drawtext=fontfile='{f_title}':text='{safe}':fontcolor=0xEBEBEB:"
-        f"fontsize=62:x=72:y={H-268}:line_spacing=8,"
+        f"fontsize=62:x=72:y={CARD_Y + 92}:line_spacing=8,"
         f"drawtext=fontfile='{f_meta}':text='{line2}':fontcolor=0x9A9AA0:"
-        f"fontsize=36:x=72:y={H-168},"
-        f"drawbox=x=72:y={H-300}:w=96:h=7:color=0xFF5C35@1.0:t=fill{tail}"
+        f"fontsize=36:x=72:y={CARD_Y + 192},"
+        f"drawbox=x=72:y={CARD_Y + 60}:w=96:h=7:color=0xFF5C35@1.0:t=fill{tail}"
     )
     if quote_file:
         on = max(0.0, quote_at - 0.30)
@@ -332,7 +344,7 @@ def build_filter(title: str, year, has_text: bool, crop: str | None = None,
             f";[lt]drawtext=fontfile='{f_quote}':textfile='{quote_file}':"
             f"fontcolor=0xF4F4F4:fontsize=54:line_spacing=14:"
             f"box=1:boxcolor=black@0.50:boxborderw=26:"
-            f"x=(w-text_w)/2:y={H-416}-text_h:"
+            f"x=(w-text_w)/2:y={QUOTE_Y}:"
             f"alpha='if(lt(t,{on:.2f}),0,min(1,(t-{on:.2f})/0.45))'[out]"
         )
     return chain
@@ -432,17 +444,16 @@ def main() -> int:
            "-c:v", "libx264", "-profile:v", "high", "-pix_fmt", "yuv420p",
            "-preset", "medium", "-crf", "23", "-r", "30",
            "-movflags", "+faststart"]
-    if line:
-        # A line teaser keeps its sound. `0:a?` so a film with no audio track
-        # still renders rather than failing the whole run, and loudnorm
-        # because archive.org transfers range from whisper to clipping and a
-        # feed autoplays them next to professionally mastered video.
-        cmd += ["-map", "0:a?", "-c:a", "aac", "-b:a", "128k", "-ac", "2",
-                "-af", f"loudnorm=I=-16:TP=-1.5:LRA=11,"
-                       f"afade=t=in:st=0:d=0.6,"
-                       f"afade=t=out:st={max(0.0, dur - 0.9):.2f}:d=0.9"]
-    else:
-        cmd += ["-an"]
+    # EVERY teaser keeps its sound, not only the line-led ones. A silent Short
+    # or Reel does not read as restraint, it reads as broken — the owner
+    # watched one go up with no audio. `0:a?` so a film with a genuinely
+    # silent transfer still renders rather than failing the run, and loudnorm
+    # because archive.org transfers range from whisper to clipping and a feed
+    # autoplays them next to professionally mastered video.
+    cmd += ["-map", "0:a?", "-c:a", "aac", "-b:a", "128k", "-ac", "2",
+            "-af", f"loudnorm=I=-16:TP=-1.5:LRA=11,"
+                   f"afade=t=in:st=0:d=0.6,"
+                   f"afade=t=out:st={max(0.0, dur - 0.9):.2f}:d=0.9"]
     cmd += [str(out)]
     t0 = time.time()
     r = subprocess.run(cmd, capture_output=True, text=True, timeout=900)
@@ -459,7 +470,7 @@ def main() -> int:
     out.with_suffix(".json").write_text(json.dumps({
         "start": round(shot["start"], 2),
         "seconds": round(dur, 2),
-        "audio": bool(line),
+        "audio": True,
         "quote": line["text"] if line else None,
     }, indent=2) + "\n", encoding="utf-8")
     if line:
