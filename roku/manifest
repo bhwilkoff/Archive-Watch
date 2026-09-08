@@ -2,8 +2,8 @@
 # Sideload only for now (owner decision 2026-09-03): the Channel Store needs a
 # signing key and certification, and that is a separate decision from parity.
 title=Archive Watch
-major_version=0
-minor_version=1
+major_version=1
+minor_version=0
 build_version=00051
 
 mm_icon_focus_fhd=pkg:/images/icon_focus_fhd.png

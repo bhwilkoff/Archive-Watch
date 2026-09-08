@@ -90,7 +90,10 @@ def main():
         maj = re.search(r"major_version=(\d+)", man)
         mnr = re.search(r"minor_version=(\d+)", man)
         bld = re.search(r"build_version=(\d+)", man)
-        version = f"{maj.group(1)}.{mnr.group(1)}.{bld.group(1)}" if maj and mnr and bld else "1.0.0"
+        # `build_version` is zero-padded in the manifest (00051) and the store
+        # should not be shown "1.0.00051".
+        version = (f"{maj.group(1)}.{mnr.group(1)}.{int(bld.group(1))}"
+                   if maj and mnr and bld else "1.0.0")
     print(f"packaging version {version}")
 
     if not args.no_deploy:
