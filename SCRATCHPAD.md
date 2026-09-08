@@ -269,6 +269,99 @@ keep serving it.
 
 ## Session Log
 
+### 2026-09-08 — Roku SUBMITTED-ready; the social programme grew a spine; three silent pipeline failures
+Long autonomous day plus a live owner loop. Everything on `main`.
+
+**ROKU: channel 881015 exists and every Dashboard gate is green but the
+final press.** Static analysis went **12 findings (one ERROR) -> 3 warnings**,
+and all three survive on purpose. Package `ArchiveWatch/1.0.51`, 1,714 KB.
+Listing, assets, profile, monetization, deep linking, static analysis all ✅;
+App Behavior Analysis queued on Roku's lab; **Schedule publishing is the
+owner's**.
+- **The 16,742 BIFs were never being offered.** `MainScene` reads `it.awBif`
+  from row column 15 and `build_catalog_index` emitted fifteen columns (0-14).
+  There was no column 15. Days of generation sat unreferenced and cert 4.7
+  would have failed on a requirement already paid for. Schema 12 adds `bif`
+  (16,461 of 26,727 items). `test_index_bif_column.py` FINDS every
+  BrightScript reader and asserts it reads the position Python writes.
+- **`AppLaunchComplete` was missing** — the Error. Signalled when the catalog
+  reports ready (not `init()`: the requirement is when the viewer can ACT),
+  guarded once per launch. Verified by Roku's own SDK on the Stick:
+  `[beacon.signal] AppLaunchComplete -> Duration(3286 ms)` vs a 15,000 ms bar.
+- Memory APIs cost two wrong turns worth keeping: `EnableLowGeneralMemoryEvent`
+  is on roDeviceInfo, the channel-scoped four are on **roAppMemoryMonitor**
+  (wrong component compiles, dies at runtime &hf4, and took the beacon with
+  it), and `GetChannelMemoryLimit` answers an ASSOCIATIVE ARRAY.
+- **rsg_version=1.3 added then deliberately REMOVED**: it silences two
+  warnings and forces minimum firmware 15.1, locking out every older Roku
+  including the owner's own Roku 2 XD. The refusal is recorded in the manifest.
+- Deep-link film changed twice on evidence: `el-candidato-1959` plays but is a
+  poor first frame for a US reviewer; `livingDead_4k` FAILED on the device
+  (`state=stop error=true`, a 3840x2560 upscale); **`TheGeneral720p1926`** wins
+  on rights (`rightsEvidence: pre_1930`, not a notice defect), verified
+  playback, and recognisability.
+- Store screenshots recaptured after owner feedback. The channel was DELETED
+  and re-installed first — a sideload keeps the registry, so the old Home shot
+  was showing the tester's own Continue Watching row.
+- **A Terms of Use page** was written (`terms.html`), because Roku requires
+  one and the site had none. Two rows of ROKU-SUBMISSION.md were stale fiction
+  (the privacy policy has been live since June; a designed poster existed).
+
+**SOCIAL: the programme now has a spine, and it is verified.** All five
+platforms carried real posts, checked by reading them back off each API.
+- **A teaser is built around a LINE.** `social_line` picks the quotable line;
+  `social_clip` cuts 2.2 s before to 3.4 s after; `adopt_clip_quote` makes the
+  caption quote the same words.
+- **The burned caption must be HEARD.** `social_hear` transcribes the cue's
+  own audio window and scores content-word overlap. Calibrated, not guessed: a
+  correctly-timed track scores 0.625-1.0, three mistimed/wrong-film tracks
+  score 0.0 on every cue. The owner reported a caption that was not the
+  dialogue; the live *Shame* teaser measured **0/4** and came down.
+- **Two findings bigger than the teaser**: The Werewolf of Washington is
+  published carrying *An American Werewolf in London*'s subtitles, and His
+  Girl Friday and The Vampire Bat still score 0.0 despite the log recording
+  them as corrected at source.
+- **The frame is BANDED** (title 250-510, film 530-1160, quote 1180-1440):
+  Reels/Shorts chrome was printing through our lower third. **Every** teaser
+  now carries audio, refused if the render lost what the source had.
+- The post writer was rebuilt: name and link RESERVED, parts added in a
+  per-platform order, quotes cut at sentence ends with attribution intact. The
+  selector had been ranking reviews by **length maximised** — deliberately
+  choosing the longest, which on 300 characters can only be truncated.
+- Cadence is per platform; window moved to 15:00 UTC + a 23:00 Bluesky second
+  post; `social_metrics` samples at 20h/144h and REFUSES to rank under 10.
+- Deletion matrix measured: Bluesky/Mastodon delete over API; **Instagram has
+  no delete, Threads answers code 10, YouTube needs a broader scope**.
+
+**THREE SILENT PIPELINE FAILURES, each green or invisible.**
+1. **publish-db had been failing for two days** — `Persist the rights
+   decisions` ran `catalog_release.py publish` with **no GH_TOKEN**, which
+   skipped the SQLite build and every check, then the `if: always()` upload
+   failed on "no matches found". The app's catalog was two days stale.
+   `check_workflow_gates.py` now asserts every gh step has a token.
+2. **The health auditor could not see it.** "Publish catalog DB" was on
+   `NOT_PRODUCERS`, a list that meant "skip entirely" — the workflow that
+   ships the app's catalog was exempt from the audit. Split into
+   `NO_YIELD_LINE` (judged for failure, exempt from yield analysis) and
+   `SELF`. 35 workflows checked before, 38 now.
+3. **A "cleared" match cleared nothing.** `verify_external_match` Tier 0c
+   called `adopt(it, {})` and every branch of `adopt` is `if rec.get(...)`, so
+   an EMPTY record clears NOTHING. 266 items were marked cleared while wearing
+   another film's identity — 223 its synopsis, 187 its studios, 121 its votes.
+   The 1924 silent *The Age of Innocence* was serving Scorsese's plot, tagline,
+   Oscar and Columbia Pictures credit. **This is what "the copyright gates look
+   wrong" actually was**: the rights gates are provably sound (8,698 excluded
+   items, ZERO reach the web index; share pages 404), but a PD film advertising
+   a studio picture is indistinguishable from a leak.
+
+**Also**: BIF coverage 189 -> 144 remaining, and the coverage that matters is
+100% (top 500 by votes). 33 films fail generation because their video will not
+decode — **32 are still served as playable** and want the strict verifier
+pointed at them, which needs an `--ids` flag it does not have.
+
+**New skills**: `social-video-teaser-craft` (global). `store-submission-playbook`
+extended with driving a console in a browser.
+
 ### 2026-09-06 — Share links preview as the film; Mastodon; the programme feed
 Owner: "do the share path work first, then mastodon, and then an RSS feed if
 we think it makes sense." All three shipped, all on `main`, deploy green.
