@@ -743,8 +743,17 @@ def main() -> int:
         if url is None:
             print(f"   (skipped — {skip})\n")
             continue
-        if url == "DRY-RUN":
-            print("   (dry run — would post)\n")
+        # A dry run must never reach the ledger. The check was an EXACT match
+        # on "DRY-RUN", and the moment Instagram and Threads started returning
+        # "DRY-RUN (reel)" / "DRY-RUN (video)" to say which format they chose,
+        # both fell through to the posted branch — a dry run wrote two fake
+        # entries and the workflow PUSHED them (run 34241396212). The ledger is
+        # what stops a film being posted twice and what drives the public feed,
+        # so a false entry there silently retires a film and publishes a link
+        # that goes nowhere. Match the PREFIX, and let an adapter say more.
+        if str(url).startswith("DRY-RUN"):
+            detail = str(url)[len("DRY-RUN"):].strip()
+            print(f"   (dry run — would post{' ' + detail if detail else ''})\n")
             continue
         print(f"   posted: {url}\n")
         entries.append({"at": now, "id": spec["id"], "title": spec["title"],
