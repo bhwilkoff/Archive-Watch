@@ -26,28 +26,27 @@ import argparse, json, os, shutil, struct, subprocess, sys, time, urllib.request
 from pathlib import Path
 
 S3 = "https://s3.us.archive.org"
-# OBSERVED 2026-09-07, NOT YET EXPLAINED — read this before trusting a green run.
-# During the 40-shard run 34130525975 the uploads STOPPED BECOMING AVAILABLE at
-# 21:56Z while shards kept completing successfully for another 2.5 hours.
-# Measured, with a control:
-#   * a BIF uploaded BEFORE the cutoff downloads fine (HTTP 200, correct magic
-#     89 42 49 46 0d 0a 1a 0a),
-#   * films the shard logs recorded as "done" AFTER it return HTTP 404, and so
-#     does a deliberately bogus id, so 404 really means absent,
-#   * /metadata froze at 11,394 files and did not move in 30 minutes,
-#   * that shard logged 188 done / 4 upload_failed, so the PUTs returned 2xx —
-#     upload() raises on any non-2xx, which is what "upload_failed" records.
-# So archive.org accepted the writes and did not serve them. The item holds
-# 11,394 files / 11.1 GB, well past the ~10,000-file point where archive.org's
-# own guidance says item tasks degrade, and 40 shards were writing to ONE item.
-# That is a HYPOTHESIS, not a finding: confirming it needs the task queue at
-# services/tasks.php?identifier=archivewatch-bifs, which requires the account.
+# ARCHIVE.ORG SERVES AN UPLOAD ABOUT TWO HOURS AFTER IT IS ACCEPTED, under a
+# run this size. Measured on run 34130525975 (40 shards, one item), and worth
+# knowing before anyone concludes an upload was lost:
+#   19:51Z  item lists 11,394 files, newest mtime 21:56Z
+#   00:25Z  UNCHANGED at 11,394 — looked exactly like silent failure
+#   00:57Z  12,341 files (+947), newest 23:00Z; 943 landed within 3 hours
+# So writes are queued, not dropped. A film generated at 23:42 still 404s at
+# 00:57 and is expected to appear later. A 404 shortly after a run therefore
+# proves NOTHING — re-check hours later before calling anything lost.
 #
-# TWO CONSEQUENCES if it recurs. `--skip-published` reads this same item
-# listing, so a stale listing makes the NEXT run regenerate everything it
-# cannot see — hours of ffmpeg for files that already exist. And the Roku app
-# fetches /download/archivewatch-bifs/<id>.bif directly, so any film in that
-# window has no trick-play regardless of what the manifest says.
+# What IS confirmed: the PUTs succeed (upload() raises on any non-2xx and that
+# path records "upload_failed"; a sampled shard logged 188 done / 4 of those),
+# and a file that HAS surfaced downloads intact with the right magic bytes
+# (89 42 49 46 0d 0a 1a 0a).
+#
+# CONSEQUENCE THAT BITES: `--skip-published` reads this same lagging listing,
+# so a run started within a couple of hours of the last one regenerates
+# everything not yet visible — hours of ffmpeg for files that already exist.
+# Leave a gap between runs, or accept the waste. The Roku app fetches
+# /download/archivewatch-bifs/<id>.bif directly, so trick-play for a film also
+# lags its generation by about that long.
 #
 ITEM = "archivewatch-bifs"
 INTERVAL_MS = 10000
