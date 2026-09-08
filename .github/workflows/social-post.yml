@@ -169,15 +169,30 @@ jobs:
       # §7 — the ledger is the memory that stops a film repeating inside a
       # year. It is the one piece of this system that must not be lost, so it
       # is committed, and the commit carries [skip ci] like the index's does.
+      # The instrument (docs/SOCIAL-GROWTH.md §4). It reads YESTERDAY's posts,
+      # so it runs after today's and before the ledger commit — a corrected
+      # permalink rides out in the same commit. Never fatal: measurement
+      # informs the programme, it must never stop it.
+      - name: Measure what the earlier posts did
+        if: always()
+        continue-on-error: true
+        env:
+          THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
+          YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
+          YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
+        run: python3 tools/social_metrics.py --apply --report
+
       - name: Commit the ledger
         if: always()
         run: |
-          if git diff --quiet -- social/posted.json; then
+          if git diff --quiet -- social/posted.json social/metrics.json; then
             echo "ledger unchanged (nothing posted)"; exit 0
           fi
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add social/posted.json
+          git add social/posted.json social/metrics.json
           git commit -m "Social: posted ${{ steps.select.outputs.title }} [skip ci]"
           for i in 1 2 3 4 5; do
             if git pull --rebase --autostash origin main && git push; then

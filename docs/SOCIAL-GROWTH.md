@@ -219,7 +219,7 @@ the shot-led teaser rather than burn nonsense on screen.
 
 ---
 
-## 4. Engagement measurement  — DESIGNED, NOT YET BUILT
+## 4. Engagement measurement  — SHIPPED (the instrument; the conclusions wait)
 
 Posting blind is the current state. The design:
 
@@ -235,10 +235,29 @@ Posting blind is the current state. The design:
   weighted up. That is the adjustment loop, and it must be *evidence in,
   weighting out* — never a hand-tuned guess dressed up as data.
 
-**The honest caveat to record now:** with 3 posts and 5 likes total, nothing
-will be statistically meaningful for weeks. The instrument comes first; the
-conclusions wait until there is something to conclude from. Reading trends
-out of single-digit counts is how a programme talks itself into nonsense.
+**Built as `tools/social_metrics.py`**, run from the same daily workflow
+(`--apply --report`) after the day's post, so it measures the EARLIER posts
+and any corrected permalink rides out in the same ledger commit.
+
+- Bluesky and Mastodon are read with **no token at all** — both are public
+  APIs. Bluesky's handle is resolved to a DID first, because an `at://` URI
+  addresses the repository and a handle can change while a DID cannot.
+- Threads and Instagram use their own insights endpoints; YouTube reuses the
+  poster's OAuth refresh token, since this channel has no public API key.
+- Each post is sampled **once per window**, at thresholds of 20h and 144h. The
+  thresholds sit BELOW the windows they name on purpose: a daily cron running
+  at the same clock time arrives a few minutes early, and a "24h" reading
+  taken at 48h is not the thing it claims to be.
+- `--report` groups by platform, slot and **format** — which required adding
+  `format` to the ledger, because the whole point of measuring is to learn
+  whether a moving picture beats a card, and that cannot be asked of a ledger
+  that did not record which went out.
+
+**The honest caveat, now enforced in code:** `--report` refuses to rank a
+bucket holding fewer than 10 posts and says so. With a handful of posts and
+single-digit likes, any ranking is noise wearing a table's clothes, and
+reading trends out of that is how a programme talks itself into nonsense. The
+instrument runs; the conclusions wait.
 
 ---
 
@@ -264,5 +283,6 @@ ghosts." No syntactic rule catches that. Two honest mitigations, in order:
 prefer films whose subtitles are HUMAN (`captions` provenance in the shard,
 not ASR), and fall back to the shot-based teaser when no line clears the bar,
 which is already the behaviour when a film has no subtitles at all.
-- [ ] `social_metrics.py` + `social/metrics.json` + weekly report
+- [x] `social_metrics.py` + `social/metrics.json` + the report, wired
+      into the daily workflow
 - [ ] Selector reads measured performance

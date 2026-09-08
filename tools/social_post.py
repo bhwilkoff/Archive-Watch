@@ -940,8 +940,14 @@ def main() -> int:
             print(f"   (dry run — would post{' ' + detail if detail else ''})\n")
             continue
         print(f"   posted: {url}\n")
+        # `format` is what the METRICS reader groups by: the whole point of
+        # measuring is to learn whether a moving picture outperforms a card,
+        # and that question cannot be asked of a ledger that did not record
+        # which one went out. Facebook is card-only whatever we cut.
         entries.append({"at": now, "id": spec["id"], "title": spec["title"],
                         "slot": spec["slot"], "platform": name, "url": url,
+                        "format": ("video" if video and name != "facebook"
+                                   else "card"),
                         "kind": spec.get("contentType"),
                         "reviewer": spec.get("reviewer")})
 
