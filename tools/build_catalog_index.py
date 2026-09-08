@@ -34,6 +34,7 @@ Reads ./catalog.json (fetch it first via catalog_release.py). Writes
 
 import json
 import sys
+import urllib.request
 from pathlib import Path
 import sys as _sys
 _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parent))
@@ -43,6 +44,49 @@ REPO = Path(__file__).resolve().parent.parent
 CATALOG = REPO / "catalog.json"
 FEATURED = REPO / "featured.json"
 OUT = REPO / "catalog-index.json"
+
+
+
+BIF_ITEM = "archivewatch-bifs"
+
+
+def bif_ids(published_index: str = "") -> set:
+    """archive.org ids that have a trick-play BIF published.
+
+    Roku certification 4.7 requires trick-play thumbnails for VOD over fifteen
+    minutes, and the channel only offers one when this column says so
+    (`MainScene.brs`: `it.awBif` -> archivewatch-bifs/<id>.bif). 16,697 BIFs
+    were generated and uploaded while this column did not exist, so the
+    channel never asked for a single one of them.
+
+    A failed fetch must NEVER quietly empty the column — that would silently
+    fail certification on the next publish with a green run. The previously
+    published index is the fallback (Decision 089's rule that a shared
+    artifact never shrinks on a missing read).
+    """
+    try:
+        with urllib.request.urlopen(
+                f"https://archive.org/metadata/{BIF_ITEM}", timeout=300) as r:
+            meta = json.load(r)
+        ids = {f["name"][:-4] for f in meta.get("files", [])
+               if f.get("name", "").endswith(".bif")}
+        if ids:
+            print(f"[index] {len(ids):,} trick-play bifs published", flush=True)
+            return ids
+        print("::warning::the bif item listed zero .bif files", flush=True)
+    except Exception as e:  # noqa: BLE001
+        print(f"::warning::could not list the bif item ({e})", flush=True)
+    try:
+        with urllib.request.urlopen(published_index, timeout=300) as r:
+            old = json.load(r)
+        i = old.get("fields", []).index("bif")
+        ids = {row[0] for row in old.get("items", []) if len(row) > i and row[i]}
+        print(f"[index] reusing {len(ids):,} bif flags from the published index",
+              flush=True)
+        return ids
+    except Exception as e:  # noqa: BLE001
+        print(f"::warning::no previous bif flags either ({e})", flush=True)
+    return set()
 
 
 def _spine_exists(archive_id) -> bool:
@@ -102,6 +146,8 @@ def main():
             adult = set()
 
     _FILM = {"feature-film", "short-film", "silent-film", "animation", "documentary", "feature"}
+    bifs = bif_ids(f"{SITE}/catalog-index.json" if "SITE" in globals()
+                   else "https://archivewatch.org/catalog-index.json")
     rows = []
     shelf_members: dict[str, list[tuple]] = {}
     collection_members: dict[str, list[tuple]] = {}
@@ -197,9 +243,12 @@ def main():
         # so consumers must treat it as a PREFERENCE and never a filter that
         # hides films — Party Play leans colour, it does not require it.
         cm = (it.get("colorMode") or "")[:1] or None
+        # Column 15 (schema 12): a published trick-play BIF. Roku reads this
+        # and nothing else does — see bif_ids() above.
         rows.append([aid, it.get("title") or aid, it.get("year"),
                      it.get("contentType") or "", poster, pro, search, backdrop,
-                     playable, docs, rating, votes, director, genres, cm])
+                     playable, docs, rating, votes, director, genres, cm,
+                     1 if aid in bifs else 0])
         for k in keywords:
             keyword_freq[k] = keyword_freq.get(k, 0) + 1
         for s in studios:
@@ -272,7 +321,7 @@ def main():
     }
 
     out = {
-        "schema": 11,
+        "schema": 12,
         "updatedAt": catalog.get("updatedAt") or "",
         "count": len(rows),
         # Must list EVERY column. Rows carry 10 entries at schema 9 and this
@@ -281,7 +330,7 @@ def main():
         # were shipping, undeclared, for two schema bumps.
         "fields": ["id", "title", "year", "contentType", "poster", "pro", "search",
                    "backdrop", "playable", "documentary", "rating10", "votes",
-                   "director", "genres", "color"],
+                   "director", "genres", "color", "bif"],
         "facets": facets,
         "shelves": shelves,
         "collections": collections,
