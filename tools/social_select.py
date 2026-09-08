@@ -167,6 +167,29 @@ def rating_line(row: list) -> tuple[str, str] | None:
     return None
 
 
+
+# An archive.org "review" is a free-text comment box, so some of them are not
+# reviews at all: they are requests to the uploader, rights enquiries, or
+# complaints about YouTube. One of these was selected for a live dry run —
+# "Hi I would like to add these videos on my youtube channel. I am asking your
+# permission on this." — which would have gone out as our pull-quote for the
+# film. Measured against the live shards: 11 of 5,094 otherwise-eligible
+# reviews match, of which 8 are unambiguous. The failure mode of a false
+# positive is quoting a DIFFERENT review, never editing one, so a slightly
+# broad rule is the safe direction.
+NOT_A_REVIEW = re.compile(
+    r"(my (own )?(youtube|yt) channel|asking (for )?your permission|"
+    r"(request|ask(ing)?|need|want|would like) (a )?(permission|licen[cs]e)|"
+    r"licen[cs]e to use|interested in licens|licensing (footage|clips?|this|it)|"
+    r"(could|can|would) you (please )?(post|upload|re-?upload|add)|"
+    r"please (post|upload|re-?upload) |(e-?mail|contact|dm) me\b|email to the)", re.I)
+
+# A review that carries someone's email address or phone number must never be
+# republished: quoting it would broadcast a stranger's contact details to an
+# audience they never chose. One live review reads "could you contact me
+# ar10@xs4all.nl".
+HAS_CONTACT = re.compile(r"[\w.+-]+@[\w-]+\.[\w.]+|\b\d{3}[.-]\d{3}[.-]\d{4}\b")
+
 def pick_review(detail: list, film_id: str, used: set) -> dict | None:
     """A real viewer's review, verbatim. Prefers a 4–5 star one with a body
     long enough to say something and short enough to quote whole."""
@@ -190,6 +213,8 @@ def pick_review(detail: list, film_id: str, used: set) -> dict | None:
         if n and n < 4:
             continue
         if not (60 <= len(body) <= 400):
+            continue
+        if NOT_A_REVIEW.search(body) or HAS_CONTACT.search(body):
             continue
         cand = {"stars": n, "title": title, "body": body, "reviewer": who,
                 "date": (rv[4] if len(rv) > 4 else None)}
