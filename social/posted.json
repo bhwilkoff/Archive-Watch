@@ -1,5 +1,5 @@
 {
- "_": "The ledger (docs/SOCIAL-PROGRAM.md \u00a77). One entry per platform per post. No film repeats within 365 days; no review is ever quoted twice. Written only after a platform confirms.",
+ "_": "The ledger (docs/SOCIAL-PROGRAM.md §7). One entry per platform per post. No film repeats within 365 days; no review is ever quoted twice. Written only after a platform confirms.",
  "posts": [
   {
    "at": "2026-09-08T15:55:51.561873+00:00",
@@ -52,6 +52,50 @@
    "format": "video",
    "kind": "feature-film",
    "reviewer": "noir addict"
+  },
+  {
+   "at": "2026-09-08T16:48:57.658807+00:00",
+   "id": "shame_",
+   "title": "Shame",
+   "slot": "viewer-said",
+   "platform": "mastodon",
+   "url": "https://mastodon.social/@archivewatch/117236442343756353",
+   "format": "video",
+   "kind": "feature-film",
+   "reviewer": "RM_115"
+  },
+  {
+   "at": "2026-09-08T16:48:57.658807+00:00",
+   "id": "shame_",
+   "title": "Shame",
+   "slot": "viewer-said",
+   "platform": "threads",
+   "url": "https://www.threads.com/@archivewatchapp/post/DdCJyWmlKhC",
+   "format": "video",
+   "kind": "feature-film",
+   "reviewer": "RM_115"
+  },
+  {
+   "at": "2026-09-08T16:48:57.658807+00:00",
+   "id": "shame_",
+   "title": "Shame",
+   "slot": "viewer-said",
+   "platform": "instagram",
+   "url": "https://www.instagram.com/reel/DdCJ2lGCRJb/",
+   "format": "video",
+   "kind": "feature-film",
+   "reviewer": "RM_115"
+  },
+  {
+   "at": "2026-09-08T16:48:57.658807+00:00",
+   "id": "shame_",
+   "title": "Shame",
+   "slot": "viewer-said",
+   "platform": "youtube",
+   "url": "https://youtube.com/watch?v=1a0vhyxwPt8",
+   "format": "video",
+   "kind": "feature-film",
+   "reviewer": "RM_115"
   }
  ]
 }
