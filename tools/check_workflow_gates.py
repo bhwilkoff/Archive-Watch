@@ -9,10 +9,35 @@ This slipped twice while converting workflows by script: once because a step had
 no `if:` at all, and once because it already had one (`dry_run != 'true'`) that
 neither the "add" nor the "replace" branch matched. So it is a check now rather
 than a habit.
+
+It also asserts that every step which RUNS `gh` has a GH_TOKEN in scope. A
+runner has no ambient credential, so `gh` fails with a message about setting
+GH_TOKEN -- and when that step is a publish, everything after it is SKIPPED
+and the `if: always()` upload finds nothing to upload. publish-db shipped no
+catalog DB for two days on exactly that, with the run going red every hour in
+a way nobody read as "the pipeline is down".
 """
+import re
 import sys, pathlib, yaml
 
 GATE = "steps.gate.outputs.go"
+
+# A COMMAND, not prose. Matching a bare "gh " anywhere finds "high enough" and
+# "through" in comments, which is three false alarms out of four.
+GH_CMD = re.compile(r"(?:^|[|&;(]\s*|\$\(\s*)(?:gh|bash tools/gh_retry\.sh)\s")
+GH_TOOL = re.compile(r"catalog_release\.py\s+(?:publish|fetch)")
+
+
+def runs_gh(run: str) -> bool:
+    for line in (run or "").splitlines():
+        line = line.strip()
+        if not line or line.startswith("#"):
+            continue
+        if GH_CMD.search(line) or GH_TOOL.search(line):
+            return True
+    return False
+
+
 bad = []
 for f in sorted(pathlib.Path(".github/workflows").glob("*.yml")):
     doc = yaml.safe_load(f.read_text()) or {}
@@ -28,7 +53,23 @@ for f in sorted(pathlib.Path(".github/workflows").glob("*.yml")):
         if seen and GATE not in str(step.get("if", "")):
             bad.append(f"{f.stem}: '{name}' runs even with no deltas")
 
-for b in bad:
+untokened = []
+for f in sorted(pathlib.Path(".github/workflows").glob("*.yml")):
+    doc = yaml.safe_load(f.read_text()) or {}
+    top = "GH_TOKEN" in (doc.get("env") or {})
+    for jname, job in (doc.get("jobs") or {}).items():
+        jenv = "GH_TOKEN" in (job.get("env") or {})
+        for step in job.get("steps", []):
+            if not runs_gh(step.get("run", "")):
+                continue
+            if top or jenv or "GH_TOKEN" in (step.get("env") or {}):
+                continue
+            untokened.append(f"{f.stem} [{jname}]: '{step.get('name')}' "
+                             f"runs gh with no GH_TOKEN in scope")
+
+for b in bad + untokened:
     print("  " + b)
 print(f"{len(bad)} ungated step(s)" if bad else "every apply job is fully gated")
-sys.exit(1 if bad else 0)
+print(f"{len(untokened)} gh step(s) with no token"
+      if untokened else "every gh step has a token")
+sys.exit(1 if (bad or untokened) else 0)

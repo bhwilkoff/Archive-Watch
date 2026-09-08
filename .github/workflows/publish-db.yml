@@ -117,6 +117,14 @@ jobs:
       # on the store index while the audit had correctly judged every one of
       # them a hide. The audit was right; its answer was thrown away.
       - name: Persist the rights decisions
+        # `catalog_release.py publish` reaches the catalog-source release
+        # through `gh`, so it needs a token like every other gh step here.
+        # Without one it exits 1 on "cannot reach release 'catalog-source'",
+        # which SKIPS the DB build and every check below it and leaves the
+        # `if: always()` upload with no catalog.sqlite to upload. The whole
+        # publish had been down since 2026-09-06 for exactly this.
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python tools/catalog_release.py publish
 
       - name: Metadata quality audit (report)
