@@ -1,10 +1,10 @@
 {
   "schema": 1,
-  "updated_at": "2026-09-07T09:28:26Z",
+  "updated_at": "2026-09-08T08:40:34Z",
   "description": "Missing-episode queue: canonical episodes (from OMDb) that we don't yet have on Archive. Drained by tools/backfill_tv_episodes.py.",
   "stats": {
-    "total": 18056,
-    "wanted": 17833,
+    "total": 18057,
+    "wanted": 17834,
     "fulfilled": 223,
     "series_with_gaps": 359
   },
@@ -116602,6 +116602,16 @@
       "episodeImdbID": "tt0706338",
       "status": "wanted",
       "added_at": "2026-06-04T08:24:27Z"
+    },
+    {
+      "seriesID": "space-1999-1975",
+      "seriesTitle": "Space: 1999",
+      "season": 2,
+      "episode": 19,
+      "title": "The Bringers of Wonder: Part 2",
+      "episodeImdbID": "tt0706339",
+      "status": "wanted",
+      "added_at": "2026-09-08T08:40:34Z"
     },
     {
       "seriesID": "space-1999-1975",
