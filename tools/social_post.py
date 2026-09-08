@@ -448,6 +448,25 @@ def video_size(path: Path) -> tuple[int, int]:
         return 1080, 1920
 
 
+def meta_permalink(api: str, media_id: str, token: str, guess: str) -> str:
+    """The real public URL of a Meta post, asked for rather than constructed.
+
+    A published Instagram media id is NOT its shortcode, so
+    instagram.com/p/<id> is not a permalink — it is a URL shaped like one,
+    which is worse, because it looks right in the ledger and in the public
+    feed and goes nowhere. Threads is the same with @me. Both APIs publish a
+    `permalink` field; ask for it, and fall back to the guess only if the
+    call fails, so a permalink problem can never cost the post itself.
+    """
+    try:
+        got = http(f"{api}/{media_id}?fields=permalink"
+                   f"&access_token={urllib.parse.quote(token)}", timeout=30)
+        return got.get("permalink") or guess
+    except Exception as e:  # noqa: BLE001
+        print(f"   (could not read the permalink: {e})")
+        return guess
+
+
 def post_bluesky(spec, text, card: Path, live: bool, video: Path | None = None):
     handle = os.environ.get("BLUESKY_HANDLE")
     app_pw = os.environ.get("BLUESKY_APP_PASSWORD")
@@ -465,8 +484,19 @@ def post_bluesky(spec, text, card: Path, live: bool, video: Path | None = None):
     # A moving picture beats a still on a feed, and Bluesky is the one
     # platform that takes video with no review at all. The review quote still
     # rides in the text either way.
+    vblob = None
     if video and video.exists():
-        vblob = bsky_upload_video(jwt, did, sess, video)
+        # A video upload that fails must not cost the whole post. Bluesky
+        # refuses video from an account whose email is unconfirmed
+        # ("unconfirmed_email", HTTP 401, run 34247668584) — an account-level
+        # condition no retry clears, and the SAME post as an image would have
+        # gone out fine. The card is the fallback, not silence.
+        try:
+            vblob = bsky_upload_video(jwt, did, sess, video)
+        except Exception as e:  # noqa: BLE001
+            print(f"   video upload refused ({e}); posting the card instead")
+            vblob = None
+    if vblob:
         w, h = video_size(video)
         embed = {"$type": "app.bsky.embed.video", "video": vblob,
                  "aspectRatio": {"width": w, "height": h},
@@ -567,7 +597,8 @@ def post_threads(spec, text, media_url, live: bool, video_url: str | None = None
 
     res = form(f"{api}/{uid}/threads_publish",
                {"creation_id": container, "access_token": token})
-    return f"https://www.threads.net/@me/post/{res.get('id')}", None
+    return meta_permalink(api, res.get("id"), token,
+                          f"https://www.threads.net/@me/post/{res.get('id')}"), None
 
 
 def post_instagram(spec, text, media_url, live: bool, video_url: str | None = None):
@@ -643,7 +674,8 @@ def post_instagram(spec, text, media_url, live: bool, video_url: str | None = No
 
     res = form(f"{api}/{uid}/media_publish",
                {"creation_id": container, "access_token": token})
-    return f"https://www.instagram.com/p/{res.get('id')}", None
+    return meta_permalink(api, res.get("id"), token,
+                          f"https://www.instagram.com/p/{res.get('id')}"), None
 
 
 def post_youtube(spec, text, video: Path | None, live: bool):
