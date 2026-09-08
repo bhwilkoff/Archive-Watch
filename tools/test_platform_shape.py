@@ -109,6 +109,21 @@ check("every platform keeps a way to reach the film",
           for p in ("bluesky", "mastodon", "threads", "instagram", "youtube",
                     "facebook")))
 
+# ------------------------------------------------------- what actually went
+# `format` drives the metrics comparison "does a moving picture beat a card".
+# Derived from bool(video) it LIED the first time it mattered: Bluesky refused
+# the video, posted the card, and the ledger recorded "video".
+import inspect
+shape += 1
+check("the ledger records the format the platform took, not the one offered",
+      'skip if skip in ("video", "card")' in inspect.getsource(sp.main))
+for adapter in (sp.post_bluesky, sp.post_mastodon, sp.post_threads,
+                sp.post_instagram, sp.post_youtube, sp.post_facebook):
+    src = inspect.getsource(adapter)
+    shape += 1
+    check(f"{adapter.__name__} reports which format it posted",
+          '"video"' in src or '"card"' in src)
+
 # ---------------------------------------------------------------- cadence
 # "Daily" is five decisions, not one (SOCIAL-GROWTH §2). The guard that
 # matters most is the LAST one: a platform added to `plan` with no CADENCE

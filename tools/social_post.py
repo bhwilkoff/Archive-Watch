@@ -540,7 +540,8 @@ def post_bluesky(spec, text, card: Path, live: bool, video: Path | None = None):
     res = http(f"{api}/com.atproto.repo.createRecord", headers=auth,
                data={"repo": did, "collection": "app.bsky.feed.post", "record": record})
     rkey = res["uri"].rsplit("/", 1)[-1]
-    return f"https://bsky.app/profile/{handle}/post/{rkey}", None
+    return (f"https://bsky.app/profile/{handle}/post/{rkey}",
+            "video" if vblob else "card")
 
 
 def post_threads(spec, text, media_url, live: bool, video_url: str | None = None):
@@ -597,8 +598,9 @@ def post_threads(spec, text, media_url, live: bool, video_url: str | None = None
 
     res = form(f"{api}/{uid}/threads_publish",
                {"creation_id": container, "access_token": token})
-    return meta_permalink(api, res.get("id"), token,
-                          f"https://www.threads.net/@me/post/{res.get('id')}"), None
+    return (meta_permalink(api, res.get("id"), token,
+                           f"https://www.threads.net/@me/post/{res.get('id')}"),
+            "video" if video_url else "card")
 
 
 def post_instagram(spec, text, media_url, live: bool, video_url: str | None = None):
@@ -674,8 +676,9 @@ def post_instagram(spec, text, media_url, live: bool, video_url: str | None = No
 
     res = form(f"{api}/{uid}/media_publish",
                {"creation_id": container, "access_token": token})
-    return meta_permalink(api, res.get("id"), token,
-                          f"https://www.instagram.com/p/{res.get('id')}"), None
+    return (meta_permalink(api, res.get("id"), token,
+                           f"https://www.instagram.com/p/{res.get('id')}"),
+            "video" if video_url else "card")
 
 
 def post_youtube(spec, text, video: Path | None, live: bool):
@@ -728,7 +731,7 @@ def post_youtube(spec, text, video: Path | None, live: bool):
                         "Content-Type": f"multipart/related; boundary={boundary}"},
                timeout=900)
     vid = res.get("id")
-    return f"https://youtube.com/watch?v={vid}", None
+    return f"https://youtube.com/watch?v={vid}", "video"
 
 
 def mastodon_base() -> str | None:
@@ -817,7 +820,8 @@ def post_mastodon(spec, text, card: Path, live: bool, video: Path | None = None)
                data=urllib.parse.urlencode(fields).encode(),
                headers={**auth, "Idempotency-Key": key,
                         "Content-Type": "application/x-www-form-urlencoded"})
-    return res.get("url") or res.get("uri") or f"{base}/", None
+    return (res.get("url") or res.get("uri") or f"{base}/",
+            "video" if video and video.exists() else "card")
 
 
 def post_facebook(spec, text, media_url, card: Path, live: bool):
@@ -836,7 +840,7 @@ def post_facebook(spec, text, media_url, card: Path, live: bool):
         res = form(f"{api}/{page}/feed",
                    {"message": text, "link": spec["link"], "access_token": token})
     pid = res.get("post_id") or res.get("id")
-    return f"https://www.facebook.com/{pid}", None
+    return f"https://www.facebook.com/{pid}", "card"
 
 
 # --------------------------------------------------------------------------
@@ -940,14 +944,14 @@ def main() -> int:
             print(f"   (dry run — would post{' ' + detail if detail else ''})\n")
             continue
         print(f"   posted: {url}\n")
-        # `format` is what the METRICS reader groups by: the whole point of
-        # measuring is to learn whether a moving picture outperforms a card,
-        # and that question cannot be asked of a ledger that did not record
-        # which one went out. Facebook is card-only whatever we cut.
+        # `format` is what the METRICS reader groups by, so it must record
+        # what the platform ACTUALLY took, not what we handed it. Derived from
+        # `bool(video)` it lied the first time it mattered: Bluesky refused the
+        # video and posted the card, and the ledger said "video" — which would
+        # have made the card look like a well-performing reel forever.
         entries.append({"at": now, "id": spec["id"], "title": spec["title"],
                         "slot": spec["slot"], "platform": name, "url": url,
-                        "format": ("video" if video and name != "facebook"
-                                   else "card"),
+                        "format": skip if skip in ("video", "card") else "card",
                         "kind": spec.get("contentType"),
                         "reviewer": spec.get("reviewer")})
 

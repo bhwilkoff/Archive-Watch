@@ -1,0 +1,67 @@
+name: Social delete
+
+# Take down a post we should not have made. Manual only, and a dry run unless
+# the box is ticked: none of these platforms can undo a delete.
+#
+# It also removes the row from social/posted.json, because the ledger is what
+# stops a film repeating inside a year — a deleted post left in the ledger
+# retires its film for 365 days for nothing.
+
+on:
+  workflow_dispatch:
+    inputs:
+      urls:
+        description: "Permalinks to delete (comma or newline separated)"
+        required: true
+      apply:
+        description: "Actually delete (unticked = dry run)"
+        default: false
+        type: boolean
+
+concurrency:
+  group: social-post          # never race the poster's ledger commit
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  delete:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Delete
+        env:
+          BLUESKY_HANDLE: ${{ secrets.BLUESKY_HANDLE }}
+          BLUESKY_APP_PASSWORD: ${{ secrets.BLUESKY_APP_PASSWORD }}
+          MASTODON_INSTANCE: ${{ secrets.MASTODON_BASE_URL }}
+          MASTODON_ACCESS_TOKEN: ${{ secrets.MASTODON_ACCESS_TOKEN }}
+          THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
+          YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
+          YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
+        run: |
+          APPLY=""
+          if [ "${{ github.event.inputs.apply }}" = "true" ]; then APPLY="--apply"; fi
+          python3 tools/social_delete.py --urls "${{ github.event.inputs.urls }}" $APPLY
+
+      - name: Commit the pruned ledger
+        if: always()
+        run: |
+          if git diff --quiet -- social/posted.json; then
+            echo "ledger unchanged"; exit 0
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add social/posted.json
+          git commit -m "Social: removed deleted posts from the ledger [skip ci]"
+          for i in 1 2 3 4 5; do
+            if git pull --rebase --autostash origin main && git push; then exit 0; fi
+            sleep $((i * 3))
+          done
+          echo "ledger push still racing after retries"; exit 1
