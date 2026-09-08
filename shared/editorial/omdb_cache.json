@@ -1,7 +1,7 @@
 {
   "version": 1,
   "description": "OMDb lookup results keyed by IMDb ID. Positive = poster_url; negative = null (so we don't burn daily quota retrying items OMDb doesn't have). Populated by the scheduled omdb-backfill GitHub Action + local runs of tools/omdb_backfill.py. The exporter overlays this cache over DB rows at export time.",
-  "updated_at": "2026-09-07T07:38:45Z",
+  "updated_at": "2026-09-08T07:16:25Z",
   "entries": {
     "tt0007613": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BYzUwNTY4NWUtNGRhMy00YjVmLWEyNmQtYTQyNWQyNDZhNjFmXkEyXkFqcGc@._V1_SX300.jpg",
@@ -31910,11 +31910,11 @@
     },
     "nm0101038": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm0101038\" to type \\'Double\\''",
-      "last_tried": "2026-09-07T07:38:45Z"
+      "last_tried": "2026-09-08T07:16:25Z"
     },
     "nm1947784": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm1947784\" to type \\'Double\\''",
-      "last_tried": "2026-09-07T07:38:45Z"
+      "last_tried": "2026-09-08T07:16:25Z"
     },
     "tt0000046": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BZWM2N2MzMGMtNzNkNi00OTc2LTg5NDQtNWViNTA2MGIwNmFhXkEyXkFqcGdeQXVyNTI2NTY2MDI@._V1_SX300.jpg",
@@ -322552,6 +322552,21 @@
         "Drama"
       ],
       "fetched_at": "2026-08-24T03:18:04Z",
+      "schema": 3
+    },
+    "tt0214176": {
+      "poster_url": null,
+      "imdb_rating": 8.3,
+      "imdb_votes": 27,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": 10,
+      "director": null,
+      "actors": [],
+      "genres": [
+        "Short"
+      ],
+      "fetched_at": "2026-09-08T07:16:25Z",
       "schema": 3
     }
   },
