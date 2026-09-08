@@ -139,6 +139,28 @@ Nothing on the certification list. The last item closed 2026-09-08:
 | Deep link test parameters | one per media type | `contentId=el-candidato-1959&mediaType=movie` |
 | Category / age rating | required | owner |
 
+## Dashboard state, 2026-09-08
+
+The app record exists: **Channel ID 881015**, access code `PMPJCTH`, type SDK,
+US only, English, Video, domestic region US.
+
+| Section | State |
+|---|---|
+| Store assets | ✅ name, both descriptions (268/300 and 1441/1500), poster, six screenshots |
+| Listing setup | countries + domestic region set |
+| App profile | every field filled EXCEPT the two required **Phone** numbers — owner |
+| App package | blocked: **"Verify developer account email"** is unticked (device linking is ✅) |
+| Deep linking | blocked behind the package |
+| Content rating | not selected — owner |
+
+**Two screenshots were recaptured** after the owner's note that one was a
+Spanish-language film and Home showed no backdrop. The channel was DELETED and
+re-sideloaded first, because a sideload alone keeps the registry and the store
+shot was showing the tester's own Continue Watching row. Home now leads with
+the full-bleed hero (From Soup to Nuts, 1928) over the Public-Domain Canon
+shelf, and Detail is Fritz Lang's Dr. Mabuse, the Gambler — English interface,
+★7.8, Play · 155m, More Like This.
+
 ## The sequence
 
 1. Owner runs `genkey` and stores the password outside the repo.
