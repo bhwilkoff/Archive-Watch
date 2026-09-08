@@ -372,15 +372,18 @@ def post_bluesky(spec, text, card: Path, live: bool, video: Path | None = None):
     return f"https://bsky.app/profile/{handle}/post/{rkey}", None
 
 
-def post_threads(spec, text, media_url, live: bool):
+def post_threads(spec, text, media_url, live: bool, video_url: str | None = None):
+    """The teaser when there is one, the card otherwise — same rule as
+    Instagram, so the two Meta surfaces carry the same post rather than
+    diverging by accident."""
     uid = os.environ.get("THREADS_USER_ID")
     token = os.environ.get("THREADS_ACCESS_TOKEN")
     if not (uid and token):
         return None, "not connected"
-    if not media_url:
+    if not (video_url or media_url):
         return None, "no public media URL (set SOCIAL_MEDIA_BASE_URL)"
     if not live:
-        return "DRY-RUN", None
+        return ("DRY-RUN (video)" if video_url else "DRY-RUN (image)"), None
 
     api = "https://graph.threads.net/v1.0"
     # Only DOCUMENTED fields. Threads' create-container reference lists
@@ -390,10 +393,37 @@ def post_threads(spec, text, media_url, live: bool):
     # keeps it below). Checked 2026-09-06 because the live-endpoint probe
     # cannot tell a bad field from a bad token: Meta validates the token
     # first, so both answer the same OAuthException.
-    fields = {"media_type": "IMAGE", "image_url": media_url, "text": text,
-              "access_token": token}
+    fields = ({"media_type": "VIDEO", "video_url": video_url, "text": text,
+               "access_token": token} if video_url else
+              {"media_type": "IMAGE", "image_url": media_url, "text": text,
+               "access_token": token})
     container = form(f"{api}/{uid}/threads", fields)["id"]
-    time.sleep(30)          # Meta's documented container processing window
+
+    if video_url:
+        # A video is transcoded, and 30 seconds is Meta's window for an IMAGE.
+        # Publishing an unfinished container fails, so poll instead of guessing
+        # — and fall back to the card rather than losing the day.
+        for _ in range(50):
+            time.sleep(6)
+            st = http(f"{api}/{container}?fields=status&access_token="
+                      f"{urllib.parse.quote(token)}")
+            if st.get("status") == "FINISHED":
+                break
+            if st.get("status") in ("ERROR", "EXPIRED"):
+                if media_url:
+                    print("   threads video container failed; falling back to the card",
+                          file=sys.stderr)
+                    return post_threads(spec, text, media_url, live)
+                raise RuntimeError(f"Threads rejected the video container ({st.get('status')})")
+        else:
+            if media_url:
+                print("   threads video still processing; falling back to the card",
+                      file=sys.stderr)
+                return post_threads(spec, text, media_url, live)
+            raise RuntimeError("Threads video container never finished")
+    else:
+        time.sleep(30)      # Meta's documented window for an image container
+
     res = form(f"{api}/{uid}/threads_publish",
                {"creation_id": container, "access_token": token})
     return f"https://www.threads.net/@me/post/{res.get('id')}", None
@@ -691,7 +721,7 @@ def main() -> int:
     plan = [
         ("bluesky", lambda t: post_bluesky(spec, t, card, args.live, video)),
         ("mastodon", lambda t: post_mastodon(spec, t, card, args.live, video)),
-        ("threads", lambda t: post_threads(spec, t, media_url, args.live)),
+        ("threads", lambda t: post_threads(spec, t, media_url, args.live, video_url)),
         ("instagram", lambda t: post_instagram(spec, t, media_pt, args.live, video_url)),
         ("facebook", lambda t: post_facebook(spec, t, media_url, card, args.live)),
         ("youtube", lambda t: post_youtube(spec, t, video, args.live)),

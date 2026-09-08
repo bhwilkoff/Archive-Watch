@@ -125,6 +125,28 @@ instructions produced a token the code could not use.)
 Facebook Pages are a separate matter: `pages_manage_posts` plus **business
 verification**, review 2–4 weeks per submission.
 
+**One Meta app serves both Instagram and Threads**, as separate *use cases* on
+the same app (the console moved to a use-case model; the old "add a product"
+instructions no longer match what is on screen).
+
+Add ONLY these four permissions — the use case's own "Add all required
+permissions" button asks for `instagram_business_manage_comments` and
+`..._manage_messages` too, which this poster never uses:
+
+| use case | permission | why |
+|---|---|---|
+| Instagram | `instagram_business_basic` | any access at all |
+| Instagram | `instagram_business_content_publish` | "create organic feed photo and video posts" — covers Reels |
+| Threads | `threads_basic` | any access at all |
+| Threads | `threads_content_publish` | publishing |
+
+Note there are THREE ids in play and they are easy to confuse: the Meta app id,
+a separate **Instagram app id** on the use-case page, and `IG_USER_ID`, which is
+neither — it is the Instagram ACCOUNT id the token step returns.
+
+Before the token step, give the Instagram account the **Instagram Tester** role
+under App roles → Roles and accept the invite from the account itself.
+
 - Instagram: `IG_USER_ID`, `IG_ACCESS_TOKEN`
 - Facebook Page: `FB_PAGE_ID`, `FB_PAGE_ACCESS_TOKEN`
 

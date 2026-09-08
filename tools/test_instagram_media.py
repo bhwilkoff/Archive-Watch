@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-test_instagram_media.py — Instagram posts a REEL when there is a teaser and the
-card when there is not, and never posts nothing.
+test_instagram_media.py — the Meta surfaces post the teaser when there is one
+and the card when there is not, and never post nothing.
 
 The owner asked for "both video (reels) and images". Posting twice a day would
 break the one-post-a-day rule the programme is built on (SOCIAL-PROGRAM §4), so
@@ -40,9 +40,32 @@ cases = [
      (None, "no public media URL (set SOCIAL_MEDIA_BASE_URL)")),
 ]
 
+# Threads follows the SAME rule, so the two Meta surfaces cannot diverge by
+# accident — a difference between them would be a bug, not a feature.
+def run_threads(env, card, video):
+    for k in ("THREADS_USER_ID", "THREADS_ACCESS_TOKEN"):
+        sp.os.environ.pop(k, None)
+    sp.os.environ.update(env)
+    return sp.post_threads(FILM, "caption", card, False, video)
+
+TH = {"THREADS_USER_ID": "1", "THREADS_ACCESS_TOKEN": "t"}
+thread_cases = [
+    ("threads: no credentials -> not connected", {}, CARD, VID, (None, "not connected")),
+    ("threads: teaser -> video", TH, CARD, VID, ("DRY-RUN (video)", None)),
+    ("threads: no teaser -> image", TH, CARD, None, ("DRY-RUN (image)", None)),
+    ("threads: neither -> says why", TH, None, None,
+     (None, "no public media URL (set SOCIAL_MEDIA_BASE_URL)")),
+]
+
 fails = 0
 for name, env, card, video, want in cases:
     got = run(env, card, video)
+    ok = got == want
+    if not ok: fails += 1
+    print(f"  {'ok  ' if ok else 'FAIL'}  {name}  -> {got}")
+
+for name, env, card, video, want in thread_cases:
+    got = run_threads(env, card, video)
     ok = got == want
     if not ok: fails += 1
     print(f"  {'ok  ' if ok else 'FAIL'}  {name}  -> {got}")
@@ -56,6 +79,6 @@ for label, cond in [("REEL container omits alt_text", "alt_text" not in reel),
     if not cond: fails += 1
     print(f"  {'ok  ' if cond else 'FAIL'}  {label}")
 
-total = len(cases) + 2
+total = len(cases) + len(thread_cases) + 2
 print(f"\n{total - fails}/{total} passed")
 sys.exit(0 if fails == 0 else 1)
