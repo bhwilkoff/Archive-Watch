@@ -45,6 +45,36 @@ The last line is not optional: Decision 007 requires the TMDb notice verbatim
 wherever TMDb data is presented, and a store listing that describes the
 metadata is exactly that.
 
+## Release notes (1.0.51 — first release)
+
+Not a changelog: there is no previous version, so these say what the channel
+IS. Roku shows them in the store beside the description, so they must not
+simply repeat it — the description sells the catalog, these name what the
+channel does with it.
+
+```
+Archive Watch arrives on Roku: around 27,000 public-domain films and television programmes from the Internet Archive, free, with no account to make.
+
+- Browse by type, decade or genre — feature films, classic TV, silent cinema, animation, newsreels, documentaries and vintage commercials.
+- Fourteen channels run to a real schedule with period commercial breaks, so you can tune in and join whatever is already playing.
+- Surprise opens fifteen doors into the collection when you do not know what you want, including a cartoon marathon and a wall of cover art.
+- Trick-play thumbnails while you scrub, resume where you stopped, and save what you want to come back to.
+- Posters, cast and synopses from TMDb, OMDb, TheTVDB, Wikidata and Wikimedia Commons.
+
+This product uses the TMDB API but is not endorsed or certified by TMDB.
+```
+
+828 characters. If the field is shorter than that, this is the same thing in
+388:
+
+```
+Archive Watch arrives on Roku: around 27,000 public-domain films and TV programmes from the Internet Archive, free, with no account to make. Browse by type, decade or genre; tune one of fourteen scheduled channels with period commercial breaks; open one of fifteen Surprise doors when you don't know what you want. Trick-play while you scrub, resume where you stopped, save what you like.
+```
+
+The TMDb line is dropped from the short version only because it is already in
+the online description, which Decision 007 satisfies; it is NOT optional
+wherever TMDb data is the only attribution on the surface.
+
 ## Assets
 
 | Asset | Spec | File |
