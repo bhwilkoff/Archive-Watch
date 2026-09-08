@@ -151,6 +151,39 @@ def tags_for(spec: dict, limit: int) -> list:
     return uniq[:limit]
 
 
+def adopt_clip_quote(spec: dict, video) -> str | None:
+    """Make the caption quote the line the teaser burns on screen.
+
+    `social_clip` writes a sidecar naming the line it cut to. When there is
+    one it REPLACES the caption's own randomly chosen line, so the words the
+    viewer hears, the words on the picture and the words in the caption are
+    the same words. Two different lines from one film read as a template
+    filled twice.
+    """
+    if not video:
+        return None
+    side = Path(str(video)).with_suffix(".json")
+    if not side.exists():
+        return None
+    try:
+        quote = (json.loads(side.read_text(encoding="utf-8")) or {}).get("quote")
+    except (ValueError, OSError):
+        return None
+    if not quote:
+        return None
+    frags = spec.setdefault("fragments", [])
+    for f in frags:
+        if f["kind"] == "line":
+            f["text"] = f'"{quote}"'
+            f["source"] = "the line the teaser cuts to (published subtitles)"
+            break
+    else:
+        frags.append({"kind": "line", "text": f'"{quote}"',
+                      "source": "the line the teaser cuts to (published subtitles)"})
+    print(f"caption: quoting the teaser's own line — {quote!r}")
+    return quote
+
+
 def compose(spec: dict, platform: str) -> str:
     frag = {f["kind"]: f["text"] for f in spec.get("fragments", [])}
     limit = LIMITS[platform]
@@ -743,7 +776,9 @@ def main() -> int:
     print(f"film : {spec['title']} ({spec.get('year')})   slot: {spec['slot']}")
     print(f"link : {spec['link']}")
     print(f"media: {'teaser ' + video.name if video else 'card'}")
-    print(f"mode : {'LIVE' if args.live else 'dry run (no --live)'}\n")
+    print(f"mode : {'LIVE' if args.live else 'dry run (no --live)'}")
+    adopt_clip_quote(spec, video)
+    print()
 
     media_url = publish_media(card, spec, args.live) if card else None
     media_pt = (publish_media(card_pt, spec, args.live)

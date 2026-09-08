@@ -23,6 +23,14 @@ Three decisions worth knowing:
   9:16 frame is fitted whole over a blurred fill of itself. Cropping a 1933
   cartoon to a phone frame throws away half the animation.
 
+* **A line beats a shot.** When the film publishes subtitles, `social_line`
+  picks the most quotable line of its first act and the cut is built AROUND
+  it: the scene starts a beat before the line is spoken, the words burn on
+  screen (nearly everyone watches muted), and the AUDIO is kept, because a
+  quotable line nobody can hear is a caption, not a teaser. Without
+  subtitles — or when the line lands on a dark frame — it falls back to the
+  shot-led cut, silent as before.
+
 Run:
   python tools/social_clip.py --spec social/out/post.json \
       --index /tmp/clips.sqlite --out social/out/clip.mp4
@@ -37,8 +45,14 @@ import shutil
 import sqlite3
 import subprocess
 import sys
+import textwrap
 import time
+import urllib.error
+import urllib.request
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from social_line import pick_line                              # noqa: E402
 
 REPO = Path(__file__).resolve().parent.parent
 FONTS = REPO / "roku" / "fonts"
@@ -49,6 +63,13 @@ TARGET = 18.0              # a teaser, not an excerpt
 MIN_LUMA = 42.0            # below this the frame reads as black on a phone
 MAX_LUMA = 225.0           # above it, a blown-out fade or a title card
 W, H = 1080, 1920
+
+SUBS = "https://archivewatch.org/subs/{id}/en.vtt"
+LEAD = 2.2                 # scene before the line is spoken
+TAIL = 3.4                 # after it, so the clip never cuts on the word
+LINE_MIN, LINE_MAX = 11.0, 22.0   # long enough to read three burned lines
+QUOTE_COLS = 24            # characters per burned line, at fontsize 54
+QUOTE_LINES = 3
 
 
 def ffmpeg_has(feature: str) -> bool:
@@ -206,10 +227,79 @@ def pick_shot(db_path: str, archive_id: str, min_motion: float = 3.0) -> dict | 
     return None
 
 
-def build_filter(title: str, year, has_text: bool, crop: str | None = None) -> str:
+def fetch_vtt(archive_id: str, local: str | None = None) -> str | None:
+    """The film's published English subtitles, or None.
+
+    A 404 is the ordinary case — ~16% of the catalog carries a track — so it
+    is reported at one line and never as a failure.
+    """
+    if local:
+        return Path(local).read_text(encoding="utf-8", errors="replace")
+    url = SUBS.format(id=archive_id)
+    try:
+        with urllib.request.urlopen(url, timeout=45) as r:
+            body = r.read().decode("utf-8", "replace")
+    except (urllib.error.URLError, OSError, TimeoutError) as e:
+        print(f"[clip] no subtitles for {archive_id} ({e})")
+        return None
+    # Pages answers a missing path with 404.html at HTTP 200 for some routes;
+    # a WebVTT file always opens WEBVTT, so ask the body, not the status.
+    if not body.lstrip().upper().startswith("WEBVTT"):
+        print(f"[clip] {archive_id}: /subs answered, but not with WebVTT")
+        return None
+    return body
+
+
+def wrap_quote(text: str, cols: int = QUOTE_COLS,
+               max_lines: int = QUOTE_LINES) -> list | None:
+    """The line broken for burning, or None if it cannot be read on a phone.
+
+    Wrapping is refused rather than shrunk: a quote that needs four lines at
+    this size is a quote that competes with the picture it sits on.
+    """
+    lines = textwrap.wrap(" ".join(text.split()), width=cols,
+                          break_long_words=False, break_on_hyphens=False)
+    if not lines or len(lines) > max_lines:
+        return None
+    return lines
+
+
+def line_segment(url: str, line: dict, seconds: float) -> dict | None:
+    """Turn a chosen line into a cut, or None if it lands on a dark frame.
+
+    The luma gate is the same one the shot picker uses. A dialogue scene may
+    legitimately be dim, so two frames are sampled before giving up — but a
+    quote burned over black is a title card with words on it.
+    """
+    start = max(0.0, line["start"] - LEAD)
+    cap = min(LINE_MAX, seconds if seconds > 0 else LINE_MAX)
+    dur = max(LINE_MIN, min(cap, (line["end"] - start) + TAIL))
+    lit = False
+    for probe in (line["start"] + 0.3, line["start"] + (line["end"] - line["start"]) / 2):
+        lum = luma_of(url, probe)
+        print(f"[clip] line frame at {probe:6.1f}s  luma {lum:5.1f}")
+        if MIN_LUMA <= lum <= MAX_LUMA:
+            lit = True
+            break
+    if not lit:
+        print("[clip] the line plays over a black or blown-out frame — "
+              "falling back to the shot cut", file=sys.stderr)
+        return None
+    return {"url": url, "start": start, "end": start + dur,
+            "line": line, "tags": None}
+
+
+def build_filter(title: str, year, has_text: bool, crop: str | None = None,
+                 quote_file: str | None = None, quote_at: float = 0.0) -> str:
     """9:16 with the film fitted whole over a blurred fill of itself, and a
     lower third that survives muted autoplay — which is how nearly everyone
-    will see it."""
+    will see it.
+
+    A quote, when there is one, sits just above that lower third and fades in
+    on the beat the line is spoken. It is read from a FILE rather than passed
+    inline: drawtext's own escaping cannot be trusted with a sentence someone
+    else wrote, and a stray colon or apostrophe would take the whole render
+    down."""
     pre = f"{crop}," if crop else ""
     chain = (
         f"[0:v]{pre}split=2[a][b];"
@@ -226,14 +316,25 @@ def build_filter(title: str, year, has_text: bool, crop: str | None = None) -> s
             "free to watch · archivewatch.org"
     f_title = str(FONTS / "Fraunces-Display-Black.ttf")
     f_meta = str(FONTS / "Inter-Regular.ttf")
+    tail = "[lt]" if quote_file else "[out]"
     chain += (
         f";[v]drawbox=x=0:y={H-360}:w={W}:h=360:color=black@0.55:t=fill,"
         f"drawtext=fontfile='{f_title}':text='{safe}':fontcolor=0xEBEBEB:"
         f"fontsize=62:x=72:y={H-268}:line_spacing=8,"
         f"drawtext=fontfile='{f_meta}':text='{line2}':fontcolor=0x9A9AA0:"
         f"fontsize=36:x=72:y={H-168},"
-        f"drawbox=x=72:y={H-300}:w=96:h=7:color=0xFF5C35@1.0:t=fill[out]"
+        f"drawbox=x=72:y={H-300}:w=96:h=7:color=0xFF5C35@1.0:t=fill{tail}"
     )
+    if quote_file:
+        on = max(0.0, quote_at - 0.30)
+        f_quote = str(FONTS / "Fraunces-Text-Italic.ttf")
+        chain += (
+            f";[lt]drawtext=fontfile='{f_quote}':textfile='{quote_file}':"
+            f"fontcolor=0xF4F4F4:fontsize=54:line_spacing=14:"
+            f"box=1:boxcolor=black@0.50:boxborderw=26:"
+            f"x=(w-text_w)/2:y={H-416}-text_h:"
+            f"alpha='if(lt(t,{on:.2f}),0,min(1,(t-{on:.2f})/0.45))'[out]"
+        )
     return chain
 
 
@@ -246,6 +347,10 @@ def main() -> int:
     ap.add_argument("--out", required=True)
     ap.add_argument("--seconds", type=float, default=TARGET)
     ap.add_argument("--source", default=None, help="override the video URL")
+    ap.add_argument("--vtt", default=None,
+                    help="a local WebVTT file instead of the published one")
+    ap.add_argument("--no-line", action="store_true",
+                    help="skip the subtitle line; always cut on a shot")
     args = ap.parse_args()
 
     spec = json.loads(Path(args.spec).read_text(encoding="utf-8"))
@@ -271,7 +376,22 @@ def main() -> int:
         src_url = db_shot["url"] if db_shot else None
     else:
         db_shot = None
-    shot = find_scene(src_url, runtime) if src_url else None
+    # A quotable line, when the film has one, decides the cut. It is a better
+    # teaser than any frame statistic: somebody says something, and the scroll
+    # stops for it.
+    shot = None
+    if src_url and not args.no_line:
+        vtt = fetch_vtt(spec["id"], args.vtt)
+        line = pick_line(vtt) if vtt else None
+        if line and not wrap_quote(line["text"]):
+            print(f"[clip] line too long to burn: {line['text']!r}")
+            line = None
+        if line:
+            print(f"[clip] line at {line['start']:.1f}s: {line['text']!r}")
+            shot = line_segment(src_url, line, args.seconds)
+
+    if not shot:
+        shot = find_scene(src_url, runtime) if src_url else None
     if not shot:
         shot = db_shot
     if not shot:
@@ -283,7 +403,11 @@ def main() -> int:
         return 3
 
     url = args.source or shot["url"]
-    dur = min(args.seconds, max(MIN_SHOT, shot["end"] - shot["start"] + 6))
+    line = shot.get("line")
+    if line:
+        dur = shot["end"] - shot["start"]
+    else:
+        dur = min(args.seconds, max(MIN_SHOT, shot["end"] - shot["start"] + 6))
     out = Path(args.out)
     out.parent.mkdir(parents=True, exist_ok=True)
 
@@ -294,14 +418,32 @@ def main() -> int:
     crop = detect_crop(url, shot["start"])
     if crop:
         print(f"[clip] letterbox removed: {crop}")
-    filt = build_filter(spec["title"], spec.get("year"), has_text, crop)
+    quote_file = None
+    if line and has_text:
+        quote_file = str(out.with_suffix(".quote.txt"))
+        Path(quote_file).write_text("\n".join(wrap_quote(line["text"])) + "\n",
+                                    encoding="utf-8")
+    filt = build_filter(spec["title"], spec.get("year"), has_text, crop,
+                        quote_file, line["start"] - shot["start"] if line else 0.0)
     target = "[out]" if has_text else "[v]"
 
     cmd = ["ffmpeg", "-y", "-nostdin", "-ss", str(shot["start"]), "-i", url,
            "-t", str(dur), "-filter_complex", filt, "-map", target,
            "-c:v", "libx264", "-profile:v", "high", "-pix_fmt", "yuv420p",
            "-preset", "medium", "-crf", "23", "-r", "30",
-           "-movflags", "+faststart", "-an", str(out)]
+           "-movflags", "+faststart"]
+    if line:
+        # A line teaser keeps its sound. `0:a?` so a film with no audio track
+        # still renders rather than failing the whole run, and loudnorm
+        # because archive.org transfers range from whisper to clipping and a
+        # feed autoplays them next to professionally mastered video.
+        cmd += ["-map", "0:a?", "-c:a", "aac", "-b:a", "128k", "-ac", "2",
+                "-af", f"loudnorm=I=-16:TP=-1.5:LRA=11,"
+                       f"afade=t=in:st=0:d=0.6,"
+                       f"afade=t=out:st={max(0.0, dur - 0.9):.2f}:d=0.9"]
+    else:
+        cmd += ["-an"]
+    cmd += [str(out)]
     t0 = time.time()
     r = subprocess.run(cmd, capture_output=True, text=True, timeout=900)
     if r.returncode != 0 or not out.exists():
@@ -311,6 +453,17 @@ def main() -> int:
     size = out.stat().st_size
     print(f"[clip] {out}  {dur:.0f}s  {size/1024/1024:.1f} MB  "
           f"from {shot['start']:.0f}s  in {time.time()-t0:.0f}s")
+    # The caption writer needs to know what the teaser actually shows. A hook
+    # that quotes a line the viewer is about to hear reads as one piece; a
+    # hook invented next to a silent shot reads as two.
+    out.with_suffix(".json").write_text(json.dumps({
+        "start": round(shot["start"], 2),
+        "seconds": round(dur, 2),
+        "audio": bool(line),
+        "quote": line["text"] if line else None,
+    }, indent=2) + "\n", encoding="utf-8")
+    if line:
+        print(f"[clip] quote burned: {line['text']!r}")
     if shot.get("tags"):
         print(f"[clip] scene tags: {shot['tags'][:70]}")
     # Bluesky's ceiling is 100 MB / 3 minutes; Shorts and Reels are far more

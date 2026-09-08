@@ -122,14 +122,53 @@ fitted whole over a blurred fill of itself (Decision 097).
 What it lacks, against the reference Reels: **a spine**. It picks a shot that
 moves. The hand-made videos pick a LINE, and the line is the whole idea.
 
-**The design:** use the subtitle index the same way the supercuts do, but for
-one film — find a strong line of dialogue in the first act, cut the clip to
-that line's timing, burn the line on screen, and make it the caption hook. The
-word-level index already exists (484,848 word timings) and
-`tools/fix_subtitle_sync.py` proves the alignment is trustworthy.
+**SHIPPED.** `tools/social_line.py` picks the line; `social_clip.py` builds
+the cut around it; `social_post.adopt_clip_quote` makes the caption quote the
+same words. The chain, in order:
 
-Also to fix: the clip currently has no audio ducking, no fade in/out, and the
-title card competes with the burned line for the same lower third.
+1. `fetch_vtt` asks `/subs/<id>/en.vtt`. ~16% of the catalog answers; a 404 is
+   the ordinary case and costs one printed line, never a failure.
+2. `pick_line` takes the most quotable line of the first act — question, then
+   exclamation, then statement; nearest eight words within a class. Every
+   rejection rule (sound cues, two speakers, ALL CAPS, a trailing ellipsis, a
+   lowercase opening that is the tail of the previous cue) came from a line
+   the picker actually chose from a real published VTT.
+3. `line_segment` cuts from `LEAD` (2.2s) before the line to `TAIL` (3.4s)
+   after it, floor 11s, ceiling 22s — long enough to read three burned lines,
+   inside every platform's ceiling. It probes two frames for luma and hands
+   back to the shot-led cut if the line plays over black.
+4. `build_filter` burns the line in Fraunces italic, centred, boxed at 50%
+   black, just above the lower third, fading in on the beat it is spoken. The
+   text is read from a FILE (`textfile=`), never inlined: drawtext's escaping
+   cannot be trusted with a sentence somebody else wrote, and one stray colon
+   would take the whole render down.
+5. The clip **keeps its audio** — a quotable line nobody can hear is a
+   caption, not a teaser — normalised with `loudnorm=I=-16:TP=-1.5:LRA=11`
+   (archive.org transfers run from whisper to clipping, and a feed autoplays
+   them beside professionally mastered video) and faded 0.6s in / 0.9s out.
+   `-map 0:a?` so a film with no audio track still renders.
+6. A sidecar `<clip>.json` names the line, and `adopt_clip_quote` REPLACES the
+   caption's own randomly chosen line with it, so what the viewer hears, what
+   is on the picture and what is in the caption are the same words. Two
+   different lines from one film read as a template filled twice.
+
+A shot-led teaser is unchanged: silent, 18s, no burned quote. It is the
+fallback for a film with no subtitles, a line too long to burn (>3 lines at 24
+columns), or a line that plays over a black frame.
+
+**Verified on the glass**, not asserted: *The Werewolf of Washington* (1973)
+cut to *"We've known Debbie, what, since the eighth grade?"* — 1080×1920, 11s,
+AAC audio at -18.7 dB RMS, quote absent at t=0.5s and fully faded in by t=3s,
+letterbox stripped (`crop=306:240:10:0`), the picture never reshaped.
+`tools/test_clip_line.py` is 28/28 and was checked to FAIL (6 cases) against
+the shot-only build.
+
+**The remaining limit is the SUBTITLES, not the picker.** Where the published
+track is machine transcription the lines themselves are poor — *House on
+Haunted Hill* offers *"He/she will have eaten, drink and ghosts."* — and no
+selector can rescue a sentence that was never said. Mitigations, in order:
+prefer human tracks when the catalog records which is which, and fall back to
+the shot-led teaser rather than burn nonsense on screen.
 
 ---
 
@@ -165,7 +204,8 @@ out of single-digit counts is how a programme talks itself into nonsense.
 - [ ] Caption SEO shaping per platform (hook-first on Bluesky, question on Threads)
 - [ ] Per-platform cadence + move the posting window to 15:00 UTC
 - [x] `tools/social_line.py` — picks the quotable line (the teaser's spine)
-- [ ] Cut the clip to that line, burn it on screen, use it as the caption hook
+- [x] Cut the clip to that line, burn it on screen, keep the audio, and
+      make the caption quote the same words (`adopt_clip_quote`)
 
 **Line quality is the limit, not the picker.** These VTTs are largely
 machine-transcribed from 1930s optical audio, so survivors can still be
