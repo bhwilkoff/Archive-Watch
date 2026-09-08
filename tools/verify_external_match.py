@@ -377,7 +377,12 @@ def verify(it: dict, omdb_key, session, tmdb_token=None) -> str:
         if not isinstance(y, int) or y < AR_MODERN:
             got = matched_film_release_year(it, tmdb_token, session, omdb_key)
             if got and got >= AR_MODERN:
-                adopt(it, {})
+                # NOT `adopt(it, {})`. Every branch of `adopt` is guarded by
+                # `if rec.get(...)`, so an empty record clears NOTHING — this
+                # tier marked 266 items cleared while leaving the modern
+                # film's ids, synopsis, tagline, studios, awards and votes in
+                # place. Tier 0b above had it right all along.
+                R._clear_wrong_artwork(it, None)
                 it["matchVerified"] = True
                 it["matchVerifiedAt"] = _today()
                 it["modernPosterCleared"] = got

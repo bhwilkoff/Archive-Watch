@@ -230,6 +230,20 @@ def _clear_wrong_artwork(it, new_year):
     # search for "porno" found them by keyword (2026-09-05).
     for k in ("canonicalTitle", "akaTitles", "keywords", "tagline", "originalTitle"):
         it.pop(k, None)
+    # And the match's RATINGS and production credits. These are only ever
+    # populated from a TMDb/OMDb film match, so when the match is wrong every
+    # one of them describes somebody else's film. Left behind, a 1924 silent
+    # short kept Scorsese's release date, studios (Columbia Pictures), Oscar,
+    # cinematographer (Michael Ballhaus), composer (Elmer Bernstein) and
+    # 73,037 IMDb votes — which on a web page is indistinguishable from us
+    # serving the 1993 film.
+    #
+    # director / cast / genres are deliberately NOT cleared: they also arrive
+    # from Wikidata and the Archive item itself, and the same item's director
+    # (Wesley Ruggles) and lead (Edith Roberts) were the CORRECT 1924 credits.
+    for k in ("imdbRating", "imdbVotes", "releaseDate", "awards", "studios",
+              "contentRating", "cinematographer", "composer"):
+        it.pop(k, None)
 
 
 # A TV item carries a canonical title, keywords or a tagline ONLY from an
@@ -237,6 +251,43 @@ def _clear_wrong_artwork(it, new_year):
 # cleared before _clear_wrong_artwork learned to take it. Films are left
 # alone: many carry a legitimate release title with no surviving id.
 _TV_RESIDUE_KINDS = {"tv-special", "tv-episode"}
+
+
+# An item the verifier already judged a wrong modern match, still wearing that
+# film's identity. `verify_external_match`'s Tier 0c called `adopt(it, {})` to
+# clear the match — and `adopt` is a series of `if rec.get(...)` branches, so
+# an EMPTY record clears nothing at all. 266 items were marked cleared while
+# keeping the wrong film's synopsis (223), release date (221), studios (187)
+# and vote count (121). The marker means the verifier will never revisit them,
+# so the repair has to happen here, on every build.
+_CLEARED = ("cleared_modern", "cleared_year", "cleared_bw", "cleared_era")
+_MATCH_ART = {"tmdb", "omdb", "fanart", "tvdb", "external"}
+_MATCH_FIELDS = ("imdbID", "tmdbID", "backdropURL", "tagline", "keywords",
+                 "canonicalTitle", "akaTitles", "originalTitle", "imdbRating",
+                 "imdbVotes", "releaseDate", "awards", "studios",
+                 "contentRating", "cinematographer", "composer")
+
+
+def strip_cleared_match_residue(item):
+    """Finish a clearing the verifier only marked."""
+    if not (item.get("modernPosterCleared")
+            or item.get("matchVerdict") in _CLEARED):
+        return False
+    if not any(item.get(k) for k in _MATCH_FIELDS):
+        return False
+    # Art that did NOT come from the match survives it. `_clear_wrong_artwork`
+    # drops the poster unconditionally, which is right for its own callers —
+    # they are looking at a poster that IS the wrong film. Here the match was
+    # cleared some time ago and 241 items have since been re-sourced from
+    # Commons or a frame cover, and that art is theirs.
+    keep = None
+    if item.get("posterURL") and (item.get("artworkSource") or "") not in _MATCH_ART:
+        keep = (item.get("posterURL"), item.get("artworkSource"),
+                item.get("hasRealArtwork"))
+    _clear_wrong_artwork(item, None)
+    if keep:
+        item["posterURL"], item["artworkSource"], item["hasRealArtwork"] = keep
+    return True
 
 
 def strip_orphan_match_residue(item):
@@ -1880,6 +1931,8 @@ def remediate(items):
             stats["adult_flagged"] += 1
         if strip_orphan_match_residue(it):
             stats["match_residue_stripped"] = stats.get("match_residue_stripped", 0) + 1
+        if strip_cleared_match_residue(it):
+            stats["cleared_match_residue"] = stats.get("cleared_match_residue", 0) + 1
 
         # 5) GENRES from subjects (Track B): fill empty genres with no network.
         if not it.get("genres"):
