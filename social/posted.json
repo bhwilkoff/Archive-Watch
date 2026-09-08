@@ -40,6 +40,17 @@
    "url": "https://youtube.com/watch?v=PqMzYKLWSog",
    "kind": "short-film",
    "reviewer": "HeWhoSeesInTheDark"
+  },
+  {
+   "at": "2026-09-08T16:03:58.502533+00:00",
+   "id": "TheLionTamer_645",
+   "title": "The Lion Tamer",
+   "slot": "viewer-said",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3muzfl25hnv2g",
+   "format": "video",
+   "kind": "animation",
+   "reviewer": "indianacarnie"
   }
  ]
 }
