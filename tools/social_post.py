@@ -211,6 +211,32 @@ def adopt_clip_quote(spec: dict, video) -> str | None:
     return quote
 
 
+# Caption SHAPE, per platform (docs/SOCIAL-GROWTH.md §1). The material is the
+# same sourced material everywhere — SOCIAL-PROGRAM's one rule holds, and no
+# platform gets a sentence invented for it. What changes is the ORDER, which
+# is a real difference: in a feed that shows the first line and hides the
+# rest, the first line IS the post.
+#
+# Bluesky has 300 characters and a chronological feed; Instagram and Threads
+# collapse a caption after roughly the first line. On those three a quoted
+# line of dialogue leads, and the title follows it as an attribution — which
+# is how a pull-quote works on a poster. Mastodon's culture is descriptive
+# (and its readers arrive by hashtag, not by scroll), so the title leads.
+# YouTube's description is read by search, and its first ~150 characters are
+# what a viewer sees before "more", so the link and the facts go first.
+LEAD_WITH_QUOTE = frozenset({"bluesky", "instagram", "threads"})
+
+# Instagram does not linkify captions. A 60-character URL nobody can tap is
+# 60 characters of noise; the domain is short enough to be typed and is what
+# the bio points at anyway.
+BARE_DOMAIN = frozenset({"instagram"})
+
+# YouTube's description is read by search, and a viewer sees roughly its first
+# 150 characters before "more". The link earns that space: a Short is watched
+# in a feed, and the only useful thing it can do is send someone to the film.
+LINK_FIRST = frozenset({"youtube"})
+
+
 def compose(spec: dict, platform: str) -> str:
     frag = {f["kind"]: f["text"] for f in spec.get("fragments", [])}
     limit = LIMITS[platform]
@@ -231,10 +257,16 @@ def compose(spec: dict, platform: str) -> str:
 
     # The body: a viewer's words when we have them, else the film's own
     # synopsis. Both are quoted material, not our claims.
+    lead_quote = (platform in LEAD_WITH_QUOTE
+                  and bool(frag.get("line") or frag.get("review")))
     body = []
     if frag.get("line"):
         body.append(frag["line"])
-        body.append(f"— {title}")
+        # When the quote leads, the facts line follows it and already carries
+        # the title. Crediting it twice costs a Bluesky post ~30 of its 300
+        # characters to say the same thing again.
+        if not lead_quote:
+            body.append(f"— {title}")
     elif frag.get("review"):
         body.append(frag["review"])
         if frag.get("review_credit"):
@@ -251,15 +283,26 @@ def compose(spec: dict, platform: str) -> str:
     # nobody knows about this catalog (§2, deepens understanding). It rides
     # above the link and is dropped first only if the post will not fit.
     rights = frag.get("rights")
-    tail = f"Free to watch: {link}"
+    tail = ("Free to watch at archivewatch.org" if platform in BARE_DOMAIN
+            else f"Free to watch: {link}")
+    facts = " · ".join(lines[:1] + lines[1:2])
 
     def assemble(bodylines, with_rights=True):
-        parts = [" · ".join(lines[:1] + lines[1:2])]
+        # A quote leads only when the body actually opens with one. A synopsis
+        # promoted to the first line would read as our own words about the
+        # film, which is the one thing this programme never does.
+        lead = lead_quote and bool(bodylines)
+        parts = [] if lead else [facts]
         if bodylines:
             parts.append("\n".join(bodylines))
+        if lead:
+            parts.append(facts)
         if rights and with_rights:
             parts.append(rights)
-        parts.append(tail)
+        if platform in LINK_FIRST:
+            parts.insert(0, tail)
+        else:
+            parts.append(tail)
         return "\n\n".join(parts)
 
     text = assemble(body)
@@ -289,7 +332,7 @@ def compose(spec: dict, platform: str) -> str:
     if len(text) > limit and rights:
         text = assemble(body, with_rights=False)   # the link outranks the basis
     if len(text) > limit:
-        text = f"{head}\n\n{tail}"
+        text = f"{head}\n\n{tail}"                 # facts and the link, nothing else
 
     tags = tags_for(spec, TAG_MAX.get(platform, 0))
     if tags:

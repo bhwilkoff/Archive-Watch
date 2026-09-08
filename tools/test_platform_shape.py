@@ -44,7 +44,11 @@ for plat in ("instagram", "mastodon", "bluesky", "threads", "youtube"):
     check(f"{plat}: within its own tag budget ({n} <= {cap})", n <= cap, f"{n} tags")
     check(f"{plat}: fits the character limit", len(text) <= sp.LIMITS[plat],
           f"{len(text)}/{sp.LIMITS[plat]}")
-    check(f"{plat}: keeps the link", FILM["link"] in text)
+    # Instagram does not linkify captions, so it carries the bare domain
+    # instead — see BARE_DOMAIN. Everywhere else the deep link is tappable and
+    # a post that loses it sends nobody anywhere.
+    want = "archivewatch.org" if plat in sp.BARE_DOMAIN else FILM["link"]
+    check(f"{plat}: keeps a way to reach the film", want in text)
 
 # The specific regressions this exists to prevent.
 ig = sp.compose(FILM, "instagram")
@@ -59,6 +63,51 @@ check("bluesky stays lean on tags", bsky.count("#") <= 2, f"{bsky.count('#')} ta
 two = sp.tags_for(FILM, 2)
 check("a small budget buys specificity first",
       any(t in ("#ScienceFiction", "#Horror") for t in two), str(two))
+
+# ------------------------------------------------------------ caption shape
+# Same sourced material everywhere; what differs is the ORDER. In a feed that
+# shows the first line and hides the rest, the first line IS the post.
+QUOTED = dict(FILM)
+QUOTED["fragments"] = FILM["fragments"] + [
+    {"kind": "line", "text": '"You have made a fool of me for the last time."'}]
+
+shape = 0
+for plat in ("bluesky", "instagram", "threads"):
+    t = sp.compose(QUOTED, plat)
+    shape += 1
+    check(f"{plat}: the quote leads", t.startswith('"You have made'), t[:40])
+    shape += 1
+    check(f"{plat}: the title is credited once, not twice",
+          t.count("The Phantom Creeps") == 1, f"{t.count('The Phantom Creeps')}x")
+
+t = sp.compose(QUOTED, "mastodon")
+shape += 1
+check("mastodon: the title leads (descriptive culture, hashtag arrivals)",
+      t.startswith("The Phantom Creeps"), t[:40])
+
+t = sp.compose(QUOTED, "youtube")
+shape += 1
+check("youtube: the link is in the first 150 characters",
+      QUOTED["link"] in t[:150], t[:60])
+
+t = sp.compose(QUOTED, "instagram")
+shape += 1
+check("instagram: no untappable URL", "https://" not in t, t[-80:])
+shape += 1
+check("instagram: the domain still reaches the viewer", "archivewatch.org" in t)
+
+# Without a quote there is nothing to lead with, and a synopsis must never be
+# promoted to the first line — that would read as our own words about the film.
+t = sp.compose(FILM, "bluesky")
+shape += 1
+check("no quote: the facts lead, never the synopsis",
+      t.startswith("The Phantom Creeps"), t[:40])
+
+shape += 1
+check("every platform keeps a way to reach the film",
+      all(("archivewatch.org" in sp.compose(QUOTED, p))
+          for p in ("bluesky", "mastodon", "threads", "instagram", "youtube",
+                    "facebook")))
 
 # ---------------------------------------------------------------- cadence
 # "Daily" is five decisions, not one (SOCIAL-GROWTH §2). The guard that
@@ -100,6 +149,6 @@ extra += 1
 check("every platform in the plan has a cadence", named <= set(sp.CADENCE),
       str(named - set(sp.CADENCE)))
 
-total = 5*3 + 4 + extra
+total = 5*3 + 4 + shape + extra
 print(f"\n{total - fails}/{total} passed")
 sys.exit(0 if fails == 0 else 1)

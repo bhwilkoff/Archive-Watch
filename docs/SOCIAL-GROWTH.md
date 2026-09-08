@@ -120,6 +120,37 @@ the poster can reach has a cadence entry**, because one added without it would
 silently post every day, which is the undifferentiated scheduling this table
 exists to end.
 
+### Caption shape
+
+The material is identical everywhere — SOCIAL-PROGRAM's one rule holds and no
+platform gets a sentence invented for it. What changes is the **order**, which
+is a real difference: in a feed that shows the first line and hides the rest,
+the first line IS the post.
+
+| platform | leads with | why |
+|---|---|---|
+| Bluesky | the quoted line | 300 characters, chronological, hook-driven |
+| Instagram | the quoted line | the caption collapses after ~1 line |
+| Threads | the quoted line | same collapse |
+| Mastodon | the title + facts | descriptive culture; readers arrive by hashtag, not by scroll |
+| YouTube | the link | the description is read by search, and ~150 characters show before "more" |
+| Facebook | the title + facts | the link preview is doing the work |
+
+Two details that are worth their code. **Instagram gets the bare domain**, not
+the deep link: Instagram does not linkify captions, so a 60-character URL
+nobody can tap is 60 characters of noise. And when the quote leads, the `—
+Title` credit under it is **dropped**, because the facts line follows
+immediately and already carries the title — crediting it twice cost a Bluesky
+post 29 of its 300 characters to say the same thing again (258 → 229 on the
+worked example).
+
+**What was designed and then REFUSED: a question prompt on Threads.** The
+research says end with a question; SOCIAL-PROGRAM §"never" says engagement
+bait is out, and a question we write is a sentence with no source. The honest
+version already exists and costs nothing: `pick_line` PREFERS an interrogative
+line, so when the film asks a question, the post ends up asking it — in the
+film's own words.
+
 ---
 
 ## 3. Video  — THE BIGGEST GAP
@@ -217,7 +248,9 @@ out of single-digit counts is how a programme talks itself into nonsense.
 - [x] Per-platform hashtag policy — Instagram 5 (hard limit), Mastodon 5
       (its only discovery route; previously got ZERO), Bluesky/Threads 2,
       YouTube 3, most-specific tags bought first
-- [ ] Caption SEO shaping per platform (hook-first on Bluesky, question on Threads)
+- [x] Caption shape per platform — the quote leads on Bluesky/Instagram/
+      Threads, the title leads on Mastodon, the link leads on YouTube,
+      Instagram carries the bare domain
 - [x] Per-platform cadence + the posting window moved to 15:00 UTC,
       plus a 23:00 UTC Bluesky-only second post
 - [x] `tools/social_line.py` — picks the quotable line (the teaser's spine)
