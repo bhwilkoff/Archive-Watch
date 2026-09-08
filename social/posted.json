@@ -96,6 +96,28 @@
    "format": "video",
    "kind": "animation",
    "reviewer": "HeatherFerreira"
+  },
+  {
+   "at": "2026-09-08T18:02:20.932858+00:00",
+   "id": "a-trip-to-the-moon-1902-colorized",
+   "title": "A Trip to the Moon",
+   "slot": "viewer-said",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3muzm6wlg5s2k",
+   "format": "video",
+   "kind": "silent-film",
+   "reviewer": "Jack Akinson"
+  },
+  {
+   "at": "2026-09-08T18:02:20.932858+00:00",
+   "id": "a-trip-to-the-moon-1902-colorized",
+   "title": "A Trip to the Moon",
+   "slot": "viewer-said",
+   "platform": "mastodon",
+   "url": "https://mastodon.social/@archivewatch/117236731894909295",
+   "format": "video",
+   "kind": "silent-film",
+   "reviewer": "Jack Akinson"
   }
  ]
 }
