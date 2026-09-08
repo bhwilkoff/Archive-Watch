@@ -162,10 +162,22 @@ A Reel is TRANSCODED by Meta, so its container is polled for five minutes
 rather than two, and a container that errors or never finishes falls back to
 the card — a failed Reel costs the format, never the day.
 
-**The token expires.** Instagram long-lived tokens last ~60 days, unlike
-Bluesky's app password, the Mastodon token and the YouTube refresh token, which
-do not expire. Instagram is therefore the one platform that will stop posting
-on its own; refresh it, or expect a "not connected" some weeks in.
+**The Meta tokens expire — and the pipeline refreshes them itself.** Instagram
+and Threads long-lived tokens last ~60 days, unlike Bluesky's app password, the
+Mastodon token and the YouTube refresh token, which do not expire. Both
+platforms expose a refresh endpoint that returns a fresh 60-day token, and
+neither requires the old one to be near expiry — measured, a token minted
+minutes earlier refreshed fine. `tools/refresh_meta_tokens.py --apply` runs on
+every daily post, so both stay permanently ~60 days out; the window only
+shrinks if the workflow itself stops running for two months.
+
+  Instagram  GET graph.instagram.com/refresh_access_token?grant_type=ig_refresh_token
+  Threads    GET graph.threads.net/refresh_access_token?grant_type=th_refresh_token
+
+**One prerequisite:** storing the new token needs `SECRETS_PAT`, a fine-grained
+PAT with **Secrets: write** — `GITHUB_TOKEN` cannot write repository secrets.
+Without it the step still runs and reports days remaining, but stores nothing,
+and the tokens will eventually lapse.
 
 ---
 
