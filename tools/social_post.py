@@ -151,6 +151,33 @@ def tags_for(spec: dict, limit: int) -> list:
     return uniq[:limit]
 
 
+# Per-platform cadence (docs/SOCIAL-GROWTH.md §2). "Daily" is not one
+# decision, it is five: the measured growth band differs per platform, and
+# posting the same volume everywhere is the scheduling equivalent of shipping
+# one UI to five platforms. Weekday numbers are Python's — Monday is 0.
+#
+# Instagram 7/wk sits inside the 6-9 band where follower growth compounds
+# (~3.7x the 1-2/wk rate). Bluesky is chronological, so a second post costs
+# nothing and doubles the chance of being in-feed; the evening run posts it.
+# Mastodon is chronological too, but its culture punishes volume, so 7 and no
+# more. Threads' measured sweet spot is 2-5, taken as the three strongest
+# weekdays plus one at the weekend. Facebook pages want spacing, not volume.
+ALL_WEEK = frozenset(range(7))
+CADENCE = {
+    "instagram": ALL_WEEK,
+    "bluesky":   ALL_WEEK,
+    "mastodon":  ALL_WEEK,
+    "youtube":   ALL_WEEK,
+    "threads":   frozenset({1, 2, 3, 5}),      # Tue Wed Thu Sat
+    "facebook":  frozenset({0, 2, 4, 6}),      # Mon Wed Fri Sun
+}
+
+
+def posts_today(platform: str, day: int) -> bool:
+    """Is this platform scheduled today? Unknown platforms always post."""
+    return day in CADENCE.get(platform, ALL_WEEK)
+
+
 def adopt_clip_quote(spec: dict, video) -> str | None:
     """Make the caption quote the line the teaser burns on screen.
 
@@ -765,6 +792,8 @@ def main() -> int:
     ap.add_argument("--live", action="store_true",
                     help="actually post. Without it, everything is a dry run.")
     ap.add_argument("--only", default=None, help="comma-separated platform allow-list")
+    ap.add_argument("--ignore-cadence", action="store_true",
+                    help="post everywhere connected, whatever day it is")
     args = ap.parse_args()
 
     spec = json.loads(Path(args.spec).read_text(encoding="utf-8"))
@@ -800,8 +829,15 @@ def main() -> int:
         ("youtube", lambda t: post_youtube(spec, t, video, args.live)),
     ]
 
+    # An explicit --only is the operator saying which platforms they mean, so
+    # it wins over the calendar; the gate exists to shape the UNATTENDED run.
+    day = dt.datetime.now(dt.timezone.utc).weekday()
     for name, fn in plan:
         if only and name not in only:
+            continue
+        if not only and not args.ignore_cadence and not posts_today(name, day):
+            print(f"── {name}\n   (not scheduled today — "
+                  f"{len(CADENCE[name])}/week, §2)\n")
             continue
         text = compose(spec, name)
         print(f"── {name}  ({len(text)}/{LIMITS[name]} chars)")

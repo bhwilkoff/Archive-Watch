@@ -77,7 +77,7 @@ with five limits. Same facts, native shape.
 
 ---
 
-## 2. Cadence  — DECIDED, NOT YET BUILT
+## 2. Cadence  — SHIPPED
 
 The measured picture:
 
@@ -100,9 +100,25 @@ the same native-design principle applied to scheduling:
 | Threads | 4 | the measured sweet spot is 2–5 |
 | YouTube | 7 (1/day) | Shorts have no feed fatigue |
 
-Posting time moves from 16:10 UTC to **~15:00 UTC (9am Denver / 11am ET)**,
+Posting time moves from 16:10 UTC to **15:00 UTC (9am Denver / 11am ET)**,
 inside the Tue–Thu 9–12 window for the US audience, with the second Bluesky
-post in the early evening.
+post at **23:00 UTC (5pm Denver)**.
+
+**How it is built.** `CADENCE` in `tools/social_post.py` maps each platform to
+the weekdays it posts on, and the unattended run skips a platform that is not
+scheduled today, saying so. An explicit `--only` **overrides the calendar** —
+that is the operator naming the platforms they mean, and the gate exists to
+shape the run nobody is watching. The evening cron is distinguished by
+`github.event.schedule` and passes `--only bluesky`; by then the ledger holds
+the morning's film, so the selector cannot choose it again and the second post
+is a different film.
+
+Threads takes Tue/Wed/Thu (the three strongest weekdays) plus Sat; Facebook
+takes Mon/Wed/Fri/Sun, spaced rather than clustered. `test_platform_shape.py`
+asserts each band and — the guard that matters most — that **every platform
+the poster can reach has a cadence entry**, because one added without it would
+silently post every day, which is the undifferentiated scheduling this table
+exists to end.
 
 ---
 
@@ -202,7 +218,8 @@ out of single-digit counts is how a programme talks itself into nonsense.
       (its only discovery route; previously got ZERO), Bluesky/Threads 2,
       YouTube 3, most-specific tags bought first
 - [ ] Caption SEO shaping per platform (hook-first on Bluesky, question on Threads)
-- [ ] Per-platform cadence + move the posting window to 15:00 UTC
+- [x] Per-platform cadence + the posting window moved to 15:00 UTC,
+      plus a 23:00 UTC Bluesky-only second post
 - [x] `tools/social_line.py` — picks the quotable line (the teaser's spine)
 - [x] Cut the clip to that line, burn it on screen, keep the audio, and
       make the caption quote the same words (`adopt_clip_quote`)

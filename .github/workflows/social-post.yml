@@ -10,11 +10,16 @@ name: Social post
 
 on:
   schedule:
-    # 16:10 UTC = 10:10 America/Denver. One post a day, on purpose (§4):
-    # the catalog holds a 37-year programme at this rate, and an account that
-    # posts six times a day reads as a bot, which is the one thing this
-    # programme must never read as.
-    - cron: "10 16 * * *"
+    # 15:00 UTC = 09:00 America/Denver / 11:00 ET — inside the Tue-Thu 9-12
+    # window that measures strongest across platforms, and early enough that
+    # the first hour (which decides a post's reach) happens while the US
+    # audience is awake.
+    - cron: "0 15 * * *"
+    # The second Bluesky post. Bluesky's feed is chronological, so a second
+    # post costs nothing and doubles the chance of being in-feed; every other
+    # platform stays on its own cadence (docs/SOCIAL-GROWTH.md §2, and the
+    # CADENCE table in tools/social_post.py). 23:00 UTC = 17:00 Denver.
+    - cron: "0 23 * * *"
   workflow_dispatch:
     inputs:
       slot:
@@ -140,7 +145,13 @@ jobs:
              [ "${{ github.event.inputs.dry_run }}" != "false" ]; then
             LIVE=""
           fi
+          # The evening cron is the Bluesky-only second post. The ledger has
+          # already recorded the morning's film by then, so the selector
+          # cannot choose it again -- the second post is a different film.
           ONLY=""
+          if [ "${{ github.event.schedule }}" = "0 23 * * *" ]; then
+            ONLY="--only bluesky"
+          fi
           if [ -n "${{ github.event.inputs.only }}" ]; then
             ONLY="--only ${{ github.event.inputs.only }}"
           fi
