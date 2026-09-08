@@ -26,6 +26,29 @@ import argparse, json, os, shutil, struct, subprocess, sys, time, urllib.request
 from pathlib import Path
 
 S3 = "https://s3.us.archive.org"
+# OBSERVED 2026-09-07, NOT YET EXPLAINED — read this before trusting a green run.
+# During the 40-shard run 34130525975 the uploads STOPPED BECOMING AVAILABLE at
+# 21:56Z while shards kept completing successfully for another 2.5 hours.
+# Measured, with a control:
+#   * a BIF uploaded BEFORE the cutoff downloads fine (HTTP 200, correct magic
+#     89 42 49 46 0d 0a 1a 0a),
+#   * films the shard logs recorded as "done" AFTER it return HTTP 404, and so
+#     does a deliberately bogus id, so 404 really means absent,
+#   * /metadata froze at 11,394 files and did not move in 30 minutes,
+#   * that shard logged 188 done / 4 upload_failed, so the PUTs returned 2xx —
+#     upload() raises on any non-2xx, which is what "upload_failed" records.
+# So archive.org accepted the writes and did not serve them. The item holds
+# 11,394 files / 11.1 GB, well past the ~10,000-file point where archive.org's
+# own guidance says item tasks degrade, and 40 shards were writing to ONE item.
+# That is a HYPOTHESIS, not a finding: confirming it needs the task queue at
+# services/tasks.php?identifier=archivewatch-bifs, which requires the account.
+#
+# TWO CONSEQUENCES if it recurs. `--skip-published` reads this same item
+# listing, so a stale listing makes the NEXT run regenerate everything it
+# cannot see — hours of ffmpeg for files that already exist. And the Roku app
+# fetches /download/archivewatch-bifs/<id>.bif directly, so any film in that
+# window has no trick-play regardless of what the manifest says.
+#
 ITEM = "archivewatch-bifs"
 INTERVAL_MS = 10000
 
