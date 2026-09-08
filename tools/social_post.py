@@ -106,6 +106,51 @@ def form(url: str, fields: dict, timeout=90):
 # The copy. Assembled from the spec's sourced fragments — never generated.
 # --------------------------------------------------------------------------
 
+# How many hashtags each platform actually wants. These are not style
+# preferences; they are measured platform behaviour (2026):
+#
+#   instagram  HARD LIMIT OF 5 since December 2025 — more are ignored or hurt.
+#              The caption is their home: placement in a first comment is
+#              algorithmically identical, but the caption is indexed straight
+#              away and Instagram reads caption + alt text + hashtags as one
+#              package.
+#   mastodon   Hashtags are the ONLY discovery mechanism — no algorithm, no
+#              recommendations, nothing else surfaces a post to a stranger. So
+#              they matter MORE here than anywhere, and this is where the old
+#              code gave us ZERO.
+#   bluesky    Chronological and hook-driven; 2-3 is the sweet spot and a tag
+#              wall reads as noise in 300 characters.
+#   threads    Conversational; tags are decoration, not distribution.
+#   youtube    The description is search text, but the TITLE does the work.
+TAG_MAX = {"instagram": 5, "mastodon": 5, "bluesky": 2,
+           "threads": 2, "youtube": 3, "facebook": 2}
+
+# Most specific first, so a platform with a small budget still spends it on
+# the tags that actually describe THIS film rather than the generic pair.
+def tags_for(spec: dict, limit: int) -> list:
+    if limit <= 0:
+        return []
+    kind = {"silent-film": "#SilentFilm", "animation": "#ClassicAnimation",
+            "newsreel": "#Newsreel", "ephemeral": "#EphemeralFilm",
+            "tv-series": "#ClassicTV", "tv-special": "#ClassicTV",
+            "documentary": "#Documentary"}.get(spec.get("contentType", ""))
+    out = []
+    if kind:
+        out.append(kind)
+    for g in spec.get("genres", [])[:2]:
+        g = "".join(ch for ch in g.title() if ch.isalnum())
+        if g:
+            out.append("#" + g)
+    out += ["#PublicDomain", "#ClassicFilm", "#ArchiveWatch"]
+    seen, uniq = set(), []
+    for t in out:
+        k = t.lower()
+        if k not in seen:
+            seen.add(k)
+            uniq.append(t)
+    return uniq[:limit]
+
+
 def compose(spec: dict, platform: str) -> str:
     frag = {f["kind"]: f["text"] for f in spec.get("fragments", [])}
     limit = LIMITS[platform]
@@ -186,16 +231,9 @@ def compose(spec: dict, platform: str) -> str:
     if len(text) > limit:
         text = f"{head}\n\n{tail}"
 
-    if platform == "instagram":
-        tags = ["#PublicDomain", "#ClassicFilm"]
-        kind = spec.get("contentType", "")
-        tags += {"silent-film": ["#SilentFilm"], "animation": ["#ClassicAnimation"],
-                 "newsreel": ["#Newsreel"], "ephemeral": ["#EphemeralFilm"],
-                 "tv-series": ["#ClassicTV"], "tv-special": ["#ClassicTV"],
-                 "documentary": ["#Documentary"]}.get(kind, [])
-        for g in spec.get("genres", [])[:2]:
-            tags.append("#" + g.replace(" ", "").replace("-", ""))
-        extra = "\n\n" + " ".join(dict.fromkeys(tags))
+    tags = tags_for(spec, TAG_MAX.get(platform, 0))
+    if tags:
+        extra = "\n\n" + " ".join(tags)
         if len(text) + len(extra) <= limit:
             text += extra
     return text

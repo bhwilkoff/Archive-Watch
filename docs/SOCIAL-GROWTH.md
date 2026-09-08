@@ -159,7 +159,10 @@ out of single-digit counts is how a programme talks itself into nonsense.
 ## 5. Status
 
 - [x] Research — per-platform practice and cadence (this document)
-- [ ] Per-platform `compose()` with native hashtags, caption SEO, alt text
+- [x] Per-platform hashtag policy — Instagram 5 (hard limit), Mastodon 5
+      (its only discovery route; previously got ZERO), Bluesky/Threads 2,
+      YouTube 3, most-specific tags bought first
+- [ ] Caption SEO shaping per platform (hook-first on Bluesky, question on Threads)
 - [ ] Per-platform cadence + move the posting window to 15:00 UTC
 - [ ] Line-driven video with burned dialogue, fades, audio handling
 - [ ] `social_metrics.py` + `social/metrics.json` + weekly report
