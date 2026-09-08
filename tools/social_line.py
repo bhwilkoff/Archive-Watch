@@ -111,7 +111,20 @@ def pick_line(vtt: str, lo: float = DEFAULT_LO, hi: float = DEFAULT_HI) -> dict 
     then an exclamation, then a statement; within a class, the one nearest
     eight words, which is the length that reads cleanly burned on a phone.
     """
-    best = None
+    got = pick_lines(vtt, lo, hi, limit=1)
+    return got[0] if got else None
+
+
+def pick_lines(vtt: str, lo: float = DEFAULT_LO, hi: float = DEFAULT_HI,
+               limit: int = 4) -> list:
+    """The best quotable lines, best first.
+
+    More than one because a chosen line still has to be HEARD in the audio
+    (`social_hear`) before it can be burned on screen, and a published
+    subtitle file is often mistimed — so the caller needs somewhere to go
+    when the first candidate is not what the film is saying.
+    """
+    ranked = []
     for start, end, text in parse_cues(vtt):
         if start < lo or start > hi:
             continue
@@ -122,9 +135,9 @@ def pick_line(vtt: str, lo: float = DEFAULT_LO, hi: float = DEFAULT_HI) -> dict 
         t = text.strip().lstrip("- ").strip()
         cls = 0 if t.endswith("?") else (1 if t.endswith("!") else 2)
         rank = (cls, abs(len(t.split()) - 8), start)
-        if best is None or rank < best[0]:
-            best = (rank, {"start": start, "end": end, "text": t})
-    return best[1] if best else None
+        ranked.append((rank, {"start": start, "end": end, "text": t}))
+    ranked.sort(key=lambda r: r[0])
+    return [r[1] for r in ranked[:limit]]
 
 
 if __name__ == "__main__":                                    # pragma: no cover

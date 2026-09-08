@@ -52,7 +52,8 @@ import urllib.request
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from social_line import pick_line                              # noqa: E402
+from social_hear import hear                                   # noqa: E402
+from social_line import pick_lines                             # noqa: E402
 
 REPO = Path(__file__).resolve().parent.parent
 FONTS = REPO / "roku" / "fonts"
@@ -80,8 +81,34 @@ QUOTE_LINES = 3
 # printed straight through our title.
 TOP_SAFE = 250
 BOTTOM_SAFE = 480
-CARD_Y, CARD_H = 260, 280   # the title block, just under the platform header
-QUOTE_Y = CARD_Y + CARD_H + 40
+
+# The frame is BANDED, not layered. Owner: "when we are building vertical
+# video, we shouldn't overlay the captions text on the square video, but
+# rather we should put it above or below to not block the content."
+#
+# So the picture gets a box of its own and the words get theirs: title above,
+# film in the middle, quote below, none of them touching. The film is fitted
+# inside its box at its own aspect (Decision 097 — never reshape it), which
+# means a 4:3 film is a little narrower than the frame. That is the cost of
+# not covering an actor's face with a caption, and it is worth paying.
+#
+# Full-width was tried first and cannot work: a 4:3 film fitted to 1080 wide
+# is 810 tall, so the band left under it inside the safe area is 75 px — a
+# third of one line of type.
+CARD_Y, CARD_H = 250, 260          # title block, under the platform header
+FILM_Y, FILM_H = 530, 630          # with a quote to seat below it
+FILM_Y_TALL, FILM_H_TALL = 530, 910  # without one, the picture takes the room
+QUOTE_Y, QUOTE_H = 1180, 260       # ends at 1440 = H - BOTTOM_SAFE
+
+# A line is burned on screen only when the film is HEARD saying it. Measured
+# 2026-09-08 against three films with published subtitles: a correctly-timed
+# track scores 0.625-1.0, and every wrong pairing — a mistimed file, and one
+# item carrying An American Werewolf in London's subtitles under The Werewolf
+# of Washington — scores 0.0. The gap is enormous, so the threshold is not
+# finely tuned and should not be lowered to "rescue" more lines: below it, the
+# words on screen are not the words being spoken, which is the defect.
+HEARD_MIN = 0.5
+HEAR_TRIES = 3             # candidate lines to test before giving up
 
 
 def ffmpeg_has(feature: str) -> bool:
@@ -330,12 +357,17 @@ def build_filter(title: str, year, has_text: bool, crop: str | None = None,
     else wrote, and a stray colon or apostrophe would take the whole render
     down."""
     pre = f"{crop}," if crop else ""
+    box_y, box_h = (FILM_Y, FILM_H) if quote_file else (FILM_Y_TALL, FILM_H_TALL)
+    # `decrease` bounds BOTH dimensions, so the film lands inside its box
+    # whatever its aspect — a 4:3 film is height-limited and sits narrower
+    # than the frame, a scope film is width-limited and sits shorter. Neither
+    # is cropped and neither reaches the bands.
     chain = (
         f"[0:v]{pre}split=2[a][b];"
         f"[a]scale={W}:{H}:force_original_aspect_ratio=increase,"
         f"crop={W}:{H},gblur=sigma=42,eq=brightness=-0.10[bg];"
-        f"[b]scale={W}:-2:force_original_aspect_ratio=decrease[fg];"
-        f"[bg][fg]overlay=(W-w)/2:(H-h)/2[v]"
+        f"[b]scale={W}:{box_h}:force_original_aspect_ratio=decrease[fg];"
+        f"[bg][fg]overlay=(W-w)/2:{box_y}+({box_h}-h)/2[v]"
     )
     if not has_text:
         return chain
@@ -357,11 +389,14 @@ def build_filter(title: str, year, has_text: bool, crop: str | None = None,
     if quote_file:
         on = max(0.0, quote_at - 0.30)
         f_quote = str(FONTS / "Fraunces-Text-Italic.ttf")
+        # Centred in its own band, on the blurred wash rather than on the
+        # film. A light box only — the wash is already darkened, and a heavy
+        # slab under text that covers nothing reads as a mistake.
         chain += (
             f";[lt]drawtext=fontfile='{f_quote}':textfile='{quote_file}':"
             f"fontcolor=0xF4F4F4:fontsize=54:line_spacing=14:"
-            f"box=1:boxcolor=black@0.50:boxborderw=26:"
-            f"x=(w-text_w)/2:y={QUOTE_Y}:"
+            f"box=1:boxcolor=black@0.35:boxborderw=22:"
+            f"x=(w-text_w)/2:y={QUOTE_Y}+({QUOTE_H}-text_h)/2:"
             f"alpha='if(lt(t,{on:.2f}),0,min(1,(t-{on:.2f})/0.45))'[out]"
         )
     return chain
@@ -380,6 +415,8 @@ def main() -> int:
                     help="a local WebVTT file instead of the published one")
     ap.add_argument("--no-line", action="store_true",
                     help="skip the subtitle line; always cut on a shot")
+    ap.add_argument("--no-hear", action="store_true",
+                    help="do not check the line against the audio (testing only)")
     args = ap.parse_args()
 
     spec = json.loads(Path(args.spec).read_text(encoding="utf-8"))
@@ -411,13 +448,32 @@ def main() -> int:
     shot = None
     if src_url and not args.no_line:
         vtt = fetch_vtt(spec["id"], args.vtt)
-        line = pick_line(vtt) if vtt else None
-        if line and not wrap_quote(line["text"]):
-            print(f"[clip] line too long to burn: {line['text']!r}")
-            line = None
-        if line:
+        for line in (pick_lines(vtt, limit=HEAR_TRIES) if vtt else []):
+            if not wrap_quote(line["text"]):
+                print(f"[clip] line too long to burn: {line['text']!r}")
+                continue
             print(f"[clip] line at {line['start']:.1f}s: {line['text']!r}")
+            # THE GATE. A subtitle file says a line is spoken here; the film
+            # is the authority on whether it is. Owner, on a teaser whose
+            # caption was not the dialogue: "You need to actually check the
+            # audio for the words before committing to putting the captions
+            # on screen."
+            if not args.no_hear:
+                got = hear(src_url, line["start"], line["end"], line["text"])
+                print(f"[clip] heard {got['heard'][:64]!r} — {got['why']}")
+                if got["score"] is None:
+                    # Could not CHECK, which is not the same as checked and
+                    # passed. Burning an unverified line is the defect.
+                    print("[clip] the line could not be checked against the "
+                          "audio — not burning it", file=sys.stderr)
+                    break
+                if got["score"] < HEARD_MIN:
+                    print(f"[clip] the film does not say this here "
+                          f"(score {got['score']:.2f}) — trying the next line")
+                    continue
             shot = line_segment(src_url, line, args.seconds)
+            if shot:
+                break
 
     if not shot:
         shot = find_scene(src_url, runtime) if src_url else None

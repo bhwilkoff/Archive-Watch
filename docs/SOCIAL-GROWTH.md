@@ -208,6 +208,62 @@ same words. The chain, in order:
    is on the picture and what is in the caption are the same words. Two
    different lines from one film read as a template filled twice.
 
+**The line must be HEARD before it is burned (2026-09-08).** Owner, on a
+teaser whose caption was not the dialogue: *"You need to actually check the
+audio for the words before committing to putting the captions on screen."*
+
+`tools/social_hear.py` cuts the cue's window out of the film's audio over
+HTTP, transcribes it, and scores how many of the cue's CONTENT words are
+actually heard. `social_clip` tries up to three candidate lines and burns none
+of them unless one clears 0.5.
+
+The threshold is measured, not chosen. Across three films:
+
+| film | cue vs its own audio |
+|---|---|
+| Impact (1949) | **1.0, 1.0, 1.0, 0.625** — a correctly timed track |
+| His Girl Friday (1940) | 0.0 × 4 |
+| The Vampire Bat (1933) | 0.0 × 4 |
+| The Werewolf of Washington (1973) | 0.0 × 8 |
+
+The gap between a right pairing and a wrong one is the whole range, so 0.5 is
+not a tuning parameter and must not be lowered to rescue more lines.
+
+Two things this turned up that are bigger than the teaser. **The Werewolf of
+Washington is published with *An American Werewolf in London*'s subtitles** —
+its cues say "East Proctor" and "dueling scars" while the audio says
+"everybody in Washington". And **His Girl Friday and The Vampire Bat, both
+recorded in the log as corrected at source, still score 0.0**, so that
+correction did not reach what Pages serves. Those tracks are being handed to
+viewers in every app, which matters more than a caption on a Reel.
+
+VAD is not enough for this, which is why `sync_subtitles_audio.py`'s ffsubsync
+could not be reused: it detects that somebody is talking, and "somebody is
+talking" is exactly what a wrong caption sits on top of. Decision 039b
+abandoned Whisper for GENERATING captions because it hallucinates; verifying
+is the opposite problem, because a hallucinated transcript simply fails to
+match and the teaser falls back to a shot cut.
+
+"Could not check" is kept distinct from "checked and failed" — no audio, no
+recogniser, or too few content words all return `None`, and `None` never
+burns. Otherwise the gate would disappear silently the day a dependency went
+missing.
+
+### The frame is banded, not layered
+
+Owner: *"we shouldn't overlay the captions text on the square video, but
+rather we should put it above or below to not block the content."*
+
+Title band 250–510, film box 530–1160, quote band 1180–1440. The film is
+fitted INSIDE its box at its own aspect (`force_original_aspect_ratio=
+decrease` bounds both dimensions), so a 4:3 film sits a little narrower than
+the frame and nothing is ever cropped or covered. With no quote the picture
+takes the room back (530–1440).
+
+Full width was tried first and cannot work: a 4:3 film fitted to 1080 wide is
+810 tall, leaving 75 px under it inside the safe area — a third of one line of
+type.
+
 A shot-led teaser is 18s with no burned quote — but it now carries sound
 like every other one. It is the
 fallback for a film with no subtitles, a line too long to burn (>3 lines at 24

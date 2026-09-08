@@ -59,15 +59,35 @@ check("the lower third survives both ways",
 # chrome printed straight through our title, so everything we burn must live
 # in the upper band. These numbers are the whole fix; assert them.
 import re
-ys = [int(m) for m in re.findall(r"y=(\d+)", f_q)]
+ys = [int(m) for m in re.findall(r"y=(\d+)", f_q)] + [C.QUOTE_Y + C.QUOTE_H]
 check("nothing is burned into the platform's bottom chrome",
-      ys and max(ys) < C.H - C.BOTTOM_SAFE, str(sorted(ys)))
+      ys and max(ys) <= C.H - C.BOTTOM_SAFE, str(sorted(ys)))
 check("nothing is burned into the platform's top chrome",
       ys and min(ys) >= C.TOP_SAFE, str(sorted(ys)))
-check("the quote sits below the title card, not over the bottom",
-      f"y={C.QUOTE_Y}:" in f_q and C.QUOTE_Y > C.CARD_Y + C.CARD_H)
-check("the safe band leaves room to read three lines",
-      C.QUOTE_Y + 3 * 68 + 52 < C.H - C.BOTTOM_SAFE)
+check("the quote is centred in its own band", f"y={C.QUOTE_Y}+({C.QUOTE_H}" in f_q)
+check("the band leaves room to read three lines", C.QUOTE_H >= 3 * 68 + 44)
+
+# The owner's rule: "we shouldn't overlay the captions text on the square
+# video, but rather we should put it above or below to not block the content."
+# So the three bands must not touch, and the film must be fitted INSIDE its
+# box rather than to the frame width.
+print("\nthe frame is banded, not layered")
+check("title, film and quote are three disjoint bands",
+      C.CARD_Y + C.CARD_H <= C.FILM_Y
+      and C.FILM_Y + C.FILM_H <= C.QUOTE_Y
+      and C.QUOTE_Y + C.QUOTE_H <= C.H - C.BOTTOM_SAFE)
+check("the title band clears the platform header", C.CARD_Y >= C.TOP_SAFE)
+check("the film is fitted inside a BOX, not to the frame width",
+      f"scale={C.W}:{C.FILM_H}:force_original_aspect_ratio=decrease" in f_q)
+check("the film is placed in its band, not centred in the frame",
+      f"overlay=(W-w)/2:{C.FILM_Y}+" in f_q)
+check("with no quote the picture takes the room back",
+      f"scale={C.W}:{C.FILM_H_TALL}:force_original_aspect_ratio=decrease" in f_n
+      and C.FILM_H_TALL > C.FILM_H)
+check("even the tall picture stays inside the safe area",
+      C.FILM_Y_TALL + C.FILM_H_TALL <= C.H - C.BOTTOM_SAFE)
+check("nothing is ever cropped to fit a band",
+      "force_original_aspect_ratio=decrease" in f_q and "crop=1080:1920" in f_q)
 check("no drawtext escaping is attempted on the quote",
       "text='" not in f_q.split("[lt]")[-1])
 
@@ -88,8 +108,20 @@ check("the cut starts a beat BEFORE the line", lead_start < seg["start"])
 check("the cut runs past the line", (seg["end"] - lead_start) + C.TAIL > seg["end"] - lead_start)
 check("a teaser stays inside the platform ceilings", C.LINE_MAX <= 60.0)
 
-print("\naudio")
 import inspect
+
+print("\nthe line must be HEARD before it is burned")
+check("the clip asks the audio, not just the subtitle file",
+      "from social_hear import hear" in Path(C.__file__).read_text())
+check("a line the film does not say is skipped",
+      "the film does not say this here" in inspect.getsource(C.main))
+check("a line that could NOT be checked is not burned either",
+      "could not be checked against the" in inspect.getsource(C.main))
+check("more than one candidate is tried", C.HEAR_TRIES >= 2)
+check("the threshold sits in the measured gap (0.0 wrong vs 0.625+ right)",
+      0.3 <= C.HEARD_MIN <= 0.6)
+
+print("\naudio")
 src = inspect.getsource(C.main)
 check("every teaser keeps its sound, not only the line-led ones",
       '"-an"' not in src and '"-map", "0:a?"' in src)
