@@ -26,27 +26,34 @@ import argparse, json, os, shutil, struct, subprocess, sys, time, urllib.request
 from pathlib import Path
 
 S3 = "https://s3.us.archive.org"
-# ARCHIVE.ORG SERVES AN UPLOAD ABOUT TWO HOURS AFTER IT IS ACCEPTED, under a
-# run this size. Measured on run 34130525975 (40 shards, one item), and worth
-# knowing before anyone concludes an upload was lost:
-#   19:51Z  item lists 11,394 files, newest mtime 21:56Z
-#   00:25Z  UNCHANGED at 11,394 — looked exactly like silent failure
-#   00:57Z  12,341 files (+947), newest 23:00Z; 943 landed within 3 hours
-# So writes are queued, not dropped. A film generated at 23:42 still 404s at
-# 00:57 and is expected to appear later. A 404 shortly after a run therefore
-# proves NOTHING — re-check hours later before calling anything lost.
+# TWO THINGS MEASURED ON RUN 34130525975 (40 shards, one item, completed
+# green with 40/40 shards and zero failures). Read both before running again.
 #
-# What IS confirmed: the PUTs succeed (upload() raises on any non-2xx and that
-# path records "upload_failed"; a sampled shard logged 188 done / 4 of those),
-# and a file that HAS surfaced downloads intact with the right magic bytes
-# (89 42 49 46 0d 0a 1a 0a).
+# 1. CONCURRENCY COSTS ~14% OF THE WORK. Manifest tally across all 40 shards:
+#        done            6,082
+#        upload_failed     957     <- every single one "HTTP Error 503: Slow Down"
+#        ffmpeg_failed      34
+#        too_short          14
+#        gen_failed          9
+#    So only 57 films failed for content reasons; 957 were GENERATED and then
+#    lost to archive.org throttling, each one already paid for in ffmpeg time.
+#    The retry below gives ~2.5 minutes of patience (6 attempts, backoff capped
+#    at 90s) and that is not enough at this concurrency. MORE RETRIES ARE NOT
+#    THE FIX — the shards would simply sit idle. The lever is the SHARD COUNT:
+#    40 writers against one item is the "storm one host" shape archive.org
+#    throttles. Try 10-12 shards before adding patience.
 #
-# CONSEQUENCE THAT BITES: `--skip-published` reads this same lagging listing,
-# so a run started within a couple of hours of the last one regenerates
-# everything not yet visible — hours of ffmpeg for files that already exist.
-# Leave a gap between runs, or accept the waste. The Roku app fetches
-# /download/archivewatch-bifs/<id>.bif directly, so trick-play for a film also
-# lags its generation by about that long.
+# 2. AVAILABILITY LAGS ACCEPTANCE BY ABOUT TWO HOURS, so a 404 shortly after a
+#    run proves nothing:
+#        19:51Z  11,394 files, newest mtime 21:56Z
+#        00:25Z  UNCHANGED at 11,394 — looks exactly like silent failure
+#        00:57Z  12,341 (+947), newest 23:00Z
+#    Writes are queued, not dropped. A file that HAS surfaced downloads intact
+#    with the right magic bytes (89 42 49 46 0d 0a 1a 0a).
+#    CONSEQUENCE: `--skip-published` reads this same lagging listing, so a run
+#    started within a couple of hours of the last one regenerates everything
+#    not yet visible. Leave a gap. Roku trick-play for a film lags its
+#    generation by about the same two hours.
 #
 ITEM = "archivewatch-bifs"
 INTERVAL_MS = 10000
