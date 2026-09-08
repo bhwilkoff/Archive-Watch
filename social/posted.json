@@ -1,16 +1,6 @@
 {
- "_": "The ledger (docs/SOCIAL-PROGRAM.md §7). One entry per platform per post. No film repeats within 365 days; no review is ever quoted twice. Written only after a platform confirms.",
+ "_": "The ledger (docs/SOCIAL-PROGRAM.md \u00a77). One entry per platform per post. No film repeats within 365 days; no review is ever quoted twice. Written only after a platform confirms.",
  "posts": [
-  {
-   "at": "2026-09-08T15:55:51.561873+00:00",
-   "id": "thegoldenfish",
-   "title": "The Golden Fish",
-   "slot": "viewer-said",
-   "platform": "mastodon",
-   "url": "https://mastodon.social/@archivewatch/117236233892883257",
-   "kind": "short-film",
-   "reviewer": "HeWhoSeesInTheDark"
-  },
   {
    "at": "2026-09-08T15:55:51.561873+00:00",
    "id": "thegoldenfish",
@@ -51,17 +41,6 @@
    "format": "video",
    "kind": "animation",
    "reviewer": "indianacarnie"
-  },
-  {
-   "at": "2026-09-08T16:20:26.389898+00:00",
-   "id": "PhantasmagoriaTheater-TheGorilla1939761",
-   "title": "The Gorilla",
-   "slot": "viewer-said",
-   "platform": "bluesky",
-   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3muzgipvfk72v",
-   "format": "video",
-   "kind": "feature-film",
-   "reviewer": "ubang"
   },
   {
    "at": "2026-09-08T16:33:14.896824+00:00",
