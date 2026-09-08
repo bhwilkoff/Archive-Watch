@@ -421,7 +421,19 @@ def post_instagram(spec, text, media_url, live: bool, video_url: str | None = No
     if not live:
         return ("DRY-RUN (reel)" if video_url else "DRY-RUN (image)"), None
 
-    api = "https://graph.facebook.com/v21.0"
+    # graph.INSTAGRAM.com, not graph.facebook.com. Meta has two publishing
+    # APIs and they are not interchangeable:
+    #   Instagram Login  graph.instagram.com  instagram_business_* scopes,
+    #                    authorised as the Instagram account. No Facebook Page,
+    #                    no business verification.
+    #   Facebook Login   graph.facebook.com   instagram_basic + pages_show_list,
+    #                    needs the account linked to a Page you administer and
+    #                    a Page-scoped token.
+    # This file used to call the Facebook host while SOCIAL-SETUP.md documented
+    # the Instagram scopes, so following the docs produced a token the code
+    # could not use. The Instagram path is the right one here: the owner runs
+    # the account from a personal Facebook login and has no Page for it.
+    api = "https://graph.instagram.com/v21.0"
     if video_url:
         # alt_text is an IMAGE field; sending it on a REELS container is
         # rejected. The reach is in the video, so a failed reel falls back to

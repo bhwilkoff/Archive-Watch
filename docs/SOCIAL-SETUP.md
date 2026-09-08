@@ -105,9 +105,25 @@ couple of weeks. The reviewer wants to see what the app does; point them at
 ## 3. Instagram and Facebook — the long road
 
 Both need a Meta app, and Instagram needs a **Professional (Business or
-Creator)** account. The permissions are `instagram_business_basic` +
-`instagram_business_content_publish`, and Facebook needs `pages_manage_posts`
-plus **business verification**. Review runs 2–4 weeks per submission.
+Creator)** account.
+
+**Instagram uses the INSTAGRAM-login API, not the Facebook-login one.** Meta
+has two and they are not interchangeable:
+
+| | host | scopes | needs a Facebook Page? |
+|---|---|---|---|
+| **Instagram Login** ← ours | `graph.instagram.com` | `instagram_business_basic` + `instagram_business_content_publish` | no |
+| Facebook Login | `graph.facebook.com` | `instagram_basic` + `pages_show_list` | yes, one you administer |
+
+So in the Meta app add the **Instagram** product and use *API setup with
+Instagram login*; you authorise as the Instagram account itself. Which
+Facebook account you happen to be signed into the developer site with does not
+matter — it is only the app's owner. (The code called the FACEBOOK host while
+this page documented the INSTAGRAM scopes until 2026-09-08, so following these
+instructions produced a token the code could not use.)
+
+Facebook Pages are a separate matter: `pages_manage_posts` plus **business
+verification**, review 2–4 weeks per submission.
 
 - Instagram: `IG_USER_ID`, `IG_ACCESS_TOKEN`
 - Facebook Page: `FB_PAGE_ID`, `FB_PAGE_ACCESS_TOKEN`
