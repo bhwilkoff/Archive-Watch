@@ -39,9 +39,14 @@ S3 = "https://s3.us.archive.org"
 #    lost to archive.org throttling, each one already paid for in ffmpeg time.
 #    The retry below gives ~2.5 minutes of patience (6 attempts, backoff capped
 #    at 90s) and that is not enough at this concurrency. MORE RETRIES ARE NOT
-#    THE FIX — the shards would simply sit idle. The lever is the SHARD COUNT:
-#    40 writers against one item is the "storm one host" shape archive.org
-#    throttles. Try 10-12 shards before adding patience.
+#    THE FIX on its own. CORRECTION: the concurrency was never 40. The matrix
+#    in roku-bifs.yml is hardcoded 0..39 with `max-parallel: 20`, so at most 20
+#    shards ever upload at once, and the `shards` INPUT only changes the
+#    partition divisor -- setting it below 40 leaves the higher-numbered jobs
+#    computing `hash % N == 24..39`, which can never match, so they run and do
+#    nothing. The real concurrency lever is `max-parallel`, which is not an
+#    input. So 20 concurrent writers is what produced 13.6% throttling at 2.5
+#    minutes of patience; lower it there if 13 minutes proves insufficient.
 #
 # 2. AVAILABILITY LAGS ACCEPTANCE BY ABOUT TWO HOURS, so a 404 shortly after a
 #    run proves nothing:
