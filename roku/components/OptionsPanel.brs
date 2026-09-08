@@ -38,7 +38,7 @@ sub init()
     m.note.font = m.t.uMeta : m.note.color = m.t.textSec
     m.note.translation = [px + 42, 654]
     m.note.width = pw - 84 : m.note.wrap = true
-    m.note.text = "This product uses the TMDB API but is not endorsed or certified by TMDB." + Chr(10) + Chr(10) + "Metadata: TMDb, OMDb, TheTVDB, Wikidata, Wikimedia Commons, Library of Congress. Films: archive.org." + Chr(10) + Chr(10) + "Archive Watch is free. The Internet Archive is not — support it at archive.org/donate."
+    m.note.text = "This product uses the TMDB API but is not endorsed or certified by TMDB." + Chr(10) + Chr(10) + "Metadata: TMDb, OMDb, TheTVDB, Wikidata, Wikimedia Commons, Library of Congress. Films: archive.org." + Chr(10) + Chr(10) + "Type: Fraunces and Inter, SIL Open Font License 1.1." + Chr(10) + Chr(10) + "Archive Watch is free. The Internet Archive is not — support it at archive.org/donate."
 
     m.defs = [
         { id: "hidewatched", label: "Hide watched titles" },

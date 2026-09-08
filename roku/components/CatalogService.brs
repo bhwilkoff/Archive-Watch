@@ -36,7 +36,7 @@ sub run()
     ' The curated titles and blurbs ride in the package (see tools/roku.py),
     ' the MEMBERSHIP rides in the index. Neither is fetched twice.
     m.colMeta = []
-    cm = ReadAsciiFile("pkg:/collections.json")
+    cm = ReadAsciiFile("pkg:/data/collections.json")
     if cm <> ""
         parsed = ParseJson(cm)
         if parsed <> invalid and parsed.collections <> invalid then m.colMeta = parsed.collections

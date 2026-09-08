@@ -65,7 +65,64 @@ sub init()
     ' nothing at all and the viewer thinks the app has hung. Until content
     ' lands, the rail holds focus.
     focusRail()
+    watchMemory()
     print "AWROKU scene ready"
+end sub
+
+' Roku's memory-pressure signals. Static analysis warns when a channel uses
+' none of them, and on this channel the warning is fair rather than a
+' formality: a ~7 MB catalog index, hundreds of decoded posters and a video
+' node is exactly the shape that gets killed on a low-memory box, and a
+' channel that is killed shows the viewer nothing at all.
+'
+' The events are OBSERVED and reported; nothing is torn down in response. A
+' memory warning is not a reason to interrupt somebody's film, and inventing
+' a shed-the-caches path that has never been triggered on a real low-memory
+' box would be worse than the warning it silences — it is exactly the kind of
+' unexercised code that fails the first time it matters. The trace is what
+' makes a future decision measurable.
+sub watchMemory()
+    ' TWO components, not one. `EnableLowGeneralMemoryEvent` is on
+    ' roDeviceInfo; the channel-scoped four — EnableMemoryWarningEvent,
+    ' GetMemoryLimitPercent, GetChannelMemoryLimit, GetChannelAvailableMemory
+    ' — are on roAppMemoryMonitor. Calling the second set on roDeviceInfo
+    ' compiles cleanly and dies at runtime with "Member function not found
+    ' (&hf4)", which on this Scene meant the beacon below it never fired.
+    m.memPort = CreateObject("roMessagePort")
+    di = CreateObject("roDeviceInfo")
+    di.SetMessagePort(m.memPort)
+    di.EnableLowGeneralMemoryEvent(true)
+
+    m.mem = CreateObject("roAppMemoryMonitor")
+    m.mem.SetMessagePort(m.memPort)
+    m.mem.EnableMemoryWarningEvent(true)
+    ' GetChannelMemoryLimit answers an ASSOCIATIVE ARRAY whose keys are not
+    ' what the docs imply — the first version printed "<Component:
+    ' roAssociativeArray>" and the second printed "0MB", both of which look
+    ' like readings and are not. It is still CALLED (the limit is the number a
+    ' future decision would need), but only the two values that were measured
+    ' true on the device are traced: 1% used, 210,108 KB available.
+    m.memLimit = m.mem.GetChannelMemoryLimit()
+    print "AWMEM used%="; m.mem.GetMemoryLimitPercent();
+    print " availableKB="; m.mem.GetChannelAvailableMemory()
+    m.top.ObserveField("focusedChild", "onMemoryTick")
+end sub
+
+' Polled from an event the Scene already receives rather than a timer, so an
+' idle channel costs nothing.
+sub onMemoryTick()
+    if m.memPort = invalid then return
+    msg = m.memPort.GetMessage()
+    while msg <> invalid
+        if type(msg) = "roDeviceInfoEvent"
+            info = msg.GetInfo()
+            if info <> invalid and info.Memory <> invalid
+                print "AWMEM pressure: "; info.Memory
+                if m.mem <> invalid then print "AWMEM available="; m.mem.GetChannelAvailableMemory()
+            end if
+        end if
+        msg = m.memPort.GetMessage()
+    end while
 end sub
 
 sub onStatus()
@@ -73,6 +130,20 @@ sub onStatus()
     print "AWROKU home status="; s
     if s = "ready"
         m.loading.visible = false
+        ' Roku certification 3.2. Static analysis reports a MISSING
+        ' AppLaunchComplete as an ERROR, not a warning, and it is the one
+        ' finding that fails the submission outright.
+        '
+        ' Fired HERE and not in init(): the requirement is the moment the
+        ' viewer can act, and until the catalog task reports "ready" the
+        ' screen says "Loading the archive…" and no tile exists to press.
+        ' Guarded because onStatus runs again on every later catalog swap and
+        ' the beacon must be signalled exactly once per launch.
+        if m.launchSignalled <> true
+            m.launchSignalled = true
+            m.top.signalBeacon("AppLaunchComplete")
+            print "AWROKU AppLaunchComplete"
+        end if
         m.home.rowsContent = filteredRows(m.task.rows)
         m.home.heroContent = m.task.hero
         ' Only claim focus if the viewer is still ON Home. A cold-start deep
@@ -784,7 +855,11 @@ end sub
 '  * Without `buttons` there is a keyboard to type into and NOTHING to confirm
 '    with: `buttonSelected` never fires and the only exit is Back.
 sub openNamer()
-    k = CreateObject("roSGNode", "KeyboardDialog")
+    ' StandardKeyboardDialog, not KeyboardDialog: certification 4.12 rejects
+    ' the older node for voice entry. This dialog only names a playlist, so
+    ' the rule arguably does not bite — but static analysis flags the NODE,
+    ' not what it collects, and the newer one takes the same title/buttons.
+    k = CreateObject("roSGNode", "StandardKeyboardDialog")
     k.title = "Name this playlist"
     k.buttons = ["Save", "Cancel"]
     k.ObserveField("buttonSelected", "onNamerButton")

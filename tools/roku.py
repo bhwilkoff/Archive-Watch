@@ -117,7 +117,12 @@ def zip_channel(src_dir):
         for root, dirs, files in os.walk(src):
             dirs[:] = [d for d in dirs if not d.startswith(".")]
             for f in files:
-                if f.startswith(".") or f.endswith((".swp", ".orig")):
+                # Documentation is not channel content. Roku static analysis
+                # reports fonts/LICENSE.md as "Package contains extraneous
+                # file", and the OFL obligation is met the way every app meets
+                # it — the notice is ON SCREEN in Options, and the full text
+                # stays in the public repo beside the fonts.
+                if f.startswith(".") or f.endswith((".swp", ".orig", ".md")):
                     continue
                 full = os.path.join(root, f)
                 z.write(full, os.path.relpath(full, src))
@@ -126,7 +131,10 @@ def zip_channel(src_dir):
         # can never drift from what the other platforms show.
         shared = os.path.join(REPO, "shared", "editorial", "collection_metadata.json")
         if os.path.isfile(shared):
-            z.write(shared, "collections.json")
+            # Under data/, not the package ROOT: Roku static analysis
+            # reports a root-level file it does not recognise as
+            # "Package contains extraneous file".
+            z.write(shared, "data/collections.json")
     return buf.getvalue()
 
 

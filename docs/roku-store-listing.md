@@ -77,7 +77,7 @@ user channels and clear test playlists before shooting.
 | Monetization | Free |
 | Privacy policy URL | https://archivewatch.org/privacy.html — live, 200 |
 | Support URL | https://archivewatch.org/support.html — live, 200 |
-| Deep link test parameters | `contentId=el-candidato-1959`, `mediaType=movie` |
+| Deep link test parameters | `contentId=TheGeneral720p1926`, `mediaType=movie` |
 
 ## Regenerating the assets
 

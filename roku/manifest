@@ -19,4 +19,12 @@ splash_min_time=800
 # The Streaming Stick 4K reports a 1080p UI; design at 1920x1080 and let Roku
 # scale down for 720p panels rather than authoring two grids.
 ui_resolutions=fhd
+
+# NOT rsg_version=1.3, deliberately. Static analysis warns twice about its
+# absence, and taking the warning would cost far more than it buys: RSG 1.3
+# requires a MINIMUM FIRMWARE of 15.1, which locks the channel out of every
+# older Roku — including the Roku 2 XD on this account. Nothing here needs
+# the 1.3 runtime. An archive of public-domain film is exactly the app that
+# should run on the cheap old box somebody already owns, so the two warnings
+# stay and the firmware floor stays low.
 supports_input_launch=1

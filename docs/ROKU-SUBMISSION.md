@@ -117,7 +117,7 @@ Measured at key RECEIPT instead, on a surface that prints the moment its own
 Nothing on the certification list. The last item closed 2026-09-08:
 
 * **A real trick-play session — DONE.** Deep-linked into
-  `contentId=el-candidato-1959&mediaType=movie`, which went **direct to play**
+  `contentId=TheGeneral720p1926&mediaType=movie`, which went **direct to play**
   (the voice-launch requirement, verified in the same shot). The console
   printed `AWBIF offering https://archive.org/download/archivewatch-bifs/
   el-candidato-1959.bif`, and a screenshot of the transport bar shows five
@@ -136,8 +136,25 @@ Nothing on the certification list. The last item closed 2026-09-08:
 | Short description | 300 chars | written — `docs/roku-store-listing.md` (268 used) |
 | Long description | 1,500 chars | written — `docs/roku-store-listing.md` (1,459 used) |
 | Privacy policy URL | required | **https://archivewatch.org/privacy.html** — live since 2026-06-19 (`privacy.html`); this table said "needs one" for months and was simply wrong |
-| Deep link test parameters | one per media type | `contentId=el-candidato-1959&mediaType=movie` |
+| Deep link test parameters | one per media type | `contentId=TheGeneral720p1926&mediaType=movie` |
 | Category / age rating | required | owner |
+
+## Choosing the deep-link test film
+
+A certification reviewer's FIRST experience of this channel is the deep link
+they are handed, so it is chosen on three axes, not one:
+
+* **Rights that cannot be argued.** `TheGeneral720p1926` carries
+  `rightsEvidence: pre_1930` — published before 1930, US copyright expired by
+  age. Night of the Living Dead is famously public domain too, but by a
+  NOTICE DEFECT, and its catalog row says `source_unverified`; a reviewer
+  should never have to take our word for anything.
+* **Plays, measured.** livingDead_4k was tried first and the device answered
+  `state=stop error=true ... STALLED` — a 3840x2560 mpeg4 upscale. The
+  General plays at 720x480 with the position advancing and its BIF offered.
+* **Recognisable, in English.** El Candidato (1959) was the recorded
+  parameter and had been verified to play, but it is an Argentine film with
+  Spanish titles, and it is a poor first frame for a US store reviewer.
 
 ## Dashboard state, 2026-09-08
 
