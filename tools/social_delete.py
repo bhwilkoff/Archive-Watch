@@ -118,8 +118,20 @@ def delete_threads(url: str, apply: bool) -> tuple[bool, str]:
         return False, f"cannot read a media id out of {url}"
     if not apply:
         return True, f"would delete media {mid}"
-    http(f"https://graph.threads.net/v1.0/{mid}"
-         f"?access_token={urllib.parse.quote(token)}", method="DELETE")
+    try:
+        http(f"https://graph.threads.net/v1.0/{mid}"
+             f"?access_token={urllib.parse.quote(token)}", method="DELETE")
+    except urllib.error.HTTPError as e:
+        # Measured 2026-09-08: Meta answers HTTP 500 with
+        # {"code":10,"message":"Application does not have permission for this
+        # action"} — the Threads app was never granted a delete permission,
+        # and no retry changes that. It is a MANUAL step, not a fault.
+        if "does not have permission" in str(e):
+            return False, ("MANUAL — the Threads app has no delete permission "
+                           "(Meta: \"Application does not have permission for "
+                           "this action\"). Remove it in the Threads app: the "
+                           "post > ... > Delete")
+        raise
     return True, "deleted"
 
 
@@ -177,6 +189,9 @@ def main() -> int:
     ap.add_argument("--urls", default="",
                     help="comma- or newline-separated permalinks")
     ap.add_argument("--apply", action="store_true", help="actually delete")
+    ap.add_argument("--forget", action="store_true",
+                    help="do not call any API; only drop these rows from the "
+                         "ledger, for posts already deleted by hand")
     ap.add_argument("--ledger", default=str(LEDGER))
     args = ap.parse_args()
 
@@ -186,20 +201,28 @@ def main() -> int:
         print("nothing to delete: pass --url or --urls", file=sys.stderr)
         return 2
 
-    print(f"{'DELETING' if args.apply else 'DRY RUN'} — {len(urls)} post(s)\n")
+    mode = ("FORGETTING" if args.forget
+            else "DELETING" if args.apply else "DRY RUN")
+    print(f"{mode} — {len(urls)} post(s)\n")
     gone, manual = [], []
     for url in urls:
         plat = platform_of(url)
-        try:
-            ok, note = DELETERS[plat](url, args.apply)
-        except Exception as e:  # noqa: BLE001
-            ok, note = False, f"failed: {e}"
+        if args.forget:
+            # The three platforms whose API cannot delete leave the owner to
+            # do it by hand — and then the ledger still holds the row, which
+            # retires that film for a year for a post nobody can see.
+            ok, note = True, "dropping the ledger row only (deleted by hand)"
+        else:
+            try:
+                ok, note = DELETERS[plat](url, args.apply)
+            except Exception as e:  # noqa: BLE001
+                ok, note = False, f"failed: {e}"
         print(f"  {plat:<10} {note}\n             {url}")
         (gone if ok else manual).append(url)
 
     # The ledger forgets a post we removed, or the film it named stays retired
     # for a year for a post nobody can see. Only rows we actually deleted.
-    if args.apply and gone:
+    if (args.apply or args.forget) and gone:
         led = json.loads(Path(args.ledger).read_text(encoding="utf-8"))
         before = len(led.get("posts", []))
         led["posts"] = [p for p in led.get("posts", []) if p.get("url") not in set(gone)]

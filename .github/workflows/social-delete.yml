@@ -17,6 +17,10 @@ on:
         description: "Actually delete (unticked = dry run)"
         default: false
         type: boolean
+      forget:
+        description: "Only drop the ledger rows — for posts deleted by hand"
+        default: false
+        type: boolean
 
 concurrency:
   group: social-post          # never race the poster's ledger commit
@@ -48,6 +52,7 @@ jobs:
         run: |
           APPLY=""
           if [ "${{ github.event.inputs.apply }}" = "true" ]; then APPLY="--apply"; fi
+          if [ "${{ github.event.inputs.forget }}" = "true" ]; then APPLY="--forget"; fi
           python3 tools/social_delete.py --urls "${{ github.event.inputs.urls }}" $APPLY
 
       - name: Commit the pruned ledger
