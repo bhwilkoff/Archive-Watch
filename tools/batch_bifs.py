@@ -130,7 +130,13 @@ def upload(path: Path, aid: str) -> None:
     # each one already paid for with up to 20 minutes of ffmpeg. The bytes are
     # in hand; only the PUT needs patience.
     import random, time as _t
-    for attempt in range(6):
+    # PATIENCE RAISED 2026-09-07 after the 40-shard run lost 957 generated BIFs,
+    # every one to "503 Slow Down". Six attempts capped at 90s gave each film
+    # ~2.5 minutes, which was not enough. Nine attempts capped at 240s gives
+    # ~15. This is the SECOND lever, not the first: the primary fix is fewer
+    # concurrent writers against the one item (see the header). Waiting costs a
+    # shard minutes; losing the upload costs the ffmpeg run that produced it.
+    for attempt in range(9):
         try:
             with urllib.request.urlopen(req, timeout=600) as r:
                 if r.status in (200, 201):
@@ -138,9 +144,9 @@ def upload(path: Path, aid: str) -> None:
                 raise RuntimeError(f"upload {r.status}")
         except Exception as e:
             transient = "503" in str(e) or "Slow Down" in str(e) or "500" in str(e)
-            if not transient or attempt == 5:
+            if not transient or attempt == 8:
                 raise
-            _t.sleep(min(90, (2 ** attempt) * 5) + random.uniform(0, 5))
+            _t.sleep(min(240, (2 ** attempt) * 5) + random.uniform(0, 10))
             # a fresh request object: the body stream of a used one is spent
             req = urllib.request.Request(f"{S3}/{ITEM}/{aid}.bif",
                                          data=path.read_bytes(), method="PUT")
