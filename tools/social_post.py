@@ -290,7 +290,11 @@ ORDER = {
     "facebook":  ["identity", "hook", "synopsis", "link"],
     "youtube":   ["link", "identity", "facts", "synopsis", "hook", "rights"],
 }
-SYNOPSIS_MAX = 300
+# Generous, because the real limit is the platform's remaining budget — the
+# assembly trims the synopsis to whatever is left rather than to a fixed
+# number. A flat 300 cut Roger Corman's Shame at "sent to stir trouble in a
+# southern…" on YouTube, which had 4,300 characters going spare.
+SYNOPSIS_MAX = 700
 
 
 def compose(spec: dict, platform: str) -> str:
@@ -354,7 +358,7 @@ def compose(spec: dict, platform: str) -> str:
             chosen[key] = parts[key]
             used += cost
             continue
-        # The hook is the one part worth shortening rather than dropping — and
+        # Two parts are worth shortening rather than dropping. For the hook
         # only its QUOTE is shortened, never its attribution.
         if key == "hook" and hook_quote:
             room = budget - used - 2 - (len(hook_credit) + 1 if hook_credit else 0)
@@ -362,6 +366,11 @@ def compose(spec: dict, platform: str) -> str:
             if fit:
                 chosen[key] = hook_unit(fit)
                 used += len(chosen[key]) + 2
+        elif key == "synopsis":
+            fit = sentence_trim(parts[key], budget - used - 2)
+            if fit:
+                chosen[key] = fit
+                used += len(fit) + 2
         # everything else is simply left out: a post that says less is better
         # than one that says the same thing in pieces.
 

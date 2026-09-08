@@ -139,6 +139,29 @@ def sentence_cap(text: str, limit: int) -> str:
     return (cut[:i] if i > 0 else cut).strip() + "…"
 
 
+# An uploader's synopsis often ends by pointing somewhere: "You can find out
+# more about this movie from Wikipedia . There is also a good review of the
+# movie here from the movie blog D for Doom ." In a post those sentences point
+# at nothing — the link they refer to is not there — so they read as broken
+# text. They are dropped from the END only, one at a time: a pointer in the
+# MIDDLE of a paragraph usually carries description around it.
+_POINTER = re.compile(
+    r"^\s*(?:(?:you\s+)?can\s+)?(?:find|read|learn)\s+(?:out\s+)?more\b"
+    r"|^\s*for\s+more\b"
+    r"|^\s*there\s+is\s+also\b"
+    r"|^\s*(?:see|visit|check\s+out|click|go)\b.{0,60}?"
+    r"\b(?:wikipedia|imdb|here|link|blog|site|website|page|channel)\b"
+    r"|\bdownload\b.{0,40}\b(?:here|link|below)\b", re.I)
+
+
+def drop_pointers(text: str) -> str:
+    """Trailing "see also" sentences, removed. Never the whole thing."""
+    parts = re.split(r"(?<=[.!?])\s+", (text or "").strip())
+    while len(parts) > 1 and _POINTER.search(parts[-1]):
+        parts.pop()
+    return " ".join(parts).strip()
+
+
 def meta_line(row: list, detail: list) -> tuple[str, str]:
     """Year · Kind · runtime · director — every part measured."""
     bits, src = [], []
@@ -627,7 +650,15 @@ def build_spec(row: list, detail: list, slot: str, review: dict | None,
             f"shard.community.reviews — archive.org viewer {review['reviewer']}")
         add("review_credit", f"— {review['reviewer']}, archive.org", "shard.community.reviews.reviewer")
     if synopsis:
-        add("synopsis", sentence_cap(synopsis, 320 if not review else 180), "shard.synopsis")
+        # One cap, generous, and NOT conditioned on whether a review exists.
+        # It used to shrink to 180 characters whenever there was a review,
+        # which is a LAYOUT decision made in the wrong place: the composer
+        # knows each platform's remaining budget and trims to it, and text
+        # thrown away here cannot be recovered there. Corman's Shame reached
+        # YouTube cut at "sent to stir trouble in a southern…" with 4,300
+        # characters going spare.
+        add("synopsis", sentence_cap(drop_pointers(synopsis), 700),
+            "shard.synopsis")
     r = rating_line(row)
     if r:
         add("rating", r[0], r[1])
