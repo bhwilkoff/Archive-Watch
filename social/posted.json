@@ -51,6 +51,17 @@
    "format": "video",
    "kind": "animation",
    "reviewer": "indianacarnie"
+  },
+  {
+   "at": "2026-09-08T16:20:26.389898+00:00",
+   "id": "PhantasmagoriaTheater-TheGorilla1939761",
+   "title": "The Gorilla",
+   "slot": "viewer-said",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3muzgipvfk72v",
+   "format": "video",
+   "kind": "feature-film",
+   "reviewer": "ubang"
   }
  ]
 }
