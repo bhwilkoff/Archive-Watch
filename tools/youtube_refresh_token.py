@@ -49,6 +49,33 @@ AUTH = "https://accounts.google.com/o/oauth2/v2/auth"
 TOKEN = "https://oauth2.googleapis.com/token"
 
 
+def ask(prompt: str, hidden: bool = False) -> str:
+    """Read one value from the CONTROLLING TERMINAL, not stdin.
+
+    Run through a harness that pipes stdin — Claude Code's `!` prefix, a CI
+    step, anything non-interactive — plain input() raises EOFError immediately.
+    /dev/tty is the terminal the human is actually looking at, and it stays
+    readable even when stdin is redirected. If there is no tty either, say so
+    plainly instead of dying with a traceback.
+    """
+    try:
+        tty = open("/dev/tty", "r+")
+    except OSError:
+        print("\nNo terminal available to prompt on. Pass the values instead:\n"
+              "  YOUTUBE_CLIENT_ID=... YOUTUBE_CLIENT_SECRET=... \\\n"
+              "    python3 tools/youtube_refresh_token.py\n", file=sys.stderr)
+        raise SystemExit(1)
+    with tty:
+        if hidden:
+            try:
+                return getpass.getpass(prompt, stream=tty).strip()
+            except Exception:
+                pass                      # fall through to a visible read
+        tty.write(prompt)
+        tty.flush()
+        return (tty.readline() or "").strip()
+
+
 # A FIXED port by default, which is what makes this work for either client
 # type. A DESKTOP client accepts any 127.0.0.1 port, so the number is
 # irrelevant to it. A WEB client only accepts redirect URIs registered in the
@@ -89,8 +116,8 @@ class Catcher(http.server.BaseHTTPRequestHandler):
 
 
 def main() -> int:
-    cid = os.environ.get("YOUTUBE_CLIENT_ID") or input("Client ID: ").strip()
-    secret = os.environ.get("YOUTUBE_CLIENT_SECRET") or getpass.getpass("Client secret (hidden): ").strip()
+    cid = os.environ.get("YOUTUBE_CLIENT_ID") or ask("Client ID: ")
+    secret = os.environ.get("YOUTUBE_CLIENT_SECRET") or ask("Client secret (hidden): ", hidden=True)
     if not cid or not secret:
         print("need both a client ID and a client secret", file=sys.stderr)
         return 1
