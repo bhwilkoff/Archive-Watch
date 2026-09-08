@@ -1,5 +1,5 @@
 {
- "_": "The ledger (docs/SOCIAL-PROGRAM.md §7). One entry per platform per post. No film repeats within 365 days; no review is ever quoted twice. Written only after a platform confirms.",
+ "_": "The ledger (docs/SOCIAL-PROGRAM.md \u00a77). One entry per platform per post. No film repeats within 365 days; no review is ever quoted twice. Written only after a platform confirms.",
  "posts": [
   {
    "at": "2026-09-08T15:55:51.561873+00:00",
@@ -38,7 +38,7 @@
    "slot": "viewer-said",
    "platform": "bluesky",
    "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3muzfl25hnv2g",
-   "format": "video",
+   "format": "card",
    "kind": "animation",
    "reviewer": "indianacarnie"
   },

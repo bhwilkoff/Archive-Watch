@@ -326,6 +326,28 @@ platform's own API rather than trusting the run's report:
    in the ledger AND in the public feed. `meta_permalink` now asks the API,
    and `social_metrics` corrects any row already written when it samples it.
 
+### Taking a post down (2026-09-08)
+
+Four teasers went out silent before the audio rule was universal. `--apply` on
+`tools/social_delete.py` removed what it could and named the rest exactly:
+
+| platform | delete over the API |
+|---|---|
+| Bluesky | ✅ `com.atproto.repo.deleteRecord` |
+| Mastodon | ✅ `DELETE /api/v1/statuses/:id` |
+| Threads | ❌ `HTTP 500 {"code":10,"message":"Application does not have permission for this action"}` — the app has no delete permission |
+| Instagram | ❌ the Content Publishing API creates and publishes; there is no delete |
+| YouTube | ❌ `403` — `videos.delete` needs `youtube.force-ssl`, and this project mints the narrower `youtube.upload` on purpose |
+
+So three of five are a manual step, and the tool says where to click rather
+than reporting a failure to re-investigate tomorrow. `--forget` then drops
+those ledger rows, because a row left behind retires its film for a year for
+a post nobody can see.
+
+**A Mastodon attachment types itself.** The silent upload came back as
+`gifv`; the one with sound came back as `video`. That is a free check on
+whether a teaser really carried audio, from a public API with no token.
+
 **Checked and found NOT to be a defect:** a Bluesky post reading
 `"Glad this is available.Hot Dog! ..."`. That is the reviewer's own typing,
 fetched from archive.org and confirmed character-for-character. Quoting it
