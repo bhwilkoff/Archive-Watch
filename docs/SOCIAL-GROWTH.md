@@ -164,6 +164,15 @@ out of single-digit counts is how a programme talks itself into nonsense.
       YouTube 3, most-specific tags bought first
 - [ ] Caption SEO shaping per platform (hook-first on Bluesky, question on Threads)
 - [ ] Per-platform cadence + move the posting window to 15:00 UTC
-- [ ] Line-driven video with burned dialogue, fades, audio handling
+- [x] `tools/social_line.py` — picks the quotable line (the teaser's spine)
+- [ ] Cut the clip to that line, burn it on screen, use it as the caption hook
+
+**Line quality is the limit, not the picker.** These VTTs are largely
+machine-transcribed from 1930s optical audio, so survivors can still be
+nonsense — House on Haunted Hill yields "He/she will have eaten, drink and
+ghosts." No syntactic rule catches that. Two honest mitigations, in order:
+prefer films whose subtitles are HUMAN (`captions` provenance in the shard,
+not ASR), and fall back to the shot-based teaser when no line clears the bar,
+which is already the behaviour when a film has no subtitles at all.
 - [ ] `social_metrics.py` + `social/metrics.json` + weekly report
 - [ ] Selector reads measured performance
