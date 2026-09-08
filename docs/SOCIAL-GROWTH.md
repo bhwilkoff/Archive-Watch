@@ -285,4 +285,38 @@ not ASR), and fall back to the shot-based teaser when no line clears the bar,
 which is already the behaviour when a film has no subtitles at all.
 - [x] `social_metrics.py` + `social/metrics.json` + the report, wired
       into the daily workflow
-- [ ] Selector reads measured performance
+- [ ] Selector reads measured performance (waits for MIN_N; §4)
+
+---
+
+## 6. Verified live, 2026-09-08
+
+Every platform has now carried a real post, checked by reading it back off the
+platform's own API rather than trusting the run's report:
+
+| platform | post | verified |
+|---|---|---|
+| Mastodon | The Golden Fish (1959) | status live, video attached with alt text, paragraphs as composed |
+| YouTube | same | oEmbed resolves — "The Golden Fish (1959) — free to watch", Archive Watch channel |
+| Threads | same | container published, media id returned |
+| Instagram | same (Reel) | container published, media id returned |
+| Bluesky | The Lion Tamer (1934) | post live with the CARD, alt text, and the quote leading — the new shape, in production |
+| Facebook | — | no credentials; the cadence gate also has it off today |
+
+**Two defects the live run found, both fixed in the same session:**
+
+1. **Bluesky refuses video from an account whose email is unconfirmed** —
+   `HTTP 401 unconfirmed_email` — and the whole platform was being skipped for
+   it, when the same post as an image goes out fine. The upload now falls back
+   to the card. **OWNER ACTION: confirm the email on the Bluesky account and
+   Bluesky starts carrying the teaser instead of the card.** Nothing else is
+   blocked on it.
+2. **A published Instagram media id is not its shortcode**, so the ledger held
+   `instagram.com/p/<id>` — a URL shaped like a permalink that goes nowhere,
+   in the ledger AND in the public feed. `meta_permalink` now asks the API,
+   and `social_metrics` corrects any row already written when it samples it.
+
+**Checked and found NOT to be a defect:** a Bluesky post reading
+`"Glad this is available.Hot Dog! ..."`. That is the reviewer's own typing,
+fetched from archive.org and confirmed character-for-character. Quoting it
+verbatim is the rule; "fixing" a source's words would break it.
