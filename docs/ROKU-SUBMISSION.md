@@ -53,7 +53,7 @@ Measured on the Streaming Stick 4K, not estimated.
 | Direct to Play on a voice launch | required | `mediaType=movie` plays immediately | ✅ |
 | Captions honour the device setting | required | device mode read, never overridden | ✅ |
 | Loading indicator for waits > 3 s | required | catalog load only; other waits are sub-second | ✅ |
-| **Trick-play thumbnails, VOD > 15 min** | **required** | 16,741 published on `archivewatch-bifs`; **16,460 of the served items now carry the schema-12 `bif` column the channel reads** (it had none until 2026-09-08, so not one BIF was ever offered) | ✅ once the index publishes |
+| **Trick-play thumbnails, VOD > 15 min** | **required** | 16,741 published on `archivewatch-bifs`; **16,460 of the served items now carry the schema-12 `bif` column the channel reads** (it had none until 2026-09-08, so not one BIF was ever offered) | ✅ **VERIFIED ON THE DEVICE** |
 
 ## The one blocker: BIF trick-play thumbnails — now MEASURED
 
@@ -114,15 +114,24 @@ Measured at key RECEIPT instead, on a surface that prints the moment its own
 
 ## What is still unmeasured
 
-* **A real trick-play session.** Instant Replay is verified; fast-forward and
-  rewind through the transport bar are not.
+Nothing on the certification list. The last item closed 2026-09-08:
+
+* **A real trick-play session — DONE.** Deep-linked into
+  `contentId=el-candidato-1959&mediaType=movie`, which went **direct to play**
+  (the voice-launch requirement, verified in the same shot). The console
+  printed `AWBIF offering https://archive.org/download/archivewatch-bifs/
+  el-candidato-1959.bif`, and a screenshot of the transport bar shows five
+  real thumbnails from the film's own credits with the focused frame boxed, at
+  02:00 of 1:31:17. This path had NEVER been exercised before, for the simple
+  reason that until that afternoon no film carried a BIF the channel could
+  see.
 
 ## Assets the Dashboard will ask for
 
 | Asset | Spec | Status |
 |---|---|---|
 | Signed `.pkg` | ≤ 4 MB | `tools/roku_package.py`, blocked on the key |
-| App poster | 540 × 405 | **`roku/images/store_poster_fhd.png`** — `tools/roku_store_poster.py` composes the 1902 still with the wordmark and the marquee rule; HD twin beside it |
+| App poster | 540 × 405 | **`build/roku-store/channel_poster_540x405.png`** — already designed and correct; this row said "still wanted" and, like the privacy row above it, was simply out of date. `tools/roku_store_poster.py` offers an alternative that keeps the still at full contrast and bands the type instead of dimming the photograph |
 | Screenshots | up to 6, 1920 × 1080 | the QA captures are the right size already |
 | Short description | 300 chars | written — `docs/roku-store-listing.md` (268 used) |
 | Long description | 1,500 chars | written — `docs/roku-store-listing.md` (1,459 used) |
