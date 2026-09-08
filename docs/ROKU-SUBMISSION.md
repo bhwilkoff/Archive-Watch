@@ -53,7 +53,7 @@ Measured on the Streaming Stick 4K, not estimated.
 | Direct to Play on a voice launch | required | `mediaType=movie` plays immediately | ✅ |
 | Captions honour the device setting | required | device mode read, never overridden | ✅ |
 | Loading indicator for waits > 3 s | required | catalog load only; other waits are sub-second | ✅ |
-| **Trick-play thumbnails, VOD > 15 min** | **required** | **none shipped; one generated (21 s, 2.55 MB) and VERIFIED rendering on the device — see below** | ❌ until the batch runs |
+| **Trick-play thumbnails, VOD > 15 min** | **required** | 16,741 published on `archivewatch-bifs`; **16,460 of the served items now carry the schema-12 `bif` column the channel reads** (it had none until 2026-09-08, so not one BIF was ever offered) | ✅ once the index publishes |
 
 ## The one blocker: BIF trick-play thumbnails — now MEASURED
 
@@ -122,11 +122,11 @@ Measured at key RECEIPT instead, on a surface that prints the moment its own
 | Asset | Spec | Status |
 |---|---|---|
 | Signed `.pkg` | ≤ 4 MB | `tools/roku_package.py`, blocked on the key |
-| App poster | 540 × 405 | `images/icon_focus_fhd.png` is that size and is what the manifest ships; a designed store poster is still wanted |
+| App poster | 540 × 405 | **`roku/images/store_poster_fhd.png`** — `tools/roku_store_poster.py` composes the 1902 still with the wordmark and the marquee rule; HD twin beside it |
 | Screenshots | up to 6, 1920 × 1080 | the QA captures are the right size already |
 | Short description | 300 chars | written — `docs/roku-store-listing.md` (268 used) |
 | Long description | 1,500 chars | written — `docs/roku-store-listing.md` (1,459 used) |
-| Privacy policy URL | required | archivewatch.org needs one |
+| Privacy policy URL | required | **https://archivewatch.org/privacy.html** — live since 2026-06-19 (`privacy.html`); this table said "needs one" for months and was simply wrong |
 | Deep link test parameters | one per media type | `contentId=el-candidato-1959&mediaType=movie` |
 | Category / age rating | required | owner |
 
