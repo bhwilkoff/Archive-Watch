@@ -32,6 +32,7 @@ import datetime as dt
 import json
 import mimetypes
 import os
+import re
 import subprocess
 import sys
 import time
@@ -237,110 +238,137 @@ BARE_DOMAIN = frozenset({"instagram"})
 LINK_FIRST = frozenset({"youtube"})
 
 
+def sentence_trim(text: str, budget: int) -> str | None:
+    """Shorten a quotation at a SENTENCE end, never mid-thought.
+
+    The old trimmer cut by characters, so a Popeye review reached Bluesky as
+    `"That really IS Arabic for spinach. 5 stars to Kneitel and…"` — it threw
+    away the funny half of a sentence to make room for "Animation · 6 min".
+    A complete short sentence beats a truncated long one every time.
+    """
+    t = (text or "").strip()
+    if len(t) <= budget:
+        return t
+    quoted = t.startswith('"') and t.endswith('"')
+    inner = t[1:-1] if quoted else t
+    best = None
+    for m in re.finditer(r"[.!?](?=\s|$)", inner):
+        cand = inner[:m.end()].strip()
+        full = f'"{cand}"' if quoted else cand
+        if len(full) <= budget:
+            best = full
+        else:
+            break
+    if best:
+        return best
+    keep = budget - (3 if quoted else 1)
+    cut = inner[:max(0, keep)]
+    if " " in cut:
+        cut = cut.rsplit(" ", 1)[0]
+    cut = cut.rstrip(" ,.;:—-")
+    if len(cut) < 24:
+        return None                      # nothing survives worth reading
+    return f'"{cut}…"' if quoted else f"{cut}…"
+
+
+# What each platform spends its space on, best first. The link is reserved
+# before anything else and every other part is added only while it FITS, so a
+# short post drops the least valuable thing rather than truncating the most
+# valuable one.
+#
+# The owner, on a Bluesky post that spent its 300 characters on a truncated
+# review plus "Animation · 6 min · dir. …": "The post is almost meaningless
+# and a lot of it is just meta-data about the movie." So `facts` — kind,
+# runtime, director — appears only where space is not scarce, and never ahead
+# of a human voice. On YouTube it leads, because there the description is read
+# by SEARCH and metadata is the useful part.
+ORDER = {
+    "bluesky":   ["hook", "identity", "link"],
+    "threads":   ["hook", "identity", "synopsis", "link"],
+    "mastodon":  ["identity", "hook", "rights", "link"],
+    "instagram": ["hook", "identity", "synopsis", "rights", "link"],
+    "facebook":  ["identity", "hook", "synopsis", "link"],
+    "youtube":   ["link", "identity", "facts", "synopsis", "hook", "rights"],
+}
+SYNOPSIS_MAX = 300
+
+
 def compose(spec: dict, platform: str) -> str:
     frag = {f["kind"]: f["text"] for f in spec.get("fragments", [])}
     limit = LIMITS[platform]
-    link = spec["link"]
     title = spec["title"]
     year = f" ({spec['year']})" if spec.get("year") else ""
 
-    head = f"{title}{year}"
-    lines = [head]
-    if frag.get("meta"):
-        # The head already carries the year, so drop the meta line's leading
-        # copy of it — "The Wizard of Mars (1965) · 1965 · Feature film" reads
-        # like a template with a hole in it.
-        meta = frag["meta"].replace("  ·  ", " · ")
-        if spec.get("year") and meta.startswith(f"{spec['year']} · "):
-            meta = meta[len(f"{spec['year']} · "):]
-        lines.append(meta)
-
-    # The body: a viewer's words when we have them, else the film's own
-    # synopsis. Both are quoted material, not our claims.
-    lead_quote = (platform in LEAD_WITH_QUOTE
-                  and bool(frag.get("line") or frag.get("review")))
-    body = []
+    # The human voice, whichever we have: a line the film is HEARD saying
+    # (social_hear gates it) or a real viewer's words. A review's ATTRIBUTION
+    # is not optional — SOCIAL-PROGRAM allows a viewer's words only "quoted
+    # verbatim and attributed to the handle that wrote it" — so the credit is
+    # part of the unit and only the quote inside it is ever shortened. Losing
+    # it to a character count is not a smaller post, it is a different rule.
+    hook_quote = hook_credit = None
     if frag.get("line"):
-        body.append(frag["line"])
-        # When the quote leads, the facts line follows it and already carries
-        # the title. Crediting it twice costs a Bluesky post ~30 of its 300
-        # characters to say the same thing again.
-        if not lead_quote:
-            body.append(f"— {title}")
+        hook_quote = frag["line"]
     elif frag.get("review"):
-        body.append(frag["review"])
-        if frag.get("review_credit"):
-            body.append(frag["review_credit"])
-    elif frag.get("synopsis"):
-        body.append(frag["synopsis"])
+        hook_quote = frag["review"]
+        hook_credit = frag.get("review_credit")
 
-    if spec.get("partner"):
-        p = spec["partner"]
-        body.append(f"Double bill with {p['title']} ({p['year']}) — {p['why']}.")
+    def hook_unit(quote: str) -> str:
+        return quote + (f"\n{hook_credit}" if hook_credit else "")
 
-    # The public-domain basis is the most genuinely useful sentence in the
-    # post: it tells a reader WHY this is free, which is the thing almost
-    # nobody knows about this catalog (§2, deepens understanding). It rides
-    # above the link and is dropped first only if the post will not fit.
-    rights = frag.get("rights")
-    tail = ("Free to watch at archivewatch.org" if platform in BARE_DOMAIN
-            else f"Free to watch: {link}")
-    facts = " · ".join(lines[:1] + lines[1:2])
+    meta = (frag.get("meta") or "").replace("  ·  ", " · ")
+    if spec.get("year") and meta.startswith(f"{spec['year']} · "):
+        meta = meta[len(f"{spec['year']} · "):]
 
-    def assemble(bodylines, with_rights=True):
-        # A quote leads only when the body actually opens with one. A synopsis
-        # promoted to the first line would read as our own words about the
-        # film, which is the one thing this programme never does.
-        lead = lead_quote and bool(bodylines)
-        parts = [] if lead else [facts]
-        if bodylines:
-            parts.append("\n".join(bodylines))
-        if lead:
-            parts.append(facts)
-        if rights and with_rights:
-            parts.append(rights)
-        if platform in LINK_FIRST:
-            parts.insert(0, tail)
-        else:
-            parts.append(tail)
-        return "\n\n".join(parts)
+    parts = {
+        "identity": f"{title}{year}",
+        "facts": meta or None,
+        "hook": hook_unit(hook_quote) if hook_quote else None,
+        "synopsis": sentence_trim(frag.get("synopsis") or "", SYNOPSIS_MAX)
+                    if frag.get("synopsis") else None,
+        "rights": frag.get("rights"),
+        "link": ("Free to watch at archivewatch.org" if platform in BARE_DOMAIN
+                 else f"Free to watch: {spec['link']}"),
+    }
 
-    text = assemble(body)
-    # Trim the BODY (never the facts or the link) until it fits. A post that
-    # loses its link is a post that sends nobody anywhere.
-    #
-    # Trim by the MEASURED overflow, not by a guess plus a margin: the first
-    # version subtracted the overflow AND a fixed 24, then dropped a whole
-    # word, and compounded that every pass — a Hercules Unchained review came
-    # out at 47 characters with 27 characters of headroom going spare.
-    guard = 0
-    while len(text) > limit and body and guard < 12:
-        guard += 1
-        longest = max(range(len(body)), key=lambda i: len(body[i]))
-        cut = body[longest]
-        over = len(text) - limit
-        keep = len(cut) - over - 2          # 2 = the ellipsis we add back
-        if keep < 40:
-            body.pop(longest)
-        else:
-            trimmed = cut[:keep]
-            if " " in trimmed:
-                trimmed = trimmed.rsplit(" ", 1)[0]
-            trimmed = trimmed.rstrip(" ,.;:—-")
-            body[longest] = (trimmed + '…"') if cut.startswith('"') else (trimmed + "…")
-        text = assemble(body)
-    if len(text) > limit and rights:
-        text = assemble(body, with_rights=False)   # the link outranks the basis
-    if len(text) > limit:
-        text = f"{head}\n\n{tail}"                 # facts and the link, nothing else
-
+    # Hashtags are reserved up front, not appended if they happen to fit.
+    # Mastodon has no algorithm and no recommendation feed, so a hashtag is
+    # the only way a stranger finds a post there — losing them to a long
+    # review is losing the audience to reach the audience.
     tags = tags_for(spec, TAG_MAX.get(platform, 0))
-    if tags:
-        extra = "\n\n" + " ".join(tags)
-        if len(text) + len(extra) <= limit:
-            text += extra
-    return text
+    tag_line = (" ".join(tags)) if tags else ""
+    budget = limit - (len(tag_line) + 2 if tag_line else 0)
 
+    order = ORDER.get(platform, ["identity", "hook", "link"])
+    # Two parts are RESERVED before anything competes for the space: the film's
+    # name and the link. A post that quotes a viewer beautifully and never says
+    # which film they watched, or where to watch it, has failed at the only two
+    # jobs it definitely has — and that is exactly what a naive "add while it
+    # fits" pass produced on Bluesky's 300 characters.
+    chosen = {"identity": parts["identity"], "link": parts["link"]}
+    used = len(parts["identity"]) + len(parts["link"]) + 2
+    for key in order:
+        if key in chosen or not parts.get(key):
+            continue
+        cost = len(parts[key]) + 2          # the blank line before it
+        if used + cost <= budget:
+            chosen[key] = parts[key]
+            used += cost
+            continue
+        # The hook is the one part worth shortening rather than dropping — and
+        # only its QUOTE is shortened, never its attribution.
+        if key == "hook" and hook_quote:
+            room = budget - used - 2 - (len(hook_credit) + 1 if hook_credit else 0)
+            fit = sentence_trim(hook_quote, room)
+            if fit:
+                chosen[key] = hook_unit(fit)
+                used += len(chosen[key]) + 2
+        # everything else is simply left out: a post that says less is better
+        # than one that says the same thing in pieces.
+
+    text = "\n\n".join(chosen[k] for k in order if k in chosen)
+    if tag_line:
+        text += "\n\n" + tag_line
+    return text
 
 # --------------------------------------------------------------------------
 # Media hosting — Meta fetches from a public URL, so a card must be published

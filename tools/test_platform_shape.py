@@ -109,6 +109,51 @@ check("every platform keeps a way to reach the film",
           for p in ("bluesky", "mastodon", "threads", "instagram", "youtube",
                     "facebook")))
 
+# ------------------------------------------------- what the post SPENDS on
+# Owner, on a Bluesky post that spent its 300 characters on a truncated review
+# plus "Animation · 6 min · dir. …": "The post is almost meaningless and a lot
+# of it is just meta-data about the movie."
+LONG = dict(QUOTED)
+LONG["fragments"] = FILM["fragments"] + [
+    {"kind": "review", "text": '"' + ("When I was a young teenager I had read quite a lot of "
+     "movie books and dreamed of the day I would finally see this film amongst "
+     "others, while I was in college I seen many of the films on my list") + '"'},
+    {"kind": "review_credit", "text": "— duane420, archive.org"}]
+
+t = sp.compose(LONG, "bluesky")
+shape += 1
+check("a short post still names the film", "The Phantom Creeps" in t, t)
+shape += 1
+check("a short post still carries the link", LONG["link"] in t, t)
+shape += 1
+check("a quoted review keeps its attribution", "duane420" in t, t)
+shape += 1
+check("the quote is cut at a sentence end, not mid-clause",
+      "while I was in…" not in t, t[:120])
+shape += 1
+check("no runtime or director on the tightest platform",
+      "min" not in t.split("\n")[0] and "dir." not in t)
+
+shape += 1
+check("sentence_trim prefers a whole sentence",
+      sp.sentence_trim('"One. Two three four five six seven."', 20) == '"One."',
+      repr(sp.sentence_trim('"One. Two three four five six seven."', 20)))
+shape += 1
+check("sentence_trim keeps the quote marks",
+      sp.sentence_trim('"One. Two three four."', 40).endswith('"'))
+shape += 1
+check("sentence_trim leaves a short text alone",
+      sp.sentence_trim("Short.", 40) == "Short.")
+shape += 1
+check("sentence_trim refuses to leave a scrap",
+      sp.sentence_trim('"Supercalifragilistic expialidocious wordiness"', 20) is None)
+
+shape += 1
+check("youtube is where the runtime and kind belong",
+      "78 min" in sp.compose(LONG, "youtube"))
+shape += 1
+check("and they are NOT on bluesky", "78 min" not in sp.compose(LONG, "bluesky"))
+
 # ------------------------------------------------------- what actually went
 # `format` drives the metrics comparison "does a moving picture beat a card".
 # Derived from bool(video) it LIED the first time it mattered: Bluesky refused

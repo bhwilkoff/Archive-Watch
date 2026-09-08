@@ -177,12 +177,38 @@ def rating_line(row: list) -> tuple[str, str] | None:
 # reviews match, of which 8 are unambiguous. The failure mode of a false
 # positive is quoting a DIFFERENT review, never editing one, so a slightly
 # broad rule is the safe direction.
+# What is left for a quote on the tightest platform once the film's name, the
+# link, the attribution and two hashtags have taken their share of Bluesky's
+# 300 characters. A review whose first sentence fits here is quotable whole
+# everywhere; one whose first sentence does not can only ever be cut.
+HOOK_FITS = 150
+
 NOT_A_REVIEW = re.compile(
     r"(my (own )?(youtube|yt) channel|asking (for )?your permission|"
     r"(request|ask(ing)?|need|want|would like) (a )?(permission|licen[cs]e)|"
     r"licen[cs]e to use|interested in licens|licensing (footage|clips?|this|it)|"
     r"(could|can|would) you (please )?(post|upload|re-?upload|add)|"
-    r"please (post|upload|re-?upload) |(e-?mail|contact|dm) me\b|email to the)", re.I)
+    r"please (post|upload|re-?upload) |(e-?mail|contact|dm) me\b|email to the|"
+    # Asking the uploader for something is not a review of the film. These
+    # came from the live catalog once the composer began preferring SHORT
+    # bodies: "Hey, I am searching desperately for a copy of the film. Do you
+    # know where to find one? Best," reads as a review only to a length test.
+    r"searching (desperately )?for|looking for a (copy|print|version)|"
+    r"where (can i|could i|to) (find|get|buy|download|watch)|"
+    r"do(es)? (you|anyone) (know|have) (where|a copy|any)|"
+    r"any(one|body) (know|have) |"
+    # A genuine review essentially never says "permission", and a letter to
+    # the uploader almost always does. "We'd like permission to use a clip of
+    # this movie on our television programme" passed every earlier pattern:
+    # they all expected the word "would", or "email ME" rather than "e-mailed
+    # YOU". Match the SUBJECT of the sentence, not one phrasing of it.
+    r"\bpermissions?\b|\brights? to (use|broadcast|air|screen)\b|"
+    r"e-?mail(ed)? (you|us)\b|look(ing)? forward to hear)", re.I)
+
+# A body that signs off is a letter, not a review — and it quotes as a
+# fragment ("...Do you know where to find one? Best,").
+SIGN_OFF = re.compile(r"\b(best|thanks|thank you|regards|cheers|sincerely|"
+                      r"yours)\s*[,.]?\s*$", re.I)
 
 # A review that carries someone's email address or phone number must never be
 # republished: quoting it would broadcast a stranger's contact details to an
@@ -216,13 +242,33 @@ def pick_review(detail: list, film_id: str, used: set) -> dict | None:
             continue
         if NOT_A_REVIEW.search(body) or HAS_CONTACT.search(body):
             continue
+        if SIGN_OFF.search(body):
+            continue
         cand = {"stars": n, "title": title, "body": body, "reviewer": who,
                 "date": (rv[4] if len(rv) > 4 else None)}
         # A quote reads as a typo when it opens on a lowercase letter, even
         # though it is verbatim ("a tad too dark at times…" — horseoftroy on
         # The Magic Sword). Prefer one that starts like a sentence; the rule
         # picks a DIFFERENT review, it never edits one.
-        cand["_rank"] = (1 if body[:1].isupper() else 0, len(body))
+        #
+        # Then prefer one that SURVIVES WHOLE on the tightest platform. This
+        # used to rank on len(body) maximised — it deliberately chose the
+        # LONGEST review, which on Bluesky's 300 characters could only ever be
+        # truncated. A Tarzan review reached the feed as "...while I was in…",
+        # cut mid-clause, because its first sentence ran 230 characters.
+        # What predicts a clean quote is not the whole body but its FIRST
+        # SENTENCE, since that is what a trim keeps.
+        # A STAR RATING is the strongest signal that this is a review at all.
+        # People who write to an uploader — asking for a copy, asking for a
+        # licence — leave no rating; people who watched the film and had an
+        # opinion leave one. Both junk quotes that reached the composer after
+        # it began preferring short bodies were unrated.
+        first = re.split(r"(?<=[.!?])\s", body.strip(), maxsplit=1)[0]
+        cand["_rank"] = (1 if n >= 4 else 0,
+                         1 if body[:1].isupper() else 0,
+                         1 if len(first) <= HOOK_FITS else 0,
+                         1 if len(body) <= HOOK_FITS else 0,
+                         len(body) if len(body) <= HOOK_FITS else -len(body))
         if best is None or cand["_rank"] > best["_rank"]:
             best = cand
     if best:

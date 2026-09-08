@@ -120,6 +120,61 @@ the poster can reach has a cadence entry**, because one added without it would
 silently post every day, which is the undifferentiated scheduling this table
 exists to end.
 
+### What a post SPENDS its space on
+
+Owner, on a Bluesky post: *"The post is almost meaningless and a lot of it is
+just meta-data about the movie."* It read:
+
+> "That really IS Arabic for spinach. 5 stars to Kneitel and…"
+> — HeatherFerreira, archive.org
+>
+> Private Eye Popeye (1954) · Animation · 6 min · dir. Seymour Kneitel
+>
+> Published in 1954, in the public domain in the United States.
+
+The funny half of a real sentence was destroyed to make room for "Animation ·
+6 min", because the trimmer took from the BODY and never from the facts —
+exactly the wrong priority. Rebuilt around three rules:
+
+1. **The film's name and the link are RESERVED** before anything competes for
+   the space. A post that quotes a viewer beautifully and never says which
+   film they watched has failed at the only two jobs it definitely has — and
+   that is what a naive "add while it fits" pass produced (asserted by test,
+   negative-controlled).
+2. **Parts are added in a per-platform order while they fit**, and the one
+   left out is the least valuable, never the most. `facts` (kind, runtime,
+   director) appears only where space is not scarce — and leads on YouTube,
+   where the description is read by search.
+3. **A quotation is cut at a SENTENCE end**, never mid-clause, and a review's
+   attribution is part of the unit: only the quote inside it is shortened,
+   because SOCIAL-PROGRAM allows a viewer's words only "quoted verbatim and
+   attributed to the handle that wrote it".
+
+**The selector was ranking reviews by length, MAXIMISED** — it deliberately
+chose the longest one, which on 300 characters can only be truncated. It now
+prefers, in order: a review carrying a **star rating**, one that starts like a
+sentence, one whose **first sentence** fits (that is what a trim keeps), then
+the longest that fits whole.
+
+Preferring short bodies immediately surfaced a different junk population, and
+two live examples went straight into `test_review_filter.py`: *"Hey, I am
+searching desperately for a copy of the film... Best,"* and *"We'd like
+permission to use a clip of this movie on our television programme."* The
+second passed every existing pattern because they expected "would" rather than
+"we'd", and "email ME" rather than "e-mailed YOU" — so the filter now matches
+the SUBJECT (`permission`, `rights to use`, `looking for a copy`) rather than
+one phrasing of it, and a body that signs off (`Best,` `Thanks,`) is a letter,
+not a review. The star preference is the structural half of the same fix:
+people who write to an uploader leave no rating.
+
+The result, same film, same day:
+
+> "Before watching this film, I had not realised film-making was so advanced
+> by 1918."
+> — terracesider, archive.org
+>
+> Tarzan of the Apes (1918)
+
 ### Caption shape
 
 The material is identical everywhere — SOCIAL-PROGRAM's one rule holds and no

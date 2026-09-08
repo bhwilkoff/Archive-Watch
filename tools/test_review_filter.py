@@ -18,13 +18,15 @@ import pathlib, re, sys
 
 src = pathlib.Path(__file__).with_name("social_select.py").read_text()
 ns: dict = {"re": re}
-for name in ("NOT_A_REVIEW", "HAS_CONTACT"):
+for name in ("NOT_A_REVIEW", "HAS_CONTACT", "SIGN_OFF"):
     m = re.search(rf"^{name} = re\.compile\(\s*(.*?)\)\s*$", src, re.S | re.M)
     if not m:
         print(f"FAIL: {name} not found in social_select.py"); sys.exit(1)
     exec(f"{name} = re.compile({m.group(1)})", ns)
 NOT_A_REVIEW, HAS_CONTACT = ns["NOT_A_REVIEW"], ns["HAS_CONTACT"]
-reject = lambda b: bool(NOT_A_REVIEW.search(b) or HAS_CONTACT.search(b))
+SIGN_OFF = ns["SIGN_OFF"]
+reject = lambda b: bool(NOT_A_REVIEW.search(b) or HAS_CONTACT.search(b)
+                        or SIGN_OFF.search(b))
 
 # Verbatim from the live catalog — the ones that must be refused.
 REJECT = [
@@ -46,6 +48,19 @@ KEEP = [
     "This is all you want from a fantasy movie - the story comes from one of the greatest Russian writers.",
     "Como is very underrated and I have to say I didnt realize how good he was until I watched this.",
     "The print is rough in the second reel but the performances carry it. Worth ninety minutes of anyone's evening.",
+    # "best" INSIDE a sentence is not a sign-off; only a trailing one is.
+    "This is the best print of the film I have seen anywhere, and the score suits it.",
+    "Thanks to the uploader I finally saw this — the chase in reel three is astonishing.",
+]
+
+# Found live once the composer started preferring short bodies: a request for
+# a copy reads as a review to a length test, and a letter sign-off quotes as a
+# dangling fragment.
+REJECT += [
+    "Hey, I am searching desperately for a copy of the film. Do you know where to find one? Best,",
+    "Where can I find a better print of this? The one here is very soft.",
+    "Does anyone know where a restored version might be hiding these days?",
+    "I loved this film and would watch it again any day. Thanks,",
 ]
 
 fails = 0
