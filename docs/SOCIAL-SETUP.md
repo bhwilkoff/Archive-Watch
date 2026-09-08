@@ -114,8 +114,20 @@ plus **business verification**. Review runs 2–4 weeks per submission.
 
 Both also need `SOCIAL_MEDIA_BASE_URL`.
 
-Instagram gets the **portrait** card automatically; it is the frame Instagram
-favours and the code already renders it.
+Instagram posts a **Reel** on days the programme produced a teaser, and the
+**portrait card** on days it did not — both formats from one post a day, rather
+than breaking the one-a-day rule to cover each. The teaser is already
+1080×1920 and about 18 seconds, so it is a Reel by shape; `share_to_feed` puts
+it in the profile grid too, so the grid reads as one body of work.
+
+A Reel is TRANSCODED by Meta, so its container is polled for five minutes
+rather than two, and a container that errors or never finishes falls back to
+the card — a failed Reel costs the format, never the day.
+
+**The token expires.** Instagram long-lived tokens last ~60 days, unlike
+Bluesky's app password, the Mastodon token and the YouTube refresh token, which
+do not expire. Instagram is therefore the one platform that will stop posting
+on its own; refresh it, or expect a "not connected" some weeks in.
 
 ---
 

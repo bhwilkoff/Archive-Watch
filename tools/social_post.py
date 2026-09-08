@@ -399,31 +399,65 @@ def post_threads(spec, text, media_url, live: bool):
     return f"https://www.threads.net/@me/post/{res.get('id')}", None
 
 
-def post_instagram(spec, text, media_url, live: bool):
+def post_instagram(spec, text, media_url, live: bool, video_url: str | None = None):
+    """A REEL when the day produced a teaser, otherwise the portrait card.
+
+    Both formats, which is what the owner asked for, without posting twice a
+    day: the teaser is already 1080x1920 and about 18 seconds, so it is a Reel
+    by shape, and the days with no teaser carry the card instead. `share_to_feed`
+    puts the Reel in the profile grid as well, so the grid reads as one body of
+    work rather than two separate streams.
+
+    Meta FETCHES the media rather than accepting bytes, so both paths need a
+    public URL — that is what SOCIAL_MEDIA_BASE_URL and the rolling
+    `social-cards` release are for.
+    """
     uid = os.environ.get("IG_USER_ID")
     token = os.environ.get("IG_ACCESS_TOKEN")
     if not (uid and token):
         return None, "not connected"
-    if not media_url:
+    if not (video_url or media_url):
         return None, "no public media URL (set SOCIAL_MEDIA_BASE_URL)"
     if not live:
-        return "DRY-RUN", None
+        return ("DRY-RUN (reel)" if video_url else "DRY-RUN (image)"), None
 
     api = "https://graph.facebook.com/v21.0"
-    container = form(f"{api}/{uid}/media",
-                     {"image_url": media_url, "caption": text,
-                      "alt_text": f"Poster for {spec['title']}",
-                      "access_token": token})["id"]
+    if video_url:
+        # alt_text is an IMAGE field; sending it on a REELS container is
+        # rejected. The reach is in the video, so a failed reel falls back to
+        # the card rather than losing the day.
+        fields = {"media_type": "REELS", "video_url": video_url,
+                  "caption": text, "share_to_feed": "true",
+                  "access_token": token}
+    else:
+        fields = {"image_url": media_url, "caption": text,
+                  "alt_text": f"Poster for {spec['title']}",
+                  "access_token": token}
+    container = form(f"{api}/{uid}/media", fields)["id"]
+
     # Poll rather than sleep blind: a container that is not FINISHED publishes
-    # as an error, and the wait is usually a few seconds, not thirty.
-    for _ in range(20):
+    # as an error. An image is ready in seconds; a REEL is transcoded, so it
+    # gets a much longer budget — 5 minutes against 2.
+    tries = 50 if video_url else 20
+    for _ in range(tries):
         time.sleep(6)
         st = http(f"{api}/{container}?fields=status_code&access_token="
                   f"{urllib.parse.quote(token)}")
         if st.get("status_code") == "FINISHED":
             break
         if st.get("status_code") == "ERROR":
+            if video_url and media_url:
+                print("   reel container failed; falling back to the card",
+                      file=sys.stderr)
+                return post_instagram(spec, text, media_url, live)
             raise RuntimeError("Instagram rejected the media container")
+    else:
+        if video_url and media_url:
+            print("   reel still processing; falling back to the card",
+                  file=sys.stderr)
+            return post_instagram(spec, text, media_url, live)
+        raise RuntimeError("Instagram media container never finished")
+
     res = form(f"{api}/{uid}/media_publish",
                {"creation_id": container, "access_token": token})
     return f"https://www.instagram.com/p/{res.get('id')}", None
@@ -634,6 +668,9 @@ def main() -> int:
     media_url = publish_media(card, spec, args.live) if card else None
     media_pt = (publish_media(card_pt, spec, args.live)
                 if card_pt and card_pt != card else media_url)
+    # Meta FETCHES media by URL rather than accepting bytes, so a Reel needs the
+    # teaser published too — the same rolling release the cards use.
+    video_url = publish_media(video, spec, args.live) if video else None
 
     resolve_mastodon_limit()
     now = dt.datetime.now(dt.timezone.utc).isoformat()
@@ -643,7 +680,7 @@ def main() -> int:
         ("bluesky", lambda t: post_bluesky(spec, t, card, args.live, video)),
         ("mastodon", lambda t: post_mastodon(spec, t, card, args.live, video)),
         ("threads", lambda t: post_threads(spec, t, media_url, args.live)),
-        ("instagram", lambda t: post_instagram(spec, t, media_pt, args.live)),
+        ("instagram", lambda t: post_instagram(spec, t, media_pt, args.live, video_url)),
         ("facebook", lambda t: post_facebook(spec, t, media_url, card, args.live)),
         ("youtube", lambda t: post_youtube(spec, t, video, args.live)),
     ]
