@@ -6,8 +6,8 @@
    "state": "READY_FOR_SALE",
    "version": "1.42.5",
    "live": "1.42.5",
-   "repoVersion": "1.42.5",
-   "repoBuild": "1017",
+   "repoVersion": "1.42.6",
+   "repoBuild": "1018",
    "url": "https://appstoreconnect.apple.com/apps/6776697407/distribution"
   },
   {
@@ -16,8 +16,8 @@
    "state": "READY_FOR_SALE",
    "version": "1.42.5",
    "live": "1.42.5",
-   "repoVersion": "1.42.5",
-   "repoBuild": "1017",
+   "repoVersion": "1.42.6",
+   "repoBuild": "1018",
    "url": "https://appstoreconnect.apple.com/apps/6776697407/distribution"
   },
   {
@@ -26,8 +26,8 @@
    "state": "READY_FOR_SALE",
    "version": "1.42.5",
    "live": "1.42.5",
-   "repoVersion": "1.42.5",
-   "repoBuild": "1017",
+   "repoVersion": "1.42.6",
+   "repoBuild": "1018",
    "url": "https://appstoreconnect.apple.com/apps/6776697407/distribution"
   },
   {
@@ -229,7 +229,7 @@
     "replies": null,
     "views": null,
     "window": null,
-    "live": null
+    "live": true
    },
    {
     "at": "2026-09-09T01:06:49.909962+00:00",
@@ -319,7 +319,7 @@
     "replies": 0,
     "views": null,
     "window": "24h",
-    "live": null
+    "live": true
    },
    {
     "at": "2026-09-08T17:08:21.938394+00:00",
@@ -349,7 +349,7 @@
     "replies": null,
     "views": null,
     "window": null,
-    "live": null
+    "live": false
    },
    {
     "at": "2026-09-08T16:03:58.502533+00:00",
@@ -377,7 +377,7 @@
     "measured": 1
    },
    "mastodon": {
-    "posts": 3,
+    "posts": 2,
     "likes": 0,
     "replies": 0,
     "reposts": 1,
@@ -409,10 +409,27 @@
     "measured": 0
    }
   },
-  "totalPosts": 9,
+  "totalPosts": 8,
   "measured": 2,
-  "deleted": 2,
-  "unverified": 6
+  "reach": {
+   "bluesky": {
+    "followers": 1,
+    "posts": 3
+   },
+   "mastodon": {
+    "followers": 0,
+    "posts": 2
+   },
+   "instagram": {
+    "followers": 0,
+    "posts": 4
+   },
+   "youtube": {
+    "error": "the poster's token is youtube.upload only, by design — stats need youtube.readonly"
+   }
+  },
+  "deleted": 3,
+  "unverified": 3
  },
  "health": {
   "applePerf": {
@@ -1003,150 +1020,152 @@
   "apple_stores": {
    "ok": true,
    "note": "3 Apple platform(s)",
-   "at": "2026-09-09T19:13:18+00:00"
+   "at": "2026-09-09T19:38:38+00:00"
   },
   "apple_reviews": {
    "ok": true,
    "note": "4 review(s)",
-   "at": "2026-09-09T19:13:18+00:00"
+   "at": "2026-09-09T19:38:39+00:00"
   },
   "apple_rating": {
    "ok": true,
    "note": "4.4 from 5",
-   "at": "2026-09-09T19:13:19+00:00"
+   "at": "2026-09-09T19:38:39+00:00"
   },
   "apple_performance": {
    "ok": true,
    "note": "Apple has not aggregated enough device data yet",
-   "at": "2026-09-09T19:13:19+00:00"
+   "at": "2026-09-09T19:38:39+00:00"
   },
   "apple_downloads": {
-   "ok": false,
-   "note": "the API key in use has no Sales and Reports access, and a key cannot be widened after it is created — generate one with the Sales and Reports role and set ASC_REPORTS_KEY_ID / ASC_REPORTS_KEY_P8 (see ",
-   "at": "2026-09-09T19:16:49+00:00"
+   "ok": true,
+   "note": "334 first-time download(s) over 14 day(s)",
+   "at": "2026-09-09T19:38:49+00:00"
   },
   "play_stores": {
    "ok": true,
    "note": "3 track(s)",
-   "at": "2026-09-09T19:13:31+00:00"
+   "at": "2026-09-09T19:38:51+00:00"
   },
   "play_reviews": {
    "ok": true,
    "note": "0 review(s) in Play's 7-day window",
-   "at": "2026-09-09T19:13:31+00:00"
+   "at": "2026-09-09T19:38:51+00:00"
   },
   "play_rating": {
    "ok": false,
    "note": "Play listing carries no rating yet",
-   "at": "2026-09-09T19:13:31+00:00"
+   "at": "2026-09-09T19:38:51+00:00"
   },
   "play_vitals": {
    "ok": true,
    "note": "crashRate: too few users for Play to publish a rate; anrRate: too few users for Play to publish a rate",
-   "at": "2026-09-09T19:13:33+00:00"
+   "at": "2026-09-09T19:38:56+00:00"
   },
   "play_crashes": {
    "ok": true,
    "note": "12 cluster(s), 1 still on build 54",
-   "at": "2026-09-09T19:19:17+00:00"
+   "at": "2026-09-09T19:39:17+00:00"
   },
   "play_users": {
    "ok": true,
    "note": "every dimension query was accepted and returned nothing — Play withholds per-user figures below a minimum audience",
-   "at": "2026-09-09T19:14:00+00:00"
+   "at": "2026-09-09T19:39:22+00:00"
   },
   "play_reports": {
-   "ok": true,
-   "note": "584 install(s) over 28 day(s), 7 report(s), via gcloud",
-   "at": "2026-09-09T19:19:55+00:00"
+   "ok": false,
+   "note": "no reports readable in gs://pubsite_prod_rev_09780217745051329641 — a Console grant can take hours to reach the bucket's ACLs",
+   "at": "2026-09-09T19:39:57+00:00"
   },
   "manual_stores": {
    "ok": true,
    "note": "5 declared store(s)",
-   "at": "2026-09-09T19:14:33+00:00"
+   "at": "2026-09-09T19:39:57+00:00"
   },
   "social_programme": {
    "ok": true,
    "note": "11 post(s) across 5 platform(s), 2 measured",
-   "at": "2026-09-09T19:31:39+00:00"
+   "at": "2026-09-09T19:39:57+00:00"
   },
   "social_reach": {
    "ok": true,
    "note": "bluesky=1, mastodon=0, instagram=0",
-   "at": "2026-09-09T19:14:34+00:00"
+   "at": "2026-09-09T19:39:58+00:00"
   },
   "social_replies": {
    "ok": true,
    "note": "0 reply/mention notification(s)",
-   "at": "2026-09-09T19:14:35+00:00"
+   "at": "2026-09-09T19:39:59+00:00"
   },
   "social_liveness": {
    "ok": true,
-   "note": "3 live, 2 deleted, 6 could not be checked",
-   "at": "2026-09-09T19:31:40+00:00"
+   "note": "5 live, 3 deleted, 3 could not be checked",
+   "at": "2026-09-09T19:40:01+00:00"
   },
   "youtube_channel": {
    "ok": true,
    "note": "stats need youtube.readonly (the token is upload-only, by design), 0 comment(s)",
-   "at": "2026-09-09T19:14:39+00:00"
+   "at": "2026-09-09T19:40:01+00:00"
   },
   "mentions_reddit": {
    "ok": true,
    "note": "0 kept",
-   "at": "2026-09-09T19:14:39+00:00"
+   "at": "2026-09-09T19:40:02+00:00"
   },
   "mentions_hn": {
    "ok": true,
    "note": "0 kept of 0",
-   "at": "2026-09-09T19:14:40+00:00"
+   "at": "2026-09-09T19:40:02+00:00"
   },
   "mentions_lemmy": {
    "ok": true,
    "note": "0 kept",
-   "at": "2026-09-09T19:14:42+00:00"
+   "at": "2026-09-09T19:40:04+00:00"
   },
   "mentions_news": {
    "ok": true,
    "note": "0 kept",
-   "at": "2026-09-09T19:14:43+00:00"
+   "at": "2026-09-09T19:40:04+00:00"
   },
   "mentions_bluesky": {
    "ok": true,
    "note": "1 kept",
-   "at": "2026-09-09T19:14:43+00:00"
+   "at": "2026-09-09T19:40:10+00:00"
   },
   "mentions_mastodon": {
    "ok": true,
    "note": "1 kept",
-   "at": "2026-09-09T19:14:47+00:00"
+   "at": "2026-09-09T19:40:11+00:00"
   },
   "github": {
    "ok": true,
    "note": "0 star(s), 0 open issue(s), 0 from outside",
-   "at": "2026-09-09T19:14:49+00:00"
+   "at": "2026-09-09T19:40:12+00:00"
   },
   "workflows": {
    "ok": true,
    "note": "0 finding(s), 0 urgent",
-   "at": "2026-09-09T19:16:00+00:00"
+   "at": "2026-09-09T19:41:20+00:00"
   },
   "catalog": {
    "ok": true,
    "note": "26711 items, schema 12",
-   "at": "2026-09-09T19:16:01+00:00"
+   "at": "2026-09-09T19:41:20+00:00"
   },
   "distribution": {
    "ok": true,
    "note": "App Store: 4 rated",
-   "at": "2026-09-09T19:16:01+00:00"
+   "at": "2026-09-09T19:41:20+00:00"
   },
   "asks": {
    "ok": true,
    "note": "0 request(s), 3 bit(s) of praise",
-   "at": "2026-09-09T19:16:01+00:00"
+   "at": "2026-09-09T19:41:20+00:00"
   }
  },
- "stale": {},
+ "stale": {
+  "playInstalls": "2026-09-09T19:31:40+00:00"
+ },
  "history": [
   {
    "date": "2026-09-09",
@@ -1156,17 +1175,17 @@
    "playRatings": null,
    "reviews": 4,
    "mentions": 2,
-   "posts": 9,
+   "posts": 8,
    "likes": 0,
-   "followers": 0,
+   "followers": 1,
    "stars": 0,
    "views14d": null,
    "catalogItems": 26711,
    "urgent": 0
   }
  ],
- "generatedAt": "2026-09-09T19:31:40+00:00",
- "repoVersion": "1.42.5",
- "repoBuild": "1017",
+ "generatedAt": "2026-09-09T19:41:20+00:00",
+ "repoVersion": "1.42.6",
+ "repoBuild": "1018",
  "_": "Written by tools/pulse_collect.py. `history` is the series and is append-only per day; everything else is the latest reading. A source that could not answer says so in `sources` — never assume a zero."
 }
