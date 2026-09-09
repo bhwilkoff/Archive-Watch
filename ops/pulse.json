@@ -213,7 +213,8 @@
     "reposts": null,
     "replies": null,
     "views": null,
-    "window": null
+    "window": null,
+    "live": true
    },
    {
     "at": "2026-09-09T18:26:27.740889+00:00",
@@ -227,7 +228,8 @@
     "reposts": null,
     "replies": null,
     "views": null,
-    "window": null
+    "window": null,
+    "live": true
    },
    {
     "at": "2026-09-09T01:06:49.909962+00:00",
@@ -241,7 +243,8 @@
     "reposts": null,
     "replies": null,
     "views": null,
-    "window": null
+    "window": null,
+    "live": true
    },
    {
     "at": "2026-09-08T18:12:10.318384+00:00",
@@ -255,7 +258,8 @@
     "reposts": null,
     "replies": null,
     "views": null,
-    "window": null
+    "window": null,
+    "live": null
    },
    {
     "at": "2026-09-08T18:12:10.318384+00:00",
@@ -269,7 +273,8 @@
     "reposts": null,
     "replies": null,
     "views": null,
-    "window": null
+    "window": null,
+    "live": null
    },
    {
     "at": "2026-09-08T18:12:10.318384+00:00",
@@ -283,7 +288,8 @@
     "reposts": null,
     "replies": null,
     "views": null,
-    "window": null
+    "window": null,
+    "live": null
    },
    {
     "at": "2026-09-08T18:02:20.932858+00:00",
@@ -297,7 +303,8 @@
     "reposts": 0,
     "replies": 0,
     "views": null,
-    "window": "24h"
+    "window": "24h",
+    "live": true
    },
    {
     "at": "2026-09-08T18:02:20.932858+00:00",
@@ -311,7 +318,8 @@
     "reposts": 1,
     "replies": 0,
     "views": null,
-    "window": "24h"
+    "window": "24h",
+    "live": true
    },
    {
     "at": "2026-09-08T17:08:21.938394+00:00",
@@ -325,7 +333,8 @@
     "reposts": null,
     "replies": null,
     "views": null,
-    "window": null
+    "window": null,
+    "live": false
    },
    {
     "at": "2026-09-08T17:08:21.938394+00:00",
@@ -339,7 +348,8 @@
     "reposts": null,
     "replies": null,
     "views": null,
-    "window": null
+    "window": null,
+    "live": false
    },
    {
     "at": "2026-09-08T16:03:58.502533+00:00",
@@ -353,12 +363,13 @@
     "reposts": null,
     "replies": null,
     "views": null,
-    "window": null
+    "window": null,
+    "live": false
    }
   ],
   "byPlatform": {
    "bluesky": {
-    "posts": 5,
+    "posts": 3,
     "likes": 0,
     "replies": 0,
     "reposts": 0,
@@ -366,7 +377,7 @@
     "measured": 1
    },
    "mastodon": {
-    "posts": 3,
+    "posts": 2,
     "likes": 0,
     "replies": 0,
     "reposts": 1,
@@ -398,8 +409,27 @@
     "measured": 0
    }
   },
-  "totalPosts": 11,
-  "measured": 2
+  "totalPosts": 8,
+  "measured": 2,
+  "reach": {
+   "bluesky": {
+    "followers": 1,
+    "posts": 3
+   },
+   "mastodon": {
+    "followers": 0,
+    "posts": 2
+   },
+   "instagram": {
+    "followers": 0,
+    "posts": 4
+   },
+   "youtube": {
+    "error": "the poster's token is youtube.upload only, by design — stats need youtube.readonly"
+   }
+  },
+  "deleted": 3,
+  "unverified": 3
  },
  "health": {
   "applePerf": {
@@ -1014,6 +1044,21 @@
    "withBif": 16487,
    "builtAt": null
   },
+  "webUsage": {
+   "daily": [
+    {
+     "date": "2026-09-09",
+     "views": 6
+    }
+   ],
+   "views28d": 6,
+   "views7d": 6,
+   "byPath": {
+    "/": 5,
+    "/item": 1
+   },
+   "since": "2026-06-11"
+  },
   "playInstalls": {
    "asOf": "2026-08-21",
    "daily": [
@@ -1306,555 +1351,6 @@
     "en_ZA": 8
    },
    "readVia": "gcloud"
-  },
-  "playDaily": {
-   "ratings": [
-    {
-     "date": "2026-08-18",
-     "daily": 2.0,
-     "total": 2.0
-    },
-    {
-     "date": "2026-08-19",
-     "daily": 1.0,
-     "total": 1.5
-    },
-    {
-     "date": "2026-08-20",
-     "daily": 0.0,
-     "total": 1.5
-    },
-    {
-     "date": "2026-08-21",
-     "daily": 0.0,
-     "total": 1.5
-    },
-    {
-     "date": "2026-08-22",
-     "daily": 0.0,
-     "total": 1.5
-    },
-    {
-     "date": "2026-08-23",
-     "daily": 0.0,
-     "total": 1.5
-    },
-    {
-     "date": "2026-08-24",
-     "daily": 0.0,
-     "total": 1.5
-    },
-    {
-     "date": "2026-08-25",
-     "daily": 0.0,
-     "total": 1.3333
-    },
-    {
-     "date": "2026-08-26",
-     "daily": 0.0,
-     "total": 1.5
-    },
-    {
-     "date": "2026-08-27",
-     "daily": 5.0,
-     "total": 2.6666
-    },
-    {
-     "date": "2026-08-28",
-     "daily": 0.0,
-     "total": 2.25
-    },
-    {
-     "date": "2026-08-29",
-     "daily": 0.0,
-     "total": 2.25
-    },
-    {
-     "date": "2026-08-30",
-     "daily": 0.0,
-     "total": 5.0
-    },
-    {
-     "date": "2026-08-31",
-     "daily": 0.0,
-     "total": 2.25
-    },
-    {
-     "date": "2026-09-01",
-     "daily": 0.0,
-     "total": 2.25
-    },
-    {
-     "date": "2026-09-02",
-     "daily": 0.0,
-     "total": 5.0
-    }
-   ],
-   "crashes": [
-    {
-     "date": "2026-07-08",
-     "crashes": 1,
-     "anrs": 0
-    },
-    {
-     "date": "2026-07-10",
-     "crashes": 1,
-     "anrs": 0
-    },
-    {
-     "date": "2026-07-13",
-     "crashes": 1,
-     "anrs": 0
-    },
-    {
-     "date": "2026-07-15",
-     "crashes": 4,
-     "anrs": 0
-    },
-    {
-     "date": "2026-07-17",
-     "crashes": 2,
-     "anrs": 0
-    },
-    {
-     "date": "2026-07-20",
-     "crashes": 1,
-     "anrs": 0
-    },
-    {
-     "date": "2026-07-21",
-     "crashes": 2,
-     "anrs": 0
-    },
-    {
-     "date": "2026-07-23",
-     "crashes": 2,
-     "anrs": 0
-    },
-    {
-     "date": "2026-07-29",
-     "crashes": 3,
-     "anrs": 0
-    },
-    {
-     "date": "2026-07-30",
-     "crashes": 5,
-     "anrs": 0
-    },
-    {
-     "date": "2026-07-31",
-     "crashes": 6,
-     "anrs": 0
-    },
-    {
-     "date": "2026-08-01",
-     "crashes": 5,
-     "anrs": 0
-    },
-    {
-     "date": "2026-08-02",
-     "crashes": 3,
-     "anrs": 0
-    },
-    {
-     "date": "2026-08-03",
-     "crashes": 7,
-     "anrs": 0
-    },
-    {
-     "date": "2026-08-04",
-     "crashes": 6,
-     "anrs": 0
-    },
-    {
-     "date": "2026-08-05",
-     "crashes": 1,
-     "anrs": 0
-    },
-    {
-     "date": "2026-08-06",
-     "crashes": 1,
-     "anrs": 0
-    },
-    {
-     "date": "2026-08-07",
-     "crashes": 1,
-     "anrs": 0
-    },
-    {
-     "date": "2026-08-08",
-     "crashes": 5,
-     "anrs": 0
-    },
-    {
-     "date": "2026-08-09",
-     "crashes": 5,
-     "anrs": 0
-    },
-    {
-     "date": "2026-08-10",
-     "crashes": 1,
-     "anrs": 0
-    },
-    {
-     "date": "2026-08-13",
-     "crashes": 2,
-     "anrs": 1
-    },
-    {
-     "date": "2026-08-17",
-     "crashes": 1,
-     "anrs": 0
-    },
-    {
-     "date": "2026-09-01",
-     "crashes": 4,
-     "anrs": 0
-    },
-    {
-     "date": "2026-09-03",
-     "crashes": 0,
-     "anrs": 2
-    },
-    {
-     "date": "2026-09-04",
-     "crashes": 1,
-     "anrs": 1
-    },
-    {
-     "date": "2026-09-05",
-     "crashes": 2,
-     "anrs": 0
-    },
-    {
-     "date": "2026-09-06",
-     "crashes": 0,
-     "anrs": 1
-    },
-    {
-     "date": "2026-09-07",
-     "crashes": 1,
-     "anrs": 0
-    }
-   ],
-   "asOf": "2026-09-07"
-  },
-  "playAcquisition": {
-   "daily": [
-    {
-     "date": "2026-07-06",
-     "acquisitions": 1,
-     "visitors": 4
-    },
-    {
-     "date": "2026-07-07",
-     "acquisitions": 2,
-     "visitors": 3
-    },
-    {
-     "date": "2026-07-08",
-     "acquisitions": 1,
-     "visitors": 4
-    },
-    {
-     "date": "2026-07-09",
-     "acquisitions": 0,
-     "visitors": 2
-    },
-    {
-     "date": "2026-07-10",
-     "acquisitions": 3,
-     "visitors": 7
-    },
-    {
-     "date": "2026-07-11",
-     "acquisitions": 2,
-     "visitors": 7
-    },
-    {
-     "date": "2026-07-12",
-     "acquisitions": 0,
-     "visitors": 5
-    },
-    {
-     "date": "2026-07-13",
-     "acquisitions": 1,
-     "visitors": 3
-    },
-    {
-     "date": "2026-07-14",
-     "acquisitions": 0,
-     "visitors": 4
-    },
-    {
-     "date": "2026-07-15",
-     "acquisitions": 2,
-     "visitors": 3
-    },
-    {
-     "date": "2026-07-16",
-     "acquisitions": 1,
-     "visitors": 5
-    },
-    {
-     "date": "2026-07-17",
-     "acquisitions": 3,
-     "visitors": 9
-    },
-    {
-     "date": "2026-07-18",
-     "acquisitions": 2,
-     "visitors": 6
-    },
-    {
-     "date": "2026-07-19",
-     "acquisitions": 1,
-     "visitors": 5
-    },
-    {
-     "date": "2026-07-20",
-     "acquisitions": 2,
-     "visitors": 6
-    },
-    {
-     "date": "2026-07-21",
-     "acquisitions": 1,
-     "visitors": 5
-    },
-    {
-     "date": "2026-07-22",
-     "acquisitions": 6,
-     "visitors": 11
-    },
-    {
-     "date": "2026-07-23",
-     "acquisitions": 3,
-     "visitors": 9
-    },
-    {
-     "date": "2026-07-24",
-     "acquisitions": 1,
-     "visitors": 6
-    },
-    {
-     "date": "2026-07-25",
-     "acquisitions": 1,
-     "visitors": 3
-    },
-    {
-     "date": "2026-07-26",
-     "acquisitions": 4,
-     "visitors": 6
-    },
-    {
-     "date": "2026-07-27",
-     "acquisitions": 3,
-     "visitors": 6
-    },
-    {
-     "date": "2026-07-28",
-     "acquisitions": 1,
-     "visitors": 7
-    },
-    {
-     "date": "2026-07-29",
-     "acquisitions": 23,
-     "visitors": 44
-    },
-    {
-     "date": "2026-07-30",
-     "acquisitions": 82,
-     "visitors": 133
-    },
-    {
-     "date": "2026-07-31",
-     "acquisitions": 35,
-     "visitors": 78
-    },
-    {
-     "date": "2026-08-01",
-     "acquisitions": 29,
-     "visitors": 64
-    },
-    {
-     "date": "2026-08-02",
-     "acquisitions": 25,
-     "visitors": 62
-    },
-    {
-     "date": "2026-08-03",
-     "acquisitions": 26,
-     "visitors": 67
-    },
-    {
-     "date": "2026-08-04",
-     "acquisitions": 22,
-     "visitors": 66
-    },
-    {
-     "date": "2026-08-05",
-     "acquisitions": 13,
-     "visitors": 42
-    },
-    {
-     "date": "2026-08-06",
-     "acquisitions": 9,
-     "visitors": 27
-    },
-    {
-     "date": "2026-08-07",
-     "acquisitions": 12,
-     "visitors": 29
-    },
-    {
-     "date": "2026-08-08",
-     "acquisitions": 12,
-     "visitors": 33
-    },
-    {
-     "date": "2026-08-09",
-     "acquisitions": 12,
-     "visitors": 31
-    },
-    {
-     "date": "2026-08-10",
-     "acquisitions": 22,
-     "visitors": 35
-    },
-    {
-     "date": "2026-08-11",
-     "acquisitions": 15,
-     "visitors": 25
-    },
-    {
-     "date": "2026-08-12",
-     "acquisitions": 12,
-     "visitors": 22
-    },
-    {
-     "date": "2026-08-13",
-     "acquisitions": 7,
-     "visitors": 23
-    },
-    {
-     "date": "2026-08-14",
-     "acquisitions": 6,
-     "visitors": 22
-    },
-    {
-     "date": "2026-08-15",
-     "acquisitions": 11,
-     "visitors": 26
-    },
-    {
-     "date": "2026-08-16",
-     "acquisitions": 18,
-     "visitors": 34
-    },
-    {
-     "date": "2026-08-17",
-     "acquisitions": 19,
-     "visitors": 28
-    },
-    {
-     "date": "2026-08-18",
-     "acquisitions": 15,
-     "visitors": 32
-    },
-    {
-     "date": "2026-08-19",
-     "acquisitions": 10,
-     "visitors": 35
-    },
-    {
-     "date": "2026-08-20",
-     "acquisitions": 29,
-     "visitors": 58
-    },
-    {
-     "date": "2026-08-21",
-     "acquisitions": 23,
-     "visitors": 54
-    },
-    {
-     "date": "2026-08-22",
-     "acquisitions": 19,
-     "visitors": 59
-    },
-    {
-     "date": "2026-08-23",
-     "acquisitions": 34,
-     "visitors": 79
-    },
-    {
-     "date": "2026-08-24",
-     "acquisitions": 14,
-     "visitors": 51
-    },
-    {
-     "date": "2026-08-25",
-     "acquisitions": 24,
-     "visitors": 58
-    },
-    {
-     "date": "2026-08-26",
-     "acquisitions": 26,
-     "visitors": 68
-    },
-    {
-     "date": "2026-08-27",
-     "acquisitions": 31,
-     "visitors": 67
-    },
-    {
-     "date": "2026-08-28",
-     "acquisitions": 17,
-     "visitors": 53
-    },
-    {
-     "date": "2026-08-29",
-     "acquisitions": 33,
-     "visitors": 71
-    },
-    {
-     "date": "2026-08-30",
-     "acquisitions": 18,
-     "visitors": 68
-    },
-    {
-     "date": "2026-08-31",
-     "acquisitions": 22,
-     "visitors": 59
-    },
-    {
-     "date": "2026-09-01",
-     "acquisitions": 18,
-     "visitors": 54
-    },
-    {
-     "date": "2026-09-02",
-     "acquisitions": 29,
-     "visitors": 70
-    },
-    {
-     "date": "2026-09-03",
-     "acquisitions": 23,
-     "visitors": 59
-    }
-   ],
-   "asOf": "2026-09-03",
-   "acquisitions28d": 531,
-   "visitors28d": 1303,
-   "conversion28d": 0.4075,
-   "byCountry": {
-    "Other": 793,
-    "US": 51
-   },
-   "bySource": {
-    "Other": 738,
-    "Ads and referrals": 65,
-    "Google Play explore": 41
-   }
   }
  },
  "github": {
@@ -1898,160 +1394,167 @@
   "apple_stores": {
    "ok": true,
    "note": "3 Apple platform(s)",
-   "at": "2026-09-09T22:51:45+00:00"
+   "at": "2026-09-09T23:49:21+00:00"
   },
   "apple_reviews": {
    "ok": true,
    "note": "4 review(s)",
-   "at": "2026-09-09T20:54:09+00:00"
+   "at": "2026-09-09T23:49:21+00:00"
   },
   "apple_rating": {
    "ok": true,
    "note": "4.4 from 5",
-   "at": "2026-09-09T20:54:10+00:00"
+   "at": "2026-09-09T23:49:21+00:00"
   },
   "apple_performance": {
    "ok": true,
    "note": "Apple has not aggregated enough device data yet",
-   "at": "2026-09-09T20:54:10+00:00"
+   "at": "2026-09-09T23:49:22+00:00"
   },
   "apple_downloads": {
    "ok": true,
    "note": "589 first-time download(s) over 31 day(s), 4 device type(s), 92 country/countries",
-   "at": "2026-09-09T23:04:10+00:00"
+   "at": "2026-09-09T23:49:44+00:00"
   },
   "play_stores": {
    "ok": true,
    "note": "3 track(s)",
-   "at": "2026-09-09T22:52:07+00:00"
+   "at": "2026-09-09T23:49:45+00:00"
   },
   "play_reviews": {
    "ok": true,
    "note": "0 review(s) in Play's 7-day window",
-   "at": "2026-09-09T20:54:21+00:00"
+   "at": "2026-09-09T23:49:46+00:00"
   },
   "play_rating": {
    "ok": false,
    "note": "Play listing carries no rating yet",
-   "at": "2026-09-09T20:54:21+00:00"
+   "at": "2026-09-09T23:49:46+00:00"
   },
   "play_vitals": {
    "ok": true,
    "note": "crashRate: too few users for Play to publish a rate; anrRate: too few users for Play to publish a rate",
-   "at": "2026-09-09T20:54:25+00:00"
+   "at": "2026-09-09T23:49:47+00:00"
   },
   "play_crashes": {
    "ok": true,
    "note": "12 cluster(s), 0 still on build 56",
-   "at": "2026-09-09T22:52:32+00:00"
+   "at": "2026-09-09T23:50:07+00:00"
   },
   "play_users": {
    "ok": true,
    "note": "every dimension query was accepted and returned nothing — Play withholds per-user figures below a minimum audience",
-   "at": "2026-09-09T20:54:58+00:00"
+   "at": "2026-09-09T23:50:12+00:00"
   },
   "play_reports": {
-   "ok": true,
-   "note": "584 install(s) over 28 day(s), 7 report(s), via gcloud",
-   "at": "2026-09-09T23:43:43+00:00"
+   "ok": false,
+   "note": "no reports readable in gs://pubsite_prod_rev_09780217745051329641 — a Console grant can take hours to reach the bucket's ACLs",
+   "at": "2026-09-09T23:50:51+00:00"
+  },
+  "play_daily_exports": {
+   "ok": false,
+   "note": "no ratings or crashes exports readable",
+   "at": "2026-09-09T23:50:56+00:00"
+  },
+  "play_acquisition": {
+   "ok": false,
+   "note": "no store-performance reports readable",
+   "at": "2026-09-09T23:51:07+00:00"
   },
   "manual_stores": {
    "ok": true,
    "note": "5 declared store(s)",
-   "at": "2026-09-09T22:53:11+00:00"
+   "at": "2026-09-09T23:51:07+00:00"
   },
   "social_programme": {
    "ok": true,
    "note": "11 post(s) across 5 platform(s), 2 measured",
-   "at": "2026-09-09T22:53:11+00:00"
+   "at": "2026-09-09T23:51:07+00:00"
   },
   "social_reach": {
    "ok": true,
    "note": "bluesky=1, mastodon=0, instagram=0",
-   "at": "2026-09-09T20:55:36+00:00"
+   "at": "2026-09-09T23:51:08+00:00"
   },
   "social_replies": {
    "ok": true,
    "note": "0 reply/mention notification(s)",
-   "at": "2026-09-09T20:55:37+00:00"
+   "at": "2026-09-09T23:51:08+00:00"
   },
   "social_liveness": {
    "ok": true,
    "note": "5 live, 3 deleted, 3 could not be checked",
-   "at": "2026-09-09T20:55:40+00:00"
+   "at": "2026-09-09T23:51:09+00:00"
   },
   "youtube_channel": {
    "ok": true,
    "note": "stats need youtube.readonly (the token is upload-only, by design), 0 comment(s)",
-   "at": "2026-09-09T20:55:40+00:00"
+   "at": "2026-09-09T23:51:09+00:00"
   },
   "mentions_reddit": {
    "ok": true,
    "note": "0 kept",
-   "at": "2026-09-09T20:55:41+00:00"
+   "at": "2026-09-09T23:51:10+00:00"
   },
   "mentions_hn": {
    "ok": true,
    "note": "0 kept of 0",
-   "at": "2026-09-09T20:55:41+00:00"
+   "at": "2026-09-09T23:51:10+00:00"
   },
   "mentions_lemmy": {
    "ok": true,
    "note": "0 kept",
-   "at": "2026-09-09T20:55:43+00:00"
+   "at": "2026-09-09T23:51:12+00:00"
   },
   "mentions_news": {
    "ok": true,
    "note": "0 kept",
-   "at": "2026-09-09T20:55:43+00:00"
+   "at": "2026-09-09T23:51:12+00:00"
   },
   "mentions_bluesky": {
    "ok": true,
    "note": "1 kept",
-   "at": "2026-09-09T20:55:45+00:00"
+   "at": "2026-09-09T23:51:13+00:00"
   },
   "mentions_mastodon": {
    "ok": true,
    "note": "1 kept",
-   "at": "2026-09-09T20:55:47+00:00"
+   "at": "2026-09-09T23:51:14+00:00"
   },
   "github": {
    "ok": true,
    "note": "0 star(s), 0 open issue(s), 0 from outside",
-   "at": "2026-09-09T20:55:49+00:00"
+   "at": "2026-09-09T23:51:16+00:00"
   },
   "workflows": {
    "ok": true,
    "note": "0 finding(s), 0 urgent",
-   "at": "2026-09-09T20:57:21+00:00"
+   "at": "2026-09-09T23:52:25+00:00"
   },
   "catalog": {
    "ok": true,
    "note": "26711 items, schema 12",
-   "at": "2026-09-09T22:53:12+00:00"
+   "at": "2026-09-09T23:52:26+00:00"
+  },
+  "web_usage": {
+   "ok": true,
+   "note": "6 view(s) over 1 day(s), 2 page kind(s)",
+   "at": "2026-09-09T23:52:26+00:00"
   },
   "distribution": {
    "ok": true,
    "note": "App Store: 4 rated",
-   "at": "2026-09-09T20:57:22+00:00"
+   "at": "2026-09-09T23:52:26+00:00"
   },
   "asks": {
    "ok": true,
    "note": "0 request(s), 3 bit(s) of praise",
-   "at": "2026-09-09T20:57:22+00:00"
-  },
-  "play_daily_exports": {
-   "ok": true,
-   "note": "ratings: 16 day(s) to 2026-09-02, crashes: 29 day(s) to 2026-09-07",
-   "at": "2026-09-09T23:43:52+00:00"
-  },
-  "play_acquisition": {
-   "ok": true,
-   "note": "531 acquisition(s) from 1303 visitor(s) to 2026-09-03, 41% conversion",
-   "at": "2026-09-09T23:46:15+00:00"
+   "at": "2026-09-09T23:52:26+00:00"
   }
  },
- "stale": {},
+ "stale": {
+  "playInstalls": "2026-09-09T23:46:15+00:00"
+ },
  "history": [
   {
    "date": "2026-09-09",
@@ -2061,16 +1564,16 @@
    "playRatings": null,
    "reviews": 4,
    "mentions": 2,
-   "posts": 11,
+   "posts": 8,
    "likes": 0,
-   "followers": 0,
+   "followers": 1,
    "stars": 0,
    "views14d": null,
    "catalogItems": 26711,
    "urgent": 0
   }
  ],
- "generatedAt": "2026-09-09T23:46:15+00:00",
+ "generatedAt": "2026-09-09T23:52:26+00:00",
  "repoVersion": "1.42.7",
  "repoBuild": "1019",
  "_": "Written by tools/pulse_collect.py. `history` is the series and is append-only per day; everything else is the latest reading. A source that could not answer says so in `sources` — never assume a zero."
