@@ -626,7 +626,15 @@ def play_reports(state):
         return dict(sorted(agg.items(), key=lambda kv: -kv[1])[:12])
 
     recent = daily[-28:]
+    # The install export is the ONE thing in this bucket that can silently go
+    # stale: there is no installs metric in ANY version of the Reporting API
+    # (v1beta1 and v1alpha1 both expose 25 methods, all vitals), so this CSV is
+    # the only route — the same one every third-party analytics service uses.
+    # On 2026-09-09 it had not been written since 26 August while `ratings` in
+    # the same bucket was written that morning, so 584 installs was a figure
+    # from a fortnight ago wearing today's date. Carry the as-of date.
     state["health"]["playInstalls"] = {
+        "asOf": recent[-1]["date"] if recent else None,
         "daily": recent,
         "installs28d": sum(r["installs"] for r in recent),
         "uninstalls28d": sum(r["uninstalls"] for r in recent),
@@ -640,6 +648,149 @@ def play_reports(state):
     }
     return (f"{sum(r['installs'] for r in recent)} install(s) over {len(recent)} day(s), "
             f"{len(got)} report(s), via {', '.join(sorted(how))}")
+
+
+def play_daily_exports(state):
+    """The Play exports that are still being written — crashes and ratings.
+
+    Worth its own reader because it is the control that proved the install
+    export is broken rather than merely slow: same bucket, same account, and
+    `ratings` was written this morning while `installs` had not been touched in
+    a fortnight. It also fills a gap the APIs cannot: `androidpublisher` serves
+    a 7-day review window and the Play listing publishes no rating below a
+    minimum audience, but this CSV carries the running average anyway."""
+    bucket = os.environ.get("PLAY_REPORTS_BUCKET", "").strip().replace("gs://", "").strip("/").split("/")[0]
+    if not bucket:
+        raise RuntimeError("set PLAY_REPORTS_BUCKET")
+    today_ = dt.date.today()
+    months, m = [], today_.replace(day=1)
+    for _ in range(3):
+        months.append(m.strftime("%Y%m"))
+        m = (m - dt.timedelta(days=1)).replace(day=1)
+
+    def num(v, cast=float):
+        try:
+            return cast(v)
+        except (TypeError, ValueError):
+            return None
+
+    got = {}
+    for kind, folder in (("ratings", "ratings"), ("crashes", "crashes")):
+        rows = []
+        for ym in months:
+            raw, _ = _gcs_bytes(bucket, f"stats/{folder}/{kind}_{PLAY_PACKAGE}_{ym}_overview.csv")
+            if not raw:
+                continue
+            try:
+                rows.extend(_play_csv(raw))
+            except Exception:                        # noqa: BLE001
+                continue
+        if rows:
+            got[kind] = rows
+
+    out = {}
+    for r in got.get("ratings", []):
+        if not r.get("Date"):
+            continue
+        out.setdefault("ratings", []).append({
+            "date": r["Date"],
+            "daily": num(r.get("Daily Average Rating")),
+            "total": num(r.get("Total Average Rating")),
+        })
+    for r in got.get("crashes", []):
+        if not r.get("Date"):
+            continue
+        out.setdefault("crashes", []).append({
+            "date": r["Date"],
+            "crashes": num(r.get("Daily Crashes"), int),
+            "anrs": num(r.get("Daily ANRs"), int),
+        })
+    for k in out:
+        out[k].sort(key=lambda x: x["date"])
+    if not out:
+        raise RuntimeError("no ratings or crashes exports readable")
+    state["health"]["playDaily"] = {
+        k: v[-60:] for k, v in out.items()
+    }
+    # The freshest date across these IS the control for the install export.
+    fresh = max((v[-1]["date"] for v in out.values() if v), default=None)
+    state["health"]["playDaily"]["asOf"] = fresh
+    return ", ".join(f"{k}: {len(v)} day(s) to {v[-1]['date']}" for k, v in out.items())
+
+
+def play_acquisition(state):
+    """Store-listing acquisitions, visitors and conversion — the FRESH Play
+    install signal, and the answer to a broken export rather than a wait for it.
+
+    On 2026-09-09 the installs export had not been written since 26 August,
+    while three other report types in the same bucket were written that day
+    (ratings 08:32, crashes 14:42, store_performance 15:31). Same bucket, same
+    account, same permissions — so it is Google's installs job, not ours, and
+    nothing on this side can restart it. The fix is therefore not to wait: this
+    report carries an install signal that IS current.
+
+    It is not the same number and must not be labelled as one. "Store listing
+    acquisitions" counts installs that came THROUGH the listing; Daily Device
+    Installs counts every route. It also carries something the install export
+    never had — visitors, and therefore a conversion rate, which is the one
+    Play metric that says whether the LISTING is working as opposed to the
+    marketing."""
+    bucket = os.environ.get("PLAY_REPORTS_BUCKET", "").strip().replace("gs://", "").strip("/").split("/")[0]
+    if not bucket:
+        raise RuntimeError("set PLAY_REPORTS_BUCKET")
+    today_ = dt.date.today()
+    months, m = [], today_.replace(day=1)
+    for _ in range(3):
+        months.append(m.strftime("%Y%m"))
+        m = (m - dt.timedelta(days=1)).replace(day=1)
+
+    by_day, by_country, by_source = {}, {}, {}
+    for ym in months:
+        for dim, sink in (("country", by_country), ("traffic_source", by_source)):
+            # TWO families live here and only one is current: `total_*` is a
+            # rollup that stalled in August alongside the install export, while
+            # the plain one was written today. Prefer the plain name; fall back
+            # to the rollup for older months where only it exists.
+            raw = None
+            for stem in ("store_performance", "total_store_performance"):
+                raw, _ = _gcs_bytes(
+                    bucket, f"stats/store_performance/{stem}_{PLAY_PACKAGE}_{ym}_{dim}.csv")
+                if raw:
+                    break
+            if not raw:
+                continue
+            try:
+                rows = _play_csv(raw)
+            except Exception:                        # noqa: BLE001
+                continue
+            for r in rows:
+                day = r.get("Date")
+                try:
+                    acq = int(float(r.get("Store listing acquisitions") or 0))
+                    vis = int(float(r.get("Store listing visitors") or 0))
+                except (TypeError, ValueError):
+                    continue
+                key = (r.get("Country / region") or r.get("Traffic source") or "?").strip()
+                if dim == "country" and day:
+                    d0 = by_day.setdefault(day, {"acquisitions": 0, "visitors": 0})
+                    d0["acquisitions"] += acq
+                    d0["visitors"] += vis
+                sink[key] = sink.get(key, 0) + acq
+
+    if not by_day:
+        raise RuntimeError("no store-performance reports readable")
+    daily = [{"date": k, **v} for k, v in sorted(by_day.items())][-60:]
+    acq = sum(r["acquisitions"] for r in daily[-28:])
+    vis = sum(r["visitors"] for r in daily[-28:])
+    top = lambda d: dict(sorted(d.items(), key=lambda kv: -kv[1])[:12])  # noqa: E731
+    state["health"]["playAcquisition"] = {
+        "daily": daily, "asOf": daily[-1]["date"],
+        "acquisitions28d": acq, "visitors28d": vis,
+        "conversion28d": round(acq / vis, 4) if vis else None,
+        "byCountry": top(by_country), "bySource": top(by_source),
+    }
+    return (f"{acq} acquisition(s) from {vis} visitor(s) to {daily[-1]['date']}"
+            + (f", {acq / vis:.0%} conversion" if vis else ""))
 
 
 def play_rating(state):
@@ -1581,6 +1732,8 @@ SOURCES = [
     ("play_crashes", play_crashes),
     ("play_users", play_users),
     ("play_reports", play_reports),
+    ("play_daily_exports", play_daily_exports),
+    ("play_acquisition", play_acquisition),
     ("manual_stores", manual_stores),
     ("social_programme", social_programme),
     ("social_reach", social_reach),

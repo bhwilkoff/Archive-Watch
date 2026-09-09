@@ -884,6 +884,9 @@ function platforms(d) {
     daily: (pin?.daily || []).map((r) => ({ date: r.date, v: r.installs })),
     active: pin?.activeDevices, uninstalls: pin?.uninstalls28d,
     row: st("Google Play", "Production"),
+    installsAsOf: pin?.asOf,
+    acq: d.health?.playAcquisition,
+    playDaily: d.health?.playDaily,
     countries: pin?.byCountry, devices: pin?.byDevice, os: pin?.byOs,
     crashes: d.health?.playCrashes, liveBuild: d.health?.playLiveBuild,
   });
@@ -1002,14 +1005,52 @@ function appPlatform(d, p) {
       v: "<small>no daily series yet</small>" });
   }
 
+  // The CURRENT Play install signal. The install export stalled on 26 August
+  // and there is no installs metric in ANY version of the Reporting API, so
+  // this is not a nicety — it is the only fresh number Android has.
+  if (p.acq?.daily?.length) {
+    const a = p.acq;
+    const conv = a.conversion28d != null
+      ? `${Math.round(a.conversion28d * 100)}% of visitors` : "";
+    panel(box, {
+      k: "Store listing", right: `to ${a.asOf}`,
+      v: `${int(a.acquisitions28d)}<small> acquisitions \u00b7 ${conv}</small>`,
+      chart: { html: C.runChart(a.daily.map((r) => r.acquisitions),
+        { label: "store listing acquisitions" })
+        + C.bars(Object.entries(a.bySource || {}).slice(0, 5)
+            .map(([k, v]) => ({ label: k, value: v, tone: "measure" }))) },
+      cap: `${int(a.visitors28d)} visitors reached the listing in 28 days. This counts `
+        + "installs that came THROUGH the listing, which is not every install \u2014 "
+        + "but it is the only Play install figure that is current",
+      detail: [...a.daily].reverse().slice(0, 21).map((r) => ({
+        label: r.date, value: `${r.acquisitions} / ${r.visitors}`,
+        note: r.visitors ? `${Math.round((r.acquisitions / r.visitors) * 100)}% conversion` : null,
+      })),
+    });
+  }
+
+  if (p.playDaily?.crashes?.length) {
+    const cd = p.playDaily.crashes;
+    panel(box, {
+      k: "Crashes per day", right: `to ${cd[cd.length - 1].date}`,
+      v: `${cd.slice(-7).reduce((x, b) => x + (b.crashes || 0), 0)}<small> in 7 days</small>`,
+      chart: { html: C.runChart(cd.map((r) => r.crashes || 0), { label: "daily crashes" }) },
+      cap: "from the crashes export, which is still written daily \u2014 unlike installs",
+      detail: [...cd].reverse().slice(0, 14).map((r) => ({
+        label: r.date, value: `${r.crashes} crash${r.crashes === 1 ? "" : "es"}`,
+        note: r.anrs ? `${r.anrs} ANR` : null })),
+    });
+  }
+
   if (p.active != null) {
     panel(box, {
       k: "Active devices", v: int(p.active),
       chart: { html: C.spark((p.daily || []).map((r) => r.v), { label: "installs" }) },
-      cap: p.uninstalls != null
-        ? `${p.uninstalls} uninstall(s) in the same window \u2014 installs against `
-          + "active devices is the closest thing to retention this store gives us"
-        : null,
+      cap: [p.uninstalls != null ? `${p.uninstalls} uninstall(s) in the same window` : null,
+            p.installsAsOf
+              ? `<b>as of ${p.installsAsOf}</b> \u2014 Google's install export stopped `
+                + "being written on 26 August, so this is not today's figure"
+              : null].filter(Boolean).join(" \u00b7 "),
     });
   }
 
