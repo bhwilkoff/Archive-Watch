@@ -53,6 +53,28 @@ for f in sorted(pathlib.Path(".github/workflows").glob("*.yml")):
         if seen and GATE not in str(step.get("if", "")):
             bad.append(f"{f.stem}: '{name}' runs even with no deltas")
 
+# An AUDITOR never fails. A workflow going red is a statement that IT could
+# not do its job; failing one to signal somebody ELSE's problem is a category
+# error, and an alert channel that cries wolf gets muted — after which a real
+# break goes unread. Findings belong in a report (the step summary, an issue),
+# never in an exit code. The owner has corrected this twice.
+REPORTERS = {"workflow-health"}
+reporting_fails = []
+for name in sorted(REPORTERS):
+    f = pathlib.Path(".github/workflows") / f"{name}.yml"
+    if not f.exists():
+        continue
+    doc = yaml.safe_load(f.read_text()) or {}
+    for jname, job in (doc.get("jobs") or {}).items():
+        for step in job.get("steps", []):
+            run = step.get("run", "") or ""
+            if step.get("continue-on-error"):
+                continue
+            if re.search(r"^\s*exit [1-9]", run, re.M):
+                reporting_fails.append(
+                    f"{name} [{jname}]: '{step.get('name')}' exits non-zero — "
+                    f"a reporting workflow must not fail on its findings")
+
 untokened = []
 for f in sorted(pathlib.Path(".github/workflows").glob("*.yml")):
     doc = yaml.safe_load(f.read_text()) or {}
@@ -67,9 +89,11 @@ for f in sorted(pathlib.Path(".github/workflows").glob("*.yml")):
             untokened.append(f"{f.stem} [{jname}]: '{step.get('name')}' "
                              f"runs gh with no GH_TOKEN in scope")
 
-for b in bad + untokened:
+for b in bad + untokened + reporting_fails:
     print("  " + b)
 print(f"{len(bad)} ungated step(s)" if bad else "every apply job is fully gated")
 print(f"{len(untokened)} gh step(s) with no token"
       if untokened else "every gh step has a token")
-sys.exit(1 if (bad or untokened) else 0)
+print(f"{len(reporting_fails)} reporting step(s) that can fail a run"
+      if reporting_fails else "no reporting workflow fails on its findings")
+sys.exit(1 if (bad or untokened or reporting_fails) else 0)

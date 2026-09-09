@@ -27,6 +27,8 @@ on:
 permissions:
   actions: read
   contents: read
+  # The auditor reports through an issue rather than through a red X.
+  issues: write
 
 jobs:
   audit:
@@ -62,8 +64,20 @@ jobs:
       # Fail LOUDLY on the findings that need action, so this workflow's own red
       # X is the signal — the whole point being that green ticks stopped meaning
       # anything.
-      - name: Fail if something is broken
-        if: steps.audit.outputs.rc != '0'
-        run: |
-          echo "::error::A workflow ran and produced nothing, or died with its publish steps skipped. See the summary."
-          exit 1
+      # An AUDITOR never fails. Its job is to look and report, and it did
+      # that; a workflow going red is a statement that IT could not do its
+      # job. Failing here to signal somebody else's problem is a category
+      # error, and it is the one the owner has now corrected twice:
+      #
+      #   "I shouldn't receive a failure alert for a non-failure status."
+      #
+      # Urgent findings still need a channel that is not email-by-red-X, so
+      # they go to a single GitHub ISSUE — opened when something is wrong,
+      # UPDATED (not duplicated) while it stays wrong, and CLOSED the moment
+      # the fleet is clean. That is persistent, de-duplicated, and readable
+      # without opening a run log.
+      - name: Raise or clear the health issue
+        if: always()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 tools/report_workflow_health.py --summary "$GITHUB_STEP_SUMMARY"

@@ -175,6 +175,7 @@ an entry in place.
 - 104 — A `private` archive.org file is never a playable copy; the guard belongs in the picker, not the sweep
 - 105 — The mature-content rule is ONE predicate: the apps' default-off setting and the web index's drop are the same function
 - 106 — tvOS 27 loses the audio of a NON-FRAGMENTED mp4; remux to fMP4 and serve as HLS from the existing LocalMediaServer
+- 107 — A red X means THIS run could not do its job; an auditor never fails, and a partial success is a warning
 
 ---
 
@@ -1608,3 +1609,45 @@ rebuilding machinery this repo already had -- a loopback server, HLS-through-a-
 loader, and the `-12881` limit were all already written down. The decision log
 was searched for the SYMPTOM and never for the MECHANISM about to be built.
 Search for the mechanism first.
+
+## 107 — A red X means THIS run could not do its job; an auditor never fails, and a partial success is a warning
+*Date: 2026-09-09*
+
+A workflow run goes red only when **it** could not do the thing it exists
+to do. Three consequences, now enforced by `check_workflow_gates.py`:
+`workflow-health` never exits non-zero — its urgent findings open, update
+and close a single GitHub **issue** (`tools/report_workflow_health.py`);
+`social_post` returns 0 when at least one platform accepted the post and
+emits a `::warning::` naming the refusals; and any workflow added to
+`REPORTERS` may not contain a failing step.
+
+**Why**: the owner, for the second time — *"I shouldn't receive a failure
+alert for a non-failure status."* The daily red X on Workflow health was
+never the auditor failing. It was the auditor **succeeding**, and reporting
+somebody else's condition through an exit code. Decision 093 already found
+this once and treated an instance (removing FAILED from the urgent set)
+rather than the rule, so it came straight back: yesterday's alert was a
+`KILLED` verdict on a run the sweeper repairs by itself, and the day
+before it was a duplicate of an email GitHub had already sent.
+
+The cost is not the noise. An alert channel that cries wolf is one the
+owner mutes, and the auditor exists precisely to catch the failures nothing
+else alerts for — a run that was green but produced nothing, or one
+cancelled with its publish steps skipped. Every false red makes the true
+red less likely to be read. The issue is a better channel anyway: it is
+persistent, it de-duplicates by construction (one issue, edited in place),
+it says what is wrong NOW rather than what has ever been wrong, and it
+closes itself when the fleet is clean.
+
+**How to apply**: before making a step fail, ask what a reader learns from
+the red X. If the answer is "something else is unhealthy", it belongs in a
+report. If it is "this run produced nothing", fail. A step that PUBLISHED
+its work must not fail because a backstop fired (the existing
+backstop-plus-verdict shape); a run where four of five platforms succeeded
+must not fail because the fifth refused; and a run destroyed in the
+concurrency queue was never a failure at all (Decisions 057, 095). Genuine
+failures keep their red: a publish that could not publish, a guard refusing
+a shrunken artifact, a missing secret — the five Publish catalog DB and
+three Deploy Pages failures of 2026-09-08 were all real, and Deploy Pages
+was right to refuse a site whose every shared link would preview as
+nothing.

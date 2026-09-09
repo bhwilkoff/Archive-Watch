@@ -995,7 +995,16 @@ def main() -> int:
     if entries:
         append_ledger(entries)
     if failures:
+        # A red X means "this run could not do its job". One platform refusing
+        # while four others carried the post is not that — it is a warning,
+        # and treating it as a failure emails the owner about a programme that
+        # worked. The run fails only when NOTHING went out.
         print(f"failed: {', '.join(failures)}", file=sys.stderr)
+        if entries:
+            print(f"::warning::{len(failures)} platform(s) refused "
+                  f"({', '.join(failures)}); {len(entries)} posted")
+            return 0
+        print("::error::no platform accepted the post")
         return 1
     return 0
 
