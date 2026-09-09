@@ -619,7 +619,11 @@ function ticker(d) {
 }
 
 /* ── go ──────────────────────────────────────────────────────────────────── */
-fetch(DATA, { cache: "no-store" })
+// `cache: no-store` bypasses the BROWSER cache; the Pages CDN caches for 600s
+// regardless, and a dashboard that shows a reading up to ten minutes stale on
+// the morning it is read is a dashboard that gets doubted. The query makes each
+// load a distinct CDN object.
+fetch(`${DATA}?t=${Math.floor(Date.now() / 6e4)}`, { cache: "no-store" })
   .then((r) => { if (!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); })
   .then((d) => {
     $("when").textContent = d.generatedAt
