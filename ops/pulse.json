@@ -378,7 +378,89 @@
    "professionalArt": 13395,
    "withBif": 16487,
    "builtAt": null
-  }
+  },
+  "playCrashes": [
+   {
+    "type": "CRASH",
+    "cause": "androidx.compose.ui.internal.InlineClassHelperKt.throwIllegalArgumentException",
+    "location": "java.lang.IllegalArgumentException",
+    "users": "8",
+    "reports": "12",
+    "lastSeen": "2026-08-31T16:00:00Z"
+   },
+   {
+    "type": "CRASH",
+    "cause": "app.archivewatch.android.data.CatalogDatabase.queryRaw",
+    "location": "android.database.SQLException",
+    "users": "7",
+    "reports": "11",
+    "lastSeen": "2026-08-31T19:00:00Z"
+   },
+   {
+    "type": "APPLICATION_NOT_RESPONDING",
+    "cause": "Native method - android.os.MessageQueue.nativePollOnce",
+    "location": "Input dispatching timed out",
+    "users": "4",
+    "reports": "4",
+    "lastSeen": "2026-09-04T13:00:00Z"
+   },
+   {
+    "type": "APPLICATION_NOT_RESPONDING",
+    "cause": "Native method - android.os.BinderProxy.transactNative",
+    "location": "Input dispatching timed out",
+    "users": "1",
+    "reports": "1",
+    "lastSeen": "2026-08-20T07:00:00Z"
+   },
+   {
+    "type": "CRASH",
+    "cause": "androidx.compose.ui.internal.InlineClassHelperKt.throwIllegalArgumentException",
+    "location": "java.lang.IllegalArgumentException",
+    "users": "1",
+    "reports": "1",
+    "lastSeen": "2026-08-24T06:00:00Z"
+   },
+   {
+    "type": "CRASH",
+    "cause": "androidx.compose.ui.internal.InlineClassHelperKt.throwIllegalArgumentException",
+    "location": "java.lang.IllegalArgumentException",
+    "users": "1",
+    "reports": "1",
+    "lastSeen": "2026-09-07T19:00:00Z"
+   },
+   {
+    "type": "CRASH",
+    "cause": "androidx.compose.ui.internal.InlineClassHelperKt.throwIllegalArgumentException",
+    "location": "java.lang.IllegalArgumentException",
+    "users": "1",
+    "reports": "3",
+    "lastSeen": "2026-09-05T07:00:00Z"
+   },
+   {
+    "type": "APPLICATION_NOT_RESPONDING",
+    "cause": "android.view.ViewRootImpl.performDraw",
+    "location": "Input dispatching timed out",
+    "users": "1",
+    "reports": "1",
+    "lastSeen": "2026-09-03T12:00:00Z"
+   },
+   {
+    "type": "APPLICATION_NOT_RESPONDING",
+    "cause": "[libart.so] art::ConditionVariable::WaitHoldingLocks",
+    "location": "Input dispatching timed out (No focused window)",
+    "users": "1",
+    "reports": "1",
+    "lastSeen": "2026-08-26T18:00:00Z"
+   },
+   {
+    "type": "CRASH",
+    "cause": "okio.Segment.<init>",
+    "location": "java.lang.OutOfMemoryError",
+    "users": "1",
+    "reports": "1",
+    "lastSeen": "2026-09-01T12:00:00Z"
+   }
+  ]
  },
  "github": {
   "stars": 0,
@@ -464,9 +546,9 @@
    "at": "2026-09-09T17:34:43+00:00"
   },
   "play_crashes": {
-   "ok": false,
-   "note": "no Play service-account key",
-   "at": "2026-09-09T17:34:43+00:00"
+   "ok": true,
+   "note": "10 cluster(s)",
+   "at": "2026-09-09T17:45:30+00:00"
   },
   "manual_stores": {
    "ok": true,
@@ -568,7 +650,7 @@
    "urgent": 0
   }
  ],
- "generatedAt": "2026-09-09T17:35:59+00:00",
+ "generatedAt": "2026-09-09T17:45:30+00:00",
  "repoVersion": "1.42.5",
  "repoBuild": "1017",
  "_": "Written by tools/pulse_collect.py. `history` is the series and is append-only per day; everything else is the latest reading. A source that could not answer says so in `sources` — never assume a zero."

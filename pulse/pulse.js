@@ -325,8 +325,16 @@ function glance(d) {
     panel(box, { k: "Android vitals", right: "28 days", chart: { html },
       cap: "markers are Google's own bad-behaviour thresholds" });
   } else {
-    panel(box, { k: "Android vitals", v: "<small>not read</small>",
-      cap: "needs the Play Developer Reporting API enabled — see docs/PULSE.md" });
+    const why = d.health?.playVitalsNote;
+    panel(box, { k: "Android vitals",
+      v: why ? "<small>no rate published</small>" : "<small>not read</small>",
+      chart: (d.health?.playCrashes || []).length ? { html: C.bars(
+        d.health.playCrashes.slice(0, 5).map((c) => ({
+          label: (c.location || c.type || "").split(".").pop().slice(0, 22),
+          value: c.users || 0, tone: c.type === "CRASH" ? "stop" : "flight",
+        }))) } : null,
+      cap: why ? `${why} — the clusters below are what it DID report`
+        : "needs the Play Developer Reporting API enabled — see docs/PULSE.md" });
   }
 
   /* 9. The fleet: one mark per finding, none at all when nothing is wrong. */

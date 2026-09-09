@@ -285,31 +285,56 @@ def _window(days=28):
 
 def play_vitals(state):
     """Crash and ANR rate — the signal that says something needs fixing before a
-    user bothers to write it down. Needs the Play Developer Reporting API turned
-    ON for the service account's project (see docs/PULSE.md)."""
+    user bothers to write it down.
+
+    The metric set ADVERTISES the window it actually holds, and querying past it
+    is a 400 that reads like a malformed request. Ask, then query to that date;
+    never guess at 'today'."""
     svc = _reporting()
-    start, end = _window()
-    got, errs = {}, []
+    got, errs, notes = {}, [], []
     for res, metric, mset in (("crashrate", "crashRate", "crashRateMetricSet"),
                               ("anrrate", "anrRate", "anrRateMetricSet")):
+        api = getattr(svc.vitals(), res)()
+        try:
+            fresh = api.get(name=f"apps/{PLAY_PACKAGE}/{mset}").execute()
+            daily = next((f for f in (fresh.get("freshnessInfo") or {}).get("freshnesses", [])
+                          if f.get("aggregationPeriod") == "DAILY"), None)
+            if not daily:
+                notes.append(f"{metric}: Play reports no daily window yet")
+                continue
+            le = daily["latestEndTime"]
+            end = dt.date(le["year"], le["month"], le["day"])
+        except Exception as e:                       # noqa: BLE001
+            errs.append(f"{metric}: {str(e)[:90]}")
+            continue
+        begin = end - dt.timedelta(days=27)
         body = {"timelineSpec": {"aggregationPeriod": "DAILY",
-                                 "startTime": {"year": start.year, "month": start.month, "day": start.day},
-                                 "endTime": {"year": end.year, "month": end.month, "day": end.day}},
+                                 "startTime": {"year": begin.year, "month": begin.month,
+                                               "day": begin.day},
+                                 "endTime": {"year": end.year, "month": end.month,
+                                             "day": end.day}},
                 "metrics": [metric]}
         try:
-            d = getattr(svc.vitals(), res)().query(name=f"apps/{PLAY_PACKAGE}/{mset}", body=body).execute()
+            d = api.query(name=f"apps/{PLAY_PACKAGE}/{mset}", body=body).execute()
             vals = [float(m["decimalValue"]["value"])
                     for r in d.get("rows", []) for m in r.get("metrics", [])
                     if m.get("metric") == metric and m.get("decimalValue")]
             if vals:
                 got[metric] = round(sum(vals) / len(vals), 5)
                 got[metric + "Days"] = len(vals)
-        except Exception as e:                       # noqa: BLE001 — per-metric, never fatal
+            else:
+                # Play withholds a rate below a minimum audience. That is a real
+                # answer about the app's size, not a broken reader.
+                notes.append(f"{metric}: too few users for Play to publish a rate")
+        except Exception as e:                       # noqa: BLE001
             errs.append(f"{metric}: {str(e)[:90]}")
     state["health"]["playVitals"] = got
+    if notes:
+        state["health"]["playVitalsNote"] = "; ".join(notes)
     if errs and not got:
         raise RuntimeError("; ".join(errs))
-    return ", ".join(f"{k}={v}" for k, v in got.items() if not k.endswith("Days")) or "no data yet"
+    return (", ".join(f"{k}={v}" for k, v in got.items() if not k.endswith("Days"))
+            or "; ".join(notes) or "no data yet")
 
 
 def play_crashes(state):

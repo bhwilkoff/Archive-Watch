@@ -144,6 +144,9 @@ and all 31 cases were checked to FAIL against broken versions of each rule.
   run, pinned to 3.11, could not import it and read zero Apple reviews while the
   same code read four on the dev Mac. Flattened at the source, so no workflow can
   step on it again whatever Python it pins.
+* **A Play metric set advertises the window it holds.** Querying past its
+  `freshnessInfo.DAILY.latestEndTime` is a `400` that reads like a malformed
+  request. Ask, then query to that date — never guess at "today".
 * **Two ASC endpoints do not speak JSON, and say so as a 406.** `salesReports`
   wants `Accept: application/a-gzip` and `perfPowerMetrics` wants
   `application/vnd.apple.xcode-metrics+json`; through `asc_release.call`, which
@@ -160,19 +163,19 @@ and all 31 cases were checked to FAIL against broken versions of each rule.
 
 ## Owner steps (each unlocks a panel that currently says "could not read")
 
-1. **`PLAY_SERVICE_ACCOUNT_JSON` as a repo secret** — paste the contents of
-   `~/.config/play/archivewatch-play.json`. Without it the Play columns read only
-   when Pulse is run on this Mac. (The collector accepts either a path or the JSON
-   itself.)
-2. **`ASC_VENDOR_NUMBER` as a repo secret** — find it in App Store Connect →
+~~`PLAY_SERVICE_ACCOUNT_JSON` as a repo secret~~ — **done 2026-09-09**, set from
+   `~/.config/play/archivewatch-play.json` with `gh secret set`. The collector
+   accepts either a path or the JSON itself.
+1. **`ASC_VENDOR_NUMBER` as a repo secret** — find it in App Store Connect →
    Payments and Financial Reports, top-left. It is an account identifier, not a
    credential, and it is the only thing standing between this page and a daily
    downloads figure. Without it the Downloads panel abstains.
-3. **Enable the Play Developer Reporting API** for the service account's project:
-   <https://console.developers.google.com/apis/api/playdeveloperreporting.googleapis.com/overview?project=294492189901>
-   — one click. That turns on crash rate, ANR rate, and the named crash clusters,
-   which is the only signal here that says "something needs fixing" *before* a
-   user bothers to write it down.
+~~Enable the Play Developer Reporting API~~ — **done 2026-09-09**,
+   `gcloud services enable playdeveloperreporting.googleapis.com --project
+   archivewatch-play`. It immediately returned **10 crash clusters**, including a
+   `CatalogDatabase.queryRaw` SQLException affecting 7 users. Play withholds the
+   crash and ANR *rates* below a minimum audience, which is a real answer about
+   the app's size and is reported as one.
 4. **YouTube stats and comments need `youtube.readonly`.** The programme's token
    holds `youtube.upload` and nothing else, which
    `tools/youtube_refresh_token.py` argues for in as many words — a secret in CI
