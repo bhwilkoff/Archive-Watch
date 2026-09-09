@@ -269,6 +269,83 @@ keep serving it.
 
 ## Session Log
 
+### 2026-09-09 — Pulse: one dashboard that reads every channel (Decision 108)
+Owner: "a single place for me to go in order to understand what our users are
+enjoying or requesting of the app AND to understand the performance of the
+various platform's apps"; then "dashboards are far more useful if they are
+visual." **<https://archivewatch.org/pulse/>** — unlisted, refreshed daily at
+07:17 MT, 20 of 26 readers answering; every one that does not is a named owner
+step ON THE PAGE.
+
+**What it reads.** Apple version state on three platforms, every customer
+review in every territory, the ratings summary, daily first-time downloads and
+Apple's own field metrics; Play tracks, reviews, crash/ANR rate and named crash
+clusters; Amazon, Roku, LG, Samsung and web declared by hand in
+`ops/stores-manual.json` because none of them has an API; the social ledger
+joined to its measurements, follower counts and replies; Reddit, Hacker News,
+Lemmy, Google News, Bluesky and Mastodon for anyone talking about us; GitHub
+stars, traffic and outside issues; the fleet auditor; the published catalog.
+
+**The rule the whole thing is built on: a reader that cannot read SAYS SO.**
+Every source is isolated and its failure recorded in the output, so a panel
+reads "could not read — no credential in this environment" where a naive
+dashboard prints 0. A confident zero from a broken reader is worse than no
+dashboard: it reads as good news and nobody checks again. Three separate
+routes to that same lie were found and closed during the build — a `--only`
+run replacing sections it never collected, a full run dropping the sections of
+a reader that failed (four Apple reviews became a hole), and a fuzzy search
+that did not repeat erasing a mention it had found the day before. Mentions and
+reviews now ACCUMULATE.
+
+**The needs-you list filters by whether the USER's problem is recent, not by
+whether we already replied.** The first version filtered to unanswered reviews,
+which put the app's one 2★ — *"Broken: latest update will not play any films"* —
+underneath a green "Nothing is asking for you."
+
+**Visual, and the rules are binding** (docs/PULSE.md §How it LOOKS). Researched
+Few and Cleveland & McGill first: a number alone means nothing, so everything
+is shown against a scale, its siblings, its own past or a whole; position then
+length then area then colour, so there is no pie, donut or bubble anywhere;
+colour is STATE, never quantity; no gauges — `bullet()` carries measure, scale,
+bands and target in 22px; zero is DRAWN and absence is WRITTEN. `pulse/charts.js`
+is a hand-rolled inline-SVG kit (bullet, bars, spark, stack, legend, dots,
+ratio, cadence), no library, no build step. The programme leads with a CADENCE
+chart — one lane per platform, every post a mark on a shared 30-day axis —
+because what a posting programme needs to see is whether they kept coming.
+
+**Five defects found by looking at the glass, not the code:** "NOT SUBMITTED"
+matched the in-flight rule because it CONTAINS "SUBMITT", so two never-sent
+stores were counted as in review; the panel header set markup as TEXT so a
+literal `<span>` showed where a coloured delta belonged; repeated stars clipped
+so the 5-star row read as four; "vrolling"; and the live page served a reading
+up to ten minutes stale because Pages caches 600s.
+
+**Three defects OLDER than the dashboard, surfaced by it:** `asc_release.py`
+carried a multi-line f-string (PEP 701) and is a SyntaxError on Python 3.11 —
+appstore-submit.yml pins 3.12, which is the only reason submissions never hit
+it; the Mastodon mention reader had no self-check, so our own programme post
+counted as somebody talking about us; and Pulse commits with `[skip ci]`, which
+also means its push triggered NO Pages deploy, so the site would have served
+yesterday's numbers forever (now on deploy-pages' `workflow_run`, the idiom that
+file already used for subtitles).
+
+**Two ASC endpoints do not speak JSON and say so as a 406** —
+`salesReports` wants `application/a-gzip`, `perfPowerMetrics` wants
+`application/vnd.apple.xcode-metrics+json`. Through `asc_release.call` both look
+like a permissions failure and are not. `analyticsReportRequests` genuinely 403s
+for this key.
+
+**Tests:** `test_pulse_collect.py` 54, `test_pulse_charts.mjs` 31, all
+negative-controlled. `check_workflow_gates.py` gained a third assertion — a
+reporting workflow may not exit non-zero without an explicit
+`# reporter-may-fail:` marker (its first regex missed `echo ...; exit 1`, its
+second flagged `git add ops/pulse.json` as reading its own findings).
+
+**OWNER, each named on the page:** `ASC_VENDOR_NUMBER` (an identifier, not a
+secret — unlocks downloads), `PLAY_SERVICE_ACCOUNT_JSON` as a repo secret,
+enabling the Play Developer Reporting API for crash clusters, and a decision on
+whether YouTube stats are worth widening the upload-only token for.
+
 ### 2026-09-08 — Roku SUBMITTED-ready; the social programme grew a spine; three silent pipeline failures
 Long autonomous day plus a live owner loop. Everything on `main`.
 
