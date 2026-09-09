@@ -3083,7 +3083,7 @@
    every failure is swallowed: a counter is never worth a broken page. */
 // Set by tools/set_counter_origin.py after `wrangler deploy` prints the URL.
 // Empty means the counter is not deployed, and then nothing is sent at all.
-const AW_BEACON_ORIGIN = "";
+const AW_BEACON_ORIGIN = "https://archivewatch-pulse.benwilkoff.workers.dev";
 const AW_BEACON = AW_BEACON_ORIGIN ? `${AW_BEACON_ORIGIN}/beacon` : "";
 function awCount() {
   if (!AW_BEACON) return;
