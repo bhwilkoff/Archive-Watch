@@ -1,10 +1,10 @@
 {
   "schema": 1,
-  "updated_at": "2026-09-08T08:40:34Z",
+  "updated_at": "2026-09-09T08:33:42Z",
   "description": "Missing-episode queue: canonical episodes (from OMDb) that we don't yet have on Archive. Drained by tools/backfill_tv_episodes.py.",
   "stats": {
-    "total": 18057,
-    "wanted": 17834,
+    "total": 18066,
+    "wanted": 17843,
     "fulfilled": 223,
     "series_with_gaps": 359
   },
@@ -1685,6 +1685,16 @@
       "seriesID": "adam-12-1968",
       "seriesTitle": "Adam-12",
       "season": 4,
+      "episode": 23,
+      "title": "Eyewitness",
+      "episodeImdbID": "tt0505267",
+      "status": "wanted",
+      "added_at": "2026-09-09T08:33:42Z"
+    },
+    {
+      "seriesID": "adam-12-1968",
+      "seriesTitle": "Adam-12",
+      "season": 4,
       "episode": 24,
       "title": "Wednesday Warrior",
       "episodeImdbID": "tt0505410",
@@ -1785,6 +1795,16 @@
       "seriesID": "adam-12-1968",
       "seriesTitle": "Adam-12",
       "season": 5,
+      "episode": 10,
+      "title": "The Chaser",
+      "episodeImdbID": "tt0505390",
+      "status": "wanted",
+      "added_at": "2026-09-09T08:33:42Z"
+    },
+    {
+      "seriesID": "adam-12-1968",
+      "seriesTitle": "Adam-12",
+      "season": 5,
       "episode": 11,
       "title": "Hot Spell",
       "episodeImdbID": "tt0505277",
@@ -1820,6 +1840,16 @@
       "episodeImdbID": "tt0505255",
       "status": "wanted",
       "added_at": "2026-06-19T09:23:32Z"
+    },
+    {
+      "seriesID": "adam-12-1968",
+      "seriesTitle": "Adam-12",
+      "season": 5,
+      "episode": 15,
+      "title": "Clear with a Civilian: Part 2",
+      "episodeImdbID": "tt0505256",
+      "status": "wanted",
+      "added_at": "2026-09-09T08:33:42Z"
     },
     {
       "seriesID": "adam-12-1968",
@@ -127108,6 +127138,16 @@
       "seriesID": "the-addams-family-1964",
       "seriesTitle": "The Addams Family",
       "season": 1,
+      "episode": 32,
+      "title": "Cousin Itt and the Vocational Counselor",
+      "episodeImdbID": "tt0505468",
+      "status": "wanted",
+      "added_at": "2026-09-09T08:33:42Z"
+    },
+    {
+      "seriesID": "the-addams-family-1964",
+      "seriesTitle": "The Addams Family",
+      "season": 1,
       "episode": 33,
       "title": "Lurch, the Teenage Idol",
       "episodeImdbID": "tt0505435",
@@ -127298,6 +127338,16 @@
       "seriesID": "the-addams-family-1964",
       "seriesTitle": "The Addams Family",
       "season": 2,
+      "episode": 18,
+      "title": "Fester Goes on a Diet",
+      "episodeImdbID": "tt0505420",
+      "status": "wanted",
+      "added_at": "2026-09-09T08:33:42Z"
+    },
+    {
+      "seriesID": "the-addams-family-1964",
+      "seriesTitle": "The Addams Family",
+      "season": 2,
       "episode": 19,
       "title": "The Great Treasure Hunt",
       "episodeImdbID": "tt0505466",
@@ -127363,6 +127413,26 @@
       "episodeImdbID": "tt0505413",
       "status": "wanted",
       "added_at": "2026-06-22T09:49:05Z"
+    },
+    {
+      "seriesID": "the-addams-family-1964",
+      "seriesTitle": "The Addams Family",
+      "season": 2,
+      "episode": 26,
+      "title": "Cat Addams",
+      "episodeImdbID": "tt0505415",
+      "status": "wanted",
+      "added_at": "2026-09-09T08:33:42Z"
+    },
+    {
+      "seriesID": "the-addams-family-1964",
+      "seriesTitle": "The Addams Family",
+      "season": 2,
+      "episode": 27,
+      "title": "Lurch's Little Helper",
+      "episodeImdbID": "tt0505434",
+      "status": "wanted",
+      "added_at": "2026-09-09T08:33:42Z"
     },
     {
       "seriesID": "the-addams-family-1964",
@@ -173784,6 +173854,26 @@
       "episodeImdbID": "tt0830467",
       "status": "wanted",
       "added_at": "2026-06-04T08:24:27Z"
+    },
+    {
+      "seriesID": "thunderbirds-1965",
+      "seriesTitle": "Thunderbirds",
+      "season": 1,
+      "episode": 20,
+      "title": "Move - And You're Dead",
+      "episodeImdbID": "tt0830473",
+      "status": "wanted",
+      "added_at": "2026-09-09T08:33:42Z"
+    },
+    {
+      "seriesID": "thunderbirds-1965",
+      "seriesTitle": "Thunderbirds",
+      "season": 1,
+      "episode": 22,
+      "title": "Brink of Disaster",
+      "episodeImdbID": "tt0830465",
+      "status": "wanted",
+      "added_at": "2026-09-09T08:33:42Z"
     },
     {
       "seriesID": "thunderbirds-1965",
