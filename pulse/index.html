@@ -18,7 +18,13 @@
 
 <p class="ticker" id="ticker"><span class="flat">loading the day…</span></p>
 
+<nav class="tabs" id="tabs" role="tablist"></nav>
+
 <main>
+  <div id="sec-overview">
+  <!-- Shneiderman: overview first, then one section per platform to zoom into,
+       with details on demand inside each panel. The overview stays short on
+       purpose — a dashboard that shows everything at once shows nothing. -->
   <section class="needs">
     <h2>Needs you <span class="count" id="needs-n"></span>
       <span class="hint">the only list that asks for a decision</span></h2>
@@ -53,6 +59,15 @@
     <h2>Over time <span class="hint">one reading a day</span></h2>
     <div id="trend"></div>
   </section>
+
+  <section id="sec-platform" hidden>
+    <p class="lede" id="platform-lede"></p>
+    <div id="platform-panels" class="panels"></div>
+    <h2 id="platform-h2" style="margin-top:26px">Detail</h2>
+    <div id="platform-rows" class="rows"></div>
+  </section>
+
+  </div>
 
   <section class="sources">
     <h2>Where this came from <span class="count" id="src-n"></span>

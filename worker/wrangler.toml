@@ -1,0 +1,9 @@
+name = "archivewatch-pulse"
+main = "src/index.js"
+compatibility_date = "2026-01-01"
+
+# The counter's whole storage. Three columns, no fourth.
+[[d1_databases]]
+binding = "DB"
+database_name = "archivewatch-pulse"
+database_id = "14d3c2d8-53db-4172-a18a-1215f548abbf"

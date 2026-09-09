@@ -831,6 +831,314 @@ function ticker(d) {
   if (!t.children.length) t.appendChild(el("span", "flat", "no readings yet"));
 }
 
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   PLATFORMS — one section each, reached from the tab bar.
+
+   Shneiderman's mantra as navigation: the overview stays short, each
+   platform is a zoom, and the panels inside it hold the details. A single
+   scrolling page that shows everything at once shows nothing — the first
+   version of this page put Android's crash clusters next to Bluesky's
+   follower count and asked the reader to sort it out.
+
+   Each platform declares what it HAS. A platform with no usage data says so
+   in words rather than rendering an empty chart, which is the same rule the
+   readers follow one level down.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+const APPLE_DEVICES = { "Apple TV": "tvOS", iPhone: "iOS", iPad: "iPadOS", Desktop: "macOS" };
+
+function platforms(d) {
+  const out = [];
+  const st = (store, plat) => (d.stores || []).find(
+    (x) => x.store === store && (x.platform || "").toLowerCase() === plat.toLowerCase());
+
+  // ── Apple, one entry per device Apple actually reports ────────────────
+  const dl = d.health?.appleDownloads;
+  Object.entries(APPLE_DEVICES).forEach(([device, os]) => {
+    const units = (dl?.byDevice || {})[device];
+    if (units == null && !st("App Store", os === "tvOS" ? "Apple TV"
+      : os === "macOS" ? "Mac" : "iPhone & iPad")) return;
+    const daily = (dl?.daily || []).map((r) => ({ date: r.date, v: (r.byDevice || {})[device] || 0 }));
+    out.push({
+      key: os.toLowerCase(), name: os, family: "app", store: "App Store",
+      installs: units, daily,
+      row: st("App Store", os === "tvOS" ? "Apple TV" : os === "macOS" ? "Mac" : "iPhone & iPad"),
+      shareOf: dl?.byDevice, shareLabel: "Apple installs by device",
+      countries: dl?.byCountry, versions: dl?.byVersion,
+      note: os === "tvOS" ? "the platform this app was built for first" : null,
+    });
+  });
+
+  // ── Android, which reports the most of any store here ─────────────────
+  const pin = d.health?.playInstalls;
+  out.push({
+    key: "android", name: "Android", family: "app", store: "Google Play",
+    installs: pin?.installs28d,
+    daily: (pin?.daily || []).map((r) => ({ date: r.date, v: r.installs })),
+    active: pin?.activeDevices, uninstalls: pin?.uninstalls28d,
+    row: st("Google Play", "Production"),
+    countries: pin?.byCountry, devices: pin?.byDevice, os: pin?.byOs,
+    crashes: d.health?.playCrashes, liveBuild: d.health?.playLiveBuild,
+  });
+
+  // ── The estate's declared stores, which have no API at all ────────────
+  [["Fire TV", "Amazon Appstore"], ["Roku", "Roku Channel Store"],
+   ["webOS", "LG Content Store"], ["Tizen", "Samsung Apps TV"]].forEach(([name, store]) => {
+    const row = (d.stores || []).find((x) => x.store === store);
+    if (row) out.push({ key: name.toLowerCase().replace(/\s/g, ""), name, family: "app",
+                        store, row, noApi: true });
+  });
+
+  // ── Web, whose only number is one we chose to be able to collect ──────
+  const wu = d.health?.webUsage;
+  out.push({
+    key: "web", name: "Web", family: "app", store: "archivewatch.org",
+    row: (d.stores || []).find((x) => x.store === "Web (PWA)"),
+    views: wu?.views28d,
+    daily: (wu?.daily || []).map((r) => ({ date: r.date, v: r.views })),
+    paths: wu?.byPath, catalog: d.health?.catalog,
+    webUnread: !wu,
+  });
+
+  // ── Social, one per platform ──────────────────────────────────────────
+  const per = d.social?.byPlatform || {};
+  const reach = d.social?.reach || {};
+  [...new Set([...Object.keys(per), ...Object.keys(reach)])].sort().forEach((k) => {
+    out.push({
+      key: "s-" + k, name: PLAT(k), family: "social", platform: k,
+      posts: (per[k] || {}).posts, measured: (per[k] || {}).measured,
+      likes: (per[k] || {}).likes, replies: (per[k] || {}).replies,
+      reposts: (per[k] || {}).reposts, views: (reach[k] || {}).views,
+      followers: (reach[k] || {}).followers, reachError: (reach[k] || {}).error,
+      href: PROFILE[k] || null,
+      items: (d.social?.posts || []).filter((p) => p.platform === k),
+    });
+  });
+  return out;
+}
+
+function tabs(d, list) {
+  const box = $("tabs"); box.innerHTML = "";
+  const mk = (key, label, count) => {
+    const b = el("button", null, label);
+    b.setAttribute("role", "tab");
+    if (count != null) b.insertAdjacentHTML("beforeend", `<span class="n">${count}</span>`);
+    b.onclick = () => show(d, list, key);
+    b.dataset.key = key;
+    box.appendChild(b);
+  };
+  mk("overview", "Overview");
+  list.filter((p) => p.family === "app").forEach((p) =>
+    mk(p.key, p.name, p.installs ?? p.views ?? null));
+  list.filter((p) => p.family === "social").forEach((p) =>
+    mk(p.key, p.name, p.posts ?? null));
+}
+
+function show(d, list, key) {
+  location.hash = key === "overview" ? "" : key;
+  $("tabs").querySelectorAll("button").forEach((b) =>
+    b.setAttribute("aria-selected", String(b.dataset.key === key)));
+  const ov = $("sec-overview"), pl = $("sec-platform");
+  if (key === "overview") { ov.hidden = false; pl.hidden = true; return; }
+  ov.hidden = true; pl.hidden = false;
+  const p = list.find((x) => x.key === key);
+  if (p) (p.family === "social" ? socialPlatform : appPlatform)(d, p);
+  window.scrollTo({ top: 0 });
+}
+
+
+/* ── an app platform's own section ───────────────────────────────────────
+   Each chart answers one question, and the question picks the shape:
+     "is this normal?"        -> runChart, the series against its own ±2σ
+     "where is it coming from?" -> dotPlot, ranked, many categories
+     "what should I fix first?" -> pareto, bars plus a cumulative line
+     "did it keep coming?"    -> calendarHeat, because a total hides a gap  */
+function appPlatform(d, p) {
+  $("platform-lede").innerHTML = p.noApi
+    ? `<b>${p.name}</b> ships through ${p.store}, which exposes no API at all. `
+      + "What is here is declared by hand, and that is the honest ceiling."
+    : p.webUnread
+      ? `<b>${p.name}</b> is live and its usage counter has not reported yet. `
+        + "The counter is ours and stores only a date, a page kind and a number "
+        + "— see privacy.html."
+      : `<b>${p.name}</b> on ${p.store}.${p.note ? " " + p.note + "." : ""}`;
+  const box = $("platform-panels"); box.innerHTML = "";
+  const rows = $("platform-rows"); rows.innerHTML = "";
+  $("platform-h2").textContent = "Detail";
+
+  if (p.row) {
+    panel(box, {
+      k: "Store", right: STATE_WORD(p.row.state || ""),
+      v: p.row.version ? `${/^\d/.test(p.row.version) ? "v" : ""}${p.row.version}` : "—",
+      cap: [p.row.build && `build ${p.row.build}`, p.row.since && `since ${p.row.since}`,
+            p.row.note].filter(Boolean).join(" · ") || null,
+      href: p.row.url,
+    });
+  }
+
+  const series = (p.daily || []).map((r) => r.v);
+  const unit = p.views != null ? "views" : "installs";
+  if (series.length >= 2) {
+    const total = series.reduce((a, b) => a + b, 0);
+    panel(box, {
+      k: unit === "views" ? "Page views" : "Installs",
+      right: `${series.length} days`,
+      v: `${int(total)}<small> ${unit}</small>`,
+      chart: { html: C.runChart(series, { label: `${p.name} ${unit} over ${series.length} days` }) },
+      cap: "the band is \u00b12\u03c3 around this series' own mean \u2014 a mark outside it "
+        + "is the only point worth a second look",
+      detail: [...(p.daily || [])].reverse().slice(0, 21)
+        .map((r) => ({ label: r.date, value: int(r.v) })),
+    });
+  } else if (!p.noApi && !p.webUnread) {
+    panel(box, { k: unit === "views" ? "Page views" : "Installs",
+      v: "<small>no daily series yet</small>" });
+  }
+
+  if (p.active != null) {
+    panel(box, {
+      k: "Active devices", v: int(p.active),
+      chart: { html: C.spark((p.daily || []).map((r) => r.v), { label: "installs" }) },
+      cap: p.uninstalls != null
+        ? `${p.uninstalls} uninstall(s) in the same window \u2014 installs against `
+          + "active devices is the closest thing to retention this store gives us"
+        : null,
+    });
+  }
+
+  const geo = p.countries && Object.entries(p.countries).slice(0, 10);
+  if (geo?.length) {
+    panel(box, {
+      k: "Where they are", right: `${Object.keys(p.countries).length} countries`,
+      chart: { html: C.dotPlot(geo.map(([k, v]) => ({ label: k, value: v }))) },
+      cap: "a dot plot rather than bars: at ten categories the bars spend their "
+        + "ink on a shared origin, and the position is the thing being read",
+      detail: Object.entries(p.countries).map(([k, v]) => ({ label: k, value: int(v) })),
+    });
+  }
+
+  [["devices", "Devices", p.devices], ["os", "OS version", p.os],
+   ["versions", "App version", p.versions], ["paths", "Pages", p.paths]]
+    .forEach(([, label, obj]) => {
+      if (!obj || !Object.keys(obj).length) return;
+      panel(box, {
+        k: label,
+        chart: { html: C.bars(Object.entries(obj).slice(0, 7)
+          .map(([k, v]) => ({ label: k, value: v, tone: "measure" }))) },
+        detail: Object.entries(obj).map(([k, v]) => ({ label: k, value: int(v) })),
+      });
+    });
+
+  if (p.shareOf && Object.keys(p.shareOf).length > 1) {
+    const segs = Object.entries(p.shareOf).map(([k, v], i) => ({
+      label: APPLE_DEVICES[k] || k, value: v,
+      tone: ["measure", "live", "flight", "idle"][i % 4],
+    }));
+    panel(box, {
+      k: "Share of Apple installs",
+      chart: { html: C.stack(segs, { label: p.shareLabel }) + C.legend(segs) },
+      cap: "the same 31 days, split by the device Apple reports",
+    });
+  }
+
+  if (p.crashes?.length) {
+    const live = p.crashes.filter((c) => !c.stale);
+    panel(box, {
+      k: "Crashes", right: `${live.length} on build ${p.liveBuild ?? "?"}`,
+      v: live.length ? `<span class="down">${live.length}</span><small> live</small>`
+                     : `<span class="up">none live</span>`,
+      chart: { html: C.pareto(p.crashes.slice(0, 12).map((c) => ({
+        label: c.location || c.cause, value: c.users,
+        tone: c.stale ? "measure" : c.type === "CRASH" ? "stop" : "flight",
+      })), { label: "crash clusters by users affected" }) },
+      cap: "descending bars with a cumulative line \u2014 it answers how much of "
+        + "the problem the top three account for, which is the only question a "
+        + "crash list is for",
+      detail: p.crashes.map(crashRow),
+    });
+  }
+
+  if (p.catalog?.items) {
+    panel(box, {
+      k: "What it serves", v: `${int(p.catalog.items)}<small> titles</small>`,
+      chart: { html: C.bars([
+        { label: "playable", value: p.catalog.playable, tone: "live" },
+        { label: "real poster", value: p.catalog.professionalArt, tone: "measure" },
+        { label: "trick play", value: p.catalog.withBif, tone: "measure" },
+      ], { max: p.catalog.items }) },
+    });
+  }
+
+  if (p.noApi) {
+    rows.appendChild(el("p", "clear",
+      `${p.store} publishes no numbers we can read. The state above is kept by `
+      + "hand in ops/stores-manual.json, and showing it beside the machine-read "
+      + "stores is the point \u2014 a dashboard that lists only what it can "
+      + "automate quietly forgets four platforms."));
+  }
+}
+
+/* ── a social platform's own section ────────────────────────────────────── */
+function socialPlatform(d, p) {
+  const link = p.href
+    ? ` \u2014 <a href="${p.href}" target="_blank" rel="noopener">the profile</a>`
+    : "";
+  $("platform-lede").innerHTML =
+    `<b>${p.name}</b>${link}. Counts follow what SURVIVED: a post the platform`
+    + " no longer has is not reach.";
+  const box = $("platform-panels"); box.innerHTML = "";
+  const rows = $("platform-rows"); rows.innerHTML = "";
+  $("platform-h2").textContent = "Every post";
+
+  panel(box, {
+    k: "Reach",
+    v: p.reachError ? "<small>could not read</small>"
+      : p.followers != null ? `${int(p.followers)}<small> followers</small>`
+      : "<small>not read</small>",
+    cap: p.reachError || (p.views ? `${int(p.views)} channel views` : null),
+    href: p.href,
+  });
+
+  const eng = (p.likes || 0) + (p.reposts || 0) + (p.replies || 0);
+  panel(box, {
+    k: "Posts", right: p.measured ? `${p.measured} measured` : "none measured",
+    v: `${int(p.posts)}<small> still up</small>`,
+    chart: { html: C.bars([
+      { label: "likes", value: p.likes || 0, tone: "live" },
+      { label: "reposts", value: p.reposts || 0, tone: "measure" },
+      { label: "replies", value: p.replies || 0, tone: "measure" },
+    ]) },
+    cap: p.measured ? `${eng} engagement${eng === 1 ? "" : "s"} across ${p.measured} measured`
+      : "a post is sampled at 20h and again at 144h \u2014 nothing here yet",
+  });
+
+  const days = {};
+  (p.items || []).forEach((x) => {
+    const k = (x.at || "").slice(0, 10);
+    if (k) days[k] = (days[k] || 0) + 1;
+  });
+  const cal = Object.entries(days).sort().map(([date, value]) => ({ date, value }));
+  if (cal.length) {
+    panel(box, {
+      k: "Cadence", right: "8 weeks",
+      chart: { wide: true, html: C.calendarHeat(cal, { label: `${p.name} posting cadence` }) },
+      cap: "one square a day. A total cannot tell you whether the posts kept "
+        + "coming, and the gaps are the finding",
+    });
+  }
+
+  (p.items || []).forEach((x) => row(rows, {
+    name: (x.live === false ? "\u2717 " : "") + (x.title || x.id),
+    meta: [x.format, ago(x.at), x.likes != null ? `${x.likes} likes` : null,
+           x.live === false ? "deleted from the platform" : null,
+           x.live == null ? "not verified" : null].filter(Boolean).join(" \u00b7 "),
+    href: x.url, num: x.likes != null ? `${x.likes}<small> likes</small>` : "<small>—</small>",
+  }));
+  if (!p.items?.length) rows.appendChild(el("p", "clear", "No posts recorded yet."));
+}
+
 /* ── go ──────────────────────────────────────────────────────────────────── */
 // `cache: no-store` bypasses the BROWSER cache; the Pages CDN caches for 600s
 // regardless, and a dashboard that shows a reading up to ten minutes stale on
@@ -844,6 +1152,14 @@ fetch(`${DATA}?t=${Math.floor(Date.now() / 6e4)}`, { cache: "no-store" })
       : "";
     ticker(d); needs(d); stores(d); glance(d);
     saidChips(d); said(d); social(d); trend(d); sources(d);
+    const list = platforms(d);
+    tabs(d, list);
+    const want = (location.hash || "").replace(/^#/, "") || "overview";
+    show(d, list, list.some((p) => p.key === want) ? want : "overview");
+    addEventListener("hashchange", () => {
+      const k = (location.hash || "").replace(/^#/, "") || "overview";
+      show(d, list, list.some((p) => p.key === k) ? k : "overview");
+    });
   })
   .catch((e) => {
     $("ticker").innerHTML = `<span class="down">Could not load the readings (${e.message}).</span>`;

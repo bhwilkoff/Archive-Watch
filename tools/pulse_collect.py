@@ -1191,6 +1191,50 @@ def sentences(text):
     return [s.strip() for s in re.split(r"(?<=[.!?])\s+|\n+", text or "") if len(s.strip()) > 12]
 
 
+# The counter's origin. A workers.dev subdomain needs no DNS at all, which is
+# why it is the default shape; set AW_PULSE_COUNTER once the Worker is deployed.
+WEB_COUNTER = (os.environ.get("AW_PULSE_COUNTER", "") or "").rstrip("/")
+
+
+def web_usage(state):
+    """Page views on archivewatch.org, from the counter we own.
+
+    The site produced NO usage data at all before this: GitHub Pages keeps no
+    logs we can read, so there was nothing to recover after the fact. Every
+    route to measuring it changes what privacy.html promises, and the one
+    chosen changes it least — a first-party counter whose entire storage is
+    `day | path-shape | count`, with no third party in the path.
+
+    What that costs is real and worth stating: there are no referrers, no
+    countries, no returning-visitor rate and no funnel here, because none of
+    those can be collected without keeping something about a person. What it
+    buys is that the sentence in privacy.html is true."""
+    if not WEB_COUNTER:
+        raise RuntimeError("set AW_PULSE_COUNTER to the counter's origin "
+                           "(the workers.dev URL that `wrangler deploy` prints)")
+    d = get_json(f"{WEB_COUNTER}/views?days=90", timeout=30)
+    rows = d.get("rows") or []
+    if not rows:
+        raise RuntimeError("the counter is reachable but has no rows yet — "
+                           "either it was just deployed, or the beacon is not live")
+    by_day, by_path = {}, {}
+    for r in rows:
+        day, path, n = r.get("day"), r.get("path"), int(r.get("count") or 0)
+        if not day:
+            continue
+        by_day[day] = by_day.get(day, 0) + n
+        by_path[path or "?"] = by_path.get(path or "?", 0) + n
+    daily = [{"date": k, "views": v} for k, v in sorted(by_day.items())]
+    state["health"]["webUsage"] = {
+        "daily": daily,
+        "views28d": sum(r["views"] for r in daily[-28:]),
+        "views7d": sum(r["views"] for r in daily[-7:]),
+        "byPath": dict(sorted(by_path.items(), key=lambda kv: -kv[1])[:12]),
+        "since": d.get("since"),
+    }
+    return f"{sum(by_day.values())} view(s) over {len(daily)} day(s), {len(by_path)} page kind(s)"
+
+
 def distribution(state):
     """How the written reviews divide across the five stars, per store."""
     by = {}
@@ -1272,18 +1316,29 @@ def apple_performance(state):
 
 
 def apple_downloads(state):
-    """Daily units — the headline performance number, and the only one here
-    that says how many people actually installed the thing. Needs the account's
-    VENDOR NUMBER (App Store Connect -> Payments and Financial Reports); it is
-    an identifier, not a secret, and without it this reader abstains."""
+    """Daily first-time installs, split by DEVICE, country and version.
+
+    Two things this report does that are easy to get wrong:
+
+    * It covers the whole VENDOR ACCOUNT, not one app. Ours arrived mixed with
+      another title's, and the first version of this reader counted both — 15
+      of 201 units over eight days belonged to a different product. Filter on
+      `Apple Identifier`.
+    * `Device` is the platform split Apple otherwise makes hard to get: iPhone,
+      iPad, Apple TV, Desktop. It is the only per-platform install number on
+      the Apple side, and it is right here in a column.
+
+    Needs the account's VENDOR NUMBER and a key whose role is Sales and
+    Reports; see docs/PULSE.md."""
     vendor = os.environ.get("ASC_VENDOR_NUMBER", "").strip()
     if not vendor:
         raise RuntimeError("set ASC_VENDOR_NUMBER (App Store Connect -> "
                            "Payments and Financial Reports) to read downloads")
     import gzip
-    import io
-    days, series = [], {}
-    for back in range(1, 15):                        # Apple posts ~a day behind
+    FIRST = {"1", "1T", "1E", "1EP", "1EU", "IA1"}
+    days, by_dev, by_country, by_version = [], {}, {}, {}
+    per_day_dev: dict = {}
+    for back in range(1, 32):
         day = (dt.date.today() - dt.timedelta(days=back)).isoformat()
         ep = ("v1/salesReports?filter[frequency]=DAILY&filter[reportType]=SALES"
               f"&filter[reportSubType]=SUMMARY&filter[vendorNumber]={vendor}"
@@ -1291,7 +1346,7 @@ def apple_downloads(state):
         try:
             raw = gzip.decompress(_asc_raw(ep, "application/a-gzip", reports=True))
         except urllib.error.HTTPError as e:
-            if e.code == 404:                        # no report for that day yet
+            if e.code == 404:                        # no report for that day
                 continue
             if e.code == 403:
                 raise RuntimeError(
@@ -1306,30 +1361,127 @@ def apple_downloads(state):
         if len(lines) < 2:
             continue
         head = lines[0].split("\t")
-        try:
-            i_units, i_type = head.index("Units"), head.index("Product Type Identifier")
-        except ValueError:
+        idx = {n: i for i, n in enumerate(head)}
+        need = ("Units", "Product Type Identifier", "Apple Identifier")
+        if any(n not in idx for n in need):
             continue
         total = 0
         for ln in lines[1:]:
             f = ln.split("\t")
-            if len(f) <= max(i_units, i_type):
+            if len(f) <= max(idx.values()):
                 continue
-            # 1/1F/1T/1E/1EP/1EU = a first-time download; the rest are updates
-            # and redownloads, which are not new people.
-            if f[i_type].strip().rstrip("F") in ("1", "1T", "1E", "1EP", "1EU", "IA1"):
-                try:
-                    total += int(f[i_units])
-                except ValueError:
-                    pass
-        days.append({"date": day, "units": total})
+            if APPLE_APP_ID and f[idx["Apple Identifier"]].strip() != APPLE_APP_ID:
+                continue                             # another app in the same report
+            if f[idx["Product Type Identifier"]].strip() not in FIRST:
+                continue                             # an update is not a new person
+            try:
+                u = int(f[idx["Units"]])
+            except ValueError:
+                continue
+            total += u
+            d = (f[idx["Device"]].strip() if "Device" in idx else "") or "Unknown"
+            by_dev[d] = by_dev.get(d, 0) + u
+            per_day_dev.setdefault(day, {})[d] = per_day_dev.setdefault(day, {}).get(d, 0) + u
+            if "Country Code" in idx:
+                c = f[idx["Country Code"]].strip() or "??"
+                by_country[c] = by_country.get(c, 0) + u
+            if "Version" in idx:
+                v = f[idx["Version"]].strip() or "?"
+                by_version[v] = by_version.get(v, 0) + u
+        days.append({"date": day, "units": total, "byDevice": per_day_dev.get(day, {})})
     if not days:
         raise RuntimeError("no sales report available yet for this vendor number")
     days.sort(key=lambda r: r["date"])
+    top = lambda d: dict(sorted(d.items(), key=lambda kv: -kv[1])[:14])  # noqa: E731
     state["health"]["appleDownloads"] = {
-        "daily": days, "total14d": sum(d["units"] for d in days),
+        "daily": days,
+        "total14d": sum(r["units"] for r in days[-14:]),
+        "total28d": sum(r["units"] for r in days[-28:]),
+        "byDevice": top(by_dev), "byCountry": top(by_country), "byVersion": top(by_version),
     }
-    return f"{sum(d['units'] for d in days)} first-time download(s) over {len(days)} day(s)"
+    return (f"{sum(r['units'] for r in days)} first-time download(s) over {len(days)} day(s), "
+            f"{len(by_dev)} device type(s), {len(by_country)} country/countries")
+
+
+
+def distribution(state):
+    """How the written reviews divide across the five stars, per store."""
+    by = {}
+    for r in state["reviews"]:
+        if not r.get("rating"):
+            continue
+        by.setdefault(r["store"], {i: 0 for i in range(1, 6)})[int(r["rating"])] += 1
+    state["distribution"] = by
+    return ", ".join(f"{k}: {sum(v.values())} rated" for k, v in by.items()) or "none yet"
+
+
+def _reports_token():
+    """A SEPARATE key for reports, when one exists.
+
+    App Store Connect states it plainly on the key page: a key "can't be
+    modified to access more services once created". The release key is App
+    Manager and can never gain Sales and Reports, and widening the key that
+    ships builds so a dashboard can read a download count is the wrong trade.
+    So: `ASC_REPORTS_KEY_ID` + `ASC_REPORTS_KEY_P8` (base64, same issuer) if
+    they are set, and the ordinary key otherwise — which fails honestly with
+    "the API key in use does not allow this request"."""
+    kid = os.environ.get("ASC_REPORTS_KEY_ID", "").strip()
+    p8 = os.environ.get("ASC_REPORTS_KEY_P8", "").strip()
+    if not (kid and p8):
+        return _asc().token()
+    import base64
+    import time
+    import jwt                                       # already a dependency of asc_release
+    key = base64.b64decode(p8).decode()
+    iss = os.environ["ASC_ISSUER_ID"]
+    return jwt.encode({"iss": iss, "iat": int(time.time()),
+                       "exp": int(time.time()) + 900, "aud": "appstoreconnect-v1"},
+                      key, algorithm="ES256", headers={"kid": kid, "typ": "JWT"})
+
+
+def _asc_raw(ep, accept, reports=False):
+    """ASC endpoints that do not speak JSON. `asc_release.call` sets
+    Accept: application/json and gets a 406 from both of these, which reads
+    exactly like a permission problem and is not one."""
+    tok = _reports_token() if reports else _asc().token()
+    req = urllib.request.Request("https://api.appstoreconnect.apple.com/" + ep,
+                                 headers={"Authorization": "Bearer " + tok,
+                                          "Accept": accept})
+    with urllib.request.urlopen(req, timeout=45) as r:
+        return r.read()
+
+
+def apple_performance(state):
+    """Launch time, hang rate, memory, disk — Apple's own aggregated field
+    metrics, and the one Apple-side signal that says something needs fixing
+    before a user writes a review about it."""
+    body = _asc_raw(f"v1/apps/{_asc().app_id()}/perfPowerMetrics",
+                    "application/vnd.apple.xcode-metrics+json")
+    d = json.loads(body)
+    prods = d.get("productData") or []
+    ins = d.get("insights") or {}
+    rows = []
+    for p in prods:
+        for m in p.get("metricCategories", []):
+            for metric in m.get("metrics", []):
+                pts = metric.get("datasets", [{}])[0].get("points", [])
+                if not pts:
+                    continue
+                rows.append({"platform": p.get("platform"),
+                             "category": m.get("identifier"),
+                             "metric": metric.get("identifier"),
+                             "value": pts[-1].get("value"),
+                             "unit": metric.get("unit")})
+    state["health"]["applePerf"] = {
+        "metrics": rows[:20],
+        "regressions": [clamp(i.get("summaryString") or i.get("metric"), 160)
+                        for i in (ins.get("regressions") or [])][:8],
+        "improving": [clamp(i.get("summaryString") or i.get("metric"), 160)
+                      for i in (ins.get("trendingUp") or [])][:8],
+    }
+    if not rows and not ins.get("regressions"):
+        return "Apple has not aggregated enough device data yet"
+    return f"{len(rows)} metric(s), {len(ins.get('regressions') or [])} regression(s)"
 
 
 def asks(state):
@@ -1431,6 +1583,7 @@ SOURCES = [
     ("github", github),
     ("workflows", workflows),
     ("catalog", catalog),
+    ("web_usage", web_usage),
     ("distribution", distribution),
     ("asks", asks),                                  # must run last: it reads the rest
 ]

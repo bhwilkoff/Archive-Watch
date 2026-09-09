@@ -310,3 +310,98 @@ footer { padding: 28px var(--pad); border-top: 1px solid var(--border);
                     white-space: nowrap; }
 .panel .dline .dn { grid-column: 1 / -1; font: var(--l5); color: var(--text-faint);
                     overflow-wrap: anywhere; }
+
+/* ── the researched chart forms ──────────────────────────────────────────
+   Shneiderman's mantra structures the page (overview → zoom/filter →
+   details); Datawrapper's rule picks each shape (the QUESTION decides, not
+   the data type); the control band is SPC applied to a product metric. */
+
+/* runChart — a series against its own normal range */
+.c-run { width: 100%; height: 78px; display: block; margin-top: 8px; }
+.c-run .band { fill: var(--text); opacity: 0.055; }
+.c-run .mean { stroke: var(--text-faint); stroke-width: 1; stroke-dasharray: 3 3;
+               vector-effect: non-scaling-stroke; }
+.c-run .line { fill: none; stroke: var(--text-dim); stroke-width: 1.5;
+               vector-effect: non-scaling-stroke; }
+.c-run .out  { fill: var(--color-primary); }
+
+/* smallMultiples — many series, one shared scale, scannable */
+.c-sm { display: grid; gap: 1px; background: var(--rule);
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); margin-top: 8px;
+        border: 1px solid var(--rule); border-radius: 6px; overflow: hidden; }
+.c-sm-cell { background: var(--bg); padding: 8px 10px 9px;
+             display: grid; grid-template-columns: 1fr auto; gap: 2px 8px; align-items: baseline; }
+.c-sm-l { font: var(--l5); color: var(--text-dim); }
+.c-sm-v { font: var(--l6); font-size: 0.8125rem; text-align: right; }
+.c-sm-n { grid-column: 1 / -1; font: var(--l5); color: var(--text-faint); }
+.c-sm svg { grid-column: 1 / -1; width: 100%; height: 34px; display: block; }
+.c-sm .fill { fill: var(--text); opacity: 0.08; }
+.c-sm .line { fill: none; stroke: var(--color-primary); stroke-width: 1.4;
+              vector-effect: non-scaling-stroke; }
+
+/* slope — what moved between two periods */
+.c-slope svg { width: 100%; height: 150px; display: block; }
+.c-slope line { stroke-width: 1.5; vector-effect: non-scaling-stroke; }
+.c-slope line.up   { stroke: var(--live); }
+.c-slope line.down { stroke: var(--stop); }
+.c-slope line.flat { stroke: var(--text-faint); }
+.c-slope-k { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 7px; font: var(--l5); }
+.c-slope-k .up { color: var(--live); } .c-slope-k .down { color: var(--stop); }
+.c-slope-k .flat { color: var(--text-faint); }
+.c-slope-k b { font-family: var(--mono); font-weight: 500; }
+.c-slope-x { display: flex; justify-content: space-between; margin-top: 3px;
+             font: var(--l5); color: var(--text-faint); }
+
+/* calendarHeat — did it keep coming, and where are the gaps */
+.c-cal { display: grid; grid-auto-flow: column; grid-template-rows: repeat(7, 10px);
+         gap: 2px; margin-top: 8px; overflow-x: auto; }
+.c-cal i { width: 10px; height: 10px; border-radius: 2px; background: #1A1A1A; }
+.c-cal i.l1 { background: #2B4E48; } .c-cal i.l2 { background: #357066; }
+.c-cal i.l3 { background: #3FA796; } .c-cal i.l4 { background: #6FD8C6; }
+
+/* dotPlot — many ranked categories without a wall of bars */
+.c-dot { display: grid; gap: 5px; margin-top: 6px; }
+.c-dot-r { display: grid; grid-template-columns: 78px 1fr auto; gap: 10px; align-items: center; }
+.c-dot-l { font: var(--l5); color: var(--text-dim); text-align: right;
+           overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.c-dot-t { position: relative; height: 10px; }
+.c-dot-t::before { content: ""; position: absolute; left: 0; right: 0; top: 4.5px;
+                   height: 1px; background: var(--rule); }
+.c-dot-t i { position: absolute; top: 50%; transform: translate(-50%, -50%);
+             width: 9px; height: 9px; border-radius: 50%; background: var(--color-primary); }
+.c-dot-t i.live { background: var(--live); }
+.c-dot-v { font: var(--l6); font-size: 0.8125rem; min-width: 3.4em; text-align: right; }
+
+/* pareto — what to fix first */
+.c-pareto { width: 100%; height: 70px; display: block; margin-top: 8px; }
+.c-pareto rect { fill: var(--text-dim); }
+.c-pareto rect.stop { fill: var(--stop); } .c-pareto rect.flight { fill: var(--flight); }
+.c-pareto .cum { fill: none; stroke: var(--color-primary); stroke-width: 1.5;
+                 vector-effect: non-scaling-stroke; }
+
+/* stackedArea — is the growth still coming from the same place */
+.c-area { width: 100%; height: 70px; display: block; margin-top: 8px; }
+.c-area polygon { opacity: 0.85; }
+.c-area polygon.measure { fill: var(--color-primary); }
+.c-area polygon.live { fill: var(--live); }
+.c-area polygon.flight { fill: var(--flight); }
+.c-area polygon.idle { fill: #3A3A3A; }
+
+/* ── sections and the section switcher ───────────────────────────────────
+   Overview first, then one section per platform: the mantra as navigation. */
+.tabs { display: flex; gap: 4px; overflow-x: auto; padding: 0 var(--pad);
+        border-bottom: 1px solid var(--border); scrollbar-width: none; }
+.tabs::-webkit-scrollbar { display: none; }
+.tabs button {
+  font: var(--l5); font-weight: 600; color: var(--text-faint); background: none;
+  border: 0; border-bottom: 2px solid transparent; padding: 11px 12px;
+  cursor: pointer; white-space: nowrap;
+}
+.tabs button:hover { color: var(--text-dim); }
+.tabs button[aria-selected="true"] { color: var(--text); border-bottom-color: var(--color-primary); }
+.tabs .n { font-family: var(--mono); font-size: 0.75rem; color: var(--text-faint);
+           margin-left: 5px; }
+section[hidden] { display: none !important; }
+.lede { padding: 18px var(--pad) 0; font: var(--l4); color: var(--text-dim);
+        max-width: 62ch; }
+.lede b { color: var(--text); font-weight: 600; }

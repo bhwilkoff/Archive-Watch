@@ -59,6 +59,7 @@ jobs:
       - name: Read every channel
         env:
           ASC_VENDOR_NUMBER: ${{ secrets.ASC_VENDOR_NUMBER }}
+          AW_PULSE_COUNTER: ${{ secrets.AW_PULSE_COUNTER }}
           # A SECOND key, Sales-and-Reports only. The release key is App
           # Manager and Apple will not widen a key after it is created.
           ASC_REPORTS_KEY_ID: ${{ secrets.ASC_REPORTS_KEY_ID }}

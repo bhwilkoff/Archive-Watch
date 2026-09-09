@@ -3072,3 +3072,26 @@
 
   boot();
 })();
+
+/* ── page-view counter ───────────────────────────────────────────────────
+   First-party and aggregate-only: the endpoint is ours, and the only thing it
+   can store is `day | path-shape | count`. No cookie, no session, no id, no
+   IP, no referrer, no user agent — nothing joinable to a person or to a second
+   visit, including by us. See privacy.html and worker/src/index.js.
+
+   `keepalive` so a view still counts when the reader leaves immediately, and
+   every failure is swallowed: a counter is never worth a broken page. */
+// Set by tools/set_counter_origin.py after `wrangler deploy` prints the URL.
+// Empty means the counter is not deployed, and then nothing is sent at all.
+const AW_BEACON_ORIGIN = "";
+const AW_BEACON = AW_BEACON_ORIGIN ? `${AW_BEACON_ORIGIN}/beacon` : "";
+function awCount() {
+  if (!AW_BEACON) return;
+  try {
+    fetch(`${AW_BEACON}?p=${encodeURIComponent(location.pathname)}`,
+          { method: "POST", mode: "cors", keepalive: true, cache: "no-store" })
+      .catch(() => {});
+  } catch (_) {}
+}
+awCount();
+addEventListener("hashchange", awCount);
