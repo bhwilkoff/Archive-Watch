@@ -148,9 +148,10 @@ def status(aid):
         edit = next((v for v in vs if v["attributes"]["appStoreState"] in EDITABLE | IN_FLIGHT), None)
         b = find_build(aid, bn, platform)
         bstate = b["attributes"]["processingState"] if b else "NOT UPLOADED"
+        inflight = (edit["attributes"]["versionString"] + " "
+                    + edit["attributes"]["appStoreState"]) if edit else "-"
         print(f"  {name:5} live={live['attributes']['versionString'] if live else '-':8}"
-              f" in-progress={(edit['attributes']['versionString'] + ' ' +
-                               edit['attributes']['appStoreState']) if edit else '-'}")
+              f" in-progress={inflight}")
         print(f"        build {bn}: {bstate}"
               + (f"   attached to {attached_build(edit['id'])}" if edit else ""))
         if bstate != "VALID":

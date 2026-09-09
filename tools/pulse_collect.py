@@ -460,12 +460,19 @@ def mentions_mastodon(state):
     tok = os.environ.get("MASTODON_ACCESS_TOKEN")
     if not (inst and tok):
         raise RuntimeError("no Mastodon credential in this environment")
+    try:                                             # who are WE on this instance
+        me = get_json(f"{inst}/api/v1/accounts/verify_credentials",
+                      {"Authorization": "Bearer " + tok}).get("acct", "")
+    except Exception:                                # noqa: BLE001
+        me = ""
     kept = 0
     for q in ("archivewatch.org", "archivewatch"):
         d = get_json(f"{inst}/api/v2/search?type=statuses&limit=20&q=" + urllib.parse.quote(q),
                      {"Authorization": "Bearer " + tok})
         for s in d.get("statuses", []):
             acct = (s.get("account") or {}).get("acct", "")
+            if me and acct == me:                    # our own programme, not a mention
+                continue
             kept += _mention(state, "Mastodon", "", re.sub(r"<[^>]+>", " ", s.get("content", "")),
                              s.get("url", ""), acct, s.get("created_at"),
                              {"likes": s.get("favourites_count"), "reposts": s.get("reblogs_count")})
@@ -586,15 +593,32 @@ def youtube_channel(state):
         "https://oauth2.googleapis.com/token", data=body,
         headers={"Content-Type": "application/x-www-form-urlencoded"}), timeout=25).read())["access_token"]
     hdr = {"Authorization": "Bearer " + tok}
-    ch = get_json("https://www.googleapis.com/youtube/v3/channels?part=statistics&mine=true", hdr)
-    items = ch.get("items", [])
-    if items:
-        st = items[0].get("statistics", {})
+    # The programme's token holds `youtube.upload` ONLY, and deliberately so —
+    # tools/youtube_refresh_token.py says "ask for no more than that", and a
+    # token that can post but cannot read the account is the right trade for a
+    # secret sitting in CI. Reading stats and comments needs `youtube.readonly`.
+    # So a 403 here is a CHOICE, not a fault, and it is reported as one.
+    note = []
+    try:
+        ch = get_json("https://www.googleapis.com/youtube/v3/channels"
+                      "?part=statistics&mine=true", hdr)
+        items = ch.get("items", [])
+        if items:
+            st = items[0].get("statistics", {})
+            state["social"].setdefault("reach", {})["youtube"] = {
+                "followers": int(st.get("subscriberCount") or 0),
+                "posts": int(st.get("videoCount") or 0),
+                "views": int(st.get("viewCount") or 0),
+            }
+            note.append("channel read")
+    except urllib.error.HTTPError as e:
+        if e.code != 403:
+            raise
         state["social"].setdefault("reach", {})["youtube"] = {
-            "followers": int(st.get("subscriberCount") or 0),
-            "posts": int(st.get("videoCount") or 0),
-            "views": int(st.get("viewCount") or 0),
+            "error": "the poster's token is youtube.upload only, by design — "
+                     "stats need youtube.readonly",
         }
+        note.append("stats need youtube.readonly (the token is upload-only, by design)")
     kept = 0
     for row in state.get("social", {}).get("posts", []):
         if row.get("platform") != "youtube" or not row.get("url"):
@@ -616,7 +640,8 @@ def youtube_channel(state):
                 "date": sn.get("publishedAt"), "likes": sn.get("likeCount"),
             })
             kept += 1
-    return f"channel read, {kept} comment(s)"
+    note.append(f"{kept} comment(s)")
+    return ", ".join(note)
 
 
 # ──────────────────────────────────────────── Things that need fixing / GitHub

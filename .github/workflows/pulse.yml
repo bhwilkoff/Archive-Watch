@@ -32,7 +32,7 @@ jobs:
 
       - uses: actions/setup-python@v5
         with:
-          python-version: "3.11"
+          python-version: "3.12"
 
       - name: Install what the readers need
         run: pip install --quiet PyJWT cryptography google-api-python-client google-auth

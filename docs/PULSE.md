@@ -73,6 +73,11 @@ file, and that step carries an explicit `# reporter-may-fail:` marker that
 * **Google Play has no public ratings API.** The listing is scraped, and while
   the app has too few ratings Play prints none at all — so "no rating yet" here
   is the truth, not a broken reader.
+* **`asc_release.py` needed Python 3.12.** It carried a multi-line f-string
+  expression (PEP 701), which is a `SyntaxError` on 3.11 — so Pulse's first CI
+  run, pinned to 3.11, could not import it and read zero Apple reviews while the
+  same code read four on the dev Mac. Flattened at the source, so no workflow can
+  step on it again whatever Python it pins.
 * **X, Pinterest, Letterboxd, Tumblr, Discord** were researched for the social
   programme and rejected for cost or access; see `docs/SOCIAL-SETUP.md` §6. None
   is readable here either.
@@ -90,10 +95,17 @@ file, and that step carries an explicit `# reporter-may-fail:` marker that
    — one click. That turns on crash rate, ANR rate, and the named crash clusters,
    which is the only signal here that says "something needs fixing" *before* a
    user bothers to write it down.
-3. **`FB_PAGE_ID` + `FB_PAGE_ACCESS_TOKEN`** are referenced by `social-post.yml`
+3. **YouTube stats and comments need `youtube.readonly`.** The programme's token
+   holds `youtube.upload` and nothing else, which
+   `tools/youtube_refresh_token.py` argues for in as many words — a secret in CI
+   that can post but cannot read the account. Pulse reports that as a choice, not
+   a fault. Note the same limit means **`social_metrics.py` cannot read YouTube
+   view counts either**; if those numbers are wanted, re-mint the token with
+   `youtube.readonly` added and accept the wider secret.
+4. **`FB_PAGE_ID` + `FB_PAGE_ACCESS_TOKEN`** are referenced by `social-post.yml`
    and are **not in the repo's secrets** — Facebook has never actually been
    connected, the same way Mastodon once was not.
-4. **Keep `ops/stores-manual.json` current.** Amazon, Roku, LG and Samsung have no
+5. **Keep `ops/stores-manual.json` current.** Amazon, Roku, LG and Samsung have no
    API; that file is how they appear on the page at all. Editing it is the whole
    maintenance burden of this dashboard.
 
