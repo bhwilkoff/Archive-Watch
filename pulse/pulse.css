@@ -285,3 +285,28 @@ footer { padding: 28px var(--pad); border-top: 1px solid var(--border);
 .c-axis > span:last-child { position: relative; height: 14px; display: block; }
 .c-axis span span { position: absolute; transform: translateX(-50%);
                     font: var(--l5); font-size: 0.7rem; color: var(--text-faint); }
+
+/* ── drill-down ──────────────────────────────────────────────────────────
+   A number you cannot open is a number you have to take on trust. */
+.panel .more { display: flex; align-items: baseline; gap: 14px; margin-top: 11px; }
+.panel .more button {
+  font: var(--l5); font-weight: 600; color: var(--text-dim);
+  background: none; border: 0; padding: 0; cursor: pointer;
+  border-bottom: 1px dotted var(--border);
+}
+.panel .more button:hover { color: var(--text); }
+.panel .more button::after { content: " ▾"; font-size: 0.7em; }
+.panel .more button[aria-expanded="true"]::after { content: " ▴"; }
+.panel .more .out { font: var(--l5); color: var(--color-accent); margin-left: auto; }
+.panel .detail { margin-top: 9px; border-top: 1px solid var(--rule); }
+.panel .dline {
+  display: grid; grid-template-columns: 1fr auto; gap: 3px 12px;
+  padding: 7px 0; border-bottom: 1px solid var(--rule); align-items: baseline;
+}
+.panel .dline .dl { font: var(--l5); color: var(--text); overflow-wrap: anywhere; }
+.panel .dline .dl a { color: var(--text); border-bottom: 1px solid var(--border); }
+.panel .dline .dl a:hover { color: var(--color-accent); text-decoration: none; }
+.panel .dline .dv { font: var(--l6); font-size: 0.8125rem; color: var(--text-dim);
+                    white-space: nowrap; }
+.panel .dline .dn { grid-column: 1 / -1; font: var(--l5); color: var(--text-faint);
+                    overflow-wrap: anywhere; }

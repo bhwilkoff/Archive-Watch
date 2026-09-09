@@ -158,7 +158,12 @@ function stores(d) {
    against its siblings, a spark against its own past, or a proportion of a
    whole. Colour is state only — length and position carry the quantity. */
 
-const panel = (box, { k, right, v, chart, cap }) => {
+/* Every panel opens. A number with no way into it is a number you have to
+   take on trust, and the whole point of this page is that you should not have
+   to — so `detail` carries the rows BEHIND the figure, and `href` sends you to
+   the place it came from. Progressive disclosure is predictable here: a panel
+   with a chevron expands in place, a link leaves, and nothing does both. */
+const panel = (box, { k, right, v, chart, cap, detail, href, open }) => {
   const el2 = el("div", "panel" + (chart && chart.wide ? " wide" : ""));
   const head = el("div", "k");
   head.appendChild(el("span", null, k));
@@ -167,6 +172,43 @@ const panel = (box, { k, right, v, chart, cap }) => {
   if (v != null) { const d = el("div", "v"); d.innerHTML = v; el2.appendChild(d); }
   if (chart && chart.html) el2.insertAdjacentHTML("beforeend", chart.html);
   if (cap) { const c = el("div", "cap"); c.innerHTML = cap; el2.appendChild(c); }
+
+  const rows = (detail || []).filter(Boolean);
+  if (rows.length || href) {
+    const bar = el("div", "more");
+    if (rows.length) {
+      const btn = el("button", null, `${rows.length} detail${rows.length === 1 ? "" : "s"}`);
+      const body = el("div", "detail");
+      body.hidden = !open;
+      btn.setAttribute("aria-expanded", String(!!open));
+      rows.forEach((r) => {
+        const line = el("div", "dline");
+        const lab = el("span", "dl");
+        if (r.href) {
+          const a = el("a", null, r.label); a.href = r.href;
+          a.target = "_blank"; a.rel = "noopener"; lab.appendChild(a);
+        } else lab.textContent = r.label;
+        line.appendChild(lab);
+        const val = el("span", "dv"); val.innerHTML = r.value == null ? "" : String(r.value);
+        line.appendChild(val);
+        if (r.note) line.appendChild(el("span", "dn", r.note));
+        body.appendChild(line);
+      });
+      btn.onclick = () => {
+        body.hidden = !body.hidden;
+        btn.setAttribute("aria-expanded", String(!body.hidden));
+      };
+      bar.appendChild(btn);
+      el2.appendChild(bar);
+      el2.appendChild(body);
+    }
+    if (href) {
+      const a = el("a", "out", "open \u2197"); a.href = href;
+      a.target = "_blank"; a.rel = "noopener";
+      bar.appendChild(a);
+    }
+    if (!rows.length) el2.appendChild(bar);
+  }
   box.appendChild(el2);
   return el2;
 };
@@ -188,6 +230,15 @@ function starChart(dist, total) {
   }).join("") + `</div>`;
 }
 
+const crashRow = (c) => ({
+  label: `${c.type === "CRASH" ? "Crash" : "ANR"}: ${c.location || c.cause}`,
+  value: `${c.users} user${c.users === 1 ? "" : "s"}`,
+  note: [c.cause, c.ours, `build ${c.firstBuild}\u2013${c.lastBuild}`, `API ${c.api}`,
+         ago(c.lastSeen), c.stale ? "not on the live build" : "ON THE LIVE BUILD",
+        ].filter(Boolean).join(" \u00b7 "),
+  href: c.url,
+});
+
 function glance(d) {
   const box = $("tiles"); box.innerHTML = ""; box.className = "panels";
   const h = d.history || [];
@@ -205,7 +256,13 @@ function glance(d) {
       chart: { html: C.bullet({ value: ap.average, max: 5, bands: [3, 4], target: 4.5,
         tone: ap.average >= 4 ? "live" : ap.average >= 3 ? "flight" : "stop",
         label: `${ap.average} out of 5, target 4.5` }) },
-      cap: "bands at 3 and 4 · marker is the 4.5 target" + staleNote(d, "ratings"),
+      cap: "bands at 3 and 4 \u00b7 marker is the 4.5 target" + staleNote(d, "ratings"),
+      href: ap.url,
+      detail: (d.reviews || []).slice(0, 12).map((r) => ({
+        label: `${stars(r.rating)} ${r.title || clip(r.body, 44)}`,
+        value: `${r.author || "someone"} \u00b7 ${ago(r.date)}`,
+        note: r.responded ? null : "not replied", href: r.url,
+      })),
     });
   } else {
     panel(box, { k: "App Store rating", v: "<small>not read</small>" });
@@ -238,6 +295,13 @@ function glance(d) {
     k: "The estate", right: `${st.length} surfaces`,
     v: `${buckets.live}<small> live of ${st.length}</small>`,
     chart: { html: C.stack(segs, { label: "store states" }) + C.legend(segs) },
+    detail: st.map((x) => ({
+      label: `${x.store} \u00b7 ${x.platform}`,
+      value: STATE_WORD(x.state || ""),
+      note: [x.version && (/^\d/.test(x.version) ? `v${x.version}` : x.version),
+             x.build && `build ${x.build}`, x.note].filter(Boolean).join(" \u00b7 "),
+      href: x.url,
+    })),
   });
 
   /* 4. What we actually ship: the catalog, as coverage rather than a count. */
@@ -254,6 +318,15 @@ function glance(d) {
         { label: "trick play", value: cat.withBif || 0, tone: "measure",
           display: pct(cat.withBif, cat.items) },
       ], { max: cat.items }) },
+      href: "https://archivewatch.org",
+      detail: [
+        { label: "titles in the index", value: int(cat.items) },
+        { label: "playable", value: int(cat.playable) },
+        { label: "professional poster", value: int(cat.professionalArt) },
+        { label: "trick-play thumbnails", value: int(cat.withBif) },
+        { label: "index schema", value: cat.schema },
+        { label: "built", value: ago(cat.builtAt) || "\u2014" },
+      ],
     });
   }
 
@@ -271,6 +344,14 @@ function glance(d) {
     v: reachRows.length ? `${int(totalReach)}<small> across ${reachRows.length}</small>`
       : "<small>not read</small>",
     chart: reachRows.length ? { html: C.bars(reachRows) } : null,
+    detail: Object.entries(reach).map(([k, v]) => ({
+      label: PLAT(k),
+      value: v?.error ? "\u2014" : `${v?.followers ?? 0} followers`,
+      note: v?.error ? `could not read: ${v.error}`
+        : [v?.posts != null ? `${v.posts} posts` : null,
+           v?.views ? `${int(v.views)} views` : null].filter(Boolean).join(" \u00b7 "),
+      href: PROFILE[k],
+    })),
   });
 
   /* 6. The programme's output and its return, side by side per platform. */
@@ -285,7 +366,15 @@ function glance(d) {
       v: `${int(d.social?.totalPosts)}<small> still up</small>`,
       chart: { html: C.bars(postRows) },
       cap: measured ? `<b>${measured}</b> have engagement readings`
-        : "no engagement readings yet — a post is sampled at 20h",
+        : "no engagement readings yet \u2014 a post is sampled at 20h",
+      detail: (d.social?.posts || []).slice(0, 20).map((x) => ({
+        label: `${x.live === false ? "\u2717 " : ""}${x.title || x.id}`,
+        value: `${PLAT(x.platform)} \u00b7 ${ago(x.at)}`,
+        note: [x.likes != null ? `${x.likes} likes` : null,
+               x.live === false ? "deleted from the platform" : null,
+               x.live == null ? "not verified" : null].filter(Boolean).join(" \u00b7 "),
+        href: x.url,
+      })),
     });
   }
 
@@ -306,6 +395,11 @@ function glance(d) {
     k: "Mentions", right: deltaHTML(cur.mentions, prev?.mentions),
     v: `${int((d.mentions || []).length)}<small> found</small>`,
     chart: { html: C.bars(srcRows, { max: Math.max(3, ...srcRows.map((r) => r.value)) }) },
+    detail: (d.mentions || []).slice(0, 15).map((m) => ({
+      label: clip(m.excerpt || m.title, 90),
+      value: `${m.source}${m.author ? " \u00b7 " + m.author : ""}`,
+      note: ago(m.date), href: m.url,
+    })),
   });
 
   /* 8. Play's vitals against Google's OWN bad-behaviour thresholds — the only
@@ -326,7 +420,8 @@ function glance(d) {
         label: `ANR rate ${(vit.anrRate * 100).toFixed(2)}%` });
     }
     panel(box, { k: "Android vitals", right: "28 days", chart: { html },
-      cap: "markers are Google's own bad-behaviour thresholds" });
+      cap: "markers are Google's own bad-behaviour thresholds",
+      detail: (d.health?.playCrashes || []).map(crashRow) });
   } else {
     const why = d.health?.playVitalsNote;
     panel(box, { k: "Android vitals",
@@ -336,8 +431,9 @@ function glance(d) {
           label: (c.location || c.type || "").split(".").pop().slice(0, 22),
           value: c.users || 0, tone: c.type === "CRASH" ? "stop" : "flight",
         }))) } : null,
-      cap: why ? `${why} — the clusters below are what it DID report`
-        : "needs the Play Developer Reporting API enabled — see docs/PULSE.md" });
+      cap: why ? `${why} \u2014 the clusters below are what it DID report`
+        : "needs the Play Developer Reporting API enabled \u2014 see docs/PULSE.md",
+      detail: (d.health?.playCrashes || []).map(crashRow) });
   }
 
   /* 9. The fleet: one mark per finding, none at all when nothing is wrong. */
@@ -351,7 +447,10 @@ function glance(d) {
     v: wf.length ? `${marks.filter((m) => m.tone === "stop").length}<small> urgent</small>`
       : `<span class="up">all clear</span>`,
     chart: marks.length ? { html: C.dots(marks, { label: "workflow findings" }) } : null,
-    cap: wf.length ? "red needs action now; amber is a decision" : "every scheduled run produced something",
+    cap: wf.length ? "red needs action now; amber is a decision"
+      : "every scheduled run produced something",
+    href: "https://github.com/bhwilkoff/Archive-Watch/actions",
+    detail: wf.map((f) => ({ label: f.workflow, value: f.severity })),
   });
 
   /* 10. GitHub — a repo nobody has starred is a fact, and it is shown as one. */
@@ -371,7 +470,12 @@ function glance(d) {
           display: g.uniques14d == null ? "—" : int(g.uniques14d) },
         { label: "open issues", value: g.openIssues || 0, tone: g.openIssues ? "flight" : "measure" },
       ]) },
-      cap: g.clones14d ? `${int(g.clones14d)} clones in 14 days — nearly all of them CI` : null,
+      cap: g.clones14d ? `${int(g.clones14d)} clones in 14 days \u2014 nearly all of them CI` : null,
+      href: g.url,
+      detail: (d.health?.issues || []).map((i) => ({
+        label: `#${i.number} ${i.title}`, value: i.external ? "from outside" : "ours",
+        note: `${i.author} \u00b7 ${ago(i.updated)}`, href: i.url,
+      })),
     });
   }
   /* 10b. Downloads — the only number here that counts PEOPLE, so it leads
@@ -383,7 +487,10 @@ function glance(d) {
       v: `${int(dl.total14d)}<small> first-time installs</small>`,
       chart: { html: C.spark(dl.daily.map((x) => x.units),
         { label: `${dl.total14d} downloads over ${dl.daily.length} days` }) },
-      cap: "updates and redownloads are excluded — these are new people",
+      cap: "updates and redownloads are excluded \u2014 these are new people",
+      href: "https://appstoreconnect.apple.com/analytics",
+      detail: [...dl.daily].reverse().slice(0, 14)
+        .map((x) => ({ label: x.date, value: `${x.units} install${x.units === 1 ? "" : "s"}` })),
     });
   } else if (off("apple_downloads")) {
     panel(box, { k: "Downloads", v: "<small>not read</small>",
@@ -412,6 +519,30 @@ function glance(d) {
     });
   }
 
+  /* 10d. Android installs — the number Play gives that Apple does not. */
+  const pin = d.health?.playInstalls;
+  if (pin?.daily?.length) {
+    const byC = pin.byCountry || {};
+    panel(box, {
+      k: "Android installs", right: `${pin.daily.length} days${staleNote(d, "playInstalls") ? " \u00b7 older reading" : ""}`,
+      v: `${int(pin.installs28d)}<small> installs \u00b7 ${int(pin.activeDevices)} active devices</small>`,
+      chart: { html: C.spark(pin.daily.map((x) => x.installs),
+        { label: `${pin.installs28d} installs over ${pin.daily.length} days` })
+        + C.bars(Object.entries(byC).slice(0, 6)
+            .map(([k, v]) => ({ label: k, value: v, tone: "measure" }))) },
+      cap: `${pin.uninstalls28d} uninstall(s) in the same window \u00b7 top countries by install`,
+      href: "https://play.google.com/console",
+      detail: [
+        ...Object.entries(pin.byDevice || {}).slice(0, 6)
+          .map(([k, v]) => ({ label: `device \u00b7 ${k}`, value: v })),
+        ...Object.entries(pin.byOs || {}).slice(0, 6)
+          .map(([k, v]) => ({ label: `Android API ${k}`, value: v })),
+        ...Object.entries(pin.byLanguage || {}).slice(0, 5)
+          .map(([k, v]) => ({ label: `language \u00b7 ${k}`, value: v })),
+      ],
+    });
+  }
+
   /* 11. Praise against requests — the owner's question in one bar. */
   const loves = (d.loves || []).length, wants = (d.asks || []).length;
   if (loves || wants || (d.reviews || []).length) {
@@ -424,8 +555,13 @@ function glance(d) {
       v: wants ? `${wants}<small> asked for something</small>`
         : `<span class="up">${loves}</span><small> said something kind</small>`,
       chart: { html: C.stack(segs2, { label: "praise against requests" }) + C.legend(segs2) },
-      cap: "pulled sentence by sentence out of reviews and mentions — "
-        + "read them under <b>What people said</b>",
+      cap: "pulled sentence by sentence out of reviews and mentions",
+      detail: [...(d.asks || []).map((a) => ({
+                label: a.text, value: "asked for",
+                note: `${a.who || "someone"} \u00b7 ${a.where} \u00b7 ${ago(a.date)}`, href: a.url })),
+              ...(d.loves || []).map((l) => ({
+                label: l.text, value: "praise",
+                note: `${l.who || "someone"} \u00b7 ${l.where} \u00b7 ${ago(l.date)}`, href: l.url }))],
     });
   }
 }
@@ -506,6 +642,14 @@ function saidChips(d) {
   });
 }
 
+const PROFILE = {
+  bluesky: "https://bsky.app/profile/archivewatch.bsky.social",
+  mastodon: "https://mastodon.social/@archivewatch",
+  instagram: "https://www.instagram.com/archivewatch.org/",
+  threads: "https://www.threads.net/@archivewatch.org",
+  youtube: "https://www.youtube.com/@archivewatch",
+  facebook: "https://www.facebook.com/archivewatch.org",
+};
 const PLAT_NAMES = { youtube: "YouTube", bluesky: "Bluesky", mastodon: "Mastodon",
   instagram: "Instagram", threads: "Threads", facebook: "Facebook" };
 const PLAT = (p) => PLAT_NAMES[p] || (p ? p[0].toUpperCase() + p.slice(1) : "");
