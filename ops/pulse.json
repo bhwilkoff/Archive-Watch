@@ -416,122 +416,122 @@
   "apple_stores": {
    "ok": true,
    "note": "3 Apple platform(s)",
-   "at": "2026-09-09T17:21:03+00:00"
+   "at": "2026-09-09T17:24:57+00:00"
   },
   "apple_reviews": {
    "ok": true,
    "note": "4 review(s)",
-   "at": "2026-09-09T17:21:04+00:00"
+   "at": "2026-09-09T17:24:57+00:00"
   },
   "apple_rating": {
    "ok": true,
    "note": "4.4 from 5",
-   "at": "2026-09-09T17:21:04+00:00"
+   "at": "2026-09-09T17:24:57+00:00"
   },
   "play_stores": {
    "ok": false,
    "note": "no Play service-account key (set PLAY_SERVICE_ACCOUNT_JSON)",
-   "at": "2026-09-09T17:21:04+00:00"
+   "at": "2026-09-09T17:24:58+00:00"
   },
   "play_reviews": {
    "ok": false,
    "note": "no Play service-account key (set PLAY_SERVICE_ACCOUNT_JSON)",
-   "at": "2026-09-09T17:21:04+00:00"
+   "at": "2026-09-09T17:24:58+00:00"
   },
   "play_rating": {
    "ok": false,
    "note": "Play listing carries no rating yet",
-   "at": "2026-09-09T17:21:05+00:00"
+   "at": "2026-09-09T17:24:58+00:00"
   },
   "play_vitals": {
    "ok": false,
    "note": "no Play service-account key",
-   "at": "2026-09-09T17:21:05+00:00"
+   "at": "2026-09-09T17:24:58+00:00"
   },
   "play_crashes": {
    "ok": false,
    "note": "no Play service-account key",
-   "at": "2026-09-09T17:21:05+00:00"
+   "at": "2026-09-09T17:24:58+00:00"
   },
   "manual_stores": {
    "ok": true,
    "note": "5 declared store(s)",
-   "at": "2026-09-09T17:21:05+00:00"
+   "at": "2026-09-09T17:24:58+00:00"
   },
   "social_programme": {
    "ok": true,
    "note": "9 post(s) across 5 platform(s), 0 measured",
-   "at": "2026-09-09T17:21:05+00:00"
+   "at": "2026-09-09T17:24:58+00:00"
   },
   "social_reach": {
    "ok": true,
    "note": "bluesky=1, mastodon=0, instagram=0",
-   "at": "2026-09-09T17:21:05+00:00"
+   "at": "2026-09-09T17:24:59+00:00"
   },
   "social_replies": {
    "ok": true,
    "note": "0 reply/mention notification(s)",
-   "at": "2026-09-09T17:21:06+00:00"
+   "at": "2026-09-09T17:25:00+00:00"
   },
   "youtube_channel": {
    "ok": true,
    "note": "stats need youtube.readonly (the token is upload-only, by design), 0 comment(s)",
-   "at": "2026-09-09T17:21:06+00:00"
+   "at": "2026-09-09T17:25:00+00:00"
   },
   "mentions_reddit": {
    "ok": true,
    "note": "0 kept",
-   "at": "2026-09-09T17:21:07+00:00"
+   "at": "2026-09-09T17:25:01+00:00"
   },
   "mentions_hn": {
    "ok": true,
    "note": "0 kept of 0",
-   "at": "2026-09-09T17:21:08+00:00"
+   "at": "2026-09-09T17:25:01+00:00"
   },
   "mentions_lemmy": {
    "ok": true,
    "note": "0 kept",
-   "at": "2026-09-09T17:21:10+00:00"
+   "at": "2026-09-09T17:25:03+00:00"
   },
   "mentions_news": {
    "ok": true,
    "note": "0 kept",
-   "at": "2026-09-09T17:21:10+00:00"
+   "at": "2026-09-09T17:25:03+00:00"
   },
   "mentions_bluesky": {
    "ok": true,
    "note": "1 kept",
-   "at": "2026-09-09T17:21:11+00:00"
+   "at": "2026-09-09T17:25:05+00:00"
   },
   "mentions_mastodon": {
    "ok": true,
    "note": "1 kept",
-   "at": "2026-09-09T17:21:13+00:00"
+   "at": "2026-09-09T17:25:06+00:00"
   },
   "github": {
    "ok": true,
    "note": "0 star(s), 0 open issue(s), 0 from outside",
-   "at": "2026-09-09T17:21:14+00:00"
+   "at": "2026-09-09T17:25:08+00:00"
   },
   "workflows": {
    "ok": true,
    "note": "0 finding(s), 0 urgent",
-   "at": "2026-09-09T17:22:43+00:00"
+   "at": "2026-09-09T17:26:42+00:00"
   },
   "catalog": {
    "ok": true,
    "note": "26711 items, schema 12",
-   "at": "2026-09-09T17:22:43+00:00"
+   "at": "2026-09-09T17:26:43+00:00"
   },
   "distribution": {
    "ok": true,
    "note": "App Store: 4 rated",
-   "at": "2026-09-09T17:22:43+00:00"
+   "at": "2026-09-09T17:26:43+00:00"
   },
   "asks": {
    "ok": true,
    "note": "0 request(s), 3 bit(s) of praise",
-   "at": "2026-09-09T17:22:43+00:00"
+   "at": "2026-09-09T17:26:43+00:00"
   }
  },
  "stale": {},
@@ -553,7 +553,7 @@
    "urgent": 0
   }
  ],
- "generatedAt": "2026-09-09T17:22:43+00:00",
+ "generatedAt": "2026-09-09T17:26:43+00:00",
  "repoVersion": "1.42.5",
  "repoBuild": "1017",
  "_": "Written by tools/pulse_collect.py. `history` is the series and is append-only per day; everything else is the latest reading. A source that could not answer says so in `sources` — never assume a zero."
