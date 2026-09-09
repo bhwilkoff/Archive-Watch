@@ -1523,6 +1523,21 @@ def main() -> int:
             if carried:
                 state[key] = state[key] + carried
                 stale[key] = prev.get("generatedAt")
+    # `health` is one dict shared by many readers, so the generic carry above
+    # cannot rescue a single failed one. Carry the sub-keys individually: the
+    # Play install reports read fine on the dev Mac and 403 in CI until a
+    # Console grant reaches the bucket ACLs, and dropping them meanwhile would
+    # replace a real reading with a hole.
+    HEALTH_OWNS = {"play_reports": "playInstalls", "play_crashes": "playCrashes",
+                   "play_users": "playUsers", "play_vitals": "playVitals",
+                   "apple_downloads": "appleDownloads", "apple_performance": "applePerf",
+                   "catalog": "catalog"}
+    prev_health = prev.get("health") or {}
+    for name, key in HEALTH_OWNS.items():
+        res = state["sources"].get(name)
+        if res and not res["ok"] and not state["health"].get(key) and prev_health.get(key):
+            state["health"][key] = prev_health[key]
+            stale[key] = prev.get("generatedAt")
     state["stale"] = stale
 
     # Mentions and reviews ACCUMULATE. Somebody who posted about us yesterday
