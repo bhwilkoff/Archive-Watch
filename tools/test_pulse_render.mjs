@@ -80,6 +80,35 @@ g.fetch = (u) => { fetched = u; return Promise.resolve({ ok: true, json: () => P
 
 const DATA = JSON.parse(readFileSync(join(root, "ops", "pulse.json"), "utf8"));
 
+/* ── the structural invariant, checked against the HTML itself ─────────
+   `show()` toggles `hidden` on two elements, which only works if neither
+   CONTAINS the other. A refactor nested #sec-platform inside #sec-overview
+   and every platform tab rendered blank — populated, not hidden, and
+   invisible, because its parent was hidden. The DOM shim cannot catch that
+   (nothing there has a parent), so read the markup. */
+const html = readFileSync(join(root, "pulse", "index.html"), "utf8");
+{
+  const ovStart = html.indexOf('id="sec-overview"');
+  // The MATCHING close, not the first one — the overview contains a dozen
+  // divs, and indexOf finds the innermost. This test's own first version got
+  // that wrong and reported a failure on correct markup.
+  // depth starts at ONE: the slice begins at the ATTRIBUTE, so the div's own
+  // opening tag is already behind us. Starting at zero made the first child's
+  // close look like the overview's, which is how this test reported a failure
+  // on correct markup.
+  let depth = 1, ovEnd = -1;
+  for (const m of html.slice(ovStart).matchAll(/<div\b|<\/div>/g)) {
+    depth += m[0] === "</div>" ? -1 : 1;
+    if (depth === 0) { ovEnd = ovStart + m.index; break; }
+  }
+  const plat = html.indexOf('id="sec-platform"');
+  check("the platform section is a SIBLING of the overview, not inside it",
+        plat > ovEnd || plat < ovStart,
+        `overview ${ovStart}-${ovEnd}, platform ${plat}`);
+  check("the sources section sits inside the overview it explains",
+        html.indexOf('class="sources"') < ovEnd);
+}
+
 /* ── load the real files ──────────────────────────────────────────────── */
 const charts = readFileSync(join(root, "pulse", "charts.js"), "utf8");
 const page = readFileSync(join(root, "pulse", "pulse.js"), "utf8");
