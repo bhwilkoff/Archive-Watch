@@ -144,6 +144,19 @@ and all 31 cases were checked to FAIL against broken versions of each rule.
   run, pinned to 3.11, could not import it and read zero Apple reviews while the
   same code read four on the dev Mac. Flattened at the source, so no workflow can
   step on it again whatever Python it pins.
+* **App Manager is not a reporting role, and a key cannot be widened.** The
+  natural assumption — that the key which ships builds can also read how many
+  people installed them — is wrong twice over. Apple's role descriptions put
+  report download under Finance, Sales, Admin and Account Holder; App Manager is
+  "pricing, App Store information, and app development and delivery". And the
+  key page says a key *"can't be modified to access more services once
+  created"*, which its own UI confirms: **Edit offers only Revoke Key**, with no
+  way to change roles. Measured, not assumed — the App Manager key answers
+  `403 … The API key in use does not allow this request` while succeeding on
+  customer reviews, versions and performance metrics with the same credential.
+  Community reports of Admin keys also 403ing on this endpoint turn out to be a
+  different fault (a missing or expired agreement); both of ours are Active, and
+  the vendor number is confirmed on the Payments page, so neither applies here.
 * **A Play metric set advertises the window it holds.** Querying past its
   `freshnessInfo.DAILY.latestEndTime` is a `400` that reads like a malformed
   request. Ask, then query to that date — never guess at "today".
