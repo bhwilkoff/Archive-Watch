@@ -845,6 +845,18 @@ SOURCES = [
 ]
 
 
+_MENTION_OWNER = {
+    "mentions_reddit": ("Reddit",), "mentions_hn": ("Hacker News",),
+    "mentions_lemmy": ("Lemmy",), "mentions_news": ("News",),
+    "mentions_bluesky": ("Bluesky",), "mentions_mastodon": ("Mastodon",),
+    "social_replies": ("Bluesky reply",), "youtube_channel": ("YouTube comment",),
+}
+
+
+def _owned_by(mention, source_name) -> bool:
+    return mention.get("source") in _MENTION_OWNER.get(source_name, ())
+
+
 def blank():
     return {"stores": [], "ratings": [], "reviews": [], "mentions": [],
             "distribution": {},
@@ -897,7 +909,44 @@ def main() -> int:
     a = ap.parse_args()
 
     want = set(s.strip() for s in a.only.split(",")) if a.only else None
+
+    out = Path(a.out)
+    prev = {}
+    if out.exists():
+        try:
+            prev = json.loads(out.read_text())
+        except json.JSONDecodeError:
+            prev = {}
+
+    # A PARTIAL run must not delete what it did not collect. `--only` starts
+    # from the last reading and replaces just the parts its sources produce —
+    # otherwise a quick local `--only apple_reviews` silently drops every
+    # mention CI gathered, and the page reports a confident zero for readers
+    # that were simply not asked. (This is the same rule as `sources`, one
+    # level up: absence is not evidence.)
     state = blank()
+    if want:
+        for key in ("stores", "ratings", "reviews", "mentions", "social",
+                    "health", "github", "asks", "loves", "distribution"):
+            if key in prev:
+                state[key] = prev[key]
+        state["sources"] = dict(prev.get("sources") or {})
+        # ...and the sections these sources DO own are cleared, so a reader that
+        # now returns nothing shrinks its section instead of stacking onto it.
+        owns = {
+            "apple_stores": ["stores"], "play_stores": ["stores"], "manual_stores": ["stores"],
+            "apple_reviews": ["reviews"], "play_reviews": ["reviews"],
+            "apple_rating": ["ratings"], "play_rating": ["ratings"],
+            "asks": ["asks", "loves"], "distribution": ["distribution"],
+            "github": ["github"], "social_programme": ["social"],
+        }
+        for src in want:
+            for key in owns.get(src, []):
+                state[key] = blank()[key]
+        for src in want:
+            if src.startswith("mentions_") or src == "social_replies" or src == "youtube_channel":
+                state["mentions"] = [m for m in state["mentions"]
+                                     if not _owned_by(m, src)]
 
     print(f"pulse — {now()}\n")
     for name, fn in SOURCES:
@@ -916,13 +965,6 @@ def main() -> int:
     state["mentions"] = dedupe(sorted(state["mentions"], key=lambda m: m.get("date") or "",
                                       reverse=True), lambda m: m.get("url"))[:MAX_MENTIONS]
 
-    prev = {}
-    out = Path(a.out)
-    if out.exists():
-        try:
-            prev = json.loads(out.read_text())
-        except json.JSONDecodeError:
-            prev = {}
     hist = [h for h in prev.get("history", []) if h.get("date") != today()]
     hist.append(history_row(state))
     state["history"] = hist[-MAX_HISTORY:]

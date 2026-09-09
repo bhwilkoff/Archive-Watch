@@ -185,6 +185,10 @@ python3 tools/pulse_collect.py --apply    # write ops/pulse.json
 
 python3 tools/pulse_collect.py --only apple_reviews,mentions_hn   # one reader
 
+# `--only` MERGES: it starts from the last reading and replaces only the parts
+# its own sources produce, so a quick local run cannot delete the mentions CI
+# gathered. Absence is not evidence, one level up from the `sources` rule.
+
 python3 -m http.server 8080               # then open /pulse/
 python3 tools/test_pulse_collect.py       # 48 cases, negative-controlled
 ```

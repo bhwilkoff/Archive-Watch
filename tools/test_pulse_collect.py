@@ -195,5 +195,37 @@ print("\ndedupe")
 rows = [{"u": "a", "n": 1}, {"u": "b", "n": 2}, {"u": "a", "n": 3}]
 check("collapses by key", [r["n"] for r in P.dedupe(rows, lambda r: r["u"])], [1, 2])
 
+# ── a partial run must not delete what it did not collect ───────────────────
+# A local `--only apple_reviews` once overwrote ops/pulse.json and dropped every
+# mention CI had gathered — the page then reported a confident 0 for readers
+# that had simply not been asked. Same rule as `sources`, one level up.
+print("\npartial runs merge")
+import subprocess as _sp
+import tempfile as _tf
+
+with _tf.TemporaryDirectory() as tmp:
+    f = Path(tmp) / "pulse.json"
+    f.write_text(json.dumps({
+        "reviews": [{"store": "App Store", "id": "r1", "rating": 5, "date": "2026-09-01"}],
+        "mentions": [{"source": "Mastodon", "url": "u1", "excerpt": "someone said a thing"},
+                     {"source": "Reddit", "url": "u2", "excerpt": "another"}],
+        "github": {"stars": 3},
+        "social": {"totalPosts": 9},
+        "history": [{"date": "2026-01-01", "stars": 3}],
+    }))
+    r = _sp.run([sys.executable, str(Path(__file__).parent / "pulse_collect.py"),
+                 "--only", "mentions_reddit", "--apply", "--out", str(f)],
+                capture_output=True, text=True, timeout=180)
+    got = json.loads(f.read_text())
+    check("a source it did not run keeps its reviews", len(got["reviews"]), 1)
+    check("...and its github reading", got["github"].get("stars"), 3)
+    check("...and its social section", got["social"].get("totalPosts"), 9)
+    check("a mention from ANOTHER source survives",
+          any(m["source"] == "Mastodon" for m in got["mentions"]), True)
+    check("the source that DID run replaces its own mentions",
+          any(m.get("url") == "u2" for m in got["mentions"]), False)
+    check("yesterday's history row survives",
+          any(h["date"] == "2026-01-01" for h in got["history"]), True)
+
 print(f"\n{PASS} passed, {FAIL} failed")
 sys.exit(1 if FAIL else 0)
