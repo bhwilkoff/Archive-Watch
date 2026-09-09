@@ -1,4 +1,36 @@
 {
  "_": "Readings taken by tools/social_metrics.py. One row per post per window; the ledger is the source of what was posted, this is only what happened next.",
- "samples": []
+ "samples": [
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3muzm6wlg5s2k",
+   "platform": "bluesky",
+   "id": "a-trip-to-the-moon-1902-colorized",
+   "slot": "viewer-said",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-09-08T18:02:20.932858+00:00",
+   "sampled": "2026-09-09T18:26:35.332992+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117236731894909295",
+   "platform": "mastodon",
+   "id": "a-trip-to-the-moon-1902-colorized",
+   "slot": "viewer-said",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-09-08T18:02:20.932858+00:00",
+   "sampled": "2026-09-09T18:26:35.332992+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 1,
+    "replies": 0
+   }
+  }
+ ]
 }

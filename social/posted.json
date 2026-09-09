@@ -99,6 +99,28 @@
    "format": "video",
    "kind": "silent-film",
    "reviewer": null
+  },
+  {
+   "at": "2026-09-09T18:26:27.740889+00:00",
+   "id": "zoom-bored",
+   "title": "Zoom & Bored (Laserdisc)",
+   "slot": "double-bill",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mv45yqdekg2v",
+   "format": "card",
+   "kind": "animation",
+   "reviewer": null
+  },
+  {
+   "at": "2026-09-09T18:26:27.740889+00:00",
+   "id": "zoom-bored",
+   "title": "Zoom & Bored (Laserdisc)",
+   "slot": "double-bill",
+   "platform": "mastodon",
+   "url": "https://mastodon.social/@archivewatch/117242487936215809",
+   "format": "card",
+   "kind": "animation",
+   "reviewer": null
   }
  ]
 }
