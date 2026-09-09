@@ -166,10 +166,16 @@ and all 31 cases were checked to FAIL against broken versions of each rule.
 ~~`PLAY_SERVICE_ACCOUNT_JSON` as a repo secret~~ — **done 2026-09-09**, set from
    `~/.config/play/archivewatch-play.json` with `gh secret set`. The collector
    accepts either a path or the JSON itself.
-1. **`ASC_VENDOR_NUMBER` as a repo secret** — find it in App Store Connect →
-   Payments and Financial Reports, top-left. It is an account identifier, not a
-   credential, and it is the only thing standing between this page and a daily
-   downloads figure. Without it the Downloads panel abstains.
+1. **Downloads need a SECOND API key.** The vendor number (`85339427`) is set.
+   What is missing is a key with the **Sales and Reports** role: App Store
+   Connect states on its own key page that a key *"can't be modified to access
+   more services once created"*, so the release key (App Manager) can never gain
+   it — and widening the key that ships builds so a dashboard can read a
+   download count is the wrong trade. Generate a second key that can do nothing
+   else, then run `tools/set_reports_key.sh ~/Downloads/AuthKey_XXXX.p8`; it
+   sets both secrets, verifies the key against a real report, and never prints
+   it. Apple offers the `.p8` **once** — which is why this one step is yours and
+   not mine.
 ~~Enable the Play Developer Reporting API~~ — **done 2026-09-09**,
    `gcloud services enable playdeveloperreporting.googleapis.com --project
    archivewatch-play`. It immediately returned **10 crash clusters**, including a

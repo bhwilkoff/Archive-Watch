@@ -771,13 +771,37 @@ def distribution(state):
     return ", ".join(f"{k}: {sum(v.values())} rated" for k, v in by.items()) or "none yet"
 
 
-def _asc_raw(ep, accept):
+def _reports_token():
+    """A SEPARATE key for reports, when one exists.
+
+    App Store Connect states it plainly on the key page: a key "can't be
+    modified to access more services once created". The release key is App
+    Manager and can never gain Sales and Reports, and widening the key that
+    ships builds so a dashboard can read a download count is the wrong trade.
+    So: `ASC_REPORTS_KEY_ID` + `ASC_REPORTS_KEY_P8` (base64, same issuer) if
+    they are set, and the ordinary key otherwise — which fails honestly with
+    "the API key in use does not allow this request"."""
+    kid = os.environ.get("ASC_REPORTS_KEY_ID", "").strip()
+    p8 = os.environ.get("ASC_REPORTS_KEY_P8", "").strip()
+    if not (kid and p8):
+        return _asc().token()
+    import base64
+    import time
+    import jwt                                       # already a dependency of asc_release
+    key = base64.b64decode(p8).decode()
+    iss = os.environ["ASC_ISSUER_ID"]
+    return jwt.encode({"iss": iss, "iat": int(time.time()),
+                       "exp": int(time.time()) + 900, "aud": "appstoreconnect-v1"},
+                      key, algorithm="ES256", headers={"kid": kid, "typ": "JWT"})
+
+
+def _asc_raw(ep, accept, reports=False):
     """ASC endpoints that do not speak JSON. `asc_release.call` sets
     Accept: application/json and gets a 406 from both of these, which reads
     exactly like a permission problem and is not one."""
-    A = _asc()
+    tok = _reports_token() if reports else _asc().token()
     req = urllib.request.Request("https://api.appstoreconnect.apple.com/" + ep,
-                                 headers={"Authorization": "Bearer " + A.token(),
+                                 headers={"Authorization": "Bearer " + tok,
                                           "Accept": accept})
     with urllib.request.urlopen(req, timeout=45) as r:
         return r.read()
@@ -834,10 +858,16 @@ def apple_downloads(state):
               f"&filter[reportSubType]=SUMMARY&filter[vendorNumber]={vendor}"
               f"&filter[reportDate]={day}")
         try:
-            raw = gzip.decompress(_asc_raw(ep, "application/a-gzip"))
+            raw = gzip.decompress(_asc_raw(ep, "application/a-gzip", reports=True))
         except urllib.error.HTTPError as e:
             if e.code == 404:                        # no report for that day yet
                 continue
+            if e.code == 403:
+                raise RuntimeError(
+                    "the API key in use has no Sales and Reports access, and a key "
+                    "cannot be widened after it is created — generate one with the "
+                    "Sales and Reports role and set ASC_REPORTS_KEY_ID / "
+                    "ASC_REPORTS_KEY_P8 (see docs/PULSE.md)") from None
             raise
         except OSError:
             continue
