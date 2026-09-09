@@ -153,8 +153,17 @@ builds and publishes in CI, `tools/submit-play.sh` dispatches it by default, and
 `tools/ffmpeg_limits.py` gives ffmpeg half the cores at `nice 10` locally and
 the whole runner in CI.
 
+A third, smaller instance turned up later: three `python -m http.server`
+preview servers, two of them older than two days. Nobody noticed, because a
+process that is merely IDLE is invisible until something else needs the
+machine — and the harness that replaced the need for them
+(`tools/test_pulse_render.mjs`, which runs the real page JS in a DOM shim)
+had already made them unnecessary.
+
 **Apply it**: anything that can saturate the machine gets a bound and a CI path.
-A tool that is correct but can hang is not finished.
+A tool that is correct but can hang is not finished. Prefer a harness to a
+server — a test that needs no process left running cannot leave one. And run
+`tools/dev_cleanup.sh` before walking away.
 
 ## 9. A red X means THIS run could not do its job
 
