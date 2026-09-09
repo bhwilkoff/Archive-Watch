@@ -943,10 +943,8 @@ def main() -> int:
         for src in want:
             for key in owns.get(src, []):
                 state[key] = blank()[key]
-        for src in want:
-            if src.startswith("mentions_") or src == "social_replies" or src == "youtube_channel":
-                state["mentions"] = [m for m in state["mentions"]
-                                     if not _owned_by(m, src)]
+        # mentions are unioned below, so a re-run adds to them rather than
+        # replacing — no per-source clearing here
 
     print(f"pulse — {now()}\n")
     for name, fn in SOURCES:
@@ -984,10 +982,19 @@ def main() -> int:
                 stale[key] = prev.get("generatedAt")
     state["stale"] = stale
 
-    state["reviews"] = dedupe(sorted(state["reviews"], key=lambda r: r.get("date") or "",
-                                     reverse=True), lambda r: (r["store"], r.get("id")))[:MAX_REVIEWS]
-    state["mentions"] = dedupe(sorted(state["mentions"], key=lambda m: m.get("date") or "",
-                                      reverse=True), lambda m: m.get("url"))[:MAX_MENTIONS]
+    # Mentions and reviews ACCUMULATE. Somebody who posted about us yesterday
+    # still posted about us today, and these searches are fuzzy — Bluesky's
+    # returned a real mention on one run and not the next. Replacing the list
+    # each day would make a genuine finding evaporate because a search did not
+    # repeat, which is the same lie as a confident zero, told slowly.
+    state["reviews"] = dedupe(
+        sorted(state["reviews"] + (prev.get("reviews") or []),
+               key=lambda r: r.get("date") or "", reverse=True),
+        lambda r: (r.get("store"), r.get("id")))[:MAX_REVIEWS]
+    state["mentions"] = dedupe(
+        sorted(state["mentions"] + (prev.get("mentions") or []),
+               key=lambda m: m.get("date") or "", reverse=True),
+        lambda m: m.get("url"))[:MAX_MENTIONS]
 
     hist = [h for h in prev.get("history", []) if h.get("date") != today()]
     hist.append(history_row(state))

@@ -222,8 +222,8 @@ with _tf.TemporaryDirectory() as tmp:
     check("...and its social section", got["social"].get("totalPosts"), 9)
     check("a mention from ANOTHER source survives",
           any(m["source"] == "Mastodon" for m in got["mentions"]), True)
-    check("the source that DID run replaces its own mentions",
-          any(m.get("url") == "u2" for m in got["mentions"]), False)
+    check("a mention found once is not lost when a fuzzy search does not repeat",
+          {m["url"] for m in got["mentions"]} >= {"u1", "u2"}, True)
     check("yesterday's history row survives",
           any(h["date"] == "2026-01-01" for h in got["history"]), True)
 
