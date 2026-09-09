@@ -382,6 +382,7 @@ def play_crashes(state):
                    f"-{i.get('lastOsVersion', {}).get('apiLevel')}",
             "stale": stale,
             "url": i.get("issueUri"),
+            "fixedIn": _fixed_in(i.get("issueUri")),
             "ours": _our_frame(svc, i, iv),
         })
     state["health"]["playCrashes"] = rows
@@ -389,6 +390,28 @@ def play_crashes(state):
     fresh = [r for r in rows if not r["stale"]]
     return (f"{len(rows)} cluster(s), {len(fresh)} still on build {live_vc}"
             if live_vc else f"{len(rows)} cluster(s)")
+
+
+_FIXED: dict | None = None
+
+
+def _fixed_in(issue_uri):
+    """Has this cluster's CAUSE already been fixed in the repo?
+
+    A crash with a fix in hand is a different thing from one nobody has looked
+    at — the action is no longer "fix it", it is "ship it" — and a dashboard
+    that cannot tell those apart asks for the same work twice. `ops/fixed-in.json`
+    records the build that carries the fix; the page compares it to what is
+    actually in production."""
+    global _FIXED
+    if _FIXED is None:
+        try:
+            _FIXED = json.loads((REPO / "ops" / "fixed-in.json").read_text()).get("clusters", {})
+        except (OSError, ValueError):
+            _FIXED = {}
+    cid = (issue_uri or "").rstrip("/").split("/")[-2] if "/details" in (issue_uri or "") \
+        else (issue_uri or "").rstrip("/").split("/")[-1]
+    return _FIXED.get(cid)
 
 
 def _our_frame(svc, issue, iv):

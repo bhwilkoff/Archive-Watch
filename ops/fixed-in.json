@@ -1,0 +1,18 @@
+{
+ "_": "Crash clusters whose CAUSE has been fixed in the repo but whose fix has not reached users. A crash with a fix in hand is a different thing from one nobody has looked at: the action is no longer 'fix it', it is 'ship it'. Keyed by the Play Console issue id (the hash in its issueUri). Remove an entry once the cluster stops appearing on a build at or above `build`.",
+ "clusters": {
+  "493daebebd66d48f2bbc41e2c9ad0f60": {
+   "build": 1018,
+   "version": "1.42.6",
+   "what": "Compose duplicate lazy-list keys",
+   "fix": "List.uniqueBy at 14 call sites; UniqueByTest, negative-controlled"
+  },
+  "46cce2ccb32b3c8eb548f273f0aa655c": {
+   "build": 1018,
+   "version": "1.42.6",
+   "what": "Compose duplicate lazy-list keys",
+   "fix": "List.uniqueBy at 14 call sites; UniqueByTest, negative-controlled"
+  }
+ },
+ "note": "The id here is the LARGEST cluster of the five that share the subcompose stack. They are one bug; Play splits them by device and version. Add the others' ids as they surface."
+}

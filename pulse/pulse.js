@@ -89,7 +89,18 @@ function needs(d) {
   // Only crashes still happening on the build that is LIVE. Ten of the twelve
   // clusters were last seen on build 34 against a production build of 54;
   // listing those as things to fix today is how a list stops being read.
-  (d.health?.playCrashes || []).filter((c) => !c.stale).slice(0, 6).forEach((c) => items.push({
+  const shipped = (c) => c.fixedIn && d.repoBuild && Number(d.repoBuild) >= c.fixedIn.build;
+  const waiting = (d.health?.playCrashes || []).filter((c) => !c.stale && shipped(c));
+  if (waiting.length) {
+    const f = waiting[0].fixedIn;
+    items.push({
+      name: `Release ${f.version} \u2014 it carries the fix for ${waiting.length} live crash`
+        + `${waiting.length === 1 ? "" : "es"}`,
+      meta: `${f.what}: ${f.fix}. Users are on the build the crash is still on.`,
+      href: "https://play.google.com/console",
+    });
+  }
+  (d.health?.playCrashes || []).filter((c) => !c.stale && !shipped(c)).slice(0, 6).forEach((c) => items.push({
     name: `${c.type === "CRASH" ? "Crash" : "ANR"}: ${c.location || c.cause}`,
     meta: [c.cause, c.ours, `${c.users} user(s)`, `build ${c.lastBuild}`,
            `API ${c.api}`, ago(c.lastSeen)].filter(Boolean).join(" \u00b7 "),
