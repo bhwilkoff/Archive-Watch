@@ -105,6 +105,8 @@ and all 31 cases were checked to FAIL against broken versions of each rule.
 | Apple version state ×3 platforms | ASC `appStoreVersions` | `ASC_*` | CI + local |
 | Apple customer reviews, all territories | ASC `customerReviews` (paged, `include=response`) | `ASC_*` | CI + local |
 | Apple rating summary | `itunes.apple.com/lookup` | none | anywhere |
+| Apple downloads, daily | ASC `salesReports` (gzipped TSV) | `ASC_*` + vendor no. | ⚠ see below |
+| Apple field metrics (launch, hangs, memory) | ASC `perfPowerMetrics` | `ASC_*` | CI + local |
 | Play track state (prod/beta/internal) | `androidpublisher` `edits.tracks` | Play SA | ⚠ see below |
 | Play reviews (7-day window) | `androidpublisher` `reviews.list` | Play SA | ⚠ |
 | Play rating | store page | none | when the listing has one |
@@ -142,6 +144,14 @@ and all 31 cases were checked to FAIL against broken versions of each rule.
   run, pinned to 3.11, could not import it and read zero Apple reviews while the
   same code read four on the dev Mac. Flattened at the source, so no workflow can
   step on it again whatever Python it pins.
+* **Two ASC endpoints do not speak JSON, and say so as a 406.** `salesReports`
+  wants `Accept: application/a-gzip` and `perfPowerMetrics` wants
+  `application/vnd.apple.xcode-metrics+json`; through `asc_release.call`, which
+  sets `Accept: application/json`, both answer `406 NOT_ACCEPTABLE` — which
+  reads exactly like a permission problem and is not one.
+* **`analyticsReportRequests` answers 403 for this key.** The newer Analytics
+  Reports API needs an API key with a role that has report access; the sales
+  report above covers the same ground for downloads.
 * **X, Pinterest, Letterboxd, Tumblr, Discord** were researched for the social
   programme and rejected for cost or access; see `docs/SOCIAL-SETUP.md` §6. None
   is readable here either.
@@ -154,22 +164,26 @@ and all 31 cases were checked to FAIL against broken versions of each rule.
    `~/.config/play/archivewatch-play.json`. Without it the Play columns read only
    when Pulse is run on this Mac. (The collector accepts either a path or the JSON
    itself.)
-2. **Enable the Play Developer Reporting API** for the service account's project:
+2. **`ASC_VENDOR_NUMBER` as a repo secret** — find it in App Store Connect →
+   Payments and Financial Reports, top-left. It is an account identifier, not a
+   credential, and it is the only thing standing between this page and a daily
+   downloads figure. Without it the Downloads panel abstains.
+3. **Enable the Play Developer Reporting API** for the service account's project:
    <https://console.developers.google.com/apis/api/playdeveloperreporting.googleapis.com/overview?project=294492189901>
    — one click. That turns on crash rate, ANR rate, and the named crash clusters,
    which is the only signal here that says "something needs fixing" *before* a
    user bothers to write it down.
-3. **YouTube stats and comments need `youtube.readonly`.** The programme's token
+4. **YouTube stats and comments need `youtube.readonly`.** The programme's token
    holds `youtube.upload` and nothing else, which
    `tools/youtube_refresh_token.py` argues for in as many words — a secret in CI
    that can post but cannot read the account. Pulse reports that as a choice, not
    a fault. Note the same limit means **`social_metrics.py` cannot read YouTube
    view counts either**; if those numbers are wanted, re-mint the token with
    `youtube.readonly` added and accept the wider secret.
-4. **`FB_PAGE_ID` + `FB_PAGE_ACCESS_TOKEN`** are referenced by `social-post.yml`
+5. **`FB_PAGE_ID` + `FB_PAGE_ACCESS_TOKEN`** are referenced by `social-post.yml`
    and are **not in the repo's secrets** — Facebook has never actually been
    connected, the same way Mastodon once was not.
-5. **Keep `ops/stores-manual.json` current.** Amazon, Roku, LG and Samsung have no
+6. **Keep `ops/stores-manual.json` current.** Amazon, Roku, LG and Samsung have no
    API; that file is how they appear on the page at all. Editing it is the whole
    maintenance burden of this dashboard.
 

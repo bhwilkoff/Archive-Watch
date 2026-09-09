@@ -357,6 +357,44 @@ function glance(d) {
       cap: g.clones14d ? `${int(g.clones14d)} clones in 14 days — nearly all of them CI` : null,
     });
   }
+  /* 10b. Downloads — the only number here that counts PEOPLE, so it leads
+        with its own shape rather than sitting in a list. */
+  const dl = d.health?.appleDownloads;
+  if (dl?.daily?.length) {
+    panel(box, {
+      k: "Downloads", right: `${dl.daily.length} days`,
+      v: `${int(dl.total14d)}<small> first-time installs</small>`,
+      chart: { html: C.spark(dl.daily.map((x) => x.units),
+        { label: `${dl.total14d} downloads over ${dl.daily.length} days` }) },
+      cap: "updates and redownloads are excluded — these are new people",
+    });
+  } else if (off("apple_downloads")) {
+    panel(box, { k: "Downloads", v: "<small>not read</small>",
+      cap: "needs <b>ASC_VENDOR_NUMBER</b> — an identifier, not a secret; "
+        + "App Store Connect → Payments and Financial Reports" });
+  }
+
+  /* 10c. Apple's own field metrics. An empty answer here is normal for a young
+        app — Apple aggregates across opted-in devices and needs a population. */
+  const perf = d.health?.applePerf;
+  if (perf) {
+    const regs = perf.regressions || [];
+    panel(box, {
+      k: "Apple field metrics", right: perf.metrics?.length ? `${perf.metrics.length} metrics` : "",
+      v: regs.length ? `<span class="down">${regs.length}</span><small> regression${regs.length === 1 ? "" : "s"}</small>`
+        : (perf.metrics?.length ? `<span class="up">no regressions</span>`
+                                : "<small>not enough devices yet</small>"),
+      chart: perf.metrics?.length ? { html: C.bars(perf.metrics.slice(0, 5).map((m) => ({
+        label: (m.metric || "").replace(/([A-Z])/g, " $1").trim().toLowerCase(),
+        value: Number(m.value) || 0, tone: "measure",
+        display: `${m.value}${m.unit ? " " + m.unit : ""}`,
+      }))) } : null,
+      cap: regs.length ? regs.map((r) => `<b>${r}</b>`).join(" · ")
+        : "launch time, hang rate, memory and disk, aggregated by Apple across "
+          + "devices that opted in to share diagnostics",
+    });
+  }
+
   /* 11. Praise against requests — the owner's question in one bar. */
   const loves = (d.loves || []).length, wants = (d.asks || []).length;
   if (loves || wants || (d.reviews || []).length) {

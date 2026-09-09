@@ -746,6 +746,106 @@ def distribution(state):
     return ", ".join(f"{k}: {sum(v.values())} rated" for k, v in by.items()) or "none yet"
 
 
+def _asc_raw(ep, accept):
+    """ASC endpoints that do not speak JSON. `asc_release.call` sets
+    Accept: application/json and gets a 406 from both of these, which reads
+    exactly like a permission problem and is not one."""
+    A = _asc()
+    req = urllib.request.Request("https://api.appstoreconnect.apple.com/" + ep,
+                                 headers={"Authorization": "Bearer " + A.token(),
+                                          "Accept": accept})
+    with urllib.request.urlopen(req, timeout=45) as r:
+        return r.read()
+
+
+def apple_performance(state):
+    """Launch time, hang rate, memory, disk — Apple's own aggregated field
+    metrics, and the one Apple-side signal that says something needs fixing
+    before a user writes a review about it."""
+    body = _asc_raw(f"v1/apps/{_asc().app_id()}/perfPowerMetrics",
+                    "application/vnd.apple.xcode-metrics+json")
+    d = json.loads(body)
+    prods = d.get("productData") or []
+    ins = d.get("insights") or {}
+    rows = []
+    for p in prods:
+        for m in p.get("metricCategories", []):
+            for metric in m.get("metrics", []):
+                pts = metric.get("datasets", [{}])[0].get("points", [])
+                if not pts:
+                    continue
+                rows.append({"platform": p.get("platform"),
+                             "category": m.get("identifier"),
+                             "metric": metric.get("identifier"),
+                             "value": pts[-1].get("value"),
+                             "unit": metric.get("unit")})
+    state["health"]["applePerf"] = {
+        "metrics": rows[:20],
+        "regressions": [clamp(i.get("summaryString") or i.get("metric"), 160)
+                        for i in (ins.get("regressions") or [])][:8],
+        "improving": [clamp(i.get("summaryString") or i.get("metric"), 160)
+                      for i in (ins.get("trendingUp") or [])][:8],
+    }
+    if not rows and not ins.get("regressions"):
+        return "Apple has not aggregated enough device data yet"
+    return f"{len(rows)} metric(s), {len(ins.get('regressions') or [])} regression(s)"
+
+
+def apple_downloads(state):
+    """Daily units — the headline performance number, and the only one here
+    that says how many people actually installed the thing. Needs the account's
+    VENDOR NUMBER (App Store Connect -> Payments and Financial Reports); it is
+    an identifier, not a secret, and without it this reader abstains."""
+    vendor = os.environ.get("ASC_VENDOR_NUMBER", "").strip()
+    if not vendor:
+        raise RuntimeError("set ASC_VENDOR_NUMBER (App Store Connect -> "
+                           "Payments and Financial Reports) to read downloads")
+    import gzip
+    import io
+    days, series = [], {}
+    for back in range(1, 15):                        # Apple posts ~a day behind
+        day = (dt.date.today() - dt.timedelta(days=back)).isoformat()
+        ep = ("v1/salesReports?filter[frequency]=DAILY&filter[reportType]=SALES"
+              f"&filter[reportSubType]=SUMMARY&filter[vendorNumber]={vendor}"
+              f"&filter[reportDate]={day}")
+        try:
+            raw = gzip.decompress(_asc_raw(ep, "application/a-gzip"))
+        except urllib.error.HTTPError as e:
+            if e.code == 404:                        # no report for that day yet
+                continue
+            raise
+        except OSError:
+            continue
+        lines = raw.decode("utf-8", "replace").splitlines()
+        if len(lines) < 2:
+            continue
+        head = lines[0].split("\t")
+        try:
+            i_units, i_type = head.index("Units"), head.index("Product Type Identifier")
+        except ValueError:
+            continue
+        total = 0
+        for ln in lines[1:]:
+            f = ln.split("\t")
+            if len(f) <= max(i_units, i_type):
+                continue
+            # 1/1F/1T/1E/1EP/1EU = a first-time download; the rest are updates
+            # and redownloads, which are not new people.
+            if f[i_type].strip().rstrip("F") in ("1", "1T", "1E", "1EP", "1EU", "IA1"):
+                try:
+                    total += int(f[i_units])
+                except ValueError:
+                    pass
+        days.append({"date": day, "units": total})
+    if not days:
+        raise RuntimeError("no sales report available yet for this vendor number")
+    days.sort(key=lambda r: r["date"])
+    state["health"]["appleDownloads"] = {
+        "daily": days, "total14d": sum(d["units"] for d in days),
+    }
+    return f"{sum(d['units'] for d in days)} first-time download(s) over {len(days)} day(s)"
+
+
 def asks(state):
     """Pull the sentence a person actually WROTE. No summary, no score — the
     owner reads their words and follows the link to the rest."""
@@ -821,6 +921,8 @@ SOURCES = [
     ("apple_stores", apple_stores),
     ("apple_reviews", apple_reviews),
     ("apple_rating", apple_rating),
+    ("apple_performance", apple_performance),
+    ("apple_downloads", apple_downloads),
     ("play_stores", play_stores),
     ("play_reviews", play_reviews),
     ("play_rating", play_rating),
