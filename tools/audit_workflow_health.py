@@ -166,12 +166,29 @@ def displaced(run: dict) -> bool:
 
     Such a run carries NO information about the workflow's health — it never
     left the queue. Cached because both `judge` and the run-selection ask.
+
+    Displacement happens at JOB granularity too (Decision 095), and testing
+    only the whole-run case is why this failed EVERY DAY on a self-healing
+    condition. In a Decision-066 split, the `probe` job succeeds and banks its
+    deltas as an artifact while the short `apply` job sits pending on
+    `catalog-writers`; GitHub keeps one pending job per group, so a newer
+    arrival destroys it with ZERO steps. `any(steps)` then sees the probe's
+    ten steps, the run is judged KILLED, and KILLED is urgent — a red X and an
+    email, daily, for a run `retry_infra_failures` re-runs on its own. This is
+    the SAME test that sweeper already makes; the two must not disagree about
+    what a displaced job looks like.
     """
     if run.get("conclusion") != "cancelled":
         return False
     if run["id"] not in _DISPLACED:
         jobs = api(f"actions/runs/{run['id']}/jobs").get("jobs", [])
-        _DISPLACED[run["id"]] = not any(j.get("steps") for j in jobs)
+        whole = not any(j.get("steps") for j in jobs)
+        bad = [j for j in jobs
+               if j.get("conclusion") not in ("success", "skipped", "neutral")]
+        # Some jobs finished and every job that did NOT has zero steps: the
+        # work exists, only a queued job was displaced.
+        partial = bool(jobs) and bool(bad) and not any(j.get("steps") for j in bad)
+        _DISPLACED[run["id"]] = whole or partial
     return _DISPLACED[run["id"]]
 
 
@@ -189,7 +206,8 @@ def judge(name: str, run: dict, yield_ok: bool = True) -> tuple[str, str] | None
 
     if concl == "cancelled":
         if displaced(run):
-            return ("DROPPED", "displaced in the concurrency queue before any step ran")
+            return ("DROPPED", "a job was displaced in the concurrency queue "
+                               "before it ran a step; the sweeper re-runs it")
         jobs = api(f"actions/runs/{run['id']}/jobs").get("jobs", [])
         skipped = [s["name"] for j in jobs for s in j.get("steps", [])
                    if s.get("conclusion") == "skipped"]

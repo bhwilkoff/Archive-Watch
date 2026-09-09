@@ -60,6 +60,42 @@ check("it is still exempt from the yield analysis",
 check("the old blanket name is gone", not hasattr(A, "NOT_PRODUCERS"))
 
 print("\ndisplacement carries no information")
+# The shape that failed the audit EVERY DAY: a Decision-066 split whose probe
+# job succeeded and whose queued apply job was destroyed with zero steps.
+def jobs_reply(probe_steps, apply_concl, apply_steps):
+    return lambda path: {"jobs": [
+        {"conclusion": "success", "steps": [{"name": "s", "conclusion": "success"}] * probe_steps},
+        {"conclusion": apply_concl, "steps": [{"name": "s", "conclusion": "success"}] * apply_steps},
+    ]}
+
+_api = A.api
+A._DISPLACED.clear()
+A.api = jobs_reply(10, "cancelled", 0)
+check("a displaced APPLY job counts as displaced, not killed",
+      A.displaced(run("cancelled", rid=101)))
+A._DISPLACED.clear()
+check("...and is reported DROPPED",
+      (A.judge("Codec audit", run("cancelled", rid=101)) or ("",))[0] == "DROPPED")
+
+# A human or a timeout cancelling a RUNNING job always leaves steps behind.
+A._DISPLACED.clear()
+A.api = jobs_reply(10, "cancelled", 4)
+check("a job cancelled MID-RUN is still KILLED, never dropped",
+      not A.displaced(run("cancelled", rid=102)))
+A._DISPLACED.clear()
+check("...and reports KILLED",
+      (A.judge("X", run("cancelled", rid=102)) or ("",))[0] == "KILLED")
+
+# The auditor and the sweeper must not disagree about what displacement is.
+import re as _re
+sweeper = (Path(A.__file__).parent / "retry_infra_failures.py").read_text()
+check("the sweeper uses the same zero-steps-on-bad-jobs test",
+      'not any(j.get("steps") for j in bad)' in sweeper)
+check("and so does the auditor",
+      'not any(j.get("steps") for j in bad)' in Path(A.__file__).read_text())
+A.api = _api
+A._DISPLACED.clear()
+
 A._DISPLACED.clear()
 check("a cancelled run with no steps is displaced", A.displaced(run("cancelled", rid=7)))
 check("and is reported DROPPED, not KILLED",
