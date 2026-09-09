@@ -31,7 +31,11 @@ on:
       - 'PARITY.md'
   workflow_dispatch:
   workflow_run:
-    workflows: ["Enrich subtitles"]
+    # Pulse commits its reading with [skip ci] — correct, since the reading must
+    # not set the whole fleet running — which also means its push triggers NO
+    # deploy at all. The site would keep serving yesterday's numbers until some
+    # unrelated web commit happened along. Same idiom as the subtitles job.
+    workflows: ["Enrich subtitles", "Pulse"]
     types: [completed]
 
 permissions:
