@@ -11,6 +11,7 @@ rule it covers, which is the only way to know a regression test works.
 from __future__ import annotations
 
 import json
+import re
 import sys
 import xml.etree.ElementTree as ET
 from pathlib import Path
@@ -226,6 +227,21 @@ with _tf.TemporaryDirectory() as tmp:
           {m["url"] for m in got["mentions"]} >= {"u1", "u2"}, True)
     check("yesterday's history row survives",
           any(h["date"] == "2026-01-01" for h in got["history"]), True)
+
+
+# ── every credential the collector reads must reach it in CI ────────────────
+# The reports key was set as a repo secret and NOT passed by the workflow, so
+# the run stayed green and the Downloads panel stayed empty. A secret that
+# exists and never arrives is indistinguishable from one that was never made.
+print("\nthe workflow passes what the collector reads")
+_src = (Path(__file__).parent / "pulse_collect.py").read_text()
+_wf = (Path(__file__).parent.parent / ".github" / "workflows" / "pulse.yml").read_text()
+_names = set(re.findall(r'os\.environ(?:\.get)?[\(\[]"([A-Z][A-Z0-9_]{3,})"', _src))
+# ASC_KEY_ID/ISSUER_ID are exported into GITHUB_ENV by the key-writing step, and
+# PLAY_SERVICE_ACCOUNT_JSON may legitimately be a local path outside CI.
+_via_env_file = {"ASC_KEY_ID", "ASC_ISSUER_ID"}
+_missing = sorted(n for n in _names - _via_env_file if n not in _wf)
+check("no credential the collector reads is missing from pulse.yml", _missing, [])
 
 print(f"\n{PASS} passed, {FAIL} failed")
 sys.exit(1 if FAIL else 0)

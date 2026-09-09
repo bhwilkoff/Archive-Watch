@@ -144,6 +144,11 @@ and all 31 cases were checked to FAIL against broken versions of each rule.
   run, pinned to 3.11, could not import it and read zero Apple reviews while the
   same code read four on the dev Mac. Flattened at the source, so no workflow can
   step on it again whatever Python it pins.
+* **A secret that exists and never arrives looks exactly like one that was
+  never made.** The reports key was set correctly and `pulse.yml` did not pass
+  it, so the run stayed green and the panel stayed empty.
+  `tools/test_pulse_collect.py` now reads every `os.environ` name out of the
+  collector and asserts the workflow carries it.
 * **App Manager is not a reporting role, and a key cannot be widened.** The
   natural assumption — that the key which ships builds can also read how many
   people installed them — is wrong twice over. Apple's role descriptions put
@@ -179,7 +184,11 @@ and all 31 cases were checked to FAIL against broken versions of each rule.
 ~~`PLAY_SERVICE_ACCOUNT_JSON` as a repo secret~~ — **done 2026-09-09**, set from
    `~/.config/play/archivewatch-play.json` with `gh secret set`. The collector
    accepts either a path or the JSON itself.
-1. **Downloads need a SECOND API key.** The vendor number (`85339427`) is set.
+~~Downloads need a SECOND API key.~~ — **done 2026-09-09.** Key `3F84BHSMRC`,
+   role **Sales and Reports** and nothing else, wired as `ASC_REPORTS_KEY_ID` /
+   `ASC_REPORTS_KEY_P8` by `tools/set_reports_key.sh`. First read: **334
+   first-time installs over 14 days.** The original note, kept because the
+   reasoning still binds: The vendor number (`85339427`) is set.
    What is missing is a key with the **Sales and Reports** role: App Store
    Connect states on its own key page that a key *"can't be modified to access
    more services once created"*, so the release key (App Manager) can never gain
@@ -187,8 +196,8 @@ and all 31 cases were checked to FAIL against broken versions of each rule.
    download count is the wrong trade. Generate a second key that can do nothing
    else, then run `tools/set_reports_key.sh ~/Downloads/AuthKey_XXXX.p8`; it
    sets both secrets, verifies the key against a real report, and never prints
-   it. Apple offers the `.p8` **once** — which is why this one step is yours and
-   not mine.
+   it. Apple offers the `.p8` **once** — which is why generating it is the
+   owner's step and not the agent's.
 ~~Enable the Play Developer Reporting API~~ — **done 2026-09-09**,
    `gcloud services enable playdeveloperreporting.googleapis.com --project
    archivewatch-play`. It immediately returned **10 crash clusters**, including a

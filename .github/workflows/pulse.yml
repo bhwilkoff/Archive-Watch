@@ -58,6 +58,10 @@ jobs:
       - name: Read every channel
         env:
           ASC_VENDOR_NUMBER: ${{ secrets.ASC_VENDOR_NUMBER }}
+          # A SECOND key, Sales-and-Reports only. The release key is App
+          # Manager and Apple will not widen a key after it is created.
+          ASC_REPORTS_KEY_ID: ${{ secrets.ASC_REPORTS_KEY_ID }}
+          ASC_REPORTS_KEY_P8: ${{ secrets.ASC_REPORTS_KEY_P8 }}
           PLAY_SERVICE_ACCOUNT_JSON: ${{ secrets.PLAY_SERVICE_ACCOUNT_JSON }}
           BLUESKY_HANDLE: ${{ secrets.BLUESKY_HANDLE }}
           BLUESKY_APP_PASSWORD: ${{ secrets.BLUESKY_APP_PASSWORD }}
