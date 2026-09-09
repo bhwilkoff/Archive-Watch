@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Pulse — Archive Watch</title>
+<meta name="description" content="Every store, every review, every mention, in one place.">
+<link rel="icon" href="../assets/favicon.png">
+<link rel="stylesheet" href="pulse.css">
+</head>
+<body>
+
+<header class="top">
+  <h1><span class="mark">Archive Watch</span> Pulse</h1>
+  <span class="when" id="when">reading…</span>
+</header>
+
+<p class="ticker" id="ticker"><span class="flat">loading the day…</span></p>
+
+<main>
+  <section class="needs">
+    <h2>Needs you <span class="count" id="needs-n"></span>
+      <span class="hint">the only list that asks for a decision</span></h2>
+    <div id="needs" class="rows"></div>
+  </section>
+
+  <section>
+    <h2>Where we are shipping <span class="count" id="stores-n"></span>
+      <span class="hint">every store, machine-read or declared</span></h2>
+    <div id="stores" class="rows"></div>
+  </section>
+
+  <section>
+    <h2>At a glance</h2>
+    <div id="tiles" class="tiles"></div>
+  </section>
+
+  <section class="said">
+    <h2>What people said <span class="count" id="said-n"></span>
+      <span class="hint">their words, never a summary</span></h2>
+    <div class="chips" id="said-chips"></div>
+    <div id="said" class="rows"></div>
+  </section>
+
+  <section>
+    <h2>The programme <span class="count" id="social-n"></span>
+      <span class="hint">what we posted, and what it did</span></h2>
+    <div id="social" class="rows"></div>
+  </section>
+
+  <section>
+    <h2>Over time <span class="hint">one reading a day</span></h2>
+    <div id="trend"></div>
+  </section>
+
+  <section class="sources">
+    <h2>Where this came from <span class="count" id="src-n"></span>
+      <span class="hint">a reader that could not read says so</span></h2>
+    <div id="sources" class="rows"></div>
+  </section>
+</main>
+
+<footer>
+  Built by <code>tools/pulse_collect.py</code>, once a day. Unlisted — not linked
+  from the site and excluded from search. Reviews and ratings are Apple's and
+  Google's own; mentions are public posts.
+</footer>
+
+<script src="pulse.js"></script>
+</body>
+</html>

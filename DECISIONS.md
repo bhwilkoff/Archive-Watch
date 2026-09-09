@@ -176,6 +176,7 @@ an entry in place.
 - 105 — The mature-content rule is ONE predicate: the apps' default-off setting and the web index's drop are the same function
 - 106 — tvOS 27 loses the audio of a NON-FRAGMENTED mp4; remux to fMP4 and serve as HLS from the existing LocalMediaServer
 - 107 — A red X means THIS run could not do its job; an auditor never fails, and a partial success is a warning
+- 108 — One dashboard reads every channel; a reader that cannot read says so, and never a zero
 
 ---
 
@@ -1651,3 +1652,54 @@ a shrunken artifact, a missing secret — the five Publish catalog DB and
 three Deploy Pages failures of 2026-09-08 were all real, and Deploy Pages
 was right to refuse a site whose every shared link would preview as
 nothing.
+
+## 108 — One dashboard reads every channel; a reader that cannot read says so, and never a zero
+*Date: 2026-09-09*
+
+`tools/pulse_collect.py` reads every route the project has to its own users —
+the three Apple platforms, Play, the social programme, Reddit, Hacker News,
+Lemmy, Google News, GitHub, the workflow fleet, the published catalog — and
+writes ONE file, `ops/pulse.json`, rendered at the unlisted
+`archivewatch.org/pulse/`. Three rules bind it. **Every source is isolated and
+its failure is recorded IN the output**, so the page says "could not read — no
+credential in this environment" where a naive dashboard would print `0`.
+**`history` holds one compact row per day and nothing in it may grow**, because
+that series is the only part that answers "are we getting anywhere". And **a
+request is quoted, never summarised** — `asks` extracts the sentence a person
+actually wrote and links to it, with no model and no sentiment score in the
+loop.
+
+**Why**: the signals existed and were unreadable together. Apple's reviews were
+in App Store Connect, Play's tracks behind a local service-account key, the
+social numbers in two JSON files nothing rendered, the fleet's health in a
+workflow summary, and mentions nowhere at all. The owner asked for one place to
+go daily. Assembling it turned up the case that decided the design: the app has
+four App Store reviews, three of them five stars and one **2★ titled "Broken —
+Latest update will not play any films."** The first version of the page filtered
+low-star reviews to the *unanswered* ones, so that review — replied to, still
+the single most important thing anyone has said about the app — rendered under a
+green **"Nothing is asking for you."** A false all-clear is the exact failure a
+dashboard exists to prevent, and it is the same shape as Decision 083's
+un-registered markers and Decision 086's contradictory WHERE: a filter written
+for one good reason, silencing the thing it was built to surface.
+
+**How to apply**: never let a panel render a number a reader did not actually
+produce — pass `null` and a reason, and print the reason. When adding a source,
+wrap it, give it a one-line note on success as well as failure, and put anything
+it contributes to `history` in as a scalar. Do NOT filter the "needs you" list
+by whether *we* already acted; filter it by whether the *user's* problem is
+recent. And keep the manual stores in `ops/stores-manual.json`: Amazon's
+submission API answers `invalid_scope`, Roku has no developer API at all, and a
+dashboard showing only the machine-readable half of the estate is a dashboard
+that quietly forgets four stores.
+
+**Consequences**: Pulse is a REPORTER under Decision 107 and may not fail on its
+findings; the one step that may fail — losing the reading it just took — carries
+an explicit `# reporter-may-fail:` marker, and `check_workflow_gates.py` now
+enforces that marker rather than trying to infer intent from a regex (its first
+version missed `echo ...; exit 1` entirely, and its second flagged `git add
+ops/pulse.json` as reading its own findings). Two panels stay dark until an
+owner step: Play needs `PLAY_SERVICE_ACCOUNT_JSON` as a repo secret, and crash
+clusters need the Play Developer Reporting API enabled on the service account's
+project. Both are named on the page itself, which is the point.
+

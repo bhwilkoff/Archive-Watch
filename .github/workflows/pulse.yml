@@ -1,0 +1,99 @@
+name: Pulse
+
+# One reading a day of how Archive Watch is doing — every store, every review,
+# every mention — into ops/pulse.json, which /pulse renders.
+#
+# This is a REPORTER (Decision 107): it never fails because something it read is
+# unhealthy. It fails only when it could not do its own job, which is to write a
+# file. A source that will not answer is recorded IN the output and shown on the
+# page, because a dashboard that prints a confident zero for a broken reader is
+# worse than no dashboard.
+#
+# It takes NO catalog lock: it writes one file nothing else touches.
+
+on:
+  schedule:
+    - cron: "17 13 * * *"     # 07:17 America/Denver — before the owner's day
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: pulse
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install what the readers need
+        run: pip install --quiet PyJWT cryptography google-api-python-client google-auth
+
+      - name: Read every channel
+        env:
+          ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+          ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
+          ASC_KEY_P8: ${{ secrets.ASC_KEY_P8 }}
+          PLAY_SERVICE_ACCOUNT_JSON: ${{ secrets.PLAY_SERVICE_ACCOUNT_JSON }}
+          BLUESKY_HANDLE: ${{ secrets.BLUESKY_HANDLE }}
+          BLUESKY_APP_PASSWORD: ${{ secrets.BLUESKY_APP_PASSWORD }}
+          MASTODON_INSTANCE: ${{ secrets.MASTODON_BASE_URL }}
+          MASTODON_ACCESS_TOKEN: ${{ secrets.MASTODON_ACCESS_TOKEN }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
+          YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
+          YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 tools/pulse_collect.py --apply
+
+      - name: Say what could not be read
+        run: |
+          python3 - <<'PY' >> "$GITHUB_STEP_SUMMARY"
+          import json
+          d = json.load(open("ops/pulse.json"))
+          src = d.get("sources", {})
+          ok = [k for k, v in src.items() if v.get("ok")]
+          bad = [(k, v.get("note", "")) for k, v in src.items() if not v.get("ok")]
+          h = (d.get("history") or [{}])[-1]
+          print(f"### Pulse — {len(ok)}/{len(src)} readers answered\n")
+          print(f"{h.get('reviews') or 0} review(s) · {h.get('mentions') or 0} mention(s) · "
+                f"{h.get('posts') or 0} post(s) · rating {h.get('appleRating')}\n")
+          if bad:
+              print("| reader | why it could not read |\n|---|---|")
+              for k, why in bad:
+                  print(f"| `{k}` | {why.replace('|', '/')[:160]} |")
+          PY
+          # A reader that cannot read is a finding on the PAGE, never a red X here.
+          python3 -c "
+          import json,sys
+          d=json.load(open('ops/pulse.json'))
+          bad=[k for k,v in d.get('sources',{}).items() if not v.get('ok')]
+          if bad: print('::warning::pulse readers offline: ' + ', '.join(bad))
+          "
+
+      - name: Keep the reading
+        run: |
+          # reporter-may-fail: losing the reading IS this run failing its own job.
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add ops/pulse.json ops/stores-manual.json
+          if git diff --cached --quiet; then
+            echo "no change in today's reading"; exit 0
+          fi
+          git commit -m "Pulse: today's reading [skip ci]"
+          for i in 1 2 3 4 5; do
+            git push && exit 0
+            echo "push attempt $i failed; rebasing"
+            git pull --rebase --autostash origin "${GITHUB_REF_NAME}" || true
+            sleep $((i * 5))
+          done
+          echo "could not push the reading"; exit 1

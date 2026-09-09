@@ -1,0 +1,172 @@
+/* Archive Watch — Pulse.
+   Density comes from removing chrome, not adding decoration: no tinted row
+   backgrounds, separation by rule and space, six type levels and no seventh.
+   Brand colours are CHROME only; the per-signal colours below carry MEANING
+   (Decision 013's split, applied to health instead of category). */
+
+:root {
+  --color-primary: #FF5C35;   /* marquee orange — chrome/CTA only */
+  --color-accent:  #0047FF;
+  --bg:        #0A0A0A;
+  --bg-raise:  #141414;
+  --text:      #F2F2F2;
+  --text-dim:  #9A9A9A;
+  --text-faint:#6A6A6A;
+  --border:    #242424;
+  --rule:      #1C1C1C;
+
+  /* semantic — state of a thing, never chrome */
+  --live:   #3FA796;   /* shipping, healthy */
+  --flight: #E8A317;   /* in review, in flight */
+  --stop:   #FF4D5E;   /* needs you */
+  --idle:   #8A8F98;   /* nothing there yet */
+
+  --pad: 16px;
+  --radius: 10px;
+
+  /* six levels: three weights x two sizes */
+  --l1: 700 clamp(1.5rem, 5vw, 2rem)/1.1 var(--serif);
+  --l2: 700 0.8125rem/1.2 var(--sans);      /* section, uppercase, tracked */
+  --l3: 600 1rem/1.35 var(--sans);
+  --l4: 400 1rem/1.5 var(--sans);
+  --l5: 400 0.8125rem/1.45 var(--sans);
+  --l6: 500 1rem/1.2 var(--mono);           /* every number */
+
+  --serif: "Iowan Old Style", Palatino, Georgia, "Times New Roman", serif;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, system-ui, sans-serif;
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--bg); color: var(--text);
+  font: var(--l4); font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--color-accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+@media (prefers-color-scheme: light) { :root { color-scheme: dark; } }
+
+/* ── masthead ───────────────────────────────────────────────────────────── */
+header.top {
+  display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;
+  padding: 20px var(--pad) 12px; border-bottom: 1px solid var(--border);
+}
+header.top h1 { font: var(--l1); margin: 0; letter-spacing: -0.01em; }
+header.top h1 .mark { color: var(--color-primary); }
+header.top .when { font: var(--l5); color: var(--text-faint); margin-left: auto; }
+
+/* ── the one line that says what changed ────────────────────────────────── */
+.ticker {
+  padding: 12px var(--pad); border-bottom: 1px solid var(--border);
+  font: var(--l4); color: var(--text-dim);
+  display: flex; gap: 18px; flex-wrap: wrap; align-items: baseline;
+}
+.ticker b { color: var(--text); font-weight: 600; }
+.ticker .delta { font: var(--l6); }
+.ticker .up   { color: var(--live); }
+.ticker .down { color: var(--stop); }
+.ticker .flat { color: var(--text-faint); }
+
+/* ── sections ───────────────────────────────────────────────────────────── */
+main { max-width: 1180px; margin: 0 auto; padding-bottom: 64px; }
+section { padding: 26px var(--pad) 4px; }
+h2 {
+  font: var(--l2); font-family: var(--sans); text-transform: uppercase;
+  letter-spacing: 0.09em; color: var(--text-dim); margin: 0 0 4px;
+  display: flex; align-items: center; gap: 10px;
+}
+h2 .count { color: var(--text-faint); font-weight: 500; }
+h2 .hint { margin-left: auto; font: var(--l5); text-transform: none;
+           letter-spacing: 0; color: var(--text-faint); font-weight: 400; }
+
+/* ── the universal row: one shape everywhere (small multiples) ──────────── */
+.rows { border-top: 1px solid var(--rule); }
+.row {
+  display: grid; grid-template-columns: 1fr auto; gap: 4px 14px;
+  align-items: baseline; padding: 12px 0; border-bottom: 1px solid var(--rule);
+}
+.row .name { font: var(--l3); }
+.row .name a { color: inherit; }
+.row .name a:hover { color: var(--color-accent); }
+.row.sub .name { font: var(--l4); color: var(--text-dim); }
+.row.sub { padding: 9px 0; }
+.row .meta { font: var(--l5); color: var(--text-dim); grid-column: 1 / -1; }
+.row .num  { font: var(--l6); color: var(--text); white-space: nowrap; }
+.row .num small { font: var(--l5); font-family: var(--sans); color: var(--text-faint); }
+
+/* a state word carries its own colour and nothing else */
+.state { font: var(--l5); font-weight: 600; letter-spacing: 0.04em;
+         text-transform: uppercase; white-space: nowrap; }
+.state.live { color: var(--live); }
+.state.flight { color: var(--flight); }
+.state.stop { color: var(--stop); }
+.state.idle { color: var(--idle); }
+
+/* ── needs you ──────────────────────────────────────────────────────────── */
+.needs .row .name::before {
+  content: ""; display: inline-block; width: 6px; height: 6px; border-radius: 50%;
+  background: var(--stop); margin-right: 9px; vertical-align: 0.14em;
+}
+.clear { padding: 14px 0 4px; font: var(--l4); color: var(--text-dim);
+         border-top: 1px solid var(--rule); }
+.clear b { color: var(--live); font-weight: 600; }
+
+/* ── what people said ───────────────────────────────────────────────────── */
+.said .row { grid-template-columns: 1fr; }
+.said .who { font: var(--l5); color: var(--text-faint); display: flex;
+             gap: 8px; flex-wrap: wrap; align-items: baseline; }
+.said .who .src { color: var(--text-dim); font-weight: 600; }
+.said .who a { color: var(--color-accent); }
+.said .stars { color: var(--flight); letter-spacing: 0.08em; font-size: 0.8125rem; }
+.said .quote { font: var(--l4); font-family: var(--serif); font-size: 1.0625rem;
+               margin: 5px 0 0; }
+.said .quote .lead { font-weight: 600; font-family: var(--sans); font-size: 1rem; }
+.said .want { border-left: 2px solid var(--color-primary); padding-left: 12px; }
+
+/* filter chips — ONE row of them, the only pill bar on the page */
+.chips { display: flex; gap: 8px; flex-wrap: wrap; padding: 10px 0 2px; }
+.chips button {
+  font: var(--l5); font-weight: 600; color: var(--text-dim);
+  background: none; border: 1px solid var(--border); border-radius: 999px;
+  padding: 5px 12px; cursor: pointer;
+}
+.chips button[aria-pressed="true"] { color: var(--bg); background: var(--text); border-color: var(--text); }
+
+/* ── numbers at a glance ────────────────────────────────────────────────── */
+.tiles { display: grid; gap: 1px; background: var(--rule);
+         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+         border: 1px solid var(--rule); border-radius: var(--radius); overflow: hidden; }
+.tile { background: var(--bg); padding: 14px 15px; }
+.tile .k { font: var(--l5); color: var(--text-faint); text-transform: uppercase;
+           letter-spacing: 0.07em; }
+.tile .v { font: var(--l6); font-size: 1.65rem; margin-top: 3px; }
+.tile .v small { font-size: 0.9rem; color: var(--text-faint); }
+.tile .d { font: var(--l5); font-family: var(--mono); margin-top: 2px; }
+
+/* ── over time ──────────────────────────────────────────────────────────── */
+.trend { display: grid; gap: 1px; background: var(--rule);
+         grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+         border: 1px solid var(--rule); border-radius: var(--radius); overflow: hidden; }
+.trend .cell { background: var(--bg); padding: 14px 15px; }
+.trend .cell .k { font: var(--l5); color: var(--text-faint); text-transform: uppercase;
+                  letter-spacing: 0.07em; }
+.trend svg { display: block; width: 100%; height: 46px; margin-top: 8px; }
+.trend .line { fill: none; stroke: var(--color-primary); stroke-width: 1.5; }
+.trend .dot { fill: var(--color-primary); }
+.trend .none { font: var(--l5); color: var(--text-faint); padding: 14px 0 4px; }
+
+/* ── source honesty panel ───────────────────────────────────────────────── */
+.sources .row { grid-template-columns: 150px 1fr; gap: 4px 14px; }
+.sources .row .name { font: var(--l5); font-family: var(--mono); color: var(--text-dim); }
+.sources .row .why { font: var(--l5); color: var(--text-faint); }
+.sources .row.off .name { color: var(--flight); }
+
+footer { padding: 28px var(--pad); border-top: 1px solid var(--border);
+         font: var(--l5); color: var(--text-faint); }
+
+@media (min-width: 760px) {
+  .row .meta { grid-column: 1; }
+  .said .who { gap: 12px; }
+}

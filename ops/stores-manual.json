@@ -1,0 +1,50 @@
+{
+ "_": "Stores with no API. Edit this file when a state changes \u2014 the dashboard shows it beside the machine-read ones so the estate is never half-reported.",
+ "stores": [
+  {
+   "store": "Amazon Appstore",
+   "platform": "Fire TV",
+   "state": "LIVE",
+   "version": "1.42.x",
+   "since": "2026-09-01",
+   "note": "Submission API returns invalid_scope; console only.",
+   "url": "https://developer.amazon.com/apps-and-games/console/apps/list.html"
+  },
+  {
+   "store": "Roku Channel Store",
+   "platform": "Roku",
+   "state": "SUBMITTED",
+   "version": "1.0.51",
+   "since": "2026-09-08",
+   "note": "Channel 881015. No developer API \u2014 check the Dashboard.",
+   "url": "https://developer.roku.com/developer-channels/channels"
+  },
+  {
+   "store": "LG Content Store",
+   "platform": "webOS",
+   "state": "NOT SUBMITTED",
+   "version": null,
+   "since": null,
+   "note": "Package builds; Seller Lounge account is the owner step.",
+   "url": "https://seller.lgappstv.com/"
+  },
+  {
+   "store": "Samsung Apps TV",
+   "platform": "Tizen",
+   "state": "NOT SUBMITTED",
+   "version": null,
+   "since": null,
+   "note": "Public Seller is US-only; needs the signing certificate.",
+   "url": "https://seller.samsungapps.com/"
+  },
+  {
+   "store": "Web (PWA)",
+   "platform": "archivewatch.org",
+   "state": "LIVE",
+   "version": "rolling",
+   "since": "2026-06-10",
+   "note": "Ships on every Pages deploy.",
+   "url": "https://archivewatch.org"
+  }
+ ]
+}

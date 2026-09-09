@@ -1,2 +1,6 @@
 User-agent: *
 Allow: /
+
+# The ops dashboard is unlisted: useful to us, meaningless to a searcher.
+Disallow: /pulse/
+Disallow: /ops/

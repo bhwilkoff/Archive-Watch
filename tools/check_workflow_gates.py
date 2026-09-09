@@ -58,7 +58,7 @@ for f in sorted(pathlib.Path(".github/workflows").glob("*.yml")):
 # error, and an alert channel that cries wolf gets muted — after which a real
 # break goes unread. Findings belong in a report (the step summary, an issue),
 # never in an exit code. The owner has corrected this twice.
-REPORTERS = {"workflow-health"}
+REPORTERS = {"workflow-health", "pulse"}
 reporting_fails = []
 for name in sorted(REPORTERS):
     f = pathlib.Path(".github/workflows") / f"{name}.yml"
@@ -70,10 +70,27 @@ for name in sorted(REPORTERS):
             run = step.get("run", "") or ""
             if step.get("continue-on-error"):
                 continue
-            if re.search(r"^\s*exit [1-9]", run, re.M):
-                reporting_fails.append(
-                    f"{name} [{jname}]: '{step.get('name')}' exits non-zero — "
-                    f"a reporting workflow must not fail on its findings")
+            # `exit 1` anywhere, not only at the start of a line — the
+            # first version of this check missed `echo ...; exit 1`.
+            # `exit 1` anywhere, not only at the start of a line — the first
+            # version of this check missed `echo ...; exit 1` — plus the two
+            # ways an inline python heredoc ends a run.
+            if not re.search(r"(?:(?:^|[;&\n])\s*exit [1-9]"
+                             r"|sys\.exit\(\s*[1-9]"
+                             r"|raise SystemExit\(\s*[1-9])", run, re.M):
+                continue
+            # A reporter MAY fail over its OWN mechanics — it could not write or
+            # push its file. Telling that apart from failing over what it READ
+            # is not something a regex can judge, so the AUTHOR states it, in
+            # the step, in words: `# reporter-may-fail: <why>`. Explicit, and
+            # impossible to add by accident.
+            why = re.search(r"#\s*reporter-may-fail:\s*(\S.*)", run)
+            if why:
+                continue
+            reporting_fails.append(
+                f"{name} [{jname}]: '{step.get('name')}' exits non-zero with no "
+                f"`# reporter-may-fail: <why>` — a reporter reports its findings, "
+                f"it does not fail on them")
 
 untokened = []
 for f in sorted(pathlib.Path(".github/workflows").glob("*.yml")):
