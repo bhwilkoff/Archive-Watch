@@ -177,6 +177,8 @@ an entry in place.
 - 106 — tvOS 27 loses the audio of a NON-FRAGMENTED mp4; remux to fMP4 and serve as HLS from the existing LocalMediaServer
 - 107 — A red X means THIS run could not do its job; an auditor never fails, and a partial success is a warning
 - 108 — One dashboard reads every channel; a reader that cannot read says so, and never a zero
+- 109 — Store metrics come from the route each store actually offers, and each one's gotcha is written down
+- 110 — A release builds in CI and is promoted, never rebuilt; the owner's machine is not a build server
 
 ---
 
@@ -1702,4 +1704,91 @@ ops/pulse.json` as reading its own findings). Two panels stay dark until an
 owner step: Play needs `PLAY_SERVICE_ACCOUNT_JSON` as a repo secret, and crash
 clusters need the Play Developer Reporting API enabled on the service account's
 project. Both are named on the page itself, which is the point.
+
+## 109 — Store metrics come from the route each store actually offers, and each one's gotcha is written down
+*Date: 2026-09-09*
+
+Every store exposes its numbers differently and none of them the way you would
+guess. `tools/pulse_collect.py` reads each by its real route, and the traps are
+recorded beside the code because every one of them cost a debugging round.
+
+**Apple downloads** are `salesReports`, a **gzipped TSV**, and they need a
+SECOND API key: App Store Connect states on its own key page that a key *"can't
+be modified to access more services once created"*, and its Edit control offers
+only **Revoke**. The release key is App Manager, which is not a reporting role —
+Apple puts report download under Finance, Sales, Admin and Account Holder. So
+`ASC_REPORTS_KEY_ID` / `ASC_REPORTS_KEY_P8` hold a key whose ONLY role is Sales
+and Reports; widening the key that ships builds so a dashboard can read a
+download count is the wrong trade. Both `salesReports` and `perfPowerMetrics`
+answer **406** through a client that sets `Accept: application/json` — they do
+not speak JSON, and that reads exactly like a permission failure.
+
+**Play installs** are in NO API. The Console writes monthly CSVs to
+`gs://pubsite_prod_rev_<id>/stats/`, and that id is **not** the developer id in
+the Console URL and cannot be derived from it — the Console names it under
+Download reports → Statistics. Four traps, in the order they bite: the objects
+are **gzip-encoded** (`gcloud storage cp` decompresses, `cat` does not, and
+gzipped bytes parse as a one-column CSV of mojibake instead of failing); they
+are **UTF-16 with CRLF**, which `csv` reports as "new-line character seen in
+unquoted field" for the whole file; a Console permission grant takes **hours** to
+reach the bucket ACLs; and the bucket holds OTHER apps' reports, so every object
+name must be package-scoped.
+
+**Play's Reporting API** answers `distinctUsers` and all seven dimensions
+(country, device, brand, versionCode, apiLevel, deviceType, ramBucket) — and
+returns nothing, because Play withholds per-user figures below a minimum
+audience. A metric set also **advertises the window it holds**
+(`freshnessInfo.DAILY.latestEndTime`); querying past it is a 400 that reads like
+a malformed request. Ask, then query to that date.
+
+**Amazon** has a Reporting/Vitals API — `POST
+developer.amazon.com/api/appstore/vitals/apps/{pkg}/crashMetricSet:query`, the
+same shape as Google's. Its API Explorer is at
+`/reporting/console/appstore/apiaccess`; this repo had recorded
+`/settings/console/apiaccess`, which genuinely 404s, and that wrong path is why
+the API was written off as nonexistent. Six scopes all answer `invalid_scope`,
+which with the docs ("a Security Profile **mapped to** the Reporting API") means
+the profile-to-API MAPPING is missing, not the scope string.
+
+**Roku, LG and Samsung** have no API at all. `ops/stores-manual.json` carries
+them, because a dashboard showing only the machine-readable half of the estate
+quietly forgets four stores.
+
+**How to apply**: when a store's numbers are missing, the question is never "is
+there an API" — it is "what route does this store actually offer, and what shape
+does it come in". Write the trap down next to the reader; every one above was
+found by a wrong assumption that looked exactly like a permissions problem.
+
+## 110 — A release builds in CI and is promoted, never rebuilt; the owner's machine is not a build server
+*Date: 2026-09-09*
+
+`.github/workflows/play-release.yml` builds the signed bundle and publishes it;
+`tools/submit-play.sh` DISPATCHES that workflow by default and needs `--local`
+to build here. `tools/play_promote.py` moves an existing build between tracks
+without rebuilding it.
+
+**Why**: the owner asked why the machine had slowed to a crawl mid-session. A
+release build is R8 plus a full Kotlin compile, and Gradle's 4 GB cap does not
+cover the **Kotlin compile daemon**, which is a separate JVM with its own
+unbounded heap; `parallel=true` had no worker cap either. (The larger culprit
+that day was a spinning `social_card.py` loop, but the build was the shape of
+problem that recurs by design.) The Apple side settled this long ago —
+`appstore-build.yml` exists because the dev Mac cannot ship locally — and
+Android simply had no equivalent, so every Play release was paid for out of the
+owner's working day.
+
+**The smoke test is MOVED, not dropped.** `submit-play.sh` runs the release
+artifact on a real device before uploading, because Play once rejected a build
+for a launch crash only R8 produced. A runner has no device and this project
+does not use emulators. So CI publishes to the **internal** track — which
+installs over a Play-signed copy with NO uninstall, the exact thing that blocked
+a release on 2026-09-09 and cost an app reinstall on the test TV — a person uses
+it on real hardware, and the SAME artifact is promoted.
+
+**How to apply**: never rebuild to promote. The thing that reaches users must be
+the thing that was tested, and a rebuild silently breaks that. `play_promote.py`
+refuses a versionCode that is not already on a track, naming what is, rather
+than failing deep inside the commit with an unhelpful message. And anything that
+can saturate the machine gets both a bound and a CI path: a tool that is correct
+but can hang is not finished.
 

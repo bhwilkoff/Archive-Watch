@@ -269,6 +269,64 @@ keep serving it.
 
 ## Session Log
 
+### 2026-09-09 (later) — Play data, the crash shipped, releases off this machine
+Continuation of the Pulse session. Everything on `main`; app **1.42.7 (1019)**,
+Play production **1.42.6 (vc 56)**, vc 57 waiting on internal.
+
+**THE CRASH IS FIXED AND SHIPPED.** Compose requires lazy-list keys to be
+unique and throws out of `subcompose` when they are not — a stack with no frame
+of ours in it, which is why five clusters read as a Compose fault for weeks.
+`List.uniqueBy` dedupes the DATA at 14 call sites. Deduping beats a
+uniquified key: a repeated item in a shelf is itself a defect, and appending an
+index preserves it while breaking item animation and scroll restoration.
+Verified on the Google TV, then published to production.
+
+**The SECOND crash is fixed too.** `database disk image is malformed` survived
+a guard because `open()` probes `meta.itemCount`, which reads pages near the
+START of the file — a download torn further in opens cleanly and throws on the
+first real query. A stronger probe cannot fix that, so `queryRaw` recovers:
+report once, discard the download and its ETag, return empty. Every caller
+already renders empty.
+
+**PLAY'S REAL DATA IS FLOWING** — 584 installs / 28 days, 278 active devices,
+uninstalls, upgrades, and splits by country (US 144, IN 65, GB 27, PH 20),
+device, Android version, app version, language. It is in no API: monthly CSVs in
+a Cloud Storage bucket whose id is NOT the developer id and cannot be derived.
+Four traps, each a round: gzip-encoded objects (`cp` decompresses, `cat` does
+not, and gzipped bytes parse as mojibake rather than failing), UTF-16 with CRLF,
+a Console grant that takes hours to reach the bucket ACLs, and other apps'
+reports in the same bucket. Decision **109** records every store's real route.
+
+**RELEASES NOW BUILD IN CI** (Decision **110**). `play-release.yml` +
+`play_promote.py`; `submit-play.sh` dispatches by default. The smoke test is
+moved, not dropped: CI publishes to internal, which installs over a Play-signed
+copy with NO uninstall — the exact thing that blocked this release — a person
+uses it, and the SAME artifact is promoted. Both paths verified against the live
+API.
+
+**THE MACHINE.** The owner asked why it had slowed to a crawl. Two
+`social_card.py` processes had run at **98% CPU each since 6 September** —
+three and a half days, two cores — stuck in a text-wrapping loop on code from
+BEFORE that loop was fixed the same day. A fix does nothing for a process
+already spinning; the loop now carries a hard iteration bound as well as a
+correct exit condition. Gradle's Kotlin daemon (a separate JVM, unbounded) and
+worker count are capped, and `tools/ffmpeg_limits.py` gives ffmpeg half the
+cores at nice 10 locally, the whole runner in CI.
+
+**THE SOCIAL PROGRAMME, corrected.** Bluesky showed 3 posts against a ledger of
+5, and the liveness check said "unknown" for all five because it built
+`at://<handle>/…` — an AT-URI takes a DID. It reads the author feed now: 3 live,
+2 deleted, matching exactly. The posts themselves read like database rows
+because Bluesky's only hook was a quoted review and most films have none; the
+name now leads and the synopsis follows it (a synopsis must never lead — that
+reads as our own words). "(Laserdisc)" is stripped from titles. And **The Birth
+of a Nation** went out as "Free to watch — #SilentFilm #Drama":
+`ops/social-do-not-promote.json` gates BROADCAST only, never the app, because
+holding a work and recommending it are different acts.
+
+**Docs**: `docs/ENGINEERING-PROCESS.md` — ten disciplines, each naming the
+incident that produced it. Decisions 108, 109, 110.
+
 ### 2026-09-09 — Pulse: one dashboard that reads every channel (Decision 108)
 Owner: "a single place for me to go in order to understand what our users are
 enjoying or requesting of the app AND to understand the performance of the
