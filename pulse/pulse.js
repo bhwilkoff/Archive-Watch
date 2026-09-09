@@ -358,8 +358,14 @@ function glance(d) {
       k: "The repository", right: deltaHTML(cur.stars, prev?.stars),
       v: `${int(g.stars)}<small> star${g.stars === 1 ? "" : "s"}</small>`,
       chart: { html: C.bars([
-        { label: "views 14d", value: g.views14d || 0, tone: "measure" },
-        { label: "uniques 14d", value: g.uniques14d || 0, tone: "measure" },
+        // `value || 0` would paint a bar at zero for a reading GitHub refused —
+        // the Actions token is not allowed the traffic endpoint, and "0 views"
+        // is a very different claim from "we were not permitted to ask".
+        { label: "views 14d", value: g.views14d || 0, tone: "measure",
+          display: g.views14d == null ? "—" : int(g.views14d),
+          note: g.views14d == null ? "traffic needs a token with repo admin" : null },
+        { label: "uniques 14d", value: g.uniques14d || 0, tone: "measure",
+          display: g.uniques14d == null ? "—" : int(g.uniques14d) },
         { label: "open issues", value: g.openIssues || 0, tone: g.openIssues ? "flight" : "measure" },
       ]) },
       cap: g.clones14d ? `${int(g.clones14d)} clones in 14 days — nearly all of them CI` : null,

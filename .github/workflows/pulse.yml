@@ -35,7 +35,8 @@ jobs:
           python-version: "3.12"
 
       - name: Install what the readers need
-        run: pip install --quiet PyJWT cryptography google-api-python-client google-auth
+        # pyyaml: the fleet auditor Pulse shells out to parses workflow YAML.
+        run: pip install --quiet PyJWT cryptography google-api-python-client google-auth pyyaml
 
       # asc_release.py reads the key off DISK (~/.appstoreconnect/private_keys),
       # which is how appstore-submit.yml has always fed it. Passing ASC_KEY_P8

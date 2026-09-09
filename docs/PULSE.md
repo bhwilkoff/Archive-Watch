@@ -144,6 +144,13 @@ and all 31 cases were checked to FAIL against broken versions of each rule.
   run, pinned to 3.11, could not import it and read zero Apple reviews while the
   same code read four on the dev Mac. Flattened at the source, so no workflow can
   step on it again whatever Python it pins.
+* **A workflow that declares `cancel-in-progress` asks to be superseded.** The
+  fleet auditor reported Deploy Pages as `KILLED` — an urgent severity that
+  raises an issue — for doing exactly what its own concurrency block tells it to
+  do. It now reads that flag out of the workflow file rather than keeping a list
+  of exempt names, and imports pyyaml LAZILY: this tool had no third-party
+  dependency, Pulse shells out to it, and failing to start over a convenience
+  would be a worse fault than the false alert it prevents.
 * **The viewer's service worker was serving the dashboard from cache.** It is
   registered at root scope, so it intercepts everything under archivewatch.org
   that is not explicitly excluded — and `/pulse` was not. The page showed

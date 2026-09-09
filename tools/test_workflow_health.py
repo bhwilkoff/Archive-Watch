@@ -113,5 +113,26 @@ check("DROPPED is reported, never emailed twice",
       "DROPPED" not in A.URGENT_SEVERITIES)
 check("a real break still pages", set(A.URGENT_SEVERITIES) == {"BROKEN", "KILLED"})
 
+
+
+# ── a workflow that ASKS to be superseded is not KILLED ─────────────────────
+# Deploy Pages sets concurrency.cancel-in-progress deliberately: a static site
+# needs only the newest deploy, and two overlapping deploys collide on the Pages
+# API. Reporting its cancelled runs as KILLED is the auditor alerting on a
+# design decision — and KILLED is an URGENT severity, so it raises an issue.
+print("\nself-cancelling workflows")
+_sc = A.self_cancelling
+check("Deploy Pages declares cancel-in-progress", _sc("Deploy Pages") is True)
+check("Pulse does not", _sc("Pulse") is False)
+check("an unknown workflow does not", _sc("No Such Workflow") is False)
+A._SELF_CANCELLING.clear()
+
+_run = {"id": 1, "conclusion": "cancelled",
+        "run_started_at": "2026-09-09T12:00:00Z", "updated_at": "2026-09-09T12:01:00Z"}
+check("a cancelled Deploy Pages run is not a finding",
+      A.judge("Deploy Pages", _run) is None)
+check("a cancelled run of a workflow that did NOT ask for it still is",
+      (A.judge("Pulse", dict(_run, id=2)) or ("", ""))[0] in ("KILLED", "DROPPED"))
+
 print(f"\n{ok} passed, {fail} failed")
 sys.exit(1 if fail else 0)

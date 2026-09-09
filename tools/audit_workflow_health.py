@@ -97,6 +97,51 @@ def minutes(run: dict) -> float:
         return 0.0
 
 
+
+_SELF_CANCELLING: dict[str, bool] = {}
+
+
+def self_cancelling(name: str) -> bool:
+    """Does this workflow ASK to be cancelled when a newer run arrives?
+
+    `concurrency.cancel-in-progress: true` is a deliberate choice — Deploy Pages
+    makes it because a static site only needs the newest deploy, and because two
+    overlapping deploys collide on the Pages API. A run cancelled by that rule is
+    the rule WORKING, and reporting it as KILLED is the auditor alerting on a
+    design decision. Read it from the workflow file rather than keeping a list of
+    exempt names, so a new workflow gets the right treatment for free.
+    """
+    if name in _SELF_CANCELLING:
+        return _SELF_CANCELLING[name]
+    try:
+        import yaml                                  # noqa: PLC0415
+    except ImportError:
+        # This tool had no third-party dependency before, and Pulse shells out
+        # to it. Failing to START over a convenience would be a worse fault than
+        # the false KILLED it prevents, so degrade: assume NOT self-cancelling,
+        # which only re-enables an alert rather than silencing one.
+        _SELF_CANCELLING[name] = False
+        return False
+    hit = False
+    for f in pathlib.Path(".github/workflows").glob("*.yml"):
+        try:
+            doc = yaml.safe_load(f.read_text()) or {}
+        except Exception:                            # noqa: BLE001
+            continue
+        if doc.get("name") != name:
+            continue
+        conc = doc.get("concurrency")
+        if isinstance(conc, dict) and conc.get("cancel-in-progress") is True:
+            hit = True
+        for job in (doc.get("jobs") or {}).values():
+            jc = job.get("concurrency") if isinstance(job, dict) else None
+            if isinstance(jc, dict) and jc.get("cancel-in-progress") is True:
+                hit = True
+        break
+    _SELF_CANCELLING[name] = hit
+    return hit
+
+
 URGENT_SEVERITIES = ("BROKEN", "KILLED")
 
 
@@ -205,6 +250,8 @@ def judge(name: str, run: dict, yield_ok: bool = True) -> tuple[str, str] | None
     mins = minutes(run)
 
     if concl == "cancelled":
+        if self_cancelling(name):
+            return None                # it asked to be superseded; that is the rule working
         if displaced(run):
             return ("DROPPED", "a job was displaced in the concurrency queue "
                                "before it ran a step; the sweeper re-runs it")
