@@ -77,20 +77,23 @@ function needs(d) {
       href: "https://github.com/bhwilkoff/Archive-Watch/actions",
     }));
 
-  const DAYS = 60;
-  (d.reviews || []).filter((r) => r.rating && r.rating <= 3
-      && (!r.responded || (Date.now() - Date.parse(r.date || 0)) / 864e5 < DAYS))
+  // A review that has been answered is not waiting on anyone. It stays in the
+  // reading list below, where its stars are still visible.
+  (d.reviews || []).filter((r) => r.rating && r.rating <= 3 && !r.responded)
     .forEach((r) => items.push({
-      name: `${r.rating}★ on ${r.store}: ${r.title || clip(r.body, 60)}`,
-      meta: `“${r.body}” — ${r.author || "someone"}, ${ago(r.date)}`
-        + (r.responded ? " · you replied" : " · NOT REPLIED"),
+      name: `${r.rating}\u2605 on ${r.store}: ${r.title || clip(r.body, 60)}`,
+      meta: `\u201c${r.body}\u201d \u2014 ${r.author || "someone"}, ${ago(r.date)} \u00b7 not replied`,
       href: r.url,
     }));
 
-  (d.health?.playCrashes || []).slice(0, 5).forEach((c) => items.push({
-    name: `Crash: ${c.cause || c.type}`,
-    meta: `${c.location || ""}${c.users ? ` · ${c.users} user(s) affected` : ""}`,
-    href: "https://play.google.com/console",
+  // Only crashes still happening on the build that is LIVE. Ten of the twelve
+  // clusters were last seen on build 34 against a production build of 54;
+  // listing those as things to fix today is how a list stops being read.
+  (d.health?.playCrashes || []).filter((c) => !c.stale).slice(0, 6).forEach((c) => items.push({
+    name: `${c.type === "CRASH" ? "Crash" : "ANR"}: ${c.location || c.cause}`,
+    meta: [c.cause, c.ours, `${c.users} user(s)`, `build ${c.lastBuild}`,
+           `API ${c.api}`, ago(c.lastSeen)].filter(Boolean).join(" \u00b7 "),
+    href: c.url || "https://play.google.com/console",
   }));
 
   (d.health?.issues || []).filter((i) => i.external).forEach((i) => items.push({
@@ -279,7 +282,7 @@ function glance(d) {
     const measured = Object.values(per).reduce((a, b) => a + (b.measured || 0), 0);
     panel(box, {
       k: "Posts published", right: deltaHTML(cur.posts, prev?.posts),
-      v: `${int(d.social?.totalPosts)}<small> total</small>`,
+      v: `${int(d.social?.totalPosts)}<small> still up</small>`,
       chart: { html: C.bars(postRows) },
       cap: measured ? `<b>${measured}</b> have engagement readings`
         : "no engagement readings yet — a post is sampled at 20h",
@@ -558,7 +561,10 @@ function social(d) {
   });
   const g2 = el("div", "panels");
   panel(g2, {
-    k: "What it earned", right: `${d.social?.measured || 0} measured`,
+    k: "What it earned",
+    right: [d.social?.deleted ? `${d.social.deleted} deleted` : null,
+            d.social?.unverified ? `${d.social.unverified} unverified` : null,
+            `${d.social?.measured || 0} measured`].filter(Boolean).join(" \u00b7 "),
     chart: { wide: true, html: C.bars(engRows) },
   });
   box.appendChild(g2);

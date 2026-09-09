@@ -338,26 +338,285 @@ def play_vitals(state):
 
 
 def play_crashes(state):
-    """The actual crash clusters, worst first — a named stack beats a rate."""
+    """The actual crash clusters, worst first — a named stack beats a rate.
+
+    And the axis that decides whether one MATTERS: the last build it was seen
+    on, against the build in production. Two clusters here account for 15 of the
+    24 affected users and were last seen on build 34 against a live build of 54
+    — reporting those as urgent is how a dashboard trains its reader to ignore
+    it. Each cluster carries `stale`, and the page acts on it."""
     svc = _reporting()
     start, end = _window()
-    q = {"parent": f"apps/{PLAY_PACKAGE}", "pageSize": 10, "orderBy": "distinctUsers desc",
-         "interval_startTime_year": start.year, "interval_startTime_month": start.month,
-         "interval_startTime_day": start.day,
-         "interval_endTime_year": end.year, "interval_endTime_month": end.month,
-         "interval_endTime_day": end.day}
-    d = svc.vitals().errors().issues().search(**q).execute()
+    iv = {"interval_startTime_year": start.year, "interval_startTime_month": start.month,
+          "interval_startTime_day": start.day,
+          "interval_endTime_year": end.year, "interval_endTime_month": end.month,
+          "interval_endTime_day": end.day}
+    d = svc.vitals().errors().issues().search(
+        parent=f"apps/{PLAY_PACKAGE}", pageSize=20, orderBy="distinctUsers desc",
+        sampleErrorReportLimit=1, **iv).execute()
+
+    live_vc = None                                   # the build actually in production
+    for row in state.get("stores", []):
+        if row.get("store") == "Google Play" and (row.get("platform") or "").lower() == "production":
+            try:
+                live_vc = int((row.get("build") or "").split(",")[0])
+            except (TypeError, ValueError):
+                pass
     rows = []
     for i in d.get("errorIssues", []):
+        last_vc = i.get("lastAppVersion", {}).get("versionCode")
+        try:
+            last_vc = int(last_vc)
+        except (TypeError, ValueError):
+            last_vc = None
+        stale = bool(live_vc and last_vc and last_vc < live_vc)
         rows.append({
             "type": i.get("type"), "cause": clamp(i.get("cause"), 160),
             "location": clamp(i.get("location"), 160),
-            "users": (i.get("distinctUsers") or None),
-            "reports": (i.get("errorReportCount") or None),
-            "lastSeen": (i.get("lastErrorReportTime") or None),
+            "users": int(i.get("distinctUsers") or 0),
+            "reports": int(i.get("errorReportCount") or 0),
+            "lastSeen": i.get("lastErrorReportTime"),
+            "firstBuild": i.get("firstAppVersion", {}).get("versionCode"),
+            "lastBuild": str(last_vc) if last_vc is not None else None,
+            "api": f"{i.get('firstOsVersion', {}).get('apiLevel')}"
+                   f"-{i.get('lastOsVersion', {}).get('apiLevel')}",
+            "stale": stale,
+            "url": i.get("issueUri"),
+            "ours": _our_frame(svc, i, iv),
         })
     state["health"]["playCrashes"] = rows
-    return f"{len(rows)} cluster(s)"
+    state["health"]["playLiveBuild"] = live_vc
+    fresh = [r for r in rows if not r["stale"]]
+    return (f"{len(rows)} cluster(s), {len(fresh)} still on build {live_vc}"
+            if live_vc else f"{len(rows)} cluster(s)")
+
+
+def _our_frame(svc, issue, iv):
+    """The first line of the stack that is OUR code, which is the whole
+    difference between 'Compose threw' and 'this list has a duplicate key'."""
+    try:
+        rep = svc.vitals().errors().reports().search(
+            parent=f"apps/{PLAY_PACKAGE}", pageSize=1,
+            filter=f'errorIssueId = "{issue["name"].split("/")[-1]}"', **iv).execute()
+    except Exception:                                # noqa: BLE001
+        return None
+    for r in rep.get("errorReports", [])[:1]:
+        text = r.get("reportText") or ""
+        head = next((ln.strip() for ln in text.splitlines()
+                     if ln.strip().startswith("Exception ")), None)
+        mine = next((ln.strip() for ln in text.splitlines()
+                     if "app.archivewatch" in ln), None)
+        return clamp(" · ".join(x for x in (head, mine) if x), 300) or None
+    return None
+
+
+# Play's dimensions, in the order they are worth reading. Every one of these is
+# ACCEPTED by the API today and returns nothing, because Play withholds a
+# per-dimension figure below a minimum audience — the readers are proven, the
+# audience is not there yet, and those are very different sentences.
+PLAY_DIMENSIONS = ("countryCode", "deviceModel", "deviceBrand", "versionCode",
+                   "apiLevel", "deviceType", "deviceRamBucket")
+
+
+def play_users(state):
+    """Distinct users per day, and the same split every way Play allows.
+
+    This is the usage number Android has been missing. It comes off the same
+    metric set as the crash rate — `distinctUsers` is a metric there, not a
+    separate API — so it costs one more query and no new credential."""
+    svc = _reporting()
+    api = svc.vitals().crashrate()
+    fresh = api.get(name=f"apps/{PLAY_PACKAGE}/crashRateMetricSet").execute()
+    daily = next((f for f in (fresh.get("freshnessInfo") or {}).get("freshnesses", [])
+                  if f.get("aggregationPeriod") == "DAILY"), None)
+    if not daily:
+        raise RuntimeError("Play reports no daily window yet")
+    le = daily["latestEndTime"]
+    end = dt.date(le["year"], le["month"], le["day"])
+    begin = end - dt.timedelta(days=27)
+
+    def q(dims=None):
+        body = {"timelineSpec": {"aggregationPeriod": "DAILY",
+                                 "startTime": {"year": begin.year, "month": begin.month,
+                                               "day": begin.day},
+                                 "endTime": {"year": end.year, "month": end.month,
+                                             "day": end.day}},
+                "metrics": ["distinctUsers"]}
+        if dims:
+            body["dimensions"] = list(dims)
+        return api.query(name=f"apps/{PLAY_PACKAGE}/crashRateMetricSet", body=body).execute()
+
+    def val(row):
+        m = (row.get("metrics") or [{}])[0]
+        try:
+            return float(m.get("decimalValue", {}).get("value") or 0)
+        except (TypeError, ValueError):
+            return 0.0
+
+    series = []
+    for r in q().get("rows", []):
+        t = r.get("startTime", {})
+        series.append({"date": f"{t.get('year')}-{t.get('month'):02d}-{t.get('day'):02d}",
+                       "users": round(val(r), 1)})
+    breakdown = {}
+    for dim in PLAY_DIMENSIONS:
+        try:
+            agg = {}
+            for r in q([dim]).get("rows", []):
+                d0 = (r.get("dimensions") or [{}])[0]
+                k = d0.get("stringValue") or d0.get("int64Value") or d0.get("valueLabel")
+                if k is None:
+                    continue
+                agg[str(k)] = round(agg.get(str(k), 0) + val(r), 1)
+            if agg:
+                breakdown[dim] = dict(sorted(agg.items(), key=lambda kv: -kv[1])[:12])
+        except Exception:                            # noqa: BLE001 — one dimension, never the run
+            continue
+    state["health"]["playUsers"] = {"daily": series, "byDimension": breakdown,
+                                    "window": f"{begin.isoformat()}..{end.isoformat()}"}
+    if not series and not breakdown:
+        return ("every dimension query was accepted and returned nothing — "
+                "Play withholds per-user figures below a minimum audience")
+    return f"{len(series)} day(s) of users, {len(breakdown)} dimension(s)"
+
+
+PLAY_REPORT_FILES = ("overview", "country", "device", "os_version",
+                     "app_version", "language", "carrier")
+
+
+def _gcs_bytes(bucket, obj):
+    """Read one object as the service account, falling back to the owner's
+    gcloud. Play grants bucket access through the CONSOLE, and that grant takes
+    hours to reach the bucket's ACLs — so a freshly-permitted service account
+    reads 403 while `gcloud` (already the account owner) reads fine. The
+    fallback is local-only by nature and simply does not fire in CI."""
+    from google.oauth2 import service_account
+    from googleapiclient.discovery import build as _build
+    key = os.environ.get("PLAY_SERVICE_ACCOUNT_JSON",
+                         os.path.expanduser("~/.config/play/archivewatch-play.json"))
+    scopes = ["https://www.googleapis.com/auth/devstorage.read_only"]
+    try:
+        if key.strip().startswith("{"):
+            creds = service_account.Credentials.from_service_account_info(json.loads(key), scopes=scopes)
+        else:
+            creds = service_account.Credentials.from_service_account_file(key, scopes=scopes)
+        gcs = _build("storage", "v1", credentials=creds, cache_discovery=False)
+        return gcs.objects().get_media(bucket=bucket, object=obj).execute(), "service account"
+    except Exception:                                # noqa: BLE001
+        pass
+    try:
+        out = subprocess.run(["gcloud", "storage", "cat", f"gs://{bucket}/{obj}"],
+                             capture_output=True, timeout=120)
+        if out.returncode == 0 and out.stdout:
+            return out.stdout, "gcloud"
+    except Exception:                                # noqa: BLE001
+        pass
+    return None, None
+
+
+def _play_csv(raw):
+    """Play writes these as UTF-16 with a BOM, which reads as mojibake if you
+    assume UTF-8 and produces a header nothing matches."""
+    import csv
+    import gzip
+    import io
+    # The objects are stored gzip-encoded. `gcloud storage cp` decompresses on
+    # download and `cat` does NOT, so the same file arrives either way depending
+    # on how it was fetched — and gzipped bytes parse as a one-column CSV of
+    # mojibake rather than failing, which is why this cost a debugging round.
+    if raw[:2] == b"\x1f\x8b":
+        raw = gzip.decompress(raw)
+    if raw[:2] in (b"\xff\xfe", b"\xfe\xff"):
+        text = raw.decode("utf-16", "ignore")
+    else:
+        text = raw.decode("utf-8-sig", "replace")
+    # Normalise the line endings BEFORE the reader sees them: these files are
+    # UTF-16 with CRLF, and a stray CR inside a decoded field makes csv report
+    # "new-line character seen in unquoted field" for the whole file.
+    text = text.replace("\r\n", "\n").replace("\r", "\n")
+    return list(csv.DictReader(io.StringIO(text)))
+
+
+def play_reports(state):
+    """Installs, uninstalls, active devices and their splits, from the Play
+    Console's Cloud Storage reports bucket.
+
+    This is the robust half of Play's data and it is in NO API: the Console
+    writes monthly CSVs to `gs://pubsite_prod_rev_<id>/stats/`, and unlike the
+    Reporting API they carry no minimum-audience threshold — which is why
+    installs are readable here while `distinctUsers` is withheld.
+
+    The bucket id is NOT the developer id in the Console URL and cannot be
+    derived from it; the Console names it under Download reports -> Statistics
+    ("Copy Cloud Storage URI"). The bucket also holds OTHER apps' reports, so
+    every object name is package-scoped."""
+    bucket = os.environ.get("PLAY_REPORTS_BUCKET", "").strip().replace("gs://", "").strip("/").split("/")[0]
+    if not bucket:
+        raise RuntimeError("set PLAY_REPORTS_BUCKET (Play Console -> Download reports "
+                           "-> Statistics -> Copy Cloud Storage URI)")
+    today_ = dt.date.today()
+    months, m = [], today_.replace(day=1)
+    for _ in range(4):
+        months.append(m.strftime("%Y%m"))
+        m = (m - dt.timedelta(days=1)).replace(day=1)
+
+    got, how = {}, set()
+    for kind in PLAY_REPORT_FILES:
+        rows = []
+        for ym in months:
+            raw, via = _gcs_bytes(bucket, f"stats/installs/installs_{PLAY_PACKAGE}_{ym}_{kind}.csv")
+            if not raw:
+                continue
+            how.add(via)
+            try:
+                rows.extend(_play_csv(raw))
+            except Exception:                        # noqa: BLE001 — one file, never the set
+                continue
+        if rows:
+            got[kind] = rows
+    if not got:
+        raise RuntimeError(f"no reports readable in gs://{bucket} — a Console grant "
+                           f"can take hours to reach the bucket's ACLs")
+
+    def num(v):
+        try:
+            return int(float(v))
+        except (TypeError, ValueError):
+            return 0
+
+    daily = [{"date": r.get("Date"),
+              "installs": num(r.get("Daily Device Installs")),
+              "uninstalls": num(r.get("Daily Device Uninstalls")),
+              "upgrades": num(r.get("Daily Device Upgrades")),
+              "activeDevices": num(r.get("Active Device Installs")),
+              "userInstalls": num(r.get("Daily User Installs"))}
+             for r in got.get("overview", []) if r.get("Date")]
+    daily.sort(key=lambda r: r["date"])
+
+    def split(kind, col):
+        agg = {}
+        for r in got.get(kind, []):
+            k = (r.get(col) or "").strip()
+            if not k:
+                continue
+            agg[k] = agg.get(k, 0) + num(r.get("Daily Device Installs"))
+        return dict(sorted(agg.items(), key=lambda kv: -kv[1])[:12])
+
+    recent = daily[-28:]
+    state["health"]["playInstalls"] = {
+        "daily": recent,
+        "installs28d": sum(r["installs"] for r in recent),
+        "uninstalls28d": sum(r["uninstalls"] for r in recent),
+        "activeDevices": (recent[-1]["activeDevices"] if recent else None),
+        "byCountry": split("country", "Country"),
+        "byDevice": split("device", "Device"),
+        "byOs": split("os_version", "Android OS Version"),
+        "byVersion": split("app_version", "App Version Code"),
+        "byLanguage": split("language", "Language"),
+        "readVia": ", ".join(sorted(how)),
+    }
+    return (f"{sum(r['installs'] for r in recent)} install(s) over {len(recent)} day(s), "
+            f"{len(got)} report(s), via {', '.join(sorted(how))}")
 
 
 def play_rating(state):
@@ -603,6 +862,130 @@ def social_replies(state):
         })
         kept += 1
     return f"{kept} reply/mention notification(s)"
+
+
+def social_liveness(state):
+    """Ask each platform whether the post is STILL THERE.
+
+    The ledger records what we published, not what survived: the owner deleted
+    several early videos by hand, and the dashboard went on counting them. A
+    post that no longer exists is not reach, and reporting it as reach is the
+    same confident-absence this tool exists to avoid — pointed at ourselves.
+
+    Every check is a positive test: a post is `live` only when a platform
+    CONFIRMS it. A reader that cannot answer leaves `live: null`, which the page
+    renders as unknown rather than as gone — deleting a row on a network blip
+    would be its own kind of lie."""
+    posts = state.get("social", {}).get("posts") or []
+    if not posts:
+        raise RuntimeError("no posts in the ledger yet")
+
+    bsky_hdr = None
+    handle, pw = os.environ.get("BLUESKY_HANDLE"), os.environ.get("BLUESKY_APP_PASSWORD")
+    if handle and pw:
+        try:
+            sess = json.loads(urllib.request.urlopen(urllib.request.Request(
+                "https://bsky.social/xrpc/com.atproto.server.createSession",
+                data=json.dumps({"identifier": handle, "password": pw}).encode(),
+                headers={"Content-Type": "application/json", "User-Agent": UA}), timeout=25).read())
+            bsky_hdr = {"Authorization": "Bearer " + sess["accessJwt"]}
+        except Exception:                            # noqa: BLE001
+            bsky_hdr = None
+
+    yt_hdr = None
+    cid, csec = os.environ.get("YOUTUBE_CLIENT_ID"), os.environ.get("YOUTUBE_CLIENT_SECRET")
+    rtok = os.environ.get("YOUTUBE_REFRESH_TOKEN")
+    if cid and csec and rtok:
+        try:
+            body = urllib.parse.urlencode({"client_id": cid, "client_secret": csec,
+                                           "refresh_token": rtok,
+                                           "grant_type": "refresh_token"}).encode()
+            tok = json.loads(urllib.request.urlopen(urllib.request.Request(
+                "https://oauth2.googleapis.com/token", data=body,
+                headers={"Content-Type": "application/x-www-form-urlencoded"}),
+                timeout=25).read())["access_token"]
+            yt_hdr = {"Authorization": "Bearer " + tok}
+        except Exception:                            # noqa: BLE001
+            yt_hdr = None
+
+    inst = (os.environ.get("MASTODON_INSTANCE") or os.environ.get("MASTODON_BASE_URL") or "").rstrip("/")
+    mtok = os.environ.get("MASTODON_ACCESS_TOKEN")
+    igtok = os.environ.get("IG_ACCESS_TOKEN")
+    thtok = os.environ.get("THREADS_ACCESS_TOKEN")
+
+    def check(row):
+        plat, url = row.get("platform"), row.get("url") or ""
+        try:
+            if plat == "bluesky":
+                rkey = url.rstrip("/").split("/")[-1]
+                who = url.split("/profile/")[1].split("/")[0] if "/profile/" in url else handle
+                if not (bsky_hdr and rkey and who):
+                    return None
+                at = f"at://{who}/app.bsky.feed.post/{rkey}"
+                d = get_json("https://bsky.social/xrpc/app.bsky.feed.getPosts?uris="
+                             + urllib.parse.quote(at), bsky_hdr)
+                return bool(d.get("posts"))
+            if plat == "mastodon":
+                sid = url.rstrip("/").split("/")[-1]
+                if not (inst and mtok and sid.isdigit()):
+                    return None
+                try:
+                    get_json(f"{inst}/api/v1/statuses/{sid}", {"Authorization": "Bearer " + mtok})
+                    return True
+                except urllib.error.HTTPError as e:
+                    return False if e.code in (404, 410) else None
+            if plat == "youtube":
+                m = re.search(r"(?:shorts/|watch\?v=|youtu\.be/)([\w-]{6,})", url)
+                if not (yt_hdr and m):
+                    return None
+                d = get_json("https://www.googleapis.com/youtube/v3/videos?part=id&id="
+                             + m.group(1), yt_hdr)
+                return bool(d.get("items"))
+            if plat in ("instagram", "threads"):
+                mid = row.get("mediaId") or re.search(r"/(\d{10,})/?$", url)
+                mid = mid.group(1) if hasattr(mid, "group") else mid
+                tok = igtok if plat == "instagram" else thtok
+                if not (mid and tok):
+                    return None
+                host = "graph.instagram.com" if plat == "instagram" else "graph.threads.net"
+                try:
+                    get_json(f"https://{host}/v21.0/{mid}?fields=id&access_token={tok}")
+                    return True
+                except urllib.error.HTTPError as e:
+                    return False if e.code in (400, 404) else None
+        except Exception:                            # noqa: BLE001
+            return None
+        return None
+
+    live = gone = unknown = 0
+    for row in posts:
+        v = check(row)
+        row["live"] = v
+        if v is True:
+            live += 1
+        elif v is False:
+            gone += 1
+        else:
+            unknown += 1
+
+    # Counts follow what SURVIVED. A deleted post is kept in the list, marked,
+    # because "we posted this and it is gone" is itself worth seeing.
+    per = {}
+    for row in posts:
+        if row.get("live") is False:
+            continue
+        p2 = per.setdefault(row.get("platform"), {"posts": 0, "likes": 0, "replies": 0,
+                                                  "reposts": 0, "views": 0, "measured": 0})
+        p2["posts"] += 1
+        if row.get("likes") is not None:
+            p2["measured"] += 1
+            for k in ("likes", "replies", "reposts", "views"):
+                p2[k] += int(row.get(k) or 0)
+    state["social"]["byPlatform"] = per
+    state["social"]["totalPosts"] = live + unknown
+    state["social"]["deleted"] = gone
+    state["social"]["unverified"] = unknown
+    return f"{live} live, {gone} deleted, {unknown} could not be checked"
 
 
 def youtube_channel(state):
@@ -983,10 +1366,13 @@ SOURCES = [
     ("play_rating", play_rating),
     ("play_vitals", play_vitals),
     ("play_crashes", play_crashes),
+    ("play_users", play_users),
+    ("play_reports", play_reports),
     ("manual_stores", manual_stores),
     ("social_programme", social_programme),
     ("social_reach", social_reach),
     ("social_replies", social_replies),
+    ("social_liveness", social_liveness),
     ("youtube_channel", youtube_channel),
     ("mentions_reddit", mentions_reddit),
     ("mentions_hn", mentions_hn),
