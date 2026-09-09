@@ -13,10 +13,17 @@
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
-TRACK="production"; NOTES=""; ROLLOUT=""; DRAFT=""; BUMP=1
+TRACK="internal"; NOTES=""; ROLLOUT=""; DRAFT=""; BUMP=1; LOCAL=0
+
+# A release build is R8 plus a full Kotlin compile. On 2026-09-09 one of them
+# took this Mac to 18% free memory and 7,002,846 pageouts while the owner was
+# trying to use it for something else. So the DEFAULT is now to hand the build
+# to CI, which also has no Play-signed copy in the way of the smoke test.
+# `--local` still builds here for the cases where that is genuinely wanted.
 while [ $# -gt 0 ]; do
   case "$1" in
     --track) TRACK="$2"; shift 2;;
+    --local) LOCAL=1; shift;;
     --notes) NOTES="$2"; shift 2;;
     --rollout) ROLLOUT="$2"; shift 2;;
     --draft) DRAFT="--draft"; shift;;
@@ -36,6 +43,21 @@ if [ "$BUMP" = 1 ]; then
   /usr/bin/sed -i '' -E "s/(versionCode[[:space:]]*=[[:space:]]*)[0-9]+/\1$NEW/" "$GRADLE"
   echo "versionCode $CUR → $NEW"
 fi
+
+if [ "$LOCAL" -eq 0 ]; then
+  echo "Handing this to CI so it does not run on your machine."
+  echo "  (pass --local to build here instead)"
+  ARGS=(-f "track=$TRACK")
+  [ -n "$NOTES" ]   && ARGS+=(-f "notes=$NOTES")
+  [ -n "$ROLLOUT" ] && ARGS+=(-f "rollout=$ROLLOUT")
+  gh workflow run play-release.yml "${ARGS[@]}"
+  echo
+  echo "Watch it:   gh run watch \$(gh run list --workflow=play-release.yml --limit 1 --json databaseId -q '.[0].databaseId')"
+  echo "Then, after using the internal build on a real device:"
+  echo "  gh workflow run play-release.yml -f promote=<versionCode>"
+  exit 0
+fi
+
 VN="$(grep -E '^\s*versionName\s*=' "$GRADLE" | head -1 | sed -E 's/.*"(.*)".*/\1/')"
 VC="$(grep -E '^\s*versionCode\s*=' "$GRADLE" | head -1 | sed -E 's/[^0-9]//g')"
 echo "Building Android $VN (versionCode $VC) …"

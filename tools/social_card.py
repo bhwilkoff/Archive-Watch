@@ -143,7 +143,15 @@ def wrap(draw: ImageDraw.ImageDraw, text: str, fnt, width: int, max_lines: int) 
         # spun forever on any single word wider than the column — the card
         # renderer hung indefinitely on "Die Nibelungen: Siegfried" and took
         # the whole daily run with it. Stop when nothing more can come off.
-        while lines and draw.textlength(lines[-1] + " …", font=fnt) > width:
+        # A HARD BOUND as well as a correct exit condition. The exit condition
+        # above was already fixed once (2026-09-06, eb255c75) and that fix did
+        # nothing for the two processes ALREADY spinning — they burned a core
+        # each for three and a half days and were still going when the owner
+        # asked why the machine was slow. A rendering loop cannot be allowed to
+        # outlive the run that started it, whatever the text does.
+        for _ in range(2000):
+            if not lines or draw.textlength(lines[-1] + " …", font=fnt) <= width:
+                break
             shorter = lines[-1].rsplit(" ", 1)[0]
             if shorter == lines[-1]:
                 shorter = lines[-1][:-1]          # trim a character instead

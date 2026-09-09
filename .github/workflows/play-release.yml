@@ -1,0 +1,202 @@
+name: Play release
+
+# Build and publish the Android app from CI, so a release never runs on the
+# owner's Mac again.
+#
+# WHY THIS EXISTS. A release build is R8 plus a full Kotlin compile, and on
+# 2026-09-09 one of them took this machine to 18% free memory and 7,002,846
+# pageouts — the keyboard stopped responding while a film was being catalogued
+# in another window. The Apple side settled this long ago: appstore-build.yml
+# exists because the dev Mac cannot ship locally. Android had no equivalent, so
+# every Play release was paid for out of the owner's working day.
+#
+# THE SMOKE TEST, HONESTLY. tools/submit-play.sh runs the release artifact on a
+# real device before uploading, because Play once rejected a build for a launch
+# crash that only R8 produced (vc43, a Room constructor stripped through
+# Glance). A CI runner has no device, and this project does not use emulators.
+# So the guard is not dropped, it is MOVED: CI publishes to the INTERNAL track,
+# which installs over a Play-signed copy with no uninstall, and promotion to
+# production is a separate, deliberate dispatch. The artifact that reaches users
+# is the one that was tested, and nothing is verified by assertion.
+#
+#   1. gh workflow run play-release.yml                    -> builds, internal
+#   2. install from Play internal on a real device, use it
+#   3. gh workflow run play-release.yml -f promote=56      -> production
+
+on:
+  workflow_dispatch:
+    inputs:
+      track:
+        description: "internal (default) | beta | production"
+        type: choice
+        options: [internal, beta, production]
+        default: internal
+      notes:
+        description: "release notes shown on Play"
+        type: string
+        default: ""
+      rollout:
+        description: "staged rollout fraction, e.g. 0.1 (blank = full)"
+        type: string
+        default: ""
+      promote:
+        description: "versionCode to promote to production instead of building"
+        type: string
+        default: ""
+
+permissions:
+  contents: write
+
+concurrency:
+  group: play-release
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - uses: android-actions/setup-android@v3
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install the publisher's dependencies
+        run: pip install --quiet google-api-python-client google-auth
+
+      - name: Write the Play service-account key
+        env:
+          PLAY_JSON: ${{ secrets.PLAY_SERVICE_ACCOUNT_JSON }}
+        run: |
+          set -euo pipefail
+          [ -n "${PLAY_JSON:-}" ] || { echo "::error::PLAY_SERVICE_ACCOUNT_JSON is not set"; exit 1; }
+          mkdir -p "$HOME/.config/play"
+          printf '%s' "$PLAY_JSON" > "$HOME/.config/play/archivewatch-play.json"
+
+      # ── promotion path: no build at all, just move an existing build ──────
+      - name: Promote an existing build to production
+        if: ${{ inputs.promote != '' }}
+        env:
+          PLAY_SERVICE_ACCOUNT_JSON: /home/runner/.config/play/archivewatch-play.json
+        run: |
+          set -euo pipefail
+          python3 tools/play_promote.py --version-code "${{ inputs.promote }}" \
+            --to production ${{ inputs.rollout && format('--rollout {0}', inputs.rollout) || '' }}
+
+      # ── build path ────────────────────────────────────────────────────────
+      - name: Restore the upload keystore
+        if: ${{ inputs.promote == '' }}
+        env:
+          KS_B64: ${{ secrets.UPLOAD_KEYSTORE_B64 }}
+          KS_PASS: ${{ secrets.UPLOAD_KEYSTORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.UPLOAD_KEY_ALIAS }}
+          KEY_PASS: ${{ secrets.UPLOAD_KEY_PASSWORD }}
+          OS_KEY: ${{ secrets.AW_OPENSUBTITLES_API_KEY }}
+        run: |
+          set -euo pipefail
+          for v in KS_B64 KS_PASS KEY_ALIAS KEY_PASS; do
+            [ -n "${!v:-}" ] || { echo "::error::secret for $v is missing"; exit 1; }
+          done
+          mkdir -p "$HOME/keystores" "$HOME/.gradle"
+          printf '%s' "$KS_B64" | base64 -d > "$HOME/keystores/archivewatch-upload.jks"
+          # Gradle reads these as project properties; they never touch the repo.
+          {
+            echo "UPLOAD_KEYSTORE_PATH=$HOME/keystores/archivewatch-upload.jks"
+            echo "UPLOAD_KEYSTORE_PASSWORD=$KS_PASS"
+            echo "UPLOAD_KEY_ALIAS=$KEY_ALIAS"
+            echo "UPLOAD_KEY_PASSWORD=$KEY_PASS"
+            echo "awOpenSubtitlesApiKey=${OS_KEY:-}"
+          } >> "$HOME/.gradle/gradle.properties"
+
+      - name: Bump versionCode and sync versionName
+        if: ${{ inputs.promote == '' }}
+        id: ver
+        run: |
+          set -euo pipefail
+          python3 - <<'PY' >> "$GITHUB_OUTPUT"
+          import re, pathlib
+          # Decision 101: AppVersion.xcconfig is the ONE version number.
+          mv = re.search(r"MARKETING_VERSION\s*=\s*(\S+)",
+                         pathlib.Path("AppVersion.xcconfig").read_text()).group(1)
+          g = pathlib.Path("android/app/build.gradle.kts"); s = g.read_text()
+          vc = int(re.search(r"versionCode\s*=\s*(\d+)", s).group(1)) + 1
+          s = re.sub(r"versionCode\s*=\s*\d+", f"versionCode = {vc}", s, count=1)
+          s = re.sub(r'versionName\s*=\s*"[^"]+"', f'versionName = "{mv}"', s, count=1)
+          g.write_text(s)
+          print(f"code={vc}")
+          print(f"name={mv}")
+          PY
+
+      - name: Build the signed bundle
+        if: ${{ inputs.promote == '' }}
+        working-directory: android
+        run: ./gradlew --no-daemon bundleGoogleRelease
+
+      - name: Refuse an unsigned bundle
+        if: ${{ inputs.promote == '' }}
+        run: |
+          set -euo pipefail
+          AAB=android/app/build/outputs/bundle/googleRelease/app-google-release.aab
+          [ -f "$AAB" ] || { echo "::error::no bundle was produced"; exit 1; }
+          # An unsigned AAB uploads and then fails review; catch it here.
+          unzip -l "$AAB" | grep -q "META-INF/.*\.RSA\|META-INF/.*\.EC" \
+            || { echo "::error::the bundle is not signed — the keystore step did not take"; exit 1; }
+          echo "signed bundle: $(du -h "$AAB" | cut -f1)"
+
+      - name: Publish
+        if: ${{ inputs.promote == '' }}
+        env:
+          PLAY_SERVICE_ACCOUNT_JSON: /home/runner/.config/play/archivewatch-play.json
+        run: |
+          set -euo pipefail
+          ARGS=(--track "${{ inputs.track }}")
+          [ -n "${{ inputs.notes }}" ] && ARGS+=(--notes "${{ inputs.notes }}")
+          [ -n "${{ inputs.rollout }}" ] && ARGS+=(--rollout "${{ inputs.rollout }}")
+          python3 tools/play-publish.py \
+            android/app/build/outputs/bundle/googleRelease/app-google-release.aab "${ARGS[@]}"
+
+      - name: Keep the versionCode
+        if: ${{ inputs.promote == '' }}
+        run: |
+          set -euo pipefail
+          # reporter-may-fail: losing the bump means the next run reuses a
+          # versionCode Play has already seen, and Play rejects that outright.
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add android/app/build.gradle.kts
+          git diff --cached --quiet && { echo "no version change"; exit 0; }
+          git commit -m "Android ${{ steps.ver.outputs.name }} (versionCode ${{ steps.ver.outputs.code }}) [skip ci]"
+          for i in 1 2 3 4 5; do
+            git push && exit 0
+            git pull --rebase --autostash origin "${GITHUB_REF_NAME}" || true
+            sleep $((i * 5))
+          done
+          echo "::error::could not push the versionCode bump"; exit 1
+
+      - name: Say what happened
+        if: always()
+        run: |
+          {
+            if [ -n "${{ inputs.promote }}" ]; then
+              echo "### Promoted versionCode ${{ inputs.promote }} to production"
+            else
+              echo "### Android ${{ steps.ver.outputs.name }} (versionCode ${{ steps.ver.outputs.code }}) → ${{ inputs.track }}"
+              echo ""
+              echo "Nothing was built on anyone's laptop."
+              if [ "${{ inputs.track }}" = "internal" ]; then
+                echo ""
+                echo "Install it from Play internal on a real device and use it, then:"
+                echo '```'
+                echo "gh workflow run play-release.yml -f promote=${{ steps.ver.outputs.code }}"
+                echo '```'
+              fi
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
