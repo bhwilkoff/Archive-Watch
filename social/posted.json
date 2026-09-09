@@ -88,6 +88,17 @@
    "format": "video",
    "kind": "feature-film",
    "reviewer": "RM_115"
+  },
+  {
+   "at": "2026-09-09T01:06:49.909962+00:00",
+   "id": "TheBirthofaNation1080p",
+   "title": "The Birth of a Nation",
+   "slot": "double-bill",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mv2dvy7tu62z",
+   "format": "video",
+   "kind": "silent-film",
+   "reviewer": null
   }
  ]
 }
