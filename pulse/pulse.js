@@ -202,7 +202,7 @@ function glance(d) {
       chart: { html: C.bullet({ value: ap.average, max: 5, bands: [3, 4], target: 4.5,
         tone: ap.average >= 4 ? "live" : ap.average >= 3 ? "flight" : "stop",
         label: `${ap.average} out of 5, target 4.5` }) },
-      cap: "bands at 3 and 4 · marker is the 4.5 target",
+      cap: "bands at 3 and 4 · marker is the 4.5 target" + staleNote(d, "ratings"),
     });
   } else {
     panel(box, { k: "App Store rating", v: "<small>not read</small>" });
@@ -216,8 +216,8 @@ function glance(d) {
     panel(box, {
       k: "How the reviews fall", right: `${Object.values(dist).reduce((a, b) => a + b, 0)} written`,
       chart: { html: starChart(dist) },
-      cap: low ? `<b>${low}</b> under four stars — every one is in Needs you`
-        : "nothing under four stars",
+      cap: (low ? `<b>${low}</b> under four stars — every one is in Needs you`
+        : "nothing under four stars") + staleNote(d, "reviews"),
     });
   }
 
@@ -563,11 +563,28 @@ function trend(d) {
 }
 
 /* ── sources ─────────────────────────────────────────────────────────────── */
+function staleNote(d, key) {
+  const at = (d.stale || {})[key];
+  return at ? ` · standing on the reading from ${ago(at)} — its reader is offline` : "";
+}
+
 function sources(d) {
   const box = $("sources"); box.innerHTML = "";
   const rows = Object.entries(d.sources || {});
   const ok = rows.filter(([, v]) => v.ok).length;
   $("src-n").textContent = `${ok}/${rows.length}`;
+  const grid = el("div", "panels");
+  const marks = rows.map(([k, v]) => ({ label: k + (v.ok ? " — ok" : " — offline"),
+                                        tone: v.ok ? "live" : "flight" }));
+  panel(grid, {
+    k: "Readers", right: `${ok} of ${rows.length}`,
+    v: `${ok}<small> answered</small>`,
+    chart: { html: C.dots(marks, { label: "one mark per reader" }) },
+    cap: ok === rows.length ? "every reader answered"
+      : `<b>${rows.length - ok}</b> could not read — the reasons are listed below, `
+        + "and any panel standing on an older reading says so",
+  });
+  box.appendChild(grid);
   rows.forEach(([k, v]) => {
     const r = el("div", "row" + (v.ok ? "" : " off"));
     r.appendChild(el("div", "name", k));

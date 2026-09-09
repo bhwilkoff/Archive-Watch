@@ -960,6 +960,30 @@ def main() -> int:
             state["sources"][name] = {"ok": False, "note": str(e)[:200], "at": now()}
             print(f"  {'--':<4} {name:<18} {str(e)[:110]}")
 
+    # A source that FAILED keeps its last good value, marked stale. Dropping it
+    # would put a hole where four reviews were, and a hole reads as "there are
+    # none" — the same confident-zero this whole tool exists to avoid.
+    OWNS = {"apple_stores": "stores", "play_stores": "stores", "manual_stores": "stores",
+            "apple_reviews": "reviews", "play_reviews": "reviews",
+            "apple_rating": "ratings", "play_rating": "ratings",
+            "distribution": "distribution", "github": "github",
+            "social_programme": "social", "catalog": None}
+    stale = {}
+    for name, res in state["sources"].items():
+        key = OWNS.get(name)
+        if res["ok"] or not key or not prev.get(key):
+            continue
+        if not state.get(key):                       # nothing collected for it
+            state[key] = prev[key]
+            stale[key] = prev.get("generatedAt")
+        elif key in ("stores", "ratings", "reviews"):
+            have = {r.get("store") for r in state[key]}
+            carried = [r for r in prev[key] if r.get("store") not in have]
+            if carried:
+                state[key] = state[key] + carried
+                stale[key] = prev.get("generatedAt")
+    state["stale"] = stale
+
     state["reviews"] = dedupe(sorted(state["reviews"], key=lambda r: r.get("date") or "",
                                      reverse=True), lambda r: (r["store"], r.get("id")))[:MAX_REVIEWS]
     state["mentions"] = dedupe(sorted(state["mentions"], key=lambda m: m.get("date") or "",

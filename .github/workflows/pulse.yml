@@ -37,11 +37,26 @@ jobs:
       - name: Install what the readers need
         run: pip install --quiet PyJWT cryptography google-api-python-client google-auth
 
+      # asc_release.py reads the key off DISK (~/.appstoreconnect/private_keys),
+      # which is how appstore-submit.yml has always fed it. Passing ASC_KEY_P8
+      # as an env var looked right and read zero Apple reviews.
+      - name: Write the ASC API key
+        env:
+          ASC_KEY_P8_B64: ${{ secrets.ASC_KEY_P8 }}
+          KID: ${{ secrets.ASC_KEY_ID }}
+          ISS: ${{ secrets.ASC_ISSUER_ID }}
+        run: |
+          set -euo pipefail
+          for v in ASC_KEY_P8_B64 KID ISS; do
+            [ -n "${!v:-}" ] || { echo "::warning::secret for $v is missing"; exit 0; }
+          done
+          mkdir -p ~/.appstoreconnect/private_keys
+          printf '%s' "$ASC_KEY_P8_B64" | base64 -d > ~/.appstoreconnect/private_keys/AuthKey_${KID}.p8
+          echo "ASC_KEY_ID=$KID" >> "$GITHUB_ENV"
+          echo "ASC_ISSUER_ID=$ISS" >> "$GITHUB_ENV"
+
       - name: Read every channel
         env:
-          ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
-          ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
-          ASC_KEY_P8: ${{ secrets.ASC_KEY_P8 }}
           PLAY_SERVICE_ACCOUNT_JSON: ${{ secrets.PLAY_SERVICE_ACCOUNT_JSON }}
           BLUESKY_HANDLE: ${{ secrets.BLUESKY_HANDLE }}
           BLUESKY_APP_PASSWORD: ${{ secrets.BLUESKY_APP_PASSWORD }}
