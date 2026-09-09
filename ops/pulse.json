@@ -714,6 +714,94 @@
     "1.2": 122,
     "1.4": 96,
     "1.42.5": 31
+   },
+   "perDevice": {
+    "iPad": {
+     "byCountry": {
+      "US": 35,
+      "GB": 4,
+      "FR": 3,
+      "DE": 3,
+      "PL": 2,
+      "SA": 2,
+      "IN": 2,
+      "UA": 2,
+      "NL": 2,
+      "KW": 1,
+      "KZ": 1,
+      "JO": 1,
+      "IL": 1,
+      "MX": 1
+     },
+     "byVersion": {
+      "1.3": 33,
+      "1.41": 21,
+      "1.2": 10,
+      "1.4": 7,
+      "1.42.5": 1
+     },
+     "units": 72
+    },
+    "Apple TV": {
+     "byCountry": {
+      "US": 70,
+      "CA": 8,
+      "GB": 5,
+      "ZA": 5,
+      "DE": 4,
+      "SG": 1,
+      "NO": 1,
+      "TR": 1,
+      "IE": 1,
+      "IN": 1,
+      "DK": 1,
+      "TT": 1,
+      "UA": 1,
+      "AU": 1
+     },
+     "byVersion": {
+      "1.2": 65,
+      "1.4": 18,
+      "1.41": 14,
+      "1.42.5": 10
+     },
+     "units": 107
+    },
+    "iPhone": {
+     "byCountry": {
+      "US": 149,
+      "GB": 14,
+      "DE": 14,
+      "FR": 12,
+      "SA": 12,
+      "KZ": 10,
+      "CA": 9,
+      "ES": 8,
+      "NG": 8,
+      "AE": 7,
+      "DZ": 7,
+      "AU": 6,
+      "SE": 5,
+      "MA": 5
+     },
+     "byVersion": {
+      "1.3": 174,
+      "1.41": 98,
+      "1.4": 71,
+      "1.2": 46,
+      "1.42.5": 20
+     },
+     "units": 409
+    },
+    "Desktop": {
+     "byCountry": {
+      "DE": 1
+     },
+     "byVersion": {
+      "1.2": 1
+     },
+     "units": 1
+    }
    }
   },
   "playVitals": {},
@@ -1280,7 +1368,7 @@
   "apple_downloads": {
    "ok": true,
    "note": "589 first-time download(s) over 31 day(s), 4 device type(s), 92 country/countries",
-   "at": "2026-09-09T22:52:06+00:00"
+   "at": "2026-09-09T23:04:10+00:00"
   },
   "play_stores": {
    "ok": true,
@@ -1422,7 +1510,7 @@
    "urgent": 0
   }
  ],
- "generatedAt": "2026-09-09T22:53:12+00:00",
+ "generatedAt": "2026-09-09T23:04:10+00:00",
  "repoVersion": "1.42.7",
  "repoBuild": "1019",
  "_": "Written by tools/pulse_collect.py. `history` is the series and is append-only per day; everything else is the latest reading. A source that could not answer says so in `sources` — never assume a zero."

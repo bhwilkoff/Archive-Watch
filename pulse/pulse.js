@@ -866,7 +866,12 @@ function platforms(d) {
       installs: units, daily,
       row: st("App Store", os === "tvOS" ? "Apple TV" : os === "macOS" ? "Mac" : "iPhone & iPad"),
       shareOf: dl?.byDevice, shareLabel: "Apple installs by device",
-      countries: dl?.byCountry, versions: dl?.byVersion,
+      // THIS device's countries and versions, not the account's. The first
+      // version showed Apple's totals under a tvOS heading, which is the
+      // clearest kind of lie a dashboard can tell: a true number under a
+      // false label.
+      countries: (dl?.perDevice || {})[device]?.byCountry,
+      versions: (dl?.perDevice || {})[device]?.byVersion,
       note: os === "tvOS" ? "the platform this app was built for first" : null,
     });
   });

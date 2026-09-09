@@ -1338,6 +1338,12 @@ def apple_downloads(state):
     FIRST = {"1", "1T", "1E", "1EP", "1EU", "IA1"}
     days, by_dev, by_country, by_version = [], {}, {}, {}
     per_day_dev: dict = {}
+    # Per-DEVICE breakdowns as well as the account-wide ones. Each row carries
+    # both Device and Country, so a tvOS section can show tvOS's own countries
+    # rather than Apple's total — which is what it showed at first, labelled
+    # "tvOS · Where they are · US 254" when 254 was every Apple device.
+    dev_country: dict = {}
+    dev_version: dict = {}
     for back in range(1, 32):
         day = (dt.date.today() - dt.timedelta(days=back)).isoformat()
         ep = ("v1/salesReports?filter[frequency]=DAILY&filter[reportType]=SALES"
@@ -1385,9 +1391,13 @@ def apple_downloads(state):
             if "Country Code" in idx:
                 c = f[idx["Country Code"]].strip() or "??"
                 by_country[c] = by_country.get(c, 0) + u
+                dc = dev_country.setdefault(d, {})
+                dc[c] = dc.get(c, 0) + u
             if "Version" in idx:
                 v = f[idx["Version"]].strip() or "?"
                 by_version[v] = by_version.get(v, 0) + u
+                dv = dev_version.setdefault(d, {})
+                dv[v] = dv.get(v, 0) + u
         days.append({"date": day, "units": total, "byDevice": per_day_dev.get(day, {})})
     if not days:
         raise RuntimeError("no sales report available yet for this vendor number")
@@ -1398,6 +1408,9 @@ def apple_downloads(state):
         "total14d": sum(r["units"] for r in days[-14:]),
         "total28d": sum(r["units"] for r in days[-28:]),
         "byDevice": top(by_dev), "byCountry": top(by_country), "byVersion": top(by_version),
+        "perDevice": {k: {"byCountry": top(v), "byVersion": top(dev_version.get(k, {})),
+                          "units": by_dev.get(k, 0)}
+                      for k, v in dev_country.items()},
     }
     return (f"{sum(r['units'] for r in days)} first-time download(s) over {len(days)} day(s), "
             f"{len(by_dev)} device type(s), {len(by_country)} country/countries")
