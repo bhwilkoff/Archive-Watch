@@ -10,7 +10,7 @@
    existing install permanently, because nothing ever re-fetched the asset.
    Serving from cache while refreshing in the background keeps the instant open
    and makes the next load correct without depending on a version bump. */
-const SHELL = 'aw-root-shell-v49';
+const SHELL = 'aw-root-shell-v50';
 const DATA = 'aw-root-data-v1';
 const SHELL_URLS = [
   './', 'index.html', 'watch.css', 'watch.js', 'tv.css', 'tv.js', 'cast-sender.js',
@@ -37,6 +37,11 @@ self.addEventListener('fetch', e => {
   if (e.request.method !== 'GET') return;
   if (url.hostname.includes('archive.org')) return;   // media/API straight through
   if (url.pathname.startsWith('/curate')) return;     // the editorial tool stays live
+  // The ops dashboard is a READING, and a stale-while-revalidate copy of a
+  // reading is worse than no dashboard: it shows yesterday's numbers with
+  // today's timestamp beside them. Same reasoning as /curate.
+  if (url.pathname.startsWith('/pulse')) return;
+  if (url.pathname.startsWith('/ops/')) return;
 
   const isData = url.pathname.endsWith('catalog-index.json')
     || url.pathname.endsWith('featured.json')

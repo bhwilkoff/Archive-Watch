@@ -144,6 +144,15 @@ and all 31 cases were checked to FAIL against broken versions of each rule.
   run, pinned to 3.11, could not import it and read zero Apple reviews while the
   same code read four on the dev Mac. Flattened at the source, so no workflow can
   step on it again whatever Python it pins.
+* **The viewer's service worker was serving the dashboard from cache.** It is
+  registered at root scope, so it intercepts everything under archivewatch.org
+  that is not explicitly excluded — and `/pulse` was not. The page showed
+  yesterday's panels beside today's timestamp, which is the exact failure this
+  tool exists to prevent, arriving from the cache instead of from a reader.
+  `/pulse` and `/ops/` now bypass it the way `/curate` already did, and
+  `tools/test_sw_bypass.mjs` asserts both halves: the ops tools are never
+  cached AND the viewer still is, because a bypass that swallows the whole site
+  would break the PWA offline.
 * **A secret that exists and never arrives looks exactly like one that was
   never made.** The reports key was set correctly and `pulse.yml` did not pass
   it, so the run stayed green and the panel stayed empty.
