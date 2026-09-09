@@ -837,6 +837,13 @@ _LANG_PAREN = re.compile(
 # A trailing uploader CREDIT clause: "… directed by X" / "… a film by Y" / "… Dir: Z" / "… starring W".
 # Anchored to the END with required following text, so a bare word ("The Director") is never hit;
 # _keep_if_lettered protects a title that IS a credit ("Directed by John Ford").
+# A parenthetical naming the SOURCE MEDIUM is not part of the title. "Zoom &
+# Bored (Laserdisc)" went out on Bluesky with the medium in the film's name.
+_MEDIUM_PAREN = re.compile(
+    r"\s*[\(\[]\s*(?:laser\s*disc|laserdisc|ld|vhs|betamax|beta\s*max|dvd|blu-?ray|"
+    r"bd|16\s*mm|35\s*mm|8\s*mm|super\s*8|vcd|telecine|tv\s*rip|web\s*rip|"
+    r"dvd\s*rip|vhs\s*rip|transfer|restored\s*scan|scan)\s*[\)\]]", re.I)
+
 _CREDIT_TAIL = re.compile(
     r"\s*[-–—,]?\s*(?:directed by|a film by|dir\.?\s*(?:by|:)|director|starring|"
     r"featuring|feat\.?|with cast|cast:)\s+\S.*$", re.I)
@@ -1331,6 +1338,7 @@ def sanitize_title(it):
     t = _keep_if_lettered(_PAREN_LEADING_YEAR.sub(" ", t), t)
     t = _keep_if_lettered(_TRAIL_OPEN_YEAR.sub("", t), t)
     t = _keep_if_lettered(_LANG_PAREN.sub(" ", t), t)
+    t = _keep_if_lettered(_MEDIUM_PAREN.sub(" ", t), t)
     t = _truncate_at_year_field(t, it.get("year"))   # 'Real Title YYYY <cruft>' -> 'Real Title'
     t = _strip_leading_year(t)
     t = _strip_leading_year_field(t, it.get("year"))

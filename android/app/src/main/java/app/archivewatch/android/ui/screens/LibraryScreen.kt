@@ -29,6 +29,7 @@ import androidx.compose.ui.unit.dp
 import app.archivewatch.android.app.AppContainer
 import app.archivewatch.android.data.CatalogItem
 import app.archivewatch.android.ui.EmptyState
+import app.archivewatch.android.ui.uniqueBy
 import app.archivewatch.android.ui.Nav
 import app.archivewatch.android.ui.PosterTile
 import app.archivewatch.android.ui.Route
@@ -153,7 +154,7 @@ fun LibraryScreen(container: AppContainer, nav: Nav) {
                     horizontalArrangement = Arrangement.spacedBy(10.dp),
                     verticalArrangement = Arrangement.spacedBy(14.dp),
                 ) {
-                    items(items, key = { it.archiveID }) { item ->
+                    items(items.uniqueBy { it.archiveID }, key = { it.archiveID }) { item ->
                         PosterTile(item, onClick = {
                             nav.openItem(item.archiveID, item.seriesID, item.contentType)
                         })

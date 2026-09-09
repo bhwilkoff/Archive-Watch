@@ -51,6 +51,7 @@ import app.archivewatch.android.app.AppContainer
 import app.archivewatch.android.data.CatalogItem
 import app.archivewatch.android.data.FeaturedCategory
 import app.archivewatch.android.ui.EmptyState
+import app.archivewatch.android.ui.uniqueBy
 import app.archivewatch.android.ui.LoadingBox
 import app.archivewatch.android.ui.Nav
 import app.archivewatch.android.ui.tv.LocalIsTelevision
@@ -213,7 +214,7 @@ fun FilteredGridScreen(container: AppContainer, nav: Nav, route: Route.Filtered)
                     verticalArrangement = Arrangement.spacedBy(14.dp),
                     modifier = Modifier.fillMaxSize(),
                 ) {
-                    items(list, key = { it.archiveID }) { item ->
+                    items(list.uniqueBy { it.archiveID }, key = { it.archiveID }) { item ->
                         PosterTile(item, onClick = {
                             nav.openItem(item.archiveID, item.seriesID, item.contentType)
                         })
@@ -278,7 +279,7 @@ fun SurpriseScreen(container: AppContainer, nav: Nav) {
             verticalArrangement = Arrangement.spacedBy(14.dp),
             modifier = Modifier.fillMaxSize().padding(padding),
         ) {
-            items(list, key = { it.archiveID }) { item ->
+            items(list.uniqueBy { it.archiveID }, key = { it.archiveID }) { item ->
                 PosterTile(item, onClick = {
                     nav.openItem(item.archiveID, item.seriesID, item.contentType)
                 })
@@ -339,7 +340,7 @@ fun PlaylistScreen(container: AppContainer, nav: Nav, playlistID: String) {
                 verticalArrangement = Arrangement.spacedBy(14.dp),
                 modifier = Modifier.fillMaxSize().padding(padding),
             ) {
-                items(items, key = { it.archiveID }) { item ->
+                items(items.uniqueBy { it.archiveID }, key = { it.archiveID }) { item ->
                     PosterTile(item, onClick = {
                         nav.openItem(item.archiveID, item.seriesID, item.contentType)
                     })

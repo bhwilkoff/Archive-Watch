@@ -39,6 +39,7 @@ import androidx.compose.ui.unit.sp
 import app.archivewatch.android.app.AppContainer
 import app.archivewatch.android.data.CatalogItem
 import app.archivewatch.android.ui.Nav
+import app.archivewatch.android.ui.uniqueBy
 import app.archivewatch.android.ui.kindLabel
 import app.archivewatch.android.ui.Route
 import kotlinx.coroutines.delay
@@ -225,7 +226,7 @@ fun TvSearchScreen(container: AppContainer, nav: Nav) {
                         horizontalArrangement = Arrangement.spacedBy(TvDims.PosterSpacing),
                         verticalArrangement = Arrangement.spacedBy(22.dp),
                     ) {
-                        items(shown, key = { it.archiveID }) { item ->
+                        items(shown.uniqueBy { it.archiveID }, key = { it.archiveID }) { item ->
                             TvPosterTile(
                                 item = item,
                                 onClick = {

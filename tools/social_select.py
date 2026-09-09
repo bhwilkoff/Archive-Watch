@@ -482,6 +482,43 @@ def pd_basis(row: list, detail: list, gov_ids: set | None = None) -> tuple[str, 
     return None
 
 
+DO_NOT_PROMOTE = Path(__file__).resolve().parent.parent / "ops" / "social-do-not-promote.json"
+_DNP: dict | None = None
+
+
+def do_not_promote(row: list) -> str | None:
+    """Why this film must not be BROADCAST, or None.
+
+    Holding a work and recommending it are different acts. The archive's whole
+    value is that it keeps difficult material; a daily post saying "Free to
+    watch!" with two hashtags is a recommendation, and there is no room in 300
+    characters for the context some films require.
+
+    This came from a real post: the programme published D.W. Griffith's *The
+    Birth of a Nation* to Bluesky as "The Birth of a Nation (1915) — Free to
+    watch — #SilentFilm #Drama". Every signal the selector rewards pointed at
+    it — 26,892 votes, professional artwork, a silent film, and TMDb's own
+    descriptor tags include "inspirational" and "feel-good" — while the item's
+    search text says "ku klux klan" and "racism". Popularity and artwork are
+    not editorial judgement, and nothing here was making one.
+
+    This NEVER hides a film from the app. It only keeps it out of the queue."""
+    global _DNP
+    if _DNP is None:
+        try:
+            _DNP = json.loads(DO_NOT_PROMOTE.read_text())
+        except (OSError, ValueError):
+            _DNP = {"ids": {}, "subjectMarkers": []}
+    reason = (_DNP.get("ids") or {}).get(str(row[I_ID]))
+    if reason:
+        return reason
+    blob = (str(row[I_SEARCH]) if len(row) > I_SEARCH and row[I_SEARCH] else "").lower()
+    for m in _DNP.get("subjectMarkers") or []:
+        if m in blob:
+            return f"its own subject text carries \u201c{m}\u201d"
+    return None
+
+
 def eligible(row: list, curated: set | None = None) -> bool:
     """The app's own gates. A film we promote must be one the app will show:
     professional artwork (Decision 097), playable, a real poster, and never a
@@ -495,6 +532,8 @@ def eligible(row: list, curated: set | None = None) -> bool:
     if len(row) > I_PLAYABLE and row[I_PLAYABLE] == 0:
         return False
     if curated is not None and row[I_ID] not in curated:
+        return False
+    if do_not_promote(row):
         return False
     return True
 

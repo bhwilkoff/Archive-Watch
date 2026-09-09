@@ -38,6 +38,7 @@ import app.archivewatch.android.app.AppContainer
 import app.archivewatch.android.data.BrowseSort
 import app.archivewatch.android.data.CatalogItem
 import app.archivewatch.android.ui.Nav
+import app.archivewatch.android.ui.uniqueBy
 import kotlinx.coroutines.launch
 import java.text.NumberFormat
 
@@ -185,7 +186,7 @@ fun TvBrowseScreen(container: AppContainer, nav: Nav) {
             verticalArrangement = Arrangement.spacedBy(24.dp),
             modifier = Modifier.fillMaxSize(),
         ) {
-            itemsIndexed(items, key = { _, it -> it.archiveID }) { index, item ->
+            itemsIndexed(items.uniqueBy { it.archiveID }, key = { _, it -> it.archiveID }) { index, item ->
                 TvPosterTile(
                     item = item,
                     onClick = { nav.openItem(item.archiveID, item.seriesID, item.contentType) },

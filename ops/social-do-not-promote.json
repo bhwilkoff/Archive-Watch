@@ -1,0 +1,11 @@
+{
+ "_": "Films the app may HOLD but the social programme must never broadcast. Holding a work and recommending it are different acts: the archive's value is that it keeps difficult material, and a daily 'Free to watch!' post is a recommendation with no room for context. Edit this file to add or remove a title; `reason` is shown in the selector's log.",
+ "ids": {
+  "TheBirthofaNation1080p": "1915 Ku Klux Klan propaganda. Historically significant and legitimately in the catalog; promoting it with a cheerful one-line caption is not something this programme can do well. It was posted to Bluesky on 2026-09-09 before this guard existed."
+ },
+ "subjectMarkers": [
+  "ku klux klan", "kkk", "nazi propaganda", "white supremac", "blood libel",
+  "lynching", "holocaust denial", "racial hygiene", "eugenics propaganda"
+ ],
+ "note": "subjectMarkers are matched against the item's OWN search text. They catch the CLASS; `ids` records a decision already taken. A marker hit is never a reason to hide a film from the app — only to keep it out of the posting queue."
+}

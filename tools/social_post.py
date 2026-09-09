@@ -283,8 +283,13 @@ def sentence_trim(text: str, budget: int) -> str | None:
 # of a human voice. On YouTube it leads, because there the description is read
 # by SEARCH and metadata is the useful part.
 ORDER = {
-    "bluesky":   ["hook", "identity", "link"],
-    "threads":   ["hook", "identity", "synopsis", "link"],
+    # Bluesky's hook is a QUOTED REVIEW, and most films have none — which left
+    # two of the first three posts reading "Title (Year) / Free to watch: <url>
+    # / #tags" and nothing else. A post that names a film without saying one
+    # thing about it is a database row. Synopsis and facts are the fallbacks,
+    # in that order; when a review exists it still wins the budget first.
+    "bluesky":   ["hook", "synopsis", "facts", "identity", "link"],
+    "threads":   ["hook", "identity", "synopsis", "facts", "link"],
     "mastodon":  ["identity", "hook", "rights", "link"],
     "instagram": ["hook", "identity", "synopsis", "rights", "link"],
     "facebook":  ["identity", "hook", "synopsis", "link"],

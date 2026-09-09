@@ -281,7 +281,7 @@ fun ShelfRow(
             contentPadding = PaddingValues(horizontal = 16.dp),
             horizontalArrangement = Arrangement.spacedBy(10.dp),
         ) {
-            items(items, key = { it.archiveID }) { item ->
+            items(items.uniqueBy { it.archiveID }, key = { it.archiveID }) { item ->
                 PosterTile(item, onClick = { onItem(item) }, modifier = Modifier.width(110.dp))
             }
         }
@@ -353,4 +353,28 @@ fun KindEyebrow(contentType: String, accent: Color, modifier: Modifier = Modifie
         color = accent,
         modifier = modifier,
     )
+}
+
+/**
+ * Compose requires a lazy list's keys to be UNIQUE, and throws
+ * IllegalArgumentException out of `LayoutNodeSubcompositionsState.subcompose`
+ * when they are not — a crash with no frame of our own in it, which is why it
+ * read as a Compose fault rather than a data one.
+ *
+ * It is the app's largest crash cluster on Google Play: 8 users on the biggest
+ * of five clusters sharing this stack, still occurring on the live build. Every
+ * lazy list here keys on a value that is unique *in principle* — an archiveID,
+ * a cast member's name — and in principle is not a guarantee. Two credits can
+ * carry one name, a query can return a row twice, and a merged shelf can repeat
+ * an id.
+ *
+ * Deduping the DATA is the right fix rather than making the key artificially
+ * unique: a repeated item in a shelf is itself a defect, and appending an index
+ * to the key would preserve it while also breaking item animation and scroll
+ * restoration, which are the reason keys exist.
+ */
+fun <T, K> List<T>.uniqueBy(key: (T) -> K): List<T> {
+    if (size < 2) return this
+    val seen = HashSet<K>(size)
+    return filter { seen.add(key(it)) }
 }

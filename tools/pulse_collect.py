@@ -908,6 +908,31 @@ def social_liveness(state):
         except Exception:                            # noqa: BLE001
             yt_hdr = None
 
+    # The author feed is PUBLIC, so this must not be gated on holding a
+    # credential — the handle is in the post URLs the ledger already has.
+    who = handle or next((r["url"].split("/profile/")[1].split("/")[0]
+                          for r in posts
+                          if r.get("platform") == "bluesky" and "/profile/" in (r.get("url") or "")),
+                         None)
+    bsky_live = None
+    if who:
+        try:
+            live, cursor = set(), None
+            for _ in range(4):
+                u = ("https://public.api.bsky.app/xrpc/app.bsky.feed.getAuthorFeed"
+                     f"?actor={urllib.parse.quote(who)}&limit=100")
+                if cursor:
+                    u += f"&cursor={urllib.parse.quote(cursor)}"
+                d = get_json(u)
+                for it in d.get("feed", []):
+                    live.add((it.get("post", {}).get("uri") or "").rstrip("/").split("/")[-1])
+                cursor = d.get("cursor")
+                if not cursor:
+                    break
+            bsky_live = live
+        except Exception:                            # noqa: BLE001
+            bsky_live = None
+
     inst = (os.environ.get("MASTODON_INSTANCE") or os.environ.get("MASTODON_BASE_URL") or "").rstrip("/")
     mtok = os.environ.get("MASTODON_ACCESS_TOKEN")
     igtok = os.environ.get("IG_ACCESS_TOKEN")
@@ -917,14 +942,14 @@ def social_liveness(state):
         plat, url = row.get("platform"), row.get("url") or ""
         try:
             if plat == "bluesky":
-                rkey = url.rstrip("/").split("/")[-1]
-                who = url.split("/profile/")[1].split("/")[0] if "/profile/" in url else handle
-                if not (bsky_hdr and rkey and who):
+                # The author feed is ONE public call for every post, needs no
+                # auth, and compares the record keys the ledger already holds.
+                # The first version built at://<handle>/... — an AT-URI takes a
+                # DID, not a handle, so getPosts answered nothing for every
+                # post and all five came back "unknown" while three were live.
+                if bsky_live is None:
                     return None
-                at = f"at://{who}/app.bsky.feed.post/{rkey}"
-                d = get_json("https://bsky.social/xrpc/app.bsky.feed.getPosts?uris="
-                             + urllib.parse.quote(at), bsky_hdr)
-                return bool(d.get("posts"))
+                return url.rstrip("/").split("/")[-1] in bsky_live
             if plat == "mastodon":
                 sid = url.rstrip("/").split("/")[-1]
                 if not (inst and mtok and sid.isdigit()):

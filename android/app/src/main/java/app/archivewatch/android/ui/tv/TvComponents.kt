@@ -30,6 +30,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import app.archivewatch.android.data.CatalogItem
 import app.archivewatch.android.ui.PosterImage
+import app.archivewatch.android.ui.uniqueBy
 import app.archivewatch.android.ui.accentColor
 import app.archivewatch.android.ui.theme.BrandSurface
 import kotlinx.coroutines.launch
@@ -137,7 +138,7 @@ fun TvShelfRow(
             ),
             horizontalArrangement = Arrangement.spacedBy(TvDims.PosterSpacing),
         ) {
-            itemsIndexed(items, key = { _, it -> it.archiveID }) { index, item ->
+            itemsIndexed(items.uniqueBy { it.archiveID }, key = { _, it -> it.archiveID }) { index, item ->
                 TvPosterTile(
                     item = item,
                     onClick = { onItem(item) },

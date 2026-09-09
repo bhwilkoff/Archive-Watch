@@ -46,6 +46,7 @@ import app.archivewatch.android.data.PlaySpec
 import app.archivewatch.android.data.QueueEntry
 import app.archivewatch.android.app.AppContainer
 import app.archivewatch.android.ui.EmptyState
+import app.archivewatch.android.ui.uniqueBy
 import app.archivewatch.android.ui.LoadingBox
 import app.archivewatch.android.ui.Nav
 import app.archivewatch.android.ui.tv.LocalIsTelevision
@@ -286,7 +287,7 @@ private fun GridScaffold(title: String, subtitle: String?, nav: Nav,
                     horizontalArrangement = Arrangement.spacedBy(10.dp),
                     verticalArrangement = Arrangement.spacedBy(14.dp),
                 ) {
-                    items(items, key = { it.archiveID }) { item ->
+                    items(items.uniqueBy { it.archiveID }, key = { it.archiveID }) { item ->
                         PosterTile(item, onClick = {
                             nav.openItem(item.archiveID, item.seriesID, item.contentType)
                         })

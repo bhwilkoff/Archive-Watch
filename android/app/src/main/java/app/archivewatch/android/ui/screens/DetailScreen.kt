@@ -77,6 +77,7 @@ import app.archivewatch.android.data.CatalogItem
 import app.archivewatch.android.data.Review
 import app.archivewatch.android.data.PlaySpec
 import app.archivewatch.android.ui.AvatarImage
+import app.archivewatch.android.ui.uniqueBy
 import app.archivewatch.android.ui.BackdropImage
 import app.archivewatch.android.ui.EmptyState
 import app.archivewatch.android.ui.LoadingBox
@@ -401,7 +402,7 @@ fun DetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
                 contentPadding = PaddingValues(horizontal = 16.dp),
                 horizontalArrangement = Arrangement.spacedBy(12.dp),
             ) {
-                items(current.cast.sortedBy { it.order }.take(15), key = { it.name }) { member ->
+                items(current.cast.sortedBy { it.order }.uniqueBy { it.name }.take(15), key = { it.name }) { member ->
                     // Tap → person filmography (parity with the apps' PersonChip).
                     Column(
                         horizontalAlignment = Alignment.CenterHorizontally,

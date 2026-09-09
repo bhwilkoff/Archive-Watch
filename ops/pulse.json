@@ -214,7 +214,7 @@
     "replies": null,
     "views": null,
     "window": null,
-    "live": null
+    "live": true
    },
    {
     "at": "2026-09-09T18:26:27.740889+00:00",
@@ -229,7 +229,7 @@
     "replies": null,
     "views": null,
     "window": null,
-    "live": true
+    "live": null
    },
    {
     "at": "2026-09-09T01:06:49.909962+00:00",
@@ -244,7 +244,7 @@
     "replies": null,
     "views": null,
     "window": null,
-    "live": null
+    "live": true
    },
    {
     "at": "2026-09-08T18:12:10.318384+00:00",
@@ -304,7 +304,7 @@
     "replies": 0,
     "views": null,
     "window": "24h",
-    "live": null
+    "live": true
    },
    {
     "at": "2026-09-08T18:02:20.932858+00:00",
@@ -319,7 +319,7 @@
     "replies": 0,
     "views": null,
     "window": "24h",
-    "live": true
+    "live": null
    },
    {
     "at": "2026-09-08T17:08:21.938394+00:00",
@@ -334,7 +334,7 @@
     "replies": null,
     "views": null,
     "window": null,
-    "live": null
+    "live": false
    },
    {
     "at": "2026-09-08T17:08:21.938394+00:00",
@@ -349,7 +349,7 @@
     "replies": null,
     "views": null,
     "window": null,
-    "live": false
+    "live": null
    },
    {
     "at": "2026-09-08T16:03:58.502533+00:00",
@@ -364,12 +364,12 @@
     "replies": null,
     "views": null,
     "window": null,
-    "live": null
+    "live": false
    }
   ],
   "byPlatform": {
    "bluesky": {
-    "posts": 5,
+    "posts": 3,
     "likes": 0,
     "replies": 0,
     "reposts": 0,
@@ -377,7 +377,7 @@
     "measured": 1
    },
    "mastodon": {
-    "posts": 2,
+    "posts": 3,
     "likes": 0,
     "replies": 0,
     "reposts": 1,
@@ -409,27 +409,10 @@
     "measured": 0
    }
   },
-  "totalPosts": 10,
+  "totalPosts": 9,
   "measured": 2,
-  "reach": {
-   "bluesky": {
-    "followers": 1,
-    "posts": 3
-   },
-   "mastodon": {
-    "followers": 0,
-    "posts": 2
-   },
-   "instagram": {
-    "followers": 0,
-    "posts": 4
-   },
-   "youtube": {
-    "error": "the poster's token is youtube.upload only, by design — stats need youtube.readonly"
-   }
-  },
-  "deleted": 1,
-  "unverified": 8
+  "deleted": 2,
+  "unverified": 6
  },
  "health": {
   "applePerf": {
@@ -1085,7 +1068,7 @@
   "social_programme": {
    "ok": true,
    "note": "11 post(s) across 5 platform(s), 2 measured",
-   "at": "2026-09-09T19:14:33+00:00"
+   "at": "2026-09-09T19:31:39+00:00"
   },
   "social_reach": {
    "ok": true,
@@ -1099,8 +1082,8 @@
   },
   "social_liveness": {
    "ok": true,
-   "note": "2 live, 1 deleted, 8 could not be checked",
-   "at": "2026-09-09T19:14:38+00:00"
+   "note": "3 live, 2 deleted, 6 could not be checked",
+   "at": "2026-09-09T19:31:40+00:00"
   },
   "youtube_channel": {
    "ok": true,
@@ -1173,16 +1156,16 @@
    "playRatings": null,
    "reviews": 4,
    "mentions": 2,
-   "posts": 10,
+   "posts": 9,
    "likes": 0,
-   "followers": 1,
+   "followers": 0,
    "stars": 0,
    "views14d": null,
    "catalogItems": 26711,
    "urgent": 0
   }
  ],
- "generatedAt": "2026-09-09T19:19:55+00:00",
+ "generatedAt": "2026-09-09T19:31:40+00:00",
  "repoVersion": "1.42.5",
  "repoBuild": "1017",
  "_": "Written by tools/pulse_collect.py. `history` is the series and is append-only per day; everything else is the latest reading. A source that could not answer says so in `sources` — never assume a zero."

@@ -37,6 +37,7 @@ import app.archivewatch.android.app.AppContainer
 import app.archivewatch.android.data.BrowseSort
 import app.archivewatch.android.data.CatalogItem
 import app.archivewatch.android.ui.EmptyState
+import app.archivewatch.android.ui.uniqueBy
 import app.archivewatch.android.ui.Nav
 import app.archivewatch.android.ui.Route
 import app.archivewatch.android.ui.PosterTile
@@ -210,7 +211,7 @@ fun BrowseScreen(container: AppContainer, nav: Nav) {
                     horizontalArrangement = Arrangement.spacedBy(10.dp),
                     verticalArrangement = Arrangement.spacedBy(14.dp),
                 ) {
-                    itemsIndexed(items, key = { _, item -> item.archiveID }) { index, item ->
+                    itemsIndexed(items.uniqueBy { it.archiveID }, key = { _, item -> item.archiveID }) { index, item ->
                         if (index >= items.size - 12) {
                             LaunchedEffect(items.size) { loadMore() }
                         }

@@ -31,6 +31,7 @@ import app.archivewatch.android.app.AppContainer
 import app.archivewatch.android.data.CatalogItem
 import app.archivewatch.android.data.UserPlaylist
 import app.archivewatch.android.ui.Nav
+import app.archivewatch.android.ui.uniqueBy
 import app.archivewatch.android.ui.Route
 
 private const val TV_GRID_COLUMNS = 6
@@ -186,7 +187,7 @@ fun TvLibraryScreen(container: AppContainer, nav: Nav) {
             verticalArrangement = Arrangement.spacedBy(24.dp),
             modifier = Modifier.fillMaxSize(),
         ) {
-            itemsIndexed(items, key = { _, it -> it.archiveID }) { _, item ->
+            itemsIndexed(items.uniqueBy { it.archiveID }, key = { _, it -> it.archiveID }) { _, item ->
                 TvPosterTile(
                     item = item,
                     onClick = { nav.openItem(item.archiveID, item.seriesID, item.contentType) },

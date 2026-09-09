@@ -51,6 +51,7 @@ import androidx.compose.ui.unit.dp
 import app.archivewatch.android.app.AppContainer
 import app.archivewatch.android.data.CatalogItem
 import app.archivewatch.android.ui.BackdropImage
+import app.archivewatch.android.ui.uniqueBy
 import app.archivewatch.android.ui.EmptyState
 import app.archivewatch.android.ui.Nav
 import app.archivewatch.android.ui.PosterTile
@@ -164,7 +165,7 @@ fun SearchScreen(container: AppContainer, nav: Nav) {
                             }
                         }
                     }
-                    items(filtered, key = { it.archiveID }) { item ->
+                    items(filtered.uniqueBy { it.archiveID }, key = { it.archiveID }) { item ->
                         PosterTile(item, onClick = {
                             nav.openItem(item.archiveID, item.seriesID, item.contentType)
                         })
