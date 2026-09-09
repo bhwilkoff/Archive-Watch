@@ -33,6 +33,10 @@ Run:
 """
 from __future__ import annotations
 
+import sys as _sys
+_sys.path.insert(0, __file__.rsplit('/', 1)[0])
+from ffmpeg_limits import FFMPEG, FFPROBE  # noqa: E402
+
 import argparse
 import re
 import subprocess
@@ -73,7 +77,7 @@ def grab_audio(url: str, start: float, end: float, out: Path) -> bool:
     """
     lo = max(0.0, start - PAD)
     r = subprocess.run(
-        ["ffmpeg", "-y", "-nostdin", "-v", "error", "-ss", str(lo), "-i", url,
+        [*FFMPEG, "-y", "-nostdin", "-v", "error", "-ss", str(lo), "-i", url,
          "-t", str(max(1.0, (end - start) + 2 * PAD)),
          "-vn", "-ac", "1", "-ar", "16000", "-c:a", "pcm_s16le", str(out)],
         capture_output=True, text=True, timeout=420)

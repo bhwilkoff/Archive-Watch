@@ -32,6 +32,10 @@ Usage:
       --findings tools/subtitle_rate_findings.csv --verdicts verdicts.jsonl [--limit N]
   python3 tools/fix_subtitle_sync.py publish --subs work/subs
 """
+import sys as _sys
+_sys.path.insert(0, __file__.rsplit('/', 1)[0])
+from ffmpeg_limits import FFMPEG, FFPROBE  # noqa: E402
+
 import argparse, csv, json, os, re, shutil, subprocess, sqlite3, tempfile, time
 from pathlib import Path
 import sys as _sys
@@ -68,7 +72,7 @@ def wav_duration(path):
     """
     try:
         out = subprocess.run(
-            ["ffprobe", "-v", "error", "-show_entries", "format=duration",
+            [*FFPROBE, "-v", "error", "-show_entries", "format=duration",
              "-of", "csv=p=0", str(path)],
             capture_output=True, text=True, timeout=60)
         return float(out.stdout.strip()) if out.stdout.strip() else None
@@ -82,7 +86,7 @@ def extract_audio(url, wav_path, timeout):
     ffmpeg range-reads the remote MP4, so the film is never stored. `-vn`
     drops video before it is decoded, which is where the time would go.
     """
-    cmd = ["ffmpeg", "-v", "error", "-y",
+    cmd = [*FFMPEG, "-v", "error", "-y",
            "-user_agent", "ArchiveWatch-pipeline (subtitle sync)",
            "-i", url, "-vn", "-ac", "1", "-ar", "8000", "-f", "wav", str(wav_path)]
     subprocess.run(cmd, check=True, timeout=timeout,

@@ -49,6 +49,47 @@ class CatalogDatabase private constructor(
             marquee (iOS/tvOS parity). Set when featured.json decodes; static
             so it survives the seed→full DB swap. */
         var demotedIDs: Set<String> = emptySet()
+
+        /**
+         * Called at most once per process when a read proves the open database
+         * is corrupt. The repository sets this to discard the downloaded file
+         * so the next launch re-downloads and the bundled seed serves in the
+         * meantime. Left null in tests and in the seed-only case, where there
+         * is nothing to discard.
+         */
+        var onCorruption: ((Throwable) -> Unit)? = null
+
+        @Volatile private var corruptionReported = false
+
+        /** SQLite says this in words, not in a code we can rely on across
+            drivers: error 11 (SQLITE_CORRUPT) and 26 (SQLITE_NOTADB) both
+            surface as a message. Match the message, and never the word
+            "corrupt" alone — a film's title could contain it. */
+        internal fun isCorruption(t: Throwable): Boolean {
+            var e: Throwable? = t
+            while (e != null) {
+                val m = (e.message ?: "").lowercase()
+                if ("database disk image is malformed" in m ||
+                    "file is not a database" in m ||
+                    "file is encrypted or is not a database" in m ||
+                    "database corruption" in m
+                ) return true
+                e = e.cause
+            }
+            return false
+        }
+
+        private fun reportCorruption(t: Throwable) {
+            if (corruptionReported) return
+            corruptionReported = true
+            runCatching { onCorruption?.invoke(t) }
+        }
+
+        /** Test seam: a process only reports once, and a test needs a fresh one. */
+        internal fun resetCorruptionReportingForTest() { corruptionReported = false }
+
+        /** Test seam for the once-per-process property. */
+        internal fun reportCorruptionForTest(t: Throwable) = reportCorruption(t)
     }
 
     private val demoteOrder: String
@@ -616,7 +657,37 @@ class CatalogDatabase private constructor(
     private suspend fun <T> dbCall(block: () -> T): T =
         withContext(Dispatchers.IO) { mutex.withLock { block() } }
 
+    /**
+     * Every read goes through here, which is why the corruption guard lives
+     * here and nowhere else.
+     *
+     * `open()` probes `meta.itemCount`, and that reads pages near the START of
+     * the file — so a download corrupt anywhere in the item pages OPENS
+     * cleanly and then throws on the first real query. That is the app's
+     * second-largest crash cluster on Play: `SQLException: Error code: 11,
+     * message: database disk image is malformed`, 7 users, thrown straight out
+     * of a coroutine with nothing above it to catch it.
+     *
+     * A stronger probe cannot fix this — corruption can be on any page, and
+     * reading every page on launch is the thing the streamed inflate exists to
+     * avoid. So recover instead: report it once so the downloaded file is
+     * discarded and the bundled seed takes over, and return an empty result.
+     * Every caller already handles empty, because "no films matched" is a
+     * state this app has always had to render.
+     */
     private fun <T> queryRaw(
+        sql: String,
+        binds: List<Any?> = emptyList(),
+        map: (SQLiteStatement) -> T,
+    ): List<T> = try {
+        queryRawOrThrow(sql, binds, map)
+    } catch (t: Throwable) {
+        if (!isCorruption(t)) throw t
+        reportCorruption(t)
+        emptyList()
+    }
+
+    private fun <T> queryRawOrThrow(
         sql: String,
         binds: List<Any?> = emptyList(),
         map: (SQLiteStatement) -> T,

@@ -44,6 +44,9 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parent.parent
 SOCIAL = REPO / "social"
 LEDGER = SOCIAL / "posted.json"
+
+# platform -> the id its API answers to, filled by each poster as it goes.
+LAST_MEDIA_ID: dict = {}
 UA = "ArchiveWatch-Social/1.0 (+https://archivewatch.org)"
 MEDIA_TAG = "social-cards"          # rolling Release; Decision 018 — never git
 
@@ -288,7 +291,13 @@ ORDER = {
     # / #tags" and nothing else. A post that names a film without saying one
     # thing about it is a database row. Synopsis and facts are the fallbacks,
     # in that order; when a review exists it still wins the budget first.
-    "bluesky":   ["hook", "synopsis", "facts", "identity", "link"],
+    # A quoted review leads when there is one — it is somebody else's words,
+    # attributed. Without one the FILM's NAME leads and the synopsis follows
+    # it: a synopsis on the first line reads as our own description of the
+    # film, which is a claim we have not earned. What must never happen again
+    # is the third case — name, url, hashtags, and nothing about the film at
+    # all, which is what two of the first three Bluesky posts were.
+    "bluesky":   ["hook", "identity", "synopsis", "facts", "link"],
     "threads":   ["hook", "identity", "synopsis", "facts", "link"],
     "mastodon":  ["identity", "hook", "rights", "link"],
     "instagram": ["hook", "identity", "synopsis", "rights", "link"],
@@ -832,12 +841,14 @@ def post_mastodon(spec, text, card: Path, live: bool, video: Path | None = None)
                        {"file": (video.name, video.read_bytes())},
                        headers=auth, timeout=600)
         media_id = up.get("id")
+        LAST_MEDIA_ID["instagram"] = media_id
     elif card and card.exists():
         alt = (f"Poster for {spec['title']}{year}, on a card reading "
                f"\u201cFree to watch on Archive Watch\u201d.")
         up = multipart(f"{base}/api/v2/media", {"description": alt},
                        {"file": (card.name, card.read_bytes())}, headers=auth)
         media_id = up.get("id")
+        LAST_MEDIA_ID["instagram"] = media_id
 
     # v2/media answers 202 while it transcodes, and attaching an unprocessed
     # id posts a status with a broken attachment. The GET returns 206 until
@@ -995,6 +1006,13 @@ def main() -> int:
                         "slot": spec["slot"], "platform": name, "url": url,
                         "format": skip if skip in ("video", "card") else "card",
                         "kind": spec.get("contentType"),
+                        # Instagram and Threads can only be asked "is this
+                        # still up?" BY ID; their permalinks carry a shortcode
+                        # that the Graph API will not take. Without this the
+                        # liveness check has to answer "unknown", which on a
+                        # dashboard built not to guess is the worst answer
+                        # available.
+                        "mediaId": LAST_MEDIA_ID.get(name),
                         "reviewer": spec.get("reviewer")})
 
     if entries:

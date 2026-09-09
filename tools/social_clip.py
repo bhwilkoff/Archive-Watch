@@ -38,6 +38,10 @@ Run:
 
 from __future__ import annotations
 
+import sys as _sys
+_sys.path.insert(0, __file__.rsplit('/', 1)[0])
+from ffmpeg_limits import FFMPEG, FFPROBE  # noqa: E402
+
 import argparse
 import json
 import os
@@ -112,7 +116,7 @@ HEAR_TRIES = 3             # candidate lines to test before giving up
 
 
 def ffmpeg_has(feature: str) -> bool:
-    r = subprocess.run(["ffmpeg", "-hide_banner", "-filters"],
+    r = subprocess.run([*FFMPEG, "-hide_banner", "-filters"],
                        capture_output=True, text=True)
     return feature in r.stdout
 
@@ -133,7 +137,7 @@ def motion_of(url: str, at: float) -> float:
     frames = []
     for offset in (0.5, 2.5):
         p = Path(f"/tmp/aw_motion_{int(at)}_{int(offset*10)}.jpg")
-        r = subprocess.run(["ffmpeg", "-y", "-nostdin", "-ss", str(at + offset),
+        r = subprocess.run([*FFMPEG, "-y", "-nostdin", "-ss", str(at + offset),
                             "-i", url, "-frames:v", "1", "-q:v", "5",
                             "-vf", "scale=192:-2", str(p)],
                            capture_output=True, text=True, timeout=180)
@@ -157,7 +161,7 @@ def luma_of(url: str, at: float) -> float:
     except ImportError:
         return 128.0
     p = Path(f"/tmp/aw_luma_{int(at)}.jpg")
-    r = subprocess.run(["ffmpeg", "-y", "-nostdin", "-ss", str(at + 1.0), "-i", url,
+    r = subprocess.run([*FFMPEG, "-y", "-nostdin", "-ss", str(at + 1.0), "-i", url,
                         "-frames:v", "1", "-q:v", "5", "-vf", "scale=192:-2", str(p)],
                        capture_output=True, text=True, timeout=180)
     if r.returncode != 0 or not p.exists():
@@ -171,7 +175,7 @@ def detect_crop(url: str, at: float) -> str | None:
     small strip in the middle (measured on Hercules Unchained). cropdetect
     finds the real picture; without this the reframe is technically correct
     and visually useless."""
-    r = subprocess.run(["ffmpeg", "-nostdin", "-ss", str(at), "-i", url,
+    r = subprocess.run([*FFMPEG, "-nostdin", "-ss", str(at), "-i", url,
                         "-t", "3", "-vf", "cropdetect=24:2:0", "-f", "null", "-"],
                        capture_output=True, text=True, timeout=300)
     crops = [ln.split("crop=")[-1].strip() for ln in r.stderr.splitlines()
@@ -210,7 +214,7 @@ def find_scene(url: str, runtime: float, min_motion: float = 3.0) -> dict | None
     for fraction in (0.35, 0.50, 0.25, 0.60):
         probe_at = max(TITLES_END, runtime * fraction)
         r = subprocess.run(
-            ["ffmpeg", "-nostdin", "-ss", str(probe_at), "-i", url, "-t", "60",
+            [*FFMPEG, "-nostdin", "-ss", str(probe_at), "-i", url, "-t", "60",
              "-filter_complex", "select='gt(scene,0.35)',metadata=print:file=-",
              "-an", "-f", "null", "-"],
             capture_output=True, text=True, timeout=600)
@@ -274,7 +278,7 @@ def has_audio(target: str) -> bool:
     and it is invisible in a screenshot, so it has to be measured.
     """
     try:
-        r = subprocess.run(["ffprobe", "-v", "error", "-select_streams", "a:0",
+        r = subprocess.run([*FFPROBE, "-v", "error", "-select_streams", "a:0",
                             "-show_entries", "stream=codec_type",
                             "-of", "csv=p=0", target],
                            capture_output=True, text=True, timeout=120)
@@ -512,7 +516,7 @@ def main() -> int:
                         quote_file, line["start"] - shot["start"] if line else 0.0)
     target = "[out]" if has_text else "[v]"
 
-    cmd = ["ffmpeg", "-y", "-nostdin", "-ss", str(shot["start"]), "-i", url,
+    cmd = [*FFMPEG, "-y", "-nostdin", "-ss", str(shot["start"]), "-i", url,
            "-t", str(dur), "-filter_complex", filt, "-map", target,
            "-c:v", "libx264", "-profile:v", "high", "-pix_fmt", "yuv420p",
            "-preset", "medium", "-crf", "23", "-r", "30",

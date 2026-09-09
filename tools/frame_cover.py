@@ -18,6 +18,10 @@ Usage:
 
 from __future__ import annotations
 
+import sys as _sys
+_sys.path.insert(0, __file__.rsplit('/', 1)[0])
+from ffmpeg_limits import FFMPEG, FFPROBE  # noqa: E402
+
 import argparse
 import subprocess
 import sys
@@ -29,7 +33,7 @@ import cv2  # type: ignore
 
 def ffprobe_duration(url: str) -> float:
     out = subprocess.run(
-        ["ffprobe", "-v", "error", "-show_entries", "format=duration",
+        [*FFPROBE, "-v", "error", "-show_entries", "format=duration",
          "-of", "default=nw=1:nk=1", url],
         capture_output=True, text=True, timeout=60)
     try:
@@ -41,7 +45,7 @@ def ffprobe_duration(url: str) -> float:
 def grab_frame(url: str, t: float, dst: Path) -> bool:
     # -ss before -i = fast seek; one frame, scaled to a working size.
     r = subprocess.run(
-        ["ffmpeg", "-y", "-ss", str(t), "-i", url, "-frames:v", "1",
+        [*FFMPEG, "-y", "-ss", str(t), "-i", url, "-frames:v", "1",
          "-vf", "scale=640:-1", "-q:v", "3", str(dst)],
         capture_output=True, timeout=120)
     return r.returncode == 0 and dst.exists() and dst.stat().st_size > 0

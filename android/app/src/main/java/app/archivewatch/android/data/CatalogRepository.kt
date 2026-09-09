@@ -63,6 +63,18 @@ class CatalogRepository(
 
     /** Seed copy + open. Call once at launch before any query. */
     suspend fun initialize() = withContext(Dispatchers.IO) {
+        // A read that proves the open DB is corrupt discards the DOWNLOADED
+        // file, so the next launch re-downloads and the bundled seed serves in
+        // the meantime. The open-probe cannot catch this: it reads pages near
+        // the start of the file, and a truncated or torn download is corrupt
+        // further in — which is how "database disk image is malformed" became
+        // the app's second-largest crash cluster with a clean open before it.
+        CatalogDatabase.onCorruption = {
+            runCatching {
+                dbFile.delete()
+                etagFile.delete()   // or the next request 304s and keeps it away
+            }
+        }
         if (!dbFile.exists()) copySeed()
         var opened = CatalogDatabase.open(dbFile.path, json)
         if (opened == null) {
