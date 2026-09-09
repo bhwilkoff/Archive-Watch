@@ -32,6 +32,9 @@ function ago(iso) {
 
 const STATE_CLASS = (s = "") => {
   const u = s.toUpperCase();
+  // Negation FIRST: "NOT SUBMITTED" contains "SUBMITT", so an in-flight test
+  // run before this one counted two never-sent stores as in review.
+  if (/\bNOT\b|NONE|NEVER/.test(u)) return "idle";
   if (/READY_FOR_SALE|COMPLETED|LIVE|APPROVED/.test(u)) return "live";
   if (/REVIEW|PENDING|SUBMITT|PROCESS|PREPARE|DRAFT|INPROGRESS/.test(u)) return "flight";
   if (/REJECT|REMOVED|INVALID/.test(u)) return "stop";
@@ -126,7 +129,7 @@ function stores(d) {
   $("stores-n").textContent = rows.length;
   rows.forEach((s) => {
     const bits = [];
-    if (s.version) bits.push(`v${s.version}`);
+    if (s.version) bits.push(/^\d/.test(s.version) ? `v${s.version}` : s.version);
     if (s.live && s.live !== s.version) bits.push(`live v${s.live}`);
     if (s.build) bits.push(`build ${s.build}`);
     const repo = d.repoVersion;
@@ -136,56 +139,243 @@ function stores(d) {
     if (s.since) bits.push(`since ${s.since}`);
     if (s.note) bits.push(s.note);
     if (s.manual) bits.push("declared by hand — no API");
-    row(box, {
+    const r = row(box, {
       name: `${s.store} · ${s.platform}`, meta: bits.join(" · "),
       state: s.state, href: s.url,
     });
+    // A colour ALSO carried at the start of the row, so the estate reads down
+    // the left edge without the eye travelling to the state word each time.
+    r.classList.add("lead-" + STATE_CLASS(s.state || ""));
   });
 }
 
-/* ── at a glance ─────────────────────────────────────────────────────────── */
-function tiles(d) {
-  const box = $("tiles"); box.innerHTML = "";
+/* ── at a glance: every number given a SHAPE ─────────────────────────────
+   Panels, not tiles. A bare number tells a reader nothing without a
+   comparison, so each one carries its own: a bullet against a scale, a bar
+   against its siblings, a spark against its own past, or a proportion of a
+   whole. Colour is state only — length and position carry the quantity. */
+
+const panel = (box, { k, right, v, chart, cap }) => {
+  const el2 = el("div", "panel" + (chart && chart.wide ? " wide" : ""));
+  const head = el("div", "k");
+  head.appendChild(el("span", null, k));
+  if (right) { const rr = el("span", "r"); rr.innerHTML = right; head.appendChild(rr); }
+  el2.appendChild(head);
+  if (v != null) { const d = el("div", "v"); d.innerHTML = v; el2.appendChild(d); }
+  if (chart && chart.html) el2.insertAdjacentHTML("beforeend", chart.html);
+  if (cap) { const c = el("div", "cap"); c.innerHTML = cap; el2.appendChild(c); }
+  box.appendChild(el2);
+  return el2;
+};
+
+const deltaHTML = (cur, prev, unit = "") => {
+  if (typeof cur !== "number" || typeof prev !== "number") return "";
+  const diff = +(cur - prev).toFixed(2);
+  const cls = diff > 0 ? "up" : diff < 0 ? "down" : "flat";
+  return `<span class="${cls}">${diff > 0 ? "+" : ""}${diff || "no change"}${diff ? unit : ""}</span>`;
+};
+
+function starChart(dist, total) {
+  const top = Math.max(1, ...Object.values(dist || {}));
+  return `<div class="c-stars">` + [5, 4, 3, 2, 1].map((n2) => {
+    const v = (dist || {})[n2] || 0;
+    return `<div class="c-star"><span class="s">${n2} ★</span>`
+      + `<span class="t"><i style="width:${((v / top) * 100).toFixed(1)}%"></i></span>`
+      + `<span class="n">${v}</span></div>`;
+  }).join("") + `</div>`;
+}
+
+function glance(d) {
+  const box = $("tiles"); box.innerHTML = ""; box.className = "panels";
   const h = d.history || [];
-  const prev = h.length > 1 ? h[h.length - 2] : null;
-  const cur = h[h.length - 1] || {};
+  const cur = h[h.length - 1] || {}, prev = h.length > 1 ? h[h.length - 2] : null;
   const off = (name) => d.sources?.[name] && !d.sources[name].ok;
 
-  const add = (k, v, key, suffix = "", why = null) => {
-    const t = el("div", "tile");
-    t.appendChild(el("div", "k", k));
-    const val = el("div", "v");
-    val.innerHTML = (v === null || v === undefined)
-      ? `<small>${why || "not read"}</small>`
-      : `${v}${suffix ? `<small> ${suffix}</small>` : ""}`;
-    t.appendChild(val);
-    if (key && prev && typeof cur[key] === "number" && typeof prev[key] === "number") {
-      const diff = +(cur[key] - prev[key]).toFixed(2);
-      if (diff) {
-        const dd = el("div", "d", `${diff > 0 ? "+" : ""}${diff} since yesterday`);
-        dd.style.color = `var(--${diff > 0 ? "live" : "stop"})`;
-        t.appendChild(dd);
-      }
-    }
-    box.appendChild(t);
-  };
-
+  /* 1. The rating, as a bullet against the only scale it has — five stars —
+        with 3.0 and 4.0 as the bands every store treats as the real cut
+        points, and 4.5 as the target. */
   const ap = (d.ratings || []).find((r) => r.store === "App Store");
-  const pl = (d.ratings || []).find((r) => r.store === "Google Play");
-  add("App Store", ap ? ap.average : null, "appleRating",
-      ap ? `from ${ap.count}` : "", "no rating yet");
-  add("Google Play", pl ? pl.average : null, "playRating",
-      pl ? `from ${pl.count}` : "", "no rating yet");
-  add("Reviews", int((d.reviews || []).length), "reviews");
-  add("Mentions", (!(d.mentions || []).length && off("mentions_bluesky"))
-      ? null : int((d.mentions || []).length), "mentions", "", "readers offline");
-  add("Posts", int(d.social?.totalPosts), "posts");
-  const reach = d.social?.reach;
-  add("Followers", reach ? int(Object.values(reach)
-      .reduce((s, v) => s + (v?.followers || 0), 0)) : null, "followers", "", "not read");
-  add("Catalog", int(d.health?.catalog?.items), "catalogItems", "titles");
-  add("GitHub", int(d.github?.stars), "stars", "stars");
+  if (ap && typeof ap.average === "number") {
+    panel(box, {
+      k: "App Store rating", right: deltaHTML(cur.appleRating, prev?.appleRating),
+      v: `${ap.average}<small> of 5 · ${ap.count} rating${ap.count === 1 ? "" : "s"}</small>`,
+      chart: { html: C.bullet({ value: ap.average, max: 5, bands: [3, 4], target: 4.5,
+        tone: ap.average >= 4 ? "live" : ap.average >= 3 ? "flight" : "stop",
+        label: `${ap.average} out of 5, target 4.5` }) },
+      cap: "bands at 3 and 4 · marker is the 4.5 target",
+    });
+  } else {
+    panel(box, { k: "App Store rating", v: "<small>not read</small>" });
+  }
+
+  /* 2. Where those stars actually fall — the chart a store shows its users,
+        and the one that makes a single 2★ impossible to miss. */
+  const dist = (d.distribution || {})["App Store"];
+  if (dist && Object.values(dist).some(Boolean)) {
+    const low = (dist[1] || 0) + (dist[2] || 0) + (dist[3] || 0);
+    panel(box, {
+      k: "How the reviews fall", right: `${Object.values(dist).reduce((a, b) => a + b, 0)} written`,
+      chart: { html: starChart(dist) },
+      cap: low ? `<b>${low}</b> under four stars — every one is in Needs you`
+        : "nothing under four stars",
+    });
+  }
+
+  /* 3. The whole estate in one bar: how much of what we ship is actually out. */
+  const st = d.stores || [];
+  const buckets = { live: 0, flight: 0, stop: 0, idle: 0 };
+  st.forEach((x) => { buckets[STATE_CLASS(x.state || "")] += 1; });
+  const segs = [
+    { label: "live", value: buckets.live, tone: "live" },
+    { label: "in flight", value: buckets.flight, tone: "flight" },
+    { label: "needs you", value: buckets.stop, tone: "stop" },
+    { label: "not submitted", value: buckets.idle, tone: "idle" },
+  ];
+  panel(box, {
+    k: "The estate", right: `${st.length} surfaces`,
+    v: `${buckets.live}<small> live of ${st.length}</small>`,
+    chart: { html: C.stack(segs, { label: "store states" }) + C.legend(segs) },
+  });
+
+  /* 4. What we actually ship: the catalog, as coverage rather than a count. */
+  const cat = d.health?.catalog || {};
+  if (cat.items) {
+    panel(box, {
+      k: "Catalog", right: deltaHTML(cur.catalogItems, prev?.catalogItems),
+      v: `${int(cat.items)}<small> titles</small>`,
+      chart: { html: C.bars([
+        { label: "playable", value: cat.playable || 0, tone: "live",
+          display: pct(cat.playable, cat.items) },
+        { label: "real poster", value: cat.professionalArt || 0, tone: "measure",
+          display: pct(cat.professionalArt, cat.items) },
+        { label: "trick play", value: cat.withBif || 0, tone: "measure",
+          display: pct(cat.withBif, cat.items) },
+      ], { max: cat.items }) },
+    });
+  }
+
+  /* 5. Reach, per platform, on one baseline — the number that says whether the
+        programme is building anything or shouting into a new room each day. */
+  const reach = d.social?.reach || {};
+  const reachRows = Object.entries(reach).map(([k, v]) => ({
+    label: PLAT(k), value: v?.followers || 0,
+    display: v?.error ? "—" : String(v?.followers ?? 0),
+    note: v?.error ? "could not read" : null,
+  }));
+  const totalReach = reachRows.reduce((a, b) => a + b.value, 0);
+  panel(box, {
+    k: "Followers", right: deltaHTML(cur.followers, prev?.followers),
+    v: reachRows.length ? `${int(totalReach)}<small> across ${reachRows.length}</small>`
+      : "<small>not read</small>",
+    chart: reachRows.length ? { html: C.bars(reachRows) } : null,
+  });
+
+  /* 6. The programme's output and its return, side by side per platform. */
+  const per = d.social?.byPlatform || {};
+  const postRows = Object.entries(per).map(([k, v]) => ({
+    label: PLAT(k), value: v.posts || 0, tone: "measure",
+  }));
+  if (postRows.length) {
+    const measured = Object.values(per).reduce((a, b) => a + (b.measured || 0), 0);
+    panel(box, {
+      k: "Posts published", right: deltaHTML(cur.posts, prev?.posts),
+      v: `${int(d.social?.totalPosts)}<small> total</small>`,
+      chart: { html: C.bars(postRows) },
+      cap: measured ? `<b>${measured}</b> have engagement readings`
+        : "no engagement readings yet — a post is sampled at 20h",
+    });
+  }
+
+  /* 7. Who is talking, by source. Zero is a real answer here and is shown as
+        one, because the alternative is hiding an empty row and pretending the
+        source was never asked. */
+  const bySrc = {};
+  (d.mentions || []).forEach((m) => { bySrc[m.source] = (bySrc[m.source] || 0) + 1; });
+  const readers = ["Reddit", "Hacker News", "Lemmy", "News", "Bluesky", "Mastodon"];
+  const srcRows = readers.map((r) => {
+    const key = Object.keys(bySrc).find((k) => k.startsWith(r));
+    const readerOff = off("mentions_" + r.toLowerCase().replace(" ", "_").replace("hacker_news", "hn"));
+    return { label: r, value: bySrc[key] || 0, tone: "measure",
+             display: readerOff ? "—" : String(bySrc[key] || 0),
+             note: readerOff ? "reader offline" : null };
+  });
+  panel(box, {
+    k: "Mentions", right: deltaHTML(cur.mentions, prev?.mentions),
+    v: `${int((d.mentions || []).length)}<small> found</small>`,
+    chart: { html: C.bars(srcRows, { max: Math.max(3, ...srcRows.map((r) => r.value)) }) },
+  });
+
+  /* 8. Play's vitals against Google's OWN bad-behaviour thresholds — the only
+        numbers here where a target exists that somebody else set. */
+  const vit = d.health?.playVitals || {};
+  if (typeof vit.crashRate === "number" || typeof vit.anrRate === "number") {
+    let html = "";
+    if (typeof vit.crashRate === "number") {
+      html += `<div class="cap">Crash rate</div>` + C.bullet({
+        value: vit.crashRate * 100, max: 3, bands: [1.09, 2], target: 1.09, invert: true,
+        tone: vit.crashRate * 100 <= 1.09 ? "live" : "stop",
+        label: `crash rate ${(vit.crashRate * 100).toFixed(2)}%` });
+    }
+    if (typeof vit.anrRate === "number") {
+      html += `<div class="cap">ANR rate</div>` + C.bullet({
+        value: vit.anrRate * 100, max: 2, bands: [0.47, 1], target: 0.47, invert: true,
+        tone: vit.anrRate * 100 <= 0.47 ? "live" : "stop",
+        label: `ANR rate ${(vit.anrRate * 100).toFixed(2)}%` });
+    }
+    panel(box, { k: "Android vitals", right: "28 days", chart: { html },
+      cap: "markers are Google's own bad-behaviour thresholds" });
+  } else {
+    panel(box, { k: "Android vitals", v: "<small>not read</small>",
+      cap: "needs the Play Developer Reporting API enabled — see docs/PULSE.md" });
+  }
+
+  /* 9. The fleet: one mark per finding, none at all when nothing is wrong. */
+  const wf = d.health?.workflows || [];
+  const marks = wf.map((f) => ({
+    label: `${f.severity}: ${f.workflow}`,
+    tone: ["BROKEN", "KILLED"].includes(f.severity) ? "stop" : "flight",
+  }));
+  panel(box, {
+    k: "Workflow fleet", right: wf.length ? `${wf.length} finding${wf.length === 1 ? "" : "s"}` : "",
+    v: wf.length ? `${marks.filter((m) => m.tone === "stop").length}<small> urgent</small>`
+      : `<span class="up">all clear</span>`,
+    chart: marks.length ? { html: C.dots(marks, { label: "workflow findings" }) } : null,
+    cap: wf.length ? "red needs action now; amber is a decision" : "every scheduled run produced something",
+  });
+
+  /* 10. GitHub — a repo nobody has starred is a fact, and it is shown as one. */
+  const g = d.github || {};
+  if (g.url) {
+    panel(box, {
+      k: "The repository", right: deltaHTML(cur.stars, prev?.stars),
+      v: `${int(g.stars)}<small> star${g.stars === 1 ? "" : "s"}</small>`,
+      chart: { html: C.bars([
+        { label: "views 14d", value: g.views14d || 0, tone: "measure" },
+        { label: "uniques 14d", value: g.uniques14d || 0, tone: "measure" },
+        { label: "open issues", value: g.openIssues || 0, tone: g.openIssues ? "flight" : "measure" },
+      ]) },
+      cap: g.clones14d ? `${int(g.clones14d)} clones in 14 days — nearly all of them CI` : null,
+    });
+  }
+  /* 11. Praise against requests — the owner's question in one bar. */
+  const loves = (d.loves || []).length, wants = (d.asks || []).length;
+  if (loves || wants || (d.reviews || []).length) {
+    const segs2 = [
+      { label: "praise", value: loves, tone: "live" },
+      { label: "requests", value: wants, tone: "flight" },
+    ];
+    panel(box, {
+      k: "Enjoying vs asking", right: `${loves + wants} sentence${loves + wants === 1 ? "" : "s"}`,
+      v: wants ? `${wants}<small> asked for something</small>`
+        : `<span class="up">${loves}</span><small> said something kind</small>`,
+      chart: { html: C.stack(segs2, { label: "praise against requests" }) + C.legend(segs2) },
+      cap: "pulled sentence by sentence out of reviews and mentions — "
+        + "read them under <b>What people said</b>",
+    });
+  }
 }
+
+const pct = (part, whole) => whole ? `${Math.round((part / whole) * 100)}%` : "—";
 
 /* ── what people said ────────────────────────────────────────────────────── */
 let saidFilter = "all";
@@ -265,93 +455,109 @@ const PLAT_NAMES = { youtube: "YouTube", bluesky: "Bluesky", mastodon: "Mastodon
   instagram: "Instagram", threads: "Threads", facebook: "Facebook" };
 const PLAT = (p) => PLAT_NAMES[p] || (p ? p[0].toUpperCase() + p.slice(1) : "");
 
-/* ── the programme ───────────────────────────────────────────────────────── */
+/* ── the programme ───────────────────────────────────────────────────────
+   The question a posting programme has to answer is not "how many" — that is
+   already a panel above — but "did they keep coming, and where are the gaps".
+   So the lead shape is a cadence chart: one lane per platform, every post a
+   mark on a shared 30-day axis, sized by the engagement it earned. */
 function social(d) {
   const box = $("social"); box.innerHTML = "";
   const per = d.social?.byPlatform || {};
   const reach = d.social?.reach || {};
+  const posts = d.social?.posts || [];
   const names = [...new Set([...Object.keys(per), ...Object.keys(reach)])].sort();
   $("social-n").textContent = d.social?.totalPosts ?? "";
   if (!names.length) {
     box.appendChild(el("p", "clear", "The programme has not posted yet."));
     return;
   }
-  names.forEach((p) => {
-    const s = per[p] || {}; const r = reach[p] || {};
-    const eng = (s.likes || 0) + (s.reposts || 0) + (s.replies || 0);
-    const bits = [];
-    if (s.posts) bits.push(`${s.posts} post${s.posts === 1 ? "" : "s"}`);
-    if (s.posts && s.measured != null) bits.push(`${s.measured} measured`);
-    if (r.followers != null) bits.push(`${r.followers} follower${r.followers === 1 ? "" : "s"}`);
-    if (r.views) bits.push(`${int(r.views)} views`);
-    if (r.error) bits.push(`could not read: ${r.error}`);
-    if (s.posts && !s.measured) bits.push("no readings yet — run social_metrics.py");
-    row(box, {
-      name: PLAT(p),
-      meta: bits.join(" · "),
-      num: s.measured ? `${eng}<small> engagements</small>` : "<small>—</small>",
-    });
+
+  const lanes = names.map((p) => ({
+    label: PLAT(p),
+    marks: posts.filter((x) => x.platform === p).map((x) => ({
+      at: x.at, size: Math.min(8, (x.likes || 0) + (x.reposts || 0) + (x.replies || 0)),
+      title: `${x.title || x.id} · ${ago(x.at)}`
+        + (x.likes != null ? ` · ${x.likes} likes` : " · not measured"),
+      tone: x.likes ? "live" : "measure",
+    })),
+  }));
+  const grid = el("div", "panels");
+  panel(grid, {
+    k: "Cadence", right: "last 30 days",
+    chart: { wide: true, html: C.cadence(lanes, { days: 30, label: "posts per platform" }) },
+    cap: "each mark is a post, sized by the engagement it earned · "
+      + "a <b>filled</b> mark has a reading, an orange one is not measured yet",
   });
-  (d.social?.posts || []).slice(0, 8).forEach((p) => row(box, {
+  box.appendChild(grid);
+
+  /* Engagement per platform, on one baseline, beneath the cadence. */
+  const engRows = names.map((p) => {
+    const s2 = per[p] || {}, r = reach[p] || {};
+    const eng = (s2.likes || 0) + (s2.reposts || 0) + (s2.replies || 0);
+    return {
+      label: PLAT(p), value: eng, tone: eng ? "live" : "measure",
+      display: s2.measured ? String(eng) : "—",
+      note: [s2.posts ? `${s2.posts} post${s2.posts === 1 ? "" : "s"}` : null,
+             r.followers != null ? `${r.followers} follower${r.followers === 1 ? "" : "s"}` : null,
+             r.views ? `${int(r.views)} views` : null,
+             s2.posts && !s2.measured ? "no reading yet — a post is sampled at 20h" : null,
+             r.error ? `could not read: ${r.error}` : null].filter(Boolean).join(" · "),
+    };
+  });
+  const g2 = el("div", "panels");
+  panel(g2, {
+    k: "What it earned", right: `${d.social?.measured || 0} measured`,
+    chart: { wide: true, html: C.bars(engRows) },
+  });
+  box.appendChild(g2);
+
+  const list = el("div", "rows");
+  posts.slice(0, 8).forEach((p) => row(list, {
     name: p.title || p.id, cls: "sub",
     meta: `${PLAT(p.platform)} · ${p.format || ""} · ${ago(p.at)}`
       + (p.likes != null ? ` · ${p.likes} likes` : ""),
     href: p.url, num: "<small></small>",
   }));
+  box.appendChild(list);
 }
 
-/* ── over time ───────────────────────────────────────────────────────────── */
+/* ── over time: one reading a day, each series in its own panel ─────────
+   Tufte's sparkline — the shape sits next to the number, at the size of a
+   word, so a reader gets level and direction in one glance without a
+   legend, an axis, or a chart to open. */
 const SERIES = [
-  ["appleRating", "App Store rating"], ["appleRatings", "App Store ratings"],
+  ["appleRating", "App Store rating"], ["appleRatings", "Ratings"],
   ["reviews", "Reviews"], ["mentions", "Mentions"],
   ["followers", "Followers"], ["likes", "Post engagement"],
   ["posts", "Posts published"], ["stars", "GitHub stars"],
   ["views14d", "Repo views (14d)"], ["catalogItems", "Catalog titles"],
 ];
 
-function spark(vals) {
-  const w = 220, h = 46, pad = 3;
-  const nums = vals.filter((v) => typeof v === "number");
-  if (nums.length < 2) return null;
-  const lo = Math.min(...nums), hi = Math.max(...nums);
-  const span = (hi - lo) || 1;
-  const step = (w - pad * 2) / Math.max(1, vals.length - 1);
-  const pts = vals.map((v, i) => typeof v === "number"
-    ? `${(pad + i * step).toFixed(1)},${(h - pad - ((v - lo) / span) * (h - pad * 2)).toFixed(1)}`
-    : null).filter(Boolean);
-  const last = pts[pts.length - 1].split(",");
-  return `<svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="none" aria-hidden="true">`
-    + `<polyline class="line" points="${pts.join(" ")}"/>`
-    + `<circle class="dot" cx="${last[0]}" cy="${last[1]}" r="2.5"/></svg>`;
-}
-
 function trend(d) {
   const box = $("trend"); box.innerHTML = "";
   const h = d.history || [];
   if (h.length < 2) {
     box.appendChild(el("p", "none",
-      `Only ${h.length} reading so far. The shape of things appears from the second day — `
-      + "this section fills itself in as the collector runs."));
+      `Only ${h.length} reading so far. Every series below appears from the second `
+      + "day — the collector runs at 07:17 each morning and this fills itself in."));
     return;
   }
-  const grid = el("div", "trend");
+  const grid = el("div", "panels");
+  const days = h.length;
   SERIES.forEach(([key, label]) => {
     const vals = h.map((r) => r[key]);
     if (!vals.some((v) => typeof v === "number")) return;
     const cur = [...vals].reverse().find((v) => typeof v === "number");
     const first = vals.find((v) => typeof v === "number");
     const diff = +(cur - first).toFixed(2);
-    const cell = el("div", "cell");
-    cell.appendChild(el("div", "k", label));
-    const v = el("div", "v");
-    v.style.font = "var(--l6)"; v.style.fontSize = "1.35rem";
-    const tone = diff > 0 ? "live" : diff < 0 ? "stop" : "text-faint";
-    v.innerHTML = `${cur}<small style="color:var(--${tone})">`
-      + `  ${diff > 0 ? "+" : ""}${diff} over ${h.length} days</small>`;
-    cell.appendChild(v);
-    const svg = spark(vals);
-    if (svg) cell.insertAdjacentHTML("beforeend", svg);
-    grid.appendChild(cell);
+    const tone = diff > 0 ? "up" : diff < 0 ? "down" : "flat";
+    panel(grid, {
+      k: label,
+      right: `<span class="${tone}">${diff > 0 ? "+" : ""}${diff || "level"}</span>`,
+      v: `${int(cur)}`,
+      chart: { html: C.spark(vals, { label: `${label} over ${days} days` }) },
+      cap: `${days} day${days === 1 ? "" : "s"} of readings`,
+    });
   });
   box.appendChild(grid);
 }
@@ -402,7 +608,7 @@ fetch(DATA, { cache: "no-store" })
     $("when").textContent = d.generatedAt
       ? `read ${ago(d.generatedAt)} · ${d.generatedAt.replace("T", " ").replace("+00:00", " UTC")}`
       : "";
-    ticker(d); needs(d); stores(d); tiles(d);
+    ticker(d); needs(d); stores(d); glance(d);
     saidChips(d); said(d); social(d); trend(d); sources(d);
   })
   .catch((e) => {

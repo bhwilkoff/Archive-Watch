@@ -170,3 +170,118 @@ footer { padding: 28px var(--pad); border-top: 1px solid var(--border);
   .row .meta { grid-column: 1; }
   .said .who { gap: 12px; }
 }
+
+/* ── chart kit ───────────────────────────────────────────────────────────
+   Colour encodes STATE, never quantity (Decision 013's split). Quantity is
+   position and length; the band ramp is one hue at three intensities so the
+   chart survives colour-blindness and spends no colour on a number. */
+.c-bullet { width: 100%; height: 22px; display: block; }
+.c-bullet .band { fill: #1B1B1B; }
+.c-bullet .band.b2 { fill: #232323; }
+.c-bullet .band.b3 { fill: #2E2E2E; }
+.c-bullet .measure { fill: var(--text); }
+.c-bullet .measure.live { fill: var(--live); }
+.c-bullet .measure.flight { fill: var(--flight); }
+.c-bullet .measure.stop { fill: var(--stop); }
+.c-bullet .target { stroke: var(--text-faint); stroke-width: 1.5; }
+
+.c-bars { display: grid; gap: 7px; }
+.c-bar { display: grid; grid-template-columns: 92px 1fr auto; gap: 10px;
+         align-items: center; }
+.c-bar-l { font: var(--l5); color: var(--text-dim); text-align: right;
+           overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.c-bar-t { background: #171717; height: 12px; border-radius: 2px; overflow: hidden; }
+.c-bar-t i { display: block; height: 100%; background: var(--text-dim); }
+.c-bar-t i.live { background: var(--live); }
+.c-bar-t i.flight { background: var(--flight); }
+.c-bar-t i.stop { background: var(--stop); }
+.c-bar-t i.measure { background: var(--color-primary); }
+.c-bar-v { font: var(--l6); font-size: 0.875rem; min-width: 3.2em; text-align: right; }
+.c-bar-n { grid-column: 2 / -1; font: var(--l5); color: var(--text-faint); margin-top: -3px; }
+.c-bar.nil .c-bar-v { color: var(--text-faint); }
+
+.c-spark { width: 100%; height: 42px; display: block; margin-top: 8px; }
+.c-spark .fill { fill: var(--text); opacity: 0.07; }
+.c-spark .line { fill: none; stroke: var(--text-dim); stroke-width: 1.5;
+                 vector-effect: non-scaling-stroke; }
+.c-spark .dot { fill: var(--color-primary); }
+
+.c-stack { display: flex; height: 12px; border-radius: 2px; overflow: hidden;
+           background: #171717; }
+.c-stack i { display: block; height: 100%; }
+.c-stack i.live { background: var(--live); }
+.c-stack i.flight { background: var(--flight); }
+.c-stack i.stop { background: var(--stop); }
+.c-stack i.idle { background: #333; }
+.c-legend { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 9px;
+            font: var(--l5); color: var(--text-dim); }
+.c-legend i { display: inline-block; width: 8px; height: 8px; border-radius: 2px;
+              margin-right: 6px; vertical-align: 0.02em; }
+.c-legend i.live { background: var(--live); }
+.c-legend i.flight { background: var(--flight); }
+.c-legend i.stop { background: var(--stop); }
+.c-legend i.idle { background: #333; }
+.c-legend b { color: var(--text); font-weight: 600; }
+
+.c-dots { display: flex; gap: 5px; flex-wrap: wrap; }
+.c-dots i { width: 10px; height: 10px; border-radius: 2px; background: #333; }
+.c-dots i.live { background: var(--live); }
+.c-dots i.flight { background: var(--flight); }
+.c-dots i.stop { background: var(--stop); }
+
+.c-ratio-t { background: #171717; height: 10px; border-radius: 2px; overflow: hidden; }
+.c-ratio-t i { display: block; height: 100%; background: var(--text-dim); }
+.c-ratio-t i.measure { background: var(--color-primary); }
+.c-ratio-v { font: var(--l6); font-size: 1.1rem; margin-top: 6px; }
+.c-ratio-v small { font: var(--l5); font-family: var(--sans); color: var(--text-faint); }
+
+/* ── the panels the charts sit in ────────────────────────────────────────
+   A panel is a titled cell in a grid: no tinted card, separation by the grid's
+   own hairlines, exactly as the rows are separated by rules. */
+.panels { display: grid; gap: 1px; background: var(--rule);
+          grid-template-columns: repeat(auto-fit, minmax(268px, 1fr));
+          border: 1px solid var(--rule); border-radius: var(--radius); overflow: hidden; }
+.panel { background: var(--bg); padding: 15px 16px 17px; }
+.panel .k { font: var(--l5); color: var(--text-faint); text-transform: uppercase;
+            letter-spacing: 0.07em; display: flex; gap: 8px; align-items: baseline; }
+.panel .k .r { margin-left: auto; text-transform: none; letter-spacing: 0; }
+.panel .v { font: var(--l6); font-size: 1.7rem; margin: 4px 0 9px; line-height: 1.05; }
+.panel .v small { font: var(--l5); font-family: var(--sans); color: var(--text-faint); }
+.panel .cap { font: var(--l5); color: var(--text-faint); margin-top: 8px; }
+.panel .cap b { color: var(--text-dim); font-weight: 600; }
+.panel.wide { grid-column: 1 / -1; }
+.up { color: var(--live); } .down { color: var(--stop); } .flat { color: var(--text-faint); }
+
+/* star distribution — the one chart every store already shows its users */
+.c-stars { display: grid; gap: 4px; }
+.c-star { display: grid; grid-template-columns: 30px 1fr 26px; gap: 10px; align-items: center; }
+.c-star .s { font: var(--l6); font-size: 0.75rem; color: var(--flight);
+             text-align: right; white-space: nowrap; }
+.c-star .t { background: #171717; height: 9px; border-radius: 2px; overflow: hidden; }
+.c-star .t i { display: block; height: 100%; background: var(--flight); }
+.c-star .n { font: var(--l6); font-size: 0.8125rem; color: var(--text-dim); text-align: right; }
+
+/* the state colour runs down the left edge, so the estate is scannable in one
+   vertical sweep instead of eleven trips to the right-hand word */
+.rows .row[class*="lead-"] { padding-left: 12px; border-left: 2px solid transparent; }
+.row.lead-live   { border-left-color: var(--live); }
+.row.lead-flight { border-left-color: var(--flight); }
+.row.lead-stop   { border-left-color: var(--stop); }
+.row.lead-idle   { border-left-color: #2E2E2E; }
+
+/* cadence — one lane per platform, position on a shared time axis */
+.c-cadence { display: grid; gap: 7px; margin-top: 4px; }
+.c-lane { display: grid; grid-template-columns: 84px 1fr; gap: 12px; align-items: center; }
+.c-lane-l { font: var(--l5); color: var(--text-dim); text-align: right;
+            white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.c-lane-t { position: relative; height: 18px; }
+.c-lane-t::before { content: ""; position: absolute; left: 0; right: 0; top: 8px;
+                    height: 1px; background: var(--rule); }
+.c-lane-t i { position: absolute; top: 50%; transform: translate(-50%, -50%);
+              border-radius: 50%; background: var(--text-dim); }
+.c-lane-t i.measure { background: var(--color-primary); }
+.c-lane-t i.live { background: var(--live); }
+.c-axis { display: grid; grid-template-columns: 84px 1fr; gap: 12px; margin-top: 2px; }
+.c-axis > span:last-child { position: relative; height: 14px; display: block; }
+.c-axis span span { position: absolute; transform: translateX(-50%);
+                    font: var(--l5); font-size: 0.7rem; color: var(--text-faint); }

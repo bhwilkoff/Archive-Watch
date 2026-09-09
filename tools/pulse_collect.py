@@ -735,6 +735,17 @@ def sentences(text):
     return [s.strip() for s in re.split(r"(?<=[.!?])\s+|\n+", text or "") if len(s.strip()) > 12]
 
 
+def distribution(state):
+    """How the written reviews divide across the five stars, per store."""
+    by = {}
+    for r in state["reviews"]:
+        if not r.get("rating"):
+            continue
+        by.setdefault(r["store"], {i: 0 for i in range(1, 6)})[int(r["rating"])] += 1
+    state["distribution"] = by
+    return ", ".join(f"{k}: {sum(v.values())} rated" for k, v in by.items()) or "none yet"
+
+
 def asks(state):
     """Pull the sentence a person actually WROTE. No summary, no score — the
     owner reads their words and follows the link to the rest."""
@@ -829,12 +840,14 @@ SOURCES = [
     ("github", github),
     ("workflows", workflows),
     ("catalog", catalog),
+    ("distribution", distribution),
     ("asks", asks),                                  # must run last: it reads the rest
 ]
 
 
 def blank():
     return {"stores": [], "ratings": [], "reviews": [], "mentions": [],
+            "distribution": {},
             "social": {}, "health": {}, "github": {}, "asks": [], "loves": [],
             "sources": {}}
 

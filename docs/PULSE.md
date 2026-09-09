@@ -34,6 +34,70 @@ file, and that step carries an explicit `# reporter-may-fail:` marker that
 
 ---
 
+## How it LOOKS — binding
+
+Every number on this page carries a shape, and the shape is chosen the same way
+every time. The rules below are binding: a new panel must cite one, and if none
+fits, the rule set gets the new entry before the panel gets written.
+
+**1. A number alone means nothing — give it a comparison.** Against a scale (the
+rating), against its siblings (posts per platform), against its own past (the
+sparklines), or as a share of a whole (the estate). "4.4" is a fact; "4.4 of 5,
+target 4.5, up 0.03 since yesterday" is a finding.
+
+**2. Encode in Cleveland & McGill's order.** Position first, then length, then
+area, and colour last. So a comparison is a bar on a common baseline or a mark
+on a shared axis. Angle and area are never used to carry a quantity — which is
+why there is no pie chart, no donut, and no bubble on this page.
+
+**3. Colour means STATE, never quantity** (Decision 013's split, applied to
+health). Teal is live, amber is in flight, red needs you, grey is nothing yet.
+The bullet graph's qualitative bands are one hue at three intensities, per Few,
+so they survive colour-blindness and spend no colour on a number.
+
+**4. No gauges, no dials.** Few's whole argument: they show one number, take a
+quarter of the screen, and arrive covered in decoration. `bullet()` shows the
+measure, the scale, the qualitative bands and the target, in a strip 22 pixels
+tall.
+
+**5. Word-sized graphics sit beside their number.** A sparkline (Tufte) is read
+in the same glance as the figure it belongs to. No axis, no legend, no chart to
+open.
+
+**6. Zero is drawn, absence is written.** A source that returned zero gets a bar
+of length zero. A source that could not be read gets the words "not read" and
+the reason — never a bar, never a zero. (This is rule 1 of the whole tool, in
+visual form.)
+
+**7. The panel is the cell, not a card.** Separation comes from the grid's own
+hairlines. No tinted boxes, no shadows, no rounded floating cards stacked on a
+background — the density rule this project applies everywhere else.
+
+The kit that implements this is `pulse/charts.js`: `bullet`, `bars`, `spark`,
+`stack`, `legend`, `dots`, `ratio`, `cadence`. Hand-rolled inline SVG, no
+library, no build step. `tools/test_pulse_charts.mjs` asserts the properties a
+reader actually relies on — a bar's length is proportional, a bullet's measure
+lands at the right position and clamps past the top of its scale, a stack sums
+to 100%, a one-point series draws nothing rather than a misleading flat line —
+and all 31 cases were checked to FAIL against broken versions of each rule.
+
+### Which shape, for which signal
+
+| Signal | Shape | Why that one |
+|---|---|---|
+| App Store rating | bullet, bands at 3 and 4, target 4.5 | one measure against a fixed scale with a goal — Few's exact case |
+| How the reviews fall | bar per star level | the chart every store already shows its users; one 2★ is impossible to miss |
+| The estate | stacked proportion + legend | "how much of what we ship is out" is a share of a whole |
+| Catalog coverage | bars on a shared max | three coverages against the same denominator |
+| Followers, posts, mentions | bars | comparison across platforms and sources, on one baseline |
+| Android vitals | bullet, inverted, target = Google's threshold | the only numbers here with a target somebody else set |
+| Workflow fleet | dots | one mark per finding: a count and a proportion at once |
+| Enjoying vs asking | stacked bar | two parts of one body of feedback |
+| Posting cadence | lanes on a shared 30-day axis | a programme's question is "did they keep coming", not "how many" |
+| Anything over time | sparkline | shape and level, at the size of a word, beside the number |
+
+---
+
 ## What it reads, and how
 
 | Signal | Route | Auth | Runs |
