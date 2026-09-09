@@ -202,6 +202,34 @@
  "social": {
   "posts": [
    {
+    "at": "2026-09-09T18:26:27.740889+00:00",
+    "platform": "bluesky",
+    "title": "Zoom & Bored (Laserdisc)",
+    "id": "zoom-bored",
+    "slot": "double-bill",
+    "format": "card",
+    "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mv45yqdekg2v",
+    "likes": null,
+    "reposts": null,
+    "replies": null,
+    "views": null,
+    "window": null
+   },
+   {
+    "at": "2026-09-09T18:26:27.740889+00:00",
+    "platform": "mastodon",
+    "title": "Zoom & Bored (Laserdisc)",
+    "id": "zoom-bored",
+    "slot": "double-bill",
+    "format": "card",
+    "url": "https://mastodon.social/@archivewatch/117242487936215809",
+    "likes": null,
+    "reposts": null,
+    "replies": null,
+    "views": null,
+    "window": null
+   },
+   {
     "at": "2026-09-09T01:06:49.909962+00:00",
     "platform": "bluesky",
     "title": "The Birth of a Nation",
@@ -265,11 +293,11 @@
     "slot": "viewer-said",
     "format": "video",
     "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3muzm6wlg5s2k",
-    "likes": null,
-    "reposts": null,
-    "replies": null,
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
     "views": null,
-    "window": null
+    "window": "24h"
    },
    {
     "at": "2026-09-08T18:02:20.932858+00:00",
@@ -279,11 +307,11 @@
     "slot": "viewer-said",
     "format": "video",
     "url": "https://mastodon.social/@archivewatch/117236731894909295",
-    "likes": null,
-    "reposts": null,
-    "replies": null,
+    "likes": 0,
+    "reposts": 1,
+    "replies": 0,
     "views": null,
-    "window": null
+    "window": "24h"
    },
    {
     "at": "2026-09-08T17:08:21.938394+00:00",
@@ -330,12 +358,20 @@
   ],
   "byPlatform": {
    "bluesky": {
-    "posts": 4,
+    "posts": 5,
     "likes": 0,
     "replies": 0,
     "reposts": 0,
     "views": 0,
-    "measured": 0
+    "measured": 1
+   },
+   "mastodon": {
+    "posts": 3,
+    "likes": 0,
+    "replies": 0,
+    "reposts": 1,
+    "views": 0,
+    "measured": 1
    },
    "threads": {
     "posts": 1,
@@ -360,26 +396,18 @@
     "reposts": 0,
     "views": 0,
     "measured": 0
-   },
-   "mastodon": {
-    "posts": 2,
-    "likes": 0,
-    "replies": 0,
-    "reposts": 0,
-    "views": 0,
-    "measured": 0
    }
   },
-  "totalPosts": 9,
-  "measured": 0,
+  "totalPosts": 11,
+  "measured": 2,
   "reach": {
    "bluesky": {
     "followers": 1,
-    "posts": 2
+    "posts": 3
    },
    "mastodon": {
     "followers": 0,
-    "posts": 1
+    "posts": 2
    },
    "instagram": {
     "followers": 0,
@@ -542,12 +570,7 @@
    }
   ],
   "issues": [],
-  "workflows": [
-   {
-    "severity": "KILLED",
-    "workflow": "Deploy Pages cancelled after 1m"
-   }
-  ],
+  "workflows": [],
   "catalog": {
    "schema": 12,
    "items": 26711,
@@ -598,132 +621,132 @@
   "apple_stores": {
    "ok": true,
    "note": "3 Apple platform(s)",
-   "at": "2026-09-09T18:24:22+00:00"
+   "at": "2026-09-09T18:38:34+00:00"
   },
   "apple_reviews": {
    "ok": true,
    "note": "4 review(s)",
-   "at": "2026-09-09T18:24:22+00:00"
+   "at": "2026-09-09T18:38:35+00:00"
   },
   "apple_rating": {
    "ok": true,
    "note": "4.4 from 5",
-   "at": "2026-09-09T18:24:23+00:00"
+   "at": "2026-09-09T18:38:35+00:00"
   },
   "apple_performance": {
    "ok": true,
    "note": "Apple has not aggregated enough device data yet",
-   "at": "2026-09-09T18:24:23+00:00"
+   "at": "2026-09-09T18:38:35+00:00"
   },
   "apple_downloads": {
    "ok": true,
    "note": "334 first-time download(s) over 14 day(s)",
-   "at": "2026-09-09T18:24:34+00:00"
+   "at": "2026-09-09T18:38:47+00:00"
   },
   "play_stores": {
    "ok": true,
    "note": "3 track(s)",
-   "at": "2026-09-09T18:24:37+00:00"
+   "at": "2026-09-09T18:38:48+00:00"
   },
   "play_reviews": {
    "ok": true,
    "note": "0 review(s) in Play's 7-day window",
-   "at": "2026-09-09T18:24:37+00:00"
+   "at": "2026-09-09T18:38:48+00:00"
   },
   "play_rating": {
    "ok": false,
    "note": "Play listing carries no rating yet",
-   "at": "2026-09-09T18:24:37+00:00"
+   "at": "2026-09-09T18:38:48+00:00"
   },
   "play_vitals": {
    "ok": true,
    "note": "crashRate: too few users for Play to publish a rate; anrRate: too few users for Play to publish a rate",
-   "at": "2026-09-09T18:24:41+00:00"
+   "at": "2026-09-09T18:38:51+00:00"
   },
   "play_crashes": {
    "ok": true,
    "note": "10 cluster(s)",
-   "at": "2026-09-09T18:24:43+00:00"
+   "at": "2026-09-09T18:38:52+00:00"
   },
   "manual_stores": {
    "ok": true,
    "note": "5 declared store(s)",
-   "at": "2026-09-09T18:24:43+00:00"
+   "at": "2026-09-09T18:38:52+00:00"
   },
   "social_programme": {
    "ok": true,
-   "note": "9 post(s) across 5 platform(s), 0 measured",
-   "at": "2026-09-09T18:24:43+00:00"
+   "note": "11 post(s) across 5 platform(s), 2 measured",
+   "at": "2026-09-09T18:38:52+00:00"
   },
   "social_reach": {
    "ok": true,
    "note": "bluesky=1, mastodon=0, instagram=0",
-   "at": "2026-09-09T18:24:44+00:00"
+   "at": "2026-09-09T18:38:53+00:00"
   },
   "social_replies": {
    "ok": true,
    "note": "0 reply/mention notification(s)",
-   "at": "2026-09-09T18:24:44+00:00"
+   "at": "2026-09-09T18:38:53+00:00"
   },
   "youtube_channel": {
    "ok": true,
    "note": "stats need youtube.readonly (the token is upload-only, by design), 0 comment(s)",
-   "at": "2026-09-09T18:24:44+00:00"
+   "at": "2026-09-09T18:38:53+00:00"
   },
   "mentions_reddit": {
    "ok": true,
    "note": "0 kept",
-   "at": "2026-09-09T18:24:45+00:00"
+   "at": "2026-09-09T18:38:54+00:00"
   },
   "mentions_hn": {
    "ok": true,
    "note": "0 kept of 0",
-   "at": "2026-09-09T18:24:45+00:00"
+   "at": "2026-09-09T18:38:54+00:00"
   },
   "mentions_lemmy": {
    "ok": true,
    "note": "0 kept",
-   "at": "2026-09-09T18:24:47+00:00"
+   "at": "2026-09-09T18:38:56+00:00"
   },
   "mentions_news": {
    "ok": true,
    "note": "0 kept",
-   "at": "2026-09-09T18:24:47+00:00"
+   "at": "2026-09-09T18:38:57+00:00"
   },
   "mentions_bluesky": {
    "ok": true,
    "note": "1 kept",
-   "at": "2026-09-09T18:24:48+00:00"
+   "at": "2026-09-09T18:38:58+00:00"
   },
   "mentions_mastodon": {
    "ok": true,
    "note": "1 kept",
-   "at": "2026-09-09T18:24:50+00:00"
+   "at": "2026-09-09T18:38:59+00:00"
   },
   "github": {
    "ok": true,
    "note": "0 star(s), 0 open issue(s), 0 from outside",
-   "at": "2026-09-09T18:24:54+00:00"
+   "at": "2026-09-09T18:39:01+00:00"
   },
   "workflows": {
    "ok": true,
-   "note": "1 finding(s), 1 urgent",
-   "at": "2026-09-09T18:26:01+00:00"
+   "note": "0 finding(s), 0 urgent",
+   "at": "2026-09-09T18:40:10+00:00"
   },
   "catalog": {
    "ok": true,
    "note": "26711 items, schema 12",
-   "at": "2026-09-09T18:26:02+00:00"
+   "at": "2026-09-09T18:40:11+00:00"
   },
   "distribution": {
    "ok": true,
    "note": "App Store: 4 rated",
-   "at": "2026-09-09T18:26:02+00:00"
+   "at": "2026-09-09T18:40:11+00:00"
   },
   "asks": {
    "ok": true,
    "note": "0 request(s), 3 bit(s) of praise",
-   "at": "2026-09-09T18:26:02+00:00"
+   "at": "2026-09-09T18:40:11+00:00"
   }
  },
  "stale": {},
@@ -736,16 +759,16 @@
    "playRatings": null,
    "reviews": 4,
    "mentions": 2,
-   "posts": 9,
+   "posts": 11,
    "likes": 0,
    "followers": 1,
    "stars": 0,
    "views14d": null,
    "catalogItems": 26711,
-   "urgent": 1
+   "urgent": 0
   }
  ],
- "generatedAt": "2026-09-09T18:26:02+00:00",
+ "generatedAt": "2026-09-09T18:40:11+00:00",
  "repoVersion": "1.42.5",
  "repoBuild": "1017",
  "_": "Written by tools/pulse_collect.py. `history` is the series and is append-only per day; everything else is the latest reading. A source that could not answer says so in `sources` — never assume a zero."
