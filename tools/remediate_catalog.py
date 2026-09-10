@@ -1114,6 +1114,31 @@ def _strip_title_summary_dump(s):
     return s
 
 
+
+# A stray space before a comma or full stop, and Wikipedia citation residue.
+# Measured on 565 published synopses: 45 (7%) carry the first — "A for
+# Andromeda , again written by", "Der Student von Prag , also known as" — and a
+# handful the second ("Harold Lloyd . [ 1 ]"). It reaches every Detail screen
+# on every platform, and now every social post, because the writers can only be
+# as good as their input.
+#
+# ELLIPSES ARE NOT THE DEFECT and must survive: a first, blunter version of
+# this counted "kicked out . . . it looks pretty bad" and "Murphy. ... After"
+# as faults, which would have mangled 10 legitimate passages to fix 45. The
+# full-stop rule therefore refuses to fire when another dot follows, and
+# abbreviations like "R.C.M.P." are untouched because they carry no space.
+_CITATION = re.compile(r"\s*\[\s*\d+\s*\]")
+_SPACE_PUNCT = re.compile(r"\s+([,;:!?])")
+_SPACE_STOP = re.compile(r"(\w)\s+\.(?!\s*\.)")
+
+
+def _tidy_punctuation(s):
+    s = _CITATION.sub("", s)
+    s = _SPACE_PUNCT.sub(r"\1", s)
+    s = _SPACE_STOP.sub(r"\1.", s)
+    return re.sub(r"\s{2,}", " ", s).strip()
+
+
 def sanitize_synopsis(it):
     """Returns 'cleaned', 'nulled', or None."""
     raw = _synopsis_text(it)
@@ -1128,6 +1153,7 @@ def sanitize_synopsis(it):
                      or _audit.EMAIL.search(x) or _audit.UPLOADER.search(x)
                      or _audit.TECH.search(x) or _BOILERPLATE_SENT.search(x))]
     s = re.sub(r"\s+", " ", " ".join(sents)).strip()
+    s = _tidy_punctuation(s)
     if s == raw:
         return None
     if len(s) < MIN_SYNOPSIS:

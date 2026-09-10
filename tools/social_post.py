@@ -299,7 +299,14 @@ ORDER = {
     # all, which is what two of the first three Bluesky posts were.
     "bluesky":   ["hook", "identity", "synopsis", "facts", "link"],
     "threads":   ["hook", "identity", "synopsis", "facts", "link"],
-    "mastodon":  ["identity", "hook", "rights", "link"],
+    # Mastodon was the ONE platform left out of the fix described above, and
+    # it had the same disease for the same reason: with no `synopsis` in its
+    # order it fell through to `rights` — "Published in 1943, in the public
+    # domain in the United States" — on every film without a quoted review,
+    # which is most of them. Measured on the live post for Day of Wrath: 207
+    # of 500 characters used and not one word about the film, while Bluesky
+    # carried Dreyer and the Nazi occupation of Denmark from the same spec.
+    "mastodon":  ["identity", "hook", "synopsis", "rights", "link"],
     "instagram": ["hook", "identity", "synopsis", "rights", "link"],
     "facebook":  ["identity", "hook", "synopsis", "link"],
     "youtube":   ["link", "identity", "facts", "synopsis", "hook", "rights"],
