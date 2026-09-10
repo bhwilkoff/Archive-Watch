@@ -2016,7 +2016,7 @@ broadcast marker beside it.
 1964-77 studio films — The Sand Pebbles (17,295 votes), A Bridge Too Far,
 Cross of Iron — under a gate set at 20,000 votes, which also let The Hill,
 The Collector, Hombre, Valley of the Dolls and Disney's The Computer Wore
-Tennis Shoes through as public domain. And 116 modern uploads wore an old
+Tennis Shoes through as public domain. And 125 modern uploads wore an old
 film's year and poster because a wrong external match had supplied both: a
 1989 Blood and Sand filed as the 1941 film, a Neil Young concert as "Love and
 War" (1899), a Harry Potter clip as The Prisoner (1923). The audit trusted
@@ -2034,4 +2034,4 @@ not add releaseDate or capture markers back as signals, and do not lower the
 vote gate further without naming the PD-by-defect films the next band holds
 — the 1,000-5,000 band is Hammer, Carry On, Gamera and gialli, most of them
 copyrighted and none of them decided here. Net effect on the visible
-catalog: 205 hides (89 + 116), reversible as every `excluded` flag is.
+catalog: 214 hides (89 + 125), reversible as every `excluded` flag is.
