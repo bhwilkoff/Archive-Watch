@@ -259,7 +259,11 @@ gate or a resolver, each measured rather than read off the spec page:
   Re-run the publisher when the cover set grows (`manifest.json` counts
   `coversServedLocally` against the archive-hosted remainder).
 - Re-validating the SAME URL is silently ignored; append `?v=N`. Pages sits
-  behind a 600 s CDN cache, so every `nextPageUrl` carries a per-build stamp.
+  behind a 600 s CDN cache that IGNORES the query string (a random `?g=`
+  answers `x-cache: HIT`), so continuation pages are named
+  `feed-N-<hash>.json` and the build keeps the currently-live chain beside
+  the new one for the cache window. Only the root `feed.json` is ever stale,
+  and at most ten minutes after a deploy.
 - Its "Validated content" percentage is unreliable (it printed -289%); read
   the error table and the `/apps/api/v1/searchfeed/validation/<id>/issues`
   JSON behind it instead.
