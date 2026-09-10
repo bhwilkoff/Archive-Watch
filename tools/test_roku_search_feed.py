@@ -155,6 +155,33 @@ def main() -> int:
     check("an unresolved Commons image fails validation (Roku refuses svg and redirects)",
           sorted(F.validate_asset(a_svg)), ["image format (jpg/png/gif only)", "image redirects (unresolved Commons)"])
 
+    # ---- aspect: Roku's validator accepts 2:3 and 16:9 ONLY ----------------
+    check("control: 500x750 is 2:3", F.aspect_ok(500, 750), True)
+    check("1280x720 is 16:9", F.aspect_ok(1280, 720), True)
+    check("500x707 (+6%) was refused by Roku -> bad", F.aspect_ok(500, 707), False)
+    check("300x400 (exactly 3:4) was refused by Roku -> bad", F.aspect_ok(300, 400), False)
+    check("300x300 (1:1) was refused by Roku -> bad", F.aspect_ok(300, 300), False)
+    dims = {"https://m.media-amazon.com/x.jpg": [300, 229],
+            "https://image.tmdb.org/t/p/w500/ok.jpg": [500, 750],
+            "https://image.tmdb.org/t/p/w500/dead.jpg": 0}
+    check("a generated cover needs no measurement",
+          F.image_verdict("https://ia601609.us.archive.org/27/items/archivewatch-covers/x.jpg", dims), "ok")
+    check("a TMDb w1280 backdrop needs no measurement",
+          F.image_verdict("https://image.tmdb.org/t/p/w1280/b.jpg", dims), "ok")
+    check("an unmeasured image is unknown, not bad",
+          F.image_verdict("https://m.media-amazon.com/unmeasured.jpg", dims), "unknown")
+    check("a dead (404) image is bad", F.image_verdict("https://image.tmdb.org/t/p/w500/dead.jpg", dims), "bad")
+    a_bad = F.build_asset(item(posterURL="https://m.media-amazon.com/x.jpg",
+                               backdropURL="https://image.tmdb.org/t/p/w1280/bg.jpg"), dims=dims)
+    check("an off-aspect poster is replaced by the 16:9 backdrop as main",
+          [i["type"] + ":" + i["url"] for i in a_bad["images"]],
+          ["main:https://image.tmdb.org/t/p/w1280/bg.jpg"])
+    check("an off-aspect poster with no backdrop drops the asset",
+          F.build_asset(item(posterURL="https://m.media-amazon.com/x.jpg", backdropURL=None), dims=dims), None)
+    check("an unmeasured poster ships as-is (Roku judges it)",
+          F.build_asset(item(posterURL="https://m.media-amazon.com/unmeasured.jpg"), dims=dims)["images"][0]["url"],
+          "https://m.media-amazon.com/unmeasured.jpg")
+
     # ---- gates the validator taught us ----------------------------------
     check("59 seconds is out (ASSET_DURATION_SHORT)", F.eligibility(item(runtimeSeconds=59), ids, "catalog"), "under_60s")
     check("60 seconds is in", F.eligibility(item(runtimeSeconds=60), ids, "catalog"), None)
@@ -162,6 +189,9 @@ def main() -> int:
     check("year 1899 is out (Roku: ASSET_ALL_RELEASE_REMOVED on every 1890s film)",
           F.eligibility(item(year=1899), ids, "catalog"), "implausible_year")
     check("year 1900 is in", F.eligibility(item(year=1900), ids, "catalog"), None)
+    emoji = "Explore the app my friend made. " + "\U0001F4BF " * 90
+    check("lengths are counted in UTF-16 units, as Roku counts them",
+          F.ulen(F.descriptions(item(synopsis=emoji))[0]) <= 195, True)
     long_text = "Word " * 80
     check("descriptions stay five under Roku's limits",
           (len(F.descriptions(item(synopsis=long_text))[0]) <= 195,

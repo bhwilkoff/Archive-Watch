@@ -209,6 +209,10 @@ jobs:
           python tools/build_people_index.py
           python tools/build_channel_pools.py
           python tools/build_episode_index.py
+          # Pixel sizes of the images the Roku Search feed publishes, so the
+          # feed can refuse posters Roku's validator refuses (2:3 / 16:9
+          # only). Budgeted, resumable, transient failures re-asked next run.
+          python tools/measure_image_dims.py --limit 3000 || echo "::warning::image dims measurement did not complete"
 
       - name: Commit catalog search index
         # Publish what finished. A killed compute step above must not
@@ -226,8 +230,8 @@ jobs:
           # reported "unchanged" and committed nothing — the artifact was
           # built correctly every run and never reached the repo. Any new
           # artifact added to this list would have failed the same silent way.
-          git add catalog-index.json topshelf.json details/ channel-pools.json episodes-index.json aliases.json people.json
-          if git diff --cached --quiet -- catalog-index.json topshelf.json details/ channel-pools.json episodes-index.json aliases.json people.json; then
+          git add catalog-index.json topshelf.json details/ channel-pools.json episodes-index.json aliases.json people.json ops/image-dims.json
+          if git diff --cached --quiet -- catalog-index.json topshelf.json details/ channel-pools.json episodes-index.json aliases.json people.json ops/image-dims.json; then
             echo "web index + details + channel pools + episodes unchanged"; exit 0
           fi
           git commit -m "Refresh web catalog index + detail shards [skip ci]"

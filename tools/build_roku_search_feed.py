@@ -72,6 +72,15 @@ A URL that could not be resolved stays as it was and is counted, never
 invented. Roku also refused 343 assets under 60 seconds and 40 with an
 implausible year, so both are gates now.
 
+A MAIN IMAGE MUST BE 2:3 OR 16:9. The validator refused 907 posters as
+IMAGE_INVALID_MAIN — 300x229, 300x300, 300x400, 500x663, 997x678 — so the
+spec's "4:3, 3:4, 1:1 also supported" is not what it enforces. Nothing in the
+catalog records an image's size; `tools/measure_image_dims.py` builds that
+record in ops/image-dims.json (committed by publish-db). An image measured
+off-aspect is replaced by the item's 16:9 TMDb backdrop when it has one, or
+the asset is dropped and counted (`image_aspect`). Unmeasured images ship
+as-is and Roku judges them — the feed never waits on the cache.
+
 SIZE. ~22,000 assets is ~27 MB, and Roku asks for pagination at 20 MB. Pages
 of --page-size assets are chained with nextPageUrl. Generated into the Pages
 artifact at deploy time, never committed (Decision 018's reasoning).
@@ -114,6 +123,9 @@ COVERS_URL = f"https://archive.org/download/{COVERS_ITEM}/"
 COMMONS_API = "https://commons.wikimedia.org/w/api.php"
 USER_AGENT = "ArchiveWatch/1.0 (https://archivewatch.org; ben@learningischange.com)"
 IMAGE_EXT_RE = re.compile(r"\.(jpe?g|png|gif)(\?.*)?$", re.I)
+DIMS_CACHE = REPO / "ops" / "image-dims.json"
+ASPECTS = (2 / 3, 16 / 9)
+ASPECT_TOLERANCE = 0.04   # TMDb's 500x750 passes; a 500x707 (+6%) was refused
 
 KEEP_BUCKETS = {"safe_pd_age", "safe_gov", "safe_archive_license", "safe_cc",
                 "presumed_pd"}
@@ -186,13 +198,22 @@ _ABBREV = ("dr", "mr", "mrs", "ms", "st", "jr", "sr", "vs", "no", "mt", "lt",
            "col", "gen", "capt", "sgt", "prof", "rev", "inc", "co", "u.s", "d.c")
 
 
+def ulen(s: str) -> int:
+    """Roku counts UTF-16 code units: the one description it refused measured
+    194 characters here and 208 there (emoji are two units each)."""
+    return len(s.encode("utf-16-le")) // 2
+
+
 def clip(text: str, limit: int) -> str:
     """Clip at a sentence end where one exists past the halfway mark and is
-    not an abbreviation; otherwise at a word, with an ellipsis."""
+    not an abbreviation; otherwise at a word, with an ellipsis. `limit` is
+    in UTF-16 code units, which is how Roku measures."""
     text = strip_html(text)
-    if len(text) <= limit:
+    if ulen(text) <= limit:
         return balance_quotes(text)
     cut = text[:limit]
+    while ulen(cut) > limit:
+        cut = cut[:-1]
     i = cut.rfind(". ")
     while i > limit * 0.5:
         before = cut[:i].rstrip()
@@ -371,6 +392,29 @@ class ImageResolver:
         return url
 
 
+def aspect_ok(w: int, h: int) -> bool:
+    if not w or not h:
+        return False
+    r = w / h
+    return any(abs(r - a) / a <= ASPECT_TOLERANCE for a in ASPECTS)
+
+
+def image_verdict(url: str | None, dims: dict) -> str:
+    """'ok' | 'bad' | 'unknown' for a resolved image URL against the cache.
+    Generated covers are 600x900 by construction and TMDb backdrops are 16:9
+    by TMDb's rule, so both are ok without a measurement."""
+    if not url:
+        return "bad"
+    if "/items/archivewatch-covers/" in url or ("image.tmdb.org" in url and "/w1280/" in url):
+        return "ok"
+    d = dims.get(url)
+    if d is None:
+        return "unknown"
+    if d == 0:
+        return "bad"
+    return "ok" if aspect_ok(d[0], d[1]) else "bad"
+
+
 def quality(item: dict) -> str:
     vf = item.get("videoFile") or {}
     hint = " ".join(str(x) for x in (vf.get("name") if isinstance(vf, dict) else "",
@@ -503,7 +547,9 @@ def eligibility(item: dict, index_ids: set, tier: str) -> str | None:
 
 
 def build_asset(item: dict, tv_specials: bool = False, imdb: bool = False,
-                resolver: "ImageResolver | None" = None) -> dict:
+                resolver: "ImageResolver | None" = None,
+                dims: dict | None = None) -> "dict | None":
+    """The Roku asset, or None when its only images are known-bad."""
     b, _ = bucket(item)
     title = strip_html(item.get("title") or "")[:200]
     short, long_ = descriptions(item)
@@ -526,8 +572,15 @@ def build_asset(item: dict, tv_specials: bool = False, imdb: bool = False,
     bg = image_url(item.get("backdropURL"), "background")
     if resolver:
         main, bg = resolver.resolve(main), resolver.resolve(bg)
+    dims = dims or {}
+    mv, bv = image_verdict(main, dims), image_verdict(bg, dims) if bg else "bad"
+    if mv == "bad":
+        if bv == "ok":
+            main, bg = bg, None      # a 16:9 backdrop is a valid main image
+        else:
+            return None
     images = [{"type": "main", "url": main}]
-    if bg:
+    if bg and bv != "bad":
         images.append({"type": "background", "url": bg})
     a["images"] = images
     a["durationInSeconds"] = int(item["runtimeSeconds"])
@@ -548,11 +601,11 @@ def validate_asset(a: dict) -> list:
         errs.append("id length")
     if a["type"] not in ("movie", "tvSpecial", "shortForm"):
         errs.append("type")
-    if not a["titles"][0]["value"] or len(a["titles"][0]["value"]) > 200:
+    if not a["titles"][0]["value"] or ulen(a["titles"][0]["value"]) > 200:
         errs.append("title length")
-    if len(a["shortDescriptions"][0]["value"]) > 200:
+    if ulen(a["shortDescriptions"][0]["value"]) > 200:
         errs.append("short description")
-    if any(len(d["value"]) > 500 for d in a.get("longDescriptions", [])):
+    if any(ulen(d["value"]) > 500 for d in a.get("longDescriptions", [])):
         errs.append("long description")
     if not a.get("genres"):
         errs.append("genres")
@@ -639,8 +692,15 @@ def main() -> int:
     resolver = ImageResolver(network=not args.no_network)
     resolver.prefetch_commons([image_url(it.get("posterURL")) or "" for it in eligible]
                               + [image_url(it.get("backdropURL"), "background") or "" for it in eligible])
+    dims = json.loads(DIMS_CACHE.read_text(encoding="utf-8")) if DIMS_CACHE.exists() else {}
+    unmeasured = 0
     for item in eligible:
-        a = build_asset(item, args.tv_specials, imdb=args.imdb, resolver=resolver)
+        a = build_asset(item, args.tv_specials, imdb=args.imdb, resolver=resolver, dims=dims)
+        if a is None:
+            reasons["image_aspect"] += 1
+            continue
+        if image_verdict(a["images"][0]["url"], dims) == "unknown":
+            unmeasured += 1
         errs = validate_asset(a)
         if errs:
             for e in errs:
@@ -694,6 +754,8 @@ def main() -> int:
         "skipped": dict(reasons),
         "invalid": dict(invalid),
         "imagesUnresolved": resolver.unresolved,
+        "imagesUnmeasured": unmeasured,
+        "imageDimsCached": len(dims),
         "imageNotes": resolver.notes,
         "imageHosts": dict(collections.Counter(
             a["images"][0]["url"].split("/")[2] for a in assets)),
@@ -707,7 +769,7 @@ def main() -> int:
     if invalid:
         print(f"[roku-feed] invalid (dropped): {dict(invalid)}")
     print(f"[roku-feed] images: hosts={manifest['imageHosts']} unresolved={resolver.unresolved} "
-          f"notes={resolver.notes}")
+          f"unmeasured={unmeasured} dims-cached={len(dims)} notes={resolver.notes}")
     print(f"[roku-feed] test feed: {manifest['test']}")
     return 0
 

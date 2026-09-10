@@ -284,9 +284,29 @@ off). Generated in `deploy-pages.yml` (fetches catalog.json AFTER the rsync,
 excluded from the artifact, 10k-asset floor). Roku channel: tvSpecial deep
 links now autoplay (build 00052) — the feed emits `tvSpecial` only via
 `--tv-specials` once that package is the store one. Logos for the dashboard
-at `build/roku-store/search_*.png`. 57/57 tests. Docs: ROKU-SUBMISSION.md
-§Roku Search feed. NEXT: dashboard validator on the live URL → New search
-feed → SearchBeta install → deep-link params → Submit for Review.
+at `build/roku-store/search_*.png`. Docs: ROKU-SUBMISSION.md §Roku Search feed.
+
+**Then Roku's own validator rejected 8,465 of them, with 0 schema errors.**
+Four rules it enforces that neither the spec page nor the schema state, each
+read off its report's samples: it does NOT follow redirects (every archive.org
+cover and Commons FilePath — 7,557); a main image must be 2:3 or 16:9 within a
+few percent (a 300x400 and a 300x300 refused; 907); nothing under 60 s (343)
+or before 1900 (every 1890s film); lengths in UTF-16 units (an emoji
+description). Fixes: an `ImageResolver` (one HEAD for the covers' storage
+node; Commons imageinfo API, 50 titles a call), `tools/measure_image_dims.py`
+→ `ops/image-dims.json` (publish-db commits it, 3,000/day) so an off-aspect
+poster is swapped for the 16:9 backdrop or dropped, and the four gates.
+80/80 tests. Its "Validated content" printed **-289%** — read the issues
+JSON, never the percentage.
+
+Same session, owner asks: the **Roku Channel Store link** is on the front
+page (About card + footer, shell v63; ops/stores-manual.json marks Roku LIVE).
+**Apple sign-in on the web** is fully built (`js/cloudkitsync.js`) and dormant
+on ONE value — a CloudKit JS API token from icloud.developer.apple.com, a
+domain the Chrome extension has no permission for; `docs/web-apple-sync.md`
+has the four steps. NEXT: New search feed form is filled in the dashboard
+(app, URL, both logos, email) → submit → SearchBeta install → deep-link
+params → Submit for Review.
 
 ### 2026-09-09 (later) — Play data, the crash shipped, releases off this machine
 Continuation of the Pulse session. Everything on `main`; app **1.42.7 (1019)**,
