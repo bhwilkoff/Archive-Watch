@@ -1214,9 +1214,18 @@
         const meta = document.createElement('p');
         meta.className = 'hero-meta';
         meta.textContent = year ? String(year) : '';
-        const cta = document.createElement('span');
+        // A real anchor, not a span. The slide's onclick serves a mouse and
+        // NOTHING else: a D-pad remote reaches `a[href]`/`button` and no other
+        // element, so with a span here the hero — the first thing on a TV
+        // screen, and the marquee — could not be reached or opened at all.
+        // Desktop keyboard users were equally stranded. The TV apps all put
+        // focus on the hero's CTA (tvOS, Roku, Google TV), so this is the
+        // matching idiom rather than a workaround.
+        const cta = document.createElement('a');
         cta.className = 'hero-cta';
+        cta.href = `#/item/${encodeURIComponent(id)}`;
         cta.textContent = 'Details';
+        cta.onclick = e => e.stopPropagation();   // the slide would re-navigate
         copy.append(eyebrow, h, meta, cta);
 
         slide.append(ambient, poster, copy);

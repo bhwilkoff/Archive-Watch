@@ -19,6 +19,7 @@
 /* Safari layout rule: flex column body, scrolling main, no fixed overlays. */
 body {
   margin: 0;
+  height: 100vh;
   height: 100dvh;
   display: flex;
   flex-direction: column;
@@ -111,8 +112,12 @@ a { color: var(--color-accent); }
   scroll-snap-stop: always;
   overflow: hidden;
   display: flex; align-items: center;
+  gap: clamp(14px, 4vw, 40px);
   gap: clamp(14px, 4cqi, 40px);
+  padding: clamp(16px, 4.5vw, 48px) clamp(16px, 5vw, 56px);
   padding: clamp(16px, 4.5cqi, 48px) clamp(16px, 5cqi, 56px);
+  min-height: min(clamp(220px, 52vw, 460px), 62vh);
+  min-height: min(clamp(220px, 52cqi, 460px), 62vh);
   min-height: min(clamp(220px, 52cqi, 460px), 62dvh);
   background: var(--bg-raise);
   cursor: pointer;
@@ -142,18 +147,24 @@ a { color: var(--color-accent); }
 
 .hero-poster {
   position: relative; z-index: 1;
+  width: clamp(92px, 26vw, 230px);
   width: clamp(92px, 26cqi, 230px);
   aspect-ratio: 2 / 3; object-fit: cover; flex: none;
+  border-radius: clamp(8px, 1.4vw, 14px);
   border-radius: clamp(8px, 1.4cqi, 14px);
   border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 clamp(8px, 2vw, 22px) clamp(20px, 5vw, 52px) rgba(0, 0, 0, 0.55);
   box-shadow: 0 clamp(8px, 2cqi, 22px) clamp(20px, 5cqi, 52px) rgba(0, 0, 0, 0.55);
 }
 /* Wide hero art (a real backdrop) — a well-composed 16:9 still, not a cropped poster. */
-.hero-poster.hero-wide { width: clamp(200px, 56cqi, 560px); aspect-ratio: 16 / 9; }
+.hero-poster.hero-wide { width: clamp(200px, 56vw, 560px);
+  width: clamp(200px, 56cqi, 560px); aspect-ratio: 16 / 9; }
 
 .hero-copy { position: relative; z-index: 1; min-width: 0; }
 .hero-eyebrow {
+  margin: 0 0 clamp(4px, 0.8vw, 10px);
   margin: 0 0 clamp(4px, 0.8cqi, 10px);
+  font-size: clamp(0.62rem, 1.5vw, 0.8rem);
   font-size: clamp(0.62rem, 1.5cqi, 0.8rem);
   font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase;
   color: var(--color-primary);
@@ -162,6 +173,7 @@ a { color: var(--color-accent); }
   margin: 0;
   font-family: "Iowan Old Style", Palatino, Georgia, "Times New Roman", serif;
   font-weight: 800;
+  font-size: clamp(1.3rem, 5.2vw, 3.1rem);
   font-size: clamp(1.3rem, 5.2cqi, 3.1rem);
   line-height: 1.08;
   text-wrap: balance;
@@ -170,20 +182,27 @@ a { color: var(--color-accent); }
   text-shadow: 0 2px 18px rgba(0, 0, 0, 0.6);
 }
 .hero-meta {
+  margin: clamp(6px, 1vw, 12px) 0 0;
   margin: clamp(6px, 1cqi, 12px) 0 0;
+  font-size: clamp(0.78rem, 1.8vw, 0.95rem);
   font-size: clamp(0.78rem, 1.8cqi, 0.95rem);
   color: rgba(255, 255, 255, 0.72);
 }
 .hero-cta {
+  margin-top: clamp(10px, 2.2vw, 22px);
   display: inline-block; margin-top: clamp(10px, 2.2cqi, 22px);
+  padding: clamp(7px, 1.4vw, 11px) clamp(16px, 3vw, 26px);
   padding: clamp(7px, 1.4cqi, 11px) clamp(16px, 3cqi, 26px);
   background: var(--color-primary); color: #fff; border: 0;
   border-radius: 999px; font-weight: 700;
+  font-size: clamp(0.82rem, 1.8vw, 1rem);
   font-size: clamp(0.82rem, 1.8cqi, 1rem);
+  text-decoration: none;          /* it is an <a> so a remote can reach it */
 }
 
 /* Dots: real buttons, synced from scroll position. */
 .hero-dots {
+  inset: auto 0 clamp(8px, 1.6vw, 16px) 0;
   position: absolute; z-index: 2; inset: auto 0 clamp(8px, 1.6cqi, 16px) 0;
   display: flex; justify-content: center; gap: 10px;
   pointer-events: none;
@@ -461,6 +480,7 @@ input[type="search"] {
 :root { --epg-rail-w: 92px; }
 .epg {
   position: relative; overflow: auto; margin: 8px var(--pad) 24px;
+  max-height: calc(100vh - 220px);
   max-height: calc(100dvh - 220px);
   border: 1px solid var(--border); border-radius: var(--radius);
   background: var(--bg);
@@ -530,7 +550,8 @@ input[type="search"] {
 /* Phone: tighter rail + type so the listing keeps its proportions. */
 @media (max-width: 600px) {
   :root { --epg-rail-w: 70px; }
-  .epg { margin: 8px 8px 16px; max-height: calc(100dvh - 190px); }
+  .epg { margin: 8px 8px 16px;
+         max-height: calc(100vh - 190px); max-height: calc(100dvh - 190px); }
   .epg-rail { font-size: 0.56rem; padding: 3px; }
   .epg-dot { width: 22px; height: 22px; font-size: 0.75rem; }
   .epg-row { height: 54px; margin: 2px 0; }

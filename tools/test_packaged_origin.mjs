@@ -74,6 +74,20 @@ for (const pkg of ['webos', 'tizen']) {
     console.log(`SKIP  ${pkg} not staged (run tv/build-tv-packages.sh)`);
     continue;
   }
+  // A STALE stage is not a defect: stage() does `rm -rf` before every build, so
+  // an old local copy can never reach a package. tv/<pkg>/app is gitignored, so
+  // this is somebody's August leftover, not something we ship. Failing on it is
+  // a red X for a non-failure (Decision 107) — and it cried wolf for five weeks.
+  // Only a stage that is CURRENT and still differs means stage() is broken.
+  const staleness = SHARED
+    .filter((f) => fs.existsSync(path.join(dir, f)))
+    .filter((f) => fs.statSync(path.join(ROOT, f)).mtimeMs
+                 > fs.statSync(path.join(dir, f)).mtimeMs);
+  if (staleness.length) {
+    console.log(`SKIP  ${pkg} staged before ${staleness.join(', ')} changed `
+              + `(run tv/build-tv-packages.sh ${pkg})`);
+    continue;
+  }
   for (const f of SHARED) {
     const a = fs.readFileSync(path.join(ROOT, f));
     const b = fs.existsSync(path.join(dir, f)) ? fs.readFileSync(path.join(dir, f)) : null;
