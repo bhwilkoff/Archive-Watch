@@ -1311,9 +1311,16 @@ def build_db_obj(cat, out_db, rotate_seed="0", materialize_episodes=True,
         # Fetched LAZILY by the web viewer, only when a saved id misses — a
         # ~300 KB map on every page load to serve a rare miss is the wrong
         # trade, so it is a sidecar and not a column in catalog-index.json.
+        # The web has no mature-content setting (Decision 105), so a saved
+        # id must never forward to a survivor the web would otherwise never
+        # show — 32 aliases pointed at mature survivors (measured 2026-09-10).
+        # The SQLite table keeps them: the apps gate display by their setting.
+        adult_ids = {it["archiveID"] for it in deduped if _is_adult(it)}
+        web_rows = [(o, n) for o, n in rows if n not in adult_ids]
         Path(aliases_out).write_text(
-            json.dumps(dict(rows), separators=(",", ":")), encoding="utf-8")
-        print(f"[dedup] wrote {aliases_out} ({len(rows)} pairs) for the web viewer")
+            json.dumps(dict(web_rows), separators=(",", ":")), encoding="utf-8")
+        print(f"[dedup] wrote {aliases_out} ({len(web_rows)} pairs) for the web viewer"
+              f" ({len(rows) - len(web_rows)} mature survivors withheld)")
     n_series, n_eps = populate_series(db, materialize_episode_items=materialize_episodes)
     create_indexes(db)
     db.execute("INSERT OR REPLACE INTO meta VALUES ('schemaVersion', ?)", (str(SCHEMA_VERSION),))

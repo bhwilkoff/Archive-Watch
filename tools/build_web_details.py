@@ -43,6 +43,8 @@ import sys
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(REPO / "tools"))
+from build_sqlite import _is_adult  # noqa: E402  (Decision 105: one adult predicate)
 CATALOG = REPO / "catalog.json"
 FEATURED = REPO / "featured.json"
 OUT_DIR = REPO / "details"
@@ -66,21 +68,14 @@ def main():
     catalog = json.loads(CATALOG.read_text(encoding="utf-8"))
     items = catalog.get("items", catalog if isinstance(catalog, list) else [])
 
-    adult = set()
-    if FEATURED.exists():
-        try:
-            adult = {c.lower() for c in json.loads(FEATURED.read_text())
-                     .get("adultCollections", [])}
-        except Exception:  # noqa: BLE001
-            adult = set()
-
     shards: dict[str, dict] = {f"{i:02x}": {} for i in range(256)}
     kept = 0
     for it in items:
-        if it.get("excluded") or it.get("isAdult"):
-            continue
-        cols = {c.lower() for c in (it.get("collections") or [])}
-        if adult & cols:
+        # ONE mature predicate (Decision 105). This file carried its own
+        # looser copy — the item flag plus the adult-collection list — and
+        # two title-marker films the apps hide ("...Porno...") sat in the
+        # shards, reachable by a direct /item/<id> link (measured 2026-09-10).
+        if it.get("excluded") or _is_adult(it):
             continue
         aid = it.get("archiveID")
         if not aid:
