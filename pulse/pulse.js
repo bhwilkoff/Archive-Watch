@@ -1020,8 +1020,9 @@ function appPlatform(d, p) {
         + C.bars(Object.entries(a.bySource || {}).slice(0, 5)
             .map(([k, v]) => ({ label: k, value: v, tone: "measure" }))) },
       cap: `${int(a.visitors28d)} visitors reached the listing in 28 days. This counts `
-        + "installs that came THROUGH the listing, which is not every install \u2014 "
-        + "but it is the only Play install figure that is current",
+        + "installs that came THROUGH the listing, not every install: measured "
+        + "against the 61 days both exports covered it ran at 85% of Daily Device "
+        + "Installs. It is the only Play install figure that is still current",
       detail: [...a.daily].reverse().slice(0, 21).map((r) => ({
         label: r.date, value: `${r.acquisitions} / ${r.visitors}`,
         note: r.visitors ? `${Math.round((r.acquisitions / r.visitors) * 100)}% conversion` : null,
