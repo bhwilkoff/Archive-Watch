@@ -39,8 +39,8 @@ and Development checklists by hand. The items that matter for this app:
 
 | Area | Status | Notes |
 |---|---|---|
-| Launches without error | Pass | Cold launch to Home |
-| Full D-pad operability | Pass | 9 surfaces verified by automated focus trace |
+| Launches without error | **Not verified on the panel** | It installs and launches (`tizen run` reports the pid), but retail Tizen closes `sdb shell` entirely — no console, no screenshot, no dlog — so nothing here has SEEN Home render on the TV. `tools/test_packaged_origin.mjs` (23) guards the known cause of an empty Home, including that every script index.html loads is actually in the package. **Owner: confirm films appear before submitting** |
+| Full D-pad operability | Pass, **re-verified 2026-09-10** | The August claim of "9 surfaces verified" was **wrong** and this is what it cost: the Home HERO had no focusable element at all (the marquee, unreachable), and Browse's four filters were focusable but DEAD because tv.js ran spatial navigation on every arrow without checking what had focus. Both measured on the live site, both fixed, both now covered by `tools/test_tv_focus.mjs` (32 cases) with controls |
 | Focus always visible | Pass | Ring + scale + elevation, never colour alone |
 | **Back / Return behaviour** | Pass | Layered — an open player closes before any navigation; exits at the root via `tizen.application…exit()` |
 | Media keys | Pass | Registered through `tizen.tvinputdevice.registerKey()` — **Tizen does not deliver them otherwise** |
@@ -48,7 +48,7 @@ and Development checklists by hand. The items that matter for this app:
 | Subtitles | Pass | WebVTT via `<track>`, user-selectable |
 | Suspend / resume | Pass | `visibilitychange` pauses; focus re-claimed on return |
 | Overscan | Pass | 5% safe insets; no text at the panel edge |
-| Ten-foot legibility | Pass | 24px body minimum at 1080p |
+| Ten-foot legibility | Pass | 24px body, 20px for a card's year caption, 32-64px headings — all tokens in `tv.css`, none a loose literal |
 | No account / payment | Pass | No sign-in, advertising, or purchases |
 | Content rights | Pass | Public-domain / CC only — see `docs/webos-submission.md` §4 |
 

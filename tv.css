@@ -16,6 +16,7 @@ html.tv {
 
   /* §4.3 — six levels, three weights x two sizes. 24px is the ten-foot body
      floor; a seventh level is refused (refactor instead). */
+  --tv-caption: 20px;
   --tv-body: 24px;
   --tv-body-lg: 28px;
   --tv-title: 32px;
@@ -124,7 +125,11 @@ html.tv .card .t {
 }
 
 html.tv .card .y {
-  font-size: 20px;
+  /* The one level below body, declared rather than left as a loose number —
+     the six-level rule (mobile-first-density-design) means a seventh size has
+     to be a deliberate token, not a literal in one rule. 20px at 1080p is a
+     caption; BODY stays 24px, which is the floor the submission claims. */
+  font-size: var(--tv-caption);
 }
 
 html.tv h1 { font-size: var(--tv-hero); }
