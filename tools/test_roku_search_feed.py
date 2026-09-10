@@ -237,12 +237,12 @@ def main() -> int:
           F.build_asset(item(), imdb=True).get("externalIds"), [{"source": "IMDB", "id": "tt0017925"}])
     check("title is never decorated with the year", a["titles"][0]["value"], "The General")
     check("a background image is included when the catalog has one", len(a["images"]), 2)
-    pages = F.paginate([a] * 5, 2, "https://archivewatch.org/roku-search")
+    pages = F.paginate([a] * 5, 2, "https://archivewatch.org/roku-search", "20260910")
     check("5 assets at 2/page is 3 pages", [n for n, _ in pages], ["feed.json", "feed-2.json", "feed-3.json"])
-    check("every page but the last chains nextPageUrl",
+    check("every page but the last chains nextPageUrl, stamped past the CDN cache",
           [d.get("nextPageUrl") for _, d in pages],
-          ["https://archivewatch.org/roku-search/feed-2.json",
-           "https://archivewatch.org/roku-search/feed-3.json", None])
+          ["https://archivewatch.org/roku-search/feed-2.json?g=20260910",
+           "https://archivewatch.org/roku-search/feed-3.json?g=20260910", None])
     check("every page is a complete root (version, language, countries)",
           all(d["version"] == "1" and d["defaultLanguage"] == "en"
               and d["defaultAvailabilityCountries"] == ["us"] for _, d in pages), True)

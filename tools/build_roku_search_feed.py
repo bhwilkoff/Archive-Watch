@@ -626,9 +626,16 @@ def validate_asset(a: dict) -> list:
     return errs
 
 
-def paginate(assets: list, page_size: int, base_url: str) -> list:
-    """Root feed + chained pages. Page 1 is feed.json; page N is feed-N.json."""
+def paginate(assets: list, page_size: int, base_url: str, stamp: str = "") -> list:
+    """Root feed + chained pages. Page 1 is feed.json; page N is feed-N.json.
+
+    `stamp` rides on every nextPageUrl as a query string: GitHub Pages sits
+    behind a CDN with a 600 s cache, and Roku's second validation run read
+    page 1 fresh (a new URL) and pages 2-5 from the cache — the OLD feed —
+    so the whole run re-reported the redirects that had just been fixed. A
+    per-build stamp makes every page a URL the CDN has never served."""
     pages = []
+    q = f"?g={stamp}" if stamp else ""
     n = max(1, (len(assets) + page_size - 1) // page_size)
     for p in range(n):
         chunk = assets[p * page_size:(p + 1) * page_size]
@@ -639,7 +646,7 @@ def paginate(assets: list, page_size: int, base_url: str) -> list:
             "assets": chunk,
         }
         if p + 1 < n:
-            doc["nextPageUrl"] = f"{base_url}/feed-{p + 2}.json"
+            doc["nextPageUrl"] = f"{base_url}/feed-{p + 2}.json{q}"
         pages.append(("feed.json" if p == 0 else f"feed-{p + 1}.json", doc))
     return pages
 
@@ -721,7 +728,8 @@ def main() -> int:
 
     out = Path(args.out) / FEED_DIR
     out.mkdir(parents=True, exist_ok=True)
-    pages = paginate(assets, args.page_size, args.base_url)
+    stamp = dt.datetime.now(dt.timezone.utc).strftime("%Y%m%d%H%M%S")
+    pages = paginate(assets, args.page_size, args.base_url, stamp)
     total_bytes = 0
     for name, doc in pages:
         data = json.dumps(doc, ensure_ascii=False, separators=(",", ":"))
