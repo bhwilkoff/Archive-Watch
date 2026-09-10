@@ -148,6 +148,38 @@ press(K.BACK_TIZEN);
 check('Tizen back (10009) navigates', global._wentBack, true);
 
 
+/* A FOCUSED <select> MUST OWN UP/DOWN. onKeyDown ran spatial navigation on
+   every arrow without checking what had focus, so the arrows walked off the
+   control and its value could never change — Browse's decade, keyword, studio
+   and sort filters were reachable, looked right, and were dead on every TV.
+   Left/Right must still navigate, or the viewer is trapped in a control they
+   cannot leave, which is the bug a naive exemption introduces instead. */
+{
+  // Placed IN row A, to the right of the cards: at the left edge there is
+  // nothing to navigate to, so a passing LEFT check would prove nothing.
+  const sel = new El('select', { left: 96 + 5 * 220, top: 200, width: 180, height: 44 },
+                     { name: 'decade-select' });
+  nodes.push(sel);
+  sel.focus();
+  press(K.DOWN);
+  check('DOWN on a focused select does not move focus',
+        doc.activeElement?.attrs.name, 'decade-select');
+  press(K.UP);
+  check('UP likewise stays on the control',
+        doc.activeElement?.attrs.name, 'decade-select');
+  sel.focus();
+  press(K.LEFT);
+  check('LEFT still navigates away, so nobody is trapped',
+        doc.activeElement?.attrs.name !== 'decade-select', true);
+  // The exemption must be keyed on the ELEMENT, not on the key: a card must
+  // still move on Down, or the whole grid stops working.
+  rowA[0].focus();
+  press(K.DOWN);
+  check('...and a normal card still moves on DOWN',
+        doc.activeElement?.attrs.name, 'B0');
+  nodes.pop();
+}
+
 /* ── The remote can only reach a[href] / button / input / select / [tabindex].
    Anything else with a click handler is MOUSE-ONLY, and on a TV that means
    invisible. The Home hero was exactly that for five weeks: an <article> with

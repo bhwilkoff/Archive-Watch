@@ -262,6 +262,19 @@
       }
     }
 
+    // A FOCUSED <select> OWNS UP/DOWN. Without this the handler ran spatial
+    // navigation on every arrow regardless of what had focus, so the arrows
+    // moved focus off the control and its value could never change: Browse's
+    // decade, keyword, studio and sort filters were reachable, looked fine,
+    // and were dead on every TV. Left/Right still navigate, so the viewer is
+    // never trapped inside a control they cannot leave — which is the failure
+    // mode a naive "exempt form controls" fix introduces instead.
+    const focused = document.activeElement;
+    if (focused && focused.tagName === 'SELECT' && !focused.disabled
+        && (code === KEY.UP || code === KEY.DOWN)) {
+      return;                       // let the browser change the value
+    }
+
     switch (code) {
       case KEY.LEFT:  ev.preventDefault(); move('left');  break;
       case KEY.UP:    ev.preventDefault(); move('up');    break;
