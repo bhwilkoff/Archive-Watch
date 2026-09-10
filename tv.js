@@ -144,10 +144,40 @@
     if (!active || active === document.body || !isReachable(active)) {
       return focusEl(pool[0]);
     }
-    const next = bestInDirection(active.getBoundingClientRect(), dir, pool);
+    // STAY INSIDE THE SCROLLING AREA FIRST. `body` is a flex column with
+    // `overflow:hidden`, so <main> scrolls and the footer is a SIBLING pinned
+    // below it, permanently on screen. Purely geometric, the footer is
+    // therefore the nearest thing below EVERY row on the page — so Down from
+    // the category tiles jumped straight to "About & attribution" and the page
+    // never scrolled. That is the owner's report, "the screen doesn't follow
+    // the rectangle", and it is not a Home bug: it is what a pinned element
+    // does to a spatial engine on any surface.
+    //
+    // A move therefore prefers a target in the same scroll container, and only
+    // leaves it when that direction is genuinely exhausted — which is when a
+    // viewer means to leave. Measured with tools/tv_glass.mjs at 1920x1080.
+    const box = active.getBoundingClientRect();
+    const home = scrollParent(active);
+    if (home) {
+      const inside = pool.filter(function (el) { return scrollParent(el) === home; });
+      const near = inside.length && bestInDirection(box, dir, inside);
+      if (near) return focusEl(near);
+    }
+    const next = bestInDirection(box, dir, pool);
     // §3.4 — no dead ends. If nothing lies that way we simply stay put, which
     // is a deliberate stop, not a strand: Back always still works.
     return next ? focusEl(next) : false;
+  }
+
+  /** The nearest ancestor that actually scrolls, or null. */
+  function scrollParent(el) {
+    for (var n = el.parentElement; n && n !== document.body; n = n.parentElement) {
+      var oy = getComputedStyle(n).overflowY;
+      if ((oy === 'auto' || oy === 'scroll') && n.scrollHeight > n.clientHeight) {
+        return n;
+      }
+    }
+    return null;
   }
 
   /**
