@@ -25,165 +25,133 @@
 
 **Archive Watch** turns the Internet Archive's vast public-domain library —
 feature films, classic TV, silent cinema, animation, newsreels, and vintage
-commercials — into a beautiful, focus-driven browsing and viewing experience.
-Archival titles are enriched with posters, cast, synopses, and genres from TMDb
-(with Wikidata, Wikimedia Commons, TVmaze, and the Library of Congress as
-fallbacks), so a 1920s silent looks as considered as anything on a modern
-streaming service.
+commercials — into a browsing and viewing experience with the dignity of a
+modern streaming service and none of its machinery. Around 32,000 titles,
+each enriched with posters, cast, synopses and genres from TMDb, Wikidata,
+Wikimedia Commons, TVmaze and the Library of Congress, so a 1920s silent
+looks as considered as anything released this year.
 
-The app is **free**, has **no ads, no subscriptions, and requires no account**,
-and collects no personal data. It's built for the curious viewer who'd rather
-wander a well-stocked repertory cinema than doomscroll a recommendation feed.
+It is **free**, with **no ads, no subscriptions, no account, and no tracking**.
+It is built for the curious viewer who would rather wander a well-stocked
+repertory cinema than doomscroll a recommendation feed.
 
-- **Platforms:** Apple TV (the original and primary platform, tvOS 17+, built
-  against tvOS 26 / Liquid Glass), iPhone, iPad, Mac, Android, Google TV,
-  Fire TV, Roku, and the web at [archivewatch.org](https://archivewatch.org/).
-  Every platform is a native app over the SAME catalog (Decision 028); a Samsung
-  TV build is submitted and an LG build is packaged.
-- **Catalog:** ~32,000 visible public-domain titles, enriched, rights-audited
-  and curated; ~26,700 in the public web index
+## Why we build it this way
+
+Every feature exists in service of human curiosity, not in place of it. Before
+anything is built, it has to answer four questions: does it deepen the viewer's
+understanding of the archive, does it invite them to participate, does it leave
+them more capable rather than more dependent, and is it the clearest thing that
+could work. That test is why the app looks the way it does:
+
+- **The archive's own structure is the interface.** Decades, genres, curated
+  collections, directors, the Public Domain Day shelf — you browse by the
+  categories that actually organise the material, not a "for you" row that
+  hides them. A film ends with a *choice* of what to watch next, never an
+  autoplay decision made for you.
+- **Wandering is a feature.** A dozen Surprise doors — a random film, a random
+  decade, Cartoon Mode, Party Play, a cover-art screensaver — because the joy
+  of a repertory house is finding what you did not know to look for.
+- **You own what you keep.** Favorites, playlists and watch history live on
+  your device and sync only through your own cloud: iCloud on Apple, Google
+  Drive on Android, and both on the web. There is no Archive Watch server and
+  nothing to sign up for.
+- **Nothing is hidden about where a film comes from.** Every title shows its
+  Internet Archive provenance, its metadata sources are credited on screen, and
+  a film's other release title is shown rather than silently reconciled.
+- **Rights are evidence, not a label.** A title is public domain in the app
+  because the pipeline can say why — published before 1930, a government work,
+  a real licence — and anything it cannot evidence is hidden, reversibly, until
+  it can. Mature material is off by default on every platform, decided by one
+  shared rule, so a viewer never meets it by accident.
+- **Phones create, TVs watch.** The living-room apps are lean-back; the phone
+  apps add Clip Studio and the Mac adds Creation Studio, because a public-domain
+  archive is something you should be able to make with, not only consume.
 
 ## Features
 
-- **Home** — a hero carousel plus curated and popularity-driven shelves
-- **Live Channels** — a programmed, deterministic TV-guide grid (what's on now /
+**Discover**
+- Home — a hero carousel plus curated and popularity-driven shelves, Hidden
+  Gems, director shelves, Continue Watching
+- Live Channels — a programmed, deterministic TV-guide grid (what's on now and
   next); tune in and it plays straight through, with vintage public-domain
-  **commercials between programs** for the 1990s-broadcast feel
-- **Movies / TV Shows / Collections** — browse by type, decade, genre, and
-  curated collection; TV is a canonical series → season → episode spine
-- **Search** — full-text search with type and era filters; Siri Remote
-  dictation on Apple TV; **Roku Search** lists the pre-1930 films in the
-  Roku home menu's own search and deep links into the channel
-- **Surprise Me** — a dozen ways to wander (random film, decade, Public Domain
-  Day, Cartoon Mode, Party Play, the cover-art screensaver, and more)
-- **Library** — Favorites, playlists, and watch history, synced through your
-  own cloud: **Sign in with Apple** (iCloud) on the Apple apps, **Sign in with
-  Google** (Drive App Data) on Android, and **both** on the web — the one
-  client that can merge the two (Decisions 022, 028, 102)
-- **Watch Together** — SharePlay on Apple TV, iPhone, iPad and Mac
-- **Offline** — download a film to iPhone, iPad or Mac and watch it on a plane
-- **Captions** — published subtitles where they exist, live on-device
-  captioning on Apple platforms where they don't
-- **Clip Studio** (phones) and **Creation Studio** (Mac) — cut, caption and
-  share public-domain clips, GIFs and supercuts
-- **Resilient playback** — a custom streaming loader that survives Archive.org
-  connection resets without buffer-flushing stalls, at full quality
-- **Mature content off by default, everywhere** — one predicate decides it for
-  every platform; the web and Roku, which have no setting, read an index that
-  already IS the default-off state (Decision 105)
+  commercials between programs
+- Movies, TV Shows and Collections — browse by type, decade, genre and curated
+  collection; television is a real series → season → episode spine
+- Search — full-text search with type and era filters, cast and director
+  lookups, Siri dictation on Apple TV, and Roku Search integration so the
+  Roku home menu finds the films too
+- Surprise — random film, random decade, Public Domain Day, Cartoon Mode,
+  Party Play, the screensaver, and more
 
-## Repository layout
+**Watch**
+- Resilient streaming that survives archive.org connection resets without a
+  stall, with automatic failover between storage nodes
+- Subtitles wherever they exist, live on-device captioning on Apple platforms
+  where they do not, playback speed, picture-in-picture
+- Watch Together over SharePlay on Apple TV, iPhone, iPad and Mac
+- AirPlay and Google Cast to the television you already own
+- Offline downloads on iPhone, iPad and Mac, with the film's real file choices
+  shown rather than "standard" and "high"
 
-```
-/                                  ← repo root
-├── ArchiveWatch/
-│   └── ArchiveWatch.xcodeproj      ← the Apple apps (Swift 6 · SwiftUI · SwiftData):
-│       └── ArchiveWatch/             tvOS, iOS, iPadOS, macOS from one project
-├── android/                       ← Android · Google TV · Fire TV (Kotlin · Compose · Media3)
-├── roku/                          ← the Roku channel (BrightScript · SceneGraph)
-├── index.html, watch.js/.css     ← archivewatch.org — the web viewer (GitHub Pages root)
-├── tv/, tv.js, tv.css             ← the web viewer's TV layer (Samsung Tizen · LG webOS)
-├── cast/                          ← Chromecast receiver
-├── curate/, css/, js/             ← public "Suggest & Curate" editorial tool (archivewatch.org/curate/)
-├── pulse/                         ← the owner's dashboard (archivewatch.org/pulse/, unlisted)
-├── featured.json                  ← curated home shelves + categories (editorial source)
-├── catalog-index.json, details/   ← the web + Roku data plane (index + 256 detail shards)
-├── series/*.json                  ← canonical TV spines (TVmaze-derived)
-├── ops/                           ← measured state the pipeline keeps (image sizes, store facts, Pulse)
-├── tools/                         ← Python content pipeline (discover, ingest, enrich, audit, build)
-├── .github/workflows/             ← scheduled discovery / enrichment / DB publish / Pages deploy / store submission
-├── docs/                          ← binding design docs per platform, decisions, runbooks, playbooks
-├── AppVersion.xcconfig            ← single source of truth for version + build
-└── Secrets.xcconfig               ← gitignored; TMDB_BEARER_TOKEN and other keys
-```
+**Keep**
+- Favorites, playlists, user-made channels and a durable watch history, synced
+  through your own cloud and never through ours
+- Share links that open the film in whichever app you have, or on the web
 
-The full `catalog.json` (~140 MB) and the prebuilt `catalog.sqlite` are **not in
-git** — they're generated accumulators hosted as rolling **GitHub Release**
-assets (`catalog-source`, `catalog-db`). The apps download the compressed
-SQLite, cache it, and query it on-device; the web viewer and the Roku channel
-read the committed `catalog-index.json` and `details/` shards. Generated
-site content (share pages, the Roku Search feed, cover images) is built into
-the Pages artifact at deploy time and never committed. See
-`docs/CATALOG-CONTRACT.md` and Decisions 017–020, 029.
+**Create**
+- Clip Studio on iPhone and Android: trim, reframe, caption, colour-grade,
+  speed-change and export clips and GIFs with automatic provenance credits
+- Creation Studio on the Mac: a multi-clip editor and supercut engine that
+  searches every subtitle line in the archive and cuts the moments you name
 
-## Build & run
+## Parity across platforms
 
-**Apple** (requires Xcode 26):
+Same features, native idioms. Every platform is a native app over the same
+catalog and the same rules; the differences below are platform facts, not
+neglect. `PARITY.md` is the exhaustive ledger, kept in the same change set as
+every feature.
 
-```bash
-export DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer
-echo 'TMDB_BEARER_TOKEN = <your v4 bearer token>' > Secrets.xcconfig   # optional
-xcodebuild -project ArchiveWatch/ArchiveWatch.xcodeproj \
-  -scheme ArchiveWatch -configuration Debug \
-  -destination 'platform=tvOS Simulator,name=Apple TV 4K (3rd generation)' build
-```
+| | Apple TV | iPhone / iPad | Mac | Android / Google TV / Fire TV | Roku | Web |
+|---|:-:|:-:|:-:|:-:|:-:|:-:|
+| Home, Browse, Collections, Search | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Live Channels (TV-guide grid) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Surprise, Cartoon Mode, Party Play | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Favorites, playlists, watch history | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Sync through your own cloud | iCloud | iCloud | iCloud | Google Drive | — | iCloud + Google |
+| Subtitles and speed | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Live on-device captions | ✅ | ✅ | ✅ | — | — | — |
+| Watch Together (SharePlay) | ✅ | ✅ | ✅ | — | — | — |
+| AirPlay / Google Cast | receiver | AirPlay | AirPlay | Cast | receiver | Cast |
+| Offline downloads | no storage | ✅ | ✅ | planned | no storage | — |
+| Clip Studio | — | ✅ | — | ✅ | — | — |
+| Creation Studio | — | — | ✅ | — | — | — |
+| Home-screen surface | Top Shelf | widgets | — | shortcuts | — | PWA |
+| Mature content off by default | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 
-Version/build numbers live only in `AppVersion.xcconfig` (never the Xcode
-identity panel — Decision 003). Store builds are made in CI: Apple by
-`appstore-build.yml` + `appstore-submit.yml` (Decision 101), Play by
-`play-release.yml` (Decision 110).
+A dash means the platform cannot do it or it does not apply: Apple TV and Roku
+have no durable storage for a downloaded film, SharePlay and live captioning are
+Apple frameworks, and a television is a Cast receiver rather than a sender.
 
-**Android**: `cd android && ./gradlew assembleGoogleDebug` (or `assembleAmazonDebug`
-for Fire TV). **Roku**: `python tools/roku.py` sideloads to a developer-mode
-device; `tools/roku_package.py` builds the store package. **Web**:
-`python3 -m http.server 8080` from the repo root.
+## How it is built
 
-Real devices, never emulators, are the verification bar — `docs/DEVICE-TESTING.md`.
-
-## The content pipeline
-
-The catalog grows and self-heals automatically via scheduled GitHub Actions
-(`.github/workflows/`): discovery (Wikidata public-domain feeds, Archive
-collections, Library of Congress, TVmaze TV spines, a title-first public-domain
-wants list), ingestion of playable derivatives, enrichment (TMDb / OMDb / TVDb /
-Commons / Wikipedia), data-quality remediation, a **rights audit** that hides
-anything not evidenced public domain behind a reversible flag (Decision 027),
-byte-level playability verification, subtitle sourcing, and publishing the
-apps' SQLite database plus the web index. The pipeline is stateful and
-merge-guarded so a rebuild can never shrink or clobber the catalog (Decision
-020), and a daily auditor names any workflow that went green while producing
-nothing (Decisions 090, 107).
-
-`archivewatch.org/pulse/` reads every channel the project has to its users —
-store states, reviews, downloads, the social programme, mentions — and says so
-when a reader cannot read rather than printing a zero (Decision 108).
-
-## The Roku Search feed
-
-`tools/build_roku_search_feed.py` publishes `archivewatch.org/roku-search/feed.json`
-so Roku's own search lists the catalog's films and deep links into the channel.
-It carries only films that are **public domain by age (pre-1930) with a designed
-poster** — the owner's bar for what is advertised to a third party — and
-everything Roku's validator taught us is encoded and tested: it follows no
-redirect, accepts only 2:3 or 16:9 images, refuses anything under a minute or
-before 1900, and counts lengths in UTF-16 units. `docs/ROKU-SUBMISSION.md`
-carries the dashboard steps and every measurement; Decision 113 the rationale.
-
-## The editorial web tool
-
-The site root (https://archivewatch.org) is the **Archive Watch web viewer**; the public **Suggest & Curate** editorial tool lives at https://archivewatch.org/curate/ :
-
-- **Anyone** can suggest a public-domain title to add (it emails the curator).
-- The **curator** arranges the app's home-screen shelves and searches the full
-  catalog to include titles, then emails / commits the updated `featured.json`.
-
-Run it locally with `python3 -m http.server` from the repo root, or visit the
-hosted version. Privacy, terms and support pages are served from the same site.
-
-## Tech & conventions
-
-- Apple: Swift 6, SwiftUI (`@Observable`, `@FocusState`, `TabView(.sidebarAdaptable)`),
-  SwiftData, AVKit — **no third-party Swift packages**
-- Android: Kotlin, Jetpack Compose (+ Compose for TV), bundled SQLite with
-  FTS5, Media3
-- Roku: BrightScript + SceneGraph; web: vanilla JS, no framework, no build step
-- All networking through shared clients; never a raw request from a view
-- Read-only on-device SQLite (FTS5) as the catalog source of truth
-- Every platform has a binding design doc in `docs/` (`tvOS-DESIGN.md`,
-  `iOS-DESIGN.md`, `IPAD-DESIGN.md`, `macOS-DESIGN.md`, `ANDROID-DESIGN.md`,
-  `TV-DESIGN.md`, `ROKU-DESIGN.md`, `WEB-DESIGN.md`) and a parity ledger
-  (`PARITY.md`); architecture rationale lives in `DECISIONS.md` and its
-  archives; the ten engineering disciplines in `docs/ENGINEERING-PROCESS.md`
+- **One catalog, many apps.** A Python pipeline discovers titles, ingests
+  playable derivatives, enriches metadata, audits rights, verifies that every
+  file actually plays, and publishes one SQLite database that the Apple and
+  Android apps download and one static index that the web viewer and the Roku
+  channel read. Nothing user-facing has a server of ours behind it.
+- **Measured, not assumed.** Features ship when they have been seen working on
+  real hardware — an Apple TV, a Pixel, a Fire TV, a Roku — never a simulator.
+  Every store's own validators are treated as the specification when the
+  written one disagrees.
+- **Native everywhere.** Swift and SwiftUI on Apple, Kotlin and Compose on
+  Android, BrightScript on Roku, plain HTML and JavaScript on the web. No
+  third-party frameworks, no analytics, no build steps the platform does not
+  require.
+- **The reasoning is written down.** `DECISIONS.md` records why each choice was
+  made and what the next person would get wrong without knowing it; each
+  platform has a binding design document in `docs/`; the ten engineering
+  disciplines this project learned the hard way are in
+  `docs/ENGINEERING-PROCESS.md`.
 
 ## Credits & attribution
 
@@ -192,4 +160,6 @@ Metadata and artwork from [TMDb](https://www.themoviedb.org) (this product uses
 the TMDb API but is not endorsed or certified by TMDb), OMDb, TheTVDB, Wikidata,
 Wikimedia Commons, TVmaze, and the Library of Congress. Archive Watch is a free,
 non-commercial labor of love; the only suggested support is a
-[donation to the Internet Archive](https://archive.org/donate).
+[donation to the Internet Archive](https://archive.org/donate). Know a
+public-domain film we are missing? Suggest it at
+[archivewatch.org/curate](https://archivewatch.org/curate/).
