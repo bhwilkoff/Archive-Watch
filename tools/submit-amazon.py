@@ -139,6 +139,24 @@ def main():
         sys.exit("App Bundles are not supported by this API — build the APK "
                  "(./gradlew assembleAmazonRelease).")
 
+    # A binary that the Appstore would hide from Fire OS 7 must never be
+    # uploaded. On 2026-09-10 the LIVE build was minSdk 29 — "Fire TV (98):
+    # 38 selected" in the console — and users reported every one of their
+    # devices as incompatible. The fix existed, unuploaded, for five weeks.
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    from audit_fire_tv_manifest import audit as fire_tv_audit
+    try:
+        findings = fire_tv_audit(a.apk)
+    except RuntimeError as e:
+        sys.exit(f"cannot audit the APK, so it does not ship: {e}")
+    if findings:
+        print("refusing to upload — this build would lose Fire TV devices:",
+              file=sys.stderr)
+        for f in findings:
+            print(f"  - {f}", file=sys.stderr)
+        sys.exit(1)
+    print("fire-tv manifest audit: OK")
+
     edit, _ = call(tok, "POST", f"/applications/{app}/edits")
     eid = edit.get("id") if isinstance(edit, dict) else None
     if not eid:
