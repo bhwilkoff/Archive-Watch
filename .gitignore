@@ -102,3 +102,7 @@ tv/webos/app/
 video_registry.db
 xcshareddata/WorkspaceSettings.xcsettings
 build/roku-store/
+
+# Tizen build output (derived — the .wgt is rebuilt by tv/build-tv-packages.sh)
+tv/tizen/app/.buildResult/
+tv/dist/*.wgt

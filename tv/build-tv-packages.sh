@@ -103,14 +103,28 @@ build_tizen() {
   echo "==> Tizen"
   local app="$ROOT/tv/tizen/app"
   stage "$app"
-  sed "s/version=\"[0-9][^\"]*\"/version=\"$VERSION\"/" \
+  # ONLY the widget's own version attribute. An unanchored `version="..."`
+  # also matches the XML DECLARATION (which must stay 1.0) and
+  # required_version (the minimum TIZEN PLATFORM, not our app) — it rewrote
+  # both, and nobody saw it because no .wgt was ever built until 2026-09-09.
+  sed -E "s/^([[:space:]]*)version=\"[0-9][^\"]*\"/\1version=\"$VERSION\"/" \
     "$ROOT/tv/tizen/config.xml" > "$app/config.xml"
   cp "$ROOT/tv/tizen/icon.png" "$app/"
   mkdir -p "$OUT"
   if command -v tizen >/dev/null 2>&1; then
     tizen build-web -- "$app"
     # tizen build-web emits into <app>/.buildResult
-    tizen package -t wgt -o "$OUT" -- "$app/.buildResult"
+    tizen package -t wgt ${TIZEN_PROFILE:+-s "$TIZEN_PROFILE"} -o "$OUT" -- "$app/.buildResult"
+    # `tizen package` names the file from config.xml's <name>, which is
+    # "Archive Watch" — WITH A SPACE. `tizen install` interpolates that path
+    # into a remote shell command unquoted, so the install fails on the TV with
+    # NO ERROR AT ALL: no reason, no platform log, nothing. Renaming it is what
+    # turned that silence into the real diagnostic (a certificate chain error).
+    # Never ship a .wgt whose name contains a space.
+    for f in "$OUT"/*\ *.wgt; do
+      [ -e "$f" ] || continue
+      mv "$f" "$OUT/$(basename "${f// /}")"
+    done
     echo "    .wgt -> $OUT"
   else
     echo "    tizen CLI not installed — staged only at $app"
