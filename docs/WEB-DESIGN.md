@@ -258,9 +258,27 @@ separate tool with its own conventions (CLAUDE.md) — these rules govern the
   four-question test rules out.
 - **§8.2 No tracking, no analytics, no third-party scripts.** State never
   leaves the browser.
-- **§8.3 Adult filtering is upstream** — the index is already filtered
-  (`adultCollections` + rights `excluded`, Decisions 012/027). The viewer adds
-  no mature toggle until a full-catalog data layer exists (§2.4).
+- **§8.3 Mature filtering is upstream, by ONE predicate** — every artifact
+  the viewer reads (`catalog-index.json`, `details/` shards,
+  `episodes-index.json`, `aliases.json`) is built with `build_sqlite._is_adult`,
+  the same function the apps' default-off setting uses (Decision 105). The
+  viewer adds no mature toggle. A builder that re-implements the rule drifts:
+  on 2026-09-10 the shards carried their own looser copy, the episode index had
+  no gate, and the alias map forwarded saved ids to mature survivors —
+  `tools/test_web_adult_gate.py` locks the shared rule.
+- **§8.4 Sign-in controls are the providers' own.** Google: a custom button
+  built to Google's branding guidelines (the four-colour G at 20px, "Sign in
+  with Google", Roboto Medium 14px, 40px tall, the dark theme on this dark
+  page; the logo inline so §8.2 holds). Apple: CloudKit JS draws Apple's own
+  button, asked for the white theme Apple's HIG prescribes on a dark
+  background, never restyled. Both rows align at 40px with the sync status
+  beside, and keep the page gutter (`margin: … var(--pad)`).
+- **§8.5 The persistent footer is one line on a phone.** `body` is a
+  fixed-height column (the Safari rule), so the footer is always on screen;
+  below 640px only the "Get the app" label remains, linking to About where
+  every store is listed, and the row is `nowrap` with overflow hidden so it
+  can never grow. The device links return at width. Measured 2026-09-10: four
+  device links wrapped to five rows and took a third of an iPhone screen.
 
 ## §9 Parity discipline
 

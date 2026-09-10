@@ -151,7 +151,7 @@ The owner enabled it on 2026-09-03.
 
 | Feature | Roku | Notes |
 |---|---|---|
-| Mature-content filter (default ON) | ⬜ |  |
+| Mature-content filter (default ON) | ✅ | Upstream, not a toggle: the index Roku reads is built with the apps' own predicate (`build_sqlite._is_adult`, Decision 105), so the channel can only ever show the default-off state. Verified on the device 2026-09-05 ("stripper" 42 → 11 legitimate films). |
 | Category visibility toggles | ⬜ |  |
 | Autoplay/playback options | ⬜ |  |
 | Downloads storage + Remove All | 🚫 | No writable durable storage for media on Roku, same reasoning as Decision 099 for tvOS. |
