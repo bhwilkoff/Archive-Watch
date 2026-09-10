@@ -323,3 +323,43 @@ Before any change to the program ships, all of these must hold:
 4. A platform with no credentials configured is skipped silently, never an
    error.
 5. The ledger is updated only after the platform confirms the post.
+
+
+## Per-platform writing rules (researched 2026-09-10)
+
+Each platform is written for where its text is actually READ, not to one house
+style. The numbers are the platforms' own truncation points, not preferences.
+
+| Platform | Limit | Cut at | What leads | Hashtags |
+|---|---|---|---|---|
+| Bluesky | 300 | — | quoted review if any, else the film's NAME then synopsis | 2 |
+| Mastodon | 500 (asks the instance) | — | name, then synopsis | 5 — the ONLY discovery there |
+| Threads | 500 | — | hook, then name | 2 |
+| Instagram | 2,200 | **~125** then "more" | hook inside the first 125 | 5, at the end |
+| YouTube | 5,000 desc / 100 title | **~100** desc, **~40** title in feed | name, then the line | 3, at the end |
+
+**A synopsis must never lead**, on any platform — it reads as our own words
+about the film, which is a claim we have not earned. The film's NAME leads and
+the synopsis follows it. A quoted review may lead, because it is somebody
+else's words and it is attributed.
+
+### The YouTube title
+
+`<Film> (<Year>) — "<the burned line>"`, and nothing else. No call to action,
+no hashtags, no channel suffix.
+
+* The Shorts **feed** truncates around 30–40 characters and search around 60,
+  so what matters has to be first.
+* YouTube weights keywords appearing early, and the keyword is the film's name
+  and year — not anything we add.
+* The old title was `<Film> (<Year>) — free to watch` on **every** video:
+  fifteen characters of CTA that the feed cuts off, that nobody searches for,
+  and that said the same thing about every upload. The link is in the
+  description and the channel name says the rest.
+* With no burned line, the title is the bare name. A padded title is worse
+  than a short one.
+* A long film name keeps the title to itself rather than being squeezed.
+
+Tags are per-film — genres, year, decade, director. The previous fixed three
+(`public domain, classic film, archive`) told YouTube nothing it could not
+already see from the channel.

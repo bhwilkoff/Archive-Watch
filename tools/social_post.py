@@ -309,7 +309,12 @@ ORDER = {
     "mastodon":  ["identity", "hook", "synopsis", "rights", "link"],
     "instagram": ["hook", "identity", "synopsis", "rights", "link"],
     "facebook":  ["identity", "hook", "synopsis", "link"],
-    "youtube":   ["link", "identity", "facts", "synopsis", "hook", "rights"],
+    # YouTube shows roughly the first 100 characters of a description before
+    # "Show more", and this spent them on a URL — the one thing a reader
+    # cannot act on until they have a reason to. Name, then the film in its
+    # own words, then the link. Hashtags stay at the END, where the 2026
+    # guidance puts them and where they do not eat the preview.
+    "youtube":   ["identity", "hook", "synopsis", "link", "facts", "rights"],
 }
 # Generous, because the real limit is the platform's remaining budget — the
 # assembly trims the synopsis to whatever is left rather than to a fixed
@@ -797,6 +802,60 @@ def post_instagram(spec, text, media_url, live: bool, video_url: str | None = No
             "video" if video_url else "card")
 
 
+
+def youtube_title(spec: dict) -> str:
+    """A Shorts title, built for where it is actually read.
+
+    RESEARCHED, not guessed (2026 guidance, several sources agreeing):
+      * the Shorts FEED truncates at roughly 30-40 characters, and search
+        results at ~60 — so whatever must be read has to be first;
+      * YouTube weights keywords that appear EARLY, and the searchable
+        keyword here is the film's name and year, not anything we add;
+      * hashtags belong in the description, never the title.
+
+    The old title was `<film> (<year>) — free to watch`, which spends its
+    last fifteen characters on a call to action that the feed cuts off
+    anyway, and which is not what anybody searches for. The link is already
+    in the description and the account name says the rest.
+
+    So: the film leads, and the QUOTED LINE follows it when the teaser has
+    one — that line is the reason a viewer stops scrolling, and it is the
+    same line burned into the frame. MOVIECLIPS has used the same shape for
+    years (`Film (Year) - Scene ...`). No line, no filler: a bare name is a
+    better title than a padded one.
+    """
+    year = f" ({spec['year']})" if spec.get("year") else ""
+    base = f"{spec['title']}{year}"
+    frag = {f["kind"]: f["text"] for f in spec.get("fragments", [])}
+    line = (frag.get("line") or "").strip().strip('"').strip()
+    if not line:
+        return base[:100]
+    room = 60 - len(base) - 5              # ' — "…"'
+    if room < 14:                          # a long film name owns the title
+        return base[:100]
+    if len(line) > room:
+        cut = line[:room].rsplit(" ", 1)[0].rstrip(",;:—- ")
+        line = (cut or line[:room]).rstrip() + "…"
+    return f'{base} — "{line}"'[:100]
+
+
+def youtube_tags(spec: dict) -> list[str]:
+    """Per-film tags. The fixed three said the same thing about every video,
+    which tells YouTube nothing it cannot already see from the channel."""
+    out = ["public domain", "classic film"]
+    for g in (spec.get("genres") or [])[:3]:
+        if g and g.lower() not in out:
+            out.append(g.lower())
+    if spec.get("year"):
+        out.append(str(spec["year"]))
+        decade = int(spec["year"]) // 10 * 10
+        out.append(f"{decade}s")
+    d = (spec.get("director") or "").strip()
+    if d:
+        out.append(d.lower())
+    return out[:12]
+
+
 def post_youtube(spec, text, video: Path | None, live: bool):
     """A Short. The teaser is already 1080x1920 and ~18 s, which is what makes
     it one — YouTube classifies by shape and length, not by a flag.
@@ -820,15 +879,14 @@ def post_youtube(spec, text, video: Path | None, live: bool):
                 "refresh_token": refresh, "grant_type": "refresh_token"})
     access = tok["access_token"]
 
-    year = f" ({spec['year']})" if spec.get("year") else ""
-    title = f"{spec['title']}{year} — free to watch"[:100]
+    title = youtube_title(spec)
     body_lines = [l for l in text.splitlines() if l.strip()]
     description = "\n".join(body_lines) + (
         "\n\nArchive Watch is a free, ad-free way to watch public-domain film "
         "on Apple TV, Android TV, Roku, iPhone, Android and the web.")
     meta = {"snippet": {"title": title, "description": description[:4900],
                         "categoryId": "1",
-                        "tags": ["public domain", "classic film", "archive"]},
+                        "tags": youtube_tags(spec)},
             "status": {"privacyStatus": "public", "selfDeclaredMadeForKids": False,
                        "license": "creativeCommon"}}
 
