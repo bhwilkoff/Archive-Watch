@@ -47,6 +47,37 @@
     "replies": 0,
     "quotes": 0
    }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mv45yqdekg2v",
+   "platform": "bluesky",
+   "id": "zoom-bored",
+   "slot": "double-bill",
+   "format": "card",
+   "window": "24h",
+   "posted": "2026-09-09T18:26:27.740889+00:00",
+   "sampled": "2026-09-10T18:09:07.100971+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117242487936215809",
+   "platform": "mastodon",
+   "id": "zoom-bored",
+   "slot": "double-bill",
+   "format": "card",
+   "window": "24h",
+   "posted": "2026-09-09T18:26:27.740889+00:00",
+   "sampled": "2026-09-10T18:09:07.100971+00:00",
+   "metrics": {
+    "likes": 1,
+    "reposts": 0,
+    "replies": 0
+   }
   }
  ]
 }

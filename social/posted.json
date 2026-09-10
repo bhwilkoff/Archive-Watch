@@ -193,6 +193,42 @@
    "kind": "feature-film",
    "mediaId": null,
    "reviewer": null
+  },
+  {
+   "at": "2026-09-10T18:08:16.775709+00:00",
+   "id": "WhenKnighthoodWasInFlowerForYT",
+   "title": "When Knighthood Was in Flower",
+   "slot": "now-showing",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mv6nhqp35j2z",
+   "format": "video",
+   "kind": "silent-film",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-09-10T18:08:16.775709+00:00",
+   "id": "WhenKnighthoodWasInFlowerForYT",
+   "title": "When Knighthood Was in Flower",
+   "slot": "now-showing",
+   "platform": "mastodon",
+   "url": "https://mastodon.social/@archivewatch/117248080366296987",
+   "format": "video",
+   "kind": "silent-film",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-09-10T18:08:16.775709+00:00",
+   "id": "WhenKnighthoodWasInFlowerForYT",
+   "title": "When Knighthood Was in Flower",
+   "slot": "now-showing",
+   "platform": "youtube",
+   "url": "https://youtube.com/watch?v=VjEyJnUraME",
+   "format": "video",
+   "kind": "silent-film",
+   "mediaId": null,
+   "reviewer": null
   }
  ]
 }
