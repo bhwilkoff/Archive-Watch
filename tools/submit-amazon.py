@@ -5,47 +5,33 @@
     python3 tools/submit-amazon.py --apk path/to.apk        # upload, leave edit OPEN
     python3 tools/submit-amazon.py --apk path/to.apk --commit   # upload AND submit
 
-WHY IT MAY NOT WORK YET (read before filing a support case)
-  The token call returns `invalid_scope` until this developer account can reach
-  the App Submission API. As of 2026-08-31 every prerequisite on our side is
-  satisfied and the API is still refusing:
+RESOLVED 2026-09-09 — it was ONE missing mapping, not a permission
+  For five weeks every scope answered `invalid_scope` and this file concluded the
+  account could not reach the API. That was wrong, and the wrong conclusion was
+  the expensive part: it said "Do NOT re-walk the console nav", so nobody looked
+  again.
 
-      account role .......... Administrator (owner)          [checked]
-      security profile ...... Archive Watch Appstore Submission
-                              amzn1.application.1ae9e1cdfaf243729f9a72e2913ff2c3
-      Login with Amazon ..... ENABLED, consent notice =
-                              https://archivewatch.org/privacy.html
-      app ................... SUBMITTED 2026-08-31, NOT YET LIVE (no ASIN)
+  The cause: **My Settings > API Access** (developer.amazon.com/apps-and-games/
+  console/api-access/home.html) read "No Security Profile Attached" for BOTH the
+  App Submission API and the Reporting API. A security profile has to be MAPPED
+  to each API; creating one and enabling Login with Amazon is not enough. Two
+  clicks — select the existing profile, Attach — and both scopes were granted
+  immediately:
 
-  Amazon's docs name an "API Access" page three different ways (Tools &
-  Services / Apps & Services / My Settings). None of them exists in this
-  console. Walked on 2026-08-31: the settings nav (My Account, Company
-  Profile, Payments, Tax Identity, User Permissions, Identity, Security
-  Profiles, Activity Log), the whole Appstore nav (My Apps, My Appstore
-  Cases, My Reports, My Settings, Tools & Services > Develop/Test/Publish/
-  Monetize, Connect), the app's App Services page, and the "..." menu
-  (Support / Contact Us / My Cases). /settings/console/apiaccess and
-  .../overview.html both 404.
+      adx_reporting::appstore:marketer   GRANTED   (Vitals / Reporting)
+      appstore::apps:readwrite           GRANTED   (this tool)
+      --check                            auth OK for amzn1.devportal.mobileapp...
 
-  BEST-SUPPORTED EXPLANATION: the page appears once the app is LIVE. Two
-  pieces of evidence, not a guess:
-    1. This console demonstrably gates features on the app having an ASIN —
-       App Services says verbatim "SSI cannot be enabled because the ASIN has
-       not been generated yet. Submit the app to generate the ASIN."
-    2. The API docs say "You need to submit the first version of your app
-       using the Developer Console", i.e. the API only ever creates NEW
-       versions of an app that already exists in the store.
+  WHAT WAS DISPROVEN ALONG THE WAY, so nobody re-walks it:
+    * "The API Access page does not exist in this console." It does, under
+      My Settings > Enterprise Security Features. Two earlier walks missed it.
+    * "The page appears once the app is LIVE." The app went live 2026-09-01 and
+      the scope was still refused; going live was never the gate.
+    * "/settings/console/apiaccess" — genuinely 404s. The real paths are
+      /apps-and-games/console/api-access/home.html (mapping) and
+      /reporting/console/appstore/apiaccess (the Vitals API Explorer).
 
-  DISPROVEN 2026-09-02. The app went LIVE on 2026-09-01 (ASIN generated) and
-  `--check` STILL returns `invalid_scope`; /settings/console/apiaccess still
-  404s with the app live. So the live-app hypothesis above is wrong, and by
-  this file's own criterion a support case is now the correct next step:
-  Contact Us → Type of Inquiry "Appstore", Category "App Submission and
-  Certification", asking for App Submission API access to be enabled for
-  security profile amzn1.application.1ae9e1cdfaf243729f9a72e2913ff2c3.
-
-  Do NOT re-walk the console nav looking for the page again — it has been
-  walked twice, before and after going live, and it is not there.
+  A support case is NOT needed and never was.
 
 CONSTRAINTS THAT SHAPED THIS TOOL
   * APK only. The App Submission API does NOT accept App Bundles, which is why

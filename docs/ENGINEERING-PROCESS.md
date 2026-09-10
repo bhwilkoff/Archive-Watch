@@ -102,6 +102,15 @@ Writing down what was ruled out is as valuable as the fix: it stops the next
 session re-walking it. `tools/submit-amazon.py` carries its own disproven
 hypothesis in its docstring for this reason.
 
+**But a negative finding needs an expiry, and never a prohibition.** That same
+file concluded "the API Access page does not exist in this console" and closed
+with **"Do NOT re-walk the console nav."** The page did exist, one menu over.
+Amazon's Reporting and Submission APIs were then unreachable for five weeks over
+a two-click mapping, and the note written to save time is what stopped anyone
+looking. Record what you ruled out *and how you ruled it out*, so the next reader
+can judge whether the evidence still holds — an absence you searched for once is
+much weaker evidence than a measurement, and consoles change.
+
 **Apply it**: when a fix lands, the commit says what else was tried and why it
 was wrong.
 

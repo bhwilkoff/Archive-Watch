@@ -1,5 +1,5 @@
 {
- "_": "Stores with no API. Edit this file when a state changes \u2014 the dashboard shows it beside the machine-read ones so the estate is never half-reported.",
+ "_": "Store facts that no API exposes. Amazon has a Vitals API (read live); its UNITS are console-only. Roku/LG/Samsung expose nothing at all. Edit by hand when a state changes \u2014 the dashboard shows these beside the machine-read stores so the estate is never half-reported.",
  "stores": [
   {
    "store": "Amazon Appstore",
@@ -7,8 +7,12 @@
    "state": "LIVE",
    "version": "1.42.x",
    "since": "2026-09-01",
-   "note": "Submission API returns invalid_scope; console only.",
-   "url": "https://developer.amazon.com/apps-and-games/console/apps/list.html"
+   "note": "Reporting + Submission APIs mapped 2026-09-09; vitals read live. Units are console-only \u2014 declared here.",
+   "url": "https://developer.amazon.com/apps-and-games/console/apps/list.html",
+   "api": "vitals",
+   "units30d": 2,
+   "unitsAsOf": "2026-09-09",
+   "unitsNote": "unique app purchases, 30 days, all Amazon.com"
   },
   {
    "store": "Roku Channel Store",
@@ -17,7 +21,8 @@
    "version": "1.0.51",
    "since": "2026-09-08",
    "note": "Channel 881015. No developer API \u2014 check the Dashboard.",
-   "url": "https://developer.roku.com/developer-channels/channels"
+   "url": "https://developer.roku.com/developer-channels/channels",
+   "api": null
   },
   {
    "store": "LG Content Store",
@@ -26,7 +31,8 @@
    "version": null,
    "since": null,
    "note": "Package builds; Seller Lounge account is the owner step.",
-   "url": "https://seller.lgappstv.com/"
+   "url": "https://seller.lgappstv.com/",
+   "api": null
   },
   {
    "store": "Samsung Apps TV",
@@ -35,7 +41,8 @@
    "version": null,
    "since": null,
    "note": "Public Seller is US-only; needs the signing certificate.",
-   "url": "https://seller.samsungapps.com/"
+   "url": "https://seller.samsungapps.com/",
+   "api": null
   },
   {
    "store": "Web (PWA)",
@@ -44,7 +51,8 @@
    "version": "rolling",
    "since": "2026-06-10",
    "note": "Ships on every Pages deploy.",
-   "url": "https://archivewatch.org"
+   "url": "https://archivewatch.org",
+   "api": null
   }
  ]
 }

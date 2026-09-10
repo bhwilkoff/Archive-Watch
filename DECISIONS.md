@@ -179,6 +179,7 @@ an entry in place.
 - 108 — One dashboard reads every channel; a reader that cannot read says so, and never a zero
 - 109 — Store metrics come from the route each store actually offers, and each one's gotcha is written down
 - 110 — A release builds in CI and is promoted, never rebuilt; the owner's machine is not a build server
+- 111 — Amazon's APIs were one MAPPING away, and "no API" was our claim, not Amazon's
 
 ---
 
@@ -1792,3 +1793,52 @@ than failing deep inside the commit with an unhelpful message. And anything that
 can saturate the machine gets both a bound and a CI path: a tool that is correct
 but can hang is not finished.
 
+
+## 111 — Amazon's APIs were one MAPPING away, and "no API" was our claim, not Amazon's
+*Date: 2026-09-09*
+
+The Amazon Appstore security profile is now **mapped to both APIs** — App
+Submission and Reporting — at My Settings → API Access
+(`/apps-and-games/console/api-access/home.html`). Both scopes were granted the
+instant the mapping existed. `tools/pulse_collect.py` gains an `amazon_vitals`
+reader, and Fire TV is no longer rendered as a store with no API.
+
+**Why**: the owner pointed at Amazon's own Vitals API docs and asked why Pulse
+said Fire TV had no API. It said so because we told it to — the platform was
+hardcoded `noApi: true` alongside Roku, LG and Samsung, which genuinely publish
+nothing.
+
+Decision 109 had already reasoned to the right answer ("the profile-to-API
+MAPPING is missing, not the scope string") from the docs alone. It was never
+acted on, because `tools/submit-amazon.py` carried a stronger and wrong
+conclusion from an earlier walk — that the API Access page *does not exist in
+this console* — and closed the question with **"Do NOT re-walk the console
+nav."** The page exists, under My Settings → Enterprise Security Features. A
+confident negative finding, written to save the next session time, cost five
+weeks instead.
+
+Measured before and after, same credentials, same client:
+
+    adx_reporting::appstore:marketer   invalid_scope  ->  GRANTED (310-byte token)
+    appstore::apps:readwrite           invalid_scope  ->  GRANTED
+    submit-amazon.py --check           invalid_scope  ->  auth OK for amzn1.devportal...
+
+**How to apply**: a **404 means the route is real and holds no data; a 400
+("Unable to fetch the request scope for uri = ...") means the route does not
+exist.** That discriminator is what proved Vitals is Amazon's entire reporting
+surface — `/sales`, `/reports`, `/apps` and every `/reporting/*` path answer 400.
+Unit sales are console-only and stay hand-declared in `ops/stores-manual.json`,
+which now carries an explicit `api` field per store so the RENDERER believes the
+store's own claim instead of assuming. Do not read the empty vitals response as
+a fault: the app is eight days old, all three metric sets answer 404, and
+Amazon's own App Health console page is equally blank. That is Decision 108's
+rule — a reader that works against a store with nothing to publish must say so.
+
+**Consequences**: `tools/submit-amazon.py` has never been exercised against the
+live submission API — the scope was the reason, and that reason is gone, so the
+first real run is now possible and still unproven. The wrong hypotheses are
+recorded in its docstring rather than deleted, because the disproven path is
+what stops the next session re-walking it. Two credentials
+(`AMAZON_CLIENT_ID`/`SECRET`) are now repo secrets; the collector's own guard
+test caught that pulse.yml did not pass them, exactly as it caught
+`THREADS_ACCESS_TOKEN`.

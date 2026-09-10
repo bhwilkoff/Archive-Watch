@@ -895,8 +895,12 @@ function platforms(d) {
   [["Fire TV", "Amazon Appstore"], ["Roku", "Roku Channel Store"],
    ["webOS", "LG Content Store"], ["Tizen", "Samsung Apps TV"]].forEach(([name, store]) => {
     const row = (d.stores || []).find((x) => x.store === store);
+    // noApi is the ROW's claim, not an assumption. Amazon publishes a Vitals
+    // API and this page said it did not, for five weeks — the store declares
+    // what is readable and the renderer believes the store.
     if (row) out.push({ key: name.toLowerCase().replace(/\s/g, ""), name, family: "app",
-                        store, row, noApi: true });
+                        store, row, noApi: !row.api,
+                        vitals: row.api === "vitals" ? d.health?.amazonVitals : null });
   });
 
   // ── Web, whose only number is one we chose to be able to collect ──────
@@ -967,6 +971,9 @@ function appPlatform(d, p) {
   $("platform-lede").innerHTML = p.noApi
     ? `<b>${p.name}</b> ships through ${p.store}, which exposes no API at all. `
       + "What is here is declared by hand, and that is the honest ceiling."
+    : p.vitals
+    ? `<b>${p.name}</b> ships through ${p.store}. Its Vitals API is read live; `
+      + "unit sales are console-only and declared by hand below."
     : p.webUnread
       ? `<b>${p.name}</b> is live and its usage counter has not reported yet. `
         + "The counter is ours and stores only a date, a page kind and a number "
@@ -1116,6 +1123,24 @@ function appPlatform(d, p) {
         { label: "trick play", value: p.catalog.withBif, tone: "measure" },
       ], { max: p.catalog.items }) },
     });
+  }
+
+  if (p.vitals) {
+    const v = p.vitals, n = Object.keys(v.freshness || {}).length;
+    const u = p.row || {};
+    if (u.units30d != null) {
+      panel(box, { k: "Units", right: `to ${u.unitsAsOf || "?"}`,
+        v: `${u.units30d}<small> in 30 days</small>`,
+        cap: `${u.unitsNote || ""} \u2014 Amazon exposes no units endpoint `
+           + "(every non-vitals path answers 400), so this one is read off the "
+           + "console by hand" });
+    }
+    rows.appendChild(el("p", "clear", n
+      ? `${n} vitals metric set(s) carry data.`
+      : `Authenticated to Amazon's Vitals API, which holds nothing for this app `
+        + `yet \u2014 ${(v.empty || []).length} metric sets all answer 404. That is `
+        + "Amazon having no crash/ANR/memory data for a young app, not a reader "
+        + "that failed; the console's own App Health page is equally empty."));
   }
 
   if (p.noApi) {

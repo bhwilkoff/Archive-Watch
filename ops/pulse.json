@@ -1,70 +1,17 @@
 {
  "stores": [
   {
-   "store": "App Store",
-   "platform": "Apple TV",
-   "state": "READY_FOR_SALE",
-   "version": "1.42.5",
-   "live": "1.42.5",
-   "repoVersion": "1.42.7",
-   "repoBuild": "1019",
-   "url": "https://appstoreconnect.apple.com/apps/6776697407/distribution"
-  },
-  {
-   "store": "App Store",
-   "platform": "iPhone & iPad",
-   "state": "READY_FOR_SALE",
-   "version": "1.42.5",
-   "live": "1.42.5",
-   "repoVersion": "1.42.7",
-   "repoBuild": "1019",
-   "url": "https://appstoreconnect.apple.com/apps/6776697407/distribution"
-  },
-  {
-   "store": "App Store",
-   "platform": "Mac",
-   "state": "READY_FOR_SALE",
-   "version": "1.42.5",
-   "live": "1.42.5",
-   "repoVersion": "1.42.7",
-   "repoBuild": "1019",
-   "url": "https://appstoreconnect.apple.com/apps/6776697407/distribution"
-  },
-  {
-   "store": "Google Play",
-   "platform": "Production",
-   "state": "COMPLETED",
-   "version": "1.42.6",
-   "live": "1.42.6",
-   "build": "56",
-   "url": "https://play.google.com/console/developers/app/com.archivewatch.app"
-  },
-  {
-   "store": "Google Play",
-   "platform": "Beta",
-   "state": "DRAFT",
-   "version": null,
-   "live": null,
-   "build": "",
-   "url": "https://play.google.com/console/developers/app/com.archivewatch.app"
-  },
-  {
-   "store": "Google Play",
-   "platform": "Internal",
-   "state": "COMPLETED",
-   "version": "1.42.6",
-   "live": "1.42.6",
-   "build": "57",
-   "url": "https://play.google.com/console/developers/app/com.archivewatch.app"
-  },
-  {
    "store": "Amazon Appstore",
    "platform": "Fire TV",
    "state": "LIVE",
    "version": "1.42.x",
    "since": "2026-09-01",
-   "note": "Submission API returns invalid_scope; console only.",
+   "note": "Reporting + Submission APIs mapped 2026-09-09; vitals read live. Units are console-only — declared here.",
    "url": "https://developer.amazon.com/apps-and-games/console/apps/list.html",
+   "api": "vitals",
+   "units30d": 2,
+   "unitsAsOf": "2026-09-09",
+   "unitsNote": "unique app purchases, 30 days, all Amazon.com",
    "manual": true
   },
   {
@@ -75,6 +22,7 @@
    "since": "2026-09-08",
    "note": "Channel 881015. No developer API — check the Dashboard.",
    "url": "https://developer.roku.com/developer-channels/channels",
+   "api": null,
    "manual": true
   },
   {
@@ -85,6 +33,7 @@
    "since": null,
    "note": "Package builds; Seller Lounge account is the owner step.",
    "url": "https://seller.lgappstv.com/",
+   "api": null,
    "manual": true
   },
   {
@@ -95,6 +44,7 @@
    "since": null,
    "note": "Public Seller is US-only; needs the signing certificate.",
    "url": "https://seller.samsungapps.com/",
+   "api": null,
    "manual": true
   },
   {
@@ -105,6 +55,7 @@
    "since": "2026-06-10",
    "note": "Ships on every Pages deploy.",
    "url": "https://archivewatch.org",
+   "api": null,
    "manual": true
   }
  ],
@@ -1351,6 +1302,16 @@
     "en_ZA": 8
    },
    "readVia": "gcloud"
+  },
+  "amazonVitals": {
+   "freshness": {},
+   "empty": [
+    "crashMetricSet",
+    "anrMetricSet",
+    "lmkMetricSet"
+   ],
+   "package": "com.archivewatch.app",
+   "console": "https://developer.amazon.com/reporting/console/apphealth/performance/applatency"
   }
  },
  "github": {
@@ -1464,7 +1425,7 @@
   "manual_stores": {
    "ok": true,
    "note": "5 declared store(s)",
-   "at": "2026-09-09T23:51:07+00:00"
+   "at": "2026-09-10T00:28:47+00:00"
   },
   "social_programme": {
    "ok": true,
@@ -1550,11 +1511,14 @@
    "ok": true,
    "note": "0 request(s), 3 bit(s) of praise",
    "at": "2026-09-09T23:52:26+00:00"
+  },
+  "amazon_vitals": {
+   "ok": true,
+   "note": "authenticated; Amazon holds no vitals for this app yet (3/3 metric sets empty)",
+   "at": "2026-09-10T00:28:47+00:00"
   }
  },
- "stale": {
-  "playInstalls": "2026-09-09T23:46:15+00:00"
- },
+ "stale": {},
  "history": [
   {
    "date": "2026-09-09",
@@ -1571,9 +1535,25 @@
    "views14d": null,
    "catalogItems": 26711,
    "urgent": 0
+  },
+  {
+   "date": "2026-09-10",
+   "appleRating": 4.4,
+   "appleRatings": 5,
+   "playRating": null,
+   "playRatings": null,
+   "reviews": 4,
+   "mentions": 2,
+   "posts": 8,
+   "likes": 0,
+   "followers": 1,
+   "stars": 0,
+   "views14d": null,
+   "catalogItems": 26711,
+   "urgent": 0
   }
  ],
- "generatedAt": "2026-09-09T23:52:26+00:00",
+ "generatedAt": "2026-09-10T00:28:47+00:00",
  "repoVersion": "1.42.7",
  "repoBuild": "1019",
  "_": "Written by tools/pulse_collect.py. `history` is the series and is append-only per day; everything else is the latest reading. A source that could not answer says so in `sources` — never assume a zero."

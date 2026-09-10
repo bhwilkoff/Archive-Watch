@@ -165,6 +165,22 @@ check("a store with no API says so in words, not an empty chart",
 check("...and its lede names the store", 
       /exposes no API/i.test(byId.get("platform-lede").innerHTML));
 
+/* Fire TV: Amazon HAS a Vitals API, and this page claimed for five weeks that
+   it did not. The no-API sentence belongs to Roku/LG/Samsung only, so assert
+   both directions — the claim is absent AND the real state is present. */
+api.show(DATA, list, "firetv");
+const fire = byId.get("platform-rows").textContent
+           + byId.get("platform-panels").innerHTML;
+check("Fire TV does NOT claim Amazon publishes nothing",
+      !/publishes no numbers we can read/i.test(fire),
+      JSON.stringify(fire.slice(0, 90)));
+check("Fire TV reports its Vitals API state instead",
+      /Vitals API/i.test(fire), JSON.stringify(fire.slice(0, 90)));
+check("Fire TV shows the console-only unit count",
+      /Units/.test(byId.get("platform-panels").innerHTML));
+check("...and its lede does not say 'no API at all'",
+      !/exposes no API at all/i.test(byId.get("platform-lede").innerHTML));
+
 api.show(DATA, list, "android");
 const android = byId.get("platform-panels").innerHTML;
 check("Android draws its installs", /c-run|c-spark/.test(android));

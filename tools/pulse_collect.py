@@ -1671,12 +1671,95 @@ def asks(state):
     return f"{len(wants)} request(s), {len(loves)} bit(s) of praise"
 
 
+# ───────────────────────────────────────────── Amazon Appstore — the Vitals API
+
+# There IS an Amazon reporting API, and for five weeks this project recorded that
+# there wasn't. Every scope answered `invalid_scope`, which reads exactly like a
+# denied account and is not: the API Access page (My Settings > API Access, at
+# /apps-and-games/console/api-access/home.html) said "No Security Profile
+# Attached". One mapping, not a permission. Both APIs were attached 2026-09-09.
+#
+# ROUTE DISCRIMINATOR, worth keeping: an unknown path answers 400 "Unable to
+# fetch the request scope for uri = ...", while a REAL path with no data answers
+# 404 NOT_FOUND. That is how we know `/vitals/apps/{pkg}/crashMetricSet` exists
+# and simply holds nothing for this app yet — and it is why a 404 here is
+# reported as "Amazon publishes no vitals for this app yet", never as a failure.
+#
+# Probed 2026-09-09 with a working token: every non-vitals path (/sales,
+# /reports, /apps, /reporting/*) answers 400, i.e. does NOT exist. Vitals is the
+# whole reporting surface. Units live in the console only — ops/stores-manual.json.
+AMAZON_CREDS = Path.home() / ".config" / "amazon" / "appstore.json"
+AMAZON_TOKEN_URL = "https://api.amazon.com/auth/o2/token"
+AMAZON_API = "https://developer.amazon.com/api/appstore"
+AMAZON_SCOPE = "adx_reporting::appstore:marketer"
+AMAZON_METRIC_SETS = ("crashMetricSet", "anrMetricSet", "lmkMetricSet")
+
+
+def _amazon_token():
+    """Client-credentials token, or (None, why-not) so the caller can say so."""
+    raw = os.environ.get("AMAZON_CLIENT_ID"), os.environ.get("AMAZON_CLIENT_SECRET")
+    if all(raw):
+        cid, secret = raw
+    elif AMAZON_CREDS.exists():
+        d = json.loads(AMAZON_CREDS.read_text())
+        cid, secret = d.get("client_id"), d.get("client_secret")
+    else:
+        return None, "no Amazon credentials in this environment"
+    if not (cid and secret):
+        return None, "Amazon credentials are present but incomplete"
+    body = urllib.parse.urlencode({
+        "grant_type": "client_credentials", "client_id": cid,
+        "client_secret": secret, "scope": AMAZON_SCOPE}).encode()
+    req = urllib.request.Request(AMAZON_TOKEN_URL, data=body,
+        headers={"Content-Type": "application/x-www-form-urlencoded"})
+    try:
+        return json.load(urllib.request.urlopen(req, timeout=30))["access_token"], None
+    except urllib.error.HTTPError as e:
+        try:
+            err = json.loads(e.read().decode()).get("error", "?")
+        except Exception:
+            err = f"HTTP {e.code}"
+        if err == "invalid_scope":
+            return None, ("the security profile is not mapped to the Reporting API "
+                          "— My Settings > API Access, attach it, then this reads")
+        return None, f"Amazon token refused: {err}"
+
+
+def amazon_vitals(state):
+    tok, why = _amazon_token()
+    if not tok:
+        raise RuntimeError(why)
+    out, empty = {}, []
+    for ms in AMAZON_METRIC_SETS:
+        req = urllib.request.Request(f"{AMAZON_API}/vitals/apps/{PLAY_PACKAGE}/{ms}",
+            headers={"Authorization": f"Bearer {tok}", "Accept": "application/json"})
+        try:
+            out[ms] = json.load(urllib.request.urlopen(req, timeout=45))
+        except urllib.error.HTTPError as e:
+            if e.code == 404:          # real route, no data for this app
+                empty.append(ms)
+                continue
+            raise RuntimeError(f"{ms}: HTTP {e.code}")
+    state["health"]["amazonVitals"] = {
+        "freshness": out,
+        "empty": empty,
+        "package": PLAY_PACKAGE,
+        "console": "https://developer.amazon.com/reporting/console/apphealth/performance/applatency",
+    }
+    if out:
+        return f"{len(out)} metric set(s) with data, {len(empty)} empty"
+    return ("authenticated; Amazon holds no vitals for this app yet "
+            f"({len(empty)}/{len(AMAZON_METRIC_SETS)} metric sets empty)")
+
+
 # ─────────────────────────── Stores with no API at all — declared, not guessed
 
-# Amazon's Submission API still answers `invalid_scope` (see tools/submit-amazon.py),
-# Roku has no developer API, and LG/Samsung publish through a console only. Their
-# state lives HERE so the dashboard shows the whole estate rather than the half of
-# it that happens to be machine-readable. Update by hand when a state changes.
+# Amazon DOES have an API (Decision 111) and its vitals are read live by
+# amazon_vitals above — but its unit sales are console-only, so they are declared
+# here. Roku has no developer API at all, and LG/Samsung publish through a console
+# only. Each row carries an `api` key stating what IS machine-readable, and the
+# dashboard believes that claim rather than assuming a hand-kept row means no API
+# exists — assuming it is precisely how Fire TV was mislabelled for five weeks.
 MANUAL = REPO / "ops" / "stores-manual.json"
 
 MANUAL_SEED = {
@@ -1684,8 +1767,9 @@ MANUAL_SEED = {
           "shows it beside the machine-read ones so the estate is never half-reported."),
     "stores": [
         {"store": "Amazon Appstore", "platform": "Fire TV", "state": "LIVE",
-         "version": "1.42.x", "since": "2026-09-01",
-         "note": "Submission API returns invalid_scope; console only.",
+         "version": "1.42.x", "since": "2026-09-01", "api": "vitals",
+         "note": "Reporting + Submission APIs mapped 2026-09-09; vitals read live. "
+                 "Units are console-only — declared here.",
          "url": "https://developer.amazon.com/apps-and-games/console/apps/list.html"},
         {"store": "Roku Channel Store", "platform": "Roku", "state": "SUBMITTED",
          "version": "1.0.51", "since": "2026-09-08",
@@ -1734,6 +1818,7 @@ SOURCES = [
     ("play_reports", play_reports),
     ("play_daily_exports", play_daily_exports),
     ("play_acquisition", play_acquisition),
+    ("amazon_vitals", amazon_vitals),
     ("manual_stores", manual_stores),
     ("social_programme", social_programme),
     ("social_reach", social_reach),
