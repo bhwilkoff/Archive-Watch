@@ -3124,13 +3124,26 @@
 // Empty means the counter is not deployed, and then nothing is sent at all.
 const AW_BEACON_ORIGIN = "https://archivewatch-pulse.benwilkoff.workers.dev";
 const AW_BEACON = AW_BEACON_ORIGIN ? `${AW_BEACON_ORIGIN}/beacon` : "";
-function awCount() {
+function awCount(p) {
   if (!AW_BEACON) return;
   try {
-    fetch(`${AW_BEACON}?p=${encodeURIComponent(location.pathname)}`,
+    fetch(`${AW_BEACON}?p=${encodeURIComponent(p)}`,
           { method: "POST", mode: "cors", keepalive: true, cache: "no-store" })
       .catch(() => {});
   } catch (_) {}
 }
-awCount();
-addEventListener("hashchange", awCount);
+/* This is a HASH router, so `location.pathname` is "/" on every surface — it
+   was sending that, which made every route change look like a view of the home
+   page and made the per-surface breakdown impossible. Send the hash route
+   instead and let the worker shape it. */
+function awRoute() {
+  const h = (location.hash || "").replace(/^#/, "");
+  return h.startsWith("/") ? h : (location.pathname || "/");
+}
+/* A VISIT and a ROUTE VIEW are different things and must never be added
+   together: one page load that walks six surfaces is one visit and seven
+   beacons. The visit is recorded under its own key so the dashboard can say
+   both, rather than reporting navigation as audience. */
+awCount("(visit)");
+awCount(awRoute());
+addEventListener("hashchange", () => awCount(awRoute()));

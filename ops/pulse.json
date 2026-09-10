@@ -999,16 +999,28 @@
    "daily": [
     {
      "date": "2026-09-09",
-     "views": 6
+     "views": 15,
+     "visits": 0
+    },
+    {
+     "date": "2026-09-10",
+     "views": 250,
+     "visits": 1
     }
    ],
-   "views28d": 6,
-   "views7d": 6,
+   "views28d": 265,
+   "views7d": 265,
+   "visits28d": 1,
+   "visits7d": 1,
    "byPath": {
-    "/": 5,
-    "/item": 1
+    "/": 260,
+    "/item": 2,
+    "/browse": 1,
+    "/collection": 1,
+    "/other": 1
    },
-   "since": "2026-06-11"
+   "since": "2026-06-12",
+   "splitFrom": "2026-09-10"
   },
   "playInstalls": {
    "asOf": "2026-08-21",
@@ -1499,8 +1511,8 @@
   },
   "web_usage": {
    "ok": true,
-   "note": "6 view(s) over 1 day(s), 2 page kind(s)",
-   "at": "2026-09-09T23:52:26+00:00"
+   "note": "265 route view(s) and 1 visit(s) over 2 day(s), 5 surface(s)",
+   "at": "2026-09-10T05:15:20+00:00"
   },
   "distribution": {
    "ok": true,
@@ -1553,7 +1565,7 @@
    "urgent": 0
   }
  ],
- "generatedAt": "2026-09-10T00:28:47+00:00",
+ "generatedAt": "2026-09-10T05:15:20+00:00",
  "repoVersion": "1.42.7",
  "repoBuild": "1019",
  "_": "Written by tools/pulse_collect.py. `history` is the series and is append-only per day; everything else is the latest reading. A source that could not answer says so in `sources` — never assume a zero."

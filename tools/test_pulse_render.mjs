@@ -181,6 +181,18 @@ check("Fire TV shows the console-only unit count",
 check("...and its lede does not say 'no API at all'",
       !/exposes no API at all/i.test(byId.get("platform-lede").innerHTML));
 
+/* Web: a VISIT and a ROUTE VIEW must be shown as different things. Summing
+   them reports navigation as audience — the counter recorded 265 route views
+   against 1 visit on the day this was found. */
+api.show(DATA, list, "web");
+{
+  const web = byId.get("platform-panels").innerHTML;
+  check("web separates visits from route views",
+        /Visits/.test(web) && /route view/i.test(web), true);
+  check("...and says why the older rows are not comparable",
+        /hash router/i.test(web), true);
+}
+
 api.show(DATA, list, "android");
 const android = byId.get("platform-panels").innerHTML;
 check("Android draws its installs", /c-run|c-spark/.test(android));

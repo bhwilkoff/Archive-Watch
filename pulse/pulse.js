@@ -908,7 +908,14 @@ function platforms(d) {
   out.push({
     key: "web", name: "Web", family: "app", store: "archivewatch.org",
     row: (d.stores || []).find((x) => x.store === "Web (PWA)"),
+    // Route views and VISITS are different measurements — one page load that
+    // walks six surfaces is one visit and seven beacons — so they are carried
+    // separately and never summed. Before splitFrom the beacon sent
+    // location.pathname, which on a hash router is "/" everywhere, so older
+    // rows are route views with the breakdown collapsed and no visits at all.
     views: wu?.views28d,
+    visits: wu?.visits28d,
+    splitFrom: wu?.splitFrom,
     daily: (wu?.daily || []).map((r) => ({ date: r.date, v: r.views })),
     paths: wu?.byPath, catalog: d.health?.catalog,
     webUnread: !wu,
@@ -994,7 +1001,7 @@ function appPlatform(d, p) {
   }
 
   const series = (p.daily || []).map((r) => r.v);
-  const unit = p.views != null ? "views" : "installs";
+  const unit = p.views != null ? "route views" : "installs";
   if (series.length >= 2) {
     const total = series.reduce((a, b) => a + b, 0);
     panel(box, {
@@ -1122,6 +1129,19 @@ function appPlatform(d, p) {
         { label: "real poster", value: p.catalog.professionalArt, tone: "measure" },
         { label: "trick play", value: p.catalog.withBif, tone: "measure" },
       ], { max: p.catalog.items }) },
+    });
+  }
+
+  if (p.key === "web" && p.visits != null) {
+    panel(box, {
+      k: "Visits", right: `since ${p.splitFrom || "?"}`,
+      v: `${int(p.visits)}<small> in 28 days</small>`,
+      cap: "A page LOAD. The larger route-view figure counts in-app navigation "
+         + "too \u2014 one visit that walks six surfaces is seven of those \u2014 "
+         + "so the two are never added together. Rows before "
+         + `${p.splitFrom || "the split"} are route views only: the beacon sent `
+         + "location.pathname, which on a hash router is \"/\" on every surface, "
+         + "so their breakdown is collapsed and they carry no visit count",
     });
   }
 

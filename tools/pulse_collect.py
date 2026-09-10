@@ -1368,22 +1368,41 @@ def web_usage(state):
     if not rows:
         raise RuntimeError("the counter is reachable but has no rows yet — "
                            "either it was just deployed, or the beacon is not live")
-    by_day, by_path = {}, {}
+    # A VISIT and a ROUTE VIEW are different measurements and summing them
+    # reports navigation as audience: one page load that walks six surfaces is
+    # one visit and seven beacons. `(visit)` is the counter's own key for the
+    # former; everything else is a surface.
+    by_day, by_path, visits_by_day = {}, {}, {}
     for r in rows:
         day, path, n = r.get("day"), r.get("path"), int(r.get("count") or 0)
         if not day:
             continue
+        if path == "(visit)":
+            visits_by_day[day] = visits_by_day.get(day, 0) + n
+            continue
         by_day[day] = by_day.get(day, 0) + n
         by_path[path or "?"] = by_path.get(path or "?", 0) + n
-    daily = [{"date": k, "views": v} for k, v in sorted(by_day.items())]
+    daily = [{"date": k,
+              "views": by_day.get(k, 0),
+              "visits": visits_by_day.get(k, 0)}
+             for k in sorted(set(by_day) | set(visits_by_day))]
     state["health"]["webUsage"] = {
         "daily": daily,
         "views28d": sum(r["views"] for r in daily[-28:]),
         "views7d": sum(r["views"] for r in daily[-7:]),
+        "visits28d": sum(r["visits"] for r in daily[-28:]),
+        "visits7d": sum(r["visits"] for r in daily[-7:]),
         "byPath": dict(sorted(by_path.items(), key=lambda kv: -kv[1])[:12]),
         "since": d.get("since"),
+        # Before 2026-09-10 the beacon sent location.pathname, which on a hash
+        # router is "/" on EVERY surface — so older rows are route views with
+        # the breakdown collapsed, and carry no visit count at all. The two
+        # eras are not comparable and the page says so rather than drawing one
+        # line through them.
+        "splitFrom": "2026-09-10",
     }
-    return f"{sum(by_day.values())} view(s) over {len(daily)} day(s), {len(by_path)} page kind(s)"
+    return (f"{sum(by_day.values())} route view(s) and {sum(visits_by_day.values())} "
+            f"visit(s) over {len(daily)} day(s), {len(by_path)} surface(s)")
 
 
 def distribution(state):

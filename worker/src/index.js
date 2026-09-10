@@ -29,6 +29,11 @@ const ALLOW = "https://archivewatch.org";
 // A path becomes one of a small fixed set. Anything unrecognised is "/other",
 // never the raw path: an unbounded key space is how a counter turns into a log.
 function shape(raw) {
+  // A page LOAD, as opposed to an in-app route change. Its own key so the two
+  // can never be summed: a visit that walks six surfaces is one visit and
+  // seven route views, and reporting the second as the first inflates the
+  // audience by however much people browse.
+  if (raw === "(visit)") return "(visit)";
   let p;
   try {
     p = new URL(raw, ALLOW).pathname.toLowerCase();
@@ -40,6 +45,13 @@ function shape(raw) {
   if (p.startsWith("/series/")) return "/series";
   if (p.startsWith("/curate")) return "/curate";
   if (p.startsWith("/pulse")) return "/pulse";
+  // The viewer's own surfaces, which arrive as hash routes. Without these every
+  // one of them collapsed into "/other" and the breakdown said nothing.
+  for (const view of ["/browse", "/search", "/library", "/channels", "/surprise",
+                      "/collections", "/collection", "/cartoons", "/playlist",
+                      "/about"]) {
+    if (p === view || p.startsWith(view + "/")) return view;
+  }
   for (const known of ["/privacy", "/terms", "/support", "/feed.xml", "/feed.json"]) {
     if (p.startsWith(known)) return known;
   }
