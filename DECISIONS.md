@@ -181,6 +181,7 @@ an entry in place.
 - 110 — A release builds in CI and is promoted, never rebuilt; the owner's machine is not a build server
 - 111 — Amazon's APIs were one MAPPING away, and "no API" was our claim, not Amazon's
 - 112 — Samsung ships US-only on Public Seller; the signing certificate is backed up beside the project
+- 113 — The Roku Search feed advertises only what the rights audit KEEPS, never television, and its ids never change
 
 ---
 
@@ -1877,3 +1878,48 @@ carries the restore procedure and says both of these plainly.
 **Consequences**: LG remains the wider-reach option — it lets an individual
 publish globally with no equivalent gate — and the same web build packages for
 it, so the LG route stays worth taking when a device is available to test on.
+
+## 113 — The Roku Search feed advertises only what the rights audit KEEPS, never television, and its ids never change
+*Date: 2026-09-10*
+
+`tools/build_roku_search_feed.py` publishes `archivewatch.org/roku-search/`
+— a paginated Roku Search feed of ~18,200 films, generated into the Pages
+artifact by `deploy-pages.yml` and never committed. An asset is included only
+when it is in the public index AND its `audit_rights` bucket is a KEEP bucket;
+television and commercials are excluded outright; the asset `id` is the
+archiveID or, past Roku's 50-character cap, a stable hash-derived id; and the
+`playId` is always the archiveID the channel's deep-link handler takes.
+
+**Why**: Roku Search is the discovery route where a viewer arrives already
+wanting a specific title, and a matching free watch option installs the
+channel and deep links into playback. That makes the feed a list of films we
+hand a third party to advertise as free — a stronger claim than showing them
+in our own app. The app keeps the 1964-77 renewal zone visible under the
+owner's Decision 027 policy; the feed does not repeat that claim to Roku,
+because the audit itself files those as REPORT, not KEEP. Television is out
+for a harder reason: episodes live in series/*.json and have never been
+through the rights audit at all (SCRATCHPAD, OPEN — OWNER DECISION), so a
+feed carrying them would advertise The Dukes of Hazzard as free public
+domain. And the index gate is not bureaucracy: the Roku channel resolves a
+deep link through the index and detail shards, so an id absent there opens a
+Detail screen with no film — the exact failure a certification reviewer
+would be handed.
+
+**How to apply**: never let the feed's `id` change for a title once
+submitted — Roku says so, and the 2,710 archive ids longer than 50 characters
+are why `asset_id()` exists; do not "clean up" its prefix+hash shape. Keep the
+type casing of the published schema (`shortForm`, `tvSpecial`): the spec's
+inline copy is lowercase and its two examples disagree, and the schema Roku
+links to is the one that validates. Two features are behind flags and stay
+there until measured: `--imdb` (the prose allows an IMDB externalId source,
+the schema rejects it) and `--tv-specials` (the store package 00051 does not
+autoplay a tvSpecial deep link; 00052 does). A feed change reaches Roku only
+on RESUBMISSION in the dashboard — the deploy alone updates the file, not
+Roku's index.
+
+**Consequences**: the deploy refuses to ship a feed under 10,000 assets, the
+same shape as the share-pages floor — a shrunken feed would silently drop
+films from Roku Search while the deploy stayed green. `test_roku_search_feed.py`
+(57 cases, negative-controlled) locks the gates, the id rule, the image
+ceiling rewrites and the sentence clipper that no longer ends a description
+on "Dr.".

@@ -2355,7 +2355,11 @@ sub startDeepLink(id as String)
     ' and an unknown id fails on the Detail screen with a reason rather than
     ' on a blank one.
     mt = LCase(m.top.deepLinkMediaType)
-    m.autoPlay = (mt = "movie" or mt = "episode" or mt = "shortformvideo")
+    ' Roku sends tvSpecial for a one-off programme and requires it to play
+    ' directly, exactly like a movie ("Deep linking", MediaType behavior).
+    ' The search feed emits that type once this build is the one in the
+    ' store (build_roku_search_feed.py --tv-specials).
+    m.autoPlay = (mt = "movie" or mt = "episode" or mt = "shortformvideo" or mt = "tvspecial")
     openDetail(id)
 end sub
 

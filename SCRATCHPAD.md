@@ -269,6 +269,25 @@ keep serving it.
 
 ## Session Log
 
+### 2026-09-10 — Roku Search feed (Decision 113)
+Owner: "now that the Roku app is live, we need to build out a Search Feed for
+all of the content (or a large subset of verifiable public domain movies, at
+least)". Read Roku's Search docs + feed spec + deep-linking spec in Chrome, then
+built `tools/build_roku_search_feed.py`: **18,178 assets** (11,126 movie /
+7,052 shortForm, 21.6 MB over 5 pages) from the full catalog, gated on the
+public index + audit_rights KEEP buckets, no TV (never rights-audited), no
+commercials, no renewal zone; `--tier strict` = 7,317. **0 errors against
+Roku's published schema** (rokudev/search-feed-json), which disagrees with the
+spec page twice — type casing (`shortForm`/`tvSpecial`, not lowercase) and an
+IMDB externalId source the prose allows and the schema rejects (now `--imdb`,
+off). Generated in `deploy-pages.yml` (fetches catalog.json AFTER the rsync,
+excluded from the artifact, 10k-asset floor). Roku channel: tvSpecial deep
+links now autoplay (build 00052) — the feed emits `tvSpecial` only via
+`--tv-specials` once that package is the store one. Logos for the dashboard
+at `build/roku-store/search_*.png`. 57/57 tests. Docs: ROKU-SUBMISSION.md
+§Roku Search feed. NEXT: dashboard validator on the live URL → New search
+feed → SearchBeta install → deep-link params → Submit for Review.
+
 ### 2026-09-09 (later) — Play data, the crash shipped, releases off this machine
 Continuation of the Pulse session. Everything on `main`; app **1.42.7 (1019)**,
 Play production **1.42.6 (vc 56)**, vc 57 waiting on internal.

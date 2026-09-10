@@ -81,7 +81,7 @@ jobs:
           # plus the fetched /subs. Missing a path here would break the live site
           # on flip, so we copy everything rather than enumerate.
           mkdir _site
-          rsync -a --exclude='.git' --exclude='_site' ./ _site/
+          rsync -a --exclude='.git' --exclude='_site' --exclude='catalog.json' --exclude='catalog.json.gz' ./ _site/
 
       - name: Build share pages (/item/<id>, /series/<slug>)
         run: |
@@ -101,6 +101,27 @@ jobs:
           if [ "$n" -lt 20000 ]; then
             echo "::error::only $n share pages built (expected >20000) — every"
             echo "::error::shared link would preview as nothing. Refusing to deploy."
+            exit 1
+          fi
+
+      - name: Build the Roku Search feed (/roku-search/)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Roku Search lists our films in the Roku home menu's own search
+          # and deep links into the channel; the feed is the whole visible,
+          # rights-KEEP, non-TV catalog paginated per Roku's spec. It reads
+          # the full catalog (rights buckets, runtimes, cast), which the
+          # site tree does not carry, so fetch it AFTER the rsync above —
+          # 143 MB that must never land in the artifact.
+          python3 tools/catalog_release.py fetch
+          python3 tools/build_roku_search_feed.py --out _site
+          rm -f catalog.json
+          n=$(python3 -c "import json;print(json.load(open('_site/roku-search/manifest.json'))['assets'])")
+          echo "roku search feed assets: $n"
+          if [ "$n" -lt 10000 ]; then
+            echo "::error::only $n Roku search assets built (expected >10000) — a"
+            echo "::error::shrunken feed would drop films from Roku Search. Refusing to deploy."
             exit 1
           fi
 
