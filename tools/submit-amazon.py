@@ -96,7 +96,8 @@ def token(c):
         sys.exit(f"token failed: HTTP {e.code} {body[:300]}")
 
 
-def call(tok, method, path, body=None, ctype="application/json", etag=None):
+def call(tok, method, path, body=None, ctype="application/json", etag=None,
+         soft=False):
     """One authenticated API call. Returns (json_or_bytes, etag)."""
     url = f"{API}{path}"
     headers = {"Authorization": f"Bearer {tok}", "Accept": "application/json"}
@@ -114,7 +115,62 @@ def call(tok, method, path, body=None, ctype="application/json", etag=None):
         except ValueError:
             return raw, tag
     except urllib.error.HTTPError as e:
-        sys.exit(f"{method} {path} -> HTTP {e.code}: {e.read().decode()[:400]}")
+        detail = e.read().decode()[:400]
+        if soft:
+            return None, None
+        sys.exit(f"{method} {path} -> HTTP {e.code}: {detail}")
+
+
+def open_edit(tok, app):
+    """The app's currently-open edit, or a new one.
+
+    Amazon allows ONE open edit per app, so a run that failed after opening
+    one (an upload rejected by a manifest rule, say) leaves it behind and the
+    next `POST /edits` answers 409. Reusing it is both what the console does
+    and the only way a retry can work."""
+    cur, _ = call(tok, "GET", f"/applications/{app}/edits", soft=True)
+    eid = (cur or {}).get("id") if isinstance(cur, dict) else None
+    if eid:
+        print(f"edit {eid} reused (already open)")
+        return eid
+    edit, _ = call(tok, "POST", f"/applications/{app}/edits")
+    eid = edit.get("id") if isinstance(edit, dict) else None
+    if not eid:
+        sys.exit(f"could not read an edit id from: {str(edit)[:200]}")
+    print(f"edit {eid} opened")
+    return eid
+
+
+def put_apk(tok, app, eid, path, add=False):
+    """REPLACE the listing's APK by default; --add uploads an extra one.
+
+    Replace is the right verb for shipping a new build and add is almost
+    never right, because Amazon orders a multi-APK listing by minSdk: "an APK
+    with higher minSDK version must have a higher version code". Uploading
+    the 2026-09-10 fix (vc57, minSdk 23) alongside the broken vc49 (minSdk
+    29) was refused for exactly that reason — and replacing it is what was
+    meant anyway, since one minSdk-23 APK covers every device the other did."""
+    with open(path, "rb") as f:
+        blob = f.read()
+    listed, _ = call(tok, "GET", f"/applications/{app}/edits/{eid}/apks", soft=True)
+    existing = listed if isinstance(listed, list) else []
+    name = os.path.basename(path)
+    if add or not existing:
+        print(f"uploading {name} ({len(blob) // 1024 // 1024} MB) …")
+        up, _ = call(tok, "POST", f"/applications/{app}/edits/{eid}/apks/upload",
+                     body=blob, ctype="application/octet-stream")
+        print(f"uploaded: {str(up)[:160]}")
+        return
+    if len(existing) > 1:
+        sys.exit(f"{len(existing)} APKs in this edit — replace is ambiguous; "
+                 f"resolve it in the console or pass --add deliberately.")
+    apk_id = existing[0].get("id") or existing[0].get("apkId")
+    _, tag = call(tok, "GET", f"/applications/{app}/edits/{eid}/apks/{apk_id}")
+    print(f"replacing APK {apk_id} with {name} ({len(blob) // 1024 // 1024} MB) …")
+    rep, _ = call(tok, "PUT",
+                  f"/applications/{app}/edits/{eid}/apks/{apk_id}/replace",
+                  body=blob, ctype="application/octet-stream", etag=tag)
+    print(f"replaced: {str(rep)[:160]}")
 
 
 def main():
@@ -123,6 +179,9 @@ def main():
     ap.add_argument("--apk", help="APK to upload as a new version")
     ap.add_argument("--commit", action="store_true",
                     help="submit the edit for review (default: leave it open)")
+    ap.add_argument("--add", action="store_true",
+                    help="upload as an ADDITIONAL APK instead of replacing the "
+                         "listing's one (rarely right — see put_apk)")
     a = ap.parse_args()
 
     c = creds()
@@ -157,18 +216,8 @@ def main():
         sys.exit(1)
     print("fire-tv manifest audit: OK")
 
-    edit, _ = call(tok, "POST", f"/applications/{app}/edits")
-    eid = edit.get("id") if isinstance(edit, dict) else None
-    if not eid:
-        sys.exit(f"could not read an edit id from: {str(edit)[:200]}")
-    print(f"edit {eid} opened")
-
-    with open(a.apk, "rb") as f:
-        blob = f.read()
-    print(f"uploading {os.path.basename(a.apk)} ({len(blob) // 1024 // 1024} MB) …")
-    up, _ = call(tok, "POST", f"/applications/{app}/edits/{eid}/apks/upload",
-                 body=blob, ctype="application/octet-stream")
-    print(f"uploaded: {str(up)[:160]}")
+    eid = open_edit(tok, app)
+    put_apk(tok, app, eid, a.apk, add=a.add)
 
     if not a.commit:
         print(f"\nedit {eid} left OPEN — review it in the console, then re-run "

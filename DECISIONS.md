@@ -183,6 +183,7 @@ an entry in place.
 - 112 — Samsung ships US-only on Public Seller; the signing certificate is backed up beside the project
 - 113 — The Roku Search feed advertises only what the rights audit KEEPS, never television, and its ids never change
 - 114 — A bare CC claim rescues nothing, a 5,000-vote footprint in 1964-77 is a studio film, and a modern id wearing an old year is a wrong match
+- 115 — A store's device count is the only place a minSdk regression is visible; the Fire TV build is gated on reaching Fire OS 7
 
 ---
 
@@ -2035,3 +2036,43 @@ vote gate further without naming the PD-by-defect films the next band holds
 — the 1,000-5,000 band is Hammer, Carry On, Gamera and gialli, most of them
 copyrighted and none of them decided here. Net effect on the visible
 catalog: 214 hides (89 + 125), reversible as every `excluded` flag is.
+
+## 115 — A store's device count is the only place a minSdk regression is visible; the Fire TV build is gated on reaching Fire OS 7
+*Date: 2026-09-10*
+
+`tools/audit_fire_tv_manifest.py` refuses any Fire TV APK whose `minSdk`
+exceeds **28** (Fire OS 7 = Android 9), or that makes a `uses-feature`
+required, drops an ARM ABI, lacks a leanback launcher, or was built against a
+preview platform. `tools/submit-amazon.py` runs it before an upload can
+happen, and refuses just as hard when it cannot read the APK at all.
+
+**Why**: users reported Archive Watch as "incompatible" on a Fire TV Stick 4K
+Max, on Fire Cubes and on several sticks. Nothing was wrong with the app. The
+live binary was `vc49`, built before Decision 100 lowered the amazon flavor's
+floor, and it declared `minSdkVersion 29` — so the Appstore hid it from the
+entire Fire OS 7 generation, which is most of the installed base. The fix
+(minSdk 23) had been built as `vc50` five weeks earlier and **never uploaded**.
+Nothing in the repo could see the difference: the APK on disk was correct, CI
+was green, the store said LIVE, and `ops/stores-manual.json` claimed version
+"1.42.x" when the live binary was 1.3.485. The one place the truth was written
+was Amazon's own Target-your-app page: **Fire TV (98) — 38 selected**. After
+the fix: **91 selected** (and Fire Tablets 6 → 12).
+
+**How to apply**: read the store's device count after every Fire TV release —
+it is the only measurement that distinguishes "shipped" from "shipped to
+somebody". Do not raise the amazon flavor's `minSdk` to match `google`'s; they
+are deliberately different (Decision 100) and 23 is the measured dependency
+floor. When Amazon answers `error_apk_minsdk_version_code_conflict`, do NOT
+try to satisfy it by juggling version codes: the rule is that a higher minSdk
+needs a higher versionCode, so a listing that already holds a minSdk-29 APK
+can never accept a lower-minSdk one alongside it. DELETE the old APK from the
+edit and upload the new one — one minSdk-23 APK covers every device the old
+one did and more. `replace` is refused for the same reason and is not a way
+round it.
+
+**Consequences**: the App Submission API is now proven end to end (Decision
+111 left it unexercised) — token, edit reuse, APK delete, upload. Edits are
+staged, so `submit-amazon.py` still leaves the edit OPEN unless `--commit`;
+the final submission stays a deliberate act. `ops/stores-manual.json` carries
+the real live version, because a hand-declared value that lies is worse than
+no value at all (Decision 108).
