@@ -301,5 +301,25 @@ check('Tizen back (10009) navigates', global._wentBack, true);
         doc.activeElement?.attrs.name, 'nav-Home');
 }
 
+/* A TV APP MAY NOT ADVERTISE OTHER PLATFORMS' STORES. The shared footer says
+   "Get the app — Apple TV · Android & Google TV · Fire TV", and About carries
+   buttons into the App Store, Play and the Amazon Appstore. Inside the Tizen
+   .wgt that is a review-guideline problem AND three dead controls the D-pad
+   must walk past, since a packaged TV app has no browser to hand off to.
+   Hidden on TV only — on the web they are correct and wanted. */
+{
+  const css = fs.readFileSync('tv.css', 'utf8');
+  const rule = css.slice(css.indexOf('.tv .foot-apps'));
+  check('the store-promo footer is hidden on TV',
+        /\.tv \.foot-apps/.test(css) && /display:\s*none/.test(rule.slice(0, 200)), true);
+  check('...and the About page store buttons too',
+        /\.tv \.store-links/.test(css), true);
+  // It must NOT take the things a store requires or a viewer needs with it.
+  for (const keep of ['about', 'privacy', 'terms', 'donate']) {
+    check(`...while leaving ${keep} reachable`,
+          !new RegExp(`\\.tv[^{]*\\b${keep}\\b[^{]*\\{[^}]*display:\\s*none`, 'i').test(css), true);
+  }
+}
+
 console.log(`\n${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);

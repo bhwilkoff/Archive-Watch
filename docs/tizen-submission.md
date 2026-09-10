@@ -75,6 +75,18 @@ back it up somewhere durable, outside the repo.
 
 ---
 
+## 3b. What a TV build must NOT carry
+
+The shared web app advertises the other platforms — a "Get the app: Apple TV ·
+Android & Google TV · Fire TV" footer on every screen, and App Store / Play /
+Amazon buttons on About. On the website that is the point; inside the `.wgt` it
+is two problems: every TV store's guidelines object to an app linking to a
+COMPETING store, and the links cannot work anyway, because a packaged TV app has
+no browser to hand off to. `tv.css` hides them on TV only (measured: three
+focusable controls removed from the D-pad's path). About & attribution, Privacy,
+Terms and the archive.org donate link all stay — the first is required by TMDb's
+terms and the last is not a store.
+
 ## 4. Store listing
 
 Same copy as `docs/webos-submission.md` §3. Samsung's screenshot dimensions
@@ -89,8 +101,8 @@ time rather than trusting a cached number.
 |---|---|
 | 1 | **Decide: US-only Public Seller, or pursue Partner for global** (§1) |
 | 2 | Create a free **TV Seller Office** account |
-| 3 | Install Tizen Studio CLI and create a signing certificate — **back it up** |
-| 4 | `./tv/build-tv-packages.sh tizen`, then build + package (§3) |
-| 5 | Enable Developer Mode on a Samsung TV (it is keyed to the TV's IP) and side-load |
+| 3 | ~~Install Tizen Studio CLI and create a signing certificate~~ **DONE 2026-09-09** — see `docs/tizen-signing.md`. The certificates are at `~/SamsungCertificate/archivewatchSamsung/` and **must be backed up somewhere durable**: Samsung requires every future update to be signed with the same one, and the distributor cert is tied to the DUIDs listed in it (a second test TV means re-issuing) |
+| 4 | ~~build + package~~ **DONE** — `TIZEN_PROFILE=archivewatchSamsung bash tv/build-tv-packages.sh tizen` produces a signed `tv/dist/ArchiveWatch.wgt` |
+| 5 | ~~Enable Developer Mode and side-load~~ **DONE** — verified installed and launched on a QN65S90CDFXZA (2023 S90C, Tizen 9.0) at 10.0.0.203 |
 | 5b | **Confirm the side-loaded app actually shows films before submitting.** A packaged app runs from `file://`, where a relative data URL resolves inside the package instead of to the server — fixed 2026-08-05, but invisible in the browser build. An empty Home means the data plane regressed; `node tools/test_packaged_origin.mjs` guards it |
 | 6 | Submit through Seller Office; expect ~1–2 weeks and possibly several cycles |

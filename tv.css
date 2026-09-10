@@ -196,3 +196,29 @@ html.tv .smart-banner,
 html.tv .share-menu-trigger {
   display: none !important;
 }
+
+/* ── A TV app may not advertise other platforms' stores ────────────────────
+ *
+ * The shared footer carries "Get the app — Apple TV · Android & Google TV ·
+ * Fire TV", and the About page carries buttons into the App Store, Play and
+ * the Amazon Appstore. On the WEB that is the whole point. Inside the Tizen
+ * .wgt (and the webOS .ipk) it is two problems at once:
+ *
+ *   1. every TV store's review guidelines object to an app that links to a
+ *      COMPETING store — this is the kind of thing Samsung and LG reject for;
+ *   2. the links do not work anyway. A packaged TV app has no browser to hand
+ *      off to, so `target="_blank"` on a remote is a control that does
+ *      nothing, and the D-pad still has to walk past every one of them.
+ *
+ * Hidden rather than removed: the same index.html serves archivewatch.org,
+ * where these links are correct and wanted. `display:none` also takes them
+ * out of tv.js's focus pool, which is what makes them stop costing presses.
+ *
+ * What STAYS is what a TV store requires or a viewer needs: About &
+ * attribution (TMDb's notice is mandatory), Privacy, Terms, and the donate
+ * link to archive.org — which is not a store, and is the point of the app. */
+.tv .foot-apps,
+.tv .foot-sep,
+.tv .store-links {
+  display: none !important;
+}
