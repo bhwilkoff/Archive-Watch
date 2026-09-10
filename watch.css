@@ -713,16 +713,25 @@ dialog#player::backdrop { background: rgba(0, 0, 0, 0.85); }
   padding-bottom: 1px;
 }
 .foot-apps a:hover { border-bottom-color: var(--color-primary); }
-.foot-apps a + a { margin-left: .1rem; }
-.foot-apps a + a::before {
+.foot-apps a:not(.foot-apps-label) + a { margin-left: .1rem; }
+.foot-apps a:not(.foot-apps-label) + a::before {
   content: "·";
   color: var(--text-dim);
   margin-right: .55rem;
 }
 .foot-sep { color: var(--text-dim); }
+/* The footer is persistent chrome (body is a fixed-height column, the
+   Safari rule), so on a phone it must stay ONE line: four device links
+   wrapped to five rows and took a third of the screen (owner screenshot,
+   2026-09-10). Below 640px the label alone remains and links to About,
+   where every store is listed; the device links return at width. */
 @media (max-width: 640px) {
-  /* On a phone the footer is one line of chrome; the app links matter more
-     than the label, so it goes rather than wrapping to two rows. */
+  .foot { flex-wrap: nowrap; white-space: nowrap; overflow: hidden; }
+  .foot-apps { flex-wrap: nowrap; }
+  .foot-apps a:not(.foot-apps-label) { display: none; }
+  .foot-apps-label { display: inline; }
+}
+@media (min-width: 641px) {
   .foot-apps-label { display: none; }
 }
 
