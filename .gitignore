@@ -106,3 +106,11 @@ build/roku-store/
 # Tizen build output (derived — the .wgt is rebuilt by tv/build-tv-packages.sh)
 tv/tizen/app/.buildResult/
 tv/dist/*.wgt
+
+# Samsung Tizen signing certificate — NEVER committed.
+# Samsung requires every future update to be signed with the SAME certificate,
+# and the distributor cert is tied to the DUIDs inside it, so losing this means
+# the app cannot be updated at all. Kept beside the project so a Tizen Studio
+# reinstall cannot take it, but see secrets/tizen-certificate/README.md: a
+# gitignored folder is not an off-machine backup.
+secrets/

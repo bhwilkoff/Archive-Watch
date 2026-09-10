@@ -20,6 +20,12 @@ That is why the recommended order is **LG first, Samsung second**: LG lets an
 individual publish globally with no equivalent gate, so it buys real reach while
 this decision stays open.
 
+**DECIDED 2026-09-10 (owner): Public Seller, US-only.** Global reach is not
+worth signing an offline contract with Samsung HQ and standing up a business
+entity for a free, ad-free app. Partner remains open later — the `.wgt` is
+identical either way, so this decision costs nothing but reach and can be
+revisited without rebuilding anything.
+
 Your options:
 
 | Option | Reach | Cost |
@@ -147,7 +153,7 @@ rounds up. The archive's appeal is that it is an archive.
 
 | # | Step |
 |---|---|
-| 1 | **Decide: US-only Public Seller, or pursue Partner for global** (§1) |
+| 1 | ~~Decide: US-only Public Seller, or pursue Partner~~ **DECIDED 2026-09-10 — Public Seller, US-only** (§1) |
 | 2 | Create a free **TV Seller Office** account |
 | 3 | ~~Install Tizen Studio CLI and create a signing certificate~~ **DONE 2026-09-09** — see `docs/tizen-signing.md`. The certificates are at `~/SamsungCertificate/archivewatchSamsung/` and **must be backed up somewhere durable**: Samsung requires every future update to be signed with the same one, and the distributor cert is tied to the DUIDs listed in it (a second test TV means re-issuing) |
 | 4 | ~~build + package~~ **DONE** — `TIZEN_PROFILE=archivewatchSamsung bash tv/build-tv-packages.sh tizen` produces a signed `tv/dist/ArchiveWatch.wgt` |

@@ -180,6 +180,7 @@ an entry in place.
 - 109 — Store metrics come from the route each store actually offers, and each one's gotcha is written down
 - 110 — A release builds in CI and is promoted, never rebuilt; the owner's machine is not a build server
 - 111 — Amazon's APIs were one MAPPING away, and "no API" was our claim, not Amazon's
+- 112 — Samsung ships US-only on Public Seller; the signing certificate is backed up beside the project
 
 ---
 
@@ -1842,3 +1843,37 @@ what stops the next session re-walking it. Two credentials
 (`AMAZON_CLIENT_ID`/`SECRET`) are now repo secrets; the collector's own guard
 test caught that pulse.yml did not pass them, exactly as it caught
 `THREADS_ACCESS_TOKEN`.
+
+## 112 — Samsung ships US-only on Public Seller; the signing certificate is backed up beside the project
+*Date: 2026-09-10*
+
+Archive Watch is submitted to the Samsung TV store as a **Public Seller**,
+which can only launch in the **United States**. The signing certificate is
+copied to `secrets/tizen-certificate/` — gitignored — with its password
+deliberately left out.
+
+**Why**: Samsung's global tier is **Partner Seller**, and it requires signing an
+offline contract with Samsung HQ or a local subsidiary, which requires a
+business entity. That is a real cost for a free, ad-free app with no revenue to
+justify it. The owner chose US-only. Nothing about the build differs: the
+`.wgt` is identical on either tier, so this is a listing decision and can be
+revisited later without rebuilding or re-signing anything.
+
+**How to apply**: the certificate is the part that cannot be recovered. Samsung
+requires every future update to be signed with the SAME one, and the
+distributor certificate is tied to the DUIDs inside it — a second test TV means
+re-issuing it through Certificate Manager with that TV added, not generating a
+new one. Keep `secrets/` out of git forever; the rule is in `.gitignore` and was
+added BEFORE any key was copied, which is the order that matters.
+
+**The password is not in that folder, deliberately.** It lives at
+`~/.config/tizen/author.env` (mode 600). A password stored beside the key it
+protects is not a password, so a backup of the folder alone is not a complete
+backup — the password belongs in a password manager. And a gitignored directory
+is not an off-machine backup: it survives a Tizen Studio reinstall, which is
+what it is for, and not a failed disk. `secrets/tizen-certificate/README.md`
+carries the restore procedure and says both of these plainly.
+
+**Consequences**: LG remains the wider-reach option — it lets an individual
+publish globally with no equivalent gate — and the same web build packages for
+it, so the LG route stays worth taking when a device is available to test on.
