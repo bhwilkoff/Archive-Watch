@@ -1923,3 +1923,18 @@ films from Roku Search while the deploy stayed green. `test_roku_search_feed.py`
 (57 cases, negative-controlled) locks the gates, the id rule, the image
 ceiling rewrites and the sentence clipper that no longer ends a description
 on "Dr.".
+
+**Amendment, same day — the validator is the spec.** The first live run
+against Roku's own validator rejected 8,465 of 18,178 assets, none of it
+visible from the spec page or the published schema (0 errors there). Four
+rules, each measured from the report's own samples: the validator does NOT
+follow redirects (every archive.org cover and Commons FilePath, 7,557 assets),
+a main image must be 2:3 or 16:9 within a few percent (a 300x400 and a 300x300
+were refused, whatever the spec says about 3:4 and 1:1), nothing under 60
+seconds, nothing before 1900, and lengths count UTF-16 units. The generator
+resolves redirects at build time (one HEAD for the covers' storage node, the
+Commons imageinfo API in batches of 50), and `tools/measure_image_dims.py`
+keeps `ops/image-dims.json` so off-aspect posters are swapped for the 16:9
+backdrop or dropped and counted. **How to apply**: read the validator's issues
+JSON, not its percentage (it printed -289%); and never widen the aspect
+tolerance to admit more posters — a 500x707 (+6%) was refused.

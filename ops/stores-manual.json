@@ -1,5 +1,5 @@
 {
- "_": "Store facts that no API exposes. Amazon has a Vitals API (read live); its UNITS are console-only. Roku/LG/Samsung expose nothing at all. Edit by hand when a state changes \u2014 the dashboard shows these beside the machine-read stores so the estate is never half-reported.",
+ "_": "Store facts that no API exposes. Amazon has a Vitals API (read live); its UNITS are console-only. Roku/LG/Samsung expose nothing at all. Edit by hand when a state changes — the dashboard shows these beside the machine-read stores so the estate is never half-reported.",
  "stores": [
   {
    "store": "Amazon Appstore",
@@ -7,7 +7,7 @@
    "state": "LIVE",
    "version": "1.42.x",
    "since": "2026-09-01",
-   "note": "Reporting + Submission APIs mapped 2026-09-09; vitals read live. Units are console-only \u2014 declared here.",
+   "note": "Reporting + Submission APIs mapped 2026-09-09; vitals read live. Units are console-only — declared here.",
    "url": "https://developer.amazon.com/apps-and-games/console/apps/list.html",
    "api": "vitals",
    "units30d": 2,
@@ -17,11 +17,11 @@
   {
    "store": "Roku Channel Store",
    "platform": "Roku",
-   "state": "SUBMITTED",
+   "state": "LIVE",
    "version": "1.0.51",
-   "since": "2026-09-08",
-   "note": "Channel 881015. No developer API \u2014 check the Dashboard.",
-   "url": "https://developer.roku.com/developer-channels/channels",
+   "since": "2026-09-10",
+   "note": "Channel 881015, live in the Channel Store 2026-09-10. No developer API — check the Dashboard. Search feed: archivewatch.org/roku-search/ (Decision 113).",
+   "url": "https://channelstore.roku.com/details/12a571a872732e40fe8d1d6c59f3849f:5ec8f46dcec2324229c8d096ea23c089/archive-watch",
    "api": null
   },
   {

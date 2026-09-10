@@ -231,6 +231,27 @@ derived id (prefix + hash) — the id must never change once Roku has it.
   schema fails on every such entry. Try it on the dashboard validator before
   making it the default.
 
+**What Roku's validator taught on the first live run (2026-09-10)**, each now a
+gate or a resolver, each measured rather than read off the spec page:
+- **It does not follow a redirect.** 7,557 `IMAGE_DOWNLOAD_ERROR`: every
+  archive.org cover (302 to a storage node) and every Commons
+  `Special:FilePath` (302 to upload.wikimedia). The generator now resolves
+  both — one HEAD for the covers' node, the Commons imageinfo API for the
+  rest — so every image URL answers 200 where it stands.
+- **A main image is 2:3 or 16:9, nothing else.** 907 `IMAGE_INVALID_MAIN`,
+  sampled: 300x229, 300x300, 300x400, 500x663..707, 997x678. The spec's
+  "4:3, 3:4, 1:1 also supported" is not enforced that way. Sizes are recorded
+  by `tools/measure_image_dims.py` into `ops/image-dims.json` (publish-db
+  commits it, 3,000 URLs a day); an off-aspect poster is replaced by the
+  item's 16:9 backdrop or the asset is dropped and counted.
+- **60 seconds minimum** (343 `ASSET_DURATION_SHORT`, all under 60s) and
+  **1900 minimum year** (every 1890s film: `ASSET_ALL_RELEASE_REMOVED`).
+- **Lengths are UTF-16 code units** — one description of 194 characters was
+  refused at 208 units of emoji. Clips now stay five units under each cap.
+- Its "Validated content" percentage is unreliable (it printed -289%); read
+  the error table and the `/apps/api/v1/searchfeed/validation/<id>/issues`
+  JSON behind it instead.
+
 **Dashboard assets** (generated from existing brand art, in `build/roku-store/`,
 gitignored like the channel poster): `search_provider_logo_143x113.png` and
 `search_teaser_logo_165x60.png`, both with rounded corners as required.
