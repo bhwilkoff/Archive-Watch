@@ -1,10 +1,10 @@
 {
   "schema": 1,
-  "updated_at": "2026-09-09T08:33:42Z",
+  "updated_at": "2026-09-10T08:37:46Z",
   "description": "Missing-episode queue: canonical episodes (from OMDb) that we don't yet have on Archive. Drained by tools/backfill_tv_episodes.py.",
   "stats": {
-    "total": 18066,
-    "wanted": 17843,
+    "total": 18098,
+    "wanted": 17875,
     "fulfilled": 223,
     "series_with_gaps": 359
   },
@@ -4249,6 +4249,16 @@
       "seriesID": "alfred-hitchcock-presents-1955",
       "seriesTitle": "Alfred Hitchcock Presents",
       "season": 3,
+      "episode": 11,
+      "title": "The Deadly",
+      "episodeImdbID": "tt0508282",
+      "status": "wanted",
+      "added_at": "2026-09-10T08:37:46Z"
+    },
+    {
+      "seriesID": "alfred-hitchcock-presents-1955",
+      "seriesTitle": "Alfred Hitchcock Presents",
+      "season": 3,
       "episode": 12,
       "title": "Miss Paisley's Cat",
       "episodeImdbID": "tt0508202",
@@ -4539,6 +4549,16 @@
       "seriesID": "alfred-hitchcock-presents-1955",
       "seriesTitle": "Alfred Hitchcock Presents",
       "season": 4,
+      "episode": 8,
+      "title": "Safety for the Witness",
+      "episodeImdbID": "tt0508239",
+      "status": "wanted",
+      "added_at": "2026-09-10T08:37:46Z"
+    },
+    {
+      "seriesID": "alfred-hitchcock-presents-1955",
+      "seriesTitle": "Alfred Hitchcock Presents",
+      "season": 4,
       "episode": 10,
       "title": "Tea Time",
       "episodeImdbID": "tt0508254",
@@ -4664,6 +4684,26 @@
       "episodeImdbID": "tt0508257",
       "status": "wanted",
       "added_at": "2026-06-05T16:31:07Z"
+    },
+    {
+      "seriesID": "alfred-hitchcock-presents-1955",
+      "seriesTitle": "Alfred Hitchcock Presents",
+      "season": 4,
+      "episode": 25,
+      "title": "The Kind Waitress",
+      "episodeImdbID": "tt0508310",
+      "status": "wanted",
+      "added_at": "2026-09-10T08:37:46Z"
+    },
+    {
+      "seriesID": "alfred-hitchcock-presents-1955",
+      "seriesTitle": "Alfred Hitchcock Presents",
+      "season": 4,
+      "episode": 26,
+      "title": "Cheap Is Cheap",
+      "episodeImdbID": "tt0508138",
+      "status": "wanted",
+      "added_at": "2026-09-10T08:37:46Z"
     },
     {
       "seriesID": "alfred-hitchcock-presents-1955",
@@ -4839,11 +4879,31 @@
       "seriesID": "alfred-hitchcock-presents-1955",
       "seriesTitle": "Alfred Hitchcock Presents",
       "season": 5,
+      "episode": 9,
+      "title": "Dead Weight",
+      "episodeImdbID": "tt0508148",
+      "status": "wanted",
+      "added_at": "2026-09-10T08:37:46Z"
+    },
+    {
+      "seriesID": "alfred-hitchcock-presents-1955",
+      "seriesTitle": "Alfred Hitchcock Presents",
+      "season": 5,
       "episode": 10,
       "title": "Special Delivery",
       "episodeImdbID": "tt0508248",
       "status": "wanted",
       "added_at": "2026-06-05T16:31:07Z"
+    },
+    {
+      "seriesID": "alfred-hitchcock-presents-1955",
+      "seriesTitle": "Alfred Hitchcock Presents",
+      "season": 5,
+      "episode": 11,
+      "title": "Road Hog",
+      "episodeImdbID": "tt0508237",
+      "status": "wanted",
+      "added_at": "2026-09-10T08:37:46Z"
     },
     {
       "seriesID": "alfred-hitchcock-presents-1955",
@@ -4889,6 +4949,16 @@
       "seriesID": "alfred-hitchcock-presents-1955",
       "seriesTitle": "Alfred Hitchcock Presents",
       "season": 5,
+      "episode": 16,
+      "title": "The Ikon of Elijah",
+      "episodeImdbID": "tt0508304",
+      "status": "wanted",
+      "added_at": "2026-09-10T08:37:46Z"
+    },
+    {
+      "seriesID": "alfred-hitchcock-presents-1955",
+      "seriesTitle": "Alfred Hitchcock Presents",
+      "season": 5,
       "episode": 17,
       "title": "The Cure",
       "episodeImdbID": "tt0508279",
@@ -4924,6 +4994,26 @@
       "episodeImdbID": "tt0508281",
       "status": "wanted",
       "added_at": "2026-06-05T16:31:07Z"
+    },
+    {
+      "seriesID": "alfred-hitchcock-presents-1955",
+      "seriesTitle": "Alfred Hitchcock Presents",
+      "season": 5,
+      "episode": 21,
+      "title": "Hitch Hike",
+      "episodeImdbID": "tt0508172",
+      "status": "wanted",
+      "added_at": "2026-09-10T08:37:46Z"
+    },
+    {
+      "seriesID": "alfred-hitchcock-presents-1955",
+      "seriesTitle": "Alfred Hitchcock Presents",
+      "season": 5,
+      "episode": 22,
+      "title": "Across the Threshold",
+      "episodeImdbID": "tt0508117",
+      "status": "wanted",
+      "added_at": "2026-09-10T08:37:46Z"
     },
     {
       "seriesID": "alfred-hitchcock-presents-1955",
@@ -5048,12 +5138,42 @@
     {
       "seriesID": "alfred-hitchcock-presents-1955",
       "seriesTitle": "Alfred Hitchcock Presents",
+      "season": 5,
+      "episode": 38,
+      "title": "Hooked",
+      "episodeImdbID": "tt0508173",
+      "status": "wanted",
+      "added_at": "2026-09-10T08:37:46Z"
+    },
+    {
+      "seriesID": "alfred-hitchcock-presents-1955",
+      "seriesTitle": "Alfred Hitchcock Presents",
+      "season": 6,
+      "episode": 1,
+      "title": "Mrs. Bixby and the Colonel's Coat",
+      "episodeImdbID": "tt0508207",
+      "status": "wanted",
+      "added_at": "2026-09-10T08:37:46Z"
+    },
+    {
+      "seriesID": "alfred-hitchcock-presents-1955",
+      "seriesTitle": "Alfred Hitchcock Presents",
       "season": 6,
       "episode": 2,
       "title": "The Doubtful Doctor",
       "episodeImdbID": "tt0508287",
       "status": "wanted",
       "added_at": "2026-06-05T16:31:07Z"
+    },
+    {
+      "seriesID": "alfred-hitchcock-presents-1955",
+      "seriesTitle": "Alfred Hitchcock Presents",
+      "season": 6,
+      "episode": 3,
+      "title": "A Very Moral Theft",
+      "episodeImdbID": "tt0508115",
+      "status": "wanted",
+      "added_at": "2026-09-10T08:37:46Z"
     },
     {
       "seriesID": "alfred-hitchcock-presents-1955",
@@ -5338,6 +5458,26 @@
     {
       "seriesID": "alfred-hitchcock-presents-1955",
       "seriesTitle": "Alfred Hitchcock Presents",
+      "season": 6,
+      "episode": 38,
+      "title": "Ambition",
+      "episodeImdbID": "tt0508120",
+      "status": "wanted",
+      "added_at": "2026-09-10T08:37:46Z"
+    },
+    {
+      "seriesID": "alfred-hitchcock-presents-1955",
+      "seriesTitle": "Alfred Hitchcock Presents",
+      "season": 7,
+      "episode": 1,
+      "title": "The Hatbox",
+      "episodeImdbID": "tt0508300",
+      "status": "wanted",
+      "added_at": "2026-09-10T08:37:46Z"
+    },
+    {
+      "seriesID": "alfred-hitchcock-presents-1955",
+      "seriesTitle": "Alfred Hitchcock Presents",
       "season": 7,
       "episode": 2,
       "title": "Bang! You're Dead",
@@ -5424,6 +5564,16 @@
       "episodeImdbID": "tt0508130",
       "status": "wanted",
       "added_at": "2026-06-05T16:31:07Z"
+    },
+    {
+      "seriesID": "alfred-hitchcock-presents-1955",
+      "seriesTitle": "Alfred Hitchcock Presents",
+      "season": 7,
+      "episode": 17,
+      "title": "The Faith of Aaron Menefee",
+      "episodeImdbID": "tt0508291",
+      "status": "wanted",
+      "added_at": "2026-09-10T08:37:46Z"
     },
     {
       "seriesID": "alfred-hitchcock-presents-1955",
@@ -11611,6 +11761,16 @@
       "seriesID": "are-you-being-served-1972",
       "seriesTitle": "Are You Being Served?",
       "season": 2,
+      "episode": 3,
+      "title": "The Think Tank",
+      "episodeImdbID": "tt0768324",
+      "status": "wanted",
+      "added_at": "2026-09-10T08:37:46Z"
+    },
+    {
+      "seriesID": "are-you-being-served-1972",
+      "seriesTitle": "Are You Being Served?",
+      "season": 2,
       "episode": 4,
       "title": "Big Brother",
       "episodeImdbID": "tt0514482",
@@ -11626,6 +11786,16 @@
       "episodeImdbID": "tt0514532",
       "status": "wanted",
       "added_at": "2026-06-06T07:00:09Z"
+    },
+    {
+      "seriesID": "are-you-being-served-1972",
+      "seriesTitle": "Are You Being Served?",
+      "season": 3,
+      "episode": 2,
+      "title": "Coffee Morning",
+      "episodeImdbID": "tt0514488",
+      "status": "wanted",
+      "added_at": "2026-09-10T08:37:46Z"
     },
     {
       "seriesID": "are-you-being-served-1972",
@@ -11696,6 +11866,16 @@
       "episodeImdbID": "tt0514514",
       "status": "wanted",
       "added_at": "2026-06-06T07:00:09Z"
+    },
+    {
+      "seriesID": "are-you-being-served-1972",
+      "seriesTitle": "Are You Being Served?",
+      "season": 5,
+      "episode": 3,
+      "title": "Founder's Day",
+      "episodeImdbID": "tt0514498",
+      "status": "wanted",
+      "added_at": "2026-09-10T08:37:46Z"
     },
     {
       "seriesID": "are-you-being-served-1972",
@@ -11801,6 +11981,26 @@
       "seriesID": "are-you-being-served-1972",
       "seriesTitle": "Are You Being Served?",
       "season": 8,
+      "episode": 1,
+      "title": "Is It Catching?",
+      "episodeImdbID": "tt0514509",
+      "status": "wanted",
+      "added_at": "2026-09-10T08:37:46Z"
+    },
+    {
+      "seriesID": "are-you-being-served-1972",
+      "seriesTitle": "Are You Being Served?",
+      "season": 8,
+      "episode": 2,
+      "title": "A Personal Problem",
+      "episodeImdbID": "tt0514480",
+      "status": "wanted",
+      "added_at": "2026-09-10T08:37:46Z"
+    },
+    {
+      "seriesID": "are-you-being-served-1972",
+      "seriesTitle": "Are You Being Served?",
+      "season": 8,
       "episode": 5,
       "title": "Heir Apparent",
       "episodeImdbID": "tt0765551",
@@ -11826,6 +12026,16 @@
       "episodeImdbID": "tt0514530",
       "status": "wanted",
       "added_at": "2026-06-06T07:00:09Z"
+    },
+    {
+      "seriesID": "are-you-being-served-1972",
+      "seriesTitle": "Are You Being Served?",
+      "season": 9,
+      "episode": 1,
+      "title": "The Sweet Smell of Success",
+      "episodeImdbID": "tt0514540",
+      "status": "wanted",
+      "added_at": "2026-09-10T08:37:46Z"
     },
     {
       "seriesID": "are-you-being-served-1972",
@@ -87265,6 +87475,16 @@
       "seriesID": "mister-ed-1961",
       "seriesTitle": "Mister Ed",
       "season": 5,
+      "episode": 1,
+      "title": "Hi-Fi Horse",
+      "episodeImdbID": "tt0649828",
+      "status": "wanted",
+      "added_at": "2026-09-10T08:37:46Z"
+    },
+    {
+      "seriesID": "mister-ed-1961",
+      "seriesTitle": "Mister Ed",
+      "season": 5,
       "episode": 2,
       "title": "Ed the Pool Player",
       "episodeImdbID": "tt0649804",
@@ -94507,6 +94727,16 @@
       "seriesID": "playhouse-90-1956",
       "seriesTitle": "Playhouse 90",
       "season": 1,
+      "episode": 1,
+      "title": "Forbidden Area",
+      "episodeImdbID": "tt0675570",
+      "status": "wanted",
+      "added_at": "2026-09-10T08:37:46Z"
+    },
+    {
+      "seriesID": "playhouse-90-1956",
+      "seriesTitle": "Playhouse 90",
+      "season": 1,
       "episode": 7,
       "title": "Heritage of Anger",
       "episodeImdbID": "tt0675575",
@@ -94752,6 +94982,16 @@
       "episodeImdbID": "tt0675554",
       "status": "wanted",
       "added_at": "2026-06-05T16:31:07Z"
+    },
+    {
+      "seriesID": "playhouse-90-1956",
+      "seriesTitle": "Playhouse 90",
+      "season": 2,
+      "episode": 38,
+      "title": "A Town Has Turned to Dust",
+      "episodeImdbID": "tt0394837",
+      "status": "wanted",
+      "added_at": "2026-09-10T08:37:46Z"
     },
     {
       "seriesID": "playhouse-90-1956",
@@ -157486,6 +157726,16 @@
       "seriesID": "the-lone-ranger-1949",
       "seriesTitle": "The Lone Ranger",
       "season": 5,
+      "episode": 18,
+      "title": "Avenger",
+      "episodeImdbID": "tt0635455",
+      "status": "wanted",
+      "added_at": "2026-09-10T08:37:46Z"
+    },
+    {
+      "seriesID": "the-lone-ranger-1949",
+      "seriesTitle": "The Lone Ranger",
+      "season": 5,
       "episode": 19,
       "title": "The Courage of Tonto",
       "episodeImdbID": "tt0635464",
@@ -157501,6 +157751,16 @@
       "episodeImdbID": "tt0635320",
       "status": "wanted",
       "added_at": "2026-06-06T07:00:09Z"
+    },
+    {
+      "seriesID": "the-lone-ranger-1949",
+      "seriesTitle": "The Lone Ranger",
+      "season": 5,
+      "episode": 23,
+      "title": "Code of Honor",
+      "episodeImdbID": "tt0635342",
+      "status": "wanted",
+      "added_at": "2026-09-10T08:37:46Z"
     },
     {
       "seriesID": "the-lone-ranger-1949",
@@ -162866,6 +163126,16 @@
       "seriesID": "the-outer-limits-1963",
       "seriesTitle": "The Outer Limits",
       "season": 1,
+      "episode": 15,
+      "title": "The Mice",
+      "episodeImdbID": "tt0667844",
+      "status": "wanted",
+      "added_at": "2026-09-10T08:37:46Z"
+    },
+    {
+      "seriesID": "the-outer-limits-1963",
+      "seriesTitle": "The Outer Limits",
+      "season": 1,
       "episode": 16,
       "title": "Controlled Experiment",
       "episodeImdbID": "tt0667808",
@@ -162921,6 +163191,16 @@
       "episodeImdbID": "tt0667831",
       "status": "wanted",
       "added_at": "2026-06-04T08:24:27Z"
+    },
+    {
+      "seriesID": "the-outer-limits-1963",
+      "seriesTitle": "The Outer Limits",
+      "season": 1,
+      "episode": 22,
+      "title": "Specimen: Unknown",
+      "episodeImdbID": "tt0667825",
+      "status": "wanted",
+      "added_at": "2026-09-10T08:37:46Z"
     },
     {
       "seriesID": "the-outer-limits-1963",
@@ -163136,11 +163416,31 @@
       "seriesID": "the-outer-limits-1963",
       "seriesTitle": "The Outer Limits",
       "season": 2,
+      "episode": 14,
+      "title": "Counterweight",
+      "episodeImdbID": "tt0667810",
+      "status": "wanted",
+      "added_at": "2026-09-10T08:37:46Z"
+    },
+    {
+      "seriesID": "the-outer-limits-1963",
+      "seriesTitle": "The Outer Limits",
+      "season": 2,
       "episode": 15,
       "title": "The Brain of Colonel Barham",
       "episodeImdbID": "tt0667829",
       "status": "wanted",
       "added_at": "2026-06-04T08:24:27Z"
+    },
+    {
+      "seriesID": "the-outer-limits-1963",
+      "seriesTitle": "The Outer Limits",
+      "season": 2,
+      "episode": 16,
+      "title": "The Premonition",
+      "episodeImdbID": "tt0667846",
+      "status": "wanted",
+      "added_at": "2026-09-10T08:37:46Z"
     },
     {
       "seriesID": "the-outer-limits-1963",
@@ -170634,6 +170934,26 @@
       "episodeImdbID": "tt0150466",
       "status": "wanted",
       "added_at": "2026-06-06T07:00:09Z"
+    },
+    {
+      "seriesID": "the-wednesday-play-1969",
+      "seriesTitle": "The Wednesday Play",
+      "season": 3,
+      "episode": 9,
+      "title": "Stand Up, Nigel Barton",
+      "episodeImdbID": "tt0059752",
+      "status": "wanted",
+      "added_at": "2026-09-10T08:37:46Z"
+    },
+    {
+      "seriesID": "the-wednesday-play-1969",
+      "seriesTitle": "The Wednesday Play",
+      "season": 3,
+      "episode": 10,
+      "title": "VOTE, VOTE, VOTE, for Nigel Barton",
+      "episodeImdbID": "tt0059886",
+      "status": "wanted",
+      "added_at": "2026-09-10T08:37:46Z"
     },
     {
       "seriesID": "the-wednesday-play-1969",
