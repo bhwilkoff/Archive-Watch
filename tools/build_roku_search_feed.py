@@ -241,6 +241,26 @@ def clip(text: str, limit: int) -> str:
     return balance_quotes((cut[:i] if i > 0 else cut) + "\u2026")
 
 
+# An 11-character YouTube video id at the end of the archive id — mixed
+# case, at least one digit, and at least five class switches, which is what
+# separates "neJjrOjM7uE" and "Qgb5M7HLg4Q" from "Impact_1949". A film that
+# arrived as a YouTube rip with the video id still attached is, in this
+# catalog, a modern capture wearing an old film's match (My Little Pony as
+# "The Doctor", a 2019 talk as "Valencia (1927)"); a real PD film uploaded
+# from YouTube is named for the film, not for the video id.
+def id_is_youtube_capture(archive_id: str) -> bool:
+    aid = archive_id or ""
+    if len(aid) <= 11:
+        return False
+    t = aid[-11:]
+    if not re.fullmatch(r"[A-Za-z0-9]{11}", t):     # a separator inside is a word boundary, not an id
+        return False
+    if not (re.search(r"[a-z]", t) and re.search(r"[A-Z]", t) and re.search(r"\d", t)):
+        return False
+    cls = ["d" if c.isdigit() else "u" if c.isupper() else "l" for c in t]
+    return sum(1 for a, b in zip(cls, cls[1:]) if a != b) >= 5
+
+
 def year_contradicted(item: dict) -> bool:
     """The audit's own rule (audit_rights.year_contradicted): a year >= 1978
     in the archive id of a "pre-1964" item whose title words are absent from
@@ -318,6 +338,22 @@ def commons_title(url: str) -> str | None:
     return urllib.parse.unquote(m.group(1)) if m else None
 
 
+_UPLOAD_RE = re.compile(r"^https://upload\.wikimedia\.org/wikipedia/(commons|[a-z]{2,3})/(?:thumb/)?[0-9a-f]/[0-9a-f]{2}/([^/?#]+)")
+
+
+def wiki_file(url: str):
+    """(api host, file name) for an upload.wikimedia.org original. Roku's
+    fetcher is refused by upload.wikimedia.org (101 of 103 image failures on
+    2026-09-10 were that host, every one answering 200 from a browser), while
+    the thumb.wikimedia.org renditions the imageinfo API hands out pass."""
+    m = _UPLOAD_RE.match(url or "")
+    if not m:
+        return None
+    wiki, name = m.group(1), urllib.parse.unquote(m.group(2))
+    host = "commons.wikimedia.org" if wiki == "commons" else f"{wiki}.wikipedia.org"
+    return host, name
+
+
 class ImageResolver:
     """Turns redirecting image URLs into ones that answer 200 directly.
 
@@ -380,9 +416,21 @@ class ImageResolver:
 
     # -- Commons
     def prefetch_commons(self, urls: list) -> None:
-        titles = sorted({t for t in (commons_title(u) for u in urls) if t})
-        if not self.network or not titles:
+        by_host: dict = {}
+        for u in urls:
+            t = commons_title(u)
+            if t:
+                by_host.setdefault("commons.wikimedia.org", set()).add(t)
+                continue
+            wf = wiki_file(u)
+            if wf:
+                by_host.setdefault(wf[0], set()).add(wf[1])
+        if not self.network:
             return
+        for host, titles in by_host.items():
+            self._prefetch_host(host, sorted(titles))
+
+    def _prefetch_host(self, host: str, titles: list) -> None:
         for i in range(0, len(titles), 50):
             batch = titles[i:i + 50]
             q = urllib.parse.urlencode({
@@ -391,7 +439,7 @@ class ImageResolver:
                 "titles": "|".join("File:" + t for t in batch),
             })
             try:
-                req = urllib.request.Request(f"{COMMONS_API}?{q}",
+                req = urllib.request.Request(f"https://{host}/w/api.php?{q}",
                                              headers={"User-Agent": USER_AGENT})
                 with urllib.request.urlopen(req, timeout=30) as r:
                     data = json.loads(r.read().decode("utf-8"))
@@ -405,14 +453,25 @@ class ImageResolver:
                     orig = norm.get(title, title)
                     key = orig[5:] if orig.startswith("File:") else orig
                     if thumb and IMAGE_EXT_RE.search(thumb):
-                        self.commons[key] = thumb
-                        self.commons[key.replace("_", " ")] = thumb
+                        self.commons[(host, key)] = thumb
+                        self.commons[(host, key.replace("_", " "))] = thumb
             except Exception as e:  # noqa: BLE001
-                self.notes.append(f"commons batch {i // 50} failed: {e}")
+                self.notes.append(f"{host} batch {i // 50} failed: {e}")
+
+    def _lookup(self, host: str, name: str):
+        return self.commons.get((host, name)) or self.commons.get((host, name.replace("_", " ")))
 
     def _commons(self, url: str) -> str:
         t = commons_title(url)
-        hit = self.commons.get(t) or self.commons.get((t or "").replace("_", " "))
+        hit = self._lookup("commons.wikimedia.org", t or "")
+        if hit:
+            return hit
+        self.unresolved += 1
+        return url
+
+    def _upload(self, url: str) -> str:
+        wf = wiki_file(url)
+        hit = self._lookup(*wf) if wf else None
         if hit:
             return hit
         self.unresolved += 1
@@ -425,6 +484,8 @@ class ImageResolver:
             return self._covers(url)
         if "commons.wikimedia.org/wiki/Special:FilePath/" in url:
             return self._commons(url)
+        if url.startswith("https://upload.wikimedia.org/wikipedia/"):
+            return self._upload(url)
         return url
 
 
@@ -574,6 +635,8 @@ def eligibility(item: dict, index_ids: set, tier: str, art: str = "any") -> str 
         return "implausible_year"
     if year_contradicted(item):
         return "year_contradicted_by_id"
+    if id_is_youtube_capture(item.get("archiveID", "")):
+        return "youtube_capture_id"
     if not item.get("runtimeSeconds"):
         return "no_runtime"
     if int(item["runtimeSeconds"]) < MIN_SECONDS:
@@ -656,8 +719,9 @@ def validate_asset(a: dict) -> list:
         errs.append("main image")
     if any(not IMAGE_EXT_RE.search(i["url"]) for i in a["images"]):
         errs.append("image format (jpg/png/gif only)")
-    if any("/wiki/Special:FilePath/" in i["url"] for i in a["images"]):
-        errs.append("image redirects (unresolved Commons)")
+    if any("/wiki/Special:FilePath/" in i["url"] or i["url"].startswith("https://upload.wikimedia.org/")
+           for i in a["images"]):
+        errs.append("image Roku cannot fetch (unresolved Wikimedia)")
     if a["durationInSeconds"] <= 0:
         errs.append("duration")
     if not a["content"]["playOptions"][0]["playId"]:

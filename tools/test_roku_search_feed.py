@@ -82,6 +82,23 @@ def main() -> int:
           "rights:wrongmatch_idyear")
     check("control: a restoration year in the id is not a contradiction ('m-1951-restored', M 1931)",
           F.year_contradicted({"archiveID": "m-1951-restored-movie-720p-hd", "title": "M", "year": 1931}), False)
+    check("an id ending in a YouTube video id is out (MLP as 'The Doctor')",
+          F.eligibility(item(archiveID="MLP_The_Doctor_Regenerates-neJjrOjM7uE"), {"MLP_The_Doctor_Regenerates-neJjrOjM7uE"}, "guaranteed"),
+          "youtube_capture_id")
+    check("control: 'Impact_1949' is not a YouTube id", F.id_is_youtube_capture("Impact_1949"), False)
+    check("control: 'TheTrap_861' is not one (a separator inside is a word boundary)", F.id_is_youtube_capture("TheTrap_861"), False)
+    check("control: 'Fall_of_the_House_of_Usher_1928_Watson' is not one",
+          F.id_is_youtube_capture("Fall_of_the_House_of_Usher_1928_Watson"), False)
+    check("'1Y22ParteCharlaDeJairoRestrepoQgb5M7HLg4Q' is one", F.id_is_youtube_capture("1Y22ParteCharlaDeJairoRestrepoQgb5M7HLg4Q"), True)
+    check("an upload.wikimedia original resolves to the owning wiki's file",
+          F.wiki_file("https://upload.wikimedia.org/wikipedia/en/3/3d/Valencia_%281927_film%29.jpg"),
+          ("en.wikipedia.org", "Valencia_(1927_film).jpg"))
+    check("a Commons upload original resolves to Commons",
+          F.wiki_file("https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/SecretLove1930.jpg/500px-SecretLove1930.jpg"),
+          ("commons.wikimedia.org", "SecretLove1930.jpg"))
+    a_up = F.build_asset(item(posterURL="https://upload.wikimedia.org/wikipedia/en/3/3d/Valencia_%281927_film%29.jpg"))
+    check("an unresolved upload.wikimedia image fails the asset (Roku cannot fetch that host)",
+          F.validate_asset(a_up), ["image Roku cannot fetch (unresolved Wikimedia)"])
     check("control: a YouTube rip of Un Chien Andalou is still Un Chien Andalou",
           F.year_contradicted({"archiveID": "LuisBunuelUnChienAndalou1928YouTube", "title": "Un Chien Andalou", "year": 1928}), False)
     check("no poster -> out, counted", F.eligibility(item(hasRealArtwork=False), ids, "catalog"), "no_poster")
@@ -172,7 +189,7 @@ def main() -> int:
           "https://ia601609.us.archive.org/27/items/archivewatch-covers/y.9f.jpg")
     check("a locally served cover needs no measurement (400x600 by construction)",
           F.image_verdict("https://archivewatch.org/roku-search/covers/x.jpg", {}), "ok")
-    rv.commons["Sterling_Hayden_in_the_movie_\"Suddenly\".jpg"] = \
+    rv.commons[("commons.wikimedia.org", "Sterling_Hayden_in_the_movie_\"Suddenly\".jpg")] = \
         "https://upload.wikimedia.org/wikipedia/commons/4/4c/Sterling_Hayden_in_the_movie_%22Suddenly%22.jpg"
     check("a Commons FilePath resolves through the imageinfo answer",
           rv.resolve("https://commons.wikimedia.org/wiki/Special:FilePath/Sterling_Hayden_in_the_movie_%22Suddenly%22.jpg"),
@@ -186,7 +203,7 @@ def main() -> int:
         "Achtung_Feind_hört_mit.svg")
     a_svg = F.build_asset(item(posterURL="https://commons.wikimedia.org/wiki/Special:FilePath/Logo.svg"))
     check("an unresolved Commons image fails validation (Roku refuses svg and redirects)",
-          sorted(F.validate_asset(a_svg)), ["image format (jpg/png/gif only)", "image redirects (unresolved Commons)"])
+          sorted(F.validate_asset(a_svg)), ["image Roku cannot fetch (unresolved Wikimedia)", "image format (jpg/png/gif only)"])
 
     # ---- aspect: Roku's validator accepts 2:3 and 16:9 ONLY ----------------
     check("control: 500x750 is 2:3", F.aspect_ok(500, 750), True)
