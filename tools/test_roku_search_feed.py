@@ -70,21 +70,20 @@ def main() -> int:
           F.eligibility(item(year=1950, contentType="feature-film"), ids, "catalog"), None)
     check("presumed-PD (1950) is OUT of the strict tier",
           F.eligibility(item(year=1950, contentType="feature-film"), ids, "strict"), "rights:presumed_pd")
-    check("a 1977 film with an uploader CC mark is IN strict (safe_cc) but OUT of guaranteed",
+    check("a 1977 film with a bare CC CLAIM is out of strict AND guaranteed (the claim is no licence)",
           (F.eligibility(item(year=1977, rightsStatus="creative_commons", contentType="feature-film"), ids, "strict"),
            F.eligibility(item(year=1977, rightsStatus="creative_commons", contentType="feature-film"), ids, "guaranteed")),
-          (None, "rights:safe_cc"))
+          ("rights:renewal_zone_bw", "rights:renewal_zone_bw"))
     check("pre-1930 is IN guaranteed", F.eligibility(item(), ids, "guaranteed"), None)
     # The catalog year came from a wrong match; the archive id says 2022.
-    check("a 'pre-1930' item whose id carries 2022 is out (The Tinder Swindler as 'The Swindler' 1919)",
-          F.eligibility(item(archiveID="the.-tinder.-swindler.-2022.720p", year=1919), {"the.-tinder.-swindler.-2022.720p"}, "guaranteed"),
-          "year_contradicted_by_id")
-    check("a 'pre-1930' item whose releaseDate is 1941 is out (Kipps)",
-          F.eligibility(item(releaseDate="1941-01-01", year=1921), ids, "guaranteed"), "year_contradicted_by_id")
-    check("control: an id year BEFORE 1930 does not contradict ('TheGeneral720p1926' is fine)",
-          F.year_contradicted({"archiveID": "TheGeneral720p1926", "year": 1926}), False)
-    check("control: a 4-digit run inside a longer number is not a year ('720p1926' vs '19260')",
-          F.id_year("film-19260-restored"), None)
+    check("a 'pre-1930' item whose id carries 2022 and another title is out (The Tinder Swindler as 'The Swindler')",
+          F.eligibility(item(archiveID="the.-tinder.-swindler.-2022.720p", title="The Swindler", year=1919),
+                        {"the.-tinder.-swindler.-2022.720p"}, "guaranteed"),
+          "rights:wrongmatch_idyear")
+    check("control: a restoration year in the id is not a contradiction ('m-1951-restored', M 1931)",
+          F.year_contradicted({"archiveID": "m-1951-restored-movie-720p-hd", "title": "M", "year": 1931}), False)
+    check("control: a YouTube rip of Un Chien Andalou is still Un Chien Andalou",
+          F.year_contradicted({"archiveID": "LuisBunuelUnChienAndalou1928YouTube", "title": "Un Chien Andalou", "year": 1928}), False)
     check("no poster -> out, counted", F.eligibility(item(hasRealArtwork=False), ids, "catalog"), "no_poster")
     check("control: a TMDb poster passes the professional-art gate",
           F.eligibility(item(artworkSource="tmdb"), ids, "strict", "professional"), None)

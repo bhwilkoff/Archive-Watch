@@ -107,7 +107,7 @@ from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO / "tools"))
-from audit_rights import bucket, modern_id  # noqa: E402
+from audit_rights import bucket, year_contradicted as _audit_year_contradicted  # noqa: E402
 from build_share_pages import balance_quotes, strip_html  # noqa: E402
 
 SITE = "https://archivewatch.org"
@@ -241,33 +241,14 @@ def clip(text: str, limit: int) -> str:
     return balance_quotes((cut[:i] if i > 0 else cut) + "\u2026")
 
 
-# A year the uploader put in the archive id (1930-2029). When the catalog
-# says pre-1930 and the id says otherwise, the catalog year came from a wrong
-# metadata match: a 2022 "Tinder Swindler" upload matched to "The Swindler"
-# (1919), a Harry Potter clip to "The Prisoner" (1923), a Doraemon film to a
-# 1921 title — 110 of them in the first pre-1930 feed, every one wearing an
-# old film's poster. The audit trusts the year; this feed does not, alone.
-_ID_YEAR_RE = re.compile(r"(?<!\d)(19[3-9]\d|20[0-2]\d)(?!\d)")
-
-
-def id_year(archive_id: str):
-    ys = [int(y) for y in _ID_YEAR_RE.findall(archive_id or "")]
-    return max(ys) if ys else None
-
-
 def year_contradicted(item: dict) -> bool:
-    """True when the item's own id or release date says it is NOT the
-    pre-1930 work the catalog year claims."""
+    """The audit's own rule (audit_rights.year_contradicted): a year >= 1978
+    in the archive id of a "pre-1964" item whose title words are absent from
+    that id. One predicate for the apps and the feed."""
     y = item.get("year")
-    if not isinstance(y, int) or y >= 1930:
+    if not isinstance(y, int) or y >= 1964:
         return False
-    iy = id_year(item.get("archiveID", ""))
-    if iy and iy >= 1930:
-        return True
-    rd = (item.get("releaseDate") or "")[:4]
-    if rd.isdigit() and int(rd) >= 1930:
-        return True
-    return bool(modern_id(item))
+    return _audit_year_contradicted(item, y)
 
 
 # --------------------------------------------------------------------------

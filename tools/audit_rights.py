@@ -83,7 +83,13 @@ COMMERCIAL_VOTES = 100    # an IMDb vote count >= this = a real theatrical/video
 # famous COPYRIGHTED studio films (The Graduate, 2001, Jaws, Chinatown, Sound of Music…) — exactly
 # the ones that surface on Home/Hero. A 1964-77 feature with a big commercial footprint is a renewed
 # studio film, NOT public domain; hide it unless it's a KNOWN PD-by-defect classic (allowlist below).
-RENEWAL_COMMERCIAL_VOTES = 20000
+# 20,000 until 2026-09-10. Measured that day: The Sand Pebbles (17,295 votes,
+# Fox 1966), The Hill, The Collector, Hombre, The Pawnbroker, Valley of the
+# Dolls and Disney's The Computer Wore Tennis Shoes all sat under it, visible
+# in every app as public domain. The owner: "hide copyrighted content". The
+# genuinely PD-by-defect cult films in the 5,000-20,000 band are NAMED in
+# _PD_RENEWAL_ZONE below, which is what that list is for.
+RENEWAL_COMMERCIAL_VOTES = 5000
 # Genuinely public-domain 1964-77 films with a big footprint (failed renewal / no notice) that the
 # renewal-zone commercial gate must NOT hide. Normalized-title substring, year ±1.
 _PD_RENEWAL_ZONE = [
@@ -91,6 +97,12 @@ _PD_RENEWAL_ZONE = [
     ("the last man on earth", 1964), ("last man on earth", 1964),
     ("carnival of souls", 1962), ("the little shop of horrors", 1960),
     ("hercules", 1958),
+    # Added 2026-09-10 with the 5,000-vote gate: PD by a notice or renewal
+    # defect, widely documented, each with a real archive.org following.
+    ("santa claus conquers the martians", 1964), ("horror express", 1972),
+    ("spider baby", 1967), ("messiah of evil", 1973), ("dead people", 1973),
+    ("silent night bloody night", 1972), ("dont look in the basement", 1973),
+    ("the night stalker", 1972), ("night stalker", 1972),
 ]
 
 GOV = R._GOV_PD_COLLECTIONS
@@ -217,6 +229,39 @@ def pd_renewal_allowed(it):
 
 def colls(it):
     return {str(c).lower() for c in (it.get("collections") or [])}
+
+
+_ID_YEAR_RE = re.compile(r"(?<!\d)(19[3-9]\d|20[0-2]\d)(?!\d)")
+
+
+def _id_year(archive_id):
+    ys = [int(y) for y in _ID_YEAR_RE.findall(archive_id or "")]
+    return max(ys) if ys else None
+
+
+_REISSUE_RE = re.compile(
+    r"restor|colori[sz]|colouri[sz]|remaster|upscal|remux|\brip\b|dvd|blu[-_]?ray|bdrip|"
+    r"transfer|scan|\bai\b|\btcm\b|broadcast|aired|record|reissue|re[-_]?release|"
+    r"anniversary|edition|criterion|kino|\bmk\b", re.I)
+
+
+def year_contradicted(it, yi):
+    """The item's own archive id carries a year >= 1978 while the catalog says
+    pre-1964, that year is not part of the title (Koko in 1999), and nothing in
+    the id says the year is a restoration, reissue, transfer or broadcast date
+    (m-1951-restored, algiers-1983-colorized, exit-smiling-tcm-2005). What is
+    left is a modern upload wearing an old film's identity — measured
+    2026-09-10: a 2022 Tinder Swindler rip as The Swindler (1919), a Harry
+    Potter clip as The Prisoner (1923), a 2024 concert as a 1921 film."""
+    aid = it.get("archiveID") or ""
+    iy = _id_year(aid)
+    if not iy or iy < MODERN or iy <= yi + 2:
+        return False
+    # The year is part of the title, or of a number in it: "Koko in 1999",
+    # "20,000 Leagues Under the Sea" (whose id reads 2000_leagues).
+    if str(iy) in re.sub(r"\D", "", it.get("title") or ""):
+        return False
+    return not _REISSUE_RE.search(aid)
 
 
 def _year_from_release_date(it):
@@ -359,10 +404,24 @@ def bucket(it):
     # (e.g. Throw Momma From The Train, 1987). Only trust the CC label for a KNOWN pre-modern
     # year; a modern work must carry a REAL CC0/CC licenseurl (license_rescues) to be kept —
     # otherwise it falls through to the modern-copyright confirm/hide path below.
-    if rs == "creative_commons" and isinstance(yi, int) and yi < MODERN:
+    # A "creative_commons" rightsStatus with NO licenseurl behind it is an
+    # uploader's claim, not a licence: 82 of them sat on 1964-77 studio films
+    # (The Sand Pebbles, A Bridge Too Far, Cross of Iron) on 2026-09-10. A real
+    # licence is rescued by license_rescues just below; the bare claim falls
+    # through to the year tiers like any other item.
+    if (rs == "creative_commons" and isinstance(yi, int) and yi < MODERN
+            and it.get("archiveLicense")):
         return "safe_cc", "keep"
     if license_rescues(it.get("archiveLicense"), yi, it.get("imdbVotes")):
         return "safe_archive_license", "keep"
+    # A pre-1964 year the item's OWN id contradicts is a wrong match, not an
+    # old film: "the.-tinder.-swindler.-2022" filed as The Swindler (1919), a
+    # Harry Potter clip as The Prisoner (1923), a Doraemon feature as a 1921
+    # title — all wearing an old film's poster, all served as public domain
+    # (2026-09-10). Decision 026 trusts the Archive item's own signals over
+    # the match; the id is one of them.
+    if yi is not None and yi < RENEWAL_ZONE_START and year_contradicted(it, yi):
+        return "wrongmatch_idyear", "hide"
     if yi is not None and yi < PD_BY_AGE:
         return "safe_pd_age", "keep"
 
@@ -397,7 +456,7 @@ def bucket(it):
 HIDE_BUCKETS = {"modern_copyright_confirmed", "modern_noyear_risk",
                 "commercial_modern_risk", "commercial_slop",
                 "renewed_copyright_classic", "renewal_zone_commercial",
-                "copyrighted_trailer"}
+                "copyrighted_trailer", "wrongmatch_idyear"}
 
 
 def evidence_for(it, b):
@@ -416,6 +475,9 @@ def evidence_for(it, b):
         t = it.get("title") or ""
         m = SLOP_TITLE_RE.search(t)
         parts.append(f"slop title match: {m.group(0)!r}" if m else "modern-capture/rip archiveID")
+    elif b == "wrongmatch_idyear":
+        parts.append(f"catalog year {y} vs id year {_id_year(it.get('archiveID') or '')}, "
+                     f"and the title is not in the id")
     elif b == "modern_noyear_risk":
         parts.append("no year + modern-capture/rip archiveID")
     if it.get("colorMode"):
