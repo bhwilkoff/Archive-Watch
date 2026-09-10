@@ -1,4 +1,11 @@
-# Sign in with Apple on the web — one owner step remains
+# Sign in with Apple on the web — LIVE since 2026-09-10
+
+> The token step below was completed on 2026-09-10: token "Archive Watch Web"
+> in the PRODUCTION environment of `iCloud.app.archivewatch.tvos`, Post Message
+> callback, allowed origin `https://archivewatch.org` only. Note the console
+> opens on DEVELOPMENT by default and a token belongs to ONE environment —
+> the web client configures `production`, so a Development token would have
+> rendered the button and failed every request.
 
 The owner asked (2026-09-03): *"I would love to be able to login with my apple
 login on the web app and have content sync across to that platform."*
