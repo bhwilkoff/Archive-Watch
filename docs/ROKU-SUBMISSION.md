@@ -248,6 +248,18 @@ gate or a resolver, each measured rather than read off the spec page:
   **1900 minimum year** (every 1890s film: `ASSET_ALL_RELEASE_REMOVED`).
 - **Lengths are UTF-16 code units** — one description of 194 characters was
   refused at 208 units of emoji. Clips now stay five units under each cap.
+- **archive.org refuses image downloads to datacenter fetchers, and Roku's
+  validator is one.** Every generated cover (~6,100) came back
+  `IMAGE_DOWNLOAD_ERROR` even at the storage-node URL that answers 200 from
+  a home connection — the same refusal that keeps CI runners from fetching
+  audio (Decision 089). `tools/publish_roku_covers.py` (run on the owner's
+  Mac) packs the feed's covers at 400x600 into the rolling `roku-covers`
+  release; `deploy-pages.yml` restores them at `/roku-search/covers/`, and
+  the feed points a cover at archivewatch.org whenever the file is there.
+  Re-run the publisher when the cover set grows (`manifest.json` counts
+  `coversServedLocally` against the archive-hosted remainder).
+- Re-validating the SAME URL is silently ignored; append `?v=N`. Pages sits
+  behind a 600 s CDN cache, so every `nextPageUrl` carries a per-build stamp.
 - Its "Validated content" percentage is unreliable (it printed -289%); read
   the error table and the `/apps/api/v1/searchfeed/validation/<id>/issues`
   JSON behind it instead.

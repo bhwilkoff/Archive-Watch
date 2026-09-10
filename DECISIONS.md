@@ -1938,3 +1938,16 @@ keeps `ops/image-dims.json` so off-aspect posters are swapped for the 16:9
 backdrop or dropped and counted. **How to apply**: read the validator's issues
 JSON, not its percentage (it printed -289%); and never widen the aspect
 tolerance to admit more posters — a 500x707 (+6%) was refused.
+
+**Second amendment, same day — the covers Roku needs are served from
+archivewatch.org.** With every redirect resolved and every size measured,
+`IMAGE_INVALID_MAIN` fell 907 → 9 and every generated cover STILL failed to
+download: archive.org refuses image downloads to datacenter fetchers, and
+Roku's validator is one (the CI runners meet the same refusal, Decision 089).
+The ~6,100 covers the feed needs are packed at 400x600 by
+`tools/publish_roku_covers.py` on the owner's Mac into the rolling
+`roku-covers` release, restored into the Pages artifact by `deploy-pages.yml`
+(a present release MUST restore, as with `/subs`), and the feed points a cover
+at archivewatch.org whenever the file is in the artifact. **How to apply**:
+never assume a URL that answers 200 from a home connection answers 200 to
+Roku; the validator's issue list is the only measurement that counts.
