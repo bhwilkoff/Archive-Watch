@@ -121,6 +121,18 @@
    "format": "card",
    "kind": "animation",
    "reviewer": null
+  },
+  {
+   "at": "2026-09-10T00:55:53.051375+00:00",
+   "id": "BaseballBugs_201708",
+   "title": "Baseball Bugs",
+   "slot": "now-showing",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mv4trevwf52d",
+   "format": "video",
+   "kind": "animation",
+   "mediaId": null,
+   "reviewer": null
   }
  ]
 }
