@@ -340,12 +340,14 @@ from WRONG MATCHES (Tinder Swindler → "The Swindler" 1919) — → the feed re
 a year its own id contradicts (296). Live: **3,135 films**, Roku validates
 ~96% (the rest: dead posters, a few unmeasured aspects).
 
-**TWO OWNER DECISIONS the feed surfaced, both about the APPS** (Decision 113
-amendments 4 and 5): (a) 119 visible 1964-77 studio films kept by `safe_cc`
-on an uploader's CC mark — The Sand Pebbles, The Hill, The Collector, Hombre;
-(b) 313 visible `safe_pd_age` items whose archive id or releaseDate says
-≥ 1930 (several current studio releases) — wrong-match years the audit trusts.
-Fix shape for (b) is in the amendment; neither applied.
+**Owner: "hide copyrighted content or other videos that don't align with
+the scope"** → **Decision 114** applied to `audit_rights`: a bare CC claim
+rescues nothing; the 1964-77 footprint gate is 5,000 votes with the PD-by-
+defect cult films named; `wrongmatch_idyear` hides a modern id wearing a
+pre-1964 year (narrowed four times on false positives — M, Algiers, Koko in
+1999, 20,000 Leagues, Un Chien Andalou). 205 hides land with the next
+publish-db (dispatched). The 1,000-5,000 band of 1964-77 (Hammer, Carry On,
+Gamera, gialli) is the next call and is NOT decided.
 
 NEXT: the New search feed form is filled in the dashboard (app, URL, both
 logos, email) and waits on Submit → SearchBeta install → deep-link params →

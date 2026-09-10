@@ -182,6 +182,7 @@ an entry in place.
 - 111 — Amazon's APIs were one MAPPING away, and "no API" was our claim, not Amazon's
 - 112 — Samsung ships US-only on Public Seller; the signing certificate is backed up beside the project
 - 113 — The Roku Search feed advertises only what the rights audit KEEPS, never television, and its ids never change
+- 114 — A bare CC claim rescues nothing, a 5,000-vote footprint in 1964-77 is a studio film, and a modern id wearing an old year is a wrong match
 
 ---
 
@@ -1993,3 +1994,44 @@ current studio releases. The right fix is upstream and two-part —
 signal of the kind Decision 026 already trusts, and `bucket()` should route a
 contradicted pre-1930 year to CONFIRM rather than KEEP — but hiding 313 items
 is a content decision of the kind Decision 027 reserved.
+
+## 114 — A bare CC claim rescues nothing, a 5,000-vote footprint in 1964-77 is a studio film, and a modern id wearing an old year is a wrong match
+*Date: 2026-09-10*
+
+Three amendments to `audit_rights.bucket()` (Decision 027), applied on the
+owner's instruction — "hide copyrighted content or other videos that don't
+align with the scope of the app" — after the Roku Search feed surfaced them.
+(1) A `rightsStatus` of `creative_commons` with no `archiveLicense` behind it
+is an uploader's claim, not a licence, and no longer short-circuits the year
+tiers; a real licence is still rescued by `license_rescues`. (2)
+`RENEWAL_COMMERCIAL_VOTES` drops from 20,000 to 5,000, and the PD-by-defect
+cult films in that band are NAMED in `_PD_RENEWAL_ZONE` (Santa Claus Conquers
+the Martians, Horror Express, Spider Baby, Messiah of Evil, Silent Night
+Bloody Night, Don't Look in the Basement, The Night Stalker). (3) A new hide
+bucket, `wrongmatch_idyear`: a year ≥ 1978 in the archive id of a pre-1964
+item, not part of the title, with no restoration, reissue, transfer or
+broadcast marker beside it.
+
+**Why**: measured on the live catalog the same day. 82 bare CC claims sat on
+1964-77 studio films — The Sand Pebbles (17,295 votes), A Bridge Too Far,
+Cross of Iron — under a gate set at 20,000 votes, which also let The Hill,
+The Collector, Hombre, Valley of the Dolls and Disney's The Computer Wore
+Tennis Shoes through as public domain. And 116 modern uploads wore an old
+film's year and poster because a wrong external match had supplied both: a
+1989 Blood and Sand filed as the 1941 film, a Neil Young concert as "Love and
+War" (1899), a Harry Potter clip as The Prisoner (1923). The audit trusted
+the year because Decision 026's verifier never treated the id as a signal.
+
+**How to apply**: the wrong-year rule is deliberately narrow and every
+narrowing came from a false positive found by looking at the list, not the
+count: a year alone flagged M ("m-1951-restored") and Algiers
+("algiers-1983-colorized"); title-word containment let The Swindler pass
+because "swindler" is in "tinder-swindler"; releaseDate flagged The Pink
+Panther on its 2006 reissue date; a capture marker flagged a YouTube rip of
+Un Chien Andalou, which is still Un Chien Andalou; and "2000_leagues" is
+20,000 Leagues Under the Sea. The controls are in `test_audit_rights.py`. Do
+not add releaseDate or capture markers back as signals, and do not lower the
+vote gate further without naming the PD-by-defect films the next band holds
+— the 1,000-5,000 band is Hammer, Carry On, Gamera and gialli, most of them
+copyrighted and none of them decided here. Net effect on the visible
+catalog: 205 hides (89 + 116), reversible as every `excluded` flag is.
