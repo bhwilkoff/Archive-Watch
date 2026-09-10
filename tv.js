@@ -252,6 +252,120 @@
   }
 
   /* ------------------------------------------------------------------ *
+   * ON-SCREEN PLAYBACK DIAGNOSTICS (§5.4)
+   *
+   * "Videos do not play except for a few seconds" — reported on a retail
+   * Samsung, where there is NO way to see why. `sdb shell` is closed on retail
+   * hardware: no console, no dlog, no screenshot, and the Web Inspector needs a
+   * developer (UD) unit. Playback is fine in Chrome, so the fault is the
+   * platform's and cannot be reproduced anywhere this code can be watched.
+   *
+   * When the only oracle is the television, the app has to become the
+   * instrument — the same move tvOS made with FunctionalAudit when the Apple TV
+   * could not be read either. This prints the media pipeline's own events on
+   * the screen, so a person standing in front of the TV can read what it did.
+   *
+   * TOGGLE: Up Up Down Down on the remote, within five seconds. Chosen because
+   * a viewer cannot enter it by accident while browsing (it needs a reversal on
+   * the same axis), it needs no extra keys registered, and it is enterable on
+   * every remote including the minimal Samsung ones.
+   *
+   * What it records is chosen for THIS bug: every media event, plus readyState,
+   * networkState, the buffered end and the error code at the moment it stops.
+   * A film that dies at ~10s with networkState NETWORK_NO_SOURCE is a different
+   * bug from one that dies with buffered stuck and readyState dropping, and the
+   * screen has to be able to tell them apart.
+   * ------------------------------------------------------------------ */
+
+  var diagOn = false, diagEl = null, diagLines = [], diagSeq = [], diagSeqAt = 0;
+  var DIAG_CODE = [38, 38, 40, 40];          // Up Up Down Down
+
+  var NET = ['EMPTY', 'IDLE', 'LOADING', 'NO_SOURCE'];
+  var RDY = ['NOTHING', 'METADATA', 'CURRENT', 'FUTURE', 'ENOUGH'];
+
+  function diagNote(line) {
+    if (!diagOn) return;
+    var t = new Date().toISOString().slice(11, 23);
+    diagLines.push(t + '  ' + line);
+    if (diagLines.length > 18) diagLines.shift();
+    if (diagEl) diagEl.textContent = diagLines.join('\n');
+  }
+
+  function diagSnapshot(v) {
+    if (!v) return 'no video element';
+    var b = '-';
+    try { b = v.buffered.length ? v.buffered.end(v.buffered.length - 1).toFixed(1) : '0'; }
+    catch (e) { b = '?'; }
+    return 't=' + v.currentTime.toFixed(1) +
+           ' buf=' + b +
+           ' rdy=' + (RDY[v.readyState] || v.readyState) +
+           ' net=' + (NET[v.networkState] || v.networkState) +
+           (v.error ? ' ERR=' + v.error.code + ' ' + (v.error.message || '') : '');
+  }
+
+  function diagAttach(v) {
+    if (!v || v.dataset.tvDiag) return;
+    v.dataset.tvDiag = '1';
+    ['loadstart', 'loadedmetadata', 'canplay', 'canplaythrough', 'play', 'playing',
+     'waiting', 'stalled', 'suspend', 'abort', 'emptied', 'pause', 'ended', 'error']
+      .forEach(function (ev) {
+        v.addEventListener(ev, function () { diagNote(ev + '  ' + diagSnapshot(v)); });
+      });
+    // A heartbeat, because the interesting failure is SILENCE: a film that
+    // stops without firing anything is the thing an event log alone would miss.
+    setInterval(function () {
+      if (diagOn && !v.paused) diagNote('tick  ' + diagSnapshot(v));
+    }, 5000);
+    diagNote('attached  src=' + String(v.currentSrc || v.src || '').slice(-64));
+  }
+
+  function diagToggle() {
+    diagOn = !diagOn;
+    if (diagOn) {
+      if (!diagEl) {
+        diagEl = document.createElement('pre');
+        diagEl.className = 'tv-diag';
+      }
+      // AN OPEN <dialog> IS IN THE TOP LAYER, and nothing outside it can be
+      // painted above — z-index does not apply across that boundary. The
+      // player IS a dialog, so an overlay appended to <body> is created,
+      // updated, and invisible behind the film. Put it inside whatever is on
+      // top. Found on the glass; it would have shipped as a diagnostic that
+      // silently showed nothing, which is worse than no diagnostic at all.
+      // The STAGE, not the dialog root and not <body>. Evidence, not theory:
+      // .tv-transport is appended to video.parentElement and renders correctly
+      // inside the open player, so that element is provably paintable. An open
+      // <dialog> is in the TOP LAYER and nothing outside it can be drawn above,
+      // so <body> is invisible while a film is up — which is exactly when this
+      // is needed.
+      var v = document.querySelector('video');
+      var host = (v && v.parentElement) || document.body;
+      if (diagEl.parentElement !== host) host.appendChild(diagEl);
+      diagEl.hidden = false;
+      diagLines = ['diagnostics ON — Up Up Down Down again to hide',
+                   'platform=' + PLATFORM + '  ua=' + navigator.userAgent.slice(0, 60)];
+      diagEl.textContent = diagLines.join('\n');
+      var v = document.querySelector('video');
+      if (v) { diagAttach(v); diagNote('now  ' + diagSnapshot(v)); }
+    } else if (diagEl) {
+      diagEl.hidden = true;
+    }
+  }
+
+  function diagKey(code) {
+    var now = Date.now();
+    if (now - diagSeqAt > 5000) diagSeq = [];
+    diagSeqAt = now;
+    diagSeq.push(code);
+    if (diagSeq.length > DIAG_CODE.length) diagSeq.shift();
+    if (diagSeq.length === DIAG_CODE.length &&
+        diagSeq.every(function (c, i) { return c === DIAG_CODE[i]; })) {
+      diagSeq = [];
+      diagToggle();
+    }
+  }
+
+  /* ------------------------------------------------------------------ *
    * TV TRANSPORT (§5.3)
    *
    * `<video controls>` renders the BROWSER's control bar — pause, 0:00,
@@ -327,6 +441,7 @@
   /** Strip the browser's controls and take over. Runs whenever a video shows
    *  up, because the player is opened by the app, not by us. */
   function adoptVideo(video) {
+    diagAttach(video);          // record from the first frame, not from the toggle
     if (video.dataset.tvAdopted) return;
     video.dataset.tvAdopted = '1';
     video.removeAttribute('controls');
@@ -396,6 +511,8 @@
 
   function onKeyDown(ev) {
     const code = ev.keyCode;
+    diagKey(code);        // the toggle must see EVERY press, including ones
+                          // the player or the focus engine goes on to consume
 
     if (BACK_KEYS.has(code)) { ev.preventDefault(); goBack(); return; }
 

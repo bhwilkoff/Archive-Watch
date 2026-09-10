@@ -347,5 +347,29 @@ check('Tizen back (10009) navigates', global._wentBack, true);
         /\.tv \.player-overlay\s*\{\s*display:\s*none/.test(css), true);
 }
 
+/* ON-SCREEN PLAYBACK DIAGNOSTICS. "Videos do not play except for a few
+   seconds" was reported on a retail Samsung, where sdb shell is CLOSED — no
+   console, no dlog, no screenshot — and playback is fine in Chrome. When the
+   television is the only oracle, the app has to be the instrument. */
+{
+  const tv = fs.readFileSync('tv.js', 'utf8');
+  const css = fs.readFileSync('tv.css', 'utf8');
+  check('a key sequence toggles diagnostics',
+        /DIAG_CODE = \[38, 38, 40, 40\]/.test(tv), true);
+  check('...and it sees EVERY press, before anything consumes it',
+        /const code = ev\.keyCode;\s*\n\s*diagKey\(code\)/.test(tv), true);
+  check('the log records what THIS bug needs: readyState, network, buffered, error',
+        /readyState/.test(tv) && /networkState/.test(tv)
+        && /buffered/.test(tv) && /v\.error/.test(tv), true);
+  check('...including a heartbeat, because silence is the interesting failure',
+        /tick/.test(tv) && /setInterval/.test(tv), true);
+  // The trap that cost a round: an open <dialog> is in the TOP LAYER, so an
+  // overlay on <body> is invisible exactly while a film is playing.
+  check('the overlay hosts on the video stage, not <body>',
+        /var host = \(v && v\.parentElement\) \|\| document\.body;/.test(tv), true);
+  check('...and never takes a press from the film',
+        /pointer-events:\s*none/.test(css.slice(css.indexOf('.tv-diag'))), true);
+}
+
 console.log(`\n${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);

@@ -288,3 +288,18 @@ html.tv .share-menu-trigger {
   margin: 16px 0 0; font-size: var(--tv-body);
   color: rgba(255, 255, 255, 0.62);
 }
+
+/* ── On-screen playback diagnostics (§5.4) ────────────────────────────────
+ * The instrument of last resort: retail Samsung closes sdb shell, so there is
+ * no console to read and the television is the only oracle. Monospaced,
+ * high-contrast, over the top-left where a 4:3 film letterboxes anyway. */
+.tv-diag {
+  position: fixed; z-index: 9999; top: var(--tv-overscan-y); left: var(--tv-overscan-x);
+  max-width: 62vw; max-height: 70vh; overflow: hidden;
+  margin: 0; padding: 16px 20px;
+  background: rgba(0, 0, 0, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.25); border-radius: 8px;
+  color: #7CFF9B; font-family: ui-monospace, Menlo, monospace;
+  font-size: 20px; line-height: 1.35; white-space: pre-wrap;
+  pointer-events: none;          /* never takes a press from the film */
+}

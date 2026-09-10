@@ -58,6 +58,34 @@ Captured at 1920×1080 (`/tmp/aw-player2/05-Enter.png`):
 * **The synopsis runs off the right edge** at 1920 — no max width.
 * Poster, cast chips and body text are desktop-sized at ten feet.
 
+## HOW TO READ THE PLAYBACK FAILURE ON THE TELEVISION
+
+Press **Up Up Down Down** on the remote, within five seconds, at any time. An
+overlay appears in the top-left and prints the media pipeline's own events. The
+same sequence hides it.
+
+While a film plays it logs every media event plus a five-second heartbeat:
+
+    16:17:20.342  play     t=0.0  buf=75.7 rdy=METADATA net=IDLE
+    16:17:25.361  tick     t=4.9  buf=75.7 rdy=ENOUGH   net=IDLE
+    16:17:30.402  stalled  t=9.8  buf=9.9  rdy=CURRENT  net=LOADING
+
+`rdy` is readyState, `net` is networkState, `buf` is the end of the buffered
+range, and an `ERR=` appears with the code and message if the element errors.
+
+**What to look for when it stops after a few seconds** — these are different
+bugs and the readout separates them:
+
+| What the last lines show | What it means |
+|---|---|
+| `ERR=4` / `net=NO_SOURCE` | the TV refused the file — codec or container |
+| `stalled`/`waiting`, `buf` stops growing | the network died or archive.org cut it |
+| `buf` large, `rdy` drops, no event | the TV's decoder gave up — a platform fault |
+| silence: no tick at all | the app or the page was killed (memory) |
+
+The sequence needs a reversal on the same axis, so it cannot be entered by
+accident while browsing, and it needs no extra keys registered.
+
 ## Cannot be investigated from here
 
 **"Videos play for a few seconds and stop."** This is Tizen-specific: playback
