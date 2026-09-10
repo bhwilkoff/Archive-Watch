@@ -1,6 +1,63 @@
 {
  "stores": [
   {
+   "store": "App Store",
+   "platform": "Apple TV",
+   "state": "READY_FOR_SALE",
+   "version": "1.42.5",
+   "live": "1.42.5",
+   "repoVersion": "1.42.7",
+   "repoBuild": "1019",
+   "url": "https://appstoreconnect.apple.com/apps/6776697407/distribution"
+  },
+  {
+   "store": "App Store",
+   "platform": "iPhone & iPad",
+   "state": "READY_FOR_SALE",
+   "version": "1.42.5",
+   "live": "1.42.5",
+   "repoVersion": "1.42.7",
+   "repoBuild": "1019",
+   "url": "https://appstoreconnect.apple.com/apps/6776697407/distribution"
+  },
+  {
+   "store": "App Store",
+   "platform": "Mac",
+   "state": "READY_FOR_SALE",
+   "version": "1.42.5",
+   "live": "1.42.5",
+   "repoVersion": "1.42.7",
+   "repoBuild": "1019",
+   "url": "https://appstoreconnect.apple.com/apps/6776697407/distribution"
+  },
+  {
+   "store": "Google Play",
+   "platform": "Production",
+   "state": "COMPLETED",
+   "version": "1.42.6",
+   "live": "1.42.6",
+   "build": "56",
+   "url": "https://play.google.com/console/developers/app/com.archivewatch.app"
+  },
+  {
+   "store": "Google Play",
+   "platform": "Beta",
+   "state": "DRAFT",
+   "version": null,
+   "live": null,
+   "build": "",
+   "url": "https://play.google.com/console/developers/app/com.archivewatch.app"
+  },
+  {
+   "store": "Google Play",
+   "platform": "Internal",
+   "state": "COMPLETED",
+   "version": "1.42.6",
+   "live": "1.42.6",
+   "build": "57",
+   "url": "https://play.google.com/console/developers/app/com.archivewatch.app"
+  },
+  {
    "store": "Amazon Appstore",
    "platform": "Fire TV",
    "state": "LIVE",
@@ -153,6 +210,96 @@
  "social": {
   "posts": [
    {
+    "at": "2026-09-10T13:17:32.302808+00:00",
+    "platform": "bluesky",
+    "title": "Day of Wrath",
+    "id": "day.-of.-wrath.-1943",
+    "slot": "now-showing",
+    "format": "video",
+    "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mv657ip3632t",
+    "likes": null,
+    "reposts": null,
+    "replies": null,
+    "views": null,
+    "window": null,
+    "live": true
+   },
+   {
+    "at": "2026-09-10T13:17:32.302808+00:00",
+    "platform": "mastodon",
+    "title": "Day of Wrath",
+    "id": "day.-of.-wrath.-1943",
+    "slot": "now-showing",
+    "format": "video",
+    "url": "https://mastodon.social/@archivewatch/117246936300919417",
+    "likes": null,
+    "reposts": null,
+    "replies": null,
+    "views": null,
+    "window": null,
+    "live": true
+   },
+   {
+    "at": "2026-09-10T13:17:32.302808+00:00",
+    "platform": "threads",
+    "title": "Day of Wrath",
+    "id": "day.-of.-wrath.-1943",
+    "slot": "now-showing",
+    "format": "card",
+    "url": "https://www.threads.com/@archivewatchapp/post/DdG7Nfkkds9",
+    "likes": null,
+    "reposts": null,
+    "replies": null,
+    "views": null,
+    "window": null,
+    "live": null
+   },
+   {
+    "at": "2026-09-10T13:17:32.302808+00:00",
+    "platform": "instagram",
+    "title": "Day of Wrath",
+    "id": "day.-of.-wrath.-1943",
+    "slot": "now-showing",
+    "format": "video",
+    "url": "https://www.instagram.com/reel/DdG7SodgE1h/",
+    "likes": null,
+    "reposts": null,
+    "replies": null,
+    "views": null,
+    "window": null,
+    "live": null
+   },
+   {
+    "at": "2026-09-10T13:17:32.302808+00:00",
+    "platform": "youtube",
+    "title": "Day of Wrath",
+    "id": "day.-of.-wrath.-1943",
+    "slot": "now-showing",
+    "format": "video",
+    "url": "https://youtube.com/watch?v=Uc4s1E8yfy0",
+    "likes": null,
+    "reposts": null,
+    "replies": null,
+    "views": null,
+    "window": null,
+    "live": null
+   },
+   {
+    "at": "2026-09-10T00:55:53.051375+00:00",
+    "platform": "bluesky",
+    "title": "Baseball Bugs",
+    "id": "BaseballBugs_201708",
+    "slot": "now-showing",
+    "format": "video",
+    "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mv4trevwf52d",
+    "likes": null,
+    "reposts": null,
+    "replies": null,
+    "views": null,
+    "window": null,
+    "live": true
+   },
+   {
     "at": "2026-09-09T18:26:27.740889+00:00",
     "platform": "bluesky",
     "title": "Zoom & Bored (Laserdisc)",
@@ -190,11 +337,11 @@
     "slot": "double-bill",
     "format": "video",
     "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mv2dvy7tu62z",
-    "likes": null,
-    "reposts": null,
-    "replies": null,
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
     "views": null,
-    "window": null,
+    "window": "24h",
     "live": true
    },
    {
@@ -320,15 +467,15 @@
   ],
   "byPlatform": {
    "bluesky": {
-    "posts": 3,
+    "posts": 5,
     "likes": 0,
     "replies": 0,
     "reposts": 0,
     "views": 0,
-    "measured": 1
+    "measured": 2
    },
    "mastodon": {
-    "posts": 2,
+    "posts": 3,
     "likes": 0,
     "replies": 0,
     "reposts": 1,
@@ -336,7 +483,7 @@
     "measured": 1
    },
    "threads": {
-    "posts": 1,
+    "posts": 2,
     "likes": 0,
     "replies": 0,
     "reposts": 0,
@@ -344,7 +491,7 @@
     "measured": 0
    },
    "instagram": {
-    "posts": 1,
+    "posts": 2,
     "likes": 0,
     "replies": 0,
     "reposts": 0,
@@ -352,7 +499,7 @@
     "measured": 0
    },
    "youtube": {
-    "posts": 1,
+    "posts": 2,
     "likes": 0,
     "replies": 0,
     "reposts": 0,
@@ -360,27 +507,27 @@
     "measured": 0
    }
   },
-  "totalPosts": 8,
-  "measured": 2,
+  "totalPosts": 14,
+  "measured": 3,
   "reach": {
    "bluesky": {
     "followers": 1,
-    "posts": 3
+    "posts": 5
    },
    "mastodon": {
     "followers": 0,
-    "posts": 2
+    "posts": 3
    },
    "instagram": {
     "followers": 0,
-    "posts": 4
+    "posts": 5
    },
    "youtube": {
     "error": "the poster's token is youtube.upload only, by design — stats need youtube.readonly"
    }
   },
   "deleted": 3,
-  "unverified": 3
+  "unverified": 6
  },
  "health": {
   "applePerf": {
@@ -390,15 +537,6 @@
   },
   "appleDownloads": {
    "daily": [
-    {
-     "date": "2026-08-09",
-     "units": 30,
-     "byDevice": {
-      "iPhone": 19,
-      "Apple TV": 7,
-      "iPad": 4
-     }
-    },
     {
      "date": "2026-08-10",
      "units": 20,
@@ -663,51 +801,111 @@
       "Apple TV": 3,
       "iPhone": 14
      }
+    },
+    {
+     "date": "2026-09-09",
+     "units": 24,
+     "byDevice": {
+      "iPhone": 13,
+      "Apple TV": 7,
+      "iPad": 4
+     }
     }
    ],
-   "total14d": 309,
-   "total28d": 522,
+   "total14d": 312,
+   "total28d": 533,
    "byDevice": {
-    "iPhone": 409,
+    "iPhone": 403,
     "Apple TV": 107,
     "iPad": 72,
     "Desktop": 1
    },
    "byCountry": {
     "US": 254,
-    "GB": 23,
     "DE": 22,
-    "CA": 18,
+    "GB": 20,
+    "CA": 19,
     "FR": 16,
-    "SA": 14,
+    "SA": 13,
     "KZ": 11,
-    "ES": 9,
-    "NG": 8,
-    "AU": 7,
+    "ES": 10,
+    "DZ": 8,
+    "AU": 8,
+    "IL": 7,
     "AE": 7,
-    "DZ": 7,
-    "IN": 7,
-    "EG": 6
+    "NG": 7,
+    "SE": 6
    },
    "byVersion": {
     "1.3": 207,
     "1.41": 133,
-    "1.2": 122,
     "1.4": 96,
-    "1.42.5": 31
+    "1.2": 92,
+    "1.42.5": 55
    },
    "perDevice": {
+    "iPhone": {
+     "byCountry": {
+      "US": 149,
+      "GB": 15,
+      "DE": 14,
+      "SA": 11,
+      "FR": 11,
+      "KZ": 10,
+      "ES": 9,
+      "CA": 9,
+      "DZ": 8,
+      "AU": 7,
+      "AE": 7,
+      "NG": 7,
+      "SE": 5,
+      "MA": 5
+     },
+     "byVersion": {
+      "1.3": 174,
+      "1.41": 98,
+      "1.4": 71,
+      "1.42.5": 33,
+      "1.2": 27
+     },
+     "units": 403
+    },
+    "Apple TV": {
+     "byCountry": {
+      "US": 68,
+      "CA": 9,
+      "ZA": 5,
+      "DE": 4,
+      "GB": 3,
+      "FR": 2,
+      "IL": 1,
+      "SE": 1,
+      "SG": 1,
+      "NO": 1,
+      "TR": 1,
+      "IE": 1,
+      "IN": 1,
+      "DK": 1
+     },
+     "byVersion": {
+      "1.2": 58,
+      "1.4": 18,
+      "1.42.5": 17,
+      "1.41": 14
+     },
+     "units": 107
+    },
     "iPad": {
      "byCountry": {
-      "US": 35,
-      "GB": 4,
+      "US": 37,
       "FR": 3,
       "DE": 3,
       "PL": 2,
       "SA": 2,
       "IN": 2,
       "UA": 2,
-      "NL": 2,
+      "GB": 2,
+      "PT": 1,
       "KW": 1,
       "KZ": 1,
       "JO": 1,
@@ -717,62 +915,11 @@
      "byVersion": {
       "1.3": 33,
       "1.41": 21,
-      "1.2": 10,
       "1.4": 7,
-      "1.42.5": 1
+      "1.2": 6,
+      "1.42.5": 5
      },
      "units": 72
-    },
-    "Apple TV": {
-     "byCountry": {
-      "US": 70,
-      "CA": 8,
-      "GB": 5,
-      "ZA": 5,
-      "DE": 4,
-      "SG": 1,
-      "NO": 1,
-      "TR": 1,
-      "IE": 1,
-      "IN": 1,
-      "DK": 1,
-      "TT": 1,
-      "UA": 1,
-      "AU": 1
-     },
-     "byVersion": {
-      "1.2": 65,
-      "1.4": 18,
-      "1.41": 14,
-      "1.42.5": 10
-     },
-     "units": 107
-    },
-    "iPhone": {
-     "byCountry": {
-      "US": 149,
-      "GB": 14,
-      "DE": 14,
-      "FR": 12,
-      "SA": 12,
-      "KZ": 10,
-      "CA": 9,
-      "ES": 8,
-      "NG": 8,
-      "AE": 7,
-      "DZ": 7,
-      "AU": 6,
-      "SE": 5,
-      "MA": 5
-     },
-     "byVersion": {
-      "1.3": 174,
-      "1.41": 98,
-      "1.4": 71,
-      "1.2": 46,
-      "1.42.5": 20
-     },
-     "units": 409
     },
     "Desktop": {
      "byCountry": {
@@ -828,15 +975,15 @@
     "cause": "Native method - android.os.MessageQueue.nativePollOnce",
     "location": "Input dispatching timed out",
     "users": 4,
-    "reports": 4,
-    "lastSeen": "2026-09-04T13:00:00Z",
+    "reports": 5,
+    "lastSeen": "2026-09-09T08:00:00Z",
     "firstBuild": "29",
-    "lastBuild": "49",
+    "lastBuild": "54",
     "api": "29-34",
     "stale": true,
     "url": "https://play.google.com/console/developers/7973176709446146294/app/4975776198955106385/vitals/crashes/a6de15e9a91794d45b55e1a9282d0460/details",
     "fixedIn": null,
-    "ours": "at app.archivewatch.android.data.CatalogDatabase.queryRaw (CatalogDatabase.kt:612)"
+    "ours": null
    },
    {
     "type": "APPLICATION_NOT_RESPONDING",
@@ -984,43 +1131,6 @@
    "daily": [],
    "byDimension": {},
    "window": "2026-08-12..2026-09-08"
-  },
-  "issues": [],
-  "workflows": [],
-  "catalog": {
-   "schema": 12,
-   "items": 26711,
-   "playable": 26423,
-   "professionalArt": 13405,
-   "withBif": 16487,
-   "builtAt": null
-  },
-  "webUsage": {
-   "daily": [
-    {
-     "date": "2026-09-09",
-     "views": 15,
-     "visits": 0
-    },
-    {
-     "date": "2026-09-10",
-     "views": 250,
-     "visits": 1
-    }
-   ],
-   "views28d": 265,
-   "views7d": 265,
-   "visits28d": 1,
-   "visits7d": 1,
-   "byPath": {
-    "/": 260,
-    "/item": 2,
-    "/browse": 1,
-    "/collection": 1,
-    "/other": 1
-   },
-   "since": "2026-06-12",
-   "splitFrom": "2026-09-10"
   },
   "playInstalls": {
    "asOf": "2026-08-21",
@@ -1313,7 +1423,576 @@
     "en_AU": 8,
     "en_ZA": 8
    },
-   "readVia": "gcloud"
+   "readVia": "service account"
+  },
+  "playDaily": {
+   "ratings": [
+    {
+     "date": "2026-08-18",
+     "daily": 2.0,
+     "total": 2.0
+    },
+    {
+     "date": "2026-08-19",
+     "daily": 1.0,
+     "total": 1.5
+    },
+    {
+     "date": "2026-08-20",
+     "daily": 0.0,
+     "total": 1.5
+    },
+    {
+     "date": "2026-08-21",
+     "daily": 0.0,
+     "total": 1.5
+    },
+    {
+     "date": "2026-08-22",
+     "daily": 0.0,
+     "total": 1.5
+    },
+    {
+     "date": "2026-08-23",
+     "daily": 0.0,
+     "total": 1.5
+    },
+    {
+     "date": "2026-08-24",
+     "daily": 0.0,
+     "total": 1.5
+    },
+    {
+     "date": "2026-08-25",
+     "daily": 0.0,
+     "total": 1.5
+    },
+    {
+     "date": "2026-08-26",
+     "daily": 0.0,
+     "total": 1.5
+    },
+    {
+     "date": "2026-08-27",
+     "daily": 5.0,
+     "total": 2.6666
+    },
+    {
+     "date": "2026-08-28",
+     "daily": 0.0,
+     "total": 2.25
+    },
+    {
+     "date": "2026-08-29",
+     "daily": 0.0,
+     "total": 2.25
+    },
+    {
+     "date": "2026-08-30",
+     "daily": 0.0,
+     "total": 2.6666
+    },
+    {
+     "date": "2026-08-31",
+     "daily": 0.0,
+     "total": 2.25
+    },
+    {
+     "date": "2026-09-01",
+     "daily": 0.0,
+     "total": 2.25
+    },
+    {
+     "date": "2026-09-02",
+     "daily": 0.0,
+     "total": 5.0
+    },
+    {
+     "date": "2026-09-03",
+     "daily": 0.0,
+     "total": 2.25
+    },
+    {
+     "date": "2026-09-04",
+     "daily": 0.0,
+     "total": 2.25
+    },
+    {
+     "date": "2026-09-05",
+     "daily": 0.0,
+     "total": 5.0
+    }
+   ],
+   "crashes": [
+    {
+     "date": "2026-07-08",
+     "crashes": 1,
+     "anrs": 0
+    },
+    {
+     "date": "2026-07-10",
+     "crashes": 1,
+     "anrs": 0
+    },
+    {
+     "date": "2026-07-13",
+     "crashes": 1,
+     "anrs": 0
+    },
+    {
+     "date": "2026-07-15",
+     "crashes": 4,
+     "anrs": 0
+    },
+    {
+     "date": "2026-07-17",
+     "crashes": 2,
+     "anrs": 0
+    },
+    {
+     "date": "2026-07-20",
+     "crashes": 1,
+     "anrs": 0
+    },
+    {
+     "date": "2026-07-21",
+     "crashes": 2,
+     "anrs": 0
+    },
+    {
+     "date": "2026-07-23",
+     "crashes": 2,
+     "anrs": 0
+    },
+    {
+     "date": "2026-07-29",
+     "crashes": 3,
+     "anrs": 0
+    },
+    {
+     "date": "2026-07-30",
+     "crashes": 5,
+     "anrs": 0
+    },
+    {
+     "date": "2026-07-31",
+     "crashes": 6,
+     "anrs": 0
+    },
+    {
+     "date": "2026-08-01",
+     "crashes": 5,
+     "anrs": 0
+    },
+    {
+     "date": "2026-08-02",
+     "crashes": 3,
+     "anrs": 0
+    },
+    {
+     "date": "2026-08-03",
+     "crashes": 7,
+     "anrs": 0
+    },
+    {
+     "date": "2026-08-04",
+     "crashes": 6,
+     "anrs": 0
+    },
+    {
+     "date": "2026-08-05",
+     "crashes": 1,
+     "anrs": 0
+    },
+    {
+     "date": "2026-08-06",
+     "crashes": 1,
+     "anrs": 0
+    },
+    {
+     "date": "2026-08-07",
+     "crashes": 1,
+     "anrs": 0
+    },
+    {
+     "date": "2026-08-08",
+     "crashes": 5,
+     "anrs": 0
+    },
+    {
+     "date": "2026-08-09",
+     "crashes": 5,
+     "anrs": 0
+    },
+    {
+     "date": "2026-08-10",
+     "crashes": 1,
+     "anrs": 0
+    },
+    {
+     "date": "2026-08-13",
+     "crashes": 2,
+     "anrs": 1
+    },
+    {
+     "date": "2026-08-17",
+     "crashes": 1,
+     "anrs": 0
+    },
+    {
+     "date": "2026-09-01",
+     "crashes": 4,
+     "anrs": 0
+    },
+    {
+     "date": "2026-09-03",
+     "crashes": 0,
+     "anrs": 2
+    },
+    {
+     "date": "2026-09-04",
+     "crashes": 1,
+     "anrs": 1
+    },
+    {
+     "date": "2026-09-05",
+     "crashes": 2,
+     "anrs": 0
+    },
+    {
+     "date": "2026-09-06",
+     "crashes": 0,
+     "anrs": 1
+    },
+    {
+     "date": "2026-09-07",
+     "crashes": 1,
+     "anrs": 0
+    },
+    {
+     "date": "2026-09-09",
+     "crashes": 0,
+     "anrs": 1
+    }
+   ],
+   "asOf": "2026-09-09"
+  },
+  "playAcquisition": {
+   "daily": [
+    {
+     "date": "2026-07-07",
+     "acquisitions": 2,
+     "visitors": 3
+    },
+    {
+     "date": "2026-07-08",
+     "acquisitions": 1,
+     "visitors": 4
+    },
+    {
+     "date": "2026-07-09",
+     "acquisitions": 0,
+     "visitors": 2
+    },
+    {
+     "date": "2026-07-10",
+     "acquisitions": 3,
+     "visitors": 7
+    },
+    {
+     "date": "2026-07-11",
+     "acquisitions": 2,
+     "visitors": 7
+    },
+    {
+     "date": "2026-07-12",
+     "acquisitions": 0,
+     "visitors": 5
+    },
+    {
+     "date": "2026-07-13",
+     "acquisitions": 1,
+     "visitors": 3
+    },
+    {
+     "date": "2026-07-14",
+     "acquisitions": 0,
+     "visitors": 4
+    },
+    {
+     "date": "2026-07-15",
+     "acquisitions": 2,
+     "visitors": 3
+    },
+    {
+     "date": "2026-07-16",
+     "acquisitions": 1,
+     "visitors": 5
+    },
+    {
+     "date": "2026-07-17",
+     "acquisitions": 3,
+     "visitors": 9
+    },
+    {
+     "date": "2026-07-18",
+     "acquisitions": 2,
+     "visitors": 6
+    },
+    {
+     "date": "2026-07-19",
+     "acquisitions": 1,
+     "visitors": 5
+    },
+    {
+     "date": "2026-07-20",
+     "acquisitions": 2,
+     "visitors": 6
+    },
+    {
+     "date": "2026-07-21",
+     "acquisitions": 1,
+     "visitors": 5
+    },
+    {
+     "date": "2026-07-22",
+     "acquisitions": 6,
+     "visitors": 11
+    },
+    {
+     "date": "2026-07-23",
+     "acquisitions": 3,
+     "visitors": 9
+    },
+    {
+     "date": "2026-07-24",
+     "acquisitions": 1,
+     "visitors": 6
+    },
+    {
+     "date": "2026-07-25",
+     "acquisitions": 1,
+     "visitors": 3
+    },
+    {
+     "date": "2026-07-26",
+     "acquisitions": 4,
+     "visitors": 6
+    },
+    {
+     "date": "2026-07-27",
+     "acquisitions": 3,
+     "visitors": 6
+    },
+    {
+     "date": "2026-07-28",
+     "acquisitions": 1,
+     "visitors": 7
+    },
+    {
+     "date": "2026-07-29",
+     "acquisitions": 23,
+     "visitors": 44
+    },
+    {
+     "date": "2026-07-30",
+     "acquisitions": 82,
+     "visitors": 133
+    },
+    {
+     "date": "2026-07-31",
+     "acquisitions": 35,
+     "visitors": 78
+    },
+    {
+     "date": "2026-08-01",
+     "acquisitions": 29,
+     "visitors": 64
+    },
+    {
+     "date": "2026-08-02",
+     "acquisitions": 25,
+     "visitors": 62
+    },
+    {
+     "date": "2026-08-03",
+     "acquisitions": 26,
+     "visitors": 67
+    },
+    {
+     "date": "2026-08-04",
+     "acquisitions": 22,
+     "visitors": 66
+    },
+    {
+     "date": "2026-08-05",
+     "acquisitions": 13,
+     "visitors": 42
+    },
+    {
+     "date": "2026-08-06",
+     "acquisitions": 9,
+     "visitors": 27
+    },
+    {
+     "date": "2026-08-07",
+     "acquisitions": 12,
+     "visitors": 29
+    },
+    {
+     "date": "2026-08-08",
+     "acquisitions": 12,
+     "visitors": 33
+    },
+    {
+     "date": "2026-08-09",
+     "acquisitions": 12,
+     "visitors": 31
+    },
+    {
+     "date": "2026-08-10",
+     "acquisitions": 22,
+     "visitors": 35
+    },
+    {
+     "date": "2026-08-11",
+     "acquisitions": 15,
+     "visitors": 25
+    },
+    {
+     "date": "2026-08-12",
+     "acquisitions": 12,
+     "visitors": 22
+    },
+    {
+     "date": "2026-08-13",
+     "acquisitions": 7,
+     "visitors": 23
+    },
+    {
+     "date": "2026-08-14",
+     "acquisitions": 6,
+     "visitors": 22
+    },
+    {
+     "date": "2026-08-15",
+     "acquisitions": 11,
+     "visitors": 26
+    },
+    {
+     "date": "2026-08-16",
+     "acquisitions": 18,
+     "visitors": 34
+    },
+    {
+     "date": "2026-08-17",
+     "acquisitions": 19,
+     "visitors": 28
+    },
+    {
+     "date": "2026-08-18",
+     "acquisitions": 15,
+     "visitors": 32
+    },
+    {
+     "date": "2026-08-19",
+     "acquisitions": 10,
+     "visitors": 35
+    },
+    {
+     "date": "2026-08-20",
+     "acquisitions": 29,
+     "visitors": 58
+    },
+    {
+     "date": "2026-08-21",
+     "acquisitions": 23,
+     "visitors": 54
+    },
+    {
+     "date": "2026-08-22",
+     "acquisitions": 19,
+     "visitors": 59
+    },
+    {
+     "date": "2026-08-23",
+     "acquisitions": 34,
+     "visitors": 79
+    },
+    {
+     "date": "2026-08-24",
+     "acquisitions": 14,
+     "visitors": 51
+    },
+    {
+     "date": "2026-08-25",
+     "acquisitions": 24,
+     "visitors": 58
+    },
+    {
+     "date": "2026-08-26",
+     "acquisitions": 26,
+     "visitors": 68
+    },
+    {
+     "date": "2026-08-27",
+     "acquisitions": 31,
+     "visitors": 67
+    },
+    {
+     "date": "2026-08-28",
+     "acquisitions": 17,
+     "visitors": 53
+    },
+    {
+     "date": "2026-08-29",
+     "acquisitions": 33,
+     "visitors": 71
+    },
+    {
+     "date": "2026-08-30",
+     "acquisitions": 18,
+     "visitors": 68
+    },
+    {
+     "date": "2026-08-31",
+     "acquisitions": 22,
+     "visitors": 59
+    },
+    {
+     "date": "2026-09-01",
+     "acquisitions": 18,
+     "visitors": 54
+    },
+    {
+     "date": "2026-09-02",
+     "acquisitions": 29,
+     "visitors": 70
+    },
+    {
+     "date": "2026-09-03",
+     "acquisitions": 23,
+     "visitors": 59
+    },
+    {
+     "date": "2026-09-04",
+     "acquisitions": 24,
+     "visitors": 51
+    }
+   ],
+   "asOf": "2026-09-04",
+   "acquisitions28d": 543,
+   "visitors28d": 1325,
+   "conversion28d": 0.4098,
+   "byCountry": {
+    "Other": 817,
+    "US": 51
+   },
+   "bySource": {
+    "Other": 762,
+    "Ads and referrals": 65,
+    "Google Play explore": 41
+   }
   },
   "amazonVitals": {
    "freshness": {},
@@ -1324,6 +2003,55 @@
    ],
    "package": "com.archivewatch.app",
    "console": "https://developer.amazon.com/reporting/console/apphealth/performance/applatency"
+  },
+  "issues": [],
+  "workflows": [
+   {
+    "severity": "FAILED",
+    "workflow": "Subtitle sync (re-time the provably mi conclusion=failure"
+   }
+  ],
+  "catalog": {
+   "schema": 12,
+   "items": 26712,
+   "playable": 26424,
+   "professionalArt": 13405,
+   "withBif": 16487,
+   "builtAt": null
+  },
+  "webUsage": {
+   "daily": [
+    {
+     "date": "2026-09-09",
+     "views": 15,
+     "visits": 0
+    },
+    {
+     "date": "2026-09-10",
+     "views": 1316,
+     "visits": 498
+    }
+   ],
+   "views28d": 1331,
+   "views7d": 1331,
+   "visits28d": 498,
+   "visits7d": 498,
+   "byPath": {
+    "/": 847,
+    "/browse": 223,
+    "/item": 157,
+    "/search": 66,
+    "/channels": 13,
+    "/library": 7,
+    "/surprise": 6,
+    "/collection": 4,
+    "/collections": 4,
+    "/series": 2,
+    "/about": 1,
+    "/other": 1
+   },
+   "since": "2026-06-12",
+   "splitFrom": "2026-09-10"
   }
  },
  "github": {
@@ -1367,167 +2095,167 @@
   "apple_stores": {
    "ok": true,
    "note": "3 Apple platform(s)",
-   "at": "2026-09-09T23:49:21+00:00"
+   "at": "2026-09-10T16:59:41+00:00"
   },
   "apple_reviews": {
    "ok": true,
    "note": "4 review(s)",
-   "at": "2026-09-09T23:49:21+00:00"
+   "at": "2026-09-10T16:59:42+00:00"
   },
   "apple_rating": {
    "ok": true,
    "note": "4.4 from 5",
-   "at": "2026-09-09T23:49:21+00:00"
+   "at": "2026-09-10T16:59:42+00:00"
   },
   "apple_performance": {
    "ok": true,
    "note": "Apple has not aggregated enough device data yet",
-   "at": "2026-09-09T23:49:22+00:00"
+   "at": "2026-09-10T16:59:42+00:00"
   },
   "apple_downloads": {
    "ok": true,
-   "note": "589 first-time download(s) over 31 day(s), 4 device type(s), 92 country/countries",
-   "at": "2026-09-09T23:49:44+00:00"
+   "note": "583 first-time download(s) over 31 day(s), 4 device type(s), 91 country/countries",
+   "at": "2026-09-10T17:00:13+00:00"
   },
   "play_stores": {
    "ok": true,
    "note": "3 track(s)",
-   "at": "2026-09-09T23:49:45+00:00"
+   "at": "2026-09-10T17:00:14+00:00"
   },
   "play_reviews": {
    "ok": true,
    "note": "0 review(s) in Play's 7-day window",
-   "at": "2026-09-09T23:49:46+00:00"
+   "at": "2026-09-10T17:00:14+00:00"
   },
   "play_rating": {
    "ok": false,
    "note": "Play listing carries no rating yet",
-   "at": "2026-09-09T23:49:46+00:00"
+   "at": "2026-09-10T17:00:15+00:00"
   },
   "play_vitals": {
    "ok": true,
    "note": "crashRate: too few users for Play to publish a rate; anrRate: too few users for Play to publish a rate",
-   "at": "2026-09-09T23:49:47+00:00"
+   "at": "2026-09-10T17:00:16+00:00"
   },
   "play_crashes": {
    "ok": true,
    "note": "12 cluster(s), 0 still on build 56",
-   "at": "2026-09-09T23:50:07+00:00"
+   "at": "2026-09-10T17:00:37+00:00"
   },
   "play_users": {
    "ok": true,
    "note": "every dimension query was accepted and returned nothing — Play withholds per-user figures below a minimum audience",
-   "at": "2026-09-09T23:50:12+00:00"
+   "at": "2026-09-10T17:00:42+00:00"
   },
   "play_reports": {
-   "ok": false,
-   "note": "no reports readable in gs://pubsite_prod_rev_09780217745051329641 — a Console grant can take hours to reach the bucket's ACLs",
-   "at": "2026-09-09T23:50:51+00:00"
+   "ok": true,
+   "note": "584 install(s) over 28 day(s), 7 report(s), via service account",
+   "at": "2026-09-10T17:00:55+00:00"
   },
   "play_daily_exports": {
-   "ok": false,
-   "note": "no ratings or crashes exports readable",
-   "at": "2026-09-09T23:50:56+00:00"
+   "ok": true,
+   "note": "ratings: 19 day(s) to 2026-09-05, crashes: 30 day(s) to 2026-09-09",
+   "at": "2026-09-10T17:00:57+00:00"
   },
   "play_acquisition": {
-   "ok": false,
-   "note": "no store-performance reports readable",
-   "at": "2026-09-09T23:51:07+00:00"
-  },
-  "manual_stores": {
    "ok": true,
-   "note": "5 declared store(s)",
-   "at": "2026-09-10T00:28:47+00:00"
-  },
-  "social_programme": {
-   "ok": true,
-   "note": "11 post(s) across 5 platform(s), 2 measured",
-   "at": "2026-09-09T23:51:07+00:00"
-  },
-  "social_reach": {
-   "ok": true,
-   "note": "bluesky=1, mastodon=0, instagram=0",
-   "at": "2026-09-09T23:51:08+00:00"
-  },
-  "social_replies": {
-   "ok": true,
-   "note": "0 reply/mention notification(s)",
-   "at": "2026-09-09T23:51:08+00:00"
-  },
-  "social_liveness": {
-   "ok": true,
-   "note": "5 live, 3 deleted, 3 could not be checked",
-   "at": "2026-09-09T23:51:09+00:00"
-  },
-  "youtube_channel": {
-   "ok": true,
-   "note": "stats need youtube.readonly (the token is upload-only, by design), 0 comment(s)",
-   "at": "2026-09-09T23:51:09+00:00"
-  },
-  "mentions_reddit": {
-   "ok": true,
-   "note": "0 kept",
-   "at": "2026-09-09T23:51:10+00:00"
-  },
-  "mentions_hn": {
-   "ok": true,
-   "note": "0 kept of 0",
-   "at": "2026-09-09T23:51:10+00:00"
-  },
-  "mentions_lemmy": {
-   "ok": true,
-   "note": "0 kept",
-   "at": "2026-09-09T23:51:12+00:00"
-  },
-  "mentions_news": {
-   "ok": true,
-   "note": "0 kept",
-   "at": "2026-09-09T23:51:12+00:00"
-  },
-  "mentions_bluesky": {
-   "ok": true,
-   "note": "1 kept",
-   "at": "2026-09-09T23:51:13+00:00"
-  },
-  "mentions_mastodon": {
-   "ok": true,
-   "note": "1 kept",
-   "at": "2026-09-09T23:51:14+00:00"
-  },
-  "github": {
-   "ok": true,
-   "note": "0 star(s), 0 open issue(s), 0 from outside",
-   "at": "2026-09-09T23:51:16+00:00"
-  },
-  "workflows": {
-   "ok": true,
-   "note": "0 finding(s), 0 urgent",
-   "at": "2026-09-09T23:52:25+00:00"
-  },
-  "catalog": {
-   "ok": true,
-   "note": "26711 items, schema 12",
-   "at": "2026-09-09T23:52:26+00:00"
-  },
-  "web_usage": {
-   "ok": true,
-   "note": "265 route view(s) and 1 visit(s) over 2 day(s), 5 surface(s)",
-   "at": "2026-09-10T05:15:20+00:00"
-  },
-  "distribution": {
-   "ok": true,
-   "note": "App Store: 4 rated",
-   "at": "2026-09-09T23:52:26+00:00"
-  },
-  "asks": {
-   "ok": true,
-   "note": "0 request(s), 3 bit(s) of praise",
-   "at": "2026-09-09T23:52:26+00:00"
+   "note": "543 acquisition(s) from 1325 visitor(s) to 2026-09-04, 41% conversion",
+   "at": "2026-09-10T17:00:59+00:00"
   },
   "amazon_vitals": {
    "ok": true,
    "note": "authenticated; Amazon holds no vitals for this app yet (3/3 metric sets empty)",
-   "at": "2026-09-10T00:28:47+00:00"
+   "at": "2026-09-10T17:01:00+00:00"
+  },
+  "manual_stores": {
+   "ok": true,
+   "note": "5 declared store(s)",
+   "at": "2026-09-10T17:01:00+00:00"
+  },
+  "social_programme": {
+   "ok": true,
+   "note": "17 post(s) across 5 platform(s), 3 measured",
+   "at": "2026-09-10T17:01:00+00:00"
+  },
+  "social_reach": {
+   "ok": true,
+   "note": "bluesky=1, mastodon=0, instagram=0",
+   "at": "2026-09-10T17:01:01+00:00"
+  },
+  "social_replies": {
+   "ok": true,
+   "note": "0 reply/mention notification(s)",
+   "at": "2026-09-10T17:01:02+00:00"
+  },
+  "social_liveness": {
+   "ok": true,
+   "note": "8 live, 3 deleted, 6 could not be checked",
+   "at": "2026-09-10T17:01:04+00:00"
+  },
+  "youtube_channel": {
+   "ok": true,
+   "note": "stats need youtube.readonly (the token is upload-only, by design), 0 comment(s)",
+   "at": "2026-09-10T17:01:04+00:00"
+  },
+  "mentions_reddit": {
+   "ok": true,
+   "note": "0 kept",
+   "at": "2026-09-10T17:01:05+00:00"
+  },
+  "mentions_hn": {
+   "ok": true,
+   "note": "0 kept of 0",
+   "at": "2026-09-10T17:01:05+00:00"
+  },
+  "mentions_lemmy": {
+   "ok": true,
+   "note": "0 kept",
+   "at": "2026-09-10T17:01:06+00:00"
+  },
+  "mentions_news": {
+   "ok": true,
+   "note": "0 kept",
+   "at": "2026-09-10T17:01:06+00:00"
+  },
+  "mentions_bluesky": {
+   "ok": true,
+   "note": "1 kept",
+   "at": "2026-09-10T17:01:07+00:00"
+  },
+  "mentions_mastodon": {
+   "ok": true,
+   "note": "1 kept",
+   "at": "2026-09-10T17:01:10+00:00"
+  },
+  "github": {
+   "ok": true,
+   "note": "0 star(s), 0 open issue(s), 0 from outside",
+   "at": "2026-09-10T17:01:11+00:00"
+  },
+  "workflows": {
+   "ok": true,
+   "note": "1 finding(s), 0 urgent",
+   "at": "2026-09-10T17:02:14+00:00"
+  },
+  "catalog": {
+   "ok": true,
+   "note": "26712 items, schema 12",
+   "at": "2026-09-10T17:02:15+00:00"
+  },
+  "web_usage": {
+   "ok": true,
+   "note": "1331 route view(s) and 498 visit(s) over 2 day(s), 12 surface(s)",
+   "at": "2026-09-10T17:02:15+00:00"
+  },
+  "distribution": {
+   "ok": true,
+   "note": "App Store: 4 rated",
+   "at": "2026-09-10T17:02:15+00:00"
+  },
+  "asks": {
+   "ok": true,
+   "note": "0 request(s), 3 bit(s) of praise",
+   "at": "2026-09-10T17:02:15+00:00"
   }
  },
  "stale": {},
@@ -1556,16 +2284,16 @@
    "playRatings": null,
    "reviews": 4,
    "mentions": 2,
-   "posts": 8,
+   "posts": 14,
    "likes": 0,
    "followers": 1,
    "stars": 0,
    "views14d": null,
-   "catalogItems": 26711,
+   "catalogItems": 26712,
    "urgent": 0
   }
  ],
- "generatedAt": "2026-09-10T05:15:20+00:00",
+ "generatedAt": "2026-09-10T17:02:15+00:00",
  "repoVersion": "1.42.7",
  "repoBuild": "1019",
  "_": "Written by tools/pulse_collect.py. `history` is the series and is append-only per day; everything else is the latest reading. A source that could not answer says so in `sources` — never assume a zero."
