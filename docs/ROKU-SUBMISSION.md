@@ -206,14 +206,15 @@ full catalog, never committed. Contract locked by
 (github.com/rokudev/search-feed-json) with zero errors before the first
 submission.
 
-**What is in it** (~3,700 assets; ~2,000 movies, ~1,700 short-form — the
+**What is in it** (~3,250 assets; ~1,700 movies, ~1,550 short-form — the
 owner's bar, 2026-09-10: "only include items with professional posters ...
 as well as ones that are fully guaranteed to be public domain"): every film
-in the public index (not excluded, not mature, verified playable) whose
-rights evidence is STRICT — pre-1930 by age, a government collection, a real
-archive.org licence, or CC — and whose poster is a designed one (TMDb, OMDb,
-TVDb, fanart, TVmaze, Commons, Wikidata; never a frame cover), with a year
-and a runtime. Left out on purpose: **all television** (the spines have never
+in the public index (not excluded, not mature, verified playable) that is
+**public domain by AGE — published before 1930** (`--tier guaranteed`, the
+one test nobody can argue; the audit's STRICT set was measured to admit A
+Bridge Too Far on an uploader's CC mark and The Simpsons pilot on a CC0
+dedication) and whose poster is a designed one (TMDb, OMDb, TVDb, fanart,
+TVmaze, Commons, Wikidata; never a frame cover), with a year and a runtime. Left out on purpose: **all television** (the spines have never
 passed the rights audit — see SCRATCHPAD "OPEN — OWNER DECISION"), the
 presumed-PD 1929-63 tier and the 1964-77 renewal zone (visible in the apps
 by policy, not a claim we hand a third party), commercials, and the ~2,500

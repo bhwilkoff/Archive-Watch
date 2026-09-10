@@ -1963,3 +1963,16 @@ and it draws the line the app itself does NOT draw — presumed-PD 1929-63 films
 stay in every app under Decision 027's policy and out of the feed. The wider
 feed is one flag away (`--tier catalog --art any`); do not widen it without
 the owner.
+
+**Fourth amendment, same day — "guaranteed" is pre-1930 by age, nothing
+else.** Reading the strict feed's post-1963 rows: 107 items rode in on an
+uploader's CC mark (A Bridge Too Far, Cross of Iron — `safe_cc`, which trusts
+any CC label on a pre-1978 year), a CC0 dedication on a studio cartoon (Jonny
+Quest, The Simpsons pilot — `safe_archive_license`) or a government-collection
+membership (a 2021 feature — `safe_gov`). `--tier guaranteed` is `safe_pd_age`
+only and is what the deploy runs: 3,245 films. **The audit hole is real and is
+the owner's**: 119 visible 1964-77 films carry `safe_cc`, 41 of them with
+1,000+ IMDb votes (The Sand Pebbles, The Hill, The Collector, Hombre, The
+Pawnbroker); Decision 027 trusts a pre-1978 CC label and these are studio
+films with an uploader's mark. Reported, not changed — hiding them is a
+content decision of the kind 027 reserved.
