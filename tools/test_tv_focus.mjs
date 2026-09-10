@@ -201,5 +201,28 @@ check('Tizen back (10009) navigates', global._wentBack, true);
         unfallbacked.length ? unfallbacked.join(' | ') : 0, 0);
 }
 
+/* A series' seasons must be reachable by a REMOTE. Alfred Hitchcock Presents
+   carries 8 seasons of one episode each, and the web rendered season 1 behind a
+   native <select> — a desktop control that on a TV opens a platform picker over
+   the page. Both Google TV and Roku rebuilt exactly this into chips. Assert the
+   shape in the shipped source: real buttons, focus-selects on a TV, and no
+   <select> left in the markup. */
+{
+  const watch = fs.readFileSync('watch.js', 'utf8');
+  const html = fs.readFileSync('index.html', 'utf8');
+  check('the season control is not a <select>',
+        /<select[^>]*id="series-season"/.test(html), false);
+  check('...it is a container the renderer fills with chips',
+        /id="series-season"[^>]*class="season-chips"/.test(html), true);
+  const block = watch.slice(watch.indexOf("const sel = $('series-season')"),
+                            watch.indexOf('episodes(series, season)'));
+  check('season chips are real buttons a remote can reach',
+        /createElement\('button'\)/.test(block), true);
+  check('...and a chip selects when FOCUSED on a TV',
+        /addEventListener\('focus'/.test(block) && /classList\.contains\('tv'\)/.test(block), true);
+  check('...while a single-season series shows no chip row at all',
+        /sel\.hidden = true;/.test(block), true);
+}
+
 console.log(`\n${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);

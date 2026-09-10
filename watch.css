@@ -850,3 +850,20 @@ a.person:focus-visible { outline: 2px solid var(--color-primary); outline-offset
   ::view-transition-old(root),
   ::view-transition-new(root) { animation: none; }
 }
+
+/* Season chips (series). A row of real buttons, so a remote reaches them and
+   a keyboard tabs them — replacing a <select>, which is a desktop control that
+   opens a platform picker over the page on a TV. */
+.season-chips {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  margin: 10px 0 14px;
+}
+.season-chip {
+  padding: 7px 16px; border-radius: 999px;
+  border: 1px solid var(--color-border, rgba(255,255,255,0.22));
+  background: transparent; color: inherit;
+  font-size: 0.9rem; font-weight: 600; cursor: pointer;
+}
+.season-chip.on {
+  background: var(--color-primary); border-color: var(--color-primary); color: #fff;
+}

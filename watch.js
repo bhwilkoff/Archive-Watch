@@ -2524,14 +2524,44 @@
         e.hidden = false;
         return;
       }
+      // Season CHIPS, not a <select>. A native dropdown is a desktop control:
+      // on a TV it opens a platform picker over the page, and the ten-foot apps
+      // all use chips instead (Google TV rebuilt exactly this in Sep 2026;
+      // Roku has its own). Buttons are reachable by a remote AND by keyboard,
+      // so the one control serves both. Chips select on FOCUS on a TV — the
+      // remote is already pointing at the season you want to see — and on
+      // click elsewhere, where focus follows the pointer and selecting on
+      // hover would fight the user.
       const sel = $('series-season');
       if (seasons.length > 1) {
         sel.hidden = false;
-        sel.replaceChildren(...seasons.map((s, i) => new Option(
-          s.seasonNumber != null ? `Season ${s.seasonNumber}` : 'More episodes', String(i))));
-        sel.onchange = () => this.episodes(series, seasons[Number(sel.value)]);
+        const pick = (i, chips) => {
+          chips.forEach((c, j) => {
+            c.setAttribute('aria-selected', String(i === j));
+            c.classList.toggle('on', i === j);
+          });
+          this.episodes(series, seasons[i]);
+        };
+        const chips = seasons.map((s, i) => {
+          const b = document.createElement('button');
+          b.className = 'season-chip';
+          b.type = 'button';
+          b.setAttribute('role', 'tab');
+          b.textContent = s.seasonNumber != null ? `Season ${s.seasonNumber}` : 'More';
+          b.onclick = () => pick(i, chips);
+          // tv.js stamps `tv` on <html>; read it live rather than caching, since
+          // the TV layer boots after this script is parsed.
+          b.addEventListener('focus', () => {
+            if (document.documentElement.classList.contains('tv')) pick(i, chips);
+          });
+          return b;
+        });
+        sel.replaceChildren(...chips);
+        pick(0, chips);
+      } else {
+        sel.hidden = true;
+        this.episodes(series, seasons[0]);
       }
-      this.episodes(series, seasons[0]);
     },
 
     /** Rows render synchronously (the list must never wait on storage);

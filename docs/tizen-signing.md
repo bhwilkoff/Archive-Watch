@@ -81,3 +81,18 @@ button, **Space** activates a focused one and **Return** fires the default one.
 - **The version sed must be anchored.** An unanchored `version="[0-9]..."` also
   rewrites the XML declaration (must stay 1.0) and `required_version` (the
   minimum TIZEN PLATFORM, not the app version).
+
+## There is no remote Web Inspector on a retail TV
+
+Measured 2026-09-09 on a retail QN65S90CDFXZA:
+
+| Route | Result |
+|---|---|
+| `sdb shell 0 debug <appid>` | hangs, then `closed` |
+| `tizen run -p <id> --debug` | `--debug` is not a flag; prints usage |
+| ports 7011 / 7012 / 9998, forwarded and direct | connection refused |
+
+Remote debugging needs a developer (UD) unit. On retail hardware the oracle for
+a Tizen build is **screenshots from the owner plus the desktop browser in TV
+mode** (`archivewatch.org/?tv=1`, which `tv.js` treats as a TV). Do not budget
+time for a device console; there isn't one.
