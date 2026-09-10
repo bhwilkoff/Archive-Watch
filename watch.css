@@ -44,7 +44,28 @@ a { color: var(--color-accent); }
    per-ecosystem-sync-islands rule): a blocked pop-up or a revoked
    token says so here rather than leaving a button that does nothing. */
 .sync-error { color: #FF8A6B; }
-#library-sync button, #library-sync-apple button { margin-left: 4px; }
+/* Sign-in rows: each provider draws its own button to its own brand spec —
+   Google's guidelines for a custom button, Apple's via CloudKit JS — and the
+   row aligns them at 40px with the status beside. */
+#library-sync, #library-sync-apple {
+  display: flex; align-items: center; flex-wrap: wrap; gap: 12px;
+  min-height: 40px; margin: 8px 0;
+}
+#library-sync .sync-out { margin-left: 0; }
+.gsi-btn {
+  display: inline-flex; align-items: center; gap: 12px;
+  height: 40px; padding: 0 12px; box-sizing: border-box;
+  background: #131314; color: #E3E3E3; border: 1px solid #8E918F;
+  border-radius: 4px; cursor: pointer;
+  font: 500 14px/20px Roboto, system-ui, -apple-system, "Segoe UI", sans-serif;
+  letter-spacing: 0.25px; white-space: nowrap;
+}
+.gsi-btn:hover { background: #1f1f20; }
+.gsi-btn:focus-visible { outline: 2px solid #4285F4; outline-offset: 2px; }
+.gsi-btn-logo { width: 20px; height: 20px; flex: none; }
+.sync-hint { color: #9A9AA0; }
+#apple-sign-in-button, #apple-sign-out-button { display: inline-block; min-height: 40px; }
+#apple-sign-in-button:empty, #apple-sign-out-button:empty { display: none; }
 .error {
   background: #3a1410; color: #ffb4a4; border: 1px solid #62221a;
   border-radius: var(--radius); padding: 10px 14px; margin: 12px var(--pad);

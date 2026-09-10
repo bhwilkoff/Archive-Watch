@@ -47,7 +47,13 @@ window.AWCloudKitSync = (() => {
     window.CloudKit.configure({
       containers: [{
         containerIdentifier: CONTAINER,
-        apiTokenAuth: { apiToken: TOKEN, persist: true },
+        apiTokenAuth: {
+          apiToken: TOKEN, persist: true,
+          // Apple's HIG: on a dark background the white button. CloudKit
+          // JS draws it (logo, type, corner radius) — never restyled here.
+          signInButton: { id: 'apple-sign-in-button', theme: 'white' },
+          signOutButton: { id: 'apple-sign-out-button', theme: 'white' },
+        },
         environment: 'production',
       }],
     });
@@ -164,9 +170,10 @@ window.AWCloudKitSync = (() => {
     const inBtn = document.createElement('div'); inBtn.id = 'apple-sign-in-button';
     const outBtn = document.createElement('div'); outBtn.id = 'apple-sign-out-button';
     const status = document.createElement('span');
+    status.className = 'sync-hint';
     status.textContent = lastSync
-      ? ` iCloud synced ${new Date(lastSync).toLocaleTimeString()} · `
-      : (localStorage.getItem('aw_cksync') ? ' iCloud sync on · ' : ' Sign in with Apple to sync with your Apple TV, iPhone and Mac · ');
+      ? `iCloud synced ${new Date(lastSync).toLocaleTimeString()}`
+      : (localStorage.getItem('aw_cksync') ? 'iCloud sync on' : 'Sync with your Apple TV, iPhone and Mac');
     ui.append(inBtn, status, outBtn);
     if (lastError) {
       const err = document.createElement('span');
