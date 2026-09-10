@@ -89,7 +89,9 @@ def main() -> int:
     check("control: 'TheTrap_861' is not one (a separator inside is a word boundary)", F.id_is_youtube_capture("TheTrap_861"), False)
     check("control: 'Fall_of_the_House_of_Usher_1928_Watson' is not one",
           F.id_is_youtube_capture("Fall_of_the_House_of_Usher_1928_Watson"), False)
-    check("'1Y22ParteCharlaDeJairoRestrepoQgb5M7HLg4Q' is one", F.id_is_youtube_capture("1Y22ParteCharlaDeJairoRestrepoQgb5M7HLg4Q"), True)
+    check("'mubd1234ama-O7GMJ4iObZA' is one", F.id_is_youtube_capture("mubd1234ama-O7GMJ4iObZA"), True)
+    check("control: a CamelCase title with a year is NOT one ('TheWizardOfOz1925')", F.id_is_youtube_capture("TheWizardOfOz1925"), False)
+    check("control: 'TheBirthOfANationP1' is not one", F.id_is_youtube_capture("TheBirthOfANationP1"), False)
     check("an upload.wikimedia original resolves to the owning wiki's file",
           F.wiki_file("https://upload.wikimedia.org/wikipedia/en/3/3d/Valencia_%281927_film%29.jpg"),
           ("en.wikipedia.org", "Valencia_(1927_film).jpg"))

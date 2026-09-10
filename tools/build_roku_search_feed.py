@@ -250,7 +250,10 @@ def clip(text: str, limit: int) -> str:
 # from YouTube is named for the film, not for the video id.
 def id_is_youtube_capture(archive_id: str) -> bool:
     aid = archive_id or ""
-    if len(aid) <= 11:
+    # The id must be SET OFF by a separator: CamelCase titles with a year
+    # ("TheWizardOfOz1925", "EyesOfYouthPd19") switch class just as often as
+    # a video id does, and were 20 of 51 hits without this (measured).
+    if len(aid) <= 12 or aid[-12] not in "-_":
         return False
     t = aid[-11:]
     if not re.fullmatch(r"[A-Za-z0-9]{11}", t):     # a separator inside is a word boundary, not an id
