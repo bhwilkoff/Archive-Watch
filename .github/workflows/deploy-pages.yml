@@ -104,6 +104,24 @@ jobs:
             exit 1
           fi
 
+      - name: Fetch the Roku search-feed covers (/roku-search/covers)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # archive.org refuses image downloads to datacenter fetchers, and
+          # Roku's validator is one: every generated cover came back
+          # IMAGE_DOWNLOAD_ERROR (2026-09-10). The covers the feed needs are
+          # published from here instead (tools/publish_roku_covers.py). Same
+          # rule as the subtitles above: if the release exists, its tarball
+          # MUST restore — a deploy without it would silently drop ~6,000
+          # films from Roku Search while staying green.
+          mkdir -p _site/roku-search/covers
+          if gh release view roku-covers >/dev/null 2>&1; then
+            bash tools/gh_retry.sh gh release download roku-covers -p 'roku-covers.tar.gz' -O roku-covers.tar.gz
+            tar xzf roku-covers.tar.gz -C _site/roku-search/covers && rm -f roku-covers.tar.gz
+          fi
+          echo "roku covers: $(find _site/roku-search/covers -type f | wc -l)"
+
       - name: Build the Roku Search feed (/roku-search/)
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -139,6 +139,19 @@ def main() -> int:
     check("an archive.org cover is rewritten onto the storage node (no 302 left)",
           rv.resolve("https://archive.org/download/archivewatch-covers/x.1a2b.jpg"),
           "https://ia601609.us.archive.org/27/items/archivewatch-covers/x.1a2b.jpg")
+    import tempfile
+    tmp = Path(tempfile.mkdtemp())
+    (tmp / "x.1a2b.jpg").write_bytes(b"")
+    rl = F.ImageResolver(network=False, covers_dir=tmp)
+    rl.node_prefix = rv.node_prefix
+    check("a cover present in the Pages artifact is served from archivewatch.org (archive.org refuses Roku)",
+          rl.resolve("https://archive.org/download/archivewatch-covers/x.1a2b.jpg"),
+          "https://archivewatch.org/roku-search/covers/x.1a2b.jpg")
+    check("a cover absent from the artifact still goes to the node",
+          rl.resolve("https://archive.org/download/archivewatch-covers/y.9f.jpg"),
+          "https://ia601609.us.archive.org/27/items/archivewatch-covers/y.9f.jpg")
+    check("a locally served cover needs no measurement (400x600 by construction)",
+          F.image_verdict("https://archivewatch.org/roku-search/covers/x.jpg", {}), "ok")
     rv.commons["Sterling_Hayden_in_the_movie_\"Suddenly\".jpg"] = \
         "https://upload.wikimedia.org/wikipedia/commons/4/4c/Sterling_Hayden_in_the_movie_%22Suddenly%22.jpg"
     check("a Commons FilePath resolves through the imageinfo answer",

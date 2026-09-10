@@ -301,9 +301,15 @@ class ImageResolver:
     rendition for svg/tiff/webp originals). Both are best-effort — a failure
     leaves the URL untouched and is counted in `unresolved`."""
 
-    def __init__(self, network: bool = True, width: int = 500):
+    def __init__(self, network: bool = True, width: int = 500,
+                 covers_dir: "Path | None" = None):
         self.network = network
         self.width = width
+        # A cover file present here is served from archivewatch.org itself:
+        # archive.org refuses the download to datacenter fetchers, and Roku's
+        # validator is one (tools/publish_roku_covers.py, deploy-pages.yml).
+        self.covers_dir = covers_dir
+        self.covers_local = 0
         self.node_prefix: str | None = None
         self.commons: dict = {}
         self.unresolved = 0
@@ -336,6 +342,10 @@ class ImageResolver:
             self.node_prefix = ""      # tried once; keep the archive.org URL
 
     def _covers(self, url: str) -> str:
+        name = url[len(COVERS_URL):]
+        if self.covers_dir and (self.covers_dir / name).is_file():
+            self.covers_local += 1
+            return f"{SITE}/{FEED_DIR}/covers/{name}"
         self._learn_node(url)
         if self.node_prefix:
             return self.node_prefix + url[len(COVERS_URL):]
@@ -405,7 +415,8 @@ def image_verdict(url: str | None, dims: dict) -> str:
     by TMDb's rule, so both are ok without a measurement."""
     if not url:
         return "bad"
-    if "/items/archivewatch-covers/" in url or ("image.tmdb.org" in url and "/w1280/" in url):
+    if ("/items/archivewatch-covers/" in url or f"/{FEED_DIR}/covers/" in url
+            or ("image.tmdb.org" in url and "/w1280/" in url)):
         return "ok"
     d = dims.get(url)
     if d is None:
@@ -696,7 +707,8 @@ def main() -> int:
             continue
         eligible.append(item)
 
-    resolver = ImageResolver(network=not args.no_network)
+    resolver = ImageResolver(network=not args.no_network,
+                             covers_dir=Path(args.out) / FEED_DIR / "covers")
     resolver.prefetch_commons([image_url(it.get("posterURL")) or "" for it in eligible]
                               + [image_url(it.get("backdropURL"), "background") or "" for it in eligible])
     dims = json.loads(DIMS_CACHE.read_text(encoding="utf-8")) if DIMS_CACHE.exists() else {}
@@ -762,6 +774,7 @@ def main() -> int:
         "skipped": dict(reasons),
         "invalid": dict(invalid),
         "imagesUnresolved": resolver.unresolved,
+        "coversServedLocally": resolver.covers_local,
         "imagesUnmeasured": unmeasured,
         "imageDimsCached": len(dims),
         "imageNotes": resolver.notes,
