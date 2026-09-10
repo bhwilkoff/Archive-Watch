@@ -71,6 +71,12 @@ def main() -> int:
     check("presumed-PD (1950) is OUT of the strict tier",
           F.eligibility(item(year=1950, contentType="feature-film"), ids, "strict"), "rights:presumed_pd")
     check("no poster -> out, counted", F.eligibility(item(hasRealArtwork=False), ids, "catalog"), "no_poster")
+    check("control: a TMDb poster passes the professional-art gate",
+          F.eligibility(item(artworkSource="tmdb"), ids, "strict", "professional"), None)
+    check("a generated frame cover is out under --art professional",
+          F.eligibility(item(artworkSource="generated"), ids, "strict", "professional"), "art_not_professional")
+    check("a generated frame cover is still IN under --art any",
+          F.eligibility(item(artworkSource="generated"), ids, "strict", "any"), None)
     check("no runtime -> out", F.eligibility(item(runtimeSeconds=0), ids, "catalog"), "no_runtime")
     # A yearless item is unjudgeable to the rights audit (Decision 027), which
     # is the gate that answers first; the year check behind it is for a year

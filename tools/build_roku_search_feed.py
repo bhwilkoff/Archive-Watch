@@ -25,7 +25,9 @@ WHAT GOES IN, and why the gates are the ones they are:
     under a stated policy, but a feed is a list of films we hand to a third
     party to advertise as free, and "not yet judged" is not a claim we make
     there. `--tier strict` narrows further to pre-1930 / government /
-    licensed evidence only.
+    licensed evidence only — and is what the deploy runs (owner, 2026-09-10:
+    "only include items with professional posters ... as well as ones that
+    are fully guaranteed to be public domain"), with `--art professional`.
   * TELEVISION IS OUT. Episodes live in series/*.json, never in catalog.json,
     and have never passed the rights audit (SCRATCHPAD: OPEN — OWNER
     DECISION). tv-series cards and orphan tv-episode rows are skipped with
@@ -131,6 +133,13 @@ KEEP_BUCKETS = {"safe_pd_age", "safe_gov", "safe_archive_license", "safe_cc",
                 "presumed_pd"}
 STRICT_BUCKETS = {"safe_pd_age", "safe_gov", "safe_archive_license", "safe_cc"}
 SKIP_TYPES = {"tv-series", "tv-episode", "commercial"}
+# Sources whose art is a DESIGNED poster or still, never a frame grab. The
+# generated covers (Decision 023) are honest placeholders in the apps; in a
+# feed that advertises films to Roku's search they are the weakest image on
+# offer and the one Roku's fetcher fails on. `--art professional` (the
+# deployed default) keeps only these.
+PROFESSIONAL_ART = {"tmdb", "omdb", "tvdb", "fanart", "tvmaze", "commons",
+                    "wikidata", "external"}
 
 # Catalog genre vocabulary (TMDb, OMDb, Wikidata descriptors) -> Roku's fixed
 # genre enum. Anything not listed is dropped; a film with nothing left falls
@@ -530,7 +539,7 @@ def tags(item: dict, b: str) -> list:
     return [x for x in t if len(x) <= 20]
 
 
-def eligibility(item: dict, index_ids: set, tier: str) -> str | None:
+def eligibility(item: dict, index_ids: set, tier: str, art: str = "any") -> str | None:
     """None when the item belongs in the feed, else the reason it does not."""
     if item.get("excluded"):
         return "excluded"
@@ -552,6 +561,8 @@ def eligibility(item: dict, index_ids: set, tier: str) -> str | None:
         return "under_60s"
     if not item.get("hasRealArtwork") or not image_url(item.get("posterURL")):
         return "no_poster"
+    if art == "professional" and (item.get("artworkSource") or "") not in PROFESSIONAL_ART:
+        return "art_not_professional"
     if not (item.get("title") or "").strip():
         return "no_title"
     return None
@@ -703,6 +714,8 @@ def main() -> int:
     ap.add_argument("--base-url", default=f"{SITE}/{FEED_DIR}")
     ap.add_argument("--page-size", type=int, default=PAGE_SIZE)
     ap.add_argument("--tier", choices=("catalog", "strict"), default="catalog")
+    ap.add_argument("--art", choices=("any", "professional"), default="any",
+                    help="professional: designed posters/stills only, no frame covers")
     ap.add_argument("--tv-specials", action="store_true",
                     help="emit tv-special items as Roku 'tvspecial' (needs the "
                          "channel build that autoplays a tvSpecial deep link)")
@@ -729,7 +742,7 @@ def main() -> int:
     seen_ids = set()
     eligible = []
     for item in catalog.get("items", []):
-        why = eligibility(item, index_ids, args.tier)
+        why = eligibility(item, index_ids, args.tier, args.art)
         if why:
             reasons[why.split(":")[0] if why.startswith("rights:") and args.tier == "catalog"
                     and not why.endswith(("renewal_zone", "renewal_zone_bw",
@@ -802,6 +815,7 @@ def main() -> int:
     manifest = {
         "generated": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"),
         "tier": args.tier,
+        "art": args.art,
         "assets": len(assets),
         "byType": dict(by_type),
         "pages": [n for n, _ in pages],
@@ -824,7 +838,7 @@ def main() -> int:
     (out / "manifest.json").write_text(json.dumps(manifest, indent=1), encoding="utf-8")
 
     print(f"[roku-feed] {len(assets)} assets ({total_bytes/1e6:.1f} MB over "
-          f"{len(pages)} page(s)) tier={args.tier} types={dict(by_type)}")
+          f"{len(pages)} page(s)) tier={args.tier} art={args.art} types={dict(by_type)}")
     print(f"[roku-feed] skipped: {dict(reasons)}")
     if invalid:
         print(f"[roku-feed] invalid (dropped): {dict(invalid)}")
