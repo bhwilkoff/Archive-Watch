@@ -1976,3 +1976,20 @@ the owner's**: 119 visible 1964-77 films carry `safe_cc`, 41 of them with
 Pawnbroker); Decision 027 trusts a pre-1978 CC label and these are studio
 films with an uploader's mark. Reported, not changed — hiding them is a
 content decision of the kind 027 reserved.
+
+**Fifth amendment, same day — a pre-1930 year is only as good as the match
+that produced it.** The first pre-1930 feed carried My Little Pony, an NES
+longplay, a 2016 vlog and *Journey to the Center of the Earth* (1959). Their
+catalog year came from a wrong external match — "The Tinder Swindler 2022"
+matched to *The Swindler* (1919), a Harry Potter clip to *The Prisoner* (1923),
+Doraemon to a 1921 title — and `audit_rights` files a year under 1929 as
+`safe_pd_age` without looking further. The feed now refuses an item whose own
+archive id carries a year ≥ 1930, whose releaseDate does, or whose id is a
+modern capture (`year_contradicted_by_id`, 296 in the pre-1930 pool). **The
+catalog hole is the owner's**: 313 visible `safe_pd_age` items carry the same
+contradiction and are served in every app as public domain, several of them
+current studio releases. The right fix is upstream and two-part —
+`verify_external_match.py` should treat a year in the archive id as an Archive
+signal of the kind Decision 026 already trusts, and `bucket()` should route a
+contradicted pre-1930 year to CONFIRM rather than KEEP — but hiding 313 items
+is a content decision of the kind Decision 027 reserved.

@@ -332,6 +332,21 @@ passed. Roku's fifth run on the wide feed had shown its own fetcher throttling
 (failures rising page by page, TMDb images dropping late in the run), which
 the narrow feed sidesteps. Also: the Pages CDN ignores query strings, so
 continuation pages are `feed-N-<hash>.json` and the build keeps the live chain.
+**Then the bar moved twice more, each on a measurement.** "Strict" admitted
+A Bridge Too Far on an uploader's CC mark and The Simpsons pilot on a CC0
+dedication → `--tier guaranteed` = pre-1930 by age only. And pre-1930 admitted
+My Little Pony and Journey to the Center of the Earth (1959) — catalog years
+from WRONG MATCHES (Tinder Swindler → "The Swindler" 1919) — → the feed refuses
+a year its own id contradicts (296). Live: **3,135 films**, Roku validates
+~96% (the rest: dead posters, a few unmeasured aspects).
+
+**TWO OWNER DECISIONS the feed surfaced, both about the APPS** (Decision 113
+amendments 4 and 5): (a) 119 visible 1964-77 studio films kept by `safe_cc`
+on an uploader's CC mark — The Sand Pebbles, The Hill, The Collector, Hombre;
+(b) 313 visible `safe_pd_age` items whose archive id or releaseDate says
+≥ 1930 (several current studio releases) — wrong-match years the audit trusts.
+Fix shape for (b) is in the amendment; neither applied.
+
 NEXT: the New search feed form is filled in the dashboard (app, URL, both
 logos, email) and waits on Submit → SearchBeta install → deep-link params →
 Submit for Review.
