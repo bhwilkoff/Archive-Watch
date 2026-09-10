@@ -132,6 +132,13 @@ ASPECT_TOLERANCE = 0.04   # TMDb's 500x750 passes; a 500x707 (+6%) was refused
 KEEP_BUCKETS = {"safe_pd_age", "safe_gov", "safe_archive_license", "safe_cc",
                 "presumed_pd"}
 STRICT_BUCKETS = {"safe_pd_age", "safe_gov", "safe_archive_license", "safe_cc"}
+# "Fully guaranteed" (owner, 2026-09-10) is narrower than the audit's STRICT
+# set: measured on the strict feed, 107 post-1963 items rode in on an
+# uploader's CC mark (A Bridge Too Far, Cross of Iron), a CC0 dedication on a
+# studio cartoon (Jonny Quest, The Simpsons pilot) or a government-collection
+# membership (a 2021 feature). Only age cannot be argued: pre-1930 US works.
+GUARANTEED_BUCKETS = {"safe_pd_age"}
+TIERS = {"catalog": KEEP_BUCKETS, "strict": STRICT_BUCKETS, "guaranteed": GUARANTEED_BUCKETS}
 SKIP_TYPES = {"tv-series", "tv-episode", "commercial"}
 # Sources whose art is a DESIGNED poster or still, never a frame grab. The
 # generated covers (Decision 023) are honest placeholders in the apps; in a
@@ -548,7 +555,7 @@ def eligibility(item: dict, index_ids: set, tier: str, art: str = "any") -> str 
     if item.get("archiveID") not in index_ids:
         return "not_in_public_index"
     b, _ = bucket(item)
-    allowed = STRICT_BUCKETS if tier == "strict" else KEEP_BUCKETS
+    allowed = TIERS[tier]
     if b not in allowed:
         return f"rights:{b}"
     if not isinstance(item.get("year"), int):
@@ -713,7 +720,7 @@ def main() -> int:
     ap.add_argument("--out", default=str(REPO / "_site"))
     ap.add_argument("--base-url", default=f"{SITE}/{FEED_DIR}")
     ap.add_argument("--page-size", type=int, default=PAGE_SIZE)
-    ap.add_argument("--tier", choices=("catalog", "strict"), default="catalog")
+    ap.add_argument("--tier", choices=("catalog", "strict", "guaranteed"), default="catalog")
     ap.add_argument("--art", choices=("any", "professional"), default="any",
                     help="professional: designed posters/stills only, no frame covers")
     ap.add_argument("--tv-specials", action="store_true",

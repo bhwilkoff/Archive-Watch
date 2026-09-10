@@ -133,15 +133,15 @@ jobs:
           # site tree does not carry, so fetch it AFTER the rsync above —
           # 143 MB that must never land in the artifact.
           python3 tools/catalog_release.py fetch
-          # Strict rights (pre-1930 / government / real licence) and designed
-          # posters only — the owner's bar for what is advertised to Roku
-          # (2026-09-10). ~4,500 films; the floor is set well under that.
-          python3 tools/build_roku_search_feed.py --out _site --tier strict --art professional
+          # Guaranteed rights (pre-1930 by age — the one test nobody can
+          # argue) and designed posters only — the owner's bar for what is
+          # advertised to Roku (2026-09-10). ~3,000 films; floor well under.
+          python3 tools/build_roku_search_feed.py --out _site --tier guaranteed --art professional
           rm -f catalog.json
           n=$(python3 -c "import json;print(json.load(open('_site/roku-search/manifest.json'))['assets'])")
           echo "roku search feed assets: $n"
-          if [ "$n" -lt 3000 ]; then
-            echo "::error::only $n Roku search assets built (expected >3000) — a"
+          if [ "$n" -lt 2000 ]; then
+            echo "::error::only $n Roku search assets built (expected >2000) — a"
             echo "::error::shrunken feed would drop films from Roku Search. Refusing to deploy."
             exit 1
           fi

@@ -70,6 +70,11 @@ def main() -> int:
           F.eligibility(item(year=1950, contentType="feature-film"), ids, "catalog"), None)
     check("presumed-PD (1950) is OUT of the strict tier",
           F.eligibility(item(year=1950, contentType="feature-film"), ids, "strict"), "rights:presumed_pd")
+    check("a 1977 film with an uploader CC mark is IN strict (safe_cc) but OUT of guaranteed",
+          (F.eligibility(item(year=1977, rightsStatus="creative_commons", contentType="feature-film"), ids, "strict"),
+           F.eligibility(item(year=1977, rightsStatus="creative_commons", contentType="feature-film"), ids, "guaranteed")),
+          (None, "rights:safe_cc"))
+    check("pre-1930 is IN guaranteed", F.eligibility(item(), ids, "guaranteed"), None)
     check("no poster -> out, counted", F.eligibility(item(hasRealArtwork=False), ids, "catalog"), "no_poster")
     check("control: a TMDb poster passes the professional-art gate",
           F.eligibility(item(artworkSource="tmdb"), ids, "strict", "professional"), None)

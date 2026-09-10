@@ -107,7 +107,7 @@ def convert(name: str) -> str:
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--tier", choices=("catalog", "strict"), default="catalog")
+    ap.add_argument("--tier", choices=("catalog", "strict", "guaranteed"), default="catalog")
     ap.add_argument("--workers", type=int, default=6)
     ap.add_argument("--no-upload", action="store_true")
     args = ap.parse_args()

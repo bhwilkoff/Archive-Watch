@@ -125,7 +125,7 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--catalog", default=str(REPO / "catalog.json"))
     ap.add_argument("--index", default=str(REPO / "catalog-index.json"))
-    ap.add_argument("--tier", choices=("catalog", "strict"), default="catalog")
+    ap.add_argument("--tier", choices=("catalog", "strict", "guaranteed"), default="catalog")
     ap.add_argument("--limit", type=int, default=4000)
     ap.add_argument("--workers", type=int, default=6)
     ap.add_argument("--remeasure", action="store_true",
