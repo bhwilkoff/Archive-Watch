@@ -133,6 +133,66 @@
    "kind": "animation",
    "mediaId": null,
    "reviewer": null
+  },
+  {
+   "at": "2026-09-10T13:17:32.302808+00:00",
+   "id": "day.-of.-wrath.-1943",
+   "title": "Day of Wrath",
+   "slot": "now-showing",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mv657ip3632t",
+   "format": "video",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-09-10T13:17:32.302808+00:00",
+   "id": "day.-of.-wrath.-1943",
+   "title": "Day of Wrath",
+   "slot": "now-showing",
+   "platform": "mastodon",
+   "url": "https://mastodon.social/@archivewatch/117246936300919417",
+   "format": "video",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-09-10T13:17:32.302808+00:00",
+   "id": "day.-of.-wrath.-1943",
+   "title": "Day of Wrath",
+   "slot": "now-showing",
+   "platform": "threads",
+   "url": "https://www.threads.com/@archivewatchapp/post/DdG7Nfkkds9",
+   "format": "card",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-09-10T13:17:32.302808+00:00",
+   "id": "day.-of.-wrath.-1943",
+   "title": "Day of Wrath",
+   "slot": "now-showing",
+   "platform": "instagram",
+   "url": "https://www.instagram.com/reel/DdG7SodgE1h/",
+   "format": "video",
+   "kind": "feature-film",
+   "mediaId": "117246935931613507",
+   "reviewer": null
+  },
+  {
+   "at": "2026-09-10T13:17:32.302808+00:00",
+   "id": "day.-of.-wrath.-1943",
+   "title": "Day of Wrath",
+   "slot": "now-showing",
+   "platform": "youtube",
+   "url": "https://youtube.com/watch?v=Uc4s1E8yfy0",
+   "format": "video",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": null
   }
  ]
 }
