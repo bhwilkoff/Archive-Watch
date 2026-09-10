@@ -1951,3 +1951,15 @@ The ~6,100 covers the feed needs are packed at 400x600 by
 at archivewatch.org whenever the file is in the artifact. **How to apply**:
 never assume a URL that answers 200 from a home connection answers 200 to
 Roku; the validator's issue list is the only measurement that counts.
+
+**Third amendment, same day — the feed is strict rights and designed posters
+only.** The owner set the bar: "only include items with professional posters
+... as well as ones that are fully guaranteed to be public domain." The deploy
+runs `--tier strict --art professional` — pre-1930 / government / real licence
+/ CC evidence, and a designed poster or still, never a frame cover — which is
+~3,700 films against the ~16,000 of the KEEP tier. Two consequences worth
+knowing: it removes every image Roku's fetcher was failing on (the covers),
+and it draws the line the app itself does NOT draw — presumed-PD 1929-63 films
+stay in every app under Decision 027's policy and out of the feed. The wider
+feed is one flag away (`--tier catalog --art any`); do not widen it without
+the owner.

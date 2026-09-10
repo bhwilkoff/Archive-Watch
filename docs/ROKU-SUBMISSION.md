@@ -206,15 +206,19 @@ full catalog, never committed. Contract locked by
 (github.com/rokudev/search-feed-json) with zero errors before the first
 submission.
 
-**What is in it** (~18,200 assets; 11,100 movies, 7,050 short-form): every
-film in the public index (not excluded, not mature, verified playable) whose
-rights bucket is a KEEP bucket of `audit_rights` — pre-1930, government,
-real licence, or presumed-PD 1929-1963 — with a poster, a year and a
-runtime. Left out on purpose: **all television** (the spines have never
+**What is in it** (~3,700 assets; ~2,000 movies, ~1,700 short-form — the
+owner's bar, 2026-09-10: "only include items with professional posters ...
+as well as ones that are fully guaranteed to be public domain"): every film
+in the public index (not excluded, not mature, verified playable) whose
+rights evidence is STRICT — pre-1930 by age, a government collection, a real
+archive.org licence, or CC — and whose poster is a designed one (TMDb, OMDb,
+TVDb, fanart, TVmaze, Commons, Wikidata; never a frame cover), with a year
+and a runtime. Left out on purpose: **all television** (the spines have never
 passed the rights audit — see SCRATCHPAD "OPEN — OWNER DECISION"), the
-1964-77 renewal zone (a REPORT bucket, visible in the app by policy but not
-a claim we hand a third party), and commercials. `--tier strict` narrows to
-~7,300 films with pre-1930 / government / licence evidence only.
+presumed-PD 1929-63 tier and the 1964-77 renewal zone (visible in the apps
+by policy, not a claim we hand a third party), commercials, and the ~2,500
+strict-rights films that only have a generated cover. `--tier catalog --art
+any` is the wider feed (~16,000) if that bar ever moves.
 
 **Deep link contract**: `playOptions.playId` is the archiveID, which is the
 `contentId` `MainScene.startDeepLink` takes. The asset `id` is the archiveID

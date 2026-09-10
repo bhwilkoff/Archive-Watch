@@ -299,14 +299,42 @@ poster is swapped for the 16:9 backdrop or dropped, and the four gates.
 80/80 tests. Its "Validated content" printed **-289%** — read the issues
 JSON, never the percentage.
 
-Same session, owner asks: the **Roku Channel Store link** is on the front
-page (About card + footer, shell v63; ops/stores-manual.json marks Roku LIVE).
-**Apple sign-in on the web** is fully built (`js/cloudkitsync.js`) and dormant
-on ONE value — a CloudKit JS API token from icloud.developer.apple.com, a
-domain the Chrome extension has no permission for; `docs/web-apple-sync.md`
-has the four steps. NEXT: New search feed form is filled in the dashboard
-(app, URL, both logos, email) → submit → SearchBeta install → deep-link
-params → Submit for Review.
+**Then the third run: every generated cover still IMAGE_DOWNLOAD_ERROR** at
+the storage-node URL that answers 200 from home — archive.org refuses image
+downloads to datacenter fetchers (the CI-runner refusal of Decision 089), and
+Roku's validator is one. `tools/publish_roku_covers.py` (owner's Mac) packs
+the feed's 6,103 covers at 400x600 into the rolling `roku-covers` release
+(137 MB); `deploy-pages.yml` restores them at `/roku-search/covers/`; the
+feed points every cover at archivewatch.org. Live: 15,940 assets, every
+image on a host that answers 200 to Roku.
+
+Same session, owner asks, all shipped and verified on the glass:
+- **Roku Channel Store link** on the front page (About card + footer);
+  ops/stores-manual.json marks Roku LIVE.
+- **Sign in with Apple on the web**: the owner granted the Chrome extension
+  icloud.developer.apple.com; token "Archive Watch Web" created in the
+  PRODUCTION environment (the console opens on DEVELOPMENT — a token belongs
+  to ONE environment), Post Message callback, origin archivewatch.org only;
+  pasted into index.html. Apple's own button renders on the Library page.
+- **Sign-in buttons to brand spec**: Google's custom-button guidelines (the
+  four-colour G, Roboto Medium 14px, 40px, dark theme) with the logo inline;
+  Apple's via CloudKit JS `signInButton.theme: 'white'`, never restyled.
+- **Mature filter on the web audited against the ONE predicate** (D105):
+  index clean; three artifacts drifted — detail shards (own looser rule, two
+  title-marker films), episodes-index (no gate at all, Playboy After Dark),
+  aliases (32 forwarding to mature survivors). All three builders now use
+  `_is_adult`; artifacts regenerated; `tools/test_web_adult_gate.py` 7/7.
+**Owner then set the bar**: "only include items with professional posters
+... as well as ones that are fully guaranteed to be public domain" → the
+deploy runs `--tier strict --art professional`: **3,680 films** (1,973 movies,
+1,707 short-form), one page, every image on a host Roku's fetcher already
+passed. Roku's fifth run on the wide feed had shown its own fetcher throttling
+(failures rising page by page, TMDb images dropping late in the run), which
+the narrow feed sidesteps. Also: the Pages CDN ignores query strings, so
+continuation pages are `feed-N-<hash>.json` and the build keeps the live chain.
+NEXT: the New search feed form is filled in the dashboard (app, URL, both
+logos, email) and waits on Submit → SearchBeta install → deep-link params →
+Submit for Review.
 
 ### 2026-09-09 (later) — Play data, the crash shipped, releases off this machine
 Continuation of the Pulse session. Everything on `main`; app **1.42.7 (1019)**,
