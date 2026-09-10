@@ -321,5 +321,31 @@ check('Tizen back (10009) navigates', global._wentBack, true);
   }
 }
 
+/* THE TV TRANSPORT. `<video controls>` draws the BROWSER's bar — pause, 0:00,
+   volume, fullscreen, a kebab — at pointer sizes in a strip a D-pad cannot
+   enter. The owner saw exactly that on their television. On TV the attribute
+   comes off and we draw a readout instead, because the keys are already ours.
+   Verified on the glass with tools/tv_glass.mjs at 1920x1080; these lock the
+   shape. */
+{
+  const tv = fs.readFileSync('tv.js', 'utf8');
+  const css = fs.readFileSync('tv.css', 'utf8');
+  check('the browser control bar is removed on TV',
+        /removeAttribute\('controls'\)/.test(tv), true);
+  check('...as soon as the dialog OPENS, not on the first keypress',
+        /attributeFilter: \['open'\]/.test(tv), true);
+  check('a transport readout is drawn instead',
+        /class = 'tv-transport'/.test(tv) || /'tv-transport'/.test(tv), true);
+  check('...and it is NOT focusable — it must never take a press from the film',
+        /setAttribute\('aria-hidden', 'true'\)/.test(tv)
+        && /pointer-events:\s*none/.test(css.slice(css.indexOf('.tv-transport'))), true);
+  check('the desktop head (rate, PiP, Cast, close) is hidden on TV',
+        /\.tv \.player-head\s*\{\s*display:\s*none/.test(css), true);
+  check('the film fills the screen and is never cropped',
+        /\.tv #video[\s\S]{0,120}object-fit:\s*contain/.test(css), true);
+  check('the permanent synopsis over the picture is gone on TV',
+        /\.tv \.player-overlay\s*\{\s*display:\s*none/.test(css), true);
+}
+
 console.log(`\n${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);

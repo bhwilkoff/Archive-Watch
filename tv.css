@@ -227,3 +227,64 @@ html.tv .share-menu-trigger {
 .tv .store-links {
   display: none !important;
 }
+
+/* ── The TV transport (§5.3) ───────────────────────────────────────────────
+ *
+ * Replaces `<video controls>`, which draws the BROWSER's bar: pointer-sized
+ * widgets in a strip a D-pad cannot enter. This is a READOUT — nothing here is
+ * focusable, because the keys are already bound (OK toggles, ◀ ▶ seek, Back
+ * exits) and a transport that swallowed a press would take it from the film.
+ *
+ * Sized for ten feet: the time is 32px, not the 11px Chrome uses. */
+.tv .player-head { display: none; }        /* rate <select>, PiP, Cast, ✕ — all pointer chrome */
+
+.tv #player,
+.tv .player-stage {
+  width: 100vw; height: 100vh;
+  max-width: none; max-height: none;
+  margin: 0; padding: 0; border: 0; border-radius: 0;
+  background: #000;
+}
+
+/* The film fills the screen and is never cropped: a 4:3 scan letterboxes, which
+ * is what it should do — cover would cut the top off every silent film. */
+.tv #video {
+  width: 100%; height: 100%;
+  object-fit: contain;
+  background: #000;
+}
+
+/* The permanent synopsis over the picture is a browser habit. It belongs with
+ * the transport, on demand. */
+.tv .player-overlay { display: none; }
+
+.tv-transport {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  padding: 40px var(--tv-overscan-x) var(--tv-overscan-y);
+  background: linear-gradient(to top, rgba(0,0,0,0.92), rgba(0,0,0,0));
+  opacity: 0; transform: translateY(12px);
+  transition: opacity 0.22s ease, transform 0.22s ease;
+  pointer-events: none;
+}
+.tv-transport.on { opacity: 1; transform: none; }
+
+.tv-tp-row {
+  display: flex; align-items: center; gap: 24px;
+  font-size: var(--tv-title); font-variant-numeric: tabular-nums;
+  color: #fff;
+}
+.tv-tp-state { width: 1.2em; }
+.tv-tp-bar {
+  flex: 1; height: 8px; border-radius: 999px;
+  background: rgba(255, 255, 255, 0.28);
+  overflow: hidden;
+}
+.tv-tp-bar i {
+  display: block; height: 100%;
+  background: var(--color-primary, #FF5C35);
+  transition: width 0.2s linear;
+}
+.tv-tp-hint {
+  margin: 16px 0 0; font-size: var(--tv-body);
+  color: rgba(255, 255, 255, 0.62);
+}

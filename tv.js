@@ -252,6 +252,94 @@
   }
 
   /* ------------------------------------------------------------------ *
+   * TV TRANSPORT (§5.3)
+   *
+   * `<video controls>` renders the BROWSER's control bar — pause, 0:00,
+   * volume, fullscreen, a kebab menu. On a desktop that is correct and free.
+   * On a television it is the owner's "controls that only work for a desktop
+   * web browser", and that is literally what they are: Chrome's widgets, laid
+   * out for a pointer, at pointer sizes, in a strip a D-pad cannot enter.
+   *
+   * So on TV the attribute comes OFF and we draw our own, because the KEYS are
+   * already ours: OK toggles, Left/Right seek, Back closes (see onKeyDown).
+   * A TV transport is a READOUT, not a set of targets — there is nothing to
+   * click, so nothing needs to be focusable, and it must never take a press
+   * away from the film.
+   *
+   * It shows on any key and hides itself after a few seconds of stillness,
+   * which is the convention every ten-foot player uses.
+   * ------------------------------------------------------------------ */
+
+  var transportEl = null, transportTimer = null;
+
+  function fmtTime(sec) {
+    if (!isFinite(sec) || sec < 0) sec = 0;
+    var h = Math.floor(sec / 3600), m = Math.floor((sec % 3600) / 60),
+        s = Math.floor(sec % 60);
+    var mm = (h && m < 10 ? '0' : '') + m;
+    return (h ? h + ':' : '') + mm + ':' + (s < 10 ? '0' : '') + s;
+  }
+
+  function ensureTransport(video) {
+    var stage = video.parentElement;
+    if (!stage) return null;
+    if (transportEl && stage.contains(transportEl)) return transportEl;
+    transportEl = document.createElement('div');
+    transportEl.className = 'tv-transport';
+    transportEl.setAttribute('aria-hidden', 'true');   // a readout, not a control
+    transportEl.innerHTML =
+      '<div class="tv-tp-row">' +
+        '<span class="tv-tp-state"></span>' +
+        '<span class="tv-tp-now"></span>' +
+        '<div class="tv-tp-bar"><i></i></div>' +
+        '<span class="tv-tp-dur"></span>' +
+      '</div>' +
+      '<p class="tv-tp-hint">OK play/pause · ◀ ▶ 10s · Back to exit</p>';
+    stage.appendChild(transportEl);
+    return transportEl;
+  }
+
+  function paintTransport(video) {
+    var el = ensureTransport(video);
+    if (!el) return;
+    var d = video.duration, t = video.currentTime;
+    el.querySelector('.tv-tp-state').textContent = video.paused ? '❚❚' : '▶';
+    el.querySelector('.tv-tp-now').textContent = fmtTime(t);
+    el.querySelector('.tv-tp-dur').textContent = isFinite(d) ? fmtTime(d) : '';
+    el.querySelector('.tv-tp-bar i').style.width =
+      (isFinite(d) && d > 0 ? Math.min(100, (t / d) * 100) : 0) + '%';
+  }
+
+  function showTransport() {
+    var v = activeVideo();
+    if (!v) return;
+    var el = ensureTransport(v);
+    if (!el) return;
+    paintTransport(v);
+    el.classList.add('on');
+    clearTimeout(transportTimer);
+    // Paused stays visible: a still frame with no readout looks like a crash.
+    if (!v.paused) {
+      transportTimer = setTimeout(function () { el.classList.remove('on'); }, 4000);
+    }
+  }
+
+  /** Strip the browser's controls and take over. Runs whenever a video shows
+   *  up, because the player is opened by the app, not by us. */
+  function adoptVideo(video) {
+    if (video.dataset.tvAdopted) return;
+    video.dataset.tvAdopted = '1';
+    video.removeAttribute('controls');
+    video.addEventListener('timeupdate', function () {
+      if (transportEl && transportEl.classList.contains('on')) paintTransport(video);
+    });
+    ['play', 'pause', 'seeked', 'loadedmetadata'].forEach(function (ev) {
+      video.addEventListener(ev, showTransport);
+    });
+    showTransport();
+  }
+
+  /* ------------------------------------------------------------------ *
    * Playback keys (§5.2)
    * ------------------------------------------------------------------ */
 
@@ -313,6 +401,8 @@
 
     const video = activeVideo();
     if (video) {
+      adoptVideo(video);          // the player is opened by the app, not by us
+      showTransport();            // any press brings the readout back
       switch (code) {
         case KEY.PLAY_PAUSE: case KEY.ENTER:
           ev.preventDefault(); togglePlay(video); return;
@@ -437,10 +527,17 @@
     // The first render is asynchronous (catalog index fetch), so watch for the
     // DOM filling in rather than guessing a delay.
     const mo = new MutationObserver(function () {
+      const v = activeVideo();
+      if (v) adoptVideo(v);       // strip the browser's controls the moment it exists
       const active = document.activeElement;
       if (!active || active === document.body) claimFocus();
     });
-    mo.observe(document.body, { childList: true, subtree: true });
+    // ATTRIBUTES TOO. Opening a <dialog> sets `open` — an attribute mutation,
+    // not a childList one — and the <video> is static markup that has existed
+    // since first paint. Without this the browser's own control bar showed
+    // until the viewer happened to press something.
+    mo.observe(document.body, { childList: true, subtree: true,
+                                attributes: true, attributeFilter: ['open'] });
 
     claimFocus();
   }
