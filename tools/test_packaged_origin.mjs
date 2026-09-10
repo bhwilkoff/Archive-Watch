@@ -104,5 +104,25 @@ for (const pkg of ['webos', 'tizen']) {
            .includes('in navigator && /^https?:$/.test(location.protocol)'));
 }
 
+/* EVERY SCRIPT index.html LOADS MUST BE IN THE PACKAGE. The staged file list
+   was hand-kept as `APP_JS=(js/api.js)` and went stale the moment sync shipped:
+   index.html gained js/drivesync.js and js/cloudkitsync.js, the packages did
+   not, and every TV launch since made two requests that 404. Nothing threw,
+   because watch.js calls them as `window.AWDriveSync?.init(...)` — which is
+   precisely why nobody saw it. A store's QA does look at failed resource
+   loads. */
+{
+  const html = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
+  const wanted = [...html.matchAll(/src="(js\/[A-Za-z0-9._-]+\.js)"/g)].map((m) => m[1]);
+  truthy('index.html loads at least one js/ script', wanted.length > 0);
+  for (const pkg of ['webos', 'tizen']) {
+    const dir = path.join(ROOT, 'tv', pkg, 'app');
+    if (!fs.existsSync(dir)) { console.log(`SKIP  ${pkg} not staged`); continue; }
+    const missing = wanted.filter((f) => !fs.existsSync(path.join(dir, f)));
+    truthy(`${pkg} packages every js/ script the page loads`,
+           missing.length === 0, missing.join(', '));
+  }
+}
+
 console.log(`\n${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);

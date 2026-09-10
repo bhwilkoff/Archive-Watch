@@ -89,9 +89,57 @@ terms and the last is not a store.
 
 ## 4. Store listing
 
-Same copy as `docs/webos-submission.md` §3. Samsung's screenshot dimensions
-differ from LG's — check the current requirement in Seller Office at upload
-time rather than trusting a cached number.
+Paste-ready. Every number here is MEASURED against the published catalog
+(`ops/pulse.json` → `health.catalog`, and the live `catalog-index.json`) as of
+2026-09-10 — re-check before submitting rather than trusting these:
+**26,711 items, 26,423 playable, 285 television series.**
+
+**Name:** Archive Watch
+
+**Category:** Video / Entertainment
+
+**Short description** (one line)
+> Watch the public domain — classic films, silent cinema, animation and
+> vintage television, free from the Internet Archive.
+
+**Long description**
+> Archive Watch turns the Internet Archive's moving-image collection into
+> something you can actually browse from the sofa: more than 26,000 films and
+> television episodes, free to watch, with no account and no advertising.
+>
+> Feature films, silent cinema, classic television, animation, newsreels and
+> the strange world of ephemeral and educational film — presented with posters,
+> cast, synopses and genres, so a 1920s serial is as easy to find as a
+> well-known title.
+>
+> • Browse by category, decade, genre, studio or keyword
+> • 285 classic television series, with seasons and episodes
+> • Channels — a continuous TV-style guide you can tune into
+> • Surprise Me, for when you would rather be shown something
+> • Pick up where you left off, and keep a library of favourites
+> • Subtitles where they exist, and automatic captions on supported devices
+>
+> Everything here is in the public domain in the United States or released
+> under a Creative Commons licence. Archive Watch is free, has no adverts, no
+> subscription and no account, and it does not collect anything about you.
+
+**Keywords:** public domain, classic film, silent film, old movies, classic TV,
+free movies, cinema, film noir, animation, documentary, Internet Archive
+
+**Age rating:** general audiences. Mature collections are filtered out of the
+served catalog entirely on this platform — the index a TV reads never contains
+them (Decision 105), so there is nothing to un-hide.
+
+**Support:** archivewatch.org/support · **Privacy:** archivewatch.org/privacy ·
+**Terms:** archivewatch.org/terms
+
+**Screenshots:** Home, Browse, a title page, Channels, and playback. Samsung's
+required dimensions differ from LG's and change — read the current requirement
+in Seller Office at upload time rather than trusting a cached number here.
+
+**What is NOT claimed, deliberately:** no "thousands of HD titles" (much of this
+catalog is a 16 mm scan and looks it), no "new releases", and no count that
+rounds up. The archive's appeal is that it is an archive.
 
 ---
 

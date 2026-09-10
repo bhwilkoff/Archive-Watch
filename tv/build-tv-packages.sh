@@ -29,7 +29,14 @@ APP_DIRS=(assets)
 # From js/ the viewer needs ONLY api.js. app.js and whats-new.js belong to the
 # curator dashboard at /curate/ — dead weight in a TV package, and webOS's
 # packager aborts trying to minify them.
-APP_JS=(js/api.js)
+# DERIVED from index.html, never hand-kept. This was `APP_JS=(js/api.js)` and
+# went stale the moment sync shipped (2026-09-03): index.html gained
+# js/drivesync.js and js/cloudkitsync.js, the packages did not, and every TV
+# launch since made two requests that 404. Nothing THREW — watch.js calls them
+# as `window.AWDriveSync?.init(...)` — which is exactly why it went unnoticed.
+# Read what the page actually loads instead of maintaining a second list.
+APP_JS=($(grep -oE 'src="js/[A-Za-z0-9._-]+\.js"' "$ROOT/index.html" \
+          | sed 's/src="//; s/"//' | sort -u))
 
 # One source of truth for the version, the same file the Apple targets read
 # (Decision 003). Both vendor manifests are STAMPED at package time rather than
