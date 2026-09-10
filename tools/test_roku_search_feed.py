@@ -123,19 +123,49 @@ def main() -> int:
     check("a TMDb original backdrop is asked for at w1280",
           F.image_url("https://image.tmdb.org/t/p/original/b.jpg", "background"),
           "https://image.tmdb.org/t/p/w1280/b.jpg")
-    check("a Commons FilePath gets a width",
-          F.image_url("https://commons.wikimedia.org/wiki/Special:FilePath/X.jpg"),
-          "https://commons.wikimedia.org/wiki/Special:FilePath/X.jpg?width=600")
-    check("a Commons FilePath already sized is not doubled",
+    check("a Commons FilePath loses its width hint (the resolver needs the bare title)",
           F.image_url("https://commons.wikimedia.org/wiki/Special:FilePath/X.jpg?width=600"),
-          "https://commons.wikimedia.org/wiki/Special:FilePath/X.jpg?width=600")
-    check("an upload.wikimedia original becomes its 600px thumb",
+          "https://commons.wikimedia.org/wiki/Special:FilePath/X.jpg")
+    check("an upload.wikimedia original is LEFT ALONE (a forced thumb 400s past the original width)",
           F.image_url("https://upload.wikimedia.org/wikipedia/en/b/b1/Star_Reporter_%281939%29.jpg"),
-          "https://upload.wikimedia.org/wikipedia/en/thumb/b/b1/Star_Reporter_%281939%29.jpg/600px-Star_Reporter_%281939%29.jpg")
-    check("an upload.wikimedia thumb is left alone",
-          F.image_url("https://upload.wikimedia.org/wikipedia/en/thumb/b/b1/S.jpg/300px-S.jpg"),
-          "https://upload.wikimedia.org/wikipedia/en/thumb/b/b1/S.jpg/300px-S.jpg")
+          "https://upload.wikimedia.org/wikipedia/en/b/b1/Star_Reporter_%281939%29.jpg")
     check("a non-http value is no image", F.image_url("pkg:/images/x.png"), None)
+
+    # ---- the resolver: Roku's validator does NOT follow a redirect ----------
+    rv = F.ImageResolver(network=False)
+    rv.node_prefix = "https://ia601609.us.archive.org/27/items/archivewatch-covers/"
+    check("control: a direct TMDb URL passes through the resolver untouched",
+          rv.resolve("https://image.tmdb.org/t/p/w500/a.jpg"), "https://image.tmdb.org/t/p/w500/a.jpg")
+    check("an archive.org cover is rewritten onto the storage node (no 302 left)",
+          rv.resolve("https://archive.org/download/archivewatch-covers/x.1a2b.jpg"),
+          "https://ia601609.us.archive.org/27/items/archivewatch-covers/x.1a2b.jpg")
+    rv.commons["Sterling_Hayden_in_the_movie_\"Suddenly\".jpg"] = \
+        "https://upload.wikimedia.org/wikipedia/commons/4/4c/Sterling_Hayden_in_the_movie_%22Suddenly%22.jpg"
+    check("a Commons FilePath resolves through the imageinfo answer",
+          rv.resolve("https://commons.wikimedia.org/wiki/Special:FilePath/Sterling_Hayden_in_the_movie_%22Suddenly%22.jpg"),
+          "https://upload.wikimedia.org/wikipedia/commons/4/4c/Sterling_Hayden_in_the_movie_%22Suddenly%22.jpg")
+    before = rv.unresolved
+    kept = rv.resolve("https://commons.wikimedia.org/wiki/Special:FilePath/Unknown.jpg")
+    check("an unanswered Commons title is kept as-is and COUNTED, never invented",
+          (kept.endswith("/Unknown.jpg"), rv.unresolved - before), (True, 1))
+    check("commons_title decodes the file name", F.commons_title(
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Achtung_Feind_h%C3%B6rt_mit.svg"),
+        "Achtung_Feind_hört_mit.svg")
+    a_svg = F.build_asset(item(posterURL="https://commons.wikimedia.org/wiki/Special:FilePath/Logo.svg"))
+    check("an unresolved Commons image fails validation (Roku refuses svg and redirects)",
+          sorted(F.validate_asset(a_svg)), ["image format (jpg/png/gif only)", "image redirects (unresolved Commons)"])
+
+    # ---- gates the validator taught us ----------------------------------
+    check("59 seconds is out (ASSET_DURATION_SHORT)", F.eligibility(item(runtimeSeconds=59), ids, "catalog"), "under_60s")
+    check("60 seconds is in", F.eligibility(item(runtimeSeconds=60), ids, "catalog"), None)
+    check("year 1065 is out (ASSET_INVALID_RELEASE_YEAR)", F.eligibility(item(year=1065), ids, "catalog"), "implausible_year")
+    check("year 1899 is out (Roku: ASSET_ALL_RELEASE_REMOVED on every 1890s film)",
+          F.eligibility(item(year=1899), ids, "catalog"), "implausible_year")
+    check("year 1900 is in", F.eligibility(item(year=1900), ids, "catalog"), None)
+    long_text = "Word " * 80
+    check("descriptions stay five under Roku's limits",
+          (len(F.descriptions(item(synopsis=long_text))[0]) <= 195,
+           len(F.descriptions(item(synopsis=long_text))[1]) <= 495), (True, True))
 
     # ---- descriptions ------------------------------------------------------
     cal = ("A man named Francis relates a story about his best friend Alan and "

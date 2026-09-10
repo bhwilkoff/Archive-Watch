@@ -60,6 +60,18 @@ and makes it immutable; 2,710 archive ids are longer. Those get a stable
 derived id (prefix + hash). The playId is still the archiveID, which is the
 only thing the channel needs.
 
+IMAGES MUST ANSWER 200 AT THE URL GIVEN. Roku's validator does not follow a
+redirect: the first live run rejected 7,557 assets with IMAGE_DOWNLOAD_ERROR,
+every sampled one an archive.org cover (302 to a storage node) — with Commons
+`Special:FilePath` (302 to upload.wikimedia.org) in the same pile. So the
+generator RESOLVES: one HEAD learns the storage node all our covers live on
+(they are files of ONE archive.org item), and the Commons imageinfo API answers
+50 titles per call with a direct thumbnail URL at 500px, which also turns
+svg/tiff/webp originals — formats Roku refuses — into a jpg/png rendition.
+A URL that could not be resolved stays as it was and is counted, never
+invented. Roku also refused 343 assets under 60 seconds and 40 with an
+implausible year, so both are gates now.
+
 SIZE. ~22,000 assets is ~27 MB, and Roku asks for pagination at 20 MB. Pages
 of --page-size assets are chained with nextPageUrl. Generated into the Pages
 artifact at deploy time, never committed (Decision 018's reasoning).
@@ -78,6 +90,8 @@ import hashlib
 import json
 import re
 import sys
+import urllib.parse
+import urllib.request
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
@@ -89,6 +103,17 @@ SITE = "https://archivewatch.org"
 FEED_DIR = "roku-search"
 PAGE_SIZE = 4000
 SHORTFORM_MAX_SECONDS = 15 * 60  # Roku: shortform is 15 minutes or less
+MIN_SECONDS = 60          # Roku: ASSET_DURATION_SHORT under this (measured)
+# 1900, not 1888: Roku's validator answered ASSET_ALL_RELEASE_REMOVED for every
+# 1894-1899 film in the first live run (Lumière, Paul, Guy, the 1899
+# Cinderella) and then rejected the asset for having no release. The 1890s
+# are real cinema and stay in the app; they cannot be stated to Roku.
+MIN_YEAR, MAX_YEAR = 1900, dt.date.today().year + 1
+COVERS_ITEM = "archivewatch-covers"
+COVERS_URL = f"https://archive.org/download/{COVERS_ITEM}/"
+COMMONS_API = "https://commons.wikimedia.org/w/api.php"
+USER_AGENT = "ArchiveWatch/1.0 (https://archivewatch.org; ben@learningischange.com)"
+IMAGE_EXT_RE = re.compile(r"\.(jpe?g|png|gif)(\?.*)?$", re.I)
 
 KEEP_BUCKETS = {"safe_pd_age", "safe_gov", "safe_archive_license", "safe_cc",
                 "presumed_pd"}
@@ -235,13 +260,115 @@ def image_url(url: str, kind: str = "poster") -> str | None:
         size = "w1280" if kind == "background" else "w500"
         u = re.sub(r"/t/p/(original|w\d+)/", f"/t/p/{size}/", u)
     elif "commons.wikimedia.org/wiki/Special:FilePath/" in u:
-        u = re.sub(r"\?width=\d+$", "", u) + "?width=600"
-    elif "upload.wikimedia.org/wikipedia/" in u and "/thumb/" not in u:
-        m = re.match(r"^(https://upload\.wikimedia\.org/wikipedia/[a-z]+)/([0-9a-f])/([0-9a-f]{2})/([^/?#]+)$", u)
-        if m and m.group(4).lower().endswith((".jpg", ".jpeg", ".png")):
-            root, a, ab, name = m.groups()
-            u = f"{root}/thumb/{a}/{ab}/{name}/600px-{name}"
+        # Left for the resolver (Roku will not follow its redirect); the
+        # width hint is dropped so the title is exactly the file name.
+        u = re.sub(r"\?width=\d+$", "", u)
     return u
+
+
+def commons_title(url: str) -> str | None:
+    m = re.match(r"^https://commons\.wikimedia\.org/wiki/Special:FilePath/([^?#]+)", url)
+    return urllib.parse.unquote(m.group(1)) if m else None
+
+
+class ImageResolver:
+    """Turns redirecting image URLs into ones that answer 200 directly.
+
+    archive.org covers: every cover is a file of ONE item, so a single HEAD
+    reveals the storage node prefix for all of them. Commons: the imageinfo
+    API, 50 titles a call, answers a direct thumbnail URL (and a jpg/png
+    rendition for svg/tiff/webp originals). Both are best-effort — a failure
+    leaves the URL untouched and is counted in `unresolved`."""
+
+    def __init__(self, network: bool = True, width: int = 500):
+        self.network = network
+        self.width = width
+        self.node_prefix: str | None = None
+        self.commons: dict = {}
+        self.unresolved = 0
+        self.notes: list = []
+
+    # -- archive.org covers
+    def _learn_node(self, sample: str) -> None:
+        if not self.network or self.node_prefix is not None:
+            return
+        try:
+            req = urllib.request.Request(sample, method="HEAD",
+                                         headers={"User-Agent": USER_AGENT})
+
+            class NoRedirect(urllib.request.HTTPRedirectHandler):
+                def redirect_request(self, *a, **k):
+                    return None
+            opener = urllib.request.build_opener(NoRedirect)
+            try:
+                opener.open(req, timeout=20)
+            except urllib.error.HTTPError as e:
+                loc = e.headers.get("Location") if e.code in (301, 302, 303, 307, 308) else None
+                if loc and f"/items/{COVERS_ITEM}/" in loc:
+                    self.node_prefix = loc.split(f"/items/{COVERS_ITEM}/")[0] + f"/items/{COVERS_ITEM}/"
+                    self.notes.append(f"covers node {self.node_prefix}")
+                    return
+                raise
+        except Exception as e:  # noqa: BLE001
+            self.notes.append(f"covers node unresolved: {e}")
+        if self.node_prefix is None:
+            self.node_prefix = ""      # tried once; keep the archive.org URL
+
+    def _covers(self, url: str) -> str:
+        self._learn_node(url)
+        if self.node_prefix:
+            return self.node_prefix + url[len(COVERS_URL):]
+        self.unresolved += 1
+        return url
+
+    # -- Commons
+    def prefetch_commons(self, urls: list) -> None:
+        titles = sorted({t for t in (commons_title(u) for u in urls) if t})
+        if not self.network or not titles:
+            return
+        for i in range(0, len(titles), 50):
+            batch = titles[i:i + 50]
+            q = urllib.parse.urlencode({
+                "action": "query", "prop": "imageinfo", "iiprop": "url|mime",
+                "iiurlwidth": str(self.width), "format": "json",
+                "titles": "|".join("File:" + t for t in batch),
+            })
+            try:
+                req = urllib.request.Request(f"{COMMONS_API}?{q}",
+                                             headers={"User-Agent": USER_AGENT})
+                with urllib.request.urlopen(req, timeout=30) as r:
+                    data = json.loads(r.read().decode("utf-8"))
+                norm = {}
+                for n in data.get("query", {}).get("normalized", []):
+                    norm[n["to"]] = n["from"]
+                for page in data.get("query", {}).get("pages", {}).values():
+                    info = (page.get("imageinfo") or [{}])[0]
+                    thumb = (info.get("thumburl") or info.get("url") or "").split("?")[0]
+                    title = page.get("title", "")
+                    orig = norm.get(title, title)
+                    key = orig[5:] if orig.startswith("File:") else orig
+                    if thumb and IMAGE_EXT_RE.search(thumb):
+                        self.commons[key] = thumb
+                        self.commons[key.replace("_", " ")] = thumb
+            except Exception as e:  # noqa: BLE001
+                self.notes.append(f"commons batch {i // 50} failed: {e}")
+
+    def _commons(self, url: str) -> str:
+        t = commons_title(url)
+        hit = self.commons.get(t) or self.commons.get((t or "").replace("_", " "))
+        if hit:
+            return hit
+        self.unresolved += 1
+        return url
+
+    def resolve(self, url: str | None) -> str | None:
+        if not url:
+            return url
+        if url.startswith(COVERS_URL):
+            return self._covers(url)
+        if "commons.wikimedia.org/wiki/Special:FilePath/" in url:
+            return self._commons(url)
+        return url
 
 
 def quality(item: dict) -> str:
@@ -314,7 +441,9 @@ def synopsis_text(item: dict) -> str:
 def descriptions(item: dict) -> tuple[str, str | None]:
     text = synopsis_text(item)
     if text:
-        return clip(text, 200), clip(text, 500)
+        # Five under Roku's limits: the validator refused one description that
+        # measured exactly 200 here, so however it counts, stay clear of it.
+        return clip(text, 195), clip(text, 495)
     kind = KIND.get(item.get("contentType") or "", "Film")
     y = item.get("year")
     d = item.get("director")
@@ -360,8 +489,12 @@ def eligibility(item: dict, index_ids: set, tier: str) -> str | None:
         return f"rights:{b}"
     if not isinstance(item.get("year"), int):
         return "no_year"
+    if not (MIN_YEAR <= item["year"] <= MAX_YEAR):
+        return "implausible_year"
     if not item.get("runtimeSeconds"):
         return "no_runtime"
+    if int(item["runtimeSeconds"]) < MIN_SECONDS:
+        return "under_60s"
     if not item.get("hasRealArtwork") or not image_url(item.get("posterURL")):
         return "no_poster"
     if not (item.get("title") or "").strip():
@@ -369,7 +502,8 @@ def eligibility(item: dict, index_ids: set, tier: str) -> str | None:
     return None
 
 
-def build_asset(item: dict, tv_specials: bool = False, imdb: bool = False) -> dict:
+def build_asset(item: dict, tv_specials: bool = False, imdb: bool = False,
+                resolver: "ImageResolver | None" = None) -> dict:
     b, _ = bucket(item)
     title = strip_html(item.get("title") or "")[:200]
     short, long_ = descriptions(item)
@@ -388,8 +522,11 @@ def build_asset(item: dict, tv_specials: bool = False, imdb: bool = False) -> di
     if cr:
         a["credits"] = cr
     a["advisoryRatings"] = [advisory_rating(item.get("contentRating"))]
-    images = [{"type": "main", "url": image_url(item.get("posterURL"))}]
+    main = image_url(item.get("posterURL"))
     bg = image_url(item.get("backdropURL"), "background")
+    if resolver:
+        main, bg = resolver.resolve(main), resolver.resolve(bg)
+    images = [{"type": "main", "url": main}]
     if bg:
         images.append({"type": "background", "url": bg})
     a["images"] = images
@@ -423,6 +560,10 @@ def validate_asset(a: dict) -> list:
         errs.append("tag length")
     if not any(i["type"] == "main" for i in a["images"]):
         errs.append("main image")
+    if any(not IMAGE_EXT_RE.search(i["url"]) for i in a["images"]):
+        errs.append("image format (jpg/png/gif only)")
+    if any("/wiki/Special:FilePath/" in i["url"] for i in a["images"]):
+        errs.append("image redirects (unresolved Commons)")
     if a["durationInSeconds"] <= 0:
         errs.append("duration")
     if not a["content"]["playOptions"][0]["playId"]:
@@ -468,6 +609,8 @@ def main() -> int:
                          "schema; try on the dashboard validator first)")
     ap.add_argument("--limit", type=int, default=0,
                     help="cap the asset count (a test feed)")
+    ap.add_argument("--no-network", action="store_true",
+                    help="skip image URL resolution (offline / tests)")
     args = ap.parse_args()
 
     cat_path, idx_path = Path(args.catalog), Path(args.index)
@@ -482,6 +625,7 @@ def main() -> int:
     reasons = collections.Counter()
     assets, invalid = [], collections.Counter()
     seen_ids = set()
+    eligible = []
     for item in catalog.get("items", []):
         why = eligibility(item, index_ids, args.tier)
         if why:
@@ -490,7 +634,13 @@ def main() -> int:
                                           "modern_copyright_unconfirmed", "unknown_year"))
                     else why] += 1
             continue
-        a = build_asset(item, args.tv_specials, imdb=args.imdb)
+        eligible.append(item)
+
+    resolver = ImageResolver(network=not args.no_network)
+    resolver.prefetch_commons([image_url(it.get("posterURL")) or "" for it in eligible]
+                              + [image_url(it.get("backdropURL"), "background") or "" for it in eligible])
+    for item in eligible:
+        a = build_asset(item, args.tv_specials, imdb=args.imdb, resolver=resolver)
         errs = validate_asset(a)
         if errs:
             for e in errs:
@@ -543,6 +693,10 @@ def main() -> int:
         "withLongDescription": sum(1 for a in assets if a.get("longDescriptions")),
         "skipped": dict(reasons),
         "invalid": dict(invalid),
+        "imagesUnresolved": resolver.unresolved,
+        "imageNotes": resolver.notes,
+        "imageHosts": dict(collections.Counter(
+            a["images"][0]["url"].split("/")[2] for a in assets)),
         "test": [a["content"]["playOptions"][0]["playId"] for a in test],
     }
     (out / "manifest.json").write_text(json.dumps(manifest, indent=1), encoding="utf-8")
@@ -552,6 +706,8 @@ def main() -> int:
     print(f"[roku-feed] skipped: {dict(reasons)}")
     if invalid:
         print(f"[roku-feed] invalid (dropped): {dict(invalid)}")
+    print(f"[roku-feed] images: hosts={manifest['imageHosts']} unresolved={resolver.unresolved} "
+          f"notes={resolver.notes}")
     print(f"[roku-feed] test feed: {manifest['test']}")
     return 0
 
