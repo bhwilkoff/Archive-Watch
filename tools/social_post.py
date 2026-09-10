@@ -398,10 +398,68 @@ def compose(spec: dict, platform: str) -> str:
 # before it can be posted. A rolling GitHub Release keeps it off git.
 # --------------------------------------------------------------------------
 
+# A GITHUB RELEASE ASSET CANNOT BE A META MEDIA URI, and this cost Instagram
+# and Threads every post from 2026-09-08 until it was found. Measured:
+#
+#   github.com/.../releases/download/social-cards/<f>.jpg
+#     302 -> release-assets.githubusercontent.com, SIGNED and expiring in ~1h
+#     content-type: application/octet-stream   (not image/jpeg)
+#     content-disposition: attachment
+#
+# Meta says exactly that back — "Only photo or video can be accepted as media
+# type" / "The media could not be fetched from this URI" — and the run stays
+# GREEN, because a partial success is a warning (Decision 107). So the
+# programme kept posting to Bluesky and Mastodon, which upload BYTES and never
+# touch this URL, while the two platforms that fetch by URL silently stopped.
+# docs/SOCIAL-SETUP.md prescribed the release URL, so the documented
+# configuration was the bug.
+#
+# archive.org serves image/jpeg on both hops with no expiry and no attachment
+# disposition (verified), and this project already uploads there with the same
+# IAS3 keys (Decision 023). The release stays as the fallback: it is fine for
+# the platforms that take bytes, and it is better than nothing when the keys
+# are absent — but it now SAYS what it costs instead of failing silently.
+
+def _ia_publish(card: Path, name: str, live: bool) -> str | None:
+    """Put the card on the archivewatch-covers item; return a fetchable URL."""
+    ak = os.environ.get("IAS3_ACCESS_KEY")
+    sk = os.environ.get("IAS3_SECRET_KEY")
+    if not (ak and sk):
+        return None
+    item = os.environ.get("SOCIAL_MEDIA_IA_ITEM", "archivewatch-covers")
+    url = f"https://archive.org/download/{item}/{name}"
+    if not live:
+        print(f"[media] would publish {card.name} -> {url}")
+        return url
+    req = urllib.request.Request(
+        f"https://s3.us.archive.org/{item}/{name}",
+        data=card.read_bytes(), method="PUT",
+        headers={"authorization": f"LOW {ak}:{sk}",
+                 "x-archive-auto-make-bucket": "1",
+                 "content-type": "image/jpeg" if card.suffix in (".jpg", ".jpeg")
+                                 else "video/mp4"})
+    try:
+        urllib.request.urlopen(req, timeout=180).read()
+    except Exception as e:                       # noqa: BLE001 — report, never raise
+        print(f"[media] archive.org upload failed: {str(e)[:160]}", file=sys.stderr)
+        return None
+    print(f"[media] published {url}")
+    return url
+
+
 def publish_media(card: Path, spec: dict, live: bool) -> str | None:
     base = os.environ.get("SOCIAL_MEDIA_BASE_URL")
     name = f"{spec['date']}-{spec['id'][:48]}-{card.stem}{card.suffix}"
     name = "".join(c if c.isalnum() or c in "-._" else "-" for c in name)
+
+    ia = _ia_publish(card, name, live)
+    if ia:
+        return ia
+    if base and "releases/download" in base:
+        print("[media] !! falling back to a GitHub Release asset, which Meta "
+              "CANNOT fetch (octet-stream, signed, expiring). Instagram and "
+              "Threads will refuse. Set IAS3_ACCESS_KEY/IAS3_SECRET_KEY.",
+              file=sys.stderr)
     if base:
         url = base.rstrip("/") + "/" + name
         if not live:

@@ -149,6 +149,10 @@ jobs:
           YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
           YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
           SOCIAL_MEDIA_BASE_URL: ${{ secrets.SOCIAL_MEDIA_BASE_URL }}
+          # Meta FETCHES media by URL and refuses a GitHub Release asset
+          # (octet-stream, signed, expiring). archive.org serves image/jpeg.
+          IAS3_ACCESS_KEY: ${{ secrets.IAS3_ACCESS_KEY }}
+          IAS3_SECRET_KEY: ${{ secrets.IAS3_SECRET_KEY }}
         run: |
           # A scheduled run is LIVE; a manual run is a dry run unless the box
           # is unticked. The default on the button is the safe one.
