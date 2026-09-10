@@ -171,6 +171,36 @@
    * unrelated to what the viewer is looking at.
    */
   let claimTimer = null;
+  /* §1.7 — BACK RETURNS TO THE PLACE, not the top of the page.
+   *
+   * Without this, coming back from a film focused the first non-chrome
+   * candidate, which on Home is the nav rail: browse deep into a shelf, open a
+   * title, press Back, and you were at scroll 0 with focus on "Home" — on a
+   * page with several hundred tiles. Roku fixed the same complaint (F8).
+   *
+   * The remembered key is the element's href where it has one, because that
+   * survives the view being re-rendered from scratch on every route change,
+   * which is what a hash router does. Text is the fallback for buttons. An
+   * index would not survive a shelf whose contents rotate per visit. */
+  const lastFocus = Object.create(null);
+
+  function routeKey() {
+    return (location.hash || '#/').split('?')[0];
+  }
+
+  function elKey(el) {
+    return el.getAttribute('href')
+        || el.tagName + ':' + (el.textContent || '').trim().slice(0, 40);
+  }
+
+  document.addEventListener('focusin', function (ev) {
+    const el = ev.target;
+    if (el && el !== document.body && typeof el.getAttribute === 'function'
+        && isReachable(el) && !isChrome(el)) {
+      lastFocus[routeKey()] = elKey(el);
+    }
+  }, true);
+
   function claimFocus() {
     clearTimeout(claimTimer);
     let tries = 0;
@@ -179,6 +209,11 @@
       if (active && active !== document.body && isReachable(active)) return;
       const pool = candidates();
       if (pool.length) {
+        const want = lastFocus[routeKey()];
+        if (want) {
+          const back = pool.find(function (el) { return elKey(el) === want; });
+          if (back) { focusEl(back); return; }
+        }
         focusEl(pool.find(function (el) { return !isChrome(el); }) || pool[0]);
         return;
       }

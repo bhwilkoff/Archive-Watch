@@ -21,7 +21,12 @@ class El {
     return { left: r.left, top: r.top, width: r.width, height: r.height,
              right: r.left + r.width, bottom: r.top + r.height };
   }
-  focus() { this.focusCount++; doc.activeElement = this; }
+  focus() {
+    this.focusCount++; doc.activeElement = this;
+    // tv.js records the last focused element per route from focusin;
+    // without dispatching it the shim cannot exercise Back at all.
+    focusinHandlers.forEach(h => h({ target: this }));
+  }
   scrollIntoView() {}
   getAttribute(k) { return this.attrs[k] ?? null; }
   hasAttribute(k) { return k in this.attrs; }
@@ -43,6 +48,8 @@ function matches(el, sel) {
 }
 
 const nodes = [];
+const focusinHandlers = [];
+const hashHandlers = [];
 const doc = {
   activeElement: null,
   hidden: false,
@@ -51,14 +58,17 @@ const doc = {
   body: { },
   querySelectorAll: (sel) => nodes.filter(n => matches(n, sel)),
   querySelector: (sel) => nodes.find(n => matches(n, sel)) || null,
-  addEventListener: () => {},
+  addEventListener: (type, fn) => { if (type === 'focusin') focusinHandlers.push(fn); },
   createElement: () => new El('div', {left:0,top:0,width:0,height:0}),
 };
 
 const handlers = [];
 global.document = doc;
 global.window = {
-  addEventListener: (type, fn) => { if (type === 'keydown') handlers.push(fn); },
+  addEventListener: (type, fn) => {
+    if (type === 'keydown') handlers.push(fn);
+    if (type === 'hashchange') hashHandlers.push(fn);
+  },
   close: () => {},
 };
 Object.defineProperty(global, 'navigator', { value: { userAgent: 'Mozilla/5.0 (SMART-TV; LINUX; Tizen 7.0) AppleWebKit' }, configurable: true });
@@ -72,7 +82,8 @@ global.URLSearchParams = URLSearchParams;
 
 // Build a realistic layout: a top nav, then two shelf rails of cards.
 function card(name, left, top) {
-  const e = new El('a', { left, top, width: 200, height: 340 }, { href: '#', name });
+  const e = new El('a', { left, top, width: 200, height: 340 },
+                 { href: '#/item/' + name, name });
   nodes.push(e); return e;
 }
 const nav = [];
@@ -254,6 +265,40 @@ check('Tizen back (10009) navigates', global._wentBack, true);
         /addEventListener\('focus'/.test(block) && /classList\.contains\('tv'\)/.test(block), true);
   check('...while a single-season series shows no chip row at all',
         /sel\.hidden = true;/.test(block), true);
+}
+
+/* BACK RETURNS TO THE PLACE. Measured on the live site before the fix: browse
+   into Home, open a title, press Back, and focus landed on "Home" in the nav
+   rail at scroll 0 — on a page carrying 391 focusable tiles. Roku had the same
+   complaint (F8).
+
+   The key is the href, because a hash router re-renders the whole view on every
+   route change, so an index or an object reference would not survive. Verified
+   separately in a real browser that Home's links ARE stable across a Back
+   (391/391 identical, same order): shelves randomise per page LOAD, not per
+   route change, which is what makes an href key work at all. */
+{
+  const goRoute = (h) => { global.location.hash = h; hashHandlers.forEach(fn => fn()); };
+
+  goRoute('#/home');
+  rowB[3].focus();                       // deep in the second shelf
+  check('we are where the viewer was', doc.activeElement?.attrs.name, 'B3');
+
+  goRoute('#/item/B3');                  // open the title
+  doc.activeElement = null;              // the view was re-rendered
+  goRoute('#/home');                     // press Back
+  check('Back restores the tile, not the top of the page',
+        doc.activeElement?.attrs.name, 'B3');
+
+  // A route never visited must NOT inherit somebody else's position.
+  // A route NEVER visited must not inherit somebody else's position. It has to
+  // be a genuinely novel one: '#/browse' failed here at first and the code was
+  // right — an earlier block in this file had already focused something while
+  // on it, so restoring B0 was the feature working, not a bug.
+  doc.activeElement = null;
+  goRoute('#/never-been-here');
+  check('a fresh route still claims its own first content',
+        doc.activeElement?.attrs.name, 'nav-Home');
 }
 
 console.log(`\n${pass} passed, ${fail} failed`);
