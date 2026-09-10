@@ -640,13 +640,16 @@ def validate_asset(a: dict) -> list:
 def paginate(assets: list, page_size: int, base_url: str, stamp: str = "") -> list:
     """Root feed + chained pages. Page 1 is feed.json; page N is feed-N.json.
 
-    `stamp` rides on every nextPageUrl as a query string: GitHub Pages sits
-    behind a CDN with a 600 s cache, and Roku's second validation run read
-    page 1 fresh (a new URL) and pages 2-5 from the cache — the OLD feed —
-    so the whole run re-reported the redirects that had just been fixed. A
-    per-build stamp makes every page a URL the CDN has never served."""
+    `stamp` is part of every continuation page's NAME: GitHub Pages sits
+    behind a CDN with a 600 s cache that IGNORES the query string (measured:
+    a random ?g= answered x-cache HIT), and Roku's fourth validation run read
+    page 1 fresh and pages 2-4 from the cache — the previous build, still
+    pointing covers at archive.org — so 4,082 assets re-failed a fix that
+    was live. The stamp is a hash of the page set, so an unchanged feed keeps
+    its names (and its cache) and a changed one gets names the CDN has never
+    served. The root stays feed.json — the URL Roku is registered with."""
     pages = []
-    q = f"?g={stamp}" if stamp else ""
+    q = f"-{stamp}" if stamp else ""
     n = max(1, (len(assets) + page_size - 1) // page_size)
     for p in range(n):
         chunk = assets[p * page_size:(p + 1) * page_size]
@@ -657,9 +660,37 @@ def paginate(assets: list, page_size: int, base_url: str, stamp: str = "") -> li
             "assets": chunk,
         }
         if p + 1 < n:
-            doc["nextPageUrl"] = f"{base_url}/feed-{p + 2}.json{q}"
-        pages.append(("feed.json" if p == 0 else f"feed-{p + 1}.json", doc))
+            doc["nextPageUrl"] = f"{base_url}/feed-{p + 2}{q}.json"
+        pages.append(("feed.json" if p == 0 else f"feed-{p + 1}{q}.json", doc))
     return pages
+
+
+def keep_live_chain(out: Path, base_url: str, new_names: set) -> int:
+    """Copy the currently-live continuation pages into `out` when their names
+    differ from this build's. Best effort: any failure keeps nothing."""
+    kept = 0
+    url = f"{base_url}/feed.json"
+    try:
+        for _ in range(20):
+            req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
+            with urllib.request.urlopen(req, timeout=30) as r:
+                body = r.read()
+            doc = json.loads(body.decode("utf-8"))
+            nxt = doc.get("nextPageUrl")
+            if not nxt:
+                break
+            name = nxt.rsplit("/", 1)[-1].split("?")[0]
+            if name in new_names or not re.fullmatch(r"feed-\d+(-[0-9a-f]+)?\.json", name):
+                break
+            req = urllib.request.Request(nxt, headers={"User-Agent": USER_AGENT})
+            with urllib.request.urlopen(req, timeout=60) as r:
+                page = r.read()
+            (out / name).write_bytes(page)
+            kept += 1
+            url = nxt
+    except Exception:  # noqa: BLE001
+        pass
+    return kept
 
 
 # --------------------------------------------------------------------------
@@ -740,13 +771,20 @@ def main() -> int:
 
     out = Path(args.out) / FEED_DIR
     out.mkdir(parents=True, exist_ok=True)
-    stamp = dt.datetime.now(dt.timezone.utc).strftime("%Y%m%d%H%M%S")
+    stamp = hashlib.sha1(json.dumps(assets, sort_keys=True, ensure_ascii=False)
+                         .encode("utf-8")).hexdigest()[:10]
     pages = paginate(assets, args.page_size, args.base_url, stamp)
     total_bytes = 0
     for name, doc in pages:
         data = json.dumps(doc, ensure_ascii=False, separators=(",", ":"))
         (out / name).write_text(data, encoding="utf-8")
         total_bytes += len(data.encode("utf-8"))
+
+    # The root feed.json the CDN is still serving may be the PREVIOUS build's
+    # for up to ten minutes, naming continuation pages this artifact would
+    # otherwise no longer carry. Keep that chain alive alongside the new one,
+    # so a Roku ingestion that lands in the window never hits a 404 mid-feed.
+    kept = keep_live_chain(out, args.base_url, {n for n, _ in pages}) if not args.no_network else 0
 
     # One asset per Roku type, as the implementation guide asks for a test
     # feed with a single entry per content type. Popular first, so the test
@@ -767,6 +805,7 @@ def main() -> int:
         "assets": len(assets),
         "byType": dict(by_type),
         "pages": [n for n, _ in pages],
+        "previousChainKept": kept,
         "bytes": total_bytes,
         "withImdb": sum(1 for a in assets if a.get("externalIds")),
         "withBackground": sum(1 for a in assets if len(a["images"]) > 1),
