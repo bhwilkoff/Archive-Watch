@@ -972,7 +972,15 @@
         // floor returns an empty fragment -- appending that is a no-op, so the
         // callers' `host.append(shelfSection(...))` needs no change.
         rows = rows.filter(r => !Watched.hides(r) && !Categories.hides(r));
-        if (rows.length < 4) return document.createDocumentFragment();
+        // A TV needs a FULL ROW. On a 1080p panel a rail of four tiles reads as
+        // a shelf that failed to load rather than a short one — Roku raised its
+        // floor to 7 for exactly this complaint (F2). On a phone four tiles is
+        // a perfectly good shelf and more than fills the width, so the floor is
+        // read from the context instead of one number being wrong somewhere:
+        // tv.js stamps `tv` on <html>, checked live because the TV layer boots
+        // after this script is parsed.
+        const floor = document.documentElement.classList.contains('tv') ? 7 : 4;
+        if (rows.length < floor) return document.createDocumentFragment();
         const sec = document.createElement('section');
         sec.className = 'shelf';
         const h = document.createElement('h2');
