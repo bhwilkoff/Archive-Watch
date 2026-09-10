@@ -3124,8 +3124,19 @@
 // Empty means the counter is not deployed, and then nothing is sent at all.
 const AW_BEACON_ORIGIN = "https://archivewatch-pulse.benwilkoff.workers.dev";
 const AW_BEACON = AW_BEACON_ORIGIN ? `${AW_BEACON_ORIGIN}/beacon` : "";
+/* THE PACKAGED APPS MUST NEVER BEACON. privacy.html says, in these words,
+   "The apps collect nothing at all. The website keeps one aggregate counter" —
+   so the counter is a property of the WEBSITE, and the same watch.js shipped
+   inside the Tizen .wgt (and the webOS .ipk) would otherwise quietly make that
+   sentence false. It is not enough that CORS rejects the response: a simple
+   POST is still SENT, and the row is still written.
+   Guarded on the protocol, the same way service-worker registration is — a
+   packaged app runs from file://, the website does not. */
+function awOnWebsite() {
+  return /^https?:$/.test(location.protocol);
+}
 function awCount(p) {
-  if (!AW_BEACON) return;
+  if (!AW_BEACON || !awOnWebsite()) return;
   try {
     fetch(`${AW_BEACON}?p=${encodeURIComponent(p)}`,
           { method: "POST", mode: "cors", keepalive: true, cache: "no-store" })

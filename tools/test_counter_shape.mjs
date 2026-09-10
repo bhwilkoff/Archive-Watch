@@ -55,5 +55,30 @@ check("...exactly once, not on every hashchange",
 check("...and hashchange still records the route",
       /hashchange".*awCount\(awRoute\(\)\)/s.test(beacon), true);
 
+/* THE PACKAGED APPS MUST NOT BEACON. privacy.html: "The apps collect nothing
+   at all. The website keeps one aggregate counter." The Tizen .wgt and webOS
+   .ipk ship this same watch.js, so without a guard the promise is false — and
+   CORS is not the guard, because a simple POST is sent even when the response
+   is blocked. */
+{
+  const beaconSrc = watch.slice(watch.indexOf("function awOnWebsite"),
+                                watch.indexOf("addEventListener(\"hashchange\""));
+  check("the beacon is gated on running as a website",
+        /\/\^https\?:\$\/\.test\(location\.protocol\)/.test(beaconSrc), true);
+  check("...and awCount refuses when it is not",
+        /if \(!AW_BEACON \|\| !awOnWebsite\(\)\) return;/.test(beaconSrc), true);
+
+  // The staged package is the thing that actually ships — assert the guard is
+  // in the copy that goes INTO the .wgt, not only in the source tree.
+  const staged = "tv/tizen/app/watch.js";
+  if (fs.existsSync(staged)) {
+    const pkg = fs.readFileSync(staged, "utf8");
+    check("...and the guard is present in the STAGED Tizen package",
+          /!awOnWebsite\(\)/.test(pkg), true);
+  } else {
+    console.log("  --   tizen not staged, skipping the packaged-copy check");
+  }
+}
+
 console.log(`\n${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);
