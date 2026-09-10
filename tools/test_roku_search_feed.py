@@ -75,6 +75,16 @@ def main() -> int:
            F.eligibility(item(year=1977, rightsStatus="creative_commons", contentType="feature-film"), ids, "guaranteed")),
           (None, "rights:safe_cc"))
     check("pre-1930 is IN guaranteed", F.eligibility(item(), ids, "guaranteed"), None)
+    # The catalog year came from a wrong match; the archive id says 2022.
+    check("a 'pre-1930' item whose id carries 2022 is out (The Tinder Swindler as 'The Swindler' 1919)",
+          F.eligibility(item(archiveID="the.-tinder.-swindler.-2022.720p", year=1919), {"the.-tinder.-swindler.-2022.720p"}, "guaranteed"),
+          "year_contradicted_by_id")
+    check("a 'pre-1930' item whose releaseDate is 1941 is out (Kipps)",
+          F.eligibility(item(releaseDate="1941-01-01", year=1921), ids, "guaranteed"), "year_contradicted_by_id")
+    check("control: an id year BEFORE 1930 does not contradict ('TheGeneral720p1926' is fine)",
+          F.year_contradicted({"archiveID": "TheGeneral720p1926", "year": 1926}), False)
+    check("control: a 4-digit run inside a longer number is not a year ('720p1926' vs '19260')",
+          F.id_year("film-19260-restored"), None)
     check("no poster -> out, counted", F.eligibility(item(hasRealArtwork=False), ids, "catalog"), "no_poster")
     check("control: a TMDb poster passes the professional-art gate",
           F.eligibility(item(artworkSource="tmdb"), ids, "strict", "professional"), None)
