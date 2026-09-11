@@ -19,6 +19,34 @@ final class CatalogDB {
 
     enum Sort { case popular, rating, alphabetical, newest, oldest }
 
+    /// `browseSQL`'s ORDER BY, in Swift, for result sets that are already in
+    /// memory — the person / keyword / studio routes are single capped fetches
+    /// (Decision 046) and cannot be re-queried with a different order.
+    ///
+    /// It lives HERE, next to the SQL it mirrors, because the alternative is a
+    /// copy per platform drifting away from the query. The subtle row is the
+    /// year-less one: SQLite orders NULL FIRST on ASC, which is why `.oldest`
+    /// carries an explicit `year IS NULL` term above, and why both cases below
+    /// sort a year-less title LAST rather than letting `nil` win a comparison.
+    static func ordered(_ list: [Catalog.Item], by sort: Sort) -> [Catalog.Item] {
+        switch sort {
+        case .popular:
+            return list                     // already in the query's own order
+        case .alphabetical:
+            return list.sorted {
+                $0.title.localizedCaseInsensitiveCompare($1.title) == .orderedAscending
+            }
+        case .newest:
+            return list.sorted { ($0.year ?? Int.min) > ($1.year ?? Int.min) }
+        case .oldest:
+            return list.sorted { ($0.year ?? Int.max) < ($1.year ?? Int.max) }
+        case .rating:
+            return list.sorted {
+                ($0.imdbRating ?? -1, $0.imdbVotes ?? 0) > ($1.imdbRating ?? -1, $1.imdbVotes ?? 0)
+            }
+        }
+    }
+
     /// Opens the DB read-only. Returns nil if the file is missing/corrupt.
     init?(path: String) {
         var h: OpaquePointer?

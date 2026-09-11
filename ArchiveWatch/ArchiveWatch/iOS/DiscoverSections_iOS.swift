@@ -27,6 +27,11 @@ struct FilteredGridView: View {
     @State private var items: [Catalog.Item] = []
     @State private var total = 0
     @State private var page = 0
+    // A genre tile lands here, and until 2026-09-11 this screen had no way to
+    // order what it showed — reported from the iPad: "would be nice to have
+    // sort features like by year browsing through film noir". Browse itself
+    // has had the control all along; the grid a CATEGORY opens never did.
+    @State private var sort: CatalogDB.Sort = .popular
     private let pageSize = 60
     private let cols = [GridItem(.adaptive(minimum: 110), spacing: 14)]
 
@@ -48,7 +53,22 @@ struct FilteredGridView: View {
                     Text("\(total) titles").font(.footnote).foregroundStyle(.secondary)
                 }
             }
+            ToolbarItem(placement: .topBarTrailing) {
+                Menu {
+                    Picker("Sort", selection: $sort) {
+                        Text("Popular").tag(CatalogDB.Sort.popular)
+                        Text("Top Rated").tag(CatalogDB.Sort.rating)
+                        Text("A–Z").tag(CatalogDB.Sort.alphabetical)
+                        Text("Newest").tag(CatalogDB.Sort.newest)
+                        Text("Oldest").tag(CatalogDB.Sort.oldest)
+                    }
+                } label: {
+                    Label("Sort", systemImage: sort == .popular
+                          ? "arrow.up.arrow.down" : "arrow.up.arrow.down.circle.fill")
+                }
+            }
         }
+        .onChange(of: sort) { reload() }
         .overlay {
             if items.isEmpty {
                 ContentUnavailableView("Nothing here yet", systemImage: "film",
@@ -93,8 +113,26 @@ struct FilteredGridView: View {
     }
     private func fetch(offset: Int) -> [Catalog.Item] {
         store.browse(contentType: route.contentType, decade: route.decade,
-                     genre: route.genre, year: route.year, limit: pageSize, offset: offset)
+                     genre: route.genre, year: route.year, sort: sort,
+                     limit: pageSize, offset: offset)
     }
+
+    /// Re-run the current filter under a newly chosen order.
+    ///
+    /// The person / keyword / studio routes are single capped fetches
+    /// (Decision 046), so they are re-ordered in memory rather than re-queried
+    /// — the whole result set is already here. Sorting them locally is what
+    /// keeps the control from being DEAD on those three routes, which is worse
+    /// than not offering it at all.
+    private func reload() {
+        page = 0
+        if route.person != nil || route.keyword != nil || route.studio != nil {
+            items = CatalogDB.ordered(items, by: sort)
+        } else {
+            items = fetch(offset: 0)
+        }
+    }
+
     private func loadMore() {
         // person / keyword / studio browse are single capped fetches (Decision 046).
         guard route.person == nil, route.keyword == nil, route.studio == nil else { return }

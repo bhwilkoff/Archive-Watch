@@ -21,20 +21,42 @@ struct FilteredGridView: View {
     let route: BrowseFilterRoute
     @Environment(AppStore.self) private var store
     @State private var items: [Catalog.Item] = []
+    // The grid a category tile opens had no ordering of its own — it was
+    // pinned to `.popular`. Reported on the iPad and fixed on every platform
+    // at once (2026-09-11); Browse has offered the control for months.
+    @State private var sort: CatalogDB.Sort = .popular
 
     var body: some View {
         GridView(title: route.title, items: items)
-            .task(id: store.dbVersion) {
-                if let keyword = route.keyword {        // Decision 046
-                    items = store.db?.byKeyword(keyword) ?? []
-                } else if let studio = route.studio {   // Decision 046
-                    items = store.db?.byStudio(studio) ?? []
-                } else {
-                    items = store.browse(contentType: route.contentType, decade: route.decade,
-                                         genre: route.genre, year: route.year,
-                                         sort: .popular, limit: 300, offset: 0)
+            .toolbar {
+                ToolbarItem {
+                    Picker("Sort", selection: $sort) {
+                        Text("Popular").tag(CatalogDB.Sort.popular)
+                        Text("Top Rated").tag(CatalogDB.Sort.rating)
+                        Text("A–Z").tag(CatalogDB.Sort.alphabetical)
+                        Text("Newest").tag(CatalogDB.Sort.newest)
+                        Text("Oldest").tag(CatalogDB.Sort.oldest)
+                    }
+                    .pickerStyle(.menu)
                 }
             }
+            .task(id: store.dbVersion) { load() }
+            .onChange(of: sort) { load() }
+    }
+
+    /// Capped routes (Decision 046) hold their whole result set already, so they
+    /// are re-ordered in memory through the SAME helper the paged route hands to
+    /// SQL — never a second copy of the ordering rules.
+    private func load() {
+        if let keyword = route.keyword {            // Decision 046
+            items = CatalogDB.ordered(store.db?.byKeyword(keyword) ?? [], by: sort)
+        } else if let studio = route.studio {       // Decision 046
+            items = CatalogDB.ordered(store.db?.byStudio(studio) ?? [], by: sort)
+        } else {
+            items = store.browse(contentType: route.contentType, decade: route.decade,
+                                 genre: route.genre, year: route.year,
+                                 sort: sort, limit: 300, offset: 0)
+        }
     }
 }
 
