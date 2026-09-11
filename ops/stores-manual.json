@@ -20,7 +20,7 @@
    "state": "LIVE",
    "version": "1.0.51",
    "since": "2026-09-10",
-   "note": "Channel 881015, live in the Channel Store 2026-09-10. No developer API — check the Dashboard. Search feed: archivewatch.org/roku-search/ (Decision 113).",
+   "note": "Channel 881015, live in the Channel Store 2026-09-10. No developer API — check the Dashboard. Search feed REGISTERED 2026-09-10 (Decision 113): 3,164 pre-1930 films, beta app 881088 / code TLGNCCT, awaiting Roku's first ingestion then owner device test then Submit for review.",
    "url": "https://channelstore.roku.com/details/12a571a872732e40fe8d1d6c59f3849f:5ec8f46dcec2324229c8d096ea23c089/archive-watch",
    "api": null
   },

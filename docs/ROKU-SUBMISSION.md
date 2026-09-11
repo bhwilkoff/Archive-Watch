@@ -277,12 +277,32 @@ gate or a resolver, each measured rather than read off the spec page:
 gitignored like the channel poster): `search_provider_logo_143x113.png` and
 `search_teaser_logo_165x60.png`, both with rounded corners as required.
 
-**The Roku side, in order** (Implementing Roku Search): Search feed
-validator → New search feed (channel, feed URL, two logos, email) → the
-auto-created "Archive Watch SearchBeta" app (must be kept in sync with the
-production package — resubmit the beta with each store release) → search on
-the device → add one deep-link parameter per media type (e.g.
-`TheGeneral720p1926` / movie) → Submit for Review. Feed updates are NOT
-picked up automatically: **resubmit the feed in the dashboard** after a
-catalog change worth propagating (max 20 submissions a week; up to 24 h to
-propagate).
+**SUBMITTED 2026-09-10.** The feed is registered against channel 881015 and
+Roku created the beta feed and the Search beta app:
+
+| | |
+|---|---|
+| Search beta app ID | **881088** |
+| Access code | **TLGNCCT** (install on a Roku to test) |
+| Expires | 2027-01-09 |
+| Deep-link parameter | `movie` / `TheGeneral720p1926` — verified present in the live feed |
+
+**Validating and REGISTERING are different screens, and only one of them
+ships anything.** The Search feed validator (`/apps/search/validator`) is a
+lint tool: it will happily report "FEED VALIDATED" forever while the feed is
+registered nowhere. Registration is Search feeds → New search feed
+(`/apps/search/overview`), and a half-filled form there is discarded the
+moment you navigate away — which is exactly what happened on the first
+attempt, and why the owner found nothing built. Check
+`/apps/search/overview`: if it still shows the empty state with only a "New
+search feed" button, nothing has been submitted.
+
+**What remains, in order** (Implementing Roku Search): Roku ingests the beta
+feed (the report reads 0% until the first ingestion) → install the Search
+beta app from access code **TLGNCCT** on a Roku → search for a film and
+confirm the deep link opens it → **Submit for review** (greyed out until the
+beta feed validates). Keep the beta app's package in sync with the store
+package on every channel release, or deep-link certification fails. Feed
+updates are NOT picked up automatically: **resubmit the feed in the
+dashboard** after a catalog change worth propagating (max 20 submissions a
+week; up to 24 h to propagate).
