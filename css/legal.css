@@ -94,3 +94,30 @@
 }
 
 .legal-footer a { color: var(--color-link); text-decoration: none; }
+
+/* Numbered fact tables (the vetting page). The count leads because the whole
+   point of that page is that the claim is checkable — the number is the
+   argument, so it gets the tabular figures and the accent. */
+.legal-main .facts {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0 1.75rem;
+}
+.legal-main .facts td {
+  padding: 0.6rem 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+  vertical-align: baseline;
+  line-height: 1.45;
+}
+.legal-main .facts td.n {
+  width: 6.5rem;
+  text-align: right;
+  padding-right: 1rem;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  color: var(--color-primary, #FF5C35);
+}
+@media (max-width: 30rem) {
+  .legal-main .facts td.n { width: 4.75rem; padding-right: 0.6rem; }
+}

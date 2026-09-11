@@ -83,6 +83,16 @@ jobs:
           mkdir _site
           rsync -a --exclude='.git' --exclude='_site' --exclude='catalog.json' --exclude='catalog.json.gz' ./ _site/
 
+      - name: Build the vetting page (/vetting/)
+        run: |
+          # The public account of what is hidden and why, with counts computed
+          # from the SAME catalog.json the apps ship. Hand-typed numbers rot,
+          # and a stale number presented as current is worse than none
+          # (Decision 108) — so this is generated every deploy, into the
+          # artifact, never committed.
+          python3 tools/build_vetting_page.py --out _site
+          test -s _site/vetting/index.html
+
       - name: Build share pages (/item/<id>, /series/<slug>)
         run: |
           # Every share URL the apps, the QR cards and the social programme

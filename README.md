@@ -147,6 +147,11 @@ Apple frameworks, and a television is a Cast receiver rather than a sender.
   Android, BrightScript on Roku, plain HTML and JavaScript on the web. No
   third-party frameworks, no analytics, no build steps the platform does not
   require.
+- **The vetting is published, with numbers.** What is hidden and why — modern
+  copyright, live advertising, wrong matches, trailers, files that do not
+  decode — is at [archivewatch.org/vetting](https://archivewatch.org/vetting/),
+  computed from the same catalog the apps ship, and it names the known gaps as
+  well as the checks.
 - **The reasoning is written down.** `DECISIONS.md` records why each choice was
   made and what the next person would get wrong without knowing it; each
   platform has a binding design document in `docs/`; the ten engineering
