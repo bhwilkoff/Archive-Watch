@@ -205,6 +205,12 @@ struct PlayerView: UIViewControllerRepresentable {
             let (asset, loader) = ResilientStreamLoader.makeAsset(for: url)
             context.coordinator.loader = loader   // retain (delegate is held weakly)
             pItem = AVPlayerItem(asset: asset)
+            // A mid-film failure here used to END THE FILM. Recovery was armed
+            // on `fallbackVideoURL`, which only the captioned shapes set, so on
+            // the path most films actually take the first `.failed` went
+            // straight to "the copy may have been removed" and latched.
+            context.coordinator.fallbackVideoURL = url
+            context.coordinator.loaderIsPrimary = true
         } else {
             return vc
         }
@@ -300,6 +306,10 @@ struct PlayerView: UIViewControllerRepresentable {
         // HLS-subtitle → resilient-MP4 fallback (non-faststart MP4s fail to start
         // as a single HLS segment; the loader handles moov-at-EOF via byte ranges).
         var fallbackVideoURL: URL?
+        /// The playing asset IS the resilient loader — so a rebuild re-pins a
+        /// storage node rather than trading captions away, and the start-hang
+        /// timer below does not apply (a slow first moov read is not a fault).
+        var loaderIsPrimary = false
         var fallbackMetadata: [AVMetadataItem] = []
         // AirPlay (backlog A0). A custom-scheme resource-loader asset CANNOT be
         // routed to an AirPlay receiver: the delegate that serves `aw-stream://`
@@ -434,17 +444,25 @@ struct PlayerView: UIViewControllerRepresentable {
                 statusObs = playerItem.observe(\.status, options: [.new]) { [weak self] item, _ in
                     MainActor.assumeIsolated { if item.status == .failed { self?.scheduleRecovery() } }
                 }
-                let work = DispatchWorkItem { [weak self] in
-                    if self?.player?.currentItem?.status != .readyToPlay { self?.recoverThroughLoader() }
-                }
-                fallbackWork = work
-                DispatchQueue.main.asyncAfter(deadline: .now() + 15, execute: work)
-                // Part (c): also fall back when the native-HLS path merely STUTTERS
-                // mid-stream (not just on a hard load failure) — the resilient loader
-                // is only used once we've dropped CC, so a persistent stall is a
-                // strict win. Gated against transient blips inside the monitor.
-                captionStall.attach(player: player, item: playerItem) { [weak self] in
-                    self?.recoverThroughLoader()
+                // Only for an asset that is NOT already the resilient loader.
+                // Rebuilding a loader item at 15s would restart a legitimately
+                // slow moov read — on the very connections this exists to
+                // survive — and five of those end in a false "unavailable".
+                if !loaderIsPrimary {
+                    let work = DispatchWorkItem { [weak self] in
+                        if self?.player?.currentItem?.status != .readyToPlay {
+                            self?.recoverThroughLoader()
+                        }
+                    }
+                    fallbackWork = work
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 15, execute: work)
+                    // Part (c): also fall back when the native-HLS path merely STUTTERS
+                    // mid-stream (not just on a hard load failure) — the resilient loader
+                    // is only used once we've dropped CC, so a persistent stall is a
+                    // strict win. Gated against transient blips inside the monitor.
+                    captionStall.attach(player: player, item: playerItem) { [weak self] in
+                        self?.recoverThroughLoader()
+                    }
                 }
             }
 
@@ -574,10 +592,19 @@ struct PlayerView: UIViewControllerRepresentable {
             didReportUnplayable = true
             loadWatchdog?.cancel(); loadWatchdog = nil
             player?.pause()
-            // Say what is true — the source is gone or unreachable — rather than
-            // implying the viewer did something wrong.
-            onUnplayable?("This title couldn't be played. The copy on archive.org "
-                          + "may have been removed or is temporarily unavailable.")
+            // Say what is true — and a film that PLAYED for minutes and then
+            // stopped is a lost connection, not a missing copy. The viewer who
+            // reported this (2026-09-11) was told the copy "may have been
+            // removed" about a film they had been watching, which sends them
+            // looking for another title instead of pressing play again.
+            // Progress is persisted every 5s (see addPeriodicTimeObserver), so
+            // the offer to resume is a promise this code can keep.
+            let played = player?.currentTime().seconds ?? 0
+            onUnplayable?(played > 5
+                ? "Playback stopped — the connection to archive.org was lost. "
+                  + "Your place is saved; try playing again in a moment."
+                : "This title couldn't be played. The copy on archive.org "
+                  + "may have been removed or is temporarily unavailable.")
             if let detail { print("[AWPLAY] unplayable \(archiveID): \(detail)") }
         }
 

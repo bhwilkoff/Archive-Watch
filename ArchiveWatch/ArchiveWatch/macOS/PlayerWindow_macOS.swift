@@ -148,6 +148,10 @@ private struct PlayerSurface: View {
     @State private var captionStall = CaptionStallMonitor()
     /// The Decision-067 plain-URL branch was taken (no loader on the item).
     @State private var usedDirectURL = false
+    /// The playing asset IS the resilient loader. It still needs the failure
+    /// observer — a rebuild re-pins a storage node — but not the caption-stall
+    /// monitor, which exists to trade captions away for resilience we have.
+    @State private var loaderIsPrimary = false
     @State private var captionedLoader: CaptionedHLSLoader?   // Part (a): Config C HLS
     @State private var localSubsLoader: LocalSubtitleHLSLoader?  // on-device subtitles
     @State private var statusObs: NSKeyValueObservation?
@@ -254,6 +258,7 @@ private struct PlayerSurface: View {
             let (asset, l) = ResilientStreamLoader.makeAsset(for: url)
             loader = l
             playerItem = AVPlayerItem(asset: asset)
+            loaderIsPrimary = true
         } else {
             return
         }
@@ -292,11 +297,19 @@ private struct PlayerSurface: View {
         // reset froze it forever (F-8: reproduced twice on macOS 27 within the
         // first minute — 38s and 55s — while the scout streamed the same file
         // happily on its own loader).
-        if (subtitleHLS != nil || usedDirectURL), videoURL != nil {
+        // The plain resilient-loader path was NOT in this condition, and
+        // `reportUnplayable` below refuses to speak until recovery is spent —
+        // so on the path most films take, a mid-film failure armed nothing,
+        // recoveryAttempts stayed 0, and the window span forever saying
+        // nothing at all. Every shape gets the failure observer; only the
+        // shapes that can trade captions away get the stall monitor.
+        if (subtitleHLS != nil || usedDirectURL || loaderIsPrimary), videoURL != nil {
             statusObs = playerItem.observe(\.status, options: [.new]) { item, _ in
                 MainActor.assumeIsolated { if item.status == .failed { fallbackToResilientMP4() } }
             }
-            captionStall.attach(player: p, item: playerItem) { fallbackToResilientMP4() }
+            if !loaderIsPrimary {
+                captionStall.attach(player: p, item: playerItem) { fallbackToResilientMP4() }
+            }
         }
         // EVERY item is watched for "this will never play", not just captioned
         // ones — the same gap iOS had. An archive.org item removed since the last
@@ -437,7 +450,11 @@ private struct PlayerSurface: View {
         guard loadError == nil else { return }
         loadWatchdog?.cancel(); loadWatchdog = nil
         player?.pause()
-        loadError = "The copy on archive.org may have been removed or is temporarily unavailable."
+        // A film that PLAYED and then stopped lost its connection; it is not a
+        // missing copy, and saying so sends the viewer looking for another film.
+        loadError = (player?.currentTime().seconds ?? 0) > 5
+            ? "Playback stopped — the connection to archive.org was lost. Your place is saved; try playing again in a moment."
+            : "The copy on archive.org may have been removed or is temporarily unavailable."
     }
 
     /// Rebuild through the resilient loader and STAY ARMED to do it again.
