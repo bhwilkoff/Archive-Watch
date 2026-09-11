@@ -78,6 +78,22 @@
     "reposts": 0,
     "replies": 0
    }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mv4trevwf52d",
+   "platform": "bluesky",
+   "id": "BaseballBugs_201708",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-09-10T00:55:53.051375+00:00",
+   "sampled": "2026-09-11T00:54:28.890363+00:00",
+   "metrics": {
+    "likes": 1,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
   }
  ]
 }
