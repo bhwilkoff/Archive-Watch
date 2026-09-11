@@ -105,6 +105,11 @@ final class CatalogDB {
     }
 
     /// Run a query whose first column is an item_json blob → [Catalog.Item].
+    /// True once a read on THIS handle came back corrupt. Per-instance rather
+    /// than global: each opened file answers for itself, and it keeps the flag
+    /// off shared mutable state.
+    private var sawCorruption = false
+
     private func items(_ sql: String, _ binds: [String] = []) -> [Catalog.Item] {
         var stmt: OpaquePointer?
         guard sqlite3_prepare_v2(handle, sql, -1, &stmt, nil) == SQLITE_OK else { return [] }
@@ -113,13 +118,53 @@ final class CatalogDB {
             sqlite3_bind_text(stmt, Int32(i + 1), b, -1, SQLITE_TRANSIENT)
         }
         var out: [Catalog.Item] = []
-        while sqlite3_step(stmt) == SQLITE_ROW {
-            if let c = sqlite3_column_text(stmt, 0),
-               let it = decode(String(cString: c)) {
-                out.append(it)
+        // The step result is CHECKED, not just compared against SQLITE_ROW.
+        //
+        // `while sqlite3_step(...) == SQLITE_ROW` treats every non-row answer
+        // as "end of results", so a torn database file ended the loop and
+        // returned [] — silently empty shelves, indistinguishable from a
+        // filter that matched nothing. `sqlite3_open` reads pages near the
+        // START of the file and `init?` confirms the schema with one `meta`
+        // lookup, so a download torn further in opens cleanly and only fails
+        // HERE, on the first real query.
+        //
+        // Android hit this first and its `queryRaw` recovers by discarding the
+        // download and its ETag. This is that fix, arriving on Apple after a
+        // tvOS crash report showed `sqlite3_step` under `CatalogDB.browse`
+        // from `HomeView.rebuild()` on an Apple TV 4K (2nd generation).
+        while true {
+            let rc = sqlite3_step(stmt)
+            if rc == SQLITE_ROW {
+                if let c = sqlite3_column_text(stmt, 0),
+                   let it = decode(String(cString: c)) {
+                    out.append(it)
+                }
+                continue
             }
+            if rc != SQLITE_DONE { noteBadRead(rc) }
+            break
         }
         return out
+    }
+
+    /// A read that ended in something other than DONE or ROW.
+    ///
+    /// Only the codes that mean THE FILE IS BAD trigger a discard. A BUSY or
+    /// LOCKED read is transient and must not throw away a good catalog —
+    /// deleting ~27,000 titles because one query was interrupted would be a
+    /// far worse bug than the one being fixed.
+    private func noteBadRead(_ rc: Int32) {
+        let fatal = [SQLITE_CORRUPT, SQLITE_NOTADB, SQLITE_IOERR, SQLITE_CANTOPEN]
+        guard fatal.contains(rc) else {
+            print("[CatalogDB] read ended rc=\(rc) (transient; catalog kept)")
+            return
+        }
+        guard !sawCorruption else { return }   // report once, not once per query
+        sawCorruption = true
+        print("[CatalogDB] CORRUPT catalog (rc=\(rc)) — discarding the cached copy")
+        // The service is an actor; hop rather than block the read that is
+        // already failing.
+        Task { await CatalogRefreshService.shared.discardCachedDatabase(reason: "sqlite rc=\(rc)") }
     }
 
     private func scalarRows(_ sql: String, _ binds: [String] = []) -> [(String, Int)] {

@@ -58,6 +58,32 @@ actor CatalogRefreshService {
         return cachesDirectory.appendingPathComponent("catalog-\(stamp).sqlite")
     }
 
+    /// Throw away a cached catalog the reader could not get through, so the
+    /// next launch re-downloads instead of reopening the same broken file.
+    ///
+    /// `sqlite3_open` reads pages near the START of the file, and `init?`
+    /// confirms the schema with one `meta` lookup — so a download torn further
+    /// in OPENS CLEANLY and only fails on a real query. Without this, a bad
+    /// copy is permanent: every launch reopens it, every launch fails the same
+    /// way, and deleting the app does not help if the refetch tears too.
+    ///
+    /// Android learned this first (`queryRaw` recovers by discarding the
+    /// download and its ETag); the Apple side never got the same treatment,
+    /// and a tvOS crash report shows `sqlite3_step` faulting under
+    /// `CatalogDB.browse` from `HomeView.rebuild()` on an Apple TV 4K (2nd
+    /// generation) — a crash while Home draws its first shelves, which from
+    /// the sofa is an app that blinks and does not open.
+    ///
+    /// The ETag MUST go with the file. Keeping it means the next request is
+    /// answered 304 Not Modified and we keep the corruption forever.
+    func discardCachedDatabase(reason: String) {
+        let path = cachedDatabasePath()
+        UserDefaults.standard.removeObject(forKey: Self.dbETagKey)
+        UserDefaults.standard.removeObject(forKey: Self.dbFilenameKey)
+        if let path { try? FileManager.default.removeItem(atPath: path) }
+        print("[AppStore] discarded cached catalog (\(reason)) — next launch refetches")
+    }
+
     /// Path to the already-downloaded DB, if present.
     func cachedDatabasePath() -> String? {
         if let name = UserDefaults.standard.string(forKey: Self.dbFilenameKey) {
