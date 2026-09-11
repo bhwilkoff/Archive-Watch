@@ -123,12 +123,55 @@ Scope it as research, not a fix.
 unavailable; wonders if it is geographic. **Owner: "I'm on it"**, and asked
 them to try the web build to isolate geo-blocking.
 
-Two candidate causes and they are distinguishable. archive.org serves some
-items under geographic restriction, which would be a rights-metadata condition our
-pipeline can detect and label. Or it is an ordinary mid-stream failure that
-the resilient loader surfaced as "unavailable", which would be a playback bug
-affecting everyone and merely noticed abroad. Await their answer before
-building anything.
+They answered: **a phone, and it plays for about five minutes and then
+stops.** That detail settles it, and it is not geography.
+
+**What was ruled out, by measurement.** The item is not access-restricted. The
+file is the full 129.7 minutes, not truncated. It is faststart, so the index is
+not at the far end. It needs only **2.25 Mbps**, and this connection pulled
+**114 Mbps** from its node. Nothing about the media or the network explains a
+five-minute ceiling.
+
+**What does.** archive.org has exactly ONE copy of this film — a 2.19 GB
+original with no derivative at all. And on iOS and macOS, a film with no
+published subtitle track plays on the **plain archive.org URL**, deliberately:
+
+    } else if let url = videoURL,
+              SystemCaptions.prefersDirectPlayback(hasPublishedSubtitles: false) {
+        pItem = AVPlayerItem(url: url)          // no resilient loader
+        context.coordinator.fallbackVideoURL = url
+
+That is a bare `AVPlayerItem` with none of Decisions 021 / 031 / 034 — no node
+pinning, no byte-exact resume across a connection reset, no failover. It was
+traded away so the system could offer generated captions on a film that carries
+none. **Roughly 84% of the catalog has no subtitle track**, so this is the
+normal path on a phone, not an edge case.
+
+tvOS already refused this exact trade. Decision 096 declined the system-captions
+pivot in part because "the plain path re-imports the Decision-021 disease the
+owner personally watched — idle resets flushing the buffer, mid-film player
+rebuilds." That reasoning was applied to tvOS and **never carried to iOS or
+macOS**, which still run it.
+
+**And the promised safety net does not cover this failure.** The comment beside
+that branch says `fallbackVideoURL` "keeps the loader one stall away", and it
+does — but only for a STALL. The swap to the resilient loader is armed by
+`CaptionStallMonitor`, a stutter detector. A hard connection death sets the
+item's status to `.failed`, and that path reads:
+
+    case .failed:
+        guard self.fallbackVideoURL == nil || self.didFallback else { return }
+        self.reportUnplayable(it.error?.localizedDescription)
+
+With a fallback pending it returns early — without reporting AND without
+swapping. Nothing else in that path calls the swap. So an ordinary archive.org
+reset, which is the single most common event this app was built to survive,
+ends the film on the one path that cannot survive it.
+
+**The fix has two parts**, and the second is the one that makes the first safe:
+carry Decision 096's reasoning to iOS and macOS, and make a hard `.failed`
+trigger the fallback swap rather than fall through it. A viewer in Poland
+simply meets the resets sooner than a viewer near a node.
 
 ## P6 — Samsung TV
 
