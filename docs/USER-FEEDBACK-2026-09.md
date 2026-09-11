@@ -153,25 +153,36 @@ owner personally watched — idle resets flushing the buffer, mid-film player
 rebuilds." That reasoning was applied to tvOS and **never carried to iOS or
 macOS**, which still run it.
 
-**And the promised safety net does not cover this failure.** The comment beside
-that branch says `fallbackVideoURL` "keeps the loader one stall away", and it
-does — but only for a STALL. The swap to the resilient loader is armed by
-`CaptionStallMonitor`, a stutter detector. A hard connection death sets the
-item's status to `.failed`, and that path reads:
+**CORRECTION — the safety net DOES cover a hard failure.** An earlier reading
+of this claimed it did not; that was wrong, and the wrong version is left here
+struck through rather than quietly deleted. `watchForUnplayable`'s early return
+on `.failed` is correct: it defers to a SECOND observer, armed a few lines
+above whenever a fallback exists, which swaps to the resilient loader and
+resumes at the current position. The plain branch does set
+`fallbackVideoURL`, so it is armed.
 
-    case .failed:
-        guard self.fallbackVideoURL == nil || self.didFallback else { return }
-        self.reportUnplayable(it.error?.localizedDescription)
+What that observer gives is exactly ONE swap — `didFallback` guards it. So the
+real sequence a viewer sees is: play on the plain URL, first failure swaps
+silently to the resilient loader, second failure reports "unavailable". They
+watched a film get two chances and lose both.
 
-With a fallback pending it returns early — without reporting AND without
-swapping. Nothing else in that path calls the swap. So an ordinary archive.org
-reset, which is the single most common event this app was built to survive,
-ends the film on the one path that cannot survive it.
+**So the live question is why the resilient loader also fails**, and the
+likeliest answer is the one thing no loader can fix. The only copy is 2.25
+Mbps sustained, iOS banks a 300-second buffer, and ~5 minutes is exactly one
+buffer draining. That fits the report more tightly than a reset does: it
+explains the specific figure, why it correlates with distance from the node,
+and why reconnecting does not help. **If the viewer's sustained throughput
+from a Canadian node is below 2.25 Mbps, no amount of resilience makes the
+link faster.**
 
-**The fix has two parts**, and the second is the one that makes the first safe:
-carry Decision 096's reasoning to iOS and macOS, and make a hard `.failed`
-trigger the fallback swap rather than fall through it. A viewer in Poland
-simply meets the resets sooner than a viewer near a node.
+That is unproven, and it is the next thing to measure rather than assume.
+
+**If it holds, the fix is not in the player at all** — it is the same axis as
+P4. A film whose only copy is too fat for a viewer's connection needs a
+smaller copy (archive.org made none for this item), or an honest message
+naming bandwidth instead of a removed file, or an offer to download it and
+watch later, which Decision 099 already built. The current message blames the
+source for a condition the source may not have.
 
 ## P6 — Samsung TV
 
