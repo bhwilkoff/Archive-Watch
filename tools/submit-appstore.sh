@@ -136,5 +136,10 @@ echo "[$PLATFORM] exporting + uploading to App Store Connect…"
 xcodebuild -exportArchive -archivePath "$ARCH" -exportPath "$EXPORT" \
   -exportOptionsPlist "$PLIST" -allowProvisioningUpdates "${AUTH[@]}"
 
-echo "✓ [$PLATFORM] uploaded $VERSION ($BUILD). In App Store Connect: select build $BUILD for the"
-echo "  $PLATFORM platform on the Archive Watch record → Submit for Review (build processes for a few min)."
+echo "✓ [$PLATFORM] uploaded $VERSION ($BUILD)."
+# Uploading is not shipping. This script used to end by telling the owner to
+# open App Store Connect and press Submit; that is not their job (the manual
+# gate was removed 2026-09-03). appstore-build.yml runs asc_release.py ship
+# straight after this, and by hand the equivalent is one command.
+echo "  Next: tools/asc_release.py ship --platform $PLATFORM --submit --wait-build-minutes 40"
+echo "  (appstore-build.yml already does this unless it was dispatched with submit=false)."

@@ -57,6 +57,7 @@ import os
 import pathlib
 import re
 import sys
+import time
 import urllib.error
 import urllib.request
 
@@ -220,6 +221,32 @@ def set_notes(version_id, notes, locale, dry):
     return True
 
 
+def await_build(aid, number, platform, minutes):
+    """Block until Apple finishes processing `number`, or give up saying so.
+
+    Uploading and submitting are one act performed by one agent, but Apple
+    puts ten to thirty minutes of processing between them, and `attach`
+    refuses a build that is not VALID. Without this the chain could not be
+    automated at all: every release ended with a human re-running the submit
+    later, which is exactly the manual step this pathway exists to remove.
+    """
+    if minutes <= 0:
+        return
+    deadline = time.time() + minutes * 60
+    seen = None
+    while time.time() < deadline:
+        b = find_build(aid, number, platform)
+        state = b["attributes"]["processingState"] if b else "not uploaded yet"
+        if b and state == "VALID":
+            print(f"    build {number} is VALID")
+            return
+        if state != seen:
+            print(f"    waiting for build {number} on {platform}: {state}")
+            seen = state
+        time.sleep(60)
+    print(f"    !! build {number} still not VALID after {minutes} min")
+
+
 def attach(aid, version_id, number, platform, dry):
     b = find_build(aid, number, platform)
     if b is None:
@@ -294,6 +321,8 @@ def ship(aid, args):
             ver = editable_version(aid, platform, version, args.dry_run)
             if ver is None:
                 continue
+            if not args.dry_run:
+                await_build(aid, number, platform, args.wait_build_minutes)
             ok = attach(aid, ver["id"], number, platform, args.dry_run)
             if notes:
                 ok = set_notes(ver["id"], notes, args.locale, args.dry_run) and ok
@@ -334,6 +363,9 @@ def main():
     ap.add_argument("--release-type", choices=["AFTER_APPROVAL", "MANUAL", "SCHEDULED"])
     ap.add_argument("--submit", action="store_true",
                     help="actually send for review (without it the version is only prepared)")
+    ap.add_argument("--wait-build-minutes", type=int, default=0,
+                    help="poll until the build finishes processing before attaching "
+                         "(0 = do not wait, the historic behaviour)")
     ap.add_argument("--dry-run", action="store_true")
     a = ap.parse_args()
 

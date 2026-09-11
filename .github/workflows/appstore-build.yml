@@ -7,6 +7,15 @@ name: App Store build (cloud)
 # Free for this PUBLIC repo. Signing is MANUAL via .p12 secrets (cloud signing fails for this team
 # key — §C1a). Bump AppVersion.xcconfig + push BEFORE dispatching so the build number is monotonic.
 #
+# THIS WORKFLOW SUBMITS. Uploading is not shipping — a TestFlight build and an
+# App Store version are separate records — and for a long time this file ended
+# at the upload and told the owner to go and finish the job in App Store
+# Connect. It is not their job: submitting is done on their behalf (the manual
+# gate was removed 2026-09-03). So the last step here opens the version,
+# attaches THIS build once Apple has finished processing it, and sends it for
+# review. Set `submit: false` only when a version is already in review and must
+# not be disturbed.
+#
 # REQUIRED SECRETS (set once via tools/ci_make_signing_p12.py + gh secret set):
 #   APPLE_DIST_P12 / APPLE_INSTALLER_P12 — base64 of the Distribution / 3rd-Party-Mac-Installer .p12
 #   APPLE_P12_PASSWORD                   — the .p12 password
@@ -22,6 +31,15 @@ on:
         default: 'all'
         type: choice
         options: [all, mac, ios, tvos]
+      submit:
+        description: 'Submit for review once the build finishes processing'
+        required: false
+        default: true
+        type: boolean
+      notes:
+        description: "What's New (blank = leave the version's existing text)"
+        required: false
+        type: string
 
 concurrency:
   group: appstore-build
@@ -171,6 +189,30 @@ jobs:
           set -a; . tools/asc-credentials.env 2>/dev/null || true; set +a
           [ -n "${ASC_KEY_ID:-}" ] || { echo "no ASC credentials on this run — nothing to prune"; exit 0; }
           python3 tools/asc_prune_certs.py --apply --keep 0
+
+      # Upload and submit are ONE act. Apple puts 10-30 minutes of processing
+      # between them and `attach` refuses a build that is not yet VALID, so the
+      # tool waits rather than handing the release back to a person to re-run
+      # later. A failure here leaves a VALID uploaded build and nothing
+      # submitted, which is recoverable by dispatching appstore-submit.yml.
+      - name: Submit for review
+        if: success() && inputs.submit
+        working-directory: tools
+        run: |
+          set -a; . ./asc-credentials.env; set +a
+          NOTES=$(printf '%s' "${{ inputs.notes }}")
+          ARGS=(ship --platform "${{ inputs.platform }}" --submit --wait-build-minutes 40)
+          # An `[ -n ... ] && ...` one-liner here would END THE STEP when the
+          # notes are empty: run steps are `bash -e`, and a false test is a
+          # non-zero status on the last command of the line.
+          if [ -n "$NOTES" ]; then ARGS+=(--notes "$NOTES"); fi
+          python3 asc_release.py "${ARGS[@]}"
+          python3 asc_release.py status >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Say what was NOT submitted
+        if: success() && !inputs.submit
+        run: |
+          echo "::warning::Uploaded but NOT submitted (submit=false). Dispatch 'App Store submit (cloud)' when ready."
 
       - name: Build log tail on failure
         if: failure()
