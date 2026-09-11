@@ -79,8 +79,20 @@ def main():
                     # the subtitle pipeline, and `subtitleDead` records why it
                     # went so a later run does not re-advertise a 404.
                     item.pop("subtitleHLS", None)
-                    item["captions"] = [c for c in (item.get("captions") or [])
-                                        if c.get("source") not in (None, "published")]
+                    # A surviving caption must not keep the vttURL of the file
+                    # that just 404'd: build_web_details emits any caption that
+                    # has one, so the web would advertise a CC menu that shows
+                    # nothing (43 films were doing exactly that, measured
+                    # 2026-09-11). The source `url` stays so the subtitle
+                    # pipeline can re-fetch and re-publish it.
+                    caps = []
+                    for c in (item.get("captions") or []):
+                        if c.get("source") in (None, "published"):
+                            continue
+                        c.pop("vttURL", None)
+                        if c.get("url"):
+                            caps.append(c)
+                    item["captions"] = caps
                     item["subtitleDead"] = code
             else:
                 transient += 1
