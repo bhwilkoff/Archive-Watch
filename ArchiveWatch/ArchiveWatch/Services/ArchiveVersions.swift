@@ -71,6 +71,23 @@ enum ArchiveVersions {
     /// Containers Apple cannot open are filtered OUT rather than shown
     /// disabled — an option that cannot play is not a choice, it is a
     /// dead end with an explanation attached.
+    ///
+    /// But the test was `.mp4` ONLY, which is an EXTENSION test wearing a
+    /// codec test's clothes. `.mov` and `.m4v` are the same QuickTime family
+    /// AVFoundation is built on, and both were being hidden. A viewer on
+    /// Reddit (2026-09-11) put it exactly right: "it doesn't give you the
+    /// option to play the full quality original file unless it's h264 (or
+    /// some other subset)" — and for the mov/m4v originals that was our
+    /// filter, not Apple's limit.
+    ///
+    /// Measured over 80 random catalog items: of ~212 ORIGINAL uploads, 138
+    /// are mp4, 6 mov and 2 m4v (now offered), against 46 avi, 12 mpeg and
+    /// 7 mkv that AVFoundation genuinely will not open. Those stay out —
+    /// answering them would mean bundling a third-party decoder, which this
+    /// project does not do (CLAUDE.md: Apple frameworks only). Every item in
+    /// the sample carried at least one mp4, so nobody is ever left without a
+    /// playable copy by this rule.
+    static let appleContainers = ["mp4", "mov", "m4v"]
     static func list(itemID: String) async -> [Version] {
         guard let metaURL = URL(string: "https://archive.org/metadata/\(itemID)") else { return [] }
         var req = URLRequest(url: metaURL)
@@ -82,7 +99,7 @@ enum ArchiveVersions {
         var out: [Version] = []
         for f in files {
             guard let name = f["name"] as? String,
-                  name.lowercased().hasSuffix(".mp4"),
+                  appleContainers.contains(where: { name.lowercased().hasSuffix(".\($0)") }),
                   let sizeStr = f["size"] as? String, let size = Int64(sizeStr),
                   size > 5_000_000,                  // a stub, a sample, or a thumbnail
                   let encoded = name.addingPercentEncoding(

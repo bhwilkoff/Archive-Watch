@@ -63,7 +63,7 @@ object ArchiveVersions {
                 for (i in 0 until files.length()) {
                     val f = files.optJSONObject(i) ?: continue
                     val name = f.optString("name")
-                    if (!name.lowercase().endsWith(".mp4")) continue
+                    if (CONTAINERS.none { name.lowercase().endsWith(it) }) continue
                     val size = f.optString("size").toLongOrNull() ?: continue
                     if (size <= 5_000_000) continue     // a stub, a sample, or a thumbnail
                     out.add(
@@ -134,6 +134,23 @@ object ArchiveVersions {
         }
         return "https://archive.org/download/$itemID/$encoded"
     }
+
+    // Containers Media3 decodes natively. The test used to be `.mp4` only,
+    // which is an EXTENSION test standing in for a codec test — and it hid
+    // originals ExoPlayer plays perfectly well. A viewer on Reddit
+    // (2026-09-11): "it doesn't give you the option to play the full quality
+    // original file unless it's h264 (or some other subset)". On Android that
+    // was entirely our filter: Media3 ships extractors for Matroska, WebM and
+    // the whole MP4/QuickTime family.
+    // 
+    // Measured over 80 random catalog items, of ~212 ORIGINAL uploads: 138
+    // mp4, 46 avi, 12 mpeg, 7 mkv, 6 mov, 2 m4v. AVI is deliberately NOT here
+    // yet — Media3 does ship an AVI extractor, but what plays depends on the
+    // codec inside, and that has not been tried on a real device. It is the
+    // single biggest remaining slice and wants a device test, not a guess.
+    // Ogg Theora (.ogv, 72 derivative files in the sample) is not supported
+    // by Media3 at all.
+    private val CONTAINERS = listOf(".mp4", ".mkv", ".webm", ".mov", ".m4v")
 
     private fun sizeText(bytes: Long): String = when {
         bytes >= 1_000_000_000 -> String.format(java.util.Locale.US, "%.1f GB", bytes / 1e9)
