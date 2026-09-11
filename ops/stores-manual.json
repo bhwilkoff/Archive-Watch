@@ -4,10 +4,10 @@
   {
    "store": "Amazon Appstore",
    "platform": "Fire TV",
-   "state": "LIVE",
-   "version": "1.3.485 (vc49)",
+   "state": "LIVE (1.3.485) · 1.42.6 IN REVIEW",
+   "version": "1.3.485 (vc49) live · 1.42.6 (vc57) submitted 2026-09-10",
    "since": "2026-09-01",
-   "note": "LIVE binary is vc49 (minSdk 29), which the Appstore hides from every Fire OS 7 device — 'Fire TV (98): 38 selected'. Users reported it as incompatible on 4K Max, Cube and sticks (2026-09-10). Fix (minSdk 23) built as vc50 on 2026-09-02 and never uploaded; a current build is going up. Reporting + Submission APIs mapped 2026-09-09; vitals read live. Units are console-only — declared here.",
+   "note": "The LIVE vc49 declares minSdk 29 and Fire OS 7 is API 28, so the Appstore hid it from most of the fleet — 'Fire TV (98): 38 selected' — and users reported 4K Max, Cube and sticks as incompatible. vc57 (minSdk 23) submitted 2026-09-10, device support 38 -> 91; Amazon estimates the store by 2026-09-15. Gate: tools/audit_fire_tv_manifest.py (Decision 115). Units are console-only — declared here.",
    "url": "https://developer.amazon.com/apps-and-games/console/apps/list.html",
    "api": "vitals",
    "units30d": 2,
