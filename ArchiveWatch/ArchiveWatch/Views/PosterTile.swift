@@ -95,17 +95,30 @@ struct PosterArt: View {
     @Environment(AppStore.self) private var store
     // 0 = designed poster, 1 = archive.org frame fallback, 2 = procedural only.
     @State private var stage = 0
+    /// The designed poster is on screen and covering this frame.
+    @State private var posterShown = false
+
+    /// The procedural card is a full typographic poster — a GeometryReader, two
+    /// gradients and three auto-shrinking serif Text views. Home instantiates
+    /// EVERY shelf row up front (see HomeView), so roughly ninety of these live
+    /// at once, and a `.fill` poster hides every pixel of the ones that loaded.
+    /// Measured on an Apple TV 4K 2nd gen (2026-09-11): scrolling Home ran at
+    /// 24-27fps with 60-67% long frames while the 3rd gen held 52-58fps on the
+    /// same build. Keeping a card nobody can see is what that costs.
+    private var needsProceduralBase: Bool { !posterShown }
 
     var body: some View {
         ZStack(alignment: .topLeading) {
             // BASE — the brand procedural card is ALWAYS behind the poster, so a slot is NEVER blank
             // (during load OR when the designed/archive art fails). The real poster covers it on
             // success (owner: never show a blank poster on any platform).
-            ProceduralPoster(
-                item: item,
-                accent: store.accentColor(forCategory: categoryID),
-                aspectRatio: width / height
-            )
+            if needsProceduralBase {
+                ProceduralPoster(
+                    item: item,
+                    accent: store.accentColor(forCategory: categoryID),
+                    aspectRatio: width / height
+                )
+            }
             posterOverlay
             if let chip = categoryChipLabel {
                 Text(chip.uppercased())
@@ -125,7 +138,7 @@ struct PosterArt: View {
             RoundedRectangle(cornerRadius: 8)
                 .strokeBorder(Color.white.opacity(0.08), lineWidth: 1)
         )
-        .task(id: item.archiveID) { stage = 0 }
+        .task(id: item.archiveID) { stage = 0; posterShown = false }
     }
 
     // The real poster on TOP of the procedural base, with a CLEAR placeholder so the base shows
@@ -138,7 +151,9 @@ struct PosterArt: View {
         // screenshot"); the cover pipeline supplies real generated posters for art-less items.
         if item.hasDesignedArtwork, let url = item.posterURLParsed, stage == 0 {
             RemoteImage(url: url, targetSize: size, contentMode: .fill,
-                        placeholder: .clear, onLoadFailed: { stage = 1 })
+                        placeholder: .clear,
+                        onLoadFailed: { stage = 1; posterShown = false },
+                        onLoaded: { posterShown = true })
         }
     }
 

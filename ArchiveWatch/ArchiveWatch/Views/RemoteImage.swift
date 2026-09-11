@@ -26,6 +26,10 @@ struct RemoteImage: View {
     /// Called when the load fails — lets a caller advance to a fallback (archive frame → procedural)
     /// so a poster slot is NEVER left blank (owner: a blank poster makes the app look broken).
     var onLoadFailed: (() -> Void)? = nil
+    /// Called once the image is on screen. Lets a caller DROP a placeholder it
+    /// no longer needs — an opaque `.fill` image covers its frame completely,
+    /// so anything behind it is pure cost.
+    var onLoaded: (() -> Void)? = nil
 
     @State private var image: UIImage?
 
@@ -58,6 +62,7 @@ struct RemoteImage: View {
                 )
                 try Task.checkCancellation()
                 image = loaded
+                onLoaded?()
             } catch is CancellationError {
                 // cell left the lazy window — not a real failure
             } catch {
