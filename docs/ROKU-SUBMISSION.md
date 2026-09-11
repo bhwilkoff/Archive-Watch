@@ -263,6 +263,17 @@ gate or a resolver, each measured rather than read off the spec page:
   the feed points a cover at archivewatch.org whenever the file is there.
   Re-run the publisher when the cover set grows (`manifest.json` counts
   `coversServedLocally` against the archive-hosted remainder).
+- **An unmeasured image is an unverified claim.** The first ingestion of the
+  registered feed came back **97% (3,091 approved, 73 rejected)**, and every
+  enumerated failure was a Wikimedia still that fetches 200 and is simply the
+  wrong shape — 500x375, 500x342, 500x1106. They had shipped because
+  `ops/image-dims.json` held each image's PRE-resolution URL while the feed
+  serves the resolved `thumb.wikimedia.org` one, so the verdict was "unknown"
+  and unknown was allowed through. It is not allowed through any more: a main
+  image must be MEASURED and 2:3 or 16:9, or the asset takes a measured 16:9
+  backdrop, or it does not ship. 3,164 → 3,108 assets, 0 unmeasured. Re-run
+  `tools/measure_image_dims.py --tier guaranteed` whenever the resolver
+  changes an image's URL shape, or the cache silently stops covering the feed.
 - Re-validating the SAME URL is silently ignored; append `?v=N`. Pages sits
   behind a 600 s CDN cache that IGNORES the query string (a random `?g=`
   answers `x-cache: HIT`), so continuation pages are named
