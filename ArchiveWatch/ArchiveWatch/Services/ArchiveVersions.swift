@@ -101,6 +101,13 @@ enum ArchiveVersions {
     /// the .avi originals are 36 Cinepak to 6 DivX, and Cinepak is a 1992
     /// codec. The "full quality original" being withheld is, for most of
     /// these films, a file almost nothing plays.
+    ///
+    /// VERIFIED ON THE GLASS (Fireplace TV, Apple TV 4K 2nd gen, 2026-09-11):
+    /// the Choose Version sheet for 1978_Astronaut-Candidates listed its
+    /// QuickTime copies, and the two 119 MB derivatives that would otherwise
+    /// have rendered identically read as
+    /// "3_L001965_FR-B422_H264" and "2-of-3_L001965_FR-B422". Screenshot
+    /// evidence, not the app's own report — the standing rule for tvOS.
     static let appleContainers = ["mp4", "mov", "m4v"]
     static func list(itemID: String) async -> [Version] {
         guard let metaURL = URL(string: "https://archive.org/metadata/\(itemID)") else { return [] }
