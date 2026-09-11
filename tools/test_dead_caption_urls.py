@@ -74,6 +74,15 @@ def main() -> int:
     check("...and the empty captions field is removed entirely",
           "captions" in orphan, False)
 
+    # 4b. a url pointing at our OWN dead mirror is not a source to re-fetch.
+    #     8 of the 43 are exactly this shape, and the first version of this
+    #     rule kept them — a caption entry whose every URL 404s.
+    mirror = {"archiveID": "m", "subtitleDead": 404,
+              "captions": [cap(url="https://archivewatch.org/subs/m/en.vtt")]}
+    check("a caption whose only url is our own /subs/ mirror is dropped",
+          clear_dead_caption_urls([mirror]), (1, 1))
+    check("...leaving no captions field at all", "captions" in mirror, False)
+
     # 5. an item RE-PUBLISHED since the death is never stripped: the guard is
     #    subtitleHLS being present again.
     revived = {"archiveID": "r", "subtitleDead": 404,

@@ -1040,11 +1040,15 @@ def clear_dead_caption_urls(items):
     shows nothing, which is worse than no button at all — and reads to them as
     'the subtitles are broken'".
 
-    So a dead item's captions lose the published URL. The source `url` is
-    KEPT, because that is what lets the subtitle pipeline re-fetch and
-    re-publish the track later; a caption left with neither is dropped
-    outright. Guarded on `subtitleHLS` being absent, so an item that has since
-    been successfully re-published is never stripped.
+    So a dead item's captions lose the published URL. An EXTERNAL source
+    `url` is KEPT, because that is what lets the subtitle pipeline re-fetch
+    and re-publish the track later. A url pointing at our OWN `/subs/` mirror
+    is not a source — it is the same dead file under another key, measured 404
+    on all 8 of them — so those captions are dropped with the rest. (The first
+    version of this rule kept both: 35 of the 43 carry a genuine archive.org
+    url and 8 carry only the mirror.) Guarded on `subtitleHLS` being absent,
+    so an item that has since been successfully re-published is never
+    stripped.
     """
     cleared = dropped = 0
     for it in items:
@@ -1055,7 +1059,8 @@ def clear_dead_caption_urls(items):
         for c in caps:
             if c.pop("vttURL", None) is not None:
                 cleared += 1
-            if c.get("url"):
+            src = c.get("url") or ""
+            if src and "archivewatch.org/subs/" not in src:
                 kept.append(c)
             else:
                 dropped += 1
