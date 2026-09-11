@@ -39,6 +39,10 @@ struct ArchiveWatchApp: App {
                     // very slow" on an older Apple TV can be MEASURED rather
                     // than argued about. Off otherwise, and free when off.
                     .task { FrameTrace.shared.start(label: "app") }
+                    // AVKit reaches MediaPlayer on the MAIN thread the moment
+                    // a player view enters the window, and a cold mediaremoted
+                    // there is a 0x8BADF00D watchdog kill. Pay for it here.
+                    .task { NowPlayingWarmup.start() }
             }
         }
         .modelContainer(modelContainer)
