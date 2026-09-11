@@ -108,6 +108,18 @@ def main():
         # (CORS-OK; archive.org's SRT is not). [lang, label, vttURL] each.
         captions = [[c.get("lang"), c.get("label"), c.get("vttURL")]
                     for c in (it.get("captions") or []) if c.get("vttURL")]
+        # A caption entry without a vttURL is dropped above — several carry only
+        # an .srt on archive.org, which the web player cannot use. But the item
+        # may still have a PUBLISHED track: `subtitleHLS` is a separate field,
+        # and the apps read it while this shard never did. Measured 2026-09-11
+        # across 31,832 visible items: 26 films where every app showed subtitles
+        # and the web showed none — The Grapes of Wrath among them. Derive the
+        # same sibling `en.vtt` the Swift `publishedVTTURL` falls back to, so
+        # both planes answer the same question the same way.
+        if not captions and it.get("subtitleHLS"):
+            hls = it["subtitleHLS"]
+            if hls.endswith(".m3u8"):
+                captions = [["en", "English", hls.rsplit("/", 1)[0] + "/en.vtt"]]
         # archive.org community signals + pipeline-filtered reviews (Decision P2).
         # [stars, title, body, reviewer, date] per review; community is null unless
         # there's a stat or a review (trailing-null trim then drops it).

@@ -18,18 +18,30 @@ import Foundation
 // container, and a regenerable transcript belongs in Caches anyway.
 enum SubtitleStore {
 
+    /// Where stored subtitles live. NAMING ONLY — creates nothing.
     static var root: URL? {
-        guard let base = FileManager.default.urls(for: .cachesDirectory,
-                                                  in: .userDomainMask).first else { return nil }
-        let dir = base.appendingPathComponent("subtitles", isDirectory: true)
-        try? FileManager.default.createDirectory(at: dir, withIntermediateDirectories: true)
-        return dir
+        FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first?
+            .appendingPathComponent("subtitles", isDirectory: true)
     }
 
-    private static func dir(for archiveID: String) -> URL? {
+    /// The directory a title's subtitles WOULD occupy. Creates nothing.
+    ///
+    /// This used to create the directory, and every lookup went through it —
+    /// so merely ASKING whether a film had cached subtitles left an empty
+    /// directory behind. Two costs, one of which bit on 2026-09-11: the cache
+    /// fills with empty directories for every film a viewer ever opens, and
+    /// the presence of `subtitles/<id>/` reads like evidence of a fetch when
+    /// it is only evidence that something checked. It cost a wrong diagnosis.
+    /// A read may not have a side effect the next reader will misinterpret.
+    private static func dirPath(for archiveID: String) -> URL? {
         let safe = archiveID.replacingOccurrences(of: "[^A-Za-z0-9._-]", with: "_",
                                                   options: .regularExpression)
-        guard let d = root?.appendingPathComponent(safe, isDirectory: true) else { return nil }
+        return root?.appendingPathComponent(safe, isDirectory: true)
+    }
+
+    /// The same directory, created — for the WRITE path only.
+    private static func makeDir(for archiveID: String) -> URL? {
+        guard let d = dirPath(for: archiveID) else { return nil }
         try? FileManager.default.createDirectory(at: d, withIntermediateDirectories: true)
         return d
     }
@@ -46,7 +58,7 @@ enum SubtitleStore {
 
     /// A previously-stored local HLS master for this title, if any.
     static func cachedHLS(for archiveID: String) -> URL? {
-        guard let m = dir(for: archiveID)?.appendingPathComponent("master.m3u8"),
+        guard let m = dirPath(for: archiveID)?.appendingPathComponent("master.m3u8"),
               FileManager.default.fileExists(atPath: m.path) else { return nil }
         return m
     }
@@ -61,7 +73,7 @@ enum SubtitleStore {
     static func store(vtt: String, for archiveID: String, videoURL: URL,
                       runtime: Int, lang: String = "en",
                       label: String = "English") -> URL? {
-        guard let d = dir(for: archiveID) else { return nil }
+        guard let d = makeDir(for: archiveID) else { return nil }
         let vttName = "\(lang).vtt"
         do {
             try vtt.write(to: d.appendingPathComponent(vttName), atomically: true, encoding: .utf8)
@@ -121,6 +133,6 @@ enum SubtitleStore {
     }
 
     static func clear(_ archiveID: String) {
-        if let d = dir(for: archiveID) { try? FileManager.default.removeItem(at: d) }
+        if let d = dirPath(for: archiveID) { try? FileManager.default.removeItem(at: d) }
     }
 }
