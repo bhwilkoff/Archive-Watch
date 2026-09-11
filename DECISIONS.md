@@ -184,6 +184,7 @@ an entry in place.
 - 113 — The Roku Search feed advertises only what the rights audit KEEPS, never television, and its ids never change
 - 114 — A bare CC claim rescues nothing, a 5,000-vote footprint in 1964-77 is a studio film, and a modern id wearing an old year is a wrong match
 - 115 — A store's device count is the only place a minSdk regression is visible; the Fire TV build is gated on reaching Fire OS 7
+- 116 — A data contract is a test, not a docstring; and a client may not crash on a shape
 
 ---
 
@@ -2076,3 +2077,41 @@ staged, so `submit-amazon.py` still leaves the edit OPEN unless `--commit`;
 the final submission stays a deliberate act. `ops/stores-manual.json` carries
 the real live version, because a hand-declared value that lies is worse than
 no value at all (Decision 108).
+
+## 116 — A data contract is a test, not a docstring; and a client may not crash on a shape
+*Date: 2026-09-11*
+
+`tools/test_details_contract.py` asserts the shape of the detail shards, and
+`build_web_details.py` emits exactly one cast shape: **always a list**,
+`[name] | [name, path] | [name, path, id]`. The Roku Detail screen reads both
+shapes anyway, and `PosterTile.onContent` returns unless its nodes exist.
+
+**Why**: Roku's store analytics showed 16 crashes in two days at
+`DetailScreen.brs:781` — `c.Count()` over the cast. The channel was correct
+and the data was not. `build_web_details.py` documented the three-shape
+contract in its own header and then wrote
+
+    cast.append(entry[0] if len(entry) == 1 else entry)
+
+so a cast member with no TMDb profile arrived as a **bare string**. A
+BrightScript String has no `Count()`, so opening Detail crashed the channel
+on any such film: **2,798 entries across 1,716 films**, 5.4% of the catalog.
+
+The part worth keeping is why it survived so long. `watch.js` reads the same
+field and happens to test `Array.isArray(c)`, handling both shapes without
+comment. One client's tolerance made the defect invisible to every other
+client — the web looked fine, so the data looked fine, and the only place the
+truth appeared was a crash log from a platform that trusted the docstring. A
+second reader coping is not evidence of a correct contract; it is what hides
+an incorrect one.
+
+**How to apply**: when a producer's docstring states a shape, a test asserts
+it — over the real artifact, not only over unit fixtures (`--shards`). Fix the
+PRODUCER first when the defect is in data: republishing the shards fixed the
+**live, already-shipped** 1.0.51 channel with no store review, where the
+client fix waits on certification. Then fix the client anyway, because a
+client may not crash on a data shape. And note the SceneGraph trap the second
+crash was: a field declared with `onChange=` in an XML `<interface>` can fire
+while the component is still being built, BEFORE `init()` has assigned node
+references — guard the handler and re-apply content at the end of `init()`,
+or an early-arriving `itemContent` leaves the tile blank forever.
