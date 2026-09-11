@@ -91,8 +91,16 @@ jobs:
       # says they have subtitles. Costs nothing: the VTTs are on Pages, so this
       # touches archive.org not at all. Clears only on 404/410, never on a
       # transient. Never fails the build.
-      - name: Clear subtitle tracks that 404
-        run: python tools/audit_dead_subtitles.py --apply || true
+      # This step now RESTORES as well as clears: it re-probes previously
+      # condemned tracks and gives back `subtitleHLS` when the files answer
+      # 200 (35 films were wrongly condemned by a probe that asked for
+      # en.vtt whatever the track's language). A bare `|| true` would hide a
+      # failure of that, so it annotates instead — Decision 094's rule that a
+      # best-effort step is never silent.
+      - name: Clear subtitle tracks that 404, restore ones that came back
+        run: |
+          python tools/audit_dead_subtitles.py --apply \
+            || echo "::warning::dead-subtitle audit failed — tracks not cleared or restored this run"
 
       # ENFORCE the copyright gate on every DB build (Decision 027). This is the
       # PURE-DATA apply only — it hides items already CONFIRMED-copyright by the
