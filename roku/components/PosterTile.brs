@@ -43,6 +43,11 @@ sub init()
     m.tileLabel.wrap = true
     m.tileLabel.maxLines = 3
 
+    ' If itemContent arrived before init() ran, its observer returned without
+    ' drawing anything. Now that the nodes exist, apply it — otherwise that
+    ' tile stays blank for the life of the component.
+    if m.top.itemContent <> invalid then onContent()
+
     ' Initialised explicitly: positionRing() runs from the art's load callback,
     ' which fires BEFORE the first focus change, and `not invalid` is a Type
     ' Mismatch that takes the whole tile's render path down — every poster in
@@ -79,6 +84,13 @@ end sub
 sub onContent()
     c = m.top.itemContent
     if c = invalid then return
+    ' `itemContent` carries onChange="onContent" in the XML interface, and an
+    ' interface observer can fire while the component is still being built —
+    ' BEFORE init() has run and assigned these node references. When that
+    ' race lands, every m.<node> here is invalid and the first assignment
+    ' crashes the channel (PosterTile.brs:104, seen once on the store,
+    ' 2026-09-11). init() re-runs onContent, so returning loses nothing.
+    if m.tileRule = invalid or m.art = invalid or m.plate = invalid then return
     m.isTile = (Left(fmt(c.id), 7) = "browse:")
     if m.isTile
         m.art.uri = ""

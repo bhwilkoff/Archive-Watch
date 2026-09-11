@@ -26,7 +26,7 @@ fields — present keys only, the whole object omitted when empty so sparse
 films cost nothing: {w:writer, st:studios[], fr:franchise, tg:tagline,
 aw:awards, co:composer, ci:cinematographer, rd:releaseDate, ot:originalTitle,
 ct:canonicalTitle}.
-Each cast entry is [name] | [name, profilePath] | [name, profilePath,
+Each cast entry is ALWAYS a list: [name] | [name, profilePath] | [name, profilePath,
 tmdbPersonID] (trailing nulls trimmed) — the personID (Decision 046) unblocks
 person links.
 
@@ -96,7 +96,14 @@ def main():
             entry = [name, path or None, pid or None]
             while len(entry) > 1 and entry[-1] is None:  # [name] | [name,path] | [name,path,pid]
                 entry.pop()
-            cast.append(entry[0] if len(entry) == 1 else entry)
+            # ALWAYS a list, never the bare name. This line used to unwrap a
+            # single-element entry into a string, contradicting the docstring
+            # above — and the Roku channel, which trusted that docstring, calls
+            # `c.Count()` on each entry. A String has no Count(), so opening
+            # the Detail screen of any film with a profile-less cast member
+            # crashed the channel: 2,798 such entries across 1,716 films, 16
+            # crashes in the first two days on the store (2026-09-11).
+            cast.append(entry)
         # Subtitle tracks for the web <track> element — the Pages-hosted VTT
         # (CORS-OK; archive.org's SRT is not). [lang, label, vttURL] each.
         captions = [[c.get("lang"), c.get("label"), c.get("vttURL")]

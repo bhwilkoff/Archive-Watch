@@ -778,7 +778,19 @@ sub onDetail()
     if d.cast <> invalid and d.cast.Count() > 0
         names = []
         for each c in d.cast
-            if c.Count() > 0 and names.Count() < 5 then names.Push(fmt(c[0]))
+            ' A cast entry is [name] | [name, path] | [name, path, id] — but a
+            ' client may not crash because the data took another shape. This
+            ' line was `c.Count()`, and on 2026-09-11 the shards were still
+            ' emitting a BARE STRING whenever a cast member had no TMDb
+            ' profile: a String has no Count(), so Detail crashed on 1,716
+            ' films. The pipeline now emits one shape; this reads both.
+            nm = ""
+            if GetInterface(c, "ifArray") <> invalid
+                if c.Count() > 0 then nm = fmt(c[0])
+            else
+                nm = fmt(c)
+            end if
+            if nm <> "" and names.Count() < 5 then names.Push(nm)
         end for
         if names.Count() > 0
             line = "With "
