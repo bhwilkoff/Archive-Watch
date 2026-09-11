@@ -138,7 +138,15 @@ DENYLIST = REPO / "ops" / "roku-feed-denylist.json"
 # landscape main in the feed that sits above 1%. The other four landscape
 # mains (0.09%, 0.15%, 0.97%, 0.97%) were all approved. So the tolerances
 # are not symmetric, and neither is the evidence.
-ASPECT_TOLERANCE = {2 / 3: 0.04, 16 / 9: 0.015}
+# Tightened to 1% BOTH ways on 2026-09-11 after three ingestions. Roku's
+# report names only a stale, one-job-behind id list and its asset search
+# filters that same stale list client-side, so the failing ~54 of 3,106 could
+# not be enumerated from outside. What IS measurable is where they must live:
+# 2,802 of the feed's images sit within 1% of an exact 2:3 or 16:9 and the
+# whole reject count fits inside the 226 that do not. Cutting the tail is the
+# move that reaches 100% without knowing which 54 they are — and the films it
+# drops from the FEED are untouched in every app and on the web.
+ASPECT_TOLERANCE = {2 / 3: 0.01, 16 / 9: 0.01}
 
 KEEP_BUCKETS = {"safe_pd_age", "safe_gov", "safe_archive_license", "safe_cc",
                 "presumed_pd"}
