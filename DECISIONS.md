@@ -2170,10 +2170,18 @@ by exactly zero, because the real failures were far outside any plausible
 band and already excluded. Tolerances stay at the values measured from Roku's
 own approvals (2:3 4%, 16:9 1.5%).
 
-**Consequences**: 53 verdicts remain frozen. Those assets are now in the feed
-carrying a 400x600 image that Roku still reports as an invalid aspect, which
-is not reachable from the current file — the verdict is cached per asset and
-is not re-tested when the asset changes. The file itself validates at **100%**
+**Consequences**: **the fix worked completely, and the 53 are phantoms.**
+Job 9's report download settles it three ways at once. The fitted covers were
+all accepted — the feed grew by exactly 649 assets and APPROVED TITLES GREW BY
+EXACTLY 649 (3,052 -> 3,701), with `reconciledCount` 0. The error count did not
+move. And every remaining error cites
+`https://thumb.wikimedia.org/.../500px-To_the_Highest_Bidder_(1918)_-_1.jpg`
+for an asset the live feed serves a 400x600 cover for — a URL that appears
+NOWHERE in the current file, which was re-fetched and confirmed at 3,755 assets
+with all 53 ids present and all 53 carrying an archivewatch.org cover. Roku
+parsed that file (`parsedCount` 3,755) and still replayed a stored verdict and
+a stored URL. The error object is persisted per asset, not regenerated, and a
+changed image does not invalidate it. The file itself validates at **100%**
 (2026-09-11 15:44 UTC, 3,755 assets). Clearing a stale per-asset record is a
 Partner Success request, and Partner Success is the required next step anyway
 to publish the feed to end users. Two report traps worth keeping: `issuesList`
