@@ -138,15 +138,20 @@ DENYLIST = REPO / "ops" / "roku-feed-denylist.json"
 # landscape main in the feed that sits above 1%. The other four landscape
 # mains (0.09%, 0.15%, 0.97%, 0.97%) were all approved. So the tolerances
 # are not symmetric, and neither is the evidence.
-# Tightened to 1% BOTH ways on 2026-09-11 after three ingestions. Roku's
-# report names only a stale, one-job-behind id list and its asset search
-# filters that same stale list client-side, so the failing ~54 of 3,106 could
-# not be enumerated from outside. What IS measurable is where they must live:
-# 2,802 of the feed's images sit within 1% of an exact 2:3 or 16:9 and the
-# whole reject count fits inside the 226 that do not. Cutting the tail is the
-# move that reaches 100% without knowing which 54 they are — and the films it
-# drops from the FEED are untouched in every app and on the web.
-ASPECT_TOLERANCE = {2 / 3: 0.01, 16 / 9: 0.01}
+# Measured against Roku's own ingestion, 2026-09-11: it is GENEROUS about a
+# portrait poster and STRICT about a landscape one. It approved 500x781
+# (3.97% off 2:3) and refused 500x292 (3.68% off 16:9), while the other four
+# landscape mains — 0.09%, 0.15%, 0.97%, 0.97% — all passed.
+#
+# These were briefly cut to 1% both ways in pursuit of a 100% ingestion
+# report, and the experiment DISPROVED its own premise: removing the 203
+# assets outside 1% changed the reported error count by exactly zero
+# (job 3: 3,106 assets / 54 errors -> job 4: 2,903 assets / 54 errors). The
+# 54 are carried-forward records for assets no longer in the feed at all —
+# none of the ids appear in it — so the tail was never the cause and the
+# films are restored. The standalone validator, which scores only the FILE,
+# is the honest oracle here.
+ASPECT_TOLERANCE = {2 / 3: 0.04, 16 / 9: 0.015}
 
 KEEP_BUCKETS = {"safe_pd_age", "safe_gov", "safe_archive_license", "safe_cc",
                 "presumed_pd"}
