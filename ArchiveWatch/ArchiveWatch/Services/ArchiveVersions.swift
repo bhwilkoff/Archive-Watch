@@ -154,7 +154,16 @@ enum ArchiveVersions {
     static func stem(_ name: String) -> String {
         let base = (name as NSString).lastPathComponent
         let noExt = (base as NSString).deletingPathExtension
-        return noExt.count > 24 ? String(noExt.suffix(24)) : noExt
+        guard noExt.count > 24 else { return noExt }
+        // Cut at a separator, not mid-token: a bare suffix produced
+        // "-38_L001973_FR-B463_H264", which starts inside a word and reads
+        // like damage rather than a name.
+        let tail = String(noExt.suffix(24))
+        if let i = tail.firstIndex(where: { $0 == "_" || $0 == "-" }) {
+            let trimmed = tail[tail.index(after: i)...]
+            if trimmed.count >= 8 { return String(trimmed) }
+        }
+        return tail
     }
 
     // MARK: - Per-title choice

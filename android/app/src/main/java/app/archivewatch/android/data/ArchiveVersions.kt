@@ -176,7 +176,14 @@ object ArchiveVersions {
     // what is kept.
     internal fun stem(name: String): String {
         val base = name.substringAfterLast('/').substringBeforeLast('.')
-        return if (base.length > 24) base.takeLast(24) else base
+        if (base.length <= 24) return base
+        // Cut at a separator, not mid-token: a bare suffix produced
+        // "-38_L001973_FR-B463_H264", which starts inside a word and reads
+        // like damage rather than a name.
+        val tail = base.takeLast(24)
+        val i = tail.indexOfFirst { it == '_' || it == '-' }
+        val trimmed = if (i >= 0) tail.substring(i + 1) else tail
+        return if (trimmed.length >= 8) trimmed else tail
     }
 
     private fun sizeText(bytes: Long): String = when {
