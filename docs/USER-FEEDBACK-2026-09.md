@@ -132,9 +132,29 @@ not at the far end. It needs only **2.25 Mbps**, and this connection pulled
 **114 Mbps** from its node. Nothing about the media or the network explains a
 five-minute ceiling.
 
-**What does.** archive.org has exactly ONE copy of this film — a 2.19 GB
-original with no derivative at all. And on iOS and macOS, a film with no
-published subtitle track plays on the **plain archive.org URL**, deliberately:
+**CORRECTION, 2026-09-11 — the premise below is WRONG for this film.**
+I claimed Grapes of Wrath has no subtitle track, having read index 7 of the
+WEB detail shard and found it null. The apps do not read that file. They read
+`catalog.sqlite`, whose `subtitleHLS` for this item is
+`https://archivewatch.org/subs/the-grapes-of-wrath-1940/master.m3u8` — a real
+published track. Measured on the 2nd-generation Apple TV with
+`AW_CAPTION_TRACE=1`: **"file subtitles loaded: 1192 cues, showing=true"**,
+with the caption engine stopped and the trace reporting no speech models on
+that chip. A null in one data plane says nothing about the other, and the
+plane to check is the one the client actually reads.
+
+So this film takes the CAPTIONED branch on iOS, not the plain one, and the
+paragraph below does not explain what that viewer hit. **P5 is re-opened.**
+The reconnect fix shipped in 1.42.9 stands on its own merits — one retry per
+film was genuinely wrong — but it is no longer known to be this viewer's bug.
+
+The rest of this section remains accurate for the ~84% of the catalogue that
+genuinely carries no track, and is kept for that reason.
+
+**What the plain path does.** archive.org has exactly ONE copy of this film —
+a 2.19 GB original with no derivative at all. And on iOS and macOS, a film
+with no published subtitle track plays on the **plain archive.org URL**,
+deliberately:
 
     } else if let url = videoURL,
               SystemCaptions.prefersDirectPlayback(hasPublishedSubtitles: false) {
