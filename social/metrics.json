@@ -94,6 +94,68 @@
     "replies": 0,
     "quotes": 0
    }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mv657ip3632t",
+   "platform": "bluesky",
+   "id": "day.-of.-wrath.-1943",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-09-10T13:17:32.302808+00:00",
+   "sampled": "2026-09-11T18:13:25.268650+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117246936300919417",
+   "platform": "mastodon",
+   "id": "day.-of.-wrath.-1943",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-09-10T13:17:32.302808+00:00",
+   "sampled": "2026-09-11T18:13:25.268650+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 1,
+    "replies": 0
+   }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mv6nhqp35j2z",
+   "platform": "bluesky",
+   "id": "WhenKnighthoodWasInFlowerForYT",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-09-10T18:08:16.775709+00:00",
+   "sampled": "2026-09-11T18:13:25.268650+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117248080366296987",
+   "platform": "mastodon",
+   "id": "WhenKnighthoodWasInFlowerForYT",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-09-10T18:08:16.775709+00:00",
+   "sampled": "2026-09-11T18:13:25.268650+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
   }
  ]
 }

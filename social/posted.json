@@ -241,6 +241,42 @@
    "kind": "short-film",
    "mediaId": null,
    "reviewer": null
+  },
+  {
+   "at": "2026-09-11T18:12:52.546387+00:00",
+   "id": "los-tallos-amargos-1956",
+   "title": "Los Tallos Amargos",
+   "slot": "one-line",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mvb66nqd5k2k",
+   "format": "video",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-09-11T18:12:52.546387+00:00",
+   "id": "los-tallos-amargos-1956",
+   "title": "Los Tallos Amargos",
+   "slot": "one-line",
+   "platform": "mastodon",
+   "url": "https://mastodon.social/@archivewatch/117253760280498279",
+   "format": "video",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-09-11T18:12:52.546387+00:00",
+   "id": "los-tallos-amargos-1956",
+   "title": "Los Tallos Amargos",
+   "slot": "one-line",
+   "platform": "youtube",
+   "url": "https://youtube.com/watch?v=Bq4n6sR3Bmw",
+   "format": "video",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": null
   }
  ]
 }
