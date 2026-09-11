@@ -35,6 +35,10 @@ struct ArchiveWatchApp: App {
                     .environment(store)
                     .environment(router)
                     .environment(account)
+                    // AW_FRAME_TRACE=1 samples the render loop, so "very,
+                    // very slow" on an older Apple TV can be MEASURED rather
+                    // than argued about. Off otherwise, and free when off.
+                    .task { FrameTrace.shared.start(label: "app") }
             }
         }
         .modelContainer(modelContainer)
