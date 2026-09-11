@@ -87,6 +87,11 @@ enum ArchiveVersions {
     /// project does not do (CLAUDE.md: Apple frameworks only). Every item in
     /// the sample carried at least one mp4, so nobody is ever left without a
     /// playable copy by this rule.
+    ///
+    /// And a decoder would buy less than it sounds: sampled across 120 items,
+    /// the .avi originals are 36 Cinepak to 6 DivX, and Cinepak is a 1992
+    /// codec. The "full quality original" being withheld is, for most of
+    /// these films, a file almost nothing plays.
     static let appleContainers = ["mp4", "mov", "m4v"]
     static func list(itemID: String) async -> [Version] {
         guard let metaURL = URL(string: "https://archive.org/metadata/\(itemID)") else { return [] }

@@ -144,12 +144,17 @@ object ArchiveVersions {
     // the whole MP4/QuickTime family.
     // 
     // Measured over 80 random catalog items, of ~212 ORIGINAL uploads: 138
-    // mp4, 46 avi, 12 mpeg, 7 mkv, 6 mov, 2 m4v. AVI is deliberately NOT here
-    // yet — Media3 does ship an AVI extractor, but what plays depends on the
-    // codec inside, and that has not been tried on a real device. It is the
-    // single biggest remaining slice and wants a device test, not a guess.
-    // Ogg Theora (.ogv, 72 derivative files in the sample) is not supported
-    // by Media3 at all.
+    // mp4, 46 avi, 12 mpeg, 7 mkv, 6 mov, 2 m4v.
+    //
+    // AVI IS DELIBERATELY NOT HERE, and this is settled rather than pending.
+    // Media3 does ship an AVI extractor, so the container was never the
+    // question — the codec inside is. Sampled across 120 catalog items, the
+    // .avi originals are 36 Cinepak to 6 DivX: Cinepak is a 1992 codec no
+    // Android MediaCodec and no Apple device decodes. Adding AVI would list
+    // an option that cannot play for six files in seven, which is the exact
+    // dead end this filter exists to prevent. The same measurement rules out
+    // .mpeg/.mpg (MPEG-1 and MPEG-2, which few Android devices decode) and
+    // Ogg Theora, which Media3 does not support at all.
     private val CONTAINERS = listOf(".mp4", ".mkv", ".webm", ".mov", ".m4v")
 
     private fun sizeText(bytes: Long): String = when {
