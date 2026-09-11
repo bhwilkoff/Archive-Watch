@@ -31,8 +31,35 @@ UA = {"User-Agent": "ArchiveWatch-pipeline (dead subtitle audit)"}
 
 
 def vtt_url(item):
+    """The file this item ACTUALLY publishes — not an assumed English one.
+
+    THE BUG THIS FIXES (measured 2026-09-11). This returned `<dir>/en.vtt`
+    unconditionally. A track published in any other language lives at
+    `<dir>/zh.vtt`, `de.vtt`, `it.vtt` — so the probe asked for a filename
+    that was never written, got a definitive 404, and condemned a HEALTHY
+    track. 35 films lost `subtitleHLS` that way: their VTT and master.m3u8
+    both answer 200 today, and the web — which reads the caption's own
+    vttURL — has been showing those captions the whole time while the apps
+    showed none.
+
+    The caption's recorded `vttURL` is the authority; its `lang` is the
+    fallback; `en.vtt` only when the item says nothing at all.
+    """
     hls = item.get("subtitleHLS")
-    return hls.rsplit("/", 1)[0] + "/en.vtt" if hls else None
+    if not hls:
+        return None
+    for c in (item.get("captions") or []):
+        if c.get("vttURL"):
+            return c["vttURL"]
+    base = hls.rsplit("/", 1)[0]
+    for c in (item.get("captions") or []):
+        if c.get("lang"):
+            return f"{base}/{c['lang']}.vtt"
+    return f"{base}/en.vtt"
+
+
+def master_url(archive_id):
+    return f"https://archivewatch.org/subs/{archive_id}/master.m3u8"
 
 
 def probe(item):
@@ -61,10 +88,64 @@ def main():
         catalog = json.load(f)
     targets = [i for i in catalog["items"]
                if i.get("subtitleHLS") and not i.get("excluded")]
+    # Items this audit condemned BEFORE are re-probed, or the marker is
+    # permanent by construction: the target set is "has subtitleHLS", and the
+    # first thing a condemnation does is remove it. That is how 35 healthy
+    # films stayed dead (Decision 088's shape — a check that can never look
+    # again).
+    revivable = [i for i in catalog["items"]
+                 if i.get("subtitleDead") and not i.get("subtitleHLS")
+                 and not i.get("excluded")]
     targets.sort(key=lambda i: -(i.get("popularityScore") or 0))
     if args.limit:
         targets = targets[: args.limit]
     print(f"checking {len(targets)} advertised subtitle tracks", flush=True)
+
+    revived = stale_cleared = 0
+    if revivable:
+        print(f"re-probing {len(revivable)} previously-condemned tracks", flush=True)
+
+        def recheck(item):
+            try:
+                req = urllib.request.Request(master_url(item["archiveID"]),
+                                             method="HEAD", headers=UA)
+                with urllib.request.urlopen(req, timeout=20) as resp:
+                    return item, resp.status
+            except urllib.error.HTTPError as e:
+                return item, e.code
+            except Exception:
+                return item, None
+
+        with ThreadPoolExecutor(max_workers=args.workers) as pool:
+            for item, code in pool.map(recheck, revivable):
+                if code == 200:
+                    revived += 1
+                    print(f"  ALIVE AGAIN {item['archiveID'][:48]}", flush=True)
+                    if args.apply:
+                        item["subtitleHLS"] = master_url(item["archiveID"])
+                        item.pop("subtitleDead", None)
+                elif code in (404, 410):
+                    # Confirmed gone by a FRESH probe. Its captions must not
+                    # keep the published URL of a file that is not there:
+                    # build_web_details emits any caption carrying a vttURL,
+                    # so the web would show a CC menu that does nothing. The
+                    # external source url stays (the pipeline can re-fetch);
+                    # a caption left pointing only at our own /subs mirror
+                    # has nothing to re-fetch and goes.
+                    stale_cleared += 1
+                    if args.apply:
+                        caps = []
+                        for c in (item.get("captions") or []):
+                            c.pop("vttURL", None)
+                            src = c.get("url") or ""
+                            if src and "archivewatch.org/subs/" not in src:
+                                caps.append(c)
+                        if caps:
+                            item["captions"] = caps
+                        else:
+                            item.pop("captions", None)
+        print(f"revived: {revived}   still gone (stale URLs cleared): "
+              f"{stale_cleared}", flush=True)
 
     live = dead = transient = 0
     with ThreadPoolExecutor(max_workers=args.workers) as pool:
