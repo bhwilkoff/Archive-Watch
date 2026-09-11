@@ -26,36 +26,16 @@ Usage (inside the fetch/publish wrap):
 import argparse, json, urllib.error, urllib.request
 from concurrent.futures import ThreadPoolExecutor
 
+from subtitle_asset import published_vtt_url
+
 CATALOG = "catalog.json"
 UA = {"User-Agent": "ArchiveWatch-pipeline (dead subtitle audit)"}
 
 
 def vtt_url(item):
-    """The file this item ACTUALLY publishes — not an assumed English one.
-
-    THE BUG THIS FIXES (measured 2026-09-11). This returned `<dir>/en.vtt`
-    unconditionally. A track published in any other language lives at
-    `<dir>/zh.vtt`, `de.vtt`, `it.vtt` — so the probe asked for a filename
-    that was never written, got a definitive 404, and condemned a HEALTHY
-    track. 35 films lost `subtitleHLS` that way: their VTT and master.m3u8
-    both answer 200 today, and the web — which reads the caption's own
-    vttURL — has been showing those captions the whole time while the apps
-    showed none.
-
-    The caption's recorded `vttURL` is the authority; its `lang` is the
-    fallback; `en.vtt` only when the item says nothing at all.
-    """
-    hls = item.get("subtitleHLS")
-    if not hls:
-        return None
-    for c in (item.get("captions") or []):
-        if c.get("vttURL"):
-            return c["vttURL"]
-    base = hls.rsplit("/", 1)[0]
-    for c in (item.get("captions") or []):
-        if c.get("lang"):
-            return f"{base}/{c['lang']}.vtt"
-    return f"{base}/en.vtt"
+    """The file this item ACTUALLY publishes — see subtitle_asset.py for the
+    35 healthy films a hardcoded `en.vtt` condemned."""
+    return published_vtt_url(item)
 
 
 def master_url(archive_id):

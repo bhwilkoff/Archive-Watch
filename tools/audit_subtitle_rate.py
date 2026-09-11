@@ -44,6 +44,8 @@ Usage:
 import argparse, json, re, urllib.request
 from concurrent.futures import ThreadPoolExecutor
 
+from subtitle_asset import published_vtt_url
+
 CATALOG = "catalog.json"
 UA = {"User-Agent": "ArchiveWatch-pipeline (subtitle rate audit; ben@learningischange.com)"}
 
@@ -76,8 +78,9 @@ def last_cue_end(url):
 
 
 def vtt_url(item):
-    hls = item.get("subtitleHLS")
-    return hls.rsplit("/", 1)[0] + "/en.vtt" if hls else None
+    # Was `<dir>/en.vtt` unconditionally, so every non-English track came back
+    # "unfetchable" and was never checked for drift. See subtitle_asset.py.
+    return published_vtt_url(item)
 
 
 def classify(last, runtime):
