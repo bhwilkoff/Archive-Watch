@@ -1,10 +1,10 @@
 {
   "schema": 1,
-  "updated_at": "2026-09-10T08:37:46Z",
+  "updated_at": "2026-09-11T08:26:57Z",
   "description": "Missing-episode queue: canonical episodes (from OMDb) that we don't yet have on Archive. Drained by tools/backfill_tv_episodes.py.",
   "stats": {
-    "total": 18098,
-    "wanted": 17875,
+    "total": 18101,
+    "wanted": 17878,
     "fulfilled": 223,
     "series_with_gaps": 359
   },
@@ -42587,6 +42587,16 @@
       "episodeImdbID": "tt0565880",
       "status": "wanted",
       "added_at": "2026-06-13T07:56:51Z"
+    },
+    {
+      "seriesID": "dragnet-1951",
+      "seriesTitle": "Dragnet",
+      "season": 1,
+      "episode": 13,
+      "title": "The Big Casing",
+      "episodeImdbID": "tt0565730",
+      "status": "wanted",
+      "added_at": "2026-09-11T08:26:57Z"
     },
     {
       "seriesID": "dragnet-1951",
@@ -120928,6 +120938,16 @@
       "seriesID": "studio-one-1948",
       "seriesTitle": "Studio One",
       "season": 3,
+      "episode": 10,
+      "title": "Wuthering Heights",
+      "episodeImdbID": "tt0284665",
+      "status": "wanted",
+      "added_at": "2026-09-11T08:26:57Z"
+    },
+    {
+      "seriesID": "studio-one-1948",
+      "seriesTitle": "Studio One",
+      "season": 3,
       "episode": 11,
       "title": "The Blonde Comes First",
       "episodeImdbID": "tt0712428",
@@ -131512,6 +131532,16 @@
       "episodeImdbID": "tt0516847",
       "status": "wanted",
       "added_at": "2026-06-02T08:32:33Z"
+    },
+    {
+      "seriesID": "the-avengers-1961",
+      "seriesTitle": "The Avengers",
+      "season": 5,
+      "episode": 1,
+      "title": "From Venus with Love",
+      "episodeImdbID": "tt0516841",
+      "status": "wanted",
+      "added_at": "2026-09-11T08:26:57Z"
     },
     {
       "seriesID": "the-avengers-1961",
