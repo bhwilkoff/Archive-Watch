@@ -681,7 +681,13 @@ def build_asset(item: dict, tv_specials: bool = False, imdb: bool = False,
         main, bg = resolver.resolve(main), resolver.resolve(bg)
     dims = dims or {}
     mv, bv = image_verdict(main, dims), image_verdict(bg, dims) if bg else "bad"
-    if mv == "bad":
+    # UNKNOWN is not OK. An unmeasured image is an unverified claim, and Roku
+    # rejects the asset when it turns out off-aspect: on 2026-09-11 the feed
+    # validated at 97%, and every enumerated failure was a Wikimedia still
+    # (4:3, panorama, 500x1106) that had shipped unmeasured because the dims
+    # cache held the PRE-resolution URL. We choose what goes in this feed, so
+    # anything we cannot prove is the right shape does not go in.
+    if mv != "ok":
         if bv == "ok":
             main, bg = bg, None      # a 16:9 backdrop is a valid main image
         else:
@@ -846,10 +852,10 @@ def main() -> int:
     for item in eligible:
         a = build_asset(item, args.tv_specials, imdb=args.imdb, resolver=resolver, dims=dims)
         if a is None:
-            reasons["image_aspect"] += 1
+            reasons["image_unverified"] += 1
             continue
         if image_verdict(a["images"][0]["url"], dims) == "unknown":
-            unmeasured += 1
+            unmeasured += 1          # can no longer happen; kept as a tripwire
         errs = validate_asset(a)
         if errs:
             for e in errs:

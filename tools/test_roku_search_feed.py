@@ -98,9 +98,9 @@ def main() -> int:
     check("a Commons upload original resolves to Commons",
           F.wiki_file("https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/SecretLove1930.jpg/500px-SecretLove1930.jpg"),
           ("commons.wikimedia.org", "SecretLove1930.jpg"))
-    a_up = F.build_asset(item(posterURL="https://upload.wikimedia.org/wikipedia/en/3/3d/Valencia_%281927_film%29.jpg"))
-    check("an unresolved upload.wikimedia image fails the asset (Roku cannot fetch that host)",
-          F.validate_asset(a_up), ["image Roku cannot fetch (unresolved Wikimedia)"])
+    check("an unresolved upload.wikimedia image drops the asset (Roku cannot fetch that host)",
+          F.build_asset(item(posterURL="https://upload.wikimedia.org/wikipedia/en/3/3d/Valencia_%281927_film%29.jpg",
+                            backdropURL=None)), None)
     check("control: a YouTube rip of Un Chien Andalou is still Un Chien Andalou",
           F.year_contradicted({"archiveID": "LuisBunuelUnChienAndalou1928YouTube", "title": "Un Chien Andalou", "year": 1928}), False)
     check("no poster -> out, counted", F.eligibility(item(hasRealArtwork=False), ids, "catalog"), "no_poster")
@@ -203,9 +203,9 @@ def main() -> int:
     check("commons_title decodes the file name", F.commons_title(
         "https://commons.wikimedia.org/wiki/Special:FilePath/Achtung_Feind_h%C3%B6rt_mit.svg"),
         "Achtung_Feind_hört_mit.svg")
-    a_svg = F.build_asset(item(posterURL="https://commons.wikimedia.org/wiki/Special:FilePath/Logo.svg"))
-    check("an unresolved Commons image fails validation (Roku refuses svg and redirects)",
-          sorted(F.validate_asset(a_svg)), ["image Roku cannot fetch (unresolved Wikimedia)", "image format (jpg/png/gif only)"])
+    check("an unresolved Commons svg drops the asset (Roku refuses svg and redirects)",
+          F.build_asset(item(posterURL="https://commons.wikimedia.org/wiki/Special:FilePath/Logo.svg",
+                            backdropURL=None)), None)
 
     # ---- aspect: Roku's validator accepts 2:3 and 16:9 ONLY ----------------
     check("control: 500x750 is 2:3", F.aspect_ok(500, 750), True)
@@ -230,9 +230,12 @@ def main() -> int:
           ["main:https://image.tmdb.org/t/p/w1280/bg.jpg"])
     check("an off-aspect poster with no backdrop drops the asset",
           F.build_asset(item(posterURL="https://m.media-amazon.com/x.jpg", backdropURL=None), dims=dims), None)
-    check("an unmeasured poster ships as-is (Roku judges it)",
-          F.build_asset(item(posterURL="https://m.media-amazon.com/unmeasured.jpg"), dims=dims)["images"][0]["url"],
-          "https://m.media-amazon.com/unmeasured.jpg")
+    check("an UNMEASURED poster does not ship — an unverified claim is not a claim",
+          F.build_asset(item(posterURL="https://m.media-amazon.com/unmeasured.jpg", backdropURL=None), dims=dims), None)
+    check("an unmeasured poster falls back to a measured 16:9 backdrop",
+          F.build_asset(item(posterURL="https://m.media-amazon.com/unmeasured.jpg",
+                             backdropURL="https://image.tmdb.org/t/p/w1280/bg.jpg"), dims=dims)["images"][0]["url"],
+          "https://image.tmdb.org/t/p/w1280/bg.jpg")
 
     # ---- gates the validator taught us ----------------------------------
     check("59 seconds is out (ASSET_DURATION_SHORT)", F.eligibility(item(runtimeSeconds=59), ids, "catalog"), "under_60s")
@@ -281,12 +284,14 @@ def main() -> int:
           F.tags(item(), "safe_pd_age"), ["1920s", "public domain", "silent film", "black and white", "internet archive"])
 
     # ---- whole asset + pagination ------------------------------------------
-    a = F.build_asset(item())
+    OKDIMS = {"https://image.tmdb.org/t/p/w500/abc.jpg": [500, 750],
+              "https://image.tmdb.org/t/p/w1280/bg.jpg": [1280, 720]}
+    a = F.build_asset(item(), dims=OKDIMS)
     check("control: a full asset validates", F.validate_asset(a), [])
     check("IMDb ids are OFF by default (Roku's published schema rejects the source)",
           "externalIds" in a, False)
     check("--imdb emits the IMDb id as an externalId",
-          F.build_asset(item(), imdb=True).get("externalIds"), [{"source": "IMDB", "id": "tt0017925"}])
+          F.build_asset(item(), imdb=True, dims=OKDIMS).get("externalIds"), [{"source": "IMDB", "id": "tt0017925"}])
     check("title is never decorated with the year", a["titles"][0]["value"], "The General")
     check("a background image is included when the catalog has one", len(a["images"]), 2)
     pages = F.paginate([a] * 5, 2, "https://archivewatch.org/roku-search", "ab12cd")
