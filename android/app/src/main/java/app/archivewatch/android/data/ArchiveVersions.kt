@@ -30,6 +30,13 @@ object ArchiveVersions {
         val format: String,
         val heightPixels: Int?,
         val isDerivative: Boolean,
+        // The file's own name, shown ONLY when the facts above do not tell two
+        // copies apart. A multi-reel upload — Buster Keaton Rides Again is
+        // reel1.mov and reel2.mov, same size, format and height — otherwise
+        // renders as two identical rows, each of them HALF THE FILM. A choice
+        // that plays the wrong half is worse than one that cannot play: it
+        // looks like it worked.
+        val disambiguator: String? = null,
     ) {
         /** `480p · H.264 · 575 MB — Archive derivative` — literal, never "Best". */
         val label: String
@@ -39,6 +46,7 @@ object ArchiveVersions {
                     format.takeIf { it.isNotEmpty() }
                         ?.let { add(it.replace(Regex("h\\.264", RegexOption.IGNORE_CASE), "H.264")) }
                     add(sizeText(sizeBytes))
+                    disambiguator?.let { add(it) }
                 }
                 val origin = if (isDerivative) "Archive derivative" else "uploader original"
                 return parts.joinToString(" · ") + " — " + origin
@@ -77,10 +85,15 @@ object ArchiveVersions {
                         ),
                     )
                 }
-                out.sortedWith(
+                val sorted = out.sortedWith(
                     compareByDescending<Version> { it.heightPixels ?: 0 }
                         .thenByDescending { it.sizeBytes },
                 )
+                // Two copies that render the same label are not a choice.
+                val seen = sorted.groupingBy { it.label }.eachCount()
+                sorted.map {
+                    if ((seen[it.label] ?: 0) > 1) it.copy(disambiguator = stem(it.name)) else it
+                }
             }
         }.getOrDefault(emptyList())
     }
@@ -156,6 +169,15 @@ object ArchiveVersions {
     // .mpeg/.mpg (MPEG-1 and MPEG-2, which few Android devices decode) and
     // Ogg Theora, which Media3 does not support at all.
     private val CONTAINERS = listOf(".mp4", ".mkv", ".webm", ".mov", ".m4v")
+
+    // The file's base name without directory or extension — "reel1" from
+    // busterkeatonridesagain/busterkeatonridesagainreel1.mov. Long archive
+    // names repeat the item id, which tells the viewer nothing, so the tail is
+    // what is kept.
+    internal fun stem(name: String): String {
+        val base = name.substringAfterLast('/').substringBeforeLast('.')
+        return if (base.length > 24) base.takeLast(24) else base
+    }
 
     private fun sizeText(bytes: Long): String = when {
         bytes >= 1_000_000_000 -> String.format(java.util.Locale.US, "%.1f GB", bytes / 1e9)

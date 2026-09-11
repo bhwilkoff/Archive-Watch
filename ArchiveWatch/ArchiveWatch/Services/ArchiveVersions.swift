@@ -25,6 +25,13 @@ enum ArchiveVersions {
         let format: String          // archive.org's own label, e.g. "h.264"
         let heightPixels: Int?
         let isDerivative: Bool      // Archive-generated (h.264 by construction)
+        /// The file's own name, shown ONLY when the facts above do not tell
+        /// two copies apart. A multi-reel upload — Buster Keaton Rides Again
+        /// is `reel1.mov` and `reel2.mov`, same size, same format, same
+        /// height — otherwise renders as two identical rows, each of which is
+        /// HALF THE FILM. A choice that plays the wrong half is worse than one
+        /// that cannot play at all: it looks like it worked.
+        var disambiguator: String?
 
         var id: String { name }
 
@@ -38,6 +45,7 @@ enum ArchiveVersions {
                 .replacingOccurrences(of: "h.264", with: "H.264", options: .caseInsensitive)
             if !codec.isEmpty { parts.append(codec) }
             parts.append(Self.sizeText(sizeBytes))
+            if let d = disambiguator { parts.append(d) }
             let origin = isDerivative ? "Archive derivative" : "uploader original"
             return parts.joined(separator: " · ") + " — " + origin
         }
@@ -55,6 +63,7 @@ enum ArchiveVersions {
                 .replacingOccurrences(of: "h.264", with: "H.264", options: .caseInsensitive)
             if !codec.isEmpty { parts.append(codec) }
             parts.append(Self.sizeText(sizeBytes))
+            if let d = disambiguator { parts.append(d) }
             return parts.joined(separator: " · ")
         }
 
@@ -125,10 +134,27 @@ enum ArchiveVersions {
         // 591 MB against 563 MB for its 480p H.264, because MPEG-4 Part 2 is
         // far less efficient — so the worse picture sorted above the better
         // one. Bytes measure the encoder, not the transfer.
-        return out.sorted {
+        var sorted = out.sorted {
             let (a, b) = ($0.heightPixels ?? 0, $1.heightPixels ?? 0)
             return a == b ? $0.sizeBytes > $1.sizeBytes : a > b
         }
+        // Two copies that render the same label are not a choice. Name them.
+        let counts = Dictionary(grouping: sorted, by: { $0.compactLabel })
+            .mapValues(\.count)
+        for i in sorted.indices where (counts[sorted[i].compactLabel] ?? 0) > 1 {
+            sorted[i].disambiguator = Self.stem(sorted[i].name)
+        }
+        return sorted
+    }
+
+    /// The file's base name, without directory or extension — `reel1` from
+    /// `busterkeatonridesagain/busterkeatonridesagainreel1.mov`. Long archive
+    /// names repeat the item id, which tells the viewer nothing, so the tail
+    /// is what is kept.
+    static func stem(_ name: String) -> String {
+        let base = (name as NSString).lastPathComponent
+        let noExt = (base as NSString).deletingPathExtension
+        return noExt.count > 24 ? String(noExt.suffix(24)) : noExt
     }
 
     // MARK: - Per-title choice
