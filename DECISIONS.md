@@ -185,6 +185,7 @@ an entry in place.
 - 114 — A bare CC claim rescues nothing, a 5,000-vote footprint in 1964-77 is a studio film, and a modern id wearing an old year is a wrong match
 - 115 — A store's device count is the only place a minSdk regression is visible; the Fire TV build is gated on reaching Fire OS 7
 - 116 — A data contract is a test, not a docstring; and a client may not crash on a shape
+- 117 — Roku's ingestion scores the CHANNEL INDEX, not the file; a withheld asset freezes its last verdict, so fit the poster instead
 
 ---
 
@@ -2115,3 +2116,66 @@ crash was: a field declared with `onChange=` in an XML `<interface>` can fire
 while the component is still being built, BEFORE `init()` has assigned node
 references — guard the handler and re-apply content at the end of `init()`,
 or an early-arriving `itemContent` leaves the tile blank forever.
+
+## 117 — Roku's ingestion scores the CHANNEL INDEX, not the file; a withheld asset freezes its last verdict, so fit the poster instead
+*Date: 2026-09-11*
+
+A film whose poster is the wrong SHAPE gets a fitted 2:3 rendition
+(`tools/fit_roku_covers.py`) rather than being dropped from the Roku Search
+feed. The rendition scales the original to fit INSIDE a 400x600 canvas and
+fills the bars with a blurred copy of itself, so the artwork is never cropped
+and never stretched (Decision 097 intact). The files ride the `roku-covers`
+tarball that deploy-pages restores to `_site/roku-search/covers`, which is the
+one host Roku's fetcher can read — archive.org refuses it.
+
+**Why**: the owner reported the registered feed stuck at 98% while the
+standalone validator scored the SAME URL at 100%. Both readings are correct
+and they score different things. The validator scores the FILE. The registered
+ingestion scores the CHANNEL INDEX — and it counts an asset it is RECONCILING
+(removing, because our feed stopped listing it) as a rejection, reporting the
+errors from when that asset was last present.
+
+Measured across six ingestions of three different feeds:
+
+    job 3   3,106 assets   passed 3,052   errors 54   reconciled  --
+    job 4   2,903 assets   passed 2,849   errors 54   reconciled 249
+    job 5   3,106 assets   passed 3,052   errors 54   reconciled  54
+    job 6   3,106 assets   passed 3,052   errors 54   reconciled  54
+    job 7   3,755 assets   passed 3,701   errors 54   reconciled   0
+    job 8   3,755 assets   passed 3,702   errors 53   reconciled   0
+    job 9   3,755 assets   passed 3,702   errors 53   reconciled   0
+
+The id list is BYTE-IDENTICAL across a feed that changed size by 203 assets,
+and while those ids were absent NONE of them was in the feed at all. Roku's
+own report download named the cause in one line — `Invalid aspect ratio
+ASPECT_RATIO_4_3 for main image ... Image will be removed`, then `All images
+have been removed. An asset must have at least one image.` Every one was a
+Wikimedia still our own gate had since dropped, and dropping them is what
+made the records permanent.
+
+**The cost was never 54 films.** 835 of 3,972 eligible titles were being
+withheld for the proportions of their poster alone — rights-evidenced,
+playable, professionally illustrated films kept out of Roku Search because a
+1918 press still is 4:3. Fitting them took the feed from 3,106 to 3,755 and
+approved titles from 3,052 to 3,702.
+
+**How to apply**: prefer a conformant rendition to withholding an asset, and
+keep the negative controls — a 16x16 favicon and a non-image are REFUSED
+rather than letterboxed in, and a map entry whose file did not reach the
+tarball still withholds the film, because a 404 to Roku is worse than the
+off-aspect image it replaces. Do NOT tighten the aspect tolerance to chase a
+percentage: that experiment was run (1% both ways, 2026-09-11) and DISPROVED
+its own premise — removing all 203 assets outside 1% changed the error count
+by exactly zero, because the real failures were far outside any plausible
+band and already excluded. Tolerances stay at the values measured from Roku's
+own approvals (2:3 4%, 16:9 1.5%).
+
+**Consequences**: 53 verdicts remain frozen. Those assets are now in the feed
+carrying a 400x600 image that Roku still reports as an invalid aspect, which
+is not reachable from the current file — the verdict is cached per asset and
+is not re-tested when the asset changes. The file itself validates at **100%**
+(2026-09-11 15:44 UTC, 3,755 assets). Clearing a stale per-asset record is a
+Partner Success request, and Partner Success is the required next step anyway
+to publish the feed to end users. Two report traps worth keeping: `issuesList`
+and the summary panel LAG one job behind the job API, and the asset-id search
+box filters that stale list client-side with no network request.

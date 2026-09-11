@@ -286,6 +286,33 @@ gate or a resolver, each measured rather than read off the spec page:
   `contentItemErrorsCount` for the count and treat the id list as one
   ingestion old. `job.validationErrorsUrl` is the full report, but it is a
   presigned S3 link with no CORS, so it cannot be read from the page.
+- **The ingestion report scores the CHANNEL INDEX; the standalone validator
+  scores the FILE, and they legitimately disagree** (Decision 117, measured
+  across nine ingestions on 2026-09-11). The registered feed sat at 98% while
+  the validator read the same URL at 100%. The ingestion counts an asset it is
+  RECONCILING — removing, because the feed stopped listing it — as a
+  rejection, carrying forward the errors from when it was last present, and
+  those records do not clear on their own. The reject list stayed byte
+  identical across a feed that changed size by 203 assets while none of the
+  ids was in the feed at all. **Never read the ingestion percentage as a
+  statement about the file**; validate the URL in the standalone validator to
+  judge the file, and use `job.contentItemReconciledCount` to tell a real
+  rejection from a removal being counted as one.
+- **A film is never withheld for the SHAPE of its poster.** Withholding is
+  what freezes the record above, and it was expensive on its own: 835 of
+  3,972 eligible titles — rights-evidenced, playable, professionally
+  illustrated — were kept out of Roku Search because a press still is 4:3.
+  `tools/fit_roku_covers.py` renders a 400x600 rendition that fits the
+  original whole over a blurred copy of itself (never cropped, never
+  stretched — Decision 097), writes `ops/roku-fitted-covers.json`, and its
+  files ride the same `roku-covers` tarball. Feed 3,106 → 3,755 assets;
+  approved 3,052 → 3,702; the file validates at 100%. Re-run it after a
+  catalog refresh, then `tools/publish_roku_covers.py` to pack and upload.
+- **Do NOT tighten `ASPECT_TOLERANCE` to chase the percentage.** That
+  experiment was run on 2026-09-11 — 1% both ways, withholding the 203 assets
+  outside it — and changed the reported error count by exactly zero, because
+  the real failures were far outside any plausible band and already excluded.
+  It cost 203 films for no gain and was reverted.
 - **Roku's aspect tolerance is not symmetric.** It approved a 500x781 poster
   (3.97% off 2:3) and refused a 500x292 one (3.68% off 16:9); the other four
   landscape mains in the feed, all under 1%, passed. `ASPECT_TOLERANCE` is
