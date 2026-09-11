@@ -12,16 +12,54 @@ reported its own success.
 
 ## 1. The fleet
 
-| Lease name | Device | UDID prefix | Notes |
-|---|---|---|---|
-| `atv` | Ben Bedroom — Apple TV 4K (3rd gen) | `C3FBA9DE` | Paired. The owner *watches* on a second, unpaired unit (Fireplace) — settings differ per device |
-| `ipad` | iPad Pro 12.9 (5th gen) | `AC5377E9` | Signed in as benwilkoff@gmail.com |
-| `iphone` | iPhone 12 | `B4E756E2` | Signed in as arlowilkoff@icloud.com — a **different Apple ID**, which is what makes it a real SharePlay peer |
-| — | iPhone 15 Pro | `988DE0A7` | Paired, available |
+Verified live 2026-09-11. Every row below answered a real query on that date,
+not a recollection.
+
+| Lease name | Device | UDID prefix | OS | Notes |
+|---|---|---|---|---|
+| `atv` | Ben Bedroom — Apple TV 4K (3rd gen) | `C3FBA9DE` | tvOS 27.0 (24J5360a) | The long-standing harness unit |
+| `atv-fireplace` | **Fireplace TV — Apple TV 4K (2nd gen)** | `F994DF01` | tvOS 27.0 (24J5360a) | **The unit the owner actually WATCHES on**, paired 2026-09-11. `AppleTV11,1` — the older silicon behind Decision 096's "Fireplace-class hardware constraint" |
+| `atv-movieroom` | **Movie Room — Apple TV 4K (3rd gen)** | `FE70998C` | **tvOS 26.6 (23L773)** | Paired 2026-09-11. The only unit NOT on tvOS 27 — it is the CONTROL for Decision 106's audio fault, which is 27-only |
+| `ipad` | iPad Pro 12.9 (5th gen) | `AC5377E9` | iPadOS 27.0 | Signed in as benwilkoff@gmail.com |
+| `iphone` | iPhone 12 | `B4E756E2` | iOS 26.6.1 | Signed in as arlowilkoff@icloud.com — a **different Apple ID**, which is what makes it a real SharePlay peer |
+| — | iPhone 15 Pro | `988DE0A7` | iOS 27.0 | Paired |
 
 Two Apple IDs across the fleet is a feature, not an accident: SharePlay,
 CloudKit sync and Sign in with Apple all behave differently between "two
 devices, one account" and "two accounts".
+
+**Three Apple TVs is now a feature too.** Two are on tvOS 27 and one is on
+26.6, which is exactly the split Decision 106 had to reason about from a
+single data point. Any tvOS-version-dependent claim can now be tested rather
+than inferred. And the Fireplace unit is second-generation hardware, so a
+change that is fine on the 3rd-gen units is not proven until it runs there.
+
+### The non-Apple bench
+
+| Device | Address | OS | State |
+|---|---|---|---|
+| Roku Streaming Stick 4K | `10.0.0.155` | Roku OS 15.3.4 | developer mode ON; sideloaded `Archive Watch 1.0.51` |
+| Google TV (SEI Dongle R 4K) | `10.0.0.55:5555` | Android 14 / API 34 | adb connected |
+| Fire TV Stick 4K Max (`AFTKRT`) | `10.0.0.139:5555` | Fire OS 8 / Android 11 / API 30 | adb connected |
+| Pixel 8a | `adb-3B211JEKB14516…_adb-tls-connect._tcp` | Android 17 / API 37 | adb over TLS |
+| This Mac | — | macOS 27.0 (26A5425a) | Xcode-beta; `DEVELOPER_DIR` must point at it |
+
+### Pairing a new Apple TV (Xcode 26)
+
+**Window → Devices and Simulators is GONE in Xcode 26.** The pathway is
+**Xcode → Open Developer Tool → Device Hub**, then the **+** button →
+**Pair Nearby Device…** → the **Apple TV** tab. On the TV, go to
+**Settings → General → Remote Devices** and leave that screen open; the TV
+then appears in the dialog's list, and selecting it and pressing Next puts a
+six-digit code on the TV.
+
+Two traps worth knowing. `devicectl manage pair` cannot start this — it answers
+"The specified device was not found" for a TV that is not already on that
+Remote Devices screen, because Xcode is what triggers the pairing, not the TV.
+And once paired, a TV reads `available (paired)` with `tunnelState:
+disconnected` until something talks to it; addressing it BY NAME can fail with
+"multiple devices have the name", so **address a TV by its UDID** and allow a
+long timeout on the first call, which is what actually establishes the tunnel.
 
 ## 2. Device leases — sharing hardware with another session
 
