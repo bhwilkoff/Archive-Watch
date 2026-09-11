@@ -362,7 +362,18 @@ struct PlayerView: UIViewControllerRepresentable {
 
         private var externalObs: NSKeyValueObservation?
         private var isExternalActive = false
-        private var didFallback = false
+        /// How many times playback may be rebuilt through the resilient loader
+        /// before the film is declared unplayable. This was a Bool — exactly
+        /// one attempt for an entire feature.
+        static let maxRecovery = 5
+        private var recoveryAttempts = 0
+        private var recoveryReset: DispatchWorkItem?
+        /// True once every rebuild is spent; only then may a failure be reported
+        /// to the viewer as an unplayable title.
+        private var recoveryExhausted: Bool { recoveryAttempts >= Self.maxRecovery }
+        /// Still on the captioned path — nothing has forced a drop to the
+        /// resilient loader yet.
+        private var onCaptionedPath: Bool { recoveryAttempts == 0 }
         private var statusObs: NSKeyValueObservation?
         private var fallbackWork: DispatchWorkItem?
         /// Reports a title that will never play, so the host can dismiss and say
@@ -421,10 +432,10 @@ struct PlayerView: UIViewControllerRepresentable {
 
             if fallbackVideoURL != nil {
                 statusObs = playerItem.observe(\.status, options: [.new]) { [weak self] item, _ in
-                    MainActor.assumeIsolated { if item.status == .failed { self?.fallbackToLoader() } }
+                    MainActor.assumeIsolated { if item.status == .failed { self?.scheduleRecovery() } }
                 }
                 let work = DispatchWorkItem { [weak self] in
-                    if self?.player?.currentItem?.status != .readyToPlay { self?.fallbackToLoader() }
+                    if self?.player?.currentItem?.status != .readyToPlay { self?.recoverThroughLoader() }
                 }
                 fallbackWork = work
                 DispatchQueue.main.asyncAfter(deadline: .now() + 15, execute: work)
@@ -433,7 +444,7 @@ struct PlayerView: UIViewControllerRepresentable {
                 // is only used once we've dropped CC, so a persistent stall is a
                 // strict win. Gated against transient blips inside the monitor.
                 captionStall.attach(player: player, item: playerItem) { [weak self] in
-                    self?.fallbackToLoader()
+                    self?.recoverThroughLoader()
                 }
             }
 
@@ -541,7 +552,7 @@ struct PlayerView: UIViewControllerRepresentable {
                     case .readyToPlay:
                         self.loadWatchdog?.cancel(); self.loadWatchdog = nil
                     case .failed:
-                        guard self.fallbackVideoURL == nil || self.didFallback else { return }
+                        guard self.fallbackVideoURL == nil || self.recoveryExhausted else { return }
                         self.reportUnplayable(it.error?.localizedDescription)
                     default: break
                     }
@@ -551,7 +562,7 @@ struct PlayerView: UIViewControllerRepresentable {
             loadWatchdog?.cancel()
             let work = DispatchWorkItem { [weak self] in
                 guard let self, self.player?.currentItem?.status != .readyToPlay else { return }
-                guard self.fallbackVideoURL == nil || self.didFallback else { return }
+                guard self.fallbackVideoURL == nil || self.recoveryExhausted else { return }
                 self.reportUnplayable(nil)
             }
             loadWatchdog = work
@@ -702,9 +713,26 @@ struct PlayerView: UIViewControllerRepresentable {
             }
         }
 
-        private func fallbackToLoader() {
-            guard !didFallback, let url = fallbackVideoURL, let player else { return }
-            didFallback = true
+        /// Rebuild playback through the resilient loader, resuming where the
+        /// viewer was — and stay armed to do it again.
+        ///
+        /// This fired EXACTLY ONCE and tore down its own status observer on the
+        /// way out, so nothing watched the rebuilt item. For a CAPTIONED film
+        /// that was defensible: the single swap drops CC and lands on the
+        /// resilient path for good. For a film with NO subtitles it was not,
+        /// because Decision 067 starts those on the PLAIN url — so the viewer
+        /// got one reconnect for an entire feature, and the second interruption
+        /// ended the film.
+        ///
+        /// Reported 2026-09-11 by a viewer watching The Grapes of Wrath, whose
+        /// archive.org item carries a single copy and no subtitles: it played
+        /// about five minutes and stopped. archive.org resets idle connections
+        /// as a matter of course — that is the entire reason Decision 021
+        /// exists — so one retry was never a policy. It was an accident of the
+        /// captioned path being the one this code was written for.
+        private func recoverThroughLoader() {
+            guard !recoveryExhausted, let url = fallbackVideoURL, let player else { return }
+            recoveryAttempts += 1
             fallbackWork?.cancel(); fallbackWork = nil
             statusObs = nil
             captionStall.detach()
@@ -712,12 +740,44 @@ struct PlayerView: UIViewControllerRepresentable {
             let pos = player.currentTime()
             let (asset, ldr) = ResilientStreamLoader.makeAsset(for: url)
             loader = ldr
-            swap(to: AVPlayerItem(asset: asset), resumingAt: pos, on: player)
+            let rebuilt = AVPlayerItem(asset: asset)
+            swap(to: rebuilt, resumingAt: pos, on: player)
+            armRecovery(on: rebuilt)
+            print("[AWPLAY] recovery \(recoveryAttempts)/\(Self.maxRecovery) at \(pos.seconds)s")
             // The subtitle track went with the HLS path — caption the audio
             // instead, rather than leaving this film silently uncaptioned.
             if liveCaptionsAllowed, liveCaptions == nil, LiveCaptions.isSupported,
                let vc = playerVC {
                 startLiveCaptions(url: url, in: vc)
+            }
+        }
+
+        /// Watch the REBUILT item so a later interruption is recoverable too,
+        /// and forgive the budget once playback has genuinely held.
+        ///
+        /// A two-hour film may legitimately meet several resets an hour apart.
+        /// Those must not share an allowance with a burst of failures inside a
+        /// few seconds, which is what a bare counter would do.
+        private func armRecovery(on item: AVPlayerItem) {
+            statusObs = item.observe(\.status, options: [.new]) { [weak self] it, _ in
+                MainActor.assumeIsolated {
+                    if it.status == .failed { self?.scheduleRecovery() }
+                }
+            }
+            recoveryReset?.cancel()
+            let reset = DispatchWorkItem { [weak self] in self?.recoveryAttempts = 0 }
+            recoveryReset = reset
+            DispatchQueue.main.asyncAfter(deadline: .now() + 90, execute: reset)
+        }
+
+        /// Back off between attempts, so a source that is genuinely gone is not
+        /// hammered five times in a second and pronounced dead before the
+        /// network has had a chance to come back.
+        private func scheduleRecovery() {
+            guard !recoveryExhausted else { return }
+            let delay = min(Double(recoveryAttempts) * 2.0, 8.0)
+            DispatchQueue.main.asyncAfter(deadline: .now() + delay) { [weak self] in
+                self?.recoverThroughLoader()
             }
         }
 
@@ -768,7 +828,7 @@ struct PlayerView: UIViewControllerRepresentable {
             if let file = OfflineLibrary.videoURL(for: archiveID) {
                 return AVPlayerItem(url: file)
             }
-            if let hls = directHLSURL, let mp4 = directVideoURL, !didFallback {
+            if let hls = directHLSURL, let mp4 = directVideoURL, onCaptionedPath {
                 let (asset, l) = CaptionedHLSLoader.makeAsset(hls: hls, downloadURL: mp4)
                 captionedLoader = l
                 return AVPlayerItem(asset: asset)

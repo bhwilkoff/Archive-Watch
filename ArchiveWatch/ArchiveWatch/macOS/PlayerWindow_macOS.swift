@@ -151,7 +151,11 @@ private struct PlayerSurface: View {
     @State private var captionedLoader: CaptionedHLSLoader?   // Part (a): Config C HLS
     @State private var localSubsLoader: LocalSubtitleHLSLoader?  // on-device subtitles
     @State private var statusObs: NSKeyValueObservation?
-    @State private var didFallback = false
+    /// How many times playback may be rebuilt through the resilient loader
+    /// before the film is declared unplayable (iOS twin: `maxRecovery`).
+    @State private var recoveryAttempts = 0
+    @State private var recoveryReset: DispatchWorkItem?
+    private static let maxRecovery = 5
     @State private var unplayableObs: NSKeyValueObservation?
     @State private var loadWatchdog: DispatchWorkItem?
     @State private var loadError: String?
@@ -303,7 +307,11 @@ private struct PlayerSurface: View {
                 if item.status == .readyToPlay { loadWatchdog?.cancel(); loadWatchdog = nil }
                 // A captioned item gets its CC-dropping fallback first; only
                 // report once that has been spent.
-                if item.status == .failed, subtitleHLS == nil || didFallback {
+                // This test was true from the first frame for a film with no
+                // subtitles, so the error was shown on the very `.failed` that
+                // was kicking off a recovery — the viewer read "unavailable"
+                // while the app was still trying. Report only once spent.
+                if item.status == .failed, recoveryAttempts >= Self.maxRecovery {
                     reportUnplayable()
                 }
             }
@@ -312,7 +320,7 @@ private struct PlayerSurface: View {
         let watchdog = DispatchWorkItem {
             MainActor.assumeIsolated {
                 guard player?.currentItem?.status != .readyToPlay else { return }
-                guard subtitleHLS == nil || didFallback else { return }
+                guard recoveryAttempts >= Self.maxRecovery else { return }
                 reportUnplayable()
             }
         }
@@ -409,7 +417,7 @@ private struct PlayerSurface: View {
 
     /// Rebuild the on-device item, mirroring `setup`'s branch.
     private func makeLocalItem() -> AVPlayerItem? {
-        if let hls = subtitleHLS, let mp4 = videoURL, !didFallback {
+        if let hls = subtitleHLS, let mp4 = videoURL, recoveryAttempts == 0 {
             let (asset, l) = CaptionedHLSLoader.makeAsset(hls: hls, downloadURL: mp4)
             captionedLoader = l
             return AVPlayerItem(asset: asset)
@@ -432,20 +440,47 @@ private struct PlayerSurface: View {
         loadError = "The copy on archive.org may have been removed or is temporarily unavailable."
     }
 
+    /// Rebuild through the resilient loader and STAY ARMED to do it again.
+    /// See the iOS twin for the incident: one retry per film is not a policy
+    /// when archive.org resets idle connections as a matter of course.
     private func fallbackToResilientMP4() {
-        guard !didFallback, let url = videoURL, let p = player else { return }
-        didFallback = true
+        guard recoveryAttempts < Self.maxRecovery, let url = videoURL,
+              let p = player else { return }
+        recoveryAttempts += 1
         captionStall.detach()
         statusObs = nil
         captionedLoader = nil
         let pos = p.currentTime()
         let (asset, l) = ResilientStreamLoader.makeAsset(for: url)
         loader = l
-        swap(to: AVPlayerItem(asset: asset), resumingAt: pos, on: p)
+        let rebuilt = AVPlayerItem(asset: asset)
+        swap(to: rebuilt, resumingAt: pos, on: p)
+        // Watch the REBUILT item too, or a second interruption has nothing
+        // listening for it; and forgive the budget once playback has held, so
+        // resets an hour apart do not share an allowance with a burst.
+        statusObs = rebuilt.observe(\.status, options: [.new]) { item, _ in
+            MainActor.assumeIsolated {
+                if item.status == .failed { scheduleRecovery() }
+            }
+        }
+        captionStall.attach(player: p, item: rebuilt) { scheduleRecovery() }
+        recoveryReset?.cancel()
+        let reset = DispatchWorkItem { MainActor.assumeIsolated { recoveryAttempts = 0 } }
+        recoveryReset = reset
+        DispatchQueue.main.asyncAfter(deadline: .now() + 90, execute: reset)
         // The subtitle track went with the HLS path — caption the audio instead.
         // Unless the engine is already running (the direct-URL branch started
         // it at setup) or the viewer chose captions Off.
         if liveCaptions == nil, !captionsOff { startLiveCaptions(on: p) }
+    }
+
+    /// Back off between attempts so a genuinely dead source is not hammered.
+    private func scheduleRecovery() {
+        guard recoveryAttempts < Self.maxRecovery else { return }
+        let delay = min(Double(recoveryAttempts) * 2.0, 8.0)
+        DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
+            MainActor.assumeIsolated { fallbackToResilientMP4() }
+        }
     }
 
     /// Check the published track against what is actually being said.
