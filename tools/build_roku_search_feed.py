@@ -126,6 +126,12 @@ COMMONS_API = "https://commons.wikimedia.org/w/api.php"
 USER_AGENT = "ArchiveWatch/1.0 (https://archivewatch.org; ben@learningischange.com)"
 IMAGE_EXT_RE = re.compile(r"\.(jpe?g|png|gif)(\?.*)?$", re.I)
 DIMS_CACHE = REPO / "ops" / "image-dims.json"
+# Films whose real poster is the wrong SHAPE get a fitted 2:3 rendition
+# rather than being withheld: url -> filename under /roku-search/covers.
+# Built by tools/fit_roku_covers.py; see its header for why a withheld
+# asset is worse than a letterboxed one (Roku counts a RECONCILED asset
+# as a rejection and never clears it).
+FITTED_MAP = REPO / "ops" / "roku-fitted-covers.json"
 # Assets Roku has refused MORE THAN ONCE for something we cannot reproduce —
 # an image that answers 200 with the right shape from here and still comes
 # back IMAGE_DOWNLOAD_ERROR there. One asset is not worth an unexplained
@@ -677,9 +683,19 @@ def eligibility(item: dict, index_ids: set, tier: str, art: str = "any") -> str 
     return None
 
 
+def load_fitted() -> dict:
+    """url -> fitted cover filename. Absent map = feature simply off."""
+    try:
+        return json.loads(FITTED_MAP.read_text(encoding="utf-8"))
+    except Exception:  # noqa: BLE001
+        return {}
+
+
 def build_asset(item: dict, tv_specials: bool = False, imdb: bool = False,
                 resolver: "ImageResolver | None" = None,
-                dims: dict | None = None) -> "dict | None":
+                dims: dict | None = None,
+                fitted: dict | None = None,
+                covers_dir: "Path | None" = None) -> "dict | None":
     """The Roku asset, or None when its only images are known-bad."""
     b, _ = bucket(item)
     title = strip_html(item.get("title") or "")[:200]
@@ -715,7 +731,17 @@ def build_asset(item: dict, tv_specials: bool = False, imdb: bool = False,
         if bv == "ok":
             main, bg = bg, None      # a 16:9 backdrop is a valid main image
         else:
-            return None
+            # Last resort before withholding the film: a 2:3 rendition of this
+            # very poster, fitted (never cropped, never stretched) over a blur
+            # of itself. Only used when the file is actually PRESENT in the
+            # restored covers directory — a map entry whose file did not make
+            # it into the tarball would be a 404 to Roku, which is worse than
+            # the off-aspect image we are replacing.
+            name = (fitted or {}).get(main)
+            if name and covers_dir and (covers_dir / name).is_file():
+                main, bg = f"{SITE}/{FEED_DIR}/covers/{name}", None
+            else:
+                return None
     images = [{"type": "main", "url": main}]
     if bg and bv != "bad":
         images.append({"type": "background", "url": bg})
@@ -867,8 +893,9 @@ def main() -> int:
             continue
         eligible.append(item)
 
-    resolver = ImageResolver(network=not args.no_network,
-                             covers_dir=Path(args.out) / FEED_DIR / "covers")
+    covers_dir = Path(args.out) / FEED_DIR / "covers"
+    resolver = ImageResolver(network=not args.no_network, covers_dir=covers_dir)
+    fitted = load_fitted()
     resolver.prefetch_commons([image_url(it.get("posterURL")) or "" for it in eligible]
                               + [image_url(it.get("backdropURL"), "background") or "" for it in eligible])
     dims = json.loads(DIMS_CACHE.read_text(encoding="utf-8")) if DIMS_CACHE.exists() else {}
@@ -878,7 +905,8 @@ def main() -> int:
         if item["archiveID"] in denied:
             reasons["roku_denylist"] += 1
             continue
-        a = build_asset(item, args.tv_specials, imdb=args.imdb, resolver=resolver, dims=dims)
+        a = build_asset(item, args.tv_specials, imdb=args.imdb, resolver=resolver,
+                        dims=dims, fitted=fitted, covers_dir=covers_dir)
         if a is None:
             reasons["image_unverified"] += 1
             continue
