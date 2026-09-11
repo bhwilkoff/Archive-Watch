@@ -61,6 +61,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.zIndex
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.media3.common.C
 import androidx.media3.common.MediaItem
@@ -327,8 +328,50 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
     var playerViewRef by remember { mutableStateOf<PlayerView?>(null) }
     var nowTitle by remember { mutableStateOf(spec.title) }
     var nowDescription by remember { mutableStateOf(spec.description) }
+    // Surfaced only once recovery is spent — a film that recovers should say
+    // nothing at all.
+    var playbackError by remember(spec.url) { mutableStateOf<String?>(null) }
     DisposableEffect(player) {
+        // A mid-film failure used to END THE FILM SILENTLY. ExoPlayer retries a
+        // load 8 times (the policy above), and when those are spent it emits
+        // onPlayerError and goes IDLE — and nothing here implemented that
+        // callback, so playback stopped with no message and no recovery. A
+        // viewer reported exactly that on 2026-09-11: "the movie play for about
+        // five minutes and then stops". archive.org resetting a connection is
+        // the ordinary event Decision 021 exists for, so re-preparing at the
+        // same position is the right answer, not an error screen.
+        var recoveries = 0
+        var lastRecoveryAt = 0L
+        val maxRecoveries = 5
         val listener = object : Player.Listener {
+            override fun onPlayerError(error: androidx.media3.common.PlaybackException) {
+                val recoverable = error.errorCode in
+                    androidx.media3.common.PlaybackException.ERROR_CODE_IO_UNSPECIFIED..
+                    androidx.media3.common.PlaybackException.ERROR_CODE_IO_NO_PERMISSION
+                val now = android.os.SystemClock.elapsedRealtime()
+                // Forgive the budget once playback has genuinely held: a long
+                // film may legitimately meet several resets an hour apart, and
+                // those must not share an allowance with a burst in one minute.
+                if (now - lastRecoveryAt > 90_000L) recoveries = 0
+                if (!recoverable || recoveries >= maxRecoveries) {
+                    playbackError = "Playback stopped — the connection to archive.org was lost." +
+                        if (spec.persistProgress) {
+                            " Your place is saved; try playing again in a moment."
+                        } else {
+                            " Try playing again in a moment."
+                        }
+                    return
+                }
+                recoveries++
+                lastRecoveryAt = now
+                val pos = player.currentPosition
+                player.currentMediaItem?.let {
+                    player.setMediaItem(it, pos)
+                    player.prepare()
+                    player.play()
+                }
+            }
+
             override fun onMediaItemTransition(item: MediaItem?, reason: Int) {
                 item?.mediaMetadata?.let { md ->
                     nowTitle = md.title?.toString() ?: spec.title
@@ -464,6 +507,23 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
                 } else Modifier,
             ),
     ) {
+        playbackError?.let { msg ->
+            // zIndex, not source order: a Box draws later children on top, and
+            // this sits above the AndroidView that follows it.
+            Box(
+                Modifier.fillMaxSize()
+                    .zIndex(10f)
+                    .background(Color(0xCC000000)),
+                contentAlignment = androidx.compose.ui.Alignment.Center,
+            ) {
+                Text(
+                    msg,
+                    color = Color.White,
+                    textAlign = androidx.compose.ui.text.style.TextAlign.Center,
+                    modifier = Modifier.padding(32.dp),
+                )
+            }
+        }
         AndroidView(
             factory = { ctx ->
                 PlayerView(ctx).apply {
