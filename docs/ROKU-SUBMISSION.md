@@ -274,6 +274,26 @@ gate or a resolver, each measured rather than read off the spec page:
   backdrop, or it does not ship. 3,164 → 3,108 assets, 0 unmeasured. Re-run
   `tools/measure_image_dims.py --tier guaranteed` whenever the resolver
   changes an image's URL shape, or the cache silently stops covering the feed.
+- **Two traps in the report itself, both of which make a fixed feed look
+  broken** (measured 2026-09-11). First, an ingestion started within ten
+  minutes of a Pages deploy scores the CDN's STALE copy — the 13:23 run
+  re-scored a feed that had been replaced three minutes earlier. Wait for
+  `age` on `/roku-search/feed.json` to show a fresh `MISS` before
+  revalidating. Second, the enumerated reject list
+  (`/apps/api/v1/channels/<id>/searchFeed/issuesList`) LAGS ONE JOB behind
+  the summary: after job 2 it still listed job 1's ids, none of which were in
+  the feed any more. Trust `job.contentItemPassedCount` /
+  `contentItemErrorsCount` for the count and treat the id list as one
+  ingestion old. `job.validationErrorsUrl` is the full report, but it is a
+  presigned S3 link with no CORS, so it cannot be read from the page.
+- **Roku's aspect tolerance is not symmetric.** It approved a 500x781 poster
+  (3.97% off 2:3) and refused a 500x292 one (3.68% off 16:9); the other four
+  landscape mains in the feed, all under 1%, passed. `ASPECT_TOLERANCE` is
+  therefore `{2:3: 4%, 16:9: 1.5%}` — measured, not guessed.
+- `ops/roku-feed-denylist.json` holds assets Roku refuses for something we
+  cannot reproduce (an image that answers 200 with the right shape here and
+  still returns IMAGE_DOWNLOAD_ERROR there). Each entry carries its evidence
+  and a retest instruction; one asset is not worth an unexplained rejection.
 - Re-validating the SAME URL is silently ignored; append `?v=N`. Pages sits
   behind a 600 s CDN cache that IGNORES the query string (a random `?g=`
   answers `x-cache: HIT`), so continuation pages are named
