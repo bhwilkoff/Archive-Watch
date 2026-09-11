@@ -1,0 +1,3 @@
+{
+  "beetle-bailey-cosmos-naught-and-more-episode-7": "Roku answered IMAGE_DOWNLOAD_ERROR twice (2026-09-10 validator run, 2026-09-11 ingestion) on https://image.tmdb.org/t/p/w500/4N97PZbhqFAV6sVvIs2457oV6Zd.jpg, which answers 200 with a perfect 500x750 from here. Two failures is a pattern, not a transient. Retest by removing this entry and revalidating."
+}

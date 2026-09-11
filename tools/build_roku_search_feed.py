@@ -126,8 +126,19 @@ COMMONS_API = "https://commons.wikimedia.org/w/api.php"
 USER_AGENT = "ArchiveWatch/1.0 (https://archivewatch.org; ben@learningischange.com)"
 IMAGE_EXT_RE = re.compile(r"\.(jpe?g|png|gif)(\?.*)?$", re.I)
 DIMS_CACHE = REPO / "ops" / "image-dims.json"
-ASPECTS = (2 / 3, 16 / 9)
-ASPECT_TOLERANCE = 0.04   # TMDb's 500x750 passes; a 500x707 (+6%) was refused
+# Assets Roku has refused MORE THAN ONCE for something we cannot reproduce —
+# an image that answers 200 with the right shape from here and still comes
+# back IMAGE_DOWNLOAD_ERROR there. One asset is not worth an unexplained
+# rejection in a feed we are asking Roku to publish; the reason travels with
+# the id so the next reader can retest it rather than inherit a mystery.
+DENYLIST = REPO / "ops" / "roku-feed-denylist.json"
+# Measured against Roku's own ingestion, 2026-09-11: it is GENEROUS about a
+# portrait poster and STRICT about a landscape one. 500x781 (3.97% off 2:3)
+# was approved, while 500x292 (3.68% off 16:9) was refused — the only
+# landscape main in the feed that sits above 1%. The other four landscape
+# mains (0.09%, 0.15%, 0.97%, 0.97%) were all approved. So the tolerances
+# are not symmetric, and neither is the evidence.
+ASPECT_TOLERANCE = {2 / 3: 0.04, 16 / 9: 0.015}
 
 KEEP_BUCKETS = {"safe_pd_age", "safe_gov", "safe_archive_license", "safe_cc",
                 "presumed_pd"}
@@ -496,7 +507,7 @@ def aspect_ok(w: int, h: int) -> bool:
     if not w or not h:
         return False
     r = w / h
-    return any(abs(r - a) / a <= ASPECT_TOLERANCE for a in ASPECTS)
+    return any(abs(r - a) / a <= tol for a, tol in ASPECT_TOLERANCE.items())
 
 
 def image_verdict(url: str | None, dims: dict) -> str:
@@ -848,8 +859,12 @@ def main() -> int:
     resolver.prefetch_commons([image_url(it.get("posterURL")) or "" for it in eligible]
                               + [image_url(it.get("backdropURL"), "background") or "" for it in eligible])
     dims = json.loads(DIMS_CACHE.read_text(encoding="utf-8")) if DIMS_CACHE.exists() else {}
+    denied = json.loads(DENYLIST.read_text(encoding="utf-8")) if DENYLIST.exists() else {}
     unmeasured = 0
     for item in eligible:
+        if item["archiveID"] in denied:
+            reasons["roku_denylist"] += 1
+            continue
         a = build_asset(item, args.tv_specials, imdb=args.imdb, resolver=resolver, dims=dims)
         if a is None:
             reasons["image_unverified"] += 1

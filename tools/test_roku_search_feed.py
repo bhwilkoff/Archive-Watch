@@ -211,6 +211,10 @@ def main() -> int:
     check("control: 500x750 is 2:3", F.aspect_ok(500, 750), True)
     check("1280x720 is 16:9", F.aspect_ok(1280, 720), True)
     check("500x707 (+6%) was refused by Roku -> bad", F.aspect_ok(500, 707), False)
+    # Roku's tolerances are NOT symmetric, measured on its own ingestion:
+    check("500x781 (3.97% off 2:3) is accepted — Roku approved it", F.aspect_ok(500, 781), True)
+    check("500x292 (3.68% off 16:9) is refused — Roku rejected it", F.aspect_ok(500, 292), False)
+    check("500x284 (0.97% off 16:9) is accepted — Roku approved it", F.aspect_ok(500, 284), True)
     check("300x400 (exactly 3:4) was refused by Roku -> bad", F.aspect_ok(300, 400), False)
     check("300x300 (1:1) was refused by Roku -> bad", F.aspect_ok(300, 300), False)
     dims = {"https://m.media-amazon.com/x.jpg": [300, 229],
