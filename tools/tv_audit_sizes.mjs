@@ -32,6 +32,18 @@ const PORT = Number(process.env.AW_TV_PORT || 9223);
 const SITE = process.env.AW_TV_URL || "https://archivewatch.org/?tv=1";
 const ROUTES = (process.env.AW_TV_ROUTES
   || "#/home,#/browse,#/search,#/library,#/collections,#/surprise,#/channels").split(",");
+/* AW_TV_KEYS presses a sequence on each route BEFORE measuring, which is the
+ * only way to reach an OVERLAY. The player is the case that forced it: it is
+ * not a route, it opens on Enter from Detail, and until this existed the
+ * auditor simply could not see the surface a viewer spends the most time on. */
+const KEYS = (process.env.AW_TV_KEYS || "").split(",").filter(Boolean);
+const KEYMAP = {
+  Up: { windowsVirtualKeyCode: 38, code: "ArrowUp", key: "ArrowUp" },
+  Down: { windowsVirtualKeyCode: 40, code: "ArrowDown", key: "ArrowDown" },
+  Left: { windowsVirtualKeyCode: 37, code: "ArrowLeft", key: "ArrowLeft" },
+  Right: { windowsVirtualKeyCode: 39, code: "ArrowRight", key: "ArrowRight" },
+  Enter: { windowsVirtualKeyCode: 13, code: "Enter", key: "Enter" },
+};
 
 const MIN_FONT = 18;      // below this is not readable at ten feet
 const MIN_TARGET = 44;    // below this is hard to land on with a D-pad
@@ -108,6 +120,13 @@ console.log(`thresholds: font >= ${MIN_FONT}px, focusable height >= ${MIN_TARGET
 for (const route of ROUTES) {
   await cdp("Page.navigate", { url: SITE.split("#")[0] + route });
   await sleep(2600);
+  for (const name of KEYS) {
+    const k = KEYMAP[name];
+    if (!k) continue;
+    await cdp("Input.dispatchKeyEvent", { type: "keyDown", ...k });
+    await cdp("Input.dispatchKeyEvent", { type: "keyUp", ...k });
+    await sleep(900);
+  }
   const els = (await evaluate(PROBE)) || [];
   checked += els.length;
   // The font floor applies to elements that HAVE text. A carousel dot is an

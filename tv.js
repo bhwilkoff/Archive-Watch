@@ -96,6 +96,318 @@
    * truth — every existing change handler in watch.js keeps working, because
    * the picker sets .value and dispatches 'change' exactly as a click would.
    */
+
+  /* ---------------------------------------------------------------- *
+   * A QR encoder, because a TV has no other way to hand over a link   *
+   * ---------------------------------------------------------------- *
+   *
+   * The owner: share playlists "from all native apps and have them publish to
+   * a archivewatch.org link that can be shared (QR codes for TV-based native
+   * apps)". On a phone that link goes to navigator.share; on a TV there is no
+   * share sheet, and `navigator.clipboard` is worse than useless — the viewer
+   * has nothing to paste into and no way to get the link off the set. So the
+   * TV draws the link as a code the viewer points a phone at.
+   *
+   * Ported from roku/components/QR.brs (byte mode, EC level L) and extended
+   * from versions 1-10 to 1-40, because 10 was nowhere near enough: measured
+   * against REAL catalogue ids, only a 1-3 film playlist fits v10, and a
+   * 50-film share URL is ~1,048-1,328 characters (v23-v27). The version and
+   * alignment tables are MACHINE-GENERATED from an independent reference and
+   * then verified cell-for-cell at every version — hand-transcribing them is
+   * how the v10 alignment typo (52 where the spec says 50) got into the Roku
+   * encoder and stayed there, malforming every version-10 code it ever drew.
+   *
+   * Proven two ways in tools/test_tv_qr.mjs: for every string exactly ONE of
+   * the eight masks reproduces the reference bit-for-bit (which proves the
+   * bitstream, ECC, interleave, function patterns, placement and format info
+   * whatever mask the penalty happens to choose), and the mask it DOES choose
+   * decodes back to the original string.
+   */
+  /* QR encoder, byte mode, EC level L, versions 1-10. Ported from
+   * roku/components/QR.brs, which was proven cell-for-cell against a python
+   * reference and decoded by OpenCV from a device screenshot. */
+  function qrMatrix(text, forceMask) {
+    const enc = new TextEncoder();
+    const ba = enc.encode(text);
+    const n = ba.length;
+    /* Machine-generated from an independent reference implementation and then
+     * VERIFIED cell-for-cell across all 40 versions (tools/test_tv_qr.mjs).
+     * Transcribing these by hand is how the v10 alignment typo got in. */
+    const TBL = [
+      [19, 7, 1, 19, 0, 0],  // v1
+      [34, 10, 1, 34, 0, 0],  // v2
+      [55, 15, 1, 55, 0, 0],  // v3
+      [80, 20, 1, 80, 0, 0],  // v4
+      [108, 26, 1, 108, 0, 0],  // v5
+      [136, 18, 2, 68, 0, 0],  // v6
+      [156, 20, 2, 78, 0, 0],  // v7
+      [194, 24, 2, 97, 0, 0],  // v8
+      [232, 30, 2, 116, 0, 0],  // v9
+      [274, 18, 2, 68, 2, 69],  // v10
+      [324, 20, 4, 81, 0, 0],  // v11
+      [370, 24, 2, 92, 2, 93],  // v12
+      [428, 26, 4, 107, 0, 0],  // v13
+      [461, 30, 3, 115, 1, 116],  // v14
+      [523, 22, 5, 87, 1, 88],  // v15
+      [589, 24, 5, 98, 1, 99],  // v16
+      [647, 28, 1, 107, 5, 108],  // v17
+      [721, 30, 5, 120, 1, 121],  // v18
+      [795, 28, 3, 113, 4, 114],  // v19
+      [861, 28, 3, 107, 5, 108],  // v20
+      [932, 28, 4, 116, 4, 117],  // v21
+      [1006, 28, 2, 111, 7, 112],  // v22
+      [1094, 30, 4, 121, 5, 122],  // v23
+      [1174, 30, 6, 117, 4, 118],  // v24
+      [1276, 26, 8, 106, 4, 107],  // v25
+      [1370, 28, 10, 114, 2, 115],  // v26
+      [1468, 30, 8, 122, 4, 123],  // v27
+      [1531, 30, 3, 117, 10, 118],  // v28
+      [1631, 30, 7, 116, 7, 117],  // v29
+      [1735, 30, 5, 115, 10, 116],  // v30
+      [1843, 30, 13, 115, 3, 116],  // v31
+      [1955, 30, 17, 115, 0, 0],  // v32
+      [2071, 30, 17, 115, 1, 116],  // v33
+      [2191, 30, 13, 115, 6, 116],  // v34
+      [2306, 30, 12, 121, 7, 122],  // v35
+      [2434, 30, 6, 121, 14, 122],  // v36
+      [2566, 30, 17, 122, 4, 123],  // v37
+      [2702, 30, 4, 122, 18, 123],  // v38
+      [2812, 30, 20, 117, 4, 118],  // v39
+      [2956, 30, 19, 118, 6, 119],  // v40
+    ];
+    const AP = [
+      [],  // v1
+      [6, 18],  // v2
+      [6, 22],  // v3
+      [6, 26],  // v4
+      [6, 30],  // v5
+      [6, 34],  // v6
+      [6, 22, 38],  // v7
+      [6, 24, 42],  // v8
+      [6, 26, 46],  // v9
+      [6, 28, 50],  // v10
+      [6, 30, 54],  // v11
+      [6, 32, 58],  // v12
+      [6, 34, 62],  // v13
+      [6, 26, 46, 66],  // v14
+      [6, 26, 48, 70],  // v15
+      [6, 26, 50, 74],  // v16
+      [6, 30, 54, 78],  // v17
+      [6, 30, 56, 82],  // v18
+      [6, 30, 58, 86],  // v19
+      [6, 34, 62, 90],  // v20
+      [6, 28, 50, 72, 94],  // v21
+      [6, 26, 50, 74, 98],  // v22
+      [6, 30, 54, 78, 102],  // v23
+      [6, 28, 54, 80, 106],  // v24
+      [6, 32, 58, 84, 110],  // v25
+      [6, 30, 58, 86, 114],  // v26
+      [6, 34, 62, 90, 118],  // v27
+      [6, 26, 50, 74, 98, 122],  // v28
+      [6, 30, 54, 78, 102, 126],  // v29
+      [6, 26, 52, 78, 104, 130],  // v30
+      [6, 30, 56, 82, 108, 134],  // v31
+      [6, 34, 60, 86, 112, 138],  // v32
+      [6, 30, 58, 86, 114, 142],  // v33
+      [6, 34, 62, 90, 118, 146],  // v34
+      [6, 30, 54, 78, 102, 126, 150],  // v35
+      [6, 24, 50, 76, 102, 128, 154],  // v36
+      [6, 28, 54, 80, 106, 132, 158],  // v37
+      [6, 32, 58, 84, 110, 136, 162],  // v38
+      [6, 26, 54, 82, 110, 138, 166],  // v39
+      [6, 30, 58, 86, 114, 142, 170],  // v40
+    ];
+    let v = 0;
+    for (let i = 0; i < TBL.length; i++) {
+      const cc = (i + 1) >= 10 ? 16 : 8;
+      if (4 + cc + 8 * n <= TBL[i][0] * 8) { v = i + 1; break; }
+    }
+    if (!v) return null;
+    const spec = TBL[v - 1];
+    const size = 17 + 4 * v;
+
+    // GF(256), QR primitive 0x11D
+    const exp_ = new Array(512), log_ = new Array(256);
+    { let x = 1;
+      for (let i = 0; i < 255; i++) { exp_[i] = x; log_[x] = i; x <<= 1; if (x >= 256) x ^= 285; }
+      for (let i = 255; i < 512; i++) exp_[i] = exp_[i - 255];
+      log_[0] = 0; }
+    const mul = (a, b) => (a === 0 || b === 0) ? 0 : exp_[log_[a] + log_[b]];
+    function generator(k) {
+      let gen = [1];
+      for (let i = 0; i < k; i++) {
+        const nxt = new Array(gen.length + 1).fill(0);
+        for (let j = 0; j < gen.length; j++) {
+          nxt[j] ^= gen[j];
+          nxt[j + 1] ^= mul(gen[j], exp_[i]);
+        }
+        gen = nxt;
+      }
+      return gen;
+    }
+    function ecc(data, k) {
+      const gen = generator(k), res = new Array(k).fill(0);
+      for (const d of data) {
+        const f = d ^ res[0];
+        for (let i = 0; i < k - 1; i++) res[i] = res[i + 1];
+        res[k - 1] = 0;
+        if (f !== 0) for (let i = 0; i < k; i++) res[i] ^= mul(gen[i + 1], f);
+      }
+      return res;
+    }
+
+    // ---- bit stream ----
+    const bits = [];
+    const push = (val, nb) => { for (let i = nb - 1; i >= 0; i--) bits.push((val >> i) & 1); };
+    const ccBits = v >= 10 ? 16 : 8;
+    push(4, 4); push(n, ccBits);
+    for (let i = 0; i < n; i++) push(ba[i], 8);
+    const cap = spec[0] * 8;
+    push(0, Math.min(4, cap - bits.length));
+    while (bits.length % 8 !== 0) bits.push(0);
+    let pad = 236;
+    while (bits.length < cap) { push(pad, 8); pad = pad === 236 ? 17 : 236; }
+    const cw = [];
+    for (let i = 0; i < bits.length; i += 8) {
+      let b = 0; for (let k = 0; k < 8; k++) b = b * 2 + bits[i + k];
+      cw.push(b);
+    }
+
+    // ---- blocks + interleave ----
+    const blocks = []; let p = 0;
+    for (let b = 0; b < spec[2]; b++) blocks.push(cw.slice(p, p += spec[3]));
+    for (let b = 0; b < spec[4]; b++) blocks.push(cw.slice(p, p += spec[5]));
+    const eccs = blocks.map((b) => ecc(b, spec[1]));
+    const out = [];
+    const maxLen = Math.max(spec[3], spec[5]);
+    for (let k = 0; k < maxLen; k++)
+      for (const blk of blocks) if (k < blk.length) out.push(blk[k]);
+    for (let k = 0; k < spec[1]; k++) for (const e of eccs) out.push(e[k]);
+    const stream = [];
+    for (const c of out) for (let i = 7; i >= 0; i--) stream.push((c >> i) & 1);
+
+    // ---- matrix + function patterns ----
+    const mods = [], fn = [];
+    for (let y = 0; y < size; y++) { mods.push(new Array(size).fill(0)); fn.push(new Array(size).fill(0)); }
+    function finder(ox, oy) {
+      for (let dy = -1; dy <= 7; dy++) for (let dx = -1; dx <= 7; dx++) {
+        const x = ox + dx, y = oy + dy;
+        if (x < 0 || y < 0 || x >= size || y >= size) continue;
+        let val = 0;
+        if (dx >= 0 && dx <= 6 && dy >= 0 && dy <= 6) {
+          if (dx === 0 || dx === 6 || dy === 0 || dy === 6) val = 1;
+          if (dx >= 2 && dx <= 4 && dy >= 2 && dy <= 4) val = 1;
+        }
+        mods[y][x] = val; fn[y][x] = 1;
+      }
+    }
+    finder(0, 0); finder(size - 7, 0); finder(0, size - 7);
+    for (let i = 8; i <= size - 9; i++) {
+      const v2 = 1 - (i % 2);
+      mods[6][i] = v2; fn[6][i] = 1;
+      mods[i][6] = v2; fn[i][6] = 1;
+    }
+    const ap = AP[v - 1];
+    for (const ay of ap) for (const ax of ap) {
+      if ((ax <= 8 && ay <= 8) || (ax <= 8 && ay >= size - 9) || (ax >= size - 9 && ay <= 8)) continue;
+      for (let dy = -2; dy <= 2; dy++) for (let dx = -2; dx <= 2; dx++) {
+        const d = Math.max(Math.abs(dx), Math.abs(dy));
+        mods[ay + dy][ax + dx] = d === 1 ? 0 : 1;
+        fn[ay + dy][ax + dx] = 1;
+      }
+    }
+    for (let i = 0; i <= 8; i++) { fn[8][i] = 1; fn[i][8] = 1; }
+    for (let i = 0; i <= 7; i++) { fn[8][size - 1 - i] = 1; fn[size - 1 - i][8] = 1; }
+    mods[size - 8][8] = 1; fn[size - 8][8] = 1;
+    if (v >= 7) {
+      // BCH(18,6), generator 0x1F25. Computed, not transcribed — the same
+      // reason the tables above are generated.
+      let rem = v << 12;
+      for (let i = 17; i >= 12; i--) if ((rem >> i) & 1) rem ^= 0x1F25 << (i - 12);
+      const vb = (v << 12) | (rem & 0xFFF);
+      for (let i = 0; i < 18; i++) {
+        const bit = (vb >> i) & 1;
+        const a = Math.floor(i / 3), b = i % 3;
+        mods[a][size - 11 + b] = bit; fn[a][size - 11 + b] = 1;
+        mods[size - 11 + b][a] = bit; fn[size - 11 + b][a] = 1;
+      }
+    }
+
+    // ---- place data ----
+    let idx = 0, x = size - 1, up = true;
+    while (x > 0) {
+      if (x === 6) x -= 1;
+      for (let k = 0; k < size; k++) {
+        const y = up ? size - 1 - k : k;
+        for (let c = 0; c <= 1; c++) {
+          const xx = x - c;
+          if (fn[y][xx] === 0) { mods[y][xx] = idx < stream.length ? stream[idx] : 0; idx++; }
+        }
+      }
+      up = !up; x -= 2;
+    }
+
+    // ---- mask selection ----
+    const maskBit = (m, y, xx) => {
+      switch (m) {
+        case 0: return (y + xx) % 2 === 0;
+        case 1: return y % 2 === 0;
+        case 2: return xx % 3 === 0;
+        case 3: return (y + xx) % 3 === 0;
+        case 4: return (Math.floor(y / 2) + Math.floor(xx / 3)) % 2 === 0;
+        case 5: return ((y * xx) % 2 + (y * xx) % 3) === 0;
+        case 6: return (((y * xx) % 2 + (y * xx) % 3) % 2) === 0;
+        default: return ((((y + xx) % 2) + ((y * xx) % 3)) % 2) === 0;
+      }
+    };
+    function writeFormat(m, mask) {
+      const data = 8 + mask;            // L = 01 -> 01<<3 | mask
+      let remv = data << 10;
+      for (let i = 14; i >= 10; i--) if ((remv >> i) & 1) remv ^= 1335 << (i - 10);
+      const fmt = ((data << 10) + remv) ^ 21522;
+      for (let i = 0; i < 15; i++) {
+        const bit = (fmt >> i) & 1;
+        if (i < 6) m[i][8] = bit;
+        else if (i < 8) m[i + 1][8] = bit;
+        else m[size - 15 + i][8] = bit;
+        if (i < 8) m[8][size - 1 - i] = bit;
+        else if (i < 9) m[8][7] = bit;
+        else m[8][14 - i] = bit;
+      }
+    }
+    function penalty(m) {
+      let score = 0;
+      for (let y = 0; y < size; y++) {
+        let runC = 1, runV = m[y][0], cC = 1, cV = m[0][y];
+        for (let xx = 1; xx < size; xx++) {
+          if (m[y][xx] === runV) { runC++; if (runC === 5) score += 3; else if (runC > 5) score += 1; }
+          else { runV = m[y][xx]; runC = 1; }
+          if (m[xx][y] === cV) { cC++; if (cC === 5) score += 3; else if (cC > 5) score += 1; }
+          else { cV = m[xx][y]; cC = 1; }
+        }
+      }
+      for (let y = 0; y < size - 1; y++) for (let xx = 0; xx < size - 1; xx++) {
+        const a = m[y][xx];
+        if (a === m[y][xx + 1] && a === m[y + 1][xx] && a === m[y + 1][xx + 1]) score += 3;
+      }
+      let dark = 0;
+      for (let y = 0; y < size; y++) for (let xx = 0; xx < size; xx++) dark += m[y][xx];
+      const pct = Math.floor(dark * 100 / (size * size));
+      score += Math.floor(Math.abs(pct - 50) / 5) * 10;
+      return score;
+    }
+    let best = null, bestScore = Infinity, bestMask = -1;
+    for (let mask = 0; mask < 8; mask++) {
+      const cand = mods.map((row, y) => row.map((val, xx) =>
+        (fn[y][xx] === 0 && maskBit(mask, y, xx)) ? 1 - val : val));
+      writeFormat(cand, mask);
+      const sc = penalty(cand);
+      if (forceMask === mask) { return { size, modules: cand, version: v, mask }; }
+      if (sc < bestScore) { bestScore = sc; best = cand; bestMask = mask; }
+    }
+    return { size, modules: best, version: v, mask: bestMask };
+  }
+
   const PICKER_CLASS = 'tv-picker';
 
   function labelFor(sel) {
@@ -161,6 +473,120 @@
         .observe(sel, { childList: true, attributes: true, attributeFilter: ['value'] });
       sel.addEventListener('change', function () { btn.textContent = labelFor(sel); });
     });
+  }
+
+
+  /* ---------------------------------------------------------------- *
+   * The share sheet — a code, the link, and one way out               *
+   * ---------------------------------------------------------------- */
+
+  /* A URL a viewer could reasonably key in with a remote. Above this the
+   * sheet stops printing it (see shareQR). */
+  const TYPEABLE_URL = 120;
+
+  function closeShare() {
+    const open = document.querySelector('.tv-qr-sheet');
+    if (open) {
+      const owner = open._ownerBtn;
+      open.remove();
+      if (owner && document.contains(owner)) focusEl(owner);
+      else claimFocus();
+    }
+  }
+
+  /** Draw the matrix into a canvas at a whole number of pixels per module.
+   *  A fractional module size is what makes a code unreadable on a TV: the
+   *  browser resamples it and the scanner sees blurred edges. So the canvas
+   *  is sized to the code rather than the code stretched to the canvas. */
+  function qrCanvas(url, box) {
+    const m = qrMatrix(url);
+    if (!m) return null;                       // past v40 — nothing can encode it
+    const QUIET = 4;                           // the spec's quiet zone, in modules
+    const total = m.size + QUIET * 2;
+    const scale = Math.max(2, Math.floor(box / total));
+    const cv = document.createElement('canvas');
+    cv.width = cv.height = total * scale;
+    cv.style.width = cv.style.height = (total * scale) + 'px';
+    const ctx = cv.getContext('2d');
+    ctx.fillStyle = '#fff';
+    ctx.fillRect(0, 0, cv.width, cv.height);
+    ctx.fillStyle = '#000';
+    for (let y = 0; y < m.size; y++) {
+      for (let x = 0; x < m.size; x++) {
+        if (m.modules[y][x]) {
+          ctx.fillRect((x + QUIET) * scale, (y + QUIET) * scale, scale, scale);
+        }
+      }
+    }
+    cv.setAttribute('role', 'img');
+    cv.setAttribute('aria-label', 'QR code for ' + url);
+    return cv;
+  }
+
+  /** The one seam watch.js uses. It checks `html.tv` live (the idiom already
+   *  used for the shelf floor and the season chips) and calls this instead of
+   *  navigator.share, which does not exist on a television. */
+  function shareQR(url, title) {
+    closeShare();
+    const sheet = document.createElement('div');
+    sheet.className = 'tv-qr-sheet';
+    sheet._ownerBtn = document.activeElement;
+
+    const head = document.createElement('p');
+    head.className = 'tv-qr-head';
+    head.textContent = title || 'Share this playlist';
+    sheet.appendChild(head);
+
+    // The code is sized to the room that is actually left, not to a constant:
+    // the panel is capped at 86vh and everything else on it (title, two lines
+    // of copy, the button, the padding) measures ~360px, so a fixed 640 box
+    // overflowed on a 1080 line and the flex column clipped the copy. Floor of
+    // 360 so a very short panel still yields a scannable code.
+    const budget = Math.max(360,
+      Math.min(640, Math.floor((window.innerHeight || 1080) * 0.86) - 360));
+    const cv = qrCanvas(url, budget);
+    if (cv) {
+      sheet.appendChild(cv);
+    } else {
+      // Never a blank box where a code belongs: say what happened (§ the
+      // universal-states rule) rather than showing an empty frame.
+      const err = document.createElement('p');
+      err.className = 'tv-qr-note';
+      err.textContent = 'This playlist is too long to put in a code. '
+        + 'Open the link below on a phone instead.';
+      sheet.appendChild(err);
+    }
+
+    const hint = document.createElement('p');
+    hint.className = 'tv-qr-note';
+    hint.textContent = cv
+      ? 'Point your phone camera at the code to open this playlist.'
+      : '';
+    if (hint.textContent) sheet.appendChild(hint);
+
+    // The link in words, for the viewer with no camera to hand — but ONLY when
+    // typing it is a real option. Measured against real catalogue ids a share
+    // link runs from ~116 characters for one film to ~1,328 for fifty, and
+    // printing the long ones in full is what this sheet did first: seven lines
+    // of base64 that overflowed the panel and pushed the only button off the
+    // bottom of the screen. Nobody types a thousand-character URL, so past the
+    // threshold the sheet says where the link goes and lets the code carry it.
+    const link = document.createElement('p');
+    link.className = 'tv-qr-url';
+    link.textContent = url.length <= TYPEABLE_URL
+      ? url
+      : 'This link is too long to type — the code carries it.';
+    sheet.appendChild(link);
+
+    const close = document.createElement('button');
+    close.type = 'button';
+    close.className = 'tv-qr-close';
+    close.textContent = 'Done';
+    close.onclick = closeShare;
+    sheet.appendChild(close);
+
+    document.body.appendChild(sheet);
+    focusEl(close);
   }
 
   function candidates() {
@@ -669,6 +1095,14 @@
       ev.preventDefault(); ev.stopPropagation();
       closePicker();
       return;
+    }
+    // Same rule for the share sheet: Back dismisses the sheet before it means
+    // anything else, or the viewer leaves the playlist with a code still lit
+    // over whatever came next.
+    if (BACK_KEYS.has(code) && document.querySelector('.tv-qr-sheet')) {
+      ev.preventDefault(); ev.stopPropagation();
+      closeShare();
+      return;
     }        // the toggle must see EVERY press, including ones
                           // the player or the focus engine goes on to consume
     cancelArrival();      // the viewer is driving now; never yank their focus
@@ -800,6 +1234,7 @@
     // not need to hook showView() at all — no view code changes (§7.1).
     window.addEventListener('hashchange', function () {
       closePicker();
+      closeShare();
       tvPickers();
       claimFocus();
       beginArrival();
@@ -819,6 +1254,11 @@
     // until the viewer happened to press something.
     mo.observe(document.body, { childList: true, subtree: true,
                                 attributes: true, attributeFilter: ['open'] });
+
+    // The ONE global this layer publishes. watch.js feature-detects it rather
+    // than assuming the TV layer booted, so a phone build is untouched.
+    window.AWTV = window.AWTV || {};
+    window.AWTV.shareQR = shareQR;
 
     tvPickers();
     claimFocus();

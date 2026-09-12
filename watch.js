@@ -1816,9 +1816,16 @@
           share.disabled = true;
           try {
             const url = ShareList.url(await ShareList.encode(pl.name, pl.archiveIDs));
-            // The native sheet where there is one — that is how a link reaches
-            // Reddit or a message without a copy-paste round trip.
-            if (navigator.share) {
+            // A TELEVISION has neither of the routes below: there is no share
+            // sheet, and a clipboard the viewer cannot paste out of is not a
+            // way to share anything. tv.js draws the link as a QR code the
+            // viewer points a phone at — feature-detected, so a phone build
+            // behaves exactly as it did.
+            if (window.AWTV && window.AWTV.shareQR
+                && document.documentElement.classList.contains('tv')) {
+              window.AWTV.shareQR(url, pl.name);
+              share.textContent = 'Share';
+            } else if (navigator.share) {
               try { await navigator.share({ title: pl.name, url }); share.textContent = 'Share'; }
               catch { share.textContent = 'Share'; }      // dismissed, not failed
             } else {

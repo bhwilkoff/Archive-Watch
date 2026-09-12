@@ -187,6 +187,7 @@ an entry in place.
 - 116 — A data contract is a test, not a docstring; and a client may not crash on a shape
 - 117 — Roku's ingestion scores the CHANNEL INDEX, not the file; a withheld asset freezes its last verdict, so fit the poster instead
 - 118 — A captioned film streams like any other and draws its cues in the overlay; a whole-film HLS segment ignores every buffer ceiling
+- 119 — A television hands over a link as a CODE; the encoder is proven against an independent reference at every version, never against itself
 
 ---
 
@@ -2251,3 +2252,62 @@ deselect a native track, it decides which of the two renderers keeps the line.
 coming back, negative-controlled both ways (it fires on a planted use, and a
 comment naming the loader does not trip it — the branches that replaced these
 loaders name them on purpose).
+
+## 119 — A television hands over a link as a CODE; the encoder is proven against an independent reference at every version, never against itself
+*Date: 2026-09-12*
+
+The web-TV build draws a playlist's share URL as a QR code (`tv.js`, ported
+from `roku/components/QR.brs` and extended from versions 1-10 to **1-40**).
+`watch.js` feature-detects `window.AWTV.shareQR` and defers to it, so the
+phone and desktop paths are untouched. The version and alignment tables are
+MACHINE-GENERATED from an independent reference; version-info bits are
+computed. `tools/test_tv_qr.mjs` proves the encoder two ways.
+
+**Why**: a television has neither route the other platforms use.
+`navigator.share` does not exist on Tizen or webOS, and a clipboard the viewer
+cannot paste out of is not a way to share anything — so Share on a TV either
+copied to nowhere or reported "Could not make a link". The owner asked for
+exactly this: share playlists "from all native apps and have them publish to a
+archivewatch.org link that can be shared (QR codes for TV-based native apps)".
+
+**v10 was nowhere near enough, and the measurement is the argument.** Against
+REAL catalogue ids — synthetic ids flattered an earlier version of this same
+measurement fivefold — a share link runs 116 characters for one film and
+1,048-1,328 for fifty, which is v23-v27. Version 10 holds 271 bytes, so the
+encoder as it stood could only ever have drawn a one-to-three film playlist.
+
+**How to apply**: never verify a QR encoder against itself. Every failure mode
+here — a mistranscribed alignment centre, a format-info axis swap, a shifted
+data bit — produces a clean-looking square of noise, so a golden file generated
+from the code it tests asserts nothing. Compare against an INDEPENDENT
+implementation, and compare on STRUCTURE rather than output: assert that
+exactly one of the eight masks reproduces the reference, which proves the bit
+stream, ECC, interleave, function patterns, placement and format info while
+staying agnostic about mask selection — a penalty heuristic no two
+implementations agree on (adding the spec's penalty rule 3 made agreement
+WORSE here, 4/8 to 3/8, which is why the port keeps the Roku file's rule set).
+Size each vector to its version's exact capacity so a wrong table row cannot
+hide. Then decode the RENDERED screenshot, which is the only check that covers
+the canvas, the scaling and the screen.
+
+**What that found**: `QR.brs` listed v10's alignment centres as `[6, 28, 52]`
+where the spec says **50** — the third centre advances by exactly 4 a version.
+Every version-10 code the shipped Roku channel ever drew was malformed and
+unreadable. It survived because v10 needs 232+ bytes and that encoder only ever
+draws a ~50-character `/item/` URL. This is the fourth time in this project a
+transcribed table has been wrong and the reason the new tables are generated.
+
+**And two defects only the glass showed**, neither visible to any unit test: a
+1,048-character URL printed in full overflowed the panel and pushed the only
+button off the bottom of the screen (the link is now written out only when it
+is short enough to key in with a remote), and a flex column with a `max-height`
+SHRINKS its children, clipping the remaining copy to half a line — the panel
+fitted and its contents did not. The panel caps at 86vh rather than 92 because
+a television overscans about 5% a side and that last row is the button.
+
+**Consequences**: **Roku still cannot share a playlist.** Its encoder is now
+correct but remains v1-10, and BrightScript has no deflate — the share format
+carries an uncompressed `0`-prefixed variant precisely so a Roku can encode
+one, which makes its links longer than every other platform's. Porting the
+v11-40 extension back is a separate piece of work.
+

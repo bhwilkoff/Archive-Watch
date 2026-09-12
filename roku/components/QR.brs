@@ -103,9 +103,17 @@ function qrVersionTable() as Object
     ]
 end function
 
+' Alignment-pattern centres. v10 read [6, 28, 52] until 2026-09-12; the spec
+' says 50, and the third centre advances by exactly 4 a version (38/42/46/50).
+' Every version-10 code this ever drew was malformed — the pattern landed two
+' modules off and no scanner could read it. It went unnoticed because v10 needs
+' 232+ bytes and the only thing this encoder drew was an /item/ share URL of
+' about 50. Found by porting this file to JS for the TV share sheet and
+' comparing cell-for-cell against an independent reference at every version
+' (tools/test_tv_qr.mjs), which is a check this file has never had.
 function qrAlignPositions(v as Integer) as Object
     if v = 1 then return []
-    tbl = [[], [6, 18], [6, 22], [6, 26], [6, 30], [6, 34], [6, 22, 38], [6, 24, 42], [6, 26, 46], [6, 28, 52]]
+    tbl = [[], [6, 18], [6, 22], [6, 26], [6, 30], [6, 34], [6, 22, 38], [6, 24, 42], [6, 26, 46], [6, 28, 50]]
     return tbl[v - 1]
 end function
 
