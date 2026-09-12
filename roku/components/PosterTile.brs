@@ -36,6 +36,18 @@ sub init()
     ' empty 2:3 box beside real posters reads as a failed image load.
     m.frame = AWFrameBuild(m.top.FindNode("frame"))
     m.art.ObserveField("loadStatus", "onArtLoaded")
+    ' Bound the DECODE, not just the display. `width`/`height` scale the
+    ' picture AFTER it is decoded at full source size, so a 500x750 TMDb
+    ' poster — or a 1000x1426 fanart one — costs its whole bitmap for a tile
+    ' 248 px wide. The Roku 2 XD said so itself on 2026-09-11: "Loaded texture
+    ' (500 x 750) larger than the UI resolution (1280 x 720)", repeatedly,
+    ' while browsing Home cost ~98 MB on a box with 256 MB for everything.
+    '
+    ' Set ONCE, at the FOCUSED size: changing loadWidth per focus would force
+    ' a fresh decode on every tile the viewer moves across, which is a worse
+    ' trade than the memory it saves.
+    m.art.loadWidth = m.t.posterFW
+    m.art.loadHeight = m.t.posterFH
     m.tileRule = m.top.FindNode("tileRule")
     m.tileLabel = m.top.FindNode("tileLabel")
     m.tileLabel.font = m.t.uRow

@@ -40,6 +40,11 @@ sub setSize(w as Integer, h as Integer)
     m.plate.width = w : m.plate.height = h
     m.art.width = w : m.art.height = h
     m.art.loadDisplayMode = "scaleToFit"   ' Decision 097 — never reshape art
+    ' Decode at the FOCUSED size (210x315) whatever the current display size,
+    ' so the bitmap is bounded and focus never triggers a re-decode. See
+    ' PosterTile for the measurement this came from.
+    m.art.loadWidth = 210
+    m.art.loadHeight = 315
     m.caption.translation = [0, h + 6]
     m.tileRule.translation = [18, 30]
     m.tileRule.width = 60 : m.tileRule.height = 6
