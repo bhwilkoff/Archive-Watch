@@ -21,9 +21,13 @@ CCBYSA = "https://creativecommons.org/licenses/by-sa/4.0/"
 
 CASES = [
     # CC0 keeps any year; PD-Mark/old-PD/no-license do NOT rescue a modern film
+    # Still hidden, and now for the TRUE reason: this is not "a modern film with
+    # no dedication" (it has a PD mark) — it is a studio release wearing a
+    # dedication its uploader had no standing to make. Both buckets hide; the
+    # rejected manifest now says which.
     ({"archiveID": "a", "title": "Peanuts", "year": 2015, "contentType": "feature-film",
       "rightsStatus": "public_domain", "colorMode": "color", "artworkSource": "tmdb",
-      "tmdbID": 1, "archiveLicense": PDMARK, "rightsConfirmed": True}, "modern_copyright_confirmed"),
+      "tmdbID": 1, "archiveLicense": PDMARK, "rightsConfirmed": True}, "uploader_cannot_dedicate"),
     ({"archiveID": "a", "title": "Sita", "year": 2008, "contentType": "feature-film",
       "rightsStatus": "public_domain", "archiveLicense": CC0, "rightsConfirmed": True}, "safe_archive_license"),
     ({"archiveID": "a", "title": "CCbysa", "year": 2012, "contentType": "feature-film",
@@ -111,6 +115,44 @@ CASES = [
     # even a bogus CC claim doesn't rescue a renewed classic
     ({"archiveID": "a", "title": "Casablanca (1942)", "year": 1942,
       "contentType": "feature-film", "rightsStatus": "creative_commons"}, "renewed_copyright_classic"),
+
+    # 2026-09-11 — a CC0 DEDICATION nobody had standing to make. CC0 is a waiver
+    # only an owner can sign, and `imdbVotes: None` on a studio work means
+    # nobody enriched it, not that nobody watched it. The external match is what
+    # establishes the work as a published release.
+    #
+    # CONTROLS FIRST — every one of these must still be KEPT:
+    ({"archiveID": "a", "title": "creator CC0, no match", "year": 2008,
+      "contentType": "feature-film", "rightsStatus": "public_domain",
+      "archiveLicense": CC0, "rightsConfirmed": True}, "safe_archive_license"),
+    ({"archiveID": "vimeo-24595853", "title": "self-published CC0 short", "year": 2011,
+      "contentType": "animation", "rightsStatus": "public_domain", "imdbID": "tt1995250",
+      "archiveLicense": CC0, "rightsConfirmed": True}, "safe_archive_license"),
+    ({"archiveID": "youtube-27lZiillddg", "title": "Fossils", "year": 2021,
+      "contentType": "animation", "rightsStatus": "public_domain", "imdbID": "tt14778270",
+      "archiveLicense": CC0, "rightsConfirmed": True}, "safe_archive_license"),
+    ({"archiveID": "a", "title": "indie CC BY-SA with a match", "year": 2012,
+      "contentType": "short-film", "rightsStatus": "public_domain", "imdbID": "tt0005849",
+      "archiveLicense": CCBYSA, "rightsConfirmed": True}, "safe_archive_license"),
+    ({"archiveID": "a", "title": "pre-1978 CC0 with a match", "year": 1972,
+      "contentType": "feature-film", "rightsStatus": "public_domain", "tmdbID": 99,
+      "archiveLicense": CC0, "rightsConfirmed": True}, "safe_archive_license"),
+    # ...and the five the live catalog was actually serving:
+    ({"archiveID": "the-real-adventures-of-jonny-quest-the-complete-series_202304",
+      "title": "The Real Adventures Of Jonny Quest The Complete Series", "year": 1996,
+      "contentType": "tv-special", "rightsStatus": "public_domain", "tmdbID": 1168,
+      "archiveLicense": CC0, "rightsConfirmed": True}, "uploader_cannot_dedicate"),
+    ({"archiveID": "the-simpsons-some-enchanted-evening-pilot-episode",
+      "title": "The Simpsons - Some Enchanted Evening (Pilot Episode)", "year": 1989,
+      "contentType": "tv-special", "rightsStatus": "public_domain", "tmdbID": 456,
+      "archiveLicense": CC0, "rightsConfirmed": True}, "uploader_cannot_dedicate"),
+    ({"archiveID": "BoysFromSyracuse", "title": "Boys From Syracuse", "year": 1986,
+      "contentType": "tv-special", "rightsStatus": "public_domain", "imdbID": "tt0185948",
+      "imdbVotes": 17, "archiveLicense": CC0, "rightsConfirmed": True}, "uploader_cannot_dedicate"),
+    # the PD MARK is a dedication too, and carries the same standing problem
+    ({"archiveID": "a", "title": "studio work, PD mark", "year": 1994,
+      "contentType": "feature-film", "rightsStatus": "public_domain", "tmdbID": 7,
+      "archiveLicense": PDMARK, "rightsConfirmed": True}, "uploader_cannot_dedicate"),
 ]
 
 

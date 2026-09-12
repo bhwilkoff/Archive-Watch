@@ -309,6 +309,56 @@ def is_commercial_slop(it):
     return bool(SLOP_TITLE_RE.search(it.get("title") or "")) or modern_id(it)
 
 
+# The platforms where an uploader IS plausibly the author. A CC0 dedication on
+# one of these is a creator waiving rights to their own short; the same mark on
+# a catalogued studio release is a claim the uploader had no standing to make.
+_SELF_PUBLISHED_ID = re.compile(
+    r"^(vimeo|youtube|flickr|peertube|dailymotion|soundcloud)[-_]", re.I)
+
+
+def _is_dedication(lic: str | None) -> bool:
+    """A WAIVER of copyright (CC0 / the PD mark), as opposed to a LICENCE (CC BY, BY-SA)."""
+    l = (lic or "").lower()
+    return "publicdomain" in l or "/zero/" in l
+
+
+def uploader_cannot_dedicate(it, yi) -> bool:
+    """True when a CC0/PD dedication on this item cannot have come from its owner.
+
+    CC0 is a WAIVER — only the rights holder can make one, and archive.org lets
+    any uploader set the field. `license_rescues` already refuses a modern CC
+    tag on a film with a commercial footprint, and its own docstring names the
+    residual it cannot reach: a studio work whose `imdbVotes` is 0 or None has
+    no footprint to gate on. That reads as "no audience" and is nothing of the
+    kind — it is an item nobody ENRICHED. The Simpsons pilot (tmdb 456) and The
+    Real Adventures of Jonny Quest (tmdb 1168) both sat on Home under a CC0
+    dedication with `imdbVotes: None`.
+
+    The signal the vote count was standing in for is whether the work is a
+    CATALOGUED RELEASE at all. TMDb and IMDb hold records for published works;
+    they hold none for a stranger's home video. So an external match on a
+    1978-or-later item is itself the evidence that somebody published this, and
+    that somebody is not the archive.org account that typed the licence in.
+
+    Restricted to DEDICATIONS on purpose. CC0 and the PD mark say "this work has
+    no owner", which is the studio-piracy tell — a rip marked public domain. CC
+    BY and BY-SA say "I own this and here are the terms", which is the indie
+    norm and exactly what the licence rescue exists for; measured on the live
+    catalog, widening this rule to every licence caught six genuine CC works
+    (a public-access programme, a museum film, two festival shorts) for every
+    one it should. `license_rescues` already refuses modern NC/ND outright.
+
+    The other exception is a self-published id. A vimeo/YouTube short can
+    perfectly well have an IMDb entry AND a genuine creator dedication."""
+    if not _is_dedication(it.get("archiveLicense")):
+        return False                         # a LICENCE is the indie norm, not the piracy tell
+    if not isinstance(yi, int) or yi < MODERN:
+        return False                         # pre-1978 stays generously trusted (D027)
+    if not (it.get("imdbID") or it.get("tmdbID")):
+        return False                         # nothing establishes it as a release
+    return not _SELF_PUBLISHED_ID.match(it.get("archiveID") or "")
+
+
 def license_rescues(lic: str | None, year: int | None, votes: int | None = None) -> bool:
     """True if the Archive licenseurl is a genuine free dedication WE TRUST for this item.
 
@@ -435,6 +485,11 @@ def bucket(it):
     if (rs == "creative_commons" and isinstance(yi, int) and yi < MODERN
             and it.get("archiveLicense")):
         return "safe_cc", "keep"
+    # A dedication nobody had standing to make rescues nothing. BEFORE
+    # license_rescues, for the same reason the renewal-zone gate sits above it:
+    # a rescue that runs first can never be overruled.
+    if uploader_cannot_dedicate(it, yi) and it.get("archiveLicense"):
+        return "uploader_cannot_dedicate", "hide"
     if license_rescues(it.get("archiveLicense"), yi, it.get("imdbVotes")):
         return "safe_archive_license", "keep"
     # A pre-1964 year the item's OWN id contradicts is a wrong match, not an
@@ -508,7 +563,8 @@ def bucket(it):
 HIDE_BUCKETS = {"modern_copyright_confirmed", "modern_noyear_risk",
                 "commercial_modern_risk", "commercial_slop",
                 "renewed_copyright_classic", "renewal_zone_commercial",
-                "copyrighted_trailer", "wrongmatch_idyear", "no_evidence"}
+                "copyrighted_trailer", "wrongmatch_idyear", "no_evidence",
+                "uploader_cannot_dedicate"}
 
 
 def evidence_for(it, b):
@@ -527,6 +583,11 @@ def evidence_for(it, b):
         t = it.get("title") or ""
         m = SLOP_TITLE_RE.search(t)
         parts.append(f"slop title match: {m.group(0)!r}" if m else "modern-capture/rip archiveID")
+    elif b == "uploader_cannot_dedicate":
+        parts.append(f"year {y if y is not None else '?'} >= {MODERN}")
+        ext = it.get("imdbID") or (f"tmdb:{it.get('tmdbID')}" if it.get("tmdbID") else "?")
+        parts.append(f"catalogued release ({ext}) — a published work, not a creator upload")
+        parts.append(f"license={it.get('archiveLicense')} applied by the uploader, who is not the owner")
     elif b == "wrongmatch_idyear":
         parts.append(f"catalog year {y} vs id year {_id_year(it.get('archiveID') or '')}, "
                      f"and the title is not in the id")
