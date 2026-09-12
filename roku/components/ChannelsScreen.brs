@@ -174,19 +174,25 @@ sub paintGrid()
             entry.slots = slots
             for i = 0 to slots.Count() - 1
                 s = slots[i]
-                if s.endS <= winS then continue for
-                if s.startS >= winE then exit for
-                vs = s.startS : if vs < winS then vs = winS
-                ve = s.endS : if ve > winE then ve = winE
-                bx = x0 + Int((vs - winS) / 60 * ppm)
-                bw = Int((ve - vs) / 60 * ppm) - 3
-                if bw < 27 then bw = 27
-                isNow = (s.startS <= nowS and nowS < s.endS)
-                yr = ""
-                if s.prog.Count() > 5 and s.prog[5] <> invalid and fmt(s.prog[5]) <> "" then yr = fmt(s.prog[5])
-                rec = makeBlock(y, bx, bw, StripHTML(fmt(s.prog[1])), yr, isNow, acc)
-                rec.slot = s : rec.x = bx : rec.w = bw : rec.isNow = isNow : rec.userChannel = false
-                entry.blocks.Push(rec)
+                ' `continue for` needs firmware newer than this channel's
+                ' floor, so the guard is a skip flag with the condition kept
+                ' verbatim. The `exit for` stays INSIDE the block: originally
+                ' a skipped slot never reached it, and that order is preserved.
+                awSkip = (s.endS <= winS)
+                if not awSkip
+                    if s.startS >= winE then exit for
+                    vs = s.startS : if vs < winS then vs = winS
+                    ve = s.endS : if ve > winE then ve = winE
+                    bx = x0 + Int((vs - winS) / 60 * ppm)
+                    bw = Int((ve - vs) / 60 * ppm) - 3
+                    if bw < 27 then bw = 27
+                    isNow = (s.startS <= nowS and nowS < s.endS)
+                    yr = ""
+                    if s.prog.Count() > 5 and s.prog[5] <> invalid and fmt(s.prog[5]) <> "" then yr = fmt(s.prog[5])
+                    rec = makeBlock(y, bx, bw, StripHTML(fmt(s.prog[1])), yr, isNow, acc)
+                    rec.slot = s : rec.x = bx : rec.w = bw : rec.isNow = isNow : rec.userChannel = false
+                    entry.blocks.Push(rec)
+                end if
             end for
         end if
         m.grid.Push(entry)

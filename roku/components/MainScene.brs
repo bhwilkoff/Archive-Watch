@@ -110,24 +110,22 @@ sub watchMemory()
     ' 256 MB for the ENTIRE system, so that is the number to beat before this
     ' channel could live on a legacy player, and `ui_resolutions=fhd` in the
     ' manifest is where most of it goes.
-    di = CreateObject("roDeviceInfo")
-    osMajor = 0
-    ver = di.GetOSVersion()
-    if ver <> invalid and ver.major <> invalid then osMajor = Val(ver.major)
-    if osMajor < 13
-        print "AWMEM skipped: Roku OS "; osMajor; " — memory telemetry needs 13+"
-        return
-    end if
-
-    m.memPort = CreateObject("roMessagePort")
-    di.SetMessagePort(m.memPort)
-    di.EnableLowGeneralMemoryEvent(true)
-
+    ' EXISTENCE, not version. The first attempt gated this on
+    ' `roDeviceInfo.GetOSVersion()` — and that method is ITSELF newer than
+    ' Roku OS 9.1, so the guard meant to protect old players was the thing
+    ' that killed the channel on one: "Member function not found (&hf4)" at
+    ' the guard's own line. Only the device said so. Asking whether the
+    ' COMPONENT exists needs no version API and cannot repeat the mistake.
     m.mem = CreateObject("roAppMemoryMonitor")
     if m.mem = invalid
         print "AWMEM skipped: no roAppMemoryMonitor on this firmware"
         return
     end if
+
+    di = CreateObject("roDeviceInfo")
+    m.memPort = CreateObject("roMessagePort")
+    di.SetMessagePort(m.memPort)
+    di.EnableLowGeneralMemoryEvent(true)
     m.mem.SetMessagePort(m.memPort)
     m.mem.EnableMemoryWarningEvent(true)
     ' GetChannelMemoryLimit answers an ASSOCIATIVE ARRAY whose keys are not

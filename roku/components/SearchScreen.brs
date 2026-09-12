@@ -268,13 +268,17 @@ sub applyFilters()
     if root <> invalid
         for i = 0 to root.GetChildCount() - 1
             it = root.GetChild(i)
-            if wantType <> "" and prettyFacet(fmt(it.awType)) <> wantType then continue for
-            if wantDec <> ""
+            ' see SeriesScreen: `continue for` is newer than the firmware floor
+            ' this channel keeps, so guards become a skip flag.
+            awSkip = (wantType <> "" and prettyFacet(fmt(it.awType)) <> wantType)
+            if not awSkip and wantDec <> ""
                 y = Int(Val(Left(fmt(it.SHORTDESCRIPTIONLINE1), 4)))
-                if fmt(Int(y / 10) * 10) + "s" <> wantDec then continue for
+                awSkip = (fmt(Int(y / 10) * 10) + "s" <> wantDec)
             end if
-            out.AppendChild(it.Clone(false))
-            n = n + 1
+            if not awSkip
+                out.AppendChild(it.Clone(false))
+                n = n + 1
+            end if
         end for
     end if
     m.grid.content = out

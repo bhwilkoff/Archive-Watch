@@ -60,11 +60,40 @@ DEVICE_REFUSED = {"CatalogService", "ChannelsScreen", "HomeTask",
                   "SearchScreen", "SeriesScreen", "VersionsTask"}
 
 
+def strip_comments(text: str) -> str:
+    """Blank out BrightScript comments before matching.
+
+    Without this the checker counts its own explanation: a comment reading
+    "`continue for` does not compile below Roku OS 11" is a hit, so the count
+    never reaches zero and a finished migration still looks unfinished. This
+    repo has been bitten by exactly that before — an assertion that matched a
+    word inside a comment the same change had just written.
+
+    A quote inside a string is not a comment, so the scan walks the line and
+    tracks whether it is inside one.
+    """
+    out = []
+    for line in text.splitlines():
+        in_str = False
+        cut = len(line)
+        for i, ch in enumerate(line):
+            if ch == '"':
+                in_str = not in_str
+            elif ch == "'" and not in_str:
+                cut = i
+                break
+        stripped = line[:cut]
+        if stripped.strip().lower().startswith("rem "):
+            stripped = ""
+        out.append(stripped)
+    return "\n".join(out)
+
+
 def scan(root: str) -> dict:
     found = {}
     for path in sorted(glob.glob(os.path.join(root, "roku", "**", "*.brs"),
                                  recursive=True)):
-        text = open(path, encoding="utf-8", errors="replace").read()
+        text = strip_comments(open(path, encoding="utf-8", errors="replace").read())
         hits = {}
         for name, pat in PATTERNS.items():
             n = len(pat.findall(text))

@@ -203,16 +203,22 @@ sub run()
     for each r in heroCand
         if heroPool.GetChildCount() >= 12 then exit for
         id = fmt(r[0])
-        if taken[id] <> invalid then continue for
-        ' F1 — the owner: "at most one animated feature" in the hero.
-        ' Cartoons are short, bright and plentiful in the curated shelves, so
-        ' unchecked they took half the row.
-        isAnim = (fmt(r[3]) = "animation")
-        if isAnim and m.heroAnim >= 1 then continue for
-        taken[id] = true
-        h = heroPool.CreateChild("ContentNode")
-        fillItem(h, r)
-        if isAnim then m.heroAnim = m.heroAnim + 1
+        ' `continue for` needs newer firmware than this channel targets; the
+        ' guards keep their conditions verbatim behind a skip flag.
+        awSkip = (taken[id] <> invalid)
+        if not awSkip
+            ' F1 — the owner: "at most one animated feature" in the hero.
+            ' Cartoons are short, bright and plentiful in the curated shelves,
+            ' so unchecked they took half the row.
+            isAnim = (fmt(r[3]) = "animation")
+            awSkip = (isAnim and m.heroAnim >= 1)
+        end if
+        if not awSkip
+            taken[id] = true
+            h = heroPool.CreateChild("ContentNode")
+            fillItem(h, r)
+            if isAnim then m.heroAnim = m.heroAnim + 1
+        end if
     end for
     print "AWHERO candidates="; heroCand.Count(); " chosen="; heroPool.GetChildCount()
 

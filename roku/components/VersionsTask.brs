@@ -37,32 +37,36 @@ sub run()
         n = LCase(fmt(f.name))
         isVid = false
         if Right(n, 4) = ".mp4" or Right(n, 4) = ".m4v" or Right(n, 5) = ".webm" or Right(n, 4) = ".mkv" then isVid = true
-        if not isVid then continue for
+        awSkip = (not isVid)
         ' Decision 104 — a private file can never be fetched, so it is never
         ' offered. Showing one would be offering a copy that cannot play.
-        if LCase(fmt(f.private)) = "true" then continue for
+        if not awSkip then awSkip = (LCase(fmt(f.private)) = "true")
+        ' `continue for` is newer than this channel's firmware floor; the guards
+        ' keep their conditions verbatim behind a skip flag.
+        if not awSkip
 
-        size = 0.0#
-        if f.size <> invalid then size = Val(fmt(f.size))
-        bits = []
-        h = fmt(f.height)
-        if h <> "" and h <> "invalid" then bits.Push(h + "p")
-        fm = fmt(f.format)
-        if fm <> "" and fm <> "invalid" then bits.Push(fm)
-        if size > 0 then bits.Push(human(size))
-        src = LCase(fmt(f.source))
-        tail = "Archive derivative"
-        if src = "original" then tail = "uploader original"
+            size = 0.0#
+            if f.size <> invalid then size = Val(fmt(f.size))
+            bits = []
+            h = fmt(f.height)
+            if h <> "" and h <> "invalid" then bits.Push(h + "p")
+            fm = fmt(f.format)
+            if fm <> "" and fm <> "invalid" then bits.Push(fm)
+            if size > 0 then bits.Push(human(size))
+            src = LCase(fmt(f.source))
+            tail = "Archive derivative"
+            if src = "original" then tail = "uploader original"
 
-        label = ""
-        for i = 0 to bits.Count() - 1
-            if i > 0 then label = label + " · "
-            label = label + bits[i]
-        end for
-        if label = "" then label = fmt(f.name)
-        label = label + " — " + tail
+            label = ""
+            for i = 0 to bits.Count() - 1
+                if i > 0 then label = label + " · "
+                label = label + bits[i]
+            end for
+            if label = "" then label = fmt(f.name)
+            label = label + " — " + tail
 
-        out.Push({ name: fmt(f.name), label: label, size: size, source: src })
+            out.Push({ name: fmt(f.name), label: label, size: size, source: src })
+        end if
     end for
 
     ' Largest first inside each source group, originals last: the pipeline's

@@ -302,8 +302,14 @@ function episodeTitle(e as Object) as String
     kept = []
     for each w in words
         lw = LCase(w)
-        if kept.Count() = 0 and seriesWords[lw] = true then continue for
-        kept.Push(w)
+        ' `continue for` does not compile below Roku OS 11 and took the whole
+        ' component with it on a Roku 2 XD (OS 9.1). The condition is kept
+        ' VERBATIM behind a skip flag rather than inverted, so no De Morgan
+        ' mistake can hide in the rewrite.
+        awSkip = (kept.Count() = 0 and seriesWords[lw] = true)
+        if not awSkip
+            kept.Push(w)
+        end if
     end for
     if kept.Count() > 1
         last = kept[kept.Count() - 1]

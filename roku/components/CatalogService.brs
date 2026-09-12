@@ -89,16 +89,20 @@ sub buildParty()
     colour = []
     rest = []
     for each r in m.items
-        if r[5] <> 1 then continue for
-        if Left(fmt(r[0]), 7) = "series:" then continue for
-        t = LCase(fmt(r[3]))
-        if t <> "feature-film" and t <> "animation" and t <> "short-film" then continue for
-        cm = ""
-        if r.Count() > 14 and r[14] <> invalid then cm = LCase(fmt(r[14]))
-        if cm = "b"
-            rest.Push(r)
-        else
-            colour.Push(r)
+        awSkip = (r[5] <> 1)
+        if not awSkip then awSkip = (Left(fmt(r[0]), 7) = "series:")
+        if not awSkip
+            t = LCase(fmt(r[3]))
+            awSkip = (t <> "feature-film" and t <> "animation" and t <> "short-film")
+        end if
+        if not awSkip
+            cm = ""
+            if r.Count() > 14 and r[14] <> invalid then cm = LCase(fmt(r[14]))
+            if cm = "b"
+                rest.Push(r)
+            else
+                colour.Push(r)
+            end if
         end if
     end for
     pool = []
@@ -166,20 +170,22 @@ sub buildCartoons()
     everything = []
 
     for each r in m.items
-        if LCase(fmt(r[3])) <> "animation" then continue for
-        if r[5] <> 1 then continue for
-        hay = LCase(fmt(r[1])) + " " + LCase(fmt(r[6]))
-        placed = false
-        for each c in chars
-            if Instr(1, hay, c.needle) > 0
-                if buckets[c.name].Count() < 20
-                    buckets[c.name].Push(r)
-                    placed = true
-                    exit for
+        awSkip = (LCase(fmt(r[3])) <> "animation")
+        if not awSkip then awSkip = (r[5] <> 1)
+        if not awSkip
+            hay = LCase(fmt(r[1])) + " " + LCase(fmt(r[6]))
+            placed = false
+            for each c in chars
+                if Instr(1, hay, c.needle) > 0
+                    if buckets[c.name].Count() < 20
+                        buckets[c.name].Push(r)
+                        placed = true
+                        exit for
+                    end if
                 end if
-            end if
-        end for
-        if not placed and everything.Count() < 40 then everything.Push(r)
+            end for
+            if not placed and everything.Count() < 40 then everything.Push(r)
+        end if
     end for
 
     root = CreateObject("roSGNode", "ContentNode")
@@ -247,28 +253,30 @@ sub buildCollections()
     shown = 0
     for each c in m.colMeta
         ids = m.collections[c.id]
-        if ids = invalid then continue for
-        row = root.CreateChild("ContentNode")
-        row.title = c.title
-        row.AddField("awBlurb", "string", false)
-        row.AddField("awAccent", "string", false)
-        if c.blurb <> invalid then row.awBlurb = c.blurb
-        if c.accent <> invalid then row.awAccent = BroadcastSafe(c.accent)
-        n = 0
-        for each aid in ids
-            r = found[aid]
-            if r <> invalid
-                appendRow(row, r)
-                n = n + 1
-                if n >= 60 then exit for
+        ' `continue for` needs newer firmware than this channel's floor.
+        if ids <> invalid
+            row = root.CreateChild("ContentNode")
+            row.title = c.title
+            row.AddField("awBlurb", "string", false)
+            row.AddField("awAccent", "string", false)
+            if c.blurb <> invalid then row.awBlurb = c.blurb
+            if c.accent <> invalid then row.awAccent = BroadcastSafe(c.accent)
+            n = 0
+            for each aid in ids
+                r = found[aid]
+                if r <> invalid
+                    appendRow(row, r)
+                    n = n + 1
+                    if n >= 60 then exit for
+                end if
+            end for
+            ' A collection thinner than a screenful is a gap in the data, not a
+            ' shelf — the same minimum Home applies.
+            if n < 6
+                root.RemoveChild(row)
+            else
+                shown = shown + 1
             end if
-        end for
-        ' A collection thinner than a screenful is a gap in the data, not a
-        ' shelf — the same minimum Home applies.
-        if n < 6
-            root.RemoveChild(row)
-        else
-            shown = shown + 1
         end if
     end for
     print "AWSVC collections rows="; shown; " of "; m.colMeta.Count(); " in "; span.TotalMilliseconds(); "ms"
@@ -308,35 +316,39 @@ sub buildCollectionCards()
     shown = 0
     for each c in m.colMeta
         ids = m.collections[c.id]
-        if ids = invalid then continue for
-        n = 0
-        pro = []
-        anyArt = []
-        for each aid in ids
-            r = found[aid]
-            if r <> invalid
-                n = n + 1
-                if r[4] <> invalid and fmt(r[4]) <> ""
-                    if r[5] = 1 and pro.Count() < 3 then pro.Push(fmt(r[4]))
-                    if anyArt.Count() < 3 then anyArt.Push(fmt(r[4]))
+        ' `continue for` needs newer firmware than this channel's floor.
+        if ids <> invalid
+            n = 0
+            pro = []
+            anyArt = []
+            for each aid in ids
+                r = found[aid]
+                if r <> invalid
+                    n = n + 1
+                    if r[4] <> invalid and fmt(r[4]) <> ""
+                        if r[5] = 1 and pro.Count() < 3 then pro.Push(fmt(r[4]))
+                        if anyArt.Count() < 3 then anyArt.Push(fmt(r[4]))
+                    end if
                 end if
+            end for
+            ' Thinner than a screenful is a gap in the data, not a collection.
+            ' (`continue for` needs newer firmware than this channel's floor.)
+            if n >= 6
+                if pro.Count() < 3 then pro = anyArt
+                card = root.CreateChild("ContentNode")
+                card.id = c.id
+                card.title = c.title
+                card.AddField("awBlurb", "string", false)
+                card.AddField("awAccent", "string", false)
+                card.AddField("awCount", "integer", false)
+                card.AddField("awPosters", "array", false)
+                if c.blurb <> invalid then card.awBlurb = c.blurb
+                if c.accent <> invalid then card.awAccent = BroadcastSafe(c.accent)
+                card.awCount = n
+                card.awPosters = pro
+                shown = shown + 1
             end if
-        end for
-        ' Thinner than a screenful is a gap in the data, not a collection.
-        if n < 6 then continue for
-        if pro.Count() < 3 then pro = anyArt
-        card = root.CreateChild("ContentNode")
-        card.id = c.id
-        card.title = c.title
-        card.AddField("awBlurb", "string", false)
-        card.AddField("awAccent", "string", false)
-        card.AddField("awCount", "integer", false)
-        card.AddField("awPosters", "array", false)
-        if c.blurb <> invalid then card.awBlurb = c.blurb
-        if c.accent <> invalid then card.awAccent = BroadcastSafe(c.accent)
-        card.awCount = n
-        card.awPosters = pro
-        shown = shown + 1
+        end if
     end for
     print "AWSVC collection cards="; shown; " of "; m.colMeta.Count(); " in "; span.TotalMilliseconds(); "ms"
     m.top.total = shown
@@ -399,16 +411,19 @@ sub pickRandom(spec as String)
     ' of that type, so they are admitted here and nowhere else.
     wantSeries = (want = "tv-series")
     for each r in m.items
+        awSkip = false
         if not anyType
             t = LCase(fmt(r[3]))
-            if t <> want then continue for
+            awSkip = (t <> want)
         end if
         ' Professional artwork only: a random pick is a RECOMMENDATION, and
         ' Decision 097 keeps frame grabs off surfaces that recommend.
-        if r[5] <> 1 then continue for
-        if Left(fmt(r[0]), 7) = "series:" and not wantSeries then continue for
-        seen = seen + 1
-        if Rnd(seen) = 1 then keep = r
+        if not awSkip then awSkip = (r[5] <> 1)
+        if not awSkip then awSkip = (Left(fmt(r[0]), 7) = "series:" and not wantSeries)
+        if not awSkip
+            seen = seen + 1
+            if Rnd(seen) = 1 then keep = r
+        end if
     end for
     root = CreateObject("roSGNode", "ContentNode")
     if keep <> invalid then appendRow(root, keep)
@@ -425,18 +440,20 @@ sub moreLike(spec as Object)
     if spec.year <> invalid then year = Int(spec.year)
     hits = []
     for each r in m.items
-        if fmt(r[0]) = spec.id then continue for
-        if r[5] <> 1 then continue for
-        if Left(fmt(r[0]), 7) = "series:" then continue for
-        if want <> "" and LCase(fmt(r[3])) <> want then continue for
-        if year > 0
+        awSkip = (fmt(r[0]) = spec.id)
+        if not awSkip then awSkip = (r[5] <> 1)
+        if not awSkip then awSkip = (Left(fmt(r[0]), 7) = "series:")
+        if not awSkip then awSkip = (want <> "" and LCase(fmt(r[3])) <> want)
+        if not awSkip and year > 0
             y = r[2]
-            if y = invalid then continue for
-            d = y - year
-            if d < 0 then d = -d
-            if d > 15 then continue for
+            if y = invalid then awSkip = true
+            if not awSkip
+                d = y - year
+                if d < 0 then d = -d
+                awSkip = (d > 15)
+            end if
         end if
-        hits.Push(r)
+        if not awSkip then hits.Push(r)
     end for
     root = CreateObject("roSGNode", "ContentNode")
     ' Sampled, not sliced: taking the first 12 of a type would show the same
@@ -638,13 +655,18 @@ sub runQuery()
         ' tv tab and vice versa". The Type chip narrows within a tab; it can
         ' never cross out of it. Without this an unset Type ("All") ignored
         ' the tab completely, so Movies listed television and TV listed films.
+        ' Every guard below was `if <cond> then continue for`, which does not
+        ' compile under Roku OS 11 and took this whole component with it on a
+        ' 9.1 player. Each condition is kept VERBATIM behind a skip flag, in
+        ' the same order, so the filter cannot change meaning in the rewrite.
+        awSkip = false
         if wantScope <> ""
             t0 = LCase(fmt(r[3]))
             isTV = (t0 = "tv-series" or t0 = "tv-special" or t0 = "tv-episode")
-            if wantScope = "tv" and not isTV then continue for
-            if wantScope = "movies" and isTV then continue for
+            if wantScope = "tv" and not isTV then awSkip = true
+            if not awSkip and wantScope = "movies" and isTV then awSkip = true
         end if
-        if wantType <> "" and wantType <> "all"
+        if not awSkip and wantType <> "" and wantType <> "all"
             t = LCase(fmt(r[3]))
             ' TV browse shows SERIES SPINES ONLY — the tvOS `seriesCards()`
             ' contract (Decision 036). Folding `tv-special` in here meant the
@@ -652,34 +674,35 @@ sub runQuery()
             ' one and, being more popular, filled the whole grid: Browse -> TV
             ' looked exactly like a shelf of films, which is what the owner
             ' reported. Specials stay reachable under their own chip value.
-            goto_next = (t <> wantType)
-            if goto_next then continue for
+            awSkip = (t <> wantType)
         end if
         ' Genres arrived at schema 10 as a pipe-joined string. 17,726 of 26,960
         ' items carry one, so the facet is worth having and the two thirds
         ' without genres are simply not in a genre-filtered result — which is
         ' the honest answer, not a bug.
-        if wantGenre <> ""
-            if r.Count() <= 13 then continue for
-            g = r[13]
-            if g = invalid then continue for
-            if Instr(1, "|" + fmt(g) + "|", "|" + wantGenre + "|") = 0 then continue for
+        if not awSkip and wantGenre <> ""
+            awSkip = (r.Count() <= 13)
+            if not awSkip
+                g = r[13]
+                awSkip = (g = invalid)
+            end if
+            if not awSkip then awSkip = (Instr(1, "|" + fmt(g) + "|", "|" + wantGenre + "|") = 0)
         end if
-        if decade > 0
+        if not awSkip and decade > 0
             y = r[2]
-            if y = invalid then continue for
-            if y < decade or y > decade + 9 then continue for
+            awSkip = (y = invalid)
+            if not awSkip then awSkip = (y < decade or y > decade + 9)
         end if
-        if text <> ""
+        if not awSkip and text <> ""
             ' Title first, then the prebuilt search blob — the index carries a
             ' keyword field precisely so a client does not have to fetch more.
             hay = LCase(fmt(r[1]))
             if Instr(1, hay, text) = 0
                 blob = LCase(fmt(r[6]))
-                if Instr(1, blob, text) = 0 then continue for
+                awSkip = (Instr(1, blob, text) = 0)
             end if
         end if
-        hits.Push(r)
+        if not awSkip then hits.Push(r)
     end for
 
     ' §6.2 — professional posters lead. This is the Home gate (Decision 097)
