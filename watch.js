@@ -1698,6 +1698,11 @@
     },
 
     async decode(blob) {
+      // A LEADING '0' MEANS UNCOMPRESSED. BrightScript has base64 on
+      // roByteArray and no deflate at all, so a Roku can only share if the
+      // format allows an uncompressed variant. Every decoder takes both;
+      // only encoders choose, and everything that can compress does.
+      if (blob.startsWith('0')) return ShareList.parse(ShareList.b64(blob.slice(1)));
       const b64 = blob.replace(/-/g, '+').replace(/_/g, '/');
       const bin = atob(b64 + '==='.slice(0, (4 - b64.length % 4) % 4));
       const bytes = Uint8Array.from(bin, c => c.charCodeAt(0));
@@ -1708,7 +1713,19 @@
       // two — one of which nobody is waiting for.
       w.write(bytes).then(() => w.close()).catch(() => {});
       const out = await new Response(ds.readable).arrayBuffer();
-      const o = JSON.parse(new TextDecoder().decode(out));
+      return ShareList.parse(new Uint8Array(out));
+    },
+
+    /** base64url -> bytes. */
+    b64(s) {
+      const t = s.replace(/-/g, '+').replace(/_/g, '/');
+      const bin = atob(t + '==='.slice(0, (4 - t.length % 4) % 4));
+      return Uint8Array.from(bin, c => c.charCodeAt(0));
+    },
+
+    /** The one place the payload shape is enforced, so both variants agree. */
+    parse(bytes) {
+      const o = JSON.parse(new TextDecoder().decode(bytes));
       if (!o || !Array.isArray(o.i)) throw new Error('not a playlist');
       return { name: String(o.n || 'Shared playlist'), ids: o.i.map(String) };
     },

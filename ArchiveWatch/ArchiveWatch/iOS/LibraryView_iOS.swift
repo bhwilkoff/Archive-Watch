@@ -243,6 +243,16 @@ struct LibraryView: View {
                             Text("\(pl.archiveIDs.count) titles").font(.caption).foregroundStyle(.secondary)
                         }
                     }
+                    // SHARE. The playlist rides inside the link (PlaylistShare),
+                    // so the person who receives it needs no account and we host
+                    // nothing. A swipe is where iOS puts row actions; the share
+                    // sheet is what puts it into Messages, Reddit or a mail.
+                    .swipeActions(edge: .leading) {
+                        if let url = PlaylistShare.url(name: pl.name, archiveIDs: pl.archiveIDs) {
+                            ShareLink(item: url) { Label("Share", systemImage: "square.and.arrow.up") }
+                                .tint(.accentColor)
+                        }
+                    }
                 }
                 .onDelete { offsets in
                     for i in offsets {

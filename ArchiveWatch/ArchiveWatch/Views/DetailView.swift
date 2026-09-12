@@ -1586,18 +1586,31 @@ struct ShareSheet: View {   // reused by SeriesDetailView (series + episodes)
     @Environment(\.dismiss) private var dismiss
     @FocusState private var doneFocused: Bool
 
+    /// An explicit URL, for things that are not a catalogue item — a shared
+    /// PLAYLIST carries itself in its link (see `PlaylistShare`), so there is
+    /// no archiveID to derive one from.
+    private let explicitURL: String?
+
     init(title: String, archiveID: String) {
         self.title = title
         self.archiveID = archiveID
+        self.explicitURL = nil
+    }
+    init(title: String, url: String) {
+        self.title = title
+        self.archiveID = ""
+        self.explicitURL = url
     }
     init(item: Catalog.Item) {
         self.init(title: item.title, archiveID: item.archiveID)
     }
 
+
     // The QR sends people to OUR web app (Decision 030) — the same title,
     // playable in the browser, with the open-in-app handoff for phones.
     // LoC items stay on loc.gov (the web viewer can't resolve loc: ids).
     private var webURL: String {
+        if let explicitURL { return explicitURL }
         if archiveID.hasPrefix("loc:") { return "https://www.loc.gov" }
         if archiveID.hasPrefix("series:") {
             return "https://archivewatch.org/series/\(archiveID.dropFirst(7))"

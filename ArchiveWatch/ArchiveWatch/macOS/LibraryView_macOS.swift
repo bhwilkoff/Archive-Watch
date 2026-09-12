@@ -27,6 +27,22 @@ struct LibraryView: View {
 
                 ForEach(playlists) { pl in
                     ShelfRow(title: pl.name, items: store.itemsByIDs(pl.archiveIDs))
+                        // SHARE. The playlist travels inside the link
+                        // (PlaylistShare) — no account for whoever receives it
+                        // and nothing hosted by us. Right-click is where a Mac
+                        // puts a row action.
+                        .contextMenu {
+                            if let url = PlaylistShare.url(name: pl.name,
+                                                           archiveIDs: pl.archiveIDs) {
+                                ShareLink(item: url) {
+                                    Label("Share playlist", systemImage: "square.and.arrow.up")
+                                }
+                                Button {
+                                    NSPasteboard.general.clearContents()
+                                    NSPasteboard.general.setString(url.absoluteString, forType: .string)
+                                } label: { Label("Copy link", systemImage: "link") }
+                            }
+                        }
                 }
 
                 // ONE watch surface (owner, 2026-08-17). A "Watched" shelf sat

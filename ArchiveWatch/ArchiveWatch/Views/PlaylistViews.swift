@@ -127,6 +127,7 @@ struct PlaylistDetailView: View {
     @Environment(\.modelContext) private var ctx
     @Query private var playlists: [Playlist]
     @State private var playing: [Catalog.Item]?
+    @State private var shareURL: String?
 
     private var playlist: Playlist? { playlists.first { $0.id == playlistID } }
     private var items: [Catalog.Item] { (playlist?.archiveIDs ?? []).compactMap { store.dbItem($0) } }
@@ -155,6 +156,23 @@ struct PlaylistDetailView: View {
                                 .padding(.horizontal, 24).padding(.vertical, 12)
                         }
                         .buttonStyle(.borderedProminent)
+
+                        // SHARE. A television has no share sheet and no
+                        // clipboard worth the name, so the link becomes a QR
+                        // code — the same device the app already uses to hand
+                        // a title to a phone. The playlist rides inside the
+                        // URL, so whoever scans it needs no account and we
+                        // host nothing (PlaylistShare).
+                        if let pl = playlist,
+                           let url = PlaylistShare.url(name: pl.name,
+                                                       archiveIDs: pl.archiveIDs) {
+                            Button { shareURL = url.absoluteString } label: {
+                                Label("Share", systemImage: "qrcode")
+                                    .font(.system(size: 22, weight: .semibold))
+                                    .padding(.horizontal, 24).padding(.vertical, 12)
+                            }
+                            .buttonStyle(.bordered)
+                        }
                     }
                     Spacer()
                 }
@@ -189,8 +207,14 @@ struct PlaylistDetailView: View {
             // unlike the ephemeral channel/party/cartoon lineups (audit fix #2).
             if let screen = PlayerScreen(lineup: box.items, ephemeralLineup: false) { screen }
         }
+        .sheet(item: Binding(get: { shareURL.map { ShareURLBox(url: $0) } },
+                             set: { shareURL = $0?.url })) { box in
+            ShareSheet(title: playlist?.name ?? "Playlist", url: box.url)
+        }
     }
 }
+
+private struct ShareURLBox: Identifiable { let id = UUID(); let url: String }
 
 private struct LineupBox: Identifiable { let id = UUID(); let items: [Catalog.Item] }
 
