@@ -299,6 +299,10 @@ window.AWDriveSync = (() => {
       setInterval(() => { if (!document.hidden) syncNow(false); }, 90_000);
     },
     nudge() { if (configured() && signedIn()) syncNow(false); },
+    // Read by the shared-playlist view: an import needs somewhere to put
+    // the list, and signed out there is nowhere. Exposed rather than
+    // letting a caller reach for the module's internals.
+    isSignedIn() { return Boolean(configured() && signedIn()); },
     // The merge is shared with js/cloudkitsync.js (Apple's island reaches
     // the browser through CloudKit JS); one set of rules, two clouds.
     merge,

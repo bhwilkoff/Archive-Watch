@@ -637,7 +637,7 @@
    * ---------------------------------------------------------------- */
   const VIEWS = ['home', 'browse', 'search', 'library', 'item', 'series', 'about',
                  'surprise', 'playlist', 'channels', 'collections', 'collection',
-                 'cartoons'];
+                 'cartoons', 'list'];
   let browseObserver = null;   // disconnected on every view switch
 
   function route() {
@@ -661,6 +661,10 @@
     if (name === 'series') SeriesView.render(decodeURIComponent(seg[1] || ''));
     if (name === 'surprise') Surprise.render();
     if (name === 'playlist') PlaylistView.render(decodeURIComponent(seg[1] || ''));
+    // The blob can contain '/' after base64url? No — base64url is [A-Za-z0-9_-],
+    // so seg[1] is the whole thing. Taking the join anyway costs nothing and
+    // survives anyone "helpfully" re-encoding the link.
+    if (name === 'list') SharedList.render(seg.slice(1).join(''));
     if (name === 'channels') ChannelsView.render();
     if (name === 'collections') Collections.renderList();
     if (name === 'collection') Collections.renderOne(decodeURIComponent(seg[1] || ''));
@@ -1657,6 +1661,120 @@
   /* ---------------------------------------------------------------- *
    * Playlist view                                                     *
    * ---------------------------------------------------------------- */
+  /* ---------------------------------------------------------------- *
+   * A shared playlist — the whole list travels in the link            *
+   * ---------------------------------------------------------------- */
+
+  /** Encode/decode a playlist as a URL fragment.
+   *
+   *  WHY IN THE LINK. This project has no backend and no accounts (Decisions
+   *  009 and 028), and privacy.html promises that playlists never leave the
+   *  device except through the viewer's OWN cloud. A sharing SERVICE would
+   *  undo both. Measured against the live catalog, it is unnecessary: archive
+   *  ids are short (median 23 chars), so deflated and base64url'd a 25-title
+   *  playlist is ~756 characters and 50 titles ~1,368 — inside the ~2,000 that
+   *  chat apps, mail clients and QR codes handle without mangling.
+   *
+   *  RAW DEFLATE on purpose: every platform here already inflates it — Apple
+   *  through the Compression framework (Decision 019) and Android for the .zz
+   *  catalog — so the native apps can read this link with code they have.
+   */
+  const ShareList = {
+    LIMIT: 50,                    // titles; beyond this a link starts to break
+
+    async encode(name, ids) {
+      const body = new TextEncoder().encode(
+        JSON.stringify({ n: String(name || '').slice(0, 80), i: ids }));
+      const cs = new CompressionStream('deflate-raw');
+      const w = cs.writable.getWriter();
+      // The writer's promises must be OWNED. Left dangling they reject
+      // unhandled when the stream errors — which on a malformed link is a
+      // console error in the viewer's browser and, under Node, a crash.
+      const wrote = w.write(body).then(() => w.close());
+      const buf = new Uint8Array(await new Response(cs.readable).arrayBuffer());
+      await wrote;
+      let bin = ''; for (const b of buf) bin += String.fromCharCode(b);
+      return btoa(bin).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+    },
+
+    async decode(blob) {
+      const b64 = blob.replace(/-/g, '+').replace(/_/g, '/');
+      const bin = atob(b64 + '==='.slice(0, (4 - b64.length % 4) % 4));
+      const bytes = Uint8Array.from(bin, c => c.charCodeAt(0));
+      const ds = new DecompressionStream('deflate-raw');
+      const w = ds.writable.getWriter();
+      // Swallow the writer's own rejection (see encode): the READER below is
+      // what reports a bad link, and it reports it as one throw rather than
+      // two — one of which nobody is waiting for.
+      w.write(bytes).then(() => w.close()).catch(() => {});
+      const out = await new Response(ds.readable).arrayBuffer();
+      const o = JSON.parse(new TextDecoder().decode(out));
+      if (!o || !Array.isArray(o.i)) throw new Error('not a playlist');
+      return { name: String(o.n || 'Shared playlist'), ids: o.i.map(String) };
+    },
+
+    url(blob) { return `${location.origin}${location.pathname}#/list/${blob}`; },
+  };
+
+  const SharedList = {
+    async render(blob) {
+      const title = $('list-title'), note = $('list-note'), imp = $('list-import');
+      imp.hidden = true;
+      let pl;
+      try { pl = await ShareList.decode(blob); }
+      catch {
+        title.textContent = 'Shared playlist';
+        note.textContent = '';
+        fillGrid($('list-grid'), []);
+        $('list-empty').hidden = false;
+        return;
+      }
+      title.textContent = pl.name;
+      const alias = await Aliases.rows(pl.ids);
+      const rows = pl.ids.map(aid => Data.byID.get(aid) || alias.get(aid)).filter(Boolean);
+      fillGrid($('list-grid'), rows);
+      $('list-empty').hidden = rows.length > 0;
+
+      // A title in the link that this catalog no longer serves is a fact worth
+      // stating rather than a silently shorter list: the sharer sees a
+      // different collection from the viewer otherwise.
+      const missing = pl.ids.length - rows.length;
+      note.textContent = missing > 0
+        ? `${rows.length} of ${pl.ids.length} titles — ${missing} are no longer in the catalogue.`
+        : `${rows.length} ${rows.length === 1 ? 'title' : 'titles'}.`;
+
+      // IMPORT is offered only to someone who has somewhere to put it. Signed
+      // out, this is a collection to browse and play — which is the whole app
+      // signed out, so nothing is being withheld.
+      if (!SharedList.signedIn()) return;
+      imp.hidden = false;
+      imp.textContent = 'Add to my library';
+      imp.disabled = false;
+      imp.onclick = async () => {
+        imp.disabled = true; imp.textContent = 'Adding…';
+        try {
+          await DB.savePlaylistRaw({
+            id: (crypto.randomUUID?.() || String(Date.now())),
+            name: pl.name, archiveIDs: pl.ids, modifiedAt: Date.now(),
+          });
+          window.AWDriveSync?.nudge?.();
+          window.AWCloudKitSync?.nudge?.();
+          imp.textContent = 'Added to your library';
+        } catch {
+          imp.textContent = 'Could not add it'; imp.disabled = false;
+        }
+      };
+    },
+
+    /** Signed in to EITHER island (Decision 102) — Apple through CloudKit JS,
+     *  Google through Drive appData. Either one gives the playlist somewhere to
+     *  live beyond this browser. */
+    signedIn() {
+      return Boolean(window.AWCloudKitSync?.isSignedIn?.()
+                  || window.AWDriveSync?.isSignedIn?.());
+    },
+  };
+
   const PlaylistView = {
     async render(id) {
       const pl = (await DB.playlists().catch(() => [])).find(p => p.id === id);
@@ -1667,6 +1785,34 @@
         .filter(Boolean);
       fillGrid($('playlist-grid'), rows);
       $('playlist-empty').hidden = rows.length > 0;
+      // SHARE. The link carries the playlist itself, so it keeps working for
+      // anyone, on any platform, with nothing hosted and nothing about the
+      // sharer attached to it.
+      const share = $('playlist-share');
+      if (share) {
+        const tooLong = pl.archiveIDs.length > ShareList.LIMIT;
+        share.disabled = tooLong || pl.archiveIDs.length === 0;
+        share.textContent = tooLong
+          ? `Too long to share (${pl.archiveIDs.length}/${ShareList.LIMIT})` : 'Share';
+        share.onclick = async () => {
+          share.disabled = true;
+          try {
+            const url = ShareList.url(await ShareList.encode(pl.name, pl.archiveIDs));
+            // The native sheet where there is one — that is how a link reaches
+            // Reddit or a message without a copy-paste round trip.
+            if (navigator.share) {
+              try { await navigator.share({ title: pl.name, url }); share.textContent = 'Share'; }
+              catch { share.textContent = 'Share'; }      // dismissed, not failed
+            } else {
+              await navigator.clipboard.writeText(url);
+              share.textContent = 'Link copied';
+            }
+          } catch {
+            share.textContent = 'Could not make a link';
+          }
+          share.disabled = false;
+        };
+      }
       $('playlist-delete').onclick = async () => {
         if (!confirm(`Delete the playlist “${pl.name}”?`)) return;
         await DB.deletePlaylist(id).catch(() => {});
@@ -3157,7 +3303,14 @@ function awCount(p) {
    instead and let the worker shape it. */
 function awRoute() {
   const h = (location.hash || "").replace(/^#/, "");
-  return h.startsWith("/") ? h : (location.pathname || "/");
+  const r = h.startsWith("/") ? h : (location.pathname || "/");
+  // A SHARED PLAYLIST IS CARRIED IN ITS OWN URL, so the raw route contains the
+  // viewer's entire list. Sending that would hand our counter the very thing
+  // privacy.html promises we never receive — and would give it one distinct
+  // path per playlist, which is not a measurement of anything. The blob is
+  // dropped HERE, in the browser, rather than trusting the worker to discard
+  // what it should never have been given.
+  return r.startsWith("/list/") ? "/list" : r;
 }
 /* A VISIT and a ROUTE VIEW are different things and must never be added
    together: one page load that walks six surfaces is one visit and seven

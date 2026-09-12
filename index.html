@@ -168,10 +168,24 @@
     <section id="view-playlist" hidden>
       <div class="surprise-head">
         <h1 id="playlist-title"></h1>
+        <button id="playlist-share" class="btn-primary">Share</button>
         <button id="playlist-delete" class="btn-ghost">Delete playlist</button>
       </div>
       <div id="playlist-grid" class="grid"></div>
       <p id="playlist-empty" class="muted" hidden>This playlist is empty — add titles from any Detail page.</p>
+    </section>
+
+    <!-- A playlist somebody SHARED, carried entirely in the URL. There is no
+         record of it on any server of ours (privacy.html: "no servers of its
+         own"), so this view decodes the link and nothing else. -->
+    <section id="view-list" hidden>
+      <div class="surprise-head">
+        <h1 id="list-title"></h1>
+        <button id="list-import" class="btn-primary" hidden>Add to my library</button>
+      </div>
+      <p id="list-note" class="muted"></p>
+      <div id="list-grid" class="grid"></div>
+      <p id="list-empty" class="muted" hidden>This shared playlist could not be read — the link may be incomplete.</p>
     </section>
 
     <section id="view-item" hidden>

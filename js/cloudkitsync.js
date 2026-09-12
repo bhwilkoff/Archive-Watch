@@ -199,5 +199,8 @@ window.AWCloudKitSync = (() => {
       setInterval(() => { if (!document.hidden && localStorage.getItem('aw_cksync')) syncNow(); }, 90_000);
     },
     nudge() { if (configured() && localStorage.getItem('aw_cksync')) syncNow(); },
+    // See the note in js/drivesync.js — the shared-playlist view asks both
+    // islands whether there is anywhere to import into.
+    isSignedIn() { return Boolean(configured() && localStorage.getItem('aw_cksync')); },
   };
 })();
