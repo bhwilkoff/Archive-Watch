@@ -277,6 +277,18 @@
    "kind": "feature-film",
    "mediaId": null,
    "reviewer": null
+  },
+  {
+   "at": "2026-09-12T00:58:51.325446+00:00",
+   "id": "1912GeorgesMeliesALaConqueteDuPoleConquestOfTheNorthPole",
+   "title": "À La Conquête Du Pôle",
+   "slot": "now-showing",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mvbuuhxu5w2o",
+   "format": "video",
+   "kind": "silent-film",
+   "mediaId": null,
+   "reviewer": null
   }
  ]
 }
