@@ -3,6 +3,16 @@ sub init()
 end sub
 
 function getJson(url as String) as Object
+    body = getBody(url)
+    if body = "" then return invalid
+    return ParseJson(body)
+end function
+
+' The bytes, separately from the parse, because on a slow box those are two
+' very different costs and the trace used to bill them as one number.
+' Measured on a Roku 2 XD (600 MHz ARM11) 2026-09-11: the pair took 13.3 s
+' against roughly 1.4 s on a Streaming Stick 4K.
+function getBody(url as String) as String
     x = CreateObject("roUrlTransfer")
     x.SetUrl(url)
     ' HTTPS needs the cert bundle named explicitly; without these two lines the
@@ -11,9 +21,7 @@ function getJson(url as String) as Object
     x.InitClientCertificates()
     x.AddHeader("User-Agent", "ArchiveWatch-Roku/0.2 (+https://archivewatch.org)")
     x.EnableEncodings(true)
-    body = x.GetToString()
-    if body = "" then return invalid
-    return ParseJson(body)
+    return x.GetToString()
 end function
 
 sub run()
@@ -22,7 +30,25 @@ sub run()
     m.top.status = "loading"
 
     featured = getJson("https://archivewatch.org/featured.json")
-    index = getJson("https://archivewatch.org/catalog-index.json?t=" + fmt(CreateObject("roDateTime").AsSeconds()))
+
+    ' TIMED SEPARATELY. Download and parse are one line of trace no longer:
+    ' on a 600 MHz ARM11 they are ten seconds apart in cost, and a single
+    ' "fetchMs" cannot say which to attack.
+    dl = CreateObject("roTimespan")
+    dl.Mark()
+    ' The `?t=` cache-buster STAYS. It is not decoration: the Pages CDN holds
+    ' the index ten minutes per variant, and a device fetching once per launch
+    ' was measured reading a copy from before a mature-content republish. I
+    ' removed it while chasing load time and put it back — first paint is not
+    ' worth showing a viewer something the catalog has already withdrawn.
+    body = getBody("https://archivewatch.org/catalog-index.json?t=" + fmt(CreateObject("roDateTime").AsSeconds()))
+    downloadMs = dl.TotalMilliseconds()
+    dl.Mark()
+    index = invalid
+    if body <> "" then index = ParseJson(body)
+    parseMs = dl.TotalMilliseconds()
+    print "AWROKU index bytes="; Len(body); " downloadMs="; downloadMs; " parseMs="; parseMs
+
     if index = invalid or index.items = invalid
         m.top.status = "error"
         print "AWROKU home: index unavailable"

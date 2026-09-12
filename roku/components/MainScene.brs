@@ -55,7 +55,19 @@ sub init()
     m.svc = CreateObject("roSGNode", "CatalogService")
     m.svc.ObserveField("results", "onQueryResults")
     m.svc.ObserveField("ready", "onSvcReady")
-    m.svc.control = "RUN"
+    ' NOT STARTED YET. CatalogService downloads and parses the SAME 7 MB index
+    ' HomeTask is already fetching, and on a single-core 600 MHz player the two
+    ' parses fight for the only CPU there is during the exact window the screen
+    ' says "Loading the archive…".
+    '
+    ' Measured on a Roku 2 XD, 2026-09-11: downloadMs 4,538 / parseMs 6,822 for
+    ' 7,059,470 bytes — and "AWSVC ready" printed twice, because both tasks do
+    ' the whole job. The parse costs MORE than the download, which is why
+    ' trimming bytes alone would not have fixed this.
+    '
+    ' So it starts once Home has something on screen. Browse and Search need it;
+    ' the first paint does not. Same shape as Decision 053 on Apple — first
+    ' paint from what you already have, everything else after.
 
     m.task = CreateObject("roSGNode", "HomeTask")
     m.task.ObserveField("status", "onStatus")
@@ -246,6 +258,12 @@ sub onStatus()
             m.launchSignalled = true
             m.top.signalBeacon("AppLaunchComplete")
             print "AWROKU AppLaunchComplete"
+            ' Home is painted; the catalog service may now have the CPU.
+            if m.svc <> invalid and m.svcStarted <> true
+                m.svcStarted = true
+                m.svc.control = "RUN"
+                print "AWROKU catalog service started (after first paint)"
+            end if
         end if
         m.home.rowsContent = filteredRows(m.task.rows)
         m.home.heroContent = m.task.hero
