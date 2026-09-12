@@ -354,6 +354,29 @@ def license_rescues(lic: str | None, year: int | None, votes: int | None = None)
     return False
 
 
+# Collections whose membership is itself the evidence: a government work or a
+# Prelinger deposit is clear by origin even when every other field is empty.
+_ORIGIN_SAFE = ("nasa", "gov", "prelinger", "usnationalarchives",
+                "navy", "army", "airforce", "nationalarchives")
+
+
+def unevidenced(it):
+    """True when the pipeline has established NO fact that could clear this
+    item: no year, no licence, no external match, no release date, and no
+    origin collection. Not "we checked and it failed" — "we never learned
+    anything at all"."""
+    if it.get("year") or it.get("releaseDate"):
+        return False
+    if it.get("imdbID") or it.get("tmdbID"):
+        return False
+    if ((it.get("archiveLicense") or "") + (it.get("licenseurl") or "")).strip():
+        return False
+    joined = " ".join(it.get("collections") or []).lower()
+    if any(k in joined for k in _ORIGIN_SAFE):
+        return False
+    return True
+
+
 def bucket(it):
     """Return (bucket, action). action in {keep, fix, hide, report, confirm}.
 
@@ -446,6 +469,35 @@ def bucket(it):
     if yi is None:
         if modern_id(it):
             return "modern_noyear_risk", "hide"
+        # NOTHING IS KNOWN ABOUT THIS ITEM, so it cannot be called public
+        # domain. No year, no licence, no external match, no release date —
+        # the pipeline has never established a single fact that would clear
+        # it, and `unknown_year -> keep` was showing it anyway.
+        #
+        # The owner, 2026-09-11: "we are trying to ONLY have public domain
+        # videos within the app... Those movies show up on every platform, so
+        # they are getting through every gate we have ever set up." This is
+        # the gate they were getting through. `keep` was the wrong default
+        # for an item with no evidence at all: Decision 027's rule is never to
+        # hide on a FAILED check, which is right, but never running a check is
+        # not the same thing as running one that failed.
+        #
+        # MEASURED on the live catalog: 4,579 visible items have no year, no
+        # licence, no match and no release date — 14.4%. Sampling them found
+        # The Dick Van Dyke Show Season 5 (CBS), the 1979 JESUS Film, modern
+        # web series and a DOS 6.2 demo. 806 of them sit in a government or
+        # Prelinger collection and are age-safe whatever else is missing, so
+        # those are exempt; 3,753 remain.
+        #
+        # THE NEGATIVE CONTROL that made this shippable: seventeen canon
+        # titles (Potemkin, Le voyage dans la lune, Caligari, Nosferatu, Night
+        # of the Living Dead, The General, Carnival of Souls, Detour, Scarlet
+        # Street...) hold 99 copies between them; 4 copies fall in this bucket
+        # and NO film loses its last copy. The canon survives because it is
+        # enriched — a film anyone cares about has a match, and that match is
+        # the evidence this rule asks for.
+        if unevidenced(it):
+            return "no_evidence", "hide"
         return "unknown_year", "keep"
     if RENEWAL_ZONE_START <= yi < MODERN:
         return ("renewal_zone_bw", "report") if it.get("colorMode") == "bw" \
@@ -456,7 +508,7 @@ def bucket(it):
 HIDE_BUCKETS = {"modern_copyright_confirmed", "modern_noyear_risk",
                 "commercial_modern_risk", "commercial_slop",
                 "renewed_copyright_classic", "renewal_zone_commercial",
-                "copyrighted_trailer", "wrongmatch_idyear"}
+                "copyrighted_trailer", "wrongmatch_idyear", "no_evidence"}
 
 
 def evidence_for(it, b):
