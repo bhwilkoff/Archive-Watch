@@ -402,3 +402,107 @@ html.tv .share-menu-trigger {
   background: rgba(255, 255, 255, .12);
   border-color: #fff;
 }
+
+/* ── Nothing on a television is sized for a mouse ──────────────────────────
+ *
+ * The owner, after using the Tizen build: "All designs should be updated for
+ * the tv interface! There should be nothing optimized for a web interface (as
+ * they are now)."
+ *
+ * MEASURED with tools/tv_audit_sizes.mjs at a true 1920x1080 — 1,234 focusable
+ * elements across seven routes, 25 distinct kinds below the floor. The floors
+ * are the platform vendors' own: body type no smaller than 18px (Google's TV
+ * guidance puts it at 24sp, and calls 18 the legibility floor) and focusable
+ * targets around 44-64px, because a D-pad lands on a whole element and a
+ * viewer cannot aim at part of one.
+ *
+ * The worst was Channels: 673 of its 679 focusable elements were 13px EPG
+ * blocks — an entire television guide printed at desk size. */
+
+/* Every button and pill the viewer can land on. */
+.tv .btn-primary,
+.tv .btn-ghost,
+.tv .hero-cta,
+.tv .chip,
+.tv .facet button {
+  font-size: var(--tv-body, 24px);
+  min-height: 56px;
+  padding: 12px 26px;
+  border-radius: 999px;
+}
+
+/* The EPG. A guide is read across a room or it is not a guide. */
+.tv .epg-block {
+  font-size: var(--tv-caption, 20px);
+  min-height: 56px;
+  padding: 10px 14px;
+  line-height: 1.3;
+}
+.tv .epg-rail,
+.tv .epg-ruler { font-size: var(--tv-caption, 20px); }
+
+/* Search is typed on a remote keyboard; the field it fills must be legible. */
+.tv #search-input,
+.tv input[type="search"],
+.tv input[type="text"] {
+  font-size: var(--tv-body-lg, 28px);
+  min-height: 68px;
+  padding: 12px 22px;
+}
+
+/* What is left of the footer on TV is About, Privacy, Terms and the donate
+ * link — required or wanted, so it stays reachable and therefore has to be
+ * readable. The store links are hidden separately above. */
+.tv .sitefoot,
+.tv .sitefoot a,
+.tv footer a {
+  font-size: var(--tv-caption, 20px);
+  line-height: 1.6;
+}
+.tv .sitefoot a,
+.tv footer a {
+  display: inline-block;
+  padding: 12px 16px;
+}
+
+/* The brand mark is chrome — never an initial focus target (tv.js isChrome) —
+ * but it is still reachable by pressing Up, so it gets a real target too. */
+.tv .brand { min-height: 56px; display: inline-flex; align-items: center; }
+
+/* The three the first pass missed, each a BARE <button> with no class — which
+ * is why a class-based rule could not reach them. Found by re-running
+ * tools/tv_audit_sizes.mjs rather than by re-reading the stylesheet. */
+
+/* Browse's type chips and Search's facet chips: buttons inside their host. */
+.tv .chips button,
+.tv #browse-type-chips button,
+.tv #search-filters button {
+  font-size: var(--tv-body, 24px);
+  min-height: 56px;
+  padding: 12px 26px;
+  border-radius: 999px;
+}
+
+/* The hero's carousel dots were 7px tall — a mouse target, and on a remote a
+ * row of things you can land on and cannot see. Given a real size they become
+ * what they are: the way to step between featured films. */
+.tv .hero-dots button {
+  /* A dot SHOULD be small — it is an indicator, not a button you read. What
+   * must not be small is the area the remote lands on, so the target is grown
+   * with PADDING while the painted dot stays 16px. Margin would not do it:
+   * margin is space around the element, not part of it, so the hit box would
+   * still have been 7px. */
+  box-sizing: content-box;
+  width: 16px;
+  height: 16px;
+  padding: 20px 14px;
+  margin: 0;
+  background-clip: content-box;
+  border-radius: 999px;
+}
+.tv .hero-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 56px;
+}
