@@ -15,7 +15,39 @@ is the minority that did not work.
 
 ---
 
+## Status at a glance — reconciled 2026-09-12
+
+Every row below was checked against the code and the live store state, not
+recalled. **The distinction that matters is "fixed" versus "shipped to users":
+the App Store is on 1.42.9, and 1.42.28 has been WAITING_FOR_REVIEW** — so
+several fixes exist and no user has them yet.
+
+| # | Issue | Engineering | In users' hands? |
+|---|---|---|---|
+| P0 | Won't launch, tvOS 26.3 | Candidate fix in **1.42.14** (NowPlayingWarmup — the watchdog kill that reads as a crash) | **No** — live is 1.42.9. Also never verified against 26.3 |
+| P1 | Slow on 2nd-gen Apple TV | Fixed and measured in **1.42.13** (ninety invisible procedural posters) | **No** — live is 1.42.9 |
+| P2 | Fire TV unavailable | Fixed (Decision 115 minSdk, 38 → 91 devices), submitted | Waiting on Amazon; owner to post in-thread when live |
+| P3 | No genre sort | **CLOSED** — iOS/macOS 1.42.8, Android 1.42.47 | iOS/macOS **yes** (1.42.8 ≤ live 1.42.9). Android **no** |
+| P4 | Only the low-quality copy | Deliberately scoped as research, not a fix | n/a |
+| P5 | Plays 5 minutes then stops | **ANSWERED and fixed** — Decision 118, **1.42.45** | **No** — not even in the in-review 1.42.28 |
+| P6 | Samsung TV | In flight, Decision 112 (US-only, Public Seller) | Not submitted |
+| P7 | Letterboxd / JustWatch | Blocked externally — needs approval by email, requested | n/a |
+| P8 | "Do you actually vet the films?" | **DONE** — the public vetting page is live (HTTP 200 at /vetting/) and built on every deploy | **Yes** |
+| P9 | iOS 26 floor | Deliberate; revisit only with data | n/a |
+
+**The single most useful action is not engineering.** Six of these are fixed in
+the repo and blocked behind one App Store review. P0 and P1 are the two
+loudest complaints in the thread and both have had fixes for days.
+
 ## P0 — Archive Watch will not launch on Apple TV, tvOS 26.3
+
+> **Status 2026-09-12: candidate fix shipped to the repo in 1.42.14, NOT live.**
+> `NowPlayingWarmup` warms `MPRemoteCommandCenter` off the main thread, because
+> AVKit's `_becomeNowPlaying` `dispatch_once` on the scene-update path is a
+> FRONTBOARD watchdog kill (`0x8BADF00D`) that presents exactly as "blinks and
+> doesn't open". It is a CANDIDATE: nobody has reproduced this on 26.3, no crash
+> log has been read, and the store is still serving 1.42.9. Do not tell the
+> reporter it is fixed until a 26.3 device or a crash organizer entry says so.
 
 **u/Fit_Explorer_2566**, Apple TV 4K 2nd gen, tvOS 26.3: the app "blinks and
 doesn't open". Unchanged after a device restart, and after delete and
@@ -54,6 +86,12 @@ decisive move is a 26.3 device on the bench.
 
 ## P1 — The Apple TV app is slow on 2nd-generation hardware
 
+> **Status 2026-09-12: fixed in 1.42.13, NOT live.** Measured on the 2nd-gen
+> unit: Home scrolled at 24-27fps with 60-67% long frames while a 3rd gen held
+> 52-58fps on the same build. Cause was ~90 `ProceduralPoster` cards kept alive
+> behind posters that had already loaded and covered them. The store is on
+> 1.42.9, so the reporter still has the slow build.
+
 **u/hondo77777**, Apple TV 4K 2nd gen: "very, very s l o w", while liking the
 interface otherwise. **Owner: "Clearly needs some optimization. Look for the
 update early next week."**
@@ -65,6 +103,9 @@ runs on it. Profile the launch path and the Home shelf scroll there, not on a
 3rd gen, and treat the 2nd gen as the floor the app must clear.
 
 ## P2 — Fire TV: still unavailable, and this is the loudest complaint
+
+> **Status 2026-09-12: no engineering remains.** Waiting on Amazon, and on the
+> owner's promise to post in the thread the day it lands.
 
 Four separate people, and the most persistent thread in the whole post:
 **u/rseery** (three follow-ups, the last today: still incompatible after a
@@ -257,11 +298,16 @@ source for a condition the source may not have.
 
 ## P6 — Samsung TV
 
+> **Status 2026-09-12: in flight, not submitted.** Decision 112 — US-only on
+> Public Seller; certificate backed up; the `.wgt` builds.
+
 **u/jablodg** asked. **Owner: "That's the next platform I'm working on…
 probably out for release late next week."** Already in flight per Decision
 112; US-only on Public Seller.
 
 ## P7 — Letterboxd / JustWatch integration
+
+> **Status 2026-09-12: blocked externally.** Nothing to schedule.
 
 **u/oxfordsplice** suggested it; they use Letterboxd and believe it sources
 from JustWatch. **Owner** looked it up in-thread and found integration
@@ -269,6 +315,9 @@ requires individual approval by email, and has requested it. Blocked
 externally. No work to schedule.
 
 ## P8 — "Do you actually vet the films?"
+
+> **Status 2026-09-12: DONE and verified live.** `tools/build_vetting_page.py`
+> runs in `deploy-pages.yml` and https://archivewatch.org/vetting/ answers 200.
 
 **u/Acetylene** asked the sharpest question in the thread: whether this is a
 curated library or another interface over whatever archive.org tagged as a
@@ -288,6 +337,9 @@ invisible investment into the thing that distinguishes it from the apps
 Acetylene is tired of.
 
 ## P9 — The OS floor excludes people
+
+> **Status 2026-09-12: deliberate, unchanged.** Revisit only with data on how
+> many people it turns away.
 
 **u/Fit_Explorer_2566**: "iOS 26 required. I'll wait for iOS 27." The App
 Store listing confirms a minimum of 26.0. This is a deliberate choice, but it
