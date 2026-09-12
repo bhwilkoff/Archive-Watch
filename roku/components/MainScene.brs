@@ -101,6 +101,15 @@ sub watchMemory()
     '
     ' This block is instrumentation, not a feature. It asks for a firmware
     ' where all of it exists, and says so when it does not.
+    '
+    ' WHAT IT MEASURED, once (Streaming Stick 4K, Roku OS 15.3.4, 2026-09-11,
+    ' via a temporary per-focus sampler since pressure events never fire on a
+    ' healthy box): at launch 3% of the channel limit with 332,524 KB
+    ' available; after fourteen Downs and fourteen Rights across Home, 12% with
+    ' 231,960 KB — **~98 MB consumed by browsing alone**. A Roku 2 XD has
+    ' 256 MB for the ENTIRE system, so that is the number to beat before this
+    ' channel could live on a legacy player, and `ui_resolutions=fhd` in the
+    ' manifest is where most of it goes.
     di = CreateObject("roDeviceInfo")
     osMajor = 0
     ver = di.GetOSVersion()
