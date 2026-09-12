@@ -66,7 +66,10 @@ const chrome = spawn(CHROME, [
   "--headless=new", `--remote-debugging-port=${PORT}`,
   "--window-size=1920,1080", "--force-device-scale-factor=1",
   "--hide-scrollbars", "--no-first-run", "--no-default-browser-check",
-  `--user-data-dir=${path.join(OUT, "profile")}`, "about:blank",
+  // A FRESH profile every run. A reused one serves a cached stylesheet, and a
+  // stale stylesheet does not fail — it reports the OLD layout as the current
+  // one. That cost a wrong conclusion in this session before it was noticed.
+  `--user-data-dir=${path.join(OUT, "profile-" + process.pid)}`, "about:blank",
 ], { stdio: ["ignore", "ignore", "pipe"] });
 
 let target;
@@ -103,11 +106,105 @@ const PROBE = `(() => {
     if (r.width <= 0 || r.height <= 0) continue;
     const cs = getComputedStyle(el);
     if (cs.visibility === 'hidden' || cs.display === 'none') continue;
+    // The floor applies to the node that actually DRAWS the text, which is not
+    // always the focusable itself. A card at 24px can contain a 15px span, and
+    // reading only the focusable's own font-size passed it — that is exactly
+    // how the typographic placeholder card shipped at 15px on a television.
+    let minFont = Math.round(parseFloat(cs.fontSize) || 0);
+    let minText = (el.textContent || '').trim().replace(/\\s+/g, ' ').slice(0, 34);
+    let minCls = (el.className || '').toString().split(/\\s+/)[0] || '';
+    for (const d of el.querySelectorAll('*')) {
+      let own = '';
+      for (const n of d.childNodes) if (n.nodeType === 3) own += n.textContent;
+      own = own.trim();
+      if (!own) continue;
+      const dr = d.getBoundingClientRect();
+      if (dr.width <= 0 || dr.height <= 0) continue;
+      const dcs = getComputedStyle(d);
+      if (dcs.visibility === 'hidden' || dcs.display === 'none') continue;
+      const f = Math.round(parseFloat(dcs.fontSize) || 0);
+      if (f > 0 && f < minFont) {
+        minFont = f;
+        minText = own.replace(/\\s+/g, ' ').slice(0, 34);
+        minCls = (d.className || '').toString().split(/\\s+/)[0] || minCls;
+      }
+    }
+    // OVERLAPPING TEXT. A size floor proves the type is big enough, never that
+    // it FITS, and enlarging type for a television is exactly what makes it
+    // stop fitting — so this is here as a second, independent question.
+    //
+    // BE HONEST ABOUT WHAT IT CAUGHT: not the EPG. Raising the guide's labels
+    // to the floor left 168 of 558 programme titles squeezed to a line and a
+    // half and cut mid-glyph, and this check reported ZERO — correctly, because
+    // the flex column shrank each title rather than letting two boxes collide.
+    // The SCREENSHOT is what found that one. Two text boxes overlapping is
+    // still never intentional, so the check earns its place; it is just not the
+    // one that would have saved that afternoon.
+    const boxes = [];
+    for (const d of el.querySelectorAll('*')) {
+      let own = '';
+      for (const n of d.childNodes) if (n.nodeType === 3) own += n.textContent;
+      if (!own.trim()) continue;
+      const dr = d.getBoundingClientRect();
+      if (dr.width <= 0 || dr.height <= 0) continue;
+      boxes.push({ el: d, r: dr, t: own.trim().slice(0, 24) });
+    }
+    // SQUEEZED TEXT — the check that WOULD have saved that afternoon.
+    //
+    // A flex column shrinks its children, so a text box can be given less room
+    // than the lines it is allowed to draw, and overflow:hidden then cuts a
+    // line in half. Distinguish that from DELIBERATE truncation: a
+    // -webkit-line-clamp box is meant to stop at N lines and end in an
+    // ellipsis. So the question is not "is anything hidden" (often yes, by
+    // design) but "is this box shorter than the lines the design allots it".
+    // Measured on the Channels guide: 390 titles squeezed before the fix, 0
+    // after, while every other signal in this file read zero both times.
+    let squeezed = '';
+    for (const d of el.querySelectorAll('*')) {
+      let own = '';
+      for (const n of d.childNodes) if (n.nodeType === 3) own += n.textContent;
+      if (!own.trim()) continue;
+      const dcs = getComputedStyle(d);
+      if (dcs.overflow === 'visible' || dcs.display === 'none') continue;
+      const lh = parseFloat(dcs.lineHeight) || 0;
+      if (!lh) continue;
+      const clamp = parseInt(dcs.webkitLineClamp, 10);
+      const allowed = Number.isFinite(clamp) && clamp > 0
+        ? Math.round(lh * clamp) : d.scrollHeight;
+      const want = Math.min(d.scrollHeight, allowed);
+      if (d.clientHeight > 0 && d.clientHeight < want - 1) {
+        squeezed = JSON.stringify(own.trim().slice(0, 24))
+          + ' got ' + d.clientHeight + 'px, needs ' + want;
+        break;
+      }
+    }
+
+    let overlap = '';
+    for (let i = 0; i < boxes.length && !overlap; i++) {
+      for (let j = i + 1; j < boxes.length; j++) {
+        // NEVER an ancestor against its own descendant: a <figcaption> that
+        // holds both a name and a role <span> contains that span's box by
+        // definition, so the pair always "overlaps". That false positive
+        // appeared on the first real page this check ran against — Detail's
+        // cast chips — and is why a check advertised as having none has to be
+        // tried on real markup before the claim is made.
+        if (boxes[i].el.contains(boxes[j].el) || boxes[j].el.contains(boxes[i].el)) continue;
+        const a = boxes[i].r, b = boxes[j].r;
+        const ox = Math.min(a.right, b.right) - Math.max(a.left, b.left);
+        const oy = Math.min(a.bottom, b.bottom) - Math.max(a.top, b.top);
+        if (ox > 2 && oy > 2) {
+          overlap = JSON.stringify(boxes[i].t) + ' over ' + JSON.stringify(boxes[j].t);
+          break;
+        }
+      }
+    }
     out.push({
       tag: el.tagName.toLowerCase(),
-      cls: (el.className || '').toString().split(/\\s+/)[0] || '',
-      text: (el.textContent || '').trim().replace(/\\s+/g, ' ').slice(0, 34),
-      font: Math.round(parseFloat(cs.fontSize) || 0),
+      cls: minCls,
+      text: minText,
+      font: minFont,
+      overlap,
+      squeezed,
       h: Math.round(r.height), w: Math.round(r.width),
     });
   }
@@ -115,7 +212,7 @@ const PROBE = `(() => {
 })()`;
 
 let findings = 0, checked = 0;
-console.log(`thresholds: font >= ${MIN_FONT}px, focusable height >= ${MIN_TARGET}px  @1920x1080\n`);
+console.log(`thresholds: font >= ${MIN_FONT}px, focusable height >= ${MIN_TARGET}px, no overlapping or squeezed text  @1920x1080\n`);
 
 for (const route of ROUTES) {
   await cdp("Page.navigate", { url: SITE.split("#")[0] + route });
@@ -132,17 +229,20 @@ for (const route of ROUTES) {
   // The font floor applies to elements that HAVE text. A carousel dot is an
   // empty button; reporting its font-size is noise, and a checker that cries
   // about things nobody can read is a checker people learn to ignore.
-  const bad = els.filter((e) => ((e.text && e.font < MIN_FONT) || e.h < MIN_TARGET)
+  const bad = els.filter((e) => ((e.text && e.font < MIN_FONT) || e.h < MIN_TARGET
+                                 || e.overlap || e.squeezed)
                              && !EXEMPT.some((re) => re.test(e.cls)));
   console.log(`${route}  —  ${els.length} focusable, ${bad.length} below the floor`);
   const seen = new Set();
   for (const b of bad) {
-    const key = `${b.tag}.${b.cls}:${b.font}:${b.h}`;
+    const key = `${b.tag}.${b.cls}:${b.font}:${b.h}:${b.overlap ? 'ov' : ''}:${b.squeezed ? 'sq' : ''}`;
     if (seen.has(key)) continue;            // one line per KIND, not per instance
     seen.add(key);
     findings++;
     const why = [b.font < MIN_FONT ? `font ${b.font}px` : null,
-                 b.h < MIN_TARGET ? `height ${b.h}px` : null].filter(Boolean).join(", ");
+                 b.h < MIN_TARGET ? `height ${b.h}px` : null,
+                 b.overlap ? `TEXT OVERLAP: ${b.overlap}` : null,
+                 b.squeezed ? `TEXT SQUEEZED: ${b.squeezed}` : null].filter(Boolean).join(", ");
     console.log(`    ${b.tag}.${b.cls || "—"}  ${why}   “${b.text}”`);
   }
 }

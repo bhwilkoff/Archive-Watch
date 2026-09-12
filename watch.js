@@ -461,19 +461,28 @@
       ? `#/series/${encodeURIComponent(id.replace(/^series:/, ''))}`
       : `#/item/${encodeURIComponent(id)}`;
     let art;
-    if (type === 'tv-series' && !row[4]) {
-      // series: ids aren't archive.org items — no thumbnail exists to fetch
+    // Designed poster ONLY — never the archive.org services/img thumbnail
+    // (owner 2026-06-29). An art-less row gets the typographic placeholder, not
+    // a frame grab.
+    //
+    // DECIDED UP FRONT, and that is the whole point. This used to hand an empty
+    // chain to wireArt and rely on its onFail to swap the placeholder in — but
+    // wireArt calls onFail SYNCHRONOUSLY for an empty chain, at which moment the
+    // <img> has not been appended to the card yet, so `img.replaceWith(...)` was
+    // a no-op on a parentless node. The art-less row then drew as an empty black
+    // box. It went unseen because the OTHER failure path (art that 404s) fires
+    // asynchronously, by which time the img is in the DOM and the swap works.
+    // Measured on the live index: 11,090 of 24,377 rows — 45.5% of the
+    // catalogue, Nosferatu and Betty Boop among them — had no chain to fetch.
+    const artChain = (Data.isPro(row) ? [row[4]] : []).filter(Boolean);
+    if (!artChain.length) {
       art = placeholderArt(row);
     } else {
       const img = document.createElement('img');
       img.loading = 'lazy';
       img.decoding = 'async';
       img.alt = '';
-      // Designed poster ONLY — never the archive.org services/img thumbnail (owner 2026-06-29).
-      // An art-less row falls through to the typographic placeholder card, not a frame grab.
-      wireArt(img,
-        Data.isPro(row) ? [row[4]] : [],
-        null, () => img.replaceWith(placeholderArt(row)));
+      wireArt(img, artChain, null, () => img.replaceWith(placeholderArt(row)));
       art = img;
     }
     const t = document.createElement('span'); t.className = 't'; t.textContent = title;
