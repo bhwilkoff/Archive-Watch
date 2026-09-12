@@ -234,3 +234,65 @@ the next thing to do if anyone reports a slow card.
 boxes an intrinsic), so a local of that name is refused. Same family as `rem`
 being the comment keyword, already recorded in `QR.brs`. It fails at compile
 time, which is the good case.
+
+---
+
+## The link shape, settled (2026-09-12)
+
+A share link is now:
+
+    https://archivewatch.org/list/#<blob>
+
+not `archivewatch.org/#/list/<blob>`. Three requirements pull in different
+directions and only this shape satisfies all of them.
+
+**The playlist must not reach a server.** A browser never sends a fragment, so
+`#<blob>` keeps the list on the device — the same property the whole no-backend
+design rests on (Decisions 009/028), and the reason the first version put it
+there.
+
+**A native app must be able to match it.** This is what the fragment alone
+cannot do. An **Android intent filter matches the PATH** and cannot see a
+fragment at all, so `/#/list/<blob>` could never open the Android app — its
+path is just `/`. Apple is more capable: AASA gained a `#` component key in
+iOS 13, so Apple could match either. A single link has to serve both, so the
+path is where the routing information has to live.
+
+**It must preview.** GitHub Pages serves `404.html` with an HTTP **404**, and
+several crawlers decline to preview a 404 outright — which is the entire reason
+26,000 per-item share pages exist (see the top of `tools/build_share_pages.py`).
+A playlist link is made to be posted to Reddit and to social, so it cannot be a
+404. `/list/` is now a real generated page: one static file, generic preview
+copy, and a script that reads the fragment and hands it to the viewer's router.
+The copy is generic **on purpose** — the contents are in a fragment the
+generator never sees, which is exactly the property being preserved.
+
+`404.html` handles `/list/` as well, as the safety net for the window before
+the page deploys and for a link written with the blob in the path instead. The
+deploy refuses to ship without `_site/list/index.html`.
+
+**Old links keep working.** `#/list/<blob>` still decodes and routes on every
+platform; links are permanent and some are already in the wild.
+
+### Verified, end to end, on the device
+
+Roku 1.0.71 on a Streaming Stick 4K, a ten-film playlist:
+
+    AWSHARE open len=448  https://archivewatch.org/list/#0eyJpIjpb...
+    AWQR v14 size=73 mask=2  encodeMs=616 totalMs=1173
+
+decoded out of a photograph of the TV screen to the exact 448 characters, and
+that string fed to `watch.js`'s own `ShareList.decode` returned "creature
+feature" and all ten ids. The web forward was measured too: `/list/#<blob>`
+lands on `#/list/<blob>` with ten cards and the right title, and the old shape
+still does the same.
+
+### What is NOT done, and the order it has to happen in
+
+**The AASA and the Android manifest are deliberately unchanged.** Adding
+`/list/*` to them today would make iOS and Android intercept a shared playlist
+and open an app that does not know the route — landing the viewer on Home with
+their link gone, which is strictly worse than the web page they get now. The
+order is: teach the apps the route, ship them, *then* declare the path. The
+link shape is the part that had to come first, because links are permanent and
+every one shared from today is already the right shape.

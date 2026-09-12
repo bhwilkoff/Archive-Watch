@@ -188,6 +188,37 @@ def build_page(url, title_tag, og_title, h1, desc, meta, blurb, image, wide,
         tw_card="summary_large_image" if wide else "summary")
 
 
+LIST_LANDING = """<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>A shared playlist — Archive Watch</title>
+  <meta property="og:title" content="A shared playlist on Archive Watch">
+  <meta property="og:description" content="Someone put together a collection of public-domain films. Free to watch, no account.">
+  <meta property="og:image" content="https://archivewatch.org/assets/app-icon/app-icon.png">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="apple-itunes-app" content="app-id=6776697407">
+  <script>
+    (function () {
+      // The playlist is in the FRAGMENT and has never left this browser. Hand
+      // it to the viewer's router. A path form is accepted too, so a link
+      // written either way opens the same collection.
+      var blob = (location.hash || '').replace(/^#\\/?/, '');
+      if (!blob) {
+        var m = location.pathname.match(/^\\/list\\/(.+?)\\/?$/);
+        blob = m ? m[1] : '';
+      }
+      location.replace(blob ? '/#/list/' + blob : '/');
+    })();
+  </script>
+</head>
+<body><p>Opening the playlist… <a href="/">Archive Watch</a></p></body>
+</html>
+"""
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(
         description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -274,9 +305,33 @@ def main() -> int:
             viewer=viewer, og_type=og_type), encoding="utf-8")
         made += 1
 
+    # ---- the shared-playlist landing page -----------------------------
+    #
+    # ONE static page at /list/, and the playlist itself never reaches it: a
+    # share link is `/list/#<blob>`, so the list travels in the FRAGMENT, which
+    # a browser does not send to any server. This page reads it back out and
+    # hands it to the viewer's hash router.
+    #
+    # Why a real page rather than letting /list/ fall through to 404.html:
+    #   * STATUS. GitHub Pages serves 404.html with an HTTP 404, and several
+    #     crawlers decline to preview a 404 outright — the whole reason 26,000
+    #     per-item share pages exist (see this file's header). A playlist link
+    #     is made to be posted to Reddit and to social; it has to preview.
+    #   * A PATH. Android intent filters match on the path and cannot see a
+    #     fragment at all, so `/#/list/<blob>` can never open the Android app.
+    #     `/list/` can. Apple can match either (AASA gained a "#" component in
+    #     iOS 13), so the path form is the only one that serves both.
+    # Together those give one link that previews, opens the native app once the
+    # apps handle the route, and still keeps the playlist off our servers.
+    #
+    # The preview copy is generic ON PURPOSE — the contents are in a fragment
+    # this generator never sees, which is exactly the property being preserved.
+    (out / "list").mkdir(parents=True, exist_ok=True)
+    (out / "list" / "index.html").write_text(LIST_LANDING, encoding="utf-8")
+
     note = f"; skipped {skipped} unsafe id(s)" if skipped else ""
     print(f"[share] wrote {made:,} share pages under {out}/item and "
-          f"{out}/series{note}")
+          f"{out}/series{note}; plus the /list/ playlist landing page")
     return 0
 
 

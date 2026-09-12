@@ -9,6 +9,7 @@
        forwarded into the viewer's hash router at the site root:
          /item/{id}    — the canonical share URLs the apps emit
          /series/{id}  — series share links
+         /list/#{blob} — a shared playlist (blob stays in the fragment)
          /watch/*      — the viewer's pre-archivewatch.org address (old PWA
                          installs + bookmarks arrive here via GitHub's 301
                          from bhwilkoff.github.io/Archive-Watch/watch/...,
@@ -19,6 +20,18 @@
       var p = location.pathname.replace(/^\/Archive-Watch/, '');
       var m = p.match(/^\/(item|series)\/([^/]+)/);
       if (m) { location.replace('/#/' + m[1] + '/' + m[2]); return; }
+      // A shared playlist: /list/#<blob>. The blob is in the FRAGMENT, which a
+      // browser keeps to itself, so it is still here to forward. The deploy
+      // writes a real 200 page at /list/ (a 404 previews as nothing on several
+      // crawlers, and this link is made to be posted) — this branch is the
+      // safety net for the window before that page is live, and for a link
+      // written with the blob in the path instead.
+      var L = p.match(/^\/list(?:\/(.*))?$/);
+      if (L) {
+        var blob = (location.hash || '').replace(/^#\/?/, '') || L[1] || '';
+        location.replace(blob ? '/#/list/' + blob : '/');
+        return;
+      }
       if (/^\/watch(\/|$)/.test(p)) { location.replace('/' + location.hash); return; }
       location.replace('/');
     })();

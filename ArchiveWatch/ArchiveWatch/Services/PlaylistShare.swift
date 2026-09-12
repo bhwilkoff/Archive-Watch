@@ -45,7 +45,9 @@ enum PlaylistShare {
     static func url(name: String, archiveIDs: [String]) -> URL? {
         guard !archiveIDs.isEmpty, archiveIDs.count <= limit,
               let b = blob(name: name, archiveIDs: archiveIDs) else { return nil }
-        return URL(string: "https://archivewatch.org/#/list/\(b)")
+        // the PATH is /list/ and the playlist rides the FRAGMENT: a browser never sends a fragment to a server, so the list stays off ours, while the path is what a native app can match (an Android intent filter cannot see a fragment at all).
+        // /list/ is also a real 200 page, and several crawlers decline to preview a 404 — which matters for a link made to be posted.
+        return URL(string: "https://archivewatch.org/list/#\(b)")
     }
 
     // MARK: - the two primitives

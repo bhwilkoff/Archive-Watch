@@ -65,8 +65,19 @@ if (long) {
 check(ShareList.LIMIT === 50, "the app refuses to share past the measured limit");
 
 globalThis.location = { origin: "https://archivewatch.org", pathname: "/" };
-check(ShareList.url("ABC") === "https://archivewatch.org/#/list/ABC",
-      "the URL is a /list route on our own origin", ShareList.url("ABC"));
+/* THE SHAPE IS LOAD-BEARING, so it is asserted rather than left to drift.
+ * `/list/` is a PATH, and the blob rides the FRAGMENT:
+ *   - a browser never sends a fragment to a server, so a shared playlist stays
+ *     off ours — the same property the whole no-backend design rests on;
+ *   - an Android intent filter matches the PATH and cannot see a fragment at
+ *     all, so `/#/list/<blob>` could never open the Android app (Apple can
+ *     match either — AASA gained a "#" component in iOS 13);
+ *   - /list/ is a real 200 page, and several crawlers decline to preview a
+ *     404 — which is the entire reason 26,000 per-item share pages exist.
+ * Every decoder still takes the old `#/list/` form, because links are
+ * permanent and some are already in the wild. */
+check(ShareList.url("ABC") === "https://archivewatch.org/list/#ABC",
+      "the share URL is /list/ with the playlist in the fragment", ShareList.url("ABC"));
 
 // THE PRIVACY RULE. The playlist lives in the URL, so the analytics beacon
 // must never be handed the route verbatim: that would send the whole list to

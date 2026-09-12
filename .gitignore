@@ -114,3 +114,9 @@ tv/dist/*.wgt
 # reinstall cannot take it, but see secrets/tizen-certificate/README.md: a
 # gitignored folder is not an off-machine backup.
 secrets/
+
+# The shared-playlist landing page is GENERATED into the Pages artifact by
+# tools/build_share_pages.py, exactly like the per-item share pages — the same
+# Decision-018 reasoning. A local copy is handy for testing the /list/#<blob>
+# forward against a dev server; it must never be committed.
+/list/

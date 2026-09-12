@@ -104,6 +104,17 @@ jobs:
             exit 1
           fi
 
+          # The shared-playlist landing page. Every playlist link every
+          # platform emits points at /list/, so without this file they all
+          # fall through to 404.html — which still forwards, but serves an
+          # HTTP 404 that several crawlers refuse to preview. One file, and
+          # every shared playlist depends on it.
+          if [ ! -f _site/list/index.html ]; then
+            echo "::error::_site/list/index.html is missing — every shared"
+            echo "::error::playlist link would land on a 404. Refusing to deploy."
+            exit 1
+          fi
+
       - name: Fetch the Roku search-feed covers (/roku-search/covers)
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
