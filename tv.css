@@ -95,6 +95,25 @@ html.tv main {
   overflow-y: auto;
 }
 
+/* The footer is a SIBLING of main, and main is exactly 100vh — so the footer
+ * starts at the bottom edge of the screen and the body scrolls just far enough
+ * to bring it barely into view. Measured: focusing "About & attribution" put
+ * its bottom at y=1070, which is 44px inside the 5% band a television cuts
+ * off. The page must be able to scroll PAST the footer, or the last two
+ * focusable things on every route are invisible on real hardware while
+ * focused. scroll-padding lets reveal() centre them rather than jam them
+ * against the edge. */
+html.tv .foot {
+  padding-bottom: var(--tv-overscan-y);
+}
+/* Not redundant with the line above, and measured: removing EITHER one alone
+ * still passes, removing both puts the two footer links back at y=1070. The
+ * padding gives the footer its own room; scroll-padding is what lets reveal()
+ * centre anything that lands near an edge rather than jamming it against one. */
+html.tv body {
+  scroll-padding-block: var(--tv-overscan-y);
+}
+
 html.tv .topnav {
   padding: var(--tv-overscan-y) var(--tv-overscan-x) 16px;
   font-size: var(--tv-title);
@@ -467,7 +486,18 @@ html.tv .share-menu-trigger {
 
 /* The brand mark is chrome — never an initial focus target (tv.js isChrome) —
  * but it is still reachable by pressing Up, so it gets a real target too. */
-.tv .brand { min-height: 56px; display: inline-flex; align-items: center; }
+/* The brand is a SIBLING of .topnav inside the header, not a child, so the
+ * nav's 54px overscan inset never reached it — it was simply centred in the
+ * header row and landed at y=51, three pixels inside the band a television
+ * cuts. Give it the same inset the nav gives its own content, which also puts
+ * it on the nav links' top edge. */
+.tv .brand {
+  min-height: 56px;
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  margin-top: var(--tv-overscan-y);
+}
 
 /* The three the first pass missed, each a BARE <button> with no class — which
  * is why a class-based rule could not reach them. Found by re-running
