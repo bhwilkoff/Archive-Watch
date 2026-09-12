@@ -18,7 +18,13 @@ is the minority that did not work.
 ## Status at a glance — reconciled 2026-09-12
 
 Every row below was checked against the code and the live store state, not
-recalled. **The distinction that matters is "fixed" versus "shipped to users":
+recalled. The store reading was challenged and then confirmed THREE ways:
+`asc_release.py status`, Apple's PUBLIC iTunes lookup API (`version: 1.42.9`,
+released 2026-09-11T23:49:09Z), and the raw ASC `appStoreVersions` list, where
+1.42.9 is the newest READY_FOR_SALE on TV_OS, IOS and MAC_OS and 1.42.28 is
+the only thing above it. Note 1.42.9 shipped THAT DAY — a release had just
+landed, which is exactly why "live is 1.42.9" reads as wrong at a glance. The
+fixes below were cut after it. **The distinction that matters is "fixed" versus "shipped to users":
 the App Store is on 1.42.9, and 1.42.28 has been WAITING_FOR_REVIEW** — so
 several fixes exist and no user has them yet.
 
