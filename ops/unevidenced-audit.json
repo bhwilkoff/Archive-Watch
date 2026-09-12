@@ -1,0 +1,23 @@
+{
+ "generated": "2026-09-11",
+ "cohort": 3753,
+ "tally": {
+  "still_no_evidence": 2034,
+  "enriched": 1718,
+  "copyright_claimed": 1
+ },
+ "note": "Per-item findings are not committed (3,753 records). Re-run tools/audit_unevidenced.py to regenerate. Items whose own archive.org record ASSERTS a copyright are kept here in full.",
+ "copyright_asserted": {
+  "displays_2": {
+   "status": "read",
+   "rights": "Copyright 1991 Stewart Cheifet Productions",
+   "claimed": true,
+   "collections": [
+    "computerchronicles",
+    "tvprograms",
+    "computersandtechvideos",
+    "whisper_test"
+   ]
+  }
+ }
+}
