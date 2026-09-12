@@ -4,7 +4,7 @@
 
 Every other store in this project is scripted — `tools/asc_release.py` submits
 to Apple over REST (Decision 101), `tools/submit-play.sh` uploads to Google
-Play. **Roku has no equivalent.** App creation, the store listing, the package
+Play. **Roku has no equivalent** for submission. App creation, the store listing, the package
 upload, the self-serve tests and the publish schedule all happen by hand in the
 Developer Dashboard. Roku's own publishing guide documents no programmatic
 path, and there is no partner endpoint to fall back on.
@@ -177,6 +177,23 @@ shot was showing the tester's own Continue Watching row. Home now leads with
 the full-bleed hero (From Soup to Nuts, 1928) over the Public-Domain Canon
 shelf, and Detail is Fritz Lang's Dr. Mabuse, the Gambler — English interface,
 ★7.8, Play · 155m, More Like This.
+
+## Uploading a package IS automatable (2026-09-12)
+
+The Dashboard's package pages are react-dropzone-uploader: a real
+`input[type=file]` with `class="dzu-input"` and `accept=".pkg,.zip"` sits in
+the DOM. So a `.pkg` can be attached directly with the browser tooling's
+file-upload action against that input — **do not click "Upload"**, which is a
+button that opens the native OS file picker no automation can see.
+
+On the PUBLIC app's package page the dropzone only renders after the Upload
+button is pressed (the page shows the current package until then), so query for
+the input AFTER clicking; on the beta app's page it is present on load. The
+owner spotted this — the control accepts a drop, which is what gives it a real
+input.
+
+Everything after the upload — the minimum-firmware combobox, Save, Save & run
+static analysis, Run analysis, Publish — is ordinary DOM and drives fine.
 
 ## The sequence
 
