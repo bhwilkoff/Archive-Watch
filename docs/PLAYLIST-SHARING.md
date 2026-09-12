@@ -175,3 +175,62 @@ still v1-10, and BrightScript has no deflate — the share format carries an
 uncompressed `0`-prefixed variant precisely so a Roku can encode one, which
 makes its links *longer* than everyone else's. Playlist sharing from Roku needs
 the same v11-40 extension ported back, and that is a separate piece of work.
+
+---
+
+## Roku shares playlists too (2026-09-12)
+
+Library → `*` on a playlist row → **Share this playlist** draws the code, with
+the same 50-title cap as every other platform and a header that says so when
+the list was clipped ("Sharing the first 50 of 70") — a viewer must learn that
+here, not on their phone.
+
+**BrightScript cannot deflate**, which is exactly why the format defines the
+`0`-prefixed UNCOMPRESSED variant. The consequence is real: Roku's link is the
+longest any platform emits, roughly 2.5x the deflated one, which is what made
+extending the encoder past v10 a prerequisite rather than a nicety.
+
+**Proven end to end on the glass** (Streaming Stick 4K, 15.3.4), 10 real films:
+
+| step | evidence |
+|---|---|
+| device builds the link | `AWSHARE playlist shown=10 total=10 len=449` |
+| device encodes it | `AWQR v14 size=73 mask=4` |
+| the JS encoder agrees | v14, 73x73, **mask 4** — independently chosen |
+| the code is readable | decoded from the device SCREENSHOT: 449 chars, exact |
+| the web can read it | `watch.js` ShareList.decode → "creature feature", 10 ids |
+
+The mask agreement is the strong part: mask selection scores all eight
+candidates over the whole matrix, so two implementations landing on the same
+one is evidence the matrices are identical — and v14 is the first time
+BrightScript has ever run the 16-bit character count, the two-block-group
+interleave, or the computed BCH version info.
+
+### Cost, measured, because the Roku 2 XD is a supported device
+
+`AWQRPng` now reports `encodeMs` and `totalMs`. First measurement at v14 was
+**594 ms encode + 2,048 ms PNG = 2,642 ms** — visible as a hang. Two fixes:
+
+- **One scanline per MODULE row, repeated `scale` times.** The pixel rows
+  inside a module row are byte-identical, so building each separately did the
+  same work `scale` times over.
+- **The scale is DERIVED from the display box** (`AWQRBox()` = 520), not passed.
+  It was generating 648 px to display 392. Deriving it also makes the cost FALL
+  as the version rises — more modules pack into the same box at a smaller scale
+  — which is what keeps a 50-film code drawable on an old player.
+
+Result at v14: **2,642 ms → 1,131 ms**, and the code now arrives at very close
+to its display size, so Roku's bilinear scaler has almost nothing to blur.
+
+**Still a risk, not yet addressed**: a full 50-film playlist is v23–v27, where
+the mask penalty alone should run ~1.7 s on this Stick and several times that on
+a Roku 2 XD. The real fix is to move the encode off the render thread into a
+Task node with a "preparing" state; it is a bigger change than this pass and is
+the next thing to do if anyone reports a slow card.
+
+### A BrightScript trap worth the line
+
+`box = AWQRBox()` is a **compile error**: `Box()` is a BrightScript builtin (it
+boxes an intrinsic), so a local of that name is refused. Same family as `rem`
+being the comment keyword, already recorded in `QR.brs`. It fails at compile
+time, which is the good case.

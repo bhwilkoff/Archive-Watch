@@ -460,3 +460,66 @@ sub awDeleteUserChannel(chID as String)
     end for
     awWriteKey("uch", awJoin(rows, Chr(10)))
 end sub
+
+' ---- sharing a playlist ---------------------------------------------------
+'
+' The share format is one link that CARRIES the playlist — there is no server,
+' so the list travels in the URL itself (docs/PLAYLIST-SHARING.md). Every other
+' platform deflates the payload before base64; BrightScript has base64 on
+' roByteArray and no deflate at all, which is precisely why the format defines
+' a '0'-prefixed UNCOMPRESSED variant. Every decoder takes both; only encoders
+' choose, and this is the one encoder that cannot compress.
+'
+' The cost of that is real and is the reason for the cap below: an uncompressed
+' payload is roughly 2.5x the deflated one, so a Roku's link is the longest any
+' platform emits and it is the one most likely to exceed what a QR can hold.
+function awPlaylistShareLimit() as Integer : return 50 : end function
+
+' The largest byte-mode payload a version-40 QR at EC level L can hold. Past
+' this AWQRPng returns "" and the share card has nothing to draw, so the caller
+' is told BEFORE it builds a card it cannot fill.
+function awQRByteCeiling() as Integer : return 2953 : end function
+
+' Returns { url, shown, total, tooLong } — never invalid, so the caller always
+' has something honest to put on screen.
+function awPlaylistShareURL(plID as String) as Object
+    name = ""
+    ids = []
+    for each p in awPlaylists()
+        if p.id = plID
+            name = p.name
+            ids = p.ids
+        end if
+    end for
+    total = ids.Count()
+    keep = []
+    for each a in ids
+        if keep.Count() < awPlaylistShareLimit() then keep.Push(a)
+    end for
+
+    payload = FormatJSON({ n: name, i: keep })
+    ba = CreateObject("roByteArray")
+    ba.FromAsciiString(payload)
+    ' base64url, unpadded — the same alphabet every other platform emits, so a
+    ' link made here decodes in watch.js without a special case.
+    b64 = ba.ToBase64String()
+    out = ""
+    for i = 0 to Len(b64) - 1
+        c = Mid(b64, i + 1, 1)
+        if c = "+"
+            out = out + "-"
+        else if c = "/"
+            out = out + "_"
+        else if c <> "="
+            out = out + c
+        end if
+    end for
+
+    url = "https://archivewatch.org/#/list/0" + out
+    return {
+        url: url,
+        shown: keep.Count(),
+        total: total,
+        tooLong: (Len(url) > awQRByteCeiling())
+    }
+end function

@@ -88,33 +88,103 @@ function qrECC(data as Object, n as Integer) as Object
 end function
 
 ' Version table, EC level L: [dataCodewords, eccPerBlock, blocks1, len1, blocks2, len2]
+' MACHINE-GENERATED from an independent reference and asserted against the JS
+' twin by tools/test_qr_tables_match.mjs — hand-transcribing this is what put
+' [6, 28, 52] in the alignment table below and malformed every v10 code.
+' Cached on m: rebuilding a 40-row array per call is wasted work on a Roku 2 XD.
 function qrVersionTable() as Object
-    return [
-        [19, 7, 1, 19, 0, 0],
-        [34, 10, 1, 34, 0, 0],
-        [55, 15, 1, 55, 0, 0],
-        [80, 20, 1, 80, 0, 0],
-        [108, 26, 1, 108, 0, 0],
-        [136, 18, 2, 68, 0, 0],
-        [156, 20, 2, 78, 0, 0],
-        [194, 24, 2, 97, 0, 0],
-        [232, 30, 2, 116, 0, 0],
-        [274, 18, 2, 68, 2, 69]
-    ]
+    if m.qrVerTbl <> invalid then return m.qrVerTbl
+    t = CreateObject("roArray", 40, false)
+    t.Push([19, 7, 1, 19, 0, 0])   ' v1
+    t.Push([34, 10, 1, 34, 0, 0])   ' v2
+    t.Push([55, 15, 1, 55, 0, 0])   ' v3
+    t.Push([80, 20, 1, 80, 0, 0])   ' v4
+    t.Push([108, 26, 1, 108, 0, 0])   ' v5
+    t.Push([136, 18, 2, 68, 0, 0])   ' v6
+    t.Push([156, 20, 2, 78, 0, 0])   ' v7
+    t.Push([194, 24, 2, 97, 0, 0])   ' v8
+    t.Push([232, 30, 2, 116, 0, 0])   ' v9
+    t.Push([274, 18, 2, 68, 2, 69])   ' v10
+    t.Push([324, 20, 4, 81, 0, 0])   ' v11
+    t.Push([370, 24, 2, 92, 2, 93])   ' v12
+    t.Push([428, 26, 4, 107, 0, 0])   ' v13
+    t.Push([461, 30, 3, 115, 1, 116])   ' v14
+    t.Push([523, 22, 5, 87, 1, 88])   ' v15
+    t.Push([589, 24, 5, 98, 1, 99])   ' v16
+    t.Push([647, 28, 1, 107, 5, 108])   ' v17
+    t.Push([721, 30, 5, 120, 1, 121])   ' v18
+    t.Push([795, 28, 3, 113, 4, 114])   ' v19
+    t.Push([861, 28, 3, 107, 5, 108])   ' v20
+    t.Push([932, 28, 4, 116, 4, 117])   ' v21
+    t.Push([1006, 28, 2, 111, 7, 112])   ' v22
+    t.Push([1094, 30, 4, 121, 5, 122])   ' v23
+    t.Push([1174, 30, 6, 117, 4, 118])   ' v24
+    t.Push([1276, 26, 8, 106, 4, 107])   ' v25
+    t.Push([1370, 28, 10, 114, 2, 115])   ' v26
+    t.Push([1468, 30, 8, 122, 4, 123])   ' v27
+    t.Push([1531, 30, 3, 117, 10, 118])   ' v28
+    t.Push([1631, 30, 7, 116, 7, 117])   ' v29
+    t.Push([1735, 30, 5, 115, 10, 116])   ' v30
+    t.Push([1843, 30, 13, 115, 3, 116])   ' v31
+    t.Push([1955, 30, 17, 115, 0, 0])   ' v32
+    t.Push([2071, 30, 17, 115, 1, 116])   ' v33
+    t.Push([2191, 30, 13, 115, 6, 116])   ' v34
+    t.Push([2306, 30, 12, 121, 7, 122])   ' v35
+    t.Push([2434, 30, 6, 121, 14, 122])   ' v36
+    t.Push([2566, 30, 17, 122, 4, 123])   ' v37
+    t.Push([2702, 30, 4, 122, 18, 123])   ' v38
+    t.Push([2812, 30, 20, 117, 4, 118])   ' v39
+    t.Push([2956, 30, 19, 118, 6, 119])   ' v40
+    m.qrVerTbl = t
+    return t
 end function
 
-' Alignment-pattern centres. v10 read [6, 28, 52] until 2026-09-12; the spec
-' says 50, and the third centre advances by exactly 4 a version (38/42/46/50).
-' Every version-10 code this ever drew was malformed — the pattern landed two
-' modules off and no scanner could read it. It went unnoticed because v10 needs
-' 232+ bytes and the only thing this encoder drew was an /item/ share URL of
-' about 50. Found by porting this file to JS for the TV share sheet and
-' comparing cell-for-cell against an independent reference at every version
-' (tools/test_tv_qr.mjs), which is a check this file has never had.
 function qrAlignPositions(v as Integer) as Object
-    if v = 1 then return []
-    tbl = [[], [6, 18], [6, 22], [6, 26], [6, 30], [6, 34], [6, 22, 38], [6, 24, 42], [6, 26, 46], [6, 28, 50]]
-    return tbl[v - 1]
+    if m.qrAlignTbl = invalid
+        a = CreateObject("roArray", 40, false)
+        a.Push([])   ' v1
+        a.Push([6, 18])   ' v2
+        a.Push([6, 22])   ' v3
+        a.Push([6, 26])   ' v4
+        a.Push([6, 30])   ' v5
+        a.Push([6, 34])   ' v6
+        a.Push([6, 22, 38])   ' v7
+        a.Push([6, 24, 42])   ' v8
+        a.Push([6, 26, 46])   ' v9
+        a.Push([6, 28, 50])   ' v10
+        a.Push([6, 30, 54])   ' v11
+        a.Push([6, 32, 58])   ' v12
+        a.Push([6, 34, 62])   ' v13
+        a.Push([6, 26, 46, 66])   ' v14
+        a.Push([6, 26, 48, 70])   ' v15
+        a.Push([6, 26, 50, 74])   ' v16
+        a.Push([6, 30, 54, 78])   ' v17
+        a.Push([6, 30, 56, 82])   ' v18
+        a.Push([6, 30, 58, 86])   ' v19
+        a.Push([6, 34, 62, 90])   ' v20
+        a.Push([6, 28, 50, 72, 94])   ' v21
+        a.Push([6, 26, 50, 74, 98])   ' v22
+        a.Push([6, 30, 54, 78, 102])   ' v23
+        a.Push([6, 28, 54, 80, 106])   ' v24
+        a.Push([6, 32, 58, 84, 110])   ' v25
+        a.Push([6, 30, 58, 86, 114])   ' v26
+        a.Push([6, 34, 62, 90, 118])   ' v27
+        a.Push([6, 26, 50, 74, 98, 122])   ' v28
+        a.Push([6, 30, 54, 78, 102, 126])   ' v29
+        a.Push([6, 26, 52, 78, 104, 130])   ' v30
+        a.Push([6, 30, 56, 82, 108, 134])   ' v31
+        a.Push([6, 34, 60, 86, 112, 138])   ' v32
+        a.Push([6, 30, 58, 86, 114, 142])   ' v33
+        a.Push([6, 34, 62, 90, 118, 146])   ' v34
+        a.Push([6, 30, 54, 78, 102, 126, 150])   ' v35
+        a.Push([6, 24, 50, 76, 102, 128, 154])   ' v36
+        a.Push([6, 28, 54, 80, 106, 132, 158])   ' v37
+        a.Push([6, 32, 58, 84, 110, 136, 162])   ' v38
+        a.Push([6, 26, 54, 82, 110, 138, 166])   ' v39
+        a.Push([6, 30, 58, 86, 114, 142, 170])   ' v40
+        m.qrAlignTbl = a
+    end if
+    return m.qrAlignTbl[v - 1]
 end function
 
 ' Builds the module matrix for `text`; returns { size, modules (array of rows of 0/1) } or invalid.
@@ -265,8 +335,16 @@ function qrMatrix(text as String) as Object
     mods[size - 8][8] = 1 : fn[size - 8][8] = 1
     ' version info (v >= 7)
     if v >= 7
-        vi = [0, 0, 0, 0, 0, 0, 31892, 34236, 39577, 42195]
-        vb = vi[v - 1]
+        ' BCH(18,6), generator 0x1F25 = 7973. COMPUTED, not tabulated: the old
+        ' ten-entry table could not reach past v10, and a 34-row extension of
+        ' it would be 34 more chances to mistype a constant.
+        remv = v * 4096                      ' v << 12
+        for i = 17 to 12 step -1
+            if Int(remv / pow2(i)) mod 2 = 1
+                remv = qrXor(remv, 7973 * pow2(i - 12))
+            end if
+        end for
+        vb = v * 4096 + (remv mod 4096)
         for i = 0 to 17
             bit = Int(vb / pow2(i)) mod 2
             a = Int(i / 3) : b = i mod 3
@@ -461,26 +539,61 @@ end sub
 
 ' Writes `text` as a QR PNG at `scale` px per module with a 4-module quiet
 ' zone; returns the tmp:/ path, or "" if the text does not fit.
+' The pixel box the share card gives a code. Generating larger and letting the
+' Poster scale it down is wasted work; generating smaller and letting the
+' Poster scale it UP blurs the module edges, which is the one thing a scanner
+' cannot forgive.
+function AWQRBox() as Integer : return 520 : end function
+
 function AWQRPng(text as String, scale as Integer) as String
+    ' The COST, not just the shape. Mask selection scores all eight candidates
+    ' over the whole matrix, so the work grows with the square of the version —
+    ' and the oldest player this channel supports is a Roku 2 XD. A share card
+    ' that takes seconds to draw is a defect, and the trace is where that shows.
+    t0 = CreateObject("roTimespan")
     q = qrMatrix(text)
     if q = invalid then return ""
+    encodeMs = t0.TotalMilliseconds()
     size = q.size
     quiet = 4
-    px = (size + 2 * quiet) * scale
+    mods = size + 2 * quiet
+
+    ' SCALE IS DERIVED, not passed, when the caller asks for a box (scale <= 0).
+    ' Generating 648 px to display 392 was pure waste, and the waste grows with
+    ' the square: every byte is touched three times by BrightScript loops below.
+    ' Deriving it also makes the cost FALL as the version rises — a bigger code
+    ' packs more modules into the same box at a smaller scale — which is what
+    ' keeps a fifty-film playlist drawable on an old player.
+    if scale <= 0
+        scale = Int(AWQRBox() / mods)
+        if scale < 2 then scale = 2
+    end if
+    px = mods * scale
+
     ' Raw scanlines: filter byte 0 + px greyscale bytes.
+    '
+    ' ONE scanline per MODULE row, repeated `scale` times. The pixel rows inside
+    ' a module row are identical, so building each of them separately did the
+    ' same work `scale` times over — at scale 8 that is eight times the loop for
+    ' a byte-identical result.
     raw = CreateObject("roByteArray")
     rowLen = px + 1
     raw.SetResize(rowLen * px, false)
-    for y = 0 to px - 1
-        my = Int(y / scale) - quiet
-        raw.Push(0)
+    for mrow = 0 to mods - 1
+        my = mrow - quiet
+        line = CreateObject("roByteArray")
+        line.SetResize(rowLen, false)
+        line.Push(0)
         for x = 0 to px - 1
             mx = Int(x / scale) - quiet
             v = 255
             if my >= 0 and my < size and mx >= 0 and mx < size
                 if q.modules[my][mx] = 1 then v = 11
             end if
-            raw.Push(v)
+            line.Push(v)
+        end for
+        for r = 1 to scale
+            raw.Append(line)
         end for
     end for
     ' zlib stream of STORED blocks.
@@ -523,7 +636,7 @@ function AWQRPng(text as String, scale as Integer) as String
     pngChunk(png, "IEND", CreateObject("roByteArray"))
     path = "tmp:/qr_" + fmt(Len(text)) + "_" + fmt(size) + "_" + fmt(q.mask) + ".png"
     png.WriteFile(path)
-    print "AWQR v"; q.version; " size="; size; " mask="; q.mask; " px="; px; " bytes="; png.Count(); " -> "; path
+    print "AWQR v"; q.version; " size="; size; " mask="; q.mask; " px="; px; " bytes="; png.Count(); " encodeMs="; encodeMs; " totalMs="; t0.TotalMilliseconds(); " -> "; path
     ' Proven 2026-09-05: the matrix, dumped from this console, matched the
     ' python `qrcode` reference cell for cell (v3, mask 2, 0 differences) and
     ' OpenCV decoded a screenshot of the card to the exact URL.

@@ -503,7 +503,17 @@ sub onUserItemsResolved()
         m.home.rowsContent = filteredRows(m.task.rows)
     end if
     if m.route = "library" and m.library <> invalid
-        m.library.callFunc("reload", m.userItems)
+        ' showRows, NOT "reload" — LibraryScreen has never had a `reload`, in
+        ' its code or its interface, so this callFunc was a SILENT NO-OP and
+        ' the repaint it exists for never once ran. The screen is a pure
+        ' renderer (LibraryScreen §showRows), so the payload is rebuilt here
+        ' now that m.userItems can actually resolve the saved ids.
+        '
+        ' What it looked like on the glass: a cold launch straight into Library
+        ' drew "Nothing here yet" under a header that counted "2 in progress ·
+        ' 1 playlist" — the ids were resolved (AWSVC resolveIds asked=12
+        ' found=12) and nothing ever asked the screen to draw them again.
+        m.library.callFunc("showRows", libraryPayload())
     end if
 end sub
 
@@ -808,6 +818,7 @@ sub openLibraryOptions()
     plID = m.library.focusedPlaylist
     opts = [{ id: "playall", label: "Play all in this row" }]
     if plID <> ""
+        opts.Push({ id: "sharelist", label: "Share this playlist" })
         opts.Push({ id: "removeitem", label: "Remove this film from the playlist" })
         opts.Push({ id: "deletelist", label: "Delete this playlist" })
     end if
@@ -823,6 +834,22 @@ sub onLibraryOptionPicked(pick as String)
     if pick = "playall"
         ids = m.library.callFunc("focusedRowIDs")
         if ids <> invalid and ids.Count() > 0 then startIDLineup(ids, "library", "playlist")
+        return
+    else if pick = "sharelist" and plID <> ""
+        sh = awPlaylistShareURL(plID)
+        name = ""
+        for each pl in awPlaylists()
+            if pl.id = plID then name = pl.name
+        end for
+        ' Say WHAT is being shared when the list was clipped. A viewer who put
+        ' 70 films in a playlist and scans a code holding 50 must be told here,
+        ' not left to discover it on their phone.
+        head = "Share this playlist"
+        if sh.total > sh.shown
+            head = "Sharing the first " + fmt(sh.shown) + " of " + fmt(sh.total)
+        end if
+        print "AWSHARE playlist id="; plID; " shown="; sh.shown; " total="; sh.total; " len="; Len(sh.url)
+        openShareLink(sh.url, name, head, "library")
         return
     else if pick = "removeitem" and plID <> ""
         awRemoveFromPlaylist(plID, m.library.focusedItem)
@@ -1242,15 +1269,33 @@ sub onMorePicked()
 end sub
 
 sub openShareCard(id as String, title as String)
+    m.shareFrom = "detail"
+    shareCardNode().callFunc("open", { id: id, title: title })
+end sub
+
+' The library's share: the whole LINK is passed, because a shared playlist is
+' not addressed by an id — the list travels inside the URL itself.
+sub openShareLink(link as String, title as String, head as String, from as String)
+    m.shareFrom = from
+    shareCardNode().callFunc("open", { link: link, title: title, head: head })
+end sub
+
+function shareCardNode() as Object
     if m.share = invalid
         m.share = m.top.FindNode("options").CreateChild("ShareCard")
         m.share.ObserveField("closed", "onShareClosed")
     end if
-    m.share.callFunc("open", { id: id, title: title })
-end sub
+    return m.share
+end function
 
 sub onShareClosed()
-    refocus(m.detail)
+    ' Back from the card returns to the screen that opened it. Without this the
+    ' library's share dropped the viewer onto Detail, which they never visited.
+    if m.shareFrom = "library"
+        refocus(m.library)
+    else
+        refocus(m.detail)
+    end if
 end sub
 
 sub openOptions()
