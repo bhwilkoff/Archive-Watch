@@ -38,11 +38,35 @@ change that is fine on the 3rd-gen units is not proven until it runs there.
 
 | Device | Address | OS | State |
 |---|---|---|---|
-| Roku Streaming Stick 4K | `10.0.0.155` | Roku OS 15.3.4 | developer mode ON; sideloaded `Archive Watch 1.0.51` |
+| Roku Streaming Stick 4K | `10.0.0.155` | Roku OS 15.3.4 | developer mode ON; sideloaded `Archive Watch 1.0.58` |
+| Roku 2 XD (`3050X`, "Kitchen") | `10.0.0.81` | Roku OS **9.1.0** (final — never updates again) | developer mode ON; the LEGACY FLOOR. ARM11 600 MHz, 256 MB for the whole system, 720p UI. Sideload + playback verified 2026-09-11 |
 | Google TV (SEI Dongle R 4K) | `10.0.0.55:5555` | Android 14 / API 34 | adb connected |
 | Fire TV Stick 4K Max (`AFTKRT`) | `10.0.0.139:5555` | Fire OS 8 / Android 11 / API 30 | adb connected |
 | Pixel 8a | `adb-3B211JEKB14516…_adb-tls-connect._tcp` | Android 17 / API 37 | adb over TLS |
 | This Mac | — | macOS 27.0 (26A5425a) | Xcode-beta; `DEVELOPER_DIR` must point at it |
+
+### The Roku 2 XD is the floor, and it is worth keeping
+
+It is the oldest thing this project supports and the only device that says
+so out loud. Two faults hid until it ran the channel, and neither was
+visible on any modern player:
+
+* **`continue for`** — 34 uses across 6 components, newer than the firmware.
+  The install refused exactly those six by name. `tools/test_roku_legacy_syntax.py`
+  now reports them and asserts its finding against the device's own verdict.
+* **`roDeviceInfo.GetOSVersion()`** — used to GUARD the newer memory APIs, and
+  itself newer than 9.1. The guard written to protect old players was what
+  killed the channel on one. Ask whether a COMPONENT exists; never ask the
+  firmware its version to decide whether you may ask it something.
+
+**Verified on it, 2026-09-11:** install success, channel launches, Home
+renders with real posters, and **The General played 6m40s continuously at
+exactly 1.00x real time, `error="false"`, no stalls** — read from
+`/query/media-player`, because a Roku screenshot shows a black video plane.
+
+It also named its own optimisation: "Loaded texture (500 x 750) larger than
+the UI resolution (1280 x 720)". Bounding the tile decode (`loadWidth`/
+`loadHeight`) took oversized-texture warnings 17 -> 6 on the same drive.
 
 ### Pairing a new Apple TV (Xcode 26)
 
