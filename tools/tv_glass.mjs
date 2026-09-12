@@ -29,7 +29,17 @@ import path from "node:path";
 import os from "node:os";
 
 const CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
-const SITE = process.env.AW_TV_URL || "https://archivewatch.org/?tv=1";
+// AW_TV_URL is the whole address, ?tv=1 included. AW_BASE is honoured too
+// because it is the obvious guess and getting it wrong is SILENT: the harness
+// happily measures PRODUCTION while you believe you are testing your edit,
+// which cost a round of "the fix did nothing" on 2026-09-12.
+const SITE = process.env.AW_TV_URL
+  || (process.env.AW_BASE
+        ? process.env.AW_BASE.replace(/\/+$/, "") + "/?tv=1"
+        : "https://archivewatch.org/?tv=1");
+if (!process.env.AW_TV_URL && !process.env.AW_BASE) {
+  console.log("note: no AW_TV_URL/AW_BASE — measuring the LIVE site, not your working tree.");
+}
 const ROUTE = process.argv[2] || "#/";
 const PRESSES = Number(process.argv[3] || 12);
 const OUT = process.env.AW_TV_OUT || path.join(os.tmpdir(), "aw-tv-glass");

@@ -57,7 +57,7 @@
     'a[href]',
     'button:not([disabled])',
     'input:not([disabled])',
-    'select:not([disabled])',
+    'select:not([disabled]):not(.tv-hidden-select)',
     '[tabindex]:not([tabindex="-1"])',
   ].join(',');
 
@@ -70,6 +70,97 @@
     if (r.width <= 0 || r.height <= 0) return false;
     const style = getComputedStyle(el);
     return style.visibility !== 'hidden' && style.display !== 'none';
+  }
+
+  /* ── Native <select> is unusable with a remote ─────────────────────────────
+   *
+   * The owner, on a QN65S90CDFXZA: "navigation is still extremely broken …
+   * the browse pages have filters that are much too small to work on a tv."
+   * Both complaints are one control. Measured with tools/tv_glass.mjs at a
+   * true 1920x1080: TWENTY presses of Down on #/browse and focus never left
+   * the sort control at y=329. A <select> consumes Up and Down to change its
+   * OPTION, so the D-pad can never step off it — the grid below is
+   * unreachable, forever, by any sequence of presses.
+   *
+   * It is also a browser widget at browser size, and opening one hands the
+   * viewer the platform's own dropdown, which on a television is a mouse
+   * control drawn at ten inches for someone sitting at ten feet.
+   *
+   * So on TV a <select> becomes a BUTTON showing the current value, and
+   * pressing it opens a list sized for the room. This is the shape the Roku
+   * app already settled on ("chips open a picker on the current value") and
+   * the reason is the same: the viewer is choosing among a handful of values
+   * with four arrows and an OK.
+   *
+   * The <select> itself stays in the DOM, hidden, and remains the source of
+   * truth — every existing change handler in watch.js keeps working, because
+   * the picker sets .value and dispatches 'change' exactly as a click would.
+   */
+  const PICKER_CLASS = 'tv-picker';
+
+  function labelFor(sel) {
+    const o = sel.options[sel.selectedIndex];
+    return (o && o.textContent.trim()) || sel.getAttribute('aria-label') || 'Choose';
+  }
+
+  function closePicker() {
+    const open = document.querySelector('.tv-picker-sheet');
+    if (open) {
+      const owner = open._ownerBtn;
+      open.remove();
+      if (owner) focusEl(owner);
+    }
+  }
+
+  function openPicker(btn, sel) {
+    closePicker();
+    const sheet = document.createElement('div');
+    sheet.className = 'tv-picker-sheet';
+    sheet._ownerBtn = btn;
+    const head = document.createElement('p');
+    head.className = 'tv-picker-head';
+    head.textContent = sel.getAttribute('aria-label') || 'Choose';
+    sheet.appendChild(head);
+    Array.prototype.forEach.call(sel.options, function (opt, i) {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'tv-picker-opt';
+      b.textContent = opt.textContent;
+      if (i === sel.selectedIndex) b.setAttribute('aria-current', 'true');
+      b.onclick = function () {
+        sel.selectedIndex = i;
+        // The <select> stays the source of truth: watch.js listens to it.
+        sel.dispatchEvent(new Event('change', { bubbles: true }));
+        btn.textContent = labelFor(sel);
+        closePicker();
+      };
+      sheet.appendChild(b);
+    });
+    document.body.appendChild(sheet);
+    const first = sheet.querySelector('[aria-current], .tv-picker-opt');
+    if (first) focusEl(first);
+  }
+
+  /** Convert every <select> on screen. Idempotent: re-run on each route. */
+  function tvPickers() {
+    Array.prototype.forEach.call(document.querySelectorAll('select'), function (sel) {
+      if (sel.dataset.tvPicker) return;
+      sel.dataset.tvPicker = '1';
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = PICKER_CLASS;
+      btn.textContent = labelFor(sel);
+      btn.setAttribute('aria-label', sel.getAttribute('aria-label') || 'Choose');
+      btn.onclick = function () { openPicker(btn, sel); };
+      sel.parentNode.insertBefore(btn, sel);
+      sel.classList.add('tv-hidden-select');
+      // The options are filled asynchronously (decades, keywords, studios come
+      // from the catalogue), so the button must follow the <select> rather
+      // than snapshot it once and go stale.
+      new MutationObserver(function () { btn.textContent = labelFor(sel); })
+        .observe(sel, { childList: true, attributes: true, attributeFilter: ['value'] });
+      sel.addEventListener('change', function () { btn.textContent = labelFor(sel); });
+    });
   }
 
   function candidates() {
@@ -125,8 +216,23 @@
 
   /** §3.3 — a focused element must never sit under the overscan margin or
    *  off-screen; the D-pad has no other way to reveal it. */
+  /* THE SCREEN FOLLOWS THE SELECTION. `block: 'nearest'` is a desktop
+   * behaviour: it scrolls the least it can, which leaves the highlighted tile
+   * flush against the top or bottom edge with no sense of what comes next, and
+   * on a television reads as the page refusing to move. The owner, on a 65"
+   * Samsung: "there is A LOT of work to do to ensure the screen follows the
+   * selection rectangle".
+   *
+   * Centring is the ten-foot convention and it fixes a second fault for free.
+   * Browse loads more titles when a sentinel at the foot of the grid comes into
+   * view; a minimal scroll never brought it there, so Down died four rows in —
+   * measured, focus frozen on the same tile for five consecutive presses.
+   * Centring scrolls far enough that the grid keeps filling.
+   *
+   * `behavior: 'auto'` on purpose: a smooth scroll animates, and on a TV CPU
+   * the highlight visibly lags the press. Instant is what a remote expects. */
   function reveal(el) {
-    el.scrollIntoView({ block: 'nearest', inline: 'center', behavior: 'smooth' });
+    el.scrollIntoView({ block: 'center', inline: 'center', behavior: 'auto' });
   }
 
   function focusEl(el) {
@@ -556,7 +662,14 @@
 
   function onKeyDown(ev) {
     const code = ev.keyCode;
-    diagKey(code);        // the toggle must see EVERY press, including ones
+    diagKey(code);
+    // Back belongs to the picker while one is open, or Back would leave the
+    // surface with a sheet still on screen over the next one.
+    if (BACK_KEYS.has(code) && document.querySelector('.tv-picker-sheet')) {
+      ev.preventDefault(); ev.stopPropagation();
+      closePicker();
+      return;
+    }        // the toggle must see EVERY press, including ones
                           // the player or the focus engine goes on to consume
     cancelArrival();      // the viewer is driving now; never yank their focus
 
@@ -686,6 +799,8 @@
     // Re-claim focus whenever the viewer swaps views. Hash routing means we do
     // not need to hook showView() at all — no view code changes (§7.1).
     window.addEventListener('hashchange', function () {
+      closePicker();
+      tvPickers();
       claimFocus();
       beginArrival();
     });
@@ -705,6 +820,7 @@
     mo.observe(document.body, { childList: true, subtree: true,
                                 attributes: true, attributeFilter: ['open'] });
 
+    tvPickers();
     claimFocus();
     // A deep link (or a side-loaded app opened straight onto a route) fires no
     // hashchange, so arrival has to be started at boot as well.
