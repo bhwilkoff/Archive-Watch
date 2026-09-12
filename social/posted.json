@@ -289,6 +289,42 @@
    "kind": "silent-film",
    "mediaId": null,
    "reviewer": null
+  },
+  {
+   "at": "2026-09-12T17:51:37.363675+00:00",
+   "id": "LittleLordFauntleroy_201402",
+   "title": "Little Lord Fauntleroy",
+   "slot": "now-showing",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mvdnhickih2g",
+   "format": "video",
+   "kind": "silent-film",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-09-12T17:51:37.363675+00:00",
+   "id": "LittleLordFauntleroy_201402",
+   "title": "Little Lord Fauntleroy",
+   "slot": "now-showing",
+   "platform": "mastodon",
+   "url": "https://mastodon.social/@archivewatch/117259338757414792",
+   "format": "video",
+   "kind": "silent-film",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-09-12T17:51:37.363675+00:00",
+   "id": "LittleLordFauntleroy_201402",
+   "title": "Little Lord Fauntleroy",
+   "slot": "now-showing",
+   "platform": "youtube",
+   "url": "https://youtube.com/watch?v=Q9jBONr2b0o",
+   "format": "video",
+   "kind": "silent-film",
+   "mediaId": null,
+   "reviewer": null
   }
  ]
 }
