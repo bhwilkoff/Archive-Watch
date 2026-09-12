@@ -65,8 +65,69 @@ sub init()
     ' nothing at all and the viewer thinks the app has hung. Until content
     ' lands, the rail holds focus.
     focusRail()
+    applyOverscanInset()
     watchMemory()
     print "AWROKU scene ready"
+end sub
+
+' Pull the whole interface inside what an old television actually shows.
+'
+' THE REPORT (owner, 2026-09-11, on the Roku 2 XD): "the app overscans
+' pretty heavily (bleeds off of the screen)". Worth being precise about where
+' that happens — NOT in our framebuffer. A screenshot of this channel on that
+' box is a correct, complete 1920x1080 image; the TELEVISION then crops
+' roughly 5% off every edge, which is ordinary behaviour for a panel of that
+' era and is not something the device reports to us. `GetDisplaySafeArea()`
+' is not in Roku's current ifDeviceInfo reference, so there is nothing to ask.
+'
+' What that 5% eats here is the worst possible thing: the nav rail lives at
+' x = 0 and is 84 px wide, so on a 1920 design a 96 px crop swallows it
+' whole. The viewer loses the app's primary navigation before they lose
+' anything else.
+'
+' So the three content groups — everything except the full-bleed background,
+' which SHOULD reach the edges — are scaled and translated inward together.
+' Scaling rather than re-laying-out keeps every screen's coordinates intact:
+' there is one number here, not a margin threaded through twenty components.
+'
+' APPLIED ONLY WHERE IT IS NEEDED. A modern 4K Roku on a modern panel does
+' not overscan, and stealing 5% from those viewers to help one old box would
+' be the wrong trade. The UI resolution is the available proxy: a device
+' rendering our FHD layout at HD is the legacy tier. It is a PROXY, not a
+' truth — a modern Roku on an old TV overscans too — which is why the real
+' answer is a viewer-facing screen-adjust setting, and why this prints what
+' it decided so the next person can check it against a real panel.
+sub applyOverscanInset()
+    ui = CreateObject("roDeviceInfo").GetUIResolution()
+    if ui = invalid then return
+    name = LCase(fmt(ui.name))
+    print "AWSAFE ui="; name; " "; ui.width; "x"; ui.height
+
+    ' 3% a side. Broadcast title-safe is 5%, which is the conservative number
+    ' for an unknown panel; 3% keeps the rail and the right-hand column clear
+    ' on this TV without visibly shrinking the picture. Revisit against a
+    ' panel, not a spreadsheet.
+    insetX = 0
+    insetY = 0
+    if name = "hd" or name = "sd"
+        insetX = 58
+        insetY = 32
+    end if
+    if insetX = 0 and insetY = 0
+        print "AWSAFE no inset (fhd UI — assumed no overscan)"
+        return
+    end if
+
+    sx = (1920.0 - 2 * insetX) / 1920.0
+    sy = (1080.0 - 2 * insetY) / 1080.0
+    for each id in ["content", "overlay", "rail"]
+        n = m.top.FindNode(id)
+        if n <> invalid
+            n.translation = [insetX, insetY]
+            n.scale = [sx, sy]
+        end if
+    end for
+    print "AWSAFE inset "; insetX; ","; insetY; " scale "; sx; ","; sy
 end sub
 
 ' Roku's memory-pressure signals. Static analysis warns when a channel uses
