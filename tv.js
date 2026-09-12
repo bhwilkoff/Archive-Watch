@@ -231,6 +231,40 @@
     }
   }, true);
 
+  /* ARRIVING AT A SURFACE is not the same as having nothing focused, and
+   * claimFocus cannot handle it: its first act is to keep whatever is already
+   * focused, which on a route change is the nav item the viewer just pressed —
+   * and Detail's content does not exist yet anyway, because the shard is still
+   * being fetched. So opening a film left the remote on "Home" with Play four
+   * presses away.
+   *
+   * Arrival therefore waits for the surface to render and then takes the
+   * primary action. It gives up after six seconds, and ANY key press cancels
+   * it — if the viewer has started navigating, focus is theirs and must not be
+   * yanked out from under them. A route we are RETURNING to is left alone
+   * entirely: the remembered tile wins over the primary action, because Back
+   * means "where I was", not "start again". */
+  var arriving = false, arriveTimer = null;
+
+  function beginArrival() {
+    if (lastFocus[routeKey()]) return;      // returning: Back owns the choice
+    arriving = true;
+    clearTimeout(arriveTimer);
+    arriveTimer = setTimeout(function () { arriving = false; }, 6000);
+    pursueArrival();
+  }
+
+  function cancelArrival() { arriving = false; clearTimeout(arriveTimer); }
+
+  function pursueArrival() {
+    if (!arriving) return;
+    var primary = candidates().find(function (el) {
+      return el.classList && el.classList.contains('btn-primary');
+    });
+    if (primary) { cancelArrival(); focusEl(primary); return; }
+    setTimeout(pursueArrival, 200);
+  }
+
   function claimFocus() {
     clearTimeout(claimTimer);
     let tries = 0;
@@ -244,6 +278,17 @@
           const back = pool.find(function (el) { return elKey(el) === want; });
           if (back) { focusEl(back); return; }
         }
+        // ARRIVE ON THE PRIMARY ACTION. Opening a film landed focus on "Home"
+        // in the nav rail, because the first non-chrome candidate in DOM order
+        // is up there — so the remote arrived somewhere unrelated to what the
+        // viewer just chose, and Play was four presses away. Every ten-foot
+        // app puts you on the thing you came to do. `.btn-primary` already
+        // marks exactly one per surface: Play on a title, Re-roll on Surprise,
+        // Marathon on Cartoons.
+        const primary = pool.find(function (el) {
+          return el.classList && el.classList.contains('btn-primary');
+        });
+        if (primary) { focusEl(primary); return; }
         focusEl(pool.find(function (el) { return !isChrome(el); }) || pool[0]);
         return;
       }
@@ -513,6 +558,7 @@
     const code = ev.keyCode;
     diagKey(code);        // the toggle must see EVERY press, including ones
                           // the player or the focus engine goes on to consume
+    cancelArrival();      // the viewer is driving now; never yank their focus
 
     if (BACK_KEYS.has(code)) { ev.preventDefault(); goBack(); return; }
 
@@ -639,7 +685,10 @@
 
     // Re-claim focus whenever the viewer swaps views. Hash routing means we do
     // not need to hook showView() at all — no view code changes (§7.1).
-    window.addEventListener('hashchange', claimFocus);
+    window.addEventListener('hashchange', function () {
+      claimFocus();
+      beginArrival();
+    });
 
     // The first render is asynchronous (catalog index fetch), so watch for the
     // DOM filling in rather than guessing a delay.
@@ -657,6 +706,9 @@
                                 attributes: true, attributeFilter: ['open'] });
 
     claimFocus();
+    // A deep link (or a side-loaded app opened straight onto a route) fires no
+    // hashchange, so arrival has to be started at boot as well.
+    beginArrival();
   }
 
   if (document.readyState === 'loading') {

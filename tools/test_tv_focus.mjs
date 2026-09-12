@@ -371,5 +371,32 @@ check('Tizen back (10009) navigates', global._wentBack, true);
         /pointer-events:\s*none/.test(css.slice(css.indexOf('.tv-diag'))), true);
 }
 
+/* ARRIVING AT A SURFACE lands on its primary action. Opening a film put the
+   remote on "Home" in the nav rail with Play four presses away, because
+   claimFocus keeps whatever is already focused and Detail's content does not
+   exist yet — the shard is still being fetched. Measured on the glass: the
+   real flow (Home → OK on the hero → Detail) now lands on "▶ Play". */
+{
+  const tv = fs.readFileSync('tv.js', 'utf8');
+  const css = fs.readFileSync('tv.css', 'utf8');
+  check('arrival is a separate concern from claimFocus',
+        /function beginArrival/.test(tv) && /function pursueArrival/.test(tv), true);
+  check('...it takes the primary action once the surface renders',
+        /classList\.contains\('btn-primary'\)/.test(tv), true);
+  check('...a key press CANCELS it, so focus is never yanked from the viewer',
+        /cancelArrival\(\);\s*\/\/ the viewer is driving/.test(tv), true);
+  check('...and RETURNING to a route leaves the remembered tile alone',
+        /if \(lastFocus\[routeKey\(\)\]\) return;/.test(tv), true);
+  check('...started on a hashchange AND at boot, for a deep link',
+        (tv.match(/beginArrival\(\)/g) || []).length >= 3, true);
+
+  // The regression this caused, and why the column owns the width.
+  check('the Detail grid column and the poster are sized TOGETHER',
+        /\.tv \.detail \{ grid-template-columns/.test(css)
+        && /\.tv \.detail-art img \{ width: 100%/.test(css), true);
+  check('prose has a readable measure at 1920',
+        /\.tv #item-desc[\s\S]{0,200}max-width/.test(css), true);
+}
+
 console.log(`\n${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);

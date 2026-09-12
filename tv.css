@@ -303,3 +303,28 @@ html.tv .share-menu-trigger {
   font-size: 20px; line-height: 1.35; white-space: pre-wrap;
   pointer-events: none;          /* never takes a press from the film */
 }
+
+/* ── Detail, at ten feet ───────────────────────────────────────────────────
+ * At 1920 the prose ran the full width of the screen and off the right edge —
+ * a desktop paragraph is a wall of text on a television, and an unbounded one
+ * is worse than a wall. A measure of ~90 characters is the readable limit at
+ * this size; the synopsis and the reviews both take it. */
+.tv #item-desc,
+.tv .item-tagline,
+.tv #item-community,
+.tv .review-body,
+.tv #series-overview {
+  max-width: 46em;
+}
+
+/* The poster is the film's face and was rendering at a browser's size. The
+ * COLUMN is the source of truth and the image fills it — sizing the image
+ * alone overflowed the fixed 230px grid track and painted the poster straight
+ * through the title and the facts. Caught on the glass; it looked fine in
+ * every check that did not render at 1920. */
+.tv .detail { grid-template-columns: clamp(300px, 20vw, 400px) 1fr; gap: 56px; }
+.tv .detail-art img { width: 100%; }
+
+/* Cast chips at a size a viewer can actually read from the sofa. */
+.tv .cast-row img { width: 108px; height: 108px; }
+.tv .cast-row figcaption { font-size: var(--tv-caption); }

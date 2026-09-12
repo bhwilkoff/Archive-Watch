@@ -16,7 +16,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "EE00000000000000000000A3"
-               BuildableName = "ArchiveWatchMac.app"
+               BuildableName = "Archive Watch.app"
                ReferencedContainer = "container:ArchiveWatch.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,7 +45,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "EE00000000000000000000A3"
-            BuildableName = "ArchiveWatchMac.app"
+            BuildableName = "Archive Watch.app"
             ReferencedContainer = "container:ArchiveWatch.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -61,7 +61,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "EE00000000000000000000A3"
-            BuildableName = "ArchiveWatchMac.app"
+            BuildableName = "Archive Watch.app"
             ReferencedContainer = "container:ArchiveWatch.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

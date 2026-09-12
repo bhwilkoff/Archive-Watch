@@ -80,7 +80,7 @@
 		B7AC53E52F93BA0500F50803 /* collections.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = collections.json; path = ../docs/taxonomy/collections.json; sourceTree = "<group>"; };
 		DD00000000000000000000A1 /* ArchiveWatchTopShelf.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ArchiveWatchTopShelf.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE00000000000000000000A1 /* ArchiveWatchWidgets.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ArchiveWatchWidgets.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		EE00000000000000000000A1 /* ArchiveWatchMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArchiveWatchMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE00000000000000000000A1 /* Archive Watch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Archive Watch.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF00000000000000000000A1 /* ArchiveWatchUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArchiveWatchUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -189,7 +189,7 @@
 				B7AC53CD2F93BA0300F50803 /* ArchiveWatch.app */,
 				DD00000000000000000000A1 /* ArchiveWatchTopShelf.appex */,
 				DE00000000000000000000A1 /* ArchiveWatchWidgets.appex */,
-				EE00000000000000000000A1 /* ArchiveWatchMac.app */,
+				EE00000000000000000000A1 /* Archive Watch.app */,
 				FF00000000000000000000A1 /* ArchiveWatchUITests.xctest */,
 			);
 			name = Products;
@@ -286,7 +286,7 @@
 			packageProductDependencies = (
 			);
 			productName = ArchiveWatchMac;
-			productReference = EE00000000000000000000A1 /* ArchiveWatchMac.app */;
+			productReference = EE00000000000000000000A1 /* Archive Watch.app */;
 			productType = "com.apple.product-type.application";
 		};
 		FF00000000000000000000A3 /* ArchiveWatchUITests */ = {
