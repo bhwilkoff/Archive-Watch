@@ -186,6 +186,7 @@ an entry in place.
 - 115 — A store's device count is the only place a minSdk regression is visible; the Fire TV build is gated on reaching Fire OS 7
 - 116 — A data contract is a test, not a docstring; and a client may not crash on a shape
 - 117 — Roku's ingestion scores the CHANNEL INDEX, not the file; a withheld asset freezes its last verdict, so fit the poster instead
+- 118 — A captioned film streams like any other and draws its cues in the overlay; a whole-film HLS segment ignores every buffer ceiling
 
 ---
 
@@ -2187,3 +2188,66 @@ Partner Success request, and Partner Success is the required next step anyway
 to publish the feed to end users. Two report traps worth keeping: `issuesList`
 and the summary panel LAG one job behind the job API, and the asset-id search
 box filters that stale list client-side with no network request.
+
+
+## 118 — A captioned film streams like any other and draws its cues in the overlay; a whole-film HLS segment ignores every buffer ceiling
+*Date: 2026-09-11*
+
+On iOS and macOS a film with subtitles now plays through
+`ResilientStreamLoader` — the same asset every other film uses — and its
+WebVTT is rendered by the caption overlay. The HLS wrappers that carried the
+track as a native rendition (`CaptionedHLSLoader` for a published track,
+`LocalSubtitleHLSLoader` for one fetched on device) are referenced by nothing.
+This is Decision 070, which tvOS has run since August, finally carried to the
+other two platforms.
+
+**Why**: a viewer on a phone reported *The Grapes of Wrath* playing "about five
+minutes and then stops". The wrapper's playlist declares the whole MP4 as ONE
+segment, and a segment is AVFoundation's atomic buffering unit, so
+`preferredForwardBufferDuration` is ignored and the entire film is pulled into
+memory. Measured on that exact film (2.19 GB),
+`tools/test_captioned_buffer_growth.swift`, one shape per process:
+
+    wrapper            4,195s buffered vs 300s asked (14x)   1,368 MB, climbing
+    resilient loader     193s buffered vs 300s asked            55 MB, flat
+
+A phone's media pipeline is jetsammed long before a 129-minute feature ends,
+and ~5 minutes is where a mobile link reaches that ceiling. Decision 070
+measured the same thing on a 3 GB Apple TV (`-11819` at ~100s) and fixed tvOS;
+the memory note recording why iOS and macOS were scoped out said in as many
+words that "low-RAM iPhones plausibly have the same bomb."
+
+**Three things this turned out to reach that the tvOS fix did not.** The iOS 27
+branch played the PUBLISHED master directly — ordinary https, so the system
+could offer a generated track beside the authored one — and that playlist is
+the same single segment (`#EXT-X-TARGETDURATION:7740`, one `EXTINF`). The
+on-device-subtitles path writes the identical shape one directory over, so a
+viewer who FETCHED subtitles for an uncaptioned film armed the same bomb.
+And `makeLocalItem` rebuilt the wrapper on every AirPlay return and every
+caption-type switch, so a fix confined to the start path would have been undone
+by the first route change.
+
+**How to apply**: never hand AVFoundation a playlist whose segment is longer
+than the buffer you intend it to keep — the ceiling is advisory against a
+segment boundary and absolute within one. Judge the shape by MEASURING
+`loadedTimeRanges` against what was asked, not by reading the property back.
+Run each shape in its OWN PROCESS: the first run of the harness played both in
+sequence and the control's opening footprint — 1079, 541, 147 MB, falling —
+was the wrapper's memory still being reclaimed, which is Decision 065's trap
+one instrument over. And keep the two renderers' gates separate: the file
+renderer and the caption engine used to share one flag because they never ran
+together, and a captioned film now draws its published file WHILE the engine
+listens to judge it (Decisions 062 / 073), so one flag would be two writers
+fighting over one label.
+
+**Consequences**: the native CC menu is gone for these films on iOS and macOS,
+as it has been on tvOS since Decision 070 — the transport menu's caption-type
+control covers the switch. Restoring it means SEGMENTING the playlist, which
+needs fMP4; Decision 106 already built exactly that for tvOS 27 (`MP4Fragmenter`
++ `LocalMediaServer`) and it is the follow-up, not a rewrite. The subtitle
+review keeps its job under a new verdict: it no longer decides whether to
+deselect a native track, it decides which of the two renderers keeps the line.
+`tools/test_captioned_asset_shape.py` is the cheap guard that stops the wrapper
+coming back, negative-controlled both ways (it fires on a planted use, and a
+comment naming the loader does not trip it — the branches that replaced these
+loaders name them on purpose).

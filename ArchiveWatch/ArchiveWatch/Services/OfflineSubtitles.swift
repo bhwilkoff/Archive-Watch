@@ -1,7 +1,9 @@
 #if os(iOS) || os(macOS)
 import Foundation
 
-// The subtitles of a downloaded film, read off disk (Decision 099).
+// A film's WebVTT cues, rendered through the caption overlay rather than
+// carried as an HLS rendition — for a DOWNLOADED film (Decision 099) and, since
+// the wrapper turned out to buffer whole films, for an online captioned one too.
 //
 // Everything else in this app puts a subtitle track in front of AVKit as an
 // HLS rendition, because that is what gets the NATIVE CC menu (Decision 039).
@@ -24,11 +26,33 @@ struct OfflineSubtitles: Sendable {
         guard let url = OfflineLibrary.subtitleURL(for: archiveID),
               let body = try? String(contentsOf: url, encoding: .utf8)
         else { return nil }
+        self.init(vtt: body)
+    }
+
+    /// Parse a WebVTT body from anywhere. ONLINE captioned films render through
+    /// this renderer too now (Decision 070 ported to iOS/macOS): the HLS
+    /// wrapper that used to carry the track declares the whole film as one
+    /// segment, which is AVFoundation's atomic buffering unit, so it downloaded
+    /// the entire MP4 into memory. Measured on The Grapes of Wrath (2.19 GB):
+    /// 4,195 seconds buffered against a 300-second request and a 1.37 GB
+    /// footprint still climbing at 90 seconds, against 193s and 55 MB flat
+    /// through ResilientStreamLoader.
+    init?(vtt body: String) {
         let parsed = SubtitleAgreement.parseVTT(body)
         guard !parsed.isEmpty else { return nil }
         // Sorted so the search below can stop early; a published file is
         // normally in order already, but nothing guarantees it.
         cues = parsed.sorted { $0.start < $1.start }
+    }
+
+    /// Fetch and parse a published WebVTT. Small (a feature's cues are tens of
+    /// KB), so it is pulled whole rather than streamed.
+    static func published(_ url: URL) async -> OfflineSubtitles? {
+        guard let (data, resp) = try? await URLSession.shared.data(from: url),
+              (resp as? HTTPURLResponse)?.statusCode ?? 200 < 400,
+              let body = String(data: data, encoding: .utf8)
+        else { return nil }
+        return OfflineSubtitles(vtt: body)
     }
 
     var isEmpty: Bool { cues.isEmpty }

@@ -65,6 +65,24 @@ enum SubtitleStore {
 
     static func hasCaptions(for archiveID: String) -> Bool { cachedHLS(for: archiveID) != nil }
 
+    /// The stored WebVTT itself, for the players that RENDER cues in the
+    /// caption overlay rather than carrying them as an HLS rendition.
+    ///
+    /// The master written above declares the film as ONE segment — the shape
+    /// that was measured buffering whole films into memory — so iOS and macOS
+    /// take the file and let ResilientStreamLoader stream the video (Decision
+    /// 070, as tvOS has since August).
+    static func cachedVTT(for archiveID: String) -> URL? {
+        guard let dir = dirPath(for: archiveID),
+              let names = try? FileManager.default.contentsOfDirectory(atPath: dir.path)
+        else { return nil }
+        // English first where there is a choice; otherwise whatever was stored.
+        let vtts = names.filter { $0.hasSuffix(".vtt") }.sorted {
+            ($0.hasPrefix("en") ? 0 : 1, $0) < ($1.hasPrefix("en") ? 0 : 1, $1)
+        }
+        return vtts.first.map { dir.appendingPathComponent($0) }
+    }
+
     /// Store a WebVTT and return a local HLS master the player can use directly.
     ///
     /// `label` is what the CC menu shows — always say when a track is machine

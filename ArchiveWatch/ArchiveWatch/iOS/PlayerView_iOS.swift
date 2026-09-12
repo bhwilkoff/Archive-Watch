@@ -139,6 +139,7 @@ struct PlayerView: UIViewControllerRepresentable {
         context.coordinator.directVideoURL = videoURL
         context.coordinator.directHLSURL = effectiveHLS
         context.coordinator.fullSubtitleHLS = subtitleHLSURL
+        context.coordinator.publishedVTT = publishedVTTURL
         context.coordinator.currentChoice = captionChoice ?? (subtitleHLSURL != nil ? .file : .automatic)
 
         // DOWNLOADED FIRST (Decision 099). A film on disk is a plain local file:
@@ -152,46 +153,58 @@ struct PlayerView: UIViewControllerRepresentable {
         let pItem: AVPlayerItem
         if let local = localFileURL {
             pItem = AVPlayerItem(url: local)
-        } else if let hls = effectiveHLS, SystemCaptions.isAvailable {
-            // iOS 27+: play the PUBLISHED https wrapper directly — ordinary
-            // HLS, which the system will attach its generated track to. The
-            // native subtitle menu then holds the authored file track AND
-            // "English (US) Transcribed" side by side, so switching sources
-            // is just picking a different Language entry (owner 2026-08-27:
-            // "as easy as switching to a different language"). The custom-
-            // scheme loader below disqualifies the asset from generation
-            // (D067), so it is now the iOS 26 path only. Start resilience
-            // trade: this pays the /download 302 once; the non-faststart
-            // fallback still covers a failed start.
-            pItem = AVPlayerItem(url: hls)
-            context.coordinator.fallbackVideoURL = videoURL
-        } else if let hls = effectiveHLS, let mp4 = videoURL {
-            // Part (a) Config C (Decision 039): AVPlayerViewController shows the CC
-            // menu for the WebVTT tracks. A resource-loader delegate serves the HLS
-            // playlists with the video segment rewritten to a freshly node-resolved
-            // direct https URL, so captioned playback STARTS on a known-live storage
-            // node (skips the /download 302 + node-rotation-at-start). The segment
-            // stays AVFoundation-owned (no mid-stream failover — Part c's stall
-            // fallback covers that).
-            let (asset, hlsLoader) = CaptionedHLSLoader.makeAsset(hls: hls, downloadURL: mp4)
-            context.coordinator.captionedLoader = hlsLoader   // retain (weak delegate)
+        } else if effectiveHLS != nil, let mp4 = videoURL {
+            // A CAPTIONED FILM PLAYS LIKE ANY OTHER ONE, and draws its published
+            // words in the overlay. This is Decision 070, which tvOS has run
+            // since August, finally carried to iOS and macOS — the memory note
+            // that recorded scoping them out said in as many words that
+            // "low-RAM iPhones plausibly have the same bomb". They do.
+            //
+            // The wrapper declares the whole MP4 as ONE segment, and a segment
+            // is AVFoundation's atomic buffering unit, so
+            // `preferredForwardBufferDuration` is ignored and the entire film
+            // is pulled into memory. MEASURED on The Grapes of Wrath, 2.19 GB,
+            // the film a viewer reported on 2026-09-11 as playing "about five
+            // minutes and then stops" (tools/test_captioned_buffer_growth.swift,
+            // one shape per process):
+            //
+            //     wrapper   4,195s buffered vs 300s asked (14x)   1,368 MB, climbing
+            //     loader      193s buffered vs 300s asked         55 MB, flat
+            //
+            // A phone's media pipeline is jetsammed long before a feature ends,
+            // and ~5 minutes is where a mobile link reaches that ceiling. This
+            // was never a geography problem and never a bandwidth problem.
+            //
+            // Both captioned shapes carried it, not just ours: iOS 27 was
+            // handed the PUBLISHED master directly so the system could offer a
+            // generated track beside the authored one, and that playlist is the
+            // same single segment (`#EXT-X-TARGETDURATION:7740`, one EXTINF).
+            // Generation is redundant on a film that already has captions, so
+            // nothing of value is lost with it.
+            //
+            // What IS lost is the native CC menu for these films; the transport
+            // menu's caption-type control already covers the switch, exactly as
+            // on tvOS. Restoring the menu means segmenting the playlist, which
+            // needs fMP4 — Decision 106 already built that for tvOS 27
+            // (MP4Fragmenter + LocalMediaServer) and it is the follow-up here.
+            let (asset, loader) = ResilientStreamLoader.makeAsset(for: mp4)
+            context.coordinator.loader = loader   // retain (delegate is held weakly)
             pItem = AVPlayerItem(asset: asset)
-            // A non-faststart (moov-at-EOF) MP4 can still fail as a single HLS
-            // segment. Arm a fallback to the resilient MP4 loader (handles
-            // moov-at-EOF via byte-range seeks) so the film still plays (sans CC).
             context.coordinator.fallbackVideoURL = mp4
+            context.coordinator.loaderIsPrimary = true
         } else if let hls = effectiveHLS {
             pItem = AVPlayerItem(url: hls)         // no MP4 to node-resolve; native HLS
         } else if let mp4 = videoURL, captionChoice == nil || captionChoice == .file,
-                  let dir = SubtitleStore.cachedDir(for: archiveID),
-                  let (asset, subsLoader) = LocalSubtitleHLSLoader.makeAsset(
-                    dir: dir, downloadURL: mp4,
-                    resolveNode: { await ResilientStreamLoader.resolvedNodeURL(for: $0) }) {
+                  SubtitleStore.cachedVTT(for: archiveID) != nil {
             // Subtitles fetched or transcribed on this device (SubtitleFinder).
-            // Same Config C shape; the playlists are read off disk.
-            context.coordinator.localSubsLoader = subsLoader   // retain (weak delegate)
+            // These were served as a local HLS wrapper, which writes the film as
+            // ONE segment exactly as the published one does — the same bomb,
+            // one directory over. The cues render in the overlay instead.
+            let (asset, loader) = ResilientStreamLoader.makeAsset(for: mp4)
+            context.coordinator.loader = loader
             pItem = AVPlayerItem(asset: asset)
             context.coordinator.fallbackVideoURL = mp4
+            context.coordinator.loaderIsPrimary = true
         } else if let url = videoURL,
                   SystemCaptions.prefersDirectPlayback(hasPublishedSubtitles: false) {
             // From 27 the system captions video that carries none — but only for
@@ -263,17 +276,27 @@ struct PlayerView: UIViewControllerRepresentable {
                       liveCaptionsEnabled, LiveCaptions.isSupported {
                 context.coordinator.startLiveCaptions(url: local, in: vc)
             }
+        } else if effectiveHLS == nil, captionChoice != .off,
+                  let local = SubtitleStore.cachedVTT(for: archiveID) {
+            // On-device subtitles, drawn in the same overlay.
+            context.coordinator.startPublishedSubtitles(vtt: local, in: vc)
+        } else if effectiveHLS != nil, let vtt = publishedVTTURL {
+            // The published human words, drawn in the overlay — there is no
+            // native track to carry them any more (see the asset branch above).
+            context.coordinator.startPublishedSubtitles(vtt: vtt, in: vc)
+            // ...and still CHECKED against what is being said, where we can
+            // listen. A published file can belong to a different cut, or be
+            // right and land seconds late (Decisions 062 / 073); the review now
+            // decides which of the two renderers keeps the label rather than
+            // whether to deselect a track.
+            if !SystemCaptions.isAvailable, liveCaptionsEnabled, captionChoice != .off,
+               LiveCaptions.isSupported, let src = videoURL {
+                context.coordinator.reviewPublishedSubtitles(vtt: vtt, source: src, in: vc)
+            }
         } else if !SystemCaptions.isAvailable,
            liveCaptionsEnabled, captionChoice != .off, LiveCaptions.isSupported,
            let src = videoURL {
-            if effectiveHLS == nil {
-                context.coordinator.startLiveCaptions(url: src, in: vc)
-            } else if let vtt = publishedVTTURL {
-                // The film HAS subtitles — but a published file can belong to a
-                // different cut, or be right and land seconds late. Listen
-                // briefly and check it (SubtitleReview), then stop.
-                context.coordinator.reviewPublishedSubtitles(vtt: vtt, source: src, in: vc)
-            }
+            context.coordinator.startLiveCaptions(url: src, in: vc)
         }
         return vc
     }
@@ -293,8 +316,6 @@ struct PlayerView: UIViewControllerRepresentable {
         let onAdvance: ((String) -> Void)?
         let persistsProgress: Bool
         var loader: ResilientStreamLoader?
-        var captionedLoader: CaptionedHLSLoader?   // Part (a): Config C HLS (weak delegate)
-        var localSubsLoader: LocalSubtitleHLSLoader?   // on-device subtitles (weak delegate)
         weak var playerVC: AVPlayerViewController?
         private var timeObserver: Any?
         private var endObserver: NSObjectProtocol?
@@ -328,6 +349,10 @@ struct PlayerView: UIViewControllerRepresentable {
         /// in-player switcher needs it to restore File mode mid-play.
         var fullSubtitleHLS: URL?
         var currentChoice: CaptionPlaybackChoice?
+        /// Drives the overlay for an ONLINE captioned film (see startPublishedSubtitles).
+        var publishedSubtitleTask: Task<Void, Never>?
+        /// The published WebVTT, kept so a caption-type switch can restart the overlay.
+        var publishedVTT: URL?
 
         /// IN-PLAYER caption-type switching (owner 2026-08-27: tvOS has it in
         /// the transport menu; iOS only had the pre-play sheet picker). The
@@ -343,15 +368,20 @@ struct PlayerView: UIViewControllerRepresentable {
             case .file:
                 liveCaptions?.stop(); liveCaptions = nil
                 offlineSubtitleTask?.cancel(); offlineSubtitleTask = nil
+                publishedSubtitleTask?.cancel(); publishedSubtitleTask = nil
                 if let item = makeLocalItem() { swap(to: item, resumingAt: pos, on: player) }
-                // Downloaded: File mode is the downloaded WebVTT, since there
-                // is no HLS wrapper to carry a track offline (Decision 099).
+                // The published words draw in the overlay whether the film is on
+                // disk or streaming — there is no HLS wrapper to carry a track
+                // in either case now (Decision 099 offline, Decision 070 online).
                 if OfflineLibrary.videoURL(for: archiveID) != nil,
                    let subs = OfflineSubtitles(archiveID: archiveID) {
                     startOfflineSubtitles(subs, in: vc)
+                } else if let vtt = publishedVTT {
+                    startPublishedSubtitles(vtt: vtt, in: vc)
                 }
             case .automatic:
                 offlineSubtitleTask?.cancel(); offlineSubtitleTask = nil
+                publishedSubtitleTask?.cancel(); publishedSubtitleTask = nil
                 if let item = makeLocalItem() { swap(to: item, resumingAt: pos, on: player) }
                 // iOS 27+: the system captions the plain asset natively; our
                 // engine would double-caption (the flashing). Engine only
@@ -365,6 +395,8 @@ struct PlayerView: UIViewControllerRepresentable {
             case .off:
                 liveCaptions?.stop(); liveCaptions = nil
                 offlineSubtitleTask?.cancel(); offlineSubtitleTask = nil
+                publishedSubtitleTask?.cancel(); publishedSubtitleTask = nil
+                showsPublishedOverlay = false
                 captionLabel?.isHidden = true
                 if let item = makeLocalItem() { swap(to: item, resumingAt: pos, on: player) }
             }
@@ -401,6 +433,12 @@ struct PlayerView: UIViewControllerRepresentable {
         /// player is already drawing its own subtitles, and a second
         /// set underneath them is the double-caption bug in miniature.
         var showsCaptionOverlay = true
+        /// The FILE renderer's own gate, separate from the engine's
+        /// `showsCaptionOverlay`. The two used to share one flag because they
+        /// never ran together; an online captioned film now draws its published
+        /// file WHILE the engine listens to judge it, and one flag for two
+        /// writers is a fight over the same label.
+        var showsPublishedOverlay = true
         private let captionStall = CaptionStallMonitor()   // Part (c): stutter → resilient MP4
 
         init(archiveID: String, ctx: ModelContext, queue: PlaybackQueue?,
@@ -641,14 +679,28 @@ struct PlayerView: UIViewControllerRepresentable {
         /// No scout, no recognizer, no network: the cues are already on disk and
         /// already timed. The loop matches the engine's cadence so the two read
         /// identically on screen, and stops with the player.
+        /// Draw a PUBLISHED WebVTT through the caption overlay.
+        ///
+        /// Same renderer as the downloaded case — only the source of the bytes
+        /// differs, which is the point: one overlay means the two can never
+        /// drift into looking like different features.
+        func startPublishedSubtitles(vtt: URL, in vc: AVPlayerViewController) {
+            publishedSubtitleTask?.cancel()
+            publishedSubtitleTask = Task { @MainActor [weak self] in
+                guard let subs = await OfflineSubtitles.published(vtt),
+                      let self, !Task.isCancelled else { return }
+                self.startOfflineSubtitles(subs, in: vc)
+            }
+        }
+
         func startOfflineSubtitles(_ subs: OfflineSubtitles, in vc: AVPlayerViewController) {
-            showsCaptionOverlay = true
+            showsPublishedOverlay = true
             let label = installCaptionLabel(in: vc)
             offlineSubtitleTask?.cancel()
             offlineSubtitleTask = Task { @MainActor [weak self] in
                 while !Task.isCancelled {
                     guard let self, let player = self.player else { break }
-                    let text = self.showsCaptionOverlay
+                    let text = self.showsPublishedOverlay
                         ? subs.line(at: player.currentTime().seconds) : ""
                     label.numberOfLines = 4
                     label.text = text.isEmpty ? nil : text
@@ -723,6 +775,15 @@ struct PlayerView: UIViewControllerRepresentable {
         /// scout stops; if it is mistimed or belongs to another film, the
         /// player's own track is switched off and our overlay takes over —
         /// carrying the corrected HUMAN words where we have them.
+        /// Listen briefly and judge the published file, then decide WHICH
+        /// renderer keeps the overlay.
+        ///
+        /// It used to decide whether to deselect a native subtitle track. There
+        /// is no native track on a captioned film now (the HLS wrapper that
+        /// carried it buffered whole films into memory), so the verdict lands
+        /// on the same question one level down: a file that fails review stops
+        /// drawing and the engine's own cues take the label; a file that passes
+        /// keeps it and the engine stands down. Exactly one of them draws.
         func reviewPublishedSubtitles(vtt: URL, source: URL, in vc: AVPlayerViewController) {
             startLiveCaptions(url: source, in: vc, showsImmediately: false)
             guard let captions = liveCaptions else { return }
@@ -731,11 +792,15 @@ struct PlayerView: UIViewControllerRepresentable {
                 guard let outcome = await SubtitleReview.review(vttURL: vtt, captions: captions)
                 else { return }
                 if outcome.replacesNativeTrack {
-                    await SubtitleReview.deselectNativeSubtitles(on: self.player)
+                    self.publishedSubtitleTask?.cancel()   // the file is wrong; the engine speaks
+                    self.publishedSubtitleTask = nil
+                    self.offlineSubtitleTask?.cancel()
+                    self.offlineSubtitleTask = nil
+                    self.showsPublishedOverlay = false
                     self.showsCaptionOverlay = true
                 } else {
-                    self.captionLabel?.removeFromSuperview()
-                    self.captionLabel = nil
+                    self.liveCaptions?.stop()              // the file is good; stop listening
+                    self.liveCaptions = nil
                 }
             }
         }
@@ -763,7 +828,6 @@ struct PlayerView: UIViewControllerRepresentable {
             fallbackWork?.cancel(); fallbackWork = nil
             statusObs = nil
             captionStall.detach()
-            captionedLoader = nil                 // release the Config-C HLS loader
             let pos = player.currentTime()
             let (asset, ldr) = ResilientStreamLoader.makeAsset(for: url)
             loader = ldr
@@ -855,11 +919,12 @@ struct PlayerView: UIViewControllerRepresentable {
             if let file = OfflineLibrary.videoURL(for: archiveID) {
                 return AVPlayerItem(url: file)
             }
-            if let hls = directHLSURL, let mp4 = directVideoURL, onCaptionedPath {
-                let (asset, l) = CaptionedHLSLoader.makeAsset(hls: hls, downloadURL: mp4)
-                captionedLoader = l
-                return AVPlayerItem(asset: asset)
-            }
+            // The captioned shape is no longer a distinct ASSET — a captioned
+            // film streams through the resilient loader like every other one
+            // and draws its cues in the overlay (see the asset branch in
+            // makeUIViewController). Returning here would rebuild the wrapper
+            // that buffers whole films, on every AirPlay return and every
+            // caption-type switch.
             if let mp4 = directVideoURL {
                 let (asset, l) = ResilientStreamLoader.makeAsset(for: mp4)
                 loader = l

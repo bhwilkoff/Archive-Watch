@@ -670,8 +670,6 @@ struct PlayerScreen: View {
     @State private var captionStall = CaptionStallMonitor()
     @State private var nowPlaying = NowPlayingController()
     @State private var streamLoader: ResilientStreamLoader?
-    @State private var captionedLoader: CaptionedHLSLoader?   // Part (a): Config C HLS
-    @State private var localSubsLoader: LocalSubtitleHLSLoader?  // subtitles fetched on this device
     @State private var statusObserver: NSKeyValueObservation?
     @State private var timeoutTask: Task<Void, Never>?
     @State private var autoRetried = false   // #10: silently retry once before failing
@@ -1464,8 +1462,6 @@ struct PlayerScreen: View {
         player = nil
         timeObserver = nil
         streamLoader = nil
-        captionedLoader = nil
-        localSubsLoader = nil
         statusObserver?.invalidate()
         statusObserver = nil
         timeoutTask?.cancel()

@@ -117,7 +117,46 @@ AVFoundation. The downloads-only idea is the promising seam, because Decision
 
 Scope it as research, not a fix.
 
-## P5 — A film played, then reported unavailable (Poland)
+## P5 — A film played, then reported unavailable (Poland) — **ANSWERED 2026-09-11**
+
+**The cause is the captioned asset shape, and it was measured.** A film WITH a
+published subtitle track played through an HLS wrapper that declares the whole
+MP4 as ONE segment — and a segment is AVFoundation's atomic buffering unit, so
+`preferredForwardBufferDuration = 300` is ignored and the entire film is pulled
+into memory. `tools/test_captioned_buffer_growth.swift` plays both shapes of
+this exact film, one per process:
+
+    wrapper (iOS/macOS captioned)   4,195s buffered vs 300s asked (14x)
+                                    1,368 MB footprint, still climbing at 90s
+    resilient loader (tvOS)           193s buffered vs 300s asked
+                                       55 MB footprint, flat
+
+A phone's media pipeline is jetsammed long before a 129-minute feature ends,
+and ~5 minutes is where a mobile link reaches that ceiling. Not geography, and
+not bandwidth: the node sustains 28.5 MB/s here and held a 1.7 GB single
+connection for 60 seconds without a cut.
+
+Decision 070 measured this on Apple TV in August and fixed tvOS. The memory
+note that recorded scoping iOS and macOS out said in as many words that
+"low-RAM iPhones plausibly have the same bomb". They do. Both captioned
+branches carried it, not just ours — iOS 27 was handed the PUBLISHED master
+directly so the system could offer a generated track, and that playlist is the
+same single segment (`#EXT-X-TARGETDURATION:7740`, one EXTINF). So did the
+on-device-subtitles path, which writes the identical shape one directory over.
+
+**Fixed**: a captioned film now streams through ResilientStreamLoader like every
+other one and draws its published cues in the caption overlay. Decision 118.
+
+The investigation below is left as written, including the hypothesis this
+replaces — the buffer-drain theory was reasonable and wrong, and the reason it
+was wrong is worth keeping: a 300-second buffer drains in exactly 300 seconds
+only when throughput is ZERO, so "exactly five minutes" was never evidence of a
+slow link.
+
+---
+
+### The investigation (superseded)
+
 
 **u/CombinationLonely719**: *The Grapes of Wrath* starts, then says
 unavailable; wonders if it is geographic. **Owner: "I'm on it"**, and asked
