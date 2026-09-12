@@ -81,7 +81,19 @@ promised to reply in the thread when it goes live.**
 thread the day it lands. Three people asked to be told, and one explicitly
 offered to test.
 
-## P3 — No way to sort a genre by year (iPhone / iPad)
+## P3 — No way to sort a genre by year (iPhone / iPad) — **CLOSED 2026-09-12**
+
+Shipped on every platform whose filtered grid lacked it: iOS and macOS in
+1.42.8, Android in 1.42.47. `CatalogDB.Sort` / `BrowseSort` already carried
+`.newest` and `.oldest` and both `browse()` implementations already took a sort,
+so this was a missing CONTROL, never missing data — on all three. Android's
+`SortMenu` is now shared between Browse and the filtered grid rather than
+copied, so the two cannot drift.
+
+The owner's reply in the thread ("I'll add it for iOS too in the next update")
+is now true of the whole fleet.
+
+### The original finding
 
 **u/Severe_Citron6975**, on iPad: "Would be nice to have sort features like by
 year browsing through film noir." **Owner: "I have that working on Apple TV
