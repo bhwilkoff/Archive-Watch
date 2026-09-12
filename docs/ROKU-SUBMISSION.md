@@ -178,6 +178,28 @@ the full-bleed hero (From Soup to Nuts, 1928) over the Public-Domain Canon
 shelf, and Detail is Fritz Lang's Dr. Mabuse, the Gambler — English interface,
 ★7.8, Play · 155m, More Like This.
 
+## The package format is NOT zstd, and that was worth proving (2026-09-12)
+
+The Dashboard lists four package formats against a minimum firmware each — ZIP
+v5.2, CRAMFS v7.7.0, SQUASHFS v8.0.0, **SQUASHFS_ZSTD v11.0.0** — and a ZSTD
+package would lock out every device below OS 11, including the Roku 2 XD this
+release exists for. We sign on a Streaming Stick 4K running 15.3.4, so ZSTD
+looked likely and there is no way to read the format off the `.pkg`: its header
+is `Roku Channel Pak V 2.0` and everything after is encrypted.
+
+The device answers it itself. `http://<device>/js/common.js` on the dev console
+declares what its packager can emit:
+
+    const FileType = { cramfs: 'cramfs', zip: 'zip', squashfs: 'squashfs' };
+
+No zstd, on Roku OS 15.3.4. So a package built this way is always one of three
+formats whose floors are v5.2 / v7.7.0 / v8.0.0, and **v8.0.0 b1 is the correct
+minimum-firmware declaration whichever one it is** — it is the highest of the
+three, so it is never an under-claim.
+
+Do not try to read the format from the file, and do not reach for Rekey to
+package on an older device: neither is necessary.
+
 ## Uploading a package IS automatable (2026-09-12)
 
 The Dashboard's package pages are react-dropzone-uploader: a real
