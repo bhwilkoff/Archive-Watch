@@ -260,3 +260,39 @@ Worth recording, because it is evidence about what the app is for.
 - **People name the film they started with**, unprompted: *My Name Is Julia
   Ross*, *The Cabinet of Dr. Caligari*, *Lorna Doone*, *A Trip to the Moon*.
   The app icon got its own compliment. Discovery is working.
+
+---
+
+## The iOS 26 floor — measured 2026-09-11
+
+> *"iOS 26 required. I'll wait for iOS 27. I won't have to wait too long."*
+> — u/Fit_Explorer_2566
+
+A user told us plainly that the deployment target keeps them out. It is worth
+taking literally: `IPHONEOS_DEPLOYMENT_TARGET` and `TVOS_DEPLOYMENT_TARGET` are
+both **26.0**, while CLAUDE.md still describes the minimum as "tvOS 17+". The
+floor is drift, not a decision anyone recorded.
+
+**What it would cost to lower it, measured rather than guessed.** Built the iOS
+target at `IPHONEOS_DEPLOYMENT_TARGET=18.0` and counted what broke: **40 errors
+in 3 source files**, all of them one of two features.
+
+| Requires iOS 26 | Files | What it is |
+|---|---|---|
+| `SpeechAnalyzer`, `SpeechTranscriber`, `AssetInventory` | `Services/AutoCaptions.swift`, `Services/LiveCaptions.swift` | the on-device live-caption engine (Decisions 058 / 068) |
+| `AVVideoComposition.Configuration`, `init(applyingFiltersTo:applier:)`, `AVCIImageFilteringResult` | `Services/ClipExporter.swift`, `iOS/ClipStudioView_iOS.swift` | the Configuration-based video-composition API adopted 2026-06-16 |
+
+**Nothing structural is in that list.** Browse, search, playback, the resilient
+loader, the library, sync, offline downloads, Detail, Channels — none of it
+needs 26. The floor is held up by two optional features.
+
+**So it is an availability-gating job, not a rewrite.** Live captions gate to
+26+ and fall back to published subtitles, which is exactly what Android and the
+web already do. Clip Studio either gates to 26+, or restores the pre-26
+composition API behind `if #available` — the code was migrated FROM it in June,
+so that path is recoverable from git rather than inventable.
+
+**NOT DONE, and deliberately.** How far down to reach is a product decision with
+a real cost (two features become conditional, and every future change to them
+has to hold both paths). This entry is the measurement so the decision can be
+made on numbers instead of impressions.
