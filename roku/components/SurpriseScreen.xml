@@ -11,6 +11,7 @@
     <field id="action" type="string" alwaysNotify="true" />
     <field id="exitLeft" type="boolean" alwaysNotify="true" />
   </interface>
+  <script type="text/brightscript" uri="pkg:/components/Capability.brs" />
   <script type="text/brightscript" uri="pkg:/components/Theme.brs" />
   <script type="text/brightscript" uri="pkg:/components/SurpriseScreen.brs" />
   <children>

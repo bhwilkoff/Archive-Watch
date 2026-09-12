@@ -4,6 +4,7 @@
     <field id="itemContent" type="node" onChange="onContent" />
     <field id="focusPercent" type="float" onChange="onFocus" />
   </interface>
+  <script type="text/brightscript" uri="pkg:/components/Capability.brs" />
   <script type="text/brightscript" uri="pkg:/components/Theme.brs" />
   <script type="text/brightscript" uri="pkg:/components/ActionTile.brs" />
   <children>

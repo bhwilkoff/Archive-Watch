@@ -12,6 +12,7 @@
     <field id="exitLeft" type="boolean" alwaysNotify="true" />
     <function name="showCards" />
   </interface>
+  <script type="text/brightscript" uri="pkg:/components/Capability.brs" />
   <script type="text/brightscript" uri="pkg:/components/Theme.brs" />
   <script type="text/brightscript" uri="pkg:/components/CollectionCardsScreen.brs" />
   <children>

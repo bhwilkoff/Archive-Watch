@@ -110,25 +110,17 @@ end sub
 ' answer is a viewer-facing screen-adjust setting, and why this prints what
 ' it decided so the next person can check it against a real panel.
 sub applyOverscanInset()
-    ui = CreateObject("roDeviceInfo").GetUIResolution()
-    if ui = invalid then return
-    name = LCase(fmt(ui.name))
-    print "AWSAFE ui="; name; " "; ui.width; "x"; ui.height
-
-    ' 3% a side. Broadcast title-safe is 5%, which is the conservative number
-    ' for an unknown panel; 3% keeps the rail and the right-hand column clear
-    ' on this TV without visibly shrinking the picture. Revisit against a
-    ' panel, not a spreadsheet.
-    insetX = 0
-    insetY = 0
-    if name = "hd" or name = "sd"
-        insetX = 58
-        insetY = 32
-    end if
-    if insetX = 0 and insetY = 0
-        print "AWSAFE no inset (fhd UI — assumed no overscan)"
+    if AWCan("edgeToEdge")
+        print "AWSAFE no inset (modern tier — assumed no overscan)"
         return
     end if
+
+    ' 3% a side. Broadcast title-safe is 5%, the conservative number for an
+    ' unknown panel; 3% keeps the rail and the right-hand column clear on this
+    ' TV without visibly shrinking the picture. Revisit against a panel, not a
+    ' spreadsheet.
+    insetX = 58
+    insetY = 32
 
     sx = (1920.0 - 2 * insetX) / 1920.0
     sy = (1080.0 - 2 * insetY) / 1080.0
@@ -199,6 +191,10 @@ sub watchMemory()
     ' that killed the channel on one: "Member function not found (&hf4)" at
     ' the guard's own line. Only the device said so. Asking whether the
     ' COMPONENT exists needs no version API and cannot repeat the mistake.
+    if not AWCan("memoryMonitor")
+        print "AWMEM skipped: not available on this tier"
+        return
+    end if
     m.mem = CreateObject("roAppMemoryMonitor")
     if m.mem = invalid
         print "AWMEM skipped: no roAppMemoryMonitor on this firmware"

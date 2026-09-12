@@ -19,6 +19,7 @@
     <function name="showChannels" />
     <function name="sayNoMatch" />
   </interface>
+  <script type="text/brightscript" uri="pkg:/components/Capability.brs" />
   <script type="text/brightscript" uri="pkg:/components/Theme.brs" />
   <script type="text/brightscript" uri="pkg:/components/Sched.brs" />
   <script type="text/brightscript" uri="pkg:/components/UserStore.brs" />

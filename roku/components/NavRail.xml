@@ -19,6 +19,7 @@
     <field id="expanded" type="boolean" value="false" />
     <field id="focusOn" type="boolean" onChange="onFocusOn" />
   </interface>
+  <script type="text/brightscript" uri="pkg:/components/Capability.brs" />
   <script type="text/brightscript" uri="pkg:/components/Theme.brs" />
   <script type="text/brightscript" uri="pkg:/components/NavRail.brs" />
   <children>

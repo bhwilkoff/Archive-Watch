@@ -272,19 +272,6 @@ end function
 ' not a .9.png: a nine-patch keeps its guide pixels when a plain Poster
 ' draws it. Twelve Posters per tile; the RowList only instantiates the
 ' visible ones, so this is ~40 tiles x 12, not 600 x 12.
-' TRUE on a player whose UI Roku renders at HD or SD — the legacy tier.
-' Cached because every tile asks, and CreateObject on the render thread is
-' not free.
-function AWLegacyUI() as Boolean
-    if m.awLegacyUI = invalid
-        ui = CreateObject("roDeviceInfo").GetUIResolution()
-        n = ""
-        if ui <> invalid then n = LCase(fmt(ui.name))
-        m.awLegacyUI = (n = "hd" or n = "sd")
-    end if
-    return m.awLegacyUI
-end function
-
 function AWFrameBuild(parent as Object) as Object
     f = { corners: [], ring: [] }
     ' TWELVE Poster nodes per tile — four corners and eight ring slices, each
@@ -297,7 +284,7 @@ function AWFrameBuild(parent as Object) as Object
     ' tile still grows from 224x336 to 248x360, which is how Roku's own older
     ' interfaces showed focus and is legible across a room. Nothing is created,
     ' so there is nothing to place — AWFramePlace returns on the empty arrays.
-    if AWLegacyUI() then return f
+    if not AWCan("focusFrame") then return f
     for each n in ["tl", "tr", "bl", "br"]
         p = parent.CreateChild("Poster")
         p.uri = "pkg:/images/slices/corner_" + n + ".png"

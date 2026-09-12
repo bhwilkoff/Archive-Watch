@@ -8,6 +8,7 @@
     <field id="itemHasFocus" type="boolean" onChange="onFocusChanged" />
     <field id="gridHasFocus" type="boolean" onChange="onFocusChanged" />
   </interface>
+  <script type="text/brightscript" uri="pkg:/components/Capability.brs" />
   <script type="text/brightscript" uri="pkg:/components/Theme.brs" />
   <script type="text/brightscript" uri="pkg:/components/GridTile.brs" />
   <children>

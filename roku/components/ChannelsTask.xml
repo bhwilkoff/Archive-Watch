@@ -8,6 +8,7 @@
     <field id="status" type="string" alwaysNotify="true" />
     <field id="channels" type="assocarray" />
   </interface>
+  <script type="text/brightscript" uri="pkg:/components/Capability.brs" />
   <script type="text/brightscript" uri="pkg:/components/Theme.brs" />
   <script type="text/brightscript" uri="pkg:/components/Sched.brs" />
   <script type="text/brightscript" uri="pkg:/components/ChannelsTask.brs" />

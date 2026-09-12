@@ -11,6 +11,7 @@
     <field id="chosen" type="string" alwaysNotify="true" />
     <function name="resetTop" />
   </interface>
+  <script type="text/brightscript" uri="pkg:/components/Capability.brs" />
   <script type="text/brightscript" uri="pkg:/components/Theme.brs" />
   <script type="text/brightscript" uri="pkg:/components/HomeScreen.brs" />
   <children>

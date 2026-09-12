@@ -9,6 +9,7 @@
     <field id="closed" type="boolean" alwaysNotify="true" />
     <function name="open" />
   </interface>
+  <script type="text/brightscript" uri="pkg:/components/Capability.brs" />
   <script type="text/brightscript" uri="pkg:/components/Theme.brs" />
   <script type="text/brightscript" uri="pkg:/components/OptionsList.brs" />
   <children>

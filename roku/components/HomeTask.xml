@@ -16,6 +16,7 @@
     <field id="status" type="string" alwaysNotify="true" />
     <field id="stats" type="assocarray" alwaysNotify="true" />
   </interface>
+  <script type="text/brightscript" uri="pkg:/components/Capability.brs" />
   <script type="text/brightscript" uri="pkg:/components/Theme.brs" />
   <script type="text/brightscript" uri="pkg:/components/HomeTask.brs" />
 </component>

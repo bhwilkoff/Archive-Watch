@@ -10,6 +10,7 @@
     <field id="exit" type="boolean" alwaysNotify="true" />
     <function name="showWall" />
   </interface>
+  <script type="text/brightscript" uri="pkg:/components/Capability.brs" />
   <script type="text/brightscript" uri="pkg:/components/Theme.brs" />
   <script type="text/brightscript" uri="pkg:/components/WallScreen.brs" />
   <children>

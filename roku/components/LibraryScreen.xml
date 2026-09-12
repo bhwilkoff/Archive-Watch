@@ -15,6 +15,7 @@
     <function name="showRows" />
     <function name="focusedRowIDs" />
   </interface>
+  <script type="text/brightscript" uri="pkg:/components/Capability.brs" />
   <script type="text/brightscript" uri="pkg:/components/Theme.brs" />
   <script type="text/brightscript" uri="pkg:/components/UserStore.brs" />
   <script type="text/brightscript" uri="pkg:/components/LibraryScreen.brs" />

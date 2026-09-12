@@ -10,6 +10,7 @@
     <field id="changed" type="string" alwaysNotify="true" />
     <function name="open" />
   </interface>
+  <script type="text/brightscript" uri="pkg:/components/Capability.brs" />
   <script type="text/brightscript" uri="pkg:/components/Theme.brs" />
   <script type="text/brightscript" uri="pkg:/components/UserStore.brs" />
   <script type="text/brightscript" uri="pkg:/components/OptionsPanel.brs" />

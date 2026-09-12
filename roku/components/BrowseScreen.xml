@@ -17,6 +17,7 @@
     <function name="applyChip" />
     <function name="applyCollection" />
   </interface>
+  <script type="text/brightscript" uri="pkg:/components/Capability.brs" />
   <script type="text/brightscript" uri="pkg:/components/Theme.brs" />
   <script type="text/brightscript" uri="pkg:/components/BrowseScreen.brs" />
   <children>

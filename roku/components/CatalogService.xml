@@ -53,6 +53,7 @@
     <field id="results" type="node" alwaysNotify="true" />
     <field id="total" type="integer" />
   </interface>
+  <script type="text/brightscript" uri="pkg:/components/Capability.brs" />
   <script type="text/brightscript" uri="pkg:/components/Theme.brs" />
   <script type="text/brightscript" uri="pkg:/components/CatalogService.brs" />
 </component>

@@ -9,6 +9,7 @@
     <field id="deepLinkContentId" type="string" alwaysNotify="true" onChange="onDeepLink" />
     <field id="deepLinkMediaType" type="string" />
   </interface>
+  <script type="text/brightscript" uri="pkg:/components/Capability.brs" />
   <script type="text/brightscript" uri="pkg:/components/Theme.brs" />
   <script type="text/brightscript" uri="pkg:/components/UserStore.brs" />
   <script type="text/brightscript" uri="pkg:/components/LayoutAudit.brs" />
