@@ -1,10 +1,14 @@
 # Archive Watch — Roku channel manifest.
-# Sideload only for now (owner decision 2026-09-03): the Channel Store needs a
-# signing key and certification, and that is a separate decision from parity.
+# Published to the Channel Store (channel 881015). The store's minimum firmware
+# is v5.0.2, so nothing in Roku's policy excludes an old player — what excluded
+# them was OUR code: 1.0.51 shipped 34 uses of `continue for`, which firmware
+# below ~OS 11 cannot PARSE, so those components failed to compile on a Roku 2
+# XD rather than merely running slowly. Verified on that device at 1.0.65:
+# AWTIER legacy, overscan inset applied, 29 home rows, no backtrace.
 title=Archive Watch
 major_version=1
 minor_version=0
-build_version=00064
+build_version=00065
 
 mm_icon_focus_fhd=pkg:/images/icon_focus_fhd.png
 mm_icon_focus_hd=pkg:/images/icon_focus_hd.png
