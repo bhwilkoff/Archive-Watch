@@ -31,6 +31,12 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
+import android.content.Intent
+import androidx.compose.material.icons.filled.Share
+import androidx.compose.ui.platform.LocalContext
+import app.archivewatch.android.data.PlaylistShare
+import app.archivewatch.android.ui.tv.LocalIsTelevision
+import app.archivewatch.android.ui.tv.TvShareOverlay
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -312,6 +318,37 @@ fun PlaylistScreen(container: AppContainer, nav: Nav, playlistID: String) {
         val pl = container.userState.playlists().find { it.id == playlistID } ?: return@produceState
         value = pl.name to db.itemsByIDs(pl.archiveIDs)
     }
+
+    // SHARE. The playlist rides inside the link (PlaylistShare), so whoever
+    // receives it needs no account and we host nothing. The link is built from
+    // the STORED ids rather than the resolved rows: a title the catalogue has
+    // since dropped should still travel, and the receiving end says how many
+    // it could resolve.
+    val ctx = LocalContext.current
+    val isTv = LocalIsTelevision.current
+    var shareUrl by remember { mutableStateOf<String?>(null) }
+    var shareName by remember { mutableStateOf("") }
+    val onShare: () -> Unit = {
+        scope.launch {
+            val pl = container.userState.playlists().find { it.id == playlistID }
+            val url = pl?.let { PlaylistShare.url(it.name, it.archiveIDs) }
+            if (url != null) {
+                shareName = pl.name
+                if (isTv) {
+                    // A television has no share sheet: the link becomes a QR,
+                    // the same device TvShareOverlay already uses for titles.
+                    shareUrl = url
+                } else {
+                    ctx.startActivity(Intent.createChooser(
+                        Intent(Intent.ACTION_SEND).apply {
+                            type = "text/plain"
+                            putExtra(Intent.EXTRA_SUBJECT, pl.name)
+                            putExtra(Intent.EXTRA_TEXT, url)
+                        }, null))
+                }
+            }
+        }
+    }
     Scaffold(
         topBar = {
             TopAppBar(
@@ -322,6 +359,9 @@ fun PlaylistScreen(container: AppContainer, nav: Nav, playlistID: String) {
                     }
                 },
                 actions = {
+                    IconButton(onClick = onShare) {
+                        Icon(Icons.Default.Share, contentDescription = "Share playlist")
+                    }
                     IconButton(onClick = {
                         scope.launch {
                             container.userState.deletePlaylist(playlistID)
