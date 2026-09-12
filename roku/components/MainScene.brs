@@ -110,6 +110,16 @@ sub watchMemory()
     ' 256 MB for the ENTIRE system, so that is the number to beat before this
     ' channel could live on a legacy player, and `ui_resolutions=fhd` in the
     ' manifest is where most of it goes.
+    '
+    ' AFTER bounding the tile decode (build 00058), same device, same drive:
+    ' peak 10% of the channel limit against 12% before. Modest, and smaller
+    ' than the drop in oversized-texture warnings (17 -> 6) would suggest —
+    ' many posters were already near tile size, and the decode is not the only
+    ' thing allocating. ONE before/after pair, so treat it as a direction, not
+    ' a coefficient: absolute availableKB is useless here because the system's
+    ' free memory differs between launches (306,420 KB one run, 259,008 the
+    ' next), which is why the percentage of the CHANNEL's own limit is the
+    ' number quoted.
     ' EXISTENCE, not version. The first attempt gated this on
     ' `roDeviceInfo.GetOSVersion()` — and that method is ITSELF newer than
     ' Roku OS 9.1, so the guard meant to protect old players was the thing
