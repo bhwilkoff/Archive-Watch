@@ -88,12 +88,37 @@ sub watchMemory()
     ' — are on roAppMemoryMonitor. Calling the second set on roDeviceInfo
     ' compiles cleanly and dies at runtime with "Member function not found
     ' (&hf4)", which on this Scene meant the beacon below it never fired.
-    m.memPort = CreateObject("roMessagePort")
+    ' EVERY call below needs firmware this channel deliberately does NOT
+    ' require. GetChannelAvailableMemory is Roku OS 12.5+ and
+    ' GetChannelMemoryLimit is 13.0+, and on the oldest players
+    ' roAppMemoryMonitor does not exist at all — a Roku 2 XD (3050X) is
+    ' capped at OS 9.1 and Roku stopped updating it years ago. There,
+    ' CreateObject returns invalid and the first dot after it is a runtime
+    ' error AT LAUNCH: the whole channel dies on exactly the cheap old box
+    ' the manifest goes out of its way to keep supporting (see its
+    ' rsg_version note). Roku 4 caps at 11.5 and Roku 2 (Tyler) at 11, so
+    ' this was never only about one device.
+    '
+    ' This block is instrumentation, not a feature. It asks for a firmware
+    ' where all of it exists, and says so when it does not.
     di = CreateObject("roDeviceInfo")
+    osMajor = 0
+    ver = di.GetOSVersion()
+    if ver <> invalid and ver.major <> invalid then osMajor = Val(ver.major)
+    if osMajor < 13
+        print "AWMEM skipped: Roku OS "; osMajor; " — memory telemetry needs 13+"
+        return
+    end if
+
+    m.memPort = CreateObject("roMessagePort")
     di.SetMessagePort(m.memPort)
     di.EnableLowGeneralMemoryEvent(true)
 
     m.mem = CreateObject("roAppMemoryMonitor")
+    if m.mem = invalid
+        print "AWMEM skipped: no roAppMemoryMonitor on this firmware"
+        return
+    end if
     m.mem.SetMessagePort(m.memPort)
     m.mem.EnableMemoryWarningEvent(true)
     ' GetChannelMemoryLimit answers an ASSOCIATIVE ARRAY whose keys are not
