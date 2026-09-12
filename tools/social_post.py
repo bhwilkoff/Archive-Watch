@@ -432,6 +432,49 @@ def compose(spec: dict, platform: str) -> str:
 # the platforms that take bytes, and it is better than nothing when the keys
 # are absent — but it now SAYS what it costs instead of failing silently.
 
+# THE MEDIA MUST BE FETCHABLE BEFORE IT IS OFFERED, and until 2026-09-12 it was
+# merely uploaded. Instagram and Threads do not take bytes — they take a URL and
+# fetch it themselves, from Meta's datacenters, within a second or two of being
+# asked. archive.org accepts a PUT long before that object is servable, so the
+# post raced the upload and lost:
+#
+#   18:13:22  reel container failed; falling back to the card
+#   18:13:23  !! HTTP 400 ... "The media could not be fetched from this URI"
+#   18:13:25  failed: instagram
+#
+# Every one of those URLs serves image/jpeg today. Nothing was wrong with the
+# file, the host or the credentials — only the timing, which is why it worked on
+# the 8th and the 10th and failed on the 11th. A race that usually wins is worse
+# than one that always loses: it teaches you the thing is fine.
+MEDIA_READY_TIMEOUT = 150          # seconds; archive.org is usually ready in <30
+MEDIA_READY_OK = ("image/", "video/")
+
+
+def media_fetchable(url: str, timeout: int = MEDIA_READY_TIMEOUT) -> tuple[bool, str]:
+    """Poll until the URL serves real media, the way Meta's fetcher will.
+
+    Returns (ok, detail). A GET with a tiny Range is used rather than HEAD:
+    archive.org answers HEAD from a different path than GET, so a passing HEAD
+    would not prove the thing Instagram is about to do.
+    """
+    deadline = time.time() + timeout
+    last = "no attempt"
+    delay = 3
+    while time.time() < deadline:
+        try:
+            req = urllib.request.Request(url, headers={"Range": "bytes=0-255"})
+            with urllib.request.urlopen(req, timeout=30) as r:
+                ctype = (r.headers.get("Content-Type") or "").lower()
+                if r.status in (200, 206) and ctype.startswith(MEDIA_READY_OK):
+                    return True, ctype
+                last = f"HTTP {r.status} content-type={ctype or 'none'}"
+        except Exception as e:                   # noqa: BLE001 — keep polling
+            last = str(e)[:120]
+        time.sleep(delay)
+        delay = min(delay * 2, 20)
+    return False, last
+
+
 def _ia_publish(card: Path, name: str, live: bool) -> str | None:
     """Put the card on the archivewatch-covers item; return a fetchable URL."""
     ak = os.environ.get("IAS3_ACCESS_KEY")
@@ -466,7 +509,18 @@ def publish_media(card: Path, spec: dict, live: bool) -> str | None:
 
     ia = _ia_publish(card, name, live)
     if ia:
-        return ia
+        if not live:
+            return ia
+        ok, detail = media_fetchable(ia)
+        if ok:
+            print(f"[media] fetchable ({detail}) {ia}")
+            return ia
+        # Do NOT hand an unfetchable URL to a platform: Meta's refusal is
+        # reported as a vague 400 about media types, which sent this hunt
+        # looking at formats and credentials rather than at timing.
+        print(f"[media] !! NOT fetchable after {MEDIA_READY_TIMEOUT}s: {detail} — {ia}",
+              file=sys.stderr)
+        return None
     if base and "releases/download" in base:
         print("[media] !! falling back to a GitHub Release asset, which Meta "
               "CANNOT fetch (octet-stream, signed, expiring). Instagram and "
@@ -1141,16 +1195,22 @@ def main() -> int:
     if entries:
         append_ledger(entries)
     if failures:
-        # A red X means "this run could not do its job". One platform refusing
-        # while four others carried the post is not that — it is a warning,
-        # and treating it as a failure emails the owner about a programme that
-        # worked. The run fails only when NOTHING went out.
+        # A red X means "this run could not do its job" (Decision 107) — and
+        # the job is posting to every platform SCHEDULED TODAY, not posting
+        # somewhere. Reading it as the looser thing is what let Instagram fail
+        # on 2026-09-11 under a green tick; the owner found it, not the
+        # tooling, which is the definition of an alert that did not work.
+        #
+        # A platform only reaches `failures` if it was scheduled AND connected
+        # AND then refused, so there is no cadence skip or missing-token noise
+        # in here. Every name on this list is something that should have gone
+        # out and did not.
         print(f"failed: {', '.join(failures)}", file=sys.stderr)
         if entries:
-            print(f"::warning::{len(failures)} platform(s) refused "
-                  f"({', '.join(failures)}); {len(entries)} posted")
-            return 0
-        print("::error::no platform accepted the post")
+            print(f"::error::{len(failures)} platform(s) refused "
+                  f"({', '.join(failures)}) though scheduled; {len(entries)} posted")
+        else:
+            print("::error::no platform accepted the post")
         return 1
     return 0
 
