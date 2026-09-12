@@ -180,8 +180,15 @@ shelf, and Detail is Fritz Lang's Dr. Mabuse, the Gambler — English interface,
 
 ## The sequence
 
-1. Owner runs `genkey` and stores the password outside the repo.
-2. `python3 tools/roku_package.py --password '…'` → a signed `.pkg`.
+1. ~~Owner runs `genkey` and stores the password outside the repo.~~ DONE —
+   the key is on the Streaming Stick 4K (10.0.0.155), dev id `429634ac…`, and
+   the password is at **`~/.config/roku/signing.env`** (mode 600), which
+   `roku_package.py` now reads by itself. `--password` is only an override.
+   **Never run `genkey` again on that device**: it REPLACES the key and orphans
+   every package signed with the old one, and Rekey needs the old password, so
+   it cannot recover a lost one. Keep a copy in the password manager — one
+   machine is not a backup.
+2. `python3 tools/roku_package.py --version 1.0.<build>` → a signed `.pkg`.
 3. Dashboard → Beta Apps → create, fill the listing, upload the package.
 4. Publish (beta deploys immediately) and test with real accounts.
 5. For the public store: run Static Analysis and App Behavior Analysis in the

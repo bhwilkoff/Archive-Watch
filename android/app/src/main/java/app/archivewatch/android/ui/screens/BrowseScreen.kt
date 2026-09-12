@@ -266,7 +266,7 @@ private fun FacetMenu(
 }
 
 @Composable
-private fun SortMenu(selected: BrowseSort, onSelect: (BrowseSort) -> Unit) {
+internal fun SortMenu(selected: BrowseSort, onSelect: (BrowseSort) -> Unit) {
     var open by remember { mutableStateOf(false) }
     TextButton(onClick = { open = true }) { Text(selected.label) }
     DropdownMenu(expanded = open, onDismissRequest = { open = false }) {

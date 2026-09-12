@@ -26,6 +26,29 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import roku  # noqa: E402
 
 
+# WHERE THE PASSWORD LIVES, so this is never hunted for again.
+#
+# On 2026-09-11 an hour went into looking for it: the repo, Downloads, Desktop,
+# Documents, .config, .ssh, the Keychain and the session transcripts were all
+# searched for `--password` and `passwd=` command patterns and found nothing.
+# It had been pasted on 2026-09-08 as a plain two-line `genkey` result —
+# "Password: … / DevID: …" — which no command-shaped search would ever match.
+# The lesson is not "search harder"; it is that a credential a tool needs
+# belongs somewhere the TOOL can find, not somewhere a person has to remember.
+PASS_FILE = os.path.expanduser("~/.config/roku/signing.env")
+
+
+def stored_password():
+    """The genkey password from ~/.config/roku/signing.env, or None."""
+    try:
+        with open(PASS_FILE) as fh:
+            body = fh.read()
+    except OSError:
+        return None
+    m = re.search(r"^AW_ROKU_SIGN_PASS\s*=\s*'([^']+)'", body, re.M)
+    return m.group(1) if m else None
+
+
 def devconsole(cmd, wait=3.0):
     """Run one command on the developer console (port 8080) and return output."""
     s = socket.create_connection((roku.HOST, 8080), timeout=8)
@@ -60,7 +83,8 @@ def key_status():
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--check", action="store_true", help="report the key status and stop")
-    ap.add_argument("--password", help="the genkey password for this device")
+    ap.add_argument("--password", help="the genkey password for this device "
+                                       "(default: read from ~/.config/roku/signing.env)")
     ap.add_argument("--version", default=None, help="package version, e.g. 1.0.0")
     ap.add_argument("--no-deploy", action="store_true", help="package what is already sideloaded")
     args = ap.parse_args()
@@ -79,7 +103,10 @@ def main():
     if args.check:
         return 0
     if not args.password:
+        args.password = stored_password()
+    if not args.password:
         print("--password is required to package (the genkey password for this device)")
+        print(f"Nothing stored at {PASS_FILE}, either — see docs/ROKU-SUBMISSION.md.")
         return 1
 
     version = args.version

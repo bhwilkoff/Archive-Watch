@@ -48,6 +48,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import app.archivewatch.android.app.AppContainer
+import app.archivewatch.android.data.BrowseSort
 import app.archivewatch.android.data.CatalogItem
 import app.archivewatch.android.data.FeaturedCategory
 import app.archivewatch.android.ui.EmptyState
@@ -164,10 +165,19 @@ fun FilteredGridScreen(container: AppContainer, nav: Nav, route: Route.Filtered)
     // Public Domain Day explorer (iOS parity): year chips walk BACK through
     // recent entry years; each chip re-filters the grid to that year's films.
     var pdYearShown by remember(route) { mutableStateOf(route.year) }
-    val items by produceState<List<CatalogItem>?>(null, dbVersion, pdYearShown) {
+    // A genre tile lands here, and this screen had no way to order what it
+    // showed — reported from an iPad on r/classicfilms, 2026-09-10: "would be
+    // nice to have sort features like by year browsing through film noir".
+    // Browse itself has had the control all along; the grid a CATEGORY opens
+    // never did, on any platform. iOS and macOS were fixed in 1.42.8; this is
+    // the same gap on Android, and `browse()` already takes the sort, so it
+    // was only ever a missing control.
+    var sort by remember(route) { mutableStateOf(BrowseSort.POPULAR) }
+    val items by produceState<List<CatalogItem>?>(null, dbVersion, pdYearShown, sort) {
+        value = null                     // show the loader while re-sorting
         val db = container.catalog.awaitDb()
         value = db.browse(contentType = route.contentType, decade = route.decade,
-                          year = pdYearShown ?: route.year, limit = 240)
+                          year = pdYearShown ?: route.year, sort = sort, limit = 240)
     }
     Scaffold(
         topBar = {
@@ -178,6 +188,7 @@ fun FilteredGridScreen(container: AppContainer, nav: Nav, route: Route.Filtered)
                         Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
                     }
                 },
+                actions = { SortMenu(sort) { sort = it } },
                 colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = MaterialTheme.colorScheme.background,
                 ),
