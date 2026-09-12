@@ -176,6 +176,12 @@ def put_apk(tok, app, eid, path, add=False):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--check", action="store_true", help="verify auth and stop")
+    ap.add_argument("--status", action="store_true",
+                    help="report the open edit and the APKs in it, and stop. "
+                         "Four users on the 2026-09-11 Reddit thread could not "
+                         "install because the LIVE binary is vc49 (minSdk 29); "
+                         "'has the fix shipped yet' is the question this answers "
+                         "without hand-rolling an API call.")
     ap.add_argument("--apk", help="APK to upload as a new version")
     ap.add_argument("--commit", action="store_true",
                     help="submit the edit for review (default: leave it open)")
@@ -188,6 +194,17 @@ def main():
     app = c["app_id"]
     tok = token(c)
     print(f"auth OK for {app}")
+    if a.status:
+        cur, _ = call(tok, "GET", f"/applications/{app}/edits", soft=True)
+        if not cur or not cur.get("id"):
+            print("no open edit — whatever is live is all there is")
+            return 0
+        print(f"open edit {cur['id']} status={cur.get('status')}")
+        apks, _ = call(tok, "GET",
+                       f"/applications/{app}/edits/{cur['id']}/apks", soft=True)
+        for k in (apks or []):
+            print(f"  APK versionCode={k.get('versionCode')} id={k.get('id')}")
+        return 0
     if a.check or not a.apk:
         if not a.apk and not a.check:
             print("nothing to do — pass --apk to upload a build")

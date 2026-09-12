@@ -1,13 +1,13 @@
 {
- "_": "Store facts that no API exposes. Amazon has a Vitals API (read live); its UNITS are console-only. Roku/LG/Samsung expose nothing at all. Edit by hand when a state changes — the dashboard shows these beside the machine-read stores so the estate is never half-reported.",
+ "_": "Store facts that no API exposes. Amazon has a Vitals API (read live); its UNITS are console-only. Roku/LG/Samsung expose nothing at all. Edit by hand when a state changes \u2014 the dashboard shows these beside the machine-read stores so the estate is never half-reported.",
  "stores": [
   {
    "store": "Amazon Appstore",
    "platform": "Fire TV",
-   "state": "LIVE (1.3.485) · 1.42.6 IN REVIEW",
-   "version": "1.3.485 (vc49) live · 1.42.6 (vc57) submitted 2026-09-10",
+   "state": "LIVE (1.3.485, minSdk 29 \u2014 most devices cannot install) \u00b7 vc57 PENDING",
+   "version": "1.3.485 (vc49) live \u00b7 1.42.6 (vc57) submitted 2026-09-10",
    "since": "2026-09-01",
-   "note": "The LIVE vc49 declares minSdk 29 and Fire OS 7 is API 28, so the Appstore hid it from most of the fleet — 'Fire TV (98): 38 selected' — and users reported 4K Max, Cube and sticks as incompatible. vc57 (minSdk 23) submitted 2026-09-10, device support 38 -> 91; Amazon estimates the store by 2026-09-15. Gate: tools/audit_fire_tv_manifest.py (Decision 115). Units are console-only — declared here.",
+   "note": "The LIVE vc49 declares minSdk 29 and Fire OS 7 is API 28, so the Appstore hid it from most of the fleet \u2014 'Fire TV (98): 38 selected' \u2014 and users reported 4K Max, Cube and sticks as incompatible. vc57 (minSdk 23) submitted 2026-09-10, device support 38 -> 91; Amazon estimates the store by 2026-09-15. Gate: tools/audit_fire_tv_manifest.py (Decision 115). 2026-09-11: the vc57 submission was REJECTED on content policy (app icon / IP) and appealed the same day (ops/amazon-ip-appeal-2026-09-11.md). Verified live via the App Submission API: one open edit, status PENDING, holding APK versionCode 57 \u2014 `python tools/submit-amazon.py --status`. FOUR users on the announcement thread report the \u274c: a 4K Max, a Cube and several sticks, plus one who cannot find the app in the store at all. It is the single most-reported issue there and nothing on our side can move it. Units are console-only",
    "url": "https://developer.amazon.com/apps-and-games/console/apps/list.html",
    "api": "vitals",
    "units30d": 2,
@@ -20,7 +20,7 @@
    "state": "LIVE",
    "version": "1.0.51",
    "since": "2026-09-10",
-   "note": "Channel 881015, live in the Channel Store 2026-09-10. No developer API — check the Dashboard. Search feed REGISTERED 2026-09-10 (Decision 113): 3,164 pre-1930 films, beta app 881088 / code TLGNCCT, awaiting Roku's first ingestion then owner device test then Submit for review.",
+   "note": "Channel 881015, live in the Channel Store 2026-09-10. No developer API \u2014 check the Dashboard. Search feed REGISTERED 2026-09-10 (Decision 113): 3,164 pre-1930 films, beta app 881088 / code TLGNCCT, awaiting Roku's first ingestion then owner device test then Submit for review.",
    "url": "https://channelstore.roku.com/details/12a571a872732e40fe8d1d6c59f3849f:5ec8f46dcec2324229c8d096ea23c089/archive-watch",
    "api": null
   },
