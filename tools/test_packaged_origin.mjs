@@ -124,5 +124,23 @@ for (const pkg of ['webos', 'tizen']) {
   }
 }
 
+/* THE CAST SENDER SDK MUST NOT BE A STATIC TAG. Ours was always absolute
+   https and that was never the problem: Google's script, once running, fetches
+   its own framework PROTOCOL-RELATIVE (//www.gstatic.com/cast/sdk/...), which
+   at the file:// origin a packaged TV widget runs at resolves to
+   file://www.gstatic.com/... and fails on every launch. It cannot be fixed
+   from inside our code, so the sdk is INJECTED and skipped on a packaged TV —
+   which costs nothing, because a television is never a Cast SENDER.
+   Measured in the built .wgt, at file://, with a Tizen user agent. */
+{
+  const html = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
+  const staticTag = /<script[^>]+src=["']https?:\/\/www\.gstatic\.com[^"']*cast_sender[^"']*["']/i.test(html);
+  truthy('the Cast sender sdk is not loaded by a static <script> tag', !staticTag);
+  truthy('the Cast sender injector skips a file:// origin',
+         html.includes("location.protocol === 'file:'") && html.includes('cast_sender.js'));
+  truthy('the Cast sender injector skips the TV user agents',
+         /Tizen\|Web0S\|webOS\|VIDAA/.test(html));
+}
+
 console.log(`\n${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);

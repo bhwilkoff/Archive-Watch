@@ -422,8 +422,27 @@
        absent (non-Chromium, or gstatic blocked), so this is safe everywhere.
        docs/TV-PLATFORM-BACKLOG.md Phase 1. -->
   <script src="cast-sender.js"></script>
-  <!-- Absolute https, NOT protocol-relative: a packaged TV app (webOS/Tizen)
-       is served over file://, where "//host/..." resolves to file://host/... -->
-  <script src="https://www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1"></script>
+  <script>
+    // The Cast SENDER sdk is INJECTED, not <script>-tagged, so a packaged TV
+    // app never loads it.
+    //
+    // Our own url was always absolute https — the comment that used to sit here
+    // said so, and it was right. The failing request is the SDK's OWN: once
+    // running, it fetches //www.gstatic.com/cast/sdk/libs/sender/1.0/... with a
+    // PROTOCOL-RELATIVE url, which on the file:// origin a Tizen widget runs at
+    // resolves to file://www.gstatic.com/... and fails on every single launch.
+    // That is inside Google's script and cannot be corrected from here.
+    //
+    // It costs nothing to skip: a Samsung or LG television is a Cast RECEIVER's
+    // audience, never a sender. Senders are Chrome and Android. Measured in the
+    // built .wgt at a file:// origin with a Tizen user agent.
+    (function () {
+      var ua = navigator.userAgent || '';
+      if (location.protocol === 'file:' || /Tizen|Web0S|webOS|VIDAA/i.test(ua)) return;
+      var s = document.createElement('script');
+      s.src = 'https://www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1';
+      document.body.appendChild(s);
+    })();
+  </script>
 </body>
 </html>

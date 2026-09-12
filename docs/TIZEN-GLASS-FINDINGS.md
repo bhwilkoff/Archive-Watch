@@ -102,3 +102,57 @@ This is a web page shown on a television, not a television interface. The web
 app was the right way to REACH the platform and is the wrong thing to ship
 unchanged. What is needed is a TV-first pass over the player and the Detail
 surface, not more patches to a browser layout.
+
+---
+
+## The .wgt actually built and run (2026-09-12)
+
+Everything before this was measured in desktop Chrome at 1920x1080 with
+`?tv=1`. That is the right harness for layout, and it is not the deliverable.
+The deliverable is a signed `.wgt` running at a `file://` origin.
+
+**Built and signed**: `tizen build-web` + `tizen package -t wgt`, profile
+`archivewatchSamsung`, → `tv/dist/ArchiveWatch.wgt` (3.2 MB, 20 files). Version
+stamped **1.42.65** from AppVersion.xcconfig by the build script — the
+`config.xml` in the repo still reads 1.3.284 and is a template, not the
+shipped value. The filename has no space, which the script enforces.
+
+**Booted at `file://` with a Tizen user agent** (the origin and UA a widget
+actually runs at, not a localhost server):
+
+    html classes      tv tv-tizen        <- the TV layer detected the platform
+    cards rendered    348
+    blank tiles       0                  <- the placeholder fix, in the package
+    AWTV.shareQR      true               <- the QR seam is in the package
+
+### What that found: the Cast SDK fetches itself protocol-relative
+
+    net::ERR_INVALID_URL  <-  file://www.gstatic.com/cast/sdk/libs/sender/1.0/cast_framework.js
+
+Our own tag was always absolute https, and the comment beside it said so and
+was right. The failing request is **Google's**: once `cast_sender.js` is
+running it fetches its own framework with a protocol-relative `//www.gstatic.com/...`,
+which at a `file://` origin resolves to `file://www.gstatic.com/...` and fails
+on every launch. It is inside their script and cannot be corrected from here.
+
+The fix costs nothing: **a television is never a Cast SENDER.** Senders are
+Chrome and Android, casting *to* a receiver. So the sdk is injected rather than
+`<script>`-tagged, and the injector returns early on a `file://` origin or a
+Tizen/webOS/VIDAA user agent. Verified both directions — the failed request is
+gone from the package, and on the web `cast.framework` is still present.
+`tools/test_packaged_origin.mjs` guards it (checked to FAIL against the static
+tag restored).
+
+### The one remaining console line, and why it is not a defect
+
+    401  <-  api.apple-cloudkit.com/.../public/users/caller
+
+CloudKit JS asking "is anyone signed in?" for an anonymous caller. A 401 is the
+answer to that question, not an error. It fires once per launch.
+
+### Still not done on the glass
+
+This is a packaged app booted in Chrome at the right origin with the right user
+agent — it is not a Samsung TV. What it cannot tell us: real remote key codes
+from the platform, Tizen's own media pipeline, memory under a long session, and
+how the panel actually renders overscan. Those need the set.
