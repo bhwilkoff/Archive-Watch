@@ -1,7 +1,7 @@
 {
   "version": 1,
   "description": "OMDb lookup results keyed by IMDb ID. Positive = poster_url; negative = null (so we don't burn daily quota retrying items OMDb doesn't have). Populated by the scheduled omdb-backfill GitHub Action + local runs of tools/omdb_backfill.py. The exporter overlays this cache over DB rows at export time.",
-  "updated_at": "2026-09-11T07:18:57Z",
+  "updated_at": "2026-09-12T07:11:26Z",
   "entries": {
     "tt0007613": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BYzUwNTY4NWUtNGRhMy00YjVmLWEyNmQtYTQyNWQyNDZhNjFmXkEyXkFqcGc@._V1_SX300.jpg",
@@ -31910,11 +31910,11 @@
     },
     "nm0101038": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm0101038\" to type \\'Double\\''",
-      "last_tried": "2026-09-11T07:18:57Z"
+      "last_tried": "2026-09-12T07:11:26Z"
     },
     "nm1947784": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm1947784\" to type \\'Double\\''",
-      "last_tried": "2026-09-11T07:18:57Z"
+      "last_tried": "2026-09-12T07:11:26Z"
     },
     "tt0000046": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BZWM2N2MzMGMtNzNkNi00OTc2LTg5NDQtNWViNTA2MGIwNmFhXkEyXkFqcGdeQXVyNTI2NTY2MDI@._V1_SX300.jpg",
@@ -322567,6 +322567,239 @@
         "Short"
       ],
       "fetched_at": "2026-09-08T07:16:25Z",
+      "schema": 3
+    },
+    "tt0036694": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMTQwNjk4OTM5NV5BMl5BanBnXkFtZTgwOTAyNzk1MDE@._V1_SX300.jpg",
+      "imdb_rating": 5.6,
+      "imdb_votes": 144,
+      "content_rating": null,
+      "plot": "A rich but miserly old man taunts his relatives about who will get his money when he dies, and is soon mysteriously murdered. It turns out that he has left his estate to a beautiful young actress whom the other relatives didn't know was related to him. Several attempts on her life are thwarted by a detective, who sets out to discover who's behind the scheme to kill her.",
+      "runtime_min": 75,
+      "director": "John Harlow",
+      "actors": [
+        "Eliot Makeham",
+        "Beatrix Lehmann",
+        "John Salew"
+      ],
+      "genres": [
+        "Mystery"
+      ],
+      "fetched_at": "2026-09-12T07:11:26Z",
+      "schema": 3
+    },
+    "tt0040610": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMTc4MjEwNDU2OV5BMl5BanBnXkFtZTcwMjkwMzYzMQ@@._V1_SX300.jpg",
+      "imdb_rating": 5.6,
+      "imdb_votes": 134,
+      "content_rating": null,
+      "plot": "An experimental short film by James Broughton in which his childhood day's are recounted when recalling the influence his mother had on him.",
+      "runtime_min": 22,
+      "director": "James Broughton",
+      "actors": [
+        "Marion Cunningham",
+        "Donald Pidgeon",
+        "Hal Goldman"
+      ],
+      "genres": [
+        "Short"
+      ],
+      "fetched_at": "2026-09-12T07:11:26Z",
+      "schema": 3
+    },
+    "tt0042986": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNDA0NTk0NGYtMTgwZS00NjZlLTllZDQtYmRkNTdjOTc5YzVlXkEyXkFqcGdeQXVyNjk1MTYwMzM@._V1_SX300.jpg",
+      "imdb_rating": 6.1,
+      "imdb_votes": 89,
+      "content_rating": null,
+      "plot": "Mr Ningle has been living a lie for seven years by pretending to still be commuting to his financial services job in the City of London from which he had been sacked. Every day, he journeys in and changes into the disguise of his alter ego: an artist who sells paintings on the sidewalk in Trafalgar Square.",
+      "runtime_min": 76,
+      "director": "Maclean Rogers",
+      "actors": [
+        "Richard Hearne",
+        "Garry Marsh",
+        "Ellen Pollock"
+      ],
+      "genres": [
+        "Comedy"
+      ],
+      "fetched_at": "2026-09-12T07:11:26Z",
+      "schema": 3
+    },
+    "tt0056688": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMjAxNTg4OTYxMl5BMl5BanBnXkFtZTgwODU5Nzk1MDE@._V1_SX300.jpg",
+      "imdb_rating": 5.4,
+      "imdb_votes": 33,
+      "content_rating": "Not Rated",
+      "plot": "A marital comedy of wives trying to reform their husbands.",
+      "runtime_min": 69,
+      "director": "Ernest Morris",
+      "actors": [
+        "William Fox",
+        "Hy Hazell",
+        "Dennis Lotis"
+      ],
+      "genres": [
+        "Comedy"
+      ],
+      "fetched_at": "2026-09-12T07:11:26Z",
+      "schema": 3
+    },
+    "tt0066344": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNDMxM2M1Y2QtNTVhZi00ODRhLTgxOTItMTBjNDg5ZjIyZTRkXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 7.5,
+      "imdb_votes": 13318,
+      "content_rating": "G",
+      "plot": "In 1860, cranky old miser Ebenezer Scrooge hates Christmas, loathes people, and defends the decrease of the surplus of poor population, runs his bank exploiting his employee Bob Cratchit and clients, giving a bitter treatment to his own nephew and acquaintances. However, on Christmas Eve, he is visited by the doomed ghost of his former partner, Jacob Marley, who tells him that three spirits would visit him that night. The first one, the spirit of Christmas Past, recalls his miserable youth when he lost his only love due to his greed, the spirit of Christmas Present shows him the poor situation of Bob's family, and how joyful life may be and the spirit of Christmas Yet To Come shows his fate. Scrooge finds that life is good, and time is too short, and suddenly you are not there anymore, changing his behavior toward Christmas, Bob, his nephew, and people in general.",
+      "runtime_min": 113,
+      "director": "Ronald Neame",
+      "actors": [
+        "Albert Finney",
+        "Alec Guinness",
+        "Edith Evans"
+      ],
+      "genres": [
+        "Drama",
+        "Family",
+        "Fantasy"
+      ],
+      "fetched_at": "2026-09-12T07:11:26Z",
+      "schema": 3
+    },
+    "tt0069855": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNTUwOGMwNzYtN2E0ZC00MTg2LTlkYjEtOTg1NzUyYjA2MzcwXkEyXkFqcGdeQXVyNTM3MDMyMDQ@._V1_SX300.jpg",
+      "imdb_rating": 5.7,
+      "imdb_votes": 499,
+      "content_rating": "Not Rated",
+      "plot": "When a rich man dies, some items from a collection of his are stolen- an ancient Egyptian gold amulet and the mummy that was wearing it. The police consult scholars from the local University to help with the investigation, which is taking a more serious turn as people connected with the case are killed by wounds that seem to be from a housecat.",
+      "runtime_min": 72,
+      "director": "Curtis Harrington",
+      "actors": [
+        "Meredith Baxter",
+        "David Hedison",
+        "Gale Sondergaard"
+      ],
+      "genres": [
+        "Horror"
+      ],
+      "fetched_at": "2026-09-12T07:11:26Z",
+      "schema": 3
+    },
+    "tt0071392": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BZGIzODJiNzAtNjNkYS00MmQ0LTgxMTUtODk0N2Q3Y2I1MDRhXkEyXkFqcGdeQXVyMzU0NzkwMDg@._V1_SX300.jpg",
+      "imdb_rating": 5.2,
+      "imdb_votes": 222,
+      "content_rating": null,
+      "plot": "A pair of aerial photographers discover that, due to a flaw in the film they are using, they can predict when and where an earthquake is about to hit. When they discover that a quake is about to strike a small desert community, the two photographers race against time to save the inhabitants before it is too late.",
+      "runtime_min": 75,
+      "director": "Robert Michael Lewis",
+      "actors": [
+        "Jackie Cooper",
+        "Stella Stevens",
+        "Cleavon Little"
+      ],
+      "genres": [
+        "Drama"
+      ],
+      "fetched_at": "2026-09-12T07:11:26Z",
+      "schema": 3
+    },
+    "tt0076261": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMGM3YTk4ZGItZmJlNS00MzAwLTk5NjUtMWFhM2RiNDBhNzI4XkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 5.0,
+      "imdb_votes": 671,
+      "content_rating": "R",
+      "plot": "Having witnessed the brutal murder of his father, the horrific sexual assault of his mother, and the abduction of his innocent young sister by McClain's ruthless gang of cut-throats, Tom, the lucky fifteen-year-old survivor, swears revenge. Hell-bent on making them pay in blood, Tom embarks on a life-or-death quest to avenge his family, relentlessly pursuing the leader and his jackals in the unforgiving desert. As Tom crosses paths with Isaac, a compassionate prospector who has reasons to see McClain and his bandits suffer, he sets in motion his deadly campaign, methodically picking the perpetrators off with his ingenious traps. Is one ever too young for vengeance?",
+      "runtime_min": 94,
+      "director": "Joseph Manduke",
+      "actors": [
+        "Lee Van Cleef",
+        "Jim Brown",
+        "John Marley"
+      ],
+      "genres": [
+        "Drama",
+        "Western"
+      ],
+      "fetched_at": "2026-09-12T07:11:26Z",
+      "schema": 3
+    },
+    "tt0076826": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMTEyN2JkNzAtOWQ4ZS00MmMxLWE5M2QtMWVkMWZhMjM2YmJjXkEyXkFqcGdeQXVyMTY1MTcxMzc@._V1_SX300.jpg",
+      "imdb_rating": 7.3,
+      "imdb_votes": 53,
+      "content_rating": null,
+      "plot": "Excerpts from 80 years of the greatest British comedies.",
+      "runtime_min": 90,
+      "director": "Jon Scoffield",
+      "actors": [
+        "Frank Muir",
+        "Chesney Allen",
+        "Arthur Askey"
+      ],
+      "genres": [
+        "Comedy",
+        "Documentary"
+      ],
+      "fetched_at": "2026-09-12T07:11:26Z",
+      "schema": 3
+    },
+    "tt0086891": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMTkxMDk3MzUzOV5BMl5BanBnXkFtZTcwOTgxMDYyMQ@@._V1_SX300.jpg",
+      "imdb_rating": 6.4,
+      "imdb_votes": 116,
+      "content_rating": "Not Rated",
+      "plot": "Biopic of Saturday Review editor and political journalist Norman Cousins who developed and promoted a self-made health therapy consisting of intake of large quantities of vitamin C and making oneself laugh as much as possible.",
+      "runtime_min": 96,
+      "director": "Richard T. Heffron",
+      "actors": [
+        "Edward Asner",
+        "Eli Wallach",
+        "Millie Perkins"
+      ],
+      "genres": [
+        "Biography",
+        "Drama",
+        "History"
+      ],
+      "fetched_at": "2026-09-12T07:11:26Z",
+      "schema": 3
+    },
+    "tt0283691": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BY2NlMjY0ZTktYjMxMS00MTRiLTkxOGEtOTA0NmVkYjhkMTY0XkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 4.1,
+      "imdb_votes": 14,
+      "content_rating": null,
+      "plot": "Teenagers are urged to use common sense in choosing the types of friends they have in this classroom training film. It shows the behavior of various teenagers at a party, and viewers are asked to choose which of the teens they think would make a good friend and which ones wouldn't.",
+      "runtime_min": 8,
+      "director": "George Blake",
+      "actors": [
+        "Don Goddard"
+      ],
+      "genres": [
+        "Drama",
+        "Short"
+      ],
+      "fetched_at": "2026-09-12T07:11:26Z",
+      "schema": 3
+    },
+    "tt1278134": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BYTY0MTI3ODctY2RlMi00MTJmLWI2YWMtN2ZkZTIxYTIyOWEzXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 7.0,
+      "imdb_votes": 559,
+      "content_rating": null,
+      "plot": "Usta tells the story of Dogan (Yetkin Dikinciler), a small-time car mechanic who has been dreaming of building a single-engine biplane. Dogan does not care about how many planes have been produced until then or whether his design will actually make a different for the world aeronautics world. All he wants do is to show the whole world that he can actually design a local single-engine plane and make it work.As Dogan has been working on that plane in his backyard for so long, his wife Emine (Fadik Sevin Atasoy) does not really share his enthusiasm. Emine has had a few miscarriages but she still wants to have a baby of her own in spite of the risk. When Dogan realizes that there are actually some people who do not believe that Dogan would achieve his dream, he decides to fly his not properly finished biplane in the local aeronautics fair but his plane crashes and what's worse his wife feels neglected and leaves Dogan at a moral crossroads. Torn between his marriage and his dream, what should Dogan do? Stop chasing his dream or save his falling apart marriage? Dogan's dilemma may sound too simple but it is actually the story of lots of Turkish people which goes untold. Unfortunately, Turkish people are educated in a general system where creativity and lateral thinking are mostly suppressed. Students who study in state-owned schools are,without exception, needs the support of a course system called \"dershane\", a system which is actually the Turkish counterpart of cram schools. Students, typically at week-ends (in some instances, also after the school hours, ), are drilled on diverse aspects of a student selection exam. Let alone high schools, even the best colleges and universities accept students based on an academic test administered at the end of a student's education.-A test in which students are obliged to choose one out of four-five options. Even the most successful students are actually the best choosers because they just achieve the result without producing anything tangible. What I mean is that many Turkish people like Dogan are indeed encouraged to save himself a wild goose chase as the professor says to Dogan \"A power glider is no big deal. It does not matter we did not invent them. We assemble them right here.The objective is to fly. Can you compete with that?\". For the founder of this modern republic, Mustafa Kemal, the fight to compete with that would be the real struggle from sparring to actual fight but for the present day Turkey you need to stop chasing your dreams and realize \"capital isn't enough,you've got to have contacts,associates, and community\" So kudos to Karatas and his team for this masterful re-examination of today's Turkey. As for the cast,acting and cinematography. The harmony between the old actors and the young ones blend it perfectly with the warm atmosphere of the movie. The chemistry between Atasoy and Dikinciler as husband and wife is laudable. The northwestern city Eskisehir, on the other hand, pleases the eyes with Porsuk River overlooking the fertile Phrygian Valley,with its fine architecture and aviation parks. The only that bored me in this movie was the technique of sequence shots because the movie just makes you feel that it's dragging at some points and when you realize that the runtime is no longer than two hours, you are just surprised, but I read that Bahadar Karatas used this technique so that the players would be allowed greater allowed. All in all, Usta is one of the best recent Turkish movies. It should have gotten a better box-office rating and it surely deserves more attention,especially from the local cinéastes.",
+      "runtime_min": 118,
+      "director": "Bahadir Karatas",
+      "actors": [
+        "Yetkin Dikinciler",
+        "Fadik Sevin Atasoy",
+        "Sevket Çoruh"
+      ],
+      "genres": [
+        "Drama"
+      ],
+      "fetched_at": "2026-09-12T07:11:26Z",
       "schema": 3
     }
   },
