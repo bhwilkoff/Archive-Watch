@@ -735,3 +735,131 @@ html.tv .share-menu-trigger {
 .tv .person img,
 .tv .person-initial { width: 96px; height: 96px; }
 .tv .person-initial { font-size: var(--tv-title); }
+
+/* ------------------------------------------------------------------ *
+ * A TV series, at ten feet                                            *
+ * ------------------------------------------------------------------ *
+ * The whole lower half of a series page was still the phone's: season
+ * chips 32px tall with 14px labels, an "S1 · E11" at 12px, and an
+ * episode blurb set at 0.8rem running the full 1,200px width. That is a
+ * paragraph of newsprint across a living room.
+ *
+ * The episode row is the surface that matters here — it is how somebody
+ * picks what to watch — so it gets the treatment a Detail row gets: a
+ * bigger still, a title you can read, and the blurb held to two lines
+ * rather than filling the row. Two lines because a synopsis here is a
+ * REMINDER of which episode this is, not the reading itself. */
+
+.tv .season-chips { gap: 14px; margin: 18px 0 20px; }
+.tv .season-chip {
+  font-size: var(--tv-body);
+  min-height: 56px;
+  padding: 12px 28px;
+}
+
+.tv .episodes { gap: 16px; margin-top: 20px; }
+.tv .episode {
+  gap: 22px;
+  padding: 16px;
+  /* Nothing in a flex row may shrink its own text — the rule the EPG and
+   * the share sheet both needed. */
+  align-items: flex-start;
+}
+.tv .episode > * { flex-shrink: 0; }
+.tv .episode img { width: 248px; border-radius: 10px; }
+/* The text column is the one thing that SHOULD take the remaining width,
+ * and it must be allowed to shrink to do so — hence min-width:0, or a
+ * long unbroken title pushes the row wider than the screen.
+ * It is a <span>, not a <div> — read the markup, do not infer it. */
+.tv .episode > span { flex: 1 1 auto; min-width: 0; }
+
+.tv .episode .ep-n { font-size: var(--tv-caption); letter-spacing: .06em; }
+.tv .episode .ep-t { font-size: var(--tv-body-lg); line-height: 1.25; margin-top: 4px; }
+.tv .episode .ep-o {
+  font-size: var(--tv-caption);
+  line-height: 1.4;
+  margin-top: 8px;
+  -webkit-line-clamp: 2;
+  /* A blurb that runs the full width of a television is unreadable even at
+   * the right type size — the eye loses the line. */
+  max-width: 1100px;
+}
+.tv .episode .ep-resume { font-size: var(--tv-caption); margin-top: 6px; }
+
+/* ------------------------------------------------------------------ *
+ * About & Preferences — the settings surface                          *
+ * ------------------------------------------------------------------ *
+ * This is where a viewer turns the mature filter off, stops the
+ * commercials, or switches autoplay — and every control on it was a
+ * NATIVE CHECKBOX at 16 pixels. At ten feet that is not a control, it
+ * is a speck; and with a remote there is nothing to aim at.
+ *
+ * The row is the target, not the box. A `<label class=pref-row>` already
+ * wraps both, so making the ROW the focusable-sized thing is both the
+ * bigger target and the honest one — the whole row is what a click
+ * toggles. */
+
+.tv .pref-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  min-height: 64px;
+  padding: 14px 16px;
+  border-radius: 12px;
+}
+.tv .pref-row:hover,
+.tv .pref-row:focus-within {
+  background: rgba(255, 255, 255, .07);
+}
+/* The CATEGORY toggles are a second, denser group (`pref-cat`) — the
+ * per-category Home switches. Same treatment: the control a viewer aims
+ * at with a remote may not be a 16px speck. */
+.tv .pref-cat {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 56px;
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-size: var(--tv-body);
+}
+.tv .pref-cat:hover,
+.tv .pref-cat:focus-within { background: rgba(255, 255, 255, .07); }
+
+.tv .pref-cat input[type="checkbox"],
+.tv .pref-row input[type="checkbox"] {
+  /* A native checkbox scales with width/height on every engine the TV
+   * builds run (Chromium-based WebKit on Tizen and webOS alike);
+   * accent-color keeps the checked state on brand rather than the
+   * platform blue. */
+  width: 44px;
+  height: 44px;
+  flex: none;
+  margin-top: 0;
+  accent-color: var(--color-primary, #FF5C35);
+}
+.tv .pref-row strong { font-size: var(--tv-body-lg); }
+.tv .pref-row small { font-size: var(--tv-caption); line-height: 1.4; display: block; margin-top: 6px; }
+
+/* The close affordance and the in-page links. 36px is a mouse target. */
+.tv .about-close {
+  width: 64px;
+  height: 64px;
+  font-size: var(--tv-title);
+}
+.tv .about-card p,
+.tv .about-card li { font-size: var(--tv-body); line-height: 1.5; }
+.tv .about-card a { font-size: var(--tv-body); padding: 6px 0; display: inline-block; }
+/* The footer links under About — "How titles are vetted", Privacy, Terms,
+ * Suggest & curate. `.about-card a` never reached them: they live in a
+ * `p.about-foot` outside the cards. Read where an element IS, rather than
+ * assuming a container. */
+.tv .about-foot a {
+  font-size: var(--tv-body);
+  min-height: 52px;
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 14px;
+  border-radius: 10px;
+}
+.tv .about-donate { font-size: var(--tv-body-lg); padding: 16px 32px; }

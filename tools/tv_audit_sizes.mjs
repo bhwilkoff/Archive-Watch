@@ -110,8 +110,16 @@ const PROBE = `(() => {
     // always the focusable itself. A card at 24px can contain a 15px span, and
     // reading only the focusable's own font-size passed it — that is exactly
     // how the typographic placeholder card shipped at 15px on a television.
-    let minFont = Math.round(parseFloat(cs.fontSize) || 0);
-    let minText = (el.textContent || '').trim().replace(/\\s+/g, ' ').slice(0, 34);
+    // Start from the element's OWN direct text, not textContent. A focusable
+    // that draws nothing itself — a <button class=episode> whose every word
+    // lives in child spans — was judged on its own inherited font-size and
+    // reported at 13px while all three of its labels were 20-28px. The floor
+    // belongs to whatever actually draws the text.
+    let ownText = '';
+    for (const n of el.childNodes) if (n.nodeType === 3) ownText += n.textContent;
+    ownText = ownText.trim();
+    let minFont = ownText ? Math.round(parseFloat(cs.fontSize) || 0) : Infinity;
+    let minText = ownText.replace(/\\s+/g, ' ').slice(0, 34);
     let minCls = (el.className || '').toString().split(/\\s+/)[0] || '';
     for (const d of el.querySelectorAll('*')) {
       let own = '';
@@ -202,7 +210,7 @@ const PROBE = `(() => {
       tag: el.tagName.toLowerCase(),
       cls: minCls,
       text: minText,
-      font: minFont,
+      font: Number.isFinite(minFont) ? minFont : 0,
       overlap,
       squeezed,
       h: Math.round(r.height), w: Math.round(r.width),
