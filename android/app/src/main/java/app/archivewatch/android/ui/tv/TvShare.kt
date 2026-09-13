@@ -42,7 +42,11 @@ fun TvShareOverlay(title: String, url: String, onDone: () -> Unit) {
         ) {
             Text("Share “$title”", fontSize = 20.sp, fontWeight = FontWeight.Medium, color = Color.White)
             Text(
-                "Scan with your phone to open or send this film.",
+                // Not "this film": the same overlay carries a PLAYLIST link,
+                // and on a television the viewer is looking at the thing they
+                // just pressed Share on — naming it wrongly is worse than not
+                // naming it.
+                "Scan with your phone to open or send it.",
                 fontSize = 13.sp, color = Color(0xFF9A9A9A),
                 modifier = Modifier.padding(top = 4.dp, bottom = 20.dp),
             )
@@ -51,7 +55,28 @@ fun TvShareOverlay(title: String, url: String, onDone: () -> Unit) {
                     Image(it.asImageBitmap(), contentDescription = url, modifier = Modifier.size(280.dp))
                 }
             }
-            Text(url, fontSize = 13.sp, color = Color(0xFF9A9A9A), modifier = Modifier.padding(top = 16.dp))
+            // ONLY IF IT CAN BE TYPED. A playlist link carries the whole list
+            // in its fragment, so it runs to several hundred characters —
+            // printed in full it wrapped to three lines and ran off the bottom
+            // of the screen, pushing the hint with it. Nobody keys in 450
+            // characters from a television. Same rule the web TV build
+            // settled on: write the link out when it is short enough to be
+            // useful, and otherwise let the code carry it.
+            if (url.length <= 120) {
+                Text(
+                    url,
+                    fontSize = 13.sp,
+                    color = Color(0xFF9A9A9A),
+                    modifier = Modifier.padding(top = 16.dp),
+                )
+            } else {
+                Text(
+                    "This link is too long to type — the code carries it.",
+                    fontSize = 13.sp,
+                    color = Color(0xFF9A9A9A),
+                    modifier = Modifier.padding(top = 16.dp),
+                )
+            }
             Text(
                 "Press Back to close",
                 fontSize = 12.sp, color = Color(0xFF707070),

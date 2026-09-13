@@ -41,6 +41,8 @@ import app.archivewatch.android.ui.tv.TvRefineChip
 import app.archivewatch.android.ui.tv.TvDims
 import app.archivewatch.android.ui.tv.LocalTvRailFocus
 import app.archivewatch.android.ui.tv.LocalIsTelevision
+import app.archivewatch.android.ui.tv.TvActionPill
+import app.archivewatch.android.ui.tv.TvConfirm
 import app.archivewatch.android.ui.tv.TvShareOverlay
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -396,6 +398,68 @@ fun PlaylistScreen(container: AppContainer, nav: Nav, playlistID: String) {
                 }
             }
         }
+    }
+    // TV. Three things the phone page cannot lend a television, and the middle
+    // one was not a layout problem at all:
+    //
+    //  1. Share and Delete were UNLABELLED 24dp icon buttons in a TopAppBar.
+    //  2. SHARE DID NOTHING. `shareUrl` was assigned on the TV branch and read
+    //     by nobody — TvShareOverlay was imported, named in the comment above,
+    //     and never called. Pressing Share on a television set a variable.
+    //  3. DELETE ASKED NOTHING. An unlabelled trash icon destroyed the
+    //     playlist on one press, with no question and no undo, which is not
+    //     something to hand a remote.
+    if (isTv) {
+        val rows = state?.second.orEmpty().uniqueBy { it.archiveID }
+        var confirmDelete by remember { mutableStateOf(false) }
+        val railFocus = LocalTvRailFocus.current
+        Box(Modifier.fillMaxSize()) {
+            Column(Modifier.fillMaxSize()) {
+                TvPageHeader(
+                    eyebrow = "PLAYLIST",
+                    title = state?.first ?: "Playlist",
+                    meta = when {
+                        state == null -> "Loading…"
+                        rows.isEmpty() -> "Empty — add titles from any Detail page."
+                        else -> "${rows.size} ${if (rows.size == 1) "title" else "titles"}"
+                    },
+                    compact = true,
+                ) {
+                    TvActionPill(
+                        label = "Share",
+                        onClick = onShare,
+                        primary = true,
+                        exitLeftTo = railFocus,
+                    )
+                    TvActionPill(label = "Delete", onClick = { confirmDelete = true })
+                }
+                TvPosterGrid(
+                    rows = rows,
+                    onClick = { nav.openItem(it.archiveID, it.seriesID, it.contentType) },
+                    railFocus = railFocus,
+                )
+            }
+            shareUrl?.let { url ->
+                TvShareOverlay(title = shareName, url = url, onDone = { shareUrl = null })
+            }
+            if (confirmDelete) {
+                TvConfirm(
+                    question = "Delete this playlist?",
+                    detail = "\"" + (state?.first ?: "") + "\" will be removed from your " +
+                        "library. The films stay in the catalogue.",
+                    confirmLabel = "Delete",
+                    onConfirm = {
+                        confirmDelete = false
+                        scope.launch {
+                            container.userState.deletePlaylist(playlistID)
+                            nav.pop()
+                        }
+                    },
+                    onCancel = { confirmDelete = false },
+                )
+            }
+        }
+        return
     }
     Scaffold(
         topBar = {

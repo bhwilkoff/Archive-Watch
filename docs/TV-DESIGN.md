@@ -365,7 +365,7 @@ obscure corners:
 | Surprise | yes | ~~`SurpriseScreen`~~ → `TvSurpriseScreen` (2026-09-13) |
 | Settings | yes | `SettingsScreen` — TV LAYOUT branch (2026-09-13), deliberately not a copy |
 | Filtered | no | TV branch (2026-09-13) — sort is CHIPS, not a dropdown |
-| Playlist | no | `PlaylistScreen` |
+| Playlist | no | TV branch (2026-09-13) — share now RENDERS, delete now ASKS |
 | Collection | no | `GridScaffold` TV branch (2026-09-13) |
 | Person | no | `GridScaffold` TV branch (2026-09-13) |
 

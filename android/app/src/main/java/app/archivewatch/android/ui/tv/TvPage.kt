@@ -15,6 +15,12 @@ import androidx.compose.foundation.lazy.grid.itemsIndexed
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.foundation.layout.widthIn
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusRequester
@@ -222,5 +228,84 @@ fun TvRefineChip(label: String, selected: Boolean, onClick: () -> Unit) {
             fontWeight = if (selected) FontWeight.SemiBold else FontWeight.Normal,
             color = if (selected) Color.Black else Color.White,
         )
+    }
+}
+
+/**
+ * An irreversible act asks first, on a television.
+ *
+ * The web TV layer grew this for the same reason (tvConfirm in tv.js): a
+ * playlist delete there was a browser `confirm()`, and here it was an
+ * UNLABELLED 24dp trash icon in a TopAppBar that destroyed the playlist on a
+ * single press, with no question and no undo. A remote is easy to fumble and a
+ * phone's "tap precisely on the small red thing" is not a safeguard at ten
+ * feet.
+ *
+ * CANCEL TAKES FOCUS, never the destructive choice — the default answer to
+ * "are you sure" must be no. And the destructive pill does NOT wear the brand
+ * orange: that colour means "the thing you probably want" everywhere else in
+ * this app, and a delete is never that. Plain at rest, red only when focused.
+ */
+@Composable
+fun TvConfirm(
+    question: String,
+    detail: String?,
+    confirmLabel: String,
+    onConfirm: () -> Unit,
+    onCancel: () -> Unit,
+) {
+    val cancel = remember { FocusRequester() }
+    ClaimInitialFocus(cancel)
+    var destructiveFocused by remember { mutableStateOf(false) }
+
+    Box(
+        Modifier
+            .fillMaxSize()
+            .background(Color(0xE6000000)),
+        contentAlignment = Alignment.Center,
+    ) {
+        Column(
+            Modifier
+                .widthIn(max = 520.dp)
+                .background(Color(0xFF161616), RoundedCornerShape(20.dp))
+                .padding(40.dp),
+        ) {
+            Text(question, fontSize = 32.sp, fontWeight = FontWeight.Bold, color = Color.White)
+            if (detail != null) {
+                Text(
+                    detail,
+                    fontSize = 20.sp,
+                    color = Color(0xFFB9B9B9),
+                    modifier = Modifier.padding(top = 10.dp),
+                )
+            }
+            Row(
+                Modifier.padding(top = 28.dp),
+                horizontalArrangement = Arrangement.spacedBy(16.dp),
+            ) {
+                TvActionPill(label = "Cancel", onClick = onCancel, focusRequester = cancel)
+                Box(
+                    Modifier
+                        .onFocusChanged { destructiveFocused = it.isFocused }
+                        .tvFocusable(
+                            onClick = onConfirm,
+                            shape = RoundedCornerShape(28.dp),
+                            ringColor = Color(0xFFFF6B6B),
+                        )
+                        .background(
+                            if (destructiveFocused) Color(0xFFB3261E) else Color(0xFF1C1C1C),
+                            RoundedCornerShape(28.dp),
+                        ),
+                ) {
+                    Text(
+                        confirmLabel,
+                        fontSize = 24.sp,
+                        fontWeight = FontWeight.Medium,
+                        color = Color.White,
+                        modifier = Modifier.padding(horizontal = 28.dp, vertical = 14.dp),
+                    )
+                }
+            }
+        }
     }
 }
