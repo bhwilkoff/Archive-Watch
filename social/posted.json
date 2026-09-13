@@ -337,6 +337,54 @@
    "kind": "newsreel",
    "mediaId": null,
    "reviewer": null
+  },
+  {
+   "at": "2026-09-13T16:03:44.914626+00:00",
+   "id": "EatforHe1954",
+   "title": "Eat for Health",
+   "slot": "from-the-vaults",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mvfxvi3ung2d",
+   "format": "video",
+   "kind": "ephemeral",
+   "mediaId": null,
+   "reviewer": "makelikeabandit"
+  },
+  {
+   "at": "2026-09-13T16:03:44.914626+00:00",
+   "id": "EatforHe1954",
+   "title": "Eat for Health",
+   "slot": "from-the-vaults",
+   "platform": "mastodon",
+   "url": "https://mastodon.social/@archivewatch/117264577725590365",
+   "format": "video",
+   "kind": "ephemeral",
+   "mediaId": null,
+   "reviewer": "makelikeabandit"
+  },
+  {
+   "at": "2026-09-13T16:03:44.914626+00:00",
+   "id": "EatforHe1954",
+   "title": "Eat for Health",
+   "slot": "from-the-vaults",
+   "platform": "instagram",
+   "url": "https://www.instagram.com/reel/DdO8opgjxa_/",
+   "format": "video",
+   "kind": "ephemeral",
+   "mediaId": "117264576470835562",
+   "reviewer": "makelikeabandit"
+  },
+  {
+   "at": "2026-09-13T16:03:44.914626+00:00",
+   "id": "EatforHe1954",
+   "title": "Eat for Health",
+   "slot": "from-the-vaults",
+   "platform": "youtube",
+   "url": "https://youtube.com/watch?v=1y7-K0LK0xc",
+   "format": "video",
+   "kind": "ephemeral",
+   "mediaId": null,
+   "reviewer": "makelikeabandit"
   }
  ]
 }
