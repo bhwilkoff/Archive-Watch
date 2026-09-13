@@ -82,6 +82,11 @@ fun AppRoot(container: AppContainer) {
                 when (action) {
                     "surprise" -> nav.push(Route.Surprise)
                     "channels" -> { nav.stack.clear(); nav.tab = Tab.Channels }
+                    "search" -> { nav.stack.clear(); nav.tab = Tab.Search }
+                    "library" -> { nav.stack.clear(); nav.tab = Tab.Library }
+                    "collections" -> nav.push(Route.Collections)
+                    "cartoons" -> nav.push(Route.Cartoon)
+                    "settings" -> nav.push(Route.Settings)
                 }
             }
         }

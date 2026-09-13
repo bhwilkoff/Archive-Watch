@@ -113,6 +113,10 @@ fun TvAppRoot(container: AppContainer) {
                     // one door a harness can open deterministically (synthetic
                     // taps are ignored on TV and Compose exposes no rail focus).
                     "search" -> { nav.stack.clear(); nav.tab = Tab.Search }
+                    "library" -> { nav.stack.clear(); nav.tab = Tab.Library }
+                    "collections" -> nav.push(Route.Collections)
+                    "cartoons" -> nav.push(Route.Cartoon)
+                    "settings" -> nav.push(Route.Settings)
                 }
             }
         }
@@ -248,7 +252,7 @@ fun TvAppRoot(container: AppContainer) {
                             is Route.ClipStudio -> TvMessage(
                                 "Clip Studio is available on iPhone, iPad and Mac."
                             )
-                            Route.Collections -> CollectionsScreen(container, nav)
+                            Route.Collections -> TvCollectionsScreen(container, nav)
                             Route.Cartoon -> CartoonScreen(container, nav)
                             Route.Party -> TvPartyScreen(container, nav)
                             Route.Surprise -> TvSurpriseScreen(container, nav)

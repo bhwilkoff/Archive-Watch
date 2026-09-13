@@ -124,7 +124,19 @@ class MainActivity : ComponentActivity() {
             uri.pathSegments.firstOrNull()?.let { DeepLinks.pendingItem.value = "series:" + it }
             return
         }
-        if (uri.scheme == "archivewatch" && uri.host in setOf("surprise", "channels", "search")) {
+        // Every RAIL destination has a door. The set used to be surprise,
+        // channels and search, and TvAppRoot's own comment explained why that
+        // mattered: a harness cannot open anything else deterministically —
+        // synthetic taps are ignored on Android TV and Compose exposes no rail
+        // focus. Verifying Collections on a real television therefore meant
+        // walking the rail blind, which landed on a film's Detail page twice
+        // in one session. A door per destination is cheaper than a harness
+        // that guesses, and it is a real deep link for a viewer too.
+        if (uri.scheme == "archivewatch" && uri.host in setOf(
+                "surprise", "channels", "search", "collections", "cartoons",
+                "library", "settings",
+            )
+        ) {
             DeepLinks.pendingAction.value = uri.host
             return
         }

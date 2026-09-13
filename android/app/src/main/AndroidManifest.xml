@@ -71,6 +71,10 @@
                 <data android:host="surprise"/>
                 <data android:host="channels"/>
                 <data android:host="search"/>
+                <data android:host="collections"/>
+                <data android:host="cartoons"/>
+                <data android:host="library"/>
+                <data android:host="settings"/>
                 <data android:host="series"/>
             </intent-filter>
 
