@@ -84,6 +84,17 @@
                 <data android:host="archivewatch.org"/>
                 <data android:pathPrefix="/item/"/>
                 <data android:pathPrefix="/series/"/>
+                <!-- A shared playlist: /list/#<blob>. Declaring this is SAFE to
+                     ship ahead of anything else, and that is worth being precise
+                     about, because the Apple side is not: an intent filter lives
+                     inside the APK, so only a build that HANDLES the route ever
+                     matches it. The AASA is the opposite — we serve it, and it
+                     takes effect for apps already installed, so /list/* cannot
+                     go there until the app that understands it is out.
+                     The blob rides the FRAGMENT, which a filter cannot see and
+                     does not need to: it matches the path, and the fragment
+                     still arrives in the Intent's data. -->
+                <data android:pathPrefix="/list/"/>
             </intent-filter>
         </activity>
 

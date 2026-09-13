@@ -1,9 +1,12 @@
 package app.archivewatch.android.data
 
 import android.util.Base64
+import android.util.Log
 import org.json.JSONArray
 import org.json.JSONObject
+import android.net.Uri
 import java.util.zip.Deflater
+import java.util.zip.Inflater
 
 /**
  * A playlist you can hand to somebody, as a link.
@@ -49,6 +52,73 @@ object PlaylistShare {
         // a 404 — which matters for a link made to be posted.
         return "https://archivewatch.org/list/#" + blob(name, archiveIDs)
     }
+
+    /** What a shared link carries. */
+    data class Shared(val name: String, val archiveIDs: List<String>)
+
+    /**
+     * Pull the blob out of a share link, in either shape it has ever had.
+     *
+     * `/list/#<blob>` is what every platform emits now; `#/list/<blob>` shipped
+     * first and is already in the wild. Links are permanent, so both are read
+     * forever — only encoders ever choose, the same rule the '0' prefix follows.
+     *
+     * NOTE the fragment. An Android intent filter matches the PATH and cannot
+     * see a fragment at all, which is exactly why the path carries `/list/` and
+     * the payload rides behind the `#`: the filter can match, and the playlist
+     * still never reaches a server.
+     */
+    fun blobFrom(uri: Uri): String? {
+        val s = uri.toString()
+        s.indexOf("/list/#").let { if (it >= 0) return s.substring(it + 7).trim('/').ifEmpty { null } }
+        s.indexOf("#/list/").let { if (it >= 0) return s.substring(it + 7).trim('/').ifEmpty { null } }
+        // A blob written into the path instead. Nothing emits this; 404.html
+        // accepts it, so this does too.
+        val segs = uri.pathSegments
+        val i = segs.indexOf("list")
+        if (i >= 0 && i + 1 < segs.size) return segs[i + 1].ifEmpty { null }
+        return null
+    }
+
+    /**
+     * Decode a blob into the playlist it carries. A leading '0' is the
+     * uncompressed variant Roku emits; anything else is raw DEFLATE.
+     */
+    fun decode(blob: String): Shared? = runCatching {
+        // A shared link that will not open is a dead end for whoever was sent
+        // it, so this says WHY rather than returning a silent null (the
+        // project's own debugging rule). One line, only on failure.
+        Log.d("AWSHARE", "decode len=" + blob.length + " prefix=" + blob.take(8))
+        val bytes = if (blob.startsWith("0")) {
+            Base64.decode(blob.substring(1), Base64.URL_SAFE)
+        } else {
+            inflate(Base64.decode(blob, Base64.URL_SAFE)) ?: return null
+        }
+        val o = JSONObject(String(bytes, Charsets.UTF_8))
+        val arr = o.optJSONArray("i") ?: return null
+        val ids = (0 until arr.length()).map { arr.getString(it) }
+        // The name is optional on the wire; a playlist without one is still a
+        // playlist, and the web's reference decoder says so too.
+        Shared(o.optString("n", "Shared playlist").ifEmpty { "Shared playlist" }, ids)
+    }.onFailure { Log.w("AWSHARE", "decode failed: " + it) }.getOrNull()
+
+    fun sharedFrom(uri: Uri): Shared? {
+        val b = blobFrom(uri)
+        if (b == null) { Log.d("AWSHARE", "no blob in " + uri); return null }
+        return decode(b)
+    }
+
+    /** Raw INFLATE, the inverse of the deflate below — `nowrap = true` again. */
+    private fun inflate(data: ByteArray): ByteArray? = runCatching {
+        val inf = Inflater(true)
+        inf.setInput(data)
+        // A playlist is small and bounded by LIMIT, so one generous buffer
+        // beats a streaming decode. 64 KB is far past a 50-title payload.
+        val out = ByteArray(64 * 1024)
+        val n = inf.inflate(out)
+        inf.end()
+        if (n > 0) out.copyOf(n) else null
+    }.getOrNull()
 
     /** Raw DEFLATE — `nowrap = true` is what drops the zlib header. */
     private fun deflate(data: ByteArray): ByteArray? = runCatching {

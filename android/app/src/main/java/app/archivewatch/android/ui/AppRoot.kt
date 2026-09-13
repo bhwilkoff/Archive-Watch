@@ -23,6 +23,7 @@ import app.archivewatch.android.ui.screens.BrowseScreen
 import app.archivewatch.android.ui.screens.ChannelsScreen
 import app.archivewatch.android.ui.screens.CartoonScreen
 import app.archivewatch.android.ui.screens.CollectionGridScreen
+import app.archivewatch.android.ui.screens.SharedListScreen
 import app.archivewatch.android.ui.screens.CollectionsScreen
 import app.archivewatch.android.ui.screens.PersonScreen
 import app.archivewatch.android.ui.screens.ClipStudioScreen
@@ -59,6 +60,17 @@ fun AppRoot(container: AppContainer) {
                 } else {
                     nav.push(Route.Detail(id))
                 }
+            }
+        }
+    }
+    // A playlist somebody sent as a link. No catalogue wait and no retry,
+    // unlike a deep-linked ITEM: the playlist travelled inside the url, so
+    // there is nothing to resolve before showing it.
+    LaunchedEffect(Unit) {
+        DeepLinks.pendingSharedList.collect { shared ->
+            if (shared != null) {
+                DeepLinks.pendingSharedList.value = null
+                nav.push(Route.SharedList(shared.name, shared.archiveIDs))
             }
         }
     }
@@ -151,6 +163,8 @@ fun AppRoot(container: AppContainer) {
                             is Route.Player -> Unit // rendered above, outside the scaffold
                             is Route.Filtered -> FilteredGridScreen(container, nav, route)
                             is Route.Playlist -> PlaylistScreen(container, nav, route.playlistID)
+                            is Route.SharedList ->
+                                SharedListScreen(container, nav, route.name, route.archiveIDs)
                             is Route.Collection -> CollectionGridScreen(container, nav, route)
                             is Route.Person -> PersonScreen(container, nav, route.name, route.tmdbPersonID)
                             is Route.ClipStudio -> ClipStudioScreen(container, nav, route.archiveID)

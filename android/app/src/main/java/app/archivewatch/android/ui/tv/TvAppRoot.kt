@@ -63,6 +63,7 @@ import app.archivewatch.android.ui.screens.FilteredGridScreen
 import app.archivewatch.android.ui.screens.PersonScreen
 import app.archivewatch.android.ui.screens.PlayerScreen
 import app.archivewatch.android.ui.screens.PlaylistScreen
+import app.archivewatch.android.ui.screens.SharedListScreen
 import app.archivewatch.android.ui.screens.SeriesDetailScreen
 import app.archivewatch.android.ui.screens.SettingsScreen
 import app.archivewatch.android.ui.screens.SurpriseScreen
@@ -87,6 +88,18 @@ fun TvAppRoot(container: AppContainer) {
                 DeepLinks.pendingItem.value = null
                 if (id.startsWith("series:")) nav.push(Route.Series(id.removePrefix("series:")))
                 else nav.push(Route.Detail(id))
+            }
+        }
+    }
+    // A playlist somebody sent as a link. The TV root has its OWN collectors —
+    // adding one to AppRoot does nothing here, which is exactly what happened:
+    // the link decoded, the flow was set, and nothing on a television was
+    // listening. Every DeepLinks flow needs a consumer in BOTH roots.
+    LaunchedEffect(Unit) {
+        DeepLinks.pendingSharedList.collect { shared ->
+            if (shared != null) {
+                DeepLinks.pendingSharedList.value = null
+                nav.push(Route.SharedList(shared.name, shared.archiveIDs))
             }
         }
     }
@@ -218,6 +231,13 @@ fun TvAppRoot(container: AppContainer) {
                             is Route.Player -> PlayerScreen(container, nav, route.spec)
                             is Route.Filtered -> FilteredGridScreen(container, nav, route)
                             is Route.Playlist -> PlaylistScreen(container, nav, route.playlistID)
+                            // The SAME screen as the phone. Its grid is built
+                            // from PosterTile, which already switches to the
+                            // D-pad focus treatment under LocalIsTelevision —
+                            // so a TV-specific copy would only be a second
+                            // place to fix the next defect.
+                            is Route.SharedList ->
+                                SharedListScreen(container, nav, route.name, route.archiveIDs)
                             is Route.Collection -> CollectionGridScreen(container, nav, route)
                             is Route.Person -> PersonScreen(container, nav, route.name, route.tmdbPersonID)
                             // §2 — creation is never offered on a TV build: a

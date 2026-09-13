@@ -24,6 +24,9 @@ sealed interface Route {
                         // for recent PD-entry years ride the filtered grid.
                         val pdExplorer: Boolean = false) : Route
     data class Playlist(val playlistID: String) : Route
+    /** A playlist somebody sent as a link. It carries the whole list because
+        there is nothing to look it up BY — the list travelled inside the url. */
+    data class SharedList(val name: String, val archiveIDs: List<String>) : Route
     data class Collection(val id: String, val title: String, val blurb: String? = null) : Route
     data class Person(val name: String, val tmdbPersonID: Int? = null) : Route
     data class ClipStudio(val archiveID: String) : Route
@@ -82,6 +85,12 @@ class Nav {
             is Route.Series -> "series$SEP${r.slug}"
             is Route.Filtered -> "filtered$SEP${r.title}$SEP${r.contentType ?: ""}$SEP${r.decade ?: ""}$SEP${r.year ?: ""}$SEP${if (r.pdExplorer) "1" else ""}"
             is Route.Playlist -> "playlist$SEP${r.playlistID}"
+            // Saved through the SAME encoder the share links use. A blob is a
+            // single base64url token (A-Za-z0-9-_), so it can never collide
+            // with the separator, and the route survives process death without
+            // a second serialisation format to keep in step.
+            is Route.SharedList ->
+                "sharedlist$SEP${app.archivewatch.android.data.PlaylistShare.blob(r.name, r.archiveIDs)}"
             is Route.Collection -> "collection$SEP${r.id}$SEP${r.title}$SEP${r.blurb ?: ""}"
             is Route.Person -> "person$SEP${r.name}$SEP${r.tmdbPersonID ?: ""}"
             is Route.ClipStudio -> "clip$SEP${r.archiveID}"
@@ -99,6 +108,8 @@ class Nav {
             "filtered" -> Route.Filtered(p[1], p[2].ifEmpty { null }, p[3].toIntOrNull(),
                 p.getOrNull(4)?.toIntOrNull(), p.getOrNull(5) == "1")
             "playlist" -> Route.Playlist(p[1])
+            "sharedlist" -> app.archivewatch.android.data.PlaylistShare.decode(p[1])
+                ?.let { Route.SharedList(it.name, it.archiveIDs) }
             "collection" -> Route.Collection(p[1], p[2], p[3].ifEmpty { null })
             "person" -> Route.Person(p[1], p.getOrNull(2)?.toIntOrNull())
             "clip" -> Route.ClipStudio(p[1])
@@ -117,6 +128,8 @@ class Nav {
 object DeepLinks {
     val pendingItem = MutableStateFlow<String?>(null)
     val pendingAction = MutableStateFlow<String?>(null)   // "surprise" | "channels"
+    /** A shared playlist decoded from an incoming link (PlaylistShare). */
+    val pendingSharedList = MutableStateFlow<app.archivewatch.android.data.PlaylistShare.Shared?>(null)
     /** Verification hook only (`--es aw_start_tab <name>`); never set in normal use. */
     val pendingTab = MutableStateFlow<String?>(null)
     /** Verification hook only (`--es aw_start_route <name>`); never set in normal use. */

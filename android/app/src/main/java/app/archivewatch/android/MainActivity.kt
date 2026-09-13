@@ -106,6 +106,14 @@ class MainActivity : ComponentActivity() {
         }
 
         val uri = intent?.data ?: return
+        // A SHARED PLAYLIST FIRST, before any scheme or host check: it arrives
+        // as an ordinary https link because the whole point is that it opens
+        // for somebody with no app at all. The playlist is INSIDE the url, so
+        // this resolves completely here with nothing to look up.
+        app.archivewatch.android.data.PlaylistShare.sharedFrom(uri)?.let {
+            DeepLinks.pendingSharedList.value = it
+            return
+        }
         if (uri.scheme == "archivewatch" && uri.host == "item") {
             uri.lastPathSegment?.let { DeepLinks.pendingItem.value = it }
             return

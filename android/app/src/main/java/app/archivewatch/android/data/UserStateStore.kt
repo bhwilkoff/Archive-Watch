@@ -259,6 +259,25 @@ class UserStateStore(context: Context) {
         _changes.value += 1
     }
 
+    /**
+     * Create a playlist holding a WHOLE list at once — what importing a shared
+     * link needs. `createPlaylist` above takes a single first id because every
+     * other caller starts a playlist from one film's Detail page.
+     *
+     * The ids are stored newline-separated, the same shape every other write
+     * here uses (see togglePlaylistItem below).
+     */
+    suspend fun createPlaylist(name: String, archiveIDs: List<String>) {
+        val now = System.currentTimeMillis()
+        dbCall {
+            exec(
+                "INSERT OR REPLACE INTO playlists (id, name, ids, createdAt, modifiedAt) VALUES (?, ?, ?, ?, ?)",
+                listOf("pl-" + now.toString(36), name, archiveIDs.joinToString("\n"), now, now),
+            )
+        }
+        _changes.value += 1
+    }
+
     /** Add/remove an item; returns true when the item is now IN the playlist. */
     suspend fun togglePlaylistItem(playlistID: String, archiveID: String): Boolean {
         val added = dbCall {
