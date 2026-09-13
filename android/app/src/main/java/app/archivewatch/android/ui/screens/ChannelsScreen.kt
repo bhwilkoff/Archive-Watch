@@ -70,6 +70,8 @@ import app.archivewatch.android.data.QueueEntry
 import app.archivewatch.android.data.ScheduledProgram
 import app.archivewatch.android.ui.LoadingBox
 import app.archivewatch.android.ui.Nav
+import app.archivewatch.android.ui.tv.TvPageHeader
+import app.archivewatch.android.ui.tv.TvActionPill
 import app.archivewatch.android.ui.tv.LocalIsTelevision
 import androidx.compose.ui.focus.FocusRequester
 import app.archivewatch.android.ui.tv.ClaimInitialFocus
@@ -129,19 +131,28 @@ fun ChannelsScreen(container: AppContainer, nav: Nav) {
         value = user + presets
     }
 
+    // The GUIDE below has been TV-aware for a long time (row heights, the
+    // initial focus claim, the proportional blocks). Its CHROME was not: a
+    // sweep on 2026-09-13 measured the "Channels" title at y=36, above the 54
+    // safe top, with Create Channel as an unlabelled 24dp "+" beside it. The
+    // same split Settings had — the surface knew it was on a television and
+    // its header did not.
+    val tvChrome = LocalIsTelevision.current
     Scaffold(
         topBar = {
-            TopAppBar(
-                title = { Text("Channels", fontWeight = FontWeight.Bold) },
-                actions = {
-                    IconButton(onClick = { showCreate = true }) {
-                        Icon(Icons.Default.Add, contentDescription = "Create channel")
-                    }
-                },
-                colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.background,
-                ),
-            )
+            if (!tvChrome) {
+                TopAppBar(
+                    title = { Text("Channels", fontWeight = FontWeight.Bold) },
+                    actions = {
+                        IconButton(onClick = { showCreate = true }) {
+                            Icon(Icons.Default.Add, contentDescription = "Create channel")
+                        }
+                    },
+                    colors = TopAppBarDefaults.topAppBarColors(
+                        containerColor = MaterialTheme.colorScheme.background,
+                    ),
+                )
+            }
         },
         containerColor = MaterialTheme.colorScheme.background,
     ) { padding ->
@@ -158,6 +169,16 @@ fun ChannelsScreen(container: AppContainer, nav: Nav) {
             CreateChannelDialog(container) { showCreate = false }
         }
         Column(Modifier.fillMaxSize().padding(padding)) {
+            if (tvChrome) {
+                TvPageHeader(
+                    eyebrow = "LIVE",
+                    title = "Channels",
+                    meta = "${channels.size} channels · what is on now",
+                    compact = true,
+                ) {
+                    TvActionPill(label = "Create channel", onClick = { showCreate = true })
+                }
+            }
             // Window controls: earlier / label / later / now.
             Row(
                 Modifier.fillMaxWidth().padding(horizontal = 8.dp),
