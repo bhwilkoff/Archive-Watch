@@ -85,6 +85,30 @@ completely on their own.
 
 ---
 
+## Receiving a link on a television, and what it cannot do (2026-09-13)
+
+The `/list/` landing page was walked and audited at a true 1920x1080 for the
+first time on 2026-09-13: 13 focusable elements, 0 unreachable, 0 below the TV
+type floor, and the count line reads correctly against a link carrying ids the
+catalogue no longer serves ("3 of 8 titles — 5 are no longer in the
+catalogue"). Browse-and-play works on a set.
+
+**Saving one does not, and that is a property of the web, not a bug here.**
+"Add to my library" is offered only to someone signed in (Decision 102: Apple
+through CloudKit JS, Google through Drive appData), which is the owner's own
+rule — a signed-out viewer gets browse-and-play, and nothing is withheld,
+because that is the whole app signed out. But both sign-in routes need a popup
+and a text entry, and neither is something a person does with a D-pad. So on a
+television the web viewer is permanently a reader of shared playlists.
+
+That is the right division rather than a gap to close: the route to SAVING a
+shared playlist on a TV is the native app for that TV — tvOS, Google TV, Fire
+TV and Roku each handle the link with their own account — and those are the
+apps the QR code above is pointing the phone at anyway. Do NOT try to build a
+device-code sign-in into the web TV layer to close it; the native apps already
+own that job, and a second half-built auth path is how the Drive consent
+PendingIntent got dropped for months.
+
 ## Handing the link over on a television (2026-09-12)
 
 A TV has neither route the phone and desktop builds use. `navigator.share`
