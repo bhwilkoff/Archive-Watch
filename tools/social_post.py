@@ -1141,6 +1141,13 @@ def main() -> int:
     ap.add_argument("--live", action="store_true",
                     help="actually post. Without it, everything is a dry run.")
     ap.add_argument("--only", default=None, help="comma-separated platform allow-list")
+    # A rehearsal that skips the step which has broken twice is not a
+    # rehearsal. --probe-media does the REAL upload and the REAL wait, prints
+    # how long the host actually took, and posts nothing — so the deadline can
+    # be set from a measurement instead of a hope. It is the only way to get
+    # that number: the IAS3 keys live in CI, not on anyone's machine.
+    ap.add_argument("--probe-media", action="store_true",
+                    help="upload the media and time how long until it serves; do not post")
     ap.add_argument("--ignore-cadence", action="store_true",
                     help="post everywhere connected, whatever day it is")
     args = ap.parse_args()
@@ -1158,12 +1165,26 @@ def main() -> int:
     adopt_clip_quote(spec, video)
     print()
 
-    media_url = publish_media(card, spec, args.live) if card else None
-    media_pt = (publish_media(card_pt, spec, args.live)
+    # The upload is real for a media probe even though nothing will be posted:
+    # measuring the host means actually giving it a file.
+    upload = args.live or args.probe_media
+    media_url = publish_media(card, spec, upload) if card else None
+    media_pt = (publish_media(card_pt, spec, upload)
                 if card_pt and card_pt != card else media_url)
     # Meta FETCHES media by URL rather than accepting bytes, so a Reel needs the
     # teaser published too — the same rolling release the cards use.
-    video_url = publish_media(video, spec, args.live) if video else None
+    video_url = publish_media(video, spec, upload) if video else None
+
+    if args.probe_media:
+        started = time.time()
+        stale = await_media([media_url, media_pt, video_url])
+        took = time.time() - started
+        for url, why in stale.items():
+            print(f"[probe] NEVER SERVED after {took:.0f}s: {why} — {url}", file=sys.stderr)
+        n = len([u for u in (media_url, media_pt, video_url) if u])
+        print(f"[probe] {n - len(stale)}/{n} media served after {took:.0f}s "
+              f"(deadline {MEDIA_READY_TIMEOUT}s)")
+        return 1 if stale else 0
 
     # EVERYTHING IS UPLOADED BY NOW; wait for the host to start serving it.
     # Do NOT hand an unfetchable URL to a platform: Meta's refusal comes back

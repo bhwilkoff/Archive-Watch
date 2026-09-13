@@ -34,6 +34,10 @@ on:
       only:
         description: "Platforms to post to (blank = all connected)"
         default: ""
+      probe_media:
+        description: "Upload the media and time the host; post nothing"
+        default: false
+        type: boolean
 
 concurrency:
   group: social-post
@@ -176,11 +180,20 @@ jobs:
           # posts it instead of the card; YouTube needs it or skips).
           VIDEO=""
           if [ -s social/out/clip.mp4 ]; then VIDEO="--video social/out/clip.mp4"; fi
+          # A media probe uploads for real and times the host, then stops.
+          # It answers the one question a dry run cannot: how long archive.org
+          # actually takes to start serving a fresh object, which is what
+          # decides MEDIA_READY_TIMEOUT. Posts nothing, so it is safe to run
+          # any time.
+          PROBE=""
+          if [ "${{ github.event.inputs.probe_media }}" = "true" ]; then
+            PROBE="--probe-media"; LIVE=""
+          fi
           python tools/social_post.py \
             --spec social/out/post.json \
             --card social/out/card-square.jpg \
             --card-portrait social/out/card-portrait.jpg \
-            $VIDEO $LIVE $ONLY
+            $VIDEO $LIVE $ONLY $PROBE
 
       # §7 — the ledger is the memory that stops a film repeating inside a
       # year. It is the one piece of this system that must not be lost, so it
