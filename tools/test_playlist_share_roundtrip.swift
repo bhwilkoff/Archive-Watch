@@ -120,6 +120,28 @@ if let u = PlaylistShare.url(name: "fifty", archiveIDs: fifty),
     check("fifty REAL ids round-trip intact", false, "no link or no decode")
 }
 
+// ------------------------------------------------- what the ROUTER will see
+//
+// The parse has to happen before the `archivewatch://` scheme guard, because a
+// share link is an ordinary https url — the whole point is that it opens for
+// somebody with no app at all. These assert the DISCRIMINATION rather than the
+// routing (which needs SwiftUI): a share link must be recognised as one, and
+// an item link must NOT be mistaken for one.
+check("a /list/ link is recognised as a shared playlist",
+      PlaylistShare.shared(from: URL(string: "https://archivewatch.org/list/#0eyJpIjpbImEiXSwibiI6IngifQ")!) != nil)
+check("an /item/ link is NOT",
+      PlaylistShare.shared(from: URL(string: "https://archivewatch.org/item/suddenly")!) == nil)
+check("a /series/ link is NOT",
+      PlaylistShare.shared(from: URL(string: "https://archivewatch.org/series/alfred-hitchcock-presents")!) == nil)
+check("an archivewatch://item deep link is NOT",
+      PlaylistShare.shared(from: URL(string: "archivewatch://item/suddenly")!) == nil)
+check("the bare site is NOT",
+      PlaylistShare.shared(from: URL(string: "https://archivewatch.org/")!) == nil)
+// A film whose id merely CONTAINS "list" must not be read as a playlist — the
+// path check is on a segment, not a substring.
+check("an item id containing 'list' is NOT a playlist",
+      PlaylistShare.shared(from: URL(string: "https://archivewatch.org/item/the-listener-1932")!) == nil)
+
 print("\n\(pass) passed, \(fail) failed")
 exit(fail == 0 ? 0 : 1)
 }

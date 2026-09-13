@@ -23,6 +23,7 @@ final class IntentInbox {
         case randomCategory        // open a random category's browse view
         case openItem(String)      // open a specific title by archiveID (deep link / Top Shelf)
         case playItem(String)      // open AND start playing (Top Shelf Play button, resume)
+        case openSharedList(PlaylistShare.Shared)   // a playlist someone sent as a link
     }
 
     /// Parse an `archivewatch://` deep link into a request. Returns nil for
@@ -33,6 +34,12 @@ final class IntentInbox {
     /// Press-Play on a Continue Watching tile launched the app and then did
     /// nothing — an unrouted deep link is a dead tile.
     static func request(for url: URL) -> Request? {
+        // A SHARED PLAYLIST FIRST, and before the scheme guard on purpose: it
+        // arrives as an ordinary https link (`/list/#<blob>`), because the
+        // whole point is that it opens for somebody who has no app at all.
+        // The playlist is INSIDE the url — there is nothing to look up, so
+        // this resolves completely here.
+        if let shared = PlaylistShare.shared(from: url) { return .openSharedList(shared) }
         guard url.scheme == "archivewatch" else { return nil }
         // `lastPathComponent` of a bare "archivewatch://item/" is "/", not "" —
         // so an id-less link used to parse as a request for the item named "/",

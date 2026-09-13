@@ -199,6 +199,17 @@ struct RootView: View {
             openDeepLinkedItem(id, autoplay: false)
         case .playItem(let id):
             openDeepLinkedItem(id, autoplay: true)
+        case .openSharedList(let shared):
+            // No catalogue wait and no retry, unlike a deep-linked ITEM: the
+            // playlist travelled inside the link, so there is nothing to
+            // resolve before showing it. The films inside resolve one by one as
+            // the catalogue fills, and the view re-reads them when it swaps.
+            // `.favorites` is the tab the sidebar labels "Library" — the case
+            // name predates the label.
+            router.favoritesPath = NavigationPath()
+            router.tab = .favorites
+            router.favoritesPath.append(SharedListRoute(name: shared.name,
+                                                        archiveIDs: shared.archiveIDs))
         }
         inbox.request = nil
     }
@@ -340,6 +351,9 @@ extension View {
             }
             .navigationDestination(for: PlaylistRoute.self) { route in
                 PlaylistDetailView(playlistID: route.id)
+            }
+            .navigationDestination(for: SharedListRoute.self) { route in
+                SharedListView(shared: route.shared)
             }
     }
 }
