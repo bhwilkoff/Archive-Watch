@@ -189,6 +189,7 @@ an entry in place.
 - 118 — A captioned film streams like any other and draws its cues in the overlay; a whole-film HLS segment ignores every buffer ceiling
 - 119 — A television hands over a link as a CODE; the encoder is proven against an independent reference at every version, never against itself
 - 120 — Social media is hosted where there is no ingest delay; a platform that could not post FAILS, and archive.org keeps only the video
+- 121 — Correction to 119: Roku DOES share playlists, and a decision's closing paragraph outlives the hour it was true for
 
 ---
 
@@ -2375,3 +2376,39 @@ about simply stayed empty. A guard that checks the downstream effect of a rule
 is not a guard on the rule. It now tests the rule itself, controlled both
 ways. Related: Decision 107 (a red X means THIS run could not do its job) and
 108 (a reader that cannot read says so, and never a zero).
+
+## 121 — Correction to 119: Roku DOES share playlists, and a decision's closing paragraph outlives the hour it was true for
+*Date: 2026-09-13*
+
+Decision 119 ends: *"**Roku still cannot share a playlist.** Its encoder is
+now correct but remains v1-10 ... Porting the v11-40 extension back to Roku is
+a separate piece of work."* That is false, and was false within the same
+session it was written — the extension landed, and `roku/components/QR.brs`
+carries all 40 versions today.
+
+**Why this needs its own entry**: DECISIONS.md is append-only, so 119 cannot be
+edited, and a reader who stops at its Consequences paragraph concludes that a
+shipped, working feature does not exist and may rebuild it.
+
+**The evidence, taken independently a day later** on a Streaming Stick 4K
+(15.3.4), after a week of unrelated TV work: Library -> `*` on the playlist row
+-> Share this playlist draws a code; a screenshot of the TELEVISION decodes to
+**448 characters** — the exact share URL, carrying `creature feature` and its
+10 archive ids. 448 bytes at EC level L is **version 15**, five past the
+claimed ceiling.
+
+**How to apply**: when a decision's body and its Consequences paragraph are
+written at different moments, the Consequences are the part that rots — they
+are where "still open" and "a separate piece of work" live, and they are
+written last, before the work they describe as remaining sometimes gets done in
+the same sitting. Before repeating a "cannot" from an entry, check the code.
+`docs/PLAYLIST-SHARING.md` had the same stale paragraph sitting directly above
+its own refutation; it is now marked rather than deleted, because a wrong claim
+that was read and believed is worth seeing.
+
+**A device note worth more than the correction**: the Roku Options panel is
+ROW-CONTEXTUAL. Opened over Continue Watching it offers only "Play all in this
+row" and "App settings" — "Share this playlist" is absent, which reads exactly
+like the feature not being there. Focus must be on the playlist row first. That
+is how an hour could have been spent confirming the stale claim instead of
+disproving it.

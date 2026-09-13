@@ -192,13 +192,16 @@ one — every failure mode produces a clean square of noise.
 Cost is not a concern: 2.6 ms to encode the realistic worst case and 4.8 ms for
 a v40, on a button press rather than at boot.
 
-### Still open
+### Still open at the time of writing — CLOSED the same day, see below
 
-**Roku cannot share a playlist at all yet.** Its QR encoder is now correct but
-still v1-10, and BrightScript has no deflate — the share format carries an
-uncompressed `0`-prefixed variant precisely so a Roku can encode one, which
-makes its links *longer* than everyone else's. Playlist sharing from Roku needs
-the same v11-40 extension ported back, and that is a separate piece of work.
+*This paragraph said "Roku cannot share a playlist at all yet ... still v1-10".
+It was true for about an hour. The v11-40 extension landed in the same session
+and the section below proves the whole path on the device; the words stayed
+here, above their own refutation, where a reader meets them FIRST. Re-verified
+independently on 2026-09-13 (see "Re-verified" below) before correcting them.
+Kept rather than deleted because a stale claim that was read and acted on is
+worth seeing, and because Decision 119 repeats it in a file that is
+append-only — Decision 121 is the correction there.*
 
 ---
 
@@ -229,6 +232,25 @@ candidates over the whole matrix, so two implementations landing on the same
 one is evidence the matrices are identical — and v14 is the first time
 BrightScript has ever run the 16-bit character count, the two-block-group
 interleave, or the computed BCH version info.
+
+### Re-verified on the glass, 2026-09-13
+
+Everything above dates from the session that built it. After a week of
+unrelated TV work (the hero slideshow, the guide stepping by programme, About
+in the nav), the whole Roku path was driven again from scratch on the
+Streaming Stick 4K, 15.3.4:
+
+Library -> `*` on the playlist row -> **Share this playlist** -> screenshot ->
+decode. The code came back **448 characters**, the exact share URL, carrying
+`creature feature` and its 10 archive ids. 448 bytes at EC level L is
+**version 15** — five versions past the v10 ceiling the stale paragraph above
+claims, which is the cheapest possible disproof of it.
+
+Worth knowing for the next person driving this remotely: the Options panel is
+ROW-CONTEXTUAL. Opened over Continue Watching it offers only "Play all in this
+row" and "App settings", and "Share this playlist" is simply absent — which
+reads exactly like the feature not existing. Focus has to be ON the playlist
+row first.
 
 ### Cost, measured, because the Roku 2 XD is a supported device
 
