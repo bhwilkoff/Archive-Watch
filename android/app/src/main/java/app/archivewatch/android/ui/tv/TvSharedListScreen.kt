@@ -1,10 +1,12 @@
 package app.archivewatch.android.ui.tv
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
@@ -27,6 +29,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import app.archivewatch.android.app.AppContainer
 import app.archivewatch.android.data.CatalogItem
+import app.archivewatch.android.data.PlaySpec
+import app.archivewatch.android.data.QueueEntry
 import app.archivewatch.android.ui.Nav
 import app.archivewatch.android.ui.Route
 import kotlinx.coroutines.launch
@@ -61,9 +65,16 @@ private val SharedAccent = Color(0xFFFF5C35)
  * ALREADY-HAVE IS MATCHED ON CONTENTS, not on the name, so the same collection
  * sent under two names does not become two copies.
  *
- * NOT HERE YET: Play All, which tvOS offers. It needs the lineup queue rather
- * than a single PlaySpec, and adding it is a separate piece of work — the
- * phone screen has no Play All either, so this is parity, not a reduction.
+ * PLAY ALL leads, because on a television the thing a viewer wants from
+ * somebody else's playlist is to watch it, not to file it. It builds a real
+ * QUEUE (the shape TvPartyScreen uses) rather than opening the first film, so
+ * the list plays through. Unlike a party lineup it PERSISTS progress and is
+ * not muted: this is a playlist somebody chose to send, not an ephemeral
+ * channel, so leaving it half-watched has to mean something.
+ *
+ * A film with no downloadURL is skipped from the queue rather than stalling
+ * it, and if none of them can play the button is not drawn at all — a control
+ * that cannot do its job must not be on screen for a remote to land on.
  */
 @Composable
 fun TvSharedListScreen(
@@ -84,10 +95,15 @@ fun TvSharedListScreen(
     }
     var added by remember { mutableStateOf(false) }
 
+    val playButton = remember { FocusRequester() }
     val addButton = remember { FocusRequester() }
-    ClaimInitialFocus(addButton)
 
     val rows = items.orEmpty()
+    // Claim onto the PRIMARY action once the rows are in. Keyed on the row
+    // count because the button does not exist until there is something to
+    // play — claiming focus on a FocusRequester that is not attached throws.
+    val canPlay = rows.any { it.downloadURL != null }
+    ClaimInitialFocus(if (canPlay) playButton else addButton, key = canPlay)
     val missing = archiveIDs.size - rows.size
 
     Column(Modifier.fillMaxSize()) {
@@ -123,10 +139,51 @@ fun TvSharedListScreen(
         )
 
         val railFocus = LocalTvRailFocus.current
-        Box(
-            Modifier
-                .padding(start = TvDims.OverscanH, bottom = 22.dp)
-                .tvFocusable(
+        val playable = rows.filter { it.downloadURL != null }
+        Row(
+            Modifier.padding(start = TvDims.OverscanH, bottom = 22.dp),
+            horizontalArrangement = Arrangement.spacedBy(16.dp),
+        ) {
+            if (playable.isNotEmpty()) {
+                Box(
+                    Modifier
+                        .tvFocusable(
+                            onClick = {
+                                val first = playable.first()
+                                nav.push(
+                                    Route.Player(
+                                        PlaySpec(
+                                            id = first.archiveID,
+                                            title = first.title,
+                                            url = first.downloadURL!!,
+                                            queue = playable.map {
+                                                QueueEntry(
+                                                    id = it.archiveID,
+                                                    title = it.title,
+                                                    url = it.downloadURL!!,
+                                                )
+                                            },
+                                        ),
+                                    ),
+                                )
+                            },
+                            focusRequester = playButton,
+                            shape = RoundedCornerShape(28.dp),
+                            exitLeftTo = railFocus,
+                        )
+                        .background(SharedAccent, RoundedCornerShape(28.dp)),
+                ) {
+                    Text(
+                        "Play all",
+                        fontSize = 24.sp,
+                        fontWeight = FontWeight.Medium,
+                        color = Color.Black,
+                        modifier = Modifier.padding(horizontal = 32.dp, vertical = 14.dp),
+                    )
+                }
+            }
+            Box(
+                Modifier.tvFocusable(
                     onClick = {
                         if (!added && !alreadyHave) {
                             scope.launch {
@@ -137,16 +194,17 @@ fun TvSharedListScreen(
                     },
                     focusRequester = addButton,
                     shape = RoundedCornerShape(28.dp),
-                    exitLeftTo = railFocus,
+                    exitLeftTo = if (playable.isEmpty()) railFocus else null,
                 ),
-        ) {
-            Text(
-                if (added || alreadyHave) "In your library" else "Add to my library",
-                fontSize = 24.sp,
-                fontWeight = FontWeight.Medium,
-                color = Color.White,
-                modifier = Modifier.padding(horizontal = 28.dp, vertical = 14.dp),
-            )
+            ) {
+                Text(
+                    if (added || alreadyHave) "In your library" else "Add to my library",
+                    fontSize = 24.sp,
+                    fontWeight = FontWeight.Medium,
+                    color = Color.White,
+                    modifier = Modifier.padding(horizontal = 28.dp, vertical = 14.dp),
+                )
+            }
         }
 
         LazyVerticalGrid(
