@@ -199,7 +199,45 @@ So the division of labour is:
 table in its header so the next session does not spend twenty minutes
 rediscovering it.
 
-**The set is running 1.42.72** — every fix from today: the six kinds of
-web-sized type, the EPG rebuilt for TV type, the typographic placeholder that
-45% of the catalogue needed, the footer and brand overscan insets, and the QR
-share sheet.
+**The set was running 1.42.72** — the six kinds of web-sized type, the EPG
+rebuilt for TV type, the typographic placeholder that 45% of the catalogue
+needed, the footer and brand overscan insets, and the QR share sheet.
+
+## 2026-09-13 — 1.42.78 on the set: four things a person has to judge
+
+Deployed and launched with `bash tools/tizen_deploy.sh`. Everything below was
+measured at a true 1920x1080 in headless Chrome and is CORRECT by every
+instrument this project has; what none of them can answer is whether it reads
+right from a sofa. In rough order of how likely they are to feel wrong:
+
+1. **The marquee is a slideshow now.** It was still the phone's scroll-snap
+   rail — six slides side by side with five off screen, all six focusable, so
+   the spatial engine could land on one that was not on screen and drag the
+   rail sideways. Only the slide in view is focusable now, and **Left/Right on
+   the Details button steps between featured films**. The dots below stayed
+   as the position indicator but are no longer a focus stop, so Down from the
+   marquee reaches the first shelf in ONE press instead of two. Judge: does
+   stepping films with Left/Right feel like the right gesture there, or should
+   Left/Right leave the hero and Up/Down step it?
+
+2. **"About" is in the top nav**, after Library. That page is this build's
+   settings screen, and its only other route was a footer link — which sits
+   under Browse's infinite grid, so it was unreachable from Browse by any
+   number of presses (measured: forty Downs, still in the tiles). Judge: does
+   a seventh nav item crowd the bar on a 65-inch panel?
+
+3. **The guide steps by programme.** Left and Right in Channels now move to
+   the previous and next programme rather than to whatever block scores
+   closest, because blocks are sized to runtime and a three-minute cartoon
+   draws 30px wide — one of them was genuinely unreachable. Judge: does
+   walking a busy strip feel fast enough, or does it want a page-by-hour jump?
+
+4. **The player transport sits at the very bottom.** Its hint line ends at
+   y=1026 against a 5%-overscan band that ends at 1026 — it fits by zero
+   pixels, which is exactly the kind of margin a real panel eats. Judge: on
+   the actual set, is "OK play/pause · ◀ ▶ 10s · Back to exit" fully visible,
+   or is the bottom of it cut off?
+
+Item 4 is the one worth looking at hardest: it is the only surface here that
+NO automated check covered until today, because the player has no focused
+element for a focus-based harness to follow.
