@@ -363,7 +363,7 @@ obscure corners:
 | Collections | yes | ~~`CollectionsScreen`~~ → `TvCollectionsScreen` (2026-09-13) |
 | Cartoons | yes | ~~`CartoonScreen`~~ → `TvCartoonScreen` (2026-09-13) |
 | Surprise | yes | ~~`SurpriseScreen`~~ → `TvSurpriseScreen` (2026-09-13) |
-| Settings | yes | `SettingsScreen` |
+| Settings | yes | `SettingsScreen` — TV LAYOUT branch (2026-09-13), deliberately not a copy |
 | Filtered | no | `FilteredGridScreen` |
 | Playlist | no | `PlaylistScreen` |
 | Collection | no | `CollectionGridScreen` |

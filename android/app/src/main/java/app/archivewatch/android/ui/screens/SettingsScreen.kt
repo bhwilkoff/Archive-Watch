@@ -42,6 +42,13 @@ import app.archivewatch.android.app.AppContainer
 import app.archivewatch.android.ui.tv.tvReadable
 import app.archivewatch.android.ui.tv.tvTextFieldEscape
 import app.archivewatch.android.ui.Nav
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.widthIn
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.sp
+import app.archivewatch.android.ui.tv.TvPageHeader
+import app.archivewatch.android.ui.tv.tvFocusable
 import app.archivewatch.android.ui.tv.LocalIsTelevision
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
@@ -68,19 +75,35 @@ fun SettingsScreen(container: AppContainer, nav: Nav) {
     val hideWatched by container.settings.hideWatchedOnHome.collectAsState(initial = false)
     val isTv = LocalIsTelevision.current
 
+    // WHY THIS SCREEN IS NOT A SEPARATE TvSettingsScreen, when Surprise,
+    // Collections and Cartoons all are: there, the phone PAGE was wrong. Here
+    // the content and its TV-specific ORDER are already right — the account
+    // form is deliberately withheld on TV because a Compose TextField opens
+    // the on-screen keyboard and swallows the d-pad (see below), and that
+    // reasoning would have to be duplicated and kept in step. Settings churn,
+    // so a second copy is a second place to miss the next one. What was wrong
+    // was purely LAYOUT, and layout is what this branch fixes.
+    //
+    // Measured on a Google TV before: 10 of 10 text nodes outside the
+    // overscan-safe band — every label at x=32, the title at y=36, and the
+    // FOCUSED switch itself at x=1784..1888, past the 1824 edge. Worse than
+    // the cut: a full-bleed row puts a label at one end of 1920 and its toggle
+    // at the other, ~1300px apart, which cannot be read as a pair at ten feet.
     Scaffold(
         topBar = {
-            TopAppBar(
-                title = { Text("Settings") },
-                navigationIcon = {
-                    IconButton(onClick = { nav.pop() }) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
-                    }
-                },
-                colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.background,
-                ),
-            )
+            if (!isTv) {
+                TopAppBar(
+                    title = { Text("Settings") },
+                    navigationIcon = {
+                        IconButton(onClick = { nav.pop() }) {
+                            Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
+                        }
+                    },
+                    colors = TopAppBarDefaults.topAppBarColors(
+                        containerColor = MaterialTheme.colorScheme.background,
+                    ),
+                )
+            }
         },
         containerColor = MaterialTheme.colorScheme.background,
     ) { padding ->
@@ -89,8 +112,21 @@ fun SettingsScreen(container: AppContainer, nav: Nav) {
                 .fillMaxSize()
                 .padding(padding)
                 .verticalScroll(rememberScrollState())
-                .padding(horizontal = 16.dp),
+                .padding(
+                    start = if (isTv) 48.dp else 16.dp,
+                    end = if (isTv) 48.dp else 16.dp,
+                    top = if (isTv) 27.dp else 0.dp,
+                    bottom = if (isTv) 27.dp else 0.dp,
+                ),
         ) {
+            if (isTv) {
+                TvPageHeader(
+                    eyebrow = "SETTINGS",
+                    title = "Settings",
+                    meta = null,
+                    compact = true,
+                )
+            }
             SectionLabel("Content")
             ToggleRow(
                 title = "Show mature collections",
@@ -339,6 +375,59 @@ private fun ToggleRow(
     checked: Boolean,
     onCheckedChange: (Boolean) -> Unit,
 ) {
+    val isTv = LocalIsTelevision.current
+    if (isTv) {
+        // THE WHOLE ROW is the control on a television. Before this, the only
+        // focusable thing was the bare Material3 Switch, whose focus
+        // indication is a ripple — invisible across a room, so a viewer could
+        // not tell which row they were on. A remote lands on a whole element
+        // and cannot aim at part of one.
+        //
+        // Bounded rather than fillMaxWidth: a full-bleed row puts a label at
+        // one end of the screen and its toggle at the other, and the eye has
+        // to cross the whole panel to pair them. The focus ring already binds
+        // them — it outlines the ROW — so this is tightening, not the fix.
+        //
+        // 620dp, and the number matters: this television reports density 2, so
+        // 1920x1080 PX is 960x540 DP. A first attempt capped at 1100dp, which
+        // is wider than the entire screen and therefore constrained nothing —
+        // it looked like tvFocusable was forcing full width and it was not.
+        // Every dp in this file is half a pixel here; TvDims.OverscanH = 48.dp
+        // is the 96px overscan edge for the same reason.
+        Box(
+            Modifier
+                .widthIn(max = 620.dp)
+                .padding(vertical = 6.dp)
+                .tvFocusable(
+                    onClick = { onCheckedChange(!checked) },
+                    shape = RoundedCornerShape(12.dp),
+                    // NO SCALE. tvFocusable grows a focused element about its
+                    // CENTRE, which is right for a poster in the middle of a
+                    // grid and wrong for a wide row anchored at the overscan
+                    // edge: measured, focusing this row moved its label from
+                    // x=96 to x=78, i.e. the act of focusing it pushed it into
+                    // the 5% a panel cuts. A row does not need to grow — the
+                    // ring already says where focus is.
+                    scaleWhenFocused = 1f,
+                ),
+        ) {
+            Row(
+                Modifier.fillMaxWidth().padding(horizontal = 20.dp, vertical = 14.dp),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                Column(Modifier.weight(1f)) {
+                    Text(title, fontSize = 24.sp, color = Color.White)
+                    subtitle?.let {
+                        Text(it, fontSize = 18.sp, color = Color(0xFFB9B9B9))
+                    }
+                }
+                // Not focusable itself — the ROW owns the press, or the d-pad
+                // would have two stops for one setting.
+                Switch(checked = checked, onCheckedChange = null, enabled = true)
+            }
+        }
+        return
+    }
     Row(
         Modifier.fillMaxWidth().padding(vertical = 8.dp),
         verticalAlignment = Alignment.CenterVertically,
