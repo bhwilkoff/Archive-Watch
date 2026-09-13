@@ -188,6 +188,7 @@ an entry in place.
 - 117 — Roku's ingestion scores the CHANNEL INDEX, not the file; a withheld asset freezes its last verdict, so fit the poster instead
 - 118 — A captioned film streams like any other and draws its cues in the overlay; a whole-film HLS segment ignores every buffer ceiling
 - 119 — A television hands over a link as a CODE; the encoder is proven against an independent reference at every version, never against itself
+- 120 — Social media is hosted where there is no ingest delay; a platform that could not post FAILS, and archive.org keeps only the video
 
 ---
 
@@ -2311,3 +2312,66 @@ carries an uncompressed `0`-prefixed variant precisely so a Roku can encode
 one, which makes its links longer than every other platform's. Porting the
 v11-40 extension back is a separate piece of work.
 
+## 120 — Social media is hosted where there is no ingest delay; a platform that could not post FAILS, and archive.org keeps only the video
+*Date: 2026-09-13*
+
+The daily post's CARDS are published to a `social-media` branch and handed to
+Meta as `raw.githubusercontent.com` URLs. The teaser clip stays on archive.org.
+And a platform that was scheduled, connected, and could not post now FAILS the
+run instead of printing `(skipped — ...)`: only two reasons pass quietly, no
+credential and no teaser for a platform that needs one.
+
+**Why**: the owner, three days in — *"I still only see two posts on Instagram
+and Threads."* Both Meta platforms had last posted on 2026-09-10, under six
+consecutive GREEN runs, and the reason was printed in plain sight every time:
+
+    posted: bsky...   posted: mastodon...   posted: youtube...
+    (skipped — no public media URL (set SOCIAL_MEDIA_BASE_URL))  x2
+
+Meta FETCHES media by URL rather than accepting bytes, so a card must be
+servable before it is offered. archive.org is an ARCHIVE: a freshly PUT object
+is not servable until its task queue catches up, and that queue's latency is
+not a number you can wait out. Measured with `social_post.py --probe-media`,
+which was built for exactly this question because the IAS3 keys live only in
+CI and the latency could not be read from anyone's machine:
+
+    0/3 media served after 604s      (all three served by 16 minutes)
+    under 30s on the 8th and the 10th
+
+A deadline cannot cover a variable that ranges from half a minute to a third
+of an hour. So the host is the thing to change, not the number.
+
+**How to apply**: the split is measured, not preferred. `raw.githubusercontent`
+has no ingest step and returns `image/jpeg` for a `.jpg` — and
+`application/octet-stream` for a `.mp4`, which Meta refuses. A GitHub Release
+asset is no better: GitHub stores `video/mp4` on the asset and still serves
+`application/octet-stream` from the download URL (checked, not inherited — the
+existing note in `social_post.py` saying Release assets cannot work is
+correct). So images go to the branch, video stays on archive.org, and a day
+whose clip is not ready posts the CARD instead of a Reel, which the Instagram
+adapter already did. A slow archive.org day now costs the video, never the
+post.
+
+**NOT YET PROVEN: that Meta will fetch from `raw.githubusercontent` at all.**
+The first live run after this change posted an Instagram REEL
+(`/reel/DdO8opgjxa_/`), and a REELS container carries only `video_url` — so
+the card URL was never offered. That path is exercised the first day the clip
+is not ready, and the loud-failure rule below is what makes it safe to find
+out that way rather than by another three silent days.
+
+**The classification is the part that matters most.** A platform returning
+`(None, reason)` took the quiet skip branch and could never reach `failures`;
+only an exception could. The comment above `failures` already stated the
+intended rule — "scheduled AND connected AND then refused" — and an
+unfetchable media URL satisfies all three while being filed as a cadence skip.
+A new skip reason must now be declared benign deliberately; a bare literal
+that is not in `BENIGN_SKIPS` fails the test that guards this.
+
+**Consequences**: `tools/test_social_media_gate.py` was written on 2026-09-11
+for this same incident and stayed GREEN through all six failures, because it
+asserted the CONSEQUENCE (`if failures: return 1`) and never the
+classification that decides what enters `failures` — so the list it reasoned
+about simply stayed empty. A guard that checks the downstream effect of a rule
+is not a guard on the rule. It now tests the rule itself, controlled both
+ways. Related: Decision 107 (a red X means THIS run could not do its job) and
+108 (a reader that cannot read says so, and never a zero).
