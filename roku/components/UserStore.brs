@@ -515,8 +515,12 @@ function awPlaylistShareURL(plID as String) as Object
         end if
     end for
 
-    ' the PATH is /list/ and the playlist rides the FRAGMENT: a browser never sends a fragment to a server, so the list stays off ours, while the path is what a native app can match (an Android intent filter cannot see a fragment at all).
-    ' /list/ is also a real 200 page, and several crawlers decline to preview a 404 — which matters for a link made to be posted.
+    ' the PATH is /list/ and the playlist rides the FRAGMENT: a browser never
+    ' sends a fragment to a server, so the list stays off ours, while the path
+    ' is what a native app can match (an Android intent filter cannot see a
+    ' fragment at all).
+    ' /list/ is also a real 200 page, and several crawlers decline to preview
+    ' a 404 — which matters for a link made to be posted.
     url = "https://archivewatch.org/list/#0" + out
     return {
         url: url,

@@ -45,9 +45,69 @@ enum PlaylistShare {
     static func url(name: String, archiveIDs: [String]) -> URL? {
         guard !archiveIDs.isEmpty, archiveIDs.count <= limit,
               let b = blob(name: name, archiveIDs: archiveIDs) else { return nil }
-        // the PATH is /list/ and the playlist rides the FRAGMENT: a browser never sends a fragment to a server, so the list stays off ours, while the path is what a native app can match (an Android intent filter cannot see a fragment at all).
-        // /list/ is also a real 200 page, and several crawlers decline to preview a 404 — which matters for a link made to be posted.
+        // The PATH is `/list/` and the playlist rides the FRAGMENT. A browser
+        // never sends a fragment to a server, so the list stays off ours —
+        // while the path is what a native app can match, because an Android
+        // intent filter matches the path and cannot see a fragment at all.
+        // `/list/` is also a real 200 page: several crawlers decline to
+        // preview a 404, and this link is made to be posted.
         return URL(string: "https://archivewatch.org/list/#\(b)")
+    }
+
+    // MARK: - reading a link somebody sent
+
+    /// What a shared link carries.
+    struct Shared: Equatable {
+        let name: String
+        let archiveIDs: [String]
+    }
+
+    /// Pull the blob out of a share link, in either shape it has ever had.
+    ///
+    /// `/list/#<blob>` is what every platform emits now; `#/list/<blob>` is
+    /// what shipped first and is already in the wild. Links are permanent, so
+    /// both are read forever — only encoders ever choose (the same rule the
+    /// `0` prefix follows).
+    static func blob(from url: URL) -> String? {
+        let s = url.absoluteString
+        if let r = s.range(of: "/list/#") { return trimmed(String(s[r.upperBound...])) }
+        if let r = s.range(of: "#/list/") { return trimmed(String(s[r.upperBound...])) }
+        // A blob written into the path rather than the fragment. Nothing emits
+        // this, and 404.html accepts it, so the app does too.
+        let parts = url.pathComponents.filter { $0 != "/" }
+        if let i = parts.firstIndex(of: "list"), i + 1 < parts.count { return trimmed(parts[i + 1]) }
+        return nil
+    }
+
+    private static func trimmed(_ s: String) -> String? {
+        let v = s.trimmingCharacters(in: CharacterSet(charactersIn: "/"))
+        return v.isEmpty ? nil : v
+    }
+
+    /// Decode a blob into the playlist it carries. Accepts both variants: a
+    /// leading `0` is the uncompressed one Roku emits, anything else is raw
+    /// DEFLATE.
+    static func decode(_ blob: String) -> Shared? {
+        let bytes: Data?
+        if blob.hasPrefix("0") {
+            bytes = data(base64url: String(blob.dropFirst()))
+        } else {
+            guard let d = data(base64url: blob) else { return nil }
+            bytes = inflate(d)
+        }
+        guard let json = bytes,
+              let o = try? JSONSerialization.jsonObject(with: json) as? [String: Any],
+              let ids = o["i"] as? [String]
+        else { return nil }
+        // The name is optional on the wire; a playlist without one is still a
+        // playlist, and the web's reference decoder says so too.
+        let name = (o["n"] as? String) ?? "Shared playlist"
+        return Shared(name: name, archiveIDs: ids)
+    }
+
+    static func shared(from url: URL) -> Shared? {
+        guard let b = blob(from: url) else { return nil }
+        return decode(b)
     }
 
     // MARK: - the two primitives
@@ -65,6 +125,32 @@ enum PlaylistShare {
             return compression_encode_buffer(dst, cap, base, data.count, nil, COMPRESSION_ZLIB)
         }
         return n > 0 ? Data(bytes: dst, count: n) : nil
+    }
+
+    /// Raw INFLATE. `COMPRESSION_ZLIB` is raw deflate on Apple platforms, the
+    /// same codec `CatalogRefreshService` uses for the catalogue.
+    private static func inflate(_ data: Data) -> Data? {
+        guard !data.isEmpty else { return nil }
+        // A playlist is small and bounded by `limit`, so one generous buffer
+        // beats a streaming decode. 64 KB is far past a 50-title payload.
+        let cap = 64 * 1_024
+        let dst = UnsafeMutablePointer<UInt8>.allocate(capacity: cap)
+        defer { dst.deallocate() }
+        let n = data.withUnsafeBytes { src -> Int in
+            guard let base = src.bindMemory(to: UInt8.self).baseAddress else { return 0 }
+            return compression_decode_buffer(dst, cap, base, data.count, nil, COMPRESSION_ZLIB)
+        }
+        return n > 0 ? Data(bytes: dst, count: n) : nil
+    }
+
+    /// base64url -> bytes. The padding was stripped on the way out, so it has
+    /// to be put back: Foundation refuses an unpadded string.
+    private static func data(base64url s: String) -> Data? {
+        var t = s.replacingOccurrences(of: "-", with: "+")
+                 .replacingOccurrences(of: "_", with: "/")
+        let pad = (4 - t.count % 4) % 4
+        t += String(repeating: "=", count: pad)
+        return Data(base64Encoded: t)
     }
 
     /// base64url with the padding stripped — what survives a URL fragment.
