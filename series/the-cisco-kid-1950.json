@@ -4,7 +4,7 @@
   "tvmazeID": 2141,
   "title": "The Cisco Kid",
   "yearStart": 1950,
-  "yearEnd": 1950,
+  "yearEnd": 1956,
   "overview": "The Cisco Kid was one of the first television programs to feature Hispanic actors as the lead characters, and it was the first show ever to be produced in color even though most TV sets in 1950 could only display black and white film. But it was the program s perfect mix of humor and adventure that kept audiences tuning in for years, and that earned the series a Primetime Emmy Award!",
   "posterURL": "https://artworks.thetvdb.com/banners/posters/77404-1.jpg",
   "backdropURL": null,
@@ -42,12 +42,12 @@
       ]
     },
     {
-      "seasonNumber": 2,
+      "seasonNumber": null,
       "episodes": [
         {
           "archiveID": "CiscoKidSpanishDagger512kb_201509",
-          "seasonNumber": 2,
-          "episodeNumber": 26,
+          "seasonNumber": null,
+          "episodeNumber": null,
           "title": "Cisco Kid Spanish Dagger 512kb",
           "overview": "<div>The Cisco Kid is a half-hour American Western television series starring Duncan Renaldo in the title role, The Cisco Kid, and Leo Carrillo as the jovial sidekick, Pancho. Cisco and Pancho were technically desperados, wanted for unspecified crimes, but instead viewed by the poor as Robin Hood figures who assisted the downtrodden when law enforcement officers proved corrupt or unwilling to help. It was also the first television series to be filmed in color, although few viewers saw it in color until the 1960s.</div><div><br /></div>",
           "stillURL": "https://archive.org/services/img/CiscoKidSpanishDagger512kb_201509",
@@ -82,8 +82,5 @@
       "order": 1,
       "profilePath": null
     }
-  ],
-  "seriesImdbID": "tt0042093",
-  "canonicalEpisodeCount": 81,
-  "canonicalSeasons": 6
+  ]
 }

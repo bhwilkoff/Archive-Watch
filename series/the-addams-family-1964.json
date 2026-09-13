@@ -79,11 +79,47 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/the-addams-family__season-2/The%20Addams%20Family%20--%202x23%20--%20Morticia%2C%20the%20Decorator.mp4"
+        },
+        {
+          "archiveID": "the-addams-familycomplete",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Addams Family",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1964,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Addams Family S1 E18 - Uncle Festers Illness.mp4",
+            "format": "h.264",
+            "sizeBytes": 147315241,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-addams-familycomplete/The%20Addams%20Family%20S1%20E18%20-%20Uncle%20Festers%20Illness.mp4"
+        },
+        {
+          "archiveID": "the-addams-family-complete_202606",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Addams Family",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1964,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Addams Family S1 E28 - My Son the Chimp.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 559481480,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-addams-family-complete_202606/The%20Addams%20Family%20S1%20E28%20-%20My%20Son%20the%20Chimp.ia.mp4"
         }
       ]
     }
   ],
-  "episodesCount": 3,
+  "episodesCount": 5,
   "canonicalEpisodesCount": 64,
   "tvdbID": "77137",
   "artworkSource": "tvdb",
@@ -142,8 +178,5 @@
       "order": 8,
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/318247/photo/60cfdf25c1a77.jpg"
     }
-  ],
-  "seriesImdbID": "tt0057729",
-  "canonicalEpisodeCount": 64,
-  "canonicalSeasons": 2
+  ]
 }

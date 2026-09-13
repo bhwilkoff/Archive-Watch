@@ -1,0 +1,121 @@
+{
+  "version": 2,
+  "seriesID": "george-and-mildred-1976",
+  "tvmazeID": 7575,
+  "title": "George and Mildred",
+  "yearStart": 1976,
+  "yearEnd": 1979,
+  "overview": "\"George and Mildred\" is a British sitcom produced by Thames Television that aired from 1976 to 1979. It was a spin-off from Man About the House and starred Brian Murphy and Yootha Joyce as an ill-matched married couple, George and Mildred Roper.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/76770-2.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Comedy"
+  ],
+  "networks": [
+    "ITV1"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "george-mildred-1976-79",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "GEORGE & MILDRED",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "GEORGE & MILDRED (1976-79)/509.George & Mildred...On the Second Day of Christmas.mp4",
+            "format": "h.264",
+            "sizeBytes": 140728894,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/george-mildred-1976-79/GEORGE%20%26%20MILDRED%20%281976-79%29/509.George%20%26%20Mildred...On%20the%20Second%20Day%20of%20Christmas.mp4"
+        },
+        {
+          "archiveID": "George_and_Mildred",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "George & Mildred",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "George & Mildred - The Complete Series (Network)/Season 03/3x01 - Opportunity Knocks.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 545266528,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/George_and_Mildred/George%20%26%20Mildred%20-%20The%20Complete%20Series%20%28Network%29/Season%2003/3x01%20-%20Opportunity%20Knocks.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2,
+  "canonicalEpisodesCount": 38,
+  "tvdbID": "76770",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Yootha Joyce",
+      "character": "Mildred Roper",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/411241/photo/6231c046843ae.jpg"
+    },
+    {
+      "name": "Sheila Fearn",
+      "character": "Ann Fourmile",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/295386/photo/628a7d7d1d705.jpg"
+    },
+    {
+      "name": "Brian Murphy",
+      "character": "George Roper",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/49191.jpg"
+    },
+    {
+      "name": "Norman Eshley",
+      "character": "Jeffrey Fourmile",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/284208/photo/6231bf86b5491.jpg"
+    },
+    {
+      "name": "Nicholas Bond Owen",
+      "character": "Tristram Fourmile",
+      "order": 4,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/293313.jpg"
+    },
+    {
+      "name": "Avril Elgar",
+      "character": "Ethel",
+      "order": 5,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/293314.jpg"
+    },
+    {
+      "name": "Roy Kinnear",
+      "character": "Jerry",
+      "order": 6,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/270850/photo/64960ed5475d9.jpg"
+    },
+    {
+      "name": "Reginald Marsh",
+      "character": "Humprey",
+      "order": 7,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/293316.jpg"
+    },
+    {
+      "name": "Gretchen Franklin",
+      "character": "Mother of Mildred",
+      "order": 8,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/258551/photo/62b2f479ac633.jpg"
+    }
+  ]
+}

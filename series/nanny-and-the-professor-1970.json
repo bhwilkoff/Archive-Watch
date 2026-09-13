@@ -1,0 +1,116 @@
+{
+  "version": 2,
+  "seriesID": "nanny-and-the-professor-1970",
+  "tvmazeID": 17424,
+  "title": "Nanny and the Professor",
+  "yearStart": 1970,
+  "yearEnd": 1971,
+  "overview": "Phoebe Figalilly mysteriously appears on the doorstep of Professor Harold Everett, just when he needed a Nanny most for his three children. Gifted with mysterious powers, Nanny keeps the Professor and the children on their toes and soon wins them over with \"a little bit of faith and lots of love\".",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/71044-1.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Comedy",
+    "Family"
+  ],
+  "networks": [
+    "ABC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "NannyandtheProfessorSeason3",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Nanny and the Professor",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S03E02- The Flower Children.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 108349019,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/NannyandtheProfessorSeason3/S03E02-%20The%20Flower%20Children.mp4"
+        },
+        {
+          "archiveID": "NannyandtheProfessorSeason1",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Nanny and the Professor",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S01E11- The Games Families Play.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 122667997,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/NannyandtheProfessorSeason1/S01E11-%20The%20Games%20Families%20Play.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2,
+  "canonicalEpisodesCount": 54,
+  "tvdbID": "71044",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Juliet Mills",
+      "character": "Phoebe Figalilly",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/257116/photo/67e03813e9cb0.jpg"
+    },
+    {
+      "name": "Kim Richards",
+      "character": "Prudence Everett",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/284065/photo/649585c9ceb22.jpg"
+    },
+    {
+      "name": "John Puglia",
+      "character": "",
+      "order": 2,
+      "profilePath": null
+    },
+    {
+      "name": "Trent Lehman",
+      "character": "Bentley \"Butch\" Everett",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/7875065/photo/67e03922bf753.jpg"
+    },
+    {
+      "name": "David Doremus",
+      "character": "Harold \"Hal\" Everett Jr.",
+      "order": 4,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/7875067/photo/67e039c51acf4.jpg"
+    },
+    {
+      "name": "Richard Long",
+      "character": "Professor Harold Everett",
+      "order": 5,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/259571/photo/67e03a8fea028.jpg"
+    },
+    {
+      "name": "Patsy Garrett",
+      "character": "Mrs. Fowler",
+      "order": 6,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/256559/photo/67e03b34a5203.jpg"
+    },
+    {
+      "name": "Eileen Baral",
+      "character": "Francine Fowler",
+      "order": 7,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/265210/photo/67e03bd5ec49f.jpg"
+    }
+  ]
+}

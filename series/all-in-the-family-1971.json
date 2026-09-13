@@ -128,7 +128,7 @@
       "name": "Allan Melvin",
       "character": "Barney Hefner",
       "order": 7,
-      "profilePath": "https://artworks.thetvdb.com/banners/person/265079/62088770.jpg"
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/265079/photo/6a9fa44969c80.jpg"
     },
     {
       "name": "Sherman Hemsley",
@@ -166,8 +166,5 @@
       "order": 13,
       "profilePath": null
     }
-  ],
-  "seriesImdbID": "tt0066626",
-  "canonicalEpisodeCount": 207,
-  "canonicalSeasons": 9
+  ]
 }
