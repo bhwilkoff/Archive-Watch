@@ -364,7 +364,7 @@ A title the link names that this catalogue no longer serves is STATED
 or the sharer and the viewer are looking at different collections and neither
 can tell.
 
-**Verified on the glass, all three**, each with a link produced by `watch.js`'s
+**Verified on the glass, every platform**, each with a link produced by `watch.js`'s
 own encoder and opened through the platform's real URL entry point:
 
 | Platform | Device | What it showed |
@@ -372,6 +372,26 @@ own encoder and opened through the platform's real URL entry point:
 | tvOS | Bedroom Apple TV | SHARED PLAYLIST · creature feature · Play All · Add to my library · 3 titles |
 | iOS | iPhone 12 | creature feature · Shared playlist · 3 titles · ＋ in the toolbar |
 | macOS | this Mac | creature feature · Shared playlist · 3 titles · Add to my library |
+| Android TV | Google TV (SEI R 4K) | SHARED PLAYLIST · creature feature · 10 titles · Play all · Add to my library — 2026-09-13 |
+| Roku | Streaming Stick 4K | the QR its own screen draws decodes to the exact 448-char link — 2026-09-13 |
+
+**Android was the last one, and it was never broken — only unverified.** The
+code had been written and shipped (SharedListScreen, Route.SharedList,
+DeepLinks.pendingSharedList, the manifest pathPrefix) without a device ever
+opening a link. It worked first time. What the screenshot showed instead was
+that `TvAppRoot` rendered the PHONE screen on a television — a Material3
+TopAppBar with two unlabelled 24dp icon buttons and a
+`GridCells.Adaptive(110.dp)` grid — so `TvSharedListScreen` now carries the
+ten-foot version, and Play all builds a real queue rather than opening the
+first film.
+
+**How Android TV playback is verified, because a screenshot cannot do it.**
+The video plane captures BLACK on Android TV, and the Media3 controller is
+deliberately off on TV, so there is no overlay to photograph either. Two
+PLATFORM-side readings settle it and neither comes from our own code: the TV's
+telemetry reports `video: true` for our package continuously, and
+`dumpsys audio` shows our uid holding an AudioTrack in `state:started`, stereo
+48kHz, USAGE_MEDIA, `mutedState:none`.
 
 The parse happens BEFORE each platform's `archivewatch://` scheme check, on
 purpose: a share link is an ordinary https url, because the whole point is that
