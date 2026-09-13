@@ -156,3 +156,50 @@ This is a packaged app booted in Chrome at the right origin with the right user
 agent — it is not a Samsung TV. What it cannot tell us: real remote key codes
 from the platform, Tizen's own media pipeline, memory under a long session, and
 how the panel actually renders overscan. Those need the set.
+
+---
+
+## What a RETAIL Samsung set actually exposes (2026-09-12)
+
+Measured against the owner's QN65S90CDFXZA (2023 S90C, Tizen 9.0) at
+10.0.0.203, connected over `sdb`:
+
+| | |
+|---|---|
+| `sdb connect` | ✅ |
+| `sdb capability` | ✅ (31 fields — profile `tv`, platform 9.0) |
+| `tizen install` | ✅ (7.8 s for the 3.2 MB .wgt) |
+| `tizen run` | ✅ (returns a pid) |
+| `sdb shell` | ❌ silent |
+| `dlog` | ❌ silent |
+| `sdb pull` | ❌ "You cannot pull files from this path" |
+| screenshot | ❌ (needs shell) |
+| web inspector | ❌ — see below |
+
+**There is no web inspector, and that is the one worth writing down.** The
+inspector needs the app launched under `sdb shell 0 debug <appid>`; `tizen run`
+launches with `debug 0` and the CLI has no `debug` subcommand at all
+(`tizen --help` lists 19 commands; none of them is one). So the DOM-measurement
+route — the thing that makes headless Chrome such a good instrument for this
+app — is closed on the television itself.
+
+### What that means for how this app is verified
+
+A build can be **deployed and launched** from here, and cannot be **observed**.
+So the division of labour is:
+
+* `?tv=1` in a 1920x1080 headless Chrome is the INSTRUMENT —
+  `tools/tv_audit_sizes.mjs` (type floors, overlapping and squeezed text),
+  `tools/tv_follow_focus.mjs` (the selection inside the overscan-safe band),
+  and the packaged `file://` run above (the origin and user agent a widget
+  really has).
+* The television is where a PERSON looks.
+
+`tools/tizen_deploy.sh` does the deploy half in one command, and carries this
+table in its header so the next session does not spend twenty minutes
+rediscovering it.
+
+**The set is running 1.42.72** — every fix from today: the six kinds of
+web-sized type, the EPG rebuilt for TV type, the typographic placeholder that
+45% of the catalogue needed, the footer and brand overscan insets, and the QR
+share sheet.
