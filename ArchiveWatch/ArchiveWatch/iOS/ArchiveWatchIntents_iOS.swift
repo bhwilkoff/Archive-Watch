@@ -18,10 +18,16 @@ final class IntentInbox {
         case randomFilm        // open a random playable film
         case randomCategory    // jump to Browse
         case openItem(String)  // open a specific title (deep link / widget)
+        case openSharedList(PlaylistShare.Shared)   // a playlist someone sent as a link
     }
 
     /// Parse an `archivewatch://` deep link into a request.
     static func request(for url: URL) -> Request? {
+        // A SHARED PLAYLIST FIRST, and before the scheme guard on purpose: it
+        // arrives as an ordinary https link, because the whole point is that it
+        // opens for somebody with no app at all. The playlist is INSIDE the
+        // url, so this resolves completely here with nothing to look up.
+        if let shared = PlaylistShare.shared(from: url) { return .openSharedList(shared) }
         guard url.scheme == "archivewatch" else { return nil }
         switch url.host {
         case "item":           let id = url.lastPathComponent

@@ -177,6 +177,15 @@ struct RootView: View {
             }
         case .randomCategory:
             router.tab = .browse
+        case .openSharedList(let shared):
+            // No catalogue wait and no retry, unlike a deep-linked ITEM: the
+            // playlist travelled inside the link, so there is nothing to
+            // resolve before showing it. The films inside fill in as the
+            // catalogue swaps, and the view re-reads them when it does.
+            router.tab = .library
+            router.libraryPath = NavigationPath()
+            router.libraryPath.append(SharedListRoute(name: shared.name,
+                                                      archiveIDs: shared.archiveIDs))
         case .openItem(let id):
             guard let item = store.item(id) else {
                 // Not resolvable yet — keep the request for the next catalog
@@ -205,6 +214,7 @@ extension View {
             .navigationDestination(for: SeriesRef.self) { SeriesDetailView(card: $0.card) }
             .navigationDestination(for: CollectionRef.self) { CollectionGridView(ref: $0) }
             .navigationDestination(for: BrowseFilterRoute.self) { FilteredGridView(route: $0) }
+            .navigationDestination(for: SharedListRoute.self) { SharedListView(shared: $0.shared) }
             .navigationDestination(for: SurpriseRoute.self) { _ in SurpriseView() }
             .navigationDestination(for: PublicDomainRoute.self) { _ in PublicDomainView() }
             .navigationDestination(for: ChannelsRoute.self) { _ in ChannelsView() }

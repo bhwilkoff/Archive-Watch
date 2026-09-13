@@ -1,6 +1,16 @@
-#if os(tvOS)
 import SwiftData
 import SwiftUI
+
+/// A shared playlist as a navigation destination. It carries the whole
+/// playlist because there is nothing to look it up BY — the list travelled
+/// inside the link and was never stored anywhere.
+struct SharedListRoute: Hashable {
+    let name: String
+    let archiveIDs: [String]
+    var shared: PlaylistShare.Shared { .init(name: name, archiveIDs: archiveIDs) }
+}
+
+#if os(tvOS)
 
 /// A playlist somebody else made, opened from a link.
 ///
@@ -18,15 +28,6 @@ import SwiftUI
 /// The app could silently copy the playlist into the library and land them in
 /// it — fewer taps, and wrong: a link they tapped out of curiosity would have
 /// edited their library. The web asks, and so does this.
-/// A shared playlist as a navigation destination. It carries the whole
-/// playlist because there is nothing to look it up BY — the list travelled
-/// inside the link and was never stored anywhere.
-struct SharedListRoute: Hashable {
-    let name: String
-    let archiveIDs: [String]
-    var shared: PlaylistShare.Shared { .init(name: name, archiveIDs: archiveIDs) }
-}
-
 struct SharedListView: View {
     let shared: PlaylistShare.Shared
 
@@ -143,5 +144,96 @@ struct SharedListView: View {
 }
 
 private struct SharedLineupBox: Identifiable { let id = UUID(); let items: [Catalog.Item] }
+
+#endif
+
+#if os(iOS)
+
+/// The phone's shared playlist. The SAME rules as the Apple TV's — browse and
+/// play for anyone, adding it is a choice — in the phone's idiom.
+///
+/// This is the surface a shared link is most likely to land on: the QR code an
+/// Apple TV or a Roku draws is scanned by a PHONE, so this is where the
+/// feature's main path ends up.
+struct SharedListView: View {
+    let shared: PlaylistShare.Shared
+
+    @Environment(AppStore.self) private var store
+    @Environment(Router.self) private var router
+    @Environment(\.modelContext) private var ctx
+    @Query private var playlists: [Playlist]
+
+    @State private var added = false
+
+    private let cols = [GridItem(.adaptive(minimum: 110), spacing: 14)]
+
+    private var items: [Catalog.Item] { store.itemsByIDs(shared.archiveIDs) }
+    private var missing: Int { shared.archiveIDs.count - items.count }
+
+    /// Matched on CONTENTS, not name: the same collection sent under two names
+    /// should not become two copies in the library.
+    private var alreadyHave: Bool { playlists.contains { $0.archiveIDs == shared.archiveIDs } }
+
+    private func addToLibrary() {
+        let pl = Playlist(name: shared.name, archiveIDs: shared.archiveIDs)
+        ctx.insert(pl)
+        try? ctx.save()
+        SyncNudge.nudge(ctx)
+        added = true
+    }
+
+    var body: some View {
+        ScrollView {
+            VStack(alignment: .leading, spacing: 14) {
+                // A title the link names that this catalogue no longer serves is
+                // STATED, never silently dropped — otherwise the sharer and the
+                // viewer see different collections and neither can tell.
+                Text(countLine)
+                    .font(.footnote)
+                    .foregroundStyle(.secondary)
+                    .padding(.horizontal)
+
+                if items.isEmpty {
+                    ContentUnavailableView("Nothing to show",
+                        systemImage: "rectangle.stack",
+                        description: Text("None of these titles are in the catalogue any more."))
+                        .padding(.top, 40)
+                } else {
+                    LazyVGrid(columns: cols, spacing: 18) {
+                        ForEach(items) { item in
+                            Button { router.push(item) } label: { PosterTile(item: item) }
+                                .buttonStyle(.plain)
+                        }
+                    }.padding(.horizontal)
+                }
+            }
+            .padding(.vertical, 8)
+        }
+        .navigationTitle(shared.name)
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                if added || alreadyHave {
+                    Label(added ? "Added" : "In your library", systemImage: "checkmark.circle.fill")
+                        .labelStyle(.iconOnly)
+                        .foregroundStyle(.secondary)
+                } else if !items.isEmpty {
+                    Button(action: addToLibrary) {
+                        Label("Add to my library", systemImage: "plus.circle")
+                    }
+                }
+            }
+        }
+    }
+
+    private var countLine: String {
+        let n = items.count
+        if missing > 0 {
+            return "\(n) of \(shared.archiveIDs.count) titles — "
+                 + "\(missing) \(missing == 1 ? "is" : "are") no longer in the catalogue."
+        }
+        return "Shared playlist · \(n) \(n == 1 ? "title" : "titles")"
+    }
+}
 
 #endif
