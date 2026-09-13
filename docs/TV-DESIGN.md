@@ -361,7 +361,7 @@ obscure corners:
 | Route | In the rail? | Screen |
 |---|---|---|
 | Collections | yes | ~~`CollectionsScreen`~~ → `TvCollectionsScreen` (2026-09-13) |
-| Cartoons | yes | `CartoonScreen` |
+| Cartoons | yes | ~~`CartoonScreen`~~ → `TvCartoonScreen` (2026-09-13) |
 | Surprise | yes | ~~`SurpriseScreen`~~ → `TvSurpriseScreen` (2026-09-13) |
 | Settings | yes | `SettingsScreen` |
 | Filtered | no | `FilteredGridScreen` |

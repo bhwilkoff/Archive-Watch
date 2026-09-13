@@ -253,7 +253,7 @@ fun TvAppRoot(container: AppContainer) {
                                 "Clip Studio is available on iPhone, iPad and Mac."
                             )
                             Route.Collections -> TvCollectionsScreen(container, nav)
-                            Route.Cartoon -> CartoonScreen(container, nav)
+                            Route.Cartoon -> TvCartoonScreen(container, nav)
                             Route.Party -> TvPartyScreen(container, nav)
                             Route.Surprise -> TvSurpriseScreen(container, nav)
                             Route.Settings -> SettingsScreen(container, nav)

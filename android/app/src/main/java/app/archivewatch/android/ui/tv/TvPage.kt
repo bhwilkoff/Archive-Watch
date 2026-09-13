@@ -15,6 +15,7 @@ import androidx.compose.foundation.lazy.grid.itemsIndexed
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.graphics.Color
@@ -50,14 +51,54 @@ const val TV_PAGE_COLUMNS = 6
  *  - a fixed six-column grid, so tiles are TvDims.PosterWidth rather than
  *    whatever GridCells.Adaptive(110.dp) produces at TV width
  */
+/**
+ * @param compact for a SHELF page. A grid page can afford a tall header
+ *   because its grid starts below the fold anyway; a shelf page cannot — the
+ *   full-height header pushed Cartoons' first shelf down far enough that its
+ *   captions landed at y=1008..1080, below the 1026 safe bottom, and only ONE
+ *   shelf was on screen. Compact puts the title, meta and actions on one line.
+ */
 @Composable
 fun TvPageHeader(
     eyebrow: String,
     title: String,
     meta: String?,
     modifier: Modifier = Modifier,
+    compact: Boolean = false,
     actions: @Composable RowScope.() -> Unit = {},
 ) {
+    if (compact) {
+        Row(
+            modifier.padding(
+                start = TvDims.OverscanH,
+                end = TvDims.OverscanH,
+                top = TvDims.OverscanV,
+                bottom = 16.dp,
+            ),
+            horizontalArrangement = Arrangement.spacedBy(20.dp),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            Column(Modifier.weight(1f)) {
+                Text(
+                    eyebrow,
+                    fontSize = 15.sp,
+                    fontWeight = FontWeight.Bold,
+                    color = TvAccent,
+                )
+                Text(
+                    title,
+                    fontSize = 32.sp,
+                    fontWeight = FontWeight.Bold,
+                    color = Color.White,
+                )
+                if (meta != null) {
+                    Text(meta, fontSize = 19.sp, color = Color(0xFFB9B9B9))
+                }
+            }
+            actions()
+        }
+        return
+    }
     Column(modifier) {
         Text(
             eyebrow,
