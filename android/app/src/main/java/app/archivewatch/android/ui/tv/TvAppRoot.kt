@@ -230,11 +230,15 @@ fun TvAppRoot(container: AppContainer) {
                             is Route.Player -> PlayerScreen(container, nav, route.spec)
                             is Route.Filtered -> FilteredGridScreen(container, nav, route)
                             is Route.Playlist -> PlaylistScreen(container, nav, route.playlistID)
-                            // The SAME screen as the phone. Its grid is built
-                            // from PosterTile, which already switches to the
-                            // D-pad focus treatment under LocalIsTelevision —
-                            // so a TV-specific copy would only be a second
-                            // place to fix the next defect.
+                            // Was the phone screen, on the argument that
+                            // PosterTile already switches to the D-pad focus
+                            // treatment under LocalIsTelevision. True of the
+                            // TILES and false of the PAGE: the phone screen's
+                            // only two actions were unlabelled 24dp icon
+                            // buttons in a TopAppBar, and its grid is
+                            // GridCells.Adaptive(110.dp), which at TV width
+                            // draws a dozen tiny columns. Seen on the glass
+                            // 2026-09-13.
                             is Route.SharedList ->
                                 TvSharedListScreen(container, nav, route.name, route.archiveIDs)
                             is Route.Collection -> CollectionGridScreen(container, nav, route)

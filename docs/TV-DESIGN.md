@@ -350,3 +350,35 @@ stale app for days (`web-platform-patterns`).
 - **Platform home-screen integration** — Google TV channels, Fire TV catalog
   integration, Roku Continue Watching. All are v2, all constrained by §1.4.
 - **Roku** — a separate funded decision (Decision 047); no code here applies.
+
+## Android TV: which routes are still the phone's (audited 2026-09-13)
+
+`TvAppRoot` renders a TV screen for Detail, Series, Library, Home, Browse,
+Search, Party and (since 2026-09-13) SharedList. **Eight routes still render
+the PHONE screen**, and four of them are in the nav rail, so they are not
+obscure corners:
+
+| Route | In the rail? | Screen |
+|---|---|---|
+| Collections | yes | `CollectionsScreen` |
+| Cartoons | yes | `CartoonScreen` |
+| Surprise | yes | `SurpriseScreen` |
+| Settings | yes | `SettingsScreen` |
+| Filtered | no | `FilteredGridScreen` |
+| Playlist | no | `PlaylistScreen` |
+| Collection | no | `CollectionGridScreen` |
+| Person | no | `PersonScreen` |
+
+**Measured on the Google TV, not inferred.** A `uiautomator` dump of Surprise
+puts film captions at x=32 and out to x=1888, against an overscan-safe band of
+96..1824 — so the leftmost and rightmost columns are both inside the 5% a
+television cuts. The page chrome is phone chrome too: a Material3 `TopAppBar`
+with a small circular back arrow at roughly (20, 30), which is outside the
+band on both axes.
+
+The fix is NOT eight bespoke screens. Three of the four rail ones (Collections,
+Cartoons, Surprise) are the same shape — a titled page over a grid — so a
+shared TV page scaffold carrying the overscan inset, the eyebrow/title block
+and the action row is the economical answer, and `TvSharedListScreen` is the
+worked example of what that page should look like.
+
