@@ -477,6 +477,67 @@
 
 
   /* ---------------------------------------------------------------- *
+   * Asking before something irreversible                              *
+   * ---------------------------------------------------------------- *
+   *
+   * `confirm()` works on a television — Samsung's and LG's engines both
+   * draw it and a remote can reach its buttons — so this is not about it
+   * being broken. It is about it being a WEB dialog: system-styled, tiny,
+   * and nothing like the surface around it, on an app whose whole
+   * instruction was that nothing should look like a web page.
+   *
+   * It also blocks. A native modal stops the page's own key handling, so
+   * the focus engine below cannot help the viewer while one is open —
+   * the remote is talking to the platform, not to us.
+   *
+   * Same shape as the picker and the share sheet: a sheet, Back closes
+   * it, and the SAFE choice takes focus. */
+  function tvConfirm(message, confirmLabel, onConfirm) {
+    closeConfirm();
+    const sheet = document.createElement('div');
+    sheet.className = 'tv-confirm-sheet';
+    sheet._ownerBtn = document.activeElement;
+
+    const p = document.createElement('p');
+    p.className = 'tv-confirm-msg';
+    p.textContent = message;
+    sheet.appendChild(p);
+
+    const row = document.createElement('div');
+    row.className = 'tv-confirm-row';
+
+    // CANCEL FIRST, and it takes focus. A viewer who lands here by pressing
+    // Right one time too many must not be able to delete their playlist with
+    // a second press in the same direction.
+    const no = document.createElement('button');
+    no.type = 'button';
+    no.className = 'tv-confirm-no';
+    no.textContent = 'Keep it';
+    no.onclick = closeConfirm;
+
+    const yes = document.createElement('button');
+    yes.type = 'button';
+    yes.className = 'tv-confirm-yes';
+    yes.textContent = confirmLabel;
+    yes.onclick = function () { closeConfirm(); onConfirm(); };
+
+    row.append(no, yes);
+    sheet.appendChild(row);
+    document.body.appendChild(sheet);
+    focusEl(no);
+  }
+
+  function closeConfirm() {
+    const open = document.querySelector('.tv-confirm-sheet');
+    if (open) {
+      const owner = open._ownerBtn;
+      open.remove();
+      if (owner && document.contains(owner)) focusEl(owner);
+      else claimFocus();
+    }
+  }
+
+  /* ---------------------------------------------------------------- *
    * The share sheet — a code, the link, and one way out               *
    * ---------------------------------------------------------------- */
 
@@ -1103,6 +1164,13 @@
       ev.preventDefault(); ev.stopPropagation();
       closeShare();
       return;
+    }
+    // And the confirmation, for the same reason: Back must not leave an
+    // irreversible question sitting over the next screen.
+    if (BACK_KEYS.has(code) && document.querySelector('.tv-confirm-sheet')) {
+      ev.preventDefault(); ev.stopPropagation();
+      closeConfirm();
+      return;
     }        // the toggle must see EVERY press, including ones
                           // the player or the focus engine goes on to consume
     cancelArrival();      // the viewer is driving now; never yank their focus
@@ -1235,6 +1303,7 @@
     window.addEventListener('hashchange', function () {
       closePicker();
       closeShare();
+      closeConfirm();
       tvPickers();
       claimFocus();
       beginArrival();
@@ -1259,6 +1328,7 @@
     // than assuming the TV layer booted, so a phone build is untouched.
     window.AWTV = window.AWTV || {};
     window.AWTV.shareQR = shareQR;
+    window.AWTV.confirm = tvConfirm;
 
     tvPickers();
     claimFocus();

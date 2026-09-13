@@ -1849,6 +1849,16 @@
         };
       }
       $('playlist-delete').onclick = async () => {
+        // A television gets a TV sheet, not the platform's own modal
+        // (tv.js § tvConfirm). Feature-detected, so the phone and desktop
+        // keep the native confirm they should have.
+        if (window.AWTV?.confirm && document.documentElement.classList.contains('tv')) {
+          window.AWTV.confirm(`Delete the playlist “${pl.name}”?`, 'Delete', async () => {
+            await DB.deletePlaylist(id).catch(() => {});
+            location.hash = '#/library';
+          });
+          return;
+        }
         if (!confirm(`Delete the playlist “${pl.name}”?`)) return;
         await DB.deletePlaylist(id).catch(() => {});
         location.hash = '#/library';
@@ -2144,10 +2154,18 @@
           rail.style.cursor = 'pointer';
           rail.title = 'Tap to delete this channel';
           rail.onclick = async () => {
+            const drop = async () => {
+              await DB.deleteUserChannel(ch.id.slice(5)).catch(() => {});
+              this.built = false;
+              this.render();
+            };
+            // The TV sheet on a television, the platform's own modal elsewhere.
+            if (window.AWTV?.confirm && document.documentElement.classList.contains('tv')) {
+              window.AWTV.confirm(`Delete the channel “${ch.title}”?`, 'Delete', drop);
+              return;
+            }
             if (!confirm(`Delete the channel “${ch.title}”?`)) return;
-            await DB.deleteUserChannel(ch.id.slice(5)).catch(() => {});
-            this.built = false;
-            this.render();
+            await drop();
           };
         }
         const strip = document.createElement('div');
