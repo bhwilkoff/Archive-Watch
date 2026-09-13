@@ -362,7 +362,7 @@ obscure corners:
 |---|---|---|
 | Collections | yes | `CollectionsScreen` |
 | Cartoons | yes | `CartoonScreen` |
-| Surprise | yes | `SurpriseScreen` |
+| Surprise | yes | ~~`SurpriseScreen`~~ → `TvSurpriseScreen` (2026-09-13) |
 | Settings | yes | `SettingsScreen` |
 | Filtered | no | `FilteredGridScreen` |
 | Playlist | no | `PlaylistScreen` |

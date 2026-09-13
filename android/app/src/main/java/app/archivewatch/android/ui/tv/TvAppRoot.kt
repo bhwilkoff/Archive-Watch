@@ -251,7 +251,7 @@ fun TvAppRoot(container: AppContainer) {
                             Route.Collections -> CollectionsScreen(container, nav)
                             Route.Cartoon -> CartoonScreen(container, nav)
                             Route.Party -> TvPartyScreen(container, nav)
-                            Route.Surprise -> SurpriseScreen(container, nav)
+                            Route.Surprise -> TvSurpriseScreen(container, nav)
                             Route.Settings -> SettingsScreen(container, nav)
                         }
                     }
