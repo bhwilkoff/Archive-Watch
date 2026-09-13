@@ -63,7 +63,6 @@ import app.archivewatch.android.ui.screens.FilteredGridScreen
 import app.archivewatch.android.ui.screens.PersonScreen
 import app.archivewatch.android.ui.screens.PlayerScreen
 import app.archivewatch.android.ui.screens.PlaylistScreen
-import app.archivewatch.android.ui.screens.SharedListScreen
 import app.archivewatch.android.ui.screens.SeriesDetailScreen
 import app.archivewatch.android.ui.screens.SettingsScreen
 import app.archivewatch.android.ui.screens.SurpriseScreen
@@ -237,7 +236,7 @@ fun TvAppRoot(container: AppContainer) {
                             // so a TV-specific copy would only be a second
                             // place to fix the next defect.
                             is Route.SharedList ->
-                                SharedListScreen(container, nav, route.name, route.archiveIDs)
+                                TvSharedListScreen(container, nav, route.name, route.archiveIDs)
                             is Route.Collection -> CollectionGridScreen(container, nav, route)
                             is Route.Person -> PersonScreen(container, nav, route.name, route.tmdbPersonID)
                             // §2 — creation is never offered on a TV build: a
