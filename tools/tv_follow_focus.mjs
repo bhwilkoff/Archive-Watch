@@ -36,12 +36,31 @@ const SAFE_TOP = 54, SAFE_BOTTOM = 1026, SAFE_LEFT = 0, SAFE_RIGHT = 1920;
 const WALK = ["Down","Down","Right","Right","Right","Down","Right","Down","Down",
               "Right","Up","Left","Down","Down","Down","Right","Down","Down"];
 
-const CODES = { Up:[38,"ArrowUp"], Down:[40,"ArrowDown"], Left:[37,"ArrowLeft"], Right:[39,"ArrowRight"] };
+const CODES = { Up:[38,"ArrowUp"], Down:[40,"ArrowDown"], Left:[37,"ArrowLeft"], Right:[39,"ArrowRight"],
+                Enter:[13,"Enter"] };
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 if (!SITE.includes("127.0.0.1") && !SITE.includes("localhost")) {
   console.log(`NOTE: measuring the LIVE site (${SITE}) — set AW_TV_URL to test a local edit.\n`);
 }
+
+/* A browser left on this port by an earlier run is not a convenience: Chrome
+ * cannot bind an occupied port, so the new process serves nothing and
+ * /json/list answers from the OLD browser — which still holds the previous
+ * run's page AND its stylesheet. Found the hard way on 2026-09-13: a planted
+ * CSS control was reverted on disk and the very next run still measured the
+ * plant, because it never spoke to a new browser at all. The per-pid
+ * --user-data-dir does not protect against this; only the port does. */
+try {
+  const probe = await fetch(`http://127.0.0.1:${PORT}/json/version`,
+                            { signal: AbortSignal.timeout(800) });
+  if (probe.ok) {
+    console.log(`FAIL  a browser is already on port ${PORT}. A run that attaches`);
+    console.log(`      to it measures that browser's page, not a fresh one:`);
+    console.log(`      pkill -f "remote-debugging-port=${PORT}"`);
+    process.exit(1);
+  }
+} catch { /* nothing listening — good */ }
 
 const chrome = spawn(CHROME, ["--headless=new", `--remote-debugging-port=${PORT}`,
   "--window-size=1920,1080", "--hide-scrollbars", "--no-first-run",
@@ -121,7 +140,74 @@ for (const route of ROUTES) {
             + `${bad.length} outside the safe band`);
   bad.slice(0, 5).forEach((b) => console.log("      " + b));
 }
+/* THE PLAYER, which this harness could not see.
+ *
+ * Everything above is keyed on document.activeElement, and the player has no
+ * focused element AT ALL — by design: tv.js adopts the <video>, strips the
+ * browser's controls and handles every key globally, so the whole screen is
+ * the control. That made the transport the one TV surface no overscan check
+ * covered, and it is drawn hard against the bottom edge, which is exactly
+ * where a television cuts.
+ *
+ * So the player is measured differently: by the TEXT its transport draws.
+ * A node is judged only when it carries its own text (the same rule
+ * tv_audit_sizes uses) — a full-bleed bar may reach the edges, its LABEL may
+ * not. Judging boxes instead flags every background as a defect, which is
+ * what a first attempt at this did.
+ */
+const PLAYER_PROBE = `(() => {
+  const v = document.querySelector('video');
+  if (!v) return JSON.stringify({ noPlayer: true });
+  const out = [];
+  // The transport is NOT inside the video's own container — tv.js draws it as
+  // a sibling, so scoping the search to v.closest(...) found ZERO labels and
+  // reported a clean pass. A harness that measures nothing and says "0
+  // outside the band" is the worst result available, so this matches the
+  // transport's own class prefix and the run FAILS when it finds none.
+  // Everything else on the page is the Detail screen sitting behind the
+  // overlay, which is in the DOM and not on the glass.
+  for (const el of document.querySelectorAll('[class*="tv-tp"]')) {
+    let own = '';
+    for (const n of el.childNodes) if (n.nodeType === 3) own += n.textContent;
+    own = own.trim();
+    if (!own) continue;
+    const cs = getComputedStyle(el);
+    if (cs.visibility === 'hidden' || cs.display === 'none' || cs.opacity === '0') continue;
+    const r = el.getBoundingClientRect();
+    if (r.width <= 0 || r.height <= 0) continue;
+    out.push({ t: own.slice(0, 34), top: Math.round(r.top), bottom: Math.round(r.bottom) });
+  }
+  return JSON.stringify({ items: out });
+})()`;
+
+{
+  const item = process.env.AW_TV_PLAY_ITEM || "#/item/TheGeneral720p1926";
+  await cdp("Page.navigate", { url: SITE + item });
+  await sleep(4000);
+  await press("Enter");               // boot focus lands on the Play button
+  await sleep(4500);
+  const p = JSON.parse(await evaluate(PLAYER_PROBE));
+  if (p.noPlayer) {
+    console.log(`\nplayer          NOT MEASURED: Enter did not open a player on ${item}`);
+    lost++;                            // never report this as a pass
+  } else {
+    const bad = p.items.filter((i) => i.top < SAFE_TOP || i.bottom > SAFE_BOTTOM);
+    checks += p.items.length; outside += bad.length;
+    if (!p.items.length) {
+      console.log(`\nplayer          NOT MEASURED: a player opened but no transport`);
+      console.log(`      label was found. A clean reading from an empty probe is worse`);
+      console.log(`      than no reading, so this fails rather than passing.`);
+      lost++;
+    } else {
+      console.log(`\nplayer          ${p.items.length} transport labels, `
+                + `${bad.length} outside the safe band`);
+    }
+    bad.slice(0, 5).forEach((b) =>
+      console.log(`      "${b.t}"  top ${b.top} bottom ${b.bottom}`));
+  }
+}
+
 console.log(`\n${checks} presses across ${ROUTES.length} routes — `
           + `${outside} left the selection outside the overscan-safe band, ${lost} lost focus entirely`);
-ws.close(); chrome.kill();
+ws.close(); chrome.kill("SIGKILL");
 process.exit(outside || lost ? 1 : 0);

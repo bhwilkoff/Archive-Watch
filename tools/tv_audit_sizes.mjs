@@ -62,6 +62,24 @@ const OUT = path.join(os.tmpdir(), "aw-tv-audit");
 fs.rmSync(OUT, { recursive: true, force: true });
 fs.mkdirSync(OUT, { recursive: true });
 
+/* A browser left on this port by an earlier run is not a convenience: Chrome
+ * cannot bind an occupied port, so the new process serves nothing and
+ * /json/list answers from the OLD browser — which still holds the previous
+ * run's page AND its stylesheet. Found the hard way on 2026-09-13: a planted
+ * CSS control was reverted on disk and the very next run still measured the
+ * plant, because it never spoke to a new browser at all. The per-pid
+ * --user-data-dir does not protect against this; only the port does. */
+try {
+  const probe = await fetch(`http://127.0.0.1:${PORT}/json/version`,
+                            { signal: AbortSignal.timeout(800) });
+  if (probe.ok) {
+    console.log(`FAIL  a browser is already on port ${PORT}. A run that attaches`);
+    console.log(`      to it measures that browser's page, not a fresh one:`);
+    console.log(`      pkill -f "remote-debugging-port=${PORT}"`);
+    process.exit(1);
+  }
+} catch { /* nothing listening — good */ }
+
 const chrome = spawn(CHROME, [
   "--headless=new", `--remote-debugging-port=${PORT}`,
   "--window-size=1920,1080", "--force-device-scale-factor=1",
@@ -80,7 +98,7 @@ for (let i = 0; i < 60 && !target; i++) {
     target = list.find((t) => t.type === "page");
   } catch { /* not up */ }
 }
-if (!target) { chrome.kill(); throw new Error("Chrome did not expose a page target"); }
+if (!target) { chrome.kill("SIGKILL"); throw new Error("Chrome did not expose a page target"); }
 
 const ws = new WebSocket(target.webSocketDebuggerUrl);
 await new Promise((r, j) => { ws.onopen = r; ws.onerror = j; });
@@ -255,4 +273,4 @@ for (const route of ROUTES) {
   }
 }
 console.log(`\n${checked} focusable elements checked, ${findings} distinct kinds below the TV floor`);
-ws.close(); chrome.kill();
+ws.close(); chrome.kill("SIGKILL");
