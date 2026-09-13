@@ -1270,7 +1270,20 @@ def main() -> int:
         n = len([u for u in (media_url, media_pt, video_url) if u])
         print(f"[probe] {n - len(stale)}/{n} media served after {took:.0f}s "
               f"(deadline {MEDIA_READY_TIMEOUT}s)")
-        return 1 if stale else 0
+        # A PROBE THAT MEASURED IS A PROBE THAT WORKED. Returning 1 when the
+        # host was slow made the first probe run go RED and email the owner —
+        # for successfully answering the question it was built to ask. That is
+        # the exact thing Decision 107 forbids: a red X means THIS run could
+        # not do its job, and this run's job is to produce the number, not to
+        # like it. Only a probe that could not upload at all has failed, and
+        # that surfaces as an empty media set.
+        if not n:
+            print("::error::probe uploaded nothing — it could not measure", file=sys.stderr)
+            return 1
+        if stale:
+            print(f"::warning::{len(stale)} of {n} media not served within "
+                  f"{MEDIA_READY_TIMEOUT}s — that is the measurement, not a failure")
+        return 0
 
     # EVERYTHING IS UPLOADED BY NOW; wait for the host to start serving it.
     # Do NOT hand an unfetchable URL to a platform: Meta's refusal comes back
