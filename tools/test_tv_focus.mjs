@@ -35,15 +35,33 @@ class El {
   addEventListener() {}
 }
 
+/* The shim used to compare whole selector strings, so the day tv.js added a
+ * `:not([tabindex="-1"])` to its `a[href]` row every anchor silently stopped
+ * matching and ten cases failed at once — a test that breaks on a selector it
+ * does not understand, rather than on the behaviour it is checking. It now
+ * peels the `:not(...)` clauses off and honours each one, which is the whole
+ * of what this file's selectors use. */
+function notClause(el, c) {
+  if (c === '[disabled]') return 'disabled' in el.attrs;
+  if (c === '[tabindex="-1"]') return el.attrs.tabindex === '-1';
+  if (c.startsWith('.')) return (el.attrs.class || '').split(/\s+/).includes(c.slice(1));
+  return false;
+}
+
 function matches(el, sel) {
   return sel.split(',').some(s => {
     s = s.trim();
-    if (s === 'a[href]') return el.tagName === 'A' && 'href' in el.attrs;
-    if (s.startsWith('button')) return el.tagName === 'BUTTON';
-    if (s.startsWith('input')) return el.tagName === 'INPUT';
-    if (s.startsWith('select')) return el.tagName === 'SELECT';
-    if (s.startsWith('[tabindex]')) return 'tabindex' in el.attrs && el.attrs.tabindex !== '-1';
-    return false;
+    const nots = [...s.matchAll(/:not\(([^)]*)\)/g)].map(m => m[1]);
+    const base = s.replace(/:not\([^)]*\)/g, '');
+    let hit;
+    if (base === 'a[href]') hit = el.tagName === 'A' && 'href' in el.attrs;
+    else if (base === 'button') hit = el.tagName === 'BUTTON';
+    else if (base === 'input') hit = el.tagName === 'INPUT';
+    else if (base === 'select') hit = el.tagName === 'SELECT';
+    else if (base === '[tabindex]') hit = 'tabindex' in el.attrs;
+    else hit = false;
+    if (!hit) return false;
+    return !nots.some(c => notClause(el, c));
   });
 }
 
@@ -57,6 +75,11 @@ const doc = {
   documentElement: { classList: { add: (...c) => { doc._cls = (doc._cls||[]).concat(c); } } },
   body: { },
   querySelectorAll: (sel) => nodes.filter(n => matches(n, sel)),
+  // The shim carried no getElementById, so the first code in tv.js to reach
+  // for one (the hero slideshow) threw inside boot() and took every case in
+  // this file with it. A shim that omits a universal DOM method does not
+  // simplify the test, it just moves the failure.
+  getElementById: (id) => nodes.find(n => n.attrs && n.attrs.id === id) || null,
   querySelector: (sel) => nodes.find(n => matches(n, sel)) || null,
   addEventListener: (type, fn) => { if (type === 'focusin') focusinHandlers.push(fn); },
   createElement: () => new El('div', {left:0,top:0,width:0,height:0}),
@@ -397,6 +420,42 @@ check('Tizen back (10009) navigates', global._wentBack, true);
   check('prose has a readable measure at 1920',
         /\.tv #item-desc[\s\S]{0,200}max-width/.test(css), true);
 }
+
+/* ── The marquee is a slideshow on TV, not a scroll rail ────────────────────
+ *
+ * watch.js lays the hero out as six slides side by side, five of them off
+ * screen, and every CTA is an `a[href]`. tools/tv_reachability.mjs measured
+ * the consequence on Home at a true 1920x1080: five of the six reachable, one
+ * not, and landing on an off-screen one dragged the marquee sideways. tv.js
+ * now marks every slide but the one in view `tabindex="-1"`, which only works
+ * because FOCUSABLE honours that attribute on EVERY row rather than the last.
+ *
+ * The first two cases are that attribute, asserted BOTH WAYS — an element the
+ * engine must skip, and the same element without the attribute, which it must
+ * still reach. Without the second, "skipped" and "broken" look identical. */
+{
+  doc.activeElement = rowA[1];
+  press(K.RIGHT);
+  check('control: a plain card is reached on RIGHT', doc.activeElement.attrs.name, 'A2');
+
+  rowA[2].attrs.tabindex = '-1';
+  doc.activeElement = rowA[1];
+  press(K.RIGHT);
+  check('...and tabindex="-1" takes it out of the spatial pool',
+        doc.activeElement.attrs.name, 'A3');
+  delete rowA[2].attrs.tabindex;
+}
+
+check('the hero steps films from its own CTA',
+      /classList\.contains\('hero-cta'\)[\s\S]{0,200}heroStep\(/.test(src), true);
+check('...and falls through when there is nowhere to step, so Left still leaves',
+      /if \(heroStep\([\s\S]{0,40}\) return;/.test(src), true);
+check('...only the slide in view is landable',
+      /heroSync[\s\S]{0,700}setAttribute\('tabindex', '-1'\)/.test(src), true);
+check('...the dots go back to being an indicator',
+      /hero-dots[\s\S]{0,300}setAttribute\('tabindex', '-1'\)/.test(src), true);
+check('...and FOCUSABLE honours the attribute on every row, not just the last',
+      (src.match(/:not\(\[tabindex="-1"\]\)/g) || []).length >= 5, true);
 
 console.log(`\n${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);

@@ -20,20 +20,13 @@
  * teleport around, and it is sound here because tv.js reads
  * document.activeElement rather than keeping its own separate cursor.
  *
- * ⚠️  NOT YET VALIDATED, AND ITS ZEROS SHOULD NOT BE QUOTED AS EVIDENCE.
- *
- * Every other checker in this repo was checked to FAIL against a planted
- * defect before its passes were believed. This one has no such control yet.
- * Three were tried and all three proved something other than intended:
- *   - a `.tv-hidden-select` plant — that class is display:none, so the button
- *     was never on screen and "unreachable" was not what was being tested;
- *   - swallowing ArrowDown from a capture listener — tv.js registers its own
- *     capture listener on window first, and a later one cannot preempt it;
- *   - a visible focusable parked outside the viewport — the spatial engine
- *     reaches it anyway, so it is not an unreachable element at all.
- * Until a control lands that this harness demonstrably catches, treat a clean
- * run as "nothing observed" rather than "nothing wrong". The graph walk itself
- * IS controlled (see the self-check below).
+ * CONTROLLED. AW_TV_PLANT=1 plants a control this tool MUST catch: a visible
+ * <select> carrying `tv-hidden-select`, the class tv.js puts on a native
+ * select once a TV button has replaced it. The engine's FOCUSABLE excludes
+ * that class, so no arrow key can reach one; this harness's pool does not, so
+ * it is counted. Measured both ways on #/library: planted 11 focusable / 1
+ * UNREACHABLE naming the plant, unplanted 10 / 0. Three earlier controls
+ * failed and are named at the plant site so they are not retried.
  *
  * SCOPE. This measures STATIC surfaces. A route that re-renders on focus
  * cannot be walked exhaustively without disturbing itself, and the run says
@@ -59,6 +52,23 @@ const SETTLE = Number(process.env.AW_TV_SETTLE || 90);
 const KEYS = { Up: [38, "ArrowUp"], Down: [40, "ArrowDown"],
                Left: [37, "ArrowLeft"], Right: [39, "ArrowRight"] };
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+/* A browser left on this port by an earlier run is not a convenience — Chrome
+ * cannot bind an occupied port, so the new process never serves anything and
+ * /json/list answers from the OLD browser, which still holds the PREVIOUS
+ * run's DOM. Found exactly that way: an unplanted run reported the planted
+ * control, because it was still talking to the browser the plant was in. The
+ * per-pid --user-data-dir does not protect against this; only the port does. */
+try {
+  const r = await fetch(`http://127.0.0.1:${PORT}/json/version`,
+                        { signal: AbortSignal.timeout(800) });
+  if (r.ok) {
+    console.log(`FAIL  a browser is already on port ${PORT}. A run that attaches to it`);
+    console.log(`      measures that browser's page, not a fresh one. Close it first:`);
+    console.log(`      pkill -f "remote-debugging-port=${PORT}"`);
+    process.exit(1);
+  }
+} catch { /* nothing listening — good */ }
 
 const chrome = spawn(CHROME, ["--headless=new", `--remote-debugging-port=${PORT}`,
   "--window-size=1920,1080", "--hide-scrollbars", "--no-first-run",
@@ -117,8 +127,25 @@ async function press(key) {
  * unreachable chips on a page a remote walks perfectly well. Second keying
  * flaw found the same way as the first: by running the harness against a page
  * already known to behave, and disbelieving it. */
+/* The pool this tool measures: what a viewer can SEE and would expect to
+ * reach. It deliberately differs from tv.js's own FOCUSABLE in one direction
+ * only — it does not carry `:not(.tv-hidden-select)`, so a visible select the
+ * engine skips lands in the denominator and is reported. That asymmetry IS the
+ * negative control (AW_TV_PLANT=1).
+ *
+ * It DOES honour `tabindex="-1"`, on every row rather than only the last. That
+ * attribute is an author's declaration that an element is not keyboard
+ * reachable, not an accident of geometry — the TV hero marks its off-screen
+ * slides with it (tv.js heroSync), and counting those as defects would be the
+ * tool inventing five a run. */
+const SEL = 'a[href]:not([tabindex="-1"])'
+  + ',button:not([disabled]):not([tabindex="-1"])'
+  + ',input:not([disabled]):not([tabindex="-1"])'
+  + ',select:not([disabled]):not([tabindex="-1"])'
+  + ',[tabindex]:not([tabindex="-1"])';
+
 const KEYS_JS = `(() => {
-  const SEL = 'a[href],button:not([disabled]),input:not([disabled]),select:not([disabled]),[tabindex]:not([tabindex="-1"])';
+  const SEL = ${JSON.stringify(SEL)};
   const seen = new Map();
   const out = [];
   for (const el of document.querySelectorAll(SEL)) {
@@ -137,7 +164,7 @@ const KEYS_JS = `(() => {
 
 /** The key of whatever is focused now, computed the same way. */
 const WHERE = `(() => {
-  const SEL = 'a[href],button:not([disabled]),input:not([disabled]),select:not([disabled]),[tabindex]:not([tabindex="-1"])';
+  const SEL = ${JSON.stringify(SEL)};
   const a = document.activeElement;
   if (!a) return '';
   const seen = new Map();
@@ -157,7 +184,7 @@ const WHERE = `(() => {
 
 /** Focus the element carrying this key, if it is still on the page. */
 const focusKey = (k) => `(() => {
-  const SEL = 'a[href],button:not([disabled]),input:not([disabled]),select:not([disabled]),[tabindex]:not([tabindex="-1"])';
+  const SEL = ${JSON.stringify(SEL)};
   const seen = new Map();
   for (const el of document.querySelectorAll(SEL)) {
     if (el.closest('[hidden]')) continue;
@@ -220,23 +247,37 @@ for (const route of ROUTES) {
     await sleep(150);
   }
 
-  // NEGATIVE CONTROL. AW_TV_PLANT=1 adds a real, visible, focusable button
-  // parked OUTSIDE the viewport. It is in this harness's pool (it has a box
-  // and is not display:none) and the spatial engine will never select it,
-  // because it is nowhere near anything. If a planted run still reports 0,
-  // the harness is measuring nothing and its clean runs mean nothing either.
+  // NEGATIVE CONTROL. AW_TV_PLANT=1 plants a control this harness MUST report.
   //
-  // Two earlier controls failed and are worth naming so they are not retried:
-  // a `.tv-hidden-select` plant proved only that the class is display:none, so
-  // it was never on screen; and swallowing ArrowDown from a capture listener
-  // does nothing, because tv.js registers its own capture listener on window
-  // first and a later one on the same target cannot preempt it.
+  // It is a <select> carrying `tv-hidden-select` — the class tv.js puts on a
+  // native select once it has replaced it with a TV button. The engine's own
+  // FOCUSABLE ends `select:not([disabled]):not(.tv-hidden-select)`, so no
+  // arrow key can ever land on one; this harness's pool does not carry that
+  // exclusion, so it is in the denominator. Visible, on screen, in the pool,
+  // and unreachable by the remote — exactly the defect class the tool exists
+  // for, and a real one: the day a CSS change lets one of those selects draw
+  // again, it is an on-screen control the D-pad cannot touch.
+  //
+  // `display` is set with priority, because the class is `display:none
+  // !important` and a plain inline value loses to it — which is precisely how
+  // the FIRST attempt at this control failed: the plant was excluded from the
+  // engine as intended and also never on screen, so a planted run proved only
+  // that a display:none element is not counted.
+  //
+  // Two other controls were tried and failed, named so they are not retried:
+  // a focusable parked outside the viewport (the spatial engine reaches it
+  // anyway — an off-screen box is still a candidate, so that is not an
+  // unreachable element at all), and swallowing ArrowDown from a capture
+  // listener (tv.js registers its own capture listener on window first, and a
+  // later one on the same target cannot preempt it).
   if (process.env.AW_TV_PLANT) {
     await evaluate(`(() => {
-      const b = document.createElement('button');
-      b.textContent = 'PLANTED UNREACHABLE';
-      b.style.cssText = 'position:fixed;left:-3000px;top:400px;width:260px;height:60px;';
-      document.body.appendChild(b);
+      const s = document.createElement('select');
+      s.className = 'tv-hidden-select';
+      s.innerHTML = '<option>PLANTED</option>';
+      s.style.cssText = 'position:fixed;left:140px;top:520px;width:260px;height:60px;';
+      s.style.setProperty('display', 'block', 'important');
+      document.body.appendChild(s);
       return true;
     })()`);
   }
@@ -244,7 +285,16 @@ for (const route of ROUTES) {
   const nodes = (await evaluate(KEYS_JS)) || [];
   const start = await evaluate(WHERE);
   const n = Math.min(nodes.length, CAP);
-  if (!n) { console.log(`${route}  —  nothing focusable`); continue; }
+  // A TV route ALWAYS has the nav rail, so an empty pool is a broken probe,
+  // not a clean route — and it was passing silently: a selector bug that made
+  // every evaluate() throw printed this line for every route and then exited 0
+  // with "0 focusable elements walked, 0 that no arrow key reaches". Decision
+  // 108 again, in the smallest possible form.
+  if (!n) {
+    console.log(`FAIL  ${route}  —  nothing focusable. A TV route always has a`);
+    console.log(`      nav rail, so this is the probe failing, not a clean page.`);
+    process.exit(1);
+  }
   if (process.env.AW_TV_DEBUG) {
     console.log(`    [debug] boot focus = ${start || "(not a focusable)"}`);
   }
@@ -262,7 +312,11 @@ for (const route of ROUTES) {
     edges.set(from, to);
   }
 
-  const seed = start || pool[0];
+  // The seed must be INSIDE the pool, or the walk starts on an island and
+  // every node reads unreachable. Measured on #/channels: 891 focusables, the
+  // app boots focus onto one beyond the cap, and the run reported 90 of 90
+  // unreachable INCLUDING the nav rail — a page a remote walks fine.
+  const seed = (start && pool.includes(start)) ? start : pool[0];
   const seen = new Set([seed]);
   const queue = [seed];
   while (queue.length) {
@@ -295,12 +349,29 @@ for (const route of ROUTES) {
   }
 
   const unreached = pool.filter((k) => !seen.has(k));
+
+  // A CAPPED WALK MAY NOT CLAIM A DEFECT. Only the first CAP nodes are ever
+  // focused, so edges OUT of the rest are never recorded — and a node whose
+  // only inbound arrow comes from tile 200 of a 389-tile grid then looks
+  // unreachable when it is not. Measured on Home: 3 "unreachable" under a cap
+  // of 90, every one of them an ordinary Details link in a shelf.
+  //
+  // So a capped route reports what it saw and is explicitly INCONCLUSIVE, and
+  // contributes nothing to the total. Same rule as the churn check and as
+  // Decision 108: a reader that cannot read says so. Raise AW_TV_CAP above the
+  // route's focusable count to get a claim out of it.
+  if (nodes.length > n) {
+    console.log(`${route.slice(0, 40).padEnd(42)} ${n} of ${nodes.length} walked — INCONCLUSIVE:`);
+    console.log(`      a capped walk never records edges out of the ${nodes.length - n} it skipped,`);
+    console.log(`      so ${unreached.length} unreached here is not a defect claim. Raise AW_TV_CAP.`);
+    continue;
+  }
+
   totalNodes += n; totalUnreached += unreached.length;
-  console.log(`${route.slice(0, 40).padEnd(42)} ${n} focusable, ${unreached.length} UNREACHABLE`
-            + (nodes.length > n ? `  (capped from ${nodes.length})` : ""));
+  console.log(`${route.slice(0, 40).padEnd(42)} ${n} focusable, ${unreached.length} UNREACHABLE`);
   for (const u of unreached.slice(0, 6)) console.log(`      ${u}`);
 }
 
 console.log(`\n${totalNodes} focusable elements walked, ${totalUnreached} that no arrow key reaches`);
-ws.close(); chrome.kill();
+ws.close(); chrome.kill("SIGKILL");
 process.exit(totalUnreached ? 1 : 0);

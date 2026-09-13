@@ -53,11 +53,15 @@
    * Focus engine (§3, §7.2)
    * ------------------------------------------------------------------ */
 
+  /* `tabindex="-1"` is excluded on EVERY row, not just the last one. An author
+   * writing it is saying "not reachable by keyboard", and an `a[href]` or a
+   * `<button>` carrying it was still a spatial candidate — which is what let
+   * the hero's off-screen slides be landed on (see heroSync below). */
   const FOCUSABLE = [
-    'a[href]',
-    'button:not([disabled])',
-    'input:not([disabled])',
-    'select:not([disabled]):not(.tv-hidden-select)',
+    'a[href]:not([tabindex="-1"])',
+    'button:not([disabled]):not([tabindex="-1"])',
+    'input:not([disabled]):not([tabindex="-1"])',
+    'select:not([disabled]):not(.tv-hidden-select):not([tabindex="-1"])',
     '[tabindex]:not([tabindex="-1"])',
   ].join(',');
 
@@ -1147,6 +1151,88 @@
     window.close();
   }
 
+  /* ------------------------------------------------------------------ *
+   * The marquee (§4) — a slideshow on a television, not a scroll rail
+   * ------------------------------------------------------------------ */
+
+  /* watch.js builds the hero as a scroll-snap rail: six slides laid out side
+   * by side, one in view and five off to the right. On a phone that is exactly
+   * right, because a phone swipes. On a television all six CTAs are `a[href]`,
+   * so the spatial engine treats every one as a candidate and picks among them
+   * by geometry — measured on Home with tools/tv_reachability.mjs at a true
+   * 1920x1080: five of the six reachable, one not, and Right from the marquee
+   * landing on a carousel dot rather than the shelf beside it. Worse, focusing
+   * an off-screen CTA drags the rail sideways, because a browser scrolls a
+   * focused element into view: the marquee moved without the viewer asking.
+   *
+   * On TV the rail becomes a slideshow. Only the slide ON SCREEN is focusable;
+   * Left and Right step between featured films from the CTA itself. Left on
+   * the first film falls through to the engine, so it reaches the nav rail —
+   * the rule the Roku and tvOS heroes already follow. The dots stay as the
+   * indicator they are (tv.css gives them a remote-sized hit box) and still
+   * work, so there are two ways to change film and neither is a dead control. */
+
+  function heroRail() {
+    const rail = document.getElementById('hero-rail');
+    if (!rail) return null;
+    const slides = rail.querySelectorAll('.hero-cta');
+    return slides.length ? { rail, slides } : null;
+  }
+
+  function heroIndex(h) {
+    return Math.round(h.rail.scrollLeft / Math.max(1, h.rail.clientWidth));
+  }
+
+  /** Only the slide in view may be landed on — and the dots become what they
+   *  always were, an indicator. tv.css grew them a remote-sized hit box back
+   *  when they were the ONLY way to change film; now Left/Right on the CTA
+   *  does that, and six identical unlabelled targets sitting between the
+   *  marquee and the first shelf is a stop the remote should not have to make.
+   *  They still work under a pointer, and they still show which film of six
+   *  this is. */
+  function heroSync() {
+    const h = heroRail();
+    if (!h) return;
+    const cur = heroIndex(h);
+    for (let i = 0; i < h.slides.length; i++) {
+      if (i === cur) h.slides[i].removeAttribute('tabindex');
+      else h.slides[i].setAttribute('tabindex', '-1');
+    }
+    const dots = document.getElementById('hero-dots');
+    if (dots) {
+      const b = dots.querySelectorAll('button');
+      for (let i = 0; i < b.length; i++) b[i].setAttribute('tabindex', '-1');
+    }
+  }
+
+  /** Step the marquee. Returns false when there is nowhere to go, so the
+   *  caller can let the ordinary spatial move run instead — that is how Left
+   *  on the first film reaches the nav rail rather than dead-ending. */
+  function heroStep(delta) {
+    const h = heroRail();
+    if (!h) return false;
+    const next = heroIndex(h) + delta;
+    if (next < 0 || next >= h.slides.length) return false;
+    h.rail.scrollTo({ left: next * h.rail.clientWidth, behavior: 'smooth' });
+    // Mark the destination reachable BEFORE focusing it, or FOCUSABLE still
+    // excludes it and the engine's next move computes from a stale cursor.
+    for (let i = 0; i < h.slides.length; i++) {
+      if (i === next) h.slides[i].removeAttribute('tabindex');
+      else h.slides[i].setAttribute('tabindex', '-1');
+    }
+    h.slides[next].focus();
+    return true;
+  }
+
+  function installHero() {
+    // The rail scrolls on its own (watch.js auto-advances) and is rebuilt on
+    // every Home render, so the reachable slide is re-derived from the scroll
+    // position rather than tracked.
+    document.addEventListener('scroll', function (ev) {
+      if (ev.target && ev.target.id === 'hero-rail') heroSync();
+    }, true);
+  }
+
   function onKeyDown(ev) {
     const code = ev.keyCode;
     diagKey(code);
@@ -1206,6 +1292,16 @@
     if (focused && focused.tagName === 'SELECT' && !focused.disabled
         && (code === KEY.UP || code === KEY.DOWN)) {
       return;                       // let the browser change the value
+    }
+
+    // The marquee owns Left/Right while it has focus: on a television a hero
+    // is a slideshow, and stepping films is what those arrows mean there.
+    if (focused && focused.classList && focused.classList.contains('hero-cta')
+        && (code === KEY.LEFT || code === KEY.RIGHT)) {
+      ev.preventDefault();
+      if (heroStep(code === KEY.RIGHT ? 1 : -1)) return;
+      // Nowhere left to step — fall through to the ordinary move, so Left on
+      // the first film still reaches the nav rail.
     }
 
     switch (code) {
@@ -1295,6 +1391,7 @@
 
     registerTizenKeys();
     installLifecycle();
+    installHero();
     installPointerBridge();
     window.addEventListener('keydown', onKeyDown, true);
 
@@ -1305,6 +1402,7 @@
       closeShare();
       closeConfirm();
       tvPickers();
+      heroSync();
       claimFocus();
       beginArrival();
     });
@@ -1314,6 +1412,7 @@
     const mo = new MutationObserver(function () {
       const v = activeVideo();
       if (v) adoptVideo(v);       // strip the browser's controls the moment it exists
+      heroSync();   // Home re-renders its rail asynchronously
       const active = document.activeElement;
       if (!active || active === document.body) claimFocus();
     });
@@ -1331,6 +1430,7 @@
     window.AWTV.confirm = tvConfirm;
 
     tvPickers();
+    heroSync();
     claimFocus();
     // A deep link (or a side-loaded app opened straight onto a route) fires no
     // hashchange, so arrival has to be started at boot as well.
