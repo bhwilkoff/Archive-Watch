@@ -49,6 +49,9 @@ import app.archivewatch.android.ui.EmptyState
 import app.archivewatch.android.ui.uniqueBy
 import app.archivewatch.android.ui.LoadingBox
 import app.archivewatch.android.ui.Nav
+import app.archivewatch.android.ui.tv.TvPageHeader
+import app.archivewatch.android.ui.tv.TvPosterGrid
+import app.archivewatch.android.ui.tv.LocalTvRailFocus
 import app.archivewatch.android.ui.tv.LocalIsTelevision
 import app.archivewatch.android.ui.tv.tvFocusable
 import app.archivewatch.android.ui.PosterTile
@@ -141,7 +144,8 @@ fun CollectionGridScreen(container: AppContainer, nav: Nav, route: Route.Collect
         // conversion of 2026-08-27 missed these two sites).
         value = container.catalog.awaitDb().byCollection(route.id)
     }
-    GridScaffold(title = route.title, subtitle = route.blurb, nav = nav, items = items)
+    GridScaffold(title = route.title, subtitle = route.blurb, nav = nav, items = items,
+                 eyebrow = "COLLECTION")
 }
 
 /** Person filmography — name FTS, disambiguated by TMDB person id when we have one (two
@@ -163,7 +167,8 @@ fun PersonScreen(container: AppContainer, nav: Nav, name: String, tmdbPersonID: 
             hits
         }
     }
-    GridScaffold(title = name, subtitle = "Titles featuring $name", nav = nav, items = items)
+    GridScaffold(title = name, subtitle = "Titles featuring $name", nav = nav, items = items,
+                 eyebrow = "FILMOGRAPHY")
 }
 
 /** Cartoon Mode: marathon + character shelves (the apps' kid-leaning surface). */
@@ -253,7 +258,34 @@ fun CartoonScreen(container: AppContainer, nav: Nav) {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun GridScaffold(title: String, subtitle: String?, nav: Nav,
-                         items: List<CatalogItem>?) {
+                         items: List<CatalogItem>?, eyebrow: String = "BROWSE") {
+    // ONE branch fixes TWO screens: Collection and Person are the same page,
+    // which is why they already shared this scaffold. The phone version puts
+    // its title in a TopAppBar behind a 24dp back arrow and lays the grid out
+    // with GridCells.Adaptive(110.dp) — a dozen phone-sized columns at 1920,
+    // with no overscan inset on any edge.
+    if (LocalIsTelevision.current) {
+        val rows = items.orEmpty().uniqueBy { it.archiveID }
+        Column(Modifier.fillMaxSize()) {
+            TvPageHeader(
+                eyebrow = eyebrow,
+                title = title,
+                meta = when {
+                    items == null -> "Loading…"
+                    rows.isEmpty() -> "Nothing here yet."
+                    subtitle != null -> subtitle
+                    else -> "${rows.size} ${if (rows.size == 1) "title" else "titles"}"
+                },
+                compact = true,
+            )
+            TvPosterGrid(
+                rows = rows,
+                onClick = { nav.openItem(it.archiveID, it.seriesID, it.contentType) },
+                railFocus = LocalTvRailFocus.current,
+            )
+        }
+        return
+    }
     Scaffold(
         topBar = {
             TopAppBar(

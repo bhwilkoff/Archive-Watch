@@ -366,8 +366,8 @@ obscure corners:
 | Settings | yes | `SettingsScreen` — TV LAYOUT branch (2026-09-13), deliberately not a copy |
 | Filtered | no | `FilteredGridScreen` |
 | Playlist | no | `PlaylistScreen` |
-| Collection | no | `CollectionGridScreen` |
-| Person | no | `PersonScreen` |
+| Collection | no | `GridScaffold` TV branch (2026-09-13) |
+| Person | no | `GridScaffold` TV branch (2026-09-13) |
 
 **Measured on the Google TV, not inferred.** A `uiautomator` dump of Surprise
 puts film captions at x=32 and out to x=1888, against an overscan-safe band of
@@ -382,3 +382,14 @@ shared TV page scaffold carrying the overscan inset, the eyebrow/title block
 and the action row is the economical answer, and `TvSharedListScreen` is the
 worked example of what that page should look like.
 
+### Driving Android TV from a harness — two notes
+
+`KEYCODE_DPAD_CENTER` does NOT activate a `tvFocusable`; `KEYCODE_ENTER` does.
+Focus was demonstrably on the card (uiautomator `focused="true"` with its
+bounds) and Center did nothing, which reads exactly like a dead control.
+
+And a focused element is SCALED about its centre, so its reported bounds move
+OUTWARD — the leftmost grid card measured x=69 while focused against an
+overscan edge of 96. For a card that is harmless: the TEXT inside it is inset
+and stays well clear. For a WIDE row it is not (see Settings). When reading a
+uiautomator dump, judge the TEXT bounds, never the container's.
