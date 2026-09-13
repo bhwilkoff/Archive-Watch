@@ -385,6 +385,54 @@
    "kind": "ephemeral",
    "mediaId": null,
    "reviewer": "makelikeabandit"
+  },
+  {
+   "at": "2026-09-13T18:06:34.007255+00:00",
+   "id": "therealwest",
+   "title": "The Real West",
+   "slot": "from-the-vaults",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mvg6r7p4k72i",
+   "format": "video",
+   "kind": "short-film",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-09-13T18:06:34.007255+00:00",
+   "id": "therealwest",
+   "title": "The Real West",
+   "slot": "from-the-vaults",
+   "platform": "mastodon",
+   "url": "https://mastodon.social/@archivewatch/117265060135029774",
+   "format": "video",
+   "kind": "short-film",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-09-13T18:06:34.007255+00:00",
+   "id": "therealwest",
+   "title": "The Real West",
+   "slot": "from-the-vaults",
+   "platform": "instagram",
+   "url": "https://www.instagram.com/reel/DdPKvwYD2Sw/",
+   "format": "video",
+   "kind": "short-film",
+   "mediaId": "117265059750580977",
+   "reviewer": null
+  },
+  {
+   "at": "2026-09-13T18:06:34.007255+00:00",
+   "id": "therealwest",
+   "title": "The Real West",
+   "slot": "from-the-vaults",
+   "platform": "youtube",
+   "url": "https://youtube.com/watch?v=f6Et8Cp5OXg",
+   "format": "video",
+   "kind": "short-film",
+   "mediaId": null,
+   "reviewer": null
   }
  ]
 }
