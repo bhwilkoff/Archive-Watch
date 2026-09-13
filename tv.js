@@ -1224,6 +1224,52 @@
     return true;
   }
 
+  /* ── A guide strip is walked by ORDER, not by distance ─────────────────
+   *
+   * An EPG block is sized to its programme's runtime, so a three-minute
+   * cartoon draws 30px wide and a feature draws 400. The spatial engine
+   * scores candidates geometrically, and among three ~30px blocks in a row
+   * one can lose from BOTH sides: measured on Channels with
+   * tools/tv_reachability.mjs, an exhaustive 920-node walk found exactly one
+   * island — "La Boite a Cigares 11:40 AM", 30px wide, between neighbours of
+   * 30px and 33px.
+   *
+   * Geometry is the wrong instrument for a row that already has an order.
+   * Left and Right in a guide mean "the programme before / after this one",
+   * which is the sibling, whatever its width — the idiom the Roku EPG already
+   * uses. Falling through at the ends keeps the rail and the rest of the page
+   * reachable, so nobody is trapped in a strip. */
+  function epgStep(el, delta) {
+    const next = delta > 0 ? el.nextElementSibling : el.previousElementSibling;
+    if (!next || !next.classList || !next.classList.contains('epg-block')) return false;
+    next.focus();
+    return document.activeElement === next;
+  }
+
+  /* ── Settings has to be in the nav on a television ──────────────────────
+   *
+   * On the web, About & attribution is a FOOTER link, and on this TV layer
+   * that page IS the settings screen — the category preferences live there.
+   * A footer works when a page ends. Browse does not end: it appends tiles as
+   * focus moves down, measured on the glass at 40 presses of Down still in the
+   * grid with more loading, so the footer below it is drawn and unreachable —
+   * the same class as the dead SELECT and the `.clickable` EPG this project
+   * has already paid for twice. tools/tv_reachability.mjs named it: 390 proven
+   * reachable on Browse and exactly two not, both footer links.
+   *
+   * Every TV app in this family puts settings in the nav (tvOS, Roku, Google
+   * TV), so the TV layer appends it there. The footer is left alone — it is
+   * right for a phone, and on Home it is reachable anyway. */
+  function installNavAbout() {
+    const nav = document.querySelector('.topnav');
+    if (!nav || nav.querySelector('[data-nav="about"]')) return;
+    const a = document.createElement('a');
+    a.href = '#/about';
+    a.dataset.nav = 'about';           // watch.js highlights on this
+    a.textContent = 'About';
+    nav.appendChild(a);
+  }
+
   function installHero() {
     // The rail scrolls on its own (watch.js auto-advances) and is rebuilt on
     // every Home render, so the reachable slide is re-derived from the scroll
@@ -1292,6 +1338,14 @@
     if (focused && focused.tagName === 'SELECT' && !focused.disabled
         && (code === KEY.UP || code === KEY.DOWN)) {
       return;                       // let the browser change the value
+    }
+
+    // A guide strip owns Left/Right too, for the same reason and by order
+    // rather than geometry (see epgStep).
+    if (focused && focused.classList && focused.classList.contains('epg-block')
+        && (code === KEY.LEFT || code === KEY.RIGHT)) {
+      ev.preventDefault();
+      if (epgStep(focused, code === KEY.RIGHT ? 1 : -1)) return;
     }
 
     // The marquee owns Left/Right while it has focus: on a television a hero
@@ -1391,6 +1445,7 @@
 
     registerTizenKeys();
     installLifecycle();
+    installNavAbout();
     installHero();
     installPointerBridge();
     window.addEventListener('keydown', onKeyDown, true);

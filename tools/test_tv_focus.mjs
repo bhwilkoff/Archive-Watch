@@ -446,6 +446,48 @@ check('Tizen back (10009) navigates', global._wentBack, true);
   delete rowA[2].attrs.tabindex;
 }
 
+/* ── A guide strip is walked by ORDER, not distance ─────────────────────────
+ *
+ * An EPG block is sized to its programme's runtime, so among three ~30px
+ * blocks in a row one can lose the geometric score from BOTH sides. That is
+ * exactly what tools/tv_reachability.mjs found on Channels: an exhaustive
+ * 920-node walk with one island, a 30px block between a 30px and a 33px one.
+ * These cases are the SHAPE of that — a narrow sibling next to a far wider
+ * block, where a scorer that prefers overlap or centre-distance picks the wide
+ * one. Asserted both ways: order wins inside the strip, and the last block
+ * still falls through so nobody is trapped in a guide. */
+{
+  const klass = (c) => ({ add() {}, contains: (x) => c.includes(x) });
+  const blk = (name, left, width) => {
+    const e = new El('button', { left, top: 900, width, height: 110 },
+                     { name, class: 'epg-block' });
+    e.classList = klass(['epg-block']);
+    nodes.push(e); return e;
+  };
+  const narrow = blk('epg-narrow', 400, 30);
+  const wide   = blk('epg-wide',   440, 400);
+  narrow.nextElementSibling = wide;
+  wide.previousElementSibling = narrow;
+  // The thing a geometric scorer would rather land on: same row, far wider,
+  // and NOT a sibling in the strip.
+  const decoy = blk('epg-decoy', 436, 460);
+  decoy.classList = klass([]);          // not a block — a rail button, say
+
+  doc.activeElement = narrow;
+  press(K.RIGHT);
+  check('a guide steps to the next PROGRAMME, not the nearest box',
+        doc.activeElement.attrs.name, 'epg-wide');
+
+  doc.activeElement = wide;
+  press(K.RIGHT);
+  check('...and the last block falls through, so nobody is trapped in a strip',
+        doc.activeElement.attrs.name !== 'epg-wide', true);
+
+  nodes.splice(nodes.indexOf(narrow), 1);
+  nodes.splice(nodes.indexOf(wide), 1);
+  nodes.splice(nodes.indexOf(decoy), 1);
+}
+
 check('the hero steps films from its own CTA',
       /classList\.contains\('hero-cta'\)[\s\S]{0,200}heroStep\(/.test(src), true);
 check('...and falls through when there is nowhere to step, so Left still leaves',

@@ -282,47 +282,52 @@ for (const route of ROUTES) {
     })()`);
   }
 
-  const nodes = (await evaluate(KEYS_JS)) || [];
   const start = await evaluate(WHERE);
-  const n = Math.min(nodes.length, CAP);
-  // A TV route ALWAYS has the nav rail, so an empty pool is a broken probe,
-  // not a clean route — and it was passing silently: a selector bug that made
-  // every evaluate() throw printed this line for every route and then exited 0
-  // with "0 focusable elements walked, 0 that no arrow key reaches". Decision
-  // 108 again, in the smallest possible form.
-  if (!n) {
-    console.log(`FAIL  ${route}  —  nothing focusable. A TV route always has a`);
-    console.log(`      nav rail, so this is the probe failing, not a clean page.`);
-    process.exit(1);
-  }
   if (process.env.AW_TV_DEBUG) {
     console.log(`    [debug] boot focus = ${start || "(not a focusable)"}`);
   }
 
-  const pool = nodes.slice(0, n);
-  const edges = new Map();
-  for (const from of pool) {
-    const to = new Set();
-    for (const key of Object.keys(KEYS)) {
-      if (!(await evaluate(focusKey(from)))) continue;   // gone after a re-render
-      await press(key);
-      const landed = await evaluate(WHERE);
-      if (landed && landed !== from) to.add(landed);
-    }
-    edges.set(from, to);
+  // A TV route ALWAYS has the nav rail, so an empty pool is a broken probe,
+  // not a clean route — and it was passing silently: a selector bug that made
+  // every evaluate() throw printed "nothing focusable" for every route and
+  // then exited 0. Decision 108 in the smallest possible form.
+  if (!((await evaluate(KEYS_JS)) || []).length) {
+    console.log(`FAIL  ${route}  —  nothing focusable. A TV route always has a`);
+    console.log(`      nav rail, so this is the probe failing, not a clean page.`);
+    process.exit(1);
   }
 
-  // The seed must be INSIDE the pool, or the walk starts on an island and
-  // every node reads unreachable. Measured on #/channels: 891 focusables, the
-  // app boots focus onto one beyond the cap, and the run reported 90 of 90
-  // unreachable INCLUDING the nav rail — a page a remote walks fine.
-  const seed = (start && pool.includes(start)) ? start : pool[0];
-  const seen = new Set([seed]);
-  const queue = [seed];
-  while (queue.length) {
-    const cur = queue.shift();
-    for (const nx of (edges.get(cur) || [])) {
-      if (!seen.has(nx)) { seen.add(nx); queue.push(nx); }
+  /* WALK UNTIL THE PAGE STOPS GROWING.
+   *
+   * Browse lazy-loads: measured, an exhaustive pass took its pool 85 -> 145,
+   * "removed 0, added 60" — the grid appended tiles as focus moved down it.
+   * The first version of this tool called that churn and refused to report,
+   * which threw away a measurable route. It is not the same thing as a page
+   * re-rendering under the walk: nothing that had been walked went away, and
+   * the keys are tag+text+ordinal, so appending at the END cannot renumber an
+   * earlier one.
+   *
+   * But a grown pool is not free either — the 60 new tiles were never focused,
+   * so edges OUT of them were never recorded, and a node reachable only from
+   * one of them would read unreachable. So the walk simply repeats: each round
+   * picks up whatever appeared in the last one, until nothing new shows up. */
+  const edges = new Map();
+  let rounds = 0, grew = 0;
+  for (; rounds < 6; rounds++) {
+    if (edges.size >= CAP) break;
+    const present = (await evaluate(KEYS_JS)) || [];
+    const todo = present.filter((k) => !edges.has(k)).slice(0, CAP - edges.size);
+    if (!todo.length) break;
+    if (rounds) grew += todo.length;
+    for (const from of todo) {
+      const to = new Set();
+      for (const key of Object.keys(KEYS)) {
+        if (!(await evaluate(focusKey(from)))) continue;   // gone after a re-render
+        await press(key);
+        const landed = await evaluate(WHERE);
+        if (landed && landed !== from) to.add(landed);
+      }
+      edges.set(from, to);
     }
   }
 
@@ -338,37 +343,60 @@ for (const route of ROUTES) {
   // So the tool refuses to report a number it cannot stand behind. This is the
   // same rule the dashboard follows (Decision 108): a reader that cannot read
   // SAYS SO, and never a confident zero — or in this case, never a confident
-  // list of defects that are not there.
-  const after = (await evaluate(KEYS_JS)) || [];
-  const churned = after.length !== nodes.length
-    || after.some((k, i) => k !== nodes[i]);
-  if (churned) {
-    console.log(`${route.slice(0, 40).padEnd(42)} ${n} focusable — NOT MEASURABLE: the page`);
-    console.log(`      re-renders on focus, so an exhaustive walk changes what it measures.`);
+  // list of defects that are not there. REMOVAL is the disqualifying event,
+  // not growth: a node that vanished takes its edges with it.
+  const present = (await evaluate(KEYS_JS)) || [];
+  const now = new Set(present);
+  const removed = [...edges.keys()].filter((k) => !now.has(k));
+  if (removed.length) {
+    console.log(`${route.slice(0, 40).padEnd(42)} ${edges.size} walked — NOT MEASURABLE:`);
+    console.log(`      ${removed.length} element(s) the walk had already measured are gone,`);
+    console.log(`      so the page re-renders on focus and the graph is stale.`);
+    for (const r of removed.slice(0, 4)) console.log(`      gone: ${r}`);
     continue;
+  }
+
+  /* REACHABILITY IS ASYMMETRIC, and the first version of this tool threw that
+   * away. A node the walk FINDS is proven reachable — a path was demonstrated,
+   * and no amount of unwalked graph can take that back. Only UNreachability
+   * needs the complete graph, because one unrecorded edge is enough to
+   * overturn it.
+   *
+   * That matters because some surfaces never settle. Browse appends tiles as
+   * focus moves down it, forever: six rounds took it 85 -> 385 walked and it
+   * had grown by another 60. Calling that NOT MEASURABLE threw away a real
+   * answer — the question worth asking there is whether the CONTROLS are
+   * reachable, not whether all 30,000 tiles are. So an unfinished walk reports
+   * what it PROVED and names what it could not settle, rather than refusing. */
+  const unwalked = present.filter((k) => !edges.has(k));
+  const pool = [...edges.keys()];
+  // The seed must be INSIDE the pool, or the walk starts on an island and
+  // every node reads unreachable. Measured on #/channels: 892 focusables, the
+  // app boots focus onto one beyond the cap, and the run reported 90 of 90
+  // unreachable INCLUDING the nav rail — a page a remote walks fine.
+  const seed = (start && edges.has(start)) ? start : pool[0];
+  const seen = new Set([seed]);
+  const queue = [seed];
+  while (queue.length) {
+    const cur = queue.shift();
+    for (const nx of (edges.get(cur) || [])) {
+      if (!seen.has(nx)) { seen.add(nx); queue.push(nx); }
+    }
   }
 
   const unreached = pool.filter((k) => !seen.has(k));
 
-  // A CAPPED WALK MAY NOT CLAIM A DEFECT. Only the first CAP nodes are ever
-  // focused, so edges OUT of the rest are never recorded — and a node whose
-  // only inbound arrow comes from tile 200 of a 389-tile grid then looks
-  // unreachable when it is not. Measured on Home: 3 "unreachable" under a cap
-  // of 90, every one of them an ordinary Details link in a shelf.
-  //
-  // So a capped route reports what it saw and is explicitly INCONCLUSIVE, and
-  // contributes nothing to the total. Same rule as the churn check and as
-  // Decision 108: a reader that cannot read says so. Raise AW_TV_CAP above the
-  // route's focusable count to get a claim out of it.
-  if (nodes.length > n) {
-    console.log(`${route.slice(0, 40).padEnd(42)} ${n} of ${nodes.length} walked — INCONCLUSIVE:`);
-    console.log(`      a capped walk never records edges out of the ${nodes.length - n} it skipped,`);
-    console.log(`      so ${unreached.length} unreached here is not a defect claim. Raise AW_TV_CAP.`);
+  if (unwalked.length) {
+    console.log(`${route.slice(0, 40).padEnd(42)} ${seen.size} PROVEN reachable`
+              + ` — the page kept growing (${unwalked.length} unwalked), so the`);
+    console.log(`      ${unreached.length} it did not reach are UNSETTLED, not defects.`);
+    for (const u of unreached.slice(0, 6)) console.log(`      unsettled: ${u}`);
     continue;
   }
 
-  totalNodes += n; totalUnreached += unreached.length;
-  console.log(`${route.slice(0, 40).padEnd(42)} ${n} focusable, ${unreached.length} UNREACHABLE`);
+  totalNodes += pool.length; totalUnreached += unreached.length;
+  console.log(`${route.slice(0, 40).padEnd(42)} ${pool.length} focusable, ${unreached.length} UNREACHABLE`
+            + (grew ? `  (${grew} appeared while walking, all walked too)` : ""));
   for (const u of unreached.slice(0, 6)) console.log(`      ${u}`);
 }
 
