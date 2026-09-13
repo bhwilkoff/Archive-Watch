@@ -1243,6 +1243,20 @@
     const next = delta > 0 ? el.nextElementSibling : el.previousElementSibling;
     if (!next || !next.classList || !next.classList.contains('epg-block')) return false;
     next.focus();
+    // SHOW THE START OF THE PROGRAMME. A block is sized to its runtime, so a
+    // long film is wider than the screen by construction, and the browser's
+    // own scroll-into-view does the MINIMUM — which for a wide block can leave
+    // its title mostly off the right edge. Measured with tools/tv_follow_focus
+    // after the ordering change: stepping to "Filmography: Woody Allen" put
+    // the label's right edge at 2037 on a 1920 screen, so the viewer saw the
+    // first few characters of the programme they had just selected.
+    //
+    // `inline: 'start'` puts the block's beginning at the left of the guide,
+    // which is where its title is. `block: 'nearest'` so stepping sideways
+    // never scrolls the page vertically.
+    if (typeof next.scrollIntoView === 'function') {
+      next.scrollIntoView({ inline: 'start', block: 'nearest' });
+    }
     return document.activeElement === next;
   }
 

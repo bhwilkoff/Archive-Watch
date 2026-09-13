@@ -105,12 +105,50 @@ async function press(key) {
   await sleep(230);                     // let a smooth scroll settle
 }
 
+/* JUDGE THE TEXT, NOT THE BOX.
+ *
+ * What a television cuts is what the viewer needs to READ. An element's box
+ * can legitimately run past the screen while everything readable in it sits
+ * comfortably inside — an EPG block is sized to its programme's runtime, so a
+ * three-hour film is wider than 1920 by construction and its title is at the
+ * left end of it. Measured: stepping the guide, blocks 30px to 338px wide all
+ * kept their label on screen, and a block reported "right 2085" was a long
+ * programme whose title was visible the whole time.
+ *
+ * Judging the box flagged that as a defect. It is not one, and a checker that
+ * cries wolf on an unavoidable geometry is a checker whose next real finding
+ * gets waved through. So: the union of the rects of the nodes that DRAW TEXT
+ * (the rule tv_audit_sizes already uses), falling back to the element's own
+ * box when it draws none — a focusable with no text is judged whole, because
+ * then the box IS the thing you have to see. */
 const PROBE = `(() => {
   const a = document.activeElement;
   if (!a || a === document.body) return JSON.stringify({ none: true });
-  const r = a.getBoundingClientRect();
+  const boxes = [];
+  const walk = (el) => {
+    let own = '';
+    for (const n of el.childNodes) if (n.nodeType === 3) own += n.textContent;
+    if (own.trim()) {
+      const cs = getComputedStyle(el);
+      if (cs.visibility !== 'hidden' && cs.display !== 'none') {
+        const b = el.getBoundingClientRect();
+        if (b.width > 0 && b.height > 0) boxes.push(b);
+      }
+    }
+    for (const c of el.children) walk(c);
+  };
+  walk(a);
+  const r = boxes.length
+    ? {
+        top: Math.min(...boxes.map((b) => b.top)),
+        bottom: Math.max(...boxes.map((b) => b.bottom)),
+        left: Math.min(...boxes.map((b) => b.left)),
+        right: Math.max(...boxes.map((b) => b.right)),
+      }
+    : a.getBoundingClientRect();
   return JSON.stringify({
     name: (a.className || a.tagName) + '|' + (a.textContent || '').trim().slice(0, 28),
+    judged: boxes.length ? 'text' : 'box',
     top: Math.round(r.top), bottom: Math.round(r.bottom),
     left: Math.round(r.left), right: Math.round(r.right),
   });
