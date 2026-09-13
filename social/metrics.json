@@ -219,6 +219,37 @@
     "replies": 0,
     "quotes": 0
    }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mvdnhickih2g",
+   "platform": "bluesky",
+   "id": "LittleLordFauntleroy_201402",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-09-12T17:51:37.363675+00:00",
+   "sampled": "2026-09-13T15:30:42.933140+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117259338757414792",
+   "platform": "mastodon",
+   "id": "LittleLordFauntleroy_201402",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-09-12T17:51:37.363675+00:00",
+   "sampled": "2026-09-13T15:30:42.933140+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
   }
  ]
 }
