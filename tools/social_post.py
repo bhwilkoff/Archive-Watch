@@ -28,6 +28,7 @@ Run:
 from __future__ import annotations
 
 import argparse
+import base64
 import datetime as dt
 import json
 import mimetypes
@@ -522,6 +523,85 @@ def await_media(urls: list[str], timeout: int = MEDIA_READY_TIMEOUT) -> dict[str
     return {u: last[u] for u in pending}
 
 
+# The branch the cards live on, served by raw.githubusercontent.
+MEDIA_BRANCH = os.environ.get("SOCIAL_MEDIA_BRANCH", "social-media")
+
+
+def _gh_api(path: str, method: str = "GET", body: dict | None = None):
+    tok = os.environ.get("GH_TOKEN") or os.environ.get("GITHUB_TOKEN")
+    if not tok:
+        return None
+    req = urllib.request.Request(
+        f"https://api.github.com{path}", method=method,
+        data=json.dumps(body).encode() if body is not None else None,
+        headers={"Authorization": f"Bearer {tok}",
+                 "Accept": "application/vnd.github+json",
+                 "Content-Type": "application/json"})
+    try:
+        with urllib.request.urlopen(req, timeout=60) as r:
+            return json.loads(r.read() or b"{}")
+    except Exception:                            # noqa: BLE001 — caller decides
+        return None
+
+
+def _gh_publish(card: Path, name: str, live: bool) -> str | None:
+    """Put an IMAGE on a branch and return its raw.githubusercontent URL.
+
+    Why not archive.org, which every other artefact here uses: archive.org is
+    an ARCHIVE, and a freshly PUT object is not servable until its task queue
+    catches up. Measured 2026-09-13 with `social_post.py --probe-media`, which
+    exists for exactly this question: 0 of 3 files served after 604 seconds,
+    and all three served by the time anyone looked 16 minutes later. It was
+    under 30s on the 8th and the 10th. A deadline cannot cover a variable that
+    ranges from half a minute to a third of an hour, and Meta FETCHES the URL
+    within a second or two of being handed it, so the card has to be servable
+    the moment it is offered.
+
+    raw.githubusercontent has no ingest step at all — the file is servable as
+    soon as the commit exists — and it sends the right Content-Type for an
+    image: measured, a repo .jpg comes back `image/jpeg`.
+
+    IMAGES ONLY, and that is measured too: the same host serves a .mp4 as
+    `application/octet-stream`, which Meta refuses. A Release asset is no
+    better — GitHub stores `video/mp4` on the asset and still serves
+    `application/octet-stream` from the download URL, which is why the note
+    about Release assets in this file is right and stays. So the teaser keeps
+    archive.org, and a day whose clip is not ready in time posts the CARD
+    instead of a Reel, which the Instagram adapter already does.
+    """
+    repo = os.environ.get("GITHUB_REPOSITORY")
+    if not repo or card.suffix.lower() not in (".jpg", ".jpeg", ".png"):
+        return None
+    url = f"https://raw.githubusercontent.com/{repo}/{MEDIA_BRANCH}/cards/{name}"
+    if not live:
+        print(f"[media] would publish {card.name} -> {url}")
+        return url
+
+    # The branch is created from the default head the first time. It is a ref,
+    # not a fork of the work: nothing merges back, and it can be reset whenever
+    # the accumulated cards are worth pruning.
+    if _gh_api(f"/repos/{repo}/git/ref/heads/{MEDIA_BRANCH}") is None:
+        head = _gh_api(f"/repos/{repo}/commits/HEAD")
+        if head and head.get("sha"):
+            _gh_api(f"/repos/{repo}/git/refs", "POST",
+                    {"ref": f"refs/heads/{MEDIA_BRANCH}", "sha": head["sha"]})
+
+    path = f"cards/{name}"
+    body = {"message": f"social media: {name}",
+            "content": base64.b64encode(card.read_bytes()).decode(),
+            "branch": MEDIA_BRANCH}
+    # An update needs the blob sha; a create must not carry one.
+    cur = _gh_api(f"/repos/{repo}/contents/{path}?ref={MEDIA_BRANCH}")
+    if isinstance(cur, dict) and cur.get("sha"):
+        body["sha"] = cur["sha"]
+    if _gh_api(f"/repos/{repo}/contents/{path}", "PUT", body) is None:
+        print(f"[media] branch publish failed for {card.name}; "
+              f"falling back to archive.org", file=sys.stderr)
+        return None
+    print(f"[media] published {url}")
+    return url
+
+
 def _ia_publish(card: Path, name: str, live: bool) -> str | None:
     """Put the card on the archivewatch-covers item; return a fetchable URL."""
     ak = os.environ.get("IAS3_ACCESS_KEY")
@@ -553,6 +633,12 @@ def publish_media(card: Path, spec: dict, live: bool) -> str | None:
     base = os.environ.get("SOCIAL_MEDIA_BASE_URL")
     name = f"{spec['date']}-{spec['id'][:48]}-{card.stem}{card.suffix}"
     name = "".join(c if c.isalnum() or c in "-._" else "-" for c in name)
+
+    # An image goes to the host with no ingest delay; the teaser cannot (see
+    # _gh_publish) and falls through to archive.org.
+    gh = _gh_publish(card, name, live)
+    if gh:
+        return gh
 
     ia = _ia_publish(card, name, live)
     if ia:

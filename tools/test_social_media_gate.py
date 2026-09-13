@@ -93,6 +93,29 @@ src = Path("tools/social_post.py").read_text()
 code = "\n".join(re.sub(r"#.*$", "", ln) for ln in src.splitlines())
 code = re.sub(r'"""(?:.|\n)*?"""', "", code)
 
+# THE HOST SPLIT — images go somewhere servable NOW, video cannot.
+#
+# Measured 2026-09-13: archive.org served 0 of 3 freshly-uploaded files after
+# 604s and all three by 16 minutes, while doing it in under 30s on the 8th and
+# the 10th. Meta fetches within a second or two of being handed a URL, so a
+# card needs a host with no ingest step. raw.githubusercontent has none and
+# sends image/jpeg for a .jpg — but application/octet-stream for a .mp4, which
+# Meta refuses, exactly as a Release asset does. So the split is not a
+# preference, it is what the two hosts actually serve.
+import os as _os, tempfile as _tf
+_os.environ.setdefault("GITHUB_REPOSITORY", "owner/repo")
+with _tf.TemporaryDirectory() as d:
+    jpg = Path(d) / "card-square.jpg"; jpg.write_bytes(b"\xff\xd8\xff\xe0jpeg")
+    mp4 = Path(d) / "clip.mp4";        mp4.write_bytes(b"\x00\x00\x00\x18ftypmp42")
+    got = S._gh_publish(jpg, "x-card-square.jpg", live=False)
+    check(bool(got) and got.endswith("/social-media/cards/x-card-square.jpg"),
+          "an image is published to the branch raw.githubusercontent serves", str(got))
+    check(S._gh_publish(mp4, "x-clip.mp4", live=False) is None,
+          "a video is NOT — that host sends octet-stream and Meta refuses it")
+
+check(re.search(r"_gh_publish\((?:.|\n){0,200}?_ia_publish\(", code) is not None,
+      "the instant host is tried first and archive.org is the fallback")
+
 # THE CLASSIFICATION — the rule that actually broke.
 #
 # This file already asserted "a scheduled platform that refused FAILS the run"
