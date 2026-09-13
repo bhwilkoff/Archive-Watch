@@ -35,6 +35,11 @@ import android.content.Intent
 import androidx.compose.material.icons.filled.Share
 import androidx.compose.ui.platform.LocalContext
 import app.archivewatch.android.data.PlaylistShare
+import app.archivewatch.android.ui.tv.TvPageHeader
+import app.archivewatch.android.ui.tv.TvPosterGrid
+import app.archivewatch.android.ui.tv.TvRefineChip
+import app.archivewatch.android.ui.tv.TvDims
+import app.archivewatch.android.ui.tv.LocalTvRailFocus
 import app.archivewatch.android.ui.tv.LocalIsTelevision
 import app.archivewatch.android.ui.tv.TvShareOverlay
 import androidx.compose.runtime.Composable
@@ -61,7 +66,6 @@ import app.archivewatch.android.ui.EmptyState
 import app.archivewatch.android.ui.uniqueBy
 import app.archivewatch.android.ui.LoadingBox
 import app.archivewatch.android.ui.Nav
-import app.archivewatch.android.ui.tv.LocalIsTelevision
 import app.archivewatch.android.ui.tv.tvFocusable
 import app.archivewatch.android.ui.PosterTile
 import app.archivewatch.android.ui.Route
@@ -184,6 +188,50 @@ fun FilteredGridScreen(container: AppContainer, nav: Nav, route: Route.Filtered)
         val db = container.catalog.awaitDb()
         value = db.browse(contentType = route.contentType, decade = route.decade,
                           year = pdYearShown ?: route.year, sort = sort, limit = 240)
+    }
+    // TV: the header and the SORT are the two things the phone screen cannot
+    // lend a television. Its sort is a Material DropdownMenu — a phone-sized
+    // target that opens a nested focus context a remote then has to escape —
+    // and its grid is GridCells.Adaptive(110.dp) with no overscan inset. On TV
+    // every sort is a chip, visible at once, one press each (TvRefineChip),
+    // which is what TvBrowseScreen has always done for the same control.
+    if (LocalIsTelevision.current) {
+        val rows = items.orEmpty().uniqueBy { it.archiveID }
+        Column(Modifier.fillMaxSize()) {
+            TvPageHeader(
+                eyebrow = if (route.pdExplorer) "PUBLIC DOMAIN DAY" else "BROWSE",
+                title = route.title,
+                meta = when {
+                    items == null -> "Loading…"
+                    rows.isEmpty() -> "No titles match this filter in the catalogue."
+                    else -> "${rows.size} ${if (rows.size == 1) "title" else "titles"}"
+                },
+                compact = true,
+            )
+            LazyRow(
+                contentPadding = PaddingValues(
+                    start = TvDims.OverscanH,
+                    end = TvDims.OverscanH,
+                ),
+                horizontalArrangement = Arrangement.spacedBy(12.dp),
+                modifier = Modifier.padding(bottom = 16.dp),
+            ) {
+                items(BrowseSort.entries.toList(), key = { "sort-" + it.name }) { s ->
+                    TvRefineChip(s.label, s == sort) { sort = s }
+                }
+                if (route.pdExplorer && route.year != null) {
+                    items((0..9).map { route.year!! - it }, key = { "y" + it }) { y ->
+                        TvRefineChip(y.toString(), pdYearShown == y) { pdYearShown = y }
+                    }
+                }
+            }
+            TvPosterGrid(
+                rows = rows,
+                onClick = { nav.openItem(it.archiveID, it.seriesID, it.contentType) },
+                railFocus = LocalTvRailFocus.current,
+            )
+        }
+        return
     }
     Scaffold(
         topBar = {

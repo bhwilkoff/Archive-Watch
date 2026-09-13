@@ -190,3 +190,37 @@ fun TvPosterGrid(
         }
     }
 }
+
+/**
+ * A refine chip — the TV answer to a dropdown.
+ *
+ * TvBrowseScreen has carried a private twin of this since it was built; this
+ * is the shared one, so a second screen needing the same control does not get
+ * a Material DropdownMenu instead. A menu on a television is the wrong shape
+ * twice: it is a phone-sized target, and it opens a nested focus context a
+ * remote has to escape. A row of chips is already the thing the viewer wants —
+ * every option visible, one press each.
+ */
+@Composable
+fun TvRefineChip(label: String, selected: Boolean, onClick: () -> Unit) {
+    Box(
+        Modifier
+            .tvFocusable(
+                onClick = onClick,
+                shape = RoundedCornerShape(24.dp),
+                scaleWhenFocused = 1.04f,
+            )
+            .background(
+                if (selected) TvAccent else Color(0xFF1C1C1C),
+                RoundedCornerShape(24.dp),
+            )
+            .padding(horizontal = 20.dp, vertical = 10.dp),
+    ) {
+        Text(
+            label,
+            fontSize = 19.sp,
+            fontWeight = if (selected) FontWeight.SemiBold else FontWeight.Normal,
+            color = if (selected) Color.Black else Color.White,
+        )
+    }
+}
