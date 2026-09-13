@@ -59,31 +59,67 @@ threading.Thread(target=srv.serve_forever, daemon=True).start()
 base = f"http://127.0.0.1:{srv.server_address[1]}"
 
 # NEGATIVE CONTROLS FIRST — a gate that cannot fail proves nothing.
-ok, d = S.media_fetchable(f"{base}/missing.jpg", timeout=4)
+ok, d = S.media_probe(f"{base}/missing.jpg")
 check(ok is False, "a 404 is NOT fetchable", d)
-ok, d = S.media_fetchable(f"{base}/html", timeout=4)
+ok, d = S.media_probe(f"{base}/html")
 check(ok is False, "a 200 that serves HTML is NOT fetchable", d)
 
-ok, d = S.media_fetchable(f"{base}/good.jpg", timeout=8)
+ok, d = S.media_probe(f"{base}/good.jpg")
 check(ok is True and d.startswith("image/"), "a real image IS fetchable", d)
-ok, d = S.media_fetchable(f"{base}/good.mp4", timeout=8)
+ok, d = S.media_probe(f"{base}/good.mp4")
 check(ok is True and d.startswith("video/"), "a real video IS fetchable", d)
 
+# ONE DEADLINE FOR ALL THE MEDIA, not one each. Waiting per file is what lost
+# Instagram and Threads: three uploads were polled to their own timeouts in
+# sequence, so the run burned 450s and gave the later files no head start.
+good = S.await_media([f"{base}/good.jpg", f"{base}/good.mp4"], timeout=8)
+check(good == {}, "everything fetchable comes back clean", str(good))
+
 t = time.time()
-S.media_fetchable(f"{base}/missing.jpg", timeout=4)
-check(time.time() - t < 12, "an unfetchable URL gives up rather than hanging the run")
+bad = S.await_media([f"{base}/missing.jpg", f"{base}/nope.mp4"], timeout=4)
+elapsed = time.time() - t
+check(set(bad) == {f"{base}/missing.jpg", f"{base}/nope.mp4"},
+      "the ones that never came good are named", str(bad))
+check(elapsed < 10, "...and two bad URLs share ONE deadline, not one each",
+      f"{elapsed:.1f}s")
+
+mixed = S.await_media([f"{base}/good.jpg", f"{base}/missing.jpg"], timeout=4)
+check(set(mixed) == {f"{base}/missing.jpg"},
+      "a good file is not held back by a bad sibling", str(mixed))
 
 srv.shutdown()
 
-# The two source rules. Comments are stripped: the block that fixed this NAMES
-# the failure it replaced, and a checker that counts its own explanation is the
-# trap this repo has hit before (tools/test_roku_legacy_syntax.py).
 src = Path("tools/social_post.py").read_text()
 code = "\n".join(re.sub(r"#.*$", "", ln) for ln in src.splitlines())
 code = re.sub(r'"""(?:.|\n)*?"""', "", code)
 
-check("media_fetchable(ia)" in code,
-      "publish_media gates the archive.org URL on fetchability")
+# THE CLASSIFICATION — the rule that actually broke.
+#
+# This file already asserted "a scheduled platform that refused FAILS the run"
+# and was GREEN through six runs that lost Instagram and Threads, because it
+# checked the CONSEQUENCE (`if failures: return 1`) and never the thing that
+# decides what enters `failures`. An unfetchable media URL took the quiet
+# `(skipped — ...)` branch, so the list it was asserting about stayed empty.
+check(S.BENIGN_SKIPS == {"not connected", "no teaser for this film"},
+      "only a missing credential or a missing teaser is a QUIET skip",
+      str(S.BENIGN_SKIPS))
+
+# Any skip reason written as a bare literal must be one of those two. A new
+# reason therefore has to be classified deliberately rather than inheriting
+# silence — which is exactly what "no public media URL" did.
+literals = set(re.findall(r'return None,\s*"([^"]+)"', src))
+check(literals <= S.BENIGN_SKIPS,
+      "every literal skip reason is declared benign on purpose",
+      f"unclassified: {sorted(literals - S.BENIGN_SKIPS)}")
+
+check(re.search(r"if skip in BENIGN_SKIPS:(?:.|\n){0,400}?failures\.append", code) is not None,
+      "a non-benign skip is appended to failures, not printed and forgotten")
+
+# The two source rules. Comments are stripped: the block that fixed this NAMES
+# the failure it replaced, and a checker that counts its own explanation is the
+# trap this repo has hit before (tools/test_roku_legacy_syntax.py).
+check("await_media(" in code,
+      "the run waits for its media before handing any URL to a platform")
 check(re.search(r"NOT fetchable after", src) is not None,
       "...and says so loudly when it never becomes fetchable")
 check(re.search(r"if failures:(?:.|\n){0,900}?return 1", code) is not None

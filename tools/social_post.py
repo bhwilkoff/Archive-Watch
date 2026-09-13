@@ -446,33 +446,80 @@ def compose(spec: dict, platform: str) -> str:
 # file, the host or the credentials — only the timing, which is why it worked on
 # the 8th and the 10th and failed on the 11th. A race that usually wins is worse
 # than one that always loses: it teaches you the thing is fine.
-MEDIA_READY_TIMEOUT = 150          # seconds; archive.org is usually ready in <30
+# Shared across every file in the run, not spent per file. 150 was enough
+# while archive.org answered in under 30 seconds; it stopped being enough
+# somewhere around 2026-09-11, and six consecutive runs then lost Instagram
+# and Threads — silently, because an unfetchable URL was filed as a skip. The
+# files were all servable later the same day, so this is latency and nothing
+# else, and the number is generous on purpose: a daily job can afford ten
+# minutes, and losing the post costs a day.
+MEDIA_READY_TIMEOUT = 600          # seconds, for ALL media together
 MEDIA_READY_OK = ("image/", "video/")
 
+# The ONLY two reasons a platform may be passed over quietly: it has no
+# credential, or it needs a teaser and this film yielded none. Every other
+# skip is a refusal and goes red (see the post loop).
+SKIP_NOT_CONNECTED = "not connected"
+SKIP_NO_TEASER = "no teaser for this film"
+BENIGN_SKIPS = {SKIP_NOT_CONNECTED, SKIP_NO_TEASER}
 
-def media_fetchable(url: str, timeout: int = MEDIA_READY_TIMEOUT) -> tuple[bool, str]:
-    """Poll until the URL serves real media, the way Meta's fetcher will.
+# Why the Meta platforms had no URL to hand over. Set from the media step so
+# the skip line names the CAUSE. It used to read "set SOCIAL_MEDIA_BASE_URL",
+# which was never the reason on any of the six runs it appeared in — that
+# secret was set the whole time — and a message naming the wrong cause is
+# worse than none: it sends the next reader to check a variable that is fine.
+MEDIA_FAIL_REASON = "no public media URL was published for this run"
 
-    Returns (ok, detail). A GET with a tiny Range is used rather than HEAD:
-    archive.org answers HEAD from a different path than GET, so a passing HEAD
-    would not prove the thing Instagram is about to do.
+
+def media_probe(url: str) -> tuple[bool, str]:
+    """One attempt, the way Meta's fetcher will make it.
+
+    A GET with a tiny Range rather than HEAD: archive.org answers HEAD from a
+    different path than GET, so a passing HEAD would not prove the thing
+    Instagram is about to do.
     """
+    try:
+        req = urllib.request.Request(url, headers={"Range": "bytes=0-255"})
+        with urllib.request.urlopen(req, timeout=30) as r:
+            ctype = (r.headers.get("Content-Type") or "").lower()
+            if r.status in (200, 206) and ctype.startswith(MEDIA_READY_OK):
+                return True, ctype
+            return False, f"HTTP {r.status} content-type={ctype or 'none'}"
+    except Exception as e:                       # noqa: BLE001 — a 404 is normal here
+        return False, str(e)[:120]
+
+
+def await_media(urls: list[str], timeout: int = MEDIA_READY_TIMEOUT) -> dict[str, str]:
+    """Wait for every URL at once, against ONE deadline. Returns url -> reason
+    for the ones that never came good; anything absent from the result is
+    fetchable.
+
+    Waiting per file was the whole problem. Each card was uploaded and then
+    polled to its own 150s timeout before the next was even uploaded, so the
+    run spent 450 seconds waiting and gave the second and third files no head
+    start at all — measured on 2026-09-13, three files uploaded 168 seconds
+    apart and every one of them judged against a timer that began after its
+    own upload. Uploading everything first and then polling together costs the
+    same wall clock and hands the later files the earlier ones' wait for free.
+    """
+    pending = [u for u in urls if u]
+    last = {u: "no attempt" for u in pending}
     deadline = time.time() + timeout
-    last = "no attempt"
     delay = 3
-    while time.time() < deadline:
-        try:
-            req = urllib.request.Request(url, headers={"Range": "bytes=0-255"})
-            with urllib.request.urlopen(req, timeout=30) as r:
-                ctype = (r.headers.get("Content-Type") or "").lower()
-                if r.status in (200, 206) and ctype.startswith(MEDIA_READY_OK):
-                    return True, ctype
-                last = f"HTTP {r.status} content-type={ctype or 'none'}"
-        except Exception as e:                   # noqa: BLE001 — keep polling
-            last = str(e)[:120]
-        time.sleep(delay)
-        delay = min(delay * 2, 20)
-    return False, last
+    while pending and time.time() < deadline:
+        still = []
+        for u in pending:
+            ok, detail = media_probe(u)
+            if ok:
+                print(f"[media] fetchable ({detail}) {u}", flush=True)
+            else:
+                last[u] = detail
+                still.append(u)
+        pending = still
+        if pending:
+            time.sleep(delay)
+            delay = min(delay * 2, 20)
+    return {u: last[u] for u in pending}
 
 
 def _ia_publish(card: Path, name: str, live: bool) -> str | None:
@@ -509,18 +556,11 @@ def publish_media(card: Path, spec: dict, live: bool) -> str | None:
 
     ia = _ia_publish(card, name, live)
     if ia:
-        if not live:
-            return ia
-        ok, detail = media_fetchable(ia)
-        if ok:
-            print(f"[media] fetchable ({detail}) {ia}")
-            return ia
-        # Do NOT hand an unfetchable URL to a platform: Meta's refusal is
-        # reported as a vague 400 about media types, which sent this hunt
-        # looking at formats and credentials rather than at timing.
-        print(f"[media] !! NOT fetchable after {MEDIA_READY_TIMEOUT}s: {detail} — {ia}",
-              file=sys.stderr)
-        return None
+        # Verification is deliberately NOT done here. The caller uploads every
+        # file first and then waits for all of them together (await_media), so
+        # a file cannot be judged against a timer that started at its own
+        # upload while its siblings were still queued behind it.
+        return ia
     if base and "releases/download" in base:
         print("[media] !! falling back to a GitHub Release asset, which Meta "
               "CANNOT fetch (octet-stream, signed, expiring). Instagram and "
@@ -728,7 +768,7 @@ def post_threads(spec, text, media_url, live: bool, video_url: str | None = None
     if not (uid and token):
         return None, "not connected"
     if not (video_url or media_url):
-        return None, "no public media URL (set SOCIAL_MEDIA_BASE_URL)"
+        return None, MEDIA_FAIL_REASON
     if not live:
         return ("DRY-RUN (video)" if video_url else "DRY-RUN (image)"), None
 
@@ -796,7 +836,7 @@ def post_instagram(spec, text, media_url, live: bool, video_url: str | None = No
     if not (uid and token):
         return None, "not connected"
     if not (video_url or media_url):
-        return None, "no public media URL (set SOCIAL_MEDIA_BASE_URL)"
+        return None, MEDIA_FAIL_REASON
     if not live:
         return ("DRY-RUN (reel)" if video_url else "DRY-RUN (image)"), None
 
@@ -1125,6 +1165,23 @@ def main() -> int:
     # teaser published too — the same rolling release the cards use.
     video_url = publish_media(video, spec, args.live) if video else None
 
+    # EVERYTHING IS UPLOADED BY NOW; wait for the host to start serving it.
+    # Do NOT hand an unfetchable URL to a platform: Meta's refusal comes back
+    # as a vague 400 about media types, which sent this hunt looking at
+    # formats and credentials rather than at timing.
+    if args.live:
+        stale = await_media([media_url, media_pt, video_url])
+        for url, why in stale.items():
+            print(f"[media] !! NOT fetchable after {MEDIA_READY_TIMEOUT}s: {why} — {url}",
+                  file=sys.stderr)
+        if stale:
+            global MEDIA_FAIL_REASON
+            MEDIA_FAIL_REASON = (f"the media host did not serve it within "
+                                 f"{MEDIA_READY_TIMEOUT}s ({next(iter(stale.values()))})")
+        if media_url in stale:  media_url = None
+        if media_pt in stale:   media_pt = None
+        if video_url in stale:  video_url = None
+
     resolve_mastodon_limit()
     now = dt.datetime.now(dt.timezone.utc).isoformat()
     entries, failures = [], []
@@ -1159,7 +1216,19 @@ def main() -> int:
             failures.append(name)
             continue
         if url is None:
-            print(f"   (skipped — {skip})\n")
+            # A skip is only quiet when there was nothing to do: no credential,
+            # or no teaser for a platform that needs one. Anything else is this
+            # run failing at its job, and it must say so — the comment on
+            # `failures` below already stated that rule ("scheduled AND
+            # connected AND then refused") while this branch quietly swallowed
+            # the case that satisfies it. Instagram and Threads were skipped
+            # for SIX consecutive green runs on "no public media URL", and the
+            # owner found it, not the tooling.
+            if skip in BENIGN_SKIPS:
+                print(f"   (skipped — {skip})\n")
+            else:
+                print(f"   !! could not post: {skip}\n", file=sys.stderr)
+                failures.append(name)
             continue
         # A dry run must never reach the ledger. The check was an EXACT match
         # on "DRY-RUN", and the moment Instagram and Threads started returning
