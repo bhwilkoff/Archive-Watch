@@ -122,6 +122,7 @@ struct RootView: View {
                     }
                     .navigationDestination(for: SeriesRef.self) { SeriesDetailView(card: $0.card) }
                     .navigationDestination(for: BrowseFilterRoute.self) { FilteredGridView(route: $0) }
+                    .navigationDestination(for: SharedListRoute.self) { SharedListView(shared: $0.shared) }
                     .navigationDestination(for: PublicDomainRoute.self) { _ in PublicDomainView() }
                     .navigationDestination(for: CartoonRoute.self) { _ in CartoonView() }
                     .navigationDestination(for: PartyRoute.self) { _ in PartyPlayView() }

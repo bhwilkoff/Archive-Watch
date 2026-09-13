@@ -296,3 +296,58 @@ their link gone, which is strictly worse than the web page they get now. The
 order is: teach the apps the route, ship them, *then* declare the path. The
 link shape is the part that had to come first, because links are permanent and
 every one shared from today is already the right shape.
+
+---
+
+## All three Apple platforms open a shared link (2026-09-12)
+
+`SharedListView` exists for tvOS, iOS and macOS. Each renders the collection
+the link carries, with the same two rules the owner set for the web:
+
+* **Browse and play for anyone.** Signed in or not, the films are there and
+  they play. Nothing is withheld from a stranger, because nothing here is ours
+  to withhold.
+* **Adding it is a choice**, never a side effect of opening a link. The app
+  could copy the playlist into the library and land the viewer in it — fewer
+  taps, and wrong: a link tapped out of curiosity would have edited their
+  library. "Already in your library" is matched on CONTENTS rather than name,
+  so the same collection sent under two names does not become two copies.
+
+A title the link names that this catalogue no longer serves is STATED
+("8 of 10 titles — 2 are no longer in the catalogue"), never silently dropped,
+or the sharer and the viewer are looking at different collections and neither
+can tell.
+
+**Verified on the glass, all three**, each with a link produced by `watch.js`'s
+own encoder and opened through the platform's real URL entry point:
+
+| Platform | Device | What it showed |
+|---|---|---|
+| tvOS | Bedroom Apple TV | SHARED PLAYLIST · creature feature · Play All · Add to my library · 3 titles |
+| iOS | iPhone 12 | creature feature · Shared playlist · 3 titles · ＋ in the toolbar |
+| macOS | this Mac | creature feature · Shared playlist · 3 titles · Add to my library |
+
+The parse happens BEFORE each platform's `archivewatch://` scheme check, on
+purpose: a share link is an ordinary https url, because the whole point is that
+it opens for somebody with no app at all.
+
+### A correction
+
+An earlier note here said macOS could not be built on this Mac because its beta
+OS did not match the app's supported platforms. That was wrong — it was the
+wrong SCHEME. The Mac app is a separate target with its own scheme,
+**`Archive Watch Mac`**; `ArchiveWatch` is tvOS and iOS only, which is exactly
+what its `SUPPORTED_PLATFORMS` says. All three build here.
+
+### THE AASA IS STILL NOT DECLARED, and this is the last gate
+
+`/list/*` must be added to `.well-known/apple-app-site-association` and to the
+Android manifest ONLY AFTER the apps that handle it are in people's hands. The
+file is served by us and takes effect the moment it deploys — so declaring it
+while the shipped app is the current one would intercept every shared playlist
+and open an app that does not know the route, landing the viewer on Home with
+their link gone. That is strictly worse than the web page they get today.
+
+The order is: ship the apps, confirm the release is live, then declare the
+path. Until then a shared link opens the web viewer on every device, which
+works.

@@ -237,3 +237,71 @@ struct SharedListView: View {
 }
 
 #endif
+
+#if os(macOS)
+
+/// The Mac's shared playlist. Same rules as the Apple TV and the phone —
+/// browse and play for anyone, adding it is a choice — over the Mac's own
+/// poster grid.
+struct SharedListView: View {
+    let shared: PlaylistShare.Shared
+
+    @Environment(AppStore.self) private var store
+    @Environment(\.modelContext) private var ctx
+    @Query private var playlists: [Playlist]
+
+    @State private var added = false
+
+    private var items: [Catalog.Item] { store.itemsByIDs(shared.archiveIDs) }
+    private var missing: Int { shared.archiveIDs.count - items.count }
+
+    /// Matched on CONTENTS, not name: the same collection sent under two names
+    /// should not become two copies in the library.
+    private var alreadyHave: Bool { playlists.contains { $0.archiveIDs == shared.archiveIDs } }
+
+    private func addToLibrary() {
+        let pl = Playlist(name: shared.name, archiveIDs: shared.archiveIDs)
+        ctx.insert(pl)
+        try? ctx.save()
+        SyncNudge.nudge(ctx)
+        added = true
+    }
+
+    var body: some View {
+        GridView(title: shared.name, items: items)
+            .safeAreaInset(edge: .top) {
+                HStack(spacing: 12) {
+                    // A title the link names that this catalogue no longer
+                    // serves is STATED, never silently dropped.
+                    Text(countLine)
+                        .font(.callout)
+                        .foregroundStyle(.secondary)
+                    Spacer()
+                    if added || alreadyHave {
+                        Label(added ? "Added to your library" : "In your library",
+                              systemImage: "checkmark.circle.fill")
+                            .font(.callout)
+                            .foregroundStyle(.secondary)
+                    } else if !items.isEmpty {
+                        Button(action: addToLibrary) {
+                            Label("Add to my library", systemImage: "plus.circle")
+                        }
+                    }
+                }
+                .padding(.horizontal)
+                .padding(.vertical, 8)
+                .background(.bar)
+            }
+    }
+
+    private var countLine: String {
+        let n = items.count
+        if missing > 0 {
+            return "Shared playlist · \(n) of \(shared.archiveIDs.count) titles — "
+                 + "\(missing) \(missing == 1 ? "is" : "are") no longer in the catalogue."
+        }
+        return "Shared playlist · \(n) \(n == 1 ? "title" : "titles")"
+    }
+}
+
+#endif

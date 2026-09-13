@@ -115,6 +115,15 @@ struct ArchiveWatchMacApp: App {
     /// (open Detail) and surprise/random (open a random playable Detail) — the same
     /// scope iOS's onOpenURL covers.
     private func route(_ url: URL) {
+        // A SHARED PLAYLIST FIRST, before anything looks at the path: it
+        // arrives as an ordinary https link because the whole point is that it
+        // opens for somebody with no app at all, and the playlist is INSIDE
+        // the url — nothing to resolve, nothing to wait for.
+        if let shared = PlaylistShare.shared(from: url) {
+            router.path.append(SharedListRoute(name: shared.name,
+                                               archiveIDs: shared.archiveIDs))
+            return
+        }
         let parts = url.pathComponents.filter { $0 != "/" }
         let host = url.host
         if host == "surprise" || host == "random"
