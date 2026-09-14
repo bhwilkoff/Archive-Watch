@@ -1230,7 +1230,8 @@ function show(d, list, key) {
      "where is it coming from?" -> dotPlot, ranked, many categories
      "what should I fix first?" -> pareto, bars plus a cumulative line
      "did it keep coming?"    -> calendarHeat, because a total hides a gap  */
-function appPlatform(d, p) {
+function appPlatform(d0, p) {
+  const d = d0;
   $("platform-lede").innerHTML = p.noApi
     ? `<b>${p.name}</b> ships through ${p.store}, which exposes no API at all. `
       + "What is here is declared by hand, and that is the honest ceiling."
@@ -1261,6 +1262,32 @@ function appPlatform(d, p) {
             p.row.note].filter(Boolean).join(" · ") || null,
       href: p.row.url,
     });
+  }
+
+  /* THE WEB'S ITEMS. Route views say WHERE people went; only this says WHAT
+     they watched, and it is the whole reason the counter keeps a per-title
+     row. `play` leads because a film someone chose is the audience; `open` is
+     interest and is listed under it; a muted Party Play lineup is neither and
+     is labelled as itself. Every id links to the film, so a name that looks
+     surprising is one click from being checked. */
+  if (p.key === "web") {
+    const wt = d0?.health?.webTitles;
+    titlesPanel(box, wt);
+    const ranks = [["topPlayed", "played"], ["topOpened", "opened"],
+                   ["topAmbient", "ambient"]];
+    const any = ranks.some(([k]) => (wt?.[k] || []).length);
+    if (any) {
+      $("platform-h2").textContent = "Every film, by what people did with it";
+      ranks.forEach(([k, what]) => (wt[k] || []).forEach((t) => row(rows, {
+        name: t.id.replace(/^series:/, ""),
+        meta: what === "played" ? "started and watched"
+            : what === "opened" ? "detail page opened"
+            : "muted Party Play lineup",
+        num: `${int(t.count)}<small> ${what}</small>`,
+        href: `https://archivewatch.org/${t.id.startsWith("series:")
+          ? "series/" + t.id.slice(7) : "item/" + t.id}`,
+      })));
+    }
   }
 
   const series = (p.daily || []).map((r) => r.v);
