@@ -117,6 +117,7 @@ fun TvAppRoot(container: AppContainer) {
                     "collections" -> nav.push(Route.Collections)
                     "cartoons" -> nav.push(Route.Cartoon)
                     "settings" -> nav.push(Route.Settings)
+                    "party" -> nav.push(Route.Party)
                 }
             }
         }

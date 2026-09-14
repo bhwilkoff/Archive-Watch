@@ -406,3 +406,24 @@ text nor a useful box is available.
 Two consequences. Read `content-desc` as well as `text`, or whole surfaces go
 unmeasured. And treat a low node count as a warning: the hero is the largest
 type on Home, and a measurement that never saw it is not a measurement of Home.
+
+### Every Android TV route measured (2026-09-13)
+
+Deep links now exist for every rail destination AND for Party, so each surface
+can be opened deterministically and measured. Final state against the
+overscan-safe band (96..1824 x, 54..1026 y at 1920x1080), reading BOTH `text`
+and `content-desc`:
+
+| route | result |
+|---|---|
+| home | clean (the hero is a merged full-bleed node; its text is inset) |
+| browse / search / library | clean |
+| surprise / collections / cartoons / settings | clean |
+| detail / series | clean after the action-row wrap and the poster inset |
+| playlist / shared list / filtered / collection | clean |
+| party | clean |
+
+The only recurring flags are poster tiles scrolled past the RIGHT edge of a
+horizontal LazyRow. That is what a scroller does — the tile is off screen, not
+clipped chrome — and it is the reason the right-edge check is read rather than
+trusted.

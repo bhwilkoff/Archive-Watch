@@ -134,7 +134,7 @@ class MainActivity : ComponentActivity() {
         // that guesses, and it is a real deep link for a viewer too.
         if (uri.scheme == "archivewatch" && uri.host in setOf(
                 "surprise", "channels", "search", "collections", "cartoons",
-                "library", "settings",
+                "library", "settings", "party",
             )
         ) {
             DeepLinks.pendingAction.value = uri.host

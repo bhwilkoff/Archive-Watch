@@ -75,6 +75,7 @@
                 <data android:host="cartoons"/>
                 <data android:host="library"/>
                 <data android:host="settings"/>
+                <data android:host="party"/>
                 <data android:host="series"/>
             </intent-filter>
 
