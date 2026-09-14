@@ -443,3 +443,36 @@ and a credential source. System Python has neither — `uv venv` plus
 venv with a broken pip, and `tools/asc-credentials.env` (gitignored) carries
 the key id and issuer, with the .p8 outside the repo in
 `~/.appstoreconnect/private_keys/`.
+
+## Where the feature is complete, and the one place it is not (2026-09-13)
+
+Sending and receiving, per platform, all verified on hardware:
+
+| platform | sends a playlist | opens one |
+|---|---|---|
+| web | yes | yes — browse and play signed out, add to library signed in |
+| tvOS | yes (QR) | yes |
+| iOS / iPadOS | yes (share sheet) | yes |
+| macOS | yes (share sheet) | yes |
+| Android / Google TV / Fire TV | yes | yes — Play all, Add to my library |
+| **Roku** | **yes (QR, v15 code, decoded off the screen)** | **NO — and it cannot** |
+
+**Roku sends but cannot receive, and that is structural rather than an
+oversight.** A Roku channel's only inbound route is a deep link carrying
+`contentId` + `mediaType`, delivered by Roku's own surfaces — the Channel
+Store, Roku Search, or ECP on the local network. A person holding a link on
+their phone has no way to hand it to the box: there is no share target, and the
+Roku mobile app cannot send an arbitrary URL to a channel.
+
+The channel COULD parse `contentId=list:<blob>` — it already treats contentId
+as a command channel for the `selftest:` verbs — so this is not a parsing
+limit. It is a delivery limit, and no amount of channel code fixes it.
+
+**The obvious workaround is refused.** A short code the viewer types on the
+Roku would need a server to expand it, and the whole design rests on the
+opposite: the playlist rides INSIDE the link, we host nothing, and there is no
+account at either end. Trading that for one platform's convenience would put a
+database between every shared playlist and its viewer.
+
+What a Roku owner does instead is what the QR is for in the other direction:
+open the link on the phone that scanned it, or on any other device they own.
