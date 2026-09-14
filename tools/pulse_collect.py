@@ -31,7 +31,9 @@ Run:
 from __future__ import annotations
 
 import argparse
+import csv
 import datetime as dt
+import io
 import json
 import os
 import re
@@ -40,6 +42,7 @@ import sys
 import urllib.error
 import urllib.parse
 import urllib.request
+import zipfile
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
@@ -1771,6 +1774,88 @@ def amazon_vitals(state):
             f"({len(empty)}/{len(AMAZON_METRIC_SETS)} metric sets empty)")
 
 
+def amazon_installs(state):
+    """Fire TV installs, from the SALES report — see docs/PULSE-ANALYTICS.md §3a.
+
+    Decision 111 recorded that Amazon's unit sales are console-only. They are
+    not. The route that does not exist is the obvious one:
+
+        /download/report/acquisition/<y>/<m>
+            400 "Unable to fetch the request scope for uri"   NO SUCH ROUTE
+        /download/report/sales/<y>/<m>
+            200 + a 5-minute presigned S3 url to a CSV zip    THE DATA
+
+    For a FREE app every install is a $0.00 `Charge` row carrying a
+    Transaction Time and a Country/Region Code, which is a daily acquisition
+    series by country — exactly what the acquisition endpoint would have given.
+
+    The two 400s are DIFFERENT and the difference is load-bearing: "Report not
+    found" is a real route with no data for that month (a month before the app
+    shipped, or one with no installs), and must read as empty rather than as a
+    fault.
+    """
+    tok, why = _amazon_token()
+    if not tok:
+        raise RuntimeError(why)
+
+    today = dt.date.today()
+    months, missing = [], []
+    for back in (0, 1):                      # this month and last; older is history
+        d = (today.replace(day=1) - dt.timedelta(days=1)) if back else today
+        months.append((d.year, d.month))
+
+    rows, periods = [], []
+    for year, month in months:
+        url = f"{AMAZON_API}/download/report/sales/{year}/{month:02d}"
+        req = urllib.request.Request(url, headers={"Authorization": f"Bearer {tok}"})
+        try:
+            link = urllib.request.urlopen(req, timeout=45).read().decode().strip()
+        except urllib.error.HTTPError as e:
+            body = e.read().decode()[:160]
+            if e.code == 400 and "Report not found" in body:
+                missing.append(f"{year}-{month:02d}")
+                continue
+            if e.code == 400 and "request scope" in body:
+                raise RuntimeError("the sales report route is gone — Amazon moved it")
+            raise RuntimeError(f"sales {year}-{month:02d}: HTTP {e.code}")
+        blob = urllib.request.urlopen(link, timeout=90).read()
+        with zipfile.ZipFile(io.BytesIO(blob)) as z:
+            for name in z.namelist():
+                text = z.read(name).decode("utf-8-sig", "replace")
+                rows.extend(csv.DictReader(io.StringIO(text)))
+        periods.append(f"{year}-{month:02d}")
+
+    daily, country, kind = {}, {}, {}
+    for r in rows:
+        # A refund or adjustment is not an install; count only the charge.
+        t = (r.get("Transaction Type") or "").strip()
+        kind[t] = kind.get(t, 0) + 1
+        if t != "Charge":
+            continue
+        day = (r.get("Transaction Time") or "")[:10]
+        if day:
+            daily[day] = daily.get(day, 0) + 1
+        c = (r.get("Country/Region Code") or "??").strip()
+        country[c] = country.get(c, 0) + 1
+
+    installs = sum(daily.values())
+    state["health"]["amazonInstalls"] = {
+        "daily": [{"date": d, "installs": n} for d, n in sorted(daily.items())],
+        "byCountry": sorted(({"key": k, "value": v} for k, v in country.items()),
+                            key=lambda x: -x["value"]),
+        "total": installs,
+        "periods": periods,
+        "noReport": missing,
+        "transactionTypes": kind,
+        "readVia": "Appstore Sales Reporting API (free installs are $0.00 Charge rows)",
+        "console": "https://developer.amazon.com/apps-and-games/console/reports/download-center.html",
+    }
+    if not periods:
+        return "no sales report exists yet for either month"
+    return (f"{installs} install(s) across {len(periods)} month(s), "
+            f"{len(country)} countries")
+
+
 # ─────────────────────────── Stores with no API at all — declared, not guessed
 
 # Amazon DOES have an API (Decision 111) and its vitals are read live by
@@ -1838,6 +1923,7 @@ SOURCES = [
     ("play_daily_exports", play_daily_exports),
     ("play_acquisition", play_acquisition),
     ("amazon_vitals", amazon_vitals),
+    ("amazon_installs", amazon_installs),
     ("manual_stores", manual_stores),
     ("social_programme", social_programme),
     ("social_reach", social_reach),
