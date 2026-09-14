@@ -283,6 +283,23 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
         }
     }
 
+    // An ephemeral lineup writes no resume position (above) but DOES enter the
+    // watch history once a title has run 60 seconds — the tvOS rule since
+    // 2026-08-15 (a full record of everything ever watched; a channel-surf is
+    // not "watched"). Without this a Party Play film was unfindable afterwards.
+    LaunchedEffect(spec.id) {
+        if (spec.persistProgress) return@LaunchedEffect
+        var recordedFor: String? = null
+        while (true) {
+            delay(5_000)
+            val id = player.currentMediaItem?.mediaId ?: spec.id
+            if (id != recordedFor && player.currentPosition >= 60_000L) {
+                container.userState.recordHistory(id, player.duration.coerceAtLeast(0L))
+                recordedFor = id
+            }
+        }
+    }
+
     DisposableEffect(spec.url) {
         onDispose {
             val duration = player.duration
@@ -695,6 +712,12 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
                 spec = spec,
                 container = container,
                 onDismiss = { showTvMenu = false },
+                onOpenTitle = { id ->
+                    // Leave the lineup for the film's own Detail: the player
+                    // route pops and Detail pushes over the lineup's landing
+                    // page, so Back returns to Party Play (tvOS twin).
+                    nav.pop(); nav.openItem(id)
+                },
             )
         }
     }
@@ -877,6 +900,7 @@ private fun TvPlayerOptionsPanel(
     spec: PlaySpec,
     container: AppContainer,
     onDismiss: () -> Unit,
+    onOpenTitle: (String) -> Unit = {},
 ) {
     val context = LocalContext.current
     val scope = rememberCoroutineScope()
@@ -930,6 +954,28 @@ private fun TvPlayerOptionsPanel(
                     ) {
                         muted = !muted
                         player.volume = if (muted) 0f else 1f
+                    }
+                }
+                // An EPHEMERAL lineup (Party Play, a channel) is a wall of films
+                // the viewer did not choose, so it raises "what IS this?" and
+                // "keep this" — TV-DESIGN §4.10. Open Title leaves the lineup for
+                // the film's Detail (playlist, favorite, read about it).
+                // Remember writes the history record now, without the 60 s gate.
+                if (!spec.persistProgress) {
+                    item(key = "open") {
+                        val title = player.currentMediaItem?.mediaMetadata?.title?.toString() ?: spec.title
+                        TvMenuRow("Open title", title.take(28), null) {
+                            onOpenTitle(player.currentMediaItem?.mediaId ?: spec.id)
+                        }
+                    }
+                    item(key = "remember") {
+                        TvMenuRow("Remember this film", "Adds it to your watch history", null) {
+                            val id = player.currentMediaItem?.mediaId ?: spec.id
+                            scope.launch {
+                                container.userState.recordHistory(id, player.duration.coerceAtLeast(0L))
+                            }
+                            onDismiss()
+                        }
                     }
                 }
                 item(key = "autoplay") {

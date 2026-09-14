@@ -237,6 +237,20 @@ resilient (Roku) must have that regression recorded before work starts.
 
 ---
 
+5.6 **An ephemeral lineup's player offers three verbs** (binding, 2026-09-14).
+Party Play, a channel tune-in, a marathon: a wall of films the viewer did not
+choose. Its player options (D-pad Up on Android TV; Up on Roku) carry, beside
+Mute/Unmute: **Open title** — leave the lineup for the film's own Detail, so
+it can be favorited, put in a playlist, read about — and **Remember this
+film** — write the watch-history record now. An ephemeral lineup also enters
+the history AUTOMATICALLY once a title has run 60 seconds (the tvOS rule since
+2026-08-15: a full record of everything watched; a channel-surf is not
+"watched"), with NO resume position, so Continue Watching never sees it —
+the rule that made `persistProgress=false` in the first place still holds.
+Why: the owner watched a Party Play film they could not identify, and the
+only thing the player offered was to keep watching. tvOS twin: tvOS-DESIGN
+§9.3a. Roku twin: ROKU-DESIGN §6.9.
+
 ## §6 — Android TV mechanics (binding where marked)
 
 **6.1 Dependency (binding).** `androidx.tv:tv-material` **only**. `tv-foundation`

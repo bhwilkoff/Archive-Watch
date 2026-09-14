@@ -59,6 +59,14 @@ sub showRows(payload as Object)
     if n = 0
         m.empty.text = "Nothing here yet. Films you save, playlists you make, and anything you start watching will gather here."
     end if
+    ' A repaint that turns an EMPTY Library into rows must hand focus to them:
+    ' onFocusOn had parked focus on the Group (the only thing there was), and
+    ' the rows arriving later — the user items resolve asynchronously — left
+    ' every press landing on a Group that owns nothing. Measured: Down and OK
+    ' printed AWKEY ... route=library and moved nothing.
+    if n > 0 and m.top.isInFocusChain() and not m.rows.hasFocus()
+        m.rows.setFocus(true)
+    end if
     m.budget.text = payload.budget
 end sub
 

@@ -659,6 +659,7 @@ struct PlayerScreen: View {
     var ephemeralLineup: Bool = false
     @Environment(\.modelContext) private var modelContext
     @Environment(AppStore.self) private var store
+    @Environment(Router.self) private var router
     // Diagnostics identity (AW_PLAYBACK_DIAG): a fresh @State UUID means a fresh
     // SwiftUI identity — if two AWLIFE screen ids appear in one session, SwiftUI
     // built a SECOND PlayerScreen while the first was still alive, which is the
@@ -921,6 +922,25 @@ struct PlayerScreen: View {
             }
         }
         var items: [UIMenuElement] = [playNext, muteToggle, watchTogether]
+        // An EPHEMERAL lineup (Party Play, a channel, a cartoon marathon) is a
+        // wall of films the viewer did not choose — so the two questions it
+        // raises are "what IS this?" and "keep this". tvOS-DESIGN §9.3 bound
+        // both before either was built; the owner asked for them after a
+        // Party Play left a film unidentifiable. Open Title leaves the lineup
+        // for the film's Detail (add to a playlist, favorite, read about it).
+        // Remember writes the watch-history record NOW, without waiting for
+        // the 60-second gate the automatic history write uses.
+        if ephemeralLineup {
+            items.append(UIAction(title: "Open Title",
+                                  image: UIImage(systemName: "info.circle")) { _ in
+                openCurrentTitle()
+            })
+            items.append(UIAction(title: "Remember",
+                                  image: UIImage(systemName: "clock.arrow.circlepath")) { _ in
+                print("AWLINEUP remember \(activeArchiveID)")
+                WatchProgress.remember(in: modelContext, archiveID: activeArchiveID)
+            })
+        }
         // The caption-TYPE chooser (owner 2026-08-26): pick between the
         // subtitle FILE and AUTOMATIC captions the way the Version menu picks
         // a copy — not a bare on/off. The native CC menu went with the
@@ -1466,6 +1486,17 @@ struct PlayerScreen: View {
         statusObserver = nil
         timeoutTask?.cancel()
         timeoutTask = nil
+    }
+
+    /// Leave the lineup for the playing film's own Detail page. The player is
+    /// a fullScreenCover over the tab that started the lineup, so pushing onto
+    /// that tab's path first and then dismissing lands the viewer on Detail
+    /// with the lineup's landing page beneath it — Back returns to Party Play.
+    private func openCurrentTitle() {
+        guard let film = current ?? catalogItem else { return }
+        print("AWLINEUP open-title \(film.archiveID)")
+        router.push(film)
+        dismiss()
     }
 
     private func persistProgress(at position: Double, duration: Double?) {

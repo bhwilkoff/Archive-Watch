@@ -20,12 +20,24 @@
     <field id="archiveID" type="string" />
     <field id="startAt" type="integer" value="0" />
     <field id="captionUrl" type="string" />
-    <!-- Party Play is muted colour visuals for a room (tvOS startMuted). -->
-    <field id="muted" type="boolean" value="false" />
+    <!-- Party Play is muted colour visuals for a room (tvOS startMuted).
+         Written at launch AND toggled mid-film by the player options list. -->
+    <field id="muted" type="boolean" value="false" onChange="onMuted" />
+    <!-- An ephemeral lineup (Party Play, a channel): a wall of films the
+         viewer did not choose. It raises "what IS this?" and "keep this", so
+         Up opens an options list (ROKU-DESIGN §6.9). `currentID` is the film
+         playing whether or not a bookmark is being written — `archiveID` is
+         blank for an ephemeral lineup on purpose, so it cannot serve. -->
+    <field id="ephemeral" type="boolean" value="false" />
+    <field id="currentID" type="string" />
+    <field id="menuRequested" type="boolean" alwaysNotify="true" />
     <field id="ended" type="boolean" alwaysNotify="true" />
     <!-- A failure the VIEWER has to be told about, not just a console line. -->
     <field id="failed" type="string" alwaysNotify="true" />
     <function name="stopPlayback" />
+    <!-- "Remember this film": the Watched row is the record on Roku. -->
+    <function name="rememberFilm" />
+    <function name="showNotice" />
   </interface>
   <script type="text/brightscript" uri="pkg:/components/Capability.brs" />
   <script type="text/brightscript" uri="pkg:/components/Theme.brs" />

@@ -487,6 +487,13 @@ sub requestUserItems()
             ids.Push(a)
         end for
     end for
+    ' Watched too: a finished film that sits on no Home shelf could never be
+    ' drawn in Library's Watched row, because nothing resolved its id. Found
+    ' when Party Play's "Remember this film" wrote a film there and the row
+    ' stayed empty.
+    for each w in awWatchedIds()
+        ids.Push(w)
+    end for
     if ids.Count() = 0 then return
     m.pendingUserItems = true
     m.svc.qIds = ids
@@ -975,6 +982,55 @@ function encodeName(n as String) as String
     return out
 end function
 
+' The three verbs an ephemeral lineup owes the viewer (ROKU-DESIGN §6.9): a
+' film chosen by nobody raises "give it sound", "what IS this?" and "keep
+' this". The owner sat through a Party Play film they could not identify
+' and could not hear — this is the panel that was missing. Up in the player
+' opens it; the list is the same OptionsList every other `*` panel uses.
+sub openPlayerOptions()
+    if m.player = invalid or m.player.menuRequested <> true then return
+    if m.more = invalid
+        m.more = m.top.FindNode("options").CreateChild("OptionsList")
+        m.more.ObserveField("chosen", "onMorePicked")
+        m.more.ObserveField("closed", "onMoreClosed")
+    end if
+    opts = []
+    if m.player.muted
+        opts.Push({ id: "sound", label: "Play with sound" })
+    else
+        opts.Push({ id: "sound", label: "Mute" })
+    end if
+    opts.Push({ id: "open", label: "Open this film's page" })
+    opts.Push({ id: "remember", label: "Remember this film" })
+    opts.Push({ id: "cancel", label: "Back to the film" })
+    ' The film's NAME is the heading — the answer to "what is this?" is the
+    ' whole reason the panel exists, and a row would ellipsize it.
+    t = m.player.playTitle
+    if t = invalid or t = "" then t = "Now playing"
+    m.moreMode = "player"
+    print "AWPANEL open player id="; m.player.currentID
+    m.more.callFunc("open", { title: t, options: opts })
+end sub
+
+sub onPlayerOptionPicked(pick as String)
+    if m.player = invalid then return
+    if pick = "sound"
+        m.player.muted = not m.player.muted
+        m.player.setFocus(true)
+    else if pick = "remember"
+        m.player.callFunc("rememberFilm")
+        m.player.setFocus(true)
+    else if pick = "open"
+        id = m.player.currentID
+        ' Leave the lineup for the film's own page. closePlayer() lands on the
+        ' lineup's origin surface first, so Back from Detail returns there.
+        closePlayer()
+        if id <> invalid and id <> "" then openDetail(id)
+    else
+        m.player.setFocus(true)
+    end if
+end sub
+
 sub openAddToPlaylist()
     if m.more = invalid
         m.more = m.top.FindNode("options").CreateChild("OptionsList")
@@ -1145,6 +1201,10 @@ sub onDetailMore()
 end sub
 
 sub onMoreClosed()
+    if m.moreMode = "player"
+        if m.player <> invalid then m.player.setFocus(true)
+        return
+    end if
     if m.moreMode = "chip"
         refocus(m.chipTarget)
     else if m.moreMode = "cartoons"
@@ -1191,6 +1251,10 @@ sub onMorePicked()
     pick = m.more.chosen
     if m.moreMode = "chip"
         onChipPicked(pick)
+        return
+    end if
+    if m.moreMode = "player"
+        onPlayerOptionPicked(pick)
         return
     end if
     if m.moreMode = "cartoons"
@@ -1519,10 +1583,12 @@ sub playLineup()
         m.player.translation = [0, 0]
         m.player.ObserveField("ended", "onPlaybackEnded")
         m.player.ObserveField("failed", "onPlaybackFailed")
+        m.player.ObserveField("menuRequested", "openPlayerOptions")
     end if
     hideAllSurfaces()
     m.player.visible = true
     m.player.archiveID = ""
+    m.player.ephemeral = false : m.player.currentID = ""   ' urls only, no id to open
     m.player.startAt = 0
     m.player.playTitle = l.titles[l.index]
     m.player.playMeta = "Cartoon Marathon  ·  " + fmt(l.index + 1) + " of " + fmt(l.urls.Count())
@@ -1715,6 +1781,7 @@ sub playPendingEpisode(d as Object)
         m.player.translation = [0, 0]
         m.player.ObserveField("ended", "onPlaybackEnded")
         m.player.ObserveField("failed", "onPlaybackFailed")
+        m.player.ObserveField("menuRequested", "openPlayerOptions")
     end if
     m.episodeQueue = e
     ' F31 — "Party play... plays things with the surprise tiles in the
@@ -1727,6 +1794,10 @@ sub playPendingEpisode(d as Object)
     m.player.visible = true
     ' An ephemeral lineup (a party, a channel) writes NO bookmark.
     if e.ephemeral = true then m.player.archiveID = "" else m.player.archiveID = e.id
+    ' The node is REUSED across launches: both fields are written at every
+    ' launch site, or a Party's menu would follow the next film.
+    m.player.ephemeral = (e.ephemeral = true)
+    m.player.currentID = e.id
     m.player.muted = (e.muted = true)
     ' The spine this episode belongs to, so Continue Watching can borrow its
     ' poster — an episode has none of its own in the web index.
@@ -1797,12 +1868,14 @@ sub playChannelItem()
         m.player.translation = [0, 0]
         m.player.ObserveField("ended", "onPlaybackEnded")
         m.player.ObserveField("failed", "onPlaybackFailed")
+        m.player.ObserveField("menuRequested", "openPlayerOptions")
     end if
     hideAllSurfaces()
     m.player.visible = true
     ' A channel NEVER writes resume progress — not the programme and certainly
     ' not the advert.
     m.player.archiveID = ""
+    m.player.ephemeral = false : m.player.currentID = ""   ' urls only, no id to open
     m.player.startAt = it.startAt
     m.player.playTitle = it.title
     m.player.playMeta = it.meta
@@ -2581,10 +2654,12 @@ sub onPlay()
         m.player.translation = [0, 0]
         m.player.ObserveField("ended", "onPlaybackEnded")
         m.player.ObserveField("failed", "onPlaybackFailed")
+        m.player.ObserveField("menuRequested", "openPlayerOptions")
     end if
     m.player.visible = true
     m.detail.visible = false
     m.player.archiveID = m.detail.item.id
+    m.player.ephemeral = false : m.player.currentID = m.detail.item.id
     m.player.progressOwner = ""
     ' Trick-play thumbnails by convention: a film the index flags (`bif`,
     ' column 15, schema 12+) has `archivewatch-bifs/<id>.bif` on archive.org.

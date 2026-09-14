@@ -102,6 +102,9 @@ sub onUrl()
             meta = "Subtitles available for this film — press * to turn captions on"
         end if
     end if
+    ' An ephemeral lineup says how to reach its three verbs, once, up front —
+    ' the owner spent a whole Party Play unable to find out what was playing.
+    if m.top.ephemeral and meta = "" then meta = "Press Up for sound, this film's page, and more"
     m.hudMeta.text = meta
     m.hasNotice = (meta <> "")
     m.capReported = false
@@ -215,6 +218,37 @@ sub showHud()
     if m.hasNotice = true then m.hudMeta.visible = true
 end sub
 
+' The lineup's mute toggle, mid-film. `muted` was only read at launch before,
+' so a Party Play could never be given sound without leaving it.
+sub onMuted()
+    if m.video <> invalid then m.video.mute = m.top.muted
+    print "AWPLAY muted="; m.top.muted
+end sub
+
+' A transient line in the HUD slot (the same label the caption notice uses),
+' for the options list to confirm what it did without a dialog over the film.
+sub showNotice(text as String)
+    m.hudMeta.text = text
+    m.hasNotice = (text <> "")
+    showHud()
+    m.hudHideAt = nowSeconds() + 4
+end sub
+
+' "Remember this film" from an ephemeral lineup. Roku's Library has no
+' history row; its record of what was seen is the WATCHED row, which is
+' derived from a progress entry at >= 95% — so remembering a film writes it
+' as watched (position = duration). It cannot land in Continue Watching:
+' awIsResumable refuses a completed entry.
+sub rememberFilm()
+    id = m.top.currentID
+    if id = invalid or id = "" then return
+    d = Int(m.video.duration)
+    if d <= 0 then d = 1
+    awSetProgress(id, d, d, m.top.progressOwner)
+    print "AWPLAY remembered "; id; " as watched "; d; "/"; d
+    showNotice("Added to Watched in your Library")
+end sub
+
 sub hideHud()
     m.hudMeta.visible = false
 end sub
@@ -242,6 +276,14 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
     if not press then return false
     ' OK is NOT consumed: it belongs to Roku's transport overlay, and taking it
     ' would replace a native control with a worse one.
+    ' Up opens the lineup's options (sound / open title / remember) — the key
+    ' Google TV uses for its player options, and one the Video node does not
+    ' consume. Only for an ephemeral lineup: a chosen film has Detail behind
+    ' Back and needs none of this.
+    if key = "up" and m.top.ephemeral
+        m.top.menuRequested = true
+        return true
+    end if
     if key = "instantreplay"
         p = m.video.position - 15
         if p < 0 then p = 0

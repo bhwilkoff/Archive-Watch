@@ -185,6 +185,39 @@ class UserStateStore(context: Context) {
         _changes.value += 1
     }
 
+    /**
+     * Put a title into the watch HISTORY without a resume position — the
+     * Apple `historyOnly` write (Decision 078). An ephemeral lineup (Party
+     * Play, a channel) never persists WHERE the viewer was, because those
+     * positions filled Continue Watching with cartoons a party had shown the
+     * room; but it does belong in the record of what was watched. A prior
+     * resume position is kept, so calling this on a film mid-resume loses
+     * nothing. `isResumable` requires position > 0, so a fresh row here never
+     * reaches Continue Watching.
+     */
+    suspend fun recordHistory(id: String, durationMs: Long) {
+        val now = System.currentTimeMillis()
+        dbCall {
+            val prior = query(
+                "SELECT position, duration, at, firstAt, plays, everDone FROM progress WHERE id = ?",
+                listOf(id),
+            ) { listOf(it.getLong(0), it.getLong(1), it.getLong(2), it.getLong(3), it.getLong(4), it.getLong(5)) }
+                .firstOrNull()
+            val lastAt = prior?.get(2) ?: 0L
+            val firstAt = prior?.get(3)?.takeIf { it > 0 } ?: (prior?.get(2) ?: now)
+            var plays = (prior?.get(4) ?: 1L).coerceAtLeast(1)
+            if (prior != null && now - lastAt > 6 * 3600_000L) plays += 1
+            exec(
+                "INSERT OR REPLACE INTO progress " +
+                    "(id, position, duration, at, firstAt, plays, everDone) " +
+                    "VALUES (?, ?, ?, ?, ?, ?, ?)",
+                listOf(id, prior?.get(0) ?: 0L, prior?.get(1)?.takeIf { it > 0 } ?: durationMs,
+                       now, firstAt, plays, prior?.get(5) ?: 0L),
+            )
+        }
+        _changes.value += 1
+    }
+
     suspend fun progressFor(id: String): WatchProgress? = dbCall {
         query(
             "SELECT id, position, duration, at, firstAt, plays, everDone " +

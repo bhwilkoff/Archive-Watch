@@ -229,6 +229,18 @@ Launched from Home/Settings. Lean-in: big "what's this?" reveal.
 with an audio toggle, autoplaying a curated high-contrast / visually-interesting
 queue. Lean-in: a press reveals title + "play with sound / open."
 
+9.3a **Every ephemeral lineup owes the viewer three verbs** (2026-09-14). A
+lineup the viewer did not choose — Party Play, a channel, a marathon — raises
+exactly three questions, and each is a transport-bar action on `PlayerScreen`:
+**Play with Sound / Mute** (the audio toggle 9.3 promised), **Open Title**
+(leave the lineup for the film's own Detail — favorite, playlist, read about
+it; Back returns to the lineup's landing page), and **Remember** (write the
+watch-history record NOW, without the 60 s gate the automatic write keeps so
+a channel-surf is not "watched"). The owner sat through a Party Play film they
+could not identify, could not hear, and could not keep: 9.3's lean-in was
+written but only the toggle was built. Android TV and Roku carry the same
+three in their player options (TV-DESIGN §5.6, ROKU-DESIGN §6.9).
+
 9.4 **Cover-art screensaver (#14)** — the system idle surface; an iTunes-style
 animated cover wall over catalog art. Adapt BOBA-Playbook's **Showcase**
 (`BOBAPlaybook/Views/Collection/CollectionShowcaseView.swift` — an

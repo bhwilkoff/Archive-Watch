@@ -875,6 +875,11 @@ sub paintPlayLabel()
     dur = 0
     if m.runtime <> invalid then dur = m.runtime
     posn = awGetProgress(m.archiveID)
+    ' Judge "left" against the FILE the viewer watched, not the catalog's
+    ' listed runtime: a finished film whose file runs shorter than its
+    ' listing read "Resume · 6m left" (found via Party Play's Remember).
+    played = awGetDuration(m.archiveID)
+    if posn > 0 and played > 0 then dur = played
     if posn > 0 and awIsResumable(posn, dur)
         left = Int((dur - posn) / 60)
         m.buttons[0].label.text = "Resume  ·  " + fmt(left) + "m left"

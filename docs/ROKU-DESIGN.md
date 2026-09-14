@@ -557,6 +557,34 @@ on every other platform in this project.
 
 ---
 
+### §6.9 — An ephemeral lineup answers Up with its three verbs (2026-09-14)
+
+Party Play and channels play films the viewer did not choose, and on this
+channel the player consumed no key at all but Instant Replay — a Party could
+not be given sound, could not name what it was showing, and could not keep it.
+**Up** in the player of an ephemeral lineup opens the same `OptionsList` every
+`*` panel uses, headed by the FILM'S NAME (the answer to "what is this?" is
+the panel's whole reason; a row would ellipsize it), with **Play with sound /
+Mute**, **Open this film's page**, **Remember this film**, **Back to the
+film**. Up, not `*`: Roku reserves `*` during playback for the device's own
+captions setting (§6.6b), and Up is the key Google TV uses for its player
+options. Only an ephemeral lineup takes Up — a chosen film has Detail behind
+Back and needs none of this — and the Cartoon Marathon and Channels paths,
+which carry urls rather than ids, do not offer it.
+
+*Remember* writes the film as WATCHED (`awSetProgress(id, dur, dur)`): Roku's
+Library has no history row, and its record of what was seen is the Watched
+row, derived from a completed progress entry; a completed entry can never
+reach Continue Watching. The confirmation is the HUD's own line, four seconds,
+no dialog over the film. Three defects found while proving it on the glass,
+each fixed: Detail judged "Resume · Nm left" against the catalog's listed
+runtime rather than the file's (any finished film shorter than its listing
+read as resumable); `requestUserItems` never resolved the Watched ids, so a
+watched film absent from Home's shelves could not be drawn in Library; and a
+service query issued before the catalog task started was lost (Library opened
+by deep link sat on "Nothing here yet" under a header counting its rows), then
+a repaint that turned an empty Library into rows left focus on the Group.
+
 ## 13. The design upgrade (2026-09-04) — from functional to designed
 
 **Binding.** The owner, after the channel reached functional parity: "Everything

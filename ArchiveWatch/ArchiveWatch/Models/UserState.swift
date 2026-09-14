@@ -109,6 +109,36 @@ final class WatchProgress {
         }
     }
 
+    /// Put a title into the watch history NOW, by the viewer's own choice.
+    ///
+    /// The automatic history write for an ephemeral lineup waits 60 seconds so
+    /// a channel-surf is not "watched"; this is the viewer saying "keep this"
+    /// from a Party Play wall, which needs no such gate. Position and duration
+    /// are untouched, so Continue Watching never sees it (same rule as
+    /// `historyOnly`), and an existing record simply gets today's date.
+    static func remember(in ctx: ModelContext, archiveID: String) {
+        let descriptor = FetchDescriptor<WatchProgress>(
+            predicate: #Predicate<WatchProgress> { $0.archiveID == archiveID })
+        let now = Date()
+        do {
+            if let w = try ctx.fetch(descriptor).first {
+                if now.timeIntervalSince(w.lastWatchedAt) > 6 * 3600 {
+                    w.playCount = (w.playCount ?? 1) + 1
+                }
+                if w.firstWatchedAt == nil { w.firstWatchedAt = min(w.lastWatchedAt, now) }
+                w.lastWatchedAt = now
+            } else {
+                let w = WatchProgress(archiveID: archiveID, positionSeconds: 0, durationSeconds: 0)
+                w.firstWatchedAt = now
+                w.playCount = 1
+                ctx.insert(w)
+            }
+            try ctx.save()
+        } catch {
+            // A history write must never take down playback.
+        }
+    }
+
     /// Mark a title watched, or un-mark it, by the viewer's own choice.
     ///
     /// Playback infers completion, but inference is not always right — a film

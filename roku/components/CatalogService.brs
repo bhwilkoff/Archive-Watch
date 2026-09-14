@@ -3,6 +3,7 @@ sub init()
 end sub
 
 sub run()
+    m.served = -1
     port = CreateObject("roMessagePort")
     ' queryId is the ONLY trigger. Observing every query field separately would
     ' recompute once per field on a multi-field change; the caller sets the
@@ -43,11 +44,17 @@ sub run()
     end if
     print "AWSVC ready items="; m.items.Count(); " collections="; m.colMeta.Count()
     m.top.ready = true
-
+    ' A query issued BEFORE this task started is not in the port: the observer
+    ' above is attached inside run(), so a queryId bump from a deep link that
+    ' opened Library during the first paint was simply lost, and Library sat
+    ' on "Nothing here yet" under a header counting its own rows. Serve the
+    ' newest such query now; `served` keeps a queued duplicate from answering
+    ' twice, which would misroute the second result in the Scene.
+    if m.top.queryId > m.served then runQuery()
     while true
         msg = wait(0, port)
         if type(msg) = "roSGNodeEvent"
-            if msg.GetField() = "queryId" then runQuery()
+            if msg.GetField() = "queryId" and m.top.queryId > m.served then runQuery()
         end if
     end while
 end sub
@@ -572,8 +579,12 @@ sub appendRow(root as Object, r as Object)
 end sub
 
 sub runQuery()
+    m.served = m.top.queryId
     span = CreateObject("roTimespan")
     span.Mark()
+    nIds = 0
+    if m.top.qIds <> invalid then nIds = m.top.qIds.Count()
+    print "AWSVC query #"; m.top.queryId; " coll="; m.top.qCollections; " party="; m.top.qParty; " wall="; m.top.qWall; " cartoons="; m.top.qCartoons; " random="; m.top.qRandomType; " ids="; nIds; " cards="; m.top.qCollectionCards; " id="; m.top.qId
 
     if m.top.qCollections
         buildCollections()
