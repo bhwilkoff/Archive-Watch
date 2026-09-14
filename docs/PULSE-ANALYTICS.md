@@ -183,3 +183,51 @@ Worker as the `INGEST_TOKEN` secret, and in the repo as `PULSE_INGEST_TOKEN`.
 It is in no commit. The first delivery is what teaches us Looker's payload
 shape, after which the parser gets written against a real body rather than a
 guess.
+
+---
+
+## 8. Roku is LIVE (2026-09-14) — and the payload shape, measured
+
+The owner saved the schedule and fired a test delivery. It arrived, and the
+shape is now known rather than guessed:
+
+    {"type": "dashboard",
+     "scheduled_plan": {"scheduled_plan_id": "86213",
+                        "title": "App Engagement", "type": "LookMLDashboard"},
+     "attachment": {"mimetype": "application/zip;base64",
+                    "extension": "zip",
+                    "data": "<base64 of a zip of CSVs>"}}
+
+**The CSV zip rides base64 INSIDE the JSON body** — 3,620 bytes for this
+dashboard, comfortably under the 900 KB refusal. One CSV per dashboard TILE,
+named after it, so the tile names are the schema. Nine tiles: new_installs,
+uninstalls, cumulative_net_installs, install_base_growth,
+channel_visitors_and_streaming_viewers, minutes_streamed,
+average_daily_visitors, ave_minutes___visitor, total_hours_streamed.
+
+Parsed to **10 metrics a day**:
+
+| date | Installs | Uninstalls | Net | Visitors | Viewers | Bounce | Minutes |
+|---|---|---|---|---|---|---|---|
+| 2026-09-10 | 71 | 0 | 71 | 57 | 41 | 28.07% | 771 |
+| 2026-09-11 | 21 | 0 | 21 | 33 | 16 | 51.5% | 321 |
+| 2026-09-12 | 20 | 1 | 19 | 29 | 14 | 51.7% | 496 |
+
+Two traps, both of which cost a round:
+
+**A dry run CONSUMED the delivery.** The reader acked unconditionally, and the
+drop box DELETES what it acks — so `--only roku_engagement` with no `--apply`
+destroyed the only copy of the payload it was merely supposed to look at. It
+survived because it had been saved by hand minutes earlier. The ack is now
+gated on `--apply`, the run says `(dry run — left in the box)`, and the
+property is asserted by running twice and reading the box back. *A dry run that
+destroys data is not a dry run.*
+
+**Cloudflare answers a bare `Python-urllib` request with 403**, which is NOT
+the Worker's own 404-for-a-bad-token and reads exactly like an auth failure.
+Send the collector's UA, as every other reader here does. Note the pair of
+discriminators this project now has for "looks like a permissions problem and
+isn't": Amazon's two different 400s (§3a) and this.
+
+An unreadable payload is KEPT, never acked — a body we cannot parse is the only
+evidence of the shape that broke us, and acking it would delete that.

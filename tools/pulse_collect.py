@@ -31,6 +31,7 @@ Run:
 from __future__ import annotations
 
 import argparse
+import base64
 import csv
 import datetime as dt
 import io
@@ -1856,6 +1857,135 @@ def amazon_installs(state):
             f"{len(country)} countries")
 
 
+PULSE_WORKER = "https://archivewatch-pulse.benwilkoff.workers.dev"
+
+
+def _roku_rows(csv_text):
+    """Looker writes a leading unnamed index column on multi-row tables."""
+    rows = list(csv.DictReader(io.StringIO(csv_text)))
+    for r in rows:
+        r.pop("", None)
+    return rows
+
+
+def _first_num(row, *names):
+    for n in names:
+        v = row.get(n)
+        if v not in (None, ""):
+            try:
+                return float(str(v).replace("%", "").replace(",", ""))
+            except ValueError:
+                return None
+    return None
+
+
+def roku_engagement(state):
+    """Roku's App Engagement dashboard, delivered to our own drop box.
+
+    Roku has NO analytics API — its dashboards are Looker — and the only
+    automated way out is a scheduled delivery. It posts to the Worker's
+    /ingest/roku (docs/PULSE-ANALYTICS.md §3b) and this reads what landed.
+
+    THE PAYLOAD SHAPE, learned from the first real delivery rather than
+    guessed (2026-09-14):
+
+        {"type": "dashboard",
+         "scheduled_plan": {"title": "App Engagement", ...},
+         "attachment": {"mimetype": "application/zip;base64",
+                        "extension": "zip",
+                        "data": "<base64 of a zip of CSVs>"}}
+
+    One CSV per dashboard TILE, named after it, so the tile names are the
+    schema. Daily tiles carry a Date column; headline tiles are one value.
+
+    Rows ACCUMULATE (merged in main): Looker sends a rolling 7-day window, so
+    replacing the series each day would throw away every day that fell out of
+    it — the opposite of what a daily sync is for.
+    """
+    tok = os.environ.get("PULSE_INGEST_TOKEN")
+    if not tok:
+        raise RuntimeError("no PULSE_INGEST_TOKEN in this environment — "
+                           "the drop box cannot be read without it")
+    # Cloudflare refuses a bare Python-urllib request with 403 — which is NOT
+    # the Worker's own 404-for-a-bad-token, and reads like an auth failure if
+    # you do not know the difference. Send the collector's UA like every other
+    # reader here.
+    req = urllib.request.Request(
+        f"{PULSE_WORKER}/drops?vendor=roku&t={urllib.parse.quote(tok)}",
+        headers={"User-Agent": UA})
+    try:
+        drops = json.load(urllib.request.urlopen(req, timeout=45)).get("rows", [])
+    except urllib.error.HTTPError as e:
+        if e.code == 404:
+            raise RuntimeError("the drop box refused the token — rotate or re-check it")
+        raise RuntimeError(f"drop box: HTTP {e.code}")
+
+    daily, headline, tiles, consumed, bad = {}, {}, [], [], []
+    for d in drops:
+        try:
+            body = json.loads(d.get("body") or "")
+            blob = base64.b64decode(body["attachment"]["data"])
+            zf = zipfile.ZipFile(io.BytesIO(blob))
+        except Exception as exc:                                    # noqa: BLE001
+            # Keep the drop. A payload we cannot read is evidence, and acking
+            # it would destroy the only copy of the shape that broke us.
+            bad.append({"id": d.get("id"), "why": str(exc)[:120]})
+            continue
+        for name in zf.namelist():
+            tile = name.rsplit("/", 1)[-1].replace(".csv", "")
+            tiles.append(tile)
+            rows = _roku_rows(zf.read(name).decode("utf-8-sig", "replace"))
+            for r in rows:
+                date = next((v for k, v in r.items()
+                             if k and "Date" in k and re.match(r"^\d{4}-\d{2}-\d{2}$", str(v))), None)
+                if not date:
+                    continue
+                slot = daily.setdefault(date, {"date": date})
+                for k, v in r.items():
+                    if not k or "Date" in k:
+                        continue
+                    n = _first_num(r, k)
+                    if n is not None:
+                        slot[k.split(" Time Grain ")[-1].strip()] = n
+            if len(rows) == 1 and not any("Date" in (k or "") for k in rows[0]):
+                for k, v in rows[0].items():
+                    n = _first_num(rows[0], k)
+                    if n is not None:
+                        headline[k.split(" Time Grain ")[-1].strip()] = n
+        consumed.append(d.get("id"))
+
+    # ACK ONLY ON A REAL RUN. The drop box DELETES what it acks, so a dry run
+    # that acked would throw away the delivery it was only supposed to look at
+    # — which is exactly what happened the first time this ran (2026-09-14),
+    # and the payload survived only because it had been saved by hand minutes
+    # earlier. A re-read is harmless; the merge is keyed by date.
+    for did in (consumed if state.get("_apply") else []):           # ack = delete
+        try:
+            urllib.request.urlopen(urllib.request.Request(
+                f"{PULSE_WORKER}/drops?id={did}&t={urllib.parse.quote(tok)}",
+                method="POST", headers={"User-Agent": UA}), timeout=30).read()
+        except Exception:                                           # noqa: BLE001
+            pass                    # a re-read is harmless; the merge is keyed by date
+
+    state["health"]["rokuEngagement"] = {
+        "daily": sorted(daily.values(), key=lambda r: r["date"]),
+        "headline": headline,
+        "tiles": sorted(set(tiles)),
+        "dropsRead": len(consumed),
+        "unreadable": bad,
+        "readVia": "Looker scheduled delivery -> Worker /ingest/roku (no Roku API exists)",
+        "console": "https://developer.roku.com/apps/analytics/engagement/881015",
+    }
+    if bad:
+        return f"{len(consumed)} drop(s) read, {len(bad)} UNREADABLE and kept for inspection"
+    if not consumed:
+        return ("no delivery waiting — the schedule fires daily at 06:00, "
+                "so this is normal between runs")
+    kept = "" if state.get("_apply") else " (dry run — left in the box)"
+    return (f"{len(consumed)} drop(s), {len(daily)} day(s), "
+            f"{len(set(tiles))} tile(s){kept}")
+
+
 # ─────────────────────────── Stores with no API at all — declared, not guessed
 
 # Amazon DOES have an API (Decision 111) and its vitals are read live by
@@ -1924,6 +2054,7 @@ SOURCES = [
     ("play_acquisition", play_acquisition),
     ("amazon_vitals", amazon_vitals),
     ("amazon_installs", amazon_installs),
+    ("roku_engagement", roku_engagement),
     ("manual_stores", manual_stores),
     ("social_programme", social_programme),
     ("social_reach", social_reach),
@@ -2025,6 +2156,10 @@ def main() -> int:
     # that were simply not asked. (This is the same rule as `sources`, one
     # level up: absence is not evidence.)
     state = blank()
+    # Readers that CONSUME a source (the drop box deletes what it hands over)
+    # must know whether this run will be kept. A dry run that destroys the only
+    # copy of a delivery is not a dry run.
+    state["_apply"] = bool(a.apply)
     if want:
         for key in ("stores", "ratings", "reviews", "mentions", "social",
                     "health", "github", "asks", "loves", "distribution"):
@@ -2110,6 +2245,19 @@ def main() -> int:
         sorted(state["mentions"] + (prev.get("mentions") or []),
                key=lambda m: m.get("date") or "", reverse=True),
         lambda m: m.get("url"))[:MAX_MENTIONS]
+
+    # Roku's delivery is a rolling 7-day window, so its days MERGE rather than
+    # replace: a day that has fallen out of Looker's window is still a day that
+    # happened, and dropping it would make a daily sync lose history instead of
+    # building it. New readings win on a date we already hold, because Roku
+    # restating a day is a correction.
+    rk = state["health"].get("rokuEngagement")
+    if rk is not None:
+        by_date = {r["date"]: r for r in
+                   ((prev.get("health") or {}).get("rokuEngagement") or {}).get("daily", [])}
+        for row in rk.get("daily", []):
+            by_date[row["date"]] = {**by_date.get(row["date"], {}), **row}
+        rk["daily"] = sorted(by_date.values(), key=lambda r: r["date"])[-120:]
 
     hist = [h for h in prev.get("history", []) if h.get("date") != today()]
     hist.append(history_row(state))

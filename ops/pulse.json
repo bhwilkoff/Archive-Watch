@@ -2402,6 +2402,71 @@
    },
    "since": "2026-06-15",
    "splitFrom": "2026-09-10"
+  },
+  "rokuEngagement": {
+   "daily": [
+    {
+     "date": "2026-09-10",
+     "Visitors": 57.0,
+     "Viewers": 41.0,
+     "Bounce Rate": 28.07,
+     "Account Installs Todate Sum": 71.0,
+     "Total Minutes Streamed": 771.0,
+     "Average Minutes per Streaming Account": 18.804878048780488,
+     "Streaming Accounts / Cumulative Installs": 57.746,
+     "Channel Installs": 71.0,
+     "Channel Uninstalls": 0.0,
+     "Net Installs": 71.0
+    },
+    {
+     "date": "2026-09-11",
+     "Visitors": 33.0,
+     "Viewers": 16.0,
+     "Bounce Rate": 51.515,
+     "Account Installs Todate Sum": 92.0,
+     "Total Minutes Streamed": 321.0,
+     "Average Minutes per Streaming Account": 20.0625,
+     "Streaming Accounts / Cumulative Installs": 17.391,
+     "Channel Installs": 21.0,
+     "Channel Uninstalls": 0.0,
+     "Net Installs": 21.0
+    },
+    {
+     "date": "2026-09-12",
+     "Visitors": 29.0,
+     "Viewers": 14.0,
+     "Bounce Rate": 51.724,
+     "Account Installs Todate Sum": 112.0,
+     "Total Minutes Streamed": 496.0,
+     "Average Minutes per Streaming Account": 35.42857142857143,
+     "Streaming Accounts / Cumulative Installs": 12.5,
+     "Channel Installs": 20.0,
+     "Channel Uninstalls": 1.0,
+     "Net Installs": 19.0
+    }
+   ],
+   "headline": {
+    "Account Channel Installs": 112.0,
+    "Avg Daily Viewers": 24.0,
+    "Average Minutes Streamed per Viewer": 22.37,
+    "Hours Streamed": 26.0,
+    "Account Channel Uninstalls": 1.0
+   },
+   "tiles": [
+    "ave_minutes___visitor",
+    "average_daily_visitors",
+    "channel_visitors_and_streaming_viewers",
+    "cumulative_net_installs",
+    "install_base_growth",
+    "minutes_streamed",
+    "new_installs",
+    "total_hours_streamed",
+    "uninstalls"
+   ],
+   "dropsRead": 1,
+   "unreadable": [],
+   "readVia": "Looker scheduled delivery -> Worker /ingest/roku (no Roku API exists)",
+   "console": "https://developer.roku.com/apps/analytics/engagement/881015"
   }
  },
  "github": {
@@ -2622,8 +2687,14 @@
    "ok": true,
    "note": "0 request(s), 5 bit(s) of praise",
    "at": "2026-09-13T17:00:53+00:00"
+  },
+  "roku_engagement": {
+   "ok": true,
+   "note": "1 drop(s), 3 day(s), 9 tile(s)",
+   "at": "2026-09-14T17:14:19+00:00"
   }
  },
+ "_apply": true,
  "stale": {},
  "history": [
   {
@@ -2705,10 +2776,26 @@
    "views14d": null,
    "catalogItems": 23963,
    "urgent": 0
+  },
+  {
+   "date": "2026-09-14",
+   "appleRating": 4.5,
+   "appleRatings": 6,
+   "playRating": null,
+   "playRatings": null,
+   "reviews": 6,
+   "mentions": 2,
+   "posts": 29,
+   "likes": 2,
+   "followers": 1,
+   "stars": 1,
+   "views14d": null,
+   "catalogItems": 23963,
+   "urgent": 0
   }
  ],
- "generatedAt": "2026-09-13T17:00:53+00:00",
- "repoVersion": "1.42.78",
- "repoBuild": "1090",
+ "generatedAt": "2026-09-14T17:14:19+00:00",
+ "repoVersion": "1.42.102",
+ "repoBuild": "1114",
  "_": "Written by tools/pulse_collect.py. `history` is the series and is append-only per day; everything else is the latest reading. A source that could not answer says so in `sources` — never assume a zero."
 }
