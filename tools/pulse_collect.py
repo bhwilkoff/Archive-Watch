@@ -1554,7 +1554,19 @@ def apple_downloads(state):
         raise RuntimeError("set ASC_VENDOR_NUMBER (App Store Connect -> "
                            "Payments and Financial Reports) to read downloads")
     import gzip
-    FIRST = {"1", "1T", "1E", "1EP", "1EU", "IA1"}
+    # Apple's Product Type Identifiers for a FIRST download. The Mac codes are
+    # a different family and were missing, which is why macOS read ZERO while
+    # App Store Connect showed installs (owner, 2026-09-14). iOS/tvOS codes are
+    # digit-led (1, 1T, 1E…); MAC apps are F-led (F1 free, FI1 in-app), and
+    # nothing about the iOS codes hints that a second family exists.
+    FIRST = {"1", "1T", "1E", "1EP", "1EU", "IA1",     # iPhone / iPad / Apple TV
+             "F1", "FI1"}                              # Mac
+    # Anything we skipped, counted. A code we do not recognise is the ONLY way
+    # this reader can under-report, and it does so silently — the number simply
+    # comes out smaller and looks like a quiet week. Recording the skipped
+    # codes turns the next missing family into a line on the dashboard instead
+    # of a platform that reads zero for a month.
+    skipped: dict = {}
     days, by_dev, by_country, by_version = [], {}, {}, {}
     per_day_dev: dict = {}
     # Per-DEVICE breakdowns as well as the account-wide ones. Each row carries
@@ -1597,7 +1609,12 @@ def apple_downloads(state):
                 continue
             if APPLE_APP_ID and f[idx["Apple Identifier"]].strip() != APPLE_APP_ID:
                 continue                             # another app in the same report
-            if f[idx["Product Type Identifier"]].strip() not in FIRST:
+            _pt = f[idx["Product Type Identifier"]].strip()
+            if _pt not in FIRST:
+                try:
+                    skipped[_pt] = skipped.get(_pt, 0) + int(f[idx["Units"]])
+                except (ValueError, KeyError):
+                    skipped[_pt] = skipped.get(_pt, 0)
                 continue                             # an update is not a new person
             try:
                 u = int(f[idx["Units"]])
@@ -1630,9 +1647,17 @@ def apple_downloads(state):
         "perDevice": {k: {"byCountry": top(v), "byVersion": top(dev_version.get(k, {})),
                           "units": by_dev.get(k, 0)}
                       for k, v in dev_country.items()},
+        # Every Product Type Identifier this reader did NOT count, with its
+        # units. Updates and re-downloads live here legitimately; a code that
+        # is actually a FIRST download for a platform we have forgotten shows
+        # up here too, which is the point — macOS read zero for weeks because
+        # the Mac family (F1, FI1) was absent from FIRST and nothing said so.
+        "skippedProductTypes": dict(sorted(skipped.items(), key=lambda kv: -kv[1])[:12]),
     }
     return (f"{sum(r['units'] for r in days)} first-time download(s) over {len(days)} day(s), "
-            f"{len(by_dev)} device type(s), {len(by_country)} country/countries")
+            f"{len(by_dev)} device type(s), {len(by_country)} country/countries"
+            + (f"; skipped {sum(skipped.values())} unit(s) across "
+               f"{len(skipped)} other product type(s)" if skipped else ""))
 
 
 

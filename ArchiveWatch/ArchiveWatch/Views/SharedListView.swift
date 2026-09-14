@@ -110,7 +110,7 @@ struct SharedListView: View {
                     .foregroundStyle(.white.opacity(0.55))
 
                 if items.isEmpty {
-                    Text("None of these titles are in the catalogue any more.")
+                    Text("None of these titles are in the catalog any more.")
                         .font(.title3).foregroundStyle(.white.opacity(0.5))
                 } else {
                     LazyVGrid(columns: cols, spacing: 36) {
@@ -137,7 +137,7 @@ struct SharedListView: View {
         let n = items.count
         if missing > 0 {
             return "\(n) of \(shared.archiveIDs.count) titles — "
-                 + "\(missing) \(missing == 1 ? "is" : "are") no longer in the catalogue."
+                 + "\(missing) \(missing == 1 ? "is" : "are") no longer in the catalog."
         }
         return "\(n) \(n == 1 ? "title" : "titles")."
     }
@@ -196,7 +196,7 @@ struct SharedListView: View {
                 if items.isEmpty {
                     ContentUnavailableView("Nothing to show",
                         systemImage: "rectangle.stack",
-                        description: Text("None of these titles are in the catalogue any more."))
+                        description: Text("None of these titles are in the catalog any more."))
                         .padding(.top, 40)
                 } else {
                     LazyVGrid(columns: cols, spacing: 18) {
@@ -230,7 +230,7 @@ struct SharedListView: View {
         let n = items.count
         if missing > 0 {
             return "\(n) of \(shared.archiveIDs.count) titles — "
-                 + "\(missing) \(missing == 1 ? "is" : "are") no longer in the catalogue."
+                 + "\(missing) \(missing == 1 ? "is" : "are") no longer in the catalog."
         }
         return "Shared playlist · \(n) \(n == 1 ? "title" : "titles")"
     }
@@ -298,7 +298,7 @@ struct SharedListView: View {
         let n = items.count
         if missing > 0 {
             return "Shared playlist · \(n) of \(shared.archiveIDs.count) titles — "
-                 + "\(missing) \(missing == 1 ? "is" : "are") no longer in the catalogue."
+                 + "\(missing) \(missing == 1 ? "is" : "are") no longer in the catalog."
         }
         return "Shared playlist · \(n) \(n == 1 ? "title" : "titles")"
     }

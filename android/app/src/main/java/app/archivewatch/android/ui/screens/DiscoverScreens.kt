@@ -205,7 +205,7 @@ fun FilteredGridScreen(container: AppContainer, nav: Nav, route: Route.Filtered)
                 title = route.title,
                 meta = when {
                     items == null -> "Loading…"
-                    rows.isEmpty() -> "No titles match this filter in the catalogue."
+                    rows.isEmpty() -> "No titles match this filter in the catalog."
                     else -> "${rows.size} ${if (rows.size == 1) "title" else "titles"}"
                 },
                 compact = true,
@@ -446,7 +446,7 @@ fun PlaylistScreen(container: AppContainer, nav: Nav, playlistID: String) {
                 TvConfirm(
                     question = "Delete this playlist?",
                     detail = "\"" + (state?.first ?: "") + "\" will be removed from your " +
-                        "library. The films stay in the catalogue.",
+                        "library. The films stay in the catalog.",
                     confirmLabel = "Delete",
                     onConfirm = {
                         confirmDelete = false

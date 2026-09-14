@@ -113,7 +113,7 @@ fun SharedListScreen(
         when {
             rows == null -> LoadingBox(Modifier.padding(padding))
             rows.isEmpty() -> Box(Modifier.padding(padding)) {
-                EmptyState("None of these titles are in the catalogue any more.")
+                EmptyState("None of these titles are in the catalog any more.")
             }
             else -> Column(Modifier.padding(padding)) {
                 // A title the link names that this catalogue no longer serves is
@@ -125,7 +125,7 @@ fun SharedListScreen(
                 Text(
                     if (missing > 0)
                         "Shared playlist · ${rows.size} of ${archiveIDs.size} titles — " +
-                            "$missing ${if (missing == 1) "is" else "are"} no longer in the catalogue."
+                            "$missing ${if (missing == 1) "is" else "are"} no longer in the catalog."
                     else "Shared playlist · ${rows.size} ${if (rows.size == 1) "title" else "titles"}",
                     style = MaterialTheme.typography.bodyMedium,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,

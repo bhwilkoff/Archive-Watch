@@ -1033,7 +1033,7 @@ function tabs(d, list) {
     box.appendChild(b);
   };
   mk("overview", "Overview");
-  mk("programme", "Programme", d.social?.totalPosts ?? null);
+  mk("program", "Program", d.social?.totalPosts ?? null);
   list.filter((p) => p.family === "app").forEach((p) =>
     mk(p.key, p.name, p.installs ?? p.views ?? null));
   list.filter((p) => p.family === "social").forEach((p) =>
@@ -1044,9 +1044,9 @@ function show(d, list, key) {
   location.hash = key === "overview" ? "" : key;
   $("tabs").querySelectorAll("button").forEach((b) =>
     b.setAttribute("aria-selected", String(b.dataset.key === key)));
-  const ov = $("sec-overview"), pl = $("sec-platform"), pr = $("sec-programme");
+  const ov = $("sec-overview"), pl = $("sec-platform"), pr = $("sec-program");
   if (key === "overview") { ov.hidden = false; pl.hidden = true; pr.hidden = true; return; }
-  if (key === "programme") { ov.hidden = true; pl.hidden = true; pr.hidden = false;
+  if (key === "program") { ov.hidden = true; pl.hidden = true; pr.hidden = false;
                              window.scrollTo({ top: 0 }); return; }
   ov.hidden = true; pl.hidden = false; pr.hidden = true;
   const p = list.find((x) => x.key === key);
@@ -1367,7 +1367,7 @@ fetch(`${DATA}?t=${Math.floor(Date.now() / 6e4)}`, { cache: "no-store" })
     // it made the Programme tab look dead: the click switched the view, set
     // the hash, and the hashchange handler immediately fell back to overview.
     // The tab worked; the router did not believe it.
-    const isView = (k) => k === "overview" || k === "programme"
+    const isView = (k) => k === "overview" || k === "program"
                           || list.some((p) => p.key === k);
     const want = (location.hash || "").replace(/^#/, "") || "overview";
     show(d, list, isView(want) ? want : "overview");

@@ -1768,7 +1768,7 @@
       const missing = pl.ids.length - rows.length;
       note.textContent = missing > 0
         ? `${rows.length} of ${pl.ids.length} titles — ${missing} `
-          + `${missing === 1 ? 'is' : 'are'} no longer in the catalogue.`
+          + `${missing === 1 ? 'is' : 'are'} no longer in the catalog.`
         : `${rows.length} ${rows.length === 1 ? 'title' : 'titles'}.`;
 
       // IMPORT is offered only to someone who has somewhere to put it. Signed

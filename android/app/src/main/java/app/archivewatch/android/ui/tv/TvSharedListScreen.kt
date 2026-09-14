@@ -127,10 +127,10 @@ fun TvSharedListScreen(
         Text(
             when {
                 items == null -> "Loading…"
-                rows.isEmpty() -> "None of these titles are in the catalogue any more."
+                rows.isEmpty() -> "None of these titles are in the catalog any more."
                 missing > 0 ->
                     "${rows.size} of ${archiveIDs.size} titles — $missing " +
-                        "${if (missing == 1) "is" else "are"} no longer in the catalogue."
+                        "${if (missing == 1) "is" else "are"} no longer in the catalog."
                 else -> "${rows.size} ${if (rows.size == 1) "title" else "titles"}"
             },
             fontSize = 22.sp,

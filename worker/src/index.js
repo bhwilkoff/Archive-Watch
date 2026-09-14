@@ -58,6 +58,25 @@ function shape(raw) {
   return "/other";
 }
 
+/* An archive id out of a route, or nothing. Deliberately narrow:
+ *   * ONLY /item/<id> and /series/<id> — never /list/, which carries a
+ *     viewer's whole playlist in its URL and is already dropped in the browser
+ *     before it ever reaches us.
+ *   * the id is length-capped and character-filtered, so a crafted route
+ *     cannot write arbitrary rows.
+ *   * `k=play` marks a film that actually started playing; anything else is
+ *     the detail page merely being opened.
+ * NOTE the case: shape() lowercases because a SURFACE is case-insensitive, but
+ * an archive id is NOT — `MacleansToot` and `macleanstoot` are two different
+ * items — so this reads the path unlowered. */
+function titleOf(raw, k) {
+  let p;
+  try { p = new URL(raw, ALLOW).pathname; } catch { return null; }
+  const m = /^\/(item|series)\/([A-Za-z0-9._@:+-]{1,120})\/?$/.exec(p);
+  if (!m) return null;
+  return { id: (m[1] === "series" ? "series:" : "") + m[2], kind: k === "play" ? "play" : "open" };
+}
+
 const cors = {
   "Access-Control-Allow-Origin": ALLOW,
   "Access-Control-Allow-Methods": "POST, GET, OPTIONS",
@@ -76,7 +95,8 @@ export default {
     // and a failure here must never be visible to a reader of the site.
     if (url.pathname === "/beacon" && request.method === "POST") {
       const day = new Date().toISOString().slice(0, 10);
-      const path = shape(url.searchParams.get("p") || "/");
+      const raw = url.searchParams.get("p") || "/";
+      const path = shape(raw);
       try {
         await env.DB.prepare(
           "INSERT INTO views (day, path, count) VALUES (?1, ?2, 1) " +
@@ -85,7 +105,45 @@ export default {
       } catch {
         // A counter is not worth an error page.
       }
+      // WHICH TITLE, in its OWN table. The `views` table above is untouched
+      // and still holds exactly what privacy.html describes; this is a second
+      // aggregate at the same grain — day, thing, count — and nothing else.
+      //
+      // It is the same shape of row as `/browse | 412`, about a FILM rather
+      // than a surface. Still no IP, no cookie, no session or visitor id, no
+      // user agent, no referrer, no country, no time of day — so a row here
+      // cannot be joined to a person, to another row, or to a second visit,
+      // including by us.
+      //
+      // `kind` keeps OPENED apart from PLAYED, because they are different
+      // measurements and summing them would answer neither question: a detail
+      // page opened is interest, a film played is an audience.
+      const t = titleOf(raw, url.searchParams.get("k"));
+      if (t) {
+        try {
+          await env.DB.prepare(
+            "INSERT INTO titles (day, id, kind, count) VALUES (?1, ?2, ?3, 1) " +
+            "ON CONFLICT(day, id, kind) DO UPDATE SET count = count + 1"
+          ).bind(day, t.id, t.kind).run();
+        } catch { /* same rule: a counter is not worth an error page */ }
+      }
       return new Response(null, { status: 204, headers: cors });
+    }
+
+    // The read side for titles. Public like /views: counts of PUBLIC films on
+    // a public site, with nothing in them about anybody.
+    if (url.pathname === "/titles") {
+      const days = Math.min(400, Math.max(1, Number(url.searchParams.get("days") || 28)));
+      const since = new Date(Date.now() - days * 864e5).toISOString().slice(0, 10);
+      try {
+        const { results } = await env.DB.prepare(
+          "SELECT day, id, kind, count FROM titles WHERE day >= ?1 ORDER BY day, id"
+        ).bind(since).all();
+        return Response.json({ since, rows: results || [] },
+                             { headers: { ...cors, "Cache-Control": "public, max-age=300" } });
+      } catch (e) {
+        return Response.json({ error: String(e) }, { status: 500, headers: cors });
+      }
     }
 
     // The read side, for the dashboard. Public on purpose: these numbers are
@@ -175,7 +233,7 @@ export default {
       }
     }
 
-    return new Response("archivewatch-pulse: /beacon, /views, /ingest/<vendor>, /drops", {
+    return new Response("archivewatch-pulse: /beacon, /views, /titles, /ingest/<vendor>, /drops", {
       status: 200, headers: { ...cors, "Content-Type": "text/plain" },
     });
   },
