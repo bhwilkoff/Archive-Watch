@@ -33,6 +33,20 @@ while [ $# -gt 0 ]; do
 done
 
 GRADLE="android/app/build.gradle.kts"
+# Play caps release notes at 500 characters and enforces it at COMMIT — the
+# very last call, after the bundle is built and uploaded. A 513-character note
+# cost a seven-minute CI run on 2026-09-13 and burned a versionCode with it.
+# Checked HERE, before anything is bumped, built or dispatched, because that is
+# the only place where failing costs nothing.
+if [ -n "$NOTES" ]; then
+  N=${#NOTES}
+  if [ "$N" -gt 500 ]; then
+    echo "Release notes are $N characters; Play's limit is 500."
+    echo "Shorten by $((N - 500)) and re-run — nothing has been built or bumped yet."
+    exit 1
+  fi
+fi
+
 KEY="${PLAY_SERVICE_ACCOUNT_JSON:-$HOME/.config/play/archivewatch-play.json}"
 [ -f "$KEY" ] || { echo "Missing service-account JSON at $KEY (see setup notes at top)"; exit 1; }
 

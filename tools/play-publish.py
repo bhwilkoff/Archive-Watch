@@ -48,6 +48,23 @@ def main():
     if notes and notes.startswith("@"):
         notes = open(os.path.expanduser(notes[1:])).read().strip()
 
+    # PLAY CAPS RELEASE NOTES AT 500 CHARACTERS, and it enforces that at COMMIT
+    # — the last call, after the bundle has been built and uploaded. On
+    # 2026-09-13 a 513-character note failed a run seven minutes in, with the
+    # AAB already uploaded into an edit that then had to be thrown away:
+    #   "The release created has notes in language en-US with length 513,
+    #    which is too long (max: 500)."
+    # The limit is knowable before any of that, so it is checked before any of
+    # that. Refused rather than truncated: a note cut mid-sentence is published
+    # to every user, and choosing what to drop is the author's job.
+    NOTES_MAX = 500
+    if notes and len(notes) > NOTES_MAX:
+        sys.exit(
+            f"release notes are {len(notes)} characters; Play's limit is "
+            f"{NOTES_MAX}. Shorten them by {len(notes) - NOTES_MAX} and re-run "
+            f"— the bundle has not been built yet, so nothing is wasted."
+        )
+
     try:
         edit_id = edits.insert(body={}, packageName=pkg).execute()["id"]
         print(f"edit {edit_id} opened for {pkg}")
