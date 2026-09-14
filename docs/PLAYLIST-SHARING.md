@@ -403,6 +403,31 @@ The relabel alone would NOT have been evidence — an in-memory flag looks
 identical on screen. Killing the process and re-opening the same link is what
 separates "the button changed" from "the row is in the database".
 
+**The OLD-VERSION path, verified on the phone (2026-09-14).** The most likely
+real-world receiver is someone whose app is behind, and that had never been
+tested. The Pixel 8a runs the Play-signed **vc56 / 1.42.6**, which predates the
+`/list/` route entirely. Firing the same link at it:
+
+    archivewatch.org is VERIFIED for the app (pm get-app-links)
+      ...and the link still opened CHROME, not the app
+
+That is Android being right rather than a failure: verification is per-domain,
+but routing is per-PATH, and vc56's manifest declares no `/list/` filter. So an
+old install cannot swallow a link it could not render — it falls through to the
+web, which is the correct destination. The live site then drew "Phone Glass
+Test", the same "4 of 5 titles — 1 is no longer in the catalogue." sentence the
+native screen draws, and the four films.
+
+**Signed out, there is no import button, and that is the design.** `watch.js`:
+*"IMPORT is offered only to someone who has somewhere to put it. Signed out,
+this is a collection to browse and play — which is the whole app signed out, so
+nothing is being withheld."* The phone's Chrome is signed into neither island,
+and the page correctly offered browsing and playback only.
+
+So the promise holds in all three shapes a receiver can be in: current app
+(imports, persists), old app (falls through to the web), no app (browses and
+plays, imports if signed in).
+
 **Android was the last one, and it was never broken — only unverified.** The
 code had been written and shipped (SharedListScreen, Route.SharedList,
 DeepLinks.pendingSharedList, the manifest pathPrefix) without a device ever
