@@ -660,16 +660,34 @@ def play_reports(state):
         "staleDays": stale_days,
         "monthsFound": sorted(found_months),
     }
-    if stale_days is not None and stale_days > 3:
-        # The number is REAL and OLD, which is the one combination a dashboard
-        # renders indistinguishably from current unless it is told. Google
-        # stopped writing this export while `ratings` from the SAME bucket and
-        # the SAME account kept arriving daily (see play_daily_exports, the
-        # control that proved it). So the note leads with the age.
-        return (f"STALE by {stale_days} day(s) — newest install row is "
-                f"{state['health']['playInstalls']['asOf']}. Google has stopped writing "
-                f"this export; ratings from the same bucket are current. "
+    # PLAY'S INSTALL DATA LAGS ~6 DAYS. That is normal and is NOT staleness.
+    #
+    # Measured 2026-09-14 by listing the bucket (tools/play_bucket_probe.py):
+    # the September file was written 09-13 20:40 holding data to 09-08, and the
+    # August file's LAST write was 08-26 holding data to 08-21. Two ordinary
+    # lags stack — the daily reporting lag, and the fact that the current
+    # month's file does not appear until part-way through the month — so early
+    # in a month the newest data available can still come from the previous
+    # month's file. A reading of "08-21" on 09-13 was both correct and normal.
+    #
+    # An earlier version of this code called that "Google has stopped writing
+    # this export", which was never measured — it was inferred from the newest
+    # ROW, which cannot tell a lag from a break. Only the OBJECT's update time
+    # can, and it said the export was healthy the whole time.
+    #
+    # So the alarm is set past both lags: about two weeks with no newer row is
+    # genuinely wrong, and anything less is Google being Google.
+    if stale_days is not None and stale_days > 14:
+        return (f"NO NEW INSTALL ROW IN {stale_days} DAYS — newest is "
+                f"{state['health']['playInstalls']['asOf']}. Past the normal ~6-day "
+                f"lag and past the monthly-file delay, so check the bucket with "
+                f"tools/play_bucket_probe.py before assuming it is a lag. "
                 f"{sum(r['installs'] for r in recent)} install(s) over {len(recent)} day(s)")
+    if stale_days is not None and stale_days > 3:
+        return (f"{sum(r['installs'] for r in recent)} install(s) over {len(recent)} day(s) "
+                f"to {state['health']['playInstalls']['asOf']} "
+                f"({stale_days}d behind — Play's normal reporting lag), "
+                f"{len(got)} report(s)")
     return (f"{sum(r['installs'] for r in recent)} install(s) over {len(recent)} day(s), "
             f"{len(got)} report(s), via {', '.join(sorted(how))}")
 
@@ -677,10 +695,17 @@ def play_reports(state):
 def play_daily_exports(state):
     """The Play exports that are still being written — crashes and ratings.
 
-    Worth its own reader because it is the control that proved the install
-    export is broken rather than merely slow: same bucket, same account, and
-    `ratings` was written this morning while `installs` had not been touched in
-    a fortnight. It also fills a gap the APIs cannot: `androidpublisher` serves
+    Worth its own reader because it is the control for the install export:
+    same bucket, same account, so if ratings arrives and installs does not, the
+    difference is Google's and not ours.
+
+    NOTE, 2026-09-14: that control was once read as proof the install export
+    was BROKEN. It was not. Listing the bucket showed installs being written
+    daily all along; what looked like a two-week gap was the install file's
+    ~6-day data lag plus the current month's file not existing until part-way
+    through the month. The control is real; the conclusion drawn from it was
+    not, because a file's newest ROW cannot distinguish a lag from a break and
+    only its update TIME can. It also fills a gap the APIs cannot: `androidpublisher` serves
     a 7-day review window and the Play listing publishes no rating below a
     minimum audience, but this CSV carries the running average anyway."""
     bucket = os.environ.get("PLAY_REPORTS_BUCKET", "").strip().replace("gs://", "").strip("/").split("/")[0]

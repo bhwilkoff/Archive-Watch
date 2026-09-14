@@ -231,3 +231,46 @@ isn't": Amazon's two different 400s (§3a) and this.
 
 An unreadable payload is KEPT, never acked — a body we cannot parse is the only
 evidence of the shape that broke us, and acking it would delete that.
+
+---
+
+## 9. Play installs were never broken — two lags, stacked (2026-09-14)
+
+Pulse reported Play installs as ending **2026-08-21** while the Console showed
+data every day, and this document plus two code comments called the export
+"broken". That was wrong, and the way it was wrong is the point.
+
+**Nothing was measured.** The claim came from the newest ROW in a CSV. A row
+cannot tell you whether a file stopped being written, moved, was renamed, or is
+simply behind — and those have different fixes, one of which is not a fix at
+all. Only the OBJECT'S UPDATE TIME can tell them apart, and nobody had looked.
+
+`tools/play_bucket_probe.py` looks. It runs in CI because the bucket id is a
+secret, lists what is actually there, and dumps our own files. It found:
+
+    installs_com.archivewatch.app_202609_overview.csv   written 2026-09-13 20:40
+        9 lines: 2026-09-01 .. 2026-09-08   (29, 31, 28, 39, 26, ... , 6)
+    installs_com.archivewatch.app_202609_country.csv    written 2026-09-13 20:40
+        636 lines, every country, same dates
+    installs_com.archivewatch.app_202608_*.csv          last written 2026-08-26
+        data to 2026-08-21
+
+**Two ordinary lags, stacked.** Play's install data runs about six days behind,
+AND the current month's file does not appear until part-way through the month.
+So on 2026-09-13 the newest file Pulse had ever seen was August's, whose final
+write held data to 08-21. Pulse's own last run was 16:58 that day; September's
+file landed at 20:40, three hours later. The reading was correct and normal.
+
+Running the collector immediately after: **598 installs to 2026-09-08.**
+
+**How to apply.** The alarm now fires past BOTH lags — more than fourteen days
+with no newer row — and anything less is reported as "Play's normal reporting
+lag" with the figure, because a dashboard that cries stale at six days teaches
+its reader to ignore the word. And before ever calling a vendor export broken,
+run the probe: a file's newest row is not evidence about the file.
+
+**A green run that did nothing, again.** The probe's first run died on a
+missing `requests` module and the job reported SUCCESS, because `| tee` makes
+the step's status tee's rather than the command's. `set -o pipefail`. This is
+Decisions 089 and 107 reintroduced by a convenience pipe, which is worth
+knowing: the pattern does not only arrive in big machinery.
