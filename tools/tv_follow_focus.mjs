@@ -34,7 +34,12 @@ const ROUTES = (process.env.AW_TV_ROUTES
   || "#/home,#/browse,#/channels,#/collections,#/library").split(",");
 
 /* 5% a side at 1080. The same numbers tv.css calls --tv-overscan-y. */
-const SAFE_TOP = 54, SAFE_BOTTOM = 1026, SAFE_LEFT = 0, SAFE_RIGHT = 1920;
+/* 5% a side at 1920x1080. The horizontal half was 0..1920 from the day this
+ * file was written — i.e. not checked at all — so every "0 outside the safe
+ * band" before 2026-09-13 was a statement about the top and the bottom only.
+ * Enforcing it found the brand logo at left=78 on #/browse the first time it
+ * ran, which is the whole argument for not leaving half a band unmeasured. */
+const SAFE_TOP = 54, SAFE_BOTTOM = 1026, SAFE_LEFT = 96, SAFE_RIGHT = 1824;
 
 /* A walk that changes direction, because a one-directional run never exercises
  * the case where reveal() has to scroll BACK. */

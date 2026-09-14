@@ -1284,6 +1284,35 @@
     nav.appendChild(a);
   }
 
+  /* Page chrome is not a destination on a television.
+   *
+   * `isChrome` keeps the INITIAL focus claim off the brand and the footer, and
+   * in a browser that was enough. It is not enough with a remote: one Down
+   * from the Browse chips walked onto the brand logo, whose box starts at
+   * x=78 — eighteen pixels inside the 5% a set cuts off each side, so the
+   * selection rectangle sits under the bezel. Measured 2026-09-13, and only
+   * after the follow-focus harness was taught to check the band HORIZONTALLY;
+   * it had been comparing against the full 0..1920 viewport since the day it
+   * was written, so every earlier "0 outside the safe band" spoke only about
+   * the top and the bottom.
+   *
+   * There is nowhere useful to land here in any case. Every footer link is
+   * either an app-store page a Tizen browser cannot open, or About — which is
+   * in the nav rail (installNavAbout). The brand repeats the rail's Home.
+   *
+   * `tabindex="-1"` is the author's own way of saying "not reachable by
+   * keyboard", and FOCUSABLE honours it on every row, so retiring chrome needs
+   * no new concept — only the attribute.
+   */
+  function retireChrome() {
+    document.querySelectorAll(CHROME_SEL).forEach(function (el) {
+      if (el.matches && el.matches(FOCUSABLE)) el.setAttribute('tabindex', '-1');
+      el.querySelectorAll(FOCUSABLE).forEach(function (kid) {
+        kid.setAttribute('tabindex', '-1');
+      });
+    });
+  }
+
   function installHero() {
     // The rail scrolls on its own (watch.js auto-advances) and is rebuilt on
     // every Home render, so the reachable slide is re-derived from the scroll
@@ -1460,6 +1489,7 @@
     registerTizenKeys();
     installLifecycle();
     installNavAbout();
+    retireChrome();
     installHero();
     installPointerBridge();
     window.addEventListener('keydown', onKeyDown, true);
@@ -1471,6 +1501,7 @@
       closeShare();
       closeConfirm();
       tvPickers();
+      retireChrome();   // the install prompt can appear after init
       heroSync();
       claimFocus();
       beginArrival();
