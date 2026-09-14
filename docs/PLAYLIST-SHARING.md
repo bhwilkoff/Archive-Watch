@@ -378,6 +378,30 @@ own encoder and opened through the platform's real URL entry point:
 | macOS | this Mac | creature feature · Shared playlist · 3 titles · Add to my library |
 | Android TV | Google TV (SEI R 4K) | SHARED PLAYLIST · creature feature · 10 titles · Play all · Add to my library — 2026-09-13 |
 | Roku | Streaming Stick 4K | the QR its own screen draws decodes to the exact 448-char link — 2026-09-13 |
+| Android TV | Homatics Dongle R 4K | IMPORT + PERSISTENCE, on a minified RELEASE build (vc60) — 2026-09-14 |
+
+**What the second Android TV run added (2026-09-14).** The rows above prove a
+shared link RENDERS. This one followed it through:
+
+    link minted by watch.js's ShareList.encode  (5 ids, 182-char blob)
+      -> https://archivewatch.org/list/#<blob>, fired as a real App Link
+      -> "SHARED PLAYLIST / Phone Glass Test"
+      -> "4 of 5 titles - 1 is no longer in the catalogue."
+      -> "Add to my library" pressed -> the button becomes "In your library"
+      -> force-stop, cold launch, SAME link re-opened
+      -> still "In your library"
+
+Three things worth having in writing. It is the **JS -> Kotlin** hop, which no
+test in the suite covers — `test_share_crossplatform.sh` proves Swift -> JS,
+and `test_share_list.mjs` proves JS -> JS. It ran against a **minified release
+build**, not a debug one, so R8 has not stripped the decoder. And the missing
+id is the useful part: a shared playlist naming a film this catalogue no longer
+serves says so in a full sentence and imports the rest, rather than failing or
+silently shortening.
+
+The relabel alone would NOT have been evidence — an in-memory flag looks
+identical on screen. Killing the process and re-opening the same link is what
+separates "the button changed" from "the row is in the database".
 
 **Android was the last one, and it was never broken — only unverified.** The
 code had been written and shipped (SharedListScreen, Route.SharedList,
