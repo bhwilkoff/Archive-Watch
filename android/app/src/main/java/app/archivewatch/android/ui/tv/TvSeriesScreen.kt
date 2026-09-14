@@ -156,7 +156,16 @@ fun TvSeriesScreen(container: AppContainer, nav: Nav, slug: String) {
                         contentScale = ContentScale.Fit,
                         modifier = Modifier
                             .align(Alignment.CenterEnd)
-                            .padding(end = TvDims.OverscanH, top = 20.dp, bottom = 20.dp)
+                            // OverscanV on top, not 20.dp: 20.dp is 40px and the
+                            // safe top is 54, so the poster's first 14px were
+                            // in the cut. The blurred wash BEHIND it is meant
+                            // to be full-bleed; the fitted poster is the
+                            // artwork and has to be whole (Decision 097).
+                            .padding(
+                                end = TvDims.OverscanH,
+                                top = TvDims.OverscanV,
+                                bottom = 20.dp,
+                            )
                             .fillMaxHeight()
                             .clip(RoundedCornerShape(10.dp)),
                     )
