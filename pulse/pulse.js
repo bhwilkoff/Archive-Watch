@@ -586,6 +586,38 @@ function glance(d, list) {
       detail: (d.health?.playCrashes || []).map(crashRow) });
   }
 
+  /* ROKU HEALTH. Its App Health dashboard reports BrightScript crashes and
+     its App Stability dashboard ships one tile per Roku model — and on the
+     first delivery all forty of those were EMPTY, which means nothing crashed
+     on any model. That is a real answer and is said out loud, because an
+     absent panel and a clean one look identical otherwise. */
+  const rkh = d.health?.rokuEngagement;
+  const rkDays = (rkh?.daily || []).filter((r) => r["Total Count of Crashes"] != null);
+  if (rkDays.length) {
+    const crashes = rkDays.map((r) => r["Total Count of Crashes"]);
+    const stab = (rkh?.byReport || {})["App Stability"] || {};
+    const quiet = (stab.emptyTiles || []).length;
+    const logs = ((rkh?.byReport || {})["App Health"] || {}).tables || {};
+    const rows = logs.brightscript_crash_logs || logs.brightscript_crash_logs_with_stacktraces || [];
+    panel(B("health"), {
+      k: "Roku crashes", right: `${rkDays.length} days`,
+      v: int(crashes.reduce((a, b) => a + b, 0)),
+      chart: crashes.length >= 2
+        ? { html: C.runChart(crashes, { label: "BrightScript crashes a day" }) } : null,
+      cap: quiet
+        ? `BrightScript crashes. App Stability reported on ${quiet} Roku models and `
+          + "every one was empty — nothing crashed on any of them."
+        : "BrightScript crashes reported by Roku's App Health dashboard.",
+      detail: rows.length
+        ? rows.slice(0, 12).map((r) => ({
+            label: `${r.Date || r["Error Key Date"] || ""} · v${r["App Version"] || "?"}`
+                 + ` · OS ${r["Roku OS Release"] || "?"}`,
+            value: String(r["Error Text"] || r.Backtrace || "").slice(0, 90) }))
+        : rkDays.slice().reverse().map((r) => ({
+            label: r.date, value: `${int(r["Total Count of Crashes"])} crash(es)` })),
+    });
+  }
+
   /* 9. The fleet: one mark per finding, none at all when nothing is wrong. */
   const wf = d.health?.workflows || [];
   const marks = wf.map((f) => ({
