@@ -418,11 +418,19 @@ The order is: ship the apps, confirm the release is live, then declare the
 path. Until then a shared link opens the web viewer on every device, which
 works.
 
-**Step one is under way (2026-09-13).** App Store Connect showed all three
-Apple platforms live on **1.42.53** against a repo at 1.42.94 — forty-one
-versions of unreleased work, the whole shared-playlist feature among it. The
-cloud build was dispatched for all three platforms with submit, so the gate is
-now "is the release LIVE", not "has it been built".
+**Step one is DONE and waiting on Apple (2026-09-13).** App Store Connect
+showed all three Apple platforms live on **1.42.53** against a repo at 1.42.94
+— forty-one versions of unreleased work, the whole shared-playlist feature
+among it. The cloud build ran for all three platforms in 12m42s and each one
+reads, in ASC:
+
+    tvos / ios / mac   live=1.42.53   in-progress=1.42.94 WAITING_FOR_REVIEW
+                       build 1106: VALID, attached, What's New set
+
+So the gate is now exactly one thing: **the release going LIVE.** Check with
+`tools/asc_release.py status`; when `live=` reads 1.42.94 on all three, declare
+`/list/*` in the AASA. Not before — an approved-but-not-released version still
+means the app in people's hands does not know the route.
 
 Note the Android half is NOT in the same position: its intent filter ships
 INSIDE the APK, so `/list/` was safe to add immediately and already is. Only
