@@ -1788,8 +1788,25 @@ AMAZON_SCOPE = "adx_reporting::appstore:marketer"
 AMAZON_METRIC_SETS = ("crashMetricSet", "anrMetricSet", "lmkMetricSet")
 
 
-def _amazon_token():
-    """Client-credentials token, or (None, why-not) so the caller can say so."""
+def _amazon_app_id():
+    v = os.environ.get("AMAZON_APP_ID", "").strip()
+    if v:
+        return v
+    if AMAZON_CREDS.exists():
+        try:
+            return (json.loads(AMAZON_CREDS.read_text()).get("app_id") or "").strip()
+        except Exception:                                # noqa: BLE001
+            return ""
+    return ""
+
+
+def _amazon_token(scope=None):
+    """Client-credentials token, or (None, why-not) so the caller can say so.
+
+    TWO SCOPES, two different APIs: `adx_reporting::appstore:marketer` reads
+    vitals and the sales report, `appstore::apps:readwrite` reads and writes
+    the app's edits. A token minted for one is refused by the other, which
+    reads as a permissions failure rather than as the wrong scope."""
     raw = os.environ.get("AMAZON_CLIENT_ID"), os.environ.get("AMAZON_CLIENT_SECRET")
     if all(raw):
         cid, secret = raw
@@ -1802,7 +1819,7 @@ def _amazon_token():
         return None, "Amazon credentials are present but incomplete"
     body = urllib.parse.urlencode({
         "grant_type": "client_credentials", "client_id": cid,
-        "client_secret": secret, "scope": AMAZON_SCOPE}).encode()
+        "client_secret": secret, "scope": scope or AMAZON_SCOPE}).encode()
     req = urllib.request.Request(AMAZON_TOKEN_URL, data=body,
         headers={"Content-Type": "application/x-www-form-urlencoded"})
     try:
@@ -2207,6 +2224,81 @@ def web_titles(state):
             f"{len(per_kind.get('open', {}))} opened, over {len(daily)} day(s)")
 
 
+def amazon_live(state):
+    """WHICH BUILD IS LIVE on Fire TV, read rather than declared by hand.
+
+    Amazon exposes no "live version" route — /versions, /live, /apks and
+    /status all answer 400 "Unable to fetch the request scope", which is this
+    API's no-such-route signal (Decision 111). The ONLY way to see the live
+    APK set is an EDIT, because Amazon seeds a new edit from whatever is live.
+
+    THE DANGEROUS PART, and the reason for the guard below: if an edit already
+    exists it is somebody's IN-FLIGHT SUBMISSION. Creating-and-deleting
+    unconditionally would destroy it. So this reader only ever creates an edit
+    when there is none, deletes only the edit it created itself, and when it
+    finds an existing one it reads it and leaves it completely alone.
+
+    Why it matters: ops/stores-manual.json declared Fire TV as
+    "LIVE (1.3.485, minSdk 29 - most devices cannot install) - vc57 PENDING"
+    while vc57 had in fact been live for days. A hand-declared value that lies
+    is worse than no value (Decision 115), and this is the one store where a
+    stale version claim previously hid an install-blocking regression.
+    """
+    tok, why = _amazon_token("appstore::apps:readwrite")
+    if not tok:
+        raise RuntimeError(why)
+    app = _amazon_app_id()
+    if not app:
+        raise RuntimeError("no AMAZON_APP_ID — the app's devportal id is needed "
+                           "to ask which build is live")
+    base = f"https://developer.amazon.com/api/appstore/v1/applications/{app}"
+
+    def call(method, path, body=None, etag=None):
+        headers = {"Authorization": f"Bearer {tok}", "Accept": "application/json",
+                   "Content-Type": "application/json", "User-Agent": UA}
+        if etag:
+            headers["If-Match"] = etag
+        req = urllib.request.Request(base + path, data=body, method=method, headers=headers)
+        try:
+            r = urllib.request.urlopen(req, timeout=45)
+            raw = r.read().decode()
+            return r.status, (json.loads(raw) if raw.strip() else {}), r.headers.get("ETag")
+        except urllib.error.HTTPError as e:
+            return e.code, {}, e.headers.get("ETag")
+
+    st, existing, _ = call("GET", "/edits")
+    mine = False
+    eid = (existing or {}).get("id")
+    if not eid:
+        st, made, _ = call("POST", "/edits", b"")
+        eid, mine = (made or {}).get("id"), True
+        if not eid:
+            raise RuntimeError(f"could not open an edit to read the live build (HTTP {st})")
+
+    st, apks, _ = call("GET", f"/edits/{eid}/apks")
+    builds = [{"versionCode": k.get("versionCode"), "name": k.get("name")}
+              for k in (apks if isinstance(apks, list) else [])]
+
+    if mine:                       # delete ONLY what this reader created
+        _, _, tag = call("GET", f"/edits/{eid}")
+        call("DELETE", f"/edits/{eid}", etag=tag)
+
+    live = max((b["versionCode"] for b in builds if b.get("versionCode") is not None),
+               default=None)
+    state["health"]["amazonLive"] = {
+        "liveVersionCode": live,
+        "builds": builds,
+        "submissionInFlight": bool(eid and not mine),
+        "readVia": ("an existing edit, left untouched" if not mine
+                    else "a temporary edit, created and deleted"),
+        "console": "https://developer.amazon.com/apps-and-games/console/apps/list.html",
+    }
+    if eid and not mine:
+        return (f"versionCode {live} in the OPEN edit — a submission is in flight, "
+                "so this is what is staged rather than what is live")
+    return f"versionCode {live} is live on Fire TV"
+
+
 # ─────────────────────────── Stores with no API at all — declared, not guessed
 
 # Amazon DOES have an API (Decision 111) and its vitals are read live by
@@ -2275,6 +2367,7 @@ SOURCES = [
     ("play_acquisition", play_acquisition),
     ("amazon_vitals", amazon_vitals),
     ("amazon_installs", amazon_installs),
+    ("amazon_live", amazon_live),
     ("roku_engagement", roku_engagement),
     ("manual_stores", manual_stores),
     ("social_programme", social_programme),
@@ -2461,6 +2554,7 @@ def main() -> int:
                    "play_daily_exports": "playDaily",
                    "apple_downloads": "appleDownloads", "apple_performance": "applePerf",
                    "amazon_vitals": "amazonVitals", "amazon_installs": "amazonInstalls",
+                   "amazon_live": "amazonLive",
                    "roku_engagement": "rokuEngagement",
                    "web_usage": "webUsage", "web_titles": "webTitles",
                    "catalog": "catalog",

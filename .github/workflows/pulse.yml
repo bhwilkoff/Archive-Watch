@@ -79,6 +79,10 @@ jobs:
           # Roku has no API: its Looker schedule posts to the Worker's drop box
           # and the collector reads it with this token (docs/PULSE-ANALYTICS.md §3b).
           PULSE_INGEST_TOKEN: ${{ secrets.PULSE_INGEST_TOKEN }}
+          # Not a credential — the app's devportal identifier. It is a secret
+          # only because it names a private console record; the reader needs it
+          # to ask Amazon which build is live.
+          AMAZON_APP_ID: ${{ secrets.AMAZON_APP_ID }}
           YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
           YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
           YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
