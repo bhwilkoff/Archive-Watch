@@ -393,3 +393,16 @@ OUTWARD — the leftmost grid card measured x=69 while focused against an
 overscan edge of 96. For a card that is harmless: the TEXT inside it is inset
 and stays well clear. For a WIDE row it is not (see Settings). When reading a
 uiautomator dump, judge the TEXT bounds, never the container's.
+
+### uiautomator cannot see inside a merged Compose node
+
+Measuring Home looked clean at "8 text nodes, 0 outside" — and the hero's
+"FEATURE FILM / Yanks Are Coming / 1942" was not among those eight. A focusable
+Compose container merges its descendants, so the dump carries ONE node whose
+`content-desc` is the joined string and whose bounds are the CONTAINER's. For a
+full-bleed hero that box legitimately reaches the screen edges, so neither the
+text nor a useful box is available.
+
+Two consequences. Read `content-desc` as well as `text`, or whole surfaces go
+unmeasured. And treat a low node count as a warning: the hero is the largest
+type on Home, and a measurement that never saw it is not a measurement of Home.

@@ -315,7 +315,24 @@ private fun TvNavRail(nav: Nav, railFocus: FocusRequester) {
             .background(Color(0xFF0B0B0B))
             // §4.2 — the rail's controls must clear the overscan line too; 12dp
             // put the icons under the bezel on a real panel.
-            .padding(vertical = TvDims.OverscanV, horizontal = 24.dp),
+            // The rail is the one piece of chrome on every screen, and it was
+            // the one piece sitting in the cut: a uiautomator dump put each
+            // icon's box at x=72..104 against a 96px overscan edge, so half of
+            // every nav icon — including the one showing which tab you are on
+            // — is trimmed by a panel that overscans.
+            //
+            // START only, and the rail widened to match. Padding BOTH sides to
+            // OverscanH took 96.dp out of an 88.dp collapsed rail and the
+            // icons vanished from the screen entirely — a fixed-width
+            // container cannot absorb padding it does not have room for. The
+            // start inset is what the overscan edge needs; the right side has
+            // content beside it and needs nothing.
+            .padding(
+                top = TvDims.OverscanV,
+                bottom = TvDims.OverscanV,
+                start = TvDims.OverscanH - 12.dp,   // + each item's own 12.dp
+                end = 12.dp,
+            ),
         verticalArrangement = Arrangement.spacedBy(6.dp),
     ) {
         items.forEachIndexed { index, entry ->

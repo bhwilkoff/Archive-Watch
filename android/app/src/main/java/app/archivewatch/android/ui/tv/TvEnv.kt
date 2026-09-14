@@ -81,6 +81,9 @@ object TvDims {
     val FocusRing = 2.5.dp
     val FocusElevation = 8.dp
 
-    val NavRailWidth = 220.dp
-    val NavRailCollapsed = 88.dp
+    val NavRailWidth = 244.dp
+    // +24dp over the original 88: the rail's start inset moved out to the
+    // overscan edge (TvAppRoot), and a fixed width has to carry it or the
+    // icons are clipped away — which is exactly what happened first try.
+    val NavRailCollapsed = 112.dp
 }
