@@ -417,3 +417,21 @@ their link gone. That is strictly worse than the web page they get today.
 The order is: ship the apps, confirm the release is live, then declare the
 path. Until then a shared link opens the web viewer on every device, which
 works.
+
+**Step one is under way (2026-09-13).** App Store Connect showed all three
+Apple platforms live on **1.42.53** against a repo at 1.42.94 — forty-one
+versions of unreleased work, the whole shared-playlist feature among it. The
+cloud build was dispatched for all three platforms with submit, so the gate is
+now "is the release LIVE", not "has it been built".
+
+Note the Android half is NOT in the same position: its intent filter ships
+INSIDE the APK, so `/list/` was safe to add immediately and already is. Only
+the AASA is served by us, and only the AASA has to wait.
+
+A practical note for whoever checks this next: `tools/asc_release.py status` is
+the way to read where Apple actually stands, and on this Mac it needs `pyjwt`
+and a credential source. System Python has neither — `uv venv` plus
+`uv pip install pyjwt cryptography` works where `python3 -m venv` produced a
+venv with a broken pip, and `tools/asc-credentials.env` (gitignored) carries
+the key id and issuer, with the .p8 outside the repo in
+`~/.appstoreconnect/private_keys/`.
