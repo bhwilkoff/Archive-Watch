@@ -277,3 +277,47 @@ The durable lesson is about the instrument, not the app: a harness that reports
 a count against a band is only as good as the band, and a constant set to the
 viewport is indistinguishable at the output from a check that passes. Assert
 the band the harness PRINTS matches the band the platform actually cuts.
+
+## 2026-09-14 — 1.42.100: the transport's zero-pixel fit, answered rather than asked
+
+Judgement call 4 from the 1.42.78 entry above — *"its hint line ends at y=1026
+against a 5%-overscan band that ends at 1026 ... on the actual set, is it fully
+visible, or is the bottom of it cut off?"* — is closed, and not by a person
+squinting at a sofa.
+
+**The harness could not have answered it.** The player pass filtered on
+top/bottom only, and its probe did not even COLLECT left and right, so adding
+them to the filter alone would have compared against `undefined` — false on
+both sides, a silent pass. Both halves were fixed together; either alone is
+the vacuous-pass shape this file has now been bitten by three times.
+
+**What four sides then showed**, and it was worse than the one number in the
+original note:
+
+| element | before | after |
+|---|---|---|
+| hint line bottom | **1026** (the line itself) | 1008 |
+| timecode right edge | **1824** (the line itself) | 1800 |
+| transport row left | **96** (the line itself) | 120 |
+
+Three edges fitting by zero pixels, not one.
+
+**The rule applied is older than this project.** Everything here insets to 5% —
+the broadcast ACTION-safe area, which picture may cross and content may not.
+Text has a second convention at 10%, TITLE-safe, because a set overscanning a
+little past 5% clips a letterform into unreadability where it would only crop
+the corner of an image. The transport takes 120/72 rather than the full
+192/108: the progress bar is picture-adjacent furniture, and losing 192px a
+side to it is the worse trade. Every edge now clears action-safe by 18-24px.
+
+**The reading is a reading, not an absence.** Planting a 900..1000 band made
+the pass report all four labels with their left/right values, so the "0
+outside" above is the filter working rather than the filter finding nothing.
+
+The routes cleared yesterday under the broken band were re-walked under the
+corrected one — item, cartoons, surprise, about, search, 18 presses each — and
+are genuinely clean. **The set is running 1.42.100.**
+
+Three judgement calls remain, unchanged and still a person's: the marquee's
+Left/Right gesture, About as a seventh nav item on a 65-inch panel, and guide
+stepping speed.
