@@ -183,7 +183,30 @@ xcodebuild -scheme "Archive Watch Mac"  -destination 'generic/platform=macOS'
 
 - **Passcodes and passwords.** Entering credentials into any field is out of
   scope for the agent, including when the owner supplies them. Device unlock,
-  Apple ID sign-in and portal passwords are owner steps. A locked device
+  Apple ID sign-in and portal passwords are owner steps.
+
+  **ANDROID NEEDS EXACTLY ONE OF THEM, AND ASKING TWICE IS A BUG.** The Pixel
+  has a secure keyguard, so `wm dismiss-keyguard` does not open it — what it
+  does is stop a dismissed keyguard RE-ENGAGING. The protocol (owner,
+  2026-08-28: *"never ask for repeated unlocks"*) is therefore:
+
+      adb -s <dev> shell svc power stayon true          # 15 = all charge modes
+      adb -s <dev> shell settings put system screen_off_timeout 1800000
+
+  With those set, the owner unlocks ONCE and the screen never sleeps again, so
+  every later run wakes into an unlocked device. `gtv_scenario.launch()` does
+  the wake + dismiss + Back sequence on every launch.
+
+  **Check `svc power stayon` BEFORE reporting a device as locked.** On
+  2026-09-14 the setting had been lost (timeout back to 120 s), the phone
+  re-locked mid-run, and the owner was told "the phone is locked" three times
+  across one session — for a condition the repo already knew how to prevent
+  and which they had explicitly asked never to be asked about again. The
+  protocol existed only as a comment inside `tools/gtv_scenario.py`, which is
+  why it was not found. That is what this entry is for.
+
+  This does NOT change the credential rule: the agent still never draws the
+  pattern or types the passcode, whoever offers it. A locked device
   INSTALLS fine and refuses to launch (`FBSOpenApplicationErrorDomain error 7`,
   "Locked"), which arrives as an empty console plus an empty screenshot — i.e.
   as several unrelated failures and two VACUOUS passes. `download_audit.py`
