@@ -250,6 +250,22 @@
     "reposts": 0,
     "replies": 0
    }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mveetv6wmf2o",
+   "platform": "bluesky",
+   "id": "gov.fdr.37",
+   "slot": "from-the-vaults",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-09-13T00:50:07.022860+00:00",
+   "sampled": "2026-09-14T01:00:45.814490+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
   }
  ]
 }

@@ -433,6 +433,18 @@
    "kind": "short-film",
    "mediaId": null,
    "reviewer": null
+  },
+  {
+   "at": "2026-09-14T01:00:31.230568+00:00",
+   "id": "TheSpringtimeOfLifeForYT",
+   "title": "The Springtime of Life",
+   "slot": "now-showing",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mvgvvfxowy2u",
+   "format": "video",
+   "kind": "silent-film",
+   "mediaId": null,
+   "reviewer": null
   }
  ]
 }
