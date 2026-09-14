@@ -141,3 +141,45 @@ promises we never receive, see or store information about a viewer or how they
 use the app, and everything here is a STORE-side or server-side aggregate the
 vendor already holds. Nothing in this design changes what the apps collect,
 which is nothing.
+
+---
+
+## 7. The drop box, as built (2026-09-14)
+
+`archivewatch-pulse` gained three routes beside `/beacon` and `/views`:
+
+    POST /ingest/<vendor>?t=<token>   store a delivery RAW
+    GET  /drops?vendor=&t=<token>     read pending deliveries
+    POST /drops?id=&t=<token>         ack — delete one, once ingested
+
+`drops(id, vendor, received, content_type, bytes, body)` in the same free-tier
+D1. Verified live with its negative controls FIRST: no token → 404, wrong token
+→ 404, `/drops` unauthenticated → 404. Then an authenticated CSV drop stored,
+read back with its content type and byte count, acked, and gone. `/views` still
+answers, unchanged.
+
+**404, not 403**, so an unauthenticated prober learns nothing about what lives
+here. **A body over 900 000 bytes is REFUSED, not truncated** — D1 caps a row
+near 1 MB, and half a report read as a whole one is the quiet wrong number this
+dashboard exists to prevent; the response says `refused` and the row records
+the byte count.
+
+**A deploy is not live when wrangler says so.** The first test run reported
+three passing negative controls that were nothing of the kind: the endpoint did
+not exist yet, so every request fell through to the root handler and answered
+200. The tell was the fallback body still listing only `/beacon, /views`. Poll
+the root until it names the new routes before believing any result from them.
+
+### Owner step to switch Roku on
+
+In the Roku Developer Dashboard, open an analytics report → the ⋯ menu →
+**Schedule Delivery** → destination **Webhook**, format **CSV**, cadence
+**Daily**, URL:
+
+    https://archivewatch-pulse.benwilkoff.workers.dev/ingest/roku?t=<PULSE_INGEST_TOKEN>
+
+The token is at `~/.config/archivewatch/pulse-ingest.env` (mode 600), on the
+Worker as the `INGEST_TOKEN` secret, and in the repo as `PULSE_INGEST_TOKEN`.
+It is in no commit. The first delivery is what teaches us Looker's payload
+shape, after which the parser gets written against a real body rather than a
+guess.
