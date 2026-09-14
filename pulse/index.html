@@ -50,12 +50,6 @@
   </section>
 
   <section>
-    <h2>The programme <span class="count" id="social-n"></span>
-      <span class="hint">what we posted, and what it did</span></h2>
-    <div id="social" class="rows"></div>
-  </section>
-
-  <section>
     <h2>Over time <span class="hint">one reading a day</span></h2>
     <div id="trend"></div>
   </section>
@@ -67,6 +61,22 @@
       <div id="sources" class="rows"></div>
     </section>
   </div>
+
+  <!-- The programme is its OWN view, not a panel on the usage page.
+       Owner, 2026-09-14: "Social Media should not be combined with usage
+       metrics." The dashboard literature agrees for a reason that is not
+       tidiness — a dashboard answers ONE question, and "did anyone install
+       it?" and "what did we post?" are different questions with different
+       audiences. Put them side by side and a reader draws a causal line
+       between a post and a spike that neither number supports. -->
+  <section id="sec-programme" hidden>
+    <p class="lede">What we posted, and what it did. Deliberately kept apart
+      from installs and usage: a post and an install on the same day are not
+      evidence about each other.</p>
+    <h2>The programme <span class="count" id="social-n"></span>
+      <span class="hint">what we posted, and what it did</span></h2>
+    <div id="social" class="rows"></div>
+  </section>
 
   <section id="sec-platform" hidden>
     <p class="lede" id="platform-lede"></p>

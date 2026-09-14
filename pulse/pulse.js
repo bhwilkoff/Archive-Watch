@@ -898,8 +898,24 @@ function platforms(d) {
     // noApi is the ROW's claim, not an assumption. Amazon publishes a Vitals
     // API and this page said it did not, for five weeks — the store declares
     // what is readable and the renderer believes the store.
+    // Two of these four stopped being "no API" stores on 2026-09-14, and each
+    // for a DIFFERENT reason worth keeping straight. Fire TV installs come
+    // from the SALES report, because for a free app every install is a $0.00
+    // Charge row (Decision 111 said units were console-only; they are not).
+    // Roku has no API and never will — its Looker dashboard DELIVERS to our
+    // own drop box on a daily schedule. So `noApi` is no longer the whole
+    // story: a store can be unreadable by request and still reach us.
+    const installs = name === "Fire TV" ? d.health?.amazonInstalls
+                   : name === "Roku"    ? d.health?.rokuEngagement
+                   : null;
     if (row) out.push({ key: name.toLowerCase().replace(/\s/g, ""), name, family: "app",
-                        store, row, noApi: !row.api,
+                        store, row, noApi: !row.api && !installs,
+                        delivered: name === "Roku" && !!installs,
+                        installs: installs?.total
+                               ?? installs?.headline?.["Account Channel Installs"]
+                               ?? null,
+                        series: installs?.daily || null,
+                        dims: installs?.byCountry || null,
                         vitals: row.api === "vitals" ? d.health?.amazonVitals : null });
   });
 
@@ -949,6 +965,7 @@ function tabs(d, list) {
     box.appendChild(b);
   };
   mk("overview", "Overview");
+  mk("programme", "Programme", d.social?.totalPosts ?? null);
   list.filter((p) => p.family === "app").forEach((p) =>
     mk(p.key, p.name, p.installs ?? p.views ?? null));
   list.filter((p) => p.family === "social").forEach((p) =>
@@ -959,9 +976,11 @@ function show(d, list, key) {
   location.hash = key === "overview" ? "" : key;
   $("tabs").querySelectorAll("button").forEach((b) =>
     b.setAttribute("aria-selected", String(b.dataset.key === key)));
-  const ov = $("sec-overview"), pl = $("sec-platform");
-  if (key === "overview") { ov.hidden = false; pl.hidden = true; return; }
-  ov.hidden = true; pl.hidden = false;
+  const ov = $("sec-overview"), pl = $("sec-platform"), pr = $("sec-programme");
+  if (key === "overview") { ov.hidden = false; pl.hidden = true; pr.hidden = true; return; }
+  if (key === "programme") { ov.hidden = true; pl.hidden = true; pr.hidden = false;
+                             window.scrollTo({ top: 0 }); return; }
+  ov.hidden = true; pl.hidden = false; pr.hidden = true;
   const p = list.find((x) => x.key === key);
   if (p) (p.family === "social" ? socialPlatform : appPlatform)(d, p);
   window.scrollTo({ top: 0 });
@@ -978,9 +997,16 @@ function appPlatform(d, p) {
   $("platform-lede").innerHTML = p.noApi
     ? `<b>${p.name}</b> ships through ${p.store}, which exposes no API at all. `
       + "What is here is declared by hand, and that is the honest ceiling."
+    : p.delivered
+    ? `<b>${p.name}</b> ships through ${p.store}, which exposes no analytics API `
+      + "at all — its dashboards are Looker. What is here is <b>delivered</b>: a "
+      + "daily scheduled report posts to our own endpoint and is parsed. Unreadable "
+      + "by request, and still measured."
     : p.vitals
-    ? `<b>${p.name}</b> ships through ${p.store}. Its Vitals API is read live; `
-      + "unit sales are console-only and declared by hand below."
+    ? `<b>${p.name}</b> ships through ${p.store}. Its Vitals API is read live, and `
+      + "installs come from the <b>sales</b> report — for a free app every install "
+      + "is a $0.00 charge row, which is a daily series by country. (This panel "
+      + "said units were console-only until 2026-09-14; they are not.)"
     : p.webUnread
       ? `<b>${p.name}</b> is live and its usage counter has not reported yet. `
         + "The counter is ours and stores only a date, a page kind and a number "
@@ -1246,11 +1272,18 @@ fetch(`${DATA}?t=${Math.floor(Date.now() / 6e4)}`, { cache: "no-store" })
     saidChips(d); said(d); social(d); trend(d); sources(d);
     const list = platforms(d);
     tabs(d, list);
+    // "programme" is a VIEW, not a platform, so it is not in `list` — and the
+    // validity test below is what decides whether a hash is honoured. Omitting
+    // it made the Programme tab look dead: the click switched the view, set
+    // the hash, and the hashchange handler immediately fell back to overview.
+    // The tab worked; the router did not believe it.
+    const isView = (k) => k === "overview" || k === "programme"
+                          || list.some((p) => p.key === k);
     const want = (location.hash || "").replace(/^#/, "") || "overview";
-    show(d, list, list.some((p) => p.key === want) ? want : "overview");
+    show(d, list, isView(want) ? want : "overview");
     addEventListener("hashchange", () => {
       const k = (location.hash || "").replace(/^#/, "") || "overview";
-      show(d, list, list.some((p) => p.key === k) ? k : "overview");
+      show(d, list, isView(k) ? k : "overview");
     });
   })
   .catch((e) => {

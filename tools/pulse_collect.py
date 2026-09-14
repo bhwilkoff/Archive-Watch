@@ -637,8 +637,16 @@ def play_reports(state):
     # On 2026-09-09 it had not been written since 26 August while `ratings` in
     # the same bucket was written that morning, so 584 installs was a figure
     # from a fortnight ago wearing today's date. Carry the as-of date.
+    newest = recent[-1]["date"] if recent else None
+    stale_days = None
+    if newest:
+        try:
+            stale_days = (dt.date.today() - dt.date.fromisoformat(newest)).days
+        except ValueError:
+            stale_days = None
+    found_months = {r["date"][:7] for r in recent if r.get("date")}
     state["health"]["playInstalls"] = {
-        "asOf": recent[-1]["date"] if recent else None,
+        "asOf": newest,
         "daily": recent,
         "installs28d": sum(r["installs"] for r in recent),
         "uninstalls28d": sum(r["uninstalls"] for r in recent),
@@ -649,7 +657,19 @@ def play_reports(state):
         "byVersion": split("app_version", "App Version Code"),
         "byLanguage": split("language", "Language"),
         "readVia": ", ".join(sorted(how)),
+        "staleDays": stale_days,
+        "monthsFound": sorted(found_months),
     }
+    if stale_days is not None and stale_days > 3:
+        # The number is REAL and OLD, which is the one combination a dashboard
+        # renders indistinguishably from current unless it is told. Google
+        # stopped writing this export while `ratings` from the SAME bucket and
+        # the SAME account kept arriving daily (see play_daily_exports, the
+        # control that proved it). So the note leads with the age.
+        return (f"STALE by {stale_days} day(s) — newest install row is "
+                f"{state['health']['playInstalls']['asOf']}. Google has stopped writing "
+                f"this export; ratings from the same bucket are current. "
+                f"{sum(r['installs'] for r in recent)} install(s) over {len(recent)} day(s)")
     return (f"{sum(r['installs'] for r in recent)} install(s) over {len(recent)} day(s), "
             f"{len(got)} report(s), via {', '.join(sorted(how))}")
 
@@ -2220,16 +2240,47 @@ def main() -> int:
     # Play install reports read fine on the dev Mac and 403 in CI until a
     # Console grant reaches the bucket ACLs, and dropping them meanwhile would
     # replace a real reading with a hole.
+    # EVERY health key a source owns must be listed. A key that is missing here
+    # is not preserved when its reader fails — it is simply GONE from the next
+    # reading, which is the confident-zero of Decision 108 one level up: the
+    # page shows nothing and says nothing about why.
+    #
+    # Measured 2026-09-14: playAcquisition, playDaily and webUsage were absent
+    # from this map, so a local run without their credentials silently deleted
+    # three sections that CI had collected. appleDownloads and playInstalls
+    # survived the same run and were correctly marked stale, which is exactly
+    # what made the loss invisible — most of the map worked.
+    #
+    # `tools/test_pulse_collect.py` asserts this map covers every key any
+    # reader writes, so a NEW reader cannot reintroduce the hole.
     HEALTH_OWNS = {"play_reports": "playInstalls", "play_crashes": "playCrashes",
                    "play_users": "playUsers", "play_vitals": "playVitals",
+                   "play_acquisition": "playAcquisition",
+                   "play_daily_exports": "playDaily",
                    "apple_downloads": "appleDownloads", "apple_performance": "applePerf",
-                   "catalog": "catalog"}
+                   "amazon_vitals": "amazonVitals", "amazon_installs": "amazonInstalls",
+                   "roku_engagement": "rokuEngagement",
+                   "web_usage": "webUsage", "catalog": "catalog",
+                   # Scalars and notes, preserved for the same reason as the
+                   # sections: a stale reading carries a `stale` timestamp and
+                   # is therefore honest, where a missing one is silent.
+                   "github": "issues", "workflows": "workflows"}
+    # playLiveBuild and playVitalsNote ride with their own readers' main keys
+    # (play_crashes -> playCrashes, play_vitals -> playVitals), so they are
+    # listed as SECONDARY owns rather than overwriting those entries.
+    HEALTH_ALSO = {"play_crashes": ["playLiveBuild"], "play_vitals": ["playVitalsNote"]}
     prev_health = prev.get("health") or {}
     for name, key in HEALTH_OWNS.items():
         res = state["sources"].get(name)
         if res and not res["ok"] and not state["health"].get(key) and prev_health.get(key):
             state["health"][key] = prev_health[key]
             stale[key] = prev.get("generatedAt")
+    for name, keys in HEALTH_ALSO.items():
+        res = state["sources"].get(name)
+        for key in keys:
+            if res and not res["ok"] and not state["health"].get(key) and prev_health.get(key):
+                state["health"][key] = prev_health[key]
+                stale[key] = prev.get("generatedAt")
     state["stale"] = stale
 
     # Mentions and reviews ACCUMULATE. Somebody who posted about us yesterday

@@ -243,5 +243,21 @@ _via_env_file = {"ASC_KEY_ID", "ASC_ISSUER_ID"}
 _missing = sorted(n for n in _names - _via_env_file if n not in _wf)
 check("no credential the collector reads is missing from pulse.yml", _missing, [])
 
+# ── every health section a reader writes must be PRESERVED when it fails ────
+# A key absent from HEALTH_OWNS is not kept when its reader cannot read — it
+# vanishes, and the page shows nothing while saying nothing about why. That is
+# Decision 108's confident zero, one level up. Measured 2026-09-14:
+# playAcquisition, playDaily and webUsage were missing, so a run without their
+# credentials deleted three sections CI had collected, while appleDownloads and
+# playInstalls survived the SAME run — which is what made the loss invisible.
+print("\nevery health section a reader writes is preserved when it fails")
+_written = set(re.findall(r'state\["health"\]\["([A-Za-z0-9_]+)"\]\s*=', _src))
+_owned = set(re.findall(r'"[a-z_]+":\s*"([A-Za-z0-9_]+)"',
+                        re.search(r"HEALTH_OWNS = \{(.*?)\}", _src, re.S).group(1)))
+_owned |= set(re.findall(r'"([A-Za-z0-9_]+)"',
+                         re.search(r"HEALTH_ALSO = \{(.*?)\}", _src, re.S).group(1)))
+_unpreserved = sorted(_written - _owned)
+check("no health key a reader writes is missing from HEALTH_OWNS", _unpreserved, [])
+
 print(f"\n{PASS} passed, {FAIL} failed")
 sys.exit(1 if FAIL else 0)
