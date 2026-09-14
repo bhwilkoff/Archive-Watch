@@ -66,11 +66,12 @@ jobs:
       # The action's default package list includes the LEGACY `tools`
       # package, which the runner image stopped offering (2026-09-14:
       # "Failed to find package 'tools'", sdkmanager exit 1, before a line
-      # of ours ran). Name the packages the build actually needs; Gradle
-      # downloads the rest against the accepted licences.
+      # of ours ran). Only platform-tools here: `platforms;android-37` is not
+      # in sdkmanager's stable channel either, and Gradle downloads the SDK
+      # it compiles against on its own (that is how the 2026-09-09 run built).
       - uses: android-actions/setup-android@v3
         with:
-          packages: "platform-tools platforms;android-37 build-tools;36.0.0"
+          packages: "platform-tools"
 
       - uses: actions/setup-python@v5
         with:
