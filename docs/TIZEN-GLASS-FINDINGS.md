@@ -241,3 +241,39 @@ right from a sofa. In rough order of how likely they are to feel wrong:
 Item 4 is the one worth looking at hardest: it is the only surface here that
 NO automated check covered until today, because the player has no focused
 element for a focus-based harness to follow.
+
+## 2026-09-13 (later) — 1.42.99 on the set, and half the band had never been measured
+
+`tools/tv_follow_focus.mjs` is the instrument the whole overscan programme
+rests on, and it had been comparing every press against `SAFE_LEFT = 0,
+SAFE_RIGHT = 1920` since the file was created — the full viewport. So the
+horizontal half of the band was not being checked at all, and every "0 outside
+the safe band" printed before today, on every route, was a statement about the
+top and the bottom only.
+
+Setting it to the real 96..1824 found a defect on the first run: one Down from
+the Browse chips lands on the **brand logo**, whose box starts at **x=78** —
+eighteen pixels inside the cut, so the selection rectangle draws under the
+bezel of a 65" set.
+
+The fix is a rule `tv.js` already stated and only half-applied. `isChrome`
+keeps the INITIAL focus claim off the brand and the footer because "the brand
+logo and the footer links are not what anyone came for"; that was sufficient
+in a browser, where nothing walks by geometry, and insufficient with a remote,
+which does. `retireChrome()` marks that chrome `tabindex="-1"`, which
+`FOCUSABLE` has honoured on every row since the hero slideshow landed — so no
+new concept, only the attribute. Nothing is stranded by it: every footer link
+is an app-store page a Tizen browser cannot open, or About, which
+`installNavAbout` puts in the nav rail, and the brand repeats the rail's Home.
+
+Same walk, same band, either side of the change: **1 outside before, 0 after.**
+Reachability 104 focusable, 0 unreachable. Size audit 1,470 focusable, 0 below
+the TV floor. All 61 focus unit tests, 84 QR tests and 5 UA tests green.
+
+**The set is now running 1.42.99**, so the four judgement calls listed above
+are against the current build and are still the owner's to make.
+
+The durable lesson is about the instrument, not the app: a harness that reports
+a count against a band is only as good as the band, and a constant set to the
+viewport is indistinguishable at the output from a check that passes. Assert
+the band the harness PRINTS matches the band the platform actually cuts.
