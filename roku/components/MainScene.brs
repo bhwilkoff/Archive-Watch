@@ -818,7 +818,9 @@ sub openLibraryOptions()
     plID = m.library.focusedPlaylist
     opts = [{ id: "playall", label: "Play all in this row" }]
     if plID <> ""
-        opts.Push({ id: "sharelist", label: "Share this playlist" })
+        ' Not on the legacy tier: a playlist code is v23-v27 and the encode
+        ' blocks the render thread for seconds on a 2014 box (AWCan).
+        if AWCan("shareList") then opts.Push({ id: "sharelist", label: "Share this playlist" })
         opts.Push({ id: "removeitem", label: "Remove this film from the playlist" })
         opts.Push({ id: "deletelist", label: "Delete this playlist" })
     end if

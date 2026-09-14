@@ -268,11 +268,15 @@ row first.
 Result at v14: **2,642 ms → 1,131 ms**, and the code now arrives at very close
 to its display size, so Roku's bilinear scaler has almost nothing to blur.
 
-**Still a risk, not yet addressed**: a full 50-film playlist is v23–v27, where
-the mask penalty alone should run ~1.7 s on this Stick and several times that on
-a Roku 2 XD. The real fix is to move the encode off the render thread into a
-Task node with a "preparing" state; it is a bigger change than this pass and is
-the next thing to do if anyone reports a slow card.
+**CLOSED 2026-09-14 — the legacy tier does not share playlists (Decision 122).**
+A full 50-film playlist is v23–v27, where the mask penalty alone should run
+~1.7 s on this Stick and several times that on a Roku 2 XD. The fix considered
+here was a Task node with a "preparing" state. The owner ruled instead: *"Old
+devices do not need full playlist sharing support."* So `AWCan("shareList")` is
+false on legacy and the Library Options row is not offered there — the gate is
+at the AFFORDANCE, so nothing draws a control that then apologises. Item
+sharing (~50 chars, a v4 code) is untouched on every tier. Do not build the
+Task node.
 
 ### A BrightScript trap worth the line
 
@@ -468,7 +472,9 @@ The channel COULD parse `contentId=list:<blob>` — it already treats contentId
 as a command channel for the `selftest:` verbs — so this is not a parsing
 limit. It is a delivery limit, and no amount of channel code fixes it.
 
-**The obvious workaround is refused.** A short code the viewer types on the
+**The obvious workaround is refused — permanently, by the owner, 2026-09-14:
+"Roku receiving is not worth a server" (Decision 122).** A short code the
+viewer types on the
 Roku would need a server to expand it, and the whole design rests on the
 opposite: the playlist rides INSIDE the link, we host nothing, and there is no
 account at either end. Trading that for one platform's convenience would put a

@@ -190,6 +190,7 @@ an entry in place.
 - 119 — A television hands over a link as a CODE; the encoder is proven against an independent reference at every version, never against itself
 - 120 — Social media is hosted where there is no ingest delay; a platform that could not post FAILS, and archive.org keeps only the video
 - 121 — Correction to 119: Roku DOES share playlists, and a decision's closing paragraph outlives the hour it was true for
+- 122 — Roku never RECEIVES a shared playlist, and the legacy tier never sends one; both are closed, not deferred
 
 ---
 
@@ -2412,3 +2413,55 @@ row" and "App settings" — "Share this playlist" is absent, which reads exactly
 like the feature not being there. Focus must be on the playlist row first. That
 is how an hour could have been spent confirming the stale claim instead of
 disproving it.
+
+## 122 — Roku never RECEIVES a shared playlist, and the legacy tier never sends one; both are closed, not deferred
+*Date: 2026-09-14*
+
+Two owner rulings, recorded so neither is re-litigated. (1) **Roku receiving a
+shared playlist is refused permanently** — not "deferred", not "pending a
+server". (2) **Playlist sharing is switched OFF on the legacy Roku tier**
+(`AWCan("shareList")`), while ITEM sharing stays on every tier.
+
+**Why (1)**: a channel's only inbound route is a deep link carrying
+`contentId` + `mediaType`, delivered by Roku's own surfaces — the Channel
+Store, Roku Search, or ECP on the local network. A person holding a link on
+their phone has no way to hand it to the box: no share target, and the Roku
+mobile app cannot send an arbitrary URL to a channel. The channel COULD parse
+`contentId=list:<blob>` — it already treats contentId as a command channel for
+the `selftest:` verbs — so this is a DELIVERY limit and no channel code fixes
+it. The only workaround is a short code the viewer types, which needs a server
+to expand it, and that trades away the property the whole design rests on: the
+playlist rides INSIDE the link, we host nothing, and there is no account at
+either end. Asked directly, the owner: **"Roku receiving is not worth a
+server."** Do not cost this out again; a future session that thinks it has
+found a clever route should check whether the route requires us to store a
+playlist, and stop there if it does.
+
+**Why (2)**: a playlist link is 1,048-1,328 characters, which is a **v23-v27**
+QR code. Measured in `docs/PLAYLIST-SHARING.md`: v14 cost 2,642 ms before two
+fixes (one scanline per MODULE row; deriving scale from the display box) took
+it to 1,131 ms, and the mask penalty alone should run ~1.7 s at full size on a
+Streaming Stick 4K — several times that on a Roku 2 XD's 600 MHz ARM11, with
+nothing on screen to say the box is working. The file already recorded the fix
+— move the encode into a Task node behind a "preparing" state — as "the next
+thing to do if anyone reports a slow card".
+
+It will not be done. The owner: **"Old devices do not need full playlist
+sharing support."** That is Decision-era capability policy working in the
+direction it was written for — *legacy never sets the ceiling*, and a feature a
+current Roku does well is switched off below rather than degraded for
+everyone. The legacy viewer keeps every other route into a playlist: building
+one, playing one, and opening one shared FROM another device.
+
+**How to apply**: gate at the AFFORDANCE, not inside the encoder — the row
+simply is not offered in Library Options on that tier, so nothing draws a
+control that then apologises. Keep item sharing untouched: a `/item/` link is
+~50 characters, a v4 code, which is what the Roku encoder drew for its entire
+life before playlists existed and has never been slow. And note what this does
+NOT change: `QR.brs` still carries all 40 versions (Decision 121), because the
+tier gate is a product decision and a correct encoder is not conditional on
+one.
+
+**Consequences**: the sharing matrix's Roku row is final — **sends on modern,
+never receives, does not send on legacy** — and the docs should stop carrying
+it as an open item.

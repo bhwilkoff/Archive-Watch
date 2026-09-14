@@ -73,5 +73,24 @@ function AWCan(feature as String) as Boolean
     ' tier and full-bleed on modern panels.
     if feature = "edgeToEdge" then return false
 
+    ' shareList — a PLAYLIST link is 1,048-1,328 characters, which is a v23-v27
+    ' QR code, and the mask penalty alone runs ~1.7 s on a Streaming Stick 4K.
+    ' On a 600 MHz ARM11 it is several times that, with nothing on screen to
+    ' say the box is working. The measured history is in
+    ' docs/PLAYLIST-SHARING.md: v14 cost 2,642 ms before two fixes took it to
+    ' 1,131 ms, and a full playlist is far past v14.
+    '
+    ' OWNER, 2026-09-14: "Old devices do not need full playlist sharing
+    ' support." So it is switched off here rather than paid for with a Task
+    ' node and a "preparing" state — which is the policy at the top of this
+    ' file working as intended, in the direction it was written for. A viewer
+    ' on this tier keeps every other way into a playlist: building it, playing
+    ' it, and opening one shared FROM another device.
+    '
+    ' ITEM sharing is untouched and stays on every tier. A /item/ link is ~50
+    ' characters — a v4 code, which is what the Roku encoder drew for its whole
+    ' life before playlists existed, and it has never been slow.
+    if feature = "shareList" then return false
+
     return true
 end function
