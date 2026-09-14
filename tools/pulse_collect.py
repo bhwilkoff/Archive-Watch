@@ -2450,6 +2450,9 @@ def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--apply", action="store_true", help="write ops/pulse.json")
+    ap.add_argument("--force", action="store_true",
+                    help="write even when many readers were dark (CI has every "
+                         "credential; a laptop does not)")
     ap.add_argument("--only", help="comma-separated source names")
     ap.add_argument("--out", default=str(OUT))
     a = ap.parse_args()
@@ -2475,6 +2478,7 @@ def main() -> int:
     # must know whether this run will be kept. A dry run that destroys the only
     # copy of a delivery is not a dry run.
     state["_apply"] = bool(a.apply)
+    state["_force"] = bool(getattr(a, "force", False))
     if want:
         for key in ("stores", "ratings", "reviews", "mentions", "social",
                     "health", "github", "asks", "loves", "distribution"):
@@ -2606,6 +2610,14 @@ def main() -> int:
         for row in rk.get("daily", []):
             by_date[row["date"]] = {**by_date.get(row["date"], {}), **row}
         rk["daily"] = sorted(by_date.values(), key=lambda r: r["date"])[-120:]
+        # The HEADLINE merges too. Each Roku report delivers its own headline
+        # tiles, and they arrive on separate schedules — so a run that received
+        # only App Health replaced App Engagement's "Account Channel Installs"
+        # with nothing, and the Reach view lost Roku entirely while the daily
+        # series sat right there. A key nobody redelivered keeps its last value.
+        prev_head = (((prev.get("health") or {}).get("rokuEngagement") or {})
+                     .get("headline") or {})
+        rk["headline"] = {**prev_head, **(rk.get("headline") or {})}
         # …and the same for each REPORT's own series, or a day that fell out of
         # Looker's rolling window would vanish from the per-report view while
         # surviving in the combined one — two series disagreeing about the same
@@ -2639,6 +2651,26 @@ def main() -> int:
           f"{len(state['reviews'])} review(s) · {len(state['mentions'])} mention(s) · "
           f"{len(state['asks'])} request(s)")
 
+    # A DEGRADED RUN MUST NOT OVERWRITE A GOOD READING.
+    #
+    # CI holds every credential; a laptop holds a few. A local `--apply` that
+    # ran with eleven readers dark still WRITES — carrying each dark section
+    # forward from the previous file and marking it stale, which is correct in
+    # itself — and if that file is then committed it replaces CI's fresh
+    # numbers with older ones. That happened on 2026-09-14: CI had just read
+    # Apple's Mac downloads for the first time (4 device types) and a local
+    # run put the pre-fix 3-device reading back, so the owner looked at Pulse
+    # and correctly said macOS was missing.
+    #
+    # The guard is on the SHAPE of the run, not on the machine: if a third or
+    # more of the readers could not read, this is not a reading worth keeping.
+    dark = sum(1 for r in state["sources"].values() if not r["ok"])
+    degraded = dark * 3 >= len(state["sources"]) and not state.get("_force")
+    if a.apply and degraded:
+        print(f"\nREFUSING TO WRITE: {dark} of {len(state['sources'])} readers were "
+              f"dark, so this reading is mostly carried-forward and would replace "
+              f"a fresher one. Pass --force if you mean it.")
+        return 0
     if a.apply:
         out.parent.mkdir(parents=True, exist_ok=True)
         out.write_text(json.dumps(state, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
