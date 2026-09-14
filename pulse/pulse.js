@@ -285,7 +285,23 @@ function titlesPanel(box, wt) {
 }
 
 function glance(d, list) {
-  const box = $("tiles"); box.innerHTML = ""; box.className = "panels";
+  /* EVERY PANEL GOES TO THE VIEW THAT ANSWERS ITS QUESTION.
+     docs/PULSE-ANALYTICS.md §1: one view per question, split by audience.
+     `B(view)` is the container; a view with no panels simply stays empty, and
+     the tab for it is not drawn. Note what moved and why: Followers and Posts
+     were sitting in the Overview tiles — programme output on a usage page,
+     which is the exact mixing this split exists to end. */
+  const boxes = {};
+  const B = (v) => {
+    if (!boxes[v]) {
+      const el_ = $(v === "overview" ? "tiles" : "tiles-" + v);
+      if (el_) { el_.innerHTML = ""; el_.className = "panels"; }
+      boxes[v] = el_;
+    }
+    return boxes[v] || $("tiles");
+  };
+  ["overview", "reach", "engagement", "health", "voice", "program", "ops"].forEach(B);
+  const box = B("overview");
   const h = d.history || [];
   const cur = h[h.length - 1] || {}, prev = h.length > 1 ? h[h.length - 2] : null;
   const off = (name) => d.sources?.[name] && !d.sources[name].ok;
@@ -320,7 +336,7 @@ function glance(d, list) {
           <div class="sm-n">${ser.length ? `${ser.length}d` : (p.noApi ? "no API" : "not reporting")}</div>
         </div>`;
     }).join("");
-    panel(box, {
+    panel(B("reach"), {
       k: "Who is installing", right: `${reachRow.length} platforms`,
       chart: { html: `<div class="smalls">${cells}</div>` },
       cap: "one panel per platform on a SHARED vertical scale, so the shapes are "
@@ -329,14 +345,60 @@ function glance(d, list) {
     });
   }
 
-  titlesPanel(box, d.health?.webTitles);
+  titlesPanel(B("engagement"), d.health?.webTitles);
+
+  /* ENGAGEMENT is "did anyone come back", and each platform can answer only
+     part of it. They are NOT combined into one number: an active Play device,
+     a Roku visitor and a web visit are three different units, and a single
+     "engaged users" figure would be a number no vendor could confirm. */
+  const wu = d.health?.webUsage;
+  if (wu?.visits28d != null) {
+    panel(B("engagement"), {
+      k: "Website visits", right: "28 days",
+      v: int(wu.visits28d),
+      chart: (wu.daily || []).length >= 2
+        ? { html: C.runChart((wu.daily || []).map((r) => r.visits ?? r.v ?? 0),
+                             { label: "daily visits" }) } : null,
+      cap: `${int(wu.views28d || 0)} route views across those visits — one page load `
+         + "that walks six surfaces is ONE visit and seven views, so the two are "
+         + "never added together",
+    });
+  }
+  const rk = d.health?.rokuEngagement;
+  if (rk?.headline) {
+    const hd = rk.headline;
+    const viewers = hd["Avg Daily Viewers"], mins = hd["Average Minutes Streamed per Viewer"];
+    panel(B("engagement"), {
+      k: "Roku viewing", right: `${(rk.daily || []).length} days`,
+      v: mins != null ? `${mins}<small> min/viewer</small>` : int(viewers || 0),
+      chart: (rk.daily || []).length >= 2
+        ? { html: C.runChart(rk.daily.map((r) => r["Total Minutes Streamed"] || 0),
+                             { label: "minutes streamed" }) } : null,
+      cap: `${int(viewers || 0)} viewers a day on average, `
+         + `${int(hd["Hours Streamed"] || 0)} hours streamed in the window. Roku is the `
+         + "only store that reports WATCHING rather than installing",
+      detail: (rk.daily || []).slice().reverse().map((r) => ({
+        label: r.date,
+        value: `${int(r["Total Minutes Streamed"] || 0)} min · ${int(r.Viewers || 0)} viewers`,
+      })),
+    });
+  }
+  const pu = d.health?.playInstalls;
+  if (pu?.activeDevices != null) {
+    panel(B("engagement"), {
+      k: "Android active devices", right: pu.asOf || "",
+      v: int(pu.activeDevices),
+      cap: "devices that had the app installed and were active in Play's window — "
+         + "the closest thing Google publishes to a returning audience",
+    });
+  }
 
   /* 1. The rating, as a bullet against the only scale it has — five stars —
         with 3.0 and 4.0 as the bands every store treats as the real cut
         points, and 4.5 as the target. */
   const ap = (d.ratings || []).find((r) => r.store === "App Store");
   if (ap && typeof ap.average === "number") {
-    panel(box, {
+    panel(B("voice"), {
       k: "App Store rating", right: deltaHTML(cur.appleRating, prev?.appleRating),
       v: `${ap.average}<small> of 5 · ${ap.count} rating${ap.count === 1 ? "" : "s"}</small>`,
       chart: { html: C.bullet({ value: ap.average, max: 5, bands: [3, 4], target: 4.5,
@@ -351,7 +413,7 @@ function glance(d, list) {
       })),
     });
   } else {
-    panel(box, { k: "App Store rating", v: "<small>not read</small>" });
+    panel(B("voice"), { k: "App Store rating", v: "<small>not read</small>" });
   }
 
   /* 2. Where those stars actually fall — the chart a store shows its users,
@@ -359,7 +421,7 @@ function glance(d, list) {
   const dist = (d.distribution || {})["App Store"];
   if (dist && Object.values(dist).some(Boolean)) {
     const low = (dist[1] || 0) + (dist[2] || 0) + (dist[3] || 0);
-    panel(box, {
+    panel(B("voice"), {
       k: "How the reviews fall", right: `${Object.values(dist).reduce((a, b) => a + b, 0)} written`,
       chart: { html: starChart(dist) },
       cap: (low ? `<b>${low}</b> under four stars — every one is in Needs you`
@@ -425,7 +487,7 @@ function glance(d, list) {
     note: v?.error ? "could not read" : null,
   }));
   const totalReach = reachRows.reduce((a, b) => a + b.value, 0);
-  panel(box, {
+  panel(B("program"), {
     k: "Followers", right: deltaHTML(cur.followers, prev?.followers),
     v: reachRows.length ? `${int(totalReach)}<small> across ${reachRows.length}</small>`
       : "<small>not read</small>",
@@ -447,7 +509,7 @@ function glance(d, list) {
   }));
   if (postRows.length) {
     const measured = Object.values(per).reduce((a, b) => a + (b.measured || 0), 0);
-    panel(box, {
+    panel(B("program"), {
       k: "Posts published", right: deltaHTML(cur.posts, prev?.posts),
       v: `${int(d.social?.totalPosts)}<small> still up</small>`,
       chart: { html: C.bars(postRows) },
@@ -477,7 +539,7 @@ function glance(d, list) {
              display: readerOff ? "—" : String(bySrc[key] || 0),
              note: readerOff ? "reader offline" : null };
   });
-  panel(box, {
+  panel(B("voice"), {
     k: "Mentions", right: deltaHTML(cur.mentions, prev?.mentions),
     v: `${int((d.mentions || []).length)}<small> found</small>`,
     chart: { html: C.bars(srcRows, { max: Math.max(3, ...srcRows.map((r) => r.value)) }) },
@@ -505,12 +567,12 @@ function glance(d, list) {
         tone: vit.anrRate * 100 <= 0.47 ? "live" : "stop",
         label: `ANR rate ${(vit.anrRate * 100).toFixed(2)}%` });
     }
-    panel(box, { k: "Android vitals", right: "28 days", chart: { html },
+    panel(B("health"), { k: "Android vitals", right: "28 days", chart: { html },
       cap: "markers are Google's own bad-behaviour thresholds",
       detail: (d.health?.playCrashes || []).map(crashRow) });
   } else {
     const why = d.health?.playVitalsNote;
-    panel(box, { k: "Android vitals",
+    panel(B("health"), { k: "Android vitals",
       v: why ? "<small>no rate published</small>" : "<small>not read</small>",
       chart: (d.health?.playCrashes || []).length ? { html: C.bars(
         d.health.playCrashes.slice(0, 5).map((c) => ({
@@ -528,7 +590,7 @@ function glance(d, list) {
     label: `${f.severity}: ${f.workflow}`,
     tone: ["BROKEN", "KILLED"].includes(f.severity) ? "stop" : "flight",
   }));
-  panel(box, {
+  panel(B("ops"), {
     k: "Workflow fleet", right: wf.length ? `${wf.length} finding${wf.length === 1 ? "" : "s"}` : "",
     v: wf.length ? `${marks.filter((m) => m.tone === "stop").length}<small> urgent</small>`
       : `<span class="up">all clear</span>`,
@@ -542,7 +604,7 @@ function glance(d, list) {
   /* 10. GitHub — a repo nobody has starred is a fact, and it is shown as one. */
   const g = d.github || {};
   if (g.url) {
-    panel(box, {
+    panel(B("ops"), {
       k: "The repository", right: deltaHTML(cur.stars, prev?.stars),
       v: `${int(g.stars)}<small> star${g.stars === 1 ? "" : "s"}</small>`,
       chart: { html: C.bars([
@@ -568,7 +630,7 @@ function glance(d, list) {
         with its own shape rather than sitting in a list. */
   const dl = d.health?.appleDownloads;
   if (dl?.daily?.length) {
-    panel(box, {
+    panel(B("reach"), {
       k: "Downloads", right: `${dl.daily.length} days`,
       v: `${int(dl.total14d)}<small> first-time installs</small>`,
       chart: { html: C.spark(dl.daily.map((x) => x.units),
@@ -579,7 +641,7 @@ function glance(d, list) {
         .map((x) => ({ label: x.date, value: `${x.units} install${x.units === 1 ? "" : "s"}` })),
     });
   } else if (off("apple_downloads")) {
-    panel(box, { k: "Downloads", v: "<small>not read</small>",
+    panel(B("reach"), { k: "Downloads", v: "<small>not read</small>",
       cap: "needs <b>ASC_VENDOR_NUMBER</b> — an identifier, not a secret; "
         + "App Store Connect → Payments and Financial Reports" });
   }
@@ -589,7 +651,7 @@ function glance(d, list) {
   const perf = d.health?.applePerf;
   if (perf) {
     const regs = perf.regressions || [];
-    panel(box, {
+    panel(B("health"), {
       k: "Apple field metrics", right: perf.metrics?.length ? `${perf.metrics.length} metrics` : "",
       v: regs.length ? `<span class="down">${regs.length}</span><small> regression${regs.length === 1 ? "" : "s"}</small>`
         : (perf.metrics?.length ? `<span class="up">no regressions</span>`
@@ -609,7 +671,7 @@ function glance(d, list) {
   const pin = d.health?.playInstalls;
   if (pin?.daily?.length) {
     const byC = pin.byCountry || {};
-    panel(box, {
+    panel(B("reach"), {
       k: "Android installs", right: `${pin.daily.length} days${staleNote(d, "playInstalls") ? " \u00b7 older reading" : ""}`,
       v: `${int(pin.installs28d)}<small> installs \u00b7 ${int(pin.activeDevices)} active devices</small>`,
       chart: { html: C.spark(pin.daily.map((x) => x.installs),
@@ -1058,6 +1120,8 @@ function platforms(d) {
   return out;
 }
 
+const VIEWS = ["overview", "reach", "engagement", "health", "voice", "program", "ops"];
+
 function tabs(d, list) {
   const box = $("tabs"); box.innerHTML = "";
   const mk = (key, label, count) => {
@@ -1069,7 +1133,12 @@ function tabs(d, list) {
     box.appendChild(b);
   };
   mk("overview", "Overview");
+  mk("reach", "Reach");
+  mk("engagement", "Engagement");
+  mk("health", "Health");
+  mk("voice", "Voice", (d.reviews || []).length + (d.mentions || []).length || null);
   mk("program", "Program", d.social?.totalPosts ?? null);
+  mk("ops", "Ops");
   list.filter((p) => p.family === "app").forEach((p) =>
     mk(p.key, p.name, p.installs ?? p.views ?? null));
   list.filter((p) => p.family === "social").forEach((p) =>
@@ -1080,11 +1149,13 @@ function show(d, list, key) {
   location.hash = key === "overview" ? "" : key;
   $("tabs").querySelectorAll("button").forEach((b) =>
     b.setAttribute("aria-selected", String(b.dataset.key === key)));
-  const ov = $("sec-overview"), pl = $("sec-platform"), pr = $("sec-program");
-  if (key === "overview") { ov.hidden = false; pl.hidden = true; pr.hidden = true; return; }
-  if (key === "program") { ov.hidden = true; pl.hidden = true; pr.hidden = false;
-                             window.scrollTo({ top: 0 }); return; }
-  ov.hidden = true; pl.hidden = false; pr.hidden = true;
+  /* One list, so adding a view can never again leave the router disagreeing
+     with the tab strip — which is how the Program tab looked dead the first
+     time: the click switched the view and the hashchange handler, validating
+     against the PLATFORM list, immediately switched it back. */
+  VIEWS.forEach((v) => { const n = $("sec-" + v); if (n) n.hidden = (v !== key); });
+  $("sec-platform").hidden = VIEWS.includes(key);
+  if (VIEWS.includes(key)) { window.scrollTo({ top: 0 }); return; }
   const p = list.find((x) => x.key === key);
   if (p) (p.family === "social" ? socialPlatform : appPlatform)(d, p);
   window.scrollTo({ top: 0 });
@@ -1403,8 +1474,7 @@ fetch(`${DATA}?t=${Math.floor(Date.now() / 6e4)}`, { cache: "no-store" })
     // it made the Programme tab look dead: the click switched the view, set
     // the hash, and the hashchange handler immediately fell back to overview.
     // The tab worked; the router did not believe it.
-    const isView = (k) => k === "overview" || k === "program"
-                          || list.some((p) => p.key === k);
+    const isView = (k) => VIEWS.includes(k) || list.some((p) => p.key === k);
     const want = (location.hash || "").replace(/^#/, "") || "overview";
     show(d, list, isView(want) ? want : "overview");
     addEventListener("hashchange", () => {

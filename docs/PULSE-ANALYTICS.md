@@ -274,3 +274,43 @@ missing `requests` module and the job reported SUCCESS, because `| tee` makes
 the step's status tee's rather than the command's. `set -o pipefail`. This is
 Decisions 089 and 107 reintroduced by a convenience pipe, which is worth
 knowing: the pattern does not only arrive in big machinery.
+
+---
+
+## 10. The seven views, built (2026-09-14)
+
+§1 specified one view per QUESTION and the page had three. It now has seven,
+and `VIEWS` is one list that both the tab strip and the router read — because
+the first time they disagreed, the Program tab looked dead: the click switched
+the view, set the hash, and the hashchange handler validated that hash against
+the PLATFORM list and switched it straight back.
+
+| View | Question | Panels |
+|---|---|---|
+| Overview | anything wrong or asking for me? | the estate, catalog, enjoying vs asking |
+| Reach | who is installing, where, on what? | who is installing (9 platforms), Apple downloads, Android installs |
+| Engagement | who came back, and to what? | what people watch, website visits, Roku viewing, Android active devices |
+| Health | what is broken, which build? | Android vitals, Apple field metrics |
+| Voice | what did people SAY? | rating, review distribution, mentions, every review in full |
+| Program | what did we post, did it land? | followers, posts published, the ledger |
+| Ops | is the machinery alive? | workflow fleet, repository, every reader's status |
+
+**What the split found.** "Followers" and "Posts published" were sitting in the
+Overview tiles — programme output on a usage page, which is the exact mixing
+the owner asked to end and which splitting the SECTION had not fixed. Moving
+the section without moving the panels is a half-measure that looks complete.
+
+**Engagement units are never combined.** An active Play device, a Roku visitor
+and a website visit are three different things, and a single "engaged users"
+number would be one no vendor could confirm. Each platform answers the part it
+can, labelled with what it is measuring — and Roku is the only store that
+reports WATCHING rather than installing, which is worth knowing when reading
+it beside the others.
+
+**A scoping bug worth the line.** Routing panels by a regex on their `k:` label
+reached inside `titlesPanel()`, which takes its container as a PARAMETER, and
+replaced it with a helper that is local to `glance()`. The page died with "B is
+not defined" — reported to the reader as *"Could not load the readings"*,
+because the fetch chain's own `.catch()` treats every error the same. That is
+the second time in one day a code bug wore a data failure's clothes there. When
+a rewrite is mechanical, check what else matches the pattern.
