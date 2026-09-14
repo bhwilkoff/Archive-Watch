@@ -16,9 +16,15 @@ jobs:
         with:
           python-version: '3.12'
       - name: Install the reader's dependencies
-        run: pip install --quiet google-auth
+        run: pip install --quiet google-auth requests
       - name: List the bucket
         env:
           PLAY_REPORTS_BUCKET: ${{ secrets.PLAY_REPORTS_BUCKET }}
           PLAY_SERVICE_ACCOUNT_JSON: ${{ secrets.PLAY_SERVICE_ACCOUNT_JSON }}
-        run: python3 tools/play_bucket_probe.py | tee -a "$GITHUB_STEP_SUMMARY"
+        # `| tee` makes the STEP's status tee's, so the first run of this
+        # probe died on a missing module and the job still went green — the
+        # green-run-that-did-nothing this repo keeps paying for. pipefail makes
+        # the probe's own exit code the step's.
+        run: |
+          set -o pipefail
+          python3 tools/play_bucket_probe.py | tee -a "$GITHUB_STEP_SUMMARY"
