@@ -25,6 +25,11 @@ const CHROME = process.env.AW_CHROME
   || "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
 const PORT = Number(process.env.AW_TV_PORT || 9231);
 const SITE = process.env.AW_TV_URL || process.env.AW_BASE || "https://archivewatch.org/?tv=1";
+/* The five routes a viewer lives in. The OTHERS were walked on 2026-09-13 and
+ * were clean — item, series, cartoons, surprise and about, 18 presses each, 0
+ * outside the band — so they are not in the default set, which exists to be
+ * run often rather than to be exhaustive. Point AW_TV_ROUTES at them when
+ * something on those surfaces changes. */
 const ROUTES = (process.env.AW_TV_ROUTES
   || "#/home,#/browse,#/channels,#/collections,#/library").split(",");
 
@@ -194,8 +199,14 @@ for (const route of ROUTES) {
  * what a first attempt at this did.
  */
 const PLAYER_PROBE = `(() => {
+  // A <video> ELEMENT IS NOT A PLAYER. One sits in the page markup from first
+  // paint, so testing for its existence reported "a player opened" on a
+  // Detail screen where nothing had been pressed — and then, finding no
+  // transport, blamed the transport. The player is open when a dialog is open
+  // and the video has a source.
   const v = document.querySelector('video');
-  if (!v) return JSON.stringify({ noPlayer: true });
+  const open = document.querySelector('dialog[open]');
+  if (!v || !open || !v.currentSrc) return JSON.stringify({ noPlayer: true });
   const out = [];
   // The transport is NOT inside the video's own container — tv.js draws it as
   // a sibling, so scoping the search to v.closest(...) found ZERO labels and
@@ -222,8 +233,33 @@ const PLAYER_PROBE = `(() => {
   const item = process.env.AW_TV_PLAY_ITEM || "#/item/TheGeneral720p1926";
   await cdp("Page.navigate", { url: SITE + item });
   await sleep(4000);
-  await press("Enter");               // boot focus lands on the Play button
-  await sleep(4500);
+  // Open the player DETERMINISTICALLY rather than trusting boot focus to be
+  // on Play. Pressing Enter worked from the default route list and did not
+  // after a different one — the check reported NOT MEASURED, which is the
+  // right failure but a flaky one. This block measures the TRANSPORT's
+  // overscan, not whether Play is reachable (tv_reachability does that), so
+  // clicking it directly costs the check nothing and makes it repeatable.
+  // SCOPED to the item view. `querySelector('#view-item .btn-primary,
+  // .btn-primary')` returns the first element in DOCUMENT ORDER matching
+  // either selector — a list does not prioritise — and every view stays in the
+  // DOM hidden, so this clicked Surprise's "Re-roll" button and never opened a
+  // player at all.
+  const opened = await evaluate(`(() => {
+    const play = document.querySelector('#view-item .btn-primary');
+    if (!play) return 'no Play button on the item view';
+    play.click();
+    return '';
+  })()`);
+  if (opened) {
+    console.log(`\nplayer          NOT MEASURED: ${opened}`);
+    lost++;
+  }
+  await sleep(5000);
+  // The transport FADES with the controls, so a freshly opened player may be
+  // showing nothing. Any press brings it back (tv.js showTransport), and Up is
+  // the one press that neither seeks nor toggles playback.
+  await press("Up");
+  await sleep(600);
   const p = JSON.parse(await evaluate(PLAYER_PROBE));
   if (p.noPlayer) {
     console.log(`\nplayer          NOT MEASURED: Enter did not open a player on ${item}`);
