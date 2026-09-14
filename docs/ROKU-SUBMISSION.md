@@ -161,7 +161,18 @@ they are handed, so it is chosen on three axes, not one:
 The app record exists: **Channel ID 881015**, access code `PMPJCTH`, type SDK,
 US only, English, Video, domestic region US.
 
-| Section | State |
+> **HISTORICAL — this table is the state on 2026-09-08, BEFORE the channel was
+> ever published.** Every row in it has since been completed: the channel went
+> LIVE at 1.0.51 on 2026-09-10 and has taken package updates since. The App
+> profile is filled, the developer email is verified, deep linking is
+> configured and a content rating is selected. It is kept because the rows
+> record what the first submission actually needed, and append-only is the
+> rule here — but do NOT read it as a worklist. `ops/stores-manual.json` holds
+> the live state. (Read as current on 2026-09-14 and reported to the owner as
+> open blockers, which is exactly the Decision-121 failure: a paragraph that
+> outlives the hour it was true for.)
+
+| Section | State (2026-09-08, superseded) |
 |---|---|
 | Store assets | ✅ name, both descriptions (268/300 and 1441/1500), poster, six screenshots |
 | Listing setup | countries + domestic region set |
