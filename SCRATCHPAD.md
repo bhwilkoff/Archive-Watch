@@ -103,6 +103,48 @@ keep serving it.
 
 Older entries: `docs/SESSION-LOG.md` (verbatim, back to 2026-04-17).
 
+### 2026-09-14 (evening) — Party Play answers "what is this?" on every TV; playlist Share is visible; three Roku Library defects
+Owner: *"I've been leaving the 'Party Play' going on my TVs ... enable sound
+whenever I want ... go directly to the title that is playing ... shortcut to
+simply add the item to the history"* — and a film they could not identify
+("foreign language ... wheelchair chase scene down a highway").
+
+**Audited before building.** Apple TV: sound toggle already a transport-bar
+button, history automatic after 60 s, no route to the title. Google/Fire TV:
+toggle in the options panel, NO history for lineups, no route. Roku: none of
+the three — the player consumed no key but Instant Replay. Roku's Party pool
+is the whole colour catalog (Apple's is cartoons + shorts), which is why the
+unidentifiable film was a foreign feature: the catalog holds ~70 Hindi films
+from 1959-78, and nothing in their metadata mentions a wheelchair, so the film
+itself is still unnamed — the feature is the answer.
+
+**Shipped, each verified on hardware** (1.42.120/1132, vc61, Roku 00073):
+tvOS "Open Title" + "Remember" transport actions (tvOS-DESIGN §9.3a; console
+trace + Detail on the Bedroom ATV); Android TV "Open title" + "Remember this
+film" in the options panel and history-only writes after 60 s for lineups
+(TV-DESIGN §5.6; Detail on the Google TV, row read out of user.sqlite); Roku
+Up → OptionsList headed by the film's name with sound / open / remember
+(ROKU-DESIGN §6.9; console, HUD line, Detail, Library Watched row on the
+Streaming Stick). Roku defects found on the glass and fixed: Detail's Resume
+judged against catalog runtime not the file's; Watched ids never resolved for
+Library; a service query issued before the catalog task started was LOST
+(deep-linked Library sat on "Nothing here yet"); a repaint from empty to rows
+left focus on the Group.
+
+**Earlier the same day**: playlist Share on iPhone was ONLY a leading swipe
+(and Mac ONLY a right-click); now a toolbar icon on the playlist screen +
+long-press menu, and a shelf-title icon on Mac (iOS-DESIGN §4.3 reserves
+swipes for destructive verbs). 1.42.119 SUBMITTED for review on all three
+Apple platforms (the workflow's own submit failed on empty notes; submitted
+from here with notes). UI test `test_12_playlistShareIsVisible` on the
+iPhone 12.
+
+**Ship state at hand-off**: Apple build 1132 + Play vc61 (internal track)
+dispatched in CI; Roku package `build/roku/*.pkg` built for the owner's
+Dashboard upload (00073). Per D110 the Play internal build wants a person on
+hardware before promotion. Android TV's options panel still says "Play Next
+Episode" in a lineup of films — a label, not fixed here.
+
 ### 2026-09-14 (later) — Context put in order: 382 KB of always-loaded docs → ~80 KB
 Owner: *"Let's get our context and documentation in order so that it isn't
 costing us on tokens every time we try to do something."* Measured first:
@@ -133,63 +175,3 @@ Decision 111 says cost five weeks — now says the opposite.
 stays under ~50 KB (was ~120); SCRATCHPAD.md keeps exactly two session-log
 entries and rolls the oldest into `docs/SESSION-LOG.md`; `/milestone` and
 `/decision` carry both.
-
-### 2026-09-14 — Pulse becomes the console; playlist sharing verified on every Android form factor
-Owner: *"The whole point of Pulse is that I never have to go into the
-individual dashboards."* Binding design: **docs/PULSE-ANALYTICS.md**.
-
-**PULSE IS NOW SEVEN VIEWS**, one per audience — Overview, Reach, Engagement,
-Health, Voice, **Program** (split out: *"Social Media should not be combined
-with usage metrics"*), Ops — plus a tab per platform. All 22 tabs verified
-rendering, every headline number cross-checked against `ops/pulse.json`.
-
-**THREE ROUTES THOUGHT IMPOSSIBLE, ALL LIVE:**
-- **Amazon installs are in the SALES report** (corrects Decision 111): for a
-  free app every install is a `$0.00 Charge` row with a timestamp and country.
-  30 installs; the 09-10 spike is Decision 115's minSdk fix landing.
-- **Amazon's live version** is read by creating an edit (Amazon seeds it from
-  live), reading its APKs, deleting it — and the reader deletes ONLY an edit
-  it created, because an existing one is somebody's in-flight submission.
-  **vc57 is live.**
-- **Roku delivers to our own $0 endpoint.** No API exists (Looker); its four
-  dashboards POST daily to the Cloudflare Worker that already ran the web
-  counter. All four parse: 51 tiles, 112 installs, visitors/viewers/bounce/
-  minutes, crashes, and **40 App Stability device tiles all empty** — nothing
-  crashed on any Roku model.
-
-**WHICH FILMS PEOPLE WATCH**, from data the counter already received and threw
-away at the edge. `day | id | open|play|ambient | count`, never summed. Live:
-28 plays across 10 films, 47 opens across 40. **privacy.html gained the counter
-section it had been promising and never had**, and its false "no servers of its
-own" claim was corrected.
-
-**FOUR READER BUGS, each silent:**
-- **macOS read ZERO** — Apple has two product-type families and the Mac one
-  (`F1`, `FI1`) was missing. `skippedProductTypes` now records every uncounted
-  code so the next forgotten family is a line on the dashboard.
-- **Play installs were called "broken"** — they never were. Two ordinary lags
-  stack (~6 days, plus the month's file appearing part-way through), and
-  `tools/play_bucket_probe.py` settles it by listing the bucket.
-- **Roku showed 0 installs** for a platform with 112, because a missing column
-  defaulted to zero. Absence is written, not drawn.
-- **`HEALTH_OWNS` had a hole** — three sections were DELETED rather than
-  preserved when their readers were dark. A test now asserts full coverage.
-
-**AND A RULE THAT COST A ROUND:** a degraded run may not overwrite a good
-reading. A local `--apply` without CI's credentials replaced fresh Apple data
-with a stale copy; `--apply` now refuses when a third of readers are dark.
-
-**PLAYLIST SHARING** verified through the IMPORT on both Android form factors
-(release builds, persistence across force-stop), plus the old-version path: an
-app that predates `/list/` correctly falls through to the web.
-
-**Also**: US spellings throughout the user-visible copy (the shared-playlist
-sentence was British on five platforms); `sw.js` SHELL v74 → v75, without which
-returning visitors keep the old shell; Samsung set on 1.42.100.
-
-**OWNER, when you are back:**
-1. **Roku 1.0.65** was scheduled for 5pm PT 2026-09-14. Pulse now detects it
-   automatically — App Health's crash logs carry an `App Version`, so a build
-   appearing there is proof it shipped. Watch the Roku tab.
-2. **Fire TV vc57 is live** and `ops/stores-manual.json` is corrected.
-3. Nothing else is blocked.

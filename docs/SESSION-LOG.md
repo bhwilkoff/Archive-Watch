@@ -16,6 +16,66 @@ it is history, not a to-do list.
 
 ## Session Log
 
+### 2026-09-14 — Pulse becomes the console; playlist sharing verified on every Android form factor
+Owner: *"The whole point of Pulse is that I never have to go into the
+individual dashboards."* Binding design: **docs/PULSE-ANALYTICS.md**.
+
+**PULSE IS NOW SEVEN VIEWS**, one per audience — Overview, Reach, Engagement,
+Health, Voice, **Program** (split out: *"Social Media should not be combined
+with usage metrics"*), Ops — plus a tab per platform. All 22 tabs verified
+rendering, every headline number cross-checked against `ops/pulse.json`.
+
+**THREE ROUTES THOUGHT IMPOSSIBLE, ALL LIVE:**
+- **Amazon installs are in the SALES report** (corrects Decision 111): for a
+  free app every install is a `$0.00 Charge` row with a timestamp and country.
+  30 installs; the 09-10 spike is Decision 115's minSdk fix landing.
+- **Amazon's live version** is read by creating an edit (Amazon seeds it from
+  live), reading its APKs, deleting it — and the reader deletes ONLY an edit
+  it created, because an existing one is somebody's in-flight submission.
+  **vc57 is live.**
+- **Roku delivers to our own $0 endpoint.** No API exists (Looker); its four
+  dashboards POST daily to the Cloudflare Worker that already ran the web
+  counter. All four parse: 51 tiles, 112 installs, visitors/viewers/bounce/
+  minutes, crashes, and **40 App Stability device tiles all empty** — nothing
+  crashed on any Roku model.
+
+**WHICH FILMS PEOPLE WATCH**, from data the counter already received and threw
+away at the edge. `day | id | open|play|ambient | count`, never summed. Live:
+28 plays across 10 films, 47 opens across 40. **privacy.html gained the counter
+section it had been promising and never had**, and its false "no servers of its
+own" claim was corrected.
+
+**FOUR READER BUGS, each silent:**
+- **macOS read ZERO** — Apple has two product-type families and the Mac one
+  (`F1`, `FI1`) was missing. `skippedProductTypes` now records every uncounted
+  code so the next forgotten family is a line on the dashboard.
+- **Play installs were called "broken"** — they never were. Two ordinary lags
+  stack (~6 days, plus the month's file appearing part-way through), and
+  `tools/play_bucket_probe.py` settles it by listing the bucket.
+- **Roku showed 0 installs** for a platform with 112, because a missing column
+  defaulted to zero. Absence is written, not drawn.
+- **`HEALTH_OWNS` had a hole** — three sections were DELETED rather than
+  preserved when their readers were dark. A test now asserts full coverage.
+
+**AND A RULE THAT COST A ROUND:** a degraded run may not overwrite a good
+reading. A local `--apply` without CI's credentials replaced fresh Apple data
+with a stale copy; `--apply` now refuses when a third of readers are dark.
+
+**PLAYLIST SHARING** verified through the IMPORT on both Android form factors
+(release builds, persistence across force-stop), plus the old-version path: an
+app that predates `/list/` correctly falls through to the web.
+
+**Also**: US spellings throughout the user-visible copy (the shared-playlist
+sentence was British on five platforms); `sw.js` SHELL v74 → v75, without which
+returning visitors keep the old shell; Samsung set on 1.42.100.
+
+**OWNER, when you are back:**
+1. **Roku 1.0.65** was scheduled for 5pm PT 2026-09-14. Pulse now detects it
+   automatically — App Health's crash logs carry an `App Version`, so a build
+   appearing there is proof it shipped. Watch the Roku tab.
+2. **Fire TV vc57 is live** and `ops/stores-manual.json` is corrected.
+3. Nothing else is blocked.
+
 ### 2026-09-10 — Roku Search feed (Decision 113)
 Owner: "now that the Roku app is live, we need to build out a Search Feed for
 all of the content (or a large subset of verifiable public domain movies, at
