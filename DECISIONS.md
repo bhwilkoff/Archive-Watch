@@ -191,6 +191,7 @@ an entry in place.
 - 120 — Social media is hosted where there is no ingest delay; a platform that could not post FAILS, and archive.org keeps only the video
 - 121 — Correction to 119: Roku DOES share playlists, and a decision's closing paragraph outlives the hour it was true for
 - 122 — Roku never RECEIVES a shared playlist, and the legacy tier never sends one; both are closed, not deferred
+- 123 — Pulse replaces the vendor consoles: every store is read by the route it actually offers, and a reading that cannot be trusted is refused rather than written
 
 ---
 
@@ -2465,3 +2466,50 @@ one.
 **Consequences**: the sharing matrix's Roku row is final — **sends on modern,
 never receives, does not send on legacy** — and the docs should stop carrying
 it as an open item.
+
+## 123 — Pulse replaces the vendor consoles: every store is read by the route it actually offers, and a reading that cannot be trusted is refused rather than written
+*Date: 2026-09-14*
+
+Pulse is the one place the owner reads how the app is doing — seven views by
+audience, a tab per platform, daily. Three rules bind it beyond Decision 108's:
+**a store is read by the route it actually offers**, **a reading that is mostly
+carried-forward is REFUSED rather than written**, and **absence is written,
+never drawn as a zero**. Binding detail: `docs/PULSE-ANALYTICS.md`.
+
+**Why**: the owner — *"The whole point of Pulse is that I never have to go into
+the individual dashboards."* That is a higher bar than a summary page, and it
+fails the moment one number is stale, one is invented, or one platform is
+quietly missing. All three happened in a day.
+
+**The route is the finding, every time.** Amazon publishes no acquisition
+endpoint and no live-version endpoint — but for a FREE app every install is a
+`$0.00 Charge` row in the SALES report, and an EDIT is seeded from the live
+build, so both questions are answerable by asking something else. Roku
+publishes no API at all and never will, and answers by DELIVERING its Looker
+dashboards to an endpoint we already ran. Play's install export was called
+broken and was merely lagging twice over. In each case the first answer —
+"there is no API for that" — was our claim, not the vendor's.
+
+**How to apply**: before recording that a vendor exposes nothing, ask what it
+DOES expose and in what shape; Decision 109 started this list and every entry
+since has been found the same way. Distinguish the vendor's error codes
+precisely — Amazon's *"Report not found"* (real route, no data) versus
+*"Unable to fetch the request scope"* (no such route) is the difference between
+waiting and rebuilding. Never delete a vendor-side object you did not create:
+the live-version reader creates an edit only when none exists, because an
+existing one is somebody's in-flight submission.
+
+**And guard the reading itself.** CI holds every credential and a laptop holds
+a few, so a local `--apply` writes a mostly carried-forward file that silently
+replaces fresher numbers — which is how macOS vanished from Reach hours after
+being fixed. `HEALTH_OWNS` must name every key a reader writes or a dark reader
+DELETES its section rather than preserving it. And a missing column must never
+default to zero: Roku reported 0 installs for a platform with 112 because the
+day's rows came from a different report.
+
+**Consequences**: five stores now answer for themselves — Apple, Play, Amazon
+and the web by API or counter, Roku by delivery — and each declares its own
+route on the page, so "declared by hand" appears only where it is true. What no
+route can reach is named on the page rather than omitted: Apple's retention and
+session analytics 403 for this key, and Play withholds ratings below a minimum
+audience.
