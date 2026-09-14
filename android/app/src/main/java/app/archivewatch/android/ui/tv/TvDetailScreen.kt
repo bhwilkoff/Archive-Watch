@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -269,10 +270,34 @@ fun TvDetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
                 }
             }
 
-            Row(
-                Modifier.padding(start = TvDims.OverscanH, top = 8.dp, bottom = 20.dp),
-                horizontalArrangement = Arrangement.spacedBy(16.dp),
-                verticalAlignment = Alignment.CenterVertically,
+            // FLOWROW, and both halves of that matter.
+            //
+            // It WRAPS rather than running off the screen: the row padded its
+            // start with the overscan margin and had no end, so it grew as
+            // wide as its content and the last pill's label measured
+            // right=1844 against a 1824 safe edge — clipped on a panel that
+            // overscans. An EPISODE adds a seventh action ("Part of <series>"),
+            // so tightening the gaps would only move the cliff.
+            //
+            // And it wraps rather than SCROLLS, which is the recorded lesson
+            // from the season chips on this same device: a scrollable row's
+            // bring-into-view ate the first Right press, so the first press
+            // did nothing. FlowRow has no scroll to swallow it.
+            FlowRow(
+                Modifier.padding(
+                    start = TvDims.OverscanH,
+                    end = TvDims.OverscanH,
+                    top = 8.dp,
+                    bottom = 20.dp,
+                ),
+                // 12dp rather than 16 for a little less crowding. It does NOT
+                // pull the sixth pill back onto the first line — measured, Play
+                // and Share sit at y=837 and Version at y=954, so six actions
+                // genuinely do not fit across 1728px of safe width at this
+                // size. That is fine and it is why the wrap exists: the
+                // alternative was a label clipped off the edge of the screen.
+                horizontalArrangement = Arrangement.spacedBy(12.dp),
+                verticalArrangement = Arrangement.spacedBy(12.dp),
             ) {
                 val playable = current.downloadURL != null
                 TvActionButton(
