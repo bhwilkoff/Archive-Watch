@@ -310,5 +310,25 @@ check("a single undated row is a headline",
 check("a delivered-but-empty tile is RECORDED, not dropped", _empty, ["malone"])
 check("every tile is counted once", len(_tiles), 5)
 
+# ── Roku tells us what shipped, sideways ────────────────────────────────────
+# Roku publishes no API, so the live version is declared by hand and goes stale.
+# But App Health's crash logs carry an App Version, and a version cannot appear
+# there unless it is on real devices — so a version APPEARING is proof it
+# shipped. (Absence proves nothing: a release that never crashed is invisible.)
+print("\nRoku app versions are read out of the crash logs")
+_tabs = {"brightscript_crash_logs": [
+    {"Date": "2026-09-12", "App Version": "00071", "Error Text": "x"},
+    {"Date": "2026-09-10", "App Version": "00071", "Error Text": "y"},
+    {"Date": "2026-09-11", "App Version": "00065", "Error Text": "z"},
+    {"Date": "2026-09-11", "Error Text": "no version on this row"},
+]}
+_v = _pc.roku_versions_in(_tabs)
+check("every version in the logs is found", [x["version"] for x in _v], ["00065", "00071"])
+check("...with the FIRST day it was seen",
+      next(x for x in _v if x["version"] == "00071")["firstSeen"], "2026-09-10")
+check("...and the last", next(x for x in _v if x["version"] == "00071")["lastSeen"], "2026-09-12")
+check("a row with no version is skipped rather than counted as one", len(_v), 2)
+check("no tables at all is empty, not an error", _pc.roku_versions_in({}), [])
+
 print(f"\n{PASS} passed, {FAIL} failed")
 sys.exit(1 if FAIL else 0)

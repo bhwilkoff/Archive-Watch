@@ -1141,6 +1141,7 @@ function platforms(d) {
                         // "engagement" line would hide the bounce rate, which
                         // is the number that says whether anyone stayed.
                         rawDaily: installs?.daily || null,
+                        versionsSeen: name === "Roku" ? (installs?.versionsSeen || []) : null,
                         extra: name === "Roku" ? [
                           { k: "Visitors and viewers", col: "Visitors", alt: "Viewers",
                             cap: "a VISITOR opened the channel; a VIEWER started a film. "
@@ -1366,6 +1367,36 @@ function appPlatform(d0, p) {
               ? `<b>as of ${p.installsAsOf}</b> \u2014 Google's install export stopped `
                 + "being written on 26 August, so this is not today's figure"
               : null].filter(Boolean).join(" \u00b7 "),
+    });
+  }
+
+  /* WHAT ROKU HAS ACTUALLY SEEN RUNNING. Roku publishes no API, so its live
+     version is declared by hand and goes stale — it read 1.0.51 for days while
+     1.0.65 was scheduled. The analytics answer it sideways: App Health's crash
+     logs carry an App Version, and a version cannot appear there unless it is
+     on real devices.
+     EVIDENCE, NOT A ROSTER: only builds that crashed at least once appear, so
+     a flawless release is invisible and absence proves nothing. A version
+     APPEARING is proof it shipped, which is the direction that matters. */
+  const vs = p.versionsSeen || [];
+  if (vs.length) {
+    const declared = Number(String(p.row?.version || "").split(".").pop());
+    const newest = Math.max(...vs.map((v) => Number(v.version) || 0));
+    const ahead = Number.isFinite(declared) && newest > declared;
+    panel(box, {
+      k: "Versions seen in the field", right: `${vs.length} build${vs.length === 1 ? "" : "s"}`,
+      v: ahead ? `1.0.${newest}<small> is live</small>` : `1.0.${newest}`,
+      cap: ahead
+        ? `This row is declared as v${p.row?.version} and Roku has reported build `
+          + `${newest} running on real devices — so the release went out and the `
+          + "declared version is stale. Roku has no API to confirm it any other way."
+        : "read out of App Health's crash logs, which carry an App Version. Only "
+          + "builds that crashed at least once appear here, so this is evidence a "
+          + "version shipped and never evidence that one did not",
+      detail: vs.slice().reverse().map((v) => ({
+        label: `1.0.${Number(v.version)}`,
+        value: v.firstSeen === v.lastSeen ? v.firstSeen : `${v.firstSeen} – ${v.lastSeen}`,
+      })),
     });
   }
 

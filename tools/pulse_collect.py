@@ -2014,6 +2014,34 @@ def roku_parse_zip(zf):
     return daily, headline, tables, tiles, empty
 
 
+def roku_versions_in(tables):
+    """Which package versions Roku has actually SEEN IN THE FIELD.
+
+    Roku publishes no API, so nothing can ask it what is live — the store
+    version has to be declared by hand and goes stale (it said 1.0.51 for days
+    while 1.0.65 was scheduled). But the analytics answer it sideways: App
+    Health's crash logs carry an `App Version` column, and a version cannot
+    appear there unless it is on real devices.
+
+    It is EVIDENCE, not a roster: only versions that crashed at least once show
+    up, so a flawless release is invisible here and absence proves nothing. A
+    version APPEARING, though, is proof it shipped — which is the direction
+    that matters for noticing a release went out.
+    """
+    seen: dict = {}
+    for rows in (tables or {}).values():
+        for r in rows:
+            v = str(r.get("App Version") or "").strip()
+            if not v:
+                continue
+            day = str(r.get("Date") or r.get("Error Key Date") or "")[:10]
+            slot = seen.setdefault(v, {"version": v, "firstSeen": day, "lastSeen": day})
+            if day:
+                slot["firstSeen"] = min(slot["firstSeen"] or day, day)
+                slot["lastSeen"] = max(slot["lastSeen"] or day, day)
+    return sorted(seen.values(), key=lambda x: x["version"])
+
+
 def roku_engagement(state):
     """Roku's App Engagement dashboard, delivered to our own drop box.
 
@@ -2127,6 +2155,8 @@ def roku_engagement(state):
                          # "not delivered" stay distinguishable.
                          "emptyTiles": sorted(set(v.get("empty", [])))}
                      for k, v in reports.items()},
+        "versionsSeen": roku_versions_in(
+            {k: v for rep in reports.values() for k, v in (rep.get("tables") or {}).items()}),
         "reportsSeen": sorted(reports),   # this run; the merge below widens it
         "readVia": "Looker scheduled delivery -> Worker /ingest/roku (no Roku API exists)",
         "console": "https://developer.roku.com/apps/analytics/engagement/881015",
@@ -2632,6 +2662,17 @@ def main() -> int:
         for name, old_rep in prev_rep.items():          # a report that did not deliver today
             rk.setdefault("byReport", {}).setdefault(name, old_rep)
         rk["reportsSeen"] = sorted(rk.get("byReport") or {})
+        # Versions accumulate: a build seen last week is still a build that
+        # shipped, and Roku's rolling window will stop mentioning it.
+        prev_v = {v["version"]: v for v in
+                  (((prev.get("health") or {}).get("rokuEngagement") or {})
+                   .get("versionsSeen") or [])}
+        for v in rk.get("versionsSeen") or []:
+            old_v = prev_v.get(v["version"])
+            if old_v:
+                v["firstSeen"] = min(filter(None, [old_v.get("firstSeen"), v["firstSeen"]]) or [""])
+            prev_v[v["version"]] = v
+        rk["versionsSeen"] = sorted(prev_v.values(), key=lambda x: x["version"])
 
     hist = [h for h in prev.get("history", []) if h.get("date") != today()]
     hist.append(history_row(state))
