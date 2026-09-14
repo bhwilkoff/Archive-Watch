@@ -1949,6 +1949,54 @@ def _first_num(row, *names):
     return None
 
 
+def roku_parse_zip(zf):
+    """Every tile in one delivered Roku dashboard -> (daily, headline, tables,
+    tiles, empty). Pure and testable: the reader around it does the network.
+
+    THREE KINDS OF TILE, and they are not alternatives:
+      * a DATED series   — a date column (any case) plus numeric columns
+      * a TABLE          — more than one row; kept whether or not it is dated,
+                           because App Health's crash logs carry a date AND an
+                           Error Text, a Backtrace and an App Version, and as a
+                           series alone they yield nothing at all
+      * a HEADLINE       — a single undated row of numbers
+    An EMPTY tile is recorded, not dropped: App Stability ships forty
+    device tiles and all forty were empty, which means nothing crashed on any
+    model — a real answer, and one that must stay distinguishable from a
+    report that never arrived.
+    """
+    daily, headline, tables, tiles, empty = {}, {}, {}, [], []
+    for name in zf.namelist():
+        tile = name.rsplit("/", 1)[-1].replace(".csv", "")
+        tiles.append(tile)
+        rows = _roku_rows(zf.read(name).decode("utf-8-sig", "replace"))
+        if not rows:
+            empty.append(tile)
+            continue
+        for r in rows:
+            date = next((v for k, v in r.items()
+                         if k and "date" in k.lower()
+                         and re.match(r"^\d{4}-\d{2}-\d{2}$", str(v))), None)
+            if not date:
+                continue
+            slot = daily.setdefault(date, {"date": date})
+            for k, v in r.items():
+                if not k or "date" in k.lower():
+                    continue
+                n = _first_num(r, k)
+                if n is not None:
+                    slot[k.split(" Time Grain ")[-1].strip()] = n
+        if len(rows) > 1:
+            tables[tile] = [{k: v for k, v in r.items() if k and v not in (None, "")}
+                            for r in rows[:40]]
+        if len(rows) == 1 and not any("date" in (k or "").lower() for k in rows[0]):
+            for k, v in rows[0].items():
+                n = _first_num(rows[0], k)
+                if n is not None:
+                    headline[k.split(" Time Grain ")[-1].strip()] = n
+    return daily, headline, tables, tiles, empty
+
+
 def roku_engagement(state):
     """Roku's App Engagement dashboard, delivered to our own drop box.
 
@@ -2020,33 +2068,17 @@ def roku_engagement(state):
             continue
         plan = ((body.get("scheduled_plan") or {}).get("title") or "").strip()
         bucket = reports.setdefault(plan or "unnamed", {"daily": {}, "headline": {}, "tiles": []})
-        for name in zf.namelist():
-            tile = name.rsplit("/", 1)[-1].replace(".csv", "")
-            bucket["tiles"].append(tile)
-            tiles.append(tile)
-            rows = _roku_rows(zf.read(name).decode("utf-8-sig", "replace"))
-            for r in rows:
-                date = next((v for k, v in r.items()
-                             if k and "Date" in k and re.match(r"^\d{4}-\d{2}-\d{2}$", str(v))), None)
-                if not date:
-                    continue
-                slot = daily.setdefault(date, {"date": date})
-                bslot = bucket["daily"].setdefault(date, {"date": date})
-                for k, v in r.items():
-                    if not k or "Date" in k:
-                        continue
-                    n = _first_num(r, k)
-                    if n is not None:
-                        key = k.split(" Time Grain ")[-1].strip()
-                        slot[key] = n
-                        bslot[key] = n
-            if len(rows) == 1 and not any("Date" in (k or "") for k in rows[0]):
-                for k, v in rows[0].items():
-                    n = _first_num(rows[0], k)
-                    if n is not None:
-                        key = k.split(" Time Grain ")[-1].strip()
-                        headline[key] = n
-                        bucket["headline"][key] = n
+        rdaily, rhead, rtables, rtiles, rempty = roku_parse_zip(zf)
+        bucket["daily"].update({k: {**bucket["daily"].get(k, {}), **v}
+                                for k, v in rdaily.items()})
+        bucket["headline"].update(rhead)
+        bucket.setdefault("tables", {}).update(rtables)
+        bucket["tiles"].extend(rtiles)
+        bucket.setdefault("empty", []).extend(rempty)
+        tiles.extend(rtiles)
+        headline.update(rhead)
+        for k, v in rdaily.items():
+            daily.setdefault(k, {"date": k}).update(v)
         consumed.append(d.get("id"))
 
     # ACK ONLY ON A REAL RUN. The drop box DELETES what it acks, so a dry run
@@ -2069,7 +2101,14 @@ def roku_engagement(state):
         "dropsRead": len(consumed),
         "unreadable": bad,
         "byReport": {k: {"daily": sorted(v["daily"].values(), key=lambda r: r["date"]),
-                         "headline": v["headline"], "tiles": sorted(set(v["tiles"]))}
+                         "headline": v["headline"], "tiles": sorted(set(v["tiles"])),
+                         "tables": v.get("tables", {}),
+                         # A tile that delivered with NO rows is a real answer
+                         # (App Stability ships 40 device tiles and every one
+                         # was empty, which means nothing crashed on any model)
+                         # and is counted rather than dropped, so "quiet" and
+                         # "not delivered" stay distinguishable.
+                         "emptyTiles": sorted(set(v.get("empty", [])))}
                      for k, v in reports.items()},
         "reportsSeen": sorted(reports),
         "readVia": "Looker scheduled delivery -> Worker /ingest/roku (no Roku API exists)",

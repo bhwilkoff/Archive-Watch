@@ -259,5 +259,56 @@ _owned |= set(re.findall(r'"([A-Za-z0-9_]+)"',
 _unpreserved = sorted(_written - _owned)
 check("no health key a reader writes is missing from HEALTH_OWNS", _unpreserved, [])
 
+# ── Roku: the three shapes of tile, from the REAL headers Looker sent ───────
+# Written after the parser silently dropped two of them: Viewership Summary's
+# four daily series (its date column is lowercase `date`, and the match was
+# case-sensitive) and App Health's crash logs (which carry a date AND text, so
+# they fell between the series branch and the table branch and vanished).
+print("\nRoku tiles: series, tables and empties all survive")
+import io as _io, zipfile as _zip
+sys.path.insert(0, str(Path(__file__).parent))
+import pulse_collect as _pc
+
+def _zipof(files):
+    buf = _io.BytesIO()
+    with _zip.ZipFile(buf, "w") as z:
+        for n, text in files.items():
+            z.writestr(f"dashboard-x/{n}", text)
+    buf.seek(0)
+    return _zip.ZipFile(buf)
+
+_z = _zipof({
+    # lowercase `date` — Viewership Summary's real header
+    "visits_and_streams.csv": ",date,Visits,Streams\n1,2026-09-12,29,14\n2,2026-09-11,33,16\n",
+    # dated AND textual — App Health's real crash log
+    "brightscript_crash_logs.csv":
+        ",Date,Roku OS Release,App Version,Error Text,Total Count of Crashes\n"
+        "1,2026-09-12,14.5.0,00071,&hf4 invalid component,3\n"
+        "2,2026-09-11,13.0.0,00065,type mismatch,1\n",
+    # undated multi-row — the hardware breakdown
+    "viewership_details.csv": ",Hardware,Roku Model,Visits\n1,Streaming Stick,3820X,12\n2,Express,3930X,4\n",
+    # single undated row — a headline tile
+    "rebuffers-tile.csv": "Rebuffers per Hours Streamed,Total Rebuffers\n0.13,4\n",
+    # delivered and empty — a real answer, not an absence
+    "malone.csv": ",Date Key Date,Memory Closures Per 1K Hours\n",
+})
+_daily, _head, _tables, _tiles, _empty = _pc.roku_parse_zip(_z)
+
+check("a lowercase `date` column still makes a daily series",
+      sorted(_daily) == ["2026-09-11", "2026-09-12"], True)
+check("...and its numbers are picked up",
+      _daily.get("2026-09-12", {}).get("Visits"), 29.0)
+check("a DATED tile with text is ALSO kept as a table",
+      "brightscript_crash_logs" in _tables, True)
+check("...with the error text intact",
+      _tables.get("brightscript_crash_logs", [{}])[0].get("Error Text"),
+      "&hf4 invalid component")
+check("an undated multi-row tile is a table",
+      len(_tables.get("viewership_details", [])), 2)
+check("a single undated row is a headline",
+      _head.get("Total Rebuffers"), 4.0)
+check("a delivered-but-empty tile is RECORDED, not dropped", _empty, ["malone"])
+check("every tile is counted once", len(_tiles), 5)
+
 print(f"\n{PASS} passed, {FAIL} failed")
 sys.exit(1 if FAIL else 0)
