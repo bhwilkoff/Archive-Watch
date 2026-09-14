@@ -29,7 +29,9 @@ skill when its trigger matches.
 | Designing any view (tvOS or web) | `mobile-first-density-design` + `native-platform-first` |
 | Adding a list / grid / sheet / shelf | `universal-feature-states` |
 | Logging an architecture decision | `architectural-decision-log` |
-| Any tvOS UI / focus / animation work | consult `docs/tvos-playbook.md` first; then invoke the relevant `all-ios-skills:*` |
+| Any UI change on any platform | its binding design doc FIRST (list under "Binding design docs" below), then the platform skill: `tvos-platform-patterns`, `ios-production-gotchas`, `macos-platform-patterns`, `android-production-gotchas` / `androidtv-compose-focus`, `roku-brightscript-app`, `smarttv-web-app` / `web-platform-patterns` |
+| Any tvOS focus / animation bug | `docs/tvos-playbook.md` first; then the relevant `all-ios-skills:*` |
+| Shipping any user-facing feature | `cross-platform-parity-discipline` — update `PARITY.md` in the same change set |
 | Any macOS app work (shell / player / hero / browse) | consult `docs/macOS-DESIGN.md` (Part B) first; then `macos-native-app-shell` |
 | macOS Creation Studio (editor / engine) work | consult `docs/macOS-DESIGN.md` (Part A) first; then `macos-creation-studio-engine` |
 | Submitting any Apple App Store build | DEFAULT = the cloud workflow `gh workflow run appstore-build.yml` (the dev Mac's beta OS can't ship locally); see `apple-app-store-cli-submission` + `docs/mac-app-store-submission.md` |
@@ -99,117 +101,80 @@ research-agent + observable-evidence discipline.
 
 ## What this app does
 
-**Archive Watch** is a tvOS (Apple TV) app that turns the Internet
-Archive's vast public-domain moving-image collection — feature films,
-classic TV, newsreels, silent cinema, animation, ephemeral industrial
-films — into a cinematheque-style browsing and viewing experience.
-Titles are enriched with posters, cast, synopses, and genres sourced
-from TMDb (with Wikidata, Wikimedia Commons, and the Library of
-Congress as fallbacks), so archival content is presented with the
-same care and visual dignity as a modern streaming service. The
-audience is curious viewers who would rather wander a well-stocked
-repertory cinema than doomscroll a recommendation feed.
+**Archive Watch** turns the Internet Archive's public-domain moving-image
+collection — feature films, classic TV, newsreels, silent cinema,
+animation, ephemeral industrial films — into a cinematheque-style
+browsing and viewing experience. Titles are enriched with posters, cast,
+synopses and genres from TMDb (Wikidata, Wikimedia Commons, OMDb, TVDb,
+LoC as fallbacks) so archival content gets the same visual dignity as a
+modern streaming service. Free, no ads, no accounts required.
 
-**Primary platform: tvOS 17+ (currently building against tvOS 26 /
-Liquid Glass).** The Apple TV app is the product.
-
-The `index.html` / `css/` / `js/` web scaffold in this repo is
-retained as a **companion editorial dashboard** — a small static
-page served via GitHub Pages where the curator maintains
-`featured.json` and runs `build-catalog.html` to generate the
-`catalog.json` seed the tvOS app consumes. It is not a
-consumer-facing viewer, and the template's Dual-Platform Feature
-Parity Model does **not** apply here.
+It began tvOS-first (Decision 006) and is now **live on tvOS, iOS/iPadOS,
+macOS, Android phone + Google TV, Fire TV, Roku, and the web at
+archivewatch.org** (Decisions 028/047), with webOS/Tizen packages built
+and unsubmitted. One catalog, one data plane (`docs/CATALOG-CONTRACT.md`),
+native UI per platform — feature parity, not design consistency
+(`PARITY.md`). Ship state lives in Pulse (`archivewatch.org/pulse/`),
+not in any doc.
 
 ---
 
-## Web app (editorial dashboard only)
+## Repo map
 
-**Stack**: Vanilla HTML/JS — no framework, no build step. Custom
-CSS, mobile-first. GitHub Pages static hosting, branch `main`,
-root `/`.
+```
+ArchiveWatch/ArchiveWatch.xcodeproj   ← ONE universal Apple project (tvOS + iOS + macOS
+ArchiveWatch/ArchiveWatch/               targets + Top Shelf + Widgets); Swift 6, SwiftUI,
+  App/ Views/ Components/ Models/        SwiftData, AVFoundation, no third-party packages
+  Networking/ Services/ Store/ iOS/ macOS/
+android/                              ← Kotlin + Compose M3; flavors `google` (Play, Google TV)
+                                         and `amazon` (Fire TV, minSdk 23); Media3 player
+roku/                                 ← BrightScript / SceneGraph channel 881015
+index.html watch.js sw.js tv.js       ← web PWA viewer (site root); TV layer for webOS/Tizen
+curate/                               ← the editorial dashboard (featured.json)
+pulse/                                ← the analytics console (reads ops/pulse.json)
+tools/                                ← ~300 Python/JS pipeline, audit, submission + test scripts
+.github/workflows/                    ← ~48 workflows: catalog enrichment crons, publish-db,
+                                         deploy-pages, store builds/submits, pulse, social
+docs/                                 ← binding design docs, playbooks, decisions archive
+AppVersion.xcconfig                   ← the ONE Apple version number (bump both, every commit)
+Secrets.xcconfig                      ← gitignored; TMDb + OpenSubtitles keys
+```
 
-**Key directories**:
-- `/` — root: `index.html`, `whats-new.html`, `build-catalog.html`,
-  `featured.json`, `catalog.json`, working docs
-- `/css/styles.css` — single main stylesheet
-- `/js/api.js`, `/js/app.js`, `/js/build-catalog.js`,
-  `/js/whats-new.js` — API abstraction + view system per tool
-- `/assets/` — static assets (icon master, previews)
+`catalog.json` / `catalog.sqlite` live on a GitHub Release, never in git
+(Decisions 017/018). Test on **real devices only, never emulators**
+(`docs/DEVICE-TESTING.md`; `tools/devlease.py` shares them between sessions).
 
-**Run locally**: `python3 -m http.server 8080` → visit
-http://localhost:8080. Deploy: push to `main`; GitHub Pages serves
-automatically.
-
-**Conventions** (the load-bearing ones — see skills for the rest):
-- All Archive.org / TMDb calls through `js/api.js` — never `fetch`
-  directly elsewhere
-- CSS custom properties in `:root` in `styles.css`
-- Mobile-first; all media queries use `min-width`
-- No inline styles
-- Error states must be user-visible (not just console logs)
-- IntersectionObservers created per-view are disconnected on view
-  switch
-- Use `showView(name)` to switch views; each view is a `<section>`
-  with `hidden` toggled
-
-**Safari layout pitfall** (cross-project):
-`body { height: 100dvh; display: flex; flex-direction: column;
-overflow: hidden; }` with `main { flex: 1; overflow-y: auto;
-min-height: 0; }`. NO `viewport-fit=cover`. NO `position: fixed`
-overlays — they break Safari's compositor at the Dynamic Island.
+**Critical conventions** (the load-bearing ones — the skills carry the rest):
+- All Archive / TMDb / etc. calls go through the shared clients
+  (`Networking/` on Apple, `js/api.js` on web) — never `fetch`/`URLSession`
+  directly from a view.
+- Version numbers via `AppVersion.xcconfig` only — never the Xcode identity
+  panel (creates per-target overrides). Android `versionCode` in
+  `android/app/build.gradle.kts`, bumped before every Play upload.
+- Never commit secrets. Never regenerate the Roku signing key.
+- Every catalog writer is additive and merge-guarded (Decision 020); a
+  run that produced nothing goes red, a run that reported someone else's
+  condition does not (Decisions 093/107).
+- Web: vanilla JS, no build step, mobile-first (`min-width` queries only),
+  CSS custom properties in `:root`, no inline styles, error states
+  user-visible. Safari pitfall: `body { height: 100dvh; display: flex; …
+  overflow: hidden }` + `main { flex: 1; overflow-y: auto; min-height: 0 }`;
+  no `viewport-fit=cover`, no `position: fixed` overlays.
 
 ---
 
-## tvOS app
+## Binding design docs
 
-**Stack**: Swift 6, SwiftUI (`@Observable`, tvOS 17+, currently
-running on tvOS 26 with Liquid Glass), SwiftData for local
-persistence, URLSession direct to Archive / TMDb / Wikidata
-(no third-party packages).
+Quote the rule before proposing any new view / sheet / overlay / shelf;
+if no rule fits, add the rule first (`binding-design-doc-discipline`).
 
-**Project structure** — Xcode Cloud compatible:
-
-```
-/                              ← repo root
-├── ArchiveWatch.xcodeproj/    ← at root (Xcode Cloud requirement)
-├── ArchiveWatch/
-│   ├── App/                   ← entry point
-│   ├── Models/                ← ContentItem, Taxonomy, CollectionRegistry
-│   ├── Views/                 ← SwiftUI views (one folder per feature)
-│   ├── Components/            ← HeroCarousel, ShelfRow, DecadeTilesRow, …
-│   ├── Networking/            ← ArchiveClient, TMDbClient, WikidataClient
-│   ├── Services/              ← EnrichmentService, SeedCatalog
-│   └── Resources/
-├── AppVersion.xcconfig        ← shared version numbers
-├── Secrets.xcconfig           ← gitignored; TMDB_BEARER_TOKEN
-├── ci_scripts/                ← Xcode Cloud build scripts
-├── docs/                      ← research + tvOS playbook
-├── index.html                 ← editorial dashboard
-├── catalog.json               ← bundled seed catalog
-├── featured.json              ← curator picks + dynamic shelves
-└── tools/                     ← validation + enrichment scripts
-```
-
-**Critical conventions**:
-
-- **All API calls through a shared singleton** — never URLSession
-  directly from views
-- **Global nav state in `@Observable` store** with `NavigationPath`
-  per tab; reset a tab's path when the user leaves it via the sidebar
-- **Version numbers via `AppVersion.xcconfig` only** — never edit
-  through Xcode identity panel (creates per-target overrides)
-- **tvOS 17+ minimum** — currently targeting tvOS 26 / Liquid Glass
-- **No third-party Swift packages** — Apple frameworks only
-- **`Secrets.xcconfig` is gitignored** — TMDB bearer token lives
-  there; never commit secrets
-
-For SwiftUI patterns, navigation, animation, performance — invoke
-`all-ios-skills:<name>`. For Liquid Glass (tvOS 26+) see
-`all-ios-skills:swiftui-liquid-glass`. For tvOS-specific patterns
-not in any global skill — focus management, sidebar behavior, hero
-carousels, the `@Query` cascade gotcha — consult
-`docs/tvos-playbook.md`.
+`docs/tvOS-DESIGN.md` · `docs/iOS-DESIGN.md` · `docs/IPAD-DESIGN.md` ·
+`docs/macOS-DESIGN.md` (Part A Creation Studio, Part B app shell) ·
+`docs/ANDROID-DESIGN.md` · `docs/TV-DESIGN.md` (Android TV + web-TV) ·
+`docs/ROKU-DESIGN.md` · `docs/WEB-DESIGN.md` · `docs/PULSE.md` +
+`docs/PULSE-ANALYTICS.md` · `docs/CAPTIONS.md` · `docs/SHAREPLAY.md` ·
+`docs/PLAYLIST-SHARING.md`. tvOS focus/animation lore that predates the
+design doc: `docs/tvos-playbook.md`.
 
 ---
 
@@ -245,20 +210,6 @@ focused card is the chrome; surrounding cards should be quiet.
 
 ---
 
-## When to create a binding design doc
-
-This project has grown past ~5 views (Home, Browse, Detail, Player,
-Settings, Search, TV series shelf, …). A `tvOS-DESIGN.md` binding
-design doc would be earning its keep — quote the rule before
-proposing any new view / sheet / overlay / shelf type. Invoke
-`binding-design-doc-discipline` when adding it.
-
-Until that doc exists, `docs/tvos-playbook.md` is the closest thing
-this project has to a binding spec — consult it first for any tvOS
-UI change.
-
----
-
 ## Standing instructions
 
 - **Read the relevant skill before re-deriving a pattern.** The
@@ -279,7 +230,9 @@ UI change.
 
 ## Current state
 
-See @SCRATCHPAD.md for active milestone + tvOS feature status.
-See @DECISIONS.md for architecture decisions.
-See `docs/tvos-playbook.md` for tvOS-specific patterns learned the
-hard way on this project.
+See @SCRATCHPAD.md for the current state, open owner items, and the two
+most recent session-log entries (older: `docs/SESSION-LOG.md`).
+See @DECISIONS.md for the index of every architecture decision plus the
+most recent entries in full (older: `docs/decisions/`).
+Both are loaded into every session — keep them small; roll history out,
+never summarize it in place.

@@ -33,8 +33,15 @@ adjacent systems.
 5. The entry must answer: "what would the next developer get wrong
    if they didn't know this?" If it doesn't, the entry isn't earning
    its keep — push back and ask for a sharper rationale.
-6. Confirm: "Decision NNN logged"
-7. NEVER edit or remove existing entries — append-only.
+6. Add the one-line `- NNN — title` to the Index under "in full below".
+7. Confirm: "Decision NNN logged"
+8. NEVER edit or remove existing entries — append-only.
+9. DECISIONS.md is loaded into every session and must stay under ~50 KB
+   (`wc -c DECISIONS.md`). When it grows past that, MOVE the oldest full
+   entries verbatim into a new `docs/decisions/DECISIONS-<from>-<to>.md`
+   (copy the header of an existing archive file), and update both the
+   "Where entries live" list and the Index headings. Archives are
+   append-only too (Decision 092).
 
 Note: this project's first 15 decisions (001–015) use an older
 "Decision NNN — title / Decision / Rationale / Alternatives /
