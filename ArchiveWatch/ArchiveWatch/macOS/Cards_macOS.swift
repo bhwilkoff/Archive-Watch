@@ -117,15 +117,27 @@ struct GridView: View {
 }
 
 // Horizontal shelf for Home.
-struct ShelfRow: View {
+struct ShelfRow<Trailing: View>: View {
     let title: String
     let items: [Catalog.Item]
     var accent: Color = .primary
+    // A visible control beside the title (a playlist's Share). A row verb
+    // that lives only behind right-click cannot be found — iOS learned the
+    // same lesson with a swipe, so the shelf offers the slot.
+    @ViewBuilder var trailing: () -> Trailing
+
+    init(title: String, items: [Catalog.Item], accent: Color = .primary,
+         @ViewBuilder trailing: @escaping () -> Trailing) {
+        self.title = title; self.items = items; self.accent = accent; self.trailing = trailing
+    }
 
     var body: some View {
         if !items.isEmpty {
             VStack(alignment: .leading, spacing: 8) {
-                Text(title).font(.title3).fontWeight(.semibold).foregroundStyle(accent)
+                HStack(spacing: 10) {
+                    Text(title).font(.title3).fontWeight(.semibold).foregroundStyle(accent)
+                    trailing()
+                }
                 ScrollView(.horizontal, showsIndicators: false) {
                     LazyHStack(spacing: 14) {
                         ForEach(items) { PosterCard(item: $0).frame(width: 150) }
@@ -134,6 +146,12 @@ struct ShelfRow: View {
                 }
             }
         }
+    }
+}
+
+extension ShelfRow where Trailing == EmptyView {
+    init(title: String, items: [Catalog.Item], accent: Color = .primary) {
+        self.init(title: title, items: items, accent: accent) { EmptyView() }
     }
 }
 #endif

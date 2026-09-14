@@ -26,14 +26,21 @@ struct LibraryView: View {
                 ShelfRow(title: "Favorites", items: favItems)
 
                 ForEach(playlists) { pl in
-                    ShelfRow(title: pl.name, items: store.itemsByIDs(pl.archiveIDs))
-                        // SHARE. The playlist travels inside the link
-                        // (PlaylistShare) — no account for whoever receives it
-                        // and nothing hosted by us. Right-click is where a Mac
-                        // puts a row action.
+                    let url = PlaylistShare.url(name: pl.name, archiveIDs: pl.archiveIDs)
+                    // SHARE. The playlist travels inside the link (PlaylistShare)
+                    // — no account for whoever receives it and nothing hosted by
+                    // us. A visible icon beside the shelf title, because a verb
+                    // that exists only under right-click cannot be found (the
+                    // owner could not find the iOS swipe; same defect here).
+                    ShelfRow(title: pl.name, items: store.itemsByIDs(pl.archiveIDs)) {
+                        if let url {
+                            ShareLink(item: url) { Image(systemName: "square.and.arrow.up") }
+                                .buttonStyle(.borderless)
+                                .help("Share this playlist as a link")
+                        }
+                    }
                         .contextMenu {
-                            if let url = PlaylistShare.url(name: pl.name,
-                                                           archiveIDs: pl.archiveIDs) {
+                            if let url {
                                 ShareLink(item: url) {
                                     Label("Share playlist", systemImage: "square.and.arrow.up")
                                 }

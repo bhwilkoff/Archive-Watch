@@ -308,6 +308,79 @@ final class AuditUITests: XCTestCase {
         }
     }
 
+    /// The owner, on the live 1.42.94: "I don't see any way to share
+    /// playlists." There was one — a LEADING SWIPE on the Library row and
+    /// nothing else. This test asserts the two visible routes that replaced
+    /// it: a Share icon in the playlist's own toolbar, and a long-press menu
+    /// on the row. It creates its own playlist first, because the test rig's
+    /// library is empty, and removes it at the end.
+    func test_12_playlistShareIsVisible() {
+        let name = "Share audit \(Int(Date().timeIntervalSince1970) % 10000)"
+        launch()
+        // Open a Detail by tapping a Home tile (AW_START_ITEM and the deep link
+        // both landed this rig on Home — not the thing under test).
+        let tile = app.staticTexts["His Girl Friday"].firstMatch
+        XCTAssertTrue(tile.waitForExistence(timeout: 20), "MISSING a His Girl Friday tile on Home")
+        tile.tap(); sleep(3)
+
+        // Create the playlist from Detail.
+        let add = app.buttons["Add to playlist"].firstMatch
+        XCTAssertTrue(add.waitForExistence(timeout: 20), "MISSING Add to playlist on Detail")
+        _ = scrollIntoView(add); add.tap()
+        let field = app.textFields["Name"].firstMatch
+        XCTAssertTrue(field.waitForExistence(timeout: 8), "MISSING playlist name field")
+        field.tap(); field.typeText(name)
+        app.buttons["Create"].firstMatch.tap(); sleep(2)
+        let done = app.buttons["Done"].firstMatch
+        if done.exists { done.tap(); sleep(1) }
+
+        // Library → Playlists → the row.
+        app.buttons["Library"].firstMatch.tap(); sleep(2)
+        let playlists = app.buttons["Playlists"].firstMatch
+        XCTAssertTrue(playlists.waitForExistence(timeout: 8)); playlists.tap(); sleep(2)
+        let row = app.staticTexts[name].firstMatch
+        XCTAssertTrue(row.waitForExistence(timeout: 8), "MISSING the playlist row just created")
+        snap("playlist-row")
+
+        // Route 1: long-press → "Share playlist" in a context menu.
+        row.press(forDuration: 1.2)
+        let menuShare = app.buttons["Share playlist"].firstMatch
+        let menuOK = menuShare.waitForExistence(timeout: 6)
+        snap("playlist-row-menu")
+        XCTAssertTrue(menuOK, "MISSING Share playlist in the row's long-press menu")
+        if menuOK { app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.08)).tap(); sleep(1) }
+
+        // Route 2: open the playlist → a Share icon in its toolbar → the sheet.
+        row.tap(); sleep(2)
+        let nav = app.navigationBars[name]
+        XCTAssertTrue(nav.waitForExistence(timeout: 8), "playlist screen did not open")
+        let share = nav.buttons.matching(NSPredicate(format: "label CONTAINS[c] 'share'")).firstMatch
+        let shareOK = share.waitForExistence(timeout: 6)
+        snap("playlist-screen")
+        XCTAssertTrue(shareOK, "MISSING a visible Share button on the playlist screen")
+        if shareOK {
+            share.tap()
+            let sheet = app.otherElements["ActivityListView"].firstMatch
+            let sheetOK = sheet.waitForExistence(timeout: 10)
+            snap("playlist-share-sheet")
+            XCTAssertTrue(sheetOK, "DEAD Share — no share sheet appeared")
+            if sheetOK {
+                let close = app.buttons["Close"].firstMatch
+                if close.waitForExistence(timeout: 4) { close.tap() } else { app.swipeDown() }
+                sleep(1)
+            }
+        }
+
+        // Cleanup: back to the list, swipe-to-delete the playlist we made.
+        app.navigationBars.buttons.element(boundBy: 0).tap(); sleep(1)
+        if row.waitForExistence(timeout: 6) {
+            row.swipeLeft()
+            let del = app.buttons["Delete"].firstMatch
+            if del.waitForExistence(timeout: 4) { del.tap() }
+        }
+        snap("playlist-cleanup")
+    }
+
     /// Isolates the "dead toggle" report: which switch, by LABEL, and does it
     /// flip when tapped on its own row rather than by index? An index says
     /// nothing about which control was hit, and a control scrolled under the

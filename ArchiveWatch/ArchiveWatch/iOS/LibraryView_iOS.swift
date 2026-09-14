@@ -234,22 +234,39 @@ struct LibraryView: View {
         } else {
             List {
                 ForEach(playlists) { pl in
+                    let shareURL = PlaylistShare.url(name: pl.name, archiveIDs: pl.archiveIDs)
                     NavigationLink {
                         grid(store.itemsByIDs(pl.archiveIDs), empty: "Empty playlist", icon: "rectangle.stack")
                             .navigationTitle(pl.name)
+                            // SHARE lives where Detail puts it (iOS-DESIGN §3.5): a
+                            // visible toolbar icon. It was ONLY a leading swipe on the
+                            // row until 1.42.119, and the owner could not find it —
+                            // §4.3 reserves swipes for destructive verbs for that reason.
+                            .toolbar {
+                                if let shareURL {
+                                    ToolbarItem(placement: .topBarTrailing) {
+                                        ShareLink(item: shareURL) {
+                                            Image(systemName: "square.and.arrow.up")
+                                        }
+                                    }
+                                }
+                            }
                     } label: {
                         VStack(alignment: .leading) {
                             Text(pl.name).font(.headline)
                             Text("\(pl.archiveIDs.count) titles").font(.caption).foregroundStyle(.secondary)
                         }
                     }
-                    // SHARE. The playlist rides inside the link (PlaylistShare),
-                    // so the person who receives it needs no account and we host
-                    // nothing. A swipe is where iOS puts row actions; the share
-                    // sheet is what puts it into Messages, Reddit or a mail.
+                    // The playlist rides inside the link (PlaylistShare), so the
+                    // person who receives it needs no account and we host nothing.
+                    .contextMenu {
+                        if let shareURL {
+                            ShareLink(item: shareURL) { Label("Share playlist", systemImage: "square.and.arrow.up") }
+                        }
+                    }
                     .swipeActions(edge: .leading) {
-                        if let url = PlaylistShare.url(name: pl.name, archiveIDs: pl.archiveIDs) {
-                            ShareLink(item: url) { Label("Share", systemImage: "square.and.arrow.up") }
+                        if let shareURL {
+                            ShareLink(item: shareURL) { Label("Share", systemImage: "square.and.arrow.up") }
                                 .tint(.accentColor)
                         }
                     }

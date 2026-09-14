@@ -524,6 +524,18 @@ Sending and receiving, per platform, all verified on hardware:
 | tvOS | yes (QR) | yes |
 | iOS / iPadOS | yes (share sheet) | yes |
 | macOS | yes (share sheet) | yes |
+
+**Where the affordance is (2026-09-14, 1.42.119).** On the live 1.42.94 the
+owner reported "I don't see any way to share playlists" on the iPhone — and
+there was a way, but it was ONLY a leading swipe on the Library row, and on the
+Mac ONLY a right-click on the shelf. A verb that exists only behind a gesture
+cannot be found; iOS-DESIGN §4.3 reserves swipes for destructive verbs for
+exactly this reason. Now: iPhone/iPad show a Share icon in the playlist's own
+toolbar (where Detail puts it) plus a long-press menu on the row, the swipe
+kept as a shortcut; the Mac shows a Share icon beside the shelf title, the
+right-click kept. Verified on the iPhone 12 by
+`AuditUITests/test_12_playlistShareIsVisible` — menu, toolbar icon and the
+share sheet each on a screenshot.
 | Android / Google TV / Fire TV | yes | yes — Play all, Add to my library |
 | **Roku** | **yes (QR, v15 code, decoded off the screen)** | **NO — and it cannot** |
 
