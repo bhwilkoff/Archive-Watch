@@ -250,6 +250,40 @@ const crashRow = (c) => ({
   href: c.url,
 });
 
+/* WHAT IS BEING WATCHED, from the website counter. Three ranks, never one:
+   a film someone chose to play is a different fact from a detail page opened,
+   and a muted Party Play lineup is a third thing again. The panel says its own
+   ceiling out loud — this is the WEB, and the apps are most of the audience —
+   because a "most popular" list that is silently a minority sample is exactly
+   the confident number this dashboard exists not to print. */
+function titlesPanel(box, wt) {
+  if (!wt) return;
+  const ranks = [["topPlayed", "Played", "chosen and started"],
+                 ["topOpened", "Opened", "detail page, not necessarily watched"],
+                 ["topAmbient", "Ambient", "muted Party Play lineups"]];
+  const have = ranks.filter(([k]) => (wt[k] || []).length);
+  if (!have.length) {
+    panel(box, { k: "What people watch",
+      v: "<small>nothing counted yet</small>",
+      cap: "the counter began keeping per-title rows on 2026-09-14; this fills "
+         + "from the next visit onward" });
+    return;
+  }
+  const [k0, , why0] = have[0];
+  const rows = (wt[k0] || []).slice(0, 12);
+  const peak = Math.max(1, ...rows.map((r) => r.count));
+  panel(box, {
+    k: "What people watch", right: `${wt.distinctPlayed || 0} films played`,
+    chart: { html: C.bars(rows.map((r) => ({
+      label: r.id.replace(/^series:/, "").slice(0, 34),
+      value: r.count })), { max: peak, unit: "" }) },
+    cap: `${have[0][1].toLowerCase()} — ${why0}. ${wt.scope || ""}`,
+    detail: have.flatMap(([k, label]) =>
+      (wt[k] || []).slice(0, 15).map((r) => ({
+        label: `${label}: ${r.id}`, value: int(r.count) }))),
+  });
+}
+
 function glance(d, list) {
   const box = $("tiles"); box.innerHTML = ""; box.className = "panels";
   const h = d.history || [];
@@ -294,6 +328,8 @@ function glance(d, list) {
          + "is drawn and labelled rather than dropped.",
     });
   }
+
+  titlesPanel(box, d.health?.webTitles);
 
   /* 1. The rating, as a bullet against the only scale it has — five stars —
         with 3.0 and 4.0 as the bands every store treats as the real cut

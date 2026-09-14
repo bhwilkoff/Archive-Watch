@@ -74,7 +74,12 @@ function titleOf(raw, k) {
   try { p = new URL(raw, ALLOW).pathname; } catch { return null; }
   const m = /^\/(item|series)\/([A-Za-z0-9._@:+-]{1,120})\/?$/.exec(p);
   if (!m) return null;
-  return { id: (m[1] === "series" ? "series:" : "") + m[2], kind: k === "play" ? "play" : "open" };
+  // Three kinds, kept apart because they answer different questions: `open` is
+  // a detail page (interest), `play` is a film someone chose to watch
+  // (audience), `ambient` is a muted Party Play lineup (present, but nobody
+  // picked it). Summing them would answer none of the three.
+  const kind = k === "play" ? "play" : k === "ambient" ? "ambient" : "open";
+  return { id: (m[1] === "series" ? "series:" : "") + m[2], kind };
 }
 
 const cors = {

@@ -2895,6 +2895,14 @@
     async start({ id, title, url, queue = null, queueIndex = 0,
                   startAt = 0, persist = true, muted = false }) {
       this.ctx = { id, title, queue, queueIndex, persist, muted };
+      /* WHICH FILM was played, as one aggregate count. Fired HERE rather than
+         on a `play` event because the queue advances by calling start() again:
+         a listener on the element would count a six-film lineup as one film,
+         and pausing and resuming as two. One start() is one film started.
+         `muted` lineups are counted too — Party Play is still somebody
+         watching — but they are marked, because a background visual and a
+         chosen film are not the same signal. */
+      awCount(`/item/${id}`, muted ? 'ambient' : 'play');
       $('player-endcard').hidden = true;      // never survives into the next film
       const video = $('video');
       // Party Play is background visuals, so it starts silent. Set on every
@@ -3342,10 +3350,11 @@ const AW_BEACON = AW_BEACON_ORIGIN ? `${AW_BEACON_ORIGIN}/beacon` : "";
 function awOnWebsite() {
   return /^https?:$/.test(location.protocol);
 }
-function awCount(p) {
+function awCount(p, kind) {
   if (!AW_BEACON || !awOnWebsite()) return;
   try {
-    fetch(`${AW_BEACON}?p=${encodeURIComponent(p)}`,
+    const k = kind ? `&k=${encodeURIComponent(kind)}` : "";
+    fetch(`${AW_BEACON}?p=${encodeURIComponent(p)}${k}`,
           { method: "POST", mode: "cors", keepalive: true, cache: "no-store" })
       .catch(() => {});
   } catch (_) {}

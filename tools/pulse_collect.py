@@ -2056,6 +2056,70 @@ def roku_engagement(state):
             f"{len(set(tiles))} tile(s){kept}")
 
 
+def web_titles(state):
+    """WHICH FILMS the website's visitors opened and played.
+
+    Owner, 2026-09-14: "is there any way to determine which videos/titles are
+    being watched? I'd love to use it to better leverage what is popular."
+
+    The counter already received the archive id — `/item/<id>` is the route a
+    browser sends — and THREW IT AWAY at the edge, because `shape()` collapses
+    every item to `/item`. Keeping it changes nothing about the privacy model:
+    the row is `day | id | kind | count`, the same grain as `day | /browse |
+    412`, about a FILM rather than a surface. There is still no IP, no cookie,
+    no session or visitor id, no user agent, no referrer, no country and no
+    time of day, so nothing here can be joined to a person, to another row, or
+    to a second visit — including by us. privacy.html now describes it.
+
+    THREE KINDS, never summed. `open` is a detail page — interest. `play` is a
+    film somebody chose — audience. `ambient` is a muted Party Play lineup —
+    present, but nobody picked it. A single "views" number would answer none of
+    the three, and would flatter the ambient lineups most.
+
+    THE HONEST CEILING, and it belongs on the page rather than in a footnote:
+    this is the WEBSITE only. The apps collect nothing at all, by design and by
+    promise, and they are most of the audience — so this ranks what is popular
+    ON THE WEB, which is a sample, not the platform.
+    """
+    if not WEB_COUNTER:
+        raise RuntimeError("set AW_PULSE_COUNTER to the counter's origin")
+    d = get_json(f"{WEB_COUNTER}/titles?days=90", timeout=30)
+    rows = d.get("rows") or []
+
+    per_kind: dict = {}
+    daily: dict = {}
+    for r in rows:
+        kind, tid = r.get("kind") or "open", r.get("id") or ""
+        n = int(r.get("count") or 0)
+        if not tid:
+            continue
+        per_kind.setdefault(kind, {})[tid] = per_kind.setdefault(kind, {}).get(tid, 0) + n
+        daily.setdefault(r.get("day") or "", {})
+        daily[r["day"]][kind] = daily[r["day"]].get(kind, 0) + n
+
+    def rank(kind, n=25):
+        return [{"id": k, "count": v} for k, v in
+                sorted(per_kind.get(kind, {}).items(), key=lambda kv: -kv[1])[:n]]
+
+    state["health"]["webTitles"] = {
+        "since": d.get("since"),
+        "topPlayed": rank("play"),
+        "topOpened": rank("open"),
+        "topAmbient": rank("ambient"),
+        "daily": [{"date": k, **v} for k, v in sorted(daily.items()) if k],
+        "distinctPlayed": len(per_kind.get("play", {})),
+        "distinctOpened": len(per_kind.get("open", {})),
+        "totals": {k: sum(v.values()) for k, v in per_kind.items()},
+        "scope": ("the WEBSITE only — the apps collect nothing, and they are "
+                  "most of the audience, so this is a sample rather than the platform"),
+    }
+    if not rows:
+        return ("no title rows yet — the counter began keeping them on "
+                "2026-09-14, so this fills from the next visit onward")
+    return (f"{len(per_kind.get('play', {}))} film(s) played, "
+            f"{len(per_kind.get('open', {}))} opened, over {len(daily)} day(s)")
+
+
 # ─────────────────────────── Stores with no API at all — declared, not guessed
 
 # Amazon DOES have an API (Decision 111) and its vitals are read live by
@@ -2141,6 +2205,7 @@ SOURCES = [
     ("workflows", workflows),
     ("catalog", catalog),
     ("web_usage", web_usage),
+    ("web_titles", web_titles),
     ("distribution", distribution),
     ("asks", asks),                                  # must run last: it reads the rest
 ]
@@ -2310,7 +2375,8 @@ def main() -> int:
                    "apple_downloads": "appleDownloads", "apple_performance": "applePerf",
                    "amazon_vitals": "amazonVitals", "amazon_installs": "amazonInstalls",
                    "roku_engagement": "rokuEngagement",
-                   "web_usage": "webUsage", "catalog": "catalog",
+                   "web_usage": "webUsage", "web_titles": "webTitles",
+                   "catalog": "catalog",
                    # Scalars and notes, preserved for the same reason as the
                    # sections: a stale reading carries a `stale` timestamp and
                    # is therefore honest, where a missing one is silent.
