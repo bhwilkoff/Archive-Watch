@@ -229,7 +229,11 @@ const PLAYER_PROBE = `(() => {
     if (cs.visibility === 'hidden' || cs.display === 'none' || cs.opacity === '0') continue;
     const r = el.getBoundingClientRect();
     if (r.width <= 0 || r.height <= 0) continue;
-    out.push({ t: own.slice(0, 34), top: Math.round(r.top), bottom: Math.round(r.bottom) });
+    // left/right travel too, or the four-sided filter below compares against
+    // undefined — which is false on both sides and passes silently. That is
+    // the same vacuous-pass shape this file has already been bitten by twice.
+    out.push({ t: own.slice(0, 34), top: Math.round(r.top), bottom: Math.round(r.bottom),
+               left: Math.round(r.left), right: Math.round(r.right) });
   }
   return JSON.stringify({ items: out });
 })()`;
@@ -270,7 +274,13 @@ const PLAYER_PROBE = `(() => {
     console.log(`\nplayer          NOT MEASURED: Enter did not open a player on ${item}`);
     lost++;                            // never report this as a pass
   } else {
-    const bad = p.items.filter((i) => i.top < SAFE_TOP || i.bottom > SAFE_BOTTOM);
+    // The band is four-sided here too. This line read top/bottom only until
+    // 2026-09-14, which is the same omission the SAFE_LEFT constant carried —
+    // and the transport is the ONE surface where the owner's open question is
+    // whether a hint line survives the cut, so measuring half of it is worse
+    // than useless.
+    const bad = p.items.filter((i) => i.top < SAFE_TOP || i.bottom > SAFE_BOTTOM
+                                   || i.left < SAFE_LEFT || i.right > SAFE_RIGHT);
     checks += p.items.length; outside += bad.length;
     if (!p.items.length) {
       console.log(`\nplayer          NOT MEASURED: a player opened but no transport`);
@@ -282,7 +292,7 @@ const PLAYER_PROBE = `(() => {
                 + `${bad.length} outside the safe band`);
     }
     bad.slice(0, 5).forEach((b) =>
-      console.log(`      "${b.t}"  top ${b.top} bottom ${b.bottom}`));
+      console.log(`      "${b.t}"  top ${b.top} bottom ${b.bottom} left ${b.left} right ${b.right}`));
   }
 }
 

@@ -279,7 +279,26 @@ html.tv .share-menu-trigger {
 
 .tv-transport {
   position: absolute; left: 0; right: 0; bottom: 0;
-  padding: 40px var(--tv-overscan-x) var(--tv-overscan-y);
+  /* The transport sits in TITLE-SAFE, not action-safe.
+   *
+   * Everything else on this build insets to --tv-overscan-* (5% a side), which
+   * is the broadcast ACTION-safe area — the line picture may cross and
+   * meaningful content may not. Text has a second, older convention: the
+   * TITLE-safe area at 10%, because a set that overscans a little past 5%
+   * clips a letterform into unreadability where it would only crop a corner of
+   * an image.
+   *
+   * Measured 2026-09-14 with the four-sided band: every element of this
+   * transport sat EXACTLY on the action-safe line — the timecode's right edge
+   * at 1824, the hint line's bottom at 1026 and its box spanning 96..1824. All
+   * three fit by zero pixels, which is the owner's own open question about
+   * this surface ("is the bottom of it cut off?"). Rather than ask a person to
+   * judge a margin of nothing, give it a real one.
+   *
+   * Not the full 10%: the progress bar is picture-adjacent furniture and
+   * losing 192px a side to it would be a worse trade than the risk. 120/72 is
+   * comfortably inside action-safe and leaves the bar its width. */
+  padding: 40px 120px 72px;
   background: linear-gradient(to top, rgba(0,0,0,0.92), rgba(0,0,0,0));
   opacity: 0; transform: translateY(12px);
   transition: opacity 0.22s ease, transform 0.22s ease;
