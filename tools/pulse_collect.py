@@ -2127,7 +2127,7 @@ def roku_engagement(state):
                          # "not delivered" stay distinguishable.
                          "emptyTiles": sorted(set(v.get("empty", [])))}
                      for k, v in reports.items()},
-        "reportsSeen": sorted(reports),
+        "reportsSeen": sorted(reports),   # this run; the merge below widens it
         "readVia": "Looker scheduled delivery -> Worker /ingest/roku (no Roku API exists)",
         "console": "https://developer.roku.com/apps/analytics/engagement/881015",
     }
@@ -2631,6 +2631,7 @@ def main() -> int:
             cur_rep["daily"] = sorted(merged.values(), key=lambda r: r["date"])[-120:]
         for name, old_rep in prev_rep.items():          # a report that did not deliver today
             rk.setdefault("byReport", {}).setdefault(name, old_rep)
+        rk["reportsSeen"] = sorted(rk.get("byReport") or {})
 
     hist = [h for h in prev.get("history", []) if h.get("date") != today()]
     hist.append(history_row(state))

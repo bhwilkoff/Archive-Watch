@@ -331,9 +331,11 @@ function glance(d, list) {
         : "";
       return `<div class="sm">
           <div class="sm-k">${p.name}</div>
-          <div class="sm-v">${ser.length ? int(total) : "<small>no series</small>"}</div>
+          <div class="sm-v">${ser.length ? int(total)
+             : `<small>${p.installs == null ? "not reported" : int(p.installs)}</small>`}</div>
           <div class="sm-c">${svg}</div>
-          <div class="sm-n">${ser.length ? `${ser.length}d` : (p.noApi ? "no API" : "not reporting")}</div>
+          <div class="sm-n">${ser.length ? `${ser.length}d`
+             : (p.noApi ? "no API" : p.delivered ? "awaiting delivery" : "not reporting")}</div>
         </div>`;
     }).join("");
     panel(B("reach"), {
@@ -1048,9 +1050,31 @@ function platforms(d) {
     if (row) out.push({ key: name.toLowerCase().replace(/\s/g, ""), name, family: "app",
                         store, row, noApi: !row.api && !installs,
                         delivered: name === "Roku" && !!installs,
+                        // Derived from the SERIES first, and only then from a
+                        // headline tile. Roku's four dashboards deliver on four
+                        // schedules, and "Account Channel Installs" is a tile of
+                        // ONE of them — so on any day App Health arrived and App
+                        // Engagement did not, a headline-first reading showed
+                        // Roku with no installs while its daily rows sat right
+                        // there. Prefer the thing that is always present.
+                        // NULL, never 0, when no report carrying installs has
+                        // arrived. Roku's four dashboards deliver on four
+                        // schedules and only App Engagement carries installs —
+                        // so on a day when App Health arrived alone, summing an
+                        // absent column gave 0 and the Reach view stated that a
+                        // platform with 112 installs had none. A confident zero
+                        // from a reader that was never given the number is the
+                        // exact failure this whole page exists to prevent
+                        // (Decision 108); absence is written, not drawn.
                         installs: installs?.total
-                               ?? installs?.headline?.["Account Channel Installs"]
-                               ?? null,
+                               ?? (() => {
+                                    const rows = (installs?.daily || [])
+                                      .filter((r) => r["Channel Installs"] != null);
+                                    if (rows.length) {
+                                      return rows.reduce((a, r) => a + r["Channel Installs"], 0);
+                                    }
+                                    return installs?.headline?.["Account Channel Installs"] ?? null;
+                                  })(),
                         // The renderer reads `daily` as [{date, v}] and
                         // `countries` as {code: n}. Feeding it `series`/`dims`
                         // in the collectors' own shapes drew NOTHING — the tab
@@ -1059,8 +1083,14 @@ function platforms(d) {
                         // nothing at all because the count implies a chart.
                         daily: name === "Fire TV"
                           ? (installs?.daily || []).map((r) => ({ date: r.date, v: r.installs }))
-                          : (installs?.daily || []).map((r) =>
-                              ({ date: r.date, v: r["Channel Installs"] ?? 0 })),
+                          // Only days that actually CARRY an install figure.
+                          // Defaulting a missing column to 0 drew a four-day
+                          // flat line at zero for a platform with 112 installs,
+                          // because the rows present were App Health's crash
+                          // counts and carried no install column at all.
+                          : (installs?.daily || [])
+                              .filter((r) => r["Channel Installs"] != null)
+                              .map((r) => ({ date: r.date, v: r["Channel Installs"] })),
                         countries: name === "Fire TV"
                           ? Object.fromEntries((installs?.byCountry || [])
                               .map((c) => [c.key, c.value]))
