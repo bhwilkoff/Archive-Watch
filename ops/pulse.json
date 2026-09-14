@@ -6,8 +6,8 @@
    "state": "READY_FOR_SALE",
    "version": "1.42.94",
    "live": "1.42.94",
-   "repoVersion": "1.42.111",
-   "repoBuild": "1123",
+   "repoVersion": "1.42.113",
+   "repoBuild": "1125",
    "url": "https://appstoreconnect.apple.com/apps/6776697407/distribution"
   },
   {
@@ -16,8 +16,8 @@
    "state": "READY_FOR_SALE",
    "version": "1.42.94",
    "live": "1.42.94",
-   "repoVersion": "1.42.111",
-   "repoBuild": "1123",
+   "repoVersion": "1.42.113",
+   "repoBuild": "1125",
    "url": "https://appstoreconnect.apple.com/apps/6776697407/distribution"
   },
   {
@@ -26,8 +26,8 @@
    "state": "READY_FOR_SALE",
    "version": "1.42.94",
    "live": "1.42.94",
-   "repoVersion": "1.42.111",
-   "repoBuild": "1123",
+   "repoVersion": "1.42.113",
+   "repoBuild": "1125",
    "url": "https://appstoreconnect.apple.com/apps/6776697407/distribution"
   },
   {
@@ -122,8 +122,8 @@
    "store": "App Store",
    "average": 4.5,
    "count": 6,
-   "version": "1.42.94",
-   "releasedAt": "2026-09-14T18:00:13Z",
+   "version": "1.42.53",
+   "releasedAt": "2026-09-12T18:22:29Z",
    "url": "https://apps.apple.com/us/app/archive-watch/id6776697407?uo=4"
   }
  ],
@@ -1339,7 +1339,7 @@
      "what": "Compose duplicate lazy-list keys",
      "fix": "List.uniqueBy at 14 call sites; UniqueByTest, negative-controlled"
     },
-    "ours": null
+    "ours": "Exception java.lang.IllegalArgumentException:"
    },
    {
     "type": "CRASH",
@@ -1354,7 +1354,7 @@
     "stale": true,
     "url": "https://play.google.com/console/developers/7973176709446146294/app/4975776198955106385/vitals/crashes/4c04da8b34da8b7ea6519d6c60887dc7/details",
     "fixedIn": null,
-    "ours": null
+    "ours": "Exception android.database.SQLException: Error code: 11, message: database disk image is malformed · at app.archivewatch.android.data.CatalogDatabase.queryRaw (CatalogDatabase.kt:561)"
    },
    {
     "type": "APPLICATION_NOT_RESPONDING",
@@ -2580,19 +2580,46 @@
      "date": "2026-09-10",
      "Error Count": 1.0,
      "Total Count of Crashes": 1.0,
-     "Total Count of Devices with Crashes": 1.0
+     "Total Count of Devices with Crashes": 1.0,
+     "Total Minutes Streamed": 771.0,
+     "Average Minutes per Streaming Account": 18.804878048780488,
+     "Streaming Accounts / Cumulative Installs": 57.746,
+     "Channel Installs": 71.0,
+     "Channel Uninstalls": 0.0,
+     "Net Installs": 71.0,
+     "Visitors": 57.0,
+     "Viewers": 41.0,
+     "Bounce Rate": 28.07
     },
     {
      "date": "2026-09-11",
      "Error Count": 1.0,
      "Total Count of Crashes": 1.0,
-     "Total Count of Devices with Crashes": 1.0
+     "Total Count of Devices with Crashes": 1.0,
+     "Total Minutes Streamed": 321.0,
+     "Average Minutes per Streaming Account": 20.0625,
+     "Streaming Accounts / Cumulative Installs": 17.391,
+     "Channel Installs": 21.0,
+     "Channel Uninstalls": 0.0,
+     "Net Installs": 21.0,
+     "Visitors": 33.0,
+     "Viewers": 16.0,
+     "Bounce Rate": 51.515
     },
     {
      "date": "2026-09-12",
      "Error Count": 1.0,
      "Total Count of Crashes": 1.0,
-     "Total Count of Devices with Crashes": 1.0
+     "Total Count of Devices with Crashes": 1.0,
+     "Total Minutes Streamed": 496.0,
+     "Average Minutes per Streaming Account": 35.42857142857143,
+     "Streaming Accounts / Cumulative Installs": 12.5,
+     "Channel Installs": 20.0,
+     "Channel Uninstalls": 1.0,
+     "Net Installs": 19.0,
+     "Visitors": 29.0,
+     "Viewers": 14.0,
+     "Bounce Rate": 51.724
     },
     {
      "date": "2026-09-13",
@@ -2603,12 +2630,162 @@
    ],
    "headline": {
     "Rebuffers per Hours Streamed": 0.13,
-    "Rebuffers Sum": 4.0
+    "Rebuffers Sum": 4.0,
+    "Account Channel Installs": 112.0,
+    "Account Channel Uninstalls": 1.0,
+    "Average Minutes Streamed per Viewer": 22.37,
+    "Avg Daily Viewers": 24.0,
+    "Hours Streamed": 26.0
    },
-   "tiles": [],
-   "dropsRead": 0,
+   "tiles": [
+    "ave_minutes___visitor",
+    "average_daily_visitors",
+    "channel_visitors_and_streaming_viewers",
+    "cumulative_net_installs",
+    "install_base_growth",
+    "minutes_streamed",
+    "new_installs",
+    "total_hours_streamed",
+    "uninstalls"
+   ],
+   "dropsRead": 1,
    "unreadable": [],
    "byReport": {
+    "App Engagement": {
+     "daily": [
+      {
+       "date": "2026-09-10",
+       "Total Minutes Streamed": 771.0,
+       "Average Minutes per Streaming Account": 18.804878048780488,
+       "Streaming Accounts / Cumulative Installs": 57.746,
+       "Channel Installs": 71.0,
+       "Channel Uninstalls": 0.0,
+       "Net Installs": 71.0,
+       "Visitors": 57.0,
+       "Viewers": 41.0,
+       "Bounce Rate": 28.07
+      },
+      {
+       "date": "2026-09-11",
+       "Total Minutes Streamed": 321.0,
+       "Average Minutes per Streaming Account": 20.0625,
+       "Streaming Accounts / Cumulative Installs": 17.391,
+       "Channel Installs": 21.0,
+       "Channel Uninstalls": 0.0,
+       "Net Installs": 21.0,
+       "Visitors": 33.0,
+       "Viewers": 16.0,
+       "Bounce Rate": 51.515
+      },
+      {
+       "date": "2026-09-12",
+       "Total Minutes Streamed": 496.0,
+       "Average Minutes per Streaming Account": 35.42857142857143,
+       "Streaming Accounts / Cumulative Installs": 12.5,
+       "Channel Installs": 20.0,
+       "Channel Uninstalls": 1.0,
+       "Net Installs": 19.0,
+       "Visitors": 29.0,
+       "Viewers": 14.0,
+       "Bounce Rate": 51.724
+      }
+     ],
+     "headline": {
+      "Account Channel Installs": 112.0,
+      "Account Channel Uninstalls": 1.0,
+      "Average Minutes Streamed per Viewer": 22.37,
+      "Avg Daily Viewers": 24.0,
+      "Hours Streamed": 26.0
+     },
+     "tiles": [
+      "ave_minutes___visitor",
+      "average_daily_visitors",
+      "channel_visitors_and_streaming_viewers",
+      "cumulative_net_installs",
+      "install_base_growth",
+      "minutes_streamed",
+      "new_installs",
+      "total_hours_streamed",
+      "uninstalls"
+     ],
+     "tables": {
+      "minutes_streamed": [
+       {
+        "Agg Channel Metrics Time Grain Date Key Date": "2026-09-12",
+        "Total Minutes Streamed": "496",
+        "Average Minutes per Streaming Account": "35.42857142857143",
+        "Streaming Accounts / Cumulative Installs": "12.500%"
+       },
+       {
+        "Agg Channel Metrics Time Grain Date Key Date": "2026-09-11",
+        "Total Minutes Streamed": "321",
+        "Average Minutes per Streaming Account": "20.0625",
+        "Streaming Accounts / Cumulative Installs": "17.391%"
+       },
+       {
+        "Agg Channel Metrics Time Grain Date Key Date": "2026-09-10",
+        "Total Minutes Streamed": "771",
+        "Average Minutes per Streaming Account": "18.804878048780488",
+        "Streaming Accounts / Cumulative Installs": "57.746%"
+       }
+      ],
+      "install_base_growth": [
+       {
+        "Agg Channel Metrics Time Grain Date Key Date": "2026-09-10",
+        "Channel Installs": "71",
+        "Channel Uninstalls": "0",
+        "Net Installs": "71"
+       },
+       {
+        "Agg Channel Metrics Time Grain Date Key Date": "2026-09-11",
+        "Channel Installs": "21",
+        "Channel Uninstalls": "0",
+        "Net Installs": "21"
+       },
+       {
+        "Agg Channel Metrics Time Grain Date Key Date": "2026-09-12",
+        "Channel Installs": "20",
+        "Channel Uninstalls": "1",
+        "Net Installs": "19"
+       }
+      ],
+      "cumulative_net_installs": [
+       {
+        "Agg Channel Metrics Time Grain Date Key Date": "2026-09-12",
+        "Agg Channel Metrics Time Grain Account Installs Todate Sum": "112"
+       },
+       {
+        "Agg Channel Metrics Time Grain Date Key Date": "2026-09-11",
+        "Agg Channel Metrics Time Grain Account Installs Todate Sum": "92"
+       },
+       {
+        "Agg Channel Metrics Time Grain Date Key Date": "2026-09-10",
+        "Agg Channel Metrics Time Grain Account Installs Todate Sum": "71"
+       }
+      ],
+      "channel_visitors_and_streaming_viewers": [
+       {
+        "Agg Channel Metrics Time Grain Date Key Date": "2026-09-12",
+        "Visitors": "29",
+        "Viewers": "14",
+        "Bounce Rate": "51.724%"
+       },
+       {
+        "Agg Channel Metrics Time Grain Date Key Date": "2026-09-11",
+        "Visitors": "33",
+        "Viewers": "16",
+        "Bounce Rate": "51.515%"
+       },
+       {
+        "Agg Channel Metrics Time Grain Date Key Date": "2026-09-10",
+        "Visitors": "57",
+        "Viewers": "41",
+        "Bounce Rate": "28.070%"
+       }
+      ]
+     },
+     "emptyTiles": []
+    },
     "App Health": {
      "daily": [
       {
@@ -3157,7 +3334,12 @@
      ]
     }
    },
-   "reportsSeen": [],
+   "reportsSeen": [
+    "App Engagement",
+    "App Health",
+    "App Stability",
+    "Viewership Summary"
+   ],
    "readVia": "Looker scheduled delivery -> Worker /ingest/roku (no Roku API exists)",
    "console": "https://developer.roku.com/apps/analytics/engagement/881015"
   },
@@ -3200,21 +3382,21 @@
     },
     {
      "date": "2026-09-14",
-     "views": 1908,
-     "visits": 694
+     "views": 1949,
+     "visits": 712
     }
    ],
-   "views28d": 15566,
-   "views7d": 15566,
-   "visits28d": 5942,
-   "visits7d": 5942,
+   "views28d": 15607,
+   "views7d": 15607,
+   "visits28d": 5960,
+   "visits7d": 5960,
    "byPath": {
-    "/": 6281,
-    "/browse": 3851,
-    "/item": 2832,
-    "/search": 985,
+    "/": 6306,
+    "/browse": 3853,
+    "/item": 2842,
+    "/search": 988,
     "/channels": 349,
-    "/series": 325,
+    "/series": 326,
     "/library": 281,
     "/collections": 178,
     "/other": 166,
@@ -3233,11 +3415,27 @@
      "count": 19
     },
     {
+     "id": "1912GeorgesMeliesALaConqueteDuPoleConquestOfTheNorthPole",
+     "count": 1
+    },
+    {
+     "id": "ThePyx",
+     "count": 1
+    },
+    {
+     "id": "The_Impossible_Voyage",
+     "count": 1
+    },
+    {
      "id": "cleopatra-1963_202511",
      "count": 1
     },
     {
      "id": "dicktator.-the-1974-paul-daniels-yolanda-beckham-linda-york-ann-perry-vickie-cri",
+     "count": 1
+    },
+    {
+     "id": "extravagance_1930",
      "count": 1
     },
     {
@@ -3255,6 +3453,10 @@
    ],
    "topOpened": [
     {
+     "id": "series:get-smart-1965",
+     "count": 3
+    },
+    {
      "id": "Please_Murder_Me_movie",
      "count": 2
     },
@@ -3271,12 +3473,12 @@
      "count": 2
     },
     {
-     "id": "series:get-smart-1965",
+     "id": "when-worlds-collide",
      "count": 2
     },
     {
-     "id": "when-worlds-collide",
-     "count": 2
+     "id": "1912GeorgesMeliesALaConqueteDuPoleConquestOfTheNorthPole",
+     "count": 1
     },
     {
      "id": "AnInspectorCalls1954_201508",
@@ -3299,11 +3501,23 @@
      "count": 1
     },
     {
+     "id": "TheDreyfusAffair_49",
+     "count": 1
+    },
+    {
      "id": "TheGhostTrain",
      "count": 1
     },
     {
+     "id": "ThePyx",
+     "count": 1
+    },
+    {
      "id": "TheTerror",
+     "count": 1
+    },
+    {
+     "id": "The_Impossible_Voyage",
      "count": 1
     },
     {
@@ -3327,31 +3541,15 @@
      "count": 1
     },
     {
+     "id": "extravagance_1930",
+     "count": 1
+    },
+    {
      "id": "fawlty-towers-the-kipper-and-the-corpse-vhs-uk-full-tapes-1984-version",
      "count": 1
     },
     {
      "id": "get-smart-s-01-e-02-diplomats-daughter.mp-4",
-     "count": 1
-    },
-    {
-     "id": "get-smart-s1e2-casino-evil",
-     "count": 1
-    },
-    {
-     "id": "hell-in-normandy",
-     "count": 1
-    },
-    {
-     "id": "island-of-lost-men-1939-",
-     "count": 1
-    },
-    {
-     "id": "leave-it-to-beaver-the-complete-series-1957-1963",
-     "count": 1
-    },
-    {
-     "id": "livingDead_4k",
      "count": 1
     }
    ],
@@ -3359,15 +3557,15 @@
    "daily": [
     {
      "date": "2026-09-14",
-     "open": 40,
-     "play": 24
+     "open": 47,
+     "play": 28
     }
    ],
-   "distinctPlayed": 6,
-   "distinctOpened": 34,
+   "distinctPlayed": 10,
+   "distinctOpened": 40,
    "totals": {
-    "open": 40,
-    "play": 24
+    "open": 47,
+    "play": 28
    },
    "scope": "the WEBSITE only — the apps collect nothing, and they are most of the audience, so this is a sample rather than the platform"
   }
@@ -3429,187 +3627,187 @@
   "apple_stores": {
    "ok": true,
    "note": "3 Apple platform(s)",
-   "at": "2026-09-14T19:24:55+00:00"
+   "at": "2026-09-14T19:39:07+00:00"
   },
   "apple_reviews": {
    "ok": true,
    "note": "6 review(s)",
-   "at": "2026-09-14T19:24:56+00:00"
+   "at": "2026-09-14T19:39:08+00:00"
   },
   "apple_rating": {
    "ok": true,
    "note": "4.5 from 6",
-   "at": "2026-09-14T19:24:56+00:00"
+   "at": "2026-09-14T19:39:08+00:00"
   },
   "apple_performance": {
    "ok": true,
    "note": "Apple has not aggregated enough device data yet",
-   "at": "2026-09-14T19:24:56+00:00"
+   "at": "2026-09-14T19:39:09+00:00"
   },
   "apple_downloads": {
    "ok": true,
    "note": "1069 first-time download(s) over 31 day(s), 4 device type(s), 93 country/countries; skipped 4235 unit(s) across 2 other product type(s)",
-   "at": "2026-09-14T19:25:14+00:00"
+   "at": "2026-09-14T19:39:28+00:00"
   },
   "play_stores": {
    "ok": true,
    "note": "3 track(s)",
-   "at": "2026-09-14T19:25:16+00:00"
+   "at": "2026-09-14T19:39:29+00:00"
   },
   "play_reviews": {
    "ok": true,
    "note": "0 review(s) in Play's 7-day window",
-   "at": "2026-09-14T19:25:16+00:00"
+   "at": "2026-09-14T19:39:29+00:00"
   },
   "play_rating": {
    "ok": false,
    "note": "Play listing carries no rating yet",
-   "at": "2026-09-14T19:25:17+00:00"
+   "at": "2026-09-14T19:39:30+00:00"
   },
   "play_vitals": {
    "ok": true,
    "note": "crashRate=0.0, anrRate=0.0",
-   "at": "2026-09-14T19:25:26+00:00"
+   "at": "2026-09-14T19:39:33+00:00"
   },
   "play_crashes": {
    "ok": true,
    "note": "16 cluster(s), 0 still on build 60",
-   "at": "2026-09-14T19:28:05+00:00"
+   "at": "2026-09-14T19:39:56+00:00"
   },
   "play_users": {
    "ok": true,
    "note": "1 day(s) of users, 0 dimension(s)",
-   "at": "2026-09-14T19:28:20+00:00"
+   "at": "2026-09-14T19:40:03+00:00"
   },
   "play_reports": {
    "ok": true,
    "note": "598 install(s) over 28 day(s) to 2026-09-08 (6d behind — Play's normal reporting lag), 7 report(s)",
-   "at": "2026-09-14T19:28:31+00:00"
+   "at": "2026-09-14T19:40:13+00:00"
   },
   "play_daily_exports": {
    "ok": true,
    "note": "ratings: 23 day(s) to 2026-09-11, crashes: 32 day(s) to 2026-09-12",
-   "at": "2026-09-14T19:28:41+00:00"
+   "at": "2026-09-14T19:40:17+00:00"
   },
   "play_acquisition": {
    "ok": true,
    "note": "599 acquisition(s) from 1485 visitor(s) to 2026-09-08, 40% conversion",
-   "at": "2026-09-14T19:28:43+00:00"
+   "at": "2026-09-14T19:40:20+00:00"
   },
   "amazon_vitals": {
    "ok": true,
    "note": "authenticated; Amazon holds no vitals for this app yet (3/3 metric sets empty)",
-   "at": "2026-09-14T19:28:44+00:00"
+   "at": "2026-09-14T19:40:21+00:00"
   },
   "amazon_installs": {
    "ok": true,
    "note": "30 install(s) across 1 month(s), 5 countries",
-   "at": "2026-09-14T19:28:46+00:00"
+   "at": "2026-09-14T19:40:22+00:00"
   },
   "amazon_live": {
    "ok": true,
    "note": "versionCode 57 is live on Fire TV",
-   "at": "2026-09-14T19:28:54+00:00"
+   "at": "2026-09-14T19:40:31+00:00"
   },
   "roku_engagement": {
    "ok": true,
-   "note": "no delivery waiting — the schedule fires daily at 06:00, so this is normal between runs",
-   "at": "2026-09-14T19:28:54+00:00"
+   "note": "1 drop(s), 3 day(s), 9 tile(s) from 1 report(s) [App Engagement]",
+   "at": "2026-09-14T19:40:32+00:00"
   },
   "manual_stores": {
    "ok": true,
    "note": "5 declared store(s)",
-   "at": "2026-09-14T19:28:54+00:00"
+   "at": "2026-09-14T19:40:32+00:00"
   },
   "social_programme": {
    "ok": true,
    "note": "38 post(s) across 5 platform(s), 17 measured",
-   "at": "2026-09-14T19:28:54+00:00"
+   "at": "2026-09-14T19:40:32+00:00"
   },
   "social_reach": {
    "ok": true,
    "note": "bluesky=1, mastodon=0, instagram=1",
-   "at": "2026-09-14T19:28:56+00:00"
+   "at": "2026-09-14T19:40:34+00:00"
   },
   "social_replies": {
    "ok": true,
    "note": "0 reply/mention notification(s)",
-   "at": "2026-09-14T19:28:56+00:00"
+   "at": "2026-09-14T19:40:34+00:00"
   },
   "social_liveness": {
    "ok": true,
    "note": "21 live, 4 deleted, 13 could not be checked",
-   "at": "2026-09-14T19:29:02+00:00"
+   "at": "2026-09-14T19:40:41+00:00"
   },
   "youtube_channel": {
    "ok": true,
    "note": "stats need youtube.readonly (the token is upload-only, by design), 0 comment(s)",
-   "at": "2026-09-14T19:29:03+00:00"
+   "at": "2026-09-14T19:40:43+00:00"
   },
   "mentions_reddit": {
    "ok": true,
    "note": "0 kept",
-   "at": "2026-09-14T19:29:03+00:00"
+   "at": "2026-09-14T19:40:44+00:00"
   },
   "mentions_hn": {
    "ok": true,
    "note": "0 kept of 0",
-   "at": "2026-09-14T19:29:04+00:00"
+   "at": "2026-09-14T19:40:44+00:00"
   },
   "mentions_lemmy": {
    "ok": true,
    "note": "0 kept",
-   "at": "2026-09-14T19:29:06+00:00"
+   "at": "2026-09-14T19:40:45+00:00"
   },
   "mentions_news": {
    "ok": true,
    "note": "0 kept",
-   "at": "2026-09-14T19:29:06+00:00"
+   "at": "2026-09-14T19:40:46+00:00"
   },
   "mentions_bluesky": {
    "ok": true,
    "note": "1 kept",
-   "at": "2026-09-14T19:29:08+00:00"
+   "at": "2026-09-14T19:40:47+00:00"
   },
   "mentions_mastodon": {
    "ok": true,
    "note": "1 kept",
-   "at": "2026-09-14T19:29:12+00:00"
+   "at": "2026-09-14T19:40:51+00:00"
   },
   "github": {
    "ok": true,
    "note": "1 star(s), 0 open issue(s), 0 from outside",
-   "at": "2026-09-14T19:29:14+00:00"
+   "at": "2026-09-14T19:40:53+00:00"
   },
   "workflows": {
    "ok": true,
    "note": "0 finding(s), 0 urgent",
-   "at": "2026-09-14T19:30:36+00:00"
+   "at": "2026-09-14T19:42:20+00:00"
   },
   "catalog": {
    "ok": true,
    "note": "24312 items, schema 12",
-   "at": "2026-09-14T19:30:37+00:00"
+   "at": "2026-09-14T19:42:21+00:00"
   },
   "web_usage": {
    "ok": true,
-   "note": "15566 route view(s) and 5942 visit(s) over 6 day(s), 14 surface(s)",
-   "at": "2026-09-14T19:30:37+00:00"
+   "note": "15607 route view(s) and 5960 visit(s) over 6 day(s), 14 surface(s)",
+   "at": "2026-09-14T19:42:21+00:00"
   },
   "web_titles": {
    "ok": true,
-   "note": "6 film(s) played, 34 opened, over 1 day(s)",
-   "at": "2026-09-14T19:30:37+00:00"
+   "note": "10 film(s) played, 40 opened, over 1 day(s)",
+   "at": "2026-09-14T19:42:21+00:00"
   },
   "distribution": {
    "ok": true,
    "note": "App Store: 6 rated",
-   "at": "2026-09-14T19:30:37+00:00"
+   "at": "2026-09-14T19:42:21+00:00"
   },
   "asks": {
    "ok": true,
    "note": "0 request(s), 5 bit(s) of praise",
-   "at": "2026-09-14T19:30:37+00:00"
+   "at": "2026-09-14T19:42:21+00:00"
   }
  },
  "_apply": true,
@@ -3713,8 +3911,8 @@
    "urgent": 0
   }
  ],
- "generatedAt": "2026-09-14T19:30:37+00:00",
- "repoVersion": "1.42.111",
- "repoBuild": "1123",
+ "generatedAt": "2026-09-14T19:42:21+00:00",
+ "repoVersion": "1.42.113",
+ "repoBuild": "1125",
  "_": "Written by tools/pulse_collect.py. `history` is the series and is append-only per day; everything else is the latest reading. A source that could not answer says so in `sources` — never assume a zero."
 }
