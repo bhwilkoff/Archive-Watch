@@ -379,6 +379,7 @@ own encoder and opened through the platform's real URL entry point:
 | Android TV | Google TV (SEI R 4K) | SHARED PLAYLIST · creature feature · 10 titles · Play all · Add to my library — 2026-09-13 |
 | Roku | Streaming Stick 4K | the QR its own screen draws decodes to the exact 448-char link — 2026-09-13 |
 | Android TV | Homatics Dongle R 4K | IMPORT + PERSISTENCE, on a minified RELEASE build (vc60) — 2026-09-14 |
+| Android phone | Pixel 8a | link CAPTURED by the app, IMPORT + PERSISTENCE, 0 FATAL, release vc60 — 2026-09-14 |
 
 **What the second Android TV run added (2026-09-14).** The rows above prove a
 shared link RENDERS. This one followed it through:
@@ -424,9 +425,25 @@ this is a collection to browse and play — which is the whole app signed out, s
 nothing is being withheld."* The phone's Chrome is signed into neither island,
 and the page correctly offered browsing and playback only.
 
+**Then the same phone, upgraded to vc60, took the link itself.** Sideloaded
+(Play had not yet propagated the production promotion, so the Play-signed route
+was unavailable), `pm verify-app-links --re-verify`, and the same link now
+resolves to `com.archivewatch.app/MainActivity` instead of Chrome — the only
+thing that changed is that this build's manifest declares the `/list/` path.
+The import lives in the TOOLBAR on the phone (a 63x63 icon at the top right,
+the Android twin of iOS's ＋), not as the wide button the TV draws; it reports
+"In your library" and still does after a force-stop and a cold re-open. 0 FATAL
+EXCEPTIONs.
+
+A parity scare worth recording as a NON-finding: the missing-title sentence
+appeared absent on the phone and was simply longer than the 60-character filter
+being used to read the dump — it renders in full as "Shared playlist · 4 of 5
+titles — 1 is no longer in the catalogue." Widen the instrument before
+believing a gap.
+
 So the promise holds in all three shapes a receiver can be in: current app
-(imports, persists), old app (falls through to the web), no app (browses and
-plays, imports if signed in).
+(imports, persists — now verified on BOTH Android form factors), old app (falls
+through to the web), no app (browses and plays, imports if signed in).
 
 **Android was the last one, and it was never broken — only unverified.** The
 code had been written and shipped (SharedListScreen, Route.SharedList,
