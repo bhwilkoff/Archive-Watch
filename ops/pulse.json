@@ -122,8 +122,8 @@
    "store": "App Store",
    "average": 4.5,
    "count": 6,
-   "version": "1.42.53",
-   "releasedAt": "2026-09-12T18:22:29Z",
+   "version": "1.42.94",
+   "releasedAt": "2026-09-14T18:00:13Z",
    "url": "https://apps.apple.com/us/app/archive-watch/id6776697407?uo=4"
   }
  ],
@@ -1354,7 +1354,7 @@
     "stale": true,
     "url": "https://play.google.com/console/developers/7973176709446146294/app/4975776198955106385/vitals/crashes/4c04da8b34da8b7ea6519d6c60887dc7/details",
     "fixedIn": null,
-    "ours": "Exception android.database.SQLException: · at app.archivewatch.android.data.CatalogDatabase.queryRaw (CatalogDatabase.kt:561)"
+    "ours": "Exception android.database.SQLException: Error code: 11, message: database disk image is malformed · at app.archivewatch.android.data.CatalogDatabase.queryRaw (CatalogDatabase.kt:561)"
    },
    {
     "type": "APPLICATION_NOT_RESPONDING",
@@ -2616,7 +2616,7 @@
   "catalog": {
    "schema": 12,
    "items": 24312,
-   "playable": 24042,
+   "playable": 24044,
    "professionalArt": 13230,
    "withBif": 14824,
    "builtAt": null
@@ -2650,25 +2650,25 @@
     },
     {
      "date": "2026-09-14",
-     "views": 1700,
-     "visits": 651
+     "views": 1743,
+     "visits": 660
     }
    ],
-   "views28d": 15358,
-   "views7d": 15358,
-   "visits28d": 5899,
-   "visits7d": 5899,
+   "views28d": 15401,
+   "views7d": 15401,
+   "visits28d": 5908,
+   "visits7d": 5908,
    "byPath": {
-    "/": 6220,
-    "/browse": 3790,
-    "/item": 2773,
-    "/search": 978,
-    "/channels": 345,
+    "/": 6237,
+    "/browse": 3803,
+    "/item": 2778,
+    "/search": 982,
+    "/channels": 346,
     "/series": 322,
-    "/library": 275,
+    "/library": 277,
     "/collections": 177,
     "/other": 166,
-    "/surprise": 136,
+    "/surprise": 137,
     "/collection": 91,
     "/about": 70
    },
@@ -2733,177 +2733,177 @@
   "apple_stores": {
    "ok": true,
    "note": "3 Apple platform(s)",
-   "at": "2026-09-14T18:26:44+00:00"
+   "at": "2026-09-14T18:37:32+00:00"
   },
   "apple_reviews": {
    "ok": true,
    "note": "6 review(s)",
-   "at": "2026-09-14T18:26:44+00:00"
+   "at": "2026-09-14T18:37:32+00:00"
   },
   "apple_rating": {
    "ok": true,
    "note": "4.5 from 6",
-   "at": "2026-09-14T18:26:45+00:00"
+   "at": "2026-09-14T18:37:32+00:00"
   },
   "apple_performance": {
    "ok": true,
    "note": "Apple has not aggregated enough device data yet",
-   "at": "2026-09-14T18:26:45+00:00"
+   "at": "2026-09-14T18:37:32+00:00"
   },
   "apple_downloads": {
    "ok": true,
    "note": "1069 first-time download(s) over 31 day(s), 4 device type(s), 93 country/countries; skipped 4235 unit(s) across 2 other product type(s)",
-   "at": "2026-09-14T18:27:06+00:00"
+   "at": "2026-09-14T18:37:51+00:00"
   },
   "play_stores": {
    "ok": true,
    "note": "3 track(s)",
-   "at": "2026-09-14T18:27:09+00:00"
+   "at": "2026-09-14T18:37:53+00:00"
   },
   "play_reviews": {
    "ok": true,
    "note": "0 review(s) in Play's 7-day window",
-   "at": "2026-09-14T18:27:10+00:00"
+   "at": "2026-09-14T18:37:53+00:00"
   },
   "play_rating": {
    "ok": false,
    "note": "Play listing carries no rating yet",
-   "at": "2026-09-14T18:27:11+00:00"
+   "at": "2026-09-14T18:37:53+00:00"
   },
   "play_vitals": {
    "ok": true,
    "note": "crashRate=0.0, anrRate=0.0",
-   "at": "2026-09-14T18:27:13+00:00"
+   "at": "2026-09-14T18:37:56+00:00"
   },
   "play_crashes": {
    "ok": true,
    "note": "16 cluster(s), 0 still on build 60",
-   "at": "2026-09-14T18:27:41+00:00"
+   "at": "2026-09-14T18:38:26+00:00"
   },
   "play_users": {
    "ok": true,
    "note": "1 day(s) of users, 0 dimension(s)",
-   "at": "2026-09-14T18:27:48+00:00"
+   "at": "2026-09-14T18:38:32+00:00"
   },
   "play_reports": {
    "ok": true,
    "note": "598 install(s) over 28 day(s) to 2026-09-08 (6d behind — Play's normal reporting lag), 7 report(s)",
-   "at": "2026-09-14T18:27:59+00:00"
+   "at": "2026-09-14T18:38:43+00:00"
   },
   "play_daily_exports": {
    "ok": true,
    "note": "ratings: 23 day(s) to 2026-09-11, crashes: 32 day(s) to 2026-09-12",
-   "at": "2026-09-14T18:28:15+00:00"
+   "at": "2026-09-14T18:38:55+00:00"
   },
   "play_acquisition": {
    "ok": true,
    "note": "599 acquisition(s) from 1485 visitor(s) to 2026-09-08, 40% conversion",
-   "at": "2026-09-14T18:28:18+00:00"
+   "at": "2026-09-14T18:38:58+00:00"
   },
   "amazon_vitals": {
    "ok": true,
    "note": "authenticated; Amazon holds no vitals for this app yet (3/3 metric sets empty)",
-   "at": "2026-09-14T18:28:19+00:00"
+   "at": "2026-09-14T18:38:59+00:00"
   },
   "amazon_installs": {
    "ok": true,
    "note": "30 install(s) across 1 month(s), 5 countries",
-   "at": "2026-09-14T18:28:20+00:00"
+   "at": "2026-09-14T18:39:00+00:00"
   },
   "roku_engagement": {
    "ok": true,
    "note": "no delivery waiting — the schedule fires daily at 06:00, so this is normal between runs",
-   "at": "2026-09-14T18:28:20+00:00"
+   "at": "2026-09-14T18:39:00+00:00"
   },
   "manual_stores": {
    "ok": true,
    "note": "5 declared store(s)",
-   "at": "2026-09-14T18:28:20+00:00"
+   "at": "2026-09-14T18:39:00+00:00"
   },
   "social_programme": {
    "ok": true,
    "note": "38 post(s) across 5 platform(s), 17 measured",
-   "at": "2026-09-14T18:28:20+00:00"
+   "at": "2026-09-14T18:39:00+00:00"
   },
   "social_reach": {
    "ok": true,
    "note": "bluesky=1, mastodon=0, instagram=1",
-   "at": "2026-09-14T18:28:21+00:00"
+   "at": "2026-09-14T18:39:02+00:00"
   },
   "social_replies": {
    "ok": true,
    "note": "0 reply/mention notification(s)",
-   "at": "2026-09-14T18:28:22+00:00"
+   "at": "2026-09-14T18:39:03+00:00"
   },
   "social_liveness": {
    "ok": true,
    "note": "21 live, 4 deleted, 13 could not be checked",
-   "at": "2026-09-14T18:28:29+00:00"
+   "at": "2026-09-14T18:39:12+00:00"
   },
   "youtube_channel": {
    "ok": true,
    "note": "stats need youtube.readonly (the token is upload-only, by design), 0 comment(s)",
-   "at": "2026-09-14T18:28:30+00:00"
+   "at": "2026-09-14T18:39:13+00:00"
   },
   "mentions_reddit": {
    "ok": true,
    "note": "0 kept",
-   "at": "2026-09-14T18:28:31+00:00"
+   "at": "2026-09-14T18:39:14+00:00"
   },
   "mentions_hn": {
    "ok": true,
    "note": "0 kept of 0",
-   "at": "2026-09-14T18:28:31+00:00"
+   "at": "2026-09-14T18:39:14+00:00"
   },
   "mentions_lemmy": {
    "ok": true,
    "note": "0 kept",
-   "at": "2026-09-14T18:28:33+00:00"
+   "at": "2026-09-14T18:39:16+00:00"
   },
   "mentions_news": {
    "ok": true,
    "note": "0 kept",
-   "at": "2026-09-14T18:28:33+00:00"
+   "at": "2026-09-14T18:39:17+00:00"
   },
   "mentions_bluesky": {
    "ok": true,
    "note": "1 kept",
-   "at": "2026-09-14T18:28:34+00:00"
+   "at": "2026-09-14T18:39:18+00:00"
   },
   "mentions_mastodon": {
    "ok": true,
    "note": "1 kept",
-   "at": "2026-09-14T18:28:37+00:00"
+   "at": "2026-09-14T18:39:23+00:00"
   },
   "github": {
    "ok": true,
    "note": "1 star(s), 0 open issue(s), 0 from outside",
-   "at": "2026-09-14T18:28:39+00:00"
+   "at": "2026-09-14T18:39:25+00:00"
   },
   "workflows": {
    "ok": true,
    "note": "0 finding(s), 0 urgent",
-   "at": "2026-09-14T18:29:58+00:00"
+   "at": "2026-09-14T18:40:50+00:00"
   },
   "catalog": {
    "ok": true,
    "note": "24312 items, schema 12",
-   "at": "2026-09-14T18:29:59+00:00"
+   "at": "2026-09-14T18:40:50+00:00"
   },
   "web_usage": {
    "ok": true,
-   "note": "15358 route view(s) and 5899 visit(s) over 6 day(s), 14 surface(s)",
-   "at": "2026-09-14T18:29:59+00:00"
+   "note": "15401 route view(s) and 5908 visit(s) over 6 day(s), 14 surface(s)",
+   "at": "2026-09-14T18:40:50+00:00"
   },
   "distribution": {
    "ok": true,
    "note": "App Store: 6 rated",
-   "at": "2026-09-14T18:29:59+00:00"
+   "at": "2026-09-14T18:40:50+00:00"
   },
   "asks": {
    "ok": true,
    "note": "0 request(s), 5 bit(s) of praise",
-   "at": "2026-09-14T18:29:59+00:00"
+   "at": "2026-09-14T18:40:50+00:00"
   }
  },
  "_apply": true,
@@ -3006,7 +3006,7 @@
    "urgent": 0
   }
  ],
- "generatedAt": "2026-09-14T18:29:59+00:00",
+ "generatedAt": "2026-09-14T18:40:50+00:00",
  "repoVersion": "1.42.106",
  "repoBuild": "1118",
  "_": "Written by tools/pulse_collect.py. `history` is the series and is append-only per day; everything else is the latest reading. A source that could not answer says so in `sources` — never assume a zero."
