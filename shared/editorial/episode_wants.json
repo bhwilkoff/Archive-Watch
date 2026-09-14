@@ -1,10 +1,10 @@
 {
   "schema": 1,
-  "updated_at": "2026-09-13T08:47:21Z",
+  "updated_at": "2026-09-14T09:37:22Z",
   "description": "Missing-episode queue: canonical episodes (from OMDb) that we don't yet have on Archive. Drained by tools/backfill_tv_episodes.py.",
   "stats": {
-    "total": 18101,
-    "wanted": 17878,
+    "total": 18109,
+    "wanted": 17886,
     "fulfilled": 223,
     "series_with_gaps": 359
   },
@@ -233,11 +233,31 @@
       "seriesID": "227-1985",
       "seriesTitle": "227",
       "season": 2,
+      "episode": 17,
+      "title": "A Good Citizen",
+      "episodeImdbID": "tt0502057",
+      "status": "wanted",
+      "added_at": "2026-09-14T09:37:22Z"
+    },
+    {
+      "seriesID": "227-1985",
+      "seriesTitle": "227",
+      "season": 2,
       "episode": 22,
       "title": "Check Snub",
       "episodeImdbID": "tt0502070",
       "status": "wanted",
       "added_at": "2026-06-02T08:32:33Z"
+    },
+    {
+      "seriesID": "227-1985",
+      "seriesTitle": "227",
+      "season": 3,
+      "episode": 4,
+      "title": "And Baby Makes Three",
+      "episodeImdbID": "tt0502062",
+      "status": "wanted",
+      "added_at": "2026-09-14T09:37:22Z"
     },
     {
       "seriesID": "227-1985",
@@ -94677,11 +94697,31 @@
       "seriesID": "planet-of-the-apes-1974",
       "seriesTitle": "Planet of the Apes",
       "season": 1,
+      "episode": 4,
+      "title": "The Good Seeds",
+      "episodeImdbID": "tt0675108",
+      "status": "wanted",
+      "added_at": "2026-09-14T09:37:22Z"
+    },
+    {
+      "seriesID": "planet-of-the-apes-1974",
+      "seriesTitle": "Planet of the Apes",
+      "season": 1,
       "episode": 5,
       "title": "The Legacy",
       "episodeImdbID": "tt0675111",
       "status": "wanted",
       "added_at": "2026-06-20T07:57:19Z"
+    },
+    {
+      "seriesID": "planet-of-the-apes-1974",
+      "seriesTitle": "Planet of the Apes",
+      "season": 1,
+      "episode": 6,
+      "title": "Tomorrow's Tide",
+      "episodeImdbID": "tt0675116",
+      "status": "wanted",
+      "added_at": "2026-09-14T09:37:22Z"
     },
     {
       "seriesID": "planet-of-the-apes-1974",
@@ -94697,11 +94737,31 @@
       "seriesID": "planet-of-the-apes-1974",
       "seriesTitle": "Planet of the Apes",
       "season": 1,
+      "episode": 8,
+      "title": "The Deception",
+      "episodeImdbID": "tt0675106",
+      "status": "wanted",
+      "added_at": "2026-09-14T09:37:22Z"
+    },
+    {
+      "seriesID": "planet-of-the-apes-1974",
+      "seriesTitle": "Planet of the Apes",
+      "season": 1,
       "episode": 9,
       "title": "The Horse Race",
       "episodeImdbID": "tt0675109",
       "status": "wanted",
       "added_at": "2026-06-20T07:57:19Z"
+    },
+    {
+      "seriesID": "planet-of-the-apes-1974",
+      "seriesTitle": "Planet of the Apes",
+      "season": 1,
+      "episode": 10,
+      "title": "The Interrogation",
+      "episodeImdbID": "tt0675110",
+      "status": "wanted",
+      "added_at": "2026-09-14T09:37:22Z"
     },
     {
       "seriesID": "planet-of-the-apes-1974",
@@ -94717,11 +94777,31 @@
       "seriesID": "planet-of-the-apes-1974",
       "seriesTitle": "Planet of the Apes",
       "season": 1,
+      "episode": 12,
+      "title": "The Cure",
+      "episodeImdbID": "tt0675105",
+      "status": "wanted",
+      "added_at": "2026-09-14T09:37:22Z"
+    },
+    {
+      "seriesID": "planet-of-the-apes-1974",
+      "seriesTitle": "Planet of the Apes",
+      "season": 1,
       "episode": 13,
       "title": "The Liberator",
       "episodeImdbID": "tt0675112",
       "status": "wanted",
       "added_at": "2026-06-20T07:57:19Z"
+    },
+    {
+      "seriesID": "planet-of-the-apes-1974",
+      "seriesTitle": "Planet of the Apes",
+      "season": 1,
+      "episode": 14,
+      "title": "Up Above the World So High",
+      "episodeImdbID": "tt0675117",
+      "status": "wanted",
+      "added_at": "2026-09-14T09:37:22Z"
     },
     {
       "seriesID": "play-for-today-2025",
