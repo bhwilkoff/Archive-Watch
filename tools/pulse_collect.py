@@ -1972,6 +1972,15 @@ def roku_engagement(state):
     replacing the series each day would throw away every day that fell out of
     it — the opposite of what a daily sync is for.
     """
+    # The newest row we ALREADY hold, captured before this reader overwrites
+    # state["health"]["rokuEngagement"] with its own fresh (possibly empty)
+    # reading. Reading it afterwards measures what we just wrote — which is how
+    # the first version of the quiet-feed alarm below silently never fired, on a
+    # feed planted 44 days stale.
+    held = ""
+    for _r in ((state["health"].get("rokuEngagement") or {}).get("daily") or []):
+        held = max(held, _r.get("date") or "")
+
     tok = os.environ.get("PULSE_INGEST_TOKEN")
     if not tok:
         raise RuntimeError("no PULSE_INGEST_TOKEN in this environment — "
@@ -1991,6 +2000,14 @@ def roku_engagement(state):
         raise RuntimeError(f"drop box: HTTP {e.code}")
 
     daily, headline, tiles, consumed, bad = {}, {}, [], [], []
+    # Roku publishes FOUR dashboards — App Engagement, App Health, Viewership
+    # Summary, App Stability — and each can have its own schedule pointing at
+    # this same endpoint. The delivery names itself in
+    # scheduled_plan.title, so reports are kept APART by that name: merging
+    # them would put a crash rate and an install count in one bucket and make
+    # both meaningless. A report we have never seen before still lands, under
+    # its own name, with no code change.
+    reports: dict = {}
     for d in drops:
         try:
             body = json.loads(d.get("body") or "")
@@ -2001,8 +2018,11 @@ def roku_engagement(state):
             # it would destroy the only copy of the shape that broke us.
             bad.append({"id": d.get("id"), "why": str(exc)[:120]})
             continue
+        plan = ((body.get("scheduled_plan") or {}).get("title") or "").strip()
+        bucket = reports.setdefault(plan or "unnamed", {"daily": {}, "headline": {}, "tiles": []})
         for name in zf.namelist():
             tile = name.rsplit("/", 1)[-1].replace(".csv", "")
+            bucket["tiles"].append(tile)
             tiles.append(tile)
             rows = _roku_rows(zf.read(name).decode("utf-8-sig", "replace"))
             for r in rows:
@@ -2011,17 +2031,22 @@ def roku_engagement(state):
                 if not date:
                     continue
                 slot = daily.setdefault(date, {"date": date})
+                bslot = bucket["daily"].setdefault(date, {"date": date})
                 for k, v in r.items():
                     if not k or "Date" in k:
                         continue
                     n = _first_num(r, k)
                     if n is not None:
-                        slot[k.split(" Time Grain ")[-1].strip()] = n
+                        key = k.split(" Time Grain ")[-1].strip()
+                        slot[key] = n
+                        bslot[key] = n
             if len(rows) == 1 and not any("Date" in (k or "") for k in rows[0]):
                 for k, v in rows[0].items():
                     n = _first_num(rows[0], k)
                     if n is not None:
-                        headline[k.split(" Time Grain ")[-1].strip()] = n
+                        key = k.split(" Time Grain ")[-1].strip()
+                        headline[key] = n
+                        bucket["headline"][key] = n
         consumed.append(d.get("id"))
 
     # ACK ONLY ON A REAL RUN. The drop box DELETES what it acks, so a dry run
@@ -2043,17 +2068,40 @@ def roku_engagement(state):
         "tiles": sorted(set(tiles)),
         "dropsRead": len(consumed),
         "unreadable": bad,
+        "byReport": {k: {"daily": sorted(v["daily"].values(), key=lambda r: r["date"]),
+                         "headline": v["headline"], "tiles": sorted(set(v["tiles"]))}
+                     for k, v in reports.items()},
+        "reportsSeen": sorted(reports),
         "readVia": "Looker scheduled delivery -> Worker /ingest/roku (no Roku API exists)",
         "console": "https://developer.roku.com/apps/analytics/engagement/881015",
     }
     if bad:
         return f"{len(consumed)} drop(s) read, {len(bad)} UNREADABLE and kept for inspection"
     if not consumed:
+        # "No delivery waiting" is NORMAL between runs and INDISTINGUISHABLE
+        # from a schedule somebody deleted, a token that was rotated, or Looker
+        # quietly failing — and a dashboard whose whole purpose is that the
+        # owner never opens the console cannot have a silent channel. So the
+        # age of the newest row we hold is the alarm: past a few days, the
+        # feed is not merely between runs.
+        newest = held
+        if newest:
+            try:
+                behind = (dt.date.today() - dt.date.fromisoformat(newest)).days
+            except ValueError:
+                behind = None
+            if behind is not None and behind > 4:
+                raise RuntimeError(
+                    f"no Roku delivery for {behind} days (newest row {newest}). "
+                    "The report's own window ends ~2 days back, so past four days "
+                    "the SCHEDULE is the suspect: check it still exists and still "
+                    "points at /ingest/roku with the current token")
         return ("no delivery waiting — the schedule fires daily at 06:00, "
                 "so this is normal between runs")
     kept = "" if state.get("_apply") else " (dry run — left in the box)"
     return (f"{len(consumed)} drop(s), {len(daily)} day(s), "
-            f"{len(set(tiles))} tile(s){kept}")
+            f"{len(set(tiles))} tile(s) from {len(reports)} report(s) "
+            f"[{', '.join(sorted(reports)) or 'unnamed'}]{kept}")
 
 
 def web_titles(state):
@@ -2425,6 +2473,19 @@ def main() -> int:
         for row in rk.get("daily", []):
             by_date[row["date"]] = {**by_date.get(row["date"], {}), **row}
         rk["daily"] = sorted(by_date.values(), key=lambda r: r["date"])[-120:]
+        # …and the same for each REPORT's own series, or a day that fell out of
+        # Looker's rolling window would vanish from the per-report view while
+        # surviving in the combined one — two series disagreeing about the same
+        # days is worse than either being short.
+        prev_rep = (((prev.get("health") or {}).get("rokuEngagement") or {})
+                    .get("byReport") or {})
+        for name, cur_rep in (rk.get("byReport") or {}).items():
+            merged = {r["date"]: r for r in (prev_rep.get(name) or {}).get("daily", [])}
+            for row in cur_rep.get("daily", []):
+                merged[row["date"]] = {**merged.get(row["date"], {}), **row}
+            cur_rep["daily"] = sorted(merged.values(), key=lambda r: r["date"])[-120:]
+        for name, old_rep in prev_rep.items():          # a report that did not deliver today
+            rk.setdefault("byReport", {}).setdefault(name, old_rep)
 
     hist = [h for h in prev.get("history", []) if h.get("date") != today()]
     hist.append(history_row(state))
