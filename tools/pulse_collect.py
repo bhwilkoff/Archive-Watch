@@ -988,7 +988,7 @@ def mentions_mastodon(state):
 
 # ─────────────────────────────────────────────────────── The social programme
 
-def social_programme(state):
+def social_program(state):
     """What we posted, and what it did — joined from the two files the
     programme already keeps. `social_metrics.py` is the reader; this only
     presents what it has already measured."""
@@ -2370,7 +2370,7 @@ SOURCES = [
     ("amazon_live", amazon_live),
     ("roku_engagement", roku_engagement),
     ("manual_stores", manual_stores),
-    ("social_programme", social_programme),
+    ("social_program", social_program),
     ("social_reach", social_reach),
     ("social_replies", social_replies),
     ("social_liveness", social_liveness),
@@ -2492,7 +2492,7 @@ def main() -> int:
             "apple_reviews": ["reviews"], "play_reviews": ["reviews"],
             "apple_rating": ["ratings"], "play_rating": ["ratings"],
             "asks": ["asks", "loves"], "distribution": ["distribution"],
-            "github": ["github"], "social_programme": ["social"],
+            "github": ["github"], "social_program": ["social"],
         }
         for src in want:
             for key in owns.get(src, []):
@@ -2519,7 +2519,7 @@ def main() -> int:
             "apple_reviews": "reviews", "play_reviews": "reviews",
             "apple_rating": "ratings", "play_rating": "ratings",
             "distribution": "distribution", "github": "github",
-            "social_programme": "social", "catalog": None}
+            "social_program": "social", "catalog": None}
     stale = {}
     for name, res in state["sources"].items():
         key = OWNS.get(name)

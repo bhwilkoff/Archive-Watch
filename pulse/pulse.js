@@ -152,7 +152,13 @@ function stores(d) {
     }
     if (s.since) bits.push(`since ${s.since}`);
     if (s.note) bits.push(s.note);
-    if (s.manual) bits.push("declared by hand — no API");
+    // The store declares how we READ it, rather than the renderer assuming.
+    // "declared by hand — no API" was printed for every manual row, which by
+    // 2026-09-14 was false twice over: Fire TV's live version is read from the
+    // submission API and its installs from the sales report, and Roku has no
+    // API but delivers its dashboards to us daily.
+    if (s.route) bits.push(s.route);
+    else if (s.manual) bits.push("declared by hand — no API");
     const r = row(box, {
       name: `${s.store} · ${s.platform}`, meta: bits.join(" · "),
       state: s.state, href: s.url,
@@ -552,7 +558,7 @@ function glance(d, list) {
     })),
   });
 
-  /* 8. Play's vitals against Google's OWN bad-behaviour thresholds — the only
+  /* 8. Play's vitals against Google's OWN bad-behavior thresholds — the only
         numbers here where a target exists that somebody else set. */
   const vit = d.health?.playVitals || {};
   if (typeof vit.crashRate === "number" || typeof vit.anrRate === "number") {
@@ -570,7 +576,7 @@ function glance(d, list) {
         label: `ANR rate ${(vit.anrRate * 100).toFixed(2)}%` });
     }
     panel(B("health"), { k: "Android vitals", right: "28 days", chart: { html },
-      cap: "markers are Google's own bad-behaviour thresholds",
+      cap: "markers are Google's own bad-behavior thresholds",
       detail: (d.health?.playCrashes || []).map(crashRow) });
   } else {
     const why = d.health?.playVitalsNote;
@@ -1291,11 +1297,15 @@ function appPlatform(d0, p) {
   }
 
   const series = (p.daily || []).map((r) => r.v);
+  // The literal matters: the test below compares against this EXACT string,
+  // and it used to read `unit === "views"` while unit was "route views" — so
+  // the Web panel called page views "Installs", on the one surface that has no
+  // installs at all.
   const unit = p.views != null ? "route views" : "installs";
   if (series.length >= 2) {
     const total = series.reduce((a, b) => a + b, 0);
     panel(box, {
-      k: unit === "views" ? "Page views" : "Installs",
+      k: unit === "route views" ? "Route views" : "Installs",
       right: `${series.length} days`,
       v: `${int(total)}<small> ${unit}</small>`,
       chart: { html: C.runChart(series, { label: `${p.name} ${unit} over ${series.length} days` }) },
@@ -1305,7 +1315,7 @@ function appPlatform(d0, p) {
         .map((r) => ({ label: r.date, value: int(r.v) })),
     });
   } else if (!p.noApi && !p.webUnread) {
-    panel(box, { k: unit === "views" ? "Page views" : "Installs",
+    panel(box, { k: unit === "route views" ? "Route views" : "Installs",
       v: "<small>no daily series yet</small>" });
   }
 

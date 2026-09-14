@@ -7,12 +7,13 @@
    "state": "LIVE",
    "version": "1.42.6 (vc57)",
    "since": "2026-09-10",
-   "note": "Live versionCode is now READ from the submission API (pulse_collect.amazon_live), not declared here \u2014 this row said 'LIVE (1.3.485, minSdk 29 - most devices cannot install) - vc57 PENDING' for days after vc57 had in fact gone live. Units remain console-only; INSTALLS are read from the sales report (every free install is a $0.00 Charge row). Fire TV device coverage went 38 -> 91 with the minSdk 23 build (Decision 115).",
+   "note": "Live version is read from the API, not declared here. Installs come from the sales report \u2014 every free install is a $0.00 Charge row. Device coverage went 38 -> 91 with the minSdk 23 build (Decision 115).",
    "url": "https://developer.amazon.com/apps-and-games/console/apps/list.html",
    "api": "vitals",
    "units30d": 2,
    "unitsAsOf": "2026-09-09",
-   "unitsNote": "unique app purchases, 30 days, all Amazon.com"
+   "unitsNote": "unique app purchases, 30 days, all Amazon.com",
+   "route": "version read from the submission API; installs from the sales report"
   },
   {
    "store": "Roku Channel Store",
@@ -20,10 +21,11 @@
    "state": "LIVE",
    "version": "1.0.51",
    "since": "2026-09-10",
-   "note": "Channel 881015, live at 1.0.51. UPDATE STAGED: pending version ZKKJL9 = package 1.0.65, the first build old players can run (1.0.51 shipped `continue for`, unparseable below ~OS 11, so six components failed to COMPILE on a Roku 2 XD). Minimum firmware v8.0.0 b1 \u2014 proven safe: the dev console's own js/common.js declares FileType = {cramfs, zip, squashfs} with NO zstd, so the package floor is at worst v8.0.0. Static analysis 3 warnings / 0 errors (two are the rsg_version=1.3 advice, which would force minimum firmware 15.1 and undo this release). App Behavior Analysis PASSED 4/4 on Roku's lab (launch perf, deep linking, content play perf, screensaver policy). Release scheduled for Mon Sep 14 2026 5:00 PM PT \u2014 OWNER must tick the three legal attestations and press Submit; release notes are pre-filled. OPEN: the XD does not have 881015 at all despite the same Roku account and clearing every firmware gate; a blind remote-driven update check did not deliver it and was INCONCLUSIVE (no way to confirm the navigation landed). Needs a human pressing Settings > System > System update > Check now. Search feed 100%, 3,755 approved / 0 rejected, SUBMITTED FOR REVIEW by the owner. Beta app 881088 / TLGNCCT republished with the same 1.0.65 package. No developer API.",
+   "note": "Channel 881015. Package 1.0.65 was staged as pending version ZKKJL9 and scheduled for 2026-09-14 5:00 PM PT \u2014 CONFIRM whether it went live and update this row; Roku has no API to read it from. 1.0.65 is the first build old players can run, and the app's own analytics arrive here daily by scheduled delivery.",
    "url": "https://channelstore.roku.com/details/12a571a872732e40fe8d1d6c59f3849f:5ec8f46dcec2324229c8d096ea23c089/archive-watch",
    "api": null,
-   "pendingVersion": "1.0.65"
+   "pendingVersion": "1.0.65",
+   "route": "no API \u2014 its Looker dashboards deliver to us daily"
   },
   {
    "store": "LG Content Store",
@@ -31,9 +33,10 @@
    "state": "NOT SUBMITTED",
    "version": null,
    "since": null,
-   "note": "Package builds; Seller Lounge account is the owner step.",
+   "note": "Package builds; a Seller Lounge account is the owner step.",
    "url": "https://seller.lgappstv.com/",
-   "api": null
+   "api": null,
+   "route": "declared by hand \u2014 no API"
   },
   {
    "store": "Samsung Apps TV",
@@ -41,9 +44,10 @@
    "state": "NOT SUBMITTED",
    "version": null,
    "since": null,
-   "note": "Public Seller is US-only; needs the signing certificate.",
+   "note": "Public Seller is US-only; the signing certificate is backed up (Decision 112).",
    "url": "https://seller.samsungapps.com/",
-   "api": null
+   "api": null,
+   "route": "declared by hand \u2014 no API"
   },
   {
    "store": "Web (PWA)",
@@ -53,7 +57,8 @@
    "since": "2026-06-10",
    "note": "Ships on every Pages deploy.",
    "url": "https://archivewatch.org",
-   "api": null
+   "api": null,
+   "route": "state declared by hand; usage measured by our own counter"
   }
  ]
 }
