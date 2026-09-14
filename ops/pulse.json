@@ -6,18 +6,18 @@
    "state": "READY_FOR_SALE",
    "version": "1.42.94",
    "live": "1.42.94",
-   "repoVersion": "1.42.104",
-   "repoBuild": "1116",
+   "repoVersion": "1.42.106",
+   "repoBuild": "1118",
    "url": "https://appstoreconnect.apple.com/apps/6776697407/distribution"
   },
   {
    "store": "App Store",
    "platform": "iPhone & iPad",
-   "state": "IN_REVIEW",
+   "state": "READY_FOR_SALE",
    "version": "1.42.94",
-   "live": "1.42.53",
-   "repoVersion": "1.42.104",
-   "repoBuild": "1116",
+   "live": "1.42.94",
+   "repoVersion": "1.42.106",
+   "repoBuild": "1118",
    "url": "https://appstoreconnect.apple.com/apps/6776697407/distribution"
   },
   {
@@ -26,8 +26,8 @@
    "state": "READY_FOR_SALE",
    "version": "1.42.94",
    "live": "1.42.94",
-   "repoVersion": "1.42.104",
-   "repoBuild": "1116",
+   "repoVersion": "1.42.106",
+   "repoBuild": "1118",
    "url": "https://appstoreconnect.apple.com/apps/6776697407/distribution"
   },
   {
@@ -879,19 +879,21 @@
    "daily": [
     {
      "date": "2026-08-14",
-     "units": 9,
+     "units": 10,
      "byDevice": {
       "Apple TV": 1,
       "iPhone": 5,
-      "iPad": 3
+      "iPad": 3,
+      "Desktop": 1
      }
     },
     {
      "date": "2026-08-15",
-     "units": 23,
+     "units": 24,
      "byDevice": {
       "iPhone": 13,
       "Apple TV": 6,
+      "Desktop": 1,
       "iPad": 4
      }
     },
@@ -905,9 +907,10 @@
     },
     {
      "date": "2026-08-17",
-     "units": 20,
+     "units": 21,
      "byDevice": {
       "Apple TV": 4,
+      "Desktop": 1,
       "iPhone": 13,
       "iPad": 3
      }
@@ -939,28 +942,31 @@
     },
     {
      "date": "2026-08-21",
-     "units": 11,
+     "units": 13,
      "byDevice": {
       "iPhone": 8,
-      "Apple TV": 3
+      "Apple TV": 3,
+      "Desktop": 2
      }
     },
     {
      "date": "2026-08-22",
-     "units": 14,
+     "units": 16,
      "byDevice": {
       "iPhone": 9,
+      "Desktop": 2,
       "Apple TV": 4,
       "iPad": 1
      }
     },
     {
      "date": "2026-08-23",
-     "units": 20,
+     "units": 21,
      "byDevice": {
       "Apple TV": 5,
       "iPad": 4,
-      "iPhone": 11
+      "iPhone": 11,
+      "Desktop": 1
      }
     },
     {
@@ -1000,10 +1006,11 @@
     },
     {
      "date": "2026-08-28",
-     "units": 17,
+     "units": 18,
      "byDevice": {
       "iPhone": 10,
       "Apple TV": 5,
+      "Desktop": 1,
       "iPad": 2
      }
     },
@@ -1027,19 +1034,21 @@
     },
     {
      "date": "2026-08-31",
-     "units": 16,
+     "units": 17,
      "byDevice": {
       "Apple TV": 4,
-      "iPhone": 12
+      "iPhone": 12,
+      "Desktop": 1
      }
     },
     {
      "date": "2026-09-01",
-     "units": 19,
+     "units": 21,
      "byDevice": {
       "iPhone": 14,
       "iPad": 3,
-      "Apple TV": 2
+      "Apple TV": 2,
+      "Desktop": 2
      }
     },
     {
@@ -1053,18 +1062,20 @@
     },
     {
      "date": "2026-09-03",
-     "units": 20,
+     "units": 22,
      "byDevice": {
       "iPad": 4,
       "iPhone": 14,
+      "Desktop": 2,
       "Apple TV": 2
      }
     },
     {
      "date": "2026-09-04",
-     "units": 19,
+     "units": 21,
      "byDevice": {
       "iPhone": 13,
+      "Desktop": 2,
       "iPad": 5,
       "Apple TV": 1
      }
@@ -1089,20 +1100,22 @@
     },
     {
      "date": "2026-09-07",
-     "units": 31,
+     "units": 33,
      "byDevice": {
       "Apple TV": 9,
       "iPhone": 21,
+      "Desktop": 2,
       "iPad": 1
      }
     },
     {
      "date": "2026-09-08",
-     "units": 18,
+     "units": 19,
      "byDevice": {
       "iPad": 1,
       "Apple TV": 3,
-      "iPhone": 14
+      "iPhone": 14,
+      "Desktop": 1
      }
     },
     {
@@ -1116,72 +1129,77 @@
     },
     {
      "date": "2026-09-10",
-     "units": 258,
+     "units": 267,
      "byDevice": {
       "iPhone": 200,
       "iPad": 42,
+      "Desktop": 9,
       "Apple TV": 16
      }
     },
     {
      "date": "2026-09-11",
-     "units": 138,
+     "units": 143,
      "byDevice": {
       "iPad": 19,
+      "Desktop": 5,
       "iPhone": 92,
       "Apple TV": 27
      }
     },
     {
      "date": "2026-09-12",
-     "units": 73,
+     "units": 75,
      "byDevice": {
       "iPhone": 47,
       "Apple TV": 20,
-      "iPad": 6
+      "iPad": 6,
+      "Desktop": 2
      }
     },
     {
      "date": "2026-09-13",
-     "units": 42,
+     "units": 43,
      "byDevice": {
       "iPhone": 27,
+      "Desktop": 1,
       "Apple TV": 12,
       "iPad": 3
      }
     }
    ],
-   "total14d": 739,
-   "total28d": 985,
+   "total14d": 766,
+   "total28d": 1019,
    "byDevice": {
     "iPhone": 736,
     "Apple TV": 168,
-    "iPad": 129
+    "iPad": 129,
+    "Desktop": 36
    },
    "byCountry": {
-    "US": 597,
-    "GB": 42,
-    "CA": 42,
-    "DE": 22,
+    "US": 618,
+    "GB": 45,
+    "CA": 43,
+    "DE": 23,
     "FR": 20,
     "AU": 17,
-    "ES": 14,
-    "SA": 13,
+    "ES": 15,
+    "SA": 14,
+    "NG": 11,
     "KZ": 11,
+    "IN": 10,
     "NL": 10,
-    "NG": 10,
     "BR": 8,
-    "IN": 8,
     "DZ": 7
    },
    "byVersion": {
-    "1.42.5": 434,
+    "1.42.5": 451,
     "1.3": 194,
-    "1.41": 133,
-    "1.4": 96,
+    "1.41": 139,
+    "1.4": 98,
     "1.42.53": 69,
-    "1.42.9": 63,
-    "1.2": 44
+    "1.42.9": 66,
+    "1.2": 52
    },
    "perDevice": {
     "iPhone": {
@@ -1210,6 +1228,31 @@
       "1.42.9": 35
      },
      "units": 736
+    },
+    "Desktop": {
+     "byCountry": {
+      "US": 21,
+      "GB": 3,
+      "IN": 2,
+      "DE": 1,
+      "ES": 1,
+      "AR": 1,
+      "SA": 1,
+      "HR": 1,
+      "IE": 1,
+      "IT": 1,
+      "CA": 1,
+      "NG": 1,
+      "DK": 1
+     },
+     "byVersion": {
+      "1.42.5": 17,
+      "1.2": 8,
+      "1.41": 6,
+      "1.42.9": 3,
+      "1.4": 2
+     },
+     "units": 36
     },
     "Apple TV": {
      "byCountry": {
@@ -1265,6 +1308,10 @@
      },
      "units": 129
     }
+   },
+   "skippedProductTypes": {
+    "F7": 4040,
+    "F3": 195
    }
   },
   "playVitals": {
@@ -1307,7 +1354,7 @@
     "stale": true,
     "url": "https://play.google.com/console/developers/7973176709446146294/app/4975776198955106385/vitals/crashes/4c04da8b34da8b7ea6519d6c60887dc7/details",
     "fixedIn": null,
-    "ours": "Exception android.database.SQLException: Error code: 11, message: database disk image is malformed · at app.archivewatch.android.data.CatalogDatabase.queryRaw (CatalogDatabase.kt:561)"
+    "ours": "Exception android.database.SQLException: · at app.archivewatch.android.data.CatalogDatabase.queryRaw (CatalogDatabase.kt:561)"
    },
    {
     "type": "APPLICATION_NOT_RESPONDING",
@@ -2603,25 +2650,25 @@
     },
     {
      "date": "2026-09-14",
-     "views": 1587,
-     "visits": 623
+     "views": 1700,
+     "visits": 651
     }
    ],
-   "views28d": 15245,
-   "views7d": 15245,
-   "visits28d": 5871,
-   "visits7d": 5871,
+   "views28d": 15358,
+   "views7d": 15358,
+   "visits28d": 5899,
+   "visits7d": 5899,
    "byPath": {
-    "/": 6186,
-    "/browse": 3764,
-    "/item": 2740,
-    "/search": 964,
-    "/channels": 343,
-    "/series": 321,
+    "/": 6220,
+    "/browse": 3790,
+    "/item": 2773,
+    "/search": 978,
+    "/channels": 345,
+    "/series": 322,
     "/library": 275,
     "/collections": 177,
-    "/other": 164,
-    "/surprise": 135,
+    "/other": 166,
+    "/surprise": 136,
     "/collection": 91,
     "/about": 70
    },
@@ -2686,177 +2733,177 @@
   "apple_stores": {
    "ok": true,
    "note": "3 Apple platform(s)",
-   "at": "2026-09-14T17:57:09+00:00"
+   "at": "2026-09-14T18:26:44+00:00"
   },
   "apple_reviews": {
    "ok": true,
    "note": "6 review(s)",
-   "at": "2026-09-14T17:57:09+00:00"
+   "at": "2026-09-14T18:26:44+00:00"
   },
   "apple_rating": {
    "ok": true,
    "note": "4.5 from 6",
-   "at": "2026-09-14T17:57:09+00:00"
+   "at": "2026-09-14T18:26:45+00:00"
   },
   "apple_performance": {
    "ok": true,
    "note": "Apple has not aggregated enough device data yet",
-   "at": "2026-09-14T17:57:10+00:00"
+   "at": "2026-09-14T18:26:45+00:00"
   },
   "apple_downloads": {
    "ok": true,
-   "note": "1033 first-time download(s) over 31 day(s), 3 device type(s), 93 country/countries",
-   "at": "2026-09-14T17:57:32+00:00"
+   "note": "1069 first-time download(s) over 31 day(s), 4 device type(s), 93 country/countries; skipped 4235 unit(s) across 2 other product type(s)",
+   "at": "2026-09-14T18:27:06+00:00"
   },
   "play_stores": {
    "ok": true,
    "note": "3 track(s)",
-   "at": "2026-09-14T17:57:34+00:00"
+   "at": "2026-09-14T18:27:09+00:00"
   },
   "play_reviews": {
    "ok": true,
    "note": "0 review(s) in Play's 7-day window",
-   "at": "2026-09-14T17:57:35+00:00"
+   "at": "2026-09-14T18:27:10+00:00"
   },
   "play_rating": {
    "ok": false,
    "note": "Play listing carries no rating yet",
-   "at": "2026-09-14T17:57:35+00:00"
+   "at": "2026-09-14T18:27:11+00:00"
   },
   "play_vitals": {
    "ok": true,
    "note": "crashRate=0.0, anrRate=0.0",
-   "at": "2026-09-14T17:57:37+00:00"
+   "at": "2026-09-14T18:27:13+00:00"
   },
   "play_crashes": {
    "ok": true,
    "note": "16 cluster(s), 0 still on build 60",
-   "at": "2026-09-14T17:58:06+00:00"
+   "at": "2026-09-14T18:27:41+00:00"
   },
   "play_users": {
    "ok": true,
    "note": "1 day(s) of users, 0 dimension(s)",
-   "at": "2026-09-14T17:58:11+00:00"
+   "at": "2026-09-14T18:27:48+00:00"
   },
   "play_reports": {
    "ok": true,
-   "note": "STALE by 6 day(s) — newest install row is 2026-09-08. Google has stopped writing this export; ratings from the same bucket are current. 598 install(s) over 28 day(s)",
-   "at": "2026-09-14T17:58:21+00:00"
+   "note": "598 install(s) over 28 day(s) to 2026-09-08 (6d behind — Play's normal reporting lag), 7 report(s)",
+   "at": "2026-09-14T18:27:59+00:00"
   },
   "play_daily_exports": {
    "ok": true,
    "note": "ratings: 23 day(s) to 2026-09-11, crashes: 32 day(s) to 2026-09-12",
-   "at": "2026-09-14T17:58:32+00:00"
+   "at": "2026-09-14T18:28:15+00:00"
   },
   "play_acquisition": {
    "ok": true,
    "note": "599 acquisition(s) from 1485 visitor(s) to 2026-09-08, 40% conversion",
-   "at": "2026-09-14T17:58:34+00:00"
+   "at": "2026-09-14T18:28:18+00:00"
   },
   "amazon_vitals": {
    "ok": true,
    "note": "authenticated; Amazon holds no vitals for this app yet (3/3 metric sets empty)",
-   "at": "2026-09-14T17:58:35+00:00"
+   "at": "2026-09-14T18:28:19+00:00"
   },
   "amazon_installs": {
    "ok": true,
    "note": "30 install(s) across 1 month(s), 5 countries",
-   "at": "2026-09-14T17:58:35+00:00"
+   "at": "2026-09-14T18:28:20+00:00"
   },
   "roku_engagement": {
    "ok": true,
    "note": "no delivery waiting — the schedule fires daily at 06:00, so this is normal between runs",
-   "at": "2026-09-14T17:58:36+00:00"
+   "at": "2026-09-14T18:28:20+00:00"
   },
   "manual_stores": {
    "ok": true,
    "note": "5 declared store(s)",
-   "at": "2026-09-14T17:58:36+00:00"
+   "at": "2026-09-14T18:28:20+00:00"
   },
   "social_programme": {
    "ok": true,
    "note": "38 post(s) across 5 platform(s), 17 measured",
-   "at": "2026-09-14T17:58:36+00:00"
+   "at": "2026-09-14T18:28:20+00:00"
   },
   "social_reach": {
    "ok": true,
    "note": "bluesky=1, mastodon=0, instagram=1",
-   "at": "2026-09-14T17:58:37+00:00"
+   "at": "2026-09-14T18:28:21+00:00"
   },
   "social_replies": {
    "ok": true,
    "note": "0 reply/mention notification(s)",
-   "at": "2026-09-14T17:58:38+00:00"
+   "at": "2026-09-14T18:28:22+00:00"
   },
   "social_liveness": {
    "ok": true,
    "note": "21 live, 4 deleted, 13 could not be checked",
-   "at": "2026-09-14T17:58:46+00:00"
+   "at": "2026-09-14T18:28:29+00:00"
   },
   "youtube_channel": {
    "ok": true,
    "note": "stats need youtube.readonly (the token is upload-only, by design), 0 comment(s)",
-   "at": "2026-09-14T17:58:46+00:00"
+   "at": "2026-09-14T18:28:30+00:00"
   },
   "mentions_reddit": {
    "ok": true,
    "note": "0 kept",
-   "at": "2026-09-14T17:58:47+00:00"
+   "at": "2026-09-14T18:28:31+00:00"
   },
   "mentions_hn": {
    "ok": true,
    "note": "0 kept of 0",
-   "at": "2026-09-14T17:58:48+00:00"
+   "at": "2026-09-14T18:28:31+00:00"
   },
   "mentions_lemmy": {
    "ok": true,
    "note": "0 kept",
-   "at": "2026-09-14T17:58:49+00:00"
+   "at": "2026-09-14T18:28:33+00:00"
   },
   "mentions_news": {
    "ok": true,
    "note": "0 kept",
-   "at": "2026-09-14T17:58:50+00:00"
+   "at": "2026-09-14T18:28:33+00:00"
   },
   "mentions_bluesky": {
    "ok": true,
    "note": "1 kept",
-   "at": "2026-09-14T17:58:51+00:00"
+   "at": "2026-09-14T18:28:34+00:00"
   },
   "mentions_mastodon": {
    "ok": true,
    "note": "1 kept",
-   "at": "2026-09-14T17:58:53+00:00"
+   "at": "2026-09-14T18:28:37+00:00"
   },
   "github": {
    "ok": true,
    "note": "1 star(s), 0 open issue(s), 0 from outside",
-   "at": "2026-09-14T17:58:57+00:00"
+   "at": "2026-09-14T18:28:39+00:00"
   },
   "workflows": {
    "ok": true,
    "note": "0 finding(s), 0 urgent",
-   "at": "2026-09-14T18:00:04+00:00"
+   "at": "2026-09-14T18:29:58+00:00"
   },
   "catalog": {
    "ok": true,
    "note": "24312 items, schema 12",
-   "at": "2026-09-14T18:00:04+00:00"
+   "at": "2026-09-14T18:29:59+00:00"
   },
   "web_usage": {
    "ok": true,
-   "note": "15245 route view(s) and 5871 visit(s) over 6 day(s), 14 surface(s)",
-   "at": "2026-09-14T18:00:04+00:00"
+   "note": "15358 route view(s) and 5899 visit(s) over 6 day(s), 14 surface(s)",
+   "at": "2026-09-14T18:29:59+00:00"
   },
   "distribution": {
    "ok": true,
    "note": "App Store: 6 rated",
-   "at": "2026-09-14T18:00:04+00:00"
+   "at": "2026-09-14T18:29:59+00:00"
   },
   "asks": {
    "ok": true,
    "note": "0 request(s), 5 bit(s) of praise",
-   "at": "2026-09-14T18:00:04+00:00"
+   "at": "2026-09-14T18:29:59+00:00"
   }
  },
  "_apply": true,
@@ -2959,8 +3006,8 @@
    "urgent": 0
   }
  ],
- "generatedAt": "2026-09-14T18:00:04+00:00",
- "repoVersion": "1.42.104",
- "repoBuild": "1116",
+ "generatedAt": "2026-09-14T18:29:59+00:00",
+ "repoVersion": "1.42.106",
+ "repoBuild": "1118",
  "_": "Written by tools/pulse_collect.py. `history` is the series and is append-only per day; everything else is the latest reading. A source that could not answer says so in `sources` — never assume a zero."
 }
