@@ -250,11 +250,50 @@ const crashRow = (c) => ({
   href: c.url,
 });
 
-function glance(d) {
+function glance(d, list) {
   const box = $("tiles"); box.innerHTML = ""; box.className = "panels";
   const h = d.history || [];
   const cur = h[h.length - 1] || {}, prev = h.length > 1 ? h[h.length - 2] : null;
   const off = (name) => d.sources?.[name] && !d.sources[name].ok;
+
+  /* 0. WHO IS INSTALLING, everywhere, as SMALL MULTIPLES.
+        docs/PULSE-ANALYTICS.md §5: five platforms' installs belong in five
+        aligned panels sharing one scale, not five series in one frame. Overlaid,
+        the largest platform sets the axis and the smallest becomes a flat line
+        against the floor — which reads as "nothing is happening there" when the
+        truth is "this chart cannot show it". Aligned and sharing a scale, the
+        comparison a reader actually wants — is this platform's SHAPE like that
+        one's? — survives.
+        A platform with no series at all is DRAWN and labelled, never omitted:
+        an absent panel is indistinguishable from a platform we forgot. */
+  // INSTALLS ONLY. Web's series is route VIEWS — 15,245 against Android's 598
+  // — and putting it on this shared scale did two wrong things at once: it
+  // compared unlike units, and it set a peak that flattened every app platform
+  // into a line on the floor. A shared scale is only honest across one unit.
+  const reachRow = (list || []).filter((p) => p.family === "app" && p.views == null);
+  if (reachRow.length) {
+    const peak = Math.max(1, ...reachRow.flatMap((p) => (p.daily || []).map((r) => r.v || 0)));
+    const cells = reachRow.map((p) => {
+      const ser = (p.daily || []).map((r) => r.v || 0);
+      const total = ser.reduce((a, b) => a + b, 0);
+      const svg = ser.length >= 2
+        ? C.spark(ser, { label: `${p.name} installs`, w: 150, h: 34, max: peak })
+        : "";
+      return `<div class="sm">
+          <div class="sm-k">${p.name}</div>
+          <div class="sm-v">${ser.length ? int(total) : "<small>no series</small>"}</div>
+          <div class="sm-c">${svg}</div>
+          <div class="sm-n">${ser.length ? `${ser.length}d` : (p.noApi ? "no API" : "not reporting")}</div>
+        </div>`;
+    }).join("");
+    panel(box, {
+      k: "Who is installing", right: `${reachRow.length} platforms`,
+      chart: { html: `<div class="smalls">${cells}</div>` },
+      cap: "one panel per platform on a SHARED vertical scale, so the shapes are "
+         + "comparable — peak " + int(peak) + " a day. A platform with no series "
+         + "is drawn and labelled rather than dropped.",
+    });
+  }
 
   /* 1. The rating, as a bullet against the only scale it has — five stars —
         with 3.0 and 4.0 as the bands every store treats as the real cut
@@ -914,8 +953,37 @@ function platforms(d) {
                         installs: installs?.total
                                ?? installs?.headline?.["Account Channel Installs"]
                                ?? null,
-                        series: installs?.daily || null,
-                        dims: installs?.byCountry || null,
+                        // The renderer reads `daily` as [{date, v}] and
+                        // `countries` as {code: n}. Feeding it `series`/`dims`
+                        // in the collectors' own shapes drew NOTHING — the tab
+                        // counted 30 and 112 installs and the panel charted
+                        // none of them, which is a worse failure than showing
+                        // nothing at all because the count implies a chart.
+                        daily: name === "Fire TV"
+                          ? (installs?.daily || []).map((r) => ({ date: r.date, v: r.installs }))
+                          : (installs?.daily || []).map((r) =>
+                              ({ date: r.date, v: r["Channel Installs"] ?? 0 })),
+                        countries: name === "Fire TV"
+                          ? Object.fromEntries((installs?.byCountry || [])
+                              .map((c) => [c.key, c.value]))
+                          : null,
+                        uninstalls: name === "Roku"
+                          ? installs?.headline?.["Account Channel Uninstalls"] : null,
+                        // Roku's delivery carries ten metrics a day, not one.
+                        // Each gets its OWN chart: a viewer and a visitor are
+                        // different people and averaging them into a single
+                        // "engagement" line would hide the bounce rate, which
+                        // is the number that says whether anyone stayed.
+                        rawDaily: installs?.daily || null,
+                        extra: name === "Roku" ? [
+                          { k: "Visitors and viewers", col: "Visitors", alt: "Viewers",
+                            cap: "a VISITOR opened the channel; a VIEWER started a film. "
+                               + "The gap between them is the bounce rate below." },
+                          { k: "Bounce rate", col: "Bounce Rate", suffix: "%",
+                            cap: "the share who opened it and streamed nothing" },
+                          { k: "Minutes streamed", col: "Total Minutes Streamed",
+                            cap: "total minutes across every account that day" },
+                        ] : null,
                         vitals: row.api === "vitals" ? d.health?.amazonVitals : null });
   });
 
@@ -1095,6 +1163,23 @@ function appPlatform(d, p) {
     });
   }
 
+  // A delivered platform's OTHER daily metrics, one chart each.
+  (p.extra || []).forEach((x) => {
+    const rows = (p.rawDaily || []).filter((r) => r[x.col] != null);
+    if (rows.length < 2) return;
+    panel(box, {
+      k: x.k, right: `${rows.length} days`,
+      v: `${int(rows[rows.length - 1][x.col])}${x.suffix || ""}`,
+      chart: { html: C.runChart(rows.map((r) => r[x.col]), { label: x.k }) },
+      cap: x.cap,
+      detail: [...rows].reverse().map((r) => ({
+        label: r.date,
+        value: `${r[x.col]}${x.suffix || ""}`
+             + (x.alt && r[x.alt] != null ? ` · ${x.alt.toLowerCase()} ${r[x.alt]}` : ""),
+      })),
+    });
+  });
+
   const geo = p.countries && Object.entries(p.countries).slice(0, 10);
   if (geo?.length) {
     panel(box, {
@@ -1268,9 +1353,14 @@ fetch(`${DATA}?t=${Math.floor(Date.now() / 6e4)}`, { cache: "no-store" })
     $("when").textContent = d.generatedAt
       ? `read ${ago(d.generatedAt)} · ${d.generatedAt.replace("T", " ").replace("+00:00", " UTC")}`
       : "";
-    ticker(d); needs(d); stores(d); glance(d);
-    saidChips(d); said(d); social(d); trend(d); sources(d);
+    // `list` is built FIRST: glance() draws the cross-platform small multiples
+    // from it. Calling glance before this `const` threw a temporal-dead-zone
+    // ReferenceError which the fetch chain's own .catch() then rendered as
+    // "Could not load the readings" — a CODE bug wearing a DATA failure's
+    // clothes, and invisible in the console because the catch handled it.
     const list = platforms(d);
+    ticker(d); needs(d); stores(d); glance(d, list);
+    saidChips(d); said(d); social(d); trend(d); sources(d);
     tabs(d, list);
     // "programme" is a VIEW, not a platform, so it is not in `list` — and the
     // validity test below is what decides whether a hash is honoured. Omitting

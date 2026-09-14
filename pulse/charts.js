@@ -78,13 +78,20 @@ function bars(rows, { max = null, unit = "", showZero = true } = {}) {
 /* ── spark: shape over time, word-sized, beside the number ───────────────
    An area under the line so a glance reads the level, not just the wiggle;
    a dot on the last reading so "now" is findable without a legend.        */
-function spark(vals, { label = "", w = 220, h = 42 } = {}) {
+/* `max` (and `min`) pin the vertical scale to something OUTSIDE this series,
+   which is what makes a row of sparks a set of SMALL MULTIPLES rather than a
+   row of unrelated shapes. Without it every spark autoscales to its own range,
+   so a platform with 3 installs a day and one with 300 draw the same picture —
+   and a caption claiming a shared scale would simply be false. Default stays
+   self-scaling: a lone spark beside a number is right to use its own range. */
+function spark(vals, { label = "", w = 220, h = 42, max = null, min = null } = {}) {
   const pts = vals.map((v, i) => [i, typeof v === "number" ? v : null])
     .filter(([, v]) => v !== null);
   if (pts.length < 2) return "";
   const pad = 3;
   const nums = pts.map(([, v]) => v);
-  const lo = Math.min(...nums), hi = Math.max(...nums);
+  const lo = min != null ? min : Math.min(...nums);
+  const hi = max != null ? max : Math.max(...nums);
   const span = (hi - lo) || 1;
   const X = (i) => pad + (i / Math.max(1, vals.length - 1)) * (w - pad * 2);
   const Y = (v) => h - pad - ((v - lo) / span) * (h - pad * 2);

@@ -405,3 +405,16 @@ section[hidden] { display: none !important; }
 .lede { padding: 18px var(--pad) 0; font: var(--l4); color: var(--text-dim);
         max-width: 62ch; }
 .lede b { color: var(--text); font-weight: 600; }
+
+/* Small multiples: one cell per platform, all on one shared scale.
+   A grid rather than flex so every cell is the SAME width — unequal cells
+   would make the shapes incomparable, which is the only reason the panel
+   exists. */
+.smalls { display: grid; gap: 10px 14px;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); margin-top: 6px; }
+.sm { min-width: 0; }
+.sm-k { font-size: 12px; font-weight: 600; letter-spacing: .01em; }
+.sm-v { font-size: 20px; font-variant-numeric: tabular-nums; line-height: 1.15; }
+.sm-c { height: 34px; }
+.sm-c svg { width: 100%; height: 34px; display: block; }
+.sm-n { font-size: 11px; opacity: .62; }
