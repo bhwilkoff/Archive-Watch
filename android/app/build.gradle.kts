@@ -42,6 +42,14 @@ androidComponents {
     }
 }
 
+/** The one version number (Decision 101). Fails loudly rather than guessing:
+ *  a silent fallback would put the drift straight back. */
+val marketingVersion: String = rootProject.file("../AppVersion.xcconfig")
+    .readLines()
+    .firstOrNull { it.trimStart().startsWith("MARKETING_VERSION") }
+    ?.substringAfter("=")?.trim()
+    ?: error("MARKETING_VERSION not found in AppVersion.xcconfig")
+
 android {
     namespace = "app.archivewatch.android"
     // The 2026.05 Compose BOM requires API 37 to compile against;
@@ -58,9 +66,15 @@ android {
         // Play rejects ANY previously-uploaded versionCode — bump +1 before
         // every Play upload, even if that upload was never released.
         versionCode = 58
-        // Marketing version tracks the Apple apps (AppVersion.xcconfig) so a
-        // user report names one version family across platforms.
-        versionName = "1.42.6"
+        // Marketing version tracks the Apple apps so a user report names one
+        // version family across platforms — READ from AppVersion.xcconfig
+        // rather than copied, because copying is what went wrong: this line
+        // said 1.42.6 while the Apple apps were at 1.42.94, so for 88 patch
+        // versions an Android user reporting a problem named a version family
+        // that had not existed for weeks. The comment already claimed the
+        // contract (Decision 101, "AppVersion.xcconfig is the ONE version
+        // number"); nothing enforced it.
+        versionName = marketingVersion
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables { useSupportLibrary = true }
