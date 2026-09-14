@@ -79,6 +79,34 @@ def main() -> int:
         for o in sorted(objs, key=lambda x: x.get("updated", ""), reverse=True)[:25]:
             name = o["name"].rsplit("/", 1)[-1]
             print(f"  {o.get('updated','?')[:19]}  {int(o.get('size',0)):>9}  {name}")
+        # And DUMP our own September install files. The listing says they are
+        # fresh and fat; the question the listing cannot answer is what is IN
+        # them, which is the only thing that explains a reader stopping at a
+        # date three weeks before the file was written.
+        if prefix == "stats/installs/":
+            for o in objs:
+                n = o["name"]
+                if PKG in n and "_202609_" in n:
+                    url = (f"https://storage.googleapis.com/storage/v1/b/"
+                           f"{urllib.parse.quote(bucket)}/o/"
+                           f"{urllib.parse.quote(n, safe='')}?alt=media")
+                    req = urllib.request.Request(url, headers={"Authorization": f"Bearer {tok}"})
+                    raw = urllib.request.urlopen(req, timeout=60).read()
+                    # Decision 109: these are UTF-16 with CRLF.
+                    for enc in ("utf-16", "utf-8-sig", "utf-8"):
+                        try:
+                            text = raw.decode(enc)
+                            break
+                        except Exception:                            # noqa: BLE001
+                            text = None
+                    lines = (text or "").splitlines()
+                    print(f"\n  --- {n.rsplit('/',1)[-1]}  {len(raw)} bytes, "
+                          f"{len(lines)} line(s)")
+                    for ln in lines[:6]:
+                        print("      " + ln[:170])
+                    if len(lines) > 6:
+                        print(f"      … and {len(lines)-6} more; LAST: {lines[-1][:170]}")
+
         if prefix == "stats/":
             kinds = sorted({o["name"].split("/")[1] for o in objs if o["name"].count("/") > 1})
             print(f"  report kinds present: {kinds}")
