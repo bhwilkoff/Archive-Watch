@@ -445,6 +445,54 @@
    "kind": "silent-film",
    "mediaId": null,
    "reviewer": null
+  },
+  {
+   "at": "2026-09-14T19:55:40.512849+00:00",
+   "id": "nightandthecity1950",
+   "title": "Night and the City",
+   "slot": "now-showing",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mvivd5uzkl2v",
+   "format": "video",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-09-14T19:55:40.512849+00:00",
+   "id": "nightandthecity1950",
+   "title": "Night and the City",
+   "slot": "now-showing",
+   "platform": "mastodon",
+   "url": "https://mastodon.social/@archivewatch/117271151497124090",
+   "format": "video",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-09-14T19:55:40.512849+00:00",
+   "id": "nightandthecity1950",
+   "title": "Night and the City",
+   "slot": "now-showing",
+   "platform": "instagram",
+   "url": "https://www.instagram.com/p/DdR7866oEr3/",
+   "format": "card",
+   "kind": "feature-film",
+   "mediaId": "117271150846961725",
+   "reviewer": null
+  },
+  {
+   "at": "2026-09-14T19:55:40.512849+00:00",
+   "id": "nightandthecity1950",
+   "title": "Night and the City",
+   "slot": "now-showing",
+   "platform": "youtube",
+   "url": "https://youtube.com/watch?v=z2PUpS4OlQc",
+   "format": "video",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": null
   }
  ]
 }

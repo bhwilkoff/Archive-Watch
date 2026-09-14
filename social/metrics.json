@@ -266,6 +266,99 @@
     "replies": 0,
     "quotes": 0
    }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3muzm6wlg5s2k",
+   "platform": "bluesky",
+   "id": "a-trip-to-the-moon-1902-colorized",
+   "slot": "viewer-said",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-09-08T18:02:20.932858+00:00",
+   "sampled": "2026-09-14T19:56:20.777074+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117236731894909295",
+   "platform": "mastodon",
+   "id": "a-trip-to-the-moon-1902-colorized",
+   "slot": "viewer-said",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-09-08T18:02:20.932858+00:00",
+   "sampled": "2026-09-14T19:56:20.777074+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 1,
+    "replies": 1
+   }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mvfxvi3ung2d",
+   "platform": "bluesky",
+   "id": "EatforHe1954",
+   "slot": "from-the-vaults",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-09-13T16:03:44.914626+00:00",
+   "sampled": "2026-09-14T19:56:20.777074+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117264577725590365",
+   "platform": "mastodon",
+   "id": "EatforHe1954",
+   "slot": "from-the-vaults",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-09-13T16:03:44.914626+00:00",
+   "sampled": "2026-09-14T19:56:20.777074+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mvg6r7p4k72i",
+   "platform": "bluesky",
+   "id": "therealwest",
+   "slot": "from-the-vaults",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-09-13T18:06:34.007255+00:00",
+   "sampled": "2026-09-14T19:56:20.777074+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117265060135029774",
+   "platform": "mastodon",
+   "id": "therealwest",
+   "slot": "from-the-vaults",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-09-13T18:06:34.007255+00:00",
+   "sampled": "2026-09-14T19:56:20.777074+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
   }
  ]
 }
