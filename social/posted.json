@@ -493,6 +493,18 @@
    "kind": "feature-film",
    "mediaId": null,
    "reviewer": null
+  },
+  {
+   "at": "2026-09-15T01:27:10.140358+00:00",
+   "id": "BillSpragueCollection-WhatPriceGoofy-CharleyChase",
+   "title": "What Price Goofy?",
+   "slot": "viewer-said",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mvjhtykntj2i",
+   "format": "video",
+   "kind": "silent-film",
+   "mediaId": null,
+   "reviewer": "Nells250"
   }
  ]
 }

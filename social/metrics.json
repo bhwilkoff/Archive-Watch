@@ -359,6 +359,22 @@
     "reposts": 0,
     "replies": 0
    }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mvgvvfxowy2u",
+   "platform": "bluesky",
+   "id": "TheSpringtimeOfLifeForYT",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-09-14T01:00:31.230568+00:00",
+   "sampled": "2026-09-15T01:27:25.070888+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
   }
  ]
 }
