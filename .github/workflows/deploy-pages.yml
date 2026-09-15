@@ -83,6 +83,20 @@ jobs:
           mkdir _site
           rsync -a --exclude='.git' --exclude='_site' --exclude='catalog.json' --exclude='catalog.json.gz' ./ _site/
 
+      - name: Build the legacy Roku sideload (/roku-legacy/archivewatch-roku.zip)
+        run: |
+          # Roku's store stopped offering NEW channels to its 2011-12 players
+          # (Roku OS 9.1, sunset 2019); developer-mode sideload is the only
+          # route, and the zip is built here from the same roku/ source as the
+          # store package so it can never lag it (owner, 2026-09-14). The
+          # rsync above already placed roku-legacy/index.html; the zip and
+          # version.json land beside it.
+          python3 tools/roku.py zip --out _site/roku-legacy/archivewatch-roku.zip
+          test -s _site/roku-legacy/version.json
+          bytes=$(stat -c %s _site/roku-legacy/archivewatch-roku.zip)
+          if [ "$bytes" -lt 1000000 ]; then echo "::error::sideload zip is $bytes bytes — the channel source is missing"; exit 1; fi
+          python3 -c "import zipfile;z=zipfile.ZipFile('_site/roku-legacy/archivewatch-roku.zip');assert 'manifest' in z.namelist(),'manifest not at zip root'"
+
       - name: Build share pages (/item/<id>, /series/<slug>)
         run: |
           # Every share URL the apps, the QR cards and the social programme

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Archive Watch on an older Roku — Archive Watch</title>
+  <meta name="description" content="How to install Archive Watch on a Roku that no longer receives new channels (Roku 2, Roku LT, Roku HD, 2012 Streaming Stick) using Roku's developer mode.">
+  <meta name="theme-color" content="#0A0A0A">
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/legal.css">
+</head>
+<body class="legal-page">
+
+  <header class="legal-topbar">
+    <span class="brand-mark" aria-hidden="true"></span>
+    <h1>Archive Watch</h1>
+    <a href="../">Home</a>
+  </header>
+
+  <main class="legal-main">
+    <h2>Archive Watch on an older Roku</h2>
+    <p class="updated">Current sideload build: <strong id="ver">…</strong> <span id="built" class="muted"></span></p>
+
+    <p>
+      Archive Watch is in the <a href="https://channelstore.roku.com/details/12a571a872732e40fe8d1d6c59f3849f:5ec8f46dcec2324229c8d096ea23c089/archive-watch">Roku Channel Store</a>,
+      and on any Roku made since 2013 that is the way to get it. But Roku
+      stopped offering <em>new</em> channels to its 2011–2012 players at the
+      end of 2019, and nothing a developer can set changes that. If yours is
+      one of those, this page is for you. The app runs on them — this build
+      was tested on a Roku 2 XD, the least powerful of the group — you just
+      have to install it yourself, using a feature Roku builds into every
+      player: <strong>developer mode</strong>.
+    </p>
+
+    <h3>Which players this is for</h3>
+    <p>
+      Roku's last update for these was Roku OS 9.1, and they cannot see
+      channels published since:
+    </p>
+    <ul>
+      <li>Roku 2 HD (3000), Roku 2 XD (3050), Roku 2 XS (3100)</li>
+      <li>Roku LT (2400, 2450), Roku HD (2500)</li>
+      <li>Roku Streaming Stick from 2012 (3400, 3420)</li>
+    </ul>
+    <p>
+      Check yours under <em>Settings → System → About</em>. Anything on Roku
+      OS 9.1 qualifies. Players older than these (the 2010 boxes, model
+      numbers starting N1 or 2000–2100) run Roku OS 3 and cannot run this app
+      at all. Anything newer should use the Channel Store.
+    </p>
+
+    <h3>1. Download the app</h3>
+    <p>
+      <a class="btn-primary" id="dl" href="archivewatch-roku.zip" download>Download archivewatch-roku.zip</a>
+    </p>
+    <p>
+      Save it as a <code>.zip</code>. <strong>Do not unzip it</strong> — the
+      Roku installs the zip as-is. It is the same app as the store version,
+      built from the same source, only without the store's encryption.
+    </p>
+
+    <h3>2. Turn on developer mode on the Roku</h3>
+    <p>
+      With the Roku on its home screen, press this sequence on the remote,
+      fairly briskly:
+    </p>
+    <p class="keys">
+      <strong>Home Home Home &nbsp; Up Up &nbsp; Right Left Right Left Right</strong>
+    </p>
+    <p>
+      A <em>Developer Settings</em> screen appears. Select <strong>Enable
+      installer and restart</strong>. Roku will show its Developer Tools
+      Terms of Use — read it, then choose <strong>I Agree</strong>. You will
+      be asked to set a <strong>webserver password</strong>: pick anything
+      you will remember; you need it once, in the next step. The screen
+      also shows the Roku's <strong>IP address</strong> (something like
+      <code>192.168.1.23</code>) — write it down. The Roku restarts.
+    </p>
+
+    <h3>3. Upload the app from a computer</h3>
+    <p>
+      On a computer or phone connected to the <strong>same Wi-Fi network</strong>
+      as the Roku, open a web browser and go to the address you wrote down,
+      e.g. <code>http://192.168.1.23</code> (plain <code>http</code>, not
+      <code>https</code>). Sign in with the username <code>rokudev</code> and
+      the password you just set.
+    </p>
+    <p>
+      On the <em>Development Application Installer</em> page, click
+      <strong>Upload</strong>, choose <code>archivewatch-roku.zip</code>, then
+      click <strong>Install</strong>. After a few seconds the page reports
+      <em>Install Success</em> and the app opens on the television by itself.
+    </p>
+
+    <h3>4. Finding it later</h3>
+    <p>
+      Archive Watch appears as the <strong>last tile</strong> on the Roku's
+      home screen. Launch it from there like any other channel.
+    </p>
+
+    <h3>Things to know</h3>
+    <ul>
+      <li>
+        <strong>A Roku holds one sideloaded app at a time.</strong> Installing
+        another developer app replaces this one.
+      </li>
+      <li>
+        <strong>It does not update itself.</strong> The Channel Store updates
+        channels automatically; a sideloaded app stays at the version you
+        uploaded. To update, come back to this page — the current build is
+        shown at the top — and repeat step 3. Nothing else is needed; the
+        upload replaces the old version in place, and your favorites and
+        watch positions are kept.
+      </li>
+      <li>
+        <strong>To remove it,</strong> highlight its tile on the home screen,
+        press <strong>*</strong> and choose <em>Remove channel</em>, or open
+        the installer page and click <em>Delete</em>. To leave developer mode
+        entirely, enter the key sequence again and choose <em>Disable
+        installer and restart</em>.
+      </li>
+      <li>
+        <strong>What it costs the old box.</strong> On a Roku 2 XD the app
+        takes about ten seconds to load its catalog, browsing is slower than
+        on a current Roku, and a few decorations (the hero animation,
+        playlist sharing by QR code) are switched off to keep it responsive.
+        Films play at full quality — playback is done by the Roku itself,
+        not by the app.
+      </li>
+      <li>
+        <strong>Nothing about this is a hack.</strong> Developer mode is a
+        documented Roku feature for installing apps outside the store. It
+        does not modify the player, void anything, or affect your other
+        channels. Everything the app does is
+        <a href="../privacy.html">described here</a>.
+      </li>
+    </ul>
+
+    <p class="muted">
+      Stuck? <a href="mailto:ben@learningischange.com">ben@learningischange.com</a>.
+      Tell me the model number from Settings → System → About and what the
+      installer page said.
+    </p>
+  </main>
+
+  <script>
+    // The deploy writes version.json beside the zip; show it so a viewer can
+    // tell whether the copy on their Roku is current.
+    fetch('version.json', { cache: 'no-store' }).then(function (r) { return r.json(); }).then(function (v) {
+      document.getElementById('ver').textContent = v.version;
+      var d = new Date(v.built_at);
+      if (!isNaN(d)) document.getElementById('built').textContent = '(built ' + d.toLocaleDateString() + ')';
+    }).catch(function () { document.getElementById('ver').textContent = 'see the file'; });
+  </script>
+</body>
+</html>

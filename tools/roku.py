@@ -44,6 +44,7 @@ Env: AW_ROKU_HOST (default 10.0.0.155), AW_ROKU_PASS (default 8536).
 import argparse
 import datetime
 import io
+import json
 import os
 import re
 import socket
@@ -204,6 +205,30 @@ def cmd_deploy(args):
     print("deploy OK")
 
 
+def cmd_zip(args):
+    """Write the sideload zip + a version.json beside it. The SAME source and
+    the same walk as `deploy`, so the file a viewer downloads from
+    archivewatch.org/roku-legacy/ is exactly what the store package was built
+    from — only the encryption differs, and a sideload needs none."""
+    data = zip_channel(args.dir)
+    out = args.out
+    os.makedirs(os.path.dirname(out) or ".", exist_ok=True)
+    with open(out, "wb") as fh:
+        fh.write(data)
+    man = {}
+    with open(os.path.join(REPO, args.dir, "manifest"), encoding="utf-8") as fh:
+        for line in fh:
+            if "=" in line and not line.startswith("#"):
+                k, v = line.rstrip("\n").split("=", 1)
+                man[k.strip()] = v.strip()
+    ver = {"version": f"{man.get('major_version','0')}.{man.get('minor_version','0')}.{int(man.get('build_version','0') or 0)}",
+           "build_version": man.get("build_version"), "bytes": len(data),
+           "built_at": datetime.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")}
+    with open(os.path.join(os.path.dirname(out) or ".", "version.json"), "w", encoding="utf-8") as fh:
+        json.dump(ver, fh, indent=1)
+    print(f"wrote {out} ({len(data) // 1024} KB) version {ver['version']}")
+
+
 def cmd_playstate(_args):
     """Roku's OWN account of playback — the trustworthy oracle.
 
@@ -335,6 +360,8 @@ def main():
     sub.add_parser("info").set_defaults(fn=cmd_info)
     sub.add_parser("playstate").set_defaults(fn=cmd_playstate)
     d = sub.add_parser("deploy"); d.add_argument("--dir", default="roku"); d.set_defaults(fn=cmd_deploy)
+    z = sub.add_parser("zip"); z.add_argument("--dir", default="roku")
+    z.add_argument("--out", default="build/roku-legacy/archivewatch-roku.zip"); z.set_defaults(fn=cmd_zip)
     k = sub.add_parser("keys"); k.add_argument("keys", nargs="+")
     k.add_argument("--settle", type=float, default=0.9); k.set_defaults(fn=cmd_keys)
     t = sub.add_parser("type"); t.add_argument("text"); t.set_defaults(fn=cmd_type)
