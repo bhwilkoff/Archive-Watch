@@ -1,7 +1,7 @@
 # Pulse — one place that knows how Archive Watch is doing
 
 **<https://archivewatch.org/pulse/>** — unlisted (robots-disallowed, linked from
-nowhere), refreshed once a day at 07:17 America/Denver by `.github/workflows/pulse.yml`.
+nowhere), refreshed once a day at ~07:00 (cron 08:17 UTC; GitHub runs this repo's schedules 4–5 h late, measured 2026-09-15) America/Denver by `.github/workflows/pulse.yml`.
 
 Every store, every review, every mention, every request, and the numbers over
 time. Built by `tools/pulse_collect.py` into `ops/pulse.json`; rendered by

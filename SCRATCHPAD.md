@@ -30,7 +30,7 @@ on a GitHub Release, never in git.
 
 **Reading how it is doing**: <https://archivewatch.org/pulse/> — seven
 audience views, every store read by the route it actually offers, refreshed
-daily 07:17 MT (Decisions 108/109/123, `docs/PULSE-ANALYTICS.md`). The
+daily ~07:00 MT — cron 08:17 UTC, because GitHub runs this repo's schedules 4–5 h late (Decisions 108/109/123, `docs/PULSE-ANALYTICS.md`). The
 social programme posts daily to five platforms (`docs/SOCIAL-PROGRAM.md`,
 Decision 120).
 

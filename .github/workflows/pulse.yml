@@ -13,7 +13,13 @@ name: Pulse
 
 on:
   schedule:
-    - cron: "17 13 * * *"     # 07:17 America/Denver — before the owner's day
+    # Intended landing: before the owner's day. GitHub's scheduler runs this
+    # repo's crons 4-5 HOURS late, consistently (measured 2026-09-15 across
+    # four daily workflows: verify-playback 10:20 -> 15:00 UTC, health 07:13
+    # -> 12:38, rights 01:10 -> 06:04, and this one 13:17 -> 16:18..18:37).
+    # 13:17 UTC therefore reached the page around noon Mountain, never 07:17.
+    # 08:17 UTC (02:17 MT) + the lag lands ~06:30-07:30 MT.
+    - cron: "17 8 * * *"
   workflow_dispatch:
 
 permissions:
