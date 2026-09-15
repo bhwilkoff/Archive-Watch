@@ -1,5 +1,5 @@
 {
- "_": "Store facts that no API exposes. Amazon has a Vitals API (read live); its UNITS are console-only. Roku/LG/Samsung expose nothing at all. Edit by hand when a state changes \u2014 the dashboard shows these beside the machine-read stores so the estate is never half-reported.",
+ "_": "Store facts that no API exposes. Amazon has a Vitals API (read live); its UNITS are console-only. Roku/LG/Samsung expose nothing at all. Edit by hand when a state changes — the dashboard shows these beside the machine-read stores so the estate is never half-reported.",
  "stores": [
   {
    "store": "Amazon Appstore",
@@ -7,7 +7,7 @@
    "state": "LIVE",
    "version": "1.42.6 (vc57)",
    "since": "2026-09-10",
-   "note": "Live version is read from the API, not declared here. Installs come from the sales report \u2014 every free install is a $0.00 Charge row. Device coverage went 38 -> 91 with the minSdk 23 build (Decision 115).",
+   "note": "Live version is read from the API, not declared here. Installs come from the sales report — every free install is a $0.00 Charge row. Device coverage went 38 -> 91 with the minSdk 23 build (Decision 115).",
    "url": "https://developer.amazon.com/apps-and-games/console/apps/list.html",
    "api": "vitals",
    "units30d": 2,
@@ -19,13 +19,12 @@
    "store": "Roku Channel Store",
    "platform": "Roku",
    "state": "LIVE",
-   "version": "1.0.51",
-   "since": "2026-09-10",
-   "note": "Channel 881015. Package 1.0.65 was staged as pending version ZKKJL9 and scheduled for 2026-09-14 5:00 PM PT \u2014 CONFIRM whether it went live and update this row; Roku has no API to read it from. 1.0.65 is the first build old players can run, and the app's own analytics arrive here daily by scheduled delivery.",
+   "version": "1.0.65",
+   "since": "2026-09-15",
+   "note": "Channel 881015. 1.0.65 published 2026-09-15 (Dashboard: Last publish Sep 15, 2026) — the first build the legacy tier can run. Roku has no API to read this from; the app's own analytics arrive daily by scheduled delivery. NOTE: sunset players on Roku OS 9.1 (Roku 2 XD etc.) are NOT offered new channels by the Streaming Store regardless of the package's v8.0.0 floor — see ROKU-SUBMISSION.md §Legacy players.",
    "url": "https://channelstore.roku.com/details/12a571a872732e40fe8d1d6c59f3849f:5ec8f46dcec2324229c8d096ea23c089/archive-watch",
    "api": null,
-   "pendingVersion": "1.0.65",
-   "route": "no API \u2014 its Looker dashboards deliver to us daily"
+   "route": "no API — its Looker dashboards deliver to us daily"
   },
   {
    "store": "LG Content Store",
@@ -36,7 +35,7 @@
    "note": "Package builds; a Seller Lounge account is the owner step.",
    "url": "https://seller.lgappstv.com/",
    "api": null,
-   "route": "declared by hand \u2014 no API"
+   "route": "declared by hand — no API"
   },
   {
    "store": "Samsung Apps TV",
@@ -47,7 +46,7 @@
    "note": "Public Seller is US-only; the signing certificate is backed up (Decision 112).",
    "url": "https://seller.samsungapps.com/",
    "api": null,
-   "route": "declared by hand \u2014 no API"
+   "route": "declared by hand — no API"
   },
   {
    "store": "Web (PWA)",

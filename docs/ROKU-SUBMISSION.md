@@ -421,3 +421,56 @@ package on every channel release, or deep-link certification fails. Feed
 updates are NOT picked up automatically: **resubmit the feed in the
 dashboard** after a catalog change worth propagating (max 20 submissions a
 week; up to 24 h to propagate).
+
+## Legacy players (Roku 2 XD, OS 9.1): the store will not carry us, and what does work (2026-09-14)
+
+Owner: "The new Roku app version is launched, but I still don't see any way to
+install it on my Roku 2 XD." Researched against Roku's own pages and the
+Dashboard, and tested against the Kitchen 2 XD (`10.0.0.81`).
+
+**What is true.**
+- The Roku 2 XD (3050X, "Giga") is a device Roku sunset at the end of 2019;
+  its final OS is **9.1** and it never updates again (Roku's hardware table
+  lists it as legacy: "cannot run newer Roku OS versions"). Roku's statement
+  to developers at the time: it "will no longer launch new channels, update
+  existing channels, issue firmware updates or provide developer support for
+  channels that run on these older devices." Certification 3.1 draws the
+  same line from the other side — an app "must be available on all Roku
+  device models that receive the current Roku OS" — so a channel first
+  published in 2026 is not offered to a 9.1 player. Nothing we set changes
+  that: the Dashboard's only lever is "Minimum firmware", which can EXCLUDE
+  devices, never add one Roku has stopped serving, and ours already reads
+  **v8.0.0 b1** with a squashfs package (proven 2026-09-12). The channel
+  itself is fine on the device: the legacy tier was verified on this 2 XD
+  by sideload on 2026-09-11, and `query/apps` on it shows `dev … 1.0.65`
+  running today.
+- Beta apps are not a route: 20 users, 120 days, then deleted and disabled.
+- ECP `POST /install/<id>` answers 503 on BOTH the 2 XD and the 15.3 Stick,
+  for our channel and for Netflix alike — it is disabled under ECP here, so
+  it proves nothing about availability.
+
+**Untested, cheap, and the owner's to try:** the account-add link
+`https://my.roku.com/account/add/PMPJCTH` (the channel's vanity code) pushes a
+channel to every device on the account from the web, bypassing the on-device
+store browse. Sign in to the account the 2 XD is linked to, add it, then on
+the 2 XD: Settings → System → System update → Check now. If the store's
+legacy policy applies, it will refuse or silently never appear; that is the
+decisive answer and costs two minutes.
+
+**What works today, for anyone with an old Roku: developer-mode sideload.**
+It is a documented Roku feature, needs no store, and is exactly how 1.0.65
+reached this 2 XD. One sideloaded channel per device, no automatic updates,
+no expiry. To offer it to viewers we would publish a "Install on an older
+Roku" page on archivewatch.org carrying the current dev `.zip` (built by CI
+from the same source as the store package) and the steps: enable developer
+mode (Home ×3, Up ×2, Right, Left, Right, Left, Right; accept Roku's
+developer agreement; set a password), open `http://<the Roku's IP>` in a
+browser, upload the zip, install. The legacy tier would gain one line on its
+Options panel — "A newer version is available at archivewatch.org/roku-legacy"
+— read from a tiny JSON the deploy writes, since a sideload cannot update
+itself. This is a hobbyist path and should be labelled as one; it is the only
+path that exists.
+
+**Worth one email, low odds:** Roku Partner Success, asking whether a channel
+declaring v8.0.0 can be made available to OS 9.1 players. The 2019 policy says
+no; a human occasionally says otherwise.
