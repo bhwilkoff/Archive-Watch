@@ -1,12 +1,12 @@
 {
   "schema": 1,
-  "updated_at": "2026-09-14T09:37:22Z",
+  "updated_at": "2026-09-15T09:22:02Z",
   "description": "Missing-episode queue: canonical episodes (from OMDb) that we don't yet have on Archive. Drained by tools/backfill_tv_episodes.py.",
   "stats": {
-    "total": 18109,
-    "wanted": 17886,
+    "total": 18146,
+    "wanted": 17923,
     "fulfilled": 223,
-    "series_with_gaps": 359
+    "series_with_gaps": 360
   },
   "wants": [
     {
@@ -47874,6 +47874,16 @@
       "seriesID": "everybody-loves-raymond-1996",
       "seriesTitle": "Everybody Loves Raymond",
       "season": 3,
+      "episode": 3,
+      "title": "The Sitter",
+      "episodeImdbID": "tt0574258",
+      "status": "wanted",
+      "added_at": "2026-09-15T09:22:02Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 3,
       "episode": 4,
       "title": "Getting Even",
       "episodeImdbID": "tt0764387",
@@ -48294,6 +48304,16 @@
       "seriesID": "everybody-loves-raymond-1996",
       "seriesTitle": "Everybody Loves Raymond",
       "season": 4,
+      "episode": 20,
+      "title": "Alone Time",
+      "episodeImdbID": "tt0764381",
+      "status": "wanted",
+      "added_at": "2026-09-15T09:22:02Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 4,
       "episode": 21,
       "title": "Someone's Cranky",
       "episodeImdbID": "tt0764403",
@@ -48339,6 +48359,16 @@
       "episodeImdbID": "tt0574178",
       "status": "wanted",
       "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 5,
+      "episode": 2,
+      "title": "Italy: Part 2",
+      "episodeImdbID": "tt0574179",
+      "status": "wanted",
+      "added_at": "2026-09-15T09:22:02Z"
     },
     {
       "seriesID": "everybody-loves-raymond-1996",
@@ -48484,6 +48514,16 @@
       "seriesID": "everybody-loves-raymond-1996",
       "seriesTitle": "Everybody Loves Raymond",
       "season": 5,
+      "episode": 17,
+      "title": "Stefania Arrives",
+      "episodeImdbID": "tt0574227",
+      "status": "wanted",
+      "added_at": "2026-09-15T09:22:02Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 5,
       "episode": 18,
       "title": "Humm Vac",
       "episodeImdbID": "tt0574173",
@@ -48589,6 +48629,16 @@
       "episodeImdbID": "tt0574200",
       "status": "wanted",
       "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 6,
+      "episode": 4,
+      "title": "Ray's Ring",
+      "episodeImdbID": "tt0574211",
+      "status": "wanted",
+      "added_at": "2026-09-15T09:22:02Z"
     },
     {
       "seriesID": "everybody-loves-raymond-1996",
@@ -49304,11 +49354,31 @@
       "seriesID": "everybody-loves-raymond-1996",
       "seriesTitle": "Everybody Loves Raymond",
       "season": 9,
+      "episode": 4,
+      "title": "P.T. & A.",
+      "episodeImdbID": "tt0574202",
+      "status": "wanted",
+      "added_at": "2026-09-15T09:22:02Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 9,
       "episode": 5,
       "title": "Ally's F",
       "episodeImdbID": "tt0574130",
       "status": "wanted",
       "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 9,
+      "episode": 6,
+      "title": "Boys' Therapy",
+      "episodeImdbID": "tt0574139",
+      "status": "wanted",
+      "added_at": "2026-09-15T09:22:02Z"
     },
     {
       "seriesID": "everybody-loves-raymond-1996",
@@ -91321,6 +91391,136 @@
       "episodeImdbID": "tt0656818",
       "status": "wanted",
       "added_at": "2026-06-20T07:57:19Z"
+    },
+    {
+      "seriesID": "nanny-and-the-professor-1970",
+      "seriesTitle": "Nanny and the Professor",
+      "season": 1,
+      "episode": 5,
+      "title": "The Astronomers",
+      "episodeImdbID": "tt0657175",
+      "status": "wanted",
+      "added_at": "2026-09-15T09:22:02Z"
+    },
+    {
+      "seriesID": "nanny-and-the-professor-1970",
+      "seriesTitle": "Nanny and the Professor",
+      "season": 1,
+      "episode": 6,
+      "title": "Spring, Sweet Spring",
+      "episodeImdbID": "tt0657170",
+      "status": "wanted",
+      "added_at": "2026-09-15T09:22:02Z"
+    },
+    {
+      "seriesID": "nanny-and-the-professor-1970",
+      "seriesTitle": "Nanny and the Professor",
+      "season": 1,
+      "episode": 8,
+      "title": "Strictly for the Birds",
+      "episodeImdbID": "tt0657172",
+      "status": "wanted",
+      "added_at": "2026-09-15T09:22:02Z"
+    },
+    {
+      "seriesID": "nanny-and-the-professor-1970",
+      "seriesTitle": "Nanny and the Professor",
+      "season": 2,
+      "episode": 3,
+      "title": "Star Bright",
+      "episodeImdbID": "tt0657171",
+      "status": "wanted",
+      "added_at": "2026-09-15T09:22:02Z"
+    },
+    {
+      "seriesID": "nanny-and-the-professor-1970",
+      "seriesTitle": "Nanny and the Professor",
+      "season": 2,
+      "episode": 8,
+      "title": "The Masculine-Feminine Mystique",
+      "episodeImdbID": "tt0657189",
+      "status": "wanted",
+      "added_at": "2026-09-15T09:22:02Z"
+    },
+    {
+      "seriesID": "nanny-and-the-professor-1970",
+      "seriesTitle": "Nanny and the Professor",
+      "season": 2,
+      "episode": 10,
+      "title": "The Visitor",
+      "episodeImdbID": "tt0657196",
+      "status": "wanted",
+      "added_at": "2026-09-15T09:22:02Z"
+    },
+    {
+      "seriesID": "nanny-and-the-professor-1970",
+      "seriesTitle": "Nanny and the Professor",
+      "season": 2,
+      "episode": 15,
+      "title": "Separate Rooms",
+      "episodeImdbID": "tt0657168",
+      "status": "wanted",
+      "added_at": "2026-09-15T09:22:02Z"
+    },
+    {
+      "seriesID": "nanny-and-the-professor-1970",
+      "seriesTitle": "Nanny and the Professor",
+      "season": 2,
+      "episode": 18,
+      "title": "The Art of Relationships",
+      "episodeImdbID": "tt0657174",
+      "status": "wanted",
+      "added_at": "2026-09-15T09:22:02Z"
+    },
+    {
+      "seriesID": "nanny-and-the-professor-1970",
+      "seriesTitle": "Nanny and the Professor",
+      "season": 2,
+      "episode": 20,
+      "title": "The Prodigy",
+      "episodeImdbID": "tt0657192",
+      "status": "wanted",
+      "added_at": "2026-09-15T09:22:02Z"
+    },
+    {
+      "seriesID": "nanny-and-the-professor-1970",
+      "seriesTitle": "Nanny and the Professor",
+      "season": 3,
+      "episode": 4,
+      "title": "South Sea Island Sweetheart",
+      "episodeImdbID": "tt0657169",
+      "status": "wanted",
+      "added_at": "2026-09-15T09:22:02Z"
+    },
+    {
+      "seriesID": "nanny-and-the-professor-1970",
+      "seriesTitle": "Nanny and the Professor",
+      "season": 3,
+      "episode": 8,
+      "title": "Nanny and Her Witch's Brew",
+      "episodeImdbID": "tt0657162",
+      "status": "wanted",
+      "added_at": "2026-09-15T09:22:02Z"
+    },
+    {
+      "seriesID": "nanny-and-the-professor-1970",
+      "seriesTitle": "Nanny and the Professor",
+      "season": 3,
+      "episode": 11,
+      "title": "Professor Pygmalion Plays Golf",
+      "episodeImdbID": "tt0657167",
+      "status": "wanted",
+      "added_at": "2026-09-15T09:22:02Z"
+    },
+    {
+      "seriesID": "nanny-and-the-professor-1970",
+      "seriesTitle": "Nanny and the Professor",
+      "season": 3,
+      "episode": 15,
+      "title": "Whatever Happened to Felicity?",
+      "episodeImdbID": "tt0657198",
+      "status": "wanted",
+      "added_at": "2026-09-15T09:22:02Z"
     },
     {
       "seriesID": "never-the-twain-1981",
@@ -142884,6 +143084,16 @@
       "seriesID": "the-cosby-show-1984",
       "seriesTitle": "The Cosby Show",
       "season": 1,
+      "episode": 5,
+      "title": "A Shirt Story",
+      "episodeImdbID": "tt0546946",
+      "status": "wanted",
+      "added_at": "2026-09-15T09:22:02Z"
+    },
+    {
+      "seriesID": "the-cosby-show-1984",
+      "seriesTitle": "The Cosby Show",
+      "season": 1,
       "episode": 6,
       "title": "Breaking with Tradition",
       "episodeImdbID": "tt0546960",
@@ -142964,6 +143174,16 @@
       "seriesID": "the-cosby-show-1984",
       "seriesTitle": "The Cosby Show",
       "season": 1,
+      "episode": 14,
+      "title": "Independence Day",
+      "episodeImdbID": "tt0547014",
+      "status": "wanted",
+      "added_at": "2026-09-15T09:22:02Z"
+    },
+    {
+      "seriesID": "the-cosby-show-1984",
+      "seriesTitle": "The Cosby Show",
+      "season": 1,
       "episode": 15,
       "title": "Physician of the Year",
       "episodeImdbID": "tt0547050",
@@ -143014,6 +143234,16 @@
       "seriesID": "the-cosby-show-1984",
       "seriesTitle": "The Cosby Show",
       "season": 1,
+      "episode": 21,
+      "title": "The Younger Woman",
+      "episodeImdbID": "tt0547096",
+      "status": "wanted",
+      "added_at": "2026-09-15T09:22:02Z"
+    },
+    {
+      "seriesID": "the-cosby-show-1984",
+      "seriesTitle": "The Cosby Show",
+      "season": 1,
       "episode": 22,
       "title": "Slumber Party",
       "episodeImdbID": "tt0547066",
@@ -143049,6 +143279,16 @@
       "episodeImdbID": "tt0771682",
       "status": "wanted",
       "added_at": "2026-06-02T08:32:33Z"
+    },
+    {
+      "seriesID": "the-cosby-show-1984",
+      "seriesTitle": "The Cosby Show",
+      "season": 2,
+      "episode": 2,
+      "title": "The Juicer",
+      "episodeImdbID": "tt0547084",
+      "status": "wanted",
+      "added_at": "2026-09-15T09:22:02Z"
     },
     {
       "seriesID": "the-cosby-show-1984",
@@ -143130,6 +143370,16 @@
       "episodeImdbID": "tt0546970",
       "status": "wanted",
       "added_at": "2026-06-02T08:32:33Z"
+    },
+    {
+      "seriesID": "the-cosby-show-1984",
+      "seriesTitle": "The Cosby Show",
+      "season": 2,
+      "episode": 11,
+      "title": "Denise's Friend",
+      "episodeImdbID": "tt0546994",
+      "status": "wanted",
+      "added_at": "2026-09-15T09:22:02Z"
     },
     {
       "seriesID": "the-cosby-show-1984",
@@ -143646,11 +143896,31 @@
       "seriesID": "the-cosby-show-1984",
       "seriesTitle": "The Cosby Show",
       "season": 4,
+      "episode": 17,
+      "title": "Waterworks",
+      "episodeImdbID": "tt0547123",
+      "status": "wanted",
+      "added_at": "2026-09-15T09:22:02Z"
+    },
+    {
+      "seriesID": "the-cosby-show-1984",
+      "seriesTitle": "The Cosby Show",
+      "season": 4,
       "episode": 18,
       "title": "Once Upon a Time",
       "episodeImdbID": "tt0547043",
       "status": "wanted",
       "added_at": "2026-06-02T08:32:33Z"
+    },
+    {
+      "seriesID": "the-cosby-show-1984",
+      "seriesTitle": "The Cosby Show",
+      "season": 4,
+      "episode": 20,
+      "title": "Trust Me",
+      "episodeImdbID": "tt0547114",
+      "status": "wanted",
+      "added_at": "2026-09-15T09:22:02Z"
     },
     {
       "seriesID": "the-cosby-show-1984",
@@ -143671,6 +143941,16 @@
       "episodeImdbID": "tt0547091",
       "status": "wanted",
       "added_at": "2026-06-02T08:32:33Z"
+    },
+    {
+      "seriesID": "the-cosby-show-1984",
+      "seriesTitle": "The Cosby Show",
+      "season": 4,
+      "episode": 23,
+      "title": "Gone Fishin'",
+      "episodeImdbID": "tt0547003",
+      "status": "wanted",
+      "added_at": "2026-09-15T09:22:02Z"
     },
     {
       "seriesID": "the-cosby-show-1984",
@@ -143846,6 +144126,16 @@
       "seriesID": "the-cosby-show-1984",
       "seriesTitle": "The Cosby Show",
       "season": 5,
+      "episode": 23,
+      "title": "What He Did for Love",
+      "episodeImdbID": "tt0547124",
+      "status": "wanted",
+      "added_at": "2026-09-15T09:22:02Z"
+    },
+    {
+      "seriesID": "the-cosby-show-1984",
+      "seriesTitle": "The Cosby Show",
+      "season": 5,
       "episode": 24,
       "title": "Day of the Locusts",
       "episodeImdbID": "tt0546986",
@@ -143871,6 +144161,16 @@
       "episodeImdbID": "tt0547078",
       "status": "wanted",
       "added_at": "2026-06-02T08:32:33Z"
+    },
+    {
+      "seriesID": "the-cosby-show-1984",
+      "seriesTitle": "The Cosby Show",
+      "season": 6,
+      "episode": 2,
+      "title": "Surf's Up",
+      "episodeImdbID": "tt0547068",
+      "status": "wanted",
+      "added_at": "2026-09-15T09:22:02Z"
     },
     {
       "seriesID": "the-cosby-show-1984",
@@ -143966,11 +144266,41 @@
       "seriesID": "the-cosby-show-1984",
       "seriesTitle": "The Cosby Show",
       "season": 6,
+      "episode": 12,
+      "title": "Getting to Know You",
+      "episodeImdbID": "tt0547001",
+      "status": "wanted",
+      "added_at": "2026-09-15T09:22:02Z"
+    },
+    {
+      "seriesID": "the-cosby-show-1984",
+      "seriesTitle": "The Cosby Show",
+      "season": 6,
+      "episode": 13,
+      "title": "Elvin Pays for Dinner",
+      "episodeImdbID": "tt0546996",
+      "status": "wanted",
+      "added_at": "2026-09-15T09:22:02Z"
+    },
+    {
+      "seriesID": "the-cosby-show-1984",
+      "seriesTitle": "The Cosby Show",
+      "season": 6,
       "episode": 14,
       "title": "Cliff's Nightmare",
       "episodeImdbID": "tt0546981",
       "status": "wanted",
       "added_at": "2026-06-02T08:32:33Z"
+    },
+    {
+      "seriesID": "the-cosby-show-1984",
+      "seriesTitle": "The Cosby Show",
+      "season": 6,
+      "episode": 15,
+      "title": "Denise Kendall: Singles Counselor",
+      "episodeImdbID": "tt0546990",
+      "status": "wanted",
+      "added_at": "2026-09-15T09:22:02Z"
     },
     {
       "seriesID": "the-cosby-show-1984",
@@ -144001,6 +144331,16 @@
       "episodeImdbID": "tt0547061",
       "status": "wanted",
       "added_at": "2026-06-02T08:32:33Z"
+    },
+    {
+      "seriesID": "the-cosby-show-1984",
+      "seriesTitle": "The Cosby Show",
+      "season": 6,
+      "episode": 19,
+      "title": "Mr. Sandman",
+      "episodeImdbID": "tt0547032",
+      "status": "wanted",
+      "added_at": "2026-09-15T09:22:02Z"
     },
     {
       "seriesID": "the-cosby-show-1984",
@@ -144121,6 +144461,16 @@
       "episodeImdbID": "tt0547018",
       "status": "wanted",
       "added_at": "2026-06-02T08:32:33Z"
+    },
+    {
+      "seriesID": "the-cosby-show-1984",
+      "seriesTitle": "The Cosby Show",
+      "season": 7,
+      "episode": 6,
+      "title": "Getting the Story",
+      "episodeImdbID": "tt0547000",
+      "status": "wanted",
+      "added_at": "2026-09-15T09:22:02Z"
     },
     {
       "seriesID": "the-cosby-show-1984",
@@ -144281,6 +144631,16 @@
       "episodeImdbID": "tt0546973",
       "status": "wanted",
       "added_at": "2026-06-02T08:32:33Z"
+    },
+    {
+      "seriesID": "the-cosby-show-1984",
+      "seriesTitle": "The Cosby Show",
+      "season": 7,
+      "episode": 24,
+      "title": "Theo and the Kids: Part 1",
+      "episodeImdbID": "tt0547099",
+      "status": "wanted",
+      "added_at": "2026-09-15T09:22:02Z"
     },
     {
       "seriesID": "the-cosby-show-1984",
@@ -144451,6 +144811,16 @@
       "episodeImdbID": "tt0547081",
       "status": "wanted",
       "added_at": "2026-06-02T08:32:33Z"
+    },
+    {
+      "seriesID": "the-cosby-show-1984",
+      "seriesTitle": "The Cosby Show",
+      "season": 8,
+      "episode": 18,
+      "title": "Cliff Gets Jilted",
+      "episodeImdbID": "tt0546972",
+      "status": "wanted",
+      "added_at": "2026-09-15T09:22:02Z"
     },
     {
       "seriesID": "the-cosby-show-1984",
