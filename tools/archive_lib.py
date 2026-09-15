@@ -125,9 +125,17 @@ def adv_search(q, session, *, rows=50, fields=("identifier", "title", "year", "d
 # ---------------------------------------------------------------------------
 
 _STOP = {"the", "a", "an", "of", "and", "or"}
+# What an upload calls itself when it is not the film: the first list is
+# fragments of a film; the second (2026-09-14) is the vocabulary of the
+# ~1,200 wrong matches the wants hunt let in — galleries, tributes,
+# gameplay, podcasts, ASMR, K-pop stages — none of which is any film at all.
 _NOISE = re.compile(
     r"\b(trailer|clip|clips|excerpt|preview|sample|review|reaction|"
-    r"restored|colorized|colorised|fan\s*edit|part\s*\d+|reel\s*\d+)\b",
+    r"restored|colorized|colorised|fan\s*edit|part\s*\d+|reel\s*\d+|"
+    r"gallery|slideshow|tribute|fan\s*(art|made|film|video)|compilation|amv|"
+    r"unboxing|podcast|vlog|lyrics|karaoke|remix|mashup|highlights|gameplay|"
+    r"walkthrough|playthrough|speedrun|asmr|live\s*stream|livestream|"
+    r"episode\s*\d+|s\d+\s*e\d+|\d+x\d+)\b",
     re.IGNORECASE,
 )
 

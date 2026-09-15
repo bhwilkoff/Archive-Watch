@@ -26,7 +26,10 @@ LEATHERNECK = {"identifier": "the-leatherneck-1929",
 LONGWANT_NOYEAR = {"identifier": "the-cabinet-of-dr-caligari", "title": "The Cabinet of Dr. Caligari",
                    "downloads": 9000}
 
+GALLERY_DATED = dict(GALLERY, year="1922")   # even wearing the right year, a gallery is not the film
+
 CASES = [
+    ("Minnie", 1922, [GALLERY_DATED], None),                            # noise word beats an agreeing year
     # (want title, want year, search docs, expected identifier or None)
     ("Minnie", 1922, [REAL], REAL["identifier"]),                       # control: the film resolves
     ("Minnie", 1922, [GALLERY], None),                                  # the slideshow does not
