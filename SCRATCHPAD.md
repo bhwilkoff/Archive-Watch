@@ -139,7 +139,36 @@ Apple platforms (the workflow's own submit failed on empty notes; submitted
 from here with notes). UI test `test_12_playlistShareIsVisible` on the
 iPhone 12.
 
-**Ship state at hand-off**: Apple build 1132 + Play vc61 (internal track)
+**Then, the same evening — the Minnie Mouse slideshow.** Owner: *"a slideshow
+of Minnie Mouse stills ... shouldn't be a part of the database."* It was the
+1922 silent *Minnie* by identity: Decision 032's wants hunt asked archive.org
+for "Minnie" and `resolve_title` scored a fan gallery 115 (a one-word want gets
+full overlap; no year on the gallery, so no wrong-year penalty), ingest dressed
+it in the want's imdb/cast/poster, remediate adopted the canonical title. Not
+one: **2,306 of 3,033 title-resolved wants were wrong**, 1,654 visible — porn as
+"Her Son" (1920), a Holocaust-denial video as "The Denial", Shawn Mendes at the
+VMAs as a 1921 silent. The catalog could not judge them (the title had been
+overwritten), only archive.org's own title/date could: `audit_title_wants.py`
+fetched all 3,033 (evidence committed), hid the 2,306 with `wrongMatchTitle`;
+`audit_rights` gained the `wrongmatch_title` bucket so the reconcile keeps them
+hidden; `resolve_title` now scores both ways and treats gallery/tribute/
+gameplay/podcast titles as noise (`test_resolve_title.py` 8/8, 5/7 on the old
+scorer). Catalog published (30,178 visible), publish-db dispatched.
+The 727 kept matches are trusted on an archive title that agrees; the 1–2
+stray-word band was NOT reviewed by hand.
+
+**Legacy Roku (owner's Roku 2 XD)**: researched — Roku's store does not carry a
+2026 channel on OS 9.1 (sunset 2019; cert 3.1); our package floor is already
+v8.0.0; sideload works and is the only route. Write-up + the account-add test
+for the owner in ROKU-SUBMISSION.md §Legacy players.
+
+**Ship state at hand-off**: Apple 1.42.120 WAITING_FOR_REVIEW on all three
+(1.42.119's submission cancelled and folded in); Play vc62 on internal
+(person-on-hardware before promotion, D110); Roku 1.0.65 LIVE (Dashboard
+Sep 15); a 00073 package with the Party verbs is built for the owner's
+upload. Red-X emails fixed at the source: asc_release treats an in-flight
+version as a warning, appstore-build skips submit with no notes, play-publish
+retries a Google 5xx. Apple build 1132 + Play vc61 (internal track)
 dispatched in CI; Roku package `build/roku/*.pkg` built for the owner's
 Dashboard upload (00073). Per D110 the Play internal build wants a person on
 hardware before promotion. Android TV's options panel still says "Play Next
