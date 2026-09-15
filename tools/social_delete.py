@@ -62,7 +62,7 @@ def platform_of(url: str) -> str:
     host = urllib.parse.urlparse(url).netloc.lower()
     if "bsky.app" in host:
         return "bluesky"
-    if "threads.net" in host:
+    if "threads.net" in host or "threads.com" in host:   # Meta moved permalinks to threads.com in 2025
         return "threads"
     if "instagram.com" in host:
         return "instagram"
