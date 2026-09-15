@@ -65,8 +65,26 @@ def main():
             f"— the bundle has not been built yet, so nothing is wasted."
         )
 
+    def with_retries(what, call, tries=5):
+        """Google answers a plain 503 "The service is currently unavailable"
+        now and then (2026-09-14, on the very first call of a run). That is
+        Google's weather, not our release: retry with backoff before anyone
+        is emailed a red X for it (Decision 107)."""
+        import time as _t
+        for attempt in range(1, tries + 1):
+            try:
+                return call()
+            except HttpError as e:
+                status = getattr(e, "status_code", None) or getattr(getattr(e, "resp", None), "status", None)
+                if status not in (500, 502, 503, 504) or attempt == tries:
+                    raise
+                wait = 15 * attempt
+                print(f"  {what}: Play answered {status}; retry {attempt}/{tries - 1} in {wait}s")
+                _t.sleep(wait)
+
     try:
-        edit_id = edits.insert(body={}, packageName=pkg).execute()["id"]
+        edit_id = with_retries("open edit",
+                               lambda: edits.insert(body={}, packageName=pkg).execute())["id"]
         print(f"edit {edit_id} opened for {pkg}")
 
         media = MediaFileUpload(args.aab, mimetype="application/octet-stream", resumable=True)

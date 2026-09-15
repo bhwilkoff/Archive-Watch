@@ -132,6 +132,14 @@ _NOISE = re.compile(
 )
 
 
+# Words an honest re-upload adds to a film's name — never held against it.
+_BENIGN_WORD = re.compile(
+    r"^(\d{4}|restored|restoration|hd|4k|1080p|720p|480p|film|movie|full|silent|"
+    r"complete|version|remastered|colorized|colorised|dvd|bluray|vhs|rip|x264|h264|"
+    r"mp4|part|reel|reels|pt|usa|uk|aka|feature|talkie|sound|edition|print|public|"
+    r"domain|pd|classic|vintage|original|english|subtitles|subtitled|subs)$")
+
+
 def _norm(s):
     s = (s or "").lower()
     s = re.sub(r"[^a-z0-9 ]+", " ", s)
@@ -180,6 +188,24 @@ def resolve_title(title, year, session, *, year_tol=2, min_downloads=0):
         if overlap < 0.6:                      # too weak a title match
             continue
         score = overlap * 100
+        # The match must run BOTH ways. Overlap alone scored the one-word
+        # want "Minnie" (1922) at 100 against "Cartoon Female Image Gallery
+        # #11 - Minnie Mouse and Daisy Duck", a fan slideshow that then wore
+        # the 1922 film's year, IMDb id, cast and poster into Party Play —
+        # one of ~1,200 wants that walked in the same way (2026-09-14). A
+        # candidate title full of words the want never had is a different
+        # thing that happens to contain the name, unless its own year says
+        # otherwise (checked below): each stray word costs 15, and a
+        # candidate carrying four or more of them is refused outright.
+        stray = [w for w in cand_words if w not in want_words and not _BENIGN_WORD.match(w)]
+        cy = _year_of(d)
+        year_agrees = bool(year and cy and abs(cy - year) <= year_tol)
+        if year_agrees:
+            score -= 3 * len(stray)      # "New Moon 1930 Grace Moore Lawrence Tibbett"
+        else:
+            if len(stray) >= 4:
+                continue
+            score -= 15 * len(stray)
 
         # Exact-ish title bonus.
         if cand_norm == want:
@@ -188,7 +214,6 @@ def resolve_title(title, year, session, *, year_tol=2, min_downloads=0):
             score += 20
 
         # Year proximity.
-        cy = _year_of(d)
         if year and cy:
             dy = abs(cy - year)
             if dy == 0:
@@ -198,7 +223,11 @@ def resolve_title(title, year, session, *, year_tol=2, min_downloads=0):
             else:
                 score -= min(dy, 20)           # wrong year is a real penalty
         elif year and not cy:
-            score -= 5                          # unknown year, mild penalty
+            # A candidate with no year of its own has offered no evidence
+            # that it is the film. That is tolerable when the title is long
+            # enough to be distinctive; a one- or two-word title matched to
+            # a yearless upload is how the gallery got in.
+            score -= 5 if len(want_words) >= 3 else 35
 
         # Clip/trailer penalty.
         if _NOISE.search(cand_title):

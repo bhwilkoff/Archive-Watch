@@ -195,8 +195,17 @@ jobs:
       # tool waits rather than handing the release back to a person to re-run
       # later. A failure here leaves a VALID uploaded build and nothing
       # submitted, which is recoverable by dispatching appstore-submit.yml.
+      # Apple refuses a submission with no What's New, so a dispatch without
+      # notes must not TRY (2026-09-14: it did, and the red X read as a failed
+      # build to the owner while build 1131 sat VALID). Upload is this
+      # workflow's job; a missing note is a warning, and appstore-submit.yml
+      # finishes the release with the text.
+      - name: Not submitted — no What's New given
+        if: success() && inputs.submit && inputs.notes == ''
+        run: echo "::warning::build uploaded; NOT submitted because no What's New was given — run appstore-submit.yml with notes"
+
       - name: Submit for review
-        if: success() && inputs.submit
+        if: success() && inputs.submit && inputs.notes != ''
         working-directory: tools
         run: |
           set -a; . ./asc-credentials.env; set +a

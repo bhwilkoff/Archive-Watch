@@ -448,6 +448,15 @@ def bucket(it):
     ct = it.get("contentType")
     cl = colls(it)
 
+    # A want that resolve_title matched into an unrelated upload, judged
+    # against the Archive item's OWN title and date by audit_title_wants.py
+    # (2026-09-14: a Minnie Mouse slideshow as the 1922 film *Minnie*; a
+    # Holocaust-denial video as "The Denial"). The identity on the record is
+    # the WANT's — year, imdb, cast, poster — so no tier below can judge it;
+    # the marker is the only honest signal and it hides before any rescue.
+    if it.get("wrongMatchTitle"):
+        return "wrongmatch_title", "hide"
+
     # ---- always-safe ----
     if cl & GOV:
         return "safe_gov", "keep"
@@ -563,8 +572,8 @@ def bucket(it):
 HIDE_BUCKETS = {"modern_copyright_confirmed", "modern_noyear_risk",
                 "commercial_modern_risk", "commercial_slop",
                 "renewed_copyright_classic", "renewal_zone_commercial",
-                "copyrighted_trailer", "wrongmatch_idyear", "no_evidence",
-                "uploader_cannot_dedicate"}
+                "copyrighted_trailer", "wrongmatch_idyear", "wrongmatch_title",
+                "no_evidence", "uploader_cannot_dedicate"}
 
 
 def evidence_for(it, b):
@@ -591,6 +600,10 @@ def evidence_for(it, b):
     elif b == "wrongmatch_idyear":
         parts.append(f"catalog year {y} vs id year {_id_year(it.get('archiveID') or '')}, "
                      f"and the title is not in the id")
+    elif b == "wrongmatch_title":
+        wm = it.get("wrongMatchTitle") or {}
+        parts.append(f"want {wm.get('want')!r} resolved by title into archive title "
+                     f"{(it.get('archiveTitle') or '?')[:70]!r}: {wm.get('reason')}")
     elif b == "modern_noyear_risk":
         parts.append("no year + modern-capture/rip archiveID")
     if it.get("colorMode"):

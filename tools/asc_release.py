@@ -314,12 +314,14 @@ def ship(aid, args):
           + ("   [DRY RUN]" if args.dry_run else "") + "\n")
 
     failed = []
+    skipped = []
     for name in targets:
         platform = PLATFORMS[name]
         print(f"  {name}")
         try:
             ver = editable_version(aid, platform, version, args.dry_run)
             if ver is None:
+                skipped.append(name)
                 continue
             if not args.dry_run:
                 await_build(aid, number, platform, args.wait_build_minutes)
@@ -346,6 +348,13 @@ def ship(aid, args):
     if failed:
         print(f"\nFAILED: {', '.join(failed)}")
         return 1
+    if skipped:
+        # A version already on its way is not a failure of THIS run (Decision
+        # 107): the build it was asked for is uploaded, and the next version
+        # ships once Apple answers. A red X here emailed the owner twice for
+        # a release that was doing exactly what it should.
+        print(f"\n::warning::nothing to submit for {', '.join(skipped)} — a version is "
+              f"already waiting for review; ship again once it is live or cancel it first")
     print("\nall requested platforms done")
     return 0
 

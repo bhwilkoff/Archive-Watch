@@ -56,6 +56,19 @@ CASES = [
     # 2026-09-10: a pre-1964 year the item's own id / releaseDate contradicts is a wrong match
     ({"archiveID": "the.-tinder.-swindler.-2022.720p", "title": "The Swindler", "year": 1919,
       "contentType": "feature-film", "rightsStatus": "public_domain"}, "wrongmatch_idyear"),
+    # A title-resolved want judged wrong against the Archive's own title hides
+    # BEFORE every rescue — the record wears the want's 1922 identity.
+    ({"archiveID": "cartoon-female-image-gallery-11-minnie-mouse-and-daisy-duck",
+      "title": "Cartoon Female Image Gallery #11 - Minnie Mouse and Daisy Duck", "year": 1922,
+      "contentType": "animation", "rightsStatus": "public_domain", "imdbID": "tt0013392",
+      "wrongMatchTitle": {"want": "Minnie", "reason": "stray words"}}, "wrongmatch_title"),
+    # ...and a gov-collection item with the marker still hides (the marker beats safe_gov).
+    ({"archiveID": "nasa-thing", "title": "NASA Seals", "year": 2008, "collections": ["nasa"],
+      "contentType": "animation", "rightsStatus": "public_domain",
+      "wrongMatchTitle": {"want": "NASA Seals", "reason": "stray words"}}, "wrongmatch_title"),
+    # Negative control: the same 1922 record WITHOUT the marker keeps as before.
+    ({"archiveID": "minnie-1922-marshall-neilan", "title": "Minnie", "year": 1922,
+      "contentType": "silent-film", "rightsStatus": "public_domain", "imdbID": "tt0013392"}, "safe_pd_age"),
     ({"archiveID": "opening-closing-to-harry-potter-and-the-prisoner-of-azkaban-2004",
       "title": "The Prisoner", "year": 1923, "contentType": "feature-film",
       "rightsStatus": "public_domain"}, "wrongmatch_idyear"),
