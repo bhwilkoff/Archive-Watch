@@ -1491,6 +1491,7 @@ def sanitize_synopsis(it):
             it["wikidataQID"] = None
             it["matchVerdict"] = "cleared_wikipedia_lead"
             it["matchVerified"] = True
+            strip_unanchored_tmdb_residue(it)     # the credits go in the same pass
             it["synopsis"] = None
             it["synopsisSource"] = None
             it["wikipediaLeadMismatch"] = True
