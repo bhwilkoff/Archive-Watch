@@ -1850,6 +1850,8 @@ def sanitize_title(it):
     t = re.sub(r"\s+", " ", t).strip(" -_|")
     if t and t.isupper() and len(t.split()) > 1:
         t = _title_case(t)
+    elif t and t == t.lower() and len(t.split()) > 1 and re.search(r"[a-z]", t):
+        t = _title_case(t)                 # "danger ahead", "la madre"
     t = _APOS_CASED.sub(lambda m: "'" + m.group(1).lower(), t)
     if t and t != raw:
         it["title"] = t
