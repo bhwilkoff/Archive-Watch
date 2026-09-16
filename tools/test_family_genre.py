@@ -17,7 +17,10 @@ CASES = [
     ({"title": "Home Movie: Ohio Family", "subjects": ["home movies", "prelinger"]}, False),
     ({"title": "Tomorrow's Children", "subjects": ["eugenics"]}, False),
     ({"title": "Untitled", "subjects": ["children's films"]}, True),
-    ({"title": "Untitled", "subjects": ["family"]}, True),
+    ({"title": "Untitled", "subjects": ["family"]}, False),
+    ({"title": "Untitled", "subjects": ["families", "home movies"]}, False),
+    ({"title": "Untitled", "subjects": ["family films"]}, True),
+    ({"title": "Untitled", "subjects": ["Children's television programs"]}, True),
 ]
 
 

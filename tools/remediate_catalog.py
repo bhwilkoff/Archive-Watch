@@ -60,14 +60,22 @@ def _load_subject_genres():
     # 111 items with "cartoons" had no Animation, "westerns"/"comedies"/
     # "documentaries" likewise — so a keyword matches its plural too.
     raw = {k: v for k, v in raw.items() if k.lower() != "music"}
+    # Family is an AUDIENCE, not a topic: "families" / "family" / "children"
+    # as subjects sit on Prelinger home movies and sociology reels. Only a
+    # subject that names the audience qualifies.
+    raw = {k: v for k, v in raw.items() if v != "family"}
+    family = (re.compile(r"\b(children'?s?|kids'?|family|families|juvenile)\s+"
+                         r"(films?|movies?|features?|entertainment|programm?e?s?|"
+                         r"television|tv|shows?|cartoons?|animation|series|classics?)\b"
+                         r"|\bfor (the whole )?family\b|\bfor (children|kids)\b"), "Family")
 
     def plural(k):
         k = re.escape(k.lower())
         if k.endswith("y"):
             return k[:-1] + "(?:y|ies)"
         return k + "s?"
-    return [(re.compile(r"\b" + plural(k) + r"\b"), disp.get(v, v.title()))
-            for k, v in raw.items()]
+    return [family] + [(re.compile(r"\b" + plural(k) + r"\b"), disp.get(v, v.title()))
+                       for k, v in raw.items()]
 
 _SUBJECT_GENRES = _load_subject_genres()
 
