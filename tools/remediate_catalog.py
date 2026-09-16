@@ -374,6 +374,31 @@ def strip_unanchored_tmdb_residue(item):
     return hit
 
 
+# archive.org's `director` field sometimes arrives in library-catalog form
+# ("Smith, Sinclair, 1899-", "Iwerks, Ub") or as a credit line ("dir. Gordon
+# Weisenborn, prod. John Barnes"). Six on the live catalog (2026-09-16); the
+# rule is narrow so "Milan Herzog, Pierre Malfille, Guy Jorré" (three
+# directors) is untouched.
+_DIR_CREDIT_PREFIX = re.compile(r"^\s*(dir(ector|ected by)?\.?:?)\s+", re.I)
+_DIR_CREDIT_TAIL = re.compile(r",\s*(prod(ucer|uced by)?|writ(er|ten by)|ed(itor)?)\.?:?\s.*$", re.I)
+_DIR_INVERTED = re.compile(r"^\s*([A-Z][\w'\-]+),\s+([A-Z][\w'\-\.]+(?:\s+[A-Z]\.?)?)"
+                           r"(?:,\s*(?:1[89]\d\d|20\d\d)-?(?:\d{4})?\.?)?\s*$")
+
+
+def normalize_director(item):
+    d = item.get("director")
+    if not isinstance(d, str):
+        return False
+    v = _DIR_CREDIT_TAIL.sub("", _DIR_CREDIT_PREFIX.sub("", d)).strip()
+    m = _DIR_INVERTED.match(v)
+    if m:
+        v = f"{m.group(2)} {m.group(1)}"
+    if v != d and v:
+        item["director"] = v
+        return True
+    return False
+
+
 def strip_orphan_match_residue(item):
     if item.get("contentType") not in _TV_RESIDUE_KINDS:
         return False
@@ -2262,6 +2287,8 @@ def remediate(items):
         if not it.get("isAdult") and is_adult_signal(it):
             it["isAdult"] = True
             stats["adult_flagged"] += 1
+        if normalize_director(it):
+            stats["director_normalized"] += 1
         if strip_orphan_match_residue(it):
             stats["match_residue_stripped"] = stats.get("match_residue_stripped", 0) + 1
         if strip_cleared_match_residue(it):
