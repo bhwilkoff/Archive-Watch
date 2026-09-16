@@ -133,7 +133,22 @@ jobs:
         # publish had been down since 2026-09-06 for exactly this.
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: python tools/catalog_release.py publish
+        # A catalog published while this run was working (a local rights
+        # confirm, a synopsis refill) must not be overwritten by the copy
+        # fetched at the start: on a moved release, re-fetch and re-apply the
+        # deterministic passes, then publish that. Everything below builds
+        # from the catalog that was actually published.
+        run: |
+          python tools/catalog_release.py publish --if-unchanged && exit 0
+          rc=$?; [ "$rc" = "3" ] || exit "$rc"
+          echo "::warning::release moved during this run — re-fetching and re-applying before publish"
+          python tools/catalog_release.py fetch
+          python tools/remediate_catalog.py
+          python tools/audit_title_identity.py --apply | tail -2
+          python tools/link_orphan_episodes.py --apply | tail -2
+          python tools/dedupe_orphan_episodes.py --apply | tail -2
+          python tools/audit_rights.py --apply | tail -3
+          python tools/catalog_release.py publish
 
       - name: Metadata quality audit (report)
         run: |

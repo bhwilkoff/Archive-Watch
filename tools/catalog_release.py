@@ -93,6 +93,18 @@ def _release_state():
     return f"error: {err[:300]}"
 
 
+STAMP = REPO / ".catalog_fetch_stamp"
+
+
+def _asset_stamp():
+    """The published asset's id + updated_at — what a later publish compares
+    against to know whether the release moved since this fetch."""
+    a = _gh("release", "view", TAG, "--json", "assets",
+            "--jq", f'.assets[] | select(.name=="{ASSET}") | "\\(.id)|\\(.updatedAt)"',
+            check=False, capture=True)
+    return (a.stdout or "").strip() if a.returncode == 0 else ""
+
+
 def fetch():
     state = _release_state()
     if state == "absent":
@@ -118,6 +130,7 @@ def fetch():
     with gzip.open(GZ, "rb") as fi, open(CATALOG, "wb") as fo:
         shutil.copyfileobj(fi, fo)
     GZ.unlink()
+    STAMP.write_text(_asset_stamp())
     print(f"[catalog] fetched {CATALOG.name} ({CATALOG.stat().st_size/1e6:.1f} MB) from release '{TAG}'")
     return 0
 
@@ -147,10 +160,23 @@ def _asset_size() -> int:
     return 0
 
 
-def publish():
+def publish(if_unchanged=False):
     if not CATALOG.exists():
         print(f"[catalog] no {CATALOG} to publish", file=sys.stderr)
         return 1
+    # THE RACE. publish-db fetches at its start and publishes at its end,
+    # ~10 minutes later; a catalog published in between — a local rights
+    # confirm, a synopsis refill — was overwritten by the run's stale copy
+    # (2026-09-16: 116 TMDb refills lost to run 35130645649). With
+    # --if-unchanged, a moved release is refused with exit 3 so the caller
+    # can re-fetch and re-apply instead of clobbering.
+    if if_unchanged:
+        then = STAMP.read_text().strip() if STAMP.exists() else ""
+        now = _asset_stamp()
+        if then and now and then != now:
+            print(f"[catalog] release '{TAG}' moved since this fetch ({then} -> {now}); "
+                  f"refusing to publish over it", file=sys.stderr)
+            return 3
     with open(CATALOG, "rb") as fi, gzip.open(GZ, "wb", compresslevel=9) as fo:
         shutil.copyfileobj(fi, fo)
     print(f"[catalog] {CATALOG.stat().st_size/1e6:.1f} MB -> {GZ.stat().st_size/1e6:.1f} MB gzipped")
@@ -195,8 +221,10 @@ def publish():
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("action", choices=["fetch", "publish"])
+    ap.add_argument("--if-unchanged", action="store_true",
+                    help="refuse (exit 3) when the release moved since the last fetch")
     args = ap.parse_args()
-    return fetch() if args.action == "fetch" else publish()
+    return fetch() if args.action == "fetch" else publish(if_unchanged=args.if_unchanged)
 
 
 if __name__ == "__main__":

@@ -120,3 +120,4 @@ secrets/
 # Decision-018 reasoning. A local copy is handy for testing the /list/#<blob>
 # forward against a dev server; it must never be committed.
 /list/
+.catalog_fetch_stamp
