@@ -1721,7 +1721,18 @@ def _looks_like_cruft_tail(raw, uw):
         return True
     if re.search(r"\b(?:18[7-9]\d|19\d\d|20[0-2]\d)\b", raw):
         return True
+    # "Nosferatu DVD quality": every word after the title is a copy/format
+    # token — a positive signal a real title never carries (2026-09-16).
+    if len(uw) >= 2 and all(w in _COPY_TOKENS for w in uw[1:]):
+        return True
     return len(uw) >= 5
+
+
+_COPY_TOKENS = {"dvd", "vhs", "bluray", "blu", "ray", "quality", "hd", "4k", "uhd", "720p", "1080p", "480p",
+                "rip", "full", "movie", "film", "restored", "restoration", "colorized", "colorised", "copy",
+                "print", "version", "upscaled", "remastered", "complete", "uncut", "widescreen", "silent",
+                "sound", "english", "subtitles", "subtitled", "subs", "mp4", "mkv", "avi", "x264", "h264",
+                "hq", "hevc", "upload", "reupload", "edition", "cut", "release", "official", "trailer"}
 
 
 def _audited_clean(it):
