@@ -57,6 +57,13 @@ CASES = [
     ("This riveting Russian documentary takes you inside the trials. The tribunal at Nuremberg hears the evidence "
      "against the surviving leaders of the Third Reich over eleven months.", "Sud narodov",
      "The tribunal at Nuremberg hears the evidence against the surviving leaders of the Third Reich over eleven months."),
+    ("For Academic - Educational Use Only", "Inner Sanctum", None),
+    ("KNIGHT OF THE TRAIL (1915) Starring: William S.", "Knight of the Trail", None),
+    ("All 26 episodes of Room 222 season 2. These are DVDRips in pretty high quality considering the age.",
+     "Room 222 - Complete Season 2", None),
+    ("This is a banned Talespin cartoon from my collection of banned and censored cartoons. Baloo and Kit are "
+     "hired to fly a shipment of explosives across the border, unaware that the buyers are arms dealers.",
+     "Flying Dupes", "Baloo and Kit are hired to fly a shipment of explosives across the border, unaware that the buyers are arms dealers."),
     # Controls: a real plot, a short but real description, quotes inside a sentence.
     (BIG, "Under The Big Top", BIG),
     ("Tire making", "Rubber", "Tire making"),

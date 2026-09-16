@@ -739,6 +739,13 @@ _UPLOADER_VOICE = re.compile(
     r"|\b(excellent|great|wonderful|fantastic|amazing|awesome|terrific) (video|film|movie|print|copy|series|show|cartoon|episode)s?\b|\bgreat for\b"
     r"|\b(might|may|could) be (her|his|the|their|its) best\b|\bone of the (best|greatest|finest)\b"
     r"|\bcan be found on\b|\bsee (its|the) imdb\b"
+    # seed-707 sample: "These are DVDRips in pretty high quality", "please let
+    # us know", "from my collection of banned cartoons", "Beautiful footage of
+    # farm tractors", "nicktoons recorded between 2011-2012", "This is a
+    # better copy than others of this movie i've found".
+    r"|\bdvd ?rips?\b|\b(pretty |very |quite )?(high|low|decent|poor) quality\b|\blet us know\b|\b(somebody|anyone|anybody) knows?\b"
+    r"|\bmy (collection|channel|library|archive|upload)s?\b|\bbeautiful (footage|film|print|transfer|copy)\b|\brecorded (between|in|on|during)\s+(19|20)\d\d"
+    r"|\b(better|worse|best|cleaner) (copy|print|version|transfer) than\b"
     r"|^\s*[\"'(]*(i|i'm|i've|i'd|i'll|we|we're|we've|my|our)\b", re.I)
 # "From IMDb :", "From IMDb:", "Taken from IMDB :" — a pasted-source prefix on a
 # real plot (260 items measured). Strip the prefix, keep the plot.
@@ -749,13 +756,15 @@ _FROM_IMDB_PREFIX = re.compile(r"^\s*(taken\s+)?from\s+imdb\s*:?\s*", re.I)
 # title echoes / placeholders, 93 single words, 55 title-plus-descriptors on
 # the live catalog. None of it is information about the film; an empty
 # synopsis is honest and the clients already render that state.
+_PLACEHOLDER_RX = re.compile(r"^\s*for (academic|educational|research)( [-–] educational)? use only\.?\s*$", re.I)
 _PLACEHOLDER = {"to come", "series", "n a", "none", "no description", "tbd", "coming soon",
                 "description", "untitled", "test", "episode", "movie", "film", "video", "na",
                 "unknown", "no synopsis", "no summary", "see title", "as titled"}
 _SOURCE_PREFIX = re.compile(
     r"^\s*(taken\s+)?from\s+(the\s+)?[\w\s]{3,40}?(database|wikipedia|imdb|allmovie|tcm|afi)\b\s*[:\-–]\s*", re.I)
 _NARA_STAMP = re.compile(
-    r"\bARC Identifier:?\s*\d+\.?|\bNational Archives and Records Administration\b\s*[-–:]?\s*"
+    r"\bARC Identifier:?\s*\d+\.?|^\s*/?\s*Local Identifier:?\s*[\w.-]+\s*|\bNational Archives and Records Administration\b\s*[-–:]?\s*"
+    r"|\s*[-–]?\s*(?:DVD )?Copied by (?:IASL |Master |Scanner )*(?:the Department[^.]{0,40})?(?:[A-Z][a-z]+ ?){1,3}\.?"
     r"|\(\d{1,2}/\d{1,2}/\d{4}\s*-\s*(\d{1,2}/\d{1,2}/\d{4})?\s*\)\.?|^\s*National Archives\s*-\s*", re.I)
 
 
@@ -768,6 +777,8 @@ def _is_placeholder_synopsis(s, it):
     # tech stamp around the title.
     s = _TECH_PAREN.sub(" ", re.sub(r"^\s*(1[89]\d\d|20\d\d)\s*[-–:]\s*", "", s)).strip()
     n = re.sub(r"[^a-z0-9]+", " ", s.lower()).strip()
+    if _PLACEHOLDER_RX.match(s):
+        return True
     # "Love That Bob Ep 5x02 Bob and the Dumb Blonde": a series name, an
     # episode marker and the episode title — a label, not a description.
     title_n = re.sub(r"[^a-z0-9]+", " ", (it.get("title") or "").lower()).strip()
@@ -792,6 +803,8 @@ def _is_placeholder_synopsis(s, it):
     # Written and Directed by Buster Keaton... Camera by Elgin Lessley".
     credits = len(re.findall(r"\b(starring|cast|directed by|produced by|written by|written and directed|camera by|music by|photographed by|screenplay by)\b", s, re.I))
     if credits >= 2 and not narrative:
+        return True
+    if credits >= 1 and not narrative and title_n and n.startswith(title_n):   # "KNIGHT OF THE TRAIL (1915) Starring: William S."
         return True
     # A tag dump: "british, english, england, uk, black and white, film, crime, noir".
     parts = [p.strip() for p in re.split(r"[,;]", s) if p.strip()]
