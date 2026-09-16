@@ -35,10 +35,27 @@ CASES = [
      "Good Night, Nurse!", None),
     ("The Blue Lamp with Dirk Bogarde (1950). british, english, england, uk, united kingdom, black and white, "
      "film, crime, murder, noir, dirk bogarde, police, policemen, british police, 1950", "The Blue Lamp", None),
+    ("Love That Bob Ep 5x02 Bob and the Dumb Blonde", "Bob and the Dumb Blonde", None),
+    ("The Beverly Hillbillies Ep 50 Christmas At The Clampetts", "Christmas At The Clampetts", None),
+    ("1932 - Hitlerjugend in den Bergen (20m 15s, 512x384)", "Hitlerjugend in den Bergen", None),
+    ("Public domain cartoons of 1937. Work in progress. Corrections on copyright status welcome.",
+     "Public Domain Animation", None),
+    ("Victor Buono portrays a serial killer who strangles nurses in a city gripped by fear. The .mkv (Matroska) file "
+     "is the uploaded file. Download it if your player can handle h.265 (HEVC).", "The Strangler",
+     "Victor Buono portrays a serial killer who strangles nurses in a city gripped by fear."),
+    ("Category: Drive-In Movie Ads Title: Dr. Pepper Jazz Length- 1:05 Sound: Yes (enhanced) Color "
+     "Description: A colorful animated jazz combo plays while the Dr. Pepper logo dances across the screen.",
+     "Dr. Pepper Jazz", "A colorful animated jazz combo plays while the Dr. Pepper logo dances across the screen."),
+    ("For more programming from C Berry or information about this program, visit Seattle Community Media.",
+     "Dr. Moze - Yoga for Earth", None),
     # Controls: a real plot, a short but real description, quotes inside a sentence.
     (BIG, "Under The Big Top", BIG),
     ("Tire making", "Rubber", "Tire making"),
     (SEA, "Sea Hunt", SEA),
+    ("Soul Train (Season 2, Episode 19) featuring James Brown performing Get On The Good Foot and Soul Power "
+     "before a studio audience in Chicago.", "Soul Train",
+     "Soul Train (Season 2, Episode 19) featuring James Brown performing Get On The Good Foot and Soul Power "
+     "before a studio audience in Chicago."),
     ("Directed by Roscoe Arbuckle, this comedy follows a drunk who is committed to a sanitarium, where he "
      "falls for a nurse and is chased by a doctor.", "Good Night, Nurse!",
      "Directed by Roscoe Arbuckle, this comedy follows a drunk who is committed to a sanitarium, where he "

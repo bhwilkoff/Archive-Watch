@@ -705,6 +705,14 @@ _UPLOADER_VOICE = re.compile(
     # W1T 1LN"); notes to other editors ("suggestion; insert clip anywhere").
     r"|commercial use|obtain a licen[cs]e|footage sales|licensing (enquir|inquir)|\bcontact (the |us |me )"
     r"|\b[A-Z]{1,2}\d{1,2}[A-Z]? \d[A-Z]{2}\b|check out this|\binsert (clip|this)\b|\bsuggestion[;:]"
+    # Project notes, file talk and promos (30-item post-rule sample, 2026-09-16):
+    # "Work in progress. Corrections on copyright status welcome.", "The .mkv
+    # (Matroska) file is the uploaded file. Download it if your player can
+    # handle h.265 (HEVC).", "For more programming from C Berry ... visit
+    # Seattle Community Media."
+    r"|work in progress|\bcorrections\b[^.]{0,40}\bwelcome\b|\.(mkv|mp4|avi|m4v|webm)\b|uploaded file|\bh\.?26[45]\b|\bhevc\b"
+    r"|\bmatroska\b|\bdownload it\b|^\s*upd(ate|ated)?\s*:|for more (programming|information|videos|content|episodes)\b"
+    r"|\bvisit\b[^.]{0,50}\b(media|channel|website|site|page|\.com|\.org|\.net)\b|\bsubscribe\b"
     r"|^\s*[\"'(]*(i|i'm|i've|i'd|i'll|we|we're|we've|my|our)\b", re.I)
 # "From IMDb :", "From IMDb:", "Taken from IMDB :" — a pasted-source prefix on a
 # real plot (260 items measured). Strip the prefix, keep the plot.
@@ -725,8 +733,20 @@ _NARA_STAMP = re.compile(
     r"|\(\d{1,2}/\d{1,2}/\d{4}\s*-\s*(\d{1,2}/\d{1,2}/\d{4})?\s*\)\.?|^\s*National Archives\s*-\s*", re.I)
 
 
+_EP_MARK = re.compile(r"\b(ep(isode)?\.?\s*\d{1,3}|s\d{1,2}\s*e\d{1,3}|\d{1,2}x\d{2}|season\s*\d{1,2})\b", re.I)
+_TECH_PAREN = re.compile(r"\(\s*\d+m\s*\d+s\s*,\s*\d{3,4}x\d{3,4}\s*\)|\b\d{3,4}x\d{3,4}\b")
+
+
 def _is_placeholder_synopsis(s, it):
+    # "1932 - Hitlerjugend in den Bergen (20m 15s, 512x384)": a year and a
+    # tech stamp around the title.
+    s = _TECH_PAREN.sub(" ", re.sub(r"^\s*(1[89]\d\d|20\d\d)\s*[-–:]\s*", "", s)).strip()
     n = re.sub(r"[^a-z0-9]+", " ", s.lower()).strip()
+    # "Love That Bob Ep 5x02 Bob and the Dumb Blonde": a series name, an
+    # episode marker and the episode title — a label, not a description.
+    title_n = re.sub(r"[^a-z0-9]+", " ", (it.get("title") or "").lower()).strip()
+    if _EP_MARK.search(s) and len(n.split()) <= 14 and title_n and (n.endswith(title_n) or n.startswith(title_n)):
+        return True
     if not n or n in _PLACEHOLDER or len(n.split()) == 1:
         return True
     title = (it.get("title") or "").strip()
@@ -1384,7 +1404,7 @@ def _fix_mojibake(s):
 # the Aspect Ratio VALUE (587/609, always in that order) so the summary and
 # the long plot join. Gated on the header so no other synopsis shape is
 # touched; a result under MIN_SYNOPSIS nulls out below, which beats a dump.
-_TITLE_SUMMARY_HEAD = re.compile(r"^\s*Title:.{0,300}?\bSummary:\s*", re.S)
+_TITLE_SUMMARY_HEAD = re.compile(r"^\s*(Title|Category):.{0,300}?\b(Summary|Description):\s*", re.S)
 _ASPECT_TAIL = re.compile(r"Aspect Ratio:\s*[\d.]+\s*:\s*[\d.]+\s*")
 
 
