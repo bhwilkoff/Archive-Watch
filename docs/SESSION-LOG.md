@@ -16,6 +16,37 @@ it is history, not a to-do list.
 
 ## Session Log
 
+### 2026-09-14 (later) — Context put in order: 382 KB of always-loaded docs → ~80 KB
+Owner: *"Let's get our context and documentation in order so that it isn't
+costing us on tokens every time we try to do something."* Measured first:
+every session was loading ~382 KB (~95k tokens) before the first prompt —
+SCRATCHPAD.md 192 KB (a session log back to April, imported whole),
+DECISIONS.md 158 KB (past Decision 092's own ceiling), MEMORY.md 20 KB, and
+a SessionStart hook that re-printed CLAUDE.md and Current State on top of
+Claude Code loading them natively.
+
+**Cut, nothing lost.** Decisions 081–115 moved verbatim into
+`docs/decisions/DECISIONS-081-115.md` (35 entries, byte-checked against
+HEAD); 67 session-log entries and the April plan boards moved verbatim into
+`docs/SESSION-LOG.md` (69 blocks, byte-checked); MEMORY.md rewritten to one
+short hook per line (124 links, all resolving); the hook now prints one
+212-byte line of git + version state instead of 12.5 KB of duplication.
+After: SCRATCHPAD ~16 KB, DECISIONS 41 KB, MEMORY 12 KB, CLAUDE 12 KB.
+
+**Corrected while there, because stale context costs more than tokens.**
+CLAUDE.md said the web was "an editorial dashboard, not a consumer viewer",
+that `tvOS-DESIGN.md` did not exist yet, that the Xcode project sat at repo
+root, and framed the product as tvOS-only; the scratchpad's Current State
+said 1.1.0 build 12 with empty icon assets. All rewritten to the September
+truth — and pointed at Pulse for ship state rather than restating numbers
+that rot. The `amazon_appstore_api_access` memory — the confident negative
+Decision 111 says cost five weeks — now says the opposite.
+
+**New rules, written where the next session will meet them:** DECISIONS.md
+stays under ~50 KB (was ~120); SCRATCHPAD.md keeps exactly two session-log
+entries and rolls the oldest into `docs/SESSION-LOG.md`; `/milestone` and
+`/decision` carry both.
+
 ### 2026-09-14 — Pulse becomes the console; playlist sharing verified on every Android form factor
 Owner: *"The whole point of Pulse is that I never have to go into the
 individual dashboards."* Binding design: **docs/PULSE-ANALYTICS.md**.
