@@ -86,6 +86,16 @@ CASES = [
       "Surveys the geological and ecological history of the Great Lakes, accompanied by narration in ballad form."],
      "The Rise and Fall of the Great Lakes",
      "Surveys the geological and ecological history of the Great Lakes, accompanied by narration in ballad form."),
+    ("This series has fallen into the Public Domain.", "Captain Video and his Video Rangers", None),
+    ("For Academic / Educational Use Only", "Night and the City", None),
+    ('SPACE 1999 "Dragon\'s Domain" (1975) Directed by Michael Crichton', "SPACE 1999 S1E8", None),
+    ("Department of Energy Response to Mechanical Shock NTIS Price: $105.00 Your Price: $0.00 AVA15026-VNB1 The program "
+     "illustrates how components respond to shock loading and how engineers design for it.", "Response to Mechanical Shock",
+     "Department of Energy Response to Mechanical Shock The program illustrates how components respond to shock loading "
+     "and how engineers design for it."),
+    ("Hello again and welcome to the Shocker Internet Drive In's 50th presentation! A mad scientist revives a "
+     "gorilla with a human brain and sets it loose on a carnival.", "Shocker Internet Drive In 50",
+     "A mad scientist revives a gorilla with a human brain and sets it loose on a carnival."),
     # Controls: a real plot, a short but real description, quotes inside a sentence.
     (BIG, "Under The Big Top", BIG),
     ("Tire making", "Rubber", "Tire making"),

@@ -736,7 +736,7 @@ _UPLOADER_VOICE = re.compile(
     # serial can be found on its IMDb page" (seed-606 sample, 2026-09-16).
     r"|\bI (do|have|will|hope|receive|share|upload|apologi[sz]e|tried|decided|chose)\b|\bthese uploads\b|\binfringe"
     r"|\bcan be purchased\b|\bpurchased? (on|at|from)\b|\bhigher quality\b|\bfor sale\b"
-    r"|\b(excellent|great|wonderful|fantastic|amazing|awesome|terrific) (video|film|movie|print|copy|series|show|cartoon|episode)s?\b|\bgreat for\b"
+    r"|\b(excellent|great|wonderful|fantastic|amazing|awesome|terrific) (toy |old |little )?(video|film|movie|print|copy|series|show|cartoon|episode|commercial|ad|clip|footage)s?\b|\bgreat for\b"
     r"|\b(might|may|could) be (her|his|the|their|its) best\b|\bone of the (best|greatest|finest)\b"
     r"|\bcan be found on\b|\bsee (its|the) imdb\b"
     # seed-707 sample: "These are DVDRips in pretty high quality", "please let
@@ -756,6 +756,13 @@ _UPLOADER_VOICE = re.compile(
     # they were still on the archive under SandersPlanet's account", "You can
     # find other...", "These are missing in MP4 format from the POST".
     r"|\bI happen\b|\bhave downloaded\b|\bunder [\w']+'s account\b|\byou can (find|download|watch|see|buy|get)\b|\bin (mp4|mkv|avi|mpeg) format\b"
+    # seed-1010: "The Bill Sprague Collection tolerates no complaints", "At
+    # first I thought there was no audio", "No hate speech, no phony news, no
+    # racist bullcrap of any kind. If you wish to engage...", "Hello again and
+    # welcome to the Shocker Internet Drive In's 50th presentation!", "For
+    # additional information see California Revealed."
+    r"|\btolerates? no\b|\bno complaints\b|\bI (thought|assumed|guess(ed)?|figured)\b|\bno hate speech\b|\bbullcrap\b|\bif you wish to (engage|comment|complain|contact)\b"
+    r"|^\s*(hello|hi|hey|greetings)\b|\bwelcome (to|back)\b|\bfor (additional|more|further) information,? (see|visit|contact|go to)\b"
     r"|^\s*[\"'(]*(i|i'm|i've|i'd|i'll|we|we're|we've|my|our)\b", re.I)
 # "From IMDb :", "From IMDb:", "Taken from IMDB :" — a pasted-source prefix on a
 # real plot (260 items measured). Strip the prefix, keep the plot.
@@ -766,14 +773,17 @@ _FROM_IMDB_PREFIX = re.compile(r"^\s*(taken\s+)?from\s+imdb\s*:?\s*", re.I)
 # title echoes / placeholders, 93 single words, 55 title-plus-descriptors on
 # the live catalog. None of it is information about the film; an empty
 # synopsis is honest and the clients already render that state.
-_PLACEHOLDER_RX = re.compile(r"^\s*for (academic|educational|research)( [-–] educational)? use only\.?\s*$", re.I)
+_PLACEHOLDER_RX = re.compile(
+    r"^\s*for (academic|educational|research)( ?[-–/] ?(academic|educational|research))? use only\.?\s*$"
+    r"|^\s*(this (film|series|movie|title|show) )?(has fallen into|is (now )?in) the public domain\.?\s*$", re.I)
 _PLACEHOLDER = {"to come", "series", "n a", "none", "no description", "tbd", "coming soon",
                 "description", "untitled", "test", "episode", "movie", "film", "video", "na",
                 "unknown", "no synopsis", "no summary", "see title", "as titled"}
 _SOURCE_PREFIX = re.compile(
     r"^\s*(taken\s+)?from\s+(the\s+)?[\w\s]{3,40}?(database|wikipedia|imdb|allmovie|tcm|afi)\b\s*[:\-–]\s*", re.I)
 _NARA_STAMP = re.compile(
-    r"\bARC Identifier:?\s*\d+\.?|^\s*/?\s*Local Identifier:?\s*[\w.-]+\s*|\bNational Archives and Records Administration\b\s*[-–:]?\s*"
+    r"\bARC Identifier:?\s*\d+\.?|\s*/?\s*\bLocal Identifier:?\s*[\w.-]+\.?\s*|\bNational Archives and Records Administration\b\s*[-–:]?\s*"
+    r"|\bNTIS Price:\s*\$[\d.,]+\s*(Your Price:\s*\$[\d.,]+)?\s*([A-Z]{2,4}\d{4,6}-?[A-Z0-9]*)?\s*|\bgov\.[\w.]+\b\s*"
     r"|\s*[-–]?\s*(?:DVD )?Copied by (?:IASL |Master |Scanner )*(?:the Department[^.]{0,40})?(?:[A-Z][a-z]+ ?){1,3}\.?"
     r"|\(\d{1,2}/\d{1,2}/\d{4}\s*-\s*(\d{1,2}/\d{1,2}/\d{4})?\s*\)\.?|^\s*National Archives\s*-\s*", re.I)
 
@@ -817,6 +827,8 @@ def _is_placeholder_synopsis(s, it):
     if credits >= 2 and not narrative:
         return True
     if credits >= 1 and not narrative and title_n and n.startswith(title_n):   # "KNIGHT OF THE TRAIL (1915) Starring: William S."
+        return True
+    if credits >= 1 and not narrative and len(n.split()) <= 12:   # 'SPACE 1999 "Dragon's Domain" (1975) Directed by Michael Crichton'
         return True
     # A tag dump: "british, english, england, uk, black and white, film, crime, noir".
     parts = [p.strip() for p in re.split(r"[,;]", s) if p.strip()]
