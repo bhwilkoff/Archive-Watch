@@ -385,18 +385,25 @@ _DIR_INVERTED = re.compile(r"^\s*([A-Z][\w'\-]+),\s+([A-Z][\w'\-\.]+(?:\s+[A-Z]\
                            r"(?:,\s*(?:1[89]\d\d|20\d\d)-?(?:\d{4})?\.?)?\s*$")
 
 
+_HANDLE = re.compile(r"^[A-Za-z0-9_.\-]+$")   # "TheHalRoachCoach": an uploader, not a producer
+
+
 def normalize_director(item):
-    d = item.get("director")
-    if not isinstance(d, str):
-        return False
-    v = _DIR_CREDIT_TAIL.sub("", _DIR_CREDIT_PREFIX.sub("", d)).strip()
-    m = _DIR_INVERTED.match(v)
-    if m:
-        v = f"{m.group(2)} {m.group(1)}"
-    if v != d and v:
-        item["director"] = v
-        return True
-    return False
+    hit = False
+    for field in ("director", "producer"):
+        d = item.get(field)
+        if not isinstance(d, str):
+            continue
+        v = _DIR_CREDIT_TAIL.sub("", _DIR_CREDIT_PREFIX.sub("", d)).strip()
+        m = _DIR_INVERTED.match(v)
+        if m:
+            v = f"{m.group(2)} {m.group(1)}"
+        if field == "producer" and _HANDLE.match(v) and re.search(r"[a-z][A-Z]|\d|_", v):
+            v = None
+        if v != d:
+            item[field] = v
+            hit = True
+    return hit
 
 
 def strip_orphan_match_residue(item):
