@@ -1919,7 +1919,10 @@ def cast_residue_fixes(items, stats):
             rev.setdefault((name, (info or {}).get("p")), set()).add(tid)
             by_name.setdefault(name, set()).add(tid)
     for it in items:
-        if it.get("excluded") or not it.get("cast") or any(it.get(k) for k in _ALL_IDS):
+        # A Wikidata QID is an identity, not a source of cast — so a
+        # Wikidata-only item still has residue to judge (and a year to adopt).
+        if (it.get("excluded") or not it.get("cast")
+                or any(it.get(k) for k in ("imdbID", "tmdbID", "tvmazeID", "tvdbID"))):
             continue
         votes, name_votes = Counter(), Counter()
         for c in it["cast"]:
@@ -1941,11 +1944,31 @@ def cast_residue_fixes(items, stats):
             tid, n = name_votes.most_common(1)[0]
             film = vc.get(tid) or {}
             fy = film.get("year")
+            # Same title, three shared names, within fifteen years: the same
+            # film with a production-vs-release year (Die Sister, Die! is
+            # 1972 and 1978; I Eat Your Skin 1964 and 1971). A remake is
+            # decades away (Godzilla 1954 / 2014, Panique 1946 / 1977).
             year_ok = (not isinstance(fy, int) or not isinstance(iy, int)
-                       or abs(fy - iy) <= 5 or any(abs(fy - y) <= 5 for y in id_years))
-            if n >= 3 and year_ok and film.get("title") and _titles_agree(_bare_title(film["title"]), own):
-                title_anchored.add(it["archiveID"])
-                continue
+                       or abs(fy - iy) <= 15 or any(abs(fy - y) <= 5 for y in id_years))
+            if n >= 3 and film.get("title") and _titles_agree(_bare_title(film["title"]), own):
+                # The same evidence dates the film. Six pre-1961 features
+                # ("Smart Alecks" 1942, "Atom Age Vampire" 1960, Keaton's
+                # "Three Ages" 1923) carried their UPLOAD year, which the
+                # rights audit then read as a modern release; the Archive's
+                # own `date` repeats the upload year, so only the cast can
+                # say otherwise. Adopted only when the archive id names no
+                # year and the item's year is the modern one.
+                if (isinstance(fy, int) and isinstance(iy, int) and not id_years
+                        and iy - fy > 5 and iy >= 1978 and not it.get("yearSource")):
+                    it["year"] = fy
+                    it["decade"] = decade_of(fy)
+                    it["isSilentFilm"] = bool(fy < SILENT_CUTOFF)
+                    it["yearSource"] = "cast-anchored-tmdb"
+                    stats["year_from_cast_anchor"] += 1
+                    year_ok = True
+                if year_ok:
+                    title_anchored.add(it["archiveID"])
+                    continue
         if not votes:
             continue
         tid, n = votes.most_common(1)[0]
