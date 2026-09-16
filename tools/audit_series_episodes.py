@@ -62,6 +62,10 @@ PARODY_WORDS = re.compile(
     r"(gets?[\s_-]*grounded|ungrounded|goanimate|go[\s_-]?animate)",
     re.IGNORECASE)
 REVIEW_COLLECTIONS = {"vlogs", "bliptv", "youtube", "fan-films"}
+# "<Show> : <a>/<b>" — a game show's contestant line. The spaced colon and
+# the slash-separated names are the shape; "Host: Burl Ives" and "Design for
+# War: Battle of the Atlantic" are episode titles and must not match.
+OTHER_SHOW = re.compile(r"^\s*(?P<show>[A-Za-z][A-Za-z0-9'!&.]* (?:[A-Za-z0-9'!&.]+ ?){1,4})\s:\s+[^:]*/[^:]*$")
 SE = re.compile(r"s\s*0*(\d{1,2})\s*[-_. ]*e\s*0*(\d{1,3})", re.IGNORECASE)
 
 
@@ -133,6 +137,14 @@ def flag_offline(spines):
                 after = norm_words(t[m.end():])
                 if not (title_words & before) and (title_words & after):
                     reasons.append("show_after_se")
+            # "Family Feud : Wilson/Burke" inside Burke's Law (1963): a game
+            # show whose CONTESTANT shares the series' name, matched by the
+            # title search, with no SxxEyy marker for the rule above to see.
+            # A "<Show> : <rest>" title whose show shares no word with the
+            # series is somebody else's programme (2026-09-16).
+            m2 = OTHER_SHOW.match(t)
+            if m2 and title_words and not (title_words & norm_words(m2.group("show"))):
+                reasons.append("other_show_title")
             m = SE.search(aid.replace("-", " "))
             sn, en = e.get("seasonNumber"), e.get("episodeNumber")
             if m and sn is not None and en is not None:
@@ -156,7 +168,7 @@ def confirm(f, throttle):
         return "scrape_mirror", "social-scrape identifier / transcript title"
 
     # Archive metadata: is this review/commentary/parody content, not the show?
-    needs_meta = any(r in ("review_title", "fan_parody")
+    needs_meta = any(r in ("review_title", "fan_parody", "other_show_title")
                      or r.startswith("cross_show") for r in reasons) \
         or any(r == "show_after_se" for r in reasons)
     if needs_meta:
@@ -178,6 +190,21 @@ def confirm(f, throttle):
                                           or REVIEW_WORDS.search(desc)
                                           or "does not own" in desc):
             return "review_content", f"collections={sorted(cols)}; review subjects"
+        if "other_show_title" in reasons:
+            show_words = norm_words(f["doc"].get("title"))
+            m2 = OTHER_SHOW.match(at)
+            if m2 and not (show_words & norm_words(m2.group("show"))):
+                return "wrong_show", f"archive title names another programme: {at[:120]}"
+            # The upload's own title is usually "<Show> S18 E177": the name
+            # before the marker is the programme it belongs to.
+            m3 = SE.search(at)
+            if m3:
+                # Letters only: "12 January 2015" must not vouch for Adam-12.
+                before = {w for w in norm_words(at[:m3.start()]) if not w.isdigit()}
+                show_alpha = {w for w in show_words if not w.isdigit()}
+                if before and not (show_alpha & before):
+                    return "wrong_show", f"archive title names another programme: {at[:120]}"
+            evidence.append(f"archive title: {at[:120]}")
         if any(r.startswith("cross_show") or r == "show_after_se"
                for r in reasons):
             # The Archive item's own title is the authority (Decision 026

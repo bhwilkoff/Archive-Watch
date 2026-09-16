@@ -190,7 +190,10 @@ def build_episode(iaid, doc, meta, series_doc=None):
         "seasonNumber": s,
         "episodeNumber": e,
         "title": title,
-        "overview": md.get("description") or None,
+        # NOT the archive description: that is the uploader's text (raw HTML,
+        # tech notes, a podcast's blurb) and an episode overview must come
+        # from TVmaze's summary or be absent (Decision 124, 2026-09-16).
+        "overview": None,
         "stillURL": "https://archive.org/services/img/" + iaid,
         "airDate": None,
         "year": yr,
