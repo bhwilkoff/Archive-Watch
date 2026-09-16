@@ -80,24 +80,37 @@ def main() -> int:
     token = T.load_tmdb_token(SECRETS)
     if todo and not token:
         sys.exit("no TMDB_BEARER_TOKEN — set Secrets.xcconfig or the env")
-    sess = requests.Session()
-    errors = 0
-    for i, it in enumerate(todo, 1):
+    # Eight in flight: movie_detail carries credits, so one call is ~1 s of
+    # latency, and sequentially 11k of them is three hours. TMDb's ceiling is
+    # ~50 req/s; eight workers with a short sleep stays far under it.
+    from concurrent.futures import ThreadPoolExecutor, as_completed
+    import threading
+    local = threading.local()
+
+    def one(it):
+        if not hasattr(local, "sess"):
+            local.sess = requests.Session()
         tid = str(it["tmdbID"])
         try:
-            d = T.movie_detail(it["tmdbID"], token, sess)
-            cache[tid] = ((d or {}).get("plot") or "").strip()
+            d = T.movie_detail(it["tmdbID"], token, local.sess)
+            time.sleep(args.sleep)
+            return tid, ((d or {}).get("plot") or "").strip(), None
         except Exception as e:  # noqa: BLE001
-            errors += 1
-            if errors <= 5:
-                print(f"  ! {tid}: {e}")
-            if errors > 50:
-                print("  too many errors — stopping the fetch; the cache is kept")
-                break
-        time.sleep(args.sleep)
-        if i % 500 == 0:
-            CACHE.write_text(json.dumps(cache, ensure_ascii=False))
-            print(f"  fetched {i}/{len(todo)}")
+            return tid, None, str(e)[:100]
+
+    errors = done = 0
+    with ThreadPoolExecutor(max_workers=8) as ex:
+        for tid, plot, err in (f.result() for f in as_completed([ex.submit(one, it) for it in todo])):
+            done += 1
+            if err:
+                errors += 1
+                if errors <= 5:
+                    print(f"  ! {tid}: {err}")
+                continue
+            cache[tid] = plot
+            if done % 500 == 0:
+                CACHE.write_text(json.dumps(cache, ensure_ascii=False))
+                print(f"  fetched {done}/{len(todo)} (errors {errors})")
     CACHE.write_text(json.dumps(cache, ensure_ascii=False))
 
     replaced = kept_empty = stamped_archive = 0
