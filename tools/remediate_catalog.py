@@ -565,6 +565,16 @@ _UPLOADER_VOICE = re.compile(
     r"|included in our program|our program(me)? to illustrate|presented by silent hall of fame"
     r"|\benjoy\b|\bimho\b|in my (humble )?opinion|i highly recommend|must[- ]see"
     r"|please (like|share|rate|comment|subscribe)|check out (my|our)"
+    # Sentences about the COPY, not the film (250 items, 2026-09-16): "This
+    # one is 480p but is clearly not dvd quality", "Sorry for the tape
+    # glitch", "This print is sharper than the existing IA copies",
+    # "Download Options: High Definition 720p ProRes". Narrow on purpose —
+    # "high-quality military trucks" is a plot.
+    r"|\bsorry\b|\bapolog|\b\d{3,4}p\b|(dvd|vhs|video|picture|image|audio|sound) quality"
+    r"|this (print|copy|version|upload|file|transfer|encode|rip)('s)? (is|was|has|isn't|comes|features)"
+    r"|(sharper|cleaner|clearer|better|worse) than the (existing|other|previous)"
+    r"|tape glitch|download options?:|recorded (from|off)|off[- ]air|\bripped\b|\bencoded\b"
+    r"|upscaled|remastered by me|my (copy|print|transfer|rip)"
     r"|^\s*[\"'(]*(i|i'm|i've|i'd|i'll|we|we're|we've|my|our)\b", re.I)
 # "From IMDb :", "From IMDb:", "Taken from IMDB :" — a pasted-source prefix on a
 # real plot (260 items measured). Strip the prefix, keep the plot.
