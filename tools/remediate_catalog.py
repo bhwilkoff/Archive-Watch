@@ -1571,11 +1571,22 @@ def sanitize_synopsis(it):
                 rest = after.lstrip(" -–—:,.")
                 if len(rest) >= MIN_SYNOPSIS and not re.match(r"(is|was|are|were|and|or)\b", rest, re.I):
                     s = rest[0].upper() + rest[1:]
+    # UPLOADER and TECH are uploader-text filters: on a checked source they
+    # only ever misfire — TMDb's "a buggy ride through the heavens courtesy
+    # of the Devil" (The Merry Frolics of Satan) was nulled on every publish
+    # since June by "courtesy of" (found 2026-09-16).
+    if not uploader_text:
+        # A checked source's URL is a citation, not a promo: "(via
+        # https://catalogue-lumiere.com/...)" comes off inline and the
+        # sentence stays. SOCIAL is an uploader-text filter too — "donate his
+        # savings", "an unsigned telegram" are plots.
+        s = re.sub(r"\s*\((?:via |see |source: )?https?://[^)]*\)", "", s)
+        s = re.sub(r"\s*(?:via |see )?https?://\S+", "", s)
     sents = [x for x in _SENT_SPLIT.split(s)
-             if not (_audit.URL.search(x) or _audit.SOCIAL.search(x)
-                     or _audit.EMAIL.search(x) or _audit.UPLOADER.search(x)
-                     or _audit.TECH.search(x) or _BOILERPLATE_SENT.search(x)
-                     or (uploader_text and _UPLOADER_VOICE.search(x)))]
+             if not (_audit.EMAIL.search(x) or _BOILERPLATE_SENT.search(x)
+                     or (uploader_text and (_audit.URL.search(x) or _audit.SOCIAL.search(x)
+                                            or _audit.UPLOADER.search(x) or _audit.TECH.search(x)
+                                            or _UPLOADER_VOICE.search(x))))]
     # A trailing country token left after its address went ("UK." after
     # "21 Stephen Street, London, W1T 1LN."). Narrow on purpose: the
     # splitter also breaks on initials ("J. P. Sullivan."), so a general
