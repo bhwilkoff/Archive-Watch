@@ -1473,12 +1473,9 @@ def _wiki_lead_is_another_film(it, raw):
         return False         # "1943-Wien-1910" IS the 1943 film the lead describes
     if id_years and all(abs(ly - y) > 15 for y in id_years):
         return True          # "pentru-patrie-1977" is not the 1917 French Patrie
-    if abs(ly - iy) > 15:
-        return True          # a 2022 public-access "A Heart of Gold!" is not the 1923 film
-    lead = _bare_title(m.group("title"))
-    own = {_bare_title(t) for t in ([it.get("title"), it.get("canonicalTitle"), it.get("originalTitle")]
-                                    + list(it.get("akaTitles") or [])) if t}
-    return bool(lead) and not _titles_agree(lead, own)
+    # Inside fifteen years a differing title is a release title (The Curse
+    # of Greed IS Perret's The Twin Pawns, 1919) — not evidence.
+    return abs(ly - iy) > 15   # a 2022 public-access "A Heart of Gold!" is not the 1923 film
 
 
 def sanitize_synopsis(it):
@@ -1488,6 +1485,12 @@ def sanitize_synopsis(it):
         return None
     if (it.get("synopsisSource") or "") == "wikipedia":
         if _wiki_lead_is_another_film(it, raw):
+            # The article arrived with the same identity chain — imdb, tmdb,
+            # wikidata all for the other film — so the whole match goes.
+            _clear_wrong_artwork(it, None)
+            it["wikidataQID"] = None
+            it["matchVerdict"] = "cleared_wikipedia_lead"
+            it["matchVerified"] = True
             it["synopsis"] = None
             it["synopsisSource"] = None
             it["wikipediaLeadMismatch"] = True

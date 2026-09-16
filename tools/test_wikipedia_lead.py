@@ -8,7 +8,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import remediate_catalog as R  # noqa: E402
 
 CASES = [
-    ("The Curse of Greed", 1914, "silent-the-curse-of-greed", "The Twin Pawns is a 1919 American silent drama film.", True),
+    # A release title inside fifteen years is the same film (The Curse of Greed IS The Twin Pawns).
+    ("The Curse of Greed", 1914, "silent-the-curse-of-greed", "The Twin Pawns is a 1919 American silent drama film.", False),
     ("A Heart of Gold!", 2022, "mnn_906717_187", "Heart of Gold is a 1923 Spanish silent film.", True),
     ("1977 Pentru Patrie", 1914, "pentru-patrie-1977-3-h-12", "Patrie is a 1917 French film by Albert Capellani.", True),
     ("The Hands of Orlac", 1928, "the-hands-of-orlac_1928", "The Hands of Orlac is a 1924 Austrian silent film.", False),
