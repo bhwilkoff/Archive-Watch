@@ -130,6 +130,12 @@ the film ... every piece of information ... accurate and unbiased."
   1929 Warner Oland...") become empty. Tests: test_family_genre,
   test_uploader_voice, test_title_cast_tail, test_placeholder_synopsis,
   test_unanchored_tmdb_residue. publish-db dispatched after each batch.
+- **The text loops end here** (sample miss rates 4–12 of 40–50, every one a
+  phrasing, none a class). The tail now goes through
+  `metadata_review.py select --source archive` — the agent judges each uploader
+  synopsis keep/rewrite/null, popularity-first; first batch of 60 applied and
+  published (22 rewrites, 5 nulls, 33 keeps). ~8,140 remain; the top ~2,000
+  by popularity is the bounded pass worth doing.
 
 Older entries: `docs/SESSION-LOG.md` (verbatim, back to 2026-04-17).
 
