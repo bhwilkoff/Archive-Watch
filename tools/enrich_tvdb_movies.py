@@ -71,8 +71,11 @@ def best_match(results: list, title: str, year):
             ry = None
         a, b = set(nt.split()), set(rn.split())
         overlap = len(a & b) / max(len(a | b), 1)
-        year_ok = (year is None or ry is None or abs(ry - year) <= 1)
-        exact = rn == nt and (year is None or ry is None or ry == year)
+        # A record with NO year may carry a fuzzy title only when the title is
+        # exact — a 70% word overlap against an undated record is how a
+        # remake's poster lands on the original (2026-09-16 audit).
+        year_ok = (ry is not None and abs(ry - year) <= 1)
+        exact = rn == nt and (ry is None or ry == year)
         if not (exact or (overlap >= 0.7 and year_ok)):
             continue
         img = r.get("image_url") or r.get("thumbnail")
