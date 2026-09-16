@@ -990,7 +990,46 @@ _CREDIT_TAIL = re.compile(
     r"featuring|feat\.?|with cast|cast:)\s+\S.*$", re.I)
 # Uploader credits packed into the title with PIPE separators ("Title |Fritz Lang| Glenn Ford …"):
 # a "|" is essentially never in a real film title, so everything from the first "|" is credits.
-_PIPE_CREDITS = re.compile(r"\s*\|.*$", re.S)
+_PIPE_CREDITS = re.compile(r"\s*[|｜].*$", re.S)   # ASCII bar or the fullwidth U+FF5C uploaders paste
+# "A Bride For Henry COMEDY", "Road To Happiness DRAMA": an ALL-CAPS genre
+# glued to a title that is not itself all caps. And "The Corpse Vanishes Bela
+# Lugosi Horror" / "Bluebeard John Carradine Crime": a name from the item's
+# OWN cast followed by a genre word — the cast field is the evidence.
+_GENRE_WORD = (r"(?:film[ -]?noir|drama|comedy|romance|western|horror|sci[- ]?fi|science fiction|"
+               r"thriller|mystery|documentary|adventure|musical|crime|fantasy|action|war)")
+_CAPS_GENRE_TAIL = re.compile(r"\s+(?:DRAMA|COMEDY|ROMANCE|WESTERN|HORROR|SCI-?FI|THRILLER|MYSTERY|"
+                              r"DOCUMENTARY|ADVENTURE|MUSICAL|CRIME|FANTASY|ACTION|NOIR)\s*$")
+
+
+def _strip_cast_genre_tail(t, it):
+    names = []
+    for c in (it.get("cast") or []):
+        n = c.get("name") if isinstance(c, dict) else c
+        if isinstance(n, str) and len(n) >= 5 and " " in n:
+            names.append(n)
+    # Either a separator before the name(s), or a genre word after it; a
+    # bare name at the end is often the title ("Asi Cantaba Carlos Gardel",
+    # "A Kiss for Mary Pickford", "... With Norman Wilton") — unless a
+    # comma-separated cast list was just stripped after it ("Try and Get Me
+    # Frank Lovejoy, Lloyd Bridges").
+    stripped_list = False
+    for _ in range(3):
+        before = t
+        for n in names:
+            nt = re.sub(r"\s*[-–—,|]\s*" + re.escape(n) + r"\s*$", "", t, flags=re.I)
+            if nt == t:
+                m = re.search(r"^(.*?)\s+" + re.escape(n) + r"(?:\s+" + _GENRE_WORD + r")?\s*$", t, flags=re.I)
+                genre_after = bool(m and re.search(_GENRE_WORD + r"\s*$", t, re.I))
+                if m and (genre_after or stripped_list) and not re.search(
+                        r"\b(with|by|of|for|and|aka|starring|feat|featuring)\s*$", m.group(1), re.I):
+                    nt = m.group(1)
+            else:
+                stripped_list = True
+            if nt != t and len(re.sub(r"[^A-Za-z]", "", nt)) >= 4:
+                t = nt.rstrip(" -–—,|")
+        if t == before:
+            break
+    return t
 # Trailing parenthetical that is a CAST/credit/alt-title/version list — a paren or bracket
 # containing a comma, sitting at the very end ("Sie Und Die Drei( Hans Söhnker, Curt Vespermann)",
 # "Frankenstein 1931 (Colin Clive, Boris Karloff)", "(restored, uncut)"). The comma is the tell:
@@ -1514,6 +1553,9 @@ def sanitize_title(it):
     t = _keep_if_lettered(_PIPE_CREDITS.sub("", t).rstrip(" -–—,|"), t)
     # Trailing genre descriptor ("… - Film Noir") an uploader appended (known descriptors only).
     t = _keep_if_lettered(_GENRE_TAIL.sub("", t).rstrip(" -–—,|"), t)
+    if _CAPS_GENRE_TAIL.search(raw) and not re.search(r"\b[A-Z]{2,}\s+[A-Z]+\s*$", raw):
+        t = _keep_if_lettered(re.sub(r"\s+" + _GENRE_WORD + r"\s*$", "", t, flags=re.I), t)
+    t = _keep_if_lettered(_strip_cast_genre_tail(t, it), t)
     # Trailing cast/credit/alt-title parenthetical ("Title( Actor, Actor)") — the comma is the tell.
     t = _keep_if_lettered(_CAST_PAREN.sub("", t).rstrip(" -–—,|"), t)
     # Trailing " - Director Name" on scene-rip dash dumps, but ONLY when it matches the
