@@ -696,10 +696,49 @@ _UPLOADER_VOICE = re.compile(
     # film!!", "a must watch", "10/10" (2026-09-16).
     r"|!{2,}|[:=;]-?[\)d]\b|\b[xX]d\b|please,? (click|download|save|watch|see|rate|comment|subscribe|leave)"
     r"|\bmust[- ]watch\b|\b(10|9|8)/10\b|\bhighly recommended\b|\bvery (funny|comic|entertaining|enjoyable)\b"
+    # Ownership disclaimers in any language ("All musik, ljud och bild går
+    # till dess rätta ägare" led 19 Swedish uploads' descriptions).
+    r"|rätta ägare|derechos reservados|tous droits|alle rechte|diritti riservati|todos os direitos"
+    r"|belongs? to (its|their) (rightful|respective) owners?|no copyright intended|i do not own|rights (are )?(reserved|held) by"
     r"|^\s*[\"'(]*(i|i'm|i've|i'd|i'll|we|we're|we've|my|our)\b", re.I)
 # "From IMDb :", "From IMDb:", "Taken from IMDB :" — a pasted-source prefix on a
 # real plot (260 items measured). Strip the prefix, keep the plot.
 _FROM_IMDB_PREFIX = re.compile(r"^\s*(taken\s+)?from\s+imdb\s*:?\s*", re.I)
+# What an uploader typed INSTEAD of a description (2026-09-16 live sample of
+# 30: "To come.", "Series", "510", the title repeated, "The Red Dragon 1929
+# Warner Oland, Neil Hamilton", a list of quoted IMDb review titles). 770
+# title echoes / placeholders, 93 single words, 55 title-plus-descriptors on
+# the live catalog. None of it is information about the film; an empty
+# synopsis is honest and the clients already render that state.
+_PLACEHOLDER = {"to come", "series", "n a", "none", "no description", "tbd", "coming soon",
+                "description", "untitled", "test", "episode", "movie", "film", "video", "na",
+                "unknown", "no synopsis", "no summary", "see title", "as titled"}
+_SOURCE_PREFIX = re.compile(
+    r"^\s*(taken\s+)?from\s+(the\s+)?[\w\s]{3,40}?(database|wikipedia|imdb|allmovie|tcm|afi)\b\s*[:\-–]\s*", re.I)
+_NARA_STAMP = re.compile(
+    r"\bARC Identifier:?\s*\d+\.?|\bNational Archives and Records Administration\b\s*[-–:]?\s*"
+    r"|\(\d{1,2}/\d{1,2}/\d{4}\s*-\s*(\d{1,2}/\d{1,2}/\d{4})?\s*\)\.?|^\s*National Archives\s*-\s*", re.I)
+
+
+def _is_placeholder_synopsis(s, it):
+    n = re.sub(r"[^a-z0-9]+", " ", s.lower()).strip()
+    if not n or n in _PLACEHOLDER or len(n.split()) == 1:
+        return True
+    title = (it.get("title") or "").strip()
+    tn = re.sub(r"[^a-z0-9]+", " ", title.lower()).strip()
+    if n == tn or n == re.sub(r"[^a-z0-9]+", " ", (it.get("archiveID") or "").lower()).strip():
+        return True
+    # The title, then a year and a few descriptors or names, and no sentence.
+    if tn and n.startswith(tn):
+        rest = n[len(tn):].strip()
+        if len(rest.split()) <= 12 and not re.search(r"\b(is|was|are|were|has|have|about|when|who|his|her|their|after|tells|follows)\b", rest):
+            return True
+    # A run of quoted fragments — pasted review titles.
+    if s.lstrip().startswith('"') and len(re.findall(r'"[^"]{3,80}"', s)) >= 3:
+        return True
+    return False
+
+
 _DISC_MARK = re.compile(r"\s*[\(\[]?\b(disc|disk|reel|tape)\s*\d+\b[\)\]]?", re.I)
 
 # Synopsis cleaners (owner 2026-06-29: descriptions must contain ONLY the plot — no taglines, cast
@@ -1380,6 +1419,13 @@ def sanitize_synopsis(it):
     s = _extract_plot_body(s)          # drop taglines/cast/release/source cruft, prefer a labeled plot
     s = _FROM_IMDB_PREFIX.sub("", s)   # "From IMDb : <plot>" -> "<plot>" (B6)
     uploader_text = (it.get("synopsisSource") or "archive") == "archive"
+    if uploader_text:
+        s = _SOURCE_PREFIX.sub("", s)                     # "From The Public Domain Movie Database: "
+        s = _NARA_STAMP.sub(" ", s)                       # "ARC Identifier 91500", agency date ranges
+        if _is_placeholder_synopsis(s, it):
+            it["synopsis"] = None
+            it["synopsisSource"] = None
+            return "nulled"
     sents = [x for x in _SENT_SPLIT.split(s)
              if not (_audit.URL.search(x) or _audit.SOCIAL.search(x)
                      or _audit.EMAIL.search(x) or _audit.UPLOADER.search(x)
