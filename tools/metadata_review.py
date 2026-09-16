@@ -56,9 +56,13 @@ def _reviewed(it):
     return it.get("agentReviewHash") == _hash(it)
 
 
-def select(limit):
+def select(limit, source=None):
     cat = json.loads(CATALOG.read_text(encoding="utf-8"))
-    items = [it for it in cat["items"] if it.get("contentType") != "tv-series"]
+    items = [it for it in cat["items"] if it.get("contentType") != "tv-series" and not it.get("excluded")]
+    if source:
+        # --source archive: only the uploader's own text (Decision 124 labels
+        # it); a checked source's synopsis is not the agent's to rewrite.
+        items = [it for it in items if (it.get("synopsisSource") or "archive") == source and _syn(it)]
     # Popularity-first: perfect what users actually see, drain the tail over runs.
     items.sort(key=lambda it: it.get("popularityScore") or 0, reverse=True)
     batch = []
@@ -127,9 +131,10 @@ def main():
     ap = argparse.ArgumentParser()
     sub = ap.add_subparsers(dest="cmd", required=True)
     s = sub.add_parser("select"); s.add_argument("--limit", type=int, default=100)
+    s.add_argument("--source", default=None, help="only items whose synopsisSource is this (e.g. archive)")
     sub.add_parser("apply")
     args = ap.parse_args()
-    return select(args.limit) if args.cmd == "select" else apply()
+    return select(args.limit, getattr(args, "source", None)) if args.cmd == "select" else apply()
 
 
 if __name__ == "__main__":
