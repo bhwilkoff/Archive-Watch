@@ -1791,6 +1791,75 @@ def sibling_anchored_fixes(items, stats):
                 stats["year_adopted_from_sibling"] += 1
 
 
+# ---------------------------------------------------------------------------
+# Cast residue from a cleared match (Decision 124's second finding, 2026-09-16)
+# ---------------------------------------------------------------------------
+# A cast list is only ever written from an external match. When a verifier
+# later clears that match's ids, the cast, director and ratings it brought
+# stay behind — a 1910 Frankenstein wearing Guillermo del Toro, a 1954
+# Sherlock Holmes short listing Robert Downey Jr., Nightmare Alley (1947)
+# with the 2021 remake's cast. "No id" alone is not evidence: Squirm and Chi
+# sei? have correct casts and no surviving id. So each leftover cast is
+# matched BACK to the TMDb film it came from (name + profile path against the
+# cast cache), and the residue is cleared only when that film's year
+# contradicts both the item's year and every year in its archive id by more
+# than five. The two caches live beside the catalog and are committed; when
+# they are absent this rule does nothing rather than guessing.
+_ID_YEARS = re.compile(r"(?<!\d)(1[89]\d\d|20\d\d)(?!\d)")
+_ALL_IDS = ("imdbID", "tmdbID", "tvmazeID", "tvdbID", "wikidataQID")
+
+
+def cast_residue_fixes(items, stats):
+    cast_cache = REPO / "shared/editorial/tmdb_cast_cache.json"
+    verify_cache = REPO / "shared/editorial/tmdb_verify_cache.json"
+    if not (cast_cache.exists() and verify_cache.exists()):
+        return
+    cc = json.loads(cast_cache.read_text()); cc = cc.get("entries", cc)
+    vc = json.loads(verify_cache.read_text()); vc = vc.get("entries", vc)
+    rev = {}
+    for tid, cast in cc.items():
+        for name, info in (cast or {}).items():
+            rev.setdefault((name, (info or {}).get("p")), set()).add(tid)
+    for it in items:
+        if it.get("excluded") or not it.get("cast") or any(it.get(k) for k in _ALL_IDS):
+            continue
+        votes = Counter()
+        for c in it["cast"]:
+            for tid in rev.get(((c.get("name") or "").lower(), c.get("profilePath")), ()):
+                votes[tid] += 1
+        if not votes:
+            continue
+        tid, n = votes.most_common(1)[0]
+        if n < 2:
+            continue
+        film = vc.get(tid) or {}
+        fy, iy = film.get("year"), it.get("year")
+        if not (isinstance(fy, int) and isinstance(iy, int)):
+            continue
+        id_years = [int(y) for y in _ID_YEARS.findall(it.get("archiveID") or "")]
+        if abs(fy - iy) <= 5 or any(abs(fy - y) <= 5 for y in id_years):
+            continue
+        it["cast"] = []
+        # The director arrived with the same match (metaSource tmdb) or with
+        # nothing that could have set it otherwise; every one in the measured
+        # set belonged to the other film.
+        if (it.get("metaSource") or "") in ("tmdb", "") and it.get("director"):
+            it["director"] = None
+            it.pop("directorProfilePath", None)
+        if (it.get("metaSource") or "") == "tmdb":
+            it["genres"] = []
+            it["metaSource"] = None
+        for k in ("imdbRating", "imdbVotes", "releaseDate", "awards", "studios",
+                  "contentRating", "cinematographer", "composer", "canonicalTitle",
+                  "akaTitles", "keywords", "tagline", "originalTitle"):
+            it.pop(k, None)
+        if (it.get("artworkSource") or "") in ("tmdb", "omdb"):
+            it["posterURL"] = None; it["backdropURL"] = None
+            it["hasRealArtwork"] = False; it["artworkSource"] = "archive"
+        it["castResidueFrom"] = f"{film.get('title')} ({fy})"
+        stats["cast_residue_cleared"] += 1
+
+
 def remediate(items):
     stats = Counter()
     # A later rule can null a year this pass filled (e.g. the B&W-vs-modern
@@ -1801,6 +1870,7 @@ def remediate(items):
             if it.get("yearSource") and not isinstance(it.get("year"), int):
                 it.pop("yearSource", None)
     sibling_anchored_fixes(items, stats)
+    cast_residue_fixes(items, stats)
     for it in items:
         ct = it.get("contentType")
         if ct == "tv-series" or ct not in MOVIE_TYPES:
