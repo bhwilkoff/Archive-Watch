@@ -219,11 +219,22 @@ window.AWDriveSync = (() => {
     };
   }
 
+  // True when the viewer is signed in but this page has no access token
+  // yet. Google's token client cannot obtain one silently — every
+  // requestAccessToken() OPENS A WINDOW — so a token is only ever asked for
+  // behind a click. Before this, init() asked on page load, on every
+  // tab-focus and every 90 seconds: the owner opened a shared playlist and
+  // got a Google login popup, then another one each time it was dismissed
+  // (2026-09-15).
+  let needsReconnect = false;
+
   async function syncNow(interactive = false) {
     if (!configured() || !DB) return;
     if (!signedIn() && !interactive) return;
+    if (!token && !interactive) { needsReconnect = true; render(); return; }
     try {
       if (!token && !(await getToken(interactive))) return;
+      needsReconnect = false;
       let fileId = await findFile();
       const cloud = fileId ? await pull(fileId) : null;
       const mergedBlob = await merge(cloud);
@@ -253,13 +264,27 @@ window.AWDriveSync = (() => {
       const span = document.createElement('span');
       span.textContent = lastSync
         ? `Synced ${new Date(lastSync).toLocaleTimeString()} · `
-        : 'Sync on · ';
+        : (needsReconnect ? 'Sync paused · ' : 'Sync on · ');
+      if (needsReconnect) {
+        const re = document.createElement('button');
+        re.type = 'button';
+        re.className = 'sync-out';
+        re.textContent = 'Reconnect Google';
+        re.onclick = () => syncNow(true);
+        ui.append(span, re);
+        const sep = document.createElement('span');
+        sep.textContent = ' · ';
+        ui.append(sep);
+        span.textContent = 'Sync paused · ';
+      } else {
+        ui.append(span);
+      }
       const out = document.createElement('button');
       out.type = 'button';
       out.className = 'sync-out';
       out.textContent = 'Sign out of Google';
       out.onclick = signOut;
-      ui.append(span, out);
+      ui.append(out);
     } else {
       ui.innerHTML = '';
       // Google's branding guidelines for a custom "Sign in with Google"
