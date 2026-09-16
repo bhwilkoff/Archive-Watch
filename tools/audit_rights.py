@@ -456,6 +456,13 @@ def bucket(it):
     # the marker is the only honest signal and it hides before any rescue.
     if it.get("wrongMatchTitle"):
         return "wrongmatch_title", "hide"
+    # The uploader's own description claims copyright ("This film and all of
+    # the films in the Penn Museum collection are copyrighted by the Penn
+    # Museum, and are not in the public domain" — 30 items, 2026-09-16).
+    # remediate records the claim before the sentence is stripped; a real
+    # archive.org licence (CC/PD mark) on the item outranks the prose.
+    if it.get("descriptionClaimsCopyright") and not license_rescues(it.get("archiveLicense"), it.get("year"), it.get("imdbVotes")):
+        return "uploader_copyright_claim", "hide"
 
     # ---- always-safe ----
     if cl & GOV:
@@ -573,7 +580,7 @@ HIDE_BUCKETS = {"modern_copyright_confirmed", "modern_noyear_risk",
                 "commercial_modern_risk", "commercial_slop",
                 "renewed_copyright_classic", "renewal_zone_commercial",
                 "copyrighted_trailer", "wrongmatch_idyear", "wrongmatch_title",
-                "no_evidence", "uploader_cannot_dedicate"}
+                "no_evidence", "uploader_cannot_dedicate", "uploader_copyright_claim"}
 
 
 def evidence_for(it, b):
@@ -606,6 +613,8 @@ def evidence_for(it, b):
                      f"{(it.get('archiveTitle') or '?')[:70]!r}: {wm.get('reason')}")
     elif b == "modern_noyear_risk":
         parts.append("no year + modern-capture/rip archiveID")
+    elif b == "uploader_copyright_claim":
+        parts.append("the uploader's own description says the film is copyrighted / not public domain")
     if it.get("colorMode"):
         parts.append(f"color={it['colorMode']}")
     if it.get("tmdbID"):

@@ -1424,11 +1424,46 @@ def _tidy_punctuation(s):
     return re.sub(r"\s{2,}", " ", s).strip()
 
 
+# An OMDb "plot" is IMDb's user-submitted summary, and for obscure shorts a
+# user REVIEW gets pasted instead: "The Terrytoons are oddly interesting,
+# mainly for anybody wanting to see (generally) older cartoons..." on sixty
+# Terrytoons items, "The only review I can offer is based on the fragmentary
+# version I watched on a DVD". 112 on the live catalog (2026-09-16). Narrow
+# markers — "We see birth, life and death" is a plot.
+_OMDB_REVIEW = re.compile(
+    r"\bi (watched|saw|found|recommend|rate|give|loved|liked|enjoyed|own|assumed|came across|can't say|can offer)\b"
+    r"|the only review|\bmy review\b|\bthis review\b|\bimho\b|in my (humble )?opinion|\bmust[- ]see\b|highly recommend"
+    r"|\b(\d|10)/10\b|\bworth (a )?(watch|seeing)\b|\bthis (dvd|blu-ray|print|copy)\b|\b(dvd|blu-ray) (issued|released|set)\b"
+    r"|\bthe print i\b|\bprint (i|we) (saw|watched)|\boddly interesting\b|\bextremely variable\b|\bmixed bag\b"
+    r"|\bnot for all tastes\b|\bwill admit\b|\bas much as it pains me\b|\bnot consistently bad\b|\bwildly varied in quality\b", re.I)
+
+
+# The uploader's own words claiming copyright ("This film and all of the
+# films in the Penn Museum collection are copyrighted by the Penn Museum,
+# and are not in the public domain" — 30 items served as public domain,
+# 2026-09-16). Recorded as a marker BEFORE the disclaimer sentence is
+# stripped, so audit_rights can hide on it every build. A CC/PD licence
+# statement in the same text is not a claim.
+_COPYRIGHT_CLAIM = re.compile(
+    r"(?<!works )(?<!work )\bnot (in the )?public domain\b|\b(is|are) copyrighted\b|\bremains? under copyright\b"
+    r"|\b(this|these) (film|work|footage|video|recording)s?\b[^.]{0,80}\b(copyright|all rights reserved)", re.I)
+_LICENCE_GRANT = re.compile(
+    r"creative ?commons|\bcc[- ]?(by|0|zero)\b|public domain mark|dedicated to the public domain|\bno known copyright\b"
+    r"|\b(is )?now (in the )?public domain\b|\b(is|are) in the public domain\b|copyright was not renewed|entered the public domain|\bpublic domain day\b", re.I)
+
+
 def sanitize_synopsis(it):
     """Returns 'cleaned', 'nulled', or None."""
     raw = _synopsis_text(it)
     if not raw:
         return None
+    if ((it.get("synopsisSource") or "archive") == "archive" and _COPYRIGHT_CLAIM.search(raw)
+            and not _LICENCE_GRANT.search(raw)):
+        it["descriptionClaimsCopyright"] = True
+    if (it.get("synopsisSource") or "") == "omdb" and _OMDB_REVIEW.search(raw):
+        it["synopsis"] = None
+        it["synopsisSource"] = None
+        return "nulled"
     s = _TAG.sub(" ", _fix_mojibake(_html.unescape(raw)))
     s = _strip_title_summary_dump(s)   # IMDb-scrape "Title: … Summary: …" dump
     s = _extract_plot_body(s)          # drop taglines/cast/release/source cruft, prefer a labeled plot
