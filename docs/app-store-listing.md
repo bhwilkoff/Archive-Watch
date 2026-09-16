@@ -403,7 +403,7 @@ iPhone fixes from a full pass over every screen:
 - The Play button offers Resume when you're partway through a film.
 - Text no longer loses its first character on Detail screens.
 - Settings stays where you are when you flip a toggle, instead of jumping back to the top.
-- More controls are properly labelled for VoiceOver.
+- More controls are properly labeled for VoiceOver.
 
 Everywhere:
 

@@ -18,7 +18,7 @@ function surpriseDoors() as Object
         { id: "type:commercial",   label: "Random Commercial", sub: "Vintage advertising",           cat: "commercial" },
         { id: "type:short-film",   label: "Random Short",      sub: "Under twenty minutes",          cat: "short-film" },
         { id: "browse:decade",     label: "Random Decade",     sub: "Wander a whole era",            cat: "feature-film" },
-        { id: "party",             label: "Party Play",        sub: "Colour films, shuffled, muted", cat: "animation" },
+        { id: "party",             label: "Party Play",        sub: "Color films, shuffled, muted", cat: "animation" },
         { id: "cartoonmode",       label: "Cartoon Mode",      sub: "Shelves by character",          cat: "animation" },
         { id: "wall",              label: "Cover Art Wall",    sub: "The archive, as posters",       cat: "feature-film" }
     ]

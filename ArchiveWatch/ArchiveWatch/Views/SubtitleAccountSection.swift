@@ -170,7 +170,7 @@ struct AutoCaptionsSettingsSection: View {
                 // scout STREAMS the same film ahead of playback. Describing a
                 // download that no longer happens misleads a viewer deciding
                 // whether to leave this on.
-                Text("When a film has no subtitles, this device can transcribe it while you watch — a second, silent stream runs ahead of playback so complete lines appear on time. Nothing is uploaded. Automatic captions are labelled as such, are never offered for silent films, and are discarded when the audio is too poor to transcribe well. Turning this off leaves published subtitle files untouched.")
+                Text("When a film has no subtitles, this device can transcribe it while you watch — a second, silent stream runs ahead of playback so complete lines appear on time. Nothing is uploaded. Automatic captions are labeled as such, are never offered for silent films, and are discarded when the audio is too poor to transcribe well. Turning this off leaves published subtitle files untouched.")
             }
         }
     }

@@ -349,7 +349,7 @@ function glance(d, list) {
       chart: { html: `<div class="smalls">${cells}</div>` },
       cap: "one panel per platform on a SHARED vertical scale, so the shapes are "
          + "comparable — peak " + int(peak) + " a day. A platform with no series "
-         + "is drawn and labelled rather than dropped.",
+         + "is drawn and labeled rather than dropped.",
     });
   }
 
@@ -855,7 +855,7 @@ function social(d) {
   const names = [...new Set([...Object.keys(per), ...Object.keys(reach)])].sort();
   $("social-n").textContent = d.social?.totalPosts ?? "";
   if (!names.length) {
-    box.appendChild(el("p", "clear", "The programme has not posted yet."));
+    box.appendChild(el("p", "clear", "The program has not posted yet."));
     return;
   }
 
