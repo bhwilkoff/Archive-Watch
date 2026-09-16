@@ -65,7 +65,7 @@ _SUBJECT_GENRES = _load_subject_genres()
 # Children — Eugenics in America" were both filed as Family films (2026-09-16).
 # For these the word must be a SUBJECT the uploader tagged, not a word in
 # the name.
-_SUBJECT_ONLY_GENRES = {"Family"}
+_SUBJECT_ONLY_GENRES = {"Family", "Western", "Musical", "Romance"}
 
 
 def genres_from_subjects(it):
@@ -2248,12 +2248,16 @@ def remediate(items):
         # 5a) A subject-derived Family tag the map no longer vouches for
         # (the word was in the TITLE, not a subject) comes off. Only where no
         # external match could have set it.
+        # Only Family is DROPPED retroactively: every unvouched Family was a
+        # home movie or a title word. Western / Musical / Romance are
+        # subject-only for NEW fills, but an existing tag may be a cleared
+        # match's correct genre (Gone with the West, Joshua) — left alone.
         if ("Family" in (it.get("genres") or [])
                 and not any(it.get(k) for k in ("imdbID", "tmdbID", "tvmazeID", "tvdbID"))
                 and (it.get("metaSource") or "") not in ("tmdb", "omdb")
                 and "Family" not in genres_from_subjects(it)):
             it["genres"] = [g for g in it["genres"] if g != "Family"]
-            stats["family_tag_dropped"] += 1
+            stats["subject_only_genre_dropped"] += 1
 
         # 5) GENRES from subjects (Track B): fill empty genres with no network.
         if not it.get("genres"):
