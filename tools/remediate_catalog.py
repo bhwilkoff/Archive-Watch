@@ -2442,6 +2442,13 @@ def cast_residue_fixes(items, stats):
     return title_anchored
 
 
+def _load_year_corrections():
+    p = REPO / "shared/editorial/year_corrections.json"
+    if not p.exists():
+        return {}
+    return {k: int(v) for k, v in json.loads(p.read_text()).items()}
+
+
 def remediate(items):
     stats = Counter()
     # A later rule can null a year this pass filled (e.g. the B&W-vs-modern
@@ -2453,10 +2460,21 @@ def remediate(items):
                 it.pop("yearSource", None)
     sibling_anchored_fixes(items, stats)
     title_anchored = cast_residue_fixes(items, stats)
+    # Years judged by hand during the 2026-09 metadata review (the uploader's
+    # own naming was wrong: "1943 Buckskin Frontier" dated 2010, Flash Gordon
+    # 1936 dated 1969). The table is the record; every build re-applies it.
+    year_fixes = _load_year_corrections()
     for it in items:
         ct = it.get("contentType")
         if ct == "tv-series" or ct not in MOVIE_TYPES:
             continue
+
+        fy = year_fixes.get(it.get("archiveID"))
+        if fy and it.get("year") != fy:
+            it["year"] = fy
+            it["decade"] = decade_of(fy)
+            it["yearSource"] = "agent-reviewed"
+            stats["year_corrected"] += 1
 
         # 0z) FILL A MISSING YEAR from the item's own naming. source_year() is
         # the vetted extractor already used to CORRECT wrong matches (paren years
