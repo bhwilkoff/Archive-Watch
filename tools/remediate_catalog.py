@@ -783,7 +783,11 @@ _FROM_IMDB_PREFIX = re.compile(r"^\s*(taken\s+)?from\s+imdb\s*:?\s*", re.I)
 # synopsis is honest and the clients already render that state.
 _PLACEHOLDER_RX = re.compile(
     r"^\s*for (academic|educational|research)( ?[-–/] ?(academic|educational|research))? use only\.?\s*$"
-    r"|^\s*(this (film|series|movie|title|show) )?(has fallen into|is (now )?in) the public domain\.?\s*$", re.I)
+    r"|^\s*(this (film|series|movie|title|show) )?(has fallen into|is (now )?in) the public domain\.?\s*$"
+    # One uploader's label on ~100 German features: "Film(Filmdokument) aus
+    # dem deutschen dritten Reich von 1936.. Wenn wir alle Englein wären..
+    # U.a mit Heinz Rühmann" — year, title and cast, no story.
+    r"|^\s*\d?\s*Filme?(\s*\([^)]*\))?\s+aus dem deutschen dritten Reich\b", re.I)
 _PLACEHOLDER = {"to come", "series", "n a", "none", "no description", "tbd", "coming soon",
                 "description", "untitled", "test", "episode", "movie", "film", "video", "na",
                 "unknown", "no synopsis", "no summary", "see title", "as titled"}
