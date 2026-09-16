@@ -1452,11 +1452,43 @@ _LICENCE_GRANT = re.compile(
     r"|\b(is )?now (in the )?public domain\b|\b(is|are) in the public domain\b|copyright was not renewed|entered the public domain|\bpublic domain day\b", re.I)
 
 
+# A Wikipedia lead names its film and year: "The Twin Pawns is a 1919
+# American silent drama film..." on an item titled The Curse of Greed (1914)
+# is the wrong article. Cleared only when BOTH the lead's title and its year
+# disagree with the item — a year alone is often the uploader's slip
+# (Gösta Berling 1928/1924), a title alone an alternate release title.
+_WIKI_LEAD = re.compile(r"^\s*(?P<title>[^.]{2,80}?)\s+(?:is|was)\s+(?:an?\s+)?(?:\w+[\s-]+){0,6}?(?P<year>1[89]\d\d|20\d\d)\b")
+
+
+def _wiki_lead_is_another_film(it, raw):
+    m = _WIKI_LEAD.match(raw)
+    if not m:
+        return False
+    iy = it.get("year")
+    ly = int(m.group("year"))
+    if not (isinstance(iy, int) and abs(ly - iy) > 2):
+        return False
+    id_years = [int(y) for y in _ID_YEARS.findall(it.get("archiveID") or "")]
+    if any(abs(ly - y) <= 2 for y in id_years):
+        return False         # "1943-Wien-1910" IS the 1943 film the lead describes
+    if abs(ly - iy) > 15:
+        return True          # a 2022 public-access "A Heart of Gold!" is not the 1923 film
+    lead = _bare_title(m.group("title"))
+    own = {_bare_title(t) for t in ([it.get("title"), it.get("canonicalTitle"), it.get("originalTitle")]
+                                    + list(it.get("akaTitles") or [])) if t}
+    return bool(lead) and not _titles_agree(lead, own)
+
+
 def sanitize_synopsis(it):
     """Returns 'cleaned', 'nulled', or None."""
     raw = _synopsis_text(it)
     if not raw:
         return None
+    if (it.get("synopsisSource") or "") == "wikipedia" and _wiki_lead_is_another_film(it, raw):
+        it["synopsis"] = None
+        it["synopsisSource"] = None
+        it["wikipediaLeadMismatch"] = True
+        return "nulled"
     if ((it.get("synopsisSource") or "archive") == "archive" and _COPYRIGHT_CLAIM.search(raw)
             and not _LICENCE_GRANT.search(raw)):
         it["descriptionClaimsCopyright"] = True
