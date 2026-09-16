@@ -96,6 +96,14 @@ CASES = [
     ("Hello again and welcome to the Shocker Internet Drive In's 50th presentation! A mad scientist revives a "
      "gorilla with a human brain and sets it loose on a carnival.", "Shocker Internet Drive In 50",
      "A mad scientist revives a gorilla with a human brain and sets it loose on a carnival."),
+    ("Search Educational Film Journals at Media History Project for references to this film Summary Explores Da "
+     "Vinci's inventions and notebooks through his own drawings.", "I, Leonardo Da Vinci",
+     "Explores Da Vinci's inventions and notebooks through his own drawings."),
+    ('Aired 29 November 1962 (Season 11, Episode 10). [The "MPEG4" file is the smallest file, and it\'s the source '
+     'file.] Miss Edwards leaves the schoolhouse and the children plot to bring her back.', "Losing Miss Edwards",
+     "Miss Edwards leaves the schoolhouse and the children plot to bring her back."),
+    ("Two astronauts adventures on other planets. Download all episodes for free!", "Far Out Space Nuts",
+     "Two astronauts adventures on other planets."),
     # Controls: a real plot, a short but real description, quotes inside a sentence.
     (BIG, "Under The Big Top", BIG),
     ("Tire making", "Rubber", "Tire making"),

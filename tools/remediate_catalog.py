@@ -763,6 +763,14 @@ _UPLOADER_VOICE = re.compile(
     # additional information see California Revealed."
     r"|\btolerates? no\b|\bno complaints\b|\bI (thought|assumed|guess(ed)?|figured)\b|\bno hate speech\b|\bbullcrap\b|\bif you wish to (engage|comment|complain|contact)\b"
     r"|^\s*(hello|hi|hey|greetings)\b|\bwelcome (to|back)\b|\bfor (additional|more|further) information,? (see|visit|contact|go to)\b"
+    # seed-1111: "taped off of Television in the VHS era", "Overall, it's a
+    # decent commercial", "Download all episodes for free!", "the MPEG4 file
+    # is the smallest file, and it's the source file", "See Beta #69 for more
+    # Frantics episodes. Arbitrary episode numbers assigned", "beautifully
+    # remastered by Pioneer".
+    r"|\btaped (off|from)\b|\boverall,? (it'?s|this is|a) (a )?(decent|good|great|fine|nice)\b|\bdownload (all|the|these|every)\b"
+    r"|\b(source|smallest|largest|original) file\b|\bsee (beta|tape|disc|volume) #?\d+|\bepisode numbers (are |were )?assigned\b"
+    r"|\b(beautifully|nicely|newly|recently) (remastered|restored|transferred|scanned)\b|\bremastered by\b"
     r"|^\s*[\"'(]*(i|i'm|i've|i'd|i'll|we|we're|we've|my|our)\b", re.I)
 # "From IMDb :", "From IMDb:", "Taken from IMDB :" — a pasted-source prefix on a
 # real plot (260 items measured). Strip the prefix, keep the plot.
@@ -1624,6 +1632,10 @@ def sanitize_synopsis(it):
         # "Aired 18 Feb. 1963 Season 1, Episode 22 Actors: Victor Buono; Tracy
         # Stratford Runtime: 23:16 <plot>" — the label ahead of the plot.
         s = re.sub(r"^\s*Aired\b.{0,80}?(?:Season\s*\d+,?\s*Episode\s*\d+)?.{0,160}?Runtime:\s*\d+:\d+\s*", "", s)
+        s = re.sub(r"^\s*Aired\b[^.(]{0,60}\(Season\s*\d+,?\s*Episode\s*\d+\)\.?\s*", "", s)   # "Aired 29 November 1962 (Season 11, Episode 10)."
+        s = re.sub(r"^\s*Search\b.{0,100}?references to this film\s*(Summary)?\s*", "", s)         # a Media History Project stub
+        s = re.sub(r"^\s*[-–—]+\s*", "", s)                                                        # "- Transitional Helicopter Flight Training..."
+        s = re.sub(r"\s*\[[^\]]{0,200}\]\s*", " ", s)                                              # a bracketed note: [The "MPEG4" file is the source file.]
         # A run of quoted review titles pasted ahead of the plot: “Hollywood
         # hooey from Gainsborough” “Amiable tosh” “What a hoot!” (IMDB reviews
         # quotes). A dashing young... — the quotes go, the plot stays.
