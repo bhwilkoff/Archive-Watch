@@ -1471,7 +1471,7 @@ def _wiki_lead_is_another_film(it, raw):
     id_years = [int(y) for y in _ID_YEARS.findall(it.get("archiveID") or "")]
     if any(abs(ly - y) <= 2 for y in id_years):
         return False         # "1943-Wien-1910" IS the 1943 film the lead describes
-    if id_years:
+    if id_years and all(abs(ly - y) > 15 for y in id_years):
         return True          # "pentru-patrie-1977" is not the 1917 French Patrie
     if abs(ly - iy) > 15:
         return True          # a 2022 public-access "A Heart of Gold!" is not the 1923 film
