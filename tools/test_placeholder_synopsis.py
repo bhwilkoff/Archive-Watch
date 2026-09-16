@@ -48,6 +48,15 @@ CASES = [
      "Dr. Pepper Jazz", "A colorful animated jazz combo plays while the Dr. Pepper logo dances across the screen."),
     ("For more programming from C Berry or information about this program, visit Seattle Community Media.",
      "Dr. Moze - Yoga for Earth", None),
+    ("The Lucy Show ep Lucy Meets Sheldon Leonard", "Lucy Meets Sheldon Leonard", None),
+    ("Wanna Home - Half Shot Shooters - Hoi Polloi -??? -??? -??? Channel 49 - WNYB-TV in Buffalo, NY - Playing the Ponies",
+     "The Three Stooges", None),
+    ("“Hollywood hooey from Gainsborough” “Mad, bad and wonderful” “Amiable tosh” “What a hoot!” (IMDB reviews quotes). "
+     "A dashing young Spaniard falls for a gypsy dancer while a jealous nobleman plots against them both.", "Caravan",
+     "A dashing young Spaniard falls for a gypsy dancer while a jealous nobleman plots against them both."),
+    ("This riveting Russian documentary takes you inside the trials. The tribunal at Nuremberg hears the evidence "
+     "against the surviving leaders of the Third Reich over eleven months.", "Sud narodov",
+     "The tribunal at Nuremberg hears the evidence against the surviving leaders of the Third Reich over eleven months."),
     # Controls: a real plot, a short but real description, quotes inside a sentence.
     (BIG, "Under The Big Top", BIG),
     ("Tire making", "Rubber", "Tire making"),

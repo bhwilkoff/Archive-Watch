@@ -721,6 +721,14 @@ _UPLOADER_VOICE = re.compile(
     r"|uploader'?s'? note|\b(bad|good|poor|great|decent) (encode|rip|transfer)\b|\bdownloaded from\b|\btorrents?\b"
     r"|\bbest (copy|print|version) (available|i|we)\b|\bthanks\b[^.]{0,40}\bfor (the|this|his|her|their)\b|\bin the forum\b"
     r"|\bprojection print\b|\bitem no\.?:?\s*\d|\b(somewhat|slightly|badly|heavily) (scratched|faded|worn|damaged)\b"
+    # Marketing superlatives are opinion, and the owner's bar is "unbiased":
+    # "This riveting Russian documentary takes you inside...", "thrust Itto
+    # Ogami into the ranks of the all-time great samurai" — 97 of 35,544
+    # uploader sentences (2026-09-16). Broadcast logs ("Hoi Polloi -??? -???
+    # Channel 49 - WNYB-TV") and "available for download" are not plot.
+    r"|\b(riveting|masterpiece|tour de force|all-time (great|classic|best)|unmissable|breathtaking|dazzling|hilarious"
+    r"|brilliant|superb|magnificent|gripping|spellbinding|unforgettable|a must for|highly entertaining|thoroughly enjoyable|delightful)\b"
+    r"|\?{3}|\bchannel \d{1,2}\s*[-–]\s*[A-Z]{3,4}(-TV)?\b|available for download"
     r"|^\s*[\"'(]*(i|i'm|i've|i'd|i'll|we|we're|we've|my|our)\b", re.I)
 # "From IMDb :", "From IMDb:", "Taken from IMDB :" — a pasted-source prefix on a
 # real plot (260 items measured). Strip the prefix, keep the plot.
@@ -741,7 +749,7 @@ _NARA_STAMP = re.compile(
     r"|\(\d{1,2}/\d{1,2}/\d{4}\s*-\s*(\d{1,2}/\d{1,2}/\d{4})?\s*\)\.?|^\s*National Archives\s*-\s*", re.I)
 
 
-_EP_MARK = re.compile(r"\b(ep(isode)?\.?\s*\d{1,3}|s\d{1,2}\s*e\d{1,3}|\d{1,2}x\d{2}|season\s*\d{1,2})\b", re.I)
+_EP_MARK = re.compile(r"\b(ep(isode)?\.?\s*\d{1,3}|\bep\b|s\d{1,2}\s*e\d{1,3}|\d{1,2}x\d{2}|season\s*\d{1,2})\b", re.I)
 _TECH_PAREN = re.compile(r"\(\s*\d+m\s*\d+s\s*,\s*\d{3,4}x\d{3,4}\s*\)|\b\d{3,4}x\d{3,4}\b")
 
 
@@ -1551,6 +1559,10 @@ def sanitize_synopsis(it):
     s = _FROM_IMDB_PREFIX.sub("", s)   # "From IMDb : <plot>" -> "<plot>" (B6)
     uploader_text = (it.get("synopsisSource") or "archive") == "archive"
     if uploader_text:
+        # A run of quoted review titles pasted ahead of the plot: “Hollywood
+        # hooey from Gainsborough” “Amiable tosh” “What a hoot!” (IMDB reviews
+        # quotes). A dashing young... — the quotes go, the plot stays.
+        s = re.sub(r'^\s*(?:[“"][^”"]{3,80}[”"]\s*){2,}(?:\([^)]{0,40}(?:review|quote)[^)]{0,40}\)\.?)?\s*', "", s)
         s = _SOURCE_PREFIX.sub("", s)                     # "From The Public Domain Movie Database: "
         s = _NARA_STAMP.sub(" ", s)                       # "ARC Identifier 91500", agency date ranges
         if _is_placeholder_synopsis(s, it):
