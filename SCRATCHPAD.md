@@ -119,7 +119,17 @@ the film ... every piece of information ... accurate and unbiased."
   the runner, 4/4 each run). Ran it locally: 112 confirmed, Wormwood (2017,
   Errol Morris) among ~110 modern items now bucketed to hide on the next
   publish. Follow-up: schedule the confirm on the owner's Mac.
-- publish-db dispatched three times (Family, residue, confirmed catalog).
+- **Later ticks, each on the live catalog**: subject keywords match plurals
+  ("cartoons" → Animation, 111), bare "music" ≠ Musical, Family needs an
+  AUDIENCE subject; uploader-voice grew (!!, emoticons, "please click",
+  10/10, ownership disclaimers in any language); a YEARLESS item is never
+  cast-anchored (Follow That Man / "A Family Affair" 2024 — 90 stripped);
+  director/producer library-catalog forms normalized; title tails
+  (fullwidth ｜, ALL-CAPS genre, a cast name + genre word); and 1,140
+  placeholder synopses ("To come.", "510", the title echoed, "The Red Dragon
+  1929 Warner Oland...") become empty. Tests: test_family_genre,
+  test_uploader_voice, test_title_cast_tail, test_placeholder_synopsis,
+  test_unanchored_tmdb_residue. publish-db dispatched after each batch.
 
 Older entries: `docs/SESSION-LOG.md` (verbatim, back to 2026-04-17).
 
