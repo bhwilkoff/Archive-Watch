@@ -61,12 +61,22 @@ def _load_subject_genres():
 _SUBJECT_GENRES = _load_subject_genres()
 
 
+# Keywords a TITLE may not vouch for: "The Family Doctor" and "Tomorrow's
+# Children — Eugenics in America" were both filed as Family films (2026-09-16).
+# For these the word must be a SUBJECT the uploader tagged, not a word in
+# the name.
+_SUBJECT_ONLY_GENRES = {"Family"}
+
+
 def genres_from_subjects(it):
     """Derive up to 3 genres from an item's subjects + title via the keyword map."""
-    hay = (" ".join(it.get("subjects") or []) + " " + (it.get("title") or "")).lower()
+    subj = " ".join(it.get("subjects") or []).lower()
+    hay = (subj + " " + (it.get("title") or "")).lower()
     out = []
     for rx, genre in _SUBJECT_GENRES:
-        if genre not in out and rx.search(hay):
+        if genre in out:
+            continue
+        if rx.search(subj if genre in _SUBJECT_ONLY_GENRES else hay):
             out.append(genre)
     return out[:3]
 
@@ -2110,6 +2120,16 @@ def remediate(items):
             stats["match_residue_stripped"] = stats.get("match_residue_stripped", 0) + 1
         if strip_cleared_match_residue(it):
             stats["cleared_match_residue"] = stats.get("cleared_match_residue", 0) + 1
+
+        # 5a) A subject-derived Family tag the map no longer vouches for
+        # (the word was in the TITLE, not a subject) comes off. Only where no
+        # external match could have set it.
+        if ("Family" in (it.get("genres") or [])
+                and not any(it.get(k) for k in ("imdbID", "tmdbID", "tvmazeID", "tvdbID"))
+                and (it.get("metaSource") or "") not in ("tmdb", "omdb")
+                and "Family" not in genres_from_subjects(it)):
+            it["genres"] = [g for g in it["genres"] if g != "Family"]
+            stats["family_tag_dropped"] += 1
 
         # 5) GENRES from subjects (Track B): fill empty genres with no network.
         if not it.get("genres"):
