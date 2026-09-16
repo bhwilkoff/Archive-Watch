@@ -1,10 +1,10 @@
 {
   "schema": 1,
-  "updated_at": "2026-09-15T09:22:02Z",
+  "updated_at": "2026-09-16T09:10:45Z",
   "description": "Missing-episode queue: canonical episodes (from OMDb) that we don't yet have on Archive. Drained by tools/backfill_tv_episodes.py.",
   "stats": {
-    "total": 18146,
-    "wanted": 17923,
+    "total": 18155,
+    "wanted": 17932,
     "fulfilled": 223,
     "series_with_gaps": 360
   },
@@ -75376,6 +75376,16 @@
       "seriesID": "land-of-the-lost-1974",
       "seriesTitle": "Land of the Lost",
       "season": 1,
+      "episode": 14,
+      "title": "Stone Soup",
+      "episodeImdbID": "tt0792265",
+      "status": "wanted",
+      "added_at": "2026-09-16T09:10:45Z"
+    },
+    {
+      "seriesID": "land-of-the-lost-1974",
+      "seriesTitle": "Land of the Lost",
+      "season": 1,
       "episode": 15,
       "title": "Elsewhen",
       "episodeImdbID": "tt0792254",
@@ -75426,11 +75436,31 @@
       "seriesID": "land-of-the-lost-1974",
       "seriesTitle": "Land of the Lost",
       "season": 2,
+      "episode": 3,
+      "title": "Fair Trade",
+      "episodeImdbID": "tt0792255",
+      "status": "wanted",
+      "added_at": "2026-09-16T09:10:45Z"
+    },
+    {
+      "seriesID": "land-of-the-lost-1974",
+      "seriesTitle": "Land of the Lost",
+      "season": 2,
       "episode": 4,
       "title": "One of Our Pylons Is Missing",
       "episodeImdbID": "tt0792261",
       "status": "wanted",
       "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "land-of-the-lost-1974",
+      "seriesTitle": "Land of the Lost",
+      "season": 2,
+      "episode": 5,
+      "title": "The Test",
+      "episodeImdbID": "tt0792273",
+      "status": "wanted",
+      "added_at": "2026-09-16T09:10:45Z"
     },
     {
       "seriesID": "land-of-the-lost-1974",
@@ -75546,6 +75576,16 @@
       "seriesID": "land-of-the-lost-1974",
       "seriesTitle": "Land of the Lost",
       "season": 3,
+      "episode": 4,
+      "title": "Repairman",
+      "episodeImdbID": "tt0624486",
+      "status": "wanted",
+      "added_at": "2026-09-16T09:10:45Z"
+    },
+    {
+      "seriesID": "land-of-the-lost-1974",
+      "seriesTitle": "Land of the Lost",
+      "season": 3,
       "episode": 5,
       "title": "Medusa",
       "episodeImdbID": "tt0624485",
@@ -75571,6 +75611,16 @@
       "episodeImdbID": "tt0792256",
       "status": "wanted",
       "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "land-of-the-lost-1974",
+      "seriesTitle": "Land of the Lost",
+      "season": 3,
+      "episode": 8,
+      "title": "Hot-Air Artist",
+      "episodeImdbID": "tt0792259",
+      "status": "wanted",
+      "added_at": "2026-09-16T09:10:45Z"
     },
     {
       "seriesID": "land-of-the-lost-1974",
@@ -174639,6 +174689,16 @@
       "seriesID": "thunderbirds-1965",
       "seriesTitle": "Thunderbirds",
       "season": 1,
+      "episode": 15,
+      "title": "City of Fire",
+      "episodeImdbID": "tt0830466",
+      "status": "wanted",
+      "added_at": "2026-09-16T09:10:45Z"
+    },
+    {
+      "seriesID": "thunderbirds-1965",
+      "seriesTitle": "Thunderbirds",
+      "season": 1,
       "episode": 17,
       "title": "The Man from MI.5",
       "episodeImdbID": "tt0830482",
@@ -175409,11 +175469,41 @@
       "seriesID": "treehouse-masters-2013",
       "seriesTitle": "Treehouse Masters",
       "season": 1,
+      "episode": 2,
+      "title": "Luck O the Irish Cottage",
+      "episodeImdbID": "tt3068646",
+      "status": "wanted",
+      "added_at": "2026-09-16T09:10:45Z"
+    },
+    {
+      "seriesID": "treehouse-masters-2013",
+      "seriesTitle": "Treehouse Masters",
+      "season": 1,
+      "episode": 3,
+      "title": "Sky High Spa",
+      "episodeImdbID": "tt3068642",
+      "status": "wanted",
+      "added_at": "2026-09-16T09:10:45Z"
+    },
+    {
+      "seriesID": "treehouse-masters-2013",
+      "seriesTitle": "Treehouse Masters",
+      "season": 1,
       "episode": 4,
       "title": "Treetop Taphouse",
       "episodeImdbID": "tt3068630",
       "status": "wanted",
       "added_at": "2026-06-03T23:58:16Z"
+    },
+    {
+      "seriesID": "treehouse-masters-2013",
+      "seriesTitle": "Treehouse Masters",
+      "season": 1,
+      "episode": 5,
+      "title": "Spirit House Retreat",
+      "episodeImdbID": "tt3068640",
+      "status": "wanted",
+      "added_at": "2026-09-16T09:10:45Z"
     },
     {
       "seriesID": "treehouse-masters-2013",
