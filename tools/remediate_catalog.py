@@ -300,6 +300,61 @@ def strip_cleared_match_residue(item):
     return True
 
 
+# The marker-based strip above only reaches items the verifier stamped. A
+# NetZero commercial reel titled "501" carried director Jesper Maintz, writer
+# Thomas Glud, studio Ja Film, a 2008 release date, 20 IMDb votes, Danish as
+# its language and a ten-name cast with TMDb person ids and character names —
+# the 2008 Danish film "501" — with NO marker and NO id (2026-09-16). 340
+# visible items were in that state. The evidence is in the fields themselves:
+# `metaSource = "tmdb"` is written only against a tmdbID
+# (backfill_metadata.py), `languageSource = "tmdb"` likewise, and a cast row
+# with `tmdbPersonID` or `character` can only be a TMDb credit. With both ids
+# gone, every one of those describes the film the match pointed at, not this
+# one. Cast rows that carry a bare name (the Archive item's own credits) stay.
+_ALL_IDS = ("imdbID", "tmdbID", "tvmazeID", "tvdbID", "wikidataQID")
+_TMDB_BACKFILL_FIELDS = ("canonicalTitle", "keywords", "originalTitle", "akaTitles",
+                         "writer", "composer", "cinematographer", "studios",
+                         "franchise", "tagline", "releaseDate", "awards")
+# Filled by the SAME TMDb credits call that produces cast rows with a
+# `character` — so a TMDb cast row on the item is the proof they came from it.
+_TMDB_CREDITS_FIELDS = ("director", "countries", "imdbRating", "imdbVotes",
+                        "contentRating")
+
+
+def strip_unanchored_tmdb_residue(item):
+    if any(item.get(k) for k in _ALL_IDS) or item.get("contentType") in ("tv-series", "tv-episode"):
+        return False
+    hit = False
+    cast = item.get("cast")
+    tmdb_cast = False
+    if isinstance(cast, list):
+        kept = [c for c in cast if not (isinstance(c, dict)
+                                        and (c.get("tmdbPersonID") or c.get("character")
+                                             or c.get("order") is not None))]
+        if len(kept) != len(cast):
+            item["cast"] = kept
+            tmdb_cast = hit = True
+    if (item.get("metaSource") or "") == "tmdb":
+        for k in _TMDB_BACKFILL_FIELDS:
+            if item.get(k):
+                item.pop(k, None)
+                hit = True
+        item["metaSource"] = None
+    if tmdb_cast:
+        for k in _TMDB_CREDITS_FIELDS:
+            if item.get(k):
+                item.pop(k, None)
+        if item.get("genres"):
+            item["genres"] = []
+    if (item.get("languageSource") or "") == "tmdb":
+        item["language"] = None
+        item["languageSource"] = None
+        hit = True
+    if hit:
+        item["matchResidueCleared"] = True
+    return hit
+
+
 def strip_orphan_match_residue(item):
     if item.get("contentType") not in _TV_RESIDUE_KINDS:
         return False
@@ -1826,37 +1881,80 @@ def sibling_anchored_fixes(items, stats):
 # than five. The two caches live beside the catalog and are committed; when
 # they are absent this rule does nothing rather than guessing.
 _ID_YEARS = re.compile(r"(?<!\d)(1[89]\d\d|20\d\d)(?!\d)")
-_ALL_IDS = ("imdbID", "tmdbID", "tvmazeID", "tvdbID", "wikidataQID")
+
+
+_LEAD_ARTICLE = re.compile(r"^(the|a|an|der|die|das|le|la|les|el|il|los|las|un|une)\s+")
+
+
+def _bare_title(t):
+    return _LEAD_ARTICLE.sub("", _norm_title_key(t) or "").strip()
+
+
+def _titles_agree(film, own):
+    """A TMDb title and one of the item's titles name the same work: equal
+    once articles go, or one contains the other ("Lady Snowblood 2: Love
+    Song of Vengeance" / "Lady Snowblood: Love Song of Vengeance"). A
+    three-name cast agreement is what carries the weight; this is the guard
+    against a shared cast across a director's unrelated films."""
+    return any(f and o and (f == o or f in o or o in f) and min(len(f), len(o)) >= 5
+               for f in [film] for o in own)
 
 
 def cast_residue_fixes(items, stats):
+    """Returns the archiveIDs whose leftover cast points at a TMDb film with
+    THIS item's title and a year it does not contradict — the credits are the
+    film's own and only the id is missing (Three Ages, 1923, whose uploader
+    dated it 2006). Those keep their credits; strip_unanchored_tmdb_residue
+    skips them. Everything else with TMDb credit rows and no id is residue."""
+    title_anchored = set()
     cast_cache = REPO / "shared/editorial/tmdb_cast_cache.json"
     verify_cache = REPO / "shared/editorial/tmdb_verify_cache.json"
     if not (cast_cache.exists() and verify_cache.exists()):
-        return
+        return title_anchored
     cc = json.loads(cast_cache.read_text()); cc = cc.get("entries", cc)
     vc = json.loads(verify_cache.read_text()); vc = vc.get("entries", vc)
-    rev = {}
+    rev, by_name = {}, {}
     for tid, cast in cc.items():
         for name, info in (cast or {}).items():
             rev.setdefault((name, (info or {}).get("p")), set()).add(tid)
+            by_name.setdefault(name, set()).add(tid)
     for it in items:
         if it.get("excluded") or not it.get("cast") or any(it.get(k) for k in _ALL_IDS):
             continue
-        votes = Counter()
+        votes, name_votes = Counter(), Counter()
         for c in it["cast"]:
-            for tid in rev.get(((c.get("name") or "").lower(), c.get("profilePath")), ()):
+            nm = (c.get("name") or "").lower()
+            for tid in rev.get((nm, c.get("profilePath")), ()):
                 votes[tid] += 1
+            for tid in by_name.get(nm, ()):
+                name_votes[tid] += 1
+        id_years = [int(y) for y in _ID_YEARS.findall(it.get("archiveID") or "")]
+        iy = it.get("year")
+        own = {_bare_title(t) for t in ([it.get("title"), it.get("canonicalTitle"),
+                                         it.get("originalTitle")] + list(it.get("akaTitles") or []))
+               if t}
+        # KEEP: three or more of these names are the cast of a TMDb film that
+        # carries this item's own title, and no year says otherwise. Names
+        # alone (no profile path) are enough here because the title has to
+        # agree too — a 1925 Cold Turkey and a 1971 Cold Turkey share no cast.
+        if name_votes:
+            tid, n = name_votes.most_common(1)[0]
+            film = vc.get(tid) or {}
+            fy = film.get("year")
+            year_ok = (not isinstance(fy, int) or not isinstance(iy, int)
+                       or abs(fy - iy) <= 5 or any(abs(fy - y) <= 5 for y in id_years))
+            if n >= 3 and year_ok and film.get("title") and _titles_agree(_bare_title(film["title"]), own):
+                title_anchored.add(it["archiveID"])
+                continue
         if not votes:
             continue
         tid, n = votes.most_common(1)[0]
         if n < 2:
             continue
         film = vc.get(tid) or {}
-        fy, iy = film.get("year"), it.get("year")
+        fy = film.get("year")
         if not (isinstance(fy, int) and isinstance(iy, int)):
             continue
-        id_years = [int(y) for y in _ID_YEARS.findall(it.get("archiveID") or "")]
         if abs(fy - iy) <= 5 or any(abs(fy - y) <= 5 for y in id_years):
             continue
         it["cast"] = []
@@ -1878,6 +1976,7 @@ def cast_residue_fixes(items, stats):
             it["hasRealArtwork"] = False; it["artworkSource"] = "archive"
         it["castResidueFrom"] = f"{film.get('title')} ({fy})"
         stats["cast_residue_cleared"] += 1
+    return title_anchored
 
 
 def remediate(items):
@@ -1890,7 +1989,7 @@ def remediate(items):
             if it.get("yearSource") and not isinstance(it.get("year"), int):
                 it.pop("yearSource", None)
     sibling_anchored_fixes(items, stats)
-    cast_residue_fixes(items, stats)
+    title_anchored = cast_residue_fixes(items, stats)
     for it in items:
         ct = it.get("contentType")
         if ct == "tv-series" or ct not in MOVIE_TYPES:
@@ -2120,6 +2219,8 @@ def remediate(items):
             stats["match_residue_stripped"] = stats.get("match_residue_stripped", 0) + 1
         if strip_cleared_match_residue(it):
             stats["cleared_match_residue"] = stats.get("cleared_match_residue", 0) + 1
+        if it.get("archiveID") not in title_anchored and strip_unanchored_tmdb_residue(it):
+            stats["unanchored_tmdb_residue"] += 1
 
         # 5a) A subject-derived Family tag the map no longer vouches for
         # (the word was in the TITLE, not a subject) comes off. Only where no
