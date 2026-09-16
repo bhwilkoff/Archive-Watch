@@ -700,6 +700,11 @@ _UPLOADER_VOICE = re.compile(
     # till dess rätta ägare" led 19 Swedish uploads' descriptions).
     r"|rätta ägare|derechos reservados|tous droits|alle rechte|diritti riservati|todos os direitos"
     r"|belongs? to (its|their) (rightful|respective) owners?|no copyright intended|i do not own|rights (are )?(reserved|held) by"
+    # Licensing boilerplate and a postal address ("For any proposed commercial
+    # use of the material please contact the BFI... 21 Stephen Street, London,
+    # W1T 1LN"); notes to other editors ("suggestion; insert clip anywhere").
+    r"|commercial use|obtain a licen[cs]e|footage sales|licensing (enquir|inquir)|\bcontact (the |us |me )"
+    r"|\b[A-Z]{1,2}\d{1,2}[A-Z]? \d[A-Z]{2}\b|check out this|\binsert (clip|this)\b|\bsuggestion[;:]"
     r"|^\s*[\"'(]*(i|i'm|i've|i'd|i'll|we|we're|we've|my|our)\b", re.I)
 # "From IMDb :", "From IMDb:", "Taken from IMDB :" — a pasted-source prefix on a
 # real plot (260 items measured). Strip the prefix, keep the plot.
@@ -1426,11 +1431,24 @@ def sanitize_synopsis(it):
             it["synopsis"] = None
             it["synopsisSource"] = None
             return "nulled"
+        # A catalogue entry that opens by repeating the title ("Family
+        # Portrait - A Film on the Theme of the Festival of Britain 1951
+        # Documentary short directed by Humphrey Jennings.") keeps what
+        # follows the title.
+        title = (it.get("title") or "").strip()
+        if len(title) >= 8 and s.lower().startswith(title.lower()):
+            rest = s[len(title):].lstrip(" -–—:,.")
+            if len(rest) >= MIN_SYNOPSIS:
+                s = rest[0].upper() + rest[1:]
     sents = [x for x in _SENT_SPLIT.split(s)
              if not (_audit.URL.search(x) or _audit.SOCIAL.search(x)
                      or _audit.EMAIL.search(x) or _audit.UPLOADER.search(x)
                      or _audit.TECH.search(x) or _BOILERPLATE_SENT.search(x)
                      or (uploader_text and _UPLOADER_VOICE.search(x)))]
+    # A one-word fragment left after its sentence went ("UK." after a
+    # dropped postal address) is not a sentence.
+    if len(sents) > 1:
+        sents = [x for x in sents if len(re.findall(r"[A-Za-z]+", x)) >= 2]
     s = re.sub(r"\s+", " ", " ".join(sents)).strip()
     s = _tidy_punctuation(s)
     if s == raw:
@@ -1568,6 +1586,16 @@ def _audited_clean(it):
     return None
 
 
+def _title_case(t):
+    """str.title() capitalizes after an apostrophe ("You'Re Fired",
+    "Mabel'S Strategem"); a word owns its apostrophe."""
+    return re.sub(r"[A-Za-z]+(?:'[A-Za-z]+)*", lambda m: m.group(0).capitalize(), t)
+
+
+# An apostrophe-cased title that already shipped: "Mabel'S", "You'Re", "I'Ll".
+_APOS_CASED = re.compile(r"(?<=[A-Za-z])'(S|T|Re|Ll|Ve|D|M)\b")
+
+
 def sanitize_title(it):
     raw = (it.get("title") or "").strip()
     if not raw:
@@ -1654,7 +1682,8 @@ def sanitize_title(it):
     t = _strip_trailing_year_field(t, it.get("year"))
     t = re.sub(r"\s+", " ", t).strip(" -_|")
     if t and t.isupper() and len(t.split()) > 1:
-        t = t.title()
+        t = _title_case(t)
+    t = _APOS_CASED.sub(lambda m: "'" + m.group(1).lower(), t)
     if t and t != raw:
         it["title"] = t
         return True
