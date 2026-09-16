@@ -25,6 +25,7 @@ from __future__ import annotations
 import argparse
 import copy
 import json
+import re
 import sys
 import threading
 import time
@@ -70,6 +71,10 @@ def main() -> int:
             continue
         rows = tmdb_rows(it)
         if len(rows) < 3:
+            continue
+        # A yearless item cannot be anchored (the title search finds the
+        # same-title film the wrong match came from) — do not fetch for it.
+        if not isinstance(it.get("year"), int) and not re.search(r"(?<!\d)(1[89]\d\d|20\d\d)(?!\d)", it["archiveID"]):
             continue
         if R.strip_unanchored_tmdb_residue(copy.deepcopy(it)):
             cands.append((it["archiveID"], it.get("title") or "", it.get("year"),

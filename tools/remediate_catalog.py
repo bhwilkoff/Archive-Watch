@@ -2039,8 +2039,16 @@ def cast_residue_fixes(items, stats):
             # film with a production-vs-release year (Die Sister, Die! is
             # 1972 and 1978; I Eat Your Skin 1964 and 1971). A remake is
             # decades away (Godzilla 1954 / 2014, Panique 1946 / 1977).
-            year_ok = (not isinstance(fy, int) or not isinstance(iy, int)
-                       or abs(fy - iy) <= 15 or any(abs(fy - y) <= 5 for y in id_years))
+            # A YEARLESS item cannot be anchored: a Follow That Man (1953)
+            # episode titled "A Family Affair" reverse-matches the 2024 film
+            # of that name on three names, because that is where the cast
+            # came from — the agreement is circular. Only a year the ITEM
+            # holds (or its archive id names) can break the tie.
+            if isinstance(iy, int):
+                year_ok = (not isinstance(fy, int) or abs(fy - iy) <= 15
+                           or any(abs(fy - y) <= 5 for y in id_years))
+            else:
+                year_ok = bool(id_years) and isinstance(fy, int) and any(abs(fy - y) <= 5 for y in id_years)
             if n >= 3 and film.get("title") and _titles_agree(_bare_title(film["title"]), own):
                 # The same evidence dates the film. Six pre-1961 features
                 # ("Smart Alecks" 1942, "Atom Age Vampire" 1960, Keaton's
