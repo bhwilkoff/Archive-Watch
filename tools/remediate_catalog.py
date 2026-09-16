@@ -729,6 +729,16 @@ _UPLOADER_VOICE = re.compile(
     r"|\b(riveting|masterpiece|tour de force|all-time (great|classic|best)|unmissable|breathtaking|dazzling|hilarious"
     r"|brilliant|superb|magnificent|gripping|spellbinding|unforgettable|a must for|highly entertaining|thoroughly enjoyable|delightful)\b"
     r"|\?{3}|\bchannel \d{1,2}\s*[-–]\s*[A-Z]{3,4}(-TV)?\b|available for download"
+    # "Although I do receive great joy from sharing these uploads with you, I
+    # have no wish to infringe", "This film can be purchased on DVD and higher
+    # quality", "These are Excellent videos for those who would like", "This
+    # cartoon might be her best from that year", "Information about this
+    # serial can be found on its IMDb page" (seed-606 sample, 2026-09-16).
+    r"|\bI (do|have|will|hope|receive|share|upload|apologi[sz]e|tried|decided|chose)\b|\bthese uploads\b|\binfringe"
+    r"|\bcan be purchased\b|\bpurchased? (on|at|from)\b|\bhigher quality\b|\bfor sale\b"
+    r"|\b(excellent|great|wonderful|fantastic|amazing|awesome|terrific) (video|film|movie|print|copy|series|show|cartoon|episode)s?\b|\bgreat for\b"
+    r"|\b(might|may|could) be (her|his|the|their|its) best\b|\bone of the (best|greatest|finest)\b"
+    r"|\bcan be found on\b|\bsee (its|the) imdb\b"
     r"|^\s*[\"'(]*(i|i'm|i've|i'd|i'll|we|we're|we've|my|our)\b", re.I)
 # "From IMDb :", "From IMDb:", "Taken from IMDB :" — a pasted-source prefix on a
 # real plot (260 items measured). Strip the prefix, keep the plot.

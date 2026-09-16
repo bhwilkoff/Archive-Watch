@@ -32,6 +32,15 @@ CASES = [
      "Footage of the ruins of Hiroshima and Nagasaki shot by a Japanese crew in the weeks after the bombings."),
     ("A good print of a bad film about a decent man who scans the horizon for the ship carrying his brother home.",
      "A good print of a bad film about a decent man who scans the horizon for the ship carrying his brother home."),
+    ("Although I do receive great joy from sharing these uploads with you, I have no wish to infringe on any "
+     "existing copyright law. Ann Marie is an aspiring actress in New York who takes odd jobs between auditions.",
+     "Ann Marie is an aspiring actress in New York who takes odd jobs between auditions."),
+    ("A tour of the immense Ford Motor Company assembly plant in Dearborn. This film can be purchased on DVD and "
+     "higher quality copies are available.", "A tour of the immense Ford Motor Company assembly plant in Dearborn."),
+    ("Her house is invaded by lively crows and she finds a scarecrow to frighten them away. This cartoon might be "
+     "her best from that year.", "Her house is invaded by lively crows and she finds a scarecrow to frighten them away."),
+    ("The best man at the wedding loses the ring and the bride's father chases him across the county fair.",
+     "The best man at the wedding loses the ring and the bride's father chases him across the county fair."),
     ("I've been researching newly public domain films from 1929 and earlier, so I'm uploading the best copies.",
      None),
 ]
