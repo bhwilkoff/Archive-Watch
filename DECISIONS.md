@@ -199,6 +199,7 @@ into every session and the index alone carries every title.)
 - 122 — Roku never RECEIVES a shared playlist, and the legacy tier never sends one; both are closed, not deferred
 - 123 — Pulse replaces the vendor consoles: every store is read by the route it actually offers, and a reading that cannot be trusted is refused rather than written
 - 124 — A checked source's synopsis always beats the uploader's, every synopsis carries its provenance, and the client SAYS it
+- 125 — Credits with no surviving id are residue unless the cast proves the film; and the same cast dates an upload-dated film
 
 ---
 
@@ -673,4 +674,78 @@ external id, labeled. The remaining unchecked fields are the next audit:
 items, from the Archive `creator` field), `genres` inferred from subjects
 (controlled vocabulary, not a source), and the canonical-title adoption that
 Decision 123's sweep showed can hide a wrong match.
+
+## 125 — Credits with no surviving id are residue unless the cast proves the film; and the same cast dates an upload-dated film
+*Date: 2026-09-16*
+
+`remediate_catalog.strip_unanchored_tmdb_residue` removes TMDb credit rows
+(cast with `character` / `tmdbPersonID`, and the director, countries and
+ratings that arrive in the same credits call), `metaSource = "tmdb"` fields
+(writer, studios, release date, tagline, keywords...) and a `languageSource =
+"tmdb"` language from any film item with NO surviving external id — UNLESS
+`cast_residue_fixes` proves the credits are the film's own: three or more of
+those names are the cast of a TMDb film carrying the item's own title
+(article-insensitive, containment) within fifteen years. That same anchor
+DATES the item: when its archive id names no year and its catalog year is
+1978+ while the anchored film's is more than five years earlier, the film's
+year is adopted (`yearSource: "cast-anchored-tmdb"`). Series cards and
+anything with a tvmazeID/tvdbID are out of scope; a wikidataQID is an
+identity, not a cast source, so Wikidata-only items ARE judged.
+`tools/anchor_orphan_credits.py` grows the offline caches by TMDb title
+search, keeping a film only when ≥3 cast names agree.
+
+**Why**: the owner's audit — *"uploader information and reviews instead of
+information about the film"* — reached the credits. Decision 087 clears a
+wrong match's ids and artwork ONLY, on the correct ground that director and
+cast can also come from the Archive item; the 2026-09-08 residue strip only
+reaches items the verifier stamped. Measured 2026-09-16: **916 visible no-id
+items carried TMDb credit rows.** A NetZero commercial reel titled "501" wore
+the 2008 Danish film "501" entire — director, writer, studio, release date,
+20 IMDb votes, Danish language, ten cast members with TMDb person ids — and
+no marker of any kind. A Dragnet episode was credited to *The Big Bounce*
+(2004, Owen Wilson), a War of 1812 newsreel to the 2011 PBS documentary,
+Keaton's *Cops* to a 2016 Austrian film, a Michael Shayne episode to Mario
+Bava, a 1956 Producers' Showcase to Omar Sy. And a `wikidataQID` had been
+shielding the worst: *Godzilla* (1954) wore Aaron Taylor-Johnson, *The Fast
+and the Furious* (1955) Paul Walker, *Panique* (1946) its 1977 remake.
+
+The evidence is in the fields, not in a marker: `metaSource`/`languageSource`
+`= "tmdb"` are written only against a tmdbID, and a cast row with `character`
+can only be a TMDb credit. With every id gone, each describes the film the
+match pointed at.
+
+**The keep side cost more than the strip.** A first pass cleared 352 visible
+items and ~40% of them were CORRECT credits with the id gone for an
+unrelated reason — *All the Fine Young Cannibals*, *Cold Turkey* (1925), Night
+of the Living Dead, *Three Ages* (Keaton, uploader-dated 2006). "No id" is not
+evidence of a wrong film; the cast reverse-matched to a same-titled film IS
+evidence of the right one. Three refinements, each from a false positive read
+off the list: name-only votes (a `None` profile path broke the strict key,
+160 items); article-insensitive containment ("The Werewolf of Washington" /
+"Werewolf of Washington"; "Lady Snowblood 2: Love Song of Vengeance"); and a
+15-year window, because *Die Sister, Die!* is 1972 AND 1978, *I Eat Your
+Skin* 1964 and 1971 — same film, production vs release — while a remake is
+decades away. Net: 269 visible items lose another film's credits; 6 pre-1961
+features that the rights audit was about to hide as "confirmed modern" get
+their real year instead.
+
+**How to apply**: never judge residue by the presence of an id alone in
+either direction — an id can be missing on a correct film and present on a
+wrong one (Decision 026). When a rule clears, look for what it clears that
+was RIGHT, and find the evidence that separates the two; here it was already
+in the caches. Keep the two rules' thresholds distinct: the strict
+(name, profile) vote at ≥2 CLEARS on a >5-year contradiction; the name-only
+vote at ≥3 with a title agreement KEEPS. Do not restore a cleared tmdbID
+from the anchor — a verifier removed it for a reason this rule does not
+re-litigate; the credits stay, the id does not. Run `anchor_orphan_credits`
+locally when the cleared count jumps: it is the only network step and it
+writes nothing to the catalog.
+
+**Consequences**: 19 items whose ONLY year evidence was a cleared match's
+release date now fall to the owner's 09-11 `no_evidence` hide — among them
+one copy of *L'Arrivée d'un train en gare de La Ciotat* — which is that
+policy working on truer data, not a defect here. The rights confirm CANNOT
+run from CI any longer (archive.org refuses the runner: 4/4 failed on each of
+the last three days) and was run locally over its 116 stuck targets; a
+follow-up is to move that step to the owner's Mac on a schedule.
 

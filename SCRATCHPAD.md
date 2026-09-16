@@ -101,6 +101,26 @@ keep serving it.
 
 ## Session Log
 
+### 2026-09-16 (audit loop, cont.) — Credits residue, Family genre, the rights confirm run by hand (Decision 125)
+Owner /loop: "uploader information and reviews instead of information about
+the film ... every piece of information ... accurate and unbiased."
+- **Family is subject-only**: `genres_from_subjects` matched map keywords
+  against the TITLE, so "The Family Doctor" and every Prelinger "Home Movie:
+  Ohio Family" wore the Family genre; 205 unvouched tags come off no-id items
+  every build. `test_family_genre.py` 7/7 (3/7 on the old code).
+- **916 visible no-id items carried TMDb credit rows** (D125): "501" (a
+  NetZero reel) wore a 2008 Danish film entire; Godzilla 1954 wore Aaron
+  Taylor-Johnson behind a Wikidata QID. Strip is evidence-based; the KEEP is
+  the cast reverse-matched to a same-titled film (`anchor_orphan_credits.py`
+  grew the caches, 118/253). 269 visible items lose another film's credits;
+  6 upload-dated features (Three Ages 1923, Smart Alecks 1942...) get their
+  year from the same anchor instead of being hidden as "confirmed modern".
+- **The rights confirm has failed in CI for three days** (archive.org refuses
+  the runner, 4/4 each run). Ran it locally: 112 confirmed, Wormwood (2017,
+  Errol Morris) among ~110 modern items now bucketed to hide on the next
+  publish. Follow-up: schedule the confirm on the owner's Mac.
+- publish-db dispatched three times (Family, residue, confirmed catalog).
+
 Older entries: `docs/SESSION-LOG.md` (verbatim, back to 2026-04-17).
 
 ### 2026-09-14 (evening) — Party Play answers "what is this?" on every TV; playlist Share is visible; three Roku Library defects
