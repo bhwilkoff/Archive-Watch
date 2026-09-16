@@ -55,8 +55,19 @@ def _load_subject_genres():
     except Exception:
         raw = {}
     disp = {"sci-fi": "Sci-Fi"}
-    return [(re.compile(r"\b" + re.escape(k.lower()) + r"\b"),
-             disp.get(v, v.title())) for k, v in raw.items()]
+    # "music" alone tagged Le Voyage dans la Lune (subject: music) a Musical;
+    # the word for the genre is "musical". And uploaders tag in the plural —
+    # 111 items with "cartoons" had no Animation, "westerns"/"comedies"/
+    # "documentaries" likewise — so a keyword matches its plural too.
+    raw = {k: v for k, v in raw.items() if k.lower() != "music"}
+
+    def plural(k):
+        k = re.escape(k.lower())
+        if k.endswith("y"):
+            return k[:-1] + "(?:y|ies)"
+        return k + "s?"
+    return [(re.compile(r"\b" + plural(k) + r"\b"), disp.get(v, v.title()))
+            for k, v in raw.items()]
 
 _SUBJECT_GENRES = _load_subject_genres()
 
