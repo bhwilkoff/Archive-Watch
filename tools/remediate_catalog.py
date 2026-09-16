@@ -746,6 +746,12 @@ _UPLOADER_VOICE = re.compile(
     r"|\bdvd ?rips?\b|\b(pretty |very |quite )?(high|low|decent|poor) quality\b|\blet us know\b|\b(somebody|anyone|anybody) knows?\b"
     r"|\bmy (collection|channel|library|archive|upload)s?\b|\bbeautiful (footage|film|print|transfer|copy)\b|\brecorded (between|in|on|during)\s+(19|20)\d\d"
     r"|\b(better|worse|best|cleaner) (copy|print|version|transfer) than\b"
+    # seed-808: "The 1930's had a few bangers apparently, I wouldn't know",
+    # "Here is one interesting Cartoon... A Good one for a dark rainy night",
+    # "Another of those rabbit-like classic commercial uploads", "One of the
+    # rarest (and most cheerful) S&M films ever made".
+    r"|\bI (wouldn|couldn)'t\b|\bbangers?\b|^\s*here (is|are) (one|a|an|another) (interesting|great|good|nice|fun|rare|lost|wonderful)\b|\ba good one for\b"
+    r"|\b(these|those|my|our|classic commercial) [^.]{0,30}uploads?\b|\bone of the (rarest|most|funniest|strangest|weirdest|oddest)\b"
     r"|^\s*[\"'(]*(i|i'm|i've|i'd|i'll|we|we're|we've|my|our)\b", re.I)
 # "From IMDb :", "From IMDb:", "Taken from IMDB :" — a pasted-source prefix on a
 # real plot (260 items measured). Strip the prefix, keep the plot.
@@ -768,7 +774,7 @@ _NARA_STAMP = re.compile(
     r"|\(\d{1,2}/\d{1,2}/\d{4}\s*-\s*(\d{1,2}/\d{1,2}/\d{4})?\s*\)\.?|^\s*National Archives\s*-\s*", re.I)
 
 
-_EP_MARK = re.compile(r"\b(ep(isode)?\.?\s*\d{1,3}|\bep\b|s\d{1,2}\s*e\d{1,3}|\d{1,2}x\d{2}|season\s*\d{1,2})\b", re.I)
+_EP_MARK = re.compile(r"\b(ep(isode)?\.?\s*\d{1,3}|\bep\b|\bepisode\b|s\d{1,2}\s*e\d{1,3}|\d{1,2}x\d{2}|season\s*\d{1,2})\b", re.I)
 _TECH_PAREN = re.compile(r"\(\s*\d+m\s*\d+s\s*,\s*\d{3,4}x\d{3,4}\s*\)|\b\d{3,4}x\d{3,4}\b")
 
 
@@ -782,7 +788,7 @@ def _is_placeholder_synopsis(s, it):
     # "Love That Bob Ep 5x02 Bob and the Dumb Blonde": a series name, an
     # episode marker and the episode title — a label, not a description.
     title_n = re.sub(r"[^a-z0-9]+", " ", (it.get("title") or "").lower()).strip()
-    if _EP_MARK.search(s) and len(n.split()) <= 14 and title_n and (n.endswith(title_n) or n.startswith(title_n)):
+    if _EP_MARK.search(s) and len(n.split()) <= 18 and title_n and (n.endswith(title_n) or n.startswith(title_n) or (n.find(title_n) >= 0 and len(n.split()) <= 18 and re.search(r"first aired|air ?date|season", n))):
         return True
     if not n or n in _PLACEHOLDER or len(n.split()) == 1:
         return True

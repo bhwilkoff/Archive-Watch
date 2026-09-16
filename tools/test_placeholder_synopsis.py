@@ -64,6 +64,11 @@ CASES = [
     ("This is a banned Talespin cartoon from my collection of banned and censored cartoons. Baloo and Kit are "
      "hired to fly a shipment of explosives across the border, unaware that the buyers are arms dealers.",
      "Flying Dupes", "Baloo and Kit are hired to fly a shipment of explosives across the border, unaware that the buyers are arms dealers."),
+    ("Andy Griffith Episode, Opie and the Spoiled Kid", "Opie and the Spoiled Kid", None),
+    ("Tales Of Tomorrow ep Time to Go * Season: 1 * Episode: 29 * First Aired: 4/18/1952", "Time to Go", None),
+    ("The 1930's had a few bangers apparently, I wouldn't know", "3O's 0Ldies", None),
+    ("Here is one interesting Cartoon The Haunted House and The Skeleton Symphony. A Good one for a dark rainy night",
+     "The Haunted House and The Skeleton Symphony", None),
     # Controls: a real plot, a short but real description, quotes inside a sentence.
     (BIG, "Under The Big Top", BIG),
     ("Tire making", "Rubber", "Tire making"),
