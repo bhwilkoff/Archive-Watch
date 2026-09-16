@@ -897,3 +897,11 @@ a.person:focus-visible { outline: 2px solid var(--color-primary); outline-offset
 .season-chip.on {
   background: var(--color-primary); border-color: var(--color-primary); color: #fff;
 }
+
+/* Provenance under the synopsis: which source wrote it (2026-09-16). Quiet —
+   a caption, not a warning — because every synopsis carries one. */
+.item-desc-source {
+  margin: -0.35rem 0 0.9rem;
+  font-size: 0.8rem;
+  color: var(--color-text-secondary, #9A9A9A);
+}

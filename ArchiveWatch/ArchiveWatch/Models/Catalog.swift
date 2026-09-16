@@ -343,6 +343,29 @@ struct Catalog: Decodable, Sendable {
             return HTMLStripper.strip(raw)
         }
 
+        /// Where the synopsis came from, in words a viewer can weigh. Every
+        /// synopsis carries a `synopsisSource` since 2026-09-16
+        /// (tools/synopsis_provenance.py); "archive" is the uploader's own
+        /// description on archive.org — notes, opinions, sometimes a review —
+        /// and is SAID to be that rather than presented as the film's synopsis.
+        /// The owner found reviewer text standing in for plots across the
+        /// catalog; the honest fix is to show every source, not just the weak
+        /// ones (learning-orientation: expose provenance).
+        var synopsisProvenance: String? {
+            guard displaySynopsis != nil else { return nil }
+            switch (synopsisSource ?? "").lowercased() {
+            case "tmdb":           return "Synopsis from TMDb"
+            case "omdb":           return "Synopsis from OMDb"
+            case "wikipedia":      return "Synopsis from Wikipedia"
+            case "tvmaze":         return "Synopsis from TVmaze"
+            case "agent-reviewed": return "Synopsis, reviewed"
+            default:               return "Uploader's description on archive.org"
+            }
+        }
+        var synopsisIsUploaderText: Bool {
+            !["tmdb", "omdb", "wikipedia", "tvmaze", "agent-reviewed"].contains((synopsisSource ?? "").lowercased())
+        }
+
         /// "7.8" — IMDb rating formatted for display, or nil if unrated.
         var imdbRatingDisplay: String? {
             guard let r = imdbRating, r > 0 else { return nil }

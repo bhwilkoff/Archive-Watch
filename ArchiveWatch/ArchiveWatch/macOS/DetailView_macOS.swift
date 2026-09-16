@@ -50,6 +50,9 @@ struct DetailView: View {
                 header
                 if let s = item.displaySynopsis {
                     Text(s).font(.body).textSelection(.enabled)
+                    if let prov = item.synopsisProvenance {
+                        Text(prov).font(.caption).foregroundStyle(.secondary)
+                    }
                 }
                 // Episode item (Decision 045): jump to the full series.
                 if item.isEpisode, let sid = item.seriesID {

@@ -406,6 +406,12 @@ struct DetailView: View {
                 ReadableTextBlock(text: synopsis, collapsedLines: 6)
                     .font(.system(size: 29, weight: .regular))
                     .frame(maxWidth: 1100, alignment: .leading)
+                if let prov = item.synopsisProvenance {
+                    Text(prov)
+                        .font(.system(size: 23, weight: .medium))
+                        .foregroundStyle(.secondary)
+                        .frame(maxWidth: 1100, alignment: .leading)
+                }
             }
 
             // Tier 1+2 metadata-expansion facts (Decision 046): franchise,

@@ -74,6 +74,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import app.archivewatch.android.app.AppContainer
 import app.archivewatch.android.data.CatalogItem
+import app.archivewatch.android.data.synopsisProvenance
 import app.archivewatch.android.data.Review
 import app.archivewatch.android.data.PlaySpec
 import app.archivewatch.android.ui.AvatarImage
@@ -380,6 +381,13 @@ fun DetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
                     style = MaterialTheme.typography.bodyMedium,
                     color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.9f),
                 )
+                current.synopsisProvenance?.let { prov ->
+                    Text(
+                        prov,
+                        style = MaterialTheme.typography.labelSmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+                }
             }
 
             // Rich metadata (Decision 046) — each row shown only when present.

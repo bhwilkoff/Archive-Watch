@@ -78,6 +78,7 @@ sub run()
         ' Decision 100 — a film's other release title is SHOWN, never
         ' reconciled. `ct` is the canonical title from the external match.
         if r[9].ct <> invalid then d.canonicalTitle = r[9].ct
+        if r[9].ss <> invalid then d.synopsisSource = r[9].ss
     end if
     print "AWROKU detail ok "; aid; " url="; (d.url <> invalid)
     m.top.detail = d

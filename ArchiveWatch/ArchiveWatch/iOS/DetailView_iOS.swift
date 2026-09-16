@@ -271,8 +271,11 @@ struct DetailView: View {
                 if let tagline = item.tagline, !tagline.isEmpty {
                     Text(tagline).font(.callout).italic().foregroundStyle(.secondary)
                 }
-                if let s = item.synopsis, !s.isEmpty {
+                if let s = item.displaySynopsis {
                     Text(s).font(.body).foregroundStyle(.primary.opacity(0.9))
+                    if let prov = item.synopsisProvenance {
+                        Text(prov).font(.caption).foregroundStyle(.secondary)
+                    }
                 }
                 // The facts are short label/value pairs, so at regular width
                 // they ride the trailing column BESIDE the artwork (where an

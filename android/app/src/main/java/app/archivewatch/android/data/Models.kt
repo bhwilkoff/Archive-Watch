@@ -27,6 +27,10 @@ data class CatalogItem(
     val directorProfilePath: String? = null,   // TMDb director photo (Detail chip — parity follow-up)
     val cast: List<CastMember> = emptyList(),
     val synopsis: String? = null,
+    // Where the synopsis came from (tools/synopsis_provenance.py, 2026-09-16):
+    // tmdb / omdb / wikipedia / tvmaze / agent-reviewed, or "archive" for the
+    // uploader's own description, which Detail labels as such.
+    val synopsisSource: String? = null,
     val posterURL: String? = null,
     val backdropURL: String? = null,
     val artworkSource: String? = null,
@@ -359,6 +363,21 @@ data class PlaySpec(
     // options panel unmutes.
     val startMuted: Boolean = false,
 )
+
+/** A viewer-facing line saying where the synopsis came from. Every source is
+ *  named, not only the weak one: provenance is the point. */
+val CatalogItem.synopsisProvenance: String?
+    get() {
+        if (synopsis.isNullOrBlank()) return null
+        return when ((synopsisSource ?: "").lowercase()) {
+            "tmdb" -> "Synopsis from TMDb"
+            "omdb" -> "Synopsis from OMDb"
+            "wikipedia" -> "Synopsis from Wikipedia"
+            "tvmaze" -> "Synopsis from TVmaze"
+            "agent-reviewed" -> "Synopsis, reviewed"
+            else -> "Uploader's description on archive.org"
+        }
+    }
 
 /** One binge-queue entry (an episode). */
 data class QueueEntry(

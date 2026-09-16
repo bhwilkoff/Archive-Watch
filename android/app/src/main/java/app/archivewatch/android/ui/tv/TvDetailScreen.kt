@@ -63,6 +63,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import app.archivewatch.android.app.AppContainer
 import app.archivewatch.android.data.CatalogItem
+import app.archivewatch.android.data.synopsisProvenance
 import app.archivewatch.android.data.PlaySpec
 import app.archivewatch.android.ui.AvatarImage
 import app.archivewatch.android.ui.BackdropImage
@@ -403,11 +404,21 @@ fun TvDetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
                     lineHeight = 23.sp,
                     color = if (focused) Color.White else Color(0xFFDDDDDD),
                     modifier = Modifier
-                        .padding(start = TvDims.OverscanH, end = TvDims.OverscanH, bottom = 24.dp)
+                        .padding(start = TvDims.OverscanH, end = TvDims.OverscanH, bottom = 6.dp)
                         .fillMaxWidth(0.72f)
                         .onFocusChanged { focused = it.isFocused }
                         .focusable(),
                 )
+            }
+            current.synopsisProvenance?.let { prov ->
+                item(key = "synopsis-source") {
+                    Text(
+                        prov,
+                        fontSize = 12.sp,
+                        color = Color(0xFF9A9A9A),
+                        modifier = Modifier.padding(start = TvDims.OverscanH, end = TvDims.OverscanH, bottom = 24.dp),
+                    )
+                }
             }
         }
 

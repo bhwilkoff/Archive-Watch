@@ -745,7 +745,16 @@ sub onDetail()
     ' handler's clear wiped the second: the trace showed a bare full-catalog
     ' scan after every Detail open.
     if d.Count() = 0 then return
-    if d.synopsis <> invalid then m.syn.text = StripHTML(fmt(d.synopsis))
+    if d.synopsis <> invalid
+        m.syn.text = StripHTML(fmt(d.synopsis))
+        ' Provenance (2026-09-16): text that is only the uploader's says so. The
+        ' other platforms caption every source; this layout has three lines
+        ' between the pills and the cast row and no room for a caption, so the
+        ' uploader case is prefixed in-line and API text is left clean.
+        ss = ""
+        if d.synopsisSource <> invalid then ss = LCase(fmt(d.synopsisSource))
+        if ss = "" or ss = "archive" then m.syn.text = "From the uploader: " + m.syn.text
+    end if
     ' A film with no synopsis left a 300 px void under the pills. Say so,
     ' quietly — the honest line about this archive, in the secondary voice.
     if m.syn.text = ""

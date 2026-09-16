@@ -198,6 +198,7 @@ into every session and the index alone carries every title.)
 - 121 — Correction to 119: Roku DOES share playlists, and a decision's closing paragraph outlives the hour it was true for
 - 122 — Roku never RECEIVES a shared playlist, and the legacy tier never sends one; both are closed, not deferred
 - 123 — Pulse replaces the vendor consoles: every store is read by the route it actually offers, and a reading that cannot be trusted is refused rather than written
+- 124 — A checked source's synopsis always beats the uploader's, every synopsis carries its provenance, and the client SAYS it
 
 ---
 
@@ -629,3 +630,47 @@ route on the page, so "declared by hand" appears only where it is true. What no
 route can reach is named on the page rather than omitted: Apple's retention and
 session analytics 403 for this key, and Play withholds ratings below a minimum
 audience.
+
+## 124 — A checked source's synopsis always beats the uploader's, every synopsis carries its provenance, and the client SAYS it
+*Date: 2026-09-16*
+
+`tools/synopsis_provenance.py` gives every visible synopsis a `synopsisSource`
+— `tmdb`, `omdb`, `wikipedia`, `tvmaze`, `agent-reviewed`, or `archive` (the
+uploader's own description) — and REPLACES unstamped or uploader text with
+TMDb's overview wherever the item has a `tmdbID`. Every client draws the
+source under the synopsis: "Synopsis from TMDb", "Synopsis from Wikipedia",
+or "Uploader's description on archive.org". Roku, whose Detail has no room
+for a caption row, prefixes the uploader case in-line.
+
+**Why**: the owner — "I continue to find descriptions and other metadata that
+are not appropriate for the films... many instances of uploader information
+and reviews instead of information about the film." Measured before the
+change: 27,159 visible items carried a synopsis and **22,192 had no source
+stamp** — archive.org's `description`, i.e. whatever the uploader typed.
+6,304 of those matched uploader/review markers ("I've been researching newly
+public domain films from 1929 and earlier, so I'm uploading the best
+copies…" as the synopsis of *Devil May Care*; "The acting is still awful"
+for *The Wild Women of Wongo*). **11,229 of them had a tmdbID**, so an
+accurate overview had existed the whole time: the TMDb fillers were written
+to fill EMPTY synopses only ("never overwrites") and did not stamp what they
+wrote, so nothing downstream could tell TMDb's text from a reviewer's.
+
+**How to apply**: never write a synopsis without a `synopsisSource`; a
+writer that cannot name its source is writing the uploader's text and must
+say `archive`. Prefer a checked source over the uploader whenever one
+exists, and never overwrite a checked source with a lower one (the
+precedence here is tmdb ≥ omdb ≥ wikipedia ≥ tvmaze over archive; the four
+checked sources are left as they stand). Label every source on screen, not
+only the weak one — a caption that appears only on bad records is a warning
+nobody reads; one that appears on every record is provenance, which is the
+learning-orientation answer (expose the structure, let the viewer weigh it).
+The TMDb overviews are cached in `shared/editorial/tmdb_overview_cache.json`
+(committed) so the rule costs no fetch on a rebuild.
+
+**Consequences**: uploader-only text remains for the ~9,000 items with no
+external id, labeled. The remaining unchecked fields are the next audit:
+`director` and `cast` carried without any external id (1,139 / 758 visible
+items, from the Archive `creator` field), `genres` inferred from subjects
+(controlled vocabulary, not a source), and the canonical-title adoption that
+Decision 123's sweep showed can hide a wrong match.
+

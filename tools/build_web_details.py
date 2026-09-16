@@ -146,7 +146,11 @@ def main():
                            # usually one film under several release titles
                            # (Decision 100). Emitted raw; watch.js decides
                            # whether it differs enough to show.
-                           ("ct", "canonicalTitle")):
+                           ("ct", "canonicalTitle"),
+                           # Where the synopsis came from (synopsis_provenance.py):
+                           # the clients say "Uploader's description" when it is
+                           # "archive" and name the API otherwise (2026-09-16).
+                           ("ss", "synopsisSource")):
             val = it.get(field)
             if isinstance(val, str):
                 val = val.strip()

@@ -373,6 +373,7 @@
         releaseDate: x?.rd || null,
         originalTitle: x?.ot || null,
         canonicalTitle: x?.ct || null,
+        synopsisSource: x?.ss || null,
       };
     },
   };
@@ -2406,6 +2407,17 @@
           $('item-tagline').hidden = false;
         }
         if (det.synopsis) $('item-desc').textContent = det.synopsis;
+        // Provenance under every synopsis (2026-09-16): the owner found
+        // uploader notes and reviews standing in for plots, and a viewer
+        // could not tell. Every source is named; "archive" is the uploader.
+        if (det.synopsis) {
+          const srcName = { tmdb: 'Synopsis from TMDb', omdb: 'Synopsis from OMDb',
+            wikipedia: 'Synopsis from Wikipedia', tvmaze: 'Synopsis from TVmaze',
+            'agent-reviewed': 'Synopsis, reviewed' }[(det.synopsisSource || '').toLowerCase()]
+            || "Uploader's description on archive.org";
+          $('item-desc-source').textContent = srcName;
+          $('item-desc-source').hidden = false;
+        }
         this.factsRow(det);
         this.castRow(det);
         this.communityRow(det);

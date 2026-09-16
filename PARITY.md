@@ -153,6 +153,7 @@ macOS) since they share the Swift Core.
 | Cartoon / Kids mode | ✅ | ✅ | ✅ `Modes_macOS` | ✅ | ✅ | color/B&W flags shared |
 | Commercial-break controls | ✅ | ✅ toggle | ⏳ | ✅ About → Preferences, default on (a channel without them is not a channel) | ⏳ | |
 | Party Play (muted) | ✅ | 🔮 | ✅ `Modes_macOS` | ✅ Surprise → Party Play; muted lineup from the channel pools, never persisted | ✅ `TvPartyScreen` (TV) | ambient mode; Roku ✅ (Surprise door, whole-catalog colour pool) |
+| Synopsis provenance caption (Decision 124) | ✅ under the synopsis | ✅ | ✅ | ✅ `.item-desc-source` | ✅ phone + TV | Roku ✅ in-line prefix for uploader text only (no caption row) |
 | Lineup player verbs: sound toggle / open title / remember | ✅ transport-bar actions (tvOS-DESIGN §9.3a) | n/a (no lineup player) | ⏳ sound is native; open/remember not yet | ⏳ sound is the native control; open/remember not yet | ✅ options panel, D-pad Up (TV-DESIGN §5.6); phone n/a | Roku ✅ Up → options (ROKU-DESIGN §6.9). Ephemeral lineups also write history-only after 60 s on tvOS + Android |
 | Cover-art screensaver | ✅ + idle trigger | 🔮 | 🔮 | 🔮 as on iOS — a web page should not take over an idle screen; the OS and browser own idle | 🔮 | 10-foot/lean-back idiom |
 | VHS effect overlay | ✅ Metal | 🔮 | 🔮 | 🔮 | 🔮 | optional polish |
