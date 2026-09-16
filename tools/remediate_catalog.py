@@ -713,6 +713,14 @@ _UPLOADER_VOICE = re.compile(
     r"|work in progress|\bcorrections\b[^.]{0,40}\bwelcome\b|\.(mkv|mp4|avi|m4v|webm)\b|uploaded file|\bh\.?26[45]\b|\bhevc\b"
     r"|\bmatroska\b|\bdownload it\b|^\s*upd(ate|ated)?\s*:|for more (programming|information|videos|content|episodes)\b"
     r"|\bvisit\b[^.]{0,50}\b(media|channel|website|site|page|\.com|\.org|\.net)\b|\bsubscribe\b"
+    # "(uploaders note; This is a very bad encode.", "downloaded from Public
+    # Domain Movie Torrents", "This is the best copy available. Thanks Dave
+    # from San Francisco for the video. In the forum it was mentioned...",
+    # "projection print somewhat scratched, HFA Item no: 9675" (40-item
+    # post-rule sample, 2026-09-16).
+    r"|uploader'?s'? note|\b(bad|good|poor|great|decent) (encode|rip|transfer)\b|\bdownloaded from\b|\btorrents?\b"
+    r"|\bbest (copy|print|version) (available|i|we)\b|\bthanks\b[^.]{0,40}\bfor (the|this|his|her|their)\b|\bin the forum\b"
+    r"|\bprojection print\b|\bitem no\.?:?\s*\d|\b(somewhat|slightly|badly|heavily) (scratched|faded|worn|damaged)\b"
     r"|^\s*[\"'(]*(i|i'm|i've|i'd|i'll|we|we're|we've|my|our)\b", re.I)
 # "From IMDb :", "From IMDb:", "Taken from IMDB :" — a pasted-source prefix on a
 # real plot (260 items measured). Strip the prefix, keep the plot.

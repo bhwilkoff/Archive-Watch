@@ -22,6 +22,16 @@ CASES = [
      "A bank clerk inherits a circus from his uncle in Ohio."),
     ("High-quality military trucks cross the desert under fire.",
      "High-quality military trucks cross the desert under fire."),
+    ("(uploaders note; This is a very bad encode.", None),
+    ("A Little Audrey Cartoon, downloaded from Public Domain Movie Torrents.", None),
+    ("This is the best copy available. Thanks Dave from San Francisco for the video. Cinderella is bullied "
+     "by her stepsisters until a fairy godmother sends her to the ball.",
+     "Cinderella is bullied by her stepsisters until a fairy godmother sends her to the ball."),
+    ("Harvard Film Archive, projection print somewhat scratched, HFA Item no: 9675. Footage of the ruins of "
+     "Hiroshima and Nagasaki shot by a Japanese crew in the weeks after the bombings.",
+     "Footage of the ruins of Hiroshima and Nagasaki shot by a Japanese crew in the weeks after the bombings."),
+    ("A good print of a bad film about a decent man who scans the horizon for the ship carrying his brother home.",
+     "A good print of a bad film about a decent man who scans the horizon for the ship carrying his brother home."),
     ("I've been researching newly public domain films from 1929 and earlier, so I'm uploading the best copies.",
      None),
 ]
