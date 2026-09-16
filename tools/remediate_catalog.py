@@ -752,6 +752,10 @@ _UPLOADER_VOICE = re.compile(
     # rarest (and most cheerful) S&M films ever made".
     r"|\bI (wouldn|couldn)'t\b|\bbangers?\b|^\s*here (is|are) (one|a|an|another) (interesting|great|good|nice|fun|rare|lost|wonderful)\b|\ba good one for\b"
     r"|\b(these|those|my|our|classic commercial) [^.]{0,30}uploads?\b|\bone of the (rarest|most|funniest|strangest|weirdest|oddest)\b"
+    # seed-909: "Several episodes of JBVO I happen to have downloaded while
+    # they were still on the archive under SandersPlanet's account", "You can
+    # find other...", "These are missing in MP4 format from the POST".
+    r"|\bI happen\b|\bhave downloaded\b|\bunder [\w']+'s account\b|\byou can (find|download|watch|see|buy|get)\b|\bin (mp4|mkv|avi|mpeg) format\b"
     r"|^\s*[\"'(]*(i|i'm|i've|i'd|i'll|we|we're|we've|my|our)\b", re.I)
 # "From IMDb :", "From IMDb:", "Taken from IMDB :" — a pasted-source prefix on a
 # real plot (260 items measured). Strip the prefix, keep the plot.
@@ -788,6 +792,8 @@ def _is_placeholder_synopsis(s, it):
     # "Love That Bob Ep 5x02 Bob and the Dumb Blonde": a series name, an
     # episode marker and the episode title — a label, not a description.
     title_n = re.sub(r"[^a-z0-9]+", " ", (it.get("title") or "").lower()).strip()
+    if _EP_MARK.search(s) and title_n and re.sub(r"\s+", " ", _EP_MARK.sub(" ", n)).strip() == title_n:
+        return True
     if _EP_MARK.search(s) and len(n.split()) <= 18 and title_n and (n.endswith(title_n) or n.startswith(title_n) or (n.find(title_n) >= 0 and len(n.split()) <= 18 and re.search(r"first aired|air ?date|season", n))):
         return True
     if not n or n in _PLACEHOLDER or len(n.split()) == 1:
@@ -1427,9 +1433,22 @@ def drop_asr_captions(items):
     return dropped, hls_cleared
 
 
+_CREDIT_LINE = re.compile(r"\b(producer|director|writer|photograph|camera|music|animation|narrat|editor|advisor)\w*\s*[,:]", re.I)
+
+
 def _synopsis_text(it):
     v = it.get("synopsis")
-    return (" ".join(v) if isinstance(v, list) else (v or "")).strip()
+    if isinstance(v, list):
+        # A library record arrives as a list of NOTES ("With teacher's guide",
+        # "Also issued as videocassette", "Producer, Joseph Koenig; director,
+        # William Mason; ...") with the description among them. Keep the
+        # elements that read as description; a lone element keeps itself.
+        parts = [str(x).strip() for x in v if str(x).strip()]
+        if len(parts) > 1 and (it.get("synopsisSource") or "archive") == "archive":
+            kept = [x for x in parts if len(x) >= 40 and len(_CREDIT_LINE.findall(x)) < 2]
+            parts = kept or parts[-1:]
+        return " ".join(parts).strip()
+    return (v or "").strip()
 
 
 def _fix_mojibake(s):
@@ -1546,6 +1565,8 @@ def _wiki_lead_is_another_film(it, raw):
 def sanitize_synopsis(it):
     """Returns 'cleaned', 'nulled', or None."""
     raw = _synopsis_text(it)
+    if isinstance(it.get("synopsis"), list):
+        it["synopsis"] = raw or None          # a list of notes becomes its description, always
     if not raw:
         return None
     if (it.get("synopsisSource") or "") == "wikipedia":
@@ -1588,6 +1609,9 @@ def sanitize_synopsis(it):
     s = _FROM_IMDB_PREFIX.sub("", s)   # "From IMDb : <plot>" -> "<plot>" (B6)
     uploader_text = (it.get("synopsisSource") or "archive") == "archive"
     if uploader_text:
+        # "Aired 18 Feb. 1963 Season 1, Episode 22 Actors: Victor Buono; Tracy
+        # Stratford Runtime: 23:16 <plot>" — the label ahead of the plot.
+        s = re.sub(r"^\s*Aired\b.{0,80}?(?:Season\s*\d+,?\s*Episode\s*\d+)?.{0,160}?Runtime:\s*\d+:\d+\s*", "", s)
         # A run of quoted review titles pasted ahead of the plot: “Hollywood
         # hooey from Gainsborough” “Amiable tosh” “What a hoot!” (IMDB reviews
         # quotes). A dashing young... — the quotes go, the plot stays.
@@ -1603,8 +1627,15 @@ def sanitize_synopsis(it):
         # Documentary short directed by Humphrey Jennings.") keeps what
         # follows the title.
         title = (it.get("title") or "").strip()
+        # An uploader dropped the first letter of their own text ("he Golem is
+        # a silent horror film", archive.org's <em>he Golem</em>) — the title
+        # has it.
+        if len(title) >= 4 and s[:1].islower() and s.lower().startswith(title[1:].lower()) and title[:1].isupper():
+            s = title[0] + s
+        s = re.sub(r"^\s*['\"“‘]+", "", s)              # "'Unicycle: Looking at My World' (1976) 15m..."
         if len(title) >= 8 and s.lower().startswith(title.lower()):
-            after = s[len(title):]
+            after = re.sub(r"^['\"”’]+", "", s[len(title):])
+            after = re.sub(r"^['\"”’]*\s*(summary|description|synopsis)\s*[:\-–]?\s*", " - ", after, flags=re.I)   # "Freeway Phobia Summary Demonstrates..."
             # Only a catalogue echo — the title then a separator or a year —
             # never a sentence that begins with the title ("Little Big Man
             # is a 1970 film...").
@@ -1612,6 +1643,8 @@ def sanitize_synopsis(it):
                 rest = after.lstrip(" -–—:,.")
                 if len(rest) >= MIN_SYNOPSIS and not re.match(r"(is|was|are|were|and|or)\b", rest, re.I):
                     s = rest[0].upper() + rest[1:]
+        # A leading credit stub "(1976) 15m, dir. Dan Bessie." ahead of the text.
+        s = re.sub(r"^\s*\(?(1[89]\d\d|20\d\d)\)?[\s,]*(\d+\s*m(in)?[\s,]*)?(dir\.?|directed by)\s+[A-Z][\w'\-]+(\s+[A-Z]\.)?(\s+[A-Z][\w'\-]+)?\.?\s*", "", s)
     # UPLOADER and TECH are uploader-text filters: on a checked source they
     # only ever misfire — TMDb's "a buggy ride through the heavens courtesy
     # of the Devil" (The Merry Frolics of Satan) was nulled on every publish

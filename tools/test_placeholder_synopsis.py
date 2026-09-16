@@ -69,6 +69,23 @@ CASES = [
     ("The 1930's had a few bangers apparently, I wouldn't know", "3O's 0Ldies", None),
     ("Here is one interesting Cartoon The Haunted House and The Skeleton Symphony. A Good one for a dark rainy night",
      "The Haunted House and The Skeleton Symphony", None),
+    ("Lost in Space: s01e01: The Reluctant Stowaway", "Lost In Space : The Reluctant Stowaway", None),
+    ("he Golem is a silent horror film directed by Paul Wegener and Henrik Galeen, based on the Jewish legend.",
+     "The Golem", "The Golem is a silent horror film directed by Paul Wegener and Henrik Galeen, based on the Jewish legend."),
+    ("'Unicycle: Looking at My World' (1976) 15m, dir. Dan Bessie. The world of 15 year old unicyclist Tony "
+     "Marienthal includes school, friends and the long ride home.", "Unicycle: Looking at My World",
+     "The world of 15 year old unicyclist Tony Marienthal includes school, friends and the long ride home."),
+    ("Freeway Phobia Summary Demonstrates proper freeway driving techniques and describes the hazards of "
+     "faulty merging and tailgating.", "Freeway Phobia",
+     "Demonstrates proper freeway driving techniques and describes the hazards of faulty merging and tailgating."),
+    ("Aired 18 Feb. 1963 Season 1, Episode 22 Actors: Victor Buono; Tracy Stratford Runtime: 23:16 Victor Buono "
+     "plays a lonely man who befriends a runaway girl at a roadside diner.", "The New Loretta Young Show",
+     "Victor Buono plays a lonely man who befriends a runaway girl at a roadside diner."),
+    (["With teacher's guide", "Also issued as videocassette",
+      "Producer, Joseph Koenig; director, script writer, and photographer, William Mason; music director, Robert Fleming",
+      "Surveys the geological and ecological history of the Great Lakes, accompanied by narration in ballad form."],
+     "The Rise and Fall of the Great Lakes",
+     "Surveys the geological and ecological history of the Great Lakes, accompanied by narration in ballad form."),
     # Controls: a real plot, a short but real description, quotes inside a sentence.
     (BIG, "Under The Big Top", BIG),
     ("Tire making", "Rubber", "Tire making"),
