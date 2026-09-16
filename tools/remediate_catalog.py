@@ -741,6 +741,16 @@ def _is_placeholder_synopsis(s, it):
     # A run of quoted fragments — pasted review titles.
     if s.lstrip().startswith('"') and len(re.findall(r'"[^"]{3,80}"', s)) >= 3:
         return True
+    narrative = re.search(r"\b(is|was|are|were|who|whom|when|after|before|tells|story|about|must|tries|finds|becomes|falls|his|her|their)\b", s, re.I)
+    # A credits dump: "(1918) Starring: Roscoe Arbuckle, Buster Keaton...
+    # Written and Directed by Buster Keaton... Camera by Elgin Lessley".
+    credits = len(re.findall(r"\b(starring|cast|directed by|produced by|written by|written and directed|camera by|music by|photographed by|screenplay by)\b", s, re.I))
+    if credits >= 2 and not narrative:
+        return True
+    # A tag dump: "british, english, england, uk, black and white, film, crime, noir".
+    parts = [p.strip() for p in re.split(r"[,;]", s) if p.strip()]
+    if len(parts) >= 8 and sum(1 for p in parts if len(p.split()) <= 3) >= 0.8 * len(parts) and not narrative:
+        return True
     return False
 
 
@@ -1437,18 +1447,25 @@ def sanitize_synopsis(it):
         # follows the title.
         title = (it.get("title") or "").strip()
         if len(title) >= 8 and s.lower().startswith(title.lower()):
-            rest = s[len(title):].lstrip(" -–—:,.")
-            if len(rest) >= MIN_SYNOPSIS:
-                s = rest[0].upper() + rest[1:]
+            after = s[len(title):]
+            # Only a catalogue echo — the title then a separator or a year —
+            # never a sentence that begins with the title ("Little Big Man
+            # is a 1970 film...").
+            if re.match(r"\s*[-–—:,.]\s*\S|\s+\(?\d{4}\)?\b", after):
+                rest = after.lstrip(" -–—:,.")
+                if len(rest) >= MIN_SYNOPSIS and not re.match(r"(is|was|are|were|and|or)\b", rest, re.I):
+                    s = rest[0].upper() + rest[1:]
     sents = [x for x in _SENT_SPLIT.split(s)
              if not (_audit.URL.search(x) or _audit.SOCIAL.search(x)
                      or _audit.EMAIL.search(x) or _audit.UPLOADER.search(x)
                      or _audit.TECH.search(x) or _BOILERPLATE_SENT.search(x)
                      or (uploader_text and _UPLOADER_VOICE.search(x)))]
-    # A one-word fragment left after its sentence went ("UK." after a
-    # dropped postal address) is not a sentence.
-    if len(sents) > 1:
-        sents = [x for x in sents if len(re.findall(r"[A-Za-z]+", x)) >= 2]
+    # A trailing country token left after its address went ("UK." after
+    # "21 Stephen Street, London, W1T 1LN."). Narrow on purpose: the
+    # splitter also breaks on initials ("J. P. Sullivan."), so a general
+    # one-word rule mangles names in checked-source text.
+    if uploader_text and len(sents) > 1 and re.fullmatch(r"\s*[A-Z]{2,3}\.?\s*", sents[-1] or ""):
+        sents = sents[:-1]
     s = re.sub(r"\s+", " ", " ".join(sents)).strip()
     s = _tidy_punctuation(s)
     if s == raw:
@@ -1593,7 +1610,7 @@ def _title_case(t):
 
 
 # An apostrophe-cased title that already shipped: "Mabel'S", "You'Re", "I'Ll".
-_APOS_CASED = re.compile(r"(?<=[A-Za-z])'(S|T|Re|Ll|Ve|D|M)\b")
+_APOS_CASED = re.compile(r"(?<=[a-z])'(S|T|Re|Ll|Ve|D|M)\b")   # never inside an ALL-CAPS word
 
 
 def sanitize_title(it):

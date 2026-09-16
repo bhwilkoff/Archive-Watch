@@ -30,10 +30,19 @@ CASES = [
      "Amerikansk långfilm från 1948 om den sexistiske författaren Owen som möter sin överkvinna."),
     ("Ad for 1941 cars and trucks in the new Lincoln line. ARC Identifier 91500", "1941 Lincoln Advertising",
      "Ad for 1941 cars and trucks in the new Lincoln line."),
+    ("GOOD NIGHT, NURSE! (1918) Starring: Roscoe Arbuckle, Buster Keaton, Al St. John, Alice Lake "
+     "Written and Directed by Buster Keaton and Eddie Cline Camera by Elgin Lessley Produced by Joseph M. Schenck",
+     "Good Night, Nurse!", None),
+    ("The Blue Lamp with Dirk Bogarde (1950). british, english, england, uk, united kingdom, black and white, "
+     "film, crime, murder, noir, dirk bogarde, police, policemen, british police, 1950", "The Blue Lamp", None),
     # Controls: a real plot, a short but real description, quotes inside a sentence.
     (BIG, "Under The Big Top", BIG),
     ("Tire making", "Rubber", "Tire making"),
     (SEA, "Sea Hunt", SEA),
+    ("Directed by Roscoe Arbuckle, this comedy follows a drunk who is committed to a sanitarium, where he "
+     "falls for a nurse and is chased by a doctor.", "Good Night, Nurse!",
+     "Directed by Roscoe Arbuckle, this comedy follows a drunk who is committed to a sanitarium, where he "
+     "falls for a nurse and is chased by a doctor."),
 ]
 
 
