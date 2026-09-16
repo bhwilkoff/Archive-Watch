@@ -549,6 +549,23 @@ MIN_SYNOPSIS = 40
 _BOILERPLATE_SENT = re.compile(
     r"you can find more information (regarding|about)"
     r"|you can read .*imdb page", re.I)
+# Uploader voice, measured 2026-09-16 across the 10,152 synopses that are
+# the uploader's own text (Decision 124): the fair-use disclaimer pasted whole
+# ("Copyright Disclaimer Under Section 107..."), credits to the uploader's
+# friends ("Special thanks to Jack A Sol"), a host's programme note ("The film
+# is included in our program to illustrate..."), and opinion in the first
+# person ("Enjoy this classic ... (IMHO) best vampire ever"). None of it is
+# about the film, and a sentence that BEGINS in the first person is never a
+# synopsis. Applied ONLY to archive-sourced text: an API's overview may open
+# "I, Claudius..." and is not ours to edit. A sentence merely containing
+# "stars" or "we" is left alone ("The film stars Hope Hampton").
+_UPLOADER_VOICE = re.compile(
+    r"copyright disclaimer|section 107|fair use|no copyright infringement"
+    r"|special thanks|thanks? (you )?(to|for)|thank you"
+    r"|included in our program|our program(me)? to illustrate|presented by silent hall of fame"
+    r"|\benjoy\b|\bimho\b|in my (humble )?opinion|i highly recommend|must[- ]see"
+    r"|please (like|share|rate|comment|subscribe)|check out (my|our)"
+    r"|^\s*[\"'(]*(i|i'm|i've|i'd|i'll|we|we're|we've|my|our)\b", re.I)
 # "From IMDb :", "From IMDb:", "Taken from IMDB :" — a pasted-source prefix on a
 # real plot (260 items measured). Strip the prefix, keep the plot.
 _FROM_IMDB_PREFIX = re.compile(r"^\s*(taken\s+)?from\s+imdb\s*:?\s*", re.I)
@@ -1192,10 +1209,12 @@ def sanitize_synopsis(it):
     s = _strip_title_summary_dump(s)   # IMDb-scrape "Title: … Summary: …" dump
     s = _extract_plot_body(s)          # drop taglines/cast/release/source cruft, prefer a labeled plot
     s = _FROM_IMDB_PREFIX.sub("", s)   # "From IMDb : <plot>" -> "<plot>" (B6)
+    uploader_text = (it.get("synopsisSource") or "archive") == "archive"
     sents = [x for x in _SENT_SPLIT.split(s)
              if not (_audit.URL.search(x) or _audit.SOCIAL.search(x)
                      or _audit.EMAIL.search(x) or _audit.UPLOADER.search(x)
-                     or _audit.TECH.search(x) or _BOILERPLATE_SENT.search(x))]
+                     or _audit.TECH.search(x) or _BOILERPLATE_SENT.search(x)
+                     or (uploader_text and _UPLOADER_VOICE.search(x)))]
     s = re.sub(r"\s+", " ", " ".join(sents)).strip()
     s = _tidy_punctuation(s)
     if s == raw:
