@@ -1471,6 +1471,8 @@ def _wiki_lead_is_another_film(it, raw):
     id_years = [int(y) for y in _ID_YEARS.findall(it.get("archiveID") or "")]
     if any(abs(ly - y) <= 2 for y in id_years):
         return False         # "1943-Wien-1910" IS the 1943 film the lead describes
+    if id_years:
+        return True          # "pentru-patrie-1977" is not the 1917 French Patrie
     if abs(ly - iy) > 15:
         return True          # a 2022 public-access "A Heart of Gold!" is not the 1923 film
     lead = _bare_title(m.group("title"))
@@ -1484,11 +1486,26 @@ def sanitize_synopsis(it):
     raw = _synopsis_text(it)
     if not raw:
         return None
-    if (it.get("synopsisSource") or "") == "wikipedia" and _wiki_lead_is_another_film(it, raw):
-        it["synopsis"] = None
-        it["synopsisSource"] = None
-        it["wikipediaLeadMismatch"] = True
-        return "nulled"
+    if (it.get("synopsisSource") or "") == "wikipedia":
+        if _wiki_lead_is_another_film(it, raw):
+            it["synopsis"] = None
+            it["synopsisSource"] = None
+            it["wikipediaLeadMismatch"] = True
+            return "nulled"
+        # The mirror case: the lead names THIS film with a different year —
+        # Wikipedia is the checked source, the item's year the uploader's
+        # ("The Saga of Gösta Berling is a 1924 Swedish..." on an item dated
+        # 1928). Never when the archive id names the item's own year.
+        m = _WIKI_LEAD.match(raw)
+        iy = it.get("year")
+        if m and isinstance(iy, int) and not it.get("yearSource"):
+            ly = int(m.group("year"))
+            id_years = [int(y) for y in _ID_YEARS.findall(it.get("archiveID") or "")]
+            if 2 < abs(ly - iy) <= 15 and not id_years:
+                it["year"] = ly
+                it["decade"] = decade_of(ly)
+                it["isSilentFilm"] = bool(ly < SILENT_CUTOFF)
+                it["yearSource"] = "wikipedia-lead"
     if ((it.get("synopsisSource") or "archive") == "archive" and _COPYRIGHT_CLAIM.search(raw)
             and not _LICENCE_GRANT.search(raw)):
         it["descriptionClaimsCopyright"] = True
