@@ -589,6 +589,66 @@
    "kind": "feature-film",
    "mediaId": null,
    "reviewer": null
+  },
+  {
+   "at": "2026-09-16T18:50:47.585231+00:00",
+   "id": "TheManWhoCheatedHimself1950",
+   "title": "The Man Who Cheated Himself",
+   "slot": "now-showing",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mvnsmx7i3a2k",
+   "format": "video",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": "Robert B. Livingston"
+  },
+  {
+   "at": "2026-09-16T18:50:47.585231+00:00",
+   "id": "TheManWhoCheatedHimself1950",
+   "title": "The Man Who Cheated Himself",
+   "slot": "now-showing",
+   "platform": "mastodon",
+   "url": "https://mastodon.social/@archivewatch/117282220770333658",
+   "format": "video",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": "Robert B. Livingston"
+  },
+  {
+   "at": "2026-09-16T18:50:47.585231+00:00",
+   "id": "TheManWhoCheatedHimself1950",
+   "title": "The Man Who Cheated Himself",
+   "slot": "now-showing",
+   "platform": "threads",
+   "url": "https://www.threads.com/@archivewatchapp/post/DdW-HFtID5Y",
+   "format": "card",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": "Robert B. Livingston"
+  },
+  {
+   "at": "2026-09-16T18:50:47.585231+00:00",
+   "id": "TheManWhoCheatedHimself1950",
+   "title": "The Man Who Cheated Himself",
+   "slot": "now-showing",
+   "platform": "instagram",
+   "url": "https://www.instagram.com/p/DdW-L7eIMNy/",
+   "format": "card",
+   "kind": "feature-film",
+   "mediaId": "117282220342929626",
+   "reviewer": "Robert B. Livingston"
+  },
+  {
+   "at": "2026-09-16T18:50:47.585231+00:00",
+   "id": "TheManWhoCheatedHimself1950",
+   "title": "The Man Who Cheated Himself",
+   "slot": "now-showing",
+   "platform": "youtube",
+   "url": "https://youtube.com/watch?v=f2FD-7rU0DY",
+   "format": "video",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": "Robert B. Livingston"
   }
  ]
 }
