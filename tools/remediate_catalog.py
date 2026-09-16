@@ -659,6 +659,11 @@ _UPLOADER_VOICE = re.compile(
     r"|(sharper|cleaner|clearer|better|worse) than the (existing|other|previous)"
     r"|tape glitch|download options?:|recorded (from|off)|off[- ]air|\bripped\b|\bencoded\b"
     r"|upscaled|remastered by me|my (copy|print|transfer|rip)"
+    # Exclamation, emoticons and instructions to the viewer are never a
+    # plot: "VERY comic!!! =D", "Please, click in 'MPEG4' and save the
+    # film!!", "a must watch", "10/10" (2026-09-16).
+    r"|!{2,}|[:=;]-?[\)d]\b|\b[xX]d\b|please,? (click|download|save|watch|see|rate|comment|subscribe|leave)"
+    r"|\bmust[- ]watch\b|\b(10|9|8)/10\b|\bhighly recommended\b|\bvery (funny|comic|entertaining|enjoyable)\b"
     r"|^\s*[\"'(]*(i|i'm|i've|i'd|i'll|we|we're|we've|my|our)\b", re.I)
 # "From IMDb :", "From IMDb:", "Taken from IMDB :" — a pasted-source prefix on a
 # real plot (260 items measured). Strip the prefix, keep the plot.
