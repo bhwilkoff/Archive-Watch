@@ -33,6 +33,7 @@ import argparse
 import html as _html
 import json
 import re
+import unicodedata
 import sys as _sys
 from collections import Counter
 from pathlib import Path
@@ -258,6 +259,14 @@ def source_year(item):
     if len(set(bares)) == 1:
         return bares[0]
     return None
+
+
+_TITLE_STOP = {"the", "and", "show", "episode", "complete", "series", "season", "with", "from", "part"}
+
+
+def _title_words(t):
+    t = unicodedata.normalize("NFKD", t or "").encode("ascii", "ignore").decode().lower()   # Shōgun == Shogun
+    return {w for w in re.findall(r"[a-z0-9]{3,}", t)} - _TITLE_STOP
 
 
 def _clear_wrong_artwork(it, new_year):
@@ -2665,6 +2674,23 @@ def remediate(items):
             it["matchVerdict"] = "cleared_pd_anim_compilation"
             it["matchVerified"] = True
             stats["pd_anim_match_cleared"] += 1
+
+        # 0b0) A TELEVISION item wearing an UNVERIFIED film match whose title
+        # shares no word with the item's own: "The Betty White Show" wore
+        # Planet of the Apes, "The Price Is Right" Katyi, "The Betty Hutton
+        # Show" Xanadu, "The Johnny Carson Show" McLintock!, three Armstrong
+        # Circle Theatres War and Peace. The verifier had said "unverifiable"
+        # and the poster stayed. An alternate title is a FILM phenomenon (The
+        # Phantom Fiend / The Lodger); a broadcast episode has no aka, so the
+        # disagreement is the evidence. Measured 2026-09-17: 17 of 144.
+        if (ct in ("tv-special", "tv-episode") and it.get("tmdbID")
+                and it.get("matchVerdict") in ("unverifiable", None) and it.get("canonicalTitle")
+                and not (_title_words(it.get("title")) & _title_words(it["canonicalTitle"]))):
+            _clear_wrong_artwork(it, None)
+            it["matchVerdict"] = "cleared_tv_title_disagrees"
+            it["matchVerified"] = True
+            strip_unanchored_tmdb_residue(it)
+            stats["tv_wrong_film_match_cleared"] += 1
 
         # 0b) WRONG EXTERNAL MATCH (#3/#4): a modern TMDb/OMDb poster+year on a
         # vintage title. Clear the bad artwork + fix the year before anything
