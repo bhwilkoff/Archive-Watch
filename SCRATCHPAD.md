@@ -60,6 +60,12 @@ emulators) · `docs/CAPTIONS.md` · `docs/SHAREPLAY.md` ·
    `minPerShelf = 9`; needs more picks in `featured.json` (editorial, not
    code).
 5. LG and Samsung store submissions (accounts + a device to test on).
+6. **Roku package 00074**: the options-panel redesign (ROKU-DESIGN 14.13) is
+   sideloaded on both Rokus but not packaged for the Dashboard.
+7. **Live Riffing**: read `docs/LIVE-RIFF-RESEARCH.md`; the first step is a
+   one-week iPhone spike (decode + composite + encode at 1080p30) and its
+   twin on an Apple TV 4K; open questions in §9 (YouTube 50-subscriber rule
+   for API streams, Twitch category, whether guests are a requirement).
 
 ---
 
@@ -174,6 +180,37 @@ unbiased."
     "From archive.org viewers" shelf; a full re-score would have dropped 485.
   - *TV spines*: every episode overview is TVmaze's (unstamped). *Language*:
     122 raw values, rendered nowhere.
+- **Later still (owner stopped the loop ~06:10 MT)**: OMDb's "Plot" for
+  obscure silents is often an IMDb user review ("*** (out of 4)", "I strongly
+  suspect some of this film is missing") — `_OMDB_REVIEW` extended, 31
+  nulled; a checked API is not a checked FIELD. Reviews shelf: file-quality
+  complaints and contact/licensing requests come off (`comment_fit` +
+  remediate re-judge; a full re-score dropped 485 genuine ones, so only the
+  NEW signals re-judge). The daily publish-db summary now reports
+  `synopsis.unreviewed` / `synopsis.unstamped` (both 0); the first day's
+  drift was the ~150 corruption-lost items re-ingested by discovery —
+  reviewed, and a `keep` now stamps `synopsisSource: archive` (16 had
+  reached the client unlabelled). The rights confirm (archive.org refuses
+  CI) now runs inside the local publish step; 4 targets stay refused.
+  Steady state: excluded 11,780, `un-hidden=0` over six builds, remediate
+  idempotent (two runs, 0 field diffs).
+- **Roku options panel** (owner, on the Roku 2 XD: "a strange circle
+  selection that doesn't actually highlight the option", then "still don't
+  think this selection area looks well designed"): the LabelList rows are
+  now a MarkupList of `OptionRow` — the 60 px §13.5 pill, label in Inter
+  Medium inset 30 px, 24 px gutters, pill loaded synchronously. Verified on
+  the XD (Detail More, Party Play Up) and the Streaming Stick 4K; both are
+  SIDELOADED with it — the store channel needs a 00074 package.
+  ROKU-DESIGN 14.13. Found on the way: a contact-request "review" on
+  Bamboo Isle (fixed above).
+- **Live Riffing research** written: `docs/LIVE-RIFF-RESEARCH.md` — YouTube
+  and Twitch take RTMP from any encoder (no WHIP for general creators);
+  HaishinKit (Apple) / RootEncoder (Android) on-device; LiveKit Egress or
+  Cloudflare RealtimeKit for guests-by-link and the web; the feature bar
+  from OBS/StreamYard/Moblin; a phased plan (iPhone spike → phone studio →
+  **Apple TV studio via Continuity Camera (tvOS 17, Apple TV 4K 2nd gen+,
+  third-party apps get the iPhone's camera AND mic through AVFoundation)** →
+  Mac → Android → guests). Nothing built; no design rule changed.
 
 ### 2026-09-16 (audit loop, cont.) — Credits residue, Family genre, the rights confirm run by hand (Decision 125)
 Owner /loop: "uploader information and reviews instead of information about
