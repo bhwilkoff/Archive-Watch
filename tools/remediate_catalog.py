@@ -402,7 +402,9 @@ def strip_unanchored_tmdb_residue(item):
     # visible items, all with a cleared match and `metaSource: None`.
     if (item.get("matchVerdict") or "").startswith("cleared") or not item.get("cast"):
         for k in ("writer", "composer", "cinematographer", "studios", "keywords", "tagline",
-                  "releaseDate", "franchise", "awards"):
+                  "releaseDate", "franchise", "awards",
+                  # ...and a rating nobody gave THIS file: a 2009 C-SPAN hearing carried 5.3 / 366 votes.
+                  "imdbRating", "imdbVotes", "contentRating", "countries"):
             if item.get(k):
                 item.pop(k, None)
                 hit = True
