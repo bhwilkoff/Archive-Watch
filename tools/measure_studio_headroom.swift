@@ -107,6 +107,15 @@ struct Measure {
         player.isMuted = (env("AW_MUTE") == "1")   // the tap needs real audio
         let engine = StudioEngine(configuration: cfg)
         await engine.setLayout(layout)
+        // Measure WITH the lower third: a cached overlay should cost nothing
+        // per frame, and that claim needs a number.
+        if env("AW_NO_OVERLAY") != "1" {
+            var o = StudioOverlay()
+            o.title = "The General"
+            o.subtitle = "1926 · Buster Keaton, Clyde Bruckman"
+            o.provenance = "Public domain since 1954"
+            await engine.setOverlay(o)
+        }
 
         // Wait for the film to be playable, or there is nothing to composite.
         var waited = 0.0

@@ -126,9 +126,14 @@ in v1:
 |---|---|
 | `film` | film full-frame, no camera (intermission-safe) |
 | `corner` | film full-frame, host camera PiP bottom-right (default) |
-| `theatre` | the MST3K row: film full-frame, host silhouette/camera strip along the bottom |
+| `theatre` | the MST3K row: film full-frame, camera strip along the bottom **right** |
 | `side` | film 2/3 left, camera 1/3 right |
-| `host` | camera full-frame, film paused in a PiP |
+| `host` | camera full-frame, film in a PiP **top right** |
+
+Every tile sits on the **5% title-safe line**, and no tile may overlap the
+lower third's bottom-left stack — both were violated in the first draft and
+caught by rendering the frames (§9). A layout whose camera is the ground
+declares `cameraIsBackground` so the z-order follows it.
 
 Every program carries a **lower third** drawn from catalog data (title, year,
 director; "public domain since YYYY" when known) that the host toggles; a
@@ -465,6 +470,49 @@ now records that the server answered `connect`, and the test requires it. The
 local harness had the mirror-image flaw: a hardcoded "dead" port that a
 previous run's own server was still listening on, so the negative control
 silently stopped being negative. It now proves the port is closed first.
+
+### The overlay — five layouts and four cards, on the glass (2026-09-17)
+
+`StudioOverlayRenderer` draws the lower third (title, "1926 · Buster Keaton,
+Clyde Bruckman", "PUBLIC DOMAIN SINCE 1954") and the four cards. Text is
+rasterised with Core Text into a bitmap only when its CONTENT changes, so a
+steady lower third is laid out once for a whole show.
+`tools/render_studio_overlay.swift` renders every state over a **worst-case
+stand-in film** — bands from near-black to near-white, brightest across the
+bottom where the lower third lives — plus a 16:9 stand-in camera with a border
+and centre cross, so a squashed or mis-inset tile is obvious. The PNGs land in
+`build/qa/studio-overlay/` and the rule is to LOOK at them.
+
+**Four defects, every one of which only a rendered frame could show:**
+
+1. *The scrim was too weak to do its job.* A 0.72→0 vertical ramp left the
+   provenance line at an effective 0.39 alpha over a 240-grey band —
+   unreadable. It is now a three-stop gradient that HOLDS 0.94→0.90 across the
+   type and fades only above it.
+2. *The scrim was full-width and darkened the camera.* In `corner` it dimmed
+   the bottom 40% of the host's face. It now fades to the right as well,
+   erased with `.destinationOut` in the same pass, so it ends where the type
+   does. A scrim exists to make type legible — nothing else.
+3. *`theatre` put the camera strip on top of the lower third,* because the
+   strip was centred and the lower third is bottom-left. The strip is now
+   anchored bottom-RIGHT inside the 5% title-safe margin. `host`'s film tile
+   had the same collision and moved to the top-right.
+4. *`host` drew no film at all.* The renderer always drew film-then-camera, so
+   the full-frame camera painted straight over the film PiP. Z-order now
+   follows the layout (`StudioLayout.cameraIsBackground`).
+
+**And the overlay was not free, twice over.** Caching the text was necessary
+and not sufficient: compositing the cached layer as a full-frame 1920×1080
+RGBA image took the Mac's render mean from **3.40 ms to 9.02 ms** even though
+it never changed and is ~90% transparent. Cropping the CIImage to the rect it
+actually drew into brought it to **4.63 ms** — the overlay's true cost is
+**1.2 ms**, not 5.6. A cached layer still has to be blended; bound its extent.
+
+| Mac15,3, 1920×1080@30 | Render mean |
+|---|---|
+| no overlay | 3.40 ms |
+| full-frame overlay composite | 9.02 ms |
+| overlay cropped to content | **4.63 ms** |
 
 ### Still to measure (Phase 0 remainder)
 

@@ -40,6 +40,12 @@ public enum StudioLayout: String, CaseIterable, Sendable {
     public var showsFilm: Bool { true }
     public var showsCamera: Bool { self != .film }
 
+    /// In `host` the CAMERA is the ground and the film is the inset tile, so
+    /// the two must be drawn in the opposite order. Drawing film-then-camera
+    /// unconditionally painted the full-frame camera straight over the film
+    /// PiP and the film simply vanished (seen on the glass, 2026-09-17).
+    public var cameraIsBackground: Bool { self == .host }
+
     /// Where the film and the camera sit inside a `size` program frame.
     /// Returns rects in Core Image's coordinate space (origin bottom-left).
     public func rects(in size: CGSize, cameraAspect: CGFloat) -> (film: CGRect, camera: CGRect?) {
@@ -48,15 +54,22 @@ public enum StudioLayout: String, CaseIterable, Sendable {
         case .film:
             return (full, nil)
         case .corner:
+            // Bottom right, on the 5% title-safe line — clear of the lower
+            // third at bottom left.
             let w = size.width * 0.26
             let h = w / max(cameraAspect, 0.1)
-            let pad = size.width * 0.025
-            return (full, CGRect(x: size.width - w - pad, y: pad, width: w, height: h))
+            let inset = size.width * 0.05
+            return (full, CGRect(x: size.width - w - inset, y: inset, width: w, height: h))
         case .theatre:
-            // A strip across the bottom, the height of a seated row.
-            let h = size.height * 0.22
+            // The MST3K row: the host sits along the bottom, ON the film.
+            // Anchored bottom-RIGHT, not centred — the lower third lives at
+            // bottom-LEFT and a centred strip lands on top of it (seen on the
+            // glass, 2026-09-17). Inset by the 5% title-safe margin so it is
+            // not lost to a television's overscan.
+            let h = size.height * 0.26
             let w = h * cameraAspect
-            return (full, CGRect(x: (size.width - w) / 2, y: 0, width: w, height: h))
+            let inset = size.width * 0.05
+            return (full, CGRect(x: size.width - w - inset, y: 0, width: w, height: h))
         case .side:
             let fw = (size.width * 2 / 3).rounded()
             let filmH = fw * 9 / 16
@@ -65,10 +78,14 @@ public enum StudioLayout: String, CaseIterable, Sendable {
             let ch = cw / max(cameraAspect, 0.1)
             return (film, CGRect(x: fw, y: (size.height - ch) / 2, width: cw, height: ch))
         case .host:
+            // The camera owns the frame; the film is a reference tile. TOP
+            // right, because bottom-left is the lower third's and bottom-right
+            // is where `corner` trains the eye to expect the camera.
             let w = size.width * 0.26
             let h = w * 9 / 16
-            let pad = size.width * 0.025
-            return (CGRect(x: pad, y: pad, width: w, height: h),
+            let inset = size.width * 0.05
+            return (CGRect(x: size.width - w - inset, y: size.height - h - inset,
+                           width: w, height: h),
                     full)
         }
     }
@@ -418,9 +435,11 @@ final class ProgramRenderer: @unchecked Sendable {
 
     private let ciContext: CIContext
     private var pool: CVPixelBufferPool?
+    private let overlayRenderer: StudioOverlayRenderer
 
     init(size: CGSize) {
         self.size = size
+        self.overlayRenderer = StudioOverlayRenderer(size: size)
         if let device = MTLCreateSystemDefaultDeviceCompat() {
             ciContext = CIContext(mtlDevice: device, options: [.cacheIntermediates: false])
         } else {
@@ -459,8 +478,11 @@ final class ProgramRenderer: @unchecked Sendable {
         var image = CIImage(color: CIColor(red: 0.039, green: 0.039, blue: 0.039))  // --color-text ground
             .cropped(to: CGRect(origin: .zero, size: size))
 
-        if case .some(let card) = overlay.card {
-            image = draw(card: card, over: image)
+        // A CARD owns the frame: the film behind it must not read through.
+        if overlay.card != nil {
+            if let card = overlayRenderer.image(for: overlay) {
+                image = card.composited(over: image)
+            }
             ciContext.render(image, to: out)
             return out
         }
@@ -471,11 +493,21 @@ final class ProgramRenderer: @unchecked Sendable {
         }()
         let (filmRect, cameraRect) = layout.rects(in: size, cameraAspect: cameraAspect)
 
-        if let film {
-            image = fit(CIImage(cvPixelBuffer: film), into: filmRect).composited(over: image)
+        // Z-ORDER FOLLOWS THE LAYOUT: whichever source is the ground goes down
+        // first, or the inset tile is painted over.
+        let drawFilm = { [self] (base: CIImage) -> CIImage in
+            guard let film else { return base }
+            return fit(CIImage(cvPixelBuffer: film), into: filmRect).composited(over: base)
         }
-        if let camera, let cameraRect, layout.showsCamera {
-            image = fill(CIImage(cvPixelBuffer: camera), into: cameraRect).composited(over: image)
+        let drawCamera = { [self] (base: CIImage) -> CIImage in
+            guard let camera, let cameraRect, layout.showsCamera else { return base }
+            return fill(CIImage(cvPixelBuffer: camera), into: cameraRect).composited(over: base)
+        }
+        image = layout.cameraIsBackground ? drawFilm(drawCamera(image)) : drawCamera(drawFilm(image))
+        // The lower third sits ON TOP of both, and is a cached bitmap — the
+        // text is laid out only when its content changes, never per frame.
+        if let l3 = overlayRenderer.image(for: overlay) {
+            image = l3.composited(over: image)
         }
         ciContext.render(image, to: out)
         return out
@@ -508,17 +540,6 @@ final class ProgramRenderer: @unchecked Sendable {
             .cropped(to: rect)
     }
 
-    private func draw(card: StudioOverlay.Card, over base: CIImage) -> CIImage {
-        // v1 cards are a flat ground; the text layer lands with the lower
-        // third work (both need one text rasteriser, not two).
-        let color: CIColor
-        switch card {
-        case .startingSoon: color = CIColor(red: 0.039, green: 0.039, blue: 0.039)
-        case .intermission: color = CIColor(red: 0.06, green: 0.06, blue: 0.07)
-        case .ending: color = CIColor(red: 0.0, green: 0.0, blue: 0.0)
-        }
-        return CIImage(color: color).cropped(to: CGRect(origin: .zero, size: size)).composited(over: base)
-    }
 }
 
 @inline(__always) func MTLCreateSystemDefaultDeviceCompat() -> MTLDevice? {
