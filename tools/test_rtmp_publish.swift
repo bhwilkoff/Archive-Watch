@@ -189,6 +189,21 @@ struct Harness {
         return s.isEmpty ? "(nothing)" : s
     }
 
+    /// Is anything accepting TCP on this local port right now?
+    static func isListening(_ port: UInt16) -> Bool {
+        let fd = socket(AF_INET, SOCK_STREAM, 0)
+        guard fd >= 0 else { return true }
+        defer { close(fd) }
+        var addr = sockaddr_in()
+        addr.sin_family = sa_family_t(AF_INET)
+        addr.sin_port = port.bigEndian
+        addr.sin_addr.s_addr = inet_addr("127.0.0.1")
+        let r = withUnsafePointer(to: &addr) {
+            $0.withMemoryRebound(to: sockaddr.self, capacity: 1) { connect(fd, $0, socklen_t(MemoryLayout<sockaddr_in>.size)) }
+        }
+        return r == 0
+    }
+
     static func which(_ tool: String) -> String? {
         let (_, out) = run("/usr/bin/which", [tool])
         let path = out.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -281,11 +296,17 @@ struct Harness {
         print("OK: publish handshake accepted by mediamtx")
 
         // 3. Push the rest of the program: 120 video frames + 172 audio frames (~4s).
-        for f in configBox.drainVideo() { await publisher.send(video: f) }
+        // EncodedVideoFrame, built here on the harness's thread — a
+        // CMSampleBuffer is not Sendable and never crosses into the actor.
+        for f in configBox.drainVideo() {
+            if let frame = EncodedVideoFrame(f) { await publisher.send(video: frame) }
+        }
         audio.onFrame = { data, pts in Task { await publisher.send(audioFrame: data, presentationTime: pts) } }
         for i in 1...120 {
             video.encode(frame: i)
-            for s in configBox.drainVideo() { await publisher.send(video: s) }
+            for s in configBox.drainVideo() {
+                if let frame = EncodedVideoFrame(s) { await publisher.send(video: frame) }
+            }
             audio.encodeOneFrame()
             if i % 30 == 0 {
                 let h = await publisher.health
@@ -294,7 +315,9 @@ struct Harness {
             try? await Task.sleep(nanoseconds: 20_000_000)
         }
         video.finish()
-        for s in configBox.drainVideo() { await publisher.send(video: s) }
+        for s in configBox.drainVideo() {
+            if let frame = EncodedVideoFrame(s) { await publisher.send(video: frame) }
+        }
         try? await Task.sleep(nanoseconds: 500_000_000)
 
         let afterSend = await publisher.health
@@ -352,13 +375,21 @@ struct Harness {
         guard okV && okA else { exit(1) }
         print("OK: mediamtx ingested, recorded, and ffprobe read back h264 640x360 + aac 44100")
 
-        // 5. Negative control: a server that is not there must be REFUSED, not hung.
+        // 5. Negative control: a server that is not there must be REFUSED, not
+        // hung. The port is PROVEN closed first — a hardcoded "dead" port is
+        // not dead if a previous run's server is still on it, and this test
+        // failed for exactly that reason once.
+        var deadPort: UInt16 = 0
+        for candidate in UInt16(19400)...UInt16(19450) where !isListening(candidate) {
+            deadPort = candidate; break
+        }
+        guard deadPort != 0 else { print("SKIP: could not find a closed port to probe"); exit(2) }
         let bad = RTMPPublisher()
         do {
-            try await bad.publish(to: URL(string: "rtmp://127.0.0.1:19351/live/nope")!, config: config, timeout: 3)
-            print("FAIL: publish to a dead port should have thrown"); exit(1)
+            try await bad.publish(to: URL(string: "rtmp://127.0.0.1:\(deadPort)/live/nope")!, config: config, timeout: 3)
+            print("FAIL: publish to closed port \(deadPort) should have thrown"); exit(1)
         } catch {
-            print("OK: dead destination refused — \(error)")
+            print("OK: closed port \(deadPort) refused — \(error)")
         }
 
         print("\nPASS: RTMP publisher verified against mediamtx + ffprobe")

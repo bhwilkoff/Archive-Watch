@@ -207,10 +207,13 @@ Recording: the same encoded stream is written to an `.mp4` locally while live
 ## §8 — Tests (run before any Studio surface ships)
 
 1. `tools/test_rtmp_publish.swift` — the publisher pushes a synthetic H.264 +
-   AAC program to a local `mediamtx`; `ffprobe` reads back the stream and the
-   harness asserts codec, resolution, frame rate and audio sample rate. The
-   negative control is a wrong stream key, which must be refused with the
-   server's reason.
+   AAC program to a local `mediamtx`; `ffprobe` reads back the server's
+   recording and the harness asserts codec, resolution, frame rate and audio
+   sample rate. The negative control is a port PROVEN closed first.
+1a. `tools/test_rtmp_destinations.swift` — the same publisher against the real
+   YouTube and Twitch ingest hosts with a deliberately invalid key. Requires
+   `connectAcknowledged`, never merely a socket close. Needs no credential;
+   run it before believing any platform change.
 2. On-device Studio Lab (debug-only screen): starts the engine against a
    custom destination and prints fps / dropped / CPU / thermal every second to
    the console; the harness reads the numbers.
@@ -415,6 +418,53 @@ WARN no camera available — continuing film-only
 no supported way to pre-grant camera or microphone access on a real device
 (`simctl privacy` is simulator-only), so this is a genuine one-time human
 action — and the Lab names exactly where to do it instead of hanging.
+
+### The real ingest hosts, with no credential (2026-09-17)
+
+`tools/test_rtmp_destinations.swift` publishes to YouTube's and Twitch's
+**actual** ingest endpoints with a deliberately invalid stream key. That
+exercises DNS → TCP → TLS → the C0/C1/C2 handshake → AMF0 `connect` →
+`createStream` → `publish`, and the only untested step is whether a *good* key
+is accepted. **A stream key is a credential and no test needs one.**
+
+```
+✓ YouTube primary (RTMPS, 443)  — connect acknowledged; closed on the bad key in 0.6s
+✓ YouTube primary (RTMP, 1935)  — connect acknowledged; closed on the bad key in 0.4s
+✓ YouTube backup  (RTMPS, 443)  — connect acknowledged; closed on the bad key in 0.3s
+✓ Twitch global   (RTMPS, 443)  — connect acknowledged; closed on the bad key in 0.8s
+✓ Twitch global   (RTMP, 1935)  — connect acknowledged; closed on the bad key in 0.6s
+```
+
+Getting there took three real protocol defects, and **two of the three passed
+on two servers out of three** — which is the finding worth keeping.
+
+1. **`connect` must be transaction 1.** The protocol fixes that number and
+   YouTube hardcodes it. Ours went out as transaction 2 (the counter started
+   at 1 and pre-incremented), YouTube's `_result` came back as `1.0`, nothing
+   matched, and the connect timed out — while mediamtx and Twitch echoed
+   whatever they were sent and worked. Found only by dumping the wire
+   (`AW_RTMP_WIRE=1`), which showed YouTube replying `[t5/4] [t6/5] [t20/240]
+   [t20/21]` with a payload decoding to `"_result" 1.0 {fmsVer: "FMS/3,5,3,824"
+   …}`. The server was answering the whole time.
+2. **The connect object must be the full ffmpeg-shaped one** — `fpad`,
+   `capabilities`, `audioCodecs`, `videoCodecs`, `videoFunction` alongside
+   `app`/`type`/`flashVer`/`tcUrl` — and `tcUrl` must omit a default port.
+   YouTube ignored the four-field version; Twitch accepted it.
+3. **The client's chunk size is 128 until it says otherwise.** Moving Set
+   Chunk Size after `connect` (ffmpeg's order) while still chunking at 4096
+   made mediamtx report `received type 1 chunk without previous chunk`: it read
+   128 bytes of our 300-byte connect and then looked for a chunk header in the
+   middle of the payload. `outChunkSize` now starts at 128 and is raised only
+   once the Set Chunk Size message has gone out.
+
+**And the test itself was wrong first.** It counted *any* socket close as
+"reached and refused", so it printed PASS for all five while YouTube was
+actually failing at the handshake — a close during the handshake and a close
+on a bad key look identical from the client. `RTMPHealth.connectAcknowledged`
+now records that the server answered `connect`, and the test requires it. The
+local harness had the mirror-image flaw: a hardcoded "dead" port that a
+previous run's own server was still listening on, so the negative control
+silently stopped being negative. It now proves the port is closed first.
 
 ### Still to measure (Phase 0 remainder)
 

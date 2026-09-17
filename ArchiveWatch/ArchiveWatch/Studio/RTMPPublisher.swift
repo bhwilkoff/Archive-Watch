@@ -55,6 +55,18 @@ public struct RTMPHealth: Sendable, Equatable {
     public var videoFramesDropped: Int = 0
     public var queuedBytes: Int = 0
     public var lastError: String? = nil
+    /// Bytes read from the socket, and the first inbound bytes as hex when
+    /// `AW_RTMP_WIRE=1`. A connect that times out is either "the server said
+    /// nothing" or "the server replied and we failed to parse it", and those
+    /// need opposite fixes.
+    public var bytesReceived: Int = 0
+    public var wireHead: String = ""
+    /// The server answered `connect` with NetConnection.Connect.Success. This
+    /// is what separates "we never spoke RTMP properly" from "the server
+    /// refused our key" — a socket close alone cannot tell the two apart, and
+    /// a test that treats any close as success will pass on a broken
+    /// handshake (it did, 2026-09-17).
+    public var connectAcknowledged = false
 
     public enum State: String, Sendable { case idle, connecting, handshaking, connected, publishing, closed, failed }
 }
@@ -95,13 +107,26 @@ public actor RTMPPublisher {
     private var connection: NWConnection?
     private let queue = DispatchQueue(label: "org.archivewatch.rtmp", qos: .userInitiated)
     private var inbound = Data()
-    private var outChunkSize = 4096
+    /// 128 is the protocol's default and the ONLY size a server assumes until
+    /// we tell it otherwise. Raised to `negotiatedChunkSize` immediately after
+    /// the Set Chunk Size message is sent — never before. Sending a >128-byte
+    /// `connect` as one 4096-byte chunk made mediamtx report "received type 1
+    /// chunk without previous chunk": it read 128 bytes, then looked for a
+    /// chunk header and found the middle of our payload.
+    private var outChunkSize = 128
+    private let negotiatedChunkSize = 4096
     private var inChunkSize = 128
     private var windowAckSize = 2_500_000
     private var bytesReceived = 0
     private var lastAckAt = 0
     private var streamID: UInt32 = 0
-    private var transactionID = 1
+    // 0 so the first `invoke` — always `connect` — is transaction 1.
+    // THE PROTOCOL FIXES THIS NUMBER, and YouTube hardcodes it: measured
+    // 2026-09-17, our connect went out as transaction 2 and YouTube's
+    // `_result` came back as transaction 1.0, so nothing matched and the
+    // connect timed out. mediamtx and Twitch echo whatever they are sent,
+    // which is why the same bug passed on two servers out of three.
+    private var transactionID = 0
     private var app = ""
     private var streamKey = ""
     private var tcURL = ""
@@ -128,21 +153,51 @@ public actor RTMPPublisher {
     /// or `rtmps://host[:443]/app/key`; YouTube's `live2` and Twitch's `app`
     /// are both one path component before the key.
     public func publish(to url: URL, config: RTMPStreamConfig, timeout: TimeInterval = 15) async throws {
-        guard let host = url.host, let scheme = url.scheme?.lowercased(),
-              scheme == "rtmp" || scheme == "rtmps" else {
-            throw RTMPPublishError.badURL(url.absoluteString)
-        }
-        // The key may itself contain slashes (YouTube keys do not; some
-        // providers' do), so the app is the FIRST path component and the key
-        // is everything after it.
+        // Convenience form: the LAST path component is the key, the rest is
+        // the app. Prefer `publish(to:streamKey:config:)` — every platform
+        // hands out an address and a key separately (YouTube's
+        // `cdn.ingestionInfo.ingestionAddress` + `streamName`, Twitch's
+        // ingest template + Get Stream Key), and YouTube's backup address
+        // carries a QUERY (`/live2?backup=1`) that no combined URL can
+        // express without ambiguity.
         var parts = url.path.split(separator: "/", omittingEmptySubsequences: true).map(String.init)
-        guard parts.count >= 2 else { throw RTMPPublishError.badURL("need /app/streamKey in \(url.absoluteString)") }
-        app = parts.removeFirst()
-        streamKey = parts.joined(separator: "/")
-        if let q = url.query, !q.isEmpty { streamKey += "?" + q }
+        guard parts.count >= 2 else {
+            throw RTMPPublishError.badURL("need /app/streamKey in \(url.absoluteString) — or use publish(to:streamKey:config:)")
+        }
+        let keyPart = parts.removeLast()
+        var server = URLComponents()
+        server.scheme = url.scheme
+        server.host = url.host
+        server.port = url.port
+        server.path = "/" + parts.joined(separator: "/")
+        server.query = url.query
+        guard let serverURL = server.url else { throw RTMPPublishError.badURL(url.absoluteString) }
+        try await publish(to: serverURL, streamKey: keyPart, config: config, timeout: timeout)
+    }
+
+    /// The real entry point: a server address (scheme, host, optional port,
+    /// app path, optional query) and the stream key, exactly as a platform's
+    /// API returns them.
+    public func publish(to server: URL, streamKey key: String,
+                        config: RTMPStreamConfig, timeout: TimeInterval = 15) async throws {
+        guard let host = server.host, let scheme = server.scheme?.lowercased(),
+              scheme == "rtmp" || scheme == "rtmps" else {
+            throw RTMPPublishError.badURL(server.absoluteString)
+        }
+        var appPath = server.path.trimmingCharacters(in: CharacterSet(charactersIn: "/"))
+        guard !appPath.isEmpty else { throw RTMPPublishError.badURL("no app path in \(server.absoluteString)") }
+        // YouTube's backup ingest is `/live2?backup=1`: the query belongs to
+        // the APP, not to the key.
+        if let q = server.query, !q.isEmpty { appPath += "?" + q }
+        app = appPath
+        streamKey = key
         let tls = scheme == "rtmps"
-        let port = UInt16(url.port ?? (tls ? 443 : 1935))
-        tcURL = "\(scheme)://\(host):\(port)/\(app)"
+        let port = UInt16(server.port ?? (tls ? 443 : 1935))
+        // tcUrl WITHOUT a default port. YouTube ignored a connect whose tcUrl
+        // carried `:443`; ffmpeg omits the port when it is the default, and
+        // that is what the servers are built against.
+        let portSuffix = (server.port == nil) ? "" : ":\(port)"
+        tcURL = "\(scheme)://\(host)\(portSuffix)/\(app)"
         self.config = config
         health = RTMPHealth(state: .connecting)
 
@@ -160,25 +215,47 @@ public actor RTMPPublisher {
         }
         startReceiving(conn)
 
-        // Set Chunk Size before anything else so the server reads our bigger
-        // chunks; Window Ack Size tells it how often we expect acks.
-        send(message: .protocolControl(type: 1, payload: be32(UInt32(outChunkSize))))
-        send(message: .protocolControl(type: 5, payload: be32(UInt32(windowAckSize))))
-
         health.state = .connected
+        // CONNECT FIRST, and with the full object. Measured 2026-09-17:
+        // YouTube ignored a connect that carried only app/type/flashVer/tcUrl
+        // and timed out (both RTMP and RTMPS), while Twitch accepted the same
+        // one — so "it works on one platform" proves nothing about the other.
+        // These are the fields ffmpeg sends, which is what the ingest servers
+        // are built against. Chunk size is negotiated AFTER connect, which is
+        // also ffmpeg's order.
         let connectResult = try await withTimeout(timeout, label: "connect") { [self] in
             try await self.invoke("connect", args: [.object([
                 "app": .string(app),
                 "type": .string("nonprivate"),
                 "flashVer": .string("FMLE/3.0 (compatible; ArchiveWatch)"),
                 "tcUrl": .string(tcURL),
+                "fpad": .bool(false),
+                "capabilities": .number(15),
+                "audioCodecs": .number(4071),
+                "videoCodecs": .number(252),
+                "videoFunction": .number(1),
             ])], streamID: 0, chunkStreamID: 3)
         }
         if case .object(let info)? = connectResult.dropFirst().first,
-           case .string(let code)? = info["code"], code != "NetConnection.Connect.Success" {
-            let desc = (info["description"].flatMap { if case .string(let s) = $0 { return s } else { return nil } }) ?? ""
-            throw fail(.rejected(code: code, description: desc))
+           case .string(let code)? = info["code"] {
+            if code != "NetConnection.Connect.Success" {
+                let desc = (info["description"].flatMap { if case .string(let s) = $0 { return s } else { return nil } }) ?? ""
+                throw fail(.rejected(code: code, description: desc))
+            }
+            health.connectAcknowledged = true
+        } else {
+            // A `_result` with no status object is still a result: the server
+            // answered our connect, which is what this flag records.
+            health.connectAcknowledged = true
         }
+
+        // releaseStream + FCPublish: the FMLE preamble. YouTube and most CDNs
+        // tolerate their absence, but some refuse `publish` without them, and
+        // they cost two messages. No reply is awaited — FMLE does not either.
+        sendCommand("releaseStream", transaction: 0, args: [.null, .string(streamKey)],
+                    streamID: 0, chunkStreamID: 3)
+        sendCommand("FCPublish", transaction: 0, args: [.null, .string(streamKey)],
+                    streamID: 0, chunkStreamID: 3)
 
         let streamResult = try await withTimeout(timeout, label: "createStream") { [self] in
             try await self.invoke("createStream", args: [.null], streamID: 0, chunkStreamID: 3)
@@ -187,6 +264,13 @@ public actor RTMPPublisher {
             throw fail(.handshakeFailed("createStream returned no stream id"))
         }
         streamID = UInt32(sid)
+
+        // Now that the connection is established, ask for bigger chunks and
+        // declare our acknowledgement window. The Set Chunk Size message is
+        // itself sent at the OLD size, and only then does ours change.
+        send(message: .protocolControl(type: 1, payload: be32(UInt32(negotiatedChunkSize))))
+        outChunkSize = negotiatedChunkSize
+        send(message: .protocolControl(type: 5, payload: be32(UInt32(windowAckSize))))
 
         // publish has no _result; the answer is an onStatus on the stream.
         try await withTimeout(timeout, label: "publish") { [self] in try await self.awaitPublishStart() }
@@ -357,9 +441,15 @@ public actor RTMPPublisher {
         publishContinuation = nil
     }
 
+    private static let wireDiag = ProcessInfo.processInfo.environment["AW_RTMP_WIRE"] == "1"
+
     private func ingest(_ data: Data) {
         inbound.append(data)
         bytesReceived += data.count
+        health.bytesReceived = bytesReceived
+        if Self.wireDiag && health.wireHead.count < 512 {
+            health.wireHead += data.prefix(96).map { String(format: "%02x", $0) }.joined()
+        }
         if bytesReceived - lastAckAt >= windowAckSize {
             lastAckAt = bytesReceived
             send(message: .protocolControl(type: 3, payload: be32(UInt32(truncatingIfNeeded: bytesReceived))))
@@ -418,6 +508,9 @@ public actor RTMPPublisher {
     }
 
     private func handle(_ m: InboundMessage) {
+        if Self.wireDiag {
+            health.wireHead += " [t\(m.type)/\(m.length)]"
+        }
         switch m.type {
         case 1:  // Set Chunk Size
             if m.payload.count >= 4 { inChunkSize = Int(readBE32(m.payload, 0) & 0x7FFF_FFFF) }
@@ -437,13 +530,21 @@ public actor RTMPPublisher {
             guard case .string(let name)? = values.first else { return }
             switch name {
             case "_result", "_error":
-                if values.count >= 2, case .number(let tid) = values[1], let c = pendingResults.removeValue(forKey: Int(tid)) {
-                    if name == "_error" {
-                        let (code, desc) = statusOf(values)
-                        c.resume(throwing: fail(.rejected(code: code, description: desc)))
-                    } else {
-                        c.resume(returning: Array(values.dropFirst(2)))
-                    }
+                guard values.count >= 2, case .number(let tid) = values[1] else { return }
+                // Exact match first. If a server answers with a transaction id
+                // we never sent — and they do, for `connect` — resolve the one
+                // outstanding request rather than hanging. Only when there is
+                // exactly ONE, so a reply can never be misrouted.
+                var c = pendingResults.removeValue(forKey: Int(tid))
+                if c == nil, pendingResults.count == 1, let only = pendingResults.keys.first {
+                    c = pendingResults.removeValue(forKey: only)
+                }
+                guard let c else { return }
+                if name == "_error" {
+                    let (code, desc) = statusOf(values)
+                    c.resume(throwing: fail(.rejected(code: code, description: desc)))
+                } else {
+                    c.resume(returning: Array(values.dropFirst(2)))
                 }
             case "onStatus":
                 let (code, desc) = statusOf(values)
