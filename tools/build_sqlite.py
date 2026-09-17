@@ -1064,7 +1064,7 @@ def populate_items(db, items, rotate_seed="0", skip_aids=frozenset()):
     _ITEM_COLS = ["archiveID", "title", "year", "decade", "runtimeSeconds", "contentType",
                   "posterURL", "hasRealArtwork", "artworkSource", "imdbID", "imdbRating",
                   "imdbVotes", "popularityScore", "qualityScore", "isSilentFilm",
-                  "rightsStatus", "contentRating", "language", "network", "director",
+                  "rightsStatus", "rightsBucket", "contentRating", "language", "network", "director",
                   "seriesID", "yearEnd", "seasonsCount", "episodesCount", "isAdult",
                   "numFavorites", "numReviews", "avgRating", "views30d", "playable",
                   "hiddenGem"]
@@ -1241,7 +1241,14 @@ def populate_series(db, materialize_episode_items=True):
                     it["runtimeSeconds"], "tv-episode", _t(it["posterURL"]),
                     1 if it["hasRealArtwork"] else 0, _t(it["artworkSource"]), None, None,
                     None, 0, None,
-                    0, "public_domain", None, None,
+                    0, "public_domain",
+                    # rightsBucket: episodes are NEVER eligible to broadcast —
+                    # the TV spines have never passed the rights audit at all
+                    # (the open owner decision in SCRATCHPAD), and
+                    # StudioRights refuses tv-episode outright. None is the
+                    # honest value: no verdict exists.
+                    None,
+                    None, None,
                     None, None, sid,
                     None, None, None,
                     0,

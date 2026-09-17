@@ -130,8 +130,31 @@ Widening to `strict` is an **owner decision, not a developer one** (Decision
 `tools/test_studio_rights.swift` asserts 14 cases including the one-year-past
 boundary (1930), a `safe_pd_age` bucket with no year to support it, and the
 cached-schema case; and it fails if any refusal is shorter than a sentence.
-**The size of the eligible pool is not yet counted** — `rightsBucket` reaches
-the database on the next `publish-db` run, and the number goes here then.
+**The eligible pool, counted (2026-09-17)** from a locally built
+`catalog.sqlite` carrying the new column:
+
+| | Films |
+|---|---|
+| items in the shipped database | 24,943 |
+| **go-live eligible (`guaranteed`)** | **4,210 (16.9%)** |
+| if widened to `strict` | 7,517 (30.1%) |
+
+Bucket distribution: `presumed_pd` 11,253 · `safe_pd_age` 4,236 · null 2,765
+(the 2,771 episodes, correctly) · `safe_gov` 2,648 · `renewal_zone` 1,333 ·
+`safe_archive_license` 1,233 · `renewal_zone_bw` 906 · `commercial_keep` 389 ·
+`unknown_year` 178 · `safe_cc` 2.
+
+The pool is a real one to riff: The Cabinet of Dr. Caligari, Keaton's *Cops*,
+the 1925 *Wizard of Oz*, *Tarzan of the Apes*, the 1923 *Ten Commandments*.
+**20 items are refused despite carrying `safe_pd_age`** because they have no
+year to support the age claim — the boundary case §3.4's rule tests, firing on
+real data. 0 slipped through dated 1930 or later.
+
+**Widening to `strict` would roughly double the pool and is the owner's
+call**, not a developer's (Decision 027). It admits `safe_gov` (free in the US,
+not everywhere) and `safe_archive_license`/`safe_cc` (an uploader's claim about
+a film they did not make — the exact class that put A Bridge Too Far and The
+Simpsons pilot into the Roku feed's strict tier).
 
 ### §3.5 One engine, every Apple platform
 
@@ -580,6 +603,32 @@ Clyde Bruckman" because the catalog's `director` field holds one name where
 the film has two — the sheet reports the record rather than improving it,
 which is correct. And the disabled primary action sits beside its reason, not
 alone (§5).
+
+### The publisher reaches the platforms from DEVICE hardware (2026-09-17)
+
+macOS proving the protocol does not prove it from a phone or a television:
+different TLS stack, different network path, different service-class handling.
+`AW_STUDIO_PROBE=1` runs the same invalid-key probe from inside the app.
+
+| Device | YouTube RTMPS | YouTube RTMP | Twitch RTMPS | Twitch RTMP |
+|---|---|---|---|---|
+| iPhone 12 (iOS 26.6.1) | ✓ 1.2 s | ✓ 0.3 s | ✓ 0.7 s | ✓ 0.4 s |
+| Apple TV 4K 2nd gen (tvOS 27.0) | ✓ 6.0 s | ✓ 0.3 s | ✓ 0.8 s | ✓ 0.4 s |
+
+"✓" = `connect` **acknowledged**, then refused on the bad key. 4/4 on both.
+Still no credential involved. (The Apple TV's 6.0 s first RTMPS connect is a
+cold TLS session on a box that had just woken; the second is 0.3 s.)
+
+### A process note worth keeping
+
+The `rightsBucket` change was dispatched to CI **before** being run locally,
+and `publish-db` failed. The project's own guard caught it in one line —
+`AssertionError: items tuple has 32 fields, _ITEM_COLS has 31` — and then a
+second site did the same thing again (episodes are materialised into `items`
+by a separate row builder, which still supplied 31). Running
+`python3 tools/build_sqlite.py` locally takes three minutes and would have
+found both before a 40-minute CI run did. A schema change touches every
+producer of that table, and there is rarely only one.
 
 ### Still to measure (Phase 0 remainder)
 

@@ -48,7 +48,61 @@ enum StudioLab {
     private static let defaultFilm =
         "https://archive.org/download/TheGeneral720p1926/TheGeneral720p.mp4"
 
+    /// Probes the REAL ingest hosts from this device with a deliberately
+    /// invalid key. macOS proving the protocol does not prove it from a phone
+    /// or a television: different TLS stack, different network path, different
+    /// service-class handling. Needs no credential — a refusal after an
+    /// acknowledged `connect` is the pass (WATCH-TOGETHER §8.1a).
+    static func probeDestinations() async {
+        log("probing real ingest hosts from this device (invalid key, no credential)")
+        // A real Baseline 1080p30 avcC and AAC-LC ASC: servers inspect the
+        // sequence headers, so nonsense could be refused for the wrong reason.
+        let sps: [UInt8] = [0x67, 0x42, 0x00, 0x28, 0xE9, 0x00, 0x80, 0x0C, 0x8B, 0x01, 0x00, 0x00, 0x03, 0x00, 0x01]
+        let pps: [UInt8] = [0x68, 0xCE, 0x3C, 0x80]
+        var avcC: [UInt8] = [0x01, 0x42, 0x00, 0x28, 0xFF, 0xE1]
+        avcC += [UInt8(sps.count >> 8), UInt8(sps.count & 0xFF)] + sps
+        avcC += [0x01, UInt8(pps.count >> 8), UInt8(pps.count & 0xFF)] + pps
+        let cfg = RTMPStreamConfig(
+            width: 1920, height: 1080, frameRate: 30, videoBitrate: 6_000_000,
+            avcC: Data(avcC), audioSampleRate: 44100, audioChannels: 2,
+            audioBitrate: 128_000, audioSpecificConfig: Data([0x12, 0x10]))
+
+        let targets: [(String, String, String)] = [
+            ("YouTube RTMPS", "rtmps://a.rtmps.youtube.com/live2", "aw-invalid-key-probe"),
+            ("YouTube RTMP", "rtmp://a.rtmp.youtube.com/live2", "aw-invalid-key-probe"),
+            ("Twitch RTMPS", "rtmps://ingest.global-contribute.live-video.net/app", "live_invalid_probe"),
+            ("Twitch RTMP", "rtmp://ingest.global-contribute.live-video.net/app", "live_invalid_probe"),
+        ]
+        var ok = 0
+        for (name, server, key) in targets {
+            guard let url = URL(string: server) else { continue }
+            let pub = RTMPPublisher()
+            let t0 = Date()
+            do {
+                try await pub.publish(to: url, streamKey: key, config: cfg, timeout: 20)
+                log("PROBE ? \(name) — accepted an invalid key (unexpected); closing")
+                ok += 1
+            } catch {
+                let acked = await pub.health.connectAcknowledged
+                let dt = Date().timeIntervalSince(t0)
+                if acked {
+                    log(String(format: "PROBE ✓ %@ — connect acknowledged, refused in %.1fs", name, dt))
+                    ok += 1
+                } else {
+                    log(String(format: "PROBE ✗ %@ — failed BEFORE connect in %.1fs: %@", name, dt, "\(error)"))
+                }
+            }
+            await pub.close()
+        }
+        log("PROBE \(ok)/\(targets.count) reached and answered from \(hostDescription())")
+    }
+
     static func run() async {
+        if env("AW_STUDIO_PROBE") == "1" {
+            setUpAudioSession()
+            await probeDestinations()
+            if env("AW_STUDIO_PROBE_ONLY") == "1" { return }
+        }
         // `none` encodes and discards: the headroom question is decode +
         // composite + encode, and on iOS a LAN destination needs the
         // local-network permission prompt a human would have to tap.
@@ -77,32 +131,7 @@ enum StudioLab {
         // The audio session must allow playback while we are also (later)
         // recording — set it even for the film-only run, so the measurement
         // runs under the session the Studio will really use (§6.2).
-        #if os(iOS) || os(tvOS)
-        do {
-            let s = AVAudioSession.sharedInstance()
-            // THREE device findings live in these four lines.
-            //
-            // 1. `.moviePlayback` is a playback-only MODE; pairing it with
-            //    `.playAndRecord` returns OSStatus -50 (iPhone 12).
-            // 2. `.defaultToSpeaker` does not exist on tvOS — no earpiece to
-            //    route away from.
-            // 3. `.playAndRecord` ITSELF fails on tvOS ("Session activation
-            //    failed"), and a failed activation stops AVPlayer dead: the
-            //    Apple TV run showed rate=0.00 with status=readyToPlay, so the
-            //    program encoded a frozen frame while every counter looked
-            //    healthy. tvOS gets `.playback` until a Continuity microphone
-            //    is actually attached, which is when recording becomes real.
-            #if os(tvOS)
-            try s.setCategory(.playback, mode: .moviePlayback, options: [.mixWithOthers])
-            #else
-            try s.setCategory(.playAndRecord, mode: .default,
-                              options: [.mixWithOthers, .allowBluetooth, .defaultToSpeaker])
-            #endif
-            try s.setActive(true)
-        } catch {
-            log("WARN audio session — \(error.localizedDescription)")
-        }
-        #endif
+        setUpAudioSession()
         #if os(iOS)
         UIApplication.shared.isIdleTimerDisabled = true
         #endif
@@ -232,6 +261,30 @@ enum StudioLab {
         log(pass
             ? "PASS \(cfg.width)x\(cfg.height)@\(cfg.frameRate) holds on \(hostDescription())"
             : "BELOW TARGET \(String(format: "%.1f", mean)) of \(cfg.frameRate) fps on \(hostDescription())")
+    }
+
+    /// The Studio's audio session, per platform. THREE device findings live
+    /// here: `.moviePlayback` is a playback-only MODE and pairing it with
+    /// `.playAndRecord` returns OSStatus -50 (iPhone 12); `.defaultToSpeaker`
+    /// does not exist on tvOS; and `.playAndRecord` ITSELF fails on tvOS
+    /// ("Session activation failed"), where a failed activation stops AVPlayer
+    /// dead — the Apple TV showed rate=0.00 with status=readyToPlay and
+    /// encoded a frozen frame while every counter looked healthy.
+    static func setUpAudioSession() {
+        #if os(iOS) || os(tvOS)
+        do {
+            let s = AVAudioSession.sharedInstance()
+            #if os(tvOS)
+            try s.setCategory(.playback, mode: .moviePlayback, options: [.mixWithOthers])
+            #else
+            try s.setCategory(.playAndRecord, mode: .default,
+                              options: [.mixWithOthers, .allowBluetooth, .defaultToSpeaker])
+            #endif
+            try s.setActive(true)
+        } catch {
+            log("WARN audio session — \(error.localizedDescription)")
+        }
+        #endif
     }
 
     // MARK: Camera
