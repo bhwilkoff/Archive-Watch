@@ -1076,7 +1076,14 @@ _SITE_TAG = re.compile(
     r"\s*(?:@\s*\S+|\bwww\.\S+|\b\S+\.(?:com|net|org|tv|pe|me)\b|\bda\s?xclusives\b|"
     r"\bhevcbay\b|\bamaderforum\b|\bdesibbrg\b|\bbrego\b|"
     r"\b(?:rarbg|yify|yts|ettv|eztv|galaxyrg|ntg)\b)", re.I)
-_TITLE_EXT = re.compile(r"\.(avi|wmv|flv|mpg|mpeg|mov|m4v|mp4|mkv|ogv|mxf)\s*$", re.I)
+_TITLE_EXT = re.compile(r"\.\s*(avi|wmv|flv|mpg|mpeg|mov|m4v|mp4|mkv|ogv|mxf|3gp)\s*$"
+                        r"|\.\s*HD\s*(?:\([^)]{0,20}\))?\s*$", re.I)      # "Opus IV. 3gp", "Dorian Gray. HD (Español)"
+# An uploader's collection brand ahead of the film's name — "Bill Sprague
+# Collection-Alice The Dog Catcher", "… : Queen Kelly-Gloria Swanson" — and the
+# PUBLIC DOMAIN / 9.5mm / rarity tags the same uploader appends (31 visible).
+_BRAND_PREFIX = re.compile(r"^\s*(?:the\s+)?bill sprague collection\s*[-:–—]*\s*", re.I)
+_BRAND_TAIL = re.compile(r"(?:\s*[-–—:,]*\s*(?:public\s*domai\s*n|public domain|pu\w*\s*$|9['.]?\.?5\s*mm(?:\s*film)?|16\s*mm\s*film|pathescope|rarity|rare|"
+                         r"\d{4}))+\s*$", re.I)
 # A trailing timecode / frame-count run an uploader left in the title ("… 01 00 45 10",
 # "… 18 20 31") — 3+ space/underscore-separated two-digit groups at the end. Real titles never
 # end this way; _keep_if_lettered guards it so a result without letters is rejected.
@@ -1100,6 +1107,9 @@ def _strip_uploader_cruft(t):
     nt = _JUNK_BRACE.sub("", t)
     nt = _SITE_TAG.sub("", nt)
     nt = _TITLE_EXT.sub("", nt)
+    if _BRAND_PREFIX.match(nt):
+        nt = _BRAND_PREFIX.sub("", nt)
+        nt = _BRAND_TAIL.sub("", nt)
     if nt == t:
         return t
     nt = re.sub(r"\s+", " ", nt)
@@ -1286,7 +1296,12 @@ _GENRE_TAIL = re.compile(
 # Trailing foreign subtitle/dub markers from scene rips ("- VOSE", "- Legendado", "ESub").
 _LANG_TAIL = re.compile(
     r"(?:\s*[-–—|]\s*(?:vose|vosi|vos|vo|legendado|subtitulado|castellano|espa[nñ]ol|"
-    r"latino|dublado|dubbed|sub\s*esp|esub|hq\s*line\s*audio)\b)+\s*$", re.I)
+    r"latino|dublado|dubbed|sub\s*esp|esub|hq\s*line\s*audio)\b)+\s*$"
+    # "Camille spanish subtitles", "Scared To Death (with spanish subtitles)", "October: sub esp",
+    # "Gullivers Travels1939 Vostfr" — the language of the SUBTITLES is not part of the name.
+    r"|\s*[-–—|:,.(]*\s*(?:with\s+)?(?:spanish|english|french|portuguese|italian|german|russian)\s+"
+    r"(?:subtitles?|subs?)\.?\)?\s*$"
+    r"|\s*[-–—|:,.(]*\s*(?:sub\s*esp|vostfr|vosta|legendado|dublado)\)?\.?\s*$", re.I)
 # Trailing runtime stamp: a BRACKETED time ("[1:01:37", "{HD 1:42:23}") or a bare
 # full H:MM:SS ("Steamboat Willie 1:05:50"). A bare 2-part M:SS is NOT stripped — it
 # can be part of a real title ("At 3:25").
@@ -1933,7 +1948,7 @@ _APOS_CASED = re.compile(r"(?<=[a-z])'(S|T|Re|Ll|Ve|D|M)\b")   # never inside an
 
 def sanitize_title(it):
     raw = (it.get("title") or "").strip()
-    if not raw:
+    if not raw or it.get("titleSource") == "agent-reviewed":   # the corrections table has the last word
         return False
     # UNIFIED TITLE RESOLUTION (Decision 046): a matched film's title should BE its authoritative
     # canonical title, not a regex-cleaned uploader string — adopt it when it's a clean version of
@@ -2540,6 +2555,13 @@ def _load_year_corrections():
     return {k: int(v) for k, v in json.loads(p.read_text()).items()}
 
 
+def _load_title_corrections():
+    p = REPO / "shared/editorial/title_corrections.json"
+    if not p.exists():
+        return {}
+    return json.loads(p.read_text())
+
+
 def _load_anchor_footprint():
     p = REPO / "shared/editorial/anchor_footprint.json"
     if not p.exists():
@@ -2562,6 +2584,7 @@ def remediate(items):
     # own naming was wrong: "1943 Buckskin Frontier" dated 2010, Flash Gordon
     # 1936 dated 1969). The table is the record; every build re-applies it.
     year_fixes = _load_year_corrections()
+    title_fixes = _load_title_corrections()
     # A cast anchor proves the film's IDENTITY, and the identity carries a
     # commercial footprint the rights audit already knows how to judge:
     # Eraserhead, Suspiria and A Bridge Too Far were visible with
@@ -2602,6 +2625,17 @@ def remediate(items):
             it["footprintSource"] = "cast-anchored"
             it["anchorImdbID"] = fp.get("imdbID")
             stats["footprint_from_cast_anchor"] += 1
+
+        # Titles judged by hand during the 2026-09 review — an uploader's
+        # brand, cast and format tags ("Bill Sprague Collection : Queen
+        # Kelly-Gloria Swanson 1928-29", "REBECCA OF SUNNYBROOK FARM Mary
+        # Pickford") that the cleaning chain cannot separate from a name.
+        # Applied after the chain, so the table has the last word.
+        ft = title_fixes.get(it.get("archiveID"))
+        if ft and it.get("title") != ft:
+            it["title"] = ft
+            it["titleSource"] = "agent-reviewed"
+            stats["title_corrected"] += 1
 
         fy = year_fixes.get(it.get("archiveID"))
         if fy and it.get("year") != fy:
