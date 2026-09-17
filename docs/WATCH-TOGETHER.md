@@ -910,9 +910,28 @@ itself on a second device unprompted; and the dev door went through
 `StudioRights` rather than round it, which is the whole reason it was written
 that way.
 
-**NOT verified on the glass: the ten-foot health readout.** Two separate
-instrument failures, recorded because they will cost the next session an hour
-otherwise:
+**Verified on the glass: the ten-foot readout** (Bedroom Apple TV 4K, tvOS 27,
+`build/qa/golive/tvos-readout2.png`) — inside the safe area, over the film:
+
+```
+● NOT SENDING   5,499 kbps
+⚠ The show is being made but not sent anywhere — no destination is set.
+```
+
+**And the first capture found a real bug.** The readout originally said
+**`IDLE 5,486 kbps`** — it was reporting the PUBLISHER's state as though it
+were the SHOW's. With no destination the publisher never leaves `.idle`, which
+is true of the publisher and a lie about the program: the engine was
+compositing and encoding 5.5 Mbps at that moment. A host making a show that
+goes nowhere must be TOLD that, not told nothing is happening.
+`StudioHealth.showState` now answers the host's question rather than the
+transport's — `OFF · NOT SENDING · CONNECTING · LIVE · OFFLINE · ENDED`, each
+with a sentence where there is room for one — and both platforms read the same
+words from the same place. **A number can be correct and still mislead; which
+question it answers is part of its correctness.**
+
+**Two instrument failures, recorded because they will cost the next session an
+hour otherwise:**
 
 1. *`devicectl device capture screenshot` fails outright on the Fireplace box*
    — `CoreDeviceError 3` / "The connection was invalidated" / no file written —
@@ -928,7 +947,12 @@ success line, got nothing, and carried on — then read a **stale file from an
 earlier capture** and reasoned about it as though it were current. The clock in
 the image was the tell. A capture step must delete its target first and assert
 the file exists afterwards; anything less is an instrument that lies quietly.
-That is Decision 116's lesson wearing different clothes.
+That is Decision 116's lesson wearing different clothes — and
+`tools/atv_shot.sh` is the fix: it removes the target, captures, and REFUSES
+unless a new file exists and is under a minute old. The class of error is
+closed, not just this instance. Reading stale evidence and reasoning about it
+as current is not a mistake care prevents; it needs an instrument that cannot
+do it.
 
 ### Still to measure (Phase 0 remainder)
 
