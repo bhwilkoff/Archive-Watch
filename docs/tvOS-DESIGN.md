@@ -205,6 +205,31 @@ and archive.org URL; AirPlay is native.
 8.7 Suppress the asset's bogus embedded year and publish Now Playing artwork via
 `commonIdentifierArtwork` (prior work, playbook §8.6).
 
+8.8 **Watch Together Studio is the PLAYER plus overlays (§3.7 + §8.1), never a
+§3.6 mode.** The Apple TV is the box the owner watches on, so it is also where
+a watch-along is produced: the film on the television, an iPhone on the table
+as the camera and microphone through Continuity Camera. The Studio adds a
+health readout, a layout/faders/cards sheet (§8.2's one-sheet rule) and go-live
+as overlays over the same `AVPlayerViewController` and the same resilient
+asset. Its frames reach the encoder through an `AVPlayerItemVideoOutput` and
+its audio through an `MTAudioProcessingTap` — both OUTPUTS on the item the
+player already has, so §8.1 and §11.4 hold. Specifics:
+
+- **The Continuity Camera picker is a §3.5 sheet presented FULL-SCREEN**, which
+  is Apple's own requirement for `AVContinuityDevicePickerViewController`. It
+  is a **one-time** step: a paired phone is found by a discovery session
+  afterwards, so the Studio must never demand the picker per show.
+- **The microphone is an `AVAudioSession` port, not a capture device**, and
+  `.playAndRecord` is only legitimate once such a port exists — raising it
+  earlier fails and a failed activation stops `AVPlayer` dead
+  (docs/WATCH-TOGETHER.md §9).
+- **No camera is not an error.** A paired phone may be absent, asleep or
+  carried away mid-show; the program continues film-only and says so.
+- Only films `StudioRights.canGoLive` clears are offered (WATCH-TOGETHER §3.4).
+  An ineligible film still shows the entry point, disabled WITH its reason —
+  §2.5's "no empty state without a focusable element" applies to explanations
+  too.
+
 ---
 
 ## §9 — Modes: lean-back takeovers (binding; governs #1, #2, #3, #14)
@@ -262,8 +287,23 @@ tabs (§1.4).
 
 10.2 **Account & sync (#11, Decision 022 pending Phase 3).** Sign in with Apple
 (`AuthenticationServices`) for identity + CloudKit private DB for cross-Apple-TV
-sync of favorites, progress, and playlists. No external auth. Sign-in is optional
-for browsing/playback — it gates only sync (no funnel; §1.1, Decision 009 spirit).
+sync of favorites, progress, and playlists. No external auth **for identity**.
+Sign-in is optional for browsing/playback — it gates only sync (no funnel;
+§1.1, Decision 009 spirit).
+
+10.2a **The one external sign-in, and why it does not break 10.2.** Watch
+Together Studio (§8.8) publishes to the viewer's **own** YouTube or Twitch
+channel, which those platforms will only permit an authorised app to do. That
+is not identity for Archive Watch and it is not a funnel: nothing about
+browsing, playback, favorites or sync changes if a viewer never signs in, the
+consent screen appears only after the viewer has chosen to broadcast a
+specific film, and the scopes requested are exactly the three the feature uses
+(create a broadcast, read the stream key, read chat). The rule 10.2 exists to
+protect — **the app never asks who you are in order to show you a film** —
+holds unchanged. `ASWebAuthenticationSession` is available on tvOS 16+ and is
+the path (checked in the tvOS 27 SDK, 2026-09-17; it hands off to a nearby
+device rather than demanding typing on a remote). A stream key is fetched by
+API and never typed or displayed.
 
 10.3 **Watched state (#17).** Completed titles (`WatchProgress.isComplete`) are
 hidden from Home shelves by default (Settings toggle to show), but remain in
@@ -302,7 +342,11 @@ another push.
 On-device upscaling (#6 dropped, Decision D-B; Apple TV 4K upscales natively).
 Third-party/external auth (Apple-native only, §10.2). Multiple user profiles per
 device. A consumer web/iOS client (the web stays the editorial dashboard,
-Decision 006). Live/linear broadcast beyond the §9.1 channel simulation.
+Decision 006). Live/linear broadcast **received** beyond the §9.1 channel
+simulation — we do not become a TV tuner. **Producing** a live broadcast is a
+different thing and is IN scope as of Decision 127 (§8.8): the Apple TV
+encodes a watch-along and sends it to the viewer's own YouTube or Twitch. The
+gap this line names is inbound, not outbound.
 
 ---
 
@@ -329,6 +373,8 @@ Decision 006). Live/linear broadcast beyond the §9.1 channel simulation.
 | 18 | Episode reclassification | (pipeline) | canonical TV | Decision 016 |
 | 19 | No-entry play bug | (bug) | player failure state | §2.5, §8.1 |
 | 20 | Wrong poster/desc | (pipeline) | metadata matching | §7.1 |
+| 22 | **Watch Together (with friends)** | Action | Detail menu | Decision 098, `docs/SHAREPLAY.md` |
+| 23 | **Watch Together Studio (with the world)** | Player + overlays | Detail menu → player | §8.8, §10.2a, `docs/WATCH-TOGETHER.md` |
 
 | 21 | Top Shelf | System surface | tvOS Home top row | §15 |
 

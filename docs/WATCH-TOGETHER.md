@@ -834,6 +834,38 @@ The coordinator reports and continues film-only rather than hanging or
 failing, the same rule the iOS camera permission follows: a harness must never
 wait on a human, and the owner is never the tester.
 
+### The tvOS rules, and two conflicts that had to be faced (2026-09-17)
+
+Reading `docs/tvOS-DESIGN.md` before building the tvOS surface — the same
+discipline that improved the iOS shape — turned up two rules the Studio
+appeared to break. Neither could be quietly ignored.
+
+1. **§10.2 said "No external auth."** That is a real rule with a real purpose,
+   stated in its own text: *no funnel* — sign-in is optional for browsing and
+   playback and gates only sync. The Studio's YouTube/Twitch sign-in is a
+   different kind of thing: it is not identity for Archive Watch, it authorises
+   publishing to the viewer's **own** channel, it appears only after the viewer
+   has chosen to broadcast a specific film, and it changes nothing about
+   browsing, playback, favorites or sync. §10.2 now says "no external auth
+   **for identity**", and new **§10.2a** states the distinction and the rule
+   that still holds: *the app never asks who you are in order to show you a
+   film.*
+2. **§13 listed "Live/linear broadcast" as out of scope.** That gap is about
+   *receiving* — we do not become a TV tuner. *Producing* one is the opposite
+   direction and is in scope as of Decision 127. The line now says which.
+
+New **§8.8** puts the Studio where iOS §8.8 puts it: the **player plus
+overlays** (§3.7 + §8.1), never a §3.6 mode. It also binds the three things the
+SDK taught us — the picker is full-screen and **one-time**, the microphone is
+an audio-session port, and **no camera is not an error** (a paired phone can be
+asleep or carried away mid-show; the program continues film-only and says so).
+
+And a assumption corrected on the way: **`ASWebAuthenticationSession` IS
+available on tvOS 16+** (checked in the tvOS 27 SDK). I had expected to need
+the OAuth device-code flow for a television; one auth path serves both
+platforms, and on tvOS the system hands off to a nearby device rather than
+asking anyone to type on a remote.
+
 ### Still to measure (Phase 0 remainder)
 
 - The camera tile's and microphone's cost on device — **blocked on a one-time
