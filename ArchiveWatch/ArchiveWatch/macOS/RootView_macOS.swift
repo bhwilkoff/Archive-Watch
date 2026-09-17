@@ -97,6 +97,31 @@ struct RootView: View {
                 if ProcessInfo.processInfo.environment["AW_AUTOPLAY"] == "1" {
                     router.play(it)
                 }
+                // AW_STUDIO_MAC=1 arms Watch Together Studio and plays, so the
+                // §B13d readout can be SEEN without clicking — the same reason
+                // AW_AUTOPLAY exists (SwiftUI exposes no scriptable menu).
+                //
+                // Bounded and muted, both deliberately. A dev door that polls
+                // until something clears is how a film was left playing for an
+                // hour on the owner's Apple TV and routed to every HomePod
+                // (WATCH-TOGETHER §9); this one ends itself and never makes a
+                // sound. AW_STUDIO_MAC_SECONDS overrides the 120 s default.
+                if env["AW_STUDIO_MAC"] == "1" {
+                    if StudioSession.shared.arm(film: it) {
+                        router.play(it)
+                        StudioSession.shared.muteFilmForHarness()
+                        let seconds = Int(env["AW_STUDIO_MAC_SECONDS"] ?? "") ?? 120
+                        Task {
+                            try? await Task.sleep(for: .seconds(seconds))
+                            await StudioSession.shared.end()
+                            router.nowPlaying = nil
+                        }
+                    } else {
+                        // The refusal path is worth reaching too: it is the
+                        // branch a host hits on most of the catalogue.
+                        print("[AWSTUDIOMAC] refused: \(StudioSession.shared.refusal ?? "nil")")
+                    }
+                }
             }
         }
     }

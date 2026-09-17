@@ -12,6 +12,8 @@ import SwiftData
 // EpisodePlayer plays a series Episode with prev/next transport (TV drill-in).
 
 struct PlayerWindow: View {
+    /// The live show, if there is one (§B13a).
+    private var studio: StudioSession { StudioSession.shared }
     let item: Catalog.Item
     @Environment(AppStore.self) private var store
     @Environment(AppRouter.self) private var router
@@ -38,10 +40,29 @@ struct PlayerWindow: View {
                           captionsOff: CaptionChoiceSession.byItem[item.archiveID] == .off,
                           publishedVTT: item.publishedVTTURL,
                           onEnded: autoplayNext)
+                // §B13d: health is pinned over the player, OUTSIDE
+                // AVPlayerView's floating HUD, because the HUD auto-hides and
+                // health may not (WATCH-TOGETHER §4).
+                .overlay(alignment: .topLeading) {
+                    if studio.isLive {
+                        StudioMacReadout(health: studio.health,
+                                         filmFramesPerSecond: studio.filmFramesPerSecond) {
+                            Task { await studio.end() }
+                        }
+                        .transition(.opacity)
+                    }
+                }
                 .navigationTitle(item.year.map { "\(item.title) (\($0))" } ?? item.title)
                 .toolbar {
                     ToolbarItem(placement: .cancellationAction) {
-                        Button { router.nowPlaying = nil } label: { Image(systemName: "xmark") }
+                        Button {
+                            // Closing the window ends the show. A broadcast
+                            // must never outlive the surface that was
+                            // producing it — that is how a harness ended up
+                            // playing into someone's living room (§9).
+                            Task { await studio.end() }
+                            router.nowPlaying = nil
+                        } label: { Image(systemName: "xmark") }
                             .keyboardShortcut(.cancelAction).help("Close")
                     }
                 }
@@ -292,6 +313,11 @@ private struct PlayerSurface: View {
         }
         p.play()
         player = p
+        // Watch Together Studio (§B13a): Detail armed the session before this
+        // player existed, because the player REPLACES the split view as the
+        // window root (§B2a) and Detail is gone by now. A no-op unless this is
+        // the film the host armed.
+        Task { await StudioSession.shared.attachIfArmed(player: p, archiveID: archiveID) }
         endObserver = NotificationCenter.default.addObserver(
             forName: AVPlayerItem.didPlayToEndTimeNotification, object: playerItem, queue: .main) { _ in
             MainActor.assumeIsolated { onEnded?() }

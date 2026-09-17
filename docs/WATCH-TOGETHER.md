@@ -1300,6 +1300,65 @@ over 15 s (§9 above). Trading a 10 ms sync figure for a 90 ms one to remove
 here, chosen over latency on purpose — written down so the next person does
 not "fix" it into a lip-sync bug.
 
+### Phase 2 begins — the Studio on macOS, and the rights gate on the glass (2026-09-17)
+
+Rules first: **macOS-DESIGN §B13** (a–f), which is entirely consequences of
+§B2a and §B3a rather than new ideas. The load-bearing one is §B13a — on macOS
+the player **replaces the split view as the window root**, so the Detail view
+that offered "go live" is *gone* by the time an `AVPlayer` exists. tvOS
+presents its player as a cover from Detail and can hold the engine there; the
+Mac cannot.
+
+`Studio/StudioSession.swift` is the answer: one `@Observable @MainActor`
+session owns the show, Detail **arms** it (applying the rights gate before
+anything plays), and the player surface hands it the player it just built. It
+holds one show, because a device produces one show at a time.
+
+- **The menu is now the owner's framing, literally.** Detail's "Watch
+  Together…" was SharePlay only; it is a submenu with **With Friends…**
+  (SharePlay, Decision 098) and **With the World…** (the Studio, Decision
+  127). A submenu, not two peer rows, because the choice a host makes is "who
+  is this for", not "which feature".
+- **§B13e: the camera needs an ENTITLEMENT on macOS**, unlike the phone —
+  `com.apple.security.device.camera` plus `NSCameraUsageDescription`, both now
+  present. Worth stating plainly: the +0.73 ms camera figure above was taken
+  with an **unsandboxed command-line harness**, which is exactly why it worked
+  before the entitlement existed. A sandboxed Mac app without it gets a TCC
+  denial that looks like "there is no camera" — the same trap §B12 already
+  records for `device.microphone`.
+- **Closing the window ends the show.** A broadcast must never outlive the
+  surface producing it; that is how a harness ended up playing into someone's
+  living room.
+- **`AW_STUDIO_MAC=1`** arms the Studio and plays, so §B13d's readout can be
+  seen without clicking (§B11's own reason: SwiftUI exposes no scriptable
+  menu). Bounded — 120 s default — and it mutes **both** the program's film
+  bus and the local player, because those are different things and only one of
+  them is what a person in the room hears.
+
+**On the glass, and it found something.** `The Curse of Quon Gwon` (1916) on
+this Mac refused with *"This copy has no rights verdict in the catalog on this
+device, so it cannot be streamed. Updating the catalog may resolve it."* —
+alert rendering correctly with the reason **and** the policy beneath it.
+
+That refusal was **correct and not the expected branch**. The published DB says
+that film is `safe_pd_age`, 1916, `silent-film` — fully eligible. The Mac's
+*cached* DB is schema 1, so `rightsBucket` came back nil and the gate refused
+an unknown verdict, exactly as §3.4 requires. That is the third platform on
+which the schema-1 guard has proven itself unprompted.
+
+The published DB was verified directly rather than assumed, since a missing
+column there would gate the feature off on every device:
+
+```
+schemaVersion = 2      items columns = 32      rightsBucket present
+presumed_pd 11253 · safe_pd_age 4236 · (null) 2765 · safe_gov 2648
+renewal_zone 1333 · safe_archive_license 1233 · renewal_zone_bw 906
+eligible for the Studio (guaranteed tier): 4210
+```
+
+4,210 — the same figure counted from `catalog.json` back when the tier was
+chosen, now confirmed from the artifact the clients actually read.
+
 ### Still to measure (Phase 0 remainder)
 
 - The camera tile's and microphone's cost **on the phone and the Apple TV** —

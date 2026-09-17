@@ -808,6 +808,48 @@ title's Detail (waits for the full DB to swap in); `AW_CS_TEST=editor|markclip` 
 Studio editor. Inert unless set. Needed because SwiftUI's a11y tree isn't reliably AppleScript-traversable
 — screenshots capture by REGION from AX window bounds (§C6).
 
+## §B13 — Watch Together Studio on macOS (binding; Phase 2)
+
+*Feature rules: `docs/WATCH-TOGETHER.md`. This section says only what is
+macOS-SPECIFIC, and every rule below is a consequence of §B2a or §B3a rather
+than a new idea.*
+
+- **Rule B13a — the Studio is the PLAYER IN A PRODUCTION MODE, never a second
+  window.** §B2a is load-bearing here: the player already replaces the split
+  view as the window root, so going live adds overlays and a readout *to that
+  root* and changes nothing about the scene graph. A separate Studio window
+  would give the broadcast its own toolbar and its own title bar, which is
+  exactly the bleed-through §B2a was written to stop — and it would let a host
+  close the window their audience is watching through. This matches iOS-DESIGN
+  §8.8 and tvOS-DESIGN §8.8; all three platforms run one `StudioEngine`.
+- **Rule B13b — the film keeps AVPlayerView's floating HUD (§B3a) while live.**
+  Do NOT hand-draw transport controls for the Studio. What the host is
+  producing is a *program*, and the program's own controls (layout, faders,
+  cards) belong in a separate panel; the film's transport stays native, which
+  is also what keeps PiP, AirPlay and the native speeds working mid-broadcast.
+- **Rule B13c — the program panel is a `Form` in a sheet, not an inspector
+  rail.** §B8's EPG and §B7's wells own the wide surfaces; a rail would
+  reflow the player. The panel follows §B10's native-`Form` rule and mirrors
+  the iOS §4.5 controls sheet so a host who learned one knows the other.
+- **Rule B13d — the health readout is ALWAYS visible while live and is never
+  a HUD element.** It is a capsule pinned top-leading over the player, outside
+  AVPlayerView's own chrome, because the HUD auto-hides and health may not
+  (`docs/WATCH-TOGETHER.md` §4). A Mac host is often not looking at the
+  window at all, so the readout also states the ONE current problem in words.
+- **Rule B13e — the camera needs an ENTITLEMENT here, unlike the phone.**
+  `com.apple.security.device.camera` plus `NSCameraUsageDescription`. A
+  sandboxed Mac app without the entitlement gets a TCC denial that looks
+  exactly like "there is no camera" — the same class as the
+  `device.microphone` note in §B12 ("the record does nothing bug"). Measured
+  2026-09-17: the camera tile costs **+0.73 ms/frame**, but that number was
+  taken with an UNSANDBOXED command-line harness, which is why it worked
+  before the entitlement existed.
+- **Rule B13f — macOS is the only Apple platform that can capture a window,
+  and it still does not screen-capture the film.** `WATCH-TOGETHER` §3.3 is
+  absolute: the film is composited from `AVPlayerItemVideoOutput`. Phase 2's
+  ScreenCaptureKit ambition is for a *guest call* (a FaceTime window beside
+  the film), never for the film itself.
+
 ## §B12 — Capabilities, identifiers, Info.plist
 
 - **Shared with tvOS/iOS** (one ASC record, Decision 042): bundle id `app.archivewatch.tvos`, CloudKit
@@ -816,10 +858,12 @@ Studio editor. Inert unless set. Needed because SwiftUI's a11y tree isn't reliab
   `com.apple.package`).
 - **Sandbox** (App Store requirement): app-sandbox + network.client + files.user-selected.read-write +
   **device.microphone + device.audio-input** (a sandboxed app needs the mic entitlement or TCC silently
-  denies → the "record does nothing" bug). Sign in with Apple = Default.
+  denies → the "record does nothing" bug) + **device.camera** (Watch Together Studio's camera tile,
+  §B13e — same silent-denial trap). Sign in with Apple = Default.
 - `LSMinimumSystemVersion = 26.0` (the Configuration-based AVFoundation API is macOS-26+),
   `LSApplicationCategoryType = entertainment`, `ITSAppUsesNonExemptEncryption = false`,
-  `NSMicrophoneUsageDescription` (voiceover). The target was wired by a direct `project.pbxproj` edit
+  `NSMicrophoneUsageDescription` (voiceover; also the Studio's host mic) and `NSCameraUsageDescription`
+  (the Studio's camera tile). The target was wired by a direct `project.pbxproj` edit
   (objectVersion 77); the Core is REUSED via `fileSystemSynchronizedGroups` pointing at the same
   `ArchiveWatch` folder with `#if os()` guards — never copied.
 

@@ -20,6 +20,9 @@ struct DetailView: View {
     @State private var showGetSubtitles = false
     @State private var downloadError: String?
     @Query private var downloads: [DownloadedFilm]
+    /// The live show, shared with the player surface — Detail is gone from the
+    /// window by the time a player exists (§B2a), so the session holds it.
+    private var studio: StudioSession { StudioSession.shared }
 
     /// Hand the film to the current FaceTime group, or — when there is no call —
     /// let the system's own sharing sheet place one. Either way the film starts
@@ -39,6 +42,18 @@ struct DetailView: View {
                 break
             }
         }
+    }
+
+    /// Broadcast this film to the host's own YouTube or Twitch channel
+    /// (macOS-DESIGN §B13a). The rights gate runs FIRST and its refusal is a
+    /// sentence, never a greyed-out row — `StudioSession.arm` owns both.
+    private func startStudio() {
+        if StudioSession.shared.arm(film: item) {
+            router.play(item)
+        }
+        // A refusal set by `arm` is drawn by the alert below; nothing else to
+        // do here, and deliberately no fallback to ordinary playback — a host
+        // who asked to broadcast has not asked to watch alone.
     }
 
     private var isFav: Bool { favorites.contains { $0.archiveID == item.archiveID } }
@@ -88,6 +103,17 @@ struct DetailView: View {
                 get: { CaptionChoiceSession.byItem[item.archiveID] },
                 set: { CaptionChoiceSession.byItem[item.archiveID] = $0 }))
                 .frame(minWidth: 460, minHeight: 340)
+        }
+        // The rights refusal. NOT a disabled menu row: a host who cannot
+        // broadcast this film is told which rule stopped them and what the
+        // rule is (WATCH-TOGETHER §5, and the same wording every platform
+        // uses via `StudioRights`).
+        .alert("This film cannot be streamed",
+               isPresented: Binding(get: { studio.refusal != nil },
+                                    set: { if !$0 { studio.refusal = nil } })) {
+            Button("OK", role: .cancel) { studio.refusal = nil }
+        } message: {
+            Text((studio.refusal ?? "") + "\n\n" + StudioRights.policy)
         }
     }
 
@@ -232,12 +258,22 @@ struct DetailView: View {
                                 Label(Callsheet.actionTitle, systemImage: Callsheet.actionIcon)
                             }
                         }
-                        // SharePlay: watch this film in sync with everyone in the
-                        // call. The Mac can also START the call (unlike tvOS,
-                        // where GroupActivitySharingController does not exist).
+                        // Watch Together is ONE name with TWO halves (the
+                        // owner's framing, docs/WATCH-TOGETHER.md §1): with
+                        // friends is SharePlay (Decision 098), with the world
+                        // is the Studio (Decision 127). A submenu rather than
+                        // two peer items, because the choice a host makes is
+                        // "who is this for", not "which feature".
                         if item.videoURLParsed != nil {
-                            Button { startWatchTogether() } label: {
-                                Label("Watch Together…", systemImage: "shareplay")
+                            Menu {
+                                Button { startWatchTogether() } label: {
+                                    Label("With Friends…", systemImage: "shareplay")
+                                }
+                                Button { startStudio() } label: {
+                                    Label("With the World…", systemImage: "dot.radiowaves.left.and.right")
+                                }
+                            } label: {
+                                Label("Watch Together", systemImage: "shareplay")
                             }
                             Divider()
                         }

@@ -56,6 +56,8 @@
 	<string>26.0</string>
 	<key>NSHumanReadableCopyright</key>
 	<string>© 2026 Ben Wilkoff. Video hosted by the Internet Archive.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Show your reactions beside the film when you stream a public-domain movie with Watch Together Studio.</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>Record a voiceover narration for your Creation Studio edits.</string>
 	<key>NSPrincipalClass</key>
