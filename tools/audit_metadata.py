@@ -86,6 +86,14 @@ def _checks():
         ("title",    "disc",      "blocker", lambda it: bool(T_DISC.search(title(it)))),
         ("title",    "numeric",   "blocker", lambda it: bool(T_NUMERIC.match(title(it)))),
         ("title",    "mojibake",  "blocker", lambda it: bool(MOJIBAKE.search(title(it)))),
+        # PROVENANCE — a synopsis that no checking API or reviewer vouches for.
+        # The 2026-09 review read every uploader description then in the
+        # catalog; a NEW archive-source synopsis without an agentReviewHash is
+        # discovery bringing in unreviewed text, and the daily report counts it.
+        ("synopsis", "unreviewed", "minor",
+         lambda it: not it.get("excluded") and bool(syn(it)) and (it.get("synopsisSource") or "archive") == "archive" and not it.get("agentReviewHash")),
+        ("synopsis", "unstamped", "minor",
+         lambda it: not it.get("excluded") and bool(syn(it)) and not it.get("synopsisSource")),
         # GAPS — missing displayed fields
         ("poster",   "missing",   "gap", lambda it: not designed(it)),
         ("synopsis", "missing",   "gap", lambda it: not syn(it)),
