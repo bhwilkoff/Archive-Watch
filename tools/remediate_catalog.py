@@ -2511,6 +2511,28 @@ def remediate(items):
             continue
 
         fp = footprint.get(it.get("archiveID")) if it.get("archiveID") in title_anchored else None
+        # A NASA short titled "Avatar" (James Cameron on Earth-observing
+        # satellites, 74 s) reverse-matched Avatar on the residue of the
+        # title match that put Sam Worthington on it — a government film is
+        # never a studio feature, so it is not anchored and the credits go.
+        if fp and set(it.get("collections") or []) & _GOV_PD_COLLECTIONS:
+            title_anchored.discard(it["archiveID"])
+            strip_unanchored_tmdb_residue(it)
+            stats["anchor_refused_gov"] += 1
+            fp = None
+        # An item far shorter than the feature it is anchored to is an EXCERPT
+        # of that feature (Close Encounters' "Mothership Scene", 35 min of a
+        # 138-min film) — the credits are right and the footprint travels, but
+        # the type says what the file is, which is what the promo rule reads.
+        rt = it.get("runtimeSeconds")
+        try:
+            rt = int(rt)
+        except (TypeError, ValueError):
+            rt = None
+        if (fp and isinstance(fp.get("runtime"), int) and fp["runtime"] >= 60 and rt
+                and rt < fp["runtime"] * 60 * 0.5 and ct in ("feature-film", "short-film", "silent-film")):
+            it["contentType"] = "excerpt"
+            stats["anchor_excerpt_typed"] += 1
         if fp and isinstance(fp.get("imdbVotes"), int) and not isinstance(it.get("imdbVotes"), int):
             it["imdbVotes"] = fp["imdbVotes"]
             it["footprintSource"] = "cast-anchored"

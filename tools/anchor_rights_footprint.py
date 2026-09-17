@@ -98,7 +98,8 @@ def main() -> int:
         print("[footprint] need TMDB_BEARER_TOKEN and OMDB_KEY (env or Secrets.xcconfig)", file=sys.stderr)
         return 1
 
-    todo = {aid: tid for aid, tid in anchors(cat["items"]).items() if aid not in have}
+    todo = {aid: tid for aid, tid in anchors(cat["items"]).items()
+            if aid not in have or "runtime" not in have[aid]}
     if args.limit:
         todo = dict(list(todo.items())[: args.limit])
     print(f"[footprint] {len(have)} known, {len(todo)} to fetch")
@@ -114,7 +115,7 @@ def main() -> int:
             imdb = d.get("imdb_id") or None
             rec = {"tmdbID": int(tid), "imdbID": imdb, "title": d.get("title"),
                    "year": int(d["release_date"][:4]) if (d.get("release_date") or "")[:4].isdigit() else None,
-                   "tmdbVotes": d.get("vote_count")}
+                   "tmdbVotes": d.get("vote_count"), "runtime": d.get("runtime")}
             if imdb:
                 o = omdb.get(imdb)
                 if not o:
