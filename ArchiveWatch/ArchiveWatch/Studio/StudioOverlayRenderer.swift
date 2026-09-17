@@ -42,6 +42,12 @@ final class StudioOverlayRenderer: @unchecked Sendable {
     /// The region the last rasterisation actually drew into, so the composite
     /// blends only that.
     private var contentRect: CGRect = .zero
+    /// Chat is cached separately: it changes every few seconds while the lower
+    /// third does not, and one key for both would re-lay the film's title on
+    /// every message.
+    private var cachedChat: CIImage?
+    private var cachedChatKey: String = ""
+
     private let lock = NSLock()
 
     /// Brand colours (CLAUDE.md shared design system). The program is
@@ -84,6 +90,100 @@ final class StudioOverlayRenderer: @unchecked Sendable {
         }
         guard o.showLowerThird, !o.title.isEmpty else { return "" }
         return "l3:\(o.title)|\(o.subtitle)|\(o.provenance)"
+    }
+
+    // MARK: Chat
+
+    /// The chat column, newest at the BOTTOM — the direction every chat client
+    /// scrolls, so a viewer's eye already knows where the new line appears.
+    /// Each line carries its OWN pill rather than sitting on a column-wide
+    /// panel: a panel is furniture the audience has to look past, and a pill
+    /// only darkens the film where there are words.
+    func chatImage(for overlay: StudioOverlay, in rect: CGRect) -> CIImage? {
+        let key = "chat:\(Int(rect.minX)),\(Int(rect.width))|"
+            + overlay.chat.map { "\($0.id):\($0.isEvent ? 1 : 0)" }.joined(separator: ",")
+        lock.lock()
+        if key == cachedChatKey, let cachedChat { lock.unlock(); return cachedChat }
+        lock.unlock()
+        let img = rasteriseChat(overlay.chat, in: rect)
+        lock.lock(); cachedChatKey = key; cachedChat = img; lock.unlock()
+        return img
+    }
+
+    private func rasteriseChat(_ lines: [StudioOverlay.ChatLine], in rect: CGRect) -> CIImage? {
+        guard let ctx = context() else { return nil }
+        ctx.clear(CGRect(origin: .zero, size: size))
+
+        let authorFont = font(21, weight: 0.4)
+        let textFont = font(21, weight: 0.0)
+        let pad = 12 * scale
+        let gap = 7 * scale
+        let maxTextWidth = rect.width - pad * 2
+
+        // Lay out from the BOTTOM up and stop when the column is full: the
+        // newest message is the one that must always be visible, so the oldest
+        // is what falls off — not the newest, which is what a top-down layout
+        // with a height clamp would silently do.
+        var y = rect.minY
+        var drawn = 0
+        for line in lines.reversed() {
+            let author = self.line(line.author + "  ", font: authorFont,
+                                   color: line.isEvent ? Self.marqueeOrange
+                                                       : CGColor(red: 0.45, green: 0.62, blue: 1, alpha: 1))
+            let wrapped = wrap(line.text, font: textFont, maxWidth: maxTextWidth - width(author),
+                               firstIndent: width(author))
+            let lineH = 26 * scale
+            let blockH = CGFloat(wrapped.count) * lineH + pad * 1.4
+            if y + blockH > rect.maxY { break }
+
+            let widest = max(width(author) + (wrapped.first.map { width($0) } ?? 0),
+                             wrapped.dropFirst().map { width($0) }.max() ?? 0)
+            let pill = CGRect(x: rect.minX, y: y,
+                              width: min(rect.width, widest + pad * 2), height: blockH)
+            ctx.setFillColor(CGColor(gray: 0, alpha: line.isEvent ? 0.80 : 0.68))
+            ctx.addPath(CGPath(roundedRect: pill, cornerWidth: 8 * scale,
+                               cornerHeight: 8 * scale, transform: nil))
+            ctx.fillPath()
+
+            // Bottom-up inside the pill too, so the wrapped lines read in order.
+            var ty = y + pad * 0.7
+            for (i, seg) in wrapped.enumerated().reversed() {
+                let x = rect.minX + pad + (i == 0 ? width(author) : 0)
+                draw(seg, at: CGPoint(x: x, y: ty), in: ctx)
+                if i == 0 { draw(author, at: CGPoint(x: rect.minX + pad, y: ty), in: ctx) }
+                ty += lineH
+            }
+            y += blockH + gap
+            drawn += 1
+        }
+        guard drawn > 0, let cg = ctx.makeImage() else { return nil }
+        let used = CGRect(x: rect.minX, y: rect.minY, width: rect.width, height: y - rect.minY)
+        return CIImage(cgImage: cg).cropped(to: used.integral)
+    }
+
+    /// Word wrap by measurement, because a character count is not a width —
+    /// and this catalog's audience writes in more than one script.
+    private func wrap(_ text: String, font: CTFont, maxWidth: CGFloat,
+                      firstIndent: CGFloat) -> [CTLine] {
+        var out: [CTLine] = []
+        var current = ""
+        var budget = max(20 * scale, maxWidth)
+        for word in text.split(separator: " ", omittingEmptySubsequences: false) {
+            let candidate = current.isEmpty ? String(word) : current + " " + word
+            if width(self.line(candidate, font: font, color: Self.paper)) <= budget {
+                current = candidate
+            } else {
+                if !current.isEmpty { out.append(self.line(current, font: font, color: Self.paper)) }
+                current = String(word)
+                // Only the FIRST line is indented by the author's name.
+                budget = max(20 * scale, maxWidth + firstIndent)
+            }
+            if out.count >= 5 { break }      // one message never owns the column
+        }
+        if !current.isEmpty, out.count < 5 {
+            out.append(self.line(current, font: font, color: Self.paper))
+        }
+        return out.isEmpty ? [self.line(text, font: font, color: Self.paper)] : out
     }
 
     // MARK: Rasterising

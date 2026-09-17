@@ -759,6 +759,41 @@ go-live sheet's YouTube and Twitch paths surface that sentence.
 **Owner action, and it is the last one.** Everything upstream of the token is
 verified on real hardware.
 
+### Chat in the program (2026-09-17)
+
+The audience, on screen — §2.2's participation test made literal. Chat is
+composited **into the program**, so every viewer sees the conversation, not
+just the host. Rendered over the worst-case stand-in film with deliberately
+awkward fixtures: a message longer than the column, a platform event, a
+Japanese line, an emoji-only line, and a display name longer than its message
+(`build/qa/studio-overlay/chat-*.png`).
+
+Design choices, each for a reason:
+
+- **A pill per message, not a column panel.** A panel is furniture the
+  audience must look past; a pill darkens the film only where there are words.
+- **Newest at the bottom**, the direction every chat client scrolls, so a
+  viewer's eye already knows where a new line appears.
+- **Laid out from the bottom up, stopping when the column is full**, so the
+  OLDEST message falls off. A top-down layout with a height clamp silently
+  drops the newest — which is the only one that must always be visible.
+- **Wrapped by measurement, not character count.** This audience writes in
+  more than one script, and a character budget is not a width.
+- **Events get the marquee colour**, not a badge we would have to fetch.
+- **A separate cache from the lower third.** Chat changes every few seconds
+  and the film's title does not; one key for both would re-lay the title on
+  every message.
+
+**The bug this caught:** in the `side` layout the chat column ran straight
+through the host's face. The camera is vertically centred in the right column,
+so its BOTTOM is `(height − ch) / 2` — and I had used `(height + ch) / 2`, its
+top. In Core Image's coordinate system y grows upward, which is exactly where
+that sign error hides. Every other layout was fine, which is how it would have
+shipped.
+
+**Cost** (Mac, 1920×1080@30): render mean **4.63 → 5.41 ms**, so the chat
+layer is **0.78 ms** — a second cropped composite, not a second full frame.
+
 ### Still to measure (Phase 0 remainder)
 
 - The camera tile's and microphone's cost on device — **blocked on a one-time

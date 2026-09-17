@@ -114,6 +114,15 @@ struct Measure {
             o.title = "The General"
             o.subtitle = "1926 · Buster Keaton, Clyde Bruckman"
             o.provenance = "Public domain since 1954"
+            // Chat too: it is a SECOND cached layer, and the question is what
+            // its per-frame composite costs on top of the lower third's.
+            if env("AW_NO_CHAT") != "1" {
+                o.chat = (1...6).map {
+                    .init(id: "\($0)", author: "viewer\($0)",
+                          text: "this is a chat message of a fairly ordinary length",
+                          isEvent: $0 == 3)
+                }
+            }
             await engine.setOverlay(o)
         }
 

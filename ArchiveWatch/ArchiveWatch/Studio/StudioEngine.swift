@@ -40,6 +40,40 @@ public enum StudioLayout: String, CaseIterable, Sendable {
     public var showsFilm: Bool { true }
     public var showsCamera: Bool { self != .film }
 
+    /// Where the chat column sits, or nil when this layout has no room.
+    ///
+    /// LEFT by default, stopping above the lower third. In `side` the film
+    /// occupies the left two thirds, so chat moves to the right column UNDER
+    /// the camera — the same lesson the camera tiles taught: a layout decides
+    /// where things can go, and assuming one position for all five is how
+    /// `theatre` ended up drawing over the lower third.
+    public func chatRect(in size: CGSize, cameraAspect: CGFloat) -> CGRect? {
+        let inset = size.width * 0.05
+        switch self {
+        case .film, .corner, .theatre, .host:
+            let w = size.width * 0.26
+            // Above the lower third's stack and its scrim.
+            let bottom = size.height * 0.30
+            return CGRect(x: inset, y: bottom,
+                          width: w, height: size.height * 0.52)
+        case .side:
+            let fw = (size.width * 2 / 3).rounded()
+            let cw = size.width - fw
+            let ch = cw / max(cameraAspect, 0.1)
+            // The camera is vertically CENTRED in the right column, so its
+            // BOTTOM is (height − ch) / 2. Using (height + ch) / 2 — its top —
+            // ran the chat column straight through the host's face (seen on
+            // the glass, 2026-09-17). In CI coordinates y grows upward, which
+            // is exactly where that sign error hides.
+            let cameraBottom = (size.height - ch) / 2
+            let top = cameraBottom - inset * 0.4
+            let bottom = size.height * 0.10
+            guard top - bottom > size.height * 0.18 else { return nil }
+            return CGRect(x: fw + inset * 0.4, y: bottom,
+                          width: cw - inset * 0.8, height: top - bottom)
+        }
+    }
+
     /// In `host` the CAMERA is the ground and the film is the inset tile, so
     /// the two must be drawn in the opposite order. Drawing film-then-camera
     /// unconditionally painted the full-frame camera straight over the film
@@ -100,6 +134,25 @@ public struct StudioOverlay: Sendable, Equatable {
     public var showLowerThird: Bool = true
     /// A full-frame card replaces the program (pre-roll / intermission / end).
     public var card: Card? = nil
+    /// The audience, on screen. This is §2.2's participation test made
+    /// literal: the host authors the show and the people watching answer, and
+    /// the answer is IN the program so every viewer sees the conversation —
+    /// which is what a watch-along actually is.
+    public var chat: [ChatLine] = []
+    public var showChat: Bool = true
+
+    public struct ChatLine: Sendable, Equatable, Identifiable {
+        public var id: String
+        public var author: String
+        public var text: String
+        /// A follow, subscription or raid — the platform's own event, given
+        /// the marquee colour rather than a badge we would have to fetch.
+        public var isEvent: Bool
+
+        public init(id: String, author: String, text: String, isEvent: Bool = false) {
+            self.id = id; self.author = author; self.text = text; self.isEvent = isEvent
+        }
+    }
 
     public enum Card: Sendable, Equatable {
         case startingSoon(secondsRemaining: Int)
@@ -504,6 +557,15 @@ final class ProgramRenderer: @unchecked Sendable {
             return fill(CIImage(cvPixelBuffer: camera), into: cameraRect).composited(over: base)
         }
         image = layout.cameraIsBackground ? drawFilm(drawCamera(image)) : drawCamera(drawFilm(image))
+        // Chat under the lower third, so a long message can never obscure the
+        // film's own title. A SEPARATE cached layer: chat changes every few
+        // seconds and the lower third does not, and one cache key for both
+        // would re-rasterise the type on every message.
+        if overlay.showChat, !overlay.chat.isEmpty,
+           let rect = layout.chatRect(in: size, cameraAspect: cameraAspect),
+           let chat = overlayRenderer.chatImage(for: overlay, in: rect) {
+            image = chat.composited(over: image)
+        }
         // The lower third sits ON TOP of both, and is a cached bitmap — the
         // text is laid out only when its content changes, never per frame.
         if let l3 = overlayRenderer.image(for: overlay) {

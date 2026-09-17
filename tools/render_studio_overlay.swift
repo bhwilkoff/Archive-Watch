@@ -148,6 +148,31 @@ struct RenderOverlay {
             write(renderer.render(film: film, camera: nil), to: "card-\(name).png")
         }
 
+        // CHAT, with the awkward cases on purpose: a message longer than the
+        // column, a platform event, scripts that are not Latin, an emoji, and
+        // a one-word line. A chat renderer that only handles "nice lol" is a
+        // renderer that breaks the first time a real audience turns up.
+        var chatty = o
+        chatty.chat = [
+            .init(id: "1", author: "mothra_fan", text: "here for the train"),
+            .init(id: "2", author: "silentera", text: "this is the best chase sequence ever committed to film and nobody can convince me otherwise"),
+            .init(id: "3", author: "Twitch", text: "kinomaniac just subscribed!", isEvent: true),
+            .init(id: "4", author: "河内さん", text: "キートンは天才だ"),
+            .init(id: "5", author: "spool", text: "🚂🚂🚂"),
+            .init(id: "6", author: "a_very_long_display_name_indeed", text: "hi"),
+        ]
+        for layout in StudioLayout.allCases {
+            renderer.layout = layout
+            renderer.overlay = chatty
+            write(renderer.render(film: film, camera: camera), to: "chat-\(layout.rawValue).png")
+        }
+        // And the empty case, which must leave the film completely alone.
+        var noChat = chatty
+        noChat.chat = []
+        renderer.layout = .corner
+        renderer.overlay = noChat
+        write(renderer.render(film: film, camera: camera), to: "chat-empty.png")
+
         print("\nWrote to \(outDir) — look at them.")
     }
 }
