@@ -1,10 +1,10 @@
 {
   "schema": 1,
-  "updated_at": "2026-09-16T09:10:45Z",
+  "updated_at": "2026-09-17T09:19:00Z",
   "description": "Missing-episode queue: canonical episodes (from OMDb) that we don't yet have on Archive. Drained by tools/backfill_tv_episodes.py.",
   "stats": {
-    "total": 18155,
-    "wanted": 17932,
+    "total": 18160,
+    "wanted": 17937,
     "fulfilled": 223,
     "series_with_gaps": 360
   },
@@ -4239,6 +4239,16 @@
       "seriesID": "alfred-hitchcock-presents-1955",
       "seriesTitle": "Alfred Hitchcock Presents",
       "season": 3,
+      "episode": 7,
+      "title": "Enough Rope for Two",
+      "episodeImdbID": "tt0508157",
+      "status": "wanted",
+      "added_at": "2026-09-17T09:19:00Z"
+    },
+    {
+      "seriesID": "alfred-hitchcock-presents-1955",
+      "seriesTitle": "Alfred Hitchcock Presents",
+      "season": 3,
       "episode": 8,
       "title": "Last Request",
       "episodeImdbID": "tt0508316",
@@ -4574,6 +4584,16 @@
       "episodeImdbID": "tt0508239",
       "status": "wanted",
       "added_at": "2026-09-10T08:37:46Z"
+    },
+    {
+      "seriesID": "alfred-hitchcock-presents-1955",
+      "seriesTitle": "Alfred Hitchcock Presents",
+      "season": 4,
+      "episode": 9,
+      "title": "Murder Me Twice",
+      "episodeImdbID": "tt0508209",
+      "status": "wanted",
+      "added_at": "2026-09-17T09:19:00Z"
     },
     {
       "seriesID": "alfred-hitchcock-presents-1955",
@@ -5589,6 +5609,16 @@
       "seriesID": "alfred-hitchcock-presents-1955",
       "seriesTitle": "Alfred Hitchcock Presents",
       "season": 7,
+      "episode": 16,
+      "title": "The Case of M.J.H.",
+      "episodeImdbID": "tt0508267",
+      "status": "wanted",
+      "added_at": "2026-09-17T09:19:00Z"
+    },
+    {
+      "seriesID": "alfred-hitchcock-presents-1955",
+      "seriesTitle": "Alfred Hitchcock Presents",
+      "season": 7,
       "episode": 17,
       "title": "The Faith of Aaron Menefee",
       "episodeImdbID": "tt0508291",
@@ -5624,6 +5654,16 @@
       "episodeImdbID": "tt0508136",
       "status": "wanted",
       "added_at": "2026-06-05T16:31:07Z"
+    },
+    {
+      "seriesID": "alfred-hitchcock-presents-1955",
+      "seriesTitle": "Alfred Hitchcock Presents",
+      "season": 7,
+      "episode": 22,
+      "title": "The Big Score",
+      "episodeImdbID": "tt0508263",
+      "status": "wanted",
+      "added_at": "2026-09-17T09:19:00Z"
     },
     {
       "seriesID": "alfred-hitchcock-presents-1955",
@@ -28077,6 +28117,16 @@
       "episodeImdbID": "tt0552341",
       "status": "wanted",
       "added_at": "2026-06-03T23:58:16Z"
+    },
+    {
+      "seriesID": "dad-s-army-1968",
+      "seriesTitle": "Dad's Army",
+      "season": 3,
+      "episode": 1,
+      "title": "The Armoured Might of Lance Corporal Jones",
+      "episodeImdbID": "tt0552315",
+      "status": "wanted",
+      "added_at": "2026-09-17T09:19:00Z"
     },
     {
       "seriesID": "dad-s-army-1968",
