@@ -1939,26 +1939,48 @@ def _audited_clean(it):
 def _title_case(t):
     """str.title() capitalizes after an apostrophe ("You'Re Fired",
     "Mabel'S Strategem"); a word owns its apostrophe."""
-    return re.sub(r"[A-Za-z]+(?:'[A-Za-z]+)*", lambda m: m.group(0).capitalize(), t)
+    small = {"a", "an", "and", "as", "at", "but", "by", "for", "from", "in", "into", "nor",
+             "of", "on", "or", "the", "to", "vs", "with"}          # "East of Borneo", not "East Of Borneo"
+    words = re.split(r"(\s+)", t)
+    out = []
+    for i, w in enumerate(words):
+        cw = re.sub(r"[A-Za-z]+(?:'[A-Za-z]+)*", lambda m: m.group(0).capitalize(), w)
+        if i not in (0, len(words) - 1) and cw.lower() in small:
+            cw = cw.lower()
+        out.append(cw)
+    return "".join(out)
 
 
 # An apostrophe-cased title that already shipped: "Mabel'S", "You'Re", "I'Ll".
 _APOS_CASED = re.compile(r"(?<=[a-z])'(S|T|Re|Ll|Ve|D|M)\b")   # never inside an ALL-CAPS word
 
 
+_WRAPPED_QUOTES = re.compile(r"^\s*(?:\"|''|'|“|‘)\s*(.+?)\s*(?:\"|''|'|”|’)\s*$")
+
+
 def sanitize_title(it):
     raw = (it.get("title") or "").strip()
     if not raw or it.get("titleSource") == "agent-reviewed":   # the corrections table has the last word
         return False
+    orig = raw
+    # An uploader who QUOTES the whole name ('"Intolerance"', "''The Bing
+    # Crosby Show''", '" Girl To Woman "') — 60 visible. Only a wrap: a title
+    # with quotes inside ('"Ten Pretty Girls" and "I\'ll Make You Mine"') keeps them.
+    m = _WRAPPED_QUOTES.match(raw)
+    if m and not re.search(r"[\"“”]|''", m.group(1)):
+        raw = m.group(1).strip()
+        it["title"] = raw
     # UNIFIED TITLE RESOLUTION (Decision 046): a matched film's title should BE its authoritative
     # canonical title, not a regex-cleaned uploader string — adopt it when it's a clean version of
     # the uploader title (guarded), else fall through to the cleaning chain below for unmatched films.
     canon = _canonical_clean(it) or _audited_clean(it)
     if canon:
-        if canon != raw:
+        if canon.isupper() and len(canon.split()) > 1:    # an audited title typed in caps ("EAST OF BORNEO")
+            canon = _title_case(canon)
+        if canon != (it.get("title") or ""):
             it["title"] = canon
             return True
-        return False
+        return raw != orig
     # A QID / bare-imdb-id title is never real — derive a slug from the archiveID (match_unmatched
     # may later upgrade it to a canonical title; until then a readable slug beats "Q3992547").
     if _RAW_ID_TITLE.match(raw):
