@@ -364,9 +364,12 @@ def strip_cleared_match_residue(item):
     if item.get("posterURL") and (item.get("artworkSource") or "") not in _MATCH_ART:
         keep = (item.get("posterURL"), item.get("artworkSource"),
                 item.get("hasRealArtwork"))
+    fp = (item.get("imdbVotes"), item.get("anchorImdbID")) if item.get("footprintSource") == "cast-anchored" else None
     _clear_wrong_artwork(item, None)
     if keep:
         item["posterURL"], item["artworkSource"], item["hasRealArtwork"] = keep
+    if fp:                      # the anchor's footprint is not the cleared match's residue
+        item["imdbVotes"], item["anchorImdbID"] = fp
     return True
 
 
@@ -2499,7 +2502,12 @@ def cast_residue_fixes(items, stats):
     for it in items:
         # A Wikidata QID is an identity, not a source of cast — so a
         # Wikidata-only item still has residue to judge (and a year to adopt).
-        if (it.get("excluded") or not it.get("cast")
+        # An EXCLUDED item is judged too: the renewal-zone hide that the
+        # anchor's footprint earned (Eraserhead, Suspiria, 2026-09-17) made
+        # the item excluded, the next build skipped it here, the residue
+        # strip took its cast and votes, and the reconcile un-hid it — 49 in
+        # one build. Visibility is not evidence.
+        if (not it.get("cast")
                 or any(it.get(k) for k in ("imdbID", "tmdbID", "tvmazeID", "tvdbID"))):
             continue
         votes, name_votes = Counter(), Counter()
@@ -2602,6 +2610,32 @@ def _load_title_corrections():
     return json.loads(p.read_text())
 
 
+def restore_footprint_cast(items, stats):
+    """A footprinted film whose cast was stripped (the excluded-skip above,
+    one build on 2026-09-17) gets it back from the cast cache — the same
+    rows the anchor was built from — so the anchor and the votes hold."""
+    fp = _load_anchor_footprint()
+    if not fp:
+        return
+    p = REPO / "shared/editorial/tmdb_cast_cache.json"
+    try:
+        cc = json.loads(p.read_text()); cc = cc.get("entries", cc)
+    except Exception:
+        return
+    for it in items:
+        rec = fp.get(it.get("archiveID"))
+        if not rec or it.get("cast") or not rec.get("tmdbID"):
+            continue
+        if any(it.get(k) for k in ("imdbID", "tmdbID", "tvmazeID", "tvdbID")):
+            continue
+        rows = cc.get(str(rec["tmdbID"])) or {}
+        if len(rows) < 3:
+            continue
+        it["cast"] = [{"name": n.title() if n == n.lower() else n, "character": (v or {}).get("c"),
+                       "order": i, "profilePath": (v or {}).get("p")} for i, (n, v) in enumerate(rows.items())][:12]
+        stats["footprint_cast_restored"] += 1
+
+
 def _load_anchor_footprint():
     p = REPO / "shared/editorial/anchor_footprint.json"
     if not p.exists():
@@ -2619,6 +2653,7 @@ def remediate(items):
             if it.get("yearSource") and not isinstance(it.get("year"), int):
                 it.pop("yearSource", None)
     sibling_anchored_fixes(items, stats)
+    restore_footprint_cast(items, stats)
     title_anchored = cast_residue_fixes(items, stats)
     # Years judged by hand during the 2026-09 metadata review (the uploader's
     # own naming was wrong: "1943 Buckskin Frontier" dated 2010, Flash Gordon
