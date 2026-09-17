@@ -208,4 +208,47 @@ Recording: the same encoded stream is written to an `.mp4` locally while live
 
 ## §9 — Measurements (filled in as they are taken)
 
-*(empty — Phase 0)*
+### RTMP publisher, against mediamtx v1.21.0 + ffprobe 7.1.1 (2026-09-17, Mac)
+
+`tools/test_rtmp_publish.swift` — synthetic 640x360@30 H.264 (VideoToolbox) +
+44.1 kHz mono AAC (AudioConverter), 121 video / 120 audio frames:
+
+```
+OK: publish handshake accepted by mediamtx
+  120/120 frames — sent 120v/119a, 41375 bytes, dropped 0
+… publisher: publishing, 121v/120a, 42353 bytes, dropped 0
+  video: h264 640x360 @ 30/1
+  audio: aac 44100 Hz
+OK: dead destination refused — Connection refused (NWError 61)
+PASS
+```
+
+mediamtx's own log reads `stream is available and online, 2 tracks (H264,
+MPEG-4 Audio)` — the handshake, the AMF0 `connect`/`createStream`/`publish`,
+the `onMetaData` frame, the AVC/AAC sequence headers and the FLV tags are all
+accepted by an independent server, and an independent demuxer reads the
+recording back with the right shape. Nothing about the real destinations is
+proven by this; it proves the transport.
+
+**Two findings worth keeping.**
+
+1. *The first failure was the harness, not the protocol.* mediamtx reset the
+   connection (`NWError 54`) after ~41 of 121 frames, which reads exactly like
+   a malformed stream. It was a data race: VideoToolbox calls back on its own
+   thread and the harness appended to an unlocked `[CMSampleBuffer]` the actor
+   drained from. A publisher bug and a harness bug present the same symptom —
+   the server hanging up — so the instrument gets the lock before the protocol
+   gets the blame.
+2. *A late-joining live RTMP reader cannot be the assertion.* Probing
+   `rtmp://…` while publishing returned `h264 0x0`: the AVC sequence header is
+   sent once, at the start, and VideoToolbox does not repeat SPS/PPS in band,
+   so a reader that arrives later has no dimensions to find. The test asserts
+   against mediamtx's **recording** instead, which is the bytes the server
+   actually accepted, and is not a race. (A real destination replays the
+   sequence header to its own viewers; that is the platform's job, not ours.)
+
+### Still to measure (Phase 0 remainder)
+
+- Decode + composite + encode headroom at 1080p30 on the iPhone 12 (oldest
+  supported) and the Apple TV 4K 2nd gen (`atv-fireplace`).
+- A ten-minute soak: dropped-frame growth and thermal state (§8.3).
