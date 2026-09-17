@@ -36,7 +36,12 @@ _INAPPROPRIATE = re.compile(
 # Spam: links + promo CTAs.
 _SPAM = re.compile(
     r"(https?://|www\.|\.com\b|\.net\b|\.ru\b|click here|buy now|"
-    r"subscribe|promo code|for more cool finds|check out my|visit my)", re.I)
+    r"subscribe|promo code|for more cool finds|check out my|visit my"
+    # A personal message left as a review — "Please get in touch with me if
+    # you ever read this. E-Mail: moana1atcomcastdotnet" stood on a Roku
+    # Detail page as a review of a Betty Boop cartoon (2026-09-17).
+    r"|\be-?mail\s*:|\bemail me\b|\bget in touch with me\b|\bcontact me\b|\breach me at\b"
+    r"|\b\w+\s?(?:at|@)\s?\w+\s?dot\s?(?:com|net|org)\b)", re.I)
 # Mild self-promo (penalise, don't reject).
 _SELF_PROMO = re.compile(r"(click on my name|see my other|my channel|my profile)", re.I)
 
@@ -80,6 +85,11 @@ _FILE_SIGNALS = [
 # The signals added on 2026-09-17 alone — used to RE-JUDGE reviews that a
 # looser harvest-time filter kept, without re-litigating that judgement.
 _FILE_SIGNALS_2026_09 = _FILE_SIGNALS[-5:]
+
+
+def not_a_review(review: dict) -> bool:
+    """Spam, contact requests, abuse — anything score_review rejects outright."""
+    return score_review(review)[1] in ("spam", "inappropriate")
 
 
 def file_complaint(review: dict) -> bool:

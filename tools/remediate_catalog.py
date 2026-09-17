@@ -2136,7 +2136,8 @@ def refilter_reviews(items, stats):
         if not isinstance(rv, list) or not rv:
             continue
         kept = [r for r in rv if not isinstance(r, dict)
-                or not _comment_fit.file_complaint({"reviewtitle": r.get("title") or "", "reviewbody": r.get("body") or ""})]
+                or not (_comment_fit.file_complaint({"reviewtitle": r.get("title") or "", "reviewbody": r.get("body") or ""})
+                        or _comment_fit.not_a_review({"reviewtitle": r.get("title") or "", "reviewbody": r.get("body") or ""}))]
         if len(kept) != len(rv):
             stats["reviews_refiltered"] += len(rv) - len(kept)
             it["reviews"] = kept
