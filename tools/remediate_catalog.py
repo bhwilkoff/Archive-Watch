@@ -386,6 +386,7 @@ _DIR_INVERTED = re.compile(r"^\s*([A-Z][\w'\-]+),\s+([A-Z][\w'\-\.]+(?:\s+[A-Z]\
 
 
 _HANDLE = re.compile(r"^[A-Za-z0-9_.\-]+$")   # "TheHalRoachCoach": an uploader, not a producer
+_CREDIT_PLACEHOLDER = re.compile(r"^\s*(unknown|unk|n/?a|none|nil|various|anonymous|tbd|uncredited|no director|not (known|listed|credited))\s*\.?\s*$", re.I)
 
 
 def normalize_director(item):
@@ -399,6 +400,12 @@ def normalize_director(item):
         if m:
             v = f"{m.group(2)} {m.group(1)}"
         if field == "producer" and _HANDLE.match(v) and re.search(r"[a-z][A-Z]|\d|_", v):
+            v = None
+        # "Unknown", "n/a", "Uncredited": a placeholder is not a credit; a
+        # parenthesised "(uncredited)" after a real name is a note, dropped.
+        if v is not None:
+            v = re.sub(r"\s*\((?:un)?credited\)\s*$", "", v, flags=re.I).strip() or None
+        if v is not None and _CREDIT_PLACEHOLDER.match(v):
             v = None
         if v != d:
             item[field] = v
@@ -2469,6 +2476,13 @@ def _load_year_corrections():
     return {k: int(v) for k, v in json.loads(p.read_text()).items()}
 
 
+def _load_anchor_footprint():
+    p = REPO / "shared/editorial/anchor_footprint.json"
+    if not p.exists():
+        return {}
+    return json.loads(p.read_text())
+
+
 def remediate(items):
     stats = Counter()
     # A later rule can null a year this pass filled (e.g. the B&W-vs-modern
@@ -2484,10 +2498,24 @@ def remediate(items):
     # own naming was wrong: "1943 Buckskin Frontier" dated 2010, Flash Gordon
     # 1936 dated 1969). The table is the record; every build re-applies it.
     year_fixes = _load_year_corrections()
+    # A cast anchor proves the film's IDENTITY, and the identity carries a
+    # commercial footprint the rights audit already knows how to judge:
+    # Eraserhead, Suspiria and A Bridge Too Far were visible with
+    # `rightsAudit: None` because no id meant no `imdbVotes`. The table is
+    # written by tools/anchor_rights_footprint.py (TMDb -> OMDb, run locally);
+    # the id fields stay cleared (Decision 125), only the votes ride along.
+    footprint = _load_anchor_footprint()
     for it in items:
         ct = it.get("contentType")
         if ct == "tv-series" or ct not in MOVIE_TYPES:
             continue
+
+        fp = footprint.get(it.get("archiveID")) if it.get("archiveID") in title_anchored else None
+        if fp and isinstance(fp.get("imdbVotes"), int) and not isinstance(it.get("imdbVotes"), int):
+            it["imdbVotes"] = fp["imdbVotes"]
+            it["footprintSource"] = "cast-anchored"
+            it["anchorImdbID"] = fp.get("imdbID")
+            stats["footprint_from_cast_anchor"] += 1
 
         fy = year_fixes.get(it.get("archiveID"))
         if fy and it.get("year") != fy:
@@ -2580,6 +2608,15 @@ def remediate(items):
             it["hasRealArtwork"] = False
             it["artworkSource"] = "archive"
             stats["pd_anim_poster_cleared"] += 1
+        # ...nor a single film's identity: nine year-reels carried TMDb ids
+        # whose credits were Chinese generals (聂荣臻, 杨成武) and Mao Zedong.
+        # With the ids gone the residue strip below removes those credits.
+        if _PD_ANIM_ANY.search(it.get("archiveID") or "") and (it.get("tmdbID") or it.get("imdbID")):
+            it["tmdbID"] = None
+            it["imdbID"] = None
+            it["matchVerdict"] = "cleared_pd_anim_compilation"
+            it["matchVerified"] = True
+            stats["pd_anim_match_cleared"] += 1
 
         # 0b) WRONG EXTERNAL MATCH (#3/#4): a modern TMDb/OMDb poster+year on a
         # vintage title. Clear the bad artwork + fix the year before anything
