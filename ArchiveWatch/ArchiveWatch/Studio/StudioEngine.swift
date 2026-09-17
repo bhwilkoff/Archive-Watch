@@ -112,6 +112,7 @@ public struct StudioHealth: Sendable, Equatable {
     public var filmFramesPulled = 0
     public var thermalState: String = "nominal"
     public var publisher = RTMPHealth()
+    public var audio = StudioAudioHealth()
 }
 
 // MARK: - Engine
@@ -144,11 +145,23 @@ public actor StudioEngine {
     private var renderTimeTotal: Double = 0
     private var lastFilmFrame: CVPixelBuffer?
     private var publishing = false
+    private let mixer: StudioAudioMixer
+    private var audioAttached = false
 
     public init(configuration: Configuration = Configuration(), publisher: RTMPPublisher = RTMPPublisher()) {
         self.config = configuration
         self.publisher = publisher
         self.renderer = ProgramRenderer(size: CGSize(width: configuration.width, height: configuration.height))
+        self.mixer = StudioAudioMixer(sampleRate: configuration.audioSampleRate)
+    }
+
+    /// The §4 faders. Set at any time, including while live.
+    public func setAudio(filmGain: Float? = nil, micGain: Float? = nil,
+                         filmMuted: Bool? = nil, micMuted: Bool? = nil) {
+        if let filmGain { mixer.filmGain = filmGain }
+        if let micGain { mixer.micGain = micGain }
+        if let filmMuted { mixer.filmMuted = filmMuted }
+        if let micMuted { mixer.micMuted = micMuted }
     }
 
     public func setLayout(_ l: StudioLayout) { layout = l; renderer.layout = l }
@@ -167,7 +180,16 @@ public actor StudioEngine {
         let out = AVPlayerItemVideoOutput(outputSettings: nil)
         player.currentItem?.add(out)
         filmOutput = out
+        // The film's audio, tapped off the mix it is already decoding. A film
+        // with no audio track is a REAL case in this catalog (silent cinema),
+        // so a false return is recorded, never treated as a failure.
+        if let item = player.currentItem {
+            audioAttached = mixer.film.attach(to: item)
+        }
     }
+
+    /// True when the film actually had an audio track to tap.
+    public var filmHasAudio: Bool { audioAttached }
 
     /// Why the film is not arriving, for the diagnostic line. Cheap enough to
     /// read once a second and the only way to tell "the player is not playing"
@@ -190,6 +212,12 @@ public actor StudioEngine {
     /// against its own session and hands only the tap across.
     public func attachCamera(tap: CameraFrameTap) {
         cameraTap = tap
+    }
+
+    /// Attaches the host's microphone from the platform's capture session.
+    /// Built outside the actor for the same reason the camera tap is.
+    public func attachMicrophone(session: AVCaptureSession) -> Bool {
+        mixer.mic.attach(to: session)
     }
 
     /// Starts encoding and publishing. `destination` is an rtmp(s):// URL
@@ -221,7 +249,7 @@ public actor StudioEngine {
             videoBitrate: config.videoBitrate, avcC: avcC,
             audioSampleRate: config.audioSampleRate, audioChannels: 2,
             audioBitrate: config.audioBitrate,
-            audioSpecificConfig: Self.audioSpecificConfig(sampleRate: config.audioSampleRate, channels: 2))
+            audioSpecificConfig: mixer.audioSpecificConfig)
         streamConfig.frameRate = Double(config.frameRate)
 
         if let destination {
@@ -238,6 +266,15 @@ public actor StudioEngine {
             Task { await self.publish(video: frame) }
         }
 
+        // Audio starts with video so the two clocks share an origin; the
+        // publisher's first timestamp is whichever arrives first and both are
+        // measured from here.
+        mixer.onFrame = { [weak self] data, pts in
+            guard let self else { return }
+            Task { await self.publish(audio: data, at: pts) }
+        }
+        mixer.start()
+
         started = CACurrentMediaTimeCompat()
         health.isRunning = true
         startTicking()
@@ -245,6 +282,7 @@ public actor StudioEngine {
 
     public func stop() async {
         ticker?.cancel(); ticker = nil
+        mixer.stop()
         encoder?.stop(); encoder = nil
         if publishing { await publisher.close() }
         health.isRunning = false
@@ -253,6 +291,7 @@ public actor StudioEngine {
 
     public func refreshHealth() async {
         if publishing { health.publisher = await publisher.health }
+        health.audio = mixer.currentHealth()
         health.thermalState = Self.thermalName()
         if health.programFramesRendered > 0 {
             health.averageRenderMilliseconds = renderTimeTotal / Double(health.programFramesRendered)
@@ -309,6 +348,12 @@ public actor StudioEngine {
 
         let pts = CMTime(value: CMTimeValue(frameIndex), timescale: CMTimeScale(config.frameRate))
         encoder.encode(program, at: pts)
+    }
+
+    private func publish(audio frame: Data, at pts: CMTime) async {
+        health.encodedBytes += frame.count
+        guard publishing else { return }
+        await publisher.send(audioFrame: frame, presentationTime: pts)
     }
 
     private func publish(video frame: EncodedVideoFrame) async {

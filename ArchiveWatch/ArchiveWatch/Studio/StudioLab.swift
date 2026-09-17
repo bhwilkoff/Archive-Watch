@@ -71,6 +71,7 @@ enum StudioLab {
         log("host \(hostDescription())")
         log("program \(cfg.width)x\(cfg.height)@\(cfg.frameRate) \(cfg.videoBitrate / 1000) kbps, layout \(layout.rawValue), camera \(wantCamera)")
         log(destURL.map { "dest \($0.host ?? "?"):\($0.port ?? 1935)\($0.path)" } ?? "dest none (encode and discard)")
+        if env("AW_STUDIO_MUTE") == "1" { log("film MUTED locally (AW_STUDIO_MUTE=1)") }
         log("film \(filmURL.lastPathComponent)")
 
         // The audio session must allow playback while we are also (later)
@@ -108,11 +109,13 @@ enum StudioLab {
 
         let item = AVPlayerItem(url: filmURL)
         let player = AVPlayer(playerItem: item)
-        player.isMuted = true          // the audio path is a later measurement
+        // NOT muted by default: the film's audio is what the tap carries, and
+        // a muted player is the obvious way to measure silence and call it a
+        // working audio path. `AW_STUDIO_MUTE=1` is available for a silent run.
+        player.isMuted = env("AW_STUDIO_MUTE") == "1"
 
         let engine = StudioEngine(configuration: cfg)
         await engine.setLayout(layout)
-        await engine.attachFilm(player: player)
 
         var camera: AVCaptureSession?
         if wantCamera {
@@ -120,9 +123,10 @@ enum StudioLab {
                 let tap = CameraFrameTap()
                 tap.attach(to: s)
                 await engine.attachCamera(tap: tap)
+                let gotMic = await engine.attachMicrophone(session: s)
                 s.startRunning()
                 camera = s
-                log("camera attached")
+                log("camera attached, microphone \(gotMic ? "attached" : "UNAVAILABLE")")
             } else {
                 log("WARN no camera available — continuing film-only")
             }
@@ -140,6 +144,10 @@ enum StudioLab {
         }
         guard item.status == .readyToPlay else { log("FAIL film not ready after 40s"); return }
         log(String(format: "film ready in %.1fs", waited))
+        // The audio tap needs the player's TRACKS, which exist only once the
+        // item is ready — so the film is attached here, not before the wait.
+        await engine.attachFilm(player: player)
+        log("film audio track: \(await engine.filmHasAudio ? "tapped" : "none (silent film?)")")
         player.play()
 
         do {
@@ -163,9 +171,16 @@ enum StudioLab {
             let kbps = Double(h.encodedBytes - last.encodedBytes) * 8 / 1000
             samples.append(fps)
             let filmFps = h.filmFramesPulled - last.filmFramesPulled
-            log(String(format: "%3ds fps=%.0f film=%d enc=%d render=%.2fms overruns=%d drops=%d kbps=%.0f queue=%d thermal=%@",
+            let a = h.audio
+            let la = last.audio
+            log(String(format: "%3ds fps=%.0f film=%d enc=%d render=%.2fms overruns=%d drops=%d kbps=%.0f thermal=%@ | aac=%d filmAud=%d micAud=%d pad=%d lvlF=%.2f lvlM=%.2f duck=%@",
                        second, fps, filmFps, encoded, h.averageRenderMilliseconds, h.renderDroppedFrames,
-                       h.publisher.videoFramesDropped, kbps, h.publisher.queuedBytes, h.thermalState))
+                       h.publisher.videoFramesDropped, kbps, h.thermalState,
+                       a.aacFramesEncoded - la.aacFramesEncoded,
+                       a.filmFramesWritten - la.filmFramesWritten,
+                       a.micFramesWritten - la.micFramesWritten,
+                       a.filmFramesPadded - la.filmFramesPadded,
+                       a.filmLevel, a.micLevel, a.ducking ? "y" : "n"))
             if let e = h.publisher.lastError { log("FAIL publisher — \(e)"); break }
             // When the film is not arriving, say WHY rather than reporting a
             // healthy-looking frozen picture.
@@ -193,6 +208,13 @@ enum StudioLab {
         log(String(format: "SUMMARY mean=%.1ffps worst=%.1ffps filmFrames=%d render=%.2fms budget=%.1fms overruns=%d dropped=%d thermal=%@",
                    mean, low, h.filmFramesPulled, h.averageRenderMilliseconds, 1000 / target,
                    h.renderDroppedFrames, h.publisher.videoFramesDropped, h.thermalState))
+        let a = h.audio
+        log("AUDIO aac=\(a.aacFramesEncoded) filmFrames=\(a.filmFramesWritten) micFrames=\(a.micFramesWritten) padded(film)=\(a.filmFramesPadded) padded(mic)=\(a.micFramesPadded)")
+        if a.aacFramesEncoded == 0 {
+            log("WARN no AAC was encoded — the program had NO audio at all")
+        } else if await engine.filmHasAudio && a.filmFramesWritten == 0 {
+            log("WARN the film's audio track was tapped but delivered NOTHING — the program is silent where the film should be")
+        }
         if h.filmFramesPulled < h.programFramesRendered / 4 {
             log("WARN the film supplied only \(h.filmFramesPulled) frames for \(h.programFramesRendered) program frames — the program was mostly a frozen picture, so these fps are NOT a composite measurement")
         }

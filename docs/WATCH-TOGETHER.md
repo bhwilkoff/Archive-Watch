@@ -166,6 +166,9 @@ Recording: the same encoded stream is written to an `.mp4` locally while live
   in a URL the app prints.
 - Never coordinate the caption scout (SHAREPLAY §3) — the Studio composites
   the caption overlay the viewer sees; the scout stays local.
+- Never use `AVPlayer.isMuted` or its volume as the film's broadcast level.
+  The audio tap is `PostEffects`, so local muting silences the stream too
+  (measured, §9). The film's level on air is `StudioAudioMixer.filmGain`.
 - Never hide health numbers; never auto-lower quality silently — an
   adaptive-bitrate step is shown as it happens.
 
@@ -335,10 +338,58 @@ the film supplied fewer than a quarter of the program's frames, and
 this time". A host whose film freezes must be told; a green dashboard over a
 frozen program is the failure mode this feature is most exposed to.
 
+### The audio path (2026-09-17)
+
+The film's audio is tapped off the player's own audio mix with
+`MTAudioProcessingTap` — the mechanism the caption scout already uses
+(Decision 058), so the program costs **one** decode, not two. The host's
+microphone comes off the same `AVCaptureSession` as the camera. A dedicated
+ticker pulls a fixed 1024-frame chunk from both rings every 1024/44100 s,
+applies the §4 faders and the duck, and encodes AAC.
+
+Measured on the Mac against a real film:
+
+```
+film audio: tapped
+  filmAud 88200 samples/s   (= 44100 × 2ch, exactly the program rate)
+  aac 43 frames/s           (= 44100 / 1024 = 43.07)
+  level 0.02 – 0.16         (tracking the film's score)
+648 AAC frames encoded and published over 15 s
+```
+
+**A/V alignment, from the server's own recording** — the strongest check
+available, since it is an independent demuxer reading what the server
+accepted:
+
+| Stream | Duration |
+|---|---|
+| h264 1920×1080 | 15.033 s |
+| aac 44100 2ch | 15.022971 s |
+
+**10 ms of divergence over 15 seconds** (0.07%). Both clocks are measured from
+the same program origin, and the publisher's timestamps share one timeline.
+
+**Two findings.**
+
+1. *The tap is `PostEffects`, so the host's local mute silences the
+   broadcast.* Measured: with the player muted, the ring still received 88,200
+   samples/s and every level read **0.00**. This is the right default — what
+   the room hears is what the audience hears — but it means the Studio's film
+   fader must be `StudioAudioMixer.filmGain`, never `AVPlayer.isMuted`. §5
+   carries the rule.
+2. *A film with no audio track is a real case, not a failure.* This catalog is
+   full of silent cinema, so `FilmAudioTap.attach` returns false rather than
+   erroring, `filmHasAudio` reports it, and the Lab distinguishes "no track"
+   from "a track that delivered nothing" — the second is a defect, the first is
+   Buster Keaton.
+
+The film ring padded ~3–4% of samples, almost all in the first second while
+the player fills its buffer. Worth watching in the soak, not worth a fix yet.
+
 ### Still to measure (Phase 0 remainder)
 
-- The camera tile's cost (all runs so far are film-only).
-- The audio path: film tap + mic mix → AAC.
+- The camera tile's and microphone's cost on device (all runs so far are
+  film-only).
 - A ten-minute soak on both devices: dropped-frame growth and thermal
   state (§8.3).
 - The real destinations: YouTube and Twitch over RTMPS.

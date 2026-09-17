@@ -104,10 +104,9 @@ struct Measure {
         // the app's resilient loader is a URL concern, not a decode concern).
         let item = AVPlayerItem(url: filmURL)
         let player = AVPlayer(playerItem: item)
-        player.isMuted = true          // the audio path is measured separately
+        player.isMuted = (env("AW_MUTE") == "1")   // the tap needs real audio
         let engine = StudioEngine(configuration: cfg)
         await engine.setLayout(layout)
-        await engine.attachFilm(player: player)
 
         // Wait for the film to be playable, or there is nothing to composite.
         var waited = 0.0
@@ -119,6 +118,9 @@ struct Measure {
         }
         guard item.status == .readyToPlay else { print("FAIL: film not ready after 30s"); exit(1) }
         print("  film ready in \(String(format: "%.1f", waited))s; starting")
+        // After readiness: the audio tap needs the player's loaded tracks.
+        await engine.attachFilm(player: player)
+        print("  film audio: \(await engine.filmHasAudio ? "tapped" : "none")")
         player.play()
 
         do {
@@ -139,9 +141,12 @@ struct Measure {
             let bytes = h.publisher.bytesSent - last.publisher.bytesSent
             samples.append(fps)
             worstRender = max(worstRender, h.averageRenderMilliseconds)
-            print(String(format: "  %3ds  %5.1f fps rendered · %3d encoded · render mean %5.2f ms · overruns %d · %6.0f kbps · %@",
+            let a = h.audio, la = last.audio
+            print(String(format: "  %3ds  %5.1f fps · %3d enc · render %5.2f ms · overruns %d · %6.0f kbps · %@ | aac %d · filmAud %d · lvl %.2f",
                          second, fps, encoded, h.averageRenderMilliseconds, h.renderDroppedFrames,
-                         Double(bytes) * 8 / 1000, h.thermalState))
+                         Double(bytes) * 8 / 1000, h.thermalState,
+                         a.aacFramesEncoded - la.aacFramesEncoded,
+                         a.filmFramesWritten - la.filmFramesWritten, a.filmLevel))
             if let e = h.publisher.lastError {
                 print("  publisher error: \(e)"); break
             }
@@ -161,6 +166,7 @@ struct Measure {
         print("\nSteady state over \(steady.count)s: mean \(String(format: "%.1f", mean)) fps, worst second \(String(format: "%.1f", low)) fps")
         print("Render mean \(String(format: "%.2f", h.averageRenderMilliseconds)) ms of a \(String(format: "%.1f", 1000.0 / Double(cfg.frameRate))) ms budget; \(h.renderDroppedFrames) clock overruns")
         print("Published \(h.publisher.bytesSent) bytes, \(h.publisher.videoFramesSent) video frames, \(h.publisher.videoFramesDropped) dropped; thermal \(h.thermalState)")
+        print("Audio: \(h.audio.aacFramesEncoded) AAC frames, film \(h.audio.filmFramesWritten) samples, padded \(h.audio.filmFramesPadded), published \(h.publisher.audioFramesSent) frames")
 
         let target = Double(cfg.frameRate)
         let verdict = mean >= target * 0.95 && low >= target * 0.85
