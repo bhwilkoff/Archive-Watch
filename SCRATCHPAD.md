@@ -144,6 +144,36 @@ unbiased."
   USDA video wearing 1929; `The White House Story` (1960s) wears 1897.
   Next audit fields per Decision 124: `director`/`cast` from the Archive
   `creator` field, subject-inferred genres.
+- **Later the same night — every other displayed field, measured**:
+  - *Credits*: 637 no-id directors / 249 casts, almost all right (the D125
+    anchors). Nulled 13 "Unknown/n/a/Uncredited"; nine "Public Domain
+    Animation 19xx" reels wore TMDb ids whose credits were Chinese generals.
+  - *The rights hole the credits pass exposed*: 184 visible 1970s features
+    with an anchored cast (Eraserhead, Suspiria, Young Frankenstein, A Bridge
+    Too Far) sat at `rightsAudit: None` — no id, no `imdbVotes`, so D114's
+    5,000-vote gate never saw them. `tools/anchor_rights_footprint.py` (local:
+    TMDb → OMDb) writes `shared/editorial/anchor_footprint.json`; remediate
+    carries the votes (id fields stay cleared); the audit's own rules hide
+    47 + 4. Then the LOOP: a hide made the item excluded, the anchor skipped
+    excluded items, the residue strip took cast + votes, the reconcile un-hid
+    49. Fixed: the anchor judges excluded items, a stripped anchored cast is
+    restored from `tmdb_cast_cache`, the cleared-residue strip keeps the
+    footprint. Also: a government-collection item never anchors (a NASA
+    "Avatar" wore Sam Worthington); an item under half its feature's runtime
+    is an `excerpt` (Close Encounters' Mothership Scene, 981k-vote Twelve
+    Angry Men → the promo rule).
+  - *Genres*: 243 tags rested on a TITLE word; "adventures"/"noir"/"western"
+    are blind there and inside the show's own name as a subject (29 Ozzie &
+    Harriet episodes were "Action"). *TV items wearing an unverified FILM
+    match*: 87 cleared (Betty White Show → Planet of the Apes, The Flash →
+    Muriel's Wedding) — an episode has no aka. *Far-year matches*: 4.
+    *Residue*: writer/studio/keyword/rating on id-less cast-less items.
+  - *Titles*: brand prefix, subtitle-language and ".3gp/.HD" tails, wrapping
+    quotes, all-caps audited titles (132 visible); `title_corrections.json`
+    (34) has the last word. *Reviews*: 12 file-quality complaints off the
+    "From archive.org viewers" shelf; a full re-score would have dropped 485.
+  - *TV spines*: every episode overview is TVmaze's (unstamped). *Language*:
+    122 raw values, rendered nowhere.
 
 ### 2026-09-16 (audit loop, cont.) — Credits residue, Family genre, the rights confirm run by hand (Decision 125)
 Owner /loop: "uploader information and reviews instead of information about
