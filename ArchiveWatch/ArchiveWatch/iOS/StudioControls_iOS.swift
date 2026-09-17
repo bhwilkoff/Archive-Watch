@@ -28,7 +28,7 @@ struct StudioHealthCapsule: View {
     let filmFramesPerSecond: Int
     let onOpenControls: () -> Void
 
-    private var isLive: Bool { health.publisher.state == .publishing }
+    private var isLive: Bool { health.showState.isOnAir }
 
     private var thermalColor: Color {
         switch health.thermalState {
@@ -45,7 +45,7 @@ struct StudioHealthCapsule: View {
                 Circle()
                     .fill(isLive ? Color.red : Color.gray)
                     .frame(width: 8, height: 8)
-                Text(isLive ? "LIVE" : health.publisher.state.rawValue.uppercased())
+                Text(health.showState.label)
                     .font(.caption2.weight(.bold))
                     .monospacedDigit()
             }
@@ -86,6 +86,7 @@ struct StudioHealthCapsule: View {
     /// Everything currently wrong, in the words the sheet will repeat.
     var warnings: [String] {
         var w: [String] = []
+        if let d = health.showState.detail { w.append(d) }
         if isLive && filmFramesPerSecond == 0 { w.append("the film has stopped arriving") }
         if health.publisher.videoFramesDropped > 0 {
             w.append("\(health.publisher.videoFramesDropped) dropped frames")
@@ -129,7 +130,7 @@ struct StudioControlsSheet: View {
     let onEnd: () -> Void
 
     private var healthFooter: String {
-        if filmFramesPerSecond == 0 && health.publisher.state == .publishing {
+        if filmFramesPerSecond == 0 && health.showState.isOnAir {
             return "The film has stopped sending new frames — your audience is seeing a still picture. The sound and your camera are unaffected."
         }
         return "These numbers are what your audience is actually receiving."
@@ -150,6 +151,7 @@ struct StudioControlsSheet: View {
         NavigationStack {
             List {
                 Section {
+                    row("Broadcast", health.showState.label)
                     row("Connection", health.publisher.state.rawValue)
                     // String(format:), not integer division — `Int(x * 100) / 100`
                     // is integer maths and rendered 10.13 ms as "10" and any

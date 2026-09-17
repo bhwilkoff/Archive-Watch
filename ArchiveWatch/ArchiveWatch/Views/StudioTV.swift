@@ -17,11 +17,12 @@ struct StudioTVHealth: View {
     let health: StudioHealth
     let filmFramesPerSecond: Int
 
-    private var isLive: Bool { health.publisher.state == .publishing }
+    private var isLive: Bool { health.showState.isOnAir }
 
     /// The single most important thing wrong, or nil. One line, because a
     /// viewer across a room reads one line.
     private var problem: String? {
+        if let d = health.showState.detail { return d }
         if isLive && filmFramesPerSecond == 0 { return "The film has stopped — your audience sees a still picture" }
         if health.thermalState == "critical" { return "This Apple TV is too hot to keep streaming" }
         if health.thermalState == "serious" { return "This Apple TV is getting hot" }
@@ -36,7 +37,7 @@ struct StudioTVHealth: View {
                 Circle()
                     .fill(isLive ? Color.red : Color.gray)
                     .frame(width: 18, height: 18)
-                Text(isLive ? "LIVE" : health.publisher.state.rawValue.uppercased())
+                Text(health.showState.label)
                     .font(.system(size: 34, weight: .bold))
                 Text("\(kbps) kbps")
                     .font(.system(size: 30, weight: .medium))

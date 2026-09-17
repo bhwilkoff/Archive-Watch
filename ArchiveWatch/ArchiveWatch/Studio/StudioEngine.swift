@@ -183,6 +183,60 @@ public struct StudioHealth: Sendable, Equatable {
     public var thermalState: String = "nominal"
     public var publisher = RTMPHealth()
     public var audio = StudioAudioHealth()
+    /// True when a destination was supplied. Without one the engine still
+    /// composites and encodes — it just sends nowhere.
+    public var hasDestination = false
+
+    /// What the SHOW is doing, in the host's terms.
+    ///
+    /// This exists because the first ten-foot readout said **IDLE** while the
+    /// engine was encoding 5.5 Mbps (seen on an Apple TV, 2026-09-17). It was
+    /// reporting the PUBLISHER's state as though it were the show's: with no
+    /// destination the publisher never leaves `.idle`, which is true of the
+    /// publisher and a lie about the program. A host who is making a show that
+    /// goes nowhere must be told that, not told nothing is happening.
+    public var showState: ShowState {
+        guard isRunning else { return .off }
+        if let e = publisher.lastError, !e.isEmpty { _ = e; return .offline }
+        if !hasDestination { return .encodingOnly }
+        switch publisher.state {
+        case .publishing: return .live
+        case .connecting, .handshaking, .connected: return .connecting
+        case .failed: return .offline
+        case .closed: return .ended
+        case .idle: return .connecting
+        }
+    }
+
+    public enum ShowState: Sendable, Equatable {
+        case off, encodingOnly, connecting, live, offline, ended
+
+        /// Short, for a capsule or a readout.
+        public var label: String {
+            switch self {
+            case .off: return "OFF"
+            case .encodingOnly: return "NOT SENDING"
+            case .connecting: return "CONNECTING"
+            case .live: return "LIVE"
+            case .offline: return "OFFLINE"
+            case .ended: return "ENDED"
+            }
+        }
+
+        /// A sentence, where there is room for one.
+        public var detail: String? {
+            switch self {
+            case .encodingOnly:
+                return "The show is being made but not sent anywhere — no destination is set."
+            case .connecting: return "Connecting to the platform…"
+            case .offline: return "The connection to the platform is down."
+            case .ended: return "The broadcast has ended."
+            case .off, .live: return nil
+            }
+        }
+
+        public var isOnAir: Bool { self == .live }
+    }
 }
 
 // MARK: - Engine
@@ -329,6 +383,7 @@ public actor StudioEngine {
         } else {
             publishing = false
         }
+        health.hasDestination = publishing
 
         // Convert on the encoder's callback thread: EncodedVideoFrame is
         // Sendable, a CMSampleBuffer is not.
