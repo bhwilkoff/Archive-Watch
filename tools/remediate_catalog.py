@@ -394,6 +394,18 @@ def strip_unanchored_tmdb_residue(item):
                 item.pop(k, None)
                 hit = True
         item["metaSource"] = None
+    # The Archive has no writer, studio, keyword, tagline or release-date
+    # field: on an item with no id these can only be a match's residue, whether
+    # or not `metaSource` survived to say so. Linda Woolverton (2010) was the
+    # writer of the 1915 Alice in Wonderland, Kim Morgan (2021) of the 1947
+    # Nightmare Alley, Kleber Mendonça Filho of Hitchcock's Secret Agent — 32
+    # visible items, all with a cleared match and `metaSource: None`.
+    if (item.get("matchVerdict") or "").startswith("cleared") or not item.get("cast"):
+        for k in ("writer", "composer", "cinematographer", "studios", "keywords", "tagline",
+                  "releaseDate", "franchise", "awards"):
+            if item.get(k):
+                item.pop(k, None)
+                hit = True
     if tmdb_cast:
         for k in _TMDB_CREDITS_FIELDS:
             if item.get(k):
