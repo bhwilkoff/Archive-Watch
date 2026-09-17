@@ -16,6 +16,6 @@
     <Rectangle id="dim" />
     <Rectangle id="plate" />
     <Label id="head" />
-    <LabelList id="list" />
+    <MarkupList id="list" />
   </children>
 </component>

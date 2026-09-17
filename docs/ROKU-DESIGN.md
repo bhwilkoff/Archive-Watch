@@ -763,15 +763,18 @@ setting hides (Decision 105 — one predicate, imported, never copied). There
 is no toggle here because nothing mature reaches the device to turn on; a
 switch that reveals nothing is a dead control.
 
-**14.13 (amends §13.5 / §6.9) On the legacy tier an options row's pill is
-pre-rendered at the row's size.** Roku OS 9.1 stretches a `LabelList` focus
-9-patch as a plain bitmap: the 62 px pill came out as a lens whose curved ends
-sat over the first letter of every row — the owner on the Roku 2 XD,
-2026-09-17: *"a strange circle selection that doesn't actually highlight the
-option."* A bitmap already at 822×78 needs no stretching, so `OptionsList`
-takes `pill_focus_822x78.png` / `pill_rest_822x78.png` where
-`AWCan("ninePatchListFocus")` is false, and the 9-patch everywhere else.
-Verified on the XD: the More panel and the Party Play Up panel draw a true
-pill and the highlight follows the focus. The Browse/Search chips are
-`Button` nodes of varying width and keep their 9-patch; if they show the same
-lens on that tier, they take a per-width asset the same way.
+**14.13 (amends §13.5 / §6.9) An options row is a 60 px pill with its label
+inset, drawn by `OptionRow`, not a `LabelList` row.** The owner on the Roku 2
+XD, 2026-09-17: *"a strange circle selection that doesn't actually highlight
+the option"* — and, after a first fix, *"I still don't think this selection
+area looks well designed."* Two faults, one cause: a `LabelList` sizes its
+focus bitmap to the whole row and draws the text flush against it, and Roku
+OS 9.1 stretches a 9-patch there as a plain bitmap, so the 62 px pill came out
+as a lens with its curved ends over the first letter. The panel rows are now a
+`MarkupList` of `OptionRow`: a pre-rendered 822×60 pill (`Poster`, loaded
+synchronously — 3 KB) that lights on focus, the label in Inter Medium 27 inset
+30 px from the end cap and centred in the pill, rows on a 24 px gutter. The
+same pill as the Play / Save / More buttons (§13.5), so the panel and the page
+it opens over agree. Verified on the XD (Detail More, Party Play Up) and the
+Streaming Stick 4K. The Browse/Search chips are `Button` nodes and keep their
+9-patch; if they show the lens on the legacy tier they take the same treatment.

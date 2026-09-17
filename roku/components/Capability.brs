@@ -92,11 +92,5 @@ function AWCan(feature as String) as Boolean
     ' life before playlists existed, and it has never been slow.
     if feature = "shareList" then return false
 
-    ' ninePatchListFocus — OS 9.1 stretches a LabelList focus 9-patch as a
-    ' plain bitmap, so the 62 px pill renders as a lens with curved ends over
-    ' the first letter of the row. The options panels on this tier use a
-    ' pill pre-rendered at the row size instead (OptionsList).
-    if feature = "ninePatchListFocus" then return false
-
     return true
 end function
