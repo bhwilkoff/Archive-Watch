@@ -180,6 +180,20 @@ public struct StudioHealth: Sendable, Equatable {
     /// encoded-bitrate reading alone will NOT reveal (a static frame encodes
     /// to almost nothing and every other counter looks healthy).
     public var filmFramesPulled = 0
+    /// Frames the ENCODER produced in the last second. Zero while the film is
+    /// still arriving is the fault the 2026-09-17 tvOS soak found: encoding
+    /// stopped at 293 s and every other counter stayed healthy for the
+    /// remaining five minutes (§9).
+    public var encodedFramesPerSecond = 0
+    /// The last thing VideoToolbox refused to do, if anything. Swallowed
+    /// before that soak: neither `VTCompressionSessionEncodeFrame`'s return
+    /// nor its callback status was read.
+    public var encoderFault: String?
+    /// Times the renderer could not get a pixel buffer from its pool. Counted
+    /// separately from an encoder fault because pool exhaustion and an encoder
+    /// malfunction present identically — encoding simply stops — and need
+    /// opposite fixes.
+    public var pixelBufferPoolFailures = 0
     public var thermalState: String = "nominal"
     public var publisher = RTMPHealth()
     public var audio = StudioAudioHealth()
@@ -197,6 +211,13 @@ public struct StudioHealth: Sendable, Equatable {
     /// goes nowhere must be told that, not told nothing is happening.
     public var showState: ShowState {
         guard isRunning else { return .off }
+        // Checked BEFORE the publisher, because this is the failure that
+        // looks healthiest: the socket stays open, the render loop keeps
+        // hitting 30 fps, the film keeps arriving, and the audience sees
+        // nothing. Deliberately cause-agnostic — it fires for an encoder
+        // malfunction, an exhausted buffer pool, or anything else that stops
+        // frames coming out.
+        if filmFramesPulled > 0 && encodedFramesPerSecond == 0 { return .notEncoding }
         if let e = publisher.lastError, !e.isEmpty { _ = e; return .offline }
         if !hasDestination { return .encodingOnly }
         switch publisher.state {
@@ -209,13 +230,14 @@ public struct StudioHealth: Sendable, Equatable {
     }
 
     public enum ShowState: Sendable, Equatable {
-        case off, encodingOnly, connecting, live, offline, ended
+        case off, encodingOnly, notEncoding, connecting, live, offline, ended
 
         /// Short, for a capsule or a readout.
         public var label: String {
             switch self {
             case .off: return "OFF"
             case .encodingOnly: return "NOT SENDING"
+            case .notEncoding: return "STOPPED"
             case .connecting: return "CONNECTING"
             case .live: return "LIVE"
             case .offline: return "OFFLINE"
@@ -228,6 +250,8 @@ public struct StudioHealth: Sendable, Equatable {
             switch self {
             case .encodingOnly:
                 return "The show is being made but not sent anywhere — no destination is set."
+            case .notEncoding:
+                return "The picture has stopped being encoded — your audience is not receiving the show."
             case .connecting: return "Connecting to the platform…"
             case .offline: return "The connection to the platform is down."
             case .ended: return "The broadcast has ended."
@@ -422,7 +446,18 @@ public actor StudioEngine {
         if health.programFramesRendered > 0 {
             health.averageRenderMilliseconds = renderTimeTotal / Double(health.programFramesRendered)
         }
+        // Encoded frames per SECOND, not the total: a total that stops
+        // climbing is only visible to someone differencing it, which is
+        // exactly what the readout was not doing when the tvOS soak stalled.
+        // This is called once a second by every caller.
+        health.encodedFramesPerSecond = max(0, health.programFramesEncoded - lastEncodedFrameCount)
+        lastEncodedFrameCount = health.programFramesEncoded
+        health.encoderFault = encoder?.fault
+        health.pixelBufferPoolFailures = renderer.poolFailures
     }
+
+    /// The previous sample, so `encodedFramesPerSecond` is a rate.
+    private var lastEncodedFrameCount = 0
 
     // MARK: The program clock
 
@@ -566,10 +601,16 @@ final class ProgramRenderer: @unchecked Sendable {
         pool = p
     }
 
+    /// Counted because an exhausted pool and a malfunctioning encoder look
+    /// identical from outside — frames simply stop — and the fixes are
+    /// opposite.
+    private(set) var poolFailures = 0
+
     func newBuffer() -> CVPixelBuffer? {
-        guard let pool else { return nil }
+        guard let pool else { poolFailures += 1; return nil }
         var px: CVPixelBuffer?
         CVPixelBufferPoolCreatePixelBuffer(nil, pool, &px)
+        if px == nil { poolFailures += 1 }
         return px
     }
 
@@ -674,6 +715,30 @@ final class H264Encoder: @unchecked Sendable {
     private let lock = NSLock()
     private var firstFormatContinuation: CheckedContinuation<Data?, Error>?
 
+    /// The last thing VideoToolbox refused, and how many times it has refused.
+    ///
+    /// Both statuses used to be DISCARDED — `VTCompressionSessionEncodeFrame`'s
+    /// return value entirely, and the callback's behind
+    /// `guard status == noErr ... else { return }`. On 2026-09-17 a ten-minute
+    /// tvOS soak stopped encoding at 293 seconds and ran another five minutes
+    /// reporting `drops=0 thermal=nominal`, because the one thing that knew
+    /// what had happened threw it away.
+    private var _fault: String?
+    private var _faultCount = 0
+
+    var fault: String? { lock.lock(); defer { lock.unlock() }; return _fault }
+    var faultCount: Int { lock.lock(); defer { lock.unlock() }; return _faultCount }
+
+    private func record(_ status: OSStatus, _ where_: String) {
+        lock.lock()
+        _faultCount += 1
+        // The number is the useful part — kVTInvalidSessionErr (-12903) and
+        // kVTVideoEncoderMalfunctionErr (-12361) mean different things and
+        // only one is recoverable by restarting the session.
+        _fault = "the encoder refused a frame (\(where_) \(status))"
+        lock.unlock()
+    }
+
     init(width: Int, height: Int, frameRate: Int, bitrate: Int) {
         self.width = width; self.height = height; self.frameRate = frameRate; self.bitrate = bitrate
     }
@@ -712,13 +777,20 @@ final class H264Encoder: @unchecked Sendable {
     func encode(_ pixelBuffer: CVPixelBuffer, at pts: CMTime) {
         guard let session else { return }
         var flags = VTEncodeInfoFlags()
-        VTCompressionSessionEncodeFrame(
+        let status = VTCompressionSessionEncodeFrame(
             session, imageBuffer: pixelBuffer, presentationTimeStamp: pts,
             duration: CMTime(value: 1, timescale: CMTimeScale(frameRate)),
             frameProperties: nil, infoFlagsOut: &flags) { [weak self] status, _, sample in
-            guard let self, status == noErr, let sample else { return }
+            guard let self else { return }
+            guard status == noErr, let sample else {
+                // A frame the encoder dropped on its own account. Recorded,
+                // not ignored — this is half of what the soak could not see.
+                self.record(status, "callback")
+                return
+            }
             self.deliver(sample)
         }
+        if status != noErr { record(status, "submit") }
     }
 
     private func deliver(_ sample: CMSampleBuffer) {

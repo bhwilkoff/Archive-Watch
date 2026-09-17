@@ -1102,14 +1102,80 @@ March* 1915, then *Japanese Varieties* 1904):
    unexplained disabled control, because the reason is on screen directly
    above it.
 
+### The Apple TV ten-minute soak FAILED at 293 seconds (2026-09-17)
+
+§8.3 is **not** satisfied on tvOS. The run is worth reading in full because
+what broke is not the number, it is the instrument:
+
+```
+ 43s  fps=30 film=25 enc=30 render=7.70ms overruns=31  drops=0 kbps=5389 thermal=nominal
+120s  fps=31 film=26 enc=30 render=7.54ms overruns=75  drops=0 kbps=6294 thermal=nominal
+240s  fps=31 film=26 enc=30 render=7.60ms overruns=144 drops=0 kbps=5347 thermal=nominal
+292s  fps=32 film=27 enc=6  render=7.66ms overruns=165 drops=0 kbps=298  thermal=nominal
+293s  fps=35 film=29 enc=0  render=7.66ms overruns=166 drops=0 kbps=2    thermal=nominal
+360s  fps=31 film=25 enc=0  render=7.64ms overruns=166 drops=0 kbps=2    thermal=nominal
+600s  fps=31 film=25 enc=0  render=7.58ms overruns=166 drops=0 kbps=2    thermal=nominal
+SUMMARY mean=30.2fps worst=29.0fps filmFrames=15075 render=7.58ms
+        overruns=166 dropped=0 thermal=nominal
+```
+
+**Encoding stopped at 293 seconds and the run reported a healthy show for the
+remaining 307 — then summarised itself as a pass.** Render held 7.58 ms, the
+film kept arriving at 25 fps, `drops=0`, thermal nominal. mediamtx's own log
+shows the TCP connection **staying open the whole time** and closing only at
+16:06:23, i.e. when the run ended — so the publisher had nothing to report
+either, and `lastError` was never set. Nothing anywhere said a word.
+
+**Why nothing knew.** Both of VideoToolbox's statuses were being discarded:
+`VTCompressionSessionEncodeFrame`'s return value entirely, and its callback's
+behind `guard status == noErr, let sample else { return }`. The one component
+that knew what had happened threw it away, which is the §9 "two faults"
+lesson arriving a third time — a program can look perfect and carry nothing.
+
+**What changed, before any attempt at a root cause** (the repo's debugging
+rule: observability first, and this is unobservable as it stands):
+
+- `H264Encoder` records both statuses — the raw OSStatus included, because
+  `kVTInvalidSessionErr` (-12903) and `kVTVideoEncoderMalfunctionErr`
+  (-12361) mean different things and only one is fixable by restarting the
+  session.
+- `ProgramRenderer` counts pixel-buffer **pool** failures separately. An
+  exhausted pool and a malfunctioning encoder present identically — frames
+  stop — and need opposite fixes, so the next run will not have to guess.
+- `StudioHealth` gains `encodedFramesPerSecond` (a RATE; a total that stops
+  climbing is invisible to anyone not differencing it, which is precisely
+  what the readout was not doing) and a new show state **`notEncoding`**,
+  checked BEFORE the publisher because this is the failure that looks
+  healthiest. It is deliberately cause-agnostic: it fires for an encoder
+  malfunction, an exhausted pool, or anything else.
+- Both readouts say it — the iOS capsule as a warning and in the sheet's
+  Health section, the tvOS ten-foot readout through `showState.detail`.
+- **`StudioLab` now FAILS the run at the second it happens** and can no
+  longer print a passing SUMMARY over a stall.
+
+**Not yet known**: what stops the encoder at ~293 s. It is not thermal
+(nominal throughout) and not back-pressure (`drops=0`, socket open). The next
+soak names its own cause, which is the point of the change above.
+
+**Process note.** This soak began on the Fireplace Apple TV — the only 4K
+**2nd generation** on the bench, i.e. the Studio's hardware floor — and the
+owner stopped it: *"Stop using the fireplace tv for testing. I'm actively
+watching on it now."* It was terminated on the spot and the box deliberately
+NOT powered off. Both remaining Apple TVs are 3rd generation, so **the figures
+above are not the floor** and must not be read as it; 7.58 ms here against
+10.70 ms on the 2nd gen. A floor re-run needs a window the owner offers.
+
 ### Still to measure (Phase 0 remainder)
 
 - The camera tile's and microphone's cost on device — **blocked on a one-time
   camera + microphone grant** on the iPhone 12 and, for Continuity Camera, on
   the Apple TV. Everything else in Phase 0 is measured.
-- A ten-minute soak on both devices: dropped-frame growth and thermal
-  state (§8.3).
-- The real destinations: YouTube and Twitch over RTMPS.
-- The camera tile's cost (the Mac run had no camera attached).
-- The audio path: film tap + mic mix → AAC.
-- A ten-minute soak: dropped-frame growth and thermal state (§8.3).
+- Sign-in on a TELEVISION. `ASWebAuthenticationSession` presents itself on
+  tvOS with no anchor; that screen cannot be seen until a client id exists
+  (Decision 128).
+- A ten-minute soak on the Apple TV (§8.3). The iPhone 12's is above.
+
+The four bullets that used to sit here — the real destinations, the audio
+path, the camera tile's cost, and the iPhone soak — are measured, and their
+results are the sections above. They are deleted rather than left standing
+because a stale "still to do" is how Decision 121 got written.

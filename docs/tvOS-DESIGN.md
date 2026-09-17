@@ -301,9 +301,32 @@ specific film, and the scopes requested are exactly the three the feature uses
 (create a broadcast, read the stream key, read chat). The rule 10.2 exists to
 protect — **the app never asks who you are in order to show you a film** —
 holds unchanged. `ASWebAuthenticationSession` is available on tvOS 16+ and is
-the path (checked in the tvOS 27 SDK, 2026-09-17; it hands off to a nearby
-device rather than demanding typing on a remote). A stream key is fetched by
+the path (checked in the tvOS 27 SDK, 2026-09-17). A stream key is fetched by
 API and never typed or displayed.
+
+**Correction to the line above, same day.** This rule originally added "it
+hands off to a nearby device rather than demanding typing on a remote". That
+was an assumption, not a reading, and it is withdrawn — what the tvOS 27
+header actually proves is narrower and is worth having exactly:
+`ASWebAuthenticationSession` is `tvos(16.0)`, while
+`presentationContextProvider`, `prefersEphemeralWebBrowserSession` and even
+`cancel` are `API_UNAVAILABLE(tvos)`. So the television presents the flow
+ITSELF and there is no anchor to hand it — which is consistent with a hand-off
+but does not establish one. **The screen cannot be seen until a client id
+exists** (Decision 128), so nobody has looked at it. Marked rather than
+rewritten, because a confident sentence that was read and believed is worth
+seeing (Decision 121).
+
+10.2b **Where the tvOS sign-in appears.** Inside the existing Watch Together
+flow off the player's transport menu (§8.8) — never a Settings row, never a
+§3.6 player mode, and never a pre-flight the viewer must clear before they
+have chosen to broadcast anything. A host who is not signed in is told so
+where they asked to go live, in the same alert that already carries a rights
+refusal, with the platform's own flow the only thing behind it. **Not built
+yet**: tvOS currently runs the Studio with `destination: nil` — it composites,
+encodes and discards — because a destination needs a credential and there is
+none to exercise. The iOS surface that this will mirror is
+`iOS/StudioSignIn_iOS.swift`.
 
 10.3 **Watched state (#17).** Completed titles (`WatchProgress.isComplete`) are
 hidden from Home shelves by default (Settings toggle to show), but remain in

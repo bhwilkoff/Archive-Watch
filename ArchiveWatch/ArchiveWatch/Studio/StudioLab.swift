@@ -210,6 +210,8 @@ enum StudioLab {
 
         var last = StudioHealth()
         var samples: [Double] = []
+        // The second encoding stopped, if it did — see the FAIL below.
+        var encodeStalledAt: Int?
         for second in 1...seconds {
             try? await Task.sleep(nanoseconds: 1_000_000_000)
             await engine.refreshHealth()
@@ -231,7 +233,19 @@ enum StudioLab {
                        a.micFramesWritten - la.micFramesWritten,
                        a.filmFramesPadded - la.filmFramesPadded,
                        a.filmLevel, a.micLevel, a.ducking ? "y" : "n"))
+            if let f = h.encoderFault { log("     encoder fault: \(f) x\(h.pixelBufferPoolFailures == 0 ? "" : "  poolFailures=\(h.pixelBufferPoolFailures)")") }
             if let e = h.publisher.lastError { log("FAIL publisher — \(e)"); break }
+            // THE FAULT THIS INSTRUMENT MISSED (2026-09-17): encoding stopped
+            // at 293 s of a 600 s tvOS soak and the run continued to report
+            // `drops=0 thermal=nominal` for five more minutes, then PASSED.
+            // A stalled encoder while the film is still arriving is a failed
+            // run, and the run says so at the second it happens.
+            if filmFps > 0 && encoded == 0 && second > 5 {
+                encodeStalledAt = encodeStalledAt ?? second
+                log("FAIL the encoder stopped at \(encodeStalledAt!)s — film still arriving at \(filmFps) fps, "
+                    + "fault=\(h.encoderFault ?? "none reported") poolFailures=\(h.pixelBufferPoolFailures)")
+                break
+            }
             // When the film is not arriving, say WHY rather than reporting a
             // healthy-looking frozen picture.
             if filmFps == 0 && second <= 5 {
@@ -255,9 +269,13 @@ enum StudioLab {
         let h = await engine.health
         let target = Double(cfg.frameRate)
         let pass = mean >= target * 0.95 && low >= target * 0.85
+            && encodeStalledAt == nil && h.encoderFault == nil
         log(String(format: "SUMMARY mean=%.1ffps worst=%.1ffps filmFrames=%d render=%.2fms budget=%.1fms overruns=%d dropped=%d thermal=%@",
                    mean, low, h.filmFramesPulled, h.averageRenderMilliseconds, 1000 / target,
                    h.renderDroppedFrames, h.publisher.videoFramesDropped, h.thermalState))
+        log("ENCODER framesEncoded=\(h.programFramesEncoded) encodedBytes=\(h.encodedBytes) "
+            + "fault=\(h.encoderFault ?? "none") poolFailures=\(h.pixelBufferPoolFailures) "
+            + "stalledAt=\(encodeStalledAt.map(String.init) ?? "never")")
         let a = h.audio
         log("AUDIO aac=\(a.aacFramesEncoded) filmFrames=\(a.filmFramesWritten) micFrames=\(a.micFramesWritten) padded(film)=\(a.filmFramesPadded) padded(mic)=\(a.micFramesPadded)")
         if a.aacFramesEncoded == 0 {

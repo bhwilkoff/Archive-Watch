@@ -88,6 +88,10 @@ struct StudioHealthCapsule: View {
         var w: [String] = []
         if let d = health.showState.detail { w.append(d) }
         if isLive && filmFramesPerSecond == 0 { w.append("the film has stopped arriving") }
+        // The opposite fault, and the one that hid for five minutes on an
+        // Apple TV (WATCH-TOGETHER §9): the film keeps arriving and the
+        // ENCODER stops, so every other number looks healthy.
+        if let f = health.encoderFault { w.append(f) }
         if health.publisher.videoFramesDropped > 0 {
             w.append("\(health.publisher.videoFramesDropped) dropped frames")
         }
@@ -133,6 +137,9 @@ struct StudioControlsSheet: View {
         if filmFramesPerSecond == 0 && health.showState.isOnAir {
             return "The film has stopped sending new frames — your audience is seeing a still picture. The sound and your camera are unaffected."
         }
+        if health.showState == .notEncoding {
+            return "The picture has stopped being encoded, so your audience is not receiving the show. Ending and restarting the broadcast is the reliable fix."
+        }
         return "These numbers are what your audience is actually receiving."
     }
 
@@ -158,6 +165,10 @@ struct StudioControlsSheet: View {
                     // sub-millisecond value as "0 ms per frame".
                     row("Program", String(format: "%.1f ms per frame", health.averageRenderMilliseconds))
                     row("Dropped frames", "\(health.publisher.videoFramesDropped)")
+                    row("Encoded", "\(health.encodedFramesPerSecond) fps")
+                    if let f = health.encoderFault {
+                        Text(f).font(.footnote).foregroundStyle(.orange)
+                    }
                     row("Device temperature", health.thermalState)
                     if let e = health.publisher.lastError {
                         Text(e).font(.footnote).foregroundStyle(.orange)

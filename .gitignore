@@ -121,3 +121,10 @@ secrets/
 # forward against a dev server; it must never be committed.
 /list/
 .catalog_fetch_stamp
+
+# mediamtx generates a self-signed cert AND PRIVATE KEY in its working
+# directory (seen 2026-09-17: a Watch Together soak run from the repo root
+# left auto.key staged). The harness should run from the scratchpad; this is
+# the belt to that braces.
+auto.crt
+auto.key
