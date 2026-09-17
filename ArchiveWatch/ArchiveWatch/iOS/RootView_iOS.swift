@@ -47,9 +47,63 @@ struct RootView: View {
                 print("[AWGOLIVE] request platform=\(req.platform.rawValue) layout=\(req.layout.rawValue) title=\(req.title)")
             }
         }
+        // Dev affordance: `AW_STUDIO_CONTROLS_DEMO=1` shows the live health
+        // capsule over the shell and opens the controls sheet, so both can be
+        // screenshot without a real broadcast. No-op in production.
+        .overlay(alignment: .topLeading) {
+            if studioControlsDemo {
+                StudioHealthCapsule(health: demoHealth, filmFramesPerSecond: 0) {
+                    showStudioControls = true
+                }
+            }
+        }
+        .sheet(isPresented: $showStudioControls) {
+            StudioControlsSheet(
+                layout: $demoLayout, filmGain: $demoFilmGain, micGain: $demoMicGain,
+                filmMuted: $demoFilmMuted, micMuted: $demoMicMuted,
+                card: $demoCard, showLowerThird: $demoLowerThird,
+                audio: demoAudio, health: demoHealth, filmFramesPerSecond: 0,
+                onEnd: { showStudioControls = false })
+        }
+        .task {
+            guard studioControlsDemo else { return }
+            try? await Task.sleep(nanoseconds: 2_500_000_000)
+            showStudioControls = true
+        }
     }
 
     @State private var goLiveDemoFilm: Catalog.Item?
+    @State private var showStudioControls = false
+    @State private var demoLayout: StudioLayout = .corner
+    @State private var demoFilmGain = 1.0
+    @State private var demoMicGain = 1.0
+    @State private var demoFilmMuted = false
+    @State private var demoMicMuted = false
+    @State private var demoCard: StudioOverlay.Card?
+    @State private var demoLowerThird = true
+
+    private var studioControlsDemo: Bool {
+        ProcessInfo.processInfo.environment["AW_STUDIO_CONTROLS_DEMO"] == "1"
+    }
+    /// Plausible live numbers, including the frozen-film case, so the capsule
+    /// is judged in the state it exists to report.
+    private var demoHealth: StudioHealth {
+        var h = StudioHealth()
+        h.isRunning = true
+        h.programFramesEncoded = 30 * 47
+        h.encodedBytes = 4_700_000 / 8 * 47
+        h.thermalState = "fair"
+        h.publisher.state = .publishing
+        h.publisher.videoFramesDropped = 3
+        return h
+    }
+    private var demoAudio: StudioAudioHealth {
+        var a = StudioAudioHealth()
+        a.filmLevel = 0.42
+        a.micLevel = 0.61
+        a.ducking = true
+        return a
+    }
 
     /// One slim bar, and only when there is no network (Decision 099).
     ///

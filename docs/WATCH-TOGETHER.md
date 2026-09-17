@@ -630,6 +630,36 @@ by a separate row builder, which still supplied 31). Running
 found both before a 40-minute CI run did. A schema change touches every
 producer of that table, and there is rarely only one.
 
+### The Studio's in-player affordances (2026-09-17)
+
+`StudioControls_iOS` — iOS-DESIGN §8.8 in the §8.5 overlay pattern, the same
+capsule shape `EpisodePlayerContainer` already uses. Verified on the iPhone 12
+(`AW_STUDIO_CONTROLS_DEMO=1`, `build/qa/golive/studio-controls2.png`).
+
+**The first version put every health number on one line, and it did not fit.**
+The capsule ran nearly the full width of the screen and collided with the
+shell's own controls; on a smaller phone it would truncate. §4 says health is
+never hidden — but *not hidden* does not mean *all on one line*. The capsule
+now carries **state · bitrate · one warning chip**, and every number lives in
+the sheet's Health section one tap away. Nothing is concealed and it fits.
+
+The warning chip earns its place: the demo deliberately runs the
+frozen-film case, and the sheet says it in words a host can act on — *"The
+film has stopped sending new frames — your audience is seeing a still
+picture. The sound and your camera are unaffected."* That is the failure this
+feature is most exposed to (§9), and it is the one a green dashboard would
+hide.
+
+Each fader carries a **live meter**, not just a slider: a fader whose effect
+you cannot see until the audience has already heard it is not a control.
+
+Also caught on the glass: `Int(x * 100) / 100` is integer maths, and it
+rendered a 10.13 ms render time as "0 ms per frame". `String(format:)`.
+
+**Not yet verified:** the capsule over the REAL player rather than the app
+shell. `AVPlayerViewController`'s own chrome auto-hides, so where the capsule
+can sit without colliding is a question only the wired Studio can answer.
+
 ### Still to measure (Phase 0 remainder)
 
 - The camera tile's and microphone's cost on device — **blocked on a one-time
