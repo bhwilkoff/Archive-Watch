@@ -177,6 +177,20 @@ def publish(if_unchanged=False):
             print(f"[catalog] release '{TAG}' moved since this fetch ({then} -> {now}); "
                   f"refusing to publish over it", file=sys.stderr)
             return 3
+    # A catalog written by two processes at once (2026-09-17: a backgrounded
+    # overlay publish woke during a local apply) is a byte-spliced file that
+    # still gzips and uploads; every reader downstream then fails. Parse
+    # before shipping — the only copy of the previous asset is destroyed by
+    # --clobber, so a bad upload has nothing to roll back to.
+    try:
+        with open(CATALOG, "rb") as fi:
+            n = len(json.load(fi).get("items") or [])
+    except Exception as e:
+        print(f"[catalog] refusing to publish: {CATALOG} does not parse ({e})", file=sys.stderr)
+        return 4
+    if n < 1000:
+        print(f"[catalog] refusing to publish: only {n} items", file=sys.stderr)
+        return 4
     with open(CATALOG, "rb") as fi, gzip.open(GZ, "wb", compresslevel=9) as fo:
         shutil.copyfileobj(fi, fo)
     print(f"[catalog] {CATALOG.stat().st_size/1e6:.1f} MB -> {GZ.stat().st_size/1e6:.1f} MB gzipped")
