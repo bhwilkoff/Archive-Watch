@@ -41,6 +41,9 @@ public final class StudioSession {
     /// Weak: the player belongs to the surface that built it, and a show must
     /// never be the reason a player outlives its window.
     private weak var localPlayer: AVPlayer?
+    /// Retained for the show's lifetime — a capture session that is released
+    /// stops delivering, and the tile simply goes black.
+    private var capture: AVCaptureSession?
 
     private init() {}
 
@@ -79,11 +82,13 @@ public final class StudioSession {
         engine = e
         await e.attachFilm(player: player)
         await e.setLayout(.corner)
-        var o = StudioOverlay()
-        o.title = armedTitle
-        o.subtitle = armedSubtitle
-        o.provenance = armedProvenance ?? ""
-        await e.setOverlay(o)
+        overlay = StudioOverlay()
+        overlay.title = armedTitle
+        overlay.subtitle = armedSubtitle
+        overlay.provenance = armedProvenance ?? ""
+        await e.setOverlay(overlay)
+
+        await attachCameraIfAvailable(to: e)
 
         do {
             // No destination yet: the engine composites and encodes and sends
@@ -91,7 +96,15 @@ public final class StudioSession {
             // exists (Decision 128). `showState` reports NOT SENDING rather
             // than pretending, so this is an honest production mode and not a
             // stub.
-            try await e.start(destination: nil)
+            //
+            // AW_STUDIO_DEST is a DIAGNOSTIC door, not the product path: the
+            // program is what gets ENCODED, and on macOS the window shows the
+            // plain film, so no screenshot can ever prove the camera tile and
+            // overlays are really in the broadcast. Publishing to a local
+            // server and pulling a frame back is the only honest check.
+            let dest = ProcessInfo.processInfo.environment["AW_STUDIO_DEST"]
+                .flatMap { URL(string: $0) }
+            try await e.start(destination: dest)
         } catch {
             refusal = "The Studio could not start — \(error)"
             engine = nil
@@ -101,7 +114,52 @@ public final class StudioSession {
         startPump()
     }
 
+    /// The host's camera, when the platform has one and the viewer has
+    /// already allowed it.
+    ///
+    /// REPORTED, NEVER REQUESTED. A permission prompt is a human action and
+    /// the Studio must not raise one in the middle of going live — a host
+    /// pressing "go live" is not a host answering a dialog. The camera tile is
+    /// absent when it is absent, which §8.8 already treats as normal (a paired
+    /// phone can be asleep or carried away mid-show).
+    ///
+    /// macOS needs `com.apple.security.device.camera` as well as TCC consent
+    /// (macOS-DESIGN §B13e) — without the entitlement this silently finds
+    /// nothing, which is indistinguishable from having no camera.
+    private func attachCameraIfAvailable(to engine: StudioEngine) async {
+        #if os(macOS) || os(iOS)
+        guard AVCaptureDevice.authorizationStatus(for: .video) == .authorized,
+              let cam = AVCaptureDevice.default(for: .video),
+              let input = try? AVCaptureDeviceInput(device: cam) else { return }
+        let session = AVCaptureSession()
+        session.beginConfiguration()
+        // 720p: the tile is never full-frame, so capturing 1080p to draw a
+        // corner box is work nobody sees.
+        session.sessionPreset = .hd1280x720
+        if session.canAddInput(input) { session.addInput(input) }
+        if AVCaptureDevice.authorizationStatus(for: .audio) == .authorized,
+           let mic = AVCaptureDevice.default(for: .audio),
+           let micInput = try? AVCaptureDeviceInput(device: mic),
+           session.canAddInput(micInput) {
+            session.addInput(micInput)
+        }
+        session.commitConfiguration()
+        let camTap = CameraFrameTap()
+        camTap.attach(to: session)
+        await engine.attachCamera(tap: camTap)
+        if AVCaptureDevice.authorizationStatus(for: .audio) == .authorized {
+            let micTap = MicAudioTap()
+            micTap.attach(to: session)
+            await engine.attachMicrophone(tap: micTap)
+        }
+        session.startRunning()
+        capture = session
+        #endif
+    }
+
     public func end() async {
+        capture?.stopRunning()
+        capture = nil
         pump?.cancel(); pump = nil
         if let engine { await engine.stop() }
         engine = nil
@@ -141,6 +199,23 @@ public final class StudioSession {
     }
 
     // MARK: Controls the panel drives
+
+    /// The overlay the show is carrying, so a card or the lower third can be
+    /// changed without the panel having to rebuild the title and provenance
+    /// it never owned.
+    private var overlay = StudioOverlay()
+
+    public func setLowerThird(_ shown: Bool) async {
+        overlay.title = shown ? armedTitle : ""
+        overlay.subtitle = shown ? armedSubtitle : ""
+        overlay.provenance = shown ? (armedProvenance ?? "") : ""
+        await engine?.setOverlay(overlay)
+    }
+
+    public func setCard(_ card: StudioOverlay.Card?) async {
+        overlay.card = card
+        await engine?.setOverlay(overlay)
+    }
 
     public func setLayout(_ layout: StudioLayout) async { await engine?.setLayout(layout) }
     public func setOverlay(_ overlay: StudioOverlay) async { await engine?.setOverlay(overlay) }

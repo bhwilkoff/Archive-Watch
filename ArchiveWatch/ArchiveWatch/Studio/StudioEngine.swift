@@ -40,6 +40,23 @@ public enum StudioLayout: String, CaseIterable, Sendable {
     public var showsFilm: Bool { true }
     public var showsCamera: Bool { self != .film }
 
+    /// User-facing names; the raw values are wire/diagnostic words.
+    ///
+    /// Lives HERE, not in a per-platform view. It began inside
+    /// `GoLiveSheet_iOS.swift` behind `#if os(iOS)`, so the macOS panel could
+    /// not see it — and the tempting fix is a second copy, which is how two
+    /// platforms end up calling the same layout different things
+    /// (`cross-platform-parity-discipline`).
+    public var label: String {
+        switch self {
+        case .film: return "Film only"
+        case .corner: return "Film with you in the corner"
+        case .theatre: return "Theatre row (you along the bottom)"
+        case .side: return "Side by side"
+        case .host: return "You, with the film inset"
+        }
+    }
+
     /// Where the chat column sits, or nil when this layout has no room.
     ///
     /// LEFT by default, stopping above the lower third. In `side` the film

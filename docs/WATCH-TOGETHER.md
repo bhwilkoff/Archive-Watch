@@ -1359,6 +1359,51 @@ eligible for the Studio (guaranteed tier): 4210
 4,210 — the same figure counted from `catalog.json` back when the tier was
 chosen, now confirmed from the artifact the clients actually read.
 
+### The whole chain, proved from the SHIPPING macOS app (2026-09-17)
+
+Everything before this was measured by a harness. This is the app.
+
+The macOS Studio published to a local `mediamtx` (`AW_STUDIO_DEST`, a
+diagnostic door — never a product path) and a frame was pulled back with
+ffmpeg. **The program carries all three layers**: the 1916 film aspect-fit and
+letterboxed, the Mac's FaceTime camera composited as the corner tile, and the
+lower third reading *The Curse Of Quon Gwon / 1916 · Marian E. Wong / PUBLIC
+DOMAIN — PUBLISHED 1916, BEFORE 1930* in marquee orange.
+
+**Why it had to be done this way.** On macOS the window shows the plain film
+through `AVPlayerView`; the PROGRAM only exists as encoded bytes. No
+screenshot of the app can ever show whether the camera tile and overlays are
+really in the broadcast — the only honest check is to publish and look at what
+comes back. It also confirms `com.apple.security.device.camera` works in the
+sandbox: without the entitlement a sandboxed app finds no camera at all, which
+is indistinguishable from having none (§B13e).
+
+### The macOS control panel, and what the glass changed about it (2026-09-17)
+
+§B13c called for "a `Form` in a sheet". Built, and then fixed twice by looking
+at it:
+
+1. **Six health rows pushed the Sound faders below the fold.** A sheet cannot
+   grow past its parent window, so the controls a host actually reaches for
+   mid-show were invisible on open. Health is now two compact rows — and
+   nothing is hidden, because the always-on readout (§B13d) carries the state,
+   the bitrate and the problem sentence. What belongs in the panel is only
+   what the readout has no room for.
+2. **A five-option radio group is chrome.** macOS uses a pop-up button for an
+   exclusive choice of that size; the radio group cost five rows to say one
+   thing. Same for the cards.
+
+After both, everything a host needs mid-show fits without scrolling: health,
+layout, and both faders with their live meters. **The microphone meter showed
+a real level in the shipping app**, which is the mic path verified outside a
+harness for the first time.
+
+One shared-code fix fell out of it: `StudioLayout.label` — the user-facing
+names — lived inside `GoLiveSheet_iOS.swift` behind `#if os(iOS)`, so the Mac
+panel could not see it. The tempting fix is a second copy, which is exactly
+how two platforms end up calling the same layout different things. It now
+lives once, beside the enum it names.
+
 ### Still to measure (Phase 0 remainder)
 
 - The camera tile's and microphone's cost **on the phone and the Apple TV** —
