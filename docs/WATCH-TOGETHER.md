@@ -166,7 +166,7 @@ camera source and the UI:
 | Platform | Camera + mic | Notes |
 |---|---|---|
 | iPhone / iPad | built-in cameras | **first** — the device we can measure |
-| Apple TV 4K (2nd gen+) | Continuity Camera (tvOS 17+): the iPhone is camera and mic | the film on the television, the phone on the table — the owner's own room |
+| Apple TV 4K (2nd gen+) | Continuity Camera (tvOS 17+): the iPhone is the camera, and the mic arrives as an **`AVAudioSession` port** (§9) | the film on the television, the phone on the table — the owner's own room |
 | Mac | any camera incl. Continuity Camera | later adds window+audio capture for a friends' call |
 
 Android follows (RootEncoder is the only place a dependency is allowed to be
@@ -793,6 +793,46 @@ shipped.
 
 **Cost** (Mac, 1920×1080@30): render mean **4.63 → 5.41 ms**, so the chat
 layer is **0.78 ms** — a second cropped composite, not a second full frame.
+
+### The Apple TV as the Studio — Continuity Camera (2026-09-17)
+
+`StudioContinuity.swift`, written against the **tvOS 27 SDK headers** rather
+than memory, and they corrected two things:
+
+1. **The microphone is an `AVAudioSessionPortDescription`, not a capture
+   device.** `AVContinuityDevice` exposes `videoDevices: [AVCaptureDevice]`
+   *and* `audioSessionInputs: [AVAudioSessionPortDescription]`. You select the
+   port with `AVAudioSession.setPreferredInput(_:)`, and a capture device of
+   type `.microphone` then records from whatever the routing subsystem chose —
+   the header is explicit that tvOS exposes exactly one microphone device and
+   "the audio routing subsystem decides which physical microphone to use".
+2. **`AVCaptureDeviceTypeContinuityCamera` IS available on tvOS 17**, so once a
+   phone has been paired a discovery session finds it without the picker. The
+   picker is therefore a **one-time** human step, not a per-show one.
+
+**And this explains §9's tvOS audio failure.** `.playAndRecord` fails on tvOS
+("Session activation failed") because there is nothing to record *from*. Once
+a continuity microphone port exists the category is legitimate — so the
+session is raised only then, and lowered back to `.playback` when the phone
+walks away. What looked like a platform quirk was a missing precondition.
+
+**Verified on the Fireplace Apple TV 4K (2nd gen, AppleTV11,1, tvOS 27.0):**
+
+```
+continuity: none — No iPhone is paired as a camera yet.
+SKIP camera — pair an iPhone once on this Apple TV (the system picker);
+              a paired phone is found automatically afterwards
+WARN no camera available — continuing film-only
+```
+
+`AVContinuityDevicePickerViewController.isSupported` returned **true** on this
+box — the state is `none` (nothing paired), not `unsupported`. That is the
+research doc's central claim about the hardware, now measured rather than
+asserted: **a 2nd-generation Apple TV 4K can be the Studio.**
+
+The coordinator reports and continues film-only rather than hanging or
+failing, the same rule the iOS camera permission follows: a harness must never
+wait on a human, and the owner is never the tester.
 
 ### Still to measure (Phase 0 remainder)
 

@@ -295,12 +295,24 @@ enum StudioLab {
     /// that is ALREADY available, and says so when there is none.
     private static func makeCameraSession() async -> AVCaptureSession? {
         #if os(tvOS)
-        let types: [AVCaptureDevice.DeviceType] = [.continuityCamera]
+        // tvOS goes through StudioContinuity, which knows that the MICROPHONE
+        // is an audio-session PORT rather than a capture device, and that
+        // `.playAndRecord` only becomes legitimate once such a port exists.
+        let continuity = StudioContinuity()
+        // Discovery is asynchronous; give it a moment before judging.
+        try? await Task.sleep(nanoseconds: 1_500_000_000)
+        log("continuity: \(continuity.state) — \(continuity.note)")
+        guard continuity.state.isConnected, let s = continuity.makeSession() else {
+            log("SKIP camera — pair an iPhone once on this Apple TV (the system picker); a paired phone is found automatically afterwards")
+            return nil
+        }
+        return s
         #elseif os(iOS)
         let types: [AVCaptureDevice.DeviceType] = [.builtInWideAngleCamera]
         #else
         let types: [AVCaptureDevice.DeviceType] = [.builtInWideAngleCamera, .external, .continuityCamera]
         #endif
+        #if !os(tvOS)
 
         // PERMISSION IS A HUMAN ACTION, AND THIS HARNESS MUST NOT WAIT ON ONE.
         // `requestAccess` presents a system alert and suspends until it is
@@ -346,6 +358,7 @@ enum StudioLab {
         session.commitConfiguration()
         log("camera \(device.localizedName) via \(device.deviceType.rawValue)")
         return session
+        #endif
     }
 
     private static func name(_ s: AVAuthorizationStatus) -> String {

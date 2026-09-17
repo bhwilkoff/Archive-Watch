@@ -1,6 +1,16 @@
 # Live Riffing — research (2026-09-17)
 
 > **Superseded in name, not in content.** The feature is now **Watch Together** / **Watch Together Studio** — the binding design doc is `docs/WATCH-TOGETHER.md` (Decision 127). This file is the research it rests on and is kept as written.
+>
+> **One claim in §3 was imprecise and is corrected in WATCH-TOGETHER §9.** The
+> tvOS row says the app gets "the audio port `.continuityMicrophone`" — true,
+> but it reads as though the microphone were an `AVCaptureDevice`. It is an
+> `AVAudioSessionPortDescription`, selected with
+> `AVAudioSession.setPreferredInput(_:)`; a capture device of type
+> `.microphone` then records from whatever the routing subsystem chose. That
+> distinction is why `.playAndRecord` appears to fail on tvOS: without such a
+> port there is nothing to record from. Read against the tvOS 27 headers,
+> 2026-09-17.
 
 > Owner's ask: *"the best way to use the Archive Watch app to live stream
 > yourself (and your friends) watching old movies and riffing, discussing, or
