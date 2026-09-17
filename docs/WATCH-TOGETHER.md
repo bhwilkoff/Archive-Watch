@@ -94,11 +94,44 @@ Apple TV 4K 2nd gen in 10.70 ms (§9). In-app composition is the architecture
 on every Apple device we ship to; ReplayKit is not needed and is not a
 tier.
 
-### §3.4 Only rights-KEEP films may go live
+### §3.4 Only films the audit can PROVE clear may go live
 
-The Studio offers a film only when the rights audit KEEPS it — the same gate
-the Roku Search feed uses (Decision 113/114). A hidden or unaudited item never
-reaches the go-live sheet. This is the whole reason the audit exists.
+A broadcast goes out under the host's **own** YouTube or Twitch account, so a
+wrong call here does not degrade a screen — it risks a real person's channel.
+The gate is therefore narrower than the one deciding what the app will play,
+and it is the one the Roku Search feed already applies to films it advertises
+to a third party: **`--tier guaranteed`, i.e. `safe_pd_age` alone** (Decision
+113; the owner set that bar on 2026-09-10 after measuring the looser one, in
+which 107 post-1963 titles rode in on an uploader's CC mark, a CC0 dedication
+on a studio cartoon, or membership of a government collection).
+
+`audit_rights.bucket()`'s verdict is carried into the client database as
+`items.rightsBucket` (schema 2) so the client applies the audit's OWN answer
+rather than inventing a weaker test from `rightsStatus` and `year` — the
+Decision-116 failure, where one client's tolerance hid an incorrect contract.
+
+`StudioRights` is the predicate. Three rules bind it:
+
+1. **An unknown verdict is a NO.** A device plays from a cached database and
+   is not entitled to today's schema, so a missing or null `rightsBucket`
+   refuses. The alternative is broadcasting a film whose rights nobody could
+   read.
+2. **Television and commercials never go live**, whatever their rights say —
+   the TV spines have never passed the rights audit at all (the open owner
+   decision in SCRATCHPAD).
+3. **Every refusal explains itself.** A greyed-out control with no reason is
+   the outcome §5 forbids, and "films published between 1964 and 1977 had
+   their copyrights renewed automatically" teaches the viewer something true
+   about the public domain — which is §2's whole argument.
+
+Widening to `strict` is an **owner decision, not a developer one** (Decision
+027 reserves rights calls). `StudioRights.Tier` is the single knob.
+
+`tools/test_studio_rights.swift` asserts 14 cases including the one-year-past
+boundary (1930), a `safe_pd_age` bucket with no year to support it, and the
+cached-schema case; and it fails if any refusal is shorter than a sentence.
+**The size of the eligible pool is not yet counted** — `rightsBucket` reaches
+the database on the next `publish-db` run, and the number goes here then.
 
 ### §3.5 One engine, every Apple platform
 
@@ -508,11 +541,16 @@ it never changed and is ~90% transparent. Cropping the CIImage to the rect it
 actually drew into brought it to **4.63 ms** — the overlay's true cost is
 **1.2 ms**, not 5.6. A cached layer still has to be blended; bound its extent.
 
-| Mac15,3, 1920×1080@30 | Render mean |
-|---|---|
-| no overlay | 3.40 ms |
-| full-frame overlay composite | 9.02 ms |
-| overlay cropped to content | **4.63 ms** |
+| 1920×1080@30 | Mac15,3 (M3) | Apple TV 4K 2nd gen (A12) |
+|---|---|---|
+| no overlay | 3.40 ms | 7.03 ms |
+| full-frame overlay composite | 9.02 ms | — |
+| overlay cropped to content | **4.63 ms** | **10.13 ms** |
+
+The overlay's true cost is **1.2 ms on the Mac and 3.1 ms on the A12** — the
+Apple TV, the weakest device the Studio runs on, sits at 30% of its frame
+budget with the film, the composite, the encode, the audio mixer and the lower
+third all running. 0 dropped frames, thermal nominal.
 
 ### Still to measure (Phase 0 remainder)
 

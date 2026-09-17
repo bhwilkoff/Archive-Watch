@@ -116,6 +116,15 @@ enum StudioLab {
 
         let engine = StudioEngine(configuration: cfg)
         await engine.setLayout(layout)
+        // The lower third is part of the program, so it is part of the
+        // measurement. AW_STUDIO_NO_OVERLAY=1 isolates its cost.
+        if env("AW_STUDIO_NO_OVERLAY") != "1" {
+            var o = StudioOverlay()
+            o.title = "The General"
+            o.subtitle = "1926 · Buster Keaton, Clyde Bruckman"
+            o.provenance = "Public domain since 1954"
+            await engine.setOverlay(o)
+        }
 
         var camera: AVCaptureSession?
         if wantCamera {

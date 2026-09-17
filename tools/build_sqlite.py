@@ -180,7 +180,32 @@ OUT_GZ = REPO / "catalog.sqlite.gz"
 OUT_ZZ = REPO / "catalog.sqlite.zz"
 OUT_MANIFEST = REPO / "catalog-manifest.json"
 
-SCHEMA_VERSION = 1
+# 2 adds items.rightsBucket (WATCH-TOGETHER §3.4). Readers must tolerate its
+# absence — a device plays from a CACHED db and is not entitled to today's
+# schema (the lesson CatalogService records for the index's columns 10-13).
+SCHEMA_VERSION = 2
+
+# The rights audit is the authority on whether a film is clear; importing its
+# own function is the only way the DB's verdict cannot drift from it.
+try:
+    import audit_rights as _audit_rights
+except Exception:  # noqa: BLE001
+    _audit_rights = None
+
+
+def _rights_bucket(it):
+    """audit_rights' verdict for this item, or None when unavailable.
+
+    None is honest: it means "this build could not ask", and a client that
+    cannot read a verdict must refuse to broadcast rather than assume.
+    """
+    if _audit_rights is None:
+        return None
+    try:
+        b, _action = _audit_rights.bucket(it)
+        return b
+    except Exception:  # noqa: BLE001
+        return None
 
 
 def jdump(v):
@@ -842,6 +867,12 @@ def create_schema(db):
       hasRealArtwork INTEGER, artworkSource TEXT, imdbID TEXT,
       imdbRating REAL, imdbVotes INTEGER, popularityScore INTEGER,
       qualityScore INTEGER, isSilentFilm INTEGER, rightsStatus TEXT,
+      -- The rights audit's own verdict (audit_rights.bucket), carried through
+      -- so a CLIENT can apply the same gate the Roku Search feed applies
+      -- (Decision 113) instead of inventing a weaker one of its own. Watch
+      -- Together Studio broadcasts a film to the world, and "not hidden" is a
+      -- lower bar than "provably clear" — WATCH-TOGETHER §3.4.
+      rightsBucket TEXT,
       contentRating TEXT, language TEXT, network TEXT, director TEXT,
       seriesID TEXT, yearEnd INTEGER, seasonsCount INTEGER, episodesCount INTEGER,
       isAdult INTEGER,
@@ -958,7 +989,8 @@ def populate_items(db, items, rotate_seed="0", skip_aids=frozenset()):
             _t(it.get("artworkSource")), _t(it.get("imdbID")), it.get("imdbRating"),
             it.get("imdbVotes"), _pop_score(it), it.get("qualityScore"),
             1 if (it.get("isSilentFilm") or it.get("contentType") == "silent-film") else 0,
-            _t(it.get("rightsStatus")), _t(it.get("contentRating")), _t(it.get("language")),
+            _t(it.get("rightsStatus")), _rights_bucket(it),
+            _t(it.get("contentRating")), _t(it.get("language")),
             _t(it.get("network")), _t(it.get("director")), _t(it.get("seriesID")),
             it.get("yearEnd"), it.get("seasonsCount"), it.get("episodesCount"),
             _is_adult(it),
