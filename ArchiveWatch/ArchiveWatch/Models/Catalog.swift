@@ -107,6 +107,12 @@ struct Catalog: Decodable, Sendable {
         // Additive fields from the federated pipeline (tools/export_catalog.py).
         // All optional so old catalog.json files still decode without a migration.
         let rightsStatus: String?
+        /// The rights audit's OWN verdict (`audit_rights.bucket`), derived at
+        /// database-build time. Optional because a device plays from a cached
+        /// database and is not entitled to today's schema — and because an
+        /// absent verdict must read as "unknown", which `StudioRights` treats
+        /// as a refusal (docs/WATCH-TOGETHER.md §3.4).
+        let rightsBucket: String?
         let qualityScore: Int?
         let popularityScore: Int?
         let bestSourceType: String?

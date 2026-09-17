@@ -149,8 +149,9 @@ An "Also known as …" line sits directly under the title when the film's
 primary title differs from the Archive uploader's (Decision 100) — quiet and
 secondary, never a second title competing with the first.
 3.6 **Sheet** — transient pickers and forms: Settings (from the Home cog),
-Add to Playlist (`presentationDetents([.medium, .large])`), Create Channel.
-Pickers default to medium detent; forms that need a keyboard may open large.
+Add to Playlist (`presentationDetents([.medium, .large])`), Create Channel,
+Go Live (§8.9). Pickers default to medium detent; forms that need a keyboard
+may open large.
 3.7 **Full-screen cover** — the player, and ONLY the player (§4.4).
 3.8b **Banner** — a full-width strip pinned above the tab shell, stating a
 CONDITION that changes what the app can do (currently: offline). One line,
@@ -322,6 +323,13 @@ before `play()`, or AVPlayer stalls, fails to start, or plays silently behind
 the ringer switch — this is the documented iOS-vs-tvOS playback gap. Every
 playback entry point goes through `PlayerView`, which does this; do not
 create a second player surface that skips it.
+**The one exception is Watch Together Studio** (§8.8), which needs the
+microphone and therefore `.playAndRecord` + `.default` +
+`[.mixWithOthers, .allowBluetooth, .defaultToSpeaker]`. `.moviePlayback` is a
+playback-ONLY mode and pairing it with `.playAndRecord` returns OSStatus −50
+(measured on an iPhone 12); the Studio restores the §8.2 session on exit.
+A failed activation silently prevents playback altogether, so it is reported,
+never swallowed (docs/WATCH-TOGETHER.md §6.2, §9).
 
 8.3 **One queue family.** Continuous play is the shared `ContinuousPlayback`
 engine surfaced through the `PlaybackQueue` protocol — `MovieAutoplayQueue`
@@ -360,6 +368,35 @@ keeps a receiver-fetchable target (Decision 051). Subtitles for a downloaded
 film are the downloaded WebVTT rendered into the caption overlay
 (`OfflineSubtitles`), selected by the existing caption-type control, never a
 second overlay drawn on top of the first.
+
+8.8 **Watch Together Studio is the PLAYER in a production mode, not a new
+surface.** The host is watching the film; the Studio adds camera, layout,
+audio faders, health and go-live as **overlay affordances** in the §8.5
+pattern, over the same `AVPlayerViewController` and the same
+`ResilientStreamLoader` asset. It is emphatically NOT a sixth §3 shape, NOT a
+`fullScreenCover` of its own (§11.4), and NOT a second player (§8.2) — three
+things it would have been if the shape had been invented before the rule.
+Specifics:
+
+- The film's frames reach the encoder through `AVPlayerItemVideoOutput` added
+  to the existing item, and its audio through an `MTAudioProcessingTap` on
+  the existing audio mix. Both are *outputs*, not a parallel transport, so
+  §8.1 holds.
+- **Never set the film's broadcast level with `AVPlayer.isMuted` or
+  `.volume`.** The tap is `PostEffects`, so local muting silences the stream
+  too (measured). The on-air level is `StudioAudioMixer.filmGain`.
+- Channel/lineup playback never enters the Studio: a broadcast is authored,
+  and §8.4's `persistsProgress = false` surfaces are not.
+- Only films `StudioRights.canGoLive` clears are offered (WATCH-TOGETHER
+  §3.4). The entry point is *shown* for an ineligible film and *disabled with
+  its reason* — never hidden, because a missing control teaches nothing.
+
+8.9 **Go live is a §3.6 form sheet** at the large detent (it needs a
+keyboard for the title): platform, title pre-filled from the catalog,
+category, privacy, then one primary action. It states the rights policy in a
+sentence, and it never asks for a stream key — the key is fetched from the
+platform's own API (WATCH-TOGETHER §4). The only field that accepts a URL is
+the **custom destination** used for diagnostics.
 
 ---
 

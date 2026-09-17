@@ -33,7 +33,23 @@ struct RootView: View {
             guard StudioLab.enabled else { return }
             await StudioLab.run()
         }
+        // Dev affordance: `AW_GOLIVE_DEMO=<archiveID>` presents the Go Live
+        // sheet on a real catalog item as soon as the catalog is ready, so the
+        // sheet can be SEEN on the glass (`devicectl device capture
+        // screenshot`) rather than merely compiled. No-op in production.
+        .task(id: store.dbVersion) {
+            guard let id = ProcessInfo.processInfo.environment["AW_GOLIVE_DEMO"],
+                  !id.isEmpty, store.isReady else { return }
+            goLiveDemoFilm = store.db?.itemsByIDs([id]).first
+        }
+        .sheet(item: $goLiveDemoFilm) { film in
+            GoLiveSheet(film: film) { req in
+                print("[AWGOLIVE] request platform=\(req.platform.rawValue) layout=\(req.layout.rawValue) title=\(req.title)")
+            }
+        }
     }
+
+    @State private var goLiveDemoFilm: Catalog.Item?
 
     /// One slim bar, and only when there is no network (Decision 099).
     ///

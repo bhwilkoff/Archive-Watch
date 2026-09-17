@@ -552,6 +552,35 @@ Apple TV, the weakest device the Studio runs on, sits at 30% of its frame
 budget with the film, the composite, the encode, the audio mixer and the lower
 third all running. 0 dropped frames, thermal nominal.
 
+### The go-live sheet, on the glass (2026-09-17)
+
+`GoLiveSheet_iOS` — iOS-DESIGN §8.9. Verified on the iPhone 12 with
+`AW_GOLIVE_DEMO=<archiveID>` and `devicectl device capture screenshot`
+(`build/qa/golive/`).
+
+**The rules came before the shape, and that changed the shape.** The Studio
+looked like a new §3 surface or a `fullScreenCover` of its own — both of which
+iOS-DESIGN §11.4 forbids. Reading the doc first produced the right answer
+instead: the Studio is **the player in a production mode** (§8.8), adding
+camera, layout, faders, health and go-live as §8.5 overlay affordances over
+the same `AVPlayerViewController` and the same resilient asset. §8.2 also had
+to be amended, because it mandates `.playback` and the Studio needs the
+microphone.
+
+**The first screenshot caught the fail-closed path working in the wild.** The
+General (1926) — as clear as a film gets — was REFUSED, with *"This copy has
+no rights verdict in the catalog on this device, so it cannot be streamed.
+Updating the catalog may resolve it."* The phone's cached database is schema 1
+and carries no `rightsBucket` yet. That is §3.4's rule 1 behaving exactly as
+written, on a real device, before any eligible film has ever been offered —
+and it is the behaviour that would otherwise have been impossible to trust.
+
+Two observations from the same frame: the film's meta line reads "1926 ·
+Clyde Bruckman" because the catalog's `director` field holds one name where
+the film has two — the sheet reports the record rather than improving it,
+which is correct. And the disabled primary action sits beside its reason, not
+alone (§5).
+
 ### Still to measure (Phase 0 remainder)
 
 - The camera tile's and microphone's cost on device — **blocked on a one-time

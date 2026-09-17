@@ -63,15 +63,25 @@ def _slim_for_blob(it):
     Measured on the Google TV: 41 MB download + inflate to 156 MB = 28s before
     the full archive is live. This is the cheapest slice of that to give back.
     """
+    out = None
     cols = it.get("collections")
-    if not cols:
-        return it
-    kept = [c for c in cols if not str(c).startswith("fav-")]
-    if len(kept) == len(cols):
-        return it
-    out = dict(it)
-    out["collections"] = kept
-    return out
+    if cols:
+        kept = [c for c in cols if not str(c).startswith("fav-")]
+        if len(kept) != len(cols):
+            out = dict(it)
+            out["collections"] = kept
+    # The rights audit's verdict rides in the blob, because the clients decode
+    # Catalog.Item FROM the blob — an `items` column alone would be invisible
+    # to them (WATCH-TOGETHER §3.4). It is DERIVED here rather than stored in
+    # catalog.json on purpose: computing it from audit_rights' own function at
+    # build time means the verdict can never be stale relative to the rules
+    # that produced it, and most KEPT items carry no `rightsAudit` at all
+    # (the audit writes that key only when it hides or un-hides something).
+    b = _rights_bucket(it)
+    if b:
+        out = out if out is not None else dict(it)
+        out["rightsBucket"] = b
+    return out if out is not None else it
 
 
 def _adult_markers():
