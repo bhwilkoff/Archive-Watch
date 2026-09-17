@@ -26,8 +26,12 @@
     <field id="qWall" type="boolean" value="false" />
     <!-- A single-id lookup, so a deep link can resolve a film the viewer has
          never browsed to. The index is already parsed on this thread; asking
-         it is free next to fetching anything. -->
-    <field id="qId" type="string" />
+         it is free next to fetching anything. NOT a query field: it answers on
+         lookupResult (a ContentNode whose id is the id asked for, holding the
+         row or nothing), independent of queryId, so a link that lands beside
+         another query on a cold start is never merged into it. -->
+    <field id="lookupId" type="string" alwaysNotify="true" />
+    <field id="lookupResult" type="node" alwaysNotify="true" />
     <!-- Ask for the whole Collections surface: one row per curated collection,
          built in ONE pass over the index on this thread. -->
     <field id="qCollections" type="boolean" value="false" />

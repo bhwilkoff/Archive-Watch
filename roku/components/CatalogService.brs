@@ -9,6 +9,10 @@ sub run()
     ' recompute once per field on a multi-field change; the caller sets the
     ' fields and then bumps queryId exactly once.
     m.top.ObserveField("queryId", port)
+    ' A single-id lookup rides its own field so it can never be coalesced
+    ' into (or answered by) a query. Served from the EVENT's data, not the
+    ' field: two ids set back to back are two answers.
+    m.top.ObserveField("lookupId", port)
 
     x = CreateObject("roUrlTransfer")
     ' A per-launch cache-buster: the Pages CDN holds the index for ten
@@ -51,10 +55,21 @@ sub run()
     ' newest such query now; `served` keeps a queued duplicate from answering
     ' twice, which would misroute the second result in the Scene.
     if m.top.queryId > m.served then runQuery()
+    ' An id set between the observer above and this line is BOTH in the field
+    ' and in the port; serve it once and let its event pass.
+    caughtUp = m.top.lookupId
+    if caughtUp <> "" then lookupOne(caughtUp)
     while true
         msg = wait(0, port)
         if type(msg) = "roSGNodeEvent"
             if msg.GetField() = "queryId" and m.top.queryId > m.served then runQuery()
+            if msg.GetField() = "lookupId"
+                if msg.GetData() = caughtUp
+                    caughtUp = ""
+                else
+                    lookupOne(msg.GetData())
+                end if
+            end if
         end if
     end while
 end sub
@@ -497,6 +512,23 @@ function normKey(t as String) as String
     return out
 end function
 
+' A deep link asks for ONE id and must not pay for a full scan-and-sort.
+' The answer names the id it is for (root.id), so the Scene can match it to
+' the request it still holds and ignore one it has moved on from.
+sub lookupOne(wantId as String)
+    if wantId = invalid or wantId = "" then return
+    root = CreateObject("roSGNode", "ContentNode")
+    root.id = wantId
+    for each r in m.items
+        if fmt(r[0]) = wantId
+            appendRow(root, r)
+            exit for
+        end if
+    end for
+    print "AWSVC lookup "; wantId; " found="; root.GetChildCount()
+    m.top.lookupResult = root
+end sub
+
 sub resolveIds(ids as Object)
     want = {}
     for each i in ids
@@ -584,7 +616,7 @@ sub runQuery()
     span.Mark()
     nIds = 0
     if m.top.qIds <> invalid then nIds = m.top.qIds.Count()
-    print "AWSVC query #"; m.top.queryId; " coll="; m.top.qCollections; " party="; m.top.qParty; " wall="; m.top.qWall; " cartoons="; m.top.qCartoons; " random="; m.top.qRandomType; " ids="; nIds; " cards="; m.top.qCollectionCards; " id="; m.top.qId
+    print "AWSVC query #"; m.top.queryId; " coll="; m.top.qCollections; " party="; m.top.qParty; " wall="; m.top.qWall; " cartoons="; m.top.qCartoons; " random="; m.top.qRandomType; " ids="; nIds; " cards="; m.top.qCollectionCards
 
     if m.top.qCollections
         buildCollections()
@@ -632,21 +664,6 @@ sub runQuery()
         return
     end if
 
-    ' A deep link asks for ONE id and must not pay for a full scan-and-sort.
-    wantId = m.top.qId
-    if wantId <> ""
-        root = CreateObject("roSGNode", "ContentNode")
-        for each r in m.items
-            if fmt(r[0]) = wantId
-                appendRow(root, r)
-                exit for
-            end if
-        end for
-        print "AWSVC lookup "; wantId; " found="; root.GetChildCount()
-        m.top.total = root.GetChildCount()
-        m.top.results = root
-        return
-    end if
     wantType = LCase(m.top.qType)
     ' Consumed, then CLEARED. This one function serves Browse, Search,
     ' Collections and the Surprise doors, so a scope left set by the TV tab

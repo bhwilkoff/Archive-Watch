@@ -54,6 +54,7 @@ sub init()
 
     m.svc = CreateObject("roSGNode", "CatalogService")
     m.svc.ObserveField("results", "onQueryResults")
+    m.svc.ObserveField("lookupResult", "onLookup")
     m.svc.ObserveField("ready", "onSvcReady")
     ' NOT STARTED YET. CatalogService downloads and parses the SAME 7 MB index
     ' HomeTask is already fetching, and on a single-core 600 MHz player the two
@@ -2316,36 +2317,6 @@ sub onQueryResults()
         refocus(m.collections)
         return
     end if
-    if m.pendingDetailID <> invalid and m.pendingDetailID <> ""
-        want = m.pendingDetailID
-        m.pendingDetailID = ""
-        m.svc.qId = ""
-        res = m.svc.results
-        if res <> invalid and res.GetChildCount() > 0 and m.detail <> invalid
-            ' Only if the viewer is still on the film they asked for — a slow
-            ' lookup must never repaint a Detail they have already left.
-            if m.route = "detail" and m.detail.item = invalid
-                m.detail.item = res.GetChild(0)
-                print "AWDETAIL resolved "; want
-            end if
-        else
-            print "AWDETAIL could not resolve "; want
-        end if
-        return
-    end if
-    if m.pendingDeepLink <> invalid and m.pendingDeepLink <> ""
-        id = m.pendingDeepLink
-        m.pendingDeepLink = ""
-        m.svc.qId = ""
-        res = m.svc.results
-        if res <> invalid and res.GetChildCount() > 0
-            m.deepLinkItem = res.GetChild(0)
-        else
-            m.deepLinkItem = invalid
-        end if
-        startDeepLink(id)
-        return
-    end if
     if m.browse <> invalid and m.browse.visible
         m.browse.callFunc("showResults", m.svc.results, m.svc.total)
     end if
@@ -2413,8 +2384,7 @@ sub openDetail(archiveID as String)
     ' the fix. The lookup is one pass over an already-parsed array.
     if it = invalid
         m.pendingDetailID = archiveID
-        m.svc.qId = archiveID
-        m.svc.queryId = m.svc.queryId + 1
+        m.svc.lookupId = archiveID
         print "AWDETAIL resolving "; archiveID; " from the index"
     end if
     if m.detail = invalid
@@ -2510,7 +2480,9 @@ sub onDetailLoaded()
     if m.autoPlay = true
         m.autoPlay = false
         d = m.dtask.detail
-        if d <> invalid and d.url <> invalid and d.url <> ""
+        if m.detail = invalid or m.detail.item = invalid
+            print "AWDEEP autoplay ABANDONED — "; m.dtask.archiveID; " is not in the index"
+        else if d <> invalid and d.url <> invalid and d.url <> ""
             print "AWDEEP autoplay "; m.dtask.archiveID
             m.detail.play = d.url
         else
@@ -2569,8 +2541,7 @@ sub onDeepLink()
         return
     end if
     m.pendingDeepLink = id
-    m.svc.qId = id
-    m.svc.queryId = m.svc.queryId + 1
+    m.svc.lookupId = id
 end sub
 
 sub onSvcReady()
@@ -2578,8 +2549,39 @@ sub onSvcReady()
         id = m.queuedDeepLink
         m.queuedDeepLink = ""
         m.pendingDeepLink = id
-        m.svc.qId = id
-        m.svc.queryId = m.svc.queryId + 1
+        m.svc.lookupId = id
+    end if
+end sub
+
+' A single-id lookup answers on its OWN field, never through the query bag.
+' The query fields are one shared record served once per queryId, and the
+' service runs only the NEWEST id — so a deep link that arrived on a cold
+' start alongside Continue Watching's resolveIds was merged into one query,
+' dispatched as the ids branch, and its answer consumed by the user-items
+' handler. Roku certification saw exactly that: "redirects to the channel's
+' home screen instead of playing the video" (Search Beta, 2026-09-17).
+sub onLookup()
+    root = m.svc.lookupResult
+    if root = invalid then return
+    id = root.id
+    found = invalid
+    if root.GetChildCount() > 0 then found = root.GetChild(0)
+    if m.pendingDeepLink <> invalid and m.pendingDeepLink = id
+        m.pendingDeepLink = ""
+        m.deepLinkItem = found
+        startDeepLink(id)
+        return
+    end if
+    if m.pendingDetailID <> invalid and m.pendingDetailID = id
+        m.pendingDetailID = ""
+        if found = invalid
+            print "AWDETAIL could not resolve "; id
+        else if m.detail <> invalid and m.route = "detail" and m.detail.item = invalid
+            ' Only if the viewer is still on the film they asked for — a slow
+            ' lookup must never repaint a Detail they have already left.
+            m.detail.item = found
+            print "AWDETAIL resolved "; id
+        end if
     end if
 end sub
 
