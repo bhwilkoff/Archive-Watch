@@ -649,6 +649,18 @@
    "kind": "feature-film",
    "mediaId": null,
    "reviewer": "Robert B. Livingston"
+  },
+  {
+   "at": "2026-09-17T01:18:35.504910+00:00",
+   "id": "silent-madame-dubarry",
+   "title": "Madame DuBarry",
+   "slot": "now-showing",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mvoicfwurf2d",
+   "format": "video",
+   "kind": "silent-film",
+   "mediaId": null,
+   "reviewer": null
   }
  ]
 }
