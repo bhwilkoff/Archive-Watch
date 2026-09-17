@@ -217,6 +217,10 @@ struct Harness {
         webrtc: no
         rtsp: no
         srt: no
+        moq: no
+        playback: no
+        metrics: no
+        pprof: no
         logLevel: debug
         record: yes
         recordPath: \(recDir)/%path_%Y-%m-%d_%H-%M-%S-%f

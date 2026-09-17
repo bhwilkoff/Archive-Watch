@@ -247,8 +247,29 @@ proven by this; it proves the transport.
    actually accepted, and is not a race. (A real destination replays the
    sequence header to its own viewers; that is the platform's job, not ours.)
 
+### Decode + composite + encode at 1080p30 (2026-09-17)
+
+`tools/measure_studio_headroom.swift` — a real archive.org film
+(`TheGeneral720p.mp4`) through `AVPlayer` → `AVPlayerItemVideoOutput` →
+`ProgramRenderer` (layout `corner`) → VideoToolbox H.264 → `RTMPPublisher` →
+local mediamtx. The engine's own clock drives the program at the target rate,
+so "fps rendered" is what the show would actually carry.
+
+| Host | Program | Mean fps | Worst second | Render mean | Clock overruns | Dropped | Thermal |
+|---|---|---|---|---|---|---|---|
+| Mac15,3 (M3 Pro, 8 cores), macOS 27.0 | 1920×1080@30 | **30.1** | 30.0 | **3.40 ms** of 33.3 | 0 | 0 | nominal |
+
+Published ~4.5 Mbps over 25 s, 753 video frames, none dropped. **The
+composite is 10% of the frame budget on this host**, which is the answer
+§3.3 was waiting for on the Mac: in-app composition is not the expensive
+part — the film decode is, and AVFoundation does that in hardware anyway.
+
 ### Still to measure (Phase 0 remainder)
 
-- Decode + composite + encode headroom at 1080p30 on the iPhone 12 (oldest
-  supported) and the Apple TV 4K 2nd gen (`atv-fireplace`).
+- The same numbers on the **iPhone 12** (`iphone`, oldest supported) and the
+  **Apple TV 4K 2nd gen** (`atv-fireplace`, the Decision-096 hardware floor).
+  Both need the engine inside the app behind a debug-only Studio Lab screen
+  (§8.2) — a command-line harness cannot run on either.
+- The camera tile's cost (the Mac run had no camera attached).
+- The audio path: film tap + mic mix → AAC.
 - A ten-minute soak: dropped-frame growth and thermal state (§8.3).
