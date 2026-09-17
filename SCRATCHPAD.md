@@ -101,6 +101,50 @@ keep serving it.
 
 ## Session Log
 
+### 2026-09-17 (audit loop) — The uploader-synopsis pass is DONE; misdated moderns and off-air tapes hidden by table; a spliced catalog repaired
+Owner /loop, 5-minute ticks: "uploader information and reviews instead of
+information about the film ... every piece of information ... accurate and
+unbiased."
+- **Every visible `synopsisSource: archive` item has now been read by the
+  agent** — 0 of 4,057 unreviewed (was ~8,140 on 09-16). 120 per tick via
+  `metadata_review.py select --limit 120 --source archive`, decisions keyed
+  by id prefix, `apply` stamps `agentReviewHash`. Totals at the end: 3,328
+  rewritten, ~4,000 kept, the rest nulled. Classes closed on the way, each
+  measured before it became a rule: NARA/DoD/USIA header dumps, Media History
+  Project boilerplate, Hoffmann/Dewenter collection biographies, California
+  Revealed `Description:/Source:/Rights:` wrappers, Prelinger "shots to be
+  logged", home-movie catalog-id and `N min., color:` prefixes, `notes on
+  can` tails, drive-in compilation tails, Fleischer Screen Song boilerplate
+  (x25), Bill Sprague "no complaints" stubs (x20+), Public-Domain-Day tails,
+  "Aired during …" commercial breaks, and the AI-colourised apologies.
+- **Two new id-keyed tables**, re-applied by remediate every build:
+  `shared/editorial/not_films.json` (`excluded=True`, `excludedReason:
+  not_a_film` — ~350 entries: off-air VHS network blocks typed "commercial",
+  full newscasts, studio cartoon/feature collections (Disney, Lantz, WB,
+  Marx Brothers), fan mashups and machinima, MIT OCW courses, recipes, rants,
+  conspiracy videos, and copyrighted features wearing silent-era years —
+  The Crow 1919, Titfield Thunderbolt 1919, Journey to the Center of the Earth
+  1910, a 2025 Dupieux feature 1912) and `year_corrections.json` (~35: The
+  Third Man 1943→1949, Flash Gordon 1969→1936, Cinderella 1907→1922 …).
+  Hides of television are NOT taken here — Decision 027 reserves them.
+- **Incident**: a backgrounded `overlay_publish.sh` woke during a local
+  apply; the two writers interleaved and the spliced 133 MB file was
+  published (publish-db failed on it; no bad DB shipped). Repaired from the
+  three intact segments + the rolling SQLite's blobs (minus the 2,189
+  episodes build_sqlite materialises), ~150 excluded items lost to
+  re-derivation. `catalog_release.py publish` now refuses a file that does not
+  parse; the publish step is foreground-only and skips a tick when a build is
+  in flight. Memory: `catalog_write_race_2026_09_17`.
+- Also: `_COPYRIGHT_CLAIM` learned "rights are reserved for"; a
+  whitespace-only synopsis is nulled; Space: 1999's "Dragon's Domain" was
+  credited to Michael Crichton (Charles).
+- **For the owner**: the television rights list grew (full series of Fawlty
+  Towers, Space: 1999, Planet of the Apes 1974, The World at War, Here's Lucy,
+  Doctor Who seasons, ITV sitcom bundles); `gov.nps.rmrs.wildfire` is a 2000s
+  USDA video wearing 1929; `The White House Story` (1960s) wears 1897.
+  Next audit fields per Decision 124: `director`/`cast` from the Archive
+  `creator` field, subject-inferred genres.
+
 ### 2026-09-16 (audit loop, cont.) — Credits residue, Family genre, the rights confirm run by hand (Decision 125)
 Owner /loop: "uploader information and reviews instead of information about
 the film ... every piece of information ... accurate and unbiased."
@@ -138,74 +182,3 @@ the film ... every piece of information ... accurate and unbiased."
   by popularity is the bounded pass worth doing.
 
 Older entries: `docs/SESSION-LOG.md` (verbatim, back to 2026-04-17).
-
-### 2026-09-14 (evening) — Party Play answers "what is this?" on every TV; playlist Share is visible; three Roku Library defects
-Owner: *"I've been leaving the 'Party Play' going on my TVs ... enable sound
-whenever I want ... go directly to the title that is playing ... shortcut to
-simply add the item to the history"* — and a film they could not identify
-("foreign language ... wheelchair chase scene down a highway").
-
-**Audited before building.** Apple TV: sound toggle already a transport-bar
-button, history automatic after 60 s, no route to the title. Google/Fire TV:
-toggle in the options panel, NO history for lineups, no route. Roku: none of
-the three — the player consumed no key but Instant Replay. Roku's Party pool
-is the whole colour catalog (Apple's is cartoons + shorts), which is why the
-unidentifiable film was a foreign feature: the catalog holds ~70 Hindi films
-from 1959-78, and nothing in their metadata mentions a wheelchair, so the film
-itself is still unnamed — the feature is the answer.
-
-**Shipped, each verified on hardware** (1.42.120/1132, vc61, Roku 00073):
-tvOS "Open Title" + "Remember" transport actions (tvOS-DESIGN §9.3a; console
-trace + Detail on the Bedroom ATV); Android TV "Open title" + "Remember this
-film" in the options panel and history-only writes after 60 s for lineups
-(TV-DESIGN §5.6; Detail on the Google TV, row read out of user.sqlite); Roku
-Up → OptionsList headed by the film's name with sound / open / remember
-(ROKU-DESIGN §6.9; console, HUD line, Detail, Library Watched row on the
-Streaming Stick). Roku defects found on the glass and fixed: Detail's Resume
-judged against catalog runtime not the file's; Watched ids never resolved for
-Library; a service query issued before the catalog task started was LOST
-(deep-linked Library sat on "Nothing here yet"); a repaint from empty to rows
-left focus on the Group.
-
-**Earlier the same day**: playlist Share on iPhone was ONLY a leading swipe
-(and Mac ONLY a right-click); now a toolbar icon on the playlist screen +
-long-press menu, and a shelf-title icon on Mac (iOS-DESIGN §4.3 reserves
-swipes for destructive verbs). 1.42.119 SUBMITTED for review on all three
-Apple platforms (the workflow's own submit failed on empty notes; submitted
-from here with notes). UI test `test_12_playlistShareIsVisible` on the
-iPhone 12.
-
-**Then, the same evening — the Minnie Mouse slideshow.** Owner: *"a slideshow
-of Minnie Mouse stills ... shouldn't be a part of the database."* It was the
-1922 silent *Minnie* by identity: Decision 032's wants hunt asked archive.org
-for "Minnie" and `resolve_title` scored a fan gallery 115 (a one-word want gets
-full overlap; no year on the gallery, so no wrong-year penalty), ingest dressed
-it in the want's imdb/cast/poster, remediate adopted the canonical title. Not
-one: **2,306 of 3,033 title-resolved wants were wrong**, 1,654 visible — porn as
-"Her Son" (1920), a Holocaust-denial video as "The Denial", Shawn Mendes at the
-VMAs as a 1921 silent. The catalog could not judge them (the title had been
-overwritten), only archive.org's own title/date could: `audit_title_wants.py`
-fetched all 3,033 (evidence committed), hid the 2,306 with `wrongMatchTitle`;
-`audit_rights` gained the `wrongmatch_title` bucket so the reconcile keeps them
-hidden; `resolve_title` now scores both ways and treats gallery/tribute/
-gameplay/podcast titles as noise (`test_resolve_title.py` 8/8, 5/7 on the old
-scorer). Catalog published (30,178 visible), publish-db dispatched.
-The 727 kept matches are trusted on an archive title that agrees; the 1–2
-stray-word band was NOT reviewed by hand.
-
-**Legacy Roku (owner's Roku 2 XD)**: researched — Roku's store does not carry a
-2026 channel on OS 9.1 (sunset 2019; cert 3.1); our package floor is already
-v8.0.0; sideload works and is the only route. Write-up + the account-add test
-for the owner in ROKU-SUBMISSION.md §Legacy players.
-
-**Ship state at hand-off**: Apple 1.42.120 WAITING_FOR_REVIEW on all three
-(1.42.119's submission cancelled and folded in); Play vc62 on internal
-(person-on-hardware before promotion, D110); Roku 1.0.65 LIVE (Dashboard
-Sep 15); a 00073 package with the Party verbs is built for the owner's
-upload. Red-X emails fixed at the source: asc_release treats an in-flight
-version as a warning, appstore-build skips submit with no notes, play-publish
-retries a Google 5xx. Apple build 1132 + Play vc61 (internal track)
-dispatched in CI; Roku package `build/roku/*.pkg` built for the owner's
-Dashboard upload (00073). Per D110 the Play internal build wants a person on
-hardware before promotion. Android TV's options panel still says "Play Next
-Episode" in a lineup of films — a label, not fixed here.
