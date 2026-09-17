@@ -79,6 +79,14 @@ def _load_subject_genres():
 
 _SUBJECT_GENRES = _load_subject_genres()
 
+# Keywords a TITLE may not vouch for even where the GENRE may: "The Adventures
+# of Ozzie and Harriet" (29 episodes) and "The Adventures of Jim Bowie" wore
+# Action because "adventure" maps to it; "Le Drapeau Noir" is a black flag, not
+# film noir; "Western Railroad Trip" is a home movie. Measured 2026-09-17:
+# 243 genre tags on no-id items rested on a title word alone, and these were
+# the wrong ones. In a SUBJECT the same words are the uploader's own tag.
+_TITLE_BLIND_KEYWORDS = re.compile(r"\b(adventures?|noir|westerns?|horrors)\b", re.I)
+
 
 # Keywords a TITLE may not vouch for: "The Family Doctor" and "Tomorrow's
 # Children — Eugenics in America" were both filed as Family films (2026-09-16).
@@ -90,7 +98,15 @@ _SUBJECT_ONLY_GENRES = {"Family", "Western", "Musical", "Romance"}
 def genres_from_subjects(it):
     """Derive up to 3 genres from an item's subjects + title via the keyword map."""
     subj = " ".join(it.get("subjects") or []).lower()
-    hay = (subj + " " + (it.get("title") or "")).lower()
+    title = (it.get("title") or "").lower()
+    # An uploader who tags the SHOW'S NAME as a subject ("The Adventures of
+    # Ozzie and Harriet; Classic TV") has not tagged a genre; the name is
+    # blind there too.
+    for name in {title, re.sub(r"\s*[-:(].*$", "", title)}:
+        if len(name) >= 8:
+            subj = subj.replace(name, " ")
+    title = _TITLE_BLIND_KEYWORDS.sub(" ", title)
+    hay = subj + " " + title
     out = []
     for rx, genre in _SUBJECT_GENRES:
         if genre in out:
@@ -98,6 +114,16 @@ def genres_from_subjects(it):
         if rx.search(subj if genre in _SUBJECT_ONLY_GENRES else hay):
             out.append(genre)
     return out[:3]
+
+
+def _genres_title_blind_only(it):
+    """Genres the old title-inclusive match produced that the map no longer
+    vouches for — the tags that rested on a title-blind word alone."""
+    subj = " ".join(it.get("subjects") or []).lower()
+    hay = subj + " " + (it.get("title") or "").lower()
+    old = {genre for rx, genre in _SUBJECT_GENRES
+           if rx.search(subj if genre in _SUBJECT_ONLY_GENRES else hay)}
+    return old - set(genres_from_subjects(it))
 
 MOVIE_TYPES = {"feature-film", "silent-film", "animation", "short-film",
                "documentary", "newsreel", "ephemeral", "tv-special", "home-movie",
@@ -2797,6 +2823,15 @@ def remediate(items):
                 and "Family" not in genres_from_subjects(it)):
             it["genres"] = [g for g in it["genres"] if g != "Family"]
             stats["subject_only_genre_dropped"] += 1
+        # ...and a tag that rested on a title-blind word alone ("Adventures
+        # of" -> Action). A cleared match's own genre is not in that set and
+        # stays.
+        if (it.get("genres") and not any(it.get(k) for k in ("imdbID", "tmdbID", "tvmazeID", "tvdbID"))
+                and (it.get("metaSource") or "") not in ("tmdb", "omdb")):
+            blind = _genres_title_blind_only(it) & set(it["genres"])
+            if blind:
+                it["genres"] = [g for g in it["genres"] if g not in blind]
+                stats["title_blind_genre_dropped"] += 1
 
         # 5) GENRES from subjects (Track B): fill empty genres with no network.
         if not it.get("genres"):
