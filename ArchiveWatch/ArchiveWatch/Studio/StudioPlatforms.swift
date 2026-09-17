@@ -1,0 +1,368 @@
+// YouTube and Twitch, as the Studio uses them (docs/WATCH-TOGETHER.md §4).
+//
+// THE RULE THIS FILE EXISTS TO KEEP: a host never copies a stream key. Each
+// platform hands one to an authorised app through its own API, and that is the
+// only way the Studio gets one. A key is a credential — it is never logged,
+// never written to disk, never put in a URL this app prints, and it does not
+// outlive the session that fetched it.
+//
+// Shapes verified against the current documentation (2026-09-17), not memory:
+//
+//   YouTube — POST https://www.googleapis.com/youtube/v3/liveStreams?part=snippet,cdn
+//     body { snippet.title, cdn: { ingestionType, resolution, frameRate } }
+//     → cdn.ingestionInfo.{ingestionAddress, rtmpsIngestionAddress,
+//                           backupIngestionAddress, rtmpsBackupIngestionAddress,
+//                           streamName}
+//     resolution ∈ 240p…2160p | variable   frameRate ∈ 30fps | 60fps | variable
+//     streamStatus ∈ active | created | error | inactive | ready
+//     scope https://www.googleapis.com/auth/youtube
+//   Twitch — GET  https://api.twitch.tv/helix/users                (resolve me)
+//            GET  https://api.twitch.tv/helix/streams/key?broadcaster_id=…
+//                 scope channel:read:stream_key   → data[0].stream_key
+//            PATCH https://api.twitch.tv/helix/channels?broadcaster_id=…
+//                 scope channel:manage:broadcast  → 204, body { title, game_id }
+//            headers: Authorization: Bearer …, Client-Id: …
+//
+// WHAT IS NOT HERE, DELIBERATELY: the token exchange. Signing in is the
+// platform's own web flow in an `ASWebAuthenticationSession` — the app sees a
+// token, never a password, and it cannot be built without a client id that
+// only the owner can register. `StudioPlatformAuth` is that boundary, and it
+// says so out loud rather than pretending.
+
+import Foundation
+
+// MARK: - What the publisher needs
+
+/// An ingest address and the key for it. Constructed, used, discarded.
+public struct StreamCredentials: Sendable {
+    public let server: URL
+    public let key: String
+    /// The platform's own backup ingest, when it offers one.
+    public let backupServer: URL?
+    /// Platform-side identifiers the Studio needs afterwards (to take the
+    /// broadcast live, to read chat, to end it). Never a credential.
+    public let broadcastID: String?
+    public let liveChatID: String?
+
+    public init(server: URL, key: String, backupServer: URL? = nil,
+                broadcastID: String? = nil, liveChatID: String? = nil) {
+        self.server = server; self.key = key; self.backupServer = backupServer
+        self.broadcastID = broadcastID; self.liveChatID = liveChatID
+    }
+}
+
+public enum StudioPlatformError: Error, CustomStringConvertible {
+    case notConfigured(String)
+    case notSignedIn(String)
+    case http(Int, String)
+    case badResponse(String)
+    case ineligible(String)
+
+    public var description: String {
+        switch self {
+        case .notConfigured(let s): return s
+        case .notSignedIn(let s): return s
+        case .http(let code, let body):
+            return "the platform answered \(code)" + (body.isEmpty ? "" : ": \(body)")
+        case .badResponse(let s): return "unexpected answer from the platform: \(s)"
+        case .ineligible(let s): return s
+        }
+    }
+}
+
+// MARK: - The auth boundary
+
+/// Where signing in happens — and the one thing that cannot be written yet.
+///
+/// Each platform needs an application registered by the account's owner (a
+/// Google Cloud project with YouTube Data API v3 enabled; a Twitch
+/// application). Those produce a client id, which goes in `Secrets.xcconfig`
+/// like the TMDb token and never into git. Until they exist this reports
+/// `notConfigured`, and the go-live sheet says so — which is a better state
+/// than a sign-in button that fails for reasons a host cannot see.
+public enum StudioPlatformAuth {
+
+    /// Client ids, read from the build's Info.plist (populated from the
+    /// gitignored `Secrets.xcconfig`). Absent is the normal state today.
+    static func clientID(for platform: Platform) -> String? {
+        let key = platform == .youtube ? "YOUTUBE_CLIENT_ID" : "TWITCH_CLIENT_ID"
+        let v = Bundle.main.object(forInfoDictionaryKey: key) as? String
+        return (v?.isEmpty ?? true) ? nil : v
+    }
+
+    public enum Platform: String, Sendable { case youtube, twitch }
+
+    /// The scopes each half of the feature needs, so the consent screen asks
+    /// for exactly what it uses and nothing more.
+    static func scopes(for platform: Platform) -> [String] {
+        switch platform {
+        case .youtube:
+            // `youtube` covers creating the broadcast and reading live chat.
+            return ["https://www.googleapis.com/auth/youtube"]
+        case .twitch:
+            return ["channel:read:stream_key", "channel:manage:broadcast", "user:read:chat"]
+        }
+    }
+
+    /// A token for this platform, or an error naming what is missing.
+    ///
+    /// NOT IMPLEMENTED, and not stubbed with a fake: returning a placeholder
+    /// token would make every caller appear to work and fail at the far end
+    /// with a platform error nobody could read. The boundary reports the truth.
+    static func token(for platform: Platform) async throws -> String {
+        guard clientID(for: platform) != nil else {
+            throw StudioPlatformError.notConfigured(
+                "Signing in to \(platform.rawValue.capitalized) is not set up in this build yet. "
+                + "It needs an application registered on \(platform == .youtube ? "Google Cloud (YouTube Data API v3)" : "the Twitch developer console")"
+                + " and its client id in Secrets.xcconfig.")
+        }
+        throw StudioPlatformError.notSignedIn(
+            "Sign in to \(platform.rawValue.capitalized) to stream. Archive Watch will fetch the stream key itself.")
+    }
+}
+
+// MARK: - HTTP
+
+private struct HTTP {
+    static func send(_ req: URLRequest) async throws -> (Data, HTTPURLResponse) {
+        let (data, resp) = try await URLSession.shared.data(for: req)
+        guard let http = resp as? HTTPURLResponse else {
+            throw StudioPlatformError.badResponse("no HTTP response")
+        }
+        guard (200..<300).contains(http.statusCode) else {
+            // The body often names the real problem ("liveStreamingNotEnabled",
+            // "insufficientPermissions"), and a host can act on that. It is
+            // trimmed because a platform can return a page.
+            let body = String(decoding: data.prefix(400), as: UTF8.self)
+            throw StudioPlatformError.http(http.statusCode, body)
+        }
+        return (data, http)
+    }
+
+    static func json(_ data: Data) throws -> [String: Any] {
+        guard let o = try? JSONSerialization.jsonObject(with: data) as? [String: Any] else {
+            throw StudioPlatformError.badResponse("not JSON")
+        }
+        return o
+    }
+}
+
+// MARK: - YouTube
+
+public struct YouTubeLive: Sendable {
+    let token: String
+
+    private static let base = "https://www.googleapis.com/youtube/v3"
+
+    public init(token: String) { self.token = token }
+
+    private func request(_ path: String, method: String,
+                         query: [String: String] = [:],
+                         body: [String: Any]? = nil) throws -> URLRequest {
+        var c = URLComponents(string: Self.base + path)!
+        if !query.isEmpty {
+            c.queryItems = query.map { URLQueryItem(name: $0.key, value: $0.value) }
+        }
+        var r = URLRequest(url: c.url!)
+        r.httpMethod = method
+        r.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        if let body {
+            r.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            r.httpBody = try JSONSerialization.data(withJSONObject: body)
+        }
+        return r
+    }
+
+    /// Creates a reusable stream and a bound broadcast, and returns the ingest
+    /// address + key. Three calls, in the order YouTube documents: the STREAM
+    /// carries the ingest, the BROADCAST carries the title and privacy, and
+    /// `bind` joins them. A broadcast with no bound stream can never go live.
+    public func prepare(title: String, description: String, privacy: String,
+                        resolution: String = "1080p", frameRate: String = "30fps",
+                        preferRTMPS: Bool = true) async throws -> StreamCredentials {
+        // 1. The stream — where bytes go.
+        let (streamData, _) = try await HTTP.send(try request(
+            "/liveStreams", method: "POST",
+            query: ["part": "snippet,cdn,status"],
+            body: ["snippet": ["title": title],
+                   "cdn": ["ingestionType": "rtmp",
+                           "resolution": resolution,
+                           "frameRate": frameRate],
+                   "contentDetails": ["isReusable": true]]))
+        let stream = try HTTP.json(streamData)
+        guard let streamID = stream["id"] as? String,
+              let cdn = stream["cdn"] as? [String: Any],
+              let info = cdn["ingestionInfo"] as? [String: Any],
+              let key = info["streamName"] as? String else {
+            throw StudioPlatformError.badResponse("liveStreams.insert returned no ingestionInfo")
+        }
+        let primaryString = (preferRTMPS ? info["rtmpsIngestionAddress"] as? String : nil)
+            ?? info["ingestionAddress"] as? String
+        let backupString = (preferRTMPS ? info["rtmpsBackupIngestionAddress"] as? String : nil)
+            ?? info["backupIngestionAddress"] as? String
+        guard let primaryString, let server = URL(string: primaryString) else {
+            throw StudioPlatformError.badResponse("liveStreams.insert returned no ingest address")
+        }
+
+        // 2. The broadcast — what the audience finds.
+        let (bcData, _) = try await HTTP.send(try request(
+            "/liveBroadcasts", method: "POST",
+            query: ["part": "snippet,status,contentDetails"],
+            body: ["snippet": ["title": title,
+                               "description": description,
+                               "scheduledStartTime": ISO8601DateFormatter().string(from: Date())],
+                   "status": ["privacyStatus": privacy,
+                              "selfDeclaredMadeForKids": false],
+                   // autoStartStream so the broadcast goes live when bytes
+                   // arrive, rather than needing a second transition the host
+                   // would have to know about.
+                   "contentDetails": ["enableAutoStart": true,
+                                      "enableAutoStop": true]]))
+        let broadcast = try HTTP.json(bcData)
+        guard let broadcastID = broadcast["id"] as? String else {
+            throw StudioPlatformError.badResponse("liveBroadcasts.insert returned no id")
+        }
+        let chatID = (broadcast["snippet"] as? [String: Any])?["liveChatId"] as? String
+
+        // 3. Bind them.
+        _ = try await HTTP.send(try request(
+            "/liveBroadcasts/bind", method: "POST",
+            query: ["part": "id,contentDetails", "id": broadcastID, "streamId": streamID]))
+
+        return StreamCredentials(server: server, key: key,
+                                 backupServer: backupString.flatMap(URL.init(string:)),
+                                 broadcastID: broadcastID, liveChatID: chatID)
+    }
+
+    /// Ends the broadcast. `enableAutoStop` handles the normal case; this is
+    /// the explicit end, for a host who stops deliberately.
+    public func complete(broadcastID: String) async throws {
+        _ = try await HTTP.send(try request(
+            "/liveBroadcasts/transition", method: "POST",
+            query: ["part": "id,status", "id": broadcastID, "broadcastStatus": "complete"]))
+    }
+
+    /// One page of live chat. Polling interval comes from the response —
+    /// YouTube says how often to ask and an app that ignores it gets throttled.
+    public func chat(liveChatID: String, pageToken: String?)
+        async throws -> (messages: [(author: String, text: String)], next: String?, pollAfterMS: Int) {
+        var q = ["liveChatId": liveChatID, "part": "snippet,authorDetails"]
+        if let pageToken { q["pageToken"] = pageToken }
+        let (data, _) = try await HTTP.send(try request("/liveChat/messages", method: "GET", query: q))
+        let o = try HTTP.json(data)
+        let items = o["items"] as? [[String: Any]] ?? []
+        let msgs: [(String, String)] = items.compactMap { item in
+            guard let snip = item["snippet"] as? [String: Any],
+                  let text = snip["displayMessage"] as? String,
+                  let author = (item["authorDetails"] as? [String: Any])?["displayName"] as? String
+            else { return nil }
+            return (author, text)
+        }
+        return (msgs, o["nextPageToken"] as? String,
+                (o["pollingIntervalMillis"] as? Int) ?? 5000)
+    }
+}
+
+// MARK: - Twitch
+
+public struct TwitchLive: Sendable {
+    let token: String
+    let clientID: String
+
+    private static let base = "https://api.twitch.tv/helix"
+
+    public init(token: String, clientID: String) {
+        self.token = token; self.clientID = clientID
+    }
+
+    private func request(_ path: String, method: String,
+                         query: [String: String] = [:],
+                         body: [String: Any]? = nil) throws -> URLRequest {
+        var c = URLComponents(string: Self.base + path)!
+        if !query.isEmpty {
+            c.queryItems = query.map { URLQueryItem(name: $0.key, value: $0.value) }
+        }
+        var r = URLRequest(url: c.url!)
+        r.httpMethod = method
+        r.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        r.setValue(clientID, forHTTPHeaderField: "Client-Id")
+        if let body {
+            r.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            r.httpBody = try JSONSerialization.data(withJSONObject: body)
+        }
+        return r
+    }
+
+    /// The signed-in user's id. Twitch keys every channel call on it and the
+    /// token does not carry it in a form we should parse ourselves.
+    public func broadcasterID() async throws -> String {
+        let (data, _) = try await HTTP.send(try request("/users", method: "GET"))
+        guard let first = (try HTTP.json(data)["data"] as? [[String: Any]])?.first,
+              let id = first["id"] as? String else {
+            throw StudioPlatformError.badResponse("/users returned no user")
+        }
+        return id
+    }
+
+    /// Title and category. Category is a game_id, so a name has to be resolved
+    /// first — a title change must not fail because the category did.
+    public func setChannel(broadcasterID: String, title: String, categoryName: String?) async throws {
+        var body: [String: Any] = ["title": title]
+        if let categoryName, !categoryName.isEmpty,
+           let gameID = try? await gameID(named: categoryName) {
+            body["game_id"] = gameID
+        }
+        _ = try await HTTP.send(try request("/channels", method: "PATCH",
+                                            query: ["broadcaster_id": broadcasterID],
+                                            body: body))
+    }
+
+    private func gameID(named name: String) async throws -> String? {
+        let (data, _) = try await HTTP.send(try request("/games", method: "GET",
+                                                        query: ["name": name]))
+        return ((try HTTP.json(data)["data"] as? [[String: Any]])?.first)?["id"] as? String
+    }
+
+    /// The ingest endpoint and the key. The ingest list is PUBLIC (no auth) and
+    /// its first entry is Twitch's own "Default" recommendation, so it is what
+    /// an encoder should use unless a host picks a region.
+    public func prepare(title: String, categoryName: String?) async throws -> StreamCredentials {
+        let id = try await broadcasterID()
+        // The title is set BEFORE the key is fetched: a stream that goes live
+        // under the previous show's title is worse than one that fails to set
+        // a category.
+        try await setChannel(broadcasterID: id, title: title, categoryName: categoryName)
+
+        let (keyData, _) = try await HTTP.send(try request("/streams/key", method: "GET",
+                                                           query: ["broadcaster_id": id]))
+        guard let first = (try HTTP.json(keyData)["data"] as? [[String: Any]])?.first,
+              let key = first["stream_key"] as? String else {
+            throw StudioPlatformError.badResponse("/streams/key returned no key")
+        }
+        let (server, backup) = try await Self.ingest()
+        return StreamCredentials(server: server, key: key, backupServer: backup,
+                                 broadcastID: id, liveChatID: id)
+    }
+
+    /// `ingest.twitch.tv/ingests` — the current PoP list. Templates arrive as
+    /// `rtmp://host/app/{stream_key}`, and the key is supplied separately, so
+    /// the placeholder is stripped rather than substituted.
+    static func ingest() async throws -> (URL, URL?) {
+        let url = URL(string: "https://ingest.twitch.tv/ingests")!
+        let (data, _) = try await HTTP.send(URLRequest(url: url))
+        let list = (try HTTP.json(data)["ingests"] as? [[String: Any]]) ?? []
+        func server(_ entry: [String: Any]) -> URL? {
+            guard var t = entry["url_template"] as? String else { return nil }
+            t = t.replacingOccurrences(of: "/{stream_key}", with: "")
+            // RTMPS on 443 travels through more networks than RTMP on 1935.
+            if t.hasPrefix("rtmp://") {
+                t = "rtmps://" + t.dropFirst("rtmp://".count)
+            }
+            return URL(string: t)
+        }
+        guard let primary = list.first.flatMap(server) else {
+            throw StudioPlatformError.badResponse("no Twitch ingest servers listed")
+        }
+        return (primary, list.dropFirst().first.flatMap(server))
+    }
+}

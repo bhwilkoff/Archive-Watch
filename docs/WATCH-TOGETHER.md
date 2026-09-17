@@ -712,6 +712,53 @@ spanning two languages that agree only by string needs a test that reads
 both; that is Decision 116's lesson, and this is the second time in this
 feature it has applied.
 
+### The platform clients (2026-09-17)
+
+`StudioPlatforms.swift`. Shapes verified against the current documentation
+rather than memory:
+
+| | Call |
+|---|---|
+| YouTube | `POST /youtube/v3/liveStreams?part=snippet,cdn,status` → `cdn.ingestionInfo.{rtmpsIngestionAddress, streamName, …}`; `POST /liveBroadcasts` (title, privacy, `enableAutoStart`); `POST /liveBroadcasts/bind`; `POST /liveBroadcasts/transition`; `GET /liveChat/messages`. Scope `…/auth/youtube`. |
+| Twitch | `GET /helix/users` (resolve the broadcaster id), `PATCH /helix/channels` (title, `game_id`), `GET /helix/streams/key` → `data[0].stream_key`. Scopes `channel:read:stream_key`, `channel:manage:broadcast`. Headers `Authorization: Bearer`, `Client-Id`. Ingest PoPs from the public `ingest.twitch.tv/ingests`. |
+
+Three choices worth naming:
+
+1. **The title is set BEFORE the key is fetched on Twitch.** A stream that
+   goes live under the previous show's title is worse than one that fails to
+   set a category — so the category is best-effort and the title is not.
+2. **YouTube gets `enableAutoStart`/`enableAutoStop`**, so the broadcast goes
+   live when bytes arrive rather than needing a transition the host would have
+   to know about.
+3. **The ingest template's `/{stream_key}` is stripped, not substituted**, and
+   `rtmp://` is upgraded to `rtmps://` — the publisher takes an address and a
+   key separately (§the publisher's own API), and RTMPS on 443 traverses more
+   networks than RTMP on 1935.
+
+`tools/test_studio_platforms.swift` proves what can be proven with **no
+credential**, which is more than it sounds:
+
+```
+✓ Twitch ingest resolves — rtmps://ingest.global-contribute.live-video.net/app
+✓ ingest is RTMPS · carries an app path, not a key placeholder · a backup PoP is offered
+✓ unauthenticated Twitch call is refused — HTTP 401 {"error":"Unauthorized","message":"Invalid OAuth token"}
+✓ unauthenticated YouTube call is refused — HTTP 401 "Request had invalid authentication credentials"
+```
+
+Both platforms answer with **their own readable reason**, which is what a host
+needs to see — not a crash and not a silent empty result.
+
+**The token exchange is deliberately NOT stubbed.** Returning a placeholder
+token would make every caller appear to work and fail at the far end with an
+error nobody could trace. `StudioPlatformAuth.token` reports exactly what is
+missing: an application registered by the account's owner (a Google Cloud
+project with YouTube Data API v3; a Twitch application) and its client id in
+the gitignored `Secrets.xcconfig`, beside the TMDb token. Until then the
+go-live sheet's YouTube and Twitch paths surface that sentence.
+
+**Owner action, and it is the last one.** Everything upstream of the token is
+verified on real hardware.
+
 ### Still to measure (Phase 0 remainder)
 
 - The camera tile's and microphone's cost on device — **blocked on a one-time
