@@ -112,7 +112,11 @@ class RtmpPublisherTest {
         // Real media has to flow before mediamtx calls a path ready — and
         // BOTH tracks, because the config declares audio and the server holds
         // the path back until it has identified every track it was promised.
-        for (i in 0 until 30) {
+        // ENOUGH media. mediamtx does not declare a path ready on the first
+        // frame; ffmpeg's own first 80 messages were refused by the same
+        // server while its full stream was accepted, so a short burst proves
+        // nothing about the publisher (2026-09-17, tools/rtmp_bisect.py).
+        for (i in 0 until 300) {
             p.sendVideo(RealH264.idrAvcc, isKeyframe = true, ptsMs = i * 33, dtsMs = i * 33)
             p.sendAudio(RealAac.frame, ptsMs = i * 23)
         }
@@ -132,7 +136,7 @@ class RtmpPublisherTest {
         assumeTrue("mediamtx API not enabled on :9997 — skipping", apiIsUp())
         val p = RtmpPublisher()
         p.publish("rtmp://$host:$port/live", "videoonly", config(), declareAudio = false)
-        for (i in 0 until 30) {
+        for (i in 0 until 300) {
             p.sendVideo(RealH264.idrAvcc, isKeyframe = true, ptsMs = i * 33, dtsMs = i * 33)
         }
         var ready = false

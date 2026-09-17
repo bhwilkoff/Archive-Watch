@@ -423,17 +423,73 @@ ids 1–5; our `onMetaData` parses cleanly, 229 of 229 bytes, nine valid
 properties; and our video sequence header is **byte-identical** to ffmpeg's
 (`17000000000142c00dffe100186742c00dd90141fb011000`).
 
-**The fault is in the frame messages alone.** Not quantity either — repeating
-our frames fourfold changes nothing. Their message headers are structurally
-identical to ffmpeg's (`06 000000 0000f7 09 01000000`, length 247, type 9,
-stream id 1 little-endian) and the FLV tag is well-formed (`17 01 000000` then
-a 4-byte AVCC length `000000ee` then a NAL whose type is 5, an IDR). Something
-inside that is still not what the server will take, and that is where the next
-session starts — with a bisect harness that answers in seconds instead of a
-build-and-run cycle.
+**CORRECTION, next session — that conclusion was wrong, and the publisher was
+right all along.** The paragraph that stood here said "the fault is in the
+frame messages alone". It is withdrawn. Marked rather than deleted, because a
+wrong conclusion that was reasoned to carefully and written down confidently
+is worth seeing (Decision 121).
 
-The publisher's test stays RED. It is the honest state, and it is a much
-better place to be than the version that passed while asserting nothing.
+The bisect kept narrowing until the splices stopped making sense: re-emitting
+**ffmpeg's own bodies** with our framing failed, with every variable —
+chunk-stream id, absolute vs delta headers, timestamps, interleaving — tried
+and eliminated. So the next thing to doubt was the instrument, and the control
+that settled it was truncating the KNOWN-GOOD stream:
+
+```
+ffmpeg's full original stream            WORKED
+ffmpeg's first 80 original frame messages FAILED
+ffmpeg's first 20                         FAILED
+ffmpeg's first 6                          FAILED
+```
+
+**mediamtx does not declare a path ready on the first frames.** Every splice I
+had been running was ~60–80 messages, i.e. about a second — below whatever
+the server wants before it commits. The publisher's frames were never the
+problem; my harness was starving it, and each "FAILED" was measuring the
+length of the burst rather than the correctness of the bytes.
+
+With the test sending 300 frames instead of 30, all eight pass, and the server
+says so in its own words:
+
+```
+[path live/androidtest] stream is available and online, 2 tracks (H264, MPEG-4 Audio)
+[RTMP] [conn ...] is publishing to path 'live/androidtest'
+[path live/videoonly]   stream is available and online, 1 track (H264)
+```
+
+**So the Android publisher is PROVED end to end against a real server** — the
+handshake, AMF0, the full command sequence, metadata, both sequence headers,
+and interleaved H.264/AAC frames. The video-only line also confirms the
+`declareAudio` fix: a publisher that does not advertise a track it will never
+send gets a one-track path instead of hanging.
+
+**And it runs on real Android hardware.** `RtmpDeviceTest` is an instrumented
+test — the JVM one proves the protocol, this proves it survives a device's own
+network stack and socket timing, which is a different question and the one
+that caught this project before (Decision 082: a LocalMediaServer passed every
+Mac gate and failed on the device).
+
+```
+Dongle R 4K (Google TV, API 34)     publishesFromTheDevice  PASS
+AFTKRT (Fire TV Stick 4K Max, API 30) publishesFromTheDevice PASS
+
+[RTMP] [conn 10.0.0.55:54098] opened
+[path live/devicetest] stream is available and online, 2 tracks (H264, MPEG-4 Audio)
+[RTMP] [conn 10.0.0.55:54098] is publishing to path 'live/devicetest'
+```
+
+It skips rather than fails when no server is reachable, because a red result
+must mean the publisher is broken and never that a laptop was asleep
+(Decision 107). The Pixel 8a was not reached this session — its adb-over-TLS
+pairing has expired and needs re-pairing on the phone.
+
+**The lesson is the one this feature keeps re-teaching, from the other side.**
+Twice before, a harness said PASS while nothing worked. This time a harness
+said FAIL while everything worked. Both are the same fault — an instrument
+that was never itself checked — and the fix is the same: before believing a
+verdict, run the control that should obviously produce the opposite one. The
+truncated known-good stream took two minutes and would have saved most of a
+session.
 
 ## §7 — Phases
 

@@ -22,10 +22,22 @@ The result on first use, in five runs:
     our sequence headers + ffmpeg frames        WORKED
     ffmpeg sequence headers + our frames        FAILED
 
-So the handshake, connect, releaseStream, FCPublish, createStream, publish,
-onMetaData and BOTH sequence headers are byte-correct and accepted, and the
-fault is in the FRAME messages alone — a far smaller place to look than
-"somewhere in RTMP".
+That looked conclusive and was WRONG, which is the most useful thing this file
+records. The splices kept failing with ffmpeg's OWN bodies in them, every
+variable eliminated, until the control that mattered was finally run:
+
+    ffmpeg's full original stream             WORKED
+    ffmpeg's first 80 original frame messages FAILED
+
+mediamtx does not declare a path ready on the first second of media. Every
+splice above was ~60-80 messages, so each "FAILED" measured the LENGTH OF THE
+BURST and not the correctness of the bytes. The publisher was correct
+throughout.
+
+ALWAYS RUN THE OPPOSITE CONTROL. Feed the known-good source through the same
+harness in the same shape as the thing under test. If the known-good input
+also fails, the harness is the bug — and that check costs two minutes against
+the session this one cost.
 """
 import socket, sys, time
 
