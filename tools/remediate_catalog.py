@@ -41,6 +41,7 @@ from pathlib import Path
 # Share the auditor's detectors so "what we detect is what we clean" (Tier 1).
 _sys.path.insert(0, str(Path(__file__).resolve().parent))
 import audit_metadata as _audit  # noqa: E402
+import comment_fit as _comment_fit  # noqa: E402
 
 REPO = Path(__file__).resolve().parent.parent
 CATALOG = REPO / "catalog.json"
@@ -2095,6 +2096,23 @@ _HATE_MARKERS = re.compile(
     re.I)
 
 
+def refilter_reviews(items, stats):
+    """The harvested reviews were filtered once, at harvest; comment_fit's
+    rules have grown since (2026-09-17: file-quality verdicts, "thank you for
+    posting"). Re-judge what is stored so a tightened rule reaches the shelf
+    without a re-harvest. The stored shape is {reviewer,title,body,stars,date}."""
+    for it in items:
+        rv = it.get("reviews")
+        if not isinstance(rv, list) or not rv:
+            continue
+        kept = [r for r in rv if not isinstance(r, dict)
+                or not _comment_fit.file_complaint({"reviewtitle": r.get("title") or "", "reviewbody": r.get("body") or ""})]
+        if len(kept) != len(rv):
+            stats["reviews_refiltered"] += len(rv) - len(kept)
+            it["reviews"] = kept
+            it["reviewsKept"] = len(kept)
+
+
 def exclude_not_films(items, stats):
     """Uploads the review pass found to be no film at all — a music video
     catalogued as a 1924 silent by title. The table names each with its
@@ -3019,6 +3037,7 @@ def remediate(items):
     _drop_stale_year_markers()
     exclude_hate_propaganda(items, stats)
     exclude_not_films(items, stats)
+    refilter_reviews(items, stats)
     # After the year/runtime rules above have settled — flag_trailers reads both.
     flag_trailers(items, stats)
     # ...then give a real type back to whatever it did NOT judge a trailer.

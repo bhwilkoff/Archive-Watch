@@ -68,7 +68,26 @@ _FILE_SIGNALS = [
     (r"how (do i|to|can i) (save|download|burn|play|watch|get|open)", 4),
     (r"can'?t (download|save|play|open|get)", 4), (r"burn (it|the|to|image)", 3),
     (r"\bdis[ck]\b", 2), (r"\bhow do i\b", 2), (r"to download", 2), (r"to watch this on", 3),
+    # 2026-09-17 audit of the 13,080 kept reviews: "Bad Copy — the sound is off",
+    # "you are wasting your time if you download the 512kb version", "thank you
+    # for posting it" were still standing on Detail as reviews of the film.
+    (r"(?<!not a )(?<!not )\b(bad|poor|terrible|lousy|awful) (copy|print|transfer|scan|rip|upload)\b", 3),   # "Not a bad copy" is praise
+    (r"\b(sound|audio|picture|video|image|print|copy|transfer) (quality )?(is|was|gets|goes) (off|bad|poor|terrible|awful|muffled|garbled|fuzzy|blurry|choppy|jumpy|out of sync|crap)\b", 3),
+    (r"thank you for (the |posting|uploading|sharing)", 2),
+    (r"\b(512|256)\s?kb", 4), (r"\bkbps\b", 3),
 ]
+
+# The signals added on 2026-09-17 alone — used to RE-JUDGE reviews that a
+# looser harvest-time filter kept, without re-litigating that judgement.
+_FILE_SIGNALS_2026_09 = _FILE_SIGNALS[-5:]
+
+
+def file_complaint(review: dict) -> bool:
+    """A stored review whose newer file-quality signals sum to 3+ while its film
+    content is thin: "Bad Copy — the sound is off and the plot is hard to follow"."""
+    text = ((review.get("reviewtitle") or "") + " . " + (review.get("reviewbody") or "")).lower()
+    w = sum(wt for pat, wt in _FILE_SIGNALS_2026_09 if re.search(pat, text))
+    return w >= 3 and _film_score(text) <= 2
 
 # --- film-content signals (about the movie itself) --------------------------
 _FILM_SIGNALS = [
