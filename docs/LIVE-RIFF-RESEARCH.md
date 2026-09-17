@@ -1,5 +1,7 @@
 # Live Riffing — research (2026-09-17)
 
+> **Superseded in name, not in content.** The feature is now **Watch Together** / **Watch Together Studio** — the binding design doc is `docs/WATCH-TOGETHER.md` (Decision 127). This file is the research it rests on and is kept as written.
+
 > Owner's ask: *"the best way to use the Archive Watch app to live stream
 > yourself (and your friends) watching old movies and riffing, discussing, or
 > otherwise commenting upon them. Ideally, you should be able to capture the
