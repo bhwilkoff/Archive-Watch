@@ -119,6 +119,8 @@ def apply():
         elif action != "keep":
             stats["skipped"] += 1
             continue
+        elif not it.get("synopsisSource"):
+            it["synopsisSource"] = "archive"     # a kept uploader description is labelled as one (Decision 124)
         it["agentReviewHash"] = _hash(it)   # mark reviewed at the post-action text
         stats[action] = stats.get(action, 0) + 1
     CATALOG.write_text(json.dumps(cat, ensure_ascii=False), encoding="utf-8")

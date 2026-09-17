@@ -2116,6 +2116,16 @@ _HATE_MARKERS = re.compile(
     re.I)
 
 
+def stamp_reviewed_provenance(items, stats):
+    """A synopsis the agent read and kept, on an item that arrived after the
+    provenance pass, carries no source: 16 returnees on 2026-09-17. It is the
+    uploader's text, and Decision 124 says the client must say so."""
+    for it in items:
+        if it.get("synopsis") and it.get("agentReviewHash") and not it.get("synopsisSource"):
+            it["synopsisSource"] = "archive"
+            stats["reviewed_provenance_stamped"] += 1
+
+
 def refilter_reviews(items, stats):
     """The harvested reviews were filtered once, at harvest; comment_fit's
     rules have grown since (2026-09-17: file-quality verdicts, "thank you for
@@ -3098,6 +3108,7 @@ def remediate(items):
     exclude_hate_propaganda(items, stats)
     exclude_not_films(items, stats)
     refilter_reviews(items, stats)
+    stamp_reviewed_provenance(items, stats)
     # After the year/runtime rules above have settled — flag_trailers reads both.
     flag_trailers(items, stats)
     # ...then give a real type back to whatever it did NOT judge a trailer.
