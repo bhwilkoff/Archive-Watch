@@ -90,7 +90,19 @@ public enum StudioPlatformAuth {
         return (v?.isEmpty ?? true) ? nil : v
     }
 
-    public enum Platform: String, Sendable { case youtube, twitch }
+    public enum Platform: String, Sendable {
+        case youtube, twitch
+
+        /// The platform's OWN spelling. Capitalising the raw value rendered
+        /// "Youtube" on the glass (iPhone 12, 2026-09-17) two lines above a
+        /// hand-written "YouTube" — a brand name is not a word to capitalise.
+        public var displayName: String {
+            switch self {
+            case .youtube: return "YouTube"
+            case .twitch:  return "Twitch"
+            }
+        }
+    }
 
     /// The scopes each half of the feature needs, so the consent screen asks
     /// for exactly what it uses and nothing more.
@@ -104,20 +116,81 @@ public enum StudioPlatformAuth {
         }
     }
 
+    /// What is missing before a host can sign in at all, or nil when the
+    /// build is configured. Separated from `token` because the go-live sheet
+    /// asks a DIFFERENT question of each: "can this build sign in" decides
+    /// whether to offer a button, "is there a token" decides what it says.
+    public static func configurationProblem(for platform: Platform) -> String? {
+        guard clientID(for: platform) == nil else { return nil }
+        return "Signing in to \(platform.displayName) is not set up in this build yet. "
+            + "It needs an application registered on "
+            + (platform == .youtube ? "Google Cloud (YouTube Data API v3)" : "the Twitch developer console")
+            + " and its client id in Secrets.xcconfig."
+    }
+
+    public static func isSignedIn(_ platform: Platform) -> Bool {
+        StudioTokenStore.load(for: platform.rawValue) != nil
+    }
+
+    public static func signOut(_ platform: Platform) {
+        StudioTokenStore.clear(for: platform.rawValue)
+    }
+
     /// A token for this platform, or an error naming what is missing.
     ///
-    /// NOT IMPLEMENTED, and not stubbed with a fake: returning a placeholder
-    /// token would make every caller appear to work and fail at the far end
-    /// with a platform error nobody could read. The boundary reports the truth.
+    /// Never returns a placeholder: a fake token would make every caller
+    /// appear to work and fail at the far end with a platform error nobody
+    /// could read. Refreshes silently when the stored one has aged out, and
+    /// SAVES the result — Twitch's refresh tokens are one-time-use, so
+    /// dropping the new one signs the host out on the next call.
     static func token(for platform: Platform) async throws -> String {
-        guard clientID(for: platform) != nil else {
-            throw StudioPlatformError.notConfigured(
-                "Signing in to \(platform.rawValue.capitalized) is not set up in this build yet. "
-                + "It needs an application registered on \(platform == .youtube ? "Google Cloud (YouTube Data API v3)" : "the Twitch developer console")"
-                + " and its client id in Secrets.xcconfig.")
+        guard let clientID = clientID(for: platform) else {
+            throw StudioPlatformError.notConfigured(configurationProblem(for: platform)!)
         }
-        throw StudioPlatformError.notSignedIn(
-            "Sign in to \(platform.rawValue.capitalized) to stream. Archive Watch will fetch the stream key itself.")
+        guard let stored = StudioTokenStore.load(for: platform.rawValue) else {
+            throw StudioPlatformError.notSignedIn(
+                "Sign in to \(platform.displayName) to stream. Archive Watch will fetch the stream key itself.")
+        }
+        if stored.isFresh { return stored.access }
+
+        let renewed: StudioTokenStore.Token
+        switch platform {
+        case .youtube: renewed = try await GoogleTokenRefresh(clientID: clientID).refresh(stored)
+        case .twitch:  renewed = try await TwitchDeviceAuth(clientID: clientID).refresh(stored)
+        }
+        StudioTokenStore.save(renewed, for: platform.rawValue)
+        return renewed.access
+    }
+
+    // MARK: Signing in
+
+    /// YouTube: the platform's own page in an `ASWebAuthenticationSession`,
+    /// authorization code + PKCE. Returns when a token is stored.
+    @MainActor
+    public static func signInToYouTube() async throws {
+        guard let clientID = clientID(for: .youtube) else {
+            throw StudioPlatformError.notConfigured(configurationProblem(for: .youtube)!)
+        }
+        let token = try await GoogleAuth(clientID: clientID).authorize(scopes: scopes(for: .youtube))
+        StudioTokenStore.save(token, for: Platform.youtube.rawValue)
+    }
+
+    /// Twitch: the device flow, because Twitch offers a public client no
+    /// PKCE — see StudioPlatformAuth.swift. Two steps, because the host has
+    /// to be SHOWN a code between them.
+    public static func beginTwitchSignIn() async throws -> TwitchDeviceAuth.Pending {
+        guard let clientID = clientID(for: .twitch) else {
+            throw StudioPlatformError.notConfigured(configurationProblem(for: .twitch)!)
+        }
+        return try await TwitchDeviceAuth(clientID: clientID).begin(scopes: scopes(for: .twitch))
+    }
+
+    public static func completeTwitchSignIn(_ pending: TwitchDeviceAuth.Pending) async throws {
+        guard let clientID = clientID(for: .twitch) else {
+            throw StudioPlatformError.notConfigured(configurationProblem(for: .twitch)!)
+        }
+        let token = try await TwitchDeviceAuth(clientID: clientID).poll(pending)
+        StudioTokenStore.save(token, for: Platform.twitch.rawValue)
     }
 }
 

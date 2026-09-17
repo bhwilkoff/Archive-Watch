@@ -206,6 +206,7 @@ into every session and the index alone carries every title.)
 - 125 — Credits with no surviving id are residue unless the cast proves the film; and the same cast dates an upload-dated film
 - 126 — A request that must be answered rides its own field; a shared query record served once per bump merges whatever lands on it together
 - 127 — Watch Together goes public through an ON-DEVICE studio that speaks RTMPS itself: native frameworks, our own publisher, no encoder dependency
+- 128 — A public client gets the flow each platform actually offers, not the one we prefer; and a missing credential is a STATE
 
 ---
 
@@ -471,3 +472,69 @@ and `RTMPPublisher` in shared code, a debug-only Studio Lab screen, and
 numbers from the iPhone 12 and the Fireplace Apple TV. The two YouTube/Twitch
 unknowns (the 50-subscriber rule for API streams; Twitch category) need test
 channels the owner creates; the harness does not need them.
+
+## 128 — A public client gets the flow each platform actually offers, not the one we prefer; and a missing credential is a STATE
+*Date: 2026-09-17*
+
+Watch Together Studio signs in to YouTube with **authorization code + PKCE
+(S256)** through `ASWebAuthenticationSession`, and to Twitch with the **Device
+Code Grant**. Two different flows, deliberately. Tokens live in the Keychain
+(`…AfterFirstUnlockThisDeviceOnly`), and the redirect scheme is the **bundle
+identifier**, not the reversed client id. With no client id configured, the
+go-live sheet says sign-in is not set up in this build, names whose job it is,
+and greys out Go Live. `Studio/StudioPlatformAuth.swift`;
+`docs/WATCH-TOGETHER.md` §6.1.
+
+**Why**: the app ships to devices, so it is a **public client** and can hold no
+client secret. The plan was one flow — PKCE everywhere, which is the modern
+correct answer for an installed app. Twitch does not support it. Its own
+documentation for a public client offers the implicit grant or the device flow
+and says nothing about PKCE (read 2026-09-17), and implicit returns **no
+refresh token** — a host would re-authorise every few hours, which is the kind
+of friction that quietly ends a feature. The device flow returns one and is the
+same code path on a television as on a phone. So the shape of the code follows
+what each platform will actually accept, not a symmetry that would have been
+tidier to write.
+
+**The redirect scheme is the more useful lesson.** Google documents two custom
+schemes for an installed app: the reversed client id, or the reverse-DNS of a
+domain you control. Almost every sample uses the reversed client id. It cannot
+be used here, and the reason is not about OAuth at all: a URL scheme must be
+declared in `Info.plist` at BUILD time, `ASWebAuthenticationSession` refuses to
+start without the declaration, and the reversed client id is not known until
+somebody pastes a client id into `Secrets.xcconfig`. Choosing it would have
+turned "paste two strings" into "paste two strings and derive a third", with
+the failure for getting it wrong being a sign-in that does not open.
+
+**How to apply**: before designing an auth flow, read what the platform offers
+a client of OUR type — the answer differs per platform and "it's OAuth 2" is
+not the answer. Prove the request SHAPES before the credentials exist:
+`tools/test_studio_signin.swift` sends deliberately invalid client ids to the
+real endpoints, because a platform that rejects the CREDENTIAL has accepted the
+REQUEST, and "invalid client" and "missing required parameter" are the two
+answers that matter. Check PKCE against RFC 7636's own published vector, never
+a golden file this code generated (Decision 119). And negative-control the
+discriminator: the same request with `grant_type` removed must read differently,
+or the check proves nothing (Decision 120). Save a refresh result ALWAYS —
+Twitch's refresh tokens are one-time-use, so dropping the new one signs the
+host out on the next call.
+
+**And treat "no credential" as a state the screen can render.** Four defects in
+that state were found only by putting it on an iPhone: a brand name mangled by
+`rawValue.capitalized` ("Youtube") two lines above a hand-written "YouTube"; a
+non-interactive `Label` taking the List's accent tint so a wrench read as a
+button; a footer promising a sign-in the build could not offer, directly under
+a row saying it was not set up; and a **Go Live button still pressable** that
+would have failed inside the auth boundary. The first three are all the same
+mistake — the unconfigured state was written as an absence rather than as a
+screen somebody reads.
+
+**Consequences**: the only remaining blocker on Watch Together's public half is
+two strings in `Secrets.xcconfig` (`Secrets.xcconfig.example` carries the
+registration steps). tvOS is the one unproven path: the session class exists
+from tvOS 16 but `presentationContextProvider`,
+`prefersEphemeralWebBrowserSession` and `cancel` are `API_UNAVAILABLE(tvos)`,
+so the television presents the flow itself and that screen cannot be seen
+until a client id exists. If it is unusable, the fallback is Google's device
+flow — which does allow the `…/auth/youtube` scope, but requires a client
+SECRET, and embedding one is a real cost rather than a formality.

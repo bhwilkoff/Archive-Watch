@@ -254,6 +254,44 @@ Recording: the same encoded stream is written to an `.mp4` locally while live
 5. Thermal: `ProcessInfo.thermalState` `.serious` halves the encode
    resolution and says so; `.critical` ends the show with the end card.
 
+### §6.1 Signing in — binding, and the two platforms are NOT the same
+
+The app is a **public client**: it ships to devices, so it can hold no client
+secret. That single fact determines both flows, and they are different
+because the platforms differ, not because we chose differently.
+
+- **YouTube / Google** — authorization code + **PKCE (S256)** through
+  `ASWebAuthenticationSession`. `access_type=offline` + `prompt=consent`, or
+  Google returns no refresh token and a host is signed out mid-show. The
+  redirect is a custom scheme, and it is the **bundle identifier**, not the
+  reversed client id: Google documents both, but a URL scheme must be declared
+  in `Info.plist` at BUILD time and the reversed client id is not known until
+  someone pastes a client id. `ASWebAuthenticationSession` refuses to start
+  without the declaration.
+- **Twitch** — the **Device Code Grant**, because Twitch's own documentation
+  for public clients offers only the implicit grant or the device flow and
+  says nothing about PKCE (checked 2026-09-17). Implicit returns **no refresh
+  token**, so a host would re-authorise every few hours; the device flow
+  returns one, and is the same code path on a television and a phone. Its
+  refresh tokens are **one-time-use** — each refresh returns a new one and the
+  old one dies, so a refresh that is not SAVED signs the host out.
+- **Tokens live in the Keychain**, `…AfterFirstUnlockThisDeviceOnly`, never
+  synchronised, never logged, never written to disk in plaintext. The stream
+  key rule (§5) applies to tokens too.
+- **tvOS**: `ASWebAuthenticationSession` exists from tvOS 16, but
+  `presentationContextProvider`, `prefersEphemeralWebBrowserSession` and
+  `cancel` are all `API_UNAVAILABLE(tvos)` — read from the tvOS 27 header. The
+  television presents the flow itself and there is no anchor to hand it. **Not
+  yet exercised on the glass**, because it cannot be until a client id exists.
+  If the TV's own screen turns out to be unusable, the fallback is Google's
+  device flow, which supports exactly the `…/auth/youtube` scope we need —
+  but it requires a **client secret**, so it costs a third string and a
+  secret embedded in the app. That is why PKCE is first.
+- **No credential is a STATE, not an error.** With no client id the go-live
+  sheet says sign-in is not set up in this build, names whose job it is, and
+  greys out Go Live. It never offers a button that fails somewhere a host
+  cannot see.
+
 ## §7 — Phases
 
 | Phase | Deliverable | Gate |
@@ -1010,6 +1048,59 @@ Verified: a 45-second bounded run played **silently**, showed `NOT SENDING
 `atv_teardown.sh` exists because care does not stop you leaving a film
 playing in someone's house. When a harness reaches into the physical world,
 cleanup is a step with an assertion — not a habit.
+
+### The sign-in flows, proven before there was a client id (2026-09-17)
+
+The owner's remaining work is pasting two strings. The risk that creates is
+that every defect in the request shapes surfaces at once, on the owner's own
+account, in a flow that cannot be stepped through. So everything that does not
+depend on a client id was checked first — `tools/test_studio_signin.swift`,
+**26 checks, all passing**. It compiles the REAL source files rather than
+restating their logic.
+
+**PKCE against an INDEPENDENT reference.** RFC 7636 Appendix B publishes a
+verifier and the challenge it must produce, and the RFC predates this code, so
+it cannot be a golden file of our own making (the Decision 119 rule):
+
+    verifier   dBjftJeZ4CVP-mB92K27uhbUJU1p1r_wW1gFWFOEjXk
+    challenge  E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM   MATCH
+
+Plus 200 generated verifiers: all base64url-clean (no `+`, `/` or `=` — base64
+produces all three and an authorization server rejects them), all 43–128
+characters per §4.1, all distinct.
+
+**The live shape checks, with deliberately invalid credentials.** This is the
+part that could not be done any other way. A platform that rejects our
+CREDENTIAL has accepted our REQUEST, and the two failures read completely
+differently:
+
+    POST id.twitch.tv/oauth2/device    400  {"message":"invalid client"}
+    POST oauth2.googleapis.com/token   401  {"error":"invalid_client",
+                                              "The OAuth client was not found."}
+
+Neither says "missing required parameter", which is what a wrong shape earns.
+**And the discriminator is negative-controlled**, because a guard on a rule's
+consequence is not a guard on the rule (Decision 120): the same Google request
+with `grant_type` removed answers `unsupported_grant_type` — a REQUEST fault,
+and not `invalid_client`. So the check can tell the two apart.
+
+**Four defects the screen found that no check could.** The sheet was rendered
+on an iPhone 12 through `AW_GOLIVE_DEMO` on two different films (*The Wedding
+March* 1915, then *Japanese Varieties* 1904):
+
+1. **"Signing in to Youtube"** — `rawValue.capitalized`, two lines above a
+   hand-written "YouTube" in the same section. A brand name is not a word to
+   capitalise; `Platform.displayName` now holds each platform's own spelling.
+2. **The wrench icon was accent blue.** A `Label` in a `List` takes the
+   accent tint, so a statement of fact read as a button. CLAUDE.md's brand
+   split reserves `#0047FF` for things you can press.
+3. **The footer contradicted the row above it** — "You will be asked to sign
+   in to YouTube once" sitting two lines under "Sign-in is not set up". Two
+   adjacent sentences disagreeing is worse than either alone.
+4. **Go Live was still pressable** with no client id, and would have failed
+   inside `StudioPlatformAuth`. It is now disabled — which is not §5's
+   unexplained disabled control, because the reason is on screen directly
+   above it.
 
 ### Still to measure (Phase 0 remainder)
 

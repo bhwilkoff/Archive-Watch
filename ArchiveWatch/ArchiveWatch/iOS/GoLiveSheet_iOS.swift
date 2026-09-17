@@ -126,6 +126,11 @@ struct GoLiveSheet: View {
                     Text(p.label).tag(p)
                 }
             }
+            // Who the broadcast goes out AS. Above the title field, because
+            // a host cannot usefully name a stream they cannot publish.
+            if platform != .custom {
+                StudioSignInRow(platform: authPlatform)
+            }
             switch platform {
             case .youtube:
                 TextField("Stream title", text: $title, axis: .vertical)
@@ -148,10 +153,19 @@ struct GoLiveSheet: View {
         } header: {
             Text("Where it goes")
         } footer: {
-            Text(platform == .custom
-                 ? "For testing against your own server. Keys typed here are kept for this session only and never saved."
-                 : "You will be asked to sign in to \(platform.label) once. Archive Watch fetches the stream key from \(platform.label) itself — you never copy one.")
+            Text(destinationFooter)
         }
+    }
+
+    /// Said once, and consistent with the sign-in row above it.
+    private var destinationFooter: String {
+        if platform == .custom {
+            return "For testing against your own server. Keys typed here are kept for this session only and never saved."
+        }
+        if StudioPlatformAuth.configurationProblem(for: authPlatform) != nil {
+            return "Until that is set up, nothing can be published to \(platform.label) from this build."
+        }
+        return "You will be asked to sign in to \(platform.label) once. Archive Watch fetches the stream key from \(platform.label) itself — you never copy one."
     }
 
     private var programSection: some View {
@@ -176,7 +190,15 @@ struct GoLiveSheet: View {
         if platform == .custom {
             return URL(string: customURL)?.host != nil && !customKey.isEmpty
         }
-        return true
+        // A build with no client id cannot publish anywhere, and a pressable
+        // Go Live would fail somewhere the host cannot see. The sign-in row
+        // directly above carries the reason, so this is not §5's unexplained
+        // disabled control.
+        return StudioPlatformAuth.configurationProblem(for: authPlatform) == nil
+    }
+
+    private var authPlatform: StudioPlatformAuth.Platform {
+        platform == .twitch ? .twitch : .youtube
     }
 
     private func commit() {

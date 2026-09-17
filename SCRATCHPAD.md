@@ -69,9 +69,16 @@ emulators) · `docs/CAPTIONS.md` · `docs/SHAREPLAY.md` ·
    blocker.** Everything else is built and verified on real hardware
    (`docs/WATCH-TOGETHER.md`, Decision 127). Three one-time owner steps:
    (a) a **Google Cloud project** with YouTube Data API v3 → an OAuth client
-   id, and a **Twitch application** → a client id, both into the gitignored
-   `Secrets.xcconfig` as `YOUTUBE_CLIENT_ID` / `TWITCH_CLIENT_ID` — without
-   them a stream key cannot be fetched and the go-live sheet says so;
+   id of type **iOS**, bundle id `app.archivewatch.tvos`, and a **Twitch
+   application** with client type **public** → a client id, both into the
+   gitignored `Secrets.xcconfig` as `YOUTUBE_CLIENT_ID` / `TWITCH_CLIENT_ID`.
+   `Secrets.xcconfig.example` carries the click-by-click steps. Two strings
+   and nothing else: **no client secret** (neither flow uses one) and no
+   derived redirect string (the scheme is the bundle id, already declared in
+   `Info.plist`). The sign-in code is written and its request shapes are
+   proven against the real endpoints (Decision 128,
+   `tools/test_studio_signin.swift`, 26/26). Without the ids the go-live
+   sheet says sign-in is not set up and greys out Go Live;
    (b) **pair an iPhone** on the Apple TV via the system Continuity picker
    (once — a paired phone is found automatically after);
    (c) **allow camera + mic** on the iPhone (Settings ▸ Archive Watch) — there
