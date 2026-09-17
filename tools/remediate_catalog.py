@@ -1554,7 +1554,10 @@ _OMDB_REVIEW = re.compile(
 # statement in the same text is not a claim.
 _COPYRIGHT_CLAIM = re.compile(
     r"(?<!works )(?<!work )\bnot (in the )?public domain\b|\b(is|are) copyrighted\b|\bremains? under copyright\b"
-    r"|\b(this|these) (film|work|footage|video|recording)s?\b[^.]{0,80}\b(copyright|all rights reserved)", re.I)
+    r"|\b(this|these) (film|work|footage|video|recording)s?\b[^.]{0,80}\b(copyright|all rights reserved)"
+    # "These rights are reserved explicitly for the BBC" — a fan-edit of all
+    # 26 seasons of Doctor Who, dated 1963 by its first serial (2026-09-16).
+    r"|\brights are reserved (explicitly )?for\b", re.I)
 _LICENCE_GRANT = re.compile(
     r"creative ?commons|\bcc[- ]?(by|0|zero)\b|public domain mark|dedicated to the public domain|\bno known copyright\b"
     r"|\b(is )?now (in the )?public domain\b|\b(is|are) in the public domain\b|copyright was not renewed|entered the public domain|\bpublic domain day\b", re.I)
