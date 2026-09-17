@@ -20,6 +20,9 @@
 //   AW_STUDIO_LAYOUT=film|corner|theatre|side|host   (default corner)
 //   AW_STUDIO_SECONDS=40
 //   AW_STUDIO_CAMERA=1                               (attach the front camera)
+//   AW_STUDIO_AUDIBLE=1                              (play the film OUT LOUD;
+//                                                     muted otherwise — these
+//                                                     devices are in a home)
 
 import AVFoundation
 import Foundation
@@ -125,7 +128,7 @@ enum StudioLab {
         log("host \(hostDescription())")
         log("program \(cfg.width)x\(cfg.height)@\(cfg.frameRate) \(cfg.videoBitrate / 1000) kbps, layout \(layout.rawValue), camera \(wantCamera)")
         log(destURL.map { "dest \($0.host ?? "?"):\($0.port ?? 1935)\($0.path)" } ?? "dest none (encode and discard)")
-        if env("AW_STUDIO_MUTE") == "1" { log("film MUTED locally (AW_STUDIO_MUTE=1)") }
+
         log("film \(filmURL.lastPathComponent)")
 
         // The audio session must allow playback while we are also (later)
@@ -138,10 +141,17 @@ enum StudioLab {
 
         let item = AVPlayerItem(url: filmURL)
         let player = AVPlayer(playerItem: item)
-        // NOT muted by default: the film's audio is what the tap carries, and
-        // a muted player is the obvious way to measure silence and call it a
-        // working audio path. `AW_STUDIO_MUTE=1` is available for a silent run.
-        player.isMuted = env("AW_STUDIO_MUTE") == "1"
+        // MUTED BY DEFAULT, and the default is inverted deliberately. A
+        // measurement wants the tap to carry real signal, so the first version
+        // ran audible — and these devices are a phone and a television in
+        // someone's home, where a forgotten run is noise in their house
+        // (2026-09-17: a film played on the owner's Apple TV for an hour and
+        // reached every HomePod they own). `AW_STUDIO_AUDIBLE=1` asks for
+        // sound explicitly, and says so in the log, so an audible run is
+        // always a choice someone made on purpose.
+        let audible = env("AW_STUDIO_AUDIBLE") == "1"
+        player.isMuted = !audible
+        if audible { log("AUDIBLE — this device will play the film out loud") }
 
         let engine = StudioEngine(configuration: cfg)
         await engine.setLayout(layout)

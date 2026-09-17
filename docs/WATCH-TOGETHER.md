@@ -954,6 +954,63 @@ closed, not just this instance. Reading stale evidence and reasoning about it
 as current is not a mistake care prevents; it needs an instrument that cannot
 do it.
 
+### The ten-minute soak (§8.3) — iPhone 12, 2026-09-17
+
+```
+120s  fps=30 render=9.10ms overruns=1 drops=0 thermal=nominal
+240s  fps=30 render=9.12ms overruns=1 drops=0 thermal=nominal
+360s  fps=30 render=9.14ms overruns=1 drops=0 thermal=nominal
+480s  fps=30 render=9.14ms overruns=1 drops=0 thermal=nominal
+600s  fps=30 render=9.14ms overruns=1 drops=0 thermal=nominal
+SUMMARY mean=30.2fps worst=30.0fps filmFrames=18012 render=9.14ms
+        overruns=1 dropped=0 thermal=nominal
+```
+
+**No drift.** Render mean is flat at 9.14 ms from two minutes onward, 18,012
+film frames pulled, **0 dropped**, the single overrun is the warm-up, and the
+thermal state never left nominal on the oldest phone the app supports. §8.3 is
+satisfied on iOS.
+
+### A harness that ran in someone's living room (2026-09-17)
+
+**The incident.** Verifying the tvOS surface meant launching the app on the
+owner's Apple TVs with `AW_AUTOPLAY=1`. The film played **unmuted** and an
+Apple TV routes audio to every HomePod in the house. It ran for about an hour
+before the owner asked why movie music was playing across their home.
+
+Two faults, and neither was carelessness in the moment:
+
+1. **The tvOS dev door had no end.** It started the engine and polled until
+   `studioFilm` went nil, and *nothing set it nil* once a screenshot had been
+   taken. `StudioLab` has always had `AW_STUDIO_SECONDS` and torn itself down;
+   the tvOS door was written without the equivalent.
+2. **Device runs defaulted to AUDIBLE.** That default was chosen on purpose in
+   the Mac harness — a muted player is the obvious way to measure silence and
+   call it a working audio path (§9) — and then carried onto hardware that
+   lives in a home.
+
+**Three fixes, because an intention is not a safeguard:**
+
+- `AW_STUDIO_TV_SECONDS` (default **180**) bounds the tvOS door, which then
+  clears the film and unmutes. It cannot outlive the person using it.
+- The dev door **mutes the room** (`player.isMuted = true`). It costs the
+  measurement nothing real: the broadcast's film level is
+  `StudioAudioMixer.filmGain`, never the player's mute (§5).
+- `StudioLab` is **muted by default**; `AW_STUDIO_AUDIBLE=1` asks for sound
+  and the log says so, so an audible run is always deliberate.
+- `tools/atv_teardown.sh` terminates the app **by pid** (`process terminate`
+  takes `--pid`, never a bundle id — a wrong flag prints usage and reads like
+  success) and powers the box back off, failing loudly if it does not.
+
+Verified: a 45-second bounded run played **silently**, showed `NOT SENDING
+4,722 kbps`, and had already exited by the time teardown looked for it.
+
+**The general rule, and it is the third time this feature has taught it:**
+`atv_shot.sh` exists because care does not stop you reading a stale file;
+`atv_teardown.sh` exists because care does not stop you leaving a film
+playing in someone's house. When a harness reaches into the physical world,
+cleanup is a step with an assertion — not a habit.
+
 ### Still to measure (Phase 0 remainder)
 
 - The camera tile's and microphone's cost on device — **blocked on a one-time

@@ -925,9 +925,26 @@ struct PlayerScreen: View {
                                               contentType: film.contentType,
                                               year: film.year) {
                 studioRefusal = why
-            } else {
-                studioFilm = film
+                return
             }
+            // MUTE THE ROOM. This box lives in someone's house and its audio
+            // routes to every HomePod they own; a dev door that leaves a film
+            // playing aloud is not a diagnostic, it is a disturbance. The
+            // BROADCAST still carries the film — the mixer's own filmGain is
+            // the on-air level (WATCH-TOGETHER §5) — so muting here costs the
+            // measurement nothing except the local tap's signal.
+            player?.isMuted = true
+            studioFilm = film
+            // AND IT ENDS BY ITSELF. Nothing stopped the first version: the
+            // engine polled until `studioFilm` went nil, and nothing set it
+            // nil once a screenshot had been taken. A film played unmuted on
+            // the owner's Apple TV for an hour (2026-09-17). A dev affordance
+            // that can outlive the person using it needs a deadline, not a
+            // habit of remembering.
+            let limit = Double(ProcessInfo.processInfo.environment["AW_STUDIO_TV_SECONDS"] ?? "") ?? 180
+            try? await Task.sleep(nanoseconds: UInt64(limit * 1_000_000_000))
+            studioFilm = nil
+            player?.isMuted = false
         }
         .onAppear {
             if PlaybackDiag.enabled { awdiag("AWLIFE screen=%@ onAppear", screenID) }
