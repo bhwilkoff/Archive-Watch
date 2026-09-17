@@ -660,6 +660,30 @@ rendered a 10.13 ms render time as "0 ms per frame". `String(format:)`.
 shell. `AVPlayerViewController`'s own chrome auto-hides, so where the capsule
 can sit without colliding is a question only the wired Studio can answer.
 
+### Wired to the player (2026-09-17)
+
+`StudioPlayerContainer_iOS` hosts the Studio as §8.8 describes: `PlayerView`
+builds and owns the transport exactly as it does for ordinary playback, and the
+engine only adds OUTPUTS to the item it already has. The one addition to
+`PlayerView` is `onPlayerReady`, which hands over the live `AVPlayer` — called
+again on a rebuild, because a Decision-077 copy fallback brings a new player
+exactly as it brings a new SharePlay coordinator.
+
+The Detail entry point is now **one menu named Watch Together with two items**
+(§1): *With friends…* (SharePlay, unchanged) and *With the world…*. The public
+one is always offered, even for a film the audit will not clear — the sheet
+explains why, and a hidden control teaches nothing.
+
+The Studio cover binds to an **item**, not a Bool (§4.4) — the rule that came
+from the black-player race.
+
+**Two build-time findings worth keeping.** Seven inline `onChange` modifiers
+plus a sheet, an overlay, an alert and a task defeated the SwiftUI
+type-checker outright ("unable to type-check this expression in reasonable
+time"), so the body is split into sub-expressions and the control bindings
+live in one `ViewModifier`. That is not a style preference: it is also seven
+places to forget one, replaced by a single `applyControls()`.
+
 ### Still to measure (Phase 0 remainder)
 
 - The camera tile's and microphone's cost on device — **blocked on a one-time

@@ -17,6 +17,8 @@ struct DetailView: View {
     @Query private var favorites: [Favorite]
     @State private var playing = false
     @State private var startingSharePlay = false
+    @State private var goingLive = false
+    @State private var liveRequest: GoLiveRequest?
     @State private var isWatchedState = false
     @State private var versions: [ArchiveVersions.Version] = []
     @State private var loadingVersions = false
@@ -170,6 +172,7 @@ struct DetailView: View {
                     }
 
                     Menu {
+                      Menu {
                         // SharePlay. The phone is where a session actually
                         // starts, because that is where the FaceTime call is;
                         // the Apple TV joins. Offering it outside a call is
@@ -191,8 +194,21 @@ struct DetailView: View {
                                 }
                             }
                         } label: {
-                            Label("Watch Together…", systemImage: "shareplay")
+                            Label("With friends…", systemImage: "shareplay")
                         }
+                        // The public half of the SAME feature
+                        // (docs/WATCH-TOGETHER.md §1): one name, two
+                        // qualifiers. Always OFFERED, even for a film the
+                        // rights audit will not clear — the sheet explains
+                        // why, and a hidden control teaches nothing (§8.8).
+                        Button {
+                            goingLive = true
+                        } label: {
+                            Label("With the world…", systemImage: "dot.radiowaves.left.and.right")
+                        }
+                      } label: {
+                          Label("Watch Together", systemImage: "person.2.wave.2")
+                      }
                         if Callsheet.supports(item) {
                             Button { Callsheet.open(Callsheet.url(for: item)) } label: {
                                 Label(Callsheet.actionTitle, systemImage: Callsheet.actionIcon)
@@ -360,6 +376,20 @@ struct DetailView: View {
             ) { started in
                 startingSharePlay = false
                 if started { playing = true }
+            }
+            .ignoresSafeArea()
+        }
+        .sheet(isPresented: $goingLive) {
+            GoLiveSheet(film: item) { req in
+                liveRequest = req
+            }
+        }
+        // The Studio is the PLAYER in a production mode, so it is the same
+        // §3.7 cover the player uses — bound to an ITEM, never a Bool
+        // (§4.4's rule, and the black-player race it came from).
+        .fullScreenCover(item: $liveRequest) { req in
+            StudioPlayerContainer(item: item, request: req) {
+                liveRequest = nil
             }
             .ignoresSafeArea()
         }

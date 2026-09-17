@@ -218,7 +218,9 @@ struct GoLiveSheet: View {
 
 // MARK: - The request
 
-struct GoLiveRequest: Sendable, Equatable {
+struct GoLiveRequest: Sendable, Equatable, Identifiable {
+    /// Distinct per request, so re-going-live on the same film presents again.
+    let id = UUID()
     let archiveID: String
     let platform: GoLivePlatform
     let title: String

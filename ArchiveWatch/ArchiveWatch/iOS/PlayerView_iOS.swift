@@ -48,13 +48,21 @@ struct PlayerView: UIViewControllerRepresentable {
     /// The viewer's caption-type choice from the subtitles sheet; nil = the
     /// default path (file when published, else automatic).
     var captionChoice: CaptionPlaybackChoice? = nil
+    /// Handed the live `AVPlayer` once it exists, so Watch Together Studio can
+    /// add its OUTPUTS to the same item (iOS-DESIGN §8.8). Called again on a
+    /// rebuild — a Decision-077 copy fallback brings a new player, exactly as
+    /// it brings a new SharePlay coordinator. Adding an output is not a
+    /// parallel transport, so §8.1 holds.
+    var onPlayerReady: ((AVPlayer) -> Void)? = nil
 
     /// Play a movie/standalone item. Pass `store` to enable movie autoplay
     /// (gated by `store.autoplayMode`; .off means play just this one).
     init(item: Catalog.Item, autoplayIn store: AppStore? = nil,
          onUnplayable: ((String) -> Void)? = nil,
-         captionChoice: CaptionPlaybackChoice? = nil) {
+         captionChoice: CaptionPlaybackChoice? = nil,
+         onPlayerReady: ((AVPlayer) -> Void)? = nil) {
         self.captionChoice = captionChoice
+        self.onPlayerReady = onPlayerReady
         archiveID = item.archiveID
         // Honour the viewer's chosen copy (ArchiveVersions). Rebuilt from the
         // stored file name, so this needs no network and cannot delay playback.
@@ -240,6 +248,7 @@ struct PlayerView: UIViewControllerRepresentable {
         // WatchTogether.attach). Re-attached on every build because a rebuilt
         // player carries a new coordinator.
         WatchTogether.shared.attach(player, archiveID: archiveID)
+        onPlayerReady?(player)
         vc.player = player
         context.coordinator.observe(player, item: pItem)
         PlaybackDiag.attach(item: pItem, player: player)   // no-op unless AW_PLAYBACK_DIAG=1
