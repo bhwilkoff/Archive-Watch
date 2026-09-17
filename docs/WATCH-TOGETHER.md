@@ -866,6 +866,50 @@ the OAuth device-code flow for a television; one auth path serves both
 platforms, and on tvOS the system hands off to a nearby device rather than
 asking anyone to type on a remote.
 
+### The tvOS surface (2026-09-17)
+
+**The entry point is the transport menu, not Detail** — and that turned out to
+be better than the iOS flow rather than a compromise. tvOS Detail's action row
+already carries seven buttons inside a 1100pt cap (an eighth truncates the
+Play label), which is why SharePlay lives in the player's menu. The Studio
+joins it as one `UIMenu` named **Watch Together** with *With friends…* and
+*With the world…*. The viewer is already watching when they decide to bring
+the world in, and §8.8's Studio IS this player plus overlays — so nothing is
+presented over anything, and no cover is pushed.
+
+A refusal is an **alert with the sentence plus the policy**, never a missing
+menu item.
+
+`StudioTVHealth` is the ten-foot readout, and it is deliberately not the
+phone's capsule shrunk or stretched:
+
+- **34pt state, 30pt bitrate, 29pt problem line** — §4's 29pt floor is a
+  minimum, not a target, and nobody leans in to read a bitrate on a
+  television.
+- **One problem at a time, in words.** There is no touch target to tap for
+  detail at ten feet, so the readout states the single most important thing
+  wrong ("The film has stopped — your audience sees a still picture") instead
+  of a chip that means nothing across a room.
+- **Inside the 90 × 60 safe area** (§6.1). A television overscans, and a
+  health readout the TV has cropped away is worse than none — the host
+  believes they can see it.
+
+`AW_STUDIO_TV=1` beside `AW_START_ITEM`/`AW_AUTOPLAY` starts the Studio on the
+playing film, for the same reason `AW_START_TAB` exists: driving a transport
+menu blind over a remote is focus luck, not a test. **The dev door still goes
+through `StudioRights`** — a harness that skips the gate is testing something
+the viewer will never run.
+
+**NOT yet verified on the glass.** The tvOS build is green, and the console
+shows the app deep-opening `TheGeneral720p1926` and building its player with
+the Studio door armed — but `devicectl device capture screenshot` refused
+repeatedly on this box (`RemoteXPCPeerConnection … state = canceled`), and
+`--console` and screenshot capture are mutually exclusive: killing the console
+session terminates the app. The harness note that 4K captures pressure the
+screenshot daemon is the likely cause. **The ten-foot readout has therefore
+not been seen**, and that is the next thing to do rather than something to
+assume.
+
 ### Still to measure (Phase 0 remainder)
 
 - The camera tile's and microphone's cost on device — **blocked on a one-time

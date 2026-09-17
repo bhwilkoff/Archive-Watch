@@ -696,6 +696,76 @@ struct PlayerScreen: View {
     // tvOS cannot present GroupActivitySharingController (unavailable in the
     // 27.0 SDK), so when there is no call it must SAY so rather than do nothing.
     @State private var sharePlayNotice = false
+
+    /// Starts the Studio on the player that is ALREADY playing this film —
+    /// §8.8's whole point. Nothing is presented over anything; the engine adds
+    /// outputs to the item the player has, and the readout is an overlay.
+    ///
+    /// The destination is nil today: a platform key needs the OAuth client ids
+    /// only the owner can register, so this encodes and discards rather than
+    /// pretending to broadcast. Every other part of the chain is exercised.
+    @MainActor
+    private func runStudio(for film: Catalog.Item) async {
+        guard let p = player else {
+            studioRefusal = "The film is not playing yet — try again in a moment."
+            studioFilm = nil
+            return
+        }
+        let engine = studioEngine ?? StudioEngine()
+        studioEngine = engine
+        await engine.attachFilm(player: p)
+        await engine.setLayout(.corner)
+        var o = StudioOverlay()
+        o.title = film.title
+        o.subtitle = [film.year.map(String.init), film.director]
+            .compactMap { $0 }.filter { !$0.isEmpty }.joined(separator: " · ")
+        if film.rightsBucket == "safe_pd_age", let y = film.year {
+            o.provenance = "Public domain — published \(y), before 1930"
+        }
+        await engine.setOverlay(o)
+
+        // The camera, if a phone has been paired. NOT an error when absent
+        // (§8.8): a paired phone can be asleep or carried away mid-show.
+        let continuity = StudioContinuity()
+        try? await Task.sleep(nanoseconds: 1_200_000_000)
+        if continuity.state.isConnected, let session = continuity.makeSession() {
+            let cam = CameraFrameTap(); cam.attach(to: session)
+            await engine.attachCamera(tap: cam)
+            let mic = MicAudioTap(); mic.attach(to: session)
+            await engine.attachMicrophone(tap: mic)
+            session.startRunning()
+        }
+
+        do {
+            try await engine.start(destination: nil)
+        } catch {
+            studioRefusal = "\(error)"
+            studioFilm = nil
+            return
+        }
+
+        var lastFilmFrames = 0
+        while !Task.isCancelled, studioFilm != nil {
+            try? await Task.sleep(nanoseconds: 1_000_000_000)
+            await engine.refreshHealth()
+            let h = await engine.health
+            studioFilmFPS = max(0, h.filmFramesPulled - lastFilmFrames)
+            lastFilmFrames = h.filmFramesPulled
+            studioHealth = h
+        }
+        await engine.stop()
+        studioEngine = nil
+        continuity.lowerAudioSession()
+    }
+
+    /// Why this film may not be broadcast — shown, never swallowed (§5).
+    @State private var studioRefusal: String?
+    /// The film the host chose to broadcast; non-nil starts the Studio on the
+    /// player that is ALREADY playing it.
+    @State private var studioFilm: Catalog.Item?
+    @State private var studioEngine: StudioEngine?
+    @State private var studioHealth = StudioHealth()
+    @State private var studioFilmFPS = 0
     @State private var fallbackProbe: Task<Void, Never>?
     @State private var sysCapProbe = SystemCaptionProbe()   // AW_SYSCAP_PROBE=1 only
     @State private var skipCount = 0         // #7: bound auto-skips in a broken lineup
@@ -822,6 +892,43 @@ struct PlayerScreen: View {
                  + "your iPhone, iPad or Mac, then choose Watch Together there — "
                  + "the film can continue on this Apple TV.")
         }
+        // A rights refusal is a SENTENCE, not a missing menu item. It teaches
+        // the viewer something true about the public domain (§2.1) and it is
+        // the same text every other platform shows.
+        .alert("This film cannot be streamed", isPresented: .constant(studioRefusal != nil)) {
+            Button("OK", role: .cancel) { studioRefusal = nil }
+        } message: {
+            Text((studioRefusal ?? "") + "\n\n" + StudioRights.policy)
+        }
+        .overlay(alignment: .topLeading) {
+            if studioFilm != nil {
+                StudioTVHealth(health: studioHealth, filmFramesPerSecond: studioFilmFPS)
+            }
+        }
+        .task(id: studioFilm?.archiveID) {
+            guard let film = studioFilm else { return }
+            await runStudio(for: film)
+        }
+        // Dev affordance: `AW_STUDIO_TV=1` alongside AW_START_ITEM/AW_AUTOPLAY
+        // starts the Studio on the film that is playing, so the ten-foot
+        // readout can be SEEN without driving a transport menu blind over the
+        // remote — the same reason AW_START_TAB exists. No-op in production.
+        .task {
+            guard ProcessInfo.processInfo.environment["AW_STUDIO_TV"] == "1" else { return }
+            // Wait for the player, then judge the film on its rights exactly
+            // as the menu item does — a dev door must not skip the gate.
+            for _ in 0..<40 where player == nil {
+                try? await Task.sleep(nanoseconds: 500_000_000)
+            }
+            guard let film = current ?? catalogItem else { return }
+            if let why = StudioRights.refusal(rightsBucket: film.rightsBucket,
+                                              contentType: film.contentType,
+                                              year: film.year) {
+                studioRefusal = why
+            } else {
+                studioFilm = film
+            }
+        }
         .onAppear {
             if PlaybackDiag.enabled { awdiag("AWLIFE screen=%@ onAppear", screenID) }
             store.isPlayingVideo = true; setupPlayer()
@@ -913,8 +1020,8 @@ struct PlayerScreen: View {
         // what truncates the Play label. Starting a session mid-film is also the
         // more natural moment — you are already watching when you think to
         // invite someone.
-        let watchTogether = UIAction(
-            title: "Watch Together",
+        let withFriends = UIAction(
+            title: "With friends…",
             image: UIImage(systemName: "shareplay")
         ) { _ in
             // `active` here is the AutoplayMode local, not the film — the item
@@ -927,6 +1034,30 @@ struct PlayerScreen: View {
                 if outcome == .needsCall { sharePlayNotice = true }
             }
         }
+        // The public half (tvOS-DESIGN §8.8, docs/WATCH-TOGETHER.md §1). It
+        // belongs HERE rather than on Detail for the same reason SharePlay
+        // does — and better: the viewer is already watching when they decide
+        // to bring the world in, and the Studio is this player plus overlays,
+        // so nothing is presented over anything.
+        let withTheWorld = UIAction(
+            title: "With the world…",
+            image: UIImage(systemName: "dot.radiowaves.left.and.right")
+        ) { _ in
+            guard let film = current ?? catalogItem else { return }
+            // Rights first, and REFUSE WITH THE REASON (§3.4, §5). An
+            // ineligible film is never silently absent from the menu.
+            if let why = StudioRights.refusal(rightsBucket: film.rightsBucket,
+                                              contentType: film.contentType,
+                                              year: film.year) {
+                studioRefusal = why
+                return
+            }
+            studioFilm = film
+        }
+        let watchTogether = UIMenu(
+            title: "Watch Together",
+            image: UIImage(systemName: "person.2.wave.2"),
+            children: [withFriends, withTheWorld])
         var items: [UIMenuElement] = [playNext, muteToggle, watchTogether]
         // An EPHEMERAL lineup (Party Play, a channel, a cartoon marathon) is a
         // wall of films the viewer did not choose — so the two questions it
