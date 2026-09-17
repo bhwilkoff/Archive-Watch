@@ -245,9 +245,15 @@ Recording: the same encoded stream is written to an `.mp4` locally while live
    with `.playAndRecord` is invalid on every platform (OSStatus -50), and
    `.defaultToSpeaker` does not exist on tvOS. Restore the previous category
    on close.
-3. `UIApplication.isIdleTimerDisabled` while live; the Studio is a foreground
-   experience and says so if backgrounded (a background session ends the
-   show with an end card, never a frozen frame).
+3. `UIApplication.isIdleTimerDisabled` while live — set in **`StudioEngine`**,
+   on iOS AND tvOS, guarded on `canImport(UIKit)` and never on a platform
+   name. This is not a nicety: tvOS's five-minute screen saver takes the
+   display and **invalidates the VideoToolbox session**, which killed a soak
+   at 291 seconds (§9). The rule was written here from the start and
+   implemented only in the test harness, behind `#if os(iOS)` — so it reached
+   neither tvOS nor the product. The Studio is a foreground experience and
+   says so if backgrounded (a background session ends the show with an end
+   card, never a frozen frame).
 4. Network: the publisher runs on its own queue; back-pressure drops
    **video** frames first and never audio (viewers forgive a frame, not a
    gap in the host's voice).
@@ -1164,6 +1170,77 @@ watching on it now."* It was terminated on the spot and the box deliberately
 NOT powered off. Both remaining Apple TVs are 3rd generation, so **the figures
 above are not the floor** and must not be read as it; 7.58 ms here against
 10.70 ms on the 2nd gen. A floor re-run needs a window the owner offers.
+
+### The 291-second stall, diagnosed and fixed — and §8.3 now PASSES on tvOS (2026-09-17)
+
+**Cause: tvOS's screen saver invalidates the VideoToolbox session.** The new
+instrumentation named it on the first re-run:
+
+```
+FAIL the encoder stopped at 291s — film still arriving at 28 fps,
+     fault=the encoder refused a frame (submit -12903) poolFailures=0
+ENCODER framesEncoded=8768 encodedBytes=162172411 stalledAt=291
+     mem=278MB avail=1820MB          (flat, every sample)
+```
+
+`-12903` is `kVTInvalidSessionErr`: the session was not struggling, it was
+**gone**. Reproduced at 293 s and then 291 s — both just under the Apple TV's
+five-minute default "Start Screen Saver After". tvOS takes the display, and
+taking the display invalidates the compression session; every subsequent
+`VTCompressionSessionEncodeFrame` returns -12903 forever.
+
+**My hypothesis was wrong and the instrument said so.** The leading theory was
+memory: 6 Mbps for 293 s is ~220 MB if anything accumulates, and
+`Task { await publisher.send(video:) }` spawns one unstructured, unbounded
+task per encoded frame (~73/s with audio), which looked like exactly the
+right kind of mistake. Memory was **flat at 278 MB with 1.8 GB free** for the
+whole run, and `poolFailures=0`. Worth recording because the plausible story
+was ready before the measurement, and would have produced a real refactor of
+something that was not broken.
+
+**The fix is one line that was already a RULE.** §6.3 has said
+"`UIApplication.isIdleTimerDisabled` while live" since the doc was written. It
+was implemented only in `StudioLab`, and there behind `#if os(iOS)` — so the
+one platform whose screen saver kills the encoder never got it, **and the real
+Studio never got it on either platform**. It now lives in
+`StudioEngine.start()` / `stop()`, guarded on `canImport(UIKit) && !os(macOS)`
+rather than on a platform name, which is what the original guard got wrong.
+
+**A rule implemented in the test harness is not implemented.** That is the
+lesson, and it is the same shape as Decision 120's (a guard on a rule's
+consequence is not a guard on the rule). The harness is where a rule gets
+*exercised*; the product is where it has to *live*.
+
+**§8.3 satisfied on tvOS** — ten minutes, Apple TV 4K **3rd** gen, the same
+film and settings as the failing run so only the fix varied:
+
+```
+120s  fps=31 film=26 enc=31 render=7.96ms drops=0 kbps=6793 thermal=nominal
+240s  fps=30 film=25 enc=31 render=7.95ms drops=0 kbps=5559 thermal=nominal
+291s  fps=30 film=25 enc=30 render=7.98ms drops=0 kbps=1360 thermal=nominal
+300s  fps=30 film=25 enc=30 render=7.98ms drops=0 kbps=2969 thermal=nominal
+420s  fps=30 film=25 enc=30 render=7.99ms drops=0 kbps=1769 thermal=nominal
+600s  fps=30 film=25 enc=30 render=8.01ms drops=0 kbps=5933 thermal=nominal
+SUMMARY mean=30.2fps worst=30.0fps filmFrames=15096 render=8.01ms
+        overruns=287 dropped=0 thermal=nominal
+ENCODER framesEncoded=18144 encodedBytes=360702879 fault=none
+        poolFailures=0 stalledAt=never
+```
+
+Straight through 291 s with `enc=30`, 18,144 frames encoded, 360 MB of
+program, memory flat at 249 MB, render drifting 7.96 → 8.01 ms over ten
+minutes (0.6%), 0 dropped. **Still not the hardware floor** — this is a 3rd
+gen; the 2nd-gen run is booked for the owner's 3:00 pm MT window.
+
+**NOT built, deliberately: recovery from a lost session.** The Studio does not
+restart the encoder on -12903, and that is a scope call rather than an
+oversight. The only route to a lost session we know of is the display being
+taken, and §6.3 already rules that a backgrounded Studio **ends the show with
+an end card** rather than limping — so the remaining case is covered by policy,
+not by a restart. A mid-stream restart also means re-sending the avcC sequence
+header on a live RTMP stream, which not every ingest accepts. What the Studio
+now does instead is SAY so: `notEncoding` reaches both readouts within a
+second.
 
 ### Still to measure (Phase 0 remainder)
 

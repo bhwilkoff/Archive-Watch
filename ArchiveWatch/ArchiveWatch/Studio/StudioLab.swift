@@ -25,7 +25,9 @@
 //                                                     devices are in a home)
 
 import AVFoundation
+import Darwin
 import Foundation
+import os
 
 #if canImport(UIKit)
 import UIKit
@@ -135,7 +137,12 @@ enum StudioLab {
         // recording — set it even for the film-only run, so the measurement
         // runs under the session the Studio will really use (§6.2).
         setUpAudioSession()
-        #if os(iOS)
+        // NOT `#if os(iOS)`. That guard excluded the one platform whose
+        // screen saver invalidates the encoder session at five minutes
+        // (WATCH-TOGETHER §9, the 291-second stall). The engine now owns this
+        // for the real Studio; the lab keeps it because it runs the film
+        // through a bare AVPlayer without the engine's own start path.
+        #if canImport(UIKit) && !os(macOS)
         UIApplication.shared.isIdleTimerDisabled = true
         #endif
 
@@ -233,6 +240,11 @@ enum StudioLab {
                        a.micFramesWritten - la.micFramesWritten,
                        a.filmFramesPadded - la.filmFramesPadded,
                        a.filmLevel, a.micLevel, a.ducking ? "y" : "n"))
+            // Every ten seconds: the SHAPE over time is the evidence, and a
+            // line a second buries it.
+            if second % 10 == 0 || (filmFps > 0 && encoded == 0) {
+                log(String(format: "     mem=%.0fMB avail=%.0fMB", memoryFootprintMB(), availableMemoryMB()))
+            }
             if let f = h.encoderFault { log("     encoder fault: \(f) x\(h.pixelBufferPoolFailures == 0 ? "" : "  poolFailures=\(h.pixelBufferPoolFailures)")") }
             if let e = h.publisher.lastError { log("FAIL publisher — \(e)"); break }
             // THE FAULT THIS INSTRUMENT MISSED (2026-09-17): encoding stopped
@@ -257,7 +269,7 @@ enum StudioLab {
         await engine.stop()
         player.pause()
         camera?.stopRunning()
-        #if os(iOS)
+        #if canImport(UIKit) && !os(macOS)
         UIApplication.shared.isIdleTimerDisabled = false
         #endif
 
@@ -412,4 +424,29 @@ enum StudioLab {
         let mem = ProcessInfo.processInfo.physicalMemory / 1_048_576
         return "\(model) \(cores)c \(mem)MB \(os)"
     }
+}
+
+/// Memory, because the leading hypothesis for the 293-second encode stall is
+/// pressure rather than a codec fault: 6 Mbps for 293 s is ~220 MB if
+/// anything in the chain is accumulating, and VideoToolbox starts refusing
+/// frames long before a jetsam kill. `phys_footprint` is the number Apple
+/// jetsams on; `os_proc_available_memory` is what this process has left.
+private func memoryFootprintMB() -> Double {
+    var info = task_vm_info_data_t()
+    var count = mach_msg_type_number_t(MemoryLayout<task_vm_info_data_t>.size / MemoryLayout<natural_t>.size)
+    let kr = withUnsafeMutablePointer(to: &info) {
+        $0.withMemoryRebound(to: integer_t.self, capacity: Int(count)) {
+            task_info(mach_task_self_, task_flavor_t(TASK_VM_INFO), $0, &count)
+        }
+    }
+    guard kr == KERN_SUCCESS else { return -1 }
+    return Double(info.phys_footprint) / 1_048_576
+}
+
+private func availableMemoryMB() -> Double {
+    #if os(iOS) || os(tvOS)
+    return Double(os_proc_available_memory()) / 1_048_576
+    #else
+    return -1
+    #endif
 }

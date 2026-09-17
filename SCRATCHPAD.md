@@ -86,6 +86,14 @@ emulators) · `docs/CAPTIONS.md` · `docs/SHAREPLAY.md` ·
    rather than hanging on a prompt.
    Also open, for the owner: widening the rights tier from `guaranteed`
    (4,210 films) to `strict` (7,517) is a Decision-027 content call.
+8. **Fireplace TV is off limits for testing** (owner 2026-09-17, mid-run: "I'm
+   actively watching on it now"). Bedroom and Movie Room are fine — but both
+   are Apple TV 4K **3rd** gen, and Fireplace is the only **2nd** gen, i.e.
+   the Studio's hardware floor. The owner offered **3:00 pm MT** as the window
+   for a floor run; the §8.3 ten-minute soak passes on the 3rd gen
+   (`docs/WATCH-TOGETHER.md` §9) and the 2nd-gen repeat is the one thing
+   outstanding. Movie Room is NOT in the tvOS provisioning profile — it fails
+   to install; Bedroom works.
 
 ---
 

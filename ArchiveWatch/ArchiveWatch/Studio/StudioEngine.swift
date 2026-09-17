@@ -425,12 +425,38 @@ public actor StudioEngine {
         }
         mixer.start()
 
+        // §6.3, and it belongs HERE rather than in a harness.
+        //
+        // THIS IS THE 291-SECOND STALL. tvOS starts its screen saver after
+        // five minutes of no input, and taking the display INVALIDATES the
+        // VideoToolbox session — `VTCompressionSessionEncodeFrame` then
+        // returns `kVTInvalidSessionErr` (-12903) forever. Measured twice on
+        // an Apple TV: encoding stopped at 293 s, then at 291 s on the
+        // re-run, both just under the five-minute default, with memory flat
+        // at 278 MB and 1.8 GB free — so it was never pressure.
+        //
+        // §6.3 already required the idle timer off while live. It was set only
+        // in `StudioLab`, behind `#if os(iOS)`, so tvOS never got it and the
+        // real Studio never got it on EITHER platform. A rule written in the
+        // design doc and implemented in the test harness is not implemented.
+        await Self.holdTheScreenAwake(true)
+
         started = CACurrentMediaTimeCompat()
         health.isRunning = true
         startTicking()
     }
 
+    /// `UIApplication` is main-actor-only and exists on iOS and tvOS alike —
+    /// which is the whole point: the property is not iOS-specific and the
+    /// platform that most needed it was the one excluded.
+    private static func holdTheScreenAwake(_ on: Bool) async {
+        #if canImport(UIKit) && !os(macOS)
+        await MainActor.run { UIApplication.shared.isIdleTimerDisabled = on }
+        #endif
+    }
+
     public func stop() async {
+        await Self.holdTheScreenAwake(false)
         ticker?.cancel(); ticker = nil
         mixer.stop()
         encoder?.stop(); encoder = nil
