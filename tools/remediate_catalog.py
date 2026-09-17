@@ -2600,7 +2600,7 @@ def _load_year_corrections():
     p = REPO / "shared/editorial/year_corrections.json"
     if not p.exists():
         return {}
-    return {k: int(v) for k, v in json.loads(p.read_text()).items()}
+    return {k: (int(v) if v is not None else None) for k, v in json.loads(p.read_text()).items()}
 
 
 def _load_title_corrections():
@@ -2712,11 +2712,19 @@ def remediate(items):
             it["titleSource"] = "agent-reviewed"
             stats["title_corrected"] += 1
 
-        fy = year_fixes.get(it.get("archiveID"))
-        if fy and it.get("year") != fy:
+        fy = year_fixes.get(it.get("archiveID"), False)
+        if fy is not False and it.get("year") != fy:
+            # A null in the table: the year is known to be WRONG and the right
+            # one is not known ("The White House Story", early 1960s by its own
+            # description, dated 1897; a 2000s USDA wildfire video dated 1929).
+            # No year beats a false one; the silent-film type it earned goes too.
             it["year"] = fy
-            it["decade"] = decade_of(fy)
+            it["decade"] = decade_of(fy) if fy else None
             it["yearSource"] = "agent-reviewed"
+            if fy is None:
+                it["isSilentFilm"] = False
+                if it.get("contentType") == "silent-film":
+                    it["contentType"] = "short-film" if (it.get("runtimeSeconds") or 0) and int(it.get("runtimeSeconds") or 0) < 2400 else "feature-film"
             stats["year_corrected"] += 1
 
         # 0z) FILL A MISSING YEAR from the item's own naming. source_year() is
