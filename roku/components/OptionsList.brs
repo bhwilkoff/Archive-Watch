@@ -24,8 +24,18 @@ sub init()
     m.list.font = m.t.uBody
     m.list.color = m.t.textPri
     m.list.focusedColor = m.t.canvas
-    m.list.focusBitmapUri = "pkg:/images/pill_focus.9.png"
-    m.list.focusFootprintBitmapUri = "pkg:/images/pill_rest.9.png"
+    ' Roku OS 9.1 (the Roku 2 XD, the legacy floor) does not stretch a
+    ' LabelList's 9-patch by its guides: the 62 px pill came out as a lens
+    ' whose curved ends swallowed the first letter of every row (owner,
+    ' 2026-09-17: "a strange circle selection"). A bitmap already at the row's
+    ' size needs no stretching, so that tier takes a pre-rendered 822x78 pill.
+    if AWCan("ninePatchListFocus")
+        m.list.focusBitmapUri = "pkg:/images/pill_focus.9.png"
+        m.list.focusFootprintBitmapUri = "pkg:/images/pill_rest.9.png"
+    else
+        m.list.focusBitmapUri = "pkg:/images/pill_focus_822x78.png"
+        m.list.focusFootprintBitmapUri = "pkg:/images/pill_rest_822x78.png"
+    end if
     m.list.drawFocusFeedbackOnTop = false
     m.list.vertFocusAnimationStyle = "floatingFocus"
     m.list.ObserveField("itemSelected", "onPick")

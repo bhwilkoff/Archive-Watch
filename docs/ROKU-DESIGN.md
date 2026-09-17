@@ -762,3 +762,16 @@ platform reads the web index, which is built by dropping exactly what that
 setting hides (Decision 105 — one predicate, imported, never copied). There
 is no toggle here because nothing mature reaches the device to turn on; a
 switch that reveals nothing is a dead control.
+
+**14.13 (amends §13.5 / §6.9) On the legacy tier an options row's pill is
+pre-rendered at the row's size.** Roku OS 9.1 stretches a `LabelList` focus
+9-patch as a plain bitmap: the 62 px pill came out as a lens whose curved ends
+sat over the first letter of every row — the owner on the Roku 2 XD,
+2026-09-17: *"a strange circle selection that doesn't actually highlight the
+option."* A bitmap already at 822×78 needs no stretching, so `OptionsList`
+takes `pill_focus_822x78.png` / `pill_rest_822x78.png` where
+`AWCan("ninePatchListFocus")` is false, and the 9-patch everywhere else.
+Verified on the XD: the More panel and the Party Play Up panel draw a true
+pill and the highlight follows the focus. The Browse/Search chips are
+`Button` nodes of varying width and keep their 9-patch; if they show the same
+lens on that tier, they take a per-width asset the same way.
