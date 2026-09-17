@@ -1642,6 +1642,7 @@ _OMDB_REVIEW = re.compile(
     r"|\bI've (?:yet |ever |never )?seen\b|\(out of 4\)|\b(?:isn't|is not|wasn't) bad for an?\b|\byou'll (?:be interested|definitely|love|enjoy)\b"
     r"|\b(?:whenever|every time) I (?:look|watch|see|return)\b|(?:^|[.!?]\s+)(?:This is a really|So many early cartoons|No matter how many times)\b"
     r"|\bthought[- ]provoking film\b|\bpleasant enough\b|\bI usually try to\b|\bjust plain irritating\b"
+    r"|\bdeserves a (?:look|watch|viewing)\b|\b(?:it's|it is) on youtube\b|\b(?:both|all the) (?:actors|actresses) excel\b"
     r"|\bthis was an interesting experience\b|\blast night in\b|\b(?:oldest|first) (?:\w+ ){0,3}film I've seen\b", re.I)
 
 
