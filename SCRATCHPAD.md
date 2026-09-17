@@ -60,8 +60,11 @@ emulators) · `docs/CAPTIONS.md` · `docs/SHAREPLAY.md` ·
    `minPerShelf = 9`; needs more picks in `featured.json` (editorial, not
    code).
 5. LG and Samsung store submissions (accounts + a device to test on).
-6. **Roku package 00074**: the options-panel redesign (ROKU-DESIGN 14.13) is
-   sideloaded on both Rokus but not packaged for the Dashboard.
+6. **Roku 1.0.75 (deep-link fix + options panel, Decision 126)**: uploaded to
+   the beta (published) and the store (App Behavior Analysis running; then
+   **Schedule publishing** is the owner's press). Ticket 110523 needs a reply
+   asking for the Search Beta re-test — the Dashboard's Submit for review is
+   disabled while the feed is FEED VALIDATED (= in certification).
 7. **Live Riffing**: read `docs/LIVE-RIFF-RESEARCH.md`; the first step is a
    one-week iPhone spike (decode + composite + encode at 1080p30) and its
    twin on an Apple TV 4K; open questions in §9 (YouTube 50-subscriber rule
@@ -203,6 +206,15 @@ unbiased."
   SIDELOADED with it — the store channel needs a 00074 package.
   ROKU-DESIGN 14.13. Found on the way: a contact-request "review" on
   Bamboo Isle (fixed above).
+- **Roku Search certification FAILED the deep link** (ticket 110523: "redirects
+  to the channel's home screen instead of playing"). Not the feed, not the
+  params: the single-id lookup shared the service's query record with Continue
+  Watching's `resolveIds`, the task served the merged record once, and the ids
+  branch won — only on a device WITH history, which the harness never was.
+  Own field pair `lookupId`/`lookupResult`, Decision 126; verified on both
+  Rokus; 1.0.75 packaged and uploaded to beta + store. Also: last night's
+  publish-db/deploy-pages failures were the spliced catalog (above), already
+  repaired — every run since is green.
 - **Live Riffing research** written: `docs/LIVE-RIFF-RESEARCH.md` — YouTube
   and Twitch take RTMP from any encoder (no WHIP for general creators);
   HaishinKit (Apple) / RootEncoder (Android) on-device; LiveKit Egress or

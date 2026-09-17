@@ -200,6 +200,7 @@ into every session and the index alone carries every title.)
 - 123 — Pulse replaces the vendor consoles: every store is read by the route it actually offers, and a reading that cannot be trusted is refused rather than written
 - 124 — A checked source's synopsis always beats the uploader's, every synopsis carries its provenance, and the client SAYS it
 - 125 — Credits with no surviving id are residue unless the cast proves the film; and the same cast dates an upload-dated film
+- 126 — A request that must be answered rides its own field; a shared query record served once per bump merges whatever lands on it together
 
 ---
 
@@ -749,3 +750,53 @@ run from CI any longer (archive.org refuses the runner: 4/4 failed on each of
 the last three days) and was run locally over its 116 stuck targets; a
 follow-up is to move that step to the owner's Mac on a schedule.
 
+## 126 — A request that must be answered rides its own field; a shared query record served once per bump merges whatever lands on it together
+*Date: 2026-09-17*
+
+The Roku channel's single-id lookup — what a deep link and Detail's index
+fallback use — no longer goes through `CatalogService`'s query fields. It
+has its own pair, `lookupId` / `lookupResult`, served from each event's own
+data, and the answer names the id it is for so the Scene matches it to the
+request it still holds. `qId` is gone.
+
+**Why**: Roku certification failed the Search Beta channel (ticket 110523):
+"The Content and search beta channel found, but it redirects to the
+channel's home screen instead of playing the video" — The General, The Sky
+Pilot, The Ten Commandments. Reproduced on the Streaming Stick 4K against
+the store channel, the beta channel and the sideload:
+
+    AWDEEP contentId=TheGeneral720p1926 mediaType=movie
+    AWSVC query # 2 ... ids= 14 ... id=TheGeneral720p1926
+    AWSVC resolveIds asked= 14 found= 11
+
+`CatalogService` reads every `q*` field as ONE record and serves only the
+newest `queryId` — by design, so a burst of keystrokes costs one scan. On a
+cold start Continue Watching's `resolveIds` (`qIds`, 14 ids) and the queued
+deep link (`qId`) both bump before the task attaches its observer; the task
+runs the merged record once, `runQuery` dispatches the `qIds` branch first,
+and the Scene's results handler — which checks `pendingUserItems` before
+`pendingDeepLink` — hands the answer to the user-items branch. The deep
+link is never answered. A device with no watch history has no `qIds` to
+merge with, so the harness (fresh sideloads) never saw it, and the memory
+"deep-link demo film TheGeneral720p1926 verified playing" was true on the
+day it was written.
+
+**How to apply**: coalescing is right for a *query* — the viewer only wants
+the latest page — and wrong for a *request* that a specific caller is
+waiting on. When a field on a shared service must be answered, give it its
+own field and its own result, serve from `msg.GetData()` rather than the
+field (two ids set back to back are two answers), and tag the answer with
+what it answers so a stale one is ignored rather than misrouted. Do not fix
+this by reordering the branches in `runQuery`: whichever branch runs, the
+other request's `pending*` flag is left set and misroutes the next result.
+And test deep links on a device WITH history — the empty-registry case is
+the one that always passes.
+
+**Consequences**: `roku/manifest` 1.0.75, packaged and uploaded to the beta
+(881088, published) and the store (881015, App Behavior Analysis queued).
+The feed's own "Submit for review" is disabled while its status is FEED
+VALIDATED — that status means "undergoing deep-linking certification", so
+the re-test is asked for on the ticket, not re-submitted in the Dashboard.
+Verified on the glass before upload: three cold-start links on the Stick
+with history present, one roInput link mid-film, and Hintertreppe on the
+Roku 2 XD (legacy tier) — `media-player state=play` for each.
