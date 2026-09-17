@@ -1633,7 +1633,16 @@ _OMDB_REVIEW = re.compile(
     r"|the only review|\bmy review\b|\bthis review\b|\bimho\b|in my (humble )?opinion|\bmust[- ]see\b|highly recommend"
     r"|\b(\d|10)/10\b|\bworth (a )?(watch|seeing)\b|\bthis (dvd|blu-ray|print|copy)\b|\b(dvd|blu-ray) (issued|released|set)\b"
     r"|\bthe print i\b|\bprint (i|we) (saw|watched)|\boddly interesting\b|\bextremely variable\b|\bmixed bag\b"
-    r"|\bnot for all tastes\b|\bwill admit\b|\bas much as it pains me\b|\bnot consistently bad\b|\bwildly varied in quality\b", re.I)
+    r"|\bnot for all tastes\b|\bwill admit\b|\bas much as it pains me\b|\bnot consistently bad\b|\bwildly varied in quality\b"
+    # 2026-09-17: OMDb's "plot" for an obscure silent is often an IMDb user
+    # review — "This was an interesting experience, as this was the longest
+    # film I've yet seen without subtitles", "I strongly suspect that some of
+    # this film is missing", "*** (out of 4)", "This isn't bad for a Biograph".
+    r"|(?:^|[.!?]\s+)I(?:'ve|'m|'d| have| had| think| strongly| suspect| love| wanted| just saw| feel| usually| never| look| return)\b"
+    r"|\bI've (?:yet |ever |never )?seen\b|\(out of 4\)|\b(?:isn't|is not|wasn't) bad for an?\b|\byou'll (?:be interested|definitely|love|enjoy)\b"
+    r"|\b(?:whenever|every time) I (?:look|watch|see|return)\b|(?:^|[.!?]\s+)(?:This is a really|So many early cartoons|No matter how many times)\b"
+    r"|\bthought[- ]provoking film\b|\bpleasant enough\b|\bI usually try to\b|\bjust plain irritating\b"
+    r"|\bthis was an interesting experience\b|\blast night in\b|\b(?:oldest|first) (?:\w+ ){0,3}film I've seen\b", re.I)
 
 
 # The uploader's own words claiming copyright ("This film and all of the
