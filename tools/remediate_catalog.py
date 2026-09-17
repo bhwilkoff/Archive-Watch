@@ -1595,6 +1595,10 @@ def sanitize_synopsis(it):
     if isinstance(it.get("synopsis"), list):
         it["synopsis"] = raw or None          # a list of notes becomes its description, always
     if not raw:
+        if it.get("synopsis"):                # whitespace only — a "\xa0" placeholder the client would draw as a blank line
+            it["synopsis"] = None
+            it["synopsisSource"] = None
+            return "nulled"
         return None
     if (it.get("synopsisSource") or "") == "wikipedia":
         if _wiki_lead_is_another_film(it, raw):
