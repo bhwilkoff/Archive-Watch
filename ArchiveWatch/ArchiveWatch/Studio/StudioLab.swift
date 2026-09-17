@@ -123,7 +123,9 @@ enum StudioLab {
                 let tap = CameraFrameTap()
                 tap.attach(to: s)
                 await engine.attachCamera(tap: tap)
-                let gotMic = await engine.attachMicrophone(session: s)
+                let micTap = MicAudioTap()
+                let gotMic = micTap.attach(to: s)
+                await engine.attachMicrophone(tap: micTap)
                 s.startRunning()
                 camera = s
                 log("camera attached, microphone \(gotMic ? "attached" : "UNAVAILABLE")")
@@ -237,13 +239,31 @@ enum StudioLab {
         #else
         let types: [AVCaptureDevice.DeviceType] = [.builtInWideAngleCamera, .external, .continuityCamera]
         #endif
+
+        // PERMISSION IS A HUMAN ACTION, AND THIS HARNESS MUST NOT WAIT ON ONE.
+        // `requestAccess` presents a system alert and suspends until it is
+        // tapped, which hung a device run with no output past "film …" — and
+        // the standing rule is that the owner is never the tester. So the
+        // status is reported and an undecided permission is REFUSED rather
+        // than requested, with the one-time grant named in the log.
+        let video = AVCaptureDevice.authorizationStatus(for: .video)
+        let audio = AVCaptureDevice.authorizationStatus(for: .audio)
+        log("permissions: camera=\(name(video)) microphone=\(name(audio))")
+        guard video == .authorized else {
+            log("SKIP camera — grant it once on the device (Settings ▸ Archive Watch ▸ Camera + Microphone), then re-run; AW_STUDIO_ASK=1 will present the prompt instead")
+            if env("AW_STUDIO_ASK") == "1" {
+                log("AW_STUDIO_ASK=1 — presenting the system prompt; tap Allow on the device")
+                _ = await AVCaptureDevice.requestAccess(for: .video)
+                _ = await AVCaptureDevice.requestAccess(for: .audio)
+                log("permissions now: camera=\(name(AVCaptureDevice.authorizationStatus(for: .video))) microphone=\(name(AVCaptureDevice.authorizationStatus(for: .audio)))")
+            }
+            return nil
+        }
+
         let discovery = AVCaptureDevice.DiscoverySession(
-            deviceTypes: types,
-            mediaType: .video,
-            position: .unspecified)
-        guard let device = discovery.devices.first else { return nil }
-        guard await AVCaptureDevice.requestAccess(for: .video) else {
-            log("WARN camera permission refused")
+            deviceTypes: types, mediaType: .video, position: .unspecified)
+        guard let device = discovery.devices.first else {
+            log("WARN no camera device of \(types.map(\.rawValue).joined(separator: ", "))")
             return nil
         }
         guard let input = try? AVCaptureDeviceInput(device: device) else { return nil }
@@ -251,8 +271,29 @@ enum StudioLab {
         session.beginConfiguration()
         session.sessionPreset = .hd1280x720   // the camera tile is never full-frame in v1
         if session.canAddInput(input) { session.addInput(input) }
+        // The microphone rides the SAME session, which is how tvOS gets the
+        // Continuity microphone alongside the Continuity camera.
+        if audio == .authorized,
+           let micDevice = AVCaptureDevice.default(for: .audio),
+           let micInput = try? AVCaptureDeviceInput(device: micDevice),
+           session.canAddInput(micInput) {
+            session.addInput(micInput)
+        } else {
+            log("WARN no microphone input on the session (audio=\(name(audio)))")
+        }
         session.commitConfiguration()
+        log("camera \(device.localizedName) via \(device.deviceType.rawValue)")
         return session
+    }
+
+    private static func name(_ s: AVAuthorizationStatus) -> String {
+        switch s {
+        case .authorized: return "authorized"
+        case .denied: return "denied"
+        case .restricted: return "restricted"
+        case .notDetermined: return "not-determined"
+        @unknown default: return "unknown"
+        }
     }
 
     // MARK: Host

@@ -175,7 +175,7 @@ public actor StudioEngine {
     /// while every other counter (fps, encode, thermals) looked healthy. The
     /// decoder there hands back its native biplanar YUV, and Core Image
     /// consumes either, so the format is left to AVFoundation.
-    public func attachFilm(player: AVPlayer) {
+    public func attachFilm(player: AVPlayer) async {
         filmPlayer = player
         let out = AVPlayerItemVideoOutput(outputSettings: nil)
         player.currentItem?.add(out)
@@ -184,7 +184,7 @@ public actor StudioEngine {
         // with no audio track is a REAL case in this catalog (silent cinema),
         // so a false return is recorded, never treated as a failure.
         if let item = player.currentItem {
-            audioAttached = mixer.film.attach(to: item)
+            audioAttached = await mixer.film.attach(to: item)
         }
     }
 
@@ -214,10 +214,11 @@ public actor StudioEngine {
         cameraTap = tap
     }
 
-    /// Attaches the host's microphone from the platform's capture session.
-    /// Built outside the actor for the same reason the camera tap is.
-    public func attachMicrophone(session: AVCaptureSession) -> Bool {
-        mixer.mic.attach(to: session)
+    /// Adopts the host's microphone tap. Built against the platform's own
+    /// `AVCaptureSession` by the caller, for the same reason the camera tap
+    /// is: an `AVCaptureSession` is not `Sendable` and cannot cross in here.
+    public func attachMicrophone(tap: MicAudioTap) {
+        mixer.adopt(mic: tap)
     }
 
     /// Starts encoding and publishing. `destination` is an rtmp(s):// URL

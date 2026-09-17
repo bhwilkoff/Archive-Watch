@@ -709,6 +709,8 @@
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "ArchiveWatchWidgets-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Archive Watch";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Watch Together Studio puts you on camera beside the film when you stream a watch-along.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Watch Together Studio carries your voice over the film when you stream a watch-along.";
 				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -739,6 +741,8 @@
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "ArchiveWatchWidgets-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Archive Watch";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Watch Together Studio puts you on camera beside the film when you stream a watch-along.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Watch Together Studio carries your voice over the film when you stream a watch-along.";
 				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

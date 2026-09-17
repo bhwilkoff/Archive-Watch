@@ -117,12 +117,17 @@ final class FilmAudioTap: @unchecked Sendable {
     /// Attaches to `item`, replacing any audio mix it had. Returns false when
     /// the item has no audio track at all — a silent film, which is a REAL
     /// case in this catalog and must not be reported as a failure.
+    /// ON THE MAIN ACTOR, and only this method. `AVPlayerItem`, its `asset`
+    /// and `AVAssetTrack` are all main-actor isolated and non-Sendable under
+    /// Swift 6, so every touch of the item happens here. `makeTap()` stays
+    /// non-isolated, which is the part that matters: the tap's callbacks run
+    /// on MediaToolbox's real-time thread and trap if Swift infers main-actor
+    /// isolation for them (LiveCaptions records the backtrace).
+    @MainActor
     @discardableResult
-    func attach(to item: AVPlayerItem) -> Bool {
-        // `item.tracks` are the PLAYER's tracks, already loaded by the time an
-        // item is playable — no await, and no deprecated asset accessor.
-        guard let assetTrack = item.tracks.compactMap(\.assetTrack)
-                .first(where: { $0.mediaType == .audio }) else { return false }
+    func attach(to item: AVPlayerItem) async -> Bool {
+        let tracks = (try? await item.asset.loadTracks(withMediaType: .audio)) ?? []
+        guard let assetTrack = tracks.first else { return false }
         guard let tap = makeTap() else { return false }
         let params = AVMutableAudioMixInputParameters(track: assetTrack)
         params.audioTapProcessor = tap
@@ -226,23 +231,25 @@ final class FilmAudioTap: @unchecked Sendable {
 
 /// The host's microphone, off the same `AVCaptureSession` the camera uses. On
 /// tvOS that session's audio device is the Continuity microphone.
-final class MicAudioTap: NSObject, AVCaptureAudioDataOutputSampleBufferDelegate, @unchecked Sendable {
+public final class MicAudioTap: NSObject, AVCaptureAudioDataOutputSampleBufferDelegate, @unchecked Sendable {
     let ring = AudioRing()
     private let output = AVCaptureAudioDataOutput()
     private let queue = DispatchQueue(label: "org.archivewatch.studio.mic")
     private var scratch = [Float](repeating: 0, count: 8192 * 2)
     var programRate: Double = 44100
 
+    public override init() { super.init() }
+
     @discardableResult
-    func attach(to session: AVCaptureSession) -> Bool {
+    public func attach(to session: AVCaptureSession) -> Bool {
         output.setSampleBufferDelegate(self, queue: queue)
         guard session.canAddOutput(output) else { return false }
         session.addOutput(output)
         return true
     }
 
-    func captureOutput(_ o: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer,
-                       from c: AVCaptureConnection) {
+    public func captureOutput(_ o: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer,
+                              from c: AVCaptureConnection) {
         guard let fmt = CMSampleBufferGetFormatDescription(sampleBuffer),
               let asbd = CMAudioFormatDescriptionGetStreamBasicDescription(fmt)?.pointee else { return }
         let frames = CMSampleBufferGetNumSamples(sampleBuffer)
@@ -320,7 +327,14 @@ final class StudioAudioMixer: @unchecked Sendable {
     private var duckGain: Float = 1.0            // smoothed, so ducking is not a click
 
     let film = FilmAudioTap()
-    let mic = MicAudioTap()
+    private(set) var mic = MicAudioTap()
+
+    /// Replaces the placeholder mic tap with the one the platform built
+    /// against its own capture session.
+    func adopt(mic tap: MicAudioTap) {
+        tap.programRate = rate
+        mic = tap
+    }
     private(set) var health = StudioAudioHealth()
     private let healthLock = NSLock()
 

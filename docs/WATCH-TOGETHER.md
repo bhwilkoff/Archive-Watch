@@ -386,10 +386,41 @@ the same program origin, and the publisher's timestamps share one timeline.
 The film ring padded ~3–4% of samples, almost all in the first second while
 the player fills its buffer. Worth watching in the soak, not worth a fix yet.
 
+### Video + audio together, on device (2026-09-17)
+
+| Host | Program | Mean fps | Render mean | Film audio | AAC | Level |
+|---|---|---|---|---|---|---|
+| iPhone 12 | 1920×1080@30 | 30.3 | **6.43 ms** of 33.3 (19%) | 90,312 samples/s | 43/s | 0.08–0.14 |
+
+589 film frames of ~600 program frames; 868 AAC frames over 20 s; 0 dropped,
+0 clock overruns, thermal nominal. Adding the whole audio path — a second
+decode tap, a mixer ticker and an AAC encode — did not move the render budget.
+
+### Permission is a human action, and a harness must never wait on one
+
+`AVCaptureDevice.requestAccess` presents a system alert and suspends until it
+is tapped. A device run hung with no output past `film …` — indistinguishable
+from a deadlock in our own code — because the harness was waiting for a finger.
+The standing rule is that the owner is never the tester, so the Lab now
+**reports** the authorization status and refuses an undecided permission rather
+than requesting it:
+
+```
+permissions: camera=not-determined microphone=not-determined
+SKIP camera — grant it once on the device …; AW_STUDIO_ASK=1 will present the prompt
+WARN no camera available — continuing film-only
+```
+
+`AW_STUDIO_ASK=1` is the deliberate opt-in that presents the prompt. There is
+no supported way to pre-grant camera or microphone access on a real device
+(`simctl privacy` is simulator-only), so this is a genuine one-time human
+action — and the Lab names exactly where to do it instead of hanging.
+
 ### Still to measure (Phase 0 remainder)
 
-- The camera tile's and microphone's cost on device (all runs so far are
-  film-only).
+- The camera tile's and microphone's cost on device — **blocked on a one-time
+  camera + microphone grant** on the iPhone 12 and, for Continuity Camera, on
+  the Apple TV. Everything else in Phase 0 is measured.
 - A ten-minute soak on both devices: dropped-frame growth and thermal
   state (§8.3).
 - The real destinations: YouTube and Twitch over RTMPS.
