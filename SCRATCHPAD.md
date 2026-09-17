@@ -65,10 +65,20 @@ emulators) · `docs/CAPTIONS.md` · `docs/SHAREPLAY.md` ·
    **Schedule publishing** is the owner's press). Ticket 110523 needs a reply
    asking for the Search Beta re-test — the Dashboard's Submit for review is
    disabled while the feed is FEED VALIDATED (= in certification).
-7. **Live Riffing**: read `docs/LIVE-RIFF-RESEARCH.md`; the first step is a
-   one-week iPhone spike (decode + composite + encode at 1080p30) and its
-   twin on an Apple TV 4K; open questions in §9 (YouTube 50-subscriber rule
-   for API streams, Twitch category, whether guests are a requirement).
+7. **Watch Together Studio — BLOCKED ON THE OWNER, and it is the only
+   blocker.** Everything else is built and verified on real hardware
+   (`docs/WATCH-TOGETHER.md`, Decision 127). Three one-time owner steps:
+   (a) a **Google Cloud project** with YouTube Data API v3 → an OAuth client
+   id, and a **Twitch application** → a client id, both into the gitignored
+   `Secrets.xcconfig` as `YOUTUBE_CLIENT_ID` / `TWITCH_CLIENT_ID` — without
+   them a stream key cannot be fetched and the go-live sheet says so;
+   (b) **pair an iPhone** on the Apple TV via the system Continuity picker
+   (once — a paired phone is found automatically after);
+   (c) **allow camera + mic** on the iPhone (Settings ▸ Archive Watch) — there
+   is no supported way to pre-grant on a device, and the harness refuses
+   rather than hanging on a prompt.
+   Also open, for the owner: widening the rights tier from `guaranteed`
+   (4,210 films) to `strict` (7,517) is a Decision-027 content call.
 
 ---
 
@@ -215,6 +225,31 @@ unbiased."
   Rokus; 1.0.75 packaged and uploaded to beta + store. Also: last night's
   publish-db/deploy-pages failures were the spliced catalog (above), already
   repaired — every run since is green.
+- **WATCH TOGETHER STUDIO, built the same day** (owner: reframe Live Riffing as
+  "Watch Together" and "Watch Together Studio"; SharePlay is the private half,
+  the world is the public one). Decision 127, rules in
+  `docs/WATCH-TOGETHER.md`, iOS-DESIGN §8.8/§8.9, tvOS-DESIGN §8.8/§10.2a.
+  Phase 0 answered: **1080p30 holds on both hardware floors** — iPhone 12
+  render 8.71 ms and Apple TV 4K 2nd gen 10.70 ms of a 33.3 ms budget, 0
+  dropped, thermal nominal — so §3.3's ReplayKit fallback is closed and in-app
+  composition is the architecture. Our OWN `RTMPPublisher` (no encoder
+  dependency) reaches all four real ingests from the Mac, the iPhone AND the
+  Apple TV with an invalid key, i.e. no credential. Audio: the film tapped off
+  its own mix + the mic, ducked 12 dB, A/V aligned to **10 ms over 15 s** in
+  mediamtx's own recording. Rights: `audit_rights.bucket()` now rides the
+  client DB (schema 2) so the client applies the AUDIT's answer, tier
+  `guaranteed` → **4,210 of 24,943 films**; an unknown verdict refuses, and a
+  cached schema-1 device proved that on the glass unprompted. Overlay: five
+  layouts, four cards, chat in the program, all rendered over a worst-case
+  stand-in film and LOOKED at.
+  Findings worth the trip: RTMP's `connect` must be transaction **1** (YouTube
+  hardcodes it; two other servers echoed ours and hid the bug); a cached
+  full-frame overlay composite cost 5.6 ms until it was cropped to its
+  content; `AVPlayerItemVideoOutput` asked for 32BGRA returns NOTHING on tvOS;
+  `.playAndRecord` fails on tvOS because there is nothing to record from until
+  a Continuity mic port exists; and a readout can be correct and still lie —
+  it said IDLE while encoding 5.5 Mbps because it reported the publisher's
+  state, not the show's.
 - **Live Riffing research** written: `docs/LIVE-RIFF-RESEARCH.md` — YouTube
   and Twitch take RTMP from any encoder (no WHIP for general creators);
   HaishinKit (Apple) / RootEncoder (Android) on-device; LiveKit Egress or
