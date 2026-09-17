@@ -900,15 +900,35 @@ menu blind over a remote is focus luck, not a test. **The dev door still goes
 through `StudioRights`** — a harness that skips the gate is testing something
 the viewer will never run.
 
-**NOT yet verified on the glass.** The tvOS build is green, and the console
-shows the app deep-opening `TheGeneral720p1926` and building its player with
-the Studio door armed — but `devicectl device capture screenshot` refused
-repeatedly on this box (`RemoteXPCPeerConnection … state = canceled`), and
-`--console` and screenshot capture are mutually exclusive: killing the console
-session terminates the app. The harness note that 4K captures pressure the
-screenshot daemon is the likely cause. **The ten-foot readout has therefore
-not been seen**, and that is the next thing to do rather than something to
-assume.
+**Verified on the glass: the tvOS REFUSAL.** On the Bedroom Apple TV (4K 3rd
+gen, tvOS 27) the alert reads *"This film cannot be streamed / This copy has
+no rights verdict in the catalog on this device… / Only films published before
+1930 can be streamed…"* with a focusable OK — §2.5's rule that no state is
+without a focusable element applies to explanations too. It fired because that
+box still held a **cached schema-1 database**, so the fail-closed rule proved
+itself on a second device unprompted; and the dev door went through
+`StudioRights` rather than round it, which is the whole reason it was written
+that way.
+
+**NOT verified on the glass: the ten-foot health readout.** Two separate
+instrument failures, recorded because they will cost the next session an hour
+otherwise:
+
+1. *`devicectl device capture screenshot` fails outright on the Fireplace box*
+   — `CoreDeviceError 3` / "The connection was invalidated" / no file written —
+   while `process launch` on the same device works. It is the screenshot
+   service, not the connection.
+2. *A launch can come up BACKGROUNDED*, showing the Apple TV Home screen while
+   the console proves the app is running and building its player. The harness
+   memory already records this as the doze-window failure; a Companion press
+   before launching did not cure it.
+
+And one error of my OWN, worth more than either: I grepped a capture for its
+success line, got nothing, and carried on — then read a **stale file from an
+earlier capture** and reasoned about it as though it were current. The clock in
+the image was the tell. A capture step must delete its target first and assert
+the file exists afterwards; anything less is an instrument that lies quietly.
+That is Decision 116's lesson wearing different clothes.
 
 ### Still to measure (Phase 0 remainder)
 
