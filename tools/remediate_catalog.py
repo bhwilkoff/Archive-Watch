@@ -269,6 +269,21 @@ def _title_words(t):
     return {w for w in re.findall(r"[a-z0-9]{3,}", t)} - _TITLE_STOP
 
 
+_VERIFY_CACHE = None
+
+
+def _verify_cache():
+    global _VERIFY_CACHE
+    if _VERIFY_CACHE is None:
+        p = REPO / "shared/editorial/tmdb_verify_cache.json"
+        try:
+            vc = json.loads(p.read_text())
+            _VERIFY_CACHE = vc.get("entries", vc)
+        except Exception:
+            _VERIFY_CACHE = {}
+    return _VERIFY_CACHE
+
+
 def _clear_wrong_artwork(it, new_year):
     """Strip a wrong external (TMDb/OMDb) match: drop its poster/backdrop, NULL the
     wrong identity (imdbID/tmdbID — otherwise the next enrichment cron re-fetches
@@ -2705,6 +2720,21 @@ def remediate(items):
             it["matchVerified"] = True
             strip_unanchored_tmdb_residue(it)
             stats["tv_wrong_film_match_cleared"] += 1
+
+        # 0b1) An UNVERIFIED match whose film is more than ten years from the
+        # item's own year is the wrong film: "The Early Worm Gets the Bird"
+        # (1940, in the id) wore a 1969 "Early Bird Gets the Worm"; a 2007
+        # "The Big Bang" wore The Big Boss (1971). A re-release date is a
+        # few years off (Nosferatu dated 1929), never ten. Measured 2026-09-17:
+        # 16 visible with any gap over three, 4 over ten, all four wrong.
+        if it.get("tmdbID") and it.get("matchVerdict") == "unverifiable" and isinstance(it.get("year"), int):
+            fy = (_verify_cache().get(str(it["tmdbID"])) or {}).get("year")
+            if isinstance(fy, int) and abs(fy - it["year"]) > 10:
+                _clear_wrong_artwork(it, None)
+                it["matchVerdict"] = "cleared_year_far"
+                it["matchVerified"] = True
+                strip_unanchored_tmdb_residue(it)
+                stats["far_year_match_cleared"] += 1
 
         # 0b) WRONG EXTERNAL MATCH (#3/#4): a modern TMDb/OMDb poster+year on a
         # vintage title. Clear the bad artwork + fix the year before anything
