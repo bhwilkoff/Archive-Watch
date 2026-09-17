@@ -1725,6 +1725,9 @@ def sanitize_synopsis(it):
         it["synopsisSource"] = None
         return "nulled"
     s = _TAG.sub(" ", _fix_mojibake(_html.unescape(raw)))
+    # A Wikipedia lead's availability sentence ("The film is viewable free of
+    # charge on YouTube.") is about a website, not the film — any source.
+    s = re.sub(r"\s*[^.]*\b(?:viewable|available|watch(?:ed)?|streams?|found)\b[^.]*\bYouTube\b[^.]*\.", "", s)
     s = _strip_title_summary_dump(s)   # IMDb-scrape "Title: … Summary: …" dump
     s = _extract_plot_body(s)          # drop taglines/cast/release/source cruft, prefer a labeled plot
     s = _FROM_IMDB_PREFIX.sub("", s)   # "From IMDb : <plot>" -> "<plot>" (B6)
@@ -1742,11 +1745,9 @@ def sanitize_synopsis(it):
         # quotes). A dashing young... — the quotes go, the plot stays.
         s = re.sub(r'^\s*(?:[“"][^”"]{3,80}[”"]\s*){2,}(?:\([^)]{0,40}(?:review|quote)[^)]{0,40}\)\.?)?\s*', "", s)
         s = _SOURCE_PREFIX.sub("", s)                     # "From The Public Domain Movie Database: "
-        # A Wikipedia lead's availability sentence ("The film is viewable free
-        # of charge on YouTube.") and the two-byte mojibake pairs a Latin-1
-        # round trip leaves in an uploader's apostrophes and quotes
-        # ("companyÃs", "ÂMr. ManÂ"); "DIREÇÃO" and "L'Âge" are untouched.
-        s = re.sub(r"\s*[^.]*\b(?:viewable|available|watch(?:ed)?|streams?|found)\b[^.]*\bYouTube\b[^.]*\.", "", s)
+        # The two-byte mojibake pairs a Latin-1 round trip leaves in an
+        # uploader's apostrophes and quotes ("companyÃs", "ÂMr. ManÂ");
+        # "DIREÇÃO" and "L'Âge" are untouched.
         s = re.sub(r"(?<=[A-Za-z])Ã(?=s\b)", "'", s).replace("Â_", "").replace("(Â", "(\u201c").replace("Â)", "\u201d)")
         s = _NARA_STAMP.sub(" ", s)                       # "ARC Identifier 91500", agency date ranges
         if _is_placeholder_synopsis(s, it):
