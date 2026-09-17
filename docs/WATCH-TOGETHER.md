@@ -298,6 +298,110 @@ because the platforms differ, not because we chose differently.
   greys out Go Live. It never offers a button that fails somewhere a host
   cannot see.
 
+## §6.2 — Android (Phase 3), researched 2026-09-17
+
+The same architecture, with **GLES doing Core Image's job**. Every Apple piece
+has a direct Android counterpart, which is the finding: Android needs no
+different design and — per Decision 127 — no third-party encoder either.
+
+| Apple | Android |
+|---|---|
+| `AVPlayerItemVideoOutput` (film frames) | ExoPlayer rendering to a `SurfaceTexture` (external OES texture) |
+| `AVCaptureVideoDataOutput` (camera) | CameraX / Camera2 to a second `SurfaceTexture` |
+| Core Image `ProgramRenderer` | a GLES program compositing both plus overlays **straight into `MediaCodec`'s input `Surface`** |
+| `MTAudioProcessingTap` (film audio) | **`TeeAudioProcessor`**, installed via `DefaultRenderersFactory.buildAudioSink` → `DefaultAudioSink(DefaultAudioProcessorChain(...))` |
+| `AVCaptureAudioDataOutput` (mic) | `AudioRecord` |
+| VideoToolbox H.264 / AudioToolbox AAC | `MediaCodec` AVC + AAC |
+| `Network.framework` + TLS | `Socket` / `SSLSocketFactory` |
+| `RTMPPublisher` (ours) | the same publisher, ported to Kotlin |
+
+**The one place Android is BETTER.** Compositing into the encoder's input
+`Surface` is **zero-copy**: the GPU writes the composed frame where the
+encoder reads it, with no pixel readback at all. The Apple path renders
+through Core Image into a `CVPixelBuffer` that VideoToolbox then consumes.
+So the 8.71 ms iPhone / 10.70 ms Apple TV render figures are an upper bound
+for what a comparable Android device should need, not a target to fear.
+
+**The one place it is worse, and it is why the audio tap was researched
+first.** There is no `MTAudioProcessingTap` equivalent that is *obviously* the
+answer; `TeeAudioProcessor` is, and it is the documented one — Media3's own
+guidance is that wrapping the `AudioSink` is NOT the recommended way to
+intercept decoded PCM, and `ForwardingAudioSink` is the fallback only where a
+legacy constraint forbids the processor. Getting that wrong means either
+memory corruption or GC stalls in the audio path.
+
+**Checked and rejected: Media3's composition pipeline.** `CompositionPlayer`,
+`Transformer` and the `VideoCompositor` (2x2 grids, picture-in-picture
+layouts, the new Lottie overlay module) look like exactly this feature and are
+not: they compose **media items** for preview and file **export**. Nothing in
+1.8–1.10 accepts a LIVE camera as a composition input or encodes a composed
+output in real time. The library we already depend on has the words "compositor"
+and "picture-in-picture" in it and still does not do this; write the GLES
+program.
+
+**Already in the project**: Media3 1.9.4 with `media3-effect` and
+`media3-transformer` in the version catalog, `minSdk` 29 on the Google flavour
+(23 on Amazon, Decision 100/115 — so the Studio is a **Google-flavour
+feature**; Fire TV has no camera and Fire tablets are out of scope for Phase 3).
+
+### §6.2a — The Android publisher, and what is proved so far (2026-09-17)
+
+`android/.../studio/RtmpPublisher.kt` is a direct port of the Swift
+publisher — a port and not a rewrite, because every non-obvious constant in it
+was bought with a measurement against the real ingests (connect as transaction
+1, the full ffmpeg-shaped connect object, `tcUrl` without a default port,
+chunk size negotiated after connect). It is plain Kotlin/JVM over sockets, so
+it runs from a desktop unit test against a local `mediamtx` long before a
+phone is involved, exactly as the Swift one was first proven.
+
+**PROVED — the control plane.** Against mediamtx, with `AW_RTMP_WIRE=1`
+printing every inbound message:
+
+```
+<- type=5  Window Acknowledgement Size
+<- type=6  Set Peer Bandwidth
+<- type=1  Set Chunk Size  0x00010000 (65536)
+<- type=20 _result ... NetConnection.Connect.Success "Connection succeeded"
+<- type=20 _result ... (createStream → stream id 1)
+<- type=20 onStatus ... NetStream.Publish.Start "publish start"
+```
+
+The handshake, the AMF0 encoding, `connect`, `releaseStream`, `FCPublish`,
+`createStream` and `publish` are all accepted by a real server.
+
+**NOT PROVED — the media plane, and the test is RED for it.** mediamtx never
+lists the path as ready, which means it cannot identify the tracks from the
+FLV tags we send. Four tests pass, one fails, and the failing one is correct.
+
+**The bug this found was in the INSTRUMENT first, and that is the part worth
+keeping.** The original harness asserted `publisher.health.state ==
+"publishing"` — *our own optimism*, set the moment we stopped waiting for a
+reply. All seven tests passed while the server logged nothing but `opened`
+then `closed: EOF`: it had never accepted a publish at all. That is the same
+failure as the Swift destination test that counted any socket close as success
+and printed PASS for five ingests while YouTube failed at the handshake
+(§9). The assertion is now the **server's own API** — does mediamtx list
+`live/androidtest` as a ready path — which is the one thing here that cannot
+lie, and it went red immediately.
+
+Two further instrument fixes fell out of chasing it, both real:
+
+- **The server's chunk size is not ours.** Reading replies with the outbound
+  4096 desynchronises the parser the moment we raise it, and the symptom is
+  not a parse error but an EOF, because the next byte read as a basic header
+  is really payload. `inChunkSize` is now tracked separately and updated from
+  the server's Set Chunk Size, as the Swift publisher already did.
+- **Hand-written media is not media.** A fake NAL of zero bytes gets the
+  publish accepted and the path never ready, so the honest assertion was
+  unreachable. The fixtures are now a REAL x264 keyframe and a REAL AAC-LC
+  frame generated by ffmpeg (`RealH264.kt`, `RealAac.kt`), and the
+  AudioSpecificConfig describes the frames actually sent — the first version
+  declared stereo while sending mono.
+
+Next: a byte-level comparison of our FLV tags against ffmpeg publishing to the
+same server. The control plane is right, so the difference is in the tags or
+their chunking.
+
 ## §7 — Phases
 
 | Phase | Deliverable | Gate |
