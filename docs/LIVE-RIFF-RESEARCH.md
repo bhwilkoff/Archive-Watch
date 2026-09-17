@@ -25,9 +25,12 @@ ScreenCaptureKit built in); on Android it is RootEncoder (Apache-2). The film
 is *our own* `AVPlayer`/Media3 output, so we never need screen capture — we
 compose film + camera + overlays ourselves and mix film audio + mic ourselves,
 exactly as the open-source iOS streamer Moblin does with its "video source"
-widgets. Apple TV, Roku and the smart-TV web builds cannot broadcast (no
-camera, no mic, no encoder): on the TV the phone or the Mac is the studio and
-the TV is the room's screen. "Friends in the stream" is a second product
+widgets. Roku and the smart-TV web builds cannot broadcast (no camera, no mic, no
+encoder). The Apple TV 4K (2nd gen+, tvOS 17+) **can**: Continuity Camera
+hands a third-party tvOS app the iPhone's camera and microphone through
+AVFoundation, and HaishinKit publishes from tvOS — so the box that plays the
+film can also encode the show, with the phone propped up as the camera.
+Google/Fire TV have no equivalent; there the phone or the Mac is the studio. "Friends in the stream" is a second product
 (multi-party WebRTC + server-side compositing — LiveKit Egress or Cloudflare
 RealtimeKit); the honest first version is **one host, one camera, one film,
 platform chat on screen**, with friends riffing through the same platform's
@@ -74,7 +77,7 @@ chat or a call the host mixes in on the Mac.
 | Friends in picture | no (host only) — or on the Mac, a call window captured with ScreenCaptureKit | yes, natively (they join a room) | yes |
 | Latency to platform | lowest; one hop | +1 hop and a transcode | same as B |
 | Running cost | none | LiveKit Cloud / RealtimeKit per participant-minute + egress minutes | same as B |
-| Works from tvOS / Roku / TV-web | no (no camera/mic/encoder) | the TV can be a *viewer* of the room; still needs a phone for camera | same |
+| Works from tvOS / Roku / TV-web | tvOS 17+ on Apple TV 4K 2nd gen+: **yes**, via Continuity Camera (phone = camera + mic); Roku and TV-web: no | the TV can be a *viewer* of the room; still needs a phone for camera | same |
 | Works from the web PWA | no — a browser cannot speak RTMP | **yes** (WebRTC in, RTMP out) — the only way the web app broadcasts | yes |
 | Build effort | medium (per platform) | medium (one web template + one service) but ops | high |
 
@@ -90,7 +93,7 @@ room instead of to RTMP" and the server does the rest — no rewrite.
 |---|---|---|---|---|---|
 | **iOS / iPadOS** | our `AVPlayer` → `AVPlayerItemVideoOutput` frames (no screen capture needed) | `AVCaptureSession` (multi-cam on supported devices; Center Stage) | film audio via `MTAudioProcessingTap` / `AVAudioEngine`; mic via capture; mix in-app; `AVAudioSession` `.playAndRecord` + `.mixWithOthers` | **HaishinKit** RTMP/RTMPS/SRT, H.264/HEVC hardware | **Best first target.** The fallback if in-app composition is slow: `RPScreenRecorder.startCapture` gives the app's own screen + app audio + mic as three sample-buffer streams — the film, the camera PiP and every overlay are already on that screen. Foreground only (a Broadcast Upload Extension survives backgrounding but loses app audio). |
 | **macOS** | same AVFoundation path; the Creation Studio already renders film frames through Core Image/Metal | `AVCaptureDevice`, incl. **Continuity Camera** (the iPhone as webcam) | in-app mix; **ScreenCaptureKit can add any window + its audio** (a FaceTime/Discord call with the friends) — the OBS trick, native | HaishinKit (or FFmpeg via LGPL dylib if we want SRT bonding etc.) | **The "pro" studio.** Everything OBS does that matters here is reachable with system frameworks. |
-| **tvOS** | yes | **no camera, no mic** (Siri Remote audio is not exposed) | — | HaishinKit builds for tvOS, but there is nothing to capture | The TV is the room's screen. Play the film on the Apple TV *and* on the phone in lock-step (SharePlay/GroupActivities already exist, D098) while the phone streams; or AirPlay the studio's program output to the TV. |
+| **tvOS** | yes | **Continuity Camera** (tvOS 17+, Apple TV 4K 2nd gen or later): the iPhone/iPad is the camera *and* the mic. `AVContinuityDevicePickerViewController` pairs it; the app gets an `AVCaptureDevice` of type `.continuityCamera`, real frames through `AVCaptureVideoDataOutput`, and the audio port `.continuityMicrophone` (or AirPods). One device at a time; the session ends when the app backgrounds or the phone leaves. | film audio + continuity mic mixed in-app, as on iOS | HaishinKit builds and publishes on tvOS; the A12/A15 has the hardware H.264/HEVC encoder | **The Apple TV can be the studio** — the film on the big screen, the phone propped as the camera, the stream encoded on the box. Two things to prove on hardware: 1080p decode + composite + encode headroom on the A12 (2nd gen) and the A15 (3rd gen), and that the picker's pairing flow survives a two-hour show. The fallback stays: the phone as the studio with the TV as the room's screen (SharePlay/AirPlay, D098). |
 | **Android phone** | Media3 `ExoPlayer` → `SurfaceTexture`/OpenGL | CameraX | `AudioRecord` + app audio; Android 10+ `AudioPlaybackCapture` for app audio | **RootEncoder** (RTMP/RTSP/SRT/UDP; WHIP auth; OpenGL filters; "extra video sources": BitmapSource, CameraXSource; screen via MediaProjection) | Second target; PiP composition is custom OpenGL, which RootEncoder's filter stage is designed for. |
 | **Google TV / Fire TV** | yes | no camera/mic on the dongles | — | — | Screen, not studio (same as tvOS). |
 | **Roku** | yes | no | — | no encoder API | Never. |
@@ -226,6 +229,12 @@ presets, audio faders with ducking, local recording, stream health.
 Everything in §4's must-have list. Cast the program to the Apple TV for the
 room. Gate on rights-KEEP films.
 
+**Phase 1b — the Apple TV studio.** The same engine on tvOS with Continuity
+Camera as the camera + mic input. Worth doing right after the phone, because
+it is the way the owner already watches — the film on the television, the
+phone on the coffee table pointed at the couch. Gate on the hardware
+measurement in Phase 0 repeated on an Apple TV 4K.
+
 **Phase 2 — the Mac studio.** Same engine; adds Continuity Camera, window +
 audio capture for a friends' call, multistream, scenes/transitions, Stream
 Deck/Watch remote. Lives beside the Creation Studio (docs/macOS-DESIGN.md
@@ -257,6 +266,8 @@ every later phase reuses the same compositor and the same platform OAuth.
    — it is the difference between zero and non-zero running cost.
 
 ## Sources
+
+Continuity Camera on tvOS: [WWDC23 "Discover Continuity Camera for tvOS"](https://developer.apple.com/videos/play/wwdc2023/10256/) · [Supporting Continuity Camera in your tvOS app](https://developer.apple.com/documentation/AVKit/supporting-continuity-camera-in-your-tvos-app) · [Apple Support: use your iPhone or iPad as a camera with Apple TV 4K](https://support.apple.com/guide/tv/use-your-iphone-or-ipad-as-a-camera-atvb45658929/tvos)
 
 YouTube: [ingestion protocol comparison](https://developers.google.com/youtube/v3/live/guides/ingestion-protocol-comparison) · [HLS ingestion](https://developers.google.com/youtube/v3/live/guides/hls-ingestion) · [Live Streaming API getting started](https://developers.google.com/youtube/v3/live/getting-started) · [liveStreams resource](https://developers.google.com/youtube/v3/live/docs/liveStreams) · [mobile live requirements](https://support.google.com/youtube/answer/9228390) · [live restrictions](https://support.google.com/youtube/answer/2853834) · [StreamMetrix 2026 requirements](https://streammetrix.com/blog/youtube-live-requirements-2026-everything-you-need-start-streaming)
 Twitch: [video broadcast guide](https://dev.twitch.tv/docs/video-broadcast/) · [Helix reference](https://dev.twitch.tv/docs/api/reference/) · [Enhanced Broadcasting beta](https://blog.twitch.tv/en/2024/01/08/introducing-the-enhanced-broadcasting-beta/) · [Enhanced Broadcasting help](https://help.twitch.tv/s/article/enhanced-broadcasting?language=en_US) · [Streamrun on dual-format](https://streamrun.com/dual-format/twitch-enhanced-broadcasting) · [watch parties shut down (Engadget)](https://www.engadget.com/twitch-is-ending-its-pandemic-era-prime-video-watch-parties-110004438.html)
