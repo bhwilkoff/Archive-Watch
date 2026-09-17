@@ -12,9 +12,9 @@
 // Threading: one actor. The socket is an NWConnection on its own queue; every
 // inbound byte is handed back into the actor, and every outbound message is
 // serialised through it, so chunk interleaving and timestamps are consistent
-// by construction. Sample buffers arrive from the encoder's callback queue
-// and are converted to FLV bytes INSIDE the actor, which is cheap (a few
-// header bytes over a memcpy) next to the encode that produced them.
+// by construction. Encoded frames arrive as Sendable `EncodedVideoFrame`
+// values, converted on the encoder callback thread — a CMSampleBuffer is
+// not Sendable and never crosses into here.
 
 import Foundation
 import Network
@@ -221,31 +221,28 @@ public actor RTMPPublisher {
 
     // MARK: Media in
 
-    /// An encoded H.264 sample from VideoToolbox: length-prefixed NAL units,
-    /// with `avcC` on the format description. The first call also emits the
-    /// sequence header.
-    public func send(video sample: CMSampleBuffer) {
+    /// One encoded H.264 frame. The caller converts the `CMSampleBuffer` on
+    /// the encoder's own callback thread (`EncodedVideoFrame.init`), because a
+    /// `CMSampleBuffer` is not `Sendable` and must not cross into this actor —
+    /// and the conversion is a memcpy we were doing anyway.
+    public func send(video frame: EncodedVideoFrame) {
         guard health.state == .publishing, let config else { return }
-        let keyframe = sample.isKeyframe
-        if health.queuedBytes > maxQueuedBytes && !keyframe {
+        if health.queuedBytes > maxQueuedBytes && !frame.isKeyframe {
             droppingUntilKeyframe = true
         }
         if droppingUntilKeyframe {
-            if keyframe { droppingUntilKeyframe = false } else { health.videoFramesDropped += 1; return }
+            if frame.isKeyframe { droppingUntilKeyframe = false } else { health.videoFramesDropped += 1; return }
         }
         if !sentSequenceHeaders {
             sendSequenceHeaders(config)
         }
-        guard let data = sample.dataBytes else { return }
-        let pts = sample.presentationTimeStamp
-        let dts = sample.decodeTimeStamp.isValid ? sample.decodeTimeStamp : pts
-        let ts = timestampMS(dts)
-        let cts = max(0, Int32((CMTimeGetSeconds(pts) - CMTimeGetSeconds(dts)) * 1000))
-        var tag = Data(capacity: data.count + 5)
-        tag.append(UInt8((keyframe ? 1 : 2) << 4 | 7))
+        let ts = timestampMS(frame.decodeTime)
+        let cts = max(0, Int32((CMTimeGetSeconds(frame.presentationTime) - CMTimeGetSeconds(frame.decodeTime)) * 1000))
+        var tag = Data(capacity: frame.avccData.count + 5)
+        tag.append(UInt8((frame.isKeyframe ? 1 : 2) << 4 | 7))
         tag.append(1)                                     // AVC NALU
         tag.append(contentsOf: be24(UInt32(cts)))
-        tag.append(data)
+        tag.append(frame.avccData)
         lastVideoTimestamp = ts
         send(message: .media(type: 9, timestamp: ts, streamID: streamID, chunkStreamID: 6, payload: tag))
         health.videoFramesSent += 1
@@ -749,6 +746,34 @@ enum AMF0 {
             o[key] = v; i = next
         }
         return nil
+    }
+}
+
+// MARK: - The wire-ready frame
+
+/// An encoded frame as BYTES plus its timing — the only shape that crosses
+/// into the publisher actor. Built on whatever thread VideoToolbox called
+/// back on, so a `CMSampleBuffer` (not `Sendable`, and reference-counted
+/// against a pool) never escapes that thread.
+public struct EncodedVideoFrame: Sendable {
+    public let avccData: Data          // length-prefixed NAL units
+    public let presentationTime: CMTime
+    public let decodeTime: CMTime
+    public let isKeyframe: Bool
+
+    public init(avccData: Data, presentationTime: CMTime, decodeTime: CMTime, isKeyframe: Bool) {
+        self.avccData = avccData; self.presentationTime = presentationTime
+        self.decodeTime = decodeTime; self.isKeyframe = isKeyframe
+    }
+
+    /// Nil when the sample carries no data (VideoToolbox can emit one).
+    public init?(_ sample: CMSampleBuffer) {
+        guard let data = sample.dataBytes else { return nil }
+        let pts = sample.presentationTimeStamp
+        self.avccData = data
+        self.presentationTime = pts
+        self.decodeTime = sample.decodeTimeStamp.isValid ? sample.decodeTimeStamp : pts
+        self.isKeyframe = sample.isKeyframe
     }
 }
 

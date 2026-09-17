@@ -120,6 +120,15 @@ struct RootView: View {
             guard FunctionalAudit.enabled else { return }
             await FunctionalAudit.run(store: store)
         }
+        // Dev affordance: `AW_STUDIO_LAB=1` measures Watch Together Studio's
+        // decode + composite + encode chain on THIS box and publishes it to
+        // AW_STUDIO_DEST, printing a line a second (docs/WATCH-TOGETHER.md
+        // §8.2). The Apple TV is a Studio target via Continuity Camera, and
+        // the 2nd-generation unit is the hardware floor. No-op in production.
+        .task {
+            guard StudioLab.enabled else { return }
+            await StudioLab.run()
+        }
         .fullScreenCover(isPresented: $showCaptionDiag) { CaptionDiagnosticsView() }
         // Screenshot/dev affordance: `AW_START_MODE=kids|party|saver` lands on that
         // immersive tab once the catalog is ready (`saver` also opens the running

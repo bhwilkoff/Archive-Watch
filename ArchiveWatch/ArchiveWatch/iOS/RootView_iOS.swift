@@ -26,6 +26,13 @@ struct RootView: View {
         }
         .task { WatchTogether.shared.listen() }
         .task { network.start() }
+        // Dev affordance: `AW_STUDIO_LAB=1` measures Watch Together Studio's
+        // chain on THIS phone and publishes it to AW_STUDIO_DEST, printing a
+        // line a second (docs/WATCH-TOGETHER.md §8.2). No-op in production.
+        .task {
+            guard StudioLab.enabled else { return }
+            await StudioLab.run()
+        }
     }
 
     /// One slim bar, and only when there is no network (Decision 099).

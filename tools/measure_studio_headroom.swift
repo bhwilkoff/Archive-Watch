@@ -122,7 +122,7 @@ struct Measure {
         player.play()
 
         do {
-            try await engine.start(destination: URL(string: destination!)!)
+            try await engine.start(destination: URL(string: destination!)! as URL?)
         } catch {
             print("FAIL: engine start — \(error)"); exit(1)
         }

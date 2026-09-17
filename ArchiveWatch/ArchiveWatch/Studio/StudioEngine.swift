@@ -101,6 +101,15 @@ public struct StudioHealth: Sendable, Equatable {
     public var programFramesEncoded = 0
     public var renderDroppedFrames = 0
     public var averageRenderMilliseconds: Double = 0
+    /// Bytes the encoder produced, whether or not they were published — the
+    /// real bitrate of the program even on a null sink.
+    public var encodedBytes = 0
+    /// New film frames actually pulled from the player. If this stops
+    /// climbing while the film is meant to be playing, the program is showing
+    /// a frozen picture — which a host must be told about, and which an
+    /// encoded-bitrate reading alone will NOT reveal (a static frame encodes
+    /// to almost nothing and every other counter looks healthy).
+    public var filmFramesPulled = 0
     public var thermalState: String = "nominal"
     public var publisher = RTMPHealth()
 }
@@ -134,6 +143,7 @@ public actor StudioEngine {
     private var started: CFTimeInterval = 0
     private var renderTimeTotal: Double = 0
     private var lastFilmFrame: CVPixelBuffer?
+    private var publishing = false
 
     public init(configuration: Configuration = Configuration(), publisher: RTMPPublisher = RTMPPublisher()) {
         self.config = configuration
@@ -146,27 +156,53 @@ public actor StudioEngine {
 
     /// Attaches the film. The player keeps playing to the viewer's own screen;
     /// we only add a video output to read its frames.
+    ///
+    /// NO pixel-format request. Asking for 32BGRA works on iOS and yields
+    /// NOTHING on tvOS — measured on an Apple TV 4K 2nd gen: 1 frame in 607,
+    /// while every other counter (fps, encode, thermals) looked healthy. The
+    /// decoder there hands back its native biplanar YUV, and Core Image
+    /// consumes either, so the format is left to AVFoundation.
     public func attachFilm(player: AVPlayer) {
         filmPlayer = player
-        let attrs: [String: Any] = [kCVPixelBufferPixelFormatTypeKey as String: kCVPixelFormatType_32BGRA]
-        let out = AVPlayerItemVideoOutput(pixelBufferAttributes: attrs)
+        let out = AVPlayerItemVideoOutput(outputSettings: nil)
         player.currentItem?.add(out)
         filmOutput = out
     }
 
-    /// Attaches a camera. The session is owned by the platform layer (iOS picks
-    /// a built-in device; tvOS gets one from the Continuity Camera picker), so
-    /// the engine only asks for its frames.
-    public func attachCamera(session: AVCaptureSession) {
-        let tap = CameraFrameTap()
-        tap.attach(to: session)
+    /// Why the film is not arriving, for the diagnostic line. Cheap enough to
+    /// read once a second and the only way to tell "the player is not playing"
+    /// from "the output has no buffer for this time".
+    public func filmDiagnostics() -> String {
+        guard let out = filmOutput else { return "no video output" }
+        let t = out.itemTime(forHostTime: CACurrentMediaTimeCompat())
+        let has = out.hasNewPixelBuffer(forItemTime: t)
+        let rate = filmPlayer?.rate ?? -1
+        let status = filmPlayer?.currentItem?.status.rawValue ?? -1
+        let likely = filmPlayer?.currentItem?.isPlaybackLikelyToKeepUp ?? false
+        return String(format: "rate=%.2f status=%d keepUp=%@ itemTime=%.2f hasNew=%@",
+                      rate, status, likely ? "y" : "n",
+                      t.isValid ? CMTimeGetSeconds(t) : -1, has ? "y" : "n")
+    }
+
+    /// Attaches a camera tap. The `AVCaptureSession` is owned by the platform
+    /// layer (iOS picks a built-in device; tvOS gets one from the Continuity
+    /// Camera picker) and is NOT `Sendable`, so the caller builds the tap
+    /// against its own session and hands only the tap across.
+    public func attachCamera(tap: CameraFrameTap) {
         cameraTap = tap
     }
 
     /// Starts encoding and publishing. `destination` is an rtmp(s):// URL
     /// carrying the app path and stream key (§4 — fetched by API, or typed
     /// only for a custom destination).
-    public func start(destination: URL) async throws {
+    ///
+    /// A NIL destination encodes and discards. That is not a convenience: the
+    /// on-device headroom measurement is about decode + composite + encode,
+    /// and on iOS a LAN destination sits behind the local-network permission
+    /// prompt — which would need a human to tap it, and the standing rule is
+    /// that the owner is never the tester. The publisher is proven separately
+    /// (WATCH-TOGETHER §8.1), so the measurement does not need it in the path.
+    public func start(destination: URL?) async throws {
         guard !health.isRunning else { return }
 
         let enc = H264Encoder(width: config.width, height: config.height,
@@ -175,9 +211,9 @@ public actor StudioEngine {
         encoder = enc
 
         // The first encoded frame carries the avcC we must publish before any
-        // media, so encode one black frame and wait for it.
-        let firstSample = try await enc.encodeAndAwaitFirst(renderer.blankFrame())
-        guard let avcC = CMSampleBufferGetFormatDescription(firstSample)?.avcCRecord else {
+        // media, so encode one black frame and wait for its FORMAT (read on
+        // the encoder's thread — a CMSampleBuffer does not cross to here).
+        guard let avcC = try await enc.encodeAndAwaitFormat(renderer.blankFrame()) else {
             throw StudioError.noVideoFormat
         }
         var streamConfig = RTMPStreamConfig(
@@ -188,11 +224,18 @@ public actor StudioEngine {
             audioSpecificConfig: Self.audioSpecificConfig(sampleRate: config.audioSampleRate, channels: 2))
         streamConfig.frameRate = Double(config.frameRate)
 
-        try await publisher.publish(to: destination, config: streamConfig)
+        if let destination {
+            try await publisher.publish(to: destination, config: streamConfig)
+            publishing = true
+        } else {
+            publishing = false
+        }
 
+        // Convert on the encoder's callback thread: EncodedVideoFrame is
+        // Sendable, a CMSampleBuffer is not.
         enc.onSample = { [weak self] sample in
-            guard let self else { return }
-            Task { await self.publish(video: sample) }
+            guard let self, let frame = EncodedVideoFrame(sample) else { return }
+            Task { await self.publish(video: frame) }
         }
 
         started = CACurrentMediaTimeCompat()
@@ -203,13 +246,13 @@ public actor StudioEngine {
     public func stop() async {
         ticker?.cancel(); ticker = nil
         encoder?.stop(); encoder = nil
-        await publisher.close()
+        if publishing { await publisher.close() }
         health.isRunning = false
-        health.publisher = await publisher.health
+        if publishing { health.publisher = await publisher.health }
     }
 
     public func refreshHealth() async {
-        health.publisher = await publisher.health
+        if publishing { health.publisher = await publisher.health }
         health.thermalState = Self.thermalName()
         if health.programFramesRendered > 0 {
             health.averageRenderMilliseconds = renderTimeTotal / Double(health.programFramesRendered)
@@ -251,13 +294,13 @@ public actor StudioEngine {
         // The film's current frame, if it has advanced. A paused film returns
         // nothing new, so the last frame holds — which is what a viewer of a
         // paused riff-stream should see.
-        if let out = filmOutput, let player = filmPlayer {
+        if let out = filmOutput {
             let itemTime = out.itemTime(forHostTime: CACurrentMediaTimeCompat())
             if out.hasNewPixelBuffer(forItemTime: itemTime),
                let px = out.copyPixelBuffer(forItemTime: itemTime, itemTimeForDisplay: nil) {
                 lastFilmFrame = px
+                health.filmFramesPulled += 1
             }
-            _ = player
         }
 
         let program = renderer.render(film: lastFilmFrame, camera: cameraTap?.latest())
@@ -268,9 +311,11 @@ public actor StudioEngine {
         encoder.encode(program, at: pts)
     }
 
-    private func publish(video sample: CMSampleBuffer) async {
+    private func publish(video frame: EncodedVideoFrame) async {
         health.programFramesEncoded += 1
-        await publisher.send(video: sample)
+        health.encodedBytes += frame.avccData.count
+        guard publishing else { return }
+        await publisher.send(video: frame)
     }
 
     // MARK: Helpers
@@ -443,7 +488,7 @@ final class H264Encoder: @unchecked Sendable {
     private let width: Int, height: Int, frameRate: Int, bitrate: Int
     var onSample: ((CMSampleBuffer) -> Void)?
     private let lock = NSLock()
-    private var firstSampleContinuation: CheckedContinuation<CMSampleBuffer, Error>?
+    private var firstFormatContinuation: CheckedContinuation<Data?, Error>?
 
     init(width: Int, height: Int, frameRate: Int, bitrate: Int) {
         self.width = width; self.height = height; self.frameRate = frameRate; self.bitrate = bitrate
@@ -494,18 +539,23 @@ final class H264Encoder: @unchecked Sendable {
 
     private func deliver(_ sample: CMSampleBuffer) {
         lock.lock()
-        let pending = firstSampleContinuation
-        firstSampleContinuation = nil
+        let pending = firstFormatContinuation
+        firstFormatContinuation = nil
         lock.unlock()
-        if let pending { pending.resume(returning: sample); return }
+        if let pending {
+            // Read the avcC HERE, on the callback thread, and hand back Data —
+            // a CMFormatDescription is no more Sendable than the sample is.
+            pending.resume(returning: CMSampleBufferGetFormatDescription(sample)?.avcCRecord)
+            return
+        }
         onSample?(sample)
     }
 
-    /// Encodes one frame and waits for it, so the caller can read the avcC off
-    /// its format description before any media is published.
-    func encodeAndAwaitFirst(_ pixelBuffer: CVPixelBuffer) async throws -> CMSampleBuffer {
+    /// Encodes one frame and waits for its AVCDecoderConfigurationRecord, which
+    /// the publisher must send before any media.
+    func encodeAndAwaitFormat(_ pixelBuffer: CVPixelBuffer) async throws -> Data? {
         try await withCheckedThrowingContinuation { c in
-            lock.lock(); firstSampleContinuation = c; lock.unlock()
+            lock.lock(); firstFormatContinuation = c; lock.unlock()
             encode(pixelBuffer, at: .zero)
         }
     }
@@ -516,25 +566,27 @@ final class H264Encoder: @unchecked Sendable {
 /// Holds the most recent camera frame. The engine pulls on its own clock
 /// rather than being pushed, so a 60 fps camera and a 30 fps program do not
 /// need a queue between them.
-final class CameraFrameTap: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate, @unchecked Sendable {
+public final class CameraFrameTap: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate, @unchecked Sendable {
     private let lock = NSLock()
     private var frame: CVPixelBuffer?
     private let output = AVCaptureVideoDataOutput()
     private let queue = DispatchQueue(label: "org.archivewatch.studio.camera")
 
-    func attach(to session: AVCaptureSession) {
+    public override init() { super.init() }
+
+    public func attach(to session: AVCaptureSession) {
         output.videoSettings = [kCVPixelBufferPixelFormatTypeKey as String: kCVPixelFormatType_32BGRA]
         output.alwaysDiscardsLateVideoFrames = true
         output.setSampleBufferDelegate(self, queue: queue)
         if session.canAddOutput(output) { session.addOutput(output) }
     }
 
-    func latest() -> CVPixelBuffer? {
+    public func latest() -> CVPixelBuffer? {
         lock.lock(); defer { lock.unlock() }
         return frame
     }
 
-    func captureOutput(_ o: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from c: AVCaptureConnection) {
+    public func captureOutput(_ o: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from c: AVCaptureConnection) {
         guard let px = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
         lock.lock(); frame = px; lock.unlock()
     }

@@ -87,9 +87,12 @@ corners; nothing is vendored. Decision 127 records why.
 The Studio composites *our own* player output. ReplayKit/screen capture is
 not used for the program: it would capture UI chrome, be foreground-only in
 the worst way, and lose the separation of film and mic audio that the mixer
-needs. (Research §3's ReplayKit note is the fallback if composition cannot
-hold 30 fps on the oldest supported iPhone; that measurement is Phase 0 and
-its result is recorded in §9.)
+needs. Research §3's ReplayKit note was the fallback if composition could not
+hold 30 fps on the oldest supported iPhone. **That fallback is now closed**:
+the iPhone 12 renders the program in 8.41 ms of a 33.3 ms budget and the
+Apple TV 4K 2nd gen in 10.70 ms (§9). In-app composition is the architecture
+on every Apple device we ship to; ReplayKit is not needed and is not a
+tier.
 
 ### §3.4 Only rights-KEEP films may go live
 
@@ -170,8 +173,14 @@ Recording: the same encoded stream is written to an `.mp4` locally while live
 
 1. `NSCameraUsageDescription`, `NSMicrophoneUsageDescription` (iOS, macOS,
    tvOS — Continuity Camera needs both on tvOS).
-2. `AVAudioSession` `.playAndRecord` with `.mixWithOthers` and
-   `.defaultToSpeaker` while the Studio is open; restored on close.
+2. `AVAudioSession` per platform, and never guessed — a failed activation
+   silently stops `AVPlayer` (§9): **iOS/iPadOS** `.playAndRecord` + `.default`
+   + `[.mixWithOthers, .allowBluetooth, .defaultToSpeaker]`; **tvOS**
+   `.playback` + `.moviePlayback` + `[.mixWithOthers]` until a Continuity
+   microphone is attached, and only then `.playAndRecord`. `.moviePlayback`
+   with `.playAndRecord` is invalid on every platform (OSStatus -50), and
+   `.defaultToSpeaker` does not exist on tvOS. Restore the previous category
+   on close.
 3. `UIApplication.isIdleTimerDisabled` while live; the Studio is a foreground
    experience and says so if backgrounded (a background session ends the
    show with an end card, never a frozen frame).
@@ -255,21 +264,84 @@ proven by this; it proves the transport.
 local mediamtx. The engine's own clock drives the program at the target rate,
 so "fps rendered" is what the show would actually carry.
 
+Every row below is a run where the film was **verified to be arriving**
+(`filmFrames` ≈ program frames); see "the two faults the instrument caught".
+
 | Host | Program | Mean fps | Worst second | Render mean | Clock overruns | Dropped | Thermal |
 |---|---|---|---|---|---|---|---|
-| Mac15,3 (M3 Pro, 8 cores), macOS 27.0 | 1920×1080@30 | **30.1** | 30.0 | **3.40 ms** of 33.3 | 0 | 0 | nominal |
+| Mac15,3 (M3 Pro, 8 cores), macOS 27.0 | 1920×1080@30 | **30.1** | 30.0 | **3.40 ms** of 33.3 (10%) | 0 | 0 | nominal |
+| **iPhone 12** (iPhone13,2, A14, 3.6 GB), iOS 26.6.1 | 1920×1080@30 | **30.2** | 30.0 | **8.71 ms** of 33.3 (26%) | 1 (warm-up) | 0 | nominal over 25 s |
+| **Apple TV 4K 2nd gen** (AppleTV11,1, A12, 3.0 GB), tvOS 27.0 | 1920×1080@30 | **30.2** | 30.0 | **10.70 ms** of 33.3 (32%) | 0 | 0 | nominal over 25 s |
+
+Film frames pulled: iPhone 12 **748**, Apple TV **728**, against ~750 program
+frames each — the composite is real on both. Encoded ~4.5–5 Mbps at a 6 Mbps
+ceiling.
 
 Published ~4.5 Mbps over 25 s, 753 video frames, none dropped. **The
 composite is 10% of the frame budget on this host**, which is the answer
 §3.3 was waiting for on the Mac: in-app composition is not the expensive
 part — the film decode is, and AVFoundation does that in hardware anyway.
 
+The iPhone 12 is the oldest hardware the app supports, and it holds 1080p30
+with **three quarters of the frame budget unused** and no thermal movement over
+30 s. §3.3's ReplayKit fallback is therefore NOT needed: in-app composition is
+the right architecture on every device we ship to. The one clock overrun is the
+first frame, before the encoder has a session warmed.
+
+Measured with `AW_STUDIO_LAB=1` via `devicectl … --console`, encoding to a null
+sink. **The null sink is not a shortcut — it is the point:** on iOS a LAN
+destination sits behind the local-network permission prompt, which a human
+would have to tap, and the standing rule is that the owner is never the tester.
+The publisher is proven independently against mediamtx (above), so it does not
+need to be in the path of a headroom measurement. `encodedBytes` gives the real
+program bitrate either way (~4.5 Mbps here at a 6 Mbps ceiling).
+
+The Apple TV 4K 2nd gen is the Decision-096 hardware floor and it holds
+1080p30 with two thirds of the frame budget unused, ~4.7 Mbps encoded, 728
+film frames pulled for ~750 program frames, and no thermal movement. **Every
+Apple device the app ships to can be the Studio.**
+
+### The two faults the instrument caught (2026-09-17)
+
+Both would have shipped as a working-looking Studio that broadcast a frozen
+picture, and neither was visible in fps, encode count, render time, dropped
+frames, bitrate-as-published or thermals.
+
+**1. `AVPlayerItemVideoOutput` asked for 32BGRA returns nothing on tvOS.**
+It works on iOS. On an Apple TV 4K 2nd gen it yielded **1 frame in 607** while
+the program kept a steady 30 fps. The decoder there hands back its native
+biplanar YUV; Core Image consumes either, so the engine now requests **no
+format at all** (`outputSettings: nil`). Never pin a pixel format on a path
+whose producer is the system decoder.
+
+**2. `AVAudioSession.playAndRecord` fails on tvOS, and a failed activation
+stops `AVPlayer` dead.** `setActive` threw "Session activation failed", and the
+next diagnostic line read `rate=0.00 status=readyToPlay keepUp=y hasNew=n` —
+the player was never playing. tvOS has no capture input until a Continuity
+microphone is attached, so the Studio uses `.playback` there and moves to
+`.playAndRecord` only when a real microphone arrives. (On iOS the pairing
+`.playAndRecord` + `.moviePlayback` is itself invalid — OSStatus **-50**;
+`.moviePlayback` is a playback-only mode. And `.defaultToSpeaker` does not
+exist on tvOS.)
+
+**The lesson is the instrument, not the bugs.** The first Apple TV run printed
+`PASS 1920x1080@30` — mean 30.3 fps, 0 drops, thermal nominal — and was
+measuring a still image. What exposed it was the **encoded bitrate**: 49–99
+kbps where the iPhone showed ~4,500, because a static frame compresses to
+nothing. `StudioHealth.filmFramesPulled` is now a first-class counter for
+exactly this reason, the Lab refuses to call a run a composite measurement when
+the film supplied fewer than a quarter of the program's frames, and
+`filmDiagnostics()` separates "the player is not playing" from "no buffer for
+this time". A host whose film freezes must be told; a green dashboard over a
+frozen program is the failure mode this feature is most exposed to.
+
 ### Still to measure (Phase 0 remainder)
 
-- The same numbers on the **iPhone 12** (`iphone`, oldest supported) and the
-  **Apple TV 4K 2nd gen** (`atv-fireplace`, the Decision-096 hardware floor).
-  Both need the engine inside the app behind a debug-only Studio Lab screen
-  (§8.2) — a command-line harness cannot run on either.
+- The camera tile's cost (all runs so far are film-only).
+- The audio path: film tap + mic mix → AAC.
+- A ten-minute soak on both devices: dropped-frame growth and thermal
+  state (§8.3).
+- The real destinations: YouTube and Twitch over RTMPS.
 - The camera tile's cost (the Mac run had no camera attached).
 - The audio path: film tap + mic mix → AAC.
 - A ten-minute soak: dropped-frame growth and thermal state (§8.3).
