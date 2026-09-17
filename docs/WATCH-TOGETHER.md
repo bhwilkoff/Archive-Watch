@@ -684,6 +684,34 @@ time"), so the body is split into sub-expressions and the control bindings
 live in one `ViewModifier`. That is not a style preference: it is also seven
 places to forget one, replaced by a single `applyControls()`.
 
+### Both branches of the gate, on the device, against a real verdict (2026-09-17)
+
+Schema 2 shipped, the phone was reinstalled clean so it fetched the new
+database, and both paths were screenshot (`build/qa/golive/`):
+
+- **The General (1926)** — the sheet offers the form: "Public domain —
+  published 1926, before 1930" in marquee orange, a title pre-filled from the
+  catalog, privacy, layout, the policy sentence, and **Go Live enabled**.
+- **Voyage to the Planet of Prehistoric Women (1967)** — refused, bucket
+  `renewal_zone_bw`.
+
+**And the refusal leaked its internal name.** The first screenshot read *"The
+rights audit has not cleared this copy for streaming (renewal_zone_bw)"* —
+`explain` had a case for `renewal_zone` but not for its black-and-white
+sibling, so a real bucket fell through to the default and showed a host a
+word from our source code. It now reads *"Films published between 1964 and
+1977 had their copyrights renewed automatically."*
+
+The durable fix is `tools/test_studio_rights_coverage.py`: it enumerates every
+bucket `audit_rights.bucket()` can return, straight out of that file, and
+fails if any lacks a sentence in `StudioRights.explain`. It found **twelve**
+more gaps beyond the one the screenshot caught — `no_evidence`,
+`modern_noyear_risk`, `uploader_cannot_dedicate`, `wrongmatch_bw`,
+`renewed_copyright_classic`, the commercial family, and the rest. A contract
+spanning two languages that agree only by string needs a test that reads
+both; that is Decision 116's lesson, and this is the second time in this
+feature it has applied.
+
 ### Still to measure (Phase 0 remainder)
 
 - The camera tile's and microphone's cost on device — **blocked on a one-time

@@ -99,10 +99,28 @@ public enum StudioRights {
             return "This copy's public-domain claim comes from its uploader, not from its age. Uploaders are often wrong about films they did not make, so it is not offered for streaming."
         case "presumed_pd":
             return "This film is probably in the public domain but nothing proves it, so it is not offered for streaming."
-        case "renewal_zone", "renewal_zone_footprint":
+        case "renewal_zone", "renewal_zone_bw", "renewal_zone_footprint":
             return "Films published between 1964 and 1977 had their copyrights renewed automatically. This one is not offered for streaming."
+        case "renewal_zone_commercial":
+            return "This is an advertisement from the 1964–77 renewal era, whose copyright was renewed automatically. It is not offered for streaming."
+        case "renewed_copyright_classic":
+            return "This film's copyright was renewed, so it is still protected despite its age. It is not offered for streaming."
         case "modern_copyright_unconfirmed", "modern_copyright":
             return "This film is still under copyright. Streaming it would put your channel at risk."
+        case "modern_copyright_confirmed":
+            return "This film's copyright was confirmed against archive.org's own licence record. Streaming it would put your channel at risk."
+        case "modern_noyear_risk":
+            return "This copy carries no year, and everything else about it points to a modern film. It is not offered for streaming."
+        case "no_evidence":
+            return "Nothing in the catalog says when this film was published, so its rights cannot be judged. It is not offered for streaming."
+        case "unknown_year":
+            return "This film has no year on record, and age is the only public-domain claim the Studio accepts. It is not offered for streaming."
+        case "uploader_cannot_dedicate":
+            return "The uploader released this under a public-domain licence, but it is not their film to release. It is not offered for streaming."
+        case "wrongmatch_bw":
+            return "This copy looks older than the film it was matched to, so the catalog is not sure which film it is. It is not offered for streaming."
+        case "commercial_keep", "commercial_slop", "commercial_modern_risk":
+            return "Advertisements are not offered for streaming — their rights are held by the brands in them, not by the archive."
         case "wrongmatch_title", "wrongmatch_idyear":
             return "The catalog's identity for this copy is in doubt, so its rights cannot be judged — it is not offered for streaming."
         case "uploader_copyright_claim":
