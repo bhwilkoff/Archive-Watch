@@ -1242,11 +1242,71 @@ header on a live RTMP stream, which not every ingest accepts. What the Studio
 now does instead is SAY so: `notEncoding` reaches both readouts within a
 second.
 
+### The camera tile's cost, measured at last — on the Mac (2026-09-17)
+
+This was the last Phase 0 number, and it had been sitting behind a permission
+grant on the iPhone and the Apple TV. It did not need to: **this Mac has a
+FaceTime HD camera and a microphone, both already TCC-authorised.** The
+harness's own header said "No camera: ... on the Mac there may not be one" —
+written before anyone looked, which is the same failure mode as every stale
+claim in this file.
+
+A/B, same film (*The Curse of Quon Gwon*, 1916 — 1080p30, `corner` layout,
+Mac15,3 / 8 cores / macOS 27.0), the camera tile at 1280x720 because the tile
+is never full-frame:
+
+```
+                       render mean        runs
+  no camera            6.47 / 6.62 / 6.66 ms
+  camera + microphone  7.20 / 7.24 ms
+```
+
+**The camera tile costs ~0.73 ms per frame — about 11%, and 2.2% of a 33.3 ms
+budget.** The claim it was standing in for ("a camera tile is a cheap
+composite next to a 1080p film decode") is correct, and now has a number. 30.1
+fps mean and 0 dropped frames in every run, with and without.
+
+### The audio finding the A/B exposed, which is what made it worth running
+
+The runs without a camera reported `padded 3316` — **twice, identically** —
+and the runs with one reported `padded 0`. A number that is bit-identical
+across runs and then vanishes when an unrelated device is attached is not
+jitter; it is a race.
+
+It was the mixer starting into an empty ring. The ticker runs on its own
+1024/44100 s clock, which is right and is what keeps the program's audio at a
+constant rate — but it began the instant `start()` was called, before the film
+tap had delivered anything, so the **opening chunks of every broadcast were
+padded with silence**. 3,316 samples is 1,658 frames, ~38 ms. It was zero in
+the camera runs only because setting the camera up delayed the start enough
+for the ring to prime.
+
+`StudioAudioMixer.tick()` now holds off until the film has actually delivered
+a packet, bounded to ~30 ticks (0.7 s) so a film with **no** audio track still
+gets a running, silent program rather than waiting forever.
+
+**And the fix is partial, which is the honest result.** After it, the same run
+reports `padded 588` and `padded 1902` — down from a fixed 3,316, but no
+longer deterministic, which means the remainder is *genuine jitter* in the
+film tap's delivery against the mixer's fixed clock, not a startup artifact.
+7–22 ms of scattered silence across 45 seconds (~0.04% of the audio).
+
+**Not fixed further, deliberately.** The obvious next step is a real jitter
+buffer — prime to three or four packets and let the cushion absorb the
+variance instead of padding. That buys silence-free audio at the cost of
+~70–90 ms of added audio latency, and A/V alignment was measured at **10 ms**
+over 15 s (§9 above). Trading a 10 ms sync figure for a 90 ms one to remove
+0.04% of inaudible padding is the wrong trade. Padding IS the jitter absorber
+here, chosen over latency on purpose — written down so the next person does
+not "fix" it into a lip-sync bug.
+
 ### Still to measure (Phase 0 remainder)
 
-- The camera tile's and microphone's cost on device — **blocked on a one-time
-  camera + microphone grant** on the iPhone 12 and, for Continuity Camera, on
-  the Apple TV. Everything else in Phase 0 is measured.
+- The camera tile's and microphone's cost **on the phone and the Apple TV** —
+  still blocked on a one-time camera + microphone grant there, and on
+  Continuity pairing for the TV. **Measured on the Mac** (above): +0.73 ms per
+  frame. The phone number is expected to be larger and is worth having, but
+  the architectural question the measurement existed to answer is answered.
 - Sign-in on a TELEVISION. `ASWebAuthenticationSession` presents itself on
   tvOS with no anchor; that screen cannot be seen until a client id exists
   (Decision 128).

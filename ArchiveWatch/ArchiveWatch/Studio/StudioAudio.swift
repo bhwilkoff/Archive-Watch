@@ -316,6 +316,10 @@ public struct StudioAudioHealth: Sendable, Equatable {
 final class StudioAudioMixer: @unchecked Sendable {
     static let framesPerPacket = 1024
 
+    /// Whether the film has delivered its first packet — see `tick()`.
+    private var filmHasPrimed = false
+    private var primeTicksWaited = 0
+
     /// §4's faders. 1.0 is unity; the host sets these.
     var filmGain: Float = 1.0
     var micGain: Float = 1.0
@@ -411,6 +415,35 @@ final class StudioAudioMixer: @unchecked Sendable {
     private func tick() {
         let n = Self.framesPerPacket
         let samples = n * 2
+
+        // DO NOT START MIXING INTO AN EMPTY FILM RING.
+        //
+        // The ticker runs on its own 1024/44100 s clock, which is right — it
+        // is what keeps the program's audio at a constant rate regardless of
+        // what the film tap does. But it used to begin the instant `start()`
+        // was called, and the film tap has not delivered anything yet at that
+        // moment, so the opening chunks were padded with silence: a
+        // reproducible 3,316 samples (~38 ms) on a Mac, identical across
+        // runs, and ZERO on the same run with a capture session attached —
+        // because setting the camera up delayed the start enough for the ring
+        // to prime. A measurement that moves when an unrelated device is
+        // attached is a startup race, not a property of the film.
+        //
+        // So: hold off until the film has actually delivered, bounded, so a
+        // film with NO audio track (or one that never arrives) still gets a
+        // program — silent, but running.
+        if !filmHasPrimed {
+            if film.ring.framesWritten >= samples {
+                filmHasPrimed = true
+            } else {
+                primeTicksWaited += 1
+                // ~30 ticks is 0.7 s, which is longer than any prime observed
+                // and short enough that a silent film is not left waiting.
+                if primeTicksWaited < 30 { return }
+                filmHasPrimed = true
+            }
+        }
+
         let filmReal = film.ring.read(into: pcm, count: samples)
         let micReal = mic.ring.read(into: micPcm, count: samples)
         if micReal > 0 { micHasEverArrived = true }

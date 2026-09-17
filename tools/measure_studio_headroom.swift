@@ -5,9 +5,15 @@
 // This measures the whole chain on whatever machine runs it — a real
 // archive.org film through AVPlayer, its frames pulled with
 // AVPlayerItemVideoOutput, composited by ProgramRenderer at the program size,
-// encoded by VideoToolbox, and published as RTMP to a local mediamtx. No
-// camera: a camera tile is a cheap composite next to a 1080p film decode, and
-// on the Mac there may not be one. The camera's cost is measured on device.
+// encoded by VideoToolbox, and published as RTMP to a local mediamtx.
+//
+// THE CAMERA. This header used to say "No camera: ... on the Mac there may not
+// be one. The camera's cost is measured on device." That was written before
+// anyone looked: this Mac has a FaceTime HD camera and a microphone, both
+// already TCC-authorised, and the camera tile's cost was the one Phase 0
+// number blocked behind a permission grant on the iPhone and the Apple TV.
+// `AW_CAMERA=1` attaches the default camera AND microphone, so the tile's real
+// cost is an A/B against the same run without them.
 //
 // What it prints, once a second: program fps actually achieved, mean render
 // ms, frames the clock overran, encoded frames, bytes published, thermal
@@ -20,7 +26,8 @@
 //     ArchiveWatch/ArchiveWatch/Studio/StudioEngine.swift \
 //     tools/measure_studio_headroom.swift -o /tmp/awhead && /tmp/awhead
 //
-// Env: AW_FILM (an mp4 URL), AW_SECONDS (default 40), AW_W/AW_H/AW_FPS,
+// Env: AW_CAMERA=1 (attach the default camera + microphone),
+//      AW_FILM (an mp4 URL), AW_SECONDS (default 40), AW_W/AW_H/AW_FPS,
 //      AW_LAYOUT (film|corner|theatre|side|host), AW_DEST (rtmp destination;
 //      default is a local mediamtx this harness starts itself).
 
@@ -139,6 +146,47 @@ struct Measure {
         // After readiness: the audio tap needs the player's loaded tracks.
         await engine.attachFilm(player: player)
         print("  film audio: \(await engine.filmHasAudio ? "tapped" : "none")")
+
+        // The camera tile and the microphone, when asked for. Reported rather
+        // than requested: a harness must never block on a TCC prompt nobody
+        // is there to answer (§9, "Permission is a human action").
+        var captureSession: AVCaptureSession?
+        if env("AW_CAMERA") == "1" {
+            let vStatus = AVCaptureDevice.authorizationStatus(for: .video)
+            let aStatus = AVCaptureDevice.authorizationStatus(for: .audio)
+            print("  camera permission: \(vStatus.rawValue == 3 ? "authorized" : "NOT authorized (\(vStatus.rawValue))")")
+            print("  mic permission:    \(aStatus.rawValue == 3 ? "authorized" : "NOT authorized (\(aStatus.rawValue))")")
+            guard vStatus == .authorized else {
+                print("SKIP: camera not authorised — grant it in System Settings, Privacy & Security, Camera")
+                exit(2)
+            }
+            guard let cam = AVCaptureDevice.default(for: .video),
+                  let camInput = try? AVCaptureDeviceInput(device: cam) else {
+                print("FAIL: no usable camera"); exit(1)
+            }
+            let session = AVCaptureSession()
+            session.beginConfiguration()
+            // 720p: the tile is never full-frame, so capturing 1080p to draw
+            // a corner box is work nobody sees.
+            session.sessionPreset = .hd1280x720
+            if session.canAddInput(camInput) { session.addInput(camInput) }
+            if aStatus == .authorized, let mic = AVCaptureDevice.default(for: .audio),
+               let micInput = try? AVCaptureDeviceInput(device: mic),
+               session.canAddInput(micInput) {
+                session.addInput(micInput)
+            }
+            session.commitConfiguration()
+            let camTap = CameraFrameTap(); camTap.attach(to: session)
+            await engine.attachCamera(tap: camTap)
+            if aStatus == .authorized {
+                let micTap = MicAudioTap(); micTap.attach(to: session)
+                await engine.attachMicrophone(tap: micTap)
+            }
+            session.startRunning()
+            captureSession = session
+            print("  camera: \(cam.localizedName) attached at 1280x720")
+        }
+
         player.play()
 
         do {
@@ -146,6 +194,8 @@ struct Measure {
         } catch {
             print("FAIL: engine start — \(error)"); exit(1)
         }
+
+        defer { captureSession?.stopRunning() }
 
         var last = StudioHealth()
         var samples: [Double] = []      // achieved fps per second
