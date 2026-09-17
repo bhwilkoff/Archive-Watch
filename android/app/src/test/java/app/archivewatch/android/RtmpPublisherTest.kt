@@ -126,6 +126,24 @@ class RtmpPublisherTest {
         p.close()
     }
 
+    /** Isolation: which track does the server fail to identify? */
+    @Test fun `video-only publish is identified by the server`() {
+        assumeTrue("no mediamtx on $host:$port — skipping", serverIsUp())
+        assumeTrue("mediamtx API not enabled on :9997 — skipping", apiIsUp())
+        val p = RtmpPublisher()
+        p.publish("rtmp://$host:$port/live", "videoonly", config(), declareAudio = false)
+        for (i in 0 until 30) {
+            p.sendVideo(RealH264.idrAvcc, isKeyframe = true, ptsMs = i * 33, dtsMs = i * 33)
+        }
+        var ready = false
+        val deadline = System.currentTimeMillis() + 6000
+        while (System.currentTimeMillis() < deadline && !ready) {
+            ready = serverHasPath("live/videoonly"); if (!ready) Thread.sleep(200)
+        }
+        p.close()
+        assertTrue("video-only was not identified either", ready)
+    }
+
     private fun avccFrame(nal: ByteArray): ByteArray {
         val avcc = ByteArray(4 + nal.size)
         avcc[0] = (nal.size ushr 24).toByte(); avcc[1] = (nal.size ushr 16).toByte()

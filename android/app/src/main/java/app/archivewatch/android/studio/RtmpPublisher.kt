@@ -134,13 +134,15 @@ class RtmpPublisher {
     private var transactionId = 0
     private var streamId = 1
     private var sentSequenceHeaders = false
+    private var announceAudio = true
     private var startedAtMs: Long = 0
 
     /**
      * Address and key are separate because every platform hands them out
      * separately, and YouTube's backup ingest carries a query on the APP.
      */
-    fun publish(server: String, key: String, config: RtmpStreamConfig, timeoutMs: Int = 10_000) {
+    fun publish(server: String, key: String, config: RtmpStreamConfig,
+                timeoutMs: Int = 10_000, declareAudio: Boolean = true) {
         val uri = URI(server)
         val scheme = uri.scheme?.lowercase()
             ?: throw RtmpException("no scheme in $server")
@@ -159,6 +161,7 @@ class RtmpPublisher {
         streamKey = key
         tcUrl = "$scheme://$host$portSuffix/$app"
         this.config = config
+        this.announceAudio = declareAudio
         health.state = "connecting"
 
         val raw = Socket()
@@ -211,7 +214,7 @@ class RtmpPublisher {
         invoke("publish", listOf(Amf0.Null, Amf0.Str(streamKey), Amf0.Str("live")), streamId, 4)
         readUntilResult()
 
-        sendMetadata(config)
+        sendMetadata(config, declareAudio)
         startedAtMs = System.currentTimeMillis()
         health.state = "publishing"
     }
@@ -252,14 +255,14 @@ class RtmpPublisher {
                     payload = body.toByteArray(), timestamp = 0)
     }
 
-    private fun sendMetadata(c: RtmpStreamConfig) {
+    private fun sendMetadata(c: RtmpStreamConfig, declareAudio: Boolean = true) {
         val body = mutableListOf<Byte>()
         Amf0.Str("@setDataFrame").encode(body)
         Amf0.Str("onMetaData").encode(body)
         // An ECMA array (type 8) is what every ingest expects here; it is an
         // object with a count in front.
         body.add(0x08)
-        body.addAll(be32(9).toList())
+        body.addAll(be32(if (declareAudio) 9 else 6).toList())
         fun prop(k: String, v: Double) {
             val kb = k.toByteArray(Charsets.UTF_8)
             body.add((kb.size ushr 8).toByte()); body.add(kb.size.toByte())
@@ -272,9 +275,11 @@ class RtmpPublisher {
         prop("videodatarate", c.videoBitrate / 1000.0)
         prop("framerate", c.frameRate)
         prop("videocodecid", 7.0)          // AVC
-        prop("audiodatarate", c.audioBitrate / 1000.0)
-        prop("audiosamplerate", c.audioSampleRate.toDouble())
-        prop("audiocodecid", 10.0)         // AAC
+        if (declareAudio) {
+            prop("audiodatarate", c.audioBitrate / 1000.0)
+            prop("audiosamplerate", c.audioSampleRate.toDouble())
+            prop("audiocodecid", 10.0)     // AAC
+        }
         body.add(0x00); body.add(0x00); body.add(0x09)
         sendMessage(18, streamId, 4, body.toByteArray(), 0)
     }
@@ -291,11 +296,13 @@ class RtmpPublisher {
         v.addAll(c.avcC.toList())
         sendMessage(9, streamId, 6, v.toByteArray(), 0)
 
-        val a = mutableListOf<Byte>()
-        a.add(0xAF.toByte())
-        a.add(0)                            // sequence header
-        a.addAll(c.audioSpecificConfig.toList())
-        sendMessage(8, streamId, 5, a.toByteArray(), 0)
+        if (announceAudio) {
+            val a = mutableListOf<Byte>()
+            a.add(0xAF.toByte())
+            a.add(0)                        // sequence header
+            a.addAll(c.audioSpecificConfig.toList())
+            sendMessage(8, streamId, 5, a.toByteArray(), 0)
+        }
         sentSequenceHeaders = true
     }
 

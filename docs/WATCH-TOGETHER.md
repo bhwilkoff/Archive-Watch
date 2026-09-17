@@ -398,9 +398,42 @@ Two further instrument fixes fell out of chasing it, both real:
   AudioSpecificConfig describes the frames actually sent — the first version
   declared stereo while sending mono.
 
-Next: a byte-level comparison of our FLV tags against ffmpeg publishing to the
-same server. The control plane is right, so the difference is in the tags or
-their chunking.
+**The byte-level comparison, done (2026-09-17).** Reasoning about the framing
+twice produced nothing, so the question was made observable instead:
+`tools/rtmp_proxy_record.py` records the client→server stream of anything that
+publishes through it, and `tools/rtmp_bisect.py` **replays a capture verbatim**
+to the server. The replay is accepted or refused exactly as the live client
+was — which is the whole trick, because the failure now reproduces offline
+with no client, and two captures can be SPLICED at a message boundary.
+
+Five runs halved the space each time:
+
+```
+ffmpeg preamble + our media                 FAILED
+our preamble + ffmpeg media                 WORKED
+our preamble + our metadata + ffmpeg media  WORKED
+our sequence headers + ffmpeg frames        WORKED
+ffmpeg sequence headers + our frames        FAILED
+```
+
+**So everything up to and including the sequence headers is correct**, and
+independently confirmed: our connect/releaseStream/FCPublish/createStream/
+publish decode to the same AMF0 values as ffmpeg's with the same transaction
+ids 1–5; our `onMetaData` parses cleanly, 229 of 229 bytes, nine valid
+properties; and our video sequence header is **byte-identical** to ffmpeg's
+(`17000000000142c00dffe100186742c00dd90141fb011000`).
+
+**The fault is in the frame messages alone.** Not quantity either — repeating
+our frames fourfold changes nothing. Their message headers are structurally
+identical to ffmpeg's (`06 000000 0000f7 09 01000000`, length 247, type 9,
+stream id 1 little-endian) and the FLV tag is well-formed (`17 01 000000` then
+a 4-byte AVCC length `000000ee` then a NAL whose type is 5, an IDR). Something
+inside that is still not what the server will take, and that is where the next
+session starts — with a bisect harness that answers in seconds instead of a
+build-and-run cycle.
+
+The publisher's test stays RED. It is the honest state, and it is a much
+better place to be than the version that passed while asserting nothing.
 
 ## §7 — Phases
 
