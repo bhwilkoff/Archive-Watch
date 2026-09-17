@@ -1980,6 +1980,19 @@ _HATE_MARKERS = re.compile(
     re.I)
 
 
+def exclude_not_films(items, stats):
+    """Uploads the review pass found to be no film at all — a music video
+    catalogued as a 1924 silent by title. The table names each with its
+    evidence; `excludedReason` is a marker the rights reconcile keeps."""
+    p = REPO / "shared/editorial/not_films.json"
+    table = json.loads(p.read_text()) if p.exists() else {}
+    for it in items:
+        if it.get("archiveID") in table and not it.get("excluded"):
+            it["excluded"] = True
+            it["excludedReason"] = "not_a_film"
+            stats["not_film_excluded"] += 1
+
+
 def exclude_hate_propaganda(items, stats):
     """Reversibly exclude uploads whose own title advertises Holocaust denial or
     child sexual abuse material (Decision 027's `excluded` mechanism)."""
@@ -2778,6 +2791,7 @@ def remediate(items):
 
     _drop_stale_year_markers()
     exclude_hate_propaganda(items, stats)
+    exclude_not_films(items, stats)
     # After the year/runtime rules above have settled — flag_trailers reads both.
     flag_trailers(items, stats)
     # ...then give a real type back to whatever it did NOT judge a trailer.
