@@ -661,6 +661,66 @@
    "kind": "silent-film",
    "mediaId": null,
    "reviewer": null
+  },
+  {
+   "at": "2026-09-17T19:00:44.747106+00:00",
+   "id": "LaBoiteACigares",
+   "title": "La Boite a Cigares",
+   "slot": "now-showing",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mvqdnrsbpg2t",
+   "format": "video",
+   "kind": "animation",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-09-17T19:00:44.747106+00:00",
+   "id": "LaBoiteACigares",
+   "title": "La Boite a Cigares",
+   "slot": "now-showing",
+   "platform": "mastodon",
+   "url": "https://mastodon.social/@archivewatch/117287923627427873",
+   "format": "video",
+   "kind": "animation",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-09-17T19:00:44.747106+00:00",
+   "id": "LaBoiteACigares",
+   "title": "La Boite a Cigares",
+   "slot": "now-showing",
+   "platform": "threads",
+   "url": "https://www.threads.com/@archivewatchapp/post/DdZkFlbmfWL",
+   "format": "card",
+   "kind": "animation",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-09-17T19:00:44.747106+00:00",
+   "id": "LaBoiteACigares",
+   "title": "La Boite a Cigares",
+   "slot": "now-showing",
+   "platform": "instagram",
+   "url": "https://www.instagram.com/p/DdZkKfhGVm2/",
+   "format": "card",
+   "kind": "animation",
+   "mediaId": "117287922030507936",
+   "reviewer": null
+  },
+  {
+   "at": "2026-09-17T19:00:44.747106+00:00",
+   "id": "LaBoiteACigares",
+   "title": "La Boite a Cigares",
+   "slot": "now-showing",
+   "platform": "youtube",
+   "url": "https://youtube.com/watch?v=UgEjBRyEdT4",
+   "format": "video",
+   "kind": "animation",
+   "mediaId": null,
+   "reviewer": null
   }
  ]
 }
