@@ -87,6 +87,9 @@ struct StudioHealthCapsule: View {
     var warnings: [String] {
         var w: [String] = []
         if let d = health.showState.detail { w.append(d) }
+        // §5's adaptive step, with its numbers. Written by the engine and
+        // rendered by nothing until now on any platform.
+        if let note = health.qualityNote { w.append(note) }
         if isLive && filmFramesPerSecond == 0 { w.append("the film has stopped arriving") }
         // The opposite fault, and the one that hid for five minutes on an
         // Apple TV (WATCH-TOGETHER §9): the film keeps arriving and the

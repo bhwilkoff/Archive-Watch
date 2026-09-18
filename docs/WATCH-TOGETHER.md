@@ -1240,6 +1240,42 @@ Pixel.
 
 ## §9 — Measurements (filled in as they are taken)
 
+### §9.kk §5's adaptive step had no surface on ANY platform (2026-09-17)
+
+Audited straight after §9.jj, and it corrects §9.jj: **`qualityNote` was
+written by both engines and rendered by nothing.** The only reader anywhere was
+the diagnostic log line added in §9.ff. So the sentence existed, fired at the
+right moment, said the right thing — and no host on any platform could see it.
+§5's *"never auto-lower quality silently — an adaptive-bitrate step is shown as
+it happens"* was unsatisfied, and a run that read the note out of a log had been
+mistaken for proof that it was satisfied. That is this session's recurring
+fault with my own name on it.
+
+Now rendered by all four: the tvOS readout and the macOS panel (before their
+generic thermal sentences, because "sent at 3600 instead of 6000 kbps" tells a
+host what changed and "getting hot" does not), the iOS capsule's warning list,
+and Android's `problem` — which reaches both its §9.4 readout and its §9.3
+sheet.
+
+**The restore announcement is transient, the degraded state is not.** "Back to
+full quality" is an announcement; left up it would sit there for the rest of
+the show reading like a warning. Apple clears it after 8 s through an
+actor-isolated method (a detached `Task` touching `health` is a Swift 6 error);
+Android uses an expiry timestamp checked in the per-second block, because that
+code runs inside the render loop and has no scope to launch from — and a
+timestamp cannot leak a task.
+
+**What is proved, and what is not.** Android's `problem` is pure logic and is
+tested — `StudioProblemTest`, 4/4: the step is what the host is told, the
+restore is shown too, a live show with no note reports no problem, and a note
+never masks a stalled encoder. Apple's three surfaces compile and their
+ordering was written deliberately, but **the sentence has not been photographed
+on any screen.** The tvOS dev door runs with `destination = nil` (no client
+ids), so `showState.detail` correctly outranks the note there — "no destination
+is set" is the more important thing to say — which means that door cannot
+display it. Seeing it on a television needs either the client ids or a tvOS
+bench destination.
+
 ### §9.jj §6.5's RETURN journey (2026-09-17)
 
 The step down had been measured (§9.gg) and the restore had not — a single
@@ -1255,15 +1291,22 @@ On the macOS product path, from the app's own per-second line:
 | 25 | **`kbps=3600 thermal=serious`** — the step |
 | 31 | **`kbps=6000 thermal=nominal`** — the restore |
 
-Both sentences were shown, which is the part §5 actually requires:
+Both sentences were produced — and here is the correction this write-up
+needs: they were read from the **diagnostic log**, not from anything a host
+can see. `qualityNote` is written by both engines and rendered by **no
+surface on either platform** (audited the following tick). §5's "an
+adaptive-bitrate step is shown as it happens" is therefore NOT satisfied by
+this run; what is satisfied is that the engine produces the right sentence at
+the right moment:
 
 - *"The device is running hot, so the picture is being sent at 3600 kbps
   instead of 6000 kbps."*
 - *"Back to full quality 6000 kbps."*
 
 §6.5 wrote that requirement down as **"a step back up the host cannot see is
-the same defect as a step down they cannot see"**, and both directions are now
-observed rather than argued.
+the same defect as a step down they cannot see"** — and on the evidence of this
+run the host could see NEITHER. Both directions are observed in the engine;
+neither was on a screen. Fixed in §9.kk.
 
 **§6.5 is therefore complete on Apple**: step down (§9.gg), restore (here), and
 `.critical` ending the show with a reason a host reads (§9.gg, §9.hh).

@@ -736,12 +736,33 @@ public actor StudioEngine {
             if let encoder, encoder.currentBitrate != config.videoBitrate {
                 if encoder.setBitrate(config.videoBitrate) {
                     health.videoBitrateNow = config.videoBitrate
-                    health.qualityNote = "Back to full quality \(config.videoBitrate / 1000) kbps."
+                    let note = "Back to full quality \(config.videoBitrate / 1000) kbps."
+                    health.qualityNote = note
+                    // The GOOD news is transient; a degraded state is not. A
+                    // step down belongs on the readout for as long as it is in
+                    // effect, but "back to full quality" is an announcement —
+                    // left up, it sits there for the rest of the show reading
+                    // like a warning.
+                    Task { [weak self] in
+                        try? await Task.sleep(for: .seconds(8))
+                        await self?.clearQualityNote(ifStill: note)
+                    }
                 }
             }
         @unknown default:
             break
         }
+    }
+
+    /// Clears the restore announcement, but only if nothing has replaced it.
+    ///
+    /// Its own isolated method because `health` belongs to this actor: a
+    /// detached `Task` closure touching it directly is a Swift 6 error, and
+    /// the guard has to read and write under the same isolation or it can
+    /// clear a note set in between.
+    private func clearQualityNote(ifStill note: String) {
+        guard health.qualityNote == note else { return }
+        health.qualityNote = nil
     }
 
     // MARK: - §6.6 Recovering a severed link

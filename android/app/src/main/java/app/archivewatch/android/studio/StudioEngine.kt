@@ -70,7 +70,12 @@ data class StudioHealth(
         else -> "CONNECTING"
     }
 
-    val problem: String? get() = when (showState) {
+    /// §5: an adaptive-bitrate step is SHOWN as it happens. `qualityNote`
+    /// carries the step with its numbers, and it was written by the engine and
+    /// rendered by nothing — on either platform — until 2026-09-17. It comes
+    /// first because "sent at 2400 instead of 4000 kbps" tells a host what
+    /// changed and a state label does not.
+    val problem: String? get() = qualityNote ?: when (showState) {
         "STOPPED" -> "The picture has stopped being encoded — your audience is not receiving the show."
         "NOT SENDING" -> "The show is being made but not sent anywhere — no destination is set."
         "RECONNECTING" ->
@@ -129,6 +134,9 @@ class StudioEngine(
     // would arrive sooner by a fraction of a second and cost a registration
     // to leak.
     @Volatile private var qualityNote: String? = null
+    /// When a transient note stops being shown; 0 = it persists (a degraded
+    /// state stays up for as long as it is in effect).
+    @Volatile private var qualityNoteExpiresAt: Long = 0
     @Volatile private var endedBecause: String? = null
     @Volatile private var lastThermal = -1
 
@@ -341,6 +349,10 @@ class StudioEngine(
                 // the counterpart of Apple's `.serious`; CRITICAL (4) and
                 // above are where the platform starts shutting things down,
                 // so that is where the show ends.
+                if (qualityNoteExpiresAt != 0L && System.currentTimeMillis() > qualityNoteExpiresAt) {
+                    qualityNote = null
+                    qualityNoteExpiresAt = 0
+                }
                 val thermal = thermalStatus()
                 if (thermal != lastThermal) {
                     lastThermal = thermal
@@ -357,12 +369,19 @@ class StudioEngine(
                         ThermalAction.STEP_DOWN -> {
                             val stepped = steppedBitrate(videoBitrate)
                             encoder?.setBitrate(stepped)
+                            qualityNoteExpiresAt = 0
                             qualityNote = "The device is running hot, so the picture is being sent at " +
                                 "${stepped / 1000} kbps instead of ${videoBitrate / 1000} kbps."
                         }
                         ThermalAction.RESTORE -> {
                             encoder?.setBitrate(videoBitrate)
                             qualityNote = "Back to full quality ${videoBitrate / 1000} kbps."
+                            // The good news is an announcement; a degraded
+                            // state is not. Given an expiry rather than a
+                            // coroutine: this runs inside the render loop,
+                            // which has no scope to launch from, and a
+                            // timestamp cannot leak a task either.
+                            qualityNoteExpiresAt = System.currentTimeMillis() + 8_000
                         }
                         ThermalAction.NONE -> {}
                     }

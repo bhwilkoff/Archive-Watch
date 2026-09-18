@@ -24,6 +24,14 @@ struct StudioTVHealth: View {
     private var problem: String? {
         if let d = health.showState.detail { return d }
         if isLive && filmFramesPerSecond == 0 { return "The film has stopped — your audience sees a still picture" }
+        // §5: "never auto-lower quality silently — an adaptive-bitrate step is
+        // shown as it happens". `qualityNote` carries the step WITH its
+        // numbers, and until now it was written by the engine and rendered by
+        // nothing: the only reader on any platform was a diagnostic log line.
+        // It comes before the generic thermal sentences because "sent at 3600
+        // instead of 6000 kbps" tells a host what changed and "getting hot"
+        // does not.
+        if let note = health.qualityNote { return note }
         if health.thermalState == "critical" { return "This Apple TV is too hot to keep streaming" }
         if health.thermalState == "serious" { return "This Apple TV is getting hot" }
         if let e = health.publisher.lastError { return e }
