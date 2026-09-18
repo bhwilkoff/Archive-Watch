@@ -1240,6 +1240,52 @@ Pixel.
 
 ## §9 — Measurements (filled in as they are taken)
 
+### §9.gg §6.5 on the macOS PRODUCT path, and the reason nobody could read (2026-09-17)
+
+macOS has no equivalent of Android's `cmd thermalservice override-status`, so
+the engine's own seam is the only route to §6.5 here — which is what the seam
+was written for. `AW_STUDIO_THERMAL=serious|critical` with
+`AW_STUDIO_THERMAL_AT=<seconds>` (DEBUG only) injects it into the real engine
+behind the real app.
+
+**The step lands on cue**, read from the app's own per-second line:
+
+| second | |
+|---|---|
+| … 20–24 | `kbps=6000 thermal=nominal` |
+| 25 (injection) | **`kbps=3600 thermal=serious`** — §6.5's 60% |
+| 26… | holds at 3600 |
+
+And `.critical` **ends the show**: `state=OFF`, and mediamtx reports **no
+paths** — the publish is gone, not idling.
+
+**The wire could NOT corroborate the step, and the reason is §9.y's lesson
+recurring.** *Nosferatu* is a low-motion silent that encodes at roughly
+1 Mbps, so it never approaches EITHER ceiling — 6000 or 3600 — and the server's
+rate is unchanged by the step. A bitrate is a ceiling, not a floor. The
+Android proof measured a 44% drop on the wire because that run used a
+saturating clip; this one is an app-side measurement and is described as one.
+
+**A real gap found by doing this, and fixed**: `endedReason` was written by the
+engine and read by **nothing on Apple**. §6.5 says `.critical` "ends the show
+with the end card" and §5 says health is never hidden — but a Mac host whose
+broadcast ended saw only `OFF`, with no reason anywhere. Android already
+surfaced it through its controller. `StudioSession`'s pump now turns it into
+the host-visible refusal and verifies:
+
+    [AWSTUDIOENDED] The broadcast ended — the device became too hot to keep broadcasting.
+
+**Still not surfaced on tvOS or iOS.** Only `StudioSession` (the macOS driver)
+consumes `endedReason`; the television and the phone would still show a show
+that simply stopped.
+
+**And an instrument fault that cost two runs**: Swift's `print` goes to stdout,
+and stdout to a PIPE is fully buffered — so terminating the app before the
+buffer filled lost everything it had said. Two runs reported "zero health
+lines" from an app that was working perfectly. Diagnostics now write to
+**stderr**, which is unbuffered. An instrument that can silently lose its own
+output is worse than none.
+
 ### §9.ff §6.4 on the macOS PRODUCT path — after the throttle was fixed to withhold READS (2026-09-17)
 
 §6.4 had been proved on Apple only from the standalone harness, never through

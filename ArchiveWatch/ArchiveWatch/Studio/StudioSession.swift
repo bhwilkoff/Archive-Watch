@@ -112,6 +112,37 @@ public final class StudioSession {
         }
         isLive = true
         startPump()
+        scheduleThermalInjectionIfAsked()
+    }
+
+    /// §6.5 on the PRODUCT path, DEBUG only.
+    ///
+    /// macOS has no equivalent of Android's `cmd thermalservice
+    /// override-status`, so the engine's own seam is the only way to reach the
+    /// rule on this platform — which is what the seam was written for. Without
+    /// it, §6.5 on the Mac could only ever be argued from the code.
+    ///
+    ///   AW_STUDIO_THERMAL=serious|critical  AW_STUDIO_THERMAL_AT=<seconds>
+    private func scheduleThermalInjectionIfAsked() {
+        #if DEBUG
+        let env = ProcessInfo.processInfo.environment
+        guard let want = env["AW_STUDIO_THERMAL"] else { return }
+        let at = Double(env["AW_STUDIO_THERMAL_AT"] ?? "") ?? 20
+        let state: ProcessInfo.ThermalState? = switch want {
+        case "serious": .serious
+        case "critical": .critical
+        case "fair": .fair
+        case "nominal": .nominal
+        default: nil
+        }
+        guard let state else { return }
+        Task { [weak self] in
+            try? await Task.sleep(for: .seconds(at))
+            guard let engine = self?.engine else { return }
+            self?.diag("[AWSTUDIOTHERMAL] injecting .\(want) at \(Int(at))s")
+            await engine.overrideThermalState(state)
+        }
+        #endif
     }
 
     /// The host's camera, when the platform has one and the viewer has
@@ -170,6 +201,20 @@ public final class StudioSession {
 
     /// One health sample a second — the rate the `notEncoding` and
     /// frozen-film guards are defined against (§9).
+    /// Diagnostics go to STDERR, which is unbuffered.
+    ///
+    /// `print` writes to stdout, and stdout to a PIPE is fully buffered — so a
+    /// run that is terminated before the buffer fills loses everything it
+    /// said. That produced two runs of this harness reporting "zero health
+    /// lines" from an app that was working perfectly (2026-09-17): the
+    /// evidence existed and was killed with the process. An instrument that
+    /// can lose its own output silently is worse than none.
+    private func diag(_ line: String) {
+        #if DEBUG
+        FileHandle.standardError.write(Data((line + "\n").utf8))
+        #endif
+    }
+
     private func startPump() {
         pump?.cancel()
         pump = Task { [weak self] in
@@ -182,6 +227,24 @@ public final class StudioSession {
                 self.filmFramesPerSecond = max(0, h.filmFramesPulled - lastFilmFrames)
                 lastFilmFrames = h.filmFramesPulled
                 self.health = h
+
+                // §6.5/§6.6 END the show on their own account — too hot, or a
+                // link that could not be rebuilt inside the deadline — and
+                // until now Apple read that reason NOWHERE. `endedReason` was
+                // written by the engine and consumed by nothing, so a host
+                // whose broadcast stopped saw only OFF. Measured on the Mac
+                // product path, 2026-09-17 (§9.gg). Android already surfaced
+                // it; this is the same move.
+                if let why = h.endedReason, self.refusal == nil {
+                    self.refusal = "The broadcast ended — \(why)."
+                    #if DEBUG
+                    // Printed as well as shown, so the fix is verifiable
+                    // without capturing the owner's whole desktop.
+                    self.diag("[AWSTUDIOENDED] \(self.refusal ?? "")")
+                    #endif
+                    await self.end()
+                    return
+                }
 
                 // One machine-readable line a second, DEBUG only and only when
                 // a diagnostic destination is set.
@@ -196,10 +259,11 @@ public final class StudioSession {
                 #if DEBUG
                 if ProcessInfo.processInfo.environment["AW_STUDIO_DEST"] != nil {
                     let p = h.publisher
-                    print("[AWSTUDIOHEALTH] state=\(h.showState.label) fps=\(h.encodedFramesPerSecond)"
+                    self.diag("[AWSTUDIOHEALTH] state=\(h.showState.label) fps=\(h.encodedFramesPerSecond)"
                           + " queued=\(p.queuedBytes) vsent=\(p.videoFramesSent) vdrop=\(p.videoFramesDropped)"
                           + " asent=\(p.audioFramesSent) reconnects=\(p.reconnects)"
-                          + " thermal=\(h.thermalState) audio=\(h.audioSessionState)")
+                          + " kbps=\(h.videoBitrateNow / 1000) thermal=\(h.thermalState)"
+                          + " audio=\(h.audioSessionState) note=\(h.qualityNote ?? "-")")
                 }
                 #endif
             }
