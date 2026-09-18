@@ -949,8 +949,19 @@ struct PlayerScreen: View {
         if continuity.state.isConnected, let session = continuity.makeSession() {
             let cam = CameraFrameTap(); cam.attach(to: session)
             await engine.attachCamera(tap: cam)
-            let mic = MicAudioTap(); mic.attach(to: session)
-            await engine.attachMicrophone(tap: mic)
+            // ONLY IF THERE IS ONE. `makeSession()` adds a microphone INPUT
+            // only when a port exists, and attaching a mic tap regardless hangs
+            // an audio OUTPUT on a session that has no audio input — an invalid
+            // configuration, and an ObjC exception no Swift `try` can catch.
+            // The owner watched the app quit here twice with a paired camera
+            // and `micPort=none`: the camera is found by discovery, the
+            // microphone needs the picker's `AVContinuityDevice`, and when the
+            // picker is dismissed there is a camera and no microphone. That is
+            // a NORMAL state (§8.8) and it must not be a crash.
+            if case .connected(_, let hasMic) = continuity.state, hasMic {
+                let mic = MicAudioTap(); mic.attach(to: session)
+                await engine.attachMicrophone(tap: mic)
+            }
             session.startRunning()
             awdiag("AWCONT attached camera=%@ mic=%@", camName, micName)
         } else {
