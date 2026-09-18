@@ -86,7 +86,7 @@ fun TvShareOverlay(title: String, url: String, onDone: () -> Unit) {
     }
 }
 
-private fun qrBitmap(text: String, sizePx: Int): Bitmap? = runCatching {
+internal fun qrBitmap(text: String, sizePx: Int): Bitmap? = runCatching {
     val matrix = QRCodeWriter().encode(text, BarcodeFormat.QR_CODE, sizePx, sizePx)
     val bmp = Bitmap.createBitmap(sizePx, sizePx, Bitmap.Config.RGB_565)
     for (x in 0 until sizePx) for (y in 0 until sizePx) {

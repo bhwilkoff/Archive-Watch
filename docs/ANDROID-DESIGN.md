@@ -359,6 +359,36 @@ rather than a new idea.*
   go-live and was called from nowhere, and **every Android broadcast published
   with no audio track at all**. The tap therefore rides every playback and its
   idle path must not allocate (§9.mm).
+- **§9.11 Signing in is a QR CODE AND A CODE, shown together, and the token
+  lands on THIS device.** Android ships on phones and on televisions, and a
+  television has no keyboard — so the sign-in is Twitch's Device Code Grant:
+  the screen shows where to go and what to type, the host authorises on their
+  phone, and the token is stored here. This is the same conclusion the owner
+  reached for tvOS (*"you are logging in on the TV using that other device"*),
+  but it arrives here for a different reason: Apple can lean on
+  `ASWebAuthenticationSession` handing the session to a nearby iPhone
+  (WATCH-TOGETHER §9.yyy), and **Android has no equivalent hand-off**, so the
+  device flow is the road rather than a fallback.
+  - **Both, always.** The QR is useless to a host whose phone is in another
+    room; eight characters read off the screen always work. Neither replaces
+    the other.
+  - **The QR carries the most complete URI the platform returns.** Twitch's
+    `verification_uri` already embeds the user code — measured, twice,
+    independently on Apple and on the Google TV dongle — so scanning reaches a
+    pre-filled page. Do not assume RFC 8628's optional
+    `verification_uri_complete` is present, and do not assume its absence means
+    the URI is bare.
+  - **Beside the QR, print the short host+path**, never the full URI. A host
+    typing it needs `twitch.tv/activate`, and the full string reads as noise
+    directly above the code it already contains (the mistake tvOS made first).
+  - **The row names the ACCOUNT once signed in**, not just the fact of it.
+    "Signed in" is a storage fact; it does not say whose channel a broadcast
+    reaches, and it is the host's own name going out.
+  - **YouTube is not offered here until it can work.** Android cannot reuse
+    Apple's Google client (an iOS-type client is refused by TYPE, measured) and
+    needs a "TVs and Limited Input devices" client with a secret. An unreachable
+    button is the §10.2b defect; the surface says what is missing instead.
+
 - **§9.7 A live broadcast needs a foreground service with the right TYPES.**
   From Android 14 a service that touches the camera or microphone must
   declare `camera` / `microphone` in `foregroundServiceType`, and the

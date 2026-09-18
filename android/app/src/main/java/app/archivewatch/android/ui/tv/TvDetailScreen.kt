@@ -102,6 +102,7 @@ fun TvDetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
     var showPlaylists by remember { mutableStateOf(false) }
     var showVersions by remember { mutableStateOf(false) }
     var showShare by remember { mutableStateOf(false) }
+    var showGoLive by remember { mutableStateOf(false) }
     var favorite by remember { mutableStateOf(false) }
     var watched by remember { mutableStateOf(false) }
     LaunchedEffect(archiveID) {
@@ -390,18 +391,14 @@ fun TvDetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
                         },
                         accent = current.accentColor,
                     ) {
-                        if (StudioController.arm(current)) {
-                            current.downloadURL?.let { url ->
-                                nav.push(Route.Player(PlaySpec(
-                                    id = current.archiveID, title = current.title,
-                                    description = current.synopsis, url = url,
-                                    captions = current.captions ?: emptyList(),
-                                    runtimeSeconds = current.runtimeSeconds)))
-                            }
-                        }
-                        // A refusal is drawn below. No fallback to ordinary
-                        // playback: a host who asked to broadcast has not
-                        // asked to watch alone.
+                        // §9.11 — the CONFIRMATION first, on the television as
+                        // on the phone. This armed and pushed straight to the
+                        // player, so a host reached a production mode having
+                        // seen no sign-in and no §3.4a warning. Wired in BOTH
+                        // Detail surfaces in one change: the phone's overflow
+                        // row and this button are the same decision, and fixing
+                        // one is how a defect survives in the other (§9.ttt).
+                        showGoLive = true
                     }
                 }
                 TvActionButton(
@@ -574,6 +571,27 @@ fun TvDetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
     // The rights refusal, and the not-configured state, in the words every
     // platform uses (guarded by tools/test_studio_rights_parity.py). Never a
     // missing button: a film that cannot be broadcast says WHY.
+    if (showGoLive) {
+        app.archivewatch.android.ui.StudioGoLiveDialog(
+            filmTitle = current.title,
+            onDismiss = { showGoLive = false },
+            onGoLive = {
+                showGoLive = false
+                if (StudioController.arm(current)) {
+                    current.downloadURL?.let { url ->
+                        nav.push(Route.Player(PlaySpec(
+                            id = current.archiveID, title = current.title,
+                            description = current.synopsis, url = url,
+                            captions = current.captions ?: emptyList(),
+                            runtimeSeconds = current.runtimeSeconds)))
+                    }
+                }
+                // A refusal is drawn below. No fallback to ordinary playback:
+                // a host who asked to broadcast has not asked to watch alone.
+            },
+        )
+    }
+
     StudioController.refusal?.let { why ->
         AlertDialog(
             onDismissRequest = { StudioController.refusal = null },

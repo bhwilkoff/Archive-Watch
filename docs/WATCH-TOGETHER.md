@@ -1618,6 +1618,59 @@ the audio path, the real ingest hosts with no credential, the overlay and
 go-live surfaces on the glass, the rights gate on device, and the platform
 clients. **→ `docs/watch-together-measurements.md`**
 
+### §9.eeee Android gets the SCREEN — and the rule came before the view (2026-09-18)
+
+§9.dddd left Android with a measured auth chain, a real destination path and no
+way for a host to reach either. `ANDROID-DESIGN` §9 had rules 9.1–9.10 and
+nothing about signing in, so the rule was written first (§9.11) and the view
+built against it, which is this repo's own discipline rather than a formality:
+the rule is what stopped the screen becoming a port of tvOS's two-column layout
+into an idiom where it does not belong.
+
+**§9.11, in one line**: a QR code AND a code, shown together, token lands on
+this device. Same conclusion the owner reached for tvOS, different reason —
+Apple can lean on `ASWebAuthenticationSession` handing the session to a nearby
+iPhone (§9.yyy) and **Android has no equivalent hand-off**, so the device flow
+is the road rather than the fallback.
+
+**What was reused rather than rebuilt**: `qrBitmap` already existed in
+`TvShare.kt` (zxing, for playlist sharing) and became `internal`. A second QR
+encoder in the same module would have been the thing `reuse_before_rebuilding`
+exists to prevent.
+
+**AND THE ENTRY POINT EXISTED TWICE.** `DetailScreen.kt` (phone, an overflow
+row) and `TvDetailScreen.kt` (television, an action button) each armed the
+Studio and pushed straight to the player. The first patch went into the phone
+screen — and the device under test was the TELEVISION, which still had the old
+behaviour. Caught because the capture showed a "Watch Together" BUTTON where the
+patched code had an overflow menu item. This is §9.ttt's shape exactly (the same
+proxy in three Apple surfaces, found one at a time), and the right move is the
+one that eventually worked there: grep for every entry point before editing any
+of them. Both are wired in this change.
+
+**On the Google TV dongle**, Crossroads (1928): the confirmation carries the
+film, "Sign in to Twitch", §3.4a's warning in full, and **Go live disabled**
+with "Sign in above to go live. Nothing is broadcast until you press Go live."
+The whole dialog fits without scrolling.
+
+**Two instrument failures worth recording, neither fatal:**
+
+  - `adb` crashed mid-script (`mutex lock failed`, daemon gone) and the
+    screenshot came back **0 bytes**. The script printed the byte count, so it
+    read as an obvious failure rather than a blank screen — the `atv_shot.sh`
+    rule (refuse a capture that produced no file) paying off on a different
+    platform.
+  - By the time the connection was restored the dongle had idled into its
+    ambient screensaver, so the recovered capture was a photograph of a
+    mountain. A screenshot proves what was on the screen, never that the app
+    put it there — `dumpsys window mCurrentFocus` is the check that the app is
+    actually foreground, and it is now part of the run.
+
+**What Android still lacks**: the go-live path beyond this dialog has never run
+against Twitch, because nobody has signed in. The chain, the destination
+resolution and the surface are each measured; the join is not, and it needs a
+host with an account.
+
 ### §9.dddd Android resolves a REAL destination, and its sign-in reaches Twitch from a television (2026-09-18)
 
 §9.cccc gave Android an auth layer. It still could not broadcast: `StudioController`

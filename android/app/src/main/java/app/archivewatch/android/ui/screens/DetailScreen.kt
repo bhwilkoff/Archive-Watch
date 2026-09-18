@@ -95,6 +95,7 @@ import app.archivewatch.android.ui.theme.BrandSurface
 import kotlinx.coroutines.launch
 import androidx.compose.foundation.layout.fillMaxHeight
 import coil3.compose.AsyncImage
+import app.archivewatch.android.ui.StudioGoLiveDialog
 
 @Composable
 fun DetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
@@ -115,6 +116,7 @@ fun DetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
     var showOverflow by remember { mutableStateOf(false) }
     var showGetSubs by remember { mutableStateOf(false) }
     var showPlaylists by remember { mutableStateOf(false) }
+    var showGoLive by remember { mutableStateOf(false) }
     LaunchedEffect(archiveID) {
         favorite = container.userState.isFavorite(archiveID)
         watched = container.userState.isWatched(archiveID)
@@ -247,6 +249,34 @@ fun DetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
                     text = { Text(why + "\n\n" + StudioRights.policy) },
                     confirmButton = {
                         TextButton(onClick = { StudioController.refusal = null }) { Text("OK") }
+                    },
+                )
+            }
+
+            if (showGoLive) {
+                StudioGoLiveDialog(
+                    filmTitle = current.title,
+                    onDismiss = { showGoLive = false },
+                    onGoLive = {
+                        showGoLive = false
+                        if (StudioController.arm(current)) {
+                            nav.push(
+                                Route.Player(
+                                    PlaySpec(
+                                        id = current.archiveID,
+                                        title = current.title,
+                                        description = current.synopsis,
+                                        url = current.downloadURL!!,
+                                        captions = current.captions ?: emptyList(),
+                                        runtimeSeconds = current.runtimeSeconds,
+                                    ),
+                                ),
+                            )
+                        }
+                        // A refusal set by `arm` is drawn by the dialog above;
+                        // deliberately no fallback to ordinary playback — a
+                        // host who asked to broadcast has not asked to watch
+                        // alone.
                     },
                 )
             }
@@ -389,25 +419,13 @@ fun DetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
                                 },
                                 onClick = {
                                     showOverflow = false
-                                    if (StudioController.arm(current)) {
-                                        nav.push(
-                                            Route.Player(
-                                                PlaySpec(
-                                                    id = current.archiveID,
-                                                    title = current.title,
-                                                    description = current.synopsis,
-                                                    url = current.downloadURL!!,
-                                                    captions = current.captions ?: emptyList(),
-                                                    runtimeSeconds = current.runtimeSeconds,
-                                                ),
-                                            ),
-                                        )
-                                    }
-                                    // A refusal set by `arm` is drawn by the
-                                    // dialog below; deliberately no fallback
-                                    // to ordinary playback — a host who asked
-                                    // to broadcast has not asked to watch
-                                    // alone.
+                                    // §9.11: the CONFIRMATION comes first. This
+                                    // used to arm and push straight to the
+                                    // player, so a host reached a production
+                                    // mode having seen no sign-in, no
+                                    // destination and no §3.4a warning — the
+                                    // shape tvOS carried before Rule 8.8a.
+                                    showGoLive = true
                                 },
                             )
                         }
