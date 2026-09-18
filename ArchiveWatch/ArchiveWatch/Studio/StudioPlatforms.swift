@@ -174,8 +174,21 @@ public enum StudioPlatformAuth {
         case .youtube: renewed = try await GoogleTokenRefresh(clientID: clientID).refresh(stored)
         case .twitch:  renewed = try await TwitchDeviceAuth(clientID: clientID).refresh(stored)
         }
-        StudioTokenStore.save(renewed, for: platform.rawValue)
+        // MUST be checked. Twitch has already invalidated `stored.refresh`
+        // by answering this call, so a silent failure here loses the only
+        // token that could have renewed the session.
+        try requireStored(StudioTokenStore.save(renewed, for: platform.rawValue), platform)
         return renewed.access
+    }
+
+
+    /// A Keychain write that failed is a host who is NOT signed in, whatever
+    /// the screen says. Named rather than swallowed (§9.rrr).
+    private static func requireStored(_ status: OSStatus, _ platform: Platform) throws {
+        guard status != errSecSuccess else { return }
+        throw StudioPlatformError.notSignedIn(
+            "Signed in to \(platform.displayName), but the token could not be stored "
+            + "(Keychain error \(status)). Sign in again.")
     }
 
     // MARK: Signing in
@@ -188,7 +201,7 @@ public enum StudioPlatformAuth {
             throw StudioPlatformError.notConfigured(configurationProblem(for: .youtube)!)
         }
         let token = try await GoogleAuth(clientID: clientID).authorize(scopes: scopes(for: .youtube))
-        StudioTokenStore.save(token, for: Platform.youtube.rawValue)
+        try requireStored(StudioTokenStore.save(token, for: Platform.youtube.rawValue), .youtube)
     }
 
     /// Twitch: the device flow, because Twitch offers a public client no
@@ -206,7 +219,7 @@ public enum StudioPlatformAuth {
             throw StudioPlatformError.notConfigured(configurationProblem(for: .twitch)!)
         }
         let token = try await TwitchDeviceAuth(clientID: clientID).poll(pending)
-        StudioTokenStore.save(token, for: Platform.twitch.rawValue)
+        try requireStored(StudioTokenStore.save(token, for: Platform.twitch.rawValue), .twitch)
     }
 }
 

@@ -1618,6 +1618,50 @@ the audio path, the real ingest hosts with no credential, the overlay and
 go-live surfaces on the glass, the rights gate on device, and the platform
 clients. **→ `docs/watch-together-measurements.md`**
 
+### §9.rrr Where the tokens land: a Keychain write whose failure nobody could see (2026-09-18)
+
+No token has ever existed, so §6.1's promise — *"Tokens live in the Keychain,
+…AfterFirstUnlockThisDeviceOnly, never synchronised"* — had never been
+observed. It is about to matter: both client ids are registered and the next
+thing that happens is a sign-in.
+
+**Fixed: a failure that could not be seen.** `StudioTokenStore.save` returned
+**Void** and discarded `SecItemAdd`'s `OSStatus`. All three callers therefore
+treated "stored" and "silently not stored" identically. The dangerous one is
+the refresh path: Twitch's refresh tokens are one-time-use, so by the time the
+store is asked to keep the renewed token, **Twitch has already killed the old
+one**. A dropped status there signs the host out permanently, at the next call,
+with nothing to diagnose. And `SecItemAdd` does fail in the field — a direct
+probe on this Mac answered `-34018, a required entitlement is not present`.
+`save` now returns the status and all three call sites check it, naming the
+failure instead of swallowing it.
+
+**Measured, and NOT concluded: which keychain it lands in.** On macOS a generic
+password goes to the file-based keychain unless `kSecUseDataProtectionKeychain`
+is set, and the file-based keychain has no concept of `kSecAttrAccessible`.
+Probing the product's own path from a command-line harness:
+
+    the file-based (legacy) keychain: true
+    the data-protection keychain:     false
+    kSecAttrAccessible reported:      <absent>
+
+which looks exactly like the defect — the attribute accepted by the API and
+then dropped. **It is not evidence of one.** Reaching the data-protection
+keychain requires an entitlement a bare binary does not have (`-34018` again),
+so an unentitled process would produce that reading even if the product were
+perfect. The harness therefore reports it and refuses to judge; an assertion
+that can never pass is worse than no assertion, and writing one would have
+repeated §9.nnn's mistake in a new place on the same day.
+
+**What would settle it** is the same probe running inside the signed app, where
+the entitlement exists — a small diagnostic on a macOS build, not a
+speculation. Until that runs, §6.1's accessibility promise is **unverified on
+macOS** and is recorded here as open rather than quietly assumed. The fix, if
+confirmed, is one key in three dictionaries; the reason not to apply it blind
+is that with `save`'s status previously discarded, a wrong entitlement would
+have turned a storage failure into a silent sign-out — which is exactly the
+defect fixed above, and the order matters.
+
 ### §9.qqq §5's stream-key rule, guarded — and the guard's first run found a leak (2026-09-18)
 
 §5 says a stream key "is never logged, never written to disk, never put in a

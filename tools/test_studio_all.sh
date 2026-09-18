@@ -170,6 +170,11 @@ swift_case "8.9 registered clients" "$AUTH" "$PLAT" tools/test_studio_registered
 # sentinel key at every error path the publisher can reach and asserts the
 # string comes back in none of them. Its first run found a live leak.
 swift_case "8.10 stream-key hygiene" "$PUB" tools/test_studio_key_hygiene.swift
+# Where the tokens land. Writes only under a probe account and deletes it, so
+# it cannot disturb a real sign-in. Reports the keychain CHOICE rather than
+# judging it — an unentitled binary cannot reach the data-protection keychain,
+# so that question belongs inside the signed app (§9.rrr).
+swift_case "8.11 token store"       "$AUTH" "$PLAT" tools/test_studio_token_store.swift
 # ---- the rights tests, which need no server at all
 for t in tools/test_studio_rights_parity.py tools/test_studio_rights_coverage.py; do
   name="$(basename "$t")"

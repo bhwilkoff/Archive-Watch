@@ -53,8 +53,19 @@ enum StudioTokenStore {
         }
     }
 
-    static func save(_ token: Token, for platform: String) {
-        guard let data = try? JSONEncoder().encode(token) else { return }
+    /// Returns the Keychain's own verdict.
+    ///
+    /// This used to return Void, which made a failed write indistinguishable
+    /// from a successful one. The most dangerous caller is the REFRESH path:
+    /// Twitch's refresh tokens are one-time-use, so by the time the store is
+    /// asked to keep the renewed token the OLD one is already dead. A dropped
+    /// status there signs the host out permanently, at the next call, with
+    /// nothing to diagnose — and `SecItemAdd` really does fail in the field:
+    /// an unentitled process gets `-34018` (a required entitlement is not
+    /// present), measured 2026-09-18 (§9.rrr).
+    @discardableResult
+    static func save(_ token: Token, for platform: String) -> OSStatus {
+        guard let data = try? JSONEncoder().encode(token) else { return errSecParam }
         let query: [String: Any] = [kSecClass as String: kSecClassGenericPassword,
                                     kSecAttrService as String: service,
                                     kSecAttrAccount as String: platform]
@@ -64,7 +75,7 @@ enum StudioTokenStore {
         // Not synchronised to iCloud, and readable only after first unlock:
         // this token belongs to this device's session, not to the account.
         add[kSecAttrAccessible as String] = kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly
-        SecItemAdd(add as CFDictionary, nil)
+        return SecItemAdd(add as CFDictionary, nil)
     }
 
     static func load(for platform: String) -> Token? {
