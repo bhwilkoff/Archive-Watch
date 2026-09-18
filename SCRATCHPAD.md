@@ -121,7 +121,15 @@ emulators) · `docs/CAPTIONS.md` · `docs/SHAREPLAY.md` ·
    is real and is yours to accept.
    Also open, for the owner: widening the rights tier from `guaranteed`
    (4,210 films) to `strict` (7,517) is a Decision-027 content call.
-8a. **Optional, one tap**: the iOS bench door (`AW_STUDIO_IOS` +
+8a. **The Local Network prompt is ON THE PHONE NOW, unanswered.** A 2026-09-18
+   run of the iOS Studio door raised it — *"Allow ArchiveWatch to find devices
+   on local networks?"* — and it was deliberately NOT answered: a privacy grant
+   on the owner's phone is the owner's decision, and the prompt shows the
+   home's network name and an area map. The screenshot was deleted rather than
+   kept. Answering it either way is one tap, and until then the iOS encoder
+   read (item 9a) cannot complete, because the prompt sits in front of the app.
+
+8a-orig. **Optional, one tap**: the iOS bench door (`AW_STUDIO_IOS` +
    `AW_STUDIO_DEST`) reaches a mediamtx on the Mac only if iOS's **Local
    Network** prompt is allowed on the iPhone. It was left UNANSWERED on
    purpose — a privacy grant on the owner's phone is the owner's call. One tap

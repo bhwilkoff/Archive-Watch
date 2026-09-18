@@ -66,6 +66,15 @@ struct StudioPlayerContainer: View {
                         .padding(.horizontal, 8).padding(.vertical, 3)
                         .background(.black.opacity(0.55), in: Capsule())
                         .foregroundStyle(.white.opacity(0.85))
+                    // The encoder's identity, as tvOS shows it (§9.vv). Android
+                    // spent days at a third of its frame rate on a software
+                    // encoder nobody had thought to ask about (§9.uu), so every
+                    // platform now SAYS which one it got rather than assuming.
+                    Text("encoder: \(health.encoderIsHardware.map { $0 ? "hardware" : "SOFTWARE" } ?? "-")")
+                        .font(.caption2)
+                        .padding(.horizontal, 8).padding(.vertical, 3)
+                        .background(.black.opacity(0.55), in: Capsule())
+                        .foregroundStyle(.white.opacity(0.85))
                     #endif
                 }
             }

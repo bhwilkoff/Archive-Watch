@@ -134,6 +134,14 @@ Gotchas, each of which cost a debugging cycle:
 - **The iOS bundle id is `app.archivewatch.tvos`** on every Apple platform —
   they share one App Store record (Decision 042). Guessing `.ios` yields a
   silent "app not found" that looks like a failed install.
+- **A test is not over because a terminate command RAN.** `devicectl device
+  process terminate` takes **`--pid`** (from `devicectl device info processes`),
+  NOT `--bundle-identifier` — given the wrong flag it prints its usage text and
+  exits, which looks like output and is not success. Verify by asking the
+  DEVICE what is still running (`info processes | grep -c` must be 0), never by
+  the terminate's own output, and never by counting lines. A film was left
+  playing on the owner's bedroom Apple TV twice this way (2026-09-17,
+  2026-09-18).
 - **Installs work while the Apple TV sleeps; launches do not** ("System is
   asleep"), and there is no wake verb. `atv_scenario.wake_tv()` handles it.
 - **There is no touch injection.** Interaction is deep links, launch
