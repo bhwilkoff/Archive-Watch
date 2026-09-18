@@ -1618,6 +1618,43 @@ the audio path, the real ingest hosts with no credential, the overlay and
 go-live surfaces on the glass, the rights gate on device, and the platform
 clients. **→ `docs/watch-together-measurements.md`**
 
+### §9.eee Android's first ten-minute soak: the drift is BOUNDED, and the residual offset is not yet understood (2026-09-18)
+
+Every A/V measurement after §9.qq's clock fix ran for 87-117 seconds. The
+product is a feature-length FILM, so the only number that matters is what
+happens over an hour — and a residual of -315 ms over 117 s, if linear, is
+about -9.7 s over an hour and -18 s over two. That would defeat the feature
+outright. Apple has had a ten-minute soak since §8.3; Android had never had one.
+
+**Ten minutes on the Google TV**, product path, `mpegts` recording, measured by
+packet PTS:
+
+    video   555.8 s, 6971 packets (12.5 fps)
+    audio   555.2 s, 23882 packets
+    A/V     START +1544 ms | END +1011 ms | DRIFT -533 ms over 9.3 min
+
+**The drift is sublinear and CONVERGING, not runaway.** At the short-run rate
+this window would have drifted about -1,500 ms; it drifted -533 ms, and the
+offset CLOSED from 1,544 to 1,011 ms rather than opening. The two tracks'
+durations agree to 0.6 s over 9.3 minutes. So the answer to the question that
+mattered is: **a feature-length film does not desynchronise by tens of
+seconds.**
+
+**What this does NOT establish, and must not be read as establishing.** The
+residual ~1.0-1.5 s is the difference between the tracks' FIRST timestamps,
+which is the AAC encoder starting after video began. Whether audio and video
+for the SAME instant of film carry the same PTS — true lip sync — is a
+different question, and packet timestamps cannot answer it. That needs a
+STIMULUS: a flash and a beep at a known moment, recovered from the recording,
+which is how §6.2's +4.5-11 ms was measured in the harness. Until that is run
+on the product path, the honest claim is "the tracks do not drift apart", not
+"the tracks are in sync".
+
+**And the frame rate is unchanged at duration**: 12.5 fps over ten minutes,
+against 12-15 in the short runs — so the software encoder's ceiling (§9.uu) is
+steady rather than degrading, and nothing thermal or memory-shaped creeps in
+over ten minutes.
+
 ### §9.ddd The credential path's request shapes, proved before there is a credential (2026-09-18)
 
 Decision 128 proved the SIGN-IN flows before any client id existed, by sending
