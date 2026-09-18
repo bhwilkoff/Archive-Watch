@@ -20,6 +20,16 @@ data class CatalogItem(
     val year: Int? = null,
     val decade: Int? = null,
     val contentType: String = "feature-film",
+    /**
+     * The rights audit's verdict (`audit_rights.bucket()`, Decision 027),
+     * carried on the item so a CLIENT can apply the gate rather than restate
+     * it — `safe_pd_age`, `presumed_pd`, `renewal_zone`, and the rest.
+     *
+     * Null on a device whose cached catalog predates schema 2, and null MEANS
+     * REFUSE: Watch Together Studio will not broadcast a film whose rights
+     * nobody could read (docs/WATCH-TOGETHER.md §3.4).
+     */
+    val rightsBucket: String? = null,
     val genres: List<String> = emptyList(),
     val subjects: List<String> = emptyList(),
     val collections: List<String> = emptyList(),

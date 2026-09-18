@@ -146,8 +146,20 @@ class CatalogDatabase private constructor(
     // every film surface; episodes remain in `search` (which applies no TV exclusion).
     private val notStandaloneTV = " AND i.contentType NOT IN ('tv-special','tv-episode')"
 
-    private val itemSelect =
-        "SELECT $liteCols FROM items i"
+    /** `rightsBucket` arrived with schema 2 and a shipped build may still be
+     *  reading a cached schema-1 catalog — the same trap `playable` set. */
+    private val hasRightsBucketColumn: Boolean = try {
+        queryRaw("PRAGMA table_info(items)") { it.getText(1) }.contains("rightsBucket")
+    } catch (_: Throwable) {
+        false
+    }
+
+    /** The lite columns, plus the rights verdict when this DB carries it. */
+    private val liteColsWithRights: String get() =
+        if (hasRightsBucketColumn) "$liteCols,i.rightsBucket" else liteCols
+
+    private val itemSelect get() =
+        "SELECT $liteColsWithRights FROM items i"
 
     // --- verbs ---
 
@@ -170,7 +182,7 @@ class CatalogDatabase private constructor(
         val tvClause =
             if (allowStandaloneTV) " AND i.contentType != 'tv-episode'" else notStandaloneTV
         return itemsLite(
-            """SELECT $liteCols FROM item_shelves s
+            """SELECT $liteColsWithRights FROM item_shelves s
                JOIN items i ON i.archiveID = s.archiveID
                WHERE s.shelfID = ?$adultAnd$homeAnd$notCommercial$tvClause$typeAnd$verifiedAnd
                ORDER BY i.hasRealArtwork DESC, s.position LIMIT ?""",
@@ -648,6 +660,9 @@ class CatalogDatabase private constructor(
         director = if (st.isNull(14)) null else st.getText(14),
         numFavorites = if (st.isNull(15)) null else st.getInt(15),
         avgRating = if (st.isNull(16)) null else st.getDouble(16),
+        // Column 17 exists only when the DB carries it; a schema-1 catalog
+        // leaves this null, and null refuses (WATCH-TOGETHER §3.4).
+        rightsBucket = if (!hasRightsBucketColumn || st.isNull(17)) null else st.getText(17),
     )
 
     private suspend fun itemsLite(sql: String, binds: List<Any?>): List<CatalogItem> = dbCall {

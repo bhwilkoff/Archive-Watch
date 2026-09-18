@@ -669,9 +669,54 @@ said `run finished: 1 tests, 0 failed` — `ActivityManager: Failure reporting
 to instrumentation watcher`. The run had succeeded and the RESULT could not get
 home. Read the device's own verdict before believing the build's.
 
+### §6.2f — The rights gate on Android, and a guard that the two agree (2026-09-17)
+
+`studio/StudioRights.kt` is a port of `Studio/StudioRights.swift`, sentence for
+sentence, and the wording is load-bearing: a wrong call does not degrade a
+screen, it puts a real person's channel at risk of a copyright strike.
+
+**Getting there meant carrying the verdict through the Android data plane
+first.** `CatalogItem` had `year` and `contentType` but no `rightsBucket`, so
+the gate could not have worked at all. The column now rides the lite select
+behind a `hasRightsBucketColumn` probe — the same guard `playable` already
+needed, because a shipped APK may still be reading a cached schema-1 catalog.
+Absent column → null → **refuse**.
+
+**Two copies of a safety-critical decision drift**, and the drift that matters
+is not a crash: it is one platform quietly allowing a film the other refuses,
+or two hosts being told different reasons for the same verdict. So
+`tools/test_studio_rights_parity.py` compares the Swift and Kotlin sources
+directly — the tier sets, the forbidden content types, and every per-bucket
+sentence character for character — and checks both against the buckets
+`audit_rights.py` can actually emit:
+
+```
+the same buckets are explained on both          PASS
+every shared bucket has the IDENTICAL sentence  PASS
+the guaranteed tier matches                     PASS
+the strict tier matches                         PASS
+the never-broadcast content types match         PASS
+every bucket the audit emits has an Apple sentence    PASS
+every bucket the audit emits has an Android sentence  PASS   (24 buckets)
+no Android sentence leaks its own bucket name   PASS
+```
+
+**Negative-controlled, both ways** (Decision 120): with one Android sentence
+reworded to "This film is probably fine, go ahead" and the guaranteed tier
+quietly widened to include `safe_cc`, the test names both faults and fails.
+A guard that cannot fail proves nothing — and a silently widened tier is
+exactly the change that would ship a copyright strike.
+
+Plus `StudioRightsTest` on the decision itself, 8/8: age clears, an unknown
+verdict refuses, an age claim with no supporting year refuses, television and
+commercials never broadcast whatever their rights say, and **every refusal is
+a sentence a person can read** — over 40 characters, ending in a full stop, and
+never containing its own bucket name, which is the defect that reached a user
+once (`renewal_zone_bw`).
+
 **Still ahead on Android**: a real camera, which needs a phone rather than a
 television — the Pixel 8a's adb-over-TLS pairing has expired. Transport,
-encoder, film texture, composite and audio are all proved on hardware.
+encoder, film texture, composite, audio and the rights gate are all proved.
 
 ## §7 — Phases
 
