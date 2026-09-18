@@ -443,8 +443,24 @@ public actor StudioEngine {
         streamConfig.frameRate = Double(config.frameRate)
 
         if let destination {
+            // §6.4's cap is a LATENCY budget, so it can only be computed from
+            // this show's bitrates — the publisher has no idea what they are
+            // until now.
+            await publisher.setQueueBudget(videoBitrate: config.videoBitrate, audioBitrate: config.audioBitrate)
             try await publisher.publish(to: destination, config: streamConfig)
             publishing = true
+            // The broadcast must OPEN on a keyframe, for the same reason a
+            // reconnected one must (§6.6).
+            //
+            // Measured 2026-09-17 by §8.6: **59 video frames — two full
+            // seconds — were dropped at the start of every broadcast.** A
+            // fresh publish begins with `droppingUntilKeyframe`, the IDR from
+            // the avcC probe is consumed rather than sent, and everything the
+            // ticker produces after it is a P-frame until the 2 s GOP
+            // boundary. So the first two seconds any viewer received were
+            // undecodable. The reconnect path had asked for this keyframe
+            // since §6.6 was written; the path every broadcast takes had not.
+            enc.requestKeyframe()
         } else {
             publishing = false
         }

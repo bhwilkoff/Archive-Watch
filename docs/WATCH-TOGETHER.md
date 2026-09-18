@@ -309,7 +309,37 @@ Recording: the same encoded stream is written to an `.mp4` locally while live
    card, never a frozen frame).
 4. Network: the publisher runs on its own queue; back-pressure drops
    **video** frames first and never audio (viewers forgive a frame, not a
-   gap in the host's voice).
+   gap in the host's voice). See §6.4a for the budget, which is a
+   LATENCY and not a byte count.
+
+### §6.4a The back-pressure budget is measured in SECONDS, because a send queue IS the delay (binding)
+
+The cap past which video starts yielding is
+`RTMPPublisher.queueLatencyBudgetSeconds` (**1.5 s**) of the show's own
+bitrate, set by the engine at publish time — not a constant.
+
+**Why.** It was 2 MB, a number with no recorded reason, and §8.6 measured what
+that means: against a 400 kbps uplink carrying a 2.5 Mbps program the backlog
+climbed to 1.39 MB over seven seconds and the cap was **never reached**, so not
+one frame was dropped while the publisher went on handing over 30 fps. At
+2.5 Mbps, 2 MB of backlog is **6.4 seconds** of accumulated delay: the
+broadcast has stopped being live long before the rule meant to protect it
+engages, and every one of those queued frames is stale by the time it lands.
+A queue depth is a latency, so the budget has to be expressed as one; it also
+has to scale, since the same byte count is three seconds at one bitrate and
+half a second at another.
+
+**How to apply**: set it from the bitrates (`setQueueBudget`), never from a
+literal. The floor of 150 kB exists so a very low-bitrate stream still has room
+for a keyframe, which is several times the size of a P-frame.
+
+**And the signal is real**: `queuedBytes` counts bytes handed to
+`NWConnection` and not yet completed, which works because Apple's documented
+behaviour is that `contentProcessed` is **deferred** once the connection's send
+buffer passes its high-water mark. Measured: the counter sat at 0 through the
+open phase, climbed once the uplink narrowed, and returned to 0 the second it
+re-opened. Roughly three seconds of the stack's own buffering is absorbed
+before it moves, which is slack to expect rather than a fault.
 5. Thermal: `.serious` lowers the **bitrate** and says so; `.critical` ends
    the show with the end card. See §6.5 — this used to say "halves the encode
    resolution", which would have broken the publish it was meant to save.
@@ -1157,6 +1187,12 @@ Pixel.
 3. A ten-minute soak on the iPhone 12 and the Fireplace Apple TV at 1080p30:
    no dropped-frame growth after the first minute, thermal state never
    `.serious`.
+6. `tools/test_studio_backpressure.swift` + `tools/rtmp_throttle_proxy.py` —
+   §6.4 on the real engine: a proxy narrows the uplink mid-show so the
+   publisher discovers congestion through its OWN send buffer. Asserts that the
+   queue crosses the cap ONLY while throttled, that video is what yields, that
+   audio advances in **every** second of the congestion, and that video
+   recovers — by RATE, never by totals across windows of different lengths.
 5. `tools/test_studio_thermal.swift` — §6.5 on the **real `StudioEngine`**
    (the four Studio files compile standalone against a local `mediamtx`), driven
    through `overrideThermalState`. Needs a **saturating** film: the harness
@@ -1168,6 +1204,47 @@ Pixel.
    a server that simply never noticed.
 
 ## §9 — Measurements (filled in as they are taken)
+
+### §9.z Back-pressure: the promise holds, the threshold did not, and every broadcast opened two seconds blind (2026-09-17)
+
+`tools/test_studio_backpressure.swift` on the real `StudioEngine`, with
+`tools/rtmp_throttle_proxy.py` narrowing a 2.5 Mbps program's uplink to
+**400 kbps** for 11 s. §6.4 holds:
+
+| | before | while throttled | after |
+|---|---|---|---|
+| peak send queue | 4 kB | **515 kB** (cap 474 kB) | 0 kB |
+| video frames dropped | **0** | 48 | 0 |
+| video rate | 30 fps | **1 fps** at worst | **30.1 fps** |
+| audio frames in the worst second | — | **43** (≈43 expected) | — |
+
+So the picture yields and the voice does not — which is the whole promise —
+and video recovers the moment the uplink does.
+
+**Two product defects, both found by this harness, neither visible any other
+way:**
+
+1. **The cap could not fire.** §6.4a now carries the reasoning: 2 MB was
+   6.4 seconds of latency at this bitrate, the queue peaked at 1.39 MB, and
+   nothing was ever dropped. The budget is now 1.5 s of the show's bitrate.
+2. **Every broadcast opened with 59 dropped video frames — two full seconds
+   blind.** A fresh publish starts in `droppingUntilKeyframe`, the IDR from the
+   avcC probe is consumed rather than sent, and every frame the ticker produces
+   after it is a P-frame until the 2 s GOP boundary. The reconnect path had
+   asked for that keyframe since §6.6 was written; **the path every broadcast
+   takes had not.** One line, and the count went 59 → 0. Worth sitting with:
+   the fix existed in the codebase and was wired only to the rare path.
+
+**Three instrument faults, in the family this session keeps meeting:**
+
+- the cap was read BEFORE `engine.start()` computed it, so the harness printed
+  the pre-configuration default, failed, and buried a correct result — the
+  drops were already in its own table;
+- recovery was judged by TOTAL frames across a 9-second congested window and a
+  6-second recovered one (223 vs 150) and declared "video did not recover"
+  while the table showed 1 fps against 30. Rates, not totals;
+- the audio claim is asserted per SECOND, not in total, because a total hides a
+  four-second silence inside a healthy-looking sum.
 
 ### §9.y Thermal pressure: the rule was wrong, and the dial that enforces it was loose (2026-09-17)
 

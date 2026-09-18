@@ -119,11 +119,34 @@ public actor RTMPPublisher {
 
     public private(set) var health = RTMPHealth()
 
-    // Back-pressure: bytes handed to the socket and not yet acknowledged as
-    // sent. Past this, VIDEO inter-frames are dropped until a keyframe; audio
-    // is never dropped (WATCH-TOGETHER §6.4 — viewers forgive a frame, not a
-    // gap in the host's voice).
-    public var maxQueuedBytes = 2_000_000
+    // Back-pressure: bytes handed to the socket and not yet completed. Past
+    // this, VIDEO inter-frames are dropped until a keyframe; audio is never
+    // dropped (WATCH-TOGETHER §6.4 — viewers forgive a frame, not a gap in
+    // the host's voice).
+    //
+    // A QUEUE DEPTH IS A LATENCY, and that is the whole reason this number is
+    // not a constant any more. It was 2 MB, chosen for no recorded reason, and
+    // measured 2026-09-17 against a 400 kbps uplink carrying a 2.5 Mbps
+    // program: the backlog climbed 0 → 1.39 MB over seven seconds and the cap
+    // was never reached, so not one frame was dropped while the publisher kept
+    // handing over 30 fps. At 2.5 Mbps, 2 MB of backlog is **6.4 seconds** of
+    // accumulated delay — the broadcast has stopped being live long before the
+    // rule meant to protect it engages. So the budget is expressed in SECONDS
+    // of the configured bitrate and the engine sets it from the stream config.
+    public private(set) var maxQueuedBytes = 2_000_000
+
+    /// Seconds of the configured bitrate the send queue may hold before video
+    /// starts yielding. 1.5 s is a beat of jitter, not a stream that has
+    /// quietly become a recording.
+    public static let queueLatencyBudgetSeconds = 1.5
+
+    /// Sets the cap from a bitrate, which is the only unit in which it means
+    /// anything. Floored so a very low-bitrate stream still has room for a
+    /// keyframe, which is several times a P-frame.
+    public func setQueueBudget(videoBitrate: Int, audioBitrate: Int) {
+        let bytesPerSecond = Double(videoBitrate + audioBitrate) / 8.0
+        maxQueuedBytes = max(150_000, Int(bytesPerSecond * Self.queueLatencyBudgetSeconds))
+    }
 
     private var connection: NWConnection?
     private let queue = DispatchQueue(label: "org.archivewatch.rtmp", qos: .userInitiated)
