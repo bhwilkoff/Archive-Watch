@@ -952,9 +952,31 @@ Android — it says the bottleneck is this dongle's GPU and decoder, not the
 architecture. A phone is the measurement that would settle whether the feature
 ships well on Android, and there is still no phone on this bench.
 
-**Still ahead on Android**: a real camera, the phone-screen verification of
-the Detail entry, and a phone-class render measurement — all three wanting the
-same Pixel.
+### §6.2m — The Android TV entry, both branches on the glass (2026-09-17)
+
+`TvDetailScreen` had no Watch Together entry at all — the phone Detail got one
+and the television, which is a separate surface, did not. It has one now, and
+a TV host reaches the Studio without a dev hook.
+
+**Both branches verified on the Google TV**, which is more than the phone
+entry has managed:
+
+- **The entry**: "Watch Together" sits in the action row beside Version, with
+  the broadcast icon. One item, not a submenu — ANDROID-DESIGN §9.2, because
+  there is no GroupActivities equivalent here.
+- **The refusal**: *His Girl Friday* (1940, `presumed_pd`) draws "This film
+  cannot be streamed" with the gate's own sentence — *"This film is probably
+  in the public domain but nothing proves it"* — followed by the policy. A
+  genuinely instructive case: a famous film that reads as public domain and
+  cannot be proved so.
+
+The refusal was reached by D-pad rather than a hook: DOWN from Play lands on
+the second row's leftmost item, which is the entry. Deterministic, unlike
+counting presses across a row (the reason `aw_start_route` exists at all).
+
+**Still ahead on Android**: a real camera, the PHONE Detail entry's
+appearance, and a phone-class render measurement — all three wanting the same
+Pixel.
 
 ## §7 — Phases
 

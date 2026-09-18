@@ -20,11 +20,14 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.PlaylistAdd
 import androidx.compose.material.icons.filled.Check
+import androidx.compose.material.icons.filled.Podcasts
 import androidx.compose.material.icons.filled.Share
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material.icons.filled.Tune
 import androidx.compose.material.icons.filled.Tv
 import androidx.compose.material.icons.filled.Visibility
+import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.TextButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxHeight
@@ -61,6 +64,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import app.archivewatch.android.studio.StudioController
+import app.archivewatch.android.studio.StudioRights
 import app.archivewatch.android.app.AppContainer
 import app.archivewatch.android.data.CatalogItem
 import app.archivewatch.android.data.synopsisProvenance
@@ -371,6 +376,34 @@ fun TvDetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
                     icon = { Icon(Icons.Default.Share, null, tint = Color.White, modifier = Modifier.size(18.dp)) },
                     accent = current.accentColor,
                 ) { showShare = true }
+                // ANDROID-DESIGN §9.2 — ONE entry, meaning the WORLD half: there
+                // is no GroupActivities equivalent on Android, so "Watch
+                // Together" here is the broadcast and nothing else. The phone
+                // Detail carries the same single item; a television simply
+                // reaches it as a button rather than an overflow row.
+                if (current.downloadURL != null) {
+                    TvActionButton(
+                        label = "Watch Together",
+                        icon = {
+                            Icon(Icons.Default.Podcasts, null, tint = Color.White,
+                                 modifier = Modifier.size(18.dp))
+                        },
+                        accent = current.accentColor,
+                    ) {
+                        if (StudioController.arm(current)) {
+                            current.downloadURL?.let { url ->
+                                nav.push(Route.Player(PlaySpec(
+                                    id = current.archiveID, title = current.title,
+                                    description = current.synopsis, url = url,
+                                    captions = current.captions ?: emptyList(),
+                                    runtimeSeconds = current.runtimeSeconds)))
+                            }
+                        }
+                        // A refusal is drawn below. No fallback to ordinary
+                        // playback: a host who asked to broadcast has not
+                        // asked to watch alone.
+                    }
+                }
                 TvActionButton(
                     label = "Version",
                     icon = { Icon(Icons.Default.Tune, null, tint = Color.White, modifier = Modifier.size(18.dp)) },
@@ -536,6 +569,20 @@ fun TvDetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
                 )
             }
         }
+    }
+
+    // The rights refusal, and the not-configured state, in the words every
+    // platform uses (guarded by tools/test_studio_rights_parity.py). Never a
+    // missing button: a film that cannot be broadcast says WHY.
+    StudioController.refusal?.let { why ->
+        AlertDialog(
+            onDismissRequest = { StudioController.refusal = null },
+            title = { Text("This film cannot be streamed") },
+            text = { Text(why + "\n\n" + StudioRights.policy) },
+            confirmButton = {
+                TextButton(onClick = { StudioController.refusal = null }) { Text("OK") }
+            },
+        )
     }
 
     if (showShare) {
