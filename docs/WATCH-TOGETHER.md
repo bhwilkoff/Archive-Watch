@@ -1618,6 +1618,63 @@ the audio path, the real ingest hosts with no credential, the overlay and
 go-live surfaces on the glass, the rights gate on device, and the platform
 clients. **→ `docs/watch-together-measurements.md`**
 
+### §9.aaaa §6.1's Keychain promise was NOT kept on macOS — measured from inside the signed app, and fixed (2026-09-18)
+
+§6.1 says tokens live in the Keychain under
+`kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly` and are never synchronised.
+§9.rrr found that unverifiable from outside the app and said so rather than
+asserting it: a bare command-line harness is answered `-34018` by the
+data-protection keychain, so any assertion it made would have measured its own
+lack of entitlement. That refusal was correct, and it left the question open.
+
+**Asked from inside the signed, sandboxed Mac app** (`AW_KEYCHAIN_PROBE=1`,
+DEBUG only, writes under a probe account and deletes it):
+
+    save() -> OSStatus 0
+    round-trips: true
+    readable from the file-based (legacy) keychain: true   accessible=<absent>
+    readable from the data-protection keychain:     false
+    §6.1 promise kept: NO
+
+**The promise was not kept, and nothing anywhere said so.** `SecItemAdd`
+returned `errSecSuccess`, the token round-tripped, every caller worked. macOS
+routes a generic password to the FILE-BASED keychain unless
+`kSecUseDataProtectionKeychain` is set, and that keychain has no concept of
+`kSecAttrAccessible` — so the attribute was accepted by the API and then meant
+nothing at all. A silent success is the worst shape a security promise can
+have: there is no error to notice and no behaviour to observe.
+
+**The fix** is `kSecUseDataProtectionKeychain: true` on every query — save, load
+and clear. Set unconditionally rather than behind an `#if os(macOS)`: iOS and
+tvOS already use that keychain, where the flag is a no-op, and one query shape
+is easier to keep honest than two. `clear` additionally deletes the LEGACY copy
+for one release, because a sign-out that leaves a token behind is worse than the
+bug it is cleaning up after.
+
+Re-measured with the same probe:
+
+    readable from the file-based (legacy) keychain: true   accessible=cku
+    readable from the data-protection keychain:     true   accessible=cku
+    after deleting ONLY the data-protection item, a legacy copy survives: false
+    kSecAttrAccessible reported: cku          (= AfterFirstUnlockThisDeviceOnly)
+    kSecAttrSynchronizable reported: 0
+    §6.1 promise kept: YES
+
+**And the line that looked like a second defect was not one.** "Readable from
+the legacy keychain: true" persisted after the fix, which would mean a duplicate
+token sitting in the weaker store — exactly what §6.1 exists to prevent. Two
+queries both returning something cannot tell one item from two, so the probe now
+deletes the data-protection item ONLY and asks the legacy keychain again: nothing
+survives. It is one item, and a flag-less query on macOS is answered from the
+modern keychain. The check is kept in the probe, because "both saw it" will look
+alarming again to whoever reads this next.
+
+**The tvOS token survived**, which was the risk worth checking before shipping:
+the Apple TV holds a real YouTube token written by the OLD query, and a changed
+query that failed to find it would have silently signed the host out. Verified on
+the glass — "YouTube — Ben Wilkoff" still reads back from the Apple TV after the
+change.
+
 ### §9.zzz "Can this channel go live?" is a READ, asked before the button — and the answer is no (2026-09-18)
 
 Going live on YouTube is four writes: `liveStreams.insert`, `liveBroadcasts.insert`,

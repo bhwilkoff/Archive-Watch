@@ -99,6 +99,17 @@ struct TokenStoreProbe {
         //
         // The measurement that WOULD settle it has to run inside the shipping
         // app. Until then this reports and refuses to judge.
+        //
+        // SETTLED 2026-09-18 (§9.aaaa), and the refusal was right: run inside
+        // the signed, sandboxed Mac app (`AW_KEYCHAIN_PROBE=1`), the answer was
+        // that the token went to the FILE-BASED keychain and
+        // `kSecAttrAccessible` came back `<absent>` — the attribute was
+        // accepted by the API and meant nothing. `kSecUseDataProtectionKeychain`
+        // is now set on every query and the same probe reports `cku`
+        // (AfterFirstUnlockThisDeviceOnly) with `synchronizable 0`. Had this
+        // harness asserted membership from out here, it would have failed
+        // forever on its own lack of entitlement and told us nothing about the
+        // product.
         var probeAdd: [String: Any] = [kSecClass as String: kSecClassGenericPassword,
                                        kSecAttrService as String: service,
                                        kSecAttrAccount as String: probe + "-dp",

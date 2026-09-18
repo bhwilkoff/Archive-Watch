@@ -66,12 +66,29 @@ enum StudioTokenStore {
     /// nothing to diagnose — and `SecItemAdd` really does fail in the field:
     /// an unentitled process gets `-34018` (a required entitlement is not
     /// present), measured 2026-09-18 (§9.rrr).
+    /// EVERY query carries this. Without it, macOS routes a generic password to
+    /// the FILE-BASED (legacy) keychain, which has no concept of
+    /// `kSecAttrAccessible` — so §6.1's
+    /// `…AfterFirstUnlockThisDeviceOnly` was accepted by the API and then meant
+    /// nothing. Measured from inside the signed, sandboxed Mac app
+    /// (`AW_KEYCHAIN_PROBE=1`, §9.aaaa):
+    ///
+    ///     readable from the file-based (legacy) keychain: true
+    ///     readable from the data-protection keychain:     false
+    ///     kSecAttrAccessible reported: <absent>
+    ///
+    /// iOS and tvOS already use the data-protection keychain, where this flag
+    /// is a no-op, so it is set unconditionally rather than behind an `#if` —
+    /// one query shape is easier to keep honest than two.
+    private static let dataProtection = kSecUseDataProtectionKeychain as String
+
     @discardableResult
     static func save(_ token: Token, for platform: String) -> OSStatus {
         guard let data = try? JSONEncoder().encode(token) else { return errSecParam }
         let query: [String: Any] = [kSecClass as String: kSecClassGenericPassword,
                                     kSecAttrService as String: service,
-                                    kSecAttrAccount as String: platform]
+                                    kSecAttrAccount as String: platform,
+                                    dataProtection: true]
         SecItemDelete(query as CFDictionary)
         var add = query
         add[kSecValueData as String] = data
@@ -86,7 +103,8 @@ enum StudioTokenStore {
                                     kSecAttrService as String: service,
                                     kSecAttrAccount as String: platform,
                                     kSecReturnData as String: true,
-                                    kSecMatchLimit as String: kSecMatchLimitOne]
+                                    kSecMatchLimit as String: kSecMatchLimitOne,
+                                    dataProtection: true]
         var out: CFTypeRef?
         guard SecItemCopyMatching(query as CFDictionary, &out) == errSecSuccess,
               let data = out as? Data else { return nil }
@@ -96,8 +114,95 @@ enum StudioTokenStore {
     static func clear(for platform: String) {
         SecItemDelete([kSecClass as String: kSecClassGenericPassword,
                        kSecAttrService as String: service,
+                       kSecAttrAccount as String: platform,
+                       dataProtection: true] as CFDictionary)
+        // The LEGACY copy too, for one release: every macOS token written
+        // before this change lives there, and a sign-out that leaves a token
+        // behind is worse than the bug it is cleaning up after.
+        SecItemDelete([kSecClass as String: kSecClassGenericPassword,
+                       kSecAttrService as String: service,
                        kSecAttrAccount as String: platform] as CFDictionary)
     }
+
+    #if DEBUG
+    /// WHERE THE TOKENS ACTUALLY LAND — asked from inside the signed app,
+    /// which §9.rrr established is the only place the question can be answered.
+    ///
+    /// §6.1 promises tokens live in the Keychain under
+    /// `…AfterFirstUnlockThisDeviceOnly` and are never synchronised. On macOS
+    /// that promise is not obviously kept: a generic password goes to the
+    /// FILE-BASED (legacy) keychain unless `kSecUseDataProtectionKeychain` is
+    /// set, and the legacy keychain has no concept of `kSecAttrAccessible` at
+    /// all — the API accepts the attribute and then means nothing by it.
+    ///
+    /// The §8.11 harness could only report and refuse to judge: an unentitled
+    /// command-line binary is answered `-34018` by the data-protection
+    /// keychain, so it would have measured its own lack of entitlement rather
+    /// than the product's behaviour. A signed, sandboxed app has the access
+    /// group the sandbox gives it, so here the answer is about the product.
+    ///
+    /// Writes only under a probe account and deletes it again.
+    static func describeStorage() -> [String] {
+        let probe = "keychain-probe-do-not-use"
+        var out: [String] = []
+
+        clear(for: probe)
+        let status = save(Token(access: "probe", refresh: "probe",
+                                expires: Date().addingTimeInterval(3600)),
+                          for: probe)
+        out.append("save() -> OSStatus \(status)")
+        out.append("round-trips: \(load(for: probe)?.access == "probe")")
+
+        func attributes(dataProtection: Bool) -> [String: Any]? {
+            var q: [String: Any] = [kSecClass as String: kSecClassGenericPassword,
+                                    kSecAttrService as String: service,
+                                    kSecAttrAccount as String: probe,
+                                    kSecReturnAttributes as String: true,
+                                    kSecMatchLimit as String: kSecMatchLimitOne]
+            if dataProtection { q[kSecUseDataProtectionKeychain as String] = true }
+            var r: CFTypeRef?
+            guard SecItemCopyMatching(q as CFDictionary, &r) == errSecSuccess else { return nil }
+            return r as? [String: Any]
+        }
+
+        let legacy = attributes(dataProtection: false)
+        let dp = attributes(dataProtection: true)
+        out.append("readable from the file-based (legacy) keychain: \(legacy != nil)"
+                   + "  accessible=\((legacy?[kSecAttrAccessible as String] as? String) ?? "<absent>")")
+        out.append("readable from the data-protection keychain:     \(dp != nil)"
+                   + "  accessible=\((dp?[kSecAttrAccessible as String] as? String) ?? "<absent>")")
+
+        // IS IT TWO ITEMS OR ONE? A duplicate token in the weaker keychain
+        // would be exactly the leak §6.1 exists to prevent, and "both queries
+        // returned something" cannot tell the two apart. Delete from the
+        // data-protection keychain only, then ask the legacy one again: if it
+        // still answers, there are two copies.
+        SecItemDelete([kSecClass as String: kSecClassGenericPassword,
+                       kSecAttrService as String: service,
+                       kSecAttrAccount as String: probe,
+                       kSecUseDataProtectionKeychain as String: true] as CFDictionary)
+        let survivor = attributes(dataProtection: false)
+        out.append("after deleting ONLY the data-protection item, a legacy copy survives: "
+                   + "\(survivor != nil)")
+
+        let chosen = dp ?? legacy   // captured BEFORE the isolation delete above
+        let acc = chosen?[kSecAttrAccessible as String] as? String
+        let syn = chosen?[kSecAttrSynchronizable as String]
+        out.append("kSecAttrAccessible reported: \(acc ?? "<absent>")")
+        out.append("kSecAttrSynchronizable reported: \(syn.map { "\($0)" } ?? "<absent>")")
+        out.append("§6.1 promise kept: "
+                   + ((dp != nil && acc == (kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly as String))
+                      ? "YES" : "NO"))
+
+        clear(for: probe)
+        SecItemDelete([kSecClass as String: kSecClassGenericPassword,
+                       kSecAttrService as String: service,
+                       kSecAttrAccount as String: probe,
+                       kSecUseDataProtectionKeychain as String: true] as CFDictionary)
+        out.append("cleaned up: \(load(for: probe) == nil)")
+        return out
+    }
+    #endif
 }
 
 // MARK: - The Google / YouTube flow

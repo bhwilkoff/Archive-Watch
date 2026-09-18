@@ -20,6 +20,18 @@ struct ArchiveWatchMacApp: App {
     init() {
         URLCache.shared = URLCache(memoryCapacity: 64_000_000, diskCapacity: 400_000_000)
         modelContainer = Self.makeModelContainer()
+        #if DEBUG
+        // AW_KEYCHAIN_PROBE=1 — settles §6.1 on macOS from INSIDE the signed,
+        // sandboxed app, which §9.rrr showed is the only place it can be
+        // settled. Prints and exits; it is not a mode anyone can reach by
+        // using the app.
+        if ProcessInfo.processInfo.environment["AW_KEYCHAIN_PROBE"] == "1" {
+            print("=== Watch Together §6.1: where the tokens land (macOS) ===")
+            for line in StudioTokenStore.describeStorage() { print("  " + line) }
+            print("=== end ===")
+            exit(0)
+        }
+        #endif
     }
 
     var body: some Scene {
