@@ -89,6 +89,17 @@ struct GoLiveSheetMac: View {
                             // id, signed out, signed in — so nothing here
                             // needs to restate them.
                             StudioSignInRow(platform: authPlatform) { signedIn = $0 }
+                                .task(id: signedIn) {
+                                    guard signedIn, platform != .custom, readiness == nil else { return }
+                                    readiness = try? await StudioPlatformAuth.readiness(for: authPlatform)
+                                }
+                                .onChange(of: platform) { _, _ in readiness = nil }
+                            if let blockedReason {
+                                Label(blockedReason, systemImage: "exclamationmark.triangle.fill")
+                                    .font(.footnote)
+                                    .foregroundStyle(.orange)
+                                    .fixedSize(horizontal: false, vertical: true)
+                            }
                         }
                         switch platform {
                         case .youtube:
@@ -135,6 +146,19 @@ struct GoLiveSheetMac: View {
     /// observable state, so asking it directly here would leave Go Live
     /// disabled behind a row that already says "Signed in".
     @State private var signedIn = false
+    /// What the PLATFORM says about this channel, asked with a read before the
+    /// host presses anything (§9.zzz). Nil means "not asked yet" and
+    /// deliberately does NOT block Go Live: a slow API must not gate a control,
+    /// and a host who presses through an unknown meets the real error anyway.
+    /// Only a KNOWN-bad answer stops them, and it stops them with a sentence.
+    @State private var readiness: StudioPlatformAuth.Readiness?
+
+    /// Why a signed-in host still cannot broadcast, or nil.
+    private var blockedReason: String? {
+        guard platform != .custom, case .blocked(let why)? = readiness else { return nil }
+        return why
+    }
+
 
     private var canCommit: Bool {
         guard refusal == nil else { return false }
@@ -142,6 +166,13 @@ struct GoLiveSheetMac: View {
         if platform == .custom {
             return URL(string: customURL)?.host != nil && !customKey.isEmpty
         }
+        // SIGNED IN IS NOT READY. The platform can refuse a broadcast from a
+        // channel that has never been enabled for live, and going live is four
+        // WRITES whose first one creates a real object on the host's channel —
+        // so "will this work?" is asked with a read, up front (§9.zzz). tvOS
+        // got this first; leaving it there would have been the fourth time one
+        // surface was fixed and its siblings were not (§9.ttt, §9.eeee).
+        guard blockedReason == nil else { return false }
         // CONFIGURED IS NOT SIGNED IN. This read `configurationProblem == nil`,
         // which was a fair proxy only while no client id existed anywhere: the
         // day both were registered it became permanently nil, and Go Live

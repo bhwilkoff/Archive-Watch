@@ -168,6 +168,17 @@ struct GoLiveSheet: View {
             // a host cannot usefully name a stream they cannot publish.
             if platform != .custom {
                 StudioSignInRow(platform: authPlatform) { signedIn = $0 }
+                    .task(id: signedIn) {
+                        guard signedIn, platform != .custom, readiness == nil else { return }
+                        readiness = try? await StudioPlatformAuth.readiness(for: authPlatform)
+                    }
+                    .onChange(of: platform) { _, _ in readiness = nil }
+                if let blockedReason {
+                    Label(blockedReason, systemImage: "exclamationmark.triangle.fill")
+                        .font(.footnote)
+                        .foregroundStyle(.orange)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
             }
             switch platform {
             case .youtube:
@@ -228,6 +239,13 @@ struct GoLiveSheet: View {
         if platform == .custom {
             return URL(string: customURL)?.host != nil && !customKey.isEmpty
         }
+        // SIGNED IN IS NOT READY. The platform can refuse a broadcast from a
+        // channel that has never been enabled for live, and going live is four
+        // WRITES whose first one creates a real object on the host's channel —
+        // so "will this work?" is asked with a read, up front (§9.zzz). tvOS
+        // got this first; leaving it there would have been the fourth time one
+        // surface was fixed and its siblings were not (§9.ttt, §9.eeee).
+        guard blockedReason == nil else { return false }
         // A build with no client id cannot publish anywhere, and a pressable
         // Go Live would fail somewhere the host cannot see. The sign-in row
         // directly above carries the reason, so this is not §5's unexplained
@@ -244,6 +262,19 @@ struct GoLiveSheet: View {
     /// Mirrored from the sign-in row, because `isSignedIn` is a Keychain
     /// read rather than observable state.
     @State private var signedIn = false
+    /// What the PLATFORM says about this channel, asked with a read before the
+    /// host presses anything (§9.zzz). Nil means "not asked yet" and
+    /// deliberately does NOT block Go Live: a slow API must not gate a control,
+    /// and a host who presses through an unknown meets the real error anyway.
+    /// Only a KNOWN-bad answer stops them, and it stops them with a sentence.
+    @State private var readiness: StudioPlatformAuth.Readiness?
+
+    /// Why a signed-in host still cannot broadcast, or nil.
+    private var blockedReason: String? {
+        guard platform != .custom, case .blocked(let why)? = readiness else { return nil }
+        return why
+    }
+
 
     private var authPlatform: StudioPlatformAuth.Platform {
         platform == .twitch ? .twitch : .youtube

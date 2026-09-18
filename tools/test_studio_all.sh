@@ -169,6 +169,17 @@ swift_case "8.9 registered clients" "$AUTH" "$PLAT" tools/test_studio_registered
 # §5's credential rule, guarded. Needs no network and no account: it throws a
 # sentinel key at every error path the publisher can reach and asserts the
 # string comes back in none of them. Its first run found a live leak.
+# Every go-live surface asks the same questions. A SOURCE check, not a UI test:
+# it cannot prove a screen behaves, only that no surface is missing a gate its
+# siblings have — the one defect class that has recurred four times here and was
+# found by eye every time (§9.ffff).
+if bash tools/test_studio_surface_parity.sh >"$SCRATCH/surface-parity.log" 2>&1; then
+  row "8.12 go-live surface parity" PASS ""; PASS=$((PASS+1))
+else
+  row "8.12 go-live surface parity" FAIL "a surface is missing a sibling's gate"
+  FAIL=$((FAIL+1))
+fi
+
 swift_case "8.10 stream-key hygiene" "$PUB" tools/test_studio_key_hygiene.swift
 # Where the tokens land. Writes only under a probe account and deletes it, so
 # it cannot disturb a real sign-in. Reports the keychain CHOICE rather than

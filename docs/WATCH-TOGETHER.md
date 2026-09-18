@@ -1618,6 +1618,48 @@ the audio path, the real ingest hosts with no credential, the overlay and
 go-live surfaces on the glass, the rights gate on device, and the platform
 clients. **→ `docs/watch-together-measurements.md`**
 
+### §9.ffff The readiness gate was on ONE surface — and the recurrence is now checked by a script rather than by eye (2026-09-18)
+
+§9.zzz gave the go-live surface a read-only readiness question, so a host whose
+channel cannot broadcast learns it before pressing anything rather than inside
+four write calls whose first one creates an object on their channel. It was
+wired into `GoLiveTV` — tvOS — and nowhere else. **iOS and macOS could both
+still press Go Live into a channel YouTube refuses.** Found by asking, this
+tick, unprompted; both are fixed here.
+
+That is the FOURTH time this exact class has appeared in this feature:
+
+    §9.ooo   the `configurationProblem == nil` proxy, on tvOS
+    §9.ttt   the SAME proxy, still in macOS and iOS — found one surface a tick
+    §9.eeee  the Android go-live confirmation wired into the PHONE Detail while
+             the television's Detail went on arming straight through
+    §9.ffff  this one
+
+**Reading the diff cannot catch it.** Each fix is correct where it is applied;
+what is wrong is somewhere else, and nothing in the change points at the place.
+Every previous instance was caught by eye, late, and twice only because a
+screenshot happened to show the unfixed surface.
+
+So `tools/test_studio_surface_parity.sh` (§8.12) asks all three Apple surfaces
+the same questions at once — do they consult `readiness(for:)`, do they gate the
+commit on the answer, do they gate on a TOKEN rather than on configuration — and
+fails naming the surface that is missing what its siblings have. It carries its
+own control: a pattern no surface contains must be reported absent, or the greps
+prove only that grep runs.
+
+It is a SOURCE check and it is honest about that. It cannot prove a screen
+behaves; it proves no surface was forgotten, which is the failure that actually
+keeps happening. The behaviour is proved on the glass once per platform — tvOS
+already is (§9.zzz), and these two are not yet.
+
+**What is NOT verified, said plainly**: the blocked branch on iOS and macOS is
+compile-verified and structurally identical to tvOS's, sharing
+`StudioPlatformAuth.readiness(for:)`, but it has not been seen on a screen. It
+cannot be until a host signs in on one of those devices — tokens are
+`ThisDeviceOnly` and unsynchronised, so the Apple TV's sign-in does not reach
+the phone or the Mac. That is a real gap and it is written here rather than
+implied by a green suite.
+
 ### §9.eeee Android gets the SCREEN — and the rule came before the view (2026-09-18)
 
 §9.dddd left Android with a measured auth chain, a real destination path and no
