@@ -1697,9 +1697,27 @@ through `StudioGoLive.destination(for:film:)` and hands it to
 client ids exist** — by design, since Go Live is greyed without them — so it is
 compiled and unrun, and this entry does not claim otherwise.
 
-**Instrument note against myself**: the window capture used AppleScript's
-reported bounds and overshot them, catching part of my own terminal beside the
-app. No personal data — it was my own session — but it is not the precise
+**The REFUSED state, also seen on the glass.** §9.mmm showed the sheet for a
+film the gate keeps; a surface is only finished when its refusal is looked at
+too. With `SPACE 1999 S1E8 "Dragon's Domain"` (television, 1975) the same sheet
+reads:
+
+> **This film cannot be streamed**
+> Television and commercials are not offered for streaming — their rights have
+> not been audited.
+> Only films published before 1930 can be streamed — age is the one
+> public-domain claim nobody can dispute, and a stream goes out under your own
+> account.
+
+with **Go Live greyed**. That is §2.3 working on the Mac: the sentence teaches
+why a 1975 television episode is different from a 1921 film, where a disabled
+button teaches nothing.
+
+**Instrument note against myself**: the first window capture used AppleScript's
+reported bounds and caught part of my own terminal beside the app. The bounds
+were right; the terminal was IN FRONT of the window. `screencapture -R` takes a
+region of the SCREEN, not of a window, so whatever overlaps is captured too —
+activate the app first. No personal data — it was my own session — but it is not the precise
 window-only capture `mac_screenshot_window_only` asks for, and the bounds a
 window reports are not the region `screencapture -R` will take.
 
