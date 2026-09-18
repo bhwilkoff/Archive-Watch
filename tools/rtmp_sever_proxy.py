@@ -13,7 +13,7 @@ publisher's reconnect — is proxied untouched, so the test can tell "resumed"
 from "never stopped". Prints one line per event so the harness can assert the
 sever actually happened rather than assuming it did.
 """
-import socket, struct, sys, threading, time
+import os, socket, struct, sys, threading, time
 
 listen_port = int(sys.argv[1])
 target_port = int(sys.argv[2])
@@ -87,9 +87,14 @@ def serve(client):
 
 srv = socket.socket()
 srv.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-srv.bind(("127.0.0.1", listen_port))
+# 127.0.0.1 by DEFAULT: a harness on this machine should not open a port
+# to the network. AW_PROXY_BIND=0.0.0.0 is the opt-in for driving a real
+# DEVICE at it, which is the only way the Android engine can be tested
+# through the shipping app rather than from a JVM.
+bind_host = os.environ.get("AW_PROXY_BIND", "127.0.0.1")
+srv.bind((bind_host, listen_port))
 srv.listen(8)
-print(f"sever-proxy {listen_port} -> {target_port}, cutting conn 1 after {sever_after}s", flush=True)
+print(f"sever-proxy {bind_host}:{listen_port} -> {target_port}, cutting conn 1 after {sever_after}s", flush=True)
 while True:
     c, _ = srv.accept()
     threading.Thread(target=serve, args=(c,), daemon=True).start()

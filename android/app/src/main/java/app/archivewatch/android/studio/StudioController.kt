@@ -84,12 +84,16 @@ object StudioController {
         val e = StudioEngine(thermalStatus = thermalStatus)
         e.layoutShowsCamera = showsCamera
         engine = e
+        // No destination until a client id exists (Decision 128) — the engine
+        // still composites and encodes and reports NOT SENDING rather than
+        // pretending. A DEBUG build can be pointed at a bench server so
+        // §6.4/§6.5/§6.6 can be driven through the real app.
+        val benchDest = app.archivewatch.android.ui.DeepLinks.pendingStudioDest.value
+        val benchKey = app.archivewatch.android.ui.DeepLinks.pendingStudioKey.value ?: "awbench"
         e.start(
             scope = scope,
-            // No destination until a client id exists (Decision 128). The
-            // engine still composites and encodes, and reports NOT SENDING
-            // rather than pretending.
-            destination = null,
+            destination = benchDest,
+            streamKey = if (benchDest != null) benchKey else "",
             audioTap = audioTap,
             overlay = StudioOverlayBitmap.lowerThird(
                 overlayWidth, overlayHeight, armedTitle, armedSubtitle, armedProvenance),

@@ -53,6 +53,8 @@ data class StudioHealth(
     val qualityNote: String? = null,
     /** Set when the show ended on its own account rather than by the host. */
     val endedReason: String? = null,
+    /** Why §6.6's last attempt failed, if it did. Never swallowed. */
+    val reconnectFault: String? = null,
     val publisher: RtmpHealth = RtmpHealth(),
 ) {
     /** What the SHOW is doing, in the host's terms — not the transport's. */
@@ -133,6 +135,8 @@ class StudioEngine(
     // ---- §6.6 recovering a severed link
     private var supervisor: Job? = null
     @Volatile private var recovering = false
+    /** Why the last §6.6 attempt failed, surfaced rather than discarded. */
+    @Volatile private var reconnectFault: String? = null
 
     /** Polls once a second for a link that has gone, and rebuilds it. */
     private suspend fun superviseTheConnection() {
@@ -161,12 +165,19 @@ class StudioEngine(
                 attempt += 1
                 try {
                     p.reconnect()
+                    reconnectFault = null
                     // The new session must OPEN on a keyframe, or a rejoining
                     // viewer and a recording server hold nothing decodable
                     // while the stream reads as live (§6.2d).
                     encoder?.requestKeyframe()
                     return
-                } catch (_: Exception) {
+                } catch (e: Exception) {
+                    // NEVER swallowed. The first version of this caught and
+                    // discarded, so a NetworkOnMainThreadException on every
+                    // attempt looked exactly like a link that would not come
+                    // back, and logcat had nothing in it. A reconnect that
+                    // cannot even be attempted must say so.
+                    reconnectFault = "attempt $attempt: ${e.message ?: e.toString()}"
                     val back = RECONNECT_BACKOFF_SECONDS[
                         minOf(attempt - 1, RECONNECT_BACKOFF_SECONDS.size - 1)]
                     val remaining = giveUpAt - System.currentTimeMillis()
@@ -216,7 +227,18 @@ class StudioEngine(
         // picture for exactly as long as it waited. The Swift side keeps them
         // apart for the same reason.
         if (destination != null) {
-            supervisor = scope.launch { superviseTheConnection() }
+            // Dispatchers.IO, NOT the caller's scope.
+            //
+            // The caller is a Compose `LaunchedEffect`, so its scope is the
+            // MAIN dispatcher, and `reconnect()` does blocking socket I/O —
+            // which Android answers with NetworkOnMainThreadException. Found on
+            // a Google TV (2026-09-17): the device published fine, the link was
+            // severed, and the stream never came back, while the JVM test
+            // passed because it called `reconnect()` from its own thread and
+            // so never exercised this dispatcher at all.
+            supervisor = scope.launch(kotlinx.coroutines.Dispatchers.IO) {
+                superviseTheConnection()
+            }
         }
     }
 
@@ -358,6 +380,7 @@ class StudioEngine(
                     videoBitrateNow = encoder?.currentBitrate ?: videoBitrate,
                     qualityNote = qualityNote,
                     endedReason = endedBecause,
+                    reconnectFault = reconnectFault,
                     publisher = published?.health ?: RtmpHealth(),
                 )
                 filmAtLastSecond = film

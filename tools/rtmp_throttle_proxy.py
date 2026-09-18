@@ -16,7 +16,7 @@ Only connections that actually send bytes are counted, so a harness's
 port-readiness probe cannot be mistaken for the publisher — that mistake cost
 a whole run of the §6.6 harness, where the probe absorbed the event.
 """
-import socket, sys, threading, time
+import os, socket, sys, threading, time
 
 listen_port = int(sys.argv[1])
 target_port = int(sys.argv[2])
@@ -126,9 +126,14 @@ def serve(client):
 
 srv = socket.socket()
 srv.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-srv.bind(("127.0.0.1", listen_port))
+# 127.0.0.1 by DEFAULT: a harness on this machine should not open a port
+# to the network. AW_PROXY_BIND=0.0.0.0 is the opt-in for driving a real
+# DEVICE at it, which is the only way the Android engine can be tested
+# through the shipping app rather than from a JVM.
+bind_host = os.environ.get("AW_PROXY_BIND", "127.0.0.1")
+srv.bind((bind_host, listen_port))
 srv.listen(8)
-print(f"throttle-proxy {listen_port} -> {target_port}", flush=True)
+print(f"throttle-proxy {bind_host}:{listen_port} -> {target_port}", flush=True)
 while True:
     c, _ = srv.accept()
     threading.Thread(target=serve, args=(c,), daemon=True).start()

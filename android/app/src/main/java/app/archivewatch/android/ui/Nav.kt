@@ -136,6 +136,19 @@ object DeepLinks {
     val pendingRoute = MutableStateFlow<String?>(null)
     /** `--es aw_studio_item <archiveID>` — arm Watch Together Studio on it. */
     val pendingStudioItem = MutableStateFlow<String?>(null)
+
+    /**
+     * `--es aw_studio_dest rtmp://host:port/app` + `--es aw_studio_key <path>`
+     * — a BENCH destination for the Studio, so §6.4/§6.5/§6.6 can be driven
+     * through the real app instead of only from a JVM harness.
+     *
+     * **DEBUG BUILDS ONLY**, enforced in `MainActivity`. A release build that
+     * honoured this would let any app on the device launch ours with a
+     * destination of its choosing and redirect a host's broadcast, which is a
+     * real attack and not a theoretical one.
+     */
+    val pendingStudioDest = MutableStateFlow<String?>(null)
+    val pendingStudioKey = MutableStateFlow<String?>(null)
 }
 
 /** The player publishes here so MainActivity can auto-enter Picture-in-Picture when the user

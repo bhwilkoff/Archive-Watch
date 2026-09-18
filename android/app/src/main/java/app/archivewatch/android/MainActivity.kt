@@ -110,6 +110,14 @@ class MainActivity : ComponentActivity() {
         // It still goes through the RIGHTS GATE — a verification hook that
         // skipped the gate would be testing something the product cannot do.
         intent?.getStringExtra("aw_studio_item")?.let { DeepLinks.pendingStudioItem.value = it }
+        // A bench destination for the Studio — DEBUG ONLY. See
+        // DeepLinks.pendingStudioDest: honouring this in a release build would
+        // let any app redirect a host's broadcast. The values are never
+        // logged (§5).
+        if (BuildConfig.DEBUG) {
+            intent?.getStringExtra("aw_studio_dest")?.let { DeepLinks.pendingStudioDest.value = it }
+            intent?.getStringExtra("aw_studio_key")?.let { DeepLinks.pendingStudioKey.value = it }
+        }
         if (intent?.getBooleanExtra("aw_focus_log", false) == true) {
             app.archivewatch.android.ui.tv.TvFocusLogging = true
         }

@@ -1240,6 +1240,57 @@ Pixel.
 
 ## §9 — Measurements (filled in as they are taken)
 
+### §6.2q §6.6 on the GLASS, and the defect only a device could find (2026-09-17)
+
+Driven through the **shipping app** on a Google TV (Dongle_R_4K, Android 14),
+publishing to a `mediamtx` on the Mac via `tools/rtmp_sever_proxy.py`. Film:
+*Battleship Potemkin* (1925), a real `safe_pd_age` item, chosen off the
+device's own catalogue so the rights gate had to pass it.
+
+To make this possible at all, a **debug-only** bench destination was added
+(`--es aw_studio_dest` / `--es aw_studio_key`, `DeepLinks.pendingStudioDest`).
+Until now the Android engine ran with `destination = null` in the app, so every
+transport claim on this platform came from a JVM harness and nothing had ever
+published from the product. **It is gated on `BuildConfig.DEBUG` and must stay
+that way**: a release build honouring an intent extra like this would let any
+app on the device launch ours with a destination of its choosing and redirect a
+host's broadcast.
+
+**The first device run FAILED, and it should have.** The app published
+correctly — path ready, 5.17 MB ingested — the proxy severed the link at 25 s,
+and the stream never came back. The JVM test for the very same rule passed.
+
+**Why**: the supervisor was launched on the CALLER's `CoroutineScope`, which is
+a Compose `LaunchedEffect` and therefore the **main** dispatcher, while
+`reconnect()` does blocking socket I/O — which Android answers with
+`NetworkOnMainThreadException`. The JVM test passed because it called
+`reconnect()` from its own test thread and never exercised the dispatcher the
+app actually uses. **A harness can prove the logic and still say nothing about
+where the logic runs.**
+
+And it was invisible because `catch (_: Exception)` **discarded the reason**, so
+every attempt failed identically and logcat held nothing. That is the same
+mistake as the swallowed `OSStatus` that hid the 291-second stall. The catch now
+records `reconnectFault` on the health readout.
+
+Fixed (`Dispatchers.IO`) and re-run on the same device:
+
+| t | mediamtx |
+|---|---|
+| 15–30 s | `live/awbench` ready, bytes → **5.17 MB** |
+| 25 s | proxy severs `conn 1` |
+| 35 s | path **gone** |
+| 40 s | path **ready again** — the proxy logs `conn 2: open` |
+| 40–75 s | bytes climbing continuously → **9.45 MB** |
+
+So the shipping app rebuilds a severed link on real hardware and the server
+goes on ingesting. Teardown: app force-stopped, TV volume restored to what it
+was, proxies and server stopped, the pulled catalogue copy deleted.
+
+**§6.5's device wiring is still unproved** — a real `PowerManager` reaching a
+real encoder needs a genuinely hot device or a debug override, and the bench
+door does not cover it.
+
 ### §6.2p §6.6 ported to Android — the last unported rule (2026-09-17)
 
 A dropped connection used to end an Android broadcast silently, exactly as it
