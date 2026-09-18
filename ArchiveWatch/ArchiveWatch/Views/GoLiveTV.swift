@@ -104,7 +104,7 @@ struct GoLiveTV: View {
 
             ScrollView {
                 VStack(alignment: .leading, spacing: 28) {
-                    if Self.configured.count > 1 { platformChoice }
+                    platformSection
                     // `.id` so switching platform builds a NEW row: the row
                     // reads the Keychain once in its own `onAppear`, and a
                     // reused one would report YouTube's answer for Twitch.
@@ -155,9 +155,44 @@ struct GoLiveTV: View {
         }
     }
 
-    private var platformChoice: some View {
+    /// Where the broadcast goes — ALWAYS stated, whether or not there is a
+    /// choice to make, and always saying what is missing rather than quietly
+    /// leaving it out.
+    ///
+    /// A first version showed this section only when more than one platform was
+    /// configured. With the Apple TV's Google client not yet registered that
+    /// left a screen with no destination on it at all, and YouTube absent with
+    /// no explanation — which is exactly the defect Decision 128 names: "the
+    /// unconfigured state was written as an absence rather than as a screen
+    /// somebody reads". A host who cannot find YouTube here deserves to learn
+    /// WHY on this screen, not to wonder.
+    private var platformSection: some View {
         VStack(alignment: .leading, spacing: 16) {
             Text("Where it goes").font(.headline).foregroundStyle(.secondary)
+            if Self.configured.count > 1 {
+                platformChoice
+            } else if let only = Self.configured.first {
+                Text(only.displayName).font(.title3).fontWeight(.medium)
+            }
+            ForEach(Self.unconfigured, id: \.rawValue) { p in
+                Text(StudioPlatformAuth.configurationProblem(for: p) ?? "")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+        }
+        .focusSection()
+    }
+
+    /// The platforms this build canNOT reach, so the screen can say so.
+    private static var unconfigured: [StudioPlatformAuth.Platform] {
+        StudioPlatformAuth.Platform.allCases.filter {
+            StudioPlatformAuth.configurationProblem(for: $0) != nil
+        }
+    }
+
+    private var platformChoice: some View {
+        VStack(alignment: .leading, spacing: 16) {
             HStack(spacing: 24) {
                 ForEach(Self.configured, id: \.rawValue) { p in
                     Button {
@@ -174,7 +209,6 @@ struct GoLiveTV: View {
                 }
             }
         }
-        .focusSection()
     }
 
     private var titleField: some View {

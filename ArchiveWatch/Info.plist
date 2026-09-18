@@ -92,5 +92,9 @@
 	</array>
 	<key>YOUTUBE_CLIENT_ID</key>
 	<string>$(YOUTUBE_CLIENT_ID)</string>
+	<key>YOUTUBE_TV_CLIENT_ID</key>
+	<string>$(YOUTUBE_TV_CLIENT_ID)</string>
+	<key>YOUTUBE_TV_CLIENT_SECRET</key>
+	<string>$(YOUTUBE_TV_CLIENT_SECRET)</string>
 </dict>
 </plist>

@@ -434,6 +434,181 @@ public struct TwitchDeviceAuth: Sendable {
     }
 }
 
+// MARK: - Google's device flow (the TELEVISION's YouTube sign-in)
+
+/// YouTube on a television, signed in from a phone.
+///
+/// The owner, 2026-09-18: *"The sign in can make use of QR codes and signing in
+/// with a phone, but you are logging in on the TV using that other device."*
+/// That is this flow exactly — the phone authorises and the TOKEN lands on the
+/// television — and it replaces `GoogleAuth`'s `ASWebAuthenticationSession` on
+/// tvOS only. iOS and macOS keep PKCE: on a device with a keyboard a web sheet
+/// is the better experience, and it needs no client secret.
+///
+/// **This needs a SECOND Google client**, type "TVs and Limited Input devices",
+/// and Google refuses the flow for any other type — the iOS client we already
+/// hold cannot do it. That client carries a **client secret**, which is the
+/// cost Decision 128 named when it put this flow second and which is now paid
+/// deliberately rather than by surprise. Google's own documentation for
+/// installed apps is explicit that this secret is not treated as confidential;
+/// it is still kept out of git, in `Secrets.xcconfig` like every other key.
+///
+/// Read from Google's limited-input-device documentation, 2026-09-18:
+///
+///     device code   POST https://oauth2.googleapis.com/device/code
+///                   client_id, scope
+///     poll          POST https://oauth2.googleapis.com/token
+///                   client_id, client_secret, device_code,
+///                   grant_type=urn:ietf:params:oauth:grant-type:device_code
+///     scopes        https://www.googleapis.com/auth/youtube IS permitted
+///
+/// Two differences from Twitch that are easy to get wrong:
+///
+///  1. **Google answers with an `error` FIELD and meaningful status codes**
+///     (428 `authorization_pending`, 403 `slow_down`/`access_denied`), where
+///     Twitch answers 400 for everything and only its `message` discriminates.
+///     So this reads `error`, and does not inherit Twitch's rule.
+///  2. **Google publishes no `verification_uri_complete`** and spells the field
+///     `verification_url` in its own docs while RFC 8628 says
+///     `verification_uri`. Both are read, in RFC order, because a response that
+///     carries neither is a response we cannot show anybody.
+public struct GoogleDeviceAuth: Sendable {
+    let clientID: String
+    let clientSecret: String
+
+    public struct Pending: Sendable {
+        /// Shown to the host, and encoded in the QR. Unlike Twitch's, this one
+        /// does NOT carry the user code — Google has no such URI — so the code
+        /// beside it is load-bearing rather than a courtesy.
+        public let verificationURI: String
+        public let userCode: String
+        let deviceCode: String
+        let interval: TimeInterval
+        public let expires: Date
+    }
+
+    public func begin(scopes: [String]) async throws -> Pending {
+        var r = URLRequest(url: URL(string: "https://oauth2.googleapis.com/device/code")!)
+        r.httpMethod = "POST"
+        r.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        var body = URLComponents()
+        body.queryItems = [.init(name: "client_id", value: clientID),
+                           .init(name: "scope", value: scopes.joined(separator: " "))]
+        r.httpBody = body.percentEncodedQuery?.data(using: .utf8)
+        let (data, _) = try await URLSession.shared.data(for: r)
+        // Parsed BEFORE the guard so the failure path can still read the
+        // reason out of it — a `guard let` binding is not in scope in its own
+        // else, and the reason is the whole point of the message below.
+        let o = (try? JSONSerialization.jsonObject(with: data)) as? [String: Any]
+        guard let o,
+              let device = o["device_code"] as? String,
+              let user = o["user_code"] as? String,
+              let uri = (o["verification_uri"] as? String) ?? (o["verification_url"] as? String)
+        else {
+            // SAY WHAT GOOGLE SAID. Measured against the live endpoint
+            // 2026-09-18, and the reason this is not a generic sentence:
+            //
+            //   our real iOS client  -> invalid_client "Invalid client type."
+            //   a nonexistent id     -> invalid_client "The OAuth client was not found."
+            //
+            // The `error` field is IDENTICAL for both, so it alone cannot tell
+            // "you registered the wrong KIND of client" from "you pasted the id
+            // wrong" — and those need opposite responses from whoever set it
+            // up. `error_description` is the only discriminator, the same trap
+            // Twitch's blanket HTTP 400 sets one endpoint over (§9.ppp).
+            let why = (o?["error_description"] as? String)
+                ?? (o?["error"] as? String)
+                ?? "no reason given"
+            throw StudioPlatformError.badResponse(
+                "Google would not start a device sign-in: \(why)")
+        }
+        return .init(verificationURI: uri, userCode: user, deviceCode: device,
+                     interval: (o["interval"] as? Double) ?? 5,
+                     expires: Date().addingTimeInterval((o["expires_in"] as? Double) ?? 1800))
+    }
+
+    /// What a poll answer MEANS. Extracted so a harness can assert the rule the
+    /// product runs rather than re-implementing it (Decision 119), and kept
+    /// separate from Twitch's because the two platforms genuinely differ.
+    public enum PollOutcome: Sendable, Equatable {
+        case keepWaiting, backOff, refused(String)
+    }
+
+    public static func pollOutcome(error: String) -> PollOutcome {
+        switch error {
+        case "authorization_pending": return .keepWaiting
+        case "slow_down":             return .backOff
+        case "":                      return .keepWaiting   // unreadable body: wait, do not give up
+        default:                      return .refused(error)
+        }
+    }
+
+    func poll(_ p: Pending) async throws -> StudioTokenStore.Token {
+        var interval = p.interval
+        while Date() < p.expires {
+            try await Task.sleep(nanoseconds: UInt64(interval * 1_000_000_000))
+            var r = URLRequest(url: URL(string: "https://oauth2.googleapis.com/token")!)
+            r.httpMethod = "POST"
+            r.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+            var body = URLComponents()
+            body.queryItems = [
+                .init(name: "client_id", value: clientID),
+                .init(name: "client_secret", value: clientSecret),
+                .init(name: "device_code", value: p.deviceCode),
+                .init(name: "grant_type", value: "urn:ietf:params:oauth:grant-type:device_code"),
+            ]
+            r.httpBody = body.percentEncodedQuery?.data(using: .utf8)
+            let (data, resp) = try await URLSession.shared.data(for: r)
+            guard let http = resp as? HTTPURLResponse,
+                  let o = try? JSONSerialization.jsonObject(with: data) as? [String: Any] else { continue }
+            if (200..<300).contains(http.statusCode), let access = o["access_token"] as? String {
+                let expiresIn = (o["expires_in"] as? Double) ?? 3600
+                return .init(access: access, refresh: o["refresh_token"] as? String,
+                             expires: Date().addingTimeInterval(expiresIn))
+            }
+            switch Self.pollOutcome(error: o["error"] as? String ?? "") {
+            case .keepWaiting: continue
+            case .backOff:     interval += 5
+            case .refused(let code):
+                // Prefer the DESCRIPTION for the same reason `begin` does: the
+                // code is a category and the description is the sentence a
+                // person can act on.
+                let why = (o["error_description"] as? String) ?? code
+                throw StudioPlatformError.notSignedIn("Google refused the sign-in: \(why)")
+            }
+        }
+        throw StudioPlatformError.notSignedIn("The Google code expired before it was confirmed.")
+    }
+
+    /// Google's refresh tokens are NOT one-time-use the way Twitch's are, and
+    /// the refresh response usually omits `refresh_token` entirely — so the
+    /// stored one is carried forward rather than dropped. The secret is
+    /// required here too: this token came from the TV client, and only the TV
+    /// client can renew it.
+    func refresh(_ token: StudioTokenStore.Token) async throws -> StudioTokenStore.Token {
+        guard let refresh = token.refresh else {
+            throw StudioPlatformError.notSignedIn("Sign in to YouTube again.")
+        }
+        var r = URLRequest(url: URL(string: "https://oauth2.googleapis.com/token")!)
+        r.httpMethod = "POST"
+        r.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        var body = URLComponents()
+        body.queryItems = [.init(name: "client_id", value: clientID),
+                           .init(name: "client_secret", value: clientSecret),
+                           .init(name: "refresh_token", value: refresh),
+                           .init(name: "grant_type", value: "refresh_token")]
+        r.httpBody = body.percentEncodedQuery?.data(using: .utf8)
+        let (data, _) = try await URLSession.shared.data(for: r)
+        guard let o = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
+              let access = o["access_token"] as? String else {
+            throw StudioPlatformError.notSignedIn("Sign in to YouTube again.")
+        }
+        return .init(access: access,
+                     refresh: o["refresh_token"] as? String ?? refresh,
+                     expires: Date().addingTimeInterval((o["expires_in"] as? Double) ?? 3600))
+    }
+}
+
 extension Data {
     /// base64url, per RFC 7636 — `+/=` are not allowed in a PKCE verifier.
     var base64URLEncoded: String {

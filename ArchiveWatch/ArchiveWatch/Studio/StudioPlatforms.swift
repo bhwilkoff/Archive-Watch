@@ -83,9 +83,47 @@ public enum StudioPlatformError: Error, CustomStringConvertible {
 public enum StudioPlatformAuth {
 
     /// Client ids, read from the build's Info.plist (populated from the
-    /// gitignored `Secrets.xcconfig`). Absent is the normal state today.
+    /// gitignored `Secrets.xcconfig`).
     static func clientID(for platform: Platform) -> String? {
-        let key = platform == .youtube ? "YOUTUBE_CLIENT_ID" : "TWITCH_CLIENT_ID"
+        info(platform == .youtube ? youTubeClientIDKey : "TWITCH_CLIENT_ID")
+    }
+
+    /// The client secret, which exists for exactly ONE credential in this app.
+    ///
+    /// Google's device flow — the television's YouTube sign-in, per the owner's
+    /// 2026-09-18 direction — requires a client of type "TVs and Limited Input
+    /// devices", and that client type carries a secret. Nothing else here has
+    /// one: Twitch's device flow takes none, and the PKCE flow iOS and macOS
+    /// use exists precisely so an installed app does not need one.
+    static func clientSecret(for platform: Platform) -> String? {
+        guard platform == .youtube, let key = youTubeSecretKey else { return nil }
+        return info(key)
+    }
+
+    /// WHICH Google client this platform signs in with, and why there are two.
+    ///
+    /// A television cannot usefully present a password field, so tvOS uses the
+    /// device flow, and Google refuses that flow to any client that is not of
+    /// type "TVs and Limited Input devices". The iOS client cannot be reused —
+    /// this is not a preference. iOS and macOS keep the iOS client and PKCE.
+    static var youTubeClientIDKey: String {
+        #if os(tvOS)
+        "YOUTUBE_TV_CLIENT_ID"
+        #else
+        "YOUTUBE_CLIENT_ID"
+        #endif
+    }
+
+    /// Nil on every platform whose flow needs no secret, which is the point.
+    static var youTubeSecretKey: String? {
+        #if os(tvOS)
+        "YOUTUBE_TV_CLIENT_SECRET"
+        #else
+        nil
+        #endif
+    }
+
+    private static func info(_ key: String) -> String? {
         let v = Bundle.main.object(forInfoDictionaryKey: key) as? String
         return (v?.isEmpty ?? true) ? nil : v
     }
@@ -121,7 +159,23 @@ public enum StudioPlatformAuth {
     /// asks a DIFFERENT question of each: "can this build sign in" decides
     /// whether to offer a button, "is there a token" decides what it says.
     public static func configurationProblem(for platform: Platform) -> String? {
-        guard clientID(for: platform) == nil else { return nil }
+        // A client id ALONE is not a configured platform where the flow needs
+        // a secret. Checking only the id would have let a television offer a
+        // sign-in that Google refuses at the first request — the same shape as
+        // §9.ooo's gate, which went green on a credential that did not cover
+        // the path it was guarding.
+        let haveID = clientID(for: platform) != nil
+        let needSecret = platform == .youtube && youTubeSecretKey != nil
+        let haveSecret = !needSecret || clientSecret(for: platform) != nil
+        guard !(haveID && haveSecret) else { return nil }
+
+        if platform == .youtube && needSecret {
+            return "Signing in to YouTube is not set up on Apple TV yet. A television "
+                + "signs in from your phone, and that needs a SECOND Google OAuth client "
+                + "of type \u{201C}TVs and Limited Input devices\u{201D} \u{2014} the iPhone one cannot do "
+                + "it \u{2014} with its client id and client secret in Secrets.xcconfig. "
+                + "Twitch needs nothing extra."
+        }
         return "Signing in to \(platform.displayName) is not set up in this build yet. "
             + "It needs an application registered on "
             + (platform == .youtube ? "Google Cloud (YouTube Data API v3)" : "the Twitch developer console")
@@ -171,7 +225,16 @@ public enum StudioPlatformAuth {
 
         let renewed: StudioTokenStore.Token
         switch platform {
-        case .youtube: renewed = try await GoogleTokenRefresh(clientID: clientID).refresh(stored)
+        case .youtube:
+            // The token came from whichever client signed in, and only that
+            // client can renew it: on a television that is the TV client, and
+            // its refresh REQUIRES the secret. Renewing a device-flow token
+            // through the PKCE path would 401 on every call.
+            if let secret = clientSecret(for: .youtube) {
+                renewed = try await GoogleDeviceAuth(clientID: clientID, clientSecret: secret).refresh(stored)
+            } else {
+                renewed = try await GoogleTokenRefresh(clientID: clientID).refresh(stored)
+            }
         case .twitch:  renewed = try await TwitchDeviceAuth(clientID: clientID).refresh(stored)
         }
         // MUST be checked. Twitch has already invalidated `stored.refresh`
@@ -203,6 +266,34 @@ public enum StudioPlatformAuth {
         let token = try await GoogleAuth(clientID: clientID).authorize(scopes: scopes(for: .youtube))
         try requireStored(StudioTokenStore.save(token, for: Platform.youtube.rawValue), .youtube)
     }
+
+    /// YouTube on a TELEVISION: the device flow, two steps, because the host
+    /// has to be SHOWN a code and a QR between them. Same shape as Twitch's
+    /// below — deliberately, so the sign-in row draws one thing.
+    public static func beginYouTubeDeviceSignIn() async throws -> GoogleDeviceAuth.Pending {
+        let (id, secret) = try youTubeDeviceCredentials()
+        return try await GoogleDeviceAuth(clientID: id, clientSecret: secret)
+            .begin(scopes: scopes(for: .youtube))
+    }
+
+    public static func completeYouTubeDeviceSignIn(_ pending: GoogleDeviceAuth.Pending) async throws {
+        let (id, secret) = try youTubeDeviceCredentials()
+        let token = try await GoogleDeviceAuth(clientID: id, clientSecret: secret).poll(pending)
+        try requireStored(StudioTokenStore.save(token, for: Platform.youtube.rawValue), .youtube)
+    }
+
+    private static func youTubeDeviceCredentials() throws -> (String, String) {
+        guard let id = clientID(for: .youtube), let secret = clientSecret(for: .youtube) else {
+            throw StudioPlatformError.notConfigured(configurationProblem(for: .youtube)
+                ?? "YouTube sign-in is not set up in this build.")
+        }
+        return (id, secret)
+    }
+
+    /// Whether THIS platform signs in to YouTube by device code rather than by
+    /// web sheet. The surfaces ask rather than testing `#if os(tvOS)`
+    /// themselves, so the answer lives in one place.
+    public static var youTubeUsesDeviceFlow: Bool { youTubeSecretKey != nil }
 
     /// Twitch: the device flow, because Twitch offers a public client no
     /// PKCE — see StudioPlatformAuth.swift. Two steps, because the host has

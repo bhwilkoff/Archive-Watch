@@ -58,7 +58,34 @@ struct StudioSignInRow: View {
     @State private var signedIn: Bool = false
     @State private var working = false
     @State private var problem: String?
-    @State private var pending: TwitchDeviceAuth.Pending?
+    @State private var pending: DeviceCode?
+
+    /// A device-flow prompt from EITHER platform.
+    ///
+    /// Twitch always had one; YouTube has one on a television now (tvOS-DESIGN
+    /// Rule 8.8a's 2026-09-18 amendment). Wrapping the two `Pending` types here
+    /// rather than unifying them in the auth layer is deliberate: the flows are
+    /// genuinely different where it matters — Google needs a client secret,
+    /// answers with an `error` field, and publishes no code-bearing URI — and
+    /// flattening that into one struct would hide the differences the polling
+    /// code has to respect. What the SCREEN needs is only these two strings.
+    private enum DeviceCode {
+        case twitch(TwitchDeviceAuth.Pending)
+        case google(GoogleDeviceAuth.Pending)
+
+        var verificationURI: String {
+            switch self {
+            case .twitch(let p): return p.verificationURI
+            case .google(let p): return p.verificationURI
+            }
+        }
+        var userCode: String {
+            switch self {
+            case .twitch(let p): return p.userCode
+            case .google(let p): return p.userCode
+            }
+        }
+    }
     /// Held so it can be CANCELLED. A `Task {}` started in a button action is
     /// unstructured: SwiftUI cancels `.task {}` modifiers when a view goes
     /// away, and nothing at all for this one. Twitch's poll runs for the full
@@ -114,7 +141,7 @@ struct StudioSignInRow: View {
                     .buttonStyle(.borderless)
                 }
             } else if let p = pending {
-                twitchCode(p)
+                deviceCode(p)
             } else {
                 Button {
                     signInTask = Task { await start() }
@@ -162,7 +189,7 @@ struct StudioSignInRow: View {
     /// already is complete. The code stays on screen beside it: a QR is
     /// useless to someone whose phone camera is not to hand, and reading
     /// eight characters aloud is the fallback that always works.
-    private func twitchCode(_ p: TwitchDeviceAuth.Pending) -> some View {
+    private func deviceCode(_ p: DeviceCode) -> some View {
         HStack(alignment: .top, spacing: 28) {
         #if os(tvOS)
         VStack(spacing: 10) {
@@ -208,7 +235,7 @@ struct StudioSignInRow: View {
                 #else
                 ProgressView().controlSize(.small)
                 #endif
-                Text("Waiting for you to confirm on Twitch\u{2026}")
+                Text("Waiting for you to confirm on \(label)\u{2026}")
                     .font(.footnote).foregroundStyle(.secondary)
             }
             Button("Cancel") {
@@ -232,11 +259,21 @@ struct StudioSignInRow: View {
         do {
             switch platform {
             case .youtube:
-                try await StudioPlatformAuth.signInToYouTube()
+                // A television signs in from a phone; a device with a keyboard
+                // uses the web sheet. The auth layer owns which is which so
+                // this reads as a question rather than an `#if`.
+                if StudioPlatformAuth.youTubeUsesDeviceFlow {
+                    let p = try await StudioPlatformAuth.beginYouTubeDeviceSignIn()
+                    pending = .google(p)
+                    try await StudioPlatformAuth.completeYouTubeDeviceSignIn(p)
+                    pending = nil
+                } else {
+                    try await StudioPlatformAuth.signInToYouTube()
+                }
                 setSignedIn(true)
             case .twitch:
                 let p = try await StudioPlatformAuth.beginTwitchSignIn()
-                pending = p
+                pending = .twitch(p)
                 // The poll runs for as long as the code is valid. Cancelling
                 // is explicit — see `signInTask`. This comment used to claim
                 // "the sheet's own dismissal cancels this task", which was

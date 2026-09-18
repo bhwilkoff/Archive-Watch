@@ -1618,6 +1618,67 @@ the audio path, the real ingest hosts with no credential, the overlay and
 go-live surfaces on the glass, the rights gate on device, and the platform
 clients. **→ `docs/watch-together-measurements.md`**
 
+### §9.www Google's device flow, and the control that caught the message nobody could act on (2026-09-18)
+
+The television's YouTube sign-in is now `GoogleDeviceAuth` — device code, QR,
+phone — rather than `GoogleAuth`'s web sheet. iOS and macOS keep PKCE: on a
+device with a keyboard the sheet is better and needs no secret. `StudioSignInRow`
+draws one device-code surface for both platforms; the two `Pending` types are
+wrapped rather than merged, because the flows differ in ways the POLLING code
+must respect and only the two strings on screen are common.
+
+**TWO GOOGLE CLIENTS, and the claim behind that MEASURED rather than cited.**
+The docs say the device flow needs a client of type "TVs and Limited Input
+devices". That is a claim about a credential we hold, so it is testable today.
+Against the live endpoint:
+
+    our REAL iOS client   invalid_client  "Invalid client type."
+    a nonexistent id      invalid_client  "The OAuth client was not found."
+
+So the second registration is genuinely required — the iOS client is refused
+for its TYPE, not for being unknown. `clientID(for:)` is therefore
+platform-conditional (`YOUTUBE_TV_CLIENT_ID` on tvOS), and so is the REFRESH:
+a device-flow token can only be renewed by the client that issued it, with the
+secret, so renewing one down the PKCE path would 401 on every call.
+
+**AND THE CONTROL EARNED ITS KEEP IMMEDIATELY.** Both answers carry the SAME
+`error` field. `error` alone cannot tell "you registered the wrong KIND of
+client" from "you pasted the id wrong" — and those need opposite responses from
+whoever is setting it up. `GoogleDeviceAuth` had been written to report the
+code, so a mis-typed client would have told the owner *"Google refused the
+sign-in: invalid_client"* and stopped. It now reports `error_description`, in
+`begin` and in `poll`. This is the third endpoint in this feature whose status
+or error code carries no information (Twitch's blanket HTTP 400, §9.ppp;
+Google's `authError` living only on the final URL, §9.nnn) — **on this feature,
+assume the discriminator is not where the protocol says it is, and go and
+look.**
+
+**A client id alone is no longer "configured".** `configurationProblem` now
+requires the secret wherever the flow needs one. Checking only the id would
+have let a television offer a sign-in Google refuses at the first request —
+the same shape as §9.ooo, where a gate went green on a credential that did not
+cover the path it was guarding.
+
+**And the unconfigured state was an ABSENCE again.** `GoLiveTV` showed its
+"where it goes" section only when more than one platform was configured. With
+the TV client unregistered that left a screen with no destination on it at all
+and YouTube simply gone, unexplained — which is precisely the defect Decision
+128 names. The section is now always drawn: it states the destination when
+there is no choice, and prints the configuration problem for every platform
+this build cannot reach.
+
+**§8.9 extended** and it still exits 2, honestly, because `YOUTUBE_TV_CLIENT_ID`
+does not exist: the iOS-client refusal and its control are asserted TODAY,
+before the credential they are about — Decision 128's "prove the request shapes
+before the credentials exist", applied to a credential that has not been
+created rather than one that had not yet been pasted.
+
+**On the glass, Ben Bedroom, The Moon of Israel (1924, Michael Curtiz)** — new
+content again. "Where it goes: **Twitch**", the YouTube sentence naming the
+exact registration needed, the privacy row correctly absent for Twitch, and one
+press reaching the QR with code `PNLLFWJY`. Teardown verified by the repaired
+script AND by a second, independently written matcher.
+
 ### §9.vvv The television can go live — and the owner redirects sign-in to a QR code and a phone (2026-09-18)
 
 **The surface Rule 8.8a describes now exists**, and with it tvOS stops being

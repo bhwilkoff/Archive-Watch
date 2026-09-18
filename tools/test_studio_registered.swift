@@ -80,7 +80,12 @@ struct RegisteredClientHarness {
             exit(2)
         }
 
-        if let yt { await google(yt) } else {
+        let ytTV = secret("YOUTUBE_TV_CLIENT_ID")
+
+        if let yt {
+            await google(yt)
+            await googleDevice(iosClientID: yt, tvClientID: ytTV)
+        } else {
             print("YouTube: no YOUTUBE_CLIENT_ID — not asserted")
         }
         if let tw { await twitch(tw) } else {
@@ -91,8 +96,11 @@ struct RegisteredClientHarness {
         if failures.isEmpty {
             print("ALL CHECKS PASSED — the registrations accept our real requests.")
             // A partial run must not read as a full one.
-            if yt == nil || tw == nil {
-                print("(one platform was not configured and was NOT asserted)")
+            if yt == nil || tw == nil || ytTV == nil {
+                print("(something was not configured and was NOT asserted:"
+                      + (yt == nil ? " YOUTUBE_CLIENT_ID" : "")
+                      + (tw == nil ? " TWITCH_CLIENT_ID" : "")
+                      + (ytTV == nil ? " YOUTUBE_TV_CLIENT_ID" : "") + ")")
                 exit(2)
             }
             exit(0)
@@ -269,6 +277,90 @@ struct RegisteredClientHarness {
               let o = try? JSONSerialization.jsonObject(with: d) as? [String: Any]
         else { return "<no response>" }
         return (o["message"] as? String) ?? "<no message>"
+    }
+
+    // MARK: Google's DEVICE flow — the TELEVISION's sign-in
+
+    /// Owner direction, 2026-09-18: *"The sign in can make use of QR codes and
+    /// signing in with a phone, but you are logging in on the TV using that
+    /// other device."* That is Google's device flow, and this asserts the one
+    /// claim the whole tvOS design now rests on — that the client we ALREADY
+    /// hold cannot do it, so a second registration is required rather than
+    /// merely tidier. Asserted BEFORE that client exists, which is the point
+    /// of Decision 128's "prove the request shapes before the credentials".
+    static func googleDevice(iosClientID: String, tvClientID: String?) async {
+        print("\nGoogle — the device flow (the television's sign-in)")
+
+        let iosDesc = await deviceCodeRefusal(clientID: iosClientID)
+        check("the iOS client is refused by TYPE — which is WHY tvOS needs a second client",
+              iosDesc == "Invalid client type.", iosDesc)
+
+        // THE CONTROL, and it is load-bearing. Google answers `invalid_client`
+        // for both a wrong-typed client and a nonexistent one, so the error
+        // CODE cannot tell them apart — the same trap Twitch's blanket HTTP 400
+        // sets. If the descriptions did not differ, the assertion above would
+        // pass just as happily for an id that was simply mistyped, and would
+        // prove nothing about client TYPES (Decision 120).
+        let bogusDesc = await deviceCodeRefusal(
+            clientID: "not-a-real-client.apps.googleusercontent.com")
+        check("CONTROL — an UNKNOWN client id reads differently from a WRONG-TYPED one",
+              bogusDesc == "The OAuth client was not found." && bogusDesc != iosDesc,
+              bogusDesc)
+
+        guard let tvClientID else {
+            print("  YOUTUBE_TV_CLIENT_ID is absent — the television's own sign-in is NOT asserted.")
+            print("  Owner step (SCRATCHPAD 7a3): a Google OAuth client of type")
+            print("  \u{201C}TVs and Limited Input devices\u{201D}, which also issues a client secret.")
+            return
+        }
+
+        var r = URLRequest(url: URL(string: "https://oauth2.googleapis.com/device/code")!)
+        r.httpMethod = "POST"
+        r.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        var body = URLComponents()
+        body.queryItems = [
+            .init(name: "client_id", value: tvClientID),
+            .init(name: "scope", value: "https://www.googleapis.com/auth/youtube"),
+        ]
+        r.httpBody = body.percentEncodedQuery?.data(using: .utf8)
+        guard let (d, _) = try? await URLSession.shared.data(for: r),
+              let o = try? JSONSerialization.jsonObject(with: d) as? [String: Any] else {
+            check("the device endpoint answered", false, "no response"); return
+        }
+        check("the registered TV client is issued a device code",
+              o["device_code"] is String,
+              summary(String(decoding: d, as: UTF8.self)))
+        check("...and a user code for the host to enter on their phone",
+              (o["user_code"] as? String).map { !$0.isEmpty } ?? false)
+        // The product reads these two in RFC order and the second is Google's
+        // own spelling; if neither is present there is nothing to put in a QR.
+        let uri = (o["verification_uri"] as? String) ?? (o["verification_url"] as? String)
+        check("...and a verification address, which is what the QR encodes",
+              (uri?.hasPrefix("https://")) ?? false, uri ?? "<absent>")
+        // Google publishes no code-bearing URI, unlike Twitch. Recorded as a
+        // fact the SCREEN depends on: the code beside the QR is load-bearing
+        // here, not a courtesy.
+        print("  verification_uri_complete present: \(o["verification_uri_complete"] != nil)")
+    }
+
+    /// The `error_description` from a refused device-code request, which is the
+    /// only field that discriminates. Never returns the client id: Google does
+    /// not echo it in these two messages, and the raw body is not printed.
+    static func deviceCodeRefusal(clientID: String) async -> String {
+        var r = URLRequest(url: URL(string: "https://oauth2.googleapis.com/device/code")!)
+        r.httpMethod = "POST"
+        r.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        var body = URLComponents()
+        body.queryItems = [
+            .init(name: "client_id", value: clientID),
+            .init(name: "scope", value: "https://www.googleapis.com/auth/youtube"),
+        ]
+        r.httpBody = body.percentEncodedQuery?.data(using: .utf8)
+        guard let (d, _) = try? await URLSession.shared.data(for: r),
+              let o = try? JSONSerialization.jsonObject(with: d) as? [String: Any]
+        else { return "<no response>" }
+        if o["device_code"] is String { return "<accepted — this client CAN do the device flow>" }
+        return (o["error_description"] as? String) ?? (o["error"] as? String) ?? "<no error>"
     }
 
     // MARK: Plumbing
