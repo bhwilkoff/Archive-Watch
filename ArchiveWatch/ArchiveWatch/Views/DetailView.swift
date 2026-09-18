@@ -727,6 +727,28 @@ struct PlayerScreen: View {
         }
         await engine.setOverlay(o)
 
+        // THE PROVENANCE LINE IS TRANSIENT, not a permanent badge.
+        //
+        // The owner, after the first real broadcast: "While I like the lower
+        // third overlay, the Public Domain status is not something anyone would
+        // actually want to live on the top of their stream." They are right,
+        // and it is their stream's face. §2's argument for showing provenance
+        // is about the viewer being able to LEARN where the film came from —
+        // which a line that plays for the first twenty seconds does, in the
+        // ordinary broadcast idiom of a lower third that introduces and then
+        // clears. A badge that never leaves is branding, not provenance.
+        //
+        // The film's title and subtitle stay; only the rights line goes. The
+        // fuller statement still travels with the show in the platform's own
+        // description, where `StudioGoLive.description(for:)` puts it.
+        let introOverlay = o
+        Task { @MainActor in
+            try? await Task.sleep(nanoseconds: 20_000_000_000)
+            var later = introOverlay
+            later.provenance = ""
+            await engine.setOverlay(later)
+        }
+
         // The camera, if a phone has been paired. NOT an error when absent
         // (§8.8): a paired phone can be asleep or carried away mid-show.
         let continuity = StudioContinuity()
@@ -1105,6 +1127,25 @@ struct PlayerScreen: View {
             // 130). Waiting for `.playing` puts the door in the host's state.
             for _ in 0..<60 where player?.timeControlStatus != .playing {
                 try? await Task.sleep(nanoseconds: 500_000_000)
+            }
+            // AW_TWITCH_SIGNIN=1 — start Twitch's device flow and print what a
+            // HOST would be shown, so the sign-in can be completed without
+            // driving focus over a remote (four `up` presses moved no visible
+            // ring, §9.gggg). The same two calls the sign-in row makes.
+            //
+            // What is printed is what belongs on a television: the verification
+            // URI and the user code. The DEVICE code is the polling credential
+            // and the access token is the session, so neither is ever logged
+            // (§5) — the same line the Android door draws.
+            if ProcessInfo.processInfo.environment["AW_TWITCH_SIGNIN"] == "1" {
+                do {
+                    let p = try await StudioPlatformAuth.beginTwitchSignIn()
+                    awdiag("AWTWITCH open %@ and enter %@", p.verificationURI, p.userCode)
+                    try await StudioPlatformAuth.completeTwitchSignIn(p)
+                    awdiag("AWTWITCH signed in")
+                } catch {
+                    awdiag("AWTWITCH failed=%@", "\(error)")
+                }
             }
             // AW_YT_WHOAMI=1: name the channel a broadcast would reach, and
             // nothing else. A read, never a publish.

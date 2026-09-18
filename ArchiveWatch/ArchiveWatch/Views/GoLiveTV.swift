@@ -224,9 +224,30 @@ struct GoLiveTV: View {
         // Bench only. It refuses to fire at a real platform, so it can never
         // put a broadcast on anybody's channel.
         .task {
-            guard ProcessInfo.processInfo.environment["AW_STUDIO_TV_GOLIVE"] == "1",
-                  Self.benchDestination != nil else { return }
-            useBench = true
+            let door = ProcessInfo.processInfo.environment["AW_STUDIO_TV_GOLIVE"] ?? ""
+            guard !door.isEmpty else { return }
+            switch door {
+            case "1":
+                // The bench server: no account, no platform, no broadcast.
+                guard Self.benchDestination != nil else { return }
+                useBench = true
+            case "twitch", "youtube":
+                // A REAL platform. Only reachable in a DEBUG build, only when
+                // that platform is both configured and signed in, and only when
+                // its own readiness says the channel can actually broadcast —
+                // the same three gates the button is behind, so this cannot
+                // reach a channel the product would refuse.
+                let p: StudioPlatformAuth.Platform = door == "twitch" ? .twitch : .youtube
+                guard Self.configured.contains(p),
+                      StudioPlatformAuth.isSignedIn(p) else { return }
+                platform = p
+                useBench = false
+                signedIn = true
+                readiness = try? await StudioPlatformAuth.readiness(for: p)
+                guard case .ready? = readiness else { return }
+            default:
+                return
+            }
             try? await Task.sleep(nanoseconds: 2_000_000_000)
             onGoLive(request())
         }

@@ -1618,6 +1618,59 @@ the audio path, the real ingest hosts with no credential, the overlay and
 go-live surfaces on the glass, the rights gate on device, and the platform
 clients. **→ `docs/watch-together-measurements.md`**
 
+### §9.iiii THE FIRST REAL BROADCAST — an Apple TV went live on Twitch, and the uplink is the next problem (2026-09-18)
+
+The owner: *"These are testing accounts. Feel free to broadcast as you see fit
+for testing."* So the thing this feature was built for finally happened.
+
+**Signed in first.** A tvOS door (`AW_TWITCH_SIGNIN=1`) runs the same two calls
+the sign-in row makes and logs only what a host would be shown — the
+verification URI and the user code, never the device code or the token (§5).
+The owner authorised it, and the television reported `AWTWITCH signed in`. Read
+back afterwards:
+
+    AWYT twitch account=licbhwilkoff
+    AWYT twitch readiness=READY
+
+**Then it went live.** The door learned to commit to a real platform, behind the
+SAME three gates the button is behind — configured, signed in, and readiness
+`.ready` — so it cannot reach a channel the product itself would refuse.
+
+Evidence from Twitch, not from us: the channel page showed a **LIVE badge on
+licbhwilkoff** while the show ran, and **Offline** once it stopped. The
+television's own readout during it:
+
+    ● LIVE  4,340 kbps
+    audio: Playback/MoviePlayback active
+    encoder: hardware
+    ⚠ Dropping frames — the connection is struggling
+
+**And that warning is the finding.** §6.4's back-pressure rule fired within the
+first two minutes, on BOTH broadcasts (4,340 and 4,208 kbps). Every previous
+measurement of this publisher was against a mediamtx on the LAN, which never had
+to cross the internet — so the first contact with a real ingest immediately
+found what a local server structurally could not. The Studio asks for 1080p30 at
+6 Mbps; this house's uplink to Twitch does not hold ~4.2 Mbps of it. That is
+either the uplink or Twitch's ingest, it is not yet known which, and the next
+measurement is to find out rather than to guess — the honest options are a lower
+target bitrate, 720p, or an adaptive step that §5's readout already has the
+vocabulary for.
+
+**The provenance line is now TRANSIENT**, on the owner's note: *"While I like the
+lower third overlay, the Public Domain status is not something anyone would
+actually want to live on the top of their stream."* Right, and it is their
+stream's face. §2's argument is that a viewer can LEARN where the film came
+from, which twenty seconds of lower third does in the ordinary broadcast idiom;
+a badge that never leaves is branding. Title and subtitle stay; the fuller
+statement still travels in the platform's description.
+
+**NOT VERIFIED, and said plainly**: the twenty-second clear is built and builds,
+and the only capture taken during the verification run was at 95 s — by which
+time the line had already gone. That is consistent with it working and is not
+evidence of it, because the line was never seen PRESENT and then ABSENT in one
+run. The late capture failed. It needs one more broadcast with captures either
+side of the mark.
+
 ### §9.hhhh The token was on the WRONG CHANNEL — nineteen of them, and the app would have broadcast to the default (2026-09-18)
 
 The owner, reading §9.zzz's report that live streaming was not enabled:
