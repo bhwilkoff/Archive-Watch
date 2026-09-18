@@ -330,6 +330,35 @@ rather than a new idea.*
   other permission — and the Studio runs without either, saying so, rather
   than refusing to start (a paired phone can be asleep; a TV has no camera at
   all).
+- **§9.8 ONE show clock feeds BOTH tracks, and the audio clock counts what it
+  THREW AWAY.** Video was stamped `frame * 1s / frameRate` — a frame counter,
+  which advances per RENDERED frame rather than per elapsed second — while
+  audio was stamped from its sample count, which tracks real time. They agree
+  only while the renderer holds the nominal rate, and a dongle does not: the
+  two tracks drifted **19.6 seconds** apart. Both now count real nanoseconds
+  from one `showStartNanos`, and the AAC encoder's clock advances by PCM it had
+  to DROP as well as PCM it took, or refused audio becomes permanent lag rather
+  than one brief gap (`docs/WATCH-TOGETHER.md` §9.qq).
+- **§9.9 The video encoder is CHOSEN, not accepted — and the profile is what the
+  codec ADVERTISES.** `MediaCodec.createEncoderByType` returns the first codec
+  the platform lists and is not promised to be hardware; on a Google TV dongle
+  it returns Android's SOFTWARE AVC encoder, because that device has no
+  hardware H.264 encoder at all. Ask for a hardware encoder explicitly with
+  `configure` as the test, then request the best profile the chosen codec
+  advertises (High → Main → Baseline). **Asking for a profile the encoder does
+  not have is silently ignored** — requesting High produced Constrained
+  Baseline, no error, identical frame rate. Do NOT gate candidates on
+  `isSizeSupported`, which reports false for a size the encoder is demonstrably
+  encoding, and do NOT set `KEY_LEVEL`: omitting it lets the encoder pick an
+  accurate level (4.1 for 720p30) instead of the over-declared highest it
+  advertises (§9.uu, §9.xx, §9.zz).
+- **§9.10 The film's audio tap is installed when the PLAYER IS BUILT, never at
+  go-live.** A Media3 audio processor belongs to the `AudioSink` chain, which is
+  fixed at `ExoPlayer.Builder` time, so a tap attached when a host presses Go
+  Live reaches nothing. The previous shape asked for the tap by film id at
+  go-live and was called from nowhere, and **every Android broadcast published
+  with no audio track at all**. The tap therefore rides every playback and its
+  idle path must not allocate (§9.mm).
 - **§9.7 A live broadcast needs a foreground service with the right TYPES.**
   From Android 14 a service that touches the camera or microphone must
   declare `camera` / `microphone` in `foregroundServiceType`, and the
