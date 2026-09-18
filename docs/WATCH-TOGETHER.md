@@ -1618,6 +1618,53 @@ the audio path, the real ingest hosts with no credential, the overlay and
 go-live surfaces on the glass, the rights gate on device, and the platform
 clients. **→ `docs/watch-together-measurements.md`**
 
+### §9.mmmm The whole-file build is the wrong SHAPE — the server already holds the audio it plays (2026-09-18)
+
+The parallelised rendition was run on the Apple TV. It **started and did not
+finish** in 250 seconds:
+
+    AWAUDIOFILE starting key=117d8062b85e3345
+    (no completion line)
+
+That distinction only exists because §9.llll added a start marker — before it, a
+hang and a probe that never ran produced the identical evidence: nothing. The
+marker paid for itself on its first run.
+
+**Why it is slow is structural, not a tuning problem.** An interleaved mp4 stores
+~2 s of audio (~22 kB at 89 kb/s) between ~2 s of video (~900 kB at 3.7 Mb/s),
+so consecutive audio runs sit ~920 kB apart. The merge threshold is 256 kB, so
+they cannot coalesce — and raising it far enough to bridge them pulls the video
+in between, which is the entire film. **The request COUNT is irreducible: one
+per fragment, ~2,200 for a feature.** Concurrency helps and cannot fix it, and
+leaning harder on it runs into this project's own finding that archive.org
+rate-limits an IP on main-host storms (`creation_studio_connection_discipline`).
+
+**And the shape is wrong even if it were fast.** Building a whole film's audio
+before going live delays the broadcast by minutes. A host presses Go live and
+waits. Nothing about the feature wants that.
+
+**The right answer was already in the building.** `serveHLS`'s `.segment(i)`
+route fetches the audio sample bytes for every fragment — it has to, to mux the
+fragment the player is about to consume. So while the film plays, this app is
+ALREADY downloading exactly the audio the Studio needs, at exactly the moment it
+is needed, through the same pinned session with Decision 031/034's failover.
+The Studio does not need to fetch the audio. It needs to be handed what the
+server already has.
+
+That gives, for free, the property the whole-file design would have had to
+engineer: the audio arrives in playback order, paced by playback, because it IS
+the audio being played. It also removes the second download entirely — the cost
+of the repair becomes zero extra network.
+
+**What it must still get right** is the clock, which is where Android went wrong
+twice (§9.qq): the segment route yields SAMPLES, and the engine already has one
+show clock that stamps both tracks. The tee supplies bytes and never timestamps.
+
+Two designs were built and measured before this one — a second reader over the
+source (rejected on a second full download), and the whole-file rendition
+(measured too slow, and wrong-shaped besides). Both are recorded rather than
+deleted, because the reason each failed is what points at this one.
+
 ### §9.llll The audio-only rendition, built — and a probe that took the diagnostics down with it (2026-09-18)
 
 §9.kkkk's design, implemented: `LocalMediaServer.writeAudioOnlyFile(forKey:to:)`

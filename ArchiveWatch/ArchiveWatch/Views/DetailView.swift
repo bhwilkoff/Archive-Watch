@@ -741,8 +741,16 @@ struct PlayerScreen: View {
         if ProcessInfo.processInfo.environment["AW_AUDIO_FILE_PROBE"] == "1",
            let played = (p.currentItem?.asset as? AVURLAsset)?.url {
             let key = played.deletingPathExtension().lastPathComponent
-            let out = FileManager.default.temporaryDirectory
+            // Caches, not tmp: the harness copies files out of
+            // Library/Caches, and the file is KEPT so its audio LEVEL can be
+            // measured off the device. A track count proves the asset parses;
+            // only the level proves it carries the film.
+            let out = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)[0]
                 .appendingPathComponent("aw-audio-probe.mp4")
+            // Logged BEFORE the call. Last time this build blocked and took the
+            // later diagnostics with it, and a hang was indistinguishable from
+            // a probe that never ran (§9.llll). A start marker separates them.
+            awdiag("AWAUDIOFILE starting key=%@", key)
             let t0 = Date()
             let ok = await LocalMediaServer.shared.writeAudioOnlyFile(forKey: key, to: out)
             let bytes = (try? FileManager.default.attributesOfItem(atPath: out.path)[.size] as? Int) ?? 0
@@ -755,7 +763,6 @@ struct PlayerScreen: View {
             } else {
                 awdiag("AWAUDIOFILE failed bytes=%d", bytes ?? 0)
             }
-            try? FileManager.default.removeItem(at: out)
         }
         if let item = p.currentItem {
             let url = (item.asset as? AVURLAsset)?.url
