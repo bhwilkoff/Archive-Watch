@@ -399,6 +399,17 @@ public final class StudioSession {
     /// is no business of a harness.
     public func muteLocalMonitorForHarness() {
         localPlayer?.isMuted = true
+        // AND SAY SO, because this silences the BROADCAST too on any platform
+        // that takes film audio through the tap (macOS, iOS). `isMuted` mutes
+        // the player, and the tap lives inside that player's rendering path —
+        // so a bench run with this on measures 96% digital silence and looks
+        // like a broken audio pipeline. It cost a false "macOS audio is
+        // intermittent" finding and its equally false refutation (§9.ddddd).
+        // tvOS is unaffected: its audio comes from the pull path, upstream of
+        // local output, which is why the same door is harmless there.
+        awdiag("AWMUTE local monitor muted — on macOS/iOS this silences the "
+               + "BROADCAST as well (the tap is inside the player). "
+               + "Set AW_STUDIO_MAC_SOUND=1 before measuring audio.")
     }
 
     // MARK: Controls the panel drives

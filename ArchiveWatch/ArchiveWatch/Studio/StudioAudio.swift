@@ -307,6 +307,13 @@ final class FilmAudioTap: @unchecked Sendable {
             })
         var out: MTAudioProcessingTap?
         // PostEffects: what the viewer actually hears, volume and all.
+        //
+        // Briefly changed to PreEffects on the theory that it would stop a
+        // muted monitor silencing the broadcast. It does not, and the theory
+        // was wrong: the harness mutes the PLAYER (`isMuted`), which silences
+        // the rendering path the tap lives in, before any effects stage. The
+        // change fixed nothing and altered behaviour that was chosen
+        // deliberately, so it is reverted (§9.ddddd).
         let err = MTAudioProcessingTapCreate(kCFAllocatorDefault, &callbacks,
                                              kMTAudioProcessingTapCreationFlag_PostEffects, &out)
         guard err == noErr else {
