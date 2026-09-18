@@ -1,0 +1,1105 @@
+# Watch Together Studio — archived measurements
+
+Moved out of `docs/WATCH-TOGETHER.md` §9 on 2026-09-18, **verbatim**. Append
+only: a measurement records what a machine did on a day, so it is moved and
+never edited — the same rule Decision 092 applies to old decisions.
+
+These are Phase 0 and the device work that preceded the §6 rule verification.
+The current-state measurements stay in §9 of the binding doc.
+
+---
+
+### RTMP publisher, against mediamtx v1.21.0 + ffprobe 7.1.1 (2026-09-17, Mac)
+
+`tools/test_rtmp_publish.swift` — synthetic 640x360@30 H.264 (VideoToolbox) +
+44.1 kHz mono AAC (AudioConverter), 121 video / 120 audio frames:
+
+```
+OK: publish handshake accepted by mediamtx
+  120/120 frames — sent 120v/119a, 41375 bytes, dropped 0
+… publisher: publishing, 121v/120a, 42353 bytes, dropped 0
+  video: h264 640x360 @ 30/1
+  audio: aac 44100 Hz
+OK: dead destination refused — Connection refused (NWError 61)
+PASS
+```
+
+mediamtx's own log reads `stream is available and online, 2 tracks (H264,
+MPEG-4 Audio)` — the handshake, the AMF0 `connect`/`createStream`/`publish`,
+the `onMetaData` frame, the AVC/AAC sequence headers and the FLV tags are all
+accepted by an independent server, and an independent demuxer reads the
+recording back with the right shape. Nothing about the real destinations is
+proven by this; it proves the transport.
+
+**Two findings worth keeping.**
+
+1. *The first failure was the harness, not the protocol.* mediamtx reset the
+   connection (`NWError 54`) after ~41 of 121 frames, which reads exactly like
+   a malformed stream. It was a data race: VideoToolbox calls back on its own
+   thread and the harness appended to an unlocked `[CMSampleBuffer]` the actor
+   drained from. A publisher bug and a harness bug present the same symptom —
+   the server hanging up — so the instrument gets the lock before the protocol
+   gets the blame.
+2. *A late-joining live RTMP reader cannot be the assertion.* Probing
+   `rtmp://…` while publishing returned `h264 0x0`: the AVC sequence header is
+   sent once, at the start, and VideoToolbox does not repeat SPS/PPS in band,
+   so a reader that arrives later has no dimensions to find. The test asserts
+   against mediamtx's **recording** instead, which is the bytes the server
+   actually accepted, and is not a race. (A real destination replays the
+   sequence header to its own viewers; that is the platform's job, not ours.)
+
+### Decode + composite + encode at 1080p30 (2026-09-17)
+
+`tools/measure_studio_headroom.swift` — a real archive.org film
+(`TheGeneral720p.mp4`) through `AVPlayer` → `AVPlayerItemVideoOutput` →
+`ProgramRenderer` (layout `corner`) → VideoToolbox H.264 → `RTMPPublisher` →
+local mediamtx. The engine's own clock drives the program at the target rate,
+so "fps rendered" is what the show would actually carry.
+
+Every row below is a run where the film was **verified to be arriving**
+(`filmFrames` ≈ program frames); see "the two faults the instrument caught".
+
+| Host | Program | Mean fps | Worst second | Render mean | Clock overruns | Dropped | Thermal |
+|---|---|---|---|---|---|---|---|
+| Mac15,3 (M3 Pro, 8 cores), macOS 27.0 | 1920×1080@30 | **30.1** | 30.0 | **3.40 ms** of 33.3 (10%) | 0 | 0 | nominal |
+| **iPhone 12** (iPhone13,2, A14, 3.6 GB), iOS 26.6.1 | 1920×1080@30 | **30.2** | 30.0 | **8.71 ms** of 33.3 (26%) | 1 (warm-up) | 0 | nominal over 25 s |
+| **Apple TV 4K 2nd gen** (AppleTV11,1, A12, 3.0 GB), tvOS 27.0 | 1920×1080@30 | **30.2** | 30.0 | **10.70 ms** of 33.3 (32%) | 0 | 0 | nominal over 25 s |
+
+Film frames pulled: iPhone 12 **748**, Apple TV **728**, against ~750 program
+frames each — the composite is real on both. Encoded ~4.5–5 Mbps at a 6 Mbps
+ceiling.
+
+Published ~4.5 Mbps over 25 s, 753 video frames, none dropped. **The
+composite is 10% of the frame budget on this host**, which is the answer
+§3.3 was waiting for on the Mac: in-app composition is not the expensive
+part — the film decode is, and AVFoundation does that in hardware anyway.
+
+The iPhone 12 is the oldest hardware the app supports, and it holds 1080p30
+with **three quarters of the frame budget unused** and no thermal movement over
+30 s. §3.3's ReplayKit fallback is therefore NOT needed: in-app composition is
+the right architecture on every device we ship to. The one clock overrun is the
+first frame, before the encoder has a session warmed.
+
+Measured with `AW_STUDIO_LAB=1` via `devicectl … --console`, encoding to a null
+sink. **The null sink is not a shortcut — it is the point:** on iOS a LAN
+destination sits behind the local-network permission prompt, which a human
+would have to tap, and the standing rule is that the owner is never the tester.
+The publisher is proven independently against mediamtx (above), so it does not
+need to be in the path of a headroom measurement. `encodedBytes` gives the real
+program bitrate either way (~4.5 Mbps here at a 6 Mbps ceiling).
+
+The Apple TV 4K 2nd gen is the Decision-096 hardware floor and it holds
+1080p30 with two thirds of the frame budget unused, ~4.7 Mbps encoded, 728
+film frames pulled for ~750 program frames, and no thermal movement. **Every
+Apple device the app ships to can be the Studio.**
+
+### The two faults the instrument caught (2026-09-17)
+
+Both would have shipped as a working-looking Studio that broadcast a frozen
+picture, and neither was visible in fps, encode count, render time, dropped
+frames, bitrate-as-published or thermals.
+
+**1. `AVPlayerItemVideoOutput` asked for 32BGRA returns nothing on tvOS.**
+It works on iOS. On an Apple TV 4K 2nd gen it yielded **1 frame in 607** while
+the program kept a steady 30 fps. The decoder there hands back its native
+biplanar YUV; Core Image consumes either, so the engine now requests **no
+format at all** (`outputSettings: nil`). Never pin a pixel format on a path
+whose producer is the system decoder.
+
+**2. `AVAudioSession.playAndRecord` fails on tvOS, and a failed activation
+stops `AVPlayer` dead.** `setActive` threw "Session activation failed", and the
+next diagnostic line read `rate=0.00 status=readyToPlay keepUp=y hasNew=n` —
+the player was never playing. tvOS has no capture input until a Continuity
+microphone is attached, so the Studio uses `.playback` there and moves to
+`.playAndRecord` only when a real microphone arrives. (On iOS the pairing
+`.playAndRecord` + `.moviePlayback` is itself invalid — OSStatus **-50**;
+`.moviePlayback` is a playback-only mode. And `.defaultToSpeaker` does not
+exist on tvOS.)
+
+**The lesson is the instrument, not the bugs.** The first Apple TV run printed
+`PASS 1920x1080@30` — mean 30.3 fps, 0 drops, thermal nominal — and was
+measuring a still image. What exposed it was the **encoded bitrate**: 49–99
+kbps where the iPhone showed ~4,500, because a static frame compresses to
+nothing. `StudioHealth.filmFramesPulled` is now a first-class counter for
+exactly this reason, the Lab refuses to call a run a composite measurement when
+the film supplied fewer than a quarter of the program's frames, and
+`filmDiagnostics()` separates "the player is not playing" from "no buffer for
+this time". A host whose film freezes must be told; a green dashboard over a
+frozen program is the failure mode this feature is most exposed to.
+
+### The audio path (2026-09-17)
+
+The film's audio is tapped off the player's own audio mix with
+`MTAudioProcessingTap` — the mechanism the caption scout already uses
+(Decision 058), so the program costs **one** decode, not two. The host's
+microphone comes off the same `AVCaptureSession` as the camera. A dedicated
+ticker pulls a fixed 1024-frame chunk from both rings every 1024/44100 s,
+applies the §4 faders and the duck, and encodes AAC.
+
+Measured on the Mac against a real film:
+
+```
+film audio: tapped
+  filmAud 88200 samples/s   (= 44100 × 2ch, exactly the program rate)
+  aac 43 frames/s           (= 44100 / 1024 = 43.07)
+  level 0.02 – 0.16         (tracking the film's score)
+648 AAC frames encoded and published over 15 s
+```
+
+**A/V alignment, from the server's own recording** — the strongest check
+available, since it is an independent demuxer reading what the server
+accepted:
+
+| Stream | Duration |
+|---|---|
+| h264 1920×1080 | 15.033 s |
+| aac 44100 2ch | 15.022971 s |
+
+**10 ms of divergence over 15 seconds** (0.07%). Both clocks are measured from
+the same program origin, and the publisher's timestamps share one timeline.
+
+**Two findings.**
+
+1. *The tap is `PostEffects`, so the host's local mute silences the
+   broadcast.* Measured: with the player muted, the ring still received 88,200
+   samples/s and every level read **0.00**. This is the right default — what
+   the room hears is what the audience hears — but it means the Studio's film
+   fader must be `StudioAudioMixer.filmGain`, never `AVPlayer.isMuted`. §5
+   carries the rule.
+2. *A film with no audio track is a real case, not a failure.* This catalog is
+   full of silent cinema, so `FilmAudioTap.attach` returns false rather than
+   erroring, `filmHasAudio` reports it, and the Lab distinguishes "no track"
+   from "a track that delivered nothing" — the second is a defect, the first is
+   Buster Keaton.
+
+The film ring padded ~3–4% of samples, almost all in the first second while
+the player fills its buffer. Worth watching in the soak, not worth a fix yet.
+
+### Video + audio together, on device (2026-09-17)
+
+| Host | Program | Mean fps | Render mean | Film audio | AAC | Level |
+|---|---|---|---|---|---|---|
+| iPhone 12 | 1920×1080@30 | 30.3 | **6.43 ms** of 33.3 (19%) | 90,312 samples/s | 43/s | 0.08–0.14 |
+
+589 film frames of ~600 program frames; 868 AAC frames over 20 s; 0 dropped,
+0 clock overruns, thermal nominal. Adding the whole audio path — a second
+decode tap, a mixer ticker and an AAC encode — did not move the render budget.
+
+### Permission is a human action, and a harness must never wait on one
+
+`AVCaptureDevice.requestAccess` presents a system alert and suspends until it
+is tapped. A device run hung with no output past `film …` — indistinguishable
+from a deadlock in our own code — because the harness was waiting for a finger.
+The standing rule is that the owner is never the tester, so the Lab now
+**reports** the authorization status and refuses an undecided permission rather
+than requesting it:
+
+```
+permissions: camera=not-determined microphone=not-determined
+SKIP camera — grant it once on the device …; AW_STUDIO_ASK=1 will present the prompt
+WARN no camera available — continuing film-only
+```
+
+`AW_STUDIO_ASK=1` is the deliberate opt-in that presents the prompt. There is
+no supported way to pre-grant camera or microphone access on a real device
+(`simctl privacy` is simulator-only), so this is a genuine one-time human
+action — and the Lab names exactly where to do it instead of hanging.
+
+### The real ingest hosts, with no credential (2026-09-17)
+
+`tools/test_rtmp_destinations.swift` publishes to YouTube's and Twitch's
+**actual** ingest endpoints with a deliberately invalid stream key. That
+exercises DNS → TCP → TLS → the C0/C1/C2 handshake → AMF0 `connect` →
+`createStream` → `publish`, and the only untested step is whether a *good* key
+is accepted. **A stream key is a credential and no test needs one.**
+
+```
+✓ YouTube primary (RTMPS, 443)  — connect acknowledged; closed on the bad key in 0.6s
+✓ YouTube primary (RTMP, 1935)  — connect acknowledged; closed on the bad key in 0.4s
+✓ YouTube backup  (RTMPS, 443)  — connect acknowledged; closed on the bad key in 0.3s
+✓ Twitch global   (RTMPS, 443)  — connect acknowledged; closed on the bad key in 0.8s
+✓ Twitch global   (RTMP, 1935)  — connect acknowledged; closed on the bad key in 0.6s
+```
+
+Getting there took three real protocol defects, and **two of the three passed
+on two servers out of three** — which is the finding worth keeping.
+
+1. **`connect` must be transaction 1.** The protocol fixes that number and
+   YouTube hardcodes it. Ours went out as transaction 2 (the counter started
+   at 1 and pre-incremented), YouTube's `_result` came back as `1.0`, nothing
+   matched, and the connect timed out — while mediamtx and Twitch echoed
+   whatever they were sent and worked. Found only by dumping the wire
+   (`AW_RTMP_WIRE=1`), which showed YouTube replying `[t5/4] [t6/5] [t20/240]
+   [t20/21]` with a payload decoding to `"_result" 1.0 {fmsVer: "FMS/3,5,3,824"
+   …}`. The server was answering the whole time.
+2. **The connect object must be the full ffmpeg-shaped one** — `fpad`,
+   `capabilities`, `audioCodecs`, `videoCodecs`, `videoFunction` alongside
+   `app`/`type`/`flashVer`/`tcUrl` — and `tcUrl` must omit a default port.
+   YouTube ignored the four-field version; Twitch accepted it.
+3. **The client's chunk size is 128 until it says otherwise.** Moving Set
+   Chunk Size after `connect` (ffmpeg's order) while still chunking at 4096
+   made mediamtx report `received type 1 chunk without previous chunk`: it read
+   128 bytes of our 300-byte connect and then looked for a chunk header in the
+   middle of the payload. `outChunkSize` now starts at 128 and is raised only
+   once the Set Chunk Size message has gone out.
+
+**And the test itself was wrong first.** It counted *any* socket close as
+"reached and refused", so it printed PASS for all five while YouTube was
+actually failing at the handshake — a close during the handshake and a close
+on a bad key look identical from the client. `RTMPHealth.connectAcknowledged`
+now records that the server answered `connect`, and the test requires it. The
+local harness had the mirror-image flaw: a hardcoded "dead" port that a
+previous run's own server was still listening on, so the negative control
+silently stopped being negative. It now proves the port is closed first.
+
+### The overlay — five layouts and four cards, on the glass (2026-09-17)
+
+`StudioOverlayRenderer` draws the lower third (title, "1926 · Buster Keaton,
+Clyde Bruckman", "PUBLIC DOMAIN SINCE 1954") and the four cards. Text is
+rasterised with Core Text into a bitmap only when its CONTENT changes, so a
+steady lower third is laid out once for a whole show.
+`tools/render_studio_overlay.swift` renders every state over a **worst-case
+stand-in film** — bands from near-black to near-white, brightest across the
+bottom where the lower third lives — plus a 16:9 stand-in camera with a border
+and centre cross, so a squashed or mis-inset tile is obvious. The PNGs land in
+`build/qa/studio-overlay/` and the rule is to LOOK at them.
+
+**Four defects, every one of which only a rendered frame could show:**
+
+1. *The scrim was too weak to do its job.* A 0.72→0 vertical ramp left the
+   provenance line at an effective 0.39 alpha over a 240-grey band —
+   unreadable. It is now a three-stop gradient that HOLDS 0.94→0.90 across the
+   type and fades only above it.
+2. *The scrim was full-width and darkened the camera.* In `corner` it dimmed
+   the bottom 40% of the host's face. It now fades to the right as well,
+   erased with `.destinationOut` in the same pass, so it ends where the type
+   does. A scrim exists to make type legible — nothing else.
+3. *`theatre` put the camera strip on top of the lower third,* because the
+   strip was centred and the lower third is bottom-left. The strip is now
+   anchored bottom-RIGHT inside the 5% title-safe margin. `host`'s film tile
+   had the same collision and moved to the top-right.
+4. *`host` drew no film at all.* The renderer always drew film-then-camera, so
+   the full-frame camera painted straight over the film PiP. Z-order now
+   follows the layout (`StudioLayout.cameraIsBackground`).
+
+**And the overlay was not free, twice over.** Caching the text was necessary
+and not sufficient: compositing the cached layer as a full-frame 1920×1080
+RGBA image took the Mac's render mean from **3.40 ms to 9.02 ms** even though
+it never changed and is ~90% transparent. Cropping the CIImage to the rect it
+actually drew into brought it to **4.63 ms** — the overlay's true cost is
+**1.2 ms**, not 5.6. A cached layer still has to be blended; bound its extent.
+
+| 1920×1080@30 | Mac15,3 (M3) | Apple TV 4K 2nd gen (A12) |
+|---|---|---|
+| no overlay | 3.40 ms | 7.03 ms |
+| full-frame overlay composite | 9.02 ms | — |
+| overlay cropped to content | **4.63 ms** | **10.13 ms** |
+
+The overlay's true cost is **1.2 ms on the Mac and 3.1 ms on the A12** — the
+Apple TV, the weakest device the Studio runs on, sits at 30% of its frame
+budget with the film, the composite, the encode, the audio mixer and the lower
+third all running. 0 dropped frames, thermal nominal.
+
+### The go-live sheet, on the glass (2026-09-17)
+
+`GoLiveSheet_iOS` — iOS-DESIGN §8.9. Verified on the iPhone 12 with
+`AW_GOLIVE_DEMO=<archiveID>` and `devicectl device capture screenshot`
+(`build/qa/golive/`).
+
+**The rules came before the shape, and that changed the shape.** The Studio
+looked like a new §3 surface or a `fullScreenCover` of its own — both of which
+iOS-DESIGN §11.4 forbids. Reading the doc first produced the right answer
+instead: the Studio is **the player in a production mode** (§8.8), adding
+camera, layout, faders, health and go-live as §8.5 overlay affordances over
+the same `AVPlayerViewController` and the same resilient asset. §8.2 also had
+to be amended, because it mandates `.playback` and the Studio needs the
+microphone.
+
+**The first screenshot caught the fail-closed path working in the wild.** The
+General (1926) — as clear as a film gets — was REFUSED, with *"This copy has
+no rights verdict in the catalog on this device, so it cannot be streamed.
+Updating the catalog may resolve it."* The phone's cached database is schema 1
+and carries no `rightsBucket` yet. That is §3.4's rule 1 behaving exactly as
+written, on a real device, before any eligible film has ever been offered —
+and it is the behaviour that would otherwise have been impossible to trust.
+
+Two observations from the same frame: the film's meta line reads "1926 ·
+Clyde Bruckman" because the catalog's `director` field holds one name where
+the film has two — the sheet reports the record rather than improving it,
+which is correct. And the disabled primary action sits beside its reason, not
+alone (§5).
+
+### The publisher reaches the platforms from DEVICE hardware (2026-09-17)
+
+macOS proving the protocol does not prove it from a phone or a television:
+different TLS stack, different network path, different service-class handling.
+`AW_STUDIO_PROBE=1` runs the same invalid-key probe from inside the app.
+
+| Device | YouTube RTMPS | YouTube RTMP | Twitch RTMPS | Twitch RTMP |
+|---|---|---|---|---|
+| iPhone 12 (iOS 26.6.1) | ✓ 1.2 s | ✓ 0.3 s | ✓ 0.7 s | ✓ 0.4 s |
+| Apple TV 4K 2nd gen (tvOS 27.0) | ✓ 6.0 s | ✓ 0.3 s | ✓ 0.8 s | ✓ 0.4 s |
+
+"✓" = `connect` **acknowledged**, then refused on the bad key. 4/4 on both.
+Still no credential involved. (The Apple TV's 6.0 s first RTMPS connect is a
+cold TLS session on a box that had just woken; the second is 0.3 s.)
+
+### A process note worth keeping
+
+The `rightsBucket` change was dispatched to CI **before** being run locally,
+and `publish-db` failed. The project's own guard caught it in one line —
+`AssertionError: items tuple has 32 fields, _ITEM_COLS has 31` — and then a
+second site did the same thing again (episodes are materialised into `items`
+by a separate row builder, which still supplied 31). Running
+`python3 tools/build_sqlite.py` locally takes three minutes and would have
+found both before a 40-minute CI run did. A schema change touches every
+producer of that table, and there is rarely only one.
+
+### The Studio's in-player affordances (2026-09-17)
+
+`StudioControls_iOS` — iOS-DESIGN §8.8 in the §8.5 overlay pattern, the same
+capsule shape `EpisodePlayerContainer` already uses. Verified on the iPhone 12
+(`AW_STUDIO_CONTROLS_DEMO=1`, `build/qa/golive/studio-controls2.png`).
+
+**The first version put every health number on one line, and it did not fit.**
+The capsule ran nearly the full width of the screen and collided with the
+shell's own controls; on a smaller phone it would truncate. §4 says health is
+never hidden — but *not hidden* does not mean *all on one line*. The capsule
+now carries **state · bitrate · one warning chip**, and every number lives in
+the sheet's Health section one tap away. Nothing is concealed and it fits.
+
+The warning chip earns its place: the demo deliberately runs the
+frozen-film case, and the sheet says it in words a host can act on — *"The
+film has stopped sending new frames — your audience is seeing a still
+picture. The sound and your camera are unaffected."* That is the failure this
+feature is most exposed to (§9), and it is the one a green dashboard would
+hide.
+
+Each fader carries a **live meter**, not just a slider: a fader whose effect
+you cannot see until the audience has already heard it is not a control.
+
+Also caught on the glass: `Int(x * 100) / 100` is integer maths, and it
+rendered a 10.13 ms render time as "0 ms per frame". `String(format:)`.
+
+**Not yet verified:** the capsule over the REAL player rather than the app
+shell. `AVPlayerViewController`'s own chrome auto-hides, so where the capsule
+can sit without colliding is a question only the wired Studio can answer.
+
+### Wired to the player (2026-09-17)
+
+`StudioPlayerContainer_iOS` hosts the Studio as §8.8 describes: `PlayerView`
+builds and owns the transport exactly as it does for ordinary playback, and the
+engine only adds OUTPUTS to the item it already has. The one addition to
+`PlayerView` is `onPlayerReady`, which hands over the live `AVPlayer` — called
+again on a rebuild, because a Decision-077 copy fallback brings a new player
+exactly as it brings a new SharePlay coordinator.
+
+The Detail entry point is now **one menu named Watch Together with two items**
+(§1): *With friends…* (SharePlay, unchanged) and *With the world…*. The public
+one is always offered, even for a film the audit will not clear — the sheet
+explains why, and a hidden control teaches nothing.
+
+The Studio cover binds to an **item**, not a Bool (§4.4) — the rule that came
+from the black-player race.
+
+**Two build-time findings worth keeping.** Seven inline `onChange` modifiers
+plus a sheet, an overlay, an alert and a task defeated the SwiftUI
+type-checker outright ("unable to type-check this expression in reasonable
+time"), so the body is split into sub-expressions and the control bindings
+live in one `ViewModifier`. That is not a style preference: it is also seven
+places to forget one, replaced by a single `applyControls()`.
+
+### Both branches of the gate, on the device, against a real verdict (2026-09-17)
+
+Schema 2 shipped, the phone was reinstalled clean so it fetched the new
+database, and both paths were screenshot (`build/qa/golive/`):
+
+- **The General (1926)** — the sheet offers the form: "Public domain —
+  published 1926, before 1930" in marquee orange, a title pre-filled from the
+  catalog, privacy, layout, the policy sentence, and **Go Live enabled**.
+- **Voyage to the Planet of Prehistoric Women (1967)** — refused, bucket
+  `renewal_zone_bw`.
+
+**And the refusal leaked its internal name.** The first screenshot read *"The
+rights audit has not cleared this copy for streaming (renewal_zone_bw)"* —
+`explain` had a case for `renewal_zone` but not for its black-and-white
+sibling, so a real bucket fell through to the default and showed a host a
+word from our source code. It now reads *"Films published between 1964 and
+1977 had their copyrights renewed automatically."*
+
+The durable fix is `tools/test_studio_rights_coverage.py`: it enumerates every
+bucket `audit_rights.bucket()` can return, straight out of that file, and
+fails if any lacks a sentence in `StudioRights.explain`. It found **twelve**
+more gaps beyond the one the screenshot caught — `no_evidence`,
+`modern_noyear_risk`, `uploader_cannot_dedicate`, `wrongmatch_bw`,
+`renewed_copyright_classic`, the commercial family, and the rest. A contract
+spanning two languages that agree only by string needs a test that reads
+both; that is Decision 116's lesson, and this is the second time in this
+feature it has applied.
+
+### The platform clients (2026-09-17)
+
+`StudioPlatforms.swift`. Shapes verified against the current documentation
+rather than memory:
+
+| | Call |
+|---|---|
+| YouTube | `POST /youtube/v3/liveStreams?part=snippet,cdn,status` → `cdn.ingestionInfo.{rtmpsIngestionAddress, streamName, …}`; `POST /liveBroadcasts` (title, privacy, `enableAutoStart`); `POST /liveBroadcasts/bind`; `POST /liveBroadcasts/transition`; `GET /liveChat/messages`. Scope `…/auth/youtube`. |
+| Twitch | `GET /helix/users` (resolve the broadcaster id), `PATCH /helix/channels` (title, `game_id`), `GET /helix/streams/key` → `data[0].stream_key`. Scopes `channel:read:stream_key`, `channel:manage:broadcast`. Headers `Authorization: Bearer`, `Client-Id`. Ingest PoPs from the public `ingest.twitch.tv/ingests`. |
+
+Three choices worth naming:
+
+1. **The title is set BEFORE the key is fetched on Twitch.** A stream that
+   goes live under the previous show's title is worse than one that fails to
+   set a category — so the category is best-effort and the title is not.
+2. **YouTube gets `enableAutoStart`/`enableAutoStop`**, so the broadcast goes
+   live when bytes arrive rather than needing a transition the host would have
+   to know about.
+3. **The ingest template's `/{stream_key}` is stripped, not substituted**, and
+   `rtmp://` is upgraded to `rtmps://` — the publisher takes an address and a
+   key separately (§the publisher's own API), and RTMPS on 443 traverses more
+   networks than RTMP on 1935.
+
+`tools/test_studio_platforms.swift` proves what can be proven with **no
+credential**, which is more than it sounds:
+
+```
+✓ Twitch ingest resolves — rtmps://ingest.global-contribute.live-video.net/app
+✓ ingest is RTMPS · carries an app path, not a key placeholder · a backup PoP is offered
+✓ unauthenticated Twitch call is refused — HTTP 401 {"error":"Unauthorized","message":"Invalid OAuth token"}
+✓ unauthenticated YouTube call is refused — HTTP 401 "Request had invalid authentication credentials"
+```
+
+Both platforms answer with **their own readable reason**, which is what a host
+needs to see — not a crash and not a silent empty result.
+
+**The token exchange is deliberately NOT stubbed.** Returning a placeholder
+token would make every caller appear to work and fail at the far end with an
+error nobody could trace. `StudioPlatformAuth.token` reports exactly what is
+missing: an application registered by the account's owner (a Google Cloud
+project with YouTube Data API v3; a Twitch application) and its client id in
+the gitignored `Secrets.xcconfig`, beside the TMDb token. Until then the
+go-live sheet's YouTube and Twitch paths surface that sentence.
+
+**Owner action, and it is the last one.** Everything upstream of the token is
+verified on real hardware.
+
+### Chat in the program (2026-09-17)
+
+The audience, on screen — §2.2's participation test made literal. Chat is
+composited **into the program**, so every viewer sees the conversation, not
+just the host. Rendered over the worst-case stand-in film with deliberately
+awkward fixtures: a message longer than the column, a platform event, a
+Japanese line, an emoji-only line, and a display name longer than its message
+(`build/qa/studio-overlay/chat-*.png`).
+
+Design choices, each for a reason:
+
+- **A pill per message, not a column panel.** A panel is furniture the
+  audience must look past; a pill darkens the film only where there are words.
+- **Newest at the bottom**, the direction every chat client scrolls, so a
+  viewer's eye already knows where a new line appears.
+- **Laid out from the bottom up, stopping when the column is full**, so the
+  OLDEST message falls off. A top-down layout with a height clamp silently
+  drops the newest — which is the only one that must always be visible.
+- **Wrapped by measurement, not character count.** This audience writes in
+  more than one script, and a character budget is not a width.
+- **Events get the marquee colour**, not a badge we would have to fetch.
+- **A separate cache from the lower third.** Chat changes every few seconds
+  and the film's title does not; one key for both would re-lay the title on
+  every message.
+
+**The bug this caught:** in the `side` layout the chat column ran straight
+through the host's face. The camera is vertically centred in the right column,
+so its BOTTOM is `(height − ch) / 2` — and I had used `(height + ch) / 2`, its
+top. In Core Image's coordinate system y grows upward, which is exactly where
+that sign error hides. Every other layout was fine, which is how it would have
+shipped.
+
+**Cost** (Mac, 1920×1080@30): render mean **4.63 → 5.41 ms**, so the chat
+layer is **0.78 ms** — a second cropped composite, not a second full frame.
+
+### The Apple TV as the Studio — Continuity Camera (2026-09-17)
+
+`StudioContinuity.swift`, written against the **tvOS 27 SDK headers** rather
+than memory, and they corrected two things:
+
+1. **The microphone is an `AVAudioSessionPortDescription`, not a capture
+   device.** `AVContinuityDevice` exposes `videoDevices: [AVCaptureDevice]`
+   *and* `audioSessionInputs: [AVAudioSessionPortDescription]`. You select the
+   port with `AVAudioSession.setPreferredInput(_:)`, and a capture device of
+   type `.microphone` then records from whatever the routing subsystem chose —
+   the header is explicit that tvOS exposes exactly one microphone device and
+   "the audio routing subsystem decides which physical microphone to use".
+2. **`AVCaptureDeviceTypeContinuityCamera` IS available on tvOS 17**, so once a
+   phone has been paired a discovery session finds it without the picker. The
+   picker is therefore a **one-time** human step, not a per-show one.
+
+**And this explains §9's tvOS audio failure.** `.playAndRecord` fails on tvOS
+("Session activation failed") because there is nothing to record *from*. Once
+a continuity microphone port exists the category is legitimate — so the
+session is raised only then, and lowered back to `.playback` when the phone
+walks away. What looked like a platform quirk was a missing precondition.
+
+**Verified on the Fireplace Apple TV 4K (2nd gen, AppleTV11,1, tvOS 27.0):**
+
+```
+continuity: none — No iPhone is paired as a camera yet.
+SKIP camera — pair an iPhone once on this Apple TV (the system picker);
+              a paired phone is found automatically afterwards
+WARN no camera available — continuing film-only
+```
+
+`AVContinuityDevicePickerViewController.isSupported` returned **true** on this
+box — the state is `none` (nothing paired), not `unsupported`. That is the
+research doc's central claim about the hardware, now measured rather than
+asserted: **a 2nd-generation Apple TV 4K can be the Studio.**
+
+The coordinator reports and continues film-only rather than hanging or
+failing, the same rule the iOS camera permission follows: a harness must never
+wait on a human, and the owner is never the tester.
+
+### The tvOS rules, and two conflicts that had to be faced (2026-09-17)
+
+Reading `docs/tvOS-DESIGN.md` before building the tvOS surface — the same
+discipline that improved the iOS shape — turned up two rules the Studio
+appeared to break. Neither could be quietly ignored.
+
+1. **§10.2 said "No external auth."** That is a real rule with a real purpose,
+   stated in its own text: *no funnel* — sign-in is optional for browsing and
+   playback and gates only sync. The Studio's YouTube/Twitch sign-in is a
+   different kind of thing: it is not identity for Archive Watch, it authorises
+   publishing to the viewer's **own** channel, it appears only after the viewer
+   has chosen to broadcast a specific film, and it changes nothing about
+   browsing, playback, favorites or sync. §10.2 now says "no external auth
+   **for identity**", and new **§10.2a** states the distinction and the rule
+   that still holds: *the app never asks who you are in order to show you a
+   film.*
+2. **§13 listed "Live/linear broadcast" as out of scope.** That gap is about
+   *receiving* — we do not become a TV tuner. *Producing* one is the opposite
+   direction and is in scope as of Decision 127. The line now says which.
+
+New **§8.8** puts the Studio where iOS §8.8 puts it: the **player plus
+overlays** (§3.7 + §8.1), never a §3.6 mode. It also binds the three things the
+SDK taught us — the picker is full-screen and **one-time**, the microphone is
+an audio-session port, and **no camera is not an error** (a paired phone can be
+asleep or carried away mid-show; the program continues film-only and says so).
+
+And a assumption corrected on the way: **`ASWebAuthenticationSession` IS
+available on tvOS 16+** (checked in the tvOS 27 SDK). I had expected to need
+the OAuth device-code flow for a television; one auth path serves both
+platforms, and on tvOS the system hands off to a nearby device rather than
+asking anyone to type on a remote.
+
+### The tvOS surface (2026-09-17)
+
+**The entry point is the transport menu, not Detail** — and that turned out to
+be better than the iOS flow rather than a compromise. tvOS Detail's action row
+already carries seven buttons inside a 1100pt cap (an eighth truncates the
+Play label), which is why SharePlay lives in the player's menu. The Studio
+joins it as one `UIMenu` named **Watch Together** with *With friends…* and
+*With the world…*. The viewer is already watching when they decide to bring
+the world in, and §8.8's Studio IS this player plus overlays — so nothing is
+presented over anything, and no cover is pushed.
+
+A refusal is an **alert with the sentence plus the policy**, never a missing
+menu item.
+
+`StudioTVHealth` is the ten-foot readout, and it is deliberately not the
+phone's capsule shrunk or stretched:
+
+- **34pt state, 30pt bitrate, 29pt problem line** — §4's 29pt floor is a
+  minimum, not a target, and nobody leans in to read a bitrate on a
+  television.
+- **One problem at a time, in words.** There is no touch target to tap for
+  detail at ten feet, so the readout states the single most important thing
+  wrong ("The film has stopped — your audience sees a still picture") instead
+  of a chip that means nothing across a room.
+- **Inside the 90 × 60 safe area** (§6.1). A television overscans, and a
+  health readout the TV has cropped away is worse than none — the host
+  believes they can see it.
+
+`AW_STUDIO_TV=1` beside `AW_START_ITEM`/`AW_AUTOPLAY` starts the Studio on the
+playing film, for the same reason `AW_START_TAB` exists: driving a transport
+menu blind over a remote is focus luck, not a test. **The dev door still goes
+through `StudioRights`** — a harness that skips the gate is testing something
+the viewer will never run.
+
+**Verified on the glass: the tvOS REFUSAL.** On the Bedroom Apple TV (4K 3rd
+gen, tvOS 27) the alert reads *"This film cannot be streamed / This copy has
+no rights verdict in the catalog on this device… / Only films published before
+1930 can be streamed…"* with a focusable OK — §2.5's rule that no state is
+without a focusable element applies to explanations too. It fired because that
+box still held a **cached schema-1 database**, so the fail-closed rule proved
+itself on a second device unprompted; and the dev door went through
+`StudioRights` rather than round it, which is the whole reason it was written
+that way.
+
+**Verified on the glass: the ten-foot readout** (Bedroom Apple TV 4K, tvOS 27,
+`build/qa/golive/tvos-readout2.png`) — inside the safe area, over the film:
+
+```
+● NOT SENDING   5,499 kbps
+⚠ The show is being made but not sent anywhere — no destination is set.
+```
+
+**And the first capture found a real bug.** The readout originally said
+**`IDLE 5,486 kbps`** — it was reporting the PUBLISHER's state as though it
+were the SHOW's. With no destination the publisher never leaves `.idle`, which
+is true of the publisher and a lie about the program: the engine was
+compositing and encoding 5.5 Mbps at that moment. A host making a show that
+goes nowhere must be TOLD that, not told nothing is happening.
+`StudioHealth.showState` now answers the host's question rather than the
+transport's — `OFF · NOT SENDING · CONNECTING · LIVE · OFFLINE · ENDED`, each
+with a sentence where there is room for one — and both platforms read the same
+words from the same place. **A number can be correct and still mislead; which
+question it answers is part of its correctness.**
+
+**Two instrument failures, recorded because they will cost the next session an
+hour otherwise:**
+
+1. *`devicectl device capture screenshot` fails outright on the Fireplace box*
+   — `CoreDeviceError 3` / "The connection was invalidated" / no file written —
+   while `process launch` on the same device works. It is the screenshot
+   service, not the connection.
+2. *A launch can come up BACKGROUNDED*, showing the Apple TV Home screen while
+   the console proves the app is running and building its player. The harness
+   memory already records this as the doze-window failure; a Companion press
+   before launching did not cure it.
+
+And one error of my OWN, worth more than either: I grepped a capture for its
+success line, got nothing, and carried on — then read a **stale file from an
+earlier capture** and reasoned about it as though it were current. The clock in
+the image was the tell. A capture step must delete its target first and assert
+the file exists afterwards; anything less is an instrument that lies quietly.
+That is Decision 116's lesson wearing different clothes — and
+`tools/atv_shot.sh` is the fix: it removes the target, captures, and REFUSES
+unless a new file exists and is under a minute old. The class of error is
+closed, not just this instance. Reading stale evidence and reasoning about it
+as current is not a mistake care prevents; it needs an instrument that cannot
+do it.
+
+### The ten-minute soak (§8.3) — iPhone 12, 2026-09-17
+
+```
+120s  fps=30 render=9.10ms overruns=1 drops=0 thermal=nominal
+240s  fps=30 render=9.12ms overruns=1 drops=0 thermal=nominal
+360s  fps=30 render=9.14ms overruns=1 drops=0 thermal=nominal
+480s  fps=30 render=9.14ms overruns=1 drops=0 thermal=nominal
+600s  fps=30 render=9.14ms overruns=1 drops=0 thermal=nominal
+SUMMARY mean=30.2fps worst=30.0fps filmFrames=18012 render=9.14ms
+        overruns=1 dropped=0 thermal=nominal
+```
+
+**No drift.** Render mean is flat at 9.14 ms from two minutes onward, 18,012
+film frames pulled, **0 dropped**, the single overrun is the warm-up, and the
+thermal state never left nominal on the oldest phone the app supports. §8.3 is
+satisfied on iOS.
+
+### A harness that ran in someone's living room (2026-09-17)
+
+**The incident.** Verifying the tvOS surface meant launching the app on the
+owner's Apple TVs with `AW_AUTOPLAY=1`. The film played **unmuted** and an
+Apple TV routes audio to every HomePod in the house. It ran for about an hour
+before the owner asked why movie music was playing across their home.
+
+Two faults, and neither was carelessness in the moment:
+
+1. **The tvOS dev door had no end.** It started the engine and polled until
+   `studioFilm` went nil, and *nothing set it nil* once a screenshot had been
+   taken. `StudioLab` has always had `AW_STUDIO_SECONDS` and torn itself down;
+   the tvOS door was written without the equivalent.
+2. **Device runs defaulted to AUDIBLE.** That default was chosen on purpose in
+   the Mac harness — a muted player is the obvious way to measure silence and
+   call it a working audio path (§9) — and then carried onto hardware that
+   lives in a home.
+
+**Three fixes, because an intention is not a safeguard:**
+
+- `AW_STUDIO_TV_SECONDS` (default **180**) bounds the tvOS door, which then
+  clears the film and unmutes. It cannot outlive the person using it.
+- The dev door **mutes the room** (`player.isMuted = true`). It costs the
+  measurement nothing real: the broadcast's film level is
+  `StudioAudioMixer.filmGain`, never the player's mute (§5).
+- `StudioLab` is **muted by default**; `AW_STUDIO_AUDIBLE=1` asks for sound
+  and the log says so, so an audible run is always deliberate.
+- `tools/atv_teardown.sh` terminates the app **by pid** (`process terminate`
+  takes `--pid`, never a bundle id — a wrong flag prints usage and reads like
+  success) and powers the box back off, failing loudly if it does not.
+
+Verified: a 45-second bounded run played **silently**, showed `NOT SENDING
+4,722 kbps`, and had already exited by the time teardown looked for it.
+
+**The general rule, and it is the third time this feature has taught it:**
+`atv_shot.sh` exists because care does not stop you reading a stale file;
+`atv_teardown.sh` exists because care does not stop you leaving a film
+playing in someone's house. When a harness reaches into the physical world,
+cleanup is a step with an assertion — not a habit.
+
+### The sign-in flows, proven before there was a client id (2026-09-17)
+
+The owner's remaining work is pasting two strings. The risk that creates is
+that every defect in the request shapes surfaces at once, on the owner's own
+account, in a flow that cannot be stepped through. So everything that does not
+depend on a client id was checked first — `tools/test_studio_signin.swift`,
+**26 checks, all passing**. It compiles the REAL source files rather than
+restating their logic.
+
+**PKCE against an INDEPENDENT reference.** RFC 7636 Appendix B publishes a
+verifier and the challenge it must produce, and the RFC predates this code, so
+it cannot be a golden file of our own making (the Decision 119 rule):
+
+    verifier   dBjftJeZ4CVP-mB92K27uhbUJU1p1r_wW1gFWFOEjXk
+    challenge  E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM   MATCH
+
+Plus 200 generated verifiers: all base64url-clean (no `+`, `/` or `=` — base64
+produces all three and an authorization server rejects them), all 43–128
+characters per §4.1, all distinct.
+
+**The live shape checks, with deliberately invalid credentials.** This is the
+part that could not be done any other way. A platform that rejects our
+CREDENTIAL has accepted our REQUEST, and the two failures read completely
+differently:
+
+    POST id.twitch.tv/oauth2/device    400  {"message":"invalid client"}
+    POST oauth2.googleapis.com/token   401  {"error":"invalid_client",
+                                              "The OAuth client was not found."}
+
+Neither says "missing required parameter", which is what a wrong shape earns.
+**And the discriminator is negative-controlled**, because a guard on a rule's
+consequence is not a guard on the rule (Decision 120): the same Google request
+with `grant_type` removed answers `unsupported_grant_type` — a REQUEST fault,
+and not `invalid_client`. So the check can tell the two apart.
+
+**Four defects the screen found that no check could.** The sheet was rendered
+on an iPhone 12 through `AW_GOLIVE_DEMO` on two different films (*The Wedding
+March* 1915, then *Japanese Varieties* 1904):
+
+1. **"Signing in to Youtube"** — `rawValue.capitalized`, two lines above a
+   hand-written "YouTube" in the same section. A brand name is not a word to
+   capitalise; `Platform.displayName` now holds each platform's own spelling.
+2. **The wrench icon was accent blue.** A `Label` in a `List` takes the
+   accent tint, so a statement of fact read as a button. CLAUDE.md's brand
+   split reserves `#0047FF` for things you can press.
+3. **The footer contradicted the row above it** — "You will be asked to sign
+   in to YouTube once" sitting two lines under "Sign-in is not set up". Two
+   adjacent sentences disagreeing is worse than either alone.
+4. **Go Live was still pressable** with no client id, and would have failed
+   inside `StudioPlatformAuth`. It is now disabled — which is not §5's
+   unexplained disabled control, because the reason is on screen directly
+   above it.
+
+### The Apple TV ten-minute soak FAILED at 293 seconds (2026-09-17)
+
+§8.3 is **not** satisfied on tvOS. The run is worth reading in full because
+what broke is not the number, it is the instrument:
+
+```
+ 43s  fps=30 film=25 enc=30 render=7.70ms overruns=31  drops=0 kbps=5389 thermal=nominal
+120s  fps=31 film=26 enc=30 render=7.54ms overruns=75  drops=0 kbps=6294 thermal=nominal
+240s  fps=31 film=26 enc=30 render=7.60ms overruns=144 drops=0 kbps=5347 thermal=nominal
+292s  fps=32 film=27 enc=6  render=7.66ms overruns=165 drops=0 kbps=298  thermal=nominal
+293s  fps=35 film=29 enc=0  render=7.66ms overruns=166 drops=0 kbps=2    thermal=nominal
+360s  fps=31 film=25 enc=0  render=7.64ms overruns=166 drops=0 kbps=2    thermal=nominal
+600s  fps=31 film=25 enc=0  render=7.58ms overruns=166 drops=0 kbps=2    thermal=nominal
+SUMMARY mean=30.2fps worst=29.0fps filmFrames=15075 render=7.58ms
+        overruns=166 dropped=0 thermal=nominal
+```
+
+**Encoding stopped at 293 seconds and the run reported a healthy show for the
+remaining 307 — then summarised itself as a pass.** Render held 7.58 ms, the
+film kept arriving at 25 fps, `drops=0`, thermal nominal. mediamtx's own log
+shows the TCP connection **staying open the whole time** and closing only at
+16:06:23, i.e. when the run ended — so the publisher had nothing to report
+either, and `lastError` was never set. Nothing anywhere said a word.
+
+**Why nothing knew.** Both of VideoToolbox's statuses were being discarded:
+`VTCompressionSessionEncodeFrame`'s return value entirely, and its callback's
+behind `guard status == noErr, let sample else { return }`. The one component
+that knew what had happened threw it away, which is the §9 "two faults"
+lesson arriving a third time — a program can look perfect and carry nothing.
+
+**What changed, before any attempt at a root cause** (the repo's debugging
+rule: observability first, and this is unobservable as it stands):
+
+- `H264Encoder` records both statuses — the raw OSStatus included, because
+  `kVTInvalidSessionErr` (-12903) and `kVTVideoEncoderMalfunctionErr`
+  (-12361) mean different things and only one is fixable by restarting the
+  session.
+- `ProgramRenderer` counts pixel-buffer **pool** failures separately. An
+  exhausted pool and a malfunctioning encoder present identically — frames
+  stop — and need opposite fixes, so the next run will not have to guess.
+- `StudioHealth` gains `encodedFramesPerSecond` (a RATE; a total that stops
+  climbing is invisible to anyone not differencing it, which is precisely
+  what the readout was not doing) and a new show state **`notEncoding`**,
+  checked BEFORE the publisher because this is the failure that looks
+  healthiest. It is deliberately cause-agnostic: it fires for an encoder
+  malfunction, an exhausted pool, or anything else.
+- Both readouts say it — the iOS capsule as a warning and in the sheet's
+  Health section, the tvOS ten-foot readout through `showState.detail`.
+- **`StudioLab` now FAILS the run at the second it happens** and can no
+  longer print a passing SUMMARY over a stall.
+
+**Not yet known**: what stops the encoder at ~293 s. It is not thermal
+(nominal throughout) and not back-pressure (`drops=0`, socket open). The next
+soak names its own cause, which is the point of the change above.
+
+**Process note.** This soak began on the Fireplace Apple TV — the only 4K
+**2nd generation** on the bench, i.e. the Studio's hardware floor — and the
+owner stopped it: *"Stop using the fireplace tv for testing. I'm actively
+watching on it now."* It was terminated on the spot and the box deliberately
+NOT powered off. Both remaining Apple TVs are 3rd generation, so **the figures
+above are not the floor** and must not be read as it; 7.58 ms here against
+10.70 ms on the 2nd gen. A floor re-run needs a window the owner offers.
+
+### The 291-second stall, diagnosed and fixed — and §8.3 now PASSES on tvOS (2026-09-17)
+
+**Cause: tvOS's screen saver invalidates the VideoToolbox session.** The new
+instrumentation named it on the first re-run:
+
+```
+FAIL the encoder stopped at 291s — film still arriving at 28 fps,
+     fault=the encoder refused a frame (submit -12903) poolFailures=0
+ENCODER framesEncoded=8768 encodedBytes=162172411 stalledAt=291
+     mem=278MB avail=1820MB          (flat, every sample)
+```
+
+`-12903` is `kVTInvalidSessionErr`: the session was not struggling, it was
+**gone**. Reproduced at 293 s and then 291 s — both just under the Apple TV's
+five-minute default "Start Screen Saver After". tvOS takes the display, and
+taking the display invalidates the compression session; every subsequent
+`VTCompressionSessionEncodeFrame` returns -12903 forever.
+
+**My hypothesis was wrong and the instrument said so.** The leading theory was
+memory: 6 Mbps for 293 s is ~220 MB if anything accumulates, and
+`Task { await publisher.send(video:) }` spawns one unstructured, unbounded
+task per encoded frame (~73/s with audio), which looked like exactly the
+right kind of mistake. Memory was **flat at 278 MB with 1.8 GB free** for the
+whole run, and `poolFailures=0`. Worth recording because the plausible story
+was ready before the measurement, and would have produced a real refactor of
+something that was not broken.
+
+**The fix is one line that was already a RULE.** §6.3 has said
+"`UIApplication.isIdleTimerDisabled` while live" since the doc was written. It
+was implemented only in `StudioLab`, and there behind `#if os(iOS)` — so the
+one platform whose screen saver kills the encoder never got it, **and the real
+Studio never got it on either platform**. It now lives in
+`StudioEngine.start()` / `stop()`, guarded on `canImport(UIKit) && !os(macOS)`
+rather than on a platform name, which is what the original guard got wrong.
+
+**A rule implemented in the test harness is not implemented.** That is the
+lesson, and it is the same shape as Decision 120's (a guard on a rule's
+consequence is not a guard on the rule). The harness is where a rule gets
+*exercised*; the product is where it has to *live*.
+
+**§8.3 satisfied on tvOS** — ten minutes, Apple TV 4K **3rd** gen, the same
+film and settings as the failing run so only the fix varied:
+
+```
+120s  fps=31 film=26 enc=31 render=7.96ms drops=0 kbps=6793 thermal=nominal
+240s  fps=30 film=25 enc=31 render=7.95ms drops=0 kbps=5559 thermal=nominal
+291s  fps=30 film=25 enc=30 render=7.98ms drops=0 kbps=1360 thermal=nominal
+300s  fps=30 film=25 enc=30 render=7.98ms drops=0 kbps=2969 thermal=nominal
+420s  fps=30 film=25 enc=30 render=7.99ms drops=0 kbps=1769 thermal=nominal
+600s  fps=30 film=25 enc=30 render=8.01ms drops=0 kbps=5933 thermal=nominal
+SUMMARY mean=30.2fps worst=30.0fps filmFrames=15096 render=8.01ms
+        overruns=287 dropped=0 thermal=nominal
+ENCODER framesEncoded=18144 encodedBytes=360702879 fault=none
+        poolFailures=0 stalledAt=never
+```
+
+Straight through 291 s with `enc=30`, 18,144 frames encoded, 360 MB of
+program, memory flat at 249 MB, render drifting 7.96 → 8.01 ms over ten
+minutes (0.6%), 0 dropped. **Still not the hardware floor** — this is a 3rd
+gen; the 2nd-gen run is booked for the owner's 3:00 pm MT window.
+
+**NOT built, deliberately: recovery from a lost session.** The Studio does not
+restart the encoder on -12903, and that is a scope call rather than an
+oversight. The only route to a lost session we know of is the display being
+taken, and §6.3 already rules that a backgrounded Studio **ends the show with
+an end card** rather than limping — so the remaining case is covered by policy,
+not by a restart. A mid-stream restart also means re-sending the avcC sequence
+header on a live RTMP stream, which not every ingest accepts. What the Studio
+now does instead is SAY so: `notEncoding` reaches both readouts within a
+second.
+
+### The camera tile's cost, measured at last — on the Mac (2026-09-17)
+
+This was the last Phase 0 number, and it had been sitting behind a permission
+grant on the iPhone and the Apple TV. It did not need to: **this Mac has a
+FaceTime HD camera and a microphone, both already TCC-authorised.** The
+harness's own header said "No camera: ... on the Mac there may not be one" —
+written before anyone looked, which is the same failure mode as every stale
+claim in this file.
+
+A/B, same film (*The Curse of Quon Gwon*, 1916 — 1080p30, `corner` layout,
+Mac15,3 / 8 cores / macOS 27.0), the camera tile at 1280x720 because the tile
+is never full-frame:
+
+```
+                       render mean        runs
+  no camera            6.47 / 6.62 / 6.66 ms
+  camera + microphone  7.20 / 7.24 ms
+```
+
+**The camera tile costs ~0.73 ms per frame — about 11%, and 2.2% of a 33.3 ms
+budget.** The claim it was standing in for ("a camera tile is a cheap
+composite next to a 1080p film decode") is correct, and now has a number. 30.1
+fps mean and 0 dropped frames in every run, with and without.
+
+### The audio finding the A/B exposed, which is what made it worth running
+
+The runs without a camera reported `padded 3316` — **twice, identically** —
+and the runs with one reported `padded 0`. A number that is bit-identical
+across runs and then vanishes when an unrelated device is attached is not
+jitter; it is a race.
+
+It was the mixer starting into an empty ring. The ticker runs on its own
+1024/44100 s clock, which is right and is what keeps the program's audio at a
+constant rate — but it began the instant `start()` was called, before the film
+tap had delivered anything, so the **opening chunks of every broadcast were
+padded with silence**. 3,316 samples is 1,658 frames, ~38 ms. It was zero in
+the camera runs only because setting the camera up delayed the start enough
+for the ring to prime.
+
+`StudioAudioMixer.tick()` now holds off until the film has actually delivered
+a packet, bounded to ~30 ticks (0.7 s) so a film with **no** audio track still
+gets a running, silent program rather than waiting forever.
+
+**And the fix is partial, which is the honest result.** After it, the same run
+reports `padded 588` and `padded 1902` — down from a fixed 3,316, but no
+longer deterministic, which means the remainder is *genuine jitter* in the
+film tap's delivery against the mixer's fixed clock, not a startup artifact.
+7–22 ms of scattered silence across 45 seconds (~0.04% of the audio).
+
+**Not fixed further, deliberately.** The obvious next step is a real jitter
+buffer — prime to three or four packets and let the cushion absorb the
+variance instead of padding. That buys silence-free audio at the cost of
+~70–90 ms of added audio latency, and A/V alignment was measured at **10 ms**
+over 15 s (§9 above). Trading a 10 ms sync figure for a 90 ms one to remove
+0.04% of inaudible padding is the wrong trade. Padding IS the jitter absorber
+here, chosen over latency on purpose — written down so the next person does
+not "fix" it into a lip-sync bug.
+
+### Phase 2 begins — the Studio on macOS, and the rights gate on the glass (2026-09-17)
+
+Rules first: **macOS-DESIGN §B13** (a–f), which is entirely consequences of
+§B2a and §B3a rather than new ideas. The load-bearing one is §B13a — on macOS
+the player **replaces the split view as the window root**, so the Detail view
+that offered "go live" is *gone* by the time an `AVPlayer` exists. tvOS
+presents its player as a cover from Detail and can hold the engine there; the
+Mac cannot.
+
+`Studio/StudioSession.swift` is the answer: one `@Observable @MainActor`
+session owns the show, Detail **arms** it (applying the rights gate before
+anything plays), and the player surface hands it the player it just built. It
+holds one show, because a device produces one show at a time.
+
+- **The menu is now the owner's framing, literally.** Detail's "Watch
+  Together…" was SharePlay only; it is a submenu with **With Friends…**
+  (SharePlay, Decision 098) and **With the World…** (the Studio, Decision
+  127). A submenu, not two peer rows, because the choice a host makes is "who
+  is this for", not "which feature".
+- **§B13e: the camera needs an ENTITLEMENT on macOS**, unlike the phone —
+  `com.apple.security.device.camera` plus `NSCameraUsageDescription`, both now
+  present. Worth stating plainly: the +0.73 ms camera figure above was taken
+  with an **unsandboxed command-line harness**, which is exactly why it worked
+  before the entitlement existed. A sandboxed Mac app without it gets a TCC
+  denial that looks like "there is no camera" — the same trap §B12 already
+  records for `device.microphone`.
+- **Closing the window ends the show.** A broadcast must never outlive the
+  surface producing it; that is how a harness ended up playing into someone's
+  living room.
+- **`AW_STUDIO_MAC=1`** arms the Studio and plays, so §B13d's readout can be
+  seen without clicking (§B11's own reason: SwiftUI exposes no scriptable
+  menu). Bounded — 120 s default — and it mutes **both** the program's film
+  bus and the local player, because those are different things and only one of
+  them is what a person in the room hears.
+
+**On the glass, and it found something.** `The Curse of Quon Gwon` (1916) on
+this Mac refused with *"This copy has no rights verdict in the catalog on this
+device, so it cannot be streamed. Updating the catalog may resolve it."* —
+alert rendering correctly with the reason **and** the policy beneath it.
+
+That refusal was **correct and not the expected branch**. The published DB says
+that film is `safe_pd_age`, 1916, `silent-film` — fully eligible. The Mac's
+*cached* DB is schema 1, so `rightsBucket` came back nil and the gate refused
+an unknown verdict, exactly as §3.4 requires. That is the third platform on
+which the schema-1 guard has proven itself unprompted.
+
+The published DB was verified directly rather than assumed, since a missing
+column there would gate the feature off on every device:
+
+```
+schemaVersion = 2      items columns = 32      rightsBucket present
+presumed_pd 11253 · safe_pd_age 4236 · (null) 2765 · safe_gov 2648
+renewal_zone 1333 · safe_archive_license 1233 · renewal_zone_bw 906
+eligible for the Studio (guaranteed tier): 4210
+```
+
+4,210 — the same figure counted from `catalog.json` back when the tier was
+chosen, now confirmed from the artifact the clients actually read.
+
+### The whole chain, proved from the SHIPPING macOS app (2026-09-17)
+
+Everything before this was measured by a harness. This is the app.
+
+The macOS Studio published to a local `mediamtx` (`AW_STUDIO_DEST`, a
+diagnostic door — never a product path) and a frame was pulled back with
+ffmpeg. **The program carries all three layers**: the 1916 film aspect-fit and
+letterboxed, the Mac's FaceTime camera composited as the corner tile, and the
+lower third reading *The Curse Of Quon Gwon / 1916 · Marian E. Wong / PUBLIC
+DOMAIN — PUBLISHED 1916, BEFORE 1930* in marquee orange.
+
+**Why it had to be done this way.** On macOS the window shows the plain film
+through `AVPlayerView`; the PROGRAM only exists as encoded bytes. No
+screenshot of the app can ever show whether the camera tile and overlays are
+really in the broadcast — the only honest check is to publish and look at what
+comes back. It also confirms `com.apple.security.device.camera` works in the
+sandbox: without the entitlement a sandboxed app finds no camera at all, which
+is indistinguishable from having none (§B13e).
+
+### The macOS control panel, and what the glass changed about it (2026-09-17)
+
+§B13c called for "a `Form` in a sheet". Built, and then fixed twice by looking
+at it:
+
+1. **Six health rows pushed the Sound faders below the fold.** A sheet cannot
+   grow past its parent window, so the controls a host actually reaches for
+   mid-show were invisible on open. Health is now two compact rows — and
+   nothing is hidden, because the always-on readout (§B13d) carries the state,
+   the bitrate and the problem sentence. What belongs in the panel is only
+   what the readout has no room for.
+2. **A five-option radio group is chrome.** macOS uses a pop-up button for an
+   exclusive choice of that size; the radio group cost five rows to say one
+   thing. Same for the cards.
+
+After both, everything a host needs mid-show fits without scrolling: health,
+layout, and both faders with their live meters. **The microphone meter showed
+a real level in the shipping app**, which is the mic path verified outside a
+harness for the first time.
+
+One shared-code fix fell out of it: `StudioLayout.label` — the user-facing
+names — lived inside `GoLiveSheet_iOS.swift` behind `#if os(iOS)`, so the Mac
+panel could not see it. The tempting fix is a second copy, which is exactly
+how two platforms end up calling the same layout different things. It now
+lives once, beside the enum it names.
+
+### Still to measure (Phase 0 remainder)
+
+- The camera tile's and microphone's cost **on the phone and the Apple TV** —
+  still blocked on a one-time camera + microphone grant there, and on
+  Continuity pairing for the TV. **Measured on the Mac** (above): +0.73 ms per
+  frame. The phone number is expected to be larger and is worth having, but
+  the architectural question the measurement existed to answer is answered.
+- Sign-in on a TELEVISION. `ASWebAuthenticationSession` presents itself on
+  tvOS with no anchor; that screen cannot be seen until a client id exists
+  (Decision 128). The **not-configured** state IS built and verified (tvOS-
+  DESIGN §10.2b): the transport menu says "Streaming is not set up yet" and
+  names both platforms.
+- A ten-minute soak on the Apple TV (§8.3). The iPhone 12's is above.
+
+The four bullets that used to sit here — the real destinations, the audio
+path, the camera tile's cost, and the iPhone soak — are measured, and their
+results are the sections above. They are deleted rather than left standing
+because a stale "still to do" is how Decision 121 got written.
