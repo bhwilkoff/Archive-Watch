@@ -717,6 +717,32 @@ struct PlayerScreen: View {
         let engine = studioEngine ?? StudioEngine()
         studioEngine = engine
         await engine.attachFilm(player: p)
+
+        // WHY THE TELEVISION WAS SILENT (§9.jjjj). `FilmAudioTap.attach` needs
+        // an `AVAssetTrack`, and an HLS asset vends none — Decision 106 makes
+        // tvOS play the film as HLS from the LocalMediaServer, so the tap
+        // declines and its `false` is recorded as "this film has no audio",
+        // which is a real case in a silent-cinema catalog. Measured here rather
+        // than inferred: the URL scheme, the track count, and the verdict.
+        // Ask the SOURCE whether this film has sound at all. It is the only
+        // way to tell a silent film from one whose audio we simply cannot
+        // reach, and those need opposite responses from a host.
+        var sourceHasAudio: Bool?
+        if let src = film.downloadURL.flatMap(URL.init(string:)) {
+            let tracks = try? await AVURLAsset(url: src).loadTracks(withMediaType: .audio)
+            sourceHasAudio = tracks.map { !$0.isEmpty }
+        }
+        if let problem = await engine.filmAudioProblem(sourceHasAudio: sourceHasAudio) {
+            studioAudioProblem = problem
+        }
+        if let item = p.currentItem {
+            let url = (item.asset as? AVURLAsset)?.url
+            let n = ((try? await item.asset.loadTracks(withMediaType: .audio)) ?? []).count
+            awdiag("AWAUDIO filmHasAudio=%@ playedTracks=%d sourceHasAudio=%@ scheme=%@ path=%@",
+                   await engine.filmHasAudio ? "true" : "false", n,
+                   sourceHasAudio.map { $0 ? "true" : "false" } ?? "unknown",
+                   url?.scheme ?? "?", (url?.pathExtension ?? "?"))
+        }
         await engine.setLayout(.corner)
         var o = StudioOverlay()
         o.title = film.title
@@ -741,13 +767,8 @@ struct PlayerScreen: View {
         // The film's title and subtitle stay; only the rights line goes. The
         // fuller statement still travels with the show in the platform's own
         // description, where `StudioGoLive.description(for:)` puts it.
+        // The countdown starts when the STREAM does — see the health loop below.
         let introOverlay = o
-        Task { @MainActor in
-            try? await Task.sleep(nanoseconds: 20_000_000_000)
-            var later = introOverlay
-            later.provenance = ""
-            await engine.setOverlay(later)
-        }
 
         // The camera, if a phone has been paired. NOT an error when absent
         // (§8.8): a paired phone can be asleep or carried away mid-show.
@@ -820,6 +841,11 @@ struct PlayerScreen: View {
         #endif
 
         var lastFilmFrames = 0
+        // When the provenance line came up, measured from the moment the show
+        // actually reached the wire.
+        var liveSince: Date?
+        var provenanceShowing = !introOverlay.provenance.isEmpty
+
         while !Task.isCancelled, studioFilm != nil {
             try? await Task.sleep(nanoseconds: 1_000_000_000)
             await engine.refreshHealth()
@@ -827,6 +853,35 @@ struct PlayerScreen: View {
             studioFilmFPS = max(0, h.filmFramesPulled - lastFilmFrames)
             lastFilmFrames = h.filmFramesPulled
             studioHealth = h
+
+            // THE FIRST TWENTY SECONDS OF THE STREAM, not of the engine.
+            //
+            // The owner caught this: "you have to know when the stream goes
+            // live to know when the first 20 seconds will be." The first
+            // version slept 20 s from `engine.start`, which is the wrong
+            // instant — §9.tt measured ~12 s between starting and the first
+            // published packet (mostly the film loading, then the handshake
+            // and the opening keyframe). So most of the window was spent
+            // before anyone could see it, and a viewer who joined at the top
+            // of the stream might get four seconds of provenance or none.
+            //
+            // `showState == .live` is true only when the publisher is
+            // PUBLISHING to a destination, so the clock now starts where the
+            // audience does.
+            if provenanceShowing {
+                if h.showState == .live {
+                    if let since = liveSince {
+                        if Date().timeIntervalSince(since) >= 20 {
+                            provenanceShowing = false
+                            var later = introOverlay
+                            later.provenance = ""
+                            await engine.setOverlay(later)
+                        }
+                    } else {
+                        liveSince = Date()
+                    }
+                }
+            }
 
             // A show that ENDS ITSELF says why (§6.5's `.critical`, §6.6's
             // expired deadline). `endedReason` was written by the engine and
@@ -916,6 +971,9 @@ struct PlayerScreen: View {
     @State private var studioEngine: StudioEngine?
     @State private var studioHealth = StudioHealth()
     @State private var studioFilmFPS = 0
+    /// Set when the film HAS sound that is not reaching the broadcast (§9.jjjj).
+    /// Shown on the readout, never swallowed (§5).
+    @State private var studioAudioProblem: String?
     @State private var fallbackProbe: Task<Void, Never>?
     @State private var sysCapProbe = SystemCaptionProbe()   // AW_SYSCAP_PROBE=1 only
     @State private var skipCount = 0         // #7: bound auto-skips in a broken lineup
@@ -1095,7 +1153,8 @@ struct PlayerScreen: View {
         }
         .overlay(alignment: .topLeading) {
             if studioFilm != nil {
-                StudioTVHealth(health: studioHealth, filmFramesPerSecond: studioFilmFPS)
+                StudioTVHealth(health: studioHealth, filmFramesPerSecond: studioFilmFPS,
+                               audioProblem: studioAudioProblem)
             }
         }
         .task(id: studioFilm?.archiveID) {

@@ -1618,6 +1618,63 @@ the audio path, the real ingest hosts with no credential, the overlay and
 go-live surfaces on the glass, the rights gate on device, and the platform
 clients. **→ `docs/watch-together-measurements.md`**
 
+### §9.jjjj tvOS broadcasts have NO AUDIO — HLS vends no tracks, and a silent film hid it for weeks (2026-09-18)
+
+The owner asked for an audio test. It found that **every tvOS broadcast has gone
+out silent**, and the reason every earlier check missed it.
+
+**The measurement.** Blood and Sand (1922), a scored silent whose source reads
+**mean −15.1 dB**, broadcast from the Apple TV to a local mediamtx. The
+recording, read back:
+
+    mean_volume: -91.0 dB      max_volume: -91.0 dB
+    astats:  Peak level -inf   RMS level -inf
+
+`max == mean` is a single repeated sample: digital silence. The AAC track is
+present with the right rate and channels, carrying nothing.
+
+**Why nobody saw it.** Three instruments agreed and all three were blind:
+
+  - the readout says `audio: Playback/MoviePlayback active`, which describes the
+    audio SESSION, not the content;
+  - the server reports `recording 2 tracks (H264, MPEG-4 Audio)`, which is true
+    of a silent track;
+  - **every tvOS test used a silent film.** Crossroads (1928), the title used
+    for the go-live work, is itself digitally silent at the source (−90.3 dB),
+    so an empty audio track looked exactly correct.
+
+**The cause, measured on the device rather than reasoned:**
+
+    AWAUDIO filmHasAudio=false playedTracks=0 sourceHasAudio=true
+            scheme=http path=m3u8
+
+`FilmAudioTap.attach` needs an `AVAssetTrack` to hang an `AVMutableAudioMix` on.
+Decision 106 plays the film on tvOS as **HLS** from the LocalMediaServer (tvOS 27
+loses the audio of a non-fragmented mp4), and **an HLS asset vends no asset
+tracks** — `loadTracks(withMediaType: .audio)` returns an empty array. So the
+tap declines, and `attach` returns `false`.
+
+**And `false` meant two opposite things.** The call site's own comment says "a
+film with no audio track is a REAL case in this catalog (silent cinema), so a
+false return is recorded, never treated as a failure" — which is correct for a
+silent film and catastrophic for a film whose audio we simply cannot reach. One
+boolean carried both, so the second was invisible. macOS and iOS play a
+progressive MP4 through the resilient loader, whose asset DOES vend tracks,
+which is why their audio was measured working and the television's never was.
+
+**Fixed in this change: the two are separated.** `filmAudioProblem(sourceHasAudio:)`
+asks the SOURCE whether the film has sound at all, and only then calls the tap's
+refusal a problem. The readout carries it above the dropped-frames note, because
+an audience that hears nothing is worse off than one seeing a few dropped
+frames. A genuinely silent film still says nothing, which is right.
+
+**NOT fixed yet: the audio itself.** Separating the cases makes the failure
+visible; it does not put sound on the wire. The options are a second reader over
+the source's audio track timed to the player's clock (the muted-scout shape of
+Decision 071), or a playback path on tvOS that vends tracks — and the second
+runs straight into Decision 106, which exists because the alternative has no
+audio at all locally. That is the next piece of work.
+
 ### §9.iiii THE FIRST REAL BROADCAST — an Apple TV went live on Twitch, and the uplink is the next problem (2026-09-18)
 
 The owner: *"These are testing accounts. Feel free to broadcast as you see fit

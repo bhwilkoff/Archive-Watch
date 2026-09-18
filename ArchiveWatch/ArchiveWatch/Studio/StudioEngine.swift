@@ -442,6 +442,27 @@ public actor StudioEngine {
     /// True when the film actually had an audio track to tap.
     public var filmHasAudio: Bool { audioAttached }
 
+    /// Why the film's audio is NOT on air, or nil when it is (or when the film
+    /// is genuinely silent).
+    ///
+    /// `attach` returns false for two completely different reasons and the
+    /// engine could not tell them apart: a silent film — a real and common case
+    /// in a public-domain catalog — and an asset that vends no tracks to tap.
+    /// tvOS is always the second (§9.jjjj): Decision 106 plays the film as HLS,
+    /// an HLS asset has no `AVAssetTrack`s, `AVMutableAudioMix` therefore has
+    /// nothing to attach to, and every television broadcast went out in
+    /// silence while the readout said "audio: active" — because that line
+    /// describes the audio SESSION, not the content.
+    ///
+    /// The caller passes what it knows about the SOURCE, which is the only way
+    /// to separate the two.
+    public func filmAudioProblem(sourceHasAudio: Bool?) -> String? {
+        guard !audioAttached else { return nil }
+        guard sourceHasAudio == true else { return nil }   // genuinely silent, or unknown
+        return "The film's audio is not being sent — this copy plays as HLS, "
+            + "which cannot be tapped. The picture is unaffected."
+    }
+
     /// Why the film is not arriving, for the diagnostic line. Cheap enough to
     /// read once a second and the only way to tell "the player is not playing"
     /// from "the output has no buffer for this time".

@@ -16,6 +16,9 @@ import SwiftUI
 struct StudioTVHealth: View {
     let health: StudioHealth
     let filmFramesPerSecond: Int
+    /// The film HAS sound and it is not reaching the broadcast (§9.jjjj).
+    /// Distinct from a silent film, which is normal here and says nothing.
+    var audioProblem: String? = nil
 
     private var isLive: Bool { health.showState.isOnAir }
 
@@ -27,6 +30,10 @@ struct StudioTVHealth: View {
         if health.thermalState == "critical" { return "This Apple TV is too hot to keep streaming" }
         if health.thermalState == "serious" { return "This Apple TV is getting hot" }
         if let e = health.publisher.lastError { return e }
+        // Above the frame-drop note: an audience that hears nothing at all is
+        // worse off than one seeing a few dropped frames, and this one is
+        // silent by construction rather than by congestion.
+        if let audioProblem { return audioProblem }
         if health.publisher.videoFramesDropped > 30 { return "Dropping frames — the connection is struggling" }
         return nil
     }
