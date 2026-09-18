@@ -286,9 +286,30 @@ private struct PlayerSurface: View {
     private func setup() {
         guard player == nil else { return }
         let playerItem: AVPlayerItem
+        // DEBUG door: play a given file instead of resolving the catalog item.
+        //
+        // The A/V sync stimulus — a black clip with a white flash and a 1 kHz
+        // beep on the same frame every five seconds — is not in the catalogue
+        // and never will be. macOS takes film audio through
+        // `MTAudioProcessingTap` where tvOS pulls it by film position, so the
+        // television's sync figure says nothing about this platform, and
+        // "the tap is inline, so it must be aligned" is an assumption rather
+        // than a measurement.
+        let playURLOverride: URL? = {
+            #if DEBUG
+            guard let s = ProcessInfo.processInfo.environment["AW_PLAY_URL"],
+                  !s.isEmpty else { return nil }
+            return s.hasPrefix("file://") ? URL(string: s) : URL(fileURLWithPath: s)
+            #else
+            return nil
+            #endif
+        }()
+        if let playURLOverride {
+            playerItem = AVPlayerItem(url: playURLOverride)
+        }
         // DOWNLOADED FIRST (Decision 099): a plain local file, with none of the
         // resilience machinery — a `file://` URL has no connection to lose.
-        if let local = OfflineLibrary.videoURL(for: archiveID) {
+        else if let local = OfflineLibrary.videoURL(for: archiveID) {
             playerItem = AVPlayerItem(url: local)
         } else if subtitleHLS != nil, let mp4 = videoURL {
             // A CAPTIONED FILM PLAYS LIKE ANY OTHER ONE (Decision 070, carried
