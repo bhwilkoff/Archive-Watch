@@ -526,6 +526,14 @@ class StudioEngine(
                         audioSecNanos / 1e6 / fr,
                         chatSecNanos / 1e6))
                 }
+                if (BuildConfig.DEBUG) {
+                    val fr2 = (frame - frameAtLastSecond).coerceAtLeast(1)
+                    android.util.Log.i("AWSTUDIOPERF", String.format(
+                        "   draw split: tex=%.1f gl=%.1f swapEnc=%.1f swapDisp=%.1f ms/frame",
+                        phaseTexNanos / 1e6 / fr2, phaseDrawNanos / 1e6 / fr2,
+                        phaseSwapNanos / 1e6 / fr2, phaseDisplayNanos / 1e6 / fr2))
+                }
+                phaseTexNanos = 0; phaseDrawNanos = 0; phaseSwapNanos = 0; phaseDisplayNanos = 0
                 renderSecNanos = 0; drainSecNanos = 0; audioSecNanos = 0; chatSecNanos = 0
                 frameAtLastSecond = frame
                 filmAtLastSecond = film
@@ -550,16 +558,31 @@ class StudioEngine(
         publishDone.getAndSet(null)?.first?.close()
     }
 
+    // §9.uu phase accounting, reset by the per-second block.
+    private var phaseTexNanos = 0L
+    private var phaseDrawNanos = 0L
+    private var phaseSwapNanos = 0L
+    private var phaseDisplayNanos = 0L
+
     private fun drawOnce(g: StudioGl, pg: StudioProgramGl, frame: Long, renderStart: Long,
                          showStartNanos: Long): Long {
         // The newest frames are pulled ONCE, on the encoder pass, and the
         // display pass reuses them: `updateTexImage` twice in a frame would
         // consume two decoded frames to show one.
         g.makeCurrent()
+        val texAt = System.nanoTime()
         pg.updateFilmFrame()
         if (layoutShowsCamera) pg.updateCameraFrame()
+        phaseTexNanos += System.nanoTime() - texAt
+        val drawAt = System.nanoTime()
         drawProgram(pg)
+        phaseDrawNanos += System.nanoTime() - drawAt
+        // The suspected blocker: eglSwapBuffers on the ENCODER surface waits
+        // for a free input buffer, so this is where the encoder's throughput
+        // shows up as if it were render cost (§9.rr).
+        val swapAt = System.nanoTime()
         g.swap(System.nanoTime() - showStartNanos)
+        phaseSwapNanos += System.nanoTime() - swapAt
 
         // ...and again for the host's screen (§6.2j). A pending surface is
         // attached here rather than from whatever thread handed it over: an
@@ -570,7 +593,9 @@ class StudioEngine(
         }
         if (g.hasDisplay && g.makeCurrentDisplay()) {
             drawProgram(pg)
+            val dispAt = System.nanoTime()
             g.swapDisplay()
+            phaseDisplayNanos += System.nanoTime() - dispAt
             g.makeCurrent()
         }
         return System.nanoTime() - renderStart

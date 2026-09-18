@@ -54,11 +54,87 @@ class StudioVideoEncoder(
             setInteger(MediaFormat.KEY_PROFILE,
                        MediaCodecInfo.CodecProfileLevel.AVCProfileBaseline)
         }
-        val c = MediaCodec.createEncoderByType(MediaFormat.MIMETYPE_VIDEO_AVC)
-        c.configure(format, null, null, MediaCodec.CONFIGURE_FLAG_ENCODE)
+        val c = createAvcEncoder(format)
+        if (app.archivewatch.android.BuildConfig.DEBUG) {
+            // §9.uu: `createEncoderByType` returns the FIRST codec the system
+            // lists for the type, which is not promised to be the hardware one.
+            // A software AVC encoder at 720p would cap the program near the
+            // ~13 fps being measured, so the codec's identity is the first
+            // thing to establish before blaming the GPU or the dongle.
+            val hw = if (android.os.Build.VERSION.SDK_INT >= 29)
+                c.codecInfo.isHardwareAccelerated.toString() else "unknown<29"
+            android.util.Log.i("AWSTUDIOCODEC", "video encoder=" + c.name +
+                "  hardwareAccelerated=" + hw)
+        }
         inputSurface = c.createInputSurface()
         c.start()
         codec = c
+    }
+
+    /**
+     * An AVC encoder that is actually in HARDWARE, or the system's choice.
+     *
+     * `createEncoderByType` returns the first codec the platform lists for the
+     * type, and it is not promised to be hardware. On the Google TV it
+     * returned `c2.android.avc.encoder` — Android's SOFTWARE AVC encoder — so
+     * every program frame was encoded on the CPU, which capped the whole
+     * pipeline at ~13 fps and made the GL draw expensive besides: a software
+     * encoder consumes the input Surface by reading it back, and the GL driver
+     * pays for that inside the draw (§9.uu).
+     *
+     * Each candidate is configured before being accepted, because a hardware
+     * encoder may refuse this format (Baseline + CBR at 720p) and refusing at
+     * `configure` is the only way to find out. A codec that refuses is
+     * released and the next is tried; if none accepts, the platform's own
+     * choice is used and the show still goes out — slowly, rather than not at
+     * all.
+     */
+    private fun createAvcEncoder(format: MediaFormat): MediaCodec {
+        if (android.os.Build.VERSION.SDK_INT >= 29) {
+            val all = android.media.MediaCodecList(
+                android.media.MediaCodecList.REGULAR_CODECS).codecInfos
+            if (app.archivewatch.android.BuildConfig.DEBUG) {
+                // Say what the SELECTOR saw, not what we hoped it would see:
+                // "no hardware encoder was chosen" and "this device has no
+                // hardware encoder" are different facts (§9.uu).
+                for (i in all) {
+                    if (!i.isEncoder) continue
+                    if (i.supportedTypes.none {
+                            it.equals(MediaFormat.MIMETYPE_VIDEO_AVC, ignoreCase = true) }) continue
+                    val vc = try {
+                        i.getCapabilitiesForType(MediaFormat.MIMETYPE_VIDEO_AVC).videoCapabilities
+                    } catch (_: Exception) { null }
+                    android.util.Log.i("AWSTUDIOCODEC", "candidate " + i.name +
+                        " hw=" + i.isHardwareAccelerated +
+                        " fits" + width + "x" + height + "=" +
+                        (vc?.isSizeSupported(width, height)) +
+                        " maxW=" + vc?.supportedWidths?.upper +
+                        " maxH=" + vc?.supportedHeights?.upper)
+                }
+            }
+            for (info in all) {
+                if (!info.isEncoder || !info.isHardwareAccelerated) continue
+                if (info.supportedTypes.none {
+                        it.equals(MediaFormat.MIMETYPE_VIDEO_AVC, ignoreCase = true) }) continue
+                // NO `isSizeSupported` GATE. It reports FALSE for 1280x720 on
+                // the encoder that is demonstrably encoding 1280x720 on this
+                // device (maxW/maxH both 1808), so using it as a filter would
+                // silently reject a perfectly good HARDWARE encoder on a phone
+                // and fall back to software without saying why. `configure` is
+                // the honest test and it is two lines below.
+                var candidate: MediaCodec? = null
+                try {
+                    candidate = MediaCodec.createByCodecName(info.name)
+                    candidate.configure(format, null, null, MediaCodec.CONFIGURE_FLAG_ENCODE)
+                    return candidate
+                } catch (_: Exception) {
+                    try { candidate?.release() } catch (_: Exception) {}
+                }
+            }
+        }
+        val fallback = MediaCodec.createEncoderByType(MediaFormat.MIMETYPE_VIDEO_AVC)
+        fallback.configure(format, null, null, MediaCodec.CONFIGURE_FLAG_ENCODE)
+        return fallback
     }
 
     /**

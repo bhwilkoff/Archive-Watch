@@ -1618,6 +1618,60 @@ the audio path, the real ingest hosts with no credential, the overlay and
 go-live surfaces on the glass, the rights gate on device, and the platform
 clients. **→ `docs/watch-together-measurements.md`**
 
+### §9.uu The Studio has been encoding in SOFTWARE — and this dongle has no other option (2026-09-18)
+
+§9.rr attributed the ~13 fps ceiling to `eglSwapBuffers` blocking on the
+encoder's input-surface queue. That was reasoning, not measurement. Two
+instruments settled it: a split of `drawOnce` into its phases, and a log of
+which codec `MediaCodec` actually handed us.
+
+    video encoder=c2.android.avc.encoder  hardwareAccelerated=false
+    draw split: tex=1.5  gl=25.8  swapEnc=1.1  swapDisp=2.4  ms/frame
+
+**The swap is not the blocker.** It costs 1.1-2.5 ms. The GL draw costs
+20-34 ms and is the whole ceiling. §9.rr's sentence naming `eglSwapBuffers` has
+been corrected in place; what it got RIGHT was that the flat sleep was slack
+rather than cost, which the pacing experiment had already proved.
+
+**And the Studio has been encoding in software the entire time.**
+`MediaCodec.createEncoderByType` returns the first codec the platform lists for
+the type and is not promised to be hardware; on this device it returns
+Android's generic C2 software AVC encoder.
+
+**Selecting a hardware encoder explicitly changes nothing here, because there
+is no hardware encoder to select.** Enumerated through the same API the
+selector uses:
+
+    candidate c2.android.avc.encoder  hw=false  fits1280x720=false  maxW=1808 maxH=1808
+    candidate OMX.google.h264.encoder hw=false  fits1280x720=false  maxW=1808 maxH=1808
+
+Two candidates, both software. The device (`Dongle R 4K`, board `YQB`) is a
+PLAYBACK device: hardware decoders, no hardware video encoder. **So ~13 fps is
+a real hardware floor for this class of dongle, correctly attributed at last**
+— not the GPU, not our pacing, not the swap. Decision 129's "a Google TV dongle
+needs 37.4 ms a frame" was measured on a device that cannot encode in hardware
+at all, which is worth knowing before that number is read as an architecture
+verdict.
+
+The encoder is now chosen explicitly — a hardware AVC encoder if the platform
+has one, the platform's own choice otherwise, with `configure` as the test and
+a release-and-try-next on refusal. On this dongle it correctly finds nothing
+and falls back, so the show still goes out; on a phone it should find one.
+
+**The instrument also caught a bug in the fix itself.** The first version gated
+candidates on `videoCapabilities.isSizeSupported(width, height)` — and that
+returns **false** for 1280x720 on the very encoder that is encoding 1280x720 at
+that moment (with `maxW`/`maxH` both 1808). As a filter it would have silently
+rejected a good HARDWARE encoder on a phone and fallen back to software with no
+explanation. The gate is gone; `configure` decides.
+
+**What is NOT established**: whether the 26 ms GL draw would shrink behind a
+hardware encoder. A software encoder consumes the input Surface by reading it
+back, which can make the driver charge for it inside the draw — plausible, and
+untestable on a device with no hardware encoder. **That measurement needs the
+Pixel 8a** (owner item 8), which makes the phone pairing the gating step for
+Android performance rather than a nice-to-have.
+
 ### §9.tt The twelve seconds before a broadcast are the FILM, not the Studio (2026-09-18)
 
 §9.ss closed by listing four things that might account for the ~12 s between
@@ -1750,9 +1804,11 @@ being measured. Replacing it with "sleep only the REMAINDER of the budget"
 should have given ~22 fps. It gave 12-14 — and `draw` expanded from ~27 ms to
 ~65 ms, absorbing precisely what the sleep had been.
 
-**So the ceiling is downstream.** `eglSwapBuffers` blocks on the encoder's
-input-surface queue, so the loop already runs at the rate MediaCodec can
-consume frames; the sleep was never additive, it was slack. The comment that
+**So the ceiling is downstream.** The sleep was never additive, it was slack —
+the loop already runs at the rate the encoder can consume frames.
+**CORRECTED IN §9.uu**: this entry went on to name `eglSwapBuffers` as the
+place that blocks, which was a guess and is wrong. Measured, the encoder swap
+costs ~1.5 ms a frame and the GL draw costs ~26 ms. The comment that
 was already there — *"a tighter loop only burns battery: the encoder cannot
 take frames faster than it encodes them"* — was right, and the change was
 reverted with the measurement recorded beside it. **An arithmetic model that
