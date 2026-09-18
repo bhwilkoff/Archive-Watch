@@ -238,13 +238,29 @@ struct GoLiveTV: View {
                 // the same three gates the button is behind, so this cannot
                 // reach a channel the product would refuse.
                 let p: StudioPlatformAuth.Platform = door == "twitch" ? .twitch : .youtube
-                guard Self.configured.contains(p),
-                      StudioPlatformAuth.isSignedIn(p) else { return }
+                // EVERY REFUSAL SAYS WHY. These guards used to return in
+                // silence, which reads in a log exactly like a door that never
+                // fired — so a YouTube run that was refused for want of a token
+                // and one where the door was never set produced the same
+                // evidence: nothing at all.
+                guard Self.configured.contains(p) else {
+                    awdiag("AWDOOR %@ REFUSED: no client id configured in this build", door)
+                    return
+                }
+                guard StudioPlatformAuth.isSignedIn(p) else {
+                    awdiag("AWDOOR %@ REFUSED: not signed in on this device", door)
+                    return
+                }
                 platform = p
                 useBench = false
                 signedIn = true
                 readiness = try? await StudioPlatformAuth.readiness(for: p)
-                guard case .ready? = readiness else { return }
+                guard case .ready? = readiness else {
+                    awdiag("AWDOOR %@ REFUSED: readiness=%@", door,
+                           String(describing: readiness))
+                    return
+                }
+                awdiag("AWDOOR %@ READY — going live", door)
             default:
                 return
             }
