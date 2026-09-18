@@ -65,9 +65,20 @@ emulators) · `docs/CAPTIONS.md` · `docs/SHAREPLAY.md` ·
    **Schedule publishing** is the owner's press). Ticket 110523 needs a reply
    asking for the Search Beta re-test — the Dashboard's Submit for review is
    disabled while the feed is FEED VALIDATED (= in certification).
-7. **Watch Together Studio — BLOCKED ON THE OWNER, and it is the only
-   blocker.** Everything else is built and verified on real hardware
-   (`docs/WATCH-TOGETHER.md`, Decision 127). Three one-time owner steps:
+7. **Watch Together Studio — the PUBLIC half is blocked on the owner.** Three
+   one-time steps (a/b/c below) are the only things standing between the
+   feature and a real broadcast. **This item used to say "and it is the only
+   blocker — everything else is built and verified on real hardware", which
+   the night of 2026-09-18 proved too confident**: the Android product path had
+   never carried audio at all, its video and audio clocks were 19.6 s apart,
+   the Mac bench door was publishing the room, and three §8 cases had not
+   compiled for a session. All are fixed and measured
+   (`docs/WATCH-TOGETHER.md` §9.mm-§9.aaa), and the lesson is kept here rather
+   than smoothed over: *verified* means a measurement someone can point at, and
+   several things carrying that word had never had one. What is genuinely NOT
+   yet verified is named in items 8 (phone-class Android performance — the
+   dongle has no hardware H.264 encoder, so its 13 fps says nothing about a
+   phone) and 9a (the tvOS/iOS encoder reads). Three one-time owner steps:
    (a) a **Google Cloud project** with YouTube Data API v3 → an OAuth client
    id of type **iOS**, bundle id `app.archivewatch.tvos`, and a **Twitch
    application** with client type **public** → a client id, both into the
