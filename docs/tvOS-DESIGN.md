@@ -315,6 +315,50 @@ holds unchanged. `ASWebAuthenticationSession` is available on tvOS 16+ and is
 the path (checked in the tvOS 27 SDK, 2026-09-17). A stream key is fetched by
 API and never typed or displayed.
 
+**PROPOSED Rule 8.8a — going live on a television requires NO TYPING, and the
+host chooses a PLATFORM, not a form. NOT YET APPROVED; nothing is built against
+it.**
+
+*Why this is proposed*: `docs/WATCH-TOGETHER.md` §9.ccc found that tvOS cannot
+broadcast at all, and §9.lll found why it is not merely a missing call: after
+the rights gate, the configuration check and §3.4a's confirmation, the menu
+simply sets `studioFilm = film`. **There is no way for a host to say WHERE the
+broadcast goes or what it is called.** iOS collects platform, title, privacy or
+category and layout in its §8.9 sheet; macOS now mirrors that sheet under
+§B13g. A television cannot mirror it, because that sheet's centre is a text
+field.
+
+*The rule proposed*: the "with the world" menu item opens a FOCUS-DRIVEN
+confirmation, not a form. It states the film, the destination platform, and
+§3.4a's warning, and its default action goes live. Specifically:
+
+- **The title is not typed.** It comes pre-filled from the catalog's own
+  audited record — the same `suggestedTitle` iOS pre-fills — because that
+  record is already checked (Decision 124) and a remote keyboard is the worst
+  text-entry surface in the house. §2's agency test is satisfied by the title
+  being SHOWN and the broadcast being refusable, not by making someone spell it
+  out with a d-pad.
+- **The platform is a CHOICE, and the only one.** Where a host is signed in to
+  both, "with the world" expands to one item per platform, which is the same
+  device tvOS already uses for "with friends / with the world".
+- **Privacy and category take documented defaults** — the iOS default of
+  `unlisted` for YouTube, and no category for Twitch — because both are
+  changeable afterwards on the platform itself, and neither is worth a
+  d-pad form.
+
+*What is NOT decided here, and is the reason this is a proposal*:
+1. whether a host may EDIT the title on a television at all (a remote keyboard
+   is hostile, but never offering it is a decision, not an oversight);
+2. whether `unlisted` is the right tvOS default when the whole point of the
+   feature is that the world can watch — iOS chose it for a phone, and a
+   television audience may not be the same audience;
+3. what happens when a host is signed in to NEITHER platform, which today
+   refuses with §10.2b's sentence and would, under this rule, be the moment to
+   offer sign-in instead.
+
+All three are the owner's calls. Until they are made, tvOS keeps the engine,
+the gates, the verified hardware encoder (§9.vv) and no way to broadcast.
+
 **Correction to the line above, same day.** This rule originally added "it
 hands off to a nearby device rather than demanding typing on a remote". That
 was an assumption, not a reading, and it is withdrawn — what the tvOS 27
