@@ -760,9 +760,57 @@ question rather than an answer. Audio timestamps come from BYTES CONSUMED and
 video from the frame counter — two clocks with a shared origin only by
 construction, so this deserves a measurement of its own rather than a claim.
 
+### §6.2h — A/V alignment on Android: 47 ms out, diagnosed and corrected (2026-09-17)
+
+The number the last section refused to claim, measured properly — and it was
+**wrong**, which is why it was worth measuring.
+
+**The instrument.** `StudioSyncDeviceTest` publishes a signal it CONTROLS
+rather than a film's own content (Decision 075): once a second, one WHITE
+frame is drawn at the same instant a full-scale 1 kHz burst is fed to the
+audio encoder, both stamped from one clock, with black and silence between.
+`tools/measure_av_sync.py` reads brightness per video frame and RMS per audio
+frame out of ffmpeg's own filters, pairs each flash with its nearest burst,
+and reports the median over all of them — a single pairing can be wrong, a
+median over eight cannot be wrong in the same direction by accident.
+
+**Before:**
+
+```
+androidsync-185637   median +50.5 ms   spread 21.0 ms   6 markers
+androidsync-185704   median +45.0 ms   spread  5.0 ms   4 markers
+```
+
+Audio consistently ~47 ms LATE, with a small spread — a constant offset, not
+drift. And 2048 samples at 44.1 kHz is **46.4 ms**, which is AAC-LC's usual
+two-frame priming: the encoder does not produce the samples it was handed, so
+audio carrying an INPUT timestamp arrives late against video carrying a frame
+timestamp. MP4 carries priming in an edit list; **FLV has nowhere to put it**,
+so the only place to correct it is the timestamp.
+
+**After** subtracting the priming delay in `StudioAacEncoder`:
+
+```
+androidsync-190001   median +11.0 ms   spread 21.0 ms   7 markers
+androidsync-190150   median  +4.5 ms   spread 21.0 ms   8 markers
+```
+
+Comparable to the Apple side's 10 ms over 15 s (§9), and well inside the
+40 ms bar the analyser enforces.
+
+**The analyser lied once first, and the tell was a COUNT, not a number.**
+Between markers the signal is pure zeros, so `astats` reports `-inf`; a median
+over those is `-inf`, a midpoint against it is `-inf`, and every audio frame
+therefore counted as a burst. The first run found **16 "bursts" against 6
+flashes** and still printed a confident `+50.5 ms`. The number happened to be
+right, which is worse than being wrong — it would have been believed for the
+wrong reason. The threshold is now absolute (−40 dBFS), and the analyser
+**refuses to measure** when the flash and burst counts disagree by more than
+two, which it duly did on a short tail segment in the very next run.
+
 **Still ahead on Android**: a real camera, which needs a phone rather than a
-television — the Pixel 8a's adb-over-TLS pairing has expired — the UI surface
-(§9.1–9.4), and the A/V alignment measurement above.
+television — the Pixel 8a's adb-over-TLS pairing has expired — and the UI
+surface (ANDROID-DESIGN §9.1–9.4).
 
 ## §7 — Phases
 

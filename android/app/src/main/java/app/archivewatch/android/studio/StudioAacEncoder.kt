@@ -29,6 +29,14 @@ class StudioAacEncoder(
     var asc: ByteArray? = null
         private set
 
+    /**
+     * The encoder's priming delay in milliseconds — 2048 samples, which is
+     * AAC-LC's usual two-frame lookahead. Overridable because it is a codec
+     * property and a different device may differ; the measurement that sets it
+     * is `tools/measure_av_sync.py`, never a guess.
+     */
+    val primingMillis: Int = (PRIMING_SAMPLES * 1000.0 / sampleRate).toInt()
+
     private var codec: MediaCodec? = null
     private val info = MediaCodec.BufferInfo()
     private var pcmBytesIn = 0L
@@ -85,7 +93,22 @@ class StudioAacEncoder(
                 if (isConfig) {
                     if (asc == null) asc = toBytes(buf)
                 } else {
-                    onFrame(toBytes(buf), (info.presentationTimeUs / 1000).toInt())
+                    // AAC ENCODER DELAY, subtracted here.
+                    //
+                    // AAC-LC does not produce the samples it was handed: its
+                    // output lags its input by the codec's priming samples, so
+                    // audio carrying an input timestamp arrives LATE against
+                    // video carrying a frame timestamp. Measured on a Google TV
+                    // with a synchronised flash-and-burst signal
+                    // (tools/measure_av_sync.py): audio +50.5 ms and +45.0 ms
+                    // across two recordings, spread 5–21 ms — a constant
+                    // offset, not drift, and 2048 samples at 44.1 kHz is
+                    // 46.4 ms.
+                    //
+                    // MP4 carries priming in an edit list; FLV has nowhere to
+                    // put it, so the only place to correct it is the timestamp.
+                    val ms = (info.presentationTimeUs / 1000).toInt() - primingMillis
+                    onFrame(toBytes(buf), ms.coerceAtLeast(0))
                 }
             }
             c.releaseOutputBuffer(index, false)
@@ -96,6 +119,11 @@ class StudioAacEncoder(
         try { codec?.stop() } catch (_: Exception) {}
         try { codec?.release() } catch (_: Exception) {}
         codec = null
+    }
+
+    companion object {
+        /** AAC-LC's priming samples — see `primingMillis`. */
+        const val PRIMING_SAMPLES = 2048
     }
 
     private fun toBytes(b: ByteBuffer): ByteArray {
