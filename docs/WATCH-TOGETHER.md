@@ -1669,6 +1669,15 @@ a reading, not a compile, and it stays a reading until it can be checked
 without perturbing a ten-minute soak that is measuring encoder throughput on
 the same machine.
 
+**The re-run is GREEN: `pass=53 skip=0 fail=0`** under `--strict --soak`, with
+the three repaired cases genuinely exercised rather than counted. §8.3's soak:
+18,011 frames encoded and 18,011 sent over ten minutes, peak send queue 24 kB
+of a 1,149 kB cap (2%), thermal nominal, no encoder or pool faults, 29 fps at
+worst after the first minute. Memory grew **4.7 MB** (71.5 → 76.2, peak 85.8)
+where the last recorded soak grew 12.8 MB and peaked at 112.3 — an improvement
+worth noting and NOT worth attributing, since nothing in tonight's Apple
+changes obviously accounts for it and one run is not a trend.
+
 **But the cadence matters more than the structure.** The list was wrong for a
 whole session and the suite said so within seconds of being asked. No amount of
 restructuring helps a suite nobody runs, and a suite that IS run catches a
