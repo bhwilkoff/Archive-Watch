@@ -248,7 +248,18 @@ final class GoogleAuth: NSObject {
             .init(name: "code_challenge_method", value: "S256"),
             // A refresh token, so a host authorises once rather than per show.
             .init(name: "access_type", value: "offline"),
-            .init(name: "prompt", value: "consent"),
+            // BOTH, and the second is what lets a host change channels.
+            //
+            // `consent` alone re-shows the CONSENT screen for the account
+            // Google has already picked; it does not offer the account, and
+            // therefore not the YouTube CHANNEL, chooser. Measured 2026-09-18:
+            // signing out and straight back in returned a token for the same
+            // channel (UCtPDkIGiSWSb5N8hNdaPizg) in 42 seconds — so the advice
+            // "sign out and sign in again to choose another" was impossible to
+            // follow, because nothing ever asked. Google offers the channel
+            // chooser only at consent AFTER an account is chosen, and an app
+            // cannot move a host's channel any other way.
+            .init(name: "prompt", value: "select_account consent"),
             .init(name: "state", value: state),
         ]
         return c.url!

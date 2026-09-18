@@ -95,6 +95,16 @@ struct StudioSignInRow: View {
     @State private var signInTask: Task<Void, Never>?
     /// The channel a broadcast would reach, once asked of the platform.
     @State private var accountName: String?
+    /// What the platform says this signed-in account can actually DO.
+    ///
+    /// Owner, 2026-09-18, after signing in to the wrong Google account:
+    /// "there was no indication that I was logged in wrong." There was not.
+    /// The row named the channel and stopped there, so signed-in-and-usable
+    /// and signed-in-and-BLOCKED drew identically, and the difference only
+    /// appeared on pressing Go live. A name answers "who"; it does not answer
+    /// "can this broadcast at all", and on an account that owns nineteen
+    /// channels those are different questions.
+    @State private var blockedNote: String?
 
     private var label: String { platform.displayName }
 
@@ -147,6 +157,7 @@ struct StudioSignInRow: View {
                     Button("Sign out") {
                         StudioPlatformAuth.signOut(platform)
                         accountName = nil
+                        blockedNote = nil
                         setSignedIn(false)
                     }
                     .font(.subheadline)
@@ -168,6 +179,13 @@ struct StudioSignInRow: View {
                 .disabled(working)
             }
 
+            if let blockedNote {
+                Text(blockedNote)
+                    .font(.footnote)
+                    .foregroundStyle(.orange)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+
             if let problem {
                 Text(problem).font(.footnote).foregroundStyle(.orange)
             }
@@ -176,8 +194,17 @@ struct StudioSignInRow: View {
         // `.task(id:)` so it re-asks when the host signs in, and is cancelled
         // with the view rather than outliving it (§9.sss).
         .task(id: signedIn) {
-            guard signedIn, accountName == nil else { return }
-            accountName = try? await StudioPlatformAuth.accountName(for: platform)
+            guard signedIn else { blockedNote = nil; return }
+            if accountName == nil {
+                accountName = try? await StudioPlatformAuth.accountName(for: platform)
+            }
+            // Asked HERE, at sign-in, rather than only at go-live. Both reads
+            // are cheap and neither creates anything on the host's channel.
+            if case .blocked(let why)? = try? await StudioPlatformAuth.readiness(for: platform) {
+                blockedNote = why
+            } else {
+                blockedNote = nil
+            }
         }
         .onDisappear {
             // A host who closes the sheet has stopped asking. Leaving the poll
