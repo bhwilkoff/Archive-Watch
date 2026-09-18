@@ -356,8 +356,50 @@ confirmation, not a form. It states the film, the destination platform, and
    refuses with §10.2b's sentence and would, under this rule, be the moment to
    offer sign-in instead.
 
-All three are the owner's calls. Until they are made, tvOS keeps the engine,
-the gates, the verified hardware encoder (§9.vv) and no way to broadcast.
+**ANSWERED by the owner 2026-09-18, and the rule is now binding rather than
+proposed:**
+
+1. **The title IS editable on the television.** The owner chose editable over
+   the pre-filled-only reading this document recommended. So the confirmation
+   carries a focusable text field, pre-filled from the audited catalog record
+   (Decision 124) — the default still costs no typing, and a host who wants to
+   name the show can. The recommendation against it was about d-pad ergonomics;
+   the owner's answer is that never offering it is the worse cost.
+2. **`unlisted` stays the tvOS default**, matching iPhone. Consistent across
+   platforms, and the safer failure: an accidental broadcast is not indexed,
+   and it is one click to change on YouTube afterwards. This one matched the
+   recommendation.
+3. **Sign-in happens ON the television.** The owner: *"Figure out the sign in
+   path on the tv and implement it."* So tvOS no longer refuses and points at
+   another device.
+
+   *The path, read from the tvOS 27 SDK rather than assumed* — and it is
+   narrower than §10.2a's earlier note implied, in a good way:
+
+       ASWebAuthenticationSession            tvos(16.0)      available
+       initWithURL:callback:completion:      tvos(17.4)      available
+       - (BOOL)start                         no annotation   available
+       presentationContextProvider           API_UNAVAILABLE(tvos)
+       prefersEphemeralWebBrowserSession     API_UNAVAILABLE(tvos)
+       - (void)cancel                        API_UNAVAILABLE(tvos)
+       canStart                              absent from the availability list
+
+   The television creates the session and calls `start()`; the system presents
+   it, which is precisely WHY there is no context provider to supply — the
+   absence is the design, not a gap. Two real costs follow and neither is
+   fatal: a started session cannot be cancelled programmatically, so the
+   surface must not promise a Cancel it cannot honour; and `canStart` cannot be
+   consulted first, so failure is reported by the completion handler rather
+   than pre-empted.
+
+   **Twitch needs none of this.** Its device flow shows a code to enter on a
+   phone, which is the better fit for a television anyway, and it is already
+   implemented and measured against the live endpoint (WATCH-TOGETHER §9.ppp).
+
+   Google's device flow remains the fallback if the television's own screen
+   turns out to be unusable in practice — it supports the `…/auth/youtube`
+   scope, but requires a client SECRET, which is a real cost and why it is not
+   first.
 
 **Correction to the line above, same day.** This rule originally added "it
 hands off to a nearby device rather than demanding typing on a remote". That

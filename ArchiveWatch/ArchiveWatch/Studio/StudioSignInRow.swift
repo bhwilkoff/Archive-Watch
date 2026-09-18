@@ -1,4 +1,4 @@
-#if os(iOS) || os(macOS)
+#if os(iOS) || os(macOS) || os(tvOS)
 import SwiftUI
 
 // The one row in the go-live sheet that says who the broadcast goes out as
@@ -11,6 +11,21 @@ import SwiftUI
 // exactly here: a second copy of this row would be a second chance to get the
 // sign-in and rights copy wrong. It was `#if os(iOS)` and lived in iOS/ only
 // because the Mac had no way to sign in (§9.sss); it was moved, not rewritten.
+//
+// tvOS joined on 2026-09-18, when the owner answered Rule 8.8a's third
+// question with "figure out the sign in path on the tv and implement it".
+// The auth layer already supported it: `present(url:scheme:)` guards
+// `presentationContextProvider` and `prefersEphemeralWebBrowserSession` with
+// `#if !os(tvOS)` because both are `API_UNAVAILABLE(tvos)`, while the session
+// class is `tvos(16.0)` and `start()` carries no annotation at all. What did
+// NOT exist was any surface to call it from.
+//
+// One promise this row must not make on a television: a started
+// `ASWebAuthenticationSession` cannot be cancelled programmatically there
+// (`cancel` is `API_UNAVAILABLE(tvos)`). The Cancel button below belongs to
+// TWITCH's device flow, which is our own poll loop and genuinely cancellable —
+// so it is honest on every platform. YouTube's sheet is dismissed by the
+// system, not by us.
 //
 // It has to carry three different states, and collapsing any two of them is
 // how a host ends up pressing a button that cannot work:
@@ -129,10 +144,21 @@ struct StudioSignInRow: View {
                 .foregroundStyle(.secondary)
             Text(p.userCode)
                 .font(.system(.title, design: .monospaced).weight(.bold))
+                // `textSelection` does not exist on tvOS, and would mean
+                // nothing there anyway: nobody copies text off a television.
+                // The code is read aloud off the screen, which is why the
+                // accessibility label spells it out character by character.
+                #if !os(tvOS)
                 .textSelection(.enabled)
+                #endif
                 .accessibilityLabel(p.userCode.map(String.init).joined(separator: " "))
             HStack(spacing: 6) {
+                // `controlSize` is unavailable on tvOS.
+                #if os(tvOS)
+                ProgressView()
+                #else
                 ProgressView().controlSize(.small)
+                #endif
                 Text("Waiting for you to confirm on Twitch\u{2026}")
                     .font(.footnote).foregroundStyle(.secondary)
             }

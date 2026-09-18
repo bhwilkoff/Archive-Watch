@@ -1618,6 +1618,50 @@ the audio path, the real ingest hosts with no credential, the overlay and
 go-live surfaces on the glass, the rights gate on device, and the platform
 clients. **→ `docs/watch-together-measurements.md`**
 
+### §9.uuu tvOS sign-in: the SDK says yes, and the absence is the design (2026-09-18)
+
+The owner answered Rule 8.8a's three open questions, overriding this document's
+recommendation on two of them: **the title IS editable on the television**, the
+`unlisted` default stays, and — *"Figure out the sign in path on the tv and
+implement it"* — tvOS signs in on the television rather than pointing at a
+phone.
+
+**Read from the tvOS 27 SDK, not from memory**, because §10.2a's earlier note
+recorded the restrictions and not the permissions, which made the path look
+more closed than it is:
+
+    ASWebAuthenticationSession            tvos(16.0)      available
+    initWithURL:callback:completion:      tvos(17.4)      available
+    - (BOOL)start                         no annotation   available
+    presentationContextProvider           API_UNAVAILABLE(tvos)
+    prefersEphemeralWebBrowserSession     API_UNAVAILABLE(tvos)
+    - (void)cancel                        API_UNAVAILABLE(tvos)
+    canStart                              absent from the list entirely
+
+The television creates the session and calls `start()`, and the system presents
+it — which is exactly WHY there is no context provider to hand it. **The
+absence is the design, not a gap.** Two real costs follow, both narrow: a
+started session cannot be cancelled programmatically, so a surface must not
+offer a Cancel it cannot honour; and `canStart` cannot be consulted, so a
+failure arrives in the completion handler rather than before the attempt.
+
+**And the auth layer already supported all of this.** `present(url:scheme:)`
+has guarded both properties with `#if !os(tvOS)` since it was written, with the
+header quoted in a comment beside it. What never existed was a surface to call
+it from — the same shape as everything else this week: the capability was
+present and unreachable, so nobody could tell whether it worked.
+
+`StudioSignInRow` now compiles for tvOS (`controlSize` and `textSelection` do
+not exist there and are guarded; `.borderless` was already the button style,
+per CLAUDE.md's standing tvOS rule). Twitch needs none of the above: its device
+flow shows a code to type on a phone, which suits a television better than a
+web sheet does, and it is already measured against the live endpoint (§9.ppp).
+
+**Not yet built:** the go-live surface itself — the focus-driven confirmation
+carrying the film, the platform choice, the now-editable title and §3.4a's
+warning. tvOS builds green with the row available; the surface is the next
+piece, and it is now unblocked because the three questions are answered.
+
 ### §9.ttt macOS can sign in — and the same proxy was in all THREE Apple surfaces (2026-09-18)
 
 Rule B13g is approved and already says what the Mac sheet carries: *"the rights
