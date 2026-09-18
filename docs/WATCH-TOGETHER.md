@@ -1694,8 +1694,28 @@ wrong by guessing.
 
 **The next measurement is specific**: clear the film's resume position (or start
 the clip at zero) so the tap and the playback clock share an origin, and the
-residual difference IS the sink's lead. Until that number exists, the mechanism
-in §9.ggg stays a hypothesis and no timestamp is adjusted on the strength of it.
+residual difference IS the sink's lead.
+
+**RUN, and the hypothesis is CONFIRMED.** Arming a film with no watch history
+(so resume is zero) gives tap and playback a shared origin:
+
+    playback=47.906 s  tap=48.483 s  playback-tap=-0.577 s
+    playback=49.933 s  tap=50.480 s  playback-tap=-0.547 s
+    playback=53.954 s  tap=54.520 s  playback-tap=-0.566 s
+
+**The tap runs 0.565 s AHEAD of playback** (mean over seven samples, spread
+31 ms). `TeeAudioProcessor` sits on the way INTO the audio sink, so it sees —
+and timestamps — PCM that the player will not make audible for another half
+second.
+
+**It accounts for most of §9.ggg's error, and not all of it.** End-to-end the
+broadcast is 0.712 s out; the sink lead is 0.565 s. The residual ~0.147 s is
+the video path's own latency (SurfaceTexture → GLES → encoder, all of which
+happens after the frame's content was current) plus the detectors' own bias —
+the flash test picks the first BRIGHT frame and `silencedetect` reports a
+threshold crossing, and each rounds in the same direction. **Two causes, one
+measured directly and one inferred**, which is worth stating before anyone
+corrects 0.712 s with a single number and calls it solved.
 
 (A smaller thing worth recording: `aw_play_url` inherits the ARMED FILM's resume
 position, because the door overrides the URI and nothing else. Harmless for a
