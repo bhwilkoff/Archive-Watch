@@ -1,8 +1,16 @@
-#if os(iOS)
+#if os(iOS) || os(macOS)
 import SwiftUI
 
 // The one row in the go-live sheet that says who the broadcast goes out as
 // (iOS-DESIGN §8.9, in the §8.5 form-sheet pattern). NOT a new surface.
+//
+// SHARED between iOS and macOS, and living in Studio/ for that reason. Rule
+// B13g approved a Mac go-live sheet that is "the same sheet as iOS" and listed
+// what it carries — the rights refusal, THE SIGN-IN ROW, §3.4a's warning, the
+// title — and B13c's reason for mirroring rather than reinventing applies
+// exactly here: a second copy of this row would be a second chance to get the
+// sign-in and rights copy wrong. It was `#if os(iOS)` and lived in iOS/ only
+// because the Mac had no way to sign in (§9.sss); it was moved, not rewritten.
 //
 // It has to carry three different states, and collapsing any two of them is
 // how a host ends up pressing a button that cannot work:
@@ -19,7 +27,18 @@ import SwiftUI
 // screen explains it rather than just displaying it.
 
 struct StudioSignInRow: View {
+    /// #FF5C35, the marquee orange of CLAUDE.md's brand block. Written out
+    /// rather than read from `Brand`, which is defined in iOS/Design_iOS.swift
+    /// and so does not exist in the Mac target.
+    static let signedInAccent = Color(red: 1.0, green: 0.361, blue: 0.208)
+
     let platform: StudioPlatformAuth.Platform
+
+    /// Reported upward so the surrounding sheet can gate its own Go Live.
+    /// `isSignedIn` is a Keychain read, not observable state: a sheet that
+    /// asked once would keep the answer it got BEFORE the host signed in, and
+    /// leave the control disabled behind a row that says "Signed in".
+    var onSignedInChange: ((Bool) -> Void)? = nil
 
     @State private var signedIn: Bool = false
     @State private var working = false
@@ -34,6 +53,11 @@ struct StudioSignInRow: View {
     @State private var signInTask: Task<Void, Never>?
 
     private var label: String { platform.displayName }
+
+    private func setSignedIn(_ value: Bool) {
+        signedIn = value
+        onSignedInChange?(value)
+    }
 
     var body: some View {
         Group {
@@ -55,12 +79,12 @@ struct StudioSignInRow: View {
             } else if signedIn {
                 HStack {
                     Label("Signed in to \(label)", systemImage: "checkmark.circle.fill")
-                        .foregroundStyle(Brand.primary)
+                        .foregroundStyle(Self.signedInAccent)
                         .font(.subheadline)
                     Spacer()
                     Button("Sign out") {
                         StudioPlatformAuth.signOut(platform)
-                        signedIn = false
+                        setSignedIn(false)
                     }
                     .font(.subheadline)
                     .buttonStyle(.borderless)
@@ -85,7 +109,7 @@ struct StudioSignInRow: View {
                 Text(problem).font(.footnote).foregroundStyle(.orange)
             }
         }
-        .onAppear { signedIn = StudioPlatformAuth.isSignedIn(platform) }
+        .onAppear { setSignedIn(StudioPlatformAuth.isSignedIn(platform)) }
         .onDisappear {
             // A host who closes the sheet has stopped asking. Leaving the poll
             // running is both a pointless load on Twitch and a task that
@@ -133,7 +157,7 @@ struct StudioSignInRow: View {
             switch platform {
             case .youtube:
                 try await StudioPlatformAuth.signInToYouTube()
-                signedIn = true
+                setSignedIn(true)
             case .twitch:
                 let p = try await StudioPlatformAuth.beginTwitchSignIn()
                 pending = p
@@ -144,7 +168,7 @@ struct StudioSignInRow: View {
                 // exercised, because no client id existed to reach it.
                 try await StudioPlatformAuth.completeTwitchSignIn(p)
                 pending = nil
-                signedIn = true
+                setSignedIn(true)
             }
         } catch is CancellationError {
             pending = nil

@@ -68,10 +68,12 @@ emulators) · `docs/CAPTIONS.md` · `docs/SHAREPLAY.md` ·
 7. **Watch Together Studio — the PUBLIC half is blocked on the owner ON iOS;
    tvOS and macOS also need CODE.** The three one-time steps (a/b/c below) are
    what stands between the feature and a real broadcast **from an iPhone**.
-   **On the Apple TV and the Mac there is no credential path at all**
-   (§9.ccc): `YouTubeLive`/`TwitchLive` are constructed in exactly one file,
-   the iOS container, so those two platforms can publish only to the
-   diagnostic destination whatever the owner pastes into `Secrets.xcconfig`.
+   **macOS can now sign in and go live** (§9.ttt, 2026-09-18): the shared
+   sign-in row moved into `Studio/`, Rule B13g's missing sheet content built,
+   and macOS given a real `ASWebAuthenticationSession` anchor (it had been
+   handed an empty `NSWindow`). **tvOS still cannot** — it has the engine, the
+   gates and a verified hardware encoder, and no go-live surface, because Rule
+   8.8a is PROPOSED with three questions reserved for the owner (§9.ooo).
    Everything else on them is real and measured — which is why it went
    unnoticed. **Android has no OAuth or platform client either** (zero Kotlin
    references to googleapis.com / api.twitch.tv), so the ids do nothing for it.

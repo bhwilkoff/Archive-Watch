@@ -27,6 +27,9 @@
 // anyone to type on a remote.
 
 import AuthenticationServices
+#if canImport(AppKit)
+import AppKit
+#endif
 import CryptoKit
 import Foundation
 
@@ -283,6 +286,17 @@ extension GoogleAuth: ASWebAuthenticationPresentationContextProviding {
         #if canImport(UIKit)
         UIApplication.shared.connectedScenes
             .compactMap { ($0 as? UIWindowScene)?.keyWindow }.first ?? ASPresentationAnchor()
+        #elseif canImport(AppKit)
+        // On macOS `ASPresentationAnchor` IS an `NSWindow`, so the old
+        // `ASPresentationAnchor()` fallback handed the session a bare,
+        // unattached window that is never on screen — nothing for the auth
+        // sheet to hang from. It had never misbehaved because it had never
+        // run: macOS had no sign-in surface at all until §9.ttt, so this
+        // branch existed for a platform that could not reach it.
+        NSApplication.shared.keyWindow
+            ?? NSApplication.shared.mainWindow
+            ?? NSApplication.shared.windows.first
+            ?? ASPresentationAnchor()
         #else
         ASPresentationAnchor()
         #endif

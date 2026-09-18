@@ -1618,6 +1618,55 @@ the audio path, the real ingest hosts with no credential, the overlay and
 go-live surfaces on the glass, the rights gate on device, and the platform
 clients. **→ `docs/watch-together-measurements.md`**
 
+### §9.ttt macOS can sign in — and the same proxy was in all THREE Apple surfaces (2026-09-18)
+
+Rule B13g is approved and already says what the Mac sheet carries: *"the rights
+refusal in a sentence (§2.3), the sign-in row, §3.4a's warning…"*. The sign-in
+row was the one item never built, which is the whole reason §9.sss found the
+Mac unable to reach a platform. This builds it — implementing an approved rule,
+not inventing one.
+
+**Moved, not copied.** `StudioSignInRow` was `#if os(iOS)` in `iOS/`; it now
+lives in `Studio/`, which both targets compile, as `#if os(iOS) || os(macOS)`.
+B13c's reason for mirroring rather than reinventing is exact here: a second
+copy of this row would be a second chance to get the sign-in and rights copy
+wrong. The only platform-specific thing in it was `Brand.primary`, which is
+defined in `iOS/Design_iOS.swift`; the row now carries the brand orange
+directly.
+
+**A defect that would have bitten on the first press.** `presentationAnchor`
+returned a bare `ASPresentationAnchor()` on anything that is not UIKit. On
+macOS that type **is `NSWindow`**, so the auth session was being handed an
+empty, never-shown window with nothing to attach a sheet to. It had never
+misbehaved because it had never run — macOS had no sign-in surface to reach it
+from. It now returns the key, then main, then first window.
+
+**And the finding that matters more: the same proxy was in all three Apple
+surfaces.**
+
+    tvOS    DetailView              anyConfigurationProblem == nil    §9.ooo
+    macOS   GoLiveSheet_macOS       configurationProblem   == nil     §9.sss
+    iOS     GoLiveSheet_iOS         configurationProblem   == nil     here
+
+Each says, in its own comment, that it exists so a host is never offered a
+control that fails where they cannot see. Each was correct while NO client id
+existed anywhere. All three went permanently nil on the same morning, for the
+same reason, because of a change in a gitignored file. They were found one at a
+time, in three separate ticks, each time by stumbling into the platform rather
+than by looking for the predicate. **After the first one, the right move was
+`grep configurationProblem` — seconds of work — and it was not made until after
+the second.** A guard written against a proxy does not expire on one platform.
+
+All three now ask whether the host is actually SIGNED IN. Because
+`isSignedIn` is a Keychain read rather than observable state, the row reports
+changes upward (`onSignedInChange`) instead of each sheet asking once and
+keeping a stale answer — otherwise Go Live stays disabled behind a row that
+says "Signed in".
+
+**Still true after this:** nobody has signed in yet, so none of it has been seen
+on the glass. The Mac's build is green and its path is complete; the last step
+is a real authorization, which is the owner's to give.
+
 ### §9.sss The sign-in surfaces, read in the state they had never been in (2026-09-18)
 
 With both ids registered, the sign-in surfaces became reachable for the first

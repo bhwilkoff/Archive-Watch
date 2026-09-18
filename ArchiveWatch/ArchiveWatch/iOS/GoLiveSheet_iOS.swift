@@ -167,7 +167,7 @@ struct GoLiveSheet: View {
             // Who the broadcast goes out AS. Above the title field, because
             // a host cannot usefully name a stream they cannot publish.
             if platform != .custom {
-                StudioSignInRow(platform: authPlatform)
+                StudioSignInRow(platform: authPlatform) { signedIn = $0 }
             }
             switch platform {
             case .youtube:
@@ -232,8 +232,18 @@ struct GoLiveSheet: View {
         // Go Live would fail somewhere the host cannot see. The sign-in row
         // directly above carries the reason, so this is not §5's unexplained
         // disabled control.
-        return StudioPlatformAuth.configurationProblem(for: authPlatform) == nil
+        // CONFIGURED IS NOT SIGNED IN — the third surface carrying this same
+        // proxy (tvOS §9.ooo, macOS and here §9.ttt). It was true while no
+        // client id existed anywhere; the day both were registered it went
+        // permanently nil and Go Live enabled itself for a host who has not
+        // signed in, which fails inside the auth boundary — the exact thing
+        // the comment above says this gate exists to prevent.
+        return signedIn
     }
+
+    /// Mirrored from the sign-in row, because `isSignedIn` is a Keychain
+    /// read rather than observable state.
+    @State private var signedIn = false
 
     private var authPlatform: StudioPlatformAuth.Platform {
         platform == .twitch ? .twitch : .youtube

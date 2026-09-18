@@ -81,16 +81,14 @@ struct GoLiveSheetMac: View {
                         Picker("Platform", selection: $platform) {
                             ForEach(GoLivePlatform.allCases, id: \.self) { Text($0.label).tag($0) }
                         }
-                        if platform != .custom, let problem = StudioPlatformAuth.configurationProblem(for: authPlatform) {
-                            Text(problem).font(.footnote).foregroundStyle(.secondary)
-                        } else if platform != .custom, !StudioPlatformAuth.isSignedIn(authPlatform) {
-                            // Says the true thing rather than greying out a
-                            // button with no explanation beside it.
-                            Text("Signing in to \(authPlatform.displayName) is not built on Mac yet, "
-                                 + "so this Mac cannot reach your channel. Start the broadcast from "
-                                 + "iPhone or iPad — the film, the rights check and the Studio are "
-                                 + "the same. The Custom server destination below still works here.")
-                                .font(.footnote).foregroundStyle(.secondary)
+                        if platform != .custom {
+                            // B13g lists the sign-in row as content this sheet
+                            // carries; it was missing, which is why the Mac
+                            // could not reach a platform at all (§9.sss). The
+                            // row itself renders all three states — no client
+                            // id, signed out, signed in — so nothing here
+                            // needs to restate them.
+                            StudioSignInRow(platform: authPlatform) { signedIn = $0 }
                         }
                         switch platform {
                         case .youtube:
@@ -133,6 +131,11 @@ struct GoLiveSheetMac: View {
         .frame(width: 520, height: 620)
     }
 
+    /// Mirrored from the sign-in row: `isSignedIn` is a Keychain read, not
+    /// observable state, so asking it directly here would leave Go Live
+    /// disabled behind a row that already says "Signed in".
+    @State private var signedIn = false
+
     private var canCommit: Bool {
         guard refusal == nil else { return false }
         guard !title.trimmingCharacters(in: .whitespaces).isEmpty else { return false }
@@ -149,7 +152,7 @@ struct GoLiveSheetMac: View {
         // so a sign-in on the host's phone does not reach this machine.
         // Pressing Go Live would have failed inside the auth boundary, which
         // is the one thing §10.2b's principle says never to offer (§9.sss).
-        return StudioPlatformAuth.isSignedIn(authPlatform)
+        return signedIn
     }
 
     private func commit() {
