@@ -73,7 +73,10 @@ emulators) · `docs/CAPTIONS.md` · `docs/SHAREPLAY.md` ·
    the iOS container, so those two platforms can publish only to the
    diagnostic destination whatever the owner pastes into `Secrets.xcconfig`.
    Everything else on them is real and measured — which is why it went
-   unnoticed. macOS needs only the code plus a go-live surface
+   unnoticed. **Android has no OAuth or platform client either** (zero Kotlin
+   references to googleapis.com / api.twitch.tv), so the ids do nothing for it.
+   macOS needs only a CALL SITE — the clients are shared Swift both Apple
+   targets already compile — plus a go-live surface
    (`docs/macOS-DESIGN.md` governs that); tvOS needs the code and still carries
    Decision 128's unproven sign-in presentation. **This item used to say "and it is the only
    blocker — everything else is built and verified on real hardware", which
