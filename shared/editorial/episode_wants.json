@@ -1,10 +1,10 @@
 {
   "schema": 1,
-  "updated_at": "2026-09-17T09:19:00Z",
+  "updated_at": "2026-09-18T08:56:10Z",
   "description": "Missing-episode queue: canonical episodes (from OMDb) that we don't yet have on Archive. Drained by tools/backfill_tv_episodes.py.",
   "stats": {
-    "total": 18160,
-    "wanted": 17937,
+    "total": 18161,
+    "wanted": 17938,
     "fulfilled": 223,
     "series_with_gaps": 360
   },
@@ -132193,6 +132193,16 @@
       "episodeImdbID": "tt0516872",
       "status": "wanted",
       "added_at": "2026-06-02T08:32:33Z"
+    },
+    {
+      "seriesID": "the-avengers-1961",
+      "seriesTitle": "The Avengers",
+      "season": 7,
+      "episode": 12,
+      "title": "Have Guns - Will Haggle",
+      "episodeImdbID": "tt0516845",
+      "status": "wanted",
+      "added_at": "2026-09-18T08:56:10Z"
     },
     {
       "seriesID": "the-avengers-1961",
