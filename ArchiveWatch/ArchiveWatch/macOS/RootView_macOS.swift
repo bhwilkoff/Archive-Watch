@@ -233,6 +233,24 @@ struct RootView: View {
                             waited += 0.25
                         }
                         await StudioSession.shared.setLayout(layout)
+                        // The CARDS, so "custom overlays" can be exercised and
+                        // MEASURED rather than described. A card is a still
+                        // graphic over the film, so it shows up in the
+                        // recording as a collapse in temporal variation — the
+                        // same reading that proved the camera tiles.
+                        switch env["AW_STUDIO_CARD"] ?? "" {
+                        case "startingSoon":
+                            await StudioSession.shared.setCard(.startingSoon(secondsRemaining: 60))
+                            awdiag("AWMACDOOR card=startingSoon")
+                        case "intermission":
+                            await StudioSession.shared.setCard(.intermission)
+                            awdiag("AWMACDOOR card=intermission")
+                        case "ending":
+                            await StudioSession.shared.setCard(.ending)
+                            awdiag("AWMACDOOR card=ending")
+                        default:
+                            break
+                        }
                         if env["AW_STUDIO_MAC_SOUND"] != "1" {
                             StudioSession.shared.muteLocalMonitorForHarness()
                         }
