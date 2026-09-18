@@ -111,6 +111,15 @@ emulators) · `docs/CAPTIONS.md` · `docs/SHAREPLAY.md` ·
    not), a real camera tile (no television has a camera), and eyes on the
    phone Detail entry, whose DECISION is tested but whose appearance has never
    been seen.
+9a. **An Apple TV that is ASLEEP is not woken.** The tvOS encoder read
+   (§9.vv) was attempted at 03:30 and `devicectl` refused: *"System is asleep -
+   foreground app launch forbidden"*. Waking it would switch on a television in
+   the owner's bedroom in the middle of the night, which is the same intrusion
+   the Fireplace instruction is about; Movie Room would light another room in a
+   sleeping house. **The tvOS and iOS encoder reads wait for a waking hour** —
+   they need no bench destination, only a screenshot of the DEBUG readout, so
+   they are a two-minute job whenever the televisions are awake.
+
 9. **Fireplace TV is off limits for testing** (owner 2026-09-17, mid-run: "I'm
    actively watching on it now"). Bedroom and Movie Room are fine — but both
    are Apple TV 4K **3rd** gen, and Fireplace is the only **2nd** gen, i.e.

@@ -1618,6 +1618,62 @@ the audio path, the real ingest hosts with no credential, the overlay and
 go-live surfaces on the glass, the rights gate on device, and the platform
 clients. **→ `docs/watch-together-measurements.md`**
 
+### §9.ww The encoder settings audited against what the platforms actually publish (2026-09-18)
+
+The Studio exists to reach YouTube and Twitch, and its encoder parameters had
+never been checked against either platform's published requirements. They are
+now, and the audit changed one plan and flagged one decision.
+
+**YouTube's official live-encoder page fetched cleanly** and specifies:
+keyframe interval **2 s** ("do not exceed 4 seconds"), **CBR**, audio **AAC at
+128 kbps stereo**, and video **4 Mbps at 720p30** / **10 Mbps at 1080p30** for
+H.264.
+
+**Twitch's could NOT be read, and no substitute was accepted.**
+`help.twitch.tv`'s guidelines page is a JavaScript portal that returns a CSS
+error to a fetcher, and `link.twitch.tv/BroadcastingGuidelines` redirects
+straight back to it. Search returns plenty of third-party blogs quoting profile
+and B-frame settings; **none of them is Twitch**, and encoder parameters are
+not worth setting from a blog. Twitch's requirements remain UNVERIFIED here,
+and the one thing that matters most — that it accepts our stream — was already
+proved against the real ingest with an invalid key (§9).
+
+**What we send, measured against what YouTube publishes:**
+
+| | Apple | Android | YouTube |
+|---|---|---|---|
+| resolution / fps | 1920x1080 @30 | 1280x720 @30 | — |
+| video bitrate | 6 Mbps | 4 Mbps | 10 Mbps @1080p30, **4 Mbps @720p30** |
+| audio | AAC 128 kbps stereo | AAC 128 kbps stereo | **AAC 128 kbps stereo** |
+| keyframe interval | 2 s | 2 s | **2 s**, never over 4 |
+| H.264 profile | High | Baseline | not specified |
+
+Android's 720p30 at 4 Mbps is EXACTLY YouTube's recommendation; both platforms'
+audio and keyframe settings match it exactly.
+
+**THE PLAN THIS AUDIT KILLED.** YouTube's table says CBR, Apple uses
+`AverageBitRate` plus a `DataRateLimits` hard cap, and the obvious move was to
+switch to `kVTCompressionPropertyKey_ConstantBitRate`. The SDK header says not
+to, in as many words:
+
+> `kVTCompressionPropertyKey_ConstantBitRate` is intended for legacy content
+> distribution networks which require constant bitrate, and **is not intended
+> for general streaming scenarios**.
+
+So the average-plus-cap shape we already have is what Apple recommends for
+exactly this job, and the change was not made. Reading the framework's own
+header beat following the platform's table.
+
+**THE DECISION THIS AUDIT FLAGS, for the owner rather than for me.** Apple
+sends 1080p30 at **6 Mbps** where YouTube recommends **10**. That is not a
+defect — YouTube accepts it and 6 Mbps at 1080p is a common encoder setting —
+but it is 60% of the recommendation, and the three ways to close it are all
+trade-offs somebody else should pick: raise to 10 Mbps and demand a 10 Mbps
+sustained UPLINK from the host's home broadband; drop Apple to 720p and match
+Android exactly at YouTube's own number; or keep 1080p at 6 Mbps deliberately
+as the middle. The uplink is the host's, so the choice is not the Studio's to
+make silently.
+
 ### §9.vv Apple's encoder IS the hardware one — asked, because Android's was not (2026-09-18)
 
 §9.uu found the Android Studio encoding in software for its entire life,
