@@ -760,6 +760,18 @@ struct PlayerScreen: View {
 
     /// Why this film may not be broadcast — shown, never swallowed (§5).
     @State private var studioRefusal: String?
+    /// The film a host has asked to broadcast but not yet confirmed — the
+    /// §8.8 one-time acceptance. Nil once accepted or declined.
+    @State private var studioPendingConfirm: Catalog.Item?
+
+    /// Whether this DEVICE has accepted the §3.4a warning. `UserDefaults`
+    /// because there are no accounts here (§10.2) and this is a fact about
+    /// the box, not about a person — a second Apple TV asks again, which is
+    /// right: it may be a different household.
+    private static var studioWarningAccepted: Bool {
+        get { UserDefaults.standard.bool(forKey: "AWStudioWarningAccepted") }
+        set { UserDefaults.standard.set(newValue, forKey: "AWStudioWarningAccepted") }
+    }
     /// Whether the standing refusal is about the FILM's rights or about this
     /// BUILD — they are different sentences and need different titles.
     @State private var studioRefusalIsAboutTheFilm = true
@@ -912,6 +924,20 @@ struct PlayerScreen: View {
                  ? (studioRefusal ?? "") + "\n\n" + StudioRights.policy
                  : (studioRefusal ?? ""))
         }
+        // §8.8's one-time acceptance. A real choice, not an OK: it is asking a
+        // host to accept a risk to their own channel, and "OK" is not consent
+        // to anything.
+        .alert("Before your first broadcast",
+               isPresented: .constant(studioPendingConfirm != nil)) {
+            Button("Start the broadcast") {
+                Self.studioWarningAccepted = true
+                studioFilm = studioPendingConfirm
+                studioPendingConfirm = nil
+            }
+            Button("Not now", role: .cancel) { studioPendingConfirm = nil }
+        } message: {
+            Text(StudioRights.hostWarning)
+        }
         .overlay(alignment: .topLeading) {
             if studioFilm != nil {
                 StudioTVHealth(health: studioHealth, filmFramesPerSecond: studioFilmFPS)
@@ -949,6 +975,14 @@ struct PlayerScreen: View {
                let problem = StudioPlatformAuth.anyConfigurationProblem {
                 studioRefusalIsAboutTheFilm = false
                 studioRefusal = problem
+                return
+            }
+            // ...and the §8.8 confirmation, for the same reason: a door that
+            // skips a gate the product enforces is a door onto a path the
+            // product does not have. AW_STUDIO_TV_FORCE covers this too.
+            if ProcessInfo.processInfo.environment["AW_STUDIO_TV_FORCE"] != "1",
+               !Self.studioWarningAccepted {
+                studioPendingConfirm = film
                 return
             }
             // MUTE THE ROOM. This box lives in someone's house and its audio
@@ -1103,6 +1137,13 @@ struct PlayerScreen: View {
             if let problem = StudioPlatformAuth.anyConfigurationProblem {
                 studioRefusalIsAboutTheFilm = false
                 studioRefusal = problem
+                return
+            }
+            // THEN the §3.4a warning, once per device (§8.8). iOS and macOS
+            // show it on the surface where Go Live is pressed, so pressing it
+            // is informed; a television has no such moment, so it asks.
+            if !Self.studioWarningAccepted {
+                studioPendingConfirm = film
                 return
             }
             studioFilm = film

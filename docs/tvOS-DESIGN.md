@@ -226,6 +226,17 @@ player already has, so §8.1 and §11.4 hold. Specifics:
 - **No camera is not an error.** A paired phone may be absent, asleep or
   carried away mid-show; the program continues film-only and says so.
 - Only films `StudioRights.canGoLive` clears are offered (WATCH-TOGETHER §3.4).
+- **A ONE-TIME CONFIRMATION carries the §3.4a warning, because a television
+  has no informed moment.** On iOS and macOS a host reads
+  `StudioRights.hostWarning` on the surface where they then press Go Live, so
+  pressing it IS an informed action. tvOS starts the Studio straight from the
+  transport menu — there is no sheet to read and nowhere to put a paragraph —
+  so the first broadcast on a device asks for the risk to be accepted
+  explicitly: the warning, **Start the broadcast** and **Not now**. It is
+  asked ONCE per device and never again, because a dialog a host has already
+  answered is chrome, and chrome in front of a broadcast is worse than
+  nothing. Stored in `UserDefaults` — there are no accounts on this platform
+  (§10.2) and this is a device fact, not an identity one.
   An ineligible film still shows the entry point, disabled WITH its reason —
   §2.5's "no empty state without a focusable element" applies to explanations
   too.

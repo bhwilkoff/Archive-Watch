@@ -162,7 +162,14 @@ Researched 2026-09-17, and it closes two of §9's open questions while opening
 a caveat the rights gate cannot close. `StudioRights.hostWarning` carries it,
 identically on every platform (enforced by
 `tools/test_studio_rights_parity.py`), and it is shown on the pre-broadcast
-surface — the iOS go-live sheet, the macOS and Android program panels.
+surface — the iOS go-live sheet, the macOS and Android program panels, and on
+tvOS a **one-time confirmation** before a host's first broadcast, because a
+television's transport menu starts the Studio directly and there is no other
+moment at which anybody reads anything (tvOS-DESIGN §8.8). It is dismissed
+once, per device (`AWStudioWarningAccepted`), and the dev door honours it too.
+Verified on the glass on an Apple TV 4K 3rd gen, 2026-09-17: the alert reads
+**"Before your first broadcast"**, carries the warning in full, and offers
+**Start the broadcast** / **Not now** — a real choice, not an acknowledgement.
 
 **1. An automated matcher does not read our rights audit.** YouTube's own
 copyright page states that a live stream may be replaced by a placeholder,
@@ -2137,12 +2144,6 @@ lives once, beside the enum it names.
   Continuity pairing for the TV. **Measured on the Mac** (above): +0.73 ms per
   frame. The phone number is expected to be larger and is worth having, but
   the architectural question the measurement existed to answer is answered.
-- **The host warning on tvOS.** §3.4a is shown on the iOS sheet and the macOS
-  and Android panels; tvOS has no pre-broadcast surface at all — Detail's
-  transport menu starts the Studio directly — so there is nowhere to put a
-  paragraph yet. A one-time confirmation before a host's first broadcast is
-  the likely answer and needs a tvOS-DESIGN rule first; it is NOT built, and
-  a television host currently sees the warning nowhere.
 - Sign-in on a TELEVISION. `ASWebAuthenticationSession` presents itself on
   tvOS with no anchor; that screen cannot be seen until a client id exists
   (Decision 128). The **not-configured** state IS built and verified (tvOS-
