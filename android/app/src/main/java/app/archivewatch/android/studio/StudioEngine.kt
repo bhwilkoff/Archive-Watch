@@ -284,6 +284,17 @@ class StudioEngine(
         cameraSurface = pg.cameraSurfaceTexture?.let { Surface(it) }
         overlay?.let { pg.setOverlayBitmap(it) }
 
+        // THE SHOW'S CLOCK — one origin, both tracks.
+        //
+        // Video used to be stamped `frame * 1s / frameRate`: a FRAME COUNTER,
+        // which advances 1/30 s per RENDERED frame rather than per elapsed
+        // second. Audio is stamped from its sample count, which tracks real
+        // time exactly. So whenever the renderer misses the nominal rate — and
+        // this Google TV needs 37.4 ms a frame against a 33.3 ms budget
+        // (Decision 129) — video time runs SLOW and the gap against audio
+        // grows without bound. Measured at +19.6 s on a 75-second broadcast.
+        // Both clocks now count real nanoseconds from this instant.
+        val showStartNanos = System.nanoTime()
         var frame = 0L
         var renderTotalNanos = 0L
         var lastSecond = System.currentTimeMillis()
@@ -300,21 +311,28 @@ class StudioEngine(
         // nothing is a broadcast of nothing, and the first frames are what a
         // joining viewer sees.
         while (running.get() && pg.framesAvailable.get() < 3) {
-            drawOnce(g, pg, frame++, renderStart = System.nanoTime()).let { renderTotalNanos += it }
+            drawOnce(g, pg, frame++, renderStart = System.nanoTime(),
+                     showStartNanos = showStartNanos).let { renderTotalNanos += it }
             enc.drain { _, _, _ -> }
             kotlinx.coroutines.delay(16)
         }
 
         while (running.get()) {
             val t0 = System.nanoTime()
-            renderTotalNanos += drawOnce(g, pg, frame, t0)
+            renderTotalNanos += drawOnce(g, pg, frame, t0, showStartNanos)
             frame++
 
             // The AAC encoder is built as soon as the tap knows the film's
             // real rate — BEFORE the publish decision below, which depends on
             // whether it has produced a config yet.
             if (audioTap != null && aac == null && audioTap.sampleRate > 0) {
-                aac = StudioAacEncoder(audioTap.sampleRate, audioTap.channelCount).also { it.start() }
+                aac = StudioAacEncoder(audioTap.sampleRate, audioTap.channelCount).also {
+                    // Built when the first PCM arrives, which is AFTER the show
+                    // began — so its sample clock is placed on the show's
+                    // timeline rather than starting again at zero.
+                    it.startOffsetUs = (System.nanoTime() - showStartNanos) / 1000
+                    it.start()
+                }
                 audioTap.onPcm = { pcm, _, _ -> aac?.encode(pcm) }
             }
             aac?.drain { a, ts -> published?.sendAudio(a, ts) }
@@ -448,7 +466,8 @@ class StudioEngine(
         }
     }
 
-    private fun drawOnce(g: StudioGl, pg: StudioProgramGl, frame: Long, renderStart: Long): Long {
+    private fun drawOnce(g: StudioGl, pg: StudioProgramGl, frame: Long, renderStart: Long,
+                         showStartNanos: Long): Long {
         // The newest frames are pulled ONCE, on the encoder pass, and the
         // display pass reuses them: `updateTexImage` twice in a frame would
         // consume two decoded frames to show one.
@@ -456,7 +475,7 @@ class StudioEngine(
         pg.updateFilmFrame()
         if (layoutShowsCamera) pg.updateCameraFrame()
         drawProgram(pg)
-        g.swap(frame * 1_000_000_000L / frameRate)
+        g.swap(System.nanoTime() - showStartNanos)
 
         // ...and again for the host's screen (§6.2j). A pending surface is
         // attached here rather than from whatever thread handed it over: an

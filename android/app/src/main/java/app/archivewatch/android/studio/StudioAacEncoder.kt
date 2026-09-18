@@ -41,6 +41,20 @@ class StudioAacEncoder(
     private val info = MediaCodec.BufferInfo()
     private var pcmBytesIn = 0L
 
+    /** PCM the encoder could not take. Silent drops are how drift hides. */
+    val droppedBytes = java.util.concurrent.atomic.AtomicLong(0)
+
+    /**
+     * Where this encoder's clock sits on the SHOW's timeline, in microseconds.
+     *
+     * The sample clock below counts from zero at the encoder's OWN start, and
+     * the encoder is built when the first PCM arrives — which is after the
+     * show began. Without this offset the audio claims to start at 0 while the
+     * video is already seconds in, and the two tracks describe different
+     * timelines (§9.pp).
+     */
+    @Volatile var startOffsetUs: Long = 0
+
     fun start() {
         val format = MediaFormat.createAudioFormat(
             MediaFormat.MIMETYPE_AUDIO_AAC, sampleRate, channelCount).apply {
@@ -61,7 +75,19 @@ class StudioAacEncoder(
         var offset = 0
         while (offset < pcm.size) {
             val index = c.dequeueInputBuffer(0)
-            if (index < 0) return          // full; drop rather than stall
+            if (index < 0) {
+                // FULL — drop rather than stall, but the dropped samples still
+                // HAPPENED. The clock must advance past them or the audio
+                // timeline falls behind real time by exactly what was dropped,
+                // for the rest of the show: a 2.8% drop rate measured -3.09 s
+                // of A/V drift over 110 s on the Google TV (§9.qq). Counting
+                // OFFERED bytes turns a growing desync into one brief gap,
+                // which a listener forgives and a desync never stops being.
+                val lost = pcm.size - offset
+                pcmBytesIn += lost
+                droppedBytes.addAndGet(lost.toLong())
+                return
+            }
             val buf = c.getInputBuffer(index) ?: return
             buf.clear()
             val take = minOf(buf.capacity(), pcm.size - offset)
@@ -69,7 +95,8 @@ class StudioAacEncoder(
             // The timestamp is derived from BYTES CONSUMED, not the wall
             // clock: audio's clock is its own sample count, and using the
             // wall clock makes the stream drift whenever a frame is late.
-            val us = pcmBytesIn * 1_000_000L / (sampleRate.toLong() * channelCount * 2)
+            val us = startOffsetUs +
+                     pcmBytesIn * 1_000_000L / (sampleRate.toLong() * channelCount * 2)
             c.queueInputBuffer(index, 0, take, us, 0)
             pcmBytesIn += take
             offset += take

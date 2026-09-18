@@ -1618,6 +1618,64 @@ the audio path, the real ingest hosts with no credential, the overlay and
 go-live surfaces on the glass, the rights gate on device, and the platform
 clients. **→ `docs/watch-together-measurements.md`**
 
+### §9.qq Android's two clocks, fixed — a frame counter pretending to be a clock, and a sample clock that did not count what it dropped (2026-09-18)
+
+§9.pp measured a +19.6 s A/V split on the Android product path and blamed
+MediaCodec's Surface clock. **That diagnosis was wrong**, and the grep that
+produced it was scoped to a file that does not contain the call. `StudioGl`
+sets the presentation time deliberately. The actual pair of causes:
+
+**Cause 1 — video time was a frame COUNTER, not a clock.**
+
+    g.swap(frame * 1_000_000_000L / frameRate)
+
+Frame N was stamped at N/30 s regardless of when it was actually drawn. Audio,
+stamped from its sample count, tracks real time exactly. So the two agree only
+while the renderer holds the nominal rate — and this Google TV does not: the
+same run measures **10.5 fps**. A stream whose video clock advances at a third
+of real time while its audio advances at real time desynchronises without
+bound, and the frame counter HID the true rate by asserting 30 fps whatever
+happened. Both tracks now count real nanoseconds from one `showStartNanos`.
+
+**Cause 2 — the sample clock did not count what it threw away.**
+
+    if (index < 0) return          // full; drop rather than stall
+    ...
+    pcmBytesIn += take             // only ACCEPTED bytes move the clock
+
+The comment beside it argues that a sample clock cannot drift, which is true
+only if nothing is ever dropped. When the codec input was full the PCM was
+discarded and the clock never advanced past it, so the audio timeline fell
+behind real time by exactly the amount dropped — permanently, and invisibly.
+It now counts OFFERED bytes and exposes `droppedBytes`, which turns a growing
+desync into one brief gap: a listener forgives a gap, and a desync never stops
+being one.
+
+**Measured on the Google TV, `The Four Horsemen of the Apocalypse`, by packet
+PTS from an `mpegts` recording:**
+
+| | A/V at start | A/V at end | drift over the run |
+|---|---|---|---|
+| before | — | — | **+19,613 ms** split |
+| one show clock | +1,163 ms | -1,926 ms | **-3,089 ms** / 110 s |
+| + offered-byte clock | +1,439 ms | +719 ms | **-720 ms** / 100 s |
+
+27x better, and the offset now CLOSES across the run instead of opening.
+macOS on the same instrument is 0 ms and needed no change.
+
+**Two things stay OPEN, both now visible only because the clocks are honest:**
+
+- **A residual -720 ms over 100 s (0.7%).** The audio clock is still the
+  FILM's timeline (its decoded sample count) while video is now wall-clock, so
+  a rebuffer or a player running fractionally off real time shows up as drift
+  rather than as a gap. The fix is to resync the sample clock to the show
+  clock when the error exceeds a threshold — stamping audio by arrival time
+  outright would import the jitter the sample clock exists to avoid.
+- **10.5 fps on the dongle.** Decision 129 measured 37.4 ms a frame drawing
+  once; a real broadcast with audio, chat and publishing is far worse. This is
+  a hardware-floor question, not a clock one, but it was concealed for as long
+  as the timestamps were synthetic.
+
 ### §9.pp OPEN: Android's two clocks — a +19.6 SECOND A/V split that only became visible once audio existed (2026-09-18)
 
 §9.mm wired the film's audio into the Android product path for the first time.
@@ -1644,10 +1702,13 @@ starting 6.5 s after audio, with the two tracks' durations 26 s apart.
   `pcmBytesIn * 1_000_000 / (sampleRate * channels * 2)`, minus the AAC
   priming delay. Deliberately drift-free, and it starts at 0 when the AAC
   encoder starts.
-- **Video** is stamped `bufferInfo.presentationTimeUs` straight from
-  MediaCodec, i.e. whatever the input Surface recorded — nothing calls
-  `eglPresentationTimeANDROID`, so it is the system's own clock, not the
-  show's.
+- **Video** is stamped `frame * 1s / frameRate` — a FRAME COUNTER.
+
+**CORRECTION (§9.qq)**: this entry first blamed MediaCodec's Surface clock and
+said nothing called `eglPresentationTimeANDROID`. Both were wrong — the grep
+behind that claim was scoped to a filename that does not carry the call.
+`StudioGl.swap()` sets the presentation time deliberately; what it was handed
+was a frame counter. The real cause is in §9.qq.
 
 Neither is wrong on its own; they simply do not share an origin. `RtmpPublisher`
 carries a comment saying the Kotlin side needs no timestamp base "unlike
