@@ -2527,7 +2527,8 @@ long before anyone has decided to broadcast. An API whose only correct call
 site is far away from the feature it serves is one that will be left
 unconnected, and it was; it also means Decision 129's A/V numbers were a
 harness measurement, never a product-path one. This is the same shape as the
-§6.2/§6.3 rules that lived only in `StudioLab` on Apple (§9.f).
+§6.2/§6.3 rules that lived only in `StudioLab` on Apple (§9.bb, and
+Decision 130).
 
 So the tap is now installed on every playback, and its idle path was rewritten
 to earn that: two atomics and a strided peak scan read straight out of the
