@@ -318,6 +318,67 @@ public enum StudioPlatformAuth {
         return (title, id)
     }
 
+    /// Whether this channel could actually go live RIGHT NOW — asked before the
+    /// host presses anything, and asked with a READ.
+    ///
+    /// Going live is four writes (`liveStreams.insert`, `liveBroadcasts.insert`,
+    /// bind, transition), the first of which creates a real object on the
+    /// host's channel. So "can this work?" must not be answered by trying it.
+    /// `liveBroadcasts.list` is the cheapest read that exercises the same
+    /// permission surface: YouTube refuses it with `liveStreamingNotEnabled`
+    /// when the channel has never been enabled for live.
+    ///
+    /// This closes a trap the owner flagged early (SCRATCHPAD 7a2): enabling
+    /// live streaming for the FIRST time can take up to 24 hours to activate,
+    /// so discovering it at go-live time means the show does not happen that
+    /// night. Discovering it on the sign-in screen means it happens tomorrow.
+    public enum YouTubeReadiness: Sendable, Equatable {
+        case ready
+        /// A sentence the host can act on, not a reason code.
+        case blocked(String)
+    }
+
+    public static func youTubeLiveReadiness() async throws -> YouTubeReadiness {
+        let access = try await token(for: .youtube)
+        var r = URLRequest(url: URL(string: "https://www.googleapis.com/youtube/v3/"
+            + "liveBroadcasts?part=id&mine=true&maxResults=1")!)
+        r.setValue("Bearer \(access)", forHTTPHeaderField: "Authorization")
+        let (data, resp) = try await URLSession.shared.data(for: r)
+        guard let http = resp as? HTTPURLResponse else {
+            throw StudioPlatformError.badResponse("no HTTP response from YouTube")
+        }
+        if (200..<300).contains(http.statusCode) { return .ready }
+
+        // The REASON, not the status. A 403 here is three different problems
+        // needing three different answers, and the status tells them apart no
+        // better than Twitch's blanket 400 did (§9.ppp).
+        let o = (try? JSONSerialization.jsonObject(with: data)) as? [String: Any]
+        let err = o?["error"] as? [String: Any]
+        let reason = ((err?["errors"] as? [[String: Any]])?.first?["reason"] as? String) ?? ""
+        switch reason {
+        case "liveStreamingNotEnabled":
+            // SHORT ON PURPOSE. The first version ran to four lines and the
+            // last of them was cut off the bottom of a television (§9.zzz) —
+            // a host could see the greyed button and not the end of the
+            // sentence telling them what to do about it. The 24-hour warning
+            // is the part that changes behaviour, so it stays; the rest is in
+            // SCRATCHPAD 7a2 where it can be as long as it likes.
+            return .blocked("Live streaming is not enabled on this channel. Turn it on "
+                + "at youtube.com/features — the first time can take up to 24 hours.")
+        case "insufficientPermissions", "forbidden":
+            return .blocked("This sign-in does not carry permission to manage live "
+                + "broadcasts. Sign out and sign in again to grant it.")
+        case "authError", "":
+            if http.statusCode == 401 {
+                return .blocked("YouTube no longer accepts this sign-in. Sign in again.")
+            }
+            fallthrough
+        default:
+            let msg = (err?["message"] as? String) ?? "HTTP \(http.statusCode)"
+            return .blocked("YouTube will not accept a broadcast from this channel yet: \(msg)")
+        }
+    }
+
     /// Twitch: the device flow, because Twitch offers a public client no
     /// PKCE — see StudioPlatformAuth.swift. Two steps, because the host has
     /// to be SHOWN a code between them.

@@ -57,6 +57,12 @@ struct GoLiveTV: View {
     @State private var title: String
     @State private var privacy: YouTubePrivacy = .unlisted
     @State private var signedIn = false
+    /// What YouTube says about this channel's ability to broadcast at all.
+    /// Nil means "not asked yet", which deliberately does NOT block Go live:
+    /// a slow API call must not gate the control, and a host who presses
+    /// through an unknown answer meets the real error either way. Only a
+    /// KNOWN-bad answer stops them, and it stops them with a sentence.
+    @State private var readiness: StudioPlatformAuth.YouTubeReadiness?
     @FocusState private var focus: Field?
 
     private enum Field: Hashable { case platform(String), title, privacy(String), goLive, cancel }
@@ -69,6 +75,12 @@ struct GoLiveTV: View {
         self.onCancel = onCancel
         _title = State(initialValue: Self.suggestedTitle(for: film))
         _platform = State(initialValue: Self.configured.first ?? .youtube)
+    }
+
+    /// The reason a signed-in host still cannot broadcast, or nil.
+    private var blockedReason: String? {
+        guard platform == .youtube, case .blocked(let why)? = readiness else { return nil }
+        return why
     }
 
     private var trimmedTitle: String {
@@ -98,6 +110,19 @@ struct GoLiveTV: View {
             VStack(alignment: .leading, spacing: 32) {
                 header
                 warning
+                // WHY Go live is greyed, in the reading column rather than the
+                // control column. It went below the buttons first (clipped by
+                // the bottom of the screen) and then above them (which clipped
+                // the BUTTONS instead) — the control column cannot hold both,
+                // and this is reading matter, which is what the left column is
+                // for. Three layout attempts on one screen, each judged by a
+                // capture: a ten-foot column does not fit by reasoning.
+                if signedIn, let blockedReason {
+                    Label(blockedReason, systemImage: "exclamationmark.triangle.fill")
+                        .font(.callout)
+                        .foregroundStyle(StudioSignInRow.signedInAccent)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
                 Spacer(minLength: 0)
             }
             .frame(width: 620, alignment: .leading)
@@ -125,6 +150,14 @@ struct GoLiveTV: View {
         .onAppear { signedIn = StudioPlatformAuth.isSignedIn(platform) }
         .onChange(of: platform) { _, new in
             signedIn = StudioPlatformAuth.isSignedIn(new)
+            readiness = nil
+        }
+        // Asked once the host is signed in, because it needs their token, and
+        // re-asked when they sign in later. Read-only: it creates no broadcast
+        // (§9.zzz) — the whole point is to answer before anything is created.
+        .task(id: signedIn) {
+            guard signedIn, platform == .youtube, readiness == nil else { return }
+            readiness = try? await StudioPlatformAuth.youTubeLiveReadiness()
         }
         // Default focus alone is unreliable here (CLAUDE.md, commit 1f789b1),
         // and the target depends on state: claiming Go Live while it is
@@ -282,7 +315,7 @@ struct GoLiveTV: View {
                           systemImage: "dot.radiowaves.left.and.right")
                         .padding(.horizontal, 12)
                 }
-                .disabled(!signedIn)
+                .disabled(!signedIn || blockedReason != nil)
                 .focused($focus, equals: .goLive)
 
                 Button("Not now", role: .cancel) { onCancel() }
@@ -291,6 +324,9 @@ struct GoLiveTV: View {
             if !signedIn {
                 Text("Sign in above to go live. Nothing is broadcast until you "
                      + "press Go live.")
+                    .font(.caption).foregroundStyle(.secondary)
+            } else if blockedReason == nil {
+                Text("Nothing is broadcast until you press Go live.")
                     .font(.caption).foregroundStyle(.secondary)
             }
         }

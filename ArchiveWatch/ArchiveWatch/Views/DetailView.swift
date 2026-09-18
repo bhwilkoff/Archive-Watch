@@ -1112,6 +1112,11 @@ struct PlayerScreen: View {
                 do {
                     let who = try await StudioPlatformAuth.youTubeAccount()
                     awdiag("AWYT channel=%@ [%@]", who.title, who.id)
+                    let ready = try await StudioPlatformAuth.youTubeLiveReadiness()
+                    switch ready {
+                    case .ready: awdiag("AWYT readiness=READY")
+                    case .blocked(let why): awdiag("AWYT readiness=BLOCKED %@", why)
+                    }
                 } catch {
                     awdiag("AWYT failed=%@", "\(error)")
                 }

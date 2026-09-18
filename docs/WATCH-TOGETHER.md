@@ -1618,6 +1618,57 @@ the audio path, the real ingest hosts with no credential, the overlay and
 go-live surfaces on the glass, the rights gate on device, and the platform
 clients. **→ `docs/watch-together-measurements.md`**
 
+### §9.zzz "Can this channel go live?" is a READ, asked before the button — and the answer is no (2026-09-18)
+
+Going live on YouTube is four writes: `liveStreams.insert`, `liveBroadcasts.insert`,
+bind, transition. The first creates a real object on the host's channel. So the
+question "will this work?" must never be answered by trying it — and until now
+that was the only way the app could answer it.
+
+`StudioPlatformAuth.youTubeLiveReadiness()` asks with a read.
+`liveBroadcasts.list?mine=true` exercises the same permission surface and
+creates nothing; YouTube refuses it with `liveStreamingNotEnabled` when the
+channel has never been enabled for live.
+
+**Asked from the Apple TV with the owner's own token, the answer is BLOCKED:**
+
+    AWYT channel=Ben Wilkoff [UCtPDkIGiSWSb5N8hNdaPizg]
+    AWYT readiness=BLOCKED  live streaming is not enabled on this channel
+
+This is exactly the trap SCRATCHPAD 7a2 flagged as a risk months of ticks ago
+and never tested: **enabling live streaming for the first time can take up to 24
+hours to activate.** Found at go-live time it costs the evening. Found on the
+sign-in screen it costs a day's notice.
+
+**The status is not the answer, again.** A 403 here is three different problems
+— the channel was never enabled, the sign-in lacks the scope, or the token is
+dead — and each needs a different sentence from the host. `error.errors[0].reason`
+separates them. That is the third endpoint in this feature where the HTTP status
+carries no information (Twitch's blanket 400, §9.ppp; Google's `authError` on the
+final URL, §9.nnn; and now this), which has stopped being a coincidence and is
+written into the doc as an expectation.
+
+**On the surface.** `GoLiveTV` asks once the host is signed in and greys Go live
+with the reason when the answer is bad. A nil answer — not asked yet, or the
+call failed — deliberately does NOT block the button: a slow API must not gate a
+control, and a host who presses through an unknown meets the real error anyway.
+Only a KNOWN-bad answer stops them, and it stops them with something to do about
+it rather than a reason code.
+
+This is the §10.2b principle one layer in. That rule stopped a host reaching a
+production mode that could never find an audience; this stops one reaching a Go
+live that YouTube was always going to refuse.
+
+**Three layout attempts, each judged by a capture.** The reason went BELOW the
+buttons first and its last line fell off the bottom of the television; moved
+ABOVE them, it pushed the buttons off instead; it now sits in the LEFT column,
+which is what Rule 8.8b's two-column split is for — reading matter left,
+controls right — and everything fits. Worth recording because the failure mode
+repeats: a ten-foot column's fit cannot be reasoned about from the source, and
+the screenshot is the only instrument that answers it. The sentence was also
+cut from four lines to two on the way, with the long form kept in SCRATCHPAD
+7a2 where length costs nothing.
+
 ### §9.yyy tvOS signs in to YouTube by handing the session to a PHONE — and two ticks were spent designing around a limitation that did not exist (2026-09-18)
 
 The owner, after reading two ticks of "blocked on the owner": *"You seem to have

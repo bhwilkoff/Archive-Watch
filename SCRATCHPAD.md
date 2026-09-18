@@ -107,7 +107,17 @@ emulators) · `docs/CAPTIONS.md` · `docs/SHAREPLAY.md` ·
    `Info.plist`). **Both platforms are now configured**, so the go-live sheet's
    "not set up" state no longer appears on any Apple surface — and note that
    registering the FIRST id is what exposed the tvOS gate defect in §9.ooo;
-   (a2) **CHANNEL ELIGIBILITY, worth doing a day early.** YouTube's encoder
+   (a2) **MEASURED 2026-09-18 AND IT IS BLOCKED — DO THIS FIRST.** Asked of
+   YouTube from the Apple TV with the owner's own token (`liveBroadcasts.list`,
+   a READ that creates nothing): `liveStreamingNotEnabled`. **Live streaming has
+   never been enabled on the channel "Ben Wilkoff"
+   (UCtPDkIGiSWSb5N8hNdaPizg).** Turn it on at **youtube.com/features** from a
+   phone or computer; the FIRST activation can take **up to 24 hours**, so this
+   is the item to do today rather than on the evening of a broadcast. The
+   go-live surface now asks this before the host presses anything and greys Go
+   live with this sentence, instead of failing inside four write calls (§9.zzz).
+   Original note follows.
+   (a2-orig) **CHANNEL ELIGIBILITY, worth doing a day early.** YouTube's encoder
    path (ours) needs the channel VERIFIED and no live-streaming restrictions in
    the past 90 days; enabling live streaming for the first time can carry a
    **24-hour wait**, so switch it on the day before, not the hour before.
