@@ -1079,8 +1079,25 @@ struct PlayerScreen: View {
                     // moved to AWPRIME's delta, which checks against a value
                     // known outside the arithmetic. A control has to be wrong
                     // only when the thing it guards is wrong.
-                    awdiag("AWSYNC audioFilmPos=%.2f playhead=%.2f offset=%+.2f queued=%.1f ooo=%d dropped=%d held=%d",
-                           pos, now, pos - now, d.queuedSeconds,
+                    // THE OFFSET HAS TO ACCOUNT FOR THE RING, and it did not
+                    // until the pump changed underneath it.
+                    //
+                    // `pos` is the film time of the last packet DECODED. While
+                    // the pump metered one packet a tick that was also roughly
+                    // the audio being encoded, so `pos - now` was the A/V
+                    // offset. Filling a cushion (§9.vvvv) put up to half a
+                    // second of decoded audio in the ring ahead of the mixer,
+                    // and the reported offset rose from +0.22 to +0.49 with
+                    // nothing having gone out of sync: the ring is FIFO, so
+                    // that audio is simply encoded later. Subtracting what is
+                    // buffered gives the film time actually going to the wire.
+                    //
+                    // A measurement whose meaning changes when an unrelated
+                    // part changes is the recurring fault in this feature.
+                    let buffered = await engine.filmAudioBuffered
+                    awdiag("AWSYNC audioFilmPos=%.2f playhead=%.2f decodedAhead=%+.2f buffered=%.2f offset=%+.2f queued=%.1f ooo=%d dropped=%d held=%d",
+                           pos, now, pos - now, buffered, pos - now - buffered,
+                           d.queuedSeconds,
                            d.outOfOrderBursts, d.droppedStale, d.heldEarly)
                 }
             }

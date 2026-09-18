@@ -476,6 +476,9 @@ public actor StudioEngine {
     /// the tap on iOS/macOS, or the pull path on tvOS.
     public var filmHasAudio: Bool { audioAttached || mixer.film.isReceivingExternal }
 
+    /// Decoded film audio waiting in the mixer's ring, in seconds.
+    public var filmAudioBuffered: Double { mixer.film.bufferedSeconds }
+
     /// Why the film's audio is NOT on air, or nil when it is (or when the film
     /// is genuinely silent).
     ///

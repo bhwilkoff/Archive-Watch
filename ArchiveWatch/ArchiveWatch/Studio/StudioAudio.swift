@@ -49,6 +49,14 @@ final class AudioRing: @unchecked Sendable {
     private(set) var framesPadded = 0
     private(set) var framesOverflowed = 0
 
+    /// Interleaved samples written but not yet read. This is LATENCY: whatever
+    /// sits here was decoded already and will not be encoded until the mixer
+    /// reaches it.
+    var availableSamples: Int {
+        lock.lock(); defer { lock.unlock() }
+        return available
+    }
+
     init(capacity: Int = 44100 * 2) {
         self.capacity = capacity
         buffer = [Float](repeating: 0, count: capacity)
@@ -263,6 +271,12 @@ final class FilmAudioTap: @unchecked Sendable {
         externalSamples += count
         lastExternalAt = CACurrentMediaTimeCompat()
         lock.unlock()
+    }
+
+    /// Seconds of decoded film audio waiting in the ring — interleaved stereo,
+    /// so two samples to a frame.
+    var bufferedSeconds: Double {
+        Double(ring.availableSamples) / 2.0 / max(programRate, 1)
     }
 
     /// Whether film audio is ARRIVING, by any route.
