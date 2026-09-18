@@ -65,6 +65,39 @@ emulators) · `docs/CAPTIONS.md` · `docs/SHAREPLAY.md` ·
    **Schedule publishing** is the owner's press). Ticket 110523 needs a reply
    asking for the Search Beta re-test — the Dashboard's Submit for review is
    disabled while the feed is FEED VALIDATED (= in certification).
+7-NEW. **WATCH TOGETHER HAS BROADCAST TO YOUTUBE** (2026-09-18 ~14:40). The
+   first YouTube go-live went out from an Apple TV to the channel **Learning is
+   Change** (UCI9L3u8Hf_zeotF9-Ec349w) — confirmed from YouTube's own side,
+   `liveBroadcasts` totalResults 34 -> 35, newest id `H96F1xNoJRo`. Twitch has
+   worked since 09-17. What that took, all fixed:
+   - `liveStreams.insert` sent `part=snippet,cdn,status` while its BODY carried
+     `contentDetails.isReusable`; YouTube requires `part` to name every property
+     the write sets. One word, and it had blocked every attempt.
+   - The go-live **channel** was the personal default because `prompt=consent`
+     re-shows consent for the account Google has already chosen and never offers
+     the Brand Account picker. `prompt=select_account consent` fixes it; the
+     token is now on **Archive Watch** (UCGNBrxdpR4ujnMWO4_OQgyA).
+   - **Archive Watch itself is still inside YouTube's 24-hour first activation**
+     (owner confirmed, ~2026-09-18 14:20). Nothing further is needed from
+     anyone: re-run the read-only probe (`AW_STUDIO_AUTH=probe-youtube`) after
+     it clears. No re-auth, the token is already on the right channel.
+   - The OAuth consent screen is still in **Testing**, so refresh tokens expire
+     in 7 days and every host sees "Google hasn't verified this app". Publishing
+     it and passing verification is the remaining SHIP blocker for YouTube
+     (`…/auth/youtube` is a sensitive scope: needs homepage, privacy policy,
+     domain verification and a demo video — not the security assessment).
+   - **Continuity camera can now be paired FROM the go-live sheet**
+     (`continuityDevicePicker`, tvOS 17+). Owner paired a phone successfully;
+     the microphone needed the audio session raised BEFORE Continuity is asked,
+     because the mic is a session PORT and a non-record session lists none.
+   - **Bitrate is settled**: on an Apple TV 4K the encoder holds 1080p30 with
+     ZERO dropped frames at 4 and 6 Mbps against a local server, 13 dropped at
+     8 and 552 at 10. It delivers ~70-75% of the rate asked. The home uplink is
+     68.3 Mbps but 854 ms responsiveness under load, so the Twitch drops at
+     ~4.2 Mbps are bufferbloat on the local path, not the device and not
+     Twitch. There is nothing above 6 Mbps worth asking for on this hardware.
+   Original item follows, much of it now historical.
+
 7. **Watch Together Studio — the PUBLIC half is blocked on the owner ON iOS;
    tvOS and macOS also need CODE.** The three one-time steps (a/b/c below) are
    what stands between the feature and a real broadcast **from an iPhone**.

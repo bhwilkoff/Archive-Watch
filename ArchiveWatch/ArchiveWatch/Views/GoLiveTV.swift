@@ -424,24 +424,31 @@ struct GoLiveTV: View {
     /// It is never REQUIRED. §8.8 already treats an absent camera as normal,
     /// and a host who wants only the film should not have to dismiss anything.
     private var cameraRow: some View {
-        Button {
-            showCameraPicker = true
-        } label: {
-            HStack {
+        VStack(alignment: .leading, spacing: 16) {
+            Button {
+                showCameraPicker = true
+            } label: {
                 Label(cameraPaired ? "iPhone camera and microphone are ready"
                                    : "Use an iPhone as camera and microphone",
                       systemImage: cameraPaired ? "checkmark.circle.fill" : "iphone")
-                    .font(.subheadline.weight(.medium))
-                Spacer()
-                if !cameraPaired {
-                    Text("Optional").font(.footnote).foregroundStyle(.secondary)
-                }
+                    .padding(.horizontal, 12)
             }
+            .focused($focus, equals: .camera)
+
+            Text(cameraPaired
+                 ? "Your phone will appear in the corner of the broadcast."
+                 : "Optional — the film broadcasts fine on its own.")
+                .font(.caption).foregroundStyle(.secondary)
         }
-        .buttonStyle(.borderless)
-        .focused($focus, equals: .camera)
+        // THE SAME TREATMENT AS EVERY OTHER FOCUSABLE GROUP HERE, and the first
+        // version had neither half. Owner, 2026-09-18: "the design of the go
+        // live screen needs to allow for the buttons to expand and act
+        // appropriately." It used `.buttonStyle(.borderless)`, which does not
+        // grow under focus the way tvOS's default does — the style the Go live
+        // button beside it uses — and it was missing `.focusSection()`, so it
+        // did not participate in Rule 8.8b's focusable right-hand column.
+        .focusSection()
         .continuityDevicePicker(isPresented: $showCameraPicker) { device in
-            // The device is now visible system-wide; discovery finds it.
             cameraPaired = device != nil
             awdiag("AWCONT picker connected=%@", device == nil ? "nil" : "yes")
         }

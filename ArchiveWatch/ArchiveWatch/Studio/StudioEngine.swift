@@ -742,6 +742,17 @@ public actor StudioEngine {
     /// `.playback` until `StudioContinuity` finds an actual microphone port and
     /// raises it — raising it earlier fails, and a failed activation stops
     /// `AVPlayer` dead (§9).
+    /// Raise the audio session BEFORE asking Continuity for a microphone.
+    ///
+    /// The continuity mic is an `AVAudioSession` INPUT PORT, and a session that
+    /// is not in a record-capable category lists no inputs — so querying it
+    /// first always answers "none". `start()` raises the session at line ~554,
+    /// long after the attach path runs, which is why a paired phone reported
+    /// `camera=Continuity Camera micPort=none`: the camera is a capture device
+    /// and was found, the microphone is a session port and could not be.
+    /// Idempotent — `previousAudioCategory` is only captured once.
+    public func prepareAudioSession() { raiseAudioSessionForShow() }
+
     private func raiseAudioSessionForShow() {
         #if os(iOS) || os(tvOS)
         let s = AVAudioSession.sharedInstance()

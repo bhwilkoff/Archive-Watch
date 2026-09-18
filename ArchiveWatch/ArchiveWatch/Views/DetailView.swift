@@ -928,6 +928,9 @@ struct PlayerScreen: View {
 
         // The camera, if a phone has been paired. NOT an error when absent
         // (§8.8): a paired phone can be asleep or carried away mid-show.
+        // ORDER MATTERS: the microphone is a session PORT, so the session has
+        // to be record-capable before it can appear at all.
+        await engine.prepareAudioSession()
         let continuity = StudioContinuity()
         try? await Task.sleep(nanoseconds: 1_200_000_000)
         // SAY WHAT IT FOUND. Absent is not an error (§8.8) — a paired phone can
