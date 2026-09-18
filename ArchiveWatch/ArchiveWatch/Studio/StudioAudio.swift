@@ -187,7 +187,43 @@ final class FilmAudioBridge: @unchecked Sendable {
 }
 
 final class FilmAudioTap: @unchecked Sendable {
-    let ring = AudioRing()
+    /// THE RING IS THE SUSPECT (§9.bbbbb). One second by default, and it sits
+    /// ~0.91 s FULL in steady state across 89 samples — which is 0.9 s of audio
+    /// latency between the tap and the encoder, and would put the broadcast's
+    /// sound about that far behind its picture.
+    ///
+    /// `AW_STUDIO_RING_MS` exists so that can be a CONTROL rather than an
+    /// argument: change the ring, and a causal offset must move with it. If it
+    /// does not, the ring is innocent and the latency is somewhere else.
+    let ring = AudioRing(capacity: FilmAudioTap.ringCapacity)
+
+    /// THE SIZE FOLLOWS THE PATH, and the two paths need opposite things.
+    ///
+    /// macOS and iOS fill this ring from the TAP, which delivers inline with
+    /// playback — measured at a median +40 ms of the playhead. Nothing needs
+    /// buffering ahead, so a full second is pure latency: the ring sat 0.91 s
+    /// full in steady state and put the broadcast's audio 0.86 s behind its
+    /// picture. Measured causally, by changing the ring and watching the offset
+    /// follow: 1000 ms -> -0.86 s, 250 ms -> -0.12 s, with ZERO underruns and
+    /// `raw` unmoved (§9.ccccc).
+    ///
+    /// tvOS fills it from the PULL path, whose decoder deliberately builds a
+    /// cushion up to its 0.5 s tolerance (§9.tttt) — that cushion is what
+    /// stopped the clicking, and a 250 ms ring could not hold it. So the
+    /// television keeps its second. Shrinking one shared default would have
+    /// fixed the Mac and broken the TV, which is this feature's oldest defect
+    /// wearing a new hat.
+    static var ringCapacity: Int {
+        #if os(tvOS)
+        let fallback = 1000
+        #else
+        let fallback = 250
+        #endif
+        let ms = ProcessInfo.processInfo.environment["AW_STUDIO_RING_MS"]
+            .flatMap(Int.init) ?? fallback
+        // Interleaved stereo: two samples to a frame.
+        return max(2048, Int(44100.0 * Double(ms) / 1000.0) * 2)
+    }
     private let lock = NSLock()
     private var sourceRate: Double = 44100
     private var sourceChannels: Int = 2
