@@ -1618,6 +1618,46 @@ the audio path, the real ingest hosts with no credential, the overlay and
 go-live surfaces on the glass, the rights gate on device, and the platform
 clients. **→ `docs/watch-together-measurements.md`**
 
+### §9.qqqq The hardware FLOOR, soaked: 1080p30 held, and ~15 ms of drift over eight minutes (2026-09-18)
+
+Both things §9.pppp left open, closed by one run — on the Apple TV 4K **2nd
+generation**, the Studio's hardware floor, which the owner freed up and on which
+none of this work had ever run. Every performance figure in this feature until
+now came from the faster 3rd-gen box.
+
+Eight minutes and sixteen seconds, Blood and Sand, published to a local mediamtx
+and read back from ITS recording:
+
+    video   h264 1920x1080   30.000 fps   duration 496.033 s
+    audio   aac 44100 stereo              duration 496.048 s
+    mean_volume -17.2 dB      max_volume 0.0 dB
+
+**1080p30 holds on the floor**, with the full pipeline — composite, encode,
+publish AND the new audio decoder — on the slower hardware.
+
+**Drift: 15 milliseconds over 496 seconds**, or 0.003%. The two tracks span the
+same wall time to within a frame and a half, so neither starved nor ran ahead
+cumulatively. The self-pacing decoder does what it was built to do over a long
+run, not merely a three-minute one.
+
+**What that number is NOT, said plainly.** Equal stream durations are a DRIFT
+proxy, not a lip-sync measurement: a constant offset between picture and sound
+would be invisible to it, because both tracks would still span the same time. It
+proves the clocks do not diverge; it does not prove they agree. Android needed a
+flash-and-beep clip to find a **0.7-second constant lead** that every timestamp
+analysis had called healthy (§9.ggg), and that measurement has no equivalent
+here yet. Calling this "A/V verified" would repeat exactly the error that cost
+the Android port two rounds.
+
+**Instrument notes.** The first attempt produced nothing: the box was asleep, the
+launch was refused, and the script cheerfully reported "mid-run shot taken" for a
+screenshot of an idle television — a capture succeeding says the DEVICE
+responded, never that our app was on screen. Waking it needed the Companion
+identifier (`atvremote scan` prints it, and pyatv already held credentials);
+addressing the box by IP alone resolves to its AirPlay audio endpoint and
+silently answers about the wrong service. The unit was returned to
+`PowerState.Off` afterwards, because it was found that way.
+
 ### §9.pppp THE TELEVISION HAS SOUND: -91.0 dB → -17.6 dB, measured from the server's recording (2026-09-18)
 
 The repair is done and the number that defined it has moved.

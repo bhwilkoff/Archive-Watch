@@ -1213,6 +1213,16 @@ struct PlayerScreen: View {
             GoLiveTV(film: film) { request in
                 studioRequest = request
                 studioSetup = nil
+                // MUTE THE ROOM when a DOOR drove this, never when a person
+                // did. A soak plays a film aloud in someone's living room for
+                // ten minutes, and the FORCE door already carries the same
+                // consideration. It costs the measurement nothing: the
+                // broadcast's audio now comes from the HLS tee (§9.pppp),
+                // which is upstream of local output, so muting the television
+                // changes what the ROOM hears and not one sample of the wire.
+                if ProcessInfo.processInfo.environment["AW_STUDIO_TV_GOLIVE"] != nil {
+                    player?.isMuted = true
+                }
                 // The engine reads FRAMES off the player it attaches to, so a
                 // paused film would broadcast a still. Resume before the
                 // Studio starts, not after.
