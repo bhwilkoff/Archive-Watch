@@ -96,6 +96,21 @@ object StudioController {
         isLive = true
     }
 
+    /**
+     * The film's own surface while the Studio owns it.
+     *
+     * `Player.setVideoSurface` is EXCLUSIVE on Android, so a live Studio takes
+     * the player's video output: the player renders into the engine's texture
+     * and the engine paints the composed program onto the screen instead
+     * (§6.2j). Null when not live, and the player then behaves normally.
+     */
+    val filmSurface: android.view.Surface? get() = engine?.filmSurface
+
+    /** The host's screen, handed to the engine to paint the program onto. */
+    fun setDisplaySurface(surface: android.view.Surface?) {
+        engine?.setDisplaySurface(surface)
+    }
+
     /** One health sample a second, for the §9.4 readout. */
     fun pollHealth() {
         engine?.let { health = it.health }

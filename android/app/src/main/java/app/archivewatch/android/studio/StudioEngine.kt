@@ -72,8 +72,16 @@ class StudioEngine(
     @Volatile var health = StudioHealth(); private set
 
     /** The surface the film's player renders into. Valid once [start] returns. */
-    val filmSurface: Surface? get() = program?.filmSurfaceTexture?.let { Surface(it) }
-    val cameraSurface: Surface? get() = program?.cameraSurfaceTexture?.let { Surface(it) }
+    /**
+     * Created ONCE, not per access. A `get()` that wraps the SurfaceTexture
+     * every time hands the player a different `Surface` object on each read
+     * and leaks the previous one — and a player told to render into a surface
+     * nobody holds renders into nothing.
+     */
+    @Volatile var filmSurface: Surface? = null
+        private set
+    @Volatile var cameraSurface: Surface? = null
+        private set
 
     var layoutShowsCamera = true
     var filmAspect = 16f / 9f
@@ -120,6 +128,8 @@ class StudioEngine(
         gl = g
         val pg = StudioProgramGl(width, height).also { it.setUp() }
         program = pg
+        filmSurface = pg.filmSurfaceTexture?.let { Surface(it) }
+        cameraSurface = pg.cameraSurfaceTexture?.let { Surface(it) }
         overlay?.let { pg.setOverlayBitmap(it) }
 
         var frame = 0L
@@ -219,22 +229,69 @@ class StudioEngine(
     }
 
     private fun drawOnce(g: StudioGl, pg: StudioProgramGl, frame: Long, renderStart: Long): Long {
+        // The newest frames are pulled ONCE, on the encoder pass, and the
+        // display pass reuses them: `updateTexImage` twice in a frame would
+        // consume two decoded frames to show one.
         g.makeCurrent()
         pg.updateFilmFrame()
         if (layoutShowsCamera) pg.updateCameraFrame()
-        g.clear(0f, 0f, 0f)
-        pg.drawFilm(filmAspect)
-        if (layoutShowsCamera) pg.drawCameraCorner(cameraAspect)
-        pg.drawOverlay()
+        drawProgram(pg)
         g.swap(frame * 1_000_000_000L / frameRate)
+
+        // ...and again for the host's screen (§6.2j). A pending surface is
+        // attached here rather than from whatever thread handed it over: an
+        // EGL surface belongs to the context's thread like everything else.
+        if (displayDirty) {
+            displayDirty = false
+            g.attachDisplay(pendingDisplaySurface)
+        }
+        if (g.hasDisplay && g.makeCurrentDisplay()) {
+            drawProgram(pg)
+            g.swapDisplay()
+            g.makeCurrent()
+        }
         return System.nanoTime() - renderStart
     }
+
+    private fun drawProgram(pg: StudioProgramGl) {
+        gl?.clear(0f, 0f, 0f)
+        pg.drawFilm(filmAspect)
+        // A tile is drawn only when a camera has ACTUALLY delivered a frame.
+        // `layoutShowsCamera` is the host's intent; this is the fact. Drawing
+        // the tile on intent alone puts an empty black rectangle over the film
+        // on every device without a camera — which is every television (§9.6),
+        // and is what it did before this check (seen on a Google TV).
+        if (layoutShowsCamera && pg.cameraFramesAvailable.get() > 0) {
+            pg.drawCameraCorner(cameraAspect)
+        }
+        pg.drawOverlay()
+    }
+
+    /**
+     * The surface the HOST sees — a `SurfaceView` the player screen owns.
+     * Handed over from the UI thread and picked up by the render thread,
+     * because an EGL surface may only be created on the context's thread.
+     * Pass null to detach when the view goes away.
+     */
+    fun setDisplaySurface(surface: Surface?) {
+        pendingDisplaySurface = surface
+        // A separate flag rather than a sentinel Surface: null is a MEANINGFUL
+        // value here (detach), and manufacturing a placeholder `Surface` to
+        // represent it would allocate a real SurfaceTexture at class-init on
+        // every device that ever loads this file.
+        displayDirty = true
+    }
+
+    @Volatile private var pendingDisplaySurface: Surface? = null
+    @Volatile private var displayDirty = false
 
     suspend fun stop() {
         if (!running.compareAndSet(true, false)) return
         loop?.join(); loop = null
         publisher?.close(); publisher = null
         aac?.stop(); aac = null
+        filmSurface?.release(); filmSurface = null
+        cameraSurface?.release(); cameraSurface = null
         program?.tearDown(); program = null
         gl?.tearDown(); gl = null
         encoder?.stop(); encoder = null

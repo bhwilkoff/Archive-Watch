@@ -875,8 +875,52 @@ is this player with overlays) and is arguably better than the Apple
 arrangement: a host watching what their audience is watching cannot be
 surprised by it. Not yet built.
 
-**Still ahead on Android**: the dual-surface render above, a real camera, and
-the phone-screen verification of the Detail entry.
+### §6.2k — The dual-surface render: the host sees the PROGRAM (2026-09-17)
+
+Built and verified on the Google TV. `StudioGl` now carries a second window
+surface sharing one context: MediaCodec's input surface and the host's screen.
+The player renders into the engine's texture, the engine paints the composed
+program onto a `SurfaceView` above `PlayerView`, and the host sees **film,
+lower third and camera tile — the same frame the audience gets**. `PlayerView`
+stays beneath, still owning the transport (§5.1/§9.1); it simply has no video
+of its own to show.
+
+That is a genuine improvement on the Apple arrangement rather than a
+workaround for it: a host watching what their audience is watching cannot be
+surprised by it.
+
+**Two defects, both found by looking at the television:**
+
+1. **`glViewport` belongs to the SURFACE, not the context.** Two window
+   surfaces of different sizes (1280×720 and 1920×1080) share one context, and
+   the viewport is context state that survives `eglMakeCurrent` — so the
+   display pass inherited the encoder's viewport and drew the entire program
+   into the **bottom-left 1280×720 corner** of the screen. It is now queried
+   from the surface on every `makeCurrent`.
+2. **The camera tile drew as an empty black rectangle** over the film, on
+   every device without a camera — which is every television (§9.6).
+   `layoutShowsCamera` is the host's INTENT; the tile now also requires the
+   camera to have actually delivered a frame, which is the FACT.
+
+Three lifecycle traps handled on the way, each a black screen if missed: a
+`SurfaceView` is destroyed and recreated on every window change, so a stale
+`EGLSurface` must be released and the engine told; an EGL surface may only be
+created on the context's thread, so the handover is a flag the render loop
+picks up rather than a call from the UI thread; and `filmSurface` is created
+**once** rather than by a `get()` that wraps the texture afresh on every read,
+which would hand the player a different object each time and leak the rest.
+
+**A cost this exposes, stated plainly: the dongle cannot hold 30 fps.**
+Rendering twice costs roughly twice, and the readout showed **11 fps at
+43.5 ms per frame** against a 33.3 ms budget on a Google TV dongle — over
+budget, and the first Android number that is. The Apple floor renders the same
+program in 10.70 ms. Whether this is the dongle or the dual pass is not yet
+separated; a phone measurement is the next thing that would say, and the
+honest position until then is that the feature is proved on this hardware and
+not yet fast enough on it.
+
+**Still ahead on Android**: a real camera, the phone-screen verification of
+the Detail entry, and the fps question above.
 
 ## §7 — Phases
 

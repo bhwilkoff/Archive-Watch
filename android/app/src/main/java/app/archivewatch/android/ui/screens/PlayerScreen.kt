@@ -512,9 +512,20 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
     // building a second one. A no-op unless this is the film Detail armed.
     LaunchedEffect(spec.id) {
         StudioController.startIfArmed(this, spec.id, 1280, 720)
+        // The engine builds its textures on its OWN thread, so the film
+        // surface does not exist the instant `startIfArmed` returns — and it
+        // is not Compose state, so nothing recomposes when it appears. Hand it
+        // to the player once it is real, then keep sampling health.
+        var handedOver = false
         while (StudioController.isLive) {
+            if (!handedOver) {
+                StudioController.filmSurface?.let {
+                    player.setVideoSurface(it)
+                    handedOver = true
+                }
+            }
             StudioController.pollHealth()
-            kotlinx.coroutines.delay(1000)
+            kotlinx.coroutines.delay(if (handedOver) 1000 else 100)
         }
     }
     // Ending the show must not outlive the surface producing it — the lesson
@@ -564,6 +575,36 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
         // order — a Box draws later children on top and the AndroidView below
         // would otherwise cover these.
         if (StudioController.isLive) {
+            // THE PROGRAM, on the host's screen (§6.2j). `setVideoSurface` is
+            // exclusive on Android, so while the Studio is live the player
+            // renders into the ENGINE's texture and the engine paints the
+            // composed program here — film, camera tile and lower third, the
+            // same frame the audience is getting. PlayerView is still beneath
+            // this, still owning the transport (§5.1/§9.1); it simply has no
+            // video of its own to show.
+            AndroidView(
+                factory = { ctx ->
+                    android.view.SurfaceView(ctx).apply {
+                        holder.addCallback(object : android.view.SurfaceHolder.Callback {
+                            override fun surfaceCreated(h: android.view.SurfaceHolder) {
+                                StudioController.setDisplaySurface(h.surface)
+                            }
+                            override fun surfaceChanged(
+                                h: android.view.SurfaceHolder, f: Int, w: Int, ht: Int,
+                            ) {
+                                StudioController.setDisplaySurface(h.surface)
+                            }
+                            override fun surfaceDestroyed(h: android.view.SurfaceHolder) {
+                                // A SurfaceView is destroyed and recreated on
+                                // every window change; holding a stale EGL
+                                // surface across that is a black screen.
+                                StudioController.setDisplaySurface(null)
+                            }
+                        })
+                    }
+                },
+                modifier = Modifier.fillMaxSize().zIndex(5f),
+            )
             Box(
                 Modifier.fillMaxSize().zIndex(11f).padding(16.dp),
                 contentAlignment = androidx.compose.ui.Alignment.TopStart,
@@ -625,6 +666,9 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
             },
             update = { view ->
                 view.player = player
+                // While the Studio owns the video output, the player renders
+                // into the engine's texture instead of this view (§6.2j).
+                StudioController.filmSurface?.let { player.setVideoSurface(it) }
                 val wantController = !isTv && !inPip
                 if (view.useController != wantController) {
                     view.useController = wantController
