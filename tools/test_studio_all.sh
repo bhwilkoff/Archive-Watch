@@ -139,12 +139,18 @@ PUB=ArchiveWatch/ArchiveWatch/Studio/RTMPPublisher.swift
 ENG=ArchiveWatch/ArchiveWatch/Studio/StudioEngine.swift
 AUD=ArchiveWatch/ArchiveWatch/Studio/StudioAudio.swift
 OVL=ArchiveWatch/ArchiveWatch/Studio/StudioOverlayRenderer.swift
+# The engine READS chat itself since the reader moved out of StudioSession
+# (§6.4), so every case that compiles $ENG needs this too. Leaving it out is
+# what made 8.3, 8.5 and 8.6 fail to compile for a whole session: the harness
+# file lists are a second, silent copy of the module's dependency graph, and a
+# source move does not update them.
+CHAT=ArchiveWatch/ArchiveWatch/Studio/StudioChatTwitch.swift
 MEDIA=tools/StudioTestMedia.swift
 
 swift_case "8.1 rtmp publish"      "$PUB" "$MEDIA" tools/test_rtmp_publish.swift
 swift_case "8.4 rtmp reconnect"    "$PUB" "$MEDIA" tools/test_rtmp_reconnect.swift
-swift_case "8.5 thermal"           "$PUB" "$ENG" "$AUD" "$OVL" tools/test_studio_thermal.swift
-swift_case "8.6 back-pressure"     "$PUB" "$ENG" "$AUD" "$OVL" tools/test_studio_backpressure.swift
+swift_case "8.5 thermal"           "$PUB" "$ENG" "$AUD" "$OVL" "$CHAT" tools/test_studio_thermal.swift
+swift_case "8.6 back-pressure"     "$PUB" "$ENG" "$AUD" "$OVL" "$CHAT" tools/test_studio_backpressure.swift
 # ---- the rights tests, which need no server at all
 for t in tools/test_studio_rights_parity.py tools/test_studio_rights_coverage.py; do
   name="$(basename "$t")"
@@ -213,7 +219,7 @@ if [ "$SOAK" = "1" ]; then
   # cannot finish is a suite nobody trusts.
   pkill -f "$SCRATCH/mtx.yml" >/dev/null 2>&1 || true
   sleep 2
-  swift_case "8.3 ten-minute soak" "$PUB" "$ENG" "$AUD" "$OVL" tools/test_studio_soak.swift
+  swift_case "8.3 ten-minute soak" "$PUB" "$ENG" "$AUD" "$OVL" "$CHAT" tools/test_studio_soak.swift
 else
   row "8.3 ten-minute soak" SKIP "not run without --soak"; SKIP=$((SKIP+1))
 fi

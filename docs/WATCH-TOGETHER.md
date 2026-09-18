@@ -1618,6 +1618,39 @@ the audio path, the real ingest hosts with no credential, the overlay and
 go-live surfaces on the glass, the rights gate on device, and the platform
 clients. **→ `docs/watch-together-measurements.md`**
 
+### §9.aaa Three §8 cases had not compiled for a whole session, and only the suite noticed (2026-09-18)
+
+Fifteen ticks of changes — the audio tap, both clocks, the publisher's hot
+path, the handshake threading, encoder selection, profile — were each verified
+on hardware as they were made. None of that is the same as running the suite,
+and running it found something none of the individual checks could:
+
+    8.5 thermal        FAIL  did not compile
+    8.6 back-pressure  FAIL  did not compile
+    8.3 soak           FAIL  did not compile
+    pass=50 skip=0 fail=3   SUITE RESULT: FAIL
+
+The error was not in any of tonight's work:
+
+    StudioEngine.swift:385: error: cannot find type 'StudioChatTwitch' in scope
+
+Those three cases are exactly the ones that compile `$ENG`, and the chat reader
+moved INTO the engine when chat stopped belonging to one surface (§6.4). The
+harness file lists did not move with it, so **8.3, 8.5 and 8.6 have not
+compiled since that commit** — through every tick that followed, including the
+ones that changed the very code those cases exercise. 8.1 and 8.4 kept passing
+because they never compile the engine.
+
+**The lesson is about the shape of the harness, not the bug.** A hand-written
+file list is a SECOND, SILENT COPY of the module's dependency graph, and a
+source move updates one copy and not the other. Nothing warns; the case simply
+stops compiling, and a suite that is not run cannot say so. `--strict` did its
+job the moment it was asked — which is an argument for running the whole suite
+after a run of changes, not only the test nearest the change.
+
+Fixed by giving the three cases `$CHAT`, with the reason recorded beside the
+variable so the next source move has a chance of updating it.
+
 ### §9.zz The level was over-declared, and not asking fixed it (2026-09-18)
 
 §9.yy noticed an inconsistency between the platforms: Apple's `AutoLevel`
