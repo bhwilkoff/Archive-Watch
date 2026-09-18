@@ -558,6 +558,17 @@ class StudioEngine(
                         chatSecNanos / 1e6))
                 }
                 if (BuildConfig.DEBUG) {
+                    // §9.jjj: how far does the RENDER instant trail the frame's
+                    // own presentation timestamp? That gap is what is left of
+                    // the A/V error after §9.iii corrected the audio side.
+                    val ft = pg.lastFilmFrameTimestampNs
+                    if (ft > 0) android.util.Log.i("AWSTUDIOVLAG", String.format(
+                        "render-minus-frame = %+.1f ms   (frameTs %s nanoTime)",
+                        (System.nanoTime() - ft) / 1e6,
+                        if (kotlin.math.abs(System.nanoTime() - ft) < 60_000_000_000L)
+                            "shares" else "does NOT share"))
+                }
+                if (BuildConfig.DEBUG) {
                     val fr2 = (frame - frameAtLastSecond).coerceAtLeast(1)
                     android.util.Log.i("AWSTUDIOPERF", String.format(
                         "   draw split: tex=%.1f gl=%.1f swapEnc=%.1f swapDisp=%.1f ms/frame",

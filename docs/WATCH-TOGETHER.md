@@ -1664,6 +1664,49 @@ against ~13 s for a network film), and the measurement ran.
 verifying the clip, exactly as §9.nn recorded and as the memory says. Knowing
 the trap did not stop me walking into it; only re-running without it did.)
 
+### §9.jjj Separating detector bias from video latency — and the render lag is JITTER, not an offset (2026-09-18)
+
+§9.iii left ~174 ms of A/V error and said the first job was separating the
+detectors' own bias from the video path's real latency, rather than correcting
+them together. Both are now measured.
+
+**The detector bias is +8 ms.** Running the same flash and beep detectors over
+the SOURCE clip, where the two are simultaneous by construction, any offset they
+report is theirs:
+
+| | flash | beep |
+|---|---|---|
+| source | 5.000, 10.000, 15.000, 20.000, 25.000, 30.000 | 5.016, 10.008, 15.000, 20.016, 25.008, 30.000 |
+
+Mean +8 ms, quantised in 8 ms steps. So the broadcast's measured -174 ms is a
+TRUE -182 ms: correcting for bias makes the error slightly larger, not smaller,
+and the whole remainder belongs to the video path.
+
+**The video path's lag shares the right clock — and is not a constant.**
+`SurfaceTexture.timestamp` is in the `nanoTime` timebase (checked, not assumed),
+so it can be used directly. How far the RENDER instant trails the frame's own
+timestamp, sampled once a second:
+
+    +66.1 ms   +53.0 ms   +54.7 ms   +165.3 ms   +29.8 ms   +527.0 ms
+
+**30 to 527 ms, mean ~149.** So stamping video at render time does not merely
+shift the timeline by a fixed amount — it adds JITTER of up to half a second.
+The flash test did not show that because a flash spans three source frames and
+the detector takes the first bright one, which smooths exactly this.
+
+**Why that changes the fix.** Stamping video with the frame's own timestamp
+would remove both the offset and the jitter, which is better than subtracting a
+constant. But it needs care the constant would not: when the film is PAUSED no
+new frame arrives, `updateTexImage` returns the same frame, and its timestamp
+does not advance — so repeated frames would carry identical timestamps, and an
+RTMP timeline must not go backwards or stand still. The correct shape is the
+frame's timestamp where it advances, with a monotonic floor where it does not.
+
+**Not implemented here**, deliberately: that is a change to the timestamp of
+every video frame in a live broadcast, and it deserves its own tick with the
+flash-and-beep measurement run against it, rather than the tail of one that has
+already changed the audio side.
+
 ### §9.iii The sink lead corrected: 712 ms → 174 ms, and the prediction held (2026-09-18)
 
 §9.hhh measured the audio tap running **0.565 s ahead of playback** and

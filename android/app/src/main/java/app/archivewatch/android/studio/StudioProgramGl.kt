@@ -177,10 +177,23 @@ class StudioProgramGl(private val programWidth: Int, private val programHeight: 
      * holding the GL context — `updateTexImage` binds to the current context
      * and throws from anywhere else.
      */
+    /**
+     * The presentation timestamp of the film frame most recently pulled, in
+     * nanoseconds. Zero until a frame has arrived.
+     *
+     * The frame is stamped by the decoder when it releases it; the render loop
+     * picks it up some time LATER and, until now, stamped the broadcast with
+     * that later instant. The gap is the video path's own latency, which is
+     * what remains of §9.ggg's A/V error (§9.jjj).
+     */
+    @Volatile var lastFilmFrameTimestampNs: Long = 0
+        private set
+
     fun updateFilmFrame(): Boolean {
         val st = filmSurfaceTexture ?: return false
         return try {
             st.updateTexImage()
+            lastFilmFrameTimestampNs = st.timestamp
             st.getTransformMatrix(texMatrix)
             true
         } catch (_: Exception) { false }
