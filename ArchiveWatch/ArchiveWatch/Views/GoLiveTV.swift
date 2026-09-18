@@ -72,6 +72,7 @@ struct GoLiveTV: View {
     @State private var useBench = false
     @State private var showCameraPicker = false
     @State private var cameraPaired = false
+    @State private var pairedName: String?
     private static var benchDestination: URL? {
         #if DEBUG
         ProcessInfo.processInfo.environment["AW_STUDIO_DEST"].flatMap(URL.init(string:))
@@ -181,7 +182,15 @@ struct GoLiveTV: View {
                     cameraRow
                     actions
                 }
-                .padding(.vertical, 6)
+                // ROOM FOR FOCUS TO GROW. A ScrollView CLIPS, and a focused
+                // tvOS button scales about 1.1x — so a row filling the full 820
+                // is cut off at both edges the moment it takes focus. Owner,
+                // 2026-09-18: "all of the buttons are cut off on the left side
+                // when they are selected because focus enlarges then past the
+                // right side of the screen." The content is inset instead, so
+                // the growth happens inside the clip rather than through it.
+                .padding(.horizontal, 40)
+                .padding(.vertical, 24)
             }
             .frame(width: 820, alignment: .leading)
         }
@@ -428,8 +437,9 @@ struct GoLiveTV: View {
             Button {
                 showCameraPicker = true
             } label: {
-                Label(cameraPaired ? "iPhone camera and microphone are ready"
-                                   : "Use an iPhone as camera and microphone",
+                Label(cameraPaired
+                      ? "\(pairedName ?? "iPhone") is ready — choose a different phone"
+                      : "Use an iPhone as camera and microphone",
                       systemImage: cameraPaired ? "checkmark.circle.fill" : "iphone")
                     .padding(.horizontal, 12)
             }
@@ -449,8 +459,18 @@ struct GoLiveTV: View {
         // did not participate in Rule 8.8b's focusable right-hand column.
         .focusSection()
         .continuityDevicePicker(isPresented: $showCameraPicker) { device in
+            // KEEP THE DEVICE. The microphone is only reachable through it.
+            StudioContinuity.lastPicked = device
             cameraPaired = device != nil
             awdiag("AWCONT picker connected=%@", device == nil ? "nil" : "yes")
+        }
+        .onAppear {
+            // Already paired from an earlier session? Then say so instead of
+            // asking again.
+            if let name = StudioContinuity.pairedCameraName() {
+                cameraPaired = true
+                pairedName = name
+            }
         }
     }
 

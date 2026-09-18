@@ -928,9 +928,14 @@ struct PlayerScreen: View {
 
         // The camera, if a phone has been paired. NOT an error when absent
         // (§8.8): a paired phone can be asleep or carried away mid-show.
-        // ORDER MATTERS: the microphone is a session PORT, so the session has
-        // to be record-capable before it can appear at all.
-        await engine.prepareAudioSession()
+        // NO PRE-RAISE HERE. An earlier attempt called `prepareAudioSession()`
+        // at this point to make the microphone port appear, and it did the
+        // opposite: `StudioContinuity`'s own header says `.playAndRecord` on
+        // tvOS fails while there is nothing to record FROM, and that a failed
+        // activation stops AVPlayer dead. The owner watched the app quit before
+        // the stream started. `StudioContinuity` already raises the session
+        // itself, once it HAS a port — which is the correct order and was
+        // written down before I broke it.
         let continuity = StudioContinuity()
         try? await Task.sleep(nanoseconds: 1_200_000_000)
         // SAY WHAT IT FOUND. Absent is not an error (§8.8) — a paired phone can

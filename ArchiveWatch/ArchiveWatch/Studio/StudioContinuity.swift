@@ -60,6 +60,16 @@ public final class StudioContinuity: NSObject {
     private var discovery: AVCaptureDevice.DiscoverySession?
     private var observation: NSKeyValueObservation?
     private var device: AVContinuityDevice?
+
+    /// The device the PICKER handed back, kept across instances.
+    ///
+    /// The microphone is reachable only through `AVContinuityDevice`
+    /// (`audioSessionInputs`) — there is no `.continuityMicrophone` device to
+    /// discover, as this file's header says. A show builds a fresh
+    /// `StudioContinuity`, so a device picked on the go-live sheet would be
+    /// thrown away before the engine ever asked: paired camera, no microphone,
+    /// which is exactly what the owner measured twice.
+    @MainActor public static var lastPicked: AVContinuityDevice?
     private var previousCategory: AVAudioSession.Category?
 
     public override init() {
@@ -103,6 +113,21 @@ public final class StudioContinuity: NSObject {
 
     // MARK: What the engine needs
 
+    /// Is a phone ALREADY paired? Asked before offering to pair one.
+    ///
+    /// Owner: "it should detect if a continuity camera is already connected
+    /// before asking to do it again." A phone paired in an earlier session
+    /// stays discoverable, so the picker is a one-time step and the sheet
+    /// should say so rather than invite the same work twice.
+    @MainActor public static func pairedCameraName() -> String? {
+        guard AVContinuityDevicePickerViewController.isSupported else { return nil }
+        let s = AVCaptureDevice.DiscoverySession(
+            deviceTypes: [.continuityCamera, .external],
+            mediaType: .video, position: .unspecified)
+        return (s.devices.first(where: { $0.isContinuityCamera }) ?? s.devices.first)?
+            .localizedName
+    }
+
     /// The continuity camera, if one is available.
     public func camera() -> AVCaptureDevice? {
         let devices = discovery?.devices ?? []
@@ -114,7 +139,8 @@ public final class StudioContinuity: NSObject {
     /// The continuity microphone as an AUDIO SESSION PORT — the only shape
     /// tvOS offers it in.
     public func microphonePort() -> AVAudioSessionPortDescription? {
-        if let d = device, d.isConnected, let p = d.audioSessionInputs.first { return p }
+        if let d = device ?? Self.lastPicked, d.isConnected,
+           let p = d.audioSessionInputs.first { return p }
         // Without a picker hand-off, ask the session what inputs exist.
         return AVAudioSession.sharedInstance().availableInputs?
             .first { $0.portType == .continuityMicrophone }
