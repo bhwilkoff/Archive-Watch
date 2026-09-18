@@ -261,6 +261,12 @@ final class FilmAudioTap: @unchecked Sendable {
                 guard status == noErr else { return }
                 let s = Unmanaged<FilmAudioTap>.fromOpaque(MTAudioProcessingTapGetStorage(tap))
                     .takeUnretainedValue()
+                // `when` IS the film time of these samples, and it was being
+                // thrown away — the same oversight as tvOS's tee carrying
+                // `firstSample` to a decoder that dropped it (§9.rrrr). Keeping
+                // it makes an A/V measurement possible on the PRODUCT path with
+                // a real film, with no stimulus clip and no harness route.
+                s.noteSourceTime(when.start)
                 s.append(bufferList, frames: Int(framesOut.pointee))
             })
         var out: MTAudioProcessingTap?
@@ -319,6 +325,26 @@ final class FilmAudioTap: @unchecked Sendable {
 
     private(set) var externalSamples = 0
     private var lastExternalAt: CFTimeInterval = 0
+
+    /// Film time of the audio the tap most recently handed over, in seconds.
+    /// Written on MediaToolbox's real-time thread, so it takes the lock and
+    /// does nothing else.
+    private var lastSourceSeconds: Double = -1
+
+    nonisolated func noteSourceTime(_ t: CMTime) {
+        guard t.isValid, t.isNumeric else { return }
+        let v = CMTimeGetSeconds(t)
+        guard v.isFinite else { return }
+        lock.lock(); lastSourceSeconds = v; lock.unlock()
+    }
+
+    /// Where in the film the tapped audio came from; nil before the first
+    /// buffer. Compared against the player's `currentTime`, the difference is
+    /// the A/V offset — minus whatever is still sitting in the ring.
+    var sourceFilmPosition: Double? {
+        lock.lock(); defer { lock.unlock() }
+        return lastSourceSeconds < 0 ? nil : lastSourceSeconds
+    }
 
     /// Converts the tap's buffers to interleaved stereo Float at the program
     /// rate and writes them to the ring.

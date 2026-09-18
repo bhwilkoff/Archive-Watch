@@ -354,6 +354,20 @@ public final class StudioSession {
                     // Read through the non-optional local: optional-chaining
                     // into an actor is not an async access Swift 6 will take.
                     let hw = await engine.encoderIsHardware
+                    // A/V SYNC ON THE PRODUCT PATH, with a real film and no
+                    // stimulus: the tap reports the film time of the audio it
+                    // handed over, the player reports the film time on screen,
+                    // and `buffered` is the decoded audio still waiting in the
+                    // ring — subtracted, because the ring is FIFO and that
+                    // audio is encoded later rather than early (§9.tttt).
+                    if let pos = await engine.filmAudioSourcePosition,
+                       let now = self.localPlayer?.currentTime().seconds, now.isFinite {
+                        let buf = await engine.filmAudioBuffered
+                        self.diag(String(format:
+                            "[AWMACSYNC] audioFilmPos=%.2f playhead=%.2f raw=%+.2f "
+                            + "buffered=%.2f offset=%+.2f", pos, now, pos - now, buf,
+                            pos - now - buf))
+                    }
                     self.diag("[AWSTUDIOHEALTH] state=\(h.showState.label) fps=\(h.encodedFramesPerSecond)"
                           + " queued=\(p.queuedBytes) vsent=\(p.videoFramesSent) vdrop=\(p.videoFramesDropped)"
                           + " asent=\(p.audioFramesSent) reconnects=\(p.reconnects)"

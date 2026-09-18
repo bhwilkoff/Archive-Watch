@@ -479,6 +479,9 @@ public actor StudioEngine {
     /// Decoded film audio waiting in the mixer's ring, in seconds.
     public var filmAudioBuffered: Double { mixer.film.bufferedSeconds }
 
+    /// Film time of the audio the tap last delivered (iOS/macOS).
+    public var filmAudioSourcePosition: Double? { mixer.film.sourceFilmPosition }
+
     /// Why the film's audio is NOT on air, or nil when it is (or when the film
     /// is genuinely silent).
     ///
