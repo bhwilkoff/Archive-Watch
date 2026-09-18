@@ -1106,6 +1106,16 @@ struct PlayerScreen: View {
             for _ in 0..<60 where player?.timeControlStatus != .playing {
                 try? await Task.sleep(nanoseconds: 500_000_000)
             }
+            // AW_YT_WHOAMI=1: name the channel a broadcast would reach, and
+            // nothing else. A read, never a publish.
+            if ProcessInfo.processInfo.environment["AW_YT_WHOAMI"] == "1" {
+                do {
+                    let who = try await StudioPlatformAuth.youTubeAccount()
+                    awdiag("AWYT channel=%@ [%@]", who.title, who.id)
+                } catch {
+                    awdiag("AWYT failed=%@", "\(error)")
+                }
+            }
             guard let film = current ?? catalogItem else { return }
             if let why = StudioRights.refusal(rightsBucket: film.rightsBucket,
                                               contentType: film.contentType,

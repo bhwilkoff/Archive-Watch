@@ -85,7 +85,24 @@ public enum StudioPlatformAuth {
     /// Client ids, read from the build's Info.plist (populated from the
     /// gitignored `Secrets.xcconfig`).
     static func clientID(for platform: Platform) -> String? {
-        info(platform == .youtube ? youTubeClientIDKey : "TWITCH_CLIENT_ID")
+        guard platform == .youtube else { return info("TWITCH_CLIENT_ID") }
+        #if os(tvOS)
+        // A television PREFERS the TV client when one is registered, because
+        // its device flow (QR + phone) is the nicer experience on a screen with
+        // no keyboard. It does not REQUIRE one.
+        //
+        // This fallback is the correction to 2026-09-18's first design, which
+        // made the TV client mandatory and so turned a working path into an
+        // owner blocker. `ASWebAuthenticationSession` is available from
+        // tvOS 16 (read from the 27 SDK, §9.uuu) and the iOS client's redirect
+        // is the bundle id, which is declared for every Apple target — so the
+        // SAME client the iPhone uses works here. The device flow is an
+        // upgrade, not a prerequisite.
+        if info("YOUTUBE_TV_CLIENT_ID") != nil, info("YOUTUBE_TV_CLIENT_SECRET") != nil {
+            return info("YOUTUBE_TV_CLIENT_ID")
+        }
+        #endif
+        return info("YOUTUBE_CLIENT_ID")
     }
 
     /// The client secret, which exists for exactly ONE credential in this app.
@@ -96,30 +113,15 @@ public enum StudioPlatformAuth {
     /// one: Twitch's device flow takes none, and the PKCE flow iOS and macOS
     /// use exists precisely so an installed app does not need one.
     static func clientSecret(for platform: Platform) -> String? {
-        guard platform == .youtube, let key = youTubeSecretKey else { return nil }
-        return info(key)
-    }
-
-    /// WHICH Google client this platform signs in with, and why there are two.
-    ///
-    /// A television cannot usefully present a password field, so tvOS uses the
-    /// device flow, and Google refuses that flow to any client that is not of
-    /// type "TVs and Limited Input devices". The iOS client cannot be reused —
-    /// this is not a preference. iOS and macOS keep the iOS client and PKCE.
-    static var youTubeClientIDKey: String {
+        guard platform == .youtube else { return nil }
         #if os(tvOS)
-        "YOUTUBE_TV_CLIENT_ID"
+        // Only when the TV client is BOTH registered and complete. A secret
+        // without its id, or an id without its secret, is not a usable
+        // credential and must not select the device flow.
+        guard info("YOUTUBE_TV_CLIENT_ID") != nil else { return nil }
+        return info("YOUTUBE_TV_CLIENT_SECRET")
         #else
-        "YOUTUBE_CLIENT_ID"
-        #endif
-    }
-
-    /// Nil on every platform whose flow needs no secret, which is the point.
-    static var youTubeSecretKey: String? {
-        #if os(tvOS)
-        "YOUTUBE_TV_CLIENT_SECRET"
-        #else
-        nil
+        return nil
         #endif
     }
 
@@ -164,18 +166,7 @@ public enum StudioPlatformAuth {
         // sign-in that Google refuses at the first request — the same shape as
         // §9.ooo's gate, which went green on a credential that did not cover
         // the path it was guarding.
-        let haveID = clientID(for: platform) != nil
-        let needSecret = platform == .youtube && youTubeSecretKey != nil
-        let haveSecret = !needSecret || clientSecret(for: platform) != nil
-        guard !(haveID && haveSecret) else { return nil }
-
-        if platform == .youtube && needSecret {
-            return "Signing in to YouTube is not set up on Apple TV yet. A television "
-                + "signs in from your phone, and that needs a SECOND Google OAuth client "
-                + "of type \u{201C}TVs and Limited Input devices\u{201D} \u{2014} the iPhone one cannot do "
-                + "it \u{2014} with its client id and client secret in Secrets.xcconfig. "
-                + "Twitch needs nothing extra."
-        }
+        guard clientID(for: platform) == nil else { return nil }
         return "Signing in to \(platform.displayName) is not set up in this build yet. "
             + "It needs an application registered on "
             + (platform == .youtube ? "Google Cloud (YouTube Data API v3)" : "the Twitch developer console")
@@ -293,7 +284,39 @@ public enum StudioPlatformAuth {
     /// Whether THIS platform signs in to YouTube by device code rather than by
     /// web sheet. The surfaces ask rather than testing `#if os(tvOS)`
     /// themselves, so the answer lives in one place.
-    public static var youTubeUsesDeviceFlow: Bool { youTubeSecretKey != nil }
+    public static var youTubeUsesDeviceFlow: Bool { clientSecret(for: .youtube) != nil }
+
+    /// WHICH channel a broadcast would reach — read-only, and deliberately
+    /// separate from going live.
+    ///
+    /// "Signed in" is a Keychain fact: it says a token was stored, not that the
+    /// token works or whose channel it belongs to. Those are the two questions
+    /// a host actually has before they broadcast under their own name, and the
+    /// only honest way to answer them is to ask YouTube. `channels.list` is a
+    /// read: it creates nothing, publishes nothing, and touches no broadcast.
+    public static func youTubeAccount() async throws -> (title: String, id: String) {
+        let access = try await token(for: .youtube)
+        var r = URLRequest(url: URL(string:
+            "https://www.googleapis.com/youtube/v3/channels?part=snippet,status&mine=true")!)
+        r.setValue("Bearer \(access)", forHTTPHeaderField: "Authorization")
+        let (data, resp) = try await URLSession.shared.data(for: r)
+        guard let http = resp as? HTTPURLResponse else {
+            throw StudioPlatformError.badResponse("no HTTP response from YouTube")
+        }
+        guard (200..<300).contains(http.statusCode) else {
+            throw StudioPlatformError.http(http.statusCode,
+                String(decoding: data.prefix(300), as: UTF8.self))
+        }
+        guard let o = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
+              let items = o["items"] as? [[String: Any]], let first = items.first else {
+            throw StudioPlatformError.badResponse(
+                "The token works, but this Google account has no YouTube channel.")
+        }
+        let snippet = first["snippet"] as? [String: Any]
+        let title = (snippet?["title"] as? String) ?? "(untitled channel)"
+        let id = (first["id"] as? String) ?? "?"
+        return (title, id)
+    }
 
     /// Twitch: the device flow, because Twitch offers a public client no
     /// PKCE — see StudioPlatformAuth.swift. Two steps, because the host has

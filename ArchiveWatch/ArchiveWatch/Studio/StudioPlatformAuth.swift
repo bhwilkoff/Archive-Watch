@@ -219,12 +219,25 @@ final class GoogleAuth: NSObject {
             // not assumed: `presentationContextProvider`,
             // `prefersEphemeralWebBrowserSession` and even `cancel` are
             // `API_UNAVAILABLE(tvos)`, while the class itself is tvos(16.0).
-            // The television presents the flow itself, so there is no anchor
-            // to hand it. This has NOT been exercised on the glass — it cannot
-            // be until a client id exists — so if the TV's own screen turns
-            // out to be unusable, the fallback is the same device-code flow
-            // Twitch already forces (Google supports one for limited-input
-            // devices), not a redesign of this file.
+            //
+            // AND NOW MEASURED ON THE GLASS (2026-09-18, Ben Bedroom): what
+            // tvOS presents is not a web page at all. It is Apple's own sheet —
+            // "Sign in to ArchiveWatch · Sign in with Apple Device · You will
+            // get a notification on a nearby iPhone or iPad" — which HANDS THE
+            // SESSION TO A PHONE. The owner signed in to Google and approved
+            // the channel there, and the token arrived here: the go-live
+            // surface went to "Signed in to YouTube" and `channels.list`
+            // returned the host's own channel.
+            //
+            // THAT is why there is no context provider and no `cancel`: the
+            // session is not ours to present or dismiss, because it is not on
+            // this device. The absences really were the design, and they meant
+            // something better than "the television presents it itself".
+            //
+            // So a television needs NO second Google client and no device flow
+            // for this — the same client id the iPhone uses is enough.
+            // `GoogleDeviceAuth` remains for a platform that has no equivalent
+            // hand-off, and is selected only when a TV client is configured.
             session = s
             if !s.start() {
                 c.resume(throwing: StudioPlatformError.notConfigured(

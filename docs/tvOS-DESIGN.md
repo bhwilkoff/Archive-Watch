@@ -445,6 +445,55 @@ The rule, binding:
   clients on one of them: the shape follows what each platform offers a client
   of our type, which is Decision 128's rule applied one level deeper.
 
+**CORRECTION to the amendment above, same day, and it is the good kind.** The
+amendment said the television's sign-in "is a DEVICE FLOW WITH A QR CODE, and
+the web sheet is the fallback", and that "YouTube on tvOS needs a SECOND OAuth
+client … with a client secret". **That is wrong for YouTube**, and it was
+reasoning from Google's documentation rather than from the television.
+
+What `ASWebAuthenticationSession` actually puts on an Apple TV — measured on
+Ben Bedroom, 2026-09-18 — is not a web page and not a password field. It is
+Apple's own sheet:
+
+    Sign in to ArchiveWatch
+    [ Sign in with Apple Device ]
+    You will get a notification on a nearby iPhone or iPad.
+
+**The television hands the session to a phone.** The host signs in to Google and
+approves the channel on the phone, and the token lands on the TELEVISION. The
+owner did exactly that and the go-live surface went to "Signed in to YouTube";
+a read-only `channels.list` then returned their own channel from the TV.
+
+This is what §9.uuu's SDK reading was actually telling us. `presentationContextProvider`
+and `cancel` are `API_UNAVAILABLE(tvos)` because the session is not ours to
+present or dismiss — it is not on this device at all. The annotations were read
+correctly and the conclusion drawn from them ("so the television presents it
+itself, and that means typing a password with a d-pad") was wrong.
+
+**The rule, corrected:**
+
+- **YouTube on tvOS uses the SAME client id as the iPhone**, through
+  `ASWebAuthenticationSession`, and Apple's hand-off makes the phone the
+  keyboard. No second client, no client secret, no device flow.
+- **Twitch on tvOS remains a device flow with a QR**, because Twitch has no such
+  hand-off and its own flow is already exactly this shape. Everything the
+  amendment says about QR codes stands for Twitch.
+- **`GoogleDeviceAuth` is kept as a fallback**, selected only when a TV client
+  is configured — for a platform with no equivalent hand-off (Android TV, when
+  it comes). It is not the Apple path.
+- **The general lesson, which is the reason this is written out rather than
+  edited away**: when a platform API's capability is in question, the cheapest
+  honest answer is usually to put it on the device and look. Two ticks were
+  spent designing around a limitation that did not exist, and the owner had to
+  say *"That isn't good enough"* before it was checked.
+
+**A REAL constraint this exposed, which the design must carry**: the Google
+OAuth consent screen is in **Testing**, so the host sees "Google hasn't verified
+this app" and — per Google's own documentation — is "issued a refresh token
+expiring in 7 days". Weekly re-authorisation is not a shippable sign-in, so
+publishing and verifying the consent screen is a prerequisite for the YouTube
+half, not a polish item. Twitch has no equivalent gate.
+
 **Rule 8.8b — the confirmation's PRIMARY ACTION is on screen without
 scrolling.** The first build of `GoLiveTV` was a single scrolling column, and
 the capture from Ben Bedroom showed "Go live" below the fold. A television has

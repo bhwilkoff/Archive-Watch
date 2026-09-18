@@ -1618,6 +1618,78 @@ the audio path, the real ingest hosts with no credential, the overlay and
 go-live surfaces on the glass, the rights gate on device, and the platform
 clients. **→ `docs/watch-together-measurements.md`**
 
+### §9.yyy tvOS signs in to YouTube by handing the session to a PHONE — and two ticks were spent designing around a limitation that did not exist (2026-09-18)
+
+The owner, after reading two ticks of "blocked on the owner": *"You seem to have
+given up on streaming to YouTube. That isn't good enough. You should absolutely
+be able to login to YouTube on your phone and approve a channel to stream to.
+You just have to figure out the right path to do so."*
+
+They were right, and the path already existed in the code we had shipped.
+
+**What tvOS actually presents.** `ASWebAuthenticationSession` on an Apple TV
+does not render a web page and does not ask for a password. It presents Apple's
+own sheet:
+
+    Sign in to ArchiveWatch
+    [ Sign in with Apple Device ]
+    You will get a notification on a nearby iPhone or iPad.
+
+The television HANDS THE SESSION TO A PHONE. The owner signed in to Google and
+approved the channel on their iPhone; the go-live surface on the TV went to
+"Signed in to YouTube" and Go live became enabled. Verified beyond the screen
+by a read-only `channels.list` from the Apple TV itself:
+
+    AWYT channel=Ben Wilkoff [UCtPDkIGiSWSb5N8hNdaPizg]
+
+— a real token, reaching the host's own channel. **No second Google client, no
+client secret, no device flow.** The same `YOUTUBE_CLIENT_ID` the iPhone uses.
+
+**This is what §9.uuu's SDK reading was telling us, and the conclusion drawn
+from it was wrong.** The annotations were read correctly —
+`presentationContextProvider`, `prefersEphemeralWebBrowserSession` and `cancel`
+are `API_UNAVAILABLE(tvos)` — and §9.uuu even called the absences "the design".
+Then §9.www reasoned: no context provider means the television presents it
+itself, which means typing a Google password with a d-pad, which means we need
+Google's device flow, which means a second client with a secret, which means an
+owner step. Every link followed from the one before; the first link was false.
+The absences are there because **the session is not on this device at all**, so
+there is nothing to present it in and nothing to cancel.
+
+**The cost.** Two ticks building `GoogleDeviceAuth`, a second credential path, a
+platform-conditional client selector, a harness case — and a SCRATCHPAD owner
+item telling the owner to go and register something they never needed. It was
+withdrawn the same day (7a3). The code is kept, correctly scoped: it is selected
+only when a TV client is configured, for a platform with no equivalent hand-off
+(Android TV, later). What is NOT kept is the claim that Apple needed it.
+
+**The rule.** §9.www ends with "on this feature, assume the discriminator is not
+where the protocol says it is, and go and look." The same sentence applies one
+level up and was not applied: **when the question is what a platform API DOES on
+a device, put it on the device and look.** It cost one build and ninety seconds
+to answer, against two ticks of designing around it. The specific trap is that
+the false step was an INFERENCE sitting between two correct measurements — the
+SDK annotations before it and the device-endpoint refusal after it were both
+real, which is exactly what made the middle feel measured when it was not.
+
+**A REAL gate the owner's screenshot exposed, which no amount of this would have
+found.** Signing in, they had to click through *"Google hasn't verified this app
+— You've been given access to an app that's currently being tested."* The
+consent screen is in **Testing**, and Google's own documentation says a project
+in that state is "issued a refresh token expiring in 7 days". So today the host
+is signed out of YouTube WEEKLY, on every device, and nobody who is not a listed
+test user can sign in at all. Publishing the consent screen and passing OAuth
+verification for the sensitive `…/auth/youtube` scope (homepage, privacy-policy
+URL — both already exist — domain verification, demo video; NOT the third-party
+security assessment, which is restricted-scope only) is a **prerequisite for
+shipping the YouTube half**, not a polish item. Twitch has no equivalent gate.
+
+**And one thing the screen was not saying.** It read "Signed in to YouTube",
+which is a Keychain fact: a token was stored. It does not say whose channel the
+broadcast reaches, and one Google login can own several through brand accounts.
+The row now names the destination — "YouTube — Ben Wilkoff" — from the same
+read-only call, failing quietly to the old wording rather than refusing to draw.
+
 ### §9.xxx CORRECTION to §9.vvv: the pause DID hold, and the instrument that said otherwise was a byte comparison (2026-09-18)
 
 §9.vvv reported that the tvOS go-live confirmation could not pause the film,

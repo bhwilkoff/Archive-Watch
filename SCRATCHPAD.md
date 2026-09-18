@@ -114,19 +114,28 @@ emulators) · `docs/CAPTIONS.md` · `docs/SHAREPLAY.md` ·
    **The 50-subscriber rule does NOT apply** — it is a MOBILE-app rule, and the
    Studio publishes as an encoder like OBS (§9.bbb). That was an open risk in
    Decision 127 and is now closed;
-   (a3) **NEW 2026-09-18 — register a SECOND Google OAuth client, type "TVs and
-   Limited Input devices"**, for the Apple TV only. The owner's direction that
-   day: *"The sign in can make use of QR codes and signing in with a phone, but
-   you are logging in on the TV using that other device."* That is Google's
-   device flow, and the iOS client already registered **cannot do it** — the
-   flow is refused for any other client type. It yields a client id AND a
-   client **secret** (both into the gitignored `Secrets.xcconfig`); the secret
-   is unavoidable here and is exactly the cost Decision 128 named when it put
-   this flow second. `…/auth/youtube` IS a permitted scope, confirmed in
-   Google's own limited-input-device documentation. iOS and macOS keep PKCE and
-   need nothing new. **Twitch needs nothing at all** — its device flow is built,
-   measured against the live endpoint, and its `verification_uri` already
-   carries the user code, so the QR lands a phone on a pre-filled page;
+   (a3) **WITHDRAWN 2026-09-18, same day it was raised — no second Google client
+   is needed.** It said the Apple TV required a client of type "TVs and Limited
+   Input devices" with a secret. That was reasoning from Google's docs, not a
+   measurement, and the measurement says otherwise: `ASWebAuthenticationSession`
+   on tvOS presents **Apple's own hand-off** — *"Sign in with Apple Device ·
+   You will get a notification on a nearby iPhone or iPad"* — so the phone does
+   the Google sign-in and the token lands on the TELEVISION. Proved end to end
+   on Ben Bedroom with the EXISTING `YOUTUBE_CLIENT_ID`: the owner approved on
+   their phone, the TV showed "Signed in to YouTube", and a read-only
+   `channels.list` returned their own channel. The device-flow code stays as a
+   fallback for platforms with no such hand-off (Android TV later);
+   (a4) **REAL and NEW: the OAuth consent screen is in TESTING.** The owner had
+   to click through *"Google hasn't verified this app … currently being tested"*
+   on their phone. Google's own documentation: a project whose consent screen is
+   external and "Testing" is **"issued a refresh token expiring in 7 days"**. So
+   as it stands the host is signed out of YouTube WEEKLY on every device, and
+   anyone who is not a listed test user cannot sign in at all. To ship this:
+   publish the consent screen and pass OAuth verification. `…/auth/youtube` is a
+   SENSITIVE scope, so that needs an app homepage, a privacy-policy URL (both
+   exist: archivewatch.org and its privacy page), domain-ownership verification
+   and a demo video — but NOT the third-party security assessment, which applies
+   only to restricted scopes. Twitch has no equivalent gate;
    (b) **pair an iPhone** on the Apple TV via the system Continuity picker
    (once — a paired phone is found automatically after);
    (c) **allow camera + mic** on the iPhone (Settings ▸ Archive Watch) — there

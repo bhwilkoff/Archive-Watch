@@ -93,6 +93,8 @@ struct StudioSignInRow: View {
     /// so without this, "Cancel" hid the code and left ~360 requests running
     /// against Twitch, and so did dismissing the sheet (§9.sss).
     @State private var signInTask: Task<Void, Never>?
+    /// The channel a broadcast would reach, once asked of the platform.
+    @State private var accountName: String?
 
     private var label: String { platform.displayName }
 
@@ -129,12 +131,22 @@ struct StudioSignInRow: View {
                 }
             } else if signedIn {
                 HStack {
-                    Label("Signed in to \(label)", systemImage: "checkmark.circle.fill")
+                    // WHOSE channel. "Signed in" says a token was stored; it
+                    // does not say where the broadcast lands, and a host about
+                    // to go out under their own name has exactly that question
+                    // — more so with brand accounts, where one Google login can
+                    // own several channels. Read-only (`channels.list`), and it
+                    // fails quietly: an unnamed channel is a smaller problem
+                    // than a sign-in row that refuses to draw.
+                    Label(accountName.map { "\(label) — \($0)" }
+                            ?? "Signed in to \(label)",
+                          systemImage: "checkmark.circle.fill")
                         .foregroundStyle(Self.signedInAccent)
                         .font(.subheadline)
                     Spacer()
                     Button("Sign out") {
                         StudioPlatformAuth.signOut(platform)
+                        accountName = nil
                         setSignedIn(false)
                     }
                     .font(.subheadline)
@@ -161,6 +173,12 @@ struct StudioSignInRow: View {
             }
         }
         .onAppear { setSignedIn(StudioPlatformAuth.isSignedIn(platform)) }
+        // `.task(id:)` so it re-asks when the host signs in, and is cancelled
+        // with the view rather than outliving it (§9.sss).
+        .task(id: signedIn) {
+            guard signedIn, platform == .youtube, accountName == nil else { return }
+            accountName = try? await StudioPlatformAuth.youTubeAccount().title
+        }
         .onDisappear {
             // A host who closes the sheet has stopped asking. Leaving the poll
             // running is both a pointless load on Twitch and a task that
