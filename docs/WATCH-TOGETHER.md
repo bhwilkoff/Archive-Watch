@@ -11,7 +11,7 @@ Together features so that the entire world can watch these movies together.
 Let's start with Apple platforms and then build out from there where
 possible."*
 
-Research behind this document: `docs/LIVE-RIFF-RESEARCH.md` (platforms, APIs,
+Research behind this document: `docs/WATCH-TOGETHER-RESEARCH.md` (platforms, APIs,
 competitors, building blocks). This file turns that research into rules; the
 research file stays as written.
 

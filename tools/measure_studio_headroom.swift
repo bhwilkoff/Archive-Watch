@@ -1,6 +1,6 @@
 // PHASE 0's ONLY REAL UNKNOWN: can one device decode a film, composite a
 // program over it, and encode 1080p30 at the same time? (WATCH-TOGETHER §7,
-// §9; docs/LIVE-RIFF-RESEARCH.md §8.)
+// §9; docs/WATCH-TOGETHER-RESEARCH.md §8.)
 //
 // This measures the whole chain on whatever machine runs it — a real
 // archive.org film through AVPlayer, its frames pulled with

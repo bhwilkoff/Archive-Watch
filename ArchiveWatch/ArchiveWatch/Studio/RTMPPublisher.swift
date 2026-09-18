@@ -1,7 +1,7 @@
 // RTMP / RTMPS publisher — the transport under Watch Together Studio.
 //
 // YouTube and Twitch ingest RTMP from any encoder and nothing else from a
-// general creator (docs/LIVE-RIFF-RESEARCH.md §1), so the device that renders
+// general creator (docs/WATCH-TOGETHER-RESEARCH.md §1), so the device that renders
 // the film speaks RTMP itself. This is the whole protocol we need, and no
 // more: the C0/C1/C2 handshake, the chunk stream in both directions, the four
 // AMF0 commands (connect, createStream, publish, and the server's _result /
