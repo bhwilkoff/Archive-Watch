@@ -73,16 +73,32 @@ def audio_rms(path):
 
 
 def peaks(series, threshold, min_gap=0.4):
-    """Local maxima above `threshold`, at most one per `min_gap` seconds."""
-    hits = [(t, v) for t, v in series if v >= threshold]
+    """ONSETS: the FIRST crossing above `threshold`, at most one per `min_gap`.
+
+    This returned the local MAXIMUM's time, and that put half a marker of bias
+    into every number the tool produced. A/V offset is a question about when
+    two events BEGIN, and the middle of a burst is not when it began.
+
+    The tell was that the bias scaled with the stimulus, which is the one thing
+    a real offset cannot do (2026-09-18):
+
+        0.1 s beep   flashes 24  bursts 24   median +34.7 ms
+        0.4 s beep   flashes 24  bursts 24   median +174.6 ms
+
+    Roughly half the marker each time. Read as "detector quantisation" while the
+    clip was fixed, because with one stimulus the bias is a constant and looks
+    like a property of the pipeline. Relative comparisons made with a single
+    fixed clip are therefore unharmed — the bias sat on both sides of them —
+    but no absolute figure from this tool was ever trustworthy.
+    """
     out = []
-    for t, v in hits:
-        if out and t - out[-1][0] < min_gap:
-            if v > out[-1][1]:
-                out[-1] = (t, v)
+    for t, v in series:
+        if v < threshold:
             continue
-        out.append((t, v))
-    return [t for t, _ in out]
+        if out and t - out[-1] < min_gap:
+            continue            # still inside the same marker
+        out.append(t)
+    return out
 
 
 def main():
