@@ -1618,6 +1618,42 @@ the audio path, the real ingest hosts with no credential, the overlay and
 go-live surfaces on the glass, the rights gate on device, and the platform
 clients. **→ `docs/watch-together-measurements.md`**
 
+### §9.llll The audio-only rendition, built — and a probe that took the diagnostics down with it (2026-09-18)
+
+§9.kkkk's design, implemented: `LocalMediaServer.writeAudioOnlyFile(forKey:to:)`
+filters the parsed `Movie` to its `"soun"` track and runs the EXISTING
+`initSegment` / `plan` / `fragment` path over it. No new muxing code — the
+fragmenter already models every track by handler because it must, to interleave
+them — and only the audio sample ranges are ever fetched.
+
+**The first version did not finish, and the way it failed is the lesson.** It
+issued one ranged GET per fragment, in order: a 74-minute film at 2-second
+fragments is ~2,200 sequential round trips. Worse, the probe calling it runs
+BEFORE the rest of `runStudio`'s diagnostics, so a blocking build took them down
+too — the log came back with only `[AWCAP]` caption lines and **no Studio
+markers at all**. That absence is what identified the blocking call: a probe
+that hangs looks exactly like a probe that never ran, and the only thing
+separating them was noticing that a line logged on every previous run had gone.
+
+**Merging across fragments is not available**, which is worth stating so the
+next person does not try it: audio samples are interleaved with video chunks, so
+a gap threshold wide enough to bridge two audio runs pulls the film with it. The
+request COUNT is the cost, not the byte count — so the round trips now overlap
+in batches of eight instead of shrinking.
+
+**And Swift 6 forced the right shape.** Passing the `Movie` into the task group
+was rejected as a sending-closure data race. The fix — only byte ranges and
+`Data` cross the boundary, muxing stays serial — is better than what was there:
+fragments can no longer be written in completion order rather than sequence,
+which is a corruption this file would not have detected until something tried to
+play it.
+
+**NOT VERIFIED.** It compiles for tvOS; it has not yet produced a file on the
+device, and the claim that matters — that the result is a real asset which vends
+an audio track — is untested. The measurement is already defined: Blood and Sand
+(1922) reads **−15.1 dB** at source, so the rendition must too, and then the
+wire must, which is the pass/fail for the whole repair.
+
 ### §9.kkkk The HLS audio limitation is confirmed from outside, and the fix has to come from our own remuxer (2026-09-18)
 
 §9.jjjj measured the cause on the device. Before building a fix, the same claim

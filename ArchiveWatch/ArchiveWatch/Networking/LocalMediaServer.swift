@@ -147,6 +147,123 @@ final class LocalMediaServer: @unchecked Sendable {
         queue.async { self.handlers[ObjectIdentifier(handler)] = nil }
     }
 
+    /// The film's AUDIO TRACK ALONE, written to a local fragmented mp4.
+    ///
+    /// WHY THIS EXISTS (WATCH-TOGETHER §9.jjjj/§9.kkkk). tvOS plays the film as
+    /// HLS — Decision 106, because tvOS 27 loses the audio of a non-fragmented
+    /// mp4 — and **an HLS asset vends no `AVAssetTrack`s**, so the Studio's
+    /// `MTAudioProcessingTap` has nothing to attach to and every television
+    /// broadcast went out silent. That is a documented AVFoundation limitation
+    /// with no official workaround; the video counterpart
+    /// (`AVPlayerItemVideoOutput`) works with HLS, which is exactly why the
+    /// picture arrived and the sound did not.
+    ///
+    /// The fix uses what this project already owns rather than a second full
+    /// download of the film: `MP4Fragmenter` has parsed the source's `moov` and
+    /// models every track by handler, so a `Movie` filtered to the `"soun"`
+    /// track produces an audio-only fragmented mp4 through the SAME
+    /// `initSegment`/`plan`/`fragment` path — no new muxing, and only the audio
+    /// sample ranges are ever fetched (~90 kb/s against the film's ~3.7 Mb/s).
+    /// The result is a real local asset, which DOES vend tracks, so an
+    /// `AVAssetReader` can read it.
+    ///
+    /// Returns nil when the film has no audio track at all — a real and common
+    /// case in a silent-cinema catalog, and NOT a failure.
+    func writeAudioOnlyFile(forKey key: String, to url: URL) async -> Bool {
+        guard let resource = resource(forKey: key),
+              await resource.prepareHLS(), let movie = resource.movie else { return false }
+        var audio = movie
+        audio.tracks = movie.tracks.filter { $0.handler == "soun" }
+        guard !audio.tracks.isEmpty else { return false }
+
+        let plan = MP4Fragmenter.plan(audio)
+        try? FileManager.default.removeItem(at: url)
+        guard FileManager.default.createFile(atPath: url.path, contents: plan.initSegment),
+              let handle = try? FileHandle(forWritingTo: url) else { return false }
+        defer { try? handle.close() }
+        try? handle.seekToEnd()
+
+        // FETCHED IN PARALLEL, MUXED SERIALLY — and the split is forced twice
+        // over, once by speed and once by the compiler.
+        //
+        // The first version fetched one ranged GET per fragment, in order. A
+        // 74-minute film at 2-second fragments is ~2,200 sequential round
+        // trips: the build never finished inside a four-minute window, and
+        // because it runs before the rest of `runStudio`'s diagnostics it took
+        // them down with it — the log came back with NO Studio lines at all,
+        // which is what pointed at the blocking call (§9.llll).
+        //
+        // Merging across fragments is not available: audio samples are
+        // interleaved with video chunks, so a gap wide enough to bridge them
+        // pulls the whole film. The request COUNT is the cost, so the round
+        // trips overlap instead of shrinking.
+        //
+        // Only byte ranges and `Data` cross into the task group. Passing the
+        // `Movie` in was rejected by Swift 6 as a sending-closure data race,
+        // and the fix is the right shape anyway: fetching is concurrent, muxing
+        // stays serial and ordered, so fragments can never be written out of
+        // sequence by completion order.
+        let batchSize = 8
+        var index = 0
+        while index < plan.fragments.count {
+            let upper = min(index + batchSize, plan.fragments.count)
+
+            var ranges: [Int: [(lo: Int, hi: Int)]] = [:]
+            for i in index..<upper {
+                var want: [(Int, Int)] = []
+                for ft in plan.fragments[i].tracks {
+                    guard let ti = audio.tracks.firstIndex(where: { $0.id == ft.trackID })
+                    else { continue }
+                    let t = audio.tracks[ti]
+                    for sIdx in ft.firstSample..<(ft.firstSample + ft.count) {
+                        want.append((t.samples[sIdx].offset, t.samples[sIdx].size))
+                    }
+                }
+                want.sort { $0.0 < $1.0 }
+                var merged: [(lo: Int, hi: Int)] = []
+                for (off, size) in want {
+                    if var last = merged.last, off <= last.hi + 262_144 {
+                        last.hi = max(last.hi, off + size); merged[merged.count - 1] = last
+                    } else { merged.append((off, off + size)) }
+                }
+                ranges[i] = merged
+            }
+
+            let origin = resource.origin
+            var fetched: [Int: [(lo: Int, hi: Int, data: Data)]] = [:]
+            await withTaskGroup(of: (Int, [(lo: Int, hi: Int, data: Data)]?).self) { group in
+                for i in index..<upper {
+                    let want = ranges[i] ?? []
+                    group.addTask {
+                        var out: [(lo: Int, hi: Int, data: Data)] = []
+                        for r in want {
+                            guard let d = await StreamPump.rangeData(origin, r.lo, r.hi - 1) else {
+                                return (i, nil)
+                            }
+                            out.append((r.lo, r.lo + d.count, d))
+                        }
+                        return (i, out)
+                    }
+                }
+                for await (i, chunks) in group { if let chunks { fetched[i] = chunks } }
+            }
+
+            for i in index..<upper {
+                guard let chunks = fetched[i],
+                      let built = try? MP4Fragmenter.fragment(audio, plan.fragments[i],
+                                                              media: { off, len in
+                          for c in chunks where c.lo <= off && off + len <= c.hi {
+                              return c.data.subdata(in: (off - c.lo)..<(off - c.lo + len))
+                          }
+                          throw URLError(.dataNotAllowed)
+                      }) else { return false }
+                try? handle.write(contentsOf: built)
+            }
+            index = upper
+        }
+        return true
+    }
+
     fileprivate func resource(forKey key: String) -> MediaResource? {
         queue.sync { resources[key] }
     }

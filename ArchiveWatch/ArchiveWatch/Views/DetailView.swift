@@ -735,6 +735,28 @@ struct PlayerScreen: View {
         if let problem = await engine.filmAudioProblem(sourceHasAudio: sourceHasAudio) {
             studioAudioProblem = problem
         }
+        // AW_AUDIO_FILE_PROBE=1 — build the audio-only rendition (§9.kkkk) and
+        // ask AVFoundation whether it is a real asset with a real audio track.
+        // Downloads the film's audio, so it is behind its own flag.
+        if ProcessInfo.processInfo.environment["AW_AUDIO_FILE_PROBE"] == "1",
+           let played = (p.currentItem?.asset as? AVURLAsset)?.url {
+            let key = played.deletingPathExtension().lastPathComponent
+            let out = FileManager.default.temporaryDirectory
+                .appendingPathComponent("aw-audio-probe.mp4")
+            let t0 = Date()
+            let ok = await LocalMediaServer.shared.writeAudioOnlyFile(forKey: key, to: out)
+            let bytes = (try? FileManager.default.attributesOfItem(atPath: out.path)[.size] as? Int) ?? 0
+            if ok {
+                let a = AVURLAsset(url: out)
+                let tracks = (try? await a.loadTracks(withMediaType: .audio))?.count ?? -1
+                let dur = (try? await a.load(.duration)).map { CMTimeGetSeconds($0) } ?? -1
+                awdiag("AWAUDIOFILE ok bytes=%d tracks=%d duration=%.1f built_in=%.1fs",
+                       bytes ?? 0, tracks, dur, Date().timeIntervalSince(t0))
+            } else {
+                awdiag("AWAUDIOFILE failed bytes=%d", bytes ?? 0)
+            }
+            try? FileManager.default.removeItem(at: out)
+        }
         if let item = p.currentItem {
             let url = (item.asset as? AVURLAsset)?.url
             let n = ((try? await item.asset.loadTracks(withMediaType: .audio)) ?? []).count
