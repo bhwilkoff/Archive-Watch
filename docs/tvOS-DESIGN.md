@@ -322,11 +322,17 @@ flow off the player's transport menu (§8.8) — never a Settings row, never a
 §3.6 player mode, and never a pre-flight the viewer must clear before they
 have chosen to broadcast anything. A host who is not signed in is told so
 where they asked to go live, in the same alert that already carries a rights
-refusal, with the platform's own flow the only thing behind it. **Not built
-yet**: tvOS currently runs the Studio with `destination: nil` — it composites,
-encodes and discards — because a destination needs a credential and there is
-none to exercise. The iOS surface that this will mirror is
-`iOS/StudioSignIn_iOS.swift`.
+refusal, with the platform's own flow the only thing behind it. **Built and verified
+on an Apple TV, 2026-09-17**: choosing "With the world…" applies the rights
+gate first and then `StudioPlatformAuth.anyConfigurationProblem`, and a build
+with no client ids shows *"Streaming is not set up yet"* with the sentence
+naming what is missing. The alert's TITLE changes with the reason — a build
+with no credential is not a film that cannot be streamed, and putting "This
+film cannot be streamed" over it would tell the viewer something false about
+the film and about the public domain, which is the one thing that alert exists
+to teach (§2.1). The message names BOTH platforms: a surface with no platform
+picker must not pick one arbitrarily, because a host told only about YouTube
+reasonably asks what about Twitch.
 
 10.3 **Watched state (#17).** Completed titles (`WatchProgress.isComplete`) are
 hidden from Home shelves by default (Settings toggle to show), but remain in

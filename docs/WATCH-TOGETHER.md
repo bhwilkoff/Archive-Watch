@@ -2071,7 +2071,9 @@ lives once, beside the enum it names.
   the architectural question the measurement existed to answer is answered.
 - Sign-in on a TELEVISION. `ASWebAuthenticationSession` presents itself on
   tvOS with no anchor; that screen cannot be seen until a client id exists
-  (Decision 128).
+  (Decision 128). The **not-configured** state IS built and verified (tvOS-
+  DESIGN §10.2b): the transport menu says "Streaming is not set up yet" and
+  names both platforms.
 - A ten-minute soak on the Apple TV (§8.3). The iPhone 12's is above.
 
 The four bullets that used to sit here — the real destinations, the audio

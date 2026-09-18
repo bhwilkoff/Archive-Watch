@@ -90,7 +90,7 @@ public enum StudioPlatformAuth {
         return (v?.isEmpty ?? true) ? nil : v
     }
 
-    public enum Platform: String, Sendable {
+    public enum Platform: String, Sendable, CaseIterable {
         case youtube, twitch
 
         /// The platform's OWN spelling. Capitalising the raw value rendered
@@ -126,6 +126,22 @@ public enum StudioPlatformAuth {
             + "It needs an application registered on "
             + (platform == .youtube ? "Google Cloud (YouTube Data API v3)" : "the Twitch developer console")
             + " and its client id in Secrets.xcconfig."
+    }
+
+    /// The problem when NEITHER platform is configured, or nil when at least
+    /// one is.
+    ///
+    /// A surface with no platform picker — a television's transport menu —
+    /// must not name one platform arbitrarily: a host told "signing in to
+    /// YouTube is not set up" reasonably asks what about Twitch, and the true
+    /// answer is that neither is.
+    public static var anyConfigurationProblem: String? {
+        let missing = Platform.allCases.filter { configurationProblem(for: $0) != nil }
+        guard missing.count == Platform.allCases.count else { return nil }
+        return "Signing in to \(Platform.youtube.displayName) or "
+            + "\(Platform.twitch.displayName) is not set up in this build yet. "
+            + "It needs an application registered on Google Cloud (YouTube Data API v3) "
+            + "and on the Twitch developer console, and their client ids in Secrets.xcconfig."
     }
 
     public static func isSignedIn(_ platform: Platform) -> Bool {

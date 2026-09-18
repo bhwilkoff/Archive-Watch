@@ -760,6 +760,9 @@ struct PlayerScreen: View {
 
     /// Why this film may not be broadcast — shown, never swallowed (§5).
     @State private var studioRefusal: String?
+    /// Whether the standing refusal is about the FILM's rights or about this
+    /// BUILD — they are different sentences and need different titles.
+    @State private var studioRefusalIsAboutTheFilm = true
     /// The film the host chose to broadcast; non-nil starts the Studio on the
     /// player that is ALREADY playing it.
     @State private var studioFilm: Catalog.Item?
@@ -895,10 +898,19 @@ struct PlayerScreen: View {
         // A rights refusal is a SENTENCE, not a missing menu item. It teaches
         // the viewer something true about the public domain (§2.1) and it is
         // the same text every other platform shows.
-        .alert("This film cannot be streamed", isPresented: .constant(studioRefusal != nil)) {
+        // The TITLE has to match the reason. A build with no client id is not
+        // a film that cannot be streamed, and putting "This film cannot be
+        // streamed" over "signing in is not set up in this build" tells the
+        // viewer something false about the film — and about the public domain,
+        // which is the one thing this alert exists to teach (§2.1).
+        .alert(studioRefusalIsAboutTheFilm ? "This film cannot be streamed"
+                                           : "Streaming is not set up yet",
+               isPresented: .constant(studioRefusal != nil)) {
             Button("OK", role: .cancel) { studioRefusal = nil }
         } message: {
-            Text((studioRefusal ?? "") + "\n\n" + StudioRights.policy)
+            Text(studioRefusalIsAboutTheFilm
+                 ? (studioRefusal ?? "") + "\n\n" + StudioRights.policy
+                 : (studioRefusal ?? ""))
         }
         .overlay(alignment: .topLeading) {
             if studioFilm != nil {
@@ -924,7 +936,19 @@ struct PlayerScreen: View {
             if let why = StudioRights.refusal(rightsBucket: film.rightsBucket,
                                               contentType: film.contentType,
                                               year: film.year) {
+                studioRefusalIsAboutTheFilm = true
                 studioRefusal = why
+                return
+            }
+            // ...and the SAME configuration gate the menu applies (§10.2b).
+            // A door that skips a gate the product enforces is a door onto a
+            // path the product does not have. `AW_STUDIO_TV_FORCE=1` bypasses
+            // THIS check only, for measuring the readout on a build with no
+            // client ids — it exists nowhere in the product.
+            if ProcessInfo.processInfo.environment["AW_STUDIO_TV_FORCE"] != "1",
+               let problem = StudioPlatformAuth.anyConfigurationProblem {
+                studioRefusalIsAboutTheFilm = false
+                studioRefusal = problem
                 return
             }
             // MUTE THE ROOM. This box lives in someone's house and its audio
@@ -1066,7 +1090,19 @@ struct PlayerScreen: View {
             if let why = StudioRights.refusal(rightsBucket: film.rightsBucket,
                                               contentType: film.contentType,
                                               year: film.year) {
+                studioRefusalIsAboutTheFilm = true
                 studioRefusal = why
+                return
+            }
+            // THEN whether this build can sign in at all (tvOS-DESIGN §10.2b).
+            // A host is told where they asked to go live — in the same alert
+            // that already carries a rights refusal — rather than being let
+            // into a production mode that can never reach an audience. iOS
+            // greys out Go Live for the same reason; a television has no
+            // equivalent control to grey, so it says so here.
+            if let problem = StudioPlatformAuth.anyConfigurationProblem {
+                studioRefusalIsAboutTheFilm = false
+                studioRefusal = problem
                 return
             }
             studioFilm = film
