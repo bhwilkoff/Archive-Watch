@@ -1618,6 +1618,49 @@ the audio path, the real ingest hosts with no credential, the overlay and
 go-live surfaces on the glass, the rights gate on device, and the platform
 clients. **→ `docs/watch-together-measurements.md`**
 
+### §9.pppp THE TELEVISION HAS SOUND: -91.0 dB → -17.6 dB, measured from the server's recording (2026-09-18)
+
+The repair is done and the number that defined it has moved.
+
+    before:  mean_volume -91.0 dB   max_volume -91.0 dB   (digital silence)
+    after:   mean_volume -17.6 dB   max_volume   0.0 dB
+
+Read from mediamtx's own recording of a broadcast published by the Apple TV, not
+from anything this app says about itself. The teed source measured -17.9 dB
+(§9.oooo), so the wire is within 0.3 dB of what went into it.
+
+**The last link, `FilmAudioDecoder`, and the two things it had to get right:**
+
+  - **It paces itself.** The tee is fed by the player's BUFFERING — 378 seconds
+    of audio in 90 (§9.nnnn) — while the mixer's ring holds one second.
+    Decoding on arrival would overflow it and then starve, which is the
+    two-clock failure that cost the Android port two rounds. Compressed frames
+    queue (cheap: ~4 MB for six minutes) and a pump decodes one AAC packet per
+    20 ms tick, so the decode runs at real time no matter how the bytes arrive.
+    The readout shows it working exactly as designed: `frames=17548` teed
+    against `decoded=7308` — the decoder deliberately behind the burst.
+  - **It supplies samples, never timestamps.** PCM goes into the SAME ring the
+    `MTAudioProcessingTap` writes to where it can attach, so nothing downstream
+    can tell the two sources apart, and the engine's single show clock still
+    stamps both tracks (§9.qq).
+
+**The whole repair, in the order it actually happened**: a silent film hid the
+defect for weeks (§9.jjjj); the cause was HLS vending no asset tracks, confirmed
+against outside sources (§9.kkkk); a second reader over the source was rejected
+for a second full download, and a whole-file rendition was built and measured
+too slow (§9.llll, §9.mmmm); the tee out of the segment route cost nothing
+because those bytes were already being fetched (§9.nnnn); and the bytes were
+proved to be the film's audio BEFORE a decoder was built on them (§9.oooo).
+Four designs, three of them wrong, and every one of them was eliminated by a
+measurement rather than by argument.
+
+**Still open**: the decoder starts where playback has reached and runs at its own
+rate, so long-run drift against the picture is unmeasured — the Android port
+needed an explicit correction for exactly this (§9.iii), and a feature-length
+soak is the test. And every performance figure in this feature still comes from
+a 3rd-generation Apple TV; the 2nd-gen Fireplace unit, the hardware floor, is
+now available and has never run any of it.
+
 ### §9.oooo The teed bytes ARE the film's audio — measured before a decoder was built on them (2026-09-18)
 
 The tee delivers compressed AAC and the mixer wants PCM, so a decoder sits

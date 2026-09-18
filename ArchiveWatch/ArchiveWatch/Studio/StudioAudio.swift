@@ -251,6 +251,16 @@ final class FilmAudioTap: @unchecked Sendable {
         lock.unlock()
     }
 
+    /// PCM from somewhere OTHER than the tap — the HLS path, where the tap
+    /// cannot attach at all (§9.jjjj). Already interleaved stereo Float at the
+    /// program rate, so it goes straight to the same ring the tap feeds and
+    /// everything downstream is unchanged: the mixer cannot tell the two apart,
+    /// which is the point.
+    func acceptExternalPCM(_ samples: UnsafePointer<Float>, count: Int) {
+        guard count > 0 else { return }
+        ring.write(samples, count: count)
+    }
+
     /// Converts the tap's buffers to interleaved stereo Float at the program
     /// rate and writes them to the ring.
     private func append(_ bufferList: UnsafeMutablePointer<AudioBufferList>, frames: Int) {

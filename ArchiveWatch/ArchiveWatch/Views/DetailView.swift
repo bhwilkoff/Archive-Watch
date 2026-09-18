@@ -777,7 +777,19 @@ struct PlayerScreen: View {
                     try? handle.write(contentsOf: out)
                 }
             } else {
-                FilmAudioBridge.shared.setSink { _, _, _ in }
+                // THE REPAIR ITSELF: tee → decoder → the mixer's film bed.
+                // The decoder paces itself, because the tee arrives in bursts
+                // (§9.nnnn), and it supplies samples only — the engine's show
+                // clock still stamps every track (§9.qq).
+                let bed = engine.filmAudioBed
+                let decoder = FilmAudioDecoder { samples, count in
+                    bed.acceptExternalPCM(samples, count: count)
+                }
+                studioFilmAudioDecoder = decoder
+                FilmAudioBridge.shared.setSink { frames, _, rate in
+                    decoder.accept(frames, sampleRate: rate)
+                }
+                decoder.start()
             }
         }
         if let item = p.currentItem {
@@ -902,8 +914,11 @@ struct PlayerScreen: View {
             // Does the tee actually run? Counted from the bridge, which reads
             // zero when no sink is attached — that is the control.
             if FilmAudioBridge.shared.isAttached, Int(Date().timeIntervalSince1970) % 15 == 0 {
-                awdiag("AWAUDIOTEE frames=%d bytes=%d",
-                       FilmAudioBridge.shared.framesTeed, FilmAudioBridge.shared.bytesTeed)
+                awdiag("AWAUDIOTEE frames=%d bytes=%d decoded=%d pcm=%d err=%@",
+                       FilmAudioBridge.shared.framesTeed, FilmAudioBridge.shared.bytesTeed,
+                       studioFilmAudioDecoder?.packetsDecoded ?? -1,
+                       studioFilmAudioDecoder?.framesWritten ?? -1,
+                       studioFilmAudioDecoder?.lastError ?? "-")
             }
 
             // THE FIRST TWENTY SECONDS OF THE STREAM, not of the engine.
@@ -949,6 +964,8 @@ struct PlayerScreen: View {
         }
         await engine.stop()
         FilmAudioBridge.shared.setSink(nil)
+        studioFilmAudioDecoder?.stop()
+        studioFilmAudioDecoder = nil
         studioEngine = nil
         studioRequest = nil
         continuity.lowerAudioSession()
@@ -1027,6 +1044,8 @@ struct PlayerScreen: View {
     /// Set when the film HAS sound that is not reaching the broadcast (§9.jjjj).
     /// Shown on the readout, never swallowed (§5).
     @State private var studioAudioProblem: String?
+    /// Decodes the teed film audio for the whole life of a show (§9.oooo).
+    @State private var studioFilmAudioDecoder: FilmAudioDecoder?
     @State private var fallbackProbe: Task<Void, Never>?
     @State private var sysCapProbe = SystemCaptionProbe()   // AW_SYSCAP_PROBE=1 only
     @State private var skipCount = 0         // #7: bound auto-skips in a broken lineup

@@ -359,6 +359,16 @@ public actor StudioEngine {
     private var lastFilmFrame: CVPixelBuffer?
     private var publishing = false
     private let mixer: StudioAudioMixer
+
+    /// The film's audio bed, reachable WITHOUT the actor.
+    ///
+    /// The HLS tee's decoder runs its own real-time pump (§9.oooo) and must be
+    /// able to hand over PCM without hopping onto this actor for every 23 ms
+    /// packet. Safe because the mixer and the tap are both `@unchecked
+    /// Sendable` and the ring underneath is lock-guarded — the same ring the
+    /// `MTAudioProcessingTap` writes to on platforms where it can attach, so
+    /// nothing downstream can tell the two sources apart.
+    nonisolated var filmAudioBed: FilmAudioTap { mixer.film }
     private var audioAttached = false
 
     public init(configuration: Configuration = Configuration(), publisher: RTMPPublisher = RTMPPublisher()) {
