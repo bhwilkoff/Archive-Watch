@@ -132,7 +132,13 @@ public final class StudioSession {
         // was a no-op on nil, so the "control" that was supposed to prove a
         // muted program publishes silence proved nothing at all (§9.oo).
         let env = ProcessInfo.processInfo.environment
-        if env["AW_STUDIO_MAC"] == "1" {
+        // EITHER BENCH DOOR. The mute-unless-asked rule was keyed to
+        // `AW_STUDIO_MAC` alone, so the new go-live door (§9.xxxx) would have
+        // slipped past it and published whatever could be heard near the Mac —
+        // which is the incident this guard was written for in the first place
+        // (§9.oo, ~88 MB of recordings deleted). A guard that names one door by
+        // hand stops guarding the moment a second door exists.
+        if env["AW_STUDIO_MAC"] == "1" || !(env["AW_STUDIO_MAC_GOLIVE"] ?? "").isEmpty {
             // A BENCH RUN MUST NEVER CARRY THE OWNER'S ROOM. The mic tap is
             // attached whenever macOS has granted audio permission and
             // `micMuted` defaults to false, so an unattended harness broadcast

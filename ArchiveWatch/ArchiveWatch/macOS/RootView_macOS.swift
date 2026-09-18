@@ -143,6 +143,102 @@ struct RootView: View {
                         router.showGoLive = true
                     }
                 }
+                // THE macOS GO-LIVE DOOR (§9.xxxx).
+                //
+                // `AW_STUDIO_MAC` arms the session so the readout can be SEEN —
+                // it resolves no destination and publishes nothing, which is why
+                // a bench run against a local server recorded not one byte and
+                // mediamtx never logged a connection. macOS could only go live
+                // by hand, through the sheet, so the one thing nobody could do
+                // was TEST it. This drives the same commit chain the sheet does:
+                // request → StudioGoLive.destination → armDestination → arm.
+                //
+                //   AW_STUDIO_MAC_GOLIVE = 1 | twitch | youtube
+                //   AW_STUDIO_LAYOUT     = film | corner | theatre | side | host
+                //
+                // Real platforms are gated exactly as the sheet gates them —
+                // signed in AND ready — and every refusal NAMES itself, because
+                // the tvOS version of this door returned in silence and cost a
+                // round of guessing between three causes.
+                let macDoor = env["AW_STUDIO_MAC_GOLIVE"] ?? ""
+                if !macDoor.isEmpty {
+                    // ARM BEFORE PLAYING. `arm()` only records INTENT; the
+                    // engine is built in `attachIfArmed`, which the player
+                    // window calls ONCE when it appears and which returns
+                    // immediately unless `armedFilmID` is already set. Playing
+                    // first meant the player attached to nothing, the engine
+                    // was never built, and the door still logged "live" — it
+                    // was reporting the intent it had just recorded. The first
+                    // run this way published nothing and wrote no AWCAM line at
+                    // all, which is what gave it away.
+                    Task { @MainActor in
+                        let layout = StudioLayout(rawValue: env["AW_STUDIO_LAYOUT"] ?? "")
+                            ?? .corner
+                        var dest: URL?
+                        switch macDoor {
+                        case "1":
+                            guard let base = env["AW_STUDIO_DEST"].flatMap(URL.init(string:)) else {
+                                awdiag("AWMACDOOR REFUSED: AW_STUDIO_DEST is not set")
+                                return
+                            }
+                            dest = base.appendingPathComponent(env["AW_STUDIO_KEY"] ?? "bench")
+                        case "twitch", "youtube":
+                            let p: StudioPlatformAuth.Platform =
+                                macDoor == "twitch" ? .twitch : .youtube
+                            guard StudioPlatformAuth.isSignedIn(p) else {
+                                awdiag("AWMACDOOR REFUSED: not signed in to %@", macDoor)
+                                return
+                            }
+                            let r = try? await StudioPlatformAuth.readiness(for: p)
+                            guard case .ready? = r else {
+                                awdiag("AWMACDOOR REFUSED: %@ readiness=%@", macDoor,
+                                       String(describing: r))
+                                return
+                            }
+                            let req = GoLiveRequest(
+                                archiveID: it.archiveID,
+                                platform: macDoor == "twitch" ? .twitch : .youtube,
+                                title: it.title, category: "",
+                                privacy: .unlisted, layout: layout,
+                                customServer: nil, customKey: nil)
+                            do {
+                                dest = try await StudioGoLive.destination(for: req, film: it)
+                            } catch {
+                                awdiag("AWMACDOOR %@ go-live FAILED: %@", macDoor,
+                                       "\(error)".split(whereSeparator: { $0 == "\n" })
+                                           .joined(separator: " "))
+                                return
+                            }
+                        default:
+                            awdiag("AWMACDOOR REFUSED: unknown door value %@", macDoor)
+                            return
+                        }
+                        StudioSession.shared.armDestination(dest)
+                        guard StudioSession.shared.arm(film: it) else {
+                            awdiag("AWMACDOOR arm refused: %@",
+                                   StudioSession.shared.refusal ?? "no reason given")
+                            return
+                        }
+                        router.play(it)                 // now the player finds it armed
+                        try? await Task.sleep(for: .seconds(6))
+                        await StudioSession.shared.setLayout(layout)
+                        if env["AW_STUDIO_MAC_SOUND"] != "1" {
+                            StudioSession.shared.muteLocalMonitorForHarness()
+                        }
+                        // SAY WHAT IS TRUE. `isLive` is the session's own state
+                        // once the engine has started, not the intent recorded a
+                        // moment earlier. The HOST only — §5, a stream key is
+                        // never printed.
+                        awdiag("AWMACDOOR door=%@ layout=%@ host=%@ engineLive=%@",
+                               macDoor, layout.rawValue, dest?.host ?? "?",
+                               StudioSession.shared.isLive ? "true" : "FALSE")
+                        let seconds = Int(env["AW_STUDIO_MAC_SECONDS"] ?? "") ?? 120
+                        try? await Task.sleep(for: .seconds(seconds))
+                        await StudioSession.shared.end()
+                        router.nowPlaying = nil
+                        awdiag("AWMACDOOR ended after %ds", seconds)
+                    }
+                }
                 if env["AW_STUDIO_MAC"] == "1" {
                     if StudioSession.shared.arm(film: it) {
                         router.play(it)
