@@ -116,6 +116,30 @@ public final class StudioSession {
             await e.attachTwitchChat(channel: channel)
             diag("[AWSTUDIOCHAT] reading #\(channel.replacingOccurrences(of: "#", with: ""))")
         }
+        // HARNESS AUDIO STATE — applied HERE, where the engine is known to
+        // exist. The first attempt set it from the launch door, one line after
+        // `play()`, and the engine is built asynchronously: `engine?.setAudio`
+        // was a no-op on nil, so the "control" that was supposed to prove a
+        // muted program publishes silence proved nothing at all (§9.oo).
+        let env = ProcessInfo.processInfo.environment
+        if env["AW_STUDIO_MAC"] == "1" {
+            // A BENCH RUN MUST NEVER CARRY THE OWNER'S ROOM. The mic tap is
+            // attached whenever macOS has granted audio permission and
+            // `micMuted` defaults to false, so an unattended harness broadcast
+            // publishes whatever is being said near the Mac — to a local
+            // server, and into a recording on disk. That is the same mistake
+            // as a full-desktop screenshot: the instrument reaching past the
+            // thing it was pointed at. AW_STUDIO_MIC=1 opts back in
+            // deliberately, for a run that is actually testing the mic.
+            if env["AW_STUDIO_MIC"] != "1" {
+                await e.setAudio(micMuted: true)
+            }
+            // The host's own film mute (§B13c), scriptable so it can be a
+            // real control rather than a line of code read aloud.
+            if env["AW_STUDIO_MUTE_PROGRAM"] == "1" {
+                await e.setAudio(filmMuted: true)
+            }
+        }
         isLive = true
         startPump()
         scheduleThermalInjectionIfAsked()

@@ -1618,6 +1618,111 @@ the audio path, the real ingest hosts with no credential, the overlay and
 go-live surfaces on the glass, the rights gate on device, and the platform
 clients. **→ `docs/watch-together-measurements.md`**
 
+### §9.pp OPEN: Android's two clocks — a +19.6 SECOND A/V split that only became visible once audio existed (2026-09-18)
+
+§9.mm wired the film's audio into the Android product path for the first time.
+The very next measurement of that path shows video and audio arriving on
+**unrelated timelines**. Measured from mediamtx's `mpegts` recording by packet
+PTS (the container's own `start_time`/`duration` fields are not trustworthy
+here and were discarded):
+
+| | first video PTS | first audio PTS | offset |
+|---|---|---|---|
+| macOS product path | 0.000 s | 0.000 s | **0 ms** |
+| Google TV product path | 20.000 s | 39.613 s | **+19,613 ms** |
+
+The same run recorded 1,673 video packets over 55.7 s on the Mac against 77
+video packets over 2.5 s on the Google TV, from a 75-second broadcast whose
+path counter showed ~20 MB received — mediamtx's muxer wrote only the fraction
+it could place on a coherent timeline. A second, independent capture (a direct
+RTMP FLV copy) showed the same disagreement in the same direction: video
+starting 6.5 s after audio, with the two tracks' durations 26 s apart.
+
+**The diagnosis is two clocks that were never introduced to each other.**
+
+- **Audio** is stamped from its own sample count —
+  `pcmBytesIn * 1_000_000 / (sampleRate * channels * 2)`, minus the AAC
+  priming delay. Deliberately drift-free, and it starts at 0 when the AAC
+  encoder starts.
+- **Video** is stamped `bufferInfo.presentationTimeUs` straight from
+  MediaCodec, i.e. whatever the input Surface recorded — nothing calls
+  `eglPresentationTimeANDROID`, so it is the system's own clock, not the
+  show's.
+
+Neither is wrong on its own; they simply do not share an origin. `RtmpPublisher`
+carries a comment saying the Kotlin side needs no timestamp base "unlike
+Apple" — that belief is the bug, and Apple's `startTime` base is exactly what
+keeps its two tracks at 0 ms.
+
+**Why nothing caught it until now**: with no audio on the product path
+(§9.mm), a single consistent video clock is fine whatever its origin — every
+earlier Android run was video-only, so there was no second timeline to
+disagree with. Decision 129's +4.5–11 ms alignment was measured in a harness
+that fed the encoder directly, where both tracks shared a base. **Turning the
+audio on is what made the defect observable, which is the argument for
+§9.mm's fix twice over.**
+
+**NOT YET FIXED.** The shape of the fix is one show clock feeding both: stamp
+the encoder surface with `eglPresentationTimeANDROID(display, surface,
+now - showStart)` and offset the audio's sample clock by
+`audioStart - showStart`, so both count from the same instant. Until then, an
+Android broadcast to YouTube or Twitch should be assumed to desync; the picture
+and the sound have been proved to arrive, and their RELATIONSHIP has not.
+
+### §9.oo The bench was broadcasting the owner's ROOM — and the control that finally ran refuted the tick before it (2026-09-18)
+
+§9.nn ended with a debt: the claim that a muted program publishes silence had
+been *read off one line of code*, never run. Running it broke two things open.
+
+**The control refused to agree.** With the film fader muted, the program's
+audio came back at mean -43.4 dB against the unmuted run's -41.8 dB —
+unchanged. A mute that changes nothing means the thing being muted was never
+there.
+
+**It was the MICROPHONE.** `StudioSession` attaches a mic tap whenever macOS
+has granted audio permission, and `micMuted` defaults to false with
+`micGain 1.0`. So every Mac bench broadcast was carrying whatever could be
+heard near the owner's Mac — published to a local server AND written into a
+recording on disk. The level in §9.nn was room tone. **This is the same
+mistake as the full-desktop screenshot (§9, `mac_screenshot_window_only`): the
+instrument reaching past the thing it was pointed at, on the owner's own
+machine.** The ~88 MB of affected recordings were deleted; their audio was
+neither analysed nor relayed.
+
+**The fix is that a bench run never carries the room.** `AW_STUDIO_MAC` now
+mutes the mic unless `AW_STUDIO_MIC=1` asks for it deliberately, and the
+harness audio state is applied inside `StudioSession.start` where the engine is
+KNOWN to exist. The first attempt set it from the launch door one line after
+`play()`; the engine is built asynchronously, so `engine?.setAudio` was a no-op
+on nil and the "control" tested nothing. **A control that cannot fail is not a
+control** — it has to be able to produce the opposite verdict, and this one
+could not even reach the dial.
+
+**Then the matrix, one variable at a time, mic muted throughout:**
+
+| run | film | film fader | measured |
+|---|---|---|---|
+| A | *Dr. Mabuse* (1922) | open | **-91.0 dB** (digital silence) |
+| B | *The Four Horsemen of the Apocalypse* (1921) | open | **-19.4 dB** mean, -4.0 dB peak |
+| C | *The Four Horsemen of the Apocalypse* | **muted** | **-91.0 dB** (digital silence) |
+
+B against C is the control that was owed: one variable, -19.4 → -91.0. The film
+fader does silence the program, now measured rather than read. And A is not a
+defect — *Dr. Mabuse*'s derivative is a silent print with no audio track, which
+`FilmAudioTap.attach` reports as `false` by design, because a silent film is a
+real case in this catalog and must never be reported as a failure. Choosing it
+for §9.nn's measurement is what let the mic masquerade as the film.
+
+**What stands after the correction**: Apple's product path does carry the
+film's audio (run B, unambiguous with the mic muted), and §9.nn's structural
+point is unchanged — `StudioEngine.attachFilm` attaches the tap in the same
+method that installs the video output, so Apple never had Android's hole. What
+does not stand is §9.nn's NUMBER, which was the room.
+
+**The standing rule this adds**: when a measurement can have more than one
+source, mute every source but the one under test before believing the number.
+A level is not evidence of WHAT is making it.
+
 ### §9.nn Apple does NOT have Android's audio hole — but the Mac bench door muted the PROGRAM, and `-v error` hid the answer twice (2026-09-18)
 
 §9.mm found that every Android broadcast published with no audio track,
@@ -1632,8 +1737,10 @@ AUDIO. All three product surfaces call it (`StudioSession` on macOS,
 `StudioPlayerContainer_iOS`, `DetailView` on tvOS). Android's version asked a
 controller for the tap at go-live, which nothing did. **Proved, not read**: on
 the macOS product path mediamtx reported `tracks: [H264, MPEG-4 Audio]` with
-2,357 audio frames sent, and the recording decodes to 4,859,904 samples at
-**mean -41.8 dB, max -30.0 dB** over 55.1 s of *Dr. Mabuse* (1922).
+2,357 audio frames sent. **CORRECTED IN §9.oo**: the level quoted here
+originally (-41.8 dB) was the MICROPHONE — the owner's room — not the film,
+and *Dr. Mabuse* is a silent print carrying no audio track at all. The film
+audio is real and is measured properly in §9.oo with the mic muted.
 
 **The real defect was in the instrument, and it silenced the thing under
 test.** `StudioSession.muteFilmForHarness()` did two things under one name:
