@@ -127,20 +127,28 @@ public final class StudioSession {
         #if DEBUG
         let env = ProcessInfo.processInfo.environment
         guard let want = env["AW_STUDIO_THERMAL"] else { return }
-        let at = Double(env["AW_STUDIO_THERMAL_AT"] ?? "") ?? 20
-        let state: ProcessInfo.ThermalState? = switch want {
-        case "serious": .serious
-        case "critical": .critical
-        case "fair": .fair
-        case "nominal": .nominal
-        default: nil
-        }
-        guard let state else { return }
-        Task { [weak self] in
-            try? await Task.sleep(for: .seconds(at))
-            guard let engine = self?.engine else { return }
-            self?.diag("[AWSTUDIOTHERMAL] injecting .\(want) at \(Int(at))s")
-            await engine.overrideThermalState(state)
+        // A SEQUENCE, comma-separated, because §6.5 has a return journey and a
+        // single injection can only ever prove half of it:
+        //   AW_STUDIO_THERMAL=serious,nominal  AW_STUDIO_THERMAL_AT=20,40
+        let names = want.split(separator: ",").map { $0.trimmingCharacters(in: .whitespaces) }
+        let times = (env["AW_STUDIO_THERMAL_AT"] ?? "20")
+            .split(separator: ",").compactMap { Double($0.trimmingCharacters(in: .whitespaces)) }
+        for (i, name) in names.enumerated() {
+            let state: ProcessInfo.ThermalState? = switch name {
+            case "serious": .serious
+            case "critical": .critical
+            case "fair": .fair
+            case "nominal": .nominal
+            default: nil
+            }
+            guard let state else { continue }
+            let at = i < times.count ? times[i] : (times.last ?? 20) + Double(i) * 20
+            Task { [weak self] in
+                try? await Task.sleep(for: .seconds(at))
+                guard let engine = self?.engine else { return }
+                self?.diag("[AWSTUDIOTHERMAL] injecting .\(name) at \(Int(at))s")
+                await engine.overrideThermalState(state)
+            }
         }
         #endif
     }

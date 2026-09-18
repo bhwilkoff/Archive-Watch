@@ -1240,6 +1240,34 @@ Pixel.
 
 ## §9 — Measurements (filled in as they are taken)
 
+### §9.jj §6.5's RETURN journey (2026-09-17)
+
+The step down had been measured (§9.gg) and the restore had not — a single
+injection can only ever prove half of the rule. The Mac door now takes a
+**sequence** (`AW_STUDIO_THERMAL=serious,nominal`,
+`AW_STUDIO_THERMAL_AT=20,45`), which is what a return journey needs.
+
+On the macOS product path, from the app's own per-second line:
+
+| samples | |
+|---|---|
+| 19 | `kbps=6000 thermal=nominal` |
+| 25 | **`kbps=3600 thermal=serious`** — the step |
+| 31 | **`kbps=6000 thermal=nominal`** — the restore |
+
+Both sentences were shown, which is the part §5 actually requires:
+
+- *"The device is running hot, so the picture is being sent at 3600 kbps
+  instead of 6000 kbps."*
+- *"Back to full quality 6000 kbps."*
+
+§6.5 wrote that requirement down as **"a step back up the host cannot see is
+the same defect as a step down they cannot see"**, and both directions are now
+observed rather than argued.
+
+**§6.5 is therefore complete on Apple**: step down (§9.gg), restore (here), and
+`.critical` ending the show with a reason a host reads (§9.gg, §9.hh).
+
 ### §9.ii §6.6's EXPIRED DEADLINE, finally exercised — and the backoff schedule read off a real run (2026-09-17)
 
 Every reconnect test until now succeeded **on the first attempt**, so two
