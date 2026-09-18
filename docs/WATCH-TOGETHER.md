@@ -1664,6 +1664,46 @@ against ~13 s for a network film), and the measurement ran.
 verifying the clip, exactly as §9.nn recorded and as the memory says. Knowing
 the trap did not stop me walking into it; only re-running without it did.)
 
+### §9.kkk Stamping video from the frame's own clock made it WORSE, and the change was reverted (2026-09-18)
+
+§9.jjj measured the render instant trailing the frame's own timestamp by
+30-527 ms and concluded that stamping video from `SurfaceTexture.timestamp`
+would remove both the offset and the jitter. It was implemented with the care
+that entry asked for — the frame's clock where it advances, a monotonic floor
+where it does not, because a paused film returns the same frame and an RTMP
+timeline must never stand still.
+
+**The measurement disagreed.**
+
+| | A/V offset (flash vs beep) |
+|---|---|
+| render-time stamping | **-174 ms** |
+| frame's own timestamp | **-295 ms** (-287, -298, -345, -302, -263, -276) |
+
+**Worse by ~120 ms, and in the direction the model forbids.** `frameTs` is
+EARLIER than the render instant, so video timestamps should have moved earlier
+and CLOSED a gap in which audio already leads. They did the opposite. The
+offsets are steady across all six events rather than growing, so the monotonic
+floor is not quietly dominating either — that was the first thing checked.
+
+So the model behind §9.jjj is wrong somewhere, and the honest statement is that
+**the remaining ~182 ms is not simply "video stamped late by the render lag"**.
+Two candidates, neither tested and neither claimed: `SurfaceTexture.timestamp`
+for a decoder frame may be the RELEASE time ExoPlayer scheduled for display,
+which already carries the player's own A/V alignment and would be double-counted
+by our subtraction; or the relationship between that clock and the audio tap's
+sample count is not the simple one assumed.
+
+**Reverted**, with the measurement recorded beside the line that survived, the
+same way §9.rr's pacing change was. A fix whose reasoning is clean and whose
+test disagrees does not get to stay on the strength of the reasoning — that is
+the whole discipline, and it costs more when the reasoning is one's own.
+
+**Where this leaves Android's A/V**: audio leads video by ~174 ms measured
+(~182 ms true), down from 712 ms. The audio-side correction in §9.iii is real
+and stands. The video side is OPEN, and now with one hypothesis eliminated by
+experiment rather than by argument.
+
 ### §9.jjj Separating detector bias from video latency — and the render lag is JITTER, not an offset (2026-09-18)
 
 §9.iii left ~174 ms of A/V error and said the first job was separating the

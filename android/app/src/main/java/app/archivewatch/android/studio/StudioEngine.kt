@@ -622,6 +622,14 @@ class StudioEngine(
         // The suspected blocker: eglSwapBuffers on the ENCODER surface waits
         // for a free input buffer, so this is where the encoder's throughput
         // shows up as if it were render cost (§9.rr).
+        //
+        // STAMPED AT RENDER TIME, and that is a MEASURED choice rather than an
+        // unexamined one. Stamping instead with the frame's own
+        // `SurfaceTexture.timestamp` — which is earlier, and should therefore
+        // have moved video earlier and CLOSED the A/V gap — made it WORSE:
+        // -174 ms became -295 ms on the flash-and-beep test (§9.kkk). The
+        // reasoning was clean and the measurement disagreed, so the change was
+        // reverted and the gap is still open.
         val swapAt = System.nanoTime()
         g.swap(System.nanoTime() - showStartNanos)
         phaseSwapNanos += System.nanoTime() - swapAt
