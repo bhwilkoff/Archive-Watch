@@ -1829,6 +1829,33 @@ extended**: 230 ms is above the 45 ms threshold; `dropped=1682` and
 line; and `queued` sits at 150-280 s, so the tee is still delivering minutes
 ahead of what is wanted. That is a lot of machinery to hold a quarter second.
 
+### §9.eeeee TWO OBSERVATIONS FROM A DISCARDED RUN, kept because they were not explained (2026-09-18)
+
+A macOS run was thrown away for changing two variables at once — layout AND the
+film's start position, which happened to be 0.00 rather than the 123-483 s every
+other run resumed at. Its audio read 100% silent, which is very likely Blood and
+Sand's own opening titles carrying no score, and that is exactly why it cannot
+be used: a confounded run cannot overturn the controlled comparison (same
+layout, same resume point, mute the only difference: 96% against 0%).
+
+Two things in it are unexplained and should not be lost:
+
+1. **The engine took 15.8 s to reach live**, where every other run took 1.5-3.0 s
+   (`AWMACDOOR ... engineLive=true after=15.8s`). Cold start is the obvious
+   candidate and nothing rules it out; nothing confirms it either.
+
+2. **No `AWMACSYNC` line appeared at all**, though the show was LIVE and sending
+   (`asent=165`). That reading requires `filmAudioSourcePosition`, which is nil
+   until the tap's callback has run once — so the tap may not fire at the very
+   start of playback even when `attach` has returned true. If that is real it
+   would mean the opening seconds of a broadcast carry padded silence rather
+   than film, which no measurement so far would have caught: every other run
+   resumed mid-film.
+
+Neither is chased here. They are written down so the next person starts from an
+observation rather than from scratch, and so that a later "the first seconds are
+silent" is recognised rather than rediscovered.
+
 ### §9.rrrr THE TELEVISION'S AUDIO IS 75 SECONDS AHEAD OF ITS PICTURE (2026-09-18)
 
 §9.qqqq closed the drift question and said in as many words that equal stream
