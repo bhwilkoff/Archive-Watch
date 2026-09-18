@@ -414,6 +414,46 @@ exists** (Decision 128), so nobody has looked at it. Marked rather than
 rewritten, because a confident sentence that was read and believed is worth
 seeing (Decision 121).
 
+**AMENDMENT 2026-09-18, and it reverses the ordering above.** The owner, after
+the surface was first built: *"The sign in can make use of QR codes and signing
+in with a phone, but you are logging in on the TV using that other device."*
+
+So the television's sign-in is a **DEVICE FLOW WITH A QR CODE**, and the web
+sheet is the fallback rather than the path. Everything §9.uuu established about
+`ASWebAuthenticationSession` on tvOS stays true — the annotations really are
+the design — and stops being the answer, because what a working web sheet buys
+is a host typing a Google password with a d-pad.
+
+The rule, binding:
+
+- **The television shows a QR code and a code, never a password field.** The
+  phone authorises; the TOKEN lands on the television. That is what a device
+  flow is, and it is why one suits this screen.
+- **Both are shown, always.** A QR is useless to a host whose phone is in
+  another room, and eight characters read aloud is the fallback that always
+  works. Neither replaces the other.
+- **The QR carries the most complete URI the platform gives us.** Twitch's
+  `verification_uri` already embeds the user code (measured 2026-09-18:
+  `https://www.twitch.tv/activate?device-code=XXXXXXXX`), so its QR lands on a
+  pre-filled page. Google publishes no `verification_uri_complete`, so its QR
+  carries `verification_url` and the code is typed. Read what the platform
+  actually returns; do not assume RFC 8628's optional field is present, and do
+  not assume its absence means the URI is bare.
+- **YouTube on tvOS needs a SECOND OAuth client** — type "TVs and Limited Input
+  devices", with a client secret — because the iOS client we hold cannot do
+  this flow. iOS and macOS keep PKCE. Two platforms, two flows, and now two
+  clients on one of them: the shape follows what each platform offers a client
+  of our type, which is Decision 128's rule applied one level deeper.
+
+**Rule 8.8b — the confirmation's PRIMARY ACTION is on screen without
+scrolling.** The first build of `GoLiveTV` was a single scrolling column, and
+the capture from Ben Bedroom showed "Go live" below the fold. A television has
+no scrollbar and no thumb: a viewer eight feet away cannot tell there is more
+to reach. So the surface is two columns — reading matter (film, §3.4a warning)
+left, everything focusable right — and the action is visible in the first
+frame. This also keeps focus in one column, because there is nothing focusable
+in the other to get lost in.
+
 10.2b **Where the tvOS sign-in appears.** Inside the existing Watch Together
 flow off the player's transport menu (§8.8) — never a Settings row, never a
 §3.6 player mode, and never a pre-flight the viewer must clear before they

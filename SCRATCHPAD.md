@@ -114,6 +114,19 @@ emulators) · `docs/CAPTIONS.md` · `docs/SHAREPLAY.md` ·
    **The 50-subscriber rule does NOT apply** — it is a MOBILE-app rule, and the
    Studio publishes as an encoder like OBS (§9.bbb). That was an open risk in
    Decision 127 and is now closed;
+   (a3) **NEW 2026-09-18 — register a SECOND Google OAuth client, type "TVs and
+   Limited Input devices"**, for the Apple TV only. The owner's direction that
+   day: *"The sign in can make use of QR codes and signing in with a phone, but
+   you are logging in on the TV using that other device."* That is Google's
+   device flow, and the iOS client already registered **cannot do it** — the
+   flow is refused for any other client type. It yields a client id AND a
+   client **secret** (both into the gitignored `Secrets.xcconfig`); the secret
+   is unavoidable here and is exactly the cost Decision 128 named when it put
+   this flow second. `…/auth/youtube` IS a permitted scope, confirmed in
+   Google's own limited-input-device documentation. iOS and macOS keep PKCE and
+   need nothing new. **Twitch needs nothing at all** — its device flow is built,
+   measured against the live endpoint, and its `verification_uri` already
+   carries the user code, so the QR lands a phone on a pre-filled page;
    (b) **pair an iPhone** on the Apple TV via the system Continuity picker
    (once — a paired phone is found automatically after);
    (c) **allow camera + mic** on the iPhone (Settings ▸ Archive Watch) — there

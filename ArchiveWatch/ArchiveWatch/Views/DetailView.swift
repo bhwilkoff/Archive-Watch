@@ -701,9 +701,12 @@ struct PlayerScreen: View {
     /// §8.8's whole point. Nothing is presented over anything; the engine adds
     /// outputs to the item the player has, and the readout is an overlay.
     ///
-    /// The destination is nil today: a platform key needs the OAuth client ids
-    /// only the owner can register, so this encodes and discards rather than
-    /// pretending to broadcast. Every other part of the chain is exercised.
+    /// The destination comes from `studioRequest` — the confirmation the host
+    /// just filled in (Rule 8.8a) — resolved through the same
+    /// `StudioGoLive.destination` iOS and macOS use, which is the one place an
+    /// OAuth token becomes a stream key. It is nil ONLY on the `AW_STUDIO_TV`
+    /// diagnostic door, which has no request and so encodes and discards; that
+    /// used to be every path on this platform (§9.ccc).
     @MainActor
     private func runStudio(for film: Catalog.Item) async {
         guard let p = player else {
@@ -736,11 +739,34 @@ struct PlayerScreen: View {
             session.startRunning()
         }
 
+        // Resolving a destination CREATES the broadcast on the platform and
+        // fetches its key, so it happens once, here, and the key is handed
+        // straight to the engine (§5: never stored, never printed, never
+        // outliving the session that fetched it).
+        var destination: URL?
+        if let request = studioRequest {
+            do {
+                destination = try await StudioGoLive.destination(for: request, film: film)
+            } catch {
+                studioRefusalKind = .configuration
+                studioRefusal = "\(error)"
+                studioFilm = nil; studioRequest = nil
+                return
+            }
+            guard destination != nil else {
+                studioRefusalKind = .configuration
+                studioRefusal = "\(request.platform.label) accepted the sign-in "
+                    + "but returned no address to broadcast to. Nothing was sent."
+                studioFilm = nil; studioRequest = nil
+                return
+            }
+        }
+
         do {
-            try await engine.start(destination: nil)
+            try await engine.start(destination: destination)
         } catch {
             studioRefusal = "\(error)"
-            studioFilm = nil
+            studioFilm = nil; studioRequest = nil
             return
         }
 
@@ -794,6 +820,7 @@ struct PlayerScreen: View {
         }
         await engine.stop()
         studioEngine = nil
+        studioRequest = nil
         continuity.lowerAudioSession()
     }
 
@@ -841,13 +868,25 @@ struct PlayerScreen: View {
     /// only that case. A build with no ids at all cannot sign in on ANY
     /// platform, which is a different and more actionable thing to tell a host
     /// than "this television has no surface for it yet".
+    /// AMENDED 2026-09-18, when the second half of this stopped being true.
+    /// The sentence below used to continue: "Going live from Apple TV is not
+    /// built yet. This television has no way to choose a platform or a title."
+    /// It now has one — `GoLiveTV`, tvOS-DESIGN Rule 8.8a — so the only thing
+    /// that can still stop a television is the thing the sentence's first half
+    /// always described: a build with no client id can sign in nowhere, and
+    /// that is a fact about the build rather than about this screen.
     static var studioTVBroadcastProblem: String? {
-        if let problem = StudioPlatformAuth.anyConfigurationProblem { return problem }
-        return "Going live from Apple TV is not built yet. This television has "
-            + "no way to choose a platform or a title, so a broadcast started "
-            + "here would reach nobody. Start it from iPhone, iPad or Mac — the "
-            + "film, the rights check and the Studio are the same."
+        StudioPlatformAuth.anyConfigurationProblem
     }
+
+    /// The film whose go-live confirmation is on screen (Rule 8.8a). Distinct
+    /// from `studioFilm`, which means the Studio is RUNNING: between them sits
+    /// a host who has not pressed anything yet.
+    @State private var studioSetup: Catalog.Item?
+    /// What that confirmation returned. Read once by `runStudio` to resolve a
+    /// destination; a nil request encodes to nowhere, which is what the
+    /// `AW_STUDIO_TV` diagnostic door wants and what a host must never get.
+    @State private var studioRequest: GoLiveRequest?
     @State private var studioRefusalKind: StudioRefusalKind = .film
     /// The film the host chose to broadcast; non-nil starts the Studio on the
     /// player that is ALREADY playing it.
@@ -1015,6 +1054,18 @@ struct PlayerScreen: View {
         } message: {
             Text(StudioRights.hostWarning)
         }
+        // Rule 8.8a's focus-driven confirmation. Full screen rather than a
+        // sheet: tvOS has no partial presentation that keeps focus sane, and
+        // the film is paused behind it anyway.
+        .fullScreenCover(item: $studioSetup) { film in
+            GoLiveTV(film: film) { request in
+                studioRequest = request
+                studioSetup = nil
+                studioFilm = film
+            } onCancel: {
+                studioSetup = nil
+            }
+        }
         .overlay(alignment: .topLeading) {
             if studioFilm != nil {
                 StudioTVHealth(health: studioHealth, filmFramesPerSecond: studioFilmFPS)
@@ -1030,9 +1081,24 @@ struct PlayerScreen: View {
         // remote — the same reason AW_START_TAB exists. No-op in production.
         .task {
             guard ProcessInfo.processInfo.environment["AW_STUDIO_TV"] == "1" else { return }
-            // Wait for the player, then judge the film on its rights exactly
-            // as the menu item does — a dev door must not skip the gate.
-            for _ in 0..<40 where player == nil {
+            // Wait for the film to be PLAYING — not merely for the player
+            // object to exist, which is what this used to do and which is a
+            // different moment entirely.
+            //
+            // Measured on Ben Bedroom 2026-09-18: the door paused the film and
+            // two captures twelve seconds apart showed two different scenes,
+            // i.e. the pause did not hold. The cause was here, not in the
+            // pause. `player` is non-nil the instant it is constructed, long
+            // before the stream is ready, and the readiness observer's own
+            // `p.play()` (the #5 Play Next fix) then fired AFTER this door's
+            // `pause()` and restarted it.
+            //
+            // The product cannot hit that race — a host reaches this menu
+            // while already watching, so readiness fired minutes ago — which
+            // is the point: a door that opens from a state the product never
+            // occupies measures something the product never does (Decision
+            // 130). Waiting for `.playing` puts the door in the host's state.
+            for _ in 0..<60 where player?.timeControlStatus != .playing {
                 try? await Task.sleep(nanoseconds: 500_000_000)
             }
             guard let film = current ?? catalogItem else { return }
@@ -1054,12 +1120,27 @@ struct PlayerScreen: View {
                 studioRefusal = problem
                 return
             }
-            // ...and the §8.8 confirmation, for the same reason: a door that
-            // skips a gate the product enforces is a door onto a path the
-            // product does not have. AW_STUDIO_TV_FORCE covers this too.
-            if ProcessInfo.processInfo.environment["AW_STUDIO_TV_FORCE"] != "1",
-               !Self.studioWarningAccepted {
-                studioPendingConfirm = film
+            // ...and Rule 8.8a's confirmation, for the same reason: a door
+            // that skips a gate the product enforces is a door onto a path the
+            // product does not have. This is now where the door ENDS — the
+            // product's next step is a host reading a screen and pressing Go
+            // live, and a diagnostic that presses it for them would broadcast
+            // from a television nobody is standing in front of.
+            //
+            // AW_STUDIO_TV_FORCE=1 is the other half, unchanged in meaning: it
+            // skips to a destination-less encode, which is how the ten-foot
+            // readout gets measured without a platform account. It exists
+            // nowhere in the product.
+            if ProcessInfo.processInfo.environment["AW_STUDIO_TV_FORCE"] != "1" {
+                studioSetup = film
+                // The same deadline the encode path carries, for the same
+                // reason: a dev affordance that can outlive the person using
+                // it needs one (a film was left playing for an hour on
+                // 2026-09-17). A paused film behind a modal is quieter than
+                // that and still is not a state to leave a television in.
+                let hold = Double(ProcessInfo.processInfo.environment["AW_STUDIO_TV_SECONDS"] ?? "") ?? 180
+                try? await Task.sleep(nanoseconds: UInt64(hold * 1_000_000_000))
+                if studioSetup != nil { studioSetup = nil }
                 return
             }
             // MUTE THE ROOM. This box lives in someone's house and its audio
@@ -1216,14 +1297,27 @@ struct PlayerScreen: View {
                 studioRefusal = problem
                 return
             }
-            // THEN the §3.4a warning, once per device (§8.8). iOS and macOS
-            // show it on the surface where Go Live is pressed, so pressing it
-            // is informed; a television has no such moment, so it asks.
-            if !Self.studioWarningAccepted {
-                studioPendingConfirm = film
-                return
-            }
-            studioFilm = film
+            // THEN the confirmation itself (Rule 8.8a). This used to be the
+            // line `studioFilm = film` behind a one-time §3.4a alert, because
+            // "a television has no moment where Go Live is pressed, so it
+            // asks". It has one now, and that surface carries §3.4a's warning
+            // every time — the same way iOS and macOS do — so the alert would
+            // be the same paragraph twice in a row.
+            //
+            // THE FILM KEEPS PLAYING behind it, which is what iOS and macOS do
+            // (neither go-live sheet touches the player). A first version of
+            // this line paused it — a television running on unattended behind
+            // a modal looked like leaving the room with the projector going —
+            // and two captures from Ben Bedroom fifteen seconds apart showed
+            // two different scenes: the pause did not hold, and nothing in
+            // this file, `AVPlayerContainer` or `TVAudioSession` explains what
+            // resumed it (the one resume each of those carries is gated on
+            // `.readyToPlay` and on an interruption ENDING, neither of which
+            // happens here). Rather than ship a pause that does not pause, the
+            // line is gone and the question is written down (§9.vvv). A host
+            // is mid-film when they open this, so continuing is also the less
+            // surprising behaviour.
+            studioSetup = film
         }
         let watchTogether = UIMenu(
             title: "Watch Together",

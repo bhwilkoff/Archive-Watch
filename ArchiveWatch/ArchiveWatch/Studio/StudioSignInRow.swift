@@ -69,6 +69,15 @@ struct StudioSignInRow: View {
 
     private var label: String { platform.displayName }
 
+    /// "https://www.twitch.tv/activate?device-code=X" -> "twitch.tv/activate",
+    /// which is what a person types. The query is deliberately dropped: it
+    /// carries the code, and the code is already on screen in 40-point type.
+    static func shortHost(_ uri: String) -> String {
+        guard let c = URLComponents(string: uri), let host = c.host else { return uri }
+        let h = host.hasPrefix("www.") ? String(host.dropFirst(4)) : host
+        return h + c.path
+    }
+
     private func setSignedIn(_ value: Bool) {
         signedIn = value
         onSignedInChange?(value)
@@ -137,11 +146,51 @@ struct StudioSignInRow: View {
     /// Twitch's device flow, on screen. The code is useless without the
     /// address, and the address is useless without the deadline, so all three
     /// are shown together.
+    ///
+    /// ON A TELEVISION THE ADDRESS IS A QR CODE. The owner, 2026-09-18: "The
+    /// sign in can make use of QR codes and signing in with a phone, but you
+    /// are logging in on the TV using that other device." That is precisely
+    /// what a device flow is — the phone authorises and the TOKEN lands here —
+    /// and it is why this flow suits a television better than the web sheet
+    /// tvOS-DESIGN §8.8a first reached for.
+    ///
+    /// Measured against the live endpoint rather than assumed (2026-09-18):
+    /// Twitch's `verification_uri` comes back ALREADY carrying the code —
+    /// `https://www.twitch.tv/activate?device-code=XXXXXXXX` — so a QR of it
+    /// lands a phone on a page with the code filled in. RFC 8628's optional
+    /// `verification_uri_complete` is not needed here because the plain URI
+    /// already is complete. The code stays on screen beside it: a QR is
+    /// useless to someone whose phone camera is not to hand, and reading
+    /// eight characters aloud is the fallback that always works.
     private func twitchCode(_ p: TwitchDeviceAuth.Pending) -> some View {
+        HStack(alignment: .top, spacing: 28) {
+        #if os(tvOS)
+        VStack(spacing: 10) {
+            QRCode(string: p.verificationURI)
+                .frame(width: 220, height: 220)
+                .background(.white, in: RoundedRectangle(cornerRadius: 12))
+            Text("Scan with your phone")
+                .font(.caption)
+                .foregroundStyle(.secondary)
+        }
+        #endif
         VStack(alignment: .leading, spacing: 8) {
+            // On a television the full URI is noise AND self-contradictory:
+            // the capture from Ben Bedroom read "Open
+            // https://www.twitch.tv/activate?device-code=XGXWLMNK and enter
+            // this code:" above the code it already contained. The QR carries
+            // the complete URI; the text beside it only has to name the place
+            // for someone typing it by hand.
+            #if os(tvOS)
+            Text("Scan the code, or open \(Self.shortHost(p.verificationURI)) "
+                 + "on your phone and enter:")
+                .font(.footnote)
+                .foregroundStyle(.secondary)
+            #else
             Text("Open \(p.verificationURI) and enter this code:")
                 .font(.footnote)
                 .foregroundStyle(.secondary)
+            #endif
             Text(p.userCode)
                 .font(.system(.title, design: .monospaced).weight(.bold))
                 // `textSelection` does not exist on tvOS, and would mean
@@ -171,6 +220,7 @@ struct StudioSignInRow: View {
             }
                 .font(.subheadline)
                 .buttonStyle(.borderless)
+        }
         }
         .padding(.vertical, 4)
     }

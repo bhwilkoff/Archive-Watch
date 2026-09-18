@@ -1618,6 +1618,117 @@ the audio path, the real ingest hosts with no credential, the overlay and
 go-live surfaces on the glass, the rights gate on device, and the platform
 clients. **→ `docs/watch-together-measurements.md`**
 
+### §9.vvv The television can go live — and the owner redirects sign-in to a QR code and a phone (2026-09-18)
+
+**The surface Rule 8.8a describes now exists**, and with it tvOS stops being
+the platform that could encode but not broadcast (§9.ccc). `GoLiveTV` collects
+what a request needs — platform, title, privacy — and `runStudio` resolves a
+real destination through `StudioGoLive.destination(for:film:)`, the same call
+iOS and macOS make. The line it replaces was `try await engine.start(destination: nil)`.
+
+`studioTVBroadcastProblem` shrinks to `StudioPlatformAuth.anyConfigurationProblem`.
+Its second half — "going live from Apple TV is not built yet" — was true when it
+was written last night and is not true now, and a refusal that outlives its
+reason is the same defect §9.nnn found in its first half.
+
+**THE OWNER REDIRECTED THE SIGN-IN, mid-tick**: *"The sign in can make use of
+QR codes and signing in with a phone, but you are logging in on the TV using
+that other device."*
+
+That is a better answer than the one Rule 8.8a's SDK reading produced. §9.uuu
+established that `ASWebAuthenticationSession` really does work on tvOS and that
+its `API_UNAVAILABLE` annotations are the design rather than a gap — all true,
+and all beside the point, because what it buys is a host typing a Google
+password with a d-pad. A device flow puts the typing on the phone and leaves
+the TOKEN on the television, which is what the owner described.
+
+**Twitch needed no new field, and the measurement says why.** RFC 8628 defines
+an optional `verification_uri_complete` that embeds the user code, and the
+obvious move was to read it. Asked of the live endpoint with our registered
+client id instead:
+
+    POST https://id.twitch.tv/oauth2/device
+    -> {"device_code": "...", "user_code": "CGZWNNTM", "interval": 5,
+        "expires_in": 1800,
+        "verification_uri": "https://www.twitch.tv/activate?device-code=CGZWNNTM"}
+
+There is no `verification_uri_complete` **because `verification_uri` already is
+complete**. A QR of the plain URI lands a phone on an activation page with the
+code filled in. The eight characters stay on screen beside the QR: a QR is
+useless to someone whose phone is in another room, and reading a code aloud is
+the fallback that always works.
+
+**What YouTube needs, read from Google's own documentation rather than assumed**
+(`developers.google.com/identity/protocols/oauth2/limited-input-device`):
+
+    client type   "TVs and Limited Input devices"  (NOT the iOS client we hold)
+    device code   POST https://oauth2.googleapis.com/device/code   client_id, scope
+    poll          POST https://oauth2.googleapis.com/token
+                  client_id, client_secret, device_code, grant_type=...:device_code
+    scopes        https://www.googleapis.com/auth/youtube IS permitted
+    QR            no verification_uri_complete; the QR carries verification_url
+                  and the user code is typed
+
+So Decision 128's fallback becomes the path, and its stated cost is real and
+unchanged: **this flow requires a client_secret**, which the PKCE flow
+deliberately avoids. It is a second OAuth client, not a replacement for the
+first — iOS and macOS keep PKCE, where a web sheet on a device with a keyboard
+is the better experience. That registration is an owner step (SCRATCHPAD 7a3).
+
+**On the glass, Ben Bedroom, The Ace of Hearts (1921, Wallace Worsley)** — new
+test content per the standing rule. The first build put the primary control
+**below the fold**: the capture showed everything down to the privacy row and
+"Go live on YouTube" was off screen. A television has no scrollbar and no
+thumb, so a viewer eight feet away cannot tell there is more — the one control
+the screen exists for was the part they could not see. Rebuilt as two columns
+(reading matter left, everything focusable right) and re-captured: the whole
+surface fits, and `Go live on YouTube` renders correctly DISABLED with "Sign in
+above to go live. Nothing is broadcast until you press Go live." underneath it.
+
+**AND A PAUSE THAT DID NOT PAUSE, removed rather than shipped.** The first
+version paused the film behind the confirmation. Two captures fifteen seconds
+apart showed two different scenes. The first explanation was a race in the
+diagnostic — `AW_STUDIO_TV` waited for `player != nil`, which is true long
+before the stream is ready, so the readiness observer's own `p.play()` (the #5
+Play Next fix) fired after the door's `pause()`. Waiting for
+`timeControlStatus == .playing` fixed that race and the film still resumed.
+Nothing in `DetailView`, `AVPlayerContainer` or `TVAudioSession` accounts for
+it: the only two resumes either of those carries are gated on `.readyToPlay`
+and on an interruption ENDING, and neither happens here.
+
+The pause was unrequested scope — `GoLiveSheet_iOS` contains no `pause()` or
+`play()` at all, so tvOS not pausing is parity — and a half-working promise in
+code is worse than no promise (the §9.sss lesson about a comment claiming a
+cancellation that never happened). So it is gone, and the unexplained resume is
+written down here rather than smoothed over. **It is still an open question**,
+and it matters beyond this screen: something on the tvOS player path resumes
+playback after an external `pause()`, which is a thing the Studio's own stop
+path should not be surprised by.
+
+**AND THE TEARDOWN HAD NEVER WORKED.** `tools/atv_teardown.sh` exists because a
+film was once left playing on the owner's Apple TV for an hour; its own header
+says "a harness that touches someone's living room has to clean up as a STEP,
+not as an intention". It greps `devicectl device info processes` for the BUNDLE
+ID. That listing prints executable PATHS:
+
+    1821   /private/var/.../ArchiveWatch.app/ArchiveWatch
+
+`app.archivewatch.tvos` appears nowhere in it. So the grep never matched, the
+script took its else branch, and it printed **"not running" about a live
+process** — twice in this session, the second time while a Twitch device poll
+was running against the owner's account. The app was found alive only by asking
+the device with a looser pattern.
+
+The first repair matched the path and anchored it with `$`, and reported the
+all-clear about a live pid 1830, because devicectl **pads the path column with
+trailing spaces**. Two different greps, the same false verdict, both of them
+mine. The working form is `[[:space:]]*$`, the script now re-asks the device
+after terminating and EXITS NONZERO if the process survives, and the check in
+this session was repeated with a second, independently written matcher before
+"gone" was believed. A cleanup instrument that cannot see its target does not
+merely fail — it issues the all-clear, which is the one output that stops
+anybody looking.
+
 ### §9.uuu tvOS sign-in: the SDK says yes, and the absence is the design (2026-09-18)
 
 The owner answered Rule 8.8a's three open questions, overriding this document's
