@@ -16,6 +16,34 @@ import SwiftData
 //     state when popping — no custom state persistence to manage.
 //   • Switching tabs and returning restores that tab's exact spot.
 
+
+#if DEBUG
+extension RootView {
+    /// Ask the signed-in token several questions and print every answer.
+    /// Reads only — nothing here creates anything on the host's channel, and
+    /// the token itself is never logged.
+    static func probeYouTube() async {
+        guard StudioPlatformAuth.isSignedIn(.youtube) else {
+            awdiag("AWPROBE not signed in to YouTube"); return
+        }
+        let calls: [(String, String)] = [
+            ("channel-status", "channels?part=status,contentDetails,auditDetails&mine=true"),
+            ("channel-status-only", "channels?part=status&mine=true"),
+            ("liveBroadcasts", "liveBroadcasts?part=id&mine=true"),
+            ("liveStreams",    "liveStreams?part=id&mine=true"),
+        ]
+        for (name, path) in calls {
+            do {
+                let body = try await StudioPlatformAuth.youTubeRawGET(path)
+                awdiag("AWPROBE %@ -> %@", name, String(body.prefix(600)))
+            } catch {
+                awdiag("AWPROBE %@ FAILED %@", name, String(describing: error))
+            }
+        }
+    }
+}
+#endif
+
 struct RootView: View {
     @Environment(AppStore.self) private var store
     @Environment(Router.self) private var router
@@ -76,8 +104,20 @@ struct RootView: View {
         // whatsoever. The root view is on screen either way.
         .task {
             #if DEBUG
-            guard ProcessInfo.processInfo.environment["AW_STUDIO_AUTH"] == "resignin-youtube"
-            else { return }
+            let authDoor = ProcessInfo.processInfo.environment["AW_STUDIO_AUTH"] ?? ""
+
+            // PROBE: ask the token what it can actually do, before changing
+            // anything. The owner has had live streaming enabled on this
+            // channel for days and YouTube still answers
+            // `liveStreamingNotEnabled`, which is a documented case of that
+            // error not reflecting the real state. One reason code is not a
+            // diagnosis, so this asks several endpoints and prints each answer.
+            if authDoor == "probe-youtube" {
+                await Self.probeYouTube()
+                return
+            }
+
+            guard authDoor == "resignin-youtube" else { return }
             StudioPlatformAuth.signOut(.youtube)
             awdiag("AWAUTH signed out of YouTube; signedIn now=%@",
                    StudioPlatformAuth.isSignedIn(.youtube) ? "true" : "false")

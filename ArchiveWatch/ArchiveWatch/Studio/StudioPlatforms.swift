@@ -340,6 +340,21 @@ public enum StudioPlatformAuth {
         case blocked(String)
     }
 
+    /// DEBUG probe support: one authenticated GET against the YouTube API,
+    /// returning the raw body. The token is used and never returned or logged.
+    #if DEBUG
+    public static func youTubeRawGET(_ path: String) async throws -> String {
+        let access = try await token(for: .youtube)
+        var r = URLRequest(url: URL(string: "https://www.googleapis.com/youtube/v3/" + path)!)
+        r.setValue("Bearer \(access)", forHTTPHeaderField: "Authorization")
+        let (data, resp) = try await URLSession.shared.data(for: r)
+        let code = (resp as? HTTPURLResponse)?.statusCode ?? -1
+        let flat = (String(data: data, encoding: .utf8) ?? "<unreadable>")
+            .split(whereSeparator: { $0 == "\n" || $0 == "\r" }).joined(separator: " ")
+        return "HTTP \(code) \(flat)"
+    }
+    #endif
+
     public static func youTubeLiveReadiness() async throws -> Readiness {
         let access = try await token(for: .youtube)
         var r = URLRequest(url: URL(string: "https://www.googleapis.com/youtube/v3/"
