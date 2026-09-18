@@ -1240,6 +1240,37 @@ Pixel.
 
 ## §9 — Measurements (filled in as they are taken)
 
+### §6.2r §6.5 on the GLASS, through the REAL platform API (2026-09-17)
+
+No app-side override was needed, and that is the point. Android exposes
+`adb shell cmd thermalservice override-status <n>`, which sets **and locks**
+the status the platform itself reports — so `PowerManager` answers SEVERE for
+real, `PlayerScreen`'s supplier reads it for real, the engine decides, and
+`MediaCodec` is re-parameterised. Measured on a Google TV through the shipping
+app, with mediamtx's own byte counter as the witness. Film: *Sherlock Jr.*
+(1924).
+
+| phase | wire rate (the SERVER's counter) |
+|---|---|
+| real status NONE (SoC 60.9 °C) | **2604 kbps** |
+| `override-status 3`, device reports `Thermal Status: 3` | **1462 kbps** — **44% lower** |
+| `override-status 4` (CRITICAL) | **path gone from mediamtx** — the show ended |
+| `reset` | `IsStatusOverride: false; Thermal Status: 0` |
+
+§6.5 asks for a step to 60%, i.e. a 40% reduction; the wire shows 44%. The
+whole chain is real: platform status → `PowerManager` → the injected supplier →
+`thermalAction` → `setBitrate` → the bytes a server counted.
+
+**A caution for anyone repeating this**: `override-status` LOCKS the status, so
+`cmd thermalservice reset` must run whatever happens — it is in a `finally` in
+the harness, and the run verifies `IsStatusOverride: false` afterwards. Leaving
+a borrowed television convinced it is overheating would be its own small
+version of the film left playing in someone's living room.
+
+**Both Android device gaps are now closed.** §6.4's back-pressure is proved
+from the JVM against a real server, and §6.5 and §6.6 are proved on the glass
+through the shipping app.
+
 ### §6.2q §6.6 on the GLASS, and the defect only a device could find (2026-09-17)
 
 Driven through the **shipping app** on a Google TV (Dongle_R_4K, Android 14),
