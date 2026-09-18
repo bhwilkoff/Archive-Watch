@@ -1618,6 +1618,62 @@ the audio path, the real ingest hosts with no credential, the overlay and
 go-live surfaces on the glass, the rights gate on device, and the platform
 clients. **→ `docs/watch-together-measurements.md`**
 
+### §9.rrrr THE TELEVISION'S AUDIO IS 75 SECONDS AHEAD OF ITS PICTURE (2026-09-18)
+
+§9.qqqq closed the drift question and said in as many words that equal stream
+durations are a DRIFT proxy, not a lip-sync measurement, because a constant
+offset is invisible to it. That was not a hedge. **The constant offset is 75
+seconds.**
+
+    audioFilmPos=608.04  playhead=528.83  offset=+79.21  queued=49.2  ooo=0
+    audioFilmPos=707.43  playhead=634.54  offset=+72.90  queued=54.1  ooo=0
+
+Positive means audio is AHEAD. Every tvOS broadcast this feature has made —
+including the 8m16s soak whose 15 ms was reported the same morning — has sent
+the film's sound about a minute and a quarter in front of its picture.
+
+**The cause is the thing `FilmAudioDecoder`'s own header warned about.** The
+tee is fed by the player's BUFFERING, not by playback. At go-live the queue is
+empty and the first packet it is ever handed comes from the BUFFER HEAD, which
+on a local server sits 75-125 s in front of the playhead. A FIFO drained at
+real time then preserves that lead for the life of the show. The decoder paces
+itself correctly and starts in the wrong place, which is why every rate-shaped
+measurement passed.
+
+**NO STIMULUS CLIP WAS NEEDED, which is worth keeping.** Android needed a
+flash-and-beep clip (§9.fff) because nothing in its pipeline knew film time.
+Apple's tee already addresses every AAC packet by film sample index, and
+`FilmAudioBridge`'s comment had said for a session that this is so the decoder
+"can hold them and release what the show clock actually asks for". The decoder
+dropped the argument on the floor. Reading a value the system already carried
+turned a two-day instrument job into an afternoon.
+
+**THE INSTRUMENT WAS WRONG FIRST, AND ITS CONTROL CAUGHT IT.** The first run
+printed offsets of -102 s to -464 s. An MP4 `sample` of a sound track is one
+AAC FRAME of 1024 PCM samples, and `firstSample` counts FRAMES; it was read as
+a PCM count and had `j * 1024` added to it, which pins every position under
+7.5 s. The counter that caught it was `outOfOrderBursts` — every burst must
+continue where the last ended — which climbed to 89 where a sound mapping
+requires 0. An independent check then disproved the number outright: RMS-envelope
+correlation of the recording's opening 30 s against every later 30 s window
+showed distinct audio throughout, so the broadcast was NOT replaying the film's
+start. **The readout now REFUSES to report an offset while `ooo > 0`**, the way
+`measure_av_sync` refuses a flash/burst count mismatch rather than averaging
+through it. A number that survives its own control is worth something; one that
+does not was never evidence.
+
+**Not a parity gap, and that was checked rather than assumed.** The tee and
+decoder are `#if os(tvOS)`. iOS and macOS have their own `DetailView` and take
+film audio through `MTAudioProcessingTap`, which is inline with rendering and
+therefore aligned by construction. This defect belongs to the television alone.
+
+**What the fix cannot be.** A fixed delay would paper over it and be wrong the
+moment the buffer depth changed — the same reasoning §9.ggg used to refuse a
+fixed audio delay on Android. The audio must be released BY FILM TIME against
+the playhead, which also needs priming: the segment covering the current
+playhead was fetched before the show began and the tee will never hand it over
+again.
+
 ### §9.qqqq The hardware FLOOR, soaked: 1080p30 held, and ~15 ms of drift over eight minutes (2026-09-18)
 
 Both things §9.pppp left open, closed by one run — on the Apple TV 4K **2nd

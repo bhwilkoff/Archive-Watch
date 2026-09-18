@@ -786,8 +786,8 @@ struct PlayerScreen: View {
                     bed.acceptExternalPCM(samples, count: count)
                 }
                 studioFilmAudioDecoder = decoder
-                FilmAudioBridge.shared.setSink { frames, _, rate in
-                    decoder.accept(frames, sampleRate: rate)
+                FilmAudioBridge.shared.setSink { frames, firstSample, rate in
+                    decoder.accept(frames, firstSample: firstSample, sampleRate: rate)
                 }
                 decoder.start()
             }
@@ -919,6 +919,38 @@ struct PlayerScreen: View {
                        studioFilmAudioDecoder?.packetsDecoded ?? -1,
                        studioFilmAudioDecoder?.framesWritten ?? -1,
                        studioFilmAudioDecoder?.lastError ?? "-")
+
+                // THE LIP-SYNC MEASUREMENT, on the product path (§9.rrrr).
+                //
+                // The 8m16s soak proved the two tracks span the same WALL TIME
+                // to 15 ms. That is a drift proxy and says nothing about
+                // whether they describe the same INSTANT of film: a constant
+                // offset is invisible to it, which is exactly what cost the
+                // Android port two rounds (§9.ggg found -0.7 s that way).
+                //
+                // No stimulus clip is needed here. The tee already addresses
+                // every packet by film sample index, so the decoder can say
+                // which second of the film it just released; the player says
+                // which second it is showing. The difference IS the offset.
+                // Positive = audio is AHEAD of the picture.
+                if let d = studioFilmAudioDecoder, let pos = d.filmPosition,
+                   let now = player?.currentTime().seconds, now.isFinite {
+                    // REFUSES rather than reports when its own control fails.
+                    // Every burst must continue where the last one ended; if it
+                    // does not, the film-time mapping is broken and the offset
+                    // is an artifact. The first version of this printed -102 s
+                    // to -464 s from a units error of mine and the recording
+                    // disproved it — so the check now stands in front of the
+                    // number, the way measure_av_sync refuses a flash/burst
+                    // count mismatch rather than averaging through it.
+                    if d.outOfOrderBursts > 0 {
+                        awdiag("AWSYNC REFUSED ooo=%d — film-time mapping unsound, no offset reported",
+                               d.outOfOrderBursts)
+                    } else {
+                        awdiag("AWSYNC audioFilmPos=%.2f playhead=%.2f offset=%+.2f queued=%.1f ooo=0",
+                               pos, now, pos - now, d.queuedSeconds)
+                    }
+                }
             }
 
             // THE FIRST TWENTY SECONDS OF THE STREAM, not of the engine.

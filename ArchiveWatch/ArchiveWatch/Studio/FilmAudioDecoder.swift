@@ -31,7 +31,18 @@ final class FilmAudioDecoder: @unchecked Sendable {
     private let write: (UnsafePointer<Float>, Int) -> Void
 
     private let lock = NSLock()
-    private var queue: [Data] = []
+    /// Each packet with the FILM FRAME INDEX it starts at, so the decoder can
+    /// say where in the film the audio it just released came from. The bridge
+    /// has always sent this; until §9.rrrr nothing read it.
+    ///
+    /// UNITS, and they cost a run: an MP4 `sample` of a sound track is one AAC
+    /// FRAME (1024 PCM samples), so `firstSample` counts frames, not samples.
+    /// Reading it as a PCM count put every position under 7.5 s and drove the
+    /// out-of-order counter up — the control caught it, the number never
+    /// reached a document.
+    private var queue: [(data: Data, frame: Int)] = []
+    private var lastAcceptedFirst = -1
+    private var decodedFrame = -1
     private var sourceRate: Double = 44100
     private var converter: AVAudioConverter?
     private var inFormat: AVAudioFormat?
@@ -41,6 +52,27 @@ final class FilmAudioDecoder: @unchecked Sendable {
     private(set) var packetsDecoded = 0
     private(set) var framesWritten = 0
     private(set) var lastError: String?
+    /// Bursts that did not continue where the previous one ended. A re-fetched
+    /// segment would REPLAY audio through a FIFO that cannot tell, so this is
+    /// counted before it is ever explained away.
+    private(set) var outOfOrderBursts = 0
+
+    /// Film time of the audio most recently released, in seconds; nil before
+    /// the first packet. Compare against the player's `currentTime` and the
+    /// difference IS the lip-sync offset — no stimulus clip required.
+    var filmPosition: Double? {
+        lock.lock(); defer { lock.unlock() }
+        return decodedFrame < 0 ? nil
+            : Double(decodedFrame * Self.samplesPerPacket) / sourceRate
+    }
+
+    /// Audio delivered but not yet released, in seconds of film.
+    var queuedSeconds: Double {
+        lock.lock(); defer { lock.unlock() }
+        return Double(queue.count * Self.samplesPerPacket) / sourceRate
+    }
+
+    private static let samplesPerPacket = 1024
 
     init(write: @escaping (UnsafePointer<Float>, Int) -> Void) {
         self.write = write
@@ -48,13 +80,17 @@ final class FilmAudioDecoder: @unchecked Sendable {
 
     /// Called from the bridge. Cheap on purpose: queueing compressed frames
     /// costs ~4 MB for six minutes, and the decode happens on the pump.
-    func accept(_ frames: [Data], sampleRate: Int) {
+    func accept(_ frames: [Data], firstSample: Int, sampleRate: Int) {
         lock.lock()
         if sourceRate != Double(sampleRate) {
             sourceRate = Double(sampleRate)
             converter = nil                      // rebuilt on the next pump tick
         }
-        queue.append(contentsOf: frames)
+        if lastAcceptedFirst >= 0, firstSample != lastAcceptedFirst { outOfOrderBursts += 1 }
+        for (j, f) in frames.enumerated() {
+            queue.append((f, firstSample + j))
+        }
+        lastAcceptedFirst = firstSample + frames.count
         lock.unlock()
     }
 
@@ -73,7 +109,7 @@ final class FilmAudioDecoder: @unchecked Sendable {
 
     func stop() {
         pump?.cancel(); pump = nil
-        lock.lock(); queue.removeAll(); lock.unlock()
+        lock.lock(); queue.removeAll(); lastAcceptedFirst = -1; lock.unlock()
     }
 
     // MARK: - Decoding
@@ -101,7 +137,7 @@ final class FilmAudioDecoder: @unchecked Sendable {
         guard let converter, let inFormat, let outFormat, !queue.isEmpty else {
             lock.unlock(); return
         }
-        let packet = queue.removeFirst()
+        let (packet, packetFrame) = queue.removeFirst()
         lock.unlock()
 
         let inBuf = AVAudioCompressedBuffer(format: inFormat, packetCapacity: 1,
@@ -131,6 +167,8 @@ final class FilmAudioDecoder: @unchecked Sendable {
         let n = Int(outBuf.frameLength)
         guard n > 0, let ch = outBuf.floatChannelData?[0] else { return }
         write(ch, n * 2)                       // interleaved stereo: 2 floats a frame
-        lock.lock(); packetsDecoded += 1; framesWritten += n; lock.unlock()
+        lock.lock()
+        packetsDecoded += 1; framesWritten += n; decodedFrame = packetFrame
+        lock.unlock()
     }
 }
