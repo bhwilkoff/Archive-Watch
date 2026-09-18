@@ -197,7 +197,21 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
         ExoPlayer.Builder(context)
             .apply { studioTap?.let { setRenderersFactory(it.renderersFactory(context)) } }
             .setMediaSourceFactory(
-                DefaultMediaSourceFactory(httpFactory).setLoadErrorHandlingPolicy(policy),
+                // Production keeps the HTTP-only factory: every real film is
+                // an https URL, and a data source that can also open local
+                // files is reach the product has no use for.
+                //
+                // The §9.fff override is the exception. `aw_play_url` exists to
+                // play a LOCAL sync clip, and handing a `file://` URI to an
+                // HTTP factory produced `ExoPlaybackException: Source error` —
+                // a failure that reads exactly like a network problem and is
+                // not one. `DefaultDataSource.Factory` resolves file/asset/
+                // content itself and delegates http(s) to the same upstream.
+                DefaultMediaSourceFactory(
+                    if (app.archivewatch.android.ui.DeepLinks.pendingPlayURL.value != null)
+                        androidx.media3.datasource.DefaultDataSource.Factory(context, httpFactory)
+                    else httpFactory
+                ).setLoadErrorHandlingPolicy(policy),
             )
             .setLoadControl(loadControl)
             .build()

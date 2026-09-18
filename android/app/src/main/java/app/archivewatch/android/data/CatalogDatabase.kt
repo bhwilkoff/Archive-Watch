@@ -642,7 +642,7 @@ class CatalogDatabase private constructor(
      * (dedupKey, hasProfessionalArtwork, isSilent) is computed from those.
      * Detail still decodes the full item — that is one row, when asked for.
      */
-    private fun liteFromRow(st: SQLiteStatement): CatalogItem = CatalogItem(
+    private fun liteFromRow(st: SQLiteStatement, withRights: Boolean): CatalogItem = CatalogItem(
         archiveID = st.getText(0),
         title = if (st.isNull(1)) "" else st.getText(1),
         year = if (st.isNull(2)) null else st.getInt(2),
@@ -660,13 +660,22 @@ class CatalogDatabase private constructor(
         director = if (st.isNull(14)) null else st.getText(14),
         numFavorites = if (st.isNull(15)) null else st.getInt(15),
         avgRating = if (st.isNull(16)) null else st.getDouble(16),
-        // Column 17 exists only when the DB carries it; a schema-1 catalog
-        // leaves this null, and null refuses (WATCH-TOGETHER §3.4).
-        rightsBucket = if (!hasRightsBucketColumn || st.isNull(17)) null else st.getText(17),
+        // Column 17 exists only when the QUERY asked for it — `withRights`,
+        // not the live flag. Reading `hasRightsBucketColumn` here crashed the
+        // app: the SQL is built once and the rows are read later, and the
+        // bundled schema-1 seed is SWAPPED for the downloaded schema-2 catalog
+        // in between, so a 17-column query had its rows read expecting 18 and
+        // threw `SQLException: column index out of range` on the main thread
+        // (§9.ggg). A schema-1 catalog leaves this null, and null refuses
+        // (WATCH-TOGETHER §3.4).
+        rightsBucket = if (!withRights || st.isNull(17)) null else st.getText(17),
     )
 
     private suspend fun itemsLite(sql: String, binds: List<Any?>): List<CatalogItem> = dbCall {
-        queryRaw(sql, binds) { liteFromRow(it) }
+        // The SQL already committed to a column count when it was built; the
+        // row reader must use THAT answer, not ask again later (§9.ggg).
+        val withRights = sql.contains("rightsBucket")
+        queryRaw(sql, binds) { liteFromRow(it, withRights) }
     }
 
     private suspend fun <T> dbCall(block: () -> T): T =

@@ -1618,7 +1618,7 @@ the audio path, the real ingest hosts with no credential, the overlay and
 go-live surfaces on the glass, the rights gate on device, and the platform
 clients. **→ `docs/watch-together-measurements.md`**
 
-### §9.fff The lip-sync stimulus: instrument built and verified, test NOT YET RUN (2026-09-18)
+### §9.fff The lip-sync stimulus: instrument built and verified (2026-09-18)
 
 §9.eee established that Android's two tracks do not drift apart and said
 plainly that this is not the same as being IN SYNC — packet timestamps cannot
@@ -1656,15 +1656,73 @@ understood and neither yet fixed:
    HTTP-only data source factory, so a `file://` URI is handed to
    `OkHttpDataSource`, which cannot open a file.
 
-**The next step is small and specific**: wrap the override in a
-`DefaultDataSource.Factory` so a `file://` URI resolves locally, which removes
-the network from the test entirely. Until that runs, §9.eee's careful wording
-stands unchanged — *the tracks do not drift apart* is proved; *the tracks are
-in sync* is not.
+**RESOLVED in §9.ggg**: the override now uses a `DefaultDataSource.Factory`
+so `file://` resolves locally, the clip plays (first film frame at **1.3 s**
+against ~13 s for a network film), and the measurement ran.
 
 (And `-v error` swallowed `volumedetect` and `metadata=print` again while
 verifying the clip, exactly as §9.nn recorded and as the memory says. Knowing
 the trap did not stop me walking into it; only re-running without it did.)
+
+### §9.ggg Android's broadcast is 0.7 SECONDS out of sync — and a crash on the way to finding out (2026-09-18)
+
+§9.fff built the flash-and-beep clip and could not play it. Two fixes later the
+measurement ran, and it found the thing every timestamp analysis had missed.
+
+**Fix 1 — the override could not open a local file.** `PlayerScreen` builds
+`DefaultMediaSourceFactory(httpFactory)`, an HTTP-only data source, so a
+`file://` URI went to `OkHttpDataSource` and failed as
+`ExoPlaybackException: Source error` — which reads exactly like a network
+problem and is not one. The override (and only the override) now uses
+`DefaultDataSource.Factory`. The clip's first frame then arrived in **1.3 s**
+against ~13 s for a film fetched from archive.org (§9.tt).
+
+**Fix 2 — a CRASH in the catalog, and it belongs to this feature.** The app
+died on the main thread:
+
+    SQLException: Error code: 25, message: column index out of range
+      at CatalogDatabase.liteFromRow(CatalogDatabase.kt:665)
+
+Line 665 is `rightsBucket`, added for Watch Together's rights gate (schema 2).
+The SQL asks `hasRightsBucketColumn` when the query is BUILT; the row reader
+asked it again when each ROW was READ — and the app swaps the bundled schema-1
+seed for the downloaded schema-2 catalog in between (§Decision 053's first-paint
+rule). A 17-column query then had its rows read expecting 18. **A flag that
+describes the DATABASE cannot be used to describe a QUERY that was built
+earlier.** The reader now takes the answer the SQL committed to.
+
+**THE MEASUREMENT.** Flash and beep are simultaneous in the source (within
+~16 ms, §9.fff). In the recorded broadcast:
+
+| | audio (beep) | video (flash) | offset |
+|---|---|---|---|
+| 1 | 4.403 | 5.086 | **-683 ms** |
+| 2 | 9.396 | 10.145 | -749 ms |
+| 3 | 14.388 | 15.133 | -745 ms |
+| 4 | 19.403 | 20.106 | -703 ms |
+| 5 | 24.396 | 25.097 | -701 ms |
+| 6 | 29.388 | 30.079 | -691 ms |
+
+**A viewer HEARS the beep about 0.7 seconds before SEEING the flash.** The
+offset is constant across all six pairs (spread 66 ms), not growing — which is
+precisely why §9.eee's "the tracks do not drift apart" was true and still not
+sync, and why that entry refused to claim sync. ITU's tolerance for audio
+leading video is about 45 ms; this is fifteen times that, and it would be
+obvious on any film with dialogue.
+
+**This is OPEN, not fixed.** The likely mechanism: video is stamped with the
+wall clock at RENDER time, which is after the frame's content was current — the
+film texture arrives, is composited, and is stamped only then — while audio is
+stamped from a sample count that began when the AAC encoder did. Video is
+therefore late relative to its own content by roughly the render-and-encode
+latency. Stamping video with the FILM's presentation time rather than the
+render instant is the shape of the answer; a fixed audio delay would paper over
+it and would be wrong the moment the pipeline's latency changed.
+
+**What this vindicates**: §9.eee's insistence that packet timestamps prove
+"the tracks do not drift apart" and NOT "the tracks are in sync". Both tracks'
+timestamps were internally consistent the whole time. Only a stimulus with a
+known simultaneous event could show that they described different moments.
 
 ### §9.eee Android's first ten-minute soak: the drift is BOUNDED, and the residual offset is not yet understood (2026-09-18)
 
