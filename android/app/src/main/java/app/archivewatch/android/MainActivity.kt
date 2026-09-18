@@ -118,6 +118,7 @@ class MainActivity : ComponentActivity() {
         if (BuildConfig.DEBUG) {
             intent?.getStringExtra("aw_studio_dest")?.let { DeepLinks.pendingStudioDest.value = it }
             intent?.getStringExtra("aw_studio_key")?.let { DeepLinks.pendingStudioKey.value = it }
+            intent?.getStringExtra("aw_play_url")?.let { DeepLinks.pendingPlayURL.value = it }
         }
         if (intent?.getBooleanExtra("aw_focus_log", false) == true) {
             app.archivewatch.android.ui.tv.TvFocusLogging = true

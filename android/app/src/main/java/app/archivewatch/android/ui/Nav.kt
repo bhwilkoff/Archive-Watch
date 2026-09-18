@@ -162,6 +162,20 @@ object DeepLinks {
      * it decides where a broadcast GOES.
      */
     val pendingStudioChat = MutableStateFlow<String?>(null)
+
+    /**
+     * `--es aw_play_url <url>` — play THIS url instead of resolving the
+     * archive id. DEBUG ONLY, and gated for the same reason the bench
+     * destination is: honouring it in a release build would let any app make
+     * the player fetch anything.
+     *
+     * It exists to answer one question the product cannot otherwise ask: are
+     * the broadcast's audio and video in SYNC? Packet timestamps show only
+     * that the tracks do not drift apart (§9.eee); proving that the same
+     * instant carries the same PTS needs a clip with a known flash and a known
+     * beep, which no film in the catalog provides.
+     */
+    val pendingPlayURL = MutableStateFlow<String?>(null)
 }
 
 /** The player publishes here so MainActivity can auto-enter Picture-in-Picture when the user

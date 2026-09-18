@@ -1618,6 +1618,54 @@ the audio path, the real ingest hosts with no credential, the overlay and
 go-live surfaces on the glass, the rights gate on device, and the platform
 clients. **→ `docs/watch-together-measurements.md`**
 
+### §9.fff The lip-sync stimulus: instrument built and verified, test NOT YET RUN (2026-09-18)
+
+§9.eee established that Android's two tracks do not drift apart and said
+plainly that this is not the same as being IN SYNC — packet timestamps cannot
+show whether the same instant of film carries the same PTS in both tracks. That
+needs a stimulus. This is the attempt, and it is **incomplete**.
+
+**Built and verified: the instrument.** A 120-second clip — black with a
+full-frame WHITE FLASH and a 1 kHz BEEP at the same instant, every five
+seconds. Checked against itself before being trusted with anything:
+
+    brightness   two states only: YAVG=16 (black), YAVG=235 (flash)
+    flashes at   0, 5, 10 s
+    beeps at     5.0156, 10.0078 s   (silence_end)
+
+Flash and beep coincide within ~16 ms in the source, so any larger offset in a
+recording of the BROADCAST is the Studio's, not the clip's.
+
+**Built: the door.** `--es aw_play_url <url>` plays that clip instead of
+resolving an archive id, DEBUG-gated for the reason the bench destination is —
+honouring it in a release build would let any app make the player fetch
+anything.
+
+**NOT RUN: the measurement.** Two attempts, two different causes, both now
+understood and neither yet fixed:
+
+1. **Over HTTP from the Mac** — `ExoPlaybackException: Source error`, and the
+   Python server's log shows the only fetch came from the Mac itself
+   (10.0.0.90, my own curl), never from the device. The Google TV cannot reach
+   a Python server on the Mac; macOS's firewall is the likely cause, and the
+   curl that "proved" the clip was served proved only that the Mac can reach
+   itself. **A reachability check from the wrong host is not a reachability
+   check.**
+2. **From a file pushed to the device** — same `Source error`, different
+   reason: `PlayerScreen` builds `DefaultMediaSourceFactory(httpFactory)`, an
+   HTTP-only data source factory, so a `file://` URI is handed to
+   `OkHttpDataSource`, which cannot open a file.
+
+**The next step is small and specific**: wrap the override in a
+`DefaultDataSource.Factory` so a `file://` URI resolves locally, which removes
+the network from the test entirely. Until that runs, §9.eee's careful wording
+stands unchanged — *the tracks do not drift apart* is proved; *the tracks are
+in sync* is not.
+
+(And `-v error` swallowed `volumedetect` and `metadata=print` again while
+verifying the clip, exactly as §9.nn recorded and as the memory says. Knowing
+the trap did not stop me walking into it; only re-running without it did.)
+
 ### §9.eee Android's first ten-minute soak: the drift is BOUNDED, and the residual offset is not yet understood (2026-09-18)
 
 Every A/V measurement after §9.qq's clock fix ran for 87-117 seconds. The

@@ -222,7 +222,8 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
                 } else {
                     listOf(
                         MediaItem.Builder()
-                            .setUri(app.archivewatch.android.data.ArchiveVersions.preferredURL(context, spec.id, spec.url))
+                            .setUri(app.archivewatch.android.ui.DeepLinks.pendingPlayURL.value
+                                ?: app.archivewatch.android.data.ArchiveVersions.preferredURL(context, spec.id, spec.url))
                             .setMediaId(spec.id)
                             // Side-loaded subtitles (Decision 039): Media3 plays
                             // SRT/VTT natively and lists them in the subtitle
