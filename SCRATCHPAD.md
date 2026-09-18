@@ -65,9 +65,17 @@ emulators) · `docs/CAPTIONS.md` · `docs/SHAREPLAY.md` ·
    **Schedule publishing** is the owner's press). Ticket 110523 needs a reply
    asking for the Search Beta re-test — the Dashboard's Submit for review is
    disabled while the feed is FEED VALIDATED (= in certification).
-7. **Watch Together Studio — the PUBLIC half is blocked on the owner.** Three
-   one-time steps (a/b/c below) are the only things standing between the
-   feature and a real broadcast. **This item used to say "and it is the only
+7. **Watch Together Studio — the PUBLIC half is blocked on the owner ON iOS;
+   tvOS and macOS also need CODE.** The three one-time steps (a/b/c below) are
+   what stands between the feature and a real broadcast **from an iPhone**.
+   **On the Apple TV and the Mac there is no credential path at all**
+   (§9.ccc): `YouTubeLive`/`TwitchLive` are constructed in exactly one file,
+   the iOS container, so those two platforms can publish only to the
+   diagnostic destination whatever the owner pastes into `Secrets.xcconfig`.
+   Everything else on them is real and measured — which is why it went
+   unnoticed. macOS needs only the code plus a go-live surface
+   (`docs/macOS-DESIGN.md` governs that); tvOS needs the code and still carries
+   Decision 128's unproven sign-in presentation. **This item used to say "and it is the only
    blocker — everything else is built and verified on real hardware", which
    the night of 2026-09-18 proved too confident**: the Android product path had
    never carried audio at all, its video and audio clocks were 19.6 s apart,

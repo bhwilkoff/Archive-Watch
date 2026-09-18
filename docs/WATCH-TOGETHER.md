@@ -1618,6 +1618,59 @@ the audio path, the real ingest hosts with no credential, the overlay and
 go-live surfaces on the glass, the rights gate on device, and the platform
 clients. **→ `docs/watch-together-measurements.md`**
 
+### §9.ccc Only iOS can actually reach YouTube or Twitch — the television cannot (2026-09-18)
+
+§9.bbb closed Decision 127's YouTube unknown, so its other one — the Twitch
+CATEGORY — was next. The category turned out to be wired properly:
+`TwitchLive.setChannel` resolves a category NAME to a `game_id` before setting
+it, and deliberately does not let a failed category fail the title. Following
+that wire to its other end found something much larger.
+
+**`YouTubeLive(` and `TwitchLive(` are constructed in exactly ONE file in the
+whole project**: `iOS/StudioPlayerContainer_iOS.swift`, inside
+`private func destination()`. That function is the entire route from an OAuth
+token to a real stream key.
+
+| platform | sign-in surface | fetches a stream key |
+|---|---|---|
+| iOS | yes | **yes** |
+| tvOS | uses `StudioPlatformAuth` only for `anyConfigurationProblem` — to say sign-in is not set up, and refuse | **no** |
+| macOS | none at all | **no** |
+
+**So on the Apple TV and the Mac there is no code that could broadcast to
+YouTube or Twitch, with or without the client ids.** Both can publish to the
+diagnostic `AW_STUDIO_DEST` and nowhere else. Everything else on those
+platforms is real and proved — the engine, the composite, the overlays, the
+rights gate, the health readout, the publisher, §6's five runtime rules, the
+ten-minute soak — which is exactly why the gap survived: **every part that
+could be measured was measured, and the one part that needed a credential
+nobody had was never reached.**
+
+This matters more than a missing function, because Decision 127's central
+argument is the TELEVISION as the studio — tvOS 17 lending the Apple TV an
+iPhone's camera and microphone through Continuity. That case cannot happen
+today.
+
+**What each platform actually needs is different, and worth stating
+separately:**
+
+- **macOS** needs only the code. `ASWebAuthenticationSession` works there, so
+  the auth flow, the credential fetch and a go-live surface are all
+  straightforwardly buildable. There is no go-live affordance on the Mac at
+  all today — the Studio is started by the harness door.
+- **tvOS** needs the code AND carries Decision 128's unproven risk:
+  `presentationContextProvider`, `prefersEphemeralWebBrowserSession` and
+  `cancel` are `API_UNAVAILABLE(tvos)`, so how that flow presents on a
+  television cannot be known until a client id exists. Twitch's device-code
+  flow is fine there; YouTube's is the open question.
+
+**Not built here**, deliberately: the credential path is untestable without the
+owner's client ids, a Mac go-live surface is a design question that
+`docs/macOS-DESIGN.md` governs rather than something to improvise at 4am, and
+writing three platforms' worth of unverifiable code is how the previous
+untested claims got made. The honest move is to say plainly what is missing and
+let it be scheduled.
+
 ### §9.bbb The 50-subscriber rule does NOT apply to us — an open risk in Decision 127, closed (2026-09-18)
 
 Decision 127 left two platform unknowns, and the dangerous one was **"the
