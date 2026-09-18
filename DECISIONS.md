@@ -208,6 +208,7 @@ into every session and the index alone carries every title.)
 - 127 — Watch Together goes public through an ON-DEVICE studio that speaks RTMPS itself: native frameworks, our own publisher, no encoder dependency
 - 128 — A public client gets the flow each platform actually offers, not the one we prefer; and a missing credential is a STATE
 - 129 — Android runs the SAME Studio with GLES in Core Image's place, and the host sees the PROGRAM because `setVideoSurface` is exclusive
+- 130 — A runtime rule is proved on the PRODUCT path or it is not proved; a skip is not a pass, and the instrument is the first suspect
 
 ---
 
@@ -612,3 +613,63 @@ composite, audio, A/V alignment and rights gate are all proved on real
 hardware; what is NOT proved is anything phone-shaped — a Google TV dongle
 needs 37.4 ms a frame against a 33.3 ms budget even drawing once, so the
 architecture is validated and its speed on a phone is not.
+
+## 130 — A runtime rule is proved on the PRODUCT path or it is not proved; a skip is not a pass, and the instrument is the first suspect
+*Date: 2026-09-17*
+
+Every runtime rule in `docs/WATCH-TOGETHER.md` §6 must be exercised through the
+path the app actually takes — the go-live surface, the engine the product
+builds, the destination a host would reach — and the evidence must come from
+outside our own optimism: a server's recording or byte counter, a photograph of
+a screen, or a machine-readable line the app printed. `tools/test_studio_all.sh`
+runs the §8 suite in one command and reports **pass, skip and fail as three
+separate numbers**.
+
+**Why**: §6 had five runtime rules and an audit found a defect in every one of
+them, three implemented **nowhere** — and each had been believed because
+something adjacent worked. The pattern in full:
+
+- §6.3's idle timer was implemented only in `StudioLab`, behind `#if os(iOS)`,
+  so tvOS never had it and the screen saver invalidated the encoder at 291 s.
+- §6.2's audio session was configured only in `StudioLab` too, so on iOS the
+  product began a show in `.playback`, which cannot record.
+- §6.4's back-pressure cap was 2 MB, which at 2.5 Mbps is **6.4 seconds of
+  latency**: it could not fire before the broadcast had stopped being live.
+- §6.5 said `.serious` should halve the RESOLUTION, which an RTMP ingest will
+  not accept mid-publish — the documented response would have destroyed the
+  broadcast it was meant to save.
+- §6.6 did not exist: a dropped link left the readout saying OFFLINE while
+  nothing acted.
+- §5's adaptive-step sentence was rendered by **no surface on any platform**;
+  the only reader was a diagnostic log line.
+
+**How to apply**: when a design doc states a runtime requirement, grep for
+where it is actually set before believing it exists, and prefer a product path
+over a harness even when the harness is easier. A harness can prove the logic
+and still say nothing about where the logic RUNS — Android's reconnect
+supervisor passed a JVM test and threw `NetworkOnMainThreadException` on every
+attempt in the app, because the test called it from its own thread and the app
+used Compose's main dispatcher.
+
+**And distrust the instrument before the product.** In one session an
+assertion judged `segs.last` and passed over the segment that mattered; a
+readiness probe became the connection a severing proxy was meant to cut; a
+throttle read from the client at full speed and so created a server-side rate
+limit rather than congestion; `guard ma < mb` passed on 58.4 versus 58.3 bytes;
+a bitrate test ran with no film against a ceiling nothing approached; totals
+were compared across windows of different lengths; `print` to a pipe lost
+everything when the process was killed; and a test runner reported PASS over
+zero parsed results and then aborted silently while returning exit 0. In four
+of those the verdict was the OPPOSITE of the truth, and in two a real defect
+sat in the output the whole time.
+
+So: **run the control that should obviously produce the opposite verdict**, and
+when an assertion fires, do not accept the first explanation — a 1.63 s A/V
+offset that looked exactly like a missing keyframe was a harness clock drifting
+10 ms a frame.
+
+**Consequences**: §6 is now implemented and measured on product paths on Apple
+and Android, including §6.6's backoff read off a real run as 1/2/4/8/15/15/15 s
+summing to its 60-second deadline. The suite is the mechanical form of this
+decision; `--strict` makes a skip a failure. Owner-gated items are listed in
+SCRATCHPAD rather than absorbed into "done".
