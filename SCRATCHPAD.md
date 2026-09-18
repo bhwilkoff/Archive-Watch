@@ -35,7 +35,7 @@ social programme posts daily to five platforms (`docs/SOCIAL-PROGRAM.md`,
 Decision 120).
 
 **Where the rules live** (read before changing the thing they govern):
-`docs/ENGINEERING-PROCESS.md` (the ten disciplines) · `PARITY.md` (what
+`docs/ENGINEERING-PROCESS.md` (the eleven disciplines) · `PARITY.md` (what
 ships where) · per-platform binding design docs `docs/tvOS-DESIGN.md`,
 `docs/iOS-DESIGN.md`, `docs/IPAD-DESIGN.md`, `docs/macOS-DESIGN.md`,
 `docs/ANDROID-DESIGN.md`, `docs/TV-DESIGN.md`, `docs/ROKU-DESIGN.md`,

@@ -198,6 +198,50 @@ be built.
 
 ---
 
+## 11. The instrument is the first suspect
+
+Discipline 2 is about a green run that did no work. This one is narrower and
+nastier: the apparatus itself returning the wrong verdict about work that DID
+happen. Watch Together Studio produced eight in one session, and in four of
+them the verdict was the **opposite** of the truth.
+
+- An assertion judged `segs.last` and passed over the segment that mattered,
+  because a short trailing segment had been written at close. **An instrument
+  that chooses which sample to judge will eventually choose the wrong one.**
+- A `waitForListener` probe became connection 1 of a severing proxy, so the
+  proxy cut the PROBE and the control arm recorded a clean stream. **A test
+  instrument must not be visible to the test.**
+- A throttling proxy read from the client at full speed and delayed only the
+  forward, so it created a server-side rate limit rather than congestion: the
+  app reported no queue and dropped nothing, truthfully. **Back-pressure comes
+  from not reading.**
+- `guard ma < mb` passed on 58.4 versus 58.3 bytes while printing "0% smaller".
+  **A comparison is not a measurement; demand a margin.**
+- A bitrate test ran with no film, so a static frame compressed to 58-byte
+  packets and lowering the ceiling changed nothing. **A bitrate is a ceiling,
+  not a floor.**
+- Frames were compared as TOTALS across a 9-second window and a 6-second one,
+  "proving" video had not recovered while the table showed 1 fps against 30.
+  **Compare rates.**
+- `print` goes to stdout, and stdout to a pipe is fully buffered, so killing
+  the app discarded everything it had said — twice reported as "zero health
+  lines" from an app that was working perfectly. **Diagnostics go to stderr.**
+- A test runner reported PASS over zero parsed results, then aborted silently
+  mid-suite while returning exit 0 (errexit plus a `pkill` that matched
+  nothing, and a caller's `| tail` replacing the status). **A runner that can
+  lose its own result is the most expensive kind of green.**
+
+**Apply it**: before believing a verdict, run the control that should obviously
+produce the opposite one. When an assertion fires, do not accept the first
+explanation — a 1.63 s A/V offset that looked exactly like a missing keyframe
+was the harness's own audio clock drifting 10 ms a frame. And prefer evidence
+the instrument cannot distort: a server's own byte counter, a recording read
+back by a demuxer that shares no code with ours, a photograph of a screen.
+
+`tools/test_studio_all.sh` is the mechanical form of this — pass, skip and fail
+as three separate numbers, because a skip absorbed into green is how four
+Kotlin cases went unrun for a whole session. Decision 130 states the rule.
+
 ## The shape of a change here
 
 1. **Read** the binding doc for the surface (`docs/*-DESIGN.md`, `docs/PULSE.md`,

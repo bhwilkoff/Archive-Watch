@@ -73,7 +73,7 @@ sidebar, navigation, or animation bugs.
 
 ---
 
-**How we engineer** — the ten disciplines, each naming the incident
+**How we engineer** — the eleven disciplines, each naming the incident
 that produced it: `docs/ENGINEERING-PROCESS.md`. Read it before a
 first change to this repo.
 

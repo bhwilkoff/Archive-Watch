@@ -63,11 +63,11 @@ playback: no
 metrics: no
 pprof: no
 logLevel: info
-record: yes
-recordPath: $SCRATCH/rec/%path_%Y-%m-%d_%H-%M-%S-%f
-recordFormat: fmp4
-recordPartDuration: 200ms
-recordSegmentDuration: 1h
+# NOT recording. Every harness that needs a recording starts its own
+# server and configures it; this one only has to answer. Recording here wrote
+# every case's stream to disk for no reader, and during the ten-minute soak
+# that is hundreds of megabytes on top of a 1080p encode.
+record: no
 paths:
   all:
     source: publisher
@@ -141,6 +141,12 @@ swift_case "8.4 rtmp reconnect"    "$PUB" "$MEDIA" tools/test_rtmp_reconnect.swi
 swift_case "8.5 thermal"           "$PUB" "$ENG" "$AUD" "$OVL" tools/test_studio_thermal.swift
 swift_case "8.6 back-pressure"     "$PUB" "$ENG" "$AUD" "$OVL" tools/test_studio_backpressure.swift
 if [ "$SOAK" = "1" ]; then
+  # The soak starts its OWN server, so the shared one is redundant for ten
+  # minutes of 1080p encoding. Leaving both up got this run killed by the
+  # system for memory pressure - not a test failure, but a suite that
+  # cannot finish is a suite nobody trusts.
+  pkill -f "$SCRATCH/mtx.yml" >/dev/null 2>&1 || true
+  sleep 2
   swift_case "8.3 ten-minute soak" "$PUB" "$ENG" "$AUD" "$OVL" tools/test_studio_soak.swift
 else
   row "8.3 ten-minute soak" SKIP "not run without --soak"; SKIP=$((SKIP+1))
