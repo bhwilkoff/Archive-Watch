@@ -180,6 +180,18 @@ else
   FAIL=$((FAIL+1))
 fi
 
+# A Continuity CAMERA with no MICROPHONE crashed the app (§9.wwww), and the
+# state is ordinary: the camera comes from discovery, the microphone only from
+# the picker's AVContinuityDevice, so dismissing the picker produces it. The
+# runtime proof needs a phone; this is the part that can run without one, and it
+# carries its own control.
+if bash tools/test_studio_continuity_guard.sh >"$SCRATCH/continuity-guard.log" 2>&1; then
+  row "8.13 continuity mic guard" PASS ""; PASS=$((PASS+1))
+else
+  row "8.13 continuity mic guard" FAIL "a camera without a microphone is unguarded"
+  FAIL=$((FAIL+1))
+fi
+
 swift_case "8.10 stream-key hygiene" "$PUB" tools/test_studio_key_hygiene.swift
 # Where the tokens land. Writes only under a probe account and deletes it, so
 # it cannot disturb a real sign-in. Reports the keychain CHOICE rather than

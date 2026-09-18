@@ -946,9 +946,19 @@ struct PlayerScreen: View {
         let micName = continuity.microphonePort()?.portName ?? "none"
         awdiag("AWCONT connected=%@ camera=%@ micPort=%@",
                continuity.state.isConnected ? "true" : "false", camName, micName)
+        // ONE LINE PER CALL. The app dies somewhere in this block with a
+        // connected camera, and the last log line is the state line ABOVE it —
+        // which narrows it to four calls and no further. Guessing cost a round
+        // already (the microphone guard below was a correct fix for a defect
+        // that was not the one killing it).
+        awdiag("AWCONT step=makeSession")
         if continuity.state.isConnected, let session = continuity.makeSession() {
+            awdiag("AWCONT step=sessionMade inputs=%d outputs=%d",
+                   session.inputs.count, session.outputs.count)
             let cam = CameraFrameTap(); cam.attach(to: session)
+            awdiag("AWCONT step=cameraTapAttached")
             await engine.attachCamera(tap: cam)
+            awdiag("AWCONT step=cameraEngineAttached")
             // ONLY IF THERE IS ONE. `makeSession()` adds a microphone INPUT
             // only when a port exists, and attaching a mic tap regardless hangs
             // an audio OUTPUT on a session that has no audio input — an invalid
@@ -962,6 +972,7 @@ struct PlayerScreen: View {
                 let mic = MicAudioTap(); mic.attach(to: session)
                 await engine.attachMicrophone(tap: mic)
             }
+            awdiag("AWCONT step=startRunning")
             session.startRunning()
             awdiag("AWCONT attached camera=%@ mic=%@", camName, micName)
         } else {
