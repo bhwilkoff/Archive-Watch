@@ -1435,6 +1435,24 @@ cases skip silently without a local server and were doing exactly that for a
 whole session (§6.2n): *a skip is not a pass*, and a runner that folded them
 together would be the most expensive kind of green.
 
+**The full configuration passes** (2026-09-18, `--soak --strict`): every case
+run, no skips tolerated, and no processes left behind.
+
+    8.1 rtmp publish             PASS
+    8.4 rtmp reconnect           PASS
+    8.5 thermal                  PASS
+    8.6 back-pressure            PASS
+    test_studio_rights_parity    PASS
+    test_studio_rights_coverage  PASS
+    Kotlin suites                PASS   pass=46 skip=0 fail=0
+    8.3 ten-minute soak          PASS
+    pass=53 skip=0 fail=0
+    SUITE RESULT: PASS
+
+The soak inside that run: 18013 frames encoded, 18013 sent, memory +5.0 MB,
+peak send queue **25 kB of the 1149 kB cap (2%)** — §6.4a's budget staying well
+clear on a healthy link, which is what the soak exists to check.
+
 `--strict` justified itself on its second run. The soak brings its own
 `mediamtx` — two 1080p servers at once got the first `--soak` attempt killed
 for memory pressure — so the shared one is stopped before it; but with the soak
