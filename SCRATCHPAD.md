@@ -95,18 +95,16 @@ emulators) · `docs/CAPTIONS.md` · `docs/SHAREPLAY.md` ·
    client of type **iOS**, bundle id `app.archivewatch.tvos`, in the gitignored
    `Secrets.xcconfig`. Proved against the live endpoint with its own controls
    (`tools/test_studio_registered.swift`, §8.9, WATCH-TOGETHER §9.nnn).
-   **TWITCH_CLIENT_ID is BLOCKED ON THE OWNER'S ACCOUNT, not on the form.** The
-   registration is filled and correct (public client, Broadcaster Suite, HTTPS
-   redirect — Twitch refuses `http://localhost`, so the example file's
-   suggestion does not apply there); pressing Create is refused with *"user
-   must have two factor auth enabled to perform this action"*. The email gate
-   before it was cleared on 09-18. **One step: Twitch ▸ Settings ▸ Security and
-   Privacy ▸ Set Up Two-Factor Authentication** (the account already has a
-   phone number linked), then say so and the registration finishes in one pass.
+   **TWITCH_CLIENT_ID is DONE too** (2026-09-18, after the owner cleared the
+   email and 2FA gates): application "Archive Watch Studio", **public** client,
+   Broadcaster Suite, redirect `https://archivewatch.org` (Twitch refuses
+   `http://localhost`). §8.9 asserts both platforms — Twitch's device endpoint
+   returns a real `device_code` and accepts the stream-key scope.
    **No client secret** is needed (neither flow uses one) and no derived
    redirect string (the scheme is the bundle id, already declared in
-   `Info.plist`). Until Twitch has an id the go-live sheet offers YouTube and
-   says Twitch is not set up;
+   `Info.plist`). **Both platforms are now configured**, so the go-live sheet's
+   "not set up" state no longer appears on any Apple surface — and note that
+   registering the FIRST id is what exposed the tvOS gate defect in §9.ooo;
    (a2) **CHANNEL ELIGIBILITY, worth doing a day early.** YouTube's encoder
    path (ours) needs the channel VERIFIED and no live-streaming restrictions in
    the past 90 days; enabling live streaming for the first time can carry a

@@ -103,70 +103,83 @@ struct RegisteredClientHarness {
 
     // MARK: Google
 
+    /// RFC 7636 Appendix B's published challenge. The controls MUST send a
+    /// valid one: Google validates `code_challenge` BEFORE it looks at the
+    /// client id or the redirect, so a literal like "CHALLENGE" makes every
+    /// case fail identically with "Code Challenge must be base64 encoded" —
+    /// which is what the first version of this file did, and why its two
+    /// controls passed while proving nothing about the registration.
+    static let rfcChallenge = "E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM"
+
+    /// Google states the refusal in a base64url `authError` parameter on the
+    /// FINAL url, never in the HTML. Both the success and failure pages are
+    /// ~1 MB of script and both contain the substring "error", so a body
+    /// search cannot tell them apart.
+    static func authErrorText(_ finalURL: String) -> String? {
+        guard let c = URLComponents(string: finalURL),
+              let raw = c.queryItems?.first(where: { $0.name == "authError" })?.value
+        else { return nil }
+        var b64 = raw.replacingOccurrences(of: "-", with: "+")
+                     .replacingOccurrences(of: "_", with: "/")
+        while b64.count % 4 != 0 { b64 += "=" }
+        guard let d = Data(base64Encoded: b64) else { return nil }
+        return String(d.map { $0 >= 32 && $0 < 127 ? Character(UnicodeScalar($0)) : " " })
+    }
+
     static func google(_ clientID: String) async {
         print("YouTube — the registered Google client (live)")
 
-        // 1. The authorization URL the app actually builds, with the real
-        //    client id and the real redirect. This is the request
-        //    `ASWebAuthenticationSession` opens, and the first thing a host
-        //    would ever see.
         let auth = GoogleAuth(clientID: clientID)
-        var url = auth.authorizeURL(scopes: StudioPlatformAuth.scopes(for: .youtube),
-                                    challenge: GoogleAuth.challenge(for: GoogleAuth.randomVerifier()),
-                                    state: "harness")
-        // The harness has no bundle id, so the URL it built carries the
-        // fallback. Assert they agree rather than silently testing a string
-        // this file chose.
+        let scopes = StudioPlatformAuth.scopes(for: .youtube)
+        let real = auth.authorizeURL(scopes: scopes,
+                                     challenge: GoogleAuth.challenge(for: GoogleAuth.randomVerifier()),
+                                     state: "harness")
         check("the redirect scheme is the app's bundle id",
-              url.absoluteString.contains("\(bundleID):/oauth2redirect"),
+              real.absoluteString.contains("\(bundleID):/oauth2redirect"),
               "redirect not found in the authorize URL")
 
-        var (code, body) = await get(url)
-        print("        authorize: HTTP \(code), \(summary(body))")
-        check("Google serves the consent flow for this client (not an error page)",
-              code == 200 && !body.lowercased().contains("invalid_client")
-              && !body.lowercased().contains("redirect_uri_mismatch"),
-              "HTTP \(code) \(summary(body))")
+        // 1. The request the app actually opens.
+        var (code, finalURL) = await get(real)
+        print("        authorize:      HTTP \(code) \(landing(finalURL))")
+        check("Google accepts this client AND this redirect — it serves the sign-in page",
+              code == 200 && !finalURL.contains("/signin/oauth/error"),
+              "HTTP \(code) \(landing(finalURL))")
 
-        // 2. CONTROL: the same request with the client id mangled must be
-        //    refused. Without this, check 1 is satisfied by any 200.
+        // 2. CONTROL: the same request with an unregistered client id. Same
+        //    valid challenge, same redirect — the id is the ONLY difference.
         let broken = GoogleAuth(clientID: "000000-notaclient.apps.googleusercontent.com")
-        url = broken.authorizeURL(scopes: StudioPlatformAuth.scopes(for: .youtube),
-                                  challenge: "CHALLENGE", state: "harness")
-        (code, body) = await get(url)
-        print("        control (bad client): HTTP \(code), \(summary(body))")
-        check("CONTROL — an unregistered client id is refused",
-              code != 200 || body.lowercased().contains("invalid_client")
-              || body.lowercased().contains("error"),
-              "HTTP \(code) \(summary(body))")
+        (code, finalURL) = await get(broken.authorizeURL(scopes: scopes,
+                                                         challenge: rfcChallenge,
+                                                         state: "harness"))
+        print("        bad client:     HTTP \(code) \(landing(finalURL))")
+        check("CONTROL — an unregistered client id is refused as invalid_client",
+              (authErrorText(finalURL) ?? "").contains("invalid_client"),
+              landing(finalURL))
 
-        // 3. CONTROL: the real client id with a redirect it does not declare
-        //    must fail on the REDIRECT. This is the check that proves the
-        //    registration carries our bundle id — the one thing that cannot
-        //    be inferred from the client id string.
-        var c = URLComponents(url: auth.authorizeURL(
-            scopes: StudioPlatformAuth.scopes(for: .youtube),
-            challenge: "CHALLENGE", state: "harness"),
-            resolvingAgainstBaseURL: false)!
+        // 3. CONTROL: our real client with a redirect it does not declare.
+        //    This is the one that proves the registration carries our bundle
+        //    id — the single thing no client id string can tell you.
+        var c = URLComponents(url: auth.authorizeURL(scopes: scopes,
+                                                     challenge: rfcChallenge,
+                                                     state: "harness"),
+                              resolvingAgainstBaseURL: false)!
         c.queryItems = (c.queryItems ?? []).map {
             $0.name == "redirect_uri"
                 ? URLQueryItem(name: "redirect_uri", value: "app.archivewatch.wrong:/oauth2redirect")
                 : $0
         }
-        (code, body) = await get(c.url!)
-        print("        control (bad redirect): HTTP \(code), \(summary(body))")
-        check("CONTROL — a redirect the client does not declare is refused",
-              code != 200 || body.lowercased().contains("redirect_uri_mismatch")
-              || body.lowercased().contains("error"),
-              "HTTP \(code) \(summary(body))")
+        (code, finalURL) = await get(c.url!)
+        print("        bad redirect:   HTTP \(code) \(landing(finalURL))")
+        check("CONTROL — a redirect the client does not declare is refused as redirect_uri_mismatch",
+              (authErrorText(finalURL) ?? "").contains("redirect_uri_mismatch"),
+              landing(finalURL))
 
         // 4. The token exchange with the real client id and a junk code.
         //    `invalid_grant` means the CODE was the only thing wrong: the
         //    client, the redirect and every required field were accepted.
-        //    `invalid_client` would mean the id itself is not usable here —
-        //    which is what the same request returns with a fake id (8.2).
+        //    The same request with a fake id returns `invalid_client` (§8.2).
         let text = await token(clientID: clientID, redirect: "\(bundleID):/oauth2redirect")
-        print("        token: \(summary(text))")
+        print("        token:          \(summary(text))")
         let lower = text.lowercased()
         check("the token endpoint rejects the CODE, not the client",
               lower.contains("invalid_grant") && !lower.contains("invalid_client"),
@@ -214,6 +227,9 @@ struct RegisteredClientHarness {
 
     // MARK: Plumbing
 
+    /// Returns the status and the FINAL url after redirects — which is where
+    /// Google puts its answer. The body is deliberately not returned: it is a
+    /// megabyte of script that reads the same either way.
     static func get(_ url: URL) async -> (Int, String) {
         var r = URLRequest(url: url)
         // Google serves a different (JS-only) page to an unknown agent; a
@@ -221,9 +237,26 @@ struct RegisteredClientHarness {
         r.setValue("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 "
                    + "(KHTML, like Gecko) Version/18.0 Safari/605.1.15",
                    forHTTPHeaderField: "User-Agent")
-        guard let (data, resp) = try? await URLSession.shared.data(for: r),
-              let http = resp as? HTTPURLResponse else { return (0, "no response") }
-        return (http.statusCode, String(decoding: data, as: UTF8.self))
+        guard let (_, resp) = try? await URLSession.shared.data(for: r),
+              let http = resp as? HTTPURLResponse else { return (0, "") }
+        return (http.statusCode, http.url?.absoluteString ?? "")
+    }
+
+    /// Where a request LANDED, named rather than quoted — the raw url carries
+    /// session identifiers and, on the error path, an encoded blob.
+    static func landing(_ finalURL: String) -> String {
+        if finalURL.isEmpty { return "<no response>" }
+        if let e = authErrorText(finalURL) {
+            for marker in ["invalid_client", "redirect_uri_mismatch", "invalid_request",
+                           "access_denied", "deleted_client", "admin_policy_enforced"]
+            where e.contains(marker) { return "<error: \(marker)>" }
+            return "<error: unrecognised>"
+        }
+        if finalURL.contains("/signin/identifier") || finalURL.contains("/signin/v2/identifier") {
+            return "<the sign-in page>"
+        }
+        if finalURL.contains("/signin/oauth/consent") { return "<the consent page>" }
+        return "<no error parameter>"
     }
 
     static func token(clientID: String, redirect: String) async -> String {

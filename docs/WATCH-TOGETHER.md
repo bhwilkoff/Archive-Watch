@@ -1724,6 +1724,50 @@ file the harnesses compile may depend only on Foundation. This is §6.2n's rule
 again — a harness's file list is a silent second copy of the module's
 dependency graph — and it now bites in both directions.
 
+**Correction, same day — TWITCH IS DONE, and the checks above were weaker than
+they read.** Two things, both found by looking rather than assuming:
+
+1. **Twitch registered.** The owner cleared the 2FA gate and the application
+   was created — "Archive Watch Studio", public client, Broadcaster Suite. Its
+   id came from the console URL (a machine read) with the rendered field
+   agreeing, and §8.9 now asserts BOTH platforms: Twitch's device endpoint
+   answers **HTTP 200 with a real `device_code`** and accepts the
+   `channel:read:stream_key` scope. The device flow's first call works end to
+   end against the real registration.
+
+   Getting there cost four submissions that appeared to do nothing, because
+   **`dev.twitch.tv`'s Applications page silently renders an EMPTY TABLE when
+   it fails to load** — its own console says `first page loaded failsafe was
+   triggered for page DevAppsListPage`, which was visible and which I read as
+   unrelated noise. The app had in fact been created on an earlier attempt;
+   "the list is empty" and "the list could not load" look identical. The truth
+   only surfaced when a resubmission was refused with *"client name already
+   exists"*. **An empty list is not evidence of absence unless the list
+   loaded.**
+
+2. **Both YouTube controls above were passing for the wrong reason.** They sent
+   `code_challenge=CHALLENGE` — a literal that is not valid base64url — and
+   Google validates the challenge BEFORE it looks at the client id or the
+   redirect. All three cases were failing identically with "Code Challenge must
+   be base64 encoded", and the assertion accepted them because the response
+   body contains the substring "error"; both the success and failure pages are
+   ~1 MB of script and both do. The controls could not have failed.
+
+   Re-probed with RFC 7636's own published challenge, the discrimination is
+   sharp and lives in the FINAL URL, never in the HTML — Google states the
+   reason in a base64url `authError` parameter:
+
+       real client + real redirect   -> /v3/signin/identifier      the sign-in page
+       unregistered client id        -> /signin/oauth/error        invalid_client
+       redirect the client omits     -> /signin/oauth/error        redirect_uri_mismatch
+
+   The third line is the one worth having: it proves the registration carries
+   our bundle id, which is the single thing no client id string can tell you.
+   The harness now asserts those three landings by name. **A control written in
+   the same breath as the rule "run the control that should obviously produce
+   the opposite verdict" still has to be checked against that rule** — this one
+   was written this morning, quoting it.
+
 **And an instrument that lied by not running at all.** Two `xcodebuild`
 invocations wrapped in `timeout 540` returned nothing and were read as "no
 errors". `timeout` is not on macOS; the shell exited 127 and the build never
