@@ -910,17 +910,51 @@ picks up rather than a call from the UI thread; and `filmSurface` is created
 **once** rather than by a `get()` that wraps the texture afresh on every read,
 which would hand the player a different object each time and leak the rest.
 
-**A cost this exposes, stated plainly: the dongle cannot hold 30 fps.**
-Rendering twice costs roughly twice, and the readout showed **11 fps at
-43.5 ms per frame** against a 33.3 ms budget on a Google TV dongle — over
-budget, and the first Android number that is. The Apple floor renders the same
-program in 10.70 ms. Whether this is the dongle or the dual pass is not yet
-separated; a phone measurement is the next thing that would say, and the
-honest position until then is that the feature is proved on this hardware and
-not yet fast enough on it.
+**A cost this exposes: the dongle cannot hold 30 fps.** The readout showed
+**11 fps at 43.5 ms per frame** against a 33.3 ms budget — over budget, and
+the first Android number that is. Whether that was the dongle or the dual
+pass is answered in §6.2l below, and the guess in this paragraph's first
+draft ("rendering twice costs roughly twice") was wrong.
+
+### §6.2l — The second pass is cheap; the dongle is slow (2026-09-17)
+
+The question §6.2k left open, answered on the hardware that raised it — the
+same device, the same film, the same program, run with and without a display
+surface. A controlled experiment beats a correlation (Decision 075), and this
+one needed no second device.
+
+```
+encoder-only      37.4 / 37.5   mean 37.4 ms
+encoder+display   53.0 / 29.7   mean 41.4 ms
+second pass       +3.9 ms
+```
+
+**The dual pass is not the problem. The dongle is.** A SINGLE pass already
+costs 37.4 ms against a 33.3 ms budget, so this device could not hold 30 fps
+even drawing once. The Apple floor renders the whole program in 10.70 ms.
+
+**And the +3.9 ms should not be read as precise**: the two-pass runs were
+53.0 and 29.7 ms, a spread far wider than the delta itself, while the
+one-pass runs agreed to 0.1 ms. The honest statement is that the second pass
+is SMALL — smaller than the run-to-run variance — and nothing more.
+
+**The first version of this measurement said the opposite**, and the mistake
+is worth more than the number. It ran one-pass then two-pass, on the reasoning
+that putting the cheaper case first would avoid flattering it. It did the
+opposite: the cold run absorbed the warm-up and the result was "encoder-only
+57.1 ms, encoder+display 40.3 ms" — the two-pass case apparently **faster**,
+which is not a finding but an ordering artifact. A result that contradicts
+physics is a result about the instrument. Warm-up is a variable like any
+other: the test now discards a first run and interleaves the rest.
+
+**What this does NOT license.** It does not say the Studio is fast enough on
+Android — it says the bottleneck is this dongle's GPU and decoder, not the
+architecture. A phone is the measurement that would settle whether the feature
+ships well on Android, and there is still no phone on this bench.
 
 **Still ahead on Android**: a real camera, the phone-screen verification of
-the Detail entry, and the fps question above.
+the Detail entry, and a phone-class render measurement — all three wanting the
+same Pixel.
 
 ## §7 — Phases
 
