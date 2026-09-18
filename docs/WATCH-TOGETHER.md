@@ -491,6 +491,52 @@ verdict, run the control that should obviously produce the opposite one. The
 truncated known-good stream took two minutes and would have saved most of a
 session.
 
+### §6.2b — The Android encode path, on real hardware (2026-09-17)
+
+`StudioVideoEncoder.kt` + `StudioGl.kt`: MediaCodec H.264 configured with an
+**input Surface**, and an EGL context whose surface IS that input surface. The
+program is drawn by GLES and the GPU hands the result straight to the encoder
+— **no readback**, which is the place §6.2 says Android is cheaper than Apple.
+
+**Proved on a Google TV (API 34), end to end, and checked against the SERVER'S
+OWN RECORDING** rather than our own opinion of it (Decision 127):
+
+```
+[path live/androidencode] stream is available and online, 1 track (H264)
+[path live/androidencode] [recorder] recording 1 track (H264)
+
+ffprobe: codec_name=h264  width=1280  height=720
+centre pixel RGB = (2, 87, 160) -> normalised (0.008, 0.341, 0.627)
+```
+
+**The green channel is the proof.** The GLES clear used green = **0.35**
+exactly, and the recorded frame decodes to **0.341** — the difference is
+RGB→YUV420 conversion and H.264 quantisation. A black frame would have
+published just as happily, and that is the failure this catches: a wrong EGL
+config or a missing presentation time produces a stream that connects, is
+accepted, identifies its track, and carries nothing.
+
+**Three Android-specific traps, written down because each is silent:**
+
+1. **`EGL_RECORDABLE_ANDROID` (0x3142)** must be in the config attributes, or
+   the driver may pick a config the encoder cannot consume — a black stream
+   rather than an error.
+2. **MediaCodec emits Annex-B; RTMP wants AVCC.** Start codes must become
+   4-byte big-endian lengths. A server fed Annex-B accepts the publish and
+   never identifies the track, which looks exactly like a network fault.
+3. **The frame's timestamp comes from `eglPresentationTimeANDROID`**, in
+   NANOSECONDS — the only place that unit appears in this pipeline. A frame
+   swapped without one is encoded at time zero.
+
+And the avcC record is **built by hand** from csd-0/csd-1, which arrive in the
+output format rather than in a buffer; Apple hands it over ready-made. The
+test asserts the two bytes a malformed record gets wrong —
+`configurationVersion = 1` and `lengthSizeMinusOne = 3` (0xFF).
+
+**Still ahead on Android**: the film itself (ExoPlayer to a `SurfaceTexture`,
+composited by the same GLES program), the camera tile, and `TeeAudioProcessor`
+for film audio. The transport and the encoder under them are now proved.
+
 ## §7 — Phases
 
 | Phase | Deliverable | Gate |
