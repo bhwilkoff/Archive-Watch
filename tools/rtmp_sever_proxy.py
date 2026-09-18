@@ -59,6 +59,20 @@ def serve(client):
     with index_lock:
         conn_index += 1
         index = conn_index
+    # AW_PROXY_STAY_DOWN=1: sever connection 1 and then REFUSE every later
+    # one, so §6.6's reconnect attempts all fail and its 60-second deadline
+    # actually expires. Without this the deadline branch is unreachable —
+    # every reconnect test so far succeeded on the first attempt, so the
+    # give-up path (which ENDS the show) had never run.
+    #
+    # Accept-then-close rather than not listening: a refused connection fails
+    # fast, so the backoff schedule runs its real shape (1, 2, 4, 8, 15, 15…)
+    # instead of being paced by connect timeouts.
+    if index > 1 and os.environ.get("AW_PROXY_STAY_DOWN") == "1":
+        print(f"conn {index}: REFUSED (stay-down)", flush=True)
+        try: client.close()
+        except Exception: pass
+        return
     try:
         upstream = socket.create_connection(("127.0.0.1", target_port))
     except Exception as e:

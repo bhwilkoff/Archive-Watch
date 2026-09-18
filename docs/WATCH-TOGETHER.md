@@ -1240,6 +1240,33 @@ Pixel.
 
 ## §9 — Measurements (filled in as they are taken)
 
+### §9.ii §6.6's EXPIRED DEADLINE, finally exercised — and the backoff schedule read off a real run (2026-09-17)
+
+Every reconnect test until now succeeded **on the first attempt**, so two
+things had never run: the 60-second give-up, and the `RECONNECTING` state
+itself (recovery was always instant).
+`AW_PROXY_STAY_DOWN=1` makes `tools/rtmp_sever_proxy.py` sever connection 1 and
+then REFUSE every later one — accept-then-close, so attempts fail fast and the
+backoff runs its real shape instead of being paced by connect timeouts.
+
+On the macOS product path:
+
+| | |
+|---|---|
+| LIVE | 19 one-second samples, `reconnects=0` |
+| **RECONNECTING** | attempts **1→7**, dwelling **1, 2, 4, 8, 15, 15, 15 s** |
+| proxy | `conn 2`–`conn 8`: REFUSED (stay-down) |
+| outcome | **"The broadcast ended — the connection could not be restored within 60 seconds."** |
+
+The dwell times are §6.6's schedule read off a real run rather than asserted
+from the source, and they sum to **exactly 60 seconds** — the deadline landing
+where the rule says it should, with `min(back, remaining)` keeping the last
+15-second wait from overshooting it.
+
+So the whole of §6.6 is now observed on a product path: the rebuild (§9.ee),
+the RECONNECTING state, the bounded schedule, the give-up, and the sentence a
+host reads afterwards (§9.hh).
+
 ### §9.hh A show that ends itself now says why on every Apple surface — and the title that disagreed with it (2026-09-17)
 
 §9.gg recorded that `endedReason` was written by the engine and read by
