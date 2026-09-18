@@ -42,39 +42,51 @@ def phase(now):
 
 
 def pump_throttled(src, dst):
-    """Client -> server, rate-limited during the throttled phase."""
+    """Client -> server, rate-limited BY THE READ.
+
+    Throttling the WRITE is the obvious mistake and it does not test anything:
+    a proxy that does `recv(65536)` at full speed and then dawdles on the
+    forward drains the client's socket into its own memory, so the client never
+    feels congestion. Measured 2026-09-17 against the macOS Studio: the server
+    saw the intended 400 kbps while the app reported `queued` near zero and
+    dropped NOTHING, because from its side the link was never slow.
+
+    Real back-pressure comes from NOT READING. The token bucket therefore sizes
+    each `recv`, and when there are no tokens this loop sleeps WITHOUT reading —
+    the client's send buffer fills, and on Apple that is exactly what defers
+    `NWConnection`'s contentProcessed and makes queuedBytes climb.
+    """
     tokens = 0.0
     last = time.time()
     announced = None
     try:
         while True:
-            b = src.recv(65536)
-            if not b:
-                break
             now = time.time()
             ph = phase(now)
             if ph != announced:
                 print(f"phase: {ph}", flush=True)
                 announced = ph
             if ph == "throttled":
-                remaining = memoryview(b)
-                while len(remaining):
-                    now = time.time()
-                    tokens += (now - last) * rate_bps / 8.0
-                    last = now
-                    # Never let the bucket bank the whole outage: a burst on
-                    # re-open would hide the very congestion being measured.
-                    tokens = min(tokens, rate_bps / 8.0 * 0.25)
-                    if tokens < 1:
-                        time.sleep(0.02)
-                        continue
-                    n = min(int(tokens), len(remaining))
-                    dst.sendall(remaining[:n])
-                    remaining = remaining[n:]
-                    tokens -= n
+                tokens += (now - last) * rate_bps / 8.0
+                last = now
+                # Never bank the whole outage: a burst on re-open would hide
+                # the congestion being measured.
+                tokens = min(tokens, rate_bps / 8.0 * 0.25)
+                if tokens < 1500:
+                    time.sleep(0.02)      # deliberately NOT reading
+                    continue
+                want = min(int(tokens), 65536)
+                b = src.recv(want)
+                if not b:
+                    break
+                tokens -= len(b)
+                dst.sendall(b)
             else:
                 last = time.time()
                 tokens = 0.0
+                b = src.recv(65536)
+                if not b:
+                    break
                 dst.sendall(b)
     except Exception:
         pass

@@ -182,6 +182,26 @@ public final class StudioSession {
                 self.filmFramesPerSecond = max(0, h.filmFramesPulled - lastFilmFrames)
                 lastFilmFrames = h.filmFramesPulled
                 self.health = h
+
+                // One machine-readable line a second, DEBUG only and only when
+                // a diagnostic destination is set.
+                //
+                // This exists so a run's evidence can be READ rather than
+                // photographed. A full-screen capture on the owner's own Mac
+                // takes in whatever else they have open, which is the wrong
+                // instrument for a broadcast test; and the numbers §6.4 turns
+                // on — the send queue, video dropped, audio sent — are not on
+                // the panel at all. Server-side evidence answers "did it
+                // arrive"; this answers "what did the app decide".
+                #if DEBUG
+                if ProcessInfo.processInfo.environment["AW_STUDIO_DEST"] != nil {
+                    let p = h.publisher
+                    print("[AWSTUDIOHEALTH] state=\(h.showState.label) fps=\(h.encodedFramesPerSecond)"
+                          + " queued=\(p.queuedBytes) vsent=\(p.videoFramesSent) vdrop=\(p.videoFramesDropped)"
+                          + " asent=\(p.audioFramesSent) reconnects=\(p.reconnects)"
+                          + " thermal=\(h.thermalState) audio=\(h.audioSessionState)")
+                }
+                #endif
             }
         }
     }

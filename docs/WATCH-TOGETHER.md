@@ -1240,6 +1240,47 @@ Pixel.
 
 ## §9 — Measurements (filled in as they are taken)
 
+### §9.ff §6.4 on the macOS PRODUCT path — after the throttle was fixed to withhold READS (2026-09-17)
+
+§6.4 had been proved on Apple only from the standalone harness, never through
+the shipping app. Driving the Mac's own path exposed a defect in the
+INSTRUMENT first.
+
+**The first run looked like a clean pass and proved nothing.** The server saw
+the intended ~400 kbps, and the app reported `queued` near zero, `vdrop=0`
+throughout, and 30 fps unbroken. Both were true, because
+`tools/rtmp_throttle_proxy.py` did `recv(65536)` from the client at **full
+speed** and throttled only the FORWARD to the server. The excess buffered in
+Python, so from the app's side the link was never slow: it was a server-side
+rate limit, not client-side congestion.
+
+**Real back-pressure comes from NOT READING.** The token bucket now sizes each
+`recv`, and with no tokens the loop sleeps *without reading* — the client's send
+buffer fills, which is exactly what defers `NWConnection`'s `contentProcessed`
+and makes `queuedBytes` climb. Re-run against the shipping Mac app, 6 Mbps
+program throttled to 400 kbps, cap 1.15 MB:
+
+| phase | queued | video sent | video dropped | audio sent |
+|---|---|---|---|---|
+| open | ~0 | +30/s | **0** | +43/s |
+| throttled | pinned **1.08–1.40 MB** | **frozen** (486 → 508 over 18 s) | **0 → 492** | **+43/s throughout** |
+
+So the picture yields and the voice does not, on the product path rather than
+in a harness.
+
+**And the evidence is a LOG, not a screenshot.** `StudioSession`'s pump now
+prints one machine-readable health line a second in DEBUG when a diagnostic
+destination is set — state, fps, queued, video sent/dropped, audio sent,
+reconnects, thermal, audio session. It exists because the numbers §6.4 turns on
+are not on the panel at all, and because a full-screen capture on the owner's
+own Mac takes in whatever else they have open. Server-side evidence answers
+"did it arrive"; this answers "what did the app decide".
+
+**Android re-checked with the corrected instrument** and the tick-52 result
+stands rather than being an artifact: cap 474 kB, peak queued 478 kB, 0 drops
+before / 64 during, **audio 420 of 420 delivered**. The old proxy's incidental
+read-blocking had been enough there; it was not enough at 6 Mbps.
+
 ### §9.ee §6.6 on the macOS PRODUCT path (2026-09-17)
 
 The Mac is the only Apple device where a real publish can be driven end to end
