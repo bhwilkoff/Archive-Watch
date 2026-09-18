@@ -30,6 +30,17 @@ struct GoLiveSheetMac: View {
         self.film = film
         self.onGoLive = onGoLive
         _title = State(initialValue: Self.suggestedTitle(for: film))
+        // AW_GOLIVE_CUSTOM=<rtmp url> pre-seeds the CUSTOM destination, so the
+        // whole go-live path can be driven end to end without the owner's
+        // client ids: the sheet's own canCommit, commit and destination
+        // resolution all still run, and only the typing is skipped. The two
+        // platform branches cannot be exercised until those ids exist (§9.mmm),
+        // and this deliberately does not pretend otherwise.
+        if let u = ProcessInfo.processInfo.environment["AW_GOLIVE_CUSTOM"], !u.isEmpty {
+            _platform = State(initialValue: .custom)
+            _customURL = State(initialValue: u)
+            _customKey = State(initialValue: "macbench")
+        }
     }
 
     private var refusal: String? {
