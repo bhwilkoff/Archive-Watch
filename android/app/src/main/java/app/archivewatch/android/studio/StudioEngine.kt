@@ -59,6 +59,9 @@ data class StudioHealth(
     val showState: String get() = when {
         !isRunning -> "OFF"
         filmFramesPerSecond > 0 && encodedFramesPerSecond == 0 -> "STOPPED"
+        // §6.6 outranks OFFLINE: while a rebuild is in flight the link is down
+        // but the show is not over, and those are different sentences.
+        publisher.isReconnecting -> "RECONNECTING"
         publisher.lastError != null -> "OFFLINE"
         !hasDestination -> "NOT SENDING"
         publisher.state == "publishing" -> "LIVE"
@@ -68,6 +71,8 @@ data class StudioHealth(
     val problem: String? get() = when (showState) {
         "STOPPED" -> "The picture has stopped being encoded — your audience is not receiving the show."
         "NOT SENDING" -> "The show is being made but not sent anywhere — no destination is set."
+        "RECONNECTING" ->
+            "The connection dropped — getting it back. Your audience sees a pause, not an ending."
         "OFFLINE" -> publisher.lastError
         else -> if (isRunning && filmFramesPerSecond == 0)
             "The film has stopped — your audience sees a still picture." else null
@@ -125,6 +130,63 @@ class StudioEngine(
     @Volatile private var endedBecause: String? = null
     @Volatile private var lastThermal = -1
 
+    // ---- §6.6 recovering a severed link
+    private var supervisor: Job? = null
+    @Volatile private var recovering = false
+
+    /** Polls once a second for a link that has gone, and rebuilds it. */
+    private suspend fun superviseTheConnection() {
+        while (running.get()) {
+            kotlinx.coroutines.delay(1000)
+            recoverIfSevered()
+        }
+    }
+
+    /**
+     * One recovery episode: attempt, back off, attempt, until the link is back
+     * or the deadline passes.
+     *
+     * Sequential by construction — Twitch permits a single active session per
+     * key and a new connection displaces the old, so overlapping attempts
+     * would kick each other off.
+     */
+    private suspend fun recoverIfSevered() {
+        val p = publisher ?: return
+        if (!running.get() || recovering || !p.needsReconnect) return
+        recovering = true
+        try {
+            val giveUpAt = System.currentTimeMillis() + (RECONNECT_DEADLINE_SECONDS * 1000).toLong()
+            var attempt = 0
+            while (running.get() && System.currentTimeMillis() < giveUpAt) {
+                attempt += 1
+                try {
+                    p.reconnect()
+                    // The new session must OPEN on a keyframe, or a rejoining
+                    // viewer and a recording server hold nothing decodable
+                    // while the stream reads as live (§6.2d).
+                    encoder?.requestKeyframe()
+                    return
+                } catch (_: Exception) {
+                    val back = RECONNECT_BACKOFF_SECONDS[
+                        minOf(attempt - 1, RECONNECT_BACKOFF_SECONDS.size - 1)]
+                    val remaining = giveUpAt - System.currentTimeMillis()
+                    if (remaining <= 0) break
+                    // Never sleep PAST the deadline, or a 15 s backoff decides
+                    // when we give up instead of the rule.
+                    kotlinx.coroutines.delay(minOf(back * 1000L, remaining))
+                }
+            }
+            // The window has closed. End the show rather than hold a readout
+            // saying RECONNECTING over a stream the platform finished minutes
+            // ago.
+            endedBecause = "the connection could not be restored within " +
+                "${RECONNECT_DEADLINE_SECONDS.toInt()} seconds"
+            running.set(false)
+        } finally {
+            recovering = false
+        }
+    }
+
     /** The one thread the GL context lives on — see the header. */
     private val renderExecutor = Executors.newSingleThreadExecutor { r ->
         Thread(r, "aw-studio-render").apply { priority = Thread.NORM_PRIORITY + 1 }
@@ -146,6 +208,16 @@ class StudioEngine(
     ) {
         if (!running.compareAndSet(false, true)) return
         loop = scope.launch(renderDispatcher) { runLoop(destination, streamKey, audioTap, overlay) }
+        // §6.6 on its OWN coroutine, and NOT on `renderDispatcher`.
+        //
+        // The backoff sleeps for up to fifteen seconds at a time, and the
+        // render dispatcher is a single thread that the whole composite,
+        // encode and display path runs on — recovering there would freeze the
+        // picture for exactly as long as it waited. The Swift side keeps them
+        // apart for the same reason.
+        if (destination != null) {
+            supervisor = scope.launch { superviseTheConnection() }
+        }
     }
 
     private suspend fun runLoop(
@@ -363,6 +435,7 @@ class StudioEngine(
         // from the loop instead would deadlock on the join below.
         val wasRunning = running.getAndSet(false)
         if (!wasRunning && loop == null) return
+        supervisor?.cancel(); supervisor = null
         loop?.join(); loop = null
         publisher?.close(); publisher = null
         aac?.stop(); aac = null
@@ -385,6 +458,16 @@ class StudioEngine(
         const val THERMAL_CRITICAL = 4
         /** §6.5, the same fraction the Swift engine uses. */
         const val SEVERE_BITRATE_FRACTION = 0.6
+
+        /**
+         * §6.6's schedule. The same numbers as Swift's
+         * `RTMPReconnectPolicy`, matched to the ingests' own grace windows:
+         * Mux's reconnect window defaults to 60 s at standard latency and
+         * YouTube holds a broadcast open roughly a minute or two, so past the
+         * deadline there is usually nothing left to reconnect TO.
+         */
+        val RECONNECT_BACKOFF_SECONDS = listOf(1L, 2L, 4L, 8L, 15L)
+        const val RECONNECT_DEADLINE_SECONDS = 60.0
 
         fun steppedBitrate(configured: Int) = (configured * SEVERE_BITRATE_FRACTION).toInt()
 

@@ -1240,6 +1240,53 @@ Pixel.
 
 ## §9 — Measurements (filled in as they are taken)
 
+### §6.2p §6.6 ported to Android — the last unported rule (2026-09-17)
+
+A dropped connection used to end an Android broadcast silently, exactly as it
+did on Apple until §6.6 was written: the readout said OFFLINE and nothing
+acted.
+
+Now `RtmpPublisher.reconnect()` rebuilds the same publish, and
+`StudioEngine.superviseTheConnection()` drives it on the same schedule as
+Swift's — backoff 1/2/4/8/15 s, a 60-second deadline, one attempt at a time
+(Twitch permits a single active session per key and a new connection displaces
+the old), then `END_SHOW` with a reason rather than a readout that says
+RECONNECTING over a stream the platform finished minutes ago. `RECONNECTING`
+outranks `OFFLINE` in `showState`, because a rebuild in flight is a pause and
+not an ending.
+
+**The supervisor is NOT on `renderDispatcher`**, and that is the Android-only
+hazard: the backoff sleeps up to fifteen seconds at a time, and the render
+dispatcher is the single thread carrying the composite, the encode and the
+host's display. Recovering there would freeze the picture for exactly as long
+as it waited.
+
+**And one thing Apple had to decide, Android gets for free.** §6.6 keeps the
+timestamp base deliberately on the Swift side, because audio and video share it
+and re-basing is the §6.2h A/V-skew bug re-invited. Here the timestamps come
+from the ENCODERS, so they continue across the gap on their own — there is
+nothing to preserve and nothing to get wrong.
+
+Proved against a real `mediamtx` through `tools/rtmp_sever_proxy.py`, with the
+assertion that matters being the SERVER's — does it call the path ready
+*again*?
+
+| | control (no reconnect) | §6.6 |
+|---|---|---|
+| server saw the stream again | **false** | **true** |
+| publisher state | `failed` | `publishing` |
+| reconnects | 0 | **1** |
+
+The control is the point: without it the test would pass on a server that never
+noticed the cut. Full Kotlin suite after the change: **42 passed, 0 skipped,
+0 failed** across eight suites — the transport survived the reset, including
+the case that asks the server rather than trusting our own state.
+
+**All three rules are now on Android.** What is still unproved there is the
+WIRING on a device for §6.5 and §6.6: the decisions and the transport are
+tested, nothing has yet driven a real `PowerManager` or a real severed Wi-Fi
+link into a running engine on the Google TV.
+
 ### §6.2o §6.5 ported to Android (2026-09-17)
 
 `PowerManager.getCurrentThermalStatus()` (API 29, which is exactly the google

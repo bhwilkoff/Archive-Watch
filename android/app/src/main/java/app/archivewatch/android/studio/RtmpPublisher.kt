@@ -51,6 +51,10 @@ data class RtmpHealth(
     var audioFramesSent: Long = 0,
     /** Bytes queued for the writer thread and not yet written (§6.4). */
     var queuedBytes: Long = 0,
+    /** Times §6.6 rebuilt a severed connection. Cumulative. */
+    var reconnects: Int = 0,
+    /** True between losing the link and either regaining it or giving up. */
+    var isReconnecting: Boolean = false,
     var lastError: String? = null,
 )
 
@@ -121,6 +125,13 @@ class RtmpPublisher {
 
     private var app: String = ""
     private var streamKey: String = ""
+    /**
+     * Remembered so §6.6 can rebuild the SAME publish. This does not weaken
+     * §5's "never store a key beyond the session": the publisher instance IS
+     * the session, and `close()` clears both.
+     */
+    private var lastServer: String? = null
+    private var lastDeclareAudio = true
     private var tcUrl: String = ""
     private var config: RtmpStreamConfig? = null
 
@@ -170,6 +181,62 @@ class RtmpPublisher {
         maxQueuedBytes = maxOf(150_000L, (bytesPerSecond * QUEUE_LATENCY_BUDGET_SECONDS).toLong())
     }
 
+    /**
+     * Everything belonging to ONE connection, put back as a fresh publisher
+     * would have it — and nothing belonging to the SHOW.
+     *
+     * §6.6. Before reconnect existed this ran once, so the field initialisers
+     * were the whole story. On a second connect each of these is a live bug,
+     * and the first is the one that would have failed on YouTube alone:
+     * `transactionId` back to 0 so the new `connect` is transaction **1**
+     * (YouTube hardcodes it; mediamtx and Twitch echo whatever they are sent,
+     * so a reconnect that forgot it would pass every test we can run).
+     *
+     * NOT reset, and unlike Apple it needs no care: the timestamps come from
+     * the ENCODERS, so they continue across the gap on their own — which is
+     * the behaviour §6.6 had to choose deliberately on the Swift side.
+     */
+    private fun resetForNewConnection() {
+        writing = false
+        writer?.interrupt()
+        writer = null
+        outbound.clear()
+        queued.set(0)
+        health.queuedBytes = 0
+        transactionId = 0
+        outChunkSize = 128
+        inChunkSize = 128
+        streamId = 1
+        sentSequenceHeaders = false
+        droppingUntilKeyframe = true
+        health.connectAcknowledged = false
+        health.lastError = null
+    }
+
+    /**
+     * §6.6: rebuild the connection that was severed, to the same destination
+     * with the same key and config. ONE attempt — the backoff and the deadline
+     * belong to the engine, which is what the host sees.
+     */
+    fun reconnect(timeoutMs: Int = 10_000) {
+        val server = lastServer ?: throw RtmpException("nothing to reconnect to")
+        val c = config ?: throw RtmpException("nothing to reconnect with")
+        try { socket?.close() } catch (_: Exception) {}
+        health.isReconnecting = true
+        health.reconnects += 1
+        try {
+            publish(server, streamKey, c, timeoutMs, lastDeclareAudio)
+            health.isReconnecting = false
+        } catch (e: Exception) {
+            health.isReconnecting = true
+            throw e
+        }
+    }
+
+    /** True when the link is gone and §6.6 should be rebuilding it. */
+    val needsReconnect: Boolean
+        get() = lastServer != null && (health.state == "failed" || health.state == "closed")
+
     private fun startWriter() {
         writing = true
         val t = Thread({
@@ -217,8 +284,11 @@ class RtmpPublisher {
         // tcUrl WITHOUT a default port — YouTube ignored one carrying `:443`.
         val portSuffix = if (uri.port > 0) ":$port" else ""
 
+        resetForNewConnection()
         app = appPath
         streamKey = key
+        lastServer = server
+        lastDeclareAudio = declareAudio
         tcUrl = "$scheme://$host$portSuffix/$app"
         this.config = config
         this.announceAudio = declareAudio
@@ -432,6 +502,11 @@ class RtmpPublisher {
         // of the broadcast. Bounded, because a stop must not hang on a link
         // that has already gone.
         flush(500)
+        // Cleared BEFORE the state change: `needsReconnect` reads both, and an
+        // app-ordered close must never look like a severed link.
+        lastServer = null
+        streamKey = ""
+        health.isReconnecting = false
         writing = false
         writer?.interrupt()
         writer = null
