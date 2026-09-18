@@ -1618,6 +1618,57 @@ the audio path, the real ingest hosts with no credential, the overlay and
 go-live surfaces on the glass, the rights gate on device, and the platform
 clients. **→ `docs/watch-together-measurements.md`**
 
+### §9.nn Apple does NOT have Android's audio hole — but the Mac bench door muted the PROGRAM, and `-v error` hid the answer twice (2026-09-18)
+
+§9.mm found that every Android broadcast published with no audio track,
+because the tap was offered by film id at go-live and called from nowhere. The
+same question had to be asked of Apple, since Decision 127's A/V numbers came
+from the same kind of run.
+
+**Apple is clean, and for a structural reason.** `StudioEngine.attachFilm`
+attaches the film tap itself, in the same method that installs the video
+output — so a surface that gets the PICTURE has necessarily attempted the
+AUDIO. All three product surfaces call it (`StudioSession` on macOS,
+`StudioPlayerContainer_iOS`, `DetailView` on tvOS). Android's version asked a
+controller for the tap at go-live, which nothing did. **Proved, not read**: on
+the macOS product path mediamtx reported `tracks: [H264, MPEG-4 Audio]` with
+2,357 audio frames sent, and the recording decodes to 4,859,904 samples at
+**mean -41.8 dB, max -30.0 dB** over 55.1 s of *Dr. Mabuse* (1922).
+
+**The real defect was in the instrument, and it silenced the thing under
+test.** `StudioSession.muteFilmForHarness()` did two things under one name:
+
+    localPlayer?.isMuted = true                       // the ROOM
+    Task { await engine?.setAudio(filmMuted: true) }  // the PROGRAM
+
+The second takes the film fader to zero in the program mix
+(`fg = (filmMuted ? 0 : filmGain) * duckGain`). So **every broadcast the Mac
+bench door ever produced went out with the film silent**, and no Apple
+product-path audio had been measured through it — the door that exists to
+prove the program is right was quietly removing part of the program. The two
+are different things wearing one word: the owner's speakers are protected by
+the LOCAL player's mute, which is the one that drove a film to every HomePod
+for an hour (§9); the film fader is what the audience hears and is no business
+of a harness. Now `muteLocalMonitorForHarness()`, and it mutes the room only.
+
+**And the measurement lied twice on the way, the same way both times.**
+`ffmpeg -v error ... -af volumedetect` prints NOTHING: volumedetect writes its
+statistics at INFO level, so `-v error` suppresses exactly the lines being
+grepped for. That read as "the audio track decodes to zero samples", which was
+then confirmed by a second consumer doing the same thing, and briefly looked
+like a serious product defect — an AAC track declared but undecodable, which
+would have been Apple's parallel to §9.mm. Dropping `-v error` showed
+4.86 million samples and a normal level. **A silent instrument is not a
+negative result**; when a tool prints nothing, check its verbosity before
+believing the absence.
+
+Two smaller traps recorded with it: mediamtx's **fMP4 parts do not decode
+standalone** (audio failed on every one, on both platforms, while a direct
+RTMP capture of the same publisher decoded cleanly) — record `mpegts` when the
+audio is the thing being measured; and an RTSP pull with `-c copy` and no
+`-map` came back video-only, which is ffmpeg's stream selection, not a missing
+track.
+
 ### §9.mm The Android chat port, driven on a television — and the audio track no Android broadcast has ever carried (2026-09-18)
 
 `StudioChatTwitch.kt` had been written, compiled and marked **"never driven on

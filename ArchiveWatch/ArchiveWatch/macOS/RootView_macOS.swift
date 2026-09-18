@@ -105,11 +105,13 @@ struct RootView: View {
                 // until something clears is how a film was left playing for an
                 // hour on the owner's Apple TV and routed to every HomePod
                 // (WATCH-TOGETHER §9); this one ends itself and never makes a
-                // sound. AW_STUDIO_MAC_SECONDS overrides the 120 s default.
+                // sound IN THE ROOM — the PROGRAM keeps its audio, or this door
+                // could never measure any. AW_STUDIO_MAC_SECONDS overrides the
+                // 120 s default.
                 if env["AW_STUDIO_MAC"] == "1" {
                     if StudioSession.shared.arm(film: it) {
                         router.play(it)
-                        StudioSession.shared.muteFilmForHarness()
+                        StudioSession.shared.muteLocalMonitorForHarness()
                         let seconds = Int(env["AW_STUDIO_MAC_SECONDS"] ?? "") ?? 120
                         Task {
                             try? await Task.sleep(for: .seconds(seconds))

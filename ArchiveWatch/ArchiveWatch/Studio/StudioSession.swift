@@ -292,9 +292,18 @@ public final class StudioSession {
     /// mistake that left a film audible on the owner's Apple TV (§9).
     ///
     /// Not a product control — the panel's fader is.
-    public func muteFilmForHarness() {
+    /// Silences the ROOM, never the program.
+    ///
+    /// It used to do both: `setAudio(filmMuted: true)` takes the film fader in
+    /// the PROGRAM mix to zero (`StudioAudio` §465), so every broadcast this
+    /// door ever produced went out with the film silent, and no Apple
+    /// product-path audio had been measured through it. The two are different
+    /// things wearing one word — the owner's speakers are protected by the
+    /// LOCAL player's mute (that is the one that drove a film to every HomePod
+    /// for an hour, §9), while the film fader is what the audience hears and
+    /// is no business of a harness.
+    public func muteLocalMonitorForHarness() {
         localPlayer?.isMuted = true
-        Task { await engine?.setAudio(filmMuted: true) }
     }
 
     // MARK: Controls the panel drives
