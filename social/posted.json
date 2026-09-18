@@ -721,6 +721,18 @@
    "kind": "animation",
    "mediaId": null,
    "reviewer": null
+  },
+  {
+   "at": "2026-09-18T01:17:38.533584+00:00",
+   "id": "SherlockHolmesAndTheSecretWeapon1943",
+   "title": "Sherlock Holmes and the Secret Weapon",
+   "slot": "one-line",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mvqyptg4a22t",
+   "format": "video",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": null
   }
  ]
 }
