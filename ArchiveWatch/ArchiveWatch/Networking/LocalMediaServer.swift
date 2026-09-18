@@ -529,6 +529,31 @@ private final class ConnectionHandler: @unchecked Sendable {
                 }
                 chunks.append((r.lo, r.lo + d.count, d))
             }
+            // TEE THE AUDIO TO THE STUDIO (§9.mmmm). These bytes are already
+            // fetched — this route has to have them to mux the fragment the
+            // player is about to consume — so handing them over costs no extra
+            // request, arrives in playback order, and is paced by playback
+            // because it IS what is playing. No-op unless a show is running.
+            if FilmAudioBridge.shared.isAttached {
+                for ft in f.tracks {
+                    guard let ti = movie.tracks.firstIndex(where: { $0.id == ft.trackID }),
+                          movie.tracks[ti].handler == "soun" else { continue }
+                    let t = movie.tracks[ti]
+                    var acc = Data()
+                    for sIdx in ft.firstSample..<(ft.firstSample + ft.count) {
+                        let sm = t.samples[sIdx]
+                        for c in chunks where c.lo <= sm.offset && sm.offset + sm.size <= c.hi {
+                            acc.append(c.data.subdata(
+                                in: (sm.offset - c.lo)..<(sm.offset - c.lo + sm.size)))
+                            break
+                        }
+                    }
+                    if !acc.isEmpty {
+                        FilmAudioBridge.shared.deliver(acc, frames: ft.count,
+                                                       firstSample: ft.firstSample)
+                    }
+                }
+            }
             guard let built = try? MP4Fragmenter.fragment(movie, f, media: { off, len in
                 for c in chunks where c.lo <= off && off + len <= c.hi {
                     return c.data.subdata(in: (off - c.lo)..<(off - c.lo + len))

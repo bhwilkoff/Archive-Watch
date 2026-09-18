@@ -1618,6 +1618,47 @@ the audio path, the real ingest hosts with no credential, the overlay and
 go-live surfaces on the glass, the rights gate on device, and the platform
 clients. **→ `docs/watch-together-measurements.md`**
 
+### §9.nnnn The tee RUNS — and it is paced by BUFFERING, not by playback (2026-09-18)
+
+§9.mmmm's design, built and measured on an Apple TV. `FilmAudioBridge` is
+attached when the tap fails and the film has sound, and `serveHLS`'s segment
+route hands over the audio sample bytes it has already fetched:
+
+    AWAUDIO    filmHasAudio=false playedTracks=0 sourceHasAudio=true path=m3u8
+    AWAUDIOTEE frames=338    bytes=94232
+    AWAUDIOTEE frames=2719   bytes=757760
+    AWAUDIOTEE frames=4689   bytes=1306701
+    AWAUDIOTEE frames=9153   bytes=2550510
+    AWAUDIOTEE frames=16296  bytes=4540677
+    AWAUDIOTEE frames=16296  ... (unchanged for the next four samples)
+
+**It works, at zero extra network cost**, and the counters read zero with no
+sink attached, which is the control.
+
+**AND IT CORRECTS §9.mmmm.** That entry said the audio would arrive "in playback
+order, paced by playback, because it IS the audio being played". The first half
+is true. **The second half is wrong**, and the measurement says so plainly:
+16,296 AAC frames is 16,296 × 1024 / 44,100 ≈ **378 seconds of audio**, and it
+arrived in about ninety. Then the counter sat still for a minute. The player
+fetches segments in BURSTS far ahead of the playhead and stops when its buffer
+is full, so the tee is paced by BUFFERING, not by playback.
+
+The consequence matters more than the correction: a consumer that fed the mixer
+as bytes arrived would push six minutes of sound into a live show in ninety
+seconds and then starve for a minute. That is the §9.qq failure shape — two
+clocks, one of them accidental — and it would have been very hard to see once
+decoded audio was involved, because everything would have looked busy.
+
+**So the bridge must be a time-indexed buffer, not a pipe**, and it now carries
+the audio track's `firstSample` index with every delivery. That makes each
+fragment addressable by FILM time, so the decoder can hold frames and release
+what the show clock asks for. The engine keeps the clock: the tee supplies
+position, never timestamps.
+
+This is the third design and the first that measures well, and it was the
+measurement — not the reasoning — that found the flaw in it. The reasoning had
+already convinced itself.
+
 ### §9.mmmm The whole-file build is the wrong SHAPE — the server already holds the audio it plays (2026-09-18)
 
 The parallelised rendition was run on the Apple TV. It **started and did not

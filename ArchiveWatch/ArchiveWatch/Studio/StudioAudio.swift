@@ -100,6 +100,72 @@ final class AudioRing: @unchecked Sendable {
 
 /// Taps the film's decoded audio off the player item's audio mix and writes it
 /// into a ring, downmixed to mono-per-channel-pair at the program rate.
+/// The film's COMPRESSED audio, teed out of the path that is already fetching it.
+///
+/// WHY THIS EXISTS (WATCH-TOGETHER §9.jjjj–§9.mmmm). On tvOS the film plays as
+/// HLS (Decision 106), an HLS asset vends no `AVAssetTrack`s, and so
+/// `FilmAudioTap`'s `AVMutableAudioMix` has nothing to attach to: every
+/// television broadcast went out silent. Two fixes were built and rejected — a
+/// second `AVAssetReader` over the source (a second full download) and a
+/// whole-file audio rendition (measured: ~2,200 requests, did not finish in
+/// 250 s, and delays go-live by minutes even if it did).
+///
+/// This is the third and it costs nothing: `LocalMediaServer`'s HLS segment
+/// route ALREADY fetches the audio sample bytes for every fragment, because it
+/// must, to mux the fragment the player is about to consume. So the audio is
+/// already in hand, already in playback order, already paced by playback, and
+/// already carrying Decision 031/034's pinning and failover. It only needed
+/// handing over.
+///
+/// It delivers COMPRESSED frames. The mixer wants PCM, so a decoder sits
+/// between this and `StudioAudioMixer` — and per §9.qq's Android lesson the
+/// decoder supplies SAMPLES and never timestamps: the engine's single show
+/// clock stamps both tracks.
+final class FilmAudioBridge: @unchecked Sendable {
+    static let shared = FilmAudioBridge()
+
+    private let lock = NSLock()
+    private var sink: ((Data, Int, Int) -> Void)?
+
+    /// Counters, for the diagnostic that proves the tee actually runs. Read
+    /// without the sink attached they stay zero, which is the control.
+    private(set) var framesTeed = 0
+    private(set) var bytesTeed = 0
+
+    /// Nil unregisters. The Studio owns the sink for the life of a show.
+    /// The sink receives `(frames, frameCount, firstSampleIndex)`.
+    func setSink(_ s: ((Data, Int, Int) -> Void)?) {
+        lock.lock(); sink = s
+        if s == nil { framesTeed = 0; bytesTeed = 0 }
+        lock.unlock()
+    }
+
+    var isAttached: Bool { lock.lock(); defer { lock.unlock() }; return sink != nil }
+
+    /// Called by the segment route with one fragment's worth of audio frames.
+    ///
+    /// `firstSample` is the audio track's sample index this fragment starts at,
+    /// and it is the whole reason this signature carries a third argument.
+    /// MEASURED on an Apple TV (§9.nnnn): the player fetches segments in
+    /// BURSTS far ahead of the playhead — 16,296 AAC frames (~378 s of audio)
+    /// arrived in about 90 s, and then the counter sat still for a minute while
+    /// the buffer drained. So the tee delivers in playback ORDER but nowhere
+    /// near playback RATE, and a consumer that fed the mixer as bytes arrived
+    /// would push six minutes of sound into a live show and then starve.
+    ///
+    /// The index makes the frames addressable by FILM TIME, so the decoder can
+    /// hold them and release what the show clock actually asks for. Per §9.qq
+    /// the engine still owns the clock: this supplies position, never
+    /// timestamps.
+    func deliver(_ data: Data, frames: Int, firstSample: Int) {
+        lock.lock()
+        let s = sink
+        if s != nil { framesTeed += frames; bytesTeed += data.count }
+        lock.unlock()
+        s?(data, frames, firstSample)
+    }
+}
+
 final class FilmAudioTap: @unchecked Sendable {
     let ring = AudioRing()
     private let lock = NSLock()

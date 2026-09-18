@@ -734,6 +734,13 @@ struct PlayerScreen: View {
         }
         if let problem = await engine.filmAudioProblem(sourceHasAudio: sourceHasAudio) {
             studioAudioProblem = problem
+            // The tap could not attach and the film HAS sound, which on tvOS
+            // means HLS (§9.jjjj). Attach the tee instead: the segment route is
+            // already fetching these bytes. For now it only COUNTS — the
+            // decoder that turns AAC frames into the PCM the mixer wants is the
+            // next piece, and counting first proves the bytes arrive at all
+            // before anything is built on top of them.
+            FilmAudioBridge.shared.setSink { _, _, _ in }
         }
         // AW_AUDIO_FILE_PROBE=1 — build the audio-only rendition (§9.kkkk) and
         // ask AVFoundation whether it is a real asset with a real audio track.
@@ -883,6 +890,13 @@ struct PlayerScreen: View {
             lastFilmFrames = h.filmFramesPulled
             studioHealth = h
 
+            // Does the tee actually run? Counted from the bridge, which reads
+            // zero when no sink is attached — that is the control.
+            if FilmAudioBridge.shared.isAttached, Int(Date().timeIntervalSince1970) % 15 == 0 {
+                awdiag("AWAUDIOTEE frames=%d bytes=%d",
+                       FilmAudioBridge.shared.framesTeed, FilmAudioBridge.shared.bytesTeed)
+            }
+
             // THE FIRST TWENTY SECONDS OF THE STREAM, not of the engine.
             //
             // The owner caught this: "you have to know when the stream goes
@@ -925,6 +939,7 @@ struct PlayerScreen: View {
             }
         }
         await engine.stop()
+        FilmAudioBridge.shared.setSink(nil)
         studioEngine = nil
         studioRequest = nil
         continuity.lowerAudioSession()
