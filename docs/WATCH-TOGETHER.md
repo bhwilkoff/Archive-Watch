@@ -1659,9 +1659,21 @@ command hit precisely the error the suite hit. Those headers are now fixed too.
 
 Three copies of one dependency graph: the module's own, the runner's variables,
 and the prose in each harness. Two of them drifted the moment a file moved, and
-neither could say so. The durable fix is fewer copies — compiling the Studio
-directory rather than naming its files — which is worth doing when it can be
-verified without racing a soak for the machine.
+neither could say so.
+
+**Compiling the directory instead of naming its files looks feasible** — every
+Studio source's platform-specific import is guarded (`#if canImport(UIKit)` in
+`StudioEngine`, `StudioLab` and `StudioPlatformAuth`; `#if os(tvOS)` in
+`StudioContinuity`), so a macOS build of `Studio/*.swift` should work. That is
+a reading, not a compile, and it stays a reading until it can be checked
+without perturbing a ten-minute soak that is measuring encoder throughput on
+the same machine.
+
+**But the cadence matters more than the structure.** The list was wrong for a
+whole session and the suite said so within seconds of being asked. No amount of
+restructuring helps a suite nobody runs, and a suite that IS run catches a
+stale list whatever shape it has. The durable fix is running the whole thing
+after a run of changes — which is how this was found.
 
 ### §9.zz The level was over-declared, and not asking fixed it (2026-09-18)
 
