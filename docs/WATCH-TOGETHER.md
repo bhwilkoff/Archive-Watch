@@ -1618,6 +1618,55 @@ the audio path, the real ingest hosts with no credential, the overlay and
 go-live surfaces on the glass, the rights gate on device, and the platform
 clients. **→ `docs/watch-together-measurements.md`**
 
+### §9.tt The twelve seconds before a broadcast are the FILM, not the Studio (2026-09-18)
+
+§9.ss closed by listing four things that might account for the ~12 s between
+the run loop starting and the first published packet. Rather than optimise any
+of them, they were timed — the same move that paid in §9.rr and §9.ss.
+
+    0.000 s  run loop begins
+   13.226 s  first film frame              <- 13.23 s
+   13.413 s  3 film frames, warm-up done   <- 0.19 s
+   13.416 s  encoder avcC ready            <- 0.003 s
+   13.418 s  first film PCM                <- 0.002 s
+   13.594 s  handshake started             <- 0.18 s
+   13.664 s  AAC config ready              <- 0.07 s
+   14.255 s  PUBLISHING (audio declared)   <- 0.66 s
+
+**13.2 of the 14.3 seconds is ExoPlayer fetching the film's first frame.**
+Every mechanism suspected in §9.ss is negligible: the AAC config takes 70 ms,
+so §6.2's 8-second deadline has never once been reached; the three-frame
+warm-up costs 190 ms; the encoder's `avcC` is there in 3 ms; and the handshake,
+now off the render thread, is 660 ms. **The Studio's own contribution to
+starting a broadcast is about one second.**
+
+**Confirmed on a second film**, because one measurement of a network fetch is
+an anecdote:
+
+| film | first film frame | everything after it |
+|---|---|---|
+| *The Four Horsemen of the Apocalypse* (1921) | 13.23 s | **1.03 s** |
+| *The Cabinet of Dr. Caligari* (1919) | 9.74 s | **1.07 s** |
+
+The film's first frame varies by seconds between titles; the Studio's own cost
+does not move.
+
+So the honest framing is not "the Studio opens slowly" but "the film takes
+thirteen seconds to start, and the broadcast waits for it" — which is the
+playback-latency question Decision 077 already governs (*a film starts within
+30 seconds, or falls back to a copy that can*), not a Studio defect. §9.ss's
+closing paragraph said otherwise and has been corrected in place.
+
+**The product option this leaves open, deliberately NOT built here.** A
+broadcast could publish immediately over a holding slate and let the film join
+when it arrives, so an audience that is already waiting sees something within a
+second. The blocker is §6.2 rather than effort: a stream's tracks are declared
+once, at publish, and the AAC config cannot exist until the film's PCM does —
+which is the same 13 seconds. Declaring audio from a DEFAULT 44.1 kHz stereo
+config before the film's real format is known would allow it, at the cost of
+resampling whatever the film turns out to be. That is a real design decision
+with a real cost, not a tidy-up, so it is written down rather than taken.
+
 ### §9.ss The RTMP handshake came off the render thread — every broadcast used to open stalled (2026-09-18)
 
 §9.rr's breakdown caught one second that looked nothing like the others:
@@ -1658,13 +1707,11 @@ rather than merely asynchronous:
 flag and the first frame decodes, so a viewer joining at the start has a
 picture.
 
-**What this did NOT fix, and it is worth saying plainly**: the first video
-packet still sits at **11.8 s** on the show clock. That is not the handshake any
-more — it is app launch, film buffering, the wait for three film frames, and
-§6.2's rule that a stream's tracks are declared once so the publish waits for
-the AAC config (an 8-second deadline). A host presses Go Live and the world
-sees nothing for roughly twelve seconds. Reducing that is a separate question
-from this one.
+**What this did NOT fix**: the first video packet still sits at **11.8 s** on
+the show clock. This entry originally guessed that time was spread across app
+launch, film buffering, the warm-up and §6.2's wait for the AAC config.
+**§9.tt measured it instead, and it is almost entirely ONE of those**: the
+film's first frame. Everything the Studio itself does adds about a second.
 
 ### §9.rr The dongle's 10.5 fps was mostly BOXING — and the pacing fix that measurement refused (2026-09-18)
 

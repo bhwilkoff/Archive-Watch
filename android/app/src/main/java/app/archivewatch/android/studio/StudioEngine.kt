@@ -296,6 +296,14 @@ class StudioEngine(
         // grows without bound. Measured at +19.6 s on a 75-second broadcast.
         // Both clocks now count real nanoseconds from this instant.
         val showStartNanos = System.nanoTime()
+        // §9.tt: WHERE do the seconds before the first published packet go?
+        // Four candidates (film buffering, the 3-frame warm-up, the encoder's
+        // avcC, the AAC config) and no evidence which dominates.
+        fun mark(what: String) {
+            if (BuildConfig.DEBUG) android.util.Log.i("AWSTUDIOSTART",
+                String.format("%7.3f s  %s", (System.nanoTime() - showStartNanos) / 1e9, what))
+        }
+        mark("run loop begins")
         var frame = 0L
         var renderTotalNanos = 0L
         var lastSecond = System.currentTimeMillis()
@@ -325,15 +333,27 @@ class StudioEngine(
         // Wait for the film before publishing: a broadcast that opens on
         // nothing is a broadcast of nothing, and the first frames are what a
         // joining viewer sees.
+        var markedFirstFilm = false
         while (running.get() && pg.framesAvailable.get() < 3) {
+            if (!markedFirstFilm && pg.framesAvailable.get() > 0) {
+                markedFirstFilm = true; mark("first film frame")
+            }
             drawOnce(g, pg, frame++, renderStart = System.nanoTime(),
                      showStartNanos = showStartNanos).let { renderTotalNanos += it }
             enc.drain { _, _, _ -> }
             kotlinx.coroutines.delay(16)
         }
 
+        mark("3 film frames — warm-up done")
+
+        var markedAvcc = false
+        var markedPcm = false
+        var markedAsc = false
         while (running.get()) {
             val t0 = System.nanoTime()
+            if (!markedAvcc && enc.avcC != null) { markedAvcc = true; mark("encoder avcC ready") }
+            if (!markedPcm && (audioTap?.sampleRate ?: 0) > 0) { markedPcm = true; mark("first film PCM") }
+            if (!markedAsc && aac?.asc != null) { markedAsc = true; mark("AAC config ready") }
             val drawn = drawOnce(g, pg, frame, t0, showStartNanos)
             renderTotalNanos += drawn
             renderSecNanos += drawn
@@ -392,6 +412,7 @@ class StudioEngine(
                         publishInFlight.set(false)
                     }
                 }.apply { isDaemon = true; name = "aw-rtmp-publish"; start() }
+                mark("handshake started")
             }
             // Adopt a finished handshake on the RENDER thread: `published` is
             // read by the drain below and by the per-second block, and the
@@ -406,6 +427,7 @@ class StudioEngine(
                 // encoder: sending audio to a stream that never declared it is
                 // what closed the first run's connection.
                 if (!declaredAudio) { audioTap?.onPcm = null; aac?.stop(); aac = null }
+                mark("PUBLISHING (audio declared=" + declaredAudio + ")")
             }
             val drainAt = System.nanoTime()
             enc.drain { avcc, key, ts ->
