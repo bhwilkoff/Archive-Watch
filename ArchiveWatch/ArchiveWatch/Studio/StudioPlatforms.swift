@@ -546,7 +546,15 @@ private struct HTTP {
             // "insufficientPermissions"), and a host can act on that. It is
             // trimmed because a platform can return a page.
             let body = String(decoding: data.prefix(400), as: UTF8.self)
-            throw StudioPlatformError.http(http.statusCode, body)
+            // NAME THE CALL. Four writes go out to make a broadcast and this
+            // error used to identify none of them, so a 400 about an
+            // unexpected `part` could have come from any of liveStreams.insert,
+            // liveBroadcasts.insert, bind or transition. The URL is already in
+            // hand here, so no call site has to change to say which one spoke.
+            let which = [req.httpMethod, req.url?.path,
+                         req.url?.query.map { "?\($0)" }]
+                .compactMap { $0 }.joined(separator: " ")
+            throw StudioPlatformError.http(http.statusCode, "\(which) — \(body)")
         }
         return (data, http)
     }
@@ -595,7 +603,15 @@ public struct YouTubeLive: Sendable {
         // 1. The stream — where bytes go.
         let (streamData, _) = try await HTTP.send(try request(
             "/liveStreams", method: "POST",
-            query: ["part": "snippet,cdn,status"],
+            // EVERY PART THE BODY SETS MUST BE DECLARED HERE. `part`
+            // "identifies the properties that the write operation will set",
+            // so a body carrying `contentDetails.isReusable` under a `part` of
+            // snippet,cdn,status is rejected 400 `unexpectedPart:
+            // 'content_details'` — an error that names the part it did NOT
+            // expect rather than the one that is missing, which reads like the
+            // opposite complaint. This was the whole of the first YouTube
+            // go-live failure.
+            query: ["part": "snippet,cdn,contentDetails,status"],
             body: ["snippet": ["title": title],
                    "cdn": ["ingestionType": "rtmp",
                            "resolution": resolution,

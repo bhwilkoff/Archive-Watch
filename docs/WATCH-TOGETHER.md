@@ -1618,6 +1618,56 @@ the audio path, the real ingest hosts with no credential, the overlay and
 go-live surfaces on the glass, the rights gate on device, and the platform
 clients. **→ `docs/watch-together-measurements.md`**
 
+### §9.vvvv THE FIRST YOUTUBE BROADCAST — and the one-character `part` that blocked it (2026-09-18)
+
+**It went out.** Verified from YouTube's own side, not ours: `liveBroadcasts`
+totalResults went 34 -> 35 and the newest id is `H96F1xNoJRo`, on the channel
+"Learning is Change" (UCI9L3u8Hf_zeotF9-Ec349w).
+
+**What blocked it was one missing word.** `liveStreams.insert` sent
+`part=snippet,cdn,status` while its BODY carried `contentDetails.isReusable`.
+YouTube requires `part` to name every property the write will set, so it
+answered 400 `unexpectedPart: 'content_details'` — an error that names the part
+it did NOT expect rather than the one that is missing, which reads like the
+opposite complaint. `part=snippet,cdn,contentDetails,status` and it worked
+first time. `liveBroadcasts.insert` was audited for the same class and is
+correct; `bind` and `transition` send no body.
+
+**THREE instrument failures stood between that error and being readable**, and
+each is the same shape as the rest of this feature's:
+
+1. The go-live catch set `studioRefusal = "\(error)"` and logged NOTHING. The
+   door said "READY — going live" and the next line in the log was unrelated.
+   The raw JSON went to the TELEVISION instead, under the heading "Streaming is
+   not set up yet" — a heading that was also wrong, since the build was
+   configured, signed in and ready. Now the raw error goes to the log, the
+   screen gets the platform's own `message`, and the heading is "The broadcast
+   could not start".
+2. The logged error truncated at `400: {` — `awdiag` writes per line and the
+   body is pretty-printed JSON. That cost a run TWICE in one day in two
+   different files, so flattening is now a named helper.
+3. The error named no CALL. Four writes make a broadcast and a 400 about a part
+   could have come from any of them. `HTTP.send` already holds the URL, so it
+   now prints `POST /youtube/v3/liveStreams ?part=...` with no call site
+   changed — and that line identified the culprit immediately.
+
+**THEN THE AUDIO CLICKED.** Owner, watching the live stream: *"the audio is
+coming in but it clicks multiple times a second."* The pump decoded ONE packet
+per 20 ms tick. A packet is 23.2 ms of audio, so real time needs ~43 a second
+and the tick could supply at most 50 — but only at exactly 20 ms, and
+`Task.sleep` plus the decode push it past 23.2 often enough that the ring ran
+dry again and again.
+
+Metering the rate had only ever been safe because nothing else stopped the
+decoder running ahead. The playhead rule does that now, so the pump fills until
+a packet would land more than the tolerance in front of the picture and then
+holds — a cushion instead of the edge of starvation. `dropped` 44 -> **0**.
+
+**And a counter's meaning inverted, which is worth writing down.** `held` went
+from ~1/s to ~40/s and that is now HEALTH: it means the cushion is full, where
+before it meant the ring was empty. A number that reads the same and means the
+opposite is exactly the kind of thing that gets misread in three weeks.
+
 ### §9.uuuu The camera and microphone RUN on the Mac; and YouTube's refusal, read RAW (2026-09-18)
 
 **Camera and mic, measured.** Owner: *"I'm happy to enable microphone and camera

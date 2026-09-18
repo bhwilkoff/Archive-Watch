@@ -322,6 +322,28 @@ public struct StudioHealth: Sendable, Equatable {
 
 // MARK: - Engine
 
+/// The bench's bitrate door, in ONE place.
+///
+/// `AW_STUDIO_BITRATE` is kbps, DEBUG only. It exists to separate two things a
+/// dropped frame cannot tell apart on its own: an encoder that cannot hold a
+/// rate, and a network that cannot carry it. Pointed at a local server there is
+/// no uplink in the path at all, so what survives is the device's own ceiling.
+///
+/// Defined once and used by every Apple entry point, because "one surface
+/// fixed, siblings not" has been the recurring defect in this feature.
+extension StudioEngine.Configuration {
+    static func benchDoored() -> StudioEngine.Configuration {
+        var c = StudioEngine.Configuration()
+        #if DEBUG
+        if let kbps = ProcessInfo.processInfo.environment["AW_STUDIO_BITRATE"]
+            .flatMap(Int.init), kbps > 0 {
+            c.videoBitrate = kbps * 1_000
+        }
+        #endif
+        return c
+    }
+}
+
 public actor StudioEngine {
 
     public struct Configuration: Sendable {

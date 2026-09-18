@@ -85,7 +85,7 @@ public final class StudioSession {
         armedFilmID = nil
         localPlayer = player
 
-        let e = StudioEngine()
+        let e = StudioEngine(configuration: .benchDoored())
         engine = e
         await e.attachFilm(player: player)
         await e.setLayout(.corner)

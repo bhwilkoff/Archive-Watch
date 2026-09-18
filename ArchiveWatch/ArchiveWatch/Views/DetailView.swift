@@ -724,7 +724,7 @@ struct PlayerScreen: View {
             studioFilm = nil
             return
         }
-        let engine = studioEngine ?? StudioEngine()
+        let engine = studioEngine ?? StudioEngine(configuration: .benchDoored())
         studioEngine = engine
         await engine.attachFilm(player: p)
 
@@ -940,8 +940,15 @@ struct PlayerScreen: View {
             do {
                 destination = try await StudioGoLive.destination(for: request, film: film)
             } catch {
-                studioRefusalKind = .configuration
-                studioRefusal = "\(error)"
+                // LOG THE RAW THING, SHOW A SENTENCE. Without this line the
+                // four YouTube writes failed leaving no trace anywhere: the
+                // door logged "READY — going live" and the next entry in the
+                // log was unrelated. A silent failure path, the fourth in this
+                // feature.
+                awdiag("AWGOLIVE %@ FAILED: %@", request.platform.rawValue,
+                       Self.studioFlat("\(error)"))
+                studioRefusalKind = .platform
+                studioRefusal = Self.studioHumanError(error)
                 studioFilm = nil; studioRequest = nil
                 return
             }
@@ -957,7 +964,9 @@ struct PlayerScreen: View {
         do {
             try await engine.start(destination: destination)
         } catch {
-            studioRefusal = "\(error)"
+            awdiag("AWGOLIVE engine.start FAILED: %@", Self.studioFlat("\(error)"))
+            studioRefusalKind = .platform
+            studioRefusal = Self.studioHumanError(error)
             studioFilm = nil; studioRequest = nil
             return
         }
@@ -1130,7 +1139,34 @@ struct PlayerScreen: View {
     /// A two-state flag cannot describe three states, and the comment on the
     /// alert below already says why that matters: a wrong title tells the
     /// viewer something false.
-    enum StudioRefusalKind { case film, configuration, ended }
+    enum StudioRefusalKind { case film, configuration, platform, ended }
+
+    /// A sentence a host can read on a television, out of whatever the platform
+    /// threw.
+    ///
+    /// The go-live catch used to set `"\(error)"` straight onto the screen. For
+    /// a YouTube API failure that is the entire JSON body, so the owner's TV
+    /// showed brace soup under the heading "Streaming is not set up yet" — a
+    /// heading that was itself wrong, because the build was configured, signed
+    /// in and READY. Both halves are fixed: the raw error goes to the log where
+    /// it can be diagnosed, and the screen gets the platform's own `message`.
+    /// awdiag writes PER LINE and these bodies are pretty-printed JSON, so an
+    /// unflattened error logs a single "{" — which has now cost a run twice in
+    /// one day, in two different files.
+    static func studioFlat(_ s: String) -> String {
+        s.split(whereSeparator: { $0 == "\n" || $0 == "\r" }).joined(separator: " ")
+    }
+
+    static func studioHumanError(_ error: Error) -> String {
+        let raw = "\(error)"
+        for marker in ["\"message\": \"", "\"message\":\""] {
+            if let r = raw.range(of: marker),
+               let end = raw[r.upperBound...].firstIndex(of: "\"") {
+                return String(raw[r.upperBound..<end])
+            }
+        }
+        return raw.count > 180 ? "The platform refused the broadcast." : raw
+    }
 
     /// Why this television cannot broadcast, or nil when it can.
     ///
@@ -1320,6 +1356,7 @@ struct PlayerScreen: View {
         .alert({ switch studioRefusalKind {
                  case .film: return "This film cannot be streamed"
                  case .configuration: return "Streaming is not set up yet"
+                 case .platform: return "The broadcast could not start"
                  case .ended: return "The broadcast ended"
                  } }(),
                isPresented: .constant(studioRefusal != nil)) {

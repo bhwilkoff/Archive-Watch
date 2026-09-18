@@ -102,6 +102,10 @@ final class FilmAudioDecoder: @unchecked Sendable {
     /// human notices audio leading picture.
     private static let tolerance = 0.5
 
+    /// Bounded so one tick can never monopolise the pump; 8 packets is 186 ms
+    /// of audio, comfortably more than a 20 ms tick can consume.
+    private static let maxPacketsPerTick = 8
+
     init(write: @escaping (UnsafePointer<Float>, Int) -> Void) {
         self.write = write
     }
@@ -125,11 +129,26 @@ final class FilmAudioDecoder: @unchecked Sendable {
     func start() {
         stop()
         pump = Task.detached(priority: .userInitiated) { [weak self] in
-            // One AAC packet is 1024 samples ≈ 23.2 ms at 44.1 kHz. Ticking at
-            // 20 ms and decoding at most one packet per tick tracks real time
-            // closely without ever running ahead of the ring.
+            // FILL THE RING, don't meter it.
+            //
+            // One AAC packet is 1024 samples = 23.2 ms at 44.1 kHz, so real
+            // time needs ~43 packets a second. Decoding ONE per 20 ms tick
+            // gives at most 50 — but only if the tick is exactly 20 ms, and
+            // `Task.sleep` plus the decode itself push it past 23.2 ms often
+            // enough that the ring runs dry again and again. The owner heard
+            // exactly that on the first YouTube broadcast: "the audio is
+            // coming in but it clicks multiple times a second."
+            //
+            // Metering the rate was only ever safe because nothing else stopped
+            // the decoder running ahead. The playhead rule does that now — a
+            // packet more than `tolerance` in front of the picture is HELD — so
+            // the pump can decode until it is held and build a cushion instead
+            // of living at the edge of starvation.
             while !Task.isCancelled {
-                self?.decodeOnePacket()
+                var decoded = 0
+                while decoded < Self.maxPacketsPerTick, self?.decodeOnePacket() == true {
+                    decoded += 1
+                }
                 try? await Task.sleep(nanoseconds: 20_000_000)
             }
         }
@@ -160,12 +179,13 @@ final class FilmAudioDecoder: @unchecked Sendable {
         return true
     }
 
-    private func decodeOnePacket() {
+    @discardableResult
+    private func decodeOnePacket() -> Bool {
         lock.lock()
         let rate = sourceRate
-        if converter == nil, !makeConverter(rate: rate) { lock.unlock(); return }
+        if converter == nil, !makeConverter(rate: rate) { lock.unlock(); return false }
         guard let converter, let inFormat, let outFormat, !queue.isEmpty else {
-            lock.unlock(); return
+            lock.unlock(); return false
         }
 
         let head: Double? = headSeconds >= 0 ? headSeconds : nil
@@ -185,7 +205,7 @@ final class FilmAudioDecoder: @unchecked Sendable {
             // depth changed (the reasoning §9.ggg used on Android).
             guard let first = queue.first,
                   Double(first.frame * Self.samplesPerPacket) / rate <= head + Self.tolerance
-            else { heldEarly += 1; lock.unlock(); return }
+            else { heldEarly += 1; lock.unlock(); return false }
         }
 
         let (packet, packetFrame) = queue.removeFirst()
@@ -202,7 +222,7 @@ final class FilmAudioDecoder: @unchecked Sendable {
         inBuf.packetDescriptions?.pointee = AudioStreamPacketDescription(
             mStartOffset: 0, mVariableFramesInPacket: 0, mDataByteSize: UInt32(packet.count))
 
-        guard let outBuf = AVAudioPCMBuffer(pcmFormat: outFormat, frameCapacity: 2048) else { return }
+        guard let outBuf = AVAudioPCMBuffer(pcmFormat: outFormat, frameCapacity: 2048) else { return false }
         var supplied = false
         var err: NSError?
         let status = converter.convert(to: outBuf, error: &err) { _, outStatus in
@@ -213,13 +233,14 @@ final class FilmAudioDecoder: @unchecked Sendable {
         }
         if status == .error {
             lock.lock(); lastError = err?.localizedDescription ?? "decode failed"; lock.unlock()
-            return
+            return false
         }
         let n = Int(outBuf.frameLength)
-        guard n > 0, let ch = outBuf.floatChannelData?[0] else { return }
+        guard n > 0, let ch = outBuf.floatChannelData?[0] else { return false }
         write(ch, n * 2)                       // interleaved stereo: 2 floats a frame
         lock.lock()
         packetsDecoded += 1; framesWritten += n; decodedFrame = packetFrame
         lock.unlock()
+        return true
     }
 }

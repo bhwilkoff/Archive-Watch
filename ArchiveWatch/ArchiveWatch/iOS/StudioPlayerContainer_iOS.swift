@@ -125,7 +125,7 @@ struct StudioPlayerContainer: View {
     private func attach(player: AVPlayer) async {
         // Re-entrant by design: a Decision-077 copy fallback rebuilds the
         // player, and the engine must follow it to the new item.
-        let e = engine ?? StudioEngine()
+        let e = engine ?? StudioEngine(configuration: .benchDoored())
         engine = e
         await e.attachFilm(player: player)
         await e.setLayout(layout)
