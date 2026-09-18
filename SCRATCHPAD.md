@@ -89,18 +89,24 @@ emulators) · `docs/CAPTIONS.md` · `docs/SHAREPLAY.md` ·
    several things carrying that word had never had one. What is genuinely NOT
    yet verified is named in items 8 (phone-class Android performance — the
    dongle has no hardware H.264 encoder, so its 13 fps says nothing about a
-   phone) and 9a (the tvOS/iOS encoder reads). Three one-time owner steps:
-   (a) a **Google Cloud project** with YouTube Data API v3 → an OAuth client
-   id of type **iOS**, bundle id `app.archivewatch.tvos`, and a **Twitch
-   application** with client type **public** → a client id, both into the
-   gitignored `Secrets.xcconfig` as `YOUTUBE_CLIENT_ID` / `TWITCH_CLIENT_ID`.
-   `Secrets.xcconfig.example` carries the click-by-click steps. Two strings
-   and nothing else: **no client secret** (neither flow uses one) and no
-   derived redirect string (the scheme is the bundle id, already declared in
-   `Info.plist`). The sign-in code is written and its request shapes are
-   proven against the real endpoints (Decision 128,
-   `tools/test_studio_signin.swift`, 26/26). Without the ids the go-live
-   sheet says sign-in is not set up and greys out Go Live;
+   phone) and 9a (the tvOS/iOS encoder reads). Owner steps:
+   (a) **YOUTUBE_CLIENT_ID is DONE** (2026-09-18, registered in Chrome): a
+   Google Cloud project "Archive Watch" with YouTube Data API v3, an OAuth
+   client of type **iOS**, bundle id `app.archivewatch.tvos`, in the gitignored
+   `Secrets.xcconfig`. Proved against the live endpoint with its own controls
+   (`tools/test_studio_registered.swift`, §8.9, WATCH-TOGETHER §9.nnn).
+   **TWITCH_CLIENT_ID is BLOCKED ON THE OWNER'S ACCOUNT, not on the form.** The
+   registration is filled and correct (public client, Broadcaster Suite, HTTPS
+   redirect — Twitch refuses `http://localhost`, so the example file's
+   suggestion does not apply there); pressing Create is refused with *"user
+   must have two factor auth enabled to perform this action"*. The email gate
+   before it was cleared on 09-18. **One step: Twitch ▸ Settings ▸ Security and
+   Privacy ▸ Set Up Two-Factor Authentication** (the account already has a
+   phone number linked), then say so and the registration finishes in one pass.
+   **No client secret** is needed (neither flow uses one) and no derived
+   redirect string (the scheme is the bundle id, already declared in
+   `Info.plist`). Until Twitch has an id the go-live sheet offers YouTube and
+   says Twitch is not set up;
    (a2) **CHANNEL ELIGIBILITY, worth doing a day early.** YouTube's encoder
    path (ours) needs the channel VERIFIED and no live-streaming restrictions in
    the past 90 days; enabling live streaming for the first time can carry a

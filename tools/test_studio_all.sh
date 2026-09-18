@@ -160,6 +160,12 @@ swift_case "8.6 back-pressure"     "$PUB" "$ENG" "$AUD" "$OVL" "$CHAT" tools/tes
 # endpoints and need no account, no server and no device — only a network.
 swift_case "8.2 sign-in shapes"    "$AUTH" "$PLAT" tools/test_studio_signin.swift
 swift_case "8.7 live-platform shapes" "$AUTH" "$PLAT" tools/test_studio_live_shapes.swift
+# The REGISTERED clients. Skips (exit 2) where Secrets.xcconfig carries no
+# client id, which is every machine but the owner's - and a skip is not a
+# pass, so `--strict` makes it a failure once the ids exist. 8.2 proves the
+# shapes with credentials that are wrong on purpose; this proves OUR
+# registration accepts them, which is a defect class 8.2 cannot see.
+swift_case "8.9 registered clients" "$AUTH" "$PLAT" tools/test_studio_registered.swift
 # ---- the rights tests, which need no server at all
 for t in tools/test_studio_rights_parity.py tools/test_studio_rights_coverage.py; do
   name="$(basename "$t")"

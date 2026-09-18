@@ -1618,6 +1618,74 @@ the audio path, the real ingest hosts with no credential, the overlay and
 go-live surfaces on the glass, the rights gate on device, and the platform
 clients. **→ `docs/watch-together-measurements.md`**
 
+### §9.nnn The Google client is REGISTERED — and the checks that could not exist before it (2026-09-18)
+
+The owner asked for the client ids to be created in Chrome rather than by hand
+("I would like you to have these to help test all platforms"). **YouTube is
+done.** A Google Cloud project with YouTube Data API v3 enabled, an OAuth
+client of type **iOS** with bundle id `app.archivewatch.tvos`, written to the
+gitignored `Secrets.xcconfig` and confirmed invisible to git. The id was read
+out of the DOM rather than off the screen, because at the zoom that made it
+legible an `l` and a `1` were the same glyph — **a credential read by eye is a
+credential guessed.**
+
+**Twitch is NOT done, and the blocker is the account, not the form.** The
+registration was filled correctly (public client, Broadcaster Suite, an HTTPS
+redirect — Twitch refuses `http://localhost`, so §6.1's suggestion does not
+apply there) and refused twice, each time naming a different account gate:
+first *"user must have a verified email to perform this action"*, then, once
+the owner verified one, *"user must have two factor auth enabled"*. Both are
+the owner's to clear. Neither error appears until **Create** is pressed, so
+there is no way to discover them by reading the form.
+
+**What the real id makes testable.** `test_studio_signin.swift` (§8.2) sends
+deliberately invalid credentials to the real endpoints, and that is the right
+test to have while no account exists — but it is structurally blind to one
+defect class: a request the platform accepts in general and refuses for OUR
+registration. A `redirect_uri` the client does not declare, a client of the
+wrong type, a project whose API is not enabled. Every one of those surfaces as
+an opaque error inside `ASWebAuthenticationSession`, on the owner's own
+account, mid-flow.
+
+`tools/test_studio_registered.swift` (§8.9) asks the registered client four
+questions, each paired with the control that should produce the opposite
+answer:
+
+    authorize, real client + real redirect   HTTP 200, a 1,260,810-byte consent page
+    CONTROL: client id mangled               refused (invalid_request)
+    CONTROL: redirect the client omits       refused (invalid_request)
+    token, real client + junk code           invalid_grant, NOT invalid_client
+
+The last line is the whole point. The same request with a fake id returns
+`invalid_client` (that is 8.2); with the real one it returns `invalid_grant` —
+the code is the only thing wrong, so the client, the redirect and every
+required field were accepted. And the two controls are what make the 200 mean
+something: without them "Google served a page" is satisfied by any page.
+
+It **skips** (exit 2, never a pass) where `Secrets.xcconfig` carries no id, and
+skips where only one platform is configured rather than reporting a full run
+over half the evidence. No client id is printed — a client id is not a secret,
+but this output is pasted into commit messages and design docs, and one rule
+for credential-shaped strings is cheaper than an exception (§5).
+
+**A defect the registration exposed on the way.** §9.lll moved `GoLiveRequest`
+and `StudioGoLive.destination` into `StudioPlatforms.swift` so iOS and macOS
+could share them. Those types reach `Catalog.Item` and `StudioLayout`, which
+are APP types — and `StudioPlatforms.swift` is compiled standalone by 8.2 and
+8.7, which have no app. **Both cases stopped compiling the moment they moved**,
+and the suite would have reported them as FAIL rather than silently, which is
+the only reason this is a footnote. They now live in `StudioGoLive.swift`: a
+file the harnesses compile may depend only on Foundation. This is §6.2n's rule
+again — a harness's file list is a silent second copy of the module's
+dependency graph — and it now bites in both directions.
+
+**And an instrument that lied by not running at all.** Two `xcodebuild`
+invocations wrapped in `timeout 540` returned nothing and were read as "no
+errors". `timeout` is not on macOS; the shell exited 127 and the build never
+started. Both were rerun without it (`** BUILD SUCCEEDED **`). The family is
+§9.nn's: a command that cannot run produces the same empty output as a command
+that ran clean.
+
 ### §9.fff The lip-sync stimulus: instrument built and verified (2026-09-18)
 
 §9.eee established that Android's two tracks do not drift apart and said
