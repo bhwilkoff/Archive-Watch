@@ -1618,6 +1618,56 @@ the audio path, the real ingest hosts with no credential, the overlay and
 go-live surfaces on the glass, the rights gate on device, and the platform
 clients. **→ `docs/watch-together-measurements.md`**
 
+### §9.sss The sign-in surfaces, read in the state they had never been in (2026-09-18)
+
+With both ids registered, the sign-in surfaces became reachable for the first
+time. Reading them in that state — no build, just reading the code paths that
+could finally execute — found two defects, one of them a hole in my own fix
+from three ticks earlier.
+
+**1. "Cancel" cancelled the picture, not the work.** `StudioSignInRow` starts
+the flow with `Task { await start() }` from a button action. That is an
+UNSTRUCTURED task: SwiftUI cancels `.task {}` modifiers when a view goes away
+and nothing at all for this one. Cancel did `pending = nil`, which hid the code
+and left `completeTwitchSignIn` polling — one request every 5 seconds for the
+code's full 30-minute life, **~360 requests after the host said stop**.
+Dismissing the sheet did the same. The comment beside it claimed *"the sheet's
+own dismissal cancels this task"*, which was never true and had never been
+exercised, because no client id existed to reach it. The task is now held in
+`@State` and cancelled by both Cancel and `onDisappear`; `poll` sleeps between
+attempts, so cancellation lands within one interval.
+
+**2. macOS enables Go Live for a platform it cannot sign in to — and this is
+§9.ooo's defect, in the sibling I did not check.** `canCommit` read:
+
+    return StudioPlatformAuth.configurationProblem(for: authPlatform) == nil
+
+a fair proxy only while no client id existed anywhere. The day both were
+registered it became permanently nil and Go Live switched itself on. But
+**there is no macOS sign-in surface**: `signInToYouTube` and
+`beginTwitchSignIn` are called from exactly one file and it is `#if os(iOS)`.
+Tokens are `AfterFirstUnlockThisDeviceOnly` and unsynchronised, so a sign-in on
+the host's phone does not reach the Mac either. Pressing Go Live would have
+failed inside the auth boundary — the one thing §10.2b's principle says never
+to offer. It now requires `isSignedIn` and says the true thing beside the
+greyed control.
+
+**This is worth more than the two fixes.** Three ticks ago the identical defect
+was found on tvOS, understood, written up, and fixed — *on tvOS*. The same
+predicate was sitting in the macOS sheet the whole time and I did not look,
+because I had already framed it as "the tvOS gate". A guard written against a
+proxy does not expire on one platform; the search should have been for the
+predicate, not for the symptom. The grep that would have found it
+(`configurationProblem` as a commit gate) takes seconds and was run only after
+the second occurrence.
+
+**Correction to §9.mmm.** That entry says the Mac "can go live". True only of
+the CUSTOM diagnostic destination. To a platform, the Mac has never been able
+to and still cannot — it lacks the surface, not the plumbing. The go-live
+sheet, the request, the destination resolution and the publisher are all real
+and shared; what is missing is a way to obtain a token on that machine. Marked
+rather than rewritten (Decision 121).
+
 ### §9.rrr Where the tokens land: a Keychain write whose failure nobody could see (2026-09-18)
 
 No token has ever existed, so §6.1's promise — *"Tokens live in the Keychain,

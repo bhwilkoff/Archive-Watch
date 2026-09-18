@@ -25,6 +25,13 @@ struct StudioSignInRow: View {
     @State private var working = false
     @State private var problem: String?
     @State private var pending: TwitchDeviceAuth.Pending?
+    /// Held so it can be CANCELLED. A `Task {}` started in a button action is
+    /// unstructured: SwiftUI cancels `.task {}` modifiers when a view goes
+    /// away, and nothing at all for this one. Twitch's poll runs for the full
+    /// life of the code — up to 30 minutes at one request every 5 seconds —
+    /// so without this, "Cancel" hid the code and left ~360 requests running
+    /// against Twitch, and so did dismissing the sheet (§9.sss).
+    @State private var signInTask: Task<Void, Never>?
 
     private var label: String { platform.displayName }
 
@@ -62,7 +69,7 @@ struct StudioSignInRow: View {
                 twitchCode(p)
             } else {
                 Button {
-                    Task { await start() }
+                    signInTask = Task { await start() }
                 } label: {
                     HStack {
                         Label("Sign in to \(label)", systemImage: "person.badge.key")
@@ -79,6 +86,13 @@ struct StudioSignInRow: View {
             }
         }
         .onAppear { signedIn = StudioPlatformAuth.isSignedIn(platform) }
+        .onDisappear {
+            // A host who closes the sheet has stopped asking. Leaving the poll
+            // running is both a pointless load on Twitch and a task that
+            // outlives the view it reports to.
+            signInTask?.cancel()
+            signInTask = nil
+        }
     }
 
     /// Twitch's device flow, on screen. The code is useless without the
@@ -98,7 +112,13 @@ struct StudioSignInRow: View {
                 Text("Waiting for you to confirm on Twitch\u{2026}")
                     .font(.footnote).foregroundStyle(.secondary)
             }
-            Button("Cancel") { pending = nil }
+            Button("Cancel") {
+                // Cancel the WORK, not just the picture of it. `poll` sleeps
+                // between attempts, so cancellation lands within one interval.
+                signInTask?.cancel()
+                signInTask = nil
+                pending = nil
+            }
                 .font(.subheadline)
                 .buttonStyle(.borderless)
         }
@@ -117,9 +137,11 @@ struct StudioSignInRow: View {
             case .twitch:
                 let p = try await StudioPlatformAuth.beginTwitchSignIn()
                 pending = p
-                // The poll runs for as long as the code is valid; a host who
-                // walks away does not leave a spinner behind, because the
-                // sheet's own dismissal cancels this task.
+                // The poll runs for as long as the code is valid. Cancelling
+                // is explicit — see `signInTask`. This comment used to claim
+                // "the sheet's own dismissal cancels this task", which was
+                // simply untrue of an unstructured Task and had never been
+                // exercised, because no client id existed to reach it.
                 try await StudioPlatformAuth.completeTwitchSignIn(p)
                 pending = nil
                 signedIn = true

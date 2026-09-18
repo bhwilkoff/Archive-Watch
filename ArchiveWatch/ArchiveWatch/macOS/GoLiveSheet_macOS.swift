@@ -83,6 +83,14 @@ struct GoLiveSheetMac: View {
                         }
                         if platform != .custom, let problem = StudioPlatformAuth.configurationProblem(for: authPlatform) {
                             Text(problem).font(.footnote).foregroundStyle(.secondary)
+                        } else if platform != .custom, !StudioPlatformAuth.isSignedIn(authPlatform) {
+                            // Says the true thing rather than greying out a
+                            // button with no explanation beside it.
+                            Text("Signing in to \(authPlatform.displayName) is not built on Mac yet, "
+                                 + "so this Mac cannot reach your channel. Start the broadcast from "
+                                 + "iPhone or iPad — the film, the rights check and the Studio are "
+                                 + "the same. The Custom server destination below still works here.")
+                                .font(.footnote).foregroundStyle(.secondary)
                         }
                         switch platform {
                         case .youtube:
@@ -131,7 +139,17 @@ struct GoLiveSheetMac: View {
         if platform == .custom {
             return URL(string: customURL)?.host != nil && !customKey.isEmpty
         }
-        return StudioPlatformAuth.configurationProblem(for: authPlatform) == nil
+        // CONFIGURED IS NOT SIGNED IN. This read `configurationProblem == nil`,
+        // which was a fair proxy only while no client id existed anywhere: the
+        // day both were registered it became permanently nil, and Go Live
+        // switched itself on for a Mac that has no way to obtain a token.
+        // There is no macOS sign-in surface — `signInToYouTube` and
+        // `beginTwitchSignIn` are called from exactly one file, and it is
+        // `#if os(iOS)` — and tokens are `ThisDeviceOnly` and unsynchronised,
+        // so a sign-in on the host's phone does not reach this machine.
+        // Pressing Go Live would have failed inside the auth boundary, which
+        // is the one thing §10.2b's principle says never to offer (§9.sss).
+        return StudioPlatformAuth.isSignedIn(authPlatform)
     }
 
     private func commit() {
