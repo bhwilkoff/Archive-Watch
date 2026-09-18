@@ -125,6 +125,48 @@ Split View and Stage Manager.
 
 ---
 
+## §5a — Sheets: detents do not apply on iPad, and `presentationSizing` is not a fix for a short one (binding)
+
+A `.sheet` on iPad is a **centred form sheet**, and `presentationDetents` does
+not apply to it — the detents that shape a phone sheet are IGNORED here. A sheet
+therefore gets the form sheet's size whatever its content, and a SHORT state
+leaves the remainder empty.
+
+Measured on an iPad Pro 12.9-inch (5th gen), 2026-09-17, on Watch Together's
+go-live sheet (`GoLiveSheet_iOS`, `.presentationDetents([.large])`):
+
+- **Refusal state** (a film with no rights verdict): renders correctly and
+  legibly, gives the reason, Go Live correctly disabled — and leaves roughly the
+  **bottom 40% of the sheet blank**.
+- **KEEP state** (*La Passion de Jeanne d'Arc*, 1928, `safe_pd_age`): the same
+  sheet **fills its height properly** — rights line, "Where it goes", platform
+  picker, the not-configured sign-in explanation, generated title, privacy. All
+  of Decision 128's four state defects are absent at this width: "YouTube" is
+  spelled correctly, the wrench reads as an icon rather than a button, the
+  footer agrees with the row above it, and **Go Live is greyed out**.
+
+**So the fault is confined to short states, and it is cosmetic.** That matters,
+because the obvious fixes are functional regressions — both were tried on the
+device:
+
+- `.presentationSizing(.fitted)` collapsed the sheet to about **140 pt wide**;
+  "What you are streaming" wrapped to one character per line. This content has
+  no intrinsic width, so fitting both axes destroys it.
+- `.presentationSizing(.form.fitted(horizontal: false, vertical: true))` kept
+  the right width and **clipped the content to a strip**, cutting the film row
+  off mid-row.
+
+**The rule.** Do not reach for a sizing modifier, a fixed frame or a spacer on
+an iPad sheet. An empty region below short content is acceptable; the three
+alternatives above are worse, and two of them are measured regressions. If a
+sheet's short state ever needs to look deliberate rather than empty, that is a
+CONTENT decision for that state — §2's measure rule applied to a sheet — not a
+presentation modifier.
+
+**Recorded as not yet seen**: §3.4a's rights warning sits below the fold in the
+KEEP state and has not been read at iPad width; the sheet scrolls, so it is
+present, but it has not been looked at.
+
 ## §6 — Anti-patterns (never)
 
 6.1 **Never `frame(maxWidth: .infinity)` on prose or on a primary button**

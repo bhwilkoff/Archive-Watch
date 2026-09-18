@@ -101,6 +101,13 @@ struct GoLiveSheet: View {
             }
         }
         .presentationDetents([.large])
+        // IPAD-DESIGN §5a. Detents do not apply to an iPad form sheet, so
+        // this sheet's SHORT state (a refused film) leaves ~40% of it blank
+        // while the KEEP state fills it properly — both measured on an iPad
+        // Pro 12.9-inch. `presentationSizing` is not the fix: `.fitted`
+        // collapsed the sheet to ~140 pt wide, and `.form.fitted(vertical:)`
+        // clipped the content to a strip. The empty region is cosmetic and
+        // stays; the alternatives were functional regressions.
     }
 
     // MARK: Sections
