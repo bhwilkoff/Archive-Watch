@@ -64,6 +64,31 @@ else
     echo "  FAIL  makeSession() no longer gates the microphone input"; fail=$((fail+1))
 fi
 
+# The tap that outlived its owner (§9.zzzz). `makeTap()` put an UNRETAINED
+# reference in the tap's storage with `finalize: nil`, and the process callback
+# runs on MediaToolbox's own real-time thread — so it kept firing after the show
+# ended and dereferenced a freed object. It killed the app at the end of EVERY
+# macOS broadcast, and iOS takes the same path.
+echo "== the audio tap retains its owner and releases it in finalize =="
+SA=ArchiveWatch/ArchiveWatch/Studio/StudioAudio.swift
+if grep -q "Unmanaged.passRetained(self).toOpaque()" "$SA" \
+   && grep -q "MTAudioProcessingTapGetStorage(tap)).release()" "$SA"; then
+    echo "  PASS  passRetained into storage, released in finalize"; pass=$((pass+1))
+else
+    echo "  FAIL  the tap does not retain its owner — it will outlive the mixer"
+    fail=$((fail+1))
+fi
+
+echo "== the CONTROL: the same check must FAIL on an unretained copy =="
+TMP2=$(mktemp -t awtap)
+sed 's/Unmanaged.passRetained(self).toOpaque()/Unmanaged.passUnretained(self).toOpaque()/' "$SA" > "$TMP2"
+if grep -q "Unmanaged.passRetained(self).toOpaque()" "$TMP2"; then
+    echo "  FAIL  the control PASSED — this check cannot detect the defect"; fail=$((fail+1))
+else
+    echo "  PASS  the control fails, so the check can tell the two apart"; pass=$((pass+1))
+fi
+rm -f "$TMP2"
+
 echo
 echo "pass=$pass fail=$fail"
 [ "$fail" -eq 0 ] || exit 1

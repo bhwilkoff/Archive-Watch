@@ -192,6 +192,16 @@ else
   FAIL=$((FAIL+1))
 fi
 
+# Two one-line platform mistakes that each blocked a real broadcast and are
+# invisible in a diff review (§9.vvvv): an undeclared `part`, and a `prompt`
+# that never offers Google's channel chooser.
+if bash tools/test_studio_request_shapes.sh >"$SCRATCH/request-shapes.log" 2>&1; then
+  row "8.14 platform request shapes" PASS ""; PASS=$((PASS+1))
+else
+  row "8.14 platform request shapes" FAIL "a request shape regressed"
+  FAIL=$((FAIL+1))
+fi
+
 swift_case "8.10 stream-key hygiene" "$PUB" tools/test_studio_key_hygiene.swift
 # Where the tokens land. Writes only under a probe account and deletes it, so
 # it cannot disturb a real sign-in. Reports the keychain CHOICE rather than
