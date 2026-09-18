@@ -1430,10 +1430,18 @@ through the shipping app.
 for every transport case, generates the saturating clip the bitrate cases need
 once, and prints a summary.
 
-**It counts SKIPS separately and says so**, because four of the Kotlin cases
-skip silently without a local server and were doing exactly that for a whole
-session (§6.2n): *a skip is not a pass*, and a runner that folded them
+**It counts SKIPS separately and says so**, because the server-facing Kotlin
+cases skip silently without a local server and were doing exactly that for a
+whole session (§6.2n): *a skip is not a pass*, and a runner that folded them
 together would be the most expensive kind of green.
+
+`--strict` justified itself on its second run. The soak brings its own
+`mediamtx` — two 1080p servers at once got the first `--soak` attempt killed
+for memory pressure — so the shared one is stopped before it; but with the soak
+running mid-suite, the six server-facing Kotlin cases then found nothing to
+publish to and skipped. `--strict` called that FAIL; the default reporting
+would have called it "PASS (with skips)". **The soak therefore runs LAST**,
+after everything that needs the shared server, and nothing follows it.
 
 The script's summary is the authority on what actually ran — the list below
 says what each case IS.
