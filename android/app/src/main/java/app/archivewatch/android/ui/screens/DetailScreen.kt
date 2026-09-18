@@ -26,6 +26,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.filled.Podcasts
 import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material.icons.filled.Tune
 import androidx.compose.material.icons.filled.Check
@@ -35,6 +36,8 @@ import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.automirrored.filled.PlaylistAdd
 import androidx.compose.material3.AlertDialog
+import app.archivewatch.android.studio.StudioController
+import app.archivewatch.android.studio.StudioRights
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.TextButton
 import app.archivewatch.android.data.UserPlaylist
@@ -233,6 +236,21 @@ fun DetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
                 )
             }
 
+            // The rights refusal. NOT a disabled menu item: a host who
+            // cannot broadcast this film is told which rule stopped them and
+            // what the rule is (WATCH-TOGETHER §5) — the same wording every
+            // platform uses, guarded by tools/test_studio_rights_parity.py.
+            StudioController.refusal?.let { why ->
+                AlertDialog(
+                    onDismissRequest = { StudioController.refusal = null },
+                    title = { Text("This film cannot be streamed") },
+                    text = { Text(why + "\n\n" + StudioRights.policy) },
+                    confirmButton = {
+                        TextButton(onClick = { StudioController.refusal = null }) { Text("OK") }
+                    },
+                )
+            }
+
             if (showPlaylists) {
                 AddToPlaylistDialog(container, current.archiveID) { showPlaylists = false }
             }
@@ -359,6 +377,40 @@ fun DetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
                         Icon(Icons.Default.MoreVert, contentDescription = "More")
                     }
                     DropdownMenu(expanded = showOverflow, onDismissRequest = { showOverflow = false }) {
+                        // ONE item, not Apple's submenu (ANDROID-DESIGN §9.2):
+                        // there is no GroupActivities equivalent here, so
+                        // "Watch Together" means the WORLD half only, and half
+                        // a verb is not a verb.
+                        if (current.downloadURL != null) {
+                            DropdownMenuItem(
+                                text = { Text("Watch Together…") },
+                                leadingIcon = {
+                                    Icon(Icons.Default.Podcasts, contentDescription = null)
+                                },
+                                onClick = {
+                                    showOverflow = false
+                                    if (StudioController.arm(current)) {
+                                        nav.push(
+                                            Route.Player(
+                                                PlaySpec(
+                                                    id = current.archiveID,
+                                                    title = current.title,
+                                                    description = current.synopsis,
+                                                    url = current.downloadURL!!,
+                                                    captions = current.captions ?: emptyList(),
+                                                    runtimeSeconds = current.runtimeSeconds,
+                                                ),
+                                            ),
+                                        )
+                                    }
+                                    // A refusal set by `arm` is drawn by the
+                                    // dialog below; deliberately no fallback
+                                    // to ordinary playback — a host who asked
+                                    // to broadcast has not asked to watch
+                                    // alone.
+                                },
+                            )
+                        }
                         DropdownMenuItem(
                             text = { Text("View on archive.org") },
                             onClick = {

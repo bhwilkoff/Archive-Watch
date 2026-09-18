@@ -808,9 +808,39 @@ wrong reason. The threshold is now absolute (−40 dBFS), and the analyser
 **refuses to measure** when the flash and burst counts disagree by more than
 two, which it duly did on a short tail segment in the very next run.
 
-**Still ahead on Android**: a real camera, which needs a phone rather than a
-television — the Pixel 8a's adb-over-TLS pairing has expired — and the UI
-surface (ANDROID-DESIGN §9.1–9.4).
+### §6.2i — The Android entry point and its refusal (2026-09-17)
+
+`StudioController` is the Android counterpart of the Apple `StudioSession`,
+and it exists for the same reason: Detail decides to go live, the PLAYER is
+where the film and the surfaces are, and on Android those are two
+destinations in one nav graph.
+
+Detail's overflow now carries **one** item — "Watch Together…" — not Apple's
+submenu, per ANDROID-DESIGN §9.2: there is no GroupActivities equivalent
+here, so the name means the world half only and half a verb is not a verb.
+Choosing it applies the rights gate and either opens the player or raises a
+dialog carrying the gate's own sentence plus the policy. Never a greyed-out
+row (§5), and deliberately **no fallback to ordinary playback** — a host who
+asked to broadcast has not asked to watch alone.
+
+`StudioControllerTest`, 7/7 on the decision itself: an eligible film arms and
+carries its provenance line; a refused film does **not** arm, says why in a
+readable sentence, and never leaks its bucket name; a missing verdict refuses
+(the schema-1 case); television refuses whatever its rights say; an age claim
+with no supporting year refuses; and the audio tap is handed only to the film
+that was actually armed. The whole Android unit suite is 34/34, and the
+cross-platform gate parity still holds.
+
+**What is NOT verified, and the distinction matters**: how any of this LOOKS.
+The Detail surface I changed is the PHONE one, and the only Android hardware
+on this bench is two televisions, which run the `ui/tv` surfaces instead. The
+decision is tested; the appearance is not, and it stays unverified until the
+Pixel 8a's adb-over-TLS pairing is renewed — which is a one-time thing on the
+phone itself.
+
+**Still ahead on Android**: the player-side surfaces (§9.3's bottom sheet and
+§9.4's always-visible health), a real camera, and the phone-screen
+verification above.
 
 ## §7 — Phases
 
