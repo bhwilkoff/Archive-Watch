@@ -1240,6 +1240,38 @@ Pixel.
 
 ## §9 — Measurements (filled in as they are taken)
 
+### §9.ee §6.6 on the macOS PRODUCT path (2026-09-17)
+
+The Mac is the only Apple device where a real publish can be driven end to end
+with no owner grant: loopback needs no Local Network permission (§9.dd), and a
+`.custom` destination needs no client id. Driven through the product's own
+path — `AW_STUDIO_MAC=1` arms the Studio and plays, bounded at 95 s and muted,
+which is the door's own design after the Apple TV incident — with
+`tools/rtmp_sever_proxy.py` cutting the link at 25 s. Film: *Sherlock Jr.*
+(1924).
+
+Server-side evidence, which is the part that counts:
+
+| t | mediamtx `live/awmac` |
+|---|---|
+| 5–20 s | ready, bytes → **1.32 MB** |
+| 25 s | proxy severs `conn 1` |
+| 25 s | **`bytesReceived` resets to 249 kB** — a NEW publish; proxy logs `conn 2: open` |
+| 31–82 s | climbing continuously → **3.29 MB** |
+
+So §6.6 recovers on the macOS product path, not merely in a harness. The byte
+counter resetting is the cleanest proof available that the server accepted a
+second publish rather than the first one limping on.
+
+**The readout at the moment of the cut said `OFFLINE`**, with "The connection
+to the platform is down." — not `RECONNECTING`. That is accurate rather than
+wrong: `showState` checks `publisher.isReconnecting`, which is set inside
+`reconnect()`, and the supervisor polls once a second — so between the link
+dying and the first attempt starting there is a sub-second window where the
+host sees OFFLINE, and RECONNECTING follows. Recovery here was fast enough that
+RECONNECTING was never caught on a still. Worth knowing before anyone reads a
+single screenshot as the whole state machine.
+
 ### §9.dd The iOS product path can now be driven — and iOS's Local Network gate stops it reaching a bench server (2026-09-17)
 
 Everything measured on the iPhone so far came from **`StudioLab`**, a debug
