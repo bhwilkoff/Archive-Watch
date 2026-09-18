@@ -1618,6 +1618,54 @@ the audio path, the real ingest hosts with no credential, the overlay and
 go-live surfaces on the glass, the rights gate on device, and the platform
 clients. **→ `docs/watch-together-measurements.md`**
 
+### §9.kkkk The HLS audio limitation is confirmed from outside, and the fix has to come from our own remuxer (2026-09-18)
+
+§9.jjjj measured the cause on the device. Before building a fix, the same claim
+asked of the world, because an architecture change rests on it
+(`feedback_research_before_fixes`):
+
+> MTAudioProcessingTap does not work with HTTP Live Streaming … the remote
+> AVAsset always has zero tracks.
+
+Independent of our measurement and identical to it. It is a longstanding
+AVFoundation limitation with **no official solution**, and the only workaround
+practitioners report is recording the speakers with the microphone — useless on
+a television, and a thing this project would refuse anyway (§3.3 on screen
+capture is the same principle).
+
+One detail from that research explains the exact shape of our defect: **the
+video counterpart, `AVPlayerItemVideoOutput`, DOES work with HLS.** So on tvOS
+the picture arrives and the sound does not, from one asset, which is precisely
+what the recording showed.
+
+**Options considered, and why the obvious ones fail:**
+
+  - *Play a progressive MP4 on tvOS instead.* Decision 106 exists because tvOS 27
+    loses the audio of a non-fragmented mp4 **locally** — the viewer in the room
+    would hear nothing. Trading the broadcast's audio for the room's is not a
+    fix.
+  - *A second `AVAssetReader` on the source URL.* Works, and costs a second full
+    download of a feature film to obtain a ~90 kb/s audio track, because range
+    requests over an interleaved mp4 pull video bytes too.
+  - *`AVSampleBufferRenderSynchronizer` driving playback ourselves.* The
+    architecturally correct answer for a studio — both tracks from one read —
+    and a rewrite of the playback path that Decisions 021, 054, 067 and 106 all
+    sit on. Not proportionate to one missing track.
+
+**The fix follows from something this project already owns.** `MP4Fragmenter`
+parses the source's `moov` and models every track with its handler (`"vide"` /
+`"soun"`) and sample tables — it already knows exactly where the audio samples
+are, because it must, to interleave them into fragments. So the audio can be
+served as its own small rendition by `LocalMediaServer`, and read by an
+`AVAssetReader` over a real asset that **does** vend tracks, at the cost of the
+audio bitrate alone rather than the film's.
+
+That is the next piece of work, and it is written down before it is built so the
+reasoning can be checked rather than inferred from a diff. What it must get
+right is the part Android got wrong twice (§9.qq): the reader and the player are
+two clocks, and the engine already has ONE show clock that stamps both tracks —
+the reader supplies samples, never timestamps.
+
 ### §9.jjjj tvOS broadcasts have NO AUDIO — HLS vends no tracks, and a silent film hid it for weeks (2026-09-18)
 
 The owner asked for an audio test. It found that **every tvOS broadcast has gone
