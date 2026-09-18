@@ -1267,8 +1267,13 @@ phone geometry not previously checked — and shows the REFUSAL state, because a
 freshly installed catalogue carries no rights verdicts yet. The hook is guarded
 on `refusal == nil` and correctly did not fire. The iPad behaved identically on
 its first launch and became a KEEP a few minutes later once the catalogue
-updated, so this is the gate failing safe rather than a defect. **The 15 Pro's
-KEEP state is therefore still unseen.**
+updated, so this is the gate failing safe rather than a defect.
+
+**Re-checked once that catalogue had updated**: the 15 Pro reaches the KEEP
+state and shows §3.4a's paragraph in full, in landscape, above the Layout row
+and §3.4's policy line. So the warning has now been read on **three**
+geometries — a television (§8.8's one-time confirmation), an iPad at regular
+width, and a phone in landscape.
 
 ### §9.bb §6.2's audio session, on an Apple TV (2026-09-17)
 
