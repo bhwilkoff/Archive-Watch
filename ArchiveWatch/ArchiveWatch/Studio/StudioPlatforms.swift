@@ -332,13 +332,15 @@ public enum StudioPlatformAuth {
     /// live streaming for the FIRST time can take up to 24 hours to activate,
     /// so discovering it at go-live time means the show does not happen that
     /// night. Discovering it on the sign-in screen means it happens tomorrow.
-    public enum YouTubeReadiness: Sendable, Equatable {
+    /// Shared by both platforms: the surfaces ask one question and render one
+    /// answer, and the per-platform difference stays in the call below.
+    public enum Readiness: Sendable, Equatable {
         case ready
         /// A sentence the host can act on, not a reason code.
         case blocked(String)
     }
 
-    public static func youTubeLiveReadiness() async throws -> YouTubeReadiness {
+    public static func youTubeLiveReadiness() async throws -> Readiness {
         let access = try await token(for: .youtube)
         var r = URLRequest(url: URL(string: "https://www.googleapis.com/youtube/v3/"
             + "liveBroadcasts?part=id&mine=true&maxResults=1")!)
@@ -376,6 +378,72 @@ public enum StudioPlatformAuth {
         default:
             let msg = (err?["message"] as? String) ?? "HTTP \(http.statusCode)"
             return .blocked("YouTube will not accept a broadcast from this channel yet: \(msg)")
+        }
+    }
+
+    /// Which account a Twitch broadcast would go out as, and whether this
+    /// sign-in can actually do it — both from ONE read.
+    ///
+    /// `https://id.twitch.tv/oauth2/validate` returns the login, the user id and
+    /// the granted SCOPES, and it is the right check precisely because the
+    /// obvious one is forbidden: Twitch's readiness question could be answered
+    /// by fetching the stream key, and §5 says a key is fetched only by the
+    /// session that uses it. A readiness probe must not touch it.
+    ///
+    /// Measured against the live endpoint 2026-09-18, with its control:
+    ///
+    ///     bogus token   401 {"message":"invalid access token"}
+    ///     NO header     401 {"message":"missing authorization token"}
+    ///
+    /// Same status for both, so the status discriminates nothing — the fourth
+    /// endpoint in this feature of which that is true. The message is the
+    /// discriminator, exactly as on Twitch's device poll (§9.ppp).
+    public static func twitchAccount() async throws -> (login: String, scopes: [String]) {
+        let access = try await token(for: .twitch)
+        var r = URLRequest(url: URL(string: "https://id.twitch.tv/oauth2/validate")!)
+        r.setValue("OAuth \(access)", forHTTPHeaderField: "Authorization")
+        let (data, resp) = try await URLSession.shared.data(for: r)
+        let o = (try? JSONSerialization.jsonObject(with: data)) as? [String: Any]
+        guard let http = resp as? HTTPURLResponse, (200..<300).contains(http.statusCode),
+              let login = o?["login"] as? String else {
+            let why = (o?["message"] as? String) ?? "HTTP \((resp as? HTTPURLResponse)?.statusCode ?? 0)"
+            throw StudioPlatformError.notSignedIn("Twitch will not accept this sign-in: \(why)")
+        }
+        return (login, (o?["scopes"] as? [String]) ?? [])
+    }
+
+    /// The scopes a broadcast actually spends. Named here rather than inferred
+    /// from `scopes(for:)` because a token issued BEFORE a scope was added
+    /// still validates — it just cannot do the thing, which is the failure this
+    /// check exists to catch before the host presses anything.
+    private static let twitchRequiredScopes = ["channel:read:stream_key",
+                                               "channel:manage:broadcast"]
+
+    public static func twitchLiveReadiness() async throws -> Readiness {
+        let missing = try await twitchAccount().scopes
+        let absent = twitchRequiredScopes.filter { !missing.contains($0) }
+        guard absent.isEmpty else {
+            return .blocked("This Twitch sign-in is missing permission to "
+                + (absent.contains("channel:read:stream_key")
+                   ? "start a stream" : "set the stream title")
+                + ". Sign out and sign in again to grant it.")
+        }
+        return .ready
+    }
+
+    /// One question for the surfaces, whichever platform is selected.
+    public static func readiness(for platform: Platform) async throws -> Readiness {
+        switch platform {
+        case .youtube: return try await youTubeLiveReadiness()
+        case .twitch:  return try await twitchLiveReadiness()
+        }
+    }
+
+    /// The account a broadcast would go out as, for the sign-in row to name.
+    public static func accountName(for platform: Platform) async throws -> String {
+        switch platform {
+        case .youtube: return try await youTubeAccount().title
+        case .twitch:  return try await twitchAccount().login
         }
     }
 

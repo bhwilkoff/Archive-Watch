@@ -62,7 +62,7 @@ struct GoLiveTV: View {
     /// a slow API call must not gate the control, and a host who presses
     /// through an unknown answer meets the real error either way. Only a
     /// KNOWN-bad answer stops them, and it stops them with a sentence.
-    @State private var readiness: StudioPlatformAuth.YouTubeReadiness?
+    @State private var readiness: StudioPlatformAuth.Readiness?
     @FocusState private var focus: Field?
 
     private enum Field: Hashable { case platform(String), title, privacy(String), goLive, cancel }
@@ -79,7 +79,7 @@ struct GoLiveTV: View {
 
     /// The reason a signed-in host still cannot broadcast, or nil.
     private var blockedReason: String? {
-        guard platform == .youtube, case .blocked(let why)? = readiness else { return nil }
+        guard case .blocked(let why)? = readiness else { return nil }
         return why
     }
 
@@ -156,8 +156,8 @@ struct GoLiveTV: View {
         // re-asked when they sign in later. Read-only: it creates no broadcast
         // (§9.zzz) — the whole point is to answer before anything is created.
         .task(id: signedIn) {
-            guard signedIn, platform == .youtube, readiness == nil else { return }
-            readiness = try? await StudioPlatformAuth.youTubeLiveReadiness()
+            guard signedIn, readiness == nil else { return }
+            readiness = try? await StudioPlatformAuth.readiness(for: platform)
         }
         // Default focus alone is unreliable here (CLAUDE.md, commit 1f789b1),
         // and the target depends on state: claiming Go Live while it is

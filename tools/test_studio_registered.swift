@@ -88,6 +88,9 @@ struct RegisteredClientHarness {
         } else {
             print("YouTube: no YOUTUBE_CLIENT_ID — not asserted")
         }
+        // Needs no credential at all — it asserts how REFUSALS read.
+        await twitchValidate()
+
         if let tw { await twitch(tw) } else {
             print("\nTwitch: no TWITCH_CLIENT_ID — not asserted")
         }
@@ -276,6 +279,41 @@ struct RegisteredClientHarness {
         guard let (d, _) = try? await URLSession.shared.data(for: r),
               let o = try? JSONSerialization.jsonObject(with: d) as? [String: Any]
         else { return "<no response>" }
+        return (o["message"] as? String) ?? "<no message>"
+    }
+
+    // MARK: Twitch's token-validate endpoint — the readiness probe's foundation
+
+    /// The Studio asks "can this sign-in actually broadcast?" of
+    /// `/oauth2/validate`, and NOT of the stream-key endpoint, because §5 says
+    /// a key is fetched only by the session that spends it. So the readiness
+    /// answer rests entirely on this endpoint's shape, asserted here before any
+    /// host has signed in (Decision 128).
+    static func twitchValidate() async {
+        print("\nTwitch — /oauth2/validate, the readiness probe's foundation")
+
+        let bogus = await validateMessage(header: "OAuth not-a-real-token")
+        check("a bad token is refused as an INVALID token",
+              bogus == "invalid access token", bogus)
+
+        // THE CONTROL. Both answers are HTTP 401, so the status separates
+        // nothing — the fourth endpoint in this feature of which that is true
+        // (Twitch's device poll, Google's authError, Google's device code).
+        // If these two messages were the same, the product could not tell a
+        // host "sign in again" from a bug in its own request.
+        let missing = await validateMessage(header: nil)
+        check("CONTROL — a MISSING header reads differently from a bad token",
+              missing == "missing authorization token" && missing != bogus, missing)
+    }
+
+    /// Returns the `message`, which is the only field that discriminates here.
+    static func validateMessage(header: String?) async -> String {
+        var r = URLRequest(url: URL(string: "https://id.twitch.tv/oauth2/validate")!)
+        if let header { r.setValue(header, forHTTPHeaderField: "Authorization") }
+        guard let (d, _) = try? await URLSession.shared.data(for: r),
+              let o = try? JSONSerialization.jsonObject(with: d) as? [String: Any]
+        else { return "<no response>" }
+        if o["login"] is String { return "<accepted>" }
         return (o["message"] as? String) ?? "<no message>"
     }
 

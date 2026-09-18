@@ -176,8 +176,8 @@ struct StudioSignInRow: View {
         // `.task(id:)` so it re-asks when the host signs in, and is cancelled
         // with the view rather than outliving it (§9.sss).
         .task(id: signedIn) {
-            guard signedIn, platform == .youtube, accountName == nil else { return }
-            accountName = try? await StudioPlatformAuth.youTubeAccount().title
+            guard signedIn, accountName == nil else { return }
+            accountName = try? await StudioPlatformAuth.accountName(for: platform)
         }
         .onDisappear {
             // A host who closes the sheet has stopped asking. Leaving the poll

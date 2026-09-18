@@ -1109,16 +1109,20 @@ struct PlayerScreen: View {
             // AW_YT_WHOAMI=1: name the channel a broadcast would reach, and
             // nothing else. A read, never a publish.
             if ProcessInfo.processInfo.environment["AW_YT_WHOAMI"] == "1" {
-                do {
-                    let who = try await StudioPlatformAuth.youTubeAccount()
-                    awdiag("AWYT channel=%@ [%@]", who.title, who.id)
-                    let ready = try await StudioPlatformAuth.youTubeLiveReadiness()
-                    switch ready {
-                    case .ready: awdiag("AWYT readiness=READY")
-                    case .blocked(let why): awdiag("AWYT readiness=BLOCKED %@", why)
+                for p in StudioPlatformAuth.Platform.allCases {
+                    guard StudioPlatformAuth.isSignedIn(p) else {
+                        awdiag("AWYT %@ not-signed-in", p.rawValue); continue
                     }
-                } catch {
-                    awdiag("AWYT failed=%@", "\(error)")
+                    do {
+                        awdiag("AWYT %@ account=%@", p.rawValue,
+                               try await StudioPlatformAuth.accountName(for: p))
+                        switch try await StudioPlatformAuth.readiness(for: p) {
+                        case .ready: awdiag("AWYT %@ readiness=READY", p.rawValue)
+                        case .blocked(let why): awdiag("AWYT %@ readiness=BLOCKED %@", p.rawValue, why)
+                        }
+                    } catch {
+                        awdiag("AWYT %@ failed=%@", p.rawValue, "\(error)")
+                    }
                 }
             }
             guard let film = current ?? catalogItem else { return }

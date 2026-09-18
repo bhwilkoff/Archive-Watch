@@ -1618,6 +1618,63 @@ the audio path, the real ingest hosts with no credential, the overlay and
 go-live surfaces on the glass, the rights gate on device, and the platform
 clients. **→ `docs/watch-together-measurements.md`**
 
+### §9.bbbb Twitch gets the same read-only readiness — and the probe must not touch the stream key (2026-09-18)
+
+§9.zzz gave YouTube a readiness question asked with a READ, so a host learns
+their channel cannot broadcast before pressing anything. Twitch now has the
+same, and getting there required refusing the obvious implementation.
+
+**The forbidden shortcut.** Twitch's readiness could be answered perfectly by
+fetching the stream key: if the key comes back, the sign-in works. §5 forbids
+it — "a key is never logged, never written to disk, never put in a URL this app
+prints, and it does not outlive the session that fetched it" — and a readiness
+probe is by definition not the session that spends it. A probe that fetches a
+credential in order to check a credential has created the exposure it was
+verifying.
+
+So the check is `https://id.twitch.tv/oauth2/validate`, which returns the login,
+the user id and the granted SCOPES and touches no key. It answers both questions
+the surface has — whose channel, and can this sign-in do it — from one read.
+
+**Scopes are checked against what a broadcast SPENDS, not against what we ask
+for.** A token issued before a scope was added still validates; it simply cannot
+do the thing. `twitchRequiredScopes` names `channel:read:stream_key` and
+`channel:manage:broadcast` explicitly, so an old token is refused with a sentence
+rather than failing at the fourth API call.
+
+**Measured, with its control** (2026-09-18):
+
+    bogus token   401 {"message":"invalid access token"}
+    NO header     401 {"message":"missing authorization token"}
+
+Both are HTTP 401. **The status discriminates nothing — the fourth endpoint in
+this feature of which that is true**, after Twitch's device poll (§9.ppp),
+Google's `authError` on the final URL (§9.nnn) and Google's device-code refusal
+(§9.www). If those two messages read the same, the product could not tell a host
+"sign in again" from a bug in its own request. Asserted in §8.9, and it needs no
+credential: it asserts how REFUSALS read, which is exactly what Decision 128
+means by proving the request shapes before the credentials exist.
+
+**Both platforms now answer one question.** `StudioPlatformAuth.readiness(for:)`
+and `accountName(for:)` dispatch per platform; `GoLiveTV` and `StudioSignInRow`
+ask once and render once, rather than carrying a `platform == .youtube` test
+each — the shape §9.ttt found repeated across three Apple surfaces.
+
+Read off the Apple TV:
+
+    AWYT youtube account=Ben Wilkoff
+    AWYT youtube readiness=BLOCKED  Live streaming is not enabled on this channel…
+    AWYT twitch  not-signed-in
+
+— the signed-in platform names its account and reports its gate; the
+signed-out one says so without erroring, which is the state the surface draws.
+
+**What this leaves.** Twitch has neither of YouTube's two gates: no consent
+screen to publish, no channel feature to enable. So the moment a host signs in to
+Twitch, the go-live path is exercisable end to end for the first time — which is
+the next real measurement this feature has, and the first one that puts a
+broadcast on a person's account.
+
 ### §9.aaaa §6.1's Keychain promise was NOT kept on macOS — measured from inside the signed app, and fixed (2026-09-18)
 
 §6.1 says tokens live in the Keychain under
