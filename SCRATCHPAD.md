@@ -107,6 +107,18 @@ emulators) · `docs/CAPTIONS.md` · `docs/SHAREPLAY.md` ·
    `Info.plist`). **Both platforms are now configured**, so the go-live sheet's
    "not set up" state no longer appears on any Apple surface — and note that
    registering the FIRST id is what exposed the tvOS gate defect in §9.ooo;
+   (a2-NEW) **THE CHANNEL IS NOW CORRECT; ONLY YOUTUBE'S ACTIVATION REMAINS.**
+   2026-09-18 14:26 the television's token was moved to **"Archive Watch"
+   (UCGNBrxdpR4ujnMWO4_OQgyA)** — it had been on the personal default
+   "Ben Wilkoff". The blocker was ours: `prompt=consent` re-shows the consent
+   screen for the account Google has ALREADY picked and never offers the Brand
+   Account chooser, so "sign out and sign in again to choose another" could not
+   work (a sign-out/sign-in returned the same channel in 42 seconds).
+   `prompt=select_account consent` fixes it. YouTube STILL answers
+   `liveStreamingNotEnabled` for Archive Watch, and with the channel question
+   eliminated the remaining candidate is the documented **24-hour first
+   activation**. Re-check with a read that creates nothing; no owner action is
+   known to be outstanding. Original note follows.
    (a2) **MEASURED 2026-09-18 AND IT IS BLOCKED — DO THIS FIRST.** Asked of
    YouTube from the Apple TV with the owner's own token (`liveBroadcasts.list`,
    a READ that creates nothing): `liveStreamingNotEnabled`. **Live streaming has
