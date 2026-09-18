@@ -23,6 +23,13 @@ public final class StudioSession {
 
     /// The film the host asked to broadcast, set by Detail BEFORE the player
     /// exists. Non-nil means "arm the Studio when a player shows up".
+    /// Where the armed show will be SENT, once a surface has resolved it
+    /// (§9.lll). Nil means the engine composites and encodes and reports NOT
+    /// SENDING, which is what every platform did before there was a surface
+    /// that could ask.
+    public private(set) var armedDestination: URL?
+    public func armDestination(_ url: URL?) { armedDestination = url }
+
     public private(set) var armedFilmID: String?
     public private(set) var armedTitle: String = ""
     public private(set) var armedSubtitle: String = ""
@@ -102,8 +109,11 @@ public final class StudioSession {
             // plain film, so no screenshot can ever prove the camera tile and
             // overlays are really in the broadcast. Publishing to a local
             // server and pulling a frame back is the only honest check.
-            let dest = ProcessInfo.processInfo.environment["AW_STUDIO_DEST"]
-                .flatMap { URL(string: $0) }
+            // A destination resolved by a go-live surface wins; the
+            // environment door is the diagnostic fallback it always was.
+            let dest = armedDestination
+                ?? ProcessInfo.processInfo.environment["AW_STUDIO_DEST"]
+                    .flatMap { URL(string: $0) }
             try await e.start(destination: dest)
         } catch {
             refusal = "The Studio could not start — \(error)"

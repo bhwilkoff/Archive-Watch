@@ -86,6 +86,21 @@ struct ArchiveWatchMacApp: App {
             CommandGroup(after: .newItem) {
                 Button("Surprise Me") { router.surprise(store) }
                     .keyboardShortcut("r", modifiers: [.command, .shift])
+                // Rule B13g — going live is a MENU COMMAND, because §B13a
+                // forbids a second window and §B13b forbids hand-drawing into
+                // the player's chrome, which rules out both obvious places.
+                //
+                // B13g left two questions unanswered, and these are the
+                // CONSERVATIVE readings rather than decisions:
+                //  • it lives beside the existing commands rather than in a new
+                //    top-level Broadcast menu, because inventing a menu is the
+                //    larger claim;
+                //  • it is DISABLED with no film playing, because §B13a makes the
+                //    Studio the player in a production mode and a broadcast of
+                //    nothing is not a state the engine can serve.
+                Button("Go Live…") { router.showGoLive = true }
+                    .keyboardShortcut("l", modifiers: [.command, .shift])
+                    .disabled(router.nowPlaying == nil)
             }
         }
 

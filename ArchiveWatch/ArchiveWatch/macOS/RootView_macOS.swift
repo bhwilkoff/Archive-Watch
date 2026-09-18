@@ -26,6 +26,31 @@ struct RootView: View {
                 browse
             }
         }
+        // Rule B13g — the go-live sheet, presented by the window ROOT because a
+        // menu command cannot present one itself, and because §B13a forbids a
+        // second window. A manual Binding rather than @Bindable so this works
+        // however `router` is declared upstream.
+        .sheet(isPresented: Binding(get: { router.showGoLive },
+                                    set: { router.showGoLive = $0 })) {
+            if let film = router.nowPlaying {
+                GoLiveSheetMac(film: film) { request in
+                    Task {
+                        do {
+                            // The credential path that became shared in §9.lll.
+                            // With no client id this throws, which is the state
+                            // the sheet already greys Go Live for — caught here
+                            // so a surprise cannot reach the host as a crash.
+                            let dest = try await StudioGoLive.destination(for: request, film: film)
+                            StudioSession.shared.armDestination(dest)
+                            _ = StudioSession.shared.arm(film: film)
+                        } catch {
+                            StudioSession.shared.refusal =
+                                "The broadcast could not start — \(error)."
+                        }
+                    }
+                }
+            }
+        }
         .overlay {
             if !store.isReady {
                 ProgressView("Loading catalog…").controlSize(.large)
@@ -108,6 +133,16 @@ struct RootView: View {
                 // sound IN THE ROOM — the PROGRAM keeps its audio, or this door
                 // could never measure any. AW_STUDIO_MAC_SECONDS overrides the
                 // 120 s default.
+                // AW_GOLIVE_MAC=1 opens Rule B13g's sheet on launch, so the
+                // surface can be SEEN without a click — the same reason
+                // AW_AUTOPLAY exists (SwiftUI exposes no scriptable menu).
+                if env["AW_GOLIVE_MAC"] == "1" {
+                    router.play(it)
+                    Task { @MainActor in
+                        try? await Task.sleep(for: .seconds(2))
+                        router.showGoLive = true
+                    }
+                }
                 if env["AW_STUDIO_MAC"] == "1" {
                     if StudioSession.shared.arm(film: it) {
                         router.play(it)

@@ -1664,6 +1664,45 @@ against ~13 s for a network film), and the measurement ran.
 verifying the clip, exactly as §9.nn recorded and as the memory says. Knowing
 the trap did not stop me walking into it; only re-running without it did.)
 
+### §9.mmm macOS can go live — the surface built under Rule B13g (2026-09-18)
+
+§9.ccc found the Mac unable to broadcast at all; §9.lll made the credential path
+shared; the owner approved **Rule B13g** ("Yes proceed with your plan"). This is
+the surface.
+
+**A menu command, per B13g**, beside the existing ones rather than in a new
+top-level Broadcast menu, and **disabled with no film playing**. Both are the
+CONSERVATIVE readings of the two questions B13g left open, taken because the
+approval did not answer them, and both say so at the point of decision:
+inventing a menu is the larger claim, and §B13a makes the Studio the player in a
+production mode, so a broadcast of nothing is not a state the engine can serve.
+
+**The same sheet as iOS §8.9**, using the request types that became shared in
+§9.lll — the film, the rights refusal in a sentence, where it goes, how it
+looks, the policy, and §3.4a's warning. §B13c's reasoning is why: it already
+chose mirroring over invention, so a host who learned the iPhone knows the Mac.
+
+**Seen on the glass** (window capture, app running, film playing): the sheet
+carries the film with its provenance line in marquee orange, the platform
+picker, **the unconfigured sign-in state** ("Signing in to YouTube is not…"),
+the pre-filled title, privacy, layout, the policy sentence and the §3.4a
+warning. Go Live is greyed, which is Decision 128's rule working: a build with
+no client id cannot publish, and the sheet says why rather than failing inside
+the auth boundary.
+
+**What is wired and what is not.** On commit the sheet resolves the destination
+through `StudioGoLive.destination(for:film:)` and hands it to
+`StudioSession.armDestination`, which now prefers a real destination over the
+`AW_STUDIO_DEST` diagnostic door. **That path cannot be exercised until the
+client ids exist** — by design, since Go Live is greyed without them — so it is
+compiled and unrun, and this entry does not claim otherwise.
+
+**Instrument note against myself**: the window capture used AppleScript's
+reported bounds and overshot them, catching part of my own terminal beside the
+app. No personal data — it was my own session — but it is not the precise
+window-only capture `mac_screenshot_window_only` asks for, and the bounds a
+window reports are not the region `screencapture -R` will take.
+
 ### §9.lll The credential path is SHARED at last — and tvOS needs a rule of its own (2026-09-18)
 
 §9.ccc found that `YouTubeLive` and `TwitchLive` were constructed in exactly one

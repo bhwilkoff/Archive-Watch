@@ -11,6 +11,10 @@ struct CollectionRoute: Hashable { let id: String; let title: String }
 @MainActor
 @Observable
 final class AppRouter {
+    /// Rule B13g: the menu command cannot present a sheet itself, so it flips
+    /// this and the window root presents. Nothing else reads it.
+    var showGoLive = false
+
     enum Section: String, CaseIterable, Identifiable, Hashable {
         case home, movies, tv, channels, collections, surprise, search, library, create
         var id: String { rawValue }
