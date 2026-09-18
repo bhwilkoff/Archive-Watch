@@ -1265,16 +1265,28 @@ Android uses an expiry timestamp checked in the per-second block, because that
 code runs inside the render loop and has no scope to launch from — and a
 timestamp cannot leak a task.
 
-**What is proved, and what is not.** Android's `problem` is pure logic and is
-tested — `StudioProblemTest`, 4/4: the step is what the host is told, the
-restore is shown too, a live show with no note reports no problem, and a note
-never masks a stalled encoder. Apple's three surfaces compile and their
-ordering was written deliberately, but **the sentence has not been photographed
-on any screen.** The tvOS dev door runs with `destination = nil` (no client
-ids), so `showState.detail` correctly outranks the note there — "no destination
-is set" is the more important thing to say — which means that door cannot
-display it. Seeing it on a television needs either the client ids or a tvOS
-bench destination.
+**What is proved.** Android's `problem` is pure logic and is tested —
+`StudioProblemTest`, 4/4: the step is what the host is told, the restore is
+shown too, a live show with no note reports no problem, and a note never masks
+a stalled encoder.
+
+**And then the first attempt to see it on a television showed the design was
+wrong.** Folding the note into `problem` gave it ONE slot, and with the tvOS
+dev door running without a destination the state sentence correctly won it —
+"no destination is set" is the more important thing to say. But the two facts
+are independent: a device can be hot *and* have nowhere to send. So on tvOS and
+macOS the note now has **its own line**, which is what §4's "health is never
+hidden" actually asks for; the one-chip-only rule stays where it came from, the
+iPhone capsule, which truncates.
+
+Seen on an Apple TV 4K 3rd gen, 2026-09-17 — both lines at once:
+
+> ● **NOT SENDING**  3,080 kbps
+> ⏱ The device is running hot, so the picture is being sent at 3600 kbps instead of 6000 kbps.
+> ⚠️ The show is being made but not sent anywhere — no destination is set.
+
+So §5's adaptive step is now on a screen, and the run that proved it is also
+the run that proved a single slot would have hidden one of two true things.
 
 ### §9.jj §6.5's RETURN journey (2026-09-17)
 

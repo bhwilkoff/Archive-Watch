@@ -24,14 +24,6 @@ struct StudioTVHealth: View {
     private var problem: String? {
         if let d = health.showState.detail { return d }
         if isLive && filmFramesPerSecond == 0 { return "The film has stopped — your audience sees a still picture" }
-        // §5: "never auto-lower quality silently — an adaptive-bitrate step is
-        // shown as it happens". `qualityNote` carries the step WITH its
-        // numbers, and until now it was written by the engine and rendered by
-        // nothing: the only reader on any platform was a diagnostic log line.
-        // It comes before the generic thermal sentences because "sent at 3600
-        // instead of 6000 kbps" tells a host what changed and "getting hot"
-        // does not.
-        if let note = health.qualityNote { return note }
         if health.thermalState == "critical" { return "This Apple TV is too hot to keep streaming" }
         if health.thermalState == "serious" { return "This Apple TV is getting hot" }
         if let e = health.publisher.lastError { return e }
@@ -63,6 +55,23 @@ struct StudioTVHealth: View {
                 .font(.system(size: 26, weight: .medium))
                 .foregroundStyle(.white.opacity(0.7))
             #endif
+            // §5's adaptive step, on its OWN line.
+            //
+            // Not folded into `problem`, because they are different facts: "no
+            // destination is set" and "the picture is being sent at 3600
+            // instead of 6000 kbps" can both be true, and whichever won a
+            // single slot would hide the other. §4 says health is never
+            // hidden, and a ten-foot readout has the room — the
+            // one-chip-only rule is an iPhone constraint, where the capsule
+            // truncates.
+            if let note = health.qualityNote {
+                HStack(spacing: 10) {
+                    Image(systemName: "speedometer")
+                    Text(note)
+                }
+                .font(.system(size: 27, weight: .medium))
+                .foregroundStyle(.white.opacity(0.85))
+            }
             if let problem {
                 HStack(spacing: 10) {
                     Image(systemName: "exclamationmark.triangle.fill")
