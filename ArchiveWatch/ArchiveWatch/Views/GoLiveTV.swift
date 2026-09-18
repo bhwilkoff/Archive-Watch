@@ -57,6 +57,25 @@ struct GoLiveTV: View {
     @State private var title: String
     @State private var privacy: YouTubePrivacy = .unlisted
     @State private var signedIn = false
+    /// DEBUG ONLY — `AW_STUDIO_DEST` offers a bench server beside the real
+    /// platforms, so the commit chain this screen exists to trigger
+    /// (request → `StudioGoLive.destination` → engine → `RTMPPublisher`) can be
+    /// RUN before any host has a platform account. iOS has carried a `.custom`
+    /// destination in the shipping sheet since §8.9; a television cannot type a
+    /// URL, so here it is an environment variable and a DEBUG build.
+    ///
+    /// It is a real destination, not a bypass: the request goes through the
+    /// same `onGoLive`, the same resolver and the same publisher. What it skips
+    /// is the platform's key exchange, which is the only part that needs an
+    /// account.
+    @State private var useBench = false
+    private static var benchDestination: URL? {
+        #if DEBUG
+        ProcessInfo.processInfo.environment["AW_STUDIO_DEST"].flatMap(URL.init(string:))
+        #else
+        nil
+        #endif
+    }
     /// What YouTube says about this channel's ability to broadcast at all.
     /// Nil means "not asked yet", which deliberately does NOT block Go live:
     /// a slow API call must not gate the control, and a host who presses
@@ -81,6 +100,25 @@ struct GoLiveTV: View {
     private var blockedReason: String? {
         guard case .blocked(let why)? = readiness else { return nil }
         return why
+    }
+
+    /// The request this screen produces. ONE definition, used by the button and
+    /// by the verification door below — a door that built its own request would
+    /// be measuring a code path the product does not have.
+    private func request() -> GoLiveRequest {
+        GoLiveRequest(
+            archiveID: film.archiveID,
+            platform: useBench ? .custom : (platform == .twitch ? .twitch : .youtube),
+            title: trimmedTitle,
+            // Rule 8.8a: "no category for Twitch" — it is changeable on the
+            // platform and is not worth a d-pad form.
+            category: "",
+            privacy: privacy,
+            layout: .corner,
+            customServer: useBench ? Self.benchDestination : nil,
+            customKey: useBench
+                ? (ProcessInfo.processInfo.environment["AW_STUDIO_KEY"] ?? "awbench")
+                : nil)
     }
 
     private var trimmedTitle: String {
@@ -170,6 +208,28 @@ struct GoLiveTV: View {
             try? await Task.sleep(nanoseconds: 350_000_000)
             if signedIn { focus = .goLive }
         }
+        // DEBUG verification door — `AW_STUDIO_TV_GOLIVE=1` with
+        // `AW_STUDIO_DEST`. It presses nothing and proves nothing about the
+        // button; what it exercises is the COMMIT CHAIN behind it — the same
+        // `request()` the button builds, the same `onGoLive`, and from there
+        // `StudioGoLive.destination` → `StudioEngine` → `RTMPPublisher`.
+        //
+        // It exists because that chain had never run on this platform: the
+        // surface is verified on the glass, and everything past the press was
+        // compiled and unrun. Driving a d-pad blind over a remote could not
+        // establish it reliably — four presses moved no visible focus — and a
+        // chain measured through a server's own recording is better evidence
+        // than a focus ring anyway.
+        //
+        // Bench only. It refuses to fire at a real platform, so it can never
+        // put a broadcast on anybody's channel.
+        .task {
+            guard ProcessInfo.processInfo.environment["AW_STUDIO_TV_GOLIVE"] == "1",
+                  Self.benchDestination != nil else { return }
+            useBench = true
+            try? await Task.sleep(nanoseconds: 2_000_000_000)
+            onGoLive(request())
+        }
     }
 
     private var header: some View {
@@ -206,6 +266,19 @@ struct GoLiveTV: View {
                 platformChoice
             } else if let only = Self.configured.first {
                 Text(only.displayName).font(.title3).fontWeight(.medium)
+            }
+            if Self.benchDestination != nil {
+                Button {
+                    useBench.toggle()
+                } label: {
+                    HStack(spacing: 12) {
+                        Image(systemName: useBench
+                              ? "largecircle.fill.circle" : "circle")
+                        Text("Bench server (debug)")
+                    }
+                    .padding(.horizontal, 8)
+                }
+                .focused($focus, equals: .platform("bench"))
             }
             ForEach(Self.unconfigured, id: \.rawValue) { p in
                 Text(StudioPlatformAuth.configurationProblem(for: p) ?? "")
@@ -298,24 +371,16 @@ struct GoLiveTV: View {
         VStack(alignment: .leading, spacing: 16) {
             HStack(spacing: 24) {
                 Button {
-                    onGoLive(GoLiveRequest(
-                        archiveID: film.archiveID,
-                        platform: platform == .twitch ? .twitch : .youtube,
-                        title: trimmedTitle,
-                        // Rule 8.8a: "no category for Twitch" — it is
-                        // changeable on the platform and is not worth a
-                        // d-pad form.
-                        category: "",
-                        privacy: privacy,
-                        layout: .corner,
-                        customServer: nil,
-                        customKey: nil))
+                    onGoLive(request())
                 } label: {
-                    Label("Go live on \(platform.displayName)",
+                    Label(useBench ? "Go live to the bench server"
+                                   : "Go live on \(platform.displayName)",
                           systemImage: "dot.radiowaves.left.and.right")
                         .padding(.horizontal, 12)
                 }
-                .disabled(!signedIn || blockedReason != nil)
+                // The bench needs no token and no channel: it is a server on
+                // this network, and the gates above are about a platform.
+                .disabled(!useBench && (!signedIn || blockedReason != nil))
                 .focused($focus, equals: .goLive)
 
                 Button("Not now", role: .cancel) { onCancel() }

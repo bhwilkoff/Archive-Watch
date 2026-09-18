@@ -1618,6 +1618,55 @@ the audio path, the real ingest hosts with no credential, the overlay and
 go-live surfaces on the glass, the rights gate on device, and the platform
 clients. **→ `docs/watch-together-measurements.md`**
 
+### §9.gggg THE JOIN RUNS: the tvOS go-live chain reaches a real RTMP server, end to end (2026-09-18)
+
+Every piece of the television's broadcast has been measured separately — the
+surface (§9.vvv), the sign-in (§9.yyy), the readiness gate (§9.zzz), the
+publisher against a bench server (§9, Phase 0), the encoder (§9.vv). **The join
+had never run.** Everything past the Go live button — `request()` → `onGoLive`
+→ `StudioGoLive.destination` → `StudioEngine.start(destination:)` →
+`RTMPPublisher` → a server — was compiled and unrun on this platform, because
+reaching it needed a platform account.
+
+It does not. `GoLivePlatform.custom` resolves a destination with **no OAuth at
+all**, which iOS has shipped since §8.9 and tvOS did not offer because a
+television cannot type a URL. Under DEBUG with `AW_STUDIO_DEST` set, the surface
+now offers "Bench server (debug)" beside the real platforms, and the request it
+builds goes through the same resolver and the same publisher. What it skips is
+the platform's key exchange — the only part that needs an account.
+
+**The server's own account of it**, mediamtx on the Mac, publisher on the Apple
+TV:
+
+    [path awtv/bench1] [recorder] recording 2 tracks (H264, MPEG-4 Audio)
+    [RTMP] [conn 10.0.0.223:60472] is publishing to path 'awtv/bench1'
+
+`10.0.0.223` is the television, not this machine. And read back off the file
+rather than trusted from the log:
+
+    h264  1920x1080  30/1        aac  44100 Hz  stereo
+    duration 143.7 s             6 I-frames in the first 12 s (one per 2.00 s)
+
+**Full 1080p30, both tracks, keyframes at the documented 2-second cadence, from
+an Apple TV, through the product's own commit path.** The recording was deleted
+once it had been read — it is 72 MB of the owner's television output and there
+is no reason to keep it.
+
+**On driving the surface, and why the door exists.** The intention was to press
+Go live over the remote. Four `up` presses moved no visible focus ring, and a
+focus position that cannot be seen cannot be driven reliably — so the door
+calls the same `request()` and the same `onGoLive` the button calls, and the
+request builder was extracted to ONE definition so the two cannot diverge. It
+is honest about its limit: **it proves the chain, not the button.** The button
+itself is verified by capture — rendered, correctly disabled when the channel is
+blocked, correctly enabled for the bench. The door refuses to fire at anything
+but the bench, so it can never put a broadcast on a person's channel.
+
+**What is left is only the key exchange.** On tvOS the chain from a host's press
+to a server carrying their show is now measured; the untested inch is
+`YouTubeLive.prepare` / `TwitchLive.prepare` returning a real address and key,
+which needs an account and a press the owner makes.
+
 ### §9.ffff The readiness gate was on ONE surface — and the recurrence is now checked by a script rather than by eye (2026-09-18)
 
 §9.zzz gave the go-live surface a read-only readiness question, so a host whose
