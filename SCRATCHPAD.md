@@ -145,7 +145,7 @@ emulators) · `docs/CAPTIONS.md` · `docs/SHAREPLAY.md` ·
    foreground app launch forbidden"*. Waking it would switch on a television in
    the owner's bedroom in the middle of the night, which is the same intrusion
    the Fireplace instruction is about; Movie Room would light another room in a
-   sleeping house. **The tvOS and iOS encoder reads wait for a waking hour** —
+   sleeping house. **tvOS is DONE** (2026-09-18 06:04, owner said "you can wake the bedroom tv"): the readout on an Apple TV 4K 3rd gen says `encoder: hardware`, matching the Mac, and the same run photographed the configuration refusal ("Streaming is not set up yet") for the first time. **iOS still waits** —
    they need no bench destination, only a screenshot of the DEBUG readout, so
    they are a two-minute job whenever the televisions are awake.
 

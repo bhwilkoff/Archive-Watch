@@ -2407,7 +2407,26 @@ machine with no hardware encoder, and for this feature a slow broadcast beats
 no broadcast: the Android dongle proves such devices exist and still want to
 take part.
 
-**tvOS and iOS are surfaced but not yet READ.** `StudioHealth` now carries
+**tvOS is now READ, on the glass** (Apple TV 4K 3rd gen, 2026-09-18). The
+DEBUG readout during a forced Studio run:
+
+    ● NOT SENDING  1,598 kbps
+    audio: Playback/MoviePlayback active
+    encoder: hardware
+    ⚠ The show is being made but not sent anywhere — no destination is set.
+
+**`encoder: hardware`** — so the television matches the Mac's `hwenc=true`, and
+Apple's two measured platforms both use the hardware encoder where Android's
+dongle has none (§9.uu). The same screenshot carries §6.2's audio-session state
+and §5's no-destination sentence, both rendering correctly at ten feet.
+
+**And the CONFIGURATION refusal was verified first, by accident.** Without
+`AW_STUDIO_TV_FORCE` the television answers with *"Streaming is not set up yet
+— Signing in to YouTube or Twitch is not set up in this build yet… their client
+ids in Secrets.xcconfig."* That is Decision 128's "a missing credential is a
+STATE" on a real screen, which had never been photographed either.
+
+**iOS remains unread.** `StudioHealth` now carries
 `encoderIsHardware` so every surface can show it, and the tvOS readout prints
 `encoder: hardware` / `encoder: SOFTWARE` in DEBUG — on the GLASS, because the
 machine-readable health line is gated on a bench destination a television
