@@ -100,6 +100,19 @@ class StudioEngine(
      * 0 (NONE) when nobody supplies anything.
      */
     private val thermalStatus: () -> Int = { 0 },
+    /**
+     * How far the film's audio TAP runs ahead of what the player is actually
+     * playing, in microseconds, as measured on this device.
+     *
+     * `TeeAudioProcessor` sits on the way INTO the audio sink, so it sees PCM
+     * before it is audible — measured at **0.565 s** on the Google TV (§9.hhh),
+     * which is most of the 0.712 s by which a broadcast's audio led its video
+     * (§9.ggg). The surface measures it (it is the only place that can see both
+     * the tap and `player.currentPosition`) and the engine applies it, so the
+     * correction is THIS pipeline's number rather than a constant that would be
+     * wrong on the next device.
+     */
+    private val audioLeadUs: () -> Long = { 0 },
 ) {
     @Volatile var health = StudioHealth(); private set
 
@@ -315,6 +328,7 @@ class StudioEngine(
         var audioSecNanos = 0L
         var chatSecNanos = 0L
         var frameAtLastSecond = 0L
+        var leadApplied = false
         // The RTMP handshake runs OFF the render thread (§9.ss). It is a TCP
         // connect plus four AMF round trips, and on the render thread it
         // measured 2.3 SECONDS with fps=1 — every broadcast opened stalled,
@@ -384,9 +398,26 @@ class StudioEngine(
             // packet for audio track 0, but track is not set up". A stream's
             // tracks are declared once, at publish; a track that shows up
             // afterwards is not a late track, it is a protocol error.
+            // THE SINK LEAD, applied before a single audio frame is SENT.
+            //
+            // Adding it later would step the audio timeline mid-stream, which
+            // is the one thing a live timeline must never do. Applying it here
+            // is safe because nothing is published yet: frames drained before
+            // the publish are dropped (`published` is null), so the first frame
+            // that actually goes out already carries the corrected offset.
+            if (!leadApplied) {
+                val lead = audioLeadUs()
+                if (lead > 0) aac?.let { it.startOffsetUs += lead; leadApplied = true }
+            }
             val audioReady = audioTap == null || aac?.asc != null ||
                              System.currentTimeMillis() > audioDeadline
+            // Wait for a lead sample the way we wait for the AAC config — with
+            // the same deadline, so a pipeline that never reports one still
+            // goes out (uncorrected) rather than never going out at all.
+            val leadReady = audioTap == null || leadApplied ||
+                            System.currentTimeMillis() > audioDeadline
             if (published == null && destination != null && enc.avcC != null && audioReady &&
+                leadReady &&
                 publishInFlight.compareAndSet(false, true)) {
                 // Everything the handshake needs is captured HERE, on the
                 // render thread, so the worker touches no engine state.

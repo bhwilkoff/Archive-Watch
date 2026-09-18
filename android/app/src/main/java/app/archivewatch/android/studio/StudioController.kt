@@ -80,6 +80,13 @@ object StudioController {
      */
     fun attachTap(tap: StudioFilmAudioTap) { audioTap = tap }
 
+    /**
+     * The surface reports how far the audio tap runs AHEAD of playback, in
+     * microseconds (§9.hhh). Only the player's own screen can see both clocks.
+     */
+    @Volatile private var audioLeadUs: Long = 0
+    fun reportAudioLead(us: Long) { if (us > 0) audioLeadUs = us }
+
     /** Which tap a show started now would carry. Read by the tests. */
     val attachedTap: StudioFilmAudioTap? get() = audioTap
 
@@ -95,7 +102,7 @@ object StudioController {
                      thermalStatus: () -> Int = { 0 }) {
         if (armedFilmID != archiveID || isLive) return
         armedFilmID = null
-        val e = StudioEngine(thermalStatus = thermalStatus)
+        val e = StudioEngine(thermalStatus = thermalStatus, audioLeadUs = { audioLeadUs })
         e.layoutShowsCamera = showsCamera
         engine = e
         // No destination until a client id exists (Decision 128) — the engine

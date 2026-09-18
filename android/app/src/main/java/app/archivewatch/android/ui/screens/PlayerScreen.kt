@@ -572,6 +572,18 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
                 }
             }
             StudioController.pollHealth()
+            // The sink-lead measurement feeds the ENGINE's audio correction
+            // (§9.iii), so it runs in every build — only the log line below is
+            // DEBUG. A correction that exists solely in a debug build would fix
+            // the broadcast nobody watches.
+            StudioController.attachedTap?.let { t ->
+                val rate = t.sampleRate; val ch = t.channelCount
+                if (rate > 0 && ch > 0) {
+                    val tapSec = t.bytesSeen.get().toDouble() / (rate.toDouble() * ch * 2)
+                    StudioController.reportAudioLead(
+                        ((tapSec - player.currentPosition / 1000.0) * 1_000_000).toLong())
+                }
+            }
             if (BuildConfig.DEBUG) {
                 // §9.ggg: WHY does audio lead video by ~0.7 s? The hypothesis is
                 // that `TeeAudioProcessor` taps PCM on its way INTO the audio
@@ -592,6 +604,9 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
                         android.util.Log.i("AWSTUDIOLEAD", String.format(
                             "playback=%.3f s  tap=%.3f s  playback-tap=%+.3f s",
                             posSec, tapSec, posSec - tapSec))
+                        // The tap runs AHEAD, so this is positive (§9.hhh).
+                        StudioController.reportAudioLead(
+                            ((tapSec - posSec) * 1_000_000).toLong())
                     }
                 }
             }

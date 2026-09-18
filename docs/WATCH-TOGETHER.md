@@ -1664,6 +1664,55 @@ against ~13 s for a network film), and the measurement ran.
 verifying the clip, exactly as §9.nn recorded and as the memory says. Knowing
 the trap did not stop me walking into it; only re-running without it did.)
 
+### §9.iii The sink lead corrected: 712 ms → 174 ms, and the prediction held (2026-09-18)
+
+§9.hhh measured the audio tap running **0.565 s ahead of playback** and
+predicted that correcting it would leave about **147 ms** of the 712 ms error
+(the video path's own latency plus detector bias). This is the correction and
+its measurement.
+
+**The correction uses THIS pipeline's number, not a constant.** The surface is
+the only place that can see both the tap's sample clock and
+`player.currentPosition`, so it measures the lead each second and reports it;
+the engine adds it to the AAC encoder's start offset. A hardcoded 0.565 would
+be wrong on the next device, and a device whose sink buffers differently would
+be silently mis-corrected.
+
+**It is applied BEFORE a single audio frame is sent.** Stepping an audio
+timeline mid-stream is the one thing a live stream must never do. Applying it
+before the publish is safe precisely because nothing has gone out yet — frames
+drained earlier are dropped, so the first frame that actually ships already
+carries the corrected offset. The publish now waits for a lead sample the way it
+waits for the AAC config, behind the same deadline, so a pipeline that never
+reports one still goes out uncorrected rather than never going out.
+
+**And the measurement runs in every build, not just DEBUG** — only the log line
+is debug-gated. A correction that existed solely in a debug build would fix the
+broadcast nobody watches.
+
+| | audio (beep) | video (flash) | offset |
+|---|---|---|---|
+| 1 | 4.714 | 4.907 | **-193 ms** |
+| 2 | 9.706 | 9.881 | -175 ms |
+| 3 | 14.698 | 14.851 | -153 ms |
+| 4 | 19.714 | 19.898 | -184 ms |
+| 5 | 24.706 | 24.858 | -152 ms |
+| 6 | 29.698 | 29.887 | -189 ms |
+
+**-712 ms → -174 ms**, and the predicted residual was 147 ms. Agreeing to 27 ms
+is the part worth keeping: the model is understood rather than the symptom
+patched, and the next correction can be aimed rather than guessed.
+
+**STILL OUT OF TOLERANCE, and said plainly.** Audio still leads video by
+~174 ms where ITU's guidance for audio-leads-video is about 45 ms. Better by
+4.1x and not yet right. The remaining error is the video path — a frame is
+stamped when it is RENDERED, which is after `SurfaceTexture` handed it over and
+after GLES composited it, so video is late relative to its own content.
+`SurfaceTexture.getTimestamp()` carries the frame's own presentation time and is
+the obvious next instrument; part of the 174 ms is also detector bias (the flash
+test takes the first BRIGHT frame, `silencedetect` a threshold crossing), and
+separating those two is the first job, not correcting them together.
+
 ### §9.hhh Hunting the 0.7 s: the tap and playback advance together, and the instrument was masked by RESUME (2026-09-18)
 
 §9.ggg measured audio leading video by ~0.7 s and named a hypothesis: the
