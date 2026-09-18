@@ -1652,7 +1652,12 @@ somebody "fixing" that host to `twitch.tv` would break every Twitch broadcast.
 `test_studio_signin.swift` nor this one was in `tools/test_studio_all.sh` —
 exactly §9.aaa's condition, a test that exists and therefore does not get run.
 They are now **8.2** and **8.7**; both need only a network, no account, no
-server, no device.
+server, no device. **Verified inside the runner**, not merely registered:
+a plain run reports `8.2 sign-in shapes PASS` and `8.7 live-platform shapes
+PASS` at `pass=54 skip=1 fail=0` — the one skip being the soak, which the
+runner refuses to call a pass ("a SKIP is not a PASS. 1 case(s) did not run").
+The arithmetic agrees with the last green run: 53 with the soak, minus the
+skipped soak, plus these two.
 
 (And building it repeated §9.aaa's own mistake once more: the first compile
 omitted `StudioPlatformAuth.swift`, which `StudioPlatforms.swift` depends on.
