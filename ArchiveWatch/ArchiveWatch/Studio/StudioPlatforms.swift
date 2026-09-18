@@ -359,14 +359,30 @@ public enum StudioPlatformAuth {
         let reason = ((err?["errors"] as? [[String: Any]])?.first?["reason"] as? String) ?? ""
         switch reason {
         case "liveStreamingNotEnabled":
-            // SHORT ON PURPOSE. The first version ran to four lines and the
-            // last of them was cut off the bottom of a television (§9.zzz) —
-            // a host could see the greyed button and not the end of the
-            // sentence telling them what to do about it. The 24-hour warning
-            // is the part that changes behaviour, so it stays; the rest is in
-            // SCRATCHPAD 7a2 where it can be as long as it likes.
-            return .blocked("Live streaming is not enabled on this channel. Turn it on "
-                + "at youtube.com/features — the first time can take up to 24 hours.")
+            // NAME THE CHANNEL, because "this channel" was the wrong half of
+            // the answer.
+            //
+            // Measured 2026-09-18: this Google account owns NINETEEN channels.
+            // The sign-in landed on the personal default ("Ben Wilkoff", no
+            // subscribers) while the host meant "Archive Watch" — so the real
+            // fix was usually not "enable live streaming" but "you are signed
+            // in to the wrong channel". The owner replied that live streaming
+            // was already enabled, and they were right: on the channel they
+            // use. Both statements were true and the message could not tell
+            // them apart.
+            //
+            // `channels.list?mine=true` returns the account's DEFAULT channel,
+            // and Google offers its chooser at CONSENT time — an app cannot
+            // switch channels for a host afterwards. So the only honest thing
+            // is to say which one it got and how to change it.
+            //
+            // Still short enough for a television (§9.zzz): the sentence that
+            // changes behaviour comes first.
+            let whose = (try? await youTubeAccount().title).map { "\u{201C}\($0)\u{201D}" }
+                ?? "this channel"
+            return .blocked("Live streaming is not enabled on \(whose). If you meant a "
+                + "different channel, sign out and sign in again to choose it — this "
+                + "account can own several. Otherwise turn it on at youtube.com/features.")
         case "insufficientPermissions", "forbidden":
             return .blocked("This sign-in does not carry permission to manage live "
                 + "broadcasts. Sign out and sign in again to grant it.")

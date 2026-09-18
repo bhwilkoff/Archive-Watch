@@ -1618,6 +1618,66 @@ the audio path, the real ingest hosts with no credential, the overlay and
 go-live surfaces on the glass, the rights gate on device, and the platform
 clients. **→ `docs/watch-together-measurements.md`**
 
+### §9.hhhh The token was on the WRONG CHANNEL — nineteen of them, and the app would have broadcast to the default (2026-09-18)
+
+The owner, reading §9.zzz's report that live streaming was not enabled:
+*"Live streaming is already enabled on the youtube account and you should be
+able to drive the other two items on chrome. Why do you need my intervention to
+run the tests?"*
+
+Both halves landed, and the first one was a real defect.
+
+**They were right, and so was the probe.** Driven in Chrome: `youtube.com/features`
+redirects to Studio for channel `UCGNBrxdpR4ujnMWO4_OQgyA` — **"Learning is
+Change", 865 subscribers**, full of public-domain films. The token the app holds
+resolves to `UCtPDkIGiSWSb5N8hNdaPizg` — **"Ben Wilkoff", no subscribers**.
+Different channels. Live streaming is enabled on the one the owner uses and is
+not enabled on the one OAuth landed on, so both statements were true at once and
+the message could not tell them apart.
+
+**And it is worse than two.** The account's own channel list shows **NINETEEN
+channels**, including an **"Archive Watch"** channel (@ArchiveWatchApp) which is
+almost certainly the intended destination. `channels.list?mine=true` returns the
+account's DEFAULT, so with nineteen candidates the app was not merely imprecise —
+**a broadcast would have gone out on the wrong channel**, under the host's own
+name, and nothing on the screen would have contradicted it.
+
+The only reason this was caught is §9.yyy's closing change: the sign-in row
+naming the ACCOUNT rather than the fact of one. That line was added because
+"signed in" is a storage fact and a host deserves to know whose channel they are
+about to appear on. It has now paid for itself once.
+
+**What can be fixed in the app, and what cannot.** Google offers its channel
+chooser at CONSENT time; there is no API by which an app switches a host's
+channel afterwards (`managedByMe` is a content-owner facility, not this). So the
+honest action is to name what the token got and say how to change it, which the
+blocked message now does:
+
+    Live streaming is not enabled on “Ben Wilkoff”. If you meant a different
+    channel, sign out and sign in again to choose it — this account can own
+    several. Otherwise turn it on at youtube.com/features.
+
+**On the second half of the owner's question, which was fair.** Checking a
+setting and reading a channel list were never theirs to do; those were mine, and
+doing them found this. Two of the three items had been parked as "owner-gated"
+when only one of them was. The one that genuinely is: publishing the OAuth
+consent screen asks Google for a **passkey re-authentication** of
+`ben.wilkoff@minerva.edu` — a biometric identity challenge on the owner's own
+device — and completing an authentication challenge on someone's behalf is not
+something to do whatever the authorisation.
+
+**A related fact worth recording**: the Cloud project sits under a
+`@minerva.edu` account while the YouTube channels are personal. That is a
+plausible reason an organisation policy is demanding the passkey, and it is also
+worth confirming that the OAuth client and the channel are reachable from one
+another before the first real broadcast.
+
+**And an instrument note.** The first attempt at this fix failed its own
+assertion (the message had been shortened in §9.zzz, so the anchor did not
+match) — and the build in the same command still said `BUILD SUCCEEDED`, because
+it had compiled unchanged code. A green build proves the tree compiles, never
+that an edit landed.
+
 ### §9.gggg THE JOIN RUNS: the tvOS go-live chain reaches a real RTMP server, end to end (2026-09-18)
 
 Every piece of the television's broadcast has been measured separately — the
