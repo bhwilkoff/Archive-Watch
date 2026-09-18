@@ -40,6 +40,10 @@ row() { ROWS+=("$1|$2|$3"); }
 
 cleanup() {
   pkill -f "$SCRATCH/mtx.yml" >/dev/null 2>&1
+  # Harness-started servers too: a Swift exit(0) skips `defer`, so two
+  # of them outlived a completed run.
+  pkill -f 'aw-mtx' >/dev/null 2>&1
+  pkill -f 'aw-mediamtx' >/dev/null 2>&1
   pkill -f rtmp_throttle_proxy.py >/dev/null 2>&1
   pkill -f rtmp_sever_proxy.py >/dev/null 2>&1
 }
@@ -109,7 +113,8 @@ swift_case() {
   # which is the NORMAL case, and see the errexit note below.
   pkill -f rtmp_throttle_proxy.py >/dev/null 2>&1 || true
   pkill -f rtmp_sever_proxy.py >/dev/null 2>&1 || true
-  pkill -f 'aw-mtx-' >/dev/null 2>&1 || true
+  pkill -f 'aw-mtx' >/dev/null 2>&1 || true
+  pkill -f 'aw-mediamtx' >/dev/null 2>&1 || true
   sleep 2
   if ! xcrun swiftc -parse-as-library -O "${srcs[@]}" -o "$out" 2> "$SCRATCH/$name.build"; then
     echo "   BUILD FAILED (see $SCRATCH/$name.build)"
@@ -140,18 +145,6 @@ swift_case "8.1 rtmp publish"      "$PUB" "$MEDIA" tools/test_rtmp_publish.swift
 swift_case "8.4 rtmp reconnect"    "$PUB" "$MEDIA" tools/test_rtmp_reconnect.swift
 swift_case "8.5 thermal"           "$PUB" "$ENG" "$AUD" "$OVL" tools/test_studio_thermal.swift
 swift_case "8.6 back-pressure"     "$PUB" "$ENG" "$AUD" "$OVL" tools/test_studio_backpressure.swift
-if [ "$SOAK" = "1" ]; then
-  # The soak starts its OWN server, so the shared one is redundant for ten
-  # minutes of 1080p encoding. Leaving both up got this run killed by the
-  # system for memory pressure - not a test failure, but a suite that
-  # cannot finish is a suite nobody trusts.
-  pkill -f "$SCRATCH/mtx.yml" >/dev/null 2>&1 || true
-  sleep 2
-  swift_case "8.3 ten-minute soak" "$PUB" "$ENG" "$AUD" "$OVL" tools/test_studio_soak.swift
-else
-  row "8.3 ten-minute soak" SKIP "not run without --soak"; SKIP=$((SKIP+1))
-fi
-
 # ---- the rights tests, which need no server at all
 for t in tools/test_studio_rights_parity.py tools/test_studio_rights_coverage.py; do
   name="$(basename "$t")"
@@ -204,6 +197,27 @@ else
   echo "   gradle failed (see $SCRATCH/kotlin.log)"
   row "Kotlin suites" FAIL "gradle failed"; FAIL=$((FAIL+1))
 fi
+
+# ---- the soak runs LAST, after everything that needs the shared server.
+#
+# It used to run before the rights and Kotlin cases, and because it stops the
+# shared mediamtx (it brings its own, and two 1080p servers got the first
+# --soak run killed for memory pressure), the six server-facing Kotlin cases
+# then found nothing to publish to and SKIPPED. --strict caught it; a plain
+# run would have called that "PASS (with skips)". Nothing follows the soak
+# now, so stopping the server before it costs nothing.
+if [ "$SOAK" = "1" ]; then
+  # The soak starts its OWN server, so the shared one is redundant for ten
+  # minutes of 1080p encoding. Leaving both up got this run killed by the
+  # system for memory pressure - not a test failure, but a suite that
+  # cannot finish is a suite nobody trusts.
+  pkill -f "$SCRATCH/mtx.yml" >/dev/null 2>&1 || true
+  sleep 2
+  swift_case "8.3 ten-minute soak" "$PUB" "$ENG" "$AUD" "$OVL" tools/test_studio_soak.swift
+else
+  row "8.3 ten-minute soak" SKIP "not run without --soak"; SKIP=$((SKIP+1))
+fi
+
 
 # ---- the summary
 printf '\n%s\n' "────────────────────────────────────────────────────────────"
