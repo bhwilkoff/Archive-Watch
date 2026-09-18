@@ -1554,6 +1554,40 @@ probes. The client was right all along, the re-arm-in-the-callback is a better
 `NWConnection` pattern and is kept on that basis, and **it is not a fix for
 anything** — no throughput claim attaches to it.
 
+### §6.4a — Chat IN the program, from the server's own recording (2026-09-18)
+
+The reader existed and nothing called it. §4's promise is not a sidebar the
+host reads — it is that **a viewer sees the chat in the broadcast** — so
+`StudioSession` now starts the Twitch reader alongside the show and pushes the
+tail of it through `setOverlay` once a second. Pushed rather than mutated in
+place, so the renderer's id-keyed cache decides what needs rasterising: the
+same eight ids arriving again cost a comparison, not a redraw.
+
+Driven through the Mac product path with a bench destination and
+`AW_STUDIO_CHAT=<channel>`, published to a local `mediamtx`, and a frame pulled
+back out of **the server's own recording** — 1920×1080, 54.6 s:
+
+| in that one frame | |
+|---|---|
+| the film | a *Battleship Potemkin* intertitle, full frame |
+| **live Twitch chat** | **eight lines composited INTO the program**, newest at the bottom, each author in their own Twitch colour, long messages wrapped, an emoji rendered |
+| the lower third | *Battleship Potemkin · 1925 · Sergei Eisenstein* + PUBLIC DOMAIN — PUBLISHED 1925, BEFORE 1930 |
+| the camera tile | bottom-right |
+
+The session log reported `carrying 8 line(s); received 13 joined=true` while it
+ran. So the whole chain is proved on a product path: anonymous Twitch read →
+`ChatLine` → overlay → Core Image composite → H.264 → RTMP → a server's
+recording. No credential was involved at any point.
+
+**And looking at it found a real defect that no counter would have.** The chat
+column sits over the film, and a silent film's INTERTITLES are large bright
+white text — the per-line scrim behind each message is not strong enough to
+carry it, so several lines are hard to read exactly where a silent film is at
+its brightest. Counting messages says the feature works; a frame says it is
+not yet legible. Recorded here and NOT yet fixed: the scrim needs to be
+stronger, or the column needs to move, and that is a §4 design decision rather
+than a knob to turn quietly.
+
 ## §9 — Measurements (filled in as they are taken)
 
 **How this section works** (the same rule Decision 092 set for `DECISIONS.md`,

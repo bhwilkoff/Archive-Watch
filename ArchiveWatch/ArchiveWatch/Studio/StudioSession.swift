@@ -37,6 +37,10 @@ public final class StudioSession {
     public var refusal: String?
 
     private var engine: StudioEngine?
+    /// The chat the program CARRIES, not a sidebar the host reads: §4's
+    /// promise is that a viewer sees it in the broadcast. Twitch needs no
+    /// credential to read (§6.4), so this works before sign-in exists.
+    private var twitchChat: StudioChatTwitch?
     private var pump: Task<Void, Never>?
     /// Weak: the player belongs to the surface that built it, and a show must
     /// never be the reason a player outlives its window.
@@ -110,6 +114,7 @@ public final class StudioSession {
             engine = nil
             return
         }
+        await startChatIfConfigured()
         isLive = true
         startPump()
         scheduleThermalInjectionIfAsked()
@@ -223,6 +228,23 @@ public final class StudioSession {
         #endif
     }
 
+    /// Reads a Twitch channel's chat into the program.
+    ///
+    /// The channel comes from the host's own account once sign-in exists; until
+    /// then `AW_STUDIO_CHAT=<channel>` supplies one, which is enough to prove
+    /// the whole path because reading Twitch needs no credential at all.
+    private func startChatIfConfigured() async {
+        let env = ProcessInfo.processInfo.environment
+        guard let channel = env["AW_STUDIO_CHAT"], !channel.isEmpty else { return }
+        let chat = StudioChatTwitch()
+        twitchChat = chat
+        await chat.start(channel: channel)
+        var o = overlay
+        o.showChat = true
+        await engine?.setOverlay(o)
+        diag("[AWSTUDIOCHAT] reading #\(channel.replacingOccurrences(of: "#", with: ""))")
+    }
+
     private func startPump() {
         pump?.cancel()
         pump = Task { [weak self] in
@@ -235,6 +257,24 @@ public final class StudioSession {
                 self.filmFramesPerSecond = max(0, h.filmFramesPulled - lastFilmFrames)
                 lastFilmFrames = h.filmFramesPulled
                 self.health = h
+
+                // The chat lines the program is CARRYING. Pushed through
+                // `setOverlay` so the renderer's id-keyed cache decides what
+                // actually needs redrawing (§4) — a fresh array every second
+                // with the same ids costs one comparison, not one rasterise.
+                if let chat = self.twitchChat {
+                    let lines = await chat.lines
+                    let ch = await chat.health
+                    if !lines.isEmpty {
+                        var o = self.overlay
+                        o.showChat = true
+                        o.chat = Array(lines.suffix(8))
+                        self.overlay = o
+                        await engine.setOverlay(o)
+                    }
+                    self.diag("[AWSTUDIOCHAT] carrying \(min(lines.count, 8)) line(s);"
+                              + " received \(ch.linesReceived) joined=\(ch.joined)")
+                }
 
                 // §6.5/§6.6 END the show on their own account — too hot, or a
                 // link that could not be rebuilt inside the deadline — and
