@@ -180,6 +180,9 @@ class StudioEngine(
             if (published == null && destination != null && enc.avcC != null && audioReady) {
                 val asc = aac?.asc
                 val p = RtmpPublisher()
+                // §6.4a: the cap is a LATENCY budget, so it can only be
+                // computed from this show's bitrates.
+                p.setQueueBudget(videoBitrate, 128_000)
                 try {
                     p.publish(destination, streamKey,
                         RtmpStreamConfig(width, height, frameRate.toDouble(), videoBitrate,

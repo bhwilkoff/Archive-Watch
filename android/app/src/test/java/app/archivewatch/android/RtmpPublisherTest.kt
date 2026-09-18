@@ -167,6 +167,12 @@ class RtmpPublisherTest {
             p.sendVideo(RealH264.idrAvcc, isKeyframe = true, ptsMs = i * 33, dtsMs = i * 33)
             p.sendAudio(ByteArray(64) { 0x21 }, ptsMs = i * 33)
         }
+        // Sends are ASYNCHRONOUS now (§6.4 put a writer thread behind a
+        // bounded queue), so `bytesSent` is advanced by that thread. Reading
+        // it immediately was a race that this test happened to win on a
+        // loopback socket until the queue was introduced, and then it failed
+        // with "nothing was written". Wait for the queue to drain.
+        p.flush()
         assertEquals("publishing", p.health.state)
         assertEquals(30L, p.health.videoFramesSent)
         assertTrue("nothing was written", p.health.bytesSent > 10_000)

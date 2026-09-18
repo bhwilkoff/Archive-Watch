@@ -1240,6 +1240,58 @@ Pixel.
 
 ## §9 — Measurements (filled in as they are taken)
 
+### §6.2n §6.4 ported to Android, where the gap was worse than on Apple (2026-09-17)
+
+`RtmpPublisher.kt` wrote every frame **synchronously to a blocking socket**,
+and `StudioEngine` calls it from the one GL render thread. So a narrow uplink
+did not shed frames — it BLOCKED the render loop, stalling the composite, the
+encoder drain and the host's own view of the film. Apple at least had a queue
+to overflow; here congestion propagated backwards into rendering. Nothing
+dropped anything, and `RtmpHealth.videoFramesDropped` could only ever read 0.
+
+Now: media goes onto a queue drained by one writer thread, with §6.4a's budget
+(`setQueueBudget`, the same 1.5 s constant), video inter-frames yielding past
+it and audio never. Only the setup path writes directly, and it has finished
+before the thread starts, so there are never two writers. A message is framed
+WHOLE in memory first, because interleaving two half-written messages is not a
+corrupt frame a server complains about — it is a desynchronised chunk stream,
+which reads as an EOF.
+
+Proved against a real `mediamtx` through `tools/rtmp_throttle_proxy.py`
+(`RtmpBackPressureTest`, 400 kbps against a 2.5 Mbps program):
+
+| | value |
+|---|---|
+| cap / peak queued | 474 kB / **476 kB** — the policy pins the queue at the cap |
+| video dropped before / during | **0** / 64 |
+| **audio delivered** | **425 of 425 offered** |
+
+All 8 `RtmpPublisherTest` cases still pass with 0 skipped, so the transport
+survived the rewrite — including the case that asks the SERVER whether the path
+is ready rather than trusting our own state.
+
+**Three things this cost, all worth recording:**
+
+1. **`close()` used to discard the queue**, which truncates the end of a
+   broadcast by up to the whole latency budget of already-encoded media. It
+   now flushes first, bounded, so a stop cannot hang on a link already gone.
+2. **Asynchronous sends made an existing test racy.** `RtmpPublisherTest`'s
+   "nothing was written" assertion read `bytesSent` immediately after sending;
+   it won that race on a loopback socket until the queue existed, then failed
+   honestly. `flush()` exists for this, and the test uses it.
+3. **Two wrong diagnoses in a row, on the same number.** The test reported 11
+   audio frames in its worst second, which read exactly like a stall. First
+   theory: `MutableList<Byte>` boxing every byte (~300 kB of garbage a second)
+   — fixed it, and the number did not move. Second theory: the harness was
+   bucketing a partial second — fixed that too, and it still did not move. The
+   answer was that the number never measured what its name claimed: it counts
+   the HARNESS's iterations, which also encode and sleep. The delivered-audio
+   assertion — 425 of 425 — is the one that carries the promise, and it was
+   passing all along. The boxing fix is kept on its own merits with **no
+   throughput claim attached**, because none was measured.
+
+**Still NOT ported to Android**: §6.5 (thermal) and §6.6 (reconnect).
+
 ### §9.aa The §8.3 soak, re-run after §6.4/§6.5/§6.6 (2026-09-17)
 
 `tools/test_studio_soak.swift`, ten minutes at **1920×1080@30, 6000 kbps**,

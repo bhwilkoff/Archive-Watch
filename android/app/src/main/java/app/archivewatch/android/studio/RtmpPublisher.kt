@@ -33,6 +33,8 @@ import java.net.InetSocketAddress
 import java.net.Socket
 import java.net.URI
 import javax.net.ssl.SSLSocketFactory
+import java.util.concurrent.LinkedBlockingQueue
+import java.util.concurrent.atomic.AtomicLong
 import kotlin.random.Random
 
 class RtmpException(message: String) : Exception(message)
@@ -45,6 +47,10 @@ data class RtmpHealth(
     var bytesReceived: Long = 0,
     var videoFramesSent: Long = 0,
     var videoFramesDropped: Long = 0,
+    /** Carried for parity with the Swift publisher's readout. */
+    var audioFramesSent: Long = 0,
+    /** Bytes queued for the writer thread and not yet written (§6.4). */
+    var queuedBytes: Long = 0,
     var lastError: String? = null,
 )
 
@@ -137,6 +143,60 @@ class RtmpPublisher {
     private var announceAudio = true
     private var startedAtMs: Long = 0
 
+    // ---- §6.4 back-pressure, and the reason Android needed it MORE than Apple
+    //
+    // This publisher wrote every frame synchronously to a blocking socket, and
+    // `StudioEngine` calls it from the single GL render thread. So a narrow
+    // uplink did not shed frames — it BLOCKED the render loop, which stalls the
+    // composite, the encoder drain and the host's own picture of the film. The
+    // Apple side at least had a queue to overflow; here congestion propagated
+    // backwards into rendering.
+    //
+    // Media now goes onto a queue drained by one writer thread. Only the setup
+    // path (handshake, connect, createStream, publish) writes directly, and it
+    // has finished before the thread starts, so there are never two writers.
+    private val outbound = LinkedBlockingQueue<ByteArray>()
+    private val queued = AtomicLong(0)
+    private var writer: Thread? = null
+    @Volatile private var writing = false
+    private var droppingUntilKeyframe = false
+
+    /** §6.4a: the cap is a LATENCY, so it is set from the show's bitrates. */
+    var maxQueuedBytes: Long = 2_000_000
+        private set
+
+    fun setQueueBudget(videoBitrate: Int, audioBitrate: Int) {
+        val bytesPerSecond = (videoBitrate + audioBitrate) / 8.0
+        maxQueuedBytes = maxOf(150_000L, (bytesPerSecond * QUEUE_LATENCY_BUDGET_SECONDS).toLong())
+    }
+
+    private fun startWriter() {
+        writing = true
+        val t = Thread({
+            while (writing) {
+                val bytes = try { outbound.poll(200, java.util.concurrent.TimeUnit.MILLISECONDS) }
+                            catch (_: InterruptedException) { null } ?: continue
+                try {
+                    output?.write(bytes)
+                    output?.flush()
+                    health.bytesSent += bytes.size
+                } catch (e: Exception) {
+                    // The link is gone. Recorded, never swallowed — a writer
+                    // thread that dies quietly looks exactly like a stalled
+                    // encoder from the readout.
+                    health.lastError = e.message ?: e.toString()
+                    if (health.state != "closed") health.state = "failed"
+                    writing = false
+                } finally {
+                    health.queuedBytes = queued.addAndGet(-bytes.size.toLong())
+                }
+            }
+        }, "aw-rtmp-writer")
+        t.isDaemon = true
+        writer = t
+        t.start()
+    }
+
     /**
      * Address and key are separate because every platform hands them out
      * separately, and YouTube's backup ingest carries a query on the APP.
@@ -217,6 +277,15 @@ class RtmpPublisher {
         sendMetadata(config, declareAudio)
         startedAtMs = System.currentTimeMillis()
         health.state = "publishing"
+        // Only now: the setup path above writes directly and has finished, so
+        // the writer thread never shares the stream with it.
+        droppingUntilKeyframe = true
+        startWriter()
+    }
+
+    companion object {
+        /** §6.4a, the same number the Swift publisher uses. */
+        const val QUEUE_LATENCY_BUDGET_SECONDS = 1.5
     }
 
     private fun handshake() {
@@ -311,6 +380,14 @@ class RtmpPublisher {
         val c = config ?: return
         if (health.state != "publishing") return
         if (!sentSequenceHeaders) sendSequenceHeaders(c)
+        // §6.4: past the latency budget, VIDEO inter-frames yield until the
+        // next keyframe. Audio has no such path, by design — a viewer forgives
+        // a frame and not a gap in the host's voice.
+        if (queued.get() > maxQueuedBytes && !isKeyframe) droppingUntilKeyframe = true
+        if (droppingUntilKeyframe) {
+            if (isKeyframe) droppingUntilKeyframe = false
+            else { health.videoFramesDropped += 1; return }
+        }
         val compositionTime = (ptsMs - dtsMs).coerceAtLeast(0)
         val tag = mutableListOf<Byte>()
         tag.add((((if (isKeyframe) 1 else 2) shl 4) or 7).toByte())
@@ -331,9 +408,36 @@ class RtmpPublisher {
         tag.add(1)                          // raw frame
         tag.addAll(aacFrame.toList())
         sendMessage(8, streamId, 5, tag.toByteArray(), ptsMs)
+        health.audioFramesSent += 1
+    }
+
+    /**
+     * Waits for the writer thread to drain what is already queued.
+     *
+     * Needed the moment sends became asynchronous: `bytesSent` and
+     * `videoFramesSent` are now advanced by the writer, so a caller that
+     * checks them immediately after sending is racing it — the existing
+     * publisher test passed only because a loopback socket kept up.
+     */
+    fun flush(timeoutMs: Long = 2_000) {
+        val deadline = System.currentTimeMillis() + timeoutMs
+        while (queued.get() > 0 && writing && System.currentTimeMillis() < deadline) {
+            Thread.sleep(10)
+        }
     }
 
     fun close() {
+        // A deliberate stop flushes first: the queue holds up to §6.4a's
+        // budget of already-encoded media, and discarding it truncates the end
+        // of the broadcast. Bounded, because a stop must not hang on a link
+        // that has already gone.
+        flush(500)
+        writing = false
+        writer?.interrupt()
+        writer = null
+        outbound.clear()
+        health.queuedBytes = 0
+        queued.set(0)
         try { socket?.close() } catch (_: Exception) {}
         socket = null; input = null; output = null
         if (health.state != "failed") health.state = "closed"
@@ -352,31 +456,62 @@ class RtmpPublisher {
      */
     private fun sendMessage(type: Int, streamID: Int, chunkStreamID: Int,
                             payload: ByteArray, timestamp: Int) {
-        val out = output ?: throw RtmpException("not connected")
         val extended = timestamp >= 0xFFFFFF
-        val header = mutableListOf<Byte>()
-        header.add(((0 shl 6) or chunkStreamID).toByte())
-        header.addAll(be24(if (extended) 0xFFFFFF else timestamp).toList())
-        header.addAll(be24(payload.size).toList())
-        header.add(type.toByte())
+
+        // A ByteArrayOutputStream, NOT a MutableList<Byte>.
+        //
+        // `MutableList<Byte>` boxes every byte into a java.lang.Byte object.
+        // At 2.4 Mbps that is roughly 300 kB of garbage per second of video,
+        // which is worth not doing on a Google TV dongle that already needs
+        // 37.4 ms a frame (§6.2l).
+        //
+        // Honest about the evidence: this was changed while chasing a dip in
+        // the §6.4 test's audio rate, and it did NOT fix that — the dip was
+        // the harness measuring a partial first second. The boxing is a real
+        // cost and this is a real improvement, but it is not a measured fix
+        // for anything, and no throughput claim is made for it.
+        val framed = java.io.ByteArrayOutputStream(payload.size + 64)
+        framed.write(((0 shl 6) or chunkStreamID))
+        framed.write(be24(if (extended) 0xFFFFFF else timestamp))
+        framed.write(be24(payload.size))
+        framed.write(type)
         // Message stream id is LITTLE endian here, and only here.
-        header.add(streamID.toByte()); header.add((streamID ushr 8).toByte())
-        header.add((streamID ushr 16).toByte()); header.add((streamID ushr 24).toByte())
-        if (extended) header.addAll(be32(timestamp).toList())
-        out.write(header.toByteArray())
+        framed.write(streamID); framed.write(streamID ushr 8)
+        framed.write(streamID ushr 16); framed.write(streamID ushr 24)
+        if (extended) framed.write(be32(timestamp))
 
         var offset = 0
         while (offset < payload.size) {
             val take = minOf(outChunkSize, payload.size - offset)
-            out.write(payload, offset, take)
+            framed.write(payload, offset, take)
             offset += take
             if (offset < payload.size) {
-                out.write(byteArrayOf(((3 shl 6) or chunkStreamID).toByte()))
-                if (extended) out.write(be32(timestamp))
+                framed.write(((3 shl 6) or chunkStreamID))
+                if (extended) framed.write(be32(timestamp))
             }
         }
-        out.flush()
-        health.bytesSent += header.size + payload.size
+        dispatch(framed.toByteArray())
+    }
+
+    /**
+     * One framed message either onto the writer thread's queue, or straight
+     * down the socket while the setup path is still running.
+     *
+     * The whole message is framed in memory first because a message must reach
+     * the socket WHOLE: interleaving two half-written messages from two
+     * threads is not a corrupt frame the server complains about, it is a
+     * desynchronised chunk stream, which reads as an EOF.
+     */
+    private fun dispatch(bytes: ByteArray) {
+        if (!writing) {
+            val out = output ?: throw RtmpException("not connected")
+            out.write(bytes)
+            out.flush()
+            health.bytesSent += bytes.size
+            return
+        }
+        outbound.add(bytes)
+        health.queuedBytes = queued.addAndGet(bytes.size.toLong())
     }
 
     // MARK: Reading
