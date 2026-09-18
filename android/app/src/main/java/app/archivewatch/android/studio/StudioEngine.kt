@@ -307,6 +307,12 @@ class StudioEngine(
         var audioSecNanos = 0L
         var chatSecNanos = 0L
         var frameAtLastSecond = 0L
+        // The RTMP handshake runs OFF the render thread (§9.ss). It is a TCP
+        // connect plus four AMF round trips, and on the render thread it
+        // measured 2.3 SECONDS with fps=1 — every broadcast opened stalled,
+        // and a handshake has no business on the thread that owns GL.
+        val publishInFlight = java.util.concurrent.atomic.AtomicBoolean(false)
+        val publishDone = java.util.concurrent.atomic.AtomicReference<Pair<RtmpPublisher, Boolean>?>(null)
         var filmAtLastSecond = 0
         var encodedAtLastSecond = 0L
         var encodedTotal = 0L
@@ -360,31 +366,46 @@ class StudioEngine(
             // afterwards is not a late track, it is a protocol error.
             val audioReady = audioTap == null || aac?.asc != null ||
                              System.currentTimeMillis() > audioDeadline
-            if (published == null && destination != null && enc.avcC != null && audioReady) {
+            if (published == null && destination != null && enc.avcC != null && audioReady &&
+                publishInFlight.compareAndSet(false, true)) {
+                // Everything the handshake needs is captured HERE, on the
+                // render thread, so the worker touches no engine state.
                 val asc = aac?.asc
-                val p = RtmpPublisher()
-                // §6.4a: the cap is a LATENCY budget, so it can only be
-                // computed from this show's bitrates.
-                p.setQueueBudget(videoBitrate, 128_000)
-                try {
-                    p.publish(destination, streamKey,
-                        RtmpStreamConfig(width, height, frameRate.toDouble(), videoBitrate,
-                            enc.avcC!!,
-                            audioTap?.sampleRate ?: 44100,
-                            audioTap?.channelCount ?: 2,
-                            128_000, asc ?: ByteArray(0)),
-                        declareAudio = asc != null)
-                    // A broadcast must BEGIN with a keyframe, or a joining
-                    // viewer has nothing decodable (§6.2d).
-                    enc.requestKeyframe()
-                    published = p; publisher = p
-                    // If we went out without an audio track, stop feeding the
-                    // encoder: sending audio to a stream that never declared
-                    // it is what closed the first run's connection.
-                    if (asc == null) { audioTap?.onPcm = null; aac?.stop(); aac = null }
-                } catch (e: Exception) {
-                    health = health.copy(publisher = p.health.copy(lastError = e.message))
-                }
+                val cfg = RtmpStreamConfig(width, height, frameRate.toDouble(), videoBitrate,
+                    enc.avcC!!,
+                    audioTap?.sampleRate ?: 44100,
+                    audioTap?.channelCount ?: 2,
+                    128_000, asc ?: ByteArray(0))
+                val declaredAudio = asc != null
+                Thread {
+                    val p = RtmpPublisher()
+                    // §6.4a: the cap is a LATENCY budget, so it can only be
+                    // computed from this show's bitrates.
+                    p.setQueueBudget(videoBitrate, 128_000)
+                    try {
+                        p.publish(destination, streamKey, cfg, declareAudio = declaredAudio)
+                        publishDone.set(p to declaredAudio)
+                    } catch (e: Exception) {
+                        health = health.copy(publisher = p.health.copy(lastError = e.message))
+                        // Let the next iteration try again rather than
+                        // stranding the show with no destination for ever.
+                        publishInFlight.set(false)
+                    }
+                }.apply { isDaemon = true; name = "aw-rtmp-publish"; start() }
+            }
+            // Adopt a finished handshake on the RENDER thread: `published` is
+            // read by the drain below and by the per-second block, and the
+            // keyframe request belongs with the adoption rather than with the
+            // socket.
+            publishDone.getAndSet(null)?.let { (p, declaredAudio) ->
+                // A broadcast must BEGIN with a keyframe, or a joining viewer
+                // has nothing decodable (§6.2d).
+                enc.requestKeyframe()
+                published = p; publisher = p
+                // If we went out without an audio track, stop feeding the
+                // encoder: sending audio to a stream that never declared it is
+                // what closed the first run's connection.
+                if (!declaredAudio) { audioTap?.onPcm = null; aac?.stop(); aac = null }
             }
             val drainAt = System.nanoTime()
             enc.drain { avcc, key, ts ->
@@ -502,6 +523,9 @@ class StudioEngine(
             // reverted (§9.rr).
             kotlinx.coroutines.delay((1000L / frameRate).coerceAtLeast(1))
         }
+        // A handshake that completed after the show ended owns a live socket
+        // that nothing else will ever close.
+        publishDone.getAndSet(null)?.first?.close()
     }
 
     private fun drawOnce(g: StudioGl, pg: StudioProgramGl, frame: Long, renderStart: Long,

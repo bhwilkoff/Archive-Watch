@@ -1618,6 +1618,54 @@ the audio path, the real ingest hosts with no credential, the overlay and
 go-live surfaces on the glass, the rights gate on device, and the platform
 clients. **→ `docs/watch-together-measurements.md`**
 
+### §9.ss The RTMP handshake came off the render thread — every broadcast used to open stalled (2026-09-18)
+
+§9.rr's breakdown caught one second that looked nothing like the others:
+
+    fps=1   draw=16.3  drain=2306.5  audio=0.6  chat/s=44.0 ms
+
+That is the publish. `RtmpPublisher.publish()` is a TCP connect plus four AMF
+round trips, and it was called inline from the render loop — so **every
+broadcast began with 2.3 seconds during which the program rendered one frame**.
+The thread that owns the GL context, the film texture and the encoder's input
+surface was sitting in a socket read. On a slower network, or a real ingest
+across the internet rather than a server on the LAN, that stall is longer.
+
+**The handshake now runs on its own daemon thread**, and the render thread
+adopts the finished publisher on a later iteration. Three details make it safe
+rather than merely asynchronous:
+
+- **Everything the worker needs is captured on the render thread** before it
+  starts — `avcC`, the audio config, the stream config — so the worker touches
+  no engine state while the loop keeps mutating it.
+- **The adoption happens on the render thread**, because `published` is read by
+  the video drain and the per-second block, and §6.2d's opening keyframe request
+  belongs with the adoption rather than with the socket.
+- **A failed handshake releases the in-flight flag** so the next iteration
+  retries, instead of stranding a show with no destination for ever; and a
+  handshake that completes *after* the show ended has its socket closed, or it
+  leaks one that nothing else will ever touch.
+
+**Measured on the Google TV, before and after:**
+
+| | before | after |
+|---|---|---|
+| the publishing second | `drain=2306.5`, **fps=1** | no spike, **fps 12-15** |
+| steady state | 11-13 fps | **12-15 fps** |
+| A/V drift | +395 ms / 87 s | **-315 ms / 117 s** |
+
+§6.2d still holds: the first video packet in the recording carries the keyframe
+flag and the first frame decodes, so a viewer joining at the start has a
+picture.
+
+**What this did NOT fix, and it is worth saying plainly**: the first video
+packet still sits at **11.8 s** on the show clock. That is not the handshake any
+more — it is app launch, film buffering, the wait for three film frames, and
+§6.2's rule that a stream's tracks are declared once so the publish waits for
+the AAC config (an 8-second deadline). A host presses Go Live and the world
+sees nothing for roughly twelve seconds. Reducing that is a separate question
+from this one.
+
 ### §9.rr The dongle's 10.5 fps was mostly BOXING — and the pacing fix that measurement refused (2026-09-18)
 
 §9.qq left the Google TV delivering 10.5 fps and called it a hardware-floor
