@@ -349,6 +349,26 @@ public enum StudioPlatformAuth {
         guard let http = resp as? HTTPURLResponse else {
             throw StudioPlatformError.badResponse("no HTTP response from YouTube")
         }
+        // THE RAW ANSWER, because every sentence below is an INFERENCE from it
+        // and the owner is entitled to see what YouTube actually said. The
+        // channel named in the `liveStreamingNotEnabled` message comes from a
+        // DIFFERENT call (`channels.list?mine=true`), so if the two disagree
+        // the message is confidently wrong. Never the token — the body and the
+        // channel id carry no credential.
+        #if DEBUG
+        // ONE LINE. awdiag writes per line and this body is pretty-printed
+        // JSON, so the first attempt logged a single "{" and nothing else.
+        let flat = (String(data: data, encoding: .utf8) ?? "<unreadable>")
+            .split(whereSeparator: { $0 == "\n" || $0 == "\r" })
+            .joined(separator: " ")
+        awdiag("AWYT readiness HTTP %d body=%@", http.statusCode, String(flat.prefix(700)))
+        if let who = try? await youTubeAccount() {
+            awdiag("AWYT token resolves to channel id=%@ title=%@",
+                   who.id, who.title)
+        } else {
+            awdiag("AWYT token resolves to NO channel (channels.list returned nothing)")
+        }
+        #endif
         if (200..<300).contains(http.statusCode) { return .ready }
 
         // The REASON, not the status. A 403 here is three different problems
@@ -378,11 +398,27 @@ public enum StudioPlatformAuth {
             //
             // Still short enough for a television (§9.zzz): the sentence that
             // changes behaviour comes first.
-            let whose = (try? await youTubeAccount().title).map { "\u{201C}\($0)\u{201D}" }
-                ?? "this channel"
-            return .blocked("Live streaming is not enabled on \(whose). If you meant a "
-                + "different channel, sign out and sign in again to choose it — this "
-                + "account can own several. Otherwise turn it on at youtube.com/features.")
+            // SAY WHAT YOUTUBE SAID, AND WHICH IDENTITY IT SAID IT ABOUT.
+            //
+            // YouTube's own words are "The user is not enabled for live
+            // streaming" — the USER, not the channel. This message used to
+            // assert a channel-picking problem and tell the host to sign out
+            // and back in. The owner replied that they had enabled live
+            // streaming on every channel in the account, and the message had
+            // no way to be right or wrong about that, because it never said
+            // WHICH identity the token speaks for. Naming the id is the only
+            // part a host can actually check.
+            //
+            // Three states produce this one error and the API distinguishes
+            // none of them: never enabled; enabled but inside the 24-hour
+            // first activation; or a different Google account than the one
+            // the host has in mind.
+            let who = try? await youTubeAccount()
+            let whose = who.map { "\u{201C}\($0.title)\u{201D} (\($0.id))" } ?? "this account"
+            return .blocked("YouTube says this account is not enabled for live "
+                + "streaming: \(whose). If you have just switched it on, first "
+                + "activation can take up to 24 hours. If that is not the account "
+                + "you meant, sign out and sign in again to choose another.")
         case "insufficientPermissions", "forbidden":
             return .blocked("This sign-in does not carry permission to manage live "
                 + "broadcasts. Sign out and sign in again to grant it.")

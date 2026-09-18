@@ -207,9 +207,27 @@ public final class StudioSession {
     /// nothing, which is indistinguishable from having no camera.
     private func attachCameraIfAvailable(to engine: StudioEngine) async {
         #if os(macOS) || os(iOS)
-        guard AVCaptureDevice.authorizationStatus(for: .video) == .authorized,
-              let cam = AVCaptureDevice.default(for: .video),
-              let input = try? AVCaptureDeviceInput(device: cam) else { return }
+        // SAY WHICH. The comment above notes that a missing entitlement "silently
+        // finds nothing, which is indistinguishable from having no camera" — and
+        // that is equally true of TCC consent not yet given, of consent denied,
+        // and of a Mac with no camera at all. Four different states, one silent
+        // `return`, and a bench run that reports the same nothing for all of
+        // them. Each says its own name now.
+        let vs = AVCaptureDevice.authorizationStatus(for: .video)
+        let as_ = AVCaptureDevice.authorizationStatus(for: .audio)
+        awdiag("AWCAM video=%@ audio=%@ device=%@",
+               String(describing: vs), String(describing: as_),
+               AVCaptureDevice.default(for: .video)?.localizedName ?? "none")
+        guard vs == .authorized else {
+            awdiag("AWCAM no camera tile: video authorization is %@ — the Studio REPORTS, never REQUESTS",
+                   String(describing: vs))
+            return
+        }
+        guard let cam = AVCaptureDevice.default(for: .video),
+              let input = try? AVCaptureDeviceInput(device: cam) else {
+            awdiag("AWCAM no camera tile: authorized but no usable capture device")
+            return
+        }
         let session = AVCaptureSession()
         session.beginConfiguration()
         // 720p: the tile is never full-frame, so capturing 1080p to draw a
@@ -232,6 +250,9 @@ public final class StudioSession {
             await engine.attachMicrophone(tap: micTap)
         }
         session.startRunning()
+        awdiag("AWCAM attached camera=%@ mic=%@", cam.localizedName,
+               AVCaptureDevice.authorizationStatus(for: .audio) == .authorized
+                   ? (AVCaptureDevice.default(for: .audio)?.localizedName ?? "yes") : "no")
         capture = session
         #endif
     }

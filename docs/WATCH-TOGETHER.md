@@ -1618,6 +1618,60 @@ the audio path, the real ingest hosts with no credential, the overlay and
 go-live surfaces on the glass, the rights gate on device, and the platform
 clients. **→ `docs/watch-together-measurements.md`**
 
+### §9.uuuu The camera and microphone RUN on the Mac; and YouTube's refusal, read RAW (2026-09-18)
+
+**Camera and mic, measured.** Owner: *"I'm happy to enable microphone and camera
+on one of the apple tvs for you, but I'm not using my computer right now, so you
+can use the mac for testing it as well."* On the Mac, product path, publishing to
+a local server only:
+
+    AWCAM video=authorized audio=authorized device=FaceTime HD Camera
+    AWCAM attached camera=FaceTime HD Camera mic=MacBook Pro Microphone
+
+Both entitlements (`device.camera`, `device.microphone`, `device.audio-input`)
+are present and TCC consent was already given, so the tile and the mic attach on
+the product path. The recording was measured and DELETED without a frame being
+looked at: it carries the owner's room, and §9.oo's rule is that the instrument
+must not reach past the thing it is pointed at. The bench still mutes the mic
+unless `AW_STUDIO_MIC=1` asks for it.
+
+**A silent refusal, found in a THIRD place.** `attachCameraIfAvailable` returned
+without a word when consent was absent — and its own comment already admitted
+the ambiguity: without the entitlement it "silently finds nothing, which is
+indistinguishable from having no camera". Four states (no entitlement, consent
+not determined, consent denied, no camera) shared one silent `return`. Each says
+its own name now. That is the same defect as the go-live door's three gates
+(§9.ssss's commit) — a pattern worth naming: **a guard that refuses in silence
+turns every one of its causes into the same evidence, which is none.**
+
+**YOUTUBE, READ RAW.** Owner: *"I have enabled it on every channel in that
+account. You aren't actually trying to see the token correctly."* Correct on both
+counts, and the second is the useful one. The readiness check inferred its whole
+sentence from one reason code, then named a channel fetched by a DIFFERENT call
+(`channels.list?mine=true`, which returns the account default) — so the message
+could not be right or wrong about the owner's claim, because it never said which
+identity the token speaks for. What YouTube actually returns:
+
+    HTTP 403 {"error":{"code":403,
+      "message":"The user is not enabled for live streaming.",
+      "errors":[{"domain":"youtube.liveBroadcast",
+                 "reason":"liveStreamingNotEnabled",
+                 "extendedHelp":"https://www.youtube.com/features"}]}}
+
+    AWYT token resolves to channel id=UCtPDkIGiSWSb5N8hNdaPizg title=Ben Wilkoff
+
+YouTube says **the USER**, not the channel. Three states produce this one error
+and the API distinguishes none of them: never enabled; enabled but inside the
+24-hour first activation; or a different Google account than the host has in
+mind. The message now quotes YouTube, names the channel ID — the only part a
+host can actually check — and states the 24-hour window instead of asserting a
+channel-picking mistake.
+
+**And the logging bug that hid it for a run.** The first attempt logged the body
+and got a single `{`: `awdiag` writes per line and the body is pretty-printed
+JSON. Flattened before logging. A diagnostic that truncates at the first newline
+is worse than none, because it looks like an answer.
+
 ### §9.tttt The tee is DELETED: the Studio PULLS its audio by film position (2026-09-18)
 
 Owner, after watching §9.rrrr and §9.ssss go by: *"There have to be better ways
