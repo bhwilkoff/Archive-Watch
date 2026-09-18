@@ -1618,6 +1618,63 @@ the audio path, the real ingest hosts with no credential, the overlay and
 go-live surfaces on the glass, the rights gate on device, and the platform
 clients. **→ `docs/watch-together-measurements.md`**
 
+### §9.rr The dongle's 10.5 fps was mostly BOXING — and the pacing fix that measurement refused (2026-09-18)
+
+§9.qq left the Google TV delivering 10.5 fps and called it a hardware-floor
+question. It was not, or not mostly. The loop has five phases and a total says
+nothing about which one owns the time, so the first move was a DEBUG per-second
+breakdown (`AWSTUDIOPERF`), not another guess.
+
+**What it found, per frame, against a 33.3 ms budget for everything:**
+
+    fps=10  draw=22.0  drain=16.5  audio=29.0   chat/s=39.6 ms
+    fps=9   draw=45.3  drain=4.6   audio=28.7   chat/s=0.2 ms
+
+**The video and audio SEND paths cost more than the GPU did.** Both built their
+FLV tag as `mutableListOf<Byte>()` then `addAll(data.toList())` — and
+`toList()` on a `ByteArray` **boxes every byte**. A 50 kB keyframe allocated
+fifty thousand `Byte` objects, on the render thread, every frame. Replaced with
+a plain `ByteArray` and `System.arraycopy`:
+
+| | before | after |
+|---|---|---|
+| video drain | 16.5 ms/frame | **2.3-5.2 ms** |
+| audio drain | 29.0 ms/frame | **5.0-14.6 ms** |
+| program | 9-10 fps | **12-13 fps** |
+| A/V drift | -720 ms / 100 s | **+395 ms / 87 s** |
+
+The drift improved as a side effect, which fits §9.qq: a render loop that is
+faster drains the AAC codec more often, so less PCM is refused and fewer
+samples go missing. The setup paths (handshake, connect, sequence headers)
+still use `toList()` and are left alone — they run once.
+
+**Then a hypothesis, and the measurement refused it.** The loop ends with an
+unconditional `delay(1000 / frameRate)`, and the arithmetic looked decisive:
+~44 ms of work plus a flat 33 ms sleep is 77 ms, which is exactly the 12.9 fps
+being measured. Replacing it with "sleep only the REMAINDER of the budget"
+should have given ~22 fps. It gave 12-14 — and `draw` expanded from ~27 ms to
+~65 ms, absorbing precisely what the sleep had been.
+
+**So the ceiling is downstream.** `eglSwapBuffers` blocks on the encoder's
+input-surface queue, so the loop already runs at the rate MediaCodec can
+consume frames; the sleep was never additive, it was slack. The comment that
+was already there — *"a tighter loop only burns battery: the encoder cannot
+take frames faster than it encodes them"* — was right, and the change was
+reverted with the measurement recorded beside it. **An arithmetic model that
+explains a number exactly is still a hypothesis**; this one predicted 22 fps
+and reality said 13.
+
+**Two things remain open:**
+
+- **~13 fps is the dongle's real composite-plus-encode throughput at 720p.**
+  That IS a hardware-floor question, now properly attributed rather than
+  assumed. The remaining per-frame cost is `draw` at ~30-38 ms, which includes
+  the blocking swap.
+- **The publish handshake blocks the render thread for 2.3 seconds**
+  (`drain=2306.5` on the publishing second, fps=1). A broadcast's opening
+  seconds are spent stalled, and the handshake has no business on the thread
+  that owns GL.
+
 ### §9.qq Android's two clocks, fixed — a frame counter pretending to be a clock, and a sample clock that did not count what it dropped (2026-09-18)
 
 §9.pp measured a +19.6 s A/V split on the Android product path and blamed

@@ -24,6 +24,7 @@ package app.archivewatch.android.studio
 // something happening beside them.
 
 import android.view.Surface
+import app.archivewatch.android.BuildConfig
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.asCoroutineDispatcher
@@ -298,6 +299,14 @@ class StudioEngine(
         var frame = 0L
         var renderTotalNanos = 0L
         var lastSecond = System.currentTimeMillis()
+        // DEBUG frame-budget breakdown (§9.rr). The dongle delivers 10.5 fps
+        // and the loop has five phases; a total tells you nothing about which
+        // one owns the time. Reset every second, logged only in a debug build.
+        var renderSecNanos = 0L
+        var drainSecNanos = 0L
+        var audioSecNanos = 0L
+        var chatSecNanos = 0L
+        var frameAtLastSecond = 0L
         var filmAtLastSecond = 0
         var encodedAtLastSecond = 0L
         var encodedTotal = 0L
@@ -319,7 +328,9 @@ class StudioEngine(
 
         while (running.get()) {
             val t0 = System.nanoTime()
-            renderTotalNanos += drawOnce(g, pg, frame, t0, showStartNanos)
+            val drawn = drawOnce(g, pg, frame, t0, showStartNanos)
+            renderTotalNanos += drawn
+            renderSecNanos += drawn
             frame++
 
             // The AAC encoder is built as soon as the tap knows the film's
@@ -335,7 +346,9 @@ class StudioEngine(
                 }
                 audioTap.onPcm = { pcm, _, _ -> aac?.encode(pcm) }
             }
+            val audioAt = System.nanoTime()
             aac?.drain { a, ts -> published?.sendAudio(a, ts) }
+            audioSecNanos += System.nanoTime() - audioAt
 
             // PUBLISH ONLY WHEN EVERY TRACK IT WILL EVER CARRY IS KNOWN.
             //
@@ -373,10 +386,12 @@ class StudioEngine(
                     health = health.copy(publisher = p.health.copy(lastError = e.message))
                 }
             }
+            val drainAt = System.nanoTime()
             enc.drain { avcc, key, ts ->
                 encodedTotal++
                 published?.sendVideo(avcc, key, ts, ts)
             }
+            drainSecNanos += System.nanoTime() - drainAt
 
             val now = System.currentTimeMillis()
             if (now - lastSecond >= 1000) {
@@ -385,6 +400,7 @@ class StudioEngine(
                 // frame is what the overlay cache exists to avoid (§9).
                 // Safe here because this block runs on the render thread,
                 // which is the only thread allowed to touch GL.
+                val chatAt = System.nanoTime()
                 val chat = twitchChat
                 val factory = overlayForChat
                 if (chat != null && factory != null) {
@@ -395,6 +411,7 @@ class StudioEngine(
                         chatIdsDrawn = ids
                     }
                 }
+                chatSecNanos += System.nanoTime() - chatAt
 
                 val film = pg.framesAvailable.get()
 
@@ -456,12 +473,33 @@ class StudioEngine(
                     reconnectFault = reconnectFault,
                     publisher = published?.health ?: RtmpHealth(),
                 )
+                if (BuildConfig.DEBUG) {
+                    val fr = (frame - frameAtLastSecond).coerceAtLeast(1)
+                    android.util.Log.i("AWSTUDIOPERF", String.format(
+                        "fps=%d  per-frame draw=%.1f drain=%.1f audio=%.1f  chat/s=%.1f  ms",
+                        frame - frameAtLastSecond,
+                        renderSecNanos / 1e6 / fr,
+                        drainSecNanos / 1e6 / fr,
+                        audioSecNanos / 1e6 / fr,
+                        chatSecNanos / 1e6))
+                }
+                renderSecNanos = 0; drainSecNanos = 0; audioSecNanos = 0; chatSecNanos = 0
+                frameAtLastSecond = frame
                 filmAtLastSecond = film
                 encodedAtLastSecond = encodedTotal
                 lastSecond = now
             }
             // Pace to the frame rate. A tighter loop only burns battery: the
             // encoder cannot take frames faster than it encodes them.
+            //
+            // MEASURED, after replacing this with a "sleep only the remainder"
+            // scheme on the theory that a flat 33 ms was being ADDED to the
+            // work: fps did not move (12-13 either way) and `draw` expanded
+            // from ~27 ms to ~65 ms, absorbing exactly what the sleep had
+            // been. `eglSwapBuffers` blocks on the encoder's surface queue, so
+            // the loop already runs at the encoder's pace and the sleep was
+            // never additive. The comment above was right; the change was
+            // reverted (§9.rr).
             kotlinx.coroutines.delay((1000L / frameRate).coerceAtLeast(1))
         }
     }

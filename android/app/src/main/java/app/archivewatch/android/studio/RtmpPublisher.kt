@@ -459,12 +459,18 @@ class RtmpPublisher {
             else { health.videoFramesDropped += 1; return }
         }
         val compositionTime = (ptsMs - dtsMs).coerceAtLeast(0)
-        val tag = mutableListOf<Byte>()
-        tag.add((((if (isKeyframe) 1 else 2) shl 4) or 7).toByte())
-        tag.add(1)                          // AVC NALU
-        tag.addAll(be24(compositionTime).toList())
-        tag.addAll(avccData.toList())
-        sendMessage(9, streamId, 6, tag.toByteArray(), dtsMs)
+        // A plain ByteArray, NOT `mutableListOf<Byte>() + data.toList()`:
+        // `toList()` BOXES every byte, so a 50 kB keyframe allocated fifty
+        // thousand `Byte` objects on the render thread, every frame. Measured
+        // before this: 16.5 ms a frame in the video drain and 29.0 ms in the
+        // audio drain, against a 33.3 ms budget for everything (§9.rr).
+        val ct = be24(compositionTime)
+        val tag = ByteArray(2 + ct.size + avccData.size)
+        tag[0] = (((if (isKeyframe) 1 else 2) shl 4) or 7).toByte()
+        tag[1] = 1                          // AVC NALU
+        System.arraycopy(ct, 0, tag, 2, ct.size)
+        System.arraycopy(avccData, 0, tag, 2 + ct.size, avccData.size)
+        sendMessage(9, streamId, 6, tag, dtsMs)
         health.videoFramesSent += 1
     }
 
@@ -473,11 +479,11 @@ class RtmpPublisher {
         val c = config ?: return
         if (health.state != "publishing") return
         if (!sentSequenceHeaders) sendSequenceHeaders(c)
-        val tag = mutableListOf<Byte>()
-        tag.add(0xAF.toByte())
-        tag.add(1)                          // raw frame
-        tag.addAll(aacFrame.toList())
-        sendMessage(8, streamId, 5, tag.toByteArray(), ptsMs)
+        val tag = ByteArray(2 + aacFrame.size)
+        tag[0] = 0xAF.toByte()
+        tag[1] = 1                          // raw frame
+        System.arraycopy(aacFrame, 0, tag, 2, aacFrame.size)
+        sendMessage(8, streamId, 5, tag, ptsMs)
         health.audioFramesSent += 1
     }
 
