@@ -1498,6 +1498,62 @@ says what each case IS.
    audio advances in **every** second of the congestion, and that video
    recovers — by RATE, never by totals across windows of different lengths.
 
+### §6.4 — Chat: Twitch needs NO credential, YouTube needs the host's (2026-09-18)
+
+Chat was listed as *"renderer done, platform chat pending OAuth"*. That is true
+of YouTube and **false of Twitch**, and the difference is the whole finding.
+
+**Twitch reads anonymously.** The historical IRC interface accepts
+`NICK justinfan<digits>` with **no password and no account**. Verified against
+`tmi.twitch.tv` with no credential of any kind:
+
+    :tmi.twitch.tv CAP * ACK :twitch.tv/tags twitch.tv/commands
+    :tmi.twitch.tv 001 justinfan80596 :Welcome, GLHF!
+    :tmi.twitch.tv 376 justinfan80596 :>
+
+So the Twitch half of chat was never owner-blocked. `StudioChatTwitch` reads it
+today: TLS to `irc.chat.twitch.tv:6697`, the `tags`/`commands` capabilities (which
+is what carries `display-name`, `color` and the message `id`), `PRIVMSG` into
+`StudioOverlay.ChatLine`, `USERNOTICE` as an event, `PONG` on every `PING` — an
+unanswered ping ends the connection within minutes and the symptom is a chat
+that simply stops. It **reads only**: it never sends, never authenticates, and
+so cannot be mistaken for the host speaking.
+
+**Why IRC and not EventSub.** Twitch now prefers EventSub
+(`wss://eventsub.ws.twitch.tv/ws`, subscriptions created over Helix against the
+session id in the welcome frame) and publishes a migration guide away from IRC.
+But `channel.chat.message` requires the `user:read:chat` scope from a signed-in
+user and **EventSub has no anonymous mode** — on this build it can read nothing
+at all. Decision 128's rule again: take the flow the platform actually offers a
+client of OUR type, not the newer one. When sign-in exists EventSub becomes the
+better path, and everything above `ChatLine` is unchanged either way.
+
+**YouTube is genuinely blocked**, and its shape is worth recording now:
+`liveChatMessages.list` needs `liveChatId` + `part`, is quota-metered against
+the 10,000 units/day default, returns `pollingIntervalMillis` — **the server
+dictates the cadence, so a client must not invent one** — and pages
+oldest-to-newest via `nextPageToken`. Its history is bounded by the FIRST
+request: a reader joining late cannot recover what came before, which matters
+for a show that starts its chat overlay mid-film.
+
+**Proved** (`tools/test_studio_chat_twitch.swift`): nine parser assertions
+against real IRCv3 shapes — escaped tag values (`\s`), a message containing
+colons (most links do), a bare nick with no display name, a one-character
+trailing parameter, a line with none — then the live transport, then real
+traffic: **12 messages in 20 s from a live channel, every line with an id and an
+author, buffer capped at 200.** The harness counts and never prints message
+text: strangers' chat should not land in a log to prove a parser works.
+
+**And one wrong turn, recorded because it is the session's own lesson.** The
+first live run read 0 messages and reported "the channel was quiet". I doubted
+that, found the read loop re-armed through an actor hop, and changed it — then
+the numbers came back **identical**. The control I should have run first (a raw
+socket on the same channel at the same moment) then showed 0 messages and 12
+raw lines: exactly what the client had reported. The stream had ended between
+probes. The client was right all along, the re-arm-in-the-callback is a better
+`NWConnection` pattern and is kept on that basis, and **it is not a fix for
+anything** — no throughput claim attaches to it.
+
 ## §9 — Measurements (filled in as they are taken)
 
 **How this section works** (the same rule Decision 092 set for `DECISIONS.md`,
