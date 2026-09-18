@@ -86,7 +86,16 @@ emulators) · `docs/CAPTIONS.md` · `docs/SHAREPLAY.md` ·
    rather than hanging on a prompt.
    Also open, for the owner: widening the rights tier from `guaranteed`
    (4,210 films) to `strict` (7,517) is a Decision-027 content call.
-8. **Fireplace TV is off limits for testing** (owner 2026-09-17, mid-run: "I'm
+8. **Pair the Pixel 8a for wireless debugging** — one step on the phone
+   (Settings ▸ System ▸ Developer options ▸ Wireless debugging ▸ Pair device
+   with pairing code), then `adb pair <ip:port> <code>`. Its adb-over-TLS
+   pairing expired and **three Android items wait on it together**: a
+   phone-class render measurement (a Google TV dongle needs 37.4 ms a frame
+   against a 33.3 ms budget, so the architecture is proved and its speed is
+   not), a real camera tile (no television has a camera), and eyes on the
+   phone Detail entry, whose DECISION is tested but whose appearance has never
+   been seen.
+9. **Fireplace TV is off limits for testing** (owner 2026-09-17, mid-run: "I'm
    actively watching on it now"). Bedroom and Movie Room are fine — but both
    are Apple TV 4K **3rd** gen, and Fireplace is the only **2nd** gen, i.e.
    the Studio's hardware floor. The §8.3 ten-minute soak passes on the 3rd gen
@@ -274,40 +283,45 @@ unbiased."
   third-party apps get the iPhone's camera AND mic through AVFoundation)** →
   Mac → Android → guests). Nothing built; no design rule changed.
 
-### 2026-09-16 (audit loop, cont.) — Credits residue, Family genre, the rights confirm run by hand (Decision 125)
-Owner /loop: "uploader information and reviews instead of information about
-the film ... every piece of information ... accurate and unbiased."
-- **Family is subject-only**: `genres_from_subjects` matched map keywords
-  against the TITLE, so "The Family Doctor" and every Prelinger "Home Movie:
-  Ohio Family" wore the Family genre; 205 unvouched tags come off no-id items
-  every build. `test_family_genre.py` 7/7 (3/7 on the old code).
-- **916 visible no-id items carried TMDb credit rows** (D125): "501" (a
-  NetZero reel) wore a 2008 Danish film entire; Godzilla 1954 wore Aaron
-  Taylor-Johnson behind a Wikidata QID. Strip is evidence-based; the KEEP is
-  the cast reverse-matched to a same-titled film (`anchor_orphan_credits.py`
-  grew the caches, 118/253). 269 visible items lose another film's credits;
-  6 upload-dated features (Three Ages 1923, Smart Alecks 1942...) get their
-  year from the same anchor instead of being hidden as "confirmed modern".
-- **The rights confirm has failed in CI for three days** (archive.org refuses
-  the runner, 4/4 each run). Ran it locally: 112 confirmed, Wormwood (2017,
-  Errol Morris) among ~110 modern items now bucketed to hide on the next
-  publish. Follow-up: schedule the confirm on the owner's Mac.
-- **Later ticks, each on the live catalog**: subject keywords match plurals
-  ("cartoons" → Animation, 111), bare "music" ≠ Musical, Family needs an
-  AUDIENCE subject; uploader-voice grew (!!, emoticons, "please click",
-  10/10, ownership disclaimers in any language); a YEARLESS item is never
-  cast-anchored (Follow That Man / "A Family Affair" 2024 — 90 stripped);
-  director/producer library-catalog forms normalized; title tails
-  (fullwidth ｜, ALL-CAPS genre, a cast name + genre word); and 1,140
-  placeholder synopses ("To come.", "510", the title echoed, "The Red Dragon
-  1929 Warner Oland...") become empty. Tests: test_family_genre,
-  test_uploader_voice, test_title_cast_tail, test_placeholder_synopsis,
-  test_unanchored_tmdb_residue. publish-db dispatched after each batch.
-- **The text loops end here** (sample miss rates 4–12 of 40–50, every one a
-  phrasing, none a class). The tail now goes through
-  `metadata_review.py select --source archive` — the agent judges each uploader
-  synopsis keep/rewrite/null, popularity-first; first batch of 60 applied and
-  published (22 rewrites, 5 nulls, 33 keeps). ~8,140 remain; the top ~2,000
-  by popularity is the bounded pass worth doing.
+### 2026-09-17 (Watch Together loop) — the feature built on four platforms, and the instruments that lied
+Owner /loop, 5-minute ticks: "stream your watching of PD movies to Youtube and
+Twitch ... reframe as Watch Together and Watch Together Studio ... start with
+Apple platforms and then build out from there."
+
+- **Apple is done but for two strings.** tvOS, iOS and macOS all carry the
+  Studio: the rights gate, the go-live surface, the health readout, the
+  controls panel, the overlays, our own RTMPS publisher. macOS Phase 2 landed
+  whole (macOS-DESIGN §B13) and the **whole program was pulled back from a
+  real publish by the shipping Mac app** — film, camera tile and lower third
+  in one frame. Sign-in is written and its request shapes proved against the
+  real endpoints (Decision 128): **Twitch does not support PKCE**, so YouTube
+  gets authorization-code + PKCE and Twitch the device flow, and the redirect
+  is the BUNDLE ID because a URL scheme must exist at build time.
+- **Android is Phase 3 and proved on hardware** (Decision 129): Kotlin RTMP
+  publisher, MediaCodec + GLES straight into the encoder's surface, ExoPlayer
+  into an external OES texture, `TeeAudioProcessor` for the film's audio, the
+  rights gate ported sentence-for-sentence with a **cross-platform parity
+  test**, and a dual-surface render so an Android host sees the PROGRAM. A/V
+  alignment measured at +4.5–11 ms after subtracting AAC priming (it was 47 ms
+  out).
+- **Every number here came from a server's own recording or a photograph of a
+  screen**, because the instruments kept lying in both directions. A harness
+  said PASS for five ingests while YouTube failed at the handshake; another
+  said PASS while mediamtx had never accepted a publish; the Android film test
+  passed while the picture was black; the A/V analyser printed a confident
+  +50.5 ms while finding 16 "bursts" against 6 flashes; and a render
+  comparison reported the two-pass case FASTER because the cold run went
+  first. The rule that came out of it: **before believing a verdict, run the
+  control that should obviously produce the opposite one.**
+- **Two incidents worth keeping.** A film was left playing unmuted on the
+  owner's Apple TV for about an hour, routing to every HomePod — dev doors are
+  now bounded and muted by default, with a teardown step. And the owner
+  stopped a soak mid-run: *"Stop using the fireplace tv for testing. I'm
+  actively watching on it now."* Fireplace is off limits (owner item 9) and it
+  is the only 2nd-gen Apple TV, so the Studio's hardware FLOOR cannot be
+  re-measured without asking.
+- **Blocked on the owner, all of it small**: the two client ids (item 7), the
+  Pixel pairing (item 8), Continuity pairing + camera/mic grant on the phone
+  and TV, and the rights-tier call. Nothing else is waiting on anything.
 
 Older entries: `docs/SESSION-LOG.md` (verbatim, back to 2026-04-17).

@@ -16,6 +16,42 @@ it is history, not a to-do list.
 
 ## Session Log
 
+### 2026-09-16 (audit loop, cont.) — Credits residue, Family genre, the rights confirm run by hand (Decision 125)
+Owner /loop: "uploader information and reviews instead of information about
+the film ... every piece of information ... accurate and unbiased."
+- **Family is subject-only**: `genres_from_subjects` matched map keywords
+  against the TITLE, so "The Family Doctor" and every Prelinger "Home Movie:
+  Ohio Family" wore the Family genre; 205 unvouched tags come off no-id items
+  every build. `test_family_genre.py` 7/7 (3/7 on the old code).
+- **916 visible no-id items carried TMDb credit rows** (D125): "501" (a
+  NetZero reel) wore a 2008 Danish film entire; Godzilla 1954 wore Aaron
+  Taylor-Johnson behind a Wikidata QID. Strip is evidence-based; the KEEP is
+  the cast reverse-matched to a same-titled film (`anchor_orphan_credits.py`
+  grew the caches, 118/253). 269 visible items lose another film's credits;
+  6 upload-dated features (Three Ages 1923, Smart Alecks 1942...) get their
+  year from the same anchor instead of being hidden as "confirmed modern".
+- **The rights confirm has failed in CI for three days** (archive.org refuses
+  the runner, 4/4 each run). Ran it locally: 112 confirmed, Wormwood (2017,
+  Errol Morris) among ~110 modern items now bucketed to hide on the next
+  publish. Follow-up: schedule the confirm on the owner's Mac.
+- **Later ticks, each on the live catalog**: subject keywords match plurals
+  ("cartoons" → Animation, 111), bare "music" ≠ Musical, Family needs an
+  AUDIENCE subject; uploader-voice grew (!!, emoticons, "please click",
+  10/10, ownership disclaimers in any language); a YEARLESS item is never
+  cast-anchored (Follow That Man / "A Family Affair" 2024 — 90 stripped);
+  director/producer library-catalog forms normalized; title tails
+  (fullwidth ｜, ALL-CAPS genre, a cast name + genre word); and 1,140
+  placeholder synopses ("To come.", "510", the title echoed, "The Red Dragon
+  1929 Warner Oland...") become empty. Tests: test_family_genre,
+  test_uploader_voice, test_title_cast_tail, test_placeholder_synopsis,
+  test_unanchored_tmdb_residue. publish-db dispatched after each batch.
+- **The text loops end here** (sample miss rates 4–12 of 40–50, every one a
+  phrasing, none a class). The tail now goes through
+  `metadata_review.py select --source archive` — the agent judges each uploader
+  synopsis keep/rewrite/null, popularity-first; first batch of 60 applied and
+  published (22 rewrites, 5 nulls, 33 keeps). ~8,140 remain; the top ~2,000
+  by popularity is the bounded pass worth doing.
+
 ### 2026-09-14 (evening) — Party Play answers "what is this?" on every TV; playlist Share is visible; three Roku Library defects
 Owner: *"I've been leaving the 'Party Play' going on my TVs ... enable sound
 whenever I want ... go directly to the title that is playing ... shortcut to

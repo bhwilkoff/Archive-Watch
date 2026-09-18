@@ -207,6 +207,7 @@ into every session and the index alone carries every title.)
 - 126 — A request that must be answered rides its own field; a shared query record served once per bump merges whatever lands on it together
 - 127 — Watch Together goes public through an ON-DEVICE studio that speaks RTMPS itself: native frameworks, our own publisher, no encoder dependency
 - 128 — A public client gets the flow each platform actually offers, not the one we prefer; and a missing credential is a STATE
+- 129 — Android runs the SAME Studio with GLES in Core Image's place, and the host sees the PROGRAM because `setVideoSurface` is exclusive
 
 ---
 
@@ -538,3 +539,76 @@ so the television presents the flow itself and that screen cannot be seen
 until a client id exists. If it is unusable, the fallback is Google's device
 flow — which does allow the `…/auth/youtube` scope, but requires a client
 SECRET, and embedding one is a real cost rather than a formality.
+
+## 129 — Android runs the SAME Studio with GLES in Core Image's place, and the host sees the PROGRAM because `setVideoSurface` is exclusive
+*Date: 2026-09-17*
+
+Watch Together Studio on Android is the Apple architecture with **GLES doing
+Core Image's job**, and no third-party encoder — Decision 127's reasoning
+carried over rather than re-argued. ExoPlayer decodes into a `SurfaceTexture`,
+a GLES program samples it as an external OES texture and composites film,
+camera tile and overlays **straight into MediaCodec's input Surface**, the
+film's audio is tapped with Media3's `TeeAudioProcessor`, and our own Kotlin
+`RtmpPublisher` — a port of the Swift one — sends it. RootEncoder is not used.
+Rules: `docs/ANDROID-DESIGN.md` §9; measurements: `docs/WATCH-TOGETHER.md`
+§6.2–§6.2l.
+
+**Why the same architecture**: every Apple piece has a direct Android
+counterpart, so the differences are all in the plumbing. Android is in fact
+CHEAPER in the place that matters — compositing into the encoder's input
+surface is zero-copy, where the Apple path renders through Core Image into a
+`CVPixelBuffer` that VideoToolbox then reads.
+
+**Why not Media3's own compositor**: `CompositionPlayer`, `Transformer` and
+`VideoCompositor` — 2×2 grids, picture-in-picture layouts, a Lottie overlay
+module — look like exactly this feature and are not. They compose MEDIA ITEMS
+for preview and file EXPORT; nothing in 1.8–1.10 accepts a live camera as a
+composition input or encodes a composed output in real time. A library that
+ships the words "compositor" and "picture-in-picture" and still does not do
+this is worth checking rather than assuming.
+
+**THE ONE REAL DIVERGENCE, and it is a product decision rather than a
+workaround.** On Apple, `AVPlayerItemVideoOutput` is a TAP: the player keeps
+its own display and the Studio reads frames beside it. On Android,
+`Player.setVideoSurface` is EXCLUSIVE — point the player at the Studio's
+texture and the screen goes black; point it at the screen and the Studio gets
+nothing. The first attempt did the latter and the readout honestly reported
+`OFF` forever. So the engine draws the composed program TWICE, to two window
+surfaces sharing one context: MediaCodec's input surface and the host's
+screen. **The consequence is that an Android host sees the PROGRAM — film,
+tile and lower third — rather than the bare film**, and that is better than
+the Apple arrangement, not a concession: a host watching what their audience
+is watching cannot be surprised by it.
+
+**How to apply.** Four things on this path are silent when wrong, and every
+one of them cost a run:
+
+- `EGL_RECORDABLE_ANDROID` (0x3142) must be in the config attributes, or the
+  driver may pick a config the encoder cannot consume — a black stream, not an
+  error.
+- MediaCodec emits **Annex-B**; RTMP wants **AVCC**. A server fed Annex-B
+  accepts the publish and never identifies the track, which looks exactly like
+  a network fault.
+- `SurfaceTexture.setDefaultBufferSize` is not optional. Without it the
+  decoder renders into a buffer that is not the film and everything else
+  succeeds: frames arrive, `updateTexImage` works, the server records a
+  perfectly healthy broadcast of nothing.
+- `glViewport` belongs to the SURFACE, not the context. Two surfaces of
+  different sizes share one context here, so the display pass inherits the
+  encoder's viewport and draws the whole program into a corner of the screen.
+
+And two timing rules with no analogue on Apple: **subtract the AAC encoder's
+priming delay from audio timestamps** (measured at ~47 ms; 2048 samples at
+44.1 kHz is 46.4 ms, and FLV has nowhere to carry an edit list, so the
+timestamp is the only place to correct it), and **a broadcast must BEGIN with
+a keyframe** — until one arrives, a joining viewer and a recording server have
+nothing decodable while the stream looks live.
+
+**Consequences**: the Studio is a **Google-flavour** feature (the `amazon`
+flavour is minSdk 23 for Fire TV, which has no camera), and on Android "Watch
+Together" means the WORLD half only, because there is no GroupActivities
+equivalent and half a verb is not a verb. The engine, transport, encoder,
+composite, audio, A/V alignment and rights gate are all proved on real
+hardware; what is NOT proved is anything phone-shaped — a Google TV dongle
+needs 37.4 ms a frame against a 33.3 ms budget even drawing once, so the
+architecture is validated and its speed on a phone is not.
