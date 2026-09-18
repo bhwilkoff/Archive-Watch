@@ -389,6 +389,23 @@ to teach (§2.1). The message names BOTH platforms: a surface with no platform
 picker must not pick one arbitrarily, because a host told only about YouTube
 reasonably asks what about Twitch.
 
+**Correction, 2026-09-18 — the predicate was a proxy, and it came apart.** The
+gate above read `StudioPlatformAuth.anyConfigurationProblem`, which answers
+"can this BUILD sign in". The question this rule actually asks is "can this
+TELEVISION reach an audience", and the two were the same thing only while
+NEITHER platform was configured. Registering the YouTube client id (§9.nnn)
+made that predicate nil — so a change in a gitignored config file, nowhere
+near tvOS, opened the menu onto exactly what this rule exists to prevent: a
+production mode that can never reach an audience. tvOS has no platform picker
+and `DetailView.runStudio` starts the engine with `destination: nil`, so the
+Studio would have encoded at 6 Mbps to nobody with nothing on the glass saying
+so. The gate now asks the right question (`studioTVBroadcastProblem`) and says
+the true thing — going live from Apple TV is not built yet, start it from
+iPhone, iPad or Mac — while keeping the credential sentence for the case it
+still describes, a build with no ids at all. **A guard written against a proxy
+expires the day the proxy stops tracking the thing it stood for**, and nothing
+about registering a client id looks like it touches a television.
+
 10.3 **Watched state (#17).** Completed titles (`WatchProgress.isComplete`) are
 hidden from Home shelves by default (Settings toggle to show), but remain in
 Search/Browse and a Library → Watched section. Hiding ≠ deleting.

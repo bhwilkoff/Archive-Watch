@@ -823,6 +823,31 @@ struct PlayerScreen: View {
     /// alert below already says why that matters: a wrong title tells the
     /// viewer something false.
     enum StudioRefusalKind { case film, configuration, ended }
+
+    /// Why this television cannot broadcast, or nil when it can.
+    ///
+    /// This used to read `StudioPlatformAuth.anyConfigurationProblem` — "can
+    /// this BUILD sign in" — as a proxy for "can this TELEVISION reach an
+    /// audience". The two came apart the moment ONE client id was registered
+    /// (WATCH-TOGETHER §9.nnn): that predicate goes nil as soon as EITHER
+    /// platform is configured, while tvOS still has no way to choose a
+    /// destination and `runStudio` starts the engine with `destination: nil`.
+    /// So a registration on Google Cloud — a change in a gitignored config
+    /// file, nowhere near this code — silently opened the gate onto exactly
+    /// the dead production mode §10.2b exists to prevent: encoding at 6 Mbps
+    /// to nobody, with nothing on the glass saying so.
+    ///
+    /// The credential sentence is kept for the case it still describes, and
+    /// only that case. A build with no ids at all cannot sign in on ANY
+    /// platform, which is a different and more actionable thing to tell a host
+    /// than "this television has no surface for it yet".
+    static var studioTVBroadcastProblem: String? {
+        if let problem = StudioPlatformAuth.anyConfigurationProblem { return problem }
+        return "Going live from Apple TV is not built yet. This television has "
+            + "no way to choose a platform or a title, so a broadcast started "
+            + "here would reach nobody. Start it from iPhone, iPad or Mac — the "
+            + "film, the rights check and the Studio are the same."
+    }
     @State private var studioRefusalKind: StudioRefusalKind = .film
     /// The film the host chose to broadcast; non-nil starts the Studio on the
     /// player that is ALREADY playing it.
@@ -1024,7 +1049,7 @@ struct PlayerScreen: View {
             // THIS check only, for measuring the readout on a build with no
             // client ids — it exists nowhere in the product.
             if ProcessInfo.processInfo.environment["AW_STUDIO_TV_FORCE"] != "1",
-               let problem = StudioPlatformAuth.anyConfigurationProblem {
+               let problem = Self.studioTVBroadcastProblem {
                 studioRefusalKind = .configuration
                 studioRefusal = problem
                 return
@@ -1186,7 +1211,7 @@ struct PlayerScreen: View {
             // into a production mode that can never reach an audience. iOS
             // greys out Go Live for the same reason; a television has no
             // equivalent control to grey, so it says so here.
-            if let problem = StudioPlatformAuth.anyConfigurationProblem {
+            if let problem = Self.studioTVBroadcastProblem {
                 studioRefusalKind = .configuration
                 studioRefusal = problem
                 return

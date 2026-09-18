@@ -1618,6 +1618,51 @@ the audio path, the real ingest hosts with no credential, the overlay and
 go-live surfaces on the glass, the rights gate on device, and the platform
 clients. **→ `docs/watch-together-measurements.md`**
 
+### §9.ooo Registering a client id opened a gate on a platform that cannot broadcast (2026-09-18)
+
+Found immediately after §9.nnn, by asking what the new half-configured state
+changes — one platform with an id, one without, which no build had ever been
+in.
+
+`StudioPlatformAuth.anyConfigurationProblem` returns nil as soon as **either**
+platform is configured. That is correct for what it says it is: a surface with
+no platform picker must not name one arbitrarily, so it speaks only when
+neither can be signed in to. tvOS's two Watch Together gates used it as the
+test of whether a broadcast could happen at all — and those are different
+questions.
+
+    DetailView.runStudio(for:)     try await engine.start(destination: nil)
+    macOS RootView_macOS:43        StudioGoLive.destination(for:film:)
+    iOS StudioPlayerContainer:153  StudioGoLive.destination(for:film:)
+
+tvOS is the one product path that resolves no destination, because the surface
+that would choose one is tvOS-DESIGN's **proposed** Rule 8.8a — three open
+questions the doc explicitly reserves for the owner. The doc already said the
+consequence plainly: *"tvOS keeps the engine, the gates, the verified hardware
+encoder (§9.vv) and no way to broadcast."*
+
+So the moment `YOUTUBE_CLIENT_ID` landed in a gitignored file, the television's
+gate stopped firing and "Watch Together ▸ With the world…" would have started
+the Studio, encoded 1080p30 at 6 Mbps on the hardware encoder verified in
+§9.vv, and published to nothing — with no error, because nothing was wrong.
+§10.2b exists to stop a host being "let into a production mode that can never
+reach an audience" and it would have done the opposite.
+
+**Fixed by asking the right question, not by building the surface.** Building
+the tvOS go-live path now would be deciding Rule 8.8a's three open questions on
+the owner's behalf. `studioTVBroadcastProblem` answers "can this television
+reach an audience" — no, and the reason has nothing to do with credentials —
+and keeps the credential sentence for the case it still describes. tvOS build
+green.
+
+**The shape worth keeping.** This is not a coding error; every line was correct
+when written. It is a **guard written against a proxy**, and the proxy stopped
+tracking the thing it stood for on a day when nobody was looking at tvOS at
+all. The trigger was a registration in a web console. The class is the one §6
+kept producing — a rule implemented as something adjacent to itself — with a
+new wrinkle: **the adjacency held until an unrelated change made it false**, so
+there was no moment where the code was wrong until suddenly it was.
+
 ### §9.nnn The Google client is REGISTERED — and the checks that could not exist before it (2026-09-18)
 
 The owner asked for the client ids to be created in Chrome rather than by hand
