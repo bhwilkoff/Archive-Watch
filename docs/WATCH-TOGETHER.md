@@ -1618,6 +1618,51 @@ the audio path, the real ingest hosts with no credential, the overlay and
 go-live surfaces on the glass, the rights gate on device, and the platform
 clients. **→ `docs/watch-together-measurements.md`**
 
+### §9.xxx CORRECTION to §9.vvv: the pause DID hold, and the instrument that said otherwise was a byte comparison (2026-09-18)
+
+§9.vvv reported that the tvOS go-live confirmation could not pause the film,
+that the cause was not in `DetailView`, `AVPlayerContainer` or `TVAudioSession`,
+and that the pause had been removed rather than shipped half-working. **The
+first clause is wrong and the code was deleted on bad evidence.**
+
+The evidence was this: two screenshots fifteen seconds apart had different
+bytes. That was read as "the film advanced". It is not what it means.
+
+Asked of the player itself instead — a KVO probe on `timeControlStatus`, with
+every `play()` call site in the tvOS path marked so the log would name whichever
+fired:
+
+    AWPLAY site=containerOnAppear
+    AWPLAY site=readyToPlay
+    AWPAUSE calling pause() now
+    AWPAUSE status=0 waiting=-          <- .paused
+
+and then nothing, for the remaining two minutes. One transition, to paused, and
+no resume. Re-run with captures alongside the probe, three of them fifteen
+seconds apart: **byte-identical, same md5.**
+
+**What actually differed in the original pair**: the first capture's background
+is pure black and the second's is the film's paused still. The cover had just
+been presented and the paused frame behind it had not been composited yet. Same
+paused film, different compositor state — a difference of about a megabyte of
+PNG, which is why the size gap looked so convincing.
+
+So the sequence was: a real bug (the diagnostic door paused before the stream
+was ready, so the readiness observer's `play()` landed after it), correctly
+found and correctly fixed by waiting for `timeControlStatus == .playing` — and
+then the fix was judged by an instrument that could not see it working, and
+correct code was removed. The pause is restored, with a comment at the call site
+saying it has been deleted once and why it should not be again.
+
+**The rule this earns.** `instrument_must_be_invisible` and Decision 130 both say
+the instrument is the first suspect; both were written about instruments that
+produced false POSITIVES — a control that could not fail, a verdict that was the
+opposite of the truth. This one produced a **false negative about a fix**, which
+is more expensive, because the response to it is to delete work that was right.
+A screenshot diff answers "did these pixels change", never "is this player
+playing". When the question is about a component's STATE, ask the component:
+`timeControlStatus` was available the whole time and took ten lines to read.
+
 ### §9.www Google's device flow, and the control that caught the message nobody could act on (2026-09-18)
 
 The television's YouTube sign-in is now `GoogleDeviceAuth` — device code, QR,

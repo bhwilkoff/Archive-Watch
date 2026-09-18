@@ -1061,9 +1061,14 @@ struct PlayerScreen: View {
             GoLiveTV(film: film) { request in
                 studioRequest = request
                 studioSetup = nil
+                // The engine reads FRAMES off the player it attaches to, so a
+                // paused film would broadcast a still. Resume before the
+                // Studio starts, not after.
+                player?.play()
                 studioFilm = film
             } onCancel: {
                 studioSetup = nil
+                player?.play()
             }
         }
         .overlay(alignment: .topLeading) {
@@ -1132,6 +1137,7 @@ struct PlayerScreen: View {
             // readout gets measured without a platform account. It exists
             // nowhere in the product.
             if ProcessInfo.processInfo.environment["AW_STUDIO_TV_FORCE"] != "1" {
+                player?.pause()
                 studioSetup = film
                 // The same deadline the encode path carries, for the same
                 // reason: a dev affordance that can outlive the person using
@@ -1140,7 +1146,7 @@ struct PlayerScreen: View {
                 // that and still is not a state to leave a television in.
                 let hold = Double(ProcessInfo.processInfo.environment["AW_STUDIO_TV_SECONDS"] ?? "") ?? 180
                 try? await Task.sleep(nanoseconds: UInt64(hold * 1_000_000_000))
-                if studioSetup != nil { studioSetup = nil }
+                if studioSetup != nil { studioSetup = nil; player?.play() }
                 return
             }
             // MUTE THE ROOM. This box lives in someone's house and its audio
@@ -1304,19 +1310,28 @@ struct PlayerScreen: View {
             // every time — the same way iOS and macOS do — so the alert would
             // be the same paragraph twice in a row.
             //
-            // THE FILM KEEPS PLAYING behind it, which is what iOS and macOS do
-            // (neither go-live sheet touches the player). A first version of
-            // this line paused it — a television running on unattended behind
-            // a modal looked like leaving the room with the projector going —
-            // and two captures from Ben Bedroom fifteen seconds apart showed
-            // two different scenes: the pause did not hold, and nothing in
-            // this file, `AVPlayerContainer` or `TVAudioSession` explains what
-            // resumed it (the one resume each of those carries is gated on
-            // `.readyToPlay` and on an interruption ENDING, neither of which
-            // happens here). Rather than ship a pause that does not pause, the
-            // line is gone and the question is written down (§9.vvv). A host
-            // is mid-film when they open this, so continuing is also the less
-            // surprising behaviour.
+            // The film PAUSES while the confirmation is up. A television
+            // running on unattended behind a modal is the ten-foot version of
+            // leaving the room with the projector going.
+            //
+            // THIS LINE WAS DELETED ONCE AND SHOULD NOT BE AGAIN. It was
+            // removed on 2026-09-18 because two captures fifteen seconds apart
+            // showed different frames, which was read as "the pause does not
+            // hold". It does. A KVO probe on the player's own
+            // `timeControlStatus` logged exactly one transition — to `.paused`
+            // — and nothing for the next two minutes, and three captures
+            // fifteen seconds apart came back BYTE-IDENTICAL (§9.xxx). What
+            // differed in the original pair was the film's paused frame not
+            // yet being drawn behind a cover that had just been presented:
+            // the first capture's background is pure black, the second's is
+            // the same still the third would show. A PNG byte-difference is
+            // not evidence of playback, and treating it as such deleted
+            // working code.
+            //
+            // The genuine bug was the diagnostic's race, fixed below: the door
+            // paused before the stream was ready, so the readiness observer's
+            // own `play()` landed afterwards.
+            player?.pause()
             studioSetup = film
         }
         let watchTogether = UIMenu(
