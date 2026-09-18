@@ -290,3 +290,50 @@ implement them without a rule:
 - **§8.2** A feature that exists on tvOS/iOS but lands differently here must
   be the *native Material idiom* of the same verb — name the rule it mirrors
   or deliberately inverts.
+
+## §9 Watch Together Studio (binding; Phase 3)
+
+*Feature rules: `docs/WATCH-TOGETHER.md`. This section says only what is
+ANDROID-specific, and every rule is a consequence of §5.1, §6.2 or §8.2
+rather than a new idea.*
+
+- **§9.1 The Studio is the PLAYER with overlays, never a second player.**
+  §5.1 already says it: "We add overlays only; never a parallel transport."
+  Going live adds a program to what is already playing — the same
+  `PlayerView`, the same Media3 transport, the same resilient load policy.
+  A separate broadcast screen would mean two players, two load controls and
+  two progress writers for one film.
+- **§9.2 On Android "Watch Together" means the WORLD half only.** There is no
+  GroupActivities equivalent, so the private half does not exist here
+  (PARITY's SharePlay row: 🚫 on Android). The Detail entry is therefore a
+  single item, not the submenu Apple shows — §8.2's rule that a feature
+  landing differently must be the native idiom of the SAME VERB, and half a
+  verb is not a verb. Do NOT invent an Android "watch with friends" on a
+  different transport to fill the gap; that is a separate feature with its
+  own decision.
+- **§9.3 The program panel is a Material bottom sheet**, the native idiom of
+  the iOS §4.5 medium-detent sheet (§8.2): layout, the two faders, the cards.
+  Not a dialog — the program must stay visible behind it, because changing
+  what an audience sees without seeing it is a guess, not a control.
+- **§9.4 Health is ALWAYS on screen while live, and outside `PlayerView`'s
+  own controls.** Media3's controller auto-hides; health may not
+  (`docs/WATCH-TOGETHER.md` §4). It is a surface pinned over the player, and
+  it states the one current problem in words — a phone in a stand is not
+  being read closely.
+- **§9.5 The Studio is a GOOGLE-FLAVOUR feature.** The `amazon` flavour is
+  minSdk 23 for Fire TV (Decision 100/115), Fire TV has no camera, and the
+  encode path assumes APIs the Google flavour's minSdk 29 guarantees. Gate it
+  at the flavour, not with a runtime check that degrades.
+- **§9.6 Camera and microphone are asked for AT THE POINT OF GOING LIVE**,
+  never at launch and never as a precondition for browsing. A viewer who
+  never broadcasts is never asked, which is the same rule §1 applies to every
+  other permission — and the Studio runs without either, saying so, rather
+  than refusing to start (a paired phone can be asleep; a TV has no camera at
+  all).
+- **§9.7 A live broadcast needs a foreground service with the right TYPES.**
+  From Android 14 a service that touches the camera or microphone must
+  declare `camera` / `microphone` in `foregroundServiceType`, and the
+  notification is not optional. The film is composited from the decoder's
+  frames — **never `MediaProjection`** — so the `mediaProjection` type is
+  wrong here and asking for it would be asking to screen-record the user's
+  device (`WATCH-TOGETHER` §3.3 is absolute on this).

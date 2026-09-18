@@ -714,9 +714,55 @@ a sentence a person can read** — over 40 characters, ending in a full stop, an
 never containing its own bucket name, which is the defect that reached a user
 once (`renewal_zone_bw`).
 
+### §6.2g — The assembled engine, and two bugs only assembly could show (2026-09-17)
+
+`studio/StudioEngine.kt` — one render loop driving film, overlay, both
+encoders and the publisher, reporting health once a second, with the show's
+own state (`LIVE` / `NOT SENDING` / `STOPPED`) rather than the transport's.
+Rules: **ANDROID-DESIGN §9** (a–g), written first and grounded in §5.1's
+existing "we add overlays only; never a parallel transport".
+
+Every piece under it had already been proved separately on hardware
+(§6.2b–e). **Both bugs the assembly found were invisible in the pieces**, and
+that is the whole argument for testing the assembly as its own thing:
+
+1. **`Dispatchers.Default` is a THREAD POOL.** An EGL context belongs to the
+   thread that made it current, and a pool dispatcher may resume a coroutine
+   on a different thread after every `delay()`. First assembled run:
+   `IllegalStateException: eglMakeCurrent failed`. The loop now owns a
+   dedicated single thread. The header comment already said "one render
+   thread" — and then used a pool, which is the same class of mistake as a
+   rule that lives only in a harness.
+2. **A stream's tracks are declared ONCE, at publish.** The engine published
+   video-only because the AAC config had not arrived yet, then began sending
+   audio a second later, and mediamtx closed the connection: *"received a
+   packet for audio track 0, but track is not set up"*. A track that shows up
+   after publish is not a late track, it is a protocol error. The engine now
+   waits for every config it will ever carry — bounded at 8 s, so a film with
+   no audio goes out video-only rather than holding the broadcast forever, and
+   once it has gone out video-only the audio encoder is torn down so nothing
+   can send to a track that does not exist.
+
+**Verified on the Google TV**, with the engine's OWN health as the assertion
+rather than any counter the test kept: `showState == "LIVE"`, no problem
+reported, and the server's recording carrying
+
+```
+stream 0: h264   start_time 0.000000
+stream 1: aac    start_time 0.000000
+mean_volume -16.4 dB   max_volume -2.7 dB
+```
+
+**Not yet measured on Android**: A/V alignment as a number. The Apple side has
+10 ms over 15 s (§9); here the starts agree at 0.000000 and an early segment
+logged *"sample of track 2 received too late"* during ramp-up, which is a
+question rather than an answer. Audio timestamps come from BYTES CONSUMED and
+video from the frame counter — two clocks with a shared origin only by
+construction, so this deserves a measurement of its own rather than a claim.
+
 **Still ahead on Android**: a real camera, which needs a phone rather than a
-television — the Pixel 8a's adb-over-TLS pairing has expired. Transport,
-encoder, film texture, composite, audio and the rights gate are all proved.
+television — the Pixel 8a's adb-over-TLS pairing has expired — the UI surface
+(§9.1–9.4), and the A/V alignment measurement above.
 
 ## §7 — Phases
 
