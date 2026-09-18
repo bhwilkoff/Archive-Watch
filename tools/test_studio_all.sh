@@ -145,12 +145,21 @@ OVL=ArchiveWatch/ArchiveWatch/Studio/StudioOverlayRenderer.swift
 # file lists are a second, silent copy of the module's dependency graph, and a
 # source move does not update them.
 CHAT=ArchiveWatch/ArchiveWatch/Studio/StudioChatTwitch.swift
+AUTH=ArchiveWatch/ArchiveWatch/Studio/StudioPlatformAuth.swift
+PLAT=ArchiveWatch/ArchiveWatch/Studio/StudioPlatforms.swift
 MEDIA=tools/StudioTestMedia.swift
 
 swift_case "8.1 rtmp publish"      "$PUB" "$MEDIA" tools/test_rtmp_publish.swift
 swift_case "8.4 rtmp reconnect"    "$PUB" "$MEDIA" tools/test_rtmp_reconnect.swift
 swift_case "8.5 thermal"           "$PUB" "$ENG" "$AUD" "$OVL" "$CHAT" tools/test_studio_thermal.swift
 swift_case "8.6 back-pressure"     "$PUB" "$ENG" "$AUD" "$OVL" "$CHAT" tools/test_studio_backpressure.swift
+
+# The two credential-facing harnesses. Neither was in this runner, which is
+# precisely the condition §9.aaa describes: a test that exists and therefore
+# does not get run. Both send DELIBERATELY invalid credentials to the real
+# endpoints and need no account, no server and no device — only a network.
+swift_case "8.2 sign-in shapes"    "$AUTH" "$PLAT" tools/test_studio_signin.swift
+swift_case "8.7 live-platform shapes" "$AUTH" "$PLAT" tools/test_studio_live_shapes.swift
 # ---- the rights tests, which need no server at all
 for t in tools/test_studio_rights_parity.py tools/test_studio_rights_coverage.py; do
   name="$(basename "$t")"

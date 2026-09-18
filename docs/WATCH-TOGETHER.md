@@ -1618,6 +1618,47 @@ the audio path, the real ingest hosts with no credential, the overlay and
 go-live surfaces on the glass, the rights gate on device, and the platform
 clients. **→ `docs/watch-together-measurements.md`**
 
+### §9.ddd The credential path's request shapes, proved before there is a credential (2026-09-18)
+
+Decision 128 proved the SIGN-IN flows before any client id existed, by sending
+deliberately invalid credentials to the real endpoints: a platform that rejects
+the CREDENTIAL has accepted the REQUEST. It stopped there. `YouTubeLive.prepare`
+and `TwitchLive.prepare` — the code that runs the instant the owner pastes two
+strings — had never had their requests looked at by anything.
+
+`tools/test_studio_live_shapes.swift` applies D128's method to that half.
+**13 checks, 0 failures.**
+
+- **Twitch's ingest list is fully verifiable today**, because it needs no
+  credential: an ingest server is returned, it is **RTMPS** rather than RTMP,
+  the `{stream_key}` placeholder is stripped, and the backup is a different
+  server.
+- **YouTube answers 401 with an auth body**, not 400 with a field complaint —
+  so the liveStreams/liveBroadcasts request is shaped in a way the API accepts.
+- **Twitch helix answers the same way.**
+- **Controls first** (§9.oo's rule, that a control which cannot fail is not one):
+  a request that must succeed, one that must fail, and an assertion that the two
+  answers DIFFER. They run on `URLSession` directly rather than our own `HTTP`,
+  because a control that depends on the code under test cannot testify about it.
+
+**The one failure was in the TEST, and it is worth keeping.** The harness first
+asserted the ingest host ends in `twitch.tv`. It does not: Twitch serves ingest
+from **`live-video.net`** (`ingest.global-contribute.live-video.net`), and
+`twitch.tv` is only the API host. The code was right and the expectation was
+invented — so the check now names both domains, with the reason, because
+somebody "fixing" that host to `twitch.tv` would break every Twitch broadcast.
+
+**And both credential harnesses were outside the runner.** Neither
+`test_studio_signin.swift` nor this one was in `tools/test_studio_all.sh` —
+exactly §9.aaa's condition, a test that exists and therefore does not get run.
+They are now **8.2** and **8.7**; both need only a network, no account, no
+server, no device.
+
+(And building it repeated §9.aaa's own mistake once more: the first compile
+omitted `StudioPlatformAuth.swift`, which `StudioPlatforms.swift` depends on.
+The file list bites whoever writes one, including the person documenting that
+file lists bite.)
+
 ### §9.ccc Only iOS can actually reach YouTube or Twitch — the television cannot (2026-09-18)
 
 §9.bbb closed Decision 127's YouTube unknown, so its other one — the Twitch
