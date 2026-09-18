@@ -251,12 +251,18 @@ public actor RTMPPublisher {
     /// API returns them.
     public func publish(to server: URL, streamKey key: String,
                         config: RTMPStreamConfig, timeout: TimeInterval = 15) async throws {
+        // REDACTED, both of them. This entry point takes the key as its own
+        // parameter, so it reads as though no key could be in `server` — but
+        // its callers hold a destination that carries one (that is what entry
+        // point 1 is handed), and §5 does not say "unless the signature looks
+        // safe". Found by `tools/test_studio_key_hygiene.swift`, which threw a
+        // sentinel key at every guard here and watched what came back.
         guard let host = server.host, let scheme = server.scheme?.lowercased(),
               scheme == "rtmp" || scheme == "rtmps" else {
-            throw RTMPPublishError.badURL(server.absoluteString)
+            throw RTMPPublishError.badURL(redactingKey(server))
         }
         var appPath = server.path.trimmingCharacters(in: CharacterSet(charactersIn: "/"))
-        guard !appPath.isEmpty else { throw RTMPPublishError.badURL("no app path in \(server.absoluteString)") }
+        guard !appPath.isEmpty else { throw RTMPPublishError.badURL("no app path in \(redactingKey(server))") }
         // YouTube's backup ingest is `/live2?backup=1`: the query belongs to
         // the APP, not to the key.
         if let q = server.query, !q.isEmpty { appPath += "?" + q }

@@ -1618,6 +1618,42 @@ the audio path, the real ingest hosts with no credential, the overlay and
 go-live surfaces on the glass, the rights gate on device, and the platform
 clients. **→ `docs/watch-together-measurements.md`**
 
+### §9.qqq §5's stream-key rule, guarded — and the guard's first run found a leak (2026-09-18)
+
+§5 says a stream key "is never logged, never written to disk, never put in a
+URL this app prints". That rule had been broken once — a key could reach a
+TELEVISION SCREEN through an error string (§9, 2026-09-17) — fixed with
+`redactingKey`, and then left with nothing watching it. A rule enforced by one
+helper that two call sites remember to use is a rule waiting to regress.
+
+`tools/test_studio_key_hygiene.swift` (§8.10) uses a **sentinel**: every
+destination carries a key nobody could type by accident, and the test asserts
+that string appears in no user-visible text. That is stronger than reading the
+code, because it does not depend on knowing which paths print things — only on
+the paths being exercised. It needs no network and no account: every guard it
+hits throws before a connection is attempted.
+
+**Its first run was red.** `RTMPPublisher.publish(to:streamKey:config:)` threw
+`badURL(server.absoluteString)` — raw. That entry point takes the key as its
+own parameter, so it reads as though no key could be in `server`; but its
+callers hold a destination that carries one, because that is exactly what entry
+point 1 is handed. The neighbouring guard (`no app path in ...`) had the same
+shape and passed only because the URL it was given happened to have nothing to
+leak — a pass for the wrong reason, sitting one line away from a real failure.
+Both now redact.
+
+The control runs FIRST and asserts the detector catches a raw destination,
+because "no leak found" is also what a broken search returns (Decision 120).
+The harness never prints the offending text either: a test that leaks the key
+while reporting that the key leaked has not helped.
+
+**What this says about the shape of the rule.** Redaction that depends on a
+caller remembering to call a helper is a convention, not an enforcement. The
+type system could carry it instead — a destination whose `description` is
+redacted by construction — and that is the honest fix if this recurs. It has
+not been done, because it is a wider refactor than this tick earns, and saying
+so is better than implying the guard makes the design right.
+
 ### §9.ppp Twitch's device poll: every answer is HTTP 400, and the old rule polled a dead code 360 times (2026-09-18)
 
 The registration (§9.nnn) made the device flow's POLL testable for the first

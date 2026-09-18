@@ -166,6 +166,10 @@ swift_case "8.7 live-platform shapes" "$AUTH" "$PLAT" tools/test_studio_live_sha
 # shapes with credentials that are wrong on purpose; this proves OUR
 # registration accepts them, which is a defect class 8.2 cannot see.
 swift_case "8.9 registered clients" "$AUTH" "$PLAT" tools/test_studio_registered.swift
+# §5's credential rule, guarded. Needs no network and no account: it throws a
+# sentinel key at every error path the publisher can reach and asserts the
+# string comes back in none of them. Its first run found a live leak.
+swift_case "8.10 stream-key hygiene" "$PUB" tools/test_studio_key_hygiene.swift
 # ---- the rights tests, which need no server at all
 for t in tools/test_studio_rights_parity.py tools/test_studio_rights_coverage.py; do
   name="$(basename "$t")"
