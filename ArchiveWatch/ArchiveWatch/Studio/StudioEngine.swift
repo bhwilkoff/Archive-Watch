@@ -212,6 +212,12 @@ public struct StudioHealth: Sendable, Equatable {
     /// opposite fixes.
     public var pixelBufferPoolFailures = 0
     public var thermalState: String = "nominal"
+    /// The bitrate the encoder is ACTUALLY using, which §6.5 can move. Shown
+    /// rather than the configured one, or a thermal step is invisible.
+    public var videoBitrateNow = 0
+    /// §5: an adaptive step is shown as it happens. Nil when nothing has
+    /// been stepped; a sentence the host can read when it has.
+    public var qualityNote: String?
     public var publisher = RTMPHealth()
     public var audio = StudioAudioHealth()
     /// True when a destination was supplied. Without one the engine still
@@ -312,6 +318,7 @@ public actor StudioEngine {
     /// One §6.6 recovery episode at a time (see `recoverIfSevered`).
     private var recovering = false
     private var supervisor: Task<Void, Never>?
+    private var thermalWatcher: Task<Void, Never>?
     public private(set) var layout: StudioLayout = .corner
     public private(set) var overlay = StudioOverlay()
 
@@ -478,8 +485,15 @@ public actor StudioEngine {
         started = CACurrentMediaTimeCompat()
         health.isRunning = true
         health.endedReason = nil
+        health.videoBitrateNow = config.videoBitrate
+        health.qualityNote = nil
         startTicking()
         if publishing { superviseTheConnection() }
+        watchTheTemperature()
+        // Apply whatever the state ALREADY is: a host who starts a broadcast
+        // on an already-hot device gets no notification, because nothing
+        // changed.
+        await applyThermalState()
     }
 
     /// `UIApplication` is main-actor-only and exists on iOS and tvOS alike —
@@ -494,6 +508,7 @@ public actor StudioEngine {
     public func stop() async {
         await Self.holdTheScreenAwake(false)
         supervisor?.cancel(); supervisor = nil
+        thermalWatcher?.cancel(); thermalWatcher = nil
         ticker?.cancel(); ticker = nil
         mixer.stop()
         encoder?.stop(); encoder = nil
@@ -505,7 +520,10 @@ public actor StudioEngine {
     public func refreshHealth() async {
         if publishing { health.publisher = await publisher.health }
         health.audio = mixer.currentHealth()
-        health.thermalState = Self.thermalName()
+        // The EFFECTIVE state, or a harness override would be overwritten once
+        // a second by the real one and §6.5 could never be exercised.
+        health.thermalState = Self.thermalName(effectiveThermalState)
+        health.videoBitrateNow = encoder?.currentBitrate ?? config.videoBitrate
         if health.programFramesRendered > 0 {
             health.averageRenderMilliseconds = renderTimeTotal / Double(health.programFramesRendered)
         }
@@ -549,6 +567,78 @@ public actor StudioEngine {
     }
 
     private func noteRenderOverrun() { health.renderDroppedFrames += 1 }
+
+    // MARK: - §6.5 Thermal pressure
+
+    /// The fraction of the configured bitrate used at `.serious`.
+    public static let seriousBitrateFraction = 0.6
+
+    /// Harness seam: when set, this stands in for
+    /// `ProcessInfo.thermalState`. A device cannot be made `.critical` on
+    /// demand, and a rule nothing can exercise is a rule nobody has checked
+    /// — which is exactly how §6.5 came to be written and implemented
+    /// nowhere. Never set in shipping code.
+    private var thermalOverride: ProcessInfo.ThermalState?
+    public func overrideThermalState(_ state: ProcessInfo.ThermalState?) async {
+        thermalOverride = state
+        await applyThermalState()
+    }
+    private var effectiveThermalState: ProcessInfo.ThermalState {
+        thermalOverride ?? ProcessInfo.processInfo.thermalState
+    }
+
+    /// Observed rather than polled, so a step happens when the state changes
+    /// instead of up to a second later.
+    private func watchTheTemperature() {
+        thermalWatcher?.cancel()
+        thermalWatcher = Task { [weak self] in
+            let notes = NotificationCenter.default.notifications(named: ProcessInfo.thermalStateDidChangeNotification)
+            for await _ in notes {
+                guard let self else { return }
+                await self.applyThermalState()
+            }
+        }
+    }
+
+    /// §6.5. The bitrate is the ONLY dial: resolution and frame rate are
+    /// fixed for the life of an RTMP publish (Bitmovin's input requirements
+    /// are explicit that format parameters must not change during a stream),
+    /// so the rule's earlier "halve the resolution" would have broken the
+    /// broadcast it was meant to save.
+    private func applyThermalState() async {
+        guard health.isRunning else { return }
+        let state = effectiveThermalState
+        health.thermalState = Self.thermalName(state)
+        switch state {
+        case .critical:
+            // Not a quality step. At `.critical` the system may terminate the
+            // app, and an end card the audience sees beats a frozen frame
+            // left behind by a killed process.
+            await endShow(reason: "the device became too hot to keep broadcasting")
+        case .serious:
+            let stepped = Int(Double(config.videoBitrate) * Self.seriousBitrateFraction)
+            if let encoder, encoder.currentBitrate != stepped {
+                if encoder.setBitrate(stepped) {
+                    health.videoBitrateNow = stepped
+                    health.qualityNote = "The device is running hot, so the picture is being sent at "
+                        + "\(stepped / 1000) kbps instead of \(config.videoBitrate / 1000) kbps."
+                } else {
+                    // The step FAILED, and saying nothing here would leave the
+                    // readout claiming a reduction that never happened.
+                    health.qualityNote = "The device is running hot and the encoder refused to lower the bitrate."
+                }
+            }
+        case .nominal, .fair:
+            if let encoder, encoder.currentBitrate != config.videoBitrate {
+                if encoder.setBitrate(config.videoBitrate) {
+                    health.videoBitrateNow = config.videoBitrate
+                    health.qualityNote = "Back to full quality \(config.videoBitrate / 1000) kbps."
+                }
+            }
+        @unknown default:
+            break
+        }
+    }
 
     // MARK: - §6.6 Recovering a severed link
 
@@ -671,8 +761,8 @@ public actor StudioEngine {
         return Data([UInt8(bits >> 8), UInt8(bits & 0xFF)])
     }
 
-    static func thermalName() -> String {
-        switch ProcessInfo.processInfo.thermalState {
+    static func thermalName(_ state: ProcessInfo.ThermalState = ProcessInfo.processInfo.thermalState) -> String {
+        switch state {
         case .nominal: return "nominal"
         case .fair: return "fair"
         case .serious: return "serious"
@@ -897,9 +987,11 @@ final class H264Encoder: @unchecked Sendable {
         VTSessionSetProperty(s, key: kVTCompressionPropertyKey_ExpectedFrameRate, value: frameRate as CFNumber)
         VTSessionSetProperty(s, key: kVTCompressionPropertyKey_AverageBitRate, value: bitrate as CFNumber)
         // A hard ceiling as well as an average: a platform's ingest rejects a
-        // burst, and a burst is what a scene cut produces.
+        // burst, and a burst is what a scene cut produces. Same factor as
+        // `setBitrate` uses, or a thermal step would tighten a cap the start
+        // path had left loose.
         VTSessionSetProperty(s, key: kVTCompressionPropertyKey_DataRateLimits,
-                             value: [bitrate / 8 * 2, 1] as CFArray)
+                             value: [Int(Double(bitrate) / 8.0 * Self.dataRateCapFactor), 1] as CFArray)
         VTCompressionSessionPrepareToEncodeFrames(s)
     }
 
@@ -910,6 +1002,39 @@ final class H264Encoder: @unchecked Sendable {
         }
         session = nil
     }
+
+    /// §6.5: the ONE quality dial that may move mid-broadcast. Resolution and
+    /// frame rate are fixed for the life of an RTMP publish, so this changes
+    /// neither — it re-sets `AverageBitRate` and `DataRateLimits` on the live
+    /// session, which VideoToolbox accepts.
+    ///
+    /// Returns false when VideoToolbox refused, because a step that silently
+    /// failed would have the readout reporting a reduction that never
+    /// happened — the 291-second soak was a swallowed OSStatus and this is
+    /// the same shape.
+    @discardableResult
+    func setBitrate(_ bps: Int) -> Bool {
+        guard let session else { return false }
+        let avg = VTSessionSetProperty(session, key: kVTCompressionPropertyKey_AverageBitRate, value: bps as CFNumber)
+        // The cap is a byte budget over one second, and it is what actually
+        // BINDS. `AverageBitRate` alone is a soft VBR target over a long
+        // window: measured 2026-09-17, stepping it from 4000 to 2400 kbps
+        // moved the wire from 3.6 to 3.3 Mbps — a 7% drop where 40% was asked
+        // for — because the cap sat at twice the average and never bit.
+        let cap = VTSessionSetProperty(session, key: kVTCompressionPropertyKey_DataRateLimits,
+                                       value: [Int(Double(bps) / 8.0 * Self.dataRateCapFactor), 1] as CFArray)
+        if avg != noErr { record(avg, "setBitrate/average"); return false }
+        if cap != noErr { record(cap, "setBitrate/cap"); return false }
+        lock.lock(); _currentBitrate = bps; lock.unlock()
+        return true
+    }
+    /// How much over the target the one-second cap allows. Tight enough to
+    /// bind, loose enough to let a keyframe through: an I-frame is several
+    /// times a P-frame, so a cap at 1.0 would starve the GOP it starts.
+    static let dataRateCapFactor = 1.15
+
+    private var _currentBitrate = 0
+    var currentBitrate: Int { lock.lock(); defer { lock.unlock() }; return _currentBitrate == 0 ? bitrate : _currentBitrate }
 
     /// Set by §6.6 when a reconnected session needs to OPEN on a keyframe.
     /// Read-and-cleared under the lock so one request produces exactly one

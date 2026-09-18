@@ -310,8 +310,53 @@ Recording: the same encoded stream is written to an `.mp4` locally while live
 4. Network: the publisher runs on its own queue; back-pressure drops
    **video** frames first and never audio (viewers forgive a frame, not a
    gap in the host's voice).
-5. Thermal: `ProcessInfo.thermalState` `.serious` halves the encode
-   resolution and says so; `.critical` ends the show with the end card.
+5. Thermal: `.serious` lowers the **bitrate** and says so; `.critical` ends
+   the show with the end card. See §6.5 — this used to say "halves the encode
+   resolution", which would have broken the publish it was meant to save.
+
+### §6.5 Thermal pressure lowers the BITRATE, never the resolution, and `.critical` ends the show (binding)
+
+**Corrected 2026-09-17.** This rule previously said `.serious` "halves the
+encode resolution". That is wrong, and it would have failed in the worst
+way — a device under thermal load, mid-broadcast, changing the one thing an
+ingest will not accept.
+
+**Why.** An RTMP stream's format is fixed for the life of the publish.
+Bitmovin's RTMP live-input requirements put it plainly: *"Codec and format
+parameters, such as resolution and frame rate, must not change during the
+stream"*, and a constant frame rate is *"expected and mandatory"*. A
+resolution change needs a new AVC sequence header mid-stream, which is the
+same class of thing as declaring a stream's tracks twice — the server accepts
+the publish and the picture stops being decodable, or the platform drops it.
+So resolution and frame rate HOLD for the whole broadcast; the only quality
+dial that may move is the bitrate, which VideoToolbox accepts on a live
+session (`kVTCompressionPropertyKey_AverageBitRate` plus
+`DataRateLimits`).
+
+**The rule.**
+
+- `.serious` → the video bitrate steps to **60%** of the configured rate, and
+  the readout SAYS so (§5: never auto-lower quality silently). Resolution,
+  frame rate and the keyframe interval are untouched.
+- Back to `.nominal` or `.fair` → the bitrate is restored, and that is shown
+  too. A step back up the host cannot see is the same defect as a step down
+  they cannot see.
+- `.critical` → `endShow(reason:)`. Not a quality step: at `.critical` the
+  system may terminate the app outright, and an end card the audience sees is
+  better than a frame that freezes because the process died.
+
+**How to apply**: observe `ProcessInfo.thermalStateDidChangeNotification`
+rather than polling — and put the response in **`StudioEngine`**, not in a
+harness or a view. The last two rules in this section that lived anywhere else
+(§6.3's idle timer, §6.6's reconnect) were both written here and implemented
+nowhere, and the first one killed a soak at 291 seconds. Never swallow the
+`OSStatus` from the property set: a bitrate step that silently failed would
+report a quality reduction that never happened.
+
+**Already correct, checked while writing this**: the encoder's keyframe
+interval is `frameRate * 2` with `MaxKeyFrameIntervalDuration = 2`, i.e. two
+seconds, against the researched guidance that *"a keyframe interval of 2–5
+seconds is typical"*. No change.
 6. **A dropped connection is RECOVERED, not merely reported** (§6.6).
 
 ### §6.6 A severed link is reconnected on a bounded deadline, and the show ends honestly when it expires (binding)
@@ -1112,6 +1157,10 @@ Pixel.
 3. A ten-minute soak on the iPhone 12 and the Fireplace Apple TV at 1080p30:
    no dropped-frame growth after the first minute, thermal state never
    `.serious`.
+5. `tools/test_studio_thermal.swift` — §6.5 on the **real `StudioEngine`**
+   (the four Studio files compile standalone against a local `mediamtx`), driven
+   through `overrideThermalState`. Needs a **saturating** film: the harness
+   prints the ffmpeg recipe and takes it as `AW_THERMAL_CLIP`.
 4. `tools/test_rtmp_reconnect.swift` — §6.6 on a real server: publish to a
    local `mediamtx`, SEVER the link mid-stream, and assert from the server's
    OWN recording that media resumes. The negative control is the same run with
@@ -1119,6 +1168,52 @@ Pixel.
    a server that simply never noticed.
 
 ## §9 — Measurements (filled in as they are taken)
+
+### §9.y Thermal pressure: the rule was wrong, and the dial that enforces it was loose (2026-09-17)
+
+`tools/test_studio_thermal.swift`, driving the **real `StudioEngine`** against a
+real `mediamtx`, asserted from the server's own recording.
+
+§6.5 said `.serious` should "halve the encode RESOLUTION". It was implemented
+nowhere, which is the only reason it never broke a broadcast: an RTMP stream's
+format is fixed for the life of the publish, so the documented response would
+have destroyed the stream it was meant to protect. Corrected to the bitrate,
+which is the one dial that may move. Measured:
+
+| | nominal (target 4000 kbps) | `.serious` (target 2400) |
+|---|---|---|
+| mean over 7 s | **2893 kbps** | **1959 kbps** |
+| mean video packet | 11534 B | 7997 B — **31% smaller** |
+| resolution / frame rate | 1280×720 @ 30 | **unchanged**, as the rule now requires |
+
+`.critical` ends the show with a reason (`endShow`), verified in the same run.
+
+**The finding worth keeping: `AverageBitRate` alone barely works.** The first
+honest run stepped the target from 4000 to 2400 kbps and the wire went from
+**3.6 Mbps to 3.3 Mbps — a 7% drop where 40% was asked for**. Per-second
+buckets showed no convergence at all, just a 2.8/3.9 Mbps oscillation on the
+2-second GOP. `AverageBitRate` is a soft VBR target over a long window; what
+actually BINDS is `DataRateLimits`, and ours sat at **twice** the average, so
+it never bit. At 1.15× the step lands. `H264Encoder.dataRateCapFactor` is now
+one constant used by both the start path and `setBitrate`, because a thermal
+step that tightened a cap the start path had left loose would have made the
+two paths disagree about what the bitrate means.
+
+**Two instrument faults, both of which produced a PASS:**
+
+1. **The first run had no film**, so the program was a static black frame
+   compressing to ~58-byte packets. A bitrate is a **ceiling, not a floor**:
+   nothing was pressed against it, so lowering it changed not one byte, and the
+   test "passed". The harness now requires a high-entropy clip
+   (`testsrc2` blended with noise, ~20 Mbps) and SKIPs with the recipe if it is
+   missing.
+2. **`guard ma < mb`** passed on 58.4 B vs 58.3 B while printing "0% smaller"
+   — a float comparison standing in for a measurement. It now demands a real
+   margin (>15%).
+
+And a smaller one: `encodedFramesPerSecond` is a delta since the last
+`refreshHealth()`, so calling it once after nine seconds reported **"270 fps"**.
+The harness refreshes once a second, which is the counter's contract.
 
 ### §9.x A severed link, recovered — and three instruments that lied on the way (2026-09-17)
 
