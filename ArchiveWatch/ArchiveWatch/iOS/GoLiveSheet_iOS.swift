@@ -49,6 +49,7 @@ struct GoLiveSheet: View {
 
     var body: some View {
         NavigationStack {
+            ScrollViewReader { scroll in
             Form {
                 filmSection
                 if let refusal {
@@ -85,7 +86,22 @@ struct GoLiveSheet: View {
                                 .foregroundStyle(.orange)
                         }
                     }
+                    .id(Self.warningAnchor)
                 }
+            }
+            // Verification hook only: `AW_GOLIVE_SCROLL=warning` brings
+            // §3.4a's paragraph into view so it can be READ on a device.
+            // It sits below the fold in the KEEP state — on an iPad the sheet
+            // showed everything down to Privacy and no further — so a
+            // screenshot of the sheet is not a screenshot of the warning.
+            // No-op in production.
+            .task {
+                guard ProcessInfo.processInfo.environment["AW_GOLIVE_SCROLL"] == "warning",
+                      refusal == nil else { return }
+                // One frame, so the Form has laid out before we ask it to move.
+                try? await Task.sleep(nanoseconds: 400_000_000)
+                withAnimation(.none) { scroll.scrollTo(Self.warningAnchor, anchor: .bottom) }
+            }
             }
             .navigationTitle("Go Live")
             .navigationBarTitleDisplayMode(.inline)
@@ -109,6 +125,10 @@ struct GoLiveSheet: View {
         // clipped the content to a strip. The empty region is cosmetic and
         // stays; the alternatives were functional regressions.
     }
+
+    /// The §3.4a section's scroll id, shared by the section and the hook so
+    /// the two cannot drift apart.
+    private static let warningAnchor = "aw-host-warning"
 
     // MARK: Sections
 

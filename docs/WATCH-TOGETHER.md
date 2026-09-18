@@ -1240,6 +1240,36 @@ Pixel.
 
 ## §9 — Measurements (filled in as they are taken)
 
+### §9.cc §3.4a READ at iPad width, and a scroll hook to make that possible (2026-09-17)
+
+§3.4a has said since it was written that the warning "is shown on the
+pre-broadcast surface — the iOS go-live sheet". It was built there, and it had
+never been LOOKED AT on iOS or iPadOS: in the KEEP state it sits below the fold,
+so a screenshot of the sheet was not a screenshot of the warning. That is the
+same shape as verifying a rule by absence.
+
+`AW_GOLIVE_SCROLL=warning` (verification hook, no-op in production) scrolls the
+Form to the §3.4a section, whose scroll id is shared with the hook so the two
+cannot drift apart. On an **iPad Pro 12.9-inch**, *La Passion de Jeanne d'Arc*
+(1928, `safe_pd_age`), the paragraph is complete and legible at regular width,
+with the warning triangle: an automatic copyright matcher can interrupt or end a
+stream even when the rights are clear, a silent film's modern recorded score may
+still be under copyright, and the app checks the film's age but cannot check a
+platform's matcher.
+
+The same scroll also put the rest of the sheet on the glass for the first time
+at this width: Privacy/Unlisted, the "nothing can be published to YouTube from
+this build" footer sitting under the not-configured row, "How it looks" with
+Layout = *Film with you in the corner*, and §3.4's policy line.
+
+**iPhone 15 Pro, same build**: the sheet renders correctly **in landscape** — a
+phone geometry not previously checked — and shows the REFUSAL state, because a
+freshly installed catalogue carries no rights verdicts yet. The hook is guarded
+on `refusal == nil` and correctly did not fire. The iPad behaved identically on
+its first launch and became a KEEP a few minutes later once the catalogue
+updated, so this is the gate failing safe rather than a defect. **The 15 Pro's
+KEEP state is therefore still unseen.**
+
 ### §9.bb §6.2's audio session, on an Apple TV (2026-09-17)
 
 §6.2 was moved out of the harness and into `StudioEngine` in the same session
