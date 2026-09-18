@@ -28,6 +28,7 @@
 //     ArchiveWatch/ArchiveWatch/Studio/StudioEngine.swift \
 //     ArchiveWatch/ArchiveWatch/Studio/StudioAudio.swift \
 //     ArchiveWatch/ArchiveWatch/Studio/StudioOverlayRenderer.swift \
+//     ArchiveWatch/ArchiveWatch/Studio/StudioChatTwitch.swift \
 //     tools/test_studio_thermal.swift -o /tmp/awthermal && /tmp/awthermal
 
 import AVFoundation

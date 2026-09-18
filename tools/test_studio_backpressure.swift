@@ -25,6 +25,7 @@
 //     ArchiveWatch/ArchiveWatch/Studio/StudioEngine.swift \
 //     ArchiveWatch/ArchiveWatch/Studio/StudioAudio.swift \
 //     ArchiveWatch/ArchiveWatch/Studio/StudioOverlayRenderer.swift \
+//     ArchiveWatch/ArchiveWatch/Studio/StudioChatTwitch.swift \
 //     tools/test_studio_backpressure.swift -o /tmp/awbp && AW_THERMAL_CLIP=... /tmp/awbp
 
 import AVFoundation

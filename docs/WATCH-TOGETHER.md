@@ -1651,6 +1651,18 @@ after a run of changes, not only the test nearest the change.
 Fixed by giving the three cases `$CHAT`, with the reason recorded beside the
 variable so the next source move has a chance of updating it.
 
+**And there was a THIRD copy.** Each harness documents its own `swiftc`
+invocation in its header — the command a person runs when they want to drive
+one case by hand — and all three listed the same four files with **zero**
+mentions of `StudioChatTwitch.swift`. So anyone following the documented
+command hit precisely the error the suite hit. Those headers are now fixed too.
+
+Three copies of one dependency graph: the module's own, the runner's variables,
+and the prose in each harness. Two of them drifted the moment a file moved, and
+neither could say so. The durable fix is fewer copies — compiling the Studio
+directory rather than naming its files — which is worth doing when it can be
+verified without racing a soak for the machine.
+
 ### §9.zz The level was over-declared, and not asking fixed it (2026-09-18)
 
 §9.yy noticed an inconsistency between the platforms: Apple's `AutoLevel`
