@@ -51,6 +51,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import app.archivewatch.android.app.AppContainer
+import app.archivewatch.android.data.PlaySpec
+import app.archivewatch.android.studio.StudioController
 import app.archivewatch.android.ui.DeepLinks
 import app.archivewatch.android.ui.Nav
 import app.archivewatch.android.ui.Route
@@ -155,6 +157,29 @@ fun TvAppRoot(container: AppContainer) {
                 else -> null
             }
             route?.let { nav.push(it) }
+        }
+    }
+
+    // Verification hook: arm Watch Together Studio on a film and open the
+    // player (ANDROID-DESIGN §9.4). It goes through the RIGHTS GATE like any
+    // other route in — a hook that skipped it would test something the
+    // product cannot do.
+    LaunchedEffect(Unit) {
+        DeepLinks.pendingStudioItem.collect { id ->
+            if (id == null) return@collect
+            DeepLinks.pendingStudioItem.value = null
+            val item = container.catalog.awaitDb().item(id) ?: return@collect
+            if (StudioController.arm(item)) {
+                item.downloadURL?.let { url ->
+                    nav.push(Route.Player(PlaySpec(
+                        id = item.archiveID, title = item.title,
+                        description = item.synopsis, url = url,
+                        captions = item.captions ?: emptyList(),
+                        runtimeSeconds = item.runtimeSeconds)))
+                }
+            } else {
+                android.util.Log.w("AWSTUDIO", "refused: " + StudioController.refusal)
+            }
         }
     }
 

@@ -101,6 +101,15 @@ class MainActivity : ComponentActivity() {
         // counting D-pad presses (which lands on the nearest item, not a fixed
         // one, and has repeatedly steered automated checks to the wrong screen).
         intent?.getStringExtra("aw_start_route")?.let { DeepLinks.pendingRoute.value = it }
+        // ...and straight into Watch Together Studio on a given film, so §9.4's
+        // readout can be SEEN without a Detail entry to press. The TV Detail
+        // has none yet (TvDetailScreen is a separate surface), and this is the
+        // same reason aw_start_route exists: a surface reached by counting
+        // D-pad presses is a surface reached by accident.
+        //
+        // It still goes through the RIGHTS GATE — a verification hook that
+        // skipped the gate would be testing something the product cannot do.
+        intent?.getStringExtra("aw_studio_item")?.let { DeepLinks.pendingStudioItem.value = it }
         if (intent?.getBooleanExtra("aw_focus_log", false) == true) {
             app.archivewatch.android.ui.tv.TvFocusLogging = true
         }

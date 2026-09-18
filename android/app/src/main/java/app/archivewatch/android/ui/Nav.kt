@@ -134,6 +134,8 @@ object DeepLinks {
     val pendingTab = MutableStateFlow<String?>(null)
     /** Verification hook only (`--es aw_start_route <name>`); never set in normal use. */
     val pendingRoute = MutableStateFlow<String?>(null)
+    /** `--es aw_studio_item <archiveID>` — arm Watch Together Studio on it. */
+    val pendingStudioItem = MutableStateFlow<String?>(null)
 }
 
 /** The player publishes here so MainActivity can auto-enter Picture-in-Picture when the user

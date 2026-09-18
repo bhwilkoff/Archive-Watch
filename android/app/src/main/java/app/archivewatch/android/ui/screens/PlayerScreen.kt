@@ -77,6 +77,9 @@ import androidx.media3.exoplayer.source.DefaultMediaSourceFactory
 import androidx.media3.exoplayer.upstream.DefaultLoadErrorHandlingPolicy
 import androidx.media3.exoplayer.upstream.LoadErrorHandlingPolicy
 import androidx.media3.ui.PlayerView
+import app.archivewatch.android.studio.StudioController
+import app.archivewatch.android.ui.StudioPanel
+import app.archivewatch.android.ui.StudioReadout
 import app.archivewatch.android.BuildConfig
 import app.archivewatch.android.app.AppContainer
 import app.archivewatch.android.data.PlaySpec
@@ -505,6 +508,21 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
         }
     }
 
+    // §9.1: the engine attaches to the player that already exists rather than
+    // building a second one. A no-op unless this is the film Detail armed.
+    LaunchedEffect(spec.id) {
+        StudioController.startIfArmed(this, spec.id, 1280, 720)
+        while (StudioController.isLive) {
+            StudioController.pollHealth()
+            kotlinx.coroutines.delay(1000)
+        }
+    }
+    // Ending the show must not outlive the surface producing it — the lesson
+    // that came out of a harness left running in someone's living room.
+    DisposableEffect(spec.id) {
+        onDispose { scope.launch { StudioController.end() } }
+    }
+
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -538,6 +556,29 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
                     color = Color.White,
                     textAlign = androidx.compose.ui.text.style.TextAlign.Center,
                     modifier = Modifier.padding(32.dp),
+                )
+            }
+        }
+        // WATCH TOGETHER STUDIO (ANDROID-DESIGN §9.1/§9.4). No new screen: the
+        // Studio is this player with surfaces over it. zIndex, not source
+        // order — a Box draws later children on top and the AndroidView below
+        // would otherwise cover these.
+        if (StudioController.isLive) {
+            Box(
+                Modifier.fillMaxSize().zIndex(11f).padding(16.dp),
+                contentAlignment = androidx.compose.ui.Alignment.TopStart,
+            ) {
+                StudioReadout(
+                    health = StudioController.health,
+                    onOpenPanel = { StudioController.panelOpen = true },
+                    onEnd = { scope.launch { StudioController.end() } },
+                )
+            }
+            if (StudioController.panelOpen) {
+                StudioPanel(
+                    health = StudioController.health,
+                    onDismiss = { StudioController.panelOpen = false },
+                    onEnd = { scope.launch { StudioController.end() } },
                 )
             }
         }

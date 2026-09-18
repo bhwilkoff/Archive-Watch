@@ -838,9 +838,45 @@ decision is tested; the appearance is not, and it stays unverified until the
 Pixel 8a's adb-over-TLS pairing is renewed — which is a one-time thing on the
 phone itself.
 
-**Still ahead on Android**: the player-side surfaces (§9.3's bottom sheet and
-§9.4's always-visible health), a real camera, and the phone-screen
-verification above.
+### §6.2j — The readout on the glass, and the platform difference it exposed (2026-09-17)
+
+§9.4's health readout and §9.3's bottom sheet now live over the shared
+`PlayerScreen` — shared is the useful word: `TvAppRoot` pushes the same
+composable, so unlike the phone-only Detail entry this COULD be verified on
+the Google TV, and was. `aw_studio_item <archiveID>` arms the Studio and opens
+the player, the same convention as `aw_start_route`, and it goes **through the
+rights gate** — a verification hook that skipped the gate would be testing
+something the product cannot do.
+
+On the television the readout draws correctly: the state, encoded fps, render
+milliseconds, Controls and End, with the dot grey rather than red.
+
+**And it said `OFF`, which is the honest answer and the finding.** The engine
+never started producing, and the reason is a platform difference this feature
+had not yet met:
+
+> **On Apple, `AVPlayerItemVideoOutput` is a TAP — the player keeps its own
+> display and the Studio reads frames beside it. On Android,
+> `Player.setVideoSurface` is EXCLUSIVE.**
+
+`PlayerScreen` points ExoPlayer at `PlayerView`'s surface, so the engine's
+film `SurfaceTexture` is never fed and `runLoop` sits in its
+wait-for-film-frames loop forever. No exception, no error in logcat — just a
+readout correctly reporting `OFF` while everything around it looked fine.
+That the readout said `OFF` rather than pretending is the one part of this
+that worked as designed.
+
+**The fix, and it is a design choice rather than a patch.** The player must
+render into the ENGINE's texture, and the engine must then draw the composed
+program to two EGL window surfaces sharing one context — MediaCodec's input
+surface and `PlayerView`'s. The consequence is that the host sees **the
+program** rather than the bare film, which is consistent with §9.1 (the Studio
+is this player with overlays) and is arguably better than the Apple
+arrangement: a host watching what their audience is watching cannot be
+surprised by it. Not yet built.
+
+**Still ahead on Android**: the dual-surface render above, a real camera, and
+the phone-screen verification of the Detail entry.
 
 ## §7 — Phases
 
