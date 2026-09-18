@@ -88,6 +88,15 @@ public final class StudioSession {
         let e = StudioEngine(configuration: .benchDoored())
         engine = e
         await e.attachFilm(player: player)
+        // SAY WHETHER THE FILM'S AUDIO ACTUALLY ATTACHED. A file played through
+        // AW_PLAY_URL reaches the video output and its audio does not reach the
+        // tap, and nothing on this path said so — picture and sound take
+        // different routes here, and only one of them was reporting.
+        let srcTracks = ((try? await player.currentItem?.asset
+            .loadTracks(withMediaType: .audio)) ?? [])?.count ?? -1
+        awdiag("AWMACAUDIO filmHasAudio=%@ sourceAudioTracks=%d url=%@",
+               await e.filmHasAudio ? "true" : "false", srcTracks,
+               (player.currentItem?.asset as? AVURLAsset)?.url.lastPathComponent ?? "?")
         await e.setLayout(.corner)
         overlay = StudioOverlay()
         overlay.title = armedTitle
