@@ -1240,6 +1240,46 @@ Pixel.
 
 ## §9 — Measurements (filled in as they are taken)
 
+### §6.2o §6.5 ported to Android (2026-09-17)
+
+`PowerManager.getCurrentThermalStatus()` (API 29, which is exactly the google
+flavour's minSdk) polled once a second in the render loop, and
+`MediaCodec.setParameters` with `PARAMETER_KEY_VIDEO_BITRATE` as the dial.
+Mapping, from Android's own definitions: **SEVERE (3)** is "severe throttling
+where UX is largely impacted", so it is the counterpart of Apple's `.serious`
+and steps the bitrate to 60%; **CRITICAL (4) and above** — CRITICAL, EMERGENCY,
+SHUTDOWN — end the show, because that is where the platform itself starts
+stopping things.
+
+**Android binds the dial harder than Apple.** The format is configured
+`BITRATE_MODE_CBR`, so the codec tracks the target. On Apple the same step
+moved the wire only 7% until `DataRateLimits` came down from 2× to 1.15×
+(§9.y); there is no equivalent knob to get wrong here.
+
+**Two structural choices worth the words.** The status is **injected** as
+`thermalStatus: () -> Int` rather than read in the engine: the engine holds no
+`Context`, and a device cannot be made hot on cue — so the seam a harness needs
+is the same one the platform needs, and the `PowerManager` call lives in
+`PlayerScreen` where the Context is, guarded on API level rather than on the
+flavour (this file compiles into the amazon flavour at minSdk 23 too). And the
+DECISION is a pure function, `StudioEngine.thermalAction(...)`, which the loop
+CALLS — not a second copy — so it can be tested without a GL context or a
+codec. `StudioThermalTest`, 6/6: the step, its idempotence, restore-only-when-
+stepped, END_SHOW for every status from CRITICAL up, an unknown future status
+above SHUTDOWN still ending the show, and SEVERE never ending it (a broadcast
+that stops because a phone got warm is a worse bug than a lower bitrate).
+
+**Also fixed here, and it was latent**: `stop()` guarded on
+`compareAndSet(true, false)`, so a loop that ended ITSELF — which §6.5's
+critical path does — made `stop()` a no-op, leaving the encoder, the publisher,
+both surfaces and the GL context alive after the show was over. `stop()` now
+tears down after a self-exit, `StudioController.pollHealth()` performs it, and
+`endedReason` OUTLIVES the health reset so a surface can say why.
+
+**What is NOT proved**: the wiring on a device. The decision is tested on the
+JVM and both flavours compile; nothing has yet driven a real `PowerManager`
+into a real encoder on the Google TV. §6.6 (reconnect) is still unported.
+
 ### §6.2n §6.4 ported to Android, where the gap was worse than on Apple (2026-09-17)
 
 `RtmpPublisher.kt` wrote every frame **synchronously to a blocking socket**,

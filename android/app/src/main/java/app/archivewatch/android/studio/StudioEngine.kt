@@ -31,6 +31,9 @@ import kotlinx.coroutines.launch
 import java.util.concurrent.Executors
 import java.util.concurrent.atomic.AtomicBoolean
 
+/** What §6.5 decides to do about a thermal reading. */
+enum class ThermalAction { NONE, STEP_DOWN, RESTORE, END_SHOW }
+
 data class StudioHealth(
     val isRunning: Boolean = false,
     val programFramesRendered: Long = 0,
@@ -42,6 +45,14 @@ data class StudioHealth(
     val encodedFramesPerSecond: Int = 0,
     val averageRenderMillis: Double = 0.0,
     val hasDestination: Boolean = false,
+    /** Android's `PowerManager` thermal status, 0 = NONE (§6.5). */
+    val thermalStatus: Int = 0,
+    /** What the encoder is ACTUALLY using, which §6.5 can move. */
+    val videoBitrateNow: Int = 0,
+    /** §5: an adaptive step is shown as it happens, never applied silently. */
+    val qualityNote: String? = null,
+    /** Set when the show ended on its own account rather than by the host. */
+    val endedReason: String? = null,
     val publisher: RtmpHealth = RtmpHealth(),
 ) {
     /** What the SHOW is doing, in the host's terms — not the transport's. */
@@ -68,6 +79,14 @@ class StudioEngine(
     private val height: Int = 720,
     private val frameRate: Int = 30,
     private val videoBitrate: Int = 4_000_000,
+    /**
+     * §6.5's input, injected rather than read here, for two reasons: the
+     * engine holds no `Context` (and `PowerManager` needs one), and a device
+     * cannot be made hot on cue — so the seam a harness needs is the same one
+     * the platform needs. Values are `PowerManager.THERMAL_STATUS_*`;
+     * 0 (NONE) when nobody supplies anything.
+     */
+    private val thermalStatus: () -> Int = { 0 },
 ) {
     @Volatile var health = StudioHealth(); private set
 
@@ -94,6 +113,17 @@ class StudioEngine(
     private var publisher: RtmpPublisher? = null
     private var loop: Job? = null
     private val running = AtomicBoolean(false)
+
+    // ---- §6.5 thermal pressure
+    //
+    // Polled once a second in the render loop rather than registered as a
+    // `PowerManager.OnThermalStatusChangedListener`, because the engine holds
+    // no Context and the loop already wakes on that cadence. The listener
+    // would arrive sooner by a fraction of a second and cost a registration
+    // to leak.
+    @Volatile private var qualityNote: String? = null
+    @Volatile private var endedBecause: String? = null
+    @Volatile private var lastThermal = -1
 
     /** The one thread the GL context lives on — see the header. */
     private val renderExecutor = Executors.newSingleThreadExecutor { r ->
@@ -211,6 +241,39 @@ class StudioEngine(
             val now = System.currentTimeMillis()
             if (now - lastSecond >= 1000) {
                 val film = pg.framesAvailable.get()
+
+                // §6.5. Android reports more states than Apple: SEVERE (3) is
+                // "severe throttling where UX is largely impacted", which is
+                // the counterpart of Apple's `.serious`; CRITICAL (4) and
+                // above are where the platform starts shutting things down,
+                // so that is where the show ends.
+                val thermal = thermalStatus()
+                if (thermal != lastThermal) {
+                    lastThermal = thermal
+                    // The DECISION is a pure function (below) so it can be
+                    // tested without GL or MediaCodec; this is only the
+                    // wiring. The loop calls it — it is not a second copy of
+                    // the policy, which is how §6.3's idle timer came to be
+                    // implemented in a harness and nowhere else.
+                    when (thermalAction(thermal, encoder?.currentBitrate ?: videoBitrate, videoBitrate)) {
+                        ThermalAction.END_SHOW -> {
+                            endedBecause = "the device became too hot to keep broadcasting"
+                            running.set(false)
+                        }
+                        ThermalAction.STEP_DOWN -> {
+                            val stepped = steppedBitrate(videoBitrate)
+                            encoder?.setBitrate(stepped)
+                            qualityNote = "The device is running hot, so the picture is being sent at " +
+                                "${stepped / 1000} kbps instead of ${videoBitrate / 1000} kbps."
+                        }
+                        ThermalAction.RESTORE -> {
+                            encoder?.setBitrate(videoBitrate)
+                            qualityNote = "Back to full quality ${videoBitrate / 1000} kbps."
+                        }
+                        ThermalAction.NONE -> {}
+                    }
+                }
+
                 health = StudioHealth(
                     isRunning = true,
                     programFramesRendered = frame,
@@ -219,6 +282,10 @@ class StudioEngine(
                     encodedFramesPerSecond = (encodedTotal - encodedAtLastSecond).toInt(),
                     averageRenderMillis = renderTotalNanos / 1_000_000.0 / frame.coerceAtLeast(1),
                     hasDestination = published != null,
+                    thermalStatus = thermal,
+                    videoBitrateNow = encoder?.currentBitrate ?: videoBitrate,
+                    qualityNote = qualityNote,
+                    endedReason = endedBecause,
                     publisher = published?.health ?: RtmpHealth(),
                 )
                 filmAtLastSecond = film
@@ -289,7 +356,13 @@ class StudioEngine(
     @Volatile private var displayDirty = false
 
     suspend fun stop() {
-        if (!running.compareAndSet(true, false)) return
+        // NOT `compareAndSet(true, false)`: §6.5's critical path ends the loop
+        // from INSIDE it by clearing `running`, and the old guard then made
+        // stop() a no-op — leaving the encoder, the publisher, both surfaces
+        // and the GL context alive after the show had ended. Calling stop()
+        // from the loop instead would deadlock on the join below.
+        val wasRunning = running.getAndSet(false)
+        if (!wasRunning && loop == null) return
         loop?.join(); loop = null
         publisher?.close(); publisher = null
         aac?.stop(); aac = null
@@ -298,7 +371,44 @@ class StudioEngine(
         program?.tearDown(); program = null
         gl?.tearDown(); gl = null
         encoder?.stop(); encoder = null
-        health = StudioHealth()
+        // The reason OUTLIVES the reset: a surface that draws an end card reads
+        // it after the engine has stopped, and a cleared reason is a frozen
+        // frame with no explanation.
+        health = StudioHealth(endedReason = endedBecause)
         renderExecutor.shutdown()
+    }
+
+    companion object {
+        /** `PowerManager.THERMAL_STATUS_SEVERE`, named rather than inlined. */
+        const val THERMAL_SEVERE = 3
+        /** THERMAL_STATUS_CRITICAL; EMERGENCY and SHUTDOWN are above it. */
+        const val THERMAL_CRITICAL = 4
+        /** §6.5, the same fraction the Swift engine uses. */
+        const val SEVERE_BITRATE_FRACTION = 0.6
+
+        fun steppedBitrate(configured: Int) = (configured * SEVERE_BITRATE_FRACTION).toInt()
+
+        /**
+         * §6.5's decision, as a pure function.
+         *
+         * Extracted so it can be tested at all: the loop that applies it needs
+         * a GL context and a MediaCodec, so the policy would otherwise only
+         * ever run on a device and never be checked against its own rule.
+         *
+         * `END_SHOW` above SEVERE is deliberate and is not a quality step:
+         * Android's CRITICAL, EMERGENCY and SHUTDOWN are where the platform
+         * itself starts stopping things, and an end card the audience sees
+         * beats a frozen frame left by a process the system killed.
+         */
+        fun thermalAction(status: Int, currentBitrate: Int, configuredBitrate: Int): ThermalAction = when {
+            status >= THERMAL_CRITICAL -> ThermalAction.END_SHOW
+            status == THERMAL_SEVERE ->
+                // Idempotent: re-applying the step every second would be a
+                // pointless `setParameters` call and a repeated note.
+                if (currentBitrate == steppedBitrate(configuredBitrate)) ThermalAction.NONE
+                else ThermalAction.STEP_DOWN
+            else ->
+                if (currentBitrate != configuredBitrate) ThermalAction.RESTORE else ThermalAction.NONE
+        }
     }
 }

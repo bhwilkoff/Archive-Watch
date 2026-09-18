@@ -511,7 +511,16 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
     // §9.1: the engine attaches to the player that already exists rather than
     // building a second one. A no-op unless this is the film Detail armed.
     LaunchedEffect(spec.id) {
-        StudioController.startIfArmed(this, spec.id, 1280, 720)
+        // §6.5's input is supplied from HERE because `PowerManager` needs a
+        // Context and the engine holds none. Guarded on the API level rather
+        // than the flavour: the Studio is google-only (minSdk 29, Decision
+        // 129) but this file compiles into the amazon flavour too, at 23.
+        StudioController.startIfArmed(this, spec.id, 1280, 720, thermalStatus = {
+            if (android.os.Build.VERSION.SDK_INT >= 29) {
+                (context.getSystemService(android.content.Context.POWER_SERVICE)
+                    as? android.os.PowerManager)?.currentThermalStatus ?: 0
+            } else 0
+        })
         // The engine builds its textures on its OWN thread, so the film
         // surface does not exist the instant `startIfArmed` returns — and it
         // is not Compose state, so nothing recomposes when it appears. Hand it

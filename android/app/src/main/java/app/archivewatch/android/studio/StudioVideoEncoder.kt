@@ -102,6 +102,28 @@ class StudioVideoEncoder(
      * wrote no file at all, because it was still waiting for the first
      * decodable frame when the publisher hung up.
      */
+    /**
+     * §6.5: the one quality dial that may move mid-broadcast. Resolution and
+     * frame rate are fixed for the life of an RTMP publish, so this changes
+     * neither.
+     *
+     * Android binds this HARDER than Apple does: the format is configured
+     * `BITRATE_MODE_CBR`, so the codec tracks the target rather than treating
+     * it as a soft average. On Apple the same step moved the wire only 7%
+     * until `DataRateLimits` was tightened from 2× to 1.15× (§9.y) — there is
+     * no equivalent knob to get wrong here.
+     */
+    fun setBitrate(bps: Int) {
+        val c = codec ?: return
+        c.setParameters(android.os.Bundle().apply {
+            putInt(MediaCodec.PARAMETER_KEY_VIDEO_BITRATE, bps)
+        })
+        currentBitrate = bps
+    }
+
+    @Volatile var currentBitrate: Int = bitrate
+        private set
+
     fun requestKeyframe() {
         val c = codec ?: return
         c.setParameters(android.os.Bundle().apply {

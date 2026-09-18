@@ -77,10 +77,11 @@ object StudioController {
      * host armed — a host who goes live on one title and then plays another
      * has not armed the second.
      */
-    fun startIfArmed(scope: CoroutineScope, archiveID: String, overlayWidth: Int, overlayHeight: Int) {
+    fun startIfArmed(scope: CoroutineScope, archiveID: String, overlayWidth: Int, overlayHeight: Int,
+                     thermalStatus: () -> Int = { 0 }) {
         if (armedFilmID != archiveID || isLive) return
         armedFilmID = null
-        val e = StudioEngine()
+        val e = StudioEngine(thermalStatus = thermalStatus)
         e.layoutShowsCamera = showsCamera
         engine = e
         e.start(
@@ -111,9 +112,25 @@ object StudioController {
         engine?.setDisplaySurface(surface)
     }
 
-    /** One health sample a second, for the §9.4 readout. */
-    fun pollHealth() {
-        engine?.let { health = it.health }
+    /**
+     * One health sample a second, for the §9.4 readout — and the place a show
+     * that ended ITSELF gets cleaned up.
+     *
+     * §6.5's critical path ends the render loop from inside it, so without
+     * this the engine would stop producing while the encoder, the publisher,
+     * both surfaces and the GL context stayed alive and `isLive` stayed true.
+     * The host would see a frozen program and no way back.
+     */
+    suspend fun pollHealth() {
+        val e = engine ?: return
+        health = e.health
+        if (e.health.endedReason != null && isLive) {
+            val why = e.health.endedReason
+            end()
+            // Surfaced, not swallowed: the host is owed the reason their
+            // broadcast stopped.
+            refusal = why
+        }
     }
 
     suspend fun end() {
