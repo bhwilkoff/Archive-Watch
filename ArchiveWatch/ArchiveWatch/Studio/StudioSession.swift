@@ -94,8 +94,15 @@ public final class StudioSession {
         // different routes here, and only one of them was reporting.
         let srcTracks = ((try? await player.currentItem?.asset
             .loadTracks(withMediaType: .audio)) ?? [])?.count ?? -1
-        awdiag("AWMACAUDIO filmHasAudio=%@ sourceAudioTracks=%d url=%@",
+        // WHEN the tap is installed, not just whether. A local file is playing
+        // within milliseconds; a catalogue film is still loading for seconds.
+        // If `item.audioMix` only takes effect before audio begins rendering,
+        // that difference alone would explain why films carry audio through the
+        // tap and an AW_PLAY_URL file does not — same code, different timing.
+        awdiag("AWMACAUDIO filmHasAudio=%@ sourceAudioTracks=%d rate=%.2f at=%.2f url=%@",
                await e.filmHasAudio ? "true" : "false", srcTracks,
+               player.rate, player.currentTime().seconds.isFinite
+                   ? player.currentTime().seconds : -1,
                (player.currentItem?.asset as? AVURLAsset)?.url.lastPathComponent ?? "?")
         await e.setLayout(.corner)
         overlay = StudioOverlay()
