@@ -90,6 +90,13 @@ emulators) · `docs/CAPTIONS.md` · `docs/SHAREPLAY.md` ·
    proven against the real endpoints (Decision 128,
    `tools/test_studio_signin.swift`, 26/26). Without the ids the go-live
    sheet says sign-in is not set up and greys out Go Live;
+   (a2) **CHANNEL ELIGIBILITY, worth doing a day early.** YouTube's encoder
+   path (ours) needs the channel VERIFIED and no live-streaming restrictions in
+   the past 90 days; enabling live streaming for the first time can carry a
+   **24-hour wait**, so switch it on the day before, not the hour before.
+   **The 50-subscriber rule does NOT apply** — it is a MOBILE-app rule, and the
+   Studio publishes as an encoder like OBS (§9.bbb). That was an open risk in
+   Decision 127 and is now closed;
    (b) **pair an iPhone** on the Apple TV via the system Continuity picker
    (once — a paired phone is found automatically after);
    (c) **allow camera + mic** on the iPhone (Settings ▸ Archive Watch) — there

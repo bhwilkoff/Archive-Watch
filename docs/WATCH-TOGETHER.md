@@ -1618,6 +1618,44 @@ the audio path, the real ingest hosts with no credential, the overlay and
 go-live surfaces on the glass, the rights gate on device, and the platform
 clients. **→ `docs/watch-together-measurements.md`**
 
+### §9.bbb The 50-subscriber rule does NOT apply to us — an open risk in Decision 127, closed (2026-09-18)
+
+Decision 127 left two platform unknowns, and the dangerous one was **"the
+50-subscriber rule for API streams"**: if YouTube required 50 subscribers to
+stream, a new channel could complete every setup step and still be unable to
+broadcast. That is the kind of thing worth knowing BEFORE the owner invests an
+evening in client ids.
+
+**It is a MOBILE rule.** From YouTube's own mobile-requirements page: *"At
+least 50 subscribers"*, listed among requirements that page holds specifically
+for streaming from the YouTube app on a phone. The general eligibility page
+names no subscriber minimum at all, and points mobile streaming at that
+separate document.
+
+**Watch Together Studio is not a mobile stream.** It publishes RTMP as an
+ENCODER (Decision 127), which is the same path OBS takes, so the rule does not
+reach it — a phone running our app is still an encoder, because what YouTube
+gates is the app you stream FROM, not the device you hold.
+
+**What the encoder path does require**, from the general eligibility page:
+
+- **verify the channel**,
+- **no live-streaming restrictions in the past 90 days**,
+- be at least 16.
+
+**And one thing to plan around rather than discover**: the mobile-requirements
+page lists a **potential 24-hour wait** when live streaming is first enabled on
+a channel. The general page did not mention it, so the precise scope is
+uncertain — but a day's delay on first activation is cheap to plan for and
+expensive to meet by surprise on the evening somebody wants to broadcast.
+Enable it a day ahead.
+
+**Twitch's side is still unverified** for the same reason as §9.ww: its
+requirements live behind a JavaScript portal that will not render to a fetcher.
+Twitch has no equivalent subscriber gate as far as our own testing shows — the
+ingest accepted our stream with an invalid key long before any account existed
+— but that is evidence about the INGEST, not a quotation of a policy.
+
 ### §9.aaa Three §8 cases had not compiled for a whole session, and only the suite noticed (2026-09-18)
 
 Fifteen ticks of changes — the audio tap, both clocks, the publisher's hot
