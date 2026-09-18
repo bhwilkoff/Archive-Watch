@@ -1664,6 +1664,36 @@ against ~13 s for a network film), and the measurement ran.
 verifying the clip, exactly as §9.nn recorded and as the memory says. Knowing
 the trap did not stop me walking into it; only re-running without it did.)
 
+### §9.lll The credential path is SHARED at last — and tvOS needs a rule of its own (2026-09-18)
+
+§9.ccc found that `YouTubeLive` and `TwitchLive` were constructed in exactly one
+file in the whole project, so tvOS and macOS could not broadcast at all. The
+cause was smaller than it looked and worse than it sounded: **`GoLiveRequest`,
+`GoLivePlatform` and `YouTubePrivacy` were all declared inside
+`GoLiveSheet_iOS.swift`, behind `#if os(iOS)`** — so no other platform could even
+EXPRESS a go-live request, let alone resolve one.
+
+The request types and the resolver now live in shared code as
+`StudioGoLive.destination(for:film:)`. iOS delegates to it and behaves
+identically. **Verified by building all three Apple targets** — macOS, tvOS and
+iOS — because the two files edited are iOS-only and a tvOS build would never
+have compiled them.
+
+**A correction to §9.ccc's framing.** That entry said macOS needed a go-live
+surface and implied tvOS only needed the call site. Reading tvOS's actual path:
+after the rights gate, the configuration check and §3.4a's confirmation, the
+menu simply sets `studioFilm = film`. **It has no way for a host to choose a
+platform, a title or a privacy setting** — iOS collects all three in its sheet.
+So tvOS needs its own binding rule for that surface, exactly as macOS needed
+§B13g, and building one without it would be inventing product on a television at
+six in the morning. tvOS-DESIGN has no such rule yet.
+
+**What this unblocks**: the moment either platform has an approved surface, the
+destination is one call away, and its request shapes are already proved against
+the real endpoints by §8.7. What it does NOT do is make either platform able to
+broadcast today — that still needs a surface, and iOS still needs the owner's
+client ids.
+
 ### §9.kkk Stamping video from the frame's own clock made it WORSE, and the change was reverted (2026-09-18)
 
 §9.jjj measured the render instant trailing the frame's own timestamp by

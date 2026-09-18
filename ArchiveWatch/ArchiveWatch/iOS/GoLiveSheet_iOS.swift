@@ -276,41 +276,4 @@ struct GoLiveSheet: View {
     }
 }
 
-// MARK: - The request
-
-struct GoLiveRequest: Sendable, Equatable, Identifiable {
-    /// Distinct per request, so re-going-live on the same film presents again.
-    let id = UUID()
-    let archiveID: String
-    let platform: GoLivePlatform
-    let title: String
-    let category: String
-    let privacy: YouTubePrivacy
-    let layout: StudioLayout
-    let customServer: URL?
-    let customKey: String?
-}
-
-enum GoLivePlatform: String, CaseIterable, Sendable {
-    case youtube, twitch, custom
-    var label: String {
-        switch self {
-        case .youtube: return "YouTube"
-        case .twitch: return "Twitch"
-        case .custom: return "Custom server"
-        }
-    }
-}
-
-enum YouTubePrivacy: String, CaseIterable, Sendable {
-    case `public`, unlisted, `private`
-    var label: String {
-        switch self {
-        case .public: return "Public"
-        case .unlisted: return "Unlisted"
-        case .private: return "Private"
-        }
-    }
-}
-
 #endif

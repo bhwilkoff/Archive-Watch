@@ -138,61 +138,10 @@ struct StudioPlayerContainer: View {
         }
     }
 
-    /// Where the program goes.
-    ///
-    /// A platform key is fetched from that platform's API and used once — it
-    /// is never shown, stored or logged (§4). The custom path is the only one
-    /// assembled from typed text, and it exists for diagnostics.
+    /// Where the program goes — resolved by shared code, so every platform
+    /// can reach it (§9.lll). This wrapper keeps the call site unchanged.
     private func destination() async throws -> URL? {
-        switch request.platform {
-        case .custom:
-            guard let server = request.customServer,
-                  let key = request.customKey, !key.isEmpty,
-                  var c = URLComponents(url: server, resolvingAgainstBaseURL: false)
-            else { return nil }
-            c.path = (c.path.hasSuffix("/") ? c.path : c.path + "/") + key
-            return c.url
-
-        case .youtube:
-            let token = try await StudioPlatformAuth.token(for: .youtube)
-            let creds = try await YouTubeLive(token: token).prepare(
-                title: request.title,
-                description: Self.description(for: item),
-                privacy: request.privacy.rawValue)
-            return Self.combine(creds)
-
-        case .twitch:
-            let token = try await StudioPlatformAuth.token(for: .twitch)
-            guard let clientID = StudioPlatformAuth.clientID(for: .twitch) else {
-                throw StudioPlatformError.notConfigured("No Twitch client id in this build.")
-            }
-            let creds = try await TwitchLive(token: token, clientID: clientID).prepare(
-                title: request.title,
-                categoryName: request.category.isEmpty ? nil : request.category)
-            return Self.combine(creds)
-        }
-    }
-
-    /// The publisher takes an address and a key separately; this is the one
-    /// place they are joined, and the result never leaves this function.
-    private static func combine(_ c: StreamCredentials) -> URL? {
-        guard var comp = URLComponents(url: c.server, resolvingAgainstBaseURL: false) else { return nil }
-        comp.path = (comp.path.hasSuffix("/") ? comp.path : comp.path + "/") + c.key
-        return comp.url
-    }
-
-    /// What the platform's description field says — the catalog's own record,
-    /// plus where the film came from. The audience should be able to find the
-    /// film themselves afterwards, which is §2's agency test.
-    private static func description(for item: Catalog.Item) -> String {
-        var lines = [item.title]
-        if let y = item.year { lines.append("Published \(y). In the public domain.") }
-        if let d = item.director, !d.isEmpty { lines.append("Directed by \(d).") }
-        lines.append("")
-        lines.append("Streamed from the Internet Archive with Archive Watch — a free, "
-                     + "ad-free cinematheque for public-domain film. archivewatch.org")
-        lines.append("https://archive.org/details/\(item.archiveID)")
-        return lines.joined(separator: "\n")
+        try await StudioGoLive.destination(for: request, film: item)
     }
 
     private func pushOverlay() async {

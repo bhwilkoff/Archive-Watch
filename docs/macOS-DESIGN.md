@@ -836,8 +836,12 @@ than a new idea.*
   AVPlayerView's own chrome, because the HUD auto-hides and health may not
   (`docs/WATCH-TOGETHER.md` §4). A Mac host is often not looking at the
   window at all, so the readout also states the ONE current problem in words.
-- **PROPOSED Rule B13g — going live is a MENU COMMAND that opens the same
-  form sheet as iOS §8.9. NOT YET APPROVED; nothing is built against it.**
+- **Rule B13g — going live is a MENU COMMAND that opens the same form sheet
+  as iOS §8.9.** APPROVED by the owner 2026-09-18 ("Yes proceed with your
+  plan"), in answer to the proposal below. The two questions it left open —
+  which menu the command belongs under, and whether it is enabled with no
+  film playing — were not answered explicitly, so the implementation takes
+  the most conservative reading and says so where it does.
 
   *Why this is proposed at all*: `docs/WATCH-TOGETHER.md` §9.ccc found that the
   Mac cannot broadcast to YouTube or Twitch at all — the credential path is
