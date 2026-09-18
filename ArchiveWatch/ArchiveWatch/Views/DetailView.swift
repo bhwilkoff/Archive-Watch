@@ -742,6 +742,13 @@ struct PlayerScreen: View {
             let tracks = try? await AVURLAsset(url: src).loadTracks(withMediaType: .audio)
             sourceHasAudio = tracks.map { !$0.isEmpty }
         }
+        // Remembered so the health loop can ASK AGAIN. This call happens during
+        // setup, before the puller and decoder below have started, so it can
+        // only ever answer "no audio" — which is how a television went on
+        // saying "the film's audio is not being sent" through a broadcast whose
+        // audio was audible. A one-shot answer to a question whose truth
+        // changes a second later is not a readout.
+        studioSourceHasAudio = sourceHasAudio
         if let problem = await engine.filmAudioProblem(sourceHasAudio: sourceHasAudio) {
             studioAudioProblem = problem
             // The tap could not attach and the film HAS sound, which on tvOS
@@ -923,12 +930,25 @@ struct PlayerScreen: View {
         // (§8.8): a paired phone can be asleep or carried away mid-show.
         let continuity = StudioContinuity()
         try? await Task.sleep(nanoseconds: 1_200_000_000)
+        // SAY WHAT IT FOUND. Absent is not an error (§8.8) — a paired phone can
+        // be asleep or carried away mid-show — but "no phone has ever been
+        // paired", "paired and asleep" and "attached fine" were one silent
+        // branch, so a camera test could not tell success from never-ran.
+        let camName = continuity.camera()?.localizedName ?? "none"
+        let micName = continuity.microphonePort()?.portName ?? "none"
+        awdiag("AWCONT connected=%@ camera=%@ micPort=%@",
+               continuity.state.isConnected ? "true" : "false", camName, micName)
         if continuity.state.isConnected, let session = continuity.makeSession() {
             let cam = CameraFrameTap(); cam.attach(to: session)
             await engine.attachCamera(tap: cam)
             let mic = MicAudioTap(); mic.attach(to: session)
             await engine.attachMicrophone(tap: mic)
             session.startRunning()
+            awdiag("AWCONT attached camera=%@ mic=%@", camName, micName)
+        } else {
+            awdiag("AWCONT no camera tile: %@", continuity.state.isConnected
+                   ? "connected but makeSession() returned nil"
+                   : "no Continuity device — pair an iPhone on this Apple TV first")
         }
 
         // Resolving a destination CREATES the broadcast on the platform and
@@ -1011,6 +1031,10 @@ struct PlayerScreen: View {
             studioFilmFPS = max(0, h.filmFramesPulled - lastFilmFrames)
             lastFilmFrames = h.filmFramesPulled
             studioHealth = h
+
+            // ASK AGAIN. The warning is only true until audio starts arriving.
+            studioAudioProblem = await engine.filmAudioProblem(
+                sourceHasAudio: studioSourceHasAudio)
 
             // Does the tee actually run? Counted from the bridge, which reads
             // zero when no sink is attached — that is the control.
@@ -1219,6 +1243,7 @@ struct PlayerScreen: View {
     @State private var studioPlayheadObserver: Any?
     private let studioPlayheadQueue = DispatchQueue(label: "aw.studio.playhead")
     @State private var studioAudioPuller: Task<Void, Never>?
+    @State private var studioSourceHasAudio: Bool?
     @State private var fallbackProbe: Task<Void, Never>?
     @State private var sysCapProbe = SystemCaptionProbe()   // AW_SYSCAP_PROBE=1 only
     @State private var skipCount = 0         // #7: bound auto-skips in a broken lineup
@@ -1394,8 +1419,18 @@ struct PlayerScreen: View {
                 // broadcast's audio now comes from the HLS tee (§9.pppp),
                 // which is upstream of local output, so muting the television
                 // changes what the ROOM hears and not one sample of the wire.
-                if ProcessInfo.processInfo.environment["AW_STUDIO_TV_GOLIVE"] != nil {
+                //
+                // AW_STUDIO_TV_SOUND=1 opts back OUT of the mute, for a run
+                // somebody is deliberately watching. Owner, 2026-09-18, on the
+                // first YouTube broadcast: "When I said I don't hear the audio,
+                // I meant from the speakers and not the livestream." Nothing
+                // was broken — the room was silent exactly as designed, and the
+                // design had no way to say so or to be turned off.
+                if ProcessInfo.processInfo.environment["AW_STUDIO_TV_GOLIVE"] != nil,
+                   ProcessInfo.processInfo.environment["AW_STUDIO_TV_SOUND"] != "1" {
                     player?.isMuted = true
+                    awdiag("AWMUTE television speakers muted for an unattended bench run "
+                           + "— the broadcast's audio is unaffected (AW_STUDIO_TV_SOUND=1 to hear it)")
                 }
                 // The engine reads FRAMES off the player it attaches to, so a
                 // paused film would broadcast a still. Resume before the

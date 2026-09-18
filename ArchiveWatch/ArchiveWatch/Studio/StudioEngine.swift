@@ -472,7 +472,9 @@ public actor StudioEngine {
     }
 
     /// True when the film actually had an audio track to tap.
-    public var filmHasAudio: Bool { audioAttached }
+    /// True when the film's audio is reaching the program by EITHER route —
+    /// the tap on iOS/macOS, or the pull path on tvOS.
+    public var filmHasAudio: Bool { audioAttached || mixer.film.isReceivingExternal }
 
     /// Why the film's audio is NOT on air, or nil when it is (or when the film
     /// is genuinely silent).
@@ -490,9 +492,14 @@ public actor StudioEngine {
     /// to separate the two.
     public func filmAudioProblem(sourceHasAudio: Bool?) -> String? {
         guard !audioAttached else { return nil }
+        // THE PULL PATH COUNTS. This guard used to be absent, so on tvOS — where
+        // the tap can never attach — the screen said "the film's audio is not
+        // being sent" through a broadcast whose audio the owner was listening
+        // to. The warning described the tap, and the tap stopped being how
+        // television audio gets sent (§9.tttt).
+        guard !mixer.film.isReceivingExternal else { return nil }
         guard sourceHasAudio == true else { return nil }   // genuinely silent, or unknown
-        return "The film's audio is not being sent — this copy plays as HLS, "
-            + "which cannot be tapped. The picture is unaffected."
+        return "The film's audio is not being sent. The picture is unaffected."
     }
 
     /// Why the film is not arriving, for the diagnostic line. Cheap enough to

@@ -259,7 +259,28 @@ final class FilmAudioTap: @unchecked Sendable {
     func acceptExternalPCM(_ samples: UnsafePointer<Float>, count: Int) {
         guard count > 0 else { return }
         ring.write(samples, count: count)
+        lock.lock()
+        externalSamples += count
+        lastExternalAt = CACurrentMediaTimeCompat()
+        lock.unlock()
     }
+
+    /// Whether film audio is ARRIVING, by any route.
+    ///
+    /// The engine used to answer that question with "did the tap attach", which
+    /// on tvOS is permanently false and always will be — Decision 106 plays the
+    /// film as HLS and an HLS asset vends no tracks. Once the pull path started
+    /// feeding this same ring (§9.tttt), that made the readout say the film's
+    /// audio was not being sent while the owner could hear it on the broadcast.
+    /// A readout has to describe the OUTCOME, not the mechanism that used to
+    /// produce it.
+    var isReceivingExternal: Bool {
+        lock.lock(); defer { lock.unlock() }
+        return externalSamples > 0 && CACurrentMediaTimeCompat() - lastExternalAt < 2.0
+    }
+
+    private(set) var externalSamples = 0
+    private var lastExternalAt: CFTimeInterval = 0
 
     /// Converts the tap's buffers to interleaved stereo Float at the program
     /// rate and writes them to the ring.

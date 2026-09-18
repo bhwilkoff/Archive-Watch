@@ -24,6 +24,7 @@
 // render it on the surface itself.
 
 #if os(tvOS)
+import AVKit
 import SwiftUI
 
 struct GoLiveTV: View {
@@ -69,6 +70,8 @@ struct GoLiveTV: View {
     /// is the platform's key exchange, which is the only part that needs an
     /// account.
     @State private var useBench = false
+    @State private var showCameraPicker = false
+    @State private var cameraPaired = false
     private static var benchDestination: URL? {
         #if DEBUG
         ProcessInfo.processInfo.environment["AW_STUDIO_DEST"].flatMap(URL.init(string:))
@@ -84,7 +87,7 @@ struct GoLiveTV: View {
     @State private var readiness: StudioPlatformAuth.Readiness?
     @FocusState private var focus: Field?
 
-    private enum Field: Hashable { case platform(String), title, privacy(String), goLive, cancel }
+    private enum Field: Hashable { case platform(String), title, privacy(String), camera, goLive, cancel }
 
     init(film: Catalog.Item,
          onGoLive: @escaping (GoLiveRequest) -> Void,
@@ -175,6 +178,7 @@ struct GoLiveTV: View {
                         .id(platform.rawValue)
                     titleField
                     if platform == .youtube { privacyChoice }
+                    cameraRow
                     actions
                 }
                 .padding(.vertical, 6)
@@ -402,6 +406,45 @@ struct GoLiveTV: View {
         }
         .padding(28)
         .background(Color.white.opacity(0.06), in: RoundedRectangle(cornerRadius: 18))
+    }
+
+    /// PAIRING BELONGS HERE, immediately before going live.
+    ///
+    /// Owner, 2026-09-18: "You should be able to enable continuity camera when
+    /// (or just before) you start a stream." Before this, a television with no
+    /// paired phone simply had no camera tile and said nothing about it — the
+    /// only way to pair was to leave the app and find the system picker, which
+    /// is not a thing a host does mid-thought.
+    ///
+    /// `continuityDevicePicker` is AVKit's own (tvOS 17+), so the phone, its
+    /// permissions and the two-factor check are all Apple's to handle; the
+    /// device becomes visible to `StudioContinuity`'s discovery and the
+    /// existing attach path picks it up unchanged.
+    ///
+    /// It is never REQUIRED. §8.8 already treats an absent camera as normal,
+    /// and a host who wants only the film should not have to dismiss anything.
+    private var cameraRow: some View {
+        Button {
+            showCameraPicker = true
+        } label: {
+            HStack {
+                Label(cameraPaired ? "iPhone camera and microphone are ready"
+                                   : "Use an iPhone as camera and microphone",
+                      systemImage: cameraPaired ? "checkmark.circle.fill" : "iphone")
+                    .font(.subheadline.weight(.medium))
+                Spacer()
+                if !cameraPaired {
+                    Text("Optional").font(.footnote).foregroundStyle(.secondary)
+                }
+            }
+        }
+        .buttonStyle(.borderless)
+        .focused($focus, equals: .camera)
+        .continuityDevicePicker(isPresented: $showCameraPicker) { device in
+            // The device is now visible system-wide; discovery finds it.
+            cameraPaired = device != nil
+            awdiag("AWCONT picker connected=%@", device == nil ? "nil" : "yes")
+        }
     }
 
     private var actions: some View {
