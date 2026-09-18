@@ -92,6 +92,16 @@ emulators) · `docs/CAPTIONS.md` · `docs/SHAREPLAY.md` ·
    is real and is yours to accept.
    Also open, for the owner: widening the rights tier from `guaranteed`
    (4,210 films) to `strict` (7,517) is a Decision-027 content call.
+8a. **Optional, one tap**: the iOS bench door (`AW_STUDIO_IOS` +
+   `AW_STUDIO_DEST`) reaches a mediamtx on the Mac only if iOS's **Local
+   Network** prompt is allowed on the iPhone. It was left UNANSWERED on
+   purpose — a privacy grant on the owner's phone is the owner's call. One tap
+   of *Allow* would let §6.2's iOS `.playAndRecord` outcome be measured on the
+   product path (`docs/WATCH-TOGETHER.md` §9.dd); the real client ids would
+   also remove the need, since a public host triggers no such prompt.
+   `NSLocalNetworkUsageDescription` was deliberately NOT added to the shipping
+   Info.plist — the product does no local networking.
+
 8. **Pair the Pixel 8a for wireless debugging** — one step on the phone
    (Settings ▸ System ▸ Developer options ▸ Wireless debugging ▸ Pair device
    with pairing code), then `adb pair <ip:port> <code>`. Its adb-over-TLS

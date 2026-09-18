@@ -47,6 +47,43 @@ struct RootView: View {
                 print("[AWGOLIVE] request platform=\(req.platform.rawValue) layout=\(req.layout.rawValue) title=\(req.title)")
             }
         }
+        // Dev affordance: `AW_STUDIO_IOS=<archiveID>` with `AW_STUDIO_DEST`
+        // starts the REAL Studio on the product's own path, so what the
+        // engine does on a phone can be measured instead of inferred.
+        //
+        // It exists because everything measured on the iPhone so far came from
+        // `StudioLab`, a debug screen that configures its own audio session
+        // and its own destination — so the PRODUCT path had never run here.
+        // A `.custom` destination needs no client id, which is what makes this
+        // possible before the owner registers one. Gated on the rights audit
+        // exactly as the sheet is: a door must not skip a gate the product
+        // enforces. No-op in production.
+        .task(id: store.dbVersion) {
+            guard let id = ProcessInfo.processInfo.environment["AW_STUDIO_IOS"],
+                  !id.isEmpty, store.isReady,
+                  let dest = ProcessInfo.processInfo.environment["AW_STUDIO_DEST"],
+                  let server = URL(string: dest),
+                  let film = store.db?.itemsByIDs([id]).first else { return }
+            if let why = StudioRights.refusal(rightsBucket: film.rightsBucket,
+                                              contentType: film.contentType,
+                                              year: film.year) {
+                print("[AWSTUDIOIOS] refused: \(why)")
+                return
+            }
+            studioDoorItem = film
+            studioDoorRequest = GoLiveRequest(
+                archiveID: film.archiveID, platform: .custom,
+                title: film.title, category: "", privacy: .unlisted,
+                layout: .corner, customServer: server,
+                customKey: ProcessInfo.processInfo.environment["AW_STUDIO_KEY"] ?? "awbench")
+        }
+        .fullScreenCover(item: $studioDoorRequest) { req in
+            if let film = studioDoorItem {
+                StudioPlayerContainer(item: film, request: req) {
+                    studioDoorRequest = nil
+                }
+            }
+        }
         // Dev affordance: `AW_STUDIO_CONTROLS_DEMO=1` shows the live health
         // capsule over the shell and opens the controls sheet, so both can be
         // screenshot without a real broadcast. No-op in production.
@@ -77,6 +114,8 @@ struct RootView: View {
     @State private var demoLayout: StudioLayout = .corner
     @State private var demoFilmGain = 1.0
     @State private var demoMicGain = 1.0
+    @State private var studioDoorRequest: GoLiveRequest?
+    @State private var studioDoorItem: Catalog.Item?
     @State private var demoFilmMuted = false
     @State private var demoMicMuted = false
     @State private var demoCard: StudioOverlay.Card?

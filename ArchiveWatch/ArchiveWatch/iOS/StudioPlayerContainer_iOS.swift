@@ -48,8 +48,25 @@ struct StudioPlayerContainer: View {
     var body: some View {
         player
             .overlay(alignment: .topLeading) {
-                StudioHealthCapsule(health: health, filmFramesPerSecond: filmFPS) {
-                    showControls = true
+                VStack(alignment: .leading, spacing: 4) {
+                    StudioHealthCapsule(health: health, filmFramesPerSecond: filmFPS) {
+                        showControls = true
+                    }
+                    // §6.2, DEBUG only, and BELOW the capsule rather than
+                    // inside it: the capsule already truncates on a small
+                    // phone when a warning chip joins it (seen on the glass).
+                    //
+                    // The iOS branch of §6.2 is the one that has to RECORD —
+                    // tvOS only ever needs `.playback` — and it had never been
+                    // read on a device, because the iPhone numbers in §9 came
+                    // from `StudioLab`, which sets its OWN session.
+                    #if DEBUG
+                    Text("audio: \(health.audioSessionState)")
+                        .font(.caption2)
+                        .padding(.horizontal, 8).padding(.vertical, 3)
+                        .background(.black.opacity(0.55), in: Capsule())
+                        .foregroundStyle(.white.opacity(0.85))
+                    #endif
                 }
             }
             .sheet(isPresented: $showControls) { controlsSheet }

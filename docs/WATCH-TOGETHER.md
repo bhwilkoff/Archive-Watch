@@ -1240,6 +1240,46 @@ Pixel.
 
 ## §9 — Measurements (filled in as they are taken)
 
+### §9.dd The iOS product path can now be driven — and iOS's Local Network gate stops it reaching a bench server (2026-09-17)
+
+Everything measured on the iPhone so far came from **`StudioLab`**, a debug
+screen that configures its **own** audio session and its own destination. So
+the PRODUCT path had never run on a phone, and §6.2's iOS branch — the one that
+has to RECORD, where tvOS only ever needs `.playback` — had never been read
+there.
+
+Two pieces were built for it:
+
+- `AW_STUDIO_IOS=<archiveID>` with `AW_STUDIO_DEST` starts the real Studio
+  through the product's own container, gated on the rights audit exactly as the
+  go-live sheet is. A `.custom` destination needs no client id, which is what
+  makes this possible before the owner registers one.
+- The container draws `audioSessionState` in DEBUG **below** the health
+  capsule, not inside it — that capsule already truncates on a small phone
+  when a warning chip joins it.
+
+**And then iOS refused, for a reason Android had no equivalent of.** Pointing
+the phone at `rtmp://10.0.0.90:19351` put the app on the **Local Network**
+privacy prompt — *"Allow ArchiveWatch to find devices on local networks?"* —
+and mediamtx saw no path at all. Android's identical bench door worked because
+Android has no such gate.
+
+**Not taken on the owner's behalf.** Granting local-network access on someone's
+own phone is their decision, and a harness refuses a prompt rather than
+answering it. The app was terminated, which took the prompt off their screen.
+
+**And `NSLocalNetworkUsageDescription` was deliberately NOT added to the
+shipping `Info.plist`.** The product does not do local networking: a real
+broadcast goes to YouTube or Twitch over the public internet and needs no such
+permission. A usage string in the shipping app for a debug-only harness path
+would be a claim about the app that is not true, and App Review would rightly
+ask about it. **So this is a harness limitation, not a product one.**
+
+Left unread, with a precise unblock: §6.2's iOS `.playAndRecord` outcome on a
+device. It needs either one tap of *Allow* on that prompt (owner), or the real
+client ids, after which the destination is a public host and the gate never
+appears.
+
 ### §9.cc §3.4a READ at iPad width, and a scroll hook to make that possible (2026-09-17)
 
 §3.4a has said since it was written that the warning "is shown on the
