@@ -49,24 +49,35 @@ class StudioFilmAudioTap : TeeAudioProcessor.AudioBufferSink {
     override fun handleBuffer(buffer: ByteBuffer) {
         val remaining = buffer.remaining()
         if (remaining <= 0) return
-        val bytes = ByteArray(remaining)
-        // duplicate(): the sink MUST NOT disturb the position of a buffer the
-        // renderer still owns, and this is the whole reason TeeAudioProcessor
-        // is preferable to wrapping the sink by hand.
-        buffer.duplicate().get(bytes)
         buffersSeen.incrementAndGet()
         bytesSeen.addAndGet(remaining.toLong())
 
+        // THE IDLE PATH MUST NOT ALLOCATE. The renderers factory is chosen
+        // when the player is BUILT, so once the tap is wired into the product
+        // this runs on every film anyone plays, whether or not a broadcast
+        // exists — and a per-buffer ByteArray on the audio path is a GC churn
+        // nobody asked for. The peak is read straight out of the buffer with
+        // ABSOLUTE gets (which do not move a position the renderer still
+        // owns — the same reason duplicate() is used for the copy), and the
+        // copy happens only when something is actually listening.
+        val consumer = onPcm
+        val dup = buffer.duplicate()
+        val base = dup.position()
         var localPeak = peak
         var i = 0
-        while (i + 1 < bytes.size) {
-            val s = ((bytes[i + 1].toInt() shl 8) or (bytes[i].toInt() and 0xFF)).toShort()
-            val a = kotlin.math.abs(s.toInt()) / 32768f
+        while (i + 1 < remaining) {
+            val lo = dup.get(base + i).toInt() and 0xFF
+            val hi = dup.get(base + i + 1).toInt()
+            val a = kotlin.math.abs(((hi shl 8) or lo).toShort().toInt()) / 32768f
             if (a > localPeak) localPeak = a
             i += 64      // every 32nd frame is plenty for a peak
         }
         peak = localPeak
-        onPcm?.invoke(bytes, sampleRate, channelCount)
+        if (consumer != null) {
+            val bytes = ByteArray(remaining)
+            dup.get(bytes)
+            consumer(bytes, sampleRate, channelCount)
+        }
     }
 
     /**

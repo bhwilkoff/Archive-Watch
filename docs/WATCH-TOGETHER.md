@@ -1618,6 +1618,86 @@ the audio path, the real ingest hosts with no credential, the overlay and
 go-live surfaces on the glass, the rights gate on device, and the platform
 clients. **→ `docs/watch-together-measurements.md`**
 
+### §9.mm The Android chat port, driven on a television — and the audio track no Android broadcast has ever carried (2026-09-18)
+
+`StudioChatTwitch.kt` had been written, compiled and marked **"never driven on
+a device"** rather than given a green tick. Driving it on the Google TV found
+three faults, and only the first was the one being looked for.
+
+**The channel was chosen on evidence, not hope.** A previous run read 0
+messages and the cause turned out to be a channel that had gone quiet, so the
+target is now picked by a raw anonymous-IRC probe first: of eight large
+channels joined for 25 s, seven were silent and one was carrying ~1 message a
+second. That one was used. Counts, never transcripts — strangers' words are
+not our evidence.
+
+**Fault 1 — the channel could never have arrived.** The controller read
+`System.getenv("AW_STUDIO_CHAT")`. An Android app launched by `am start`
+inherits the **zygote's** environment, so that reads nothing on a device while
+working perfectly in a unit test. It is now an intent extra, `aw_studio_chat`,
+beside the doors that already existed. Unlike `aw_studio_dest` it is NOT
+DEBUG-gated: naming a public channel to READ grants nothing and sends nothing,
+where the destination decides where a broadcast GOES.
+
+**Fault 2 — chat drew over the lower third, seen only on the glass.** The
+chat column's floor was `height - unit * 9`; the lower third's scrim top is
+`baseY - unit * 2.6 * lines - unit * 2`. At 720p those are 558 and 472, so the
+two newest pills sat **on top of the film's title** — the one thing the lower
+third exists to say. Two numbers describing one edge will always drift, so
+there is now one expression, `lowerThirdTop(height, hasProvenance)`, and both
+drawers read it. Apple was checked for the same defect against its own
+recorded frame and is clear: its floor is a fraction of the frame that lands
+above its stack.
+
+**Fault 3 — the one worth the trip. Every Android broadcast has gone out with
+NO AUDIO TRACK.** mediamtx reported `tracks: [H264]` and nothing else. The
+film was not the reason: `ffprobe` on the Archive's own derivative shows a
+44.1 kHz AAC track that was there the whole time.
+
+`StudioController.audioTapFor(archiveID)` — the function that hands the engine
+the film's audio — **was called from nowhere.** The tap class, the AAC
+encoder, the priming-delay correction and Decision 129's measured A/V
+alignment all existed; the wire from the player to the tap did not. The engine
+behaved correctly given no tap: §6.2's rule is that a stream's tracks are
+declared once at publish, so it waited for an AAC config, timed out, and
+published video-only rather than committing a protocol error.
+
+**Why the wire was missing is the lesson.** A Media3 audio processor belongs
+to the `AudioSink` chain, and that chain is fixed at `ExoPlayer.Builder`
+time. Asking for the tap when the host goes live is too late to reach
+anything — the only moment it can be installed is when the player is BUILT,
+long before anyone has decided to broadcast. An API whose only correct call
+site is far away from the feature it serves is one that will be left
+unconnected, and it was; it also means Decision 129's A/V numbers were a
+harness measurement, never a product-path one. This is the same shape as the
+§6.2/§6.3 rules that lived only in `StudioLab` on Apple (§9.f).
+
+So the tap is now installed on every playback, and its idle path was rewritten
+to earn that: two atomics and a strided peak scan read straight out of the
+buffer with absolute gets, allocating a `ByteArray` only while a broadcast is
+actually listening. It is gated at SDK 29 for the reason the thermal read
+beside it is — the Studio is google-only (Decision 129) and this file compiles
+into the amazon flavour at minSdk 23, which keeps Media3's default sink
+untouched.
+
+**Measured after the fix**, one run, `The Four Horsemen of the Apocalypse`
+(1921, a film this feature had not been driven on before):
+
+| | |
+|---|---|
+| tracks | `H264` + `MPEG-4 Audio` (44.1 kHz stereo) |
+| audio level | mean **-19.7 dB**, peak **-3.7 dB** over 3,973,120 samples (45.05 s) |
+| chat | 8 pills in frame, wrapped, clear of the lower third |
+| legibility | held over a bright intertitle (§6.4a's case) |
+
+Not silence, not clipping, and the picture proves the fix in the same frame as
+the audio measurement — one run, not two stitched together.
+
+**Still true after this**: the §6.4a alphas are Apple's numbers, chat
+re-renders only when the line ids change, and YouTube chat remains
+owner-blocked on a client id. What changed is that Android's half is now
+evidence rather than compiled code.
+
 ### §9.ll One command for §8, and three faults it found in itself first (2026-09-17)
 
 §8 listed six tests across Swift, Kotlin and Python and there was **no way to

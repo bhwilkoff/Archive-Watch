@@ -149,6 +149,19 @@ object DeepLinks {
      */
     val pendingStudioDest = MutableStateFlow<String?>(null)
     val pendingStudioKey = MutableStateFlow<String?>(null)
+
+    /**
+     * `--es aw_studio_chat <channel>` — the Twitch channel the program
+     * carries (§6.4). An INTENT EXTRA, not an environment variable: an
+     * Android app launched by `am start` inherits the zygote's environment,
+     * so `System.getenv` here reads nothing and the feature looks broken on a
+     * device while working perfectly in a unit test.
+     *
+     * Not DEBUG-gated, unlike the destination: naming a public channel to READ
+     * grants nothing and sends nothing. The destination extra is gated because
+     * it decides where a broadcast GOES.
+     */
+    val pendingStudioChat = MutableStateFlow<String?>(null)
 }
 
 /** The player publishes here so MainActivity can auto-enter Picture-in-Picture when the user

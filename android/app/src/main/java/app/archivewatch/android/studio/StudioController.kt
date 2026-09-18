@@ -66,11 +66,25 @@ object StudioController {
 
     fun disarm() { armedFilmID = null }
 
-    /** The tap the player must install on its `ExoPlayer` when armed. */
-    fun audioTapFor(archiveID: String): StudioFilmAudioTap? {
-        if (armedFilmID != archiveID) return null
-        return StudioFilmAudioTap().also { audioTap = it }
-    }
+    /**
+     * The tap the player installed, handed over when the player is BUILT.
+     *
+     * It cannot be handed over when the host goes live: a Media3 audio
+     * processor is part of the `AudioSink` chain, which is fixed at
+     * `ExoPlayer.Builder` time, so a tap attached later reaches nothing. The
+     * previous shape asked for the tap by film id at go-live and was called
+     * from nowhere — which is why every Android broadcast went out with NO
+     * AUDIO TRACK at all, proved on the Google TV from mediamtx's own
+     * `tracks: [H264]` (§9). The film's own AAC track was there the whole
+     * time; nothing was carrying it.
+     */
+    fun attachTap(tap: StudioFilmAudioTap) { audioTap = tap }
+
+    /** Which tap a show started now would carry. Read by the tests. */
+    val attachedTap: StudioFilmAudioTap? get() = audioTap
+
+    /** The player is going away; its tap must not outlive it. */
+    fun detachTap(tap: StudioFilmAudioTap) { if (audioTap === tap) audioTap = null }
 
     /**
      * Called by the player once it exists. A no-op unless this is the film the
@@ -104,7 +118,7 @@ object StudioController {
                 StudioOverlayBitmap.withChat(
                     overlayWidth, overlayHeight, armedTitle, armedSubtitle, armedProvenance, lines)
             },
-            chatChannel = System.getenv("AW_STUDIO_CHAT"),
+            chatChannel = app.archivewatch.android.ui.DeepLinks.pendingStudioChat.value,
         )
         isLive = true
     }

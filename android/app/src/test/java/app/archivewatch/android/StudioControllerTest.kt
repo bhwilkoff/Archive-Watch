@@ -3,11 +3,13 @@ package app.archivewatch.android
 import androidx.media3.common.util.UnstableApi
 import app.archivewatch.android.data.CatalogItem
 import app.archivewatch.android.studio.StudioController
+import app.archivewatch.android.studio.StudioFilmAudioTap
 import org.junit.After
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertNotNull
 import org.junit.Assert.assertNull
+import org.junit.Assert.assertSame
 import org.junit.Assert.assertTrue
 import org.junit.Test
 
@@ -68,11 +70,25 @@ class StudioControllerTest {
         assertNotNull(StudioController.refusal)
     }
 
-    @Test fun `the audio tap is only handed to the film that was armed`() {
-        assertTrue(StudioController.arm(item(id = "armed")))
-        assertNull("another film must not get the armed film's tap",
-                   StudioController.audioTapFor("someone-else"))
-        assertNotNull(StudioController.audioTapFor("armed"))
+    @Test fun `the tap the player attached is the one a show would carry`() {
+        // The OLD contract handed the tap out by film id at go-live, and was
+        // called from nowhere — so every Android broadcast published with no
+        // audio track at all (§9.mm). A Media3 audio processor belongs to the
+        // `AudioSink` chain, fixed at `ExoPlayer.Builder` time, so the player
+        // installs it when it is BUILT and hands it over here. Arming has
+        // nothing to do with it, which is the whole correction.
+        val tap = StudioFilmAudioTap()
+        StudioController.attachTap(tap)
+        assertSame(tap, StudioController.attachedTap)
+
+        // A departing player must only be able to take away its OWN tap, or a
+        // rebuild racing a teardown silently unwires the audio again.
+        StudioController.detachTap(StudioFilmAudioTap())
+        assertSame("another player's teardown must not steal this tap",
+                   tap, StudioController.attachedTap)
+
+        StudioController.detachTap(tap)
+        assertNull(StudioController.attachedTap)
     }
 
     @Test fun `a film with no provenance still arms`() {

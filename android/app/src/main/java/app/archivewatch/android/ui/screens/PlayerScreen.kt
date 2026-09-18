@@ -138,6 +138,28 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
     val context = LocalContext.current
     val scope = rememberCoroutineScope()
 
+    // Watch Together Studio's film-audio tap (docs/WATCH-TOGETHER.md §6.2).
+    //
+    // It is installed HERE, on every playback, because a Media3 audio
+    // processor belongs to the `AudioSink` chain and that chain is fixed at
+    // `ExoPlayer.Builder` time. Attaching it when the host goes live is too
+    // late to reach anything, which is exactly how every Android broadcast
+    // went out with no audio track at all (§9).
+    //
+    // Idle cost is two atomics and a strided peak scan; it allocates only
+    // while a broadcast is listening. Gated at 29 for the same reason the
+    // thermal read below is: the Studio is google-only (Decision 129) and
+    // this file compiles into the amazon flavour at minSdk 23, which keeps
+    // Media3's default sink untouched.
+    val studioTap = remember {
+        if (android.os.Build.VERSION.SDK_INT >= 29)
+            app.archivewatch.android.studio.StudioFilmAudioTap() else null
+    }
+    DisposableEffect(studioTap) {
+        studioTap?.let { StudioController.attachTap(it) }
+        onDispose { studioTap?.let { StudioController.detachTap(it) } }
+    }
+
     val player = remember(spec.url) {
         val httpFactory = OkHttpDataSource.Factory(container.okHttp)
             .setUserAgent("ArchiveWatch-Android/1.0")
@@ -173,6 +195,7 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
             .setBackBuffer(30_000, true)                // cheap re-seek without refetch
             .build()
         ExoPlayer.Builder(context)
+            .apply { studioTap?.let { setRenderersFactory(it.renderersFactory(context)) } }
             .setMediaSourceFactory(
                 DefaultMediaSourceFactory(httpFactory).setLoadErrorHandlingPolicy(policy),
             )

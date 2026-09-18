@@ -110,6 +110,7 @@ class MainActivity : ComponentActivity() {
         // It still goes through the RIGHTS GATE — a verification hook that
         // skipped the gate would be testing something the product cannot do.
         intent?.getStringExtra("aw_studio_item")?.let { DeepLinks.pendingStudioItem.value = it }
+        intent?.getStringExtra("aw_studio_chat")?.let { DeepLinks.pendingStudioChat.value = it }
         // A bench destination for the Studio — DEBUG ONLY. See
         // DeepLinks.pendingStudioDest: honouring this in a release build would
         // let any app redirect a host's broadcast. The values are never

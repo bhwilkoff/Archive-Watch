@@ -62,7 +62,7 @@ object StudioOverlayBitmap {
         // Bottom-up: the NEWEST message must always be visible, so the oldest
         // is what falls off the top. A top-down layout with a height clamp
         // drops the newest, which is the one line that matters.
-        val bottom = height - unit * 9f
+        val bottom = lowerThirdTop(height, !provenance.isNullOrEmpty()) - unit * 0.6f
         var y = bottom
         val lineH = textSize * 1.35f
         for (line in chat.asReversed()) {
@@ -118,6 +118,22 @@ object StudioOverlayBitmap {
         return out
     }
 
+    /**
+     * The y of the lower third's scrim top.
+     *
+     * Both drawers read it from HERE. The chat column used to carry its own
+     * guess at where the lower third began (`height - unit * 9`), and on the
+     * Google TV at 720p that put its two newest pills on top of the film's
+     * title — the title is the one thing the lower third exists to say. Two
+     * numbers describing one edge will drift; this is the edge.
+     */
+    private fun lowerThirdTop(height: Int, hasProvenance: Boolean): Float {
+        val unit = height / 40f
+        val baseY = height - unit * 4f
+        val lines = 2 + (if (hasProvenance) 1 else 0)
+        return baseY - unit * 2.6f * lines - unit * 2f
+    }
+
     fun lowerThird(width: Int, height: Int,
                    title: String, subtitle: String, provenance: String?): Bitmap {
         val bmp = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
@@ -153,7 +169,7 @@ object StudioOverlayBitmap {
                                       subtitlePaint.measureText(subtitle),
                                       provenance?.let { provenancePaint.measureText(it) } ?: 0f) + unit * 3f
         val scrim = Paint().apply { color = Color.argb(150, 0, 0, 0) }
-        c.drawRect(0f, blockTop - unit, scrimRight, height.toFloat(), scrim)
+        c.drawRect(0f, lowerThirdTop(height, !provenance.isNullOrEmpty()), scrimRight, height.toFloat(), scrim)
 
         // The marquee rule, left of the text — the same device the Apple
         // lower third uses.
