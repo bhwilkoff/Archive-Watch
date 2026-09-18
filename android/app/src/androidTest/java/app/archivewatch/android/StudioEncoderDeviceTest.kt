@@ -71,6 +71,7 @@ class StudioEncoderDeviceTest {
             ),
             declareAudio = false
         )
+        enc.requestKeyframe()
         for ((a, k, t) in frames) p.sendVideo(a, k, t, t)
 
         // Then keep drawing until the server has had plenty — a short burst

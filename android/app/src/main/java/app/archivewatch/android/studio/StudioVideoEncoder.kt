@@ -92,6 +92,23 @@ class StudioVideoEncoder(
         }
     }
 
+    /**
+     * Asks the encoder for a keyframe on the next frame.
+     *
+     * A broadcast must BEGIN with one. Until a keyframe arrives a viewer who
+     * joins — and a server that is recording — has nothing it can decode, so
+     * the stream is live and the picture is absent. Found on a Google TV
+     * (2026-09-17): mediamtx logged "recording" and "recording stopped" and
+     * wrote no file at all, because it was still waiting for the first
+     * decodable frame when the publisher hung up.
+     */
+    fun requestKeyframe() {
+        val c = codec ?: return
+        c.setParameters(android.os.Bundle().apply {
+            putInt(MediaCodec.PARAMETER_KEY_REQUEST_SYNC_FRAME, 0)
+        })
+    }
+
     fun stop() {
         try { codec?.stop() } catch (_: Exception) {}
         try { codec?.release() } catch (_: Exception) {}

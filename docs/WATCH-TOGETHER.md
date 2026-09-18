@@ -574,9 +574,57 @@ a sleep loop.
 (the test hardcodes 4:3). In the product it must come from ExoPlayer's own
 video size, or a 16:9 film gets pillarboxed as though it were 4:3.
 
-**Still ahead on Android**: the camera tile, the overlays, and
-`TeeAudioProcessor` for film audio. The transport, the encoder and the film
-texture under them are now proved.
+### §6.2d — The whole program composited on Android (2026-09-17)
+
+One GLES pass now draws film, corner tile and lower third into MediaCodec.
+Verified on the Google TV from the server's own recording: the lower third
+renders **The Kiss of Death / 1916 · Victor Sjöström / PUBLIC DOMAIN —
+PUBLISHED 1916, BEFORE 1930** with its marquee rule, and the corner tile sits
+bottom-right carrying its own moving picture.
+
+**The tile's source is a SECOND FILM, not a camera** — a deliberate
+substitution, not a shortcut. Neither television on this bench has a camera,
+and from the renderer's side CameraX, Camera2 and a second ExoPlayer are the
+same thing: a producer rendering into a `SurfaceTexture`. What is under test
+is the COMPOSITE — two external textures, z-order, the tile's rect, a blended
+overlay above both. Swapping the real camera in is a change of source, not of
+pipeline.
+
+**What this frame does NOT prove**: all three layers lit at once. The film was
+on a dark shot in the single frame the recorder captured, so the film layer is
+black there; it was proved separately in §6.2c. Saying so rather than
+implying more is the point.
+
+**A PRODUCT fix came out of chasing the instrument.** The recorder kept
+logging "recording" then "recording stopped" and writing **no file**. The
+cause is not a recorder quirk: **a broadcast must BEGIN with a keyframe.**
+Until one arrives, a viewer who joins and a server that is recording have
+nothing decodable — the stream is live and the picture is absent.
+`StudioVideoEncoder.requestKeyframe()` asks MediaCodec for one
+(`PARAMETER_KEY_REQUEST_SYNC_FRAME`) the moment publishing starts, and the
+recording appeared immediately. Every device test now does it. The same
+reasoning explains why a mid-stream `ffmpeg` reader reports "Output file does
+not contain any stream": the AVC sequence header is sent once, which is the
+§9 lesson arriving on a second platform.
+
+**Two Android drawing traps, both silent:**
+
+- **A Bitmap's origin is top-left; GL's is bottom-left.** An overlay sampled
+  with the film's texture coordinates arrives upside down, so the overlay quad
+  gets its own flipped coordinates.
+- **Premultiplied alpha.** A `Bitmap` from `Canvas` is already premultiplied,
+  so the blend is `GL_ONE, GL_ONE_MINUS_SRC_ALPHA`; using `GL_SRC_ALPHA`
+  darkens every antialiased edge.
+
+**And the §6.2c aspect gap is closed**: the film's aspect now comes from
+ExoPlayer's `onVideoSizeChanged` (including `pixelWidthHeightRatio`), not a
+constant. The scrim behind the lower third is sized to the TEXT rather than
+the full width — the full-width band is a defect the Apple side shipped and
+then fixed by looking at it (§9).
+
+**Still ahead on Android**: a real camera (a phone, not a television), and
+`TeeAudioProcessor` for film audio. The transport, the encoder, the film
+texture and the composite under them are now proved.
 
 ## §7 — Phases
 

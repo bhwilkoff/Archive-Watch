@@ -113,6 +113,9 @@ class StudioFilmDeviceTest {
             ),
             declareAudio = false
         )
+        // Begin on a KEYFRAME: until one arrives a joining viewer and a
+        // recording server have nothing decodable (see requestKeyframe).
+        enc.requestKeyframe()
 
         var frame = n + 60
         val deadline = System.currentTimeMillis() + 25_000

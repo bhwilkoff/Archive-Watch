@@ -46,6 +46,22 @@ class StudioProgramGl(private val programWidth: Int, private val programHeight: 
         private set
 
     /**
+     * The CAMERA tile's source — a second external texture.
+     *
+     * Deliberately "any producer that renders into a SurfaceTexture" rather
+     * than "a camera": CameraX, Camera2 and a second ExoPlayer all look
+     * identical from here, which is what lets the two-source composite be
+     * proved on hardware that has no camera at all (a Google TV). Swapping the
+     * real camera in later is a change of SOURCE, not of pipeline.
+     */
+    var cameraTextureId = 0
+        private set
+    var cameraSurfaceTexture: SurfaceTexture? = null
+        private set
+    val cameraFramesAvailable = java.util.concurrent.atomic.AtomicInteger(0)
+    private val cameraTexMatrix = FloatArray(16)
+
+    /**
      * New frames the producer has actually delivered.
      *
      * `updateTexImage()` does NOT fail when there is nothing new — it
@@ -59,18 +75,21 @@ class StudioProgramGl(private val programWidth: Int, private val programHeight: 
     private lateinit var vertices: FloatBuffer
     private lateinit var texCoords: FloatBuffer
 
-    fun setUp() {
-        program = buildProgram(VERTEX_SHADER, FRAGMENT_SHADER_OES)
-        aPosition = GLES20.glGetAttribLocation(program, "aPosition")
-        aTexCoord = GLES20.glGetAttribLocation(program, "aTexCoord")
-        uTexMatrix = GLES20.glGetUniformLocation(program, "uTexMatrix")
-        uVertexMatrix = GLES20.glGetUniformLocation(program, "uVertexMatrix")
-        uTexture = GLES20.glGetUniformLocation(program, "sTexture")
+    private var program2d = 0
+    private var a2dPosition = 0
+    private var a2dTexCoord = 0
+    private var u2dTexMatrix = 0
+    private var u2dVertexMatrix = 0
+    private var u2dTexture = 0
+    private var overlayTextureId = 0
+    private var hasOverlay = false
+    private val identity = FloatArray(16).also { Matrix.setIdentityM(it, 0) }
+    private lateinit var texCoordsFlipped: FloatBuffer
 
+    private fun newExternalTexture(): Int {
         val ids = IntArray(1)
         GLES20.glGenTextures(1, ids, 0)
-        filmTextureId = ids[0]
-        GLES20.glBindTexture(GLES11Ext.GL_TEXTURE_EXTERNAL_OES, filmTextureId)
+        GLES20.glBindTexture(GLES11Ext.GL_TEXTURE_EXTERNAL_OES, ids[0])
         GLES20.glTexParameteri(GLES11Ext.GL_TEXTURE_EXTERNAL_OES,
                                GLES20.GL_TEXTURE_MIN_FILTER, GLES20.GL_LINEAR)
         GLES20.glTexParameteri(GLES11Ext.GL_TEXTURE_EXTERNAL_OES,
@@ -79,6 +98,54 @@ class StudioProgramGl(private val programWidth: Int, private val programHeight: 
                                GLES20.GL_TEXTURE_WRAP_S, GLES20.GL_CLAMP_TO_EDGE)
         GLES20.glTexParameteri(GLES11Ext.GL_TEXTURE_EXTERNAL_OES,
                                GLES20.GL_TEXTURE_WRAP_T, GLES20.GL_CLAMP_TO_EDGE)
+        return ids[0]
+    }
+
+    private fun bindQuad(posAttr: Int, texAttr: Int, flipY: Boolean = false) {
+        GLES20.glEnableVertexAttribArray(posAttr)
+        GLES20.glVertexAttribPointer(posAttr, 2, GLES20.GL_FLOAT, false, 0, vertices)
+        GLES20.glEnableVertexAttribArray(texAttr)
+        GLES20.glVertexAttribPointer(texAttr, 2, GLES20.GL_FLOAT, false, 0,
+                                     if (flipY) texCoordsFlipped else texCoords)
+    }
+
+    /** Draws whatever external texture, with the current [vertexMatrix]. */
+    private fun drawExternal(textureId: Int, matrix: FloatArray) {
+        GLES20.glUseProgram(program)
+        GLES20.glActiveTexture(GLES20.GL_TEXTURE0)
+        GLES20.glBindTexture(GLES11Ext.GL_TEXTURE_EXTERNAL_OES, textureId)
+        GLES20.glUniform1i(uTexture, 0)
+        GLES20.glUniformMatrix4fv(uTexMatrix, 1, false, matrix, 0)
+        GLES20.glUniformMatrix4fv(uVertexMatrix, 1, false, vertexMatrix, 0)
+        bindQuad(aPosition, aTexCoord)
+        GLES20.glDrawArrays(GLES20.GL_TRIANGLE_STRIP, 0, 4)
+        GLES20.glDisableVertexAttribArray(aPosition)
+        GLES20.glDisableVertexAttribArray(aTexCoord)
+    }
+
+    fun setUp() {
+        program = buildProgram(VERTEX_SHADER, FRAGMENT_SHADER_OES)
+        program2d = buildProgram(VERTEX_SHADER, FRAGMENT_SHADER_2D)
+        a2dPosition = GLES20.glGetAttribLocation(program2d, "aPosition")
+        a2dTexCoord = GLES20.glGetAttribLocation(program2d, "aTexCoord")
+        u2dTexMatrix = GLES20.glGetUniformLocation(program2d, "uTexMatrix")
+        u2dVertexMatrix = GLES20.glGetUniformLocation(program2d, "uVertexMatrix")
+        u2dTexture = GLES20.glGetUniformLocation(program2d, "sTexture")
+        aPosition = GLES20.glGetAttribLocation(program, "aPosition")
+        aTexCoord = GLES20.glGetAttribLocation(program, "aTexCoord")
+        uTexMatrix = GLES20.glGetUniformLocation(program, "uTexMatrix")
+        uVertexMatrix = GLES20.glGetUniformLocation(program, "uVertexMatrix")
+        uTexture = GLES20.glGetUniformLocation(program, "sTexture")
+
+        filmTextureId = newExternalTexture()
+        cameraTextureId = newExternalTexture()
+        cameraSurfaceTexture = SurfaceTexture(cameraTextureId).apply {
+            setDefaultBufferSize(programWidth / 3, programHeight / 3)
+            setOnFrameAvailableListener({ cameraFramesAvailable.incrementAndGet() },
+                                        android.os.Handler(android.os.Looper.getMainLooper()))
+        }
+        Matrix.setIdentityM(cameraTexMatrix, 0)
+
         filmSurfaceTexture = SurfaceTexture(filmTextureId).apply {
             // WITHOUT THIS THE PICTURE IS BLACK. A SurfaceTexture that is not
             // attached to a View has no size of its own, so the producer —
@@ -98,6 +165,9 @@ class StudioProgramGl(private val programWidth: Int, private val programHeight: 
 
         vertices = floatBuffer(floatArrayOf(-1f, -1f,  1f, -1f,  -1f, 1f,  1f, 1f))
         texCoords = floatBuffer(floatArrayOf(0f, 0f,  1f, 0f,  0f, 1f,  1f, 1f))
+        // A Bitmap's origin is TOP-left and GL's is BOTTOM-left, so an
+        // overlay sampled with the film's coordinates arrives upside down.
+        texCoordsFlipped = floatBuffer(floatArrayOf(0f, 1f,  1f, 1f,  0f, 0f,  1f, 0f))
         Matrix.setIdentityM(texMatrix, 0)
         Matrix.setIdentityM(vertexMatrix, 0)
     }
@@ -130,24 +200,83 @@ class StudioProgramGl(private val programWidth: Int, private val programHeight: 
         Matrix.setIdentityM(vertexMatrix, 0)
         Matrix.scaleM(vertexMatrix, 0, sx, sy, 1f)
 
-        GLES20.glUseProgram(program)
+        drawExternal(filmTextureId, texMatrix)
+    }
+
+    fun updateCameraFrame(): Boolean {
+        val st = cameraSurfaceTexture ?: return false
+        return try {
+            st.updateTexImage(); st.getTransformMatrix(cameraTexMatrix); true
+        } catch (_: Exception) { false }
+    }
+
+    /**
+     * The camera tile, bottom-right — `StudioLayout.corner`, the default on
+     * every platform. Expressed in normalised device coordinates, where y
+     * grows UPWARD; on the Apple side the same rect is in Core Image space
+     * where it also grows upward, and an earlier bug there put the chat column
+     * at the camera's TOP for exactly this reason (§9).
+     */
+    fun drawCameraCorner(cameraAspect: Float) {
+        val programAspect = programWidth.toFloat() / programHeight
+        val tileW = 0.30f                     // 30% of the frame width
+        val tileH = tileW * programAspect / cameraAspect
+        val margin = 0.04f
+        val cx = 1f - margin - tileW
+        val cy = -1f + margin + tileH
+        Matrix.setIdentityM(vertexMatrix, 0)
+        Matrix.translateM(vertexMatrix, 0, cx, cy, 0f)
+        Matrix.scaleM(vertexMatrix, 0, tileW, tileH, 1f)
+        drawExternal(cameraTextureId, cameraTexMatrix)
+    }
+
+    /**
+     * An overlay bitmap (the lower third) blended over everything.
+     *
+     * Uploaded ONCE and re-drawn, the same economy as the Apple side's cached
+     * overlay — rasterising text every frame is the cost that took the iOS
+     * composite from 3.40 ms to 9.02 ms (§9).
+     */
+    fun setOverlayBitmap(bitmap: android.graphics.Bitmap) {
+        if (overlayTextureId == 0) {
+            val ids = IntArray(1); GLES20.glGenTextures(1, ids, 0); overlayTextureId = ids[0]
+        }
+        GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, overlayTextureId)
+        GLES20.glTexParameteri(GLES20.GL_TEXTURE_2D, GLES20.GL_TEXTURE_MIN_FILTER, GLES20.GL_LINEAR)
+        GLES20.glTexParameteri(GLES20.GL_TEXTURE_2D, GLES20.GL_TEXTURE_MAG_FILTER, GLES20.GL_LINEAR)
+        GLES20.glTexParameteri(GLES20.GL_TEXTURE_2D, GLES20.GL_TEXTURE_WRAP_S, GLES20.GL_CLAMP_TO_EDGE)
+        GLES20.glTexParameteri(GLES20.GL_TEXTURE_2D, GLES20.GL_TEXTURE_WRAP_T, GLES20.GL_CLAMP_TO_EDGE)
+        android.opengl.GLUtils.texImage2D(GLES20.GL_TEXTURE_2D, 0, bitmap, 0)
+        hasOverlay = true
+    }
+
+    fun drawOverlay() {
+        if (!hasOverlay || overlayTextureId == 0) return
+        GLES20.glEnable(GLES20.GL_BLEND)
+        // Premultiplied alpha: a Bitmap from Canvas is already premultiplied,
+        // and using SRC_ALPHA here darkens every edge.
+        GLES20.glBlendFunc(GLES20.GL_ONE, GLES20.GL_ONE_MINUS_SRC_ALPHA)
+        Matrix.setIdentityM(vertexMatrix, 0)
+        GLES20.glUseProgram(program2d)
         GLES20.glActiveTexture(GLES20.GL_TEXTURE0)
-        GLES20.glBindTexture(GLES11Ext.GL_TEXTURE_EXTERNAL_OES, filmTextureId)
-        GLES20.glUniform1i(uTexture, 0)
-        GLES20.glUniformMatrix4fv(uTexMatrix, 1, false, texMatrix, 0)
-        GLES20.glUniformMatrix4fv(uVertexMatrix, 1, false, vertexMatrix, 0)
-        GLES20.glEnableVertexAttribArray(aPosition)
-        GLES20.glVertexAttribPointer(aPosition, 2, GLES20.GL_FLOAT, false, 0, vertices)
-        GLES20.glEnableVertexAttribArray(aTexCoord)
-        GLES20.glVertexAttribPointer(aTexCoord, 2, GLES20.GL_FLOAT, false, 0, texCoords)
+        GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, overlayTextureId)
+        GLES20.glUniform1i(u2dTexture, 0)
+        GLES20.glUniformMatrix4fv(u2dTexMatrix, 1, false, identity, 0)
+        GLES20.glUniformMatrix4fv(u2dVertexMatrix, 1, false, vertexMatrix, 0)
+        bindQuad(a2dPosition, a2dTexCoord, flipY = true)
         GLES20.glDrawArrays(GLES20.GL_TRIANGLE_STRIP, 0, 4)
-        GLES20.glDisableVertexAttribArray(aPosition)
-        GLES20.glDisableVertexAttribArray(aTexCoord)
+        GLES20.glDisableVertexAttribArray(a2dPosition)
+        GLES20.glDisableVertexAttribArray(a2dTexCoord)
+        GLES20.glDisable(GLES20.GL_BLEND)
     }
 
     fun tearDown() {
+        cameraSurfaceTexture?.release(); cameraSurfaceTexture = null
         filmSurfaceTexture?.release(); filmSurfaceTexture = null
         if (filmTextureId != 0) GLES20.glDeleteTextures(1, intArrayOf(filmTextureId), 0)
+        if (cameraTextureId != 0) GLES20.glDeleteTextures(1, intArrayOf(cameraTextureId), 0)
+        if (overlayTextureId != 0) GLES20.glDeleteTextures(1, intArrayOf(overlayTextureId), 0)
+        if (program2d != 0) GLES20.glDeleteProgram(program2d)
         if (program != 0) GLES20.glDeleteProgram(program)
     }
 
@@ -170,6 +299,13 @@ class StudioProgramGl(private val programWidth: Int, private val programHeight: 
             precision mediump float;
             varying vec2 vTexCoord;
             uniform samplerExternalOES sTexture;
+            void main() { gl_FragColor = texture2D(sTexture, vTexCoord); }
+        """
+
+        private const val FRAGMENT_SHADER_2D = """
+            precision mediump float;
+            varying vec2 vTexCoord;
+            uniform sampler2D sTexture;
             void main() { gl_FragColor = texture2D(sTexture, vTexCoord); }
         """
 
