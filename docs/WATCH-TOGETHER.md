@@ -1618,6 +1618,68 @@ the audio path, the real ingest hosts with no credential, the overlay and
 go-live surfaces on the glass, the rights gate on device, and the platform
 clients. **→ `docs/watch-together-measurements.md`**
 
+### §9.cccc Android gets a sign-in at last — Twitch only, because Twitch is the half that needs nobody (2026-09-18)
+
+PARITY has said for weeks that Android "has no OAuth or platform client at all
+(zero Kotlin references to googleapis.com / api.twitch.tv)". The engine,
+encoder, GLES composite, RTMP publisher, rights gate and overlay were all built
+and measured on real hardware; the thing that turns a token into a stream key
+existed nowhere. Apple's remaining work is entirely owner-gated, so this is the
+brief's own next step — *"then build out from there where possible."*
+
+**Twitch only, deliberately.** Its Device Code Grant is a PUBLIC client with no
+secret and no PKCE, and **the same client id Apple already uses works here** — a
+Twitch client id is not device-specific. So Android's Twitch half needed no
+registration, no owner step and no new credential of any kind.
+
+**And the device flow is the RIGHT shape here rather than a concession.**
+Android ships on phones and on televisions (Google TV, Fire TV), and a
+television has no keyboard. Apple escapes that because tvOS hands the session to
+a nearby iPhone (§9.yyy); Android has no equivalent hand-off, which is precisely
+the case Decision 128 reserved a device flow for. What was written as Apple's
+fallback is Android's main road.
+
+**YouTube is deliberately ABSENT**, and that is the point rather than an
+omission. Android cannot reuse Apple's Google client — an iOS-type client is
+refused by TYPE, measured (§9.www) — and on a television it needs Google's
+device grant with a client SECRET. Writing half of it would reproduce §9.ccc's
+defect exactly: a capability declared somewhere no other platform could see it.
+The file says so where the code would have gone.
+
+**§6.1 on Android**: EncryptedSharedPreferences over an Android Keystore key,
+which is the same promise as the Keychain made by the same kind of mechanism —
+the key cannot leave the device. The manifest already carries
+`android:allowBackup="false"`, so these preferences reach no Drive backup; that
+was CHECKED rather than assumed, because "a restored file would be
+undecryptable" is a different promise from "it is never copied". `save` uses
+`commit()` and returns the result, for §9.rrr's reason: a one-time-use refresh
+token whose write is dropped signs the host out at the next call.
+
+**THE TEST FOUND SOMETHING BIGGER THAN ITS OWN SUBJECT.** Six JVM tests; two
+failed, both of them faults in the instrument:
+
+  - `org.json.JSONObject not mocked`. Android STUBS every method of its bundled
+    `org.json` in JVM unit tests. `org.json` is this app's house style for
+    network JSON — `OpenSubtitlesClient`, `PlaylistShare` and `ArchiveVersions`
+    all use it — which means **none of that parsing has ever been unit-testable
+    either**, and nobody would have found out until they wrote a test that
+    needed it. `testImplementation("org.json:json")` puts the real one in.
+  - Reading `errorStream ?: inputStream` before `responseCode` throws
+    `IOException` on a 4xx, so the test failed on plumbing and said nothing
+    about Twitch. `responseCode` first.
+
+Both are the family this project keeps meeting: a red that is about the
+instrument, not the subject. The rule holds in the cheap direction too — these
+cost ten minutes because the tests were run rather than assumed.
+
+What the tests assert: the poll discriminator by calling the PRODUCT's own
+`pollOutcome` (Decision 119 — a check that restates the logic proves only that
+it was copied twice), and the live endpoints' REFUSALS with no credential at
+all (Decision 128), including the control that a bad token and a missing header
+read differently under identical 401s.
+
+Both flavours compile, including `amazon` at minSdk 23.
+
 ### §9.bbbb Twitch gets the same read-only readiness — and the probe must not touch the stream key (2026-09-18)
 
 §9.zzz gave YouTube a readiness question asked with a READ, so a host learns

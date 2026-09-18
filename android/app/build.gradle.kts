@@ -96,6 +96,16 @@ android {
         // OpenSubtitles shared API key (the download QUOTA follows the
         // viewer's own account; this key only carries request rate). Local:
         // ~/.gradle/gradle.properties; CI: the OPENSUBTITLES_API_KEY secret.
+        // Watch Together Studio — Twitch (docs/WATCH-TOGETHER.md §6.1). A PUBLIC
+        // client: no secret, no PKCE, and the SAME id Apple uses, because a
+        // Twitch client id is not device-specific. Local:
+        // ~/.gradle/gradle.properties as awTwitchClientId; CI: TWITCH_CLIENT_ID.
+        // Empty = the sign-in row says so rather than offering a dead button.
+        buildConfigField(
+            "String", "AW_TWITCH_CLIENT_ID",
+            "\"${providers.gradleProperty("awTwitchClientId").orNull
+                ?: System.getenv("TWITCH_CLIENT_ID") ?: ""}\"",
+        )
         buildConfigField(
             "String", "OPENSUBTITLES_API_KEY",
             "\"${providers.gradleProperty("awOpenSubtitlesApiKey").orNull
@@ -234,6 +244,14 @@ dependencies {
     implementation(libs.splashscreen)
 
     testImplementation(libs.junit)
+    // The REAL org.json in JVM unit tests. Android stubs every method of its
+    // bundled org.json and throws "not mocked", so any test touching a network
+    // client's parsing fails for a reason that has nothing to do with the code
+    // under test — which is how StudioTwitchAuthTest first failed. org.json is
+    // this app's house style for network JSON (OpenSubtitlesClient,
+    // PlaylistShare, ArchiveVersions), so without this NONE of that parsing was
+    // unit-testable.
+    testImplementation("org.json:json:20240303")
     testImplementation(libs.coroutines.test)
     androidTestImplementation(libs.junit.ext)
     androidTestImplementation(libs.espresso.core)
