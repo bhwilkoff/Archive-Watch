@@ -902,7 +902,7 @@ public actor StudioEngine {
 
         // The film's current frame, if it has advanced. A paused film returns
         // nothing new, so the last frame holds — which is what a viewer of a
-        // paused riff-stream should see.
+        // paused Watch Together broadcast should see.
         if let out = filmOutput {
             let itemTime = out.itemTime(forHostTime: CACurrentMediaTimeCompat())
             if out.hasNewPixelBuffer(forItemTime: itemTime),
