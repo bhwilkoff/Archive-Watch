@@ -622,9 +622,56 @@ constant. The scrim behind the lower third is sized to the TEXT rather than
 the full width — the full-width band is a defect the Apple side shipped and
 then fixed by looking at it (§9).
 
-**Still ahead on Android**: a real camera (a phone, not a television), and
-`TeeAudioProcessor` for film audio. The transport, the encoder, the film
-texture and the composite under them are now proved.
+### §6.2e — The film's AUDIO, tapped and broadcast (2026-09-17)
+
+`StudioFilmAudioTap` + `StudioAacEncoder`: `TeeAudioProcessor` copies decoded
+PCM out of ExoPlayer, MediaCodec turns it into AAC, and the publisher sends it
+as a real second track. The tap is installed by overriding
+`DefaultRenderersFactory.buildAudioSink` — Media3's own guidance is that
+wrapping the `AudioSink` is NOT the way to intercept PCM, because
+`TeeAudioProcessor` guarantees the buffer lifecycle and a hand-rolled wrapper
+does not.
+
+**Proved from the server's own recording**, which is the only place the
+question can be settled:
+
+```
+stream 0: h264 1280x720
+stream 1: aac  48000 Hz  stereo
+mean_volume -16.8 dB   max_volume -2.7 dB
+```
+
+**The bar was deliberately not "an audio track exists".** A correctly plumbed
+SILENCE satisfies that, and silence is exactly what a broken tap produces — so
+the tap reports its PEAK and the test insists the film was actually heard.
+
+**Two of my own assertions were wrong before the code was**, and both are the
+same mistake in different clothes:
+
+1. **Judging a soundtrack on its first fraction of a second.** The first run
+   asserted on ~10 buffers and saw peak 0.005 — the film's fade-in, not a
+   broken tap. Waiting for 120 buffers gives a real reading. This is the §6.2a
+   lesson again: a burst measures the burst.
+2. **Hardcoding 44.1 kHz** because that is what the Apple side happens to mix
+   at. The film is **48 kHz**, and the engine must follow the SOURCE — the AAC
+   encoder is built from `tap.sampleRate`, so its AudioSpecificConfig then
+   describes the frames actually sent, which is the rule §6.2a was written for.
+   The test now asserts a plausible RANGE, not a number.
+
+**Two RTMP requirements MediaCodec does not volunteer**: raw AAC frames rather
+than ADTS (a 7-byte ADTS header inside an FLV audio tag makes the track
+undecodable while everything still "works"), and the AudioSpecificConfig,
+which arrives as `csd-0` and must be published before any frame. An
+ADTS-configured encoder produces no `csd-0` at all, which is the cheap check.
+
+**A harness note worth keeping**: Gradle reported FAILED while the device log
+said `run finished: 1 tests, 0 failed` — `ActivityManager: Failure reporting
+to instrumentation watcher`. The run had succeeded and the RESULT could not get
+home. Read the device's own verdict before believing the build's.
+
+**Still ahead on Android**: a real camera, which needs a phone rather than a
+television — the Pixel 8a's adb-over-TLS pairing has expired. Transport,
+encoder, film texture, composite and audio are all proved on hardware.
 
 ## §7 — Phases
 
