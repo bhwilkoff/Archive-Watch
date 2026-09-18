@@ -51,8 +51,11 @@ class StudioVideoEncoder(
                        MediaCodecInfo.EncoderCapabilities.BITRATE_MODE_CBR)
             // Baseline keeps every ingest and every cheap decoder happy; the
             // Apple side uses High, and matching that is a later measurement.
-            setInteger(MediaFormat.KEY_PROFILE,
-                       MediaCodecInfo.CodecProfileLevel.AVCProfileBaseline)
+            // NO profile here — `createAvcEncoder` sets the best one the
+            // CHOSEN codec actually advertises. Asking for a profile the
+            // encoder does not have is silently ignored: requesting High on
+            // this dongle produced Constrained Baseline and no error, and the
+            // fps was identical because nothing had changed (§9.xx).
         }
         val c = createAvcEncoder(format)
         if (app.archivewatch.android.BuildConfig.DEBUG) {
@@ -104,6 +107,11 @@ class StudioVideoEncoder(
                     val vc = try {
                         i.getCapabilitiesForType(MediaFormat.MIMETYPE_VIDEO_AVC).videoCapabilities
                     } catch (_: Exception) { null }
+                    val profs = try {
+                        i.getCapabilitiesForType(MediaFormat.MIMETYPE_VIDEO_AVC)
+                            .profileLevels.joinToString(",") { pl -> "p" + pl.profile + "l" + pl.level }
+                    } catch (_: Exception) { "?" }
+                    android.util.Log.i("AWSTUDIOCODEC", "  profiles " + i.name + ": " + profs)
                     android.util.Log.i("AWSTUDIOCODEC", "candidate " + i.name +
                         " hw=" + i.isHardwareAccelerated +
                         " fits" + width + "x" + height + "=" +
@@ -124,6 +132,7 @@ class StudioVideoEncoder(
                 // the honest test and it is two lines below.
                 var candidate: MediaCodec? = null
                 try {
+                    applyBestProfile(info, format)
                     candidate = MediaCodec.createByCodecName(info.name)
                     candidate.configure(format, null, null, MediaCodec.CONFIGURE_FLAG_ENCODE)
                     return candidate
@@ -133,8 +142,54 @@ class StudioVideoEncoder(
             }
         }
         val fallback = MediaCodec.createEncoderByType(MediaFormat.MIMETYPE_VIDEO_AVC)
-        fallback.configure(format, null, null, MediaCodec.CONFIGURE_FLAG_ENCODE)
+        applyBestProfile(fallback.codecInfo, format)
+        try {
+            fallback.configure(format, null, null, MediaCodec.CONFIGURE_FLAG_ENCODE)
+        } catch (_: Exception) {
+            // A profile it advertised but will not take. Drop the request
+            // rather than the broadcast.
+            format.setInteger(MediaFormat.KEY_PROFILE, 0)
+            format.setInteger(MediaFormat.KEY_LEVEL, 0)
+            fallback.configure(format, null, null, MediaCodec.CONFIGURE_FLAG_ENCODE)
+        }
         return fallback
+    }
+
+    /**
+     * Requests the best H.264 profile THIS codec advertises — High, then Main,
+     * then Baseline — with the highest level it offers for it.
+     *
+     * Android silently ignores a profile the encoder does not have: asking
+     * `c2.android.avc.encoder` for High produced Constrained Baseline, no
+     * error, and identical frame rate, which is exactly the kind of "change"
+     * that gets believed because it compiled (§9.xx). This dongle's software
+     * encoder advertises Baseline, Constrained Baseline and **Main** — no High
+     * — so Main is the honest best here; a phone's hardware encoder should
+     * offer High and get it, which is also what the Apple side uses.
+     *
+     * `KEY_LEVEL` goes with it: some encoders ignore a profile arriving
+     * without one.
+     */
+    private fun applyBestProfile(info: MediaCodecInfo, format: MediaFormat) {
+        val levels = try {
+            info.getCapabilitiesForType(MediaFormat.MIMETYPE_VIDEO_AVC).profileLevels
+        } catch (_: Exception) { return }
+        val wanted = intArrayOf(
+            MediaCodecInfo.CodecProfileLevel.AVCProfileHigh,
+            MediaCodecInfo.CodecProfileLevel.AVCProfileMain,
+            MediaCodecInfo.CodecProfileLevel.AVCProfileBaseline,
+        )
+        for (want in wanted) {
+            val best = levels.filter { it.profile == want }.maxByOrNull { it.level } ?: continue
+            format.setInteger(MediaFormat.KEY_PROFILE, best.profile)
+            format.setInteger(MediaFormat.KEY_LEVEL, best.level)
+            if (app.archivewatch.android.BuildConfig.DEBUG) {
+                android.util.Log.i("AWSTUDIOCODEC",
+                    "requesting profile=" + best.profile + " level=" + best.level +
+                    " on " + info.name)
+            }
+            return
+        }
     }
 
     /**

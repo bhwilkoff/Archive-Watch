@@ -1618,6 +1618,54 @@ the audio path, the real ingest hosts with no credential, the overlay and
 go-live surfaces on the glass, the rights gate on device, and the platform
 clients. **→ `docs/watch-together-measurements.md`**
 
+### §9.xx Android asked for a profile it could not have, and was told nothing (2026-09-18)
+
+`StudioVideoEncoder` carried a promise in a comment: *"Baseline keeps every
+ingest and every cheap decoder happy; the Apple side uses High, and matching
+that is a later measurement."* This is that measurement, and the first result
+was that the experiment itself does not work the way it looks.
+
+**Requesting High changed nothing, and said nothing.** Setting
+`KEY_PROFILE = AVCProfileHigh`, rebuilding and running produced a stream still
+carrying `profile=Constrained Baseline`, at an identical 12-13 fps. No error,
+no warning. **Android silently ignores a profile the encoder does not have**,
+so a change that compiles, installs, runs and appears in the logs can still be
+no change at all — and the unchanged frame rate would have read as "High is
+free" if the stream had not been checked.
+
+**What the encoder actually advertises**, enumerated through
+`getCapabilitiesForType(...).profileLevels`:
+
+    c2.android.avc.encoder:  p1l16384, p65536l16384, p2l16384
+    OMX.google.h264.encoder: p1l16384, p65536l16384, p2l16384
+
+Decoded: Baseline (1), Constrained Baseline (65536) and **Main (2)**. There is
+no High (8) on this device at all, which is why the request evaporated.
+
+**So the encoder now asks for the best profile the CHOSEN codec advertises** —
+High, else Main, else Baseline — with `KEY_LEVEL` alongside it, because some
+encoders ignore a profile that arrives without one. Verified on the glass
+rather than in the log:
+
+| | requested | stream carries | fps |
+|---|---|---|---|
+| before | Baseline | `Constrained Baseline`, level 41 | 12-13 |
+| asking High (inert) | High | `Constrained Baseline`, level 41 | 12-13 |
+| **now** | `profile=2 level=16384` | **`Main`, level 50** | 12-14 |
+
+**Main costs nothing measurable here and is a real gain**: it brings CABAC
+entropy coding in place of Baseline's CAVLC, which is better compression at the
+same bitrate — the picture a viewer gets improves without asking more of the
+host's uplink. On a phone, whose hardware encoder should advertise High, the
+same code will take High and match the Apple side at last.
+
+**One judgement recorded rather than hidden**: the level requested is the
+highest the codec advertises for that profile (5.0 here), which is conservative
+for ACCEPTANCE — the encoder cannot refuse for level reasons — and slightly
+over-declares what a 720p30 stream actually requires. YouTube and Twitch
+transcode on ingest, so no viewer decodes our level directly; if that ever
+stops being true, the right change is the lowest level that fits the format.
+
 ### §9.ww The encoder settings audited against what the platforms actually publish (2026-09-18)
 
 The Studio exists to reach YouTube and Twitch, and its encoder parameters had
@@ -1646,7 +1694,7 @@ proved against the real ingest with an invalid key (§9).
 | video bitrate | 6 Mbps | 4 Mbps | 10 Mbps @1080p30, **4 Mbps @720p30** |
 | audio | AAC 128 kbps stereo | AAC 128 kbps stereo | **AAC 128 kbps stereo** |
 | keyframe interval | 2 s | 2 s | **2 s**, never over 4 |
-| H.264 profile | High | Baseline | not specified |
+| H.264 profile | High | Baseline → **Main** (§9.xx) | not specified |
 
 Android's 720p30 at 4 Mbps is EXACTLY YouTube's recommendation; both platforms'
 audio and keyframe settings match it exactly.
