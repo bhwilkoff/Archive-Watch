@@ -1618,6 +1618,34 @@ the audio path, the real ingest hosts with no credential, the overlay and
 go-live surfaces on the glass, the rights gate on device, and the platform
 clients. **→ `docs/watch-together-measurements.md`**
 
+### §9.zz The level was over-declared, and not asking fixed it (2026-09-18)
+
+§9.yy noticed an inconsistency between the platforms: Apple's `AutoLevel`
+declares **4.0** for 1080p30, which is what that stream actually needs, while
+§9.xx's Android change requested the HIGHEST level a codec advertises and so
+declared **5.0 for a 720p30 stream**. This dongle advertises exactly one level
+per profile (`p2l16384`, Level 5), so the only route to an honest level was to
+stop asking for one.
+
+The reason a level was set at all is the standard caution that some encoders
+ignore a profile arriving without one. That caution was worth testing rather
+than obeying:
+
+| | requested | stream carries |
+|---|---|---|
+| with `KEY_LEVEL` | profile=2, level=16384 | `Main`, level **50** |
+| **without** | profile=2 only | `Main`, level **41** |
+
+**The profile still takes, and the level becomes accurate.** 4.1 is what
+720p30 requires; 5.0 was a claim about a stream we are not sending. Apple
+reaches the same place by a different route — `AutoLevel` — so both platforms
+now declare what they actually send.
+
+If some future encoder does ignore a profile that arrives without a level, the
+cost is a lower profile on that device, not a broken broadcast — and the
+existing fallback still drops the profile entirely rather than failing to
+configure. A caution worth testing is not a caution worth keeping unmeasured.
+
 ### §9.yy What Apple actually SENDS, checked against YouTube's published spec — and two instruments that disagreed (2026-09-18)
 
 §9.xx found Android requesting an H.264 profile it could not have and being
@@ -1698,12 +1726,11 @@ same bitrate — the picture a viewer gets improves without asking more of the
 host's uplink. On a phone, whose hardware encoder should advertise High, the
 same code will take High and match the Apple side at last.
 
-**One judgement recorded rather than hidden**: the level requested is the
-highest the codec advertises for that profile (5.0 here), which is conservative
-for ACCEPTANCE — the encoder cannot refuse for level reasons — and slightly
-over-declares what a 720p30 stream actually requires. YouTube and Twitch
-transcode on ingest, so no viewer decodes our level directly; if that ever
-stops being true, the right change is the lowest level that fits the format.
+**One judgement recorded rather than hidden**: the level requested was the
+highest the codec advertises for that profile (5.0 here) — conservative for
+ACCEPTANCE, and an over-declaration of what a 720p30 stream needs.
+**Measured and changed in §9.zz**: the level is no longer requested at all, and
+the encoder picks an accurate 4.1.
 
 ### §9.ww The encoder settings audited against what the platforms actually publish (2026-09-18)
 

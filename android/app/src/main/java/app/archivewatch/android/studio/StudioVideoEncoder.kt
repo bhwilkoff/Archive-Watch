@@ -167,8 +167,9 @@ class StudioVideoEncoder(
      * — so Main is the honest best here; a phone's hardware encoder should
      * offer High and get it, which is also what the Apple side uses.
      *
-     * `KEY_LEVEL` goes with it: some encoders ignore a profile arriving
-     * without one.
+     * The LEVEL is deliberately left to the encoder — see the note at the
+     * assignment; asking for the highest advertised level over-declared a
+     * 720p30 stream as Level 5.0, and omitting it yields an accurate 4.1.
      */
     private fun applyBestProfile(info: MediaCodecInfo, format: MediaFormat) {
         val levels = try {
@@ -182,7 +183,16 @@ class StudioVideoEncoder(
         for (want in wanted) {
             val best = levels.filter { it.profile == want }.maxByOrNull { it.level } ?: continue
             format.setInteger(MediaFormat.KEY_PROFILE, best.profile)
-            format.setInteger(MediaFormat.KEY_LEVEL, best.level)
+            // NO `KEY_LEVEL`, MEASURED. The first version set the highest level
+            // the codec advertised, on the usual caution that some encoders
+            // ignore a profile arriving without one — and this codec advertises
+            // exactly ONE level per profile (Level 5), so that declared 5.0 for
+            // a 720p30 stream. Omitting it: the profile still takes, and the
+            // encoder picks **4.1** itself, which is what 720p30 actually
+            // needs. That is Apple's behaviour too — `AutoLevel` picks 4.0 for
+            // 1080p30 (§9.yy) — and an honest level beats a safe one. If some
+            // future encoder does ignore a profile without a level, the cost is
+            // a lower profile on that device, not a broken broadcast.
             if (app.archivewatch.android.BuildConfig.DEBUG) {
                 android.util.Log.i("AWSTUDIOCODEC",
                     "requesting profile=" + best.profile + " level=" + best.level +
