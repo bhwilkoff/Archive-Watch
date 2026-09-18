@@ -140,7 +140,19 @@ final class StudioOverlayRenderer: @unchecked Sendable {
                              wrapped.dropFirst().map { width($0) }.max() ?? 0)
             let pill = CGRect(x: rect.minX, y: y,
                               width: min(rect.width, widest + pad * 2), height: blockH)
-            ctx.setFillColor(CGColor(gray: 0, alpha: line.isEvent ? 0.80 : 0.68))
+            // NEAR-FULL opacity where type sits, which is the lesson the lower
+            // third's scrim already learned a day earlier: "white type over an
+            // arbitrary film frame is only legible if something guarantees the
+            // ground". At 0.68 over a silent film's INTERTITLE — large bright
+            // white text, which is exactly where a chat column lands on this
+            // catalogue — the effective ground is about 0.32 white and 21 pt
+            // white type on it is mud. Seen in a frame pulled from the
+            // server's own recording (§6.4a).
+            //
+            // The pill still HUGS its text rather than blacking out a column:
+            // the film showing through around the messages is the design, and
+            // only the ground under type needed fixing.
+            ctx.setFillColor(CGColor(gray: 0, alpha: line.isEvent ? 0.92 : 0.88))
             ctx.addPath(CGPath(roundedRect: pill, cornerWidth: 8 * scale,
                                cornerHeight: 8 * scale, transform: nil))
             ctx.fillPath()

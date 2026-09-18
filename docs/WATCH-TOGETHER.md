@@ -1584,9 +1584,23 @@ column sits over the film, and a silent film's INTERTITLES are large bright
 white text — the per-line scrim behind each message is not strong enough to
 carry it, so several lines are hard to read exactly where a silent film is at
 its brightest. Counting messages says the feature works; a frame says it is
-not yet legible. Recorded here and NOT yet fixed: the scrim needs to be
-stronger, or the column needs to move, and that is a §4 design decision rather
-than a knob to turn quietly.
+not yet legible. **Fixed, and it was not a design decision after all.** I recorded this as one,
+then found the renderer had already settled it a day earlier for the lower
+third, in its own words: *"white type over an arbitrary film frame is only
+legible if something guarantees the ground — and a scrim does it"*, with a fix
+made on the glass when that scrim's top edge sat at 0.39 alpha and was
+unreadable. Chat had per-line pills at **0.68** alpha, which over a near-white
+intertitle leaves an effective ground of about 0.32 — 21 pt white type on mud.
+Applying a principle the codebase has already established is not a new
+decision, so the pills now hold **0.88** (events **0.92**), and they still HUG
+their text rather than blacking out a column: the film showing through around
+the messages is the design, and only the ground under type needed fixing.
+
+Re-verified from a second recording over the same film: the type reads crisply
+where the film is brightest. **And that run proved the event path with real
+data** — a genuine Twitch subscription arrived mid-run and rendered in marquee
+orange through `USERNOTICE` → `isEvent`, which until then had only been checked
+against a synthetic line.
 
 ## §9 — Measurements (filled in as they are taken)
 
