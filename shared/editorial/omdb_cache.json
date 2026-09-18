@@ -1,7 +1,7 @@
 {
   "version": 1,
   "description": "OMDb lookup results keyed by IMDb ID. Positive = poster_url; negative = null (so we don't burn daily quota retrying items OMDb doesn't have). Populated by the scheduled omdb-backfill GitHub Action + local runs of tools/omdb_backfill.py. The exporter overlays this cache over DB rows at export time.",
-  "updated_at": "2026-09-17T07:56:47Z",
+  "updated_at": "2026-09-18T07:26:36Z",
   "entries": {
     "tt0007613": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BYzUwNTY4NWUtNGRhMy00YjVmLWEyNmQtYTQyNWQyNDZhNjFmXkEyXkFqcGc@._V1_SX300.jpg",
@@ -31910,11 +31910,11 @@
     },
     "nm0101038": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm0101038\" to type \\'Double\\''",
-      "last_tried": "2026-09-17T07:56:47Z"
+      "last_tried": "2026-09-18T07:26:36Z"
     },
     "nm1947784": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm1947784\" to type \\'Double\\''",
-      "last_tried": "2026-09-17T07:56:47Z"
+      "last_tried": "2026-09-18T07:26:36Z"
     },
     "tt0000046": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BZWM2N2MzMGMtNzNkNi00OTc2LTg5NDQtNWViNTA2MGIwNmFhXkEyXkFqcGdeQXVyNTI2NTY2MDI@._V1_SX300.jpg",
@@ -322800,6 +322800,269 @@
         "Drama"
       ],
       "fetched_at": "2026-09-12T07:11:26Z",
+      "schema": 3
+    },
+    "tt0037150": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BY2NhNmJmMzctZWJlMC00ZmZmLTlmZDEtMGFlYmE1NzZjMjUyXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 6.1,
+      "imdb_votes": 1122,
+      "content_rating": "Approved",
+      "plot": "Smalltime crookster and showman Jerry Flynn is desperately searching for a new act to promote in order to save him from ruin. He meets a boy on the street who claims to have a dancing caterpillar called Curly. Flynn seizes the opportunity for fame and fortune at Curly's expense.",
+      "runtime_min": 89,
+      "director": "Alexander Hall",
+      "actors": [
+        "Cary Grant",
+        "Janet Blair",
+        "James Gleason"
+      ],
+      "genres": [
+        "Comedy",
+        "Family",
+        "Fantasy"
+      ],
+      "fetched_at": "2026-09-18T07:26:36Z",
+      "schema": 3
+    },
+    "tt0045675": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMTYzMzYwMjc1MV5BMl5BanBnXkFtZTgwOTYxOTgwMzE@._V1_SX300.jpg",
+      "imdb_rating": 5.2,
+      "imdb_votes": 285,
+      "content_rating": "Approved",
+      "plot": "The main story combines bits of Giovanni Boccaccio's own life (maybe and maybe not) with three of his most fabulous stories of love. It has Boccaccio following Fiametta to a country villa where she and five other women---The Contessa, Pampinea and three villa girls are hiding following the rape of their home city, Florance, Italy, by the Duke of Lorenzo. The recently-widowed Fiametta spurns overtures of love offered by the philandering Boccaccio who, in an effort to win her, spins two of his stories: The first is \"Paganino the Pirate\", a spicy tale of a young wife, married to an elderly gent, who prefers astrology to martial bliss, permits herself to be captured by a young pirate, to teach her husband a lesson. The second tale is \"Wager on Virtue\", concerning an elderly merchant,who loses faith in his beautiful young wife, on the strength of circumstantial evidence present him by a daring young rogue, who has previously goaded him into a bet on his wife's virtue, or lack thereof. The characters in this segment include Nerina, The Sultan, the Merchant Captain, a Merchant in French Inn and George and Bert Bernard as messengers. The third story, told by Fiametta, is \"The Doctor's Daughter,\" concerning a delicate matter of matrimony when a wife, Isabella , finds herself spurned by the man, Bertrando, who has wed her at the command of his King. Characters include Maria, The Old Witch, Father Francaisco, and Signora Bucca.",
+      "runtime_min": 93,
+      "director": "Hugo Fregonese",
+      "actors": [
+        "Joan Fontaine",
+        "Louis Jourdan",
+        "Godfrey Tearle"
+      ],
+      "genres": [
+        "Drama",
+        "Adventure",
+        "Romance"
+      ],
+      "fetched_at": "2026-09-18T07:26:36Z",
+      "schema": 3
+    },
+    "tt0060254": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BZjdhZWVlZGEtMDcwZi00MjlhLWI3NTAtN2VlZjZjMDA2N2JiXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 7.1,
+      "imdb_votes": 326,
+      "content_rating": null,
+      "plot": "Jean-Louis Matouzec works for French National Library as an expert looking after the restoration of old manuscripts.He falsifies marriage certificates as his wife refuses divorce.",
+      "runtime_min": 90,
+      "director": "Jean-Pierre Mocky",
+      "actors": [
+        "Claude Rich",
+        "Michel Serrault",
+        "Francis Blanche"
+      ],
+      "genres": [
+        "Comedy"
+      ],
+      "fetched_at": "2026-09-18T07:26:36Z",
+      "schema": 3
+    },
+    "tt0295002": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMDFmOGMyYjQtZGNiMS00MTg2LTkxNzMtY2NkNWY5YmIzNmEyXkEyXkFqcGdeQXVyMTk5MjAyMjM@._V1_SX300.jpg",
+      "imdb_rating": 3.0,
+      "imdb_votes": 199,
+      "content_rating": "R",
+      "plot": "While spending time visiting his grandfather in the small town called Harvest, Eric starts having some strange experiences. Young Julia befriends him, though she appears to be a ghost, as is her mother, who is not as friendly.",
+      "runtime_min": 72,
+      "director": "Don Adams, Harry James Picardi",
+      "actors": [
+        "Michael Galvin",
+        "Mark Vollmers",
+        "Susan Karsnick",
+        "Andrea Washburn"
+      ],
+      "genres": [
+        "Horror"
+      ],
+      "fetched_at": "2026-09-18T07:26:36Z",
+      "schema": 3
+    },
+    "tt0466456": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BZGYzNjhhMTItNDZlYi00NWIxLThmYjEtODE2ODQ1MWZkN2I1XkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 5.9,
+      "imdb_votes": 612,
+      "content_rating": "Not Rated",
+      "plot": "Janu Nakts (St. John's Night) is a traditional Latvian celebration during which family and friends gather to build bonfires, barbecue, drink and generally have a good time. According to legend, lovers and those who would like to fall in love, can search the woods for the \"magic fern\" on this night. This magic fern serves as the focus and pivotal point of the six stories in \"Midsummer Madness\" It is also a metaphor for the film's underlying theme - finding love. \"MIDSUMMER MADNESS \" is reflected in the recurring element of the magic fern, a metaphor (both in the film and in real life) for love. The question posed by the film is: can a search for love ever be successful? Each story deals with this question. An answer is provided at the film's conclusion in a humorous and unforgettable way: we see the legendary fern, glowing magically in a meadow. It exists after all! Then a cow ambles along and eats it. The deeper message, which is not obvious to the audience, is therefore: Yes, a search for love can be successful, though we are generally unaware of how to deal with it.",
+      "runtime_min": 94,
+      "director": "Alexander Hahn",
+      "actors": [
+        "Maria de Medeiros",
+        "Dominique Pinon",
+        "Orlando Wells"
+      ],
+      "genres": [
+        "Comedy",
+        "Drama",
+        "Romance"
+      ],
+      "fetched_at": "2026-09-18T07:26:36Z",
+      "schema": 3
+    },
+    "tt1424003": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMjE3MjE1NjgxN15BMl5BanBnXkFtZTcwMzU0MDI0NA@@._V1_SX300.jpg",
+      "imdb_rating": 6.3,
+      "imdb_votes": 7005,
+      "content_rating": "TV-PG",
+      "plot": "Based in a London suburb Mahmud Nasir lives with his pretty wife, Saamiya, and two children, Rashid and Nabi. His son plans to marry Uzma, the step-daughter of Egyptian-born Arshad Al-Masri, a so-called 'Hate Cleric' from Waziristan, Pakistan. Mahmud, who is not exactly a devout Muslim, he drinks alcohol, and does not pray five times, but does agree that he will appease Arshad, without whose approval the marriage cannot take place. Shortly thereafter Mahmud, while going over his recently deceased mother's documents, will find out that he was adopted, his birth parents were Jewish, and his name is actually Solly Shimshillewitz. He conceals this information from his family, and with the help of his neighbor, Leonard Goldberg, tries to understand the Jews, their religion and even locates his birth-father, who is on his death-bed in a nursing home. Mahmud does not know that Arshad has been checking into his background, has videotaped him setting fire to a Jewish cap during a protest, and has already approved of him, despite of his letter to the media about 'moderate Muslims'. But on the day of the meeting with Arshad and Uzma - Mahmud will find his life drastically changed when the Police will attend to arrest him, and he will be forced to publicly proclaim that he is Jewish - a move that will not only alienate him from his family but both the Jewish and Muslim communities.",
+      "runtime_min": 105,
+      "director": "Josh Appignanesi",
+      "actors": [
+        "Omid Djalili",
+        "Richard Schiff",
+        "Archie Panjabi"
+      ],
+      "genres": [
+        "Comedy",
+        "Drama"
+      ],
+      "fetched_at": "2026-09-18T07:26:36Z",
+      "schema": 3
+    },
+    "tt1433819": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMTY0MjI5NDQ2Ml5BMl5BanBnXkFtZTcwOTg0OTE3NA@@._V1_SX300.jpg",
+      "imdb_rating": 4.9,
+      "imdb_votes": 154,
+      "content_rating": null,
+      "plot": "There is what can one say about this serial try of the Bulgarian cinema. At least here the claim was not so high compared to the other Bulgarian movies. Why is this so?For the first time the desire the real life to be shown as it is, is successfully achieved. These young boys, or maybe already men, which we could see before in the streets of our capital, make a movie about Bulgarian man and the bachelors in specific. You understood when one has to stop being a bachelor - when he is the last one single on the meeting.So, it is honor to them shooting a movie about Bulgarian men telling their own life and their destiny. When they showed and documentary cadres from the wedding of the protagonist and from the birth of the child of another participant of the group, I was pretty delighted. Until I talk to one of them I will not be sure that these cadres are original but I feel they are.Especially with this budged seen through, this movie manage to show what can be done with a very little. Yes there were some flaws but this is not the important.http://vihrenmitevmovies.blogspot.com/",
+      "runtime_min": 75,
+      "director": "Tonislav Hristov",
+      "actors": [
+        "Zoran Atanasov",
+        "Hristiyan Dimov",
+        "Radost Dimova"
+      ],
+      "genres": [
+        "Documentary"
+      ],
+      "fetched_at": "2026-09-18T07:26:36Z",
+      "schema": 3
+    },
+    "tt2649680": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMTkyNDMyNzE4N15BMl5BanBnXkFtZTgwNzU2NTExNjE@._V1_SX300.jpg",
+      "imdb_rating": 3.6,
+      "imdb_votes": 699,
+      "content_rating": "Not Rated",
+      "plot": "A naive university student, Evangeline, is brutalized by a gang of thrill seeking killers. Left to die in the forest, she is 'saved' by an ancient demon spirit. The spirit empowers Evangeline with a blood-lust for vengeance. Evangeline must make a choice, is she willing to sacrifice her own soul...",
+      "runtime_min": 79,
+      "director": "Karen Lam",
+      "actors": [
+        "Katerina Katelieva",
+        "Richard Harmon",
+        "Mayumi Yoshida"
+      ],
+      "genres": [
+        "Fantasy",
+        "Horror",
+        "Thriller"
+      ],
+      "fetched_at": "2026-09-18T07:26:36Z",
+      "schema": 3
+    },
+    "tt3503460": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMjEzMzcwNTI5OF5BMl5BanBnXkFtZTgwMzY1NzE2OTE@._V1_SX300.jpg",
+      "imdb_rating": 5.3,
+      "imdb_votes": 2311,
+      "content_rating": "Not Rated",
+      "plot": "In a dystopian future, an unidentified virus has caused a neurological disease of global proportions, decimating the majority of the earth's population. Little by little, as we observe the lives of a handful of survivors who still remain relatively unharmed by this illness, we understand their struggle to hopelessly attach to their former way of life, where even the simplest of affairs require great effort to be accomplished. Ultimately, as the last remaining souls suffer from varying degrees of memory loss, the urgent and paramount need to move forward with their lives will become an arduous task and a fierce battle with the inevitable.",
+      "runtime_min": 85,
+      "director": "Claire Carré",
+      "actors": [
+        "Jason Ritter",
+        "Iva Gocheva",
+        "Greta Fernández"
+      ],
+      "genres": [
+        "Drama",
+        "Mystery",
+        "Sci-Fi"
+      ],
+      "fetched_at": "2026-09-18T07:26:36Z",
+      "schema": 3
+    },
+    "tt3854372": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMTQ4NWNhNDYtMmExMC00ZjgyLTlhZDMtNDdkM2RiYWMzNDlmXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 5.7,
+      "imdb_votes": 559,
+      "content_rating": "PG-13",
+      "plot": "On a business trip to Nashville, Brennan finds himself reunited with the \"Girl\" who had previously broken his heart. Now, for one weekend in the city's music scene, a past and present romance will be reborn and challenged.",
+      "runtime_min": 96,
+      "director": "Anthony Baldino, Ryan Lacen",
+      "actors": [
+        "Colin O'Donoghue",
+        "Kristen Lee Gutoskie",
+        "Chris Carmack"
+      ],
+      "genres": [
+        "Drama",
+        "Musical",
+        "Romance"
+      ],
+      "fetched_at": "2026-09-18T07:26:36Z",
+      "schema": 3
+    },
+    "tt6262322": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BZDEyODA2MDAtZmViMi00ZjgwLWJhNmEtNWQyNDdiNzA3MGQwXkEyXkFqcGdeQXVyMjg0NTcyMA@@._V1_SX300.jpg",
+      "imdb_rating": 5.4,
+      "imdb_votes": 109,
+      "content_rating": null,
+      "plot": "While on a mission to rescue the kidnapped mayor of Metropolis, Jefferson Pierce aka (Black Lightning) faces his nemesis Tobias Whale and several high ranking members of the 100 gang making it his toughest battle yet.",
+      "runtime_min": 34,
+      "director": "Choice Skinner",
+      "actors": [
+        "Choice Skinner",
+        "James M. Black",
+        "Dimitri Morantus"
+      ],
+      "genres": [
+        "Short"
+      ],
+      "fetched_at": "2026-09-18T07:26:36Z",
+      "schema": 3
+    },
+    "tt7356166": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMTA2MDZhNmEtY2JiZC00ZDllLThhYjctNjdiOWNlMmRkMWIyXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 5.5,
+      "imdb_votes": 311,
+      "content_rating": "Not Rated",
+      "plot": "Rose Raynes was crowned Miss Arizona - 15 years ago. Now a bored housewife trapped in a less-than-ideal-marriage , and mourning the independence of her 10-year-old-son, Rose accepts an invitation to teach a life skills class at a women's shelter. Digging out the relics of her pageant queen past, Rose attempts to share her \"Making Your Presence a Present\" platform speech with a room of four disinterested women dodging abusive exes. But when trouble shows up at the shelter, what the women really need is for Rose's shiny Escalade to get them out of dodge. The five embark on an all-night adventure through L.A.'s darkest streets and wildest drag club as the women fight to survive, and in so doing, discover what they need most. This one's an anthem for any woman who's ever been told to sit still and be pretty. This one's for the marginalized. This one's for the girls.",
+      "runtime_min": 94,
+      "director": "Autumn McAlpin",
+      "actors": [
+        "Johanna Braddy",
+        "Kyle Howard",
+        "Blake McAlpin"
+      ],
+      "genres": [
+        "Comedy",
+        "Drama"
+      ],
+      "fetched_at": "2026-09-18T07:26:36Z",
+      "schema": 3
+    },
+    "tt9647768": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BZTgwZTYyNjItOTQ5YS00MjZhLTkyODAtMzc5YWQzZDIwMTAzXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 6.7,
+      "imdb_votes": 8299,
+      "content_rating": null,
+      "plot": "A gangster on the run sacrifices everything for his family and a woman he meets while on the lam.",
+      "runtime_min": 113,
+      "director": "Yi'nan Diao",
+      "actors": [
+        "Ge Hu",
+        "Lun-Mei Gwei",
+        "Fan Liao"
+      ],
+      "genres": [
+        "Crime",
+        "Drama"
+      ],
+      "fetched_at": "2026-09-18T07:26:36Z",
       "schema": 3
     }
   },
