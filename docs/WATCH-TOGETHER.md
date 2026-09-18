@@ -1826,9 +1826,13 @@ the three repaired cases genuinely exercised rather than counted. §8.3's soak:
 18,011 frames encoded and 18,011 sent over ten minutes, peak send queue 24 kB
 of a 1,149 kB cap (2%), thermal nominal, no encoder or pool faults, 29 fps at
 worst after the first minute. Memory grew **4.7 MB** (71.5 → 76.2, peak 85.8)
-where the last recorded soak grew 12.8 MB and peaked at 112.3 — an improvement
-worth noting and NOT worth attributing, since nothing in tonight's Apple
-changes obviously accounts for it and one run is not a trend.
+where the last recorded soak grew 12.8 MB and peaked at 112.3. **A second
+soak, after 8.2/8.7 joined the suite, grew 4.0 MB (71.1 → 75.1, peak 86.0)** —
+so two consecutive runs sit near 4 MB against a recorded 12.8. That is more
+than one reading and still NOT attributed: nothing in tonight's Apple changes
+obviously accounts for it (the allocation fix was Kotlin; this harness is
+Swift), and the honest description is a consistent difference with no known
+cause rather than an improvement anyone earned.
 
 **But the cadence matters more than the structure.** The list was wrong for a
 whole session and the suite said so within seconds of being asked. No amount of
