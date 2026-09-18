@@ -1297,6 +1297,31 @@ Kotlin cases skip silently without a local server and did so for a whole
 session (§6.2n), so skips are counted separately, named, and `--strict` makes
 them failures.
 
+**The soak's own result, run standalone** (2026-09-18, after the first
+`--soak` attempt was killed by the system for memory pressure — the shared
+server was recording every case to disk for no reader):
+
+| over 10.0 minutes at 1080p30 / 6000 kbps | |
+|---|---|
+| frames encoded / sent | **18012 / 18012** — none dropped |
+| audio frames · pushed | 25819 · 363 MB |
+| memory | 71.3 → 76.9 MB (**+5.6 MB**, flat at ~83 MB from minute two) |
+| peak send queue | **39 kB** of §6.4a's 1149 kB cap (**3%**) |
+| fps at worst after minute one | 29 |
+| thermal · pool failures · reconnects | nominal · 0 · 0 |
+
+Nine assertions, all green. Memory grew LESS than the 12.8 MB of §9.aa's run
+because no second server was recording alongside it — which is the memory fix
+showing up in the measurement it was made for.
+
+**And `--strict` had a bug that reading found and running never would have.**
+It printed `SUITE RESULT: PASS (with skips)` and only THEN evaluated
+strictness and exited 1, so the spoken line contradicted the exit status on
+exactly the runs the flag exists for. The printed line exists *because* a
+caller's pipe replaces the status, so it is the line that has to be right. The
+verdict is now computed once and then spoken. That is discipline 11 found
+inside the mechanism written to enforce discipline 11.
+
 ### §9.kk §5's adaptive step had no surface on ANY platform (2026-09-17)
 
 Audited straight after §9.jj, and it corrects §9.jj: **`qualityNote` was

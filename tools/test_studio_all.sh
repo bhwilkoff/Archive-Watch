@@ -217,12 +217,20 @@ echo "pass=$PASS skip=$SKIP fail=$FAIL"
 if [ "$SKIP" -gt 0 ]; then
   echo "NOTE: a SKIP is not a PASS. $SKIP case(s) did not run."
 fi
-# Printed as well as returned: piping this script through `tail` replaces
-# its exit status with tail's, which is how a fail=1 run reported exit 0.
-if [ "$FAIL" -gt 0 ]; then echo "SUITE RESULT: FAIL"; exit 1; fi
-if [ "$SKIP" -gt 0 ]; then echo "SUITE RESULT: PASS (with skips)"; else echo "SUITE RESULT: PASS"; fi
+# THE VERDICT IS DECIDED BEFORE IT IS SPOKEN.
+#
+# The first version printed "PASS (with skips)" and only THEN evaluated
+# --strict and exited 1 - so the spoken line contradicted the exit status on
+# exactly the runs --strict exists for. That is discipline 11 inside the
+# mechanism written to enforce it: the printed line exists because a caller's
+# pipe eats the status, so it is the line that must be right.
+RESULT=PASS
+RC=0
+if [ "$SKIP" -gt 0 ]; then RESULT="PASS (with skips)"; fi
 if [ "$STRICT" = "1" ] && [ "$SKIP" -gt 0 ]; then
-  echo "--strict: skips count as failures"
-  exit 1
+  RESULT="FAIL (--strict: $SKIP skip(s) count as failures)"
+  RC=1
 fi
-exit 0
+if [ "$FAIL" -gt 0 ]; then RESULT=FAIL; RC=1; fi
+echo "SUITE RESULT: $RESULT"
+exit $RC
