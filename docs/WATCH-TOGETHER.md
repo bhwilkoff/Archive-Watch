@@ -1664,6 +1664,43 @@ against ~13 s for a network film), and the measurement ran.
 verifying the clip, exactly as §9.nn recorded and as the memory says. Knowing
 the trap did not stop me walking into it; only re-running without it did.)
 
+### §9.hhh Hunting the 0.7 s: the tap and playback advance together, and the instrument was masked by RESUME (2026-09-18)
+
+§9.ggg measured audio leading video by ~0.7 s and named a hypothesis: the
+`TeeAudioProcessor` taps PCM on its way INTO the audio sink — audio the player
+has not played yet — so the tap runs ahead of playback by the sink's buffer
+depth. Testing that before fixing anything, because a fix aimed at the wrong
+cause is how a 0.7 s error becomes two errors.
+
+The test compares the tap's own sample clock against the player's playback
+position, once a second, where both are in scope:
+
+    playback=112.204 s  tap=43.073 s  playback-tap=+69.131 s
+    playback=119.259 s  tap=50.109 s  playback-tap=+69.150 s
+
+**The difference is pinned at +69.14 s, ±15 ms over the run** — and that is not
+a latency. It is the film's RESUME POSITION: the app restored watch history for
+the armed film and began the overridden clip about 69 s in, while the tap counts
+from zero. The instrument measured the resume offset, not the sink's lead, and
+the quantity being hunted is three orders of magnitude smaller than the thing
+masking it.
+
+**What it does establish, and it is not nothing**: the tap's sample clock and
+the player's playback position advance at IDENTICAL rates — ±15 ms over eight
+seconds. So whatever causes §9.ggg's 0.7 s is a CONSTANT pipeline offset, not
+anything that drifts, which agrees with the six flash/beep pairs spanning only
+66 ms. A constant offset is the easier kind to fix and the easier kind to get
+wrong by guessing.
+
+**The next measurement is specific**: clear the film's resume position (or start
+the clip at zero) so the tap and the playback clock share an origin, and the
+residual difference IS the sink's lead. Until that number exists, the mechanism
+in §9.ggg stays a hypothesis and no timestamp is adjusted on the strength of it.
+
+(A smaller thing worth recording: `aw_play_url` inherits the ARMED FILM's resume
+position, because the door overrides the URI and nothing else. Harmless for a
+sync clip, and confusing exactly once.)
+
 ### §9.ggg Android's broadcast is 0.7 SECONDS out of sync — and a crash on the way to finding out (2026-09-18)
 
 §9.fff built the flash-and-beep clip and could not play it. Two fixes later the

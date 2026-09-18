@@ -572,6 +572,29 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
                 }
             }
             StudioController.pollHealth()
+            if (BuildConfig.DEBUG) {
+                // §9.ggg: WHY does audio lead video by ~0.7 s? The hypothesis is
+                // that `TeeAudioProcessor` taps PCM on its way INTO the audio
+                // sink — audio the player has not played yet — so the tap runs
+                // ahead of playback by the sink's buffer depth, and its sample
+                // clock therefore timestamps content earlier than the video
+                // that accompanies it.
+                //
+                // If that is right, (playback position - tap seconds) sits at a
+                // constant NEGATIVE value equal to that lead. If it is wrong,
+                // the two track each other and the cause is elsewhere.
+                StudioController.attachedTap?.let { t ->
+                    val rate = t.sampleRate
+                    val ch = t.channelCount
+                    if (rate > 0 && ch > 0) {
+                        val tapSec = t.bytesSeen.get().toDouble() / (rate.toDouble() * ch * 2)
+                        val posSec = player.currentPosition / 1000.0
+                        android.util.Log.i("AWSTUDIOLEAD", String.format(
+                            "playback=%.3f s  tap=%.3f s  playback-tap=%+.3f s",
+                            posSec, tapSec, posSec - tapSec))
+                    }
+                }
+            }
             kotlinx.coroutines.delay(if (handedOver) 1000 else 100)
         }
     }
