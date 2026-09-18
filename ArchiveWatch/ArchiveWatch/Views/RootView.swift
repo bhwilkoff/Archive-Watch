@@ -58,6 +58,45 @@ struct RootView: View {
         // Siri / Shortcuts requests (Decision 015). Handle one set before
         // we appeared (cold launch via "Hey Siri…") and any set while live.
         .task { handleIntent(inbox.request) }
+        // DEBUG door for MOVING THE TOKEN between Google accounts/channels.
+        //
+        // Google offers its Brand Account chooser only at CONSENT, and an app
+        // cannot switch a host's channel afterwards — so the only way to change
+        // which identity the television broadcasts as is to sign out and
+        // consent again. This presses nothing on the host's behalf: it clears
+        // the stored token and PRESENTS Apple's hand-off; a human approves on
+        // their own phone and picks the channel there.
+        //
+        // IT LIVES HERE, NOT ON THE GO-LIVE SHEET, and both halves of that were
+        // learned the hard way. Presented while the film autoplays, the session
+        // dies with kInvalidatedErr ("View service invalidated before
+        // completing") about ten seconds in, because the view hierarchy moves
+        // underneath it. Presented WITHOUT autoplay, the go-live sheet never
+        // appears at all and the door never runs — the owner got no prompt
+        // whatsoever. The root view is on screen either way.
+        .task {
+            #if DEBUG
+            guard ProcessInfo.processInfo.environment["AW_STUDIO_AUTH"] == "resignin-youtube"
+            else { return }
+            StudioPlatformAuth.signOut(.youtube)
+            awdiag("AWAUTH signed out of YouTube; signedIn now=%@",
+                   StudioPlatformAuth.isSignedIn(.youtube) ? "true" : "false")
+            do {
+                awdiag("AWAUTH presenting YouTube sign-in — approve on a nearby phone, "
+                       + "and CHOOSE THE CHANNEL when Google offers the account list")
+                try await StudioPlatformAuth.signInToYouTube()
+                awdiag("AWAUTH YouTube sign-in returned; signedIn=%@",
+                       StudioPlatformAuth.isSignedIn(.youtube) ? "true" : "false")
+                if let who = try? await StudioPlatformAuth.youTubeAccount() {
+                    awdiag("AWAUTH token now resolves to id=%@ title=%@", who.id, who.title)
+                }
+                awdiag("AWAUTH readiness now=%@",
+                       String(describing: try? await StudioPlatformAuth.readiness(for: .youtube)))
+            } catch {
+                awdiag("AWAUTH YouTube sign-in FAILED: %@", String(describing: error))
+            }
+            #endif
+        }
         // Ask once whether this device has speech models at all — an Apple TV
         // ships the API and none of the assets, and the app must not claim
         // otherwise (see CaptionCapability).

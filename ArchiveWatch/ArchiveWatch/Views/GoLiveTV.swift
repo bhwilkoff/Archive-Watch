@@ -223,35 +223,6 @@ struct GoLiveTV: View {
         //
         // Bench only. It refuses to fire at a real platform, so it can never
         // put a broadcast on anybody's channel.
-        // DEBUG door for MOVING THE TOKEN between Google accounts/channels.
-        //
-        // Google offers its channel chooser only at CONSENT time, and an app
-        // cannot switch a host's channel afterwards — so the only way to change
-        // which identity the television broadcasts as is to sign out and
-        // consent again. This presses nothing on the host's behalf: it clears
-        // the stored token and PRESENTS Apple's hand-off, and a human still
-        // approves on their own phone and picks the channel there.
-        .task {
-            let auth = ProcessInfo.processInfo.environment["AW_STUDIO_AUTH"] ?? ""
-            guard auth == "resignin-youtube" else { return }
-            StudioPlatformAuth.signOut(.youtube)
-            awdiag("AWAUTH signed out of YouTube; signedIn now=%@",
-                   StudioPlatformAuth.isSignedIn(.youtube) ? "true" : "false")
-            do {
-                awdiag("AWAUTH presenting YouTube sign-in — approve on a nearby phone, "
-                       + "and CHOOSE THE CHANNEL at the consent step")
-                try await StudioPlatformAuth.signInToYouTube()
-                awdiag("AWAUTH YouTube sign-in returned; signedIn=%@",
-                       StudioPlatformAuth.isSignedIn(.youtube) ? "true" : "false")
-                if let who = try? await StudioPlatformAuth.youTubeAccount() {
-                    awdiag("AWAUTH token now resolves to id=%@ title=%@", who.id, who.title)
-                }
-                let r = try? await StudioPlatformAuth.readiness(for: .youtube)
-                awdiag("AWAUTH readiness now=%@", String(describing: r))
-            } catch {
-                awdiag("AWAUTH YouTube sign-in FAILED: %@", String(describing: error))
-            }
-        }
         .task {
             let door = ProcessInfo.processInfo.environment["AW_STUDIO_TV_GOLIVE"] ?? ""
             guard !door.isEmpty else { return }
