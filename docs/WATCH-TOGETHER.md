@@ -1618,6 +1618,45 @@ the audio path, the real ingest hosts with no credential, the overlay and
 go-live surfaces on the glass, the rights gate on device, and the platform
 clients. **→ `docs/watch-together-measurements.md`**
 
+### §9.yy What Apple actually SENDS, checked against YouTube's published spec — and two instruments that disagreed (2026-09-18)
+
+§9.xx found Android requesting an H.264 profile it could not have and being
+told nothing. The same question had to be put to Apple, which asks for
+`kVTProfileLevel_H264_High_AutoLevel` and had never had its output checked.
+
+**Apple's request is honoured, and its level is honest.** Read from the
+server's own recording of the macOS product path:
+
+| | Apple sends | YouTube publishes |
+|---|---|---|
+| profile | **High** | not specified |
+| level | **4.0** — accurate for 1080p30 | — |
+| resolution / pixel format | 1920x1080, yuv420p | — |
+| keyframe interval | **2.00 s** mean, **2.00 s** max, 20 gaps | **2 s**, "do not exceed 4" |
+| audio | AAC-LC, 128 kbps stereo | AAC, 128 kbps stereo |
+| achieved video bitrate | 3.06 Mbps against a 6 Mbps target | — |
+
+Two things worth keeping from that table. `AutoLevel` picked **4.0**, which is
+what 1080p30 actually needs — next to the Android change in §9.xx, which
+requests the HIGHEST level a codec advertises and so declared 5.0 for a 720p30
+stream. Apple demonstrates the better practice: an accurate level, chosen by
+the encoder. And the achieved bitrate is HALF the target, which is correct
+rather than alarming: a bitrate is a ceiling, not a floor (§9), and a grainy
+monochrome silent film gives the encoder little to spend it on.
+
+**TWO INSTRUMENTS DISAGREED ABOUT THE KEYFRAMES, AND THE FIRST ONE WAS WRONG.**
+Counting container PACKET flags said **one keyframe in 1,226 packets over 41
+seconds** — which would have been a serious defect, since a viewer joining a
+stream with no periodic IDR has nothing decodable until the next one. Counting
+FRAMES by `pict_type` said 21 I-frames, evenly spaced at exactly 2.00 s. The
+packet flags simply are not marked through mediamtx's TS remux.
+
+The rule this adds to the family: **when a measurement implies a serious
+defect, measure it a second way before believing it.** The cost of the second
+check here was one command; the cost of acting on the first reading would have
+been a day chasing a keyframe bug that does not exist. Prefer `-show_frames`
+`pict_type` over packet flags for this question.
+
 ### §9.xx Android asked for a profile it could not have, and was told nothing (2026-09-18)
 
 `StudioVideoEncoder` carried a promise in a comment: *"Baseline keeps every
