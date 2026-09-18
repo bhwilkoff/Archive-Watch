@@ -97,6 +97,14 @@ object StudioController {
             audioTap = audioTap,
             overlay = StudioOverlayBitmap.lowerThird(
                 overlayWidth, overlayHeight, armedTitle, armedSubtitle, armedProvenance),
+            // The SURFACE owns the film's title and provenance, so it supplies
+            // the re-render; the engine decides when chat has changed enough
+            // to need one.
+            overlayForChat = { lines ->
+                StudioOverlayBitmap.withChat(
+                    overlayWidth, overlayHeight, armedTitle, armedSubtitle, armedProvenance, lines)
+            },
+            chatChannel = System.getenv("AW_STUDIO_CHAT"),
         )
         isLive = true
     }

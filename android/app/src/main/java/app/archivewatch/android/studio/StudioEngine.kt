@@ -124,6 +124,10 @@ class StudioEngine(
     private var aac: StudioAacEncoder? = null
     private var publisher: RtmpPublisher? = null
     private var loop: Job? = null
+    private var twitchChat: StudioChatTwitch? = null
+    private var overlayForChat: ((List<ChatLine>) -> android.graphics.Bitmap)? = null
+    private var chatIdsDrawn: List<String> = emptyList()
+
     private val running = AtomicBoolean(false)
 
     // ---- §6.5 thermal pressure
@@ -224,8 +228,24 @@ class StudioEngine(
         streamKey: String = "",
         audioTap: StudioFilmAudioTap? = null,
         overlay: android.graphics.Bitmap? = null,
+        /**
+         * Re-renders the overlay for a given chat tail, when chat is being
+         * carried. The Android overlay is ONE texture, so a new line means a
+         * new bitmap and a re-upload — unlike Apple's two cached layers. The
+         * surface supplies this because it owns the film's title and
+         * provenance; the engine owns when to call it.
+         */
+        overlayForChat: ((List<ChatLine>) -> android.graphics.Bitmap)? = null,
+        /** Read anonymously; no credential exists or is needed (§6.4). */
+        chatChannel: String? = null,
     ) {
         if (!running.compareAndSet(false, true)) return
+        if (!chatChannel.isNullOrEmpty()) {
+            val chat = StudioChatTwitch()
+            twitchChat = chat
+            this.overlayForChat = overlayForChat
+            chat.start(chatChannel)
+        }
         loop = scope.launch(renderDispatcher) { runLoop(destination, streamKey, audioTap, overlay) }
         // §6.6 on its OWN coroutine, and NOT on `renderDispatcher`.
         //
@@ -342,6 +362,22 @@ class StudioEngine(
 
             val now = System.currentTimeMillis()
             if (now - lastSecond >= 1000) {
+                // Chat the program CARRIES. Re-rendered and re-uploaded only
+                // when the line ids change: once a second is cheap, every
+                // frame is what the overlay cache exists to avoid (§9).
+                // Safe here because this block runs on the render thread,
+                // which is the only thread allowed to touch GL.
+                val chat = twitchChat
+                val factory = overlayForChat
+                if (chat != null && factory != null) {
+                    val tail = chat.snapshot().takeLast(8)
+                    val ids = tail.map { it.id }
+                    if (ids.isNotEmpty() && ids != chatIdsDrawn) {
+                        pg.setOverlayBitmap(factory(tail))
+                        chatIdsDrawn = ids
+                    }
+                }
+
                 val film = pg.framesAvailable.get()
 
                 // §6.5. Android reports more states than Apple: SEVERE (3) is
@@ -478,6 +514,8 @@ class StudioEngine(
         val wasRunning = running.getAndSet(false)
         if (!wasRunning && loop == null) return
         supervisor?.cancel(); supervisor = null
+        twitchChat?.stop(); twitchChat = null
+        overlayForChat = null
         loop?.join(); loop = null
         publisher?.close(); publisher = null
         aac?.stop(); aac = null
