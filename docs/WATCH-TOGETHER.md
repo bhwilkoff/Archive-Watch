@@ -533,9 +533,50 @@ output format rather than in a buffer; Apple hands it over ready-made. The
 test asserts the two bytes a malformed record gets wrong —
 `configurationVersion = 1` and `lengthSizeMinusOne = 3` (0xFF).
 
-**Still ahead on Android**: the film itself (ExoPlayer to a `SurfaceTexture`,
-composited by the same GLES program), the camera tile, and `TeeAudioProcessor`
-for film audio. The transport and the encoder under them are now proved.
+### §6.2c — A REAL FILM through the Android chain (2026-09-17)
+
+`StudioProgramGl.kt`: ExoPlayer decodes into a `SurfaceTexture`, GLES samples
+it as an **external OES texture** and draws it aspect-fit into MediaCodec's
+input surface. Proved on the Google TV, and judged from the server's own
+recording — a 1280×720 frame carrying an intertitle from *The Kiss of Death*
+(1916), not a colour and not black.
+
+**It was black first, and the test passed anyway.** That is the finding. Four
+defects, every one silent:
+
+1. **`SurfaceTexture.setDefaultBufferSize` is not optional.** A
+   `SurfaceTexture` not attached to a View has no size, so the decoder renders
+   into a buffer that is not the film. Everything else succeeds — frames
+   arrive, `updateTexImage` works, MediaCodec encodes, the server accepts and
+   records the stream. A perfectly healthy broadcast of nothing.
+2. **`updateTexImage()` does NOT fail when there is no new frame** — it
+   re-presents the previous one. Using its return value as "a frame arrived"
+   measures nothing, which is exactly how the black run reported a first frame
+   it had never received. Only `setOnFrameAvailableListener` knows.
+3. **That listener needs an explicit `Handler`.** The no-Handler overload
+   wants a `Looper` on the calling thread and a render thread has none, so the
+   callback never fires — and "no frames" then looks identical to a film that
+   will not play. First real run after the fix: 0 frames. Second: 26.
+4. **The sampler uniform must be bound** (`glUniform1i(sTexture, 0)`), and an
+   external texture needs `samplerExternalOES` with the
+   `GL_OES_EGL_image_external` extension declared. A plain `sampler2D`
+   compiles and samples nothing.
+
+**Throughput on that dongle is poor and is NOT claimed as a measurement**:
+26 film frames and 39 encoded in 25 seconds, pulling an mp4 over the network
+on a TV stick. The test's bar is deliberately modest because it asks "does the
+film reach the encoder", not "how fast" — asserting a number the test was
+never shaped to produce is how a green suite starts lying. A real throughput
+figure belongs on a phone, driven by the frame-available callback rather than
+a sleep loop.
+
+**Known and deliberately left**: the film's aspect is passed in by the caller
+(the test hardcodes 4:3). In the product it must come from ExoPlayer's own
+video size, or a 16:9 film gets pillarboxed as though it were 4:3.
+
+**Still ahead on Android**: the camera tile, the overlays, and
+`TeeAudioProcessor` for film audio. The transport, the encoder and the film
+texture under them are now proved.
 
 ## §7 — Phases
 
