@@ -226,9 +226,28 @@ final class FilmAudioTap: @unchecked Sendable {
     private func makeTap() -> MTAudioProcessingTap? {
         var callbacks = MTAudioProcessingTapCallbacks(
             version: kMTAudioProcessingTapCallbacksVersion_0,
-            clientInfo: UnsafeMutableRawPointer(Unmanaged.passUnretained(self).toOpaque()),
+            // RETAINED, and released in `finalize`. This was
+            // `passUnretained` with `finalize: nil`, which is a use-after-free
+            // waiting for a teardown: the tap's `process` callback runs on
+            // MediaToolbox's own real-time thread and keeps firing after the
+            // show ends, so once the mixer is deallocated it dereferences a
+            // freed object.
+            //
+            // MEASURED, not theorised — the Mac crashed ending a broadcast:
+            //   EXC_BAD_ACCESS (SIGSEGV) KERN_INVALID_ADDRESS at 0x10
+            //   thread AQProcessingTapManager
+            //     _ArrayBuffer.count.getter
+            //     FilmAudioTap.append(_:frames:)
+            //     closure #3 in FilmAudioTap.makeTap()
+            // Two of five layout runs died this way, at the moment the session
+            // ended rather than during it, which is why every recording looked
+            // healthy. The tap now owns a reference for exactly as long as it
+            // exists.
+            clientInfo: UnsafeMutableRawPointer(Unmanaged.passRetained(self).toOpaque()),
             init: { _, clientInfo, storageOut in storageOut.pointee = clientInfo },
-            finalize: nil,
+            finalize: { tap in
+                Unmanaged<FilmAudioTap>.fromOpaque(MTAudioProcessingTapGetStorage(tap)).release()
+            },
             prepare: { tap, _, format in
                 let s = Unmanaged<FilmAudioTap>.fromOpaque(MTAudioProcessingTapGetStorage(tap))
                     .takeUnretainedValue()
@@ -248,7 +267,12 @@ final class FilmAudioTap: @unchecked Sendable {
         // PostEffects: what the viewer actually hears, volume and all.
         let err = MTAudioProcessingTapCreate(kCFAllocatorDefault, &callbacks,
                                              kMTAudioProcessingTapCreationFlag_PostEffects, &out)
-        return err == noErr ? out : nil
+        guard err == noErr else {
+            // No tap means no `finalize`, so the retain above would leak.
+            Unmanaged<FilmAudioTap>.passUnretained(self).release()
+            return nil
+        }
+        return out
     }
 
     private func setSourceFormat(_ asbd: AudioStreamBasicDescription) {

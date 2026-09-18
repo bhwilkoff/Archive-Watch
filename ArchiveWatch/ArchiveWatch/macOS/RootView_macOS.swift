@@ -220,7 +220,18 @@ struct RootView: View {
                             return
                         }
                         router.play(it)                 // now the player finds it armed
-                        try? await Task.sleep(for: .seconds(6))
+                        // WAIT FOR THE ENGINE, don't guess at it. A fixed sleep
+                        // read `isLive` before the engine had finished starting
+                        // and logged `engineLive=FALSE` for a run that was in
+                        // fact publishing — the server's recording proved it.
+                        // A readout that races the thing it reports is the
+                        // fault this feature keeps repeating, so this waits for
+                        // the state instead of assuming a duration.
+                        var waited = 0.0
+                        while !StudioSession.shared.isLive, waited < 20 {
+                            try? await Task.sleep(for: .milliseconds(250))
+                            waited += 0.25
+                        }
                         await StudioSession.shared.setLayout(layout)
                         if env["AW_STUDIO_MAC_SOUND"] != "1" {
                             StudioSession.shared.muteLocalMonitorForHarness()
@@ -229,9 +240,9 @@ struct RootView: View {
                         // once the engine has started, not the intent recorded a
                         // moment earlier. The HOST only — §5, a stream key is
                         // never printed.
-                        awdiag("AWMACDOOR door=%@ layout=%@ host=%@ engineLive=%@",
+                        awdiag("AWMACDOOR door=%@ layout=%@ host=%@ engineLive=%@ after=%.1fs",
                                macDoor, layout.rawValue, dest?.host ?? "?",
-                               StudioSession.shared.isLive ? "true" : "FALSE")
+                               StudioSession.shared.isLive ? "true" : "FALSE", waited)
                         let seconds = Int(env["AW_STUDIO_MAC_SECONDS"] ?? "") ?? 120
                         try? await Task.sleep(for: .seconds(seconds))
                         await StudioSession.shared.end()
