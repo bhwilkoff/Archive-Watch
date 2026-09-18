@@ -1651,6 +1651,21 @@ argument is the TELEVISION as the studio — tvOS 17 lending the Apple TV an
 iPhone's camera and microphone through Continuity. That case cannot happen
 today.
 
+**The CLIENTS are shared; only the CALL SITE is iOS-only** — which makes the
+Apple side smaller than "build a credential path". `StudioPlatforms.swift` and
+`StudioPlatformAuth.swift` are the only Swift files that touch
+`googleapis.com`, `api.twitch.tv` or `id.twitch.tv`, and both are shared code
+every Apple target already compiles. What tvOS and macOS lack is a surface that
+CALLS them, not the ability to.
+
+**Android lacks both.** Kotlin contains **zero** references to those hosts: no
+OAuth, no platform client, and `StudioController` sets
+`streamKey = if (benchDest != null) benchKey else ""`. So an Android host can
+publish to the bench destination and nowhere else, and **the owner's two client
+ids would not change that** — they are read by Swift code Android does not
+have. PARITY said the ids were the blocker for every platform; they are the
+blocker for iOS.
+
 **What each platform actually needs is different, and worth stating
 separately:**
 
