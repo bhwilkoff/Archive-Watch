@@ -45,6 +45,21 @@ public enum RTMPPublishError: Error, CustomStringConvertible, Sendable {
     }
 }
 
+/// §6.6's recovery schedule, in ONE place so the engine that applies it and
+/// the harness that proves it cannot drift apart.
+public enum RTMPReconnectPolicy {
+    /// 1, 2, 4, 8, then 15 s. Fast at the start because the ingest's grace
+    /// window is about a minute; capped because a link that has refused four
+    /// times in fifteen seconds will not be persuaded by a fifth in the same
+    /// second.
+    public static let backoffSeconds: [Double] = [1, 2, 4, 8, 15]
+    /// Matched to the ingests' own grace window: Mux's configurable reconnect
+    /// window defaults to 60 s for standard latency (0 s for its low-latency
+    /// modes), and YouTube holds a broadcast open roughly a minute or two.
+    /// Past it there is usually nothing left to reconnect TO.
+    public static let deadlineSeconds: Double = 60
+}
+
 /// The publisher's health, as the Studio shows it (WATCH-TOGETHER §4: a
 /// health value is never hidden).
 public struct RTMPHealth: Sendable, Equatable {
@@ -54,6 +69,12 @@ public struct RTMPHealth: Sendable, Equatable {
     public var audioFramesSent: Int = 0
     public var videoFramesDropped: Int = 0
     public var queuedBytes: Int = 0
+    /// Times §6.6 rebuilt the connection after it was severed. Cumulative,
+    /// and carried ACROSS a reconnect — a counter that resets when the thing
+    /// it counts happens can only ever read 0 or 1.
+    public var reconnects: Int = 0
+    /// True between losing the link and either regaining it or giving up.
+    public var isReconnecting = false
     public var lastError: String? = nil
     /// Bytes read from the socket, and the first inbound bytes as hex when
     /// `AW_RTMP_WIRE=1`. A connect that times out is either "the server said
@@ -129,6 +150,10 @@ public actor RTMPPublisher {
     private var transactionID = 0
     private var app = ""
     private var streamKey = ""
+    /// Remembered so §6.6 can rebuild the SAME publish without the caller
+    /// re-supplying a key. This does not weaken §5 ("never store a stream key
+    /// beyond the session"): the actor IS the session, and `close()` clears it.
+    private var lastServer: URL?
     private var tcURL = ""
     private var startTime: CMTime?
     private var config: RTMPStreamConfig?
@@ -199,7 +224,8 @@ public actor RTMPPublisher {
         let portSuffix = (server.port == nil) ? "" : ":\(port)"
         tcURL = "\(scheme)://\(host)\(portSuffix)/\(app)"
         self.config = config
-        health = RTMPHealth(state: .connecting)
+        self.lastServer = server
+        resetForNewConnection()
 
         let params: NWParameters = tls ? .tls : .tcp
         params.serviceClass = .interactiveVideo
@@ -278,6 +304,88 @@ public actor RTMPPublisher {
         sendMetadata(config)
     }
 
+    /// Everything that belongs to ONE TCP connection, put back the way a
+    /// fresh actor would have it — and nothing that belongs to the SHOW.
+    ///
+    /// §6.6. Before reconnect existed this ran once on a new actor, so the
+    /// initial values in the property declarations were the whole story. On a
+    /// second connect every one of these is a live bug:
+    ///
+    /// - `transactionID` back to 0 so the new `connect` is transaction **1**.
+    ///   This is Decision 127 a second time: YouTube hardcodes that number,
+    ///   and mediamtx and Twitch echo whatever they are sent — so a reconnect
+    ///   that forgot it would work everywhere we test and fail on YouTube.
+    /// - Both chunk sizes back to 128, the only size a server assumes before
+    ///   it is told. Inbound is not outbound.
+    /// - `sentSequenceHeaders` false: `avcC` and the AudioSpecificConfig are
+    ///   per-publish. A server that never gets them accepts the publish and
+    ///   never identifies the track, which reads as a network fault.
+    /// - `droppingUntilKeyframe` TRUE, so the new session opens on a keyframe
+    ///   rather than on inter-frames referring to a picture the server never
+    ///   received.
+    ///
+    /// What is deliberately NOT reset: `startTime` (the timestamp base) and
+    /// the cumulative counters. Keeping the base makes timestamps CONTINUE
+    /// across the gap — audio and video share it, so re-basing is the Android
+    /// §6.2h A/V skew re-invited, and a server appending within its reconnect
+    /// window would see time run backwards.
+    private func resetForNewConnection() {
+        let carried = health
+        health = RTMPHealth(state: .connecting)
+        health.bytesSent = carried.bytesSent
+        health.videoFramesSent = carried.videoFramesSent
+        health.audioFramesSent = carried.audioFramesSent
+        health.videoFramesDropped = carried.videoFramesDropped
+        health.reconnects = carried.reconnects
+        health.isReconnecting = carried.isReconnecting
+
+        outChunkSize = 128
+        inChunkSize = 128
+        transactionID = 0
+        streamID = 0
+        windowAckSize = 2_500_000
+        bytesReceived = 0
+        lastAckAt = 0
+        inbound = Data()
+        inflight = [:]
+        sentSequenceHeaders = false
+        droppingUntilKeyframe = true
+        closeReason = nil
+        failPending(RTMPPublishError.closed("superseded by a reconnect"))
+    }
+
+    /// §6.6: rebuild the connection that was severed, to the same
+    /// destination, with the same key and config. One attempt — the backoff
+    /// and the deadline belong to the engine, which is what the host sees.
+    ///
+    /// Sequential by construction: Twitch allows ONE active session per key
+    /// and a new connection displaces the old, so two attempts at once would
+    /// kick each other off.
+    public func reconnect(timeout: TimeInterval = 10) async throws {
+        guard let server = lastServer, let config else {
+            throw RTMPPublishError.closed("nothing to reconnect to")
+        }
+        connection?.cancel()
+        connection = nil
+        health.isReconnecting = true
+        health.reconnects += 1
+        do {
+            try await publish(to: server, streamKey: streamKey, config: config, timeout: timeout)
+            health.isReconnecting = false
+        } catch {
+            health.isReconnecting = true
+            throw error
+        }
+    }
+
+    /// True when the link is gone and §6.6 should be trying to rebuild it.
+    /// `.closed` counts: a server that drops us closes the socket politely,
+    /// and only `close()` — which clears `lastServer` — means the app meant it.
+    public var needsReconnect: Bool {
+        guard lastServer != nil else { return false }
+        return health.state == .failed || health.state == .closed
+    }
+
     /// Sends the `publish` command and suspends until the server answers
     /// `NetStream.Publish.Start` (or refuses). Its own actor method so the
     /// continuation closure is actor-isolated rather than escaping through the
@@ -299,7 +407,12 @@ public actor RTMPPublisher {
         }
         connection?.cancel()
         connection = nil
+        // Cleared BEFORE the state change: `needsReconnect` reads both, and
+        // an app-ordered close must never look like a severed link (§6.6).
+        lastServer = nil
+        streamKey = ""
         if health.state != .failed { health.state = .closed }
+        health.isReconnecting = false
         failPending(RTMPPublishError.closed("closed by the app"))
     }
 

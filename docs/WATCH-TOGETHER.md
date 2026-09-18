@@ -312,6 +312,60 @@ Recording: the same encoded stream is written to an `.mp4` locally while live
    gap in the host's voice).
 5. Thermal: `ProcessInfo.thermalState` `.serious` halves the encode
    resolution and says so; `.critical` ends the show with the end card.
+6. **A dropped connection is RECOVERED, not merely reported** (§6.6).
+
+### §6.6 A severed link is reconnected on a bounded deadline, and the show ends honestly when it expires (binding)
+
+§6.4 governs a link that is *congested*. This governs one that is *gone* —
+the common case on domestic Wi-Fi, and the one that silently ends a broadcast
+of a two-hour film at minute twelve.
+
+**The rule.** While the engine is running and a destination was supplied, a
+publisher that reaches `.failed` or `.closed` is **reconnected**: a fresh
+connect + publish to the same destination, retried on a backoff
+(1, 2, 4, 8, 15, 15… seconds) until a **60-second deadline** expires. The
+readout says **RECONNECTING** with the attempt count while it runs. When the
+deadline expires the show **ends** — the end card, the same as
+`.critical` thermal — and never sits pretending to be live.
+
+**Why 60 seconds, and why a deadline at all.** An ingest holds a broadcast
+open for a grace window and finalises it when the window expires: Mux's
+configurable *reconnect window* defaults to **60 s** for standard latency and
+**0 s** for its low-latency modes, and YouTube's documented behaviour is a
+grace window of roughly a minute or two after which the broadcast ends. So
+reconnecting is worth doing and worth doing FAST, and after about a minute
+there is usually nothing left to reconnect TO — a client that keeps trying
+past the window is reconnecting to a stream the platform has already
+finalised, and telling the host it is live. The deadline is the honesty.
+
+**Twitch's one-session rule works in our favour here.** Twitch accepts a
+single active RTMP session per key and a new connection displaces the old
+one, so a reconnect cannot collide with our own half-dead session. It also
+means a reconnect must never run in parallel with a live one — one attempt
+at a time, or we kick ourselves off.
+
+**Four pieces of per-connection state must be rebuilt, and one must NOT be.**
+
+- `transactionID` returns to **0**, so the new `connect` is transaction **1**.
+  This is Decision 127's bug waiting to happen a second time: YouTube
+  hardcodes that number, and two other servers echo whatever they are sent,
+  so a reconnect that forgets it would fail on YouTube alone.
+- `outChunkSize` and `inChunkSize` return to **128** — the only size a
+  server assumes before it is told. An inbound size is not an outbound one.
+- The **sequence headers go again** (`avcC`, `AudioSpecificConfig`): they are
+  per-publish, and a server that never receives them accepts the publish and
+  never identifies the track — which looks exactly like a network fault
+  (Decision 129).
+- The reconnected stream **begins with a keyframe**: the encoder is asked for
+  one (`kVTEncodeFrameOptionKey_ForceKeyFrame`) and inter-frames are dropped
+  until it arrives. Otherwise a rejoining viewer and the server's recording
+  have nothing decodable while the stream looks live.
+- **The timestamp base is KEPT.** `startTime` is not reset, so timestamps
+  continue across the gap rather than restarting at zero. Two reasons: audio
+  and video share that base, and re-basing both identically is precisely the
+  Android §6.2h A/V-skew bug re-invited; and a server appending to the same
+  asset within its reconnect window would otherwise see time run backwards.
+  The gap appears as a gap, which is what it is.
 
 ### §6.1 Signing in — binding, and the two platforms are NOT the same
 
@@ -1058,8 +1112,66 @@ Pixel.
 3. A ten-minute soak on the iPhone 12 and the Fireplace Apple TV at 1080p30:
    no dropped-frame growth after the first minute, thermal state never
    `.serious`.
+4. `tools/test_rtmp_reconnect.swift` — §6.6 on a real server: publish to a
+   local `mediamtx`, SEVER the link mid-stream, and assert from the server's
+   OWN recording that media resumes. The negative control is the same run with
+   reconnection disabled, which must NOT resume — without it the test passes on
+   a server that simply never noticed.
 
 ## §9 — Measurements (filled in as they are taken)
+
+### §9.x A severed link, recovered — and three instruments that lied on the way (2026-09-17)
+
+`tools/test_rtmp_reconnect.swift` + `tools/rtmp_sever_proxy.py`, against a real
+`mediamtx`, asserted from the server's OWN recording. §6.6 holds:
+
+| | control (no reconnect) | §6.6 |
+|---|---|---|
+| segments recorded | 1 | 2 |
+| seconds recorded | **5.1** (of a 22 s program cut at 6 s) | **18.9** |
+| publisher at the end | `closed` | `publishing`, 1 reconnect |
+| reconnected | — | **on attempt 1**, 6.0 s in |
+| post-cut A/V offset | — | **0.02 s** |
+
+The forced keyframe lands **one frame** after the reconnect (frame-level trace,
+`AW_STUDIO_DIAG=1`): 842 B against ~200 B for the inter-frames around it.
+
+**The point of the control.** Without it this test passes on a server that
+never noticed the cut. With it, the same run with recovery switched off has to
+die at the cut — and it does, at 5.1 s.
+
+**Three instrument faults, each of which produced a green or a wrong red:**
+
+1. **The assertion judged `segs.last`** and passed while the resumed segment
+   carried a 1.64 s A/V offset — mediamtx had written a short third segment at
+   close and the check read that one. It now judges **every** segment after the
+   first. An instrument that chooses which sample to judge will eventually
+   choose the wrong one.
+2. **The harness's own readiness probe ate the sever.** A "is the port
+   listening?" TCP connect became connection 1, so the proxy cut the probe and
+   the publisher was never severed — the CONTROL arm recorded a full clean
+   stream. The proxy now counts only connections that actually send bytes: *a
+   test instrument must not be visible to the test.*
+3. **A wrong diagnosis, corrected only by a frame-level diagnostic.** The A/V
+   assertion fired at 1.63 s and "the reconnect did not open on a keyframe" was
+   the obvious reading. The trace showed the keyframe arriving correctly one
+   frame in. The real cause was the harness encoding **one AAC frame per video
+   frame** — 23.2 ms of audio against 33.3 ms of video, ~10 ms of drift a
+   frame, 1.63 s after 160 frames. It presents as an A/V offset ONLY once a
+   server re-bases on a republish, which is why §8.1 never saw it and why
+   §8.1's assertions (codec, resolution, sample rate) still pass over it. The
+   tone is now paced to the video clock.
+
+   Worth keeping as the shape of the thing: the assertion was RIGHT to fire and
+   the first explanation was wrong, and only an instrument said so — the same
+   lesson as the 291-second soak.
+
+**Also found, NOT fixed:** §6.5's rule that `.critical` thermal state ends the
+show **is implemented nowhere**. `thermalState` is reported as a string and
+nothing acts on it. This is §6.3's idle timer again — a rule written in this
+document and implemented in no product path. `StudioEngine.endShow(reason:)`
+now exists (§6.6 needed it), so the wiring is small; it has not been done or
+measured, and until it is, a `.critical` broadcast keeps going.
 
 ### RTMP publisher, against mediamtx v1.21.0 + ffprobe 7.1.1 (2026-09-17, Mac)
 

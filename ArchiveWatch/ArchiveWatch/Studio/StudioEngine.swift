@@ -217,6 +217,11 @@ public struct StudioHealth: Sendable, Equatable {
     /// True when a destination was supplied. Without one the engine still
     /// composites and encodes — it just sends nowhere.
     public var hasDestination = false
+    /// Why the show ended, when it ended on its own account rather than
+    /// because the host stopped it (§6.6's expired deadline; §6.5's
+    /// `.critical` thermal state, which is still UNIMPLEMENTED — the rule is
+    /// written and nothing acts on it).
+    public var endedReason: String?
 
     /// What the SHOW is doing, in the host's terms.
     ///
@@ -235,6 +240,9 @@ public struct StudioHealth: Sendable, Equatable {
         // malfunction, an exhausted buffer pool, or anything else that stops
         // frames coming out.
         if filmFramesPulled > 0 && encodedFramesPerSecond == 0 { return .notEncoding }
+        // §6.6 outranks `.offline`: while a rebuild is in flight the link is
+        // down but the show is not over, and those are different sentences.
+        if publisher.isReconnecting { return .reconnecting }
         if let e = publisher.lastError, !e.isEmpty { _ = e; return .offline }
         if !hasDestination { return .encodingOnly }
         switch publisher.state {
@@ -247,7 +255,7 @@ public struct StudioHealth: Sendable, Equatable {
     }
 
     public enum ShowState: Sendable, Equatable {
-        case off, encodingOnly, notEncoding, connecting, live, offline, ended
+        case off, encodingOnly, notEncoding, connecting, live, reconnecting, offline, ended
 
         /// Short, for a capsule or a readout.
         public var label: String {
@@ -257,6 +265,7 @@ public struct StudioHealth: Sendable, Equatable {
             case .notEncoding: return "STOPPED"
             case .connecting: return "CONNECTING"
             case .live: return "LIVE"
+            case .reconnecting: return "RECONNECTING"
             case .offline: return "OFFLINE"
             case .ended: return "ENDED"
             }
@@ -270,6 +279,8 @@ public struct StudioHealth: Sendable, Equatable {
             case .notEncoding:
                 return "The picture has stopped being encoded — your audience is not receiving the show."
             case .connecting: return "Connecting to the platform…"
+            case .reconnecting:
+                return "The connection dropped — getting it back. Your audience sees a pause, not an ending."
             case .offline: return "The connection to the platform is down."
             case .ended: return "The broadcast has ended."
             case .off, .live: return nil
@@ -277,6 +288,9 @@ public struct StudioHealth: Sendable, Equatable {
         }
 
         public var isOnAir: Bool { self == .live }
+
+        /// The two states §6.6 can be in, for a readout that wants to tint.
+        public var isTroubled: Bool { self == .reconnecting || self == .offline || self == .notEncoding }
     }
 }
 
@@ -295,6 +309,9 @@ public actor StudioEngine {
     }
 
     public private(set) var health = StudioHealth()
+    /// One §6.6 recovery episode at a time (see `recoverIfSevered`).
+    private var recovering = false
+    private var supervisor: Task<Void, Never>?
     public private(set) var layout: StudioLayout = .corner
     public private(set) var overlay = StudioOverlay()
 
@@ -460,7 +477,9 @@ public actor StudioEngine {
 
         started = CACurrentMediaTimeCompat()
         health.isRunning = true
+        health.endedReason = nil
         startTicking()
+        if publishing { superviseTheConnection() }
     }
 
     /// `UIApplication` is main-actor-only and exists on iOS and tvOS alike —
@@ -474,6 +493,7 @@ public actor StudioEngine {
 
     public func stop() async {
         await Self.holdTheScreenAwake(false)
+        supervisor?.cancel(); supervisor = nil
         ticker?.cancel(); ticker = nil
         mixer.stop()
         encoder?.stop(); encoder = nil
@@ -529,6 +549,80 @@ public actor StudioEngine {
     }
 
     private func noteRenderOverrun() { health.renderDroppedFrames += 1 }
+
+    // MARK: - §6.6 Recovering a severed link
+
+    /// §6.6's schedule lives in `RTMPReconnectPolicy` — one copy, read by
+    /// this engine and by the harness that proves it.
+    public static var reconnectDeadline: Double { RTMPReconnectPolicy.deadlineSeconds }
+
+    /// Polls once a second for a link that has gone, and rebuilds it.
+    /// Separate from the render ticker on purpose: reconnecting must not be
+    /// able to stall the frame clock, and a render that stalls must not stop
+    /// the recovery.
+    private func superviseTheConnection() {
+        supervisor?.cancel()
+        supervisor = Task { [weak self] in
+            while !Task.isCancelled {
+                try? await Task.sleep(nanoseconds: 1_000_000_000)
+                guard let self else { return }
+                await self.recoverIfSevered()
+            }
+        }
+    }
+
+    /// One recovery episode: attempt, back off, attempt, until the link is
+    /// back or the deadline passes.
+    ///
+    /// The backoff is 1, 2, 4, 8, then 15 s — fast at the start because the
+    /// window is a minute, and capped because a link that has refused four
+    /// times in fifteen seconds is not going to be persuaded by a fifth in
+    /// the same second. One episode at a time: Twitch permits a single active
+    /// session per key and a new connection displaces the old, so overlapping
+    /// attempts would kick each other off.
+    private func recoverIfSevered() async {
+        guard health.isRunning, publishing, !recovering else { return }
+        guard await publisher.needsReconnect else { return }
+        recovering = true
+        defer { recovering = false }
+
+        let backoff = RTMPReconnectPolicy.backoffSeconds
+        let giveUpAt = CACurrentMediaTimeCompat() + Self.reconnectDeadline
+        var attempt = 0
+        while health.isRunning, CACurrentMediaTimeCompat() < giveUpAt {
+            attempt += 1
+            do {
+                try await publisher.reconnect()
+                health.publisher = await publisher.health
+                // The new session must OPEN on a keyframe, or the server's
+                // recording and every rejoining viewer hold nothing
+                // decodable while the stream reads as live (Decision 129,
+                // and it is the same fact on both platforms).
+                encoder?.requestKeyframe()
+                return
+            } catch {
+                health.publisher = await publisher.health
+                let wait = backoff[min(attempt - 1, backoff.count - 1)]
+                // Never sleep past the deadline — otherwise a 15 s backoff
+                // decides when we give up instead of the rule.
+                let remaining = giveUpAt - CACurrentMediaTimeCompat()
+                if remaining <= 0 { break }
+                try? await Task.sleep(nanoseconds: UInt64(min(wait, remaining) * 1_000_000_000))
+            }
+        }
+        // The window has closed. End the show rather than hold a readout that
+        // says RECONNECTING over a stream the platform finished minutes ago.
+        await endShow(reason: "the connection could not be restored within \(Int(Self.reconnectDeadline)) seconds")
+    }
+
+    /// Stops the show and says why, so the surface can draw an end card
+    /// instead of a frozen frame (§6.3). `stop()` is the host's own choice
+    /// and carries no reason.
+    public func endShow(reason: String) async {
+        guard health.isRunning else { return }
+        health.endedReason = reason
+        await stop()
+    }
 
     private func renderOne(frameIndex: Int) async {
         guard let encoder else { return }
@@ -817,13 +911,28 @@ final class H264Encoder: @unchecked Sendable {
         session = nil
     }
 
+    /// Set by §6.6 when a reconnected session needs to OPEN on a keyframe.
+    /// Read-and-cleared under the lock so one request produces exactly one
+    /// forced frame — a flag that stays set turns the stream into all-I-frames
+    /// at several times the bitrate, on a link that just proved it was weak.
+    private var _forceNextKeyframe = false
+    func requestKeyframe() { lock.lock(); _forceNextKeyframe = true; lock.unlock() }
+    private func takeKeyframeRequest() -> Bool {
+        lock.lock(); defer { lock.unlock() }
+        if _forceNextKeyframe { _forceNextKeyframe = false; return true }
+        return false
+    }
+
     func encode(_ pixelBuffer: CVPixelBuffer, at pts: CMTime) {
         guard let session else { return }
         var flags = VTEncodeInfoFlags()
+        let properties: CFDictionary? = takeKeyframeRequest()
+            ? [kVTEncodeFrameOptionKey_ForceKeyFrame as String: true] as CFDictionary
+            : nil
         let status = VTCompressionSessionEncodeFrame(
             session, imageBuffer: pixelBuffer, presentationTimeStamp: pts,
             duration: CMTime(value: 1, timescale: CMTimeScale(frameRate)),
-            frameProperties: nil, infoFlagsOut: &flags) { [weak self] status, _, sample in
+            frameProperties: properties, infoFlagsOut: &flags) { [weak self] status, _, sample in
             guard let self else { return }
             guard status == noErr, let sample else {
                 // A frame the encoder dropped on its own account. Recorded,
