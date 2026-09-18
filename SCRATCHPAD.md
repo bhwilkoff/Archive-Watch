@@ -169,6 +169,73 @@ keep serving it.
 
 ## Session Log
 
+### 2026-09-18 (Watch Together loop, overnight) — the Studio's plumbing measured end to end, and the instruments that lied about it
+Owner /loop, 5-minute ticks, same prompt as 09-17: stream PD films to YouTube
+and Twitch as "Watch Together" / "Watch Together Studio", Apple first, research
+hard and test on real devices.
+
+**The night's shape: almost every defect was something believed rather than
+measured, and several were in the instruments.** Rules in
+`docs/WATCH-TOGETHER.md` §9.mm-§9.zz.
+
+- **Android had never carried AUDIO on the product path.** `audioTapFor()` was
+  called from nowhere — the tap, the AAC encoder, the priming correction and
+  Decision 129's A/V numbers all existed, and the wire did not. A Media3 audio
+  processor belongs to the `AudioSink` chain, fixed at `ExoPlayer.Builder`
+  time, so the only moment it can be installed is when the player is BUILT;
+  asking for it at go-live is too late to reach anything. Every Android
+  broadcast had published `tracks: [H264]`.
+- **Then Android's two clocks, +19.6 SECONDS apart.** Video was stamped by a
+  FRAME COUNTER (`frame * 1s / fps`), audio by its sample count. They agree
+  only while the renderer holds the nominal rate, and this dongle does 13 fps.
+  Invisible until audio existed at all. One `showStartNanos` now feeds both,
+  and the audio clock counts OFFERED bytes so refused PCM stops becoming
+  permanent lag: **+19,613 ms → -315 ms over 117 s**.
+- **The 10.5 fps ceiling was mostly BOXING.** Both send paths built their FLV
+  tag as `mutableListOf<Byte>() + data.toList()`, boxing every byte of a 50 kB
+  keyframe on the render thread. Video drain 16.5 → ~3 ms, audio 29 → ~6 ms.
+  The RTMP handshake also came off the render thread (it stalled every
+  broadcast's first 2.3 seconds at fps=1).
+- **And what remains of that ceiling is real: the dongle has NO hardware H.264
+  encoder.** Both AVC candidates are software; `Dongle R 4K` is a playback
+  device. So ~13 fps is a hardware floor, and Decision 129's "37.4 ms a frame"
+  was measured on a device that cannot encode in hardware at all. The encoder
+  is now chosen explicitly, hardware first. **Apple's is hardware, measured**
+  (`hwenc=true`, M3, 30 fps, 0 dropped).
+- **The Mac bench door was broadcasting the owner's ROOM.** `StudioSession`
+  attaches a mic tap whenever macOS has granted permission and `micMuted`
+  defaults to false, so every bench run carried whatever could be heard near
+  the Mac — and a level measured that way was reported as "the film's audio"
+  when it was room tone. ~88 MB of recordings deleted; the bench now mutes the
+  mic unless asked. Same family as the full-desktop screenshot: **on the
+  owner's machine the instrument must not reach past what it is pointed at.**
+- **What the platforms actually publish, and what we actually send.** YouTube's
+  encoder page fetched (2 s keyframes, CBR, AAC 128 stereo, 4 Mbps @720p30);
+  **Twitch's could not be read** and no blog was accepted in its place. Apple
+  verified from the server's recording: High profile, level 4.0, keyframes at
+  **2.00 s**, AAC-LC. Android moved **Baseline → Main** — asking for High had
+  been inert and silent, because the codec advertises no High — and its level
+  is now an honest 4.1 rather than an over-declared 5.0.
+- **A change the research killed**: YouTube's table says CBR, so Apple was
+  about to move to `kVTCompressionPropertyKey_ConstantBitRate`. The SDK header
+  says it "is not intended for general streaming scenarios". Reading the
+  framework's own header beat following the platform's table.
+- **Instruments that lied, again, in both directions**: `ffmpeg -v error` hides
+  `volumedetect`'s output entirely, so a normal audio track read as "zero
+  samples decoded" twice; container PACKET flags reported one keyframe in 41
+  seconds where frame `pict_type` showed 21 at exactly 2.00 s; mediamtx's fMP4
+  parts do not decode standalone; `adb logcat -d` HANGS rather than failing
+  when a device drops off network ADB; and a "control" that set a mute one line
+  after `play()` tested nothing, because the engine is built asynchronously and
+  `engine?.setAudio` was a no-op on nil. **A control that cannot fail is not a
+  control.**
+- **For the owner**: an Apple TV that is ASLEEP is not woken (item 9a) — the
+  tvOS/iOS encoder reads need only a screenshot at a waking hour. Still open:
+  the two OAuth client ids, the Pixel pairing (now the gate on the last Android
+  performance question), and a decision the Studio should not take alone —
+  Apple sends 1080p30 at 6 Mbps where YouTube recommends 10, and closing that
+  means either demanding a 10 Mbps uplink of the host or dropping to 720p.
+
 ### 2026-09-17 (audit loop) — The uploader-synopsis pass is DONE; misdated moderns and off-air tapes hidden by table; a spliced catalog repaired
 Owner /loop, 5-minute ticks: "uploader information and reviews instead of
 information about the film ... every piece of information ... accurate and
@@ -307,136 +374,5 @@ unbiased."
   **Apple TV studio via Continuity Camera (tvOS 17, Apple TV 4K 2nd gen+,
   third-party apps get the iPhone's camera AND mic through AVFoundation)** →
   Mac → Android → guests). Nothing built; no design rule changed.
-
-### 2026-09-17 (Watch Together loop) — the feature built on four platforms, and the instruments that lied
-Owner /loop, 5-minute ticks: "stream your watching of PD movies to Youtube and
-Twitch ... reframe as Watch Together and Watch Together Studio ... start with
-Apple platforms and then build out from there."
-
-- **Apple is done but for two strings.** tvOS, iOS and macOS all carry the
-  Studio: the rights gate, the go-live surface, the health readout, the
-  controls panel, the overlays, our own RTMPS publisher. macOS Phase 2 landed
-  whole (macOS-DESIGN §B13) and the **whole program was pulled back from a
-  real publish by the shipping Mac app** — film, camera tile and lower third
-  in one frame. Sign-in is written and its request shapes proved against the
-  real endpoints (Decision 128): **Twitch does not support PKCE**, so YouTube
-  gets authorization-code + PKCE and Twitch the device flow, and the redirect
-  is the BUNDLE ID because a URL scheme must exist at build time.
-- **Android is Phase 3 and proved on hardware** (Decision 129): Kotlin RTMP
-  publisher, MediaCodec + GLES straight into the encoder's surface, ExoPlayer
-  into an external OES texture, `TeeAudioProcessor` for the film's audio, the
-  rights gate ported sentence-for-sentence with a **cross-platform parity
-  test**, and a dual-surface render so an Android host sees the PROGRAM. A/V
-  alignment measured at +4.5–11 ms after subtracting AAC priming (it was 47 ms
-  out).
-- **Every number here came from a server's own recording or a photograph of a
-  screen**, because the instruments kept lying in both directions. A harness
-  said PASS for five ingests while YouTube failed at the handshake; another
-  said PASS while mediamtx had never accepted a publish; the Android film test
-  passed while the picture was black; the A/V analyser printed a confident
-  +50.5 ms while finding 16 "bursts" against 6 flashes; and a render
-  comparison reported the two-pass case FASTER because the cold run went
-  first. The rule that came out of it: **before believing a verdict, run the
-  control that should obviously produce the opposite one.**
-- **Two incidents worth keeping.** A film was left playing unmuted on the
-  owner's Apple TV for about an hour, routing to every HomePod — dev doors are
-  now bounded and muted by default, with a teardown step. And the owner
-  stopped a soak mid-run: *"Stop using the fireplace tv for testing. I'm
-  actively watching on it now."* Fireplace is off limits (owner item 9) and it
-  is the only 2nd-gen Apple TV, so the Studio's hardware FLOOR cannot be
-  re-measured without asking.
-- **Then §6 itself was audited, rule by rule, and every one of the five had a
-  defect — three of them were implemented NOWHERE.** The pattern is the
-  session's main finding: *a rule written in a design doc and implemented in a
-  test harness is not implemented*, and nobody notices until something is
-  measured. Each is now built and proved against a real server, asserted from
-  the server's own recording:
-  - **§6.3 idle timer** — set only in `StudioLab` behind `#if os(iOS)`, so
-    tvOS's screen saver invalidated the VideoToolbox session and killed a soak
-    at 291 s. Moved into `StudioEngine`.
-  - **§6.4 back-pressure** — correct in shape (audio has no drop path at all)
-    but its 2 MB cap *could not fire*: at 2.5 Mbps that is **6.4 seconds of
-    latency**, and a measured backlog peaked at 1.39 MB while the publisher
-    kept feeding 30 fps into a queue that was pure delay. The budget is now
-    **1.5 s of the show's own bitrate** (§6.4a). Proved through a throttling
-    proxy: video fell to 1 fps and recovered to 30.1, and audio held **43
-    frames in the worst congested second** — the picture yields, the voice does
-    not.
-  - **§6.5 thermal** — implemented nowhere AND wrong: it said `.serious`
-    should halve the RESOLUTION, which an RTMP ingest will not accept
-    mid-publish (format parameters must not change during a stream), so the
-    documented response would have destroyed the broadcast it was meant to
-    save. Corrected to the bitrate: 2893 → 1959 kbps, resolution held,
-    `.critical` ends the show. And `AverageBitRate` alone barely works — a 40%
-    step moved the wire 7% until `DataRateLimits` came down from 2× to 1.15×.
-  - **§6.6 a severed link** — did not exist. The readout said OFFLINE and
-    nothing acted, so a broadcast of a two-hour film would have ended silently
-    at minute twelve. Now reconnected on a bounded 60 s deadline matched to the
-    ingests' own grace windows, restoring transaction id 0 (Decision 127's bug
-    waiting to recur), chunk size 128 and the sequence headers, opening on a
-    keyframe, keeping the timestamp base. 18.9 s recorded against a control's
-    5.1 s.
-- **The defect none of that was looking for**: every broadcast opened with
-  **59 dropped video frames — two full seconds blind** — because a fresh
-  publish begins in `droppingUntilKeyframe` and only the RECONNECT path asked
-  for an opening keyframe. The fix already existed and was wired to the rare
-  path.
-- **And the instruments went on lying, in one family**: an assertion that chose
-  which sample to judge (`segs.last`) and judged the wrong one; a harness's own
-  port-readiness probe that became connection 1 and ATE the event it was
-  supposed to observe; a `guard ma < mb` that passed on 58.4 vs 58.3 B while
-  printing "0% smaller"; a bitrate test run with no film, where a static black
-  program compressed to 58-byte frames so lowering a CEILING changed nothing; a
-  cap read before the code that computes it ran; and totals compared across
-  windows of different lengths. Every one produced a green or a wrong red.
-  **The rule that came out of it: an instrument must not be visible to its own
-  test, and a measurement must not be a comparison of two things of different
-  sizes.**
-- **Then every rule was taken off the harness and proved on a PRODUCT path**,
-  which is where the remaining defects were hiding:
-  - **§6.4 back-pressure on the Mac app**: the queue pinned at its 1.15 MB
-    cap, video frozen, 492 frames dropped, **audio +43/s unbroken**. The first
-    run "passed" and proved nothing — the throttling proxy read from the client
-    at full speed and delayed only the forward, so the app never felt
-    congestion. Real back-pressure comes from NOT READING.
-  - **§6.5 on the Mac and on Android**: 6000→3600→6000 kbps on cue, with both
-    sentences; `.critical` ends the show. On the Google TV, driven through the
-    REAL platform API (`cmd thermalservice override-status 3`) the wire dropped
-    2604→1462 kbps, 44%.
-  - **§6.6 end to end**: rebuilt on the Mac and on the Google TV's shipping
-    app (`conn 2: open`, server re-ingesting), and its **expired deadline**
-    finally exercised — the backoff read off a real run as 1, 2, 4, 8, 15, 15,
-    15 s, summing to exactly the 60-second deadline, then "the connection could
-    not be restored within 60 seconds".
-  - **§8.3's soak re-run**: 18010 frames encoded, 18010 sent, memory flat at
-    ~91 MB, peak queue 2% of the cap — the check that §6.4a's tighter budget
-    does not fire on a healthy link.
-- **Defects that only a device could find**: Android's reconnect supervisor ran
-  on the Compose MAIN dispatcher, so `reconnect()` threw
-  `NetworkOnMainThreadException` on every attempt while the JVM test passed
-  (it called `reconnect()` from its own thread); the app had **no camera or
-  microphone usage description** at all, which terminates the process rather
-  than prompting; §6.2's audio session was configured only in `StudioLab`, so
-  on iOS the show began in `.playback` and could not record; a **stream key
-  could reach a television screen** through an error string; `endedReason` was
-  written by the engine and read by NOTHING on Apple; and §5's adaptive-step
-  sentence was rendered by no surface on any platform — the only reader was a
-  diagnostic log line I had added myself.
-- **And the instruments kept lying, in one family** — an assertion that chose
-  which sample to judge; a readiness probe that ATE the event it was observing;
-  `guard ma < mb` passing on 58.4 vs 58.3 B; a bitrate test with no film (a
-  bitrate is a **ceiling, not a floor**); totals compared across windows of
-  different lengths; `print` to a pipe losing everything on kill; a
-  full-desktop `screencapture` on the owner's Mac catching their personal
-  documents; and a doc edit whose assertion failed while the commit chained
-  after it succeeded anyway. Two memories carry the rules now:
-  [[instrument_must_be_invisible]] and [[mac_screenshot_window_only]].
-  `tools/test_studio_all.sh` runs the whole §8 suite in one command and counts
-  SKIPS separately, because four Kotlin cases had been skipping silently for a
-  session.
-- **Blocked on the owner, all of it small**: the two client ids (item 7), the
-  Pixel pairing (item 8), Continuity pairing + camera/mic grant on the phone
-  and TV, the one-tap Local Network grant (item 8a), and the rights-tier call.
-  Nothing else is waiting on anything.
 
 Older entries: `docs/SESSION-LOG.md` (verbatim, back to 2026-04-17).

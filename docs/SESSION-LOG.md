@@ -16,6 +16,137 @@ it is history, not a to-do list.
 
 ## Session Log
 
+### 2026-09-17 (Watch Together loop) — the feature built on four platforms, and the instruments that lied
+Owner /loop, 5-minute ticks: "stream your watching of PD movies to Youtube and
+Twitch ... reframe as Watch Together and Watch Together Studio ... start with
+Apple platforms and then build out from there."
+
+- **Apple is done but for two strings.** tvOS, iOS and macOS all carry the
+  Studio: the rights gate, the go-live surface, the health readout, the
+  controls panel, the overlays, our own RTMPS publisher. macOS Phase 2 landed
+  whole (macOS-DESIGN §B13) and the **whole program was pulled back from a
+  real publish by the shipping Mac app** — film, camera tile and lower third
+  in one frame. Sign-in is written and its request shapes proved against the
+  real endpoints (Decision 128): **Twitch does not support PKCE**, so YouTube
+  gets authorization-code + PKCE and Twitch the device flow, and the redirect
+  is the BUNDLE ID because a URL scheme must exist at build time.
+- **Android is Phase 3 and proved on hardware** (Decision 129): Kotlin RTMP
+  publisher, MediaCodec + GLES straight into the encoder's surface, ExoPlayer
+  into an external OES texture, `TeeAudioProcessor` for the film's audio, the
+  rights gate ported sentence-for-sentence with a **cross-platform parity
+  test**, and a dual-surface render so an Android host sees the PROGRAM. A/V
+  alignment measured at +4.5–11 ms after subtracting AAC priming (it was 47 ms
+  out).
+- **Every number here came from a server's own recording or a photograph of a
+  screen**, because the instruments kept lying in both directions. A harness
+  said PASS for five ingests while YouTube failed at the handshake; another
+  said PASS while mediamtx had never accepted a publish; the Android film test
+  passed while the picture was black; the A/V analyser printed a confident
+  +50.5 ms while finding 16 "bursts" against 6 flashes; and a render
+  comparison reported the two-pass case FASTER because the cold run went
+  first. The rule that came out of it: **before believing a verdict, run the
+  control that should obviously produce the opposite one.**
+- **Two incidents worth keeping.** A film was left playing unmuted on the
+  owner's Apple TV for about an hour, routing to every HomePod — dev doors are
+  now bounded and muted by default, with a teardown step. And the owner
+  stopped a soak mid-run: *"Stop using the fireplace tv for testing. I'm
+  actively watching on it now."* Fireplace is off limits (owner item 9) and it
+  is the only 2nd-gen Apple TV, so the Studio's hardware FLOOR cannot be
+  re-measured without asking.
+- **Then §6 itself was audited, rule by rule, and every one of the five had a
+  defect — three of them were implemented NOWHERE.** The pattern is the
+  session's main finding: *a rule written in a design doc and implemented in a
+  test harness is not implemented*, and nobody notices until something is
+  measured. Each is now built and proved against a real server, asserted from
+  the server's own recording:
+  - **§6.3 idle timer** — set only in `StudioLab` behind `#if os(iOS)`, so
+    tvOS's screen saver invalidated the VideoToolbox session and killed a soak
+    at 291 s. Moved into `StudioEngine`.
+  - **§6.4 back-pressure** — correct in shape (audio has no drop path at all)
+    but its 2 MB cap *could not fire*: at 2.5 Mbps that is **6.4 seconds of
+    latency**, and a measured backlog peaked at 1.39 MB while the publisher
+    kept feeding 30 fps into a queue that was pure delay. The budget is now
+    **1.5 s of the show's own bitrate** (§6.4a). Proved through a throttling
+    proxy: video fell to 1 fps and recovered to 30.1, and audio held **43
+    frames in the worst congested second** — the picture yields, the voice does
+    not.
+  - **§6.5 thermal** — implemented nowhere AND wrong: it said `.serious`
+    should halve the RESOLUTION, which an RTMP ingest will not accept
+    mid-publish (format parameters must not change during a stream), so the
+    documented response would have destroyed the broadcast it was meant to
+    save. Corrected to the bitrate: 2893 → 1959 kbps, resolution held,
+    `.critical` ends the show. And `AverageBitRate` alone barely works — a 40%
+    step moved the wire 7% until `DataRateLimits` came down from 2× to 1.15×.
+  - **§6.6 a severed link** — did not exist. The readout said OFFLINE and
+    nothing acted, so a broadcast of a two-hour film would have ended silently
+    at minute twelve. Now reconnected on a bounded 60 s deadline matched to the
+    ingests' own grace windows, restoring transaction id 0 (Decision 127's bug
+    waiting to recur), chunk size 128 and the sequence headers, opening on a
+    keyframe, keeping the timestamp base. 18.9 s recorded against a control's
+    5.1 s.
+- **The defect none of that was looking for**: every broadcast opened with
+  **59 dropped video frames — two full seconds blind** — because a fresh
+  publish begins in `droppingUntilKeyframe` and only the RECONNECT path asked
+  for an opening keyframe. The fix already existed and was wired to the rare
+  path.
+- **And the instruments went on lying, in one family**: an assertion that chose
+  which sample to judge (`segs.last`) and judged the wrong one; a harness's own
+  port-readiness probe that became connection 1 and ATE the event it was
+  supposed to observe; a `guard ma < mb` that passed on 58.4 vs 58.3 B while
+  printing "0% smaller"; a bitrate test run with no film, where a static black
+  program compressed to 58-byte frames so lowering a CEILING changed nothing; a
+  cap read before the code that computes it ran; and totals compared across
+  windows of different lengths. Every one produced a green or a wrong red.
+  **The rule that came out of it: an instrument must not be visible to its own
+  test, and a measurement must not be a comparison of two things of different
+  sizes.**
+- **Then every rule was taken off the harness and proved on a PRODUCT path**,
+  which is where the remaining defects were hiding:
+  - **§6.4 back-pressure on the Mac app**: the queue pinned at its 1.15 MB
+    cap, video frozen, 492 frames dropped, **audio +43/s unbroken**. The first
+    run "passed" and proved nothing — the throttling proxy read from the client
+    at full speed and delayed only the forward, so the app never felt
+    congestion. Real back-pressure comes from NOT READING.
+  - **§6.5 on the Mac and on Android**: 6000→3600→6000 kbps on cue, with both
+    sentences; `.critical` ends the show. On the Google TV, driven through the
+    REAL platform API (`cmd thermalservice override-status 3`) the wire dropped
+    2604→1462 kbps, 44%.
+  - **§6.6 end to end**: rebuilt on the Mac and on the Google TV's shipping
+    app (`conn 2: open`, server re-ingesting), and its **expired deadline**
+    finally exercised — the backoff read off a real run as 1, 2, 4, 8, 15, 15,
+    15 s, summing to exactly the 60-second deadline, then "the connection could
+    not be restored within 60 seconds".
+  - **§8.3's soak re-run**: 18010 frames encoded, 18010 sent, memory flat at
+    ~91 MB, peak queue 2% of the cap — the check that §6.4a's tighter budget
+    does not fire on a healthy link.
+- **Defects that only a device could find**: Android's reconnect supervisor ran
+  on the Compose MAIN dispatcher, so `reconnect()` threw
+  `NetworkOnMainThreadException` on every attempt while the JVM test passed
+  (it called `reconnect()` from its own thread); the app had **no camera or
+  microphone usage description** at all, which terminates the process rather
+  than prompting; §6.2's audio session was configured only in `StudioLab`, so
+  on iOS the show began in `.playback` and could not record; a **stream key
+  could reach a television screen** through an error string; `endedReason` was
+  written by the engine and read by NOTHING on Apple; and §5's adaptive-step
+  sentence was rendered by no surface on any platform — the only reader was a
+  diagnostic log line I had added myself.
+- **And the instruments kept lying, in one family** — an assertion that chose
+  which sample to judge; a readiness probe that ATE the event it was observing;
+  `guard ma < mb` passing on 58.4 vs 58.3 B; a bitrate test with no film (a
+  bitrate is a **ceiling, not a floor**); totals compared across windows of
+  different lengths; `print` to a pipe losing everything on kill; a
+  full-desktop `screencapture` on the owner's Mac catching their personal
+  documents; and a doc edit whose assertion failed while the commit chained
+  after it succeeded anyway. Two memories carry the rules now:
+  [[instrument_must_be_invisible]] and [[mac_screenshot_window_only]].
+  `tools/test_studio_all.sh` runs the whole §8 suite in one command and counts
+  SKIPS separately, because four Kotlin cases had been skipping silently for a
+  session.
+- **Blocked on the owner, all of it small**: the two client ids (item 7), the
+  Pixel pairing (item 8), Continuity pairing + camera/mic grant on the phone
+  and TV, the one-tap Local Network grant (item 8a), and the rights-tier call.
+  Nothing else is waiting on anything.
+
 ### 2026-09-16 (audit loop, cont.) — Credits residue, Family genre, the rights confirm run by hand (Decision 125)
 Owner /loop: "uploader information and reviews instead of information about
 the film ... every piece of information ... accurate and unbiased."
