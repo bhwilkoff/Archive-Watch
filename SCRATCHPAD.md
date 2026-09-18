@@ -383,8 +383,51 @@ Apple platforms and then build out from there."
   **The rule that came out of it: an instrument must not be visible to its own
   test, and a measurement must not be a comparison of two things of different
   sizes.**
+- **Then every rule was taken off the harness and proved on a PRODUCT path**,
+  which is where the remaining defects were hiding:
+  - **§6.4 back-pressure on the Mac app**: the queue pinned at its 1.15 MB
+    cap, video frozen, 492 frames dropped, **audio +43/s unbroken**. The first
+    run "passed" and proved nothing — the throttling proxy read from the client
+    at full speed and delayed only the forward, so the app never felt
+    congestion. Real back-pressure comes from NOT READING.
+  - **§6.5 on the Mac and on Android**: 6000→3600→6000 kbps on cue, with both
+    sentences; `.critical` ends the show. On the Google TV, driven through the
+    REAL platform API (`cmd thermalservice override-status 3`) the wire dropped
+    2604→1462 kbps, 44%.
+  - **§6.6 end to end**: rebuilt on the Mac and on the Google TV's shipping
+    app (`conn 2: open`, server re-ingesting), and its **expired deadline**
+    finally exercised — the backoff read off a real run as 1, 2, 4, 8, 15, 15,
+    15 s, summing to exactly the 60-second deadline, then "the connection could
+    not be restored within 60 seconds".
+  - **§8.3's soak re-run**: 18010 frames encoded, 18010 sent, memory flat at
+    ~91 MB, peak queue 2% of the cap — the check that §6.4a's tighter budget
+    does not fire on a healthy link.
+- **Defects that only a device could find**: Android's reconnect supervisor ran
+  on the Compose MAIN dispatcher, so `reconnect()` threw
+  `NetworkOnMainThreadException` on every attempt while the JVM test passed
+  (it called `reconnect()` from its own thread); the app had **no camera or
+  microphone usage description** at all, which terminates the process rather
+  than prompting; §6.2's audio session was configured only in `StudioLab`, so
+  on iOS the show began in `.playback` and could not record; a **stream key
+  could reach a television screen** through an error string; `endedReason` was
+  written by the engine and read by NOTHING on Apple; and §5's adaptive-step
+  sentence was rendered by no surface on any platform — the only reader was a
+  diagnostic log line I had added myself.
+- **And the instruments kept lying, in one family** — an assertion that chose
+  which sample to judge; a readiness probe that ATE the event it was observing;
+  `guard ma < mb` passing on 58.4 vs 58.3 B; a bitrate test with no film (a
+  bitrate is a **ceiling, not a floor**); totals compared across windows of
+  different lengths; `print` to a pipe losing everything on kill; a
+  full-desktop `screencapture` on the owner's Mac catching their personal
+  documents; and a doc edit whose assertion failed while the commit chained
+  after it succeeded anyway. Two memories carry the rules now:
+  [[instrument_must_be_invisible]] and [[mac_screenshot_window_only]].
+  `tools/test_studio_all.sh` runs the whole §8 suite in one command and counts
+  SKIPS separately, because four Kotlin cases had been skipping silently for a
+  session.
 - **Blocked on the owner, all of it small**: the two client ids (item 7), the
   Pixel pairing (item 8), Continuity pairing + camera/mic grant on the phone
-  and TV, and the rights-tier call. Nothing else is waiting on anything.
+  and TV, the one-tap Local Network grant (item 8a), and the rights-tier call.
+  Nothing else is waiting on anything.
 
 Older entries: `docs/SESSION-LOG.md` (verbatim, back to 2026-04-17).

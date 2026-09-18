@@ -1204,6 +1204,19 @@ Pixel.
 
 ## §8 — Tests (run before any Studio surface ships)
 
+**Run them with one command**: `tools/test_studio_all.sh` (add `--soak` for
+§8.3's ten minutes, `--strict` to make skips fail). It starts one `mediamtx`
+for every transport case, generates the saturating clip the bitrate cases need
+once, and prints a summary.
+
+**It counts SKIPS separately and says so**, because four of the Kotlin cases
+skip silently without a local server and were doing exactly that for a whole
+session (§6.2n): *a skip is not a pass*, and a runner that folded them
+together would be the most expensive kind of green.
+
+The script's summary is the authority on what actually ran — the list below
+says what each case IS.
+
 1. `tools/test_rtmp_publish.swift` — the publisher pushes a synthetic H.264 +
    AAC program to a local `mediamtx`; `ffprobe` reads back the server's
    recording and the harness asserts codec, resolution, frame rate and audio
@@ -1222,23 +1235,67 @@ Pixel.
    link. Device runs: the iPhone 12 and an Apple TV (**Fireplace is off
    limits**, and it is the only 2nd-gen box, so the hardware FLOOR needs a
    window the owner offers).
+4. `tools/test_rtmp_reconnect.swift` — §6.6 on a real server: publish to a
+   local `mediamtx`, SEVER the link mid-stream, and assert from the server's
+   OWN recording that media resumes. The negative control is the same run with
+   reconnection disabled, which must NOT resume — without it the test passes on
+   a server that simply never noticed.
+5. `tools/test_studio_thermal.swift` — §6.5 on the **real `StudioEngine`**
+   (the four Studio files compile standalone against a local `mediamtx`), driven
+   through `overrideThermalState`. Needs a **saturating** film: the harness
+   prints the ffmpeg recipe and takes it as `AW_THERMAL_CLIP`.
 6. `tools/test_studio_backpressure.swift` + `tools/rtmp_throttle_proxy.py` —
    §6.4 on the real engine: a proxy narrows the uplink mid-show so the
    publisher discovers congestion through its OWN send buffer. Asserts that the
    queue crosses the cap ONLY while throttled, that video is what yields, that
    audio advances in **every** second of the congestion, and that video
    recovers — by RATE, never by totals across windows of different lengths.
-5. `tools/test_studio_thermal.swift` — §6.5 on the **real `StudioEngine`**
-   (the four Studio files compile standalone against a local `mediamtx`), driven
-   through `overrideThermalState`. Needs a **saturating** film: the harness
-   prints the ffmpeg recipe and takes it as `AW_THERMAL_CLIP`.
-4. `tools/test_rtmp_reconnect.swift` — §6.6 on a real server: publish to a
-   local `mediamtx`, SEVER the link mid-stream, and assert from the server's
-   OWN recording that media resumes. The negative control is the same run with
-   reconnection disabled, which must NOT resume — without it the test passes on
-   a server that simply never noticed.
 
 ## §9 — Measurements (filled in as they are taken)
+
+### §9.ll One command for §8, and three faults it found in itself first (2026-09-17)
+
+§8 listed six tests across Swift, Kotlin and Python and there was **no way to
+run them together** — each had its own `swiftc` invocation, its own server, its
+own prerequisites. Tests that cannot be run in one command do not get run.
+`tools/test_studio_all.sh` starts one `mediamtx`, generates the saturating clip
+once (a bitrate is a ceiling, not a floor — §9.y), runs everything and prints a
+summary:
+
+    8.1 rtmp publish             PASS
+    8.4 rtmp reconnect           PASS
+    8.5 thermal                  PASS
+    8.6 back-pressure            PASS
+    8.3 ten-minute soak          SKIP   not run without --soak
+    test_studio_rights_parity    PASS
+    test_studio_rights_coverage  PASS
+    Kotlin suites                PASS   pass=46 skip=0 fail=0
+    pass=52 skip=1 fail=0
+    SUITE RESULT: PASS (with skips)
+
+**It took three runs, and all three faults were in the runner:**
+
+1. **A stale proxy failed a good test.** 8.6 reported "video never actually
+   yielded" — true of a run that had never been throttled, because a previous
+   harness's proxy had survived a Swift `exit(0)` (which skips `defer`) and was
+   forwarding at full rate. It passes standalone. Every case now gets a clean
+   slate: *a suite that perturbs its own cases is worse than no suite.*
+2. **The Kotlin row printed PASS over `pass=0 skip=0 fail=0`.** The counts file
+   was written one directory above where it was read, so 46 cases were also
+   missing from the totals. Zero parsed results now reports **FAIL** — a green
+   row over no data is the most expensive kind of green, and this script exists
+   to prevent exactly that.
+3. **Then my own fix killed the suite silently.** `swift_case` re-enabled
+   `set -e`, and a `pkill` matching nothing exits non-zero — so the run aborted
+   mid-8.4 **and still reported exit 0**, because piping through `tail` replaces
+   the status. Errexit is gone (the script is `set -u` only; it must report
+   every case, not stop at the first surprise), cleanup is `|| true`, and the
+   result is now PRINTED as well as returned.
+
+**The rule it enforces is the session's own**: a SKIP is not a PASS. Four
+Kotlin cases skip silently without a local server and did so for a whole
+session (§6.2n), so skips are counted separately, named, and `--strict` makes
+them failures.
 
 ### §9.kk §5's adaptive step had no surface on ANY platform (2026-09-17)
 
