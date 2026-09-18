@@ -74,6 +74,17 @@ struct GoLiveSheet: View {
                             .font(.footnote)
                             .foregroundStyle(.secondary)
                     }
+                    // What the gate CANNOT protect them from, before the
+                    // first broadcast rather than after a strike (§3.4a).
+                    Section {
+                        Label {
+                            Text(StudioRights.hostWarning)
+                                .font(.footnote)
+                        } icon: {
+                            Image(systemName: "exclamationmark.triangle")
+                                .foregroundStyle(.orange)
+                        }
+                    }
                 }
             }
             .navigationTitle("Go Live")

@@ -132,6 +132,36 @@ public enum StudioRights {
         }
     }
 
+    /// What the gate CANNOT protect a host from, told before they go live.
+    ///
+    /// Researched 2026-09-17, and it is not a formality — both halves are
+    /// documented by the platforms themselves:
+    ///
+    /// · YouTube's own copyright page: a live stream may be replaced by a
+    ///   placeholder, interrupted or TERMINATED and the channel struck, and
+    ///   "your live stream can be interrupted even if you've licensed the
+    ///   third-party content" unless the rights holder has allowlisted your
+    ///   channel. An automated matcher does not read our rights audit. A
+    ///   creator running a "Public Domain Theater" was kicked off and warned
+    ///   while streaming *His Girl Friday* — public domain for fifty years.
+    ///
+    /// · And the limit of our own gate: it clears a FILM by its age. It
+    ///   cannot clear a particular COPY's modern recorded score or
+    ///   restoration, and for silent cinema — which is the entire
+    ///   `guaranteed` tier — a modern score is the norm rather than the
+    ///   exception.
+    ///
+    /// Saying this before the first broadcast is the honest version of §2's
+    /// learning orientation: the host learns how the system actually works
+    /// instead of learning it from a strike.
+    public static let hostWarning =
+        "Even a public-domain film can trip a platform's automatic copyright "
+        + "match. YouTube may interrupt or end a live stream and warn your "
+        + "channel, and it can do that even when the rights are clear. And a "
+        + "silent film's modern recorded score may still be under copyright "
+        + "even though the film is not. Archive Watch checks the film's age; "
+        + "it cannot check a platform's matcher."
+
     /// The one-line explanation of the rule itself, for the go-live sheet.
     /// A host who cannot find their film should learn WHY, not hunt.
     public static var policy: String {

@@ -156,6 +156,52 @@ not everywhere) and `safe_archive_license`/`safe_cc` (an uploader's claim about
 a film they did not make — the exact class that put A Bridge Too Far and The
 Simpsons pilot into the Roku feed's strict tier).
 
+### §3.4a The gate has LIMITS, and the host is told them before the first broadcast (binding)
+
+Researched 2026-09-17, and it closes two of §9's open questions while opening
+a caveat the rights gate cannot close. `StudioRights.hostWarning` carries it,
+identically on every platform (enforced by
+`tools/test_studio_rights_parity.py`), and it is shown on the pre-broadcast
+surface — the iOS go-live sheet, the macOS and Android program panels.
+
+**1. An automated matcher does not read our rights audit.** YouTube's own
+copyright page states that a live stream may be replaced by a placeholder,
+interrupted or **terminated**, and the channel struck — and, verbatim, *"your
+live stream can be interrupted even if you've licensed the third-party
+content"* unless the rights holder has allowlisted the channel. A creator
+running a "Public Domain Theater" was kicked off and warned while streaming
+**His Girl Friday**, public domain for fifty years. (That film is the one this
+project's own gate refuses as `presumed_pd` — "probably in the public domain
+but nothing proves it" — so the gate was right, and the incident is what the
+gate's caution is FOR.)
+
+**2. The gate clears a FILM by age; it cannot clear a COPY's score.** A
+silent film's modern recorded score or a modern restoration can be under
+copyright even though the film is not — and for silent cinema, which is the
+entire `guaranteed` tier, a modern score is the norm rather than the
+exception. `audit_rights` judges the work's age from catalogue metadata; it
+has never judged a particular upload's soundtrack, and nothing in this feature
+changes that.
+
+**Why say it rather than quietly narrow the tier**: narrowing further would
+leave almost nothing (4,210 films is already 16.9% of the catalogue), and the
+risk is not a property of the film — it is a property of the platform's
+matcher and of one upload's audio. §2's learning orientation answers this the
+same way it answers provenance: expose the structure and let the host weigh
+it. A host who learns this from the app before going live is better placed
+than one who learns it from a strike.
+
+**Closed while researching this** (§9's open questions): YouTube's
+**50-subscriber minimum applies to the YouTube mobile app**, and the
+requirements page lists encoder/RTMP streaming separately with no subscriber
+threshold — so our path is not subject to it, though that is documentation
+rather than a test and a fresh channel would confirm it. And **Twitch retired
+Watch Parties on 2 April 2024**, so there is no licensed-content route there;
+public-domain films are the route, with three copyright strikes counting as a
+repeat infringer. Twitch's risk is a rights-holder NOTICE after the fact,
+where YouTube's is an automated interruption during the stream — different
+shapes, and only YouTube's can cut a broadcast off mid-film.
+
 ### §3.5 One engine, every Apple platform
 
 `StudioEngine` (shared Swift, Swift 6 strict concurrency) is platform-free:
@@ -2091,6 +2137,12 @@ lives once, beside the enum it names.
   Continuity pairing for the TV. **Measured on the Mac** (above): +0.73 ms per
   frame. The phone number is expected to be larger and is worth having, but
   the architectural question the measurement existed to answer is answered.
+- **The host warning on tvOS.** §3.4a is shown on the iOS sheet and the macOS
+  and Android panels; tvOS has no pre-broadcast surface at all — Detail's
+  transport menu starts the Studio directly — so there is nowhere to put a
+  paragraph yet. A one-time confirmation before a host's first broadcast is
+  the likely answer and needs a tvOS-DESIGN rule first; it is NOT built, and
+  a television host currently sees the warning nowhere.
 - Sign-in on a TELEVISION. `ASWebAuthenticationSession` presents itself on
   tvOS with no anchor; that screen cannot be seen until a client id exists
   (Decision 128). The **not-configured** state IS built and verified (tvOS-

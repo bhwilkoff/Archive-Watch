@@ -179,6 +179,21 @@ struct StudioMacPanel: View {
             }
             .formStyle(.grouped)
 
+            // What the gate cannot protect a host from (§3.4a). macOS has no
+            // pre-flight sheet — Detail goes straight to the player — so this
+            // is the first surface that can say it.
+            Divider()
+            HStack(alignment: .top, spacing: 8) {
+                Image(systemName: "exclamationmark.triangle")
+                    .foregroundStyle(.orange)
+                Text(StudioRights.hostWarning)
+                    .font(.footnote)
+                    .foregroundStyle(.secondary)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+            .padding(.horizontal, 14)
+            .padding(.top, 10)
+
             Divider()
             HStack {
                 Button("End the broadcast", role: .destructive) { onEnd(); dismiss() }

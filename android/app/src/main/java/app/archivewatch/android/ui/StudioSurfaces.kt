@@ -31,6 +31,7 @@ import androidx.compose.ui.unit.sp
 import androidx.media3.common.util.UnstableApi
 import app.archivewatch.android.studio.StudioController
 import app.archivewatch.android.studio.StudioHealth
+import app.archivewatch.android.studio.StudioRights
 
 private val Marquee = Color(0xFFFF5C35)
 
@@ -125,6 +126,14 @@ fun StudioPanel(health: StudioHealth, onDismiss: () -> Unit, onEnd: () -> Unit) 
                     onCheckedChange = { StudioController.showsCamera = it },
                 )
             }
+
+            Spacer(Modifier.size(16.dp))
+            HorizontalDivider()
+            Spacer(Modifier.size(16.dp))
+            // What the gate cannot protect a host from (§3.4a) — the same
+            // sentence every platform shows, kept identical by
+            // tools/test_studio_rights_parity.py.
+            Text(StudioRights.hostWarning, fontSize = 12.sp, color = Color(0xFFFFA726))
 
             Spacer(Modifier.size(20.dp))
             Button(onClick = onEnd) { Text("End the broadcast") }

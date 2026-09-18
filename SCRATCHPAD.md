@@ -84,6 +84,12 @@ emulators) · `docs/CAPTIONS.md` · `docs/SHAREPLAY.md` ·
    (c) **allow camera + mic** on the iPhone (Settings ▸ Archive Watch) — there
    is no supported way to pre-grant on a device, and the harness refuses
    rather than hanging on a prompt.
+   **Read §3.4a before registering anything**: an automated matcher does not
+   read our rights audit, and YouTube can interrupt or END a live stream and
+   strike the channel even when the rights are clear — it happened to someone
+   streaming *His Girl Friday*. A silent film's modern score can also still be
+   under copyright when the film is not. The app now warns the host; the risk
+   is real and is yours to accept.
    Also open, for the owner: widening the rights tier from `guaranteed`
    (4,210 films) to `strict` (7,517) is a Decision-027 content call.
 8. **Pair the Pixel 8a for wireless debugging** — one step on the phone

@@ -122,6 +122,21 @@ object StudioRights {
         }
 
     /**
+     * What the gate CANNOT protect a host from, told before they go live.
+     * Researched 2026-09-17; both halves are documented by the platforms
+     * themselves. See the Swift copy for the full citation — and
+     * `tools/test_studio_rights_parity.py` keeps the two identical, because
+     * this is exactly the kind of sentence that drifts.
+     */
+    val hostWarning: String =
+        "Even a public-domain film can trip a platform's automatic copyright " +
+        "match. YouTube may interrupt or end a live stream and warn your " +
+        "channel, and it can do that even when the rights are clear. And a " +
+        "silent film's modern recorded score may still be under copyright " +
+        "even though the film is not. Archive Watch checks the film's age; " +
+        "it cannot check a platform's matcher."
+
+    /**
      * The one-line explanation of the rule itself, for the go-live surface.
      * A host who cannot find their film should learn WHY, not hunt.
      */

@@ -114,6 +114,23 @@ def main():
               f"{missing_android}")
         print(f"        ({len(emitted)} buckets found in audit_rights.py)")
 
+    # The host warning is a safety sentence and drifts like any other.
+    def one_string(text, pattern):
+        m = re.search(pattern, text, re.S)
+        if not m:
+            return None
+        return "".join(re.findall(r'"([^"]*)"', m.group(1)))
+
+    s_warn = one_string(swift, r'hostWarning\s*=\s*(.*?)\n\n')
+    k_warn = one_string(kotlin, r'val hostWarning: String =\s*(.*?)\n\n')
+    check("both carry the host warning", bool(s_warn) and bool(k_warn),
+          f"apple={bool(s_warn)} android={bool(k_warn)}")
+    check("the host warning is IDENTICAL", s_warn == k_warn,
+          f"\n          apple:   {s_warn}\n          android: {k_warn}")
+    # It must actually warn about the two things the research found.
+    for needle in ("automatic copyright", "interrupt", "score"):
+        check(f"the warning mentions '{needle}'", needle in (s_warn or ""))
+
     # No internal name may reach a viewer through a normal verdict.
     leaky = [b for b, sentence in k.items() if b in sentence]
     check("no Android sentence leaks its own bucket name", not leaky, f"{leaky}")
