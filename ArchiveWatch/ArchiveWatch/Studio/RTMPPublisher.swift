@@ -115,6 +115,29 @@ public struct RTMPStreamConfig: Sendable {
     }
 }
 
+/// A destination with its last path component replaced by `<key>`.
+///
+/// §5 forbids putting a stream key in anything the app prints, and the
+/// convenience `publish(to:)` overload takes exactly `rtmp://host/app/KEY` —
+/// so interpolating that URL into an error message put a live credential into
+/// a string that is rendered VERBATIM on three screens (`studioRefusal` on
+/// tvOS, `refusal` on the Mac, the readout's `lastError`) and written to the
+/// Studio Lab log. Found by audit 2026-09-17; it had never fired, because it
+/// takes a malformed destination to reach it.
+///
+/// Redaction rather than omission: "bad destination" with nothing after it
+/// helps nobody diagnose a typo in a host name.
+func redactingKey(_ url: URL) -> String {
+    var parts = url.path.split(separator: "/", omittingEmptySubsequences: true).map(String.init)
+    if !parts.isEmpty { parts[parts.count - 1] = "<key>" }
+    var c = URLComponents()
+    c.scheme = url.scheme; c.host = url.host; c.port = url.port
+    c.path = "/" + parts.joined(separator: "/")
+    // The query is dropped entirely: YouTube's backup ingest carries one, and
+    // a query is exactly where a credential hides.
+    return c.url?.absoluteString ?? "\(url.scheme ?? "?")://\(url.host ?? "?")/<redacted>"
+}
+
 public actor RTMPPublisher {
 
     public private(set) var health = RTMPHealth()
@@ -210,7 +233,7 @@ public actor RTMPPublisher {
         // express without ambiguity.
         var parts = url.path.split(separator: "/", omittingEmptySubsequences: true).map(String.init)
         guard parts.count >= 2 else {
-            throw RTMPPublishError.badURL("need /app/streamKey in \(url.absoluteString) — or use publish(to:streamKey:config:)")
+            throw RTMPPublishError.badURL("need /app/streamKey in \(redactingKey(url)) — or use publish(to:streamKey:config:)")
         }
         let keyPart = parts.removeLast()
         var server = URLComponents()
@@ -219,7 +242,7 @@ public actor RTMPPublisher {
         server.port = url.port
         server.path = "/" + parts.joined(separator: "/")
         server.query = url.query
-        guard let serverURL = server.url else { throw RTMPPublishError.badURL(url.absoluteString) }
+        guard let serverURL = server.url else { throw RTMPPublishError.badURL(redactingKey(url)) }
         try await publish(to: serverURL, streamKey: keyPart, config: config, timeout: timeout)
     }
 

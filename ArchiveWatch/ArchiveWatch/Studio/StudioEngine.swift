@@ -423,6 +423,11 @@ public actor StudioEngine {
     public func start(destination: URL?) async throws {
         guard !health.isRunning else { return }
 
+        // §6.2 FIRST: the mixer and the film both depend on the session being
+        // in the right category, and on iOS it arrives here still in
+        // `.playback`.
+        raiseAudioSessionForShow()
+
         let enc = H264Encoder(width: config.width, height: config.height,
                               frameRate: config.frameRate, bitrate: config.videoBitrate)
         try enc.start()
@@ -523,6 +528,7 @@ public actor StudioEngine {
 
     public func stop() async {
         await Self.holdTheScreenAwake(false)
+        restoreAudioSession()
         supervisor?.cancel(); supervisor = nil
         thermalWatcher?.cancel(); thermalWatcher = nil
         ticker?.cancel(); ticker = nil
@@ -583,6 +589,64 @@ public actor StudioEngine {
     }
 
     private func noteRenderOverrun() { health.renderDroppedFrames += 1 }
+
+    // MARK: - §6.2 The audio session
+
+    #if os(iOS) || os(tvOS)
+    private var previousAudioCategory: AVAudioSession.Category?
+    #endif
+
+    /// §6.2, and it belongs HERE for the same reason §6.3's idle timer does.
+    ///
+    /// Every product path that starts the Studio — the iOS go-live container,
+    /// the tvOS transport menu, the Mac — started it WITHOUT touching the
+    /// audio session. The only code that honoured §6.2 was `StudioLab`, the
+    /// debug harness. So on iOS the show began with the session still in
+    /// `.playback` from ordinary playback (`PlayerView_iOS`), which cannot
+    /// record: the documented `.playAndRecord` never happened, and a mic tap
+    /// would have captured nothing. The fourth rule in this section found
+    /// implemented only in the harness.
+    ///
+    /// The platform conditionals are real rather than lazy: `.defaultToSpeaker`
+    /// does not exist on tvOS, and `.moviePlayback` with `.playAndRecord` is
+    /// invalid everywhere (OSStatus -50). On tvOS the session stays in
+    /// `.playback` until `StudioContinuity` finds an actual microphone port and
+    /// raises it — raising it earlier fails, and a failed activation stops
+    /// `AVPlayer` dead (§9).
+    private func raiseAudioSessionForShow() {
+        #if os(iOS) || os(tvOS)
+        let s = AVAudioSession.sharedInstance()
+        if previousAudioCategory == nil { previousAudioCategory = s.category }
+        do {
+            #if os(tvOS)
+            try s.setCategory(.playback, mode: .moviePlayback, options: [.mixWithOthers])
+            #else
+            try s.setCategory(.playAndRecord, mode: .default,
+                              options: [.mixWithOthers, .allowBluetooth, .defaultToSpeaker])
+            #endif
+            try s.setActive(true)
+        } catch {
+            // Never swallowed: a failed activation is the thing that silently
+            // stops the film, so it goes on the readout the host can see.
+            health.qualityNote = "The audio session could not be set up (\(error.localizedDescription)). "
+                + "Your voice may not be in the stream."
+        }
+        #endif
+    }
+
+    /// §6.2's last sentence: restore the previous category on close. The
+    /// harness never did, so a Studio session left the whole app in
+    /// `.playAndRecord` — which on a phone means the next film plays through
+    /// the receiver rather than the speaker.
+    private func restoreAudioSession() {
+        #if os(iOS) || os(tvOS)
+        guard let prev = previousAudioCategory else { return }
+        let s = AVAudioSession.sharedInstance()
+        try? s.setCategory(prev, mode: .moviePlayback, options: [.mixWithOthers])
+        try? s.setActive(true)
+        previousAudioCategory = nil
+        #endif
+    }
 
     // MARK: - §6.5 Thermal pressure
 

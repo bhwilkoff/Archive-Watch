@@ -326,6 +326,53 @@ Apple platforms and then build out from there."
   actively watching on it now."* Fireplace is off limits (owner item 9) and it
   is the only 2nd-gen Apple TV, so the Studio's hardware FLOOR cannot be
   re-measured without asking.
+- **Then §6 itself was audited, rule by rule, and every one of the five had a
+  defect — three of them were implemented NOWHERE.** The pattern is the
+  session's main finding: *a rule written in a design doc and implemented in a
+  test harness is not implemented*, and nobody notices until something is
+  measured. Each is now built and proved against a real server, asserted from
+  the server's own recording:
+  - **§6.3 idle timer** — set only in `StudioLab` behind `#if os(iOS)`, so
+    tvOS's screen saver invalidated the VideoToolbox session and killed a soak
+    at 291 s. Moved into `StudioEngine`.
+  - **§6.4 back-pressure** — correct in shape (audio has no drop path at all)
+    but its 2 MB cap *could not fire*: at 2.5 Mbps that is **6.4 seconds of
+    latency**, and a measured backlog peaked at 1.39 MB while the publisher
+    kept feeding 30 fps into a queue that was pure delay. The budget is now
+    **1.5 s of the show's own bitrate** (§6.4a). Proved through a throttling
+    proxy: video fell to 1 fps and recovered to 30.1, and audio held **43
+    frames in the worst congested second** — the picture yields, the voice does
+    not.
+  - **§6.5 thermal** — implemented nowhere AND wrong: it said `.serious`
+    should halve the RESOLUTION, which an RTMP ingest will not accept
+    mid-publish (format parameters must not change during a stream), so the
+    documented response would have destroyed the broadcast it was meant to
+    save. Corrected to the bitrate: 2893 → 1959 kbps, resolution held,
+    `.critical` ends the show. And `AverageBitRate` alone barely works — a 40%
+    step moved the wire 7% until `DataRateLimits` came down from 2× to 1.15×.
+  - **§6.6 a severed link** — did not exist. The readout said OFFLINE and
+    nothing acted, so a broadcast of a two-hour film would have ended silently
+    at minute twelve. Now reconnected on a bounded 60 s deadline matched to the
+    ingests' own grace windows, restoring transaction id 0 (Decision 127's bug
+    waiting to recur), chunk size 128 and the sequence headers, opening on a
+    keyframe, keeping the timestamp base. 18.9 s recorded against a control's
+    5.1 s.
+- **The defect none of that was looking for**: every broadcast opened with
+  **59 dropped video frames — two full seconds blind** — because a fresh
+  publish begins in `droppingUntilKeyframe` and only the RECONNECT path asked
+  for an opening keyframe. The fix already existed and was wired to the rare
+  path.
+- **And the instruments went on lying, in one family**: an assertion that chose
+  which sample to judge (`segs.last`) and judged the wrong one; a harness's own
+  port-readiness probe that became connection 1 and ATE the event it was
+  supposed to observe; a `guard ma < mb` that passed on 58.4 vs 58.3 B while
+  printing "0% smaller"; a bitrate test run with no film, where a static black
+  program compressed to 58-byte frames so lowering a CEILING changed nothing; a
+  cap read before the code that computes it ran; and totals compared across
+  windows of different lengths. Every one produced a green or a wrong red.
+  **The rule that came out of it: an instrument must not be visible to its own
+  test, and a measurement must not be a comparison of two things of different
+  sizes.**
 - **Blocked on the owner, all of it small**: the two client ids (item 7), the
   Pixel pairing (item 8), Continuity pairing + camera/mic grant on the phone
   and TV, and the rights-tier call. Nothing else is waiting on anything.

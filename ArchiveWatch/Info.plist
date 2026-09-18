@@ -1,141 +1,96 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<!--
-  Complete Info.plist (GENERATE_INFOPLIST_FILE = NO). Bundle id, version,
-  and the TMDb token stay driven by build-setting variables so nothing
-  drifts from AppVersion.xcconfig / Secrets.xcconfig. The custom keys
-  below can't be expressed as INFOPLIST_KEY_* settings:
-    • CFBundleURLTypes     — archivewatch:// deep links (Top Shelf + intents)
-    • NSUserActivityTypes  — Detail NSUserActivity / "Add to Up Next"
-    • BGTaskSchedulerPermittedIdentifiers + UIBackgroundModes — What's New refresh
--->
 <plist version="1.0">
 <dict>
-    <key>CFBundleDevelopmentRegion</key>
-    <string>$(DEVELOPMENT_LANGUAGE)</string>
-    <key>CFBundleExecutable</key>
-    <string>$(EXECUTABLE_NAME)</string>
-    <key>CFBundleIdentifier</key>
-    <string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
-    <key>CFBundleInfoDictionaryVersion</key>
-    <string>6.0</string>
-    <key>CFBundleName</key>
-    <string>$(PRODUCT_NAME)</string>
-    <key>CFBundlePackageType</key>
-    <string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
-    <key>CFBundleShortVersionString</key>
-    <string>$(MARKETING_VERSION)</string>
-    <key>CFBundleVersion</key>
-    <string>$(CURRENT_PROJECT_VERSION)</string>
-    <key>UIRequiredDeviceCapabilities</key>
-    <array>
-        <string>arm64</string>
-    </array>
-    <!-- Export compliance: the app uses only standard, exempt encryption (HTTPS/TLS
-         to public APIs, plus Apple's own CloudKit / Sign in with Apple). Declaring
-         this here auto-answers the App Store Connect export question for every
-         build, so no manual compliance step per upload. -->
-    <key>ITSAppUsesNonExemptEncryption</key>
-    <false/>
-    <key>TMDB_BEARER_TOKEN</key>
-    <string>$(TMDB_BEARER_TOKEN)</string>
-    <key>OPENSUBTITLES_API_KEY</key>
-    <string>$(OPENSUBTITLES_API_KEY)</string>
-    <!-- Watch Together Studio (docs/WATCH-TOGETHER.md §6): the OAuth client
-         ids for streaming to a host's OWN YouTube and Twitch account. PUBLIC
-         client ids, not secrets — but they still come from the gitignored
-         Secrets.xcconfig, because they identify the owner's applications and
-         a fork should register its own. ABSENT is the normal state: the app
-         then says signing in is not set up in this build, rather than
-         offering a button that fails. Neither flow uses a client SECRET. -->
-    <key>YOUTUBE_CLIENT_ID</key>
-    <string>$(YOUTUBE_CLIENT_ID)</string>
-    <key>TWITCH_CLIENT_ID</key>
-    <string>$(TWITCH_CLIENT_ID)</string>
-    <!-- Clip Studio (Decision 033, iOS/iPadOS): saving a finished clip/GIF to
-         the user's library. Add-only is the lighter grant — the app never
-         reads the photo library. tvOS has no Clip Studio so this is iOS-only,
-         but the universal Info.plist carries it harmlessly. -->
-    <key>NSPhotoLibraryAddUsageDescription</key>
-    <string>Save the clips and GIFs you create from public-domain films to your photo library.</string>
-    <!-- Clip Studio auto-captions (Decision 033 v2): on-device speech
-         recognition transcribes a clip's audio into timed captions. -->
-    <key>NSSpeechRecognitionUsageDescription</key>
-    <string>Transcribe a clip's audio on your device to add timed captions.</string>
-    <key>CFBundleURLTypes</key>
-    <array>
-        <dict>
-            <key>CFBundleURLName</key>
-            <string>com.bhwilkoff.archivewatch.deeplink</string>
-            <key>CFBundleURLSchemes</key>
-            <array>
-                <string>archivewatch</string>
-            </array>
-        </dict>
-        <!-- Google's OAuth redirect for the Studio's YouTube sign-in. Google
-             accepts either the reversed client id or "the reverse DNS notation
-             of a domain under your control" — we use the BUNDLE ID, because a
-             URL scheme has to be declared here at build time and the reversed
-             client id is not known until a client id is pasted into
-             Secrets.xcconfig. `ASWebAuthenticationSession` refuses to start
-             without the declaration, so this is the difference between the
-             sign-in working the first time and failing with an error a host
-             cannot act on. Twitch needs no redirect: it uses the device flow.
-             -->
-        <dict>
-            <key>CFBundleURLName</key>
-            <string>app.archivewatch.oauth</string>
-            <key>CFBundleURLSchemes</key>
-            <array>
-                <string>app.archivewatch.tvos</string>
-            </array>
-        </dict>
-    </array>
-    <!-- Schemes we QUERY with canOpenURL (NOT ones we handle). `callsheet` lets
-         "Open in Callsheet" detect whether Callsheet is installed and relabel to
-         "Get Callsheet" otherwise (Decision 038). -->
-    <key>LSApplicationQueriesSchemes</key>
-    <array>
-        <string>callsheet</string>
-    </array>
-    <key>NSUserActivityTypes</key>
-    <array>
-        <string>com.bhwilkoff.archivewatch.viewing</string>
-    </array>
-    <key>BGTaskSchedulerPermittedIdentifiers</key>
-    <array>
-        <string>com.bhwilkoff.archivewatch.refresh</string>
-    </array>
-    <key>UIBackgroundModes</key>
-    <array>
-        <!-- `audio` enables background play (iOS) and Picture in Picture
-             (both platforms) — the player's .playback session keeps audio
-             running when the app backgrounds. fetch/processing are the
-             What's New refresh. -->
-        <string>audio</string>
-        <string>fetch</string>
-        <string>processing</string>
-    </array>
-    <!-- iOS/iPadOS launch screen. WITHOUT this key iOS runs the app in
-         compatibility "letterbox" mode at a fixed reference size (the content
-         is squeezed into a centered box that uses only part of the screen).
-         An empty dict gives a plain full-screen launch using the app window's
-         background. tvOS ignores UILaunchScreen. -->
-    <key>UILaunchScreen</key>
-    <dict/>
-    <!-- iPhone: portrait + landscape; iPad: all four. tvOS ignores these. -->
-    <key>UISupportedInterfaceOrientations</key>
-    <array>
-        <string>UIInterfaceOrientationPortrait</string>
-        <string>UIInterfaceOrientationLandscapeLeft</string>
-        <string>UIInterfaceOrientationLandscapeRight</string>
-    </array>
-    <key>UISupportedInterfaceOrientations~ipad</key>
-    <array>
-        <string>UIInterfaceOrientationPortrait</string>
-        <string>UIInterfaceOrientationPortraitUpsideDown</string>
-        <string>UIInterfaceOrientationLandscapeLeft</string>
-        <string>UIInterfaceOrientationLandscapeRight</string>
-    </array>
+	<key>BGTaskSchedulerPermittedIdentifiers</key>
+	<array>
+		<string>com.bhwilkoff.archivewatch.refresh</string>
+	</array>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>CFBundleExecutable</key>
+	<string>$(EXECUTABLE_NAME)</string>
+	<key>CFBundleIdentifier</key>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>$(PRODUCT_NAME)</string>
+	<key>CFBundlePackageType</key>
+	<string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
+	<key>CFBundleShortVersionString</key>
+	<string>$(MARKETING_VERSION)</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>com.bhwilkoff.archivewatch.deeplink</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>archivewatch</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>app.archivewatch.oauth</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>app.archivewatch.tvos</string>
+			</array>
+		</dict>
+	</array>
+	<key>CFBundleVersion</key>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>callsheet</string>
+	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>Show your reactions beside the film when you stream a public-domain movie with Watch Together Studio. On Apple TV, this uses a nearby iPhone as the camera.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Add your live commentary to a Watch Together Studio broadcast, and record narration for the clips you create.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Save the clips and GIFs you create from public-domain films to your photo library.</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>Transcribe a clip's audio on your device to add timed captions.</string>
+	<key>NSUserActivityTypes</key>
+	<array>
+		<string>com.bhwilkoff.archivewatch.viewing</string>
+	</array>
+	<key>OPENSUBTITLES_API_KEY</key>
+	<string>$(OPENSUBTITLES_API_KEY)</string>
+	<key>TMDB_BEARER_TOKEN</key>
+	<string>$(TMDB_BEARER_TOKEN)</string>
+	<key>TWITCH_CLIENT_ID</key>
+	<string>$(TWITCH_CLIENT_ID)</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>audio</string>
+		<string>fetch</string>
+		<string>processing</string>
+	</array>
+	<key>UILaunchScreen</key>
+	<dict/>
+	<key>UIRequiredDeviceCapabilities</key>
+	<array>
+		<string>arm64</string>
+	</array>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>UISupportedInterfaceOrientations~ipad</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>YOUTUBE_CLIENT_ID</key>
+	<string>$(YOUTUBE_CLIENT_ID)</string>
 </dict>
 </plist>

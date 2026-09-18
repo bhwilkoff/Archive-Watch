@@ -277,7 +277,17 @@ Recording: the same encoded stream is written to an `.mp4` locally while live
 - Never capture another app's audio or video on iOS/tvOS — the friends' call
   path is Mac-only and uses ScreenCaptureKit on a window the host picked.
 - Never store a stream key beyond the session; never log one; never put one
-  in a URL the app prints.
+  in a URL the app prints. **Audited 2026-09-17: two error paths broke this.**
+  `publish(to:)` takes `rtmp://host/app/KEY`, and both `badURL` throws
+  interpolated that whole URL — and `RTMPPublishError`'s description is
+  rendered VERBATIM in three user-visible places (`studioRefusal` on tvOS,
+  `refusal` on the Mac, the readout's `lastError`) and written to the Studio Lab
+  log, so a live credential had a path onto a television screen. Reaching it
+  needs a malformed destination, so it had never fired. Fixed with
+  `redactingKey(_:)`, which replaces the last path component with `<key>` and
+  drops the query entirely — YouTube's backup ingest carries one, and a query
+  is exactly where a credential hides. Redaction rather than omission, because
+  "bad destination" with nothing after it diagnoses no typo.
 - Never coordinate the caption scout (SHAREPLAY §3) — the Studio composites
   the caption overlay the viewer sees; the scout stays local.
 - Never use `AVPlayer.isMuted` or its volume as the film's broadcast level.
@@ -289,7 +299,16 @@ Recording: the same encoded stream is written to an `.mp4` locally while live
 ## §6 — Platform requirements checklist
 
 1. `NSCameraUsageDescription`, `NSMicrophoneUsageDescription` (iOS, macOS,
-   tvOS — Continuity Camera needs both on tvOS).
+   tvOS — Continuity Camera needs both on tvOS). **Audited 2026-09-17 and both
+   were MISSING from `ArchiveWatch/Info.plist`**, which serves the tvOS and iOS
+   targets alike (`SUPPORTED_PLATFORMS = appletvos … iphoneos`); it carried
+   only the photo-library and speech keys. `StudioLab` calls
+   `AVCaptureDevice.requestAccess(for: .video)` and `StudioContinuity` builds a
+   real `AVCaptureSession`, and without a usage description that call does not
+   prompt — **it terminates the process**. It had never fired only because
+   camera access is owner-blocked, so no device run had reached it. macOS was
+   already complete, entitlements included (`device.camera`,
+   `device.microphone`, `device.audio-input`).
 2. `AVAudioSession` per platform, and never guessed — a failed activation
    silently stops `AVPlayer` (§9): **iOS/iPadOS** `.playAndRecord` + `.default`
    + `[.mixWithOthers, .allowBluetooth, .defaultToSpeaker]`; **tvOS**
@@ -298,6 +317,18 @@ Recording: the same encoded stream is written to an `.mp4` locally while live
    with `.playAndRecord` is invalid on every platform (OSStatus -50), and
    `.defaultToSpeaker` does not exist on tvOS. Restore the previous category
    on close.
+2a. **§6.2 was implemented only in the HARNESS** (audited 2026-09-17, and the
+   fourth rule in this section found that way). Every product path that starts
+   the Studio — `StudioPlayerContainer_iOS`, tvOS's `DetailView`,
+   `StudioSession` on the Mac — touched no audio session at all; the only code
+   honouring this rule was `StudioLab`. So on iOS the show began with the
+   session still in `.playback` left by ordinary playback, which **cannot
+   record**: the documented `.playAndRecord` never happened and a mic tap would
+   have captured nothing. Now in `StudioEngine.raiseAudioSessionForShow()`,
+   beside §6.3's idle timer, with the previous category restored on stop —
+   which the harness never did, so a Studio session used to leave the whole app
+   in `.playAndRecord`, routing the next film on a phone to the receiver
+   instead of the speaker.
 3. `UIApplication.isIdleTimerDisabled` while live — set in **`StudioEngine`**,
    on iOS AND tvOS, guarded on `canImport(UIKit)` and never on a platform
    name. This is not a nicety: tvOS's five-minute screen saver takes the
@@ -1184,9 +1215,13 @@ Pixel.
 2. On-device Studio Lab (debug-only screen): starts the engine against a
    custom destination and prints fps / dropped / CPU / thermal every second to
    the console; the harness reads the numbers.
-3. A ten-minute soak on the iPhone 12 and the Fireplace Apple TV at 1080p30:
-   no dropped-frame growth after the first minute, thermal state never
-   `.serious`.
+3. A ten-minute soak at 1080p30: no dropped-frame growth after the first
+   minute, thermal state never `.serious`. `tools/test_studio_soak.swift` runs
+   it against a real server and asserts the negative case as well — that the
+   send queue never reaches §6.4a's cap and §6.6 never fires on a healthy
+   link. Device runs: the iPhone 12 and an Apple TV (**Fireplace is off
+   limits**, and it is the only 2nd-gen box, so the hardware FLOOR needs a
+   window the owner offers).
 6. `tools/test_studio_backpressure.swift` + `tools/rtmp_throttle_proxy.py` —
    §6.4 on the real engine: a proxy narrows the uplink mid-show so the
    publisher discovers congestion through its OWN send buffer. Asserts that the
@@ -1204,6 +1239,41 @@ Pixel.
    a server that simply never noticed.
 
 ## §9 — Measurements (filled in as they are taken)
+
+### §9.aa The §8.3 soak, re-run after §6.4/§6.5/§6.6 (2026-09-17)
+
+`tools/test_studio_soak.swift`, ten minutes at **1920×1080@30, 6000 kbps**,
+against a real `mediamtx`. Framed negatively on purpose: on a healthy link
+nothing should happen.
+
+| over 10.0 minutes | |
+|---|---|
+| frames encoded / sent | **18010 / 18010** — none dropped |
+| audio frames | 25783 |
+| pushed | 363 MB |
+| peak send queue | **25 kB** of §6.4a's 1149 kB cap (**2%**) |
+| memory | 71.6 → 84.4 MB, flat at ~91 MB throughout, peak 112.3 |
+| reconnects / encoder faults / pool failures | **0 / 0 / 0** |
+| fps at worst after the first minute | 29 |
+| thermal | nominal throughout |
+
+**What it was run to answer.** §6.4a cut the back-pressure budget from a flat
+2 MB to 1.5 s of the show's bitrate. If that were too tight, a host on a
+healthy link would lose frames for no reason — the fix for a rule that never
+fired would have become a rule that fires when it should not. At 6 Mbps the cap
+is 1149 kB and the queue peaked at 25 kB: two per cent, so the budget has room
+to spare on a good link while still being a latency rather than a byte count.
+
+**18010 sent against 18010 encoded also re-proves §9.z's other find**: 59 of
+those would have been dropped at the start before the opening keyframe was
+asked for.
+
+**And the memory question is settled by plateau, not by a threshold.** A
+95-second smoke run showed 30.5 → 77.1 MB and that looked like a leak; over ten
+minutes it is flat at ~91 MB from minute two onward. Warm-up, not growth —
+which is why the harness logs `phys_footprint` every second rather than
+comparing two endpoints. The 291-second stall was misdiagnosed as a memory leak
+for hours before an instrument showed the footprint flat.
 
 ### §9.z Back-pressure: the promise holds, the threshold did not, and every broadcast opened two seconds blind (2026-09-17)
 
