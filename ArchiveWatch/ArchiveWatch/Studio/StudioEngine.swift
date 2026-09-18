@@ -232,6 +232,12 @@ public struct StudioHealth: Sendable, Equatable {
     /// what the session actually is.
     public var audioSessionState: String = "not set"
 
+    /// Whether the video encoder in use is the HARDWARE one — nil before a
+    /// show starts. Carried in health so every surface can show it, because
+    /// Android spent days at a third of its frame rate on a software encoder
+    /// nobody had thought to ask about (§9.uu).
+    public var encoderIsHardware: Bool?
+
     public var publisher = RTMPHealth()
     public var audio = StudioAudioHealth()
     /// True when a destination was supplied. Without one the engine still
@@ -340,6 +346,10 @@ public actor StudioEngine {
     private let publisher: RTMPPublisher
     private let renderer: ProgramRenderer
     private var encoder: H264Encoder?
+
+    /// Whether the video encoder in use is the hardware one — nil until a show
+    /// has started. Reported rather than assumed (§9.vv).
+    public var encoderIsHardware: Bool? { encoder?.usingHardware }
     private var filmOutput: AVPlayerItemVideoOutput?
     private weak var filmPlayer: AVPlayer?
     private var cameraTap: CameraFrameTap?
@@ -594,6 +604,7 @@ public actor StudioEngine {
     }
 
     public func refreshHealth() async {
+        health.encoderIsHardware = encoder?.usingHardware
         if publishing { health.publisher = await publisher.health }
         health.audio = mixer.currentHealth()
         // The EFFECTIVE state, or a harness override would be overwritten once
@@ -1141,6 +1152,20 @@ final class H264Encoder: @unchecked Sendable {
         self.width = width; self.height = height; self.frameRate = frameRate; self.bitrate = bitrate
     }
 
+    /// Whether VideoToolbox actually gave us a HARDWARE encoder.
+    ///
+    /// `encoderSpecification: nil` is NOT the same mistake Android made with
+    /// `createEncoderByType`: the SDK documents
+    /// `kVTVideoEncoderSpecification_EnableHardwareAcceleratedVideoEncoder` as
+    /// "Optional, true by default", so nil already means "hardware if there is
+    /// one". But that is a fact about the DEFAULT, not about this session, and
+    /// the Android ceiling was believed for days on exactly that kind of
+    /// reasoning (§9.uu). `UsingHardwareAcceleratedVideoEncoder` is documented
+    /// "Read; assumed false by default", so it is read here and reported.
+    /// `Require…` is deliberately NOT set: it fails session creation outright
+    /// on a machine with no hardware encoder, and a slow broadcast beats none.
+    private(set) var usingHardware: Bool?
+
     func start() throws {
         var s: VTCompressionSession?
         let status = VTCompressionSessionCreate(
@@ -1163,6 +1188,12 @@ final class H264Encoder: @unchecked Sendable {
         // path had left loose.
         VTSessionSetProperty(s, key: kVTCompressionPropertyKey_DataRateLimits,
                              value: [Int(Double(bitrate) / 8.0 * Self.dataRateCapFactor), 1] as CFArray)
+        var hwValue: CFTypeRef?
+        if VTSessionCopyProperty(s,
+                key: kVTCompressionPropertyKey_UsingHardwareAcceleratedVideoEncoder,
+                allocator: nil, valueOut: &hwValue) == noErr {
+            usingHardware = (hwValue as? Bool) ?? ((hwValue as? NSNumber)?.boolValue)
+        }
         VTCompressionSessionPrepareToEncodeFrames(s)
     }
 

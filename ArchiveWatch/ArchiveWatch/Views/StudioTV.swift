@@ -54,6 +54,12 @@ struct StudioTVHealth: View {
             Text("audio: \(health.audioSessionState)")
                 .font(.system(size: 26, weight: .medium))
                 .foregroundStyle(.white.opacity(0.7))
+            // A television cannot reach the bench destination that gates the
+            // machine-readable health line (owner item 8a), so the encoder's
+            // identity is put on the GLASS where a screenshot can read it.
+            Text("encoder: \(health.encoderIsHardware.map { $0 ? "hardware" : "SOFTWARE" } ?? "-")")
+                .font(.system(size: 26, weight: .medium))
+                .foregroundStyle(.white.opacity(0.7))
             #endif
             // §5's adaptive step, on its OWN line.
             //

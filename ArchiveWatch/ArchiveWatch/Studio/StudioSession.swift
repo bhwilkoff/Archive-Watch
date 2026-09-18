@@ -298,11 +298,15 @@ public final class StudioSession {
                 #if DEBUG
                 if ProcessInfo.processInfo.environment["AW_STUDIO_DEST"] != nil {
                     let p = h.publisher
+                    // Read through the non-optional local: optional-chaining
+                    // into an actor is not an async access Swift 6 will take.
+                    let hw = await engine.encoderIsHardware
                     self.diag("[AWSTUDIOHEALTH] state=\(h.showState.label) fps=\(h.encodedFramesPerSecond)"
                           + " queued=\(p.queuedBytes) vsent=\(p.videoFramesSent) vdrop=\(p.videoFramesDropped)"
                           + " asent=\(p.audioFramesSent) reconnects=\(p.reconnects)"
                           + " kbps=\(h.videoBitrateNow / 1000) thermal=\(h.thermalState)"
-                          + " audio=\(h.audioSessionState) note=\(h.qualityNote ?? "-")")
+                          + " audio=\(h.audioSessionState) note=\(h.qualityNote ?? "-")"
+                          + " hwenc=\(hw.map(String.init(describing:)) ?? "?")")
                 }
                 #endif
             }

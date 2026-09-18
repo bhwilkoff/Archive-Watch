@@ -1618,6 +1618,48 @@ the audio path, the real ingest hosts with no credential, the overlay and
 go-live surfaces on the glass, the rights gate on device, and the platform
 clients. **→ `docs/watch-together-measurements.md`**
 
+### §9.vv Apple's encoder IS the hardware one — asked, because Android's was not (2026-09-18)
+
+§9.uu found the Android Studio encoding in software for its entire life,
+because `createEncoderByType` returns whatever the platform lists first. The
+same question had to be put to Apple, where `VTCompressionSessionCreate` is
+called with `encoderSpecification: nil`.
+
+**The SDK says nil is already the right answer** — read from the headers on this
+machine rather than from memory:
+
+- `kVTVideoEncoderSpecification_EnableHardwareAcceleratedVideoEncoder` —
+  *"CFBoolean, Optional, **true by default**"*
+- `kVTCompressionPropertyKey_UsingHardwareAcceleratedVideoEncoder` —
+  *"CFBoolean, Read; assumed false by default"*
+- all three hardware keys: `macos(10.9), ios(17.4), tvos(17.4)`, against this
+  project's deployment target of **26.0** on every Apple platform, so they are
+  unconditionally available.
+
+So nil already means "hardware if there is one", and Apple never had Android's
+defect. **But that is a fact about the DEFAULT, not about this session**, and
+the Android ceiling was believed for days on exactly that species of reasoning.
+So it is now read and reported rather than assumed.
+
+**Measured on the macOS product path** (Apple M3), the health line carries it:
+
+    state=LIVE fps=30 queued=0 vsent=917 vdrop=0 asent=1316 ... hwenc=true
+
+Hardware, 30 fps, nothing dropped — next to Android's software encoder at 13 fps
+on a dongle with no hardware encoder at all.
+
+**`Require…` is deliberately NOT set.** It fails session creation outright on a
+machine with no hardware encoder, and for this feature a slow broadcast beats
+no broadcast: the Android dongle proves such devices exist and still want to
+take part.
+
+**tvOS and iOS are surfaced but not yet READ.** `StudioHealth` now carries
+`encoderIsHardware` so every surface can show it, and the tvOS readout prints
+`encoder: hardware` / `encoder: SOFTWARE` in DEBUG — on the GLASS, because the
+machine-readable health line is gated on a bench destination a television
+cannot reach (owner item 8a). Reading it on the Bedroom Apple TV is the next
+step; until then the Apple result is macOS's alone.
+
 ### §9.uu The Studio has been encoding in SOFTWARE — and this dongle has no other option (2026-09-18)
 
 §9.rr attributed the ~13 fps ceiling to `eglSwapBuffers` blocking on the
