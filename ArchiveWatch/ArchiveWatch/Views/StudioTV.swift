@@ -44,6 +44,17 @@ struct StudioTVHealth: View {
                     .monospacedDigit()
                     .foregroundStyle(.white.opacity(0.75))
             }
+            // §6.2, DEBUG only. The session's category is the one thing a
+            // screenshot cannot otherwise show, and §6.2 could only ever be
+            // verified by ABSENCE without it — no error meant nothing known.
+            // A failed activation silently stops AVPlayer (§9), so what the
+            // session actually IS belongs on the glass while it is being
+            // proved. Not shipped: a host has no use for it.
+            #if DEBUG
+            Text("audio: \(health.audioSessionState)")
+                .font(.system(size: 26, weight: .medium))
+                .foregroundStyle(.white.opacity(0.7))
+            #endif
             if let problem {
                 HStack(spacing: 10) {
                     Image(systemName: "exclamationmark.triangle.fill")

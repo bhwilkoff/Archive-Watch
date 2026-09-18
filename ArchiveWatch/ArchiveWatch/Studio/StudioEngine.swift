@@ -218,6 +218,15 @@ public struct StudioHealth: Sendable, Equatable {
     /// §5: an adaptive step is shown as it happens. Nil when nothing has
     /// been stepped; a sentence the host can read when it has.
     public var qualityNote: String?
+    /// The audio session category actually in force, and whether activating it
+    /// worked — e.g. "playback/moviePlayback active".
+    ///
+    /// Recorded because §6.2 could only be verified by ABSENCE otherwise: no
+    /// error message meant nothing was known. A failed activation silently
+    /// stops `AVPlayer` (§9), so the one thing worth putting on a screen is
+    /// what the session actually is.
+    public var audioSessionState: String = "not set"
+
     public var publisher = RTMPHealth()
     public var audio = StudioAudioHealth()
     /// True when a destination was supplied. Without one the engine still
@@ -618,6 +627,18 @@ public actor StudioEngine {
         let s = AVAudioSession.sharedInstance()
         if previousAudioCategory == nil { previousAudioCategory = s.category }
         do {
+            // The CONTROL for §6.2, and it exists because "the film still
+            // played" only means something if a wrong category visibly stops
+            // it. `AW_STUDIO_BAD_AUDIO=1` asks for the combination §6.2 names
+            // as invalid everywhere — `.moviePlayback` with `.playAndRecord`,
+            // OSStatus -50 — so a run can show the opposite outcome on the
+            // same glass. Never set in production.
+            if ProcessInfo.processInfo.environment["AW_STUDIO_BAD_AUDIO"] == "1" {
+                try s.setCategory(.playAndRecord, mode: .moviePlayback, options: [.mixWithOthers])
+                try s.setActive(true)
+                health.audioSessionState = "BAD-AUDIO CONTROL: playAndRecord/moviePlayback active"
+                return
+            }
             #if os(tvOS)
             try s.setCategory(.playback, mode: .moviePlayback, options: [.mixWithOthers])
             #else
@@ -625,9 +646,12 @@ public actor StudioEngine {
                               options: [.mixWithOthers, .allowBluetooth, .defaultToSpeaker])
             #endif
             try s.setActive(true)
+            health.audioSessionState = "\(s.category.rawValue.replacingOccurrences(of: "AVAudioSessionCategory", with: ""))"
+                + "/\(s.mode.rawValue.replacingOccurrences(of: "AVAudioSessionMode", with: "")) active"
         } catch {
             // Never swallowed: a failed activation is the thing that silently
             // stops the film, so it goes on the readout the host can see.
+            health.audioSessionState = "FAILED: \(error.localizedDescription)"
             health.qualityNote = "The audio session could not be set up (\(error.localizedDescription)). "
                 + "Your voice may not be in the stream."
         }

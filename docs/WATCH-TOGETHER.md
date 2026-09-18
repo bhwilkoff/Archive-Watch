@@ -1240,6 +1240,44 @@ Pixel.
 
 ## §9 — Measurements (filled in as they are taken)
 
+### §9.bb §6.2's audio session, on an Apple TV (2026-09-17)
+
+§6.2 was moved out of the harness and into `StudioEngine` in the same session
+it was found there, and until now it had only been COMPILED. It is the rule
+whose failure is silent — a failed activation stops `AVPlayer` dead (§9) — so
+compiling is not evidence.
+
+**The problem with verifying it at all**: success looks like nothing. No error
+message meant nothing was known. So `StudioHealth.audioSessionState` now
+records the category actually in force, and the tvOS readout draws it **in
+DEBUG builds only** (a host has no use for it). Positive evidence instead of an
+absence.
+
+On the Bedroom Apple TV 4K (3rd gen), *Nosferatu* (1922):
+
+| run | readout |
+|---|---|
+| normal | **`audio: Playback/MoviePlayback active`**, 708 kbps, film playing |
+| `AW_STUDIO_BAD_AUDIO=1` | **`audio: FAILED: Resource not available`**, 994 kbps, film playing |
+
+So the engine puts tvOS in exactly the category §6.2 specifies, and the readout
+is a real discriminator rather than a constant.
+
+**The control's result is narrower than it looks, and the difference matters.**
+`AW_STUDIO_BAD_AUDIO=1` asks for `.playAndRecord` with `.moviePlayback` — the
+combination §6.2 names as invalid everywhere — and tvOS REFUSED it, which
+confirms the rule on hardware and gives the real message: **"Resource not
+available"**, not a bare OSStatus -50. But the film kept playing in the control
+too, because a REFUSED category change leaves the previous working one in
+force. So this control proves the combination is invalid and that our category
+is the one in effect; it does **not** reproduce §9's stall, which came from a
+failed *activation* (`.playAndRecord` on tvOS before a Continuity microphone
+port exists) rather than from a rejected category. Reproducing that needs a
+Continuity pairing, which is owner-blocked.
+
+Teardown: terminated by pid, and the box powered back off because it was off
+before the run.
+
 ### §6.2r §6.5 on the GLASS, through the REAL platform API (2026-09-17)
 
 No app-side override was needed, and that is the point. Android exposes
