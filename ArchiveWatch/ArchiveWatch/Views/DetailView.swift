@@ -740,35 +740,44 @@ struct PlayerScreen: View {
             // decoder that turns AAC frames into the PCM the mixer wants is the
             // next piece, and counting first proves the bytes arrive at all
             // before anything is built on top of them.
-            FilmAudioBridge.shared.setSink { _, _, _ in }
-        }
-        // AW_AUDIO_FILE_PROBE=1 — build the audio-only rendition (§9.kkkk) and
-        // ask AVFoundation whether it is a real asset with a real audio track.
-        // Downloads the film's audio, so it is behind its own flag.
-        if ProcessInfo.processInfo.environment["AW_AUDIO_FILE_PROBE"] == "1",
-           let played = (p.currentItem?.asset as? AVURLAsset)?.url {
-            let key = played.deletingPathExtension().lastPathComponent
-            // Caches, not tmp: the harness copies files out of
-            // Library/Caches, and the file is KEPT so its audio LEVEL can be
-            // measured off the device. A track count proves the asset parses;
-            // only the level proves it carries the film.
-            let out = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)[0]
-                .appendingPathComponent("aw-audio-probe.mp4")
-            // Logged BEFORE the call. Last time this build blocked and took the
-            // later diagnostics with it, and a hang was indistinguishable from
-            // a probe that never ran (§9.llll). A start marker separates them.
-            awdiag("AWAUDIOFILE starting key=%@", key)
-            let t0 = Date()
-            let ok = await LocalMediaServer.shared.writeAudioOnlyFile(forKey: key, to: out)
-            let bytes = (try? FileManager.default.attributesOfItem(atPath: out.path)[.size] as? Int) ?? 0
-            if ok {
-                let a = AVURLAsset(url: out)
-                let tracks = (try? await a.loadTracks(withMediaType: .audio))?.count ?? -1
-                let dur = (try? await a.load(.duration)).map { CMTimeGetSeconds($0) } ?? -1
-                awdiag("AWAUDIOFILE ok bytes=%d tracks=%d duration=%.1f built_in=%.1fs",
-                       bytes ?? 0, tracks, dur, Date().timeIntervalSince(t0))
+            // AW_AUDIO_TEE_DUMP=1 writes the teed frames as ADTS, so ffmpeg can
+            // say whether they really are the film's audio BEFORE a decoder is
+            // built on top of them. Proving the source first is cheaper than
+            // debugging a decoder fed the wrong bytes.
+            if ProcessInfo.processInfo.environment["AW_AUDIO_TEE_DUMP"] == "1" {
+                let dump = FileManager.default.urls(for: .cachesDirectory,
+                                                    in: .userDomainMask)[0]
+                    .appendingPathComponent("aw-tee.aac")
+                try? FileManager.default.removeItem(at: dump)
+                FileManager.default.createFile(atPath: dump.path, contents: nil)
+                let handle = try? FileHandle(forWritingTo: dump)
+                FilmAudioBridge.shared.setSink { frames, _, rate in
+                    guard let handle else { return }
+                    let rateIndex: [Int: Int] = [96000: 0, 88200: 1, 64000: 2, 48000: 3,
+                                                 44100: 4, 32000: 5, 24000: 6, 22050: 7,
+                                                 16000: 8, 12000: 9, 11025: 10, 8000: 11]
+                    let sr = rateIndex[rate] ?? 4
+                    var out = Data()
+                    for frame in frames {
+                        // 7-byte ADTS header, AAC-LC, 2 channels, no CRC.
+                        let len = frame.count + 7
+                        out.append(contentsOf: [0xFF, 0xF1])
+                        // Profile bits are AOT-1: AAC-LC is AOT 2, so the field
+                        // is 1. Writing 0 labels it Main — ffprobe duly read the
+                        // dump back as "aac (Main)". ffmpeg decodes either, so
+                        // the mislabel was invisible in the numbers and wrong in
+                        // the file.
+                        out.append(UInt8((1 << 6) | (sr << 2)))
+                        out.append(UInt8((2 << 6) | UInt8((len >> 11) & 0x03)))
+                        out.append(UInt8((len >> 3) & 0xFF))
+                        out.append(UInt8(((len & 0x07) << 5) | 0x1F))
+                        out.append(0xFC)
+                        out.append(frame)
+                    }
+                    try? handle.write(contentsOf: out)
+                }
             } else {
-                awdiag("AWAUDIOFILE failed bytes=%d", bytes ?? 0)
+                FilmAudioBridge.shared.setSink { _, _, _ in }
             }
         }
         if let item = p.currentItem {

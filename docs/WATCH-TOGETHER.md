@@ -1618,6 +1618,46 @@ the audio path, the real ingest hosts with no credential, the overlay and
 go-live surfaces on the glass, the rights gate on device, and the platform
 clients. **→ `docs/watch-together-measurements.md`**
 
+### §9.oooo The teed bytes ARE the film's audio — measured before a decoder was built on them (2026-09-18)
+
+The tee delivers compressed AAC and the mixer wants PCM, so a decoder sits
+between them. Before building it, the cheaper question: **are these the right
+bytes at all?** A decoder fed the wrong frames fails in ways that look like
+decoder bugs, and this repair has already had two designs rejected.
+
+So the sink wrote the teed frames as ADTS and the file was pulled off the Apple
+TV and handed to ffmpeg — an instrument with no stake in our answer:
+
+    codec_name=aac  sample_rate=44100  channels=2  duration=286.4 s
+    mean_volume: -17.9 dB     max_volume: 0.0 dB
+
+**Real sound**, against the **-91.0 dB** the television currently broadcasts.
+12,282 frames, 3.5 MB, decoding cleanly.
+
+**The comparison, stated exactly.** The source over the same 286-second span
+reads **-13.6 dB mean / 0.0 dB max**. Peaks match; means differ by 4.3 dB — and
+that is expected, not a defect: the tee begins wherever playback had reached
+when the Studio started, so the two windows cover different parts of the film.
+Saying "it matches the source" would have been the easy sentence and the wrong
+one; what is proved is that the bytes carry the film's audio, not that they
+carry the same 286 seconds.
+
+**Two faults found on the way, both mine, both in the instrument:**
+
+  - The first sink took one concatenated blob and split it evenly by frame
+    count. **AAC frames are variable-size**, so that divides exactly almost
+    never and the dump would have been empty — a silent instrument reporting
+    on a silent defect. The bridge now delivers one `Data` per frame, which the
+    decoder needs anyway: an AAC packet is only decodable whole.
+  - The ADTS profile field is AOT-1, so AAC-LC is `1`; writing `0` labels the
+    stream Main, and ffprobe read the dump back as `aac (Main)`. ffmpeg decodes
+    either, so the mislabel never showed in a number and was wrong in the file
+    regardless. Corrected.
+
+What remains is now genuinely only decode-and-schedule: AAC frames to PCM,
+released against the show clock from the time-indexed buffer §9.nnnn established
+is required, into the mixer. The bytes are no longer in question.
+
 ### §9.nnnn The tee RUNS — and it is paced by BUFFERING, not by playback (2026-09-18)
 
 §9.mmmm's design, built and measured on an Apple TV. `FilmAudioBridge` is

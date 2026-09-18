@@ -539,7 +539,9 @@ private final class ConnectionHandler: @unchecked Sendable {
                     guard let ti = movie.tracks.firstIndex(where: { $0.id == ft.trackID }),
                           movie.tracks[ti].handler == "soun" else { continue }
                     let t = movie.tracks[ti]
-                    var acc = Data()
+                    // One Data PER FRAME: AAC packets are variable-size and
+                    // only decodable whole, so the boundaries travel with them.
+                    var acc: [Data] = []
                     for sIdx in ft.firstSample..<(ft.firstSample + ft.count) {
                         let sm = t.samples[sIdx]
                         for c in chunks where c.lo <= sm.offset && sm.offset + sm.size <= c.hi {
@@ -549,8 +551,9 @@ private final class ConnectionHandler: @unchecked Sendable {
                         }
                     }
                     if !acc.isEmpty {
-                        FilmAudioBridge.shared.deliver(acc, frames: ft.count,
-                                                       firstSample: ft.firstSample)
+                        // A sound track's timescale IS its sample rate.
+                        FilmAudioBridge.shared.deliver(acc, firstSample: ft.firstSample,
+                                                       sampleRate: Int(t.timescale))
                     }
                 }
             }

@@ -125,7 +125,7 @@ final class FilmAudioBridge: @unchecked Sendable {
     static let shared = FilmAudioBridge()
 
     private let lock = NSLock()
-    private var sink: ((Data, Int, Int) -> Void)?
+    private var sink: (([Data], Int, Int) -> Void)?
 
     /// Counters, for the diagnostic that proves the tee actually runs. Read
     /// without the sink attached they stay zero, which is the control.
@@ -133,8 +133,17 @@ final class FilmAudioBridge: @unchecked Sendable {
     private(set) var bytesTeed = 0
 
     /// Nil unregisters. The Studio owns the sink for the life of a show.
-    /// The sink receives `(frames, frameCount, firstSampleIndex)`.
-    func setSink(_ s: ((Data, Int, Int) -> Void)?) {
+    /// The sink receives `(frames, firstSampleIndex, sampleRate)`.
+    ///
+    /// Frames arrive SEPARATELY, one `Data` each, never concatenated. AAC frames
+    /// are variable-size, so a single blob cannot be re-split — a first version
+    /// passed one blob and divided it evenly, which is wrong for any VBR track
+    /// and would have written nothing at all. The decoder needs these
+    /// boundaries too: an AAC packet is only decodable whole.
+    ///
+    /// The rate comes from the audio track's timescale, which for a sound track
+    /// IS the sample rate.
+    func setSink(_ s: (([Data], Int, Int) -> Void)?) {
         lock.lock(); sink = s
         if s == nil { framesTeed = 0; bytesTeed = 0 }
         lock.unlock()
@@ -157,12 +166,15 @@ final class FilmAudioBridge: @unchecked Sendable {
     /// hold them and release what the show clock actually asks for. Per §9.qq
     /// the engine still owns the clock: this supplies position, never
     /// timestamps.
-    func deliver(_ data: Data, frames: Int, firstSample: Int) {
+    func deliver(_ frames: [Data], firstSample: Int, sampleRate: Int) {
         lock.lock()
         let s = sink
-        if s != nil { framesTeed += frames; bytesTeed += data.count }
+        if s != nil {
+            framesTeed += frames.count
+            bytesTeed += frames.reduce(0) { $0 + $1.count }
+        }
         lock.unlock()
-        s?(data, frames, firstSample)
+        s?(frames, firstSample, sampleRate)
     }
 }
 
