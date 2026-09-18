@@ -1240,6 +1240,33 @@ Pixel.
 
 ## §9 — Measurements (filled in as they are taken)
 
+### §9.hh A show that ends itself now says why on every Apple surface — and the title that disagreed with it (2026-09-17)
+
+§9.gg recorded that `endedReason` was written by the engine and read by
+nothing on Apple, and fixed it on the Mac only. tvOS and iOS now consume it
+too: the television reuses its existing alert, the phone its existing
+"Could not go live" alert — the host's question is the same either way, *why
+am I not live?*
+
+Verified on the Bedroom Apple TV 4K (3rd gen) by injecting `.critical` into
+the real engine (`AW_STUDIO_THERMAL=critical`, DEBUG only — tvOS has no
+platform override, so the seam is the only route):
+
+> **The broadcast ended**
+> The device became too hot to keep broadcasting.
+
+...over *Sherlock Jr.* still playing, which is §3's rule holding: the film is
+never gated on the broadcast.
+
+**The first attempt got the body right and the TITLE wrong**, and only the
+glass showed it. The alert's title was a **two-state Bool** — film or
+configuration — so an overheated television was announced as **"Streaming is
+not set up yet"**. A wrong title tells the viewer something false, which is
+what the comment above that alert already says about the film/configuration
+split; a third real state had simply arrived and a Bool cannot describe three.
+Replaced with `StudioRefusalKind { film, configuration, ended }`, and the
+`.ended` body drops the "The broadcast ended —" prefix the title now carries.
+
 ### §9.gg §6.5 on the macOS PRODUCT path, and the reason nobody could read (2026-09-17)
 
 macOS has no equivalent of Android's `cmd thermalservice override-status`, so

@@ -215,6 +215,16 @@ struct StudioPlayerContainer: View {
             filmFPS = max(0, h.filmFramesPulled - lastFilmFrames)
             lastFilmFrames = h.filmFramesPulled
             health = h
+
+            // A show that ENDS ITSELF says why (§6.5's `.critical`, §6.6's
+            // expired deadline). It reuses the existing alert rather than
+            // inventing a second one: the host's question is the same either
+            // way — why am I not live? — and `endedReason` was read by nothing
+            // on Apple until now, so the Studio just vanished.
+            if let why = h.endedReason {
+                startError = "The broadcast ended — \(why)."
+                return
+            }
         }
     }
 

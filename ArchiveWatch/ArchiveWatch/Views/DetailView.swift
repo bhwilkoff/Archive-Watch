@@ -744,6 +744,26 @@ struct PlayerScreen: View {
             return
         }
 
+        // §6.5's `.critical`, for a television. macOS has no platform
+        // override and neither does tvOS, so the engine's seam is the only
+        // route to the rule here. DEBUG only, never in production.
+        #if DEBUG
+        if let want = ProcessInfo.processInfo.environment["AW_STUDIO_THERMAL"] {
+            let at = Double(ProcessInfo.processInfo.environment["AW_STUDIO_THERMAL_AT"] ?? "") ?? 20
+            let state: ProcessInfo.ThermalState? = switch want {
+            case "serious": .serious
+            case "critical": .critical
+            default: nil
+            }
+            if let state {
+                Task {
+                    try? await Task.sleep(for: .seconds(at))
+                    await engine.overrideThermalState(state)
+                }
+            }
+        }
+        #endif
+
         var lastFilmFrames = 0
         while !Task.isCancelled, studioFilm != nil {
             try? await Task.sleep(nanoseconds: 1_000_000_000)
@@ -752,6 +772,18 @@ struct PlayerScreen: View {
             studioFilmFPS = max(0, h.filmFramesPulled - lastFilmFrames)
             lastFilmFrames = h.filmFramesPulled
             studioHealth = h
+
+            // A show that ENDS ITSELF says why (§6.5's `.critical`, §6.6's
+            // expired deadline). `endedReason` was written by the engine and
+            // read by nothing on Apple until now, so a television host whose
+            // broadcast stopped saw the Studio simply disappear — which is
+            // exactly what §5 forbids.
+            if let why = h.endedReason {
+                studioRefusalKind = .ended
+                studioRefusal = why.prefix(1).uppercased() + why.dropFirst() + "."
+                studioFilm = nil
+                break
+            }
         }
         await engine.stop()
         studioEngine = nil
@@ -774,7 +806,17 @@ struct PlayerScreen: View {
     }
     /// Whether the standing refusal is about the FILM's rights or about this
     /// BUILD — they are different sentences and need different titles.
-    @State private var studioRefusalIsAboutTheFilm = true
+    /// Which of THREE things the alert is about.
+    ///
+    /// This was a `Bool` — film or configuration — and a third real state
+    /// arrived: a broadcast that ENDED itself (§6.5's `.critical`, §6.6's
+    /// expired deadline). Reusing the false branch for it titled an overheated
+    /// television "Streaming is not set up yet", seen on the glass 2026-09-17.
+    /// A two-state flag cannot describe three states, and the comment on the
+    /// alert below already says why that matters: a wrong title tells the
+    /// viewer something false.
+    enum StudioRefusalKind { case film, configuration, ended }
+    @State private var studioRefusalKind: StudioRefusalKind = .film
     /// The film the host chose to broadcast; non-nil starts the Studio on the
     /// player that is ALREADY playing it.
     @State private var studioFilm: Catalog.Item?
@@ -915,12 +957,15 @@ struct PlayerScreen: View {
         // streamed" over "signing in is not set up in this build" tells the
         // viewer something false about the film — and about the public domain,
         // which is the one thing this alert exists to teach (§2.1).
-        .alert(studioRefusalIsAboutTheFilm ? "This film cannot be streamed"
-                                           : "Streaming is not set up yet",
+        .alert({ switch studioRefusalKind {
+                 case .film: return "This film cannot be streamed"
+                 case .configuration: return "Streaming is not set up yet"
+                 case .ended: return "The broadcast ended"
+                 } }(),
                isPresented: .constant(studioRefusal != nil)) {
             Button("OK", role: .cancel) { studioRefusal = nil }
         } message: {
-            Text(studioRefusalIsAboutTheFilm
+            Text(studioRefusalKind == .film
                  ? (studioRefusal ?? "") + "\n\n" + StudioRights.policy
                  : (studioRefusal ?? ""))
         }
@@ -962,7 +1007,7 @@ struct PlayerScreen: View {
             if let why = StudioRights.refusal(rightsBucket: film.rightsBucket,
                                               contentType: film.contentType,
                                               year: film.year) {
-                studioRefusalIsAboutTheFilm = true
+                studioRefusalKind = .film
                 studioRefusal = why
                 return
             }
@@ -973,7 +1018,7 @@ struct PlayerScreen: View {
             // client ids — it exists nowhere in the product.
             if ProcessInfo.processInfo.environment["AW_STUDIO_TV_FORCE"] != "1",
                let problem = StudioPlatformAuth.anyConfigurationProblem {
-                studioRefusalIsAboutTheFilm = false
+                studioRefusalKind = .configuration
                 studioRefusal = problem
                 return
             }
@@ -1124,7 +1169,7 @@ struct PlayerScreen: View {
             if let why = StudioRights.refusal(rightsBucket: film.rightsBucket,
                                               contentType: film.contentType,
                                               year: film.year) {
-                studioRefusalIsAboutTheFilm = true
+                studioRefusalKind = .film
                 studioRefusal = why
                 return
             }
@@ -1135,7 +1180,7 @@ struct PlayerScreen: View {
             // greys out Go Live for the same reason; a television has no
             // equivalent control to grey, so it says so here.
             if let problem = StudioPlatformAuth.anyConfigurationProblem {
-                studioRefusalIsAboutTheFilm = false
+                studioRefusalKind = .configuration
                 studioRefusal = problem
                 return
             }
