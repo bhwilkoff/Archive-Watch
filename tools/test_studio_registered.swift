@@ -223,6 +223,52 @@ struct RegisteredClientHarness {
               !text.lowercased().contains("invalid scope")
               && !text.lowercased().contains("invalid_scope"),
               summary(text))
+
+        // The POLL, which is what actually runs while a host is typing the
+        // code into twitch.tv/activate. Twitch answers every poll with HTTP
+        // 400 until they confirm, so the status cannot discriminate and the
+        // message is the only signal. Both cases are exercised live, and the
+        // product's own classifier judges them — not a copy of it.
+        guard let device = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
+              let deviceCode = device["device_code"] as? String else {
+            check("a device code came back to poll with", false); return
+        }
+
+        let pending = await pollMessage(clientID: clientID, deviceCode: deviceCode)
+        print("        poll (real, unconfirmed): \(pending)")
+        check("an unconfirmed code answers authorization_pending",
+              pending.contains("authorization_pending"), pending)
+        check("...and the product reads that as KEEP WAITING",
+              TwitchDeviceAuth.pollOutcome(message: pending) == .keepWaiting)
+
+        // CONTROL: a code that can never work. It answers 400 too — which is
+        // why the old rule ("keep polling on any 400") could not tell the two
+        // apart and polled a dead code 360 times over 30 minutes.
+        let dead = await pollMessage(clientID: clientID, deviceCode: "not-a-real-device-code")
+        print("        poll (dead code):        \(dead)")
+        check("CONTROL — a dead device code answers something else",
+              !dead.contains("authorization_pending"), dead)
+        check("...and the product REFUSES rather than polling on",
+              TwitchDeviceAuth.pollOutcome(message: dead) != .keepWaiting,
+              "classified as keepWaiting")
+    }
+
+    /// One poll, returning Twitch's `message` verbatim.
+    static func pollMessage(clientID: String, deviceCode: String) async -> String {
+        var r = URLRequest(url: URL(string: "https://id.twitch.tv/oauth2/token")!)
+        r.httpMethod = "POST"
+        r.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        var body = URLComponents()
+        body.queryItems = [
+            .init(name: "client_id", value: clientID),
+            .init(name: "device_code", value: deviceCode),
+            .init(name: "grant_type", value: "urn:ietf:params:oauth:grant-type:device_code"),
+        ]
+        r.httpBody = body.percentEncodedQuery?.data(using: .utf8)
+        guard let (d, _) = try? await URLSession.shared.data(for: r),
+              let o = try? JSONSerialization.jsonObject(with: d) as? [String: Any]
+        else { return "<no response>" }
+        return (o["message"] as? String) ?? "<no message>"
     }
 
     // MARK: Plumbing

@@ -1618,6 +1618,43 @@ the audio path, the real ingest hosts with no credential, the overlay and
 go-live surfaces on the glass, the rights gate on device, and the platform
 clients. **→ `docs/watch-together-measurements.md`**
 
+### §9.ppp Twitch's device poll: every answer is HTTP 400, and the old rule polled a dead code 360 times (2026-09-18)
+
+The registration (§9.nnn) made the device flow's POLL testable for the first
+time — the loop that actually runs while a host is typing a code into
+`twitch.tv/activate`. Measured against the real registration:
+
+    begin                            200  device_code, user_code, interval 5, expires_in 1800
+    poll, code not yet confirmed     400  {"message":"authorization_pending"}
+    poll, a code that cannot work    400  {"message":"invalid device code"}
+
+**Every answer is 400.** The status carries no information at all, and the
+message is the only discriminator. `poll` read:
+
+    if !message.contains("pending") && http.statusCode != 400 { throw ... }
+
+which keeps polling on ANY 400. So a denied, expired or invalid code polled
+every 5 seconds for the full 30-minute window — **360 requests against a code
+that could never work** — and then reported *"The Twitch code expired before it
+was confirmed"*, which is not what happened. That is precisely the behaviour
+the method's own comment warns about two lines above it: *"ignoring the stated
+interval is how an app gets rate-limited rather than authorised."*
+
+`pollOutcome(message:)` now carries the rule, extracted so the harness asserts
+the function the PRODUCT runs rather than a copy of it (Decision 119), and
+§8.9 drives both states live: a real unconfirmed code must answer
+`authorization_pending` and classify as keep-waiting; a dead one must answer
+something else and classify as refused. RFC 8628's `slow_down` back-off is
+honoured defensively and marked as NOT observed, because a client that ignores
+it is the one that gets throttled.
+
+**Worth noting what made this findable.** Nothing about the code looked wrong,
+and no test could have caught it without a real client id: with no
+registration, `begin` never returns a device code, so the poll loop had never
+executed once against Twitch. The credential did not just unblock the feature —
+it made a whole code path observable for the first time, and the first thing it
+showed was a defect.
+
 ### §9.ooo Registering a client id opened a gate on a platform that cannot broadcast (2026-09-18)
 
 Found immediately after §9.nnn, by asking what the new half-configured state

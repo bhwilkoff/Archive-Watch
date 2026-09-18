@@ -316,12 +316,45 @@ public struct TwitchDeviceAuth: Sendable {
                      expires: Date().addingTimeInterval((o["expires_in"] as? Double) ?? 1800))
     }
 
+    /// What a poll answer MEANS.
+    ///
+    /// Extracted from `poll` so the harness can assert the rule the product
+    /// actually runs, against responses measured from the live endpoint,
+    /// rather than re-implementing it (Decision 119).
+    public enum PollOutcome: Sendable, Equatable {
+        case keepWaiting, backOff, refused(String)
+    }
+
+    /// Twitch answers EVERY poll with HTTP 400 until the host confirms.
+    /// Measured 2026-09-18 against the real registration:
+    ///
+    ///     not yet confirmed    400  {"message":"authorization_pending"}
+    ///     a dead device code   400  {"message":"invalid device code"}
+    ///
+    /// So the STATUS carries no information and the message is the only
+    /// discriminator. This used to read `!message.contains("pending") &&
+    /// http.statusCode != 400`, which kept polling on any 400 — so a denied,
+    /// expired or invalid code polled every 5 s for the whole 30-minute
+    /// window (360 requests at a code that could never work, the exact
+    /// behaviour `poll`'s own comment says gets an app rate-limited) and then
+    /// reported "the code expired", which was not what had happened.
+    public static func pollOutcome(message: String) -> PollOutcome {
+        let lower = message.lowercased()
+        if lower.contains("authorization_pending") { return .keepWaiting }
+        // RFC 8628 §3.5's back-off. NOT observed in testing — honoured
+        // defensively, because a client that ignores slow_down is precisely
+        // the one that gets throttled.
+        if lower.contains("slow_down") { return .backOff }
+        return .refused(message.isEmpty ? "Twitch refused the sign-in." : message)
+    }
+
     /// Polls until the host confirms, at the interval Twitch asked for — a
     /// faster poll is refused, and ignoring the stated interval is how an app
     /// gets rate-limited rather than authorised.
     func poll(_ p: Pending) async throws -> StudioTokenStore.Token {
+        var interval = p.interval
         while Date() < p.expires {
-            try await Task.sleep(nanoseconds: UInt64(p.interval * 1_000_000_000))
+            try await Task.sleep(nanoseconds: UInt64(interval * 1_000_000_000))
             var r = URLRequest(url: URL(string: "https://id.twitch.tv/oauth2/token")!)
             r.httpMethod = "POST"
             r.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
@@ -340,10 +373,11 @@ public struct TwitchDeviceAuth: Sendable {
                 return .init(access: access, refresh: o["refresh_token"] as? String,
                              expires: Date().addingTimeInterval(expiresIn))
             }
-            // "authorization_pending" is the normal case; anything else is over.
-            let message = (o["message"] as? String ?? "").lowercased()
-            if !message.contains("pending") && http.statusCode != 400 {
-                throw StudioPlatformError.notSignedIn("Twitch refused: \(o["message"] as? String ?? "unknown")")
+            switch Self.pollOutcome(message: o["message"] as? String ?? "") {
+            case .keepWaiting: continue
+            case .backOff:     interval += 5
+            case .refused(let why):
+                throw StudioPlatformError.notSignedIn("Twitch refused the sign-in: \(why).")
             }
         }
         throw StudioPlatformError.notSignedIn("The Twitch code expired before it was confirmed.")
