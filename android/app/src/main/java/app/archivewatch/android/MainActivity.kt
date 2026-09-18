@@ -19,6 +19,7 @@ import app.archivewatch.android.ui.theme.ArchiveWatchTheme
 import app.archivewatch.android.ui.tv.LocalIsTelevision
 import app.archivewatch.android.ui.tv.TvAppRoot
 import app.archivewatch.android.ui.tv.isTelevision
+import app.archivewatch.android.studio.StudioPlatformAuth
 
 /** Single Activity — Compose-only. */
 class MainActivity : ComponentActivity() {
@@ -119,6 +120,28 @@ class MainActivity : ComponentActivity() {
             intent?.getStringExtra("aw_studio_dest")?.let { DeepLinks.pendingStudioDest.value = it }
             intent?.getStringExtra("aw_studio_key")?.let { DeepLinks.pendingStudioKey.value = it }
             intent?.getStringExtra("aw_play_url")?.let { DeepLinks.pendingPlayURL.value = it }
+            // Starts Twitch's device flow and prints what a HOST would be
+            // shown. DEBUG only, and it exists because Android has the auth
+            // chain before it has a screen to put it on: this proves the chain
+            // reaches Twitch with the real client id, on real hardware, without
+            // waiting for the UI.
+            //
+            // What is printed is exactly what belongs on a television — the
+            // verification URI and the 8-character user code. The DEVICE code
+            // is the polling credential and the access token is the session, so
+            // neither is ever logged (§5).
+            if (intent?.getBooleanExtra("aw_twitch_signin", false) == true) {
+                Thread {
+                    runCatching { StudioPlatformAuth.begin() }
+                        .onSuccess {
+                            android.util.Log.i("AWTWITCH",
+                                "open ${it.verificationUri} and enter ${it.userCode}")
+                        }
+                        .onFailure {
+                            android.util.Log.e("AWTWITCH", "begin failed: ${it.message}")
+                        }
+                }.start()
+            }
         }
         if (intent?.getBooleanExtra("aw_focus_log", false) == true) {
             app.archivewatch.android.ui.tv.TvFocusLogging = true

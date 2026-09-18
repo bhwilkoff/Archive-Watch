@@ -15,6 +15,9 @@ import androidx.compose.runtime.setValue
 import androidx.media3.common.util.UnstableApi
 import app.archivewatch.android.data.CatalogItem
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 @UnstableApi
 object StudioController {
@@ -33,6 +36,10 @@ object StudioController {
     var refusal: String? by mutableStateOf(null)
 
     var isLive: Boolean by mutableStateOf(false)
+    /** Why a signed-in host is NOT reaching their channel, or null. Shown,
+     *  never swallowed (§5): a broadcast that quietly fell back to nothing is
+     *  precisely the state this path exists to make impossible. */
+    var goLiveProblem: String? by mutableStateOf(null)
         private set
     var health: StudioHealth by mutableStateOf(StudioHealth())
         private set
@@ -99,22 +106,60 @@ object StudioController {
      * has not armed the second.
      */
     fun startIfArmed(scope: CoroutineScope, archiveID: String, overlayWidth: Int, overlayHeight: Int,
-                     thermalStatus: () -> Int = { 0 }) {
+                     thermalStatus: () -> Int = { 0 },
+                     context: android.content.Context? = null) {
         if (armedFilmID != archiveID || isLive) return
         armedFilmID = null
         val e = StudioEngine(thermalStatus = thermalStatus, audioLeadUs = { audioLeadUs })
         e.layoutShowsCamera = showsCamera
         engine = e
-        // No destination until a client id exists (Decision 128) — the engine
-        // still composites and encodes and reports NOT SENDING rather than
-        // pretending. A DEBUG build can be pointed at a bench server so
-        // §6.4/§6.5/§6.6 can be driven through the real app.
+        // A REAL destination when the host is signed in; the bench address
+        // otherwise. Until now this was the bench address ONLY, so the engine
+        // composited, encoded and reported healthy while reaching nobody —
+        // §9.ccc's shape, on the last platform still carrying it.
         val benchDest = app.archivewatch.android.ui.DeepLinks.pendingStudioDest.value
         val benchKey = app.archivewatch.android.ui.DeepLinks.pendingStudioKey.value ?: "awbench"
+
+        // RESOLVE FIRST, THEN START — the engine takes its destination at
+        // `start()` and the render loop captures it, so there is no way to
+        // adopt one later without making the destination mutable under a
+        // running loop. Apple does the same: resolve, then start.
+        //
+        // And resolving asks Twitch three questions over the network, so it
+        // cannot happen on this thread. `startIfArmed` runs on Compose's main
+        // dispatcher and would throw NetworkOnMainThreadException — Decision
+        // 130's Android lesson, where a reconnect supervisor passed a JVM test
+        // and threw on every attempt in the app because the test called it from
+        // its own thread.
+        if (context != null && StudioGoLive.canGoLive(context)) {
+            scope.launch(Dispatchers.IO) {
+                val resolved = runCatching {
+                    StudioGoLive.twitchDestination(context, armedTitle)
+                }.onFailure {
+                    goLiveProblem = it.message ?: "Twitch refused the broadcast."
+                }.getOrNull()
+                withContext(Dispatchers.Main) {
+                    launchEngine(e, scope, overlayWidth, overlayHeight,
+                                 resolved?.server ?: benchDest,
+                                 resolved?.key ?: (if (benchDest != null) benchKey else ""))
+                }
+            }
+            isLive = true
+            return
+        }
+        launchEngine(e, scope, overlayWidth, overlayHeight,
+                     benchDest, if (benchDest != null) benchKey else "")
+        isLive = true
+    }
+
+    /** The engine start itself, shared by the resolved and bench paths. */
+    private fun launchEngine(e: StudioEngine, scope: CoroutineScope,
+                             overlayWidth: Int, overlayHeight: Int,
+                             destination: String?, streamKey: String) {
         e.start(
             scope = scope,
-            destination = benchDest,
-            streamKey = if (benchDest != null) benchKey else "",
+            destination = destination,
+            streamKey = streamKey,
             audioTap = audioTap,
             overlay = StudioOverlayBitmap.lowerThird(
                 overlayWidth, overlayHeight, armedTitle, armedSubtitle, armedProvenance),
@@ -127,7 +172,6 @@ object StudioController {
             },
             chatChannel = app.archivewatch.android.ui.DeepLinks.pendingStudioChat.value,
         )
-        isLive = true
     }
 
     /**

@@ -1618,6 +1618,64 @@ the audio path, the real ingest hosts with no credential, the overlay and
 go-live surfaces on the glass, the rights gate on device, and the platform
 clients. **→ `docs/watch-together-measurements.md`**
 
+### §9.dddd Android resolves a REAL destination, and its sign-in reaches Twitch from a television (2026-09-18)
+
+§9.cccc gave Android an auth layer. It still could not broadcast: `StudioController`
+passed `destination = benchDest` and nothing else, so with no bench address the
+engine composited, encoded and reported healthy while reaching nobody — §9.ccc's
+shape, on the last platform still carrying it.
+
+`TwitchLive.kt` and `StudioGoLive.kt` close it. The Swift rules port with them:
+the title is set BEFORE the key is fetched (a show that opens under the previous
+show's title has already misled whoever joined, where a failed key fetch costs
+nothing), the ingest list is public and its first entry is Twitch's own default,
+`/{stream_key}` is STRIPPED rather than substituted, and `rtmp://` is upgraded to
+`rtmps://` because 443 crosses more networks than 1935. `TwitchLive.kt` contains
+no logging at all, including on its error paths, where a key-bearing URL is the
+natural thing to include and is exactly what §5 forbids.
+
+**RESOLVE THEN START, off the main thread.** The engine takes its destination at
+`start()` and the render loop captures it, so there is no way to adopt one later
+without making the destination mutable under a running loop; resolution happens
+first and the engine starts with the answer. And it happens on `Dispatchers.IO`,
+because `startIfArmed` runs on Compose's main dispatcher — Decision 130's Android
+lesson exactly, where a reconnect supervisor passed a JVM test and threw
+`NetworkOnMainThreadException` on every attempt in the app.
+
+**On the Google TV dongle, with the real client id:**
+
+    AWTWITCH: open https://www.twitch.tv/activate?device-code=MXLSCMQY
+              and enter MXLSCMQY
+
+The whole Android chain — gradle property → `BuildConfig` → `StudioPlatformAuth.begin()`
+→ Twitch's live device endpoint → a real user code — proved on hardware, from a
+television, with nothing owner-gated. It also confirms independently what Apple
+measured: Twitch's `verification_uri` already carries the user code, so a QR of
+it reaches a pre-filled page.
+
+**TWO INSTRUMENT FAULTS ON THE WAY, both mine, both the familiar family:**
+
+  - `am start -n app.archivewatch.android/.MainActivity` → *"Activity class does
+    not exist"*. The Kotlin package is `app.archivewatch.android`; the
+    applicationId is `com.archivewatch.app` (`.debug` for debug builds). **And
+    the force-stop in the same script targeted that same non-existent package
+    and printed "app is gone"** — a teardown reporting the all-clear about a
+    package that was never running, which is the third false all-clear from a
+    cleanup instrument in this session (§9.vvv's `atv_teardown.sh`, twice).
+    The check now reads `pidof` for the REAL package and says STILL RUNNING
+    when it finds one.
+  - `logcat -s AWTWITCH:*` unquoted is expanded by zsh, which failed with "no
+    matches found" and printed nothing — indistinguishable from a door that did
+    not fire. The log line was there the whole time.
+
+Neither cost more than minutes, and both would have been silent successes.
+
+**What Android still lacks**: a screen. The auth chain and the destination path
+are real and measured; there is no Compose surface yet that shows a host the QR
+and the code, which is the next piece. The debug door exists precisely so the
+chain could be proved before the screen, rather than the screen being written
+against an unproven chain.
+
 ### §9.cccc Android gets a sign-in at last — Twitch only, because Twitch is the half that needs nobody (2026-09-18)
 
 PARITY has said for weeks that Android "has no OAuth or platform client at all
