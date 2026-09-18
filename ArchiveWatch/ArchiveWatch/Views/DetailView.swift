@@ -744,6 +744,13 @@ struct PlayerScreen: View {
             return
         }
 
+        // Chat the program carries. The channel comes from the host's own
+        // Twitch account once sign-in exists; `AW_STUDIO_CHAT` names one
+        // meanwhile, and reading Twitch needs no credential (§6.4).
+        if let channel = ProcessInfo.processInfo.environment["AW_STUDIO_CHAT"], !channel.isEmpty {
+            await engine.attachTwitchChat(channel: channel)
+        }
+
         // §6.5's `.critical`, for a television. macOS has no platform
         // override and neither does tvOS, so the engine's seam is the only
         // route to the rule here. DEBUG only, never in production.

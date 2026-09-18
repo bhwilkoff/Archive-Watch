@@ -124,6 +124,12 @@ struct StudioPlayerContainer: View {
         guard await !e.health.isRunning else { return }
         do {
             let dest = try await destination()
+            // Chat the program carries (§6.4) — named by the surface, read by the
+            // engine. No credential is needed to read Twitch.
+            if let channel = ProcessInfo.processInfo.environment["AW_STUDIO_CHAT"], !channel.isEmpty {
+                await e.attachTwitchChat(channel: channel)
+            }
+
             try await e.start(destination: dest)
         } catch {
             // The platform's own words, or ours about what is missing. Never

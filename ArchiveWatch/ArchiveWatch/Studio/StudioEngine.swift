@@ -218,6 +218,11 @@ public struct StudioHealth: Sendable, Equatable {
     /// §5: an adaptive step is shown as it happens. Nil when nothing has
     /// been stepped; a sentence the host can read when it has.
     public var qualityNote: String?
+    /// Chat the program is carrying, and how much has arrived. §4: a health
+    /// value is never hidden, and "is the chat actually live?" is the question
+    /// a host asks of an overlay they cannot see from the sofa.
+    public var chatLinesCarried = 0
+    public var chatLinesReceived = 0
     /// The audio session category actually in force, and whether activating it
     /// worked — e.g. "playback/moviePlayback active".
     ///
@@ -364,6 +369,44 @@ public actor StudioEngine {
 
     public func setLayout(_ l: StudioLayout) { layout = l; renderer.layout = l }
     public func setOverlay(_ o: StudioOverlay) { overlay = o; renderer.overlay = o }
+
+    // MARK: - Chat the program CARRIES
+
+    private var twitchChat: StudioChatTwitch?
+
+    /// Reads a Twitch channel into the overlay, for as long as the show runs.
+    ///
+    /// IN THE ENGINE, not in a surface. The first version of this lived in
+    /// `StudioSession`, which is macOS-first by its own header — so chat
+    /// reached the Mac and neither the television nor the phone, and PARITY
+    /// said it reached all three. That is exactly how §6.2's audio session and
+    /// §6.3's idle timer came to be implemented in one place only. Runtime
+    /// behaviour belongs where the engine is; a surface's job is to name the
+    /// channel.
+    public func attachTwitchChat(channel: String) async {
+        guard !channel.isEmpty else { return }
+        let chat = StudioChatTwitch()
+        twitchChat = chat
+        await chat.start(channel: channel)
+        overlay.showChat = true
+        renderer.overlay = overlay
+    }
+
+    /// Pulls the tail of the chat into the overlay. Called once a second from
+    /// `refreshHealth`, which every surface already calls at that cadence —
+    /// so no surface has to remember to do this.
+    private func pumpChat() async {
+        guard let chat = twitchChat else { return }
+        let lines = await chat.lines
+        guard !lines.isEmpty else { return }
+        let tail = Array(lines.suffix(8))
+        guard tail.map(\.id) != overlay.chat.map(\.id) else { return }
+        overlay.showChat = true
+        overlay.chat = tail
+        renderer.overlay = overlay
+        health.chatLinesCarried = tail.count
+        health.chatLinesReceived = await chat.health.linesReceived
+    }
 
     /// Attaches the film. The player keeps playing to the viewer's own screen;
     /// we only add a video output to read its frames.
@@ -540,6 +583,8 @@ public actor StudioEngine {
         restoreAudioSession()
         supervisor?.cancel(); supervisor = nil
         thermalWatcher?.cancel(); thermalWatcher = nil
+        if let chat = twitchChat { await chat.stop() }
+        twitchChat = nil
         ticker?.cancel(); ticker = nil
         mixer.stop()
         encoder?.stop(); encoder = nil
@@ -566,6 +611,7 @@ public actor StudioEngine {
         lastEncodedFrameCount = health.programFramesEncoded
         health.encoderFault = encoder?.fault
         health.pixelBufferPoolFailures = renderer.poolFailures
+        await pumpChat()
     }
 
     /// The previous sample, so `encodedFramesPerSecond` is a rate.
