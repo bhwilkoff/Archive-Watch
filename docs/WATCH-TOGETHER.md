@@ -1191,6 +1191,227 @@ counting presses across a row (the reason `aw_start_route` exists at all).
 appearance, and a phone-class render measurement — all three wanting the same
 Pixel.
 
+### §6.2n §6.4 ported to Android, where the gap was worse than on Apple (2026-09-17)
+
+`RtmpPublisher.kt` wrote every frame **synchronously to a blocking socket**,
+and `StudioEngine` calls it from the one GL render thread. So a narrow uplink
+did not shed frames — it BLOCKED the render loop, stalling the composite, the
+encoder drain and the host's own view of the film. Apple at least had a queue
+to overflow; here congestion propagated backwards into rendering. Nothing
+dropped anything, and `RtmpHealth.videoFramesDropped` could only ever read 0.
+
+Now: media goes onto a queue drained by one writer thread, with §6.4a's budget
+(`setQueueBudget`, the same 1.5 s constant), video inter-frames yielding past
+it and audio never. Only the setup path writes directly, and it has finished
+before the thread starts, so there are never two writers. A message is framed
+WHOLE in memory first, because interleaving two half-written messages is not a
+corrupt frame a server complains about — it is a desynchronised chunk stream,
+which reads as an EOF.
+
+Proved against a real `mediamtx` through `tools/rtmp_throttle_proxy.py`
+(`RtmpBackPressureTest`, 400 kbps against a 2.5 Mbps program):
+
+| | value |
+|---|---|
+| cap / peak queued | 474 kB / **476 kB** — the policy pins the queue at the cap |
+| video dropped before / during | **0** / 64 |
+| **audio delivered** | **425 of 425 offered** |
+
+All 8 `RtmpPublisherTest` cases still pass with 0 skipped, so the transport
+survived the rewrite — including the case that asks the SERVER whether the path
+is ready rather than trusting our own state.
+
+**Three things this cost, all worth recording:**
+
+1. **`close()` used to discard the queue**, which truncates the end of a
+   broadcast by up to the whole latency budget of already-encoded media. It
+   now flushes first, bounded, so a stop cannot hang on a link already gone.
+2. **Asynchronous sends made an existing test racy.** `RtmpPublisherTest`'s
+   "nothing was written" assertion read `bytesSent` immediately after sending;
+   it won that race on a loopback socket until the queue existed, then failed
+   honestly. `flush()` exists for this, and the test uses it.
+3. **Two wrong diagnoses in a row, on the same number.** The test reported 11
+   audio frames in its worst second, which read exactly like a stall. First
+   theory: `MutableList<Byte>` boxing every byte (~300 kB of garbage a second)
+   — fixed it, and the number did not move. Second theory: the harness was
+   bucketing a partial second — fixed that too, and it still did not move. The
+   answer was that the number never measured what its name claimed: it counts
+   the HARNESS's iterations, which also encode and sleep. The delivered-audio
+   assertion — 425 of 425 — is the one that carries the promise, and it was
+   passing all along. The boxing fix is kept on its own merits with **no
+   throughput claim attached**, because none was measured.
+
+**Still NOT ported to Android**: §6.5 (thermal) and §6.6 (reconnect).
+
+### §6.2o §6.5 ported to Android (2026-09-17)
+
+`PowerManager.getCurrentThermalStatus()` (API 29, which is exactly the google
+flavour's minSdk) polled once a second in the render loop, and
+`MediaCodec.setParameters` with `PARAMETER_KEY_VIDEO_BITRATE` as the dial.
+Mapping, from Android's own definitions: **SEVERE (3)** is "severe throttling
+where UX is largely impacted", so it is the counterpart of Apple's `.serious`
+and steps the bitrate to 60%; **CRITICAL (4) and above** — CRITICAL, EMERGENCY,
+SHUTDOWN — end the show, because that is where the platform itself starts
+stopping things.
+
+**Android binds the dial harder than Apple.** The format is configured
+`BITRATE_MODE_CBR`, so the codec tracks the target. On Apple the same step
+moved the wire only 7% until `DataRateLimits` came down from 2× to 1.15×
+(§9.y); there is no equivalent knob to get wrong here.
+
+**Two structural choices worth the words.** The status is **injected** as
+`thermalStatus: () -> Int` rather than read in the engine: the engine holds no
+`Context`, and a device cannot be made hot on cue — so the seam a harness needs
+is the same one the platform needs, and the `PowerManager` call lives in
+`PlayerScreen` where the Context is, guarded on API level rather than on the
+flavour (this file compiles into the amazon flavour at minSdk 23 too). And the
+DECISION is a pure function, `StudioEngine.thermalAction(...)`, which the loop
+CALLS — not a second copy — so it can be tested without a GL context or a
+codec. `StudioThermalTest`, 6/6: the step, its idempotence, restore-only-when-
+stepped, END_SHOW for every status from CRITICAL up, an unknown future status
+above SHUTDOWN still ending the show, and SEVERE never ending it (a broadcast
+that stops because a phone got warm is a worse bug than a lower bitrate).
+
+**Also fixed here, and it was latent**: `stop()` guarded on
+`compareAndSet(true, false)`, so a loop that ended ITSELF — which §6.5's
+critical path does — made `stop()` a no-op, leaving the encoder, the publisher,
+both surfaces and the GL context alive after the show was over. `stop()` now
+tears down after a self-exit, `StudioController.pollHealth()` performs it, and
+`endedReason` OUTLIVES the health reset so a surface can say why.
+
+**What is NOT proved**: the wiring on a device. The decision is tested on the
+JVM and both flavours compile; nothing has yet driven a real `PowerManager`
+into a real encoder on the Google TV. §6.6 (reconnect) is still unported.
+
+### §6.2p §6.6 ported to Android — the last unported rule (2026-09-17)
+
+A dropped connection used to end an Android broadcast silently, exactly as it
+did on Apple until §6.6 was written: the readout said OFFLINE and nothing
+acted.
+
+Now `RtmpPublisher.reconnect()` rebuilds the same publish, and
+`StudioEngine.superviseTheConnection()` drives it on the same schedule as
+Swift's — backoff 1/2/4/8/15 s, a 60-second deadline, one attempt at a time
+(Twitch permits a single active session per key and a new connection displaces
+the old), then `END_SHOW` with a reason rather than a readout that says
+RECONNECTING over a stream the platform finished minutes ago. `RECONNECTING`
+outranks `OFFLINE` in `showState`, because a rebuild in flight is a pause and
+not an ending.
+
+**The supervisor is NOT on `renderDispatcher`**, and that is the Android-only
+hazard: the backoff sleeps up to fifteen seconds at a time, and the render
+dispatcher is the single thread carrying the composite, the encode and the
+host's display. Recovering there would freeze the picture for exactly as long
+as it waited.
+
+**And one thing Apple had to decide, Android gets for free.** §6.6 keeps the
+timestamp base deliberately on the Swift side, because audio and video share it
+and re-basing is the §6.2h A/V-skew bug re-invited. Here the timestamps come
+from the ENCODERS, so they continue across the gap on their own — there is
+nothing to preserve and nothing to get wrong.
+
+Proved against a real `mediamtx` through `tools/rtmp_sever_proxy.py`, with the
+assertion that matters being the SERVER's — does it call the path ready
+*again*?
+
+| | control (no reconnect) | §6.6 |
+|---|---|---|
+| server saw the stream again | **false** | **true** |
+| publisher state | `failed` | `publishing` |
+| reconnects | 0 | **1** |
+
+The control is the point: without it the test would pass on a server that never
+noticed the cut. Full Kotlin suite after the change: **42 passed, 0 skipped,
+0 failed** across eight suites — the transport survived the reset, including
+the case that asks the server rather than trusting our own state.
+
+**All three rules are now on Android.** What is still unproved there is the
+WIRING on a device for §6.5 and §6.6: the decisions and the transport are
+tested, nothing has yet driven a real `PowerManager` or a real severed Wi-Fi
+link into a running engine on the Google TV.
+
+### §6.2q §6.6 on the GLASS, and the defect only a device could find (2026-09-17)
+
+Driven through the **shipping app** on a Google TV (Dongle_R_4K, Android 14),
+publishing to a `mediamtx` on the Mac via `tools/rtmp_sever_proxy.py`. Film:
+*Battleship Potemkin* (1925), a real `safe_pd_age` item, chosen off the
+device's own catalogue so the rights gate had to pass it.
+
+To make this possible at all, a **debug-only** bench destination was added
+(`--es aw_studio_dest` / `--es aw_studio_key`, `DeepLinks.pendingStudioDest`).
+Until now the Android engine ran with `destination = null` in the app, so every
+transport claim on this platform came from a JVM harness and nothing had ever
+published from the product. **It is gated on `BuildConfig.DEBUG` and must stay
+that way**: a release build honouring an intent extra like this would let any
+app on the device launch ours with a destination of its choosing and redirect a
+host's broadcast.
+
+**The first device run FAILED, and it should have.** The app published
+correctly — path ready, 5.17 MB ingested — the proxy severed the link at 25 s,
+and the stream never came back. The JVM test for the very same rule passed.
+
+**Why**: the supervisor was launched on the CALLER's `CoroutineScope`, which is
+a Compose `LaunchedEffect` and therefore the **main** dispatcher, while
+`reconnect()` does blocking socket I/O — which Android answers with
+`NetworkOnMainThreadException`. The JVM test passed because it called
+`reconnect()` from its own test thread and never exercised the dispatcher the
+app actually uses. **A harness can prove the logic and still say nothing about
+where the logic runs.**
+
+And it was invisible because `catch (_: Exception)` **discarded the reason**, so
+every attempt failed identically and logcat held nothing. That is the same
+mistake as the swallowed `OSStatus` that hid the 291-second stall. The catch now
+records `reconnectFault` on the health readout.
+
+Fixed (`Dispatchers.IO`) and re-run on the same device:
+
+| t | mediamtx |
+|---|---|
+| 15–30 s | `live/awbench` ready, bytes → **5.17 MB** |
+| 25 s | proxy severs `conn 1` |
+| 35 s | path **gone** |
+| 40 s | path **ready again** — the proxy logs `conn 2: open` |
+| 40–75 s | bytes climbing continuously → **9.45 MB** |
+
+So the shipping app rebuilds a severed link on real hardware and the server
+goes on ingesting. Teardown: app force-stopped, TV volume restored to what it
+was, proxies and server stopped, the pulled catalogue copy deleted.
+
+**§6.5's device wiring is still unproved** — a real `PowerManager` reaching a
+real encoder needs a genuinely hot device or a debug override, and the bench
+door does not cover it.
+
+### §6.2r §6.5 on the GLASS, through the REAL platform API (2026-09-17)
+
+No app-side override was needed, and that is the point. Android exposes
+`adb shell cmd thermalservice override-status <n>`, which sets **and locks**
+the status the platform itself reports — so `PowerManager` answers SEVERE for
+real, `PlayerScreen`'s supplier reads it for real, the engine decides, and
+`MediaCodec` is re-parameterised. Measured on a Google TV through the shipping
+app, with mediamtx's own byte counter as the witness. Film: *Sherlock Jr.*
+(1924).
+
+| phase | wire rate (the SERVER's counter) |
+|---|---|
+| real status NONE (SoC 60.9 °C) | **2604 kbps** |
+| `override-status 3`, device reports `Thermal Status: 3` | **1462 kbps** — **44% lower** |
+| `override-status 4` (CRITICAL) | **path gone from mediamtx** — the show ended |
+| `reset` | `IsStatusOverride: false; Thermal Status: 0` |
+
+§6.5 asks for a step to 60%, i.e. a 40% reduction; the wire shows 44%. The
+whole chain is real: platform status → `PowerManager` → the injected supplier →
+`thermalAction` → `setBitrate` → the bytes a server counted.
+
+**A caution for anyone repeating this**: `override-status` LOCKS the status, so
+`cmd thermalservice reset` must run whatever happens — it is in a `finally` in
+the harness, and the run verifies `IsStatusOverride: false` afterwards. Leaving
+a borrowed television convinced it is overheating would be its own small
+version of the film left playing in someone's living room.
+
+**Both Android device gaps are now closed.** §6.4's back-pressure is proved
+from the JVM against a real server, and §6.5 and §6.6 are proved on the glass
+through the shipping app.
+
 ## §7 — Phases
 
 | Phase | Deliverable | Gate |
@@ -1690,227 +1911,6 @@ Continuity pairing, which is owner-blocked.
 
 Teardown: terminated by pid, and the box powered back off because it was off
 before the run.
-
-### §6.2r §6.5 on the GLASS, through the REAL platform API (2026-09-17)
-
-No app-side override was needed, and that is the point. Android exposes
-`adb shell cmd thermalservice override-status <n>`, which sets **and locks**
-the status the platform itself reports — so `PowerManager` answers SEVERE for
-real, `PlayerScreen`'s supplier reads it for real, the engine decides, and
-`MediaCodec` is re-parameterised. Measured on a Google TV through the shipping
-app, with mediamtx's own byte counter as the witness. Film: *Sherlock Jr.*
-(1924).
-
-| phase | wire rate (the SERVER's counter) |
-|---|---|
-| real status NONE (SoC 60.9 °C) | **2604 kbps** |
-| `override-status 3`, device reports `Thermal Status: 3` | **1462 kbps** — **44% lower** |
-| `override-status 4` (CRITICAL) | **path gone from mediamtx** — the show ended |
-| `reset` | `IsStatusOverride: false; Thermal Status: 0` |
-
-§6.5 asks for a step to 60%, i.e. a 40% reduction; the wire shows 44%. The
-whole chain is real: platform status → `PowerManager` → the injected supplier →
-`thermalAction` → `setBitrate` → the bytes a server counted.
-
-**A caution for anyone repeating this**: `override-status` LOCKS the status, so
-`cmd thermalservice reset` must run whatever happens — it is in a `finally` in
-the harness, and the run verifies `IsStatusOverride: false` afterwards. Leaving
-a borrowed television convinced it is overheating would be its own small
-version of the film left playing in someone's living room.
-
-**Both Android device gaps are now closed.** §6.4's back-pressure is proved
-from the JVM against a real server, and §6.5 and §6.6 are proved on the glass
-through the shipping app.
-
-### §6.2q §6.6 on the GLASS, and the defect only a device could find (2026-09-17)
-
-Driven through the **shipping app** on a Google TV (Dongle_R_4K, Android 14),
-publishing to a `mediamtx` on the Mac via `tools/rtmp_sever_proxy.py`. Film:
-*Battleship Potemkin* (1925), a real `safe_pd_age` item, chosen off the
-device's own catalogue so the rights gate had to pass it.
-
-To make this possible at all, a **debug-only** bench destination was added
-(`--es aw_studio_dest` / `--es aw_studio_key`, `DeepLinks.pendingStudioDest`).
-Until now the Android engine ran with `destination = null` in the app, so every
-transport claim on this platform came from a JVM harness and nothing had ever
-published from the product. **It is gated on `BuildConfig.DEBUG` and must stay
-that way**: a release build honouring an intent extra like this would let any
-app on the device launch ours with a destination of its choosing and redirect a
-host's broadcast.
-
-**The first device run FAILED, and it should have.** The app published
-correctly — path ready, 5.17 MB ingested — the proxy severed the link at 25 s,
-and the stream never came back. The JVM test for the very same rule passed.
-
-**Why**: the supervisor was launched on the CALLER's `CoroutineScope`, which is
-a Compose `LaunchedEffect` and therefore the **main** dispatcher, while
-`reconnect()` does blocking socket I/O — which Android answers with
-`NetworkOnMainThreadException`. The JVM test passed because it called
-`reconnect()` from its own test thread and never exercised the dispatcher the
-app actually uses. **A harness can prove the logic and still say nothing about
-where the logic runs.**
-
-And it was invisible because `catch (_: Exception)` **discarded the reason**, so
-every attempt failed identically and logcat held nothing. That is the same
-mistake as the swallowed `OSStatus` that hid the 291-second stall. The catch now
-records `reconnectFault` on the health readout.
-
-Fixed (`Dispatchers.IO`) and re-run on the same device:
-
-| t | mediamtx |
-|---|---|
-| 15–30 s | `live/awbench` ready, bytes → **5.17 MB** |
-| 25 s | proxy severs `conn 1` |
-| 35 s | path **gone** |
-| 40 s | path **ready again** — the proxy logs `conn 2: open` |
-| 40–75 s | bytes climbing continuously → **9.45 MB** |
-
-So the shipping app rebuilds a severed link on real hardware and the server
-goes on ingesting. Teardown: app force-stopped, TV volume restored to what it
-was, proxies and server stopped, the pulled catalogue copy deleted.
-
-**§6.5's device wiring is still unproved** — a real `PowerManager` reaching a
-real encoder needs a genuinely hot device or a debug override, and the bench
-door does not cover it.
-
-### §6.2p §6.6 ported to Android — the last unported rule (2026-09-17)
-
-A dropped connection used to end an Android broadcast silently, exactly as it
-did on Apple until §6.6 was written: the readout said OFFLINE and nothing
-acted.
-
-Now `RtmpPublisher.reconnect()` rebuilds the same publish, and
-`StudioEngine.superviseTheConnection()` drives it on the same schedule as
-Swift's — backoff 1/2/4/8/15 s, a 60-second deadline, one attempt at a time
-(Twitch permits a single active session per key and a new connection displaces
-the old), then `END_SHOW` with a reason rather than a readout that says
-RECONNECTING over a stream the platform finished minutes ago. `RECONNECTING`
-outranks `OFFLINE` in `showState`, because a rebuild in flight is a pause and
-not an ending.
-
-**The supervisor is NOT on `renderDispatcher`**, and that is the Android-only
-hazard: the backoff sleeps up to fifteen seconds at a time, and the render
-dispatcher is the single thread carrying the composite, the encode and the
-host's display. Recovering there would freeze the picture for exactly as long
-as it waited.
-
-**And one thing Apple had to decide, Android gets for free.** §6.6 keeps the
-timestamp base deliberately on the Swift side, because audio and video share it
-and re-basing is the §6.2h A/V-skew bug re-invited. Here the timestamps come
-from the ENCODERS, so they continue across the gap on their own — there is
-nothing to preserve and nothing to get wrong.
-
-Proved against a real `mediamtx` through `tools/rtmp_sever_proxy.py`, with the
-assertion that matters being the SERVER's — does it call the path ready
-*again*?
-
-| | control (no reconnect) | §6.6 |
-|---|---|---|
-| server saw the stream again | **false** | **true** |
-| publisher state | `failed` | `publishing` |
-| reconnects | 0 | **1** |
-
-The control is the point: without it the test would pass on a server that never
-noticed the cut. Full Kotlin suite after the change: **42 passed, 0 skipped,
-0 failed** across eight suites — the transport survived the reset, including
-the case that asks the server rather than trusting our own state.
-
-**All three rules are now on Android.** What is still unproved there is the
-WIRING on a device for §6.5 and §6.6: the decisions and the transport are
-tested, nothing has yet driven a real `PowerManager` or a real severed Wi-Fi
-link into a running engine on the Google TV.
-
-### §6.2o §6.5 ported to Android (2026-09-17)
-
-`PowerManager.getCurrentThermalStatus()` (API 29, which is exactly the google
-flavour's minSdk) polled once a second in the render loop, and
-`MediaCodec.setParameters` with `PARAMETER_KEY_VIDEO_BITRATE` as the dial.
-Mapping, from Android's own definitions: **SEVERE (3)** is "severe throttling
-where UX is largely impacted", so it is the counterpart of Apple's `.serious`
-and steps the bitrate to 60%; **CRITICAL (4) and above** — CRITICAL, EMERGENCY,
-SHUTDOWN — end the show, because that is where the platform itself starts
-stopping things.
-
-**Android binds the dial harder than Apple.** The format is configured
-`BITRATE_MODE_CBR`, so the codec tracks the target. On Apple the same step
-moved the wire only 7% until `DataRateLimits` came down from 2× to 1.15×
-(§9.y); there is no equivalent knob to get wrong here.
-
-**Two structural choices worth the words.** The status is **injected** as
-`thermalStatus: () -> Int` rather than read in the engine: the engine holds no
-`Context`, and a device cannot be made hot on cue — so the seam a harness needs
-is the same one the platform needs, and the `PowerManager` call lives in
-`PlayerScreen` where the Context is, guarded on API level rather than on the
-flavour (this file compiles into the amazon flavour at minSdk 23 too). And the
-DECISION is a pure function, `StudioEngine.thermalAction(...)`, which the loop
-CALLS — not a second copy — so it can be tested without a GL context or a
-codec. `StudioThermalTest`, 6/6: the step, its idempotence, restore-only-when-
-stepped, END_SHOW for every status from CRITICAL up, an unknown future status
-above SHUTDOWN still ending the show, and SEVERE never ending it (a broadcast
-that stops because a phone got warm is a worse bug than a lower bitrate).
-
-**Also fixed here, and it was latent**: `stop()` guarded on
-`compareAndSet(true, false)`, so a loop that ended ITSELF — which §6.5's
-critical path does — made `stop()` a no-op, leaving the encoder, the publisher,
-both surfaces and the GL context alive after the show was over. `stop()` now
-tears down after a self-exit, `StudioController.pollHealth()` performs it, and
-`endedReason` OUTLIVES the health reset so a surface can say why.
-
-**What is NOT proved**: the wiring on a device. The decision is tested on the
-JVM and both flavours compile; nothing has yet driven a real `PowerManager`
-into a real encoder on the Google TV. §6.6 (reconnect) is still unported.
-
-### §6.2n §6.4 ported to Android, where the gap was worse than on Apple (2026-09-17)
-
-`RtmpPublisher.kt` wrote every frame **synchronously to a blocking socket**,
-and `StudioEngine` calls it from the one GL render thread. So a narrow uplink
-did not shed frames — it BLOCKED the render loop, stalling the composite, the
-encoder drain and the host's own view of the film. Apple at least had a queue
-to overflow; here congestion propagated backwards into rendering. Nothing
-dropped anything, and `RtmpHealth.videoFramesDropped` could only ever read 0.
-
-Now: media goes onto a queue drained by one writer thread, with §6.4a's budget
-(`setQueueBudget`, the same 1.5 s constant), video inter-frames yielding past
-it and audio never. Only the setup path writes directly, and it has finished
-before the thread starts, so there are never two writers. A message is framed
-WHOLE in memory first, because interleaving two half-written messages is not a
-corrupt frame a server complains about — it is a desynchronised chunk stream,
-which reads as an EOF.
-
-Proved against a real `mediamtx` through `tools/rtmp_throttle_proxy.py`
-(`RtmpBackPressureTest`, 400 kbps against a 2.5 Mbps program):
-
-| | value |
-|---|---|
-| cap / peak queued | 474 kB / **476 kB** — the policy pins the queue at the cap |
-| video dropped before / during | **0** / 64 |
-| **audio delivered** | **425 of 425 offered** |
-
-All 8 `RtmpPublisherTest` cases still pass with 0 skipped, so the transport
-survived the rewrite — including the case that asks the SERVER whether the path
-is ready rather than trusting our own state.
-
-**Three things this cost, all worth recording:**
-
-1. **`close()` used to discard the queue**, which truncates the end of a
-   broadcast by up to the whole latency budget of already-encoded media. It
-   now flushes first, bounded, so a stop cannot hang on a link already gone.
-2. **Asynchronous sends made an existing test racy.** `RtmpPublisherTest`'s
-   "nothing was written" assertion read `bytesSent` immediately after sending;
-   it won that race on a loopback socket until the queue existed, then failed
-   honestly. `flush()` exists for this, and the test uses it.
-3. **Two wrong diagnoses in a row, on the same number.** The test reported 11
-   audio frames in its worst second, which read exactly like a stall. First
-   theory: `MutableList<Byte>` boxing every byte (~300 kB of garbage a second)
-   — fixed it, and the number did not move. Second theory: the harness was
-   bucketing a partial second — fixed that too, and it still did not move. The
-   answer was that the number never measured what its name claimed: it counts
-   the HARNESS's iterations, which also encode and sleep. The delivered-audio
-   assertion — 425 of 425 — is the one that carries the promise, and it was
-   passing all along. The boxing fix is kept on its own merits with **no
-   throughput claim attached**, because none was measured.
-
-**Still NOT ported to Android**: §6.5 (thermal) and §6.6 (reconnect).
 
 ### §9.aa The §8.3 soak, re-run after §6.4/§6.5/§6.6 (2026-09-17)
 
