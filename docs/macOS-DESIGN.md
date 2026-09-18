@@ -836,6 +836,37 @@ than a new idea.*
   AVPlayerView's own chrome, because the HUD auto-hides and health may not
   (`docs/WATCH-TOGETHER.md` §4). A Mac host is often not looking at the
   window at all, so the readout also states the ONE current problem in words.
+- **PROPOSED Rule B13g — going live is a MENU COMMAND that opens the same
+  form sheet as iOS §8.9. NOT YET APPROVED; nothing is built against it.**
+
+  *Why this is proposed at all*: `docs/WATCH-TOGETHER.md` §9.ccc found that the
+  Mac cannot broadcast to YouTube or Twitch at all — the credential path is
+  constructed only in the iOS container, and macOS has no go-live affordance of
+  any kind. The engine, composite, overlays, rights gate, health readout and
+  publisher are all real here; the thing missing is the surface that starts a
+  broadcast, and §B13 has rules for the Studio once LIVE and none for entering
+  it.
+
+  *Why a menu command rather than a button*: §B13a forbids a second window and
+  §B13b forbids hand-drawing anything into the player's chrome, which between
+  them rule out the two obvious places. A menu command is the surface macOS
+  offers that is neither, the app already uses `CommandGroup` for New Window
+  and Refresh, and it gives the action a keyboard shortcut and a discoverable
+  home without touching the scene graph §B2a protects.
+
+  *Why the same sheet as iOS*: §B13c already chose mirroring over invention for
+  the program panel — "a host who learned one knows the other" — and the
+  go-live sheet carries content that is not cosmetic: the rights refusal in a
+  sentence (§2.3), the sign-in row, §3.4a's warning about automated matchers,
+  and the title the audience sees. Rebuilding that from scratch for the Mac
+  would be a second chance to get the rights copy wrong.
+
+  *What still needs deciding, and is the reason this is a proposal*: whether
+  the command lives under File, under a new Broadcast menu, or in the existing
+  playback commands; and whether it is enabled when no film is playing (the
+  iPhone reaches Go Live from a film's Detail, so the Mac's entry point has no
+  exact counterpart). Both are the owner's calls, not 4am's.
+
 - **Rule B13e — the camera needs an ENTITLEMENT here, unlike the phone.**
   `com.apple.security.device.camera` plus `NSCameraUsageDescription`. A
   sandboxed Mac app without the entitlement gets a TCC denial that looks
