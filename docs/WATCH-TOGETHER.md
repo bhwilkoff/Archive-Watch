@@ -1618,6 +1618,51 @@ the audio path, the real ingest hosts with no credential, the overlay and
 go-live surfaces on the glass, the rights gate on device, and the platform
 clients. **→ `docs/watch-together-measurements.md`**
 
+### §9.ssss The 75 seconds are GONE — +0.23 s, and two main-actor stalls found on the way (2026-09-18)
+
+§9.rrrr measured the television's audio 75 seconds in front of its picture.
+Aligned, on the product path, same box:
+
+    AWPRIME frames=1682 fromSeconds=474.1 firstAt=470.8 delta=-3.31
+    AWSYNC  audioFilmPos=539.75 playhead=539.52 offset=+0.23 queued=281.0 dropped=829  held=2727
+    AWSYNC  audioFilmPos=644.54 playhead=644.30 offset=+0.24 queued=156.4 dropped=1682 held=2786
+
+**+75 s to +0.23 s, and FLAT** across the run. ITU's tolerance for audio leading
+video is about 45 ms and this is 230 ms, so it is not yet good — but it is a
+quarter of a second rather than a minute and a quarter, and it no longer grows.
+
+Two halves, and neither works alone. The playhead is PUSHED to the decoder,
+which releases a packet when the picture reaches it instead of when the network
+delivered it; and priming fetches the audio under the CURRENT picture directly,
+because that segment was fetched before the sink existed and the tee will never
+offer it again. Alignment without priming is 75 s of silence.
+
+**TWO MAIN-ACTOR STALLS, and the same tell found both.** The app kept
+broadcasting for three and a half minutes while its diagnostic log stopped dead
+at 31 s — encoder threads live, every main-actor line gone. A hang and a crash
+look identical in a log that simply ends, so the difference had to be measured:
+mid-run log pulls at 60/120/180 s plus a screenshot. Causes: priming was
+`await`ed inline on the main-actor path (~15 sequential ranged GETs behind the
+server's serial queue), and the drop loop called `removeFirst()` in a `while`,
+which is O(n^2) over a burst-fed backlog WHILE HOLDING THE DECODER'S LOCK — with
+a 10 Hz time observer on the MAIN queue waiting on that same lock. Priming is
+now detached, the drop is one pass, and the observer runs at 4 Hz on its own
+queue.
+
+**A control that became wrong when the design changed.** `outOfOrderBursts`
+caught §9.rrrr's units error because a pure tee's bursts must chain. Priming
+deliberately breaks that chain, so a non-zero count became the NORMAL case and
+the refusal fired on every healthy run. The mapping's control moved to AWPRIME's
+`delta` — this route is ASKED for audio at a known film time and must answer at
+it — which checks against a value known outside the arithmetic. A control has to
+be wrong only when the thing it guards is wrong.
+
+**Still open, and the reason the architecture is being reconsidered rather than
+extended**: 230 ms is above the 45 ms threshold; `dropped=1682` and
+`held=2786` say the decoder is discarding and stalling constantly to hold the
+line; and `queued` sits at 150-280 s, so the tee is still delivering minutes
+ahead of what is wanted. That is a lot of machinery to hold a quarter second.
+
 ### §9.rrrr THE TELEVISION'S AUDIO IS 75 SECONDS AHEAD OF ITS PICTURE (2026-09-18)
 
 §9.qqqq closed the drift question and said in as many words that equal stream

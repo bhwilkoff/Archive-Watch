@@ -169,6 +169,83 @@ final class LocalMediaServer: @unchecked Sendable {
     ///
     /// Returns nil when the film has no audio track at all — a real and common
     /// case in a silent-cinema catalog, and NOT a failure.
+    /// Prime by ORIGIN url — what a caller outside this file actually holds.
+    func primeFilmAudio(forOrigin origin: URL, fromSeconds t0: Double,
+                        seconds span: Double) async -> (frames: Int, firstAt: Double) {
+        await primeFilmAudio(forKey: Self.key(for: origin), fromSeconds: t0, seconds: span)
+    }
+
+    /// Hand the Studio the film audio covering `t0`, once, at go-live.
+    ///
+    /// The tee only sees segments the player fetches AFTER a show starts, and
+    /// by then the player is buffered 75-125 s ahead — so the audio under the
+    /// CURRENT picture was fetched before anyone was listening and never comes
+    /// again. Without this the decoder's first packet is from the buffer head
+    /// and the whole show runs that far out of sync (§9.rrrr).
+    ///
+    /// Returns the frames delivered and the FILM TIME the first of them
+    /// starts at. That second value is the mapping's control: this route was
+    /// ASKED for audio at `t0` from an index it computed itself, so if what
+    /// comes back does not land on `t0` the film-time arithmetic is wrong —
+    /// checked against a known outside value rather than against its own
+    /// self-consistency (§9.rrrr).
+    func primeFilmAudio(forKey key: String, fromSeconds t0: Double,
+                        seconds span: Double) async -> (frames: Int, firstAt: Double) {
+        guard let resource = resource(forKey: key), await resource.prepareHLS(),
+              let movie = resource.movie, let plan = resource.plan,
+              let ti = movie.tracks.firstIndex(where: { $0.handler == "soun" })
+        else { return (0, -1) }
+        let t = movie.tracks[ti]
+        let rate = Double(t.timescale)
+        guard rate > 0 else { return (0, -1) }
+        var delivered = 0
+        var firstAt = -1.0
+
+        for f in plan.fragments {
+            guard let ft = f.tracks.first(where: { $0.trackID == t.id }) else { continue }
+            // An MP4 sample of a sound track is one AAC frame of 1024 samples.
+            let start = Double(ft.firstSample * 1024) / rate
+            let end = Double((ft.firstSample + ft.count) * 1024) / rate
+            guard end > t0, start < t0 + span else { continue }
+
+            var want: [(Int, Int)] = []
+            for sIdx in ft.firstSample..<(ft.firstSample + ft.count) {
+                guard sIdx < t.samples.count else { break }
+                want.append((t.samples[sIdx].offset, t.samples[sIdx].size))
+            }
+            want.sort { $0.0 < $1.0 }
+            var merged: [(lo: Int, hi: Int)] = []
+            for (off, size) in want {
+                if var last = merged.last, off <= last.hi + 262_144 {
+                    last.hi = max(last.hi, off + size); merged[merged.count - 1] = last
+                } else { merged.append((off, off + size)) }
+            }
+            var chunks: [(lo: Int, hi: Int, data: Data)] = []
+            for r in merged {
+                guard let d = await StreamPump.rangeData(resource.origin, r.lo, r.hi - 1)
+                else { return (delivered, firstAt) }
+                chunks.append((r.lo, r.lo + d.count, d))
+            }
+            var acc: [Data] = []
+            for sIdx in ft.firstSample..<(ft.firstSample + ft.count) {
+                guard sIdx < t.samples.count else { break }
+                let sm = t.samples[sIdx]
+                for c in chunks where c.lo <= sm.offset && sm.offset + sm.size <= c.hi {
+                    acc.append(c.data.subdata(
+                        in: (sm.offset - c.lo)..<(sm.offset - c.lo + sm.size)))
+                    break
+                }
+            }
+            if !acc.isEmpty {
+                if firstAt < 0 { firstAt = start }
+                FilmAudioBridge.shared.deliver(acc, firstSample: ft.firstSample,
+                                               sampleRate: Int(t.timescale))
+                delivered += acc.count
+            }
+        }
+        return (delivered, firstAt)
+    }
+
     func writeAudioOnlyFile(forKey key: String, to url: URL) async -> Bool {
         guard let resource = resource(forKey: key),
               await resource.prepareHLS(), let movie = resource.movie else { return false }
@@ -532,8 +609,16 @@ private final class ConnectionHandler: @unchecked Sendable {
             // TEE THE AUDIO TO THE STUDIO (§9.mmmm). These bytes are already
             // fetched — this route has to have them to mux the fragment the
             // player is about to consume — so handing them over costs no extra
-            // request, arrives in playback order, and is paced by playback
-            // because it IS what is playing. No-op unless a show is running.
+            // request. No-op unless a show is running.
+            //
+            // THIS COMMENT USED TO SAY the bytes "arrive in playback order, and
+            // [are] paced by playback because it IS what is playing". That was
+            // false, and §9.nnnn had already measured it false in this same
+            // file: 378 s of audio arrived in 90 s. The player BUFFERS, so
+            // these frames run 75-125 s in front of the picture, and believing
+            // otherwise is what put every television broadcast 75 s out of sync
+            // (§9.rrrr). The frames carry `firstSample` so the decoder can
+            // release them against the playhead instead of on arrival.
             if FilmAudioBridge.shared.isAttached {
                 for ft in f.tracks {
                     guard let ti = movie.tracks.firstIndex(where: { $0.id == ft.trackID }),

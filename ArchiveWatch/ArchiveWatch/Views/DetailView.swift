@@ -789,7 +789,57 @@ struct PlayerScreen: View {
                 FilmAudioBridge.shared.setSink { frames, firstSample, rate in
                     decoder.accept(frames, firstSample: firstSample, sampleRate: rate)
                 }
+
+                // ALIGNMENT (§9.rrrr), and it is two halves that only work
+                // together.
+                //
+                // The playhead is PUSHED at 10 Hz so the decoder can release a
+                // packet when the picture reaches it rather than when the
+                // network delivered it. On its own that would play SILENCE for
+                // the first 75-125 s, because everything queued is still in
+                // the future.
+                //
+                // So the second half primes: the segment under the current
+                // picture was fetched before the sink existed and the tee will
+                // never offer it again, so it is fetched directly, once.
+                // NOT on the main queue. The callback takes the decoder's
+                // lock, and the pump holds that lock on its own thread — so
+                // scheduling this on main puts UI work behind an audio lock
+                // several times a second for the length of a film. 4 Hz is
+                // ample against a 0.5 s tolerance.
+                let obs = p.addPeriodicTimeObserver(
+                    forInterval: CMTime(value: 1, timescale: 4),
+                    queue: studioPlayheadQueue) { t in
+                        decoder.setPlayhead(t.seconds)
+                    }
+                studioPlayheadObserver = obs
+                decoder.setPlayhead(p.currentTime().seconds)
                 decoder.start()
+
+                if let assetURL = (p.currentItem?.asset as? AVURLAsset)?.url,
+                   let origin = LocalMediaServer.shared.origin(for: assetURL) {
+                    let from = max(0, p.currentTime().seconds)
+                    // DETACHED, and the first version was not — which froze the
+                    // app 31 s in. Priming is ~15 sequential ranged GETs behind
+                    // the server's own serial queue; awaited inline on the
+                    // main-actor path it blocks everything the main actor owns.
+                    // The tell was exact: the broadcast kept recording for four
+                    // minutes (encoder threads are elsewhere) while every
+                    // main-actor diagnostic stopped at once. A hang and a crash
+                    // look identical in a log that simply ends.
+                    Task.detached(priority: .userInitiated) {
+                    let primed = await LocalMediaServer.shared.primeFilmAudio(
+                        forOrigin: origin, fromSeconds: from, seconds: 30)
+                    // delta is THE CONTROL: we asked for film time `from` and
+                    // the route answered from an index it computed itself. A
+                    // delta beyond one fragment (2 s) means the film-time
+                    // arithmetic is wrong and no offset below is worth reading.
+                    awdiag("AWPRIME frames=%d fromSeconds=%.1f firstAt=%.1f delta=%+.2f",
+                           primed.frames, from, primed.firstAt, primed.firstAt - from)
+                    }
+                } else {
+                    awdiag("AWPRIME frames=0 fromSeconds=-1 (no origin — NOT primed)")
+                }
             }
         }
         if let item = p.currentItem {
@@ -943,13 +993,20 @@ struct PlayerScreen: View {
                     // disproved it — so the check now stands in front of the
                     // number, the way measure_av_sync refuses a flash/burst
                     // count mismatch rather than averaging through it.
-                    if d.outOfOrderBursts > 0 {
-                        awdiag("AWSYNC REFUSED ooo=%d — film-time mapping unsound, no offset reported",
-                               d.outOfOrderBursts)
-                    } else {
-                        awdiag("AWSYNC audioFilmPos=%.2f playhead=%.2f offset=%+.2f queued=%.1f ooo=0",
-                               pos, now, pos - now, d.queuedSeconds)
-                    }
+                    // `ooo` is INFORMATION now, not a refusal.
+                    //
+                    // It was the control that caught a units error, when the
+                    // only source was a tee whose bursts must chain. Priming
+                    // deliberately breaks that chain — it inserts audio from
+                    // the playhead while the tee carries on from the buffer
+                    // head — so a non-zero count became the NORMAL case and the
+                    // refusal fired on every healthy run. The mapping's control
+                    // moved to AWPRIME's delta, which checks against a value
+                    // known outside the arithmetic. A control has to be wrong
+                    // only when the thing it guards is wrong.
+                    awdiag("AWSYNC audioFilmPos=%.2f playhead=%.2f offset=%+.2f queued=%.1f ooo=%d dropped=%d held=%d",
+                           pos, now, pos - now, d.queuedSeconds,
+                           d.outOfOrderBursts, d.droppedStale, d.heldEarly)
                 }
             }
 
@@ -996,6 +1053,8 @@ struct PlayerScreen: View {
         }
         await engine.stop()
         FilmAudioBridge.shared.setSink(nil)
+        if let obs = studioPlayheadObserver { player?.removeTimeObserver(obs) }
+        studioPlayheadObserver = nil
         studioFilmAudioDecoder?.stop()
         studioFilmAudioDecoder = nil
         studioEngine = nil
@@ -1078,6 +1137,8 @@ struct PlayerScreen: View {
     @State private var studioAudioProblem: String?
     /// Decodes the teed film audio for the whole life of a show (§9.oooo).
     @State private var studioFilmAudioDecoder: FilmAudioDecoder?
+    @State private var studioPlayheadObserver: Any?
+    private let studioPlayheadQueue = DispatchQueue(label: "aw.studio.playhead")
     @State private var fallbackProbe: Task<Void, Never>?
     @State private var sysCapProbe = SystemCaptionProbe()   // AW_SYSCAP_PROBE=1 only
     @State private var skipCount = 0         // #7: bound auto-skips in a broken lineup

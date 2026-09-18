@@ -49,6 +49,22 @@ final class FilmAudioDecoder: @unchecked Sendable {
     private var outFormat: AVAudioFormat?
     private var pump: Task<Void, Never>?
 
+    /// The film time the PICTURE is showing, PUSHED in by a periodic time
+    /// observer rather than pulled: an `AVPlayer` is not `Sendable` and the
+    /// pump runs on a detached task, so a closure over the player could not
+    /// cross that boundary under Swift 6. Below zero means "not aligned yet",
+    /// which restores plain FIFO.
+    private var headSeconds: Double = -1
+
+    /// Called ~10x a second from the player's own time observer.
+    func setPlayhead(_ seconds: Double) {
+        guard seconds.isFinite else { return }
+        lock.lock(); headSeconds = seconds; lock.unlock()
+    }
+
+    private(set) var droppedStale = 0
+    private(set) var heldEarly = 0
+
     private(set) var packetsDecoded = 0
     private(set) var framesWritten = 0
     private(set) var lastError: String?
@@ -73,6 +89,12 @@ final class FilmAudioDecoder: @unchecked Sendable {
     }
 
     private static let samplesPerPacket = 1024
+
+    /// How far from the playhead a packet may be and still be released. One
+    /// AAC frame is 23.2 ms, so half a second is ~21 frames of slack — enough
+    /// to absorb pump and playhead jitter, far inside the ~45 ms at which a
+    /// human notices audio leading picture.
+    private static let tolerance = 0.5
 
     init(write: @escaping (UnsafePointer<Float>, Int) -> Void) {
         self.write = write
@@ -109,7 +131,9 @@ final class FilmAudioDecoder: @unchecked Sendable {
 
     func stop() {
         pump?.cancel(); pump = nil
-        lock.lock(); queue.removeAll(); lastAcceptedFirst = -1; lock.unlock()
+        lock.lock()
+        queue.removeAll(); lastAcceptedFirst = -1; decodedFrame = -1
+        lock.unlock()
     }
 
     // MARK: - Decoding
@@ -137,6 +161,27 @@ final class FilmAudioDecoder: @unchecked Sendable {
         guard let converter, let inFormat, let outFormat, !queue.isEmpty else {
             lock.unlock(); return
         }
+
+        let head: Double? = headSeconds >= 0 ? headSeconds : nil
+        if let head {
+            // Anything the picture has already passed is gone. Dropped in ONE
+            // pass: `removeFirst()` on an Array is O(n), so doing it in a while
+            // loop over a burst-fed backlog is O(n^2) WHILE HOLDING THIS LOCK —
+            // which is a main-thread stall wearing a correctness bug's clothes.
+            var cut = 0
+            while cut < queue.count,
+                  Double(queue[cut].frame * Self.samplesPerPacket) / rate < head - Self.tolerance {
+                cut += 1
+            }
+            if cut > 0 { queue.removeFirst(cut); droppedStale += cut }
+            // Anything the picture has not reached yet waits. Silence now is
+            // correct; a fixed delay would be wrong the moment the buffer
+            // depth changed (the reasoning §9.ggg used on Android).
+            guard let first = queue.first,
+                  Double(first.frame * Self.samplesPerPacket) / rate <= head + Self.tolerance
+            else { heldEarly += 1; lock.unlock(); return }
+        }
+
         let (packet, packetFrame) = queue.removeFirst()
         lock.unlock()
 
