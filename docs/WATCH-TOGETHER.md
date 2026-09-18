@@ -1618,6 +1618,68 @@ the audio path, the real ingest hosts with no credential, the overlay and
 go-live surfaces on the glass, the rights gate on device, and the platform
 clients. **→ `docs/watch-together-measurements.md`**
 
+### §9.tttt The tee is DELETED: the Studio PULLS its audio by film position (2026-09-18)
+
+Owner, after watching §9.rrrr and §9.ssss go by: *"There have to be better ways
+of doing this audio routing and syncing. Can you do some more research before we
+continue to burn cycles on this?"* Right on both counts.
+
+**The constraint that produced the mess.** `AVPlayerItemVideoOutput` exists and
+works with HLS; there is no `AVPlayerItemAudioOutput`. The audio counterpart is
+`MTAudioProcessingTap`, which does not work with HLS at all — the remote asset
+reports zero tracks — and Decision 106 forces tvOS onto HLS. So the television
+has picture but no sound by construction, and everything built since was
+scaffolding around that hole. iOS and macOS are unaffected: they use the tap.
+
+**What was wrong with the tee.** It handed the Studio whatever the HTTP segment
+route happened to fetch. That felt free — those bytes are already in hand — and
+it was the wrong SCHEDULE: the player BUFFERS, so the frames ran 75-125 s in
+front of the picture. Correcting that afterwards took a playhead push, a priming
+fetch, a drop rule and a hold rule, and still only reached +0.23 s while
+discarding 1,682 packets and stalling 2,786 times.
+
+**What replaced it.** The Studio now PULLS, asking the server for the audio at a
+FILM POSITION and keeping a 12-second window ahead of the picture, 8 seconds at
+a time. Sync stopped being a correction applied afterwards and became a property
+of what gets requested. Measured on the same box, same film:
+
+    AWPULL first frames=475 asked=1520.7 firstAt=1517.9 delta=-2.75
+    AWSYNC audioFilmPos=1573.59 playhead=1573.36 offset=+0.23 queued=11.5 ooo=0 dropped=99 held=123
+    AWSYNC audioFilmPos=1678.20 playhead=1677.98 offset=+0.22 queued=18.2 ooo=0 dropped=99 held=235
+
+| | tee + correction | position pull |
+|---|---|---|
+| offset | +0.23 s | +0.22 s |
+| queued ahead | 150-280 s | 11-18 s |
+| dropped | 1,682 and climbing | 99, flat after startup |
+| held | 2,786 | 235 |
+
+The drop/hold stays as a SAFETY NET rather than the mechanism, and `dropped`
+staying flat is now the evidence that the puller is keeping its side of the
+bargain — a rule that fires constantly is load-bearing, one that fires once at
+startup is a guard.
+
+**Alternatives weighed and not taken.** `AVSampleBufferRenderSynchronizer` with
+an `AVSampleBufferAudioRenderer` and an `AVSampleBufferDisplayLayer` is Apple's
+documented answer when AVPlayer cannot give you what you need, and it would make
+sync exact by construction — but it replaces the tvOS playback path wholesale:
+buffering, seeking, the caption engine (Decisions 068/072), the AirPlay swap
+(051) and resume. Recorded here as the destination if frame-accurate control is
+ever wanted; not worth that blast radius for this. A second reader for audio
+only was rejected on Decision 071's own finding, that a second player races the
+main audio render on tvOS, and it doubles decode on the 2nd-gen floor.
+
+**A void run worth keeping.** One attempt measured nothing:
+`filmHasAudio=false sourceHasAudio=false` — Soul-Fire is a silent upload with no
+score, so the Studio correctly found nothing to carry and never started. The
+standing rule to vary test content collided with what this test needs; an
+audio-sync run needs a film whose audio track has been MEASURED, not merely a
+different film.
+
+**Still open**: +0.22 s is above the ~45 ms at which audio leading video is
+noticeable. It is now a fixed pipeline latency — the mixer's ring plus encode —
+rather than an alignment artifact, which makes it the next tractable target.
+
 ### §9.ssss The 75 seconds are GONE — +0.23 s, and two main-actor stalls found on the way (2026-09-18)
 
 §9.rrrr measured the television's audio 75 seconds in front of its picture.

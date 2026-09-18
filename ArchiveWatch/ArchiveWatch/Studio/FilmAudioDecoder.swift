@@ -56,7 +56,13 @@ final class FilmAudioDecoder: @unchecked Sendable {
     /// which restores plain FIFO.
     private var headSeconds: Double = -1
 
-    /// Called ~10x a second from the player's own time observer.
+    /// The playhead last pushed in, for the puller that decides what to fetch.
+    var currentPlayhead: Double? {
+        lock.lock(); defer { lock.unlock() }
+        return headSeconds >= 0 ? headSeconds : nil
+    }
+
+    /// Called ~4x a second from the player's own time observer.
     func setPlayhead(_ seconds: Double) {
         guard seconds.isFinite else { return }
         lock.lock(); headSeconds = seconds; lock.unlock()

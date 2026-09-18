@@ -171,7 +171,7 @@ final class LocalMediaServer: @unchecked Sendable {
     /// case in a silent-cinema catalog, and NOT a failure.
     /// Prime by ORIGIN url — what a caller outside this file actually holds.
     func primeFilmAudio(forOrigin origin: URL, fromSeconds t0: Double,
-                        seconds span: Double) async -> (frames: Int, firstAt: Double) {
+                        seconds span: Double) async -> (frames: Int, firstAt: Double, throughAt: Double) {
         await primeFilmAudio(forKey: Self.key(for: origin), fromSeconds: t0, seconds: span)
     }
 
@@ -190,16 +190,21 @@ final class LocalMediaServer: @unchecked Sendable {
     /// checked against a known outside value rather than against its own
     /// self-consistency (§9.rrrr).
     func primeFilmAudio(forKey key: String, fromSeconds t0: Double,
-                        seconds span: Double) async -> (frames: Int, firstAt: Double) {
+                        seconds span: Double) async -> (frames: Int, firstAt: Double, throughAt: Double) {
         guard let resource = resource(forKey: key), await resource.prepareHLS(),
               let movie = resource.movie, let plan = resource.plan,
               let ti = movie.tracks.firstIndex(where: { $0.handler == "soun" })
-        else { return (0, -1) }
+        else { return (0, -1, -1) }
         let t = movie.tracks[ti]
         let rate = Double(t.timescale)
-        guard rate > 0 else { return (0, -1) }
+        guard rate > 0 else { return (0, -1, -1) }
         var delivered = 0
         var firstAt = -1.0
+        // The film time the last delivered fragment ENDS at. A caller pulling a
+        // window at a time advances by THIS, never by the span it asked for —
+        // fragments do not align to the request, so advancing by the span
+        // re-delivers the overlap and the film stutters.
+        var throughAt = -1.0
 
         for f in plan.fragments {
             guard let ft = f.tracks.first(where: { $0.trackID == t.id }) else { continue }
@@ -223,7 +228,7 @@ final class LocalMediaServer: @unchecked Sendable {
             var chunks: [(lo: Int, hi: Int, data: Data)] = []
             for r in merged {
                 guard let d = await StreamPump.rangeData(resource.origin, r.lo, r.hi - 1)
-                else { return (delivered, firstAt) }
+                else { return (delivered, firstAt, throughAt) }
                 chunks.append((r.lo, r.lo + d.count, d))
             }
             var acc: [Data] = []
@@ -238,12 +243,13 @@ final class LocalMediaServer: @unchecked Sendable {
             }
             if !acc.isEmpty {
                 if firstAt < 0 { firstAt = start }
+                throughAt = end
                 FilmAudioBridge.shared.deliver(acc, firstSample: ft.firstSample,
                                                sampleRate: Int(t.timescale))
                 delivered += acc.count
             }
         }
-        return (delivered, firstAt)
+        return (delivered, firstAt, throughAt)
     }
 
     func writeAudioOnlyFile(forKey key: String, to url: URL) async -> Bool {
@@ -606,42 +612,19 @@ private final class ConnectionHandler: @unchecked Sendable {
                 }
                 chunks.append((r.lo, r.lo + d.count, d))
             }
-            // TEE THE AUDIO TO THE STUDIO (§9.mmmm). These bytes are already
-            // fetched — this route has to have them to mux the fragment the
-            // player is about to consume — so handing them over costs no extra
-            // request. No-op unless a show is running.
+            // THE TEE THAT USED TO BE HERE IS GONE (§9.tttt).
             //
-            // THIS COMMENT USED TO SAY the bytes "arrive in playback order, and
-            // [are] paced by playback because it IS what is playing". That was
-            // false, and §9.nnnn had already measured it false in this same
-            // file: 378 s of audio arrived in 90 s. The player BUFFERS, so
-            // these frames run 75-125 s in front of the picture, and believing
-            // otherwise is what put every television broadcast 75 s out of sync
-            // (§9.rrrr). The frames carry `firstSample` so the decoder can
-            // release them against the playhead instead of on arrival.
-            if FilmAudioBridge.shared.isAttached {
-                for ft in f.tracks {
-                    guard let ti = movie.tracks.firstIndex(where: { $0.id == ft.trackID }),
-                          movie.tracks[ti].handler == "soun" else { continue }
-                    let t = movie.tracks[ti]
-                    // One Data PER FRAME: AAC packets are variable-size and
-                    // only decodable whole, so the boundaries travel with them.
-                    var acc: [Data] = []
-                    for sIdx in ft.firstSample..<(ft.firstSample + ft.count) {
-                        let sm = t.samples[sIdx]
-                        for c in chunks where c.lo <= sm.offset && sm.offset + sm.size <= c.hi {
-                            acc.append(c.data.subdata(
-                                in: (sm.offset - c.lo)..<(sm.offset - c.lo + sm.size)))
-                            break
-                        }
-                    }
-                    if !acc.isEmpty {
-                        // A sound track's timescale IS its sample rate.
-                        FilmAudioBridge.shared.deliver(acc, firstSample: ft.firstSample,
-                                                       sampleRate: Int(t.timescale))
-                    }
-                }
-            }
+            // It handed the Studio whatever audio this route happened to fetch.
+            // That felt free — these bytes are already in hand — and it was the
+            // wrong SCHEDULE: the player buffers, so the frames ran 75-125 s in
+            // front of the picture and every television broadcast went out that
+            // far out of sync (§9.rrrr). Correcting it afterwards took a
+            // playhead push, a priming fetch, a drop rule and a hold rule.
+            //
+            // The Studio now PULLS the audio it wants by film position instead
+            // (`primeFilmAudio`), so it only ever asks for what the picture is
+            // about to reach. Sync stopped being something to correct and
+            // became a property of what gets requested.
             guard let built = try? MP4Fragmenter.fragment(movie, f, media: { off, len in
                 for c in chunks where c.lo <= off && off + len <= c.hi {
                     return c.data.subdata(in: (off - c.lo)..<(off - c.lo + len))

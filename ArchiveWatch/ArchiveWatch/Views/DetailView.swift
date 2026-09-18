@@ -13,6 +13,16 @@ enum DetailFocusTarget: Hashable {
     case play, favorite, watched, versions, related
 }
 
+/// Seconds of film audio to keep ahead of the picture, and the size of one
+/// pull. Small on purpose: the whole point is to ask only for what the picture
+/// is about to reach. Outside the view because the puller is detached — a
+/// `static let` on a `@MainActor` view is main-actor isolated and cannot be
+/// read from there.
+private enum FilmAudioPull {
+    static let lookahead = 12.0
+    static let chunk = 8.0
+}
+
 struct DetailView: View {
     static let viewingActivityType = "com.bhwilkoff.archivewatch.viewing"
     let item: Catalog.Item
@@ -816,29 +826,61 @@ struct PlayerScreen: View {
                 decoder.setPlayhead(p.currentTime().seconds)
                 decoder.start()
 
+                // THE AUDIO SOURCE (§9.tttt): PULLED by film position.
+                //
+                // This replaces the tee. The tee handed over whatever the HTTP
+                // segment route happened to fetch, which is a schedule the
+                // player chose by BUFFERING — so the audio ran 75-125 s ahead
+                // of the picture and a playhead push, a priming fetch, a drop
+                // rule and a hold rule existed to walk it back (§9.rrrr).
+                //
+                // Asking for the audio under the picture, a window at a time,
+                // makes sync a property of the REQUEST rather than a correction
+                // applied afterwards. The drop/hold in the decoder stays as a
+                // safety net, and `dropped`/`held` staying near zero is now the
+                // evidence that the puller is keeping its side of the bargain.
                 if let assetURL = (p.currentItem?.asset as? AVURLAsset)?.url,
                    let origin = LocalMediaServer.shared.origin(for: assetURL) {
-                    let from = max(0, p.currentTime().seconds)
-                    // DETACHED, and the first version was not — which froze the
-                    // app 31 s in. Priming is ~15 sequential ranged GETs behind
-                    // the server's own serial queue; awaited inline on the
-                    // main-actor path it blocks everything the main actor owns.
-                    // The tell was exact: the broadcast kept recording for four
-                    // minutes (encoder threads are elsewhere) while every
-                    // main-actor diagnostic stopped at once. A hang and a crash
-                    // look identical in a log that simply ends.
-                    Task.detached(priority: .userInitiated) {
-                    let primed = await LocalMediaServer.shared.primeFilmAudio(
-                        forOrigin: origin, fromSeconds: from, seconds: 30)
-                    // delta is THE CONTROL: we asked for film time `from` and
-                    // the route answered from an index it computed itself. A
-                    // delta beyond one fragment (2 s) means the film-time
-                    // arithmetic is wrong and no offset below is worth reading.
-                    awdiag("AWPRIME frames=%d fromSeconds=%.1f firstAt=%.1f delta=%+.2f",
-                           primed.frames, from, primed.firstAt, primed.firstAt - from)
+                    studioAudioPuller = Task.detached(priority: .userInitiated) { [weak decoder] in
+                        var through = -1.0
+                        var pulls = 0
+                        while !Task.isCancelled {
+                            guard let decoder, let head = decoder.currentPlayhead else {
+                                try? await Task.sleep(nanoseconds: 250_000_000); continue
+                            }
+                            // Start here, and re-seat after a seek — in either
+                            // direction. Holding audio for a part of the film
+                            // the viewer has left is the defect this replaced.
+                            if through < head || through > head + FilmAudioPull.lookahead * 3 {
+                                through = head
+                            }
+                            guard through - head < FilmAudioPull.lookahead else {
+                                try? await Task.sleep(nanoseconds: 500_000_000); continue
+                            }
+                            let r = await LocalMediaServer.shared.primeFilmAudio(
+                                forOrigin: origin, fromSeconds: through,
+                                seconds: FilmAudioPull.chunk)
+                            // Advance by what the route COVERED, never by what
+                            // was asked for: fragments do not align to the
+                            // request, so advancing by the span re-delivers the
+                            // overlap and the film stutters.
+                            if r.frames > 0, r.throughAt > through {
+                                if pulls == 0 {
+                                    // delta is THE CONTROL: we asked for a known
+                                    // film time and the route answered from an
+                                    // index it computed itself.
+                                    awdiag("AWPULL first frames=%d asked=%.1f firstAt=%.1f delta=%+.2f",
+                                           r.frames, through, r.firstAt, r.firstAt - through)
+                                }
+                                pulls += 1
+                                through = r.throughAt
+                            } else {
+                                try? await Task.sleep(nanoseconds: 500_000_000)
+                            }
+                        }
                     }
                 } else {
-                    awdiag("AWPRIME frames=0 fromSeconds=-1 (no origin — NOT primed)")
+                    awdiag("AWPULL frames=0 (no origin — the Studio has NO film audio)")
                 }
             }
         }
@@ -1053,6 +1095,7 @@ struct PlayerScreen: View {
         }
         await engine.stop()
         FilmAudioBridge.shared.setSink(nil)
+        studioAudioPuller?.cancel(); studioAudioPuller = nil
         if let obs = studioPlayheadObserver { player?.removeTimeObserver(obs) }
         studioPlayheadObserver = nil
         studioFilmAudioDecoder?.stop()
@@ -1139,6 +1182,7 @@ struct PlayerScreen: View {
     @State private var studioFilmAudioDecoder: FilmAudioDecoder?
     @State private var studioPlayheadObserver: Any?
     private let studioPlayheadQueue = DispatchQueue(label: "aw.studio.playhead")
+    @State private var studioAudioPuller: Task<Void, Never>?
     @State private var fallbackProbe: Task<Void, Never>?
     @State private var sysCapProbe = SystemCaptionProbe()   // AW_SYSCAP_PROBE=1 only
     @State private var skipCount = 0         // #7: bound auto-skips in a broken lineup
