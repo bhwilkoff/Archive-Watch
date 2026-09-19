@@ -631,12 +631,35 @@ final class StudioAudioMixer: @unchecked Sendable {
 
     /// §4's faders. 1.0 is unity; the host sets these.
     var filmGain: Float = 1.0
-    var micGain: Float = 1.0
+    /// CALIBRATABLE WITHOUT A REBUILD — `AW_STUDIO_MIC_GAIN`.
+    ///
+    /// Measured on Ben Bedroom 2026-09-19, owner SPEAKING near a paired
+    /// iPhone: `AWMIX micLevel=0.007..0.023`. That is far quieter than speech
+    /// at a phone should read and it straddles `duckThreshold` (0.02), so the
+    /// film barely ducks under the host — the §4 promise that his voice sits
+    /// on top of the film does not hold at that level.
+    ///
+    /// The conversion is NOT at fault: Int16 is divided by 32768, Float32 is
+    /// passed through, and the channel indexing is right (read 2026-09-19).
+    /// So the remaining candidates are the capture gain itself and the
+    /// distance to the phone, and both are questions for a person in the room
+    /// rather than a guess here.
+    ///
+    /// This door and `AW_STUDIO_DUCK_RMS` below exist so that calibration is
+    /// ONE session with several runs, rather than one build per value — the
+    /// owner's time is the scarce thing, not the Mac's.
+    var micGain: Float = {
+        Float(ProcessInfo.processInfo.environment["AW_STUDIO_MIC_GAIN"] ?? "") ?? 1.0
+    }()
     var filmMuted = false
     var micMuted = false
     /// §4: the film ducks 12 dB under the host's voice.
     let duckDecibels: Float = -12
-    private let duckThreshold: Float = 0.02      // RMS at which the host counts as speaking
+    /// RMS at which the host counts as speaking. `AW_STUDIO_DUCK_RMS`
+    /// overrides it; see `micGain` for why both are doors.
+    private let duckThreshold: Float = {
+        Float(ProcessInfo.processInfo.environment["AW_STUDIO_DUCK_RMS"] ?? "") ?? 0.02
+    }()
     private var duckGain: Float = 1.0            // smoothed, so ducking is not a click
 
     let film = FilmAudioTap()
