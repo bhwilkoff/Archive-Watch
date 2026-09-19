@@ -146,6 +146,61 @@ public final class StudioContinuity: NSObject {
             .first { $0.portType == .continuityMicrophone }
     }
 
+    /// DIAGNOSTIC ONLY — `AW_STUDIO_MIC_PROBE=1`. Answers the one question
+    /// blocking the Continuity microphone, and changes nothing.
+    ///
+    /// The camera is found by DISCOVERY, so it works after any app launch.
+    /// The microphone is an `AVAudioSession` input PORT, and the only object
+    /// that exposes it is an `AVContinuityDevice`, which the SDK hands over
+    /// ONLY through the picker delegate — `AVContinuityDevice.h` on tvOS 27
+    /// declares just `connectionID`, `connected`, `videoDevices` and
+    /// `audioSessionInputs`, with no way to enumerate a paired device. So
+    /// after a relaunch `device`/`lastPicked` are nil and `microphonePort()`
+    /// falls through to asking the SESSION, which in `.playback` lists no
+    /// inputs at all. Every run on 2026-09-19 read `micPort=none`.
+    ///
+    /// The untested half: §6.2 says `.playAndRecord` fails on tvOS when there
+    /// is nothing to record from, and a failed activation stops AVPlayer dead
+    /// (an earlier pre-raise crashed the app and was reverted). But that was
+    /// measured with NOTHING connected. With a Continuity camera actually
+    /// attached the phone may well offer its microphone, and the category may
+    /// be legitimate — in which case the ordering problem dissolves.
+    ///
+    /// This asks, restores whatever it found, and says what happened. It is
+    /// deliberately not a fix: the answer decides the design.
+    public func probeMicrophone() {
+        let s = AVAudioSession.sharedInstance()
+        func inputs(_ when: String) {
+            let list = s.availableInputs ?? []
+            awdiag("AWMIC %@ category=%@ inputs=%d [%@]", when, s.category.rawValue,
+                   list.count, list.map { $0.portType.rawValue }.joined(separator: ","))
+        }
+        awdiag("AWMIC probe: device=%@ lastPicked=%@ state=%@",
+               device == nil ? "nil" : "yes", Self.lastPicked == nil ? "nil" : "yes",
+               String(describing: state))
+        if let d = device ?? Self.lastPicked {
+            awdiag("AWMIC continuity device audioSessionInputs=%d", d.audioSessionInputs.count)
+        }
+        inputs("before")
+        let previous = s.category
+        do {
+            try s.setCategory(.playAndRecord, mode: .default,
+                              options: [.mixWithOthers, .allowBluetooth])
+            try s.setActive(true)
+            awdiag("AWMIC .playAndRecord ACTIVATED")
+            inputs("after-raise")
+            let cm = (s.availableInputs ?? []).first { $0.portType == .continuityMicrophone }
+            awdiag("AWMIC continuity microphone port: %@", cm?.portName ?? "STILL NONE")
+        } catch {
+            awdiag("AWMIC .playAndRecord REFUSED: %@", "\(error)")
+        }
+        // ALWAYS restore, including after success — this probe must not leave
+        // the session in a category the show did not ask for.
+        try? s.setCategory(previous, mode: .moviePlayback, options: [.mixWithOthers])
+        try? s.setActive(true)
+        awdiag("AWMIC restored category=%@", s.category.rawValue)
+    }
+
     /// A capture session carrying the continuity camera, and the microphone
     /// when there is one. The caller builds the taps against it (they cannot
     /// cross into the engine actor — an `AVCaptureSession` is not `Sendable`).

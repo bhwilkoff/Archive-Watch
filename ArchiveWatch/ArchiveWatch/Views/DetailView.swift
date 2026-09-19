@@ -951,6 +951,18 @@ struct PlayerScreen: View {
         // which narrows it to four calls and no further. Guessing cost a round
         // already (the microphone guard below was a correct fix for a defect
         // that was not the one killing it).
+        // AW_STUDIO_MIC_PROBE=1 — diagnostic only, changes nothing, restores
+        // whatever category it found. See `probeMicrophone`.
+        // GATED ON A CONNECTED CAMERA, deliberately. Raising `.playAndRecord`
+        // with NOTHING connected is the documented crash (§6.2, and an earlier
+        // pre-raise that killed the app and was reverted) — re-running that
+        // costs a crash to learn something already written down. The open
+        // question is the other case: whether the category is legitimate once
+        // a Continuity device IS attached and can offer a microphone.
+        if ProcessInfo.processInfo.environment["AW_STUDIO_MIC_PROBE"] == "1",
+           continuity.state.isConnected {
+            continuity.probeMicrophone()
+        }
         awdiag("AWCONT step=makeSession")
         if continuity.state.isConnected, let session = continuity.makeSession() {
             awdiag("AWCONT step=sessionMade inputs=%d outputs=%d",
