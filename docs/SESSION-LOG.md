@@ -1,5 +1,72 @@
 # Archive Watch — Session Log (archive)
 
+### 2026-09-18 (Watch Together loop, overnight) — the Studio's plumbing measured end to end, and the instruments that lied about it
+Owner /loop, 5-minute ticks, same prompt as 09-17: stream PD films to YouTube
+and Twitch as "Watch Together" / "Watch Together Studio", Apple first, research
+hard and test on real devices.
+
+**The night's shape: almost every defect was something believed rather than
+measured, and several were in the instruments.** Rules in
+`docs/WATCH-TOGETHER.md` §9.mm-§9.zz.
+
+- **Android had never carried AUDIO on the product path.** `audioTapFor()` was
+  called from nowhere — the tap, the AAC encoder, the priming correction and
+  Decision 129's A/V numbers all existed, and the wire did not. A Media3 audio
+  processor belongs to the `AudioSink` chain, fixed at `ExoPlayer.Builder`
+  time, so the only moment it can be installed is when the player is BUILT;
+  asking for it at go-live is too late to reach anything. Every Android
+  broadcast had published `tracks: [H264]`.
+- **Then Android's two clocks, +19.6 SECONDS apart.** Video was stamped by a
+  FRAME COUNTER (`frame * 1s / fps`), audio by its sample count. They agree
+  only while the renderer holds the nominal rate, and this dongle does 13 fps.
+  Invisible until audio existed at all. One `showStartNanos` now feeds both,
+  and the audio clock counts OFFERED bytes so refused PCM stops becoming
+  permanent lag: **+19,613 ms → -315 ms over 117 s**.
+- **The 10.5 fps ceiling was mostly BOXING.** Both send paths built their FLV
+  tag as `mutableListOf<Byte>() + data.toList()`, boxing every byte of a 50 kB
+  keyframe on the render thread. Video drain 16.5 → ~3 ms, audio 29 → ~6 ms.
+  The RTMP handshake also came off the render thread (it stalled every
+  broadcast's first 2.3 seconds at fps=1).
+- **And what remains of that ceiling is real: the dongle has NO hardware H.264
+  encoder.** Both AVC candidates are software; `Dongle R 4K` is a playback
+  device. So ~13 fps is a hardware floor, and Decision 129's "37.4 ms a frame"
+  was measured on a device that cannot encode in hardware at all. The encoder
+  is now chosen explicitly, hardware first. **Apple's is hardware, measured**
+  (`hwenc=true`, M3, 30 fps, 0 dropped).
+- **The Mac bench door was broadcasting the owner's ROOM.** `StudioSession`
+  attaches a mic tap whenever macOS has granted permission and `micMuted`
+  defaults to false, so every bench run carried whatever could be heard near
+  the Mac — and a level measured that way was reported as "the film's audio"
+  when it was room tone. ~88 MB of recordings deleted; the bench now mutes the
+  mic unless asked. Same family as the full-desktop screenshot: **on the
+  owner's machine the instrument must not reach past what it is pointed at.**
+- **What the platforms actually publish, and what we actually send.** YouTube's
+  encoder page fetched (2 s keyframes, CBR, AAC 128 stereo, 4 Mbps @720p30);
+  **Twitch's could not be read** and no blog was accepted in its place. Apple
+  verified from the server's recording: High profile, level 4.0, keyframes at
+  **2.00 s**, AAC-LC. Android moved **Baseline → Main** — asking for High had
+  been inert and silent, because the codec advertises no High — and its level
+  is now an honest 4.1 rather than an over-declared 5.0.
+- **A change the research killed**: YouTube's table says CBR, so Apple was
+  about to move to `kVTCompressionPropertyKey_ConstantBitRate`. The SDK header
+  says it "is not intended for general streaming scenarios". Reading the
+  framework's own header beat following the platform's table.
+- **Instruments that lied, again, in both directions**: `ffmpeg -v error` hides
+  `volumedetect`'s output entirely, so a normal audio track read as "zero
+  samples decoded" twice; container PACKET flags reported one keyframe in 41
+  seconds where frame `pict_type` showed 21 at exactly 2.00 s; mediamtx's fMP4
+  parts do not decode standalone; `adb logcat -d` HANGS rather than failing
+  when a device drops off network ADB; and a "control" that set a mute one line
+  after `play()` tested nothing, because the engine is built asynchronously and
+  `engine?.setAudio` was a no-op on nil. **A control that cannot fail is not a
+  control.**
+- **For the owner**: an Apple TV that is ASLEEP is not woken (item 9a) — the
+  tvOS/iOS encoder reads need only a screenshot at a waking hour. Still open:
+  the two OAuth client ids, the Pixel pairing (now the gate on the last Android
+  performance question), and a decision the Studio should not take alone —
+  Apple sends 1080p30 at 6 Mbps where YouTube recommends 10, and closing that
+  means either demanding a 10 Mbps uplink of the host or dropping to 720p.
+
 ### 2026-09-17 (audit loop) — The uploader-synopsis pass is DONE; misdated moderns and off-air tapes hidden by table; a spliced catalog repaired
 Owner /loop, 5-minute ticks: "uploader information and reviews instead of
 information about the film ... every piece of information ... accurate and

@@ -289,6 +289,61 @@ keep serving it.
 
 ## Session Log
 
+### 2026-09-19 (Watch Together loop) — the Continuity camera crash and the camera tile, both fixed on the glass; the audio artifacts survive four hypotheses
+Owner /loop: "get Apple TV streaming working end to end ... close all
+documentation and testing gaps ... until all aspects of streaming to YouTube
+and twitch work from Apple TV using continuity camera (with audio and videos
+working)."
+
+**THE CONTINUITY CAMERA WORKS END TO END ON THE APPLE TV.** Two bugs, both
+found on the first runs that ever had a phone attached, both verified from the
+server's own recording rather than the app's claims.
+
+- **The crash**: `-[AVCaptureDevice _setActiveFormat:...sessionPreset:]
+  Unsupported format ((null))`, signal 6, reproduced three times. A Continuity
+  Camera will not let the SESSION drive its format from a preset. `.inputPriority`
+  removes the call entirely. The first fix was WRONG and the device said so —
+  it chose the preset with `canSetSessionPreset`, which answered TRUE for
+  1280x720 and crashed anyway; logging `cam.formats` showed the camera HAS
+  1280x720 twice, so the format was never missing.
+- **The missing tile**: nothing retained the `AVCaptureSession`. It was a local
+  inside an `if` block; ARC freed it, capture stopped, and every log line still
+  said success because `startRunning()` had succeeded a moment earlier.
+  `AWCAM frames=0` for a whole run, then `frames=4482 (+30/s)` after the tap
+  took ownership. The tile is now in the program frame, bottom-right, measured.
+
+**Both platforms are READY from the television** — YouTube (Learning is Change,
+the `liveStreamingNotEnabled` block gone) and Twitch (licbhwilkoff) — and real
+broadcasts were created from the Apple TV with the camera attached.
+
+**THE AUDIO ARTIFACTS ARE NOT SOLVED, and four hypotheses died measured:**
+congestion (throttled bench at 2.0 Mbps against a 3.85 Mbps program: 1 click in
+50 s, control 1 in 60 s); pipeline state (both runs identical counters, both
+resumed mid-film); timestamp drift (8,117 packets, 0 deltas >2 ms off nominal,
+0 ms drift over 188 s); and TLS (the owner heard the SAME artifacts on a
+plaintext-ingest broadcast). What we SEND decodes clean; what YouTube DELIVERS
+does not, over both transports. Remaining lead, suggestive only: audio runs a
+median +0.38 s ahead of video in mux order, p95 +0.96, worst +2.95.
+
+**Three observability gaps closed on the way**, each one having cost a wrong
+inference: `AWCAM` (a camera counter — `filmFramesPulled` existed for the same
+reason and the camera had none); `AWGATE` (a rights refusal set an on-screen
+sentence and returned, so a refused run and a door that never fired were
+identical in a log); and `AWPUB` — `grep -c awdiag RTMPPublisher.swift` returned
+**0**, so a publish that never connected left no trace, and I wrongly inferred
+exactly that before the owner said the page simply had not refreshed.
+
+**`docs/TVOS-STUDIO-RUNBOOK.md` is new** — the run recipe that existed only as
+scattered facts and cost an hour: waking via `atv_scenario.wake_tv()`, the two
+devices both called "Ben Bedroom", choosing a film by `rightsBucket='safe_pd_age'`
+(4,210 rows) rather than `rightsStatus`, `--console` and screenshots being
+mutually exclusive, and `DiagFile` truncating on every launch.
+
+**Still open**: the artifacts; the Continuity MICROPHONE (`micPort=none` every
+run — the SDK offers no way to enumerate a paired device, so `audioSessionInputs`
+only exists on one the picker handed over); and the camera dropping repeatedly
+(observed four times), for which detection now exists but recovery does not.
+
 ### 2026-09-18 (Watch Together loop, daytime) — the first YouTube broadcast, the television's 75-second audio lead, and a macOS studio that had never been run
 Owner /loop, same prompt: stream PD films to YouTube and Twitch as "Watch
 Together" / "Watch Together Studio", Apple first, research hard, test on real
@@ -346,72 +401,5 @@ YouTube needs the browser sheet on that machine), and one Apple TV run with the
 phone attached to locate the Continuity crash - it is instrumented to name the
 failing call on the first attempt. Archive Watch's own YouTube channel is inside
 its 24-hour activation and needs nothing further; the token is already on it.
-
-### 2026-09-18 (Watch Together loop, overnight) — the Studio's plumbing measured end to end, and the instruments that lied about it
-Owner /loop, 5-minute ticks, same prompt as 09-17: stream PD films to YouTube
-and Twitch as "Watch Together" / "Watch Together Studio", Apple first, research
-hard and test on real devices.
-
-**The night's shape: almost every defect was something believed rather than
-measured, and several were in the instruments.** Rules in
-`docs/WATCH-TOGETHER.md` §9.mm-§9.zz.
-
-- **Android had never carried AUDIO on the product path.** `audioTapFor()` was
-  called from nowhere — the tap, the AAC encoder, the priming correction and
-  Decision 129's A/V numbers all existed, and the wire did not. A Media3 audio
-  processor belongs to the `AudioSink` chain, fixed at `ExoPlayer.Builder`
-  time, so the only moment it can be installed is when the player is BUILT;
-  asking for it at go-live is too late to reach anything. Every Android
-  broadcast had published `tracks: [H264]`.
-- **Then Android's two clocks, +19.6 SECONDS apart.** Video was stamped by a
-  FRAME COUNTER (`frame * 1s / fps`), audio by its sample count. They agree
-  only while the renderer holds the nominal rate, and this dongle does 13 fps.
-  Invisible until audio existed at all. One `showStartNanos` now feeds both,
-  and the audio clock counts OFFERED bytes so refused PCM stops becoming
-  permanent lag: **+19,613 ms → -315 ms over 117 s**.
-- **The 10.5 fps ceiling was mostly BOXING.** Both send paths built their FLV
-  tag as `mutableListOf<Byte>() + data.toList()`, boxing every byte of a 50 kB
-  keyframe on the render thread. Video drain 16.5 → ~3 ms, audio 29 → ~6 ms.
-  The RTMP handshake also came off the render thread (it stalled every
-  broadcast's first 2.3 seconds at fps=1).
-- **And what remains of that ceiling is real: the dongle has NO hardware H.264
-  encoder.** Both AVC candidates are software; `Dongle R 4K` is a playback
-  device. So ~13 fps is a hardware floor, and Decision 129's "37.4 ms a frame"
-  was measured on a device that cannot encode in hardware at all. The encoder
-  is now chosen explicitly, hardware first. **Apple's is hardware, measured**
-  (`hwenc=true`, M3, 30 fps, 0 dropped).
-- **The Mac bench door was broadcasting the owner's ROOM.** `StudioSession`
-  attaches a mic tap whenever macOS has granted permission and `micMuted`
-  defaults to false, so every bench run carried whatever could be heard near
-  the Mac — and a level measured that way was reported as "the film's audio"
-  when it was room tone. ~88 MB of recordings deleted; the bench now mutes the
-  mic unless asked. Same family as the full-desktop screenshot: **on the
-  owner's machine the instrument must not reach past what it is pointed at.**
-- **What the platforms actually publish, and what we actually send.** YouTube's
-  encoder page fetched (2 s keyframes, CBR, AAC 128 stereo, 4 Mbps @720p30);
-  **Twitch's could not be read** and no blog was accepted in its place. Apple
-  verified from the server's recording: High profile, level 4.0, keyframes at
-  **2.00 s**, AAC-LC. Android moved **Baseline → Main** — asking for High had
-  been inert and silent, because the codec advertises no High — and its level
-  is now an honest 4.1 rather than an over-declared 5.0.
-- **A change the research killed**: YouTube's table says CBR, so Apple was
-  about to move to `kVTCompressionPropertyKey_ConstantBitRate`. The SDK header
-  says it "is not intended for general streaming scenarios". Reading the
-  framework's own header beat following the platform's table.
-- **Instruments that lied, again, in both directions**: `ffmpeg -v error` hides
-  `volumedetect`'s output entirely, so a normal audio track read as "zero
-  samples decoded" twice; container PACKET flags reported one keyframe in 41
-  seconds where frame `pict_type` showed 21 at exactly 2.00 s; mediamtx's fMP4
-  parts do not decode standalone; `adb logcat -d` HANGS rather than failing
-  when a device drops off network ADB; and a "control" that set a mute one line
-  after `play()` tested nothing, because the engine is built asynchronously and
-  `engine?.setAudio` was a no-op on nil. **A control that cannot fail is not a
-  control.**
-- **For the owner**: an Apple TV that is ASLEEP is not woken (item 9a) — the
-  tvOS/iOS encoder reads need only a screenshot at a waking hour. Still open:
-  the two OAuth client ids, the Pixel pairing (now the gate on the last Android
-  performance question), and a decision the Studio should not take alone —
-  Apple sends 1080p30 at 6 Mbps where YouTube recommends 10, and closing that
-  means either demanding a 10 Mbps uplink of the host or dropping to 720p.
 
 Older entries: `docs/SESSION-LOG.md` (verbatim, back to 2026-04-17).

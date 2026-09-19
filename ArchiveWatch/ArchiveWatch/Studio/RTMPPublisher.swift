@@ -279,6 +279,15 @@ public actor RTMPPublisher {
         self.lastServer = server
         resetForNewConnection()
 
+        // THIS FILE LOGGED NOTHING AT ALL (measured 2026-09-19: `grep -c
+        // awdiag` returned 0). `health.state` and `lastError` reach only the
+        // on-screen readout, so an unattended run that never connected left no
+        // trace anywhere — which is exactly where a plaintext-ingest
+        // experiment ended: YouTube had the broadcast, the log had the audio
+        // tee running, and nothing said whether the publish had connected.
+        // Never the URL, always `redactingKey` — the last path component is
+        // the stream key and the query carries YouTube's backup ingest (§5).
+        awdiag("AWPUB connecting %@ transport=%@", redactingKey(server), tls ? "rtmps/tls" : "rtmp")
         let params: NWParameters = tls ? .tls : .tcp
         params.serviceClass = .interactiveVideo
         let conn = NWConnection(host: NWEndpoint.Host(host), port: NWEndpoint.Port(rawValue: port)!, using: params)
@@ -353,6 +362,7 @@ public actor RTMPPublisher {
         // publish has no _result; the answer is an onStatus on the stream.
         try await withTimeout(timeout, label: "publish") { [self] in try await self.awaitPublishStart() }
         health.state = .publishing
+        awdiag("AWPUB publishing — the server accepted the stream")
         sendMetadata(config)
     }
 
@@ -593,8 +603,11 @@ public actor RTMPPublisher {
 
     private func socketClosed(_ reason: String) {
         guard health.state != .closed, health.state != .failed else { return }
-        health.state = health.state == .publishing ? .closed : .failed
+        let wasPublishing = health.state == .publishing
+        health.state = wasPublishing ? .closed : .failed
         health.lastError = reason
+        awdiag("AWPUB socket closed (%@): %@",
+               wasPublishing ? "was publishing" : "NEVER PUBLISHED", reason)
         closeReason = reason
         failPending(RTMPPublishError.closed(reason))
     }
@@ -742,6 +755,7 @@ public actor RTMPPublisher {
     private func fail(_ e: RTMPPublishError) -> RTMPPublishError {
         health.state = .failed
         health.lastError = e.description
+        awdiag("AWPUB FAILED: %@", e.description)
         return e
     }
 
