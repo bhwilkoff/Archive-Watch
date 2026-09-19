@@ -44,6 +44,17 @@ final class FilmAudioDecoder: @unchecked Sendable {
     private var lastAcceptedFirst = -1
     private var decodedFrame = -1
     private var sourceRate: Double = 44100
+    /// Channels in the FILM's audio, not an assumption about it.
+    ///
+    /// This was hardcoded to 2, and a MONO film then failed every decode with
+    /// OSStatus 1650549857 — 'bada', bad data — so the television broadcast
+    /// silence while the puller happily delivered thousands of frames. A
+    /// public-domain catalogue is mostly pre-1950s cinema, which is mostly
+    /// mono, so this was not an edge case: it was most of the library
+    /// (§9.jjjjj).
+    private var sourceChannels: UInt32 = 2
+    private var triedMonoFallback = false
+    private var upmix: [Float] = []
     private var converter: AVAudioConverter?
     private var inFormat: AVAudioFormat?
     private var outFormat: AVAudioFormat?
@@ -167,10 +178,11 @@ final class FilmAudioDecoder: @unchecked Sendable {
         var asbd = AudioStreamBasicDescription(
             mSampleRate: rate, mFormatID: kAudioFormatMPEG4AAC, mFormatFlags: 0,
             mBytesPerPacket: 0, mFramesPerPacket: 1024, mBytesPerFrame: 0,
-            mChannelsPerFrame: 2, mBitsPerChannel: 0, mReserved: 0)
+            mChannelsPerFrame: sourceChannels, mBitsPerChannel: 0, mReserved: 0)
         guard let inF = AVAudioFormat(streamDescription: &asbd),
               let outF = AVAudioFormat(commonFormat: .pcmFormatFloat32, sampleRate: rate,
-                                       channels: 2, interleaved: true),
+                                       channels: AVAudioChannelCount(sourceChannels),
+                                       interleaved: true),
               let c = AVAudioConverter(from: inF, to: outF) else {
             lastError = "could not build an AAC decoder at \\(Int(rate)) Hz"
             return false
@@ -232,12 +244,39 @@ final class FilmAudioDecoder: @unchecked Sendable {
             return inBuf
         }
         if status == .error {
-            lock.lock(); lastError = err?.localizedDescription ?? "decode failed"; lock.unlock()
+            lock.lock()
+            lastError = err?.localizedDescription ?? "decode failed"
+            // ADAPT RATHER THAN ASSUME. A stereo description over a mono stream
+            // fails every packet with 'bada', and nothing upstream tells this
+            // decoder the channel count — the bridge carries a sample rate and
+            // not a layout. So the first failure retries as MONO, once, and the
+            // converter is rebuilt; if that decodes, the film was mono.
+            if !triedMonoFallback, sourceChannels != 1 {
+                triedMonoFallback = true
+                sourceChannels = 1
+                self.converter = nil          // the instance one, not the local shadow
+                lastError = "retrying as mono after a stereo decode failure"
+            }
+            lock.unlock()
             return false
         }
         let n = Int(outBuf.frameLength)
         guard n > 0, let ch = outBuf.floatChannelData?[0] else { return false }
-        write(ch, n * 2)                       // interleaved stereo: 2 floats a frame
+        // UPMIX MONO TO STEREO. The ring's contract is INTERLEAVED STEREO at the
+        // programme rate — the mixer reads pairs — so handing it mono samples
+        // gives half the frames in the wrong layout: it decodes, and it does
+        // not sound right. A mono film is duplicated into both channels, which
+        // is what every player does with one.
+        if sourceChannels == 1 {
+            if upmix.count < n * 2 { upmix = [Float](repeating: 0, count: n * 2) }
+            upmix.withUnsafeMutableBufferPointer { dst in
+                guard let d = dst.baseAddress else { return }
+                for i in 0..<n { d[i * 2] = ch[i]; d[i * 2 + 1] = ch[i] }
+                write(d, n * 2)
+            }
+        } else {
+            write(ch, n * Int(sourceChannels))
+        }
         lock.lock()
         packetsDecoded += 1; framesWritten += n; decodedFrame = packetFrame
         lock.unlock()
