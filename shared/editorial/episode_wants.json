@@ -1,10 +1,10 @@
 {
   "schema": 1,
-  "updated_at": "2026-09-18T08:56:10Z",
+  "updated_at": "2026-09-19T08:43:04Z",
   "description": "Missing-episode queue: canonical episodes (from OMDb) that we don't yet have on Archive. Drained by tools/backfill_tv_episodes.py.",
   "stats": {
-    "total": 18161,
-    "wanted": 17938,
+    "total": 18165,
+    "wanted": 17942,
     "fulfilled": 223,
     "series_with_gaps": 360
   },
@@ -42912,6 +42912,16 @@
       "seriesID": "dragnet-1951",
       "seriesTitle": "Dragnet",
       "season": 2,
+      "episode": 32,
+      "title": "The Big Barrette",
+      "episodeImdbID": "tt0565706",
+      "status": "wanted",
+      "added_at": "2026-09-19T08:43:04Z"
+    },
+    {
+      "seriesID": "dragnet-1951",
+      "seriesTitle": "Dragnet",
+      "season": 2,
       "episode": 33,
       "title": "The Big Dance",
       "episodeImdbID": "tt0565753",
@@ -43102,6 +43112,16 @@
       "seriesID": "dragnet-1951",
       "seriesTitle": "Dragnet",
       "season": 3,
+      "episode": 28,
+      "title": "The Big Shoplift",
+      "episodeImdbID": "tt0565917",
+      "status": "wanted",
+      "added_at": "2026-09-19T08:43:04Z"
+    },
+    {
+      "seriesID": "dragnet-1951",
+      "seriesTitle": "Dragnet",
+      "season": 3,
       "episode": 29,
       "title": "The Big Hit-Run Killer",
       "episodeImdbID": "tt0565808",
@@ -43137,6 +43157,16 @@
       "episodeImdbID": "tt0565889",
       "status": "wanted",
       "added_at": "2026-06-13T07:56:51Z"
+    },
+    {
+      "seriesID": "dragnet-1951",
+      "seriesTitle": "Dragnet",
+      "season": 3,
+      "episode": 34,
+      "title": "The Big Frame",
+      "episodeImdbID": "tt0565782",
+      "status": "wanted",
+      "added_at": "2026-09-19T08:43:04Z"
     },
     {
       "seriesID": "dragnet-1951",
@@ -121753,6 +121783,16 @@
       "episodeImdbID": "tt0712572",
       "status": "wanted",
       "added_at": "2026-06-14T08:26:25Z"
+    },
+    {
+      "seriesID": "studio-one-1948",
+      "seriesTitle": "Studio One",
+      "season": 4,
+      "episode": 30,
+      "title": "Pontius Pilate",
+      "episodeImdbID": "tt0712376",
+      "status": "wanted",
+      "added_at": "2026-09-19T08:43:04Z"
     },
     {
       "seriesID": "studio-one-1948",
