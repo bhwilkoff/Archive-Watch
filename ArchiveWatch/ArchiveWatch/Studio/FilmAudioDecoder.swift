@@ -240,7 +240,15 @@ final class FilmAudioDecoder: @unchecked Sendable {
     /// 44100, they match" note was true of ONE film.
     var programRate: Double = 44100
 
-    private func makeConverter(rate: Double) -> Bool {
+    /// The rate the decoder will actually EMIT, once a converter exists.
+    /// Read by §8.16 so the programme-rate contract is a test rather than a
+    /// comment: a 48 kHz film must still come out at the programme rate.
+    var outputSampleRate: Double? { outFormat?.sampleRate }
+
+    /// Internal rather than private so §8.16 can build a converter for a given
+    /// source rate without synthesising AAC packets.
+    @discardableResult
+    func makeConverter(rate: Double) -> Bool {
         var asbd = AudioStreamBasicDescription(
             mSampleRate: rate, mFormatID: kAudioFormatMPEG4AAC, mFormatFlags: 0,
             mBytesPerPacket: 0, mFramesPerPacket: 1024, mBytesPerFrame: 0,

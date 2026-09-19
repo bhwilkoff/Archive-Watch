@@ -140,6 +140,7 @@ swift_case() {
 # 'awdiag' in scope" — two errors predating that day and six added when the
 # RTMP publisher was instrumented — and nobody noticed because nobody had run
 # the suite. See the file's own header.
+DEC=ArchiveWatch/ArchiveWatch/Studio/FilmAudioDecoder.swift
 SHIM=tools/harness_awdiag.swift
 PUB=ArchiveWatch/ArchiveWatch/Studio/RTMPPublisher.swift
 ENG=ArchiveWatch/ArchiveWatch/Studio/StudioEngine.swift
@@ -160,6 +161,7 @@ swift_case "8.4 rtmp reconnect"    "$PUB" "$MEDIA" "$SHIM" tools/test_rtmp_recon
 swift_case "8.5 thermal"           "$PUB" "$ENG" "$AUD" "$OVL" "$CHAT" "$SHIM" tools/test_studio_thermal.swift
 swift_case "8.6 back-pressure"     "$PUB" "$ENG" "$AUD" "$OVL" "$CHAT" "$SHIM" tools/test_studio_backpressure.swift
 swift_case "8.15 audio ring FIFO"  "$PUB" "$ENG" "$AUD" "$OVL" "$CHAT" "$SHIM" tools/test_studio_ring.swift
+swift_case "8.16 programme rate"   "$PUB" "$ENG" "$AUD" "$OVL" "$CHAT" "$DEC" "$SHIM" tools/test_studio_rate.swift
 
 # The two credential-facing harnesses. Neither was in this runner, which is
 # precisely the condition §9.aaa describes: a test that exists and therefore
