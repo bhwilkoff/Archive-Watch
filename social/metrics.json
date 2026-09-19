@@ -750,6 +750,38 @@
     "reposts": 0,
     "replies": 0
    }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mveetv6wmf2o",
+   "platform": "bluesky",
+   "id": "gov.fdr.37",
+   "slot": "from-the-vaults",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-09-13T00:50:07.022860+00:00",
+   "sampled": "2026-09-19T01:13:23.920057+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mvqyptg4a22t",
+   "platform": "bluesky",
+   "id": "SherlockHolmesAndTheSecretWeapon1943",
+   "slot": "one-line",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-09-18T01:17:38.533584+00:00",
+   "sampled": "2026-09-19T01:13:23.920057+00:00",
+   "metrics": {
+    "likes": 1,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
   }
  ]
 }
