@@ -126,13 +126,34 @@ public final class StudioContinuity: NSObject {
         // tvOS vends exactly one audio device — this one. With nothing to
         // choose between, the device alone is the answer. A port, when one
         // does appear, is still preferred for routing.
+        // RAISE FIRST, THEN LOOK. Both the port AND the capture device are
+        // invisible while the session is `.playback`, so asking before raising
+        // answers "no microphone" every time and then declines to raise
+        // because there is no microphone. Moving the gate from the port to the
+        // device (2026-09-19) did not break that loop — it moved it one level
+        // up, and the only runs where the microphone appeared were the ones
+        // where `AW_STUDIO_MIC_PROBE=1` happened to raise the category first.
+        // Measured without the probe: `sessionMade inputs=1`, `micFrames=0`,
+        // `micPadded` climbing into the millions.
+        //
+        // Raising here is safe BECAUSE a camera is connected — that is the
+        // guard, and the probe measured `.playAndRecord ACTIVATED` in exactly
+        // this state. §6.2's documented failure is the case with NOTHING
+        // attached, which is why this sits after the `camera()` guard and
+        // nowhere else.
+        raiseAudioSession(preferring: nil)
         let port = microphonePort()
         let micDevice = AVCaptureDevice.default(for: .audio)
         state = .connected(name: cam.localizedName, hasMicrophone: micDevice != nil)
         note = micDevice == nil
             ? "\(cam.localizedName) is the camera. Its microphone is not available, so your voice will not be in the stream."
             : "\(cam.localizedName) is the camera and the microphone."
-        if micDevice != nil { raiseAudioSession(preferring: port) }
+        // Re-apply with the port now that one may exist; the category is
+        // already up from the call above.
+        if micDevice != nil, port != nil { raiseAudioSession(preferring: port) }
+        else if micDevice == nil { lowerAudioSession() }
+        awdiag("AWCONT refresh: camera=%@ micDevice=%@ port=%@",
+               cam.localizedName, micDevice?.localizedName ?? "nil", port?.portName ?? "nil")
     }
 
     // MARK: What the engine needs
@@ -322,11 +343,43 @@ public final class StudioContinuity: NSObject {
         awdiag("AWCONT preset=inputPriority (device keeps its own format)")
         // The microphone device is generic on tvOS; the ROUTE decides which
         // physical mic it is, and `raiseAudioSession` set that route.
-        // NO PORT REQUIREMENT — see `refresh`. The device is the gate.
-        if let micDevice = AVCaptureDevice.default(for: .audio),
-           let micInput = try? AVCaptureDeviceInput(device: micDevice),
-           session.canAddInput(micInput) {
-            session.addInput(micInput)
+        // LET THE CAPTURE SESSION OWN THE AUDIO SESSION.
+        //
+        // `AVCaptureSession.h` on tvOS 27: `automaticallyConfiguresApplication
+        // AudioSession` defaults to YES and "ensures the application's audio
+        // session is set to the PlayAndRecord category, and picks an
+        // appropriate microphone and polar pattern TO MATCH THE VIDEO CAMERA
+        // BEING USED". With a Continuity camera as the video device, that is
+        // exactly the pairing we want, and it is AVFoundation's job — not
+        // ours. Configuring the category by hand alongside it is two owners
+        // for one session, which is how a microphone that attaches and
+        // delivers real-time buffers can still deliver pure silence.
+        //
+        // Stated explicitly rather than relied on as a default, because the
+        // whole point is that this object, and not `StudioContinuity` or
+        // `StudioEngine`, decides the routing.
+        session.usesApplicationAudioSession = true
+        session.automaticallyConfiguresApplicationAudioSession = true
+
+        // AND SAY WHICH STEP FAILED. `inputs=1` could mean no device, a device
+        // that would not open, or a session that refused the input — three
+        // different faults that logged identically.
+        let micDevice = AVCaptureDevice.default(for: .audio)
+        if let micDevice {
+            do {
+                let micInput = try AVCaptureDeviceInput(device: micDevice)
+                if session.canAddInput(micInput) {
+                    session.addInput(micInput)
+                    awdiag("AWCONT mic input added (%@)", micDevice.localizedName)
+                } else {
+                    awdiag("AWCONT mic input REFUSED by the session (%@)", micDevice.localizedName)
+                }
+            } catch {
+                awdiag("AWCONT mic input could not be opened: %@", "\(error)")
+            }
+        } else {
+            awdiag("AWCONT no audio capture device — category is %@",
+                   AVAudioSession.sharedInstance().category.rawValue)
         }
         session.commitConfiguration()
         return session

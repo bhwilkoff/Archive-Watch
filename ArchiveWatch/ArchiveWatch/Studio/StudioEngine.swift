@@ -800,6 +800,25 @@ public actor StudioEngine {
                 return
             }
             #if os(tvOS)
+            // DO NOT STOMP A CONTINUITY MICROPHONE. §6.2 says tvOS stays
+            // `.playback` "until a Continuity microphone is attached, and only
+            // then `.playAndRecord`" — the second half of that sentence was
+            // never implemented, so this forced `.playback` back over the
+            // category `StudioContinuity` had just raised for the microphone.
+            //
+            // With a capture session holding an audio input, that downgrade is
+            // REFUSED: OSStatus 561017449, `'!pri'`,
+            // `AVAudioSessionErrorInsufficientPriority`, which the host then
+            // reads on the glass as "audio: FAILED" during a broadcast whose
+            // film audio is in fact fine (measured 2026-09-19 — `filmLevel`
+            // 0.16-0.23 throughout).
+            //
+            // If the session is already recording, the microphone owns it and
+            // this has nothing to add.
+            if s.category == .playAndRecord {
+                health.audioSessionState = "PlayAndRecord (continuity microphone owns it)"
+                return
+            }
             try s.setCategory(.playback, mode: .moviePlayback, options: [.mixWithOthers])
             #else
             try s.setCategory(.playAndRecord, mode: .default,
