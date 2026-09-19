@@ -135,6 +135,12 @@ swift_case() {
   esac
 }
 
+# `awdiag` for cases that compile Studio sources without the app. Every Swift
+# case gets it: on 2026-09-19 all of them failed to build with "cannot find
+# 'awdiag' in scope" — two errors predating that day and six added when the
+# RTMP publisher was instrumented — and nobody noticed because nobody had run
+# the suite. See the file's own header.
+SHIM=tools/harness_awdiag.swift
 PUB=ArchiveWatch/ArchiveWatch/Studio/RTMPPublisher.swift
 ENG=ArchiveWatch/ArchiveWatch/Studio/StudioEngine.swift
 AUD=ArchiveWatch/ArchiveWatch/Studio/StudioAudio.swift
@@ -149,23 +155,24 @@ AUTH=ArchiveWatch/ArchiveWatch/Studio/StudioPlatformAuth.swift
 PLAT=ArchiveWatch/ArchiveWatch/Studio/StudioPlatforms.swift
 MEDIA=tools/StudioTestMedia.swift
 
-swift_case "8.1 rtmp publish"      "$PUB" "$MEDIA" tools/test_rtmp_publish.swift
-swift_case "8.4 rtmp reconnect"    "$PUB" "$MEDIA" tools/test_rtmp_reconnect.swift
-swift_case "8.5 thermal"           "$PUB" "$ENG" "$AUD" "$OVL" "$CHAT" tools/test_studio_thermal.swift
-swift_case "8.6 back-pressure"     "$PUB" "$ENG" "$AUD" "$OVL" "$CHAT" tools/test_studio_backpressure.swift
+swift_case "8.1 rtmp publish"      "$PUB" "$MEDIA" "$SHIM" tools/test_rtmp_publish.swift
+swift_case "8.4 rtmp reconnect"    "$PUB" "$MEDIA" "$SHIM" tools/test_rtmp_reconnect.swift
+swift_case "8.5 thermal"           "$PUB" "$ENG" "$AUD" "$OVL" "$CHAT" "$SHIM" tools/test_studio_thermal.swift
+swift_case "8.6 back-pressure"     "$PUB" "$ENG" "$AUD" "$OVL" "$CHAT" "$SHIM" tools/test_studio_backpressure.swift
+swift_case "8.15 audio ring FIFO"  "$PUB" "$ENG" "$AUD" "$OVL" "$CHAT" "$SHIM" tools/test_studio_ring.swift
 
 # The two credential-facing harnesses. Neither was in this runner, which is
 # precisely the condition §9.aaa describes: a test that exists and therefore
 # does not get run. Both send DELIBERATELY invalid credentials to the real
 # endpoints and need no account, no server and no device — only a network.
-swift_case "8.2 sign-in shapes"    "$AUTH" "$PLAT" tools/test_studio_signin.swift
-swift_case "8.7 live-platform shapes" "$AUTH" "$PLAT" tools/test_studio_live_shapes.swift
+swift_case "8.2 sign-in shapes"    "$AUTH" "$PLAT" "$SHIM" tools/test_studio_signin.swift
+swift_case "8.7 live-platform shapes" "$AUTH" "$PLAT" "$SHIM" tools/test_studio_live_shapes.swift
 # The REGISTERED clients. Skips (exit 2) where Secrets.xcconfig carries no
 # client id, which is every machine but the owner's - and a skip is not a
 # pass, so `--strict` makes it a failure once the ids exist. 8.2 proves the
 # shapes with credentials that are wrong on purpose; this proves OUR
 # registration accepts them, which is a defect class 8.2 cannot see.
-swift_case "8.9 registered clients" "$AUTH" "$PLAT" tools/test_studio_registered.swift
+swift_case "8.9 registered clients" "$AUTH" "$PLAT" "$SHIM" tools/test_studio_registered.swift
 # §5's credential rule, guarded. Needs no network and no account: it throws a
 # sentinel key at every error path the publisher can reach and asserts the
 # string comes back in none of them. Its first run found a live leak.
@@ -202,12 +209,12 @@ else
   FAIL=$((FAIL+1))
 fi
 
-swift_case "8.10 stream-key hygiene" "$PUB" tools/test_studio_key_hygiene.swift
+swift_case "8.10 stream-key hygiene" "$PUB" "$SHIM" tools/test_studio_key_hygiene.swift
 # Where the tokens land. Writes only under a probe account and deletes it, so
 # it cannot disturb a real sign-in. Reports the keychain CHOICE rather than
 # judging it — an unentitled binary cannot reach the data-protection keychain,
 # so that question belongs inside the signed app (§9.rrr).
-swift_case "8.11 token store"       "$AUTH" "$PLAT" tools/test_studio_token_store.swift
+swift_case "8.11 token store"       "$AUTH" "$PLAT" "$SHIM" tools/test_studio_token_store.swift
 # ---- the rights tests, which need no server at all
 for t in tools/test_studio_rights_parity.py tools/test_studio_rights_coverage.py; do
   name="$(basename "$t")"
