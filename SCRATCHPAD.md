@@ -332,6 +332,23 @@ content 0.002):
 | before | 0.189 / 0.052, positions scattered | 0.17/s |
 | after | **0.973 / 0.991 / 0.998**, positions exact | **0.00/s** |
 
+**AND THE FIX WAS TRUE OF ONE FILM.** Every measurement after it used
+`steamboat_bill_ipod`. On `the-docks-of-new-york` the broadcast still failed
+to match its source (0.024-0.051 against a control of 1.000) — real audio,
+wrong content — because that film is **48000 Hz** and `makeConverter` built
+its OUTPUT format at the SOURCE rate, so it entered a 44100 mixer 8.8% fast
+and drifted for ever. `acceptExternalPCM`'s contract ("interleaved stereo
+Float at the program rate") was violated by every film whose rate did not
+happen to match. Output is now built at `programRate` and `AVAudioConverter`
+resamples; on the wire that film went to **0.992 / 0.993 / 0.958**, and
+`decodedAhead` -0.51 -> +0.42, `dropped` 449-and-climbing -> 87-and-flat.
+
+**A SAMPLE OF THE CATALOGUE says this was a third of the feature**: of 18
+readable gate-passing films, 11 are 44100, **six are 48000** and one is 8000.
+Guarded by §8.16, which asserts the programme-rate contract across five
+source rates with a control that builds the old format and requires it to
+fail. The owner's standing "vary test content" rule is what surfaced it.
+
 **The owner's "clicking" was the SAME bug** — the clicks were the seams where
 fragments butted together — so one fix closed both complaints.
 

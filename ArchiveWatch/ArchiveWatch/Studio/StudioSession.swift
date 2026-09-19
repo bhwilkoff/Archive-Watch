@@ -384,7 +384,15 @@ public final class StudioSession {
                     self.diag(String(format:
                         "[AWMACMIX] filmFrames=%d filmLevel=%.4f micLevel=%.4f "
                         + "ducking=%@ ringFill=%.2f ringOverflow=%d filmPadded=%d "
-                        + "tapAttached=%@ receivingExternal=%@",
+                        // `hlsBridge`, NOT "tapAttached". It reports
+                        // `FilmAudioBridge`, which is the tvOS HLS pull path —
+                        // macOS legitimately never uses it and legitimately
+                        // reads NO. Labelled "tapAttached" it read as "the
+                        // film's audio tap is not attached", which is a
+                        // different and alarming claim about a platform the
+                        // field does not describe. `filmLevel` above is the
+                        // honest answer for macOS.
+                        + "hlsBridge=%@ receivingExternal=%@",
                         h.audio.filmFramesWritten, h.audio.filmLevel, h.audio.micLevel,
                         h.audio.ducking ? "yes" : "no", bedM.filmRingFill,
                         bedM.filmRingOverflowed, h.audio.filmFramesPadded,
