@@ -1604,6 +1604,57 @@ against a synthetic line.
 
 ## §9 — Measurements (filled in as they are taken)
 
+### §9.mmmmm A THIRD of broadcastable films are 48 kHz, and the decoder never resampled (2026-09-19)
+
+`makeConverter` built its OUTPUT format at the SOURCE rate, so any film whose
+sample rate differed from the programme's 44100 went into the mixer at the
+wrong speed and drifted without bound. `acceptExternalPCM`'s contract —
+"Already interleaved stereo Float at the program rate" — was being violated
+by every such film.
+
+**On the wire, `the-docks-of-new-york` (48000 Hz):**
+
+    control: source vs itself          1.000
+    BEFORE  0.051 / 0.042 / 0.033 / 0.024
+    AFTER   0.992 / 0.993 / 0.958, positions exactly in step
+
+and every counter agreed afterwards: `decodedAhead` -0.51 -> +0.42, `offset`
+-1.12 -> +0.20, `dropped` 449-and-climbing -> 87-and-flat, `buffered` pegged
+at 0.60 -> 0.13.
+
+**HOW BIG IS THIS?** A sample of 26 gate-passing films (`safe_pd_age`, the
+only ones the Studio will broadcast), 18 readable:
+
+| rate | films |
+|---|---|
+| 44100 | 11 |
+| **48000** | **6** |
+| **8000** | **1** |
+
+A THIRD of what this feature can broadcast was scrambled, and one film at
+8 kHz would have been a 5.5x error. This sat behind a check that had already
+"closed" the codec risk — that audit probed 14 playback URLs for codec and
+channel count and never read `sample_rate`. A field that is not checked is
+not checked, however thorough the check around it looked.
+
+**The diagnosis, for next time**: `AWPULL … asked=248.2 firstAt=241.2
+delta=-7.01` against -1.26 on a film that works. A large discrepancy in a
+frame->time mapping is what a wrong sample rate looks like, because the
+mapping divides a frame index by a rate. And `decodedAhead` collapsing from
++0.07 to -0.51 within fifteen seconds and then STICKING is drift reaching an
+equilibrium, not a machine running out of capacity.
+
+**A hypothesis that died first, with its control**: the 60% pump ceiling
+added the same day. `AW_STUDIO_PUMP_FILL` makes it a control, and at 0.60 vs
+0.95 `decodedAhead` was -0.51 vs -0.52 — identical — while neither moved the
+wire. The `offset` difference between them was exactly the change in
+`buffered`, the formula measuring its own buffer once more (§9.lllll).
+
+**`timeout` IS NOT ON macOS** (§9.fff) and it took this survey down: all 26
+probes returned "unreadable" until the shell was asked whether the command
+existed. Twenty-six identical failures are an instrument, not a finding.
+
+
 ### §9.jjjjj THE FILM'S AUDIO RING WAS READ BACKWARDS, and six instruments called it clean (2026-09-19)
 
 Owner, on a YouTube broadcast: *"It sounds like a slow motion car crash. Like
