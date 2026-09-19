@@ -236,6 +236,28 @@ struct GoLiveTV: View {
         //
         // Bench only. It refuses to fire at a real platform, so it can never
         // put a broadcast on anybody's channel.
+        // ASK FOR THE MICROPHONE HERE, while the host is reading this screen.
+        //
+        // Measured on Ben Bedroom 2026-09-19: `camera=authorized
+        // microphone=NOT-DETERMINED (never asked)`. `requestAccess(for:
+        // .audio)` existed only in `StudioLab` — the debug harness — and in
+        // the macOS editor, so the television had never once asked, and a
+        // Continuity device with no audio authorisation offers no microphone
+        // at all: `audioSessionInputs=0`, `hasMicrophone: false`, and
+        // `micPort=none` on every run of this feature. Exactly the shape of
+        // §6.2a, where the audio session was configured in the harness alone.
+        //
+        // The SHEET is the right moment, not go-live: the host is already
+        // making choices here and a system prompt is not a surprise, whereas
+        // one raised at go-live either blocks the broadcast or arrives too
+        // late to be useful. Fire-and-forget on purpose — an unanswered prompt
+        // must never hold up a show, and §8.8 already treats an absent
+        // microphone as normal rather than an error.
+        .task {
+            guard AVCaptureDevice.authorizationStatus(for: .audio) == .notDetermined else { return }
+            let granted = await AVCaptureDevice.requestAccess(for: .audio)
+            awdiag("AWMIC sheet asked for the microphone: granted=%@", granted ? "yes" : "no")
+        }
         .task {
             let door = ProcessInfo.processInfo.environment["AW_STUDIO_TV_GOLIVE"] ?? ""
             guard !door.isEmpty else { return }

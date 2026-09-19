@@ -175,6 +175,24 @@ public final class StudioContinuity: NSObject {
             awdiag("AWMIC %@ category=%@ inputs=%d [%@]", when, s.category.rawValue,
                    list.count, list.map { $0.portType.rawValue }.joined(separator: ","))
         }
+        // THE PERMISSION, which nothing on the tvOS product path has ever
+        // asked for. `requestAccess(for: .audio)` exists only in StudioLab
+        // (the debug harness) and the macOS editor — the same shape as §6.2a,
+        // where the audio session was configured in the harness alone. Without
+        // audio authorisation a Continuity device offers no microphone at all,
+        // which is exactly `audioSessionInputs=0` / `hasMicrophone: false`.
+        func name(_ st: AVAuthorizationStatus) -> String {
+            switch st {
+            case .authorized: "authorized"
+            case .denied: "denied"
+            case .restricted: "restricted"
+            case .notDetermined: "NOT-DETERMINED (never asked)"
+            @unknown default: "unknown"
+            }
+        }
+        awdiag("AWMIC permissions camera=%@ microphone=%@",
+               name(AVCaptureDevice.authorizationStatus(for: .video)),
+               name(AVCaptureDevice.authorizationStatus(for: .audio)))
         awdiag("AWMIC probe: device=%@ lastPicked=%@ state=%@",
                device == nil ? "nil" : "yes", Self.lastPicked == nil ? "nil" : "yes",
                String(describing: state))
@@ -182,6 +200,21 @@ public final class StudioContinuity: NSObject {
             awdiag("AWMIC continuity device audioSessionInputs=%d", d.audioSessionInputs.count)
         }
         inputs("before")
+        // ASK, ONCE, IF IT HAS NEVER BEEN ASKED. Diagnostic still: this only
+        // raises the system prompt the product would have to raise anyway, and
+        // the answer decides whether the microphone is reachable at all.
+        if AVCaptureDevice.authorizationStatus(for: .audio) == .notDetermined {
+            awdiag("AWMIC requesting microphone access (never asked before)")
+            let sema = DispatchSemaphore(value: 0)
+            AVCaptureDevice.requestAccess(for: .audio) { granted in
+                awdiag("AWMIC microphone access granted=%@", granted ? "yes" : "NO")
+                sema.signal()
+            }
+            _ = sema.wait(timeout: .now() + 30)
+            awdiag("AWMIC permissions now microphone=%@",
+                   name(AVCaptureDevice.authorizationStatus(for: .audio)))
+            inputs("after-permission")
+        }
         let previous = s.category
         do {
             try s.setCategory(.playAndRecord, mode: .default,
