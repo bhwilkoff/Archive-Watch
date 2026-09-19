@@ -150,8 +150,21 @@ public final class StudioContinuity: NSObject {
             : "\(cam.localizedName) is the camera and the microphone."
         // Re-apply with the port now that one may exist; the category is
         // already up from the call above.
-        if micDevice != nil, port != nil { raiseAudioSession(preferring: port) }
-        else if micDevice == nil { lowerAudioSession() }
+        // DO NOT LOWER IT AGAIN WHILE A CAMERA IS CONNECTED.
+        //
+        // The Continuity microphone does NOT appear synchronously when the
+        // category goes up: measured 2026-09-19, `refresh` raised
+        // `.playAndRecord`, queried immediately, got `micDevice=nil port=nil`,
+        // lowered straight back to `.playback` — and half a second later
+        // `makeSession` found "Continuity Microphone" and added it as an input
+        // to a session whose category had just been taken away. `inputs=2`,
+        // and `micFrames=0` for three solid minutes.
+        //
+        // A camera is attached, so `.playAndRecord` is legitimate (the probe
+        // measured ACTIVATED in exactly this state). Leaving it up costs
+        // nothing and lets the device arrive in its own time; `makeSession`
+        // re-queries and `lowerAudioSession` still runs when the phone leaves.
+        if port != nil { raiseAudioSession(preferring: port) }
         awdiag("AWCONT refresh: camera=%@ micDevice=%@ port=%@",
                cam.localizedName, micDevice?.localizedName ?? "nil", port?.portName ?? "nil")
     }
@@ -293,7 +306,16 @@ public final class StudioContinuity: NSObject {
     /// A capture session carrying the continuity camera, and the microphone
     /// when there is one. The caller builds the taps against it (they cannot
     /// cross into the engine actor — an `AVCaptureSession` is not `Sendable`).
+    /// Whether the last `makeSession()` actually put a microphone INPUT in the
+    /// session. The caller gates its `MicAudioTap` on this rather than on
+    /// `state.hasMicrophone`, which is computed earlier from a query that can
+    /// still be `nil` while the device is on its way (see `refresh`). That
+    /// mismatch is what produced `inputs=2` with `micFrames=0`: the input was
+    /// there and nothing was ever tapped off it.
+    public private(set) var sessionHasMicrophone = false
+
     public func makeSession() -> AVCaptureSession? {
+        sessionHasMicrophone = false
         guard let cam = camera(), let input = try? AVCaptureDeviceInput(device: cam) else { return nil }
         let session = AVCaptureSession()
         session.beginConfiguration()
@@ -370,6 +392,7 @@ public final class StudioContinuity: NSObject {
                 let micInput = try AVCaptureDeviceInput(device: micDevice)
                 if session.canAddInput(micInput) {
                     session.addInput(micInput)
+                    sessionHasMicrophone = true
                     awdiag("AWCONT mic input added (%@)", micDevice.localizedName)
                 } else {
                     awdiag("AWCONT mic input REFUSED by the session (%@)", micDevice.localizedName)

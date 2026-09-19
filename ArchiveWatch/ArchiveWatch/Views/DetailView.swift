@@ -1041,7 +1041,12 @@ struct PlayerScreen: View {
             // microphone needs the picker's `AVContinuityDevice`, and when the
             // picker is dismissed there is a camera and no microphone. That is
             // a NORMAL state (§8.8) and it must not be a crash.
-            if case .connected(_, let hasMic) = continuity.state, hasMic {
+            // GATE ON WHAT THE SESSION ACTUALLY HAS, not on the state computed
+            // before `makeSession` ran. `state.hasMicrophone` comes from a
+            // query that can be nil while the Continuity microphone is still
+            // arriving, so a session that DID get a mic input was being left
+            // untapped — `inputs=2`, `micFrames=0`.
+            if continuity.sessionHasMicrophone {
                 let mic = MicAudioTap(); mic.attach(to: session)
                 await engine.attachMicrophone(tap: mic)
             }
