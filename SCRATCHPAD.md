@@ -316,14 +316,39 @@ server's own recording rather than the app's claims.
 the `liveStreamingNotEnabled` block gone) and Twitch (licbhwilkoff) — and real
 broadcasts were created from the Apple TV with the camera attached.
 
-**THE AUDIO ARTIFACTS ARE NOT SOLVED, and four hypotheses died measured:**
-congestion (throttled bench at 2.0 Mbps against a 3.85 Mbps program: 1 click in
-50 s, control 1 in 60 s); pipeline state (both runs identical counters, both
-resumed mid-film); timestamp drift (8,117 packets, 0 deltas >2 ms off nominal,
-0 ms drift over 188 s); and TLS (the owner heard the SAME artifacts on a
-plaintext-ingest broadcast). What we SEND decodes clean; what YouTube DELIVERS
-does not, over both transports. Remaining lead, suggestive only: audio runs a
-median +0.38 s ahead of video in mux order, p95 +0.96, worst +2.95.
+**THE AUDIO ARTIFACTS ARE FIXED, and the bug was one line in `AudioRing.read`.**
+`start` was computed from `writeIndex - have` — the NEWEST `have` samples. The
+type has no read index at all, so every read returned the most recently written
+chunk and silently skipped everything buffered behind it, while `available -=
+have` kept FIFO books over a LIFO read. With 120-300 ms in the ring against
+~20 ms reads, the mixer took the newest 20 ms and discarded the rest, over and
+over. Reading from `writeIndex - available` (the oldest unread sample) fixes it
+and stays self-consistent across reads. Measured against the source film, with
+the control that gives it meaning (source vs itself 0.988, source vs unrelated
+content 0.002):
+
+| | match to film | clicks |
+|---|---|---|
+| before | 0.189 / 0.052, positions scattered | 0.17/s |
+| after | **0.973 / 0.991 / 0.998**, positions exact | **0.00/s** |
+
+**The owner's "clicking" was the SAME bug** — the clicks were the seams where
+fragments butted together — so one fix closed both complaints.
+
+**The method is the lesson, not the fix.** Six instruments called this audio
+clean for a day (click detection, packet cadence, drift, levels, spectra, a
+throttle test) and every one was accurate and useless: correctly-formed chunks
+in the wrong order have no discontinuities, perfect timestamps, the right level
+and the right spectrum. Eliminated on the way, all measured: congestion,
+pipeline state, timestamp drift, TLS (the same artifacts arrived over YouTube's
+plaintext ingest), the mono fallback, queue ordering, sample rate, channel
+interleaving, write length, ring overflow, and a spectrogram comparison whose
+own control refuted it (unrelated film content scores 0.923). What broke it
+open was the owner supplying the DELIVERED file: our own bench recording failed
+to match the film exactly as badly as YouTube's, which moved the fault inside
+our pipeline; dumping the DECODER's PCM one stage upstream then bisected it in
+a single measurement (0.993-0.997, position advancing exactly in step), leaving
+only the three files downstream of it.
 
 **Three observability gaps closed on the way**, each one having cost a wrong
 inference: `AWCAM` (a camera counter — `filmFramesPulled` existed for the same
