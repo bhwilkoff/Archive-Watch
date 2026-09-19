@@ -825,11 +825,21 @@ struct PlayerScreen: View {
                     }
                     bed.acceptExternalPCM(samples, count: count)
                 } hasRoom: {
-                    // Keep a cushion without overwriting it. 0.6 leaves ~400 ms
-                    // of decoded audio ahead of the mixer, which is far more
-                    // than the 23.2 ms a packet covers and well clear of the
-                    // starvation the pump's own comment is guarding against.
-                    bed.filmRingFill < 0.6
+                    // Keep a cushion without overwriting it. 0.6 leaves ~600 ms
+                    // of decoded audio ahead of the mixer, far more than the
+                    // 23.2 ms a packet covers and well clear of the starvation
+                    // the pump's own comment guards against.
+                    //
+                    // `AW_STUDIO_PUMP_FILL` makes the ceiling a CONTROL rather
+                    // than an argument, the way `AW_STUDIO_RING_MS` does for the
+                    // ring: on a film with roughly double the audio bitrate this
+                    // ceiling coincided with `dropped=300` and a decoder running
+                    // BEHIND the playhead (`decodedAhead=-0.51`), which is either
+                    // this bound starving it or that film simply costing more.
+                    // Change the number, and a causal effect must move with it —
+                    // judged on the WIRE, because the in-app offset contains the
+                    // buffer it is measuring (§9.lllll).
+                    bed.filmRingFill < Self.studioPumpFill
                 }
                 studioFilmAudioDecoder = decoder
                 FilmAudioBridge.shared.setSink { frames, firstSample, rate in
@@ -1376,6 +1386,12 @@ struct PlayerScreen: View {
         guard studioRefusalKind == .film else { return why }
         return why + "\n\n" + StudioRights.policy
     }
+
+    /// Ring-fill ceiling for the film audio pump; see the `hasRoom` call site.
+    static let studioPumpFill: Double = {
+        let v = ProcessInfo.processInfo.environment["AW_STUDIO_PUMP_FILL"] ?? ""
+        return Double(v) ?? 0.6
+    }()
 
     @State private var studioFilmFPS = 0
     /// Camera frames in the last second, for the readout's "camera stopped"
