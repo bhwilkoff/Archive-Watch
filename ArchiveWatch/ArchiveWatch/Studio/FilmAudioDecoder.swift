@@ -222,13 +222,35 @@ final class FilmAudioDecoder: @unchecked Sendable {
     /// frames climbing with decoded stuck at zero means the decoder is being
     /// handed something it was not built for. The server knows the codec from
     /// the sample entry; threading it through is the fix when a film needs it.
+    /// What the MIXER wants, which is not necessarily what the film has.
+    ///
+    /// `StudioAudioMixer` and `AudioRing` work at the programme rate, and
+    /// `acceptExternalPCM`'s contract says so in as many words: "Already
+    /// interleaved stereo Float at the program rate". This decoder used to
+    /// build its OUTPUT format at the SOURCE rate, so that contract held only
+    /// for films that happen to match.
+    ///
+    /// Measured 2026-09-19: `the-docks-of-new-york` is 48000 Hz where
+    /// `steamboat_bill_ipod` is 44100. The 48 kHz film's PCM went into a
+    /// 44.1 kHz ring 8.8% fast, which drifts without bound — `decodedAhead`
+    /// fell from +0.07 to -0.51 within fifteen seconds and stuck there,
+    /// `dropped` climbed ~3.4/s as the stale rule discarded audio that had
+    /// aged out, and the broadcast correlated 0.024-0.051 with its own source
+    /// film against a control of 1.000. The earlier "film 44100, program
+    /// 44100, they match" note was true of ONE film.
+    var programRate: Double = 44100
+
     private func makeConverter(rate: Double) -> Bool {
         var asbd = AudioStreamBasicDescription(
             mSampleRate: rate, mFormatID: kAudioFormatMPEG4AAC, mFormatFlags: 0,
             mBytesPerPacket: 0, mFramesPerPacket: 1024, mBytesPerFrame: 0,
             mChannelsPerFrame: sourceChannels, mBitsPerChannel: 0, mReserved: 0)
         guard let inF = AVAudioFormat(streamDescription: &asbd),
-              let outF = AVAudioFormat(commonFormat: .pcmFormatFloat32, sampleRate: rate,
+              // OUTPUT AT THE PROGRAMME RATE, not the film's. `AVAudioConverter`
+              // resamples; that is what it is for. The film-position maths above
+              // stays on the SOURCE rate, because `frame` counts source AAC
+              // frames and that is what the playhead comparison needs.
+              let outF = AVAudioFormat(commonFormat: .pcmFormatFloat32, sampleRate: programRate,
                                        channels: AVAudioChannelCount(sourceChannels),
                                        interleaved: true),
               let c = AVAudioConverter(from: inF, to: outF) else {
@@ -236,6 +258,10 @@ final class FilmAudioDecoder: @unchecked Sendable {
             return false
         }
         inFormat = inF; outFormat = outF; converter = c
+        if rate != programRate {
+            awdiag("AWDEC resampling %d Hz film -> %d Hz programme",
+                   Int(rate), Int(programRate))
+        }
         return true
     }
 
@@ -282,7 +308,13 @@ final class FilmAudioDecoder: @unchecked Sendable {
         inBuf.packetDescriptions?.pointee = AudioStreamPacketDescription(
             mStartOffset: 0, mVariableFramesInPacket: 0, mDataByteSize: UInt32(packet.count))
 
-        guard let outBuf = AVAudioPCMBuffer(pcmFormat: outFormat, frameCapacity: 2048) else { return false }
+        // ROOM FOR THE RESAMPLED PACKET. One input packet is 1024 source
+        // frames; upsampling makes that more. 2048 covers up to 2x, and the
+        // explicit arithmetic keeps it correct if either rate changes.
+        let outCapacity = AVAudioFrameCount(
+            max(2048.0, Double(Self.samplesPerPacket) * (programRate / max(sourceRate, 1)) + 1024.0))
+        guard let outBuf = AVAudioPCMBuffer(pcmFormat: outFormat, frameCapacity: outCapacity)
+        else { return false }
         var supplied = false
         var err: NSError?
         let status = converter.convert(to: outBuf, error: &err) { _, outStatus in
