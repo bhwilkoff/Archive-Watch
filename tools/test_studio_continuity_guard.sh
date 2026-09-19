@@ -89,6 +89,31 @@ else
 fi
 rm -f "$TMP2"
 
+# A MONO FILM MUST NOT BROADCAST SILENCE (§9.jjjjj). `FilmAudioDecoder` — the
+# tvOS pull path — hardcoded `mChannelsPerFrame: 2`, so a mono stream failed
+# every decode with 'bada' and the television sent picture with no sound. A
+# public-domain catalogue is mostly pre-1950s cinema, so that was most of the
+# library. The older TAP path (macOS/iOS) always handled one, two and
+# deinterleaved shapes; only the newer decoder assumed.
+echo "== the film decoder does not hardcode a stereo channel count =="
+FD=ArchiveWatch/ArchiveWatch/Studio/FilmAudioDecoder.swift
+if grep -q "mChannelsPerFrame: sourceChannels" "$FD" && grep -q "triedMonoFallback" "$FD"; then
+    echo "  PASS  channel count is read, with a mono retry"; pass=$((pass+1))
+else
+    echo "  FAIL  the decoder assumes a channel count — mono films will be silent"
+    fail=$((fail+1))
+fi
+
+echo "== the CONTROL: the same check must FAIL on a hardcoded copy =="
+TMP3=$(mktemp -t awmono)
+sed 's/mChannelsPerFrame: sourceChannels/mChannelsPerFrame: 2/' "$FD" > "$TMP3"
+if grep -q "mChannelsPerFrame: sourceChannels" "$TMP3"; then
+    echo "  FAIL  the control PASSED — this check cannot detect the defect"; fail=$((fail+1))
+else
+    echo "  PASS  the control fails, so the check can tell the two apart"; pass=$((pass+1))
+fi
+rm -f "$TMP3"
+
 echo
 echo "pass=$pass fail=$fail"
 [ "$fail" -eq 0 ] || exit 1
