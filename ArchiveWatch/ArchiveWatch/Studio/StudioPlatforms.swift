@@ -624,10 +624,32 @@ public struct YouTubeLive: Sendable {
               let key = info["streamName"] as? String else {
             throw StudioPlatformError.badResponse("liveStreams.insert returned no ingestionInfo")
         }
-        let primaryString = (preferRTMPS ? info["rtmpsIngestionAddress"] as? String : nil)
+        // AW_STUDIO_YT_PLAINTEXT=1 takes YouTube's PLAINTEXT ingest instead of
+        // its TLS one. DEBUG only; the product always prefers RTMPS.
+        //
+        // It exists to run one A/B that nothing else can: the owner heard
+        // "a huge number of digital audio artifacts" on a YouTube broadcast
+        // (2026-09-19) whose bench twin is provably clean — 0 clicks under a
+        // 2 Mbps throttle, 8,117 audio packets with 0 deltas more than 2 ms
+        // off nominal and 0 ms cumulative drift over 188 s. Congestion, queue
+        // state and timestamp drift are all eliminated, and the one path never
+        // exercised against a server we can inspect is TLS: every bench run is
+        // plaintext to mediamtx, and `NWParameters.tls` cannot reach a
+        // self-signed bench cert because the publisher pins no custom verify
+        // block. Same YouTube, same transcoder, only the transport differs —
+        // so if the artifacts follow the transport, this names them.
+        var useRTMPS = preferRTMPS
+        #if DEBUG
+        if ProcessInfo.processInfo.environment["AW_STUDIO_YT_PLAINTEXT"] == "1" {
+            useRTMPS = false
+        }
+        #endif
+        let primaryString = (useRTMPS ? info["rtmpsIngestionAddress"] as? String : nil)
             ?? info["ingestionAddress"] as? String
-        let backupString = (preferRTMPS ? info["rtmpsBackupIngestionAddress"] as? String : nil)
+        let backupString = (useRTMPS ? info["rtmpsBackupIngestionAddress"] as? String : nil)
             ?? info["backupIngestionAddress"] as? String
+        // SAY WHICH TRANSPORT, never the address (it carries the key, §5).
+        awdiag("AWYT ingest transport=%@", useRTMPS ? "rtmps" : "rtmp (plaintext)")
         guard let primaryString, let server = URL(string: primaryString) else {
             throw StudioPlatformError.badResponse("liveStreams.insert returned no ingest address")
         }
