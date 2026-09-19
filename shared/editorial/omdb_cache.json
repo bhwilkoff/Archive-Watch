@@ -1,7 +1,7 @@
 {
   "version": 1,
   "description": "OMDb lookup results keyed by IMDb ID. Positive = poster_url; negative = null (so we don't burn daily quota retrying items OMDb doesn't have). Populated by the scheduled omdb-backfill GitHub Action + local runs of tools/omdb_backfill.py. The exporter overlays this cache over DB rows at export time.",
-  "updated_at": "2026-09-18T07:26:36Z",
+  "updated_at": "2026-09-19T07:22:14Z",
   "entries": {
     "tt0007613": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BYzUwNTY4NWUtNGRhMy00YjVmLWEyNmQtYTQyNWQyNDZhNjFmXkEyXkFqcGc@._V1_SX300.jpg",
@@ -31910,11 +31910,11 @@
     },
     "nm0101038": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm0101038\" to type \\'Double\\''",
-      "last_tried": "2026-09-18T07:26:36Z"
+      "last_tried": "2026-09-19T07:22:14Z"
     },
     "nm1947784": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm1947784\" to type \\'Double\\''",
-      "last_tried": "2026-09-18T07:26:36Z"
+      "last_tried": "2026-09-19T07:22:14Z"
     },
     "tt0000046": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BZWM2N2MzMGMtNzNkNi00OTc2LTg5NDQtNWViNTA2MGIwNmFhXkEyXkFqcGdeQXVyNTI2NTY2MDI@._V1_SX300.jpg",
@@ -323063,6 +323063,25 @@
         "Drama"
       ],
       "fetched_at": "2026-09-18T07:26:36Z",
+      "schema": 3
+    },
+    "tt0152434": {
+      "poster_url": null,
+      "imdb_rating": 6.1,
+      "imdb_votes": 22,
+      "content_rating": "Approved",
+      "plot": "This Cinemascope cartoon features a baby elephant, Sidney, who scoffs and laughs at his jungle friends who want to be captured and lead a life of ease in a big-city zoo. But, after several escapades and narrow escapes, he soon finds out life in a zoo might not be all bad.",
+      "runtime_min": 6,
+      "director": "Art Bartsch, Gene Deitch",
+      "actors": [
+        "Lionel Wilson"
+      ],
+      "genres": [
+        "Animation",
+        "Comedy",
+        "Short"
+      ],
+      "fetched_at": "2026-09-19T07:22:14Z",
       "schema": 3
     }
   },
