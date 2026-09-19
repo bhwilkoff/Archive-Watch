@@ -1077,8 +1077,9 @@ struct PlayerScreen: View {
             // is inside an `if let`, and a diagnostic that only fires when an
             // unrelated thing exists cannot be trusted to have run at all. Its
             // own line, too — widening AWSYNC would change what AWSYNC means.
+            studioCameraFPS = max(0, h.cameraFramesReceived - lastCameraFrames)
             awdiag("AWCAM frames=%d (+%d/s) %@", h.cameraFramesReceived,
-                   h.cameraFramesReceived - lastCameraFrames,
+                   studioCameraFPS,
                    h.cameraFramesReceived > lastCameraFrames ? "receiving" : "NO NEW FRAMES")
             lastCameraFrames = h.cameraFramesReceived
 
@@ -1301,7 +1302,22 @@ struct PlayerScreen: View {
     @State private var studioFilm: Catalog.Item?
     @State private var studioEngine: StudioEngine?
     @State private var studioHealth = StudioHealth()
+    /// Extracted from the alert's `message:` builder. Inline, the ternary plus
+    /// two string concatenations inside a body this large tipped the type
+    /// checker over its limit ("unable to type-check this expression in
+    /// reasonable time") the moment one more parameter was added elsewhere in
+    /// the same body — the expression itself was never the problem, the body's
+    /// total cost was.
+    private var studioRefusalMessage: String {
+        let why = studioRefusal ?? ""
+        guard studioRefusalKind == .film else { return why }
+        return why + "\n\n" + StudioRights.policy
+    }
+
     @State private var studioFilmFPS = 0
+    /// Camera frames in the last second, for the readout's "camera stopped"
+    /// line. Mirrors `studioFilmFPS`.
+    @State private var studioCameraFPS = 0
     /// Set when the film HAS sound that is not reaching the broadcast (§9.jjjj).
     /// Shown on the readout, never swallowed (§5).
     @State private var studioAudioProblem: String?
@@ -1454,9 +1470,7 @@ struct PlayerScreen: View {
                isPresented: .constant(studioRefusal != nil)) {
             Button("OK", role: .cancel) { studioRefusal = nil }
         } message: {
-            Text(studioRefusalKind == .film
-                 ? (studioRefusal ?? "") + "\n\n" + StudioRights.policy
-                 : (studioRefusal ?? ""))
+            Text(studioRefusalMessage)
         }
         // §8.8's one-time acceptance. A real choice, not an OK: it is asking a
         // host to accept a risk to their own channel, and "OK" is not consent
@@ -1512,7 +1526,8 @@ struct PlayerScreen: View {
         .overlay(alignment: .topLeading) {
             if studioFilm != nil {
                 StudioTVHealth(health: studioHealth, filmFramesPerSecond: studioFilmFPS,
-                               audioProblem: studioAudioProblem)
+                               audioProblem: studioAudioProblem,
+                               cameraFramesPerSecond: studioCameraFPS)
             }
         }
         .task(id: studioFilm?.archiveID) {

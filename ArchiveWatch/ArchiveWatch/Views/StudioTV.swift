@@ -19,6 +19,11 @@ struct StudioTVHealth: View {
     /// The film HAS sound and it is not reaching the broadcast (§9.jjjj).
     /// Distinct from a silent film, which is normal here and says nothing.
     var audioProblem: String? = nil
+    /// Camera frames in the last second. Mirrors `filmFramesPerSecond`: a
+    /// counter that stops climbing is the only evidence a capture session has
+    /// died, and on 2026-09-19 one died ten seconds into a Twitch broadcast
+    /// while every other number stayed healthy and the screen said nothing.
+    var cameraFramesPerSecond: Int = 0
 
     private var isLive: Bool { health.showState.isOnAir }
 
@@ -34,6 +39,21 @@ struct StudioTVHealth: View {
         // worse off than one seeing a few dropped frames, and this one is
         // silent by construction rather than by congestion.
         if let audioProblem { return audioProblem }
+        // A CAMERA THAT DIED MID-SHOW. Only ever true when one was attached,
+        // so a film-only broadcast never sees it. Measured 2026-09-19: a
+        // Continuity camera delivered a clean 30/s for ten seconds and then
+        // stopped dead for the remaining eighty, and nothing on any surface
+        // said so — the publisher was healthy, the film was fine, and the
+        // host's audience was simply watching the film without them.
+        // `cameraFramesReceived > 0` matters: between the attach and the first
+        // delivered frame there is a second or two where a camera is attached
+        // and its rate is legitimately zero, and without this the readout
+        // flashes "stopped" during every normal start. The word is STOPPED, so
+        // it may only appear for a camera that had started.
+        if isLive, health.cameraAttached, health.cameraFramesReceived > 0,
+           cameraFramesPerSecond == 0 {
+            return "The camera has stopped — your audience sees the film without you"
+        }
         if health.publisher.videoFramesDropped > 30 { return "Dropping frames — the connection is struggling" }
         return nil
     }

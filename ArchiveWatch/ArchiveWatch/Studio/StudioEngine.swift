@@ -206,6 +206,10 @@ public struct StudioHealth: Sendable, Equatable {
     /// handed `cameraTap?.latest()`, so a nil frame draws no tile and says
     /// nothing.
     public var cameraFramesReceived = 0
+    /// Whether a camera tap is attached at all. Without this, "no camera
+    /// frames" cannot be told apart from "this show has no camera", and a
+    /// warning that fires on every film-only broadcast is one nobody reads.
+    public var cameraAttached = false
     /// Frames the ENCODER produced in the last second. Zero while the film is
     /// still arriving is the fault the 2026-09-17 tvOS soak found: encoding
     /// stopped at 293 s and every other counter stayed healthy for the
@@ -1012,6 +1016,7 @@ public actor StudioEngine {
         }
 
         health.cameraFramesReceived = cameraTap?.received ?? 0
+        health.cameraAttached = cameraTap != nil
         let program = renderer.render(film: lastFilmFrame, camera: cameraTap?.latest())
         health.programFramesRendered += 1
         renderTimeTotal += (CACurrentMediaTimeCompat() - t0) * 1000
