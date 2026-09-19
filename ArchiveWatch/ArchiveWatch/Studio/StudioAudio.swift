@@ -536,6 +536,38 @@ public struct StudioAudioHealth: Sendable, Equatable {
 final class StudioAudioMixer: @unchecked Sendable {
     static let framesPerPacket = 1024
 
+    /// AAC priming frames added to each audio timestamp: 2048, the codec's own
+    /// priming, which Android has carried since Decision 129 and Apple did not.
+    ///
+    /// MEASURED ON THE WIRE, not argued — the server's recording of a
+    /// flash-and-beep broadcast:
+    ///
+    ///        0   -129 ms      2048   -64 ms      4096   -40 ms
+    ///
+    /// AND DELIBERATELY NOT TUNED FURTHER. The trend is roughly linear, so
+    /// ~5700 frames would read zero — and that number would be a CALIBRATION,
+    /// not a diagnosis. Decision 129 refused the same move on Android in as
+    /// many words: "a fixed audio delay would paper over it and would be wrong
+    /// the moment the pipeline's latency changed." 2048 is what the codec
+    /// actually primes; the ~64 ms still standing belongs to something else and
+    /// is an open defect (§9.hhhhh), not a knob to turn until a test passes.
+    /// APPLIED WHERE IT WAS MEASURED. This mixer is shared, and the wire
+    /// measurement exists only for macOS — tvOS has no `AW_PLAY_URL` door, so
+    /// its broadcast has never been put through the flash-and-beep clip. The
+    /// television is the best-working platform in this feature and it does not
+    /// get its audio timing changed on an inference, however physically sound:
+    /// the codec primes the same everywhere, and that is an argument, not a
+    /// measurement. tvOS moves when tvOS is measured.
+    static var primingOffsetFrames: Int {
+        #if os(tvOS)
+        let fallback = 0
+        #else
+        let fallback = 2048
+        #endif
+        return ProcessInfo.processInfo.environment["AW_STUDIO_AAC_PRIME"]
+            .flatMap(Int.init) ?? fallback
+    }
+
     /// Whether the film has delivered its first packet — see `tick()`.
     private var filmHasPrimed = false
     private var primeTicksWaited = 0
@@ -728,7 +760,22 @@ final class StudioAudioMixer: @unchecked Sendable {
         }
         guard (status == noErr || status == 1), packets == 1, abl.mBuffers.mDataByteSize > 0 else { return }
         let frame = Data(bytes: abl.mBuffers.mData!, count: Int(abl.mBuffers.mDataByteSize))
-        let pts = CMTime(value: CMTimeValue(packetsOut * Self.framesPerPacket), timescale: CMTimeScale(rate))
+        // AAC PRIMING, as an EXPERIMENT rather than a behaviour change.
+        //
+        // Android carries this correction and Apple does not
+        // (`StudioAacEncoder.kt`: 2048 samples, "output lags its input by the
+        // codec's priming samples ... FLV has nowhere to carry an edit list").
+        // The wire says macOS audio LEADS the picture by ~130-150 ms, and an
+        // uncompensated priming delay makes audio appear early by exactly this
+        // kind of margin — 2048 samples is 46 ms at 44.1 kHz.
+        //
+        // Default ZERO, so nothing changes until the wire says it helps. Adding
+        // frames makes the audio stamps LATER, which is the direction that
+        // reduces a lead; if the measurement does not move by ~46 ms, the
+        // hypothesis is wrong and this comes straight back out.
+        let pts = CMTime(value: CMTimeValue(packetsOut * Self.framesPerPacket
+                                            + Self.primingOffsetFrames),
+                         timescale: CMTimeScale(rate))
         packetsOut += 1
         onFrame?(frame, pts)
     }
