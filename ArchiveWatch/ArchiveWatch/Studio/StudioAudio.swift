@@ -456,6 +456,7 @@ public final class MicAudioTap: NSObject, AVCaptureAudioDataOutputSampleBufferDe
     private let output = AVCaptureAudioDataOutput()
     private let queue = DispatchQueue(label: "org.archivewatch.studio.mic")
     private var scratch = [Float](repeating: 0, count: 8192 * 2)
+    private var session: AVCaptureSession?
     var programRate: Double = 44100
 
     public override init() { super.init() }
@@ -473,6 +474,10 @@ public final class MicAudioTap: NSObject, AVCaptureAudioDataOutputSampleBufferDe
         session.beginConfiguration()
         session.addOutput(output)
         session.commitConfiguration()
+        // RETAINED, for the reason CameraFrameTap's own property carries: the
+        // caller's session is a local and nothing else holds it, so without
+        // this the microphone stops the moment that scope ends.
+        self.session = session
         return true
     }
 

@@ -1421,6 +1421,16 @@ public final class CameraFrameTap: NSObject, AVCaptureVideoDataOutputSampleBuffe
     private var frame: CVPixelBuffer?
     private var count = 0
     private let output = AVCaptureVideoDataOutput()
+    /// THE SESSION, RETAINED. Nothing else held it: `StudioContinuity` stores
+    /// no session, and the caller's is a local `let session` inside an `if`
+    /// block. The block exited, ARC freed the session, capture stopped — and
+    /// every log line still said success, because `startRunning()` HAD
+    /// succeeded a moment earlier. Measured 2026-09-19: the attach chain ran
+    /// clean, `AWCONT attached camera=Continuity Camera`, and then
+    /// `AWCAM frames=0 (+0/s)` every second for the whole run with no tile on
+    /// the wire. The tap is owned by the engine for the life of the show and
+    /// cannot work without its session, so the tap is what should hold it.
+    private var session: AVCaptureSession?
     private let queue = DispatchQueue(label: "org.archivewatch.studio.camera")
 
     public override init() { super.init() }
@@ -1441,6 +1451,7 @@ public final class CameraFrameTap: NSObject, AVCaptureVideoDataOutputSampleBuffe
         session.beginConfiguration()
         if session.canAddOutput(output) { session.addOutput(output) }
         session.commitConfiguration()
+        self.session = session
     }
 
     public func latest() -> CVPixelBuffer? {
