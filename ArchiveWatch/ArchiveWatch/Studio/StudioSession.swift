@@ -368,6 +368,28 @@ public final class StudioSession {
                             + "buffered=%.2f offset=%+.2f", pos, now, pos - now, buf,
                             pos - now - buf))
                     }
+                    // IS THE FILM'S AUDIO ARRIVING AT ALL? macOS had no answer
+                    // to that question. Measured 2026-09-19: the Mac publishes
+                    // 43 audio packets a second — exactly the right rate — and
+                    // they are SILENT (mean -87 to -39 dB, AAC at 2-8 kb/s,
+                    // against tvOS's steady -22 dB and ~102 kb/s), and its
+                    // broadcast correlates 0.000 with the source film. So the
+                    // encoder is healthy and encoding nothing, which every
+                    // number on the existing health line reports as fine.
+                    //
+                    // tvOS grew AWRING/AWMIX for exactly this; macOS is the
+                    // platform where the film audio is actually broken, and it
+                    // was the one with no counters.
+                    let bedM = await engine.filmAudioBed
+                    self.diag(String(format:
+                        "[AWMACMIX] filmFrames=%d filmLevel=%.4f micLevel=%.4f "
+                        + "ducking=%@ ringFill=%.2f ringOverflow=%d filmPadded=%d "
+                        + "tapAttached=%@ receivingExternal=%@",
+                        h.audio.filmFramesWritten, h.audio.filmLevel, h.audio.micLevel,
+                        h.audio.ducking ? "yes" : "no", bedM.filmRingFill,
+                        bedM.filmRingOverflowed, h.audio.filmFramesPadded,
+                        FilmAudioBridge.shared.isAttached ? "yes" : "NO",
+                        bedM.isReceivingExternal ? "yes" : "no"))
                     self.diag("[AWSTUDIOHEALTH] state=\(h.showState.label) fps=\(h.encodedFramesPerSecond)"
                           + " queued=\(p.queuedBytes) vsent=\(p.videoFramesSent) vdrop=\(p.videoFramesDropped)"
                           + " asent=\(p.audioFramesSent) reconnects=\(p.reconnects)"
