@@ -197,6 +197,15 @@ public struct StudioHealth: Sendable, Equatable {
     /// encoded-bitrate reading alone will NOT reveal (a static frame encodes
     /// to almost nothing and every other counter looks healthy).
     public var filmFramesPulled = 0
+    /// Frames the CAMERA tap has received. `filmFramesPulled` exists because
+    /// a frozen film is invisible to every other counter; this exists for the
+    /// same reason and was missing, which cost a run: on 2026-09-19 the log
+    /// said `AWCONT attached camera=Continuity Camera` while the program on
+    /// the wire had no tile in it, and nothing could distinguish "no frames
+    /// are arriving" from "frames arrive and are not drawn". The renderer is
+    /// handed `cameraTap?.latest()`, so a nil frame draws no tile and says
+    /// nothing.
+    public var cameraFramesReceived = 0
     /// Frames the ENCODER produced in the last second. Zero while the film is
     /// still arriving is the fault the 2026-09-17 tvOS soak found: encoding
     /// stopped at 293 s and every other counter stayed healthy for the
@@ -1002,6 +1011,7 @@ public actor StudioEngine {
             }
         }
 
+        health.cameraFramesReceived = cameraTap?.received ?? 0
         let program = renderer.render(film: lastFilmFrame, camera: cameraTap?.latest())
         health.programFramesRendered += 1
         renderTimeTotal += (CACurrentMediaTimeCompat() - t0) * 1000
@@ -1409,6 +1419,7 @@ final class H264Encoder: @unchecked Sendable {
 public final class CameraFrameTap: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate, @unchecked Sendable {
     private let lock = NSLock()
     private var frame: CVPixelBuffer?
+    private var count = 0
     private let output = AVCaptureVideoDataOutput()
     private let queue = DispatchQueue(label: "org.archivewatch.studio.camera")
 
@@ -1437,8 +1448,15 @@ public final class CameraFrameTap: NSObject, AVCaptureVideoDataOutputSampleBuffe
         return frame
     }
 
+    /// How many frames have ever arrived. Read by the engine into
+    /// `StudioHealth.cameraFramesReceived`; see that field for why.
+    public var received: Int {
+        lock.lock(); defer { lock.unlock() }
+        return count
+    }
+
     public func captureOutput(_ o: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from c: AVCaptureConnection) {
         guard let px = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
-        lock.lock(); frame = px; lock.unlock()
+        lock.lock(); frame = px; count += 1; lock.unlock()
     }
 }

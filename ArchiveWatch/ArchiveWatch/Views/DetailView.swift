@@ -1049,6 +1049,10 @@ struct PlayerScreen: View {
         #endif
 
         var lastFilmFrames = 0
+        // Camera frames at the previous tick, so the AWCAM line reports a RATE
+        // and not only a total — a total that STOPPED climbing reads exactly
+        // like one that never started, which is the failure being chased.
+        var lastCameraFrames = 0
         // When the provenance line came up, measured from the moment the show
         // actually reached the wire.
         var liveSince: Date?
@@ -1061,6 +1065,22 @@ struct PlayerScreen: View {
             studioFilmFPS = max(0, h.filmFramesPulled - lastFilmFrames)
             lastFilmFrames = h.filmFramesPulled
             studioHealth = h
+
+            // THE CAMERA TILE. On 2026-09-19 the attach chain logged success
+            // (`AWCONT attached camera=Continuity Camera`) and the program on
+            // the wire had no tile in it, and nothing on any surface could
+            // separate "no frames are arriving" from "frames arrive and are
+            // not drawn". The renderer is handed `cameraTap?.latest()`, so a
+            // nil frame draws nothing and reports nothing.
+            //
+            // Unconditional, and at the TOP of the loop: the audio block below
+            // is inside an `if let`, and a diagnostic that only fires when an
+            // unrelated thing exists cannot be trusted to have run at all. Its
+            // own line, too — widening AWSYNC would change what AWSYNC means.
+            awdiag("AWCAM frames=%d (+%d/s) %@", h.cameraFramesReceived,
+                   h.cameraFramesReceived - lastCameraFrames,
+                   h.cameraFramesReceived > lastCameraFrames ? "receiving" : "NO NEW FRAMES")
+            lastCameraFrames = h.cameraFramesReceived
 
             // ASK AGAIN. The warning is only true until audio starts arriving.
             studioAudioProblem = await engine.filmAudioProblem(
@@ -1569,6 +1589,15 @@ struct PlayerScreen: View {
                                               year: film.year) {
                 studioRefusalKind = .film
                 studioRefusal = why
+                // SAY IT IN THE LOG TOO. This refusal only ever set an
+                // on-screen sentence and returned, so from a console a
+                // refused run and a door that never fired were the SAME
+                // evidence: nothing at all. That cost two runs on
+                // 2026-09-19, both of them my own bad film picks, neither
+                // diagnosable without standing in the room.
+                awdiag("AWGATE film REFUSED id=%@ bucket=%@ year=%@: %@",
+                       film.archiveID, film.rightsBucket ?? "nil",
+                       film.year.map(String.init) ?? "nil", why)
                 return
             }
             // ...and the SAME configuration gate the menu applies (§10.2b).
@@ -1580,6 +1609,7 @@ struct PlayerScreen: View {
                let problem = Self.studioTVBroadcastProblem {
                 studioRefusalKind = .configuration
                 studioRefusal = problem
+                awdiag("AWGATE configuration REFUSED: %@", problem)
                 return
             }
             // ...and Rule 8.8a's confirmation, for the same reason: a door
@@ -1747,6 +1777,15 @@ struct PlayerScreen: View {
                                               year: film.year) {
                 studioRefusalKind = .film
                 studioRefusal = why
+                // SAY IT IN THE LOG TOO. This refusal only ever set an
+                // on-screen sentence and returned, so from a console a
+                // refused run and a door that never fired were the SAME
+                // evidence: nothing at all. That cost two runs on
+                // 2026-09-19, both of them my own bad film picks, neither
+                // diagnosable without standing in the room.
+                awdiag("AWGATE film REFUSED id=%@ bucket=%@ year=%@: %@",
+                       film.archiveID, film.rightsBucket ?? "nil",
+                       film.year.map(String.init) ?? "nil", why)
                 return
             }
             // THEN whether this build can sign in at all (tvOS-DESIGN §10.2b).
@@ -1758,6 +1797,7 @@ struct PlayerScreen: View {
             if let problem = Self.studioTVBroadcastProblem {
                 studioRefusalKind = .configuration
                 studioRefusal = problem
+                awdiag("AWGATE configuration REFUSED: %@", problem)
                 return
             }
             // THEN the confirmation itself (Rule 8.8a). This used to be the
