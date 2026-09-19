@@ -824,6 +824,12 @@ struct PlayerScreen: View {
                         pcmDump.write(Data(bytes: samples, count: count * MemoryLayout<Float>.size))
                     }
                     bed.acceptExternalPCM(samples, count: count)
+                } hasRoom: {
+                    // Keep a cushion without overwriting it. 0.6 leaves ~400 ms
+                    // of decoded audio ahead of the mixer, which is far more
+                    // than the 23.2 ms a packet covers and well clear of the
+                    // starvation the pump's own comment is guarding against.
+                    bed.filmRingFill < 0.6
                 }
                 studioFilmAudioDecoder = decoder
                 FilmAudioBridge.shared.setSink { frames, firstSample, rate in

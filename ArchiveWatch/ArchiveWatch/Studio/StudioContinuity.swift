@@ -103,12 +103,36 @@ public final class StudioContinuity: NSObject {
             lowerAudioSession()
             return
         }
+        // THE DEVICE DECIDES, NOT THE PORT.
+        //
+        // This asked `microphonePort()`, and on tvOS that is empty even when
+        // the microphone is right there. Measured on Ben Bedroom 2026-09-19
+        // with a paired iPhone and microphone permission granted:
+        //
+        //   AWMIC default audio device: Continuity Microphone
+        //   AWMIC audio discovery: 1 [Continuity Microphone]
+        //   AWMIC after-raise category=PlayAndRecord inputs=0 []
+        //   AWMIC continuity microphone port: STILL NONE
+        //
+        // `AVAudioSession.availableInputs` is empty in `.playback` AND after
+        // raising `.playAndRecord`, while `AVCaptureDevice.default(for:
+        // .audio)` is the Continuity Microphone itself. So the port was never
+        // going to arrive, and gating on it made `hasMicrophone` false, which
+        // made `makeSession` skip the input and `attachMicrophone` never run.
+        // That is why every broadcast has gone out with no host audio.
+        //
+        // The header's reasoning was sound and its premise was not: the port
+        // exists to CHOOSE among microphones with `setPreferredInput`, and
+        // tvOS vends exactly one audio device — this one. With nothing to
+        // choose between, the device alone is the answer. A port, when one
+        // does appear, is still preferred for routing.
         let port = microphonePort()
-        state = .connected(name: cam.localizedName, hasMicrophone: port != nil)
-        note = port == nil
+        let micDevice = AVCaptureDevice.default(for: .audio)
+        state = .connected(name: cam.localizedName, hasMicrophone: micDevice != nil)
+        note = micDevice == nil
             ? "\(cam.localizedName) is the camera. Its microphone is not available, so your voice will not be in the stream."
             : "\(cam.localizedName) is the camera and the microphone."
-        if let port { raiseAudioSession(preferring: port) }
+        if micDevice != nil { raiseAudioSession(preferring: port) }
     }
 
     // MARK: What the engine needs
@@ -215,6 +239,17 @@ public final class StudioContinuity: NSObject {
                    name(AVCaptureDevice.authorizationStatus(for: .audio)))
             inputs("after-permission")
         }
+        // WHAT AUDIO CAPTURE DEVICES EXIST AT ALL. `makeSession` adds the mic
+        // input via `AVCaptureDevice.default(for: .audio)`, so if that is nil
+        // there is nothing to add regardless of ports or permission. This
+        // separates "tvOS vends no audio capture device" from "a device exists
+        // but the Continuity link offers no session port".
+        let defaultAudio = AVCaptureDevice.default(for: .audio)
+        awdiag("AWMIC default audio device: %@", defaultAudio?.localizedName ?? "NIL")
+        let found = AVCaptureDevice.DiscoverySession(
+            deviceTypes: [.microphone], mediaType: .audio, position: .unspecified).devices
+        awdiag("AWMIC audio discovery: %d [%@]", found.count,
+               found.map { $0.localizedName }.joined(separator: ", "))
         let previous = s.category
         do {
             try s.setCategory(.playAndRecord, mode: .default,
@@ -287,8 +322,8 @@ public final class StudioContinuity: NSObject {
         awdiag("AWCONT preset=inputPriority (device keeps its own format)")
         // The microphone device is generic on tvOS; the ROUTE decides which
         // physical mic it is, and `raiseAudioSession` set that route.
-        if microphonePort() != nil,
-           let micDevice = AVCaptureDevice.default(for: .audio),
+        // NO PORT REQUIREMENT — see `refresh`. The device is the gate.
+        if let micDevice = AVCaptureDevice.default(for: .audio),
            let micInput = try? AVCaptureDeviceInput(device: micDevice),
            session.canAddInput(micInput) {
             session.addInput(micInput)
@@ -302,17 +337,27 @@ public final class StudioContinuity: NSObject {
     /// `.playAndRecord` is legitimate on tvOS ONLY once there is something to
     /// record from. Raising it before that fails ("Session activation failed")
     /// and a failed activation stops AVPlayer dead (§9).
-    private func raiseAudioSession(preferring port: AVAudioSessionPortDescription) {
+    /// `port` is OPTIONAL now: on tvOS the microphone arrives as a capture
+    /// DEVICE with no session port at all (measured — see `refresh`), and
+    /// there is only ever one, so there is nothing to prefer. When a port does
+    /// exist it is still selected, because that is what routing expects.
+    ///
+    /// Raising the category here is safe in exactly this situation and the
+    /// probe proved it: `.playAndRecord ACTIVATED` with a Continuity camera
+    /// attached. §6.2's "it fails on tvOS" holds only when nothing is
+    /// connected, which is why this is reached solely from the branch that
+    /// has a microphone device in hand.
+    private func raiseAudioSession(preferring port: AVAudioSessionPortDescription?) {
         let s = AVAudioSession.sharedInstance()
         if previousCategory == nil { previousCategory = s.category }
         do {
             try s.setCategory(.playAndRecord, mode: .default, options: [.mixWithOthers, .allowBluetooth])
             try s.setActive(true)
-            try s.setPreferredInput(port)
+            if let port { try s.setPreferredInput(port) }
         } catch {
             // Report and fall back to playback, rather than leaving the
             // session in a state that silently prevents the film playing.
-            note = "Could not use \(port.portName) as the microphone (\(error.localizedDescription)). The film will play; your voice will not be in the stream."
+            note = "Could not use \(port?.portName ?? "the phone's microphone") as the microphone (\(error.localizedDescription)). The film will play; your voice will not be in the stream."
             lowerAudioSession()
         }
     }

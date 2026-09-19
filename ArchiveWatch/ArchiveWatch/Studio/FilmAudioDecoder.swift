@@ -29,6 +29,15 @@ final class FilmAudioDecoder: @unchecked Sendable {
 
     /// Where decoded, interleaved stereo Float PCM goes — the mixer's film ring.
     private let write: (UnsafePointer<Float>, Int) -> Void
+    /// Whether the ring can take more. The pump is otherwise bounded only by
+    /// the playhead hold, and the ring holds ONE SECOND — so with a 12-18 s
+    /// compressed lookahead it will happily decode straight over audio the
+    /// mixer has not read yet. That was invisible while `AudioRing.read` was
+    /// LIFO (it always jumped to the newest sample, so a full ring cost
+    /// nothing visible); once the read became FIFO the same imbalance started
+    /// discarding real audio: `AWRING overflowed=427896 fill=0.95` on a live
+    /// broadcast, ~4.9 s of film audio lost. Measured 2026-09-19.
+    private let hasRoom: () -> Bool
 
     private let lock = NSLock()
     /// Each packet with the FILM FRAME INDEX it starts at, so the decoder can
@@ -124,8 +133,10 @@ final class FilmAudioDecoder: @unchecked Sendable {
     /// of audio, comfortably more than a 20 ms tick can consume.
     private static let maxPacketsPerTick = 8
 
-    init(write: @escaping (UnsafePointer<Float>, Int) -> Void) {
+    init(write: @escaping (UnsafePointer<Float>, Int) -> Void,
+         hasRoom: @escaping () -> Bool = { true }) {
         self.write = write
+        self.hasRoom = hasRoom
     }
 
     /// Called from the bridge. Cheap on purpose: queueing compressed frames
@@ -164,7 +175,15 @@ final class FilmAudioDecoder: @unchecked Sendable {
             // of living at the edge of starvation.
             while !Task.isCancelled {
                 var decoded = 0
-                while decoded < Self.maxPacketsPerTick, self?.decodeOnePacket() == true {
+                // ...AND STOP WHEN THE RING IS FULL. "Fill the ring, don't
+                // meter it" was right when a full ring was harmless; under a
+                // FIFO read a full ring means overwriting audio nobody has
+                // heard yet. The cushion the comment above wants is still
+                // built — it is just bounded by what the ring can actually
+                // hold.
+                while decoded < Self.maxPacketsPerTick,
+                      self?.hasRoom() == true,
+                      self?.decodeOnePacket() == true {
                     decoded += 1
                 }
                 try? await Task.sleep(nanoseconds: 20_000_000)
