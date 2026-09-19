@@ -1003,7 +1003,29 @@ struct PlayerScreen: View {
             continuity.probeMicrophone()
         }
         awdiag("AWCONT step=makeSession")
-        if continuity.state.isConnected, let session = continuity.makeSession() {
+        // ONE PATH, USED TWICE: at the start of the show, and again by the
+        // health loop when the camera stops. The Continuity link dropped FOUR
+        // times in one session on 2026-09-19 — once ten seconds into a Twitch
+        // broadcast — and until now the only response was a line on the
+        // readout telling the host their audience could no longer see them.
+        //
+        // Recovery is possible because the CAMERA survives a drop in a way the
+        // microphone does not: `AVCaptureDevice.DiscoverySession` finds a
+        // paired phone without the picker, so a new session can be built from
+        // nothing. `AVContinuityDevice` cannot be re-obtained that way
+        // (`AVContinuityDevice.h` offers no enumeration), so a recovered show
+        // may come back with the camera and without the host's microphone —
+        // which is §8.8's normal state, not an error.
+        // NOT `@Sendable`: `StudioContinuity` is `@MainActor` and this runs
+        // inside that isolation, so marking it sendable severs it from the
+        // very state it has to read (Swift 6 says so plainly).
+        func attachCamera(_ why: String) async -> Bool {
+            guard continuity.state.isConnected, let session = continuity.makeSession() else {
+                awdiag("AWCONT %@: no camera to attach (%@)", why, continuity.state.isConnected
+                       ? "connected but makeSession() returned nil"
+                       : "no Continuity device")
+                return false
+            }
             awdiag("AWCONT step=sessionMade inputs=%d outputs=%d",
                    session.inputs.count, session.outputs.count)
             let cam = CameraFrameTap(); cam.attach(to: session)
@@ -1025,11 +1047,11 @@ struct PlayerScreen: View {
             }
             awdiag("AWCONT step=startRunning")
             session.startRunning()
-            awdiag("AWCONT attached camera=%@ mic=%@", camName, micName)
-        } else {
-            awdiag("AWCONT no camera tile: %@", continuity.state.isConnected
-                   ? "connected but makeSession() returned nil"
-                   : "no Continuity device — pair an iPhone on this Apple TV first")
+            awdiag("AWCONT attached camera=%@ mic=%@ (%@)", camName, micName, why)
+            return true
+        }
+        if await attachCamera("initial") == false {
+            awdiag("AWCONT no camera tile — pair an iPhone on this Apple TV first")
         }
 
         // Resolving a destination CREATES the broadcast on the platform and
@@ -1104,6 +1126,11 @@ struct PlayerScreen: View {
         // and not only a total — a total that STOPPED climbing reads exactly
         // like one that never started, which is the failure being chased.
         var lastCameraFrames = 0
+        /// Consecutive one-second ticks with a camera attached and no new
+        /// frames, and how many rebuilds have been tried. Both reset when
+        /// frames resume.
+        var cameraStallTicks = 0
+        var cameraRecoveries = 0
         // When the provenance line came up, measured from the moment the show
         // actually reached the wire.
         var liveSince: Date?
@@ -1132,6 +1159,25 @@ struct PlayerScreen: View {
             awdiag("AWCAM frames=%d (+%d/s) %@", h.cameraFramesReceived,
                    studioCameraFPS,
                    h.cameraFramesReceived > lastCameraFrames ? "receiving" : "NO NEW FRAMES")
+            // RECOVER A CAMERA THAT STOPPED. Only after it had started (a
+            // camera that never delivered is a different problem, and the
+            // readout says so), only while one is still discoverable, and
+            // rate-limited: a rebuild that cannot succeed must not be
+            // attempted once a second for the length of a show.
+            if h.cameraAttached, h.cameraFramesReceived > 0,
+               studioCameraFPS == 0, h.showState.isOnAir {
+                cameraStallTicks += 1
+                if cameraStallTicks >= 4, cameraRecoveries < 3 {
+                    cameraStallTicks = 0
+                    cameraRecoveries += 1
+                    awdiag("AWCONT camera stopped at %d frames — recovery attempt %d of 3",
+                           h.cameraFramesReceived, cameraRecoveries)
+                    let ok = await attachCamera("recovery \(cameraRecoveries)")
+                    awdiag("AWCONT recovery %d: %@", cameraRecoveries, ok ? "re-attached" : "no camera")
+                }
+            } else if studioCameraFPS > 0 {
+                cameraStallTicks = 0
+            }
             lastCameraFrames = h.cameraFramesReceived
 
             // ASK AGAIN. The warning is only true until audio starts arriving.
