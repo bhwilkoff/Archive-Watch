@@ -392,6 +392,19 @@ public actor StudioEngine {
     /// nothing downstream can tell the two sources apart.
     nonisolated var filmAudioBed: FilmAudioTap { mixer.film }
     private var audioAttached = false
+    private var firstAudioAt: CFTimeInterval?
+    private var firstVideoAt: CFTimeInterval?
+    private var originsReported = false
+
+    /// Prints the gap between the two clocks' first output, once both exist.
+    /// Positive means AUDIO went first — which on the wire reads as audio
+    /// running ahead of the picture by that much.
+    private func reportClockOriginsIfReady() {
+        guard !originsReported, let a = firstAudioAt, let v = firstVideoAt else { return }
+        originsReported = true
+        awdiag("AWCLOCKS firstAudio-firstVideo=%+.0f ms (positive = audio started first)",
+               (v - a) * 1000)
+    }
 
     public init(configuration: Configuration = Configuration(), publisher: RTMPPublisher = RTMPPublisher()) {
         self.config = configuration
@@ -998,12 +1011,27 @@ public actor StudioEngine {
     }
 
     private func publish(audio frame: Data, at pts: CMTime) async {
+        // THE TWO ORIGINS, measured rather than asserted. `mixer.onFrame` is
+        // wired with the comment "audio starts with video so the two clocks
+        // share an origin" — and the wire says audio LEADS the picture by
+        // ~140 ms (§9.ggggg), which is exactly what a pair of counters started
+        // at different instants would produce. Each track stamps from its own
+        // count, so if audio begins counting before the first frame is encoded,
+        // its samples claim a time the picture had not reached.
+        if firstAudioAt == nil {
+            firstAudioAt = CACurrentMediaTimeCompat()
+            reportClockOriginsIfReady()
+        }
         health.encodedBytes += frame.count
         guard publishing else { return }
         await publisher.send(audioFrame: frame, presentationTime: pts)
     }
 
     private func publish(video frame: EncodedVideoFrame) async {
+        if firstVideoAt == nil {
+            firstVideoAt = CACurrentMediaTimeCompat()
+            reportClockOriginsIfReady()
+        }
         health.programFramesEncoded += 1
         health.encodedBytes += frame.avccData.count
         guard publishing else { return }
