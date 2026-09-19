@@ -42,33 +42,54 @@ def _auth() -> str:
     return f"LOW {ak}:{sk}"
 
 
-def ensure_item(item: str, auth: str) -> None:
-    """Create the bucket with item-level metadata (idempotent)."""
-    req = urllib.request.Request(f"{S3}/{item}", method="PUT", data=b"")
-    req.add_header("authorization", auth)
-    req.add_header("x-amz-auto-make-bucket", "1")
-    req.add_header("x-archive-meta-mediatype", "image")
-    req.add_header("x-archive-meta-collection", "opensource_media")
-    req.add_header("x-archive-meta-title", "Archive Watch - generated cover art")
-    req.add_header("x-archive-meta-creator", "Archive Watch")
-    req.add_header("x-archive-meta-licenseurl", "https://creativecommons.org/publicdomain/zero/1.0/")
-    req.add_header("x-archive-meta-description",
-                   "Cover thumbnails extracted from public-domain / CC0 moving images "
-                   "for the Archive Watch tvOS app. Each image is a single still from "
-                   "the source film, selected by automated frame scoring.")
-    req.add_header("x-archive-queue-derive", "0")
-    try:
-        urllib.request.urlopen(req, timeout=60)
-        print(f"[upload] ensured item '{item}'")
-    except urllib.error.HTTPError as e:
-        # 409 / already-exists-style responses are fine.
-        if e.code in (409,):
-            print(f"[upload] item '{item}' already exists")
-        else:
+def ensure_item(item: str, auth: str, retries: int = 4) -> None:
+    """Create the bucket with item-level metadata (idempotent).
+
+    THIS IS PREFLIGHT, AND PREFLIGHT MAY NOT END THE RUN. On 2026-09-19 a
+    single read timeout here raised out of main() and exit(1) threw away 44
+    covers that 45 minutes of macOS runner time had already produced — none
+    of them uploaded, none wired, the runner disposed with the JPEGs on it.
+    The item has existed since #86; this call is a formality, so a network
+    failure to confirm it is not a reason to discard finished work. Only
+    auth actually being rejected stops the run, because every subsequent
+    PUT would fail the same way.
+
+    Retries transient errors the way put_file does — same host, same fault.
+    """
+    for attempt in range(1, retries + 1):
+        req = urllib.request.Request(f"{S3}/{item}", method="PUT", data=b"")
+        req.add_header("authorization", auth)
+        req.add_header("x-amz-auto-make-bucket", "1")
+        req.add_header("x-archive-meta-mediatype", "image")
+        req.add_header("x-archive-meta-collection", "opensource_media")
+        req.add_header("x-archive-meta-title", "Archive Watch - generated cover art")
+        req.add_header("x-archive-meta-creator", "Archive Watch")
+        req.add_header("x-archive-meta-licenseurl", "https://creativecommons.org/publicdomain/zero/1.0/")
+        req.add_header("x-archive-meta-description",
+                       "Cover thumbnails extracted from public-domain / CC0 moving images "
+                       "for the Archive Watch tvOS app. Each image is a single still from "
+                       "the source film, selected by automated frame scoring.")
+        req.add_header("x-archive-queue-derive", "0")
+        try:
+            urllib.request.urlopen(req, timeout=60)
+            print(f"[upload] ensured item '{item}'")
+            return
+        except urllib.error.HTTPError as e:
+            # 409 / already-exists-style responses are fine.
+            if e.code in (409,):
+                print(f"[upload] item '{item}' already exists")
+                return
             body = e.read().decode("utf-8", "replace")[:300]
             print(f"[upload] ensure_item HTTP {e.code}: {body}", file=sys.stderr)
             if e.code in (401, 403):
                 sys.exit("[upload] auth rejected — check IAS3 keys")
+            return
+        except (urllib.error.URLError, TimeoutError, OSError) as e:
+            if attempt < retries:
+                time.sleep(min(2 ** attempt, 30))
+                continue
+            print(f"[upload] ensure_item could not reach {S3} ({e}) — "
+                  f"uploading anyway; the item already exists", file=sys.stderr)
 
 
 def put_file(item: str, local: Path, remote: str, auth: str, retries: int = 4) -> bool:
@@ -172,6 +193,14 @@ def main() -> int:
                       f"eta {(len(todo)-i)/max(rate,1e-6)/60:.0f}m")
     print(f"[upload] done: {ok}/{len(todo)} uploaded to item '{args.item}'")
     print(f"[upload] base URL: https://archive.org/download/{args.item}/<slug>.jpg")
+    # A run with covers in hand that uploaded NONE has produced nothing, and
+    # that goes red (Decision 093). Returning 0 here made a total archive.org
+    # refusal look like a clean run: the wire step says "nothing to wire", the
+    # delta is empty, and the whole workflow goes green having shipped nothing.
+    if ok == 0:
+        print(f"[upload] FAILED: {len(todo)} covers were ready and none uploaded",
+              file=sys.stderr)
+        return 1
     return 0
 
 
