@@ -1418,7 +1418,18 @@ public final class CameraFrameTap: NSObject, AVCaptureVideoDataOutputSampleBuffe
         output.videoSettings = [kCVPixelBufferPixelFormatTypeKey as String: kCVPixelFormatType_32BGRA]
         output.alwaysDiscardsLateVideoFrames = true
         output.setSampleBufferDelegate(self, queue: queue)
+        // INSIDE A TRANSACTION. An `addOutput` on a session that is not
+        // configuring commits on the spot, and committing makes the device
+        // renegotiate its format against the session preset. On a Continuity
+        // Camera that renegotiation threw
+        // `-[AVCaptureDevice _setActiveFormat:…sessionPreset:] Unsupported
+        // format ((null))` and killed the app with signal 6 (2026-09-19) —
+        // an ObjC exception, so nothing on the Swift side could catch it.
+        // Batching it means the negotiation happens once, at commit, against
+        // the preset `StudioContinuity.makeSession` already proved reachable.
+        session.beginConfiguration()
         if session.canAddOutput(output) { session.addOutput(output) }
+        session.commitConfiguration()
     }
 
     public func latest() -> CVPixelBuffer? {

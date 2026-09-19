@@ -464,7 +464,15 @@ public final class MicAudioTap: NSObject, AVCaptureAudioDataOutputSampleBufferDe
     public func attach(to session: AVCaptureSession) -> Bool {
         output.setSampleBufferDelegate(self, queue: queue)
         guard session.canAddOutput(output) else { return false }
+        // TRANSACTED, for the reason `CameraFrameTap.attach` carries in full:
+        // an un-batched `addOutput` commits immediately and forces a device
+        // format renegotiation, which on a Continuity device throws an ObjC
+        // exception no Swift `try` can catch. This tap runs one call after
+        // the camera's on the same attach sequence, so it is the same bug
+        // waiting for the first run that has a Continuity microphone.
+        session.beginConfiguration()
         session.addOutput(output)
+        session.commitConfiguration()
         return true
     }
 

@@ -153,8 +153,50 @@ public final class StudioContinuity: NSObject {
         guard let cam = camera(), let input = try? AVCaptureDeviceInput(device: cam) else { return nil }
         let session = AVCaptureSession()
         session.beginConfiguration()
-        session.sessionPreset = .hd1280x720      // the camera tile is never full-frame
+        // THE INPUT FIRST, THEN THE PRESET — and only a preset this session
+        // says it can actually set.
+        //
+        // This crashed every Continuity broadcast (2026-09-19, Ben Bedroom,
+        // reproduced twice): the preset was assigned here, before any input
+        // existed, so `canSetSessionPreset` was never asked at a moment when
+        // it means anything. `.hd1280x720` is not a format an iPhone offers
+        // as a Continuity Camera on tvOS, and the failure does not surface
+        // until something forces the device to renegotiate — which is the
+        // `addOutput` in `CameraFrameTap.attach`, a call away and in another
+        // file:
+        //
+        //   -[AVCaptureDevice _setActiveFormat:…sessionPreset:]
+        //   Unsupported format ((null)) - use -formats to discover valid formats
+        //
+        // An ObjC exception, so no Swift `try` catches it and the app is gone
+        // with signal 6. `canAddInput`/`canAddOutput` both answer true: they
+        // check whether the port is compatible, never whether the PRESET is
+        // reachable for the device behind it.
         if session.canAddInput(input) { session.addInput(input) }
+        // WHAT THE DEVICE ACTUALLY OFFERS. Measured, not assumed: the first
+        // attempt at this fix chose the preset with `canSetSessionPreset`,
+        // which answered TRUE for `.hd1280x720` on a Continuity Camera and
+        // then threw `Unsupported format ((null))` anyway when the output was
+        // added. So that predicate is optimistic here and cannot be the gate.
+        let dims = cam.formats.map {
+            let d = CMVideoFormatDescriptionGetDimensions($0.formatDescription)
+            return "\(d.width)x\(d.height)"
+        }
+        awdiag("AWCONT camera formats=%d [%@] active=%@", cam.formats.count,
+               dims.prefix(8).joined(separator: " "),
+               CMVideoFormatDescriptionGetDimensions(cam.activeFormat.formatDescription)
+                   .width.description + "x"
+               + CMVideoFormatDescriptionGetDimensions(cam.activeFormat.formatDescription)
+                   .height.description)
+        // `.inputPriority` means the SESSION NEVER SETS THE DEVICE'S FORMAT —
+        // it takes whatever the device is already in. For a Continuity Camera
+        // that is the only safe choice: the phone decides its own format, the
+        // session cannot negotiate one it does not have, and the exception
+        // that killed the app three times has nothing left to throw. The tile
+        // is scaled to its layout slot downstream anyway, so nothing here
+        // needed a specific capture size in the first place.
+        session.sessionPreset = .inputPriority
+        awdiag("AWCONT preset=inputPriority (device keeps its own format)")
         // The microphone device is generic on tvOS; the ROUTE decides which
         // physical mic it is, and `raiseAudioSession` set that route.
         if microphonePort() != nil,
