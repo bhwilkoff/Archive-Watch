@@ -1090,10 +1090,11 @@ struct PlayerScreen: View {
             // Does the tee actually run? Counted from the bridge, which reads
             // zero when no sink is attached — that is the control.
             if FilmAudioBridge.shared.isAttached, Int(Date().timeIntervalSince1970) % 15 == 0 {
-                awdiag("AWAUDIOTEE frames=%d bytes=%d decoded=%d pcm=%d err=%@",
+                awdiag("AWAUDIOTEE frames=%d bytes=%d decoded=%d pcm=%d ch=%@ err=%@",
                        FilmAudioBridge.shared.framesTeed, FilmAudioBridge.shared.bytesTeed,
                        studioFilmAudioDecoder?.packetsDecoded ?? -1,
                        studioFilmAudioDecoder?.framesWritten ?? -1,
+                       studioFilmAudioDecoder?.channelState ?? "-",
                        studioFilmAudioDecoder?.lastError ?? "-")
 
                 // THE LIP-SYNC MEASUREMENT, on the product path (§9.rrrr).

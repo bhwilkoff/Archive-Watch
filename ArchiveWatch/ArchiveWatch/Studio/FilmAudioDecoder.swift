@@ -54,6 +54,13 @@ final class FilmAudioDecoder: @unchecked Sendable {
     /// (§9.jjjjj).
     private var sourceChannels: UInt32 = 2
     private var triedMonoFallback = false
+    /// What the decoder currently BELIEVES the film is, and whether it changed
+    /// its mind. Read into the periodic diagnostic so a run says so for its
+    /// whole length rather than for one overwritten instant.
+    public var channelState: String {
+        lock.lock(); defer { lock.unlock() }
+        return triedMonoFallback ? "mono(after-fallback)" : "\(sourceChannels)ch"
+    }
     private var upmix: [Float] = []
     private var converter: AVAudioConverter?
     private var inFormat: AVAudioFormat?
@@ -278,6 +285,16 @@ final class FilmAudioDecoder: @unchecked Sendable {
                 sourceChannels = 1
                 self.converter = nil          // the instance one, not the local shadow
                 lastError = "retrying as mono after a stereo decode failure"
+                // SAY IT ONCE, LOUDLY, AND STICKILY. This switch is permanent —
+                // there is no path back to stereo even if mono also fails — so
+                // one transient decode error silently reinterprets a stereo
+                // film as mono for the rest of the show. `lastError` is
+                // sampled into AWAUDIOTEE only every 15 s and is overwritten
+                // by the next success, so the evidence could vanish between
+                // samples: on 2026-09-19 every run read `err=-` and that could
+                // not distinguish "never fired" from "fired and cleared".
+                awdiag("AWDEC MONO FALLBACK ENGAGED — a stereo decode failed, "
+                       + "every later packet is decoded as mono and upmixed")
             }
             lock.unlock()
             return false
