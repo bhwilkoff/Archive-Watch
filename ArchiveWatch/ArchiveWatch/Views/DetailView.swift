@@ -1149,6 +1149,15 @@ struct PlayerScreen: View {
                 awdiag("AWRING overflowed=%d fill=%.2f buffered=%.2fs",
                        bedNow.filmRingOverflowed, bedNow.filmRingFill,
                        bedNow.bufferedSeconds)
+                // THE MIX ITSELF. Until 2026-09-19 the Continuity microphone
+                // never attached at all, so nothing ever reported whether the
+                // host's audio was reaching the programme or whether the film
+                // was ducking under it. `micFrames` climbing is the only proof
+                // that the mic tap is delivering rather than merely attached —
+                // the same distinction the camera counter had to make.
+                awdiag("AWMIX micFrames=%d micLevel=%.3f filmLevel=%.3f ducking=%@ micPadded=%d",
+                       h.audio.micFramesWritten, h.audio.micLevel, h.audio.filmLevel,
+                       h.audio.ducking ? "yes" : "no", h.audio.micFramesPadded)
 
                 // THE LIP-SYNC MEASUREMENT, on the product path (§9.rrrr).
                 //
