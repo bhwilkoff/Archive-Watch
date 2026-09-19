@@ -214,11 +214,15 @@ final class FilmAudioTap: @unchecked Sendable {
     /// fixed the Mac and broken the TV, which is this feature's oldest defect
     /// wearing a new hat.
     static var ringCapacity: Int {
-        #if os(tvOS)
+        // ONE SECOND EVERYWHERE, reverted. macOS/iOS were cut to 250 ms on the
+        // strength of an IN-APP number that moved with the ring — and the wire
+        // says the ring changes nothing a viewer hears: -144.5 ms at 1000,
+        // -149.0 at 250, -131.0 at 100, all inside a 70-93 ms spread and not
+        // even ordered by size. The offset that "improved" was the formula
+        // measuring its own buffer (§9.ggggg). An unjustified change that costs
+        // headroom on slower machines does not get kept for looking tidy; the
+        // env door stays, because it is how that was established.
         let fallback = 1000
-        #else
-        let fallback = 250
-        #endif
         let ms = ProcessInfo.processInfo.environment["AW_STUDIO_RING_MS"]
             .flatMap(Int.init) ?? fallback
         // Interleaved stereo: two samples to a frame.

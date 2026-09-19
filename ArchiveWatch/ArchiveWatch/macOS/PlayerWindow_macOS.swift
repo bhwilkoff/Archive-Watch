@@ -365,7 +365,15 @@ private struct PlayerSurface: View {
         // WatchTogether.attach). Re-attached on every build because a rebuilt
         // player carries a new coordinator.
         WatchTogether.shared.attach(p, archiveID: archiveID)
-        if let resume = savedProgress(), resume > 5 {
+        // NOT FOR AN OVERRIDE FILE. The resume position belongs to the
+        // CATALOGUE ITEM, and applying it to a file played through
+        // `AW_PLAY_URL` seeks into something it has nothing to do with —
+        // clamped to the end when the file is shorter. Measured: a 120 s
+        // stimulus clip opened at `at=119.00`, so every run through this door
+        // was broadcasting its final second. That produced four separate
+        // "findings" — vanished beeps, lost video markers, 97.7% silent audio —
+        // none of which were about the Studio at all (§9.fffff).
+        if playURLOverride == nil, let resume = savedProgress(), resume > 5 {
             p.seek(to: CMTime(seconds: resume, preferredTimescale: 600))
         }
         p.play()
