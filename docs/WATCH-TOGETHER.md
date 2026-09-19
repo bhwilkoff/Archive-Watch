@@ -1604,6 +1604,196 @@ against a synthetic line.
 
 ## §9 — Measurements (filled in as they are taken)
 
+### §9.jjjjj THE FILM'S AUDIO RING WAS READ BACKWARDS, and six instruments called it clean (2026-09-19)
+
+Owner, on a YouTube broadcast: *"It sounds like a slow motion car crash. Like
+every single snippet of audio is being digitally re-rendered slower and with
+huge digital garbage being inserted in between."* He was right, and every
+measurement I had said the opposite.
+
+**The bug, in one line.** `AudioRing.read` computed its start as
+`writeIndex - have` — the NEWEST `have` samples. The type has no read index
+at all, so every read returned the most recently written chunk and silently
+skipped everything buffered behind it, while `available -= have` kept FIFO
+books over a LIFO read. With 120-300 ms buffered against ~20 ms reads, the
+mixer took the newest 20 ms and discarded the rest, over and over. Fixed by
+reading from `writeIndex - available`, the oldest unread sample, which is
+self-consistent across reads: `available` falls by exactly what was read.
+
+| | match to the source film | clicks |
+|---|---|---|
+| control: source vs itself | 0.988 | 0.00/s |
+| control: source vs unrelated film content | 0.002 | — |
+| BEFORE | 0.189 / 0.052, positions scattered | 0.17/s |
+| AFTER | **0.973 / 0.991 / 0.998**, positions exact | **0.00/s** |
+
+**The owner's separate "clicking" complaint was the same defect** — the clicks
+were the seams where fragments butted together — so one fix closed both.
+
+**WHY SIX INSTRUMENTS AGREED AND ALL SIX WERE USELESS.** Correctly-formed
+chunks in the wrong order have no discontinuities, perfect packet cadence,
+zero drift, the right level and the right spectrum. So a click detector, a
+packet-cadence check, a drift measurement, `volumedetect`, a spectral
+comparison and a throttle test ALL reported clean, truthfully. Five
+hypotheses died against them — congestion, pipeline state, timestamp drift,
+TLS (the same artifacts arrived over YouTube's plaintext ingest) and the mono
+fallback — and none of it mattered, because the instruments could not detect
+the symptom being described.
+
+**What finally worked, and is the method to reuse: compare the broadcast
+against the SOURCE FILM, and control the comparison.** Cross-correlation of
+the delivered audio against the film, with two controls that make the number
+mean something (source vs itself = 1.000; source vs unrelated content =
+0.002). That immediately showed OUR OWN bench recording failing exactly as
+badly as YouTube's, which moved the fault inside our pipeline. Then dumping
+the DECODER's PCM one stage upstream (`AW_STUDIO_PCM_DUMP=1`) bisected it in a
+single measurement: 0.993-0.997 with its position advancing exactly in step,
+i.e. perfect — so the fault had to be downstream of the decoder, which is
+three files.
+
+**A spectrogram comparison is USELESS on this material and its own control
+says so**: source vs UNRELATED film content scores 0.923, because a 1928
+orchestral score has the same spectral envelope throughout. Do not reach for
+it.
+
+**Then the fix exposed what the bug had been hiding.** With a FIFO read the
+ring genuinely fills, and a live broadcast showed `AWRING overflowed=427896
+fill=0.95` — ~4.9 s of film audio overwritten unheard. The pump's own comment
+("FILL THE RING, don't meter it") was correct under a LIFO read and wrong
+under a FIFO one, so `FilmAudioDecoder` now stops at 60% ring fill:
+`overflowed=0 fill=0.58-0.60`, steady. Note for later: on a film with roughly
+double the audio bitrate, that ceiling coincided with `dropped=300` and
+`decodedAhead=-0.51` (the decoder falling BEHIND), which is a candidate
+regression and must be judged ON THE WIRE, not from the in-app counter.
+
+### §9.kkkkk The Continuity camera: a crash, a dead session, and a microphone behind a circular dependency (2026-09-19)
+
+Three defects, all found on the first runs that ever had a phone attached,
+all verified from the server's own recording rather than the app's claims.
+
+**1. The crash.** `-[AVCaptureDevice _setActiveFormat:…sessionPreset:]
+Unsupported format ((null))`, signal 6, reproduced three times. A Continuity
+Camera will not let the SESSION drive its format from a preset.
+`.inputPriority` removes the call entirely — the session sets no format and
+the phone keeps its own 1920x1080, and the tile is scaled to its layout slot
+downstream anyway.
+
+THE FIRST FIX WAS WRONG AND THE DEVICE SAID SO. It chose the preset with
+`canSetSessionPreset`, on the theory that the phone had no 1280x720. The run
+answered `preset=AVCaptureSessionPreset1280x720` and crashed anyway. Logging
+`cam.formats` showed the camera HAS 1280x720 — twice:
+
+    AWCONT camera formats=8 [640x480 640x480 1280x720 1280x720
+                             1920x1080 1920x1080 1920x1440 1920x1440]
+
+`canSetSessionPreset` is OPTIMISTIC for a Continuity device and is not a
+usable gate. Measure the device's `formats`; do not predict them.
+
+Also: `addOutput` on a session that is not configuring commits immediately
+and forces exactly that renegotiation, so both taps' `addOutput` are now
+inside `beginConfiguration()`/`commitConfiguration()`.
+
+**2. Nothing retained the `AVCaptureSession`.** It was a local `let session`
+inside an `if` block; ARC freed it, capture stopped, and every log line still
+said success because `startRunning()` HAD succeeded a moment earlier.
+`AWCAM frames=0 (+0/s)` for a whole run with no tile on the wire; after the
+tap took ownership, `frames=4482 (+30/s)` and the tile is in the program
+frame. `StudioContinuity` stores no session and the caller's is a local — the
+tap is the right owner, because the engine holds it for the life of the show
+and it cannot work without its session.
+
+**3. The microphone was behind a loop that could never resolve.**
+
+  - `refresh()` set `hasMicrophone` from `microphonePort()`.
+  - `microphonePort()` reads `AVAudioSession.availableInputs`, EMPTY in
+    `.playback`.
+  - `raiseAudioSession` — the only thing that moves the session to
+    `.playAndRecord`, which is what makes the port appear — was called
+    `if let port`.
+
+The port required the category and the category required the port. Every
+broadcast this feature ever made went out with no host audio because of that.
+
+What breaks it is measured, not assumed:
+
+    AWMIC default audio device: Continuity Microphone
+    AWMIC audio discovery: 1 [Continuity Microphone]
+
+`AVCaptureDevice.default(for: .audio)` IS the microphone and exists
+regardless of category. The port exists to CHOOSE among microphones via
+`setPreferredInput`, and tvOS vends exactly one audio device — so with nothing
+to choose between, the DEVICE is the gate. After that:
+`sessionMade inputs=2`, `attached … mic=Continuity Microphone`, and
+`AWMIX micFrames` climbing with `micPadded=0`.
+
+**Two corrections to §6.2 fall out of this.** `.playAndRecord` ACTIVATES on
+tvOS with a Continuity camera attached — the documented failure holds only
+when nothing is connected, which is why an earlier pre-raise crashed the app.
+And the category was never the gate: `availableInputs` is empty before AND
+after the raise.
+
+**Still open**: the host's voice measured `micLevel` 0.007-0.023 while the
+owner was SPEAKING, which is far too low and sits right on the 0.02 duck
+threshold, so the film barely ducks under him. Peaks reach -0.2 dB with the
+mean near film-only levels — spikes rather than a healthy signal. Needs the
+phone.
+
+**And the Continuity link drops repeatedly** — observed four times in one
+session, including ten seconds into a Twitch broadcast. Detection now exists
+(the readout says "The camera has stopped — your audience sees the film
+without you"); recovery does not, and `AVContinuityDevice.h` offers no way to
+enumerate a paired device, so recovery is constrained to what the picker
+gives.
+
+### §9.lllll The §8 Swift suite did not compile at all, and three instruments lied in one day (2026-09-19)
+
+**The suite was dead.** Every Swift case failed with `cannot find 'awdiag' in
+scope` — two errors predating the day, six added when the RTMP publisher was
+finally instrumented. A non-compiling case is reported FAIL by the runner,
+but nobody had run it, so the harness had quietly stopped covering the
+transport, the mixer and the encoder. SECOND occurrence; Decision 130 records
+"three §8 cases had not compiled for a session". The cause is structural:
+`awdiag` lives in `Networking/ResilientStreamLoader.swift`, the harness
+compiles Studio sources without the app, and adding one log line to a
+shipping file silently breaks a build nothing else performs.
+`tools/harness_awdiag.swift` is now compiled into EVERY case. 10 of 10 build.
+
+**New case 8.15** asserts the ring's FIFO invariant, with two controls that
+re-run the same check over a faithful reimplementation of the old arithmetic
+and require it to FAIL. A test that cannot fail on the bug it was written for
+is not a test.
+
+**THREE INSTRUMENT FAILURES IN ONE DAY, all of the same family — the
+instrument was the first suspect and should have been checked first.**
+
+  1. **The harness mute.** Every macOS run measured a MUTED TAP, producing
+     `filmLevel=0.0000`, -87 dB and a 0.000 correlation, from which I
+     concluded "macOS broadcasts near-silent film audio" and then, on a
+     single sample of a very quiet signal, "and my ring fix caused it". Both
+     false. `muteLocalMonitorForHarness()`'s own header names the variable to
+     set (`AW_STUDIO_MAC_SOUND=1`) and records that this previously "cost a
+     false 'macOS audio is intermittent' finding and its equally false
+     refutation" — and the app PRINTED that warning into the log while I
+     grepped it for other strings. With the flag set: `filmLevel` 0.17/0.10,
+     -31.1 dB, correlation 0.866/0.922/0.921 with positions exactly in step.
+     macOS is fine.
+  2. **A verification loop** reported "1 ERRORS" for nine cases that compile
+     cleanly — a quoting bug in the loop. Caught only because two of the
+     "failures" were cases I had just watched build.
+  3. **The reverted ring-size change, nearly re-made.** Reading
+     `AWMACSYNC offset=-0.85` I built a latency bound for the ring — and this
+     file already records that experiment, measured and REVERTED: the in-app
+     offset is `pos - now - buffered`, so it moves with the ring BY
+     CONSTRUCTION, while the wire showed -144.5 / -149.0 / -131.0 ms at
+     1000 / 250 / 100 ms rings, unordered and inside the noise. Reverted
+     again, unshipped.
+
+**The rule these three share**: an in-app number that contains the thing it
+is measuring is not evidence, and a harness that silences the signal under
+test will produce a confident reading of zero. Judge audio from the server's
+recording against the SOURCE, with controls.
+
+
 **How this section works** (the same rule Decision 092 set for `DECISIONS.md`,
 for the same reason): §9 holds the measurements that describe the CURRENT
 state of the evidence. Older ones are moved to
