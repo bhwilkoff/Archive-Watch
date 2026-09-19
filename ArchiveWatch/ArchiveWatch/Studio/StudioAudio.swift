@@ -57,6 +57,11 @@ final class AudioRing: @unchecked Sendable {
         return available
     }
 
+    /// How big the ring is, so a fill ratio can be reported beside the
+    /// overflow count above — "overflowed 0" means nothing without knowing
+    /// whether the ring ever ran near full.
+    var capacitySamples: Int { capacity }
+
     init(capacity: Int = 44100 * 2) {
         self.capacity = capacity
         buffer = [Float](repeating: 0, count: capacity)
@@ -355,6 +360,21 @@ final class FilmAudioTap: @unchecked Sendable {
     var bufferedSeconds: Double {
         Double(ring.availableSamples) / 2.0 / max(programRate, 1)
     }
+
+    /// PCM floats the ring DISCARDED because it was full when they arrived.
+    ///
+    /// `AudioRing` has counted this since it was written and NOTHING has ever
+    /// read it — the same shape as the camera counter that hid a dead capture
+    /// session for a whole day. It matters here because the ring holds exactly
+    /// one second (44100 * 2 floats) while the pull path keeps a 12-18 second
+    /// lookahead: if the pump outruns the mixer, `write` wraps over audio the
+    /// mixer has not read yet, and what goes to air is fragments of the film
+    /// overwritten by later fragments. That would be inaudible to every
+    /// instrument used on 2026-09-19 — right level, right spectrum, right film
+    /// position, no discontinuities — and it is exactly what the measured
+    /// correlation looks like: the film, everywhere, at ~0.2 instead of ~1.0.
+    var filmRingOverflowed: Int { ring.framesOverflowed }
+    var filmRingFill: Double { Double(ring.availableSamples) / Double(max(ring.capacitySamples, 1)) }
 
     /// Whether film audio is ARRIVING, by any route.
     ///

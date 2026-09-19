@@ -1108,6 +1108,18 @@ struct PlayerScreen: View {
                        studioFilmAudioDecoder?.framesWritten ?? -1,
                        studioFilmAudioDecoder?.channelState ?? "-",
                        studioFilmAudioDecoder?.lastError ?? "-")
+                // THE RING, which nothing has ever reported. It holds ONE
+                // SECOND while the pull path keeps a 12-18 s lookahead, so if
+                // the pump outruns the mixer it wraps over unread audio and
+                // the show carries fragments of the film overwritten by later
+                // fragments — inaudible to a click detector, a spectrum or a
+                // level meter, and exactly what the 2026-09-19 correlation
+                // against the source film measured (~0.2 where the control
+                // scores 1.000).
+                let bedNow = await engine.filmAudioBed
+                awdiag("AWRING overflowed=%d fill=%.2f buffered=%.2fs",
+                       bedNow.filmRingOverflowed, bedNow.filmRingFill,
+                       bedNow.bufferedSeconds)
 
                 // THE LIP-SYNC MEASUREMENT, on the product path (§9.rrrr).
                 //
