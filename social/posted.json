@@ -793,6 +793,66 @@
    "kind": "silent-film",
    "mediaId": null,
    "reviewer": null
+  },
+  {
+   "at": "2026-09-19T17:58:35.528986+00:00",
+   "id": "turner_video_392336",
+   "title": "The Gold Rush",
+   "slot": "now-showing",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mvvb4jh2mo25",
+   "format": "video",
+   "kind": "silent-film",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-09-19T17:58:35.528986+00:00",
+   "id": "turner_video_392336",
+   "title": "The Gold Rush",
+   "slot": "now-showing",
+   "platform": "mastodon",
+   "url": "https://mastodon.social/@archivewatch/117299002604275319",
+   "format": "video",
+   "kind": "silent-film",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-09-19T17:58:35.528986+00:00",
+   "id": "turner_video_392336",
+   "title": "The Gold Rush",
+   "slot": "now-showing",
+   "platform": "threads",
+   "url": "https://www.threads.com/@archivewatchapp/post/Ddemhq-IPQE",
+   "format": "card",
+   "kind": "silent-film",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-09-19T17:58:35.528986+00:00",
+   "id": "turner_video_392336",
+   "title": "The Gold Rush",
+   "slot": "now-showing",
+   "platform": "instagram",
+   "url": "https://www.instagram.com/p/DdemmdOoO6W/",
+   "format": "card",
+   "kind": "silent-film",
+   "mediaId": "117299002256724499",
+   "reviewer": null
+  },
+  {
+   "at": "2026-09-19T17:58:35.528986+00:00",
+   "id": "turner_video_392336",
+   "title": "The Gold Rush",
+   "slot": "now-showing",
+   "platform": "youtube",
+   "url": "https://youtube.com/watch?v=MEIvi8ICHUo",
+   "format": "video",
+   "kind": "silent-film",
+   "mediaId": null,
+   "reviewer": null
   }
  ]
 }
