@@ -1856,6 +1856,33 @@ Neither is chased here. They are written down so the next person starts from an
 observation rather than from scratch, and so that a later "the first seconds are
 silent" is recognised rather than rediscovered.
 
+### §9.iiiii Why the television's wire is still unmeasured, and what it would take (2026-09-18)
+
+macOS now has a wire figure for A/V offset (§9.hhhhh). tvOS does not, and its
++0.20 s is an IN-APP number — the kind that disagreed with the wire three times
+in one session.
+
+**The doors already exist.** `AW_URL_OVERRIDE` swaps the source URL and
+`AW_NO_RESUME=1` skips the stored position; the latter was written for precisely
+this shape of test ("a harness control experiment plays a TRUNCATED remux of a
+film whose stored resume position exceeds it"). Nothing needs building to point
+the television at a flash-and-beep clip.
+
+**And it would measure the wrong thing.** The override is applied AFTER the
+`LocalMediaServer` proxy step, so the player receives a plain MP4 with real
+asset tracks — `MTAudioProcessingTap` attaches, and the PULL path that tvOS
+actually ships never runs. The number would describe the tap on a television,
+which is an architecture this app does not use there (§9.tttt).
+
+So the television's measurement needs the stimulus to travel the route a film
+travels: served through `LocalMediaServer` as HLS, so the segment route and the
+puller are the things under test. That is the same piece of work the macOS
+stimulus needed and did not get, and it is the honest price of a tvOS figure.
+
+Recorded rather than attempted, because a confounded measurement of the wrong
+path is worse than none — and this feature has spent a day learning what an
+unrepresentative number costs.
+
 ### §9.rrrr THE TELEVISION'S AUDIO IS 75 SECONDS AHEAD OF ITS PICTURE (2026-09-18)
 
 §9.qqqq closed the drift question and said in as many words that equal stream
