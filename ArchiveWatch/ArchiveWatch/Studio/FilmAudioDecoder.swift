@@ -174,6 +174,28 @@ final class FilmAudioDecoder: @unchecked Sendable {
 
     // MARK: - Decoding
 
+    /// TWO ASSUMPTIONS REMAIN HERE, and they have the same failure signature as
+    /// the stereo one that silenced every mono film (§9.jjjjj):
+    ///
+    ///   `mFormatID: kAudioFormatMPEG4AAC`  — the track might not be AAC.
+    ///   `mFramesPerPacket: 1024`           — AAC-LC; HE-AAC packs 2048.
+    ///
+    /// The tee forwards frames from any track whose handler is "soun", codec
+    /// unexamined, and an archive.org catalogue is not uniform — MP3 inside an
+    /// MP4 is common in older uploads. Feed either to this converter and every
+    /// packet fails with OSStatus 1650549857 ('bada'), the film broadcasts
+    /// silence, and the readout looks healthy.
+    ///
+    /// NOT FIXED HERE, because no such film has been found to test against and
+    /// unverified codec plumbing is how the mono bug got written in the first
+    /// place. What IS in place is the way to recognise it in one line rather
+    /// than five hypotheses:
+    ///
+    ///     AWAUDIOTEE frames=<large> decoded=0 pcm=0 err=...1650549857
+    ///
+    /// frames climbing with decoded stuck at zero means the decoder is being
+    /// handed something it was not built for. The server knows the codec from
+    /// the sample entry; threading it through is the fix when a film needs it.
     private func makeConverter(rate: Double) -> Bool {
         var asbd = AudioStreamBasicDescription(
             mSampleRate: rate, mFormatID: kAudioFormatMPEG4AAC, mFormatFlags: 0,
