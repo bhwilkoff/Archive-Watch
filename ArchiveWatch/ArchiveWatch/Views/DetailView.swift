@@ -799,7 +799,30 @@ struct PlayerScreen: View {
                 // (§9.nnnn), and it supplies samples only — the engine's show
                 // clock still stamps every track (§9.qq).
                 let bed = engine.filmAudioBed
+                // AW_STUDIO_PCM_DUMP=1 — write the DECODER'S OWN OUTPUT to a
+                // file, before the mixer, the encoder or RTMP can touch it.
+                //
+                // This is a bisect, not a hypothesis. Measured 2026-09-19: our
+                // broadcast correlates 0.139 with the source film where the
+                // correlator scores 1.000 against itself and 0.002 on
+                // unrelated content — so the film audio is being degraded
+                // somewhere in OUR pipeline, and eight candidates have already
+                // been eliminated. Correlating this file against the film says
+                // which HALF the fault is in: if the decoder's output already
+                // fails, it is decode/pull; if it matches, it is downstream.
+                let pcmDump: FileHandle? = {
+                    guard ProcessInfo.processInfo.environment["AW_STUDIO_PCM_DUMP"] == "1",
+                          let dir = FileManager.default.urls(for: .cachesDirectory,
+                                                             in: .userDomainMask).first
+                    else { return nil }
+                    let url = dir.appendingPathComponent("filmpcm.raw")
+                    try? Data().write(to: url)
+                    return try? FileHandle(forWritingTo: url)
+                }()
                 let decoder = FilmAudioDecoder { samples, count in
+                    if let pcmDump {
+                        pcmDump.write(Data(bytes: samples, count: count * MemoryLayout<Float>.size))
+                    }
                     bed.acceptExternalPCM(samples, count: count)
                 }
                 studioFilmAudioDecoder = decoder

@@ -95,7 +95,31 @@ final class AudioRing: @unchecked Sendable {
     func read(into out: UnsafeMutablePointer<Float>, count: Int) -> Int {
         lock.lock()
         let have = min(available, count)
-        let start = ((writeIndex - have) % capacity + capacity) % capacity
+        // THE OLDEST UNREAD SAMPLE, NOT THE NEWEST.
+        //
+        // This was `writeIndex - have`, which is the newest `have` samples —
+        // a LIFO read out of a FIFO ring, with no read index at all. Whenever
+        // more was buffered than the mixer asked for (the normal case: 120-300
+        // ms sitting in the ring against ~20 ms reads), every read returned
+        // the most recent chunk and silently skipped everything behind it,
+        // while `available -= have` kept FIFO books over it.
+        //
+        // What went to air was therefore real film audio, at the right film
+        // position, at the right level, with the right spectrum, no
+        // discontinuities, no overflow and no padding — and fragmented beyond
+        // recognition. Measured 2026-09-19: the broadcast correlated 0.139
+        // with the source film where the correlator scores 1.000 against
+        // itself, while the DECODER's own output one stage upstream scored
+        // 0.993-0.997 with its position advancing exactly in step. That bisect
+        // is what pinned it here. Owner: "every single snippet of audio is
+        // being digitally re-rendered slower and with huge digital garbage
+        // being inserted in between."
+        //
+        // `writeIndex - available` is self-consistent across reads: after
+        // reading `have`, `available` drops by the same amount, so the next
+        // read starts exactly where this one stopped, wherever the writer has
+        // got to meanwhile.
+        let start = ((writeIndex - available) % capacity + capacity) % capacity
         for i in 0..<have { out[i] = buffer[(start + i) % capacity] }
         for i in have..<count { out[i] = 0 }
         available -= have
