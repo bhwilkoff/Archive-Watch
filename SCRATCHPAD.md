@@ -240,6 +240,40 @@ emulators) · `docs/CAPTIONS.md` · `docs/SHAREPLAY.md` ·
    they need no bench destination, only a screenshot of the DEBUG readout, so
    they are a two-minute job whenever the televisions are awake.
 
+10-NEW. **TWO TELEVISION BOXES OFFER A BROADCAST THEY CANNOT PROPERLY MAKE**
+   (found 2026-09-20 while writing Decision 131's table, by grep rather than by
+   reasoning). Both are owner content/product calls, not obvious bugs:
+   (a) **Google TV** — `TvDetailScreen.kt:575` presents `StudioGoLiveDialog`
+   with no television check and no camera check. These boxes have no camera and
+   no microphone, and the render measurement is 37.4 ms a frame against a
+   33.3 ms budget on a dongle with **no hardware H.264 encoder at all** (~13 fps).
+   So a host is offered a broadcast with no camera, no voice and a poor frame
+   rate. Either gate the entry, or keep it as an explicitly FILM-ONLY broadcast
+   and say so on the dialog.
+   (b) **Fire TV** — Decision 129 called the Studio a Google-flavour feature;
+   that is true only of the CAMERA. `CAMERA`/`RECORD_AUDIO` are in
+   `src/google/AndroidManifest.xml`, but all 18 Studio sources are in
+   `src/main/`, so the `amazon` build ships the engine, the publisher and the
+   dialog — film-only, untested, undocumented. Same two options.
+
+11-NEW. **"WITH FRIENDS AND THE WORLD" IS FEASIBLE AND UNBUILT** (macOS only).
+   The owner's own proposal — people use the calling service they already have
+   (Zoom, Meet, FaceTime, a phone call), the app owns only playing, syncing and
+   streaming — removes the guest-voice transport entirely, and with it the
+   relay, the NAT traversal and the running cost that made every previous
+   design fail the $0 constraint. **Measured, not assumed** (§8.21): a macOS
+   host can capture a NAMED application's audio via
+   `AudioHardwareCreateProcessTap` (macOS 14.2+), and the tap EXCLUDES every
+   other process at 82 dB — which is what stops the film being captured twice
+   and fed back into its own broadcast. `API_UNAVAILABLE(ios, watchos, tvos)`,
+   so the HOST must be a Mac; everyone else watches on anything, which is the
+   gating the owner already said was acceptable. What is NOT built: the
+   cross-platform playback sync (SharePlay is Apple-only, so this needs our own
+   — low-frequency, ~2,900 messages for a four-person two-hour film, which fits
+   the existing free Worker), the host's picker for WHICH app to tap, and one
+   more mixer input. What is NOT known: what TCC prompt a signed, bundled app
+   raises, since §8.21 ran as a command-line tool under the terminal's grants.
+
 9. **Fireplace TV is off limits for testing** (owner 2026-09-17, mid-run: "I'm
    actively watching on it now"). Bedroom and Movie Room are fine — but both
    are Apple TV 4K **3rd** gen, and Fireplace is the only **2nd** gen, i.e.

@@ -209,6 +209,7 @@ into every session and the index alone carries every title.)
 - 128 — A public client gets the flow each platform actually offers, not the one we prefer; and a missing credential is a STATE
 - 129 — Android runs the SAME Studio with GLES in Core Image's place, and the host sees the PROGRAM because `setVideoSurface` is exclusive
 - 130 — A runtime rule is proved on the PRODUCT path or it is not proved; a skip is not a pass, and the instrument is the first suspect
+- 131 — Watch Together is THREE named things, each gated by hardware rather than by effort; a device says which it can do and why not the others
 
 ---
 
@@ -673,3 +674,61 @@ and Android, including §6.6's backoff read off a real run as 1/2/4/8/15/15/15 s
 summing to its 60-second deadline. The suite is the mechanical form of this
 decision; `--strict` makes a skip a failure. Owner-gated items are listed in
 SCRATCHPAD rather than absorbed into "done".
+
+## 131 — Watch Together is THREE named things, each gated by hardware rather than by effort; a device says which it can do and why not the others
+*Date: 2026-09-20*
+
+"Watch Together" names three features, and the names are binding: **With
+Friends** (a SharePlay call with the film in sync), **With the World** (a
+YouTube/Twitch broadcast with one camera and microphone), and **With Friends
+and the World** (the film synced across Archive Watch instances while the
+conversation runs on whatever calling service the participants already use —
+Zoom, Meet, FaceTime, a phone call — captured by the host and mixed into the
+broadcast). Which of the three a platform offers is decided by what the
+hardware and the OS permit, and the canonical table is in `PARITY.md`
+("What Watch Together MEANS on each platform"). **Every surface must state
+which of the three THIS device can do, and why it cannot do the others** —
+never a silently missing button.
+
+**Why**: the owner asked for the boundaries in plain terms, and writing them
+down showed that the question is not "how much have we built" but "what can
+this device physically do". tvOS cannot START a SharePlay call because
+`GroupActivitySharingController` does not exist there. A browser cannot speak
+RTMP. Android has no GroupActivities equivalent, so half a verb is not a verb
+(Decision 129). And only macOS can host the third mode, because
+`AudioHardwareCreateProcessTap` is `API_UNAVAILABLE(ios, watchos, tvos)` —
+which is what makes the owner's own proposal work at all, since a host who can
+tap the call app means the APP never carries voice, and therefore needs no
+relay, no NAT traversal and no running cost (SHAREPLAY §10; measured at §8.21,
+82 dB of isolation between the tapped process and a second one playing at the
+same time).
+
+**And the third mode is the one that dissolves a problem rather than solving
+it.** Several sessions went into a transport for guest voice — SharePlay is
+Apple-only, a relay costs money, and the owner's constraint is that this app
+costs $0 to run. Letting people use the call they already have removes the
+transport entirely; what remains is sync, which is one or two orders of
+magnitude cheaper than voice.
+
+**How to apply**: when adding a Watch Together surface, first find the row in
+PARITY's table — if the platform is 🚫 there, the answer is a sentence on the
+screen, not an implementation. Do not invent a fourth phrase for one of the
+three, and never call the third "multi-cam" or "group broadcast": it is the
+second one with the first one's people in it. When a platform CANNOT do
+something, treat that as a state with words, per Decision 128 — the four
+defects found in the unconfigured sign-in state were all the same mistake,
+an absence written where a screen was needed.
+
+**Consequences, and a correction to Decision 129.** 129 says the Android
+Studio is a **Google-flavour** feature. That is true only of the camera and
+microphone: `CAMERA` and `RECORD_AUDIO` are declared in
+`src/google/AndroidManifest.xml`, but all 18 Studio sources live in
+`src/main/`, so the **Fire TV (`amazon`) build ships the engine, the publisher
+and the Go Live dialog** — film-only, untested and undocumented. Separately,
+`TvDetailScreen.kt:575` presents the Go Live dialog on **Google TV** with no
+television check and no camera check, on boxes that have no camera and that
+measured 37.4 ms a frame against a 33.3 ms budget with no hardware H.264
+encoder at all. Both are OWNER decisions rather than obvious bugs — a
+film-only broadcast from a television may be something to keep and describe
+honestly, or an entry to gate — and both are listed in SCRATCHPAD rather than
+quietly closed.

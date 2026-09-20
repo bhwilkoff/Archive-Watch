@@ -170,6 +170,14 @@ swift_case "8.18 voice frame slices" ArchiveWatch/ArchiveWatch/Studio/StudioVoic
 # codec calls no awdiag.
 swift_case "8.19 guest voice codec" ArchiveWatch/ArchiveWatch/Studio/StudioVoiceCodec.swift tools/test_studio_voicecodec.swift
 swift_case "8.20 guest voice room" ArchiveWatch/ArchiveWatch/Studio/StudioVoiceCodec.swift ArchiveWatch/ArchiveWatch/Studio/StudioVoiceRoom.swift tools/test_studio_voiceroom.swift
+# SHAREPLAY §10: the owner's own answer to the transport problem — let people
+# use the call service they already have, and tap it. Plays two tones from two
+# processes and requires the untapped one to be ABSENT, because a tap that
+# caught the film as well would feed the broadcast back into itself.
+# macOS only, and no $SHIM: this touches Core Audio and nothing of ours.
+if [ "$(uname)" = "Darwin" ]; then
+  swift_case "8.21 per-process audio tap" tools/test_studio_processtap.swift
+fi
 
 # The two credential-facing harnesses. Neither was in this runner, which is
 # precisely the condition §9.aaa describes: a test that exists and therefore

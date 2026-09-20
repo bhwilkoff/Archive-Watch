@@ -490,11 +490,45 @@ plus a heartbeat every ten seconds is ~2,900 messages for a four-person
 two-hour film, against a free 100,000 a day. That is thirty-odd parties a day
 on the Worker that already exists, rather than 1.4 (§9).
 
-**WHAT IS NOT YET KNOWN**, and should be measured before this is promised:
-whether the tap can read FaceTime specifically — system apps may be protected
-where Zoom and a browser are not — and what permission prompt it raises
-(system audio capture is TCC-gated on macOS). Neither changes the shape; both
-change what the host is told.
+**AND IT IS MEASURED, not inferred** (§8.21, `tools/test_studio_processtap.swift`,
+2026-09-20 on the dev Mac). Core Audio lists 35 audio processes, 25 of them
+named by bundle id, and the call services the owner asked about are simply
+THERE: `com.apple.avconferenced` (FaceTime), `com.google.Chrome` (which is
+where Google Meet runs), `com.tinyspeck.slackmacgap`. A tap on a running
+process delivers real PCM — 193,536 frames in four seconds, 48 kHz stereo.
+
+**The control is the part that matters.** A tap that also caught the FILM
+would put the film into the broadcast twice and feed it back into itself, so
+the question is not whether we can hear the call but whether we hear ONLY the
+call. Two processes played two tones at once, 440 Hz tapped and 1000 Hz not:
+
+| | magnitude |
+|---|---|
+| 440 Hz — the tapped process | 0.183038 |
+| 1000 Hz — a second process playing simultaneously | 0.000015 |
+| isolation | **12,052:1 = 82 dB** (72-82 dB across four runs) |
+
+The untapped process is inaudible. The design is safe, not merely possible.
+
+The case runs under the suite's `-parse-as-library`, which is why it carries a
+`@main` rather than top-level code — it compiled standalone and FAILED inside
+the runner, which is the §9.lllll shape all over again: a harness that only
+ever ran by hand.
+
+**A HARNESS FAULT WORTH KEEPING**, because it is the same family as every
+other one in this project: the first capture run reported `peak=0.0000` over
+four full seconds and would have been written down as "macOS returns silence,
+probably TCC". It was not. The probe played a SHORT sound in a shell loop, so
+each `afplay` exited and the next got a new pid — the tap was on a process
+that had already died, and a dead process is silent in exactly the way a
+permission wall is. A twelve-second continuous tone captured immediately. The
+instrument is always the first suspect (Decision 130).
+
+**WHAT IS STILL NOT KNOWN**: what permission prompt a SHIPPING app raises.
+This probe ran as a command-line tool, so TCC attributed it to the terminal,
+which already carries the grants. A bundled, signed Archive Watch may show the
+host a system prompt the first time — that changes what the host is TOLD, not
+whether the design works, and it is measured when the call site exists.
 
 **AND WHAT IT GIVES UP, honestly**: the audience hears the conversation, and
 the guests hear each other, but the guests' VOICES are not separable inside
