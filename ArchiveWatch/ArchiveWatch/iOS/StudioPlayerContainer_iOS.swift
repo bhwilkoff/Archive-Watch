@@ -196,6 +196,9 @@ struct StudioPlayerContainer: View {
             lastFilmFrames = h.filmFramesPulled
             cameraFPS = max(0, h.cameraFramesReceived - lastCameraFrames)
             lastCameraFrames = h.cameraFramesReceived
+            // §4's provenance line, which iOS showed for the whole broadcast
+            // because the rule lived only in tvOS's own loop.
+            _ = await e.expireProvenanceIfDue()
             health = h
 
             // A show that ENDS ITSELF says why (§6.5's `.critical`, §6.6's

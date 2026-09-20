@@ -349,6 +349,9 @@ public final class StudioSession {
                 await engine.refreshHealth()
                 let h = await engine.health
                 self.filmFramesPerSecond = max(0, h.filmFramesPulled - lastFilmFrames)
+                // §4's provenance line — macOS never had the 20-second rule
+                // either; it lived in tvOS's view loop alone.
+                _ = await engine.expireProvenanceIfDue()
                 self.cameraFramesPerSecond = max(0, h.cameraFramesReceived - lastCameraFrames)
                 lastCameraFrames = h.cameraFramesReceived
                 lastFilmFrames = h.filmFramesPulled

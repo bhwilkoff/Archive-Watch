@@ -99,6 +99,10 @@ object StudioController {
     private var mic: StudioMicAudio? = null
     /** Kept so the microphone can be opened once the film's rate is known. */
     private var showContext: android.content.Context? = null
+    /// Kept so a replacement lower third is rendered at the same size as the
+    /// original — a mismatched bitmap would letterbox the caption.
+    private var overlayW = 1280
+    private var overlayH = 720
 
     // The host's camera and microphone report through `health.hostFault` and
     // `health.cameraFramesDelivered`, NOT through accessors here. An accessor
@@ -211,6 +215,7 @@ object StudioController {
         launchEngine(e, scope, overlayWidth, overlayHeight,
                      benchDest, if (benchDest != null) benchKey else "")
         showContext = context
+        overlayW = overlayWidth; overlayH = overlayHeight
         openHost(e, context)
         isLive = true
     }
@@ -308,8 +313,26 @@ object StudioController {
      * both surfaces and the GL context stayed alive and `isLive` stayed true.
      * The host would see a frozen program and no way back.
      */
+    /// §4: the provenance line lasts 20 SECONDS of being live, and the clock
+    /// starts at LIVE rather than at start — §9.tt measured ~12 s between
+    /// starting and the first published packet, so a timer from start spends
+    /// most of its window before anyone can see it. A badge that never leaves
+    /// is branding, not provenance.
+    private var liveSinceMs = 0L
+    private var provenanceCleared = false
+
     suspend fun pollHealth() {
         val e = engine ?: return
+        if (!provenanceCleared && armedProvenance != null) {
+            if (e.health.showState == "LIVE") {
+                if (liveSinceMs == 0L) liveSinceMs = System.currentTimeMillis()
+                else if (System.currentTimeMillis() - liveSinceMs >= 20_000) {
+                    provenanceCleared = true
+                    e.pendingOverlay = StudioOverlayBitmap.lowerThird(
+                        overlayW, overlayH, armedTitle, armedSubtitle, null)
+                }
+            }
+        }
         // The microphone waits for the film to say what rate it runs at, and
         // that is not known until the first buffer arrives. This is the retry.
         openMicrophoneIfReady()

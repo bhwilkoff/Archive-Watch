@@ -446,6 +446,46 @@ public actor StudioEngine {
     public func setLayout(_ l: StudioLayout) { layout = l; renderer.layout = l }
     public func setOverlay(_ o: StudioOverlay) { overlay = o; renderer.overlay = o }
 
+    /// THE PROVENANCE LINE LASTS 20 SECONDS, and the ENGINE enforces it.
+    ///
+    /// It was implemented in tvOS's `DetailView` health loop alone, so iOS
+    /// showed it for the whole broadcast. Owner, 2026-09-20: *"the provenance
+    /// line doesn't disappear after 20 seconds on the iOS live stream."*
+    /// macOS never had it either. A rule living in one platform's view loop is
+    /// a rule the other platforms do not have — the same shape as §6.3's idle
+    /// timer and §6.2's audio session, which Decision 130 was written about.
+    /// Here it is in the one place every platform already runs.
+    ///
+    /// THE CLOCK STARTS AT `.live`, NOT AT `start()`, and that distinction is
+    /// the owner's: *"you have to know when the stream goes live to know when
+    /// the first 20 seconds will be."* §9.tt measured ~12 s between starting
+    /// and the first published packet — film load, handshake, opening
+    /// keyframe — so a timer from `start` spends most of its window before
+    /// anybody can see it, and a viewer joining at the top of the stream gets
+    /// four seconds of provenance or none.
+    ///
+    /// A badge that never leaves is branding, not provenance.
+    private var provenanceLiveSince: Date?
+    private var provenanceCleared = false
+
+    /// Call once a second from whatever polls health. Idempotent.
+    @discardableResult
+    public func expireProvenanceIfDue(after seconds: TimeInterval = 20) -> Bool {
+        guard !provenanceCleared, !overlay.provenance.isEmpty else { return false }
+        guard health.showState == .live else { return false }
+        guard let since = provenanceLiveSince else {
+            provenanceLiveSince = Date()
+            return false
+        }
+        guard Date().timeIntervalSince(since) >= seconds else { return false }
+        provenanceCleared = true
+        var later = overlay
+        later.provenance = ""
+        setOverlay(later)
+        awdiag("AWPROV provenance cleared %.0fs after going live", seconds)
+        return true
+    }
+
     // MARK: - Chat the program CARRIES
 
     private var twitchChat: StudioChatTwitch?

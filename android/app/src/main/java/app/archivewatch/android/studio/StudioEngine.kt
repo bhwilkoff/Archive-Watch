@@ -169,6 +169,20 @@ class StudioEngine(
     private var loop: Job? = null
     private var twitchChat: StudioChatTwitch? = null
     private var overlayForChat: ((List<ChatLine>) -> android.graphics.Bitmap)? = null
+
+    /**
+     * Replace the lower third mid-show. The overlay is a pre-rendered BITMAP
+     * here rather than Apple's struct, so "changing a line" means handing over
+     * a new one — which is exactly what the chat path already does.
+     *
+     * Added for §4's 20-second provenance rule: that rule lived in tvOS's own
+     * view loop, so iOS showed the line for whole broadcasts, and macOS and
+     * Android never cleared it at all. Owner, 2026-09-20: *"the provenance
+     * line doesn't disappear after 20 seconds on the iOS live stream. Can you
+     * make sure it disappears like it does for Apple TV on all of the other
+     * platforms?"*
+     */
+    @Volatile var pendingOverlay: android.graphics.Bitmap? = null
     private var chatIdsDrawn: List<String> = emptyList()
 
     private val running = AtomicBoolean(false)
@@ -515,6 +529,10 @@ class StudioEngine(
                 // which is the only thread allowed to touch GL.
                 val chatAt = System.nanoTime()
                 val chat = twitchChat
+                // A replacement lower third, if the surface handed one over
+                // (§4's provenance expiry). Checked before chat so a chat
+                // re-render cannot resurrect a line we just retired.
+                pendingOverlay?.let { pg.setOverlayBitmap(it); pendingOverlay = null }
                 val factory = overlayForChat
                 if (chat != null && factory != null) {
                     val tail = chat.snapshot().takeLast(8)
