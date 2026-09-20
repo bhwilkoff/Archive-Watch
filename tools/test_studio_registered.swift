@@ -98,12 +98,35 @@ struct RegisteredClientHarness {
         print()
         if failures.isEmpty {
             print("ALL CHECKS PASSED — the registrations accept our real requests.")
-            // A partial run must not read as a full one.
-            if yt == nil || tw == nil || ytTV == nil {
-                print("(something was not configured and was NOT asserted:"
+            // A partial run must not read as a full one — but only the
+            // credentials the product actually NEEDS can make it partial.
+            //
+            // `YOUTUBE_TV_CLIENT_ID` is NOT one of them, and demanding it made
+            // this whole case report SKIP on the owner's own machine while
+            // seventeen assertions passed against live Google and Twitch
+            // endpoints. SCRATCHPAD item 7(a3) WITHDREW that requirement on
+            // 2026-09-18, the day it was raised: a second Google client of
+            // type "TVs and Limited Input devices" was reasoning from Google's
+            // documentation rather than a measurement, and the measurement
+            // says otherwise — `ASWebAuthenticationSession` on tvOS presents
+            // Apple's own hand-off ("You will get a notification on a nearby
+            // iPhone or iPad"), so the phone does the Google sign-in and the
+            // token lands on the TELEVISION. Proved end to end on Ben Bedroom
+            // with the EXISTING client id.
+            //
+            // The device flow stays as a fallback for a platform with no such
+            // hand-off (Android TV, unbuilt), so its absence is a NOTE about
+            // work not yet started, not a gap in this one.
+            if ytTV == nil {
+                print("note: YOUTUBE_TV_CLIENT_ID is absent, and is not required —")
+                print("      tvOS signs in through Apple's hand-off on the existing")
+                print("      client (SCRATCHPAD 7a3, withdrawn 2026-09-18). The device")
+                print("      flow is a fallback for Android TV, which is unbuilt.")
+            }
+            if yt == nil || tw == nil {
+                print("(something the product NEEDS was not configured and was NOT asserted:"
                       + (yt == nil ? " YOUTUBE_CLIENT_ID" : "")
-                      + (tw == nil ? " TWITCH_CLIENT_ID" : "")
-                      + (ytTV == nil ? " YOUTUBE_TV_CLIENT_ID" : "") + ")")
+                      + (tw == nil ? " TWITCH_CLIENT_ID" : "") + ")")
                 exit(2)
             }
             exit(0)
