@@ -1604,6 +1604,61 @@ against a synthetic line.
 
 ## §9 — Measurements (filled in as they are taken)
 
+### §9.ttttt RESOLVED: a stale listener on the proxy's port, and a readiness probe that could not tell a proxy from a server (2026-09-20)
+
+**§6.4 on Android is proven after all**, and §9.sssss's open question has a
+one-line answer: **something else was holding the throttle proxy's port.**
+
+With port 19360 free, the case passes and its numbers are exactly what §6.4
+promises:
+
+    cap 474 kB, peak queued 483 kB, drops before=0 during=127 end=153,
+    audio delivered=515 of 515 offered
+    phase: open -> throttled -> recovered
+
+Video yields only under congestion, audio never drops, and the queue reaches
+the cap. Nothing about the publisher was wrong.
+
+**What made it invisible.** The test waited on `up(mtxHost, proxyPort)` — a
+bare TCP connect — which cannot distinguish THIS proxy from anything else that
+accepts a connection. A stale listener held 19360, so the proxy could not
+bind, the publisher connected straight through to mediamtx, and the case
+reported *"the queue never approached the cap"*: a true statement about a run
+with no throttle in it.
+
+**Three hypotheses were chased before the evidence was even looked at**, and
+all three were wrong: machine load (refuted by the offered-rate instrument —
+2451 kbps against a 400 kbps drain), a broken proxy (refuted by running it
+standalone against ffmpeg, where it held 2400 kbps down to 1470), and the
+kernel's loopback socket buffer (measured at 826 kB, real but not the cause).
+
+**The evidence was there the whole time and the harness was throwing it
+away.** The proxy announces `accept from ...`, `conn 1: open` and
+`phase: open | throttled | recovered`, and the test started it with
+`.redirectErrorStream(true)` and never read a word. Its log, once captured,
+contained nothing but the banner — which said immediately that no publisher
+had ever reached it. That is `harness_awdiag.swift`'s rule again: *a harness
+that hides the diagnostics of the code under test is throwing away the
+evidence it was run to collect.*
+
+**Three fixes, so it cannot recur:**
+
+- The test now waits for **its own proxy's banner** in the proxy's output, not
+  for a TCP handshake, and skips with a message naming the port and quoting
+  what the proxy actually said when the banner never comes. A TCP handshake is
+  proof of nothing; the banner is proof the port is ours.
+- The proxy's output is **captured and printed**, so the next failure explains
+  itself.
+- `destroyForcibly()` is now followed by `waitFor`, because it returns the
+  Process rather than a dead one — a proxy that outlives its test holds the
+  port for the next run, which is how the stale listener got there.
+- The proxy logs at **accept** time, so a connection that arrives and sends
+  nothing, and one that never arrives, stop looking identical.
+
+**And the two corrections in §9.sssss stand**: those three "passing" runs
+skipped for want of mediamtx, and the case was never flaky. It failed
+deterministically, for a reason no amount of re-running would have shown.
+
 ### §9.sssss Android's §6.4 back-pressure is NOT currently demonstrated, and two things I said about it an hour earlier were wrong (2026-09-20)
 
 §9.rrrrr left `RtmpBackPressureTest` failing and called it *"flaky under

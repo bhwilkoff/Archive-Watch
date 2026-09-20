@@ -60,18 +60,52 @@ class RtmpBackPressureTest {
         assumeTrue("no throttle proxy script under any parent of ${File("").absolutePath} — skipping",
                    proxyScript != null)
 
+        // KEEP THE PROXY'S OWN WORDS. This discarded them, and the proxy is
+        // the only witness to whether the throttle it was started for actually
+        // engaged — it announces `phase: open | throttled | recovered`. When
+        // this case failed on 2026-09-20 with a queue that never filled, the
+        // first three hypotheses (machine load, the proxy not throttling, the
+        // kernel socket buffer) were all guesses that its output would have
+        // settled immediately. A harness that throws away its instrument's
+        // output is throwing away the evidence it was run to collect — the
+        // same rule `tools/harness_awdiag.swift` carries for `awdiag`.
+        val proxyLog = File.createTempFile("aw-proxy", ".log")
         val proxy = ProcessBuilder(
             "/usr/bin/python3", proxyScript!!.absolutePath,
             proxyPort.toString(), mtxPort.toString(),
             openSeconds.toString(), throttleBps.toString(), throttleSeconds.toString())
-            .redirectErrorStream(true).start()
+            .redirectErrorStream(true).redirectOutput(proxyLog).start()
         try {
             // The proxy counts only connections that SEND bytes, so this
             // readiness poll cannot be mistaken for the publisher — a probe
             // absorbing the event it was meant to observe cost a whole run of
             // the Swift harness.
+            // WAIT FOR OUR OWN PROXY TO SAY SO, not for "something answers".
+            //
+            // This used to poll `up(mtxHost, proxyPort)` — a bare TCP connect —
+            // and that cannot tell this proxy from ANYTHING else holding the
+            // port. On 2026-09-20 a stale listener had it, so the proxy could
+            // not bind, the publisher connected straight through to mediamtx,
+            // nothing was ever throttled, and the case failed reporting "the
+            // queue never approached the cap" — a true statement about a run
+            // that had no throttle in it. Three hypotheses (machine load, a
+            // broken proxy, the kernel socket buffer) were chased before the
+            // proxy's own log — which the test was discarding — showed it had
+            // never accepted a publisher at all.
+            //
+            // The proxy announces itself on the first line of its output. That
+            // banner is proof the port is OURS; a TCP handshake is proof of
+            // nothing.
             val deadline = System.currentTimeMillis() + 5_000
-            while (!up(mtxHost, proxyPort) && System.currentTimeMillis() < deadline) Thread.sleep(100)
+            while (System.currentTimeMillis() < deadline &&
+                   !proxyLog.readText().contains("throttle-proxy")) Thread.sleep(100)
+            val banner = proxyLog.readText()
+            assumeTrue(
+                "the throttle proxy never announced itself on $mtxHost:$proxyPort — " +
+                "something else is almost certainly holding that port, in which case " +
+                "the publisher would reach the server unthrottled and this case would " +
+                "measure nothing. Its output was: ${banner.ifBlank { "<empty>" }}",
+                banner.contains("throttle-proxy"))
             assumeTrue("proxy never listened — skipping", up(mtxHost, proxyPort))
 
             val p = RtmpPublisher()
@@ -170,6 +204,10 @@ class RtmpBackPressureTest {
                     "drops before=$dropsBeforeThrottle during=$dropsDuring end=$dropsAtEnd, " +
                     "audio delivered=$audioSent of ${i} offered, thinnest harness second=$worstAudioSecond")
 
+            println("--- the proxy's own account ---")
+            proxyLog.readLines().forEach { println("    $it") }
+            println("-------------------------------")
+
             // COULD THIS RUN CONGEST AT ALL? If not, it is a SKIP.
             //
             // Congestion exists only while the producer offers faster than the
@@ -224,7 +262,13 @@ class RtmpBackPressureTest {
                        "the host's voice is the one thing §6.4 promises against",
                        worstAudioSecond > 0)
         } finally {
+            // AND WAIT FOR IT TO ACTUALLY GO. `destroyForcibly` returns the
+            // Process, not a dead one — and a proxy that outlives its test
+            // holds the port for the NEXT run, which is exactly the failure
+            // above. Waiting is what makes the cleanup true rather than
+            // requested.
             proxy.destroyForcibly()
+            proxy.waitFor(5, java.util.concurrent.TimeUnit.SECONDS)
         }
     }
 }

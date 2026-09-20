@@ -113,11 +113,22 @@ def pump_plain(src, dst):
 
 def serve(client):
     global started, counted
+    # LOG THE ACCEPT, not just the publish. A connection that arrives and sends
+    # nothing is invisible otherwise, and so is one that never arrives — which
+    # made a failing back-pressure run on 2026-09-20 indistinguishable between
+    # "the publisher went somewhere else" and "the proxy dropped it".
+    try:
+        peer = client.getpeername()
+    except Exception:
+        peer = "?"
+    print(f"accept from {peer}", flush=True)
     try:
         first = client.recv(65536)
     except Exception:
+        print(f"accept from {peer}: recv failed", flush=True)
         client.close(); return
     if not first:
+        print(f"accept from {peer}: sent nothing (a readiness probe)", flush=True)
         client.close(); return          # a readiness probe, not a publisher
     with lock:
         counted += 1
