@@ -396,3 +396,40 @@ rather than a new idea.*
   frames — **never `MediaProjection`** — so the `mediaProjection` type is
   wrong here and asking for it would be asking to screen-record the user's
   device (`WATCH-TOGETHER` §3.3 is absolute on this).
+- **§9.12 The mix is TWO CHANNELS on a 0–10 scale, and auto-duck is a
+  CONTROL.** The same rule as every other platform — tvOS-DESIGN Rule 8.8c,
+  iOS-DESIGN §8.8c, macOS-DESIGN §B13h — because it is a statement about
+  people rather than about a platform. Owner, 2026-09-20: *"a scale of 0 to 10
+  rather than ... decibles that most people won't understand."*
+  **8 is unity**, the source's own level and the default, so a host who never
+  opens the panel is already there; 0–8 cuts 5 dB a step to silence and 8–10
+  boosts 3 dB a step to +6. `MixLevel` in `studio/StudioAudioMix.kt` is the
+  one conversion. **`Slider` is the native control here** — as it is on iOS
+  and macOS, and unlike tvOS where it does not exist — so only the SCALE and
+  the readout are ours. **The meter reads on the fader's own scale, never
+  linearly**: a linear 0–1 meter draws 2% for speech at RMS 0.02 and that is
+  how a working microphone reads as a broken one. **Auto-duck is a switch**,
+  because otherwise the fader lies — a host who sets Film to 9 and then
+  speaks hears it drop 12 dB anyway and reasonably concludes the control is
+  broken. The microphone channel and the switch appear only when a voice
+  EXISTS; a television says so in words instead (§8.8's rule that an absent
+  camera is normal, applied to the panel).
+- **§9.13 The voice is mixed INTO the film's buffers; it never drives the
+  clock.** `StudioFilmAudioTap` is the timeline. When a film buffer arrives
+  the microphone's accumulated samples are added to it in place and the same
+  samples with the same timestamps go to the encoder. A mixer pulling both
+  sources on its own cadence would be a SECOND clock, and §9.8 is what a
+  second clock already cost this platform once. Consequences that follow from
+  it, and are not negotiable: the microphone records at the FILM's sample
+  rate (mixing is sample-for-sample, so a mismatch pitch-shifts the host, and
+  a device that will not do that rate is refused with a sentence rather than
+  opened at another); the capture ring is **FIFO** and bounded at **120 ms**,
+  because a live voice that arrives late is worse than one with a gap; and
+  the sum **CLIPS** rather than wrapping, since an overflowed Int16 flips sign
+  and that is a crack on every peak which would be blamed on the encoder.
+- **§9.14 `VOICE_COMMUNICATION`, not `MIC`.** On a phone the film plays out of
+  the same speakers the microphone is listening to, so a raw `MIC` source
+  feeds the film back into the broadcast on top of itself — an echo that gets
+  worse with every duck. `VOICE_COMMUNICATION` is the source Android documents
+  as carrying acoustic echo cancellation and noise suppression, which is
+  exactly this job.

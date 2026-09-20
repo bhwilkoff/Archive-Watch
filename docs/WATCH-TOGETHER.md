@@ -1604,6 +1604,64 @@ against a synthetic line.
 
 ## §9 — Measurements (filled in as they are taken)
 
+### §9.uuuuu Android learns to carry the host — and §9.6 had been a rule with no implementation (2026-09-20)
+
+Owner: *"Yes. Build the Android camera and microphone path."* Built in four
+commits; **none of it has run on hardware**, and that is stated here rather
+than discovered later.
+
+**§9.6 of ANDROID-DESIGN already said how this should work** — *"Camera and
+microphone are asked for AT THE POINT OF GOING LIVE ... and the Studio runs
+without either, saying so, rather than refusing to start"* — and the app
+declared neither permission and had no capture code of any kind. Another rule
+written in a design doc and implemented nowhere, which is the whole substance
+of Decision 130. The implementation matches the rule it was written under; the
+rule simply had nothing behind it for the life of the feature.
+
+**The camera.** `StudioCamera` on **Camera2** — the platform API, so no new
+dependency (Decision 127), and the engine already hands out exactly what it
+wants. Three things are silent when wrong and are handled explicitly: the
+capture size must be one the sensor ADVERTISES (a `SurfaceTexture` accepts any
+`setDefaultBufferSize` and the camera then quietly produces something else;
+`StudioProgramGl` seeds 640x360 at 1080p, which most sensors do not offer), the
+tile's aspect comes from the size actually opened rather than the 4:3 default,
+and a missing permission throws `SecurityException` from `openCamera` where a
+show must instead carry on without a camera.
+
+**The microphone**, and the one design decision that mattered. The obvious
+shape — a mixer pulling film and voice on its own cadence — is the one that
+broke this platform once: §9.qq found the two tracks 19.6 SECONDS apart
+because they were stamped from unrelated clocks. So the microphone drives
+nothing. `StudioFilmAudioTap` stays the timeline, the voice is mixed INTO its
+buffers, and the same samples with the same timestamps reach the encoder. The
+microphone cannot move the clock because it never touches it.
+
+Three consequences follow and are enforced: the capture runs at the FILM's
+rate (a mismatch pitch-shifts the host, and a device that will not do that
+rate is refused with a sentence rather than opened at another — §8.17 is a
+fresh reminder of what a careless resampler does); the ring is FIFO and
+bounded at 120 ms (§9.jjjjj and the owner's *"my words do not match my
+lips"*); and the sum CLIPS rather than wrapping.
+
+**`VOICE_COMMUNICATION`, not `MIC`**, because the film plays out of the same
+speakers the microphone hears and a raw source feeds it back on itself.
+
+**A defect caught in my own work, of the exact kind this document keeps
+recording.** The first version put `cameraProblem` and `micProblem` on the
+controller, where NOTHING read them — the shape that hid a dead capture
+session on Apple for a whole day (§9.kkkkk: every counter healthy,
+`AWCAM frames=0` unread). They are now `StudioHealth.hostFault` and
+`cameraFramesDelivered`, which the readout and panel already draw.
+
+**What is proven and what is not.** `StudioAudioMixTest` is 12 assertions with
+controls over the gains, the duck, the clip and the mutes — auto-duck OFF must
+not duck, a linear meter must look dead where the tapered one does not, an
+unguarded Int16 add must wrap to the wrong SIGN. Those are real. **Camera2
+opening, `AudioRecord` at the film's rate, and the echo cancellation are
+compile-time claims only** — the Pixel's adb pairing is expired and no
+television has a camera or a microphone, so the capture has never executed.
+PARITY says 🚧 for both rows and names exactly that.
+
 ### §9.ttttt RESOLVED: a stale listener on the proxy's port, and a readiness probe that could not tell a proxy from a server (2026-09-20)
 
 **§6.4 on Android is proven after all**, and §9.sssss's open question has a
