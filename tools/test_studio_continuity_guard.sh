@@ -26,10 +26,25 @@ fail=0; pass=0
 
 # The checker, factored so the CONTROL can run it over a deliberately broken
 # copy. A check that cannot fail is not a check.
+# THE GATE MOVED, AND THIS CHECKER DID NOT FOLLOW IT UNTIL 2026-09-20.
+#
+# It asserted `case .connected(_, let hasMic)` — the gate as it was written on
+# 2026-09-18. On 09-19 that gate was found to be WRONG and replaced with a
+# stronger one: `state.hasMicrophone` is computed from a query that can still
+# be nil while the Continuity microphone is arriving, so a session that DID
+# get a microphone input was being left untapped (`inputs=2`, `micFrames=0`,
+# and every broadcast went out with no host audio). The gate is now
+# `continuity.sessionHasMicrophone`, which is set only where the input was
+# ACTUALLY added to the session.
+#
+# So this case failed for a fortnight against better code than it was written
+# for, and nobody saw it because nobody ran the suite — the same shape as the
+# `awdiag` build break in `harness_awdiag.swift`'s header. An instrument that
+# encodes a superseded design reports a regression that is really a fix.
 check_guarded () {          # $1 = file to inspect
     awk '
         /let mic = MicAudioTap\(\)/ { found=1; if (!guarded) bad=1 }
-        /case \.connected\(_, let hasMic\).*hasMic/ { guarded=1 }
+        /if continuity\.sessionHasMicrophone/ { guarded=1 }
         END { if (!found) exit 2; exit (bad ? 1 : 0) }
     ' "$1"
 }
@@ -48,7 +63,7 @@ fi
 echo "== the CONTROL: the same check must FAIL on an unguarded copy =="
 TMP=$(mktemp -t awcont)
 # Strip the guard, keep the attach. This is the code as it crashed.
-sed 's/^.*case \.connected(_, let hasMic).*hasMic.*$/            if true {/' "$DV" > "$TMP"
+sed 's/^.*if continuity\.sessionHasMicrophone.*$/            if true {/' "$DV" > "$TMP"
 if check_guarded "$TMP"; then
     echo "  FAIL  the control PASSED — this check cannot detect the defect"
     fail=$((fail+1))
@@ -58,11 +73,39 @@ fi
 rm -f "$TMP"
 
 echo "== the session adds a microphone input only when a port exists =="
-if grep -q "if microphonePort() != nil," "$SC"; then
-    echo "  PASS  makeSession() gates the microphone input on microphonePort()"; pass=$((pass+1))
+# SAME MOVE, SAME REASON. This asserted `if microphonePort() != nil,` — and
+# 09-19 measured that on tvOS `AVAudioSession.availableInputs` is EMPTY even
+# with a Continuity microphone present and the category raised, while
+# `AVCaptureDevice.default(for: .audio)` is the microphone itself. Gating on
+# the port therefore answered "no microphone" every time. The gate is now the
+# DEVICE, and `sessionHasMicrophone` is set only inside the branch where the
+# input was actually accepted by the session — which is a stronger claim than
+# the one this used to make, because `canAddInput` can still refuse.
+if awk '
+        /if let micDevice/ { gated=1 }
+        /sessionHasMicrophone = true/ { if (gated) set=1 }
+        /session.addInput\(micInput\)/ { if (gated) added=1 }
+        END { exit (gated && set && added) ? 0 : 1 }
+   ' "$SC"; then
+    echo "  PASS  makeSession() adds the mic input only for a real device, and flags it only when accepted"; pass=$((pass+1))
 else
     echo "  FAIL  makeSession() no longer gates the microphone input"; fail=$((fail+1))
 fi
+
+echo "== the CONTROL: the same check must FAIL on an ungated copy =="
+TMP2=$(mktemp -t awcont2)
+sed 's/^.*if let micDevice.*$/        if true {/' "$SC" > "$TMP2"
+if awk '
+        /if let micDevice/ { gated=1 }
+        /sessionHasMicrophone = true/ { if (gated) set=1 }
+        /session.addInput\(micInput\)/ { if (gated) added=1 }
+        END { exit (gated && set && added) ? 0 : 1 }
+   ' "$TMP2"; then
+    echo "  FAIL  the control PASSED — this check cannot detect the defect"; fail=$((fail+1))
+else
+    echo "  PASS  the control fails, so the check can tell the two apart"; pass=$((pass+1))
+fi
+rm -f "$TMP2"
 
 # The tap that outlived its owner (§9.zzzz). `makeTap()` put an UNRETAINED
 # reference in the tap's storage with `finalize: nil`, and the process callback

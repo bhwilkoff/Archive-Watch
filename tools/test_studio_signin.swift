@@ -100,7 +100,28 @@ struct SignInHarness {
         // host re-authorises every hour — the failure would not appear until
         // an hour into a broadcast.
         check("access_type=offline (or there is no refresh token)", v("access_type") == "offline")
-        check("prompt=consent", v("prompt") == "consent")
+        // `prompt` MUST NAME select_account, and this case asserted the
+        // opposite until 2026-09-20.
+        //
+        // It asserted `prompt == "consent"`, which is what the app sent until
+        // 2026-09-18 and is the DEFECT: `consent` re-shows the consent screen
+        // for the account Google has ALREADY chosen and never offers the Brand
+        // Account chooser. The owner's first YouTube broadcast therefore went
+        // to their personal channel, and "sign out and sign in again to pick
+        // another" could not work — a sign-out/sign-in returned the same
+        // channel in 42 seconds. `select_account consent` fixes it.
+        //
+        // So this case has been failing since the day the bug was fixed,
+        // against the fix. Nobody saw it because nobody ran the suite.
+        let prompt = v("prompt") ?? ""
+        check("prompt asks for the account chooser (select_account)",
+              prompt.contains("select_account"), prompt)
+        check("and still forces consent, or there is no refresh token",
+              prompt.contains("consent"), prompt)
+        // CONTROL: the value this used to require must NOT satisfy the check
+        // above, or the check cannot tell the fix from the bug.
+        check("CONTROL: bare \"consent\" would fail the chooser assertion",
+              !"consent".contains("select_account"))
         check("scope is the YouTube scope", v("scope") == "https://www.googleapis.com/auth/youtube")
         // No secret may ever appear in a URL the app builds.
         check("no client_secret anywhere in the URL",

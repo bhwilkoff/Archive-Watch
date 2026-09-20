@@ -54,6 +54,24 @@ struct TokenStoreProbe {
         return out as? [String: Any]
     }
 
+    /// Can THIS process reach the keychain at all? -34018 is
+    /// `errSecMissingEntitlement` and means the answer is no.
+    static func canUseKeychain() -> Bool {
+        let probe: [String: Any] = [
+            kSecClass as String: kSecClassGenericPassword,
+            kSecAttrService as String: "org.archivewatch.studio.entitlement-probe",
+            kSecAttrAccount as String: "probe",
+            kSecValueData as String: Data("x".utf8),
+            kSecUseDataProtectionKeychain as String: true,
+        ]
+        SecItemDelete(probe as CFDictionary)
+        let status = SecItemAdd(probe as CFDictionary, nil)
+        SecItemDelete(probe as CFDictionary)
+        return status == errSecSuccess
+    }
+
+    static var skipped = 0
+
     static func main() {
         print("Watch Together — where the tokens land\n")
 
@@ -68,10 +86,38 @@ struct TokenStoreProbe {
         StudioTokenStore.save(token, for: probe)
 
         let back = StudioTokenStore.load(for: probe)
-        check("save then load round-trips the token", back?.access == "probe-access",
-              back == nil ? "nothing came back" : "wrong value")
-        check("...and the refresh token survives, which is what Twitch cannot re-issue",
-              back?.refresh == "probe-refresh")
+
+        // AN UNENTITLED BINARY CANNOT USE THE KEYCHAIN AT ALL, and that is a
+        // fact about this harness rather than about the product.
+        //
+        // A bare `swiftc` binary has no keychain-access-group entitlement, so
+        // `SecItemAdd` answers `errSecMissingEntitlement` (-34018) and nothing
+        // is ever stored — which then reads as "save then load did not
+        // round-trip", i.e. as a product defect. This case already KNOWS the
+        // difference: the probe below reports exactly that status and the
+        // keychain-CHOICE question is deliberately declared open for the
+        // signed app to answer (§9.rrr). The round-trip must be declared open
+        // on the same evidence, or the suite reports a failure it has already
+        // explained.
+        //
+        // Decision 130: a skip is not a pass, and this is a SKIP. It prints
+        // as one, and the round-trip is still asserted for real whenever the
+        // process CAN reach the keychain — which is where a genuine
+        // regression would show.
+        let entitled = canUseKeychain()
+        if entitled {
+            check("save then load round-trips the token", back?.access == "probe-access",
+                  back == nil ? "nothing came back" : "wrong value")
+            check("...and the refresh token survives, which is what Twitch cannot re-issue",
+                  back?.refresh == "probe-refresh")
+        } else {
+            skipped += 1
+            print("  SKIP  save/load round-trip — this process cannot reach the keychain")
+            print("        (SecItemAdd -> errSecMissingEntitlement; an unentitled")
+            print("         command-line binary has no keychain access group).")
+            print("        NOT a pass: the round-trip is unproven here and belongs")
+            print("        in the signed app, beside the keychain-choice question.")
+        }
 
         // Q2: which keychain did it land in?
         let legacy = attributes(dataProtection: false)
@@ -135,7 +181,17 @@ struct TokenStoreProbe {
         check("clear() removes it", StudioTokenStore.load(for: probe) == nil)
 
         print()
-        if failures.isEmpty { print("ALL CHECKS PASSED"); exit(0) }
+        if failures.isEmpty {
+            // SAY WHAT WAS NOT RUN. Decision 130: pass, skip and fail are
+            // three numbers, and a summary that hides the third turns a skip
+            // into a pass the moment somebody reads only the last line.
+            if skipped > 0 {
+                print("ALL CHECKS PASSED — with \(skipped) SKIPPED (unentitled process; see above)")
+            } else {
+                print("ALL CHECKS PASSED")
+            }
+            exit(0)
+        }
         print("FAILED: \(failures.joined(separator: ", "))")
         exit(1)
     }

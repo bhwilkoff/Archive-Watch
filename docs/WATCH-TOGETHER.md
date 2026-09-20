@@ -1604,6 +1604,65 @@ against a synthetic line.
 
 ## §9 — Measurements (filled in as they are taken)
 
+### §9.rrrrr The §8 suite had not been run since 09-19, and three of its cases were asserting superseded designs (2026-09-20)
+
+After three commits touching shared audio code, the suite was run end to end:
+**pass=13 skip=2 fail=4**. Not one of the four failures was a regression from
+that work — the three new audio cases (§8.15, §8.16, §8.17) all passed. Three
+of the four were **instruments encoding a design the product had already
+moved past**, and each had been failing since the day the thing it tested was
+fixed.
+
+- **§8.2 asserted the BUG.** `check("prompt=consent", v("prompt") == "consent")`
+  — and `prompt=consent` is exactly what sent the owner's first YouTube
+  broadcast to their personal channel, because it re-shows consent for the
+  account Google has already chosen and never offers the Brand Account
+  chooser. The app has sent `select_account consent` since 2026-09-18. So this
+  case failed *against the fix*, every run, for two days. Now it asserts that
+  `prompt` names both, with a control proving the old value would not satisfy
+  it.
+- **§8.13 asserted two gates that had been deliberately MOVED, to better
+  ones.** It wanted `case .connected(_, let hasMic)` in `DetailView` and
+  `if microphonePort() != nil,` in `makeSession`. Both were replaced on 09-19
+  for measured reasons: `state.hasMicrophone` is computed from a query that
+  can still be nil while the microphone is arriving (which left a session
+  with a real mic input untapped — `inputs=2`, `micFrames=0`, and every
+  broadcast silent), and `availableInputs` is EMPTY on tvOS even with a
+  Continuity microphone present. The gates are now `sessionHasMicrophone` and
+  the audio DEVICE, and `sessionHasMicrophone` is set only inside the branch
+  where the input was actually accepted — a stronger claim than either old
+  pattern, since `canAddInput` can still refuse. Both checks now assert that,
+  each with its own control.
+- **§8.11 was measuring the HARNESS's permissions.** A bare `swiftc` binary
+  has no keychain access group, so `SecItemAdd` answers
+  `errSecMissingEntitlement` (-34018) and nothing is ever stored — which reads
+  as "save then load did not round-trip". The case already KNEW this: its own
+  probe prints that status and declares the keychain-CHOICE question open for
+  the signed app. The round-trip is now declared open on the same evidence and
+  prints as **SKIP**, with the summary line naming the count, because Decision
+  130 makes pass, skip and fail three numbers and a summary that hides the
+  third turns a skip into a pass for anyone reading the last line.
+
+**The fourth is different and stays failing: it is FLAKY UNDER LOAD.**
+`RtmpBackPressureTest` refuses to pass when its own congestion never
+engaged — *"the queue never approached the 474 kB cap (peak 10 kB), so
+back-pressure never engaged"* — which is the right assertion, and it is a
+setup failure rather than a product one. Three forced runs in isolation pass;
+it fails inside the full suite, where the machine is also running parallel
+Swift compiles and a live mediamtx. **Left failing and named rather than
+loosened**: a guard that stops a test reporting a pass it did not earn is the
+last thing to weaken, and the real fix is to make the congestion deterministic
+rather than to lower the bar.
+
+**After the three corrections: pass=16 skip=2 fail=1.**
+
+**The lesson is the one `harness_awdiag.swift`'s header already carries, one
+level up.** That file exists because §8 stopped compiling and nobody noticed;
+this is the same failure in the assertions rather than the build. A suite that
+is not run does not decay gracefully — it accumulates cases that will report a
+FIX as a regression, which is worse than no suite, because the next person to
+run it learns to distrust it.
+
 ### §9.qqqqq Android cannot carry the host at all, and a parity line I wrote an hour earlier said otherwise (2026-09-20)
 
 Going to convert Android's mix controls to the 0–10 scale, as macOS and iOS
