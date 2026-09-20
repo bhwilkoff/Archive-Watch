@@ -25,6 +25,27 @@ struct RootView: View {
             shell
         }
         .task { WatchTogether.shared.listen() }
+        // DEBUG DOOR: start the SharePlay activity itself.
+        //
+        // `AW_SHAREPLAY_START=<archiveID>` — because launching the APP is not
+        // starting the ACTIVITY, and I spent an attempt confusing the two.
+        // `share()` calls `prepareForActivation()` and then `activate()`, and
+        // with a FaceTime call already up that returns `.activationPreferred`
+        // and succeeds without anyone tapping anything. (With no eligible
+        // conversation it answers `.activationDisabled`, which is the case
+        // that made me wrongly say a session cannot be started
+        // programmatically at all — it can, when a call exists.)
+        //
+        // It exists to take §9.wwwww's measurement, which needs the activity
+        // live on two devices at once. No-op in production.
+        .task(id: store.dbVersion) {
+            guard let id = ProcessInfo.processInfo.environment["AW_SHAREPLAY_START"],
+                  !id.isEmpty, store.isReady,
+                  let film = store.db?.itemsByIDs([id]).first else { return }
+            let outcome = await WatchTogether.shared.share(
+                archiveID: film.archiveID, title: film.title, year: film.year)
+            awdiag("AWSHAREPLAY start %@ -> %@", film.archiveID, "\(outcome)")
+        }
         .task { network.start() }
         // Dev affordance: `AW_STUDIO_LAB=1` measures Watch Together Studio's
         // chain on THIS phone and publishes it to AW_STUDIO_DEST, printing a

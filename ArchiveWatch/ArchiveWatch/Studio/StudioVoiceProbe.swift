@@ -34,6 +34,68 @@ import Foundation
 import GroupActivities
 import os
 
+/// The probe's wire format, extracted so it can be TESTED.
+///
+/// It lived inside `StudioVoiceProbe.handle`, which needs a live
+/// `GroupSessionMessenger` and therefore two people in a SharePlay call — so
+/// the one piece with an off-by-one in it was the one piece no test could
+/// reach. It shipped a crash on every inbound frame (see `decode`).
+///
+/// Pulling it out costs nothing and makes the hazard assertable: §8.18 feeds
+/// `decode` a Data SLICE, which is the shape that trapped.
+enum VoiceFrame {
+    static let tagProbe: UInt8 = 1
+    static let tagEcho: UInt8 = 2
+
+    /// `[0]` tag, `[1..<5]` little-endian sequence, then padding to `size`.
+    static func encode(tag: UInt8, seq: UInt32, size: Int) -> Data {
+        var payload = Data(count: max(size, 5))
+        payload.withUnsafeMutableBytes { dst in
+            dst[0] = tag
+            withUnsafeBytes(of: seq.littleEndian) { raw in
+                for i in 0..<4 { dst[1 + i] = raw[i] }
+            }
+        }
+        return payload
+    }
+
+    /// NEVER SUBSCRIPT A `Data` YOU DID NOT CREATE.
+    ///
+    /// This was `data[0]` and `data[1 + i]`, and **`Data`'s subscript takes an
+    /// ABSOLUTE INDEX, not an offset**. A `Data` handed back by a framework is
+    /// routinely a SLICE whose `startIndex` is not zero, and `data[0]` on one
+    /// of those traps with "Index out of range" — on EVERY frame. `count`
+    /// reads correctly on a slice, so the `>= 5` guard passed cleanly and the
+    /// next line crashed; the guard looked like it was protecting the thing it
+    /// was not. Owner, 2026-09-20: *"Lots of crashing."*
+    ///
+    /// `withUnsafeBytes` is offset-based over the slice's OWN bytes, which is
+    /// what this always meant.
+    static func decode(_ data: Data) -> (tag: UInt8, seq: UInt32)? {
+        guard data.count >= 5 else { return nil }
+        return data.withUnsafeBytes { raw in
+            var v: UInt32 = 0
+            withUnsafeMutableBytes(of: &v) { out in
+                for i in 0..<4 { out[i] = raw[1 + i] }
+            }
+            return (raw[0], UInt32(littleEndian: v))
+        }
+    }
+
+    /// The same frame with only the tag changed, as a FRESH buffer — never by
+    /// mutating a slice somebody else owns.
+    static func bounce(_ data: Data, tag: UInt8) -> Data {
+        var back = Data(count: data.count)
+        data.withUnsafeBytes { src in
+            back.withUnsafeMutableBytes { dst in
+                for i in 0..<data.count { dst[i] = src[i] }
+                dst[0] = tag
+            }
+        }
+        return back
+    }
+}
+
 @MainActor
 @Observable
 public final class StudioVoiceProbe {
@@ -87,7 +149,20 @@ public final class StudioVoiceProbe {
     /// one thing neither earlier shape could tell us.
     public static let enabled: Bool = {
         #if DEBUG
-        return ProcessInfo.processInfo.environment["AW_VOICE_PROBE"] == "1"
+        // BACK ON BY DEFAULT, now that the crash it was disabled for is
+        // fixed and covered. `Data`'s absolute-index subscript trapped on
+        // every inbound frame (see `VoiceFrame.decode`); that is gone and the
+        // wire format is a separate, testable type.
+        //
+        // On by default because it is the ONLY shape that works: a
+        // devicectl-launched app is killed both when it is backgrounded to
+        // start a call AND when SharePlay's own UI takes over on activation
+        // (measured twice, 2026-09-20). A tap is the only launch that
+        // survives, and a tap carries no environment variables.
+        //
+        // Safe to leave on: dormant until a session exists, 5/s rising to 50
+        // over ten seconds, and it STOPS ITSELF after about twenty-five.
+        return ProcessInfo.processInfo.environment["AW_VOICE_PROBE"] != "0"
         #else
         return false
         #endif
@@ -165,16 +240,8 @@ public final class StudioVoiceProbe {
     /// Tag 1 is an outbound probe, tag 2 is that probe coming back.
     private func emit(via m: GroupSessionMessenger) async {
         seq &+= 1
-        var payload = Data(count: Self.frameBytes)
-        // Offset-based, like `handle`. This one owns its buffer so the
-        // subscript would be safe — but two readers of one wire format should
-        // not be written two different ways.
-        payload.withUnsafeMutableBytes { dst in
-            dst[0] = 1
-            withUnsafeBytes(of: seq.littleEndian) { raw in
-                for i in 0..<4 { dst[1 + i] = raw[i] }
-            }
-        }
+        let payload = VoiceFrame.encode(tag: VoiceFrame.tagProbe, seq: seq,
+                                        size: Self.frameBytes)
         sendTimes[seq] = CFAbsoluteTimeGetCurrent()
         // Do not let the table grow without bound on a link that eats frames.
         if sendTimes.count > 400 {
@@ -212,30 +279,14 @@ public final class StudioVoiceProbe {
     /// over the slice's own bytes, and the bounce is built as a FRESH `Data`
     /// rather than by mutating someone else's.
     private func handle(_ data: Data, via m: GroupSessionMessenger) async {
-        guard data.count >= 5 else { return }
-        let parsed: (tag: UInt8, seq: UInt32) = data.withUnsafeBytes { raw in
-            var v: UInt32 = 0
-            withUnsafeMutableBytes(of: &v) { out in
-                for i in 0..<4 { out[i] = raw[1 + i] }
-            }
-            return (raw[0], UInt32(littleEndian: v))
-        }
+        guard let parsed = VoiceFrame.decode(data) else { return }
 
-        if parsed.tag == 1 {
-            // Bounce a frame of the SAME SHAPE back — same size, same
-            // sequence — so the round trip carries a real frame each way.
-            var back = Data(count: data.count)
-            data.withUnsafeBytes { src in
-                back.withUnsafeMutableBytes { dst in
-                    for i in 0..<data.count { dst[i] = src[i] }
-                    dst[0] = 2
-                }
-            }
+        if parsed.tag == VoiceFrame.tagProbe {
             bounced += 1
-            m.send(back, to: .all) { _ in }
+            m.send(VoiceFrame.bounce(data, tag: VoiceFrame.tagEcho), to: .all) { _ in }
             return
         }
-        guard parsed.tag == 2, let t0 = sendTimes.removeValue(forKey: parsed.seq) else { return }
+        guard parsed.tag == VoiceFrame.tagEcho, let t0 = sendTimes.removeValue(forKey: parsed.seq) else { return }
         let ms = (CFAbsoluteTimeGetCurrent() - t0) * 1000
         echoed += 1
         lastRoundTripMs = ms

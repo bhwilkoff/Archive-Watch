@@ -163,6 +163,9 @@ swift_case "8.6 back-pressure"     "$PUB" "$ENG" "$AUD" "$OVL" "$CHAT" "$SHIM" t
 swift_case "8.15 audio ring FIFO"  "$PUB" "$ENG" "$AUD" "$OVL" "$CHAT" "$SHIM" tools/test_studio_ring.swift
 swift_case "8.16 programme rate"   "$PUB" "$ENG" "$AUD" "$OVL" "$CHAT" "$DEC" "$SHIM" tools/test_studio_rate.swift
 swift_case "8.17 tap resampler"    "$PUB" "$ENG" "$AUD" "$OVL" "$CHAT" "$SHIM" tools/test_studio_resample.swift
+# No $SHIM: StudioVoiceProbe calls no awdiag, and adding sources a case does
+# not need is how three cases stopped compiling for a session (§9.lllll).
+swift_case "8.18 voice frame slices" ArchiveWatch/ArchiveWatch/Studio/StudioVoiceProbe.swift tools/test_studio_voiceframe.swift
 
 # The two credential-facing harnesses. Neither was in this runner, which is
 # precisely the condition §9.aaa describes: a test that exists and therefore
