@@ -388,9 +388,63 @@ million — so a two-hour party of four costs about **7 cents** in requests, and
 batching two frames to a message brings it inside the included allowance
 entirely for 20 ms of added latency.
 
-**So the honest answer to "do you want to run a server" is: you already do,
-and it will cost about five dollars a month rather than nothing.** The
-decision is not infrastructure, it is whether the feature is worth $5/mo and a
-batching choice — and the batching is a real trade, because 20 ms spent here
-comes straight out of §5.3's 150 ms conversational budget alongside the
-codec's 22 ms each way.
+**BOTH HALVES OF THAT PARAGRAPH WERE WRONG — see §9.** It said the relay
+costs about $5/month, and that Durable Objects therefore need the paid plan.
+They have been on the **Workers FREE plan since April 2025** (SQLite-backed).
+And the free tier does not rescue the design either, for a reason the $5
+framing hid completely. Corrected below rather than edited away.
+
+## §9 A RELAY CANNOT BE $0 AT SCALE, and the reason is the daily limit is per ACCOUNT (2026-09-20)
+
+Owner: *"It is absolutely not acceptable. The goal of this app (and all of my
+apps) is for them to cost $0 to run."*
+
+That is a hard constraint and it decides the architecture. Two corrections to
+§8, the second of which matters far more than the first.
+
+**§8 said the relay costs ~$5/month. It does not.** Durable Objects moved to
+the Workers **free** plan in April 2025 (SQLite storage backend only). No paid
+plan is required, and the $5 was the paid plan's minimum, which this does not
+need.
+
+**But free does not save it, because the 100,000 requests a day is PER
+ACCOUNT** — shared by every user of the app, not granted to each. Measured, a
+2-hour film with four people talking 15% of the time at three frames a
+message:
+
+| batch | added | always-on | talk 30% | talk 15% | talk 8% |
+|---|---|---|---|---|---|
+| 1 | 0 ms | 1,440,000 | 432,000 | 216,000 | 115,200 |
+| 2 | 20 ms | 720,000 | 216,000 | 108,000 | 57,600 |
+| 3 | 40 ms | 480,000 | 144,000 | **72,000** | 38,400 |
+| 5 | 80 ms | 288,000 | 86,400 | 43,200 | 23,040 |
+
+**72,000 messages is 72% of the entire day's allowance for the whole app,
+worldwide, for ONE party.** That is 1.4 parties a day before every further
+party fails with an error — Cloudflare's free tier does not throttle, it
+refuses. A feature that works while nobody uses it and breaks the evening it
+becomes popular is a worse failure than one that costs money, because the
+failure lands on the users who liked it most.
+
+**SO THE VOICE MUST NOT TOUCH OUR INFRASTRUCTURE.** The design that is $0 at
+any scale:
+
+- **Signalling through the existing Worker**, and only signalling. A party of
+  four needs perhaps twenty messages to exchange connection details — once,
+  not fifty times a second. At 100,000/day that is ~5,000 parties a day, free,
+  comfortably.
+- **Voice peer-to-peer.** Those 72,000 messages become ZERO requests, and the
+  bandwidth is the participants', not ours.
+- **NAT traversal on free public STUN** (Google's, Cloudflare's). STUN is free
+  and stateless; it is **TURN** that costs, and TURN is needed only for the
+  minority behind symmetric NAT.
+
+**THE CAVEAT, STATED PLAINLY BECAUSE IT DOES NOT GO AWAY**: roughly 10-20% of
+peer pairs cannot connect on STUN alone, and for those there is no free fix.
+They would get the film and the sync and not the conversation. "Works for most
+people, fails for some, costs nothing" is the bargain every $0 peer-to-peer
+app makes, and for a free app with no accounts it is the right one — but it is
+a real limitation and must be said on the surface, not discovered.
+
+It also stays genuinely cross-platform: STUN and UDP reach Swift, Kotlin and a
+browser alike, which SharePlay never could (§8).
