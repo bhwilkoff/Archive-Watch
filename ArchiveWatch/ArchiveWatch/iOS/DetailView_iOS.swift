@@ -436,7 +436,15 @@ struct DetailView: View {
             }
             if ProcessInfo.processInfo.environment["AW_AUTOPLAY"] == "1",
                item.videoURLParsed != nil {
-                playing = true
+                // The go-live door presents the STUDIO cover — the same one the
+                // sheet presents — and the plain player otherwise. iOS had no
+                // unattended way into the Studio at all, which is why the
+                // "prove it end to end on the iPhone" item kept coming back.
+                if let req = StudioDoors.goLiveRequest(film: item) {
+                    liveRequest = req
+                } else {
+                    playing = true
+                }
             }
             // Screen-audit hook (caption loop W6): present the subtitles sheet
             // deterministically — simctl cannot tap, and a sheet nobody can

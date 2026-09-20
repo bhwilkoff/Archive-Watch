@@ -24,6 +24,10 @@ struct RootView: View {
             offlineBanner
             shell
         }
+        // The Studio's DEBUG doors. iOS has its OWN root, and the auth door
+        // lived only in the tvOS one — so on a phone it was not shut, it was
+        // absent (StudioDoors).
+        .task { _ = await StudioDoors.runStateProbeIfAsked() }
         .task { WatchTogether.shared.listen() }
         .task { network.start() }
         // Dev affordance: `AW_STUDIO_LAB=1` measures Watch Together Studio's

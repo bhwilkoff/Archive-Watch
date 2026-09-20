@@ -104,17 +104,11 @@ struct RootView: View {
         // whatsoever. The root view is on screen either way.
         .task {
             #if DEBUG
-            let authDoor = ProcessInfo.processInfo.environment["AW_STUDIO_AUTH"]
-                ?? UserDefaults.standard.string(forKey: "AW_STUDIO_AUTH") ?? ""
+            let authDoor = StudioDoors.authDoor
             // Unconditional, one line, DEBUG only: says whether this task runs
             // at all and WHAT it saw. Added because two delivery channels failed
             // in a row and the difference between "the door is shut" and "the
             // task never ran" is invisible without it.
-            awdiag("AWDOOR task ran; door=%@ args=%@ envKeys=%d",
-                   authDoor.isEmpty ? "(empty)" : authDoor,
-                   CommandLine.arguments.dropFirst().joined(separator: " "),
-                   ProcessInfo.processInfo.environment.keys.filter { $0.hasPrefix("AW_") }.count)
-
             // PROBE: ask the token what it can actually do, before changing
             // anything. The owner has had live streaming enabled on this
             // channel for days and YouTube still answers
@@ -126,37 +120,7 @@ struct RootView: View {
                 return
             }
 
-            // STATE: the read-only question the loop keeps GUESSING at — is
-            // this device signed in, and to what? Creates nothing, writes
-            // nothing, and costs one API call per signed-in platform. It
-            // exists because "the iPhone is blocked on a sign-in" had been an
-            // assumption carried across sessions without ever being asked.
-            if authDoor == "state" {
-                for platform in [StudioPlatformAuth.Platform.youtube, .twitch] {
-                    let inCfg = StudioPlatformAuth.clientID(for: platform) != nil
-                    let inKey = StudioPlatformAuth.isSignedIn(platform)
-                    awdiag("AWAUTH %@ configured=%@ signedIn=%@",
-                           String(describing: platform),
-                           inCfg ? "true" : "false", inKey ? "true" : "false")
-                    guard inKey else { continue }
-                    switch platform {
-                    case .youtube:
-                        if let who = try? await StudioPlatformAuth.youTubeAccount() {
-                            awdiag("AWAUTH youtube account id=%@ title=%@", who.id, who.title)
-                        }
-                    case .twitch:
-                        if let who = try? await StudioPlatformAuth.twitchAccount() {
-                            awdiag("AWAUTH twitch login=%@ scopes=%@",
-                                   who.login, who.scopes.joined(separator: ","))
-                        }
-                    }
-                    let r = try? await StudioPlatformAuth.readiness(for: platform)
-                    awdiag("AWAUTH %@ readiness=%@",
-                           String(describing: platform), String(describing: r))
-                }
-                awdiag("AWAUTH state probe complete")
-                return
-            }
+            if await StudioDoors.runStateProbeIfAsked() { return }
 
             guard authDoor == "resignin-youtube" else { return }
             StudioPlatformAuth.signOut(.youtube)

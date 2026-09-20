@@ -35,13 +35,10 @@ import UniformTypeIdentifiers
 // (`devicectl device copy from --domain-type appDataContainer`). Truncated at
 // launch; each write is a syscall, so a terminated app loses nothing.
 enum DiagFile {
-    // Environment OR launch argument. `devicectl` silently fails to deliver
-    // environment variables to an iOS app on this toolchain — neither `-e` nor
-    // the documented `DEVICECTL_CHILD_` prefix arrives, measured across four
-    // launches with a clean terminate between them, while the app's other
-    // `.task` output reaches the console normally. Apple's own `-key value`
-    // launch arguments DO arrive, because UserDefaults parses them, so every
-    // harness door reads both and the iOS bench is usable again.
+    // Environment OR launch argument (`-AW_DIAG_FILE 1`), because a harness
+    // may have only one of the two: `devicectl` takes `-e`, an Xcode scheme and
+    // a `simctl` launch take arguments, and UserDefaults parses the latter for
+    // free.
     static let enabled = ProcessInfo.processInfo.environment["AW_DIAG_FILE"] == "1"
         || UserDefaults.standard.string(forKey: "AW_DIAG_FILE") == "1"
     private static let q = DispatchQueue(label: "awdiag-file")

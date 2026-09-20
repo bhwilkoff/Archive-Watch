@@ -98,6 +98,27 @@ emulators) · `docs/CAPTIONS.md` · `docs/SHAREPLAY.md` ·
      Twitch. There is nothing above 6 Mbps worth asking for on this hardware.
    Original item follows, much of it now historical.
 
+7-DONE. **THE iPHONE HAS BROADCAST TO YOUTUBE, END TO END** (2026-09-20 16:44,
+   iPhone 12). The owner enabled YouTube sign-in and granted camera + microphone,
+   and the run went through the product's own chain:
+   `AWCAM attached camera=Front Camera mic=iPhone Microphone` ·
+   `AWCAM frame shape 1280x720 (landscape)` ·
+   `AWPUB connecting rtmps://a.rtmps.youtube.com/... transport=rtmps/tls` ·
+   `AWPUB publishing — the server accepted the stream` ·
+   `AWPROV provenance cleared 20s after going live`.
+   **Confirmed from YOUTUBE's own side**, not ours: the channel's
+   `liveBroadcasts` totalResults went **59 -> 61** across the session.
+   Channel "Learning is Change" (UCI9L3u8Hf_zeotF9-Ec349w), readiness `.ready`.
+   Twitch on this phone is configured but NOT signed in, so the Twitch half of
+   iOS is still unproven.
+   **ONE PIECE OF LITTER TO KNOW ABOUT**: two broadcasts were created, not one.
+   The first door I wrote resolved a YouTube destination and armed
+   `StudioSession` — correct on macOS, wrong on iOS, where the Studio is
+   presented as a `fullScreenCover(item:)` bound to a `GoLiveRequest` and the
+   container resolves the destination itself. So a real unlisted broadcast was
+   created and abandoned. It is unlisted and was never published to; delete it
+   at leisure.
+
 7. **Watch Together Studio — the PUBLIC half is blocked on the owner ON iOS;
    tvOS and macOS also need CODE.** The three one-time steps (a/b/c below) are
    what stands between the feature and a real broadcast **from an iPhone**.

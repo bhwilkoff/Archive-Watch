@@ -122,9 +122,9 @@ it carry the engineering detail.
 | | **With Friends**<br>SharePlay call, film in sync | **With the World**<br>broadcast to YouTube/Twitch, ONE camera + mic | **With Friends AND the World**<br>film synced across Archive Watch + a call everyone already uses, mixed into the broadcast |
 |---|---|---|---|
 | **tvOS** | ✅ join + start the session; cannot start the CALL (no `GroupActivitySharingController` on tvOS) | ✅ camera + mic are a Continuity iPhone | 🚫 cannot tap another app's audio (`API_UNAVAILABLE(tvos)`) |
-| **iOS / iPadOS** | ✅ full — start the call and the session | ✅ the device's own front camera + mic | 🚫 same |
+| **iOS / iPadOS** | ✅ full — start the call and the session | ✅ **PROVED END TO END on an iPhone 12, 2026-09-20** — front camera + mic + film to YouTube RTMPS, confirmed by YouTube's own broadcast count 59→61 | 🚫 same |
 | **macOS** | ✅ full | ✅ its own or a Continuity camera | ⏳ **the only platform that can HOST one** — §10 |
-| **Android phone** | 🚫 no GroupActivities equivalent | 🚧 built, never run on a phone | 🚫 no per-process audio capture without a rooted device |
+| **Android phone** | 🚫 no GroupActivities equivalent | 🚧 **RUNS on a Pixel 8a, 2026-09-20** — 20-22 fps, H264+AAC to a real server, film aspect correct; camera and microphone still not attached by any path | 🚫 no per-process audio capture without a rooted device |
 | **Android TV / Google TV** | 🚫 same | 🚫 **no camera, no microphone** — entry removed 2026-09-20 | 🚫 same |
 | **Fire TV** | 🚫 same | 🚫 same — entry removed 2026-09-20 | 🚫 same |
 | **Web** | 🚫 | 🚫 a browser cannot speak RTMP | 🚫 |
