@@ -87,7 +87,7 @@ public final class StudioVoiceProbe {
     /// one thing neither earlier shape could tell us.
     public static let enabled: Bool = {
         #if DEBUG
-        return ProcessInfo.processInfo.environment["AW_VOICE_PROBE"] != "0"
+        return ProcessInfo.processInfo.environment["AW_VOICE_PROBE"] == "1"
         #else
         return false
         #endif
@@ -166,9 +166,14 @@ public final class StudioVoiceProbe {
     private func emit(via m: GroupSessionMessenger) async {
         seq &+= 1
         var payload = Data(count: Self.frameBytes)
-        payload[0] = 1
-        withUnsafeBytes(of: seq.littleEndian) { raw in
-            for i in 0..<4 { payload[1 + i] = raw[i] }
+        // Offset-based, like `handle`. This one owns its buffer so the
+        // subscript would be safe — but two readers of one wire format should
+        // not be written two different ways.
+        payload.withUnsafeMutableBytes { dst in
+            dst[0] = 1
+            withUnsafeBytes(of: seq.littleEndian) { raw in
+                for i in 0..<4 { dst[1 + i] = raw[i] }
+            }
         }
         sendTimes[seq] = CFAbsoluteTimeGetCurrent()
         // Do not let the table grow without bound on a link that eats frames.
@@ -190,26 +195,47 @@ public final class StudioVoiceProbe {
         }
     }
 
+    /// NEVER SUBSCRIPT A `Data` YOU DID NOT CREATE.
+    ///
+    /// This read `data[0]` and wrote `back[0] = 2`, and **`Data`'s subscript
+    /// takes an ABSOLUTE INDEX, not an offset.** A `Data` handed back by a
+    /// framework is routinely a SLICE whose `startIndex` is not zero, and
+    /// `data[0]` on one of those traps — "Index out of range" — on every
+    /// inbound frame. With the probe enabled by default that crashed both
+    /// phones the instant a session carried anything. Owner: *"Lots of
+    /// crashing."*
+    ///
+    /// `count` reads correctly on a slice, which is why the `>= 5` guard gave
+    /// no warning: every check passed and the very next line trapped.
+    ///
+    /// Everything now goes through `withUnsafeBytes`, which is offset-based
+    /// over the slice's own bytes, and the bounce is built as a FRESH `Data`
+    /// rather than by mutating someone else's.
     private func handle(_ data: Data, via m: GroupSessionMessenger) async {
         guard data.count >= 5 else { return }
-        let tag = data[0]
-        let n = data.withUnsafeBytes { raw -> UInt32 in
+        let parsed: (tag: UInt8, seq: UInt32) = data.withUnsafeBytes { raw in
             var v: UInt32 = 0
             withUnsafeMutableBytes(of: &v) { out in
                 for i in 0..<4 { out[i] = raw[1 + i] }
             }
-            return UInt32(littleEndian: v)
+            return (raw[0], UInt32(littleEndian: v))
         }
-        if tag == 1 {
-            // A peer's probe. Bounce the SAME bytes back, changing only the
-            // tag, so the round trip carries a real frame in both directions.
-            var back = data
-            back[0] = 2
+
+        if parsed.tag == 1 {
+            // Bounce a frame of the SAME SHAPE back — same size, same
+            // sequence — so the round trip carries a real frame each way.
+            var back = Data(count: data.count)
+            data.withUnsafeBytes { src in
+                back.withUnsafeMutableBytes { dst in
+                    for i in 0..<data.count { dst[i] = src[i] }
+                    dst[0] = 2
+                }
+            }
             bounced += 1
             m.send(back, to: .all) { _ in }
             return
         }
-        guard tag == 2, let t0 = sendTimes.removeValue(forKey: n) else { return }
+        guard parsed.tag == 2, let t0 = sendTimes.removeValue(forKey: parsed.seq) else { return }
         let ms = (CFAbsoluteTimeGetCurrent() - t0) * 1000
         echoed += 1
         lastRoundTripMs = ms
