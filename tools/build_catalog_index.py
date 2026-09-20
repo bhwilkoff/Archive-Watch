@@ -379,8 +379,25 @@ _NOT_TV_COMM = "i.isAdult = 0 AND i.contentType NOT IN ('tv-series','tv-special'
 # CatalogDB.homeAnd so the system Home screen can never show a modern title whose
 # rights we can't vouch for.
 _PLAYS = "i.playable = 1"
-_RIGHTS = ("(i.rightsStatus IN ('public_domain','creative_commons') "
-           "OR (i.year BETWEEN 1888 AND 1977))")
+# MIRRORS CatalogDB.homeAnd, and the comment above has always said so — which
+# is why it had to move the day that changed (2026-09-20). `rightsStatus` is
+# the ARCHIVE ITEM's own claim; the audit's verdict is `rightsBucket`, and the
+# Top Shelf is the most visible surface this app has, sitting on the
+# television's system Home screen whether or not anyone opens us.
+#
+# Two rules, matching the app exactly:
+#   · only buckets the audit marks KEEP — `renewal_zone*` are marked REPORT,
+#     i.e. 1964-77 and unresolved.
+#   · `presumed_pd` is a US RENEWAL-LAPSE assumption and the URAA (1996)
+#     restored US copyright in foreign works that lost it to US formalities,
+#     so it may not carry a film the catalogue says is foreign. Without this
+#     the system Home screen offered Tokyo Story, The Seventh Seal, Yojimbo
+#     and Harakiri — a Criterion shelf, all licensed commercially today.
+_RIGHTS = ("i.rightsBucket IN ('safe_pd_age','safe_gov','safe_archive_license',"
+           "'safe_cc','presumed_pd','unknown_year') "
+           "AND NOT (i.rightsBucket = 'presumed_pd' "
+           "AND i.language IS NOT NULL AND i.language <> '' "
+           "AND lower(i.language) NOT IN ('en','eng','english'))")
 _TS_GATE = f"{_DESIGNED} AND {_NOT_TV_COMM} AND {_PLAYS} AND {_RIGHTS}"
 
 # One row per named reason (§15.2 — never "For You"). Ordered by how strongly each

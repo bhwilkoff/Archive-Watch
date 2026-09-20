@@ -113,9 +113,43 @@ class CatalogDatabase private constructor(
     private val typeAnd: String
         get() = if (hiddenTypes.isEmpty()) "" else
             " AND i.contentType NOT IN (${hiddenTypes.joinToString(",") { "'${it.replace("'", "")}'" }})"
-    private val homeAnd =
+    /**
+     * HOME ASKS THE AUDIT, NOT THE UPLOADER — the same correction Apple took
+     * on 2026-09-20, arriving here by parity rather than by waiting for the
+     * owner to see it twice.
+     *
+     * This was `rightsStatus IN ('public_domain','creative_commons') OR year
+     * <= 1977`, and `rightsStatus` is what the ARCHIVE ITEM says about
+     * itself. Measured at the top of Home's own popularity ordering: Yojimbo,
+     * The Pink Panther, The Grapes of Wrath, High and Low — every one
+     * `public_domain`, every one still owned by a studio. Owner: *"I keep
+     * seeing nazi movies, controversial films, and things with questionable
+     * public domain status."*
+     *
+     * Two rules, both from `docs/WATCH-TOGETHER` and the Apple change:
+     *  - only buckets the audit marks KEEP; `renewal_zone` and
+     *    `renewal_zone_bw` are marked REPORT, i.e. 1964-77 and unresolved.
+     *  - `presumed_pd` is a US RENEWAL-LAPSE assumption, and the URAA (1996)
+     *    restored US copyright in foreign works that lost it to US
+     *    formalities — so it may not carry a film the catalogue says is
+     *    foreign. That is what removed the Criterion shelf (Tokyo Story, The
+     *    Seventh Seal, Harakiri, The Wages of Fear).
+     *
+     * FALLS BACK when the column is missing. A shipped build may still be
+     * reading a cached schema-1 catalog — the trap `playable` set and the
+     * reason `hasRightsBucketColumn` exists. Without the verdict the old
+     * predicate is the best available, and a Home that shows too much beats a
+     * Home that shows nothing.
+     */
+    private val homeAnd: String get() = if (!hasRightsBucketColumn)
         " AND (i.rightsStatus IN ('public_domain','creative_commons')" +
             " OR (i.year >= 1888 AND i.year <= 1977))"
+    else
+        " AND i.rightsBucket IN ('safe_pd_age','safe_gov','safe_archive_license'," +
+            "'safe_cc','presumed_pd','unknown_year')" +
+        " AND NOT (i.rightsBucket = 'presumed_pd'" +
+            " AND i.language IS NOT NULL AND i.language <> ''" +
+            " AND lower(i.language) NOT IN ('en','eng','english'))"
     private val notCommercial = " AND i.contentType != 'commercial'"
 
     /** Restricts the most PROMINENT surfaces to titles whose bytes were verified
