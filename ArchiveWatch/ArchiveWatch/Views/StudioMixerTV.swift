@@ -86,58 +86,6 @@ final class ClickpadDial {
     func consume() -> CGFloat { defer { delta = 0 }; return delta }
 }
 
-/// The 0–10 scale the host actually reads, and its one conversion to the
-/// linear gain the mixer multiplies by.
-///
-/// WHY A SCALE AT ALL, rather than the decibels the mixer works in: the owner
-/// asked for "a scale of 0 to 10 rather than ... decibles that most people
-/// won't understand". Decibels are the right unit INSIDE `StudioAudio` and the
-/// wrong unit on a television, so the conversion happens once, here, and
-/// nothing downstream changes.
-///
-/// The taper has two segments because one straight line cannot serve both ends
-/// of a fader — the same reason every real fader is tapered:
-///
-/// - **8 is unity**, the source's own level, untouched. It is the default for
-///   both channels, so a host who never opens this screen is already there.
-/// - **0…8 cuts** at 5 dB a step, so 0 is silence and 4 is a clear half.
-/// - **8…10 boosts** at 3 dB a step, to the mixer's existing +6 dB ceiling.
-///   The boost is not decoration: the microphone was measured at RMS
-///   0.007–0.023 with the owner speaking beside the phone (`StudioAudio`'s
-///   `micGain`), which is quiet enough that a host needs somewhere to go.
-enum MixLevel {
-    static let unity: Double = 8          // the tick that means "as recorded"
-    static let maximum: Double = 10
-
-    static func decibels(_ level: Double) -> Double {
-        level > unity ? (level - unity) * 3 : (level - unity) * 5
-    }
-
-    static func gain(_ level: Double) -> Float {
-        level <= 0 ? 0 : Float(pow(10, decibels(min(level, maximum)) / 20))
-    }
-
-    static func level(_ gain: Float) -> Double {
-        guard gain > 0.0001 else { return 0 }
-        let dB = 20 * log10(Double(gain))
-        let l = dB > 0 ? unity + dB / 3 : unity + dB / 5
-        return min(maximum, max(0, l))
-    }
-
-    /// An RMS reading drawn on the SAME scale as the fader, so the meter and
-    /// the number a host is setting can be compared by eye. A linear 0…1 meter
-    /// cannot: speech at RMS 0.02 is 2% of the bar and reads as dead.
-    static func meterFraction(rms: Float) -> Double {
-        level(rms) / maximum
-    }
-
-    /// One decimal, because the roll is continuous and rounding it to whole
-    /// numbers would throw away the granularity the owner asked for.
-    static func text(_ level: Double) -> String {
-        String(format: "%.1f", level)
-    }
-}
-
 struct StudioMixerTV: View {
 
     enum Channel: Int { case film, microphone }

@@ -127,6 +127,7 @@ struct StudioControlsSheet: View {
     @Binding var micGain: Double
     @Binding var filmMuted: Bool
     @Binding var micMuted: Bool
+    @Binding var duckEnabled: Bool
     @Binding var card: StudioOverlay.Card?
     @Binding var showLowerThird: Bool
     let audio: StudioAudioHealth
@@ -195,12 +196,23 @@ struct StudioControlsSheet: View {
                           icon: "film")
                     fader("Your microphone", level: audio.micLevel, gain: $micGain, muted: $micMuted,
                           icon: "mic")
+                    // AUTO-DUCK IS A CONTROL, NOT A SENTENCE (Rule 8.8c).
+                    // This section used to STATE that "the film drops 12 dB
+                    // automatically while you are talking", which is exactly
+                    // the problem the television found: a host who sets Film
+                    // to 9 and then speaks hears it drop 12 dB anyway and
+                    // reasonably concludes the fader is broken. Manual has to
+                    // mean manual. Owner: "I like the idea of turning ducking
+                    // on and off to allow manual control."
+                    Toggle("Duck the film under my voice", isOn: $duckEnabled)
                 } header: {
                     Text("Sound")
                 } footer: {
-                    Text(audio.ducking
-                         ? "The film is ducking under your voice."
-                         : "The film drops 12 dB automatically while you are talking.")
+                    Text(duckEnabled
+                         ? (audio.ducking
+                            ? "The film is ducking under your voice."
+                            : "The film drops 12 dB automatically while you are talking.")
+                         : "The film stays where you set it. 8 is the level it already has.")
                 }
 
                 Section {
@@ -261,17 +273,44 @@ struct StudioControlsSheet: View {
                 }
                 .buttonStyle(.borderless)
             }
+            // The meter reads on the FADER'S scale, not linearly. A linear
+            // 0-1 meter draws 2% for speech at RMS 0.02 and looks dead, which
+            // is how a working microphone reads as a broken one.
             GeometryReader { geo in
                 ZStack(alignment: .leading) {
                     Capsule().fill(.quaternary).frame(height: 4)
                     Capsule()
                         .fill(muted.wrappedValue ? Color.secondary : Brand.primary)
-                        .frame(width: geo.size.width * CGFloat(min(1, max(0, level))), height: 4)
+                        .frame(width: geo.size.width
+                               * CGFloat(min(1, max(0, MixLevel.meterFraction(rms: level)))),
+                               height: 4)
                 }
             }
             .frame(height: 4)
-            Slider(value: gain, in: 0...1.5)
-                .disabled(muted.wrappedValue)
+            // THE SAME 0-10 SCALE THE TELEVISION USES (tvOS-DESIGN Rule 8.8c).
+            //
+            // This was `Slider(value: gain, in: 0...1.5)` with no number: a
+            // raw linear amplitude, a ceiling of +3.5 dB where tvOS allows
+            // +6, and nothing on screen a host could say out loud. Owner,
+            // 2026-09-20, on the television's version: "a scale of 0 to 10
+            // rather than ... decibles that most people won't understand" —
+            // which is a statement about people, not about televisions.
+            //
+            // `Slider` IS the native control here (it is
+            // `@available(tvOS, unavailable)`, which is why the television
+            // draws its own), so the control stays native and only its SCALE
+            // and its readout change.
+            HStack(spacing: 12) {
+                Slider(value: Binding(
+                    get: { MixLevel.level(Float(gain.wrappedValue)) },
+                    set: { gain.wrappedValue = Double(MixLevel.gain($0)) }),
+                       in: 0...MixLevel.maximum)
+                    .disabled(muted.wrappedValue)
+                Text(MixLevel.text(MixLevel.level(Float(gain.wrappedValue))))
+                    .font(.subheadline.weight(.medium)).monospacedDigit()
+                    .foregroundStyle(muted.wrappedValue ? .secondary : .primary)
+                    .frame(width: 42, alignment: .trailing)
+            }
         }
         .padding(.vertical, 2)
     }

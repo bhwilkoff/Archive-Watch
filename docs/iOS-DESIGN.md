@@ -504,3 +504,25 @@ any user-facing feature, and the proposal/commit quotes this doc's rule
 numbers (e.g. "per iOS-DESIGN §5.3"). A feature that exists on tvOS but lands
 differently here must be the *native idiom* of the same verb — name the tvOS
 rule it mirrors or deliberately inverts.
+
+## §8.8c — the mix controls are a 0–10 level, and auto-duck is a control
+
+The same rule as tvOS-DESIGN Rule 8.8c, because it is a statement about people
+rather than about televisions. Owner, 2026-09-20: *"a scale of 0 to 10 rather
+than ... decibles that most people won't understand."*
+
+- **0–10, with 8 as unity** — the source's own level and the default, so a host
+  who never opens the panel is already there. 0–8 cuts 5 dB a step to silence;
+  8–10 boosts 3 dB a step to the mixer's +6 dB ceiling. `MixLevel` in
+  `Studio/StudioAudio.swift` is the one conversion, shared with the television.
+- **`Slider` stays.** It is the native control on this platform — it is
+  `@available(tvOS, unavailable)`, which is the only reason the television
+  draws its own. Only the SCALE and the readout changed, and the value is
+  shown beside it because a host needs a number they can say out loud.
+- **The meter reads on the fader's own scale**, not linearly. A linear 0–1
+  meter draws 2% for speech at RMS 0.02, which is how a working microphone
+  reads as a broken one.
+- **Auto-duck is a toggle, not a sentence.** Both panels used to STATE that
+  "the film drops 12 dB automatically while you are talking". A host who sets
+  Film to 9 and then speaks hears it drop anyway and reasonably concludes the
+  fader is broken. Manual has to mean manual.

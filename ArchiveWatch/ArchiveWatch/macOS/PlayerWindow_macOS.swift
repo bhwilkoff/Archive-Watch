@@ -23,6 +23,7 @@ struct PlayerWindow: View {
     // rather than read back from the engine because a slider that reads its
     // own effect back through an actor stutters under the thumb.
     @State private var studioLayout: StudioLayout = .corner
+    @State private var duckEnabled = true
     @State private var filmGain: Double = 1.0
     @State private var micGain: Double = 1.0
     @State private var filmMuted = false
@@ -74,6 +75,7 @@ struct PlayerWindow: View {
                                    layout: $studioLayout,
                                    filmGain: $filmGain, micGain: $micGain,
                                    filmMuted: $filmMuted, micMuted: $micMuted,
+                                   duckEnabled: $duckEnabled,
                                    showLowerThird: $showLowerThird,
                                    card: $studioCard,
                                    onEnd: { Task { await studio.end() } })
@@ -86,6 +88,7 @@ struct PlayerWindow: View {
                 .onChange(of: micGain) { _, g in Task { await studio.setAudio(micGain: Float(g)) } }
                 .onChange(of: filmMuted) { _, m in Task { await studio.setAudio(filmMuted: m) } }
                 .onChange(of: micMuted) { _, m in Task { await studio.setAudio(micMuted: m) } }
+                .onChange(of: duckEnabled) { _, on in Task { await studio.setAudio(duckEnabled: on) } }
                 .onChange(of: showLowerThird) { _, on in Task { await studio.setLowerThird(on) } }
                 .onChange(of: studioCard) { _, c in Task { await studio.setCard(c) } }
                 .navigationTitle(item.year.map { "\(item.title) (\($0))" } ?? item.title)

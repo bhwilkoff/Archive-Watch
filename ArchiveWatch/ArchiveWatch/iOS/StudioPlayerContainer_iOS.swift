@@ -30,6 +30,7 @@ struct StudioPlayerContainer: View {
     @State private var layout: StudioLayout
     @State private var filmGain = 1.0
     @State private var micGain = 1.0
+    @State private var duckEnabled = true
     @State private var filmMuted = false
     @State private var micMuted = false
     @State private var card: StudioOverlay.Card?
@@ -105,6 +106,7 @@ struct StudioPlayerContainer: View {
         StudioControlsSheet(
             layout: $layout, filmGain: $filmGain, micGain: $micGain,
             filmMuted: $filmMuted, micMuted: $micMuted,
+            duckEnabled: $duckEnabled,
             card: $card, showLowerThird: $showLowerThird,
             audio: health.audio, health: health, filmFramesPerSecond: filmFPS,
             onEnd: { Task { await end() } })
@@ -116,7 +118,8 @@ struct StudioPlayerContainer: View {
         guard let e = engine else { return }
         await e.setLayout(layout)
         await e.setAudio(filmGain: Float(filmGain), micGain: Float(micGain),
-                         filmMuted: filmMuted, micMuted: micMuted)
+                         filmMuted: filmMuted, micMuted: micMuted,
+                         duckEnabled: duckEnabled)
         await pushOverlay()
     }
 

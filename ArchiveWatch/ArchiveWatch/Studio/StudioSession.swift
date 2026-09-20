@@ -466,9 +466,26 @@ public final class StudioSession {
     /// One call, because that is the shape `StudioEngine` offers — every
     /// field optional so the panel can ride a single fader without restating
     /// the other three.
+    /// `duckEnabled` IS PART OF THIS, and its absence is what "macOS has not
+    /// learned everything from the Apple TV" looked like in practice. Rule
+    /// 8.8c made auto-duck a setting because otherwise the fader lies — a
+    /// host who sets Film to 9 and then speaks hears it drop 12 dB anyway —
+    /// and the parameter was added to `StudioEngine` and stopped there. Every
+    /// caller that goes through a `StudioSession`, which is macOS and iOS,
+    /// could not reach it.
+    ///
+    /// It cost an hour to find, because of HOW Swift reports it: with five
+    /// defaulted arguments, an unknown argument label makes the type-checker
+    /// explore overloads until it gives up and says "unable to type-check
+    /// this expression in reasonable time" — pointing at the enclosing view,
+    /// not at the call. Four rounds of breaking up the view moved the error
+    /// each time and fixed nothing. **When that error appears right after a
+    /// call gained an argument, suspect the ARGUMENT before the expression.**
     public func setAudio(filmGain: Float? = nil, micGain: Float? = nil,
-                         filmMuted: Bool? = nil, micMuted: Bool? = nil) async {
+                         filmMuted: Bool? = nil, micMuted: Bool? = nil,
+                         duckEnabled: Bool? = nil) async {
         await engine?.setAudio(filmGain: filmGain, micGain: micGain,
-                               filmMuted: filmMuted, micMuted: micMuted)
+                               filmMuted: filmMuted, micMuted: micMuted,
+                               duckEnabled: duckEnabled)
     }
 }

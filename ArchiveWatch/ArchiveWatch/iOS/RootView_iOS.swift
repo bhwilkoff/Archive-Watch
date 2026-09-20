@@ -98,6 +98,7 @@ struct RootView: View {
             StudioControlsSheet(
                 layout: $demoLayout, filmGain: $demoFilmGain, micGain: $demoMicGain,
                 filmMuted: $demoFilmMuted, micMuted: $demoMicMuted,
+                duckEnabled: $demoDuck,
                 card: $demoCard, showLowerThird: $demoLowerThird,
                 audio: demoAudio, health: demoHealth, filmFramesPerSecond: 0,
                 onEnd: { showStudioControls = false })
@@ -112,6 +113,7 @@ struct RootView: View {
     @State private var goLiveDemoFilm: Catalog.Item?
     @State private var showStudioControls = false
     @State private var demoLayout: StudioLayout = .corner
+    @State private var demoDuck = true
     @State private var demoFilmGain = 1.0
     @State private var demoMicGain = 1.0
     @State private var studioDoorRequest: GoLiveRequest?
