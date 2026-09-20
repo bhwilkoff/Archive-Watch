@@ -165,6 +165,17 @@ reliable or unreliable), `GroupSessionJournal` (file attachments), and
 is an identifier. **FaceTime's audio and video are system-owned and are not
 exposed to the app hosting the activity** — a privacy boundary, not a gap.
 
+**CORRECTED 2026-09-20, same day**: the paragraph above is about FaceTime's
+call media, and SharePlay is not FaceTime — a `GroupSession` needs no call at
+all. What SharePlay will not do is hand you another participant's CAPTURED
+audio. What it will do is carry whatever bytes an app sends:
+`GroupSessionMessenger.send(_ value: Data, to:)`, constructible with
+`DeliveryMode.unreliable`. **Guest voice is therefore buildable on the session
+this app already has** — each app captures its own microphone and sends
+frames, every app mixes what it receives, and the host mixes them into the
+programme as well. `docs/WATCH-TOGETHER.md` §9.wwwww has the shape and the one
+measurement it depends on.
+
 **Do not plan a feature on getting guest camera or microphone out of
 SharePlay.** An app can coordinate what everyone watches; it cannot hear or
 see who is watching. The routes that could carry guests are in

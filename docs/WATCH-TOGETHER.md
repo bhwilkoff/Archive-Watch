@@ -1604,7 +1604,69 @@ against a synthetic line.
 
 ## §9 — Measurements (filled in as they are taken)
 
-### §9.vvvvv Can a SharePlay call be broadcast alongside the film? NO — and the SDK says so in one line (2026-09-20)
+### §9.wwwww CORRECTION: SharePlay is not FaceTime, and the messenger sends Data — guest voice is buildable on the session we already have (2026-09-20)
+
+§9.vvvvv answered a narrower question than the owner asked and framed it
+around FaceTime. The owner: *"SharePlay and FaceTime are not the same and we
+already have SharePlay working within the app ... if we can allow multiple
+people running Archive Watch to hear one another as they watch a live stream
+and get all of the audio to mix together, then that reaches the same goal."*
+
+**Both objections are right.** A `GroupSession` does not require a FaceTime
+call — it can be started from Messages or from inside the app — and Decision
+098's session already runs. The verified claim is narrower than the one that
+was written: `GroupActivities` exposes no API that hands an app OTHER PEOPLE'S
+captured audio, which is why a FaceTime call cannot be scooped into the
+programme. **It is not a reason the app cannot send its own.**
+
+**And the API for that is right there.** `GroupSessionMessenger` has two sends,
+and the second is the one that matters:
+
+    final public func send(_ value: Data, to participants: Participants = .all,
+                           completion: @escaping ((any Error)?) -> Void)
+
+Raw `Data`, to all participants, and the messenger can be constructed with
+`DeliveryMode.unreliable` — which is what live audio wants, because a voice
+frame that arrives late is worthless and must not be retransmitted ahead of
+the next one.
+
+**So the shape of the feature is:**
+
+1. Every participant's app captures its OWN microphone, with the audio session
+   in a voice-chat mode so the platform's echo cancellation runs — the film is
+   coming out of the same speakers (`ANDROID-DESIGN` §9.14 is the same rule for
+   the other platform).
+2. It encodes short frames — AAC-LC is already in this codebase and already
+   compiled on every Apple target — tags them with a sequence number, and
+   `send`s them unreliably.
+3. Every app keeps a small jitter buffer per remote participant, decodes, and
+   mixes those voices into what it plays locally.
+4. **The HOST additionally mixes them into the programme**, which is one more
+   set of inputs to a mixer that already exists on all four platforms and
+   already has 0-10 faders and a duck. Only the host publishes.
+
+Nothing here needs a server, a new dependency, or FaceTime. The film stays in
+sync the way it already does, by Decision 098's coordination; the voices are
+live and are not synced to it.
+
+**THE ONE UNKNOWN IS THE ONE TO MEASURE FIRST.** Apple documents the messenger
+for application state, not for media. What is not known is whether it sustains
+~50 small messages a second per speaker at conversational latency, and what
+that latency is through Apple's relay. That is a two-device experiment with a
+tone and a clock, and it decides the whole design: if the messenger carries
+it, this is a feature built out of parts that already exist; if it does not,
+the guest transport becomes our own networking and the cost changes
+completely.
+
+### §9.vvvvv Can a FaceTime call's audio be broadcast alongside the film? NO — and the SDK says so in one line (2026-09-20)
+
+**Superseded in framing by §9.wwwww**: the question below was asked about
+SharePlay and answered about FaceTime, which are not the same thing. What
+remains true is the narrow finding — no API hands an app another
+participant's captured media. What was wrong was the implication that this
+closes guest voice. It does not; see above.
+
+
 
 Owner: *"Can you research whether or not we might be able to start a SharePlay
 call on the Apple platforms and then stream the combined SharePlay call and
