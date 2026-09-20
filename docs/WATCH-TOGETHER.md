@@ -1604,6 +1604,44 @@ against a synthetic line.
 
 ## §9 — Measurements (filled in as they are taken)
 
+### §9.qqqqq Android cannot carry the host at all, and a parity line I wrote an hour earlier said otherwise (2026-09-20)
+
+Going to convert Android's mix controls to the 0–10 scale, as macOS and iOS
+had just been, there was nothing to convert. `grep` for gain, duck or mic
+across `android/app/src/main` returns nothing at all.
+
+**The manifest declares one permission: `INTERNET`.** No `CAMERA`, no
+`RECORD_AUDIO`. The `uses-feature` entries for camera and microphone are
+`required="false"` declarations for Play filtering — they let the app install
+on a television, and they grant nothing.
+
+- **The microphone does not exist at any level.** No `AudioRecord`, no
+  `MediaRecorder.AudioSource`, no mixer, nothing to duck and nothing to duck
+  under. Android publishes the FILM's audio and only that.
+- **The camera is half-built, which is the more interesting half.**
+  `StudioEngine` creates a `cameraSurface` from the program's
+  `SurfaceTexture`, and `drawCameraCorner` runs when `cameraFramesAvailable >
+  0` — so the RECEIVING end is complete and correct. Nothing opens a camera to
+  feed it: there is no Camera2 or CameraX code anywhere. The counter is
+  therefore always 0, the tile is never drawn, and every reading of the
+  program is honest about it.
+
+**On a phone this IS the feature.** A watch-along with no host is a film.
+
+**And the correction owed.** One hour earlier this document's PARITY row was
+given the line *"Android's controls are unconverted — its faders are still raw
+amplitude and it has no auto-duck toggle"*, written from the absence of a
+0–10 scale rather than from looking. It flattered us in the usual direction:
+it describes a control that needs improving where there is no control. Fixed
+in place.
+
+**It also re-classifies an owner item.** SCRATCHPAD item 8 lists "a real
+camera tile (no television has a camera)" among the three things waiting on
+the Pixel 8a's adb pairing — i.e. as a TESTING gap. It is a BUILDING gap.
+Pairing the phone would have produced a broadcast with no tile in it and no
+explanation, which is precisely the shape §9.lllll warns about: a run that
+cannot succeed, read as a run that failed.
+
 ### §9.ppppp macOS and iOS were still sample-DROPPING their audio, and the tvOS 48 kHz lesson had never reached them (2026-09-20)
 
 Owner: *"Please also make sure the MacOS version has learned everything it can
