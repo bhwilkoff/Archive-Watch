@@ -1028,7 +1028,8 @@ struct PlayerScreen: View {
             }
             awdiag("AWCONT step=sessionMade inputs=%d outputs=%d",
                    session.inputs.count, session.outputs.count)
-            let cam = CameraFrameTap(); cam.attach(to: session)
+            let cam = CameraFrameTap()
+            cam.attach(to: session, rotationAngle: continuity.captureRotationAngle)
             awdiag("AWCONT step=cameraTapAttached")
             await engine.attachCamera(tap: cam)
             awdiag("AWCONT step=cameraEngineAttached")
@@ -1160,6 +1161,12 @@ struct PlayerScreen: View {
             // is inside an `if let`, and a diagnostic that only fires when an
             // unrelated thing exists cannot be trusted to have run at all. Its
             // own line, too — widening AWSYNC would change what AWSYNC means.
+            if let e = studioEngine {
+                let a = await e.audioSettings
+                studioFilmGain = a.filmGain
+                studioMicGain = a.micGain
+                studioDuckEnabled = a.duckEnabled
+            }
             studioCameraFPS = max(0, h.cameraFramesReceived - lastCameraFrames)
             awdiag("AWCAM frames=%d (+%d/s) %@", h.cameraFramesReceived,
                    studioCameraFPS,
@@ -1216,9 +1223,11 @@ struct PlayerScreen: View {
                 // was ducking under it. `micFrames` climbing is the only proof
                 // that the mic tap is delivering rather than merely attached —
                 // the same distinction the camera counter had to make.
-                awdiag("AWMIX micFrames=%d micLevel=%.3f filmLevel=%.3f ducking=%@ micPadded=%d",
+                awdiag("AWMIX micFrames=%d micLevel=%.3f filmLevel=%.3f ducking=%@ "
+                       + "micPadded=%d micBacklog=%.3fs micTrimmed=%d",
                        h.audio.micFramesWritten, h.audio.micLevel, h.audio.filmLevel,
-                       h.audio.ducking ? "yes" : "no", h.audio.micFramesPadded)
+                       h.audio.ducking ? "yes" : "no", h.audio.micFramesPadded,
+                       h.audio.micBacklogSeconds, h.audio.micDroppedForLatency)
 
                 // THE LIP-SYNC MEASUREMENT, on the product path (§9.rrrr).
                 //
@@ -1425,6 +1434,18 @@ struct PlayerScreen: View {
     /// player that is ALREADY playing it.
     @State private var studioFilm: Catalog.Item?
     @State private var studioEngine: StudioEngine?
+    /// Rule 8.8c — the live mixer, opened from the Watch Together control while
+    /// a broadcast is on air. The gains are READ BACK from the mixer each tick
+    /// rather than mirrored here, so this surface can never drift from what the
+    /// audience is actually hearing.
+    @State private var studioShowMixer = false
+    @State private var studioFilmGain: Float = 1
+    @State private var studioMicGain: Float = 1
+    @State private var studioDuckEnabled = true
+    /// A pause the HOST asked for, which Rule 8.8c says must not wear §4's
+    /// "the film has stopped" alarm — that sentence is for an accidental
+    /// freeze, and showing it for both teaches a host to ignore it.
+    @State private var studioHostPaused = false
     @State private var studioHealth = StudioHealth()
     /// Extracted from the alert's `message:` builder. Inline, the ternary plus
     /// two string concatenations inside a body this large tipped the type
@@ -1652,6 +1673,29 @@ struct PlayerScreen: View {
                 studioSetup = nil
                 player?.play()
             }
+        }
+        .fullScreenCover(isPresented: $studioShowMixer) {
+            StudioMixerTV(
+                health: studioHealth,
+                filmGain: studioFilmGain, micGain: studioMicGain,
+                duckEnabled: studioDuckEnabled, filmPaused: studioHostPaused,
+                onFilmGain: { g in
+                    studioFilmGain = g
+                    Task { await studioEngine?.setAudio(filmGain: g) }
+                },
+                onMicGain: { g in
+                    studioMicGain = g
+                    Task { await studioEngine?.setAudio(micGain: g) }
+                },
+                onDuck: { on in
+                    studioDuckEnabled = on
+                    Task { await studioEngine?.setAudio(duckEnabled: on) }
+                },
+                onTogglePause: {
+                    studioHostPaused.toggle()
+                    studioHostPaused ? player?.pause() : player?.play()
+                },
+                onDone: { studioShowMixer = false })
         }
         .overlay(alignment: .topLeading) {
             if studioFilm != nil {
@@ -1976,10 +2020,27 @@ struct PlayerScreen: View {
             player?.pause()
             studioSetup = film
         }
+        // RULE 8.8c — ONE CONTROL WHOSE MEANING FOLLOWS THE STATE. While a
+        // broadcast is on air this is the mixer; otherwise it is the way to
+        // start one. Owner, 2026-09-20: "I think you should be able to launch
+        // the controls via the same watch together button that you would press
+        // to launch a stream. When you are actually live streaming, that button
+        // should house controls."
+        let liveChildren: [UIMenuElement] = [
+            UIAction(title: "Live mixer",
+                     image: UIImage(systemName: "slider.horizontal.3")) { _ in
+                studioShowMixer = true
+            },
+            UIAction(title: studioHostPaused ? "Resume the film" : "Pause the film",
+                     image: UIImage(systemName: studioHostPaused ? "play.fill" : "pause.fill")) { _ in
+                studioHostPaused.toggle()
+                studioHostPaused ? player?.pause() : player?.play()
+            }
+        ]
         let watchTogether = UIMenu(
             title: "Watch Together",
             image: UIImage(systemName: "person.2.wave.2"),
-            children: [withFriends, withTheWorld])
+            children: studioFilm != nil ? liveChildren : [withFriends, withTheWorld])
         var items: [UIMenuElement] = [playNext, muteToggle, watchTogether]
         // An EPHEMERAL lineup (Party Play, a channel, a cartoon marathon) is a
         // wall of films the viewer did not choose — so the two questions it

@@ -428,11 +428,19 @@ public actor StudioEngine {
 
     /// The §4 faders. Set at any time, including while live.
     public func setAudio(filmGain: Float? = nil, micGain: Float? = nil,
-                         filmMuted: Bool? = nil, micMuted: Bool? = nil) {
+                         filmMuted: Bool? = nil, micMuted: Bool? = nil,
+                         duckEnabled: Bool? = nil) {
         if let filmGain { mixer.filmGain = filmGain }
         if let micGain { mixer.micGain = micGain }
         if let filmMuted { mixer.filmMuted = filmMuted }
         if let micMuted { mixer.micMuted = micMuted }
+        if let duckEnabled { mixer.duckEnabled = duckEnabled }
+    }
+
+    /// What the mixer is set to, so a surface can SHOW the gains rather than
+    /// keep its own copy and drift from them (Rule 8.8c).
+    public var audioSettings: (filmGain: Float, micGain: Float, duckEnabled: Bool) {
+        (mixer.filmGain, mixer.micGain, mixer.duckEnabled)
     }
 
     public func setLayout(_ l: StudioLayout) { layout = l; renderer.layout = l }
@@ -1443,6 +1451,8 @@ final class H264Encoder: @unchecked Sendable {
 public final class CameraFrameTap: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate, @unchecked Sendable {
     private let lock = NSLock()
     private var frame: CVPixelBuffer?
+    /// The sample buffer that owns `frame`. See `captureOutput`.
+    private var held: CMSampleBuffer?
     private var count = 0
     private let output = AVCaptureVideoDataOutput()
     /// THE SESSION, RETAINED. Nothing else held it: `StudioContinuity` stores
@@ -1459,7 +1469,7 @@ public final class CameraFrameTap: NSObject, AVCaptureVideoDataOutputSampleBuffe
 
     public override init() { super.init() }
 
-    public func attach(to session: AVCaptureSession) {
+    public func attach(to session: AVCaptureSession, rotationAngle: CGFloat = 0) {
         output.videoSettings = [kCVPixelBufferPixelFormatTypeKey as String: kCVPixelFormatType_32BGRA]
         output.alwaysDiscardsLateVideoFrames = true
         output.setSampleBufferDelegate(self, queue: queue)
@@ -1474,6 +1484,25 @@ public final class CameraFrameTap: NSObject, AVCaptureVideoDataOutputSampleBuffe
         // the preset `StudioContinuity.makeSession` already proved reachable.
         session.beginConfiguration()
         if session.canAddOutput(output) { session.addOutput(output) }
+        // ROTATE BEFORE RUNNING. `AVCaptureVideoDataOutput` physically rotates
+        // its buffers, and the header is explicit that this "requires a lengthy
+        // configuration of the capture render pipeline and should be done
+        // before calling startRunning" — which is why it belongs here, inside
+        // the same configuration transaction, and not applied later.
+        //
+        // Rotating the BUFFER (rather than cropping in the compositor) is what
+        // makes a portrait-held phone broadcast as a portrait tile: the
+        // renderer derives the tile's aspect from the buffer's own dimensions,
+        // so a rotated buffer gives a correctly-shaped tile for free.
+        if let conn = output.connection(with: .video) {
+            if conn.isVideoRotationAngleSupported(rotationAngle) {
+                conn.videoRotationAngle = rotationAngle
+                awdiag("AWCAM rotation %.0f applied", rotationAngle)
+            } else {
+                awdiag("AWCAM rotation %.0f NOT supported — leaving %.0f",
+                       rotationAngle, conn.videoRotationAngle)
+            }
+        }
         session.commitConfiguration()
         self.session = session
     }
@@ -1492,6 +1521,34 @@ public final class CameraFrameTap: NSObject, AVCaptureVideoDataOutputSampleBuffe
 
     public func captureOutput(_ o: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from c: AVCaptureConnection) {
         guard let px = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
-        lock.lock(); frame = px; count += 1; lock.unlock()
+        lock.lock()
+        // HOLD THE SAMPLE BUFFER, NOT JUST THE PIXEL BUFFER.
+        //
+        // `CMSampleBufferGetImageBuffer` vends a pixel buffer OWNED BY the
+        // sample buffer. Keeping only the pixel buffer lets the sample buffer
+        // go when this method returns, and the capture pool is then free to
+        // recycle those pages and write the next frame over them. The
+        // renderer still gets a valid, non-nil buffer — so a tile IS drawn —
+        // and what is in it is whatever the pool last did. Owner, 2026-09-20,
+        // watching the broadcast: "I see the tile. I don't see the actual
+        // camera taking video."
+        //
+        // That is why every counter looked healthy: `AWCAM frames=19621
+        // (+30/s) receiving` was true, `latest()` was non-nil, the layout was
+        // `.corner`, and the tile was composited. Only its CONTENTS were gone.
+        //
+        // One buffer is held at a time, which the pool can afford;
+        // `alwaysDiscardsLateVideoFrames` keeps it from backing up.
+        held = sampleBuffer
+        frame = px
+        count += 1
+        if count == 1 {
+            let w = CVPixelBufferGetWidth(px), h = CVPixelBufferGetHeight(px)
+            let fmt = CVPixelBufferGetPixelFormatType(px)
+            awdiag("AWCAM first frame %dx%d fourcc=%c%c%c%c", w, h,
+                   Int32((fmt >> 24) & 0xff), Int32((fmt >> 16) & 0xff),
+                   Int32((fmt >> 8) & 0xff), Int32(fmt & 0xff))
+        }
+        lock.unlock()
     }
 }

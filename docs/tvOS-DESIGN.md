@@ -503,6 +503,50 @@ left, everything focusable right — and the action is visible in the first
 frame. This also keeps focus in one column, because there is nothing focusable
 in the other to get lost in.
 
+**Rule 8.8c — the live mixer is two channels, a rotation, and nothing else.**
+**The entry point is the Watch Together control itself.** While a broadcast is
+on air, the same transport-menu item that opens the go-live sheet opens the
+MIXER instead — one control whose meaning follows the state, rather than a
+second surface competing for focus. Owner, 2026-09-20: *"I think you should be
+able to launch the controls via the same watch together button that you would
+press to launch a stream. When you are actually live streaming, that button
+should house controls."* This also keeps §8's rule that everything about the
+show hangs off the player's transport menu and nothing else.
+
+The mixer carries exactly two channels, **Film** and **Microphone**. Rolling the clickpad adjusts the focused
+channel continuously; **up/down** moves between the channels; **left/right**
+nudges in fixed 1 dB steps for a host who does not want to roll; **play/pause**
+pauses the film WITHOUT ending the broadcast. Each channel shows its level
+meter and its gain in dB, because §4's "never hide health numbers" applies to
+the mix a host is setting by ear as much as to the bitrate.
+
+Owner, 2026-09-20, having rejected a preset list: *"I'd much rather granular
+control ... the outer circle can be rolled around clockwise and
+counterclockwise and I would like to be able to use that gesture to turn up
+the movie or the microphone. Those are the other only two controls that should
+be necessary."* Presets were the wrong answer to a d-pad's awkwardness; the
+remote already has a continuous input and it should be used.
+
+**The gesture is read from Game Controller, not UIKit.**
+`UIRotationGestureRecognizer` is `API_UNAVAILABLE(tvos)`. `GCMicroGamepad.dpad`
+with `reportsAbsoluteDpadValues = true` reports the finger's ABSOLUTE position
+on the clickpad in -1…1, so `atan2(y, x)` differenced between samples is a true
+rotation delta. Ignore samples near the centre, where the angle is noise rather
+than intent.
+
+**AUTO-DUCK BECOMES A SETTING, because otherwise the knob lies.** §4's 12 dB
+duck fires whenever the host's voice passes the threshold, so a host who sets
+Film to +3 dB and then speaks hears it drop 12 dB anyway and reasonably
+concludes the control is broken. The Film channel therefore carries a third
+state — **Auto-duck on/off** — and manual means manual. Owner: *"I like the
+idea of turning ducking on and off to allow manual control."*
+
+**A HOST-INITIATED PAUSE IS NOT A STALL.** §4's "The film has stopped — your
+audience sees a still picture" is correct for an accidental freeze and wrong
+for a deliberate pause, and showing the alarm for both teaches a host to
+ignore it. A pause the host asked for reads as *"Film paused — your audience
+sees a still picture"*, without the warning colour.
+
 10.2b **Where the tvOS sign-in appears.** Inside the existing Watch Together
 flow off the player's transport menu (§8.8) — never a Settings row, never a
 §3.6 player mode, and never a pre-flight the viewer must clear before they

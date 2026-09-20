@@ -314,6 +314,30 @@ public final class StudioContinuity: NSObject {
     /// there and nothing was ever tapped off it.
     public private(set) var sessionHasMicrophone = false
 
+    /// The rotation the phone's own gravity sense says the picture needs, so a
+    /// host holding the phone upright is broadcast upright.
+    ///
+    /// `AVCaptureDevice.RotationCoordinator` (tvOS 17+) monitors the device and
+    /// publishes `videoRotationAngleForHorizonLevelCapture`. Owner, 2026-09-20:
+    /// "because the phone can be turned either portrait or landscape, the video
+    /// gets cropped oddly if I am in portrait because the livestream expects
+    /// landscape". The Continuity camera always delivers 1920x1080 buffers
+    /// whatever way the phone is held — `AWCONT camera formats` lists only
+    /// landscape sizes — so without this the portrait framing is simply the
+    /// middle of a landscape frame.
+    ///
+    /// Applied BEFORE `startRunning`, because `AVCaptureSession.h` says
+    /// `AVCaptureVideoDataOutput` "does output physically rotated video
+    /// buffers" and that setting the angle "requires a lengthy configuration of
+    /// the capture render pipeline and should be done before calling
+    /// startRunning". Changing it mid-show therefore means rebuilding the
+    /// session — which is exactly what the camera-recovery path already does.
+    private var rotationCoordinator: AVCaptureDevice.RotationCoordinator?
+
+    public var captureRotationAngle: CGFloat {
+        rotationCoordinator?.videoRotationAngleForHorizonLevelCapture ?? 0
+    }
+
     public func makeSession() -> AVCaptureSession? {
         sessionHasMicrophone = false
         guard let cam = camera(), let input = try? AVCaptureDeviceInput(device: cam) else { return nil }
@@ -339,6 +363,8 @@ public final class StudioContinuity: NSObject {
         // check whether the port is compatible, never whether the PRESET is
         // reachable for the device behind it.
         if session.canAddInput(input) { session.addInput(input) }
+        // Built per session, against the camera actually in use.
+        rotationCoordinator = AVCaptureDevice.RotationCoordinator(device: cam, previewLayer: nil)
         // WHAT THE DEVICE ACTUALLY OFFERS. Measured, not assumed: the first
         // attempt at this fix chose the preset with `canSetSessionPreset`,
         // which answered TRUE for `.hd1280x720` on a Continuity Camera and

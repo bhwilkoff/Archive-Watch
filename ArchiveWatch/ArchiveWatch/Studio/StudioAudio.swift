@@ -48,6 +48,10 @@ final class AudioRing: @unchecked Sendable {
     private(set) var framesWritten = 0
     private(set) var framesPadded = 0
     private(set) var framesOverflowed = 0
+    /// Samples discarded to hold the backlog under `maxBacklog` — latency
+    /// trimming, which is a different fault from `framesOverflowed` (the ring
+    /// physically out of room) and is counted separately.
+    private(set) var framesDroppedForLatency = 0
 
     /// Interleaved samples written but not yet read. This is LATENCY: whatever
     /// sits here was decoded already and will not be encoded until the mixer
@@ -62,8 +66,25 @@ final class AudioRing: @unchecked Sendable {
     /// whether the ring ever ran near full.
     var capacitySamples: Int { capacity }
 
-    init(capacity: Int = 44100 * 2) {
+    /// The most the ring will keep BEHIND the reader before discarding the
+    /// oldest. Capacity bounds memory; this bounds LATENCY, which is the thing
+    /// an audience notices.
+    ///
+    /// It exists because of the microphone. `AudioRing.read` was LIFO until
+    /// 2026-09-19 — it always jumped to the newest sample, so a deep ring cost
+    /// nothing visible. Making it FIFO made the read correct AND made the
+    /// backlog into delay: whatever is queued is exactly how far behind the
+    /// audio is. The owner, 2026-09-20, on a live broadcast: "the audio is
+    /// about a second later than the video so my words do not match my lips."
+    /// The film ring is held shallow by the decoder's pump ceiling; nothing
+    /// bounded the microphone's.
+    ///
+    /// Default = capacity, so no caller changes behaviour by accident.
+    var maxBacklog: Int
+
+    init(capacity: Int = 44100 * 2, maxBacklog: Int? = nil) {
         self.capacity = capacity
+        self.maxBacklog = maxBacklog ?? capacity
         buffer = [Float](repeating: 0, count: capacity)
     }
 
@@ -87,6 +108,15 @@ final class AudioRing: @unchecked Sendable {
             available = min(capacity, available + count)
         }
         framesWritten += count
+        // DROP THE OLDEST PAST THE WORKING DEPTH. Reads start at
+        // `writeIndex - available`, so shrinking `available` discards the
+        // oldest and keeps the newest — which is what a live path wants once
+        // it has fallen behind: late audio is worth less than synchronised
+        // audio, and for a host's voice it is worth nothing at all.
+        if available > maxBacklog {
+            framesDroppedForLatency += available - maxBacklog
+            available = maxBacklog
+        }
         lock.unlock()
     }
 
@@ -496,7 +526,17 @@ final class FilmAudioTap: @unchecked Sendable {
 /// The host's microphone, off the same `AVCaptureSession` the camera uses. On
 /// tvOS that session's audio device is the Continuity microphone.
 public final class MicAudioTap: NSObject, AVCaptureAudioDataOutputSampleBufferDelegate, @unchecked Sendable {
-    let ring = AudioRing()
+    /// 120 ms of working depth, not a second. A live voice that arrives late
+    /// is worse than a live voice with a gap — and the mixer reads in ~20 ms
+    /// chunks, so this is six reads of slack for jitter while keeping the host
+    /// in step with their own lips. `AW_STUDIO_MIC_BACKLOG_MS` makes it a
+    /// control rather than an argument.
+    let ring = AudioRing(capacity: 44100 * 2, maxBacklog: MicAudioTap.backlogSamples)
+
+    static let backlogSamples: Int = {
+        let ms = Double(ProcessInfo.processInfo.environment["AW_STUDIO_MIC_BACKLOG_MS"] ?? "") ?? 120
+        return max(882, Int(44100.0 * ms / 1000.0) * 2)      // interleaved stereo
+    }()
     private let output = AVCaptureAudioDataOutput()
     private let queue = DispatchQueue(label: "org.archivewatch.studio.mic")
     private var scratch = [Float](repeating: 0, count: 8192 * 2)
@@ -585,6 +625,10 @@ public struct StudioAudioHealth: Sendable, Equatable {
     public var aacFramesEncoded = 0
     public var filmLevel: Float = 0        // 0…1 RMS, for the meter
     public var micLevel: Float = 0
+    /// How far behind the host's voice is: what is queued in the mic ring and
+    /// therefore not yet encoded. This IS the lip-sync error.
+    public var micBacklogSeconds: Double = 0
+    public var micDroppedForLatency = 0
     public var ducking = false
 }
 
@@ -655,6 +699,9 @@ final class StudioAudioMixer: @unchecked Sendable {
     var micMuted = false
     /// §4: the film ducks 12 dB under the host's voice.
     let duckDecibels: Float = -12
+    /// Rule 8.8c — the Film channel's third state. On by default, because the
+    /// duck is right for a host who has not thought about it.
+    var duckEnabled = true
     /// RMS at which the host counts as speaking. `AW_STUDIO_DUCK_RMS`
     /// overrides it; see `micGain` for why both are doors.
     private let duckThreshold: Float = {
@@ -789,7 +836,11 @@ final class StudioAudioMixer: @unchecked Sendable {
 
         // Smooth the duck so it is a fade, not a click: ~40 ms attack, ~300 ms
         // release, which is what a viewer hears as "the film got out of the way".
-        let wantDuck = !micMuted && micRMS > duckThreshold
+        // Rule 8.8c: manual means manual. With auto-duck off, a host who sets
+        // the film to +3 dB and then speaks keeps +3 dB — otherwise the fader
+        // they just moved is overruled 12 dB by something invisible, and the
+        // control lies.
+        let wantDuck = duckEnabled && !micMuted && micRMS > duckThreshold
         let target: Float = wantDuck ? pow(10, duckDecibels / 20) : 1.0
         let coefficient: Float = target < duckGain ? 0.45 : 0.06
         duckGain += (target - duckGain) * coefficient
@@ -811,6 +862,8 @@ final class StudioAudioMixer: @unchecked Sendable {
         health.micFramesPadded = mic.ring.framesPadded
         health.filmLevel = min(1, filmRMS * 3)
         health.micLevel = min(1, micRMS * 3)
+        health.micBacklogSeconds = Double(mic.ring.availableSamples) / 2.0 / max(mic.programRate, 1)
+        health.micDroppedForLatency = mic.ring.framesDroppedForLatency
         health.ducking = wantDuck
         health.aacFramesEncoded = packetsOut
         healthLock.unlock()
