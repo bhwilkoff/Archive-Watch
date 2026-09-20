@@ -284,3 +284,62 @@ be broadcast), or the app carries them over a SharePlay session started
 **without** a call, from Messages — and then they mix into the programme like
 any other input. That is a cleaner feature than the one originally imagined,
 and it only works if nobody is on FaceTime.
+
+## §7 If we built our own voice + sync system: the protocols (2026-09-20)
+
+Owner: *"What protocol(s) would we use if we were going to build our own voice
+and syncing system to allow for multiple participants calling in and all
+having it streamed to youtube/twitch?"*
+
+Four jobs, and they have very different costs.
+
+| job | what it needs | what Apple gives free |
+|---|---|---|
+| **sync** | everyone at the same film position | **already solved** — `AVPlayerPlaybackCoordinator` + SharePlay (Decision 098), and it needs no FaceTime |
+| **codec** | low-latency voice | **`kAudioFormatOpus`** in CoreAudioTypes — Apple ships an Opus encoder, so no third-party codec |
+| **echo** | the film is in the same room as the mic | `AVAudioSession` voice-chat mode, `VOICE_COMMUNICATION` on Android |
+| **transport** | frames between houses | **nothing.** No STUN, no ICE, no TURN in any Apple SDK |
+| **egress** | the mixed programme to YouTube/Twitch | **already built** — our own RTMPS publisher (Decision 127) |
+
+**So three of the five are already paid for, and the whole question is the
+transport.**
+
+**TOPOLOGY: a STAR through the host, not a mesh.** The host has to mix anyway —
+that is what goes to RTMP — so guests send to the host, the host mixes, and
+each guest gets a **mix-minus** (everyone except themselves, or they hear
+their own voice back). A mesh costs N² streams to avoid a mix the host is
+already computing.
+
+**PROTOCOLS, in the order they should be tried:**
+
+1. **Opus over `GroupSessionMessenger`, unreliable.** 20 ms frames, ~24 kbps a
+   speaker, `send(_ value: Data, to:)`. **Zero infrastructure and zero NAT
+   problem** — Apple carries it. Sync stays on SharePlay. The unknown is
+   whether that channel sustains ~50 small messages a second at conversational
+   latency; Apple documents it for application state. §5.3 gates the design on
+   that number and `StudioVoiceProbe` takes it. **Mutually exclusive with
+   FaceTime** (§6: a call refuses the microphone), which is fine — the app
+   carries the voices instead.
+2. **Opus in RTP over DTLS, on `Network.framework`.** `nw_parameters_create_secure_udp`
+   gives datagrams and encryption natively. We would write: an RTP-ish header,
+   a jitter buffer, packet-loss concealment (Opus has it built in), and
+   **NAT traversal** — STUN gets most peers connected, and the 15-20% behind
+   symmetric NAT need a **TURN relay**, which is a server with a bandwidth
+   bill. That relay is the real cost of leaving Apple's transport, and it is
+   the reason everyone else reaches for WebRTC.
+3. **WebRTC (libwebrtc).** The standard answer: Opus, SRTP, ICE/STUN/TURN,
+   congestion control, jitter buffer and AEC in one package. It is also a very
+   large third-party dependency in a project that ships **zero** by choice
+   (Decision 127), brings its own build system and concurrency model, and
+   still needs a TURN server. Worth it only if guest VIDEO is wanted — which
+   is the one thing options 1 and 2 cannot grow into cheaply.
+
+**THE HONEST SHAPE OF THE DECISION.** Voice-only between a handful of people
+is a small feature on top of things this project already owns — an Opus
+encoder from Apple, a mixer with 0-10 faders on four platforms, an RTMPS
+publisher, and sync from Decision 098. What turns it into a real project is
+**NAT traversal**, and option 1 is the only one that dodges it entirely. So
+the order is: measure the messenger; if it carries voice, build option 1 and
+own nothing; if it does not, the question becomes whether guest video is
+wanted, because that is the only thing that justifies WebRTC's weight and a
+relay's bill.
