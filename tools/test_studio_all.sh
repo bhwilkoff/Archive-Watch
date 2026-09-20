@@ -163,6 +163,11 @@ swift_case "8.6 back-pressure"     "$PUB" "$ENG" "$AUD" "$OVL" "$CHAT" "$SHIM" t
 swift_case "8.15 audio ring FIFO"  "$PUB" "$ENG" "$AUD" "$OVL" "$CHAT" "$SHIM" tools/test_studio_ring.swift
 swift_case "8.16 programme rate"   "$PUB" "$ENG" "$AUD" "$OVL" "$CHAT" "$DEC" "$SHIM" tools/test_studio_rate.swift
 swift_case "8.17 tap resampler"    "$PUB" "$ENG" "$AUD" "$OVL" "$CHAT" "$SHIM" tools/test_studio_resample.swift
+# The camera-placement settings, asserted against what their LABELS promise.
+# Owner 2026-09-20: "I'm not sure the different settings for where your camera
+# will go ... are actually working as they should." They were not: theatre was
+# corner moved 64 px down, same 332x187 tile in the same corner.
+swift_case "8.22 camera placement" "$PUB" "$ENG" "$AUD" "$OVL" "$CHAT" "$SHIM" tools/test_studio_layouts.swift
 # No $SHIM: StudioVoiceProbe calls no awdiag, and adding sources a case does
 # not need is how three cases stopped compiling for a session (§9.lllll).
 swift_case "8.18 voice frame slices" ArchiveWatch/ArchiveWatch/Studio/StudioVoiceProbe.swift tools/test_studio_voiceframe.swift

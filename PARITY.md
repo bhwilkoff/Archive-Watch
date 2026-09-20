@@ -171,6 +171,41 @@ camera and a front-only device should pass. Four unit tests, and the two
 single-sense cases are asserted separately because `&&` written as `||` passes
 both-true and both-false and fails only those.
 
+#### Camera placement, verified 2026-09-20 (§8.22)
+
+Owner: *"I'm not sure the different settings for where your camera will go on
+the livestream from iOS (which actually should be available on all platforms)
+are actually working as they should."* They were not, and the geometry says so
+rather than a screenshot — `StudioLayout.rects` is shared by every Apple
+platform, so it is the one place the answer lives. In a 1280x720 program with
+a 16:9 camera:
+
+| layout | camera rect, BEFORE | AFTER |
+|---|---|---|
+| film | none | none |
+| corner | 883,64 332x187 | unchanged |
+| **theatre** | **883,0 332x187** | **729,0 486x273** |
+| side | 853,239 427x240 | unchanged |
+| host | full frame | unchanged |
+
+**"Theatre row (you along the bottom)" was "corner" moved down 64 pixels** —
+the same 332x187 tile in the same corner, so a host who chose it saw no change
+worth a setting. Position was not available to distinguish it (a centred strip
+lands on the lower third, found on the glass 2026-09-17), so SIZE is: at 0.38
+of frame height the host is a presence along the bottom rather than a
+thumbnail. §8.22 now asserts each layout against what its own LABEL promises,
+that all five are tellable apart, and that none but `host` touches the lower
+third — `host` is exempt because its camera IS the frame, and an earlier
+version of that assertion failed the product when the test was wrong.
+
+**Two parity gaps the same question exposed**, both still open:
+- **Android implements `corner` only** — a `layoutShowsCamera` boolean and a
+  hardcoded `drawCameraCorner`, so two of the five exist there (film, corner).
+  Porting `rects(in:cameraAspect:)` to the GLES pass is the work.
+- **tvOS has no layout picker at all.** `StudioLayout.allCases` is offered by
+  `GoLiveSheet_iOS`, `StudioControls_iOS`, `GoLiveSheet_macOS` and `StudioMac`
+  — and by nothing on the television.
+
 #### The rule this produces
 
 **A device says which of the three it can do, and why it cannot do the others.**

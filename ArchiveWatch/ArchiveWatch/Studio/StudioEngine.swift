@@ -117,7 +117,15 @@ public enum StudioLayout: String, CaseIterable, Sendable {
             // bottom-LEFT and a centred strip lands on top of it (seen on the
             // glass, 2026-09-17). Inset by the 5% title-safe margin so it is
             // not lost to a television's overscan.
-            let h = size.height * 0.26
+            // SIZE is what separates this from `corner`, and it has to be
+            // size, because position is not available: a centred strip lands on
+            // the lower third (seen on the glass, 2026-09-17), so this is
+            // anchored bottom-right exactly as `corner` is. At 0.26 it was
+            // `corner` moved down 64 px — same 332x187 tile, same corner — so
+            // the setting did nothing a host could see, which is what the owner
+            // reported on 2026-09-20. At 0.38 the host is a presence along the
+            // bottom rather than a thumbnail: 486x273 against corner's 332x187.
+            let h = size.height * 0.38
             let w = h * cameraAspect
             let inset = size.width * 0.05
             return (full, CGRect(x: size.width - w - inset, y: 0, width: w, height: h))
