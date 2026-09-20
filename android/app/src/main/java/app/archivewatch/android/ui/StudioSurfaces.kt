@@ -19,6 +19,8 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.ModalBottomSheet
+import androidx.compose.material3.LinearProgressIndicator
+import androidx.compose.material3.Slider
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -31,6 +33,7 @@ import androidx.compose.ui.unit.sp
 import androidx.media3.common.util.UnstableApi
 import app.archivewatch.android.studio.StudioController
 import app.archivewatch.android.studio.StudioHealth
+import app.archivewatch.android.studio.MixLevel
 import app.archivewatch.android.studio.StudioRights
 
 private val Marquee = Color(0xFFFF5C35)
@@ -130,6 +133,55 @@ fun StudioPanel(health: StudioHealth, onDismiss: () -> Unit, onEnd: () -> Unit) 
             Spacer(Modifier.size(16.dp))
             HorizontalDivider()
             Spacer(Modifier.size(16.dp))
+
+            // SOUND — the same 0-10 scale as every other platform (Rule
+            // 8.8c, iOS-DESIGN §8.8c, macOS-DESIGN §B13h). Android had NO
+            // mix controls at all until 2026-09-20: no faders, no duck, and
+            // no microphone for them to govern (§9.qqqqq).
+            //
+            // `Slider` is the native control here, as it is on iOS and
+            // macOS — it is `@available(tvOS, unavailable)`, which is the one
+            // reason the television draws its own. Only the SCALE is ours.
+            Text("Sound", fontWeight = FontWeight.SemiBold)
+            Spacer(Modifier.size(4.dp))
+            StudioFader("Film", StudioController.filmLevel,
+                        StudioController.programLevel) { StudioController.filmLevel = it }
+            if (StudioController.hasVoice) {
+                StudioFader("Your microphone", StudioController.micLevel,
+                            StudioController.voiceLevel) { StudioController.micLevel = it }
+                Row(
+                    Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = androidx.compose.ui.Alignment.CenterVertically,
+                ) {
+                    Column(Modifier.weight(1f)) {
+                        Text("Duck the film under my voice", fontWeight = FontWeight.Medium)
+                        // AUTO-DUCK IS A CONTROL, NOT A SENTENCE. Without the
+                        // switch a host who sets Film to 9 and then speaks
+                        // hears it drop 12 dB anyway and reasonably concludes
+                        // the fader is broken. Manual has to mean manual.
+                        Text(
+                            if (!StudioController.duckEnabled)
+                                "The film stays where you set it. 8 is the level it already has."
+                            else if (StudioController.ducking)
+                                "The film is ducking under your voice."
+                            else "The film drops 12 dB automatically while you are talking.",
+                            fontSize = 12.sp, color = Color(0xFF8A8F98),
+                        )
+                    }
+                    Switch(
+                        checked = StudioController.duckEnabled,
+                        onCheckedChange = { StudioController.duckEnabled = it },
+                    )
+                }
+            } else {
+                Text("No microphone in this show — your audience hears the film only.",
+                     fontSize = 12.sp, color = Color(0xFF8A8F98))
+            }
+
+            Spacer(Modifier.size(16.dp))
+            HorizontalDivider()
+            Spacer(Modifier.size(16.dp))
             // What the gate cannot protect a host from (§3.4a) — the same
             // sentence every platform shows, kept identical by
             // tools/test_studio_rights_parity.py.
@@ -139,5 +191,40 @@ fun StudioPanel(health: StudioHealth, onDismiss: () -> Unit, onEnd: () -> Unit) 
             Button(onClick = onEnd) { Text("End the broadcast") }
             Spacer(Modifier.size(12.dp))
         }
+    }
+}
+
+/**
+ * One channel: a name, the level a host can say out loud, and a meter.
+ *
+ * The meter reads on the FADER's own scale rather than linearly. A linear
+ * 0-1 meter draws 2% for speech at RMS 0.02 — which Apple measured from a
+ * host talking beside the phone — and that is how a working microphone reads
+ * as a broken one.
+ */
+@Composable
+private fun StudioFader(
+    label: String,
+    level: Double,
+    rms: Float,
+    onLevel: (Double) -> Unit,
+) {
+    Column(Modifier.fillMaxWidth().padding(vertical = 4.dp)) {
+        Row(
+            Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceBetween,
+        ) {
+            Text(label, fontWeight = FontWeight.Medium)
+            Text(MixLevel.text(level), fontWeight = FontWeight.Medium)
+        }
+        Slider(
+            value = level.toFloat(),
+            onValueChange = { onLevel(it.toDouble()) },
+            valueRange = 0f..MixLevel.MAXIMUM.toFloat(),
+        )
+        LinearProgressIndicator(
+            progress = { MixLevel.meterFraction(rms).toFloat() },
+            modifier = Modifier.fillMaxWidth(),
+        )
     }
 }

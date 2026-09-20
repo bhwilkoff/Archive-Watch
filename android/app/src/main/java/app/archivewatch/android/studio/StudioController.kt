@@ -46,6 +46,50 @@ object StudioController {
 
     // What the §9.3 bottom sheet drives.
     var showsCamera: Boolean by mutableStateOf(true)
+
+    /**
+     * §4's faders, on the 0-10 scale every platform shows (Rule 8.8c).
+     *
+     * Compose state rather than a pass-through to the engine, so the panel
+     * redraws when they move; the values are pushed into the mix on change.
+     * Both default to 8 — unity, the film's and the voice's own level — so a
+     * host who never opens the panel is already where they would have set it.
+     */
+    private var _filmLevel by mutableStateOf(MixLevel.UNITY)
+    private var _micLevel by mutableStateOf(MixLevel.UNITY)
+    private var _duck by mutableStateOf(true)
+
+    /**
+     * Assignable like `showsCamera`, with the push into the mix in the
+     * setter. A separate `setFilmLevel(...)` beside a `private set` property
+     * is the same JVM signature and will not compile — and a pair of them
+     * would be two ways to say one thing, which is how a panel and a mix get
+     * out of step.
+     */
+    var filmLevel: Double
+        get() = _filmLevel
+        set(v) {
+            _filmLevel = v.coerceIn(0.0, MixLevel.MAXIMUM)
+            engine?.mix?.filmGain = MixLevel.gain(_filmLevel)
+        }
+
+    var micLevel: Double
+        get() = _micLevel
+        set(v) {
+            _micLevel = v.coerceIn(0.0, MixLevel.MAXIMUM)
+            engine?.mix?.micGain = MixLevel.gain(_micLevel)
+        }
+
+    var duckEnabled: Boolean
+        get() = _duck
+        set(v) { _duck = v; engine?.mix?.duckEnabled = v }
+
+    /** What the audience is actually hearing, for the meters. */
+    val programLevel: Float get() = engine?.mix?.programLevel ?: 0f
+    val voiceLevel: Float get() = engine?.voice?.level ?: 0f
+    val ducking: Boolean get() = engine?.mix?.ducking ?: false
+    /** Whether there is a voice at all — a television has none (§8.8). */
+    val hasVoice: Boolean get() = engine?.voice != null
     var panelOpen: Boolean by mutableStateOf(false)
 
     private var engine: StudioEngine? = null
@@ -123,6 +167,12 @@ object StudioController {
         armedFilmID = null
         val e = StudioEngine(thermalStatus = thermalStatus, audioLeadUs = { audioLeadUs })
         e.layoutShowsCamera = showsCamera
+        // A NEW ENGINE STARTS WHERE THE HOST LEFT THE FADERS, not at unity.
+        // Going live a second time with the panel still reading 3 and the mix
+        // silently back at 8 is the kind of lie §4 exists to prevent.
+        e.mix.filmGain = MixLevel.gain(_filmLevel)
+        e.mix.micGain = MixLevel.gain(_micLevel)
+        e.mix.duckEnabled = _duck
         engine = e
         // A REAL destination when the host is signed in; the bench address
         // otherwise. Until now this was the bench address ONLY, so the engine
