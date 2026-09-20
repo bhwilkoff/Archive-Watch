@@ -844,6 +844,53 @@
     "reposts": 0,
     "replies": 0
    }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mvg6r7p4k72i",
+   "platform": "bluesky",
+   "id": "therealwest",
+   "slot": "from-the-vaults",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-09-13T18:06:34.007255+00:00",
+   "sampled": "2026-09-20T00:55:19.752531+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117265060135029774",
+   "platform": "mastodon",
+   "id": "therealwest",
+   "slot": "from-the-vaults",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-09-13T18:06:34.007255+00:00",
+   "sampled": "2026-09-20T00:55:19.752531+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mvtiwm6tea25",
+   "platform": "bluesky",
+   "id": "TheMonster1903_72",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-09-19T01:13:09.321955+00:00",
+   "sampled": "2026-09-20T00:55:19.752531+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
   }
  ]
 }
