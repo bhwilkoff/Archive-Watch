@@ -1604,6 +1604,61 @@ against a synthetic line.
 
 ## §9 — Measurements (filled in as they are taken)
 
+### §9.ooooo Portrait was built, flown and withdrawn in an hour; a silent film's silence is real (2026-09-20)
+
+**THE ORIENTATION CHOICE FROM §9.nnnnn LASTED ONE BROADCAST.** It worked
+exactly as designed — the owner paired a phone from the go-live sheet, chose
+Portrait, and the whole chain reported itself honestly:
+
+    AWCAM orientation chosen=portrait (90 deg) coordinatorSays=0
+    AWCAM rotation 90 applied
+    AWCAM frame shape 1080x1920 (portrait) fourcc=BGRA at frame 1
+
+134 seconds of genuinely portrait buffers went to air. Owner: *"The video is
+not in the right orientation and it is too big on the screen. Let's stop
+messing around with this and only use landscape orientation on the continuity
+camera."*
+
+Both halves were true, and **the second is a rule about layouts rather than
+about this feature**. `StudioLayout.corner` computes `let w = size.width *
+0.26; let h = w / cameraAspect`, so a 9:16 tile comes out 1.78x as tall as it
+is wide — **about 82% of the program's height**, a floor-to-ceiling strip in
+the corner. All five layouts size from one axis, and that is correct only
+while every camera is landscape. Supporting portrait properly means bounding
+every layout on both axes, for a shape the platform will not report; the owner
+priced that against the benefit and said no, which is the right call.
+
+The first half is worse for the idea than it looks: 90 degrees was the wrong
+direction, and **with `coordinatorSays=0` there is nothing to pick the right
+one with**. A host would have had to discover which of 90 and 270 was right on
+a live stream. A setting whose correct value can only be found by being wrong
+in public is not a setting.
+
+**What stays**: `cameraAspect` derived from the buffer rather than assumed, the
+`AWCAM frame shape WxH` line, and the sheet now SAYING *"Hold it on its side —
+the tile is landscape"*, because the thing the platform will not tell the app
+is the thing the app must tell the host. Rule 8.8d carries it.
+
+**Separately, a silent film's silence was real.** The owner: *"that movie
+didn't share the audio from the movie, but I don't think that movie has audio,
+so maybe that was on purpose."* Correct, and measured rather than assumed. The
+run showed `filmLevel=0.000` alongside a healthy `AWSYNC decodedAhead=+0.32
+buffered=0.14`, i.e. a track that decodes and keeps sync and carries nothing —
+which is the one shape that could also mean a decoder bug. `ffprobe` on the
+source settles it, with a control so the instrument can be seen to work
+(`-v info`, because `-v error` hides `volumedetect` entirely — §9's own trap):
+
+| | track | mean | max |
+|---|---|---|---|
+| `TheWizardOfOz1925` (streamed) | AAC 44100 stereo, **3 kb/s** | **-91.0 dB** | **-91.0 dB** |
+| CONTROL `steamboat_bill_ipod` | AAC 44100 stereo, 128 kb/s | -20.2 dB | -6.4 dB |
+
+A mean equal to the max at the 16-bit floor is digital silence. The transfer
+carries a silent AAC track, the Studio decoded it, kept its position and sent
+the silence that was there. Nothing to fix — and worth knowing when choosing a
+test film, because a pre-1930 rights-clear catalogue is full of them and a
+flat meter proves nothing on one.
+
 ### §9.nnnnn The phone's orientation is not knowable from the television, and the level was in the wrong unit (2026-09-20)
 
 Three things came back from a live broadcast the owner ran with a paired

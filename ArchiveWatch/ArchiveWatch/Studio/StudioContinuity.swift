@@ -333,62 +333,47 @@ public final class StudioContinuity: NSObject {
     /// startRunning". Changing it mid-show therefore means rebuilding the
     /// session — which is exactly what the camera-recovery path already does.
     ///
-    /// **AND IT CANNOT ANSWER FOR A CONTINUITY CAMERA.** Measured on Ben
-    /// Bedroom 2026-09-20 with a phone connected and delivering 31 fps:
-    /// `AWCAM rotation 0 applied`. That is not a defect in this code, it is
-    /// what the API is documented to do — `AVCaptureDevice.h` says it twice,
-    /// once for preview and once for capture:
+    /// **AND IT CANNOT ANSWER FOR A CONTINUITY CAMERA, WHICH IS WHY THIS
+    /// FEATURE IS LANDSCAPE ONLY.** Measured on Ben Bedroom 2026-09-20 with a
+    /// phone connected and delivering 31 fps: `AWCAM rotation 0 applied`. That
+    /// is not a defect in this code, it is what the API is documented to do —
+    /// `AVCaptureDevice.h` says it twice, once for preview and once for
+    /// capture:
     ///
     ///   "External cameras return 0 degrees of rotation even if they
     ///    physically rotate when their position in physical space is unknown."
     ///
     /// An iPhone on the far end of a Continuity link is exactly that: the
-    /// television has no idea which way up it is being held. So the
-    /// coordinator is kept — it costs nothing, it is the right answer on any
-    /// platform where the camera IS the device, and `rotationAngleObserved`
-    /// records whether it ever speaks here — but the host's own choice is what
-    /// this property actually returns.
+    /// television has no idea which way up it is being held.
+    ///
+    /// A host-stated **Landscape / Portrait** choice was built on the go-live
+    /// sheet and tried on air the same day, and the owner stopped it: *"The
+    /// video is not in the right orientation and it is too big on the screen.
+    /// Let's stop messing around with this and only use landscape orientation
+    /// on the continuity camera."* Both halves of that were true, and the
+    /// second is the more interesting one: rotating the buffer to 1080x1920
+    /// makes `StudioLayout.corner` compute its tile height from the WIDTH and
+    /// the aspect (`h = w / aspect`), so a portrait tile came out 1.78x as
+    /// tall as it was wide — about 82% of the program's height, a
+    /// floor-to-ceiling strip in the corner. Sizing a tile by one axis is
+    /// correct only while every camera is landscape.
+    ///
+    /// So the angle stays whatever the device says, which on a Continuity
+    /// camera is 0 — landscape. The coordinator is kept because it is the
+    /// right answer on any platform where the camera IS the device, and
+    /// `rotationAngleObserved` records whether it ever speaks here.
     private var rotationCoordinator: AVCaptureDevice.RotationCoordinator?
 
-    /// Which way the host is holding the phone, because the phone will not say.
-    ///
-    /// Owner, 2026-09-20, having asked for the stream to follow the phone and
-    /// then named the fallback themselves: *"if not, then you should be able
-    /// to decide which orientation you would like to use the phone in at the
-    /// beginning of the stream."* This is that. It persists, because a host
-    /// who mounts their phone one way mounts it that way every time.
-    public enum CameraOrientation: String, CaseIterable, Sendable {
-        case landscape, portrait
-        public var label: String {
-            self == .landscape ? "Landscape (phone on its side)" : "Portrait (phone upright)"
-        }
-        /// Degrees to rotate the sensor's native landscape frame by.
-        var degrees: CGFloat { self == .landscape ? 0 : 90 }
-    }
-
-    private static let orientationKey = "studio.camera.orientation"
-
-    @MainActor public static var cameraOrientation: CameraOrientation {
-        get {
-            CameraOrientation(rawValue:
-                UserDefaults.standard.string(forKey: orientationKey) ?? "") ?? .landscape
-        }
-        set { UserDefaults.standard.set(newValue.rawValue, forKey: orientationKey) }
-    }
-
     /// What the coordinator said, for the record. If this is ever non-zero on
-    /// a Continuity camera the header above is wrong and the host's choice can
-    /// be retired; until then it is the evidence that it is right.
+    /// a Continuity camera the header above is wrong; until then it is the
+    /// evidence that it is right.
     public private(set) var rotationAngleObserved: CGFloat = 0
 
     @MainActor public var captureRotationAngle: CGFloat {
         let fromDevice = rotationCoordinator?.videoRotationAngleForHorizonLevelCapture ?? 0
         rotationAngleObserved = fromDevice
-        let chosen = Self.cameraOrientation
-        awdiag("AWCAM orientation chosen=%@ (%.0f deg) coordinatorSays=%.0f",
-               chosen.rawValue, chosen.degrees, fromDevice)
-        // The device wins when it actually knows; otherwise the host does.
-        return fromDevice != 0 ? fromDevice : chosen.degrees
+        awdiag("AWCAM rotation from device=%.0f (landscape when 0)", fromDevice)
+        return fromDevice
     }
 
     public func makeSession() -> AVCaptureSession? {

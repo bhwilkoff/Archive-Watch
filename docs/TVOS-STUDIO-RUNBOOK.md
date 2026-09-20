@@ -215,12 +215,17 @@ directory.
 - Every `addOutput` onto a Continuity session belongs inside
   `beginConfiguration()`/`commitConfiguration()`, or it commits on the spot
   and forces exactly that renegotiation mid-flight.
-- **The phone's ORIENTATION cannot be learned from the television.**
+- **The phone's ORIENTATION cannot be learned from the television, and the
+  feature is LANDSCAPE ONLY because of it.**
   `AVCaptureDevice.RotationCoordinator` is the API for it, and
   `AVCaptureDevice.h` says, twice: *"External cameras return 0 degrees of
   rotation even if they physically rotate when their position in physical
   space is unknown."* Measured with a phone connected at 31 fps:
-  `AWCAM rotation 0 applied`. The host states it on the go-live sheet instead
-  (Rule 8.8d). Judge a rotation by `AWCAM frame shape WxH`, never by the
-  attach's own line — the attach logs `rotation N applied` whether or not the
-  buffers ever change shape.
+  `AWCAM rotation 0 applied`. A host-stated Landscape/Portrait choice was
+  built, flown for 134 s and withdrawn by the owner the same day (Rule 8.8d) —
+  90 degrees was the wrong direction with nothing to pick the right one with,
+  and `StudioLayout.corner` sizes its tile from ONE axis, so a portrait buffer
+  produced a tile 82% of the program's height. **Prop the phone on its side.**
+  Judge a rotation by `AWCAM frame shape WxH`, never by the attach's own
+  line — the attach logs `rotation N applied` whether or not the buffers ever
+  change shape.

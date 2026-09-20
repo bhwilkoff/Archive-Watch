@@ -563,56 +563,44 @@ Three further rules are ours, each from a measurement:
   one that does not move. The panel, the accent fill and the size of the
   number carry the selection instead.
 
-**Rule 8.8d - the phone's orientation is the HOST's to state, because the
-television cannot learn it.** A Continuity camera always delivers its sensor's
-landscape frame, and `AVCaptureDevice.RotationCoordinator` — the API for
-exactly this question — cannot answer for it. `AVCaptureDevice.h` says so
-twice, once for preview and once for capture:
+**Rule 8.8d - the camera tile is LANDSCAPE, and the host is told so.** A
+Continuity camera always delivers its sensor's landscape frame, and
+`AVCaptureDevice.RotationCoordinator` — the API for exactly this question —
+cannot answer for it. `AVCaptureDevice.h` says so twice, once for preview and
+once for capture:
 
 > *"External cameras return 0 degrees of rotation even if they physically
 > rotate when their position in physical space is unknown."*
 
 Measured on Ben Bedroom 2026-09-20 with a phone connected at 31 fps:
-`AWCAM rotation 0 applied`. So the go-live sheet carries a **Landscape /
-Portrait** choice, shown only once a phone is paired, and it persists. Owner,
-who named this fallback in the same breath as the request: *"if not, then you
-should be able to decide which orientation you would like to use the phone in
-at the beginning of the stream."* The coordinator is still consulted and still
-wins when it answers — it is right on any platform where the camera IS the
-device — and `rotationAngleObserved` records whether it ever speaks here.
+`AWCAM rotation 0 applied`. So the go-live sheet says *"Hold it on its side —
+the tile is landscape"*, which is the whole of the feature.
 
-The tile needs nothing else: `StudioEngine` already derives `cameraAspect` from
-the buffer's own dimensions, so rotating the capture connection gives a
-portrait tile for free. **The proof that a rotation took is the BUFFER SHAPE**
-(`AWCAM frame shape 1080x1920 (portrait)`), never the attach's own log line —
-the attach reported success on every run that produced a landscape frame.
+**A HOST-STATED Landscape / Portrait CHOICE WAS BUILT AND WITHDRAWN THE SAME
+DAY**, and it is recorded rather than deleted because the second half of why
+is a rule about layouts. It went to air: the sheet carried the choice, the
+capture connection rotated, and `AWCAM frame shape 1080x1920 (portrait)` for
+134 seconds. Owner: *"The video is not in the right orientation and it is too
+big on the screen. Let's stop messing around with this and only use landscape
+orientation on the continuity camera."*
 
-Owner, 2026-09-20, having rejected a preset list: *"I'd much rather granular
-control ... the outer circle can be rolled around clockwise and
-counterclockwise and I would like to be able to use that gesture to turn up
-the movie or the microphone. Those are the other only two controls that should
-be necessary."* Presets were the wrong answer to a d-pad's awkwardness; the
-remote already has a continuous input and it should be used.
+Both halves were true. 90 degrees was the wrong direction — and with no signal
+from the device there is nothing to pick the right one WITH, so the host would
+have had to discover it on a live stream. And the size was structural:
+`StudioLayout.corner` computes `let w = size.width * 0.26; let h = w /
+cameraAspect`, so a 9:16 tile comes out **1.78x as tall as it is wide — about
+82% of the program's height**, a floor-to-ceiling strip in the corner.
+**Sizing a tile from ONE axis is correct only while every camera is
+landscape**, and all five layouts do it. A portrait tile would need every one
+of them bounded on both axes, for a shape the platform will not even tell us
+about.
 
-**The gesture is read from Game Controller, not UIKit.**
-`UIRotationGestureRecognizer` is `API_UNAVAILABLE(tvos)`. `GCMicroGamepad.dpad`
-with `reportsAbsoluteDpadValues = true` reports the finger's ABSOLUTE position
-on the clickpad in -1…1, so `atan2(y, x)` differenced between samples is a true
-rotation delta. Ignore samples near the centre, where the angle is noise rather
-than intent.
-
-**AUTO-DUCK BECOMES A SETTING, because otherwise the knob lies.** §4's 12 dB
-duck fires whenever the host's voice passes the threshold, so a host who sets
-Film to +3 dB and then speaks hears it drop 12 dB anyway and reasonably
-concludes the control is broken. The Film channel therefore carries a third
-state — **Auto-duck on/off** — and manual means manual. Owner: *"I like the
-idea of turning ducking on and off to allow manual control."*
-
-**A HOST-INITIATED PAUSE IS NOT A STALL.** §4's "The film has stopped — your
-audience sees a still picture" is correct for an accidental freeze and wrong
-for a deliberate pause, and showing the alarm for both teaches a host to
-ignore it. A pause the host asked for reads as *"Film paused — your audience
-sees a still picture"*, without the warning colour.
+**What stays, because it earned its place**: `StudioEngine` derives
+`cameraAspect` from the buffer's own dimensions rather than assuming 16:9, and
+the camera tap logs `AWCAM frame shape WxH` whenever the shape changes. The
+attach's own `rotation N applied` is a log of what was ASKED for and said
+"applied" on every landscape run; the buffer's shape is the only reading that
+can contradict us.
 
 10.2b **Where the tvOS sign-in appears.** Inside the existing Watch Together
 flow off the player's transport menu (§8.8) — never a Settings row, never a
