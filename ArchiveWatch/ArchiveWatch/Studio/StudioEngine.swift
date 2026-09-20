@@ -829,8 +829,40 @@ public actor StudioEngine {
             }
             try s.setCategory(.playback, mode: .moviePlayback, options: [.mixWithOthers])
             #else
-            try s.setCategory(.playAndRecord, mode: .default,
-                              options: [.mixWithOthers, .allowBluetooth, .defaultToSpeaker])
+            // iOS: ASK TO RECORD, BUT FALL BACK TO PLAYING.
+            //
+            // A call — FaceTime included, and therefore a SharePlay watch
+            // party — REFUSES a recording session, and Apple says so in
+            // `AVAudioSession.h` naming this exact case:
+            //
+            //   "Apps may activate a AVAudioSessionCategoryPlayback session
+            //    when another app is hosting a call (to start a SharePlay
+            //    activity for example). However, they are not permitted to
+            //    capture the microphone of the active call, so attempts to
+            //    activate a session with category ...Record or
+            //    ...PlayAndRecord will fail with error
+            //    AVAudioSessionErrorCodeInsufficientPriority."
+            //
+            // Asking unconditionally therefore threw `'!pri'` (561017449) for
+            // every host in a call, and the throw left the session
+            // unconfigured — so a broadcast that could have carried the FILM
+            // perfectly well carried nothing, for want of a microphone it was
+            // never going to get. tvOS already had this right for the
+            // Continuity case above; iOS did not.
+            //
+            // The host's voice is genuinely unavailable during a call. The
+            // film is not, so the film goes out.
+            do {
+                try s.setCategory(.playAndRecord, mode: .default,
+                                  options: [.mixWithOthers, .allowBluetooth, .defaultToSpeaker])
+            } catch {
+                try s.setCategory(.playback, mode: .moviePlayback, options: [.mixWithOthers])
+                try s.setActive(true)
+                health.audioSessionState =
+                    "Playback (a call owns the microphone — your voice is not in the show)"
+                awdiag("AWAUD playAndRecord refused (%@) — fell back to playback", "\(error)")
+                return
+            }
             #endif
             try s.setActive(true)
             health.audioSessionState = "\(s.category.rawValue.replacingOccurrences(of: "AVAudioSessionCategory", with: ""))"

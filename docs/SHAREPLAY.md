@@ -240,3 +240,47 @@ be started programmatically — `prepareForActivation()` answers
 people. Two devices on ONE Apple ID cannot SharePlay each other, which also
 means **§5.3's measurement needs a second person with the app**, not merely a
 second device.
+
+## §6 Can a SharePlay call be STREAMED to YouTube/Twitch? (answered 2026-09-20)
+
+Owner, with a working iPhone-to-iPhone call: *"can you determine if this feed
+can flow through to stream to youtube/twitch?"*
+
+**The film can. The conversation cannot, and iOS says so by name.**
+`AVAudioSession.h`, on activating a session while another app hosts a call —
+and it names this exact scenario:
+
+> *"Apps may activate a AVAudioSessionCategoryPlayback session when another
+> app is hosting a call (to start a SharePlay activity for example). However,
+> they are **not permitted to capture the microphone of the active call**, so
+> attempts to activate a session with category AVAudioSessionCategoryRecord or
+> AVAudioSessionCategoryPlayAndRecord will fail with error
+> AVAudioSessionErrorCodeInsufficientPriority."*
+
+That is `'!pri'` / 561017449 — the same error `StudioEngine` already documents
+hitting on tvOS. So there are three answers, not one:
+
+1. **The FILM streams.** `.playback` is expressly permitted during a call, and
+   the Studio composites the film from its own player output, never from the
+   system. Nothing about a call stops that.
+2. **The HOST's own voice does not**, while the call is up. Not a gap in our
+   plumbing — the platform refuses the category.
+3. **The OTHER participants' voices never could**, by any route. §9.wwwww
+   covers the API side; this is the same boundary stated as an audio rule.
+
+**A defect this exposed, fixed the same day.** iOS asked for `.playAndRecord`
+UNCONDITIONALLY, so in a call the activation threw and left the session
+unconfigured — a broadcast that could have carried the film carried nothing,
+for want of a microphone it was never going to get. It now falls back to
+`.playback` and says so on the readout: *"a call owns the microphone — your
+voice is not in the show."* tvOS already had this right for the Continuity
+case.
+
+**AND IT CONSTRAINS §5.** Guest voice over the messenger needs every
+participant's app to record its OWN microphone — which is exactly what a live
+FaceTime call refuses. So §5 is not an addition to a FaceTime watch party; it
+is an ALTERNATIVE to one. Either the call carries the voices (and they cannot
+be broadcast), or the app carries them over a SharePlay session started
+**without** a call, from Messages — and then they mix into the programme like
+any other input. That is a cleaner feature than the one originally imagined,
+and it only works if nobody is on FaceTime.
