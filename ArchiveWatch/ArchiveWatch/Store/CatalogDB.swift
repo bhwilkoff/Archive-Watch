@@ -279,9 +279,37 @@ final class CatalogDB {
     /// an oversight: 10,668 items turn on it, hiding them is a Decision 027
     /// content call reserved for the owner, and the marquee is protected
     /// separately by `heroSafeBuckets` below.
+    /// AND `presumed_pd` DOES NOT APPLY TO FOREIGN FILMS, because a statute
+    /// says so.
+    ///
+    /// That bucket is a US RENEWAL-LAPSE assumption: between 1929 and 1963 a
+    /// work had to be renewed and a great many were not, so the audit keeps
+    /// them. **The URAA (1996) restored US copyright in foreign works that had
+    /// fallen into the public domain here for failure to comply with US
+    /// formalities.** So for a non-US film the assumption is not merely weak
+    /// evidence — it is the thing Congress specifically reversed.
+    ///
+    /// The measurement is its own argument. The 2,412 non-English
+    /// `presumed_pd` items on Home are led by Yojimbo, High and Low, Throne of
+    /// Blood, Sanjuro and The Bad Sleep Well (Toho), Tokyo Story and Harakiri
+    /// (Shochiku), The Seventh Seal and Wild Strawberries (Svensk
+    /// Filmindustri), The Wages of Fear and Mon Oncle. That is a Criterion
+    /// shelf, and every title on it is licensed commercially today. Owner,
+    /// 2026-09-20: *"things with questionable public domain status."*
+    ///
+    /// Cost: 17,975 -> 15,563 on Home, 13%. Items with NO language recorded
+    /// stay — 1,811 of them — because absence of evidence is not evidence, and
+    /// this rule should bite only where the catalogue actually says the film
+    /// is foreign.
+    ///
+    /// Home only. Browse and Search still carry the whole catalogue, and
+    /// nothing is hidden: this is about what the app PUTS IN FRONT of someone.
     private let homeAnd =
         "AND i.rightsBucket IN ('safe_pd_age','safe_gov','safe_archive_license'," +
-        "'safe_cc','presumed_pd','unknown_year')"
+        "'safe_cc','presumed_pd','unknown_year') " +
+        "AND NOT (i.rightsBucket = 'presumed_pd' " +
+        "AND i.language IS NOT NULL AND i.language <> '' " +
+        "AND lower(i.language) NOT IN ('en','eng','english'))"
 
     /// Commercials (contentType 'commercial') are interstitial + collection
     /// content (vintage ads — see docs/design/channels-tv-guide.md). They must
