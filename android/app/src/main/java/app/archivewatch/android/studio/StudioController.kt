@@ -50,6 +50,17 @@ object StudioController {
 
     private var engine: StudioEngine? = null
     private var audioTap: StudioFilmAudioTap? = null
+    /** The host in the show. Null on a television, which has neither. */
+    private var camera: StudioCamera? = null
+    private var mic: StudioMicAudio? = null
+    /** Kept so the microphone can be opened once the film's rate is known. */
+    private var showContext: android.content.Context? = null
+
+    // The host's camera and microphone report through `health.hostFault` and
+    // `health.cameraFramesDelivered`, NOT through accessors here. An accessor
+    // that no surface reads is the shape that hid a dead capture session on
+    // Apple for a day (§9.kkkkk), and this file had two of them for about
+    // twenty minutes.
 
     /**
      * Detail's entry point. Applies the rights gate and either refuses with a
@@ -149,7 +160,56 @@ object StudioController {
         }
         launchEngine(e, scope, overlayWidth, overlayHeight,
                      benchDest, if (benchDest != null) benchKey else "")
+        showContext = context
+        openHost(e, context)
         isLive = true
+    }
+
+    /**
+     * THE HOST — the camera now, the microphone when the film's rate is known.
+     *
+     * Neither is required. §8.8's rule is that an absent camera is NORMAL, and
+     * a television has neither, so both failures are recorded as sentences and
+     * the show goes on carrying the film. The engine's tile is drawn only once
+     * `cameraFramesAvailable > 0`, so a camera that never opens costs nothing
+     * on screen either.
+     *
+     * The MICROPHONE cannot open yet on purpose: it must record at the FILM's
+     * sample rate (mixing is sample for sample into the film's own buffers),
+     * and the tap does not know that rate until the first buffer arrives,
+     * which is after the show has begun. `openMicrophoneIfReady` is called
+     * from the health tick until it succeeds.
+     */
+    private fun openHost(e: StudioEngine, context: android.content.Context?) {
+        if (context == null) return
+        val texture = e.cameraTexture
+        if (texture != null) {
+            val c = StudioCamera()
+            if (c.open(context, texture)) {
+                camera = c
+                e.cameraAspect = c.aspect
+            } else {
+                // Kept anyway: its `problem` is the sentence the host reads.
+                camera = c
+            }
+        }
+    }
+
+    /**
+     * Opens the microphone once the film has told us its rate. Idempotent, and
+     * called once a second from the health tick until it takes.
+     */
+    private fun openMicrophoneIfReady() {
+        if (mic != null) return
+        val ctx = showContext ?: return
+        val rate = audioTap?.sampleRate ?: 0
+        if (rate <= 0) return
+        val m = StudioMicAudio()
+        // Kept whether or not it opened: a refusal is a sentence, not silence.
+        mic = m
+        if (m.start(ctx, rate, audioTap?.channelCount ?: 2)) {
+            engine?.voice = m
+        }
     }
 
     /** The engine start itself, shared by the resolved and bench paths. */
@@ -200,7 +260,16 @@ object StudioController {
      */
     suspend fun pollHealth() {
         val e = engine ?: return
-        health = e.health
+        // The microphone waits for the film to say what rate it runs at, and
+        // that is not known until the first buffer arrives. This is the retry.
+        openMicrophoneIfReady()
+        // THE HOST'S FAULTS GO INTO HEALTH, where something actually reads
+        // them. The camera's complaint outranks the microphone's: a host who
+        // cannot be seen notices before one who cannot be heard.
+        health = e.health.copy(
+            hostFault = camera?.problem ?: mic?.problem,
+            cameraFramesDelivered = camera?.framesDelivered?.get() ?: 0,
+        )
         if (e.health.endedReason != null && isLive) {
             val why = e.health.endedReason
             end()
@@ -211,6 +280,14 @@ object StudioController {
     }
 
     suspend fun end() {
+        // THE HOST'S HARDWARE GOES FIRST. A camera or a microphone that
+        // outlives its show is a light left on in someone's house — and on
+        // Android an AudioRecord that is never released keeps the input
+        // device claimed for the whole process.
+        camera?.close(); camera = null
+        mic?.stop(); mic = null
+        showContext = null
+        engine?.voice = null
         engine?.stop()
         engine = null
         audioTap = null

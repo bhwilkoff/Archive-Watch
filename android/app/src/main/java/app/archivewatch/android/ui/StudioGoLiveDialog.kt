@@ -28,6 +28,12 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import android.Manifest
+import android.content.pm.PackageManager
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.ui.platform.LocalContext
+import androidx.core.content.ContextCompat
 import app.archivewatch.android.studio.StudioRights
 
 @Composable
@@ -37,6 +43,27 @@ fun StudioGoLiveDialog(
     onDismiss: () -> Unit,
 ) {
     var signedIn by remember { mutableStateOf(false) }
+
+    // THE CAMERA AND THE MICROPHONE ARE ASKED FOR HERE, and nowhere else.
+    //
+    // This is the surface where a host has chosen to broadcast, which is the
+    // only moment the request means anything — the same rule tvOS-DESIGN
+    // §10.2b applies to sign-in: never a Settings row, never a pre-flight the
+    // viewer must clear before they have chosen to broadcast anything.
+    //
+    // NEITHER IS REQUIRED. §8.8's rule is that an absent camera is normal, so
+    // a refusal does not disable Go live — the show carries the film, and
+    // `StudioCamera.problem` / `StudioMicAudio.problem` put a sentence on the
+    // readout rather than leaving the host to wonder. The app had never asked
+    // for a runtime permission before this (it declared only INTERNET), which
+    // is why Android could broadcast a film and never the host.
+    val context = LocalContext.current
+    fun granted(p: String) =
+        ContextCompat.checkSelfPermission(context, p) == PackageManager.PERMISSION_GRANTED
+    var hostAsked by remember { mutableStateOf(granted(Manifest.permission.CAMERA)
+                                               && granted(Manifest.permission.RECORD_AUDIO)) }
+    val askHost = rememberLauncherForActivityResult(
+        ActivityResultContracts.RequestMultiplePermissions()) { hostAsked = true }
 
     AlertDialog(
         onDismissRequest = onDismiss,
@@ -61,6 +88,16 @@ fun StudioGoLiveDialog(
                 if (!signedIn) {
                     Text(
                         "Sign in above to go live. Nothing is broadcast until you press Go live.",
+                        style = MaterialTheme.typography.bodySmall,
+                    )
+                }
+                if (!hostAsked) {
+                    TextButton(onClick = {
+                        askHost.launch(arrayOf(Manifest.permission.CAMERA,
+                                               Manifest.permission.RECORD_AUDIO))
+                    }) { Text("Put me in the show (camera and microphone)") }
+                    Text(
+                        "Optional — the film broadcasts fine on its own.",
                         style = MaterialTheme.typography.bodySmall,
                     )
                 }

@@ -56,6 +56,16 @@ data class StudioHealth(
     val endedReason: String? = null,
     /** Why §6.6's last attempt failed, if it did. Never swallowed. */
     val reconnectFault: String? = null,
+    /**
+     * Why the host is not IN their own show, or null. Carried in health
+     * because §4 says health is never hidden, and because the alternative was
+     * two accessors on the controller that nothing read — which is exactly
+     * the shape that hid a dead capture session for a whole day on Apple
+     * (§9.kkkkk: every counter healthy, `AWCAM frames=0` unread).
+     */
+    val hostFault: String? = null,
+    /** Camera frames delivered, so a tile that DIED can be said out loud. */
+    val cameraFramesDelivered: Int = 0,
     val publisher: RtmpHealth = RtmpHealth(),
 ) {
     /** What the SHOW is doing, in the host's terms — not the transport's. */
@@ -83,7 +93,13 @@ data class StudioHealth(
             "The connection dropped — getting it back. Your audience sees a pause, not an ending."
         "OFFLINE" -> publisher.lastError
         else -> if (isRunning && filmFramesPerSecond == 0)
-            "The film has stopped — your audience sees a still picture." else null
+            "The film has stopped — your audience sees a still picture."
+        // THE HOST'S OWN HARDWARE, ranked BELOW the film: a broadcast with no
+        // host is diminished, one with no picture is broken. It is a sentence
+        // rather than silence because a camera that never opened and a camera
+        // that is simply absent look identical from the outside, and §8.8
+        // makes only the second of those normal.
+        else hostFault
     }
 }
 
@@ -125,6 +141,11 @@ class StudioEngine(
      */
     @Volatile var filmSurface: Surface? = null
         private set
+    /** §4's faders and the duck, applied to the film's own buffers. */
+    val mix = StudioAudioMix()
+    /** The host's voice, or null for a film-only show (§8.8: that is NORMAL). */
+    @Volatile var voice: VoiceSource? = null
+
     @Volatile var cameraSurface: Surface? = null
     /// THE TEXTURE, not only the Surface, because the capture SIZE is set on
     /// it. A camera will only write sizes its `StreamConfigurationMap`
@@ -393,7 +414,16 @@ class StudioEngine(
                     it.startOffsetUs = (System.nanoTime() - showStartNanos) / 1000
                     it.start()
                 }
-                audioTap.onPcm = { pcm, _, _ -> aac?.encode(pcm) }
+                // THE VOICE IS MIXED IN HERE, on the FILM's buffers, before
+                // the encoder sees them. The film tap is the timeline and the
+                // microphone is a slave to it — see `StudioAudioMix`. A mixer
+                // that pulled both sources on its own cadence would be a
+                // second clock, and §9.qq is what a second clock cost Android
+                // last time: video and audio 19.6 SECONDS apart.
+                audioTap.onPcm = { pcm, _, ch ->
+                    mix.mixInto(pcm, ch, voice)
+                    aac?.encode(pcm)
+                }
             }
             val audioAt = System.nanoTime()
             aac?.drain { a, ts -> published?.sendAudio(a, ts) }
