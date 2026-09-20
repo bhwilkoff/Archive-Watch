@@ -1604,6 +1604,66 @@ against a synthetic line.
 
 ## §9 — Measurements (filled in as they are taken)
 
+### §9.vvvvv Can a SharePlay call be broadcast alongside the film? NO — and the SDK says so in one line (2026-09-20)
+
+Owner: *"Can you research whether or not we might be able to start a SharePlay
+call on the Apple platforms and then stream the combined SharePlay call and
+the movie stream to YouTube and Twitch?"*
+
+**Not by tapping SharePlay, and not by any supported route.** Read from the
+framework rather than remembered — the complete public surface of
+`GroupActivities` on iOS 27 is forty types, and **grepping the entire module
+interface for `audio|video|camera|microphone|stream|media` returns exactly ONE
+token**: `BroadcastOptions.mirroredVideo`, a presentation hint on
+`GroupActivityMetadata`. Nothing in the framework vends participant media.
+
+What SharePlay actually gives an app is three channels, and none of them is a
+camera or a microphone:
+
+| | what it carries |
+|---|---|
+| `GroupSessionMessenger` | app-defined messages, `reliable` or `unreliable` |
+| `GroupSessionJournal` | file attachments, via `Transferable` |
+| `SystemCoordinator` | spatial templates and participant STATE (seating, roles) |
+
+`Participant` is an identifier. `ParticipantState` is seating and immersion,
+for visionOS. **FaceTime's audio and video are system-owned**, and Apple
+exposes neither to the app hosting the activity — that is a privacy boundary,
+not a gap. An app can coordinate what everyone WATCHES; it cannot hear or see
+who is watching.
+
+**And the obvious workaround is closed twice over.** Compositing the FaceTime
+picture-in-picture would mean screen capture, which §3.3 already refuses for
+the film — *"The Studio composites our own player output"* — and which Apple
+restricts around FaceTime in any case. ANDROID-DESIGN §9.11 states the same
+principle for `MediaProjection`. A feature that requires screen-recording the
+host's device is one this project does not build.
+
+**So the guest half needs its own transport, and there are three candidates.**
+
+1. **Voice-only guests over `GroupSessionMessenger`, unreliable mode.** The
+   messenger has a `DeliveryMode.unreliable`, which is the shape live audio
+   wants, and guests already run Archive Watch. Each guest would capture their
+   OWN microphone, encode Opus, and send frames; the host mixes them into the
+   programme exactly as it mixes the Continuity microphone today — the mixer
+   and the 0-10 faders are already there and already shared. **No server, no
+   new dependency, and it reuses the whole audio path.** What is NOT known is
+   whether the messenger sustains ~24 kbps per guest at conversational
+   latency; Apple documents it for app state, not for media, so this is a
+   measurement before it is a plan.
+2. **A server-side compositor** — Decision 127's Phase 4. Guests join over
+   WebRTC, a server mixes and pushes RTMP. It is the only route that carries
+   guest VIDEO, and Decision 127 rejected it for the reason that still holds:
+   a running cost and a thing to operate, for a free app with no accounts.
+3. **What already ships**: the host's own face via Continuity Camera, and the
+   audience in `StudioChatTwitch`'s overlay. Not a call, but it is built and
+   it is proven on air.
+
+**The honest summary for the owner**: SharePlay cannot be the guest transport,
+because it was never a media transport. Guest VOICE is plausible on our own
+terms and is worth one measurement. Guest VIDEO means a server, which is the
+decision Decision 127 already took and would be re-taking.
+
 ### §9.uuuuu Android learns to carry the host — and §9.6 had been a rule with no implementation (2026-09-20)
 
 Owner: *"Yes. Build the Android camera and microphone path."* Built in four

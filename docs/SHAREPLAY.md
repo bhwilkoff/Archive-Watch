@@ -150,3 +150,22 @@ surviving a continuation to the Apple TV once §2.2 was fixed.
 
 **Not yet verified:** behaviour under a genuinely throttled network (§2.3's
 suspension path), and the tvOS "start a call first" alert on the glass.
+
+## SharePlay is COORDINATION, never media (measured 2026-09-20)
+
+Asked whether a SharePlay call could be broadcast to YouTube/Twitch alongside
+the film, the answer is no, and the framework states it plainly: grepping the
+whole `GroupActivities` module interface for
+`audio|video|camera|microphone|stream|media` returns ONE token, and it is a
+presentation hint (`BroadcastOptions.mirroredVideo`).
+
+The three channels are `GroupSessionMessenger` (app-defined messages,
+reliable or unreliable), `GroupSessionJournal` (file attachments), and
+`SystemCoordinator` (spatial templates and participant STATE). `Participant`
+is an identifier. **FaceTime's audio and video are system-owned and are not
+exposed to the app hosting the activity** — a privacy boundary, not a gap.
+
+**Do not plan a feature on getting guest camera or microphone out of
+SharePlay.** An app can coordinate what everyone watches; it cannot hear or
+see who is watching. The routes that could carry guests are in
+`docs/WATCH-TOGETHER.md` §9.vvvvv.
