@@ -865,6 +865,42 @@
    "kind": "ephemeral",
    "mediaId": null,
    "reviewer": null
+  },
+  {
+   "at": "2026-09-20T18:01:23.234790+00:00",
+   "id": "preserve",
+   "title": "Self Preservation In An Atomic Attack",
+   "slot": "from-the-vaults",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mvxrpzq4ce2g",
+   "format": "card",
+   "kind": "ephemeral",
+   "mediaId": null,
+   "reviewer": "Violet Red Bile"
+  },
+  {
+   "at": "2026-09-20T18:01:23.234790+00:00",
+   "id": "preserve",
+   "title": "Self Preservation In An Atomic Attack",
+   "slot": "from-the-vaults",
+   "platform": "mastodon",
+   "url": "https://mastodon.social/@archivewatch/117304674738446419",
+   "format": "card",
+   "kind": "ephemeral",
+   "mediaId": null,
+   "reviewer": "Violet Red Bile"
+  },
+  {
+   "at": "2026-09-20T18:01:23.234790+00:00",
+   "id": "preserve",
+   "title": "Self Preservation In An Atomic Attack",
+   "slot": "from-the-vaults",
+   "platform": "instagram",
+   "url": "https://www.instagram.com/p/DdhLm2boLbE/",
+   "format": "card",
+   "kind": "ephemeral",
+   "mediaId": "117304674666045400",
+   "reviewer": "Violet Red Bile"
   }
  ]
 }
