@@ -904,30 +904,6 @@
    ]
   },
   {
-   "slug": "bayou-classic-1974",
-   "tvmazeID": 72855,
-   "title": "Bayou Classic",
-   "matched": true,
-   "canonEps": 52,
-   "ourItems": 15,
-   "mappedEps": 0,
-   "extras": 15,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "availableEps": 15,
-   "kinds": [
-    "series"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "bayou-classic-1974"
-    }
-   ]
-  },
-  {
    "slug": "crossroads-1955",
    "tvmazeID": 21885,
    "title": "Crossroads",
@@ -1044,6 +1020,30 @@
     {
      "kind": "series",
      "ref": "the-dinah-shore-show-1951"
+    }
+   ]
+  },
+  {
+   "slug": "bayou-classic-1974",
+   "tvmazeID": 72855,
+   "title": "Bayou Classic",
+   "matched": true,
+   "canonEps": 52,
+   "ourItems": 14,
+   "mappedEps": 0,
+   "extras": 14,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "availableEps": 14,
+   "kinds": [
+    "series"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "bayou-classic-1974"
     }
    ]
   },
@@ -1652,6 +1652,35 @@
    ]
   },
   {
+   "slug": "the-ed-wynn-show-1949",
+   "tvmazeID": 55223,
+   "title": "The Ed Wynn Show",
+   "matched": true,
+   "canonEps": 38,
+   "ourItems": 9,
+   "mappedEps": 0,
+   "extras": 9,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "availableEps": 9,
+   "kinds": [
+    "series",
+    "single"
+   ],
+   "mergedFrom": 2,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "the-ed-wynn-show-1949"
+    },
+    {
+     "kind": "single",
+     "ref": "TheEdWynnShow1950"
+    }
+   ]
+  },
+  {
    "slug": "26-men-1957",
    "tvmazeID": 16037,
    "title": "26 Men",
@@ -1705,30 +1734,6 @@
     {
      "kind": "single",
      "ref": "PetticoatJunction_742"
-    }
-   ]
-  },
-  {
-   "slug": "the-ed-wynn-show-1949",
-   "tvmazeID": 55223,
-   "title": "The Ed Wynn Show",
-   "matched": true,
-   "canonEps": 38,
-   "ourItems": 9,
-   "mappedEps": 0,
-   "extras": 9,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "availableEps": 9,
-   "kinds": [
-    "series"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "the-ed-wynn-show-1949"
     }
    ]
   },
@@ -1979,6 +1984,43 @@
     {
      "kind": "series",
      "ref": "telephone-time-1956"
+    }
+   ]
+  },
+  {
+   "slug": "the-addams-family-1964",
+   "tvmazeID": 4042,
+   "title": "The Addams Family",
+   "matched": true,
+   "canonEps": 64,
+   "ourItems": 5,
+   "mappedEps": 3,
+   "extras": 2,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "availableEps": 5,
+   "kinds": [
+    "series",
+    "single"
+   ],
+   "mergedFrom": 3,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "the-addams-family-1964"
+    },
+    {
+     "kind": "single",
+     "ref": "the-addams-family_202510"
+    },
+    {
+     "kind": "single",
+     "ref": "the-addams-familycomplete"
+    },
+    {
+     "kind": "single",
+     "ref": "the-addams-family-complete_202606"
     }
    ]
   },
@@ -2480,43 +2522,6 @@
    ]
   },
   {
-   "slug": "the-addams-family-1964",
-   "tvmazeID": 4042,
-   "title": "The Addams Family",
-   "matched": true,
-   "canonEps": 64,
-   "ourItems": 5,
-   "mappedEps": 2,
-   "extras": 3,
-   "repicked": 2,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "availableEps": 5,
-   "kinds": [
-    "series",
-    "single"
-   ],
-   "mergedFrom": 3,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "the-addams-family-1964"
-    },
-    {
-     "kind": "single",
-     "ref": "the-addams-family_202510"
-    },
-    {
-     "kind": "single",
-     "ref": "the-addams-familycomplete"
-    },
-    {
-     "kind": "single",
-     "ref": "the-addams-family-complete_202606"
-    }
-   ]
-  },
-  {
    "slug": "the-george-gobel-show-1954",
    "tvmazeID": 59124,
    "title": "The George Gobel Show",
@@ -2599,26 +2604,39 @@
    ]
   },
   {
-   "slug": "adam-12-1968",
-   "tvmazeID": 2119,
-   "title": "Adam-12",
+   "slug": "treehouse-masters-2013",
+   "tvmazeID": 1446,
+   "title": "Treehouse Masters",
    "matched": true,
-   "canonEps": 174,
-   "ourItems": 5,
+   "canonEps": 98,
+   "ourItems": 3,
    "mappedEps": 3,
-   "extras": 2,
+   "extras": 0,
    "repicked": 0,
    "deadItems": 0,
    "repickSkipped": 0,
-   "availableEps": 5,
+   "availableEps": 3,
    "kinds": [
-    "series"
+    "series",
+    "single"
    ],
-   "mergedFrom": 1,
+   "mergedFrom": 4,
    "consumedRefs": [
     {
      "kind": "series",
-     "ref": "adam-12-1968"
+     "ref": "treehouse-masters-2013"
+    },
+    {
+     "kind": "single",
+     "ref": "treehouse-tv-2007"
+    },
+    {
+     "kind": "single",
+     "ref": "treehouse-tv-2008-part-5"
+    },
+    {
+     "kind": "single",
+     "ref": "treehouse-tv-2008-part-2"
     }
    ]
   },
@@ -2647,30 +2665,6 @@
    ]
   },
   {
-   "slug": "burke-s-law-1963",
-   "tvmazeID": 6991,
-   "title": "Burke's Law",
-   "matched": true,
-   "canonEps": 81,
-   "ourItems": 5,
-   "mappedEps": 2,
-   "extras": 3,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "availableEps": 5,
-   "kinds": [
-    "series"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "burke-s-law-1963"
-    }
-   ]
-  },
-  {
    "slug": "checkmate-1960",
    "tvmazeID": 17743,
    "title": "Checkmate",
@@ -2691,6 +2685,43 @@
     {
      "kind": "series",
      "ref": "checkmate-1960"
+    }
+   ]
+  },
+  {
+   "slug": "everybody-loves-raymond-1996",
+   "tvmazeID": 573,
+   "title": "Everybody Loves Raymond",
+   "matched": true,
+   "canonEps": 209,
+   "ourItems": 3,
+   "mappedEps": 1,
+   "extras": 2,
+   "repicked": 0,
+   "deadItems": 1,
+   "repickSkipped": 0,
+   "availableEps": 2,
+   "kinds": [
+    "series",
+    "single"
+   ],
+   "mergedFrom": 2,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "everybody-loves-raymond-1996"
+    },
+    {
+     "kind": "single",
+     "ref": "everybody-loves-raymond-complete-series_20251121_0430"
+    },
+    {
+     "kind": "single",
+     "ref": "everybody-loves-raymond-complete-series_202601"
+    },
+    {
+     "kind": "single",
+     "ref": "everybody-loves-raymond-complete-series_202512"
     }
    ]
   },
@@ -2739,6 +2770,43 @@
     {
      "kind": "series",
      "ref": "make-room-for-daddy-1953"
+    }
+   ]
+  },
+  {
+   "slug": "nanny-and-the-professor-1970",
+   "tvmazeID": 17424,
+   "title": "Nanny and the Professor",
+   "matched": true,
+   "canonEps": 54,
+   "ourItems": 3,
+   "mappedEps": 2,
+   "extras": 1,
+   "repicked": 1,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "availableEps": 3,
+   "kinds": [
+    "series",
+    "single"
+   ],
+   "mergedFrom": 4,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "nanny-and-the-professor-1970"
+    },
+    {
+     "kind": "single",
+     "ref": "NannyandtheProfessorSeason3"
+    },
+    {
+     "kind": "single",
+     "ref": "NannyandtheProfessorSeason1"
+    },
+    {
+     "kind": "single",
+     "ref": "NannyandtheProfessorSeason2"
     }
    ]
   },
@@ -2896,6 +2964,39 @@
    ]
   },
   {
+   "slug": "alf-1986",
+   "tvmazeID": 848,
+   "title": "ALF",
+   "matched": true,
+   "canonEps": 102,
+   "ourItems": 2,
+   "mappedEps": 0,
+   "extras": 2,
+   "repicked": 1,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "availableEps": 2,
+   "kinds": [
+    "series",
+    "single"
+   ],
+   "mergedFrom": 3,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "alf-1986"
+    },
+    {
+     "kind": "single",
+     "ref": "ALF-The-Complete-Series"
+    },
+    {
+     "kind": "single",
+     "ref": "alf-1987-uk-vhs"
+    }
+   ]
+  },
+  {
    "slug": "annie-oakley-1954",
    "tvmazeID": 9475,
    "title": "Annie Oakley",
@@ -3041,6 +3142,39 @@
     {
      "kind": "series",
      "ref": "general-electric-theater-1953"
+    }
+   ]
+  },
+  {
+   "slug": "george-and-mildred-1976",
+   "tvmazeID": 7575,
+   "title": "George and Mildred",
+   "matched": true,
+   "canonEps": 38,
+   "ourItems": 2,
+   "mappedEps": 0,
+   "extras": 2,
+   "repicked": 1,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "availableEps": 2,
+   "kinds": [
+    "series",
+    "single"
+   ],
+   "mergedFrom": 3,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "george-and-mildred-1976"
+    },
+    {
+     "kind": "single",
+     "ref": "george-mildred-1976-79"
+    },
+    {
+     "kind": "single",
+     "ref": "George_and_Mildred"
     }
    ]
   },
@@ -3366,6 +3500,39 @@
    ]
   },
   {
+   "slug": "the-single-guy-1995",
+   "tvmazeID": 8225,
+   "title": "The Single Guy",
+   "matched": true,
+   "canonEps": 43,
+   "ourItems": 2,
+   "mappedEps": 2,
+   "extras": 0,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "availableEps": 2,
+   "kinds": [
+    "series",
+    "single"
+   ],
+   "mergedFrom": 3,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "the-single-guy-1995"
+    },
+    {
+     "kind": "single",
+     "ref": "SingleGuyS02E04KeptMan"
+    },
+    {
+     "kind": "single",
+     "ref": "TheSingleGuyS02E02BestMan"
+    }
+   ]
+  },
+  {
    "slug": "thunderbirds-1965",
    "tvmazeID": 3474,
    "title": "Thunderbirds",
@@ -3467,6 +3634,30 @@
    ]
   },
   {
+   "slug": "adam-12-1968",
+   "tvmazeID": 2119,
+   "title": "Adam-12",
+   "matched": true,
+   "canonEps": 174,
+   "ourItems": 3,
+   "mappedEps": 3,
+   "extras": 0,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "availableEps": 3,
+   "kinds": [
+    "series"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "adam-12-1968"
+    }
+   ]
+  },
+  {
    "slug": "arrest-and-trial-1963",
    "tvmazeID": 13451,
    "title": "Arrest and Trial",
@@ -3520,11 +3711,35 @@
    ]
   },
   {
+   "slug": "burke-s-law-1963",
+   "tvmazeID": 6991,
+   "title": "Burke's Law",
+   "matched": true,
+   "canonEps": 81,
+   "ourItems": 3,
+   "mappedEps": 2,
+   "extras": 1,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "availableEps": 3,
+   "kinds": [
+    "series"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "burke-s-law-1963"
+    }
+   ]
+  },
+  {
    "slug": "emmerdale-1972",
    "tvmazeID": 2548,
    "title": "Emmerdale",
    "matched": true,
-   "canonEps": 8862,
+   "canonEps": 8871,
    "ourItems": 3,
    "mappedEps": 0,
    "extras": 3,
@@ -3987,6 +4202,39 @@
    ]
   },
   {
+   "slug": "the-cosby-show-1984",
+   "tvmazeID": 2084,
+   "title": "The Cosby Show",
+   "matched": true,
+   "canonEps": 201,
+   "ourItems": 2,
+   "mappedEps": 1,
+   "extras": 1,
+   "repicked": 0,
+   "deadItems": 1,
+   "repickSkipped": 0,
+   "availableEps": 1,
+   "kinds": [
+    "series",
+    "single"
+   ],
+   "mergedFrom": 2,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "the-cosby-show-1984"
+    },
+    {
+     "kind": "single",
+     "ref": "the-cosby-show-complete-series_202512"
+    },
+    {
+     "kind": "single",
+     "ref": "the-cosby-show-complete-series_202602"
+    }
+   ]
+  },
+  {
    "slug": "you-are-there-1953",
    "tvmazeID": 18427,
    "title": "You Are There",
@@ -4007,70 +4255,6 @@
     {
      "kind": "series",
      "ref": "you-are-there-1953"
-    }
-   ]
-  },
-  {
-   "slug": "everybody-loves-raymond-1996",
-   "tvmazeID": 573,
-   "title": "Everybody Loves Raymond",
-   "matched": true,
-   "canonEps": 209,
-   "ourItems": 3,
-   "mappedEps": 0,
-   "extras": 3,
-   "repicked": 2,
-   "deadItems": 1,
-   "repickSkipped": 0,
-   "availableEps": 2,
-   "kinds": [
-    "single"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "single",
-     "ref": "everybody-loves-raymond-complete-series_20251121_0430"
-    },
-    {
-     "kind": "single",
-     "ref": "everybody-loves-raymond-complete-series_202601"
-    },
-    {
-     "kind": "single",
-     "ref": "everybody-loves-raymond-complete-series_202512"
-    }
-   ]
-  },
-  {
-   "slug": "treehouse-masters-2013",
-   "tvmazeID": 1446,
-   "title": "Treehouse Masters",
-   "matched": true,
-   "canonEps": 98,
-   "ourItems": 3,
-   "mappedEps": 0,
-   "extras": 3,
-   "repicked": 3,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "availableEps": 3,
-   "kinds": [
-    "single"
-   ],
-   "mergedFrom": 3,
-   "consumedRefs": [
-    {
-     "kind": "single",
-     "ref": "treehouse-tv-2007"
-    },
-    {
-     "kind": "single",
-     "ref": "treehouse-tv-2008-part-5"
-    },
-    {
-     "kind": "single",
-     "ref": "treehouse-tv-2008-part-2"
     }
    ]
   },
@@ -4162,6 +4346,64 @@
    ]
   },
   {
+   "slug": "big-break-x-good-good-2003",
+   "tvmazeID": 15939,
+   "title": "Big Break x Good Good",
+   "matched": true,
+   "canonEps": 255,
+   "ourItems": 1,
+   "mappedEps": 1,
+   "extras": 0,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "availableEps": 1,
+   "kinds": [
+    "series",
+    "single"
+   ],
+   "mergedFrom": 2,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "big-break-x-good-good-2003"
+    },
+    {
+     "kind": "single",
+     "ref": "Dragnet_TheBigBreak"
+    }
+   ]
+  },
+  {
+   "slug": "big-guy-and-rusty-the-boy-robot-1999",
+   "tvmazeID": 19043,
+   "title": "Big Guy and Rusty the Boy Robot",
+   "matched": true,
+   "canonEps": 26,
+   "ourItems": 1,
+   "mappedEps": 1,
+   "extras": 0,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "availableEps": 1,
+   "kinds": [
+    "series",
+    "single"
+   ],
+   "mergedFrom": 2,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "big-guy-and-rusty-the-boy-robot-1999"
+    },
+    {
+     "kind": "single",
+     "ref": "TheBigBoys"
+    }
+   ]
+  },
+  {
    "slug": "blansky-s-beauties-1977",
    "tvmazeID": 32951,
    "title": "Blansky's Beauties",
@@ -4211,6 +4453,93 @@
     {
      "kind": "series",
      "ref": "broken-arrow-1956"
+    }
+   ]
+  },
+  {
+   "slug": "camp-wilder-1992",
+   "tvmazeID": 13616,
+   "title": "Camp Wilder",
+   "matched": true,
+   "canonEps": 19,
+   "ourItems": 1,
+   "mappedEps": 1,
+   "extras": 0,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "availableEps": 1,
+   "kinds": [
+    "series",
+    "single"
+   ],
+   "mergedFrom": 2,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "camp-wilder-1992"
+    },
+    {
+     "kind": "single",
+     "ref": "campwilders01e12acloseshave"
+    }
+   ]
+  },
+  {
+   "slug": "davis-rules-1991",
+   "tvmazeID": 58597,
+   "title": "Davis Rules",
+   "matched": true,
+   "canonEps": 29,
+   "ourItems": 1,
+   "mappedEps": 1,
+   "extras": 0,
+   "repicked": 1,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "availableEps": 1,
+   "kinds": [
+    "series",
+    "single"
+   ],
+   "mergedFrom": 2,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "davis-rules-1991"
+    },
+    {
+     "kind": "single",
+     "ref": "davisruless02e01sitcom"
+    }
+   ]
+  },
+  {
+   "slug": "double-trouble-1984",
+   "tvmazeID": 25641,
+   "title": "Double Trouble",
+   "matched": true,
+   "canonEps": 23,
+   "ourItems": 1,
+   "mappedEps": 1,
+   "extras": 0,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "availableEps": 1,
+   "kinds": [
+    "series",
+    "single"
+   ],
+   "mergedFrom": 2,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "double-trouble-1984"
+    },
+    {
+     "kind": "single",
+     "ref": "DoubleTroubleS1E4BadChemistry"
     }
    ]
   },
@@ -4293,6 +4622,35 @@
     {
      "kind": "orphan-episode",
      "ref": "jason-king-the-complete-series-1971"
+    }
+   ]
+  },
+  {
+   "slug": "la-linea-1978",
+   "tvmazeID": 17036,
+   "title": "La Linea",
+   "matched": true,
+   "canonEps": 82,
+   "ourItems": 1,
+   "mappedEps": 1,
+   "extras": 0,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "availableEps": 1,
+   "kinds": [
+    "orphan-episode",
+    "series"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "la-linea-1978"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "la-linea-the-complete-series-1-1971"
     }
    ]
   },
@@ -4485,6 +4843,35 @@
    ]
   },
   {
+   "slug": "scrapheap-challenge-1998",
+   "tvmazeID": 4729,
+   "title": "Scrapheap Challenge",
+   "matched": true,
+   "canonEps": 143,
+   "ourItems": 1,
+   "mappedEps": 1,
+   "extras": 0,
+   "repicked": 1,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "availableEps": 1,
+   "kinds": [
+    "series",
+    "single"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "scrapheap-challenge-1998"
+    },
+    {
+     "kind": "single",
+     "ref": "scrapheap_challenge"
+    }
+   ]
+  },
+  {
    "slug": "star-maidens-1976",
    "tvmazeID": 3672,
    "title": "Star Maidens",
@@ -4592,6 +4979,35 @@
     {
      "kind": "series",
      "ref": "the-adventures-of-the-scarlet-pimpernel-1955"
+    }
+   ]
+  },
+  {
+   "slug": "the-challenge-1998",
+   "tvmazeID": 2100,
+   "title": "The Challenge",
+   "matched": true,
+   "canonEps": 646,
+   "ourItems": 1,
+   "mappedEps": 1,
+   "extras": 0,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "availableEps": 1,
+   "kinds": [
+    "series",
+    "single"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "the-challenge-1998"
+    },
+    {
+     "kind": "single",
+     "ref": "Robin_Hood_07_The_Challenge"
     }
    ]
   },
@@ -4707,6 +5123,35 @@
    ]
   },
   {
+   "slug": "the-martin-short-show-1994",
+   "tvmazeID": 24226,
+   "title": "The Martin Short Show",
+   "matched": true,
+   "canonEps": 8,
+   "ourItems": 1,
+   "mappedEps": 1,
+   "extras": 0,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "availableEps": 1,
+   "kinds": [
+    "series",
+    "single"
+   ],
+   "mergedFrom": 2,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "the-martin-short-show-1994"
+    },
+    {
+     "kind": "single",
+     "ref": "TheMartinShortShowEp.2TheSteveMartinShow"
+    }
+   ]
+  },
+  {
    "slug": "the-patty-duke-show-1963",
    "tvmazeID": 17402,
    "title": "The Patty Duke Show",
@@ -4814,146 +5259,6 @@
     {
      "kind": "orphan-episode",
      "ref": "the-world-at-war-complete-series-1973"
-    }
-   ]
-  },
-  {
-   "slug": "alf-1986",
-   "tvmazeID": 848,
-   "title": "ALF",
-   "matched": true,
-   "canonEps": 102,
-   "ourItems": 2,
-   "mappedEps": 0,
-   "extras": 2,
-   "repicked": 2,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "availableEps": 2,
-   "kinds": [
-    "single"
-   ],
-   "mergedFrom": 2,
-   "consumedRefs": [
-    {
-     "kind": "single",
-     "ref": "ALF-The-Complete-Series"
-    },
-    {
-     "kind": "single",
-     "ref": "alf-1987-uk-vhs"
-    }
-   ]
-  },
-  {
-   "slug": "george-and-mildred-1976",
-   "tvmazeID": 7575,
-   "title": "George and Mildred",
-   "matched": true,
-   "canonEps": 38,
-   "ourItems": 2,
-   "mappedEps": 0,
-   "extras": 2,
-   "repicked": 2,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "availableEps": 2,
-   "kinds": [
-    "single"
-   ],
-   "mergedFrom": 2,
-   "consumedRefs": [
-    {
-     "kind": "single",
-     "ref": "george-mildred-1976-79"
-    },
-    {
-     "kind": "single",
-     "ref": "George_and_Mildred"
-    }
-   ]
-  },
-  {
-   "slug": "the-cosby-show-1984",
-   "tvmazeID": 2084,
-   "title": "The Cosby Show",
-   "matched": true,
-   "canonEps": 201,
-   "ourItems": 2,
-   "mappedEps": 0,
-   "extras": 2,
-   "repicked": 1,
-   "deadItems": 1,
-   "repickSkipped": 0,
-   "availableEps": 1,
-   "kinds": [
-    "single"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "single",
-     "ref": "the-cosby-show-complete-series_202512"
-    },
-    {
-     "kind": "single",
-     "ref": "the-cosby-show-complete-series_202602"
-    }
-   ]
-  },
-  {
-   "slug": "the-single-guy-1995",
-   "tvmazeID": 8225,
-   "title": "The Single Guy",
-   "matched": true,
-   "canonEps": 43,
-   "ourItems": 2,
-   "mappedEps": 2,
-   "extras": 0,
-   "repicked": 2,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "availableEps": 2,
-   "kinds": [
-    "single"
-   ],
-   "mergedFrom": 2,
-   "consumedRefs": [
-    {
-     "kind": "single",
-     "ref": "SingleGuyS02E04KeptMan"
-    },
-    {
-     "kind": "single",
-     "ref": "TheSingleGuyS02E02BestMan"
-    }
-   ]
-  },
-  {
-   "slug": "nanny-and-the-professor-1970",
-   "tvmazeID": 17424,
-   "title": "Nanny and the Professor",
-   "matched": true,
-   "canonEps": 54,
-   "ourItems": 2,
-   "mappedEps": 0,
-   "extras": 2,
-   "repicked": 2,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "availableEps": 2,
-   "kinds": [
-    "single"
-   ],
-   "mergedFrom": 2,
-   "consumedRefs": [
-    {
-     "kind": "single",
-     "ref": "NannyandtheProfessorSeason3"
-    },
-    {
-     "kind": "single",
-     "ref": "NannyandtheProfessorSeason1"
     }
    ]
   },
@@ -5677,29 +5982,6 @@
    ]
   },
   {
-   "slug": "the-nativity-2009",
-   "tvmazeID": 20981,
-   "title": "The Nativity",
-   "matched": true,
-   "canonEps": 4,
-   "ourItems": 1,
-   "mappedEps": 0,
-   "extras": 1,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "kinds": [
-    "orphan-episode"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "orphan-episode",
-     "ref": "Nativity"
-    }
-   ]
-  },
-  {
    "slug": "the-lady-killers-2020",
    "tvmazeID": 54288,
    "title": "The Lady Killers",
@@ -5769,6 +6051,29 @@
    ]
   },
   {
+   "slug": "sea-hunt-1958",
+   "tvmazeID": 3710,
+   "title": "Sea Hunt",
+   "matched": true,
+   "canonEps": 155,
+   "ourItems": 1,
+   "mappedEps": 0,
+   "extras": 1,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "kinds": [
+    "orphan-episode"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "orphan-episode",
+     "ref": "Sea_Hunt_Mark_of_the_Octopus"
+    }
+   ]
+  },
+  {
    "slug": "rumpole-of-the-bailey-1978",
    "tvmazeID": 12144,
    "title": "Rumpole of the Bailey",
@@ -5788,6 +6093,30 @@
     {
      "kind": "orphan-episode",
      "ref": "01-rumpole-of-the-bailey-s-01-e-01-rumpole-and-the-younger-generation-1"
+    }
+   ]
+  },
+  {
+   "slug": "captain-gallant-of-the-foreign-legion-1955",
+   "tvmazeID": 56745,
+   "title": "Captain Gallant of the Foreign Legion",
+   "matched": true,
+   "canonEps": 63,
+   "ourItems": 1,
+   "mappedEps": 1,
+   "extras": 0,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "availableEps": 1,
+   "kinds": [
+    "orphan-episode"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "orphan-episode",
+     "ref": "Captain-Gallant_S1E36_The-Boy-Who-Found-Christmas"
     }
    ]
   },
@@ -5976,29 +6305,6 @@
    ]
   },
   {
-   "slug": "the-yogi-bear-show-1958",
-   "tvmazeID": 5755,
-   "title": "The Yogi Bear Show",
-   "matched": true,
-   "canonEps": 68,
-   "ourItems": 1,
-   "mappedEps": 0,
-   "extras": 1,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "kinds": [
-    "orphan-episode"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "orphan-episode",
-     "ref": "the-yogi-bear-show_20230617"
-    }
-   ]
-  },
-  {
    "slug": "kolchak-the-night-stalker-1972",
    "tvmazeID": 3564,
    "title": "Kolchak: The Night Stalker",
@@ -6133,6 +6439,30 @@
     {
      "kind": "orphan-episode",
      "ref": "Dragnet_The_Big_Lift"
+    }
+   ]
+  },
+  {
+   "slug": "garrison-s-gorillas-1967",
+   "tvmazeID": 16242,
+   "title": "Garrison's Gorillas",
+   "matched": true,
+   "canonEps": 26,
+   "ourItems": 1,
+   "mappedEps": 1,
+   "extras": 0,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "availableEps": 1,
+   "kinds": [
+    "orphan-episode"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "orphan-episode",
+     "ref": "Garrisons-Gorillas-1967-Series"
     }
    ]
   },
@@ -6275,30 +6605,6 @@
    ]
   },
   {
-   "slug": "la-linea-1978",
-   "tvmazeID": 17036,
-   "title": "La Linea",
-   "matched": true,
-   "canonEps": 82,
-   "ourItems": 1,
-   "mappedEps": 1,
-   "extras": 0,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "availableEps": 1,
-   "kinds": [
-    "orphan-episode"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "orphan-episode",
-     "ref": "la-linea-the-complete-series-1-1971"
-    }
-   ]
-  },
-  {
    "slug": "the-mind-of-mr-j-g-reeder-1969",
    "tvmazeID": 37193,
    "title": "The Mind of Mr. J.G. Reeder",
@@ -6319,30 +6625,6 @@
     {
      "kind": "orphan-episode",
      "ref": "the-mind-of-jg-reeder-complete-series-1969"
-    }
-   ]
-  },
-  {
-   "slug": "big-break-x-good-good-2003",
-   "tvmazeID": 15939,
-   "title": "Big Break x Good Good",
-   "matched": true,
-   "canonEps": 255,
-   "ourItems": 1,
-   "mappedEps": 1,
-   "extras": 0,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "availableEps": 1,
-   "kinds": [
-    "orphan-episode"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "orphan-episode",
-     "ref": "Dragnet_TheBigBreak"
     }
    ]
   },
@@ -6389,29 +6671,6 @@
     {
      "kind": "single",
      "ref": "on-the-buses-1969-73"
-    }
-   ]
-  },
-  {
-   "slug": "the-ed-wynn-show-1958",
-   "tvmazeID": 40536,
-   "title": "The Ed Wynn Show",
-   "matched": true,
-   "canonEps": 16,
-   "ourItems": 1,
-   "mappedEps": 0,
-   "extras": 1,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "kinds": [
-    "single"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "single",
-     "ref": "TheEdWynnShow1950"
     }
    ]
   },
@@ -6627,7 +6886,7 @@
    "tvmazeID": 9539,
    "title": "NBC Nightly News",
    "matched": true,
-   "canonEps": 4831,
+   "canonEps": 4838,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -7221,11 +7480,11 @@
    ]
   },
   {
-   "slug": "doctor-in-the-house-2015",
-   "tvmazeID": 27875,
+   "slug": "doctor-in-the-house-1969",
+   "tvmazeID": 8096,
    "title": "Doctor in the House",
    "matched": true,
-   "canonEps": 7,
+   "canonEps": 26,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -7378,30 +7637,6 @@
     {
      "kind": "single",
      "ref": "504.-thats-my-boy-1981-86"
-    }
-   ]
-  },
-  {
-   "slug": "davis-rules-1991",
-   "tvmazeID": 58597,
-   "title": "Davis Rules",
-   "matched": true,
-   "canonEps": 29,
-   "ourItems": 1,
-   "mappedEps": 1,
-   "extras": 0,
-   "repicked": 1,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "availableEps": 1,
-   "kinds": [
-    "single"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "single",
-     "ref": "davisruless02e01sitcom"
     }
    ]
   },
@@ -7613,11 +7848,11 @@
    ]
   },
   {
-   "slug": "the-armando-iannucci-shows-2001",
-   "tvmazeID": 2574,
-   "title": "The Armando Iannucci Shows",
+   "slug": "big-brother-best-shows-ever-2020",
+   "tvmazeID": 48066,
+   "title": "Big Brother: Best Shows Ever",
    "matched": true,
-   "canonEps": 8,
+   "canonEps": 10,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -7981,30 +8216,6 @@
    ]
   },
   {
-   "slug": "camp-wilder-1992",
-   "tvmazeID": 13616,
-   "title": "Camp Wilder",
-   "matched": true,
-   "canonEps": 19,
-   "ourItems": 1,
-   "mappedEps": 1,
-   "extras": 0,
-   "repicked": 1,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "availableEps": 1,
-   "kinds": [
-    "single"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "single",
-     "ref": "campwilders01e12acloseshave"
-    }
-   ]
-  },
-  {
    "slug": "down-the-shore-1992",
    "tvmazeID": 47188,
    "title": "Down the Shore",
@@ -8074,11 +8285,11 @@
    ]
   },
   {
-   "slug": "teen-angel-1997",
-   "tvmazeID": 7987,
+   "slug": "teen-angel-1989",
+   "tvmazeID": 50653,
    "title": "Teen Angel",
    "matched": true,
-   "canonEps": 17,
+   "canonEps": 12,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -8185,30 +8396,6 @@
     {
      "kind": "single",
      "ref": "OzzieAndHarriet-BusyChristmas"
-    }
-   ]
-  },
-  {
-   "slug": "big-guy-and-rusty-the-boy-robot-1999",
-   "tvmazeID": 19043,
-   "title": "Big Guy and Rusty the Boy Robot",
-   "matched": true,
-   "canonEps": 26,
-   "ourItems": 1,
-   "mappedEps": 1,
-   "extras": 0,
-   "repicked": 1,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "availableEps": 1,
-   "kinds": [
-    "single"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "single",
-     "ref": "TheBigBoys"
     }
    ]
   },
@@ -8903,30 +9090,6 @@
    ]
   },
   {
-   "slug": "scrapheap-challenge-1998",
-   "tvmazeID": 4729,
-   "title": "Scrapheap Challenge",
-   "matched": true,
-   "canonEps": 143,
-   "ourItems": 1,
-   "mappedEps": 1,
-   "extras": 0,
-   "repicked": 1,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "availableEps": 1,
-   "kinds": [
-    "single"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "single",
-     "ref": "scrapheap_challenge"
-    }
-   ]
-  },
-  {
    "slug": "blue-s-clues-1996",
    "tvmazeID": 8601,
    "title": "Blue's Clues",
@@ -9180,11 +9343,11 @@
    ]
   },
   {
-   "slug": "x-rated-2004",
-   "tvmazeID": 22418,
+   "slug": "x-rated-2015",
+   "tvmazeID": 22419,
    "title": "X-Rated",
    "matched": true,
-   "canonEps": 3,
+   "canonEps": 2,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -9318,11 +9481,11 @@
    ]
   },
   {
-   "slug": "tvf-pitchers-2015",
-   "tvmazeID": 7329,
-   "title": "TVF Pitchers",
+   "slug": "fit-for-tv-the-reality-of-the-biggest-loser-2025",
+   "tvmazeID": 86139,
+   "title": "Fit for TV: The Reality of the Biggest Loser",
    "matched": true,
-   "canonEps": 10,
+   "canonEps": 3,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -9456,11 +9619,11 @@
    ]
   },
   {
-   "slug": "the-worst-witch-2017",
-   "tvmazeID": 12990,
+   "slug": "the-worst-witch-1998",
+   "tvmazeID": 11931,
    "title": "The Worst Witch",
    "matched": true,
-   "canonEps": 52,
+   "canonEps": 53,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -9870,11 +10033,11 @@
    ]
   },
   {
-   "slug": "harry-2016",
-   "tvmazeID": 6373,
+   "slug": "harry-2013",
+   "tvmazeID": 7272,
    "title": "Harry",
    "matched": true,
-   "canonEps": 176,
+   "canonEps": 6,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -9897,7 +10060,7 @@
    "tvmazeID": 3164,
    "title": "Heartland",
    "matched": true,
-   "canonEps": 280,
+   "canonEps": 281,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -9985,9 +10148,9 @@
    ]
   },
   {
-   "slug": "alice-or-alice-2018",
-   "tvmazeID": 35313,
-   "title": "Alice or Alice",
+   "slug": "alice-zouroku-2017",
+   "tvmazeID": 25928,
+   "title": "Alice & Zouroku",
    "matched": true,
    "canonEps": 12,
    "ourItems": 1,
@@ -10027,30 +10190,6 @@
     {
      "kind": "single",
      "ref": "the-drew-carey-show-complete-series"
-    }
-   ]
-  },
-  {
-   "slug": "double-trouble-1984",
-   "tvmazeID": 25641,
-   "title": "Double Trouble",
-   "matched": true,
-   "canonEps": 23,
-   "ourItems": 1,
-   "mappedEps": 1,
-   "extras": 0,
-   "repicked": 1,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "availableEps": 1,
-   "kinds": [
-    "single"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "single",
-     "ref": "DoubleTroubleS1E4BadChemistry"
     }
    ]
   },
@@ -10120,30 +10259,6 @@
     {
      "kind": "single",
      "ref": "TLC1984UnsoldPilot"
-    }
-   ]
-  },
-  {
-   "slug": "the-martin-short-show-1994",
-   "tvmazeID": 24226,
-   "title": "The Martin Short Show",
-   "matched": true,
-   "canonEps": 8,
-   "ourItems": 1,
-   "mappedEps": 1,
-   "extras": 0,
-   "repicked": 1,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "availableEps": 1,
-   "kinds": [
-    "single"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "single",
-     "ref": "TheMartinShortShowEp.2TheSteveMartinShow"
     }
    ]
   },
@@ -11437,11 +11552,11 @@
    ]
   },
   {
-   "slug": "the-challenge-1998",
-   "tvmazeID": 2100,
-   "title": "The Challenge",
+   "slug": "sydney-s-new-year-s-eve-1996",
+   "tvmazeID": 91153,
+   "title": "Sydney's New Year's Eve",
    "matched": true,
-   "canonEps": 645,
+   "canonEps": 83,
    "ourItems": 1,
    "mappedEps": 1,
    "extras": 0,
@@ -11449,29 +11564,6 @@
    "deadItems": 0,
    "repickSkipped": 0,
    "availableEps": 1,
-   "kinds": [
-    "single"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "single",
-     "ref": "Robin_Hood_07_The_Challenge"
-    }
-   ]
-  },
-  {
-   "slug": "miley-s-new-year-s-eve-party-2021",
-   "tvmazeID": 66053,
-   "title": "Miley's New Year's Eve Party",
-   "matched": true,
-   "canonEps": 2,
-   "ourItems": 1,
-   "mappedEps": 0,
-   "extras": 1,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
    "kinds": [
     "single"
    ],
@@ -11505,14 +11597,106 @@
      "ref": "Some_Mothers_Do_Ave_Em"
     }
    ]
+  },
+  {
+   "slug": "the-pebbles-and-bamm-bamm-show-1971",
+   "tvmazeID": 20351,
+   "title": "The Pebbles and Bamm-Bamm Show",
+   "matched": true,
+   "canonEps": 16,
+   "ourItems": 1,
+   "mappedEps": 0,
+   "extras": 1,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "kinds": [
+    "single"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "single",
+     "ref": "the-pebbles-and-bamm-bamm-show"
+    }
+   ]
+  },
+  {
+   "slug": "it-ain-t-half-hot-mum-1974",
+   "tvmazeID": 7738,
+   "title": "It Ain't Half Hot Mum",
+   "matched": true,
+   "canonEps": 56,
+   "ourItems": 1,
+   "mappedEps": 0,
+   "extras": 1,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "kinds": [
+    "single"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "single",
+     "ref": "It_Aint_Half_Hot_Mum"
+    }
+   ]
+  },
+  {
+   "slug": "bram-and-alice-2002",
+   "tvmazeID": 39577,
+   "title": "Bram and Alice",
+   "matched": true,
+   "canonEps": 4,
+   "ourItems": 1,
+   "mappedEps": 0,
+   "extras": 1,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "kinds": [
+    "single"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "single",
+     "ref": "Bram-Alice-complete-series"
+    }
+   ]
+  },
+  {
+   "slug": "rob-2012",
+   "tvmazeID": 4398,
+   "title": "¡Rob!",
+   "matched": true,
+   "canonEps": 8,
+   "ourItems": 1,
+   "mappedEps": 0,
+   "extras": 1,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "kinds": [
+    "single"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "single",
+     "ref": "rob-_Lando18"
+    }
+   ]
   }
  ],
  "reclassifyArchiveIDs": [
   "TheDeathKiss",
-  "Nativity",
   "the-killers-1946-1080p-1456x-1080-blu-ray-x-264",
   "leave-it-to-beaver-the-complete-series-1957-1963",
   "Alias-Smith-And-Jones-1973",
+  "Sea_Hunt_Mark_of_the_Octopus",
   "01-rumpole-of-the-bailey-s-01-e-01-rumpole-and-the-younger-generation-1",
   "man-from-atlantis-complete-series-1977",
   "My_Little_Margie_3x14_Whats_Cooking",
@@ -11522,7 +11706,6 @@
   "department-s-complete-series-1970",
   "man-in-room-17-complete-series-1965",
   "Dundee-and-the-Culhane-1967",
-  "the-yogi-bear-show_20230617",
   "kolchak-the-night-stalker-complete-series-1972",
   "captain-scarlet-tv-series",
   "20220204_20220204_1021",
@@ -11537,7 +11720,6 @@
   "the-invisible-man-the-complete-series-1975_202505",
   "Dragnet_-_4x08_The_Big_Bar",
   "on-the-buses-1969-73",
-  "TheEdWynnShow1950",
   "Tales_Of_Tomorrow_-_World_Of_Water",
   "Tales_Of_Tomorrow_-_Red_Dust",
   "Andy_Griffith_The_Robbery",
@@ -11749,8 +11931,11 @@
   "munsters-complete",
   "the-golden-palace",
   "the-super-dave-osborne-show",
-  "Jack_Benny_New_Years_Eve",
-  "Some_Mothers_Do_Ave_Em"
+  "Some_Mothers_Do_Ave_Em",
+  "the-pebbles-and-bamm-bamm-show",
+  "It_Aint_Half_Hot_Mum",
+  "Bram-Alice-complete-series",
+  "rob-_Lando18"
  ],
  "orphanSeriesSlugs": [],
  "unmatched": [
@@ -12336,13 +12521,6 @@
    "ref": "1933-Der-Sieg-des-Glaubens"
   },
   {
-   "title": "\"Thriller\" The Return of Andrew Bentley",
-   "year": 1961,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "KarloffThriller"
-  },
-  {
    "title": "Hans Westmar",
    "year": 1933,
    "items": 1,
@@ -12427,7 +12605,7 @@
    "ref": "1934-Die-Reiter-von-Deutsch-Ostafrika"
   },
   {
-   "title": "Stars In Your Eyes",
+   "title": "Stars in Your Eyes",
    "year": 1956,
    "items": 1,
    "kind": "orphan-episode",
@@ -12798,13 +12976,6 @@
    "ref": "s-01-e-01-murder-in-monmartre-1"
   },
   {
-   "title": "Original Air Date",
-   "year": 1955,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "Captain-Gallant_S1E36_The-Boy-Who-Found-Christmas"
-  },
-  {
    "title": "Gene Autry Show Double Barreled Vengenance",
    "year": 1951,
    "items": 1,
@@ -12812,11 +12983,11 @@
    "ref": "Gene-Autry_Double-Barreled-Vengenance_3D"
   },
   {
-   "title": "Tales From The Darkside S01",
+   "title": "Wagon Train Alias Bill Hawks",
    "year": null,
    "items": 1,
    "kind": "orphan-episode",
-   "ref": "tales-from-the-darkside-s01-en"
+   "ref": "WagonTrain-AliasBillHawks_806"
   },
   {
    "title": "T H E Cat",
@@ -12852,6 +13023,13 @@
    "items": 1,
    "kind": "orphan-episode",
    "ref": "kukla-fran-and-ollie-tv-series-1947-through-1957-mp4"
+  },
+  {
+   "title": "I Led Three Lives",
+   "year": null,
+   "items": 1,
+   "kind": "orphan-episode",
+   "ref": "ILedThreeLivesArmyInfiltration"
   },
   {
    "title": "N Y P D Full Series",
@@ -12910,7 +13088,7 @@
    "ref": "Salvage-1-Series"
   },
   {
-   "title": "MY LIVING DOLL \"Rhoda's First Date\"",
+   "title": "Rhoda's First Date",
    "year": 1964,
    "items": 1,
    "kind": "orphan-episode",
@@ -13085,13 +13263,6 @@
    "ref": "all-quiet-on-the-western-front-1930-film"
   },
   {
-   "title": "『Dandadan』#06 \"A Dangerous Woman Arrives\"",
-   "year": 1929,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "s-01.-e-06-a-dangerous-woman-arrives"
-  },
-  {
    "title": "Down to Earth The Miracle Planet",
    "year": 2022,
    "items": 1,
@@ -13139,13 +13310,6 @@
    "items": 1,
    "kind": "orphan-episode",
    "ref": "o-elo-perdido-s03"
-  },
-  {
-   "title": "Why The French Lost WWII",
-   "year": 1973,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "1973OCT06_Why_French_Lost_WWII_According_Archie_Bunker"
   },
   {
    "title": "Ghost Story Circle of Fear",
@@ -13267,6 +13431,41 @@
    "ref": "s2e07_202002"
   },
   {
+   "title": "Robin Hood 44 The Goldmaker",
+   "year": null,
+   "items": 1,
+   "kind": "orphan-episode",
+   "ref": "Robin_Hood_44_-_The_Goldmaker"
+  },
+  {
+   "title": "Robin Hood 59 Ambush",
+   "year": null,
+   "items": 1,
+   "kind": "orphan-episode",
+   "ref": "Robin_Hood_59_-_Ambush"
+  },
+  {
+   "title": "Robin Hood 41 The Scientist",
+   "year": null,
+   "items": 1,
+   "kind": "orphan-episode",
+   "ref": "Robin_Hood_41_-_The_Scientist"
+  },
+  {
+   "title": "Robin Hood 55 The Dream",
+   "year": null,
+   "items": 1,
+   "kind": "orphan-episode",
+   "ref": "Robin_Hood_55_-_The_Dream"
+  },
+  {
+   "title": "Robin Hood 64 Fair Play",
+   "year": null,
+   "items": 1,
+   "kind": "orphan-episode",
+   "ref": "Robin_Hood_64_Fair_Play"
+  },
+  {
    "title": "The Big Producer",
    "year": null,
    "items": 1,
@@ -13379,13 +13578,6 @@
    "ref": "BBCTheGreatWar1964"
   },
   {
-   "title": "Garrison's Gorillas Full Series",
-   "year": 1967,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "Garrisons-Gorillas-1967-Series"
-  },
-  {
    "title": "Bob DIgs Rock And Roll",
    "year": 1958,
    "items": 1,
@@ -13484,6 +13676,13 @@
    "ref": "Love_That_Bob-5x09_Bob_becomes_A_Stage_Uncle"
   },
   {
+   "title": "Robin Hood 66 The York Treasure",
+   "year": null,
+   "items": 1,
+   "kind": "orphan-episode",
+   "ref": "Robin_Hood_66_-_The_York_Treasure"
+  },
+  {
    "title": "Collins The Crooner",
    "year": 1958,
    "items": 1,
@@ -13547,27 +13746,6 @@
    "ref": "drifters-202605"
   },
   {
-   "title": "Captain Planet S 01 E 05 Deadly Ransom",
-   "year": 1928,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "captain-planet-atp-s-01-e-05-deadly-ransom-480p-amzn-web-dl"
-  },
-  {
-   "title": "Victory Brothers Podcast V1",
-   "year": 1928,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "VictoryBrothersVictoryBrothersPodcastV1S2E04"
-  },
-  {
-   "title": "Hyper HardBoiled Gourmet Report",
-   "year": 1929,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "hyper.-hard.-boiled.-gourmet.-report.-s-01-e-01"
-  },
-  {
    "title": "Adventist Mission 360",
    "year": null,
    "items": 1,
@@ -13575,7 +13753,7 @@
    "ref": "adventist-mission-360-tv-s-43-e-5-arctic-mission-adventure"
   },
   {
-   "title": "twisted trails",
+   "title": "Twisted Trails",
    "year": null,
    "items": 1,
    "kind": "orphan-episode",
@@ -13631,35 +13809,42 @@
    "ref": "theavengers2x12thebigthinker"
   },
   {
-   "title": "Diver Dan",
+   "title": "The Heart Is a Handout",
+   "year": 1962,
+   "items": 1,
+   "kind": "orphan-episode",
+   "ref": "Heart_Is_a_Handout--Checkmate"
+  },
+  {
+   "title": "Diver Dan , episode 22",
    "year": 1961,
    "items": 1,
    "kind": "orphan-episode",
    "ref": "DiverDan_Ep22_Lost_In_The_Sargasso_Sea"
   },
   {
-   "title": "Diver Dan",
+   "title": "Diver Dan , episode 14",
    "year": 1961,
    "items": 1,
    "kind": "orphan-episode",
    "ref": "DiverDan_Ep14_Triggers_Revenge"
   },
   {
-   "title": "Diver Dan",
+   "title": "Diver Dan , episode 35",
    "year": 1961,
    "items": 1,
    "kind": "orphan-episode",
    "ref": "DiverDan_Ep35_The_Volcano"
   },
   {
-   "title": "Diver Dan",
+   "title": "Diver Dan , episode 2",
    "year": 1961,
    "items": 1,
    "kind": "orphan-episode",
    "ref": "DiverDan_Ep02_Goldie_The_Goldfish"
   },
   {
-   "title": "Diver Dan",
+   "title": "Diver Dan , episode 3",
    "year": 1961,
    "items": 1,
    "kind": "orphan-episode",
@@ -13673,56 +13858,56 @@
    "ref": "DiverDan_Ep40_The_Magnet"
   },
   {
-   "title": "Diver Dan",
+   "title": "Diver Dan , episode 8",
    "year": 1961,
    "items": 1,
    "kind": "orphan-episode",
    "ref": "DiverDan_Ep08_The_Octopus"
   },
   {
-   "title": "Diver Dan",
+   "title": "Diver Dan , episode 5",
    "year": 1961,
    "items": 1,
    "kind": "orphan-episode",
    "ref": "DiverDan_Ep05_Treasure_Ship"
   },
   {
-   "title": "Diver Dan",
+   "title": "Diver Dan , episode 7",
    "year": 1961,
    "items": 1,
    "kind": "orphan-episode",
    "ref": "DiverDan_Ep07_Shell_O_Phone"
   },
   {
-   "title": "Diver Dan",
+   "title": "Diver Dan , episode 6",
    "year": 1961,
    "items": 1,
    "kind": "orphan-episode",
    "ref": "DiverDan_Ep06_Sawfish_Rescue"
   },
   {
-   "title": "Diver Dan",
+   "title": "Diver Dan , episode 10",
    "year": 1961,
    "items": 1,
    "kind": "orphan-episode",
    "ref": "DiverDan_Ep10_Bottomless_Pit"
   },
   {
-   "title": "Diver Dan",
+   "title": "Diver Dan , episode 9",
    "year": 1961,
    "items": 1,
    "kind": "orphan-episode",
    "ref": "DiverDan_Ep09_Murder_Ink"
   },
   {
-   "title": "Diver Dan",
+   "title": "Diver Dan , episode 26",
    "year": 1961,
    "items": 1,
    "kind": "orphan-episode",
    "ref": "DiverDan_Ep26_Dynamite"
   },
   {
-   "title": "Diver Dan",
+   "title": "Diver Dan , episode 27",
    "year": 1961,
    "items": 1,
    "kind": "orphan-episode",
@@ -13764,7 +13949,7 @@
    "ref": "Bonanza-TheAbductionEp2x08"
   },
   {
-   "title": "Diver Dan",
+   "title": "Diver Dan , episode 1",
    "year": null,
    "items": 1,
    "kind": "orphan-episode",
@@ -14107,13 +14292,6 @@
    "ref": "Howdy_Doody_52"
   },
   {
-   "title": "Robin_Hood_44_-_The_Goldmaker",
-   "year": null,
-   "items": 1,
-   "kind": "single",
-   "ref": "Robin_Hood_44_-_The_Goldmaker"
-  },
-  {
    "title": "Brigadoon (1966)",
    "year": null,
    "items": 1,
@@ -14161,13 +14339,6 @@
    "items": 1,
    "kind": "single",
    "ref": "Sugar_Crisps_Ad1"
-  },
-  {
-   "title": "Robin_Hood_59_-_Ambush",
-   "year": null,
-   "items": 1,
-   "kind": "single",
-   "ref": "Robin_Hood_59_-_Ambush"
   },
   {
    "title": "Opie and the Spoiled Kid",
@@ -14240,20 +14411,6 @@
    "ref": "The_Liberace_Show_1955"
   },
   {
-   "title": "Robin_Hood_41_-_The_Scientist",
-   "year": null,
-   "items": 1,
-   "kind": "single",
-   "ref": "Robin_Hood_41_-_The_Scientist"
-  },
-  {
-   "title": "Robin_Hood_55_-_The_Dream",
-   "year": null,
-   "items": 1,
-   "kind": "single",
-   "ref": "Robin_Hood_55_-_The_Dream"
-  },
-  {
    "title": "Howdy Doody Shrinking Machine 1958",
    "year": null,
    "items": 1,
@@ -14287,13 +14444,6 @@
    "items": 1,
    "kind": "single",
    "ref": "Robin_Hood_06_A_Guest_For_The_Gallows"
-  },
-  {
-   "title": "Robin_Hood_64_Fair_Play",
-   "year": null,
-   "items": 1,
-   "kind": "single",
-   "ref": "Robin_Hood_64_Fair_Play"
   },
   {
    "title": "The Bitter Storm",
@@ -17290,13 +17440,6 @@
    "items": 1,
    "kind": "single",
    "ref": "shick-1"
-  },
-  {
-   "title": "Robin_Hood_66_-_The_York_Treasure",
-   "year": null,
-   "items": 1,
-   "kind": "single",
-   "ref": "Robin_Hood_66_-_The_York_Treasure"
   },
   {
    "title": "The Plot Thickens (Unsold Pilot from 1963)",
@@ -22778,6 +22921,20 @@
    "items": 1,
    "kind": "single",
    "ref": "the-addams-family-s-1-e-28-my-son-the-chimp.ia"
+  },
+  {
+   "title": "іCаrlу (2007-2021) [DUАL] [1080р] [х265]",
+   "year": null,
+   "items": 1,
+   "kind": "single",
+   "ref": "seattle-webcast-archive-2007-2021"
+  },
+  {
+   "title": "The Family Man (1990) - All Aired Episodes",
+   "year": null,
+   "items": 1,
+   "kind": "single",
+   "ref": "family-man-1990"
   }
  ]
 }

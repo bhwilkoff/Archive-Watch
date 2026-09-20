@@ -19,12 +19,12 @@
   "creator": null,
   "seasons": [
     {
-      "seasonNumber": null,
+      "seasonNumber": 0,
       "episodes": [
         {
           "archiveID": "ALF-The-Complete-Series",
-          "seasonNumber": null,
-          "episodeNumber": null,
+          "seasonNumber": 0,
+          "episodeNumber": 2,
           "title": "ALF",
           "overview": null,
           "stillURL": null,
@@ -38,7 +38,12 @@
             "tier": 1
           },
           "downloadURL": "https://archive.org/download/ALF-The-Complete-Series/Alf/Specials/ALF%20-%20S00E02%20-%20Project%20-%20ALF%20SDTV.mp4"
-        },
+        }
+      ]
+    },
+    {
+      "seasonNumber": null,
+      "episodes": [
         {
           "archiveID": "alf-1987-uk-vhs",
           "seasonNumber": null,
@@ -113,8 +118,5 @@
       "order": 7,
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/280461/photo/61a7454fe699b.jpg"
     }
-  ],
-  "seriesImdbID": "tt0090390",
-  "canonicalEpisodeCount": 102,
-  "canonicalSeasons": 4
+  ]
 }

@@ -1,0 +1,139 @@
+{
+  "version": 2,
+  "seriesID": "227-1985",
+  "tvmazeID": 7602,
+  "title": "227",
+  "yearStart": 1985,
+  "yearEnd": 1990,
+  "overview": "Set in Washington, DC, the series follows the residents of building number 227, a solidly middle-class apartment house located in a neighbor that is rapidly becoming gentrified with posh condominiums. Gibbs plays Mary Jenkins, a no-nonsense housewife. Mary's construction supervisor husband, Lester, is a caring, dependable father to their teenage daughter, Brenda. Mary's best friend is Rose Lee Holloway, a gossipy widow. The two pals love to sit on the stoop and discuss their lives and the lives of anyone else who happens to wander by. Sandra Clark is the building's resident vamp, a sashaying mantrap whose haughty attitude often sets her at odds with down-to-earth Mary. Pearl Shay is an elderly busybody who observes all of 227's comings and goings from her perch at the window of her first floor apartment. Rounding out the building's principal residents are Calvin, Pearl's seventeen year-old grandson (and Brenda's boyfriend), and Rose's daughter Tiffany.",
+  "posterURL": "https://artworks.thetvdb.com/banners/v4/series/77864/posters/622e5361641d8.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Comedy"
+  ],
+  "networks": [
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 4,
+      "episodes": [
+        {
+          "archiveID": "227-s-4-e-23-jackee-most-convert-video-online.com",
+          "seasonNumber": 4,
+          "episodeNumber": 23,
+          "title": "Jackee",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1989-05-11",
+          "year": 1989,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "227 (S4E23, Jackee, most) (convert-video-online.com).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 362069561,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/227-s-4-e-23-jackee-most-convert-video-online.com/227%20%28S4E23%2C%20Jackee%2C%20most%29%20%28convert-video-online.com%29.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1,
+  "canonicalEpisodesCount": 116,
+  "tvdbID": "77864",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Marla Gibbs",
+      "character": "Mary Jenkins",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/59512.jpg"
+    },
+    {
+      "name": "Hal Williams",
+      "character": "Lester Jenkins",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/276542/photo/64957ae2c5b8c.jpg"
+    },
+    {
+      "name": "Alaina Reed Hall",
+      "character": "Rose Lee Holloway",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/59507.jpg"
+    },
+    {
+      "name": "Jackée Harry",
+      "character": "Sandra Clark",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/266884/photo/68229bf799fc3.jpg"
+    },
+    {
+      "name": "Regina King",
+      "character": "Brenda Jenkins",
+      "order": 4,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/248182/photo/6063b591d07d7.jpg"
+    },
+    {
+      "name": "Helen Martin",
+      "character": "Pearl Shay",
+      "order": 5,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/59504.jpg"
+    },
+    {
+      "name": "Curtis Baldwin",
+      "character": "Calvin Dobbs",
+      "order": 6,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/59514.jpg"
+    },
+    {
+      "name": "Barry Sobel",
+      "character": "Dylan McMillan",
+      "order": 7,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/59509.jpg"
+    },
+    {
+      "name": "Paul Winfield",
+      "character": "Julian C. Barlow",
+      "order": 8,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/272753/5faa07fe2056d.jpg"
+    },
+    {
+      "name": "Stoney Jackson",
+      "character": "Travis Filmore",
+      "order": 9,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/59505.jpg"
+    },
+    {
+      "name": "Toukie A. Smith",
+      "character": "Eva Rawley",
+      "order": 10,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/59510.jpg"
+    },
+    {
+      "name": "Kia Goodwin",
+      "character": "Tiffany Holloway",
+      "order": 11,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/59513.jpg"
+    },
+    {
+      "name": "Reynaldo Rey",
+      "character": "Ray the Mailman",
+      "order": 12,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/559414.jpg"
+    },
+    {
+      "name": "Countess Vaughn",
+      "character": "Alexandria DeWitt",
+      "order": 13,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/302252/photo/6287bc0b648bc.jpg"
+    },
+    {
+      "name": "Kevin Peter Hall",
+      "character": "Warren Merriwether",
+      "order": 14,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/277387/photo/6403b2c3c50f6.jpg"
+    }
+  ]
+}

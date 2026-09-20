@@ -18,18 +18,18 @@
   "creator": null,
   "seasons": [
     {
-      "seasonNumber": null,
+      "seasonNumber": 2,
       "episodes": [
         {
           "archiveID": "the-cosby-show-complete-series_202512",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The Cosby Show",
-          "overview": null,
-          "stillURL": null,
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": null,
+          "seasonNumber": 2,
+          "episodeNumber": 6,
+          "title": "Halloween",
+          "overview": "Vanessa has a boy/girl Halloween party at home. Cliff takes Rudy and her friends trick or treating.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/313/782803.jpg",
+          "airDate": "1985-10-31",
+          "year": 1985,
+          "runtimeSeconds": 1800,
           "videoFile": {
             "name": "The Cosby Show S02E06 Halloween.mp4",
             "format": "MPEG4",
@@ -112,8 +112,5 @@
       "order": 10,
       "profilePath": "https://artworks.thetvdb.com/banners/actors/49210.jpg"
     }
-  ],
-  "seriesImdbID": "tt0086687",
-  "canonicalEpisodeCount": 180,
-  "canonicalSeasons": 8
+  ]
 }

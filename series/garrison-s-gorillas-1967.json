@@ -1,0 +1,81 @@
+{
+  "version": 2,
+  "seriesID": "garrison-s-gorillas-1967",
+  "tvmazeID": 16242,
+  "title": "Garrison's Gorillas",
+  "yearStart": 1967,
+  "yearEnd": 1968,
+  "overview": "Inspired by the film \"The Dirty Dozen\", this series chronicles the adventures of a group of convicts recruited into the U.S. Army by the offer of a post-war parole. Commanded by West Point graduate, Lt. Garrison, the \"Gorillas\" function as commandos behind Nazi lines.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/77239-3.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Drama",
+    "Adventure",
+    "War"
+  ],
+  "networks": [
+    "ABC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "Garrisons-Gorillas-1967-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "The Magnificent Forger",
+          "overview": null,
+          "stillURL": "https://archive.org/download/archivewatch-covers/Garrisons-Gorillas-1967-Series.27f18127.jpg",
+          "airDate": "1967-12-19",
+          "year": 1967,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Garrison's Gorillas (26 of 26)/S01E15 - The Magnificent Forger.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 286215191,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Garrisons-Gorillas-1967-Series/Garrison%27s%20Gorillas%20%2826%20of%2026%29/S01E15%20-%20The%20Magnificent%20Forger.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1,
+  "canonicalEpisodesCount": 26,
+  "tvdbID": "77239",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Christopher Cary",
+      "character": "Goniff",
+      "order": 0,
+      "profilePath": null
+    },
+    {
+      "name": "Brendon Boone",
+      "character": "Chief",
+      "order": 1,
+      "profilePath": null
+    },
+    {
+      "name": "Rudy Solari",
+      "character": "Casino",
+      "order": 2,
+      "profilePath": null
+    },
+    {
+      "name": "Cesare Danova",
+      "character": "Actor",
+      "order": 3,
+      "profilePath": null
+    },
+    {
+      "name": "Ron Harper",
+      "character": "Lt. Craig Garrison",
+      "order": 4,
+      "profilePath": null
+    }
+  ]
+}

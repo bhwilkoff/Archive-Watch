@@ -4,7 +4,7 @@
   "tvmazeID": 2119,
   "title": "Adam-12",
   "yearStart": 1968,
-  "yearEnd": 1971,
+  "yearEnd": 1975,
   "overview": "Race through the streets of Los Angeles with Adam-12, the series that defined the police drama genre. Still mourning the death of his former partner, Officer Pete Malloy is teamed with rookie Officer Jim Reed and together they serve and protect the City of Angels as \"Adam-12\", their unit's radio call number. Watch a these brothers in blue struggle to manage the job's demands and frustrations, as they battle drug dealers, intervene in domestic disputes and pursue suspects in high-speed chases.",
   "posterURL": "https://artworks.thetvdb.com/banners/posters/78686-1.jpg",
   "backdropURL": null,
@@ -165,8 +165,5 @@
       "order": 11,
       "profilePath": null
     }
-  ],
-  "seriesImdbID": "tt0062539",
-  "canonicalEpisodeCount": 143,
-  "canonicalSeasons": 7
+  ]
 }

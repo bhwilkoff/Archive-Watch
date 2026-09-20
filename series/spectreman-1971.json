@@ -1,88 +1,85 @@
 {
- "version": 2,
- "seriesID": "spectreman-1971",
- "tvmazeID": 9669,
- "title": "Spectreman",
- "yearStart": 1971,
- "yearEnd": 1972,
- "overview": "Banished from the peaceful simian Planet E, the mad scientist Dr. Gori and his brutish assistant Karras [Rah in the Japanese version] search for a new planet to rule after Gori's plot to conquer Planet E had been foiled by its government. Coming across the Earth, Gori is captivated by its beauty, but is appalled by its inhabitants' misuse of its environment, leading to severe pollution (a huge topic back when this series was made, since Tokyo was the most polluted city in the world at the time), so mankind must be quickly conquered if this planet is to be inhabitable, so he plots to, ironically, use the very same pollution that's plaguing the Earth to create horrible giant rampaging monsters to wipe out and/or enslave mankind. Fortunately, hope comes in the form of the Nebula 71 Star, a Saturn-like artificial satellite that observes the Earth incognito. Fearing that Gori may eventually...",
- "posterURL": "https://artworks.thetvdb.com/banners/posters/152381-1.jpg",
- "backdropURL": null,
- "genres": [
-  "Action",
-  "Adventure",
-  "Science-Fiction"
- ],
- "networks": [
-  "Fuji TV"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": null,
-   "episodes": [
+  "version": 2,
+  "seriesID": "spectreman-1971",
+  "tvmazeID": 9669,
+  "title": "Spectreman",
+  "yearStart": 1971,
+  "yearEnd": 1972,
+  "overview": "Banished from the peaceful simian Planet E, the mad scientist Dr. Gori and his brutish assistant Karras [Rah in the Japanese version] search for a new planet to rule after Gori's plot to conquer Planet E had been foiled by its government. Coming across the Earth, Gori is captivated by its beauty, but is appalled by its inhabitants' misuse of its environment, leading to severe pollution (a huge topic back when this series was made, since Tokyo was the most polluted city in the world at the time), so mankind must be quickly conquered if this planet is to be inhabitable, so he plots to, ironically, use the very same pollution that's plaguing the Earth to create horrible giant rampaging monsters to wipe out and/or enslave mankind. Fortunately, hope comes in the form of the Nebula 71 Star, a Saturn-like artificial satellite that observes the Earth incognito. Fearing that Gori may eventually...",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/152381-1.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Action",
+    "Adventure",
+    "Science-Fiction"
+  ],
+  "networks": [
+    "Fuji TV"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "spectreman-1971-tshs-episode-49-7-db-13867",
-     "seasonNumber": null,
-     "episodeNumber": 48,
-     "title": "Spectreman Episode 48-49",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/spectreman-1971-tshs-episode-49-7-db-13867",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": 1497,
-     "videoFile": {
-      "name": "Spectreman (1971) [TSHS] episode 49 [7DB13867].mp4",
-      "format": "MPEG4",
-      "sizeBytes": 311393995,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/spectreman-1971-tshs-episode-49-7-db-13867/Spectreman%20%281971%29%20%5BTSHS%5D%20episode%2049%20%5B7DB13867%5D.mp4"
-    },
-    {
-     "archiveID": "spectreman",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Spectreman",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/lGkAOJ50swr8zesYRyVDrb9Pu9k.jpg",
-     "airDate": null,
-     "year": 1971,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "SpectremanEP04.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 162836262,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/spectreman/SpectremanEP04.ia.mp4"
-    },
-    {
-     "archiveID": "spectreman-complete-series-1971",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Spectreman - 1971",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/lGkAOJ50swr8zesYRyVDrb9Pu9k.jpg",
-     "airDate": null,
-     "year": 1971,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Spectreman 63 Goodbye Spectreman.mp4",
-      "format": "h.264",
-      "sizeBytes": 142184305,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/spectreman-complete-series-1971/Spectreman%2063%20Goodbye%20Spectreman.mp4"
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "spectreman-1971-tshs-episode-49-7-db-13867",
+          "seasonNumber": null,
+          "episodeNumber": 48,
+          "title": "Spectreman Episode 48-49",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/spectreman-1971-tshs-episode-49-7-db-13867",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1497,
+          "videoFile": {
+            "name": "Spectreman (1971) [TSHS] episode 49 [7DB13867].mp4",
+            "format": "MPEG4",
+            "sizeBytes": 311393995,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/spectreman-1971-tshs-episode-49-7-db-13867/Spectreman%20%281971%29%20%5BTSHS%5D%20episode%2049%20%5B7DB13867%5D.mp4"
+        },
+        {
+          "archiveID": "spectreman",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Spectreman",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/lGkAOJ50swr8zesYRyVDrb9Pu9k.jpg",
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "SpectremanEP04.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 162836262,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/spectreman/SpectremanEP04.ia.mp4"
+        },
+        {
+          "archiveID": "spectreman-complete-series-1971",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Spectreman - 1971",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/lGkAOJ50swr8zesYRyVDrb9Pu9k.jpg",
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Spectreman 63 Goodbye Spectreman.mp4",
+            "format": "h.264",
+            "sizeBytes": 142184305,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/spectreman-complete-series-1971/Spectreman%2063%20Goodbye%20Spectreman.mp4"
+        }
+      ]
     }
-   ]
-  }
- ],
- "episodesCount": 3,
- "canonicalEpisodesCount": 63,
- "tvdbID": "152381",
- "artworkSource": "tvdb",
- "seriesImdbID": "tt0262177",
- "canonicalEpisodeCount": 60,
- "canonicalSeasons": 1
+  ],
+  "episodesCount": 3,
+  "canonicalEpisodesCount": 63,
+  "tvdbID": "152381",
+  "artworkSource": "tvdb"
 }

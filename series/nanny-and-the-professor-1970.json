@@ -18,36 +18,18 @@
   "creator": null,
   "seasons": [
     {
-      "seasonNumber": null,
+      "seasonNumber": 1,
       "episodes": [
         {
-          "archiveID": "NannyandtheProfessorSeason3",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Nanny and the Professor",
-          "overview": null,
-          "stillURL": null,
-          "airDate": null,
-          "year": 1972,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "S03E02- The Flower Children.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 108349019,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/NannyandtheProfessorSeason3/S03E02-%20The%20Flower%20Children.mp4"
-        },
-        {
           "archiveID": "NannyandtheProfessorSeason1",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Nanny and the Professor",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "The Games Families Play",
           "overview": null,
           "stillURL": null,
-          "airDate": null,
+          "airDate": "1970-04-01",
           "year": 1970,
-          "runtimeSeconds": null,
+          "runtimeSeconds": 1800,
           "videoFile": {
             "name": "S01E11- The Games Families Play.mp4",
             "format": "MPEG4",
@@ -57,9 +39,55 @@
           "downloadURL": "https://archive.org/download/NannyandtheProfessorSeason1/S01E11-%20The%20Games%20Families%20Play.mp4"
         }
       ]
+    },
+    {
+      "seasonNumber": 3,
+      "episodes": [
+        {
+          "archiveID": "NannyandtheProfessorSeason3",
+          "seasonNumber": 3,
+          "episodeNumber": 2,
+          "title": "The Flower Children",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1971-09-20",
+          "year": 1971,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S03E02- The Flower Children.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 108349019,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/NannyandtheProfessorSeason3/S03E02-%20The%20Flower%20Children.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "NannyandtheProfessorSeason2",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Nanny and the Professor",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S02E19- The Balloon Ladies.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 122178047,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/NannyandtheProfessorSeason2/S02E19-%20The%20Balloon%20Ladies.mp4"
+        }
+      ]
     }
   ],
-  "episodesCount": 2,
+  "episodesCount": 3,
   "canonicalEpisodesCount": 54,
   "tvdbID": "71044",
   "artworkSource": "tvdb",
@@ -112,8 +140,5 @@
       "order": 7,
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/265210/photo/67e03bd5ec49f.jpg"
     }
-  ],
-  "seriesImdbID": "tt0065326",
-  "canonicalEpisodeCount": 13,
-  "canonicalSeasons": 3
+  ]
 }

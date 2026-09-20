@@ -1,0 +1,77 @@
+{
+  "version": 2,
+  "seriesID": "captain-gallant-of-the-foreign-legion-1955",
+  "tvmazeID": 56745,
+  "title": "Captain Gallant of the Foreign Legion",
+  "yearStart": 1955,
+  "yearEnd": 1957,
+  "overview": "A captain in the French Foreign Legion in North Africa tries to keep the peace and battle bandit tribes while also taking care of his son, who lives with him at the Foreign Legion fort.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/5d9ac89c6caa4.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "Captain-Gallant_S1E36_The-Boy-Who-Found-Christmas",
+          "seasonNumber": 1,
+          "episodeNumber": 36,
+          "title": "The Boy Who Found Christmas",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/346/867406.jpg",
+          "airDate": "1955-12-25",
+          "year": 1955,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Captain-Gallant_S1E36_The-Boy-Who-Found-Christmas.mp4",
+            "format": "h.264",
+            "sizeBytes": 171084614,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Captain-Gallant_S1E36_The-Boy-Who-Found-Christmas/Captain-Gallant_S1E36_The-Boy-Who-Found-Christmas.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1,
+  "canonicalEpisodesCount": 63,
+  "tvdbID": "77401",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Buster Crabbe",
+      "character": "",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/377771/photo/675163b286aa2.jpg"
+    },
+    {
+      "name": "Roger Trevielle",
+      "character": "",
+      "order": 1,
+      "profilePath": null
+    },
+    {
+      "name": "Gilles Queant",
+      "character": "",
+      "order": 2,
+      "profilePath": null
+    },
+    {
+      "name": "Cullen Crabbe",
+      "character": "",
+      "order": 3,
+      "profilePath": null
+    },
+    {
+      "name": "Fuzzy Knight",
+      "character": "",
+      "order": 4,
+      "profilePath": null
+    }
+  ]
+}
