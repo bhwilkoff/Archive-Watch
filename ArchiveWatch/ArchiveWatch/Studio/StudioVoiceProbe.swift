@@ -38,13 +38,51 @@ import os
 @Observable
 public final class StudioVoiceProbe {
 
-    public static let enabled = ProcessInfo.processInfo.environment["AW_VOICE_PROBE"] == "1"
+    /// ON BY DEFAULT IN DEBUG, off with `AW_VOICE_PROBE=0`.
+    ///
+    /// It was an opt-in environment variable, which only works when the app is
+    /// LAUNCHED BY devicectl — and the person taking this measurement needs to
+    /// tap the app, start a session, and move around the UI. An env var would
+    /// have silently not been set on exactly the run that mattered, and the
+    /// probe would have reported nothing while looking fine.
+    ///
+    /// It is harmless where it is on: DEBUG only, dormant until a
+    /// `GroupSession` actually exists, and 4 kB/s of 80-byte frames while one
+    /// does. It never ships — `#if DEBUG` is the gate, not a flag someone has
+    /// to remember to clear.
+    /// OPT-IN. `AW_VOICE_PROBE=1`, DEBUG only.
+    ///
+    /// It was briefly ON by default in DEBUG, so that the person taking the
+    /// measurement could tap the app rather than have it launched for them.
+    /// That was wrong in the way this project keeps finding: **the instrument
+    /// must be invisible to its own test.** Owner, minutes later: *"The
+    /// SharePlay session keeps quitting out."* A probe that begins firing
+    /// fifty messages a second the instant a session is adopted is the prime
+    /// suspect for a session that will not stay up, and while it is on by
+    /// default there is no way to tell a transport that cannot carry voice
+    /// from a transport being knocked over by the thing measuring it.
+    ///
+    /// Default OFF restores the control: get a session to stay up with the
+    /// probe off, THEN turn it on and see what changes. That comparison is
+    /// the measurement; the flood on its own never was.
+    public static let enabled: Bool = {
+        #if DEBUG
+        return ProcessInfo.processInfo.environment["AW_VOICE_PROBE"] == "1"
+        #else
+        return false
+        #endif
+    }()
 
     /// A frame the size of 20 ms of AAC-LC voice at 32 kbps — which is what
     /// the real thing would send, 50 times a second per speaker. Measuring
     /// with a token-sized message would measure something we would never do.
     public static let frameBytes = 80
+    /// START GENTLE. Fifty a second is what a voice needs, but opening at
+    /// that rate tells us nothing if the session dies — we would not know
+    /// whether the transport failed at 50/s or at 5/s. The rate climbs, so a
+    /// failure has a NUMBER attached to it.
     public static let framesPerSecond = 50
+    private var currentRate = 5
 
     public private(set) var sent = 0
     public private(set) var echoed = 0
@@ -54,6 +92,10 @@ public final class StudioVoiceProbe {
     public private(set) var worstRoundTripMs: Double = 0
     public private(set) var meanRoundTripMs: Double = 0
     public private(set) var note: String = "not started"
+    /// Sends the messenger REFUSED, and the last reason. A transport that is
+    /// rejecting frames must not read as one that is merely quiet.
+    public private(set) var sendErrors = 0
+    public private(set) var lastSendError: String?
 
     private var messenger: GroupSessionMessenger?
     private var pump: Task<Void, Never>?
@@ -80,10 +122,22 @@ public final class StudioVoiceProbe {
         }
 
         pump = Task { [weak self] in
-            let period = UInt64(1_000_000_000 / UInt64(Self.framesPerSecond))
+            // RAMP: 5/s for three seconds, then 15, then 30, then 50. If the
+            // session dies, it died at a rate we can name.
+            let ladder = [(5, 3.0), (15, 3.0), (30, 3.0), (Self.framesPerSecond, 60.0)]
+            for (rate, seconds) in ladder {
+                if Task.isCancelled { return }
+                await MainActor.run { self?.currentRate = rate }
+                let period = UInt64(1_000_000_000 / UInt64(rate))
+                let deadline = Date().addingTimeInterval(seconds)
+                while !Task.isCancelled && Date() < deadline {
+                    await self?.emit(via: m)
+                    try? await Task.sleep(nanoseconds: period)
+                }
+            }
             while !Task.isCancelled {
                 await self?.emit(via: m)
-                try? await Task.sleep(nanoseconds: period)
+                try? await Task.sleep(nanoseconds: UInt64(1_000_000_000 / UInt64(Self.framesPerSecond)))
             }
         }
     }
@@ -104,7 +158,17 @@ public final class StudioVoiceProbe {
             sendTimes = sendTimes.filter { $0.value > cutoff }
         }
         sent += 1
-        m.send(payload, to: .all) { _ in }
+        m.send(payload, to: .all) { [weak self] error in
+            guard let error else { return }
+            // NEVER SWALLOWED. An ignored error here is how a transport that
+            // is refusing everything reads as a transport that is merely
+            // quiet — the same shape as the OSStatus the Apple encoder threw
+            // away for five minutes (§9).
+            Task { @MainActor in
+                self?.sendErrors += 1
+                self?.lastSendError = "\(error)"
+            }
+        }
     }
 
     private func handle(_ data: Data, via m: GroupSessionMessenger) async {
@@ -142,9 +206,10 @@ public final class StudioVoiceProbe {
         let delivered = Double(echoed) / Double(max(sent, 1)) * 100
         let oneWay = meanRoundTripMs / 2
         return String(format:
-            "sent %d, echoed %d (%.0f%%), round trip mean %.0f ms / worst %.0f ms, "
-            + "one-way ~%.0f ms — %@",
-            sent, echoed, delivered, meanRoundTripMs, worstRoundTripMs, oneWay,
+            "rate %d/s, sent %d, echoed %d (%.0f%%), refused %d, "
+            + "round trip mean %.0f ms / worst %.0f ms, one-way ~%.0f ms — %@",
+            currentRate, sent, echoed, delivered, sendErrors,
+            meanRoundTripMs, worstRoundTripMs, oneWay,
             // 150 ms one-way is the usual ceiling for a conversation feeling
             // live; past ~250 ms people start talking over each other.
             (oneWay < 150 && delivered > 90)
