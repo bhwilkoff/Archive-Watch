@@ -222,15 +222,31 @@ emulators) · `docs/CAPTIONS.md` · `docs/SHAREPLAY.md` ·
    `NSLocalNetworkUsageDescription` was deliberately NOT added to the shipping
    Info.plist — the product does no local networking.
 
-8. **Pair the Pixel 8a for wireless debugging** — one step on the phone
-   (Settings ▸ System ▸ Developer options ▸ Wireless debugging ▸ Pair device
-   with pairing code), then `adb pair <ip:port> <code>`. Its adb-over-TLS
-   pairing expired and **three Android items wait on it together**: a
-   phone-class render measurement (a Google TV dongle needs 37.4 ms a frame
-   against a 33.3 ms budget, so the architecture is proved and its speed is
-   not), a real camera tile (no television has a camera), and eyes on the
-   phone Detail entry, whose DECISION is tested but whose appearance has never
-   been seen.
+8. **CLOSED 2026-09-20 — the Pixel 8a is paired and the phone has RUN.** The
+   owner supplied the pairing code; `adb pair` over the mDNS
+   `_adb-tls-pairing._tcp` advertisement, then connect over `_adb-tls-connect`.
+   The first phone-class Android Studio measurement ever taken:
+   **fps 20-22** against the Google TV dongle's 13 (per-frame draw 5.6-7.3 ms,
+   drain 2.3-2.9, audio 4.2-5.3; draw split tex 0.9-1.3 / gl 1.2-1.4 /
+   swapEnc 1.2-1.5 / swapDisp 1.0-1.4), publishing H264 + AAC to a real server,
+   75 MB in the first run. Still short of 30 fps and that is now a phone
+   number rather than a dongle number.
+   **AND THE PAIRING WAS NEVER THE ONLY BLOCKER.** The studio bench door
+   (`aw_studio_item`) was collected in `TvAppRoot` ONLY — television-only — so
+   the pairing would have arrived and the door still would not have opened.
+   Wired into `AppRoot` as the identical collector.
+   **Two real defects the run found, both invisible on a television**: the
+   program was stretched into the phone's portrait surface (§9.2b), and
+   `filmAspect` was declared with a 16:9 default and **assigned by nothing**,
+   so every non-16:9 film went out stretched — which is most of this
+   catalogue, since a silent film is 4:3. Both fixed and verified from the
+   server's own recording (Caligari pillarboxed to exactly 1.333) and from the
+   phone's screen.
+   **STILL NOT RUN: the camera and the microphone.** Permissions are granted
+   on the Pixel and zero camera lines appear in the log — the bench door arms
+   the Studio but attaches no capture, so `StudioCamera`/`StudioMicAudio`
+   remain compile-time claims. That is the next Android item.
+
 9a. **An Apple TV that is ASLEEP is not woken.** The tvOS encoder read
    (§9.vv) was attempted at 03:30 and `devicectl` refused: *"System is asleep -
    foreground app launch forbidden"*. Waking it would switch on a television in

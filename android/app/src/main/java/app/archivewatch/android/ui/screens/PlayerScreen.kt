@@ -571,6 +571,16 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
                     handedOver = true
                 }
             }
+            // The film's shape, every poll. A LISTENER would be tidier and is
+            // wrong here: the surface is handed to the player inside this same
+            // loop, so a listener registered at build time fires before the
+            // Studio exists and one registered after can miss the only event.
+            player.videoSize.let { vs ->
+                if (vs.width > 0 && vs.height > 0) {
+                    val par = if (vs.pixelWidthHeightRatio > 0f) vs.pixelWidthHeightRatio else 1f
+                    StudioController.reportFilmAspect(vs.width * par / vs.height)
+                }
+            }
             StudioController.pollHealth()
             // The sink-lead measurement feeds the ENGINE's audio correction
             // (§9.iii), so it runs in every build — only the log line below is

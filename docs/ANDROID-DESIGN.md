@@ -324,6 +324,25 @@ rather than a new idea.*
   television's button are the same decision. Use `FEATURE_CAMERA_ANY`, not
   `FEATURE_CAMERA` (which means a REAR camera), and do NOT reach for
   `isTelevision()`: the question is hardware, not form factor.
+- **§9.2b The host's surface is NOT the program's shape** (2026-09-20, the
+  first run on a PHONE). `setVideoSurface` is exclusive, so the engine draws
+  the program twice and the host sees the program (Decision 129) — and the
+  display pass set `glViewport` to the whole surface. That is right on a
+  television, where both surfaces are 16:9, and wrong on a Pixel 8a, where the
+  surface is 1080x2400: the program was stretched to 2.22:1 and the owner
+  reported the film as *"heavily stretched vertically"*. The display viewport
+  is now the program's aspect FITTED inside the surface, centred, surround
+  black. The §9 warning that "the viewport belongs to the surface" was already
+  written — from the same defect in its other form, the program drawn into a
+  corner — and it named 1920x1080 as the host's size, which is how the
+  assumption survived.
+- **§9.2c The host's screen omits the lower third.** Owner, same run: it *"has
+  the overlay which no other interface shows (other than the livestream)"* —
+  Android was alone in it, because every other platform lets the host see the
+  bare film. The film and the camera tile are what a host needs; the title card
+  is furniture for the audience. This gives up Decision 129's *"a host watching
+  what their audience is watching cannot be surprised by it"*, and it is one
+  boolean (`drawProgram(withOverlay:)`) to put back.
 - **§9.3 The program panel is a Material bottom sheet**, the native idiom of
   the iOS §4.5 medium-detent sheet (§8.2): layout, the two faders, the cards.
   Not a dialog — the program must stay visible behind it, because changing

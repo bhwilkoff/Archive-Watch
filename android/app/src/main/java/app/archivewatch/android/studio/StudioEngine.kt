@@ -158,6 +158,14 @@ class StudioEngine(
         private set
 
     var layoutShowsCamera = true
+    /**
+     * The film's shape. This was declared with a 16:9 default and **assigned by
+     * nothing**, so every film that is not 16:9 went out stretched — which is
+     * most of this catalogue, since a silent film is 4:3. Caligari (1.333) was
+     * published filling a 1.778 frame with no pillarbox, measured from the
+     * server's own recording 2026-09-20. `StudioController.reportFilmAspect`
+     * now feeds it from the player's real video size.
+     */
     var filmAspect = 16f / 9f
     var cameraAspect = 4f / 3f
 
@@ -698,8 +706,18 @@ class StudioEngine(
             displayDirty = false
             g.attachDisplay(pendingDisplaySurface)
         }
+        g.programAspect = width.toFloat() / height
         if (g.hasDisplay && g.makeCurrentDisplay()) {
-            drawProgram(pg)
+            // WITHOUT the lower third. Owner 2026-09-20: the host's screen "has
+            // the overlay which no other interface shows (other than the
+            // livestream)" — true, and Android was alone in it, because
+            // `setVideoSurface` is exclusive so the host must be shown the
+            // program rather than the bare film (Decision 129). The film and
+            // the camera tile are what a host needs to see; the title card is
+            // furniture for the audience. What this gives up is 129's "a host
+            // watching what their audience is watching cannot be surprised by
+            // it", and it is one boolean to put back.
+            drawProgram(pg, withOverlay = false)
             val dispAt = System.nanoTime()
             g.swapDisplay()
             phaseDisplayNanos += System.nanoTime() - dispAt
@@ -708,7 +726,7 @@ class StudioEngine(
         return System.nanoTime() - renderStart
     }
 
-    private fun drawProgram(pg: StudioProgramGl) {
+    private fun drawProgram(pg: StudioProgramGl, withOverlay: Boolean = true) {
         gl?.clear(0f, 0f, 0f)
         pg.drawFilm(filmAspect)
         // A tile is drawn only when a camera has ACTUALLY delivered a frame.
@@ -719,7 +737,7 @@ class StudioEngine(
         if (layoutShowsCamera && pg.cameraFramesAvailable.get() > 0) {
             pg.drawCameraCorner(cameraAspect)
         }
-        pg.drawOverlay()
+        if (withOverlay) pg.drawOverlay()
     }
 
     /**

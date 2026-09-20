@@ -104,7 +104,16 @@ struct RootView: View {
         // whatsoever. The root view is on screen either way.
         .task {
             #if DEBUG
-            let authDoor = ProcessInfo.processInfo.environment["AW_STUDIO_AUTH"] ?? ""
+            let authDoor = ProcessInfo.processInfo.environment["AW_STUDIO_AUTH"]
+                ?? UserDefaults.standard.string(forKey: "AW_STUDIO_AUTH") ?? ""
+            // Unconditional, one line, DEBUG only: says whether this task runs
+            // at all and WHAT it saw. Added because two delivery channels failed
+            // in a row and the difference between "the door is shut" and "the
+            // task never ran" is invisible without it.
+            awdiag("AWDOOR task ran; door=%@ args=%@ envKeys=%d",
+                   authDoor.isEmpty ? "(empty)" : authDoor,
+                   CommandLine.arguments.dropFirst().joined(separator: " "),
+                   ProcessInfo.processInfo.environment.keys.filter { $0.hasPrefix("AW_") }.count)
 
             // PROBE: ask the token what it can actually do, before changing
             // anything. The owner has had live streaming enabled on this

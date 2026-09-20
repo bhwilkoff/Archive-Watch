@@ -1,5 +1,7 @@
 package app.archivewatch.android.ui
 
+import app.archivewatch.android.data.PlaySpec
+import app.archivewatch.android.studio.StudioController
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -89,6 +91,33 @@ fun AppRoot(container: AppContainer) {
                     "settings" -> nav.push(Route.Settings)
                     "party" -> nav.push(Route.Party)
                 }
+            }
+        }
+    }
+
+    // Verification hook: arm Watch Together Studio on a film and open the
+    // player — the SAME door TvAppRoot has carried since §9.4, and the reason
+    // it is here now is that it was television-only. SCRATCHPAD item 8 said
+    // the missing phone measurement was waiting on the Pixel's adb pairing; it
+    // was waiting on TWO things, and this was the silent one — the pairing
+    // would have arrived and the door still would not have opened. It goes
+    // through the RIGHTS GATE like any other route in: a hook that skipped it
+    // would test something the product cannot do.
+    LaunchedEffect(Unit) {
+        DeepLinks.pendingStudioItem.collect { id ->
+            if (id == null) return@collect
+            DeepLinks.pendingStudioItem.value = null
+            val item = container.catalog.awaitDb().item(id) ?: return@collect
+            if (StudioController.arm(item)) {
+                item.downloadURL?.let { url ->
+                    nav.push(Route.Player(PlaySpec(
+                        id = item.archiveID, title = item.title,
+                        description = item.synopsis, url = url,
+                        captions = item.captions ?: emptyList(),
+                        runtimeSeconds = item.runtimeSeconds)))
+                }
+            } else {
+                android.util.Log.w("AWSTUDIO", "refused: " + StudioController.refusal)
             }
         }
     }

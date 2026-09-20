@@ -321,6 +321,15 @@ object StudioController {
     private var liveSinceMs = 0L
     private var provenanceCleared = false
 
+    /**
+     * The film's real shape, from the player. Anything outside a sane range is
+     * ignored: ExoPlayer reports 0x0 before the first frame, and a 0 aspect
+     * would collapse the quad to nothing.
+     */
+    fun reportFilmAspect(aspect: Float) {
+        if (aspect > 0.2f && aspect < 5f) engine?.filmAspect = aspect
+    }
+
     suspend fun pollHealth() {
         val e = engine ?: return
         if (!provenanceCleared && armedProvenance != null) {

@@ -95,11 +95,30 @@ class StudioGl(private val target: Surface) {
      * the bottom-left 1280x720 corner of the television, which is exactly what
      * it did (seen on a Google TV, 2026-09-17).
      */
-    private fun applyViewport(s: EGLSurface) {
+    /**
+     * The program's shape, set by the engine. The HOST's surface is letterboxed
+     * to this; the encoder's surface already has it.
+     */
+    @Volatile var programAspect: Float = 16f / 9f
+
+    private fun applyViewport(s: EGLSurface, fitProgram: Boolean = false) {
         val w = IntArray(1); val h = IntArray(1)
         EGL14.eglQuerySurface(display, s, EGL14.EGL_WIDTH, w, 0)
         EGL14.eglQuerySurface(display, s, EGL14.EGL_HEIGHT, h, 0)
-        if (w[0] > 0 && h[0] > 0) GLES20.glViewport(0, 0, w[0], h[0])
+        if (w[0] <= 0 || h[0] <= 0) return
+        if (!fitProgram) { GLES20.glViewport(0, 0, w[0], h[0]); return }
+        // THE HOST'S SURFACE IS NOT THE PROGRAM'S SHAPE. The comment above was
+        // written against "the encoder's 1280x720 and the host's 1920x1080",
+        // which are both 16:9 — true of every television this ever ran on, and
+        // false of the first PHONE it ever ran on: a Pixel 8a is 1080x2400, so
+        // the 16:9 program was stretched to 2.22:1 and the owner reported the
+        // film as "heavily stretched vertically" (2026-09-20). Fit the program
+        // INSIDE the surface and leave the surround black.
+        val surfaceAspect = w[0].toFloat() / h[0]
+        val vw: Int; val vh: Int
+        if (surfaceAspect > programAspect) { vh = h[0]; vw = (h[0] * programAspect).toInt() }
+        else { vw = w[0]; vh = (w[0] / programAspect).toInt() }
+        GLES20.glViewport((w[0] - vw) / 2, (h[0] - vh) / 2, vw, vh)
     }
 
     /**
@@ -122,7 +141,7 @@ class StudioGl(private val target: Surface) {
     fun makeCurrentDisplay(): Boolean {
         if (displaySurface == EGL14.EGL_NO_SURFACE) return false
         if (!EGL14.eglMakeCurrent(display, displaySurface, displaySurface, context)) return false
-        applyViewport(displaySurface)
+        applyViewport(displaySurface, fitProgram = true)
         return true
     }
 
