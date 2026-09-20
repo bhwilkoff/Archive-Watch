@@ -343,6 +343,20 @@ rather than a new idea.*
   is furniture for the audience. This gives up Decision 129's *"a host watching
   what their audience is watching cannot be surprised by it"*, and it is one
   boolean (`drawProgram(withOverlay:)`) to put back.
+- **§9.2d All five camera placements, not two** (2026-09-20, Decision 131's
+  parity rule applied). Android had `layoutShowsCamera` — a boolean and a
+  hardcoded corner tile — so `film` and `corner` existed and `theatre`, `side`
+  and `host` were offered nowhere. `StudioLayout.kt` is a PORT of the Swift
+  `rects(in:cameraAspect:)`, number for number, and `StudioLayoutTest` pins it
+  to the values §8.22 printed so the two cannot drift apart silently. The panel
+  offers the five as a radio list in the SHARED words (`StudioLayout.label`).
+  Two things worth keeping: the rects are a plain `LayoutRect` rather than
+  `android.graphics.RectF`, because RectF is a JVM stub and a unit test of it
+  throws "not mocked" while every assertion reads 0.0 — geometry two platforms
+  must agree on has to be testable without a device; and the camera is
+  aspect-FIT inside its rect where Apple crops, which is identical for every
+  layout but `host` because each camera rect is derived from the camera's own
+  aspect.
 - **§9.3 The program panel is a Material bottom sheet**, the native idiom of
   the iOS §4.5 medium-detent sheet (§8.2): layout, the two faders, the cards.
   Not a dialog — the program must stay visible behind it, because changing

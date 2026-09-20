@@ -199,9 +199,11 @@ third — `host` is exempt because its camera IS the frame, and an earlier
 version of that assertion failed the product when the test was wrong.
 
 **Two parity gaps the same question exposed**, both still open:
-- **Android implements `corner` only** — a `layoutShowsCamera` boolean and a
-  hardcoded `drawCameraCorner`, so two of the five exist there (film, corner).
-  Porting `rects(in:cameraAspect:)` to the GLES pass is the work.
+- ~~Android implements `corner` only~~ **CLOSED 2026-09-20**: `StudioLayout.kt`
+  ports `rects(in:cameraAspect:)` number for number, the GLES pass draws into
+  arbitrary rects, the panel offers all five in the shared words, and
+  `StudioLayoutTest` pins the Kotlin numbers to the ones §8.22 printed.
+  **`side` verified on a Pixel 8a from the server's own recording.**
 - **tvOS has no layout picker at all.** `StudioLayout.allCases` is offered by
   `GoLiveSheet_iOS`, `StudioControls_iOS`, `GoLiveSheet_macOS` and `StudioMac`
   — and by nothing on the television.

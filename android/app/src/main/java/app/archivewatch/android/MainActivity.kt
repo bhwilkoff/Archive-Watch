@@ -117,6 +117,12 @@ class MainActivity : ComponentActivity() {
         // let any app redirect a host's broadcast. The values are never
         // logged (§5).
         if (BuildConfig.DEBUG) {
+            // The layout, so each placement can be VERIFIED on a device rather
+            // than only unit-tested. The Apple doors take AW_STUDIO_LAYOUT.
+            intent?.getStringExtra("aw_studio_layout")?.let {
+                app.archivewatch.android.studio.StudioController.layout =
+                    app.archivewatch.android.studio.StudioLayout.from(it)
+            }
             intent?.getStringExtra("aw_studio_dest")?.let { DeepLinks.pendingStudioDest.value = it }
             intent?.getStringExtra("aw_studio_key")?.let { DeepLinks.pendingStudioKey.value = it }
             intent?.getStringExtra("aw_play_url")?.let { DeepLinks.pendingPlayURL.value = it }

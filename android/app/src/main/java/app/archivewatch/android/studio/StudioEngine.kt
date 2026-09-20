@@ -157,7 +157,12 @@ class StudioEngine(
     @Volatile var cameraTexture: android.graphics.SurfaceTexture? = null
         private set
 
-    var layoutShowsCamera = true
+    /**
+     * The chosen layout. Replaces `layoutShowsCamera`, a boolean that could
+     * only ever express two of the five placements the other platforms offer.
+     */
+    @Volatile var layout: StudioLayout = StudioLayout.CORNER
+    val layoutShowsCamera: Boolean get() = layout.showsCamera
     /**
      * The film's shape. This was declared with a 16:9 default and **assigned by
      * nothing**, so every film that is not 16:9 went out stretched — which is
@@ -728,15 +733,22 @@ class StudioEngine(
 
     private fun drawProgram(pg: StudioProgramGl, withOverlay: Boolean = true) {
         gl?.clear(0f, 0f, 0f)
-        pg.drawFilm(filmAspect)
-        // A tile is drawn only when a camera has ACTUALLY delivered a frame.
-        // `layoutShowsCamera` is the host's intent; this is the fact. Drawing
-        // the tile on intent alone puts an empty black rectangle over the film
-        // on every device without a camera — which is every television (§9.6),
-        // and is what it did before this check (seen on a Google TV).
-        if (layoutShowsCamera && pg.cameraFramesAvailable.get() > 0) {
-            pg.drawCameraCorner(cameraAspect)
+        val r = layout.rects(width.toFloat(), height.toFloat(), cameraAspect)
+        val cameraReady = layout.showsCamera && pg.cameraFramesAvailable.get() > 0
+        // Z-ORDER FOLLOWS THE LAYOUT: whichever source is the ground goes down
+        // first, or the inset tile is painted over. Same rule as the Apple side.
+        if (layout.cameraIsBackground) {
+            if (cameraReady) r.camera?.let { pg.drawCamera(cameraAspect, it) }
+            pg.drawFilm(filmAspect, r.film)
+        } else {
+            pg.drawFilm(filmAspect, r.film)
+            if (cameraReady) r.camera?.let { pg.drawCamera(cameraAspect, it) }
         }
+        // The tile is drawn only when a camera has ACTUALLY delivered a frame
+        // (`cameraReady` above). `showsCamera` is the host's intent; the frame
+        // count is the fact. Drawing on intent alone puts an empty black
+        // rectangle over the film on every device without a camera — which is
+        // every television (§9.6), and is what it did before that check.
         if (withOverlay) pg.drawOverlay()
     }
 

@@ -20,6 +20,9 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.LinearProgressIndicator
+import androidx.compose.material3.RadioButton
+import androidx.compose.foundation.clickable
+import app.archivewatch.android.studio.StudioLayout
 import androidx.compose.material3.Slider
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
@@ -114,20 +117,29 @@ fun StudioPanel(health: StudioHealth, onDismiss: () -> Unit, onEnd: () -> Unit) 
             HorizontalDivider()
             Spacer(Modifier.size(16.dp))
 
-            Row(
-                Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = androidx.compose.ui.Alignment.CenterVertically,
-            ) {
-                Column {
-                    Text("Show you in the corner", fontWeight = FontWeight.Medium)
-                    Text("Needs a camera — a television has none.",
-                         fontSize = 12.sp, color = Color(0xFF8A8F98))
+            // WHERE YOU GO IN THE PICTURE — the same five placements every
+            // other platform offers, in the same words (`StudioLayout.label`
+            // is shared on Apple and ported here verbatim). Android had a
+            // SWITCH, which could express only two of the five, so three
+            // placements existed in the engine and nowhere a host could reach
+            // them. Owner 2026-09-20: "The goal is parity, where it makes
+            // sense." A radio list rather than a dropdown because there are
+            // five and they are a choice, not a setting to hunt for.
+            Text("Where you go", fontWeight = FontWeight.SemiBold)
+            Text("A camera is needed for all but the first — a television has none.",
+                 fontSize = 12.sp, color = Color(0xFF8A8F98))
+            Spacer(Modifier.size(8.dp))
+            for (option in StudioLayout.entries) {
+                Row(
+                    Modifier.fillMaxWidth().clickable { StudioController.layout = option },
+                    verticalAlignment = androidx.compose.ui.Alignment.CenterVertically,
+                ) {
+                    RadioButton(
+                        selected = StudioController.layout == option,
+                        onClick = { StudioController.layout = option },
+                    )
+                    Text(option.label, fontSize = 14.sp)
                 }
-                Switch(
-                    checked = StudioController.showsCamera,
-                    onCheckedChange = { StudioController.showsCamera = it },
-                )
             }
 
             Spacer(Modifier.size(16.dp))

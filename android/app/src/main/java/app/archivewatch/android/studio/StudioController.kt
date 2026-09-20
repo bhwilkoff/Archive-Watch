@@ -45,7 +45,16 @@ object StudioController {
         private set
 
     // What the §9.3 bottom sheet drives.
-    var showsCamera: Boolean by mutableStateOf(true)
+    /**
+     * The chosen placement, the same five every other platform offers. It
+     * replaces a `showsCamera` boolean that could express only two of them;
+     * `showsCamera` survives as a derived value so existing callers and the
+     * "film only" toggle keep working.
+     */
+    var layout: StudioLayout by mutableStateOf(StudioLayout.CORNER)
+    var showsCamera: Boolean
+        get() = layout.showsCamera
+        set(value) { layout = if (value) StudioLayout.CORNER else StudioLayout.FILM }
 
     /**
      * §4's faders, on the 0-10 scale every platform shows (Rule 8.8c).
@@ -170,7 +179,7 @@ object StudioController {
         if (armedFilmID != archiveID || isLive) return
         armedFilmID = null
         val e = StudioEngine(thermalStatus = thermalStatus, audioLeadUs = { audioLeadUs })
-        e.layoutShowsCamera = showsCamera
+        e.layout = layout
         // A NEW ENGINE STARTS WHERE THE HOST LEFT THE FADERS, not at unity.
         // Going live a second time with the panel still reading 3 and the mix
         // silently back at 8 is the kind of lie §4 exists to prevent.

@@ -200,20 +200,49 @@ class StudioProgramGl(private val programWidth: Int, private val programHeight: 
     }
 
     /**
-     * Draws the film aspect-fit into the program frame.
-     * @param filmAspect width/height of the film as it should appear.
+     * Draw a texture into a PIXEL rect of the program frame, origin
+     * bottom-left. The quad spans -1..1 in NDC, so a scale of `s` makes it
+     * occupy the fraction `s` of the frame and the centre is the rect's centre
+     * mapped into -1..1.
      */
-    fun drawFilm(filmAspect: Float) {
-        val programAspect = programWidth.toFloat() / programHeight
-        // Scale the QUAD, not the texture: letterbox or pillarbox, never
-        // stretch. The unfilled surround keeps whatever was cleared.
-        var sx = 1f; var sy = 1f
-        if (filmAspect > programAspect) sy = programAspect / filmAspect
-        else sx = filmAspect / programAspect
+    private fun drawInto(textureId: Int, matrix: FloatArray, r: LayoutRect) {
+        val sx = r.width / programWidth
+        val sy = r.height / programHeight
+        val cx = 2f * (r.left + r.width / 2f) / programWidth - 1f
+        val cy = 2f * (r.top + r.height / 2f) / programHeight - 1f
         Matrix.setIdentityM(vertexMatrix, 0)
+        Matrix.translateM(vertexMatrix, 0, cx, cy, 0f)
         Matrix.scaleM(vertexMatrix, 0, sx, sy, 1f)
+        drawExternal(textureId, matrix)
+    }
 
-        drawExternal(filmTextureId, texMatrix)
+    /** The largest rect of `aspect` that fits inside `outer`, centred. */
+    private fun fit(outer: LayoutRect, aspect: Float): LayoutRect {
+        val outerAspect = outer.width / outer.height
+        val w: Float; val h: Float
+        if (aspect > outerAspect) { w = outer.width; h = w / aspect }
+        else { h = outer.height; w = h * aspect }
+        val cx = outer.left + outer.width / 2f
+        val cy = outer.top + outer.height / 2f
+        return LayoutRect(cx - w / 2f, cy - h / 2f, cx + w / 2f, cy + h / 2f)
+    }
+
+    /**
+     * Draws the film aspect-fit inside its layout rect — letterbox or
+     * pillarbox, never stretch. The unfilled surround keeps whatever was
+     * cleared.
+     */
+    fun drawFilm(filmAspect: Float, rect: LayoutRect) {
+        drawInto(filmTextureId, texMatrix, fit(rect, filmAspect))
+    }
+
+    /**
+     * The camera, aspect-fit inside its layout rect. Apple CROPS here and this
+     * letterboxes, and for every layout but `host` the difference is nil: each
+     * camera rect is DERIVED from the camera's own aspect, so the fit is exact.
+     */
+    fun drawCamera(cameraAspect: Float, rect: LayoutRect) {
+        drawInto(cameraTextureId, cameraTexMatrix, fit(rect, cameraAspect))
     }
 
     fun updateCameraFrame(): Boolean {
@@ -221,26 +250,6 @@ class StudioProgramGl(private val programWidth: Int, private val programHeight: 
         return try {
             st.updateTexImage(); st.getTransformMatrix(cameraTexMatrix); true
         } catch (_: Exception) { false }
-    }
-
-    /**
-     * The camera tile, bottom-right — `StudioLayout.corner`, the default on
-     * every platform. Expressed in normalised device coordinates, where y
-     * grows UPWARD; on the Apple side the same rect is in Core Image space
-     * where it also grows upward, and an earlier bug there put the chat column
-     * at the camera's TOP for exactly this reason (§9).
-     */
-    fun drawCameraCorner(cameraAspect: Float) {
-        val programAspect = programWidth.toFloat() / programHeight
-        val tileW = 0.30f                     // 30% of the frame width
-        val tileH = tileW * programAspect / cameraAspect
-        val margin = 0.04f
-        val cx = 1f - margin - tileW
-        val cy = -1f + margin + tileH
-        Matrix.setIdentityM(vertexMatrix, 0)
-        Matrix.translateM(vertexMatrix, 0, cx, cy, 0f)
-        Matrix.scaleM(vertexMatrix, 0, tileW, tileH, 1f)
-        drawExternal(cameraTextureId, cameraTexMatrix)
     }
 
     /**
