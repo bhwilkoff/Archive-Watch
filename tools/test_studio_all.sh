@@ -169,6 +169,7 @@ swift_case "8.18 voice frame slices" ArchiveWatch/ArchiveWatch/Studio/StudioVoic
 # Apple's own Opus, which is what SHAREPLAY §5/§7 cost out. No $SHIM: the
 # codec calls no awdiag.
 swift_case "8.19 guest voice codec" ArchiveWatch/ArchiveWatch/Studio/StudioVoiceCodec.swift tools/test_studio_voicecodec.swift
+swift_case "8.20 guest voice room" ArchiveWatch/ArchiveWatch/Studio/StudioVoiceCodec.swift ArchiveWatch/ArchiveWatch/Studio/StudioVoiceRoom.swift tools/test_studio_voiceroom.swift
 
 # The two credential-facing harnesses. Neither was in this runner, which is
 # precisely the condition §9.aaa describes: a test that exists and therefore
