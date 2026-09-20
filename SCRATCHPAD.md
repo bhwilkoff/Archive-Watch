@@ -240,21 +240,16 @@ emulators) · `docs/CAPTIONS.md` · `docs/SHAREPLAY.md` ·
    they need no bench destination, only a screenshot of the DEBUG readout, so
    they are a two-minute job whenever the televisions are awake.
 
-10-NEW. **TWO TELEVISION BOXES OFFER A BROADCAST THEY CANNOT PROPERLY MAKE**
-   (found 2026-09-20 while writing Decision 131's table, by grep rather than by
-   reasoning). Both are owner content/product calls, not obvious bugs:
-   (a) **Google TV** — `TvDetailScreen.kt:575` presents `StudioGoLiveDialog`
-   with no television check and no camera check. These boxes have no camera and
-   no microphone, and the render measurement is 37.4 ms a frame against a
-   33.3 ms budget on a dongle with **no hardware H.264 encoder at all** (~13 fps).
-   So a host is offered a broadcast with no camera, no voice and a poor frame
-   rate. Either gate the entry, or keep it as an explicitly FILM-ONLY broadcast
-   and say so on the dialog.
-   (b) **Fire TV** — Decision 129 called the Studio a Google-flavour feature;
-   that is true only of the CAMERA. `CAMERA`/`RECORD_AUDIO` are in
-   `src/google/AndroidManifest.xml`, but all 18 Studio sources are in
-   `src/main/`, so the `amazon` build ships the engine, the publisher and the
-   dialog — film-only, untested, undocumented. Same two options.
+10. **CLOSED 2026-09-20 by the owner's rule, same day it was raised.** Both
+   television boxes had been offering a film-only "Watch Together": Google TV
+   presented the dialog with no camera check, and Fire TV compiled the whole
+   Studio because only the PERMISSIONS are flavour-scoped. I offered the owner
+   two options (gate it, or keep it and describe it honestly) and they gave a
+   better rule than either — *"a broadcast with no camera and no microphone is
+   not watching together ... everyone might as well just watch the movie on
+   their own"*. The entry is now gated on `canHostWatchTogether()` (camera AND
+   microphone), so **Android Watch Together means the phone and nothing else**.
+   Decision 132; 4 unit tests; both flavours compile.
 
 11-NEW. **"WITH FRIENDS AND THE WORLD" IS FEASIBLE AND UNBUILT** (macOS only).
    The owner's own proposal — people use the calling service they already have

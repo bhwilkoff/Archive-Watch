@@ -1,5 +1,6 @@
 package app.archivewatch.android.ui.tv
 
+import app.archivewatch.android.studio.canHostWatchTogether
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -103,6 +104,7 @@ fun TvDetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
     var showVersions by remember { mutableStateOf(false) }
     var showShare by remember { mutableStateOf(false) }
     var showGoLive by remember { mutableStateOf(false) }
+    val ctx = androidx.compose.ui.platform.LocalContext.current
     var favorite by remember { mutableStateOf(false) }
     var watched by remember { mutableStateOf(false) }
     LaunchedEffect(archiveID) {
@@ -382,7 +384,13 @@ fun TvDetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
                 // Together" here is the broadcast and nothing else. The phone
                 // Detail carries the same single item; a television simply
                 // reaches it as a button rather than an overflow row.
-                if (current.downloadURL != null) {
+                // AND the host must be able to BE in the show. Owner
+                // 2026-09-20: a broadcast with no camera and no microphone is
+                // not watching together, it is a worse way to watch alone. No
+                // television box has either, and none can borrow them —
+                // Continuity Camera is an Apple arrangement, which is why tvOS
+                // keeps this entry and Google TV and Fire TV do not.
+                if (current.downloadURL != null && ctx.canHostWatchTogether()) {
                     TvActionButton(
                         label = "Watch Together",
                         icon = {

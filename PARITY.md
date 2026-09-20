@@ -125,37 +125,51 @@ it carry the engineering detail.
 | **iOS / iPadOS** | ✅ full — start the call and the session | ✅ the device's own front camera + mic | 🚫 same |
 | **macOS** | ✅ full | ✅ its own or a Continuity camera | ⏳ **the only platform that can HOST one** — §10 |
 | **Android phone** | 🚫 no GroupActivities equivalent | 🚧 built, never run on a phone | 🚫 no per-process audio capture without a rooted device |
-| **Android TV / Google TV** | 🚫 same | ⚠️ **offered today and should not be** — see below | 🚫 same |
-| **Fire TV** | 🚫 same | ⚠️ **offered today, film-only** — see below | 🚫 same |
+| **Android TV / Google TV** | 🚫 same | 🚫 **no camera, no microphone** — entry removed 2026-09-20 | 🚫 same |
+| **Fire TV** | 🚫 same | 🚫 same — entry removed 2026-09-20 | 🚫 same |
 | **Web** | 🚫 | 🚫 a browser cannot speak RTMP | 🚫 |
 
 **So the honest one-line answer per device**: two things on tvOS, iOS and
-iPadOS; **three on macOS**; one on an Android phone; and on the television
-boxes, one that we ship and have not thought about.
+iPadOS; **three on macOS**; one on an Android phone; and **nothing on the
+Android television boxes**, which is the correct answer rather than a gap.
 
 **Naming is binding.** These three are *With Friends*, *With the World*, and
 *With Friends and the World*. A surface may not invent a fourth phrase for one
 of them, and the third is never called "multi-cam" or "group broadcast" — it is
 the second one with the first one's people in it.
 
-#### Two places the code and this table disagree, found 2026-09-20
+#### Two places the code disagreed with this table, found and CLOSED 2026-09-20
 
 Both were found by grepping rather than by reasoning, and both are the same
 shape: **a capability that is absent is documented, and a capability that is
 present by accident is not.**
 
-- **Google TV offers Go Live.** `TvDetailScreen.kt:575` presents
-  `StudioGoLiveDialog` with no television check and no camera check. There is
-  no camera on these boxes, and the render measurement is **37.4 ms a frame
-  against a 33.3 ms budget** on a dongle with no hardware H.264 encoder at all.
-  So a host is offered a broadcast that will have no camera, no microphone and
-  roughly 13 fps. This is not a gap to fill — it is an entry to gate, or a
-  film-only broadcast to describe honestly.
-- **Fire TV compiles the whole Studio.** Decision 129 says the Studio is a
-  **Google-flavour** feature. That is true only of the CAMERA: `CAMERA` and
-  `RECORD_AUDIO` are declared in `src/google/AndroidManifest.xml`, but all 18
-  Studio sources are in `src/main/`, so the `amazon` build ships the engine,
-  the publisher and the Go Live dialog — film-only, untested, undocumented.
+- **Google TV offered Go Live**, with no television check and no camera check,
+  on boxes that have no camera and no microphone and measured 37.4 ms a frame
+  against a 33.3 ms budget with no hardware H.264 encoder at all.
+- **Fire TV compiled the whole Studio.** Decision 129 says Google-flavour; that
+  is true only of the CAMERA. `CAMERA`/`RECORD_AUDIO` are in
+  `src/google/AndroidManifest.xml` but all 18 Studio sources are in
+  `src/main/`, so the `amazon` build shipped the engine, the publisher and the
+  dialog.
+
+**Both are now gated on the HOST being able to be in the show**, which is the
+owner's rule and a better one than either option I offered them:
+
+> *"There is no reason to build/have a feature that shows as 'watch together'
+> with only the ability to stream from the Android/google/fire tv box without a
+> camera and microphone to go along with it. Everyone might as well just watch
+> the movie on their own. The point of watching together is to stream the video
+> and have the ability to provide commentary or conversation on top of it."*
+
+`StudioCapability.canHostShow(hasCamera:hasMicrophone:)` — both required —
+behind `Context.canHostWatchTogether()`, applied at BOTH Android entry points
+in one change, because the phone's overflow row and the television's button
+are the same decision and fixing one is how a defect survives in the other.
+`FEATURE_CAMERA_ANY`, not `FEATURE_CAMERA`, since the latter means a REAR
+camera and a front-only device should pass. Four unit tests, and the two
+single-sense cases are asserted separately because `&&` written as `||` passes
+both-true and both-false and fails only those.
 
 #### The rule this produces
 

@@ -311,6 +311,19 @@ rather than a new idea.*
   verb is not a verb. Do NOT invent an Android "watch with friends" on a
   different transport to fill the gap; that is a separate feature with its
   own decision.
+- **§9.2a And the entry appears only where the HOST can be in the show**
+  (owner 2026-09-20, Decision 132): `Context.canHostWatchTogether()` requires a
+  camera AND a microphone, so **Google TV and Fire TV show no Watch Together
+  entry at all** while phones do. The owner's reason is the rule: *"a broadcast
+  with no camera and no microphone is not watching together — everyone might as
+  well just watch the movie on their own. The point is to stream the video and
+  have the ability to provide commentary or conversation on top of it."* The
+  test is never "can this device encode" — every box can, which is exactly why
+  a television silently offered this for as long as it did. Apply the predicate
+  at BOTH entry points in one change; the phone's overflow row and the
+  television's button are the same decision. Use `FEATURE_CAMERA_ANY`, not
+  `FEATURE_CAMERA` (which means a REAR camera), and do NOT reach for
+  `isTelevision()`: the question is hardware, not form factor.
 - **§9.3 The program panel is a Material bottom sheet**, the native idiom of
   the iOS §4.5 medium-detent sheet (§8.2): layout, the two faders, the cards.
   Not a dialog — the program must stay visible behind it, because changing

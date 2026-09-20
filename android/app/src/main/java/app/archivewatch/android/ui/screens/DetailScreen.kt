@@ -95,6 +95,7 @@ import app.archivewatch.android.ui.theme.BrandSurface
 import kotlinx.coroutines.launch
 import androidx.compose.foundation.layout.fillMaxHeight
 import coil3.compose.AsyncImage
+import app.archivewatch.android.studio.canHostWatchTogether
 import app.archivewatch.android.ui.StudioGoLiveDialog
 
 @Composable
@@ -411,7 +412,11 @@ fun DetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
                         // there is no GroupActivities equivalent here, so
                         // "Watch Together" means the WORLD half only, and half
                         // a verb is not a verb.
-                        if (current.downloadURL != null) {
+                        // The same predicate as the television surface, and
+                        // the reason the two now differ: a phone HAS a camera
+                        // and a microphone, so it keeps the entry while a box
+                        // loses it (owner 2026-09-20).
+                        if (current.downloadURL != null && context.canHostWatchTogether()) {
                             DropdownMenuItem(
                                 text = { Text("Watch Together…") },
                                 leadingIcon = {

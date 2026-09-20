@@ -117,6 +117,38 @@ struct RootView: View {
                 return
             }
 
+            // STATE: the read-only question the loop keeps GUESSING at — is
+            // this device signed in, and to what? Creates nothing, writes
+            // nothing, and costs one API call per signed-in platform. It
+            // exists because "the iPhone is blocked on a sign-in" had been an
+            // assumption carried across sessions without ever being asked.
+            if authDoor == "state" {
+                for platform in [StudioPlatformAuth.Platform.youtube, .twitch] {
+                    let inCfg = StudioPlatformAuth.clientID(for: platform) != nil
+                    let inKey = StudioPlatformAuth.isSignedIn(platform)
+                    awdiag("AWAUTH %@ configured=%@ signedIn=%@",
+                           String(describing: platform),
+                           inCfg ? "true" : "false", inKey ? "true" : "false")
+                    guard inKey else { continue }
+                    switch platform {
+                    case .youtube:
+                        if let who = try? await StudioPlatformAuth.youTubeAccount() {
+                            awdiag("AWAUTH youtube account id=%@ title=%@", who.id, who.title)
+                        }
+                    case .twitch:
+                        if let who = try? await StudioPlatformAuth.twitchAccount() {
+                            awdiag("AWAUTH twitch login=%@ scopes=%@",
+                                   who.login, who.scopes.joined(separator: ","))
+                        }
+                    }
+                    let r = try? await StudioPlatformAuth.readiness(for: platform)
+                    awdiag("AWAUTH %@ readiness=%@",
+                           String(describing: platform), String(describing: r))
+                }
+                awdiag("AWAUTH state probe complete")
+                return
+            }
+
             guard authDoor == "resignin-youtube" else { return }
             StudioPlatformAuth.signOut(.youtube)
             awdiag("AWAUTH signed out of YouTube; signedIn now=%@",
