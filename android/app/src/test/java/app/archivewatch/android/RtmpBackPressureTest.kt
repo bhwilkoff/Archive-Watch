@@ -103,6 +103,12 @@ class RtmpBackPressureTest {
             var lastSecond = 0L
             var bucketIsWhole = false
 
+            // OFFERED BYTES INSIDE THE THROTTLED WINDOW, measured rather than
+            // assumed. See the precondition below the send loop.
+            var offeredInWindow = 0L
+            var windowFirstMs = 0L
+            var windowLastMs = 0L
+
             val t0 = System.currentTimeMillis()
             val total = ((openSeconds + throttleSeconds + 4.0) * 1000).toLong()
             var i = 0
@@ -119,6 +125,9 @@ class RtmpBackPressureTest {
                 if (elapsed > openSeconds + 0.5 && elapsed < openSeconds + throttleSeconds) {
                     peakQueued = maxOf(peakQueued, p.health.queuedBytes)
                     dropsDuring = p.health.videoFramesDropped
+                    offeredInWindow += filler.size + 64
+                    if (windowFirstMs == 0L) windowFirstMs = System.currentTimeMillis()
+                    windowLastMs = System.currentTimeMillis()
                     // WHOLE seconds only. The first version recorded the
                     // stretch between entering the window (elapsed 4.5) and
                     // the next integer boundary (5.0) as a "second" and
@@ -137,7 +146,21 @@ class RtmpBackPressureTest {
                         lastSecond = sec
                     }
                 }
-                Thread.sleep(33)
+                // PACE TO A DEADLINE, NOT BY A FIXED SLEEP.
+                //
+                // `Thread.sleep(33)` makes the period 33 ms PLUS however long
+                // the iteration took, so every slow write permanently lowers
+                // the offered rate — and this test only congests the queue
+                // while the offer rate stays above the drain. Run inside the
+                // full §8 suite, with parallel `swiftc -O` compiles and a live
+                // mediamtx on the same machine, the loop fell far enough
+                // behind that the queue peaked at 10 kB against a 474 kB cap
+                // and the test failed having proved nothing (2026-09-20).
+                // Sleeping only the REMAINDER holds 30 fps for as long as the
+                // machine can manage it at all.
+                val dueMs = t0 + (i.toLong() * 33L)
+                val slack = dueMs - System.currentTimeMillis()
+                if (slack > 0) Thread.sleep(slack)
             }
             val dropsAtEnd = p.health.videoFramesDropped
             val audioSent = p.health.audioFramesSent
@@ -146,6 +169,31 @@ class RtmpBackPressureTest {
             println("§6.4/Android — cap ${cap / 1000} kB, peak queued ${peakQueued / 1000} kB, " +
                     "drops before=$dropsBeforeThrottle during=$dropsDuring end=$dropsAtEnd, " +
                     "audio delivered=$audioSent of ${i} offered, thinnest harness second=$worstAudioSecond")
+
+            // COULD THIS RUN CONGEST AT ALL? If not, it is a SKIP.
+            //
+            // Congestion exists only while the producer offers faster than the
+            // proxy drains. That is normally a 6x margin — ~300 kB/s offered
+            // against 50 kB/s drained — but it is a property of THIS MACHINE
+            // AT THIS MOMENT, not of the publisher, and on a loaded machine
+            // the producer can fall below the drain and no queue ever builds.
+            // Reporting that as a failure of §6.4 is the instrument blaming
+            // the product for its own conditions.
+            //
+            // Decision 130 makes pass, skip and fail three separate numbers,
+            // and `assumeTrue` is how JUnit spells the third. The assertions
+            // below are unchanged and still fail for a real regression —
+            // this only refuses to judge a run that could not have judged.
+            val windowMs = (windowLastMs - windowFirstMs).coerceAtLeast(1)
+            val offeredBps = offeredInWindow * 8 * 1000 / windowMs
+            println("§6.4/Android — offered ${offeredBps / 1000} kbps inside the window " +
+                    "against a ${throttleBps / 1000} kbps drain")
+            assumeTrue("this machine could not out-run the throttle " +
+                       "(offered ${offeredBps / 1000} kbps against a " +
+                       "${throttleBps / 1000} kbps drain), so back-pressure was never " +
+                       "provoked — SKIPPED rather than failed, because that is a fact " +
+                       "about the load on this machine and not about the publisher",
+                       offeredBps > throttleBps * 3 / 2)
 
             // 1. The signal fires — without this the rest is vacuous.
             // 90% of the cap, not "over the cap". The policy PINS the queue at

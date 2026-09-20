@@ -1604,6 +1604,59 @@ against a synthetic line.
 
 ## §9 — Measurements (filled in as they are taken)
 
+### §9.sssss Android's §6.4 back-pressure is NOT currently demonstrated, and two things I said about it an hour earlier were wrong (2026-09-20)
+
+§9.rrrrr left `RtmpBackPressureTest` failing and called it *"flaky under
+load"*, on the evidence that three forced runs in isolation passed. **Both
+halves of that were wrong, and the second is the instructive one.**
+
+**Those three runs did not pass. They SKIPPED.** The case opens with
+`assumeTrue("no mediamtx on 127.0.0.1:19351 — skipping")`, and the §8 suite
+starts that server while a bare `./gradlew` does not. Gradle reports a skipped
+test as **BUILD SUCCESSFUL**, so three runs that executed no test at all read
+as three passes. That is the §8 suite's own founding lesson — *a skip is not a
+pass* (Decision 130) — walked into through a different tool's summary line.
+
+**With the server actually running, it fails deterministically**, and its own
+numbers say the diagnosis was wrong too:
+
+    §6.4/Android — cap 474 kB, peak queued 10 kB, drops before=0 during=0 end=0,
+                   audio delivered=516 of 516 offered
+    §6.4/Android — offered 2450 kbps inside the window against a 400 kbps drain
+
+The producer is out-running the drain by **six times**, which is exactly the
+condition the test needs — so "the machine was too loaded to congest" is
+refuted by the instrument I added to check it. Everything offered was
+delivered and nothing queued.
+
+**And the proxy is not at fault either.** Run standalone with the same
+arguments and fed by ffmpeg, it announces `phase: open → throttled →
+recovered` and holds the publisher to **1470 kbps against the 2400 it asked
+for**. The throttle bites.
+
+So the open question is narrow and real: **under a throttle that demonstrably
+bites, the Kotlin publisher's `queuedBytes` stays at 10 kB against a 474 kB
+cap.** The writer thread decrements the counter only after `write()` returns
+(`health.queuedBytes = queued.addAndGet(-bytes.size)`), so a blocked write
+must show. The leading candidate is that the kernel's loopback socket buffer
+absorbs the whole throttled window, meaning the writer never blocks — which
+would make this test's congestion an artefact of the Swift path's
+`NWConnection` accounting rather than something the Kotlin path reproduces.
+PARITY records "peak 476 kB against a 474 kB cap" for this case, so it worked
+once; what changed has not been established.
+
+**Left failing and named.** §6.4 on Android is now a claim without a current
+measurement, which is worse than a known gap only if it is written down as
+proven — so it is written down as not.
+
+**What was fixed here regardless**, because both are right whatever the cause:
+
+- The send loop paces to a DEADLINE instead of `Thread.sleep(33)`, so a slow
+  iteration is caught up rather than permanently lowering the offered rate.
+- The test now MEASURES the rate it achieved inside the window and declares a
+  SKIP, with the number, if it could not out-run the drain. That instrument is
+  what refuted the load hypothesis on its first run.
+
 ### §9.rrrrr The §8 suite had not been run since 09-19, and three of its cases were asserting superseded designs (2026-09-20)
 
 After three commits touching shared audio code, the suite was run end to end:
