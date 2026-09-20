@@ -1604,6 +1604,69 @@ against a synthetic line.
 
 ## §9 — Measurements (filled in as they are taken)
 
+### §9.ppppp macOS and iOS were still sample-DROPPING their audio, and the tvOS 48 kHz lesson had never reached them (2026-09-20)
+
+Owner: *"Please also make sure the MacOS version has learned everything it can
+from the work on Apple TV over the last few sessions."* Most of it had arrived
+without anyone noticing, because `AudioRing` and `CameraFrameTap` are shared —
+so macOS and iOS got §9.jjjjj's FIFO read and §9.kkkkk's sample-buffer retain
+for free. **One thing had not, and it was the one tvOS learned the hard way.**
+
+tvOS PULLS film audio through `FilmAudioDecoder`, which §9.mmmmm upgraded to
+resample with `AVAudioConverter` after a 48 kHz film went to air 8.8% fast.
+macOS and iOS take film audio through an `MTAudioProcessingTap` and the host's
+voice through an `AVCaptureAudioDataOutput`, and **both resampled by
+nearest-neighbour** — `j = Int(Double(i) / ratio)`, a zero-order hold. This
+file's own comment said so, and said what to do about it:
+
+> *"the tap resamples by nearest-neighbour, which is honest for a 44.1/48 kHz
+> mismatch and costs nothing. A proper resampler is a §9 follow-up if a 48 kHz
+> film ever sounds wrong."*
+
+A 48 kHz film did sound wrong, on tvOS, and the follow-up was never made. It
+is not "honest" either — modelled, then measured in the harness:
+
+| tone | zero-order hold | after |
+|---|---|---|
+| 440 Hz | 35.6 dB | **102.6 dB** |
+| 1 kHz | 28.4 dB | **106.8 dB** |
+| 3 kHz | 18.9 dB | **97.6 dB** |
+| 8 kHz | **10.1 dB** | **94.7 dB** |
+
+10 dB SNR is aliasing nearly as loud as the signal, on the third of
+broadcastable films that are 48 kHz — and on the HOST'S VOICE whenever the
+capture device runs at 48 kHz, which is most of them.
+
+**Why tvOS's fix could not simply be copied.** The tap's callback is real
+time; `AVAudioConverter` allocates and takes locks. That is almost certainly
+why a hold was chosen. So `PolyphaseResampler` builds a windowed-sinc kernel
+ONCE in the prepare callback and `process` does nothing but multiply and add.
+
+**Two things in it were easy to get wrong, and §8.17 caught both.**
+
+- **State across buffers.** A filter needs samples either side of the point it
+  is interpolating, and the tap delivers discrete buffers. Resampling each
+  independently puts a discontinuity at every boundary — clicks, the symptom
+  §9.jjjjj spent a day on. The case asserts that 157-frame chunks and one big
+  call agree sample for sample, with a control that rebuilds the resampler per
+  buffer and must differ by orders more (it differs by 2.02).
+- **Phase quantisation, which looked like a state bug and was not.** The first
+  run failed chunk-independence at 5.05e-04. With a truncated phase index,
+  float noise in the read position that straddles a phase boundary flips the
+  index and moves the output by one phase step — 256 phases predicts 5.11e-04
+  at 1 kHz, and the harness measured 5.05e-04. **Two significant figures, so
+  the explanation was the mechanism rather than the first story that fit.**
+  Interpolating between adjacent phases removed it and took SNR from 58-84 dB
+  to 95-107 dB at the same time.
+
+**And ratio 1.0 is asserted BIT-IDENTICAL**, because two thirds of the
+catalogue is already 44.1 kHz and a resampler that perturbs audio it was not
+asked to touch is worse than none.
+
+**§8.17 is the guard**, with the old hold reimplemented as it shipped as the
+control that must fail — nearest-neighbour misses the 55 dB floor at every
+tone tested.
+
 ### §9.ooooo Portrait was built, flown and withdrawn in an hour; a silent film's silence is real (2026-09-20)
 
 **THE ORIENTATION CHOICE FROM §9.nnnnn LASTED ONE BROADCAST.** It worked

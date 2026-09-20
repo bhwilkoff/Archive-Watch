@@ -162,6 +162,7 @@ swift_case "8.5 thermal"           "$PUB" "$ENG" "$AUD" "$OVL" "$CHAT" "$SHIM" t
 swift_case "8.6 back-pressure"     "$PUB" "$ENG" "$AUD" "$OVL" "$CHAT" "$SHIM" tools/test_studio_backpressure.swift
 swift_case "8.15 audio ring FIFO"  "$PUB" "$ENG" "$AUD" "$OVL" "$CHAT" "$SHIM" tools/test_studio_ring.swift
 swift_case "8.16 programme rate"   "$PUB" "$ENG" "$AUD" "$OVL" "$CHAT" "$DEC" "$SHIM" tools/test_studio_rate.swift
+swift_case "8.17 tap resampler"    "$PUB" "$ENG" "$AUD" "$OVL" "$CHAT" "$SHIM" tools/test_studio_resample.swift
 
 # The two credential-facing harnesses. Neither was in this runner, which is
 # precisely the condition §9.aaa describes: a test that exists and therefore

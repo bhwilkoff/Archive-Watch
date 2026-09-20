@@ -294,10 +294,15 @@ final class FilmAudioTap: @unchecked Sendable {
     /// Interleaved stereo scratch, sized once at prepare.
     private var scratch = [Float](repeating: 0, count: 8192 * 2)
 
-    /// The program's sample rate; the tap resamples by nearest-neighbour,
-    /// which is honest for a 44.1/48 kHz mismatch and costs nothing. A proper
-    /// resampler is a §9 follow-up if a 48 kHz film ever sounds wrong.
+    /// The program's sample rate. The tap resamples to it with
+    /// `PolyphaseResampler` — see that type for the measurements that
+    /// retired the nearest-neighbour hold this comment used to describe as
+    /// "honest ... a §9 follow-up if a 48 kHz film ever sounds wrong".
     var programRate: Double = 44100
+    /// Band-limited conversion, configured once the source format is known.
+    private let resampler = PolyphaseResampler()
+    /// Source-rate interleaved stereo, between de-shaping and resampling.
+    private var srcScratch = [Float](repeating: 0, count: 8192 * 2)
 
     /// Attaches to `item`, replacing any audio mix it had. Returns false when
     /// the item has no audio track at all — a silent film, which is a REAL
@@ -393,6 +398,10 @@ final class FilmAudioTap: @unchecked Sendable {
         sourceChannels = Int(asbd.mChannelsPerFrame)
         prepared = true
         lock.unlock()
+        // HERE, not in `append`: building the kernel allocates, and `append`
+        // runs in the tap's real-time process callback. This is the prepare
+        // callback, which is not.
+        resampler.configure(sourceRate: asbd.mSampleRate, programRate: programRate)
     }
 
     /// PCM from somewhere OTHER than the tap — the HLS path, where the tap
@@ -472,52 +481,252 @@ final class FilmAudioTap: @unchecked Sendable {
     private func append(_ bufferList: UnsafeMutablePointer<AudioBufferList>, frames: Int) {
         guard frames > 0 else { return }
         lock.lock()
-        let rate = sourceRate, channels = sourceChannels
+        let channels = sourceChannels
         lock.unlock()
 
         let abl = UnsafeMutableAudioBufferListPointer(bufferList)
         guard abl.count > 0 else { return }
 
-        // The tap hands back either one interleaved buffer or N deinterleaved
-        // ones; both shapes occur, so handle both rather than assuming.
-        let ratio = programRate / max(rate, 1)
-        let outFrames = max(1, Int((Double(frames) * ratio).rounded()))
-        let needed = outFrames * 2
-        if scratch.count < needed { scratch = [Float](repeating: 0, count: needed) }
-
-        scratch.withUnsafeMutableBufferPointer { out in
-            guard let outBase = out.baseAddress else { return }
+        // TWO STEPS, DELIBERATELY. First de-shape whatever the tap handed
+        // back into interleaved stereo AT THE SOURCE RATE — a straight copy,
+        // no rate arithmetic. Then resample that with a real filter. The old
+        // code fused the two, which is how a nearest-neighbour hold ended up
+        // buried inside a channel-layout branch, repeated three times, where
+        // nothing measured it.
+        let srcFrames: Int
+        if abl.count == 1 && channels >= 2 {
+            srcFrames = Int(abl[0].mDataByteSize) / (4 * channels)
+        } else {
+            srcFrames = Int(abl[0].mDataByteSize) / 4
+        }
+        guard srcFrames > 0 else { return }
+        if srcScratch.count < srcFrames * 2 {
+            srcScratch = [Float](repeating: 0, count: srcFrames * 2)
+        }
+        srcScratch.withUnsafeMutableBufferPointer { sp in
+            guard let src = sp.baseAddress else { return }
             if abl.count == 1 && channels >= 2 {
-                guard let src = abl[0].mData?.assumingMemoryBound(to: Float.self) else { return }
-                let srcFrames = Int(abl[0].mDataByteSize) / (4 * channels)
-                for i in 0..<outFrames {
-                    let j = min(srcFrames - 1, Int(Double(i) / max(ratio, 0.0001)))
-                    guard j >= 0 else { break }
-                    outBase[i * 2] = src[j * channels]
-                    outBase[i * 2 + 1] = src[j * channels + 1]
+                guard let m = abl[0].mData?.assumingMemoryBound(to: Float.self) else { return }
+                for i in 0..<srcFrames {
+                    src[i * 2] = m[i * channels]
+                    src[i * 2 + 1] = m[i * channels + 1]
                 }
             } else if abl.count >= 2 {
                 guard let l = abl[0].mData?.assumingMemoryBound(to: Float.self),
                       let r = abl[1].mData?.assumingMemoryBound(to: Float.self) else { return }
-                let srcFrames = Int(abl[0].mDataByteSize) / 4
-                for i in 0..<outFrames {
-                    let j = min(srcFrames - 1, Int(Double(i) / max(ratio, 0.0001)))
-                    guard j >= 0 else { break }
-                    outBase[i * 2] = l[j]
-                    outBase[i * 2 + 1] = r[j]
-                }
+                for i in 0..<srcFrames { src[i * 2] = l[i]; src[i * 2 + 1] = r[i] }
             } else {
                 // Mono: the same sample in both program channels.
                 guard let m = abl[0].mData?.assumingMemoryBound(to: Float.self) else { return }
-                let srcFrames = Int(abl[0].mDataByteSize) / 4
-                for i in 0..<outFrames {
-                    let j = min(srcFrames - 1, Int(Double(i) / max(ratio, 0.0001)))
-                    guard j >= 0 else { break }
-                    outBase[i * 2] = m[j]; outBase[i * 2 + 1] = m[j]
+                for i in 0..<srcFrames { src[i * 2] = m[i]; src[i * 2 + 1] = m[i] }
+            }
+
+            let cap = resampler.capacityNeeded(forInputFrames: srcFrames)
+            if scratch.count < cap * 2 { scratch = [Float](repeating: 0, count: cap * 2) }
+            scratch.withUnsafeMutableBufferPointer { out in
+                guard let outBase = out.baseAddress else { return }
+                let n = resampler.process(src, inFrames: srcFrames,
+                                          out: outBase, outCapacity: cap)
+                if n > 0 { ring.write(outBase, count: n * 2) }
+            }
+        }
+    }
+}
+
+// MARK: - Sample-rate conversion for the TAP paths
+
+/// Band-limited sample-rate conversion, allocation-free at process time.
+///
+/// **WHY THIS EXISTS, measured rather than assumed.** Both taps used to
+/// resample by nearest-neighbour — `let j = Int(Double(i) / ratio)`, a
+/// zero-order hold — and this file's own comment called that "honest for a
+/// 44.1/48 kHz mismatch", with a note that "a proper resampler is a §9
+/// follow-up if a 48 kHz film ever sounds wrong". One did: §9.mmmmm found a
+/// THIRD of broadcastable films are 48 kHz, and the owner heard the tvOS
+/// version of that fault as digital artifacts.
+///
+/// Zero-order hold at 48000 -> 44100 measures like this, against a control
+/// that proves the instrument is not biased (at ratio 1.0 the hold is
+/// bit-identical to its input and scores the same as an ideal resample):
+///
+///     tone      ZOH      linear   band-limited
+///      440 Hz   35.6 dB  78.2 dB     153.3 dB
+///     1000 Hz   28.4 dB  63.9 dB     153.3 dB
+///     3000 Hz   18.9 dB  44.7 dB     153.3 dB
+///     8000 Hz   10.1 dB  26.7 dB     153.3 dB
+///
+/// 10 dB SNR is aliasing nearly as loud as the signal. tvOS does not have
+/// this: its pull path converts with `AVAudioConverter` off the render
+/// thread (§9.mmmmm). macOS and iOS cannot copy that directly, because their
+/// film audio arrives in an `MTAudioProcessingTap` PROCESS callback, which is
+/// real time — `AVAudioConverter` allocates and takes locks, and that is
+/// almost certainly why the hold was chosen in the first place.
+///
+/// So: a polyphase windowed-sinc FIR. The kernel is built ONCE in
+/// `configure`, off the render thread; `process` does nothing but multiply
+/// and add.
+///
+/// **It carries state between calls, which is the part that is easy to get
+/// wrong.** A filter needs samples either side of the point it is
+/// interpolating, and the tap delivers discrete buffers. Resampling each
+/// buffer independently puts a discontinuity at every boundary — clicks, the
+/// exact symptom §9.jjjjj spent a day on. So the last `taps` source frames
+/// are kept as history, and the fractional read position is carried over.
+final class PolyphaseResampler {
+
+    private let taps: Int
+    private let phases: Int
+    private var kernel: [Float] = []          // phases * taps, phase-major
+    /// The previous `taps` source frames, interleaved stereo — the filter's
+    /// left-hand context for the first outputs of the next buffer.
+    private var history: [Float]
+    /// Interleaved stereo history + incoming, so the filter can read across
+    /// the join. Grown only when a buffer is bigger than any seen before.
+    private var work: [Float] = []
+    /// Where the next output sample reads from, in `work` frame coordinates.
+    private var pos: Double
+    private(set) var ratio: Double = 1        // output frames per input frame
+    /// What it was configured FROM, so a caller whose rate is discovered
+    /// rather than declared can notice a change.
+    private(set) var sourceRate: Double = 0
+    private(set) var configured = false
+
+    init(taps: Int = 32, phases: Int = 256) {
+        precondition(taps % 2 == 0 && taps >= 4)
+        self.taps = taps
+        self.phases = phases
+        self.history = [Float](repeating: 0, count: taps * 2)
+        self.pos = Double(taps) - 1
+    }
+
+    /// Builds the kernel and resets the filter. Call when the source format is
+    /// known — NOT from the render callback.
+    func configure(sourceRate: Double, programRate: Double) {
+        let r = programRate / max(sourceRate, 1)
+        ratio = r
+        self.sourceRate = sourceRate
+        for i in history.indices { history[i] = 0 }
+        pos = Double(taps) - 1
+        configured = true
+        guard r != 1 else { kernel = []; return }   // a copy needs no kernel
+
+        // DOWNSAMPLING MOVES THE CUTOFF, not just the rate. Going 48 -> 44.1
+        // the new Nyquist is lower, so the filter has to remove what will not
+        // fit BEFORE the decimation, or it folds back as the aliasing the
+        // measurements above are made of.
+        let cutoff = min(1.0, r) * 0.92
+        let half = Double(taps) / 2
+        // phases + 1 ROWS, not phases. `process` interpolates between row `ph`
+        // and row `ph + 1`, and the extra row is offset 1.0 — the same filter
+        // one source sample along — so the interpolation needs no special case
+        // at the wrap.
+        //
+        // WHY INTERPOLATE AT ALL, measured: with a truncated phase index, a
+        // float-noise difference in `pos` that straddles a phase boundary
+        // flips the index by one and moves the output by one phase step of the
+        // waveform. §8.17's chunk-independence assertion caught exactly that —
+        // 256 phases predicts a 5.11e-04 worst-case difference at 1 kHz and
+        // the harness measured 5.05e-04. Not a state bug, but it put a floor
+        // under both the SNR and the reproducibility for no good reason.
+        kernel = [Float](repeating: 0, count: (phases + 1) * taps)
+        for ph in 0...phases {
+            let offset = Double(ph) / Double(phases)
+            var sum = 0.0
+            var row = [Double](repeating: 0, count: taps)
+            for k in 0..<taps {
+                let x = Double(k) - half + 1 - offset
+                let s: Double = x == 0 ? 1 : sin(.pi * cutoff * x) / (.pi * cutoff * x)
+                // Blackman-Harris, for a stopband deep enough that what it
+                // rejects is genuinely gone rather than merely quieter.
+                let t = (x + half) / Double(taps)
+                let w = 0.35875
+                    - 0.48829 * cos(2 * .pi * t)
+                    + 0.14128 * cos(4 * .pi * t)
+                    - 0.01168 * cos(6 * .pi * t)
+                row[k] = s * w
+                sum += row[k]
+            }
+            // Unit DC gain per phase, or the output level pumps at the phase
+            // rate — a buzz, not a hiss, and far more audible.
+            let norm = sum == 0 ? 1 : sum
+            for k in 0..<taps { kernel[ph * taps + k] = Float(row[k] / norm) }
+        }
+    }
+
+    /// The most output frames `process` can produce from `inFrames` input.
+    func capacityNeeded(forInputFrames inFrames: Int) -> Int {
+        Int((Double(inFrames) * ratio).rounded(.up)) + 2
+    }
+
+    /// Reads `inFrames` interleaved-stereo source frames and writes
+    /// interleaved-stereo frames at the program rate. Returns frames written.
+    ///
+    /// Allocation-free unless the input is larger than anything seen before.
+    @discardableResult
+    func process(_ src: UnsafePointer<Float>, inFrames: Int,
+                 out: UnsafeMutablePointer<Float>, outCapacity: Int) -> Int {
+        guard inFrames > 0 else { return 0 }
+        guard configured, !kernel.isEmpty else {
+            // Ratio 1: a straight copy, and it must be EXACT — the §8 control
+            // asserts bit-identity, because a resampler that perturbs audio it
+            // was not asked to touch is worse than none.
+            let n = min(inFrames, outCapacity)
+            out.update(from: src, count: n * 2)
+            return n
+        }
+        let workFrames = taps + inFrames
+        if work.count < workFrames * 2 { work = [Float](repeating: 0, count: workFrames * 2) }
+        work.withUnsafeMutableBufferPointer { w in
+            guard let wb = w.baseAddress else { return }
+            history.withUnsafeBufferPointer { h in
+                wb.update(from: h.baseAddress!, count: taps * 2)
+            }
+            (wb + taps * 2).update(from: src, count: inFrames * 2)
+        }
+
+        var written = 0
+        let half = taps / 2
+        work.withUnsafeBufferPointer { w in
+            guard let wb = w.baseAddress else { return }
+            kernel.withUnsafeBufferPointer { kb in
+                guard let kbase = kb.baseAddress else { return }
+                let step = 1.0 / ratio
+                while written < outCapacity {
+                    let j = Int(pos)
+                    guard j + half < workFrames else { break }
+                    let start = j - half + 1
+                    guard start >= 0 else { pos += step; continue }
+                    let phf = (pos - Double(j)) * Double(phases)
+                    var ph = Int(phf)
+                    if ph >= phases { ph = phases - 1 }
+                    let a = Float(phf - Double(ph))
+                    let k0 = kbase + ph * taps
+                    let k1 = kbase + (ph + 1) * taps
+                    var l: Float = 0, r: Float = 0
+                    for k in 0..<taps {
+                        let c = k0[k] + a * (k1[k] - k0[k])
+                        l += c * wb[(start + k) * 2]
+                        r += c * wb[(start + k) * 2 + 1]
+                    }
+                    out[written * 2] = l
+                    out[written * 2 + 1] = r
+                    written += 1
+                    pos += step
                 }
             }
-            ring.write(outBase, count: needed)
         }
+
+        // Keep the tail as the next call's left-hand context, and shift the
+        // read position into the new coordinates.
+        work.withUnsafeBufferPointer { w in
+            guard let wb = w.baseAddress else { return }
+            history.withUnsafeMutableBufferPointer { h in
+                h.baseAddress!.update(from: wb + (workFrames - taps) * 2, count: taps * 2)
+            }
+        }
+        pos -= Double(inFrames)
+        if pos < Double(half) { pos = Double(half) }
+        return written
     }
 }
 
@@ -540,6 +749,12 @@ public final class MicAudioTap: NSObject, AVCaptureAudioDataOutputSampleBufferDe
     private let output = AVCaptureAudioDataOutput()
     private let queue = DispatchQueue(label: "org.archivewatch.studio.mic")
     private var scratch = [Float](repeating: 0, count: 8192 * 2)
+    /// Source-rate interleaved stereo, between de-shaping and resampling.
+    private var srcScratch = [Float](repeating: 0, count: 8192 * 2)
+    /// Band-limited conversion — see `PolyphaseResampler`. A capture device is
+    /// discovered rather than declared, so this is configured on the first
+    /// buffer and re-configured if the device's rate ever changes under us.
+    private let resampler = PolyphaseResampler()
     private var session: AVCaptureSession?
     var programRate: Double = 44100
 
@@ -583,34 +798,46 @@ public final class MicAudioTap: NSObject, AVCaptureAudioDataOutputSampleBufferDe
         guard status == noErr, let data = abl.mBuffers.mData else { return }
 
         let channels = Int(asbd.mChannelsPerFrame)
-        let ratio = programRate / max(asbd.mSampleRate, 1)
-        let outFrames = max(1, Int((Double(frames) * ratio).rounded()))
-        let needed = outFrames * 2
-        if scratch.count < needed { scratch = [Float](repeating: 0, count: needed) }
+        // THE HOST'S VOICE GOES THROUGH THE SAME FILTER AS THE FILM, and for
+        // the same measured reason — a capture device running at 48 kHz into a
+        // 44.1 kHz programme was being sample-dropped, which is 28 dB SNR at
+        // 1 kHz. Speech is the LAST thing that should be aliased: it is what
+        // the audience is listening to when the host talks over the film.
+        if !resampler.configured || resampler.sourceRate != asbd.mSampleRate {
+            resampler.configure(sourceRate: asbd.mSampleRate, programRate: programRate)
+        }
+        if srcScratch.count < frames * 2 {
+            srcScratch = [Float](repeating: 0, count: frames * 2)
+        }
 
         // A capture session can hand back Int16 or Float32; read the flags
         // rather than assuming (an assumption here is silence or noise).
         let isFloat = asbd.mFormatFlags & kAudioFormatFlagIsFloat != 0
-        scratch.withUnsafeMutableBufferPointer { out in
-            guard let outBase = out.baseAddress else { return }
+        srcScratch.withUnsafeMutableBufferPointer { sp in
+            guard let src = sp.baseAddress else { return }
             if isFloat {
-                let src = data.assumingMemoryBound(to: Float.self)
-                for i in 0..<outFrames {
-                    let j = min(frames - 1, Int(Double(i) / max(ratio, 0.0001)))
-                    let v = src[j * channels]
-                    outBase[i * 2] = v
-                    outBase[i * 2 + 1] = channels > 1 ? src[j * channels + 1] : v
+                let s = data.assumingMemoryBound(to: Float.self)
+                for i in 0..<frames {
+                    let v = s[i * channels]
+                    src[i * 2] = v
+                    src[i * 2 + 1] = channels > 1 ? s[i * channels + 1] : v
                 }
             } else {
-                let src = data.assumingMemoryBound(to: Int16.self)
-                for i in 0..<outFrames {
-                    let j = min(frames - 1, Int(Double(i) / max(ratio, 0.0001)))
-                    let v = Float(src[j * channels]) / 32768
-                    outBase[i * 2] = v
-                    outBase[i * 2 + 1] = channels > 1 ? Float(src[j * channels + 1]) / 32768 : v
+                let s = data.assumingMemoryBound(to: Int16.self)
+                for i in 0..<frames {
+                    let v = Float(s[i * channels]) / 32768
+                    src[i * 2] = v
+                    src[i * 2 + 1] = channels > 1 ? Float(s[i * channels + 1]) / 32768 : v
                 }
             }
-            ring.write(outBase, count: needed)
+            let cap = resampler.capacityNeeded(forInputFrames: frames)
+            if scratch.count < cap * 2 { scratch = [Float](repeating: 0, count: cap * 2) }
+            scratch.withUnsafeMutableBufferPointer { out in
+                guard let outBase = out.baseAddress else { return }
+                let n = resampler.process(src, inFrames: frames,
+                                          out: outBase, outCapacity: cap)
+                if n > 0 { ring.write(outBase, count: n * 2) }
+            }
         }
     }
 }
