@@ -1833,6 +1833,21 @@ struct PlayerScreen: View {
             // measurement nothing except the local tap's signal.
             player?.isMuted = true
             studioFilm = film
+            // AND, OPTIONALLY, THE MIXER ITSELF — Rule 8.8c's surface.
+            //
+            // It is reached in the product by opening the transport menu and
+            // choosing Watch Together while live, which is three focus moves
+            // and a select. Driving that over Companion costs about a minute a
+            // press here, because `devicectl device capture screenshot` refuses
+            // for roughly a minute after every pyatv press (measured
+            // 2026-09-20: five consecutive refusals, then success at +45 s),
+            // so a screenshot of the mixer took longer to obtain than the
+            // change it was checking took to write. This door is the fix, and
+            // it opens the PRODUCT's surface with the product's own bindings —
+            // it does not build a second copy of it.
+            if ProcessInfo.processInfo.environment["AW_STUDIO_TV_MIXER"] == "1" {
+                studioShowMixer = true
+            }
             // AND IT ENDS BY ITSELF. Nothing stopped the first version: the
             // engine polled until `studioFilm` went nil, and nothing set it
             // nil once a screenshot had been taken. A film played unmuted on

@@ -73,6 +73,7 @@ struct GoLiveTV: View {
     @State private var showCameraPicker = false
     @State private var cameraPaired = false
     @State private var pairedName: String?
+    @State private var orientation = StudioContinuity.cameraOrientation
     private static var benchDestination: URL? {
         #if DEBUG
         ProcessInfo.processInfo.environment["AW_STUDIO_DEST"].flatMap(URL.init(string:))
@@ -88,7 +89,7 @@ struct GoLiveTV: View {
     @State private var readiness: StudioPlatformAuth.Readiness?
     @FocusState private var focus: Field?
 
-    private enum Field: Hashable { case platform(String), title, privacy(String), camera, goLive, cancel }
+    private enum Field: Hashable { case platform(String), title, privacy(String), camera, orientation, goLive, cancel }
 
     init(film: Catalog.Item,
          onGoLive: @escaping (GoLiveRequest) -> Void,
@@ -471,6 +472,36 @@ struct GoLiveTV: View {
                  ? "Your phone will appear in the corner of the broadcast."
                  : "Optional — the film broadcasts fine on its own.")
                 .font(.caption).foregroundStyle(.secondary)
+
+            // WHICH WAY UP, because the phone will not say.
+            //
+            // Owner, 2026-09-20: "the video gets cropped oddly if I am in
+            // portrait because the livestream expects landscape ... if not,
+            // then you should be able to decide which orientation you would
+            // like to use the phone in at the beginning of the stream." It is
+            // "if not": `AVCaptureDevice.RotationCoordinator` answers 0 for a
+            // Continuity camera by documented design (see
+            // `StudioContinuity.captureRotationAngle`), so this is the choice
+            // the owner asked for when the automatic answer does not exist.
+            //
+            // It is only offered once a phone is paired — a host broadcasting
+            // the film alone has no orientation to choose.
+            if cameraPaired {
+                Button {
+                    orientation = orientation == .landscape ? .portrait : .landscape
+                    StudioContinuity.cameraOrientation = orientation
+                } label: {
+                    Label(orientation.label,
+                          systemImage: orientation == .landscape
+                              ? "rectangle" : "rectangle.portrait")
+                        .padding(.horizontal, 12)
+                }
+                .focused($focus, equals: .orientation)
+
+                Text("The tile takes the shape you choose, so a phone held "
+                     + "upright is broadcast upright instead of cropped.")
+                    .font(.caption).foregroundStyle(.secondary)
+            }
         }
         // THE SAME TREATMENT AS EVERY OTHER FOCUSABLE GROUP HERE, and the first
         // version had neither half. Owner, 2026-09-18: "the design of the go

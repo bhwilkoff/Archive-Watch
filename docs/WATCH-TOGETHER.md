@@ -1604,6 +1604,84 @@ against a synthetic line.
 
 ## §9 — Measurements (filled in as they are taken)
 
+### §9.nnnnn The phone's orientation is not knowable from the television, and the level was in the wrong unit (2026-09-20)
+
+Three things came back from a live broadcast the owner ran with a paired
+phone: *"The lag is fixed. The orientation change for the camera is not fixed.
+And the audio changes seem right (the rolling gesture works well), however the
+visual is not right."*
+
+**THE ORIENTATION CANNOT BE FIXED THE WAY IT WAS ATTEMPTED, and the SDK says
+so in writing.** The first attempt read
+`AVCaptureDevice.RotationCoordinator.videoRotationAngleForHorizonLevelCapture`
+and applied it to the capture connection before `startRunning`. On hardware,
+with a phone connected and delivering 31 fps, it logged
+`AWCAM rotation 0 applied` — and 0 is the documented answer, not a bug in the
+call. `AVCaptureDevice.h` carries this sentence twice, once under
+`videoRotationAngleForHorizonLevelPreview` and once under
+`...ForHorizonLevelCapture`:
+
+> *"External cameras return 0 degrees of rotation even if they physically
+> rotate when their position in physical space is unknown."*
+
+An iPhone at the far end of a Continuity link is exactly that. The television
+has no idea which way up it is being held, and no API on the box will tell it.
+
+So the fix is the one the owner named in the same message as the request —
+*"if not, then you should be able to decide which orientation you would like
+to use the phone in at the beginning of the stream"* — a **Landscape /
+Portrait** choice on the go-live sheet, shown once a phone is paired, and
+persisted. The coordinator is still consulted and still wins when it answers,
+because it is the right answer on any platform where the camera IS the device.
+
+**The rest of the path was already correct, which is why this reads as one
+missing number rather than a feature.** `StudioEngine` derives `cameraAspect`
+from `CVPixelBufferGetWidth/Height`, and `.corner` computes the tile's height
+from it, so a rotated buffer produces a portrait tile with no other change.
+What was missing was a non-zero angle to rotate by.
+
+**And the instrument was wrong too.** `AWCAM rotation %.0f applied` is a log of
+what we ASKED for, not of what happened — the same family as §9.lllll's dead
+suite. It printed "applied" on every run that then delivered a landscape
+frame. The camera tap now logs `AWCAM frame shape 1080x1920 (portrait)`
+whenever the buffer's dimensions change, which is the only reading that can
+disagree with our intent.
+
+**THE MIXER WAS IN THE WRONG UNIT.** Owner: *"It should look like a level you
+are adjusting from right to left (or top to bottom) on a scale of 0 to 10
+rather than on a scale of decibles that most people won't understand. Please
+use Apple TV design patterns to get this right rather than trying to make one
+up yourself."*
+
+There is no tvOS control to borrow: `SwiftUI.Slider` is
+`@available(tvOS, unavailable)` and Apple's Sliders guidance says **"Not
+supported in tvOS."** So the look is taken from that guidance and the input
+stays the remote's own — fill from the leading side, minimum leading and
+maximum trailing, a tick per whole level. Rule 8.8c carries the detail.
+
+Two of the three defects found in the rebuild were found by LOOKING at it on
+the television rather than by building it:
+
+- a `scaleEffect` marking the selected row pulled the unselected row's right
+  edge inward, so the two channels' numbers stopped lining up;
+- the unity tick at 8 was shorter than the knob, and both channels rest on 8,
+  so it was invisible exactly when a host would look for it.
+
+**Getting a screenshot of it cost more than writing it.** The mixer is reached
+in the product through the transport menu — three focus moves and a select —
+and `devicectl device capture screenshot` refuses for about a minute after
+every pyatv press (five consecutive refusals, then success at +45 s), printing
+an `XPCConnectionDescription` blob and no error line. `AW_STUDIO_TV_MIXER=1`
+now opens the PRODUCT's surface with the product's own bindings, which is the
+difference between a door and a second copy of the screen.
+
+Also corrected: `docs/TVOS-STUDIO-RUNBOOK.md` told anyone following it to
+decompress `catalog.sqlite.zz` with `zlib.decompress`. The asset is **raw
+deflate**, so that has never worked — it answers `Error -3 ... incorrect
+header check`, which reads like a corrupt download. And `AW_STUDIO_TV_FORCE`
+is a MODIFIER of `AW_STUDIO_TV=1`, not a door of its own; on its own it
+launches the film and looks exactly like the door firing and failing.
+
 ### §9.mmmmm A THIRD of broadcastable films are 48 kHz, and the decoder never resampled (2026-09-19)
 
 `makeConverter` built its OUTPUT format at the SOURCE rate, so any film whose

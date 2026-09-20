@@ -1454,6 +1454,7 @@ public final class CameraFrameTap: NSObject, AVCaptureVideoDataOutputSampleBuffe
     /// The sample buffer that owns `frame`. See `captureOutput`.
     private var held: CMSampleBuffer?
     private var count = 0
+    private var lastWidth = 0, lastHeight = 0
     private let output = AVCaptureVideoDataOutput()
     /// THE SESSION, RETAINED. Nothing else held it: `StudioContinuity` stores
     /// no session, and the caller's is a local `let session` inside an `if`
@@ -1542,12 +1543,20 @@ public final class CameraFrameTap: NSObject, AVCaptureVideoDataOutputSampleBuffe
         held = sampleBuffer
         frame = px
         count += 1
-        if count == 1 {
-            let w = CVPixelBufferGetWidth(px), h = CVPixelBufferGetHeight(px)
+        // EVERY TIME THE SHAPE CHANGES, not only on the first frame. The tile's
+        // aspect is derived from these numbers (`StudioEngine.cameraAspect`),
+        // so they are the only proof that a requested rotation actually took:
+        // a portrait-held phone broadcast correctly reads 1080x1920 here, and
+        // 1920x1080 means the rotation did not reach the buffers whatever the
+        // attach logged.
+        let w = CVPixelBufferGetWidth(px), h = CVPixelBufferGetHeight(px)
+        if w != lastWidth || h != lastHeight {
+            lastWidth = w; lastHeight = h
             let fmt = CVPixelBufferGetPixelFormatType(px)
-            awdiag("AWCAM first frame %dx%d fourcc=%c%c%c%c", w, h,
+            awdiag("AWCAM frame shape %dx%d (%@) fourcc=%c%c%c%c at frame %d", w, h,
+                   w >= h ? "landscape" : "portrait",
                    Int32((fmt >> 24) & 0xff), Int32((fmt >> 16) & 0xff),
-                   Int32((fmt >> 8) & 0xff), Int32(fmt & 0xff))
+                   Int32((fmt >> 8) & 0xff), Int32(fmt & 0xff), count)
         }
         lock.unlock()
     }

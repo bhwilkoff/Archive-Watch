@@ -1,14 +1,20 @@
 // The live mixer — tvOS-DESIGN Rule 8.8c.
 //
 // Two channels, Film and Microphone, adjusted by ROLLING the Siri Remote's
-// clickpad. Up/down moves between channels, left/right nudges 1 dB for a host
-// who would rather not roll, play/pause pauses the film without ending the
-// broadcast, and the Film channel carries auto-duck as a third state.
+// clickpad. Up/down moves between channels, left/right nudges half a level for
+// a host who would rather not roll, play/pause pauses the film without ending
+// the broadcast, and auto-duck is a setting so that manual means manual.
 //
 // Owner, 2026-09-20, having rejected a preset list: "I'd much rather granular
 // control ... the outer circle can be rolled around clockwise and
 // counterclockwise and I would like to be able to use that gesture to turn up
 // the movie or the microphone."
+//
+// And then, having used it: "the visual is not right. It should look like a
+// level you are adjusting from right to left (or top to bottom) on a scale of
+// 0 to 10 rather than on a scale of decibles that most people won't
+// understand. Please use Apple TV design patterns to get this right rather
+// than trying to make one up yourself."
 
 #if os(tvOS)
 import SwiftUI
@@ -80,6 +86,58 @@ final class ClickpadDial {
     func consume() -> CGFloat { defer { delta = 0 }; return delta }
 }
 
+/// The 0–10 scale the host actually reads, and its one conversion to the
+/// linear gain the mixer multiplies by.
+///
+/// WHY A SCALE AT ALL, rather than the decibels the mixer works in: the owner
+/// asked for "a scale of 0 to 10 rather than ... decibles that most people
+/// won't understand". Decibels are the right unit INSIDE `StudioAudio` and the
+/// wrong unit on a television, so the conversion happens once, here, and
+/// nothing downstream changes.
+///
+/// The taper has two segments because one straight line cannot serve both ends
+/// of a fader — the same reason every real fader is tapered:
+///
+/// - **8 is unity**, the source's own level, untouched. It is the default for
+///   both channels, so a host who never opens this screen is already there.
+/// - **0…8 cuts** at 5 dB a step, so 0 is silence and 4 is a clear half.
+/// - **8…10 boosts** at 3 dB a step, to the mixer's existing +6 dB ceiling.
+///   The boost is not decoration: the microphone was measured at RMS
+///   0.007–0.023 with the owner speaking beside the phone (`StudioAudio`'s
+///   `micGain`), which is quiet enough that a host needs somewhere to go.
+enum MixLevel {
+    static let unity: Double = 8          // the tick that means "as recorded"
+    static let maximum: Double = 10
+
+    static func decibels(_ level: Double) -> Double {
+        level > unity ? (level - unity) * 3 : (level - unity) * 5
+    }
+
+    static func gain(_ level: Double) -> Float {
+        level <= 0 ? 0 : Float(pow(10, decibels(min(level, maximum)) / 20))
+    }
+
+    static func level(_ gain: Float) -> Double {
+        guard gain > 0.0001 else { return 0 }
+        let dB = 20 * log10(Double(gain))
+        let l = dB > 0 ? unity + dB / 3 : unity + dB / 5
+        return min(maximum, max(0, l))
+    }
+
+    /// An RMS reading drawn on the SAME scale as the fader, so the meter and
+    /// the number a host is setting can be compared by eye. A linear 0…1 meter
+    /// cannot: speech at RMS 0.02 is 2% of the bar and reads as dead.
+    static func meterFraction(rms: Float) -> Double {
+        level(rms) / maximum
+    }
+
+    /// One decimal, because the roll is continuous and rounding it to whole
+    /// numbers would throw away the granularity the owner asked for.
+    static func text(_ level: Double) -> String {
+        String(format: "%.1f", level)
+    }
+}
+
 struct StudioMixerTV: View {
 
     enum Channel: Int { case film, microphone }
@@ -101,36 +159,49 @@ struct StudioMixerTV: View {
     @State private var channel: Channel = .film
     @State private var dial = ClickpadDial()
 
-    /// Rule 8.8c: roughly 0.5 dB per 10 degrees, clamped to -inf…+6 dB.
-    private func adjusted(_ gain: Float, byRadians r: CGFloat) -> Float {
-        let degrees = Float(r * 180 / .pi)
-        let dB = 20 * log10(max(gain, 0.0001)) + degrees * 0.05
-        return min(pow(10, min(dB, 6) / 20), pow(10, 6.0 / 20))
+    private let accent = Color(red: 1.0, green: 0.361, blue: 0.208)
+
+    /// A whole level per 45 degrees of roll — a full turn sweeps eight of the
+    /// ten, which is the range a host actually moves through mid-show.
+    private func rolled(_ level: Double, byRadians r: CGFloat) -> Double {
+        clamp(level + Double(r * 180 / .pi) / 45)
     }
 
-    private func dB(_ gain: Float) -> String {
-        gain <= 0.0001 ? "−∞" : String(format: "%+.1f dB", 20 * log10(gain))
-    }
+    private func clamp(_ l: Double) -> Double { min(MixLevel.maximum, max(0, l)) }
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 34) {
+        VStack(alignment: .leading, spacing: 30) {
             Text("WATCH TOGETHER")
                 .font(.system(size: 26, weight: .semibold))
-                .foregroundStyle(Color(red: 1.0, green: 0.361, blue: 0.208))
+                .foregroundStyle(accent)
             Text("Live mixer")
                 .font(.system(size: 58, weight: .bold))
 
-            channelRow(.film, name: "Film", gain: filmGain, level: health.audio.filmLevel)
+            channelRow(.film, name: "Film", gain: filmGain, rms: health.audio.filmLevel)
             channelRow(.microphone, name: "Microphone", gain: micGain,
-                       level: health.audio.micLevel)
+                       rms: health.audio.micLevel)
+
+            // The one focusable control on the screen, deliberately: the focus
+            // engine consumes arrow keys the moment it has two places to send
+            // them, and `.onMoveCommand` — which is how up/down changes channel
+            // and left/right nudges the level — would stop firing.
+            Button(duckEnabled ? "Auto-duck is on" : "Auto-duck is off") {
+                onDuck(!duckEnabled)
+            }
+            .font(.system(size: 29, weight: .medium))
 
             // §4: never hide health numbers — and never hide what the controls do.
-            Text("Roll the remote's pad to set the focused channel · up and down to "
-                 + "switch · left and right for 1 dB · play/pause pauses the film "
-                 + "without ending the broadcast · Menu to go back")
+            Text("Roll the remote's pad to set the highlighted channel · up and "
+                 + "down to switch · left and right for half a level · play/pause "
+                 + "pauses the film without ending the broadcast · Menu to go back")
                 .font(.system(size: 26))
                 .foregroundStyle(.white.opacity(0.7))
-                .frame(maxWidth: 1100, alignment: .leading)
+                .frame(maxWidth: 1200, alignment: .leading)
+            Text("8 is the level the source already has. Above that is a boost; "
+                 + "auto-duck drops the film under your voice until you turn it off.")
+                .font(.system(size: 26))
+                .foregroundStyle(.white.opacity(0.55))
+                .frame(maxWidth: 1200, alignment: .leading)
 
             if filmPaused {
                 Label("Film paused — your audience sees a still picture",
@@ -148,16 +219,16 @@ struct StudioMixerTV: View {
             let d = dial.consume()
             guard d != 0 else { return }
             switch channel {
-            case .film: onFilmGain(adjusted(filmGain, byRadians: d))
-            case .microphone: onMicGain(adjusted(micGain, byRadians: d))
+            case .film: onFilmGain(MixLevel.gain(rolled(MixLevel.level(filmGain), byRadians: d)))
+            case .microphone: onMicGain(MixLevel.gain(rolled(MixLevel.level(micGain), byRadians: d)))
             }
         }
         .onMoveCommand { direction in
             switch direction {
             case .up: channel = .film
             case .down: channel = .microphone
-            case .left: step(-1)
-            case .right: step(+1)
+            case .left: step(-0.5)
+            case .right: step(+0.5)
             @unknown default: break
             }
         }
@@ -165,53 +236,137 @@ struct StudioMixerTV: View {
         .onPlayPauseCommand { onTogglePause() }
     }
 
-    private func step(_ dB: Float) {
-        let apply: (Float) -> Float = { g in
-            min(pow(10, min(20 * log10(max(g, 0.0001)) + dB, 6) / 20), pow(10, 6.0 / 20))
-        }
+    private func step(_ by: Double) {
         switch channel {
-        case .film: onFilmGain(apply(filmGain))
-        case .microphone: onMicGain(apply(micGain))
+        case .film: onFilmGain(MixLevel.gain(clamp(MixLevel.level(filmGain) + by)))
+        case .microphone: onMicGain(MixLevel.gain(clamp(MixLevel.level(micGain) + by)))
         }
     }
 
+    // MARK: - One channel
+
     @ViewBuilder
-    private func channelRow(_ c: Channel, name: String, gain: Float, level: Float) -> some View {
-        let focused = channel == c
-        VStack(alignment: .leading, spacing: 12) {
-            HStack(spacing: 24) {
-                Text(name)
-                    .font(.system(size: 40, weight: focused ? .bold : .medium))
-                Text(dB(gain))
-                    .font(.system(size: 40, weight: .medium))
-                    .monospacedDigit()
-                    .foregroundStyle(.white.opacity(focused ? 1 : 0.6))
-                if c == .film {
-                    Button(duckEnabled ? "Auto-duck on" : "Auto-duck off") {
-                        onDuck(!duckEnabled)
+    private func channelRow(_ c: Channel, name: String, gain: Float, rms: Float) -> some View {
+        let selected = channel == c
+        let level = MixLevel.level(gain)
+        HStack(alignment: .center, spacing: 34) {
+            Text(name)
+                .font(.system(size: 38, weight: selected ? .bold : .medium))
+                .foregroundStyle(.white.opacity(selected ? 1 : 0.55))
+                .frame(width: 260, alignment: .leading)
+
+            fader(level: level, rms: rms, selected: selected)
+
+            // Apple's own slider guidance: "Consider supplementing a slider
+            // with a corresponding text field ... people may appreciate seeing
+            // the exact slider value." On a television there is no field to
+            // type into, so the value is simply shown, large enough to read
+            // from the couch.
+            Text(MixLevel.text(level))
+                .font(.system(size: selected ? 64 : 52, weight: .bold))
+                .monospacedDigit()
+                .foregroundStyle(selected ? accent : .white.opacity(0.55))
+                .frame(width: 150, alignment: .trailing)
+        }
+        .padding(.vertical, 18)
+        .padding(.horizontal, 28)
+        .background(selected ? .white.opacity(0.12) : .clear,
+                    in: RoundedRectangle(cornerRadius: 22))
+        // tvOS's focus system "gently highlight[s] and expand[s] onscreen
+        // items as people move among them". This screen cannot use the real
+        // focus engine (see the Auto-duck button), so the selected channel is
+        // given the same read by hand — by the panel, the accent fill and the
+        // size of the number, and NOT by scaling the row. A `scaleEffect` was
+        // tried first and photographed on Ben Bedroom: anchored leading it
+        // pulls the unselected row's right edge inward, so the two channels'
+        // numbers no longer line up, and a column of numbers that does not
+        // align is harder to read at eight feet than one that does not move.
+        .animation(.easeOut(duration: 0.18), value: selected)
+    }
+
+    /// A track that fills from the leading side, with a tick at every whole
+    /// level and the live meter beneath it.
+    ///
+    /// Apple's slider guidance, which is the closest thing tvOS has to a rule
+    /// here — `Slider` itself is `@available(tvOS, unavailable)` and the HIG
+    /// says plainly "Not supported in tvOS", so the LOOK is borrowed and the
+    /// INPUT is the remote's own:
+    ///
+    ///   "As a slider's value changes, the portion of track between the
+    ///    minimum value and the thumb fills with color."
+    ///   "People expect the minimum and maximum sides of sliders to be
+    ///    consistent in all apps, with minimum values on the leading side and
+    ///    maximum values on the trailing side."
+    ///   "Sliders in macOS can also include tick marks, making it easier for
+    ///    people to pinpoint a specific value within the range."
+    ///
+    /// The direction rule is why 0 sits on the left and 10 on the right: the
+    /// owner asked for "a level you are adjusting from right to left", i.e.
+    /// turning it DOWN moves leftward, which is the same arrangement.
+    @ViewBuilder
+    private func fader(level: Double, rms: Float, selected: Bool) -> some View {
+        let fraction = level / MixLevel.maximum
+        VStack(alignment: .leading, spacing: 10) {
+            GeometryReader { geo in
+                let w = geo.size.width
+                let knob = 26.0
+                let travel = w - knob
+                ZStack(alignment: .leading) {
+                    Capsule()
+                        .fill(.white.opacity(0.16))
+                        .frame(height: 14)
+                    Capsule()
+                        .fill(selected ? accent : Color.white.opacity(0.45))
+                        .frame(width: knob / 2 + travel * fraction, height: 14)
+                    // Ticks at every whole level; the unity tick is taller,
+                    // because it is the one position with a meaning a host can
+                    // act on.
+                    ForEach(0...Int(MixLevel.maximum), id: \.self) { i in
+                        let isUnity = Double(i) == MixLevel.unity
+                        // The unity tick is drawn TALLER THAN THE KNOB on
+                        // purpose. Both channels default to 8, so the knob sits
+                        // on this tick at rest and a shorter one is simply
+                        // invisible exactly when a host is first looking for
+                        // "where was it before I touched it".
+                        Capsule()
+                            .fill(.white.opacity(isUnity ? 0.85 : 0.35))
+                            .frame(width: 3, height: isUnity ? 56 : 18)
+                            .offset(x: knob / 2 - 1.5
+                                    + travel * (Double(i) / MixLevel.maximum))
                     }
-                    .font(.system(size: 26, weight: .medium))
+                    Capsule()
+                        .fill(.white)
+                        .frame(width: knob, height: selected ? 44 : 34)
+                        .shadow(radius: selected ? 8 : 0)
+                        .offset(x: travel * fraction)
                 }
+                .frame(height: 60, alignment: .center)
             }
+            .frame(height: 60)
+
             // The meter is the honest part: it says what the audience hears,
-            // whatever the fader claims.
+            // whatever the fader claims. Drawn on the fader's own 0–10 scale
+            // so the two can be read against each other.
             GeometryReader { geo in
                 ZStack(alignment: .leading) {
-                    Capsule().fill(.white.opacity(0.15))
+                    Capsule().fill(.white.opacity(0.10))
                     Capsule()
-                        .fill(focused
-                              ? Color(red: 1.0, green: 0.361, blue: 0.208)
-                              : Color.white.opacity(0.5))
-                        .frame(width: geo.size.width * CGFloat(min(1, max(0, level))))
+                        .fill(.white.opacity(selected ? 0.7 : 0.35))
+                        .frame(width: geo.size.width
+                               * CGFloat(min(1, max(0, MixLevel.meterFraction(rms: rms)))))
                 }
             }
-            .frame(height: 16)
-            .frame(maxWidth: 900)
+            .frame(height: 8)
+
+            HStack {
+                Text("0").foregroundStyle(.white.opacity(0.4))
+                Spacer()
+                Text("10").foregroundStyle(.white.opacity(0.4))
+            }
+            .font(.system(size: 23, weight: .medium))
+            .monospacedDigit()
         }
-        .padding(.vertical, 10)
-        .padding(.horizontal, 22)
-        .background(focused ? .white.opacity(0.12) : .clear,
-                    in: RoundedRectangle(cornerRadius: 18))
+        .frame(maxWidth: 880)
     }
 }
 #endif

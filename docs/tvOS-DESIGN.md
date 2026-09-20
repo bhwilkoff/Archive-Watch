@@ -515,10 +515,77 @@ show hangs off the player's transport menu and nothing else.
 
 The mixer carries exactly two channels, **Film** and **Microphone**. Rolling the clickpad adjusts the focused
 channel continuously; **up/down** moves between the channels; **left/right**
-nudges in fixed 1 dB steps for a host who does not want to roll; **play/pause**
+nudges half a level for a host who does not want to roll; **play/pause**
 pauses the film WITHOUT ending the broadcast. Each channel shows its level
-meter and its gain in dB, because §4's "never hide health numbers" applies to
+meter and its level, because §4's "never hide health numbers" applies to
 the mix a host is setting by ear as much as to the bitrate.
+
+**THE LEVEL IS 0-10, NEVER DECIBELS, AND IT IS DRAWN AS A TRACK.** Owner,
+2026-09-20, having used the first build: *"the visual is not right. It should
+look like a level you are adjusting from right to left (or top to bottom) on a
+scale of 0 to 10 rather than on a scale of decibles that most people won't
+understand. Please use Apple TV design patterns to get this right rather than
+trying to make one up yourself."*
+
+There is no tvOS control to borrow: `SwiftUI.Slider` is
+`@available(tvOS, unavailable)` and Apple's own Sliders guidance says plainly
+**"Not supported in tvOS."** So the LOOK comes from that guidance and the INPUT
+is the remote's, and three of its rules bind here:
+
+- *"As a slider's value changes, the portion of track between the minimum value
+  and the thumb fills with color."*
+- *"People expect the minimum and maximum sides of sliders to be consistent in
+  all apps, with minimum values on the leading side and maximum values on the
+  trailing side."* **This is why 0 is on the left and 10 on the right** — the
+  owner's "adjusting from right to left" is turning it DOWN, which is the same
+  arrangement, and where the two readings could differ Apple's rule decides.
+- *"Sliders ... can also include tick marks, making it easier for people to
+  pinpoint a specific value within the range."* One tick per whole level.
+
+Three further rules are ours, each from a measurement:
+
+- **8 is unity** — the source's own level, and the default for both channels,
+  so a host who never opens this screen is already there. 0-8 cuts at 5 dB a
+  step to silence; 8-10 boosts at 3 dB a step to the mixer's existing +6 dB
+  ceiling. The boost is not decoration: the microphone measures RMS
+  0.007-0.023 with a host speaking beside the phone, so there has to be
+  somewhere to go. **The unity tick is drawn TALLER THAN THE KNOB**, because
+  both channels rest on it and a shorter one is invisible exactly when a host
+  is looking for where it was before they touched it.
+- **The meter is drawn on the fader's own 0-10 scale**, not linearly, so the
+  two can be read against each other. A linear 0-1 meter draws 2% for speech
+  at RMS 0.02 and reads as dead.
+- **The selected channel is never marked by SCALING the row.** tvOS focus
+  "gently highlight[s] and expand[s]", and a `scaleEffect` does that — but
+  anchored leading it pulls the unselected row's right edge inward, so the two
+  channels' numbers stop lining up (photographed on Ben Bedroom, 2026-09-20).
+  A column of numbers that does not align is harder to read at eight feet than
+  one that does not move. The panel, the accent fill and the size of the
+  number carry the selection instead.
+
+**Rule 8.8d - the phone's orientation is the HOST's to state, because the
+television cannot learn it.** A Continuity camera always delivers its sensor's
+landscape frame, and `AVCaptureDevice.RotationCoordinator` — the API for
+exactly this question — cannot answer for it. `AVCaptureDevice.h` says so
+twice, once for preview and once for capture:
+
+> *"External cameras return 0 degrees of rotation even if they physically
+> rotate when their position in physical space is unknown."*
+
+Measured on Ben Bedroom 2026-09-20 with a phone connected at 31 fps:
+`AWCAM rotation 0 applied`. So the go-live sheet carries a **Landscape /
+Portrait** choice, shown only once a phone is paired, and it persists. Owner,
+who named this fallback in the same breath as the request: *"if not, then you
+should be able to decide which orientation you would like to use the phone in
+at the beginning of the stream."* The coordinator is still consulted and still
+wins when it answers — it is right on any platform where the camera IS the
+device — and `rotationAngleObserved` records whether it ever speaks here.
+
+The tile needs nothing else: `StudioEngine` already derives `cameraAspect` from
+the buffer's own dimensions, so rotating the capture connection gives a
+portrait tile for free. **The proof that a rotation took is the BUFFER SHAPE**
+(`AWCAM frame shape 1080x1920 (portrait)`), never the attach's own log line —
+the attach reported success on every run that produced a landscape frame.
 
 Owner, 2026-09-20, having rejected a preset list: *"I'd much rather granular
 control ... the outer circle can be rolled around clockwise and

@@ -59,10 +59,15 @@ of magnitude. `StudioRights.refusal()` requires:
 `rightsBucket` is computed at DB-build time and is **not** in `catalog.json`
 (which carries only HIDE buckets). Query the DB the device actually reads:
 
+The release asset is **raw deflate, not zlib** — `zlib.decompress` on it
+answers `Error -3 ... incorrect header check`, which reads like a corrupt
+download and is not one. (This runbook said `zlib.decompress` until
+2026-09-20, so the documented command has never worked.)
+
 ```bash
 curl -sL https://github.com/bhwilkoff/Archive-Watch/releases/download/catalog-db/catalog.sqlite.zz \
   -o /tmp/catalog.sqlite.zz
-python3 -c "import zlib;open('/tmp/catalog.sqlite','wb').write(zlib.decompress(open('/tmp/catalog.sqlite.zz','rb').read()))"
+python3 -c "import zlib;open('/tmp/catalog.sqlite','wb').write(zlib.decompressobj(-15).decompress(open('/tmp/catalog.sqlite.zz','rb').read()))"
 sqlite3 /tmp/catalog.sqlite "
   SELECT archiveID, year, title FROM items
   WHERE rightsBucket='safe_pd_age' AND year<=1929
@@ -89,8 +94,14 @@ device"). Vary the film between runs — never re-test the same one.
 | `AW_STUDIO_DEST` | bench RTMP URL; **without it the `=1` door silently returns** |
 | `AW_STUDIO_TV_SECONDS` | how long the door holds (default 180) |
 | `AW_STUDIO_TV_SOUND=1` | do NOT mute the television speakers |
-| `AW_STUDIO_TV_FORCE=1` | skip the configuration gate + sheet, encode with no destination |
+| `AW_STUDIO_TV_FORCE=1` | **with `AW_STUDIO_TV=1`** — skip the configuration gate + sheet, encode with no destination |
+| `AW_STUDIO_TV_MIXER=1` | **with the two above** — open Rule 8.8c's live mixer straight away |
 | `AW_DIAG_FILE=1` | write diagnostics to `Library/Caches/awdiag.log` |
+
+**`AW_STUDIO_TV_FORCE` and `AW_STUDIO_TV_MIXER` are MODIFIERS of
+`AW_STUDIO_TV=1`, not doors of their own.** The whole block sits behind
+`guard environment["AW_STUDIO_TV"] == "1"`, so `FORCE` on its own launches the
+film and nothing else — which looks exactly like the door firing and failing.
 
 `AW_STUDIO_TV=1` alone deliberately **ends at the sheet** — it will not press
 Go live, because a door that pressed it would broadcast from a television
@@ -119,6 +130,15 @@ xcrun devicectl device copy from --device "$DEV" \
   --domain-type appDataContainer --domain-identifier app.archivewatch.tvos \
   --source Library/Caches/awdiag.log --destination awdiag.log
 ```
+
+**A pyatv press blocks screenshots for about a minute.** Measured 2026-09-20:
+after one `atv_scenario.press()`, `devicectl device capture screenshot` failed
+five times running and succeeded at +45 s. The failure prints an
+`XPCConnectionDescription` blob and NO error line, so a grepped capture reads
+as silence and leaves a STALE file in place — assert on `Screenshot saved`,
+never on the exit code. Driving a multi-press navigation this way costs about
+a minute a press, which is why a surface needing several presses to reach gets
+a door instead (`AW_STUDIO_TV_MIXER`).
 
 `DiagFile` **truncates on every launch**, so pull the log before relaunching
 or the evidence is gone. An ObjC exception never reaches that file — it goes
@@ -195,3 +215,12 @@ directory.
 - Every `addOutput` onto a Continuity session belongs inside
   `beginConfiguration()`/`commitConfiguration()`, or it commits on the spot
   and forces exactly that renegotiation mid-flight.
+- **The phone's ORIENTATION cannot be learned from the television.**
+  `AVCaptureDevice.RotationCoordinator` is the API for it, and
+  `AVCaptureDevice.h` says, twice: *"External cameras return 0 degrees of
+  rotation even if they physically rotate when their position in physical
+  space is unknown."* Measured with a phone connected at 31 fps:
+  `AWCAM rotation 0 applied`. The host states it on the go-live sheet instead
+  (Rule 8.8d). Judge a rotation by `AWCAM frame shape WxH`, never by the
+  attach's own line — the attach logs `rotation N applied` whether or not the
+  buffers ever change shape.
