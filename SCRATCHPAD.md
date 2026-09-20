@@ -386,62 +386,80 @@ run — the SDK offers no way to enumerate a paired device, so `audioSessionInpu
 only exists on one the picker handed over); and the camera dropping repeatedly
 (observed four times), for which detection now exists but recovery does not.
 
-### 2026-09-18 (Watch Together loop, daytime) — the first YouTube broadcast, the television's 75-second audio lead, and a macOS studio that had never been run
-Owner /loop, same prompt: stream PD films to YouTube and Twitch as "Watch
-Together" / "Watch Together Studio", Apple first, research hard, test on real
-devices. Mid-session the owner left home and redirected to macOS: "all of my
-devices are now at your disposal ... fully build out the macOS app for live
-streaming to both YouTube and twitch."
+### 2026-09-20 (Watch Together loop) — the mixer in numbers people read, macOS and Android catching up, and a home screen that trusted the uploader
+Owner /loop, 5-minute cron, same standing prompt; redirected several times by
+hand — the mixer's visuals, the camera's orientation, iPhone/Android end to
+end, SharePlay guest audio, and finally the home screen.
 
-**WATCH TOGETHER NOW BROADCASTS TO BOTH PLATFORMS FROM AN APPLE TV.** The first
-YouTube go-live went out to "Learning is Change", confirmed from YouTube's side
-(`liveBroadcasts` 34 -> 35, id `H96F1xNoJRo`). Twitch has worked since 09-17.
+**THE HOME SCREEN WAS ASKING THE UPLOADER, NOT THE AUDIT.** Owner: *"I keep
+seeing nazi movies, controversial films, and things with questionable public
+domain status."* Home's whole rights gate was `rightsStatus IN
+('public_domain','creative_commons') OR year <= 1977`, and `rightsStatus` is
+what the ARCHIVE ITEM claims — the field `TVOS-STUDIO-RUNBOOK` §3 already
+warns about, which the Studio heeded and Home never did. At the top of Home's
+own popularity order: Yojimbo, The Pink Panther, The Grapes of Wrath, High and
+Low, Jason and the Argonauts, all `public_domain`, all still owned. Three
+tiers now, all from the audit: Home takes KEEP buckets only; `presumed_pd` may
+not carry a FOREIGN film, because it is a US renewal-lapse assumption and the
+**URAA (1996) restored US copyright in foreign works** (that one rule removed a
+Criterion shelf — Tokyo Story, The Seventh Seal, Harakiri, Wages of Fear); and
+the HERO takes positive evidence only. **Every Nazi propaganda film is
+`presumed_pd` and leaves the marquee while the Allied evidence is `safe_gov`
+and stays** — no other field separates those. Android and the tvOS TOP SHELF
+carried the identical defect and were corrected too; Roku had it right since
+Decision 113.
 
-- **The television's audio ran 75 SECONDS ahead of its picture**, on every
-  broadcast the feature had ever made. The 8m16s soak's "15 ms" was a DRIFT
-  proxy and blind to a constant offset, which is what it said it was. Cause: the
-  tee was fed by the player's BUFFERING, so the first packet it ever saw came
-  from the buffer head. Now +0.20 s and flat, via an architecture that DELETES
-  the tee - the Studio PULLS audio by film position, so sync is a property of
-  the request rather than a correction applied afterwards (§9.rrrr-§9.tttt).
-- **YouTube was blocked by one undeclared `part`**: `liveStreams.insert` set
-  `contentDetails.isReusable` in its body while declaring only
-  `snippet,cdn,status`. And the go-live CHANNEL was the personal default because
-  `prompt=consent` never offers Google's Brand Account chooser -
-  `prompt=select_account consent` does (§9.vvvv).
-- **macOS went from never-tested to a working studio.** It had a go-live sheet,
-  platform picker and sign-in since §9.ttt and no way to reach any of it without
-  a human clicking, so a bench run recorded zero bytes. `AW_STUDIO_MAC_GOLIVE`
-  drives the same commit chain; camera, microphone, five layouts and three
-  overlay cards are all verified from the server's own recording (§9.xxxx).
-- **A crash that killed the app at the END of every macOS broadcast**: the
-  `MTAudioProcessingTap` held an UNRETAINED reference, and its real-time
-  callback outlives the mixer. Fixes iOS too - same tap path; tvOS is unaffected
-  because it pulls instead.
-- **Bitrate is settled**: 1080p30 with ZERO dropped frames at 4 and 6 Mbps
-  locally, 13 at 8 and 552 at 10, and VideoToolbox delivers ~70-75% of whatever
-  is asked. The uplink is 68.3 Mbps with 854 ms responsiveness under load, so
-  the Twitch drops at ~4.2 Mbps are bufferbloat, not the device and not Twitch.
+**macOS AND iOS HAD NOT LEARNED THE 48 kHz LESSON.** The ring and the
+sample-buffer retain fixes were shared and arrived free; the resampling did
+not. Both tap paths were sample-DROPPING — 35.6 dB SNR at 440 Hz falling to
+**10.1 dB at 8 kHz**, aliasing nearly as loud as the signal, on a third of the
+catalogue and on the host's own voice. tvOS's `AVAudioConverter` could not be
+copied (the tap callback is real time), so `PolyphaseResampler` builds its
+kernel once: **95-107 dB** after, guarded by §8.17 with the old hold as the
+control. They were also missing the 0-10 mixer and the auto-duck TOGGLE —
+`StudioSession.setAudio` had no `duckEnabled` parameter at all, it stopped at
+the engine — and the camera-stall warning.
 
-**THE RECURRING FAULT, named because it appeared six times in one day**: a
-readout that describes the MECHANISM rather than the OUTCOME. The tvOS warning
-asked "did the tap attach" - permanently false there - while the owner listened
-to audio it said was absent. Three go-live gates, a camera path and a Continuity
-attach all refused in SILENCE, making four different causes produce identical
-evidence. A door logged "live" from intent it had just recorded. And the A/V
-tool keyed on a burst's PEAK, putting half a marker of bias in every absolute
-number - caught only because the bias scaled with the stimulus, which a real
-offset cannot do.
+**ANDROID COULD NOT CARRY THE HOST AT ALL**, and a PARITY line I wrote that
+morning said otherwise ("its faders are still raw amplitude" — there were no
+faders). The manifest declared only INTERNET; there was no `AudioRecord`
+anywhere; the camera's RECEIVING end was complete with nothing to feed it.
+Built on the owner's go-ahead: Camera2 (no new dependency), `AudioRecord` on
+VOICE_COMMUNICATION, a mixer that **mixes INTO the film's buffers and drives
+nothing** — because §9.qq is what a second clock cost this platform — the
+shared 0-10 scale, and permissions asked at the point of going live,
+google-flavour only. 12 tests with controls. **None of it has run on hardware**
+and PARITY says so.
 
-**Two corrections owed and recorded rather than smoothed over**: a SKIPPED test
-was reported as a passing one (the app never entered the code under test), and a
-"fix" for the Continuity crash addressed the microphone when the crash was in
-the camera path.
+**THE §8 SUITE HAD NOT BEEN RUN SINCE 09-19 AND FOUR OF ITS CASES WERE LYING.**
+§8.2 asserted the BUG (`prompt=consent`, the thing that sent the first
+broadcast to the wrong channel); §8.13 asserted two gates deliberately replaced
+by better ones; §8.11 measured the harness's own keychain entitlement; §8.9
+demanded a credential withdrawn on 09-18. Each had been failing since the day
+its subject was fixed. And the Kotlin back-pressure case failed for a reason
+none of my three hypotheses covered: **a stale listener held the proxy's port**,
+so the publisher reached mediamtx unthrottled while a TCP-only readiness probe
+saw "something is listening". The proxy's own log said so and the test was
+discarding it. 13/4 -> **82 pass, 1 skip, 0 fail**.
 
-**For the owner**: sign-in on the Mac (Twitch is a phone-approvable device code;
-YouTube needs the browser sheet on that machine), and one Apple TV run with the
-phone attached to locate the Continuity crash - it is instrumented to name the
-failing call on the first attempt. Archive Watch's own YouTube channel is inside
-its 24-hour activation and needs nothing further; the token is already on it.
+**WHAT I BROKE, AND IT IS THE POINT OF THIS ENTRY.** Chasing whether SharePlay
+could carry guest voice, I put a debug probe inside `WatchTogether.adopt()`,
+ON BY DEFAULT, in the product's own join path — and broke SharePlay, which
+shipped as Decision 098 and which the owner uses. Four separate
+self-inflicted faults in a row: an unbounded 50/s flood; a verdict written
+where a tap-launched app could not record it; a CRASH from `data[0]` on a
+`Data` SLICE (the subscript is an absolute index, and `count` reads fine on a
+slice, so the `>= 5` guard passed and the next line trapped); and confusing
+launching the APP with starting the ACTIVITY. Reverted to byte-identical, and
+`VoiceFrame` + §8.18's 16 assertions are what survive. **A working feature
+outranks a measurement and I inverted that for several rounds.**
+
+Also corrected: SharePlay is not FaceTime (the messenger sends raw `Data` and
+guest voice IS buildable — SHAREPLAY §5 is the rule, written before the code
+this time); a `GroupSession` CAN be activated programmatically when a call
+exists; and the camera's orientation cannot be read at all — `AVCaptureDevice.h`
+says external cameras report 0 "even if they physically rotate" — so after
+trying a host-stated Portrait option and finding it both wrong-way-round and
+82% of frame height, the feature is **landscape only** and the sheet says so.
 
 Older entries: `docs/SESSION-LOG.md` (verbatim, back to 2026-04-17).

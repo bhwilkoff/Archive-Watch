@@ -1,5 +1,63 @@
 # Archive Watch — Session Log (archive)
 
+### 2026-09-18 (Watch Together loop, daytime) — the first YouTube broadcast, the television's 75-second audio lead, and a macOS studio that had never been run
+Owner /loop, same prompt: stream PD films to YouTube and Twitch as "Watch
+Together" / "Watch Together Studio", Apple first, research hard, test on real
+devices. Mid-session the owner left home and redirected to macOS: "all of my
+devices are now at your disposal ... fully build out the macOS app for live
+streaming to both YouTube and twitch."
+
+**WATCH TOGETHER NOW BROADCASTS TO BOTH PLATFORMS FROM AN APPLE TV.** The first
+YouTube go-live went out to "Learning is Change", confirmed from YouTube's side
+(`liveBroadcasts` 34 -> 35, id `H96F1xNoJRo`). Twitch has worked since 09-17.
+
+- **The television's audio ran 75 SECONDS ahead of its picture**, on every
+  broadcast the feature had ever made. The 8m16s soak's "15 ms" was a DRIFT
+  proxy and blind to a constant offset, which is what it said it was. Cause: the
+  tee was fed by the player's BUFFERING, so the first packet it ever saw came
+  from the buffer head. Now +0.20 s and flat, via an architecture that DELETES
+  the tee - the Studio PULLS audio by film position, so sync is a property of
+  the request rather than a correction applied afterwards (§9.rrrr-§9.tttt).
+- **YouTube was blocked by one undeclared `part`**: `liveStreams.insert` set
+  `contentDetails.isReusable` in its body while declaring only
+  `snippet,cdn,status`. And the go-live CHANNEL was the personal default because
+  `prompt=consent` never offers Google's Brand Account chooser -
+  `prompt=select_account consent` does (§9.vvvv).
+- **macOS went from never-tested to a working studio.** It had a go-live sheet,
+  platform picker and sign-in since §9.ttt and no way to reach any of it without
+  a human clicking, so a bench run recorded zero bytes. `AW_STUDIO_MAC_GOLIVE`
+  drives the same commit chain; camera, microphone, five layouts and three
+  overlay cards are all verified from the server's own recording (§9.xxxx).
+- **A crash that killed the app at the END of every macOS broadcast**: the
+  `MTAudioProcessingTap` held an UNRETAINED reference, and its real-time
+  callback outlives the mixer. Fixes iOS too - same tap path; tvOS is unaffected
+  because it pulls instead.
+- **Bitrate is settled**: 1080p30 with ZERO dropped frames at 4 and 6 Mbps
+  locally, 13 at 8 and 552 at 10, and VideoToolbox delivers ~70-75% of whatever
+  is asked. The uplink is 68.3 Mbps with 854 ms responsiveness under load, so
+  the Twitch drops at ~4.2 Mbps are bufferbloat, not the device and not Twitch.
+
+**THE RECURRING FAULT, named because it appeared six times in one day**: a
+readout that describes the MECHANISM rather than the OUTCOME. The tvOS warning
+asked "did the tap attach" - permanently false there - while the owner listened
+to audio it said was absent. Three go-live gates, a camera path and a Continuity
+attach all refused in SILENCE, making four different causes produce identical
+evidence. A door logged "live" from intent it had just recorded. And the A/V
+tool keyed on a burst's PEAK, putting half a marker of bias in every absolute
+number - caught only because the bias scaled with the stimulus, which a real
+offset cannot do.
+
+**Two corrections owed and recorded rather than smoothed over**: a SKIPPED test
+was reported as a passing one (the app never entered the code under test), and a
+"fix" for the Continuity crash addressed the microphone when the crash was in
+the camera path.
+
+**For the owner**: sign-in on the Mac (Twitch is a phone-approvable device code;
+YouTube needs the browser sheet on that machine), and one Apple TV run with the
+phone attached to locate the Continuity crash - it is instrumented to name the
+failing call on the first attempt. Archive Watch's own YouTube channel is inside
+its 24-hour activation and needs nothing further; the token is already on it.
+
 ### 2026-09-18 (Watch Together loop, overnight) — the Studio's plumbing measured end to end, and the instruments that lied about it
 Owner /loop, 5-minute ticks, same prompt as 09-17: stream PD films to YouTube
 and Twitch as "Watch Together" / "Watch Together Studio", Apple first, research
