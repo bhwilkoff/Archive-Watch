@@ -15,6 +15,9 @@ import SwiftUI
 struct StudioMacReadout: View {
     let health: StudioHealth
     let filmFramesPerSecond: Int
+    /// Camera frames in the last second — 0 while live, for a camera that HAS
+    /// delivered, is the tile-went-dark signature.
+    let cameraFramesPerSecond: Int
     let onEnd: () -> Void
     let onOpenControls: () -> Void
 
@@ -28,6 +31,18 @@ struct StudioMacReadout: View {
     private var problem: String? {
         if let d = health.showState.detail { return d }
         if isLive && filmFramesPerSecond == 0 { return "The film has stopped — your audience sees a still picture" }
+        // A CAMERA THAT DIED MID-SHOW — the guard the television has carried
+        // since 2026-09-19, when a Continuity camera ran a clean 30/s for ten
+        // seconds and then stopped dead for eighty while every other number
+        // stayed healthy. `cameraFramesReceived > 0` matters: between the
+        // attach and the first delivered frame a camera is legitimately
+        // attached at zero, and without it this flashes during every normal
+        // start. The word is STOPPED, so it may only appear for a camera that
+        // had started.
+        if isLive, health.cameraAttached, health.cameraFramesReceived > 0,
+           cameraFramesPerSecond == 0 {
+            return "The camera has stopped — your audience sees the film without you"
+        }
         if let f = health.encoderFault { return f }
         if health.thermalState == "critical" { return "This Mac is too hot to keep streaming" }
         if health.thermalState == "serious" { return "This Mac is getting hot" }
@@ -110,6 +125,7 @@ struct StudioMacPanel: View {
     let health: StudioHealth
     let audio: StudioAudioHealth
     let filmFramesPerSecond: Int
+    let cameraFramesPerSecond: Int
 
     @Binding var layout: StudioLayout
     @Binding var filmGain: Double
@@ -129,6 +145,16 @@ struct StudioMacPanel: View {
         }
         if filmFramesPerSecond == 0 && health.showState.isOnAir {
             return "The film has stopped sending new frames — your audience is seeing a still picture. The sound and your camera are unaffected."
+        }
+        // A CAMERA THAT DIED MID-SHOW — the same guard the television carries
+        // (tvOS `StudioTV.swift`). `cameraFramesReceived > 0` matters:
+        // between the attach and the first delivered frame a camera is
+        // legitimately attached at zero, and without it the readout flashes
+        // "stopped" during every normal start. The word is STOPPED, so it may
+        // only appear for a camera that had started.
+        if health.showState.isOnAir, health.cameraAttached,
+           health.cameraFramesReceived > 0, cameraFramesPerSecond == 0 {
+            return "The camera has stopped — your audience sees the film without you."
         }
         return "These numbers are what your audience is actually receiving."
     }

@@ -23,6 +23,7 @@ struct StudioPlayerContainer: View {
     @State private var engine: StudioEngine?
     @State private var health = StudioHealth()
     @State private var filmFPS = 0
+    @State private var cameraFPS = 0
     @State private var showControls = false
     @State private var startError: String?
 
@@ -50,7 +51,8 @@ struct StudioPlayerContainer: View {
         player
             .overlay(alignment: .topLeading) {
                 VStack(alignment: .leading, spacing: 4) {
-                    StudioHealthCapsule(health: health, filmFramesPerSecond: filmFPS) {
+                    StudioHealthCapsule(health: health, filmFramesPerSecond: filmFPS,
+                                        cameraFramesPerSecond: cameraFPS) {
                         showControls = true
                     }
                     // §6.2, DEBUG only, and BELOW the capsule rather than
@@ -109,6 +111,7 @@ struct StudioPlayerContainer: View {
             duckEnabled: $duckEnabled,
             card: $card, showLowerThird: $showLowerThird,
             audio: health.audio, health: health, filmFramesPerSecond: filmFPS,
+            cameraFramesPerSecond: cameraFPS,
             onEnd: { Task { await end() } })
     }
 
@@ -174,6 +177,7 @@ struct StudioPlayerContainer: View {
     /// are arriving right now — which is the whole point of it (§9).
     private func pollHealth() async {
         var lastFilmFrames = 0
+        var lastCameraFrames = 0
         while !Task.isCancelled {
             try? await Task.sleep(nanoseconds: 1_000_000_000)
             guard let e = engine else { continue }
@@ -181,6 +185,8 @@ struct StudioPlayerContainer: View {
             let h = await e.health
             filmFPS = max(0, h.filmFramesPulled - lastFilmFrames)
             lastFilmFrames = h.filmFramesPulled
+            cameraFPS = max(0, h.cameraFramesReceived - lastCameraFrames)
+            lastCameraFrames = h.cameraFramesReceived
             health = h
 
             // A show that ENDS ITSELF says why (§6.5's `.critical`, §6.6's

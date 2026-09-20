@@ -26,6 +26,10 @@ struct StudioHealthCapsule: View {
     /// Frames the film delivered in the last second — 0 while the program is
     /// still running is the frozen-picture signature.
     let filmFramesPerSecond: Int
+    /// Camera frames in the last second — 0 while live, for a camera that HAS
+    /// delivered, is the tile-went-dark signature. A phone's camera stops
+    /// whenever a call arrives, so this is not a television's problem.
+    let cameraFramesPerSecond: Int
     let onOpenControls: () -> Void
 
     private var isLive: Bool { health.showState.isOnAir }
@@ -91,6 +95,19 @@ struct StudioHealthCapsule: View {
         // rendered by nothing until now on any platform.
         if let note = health.qualityNote { w.append(note) }
         if isLive && filmFramesPerSecond == 0 { w.append("the film has stopped arriving") }
+        // A CAMERA THAT DIED MID-SHOW — the guard the television has carried
+        // since 2026-09-19, when a Continuity camera ran a clean 30/s for ten
+        // seconds and then stopped dead for eighty while every other number
+        // stayed healthy. `cameraFramesReceived > 0` matters: between the
+        // attach and the first delivered frame a camera is legitimately
+        // attached at zero, and without it this fires during every normal
+        // start. The word is STOPPED, so it may only appear for a camera that
+        // had started. A phone's camera stops whenever a call arrives, so
+        // this was never a television's problem.
+        if isLive, health.cameraAttached, health.cameraFramesReceived > 0,
+           cameraFramesPerSecond == 0 {
+            w.append("the camera has stopped — your audience sees the film without you")
+        }
         // The opposite fault, and the one that hid for five minutes on an
         // Apple TV (WATCH-TOGETHER §9): the film keeps arriving and the
         // ENCODER stops, so every other number looks healthy.
@@ -135,11 +152,16 @@ struct StudioControlsSheet: View {
     /// Film frames delivered in the last second; 0 while live is the
     /// frozen-picture signature and gets said out loud.
     let filmFramesPerSecond: Int
+    let cameraFramesPerSecond: Int
     let onEnd: () -> Void
 
     private var healthFooter: String {
         if filmFramesPerSecond == 0 && health.showState.isOnAir {
             return "The film has stopped sending new frames — your audience is seeing a still picture. The sound and your camera are unaffected."
+        }
+        if health.showState.isOnAir, health.cameraAttached,
+           health.cameraFramesReceived > 0, cameraFramesPerSecond == 0 {
+            return "The camera has stopped — your audience sees the film without you."
         }
         if health.showState == .notEncoding {
             return "The picture has stopped being encoded, so your audience is not receiving the show. Ending and restarting the broadcast is the reliable fix."

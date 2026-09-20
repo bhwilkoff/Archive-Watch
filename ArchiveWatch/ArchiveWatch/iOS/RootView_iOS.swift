@@ -89,7 +89,8 @@ struct RootView: View {
         // screenshot without a real broadcast. No-op in production.
         .overlay(alignment: .topLeading) {
             if studioControlsDemo {
-                StudioHealthCapsule(health: demoHealth, filmFramesPerSecond: 0) {
+                StudioHealthCapsule(health: demoHealth, filmFramesPerSecond: 0,
+                                    cameraFramesPerSecond: 0) {
                     showStudioControls = true
                 }
             }
@@ -101,6 +102,7 @@ struct RootView: View {
                 duckEnabled: $demoDuck,
                 card: $demoCard, showLowerThird: $demoLowerThird,
                 audio: demoAudio, health: demoHealth, filmFramesPerSecond: 0,
+                cameraFramesPerSecond: 0,
                 onEnd: { showStudioControls = false })
         }
         .task {

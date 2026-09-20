@@ -40,6 +40,14 @@ public final class StudioSession {
     /// Film frames in the last second — 0 while live is the frozen-picture
     /// signature, and the readouts say so (WATCH-TOGETHER §4).
     public private(set) var filmFramesPerSecond = 0
+    /// Camera frames in the last second. 0 while live, with a camera that HAS
+    /// delivered, is the tile-went-dark signature — measured on tvOS
+    /// 2026-09-19, where a Continuity camera ran a clean 30/s for ten seconds
+    /// and then stopped dead for eighty while every other number stayed
+    /// healthy. macOS can use an iPhone as its camera too, and an iOS host's
+    /// camera stops whenever a call arrives, so this is not a television's
+    /// problem.
+    public private(set) var cameraFramesPerSecond = 0
     /// Why the Studio refused, for the surface that asked.
     public var refusal: String?
 
@@ -287,6 +295,7 @@ public final class StudioSession {
         engine = nil
         isLive = false
         filmFramesPerSecond = 0
+        cameraFramesPerSecond = 0
         health = StudioHealth()
     }
 
@@ -310,12 +319,15 @@ public final class StudioSession {
         pump?.cancel()
         pump = Task { [weak self] in
             var lastFilmFrames = 0
+            var lastCameraFrames = 0
             while !Task.isCancelled {
                 try? await Task.sleep(nanoseconds: 1_000_000_000)
                 guard let self, let engine = self.engine else { return }
                 await engine.refreshHealth()
                 let h = await engine.health
                 self.filmFramesPerSecond = max(0, h.filmFramesPulled - lastFilmFrames)
+                self.cameraFramesPerSecond = max(0, h.cameraFramesReceived - lastCameraFrames)
+                lastCameraFrames = h.cameraFramesReceived
                 lastFilmFrames = h.filmFramesPulled
                 self.health = h
 

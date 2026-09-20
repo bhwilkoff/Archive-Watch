@@ -63,6 +63,7 @@ struct PlayerWindow: View {
                     if studio.isLive {
                         StudioMacReadout(health: studio.health,
                                          filmFramesPerSecond: studio.filmFramesPerSecond,
+                                         cameraFramesPerSecond: studio.cameraFramesPerSecond,
                                          onEnd: { Task { await studio.end() } },
                                          onOpenControls: { showStudioPanel = true })
                         .transition(.opacity)
@@ -72,6 +73,7 @@ struct PlayerWindow: View {
                     StudioMacPanel(health: studio.health,
                                    audio: studio.health.audio,
                                    filmFramesPerSecond: studio.filmFramesPerSecond,
+                                   cameraFramesPerSecond: studio.cameraFramesPerSecond,
                                    layout: $studioLayout,
                                    filmGain: $filmGain, micGain: $micGain,
                                    filmMuted: $filmMuted, micMuted: $micMuted,
