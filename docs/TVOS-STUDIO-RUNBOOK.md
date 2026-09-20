@@ -140,6 +140,26 @@ never on the exit code. Driving a multi-press navigation this way costs about
 a minute a press, which is why a surface needing several presses to reach gets
 a door instead (`AW_STUDIO_TV_MIXER`).
 
+**CHOOSE A FILM WITH AUDIO, and MEASURE that rather than trusting a field.**
+Owner, 2026-09-20: *"you are choosing the wizard of oz, a silent film, to test
+streaming and without audio, it is very difficult to decide whether it is
+working or not."* The Studio's rights tier is `safe_pd_age` — published before
+1930 — so nearly everything it can broadcast is silent cinema, and
+`isSilentFilm` does NOT answer the question: it is 0 for Steamboat Bill Jr and
+The Wind, both silent. What decides it is whether the DERIVATIVE carries a
+recorded score. Measure it:
+
+```
+ffmpeg -v error -ss 180 -t 15 -i "<smallest mp4>" -vn -ac 1 -ar 16000 seg.wav -y
+ffmpeg -i seg.wav -af volumedetect -f null -   # NO -v error on this one
+```
+
+**`-v error` on the second command hides the answer** — `volumedetect` prints
+at info level, so suppressing it reports a blank for every film and reads as
+"no audio". Measured 2026-09-20: prinzen-achmed -23.8 dB mean, steamboat_bill
+-22.5, TheGeneral720p1926 -27.5, the-wind_1928 -29.4, our-gang -31.4. All have
+real scores.
+
 `DiagFile` **truncates on every launch**, so pull the log before relaunching
 or the evidence is gone. An ObjC exception never reaches that file — it goes
 to NSLog — so a crash hunt needs `--console`.

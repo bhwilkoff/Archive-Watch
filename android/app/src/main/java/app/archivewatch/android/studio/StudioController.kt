@@ -207,6 +207,15 @@ object StudioController {
                     launchEngine(e, scope, overlayWidth, overlayHeight,
                                  resolved?.server ?: benchDest,
                                  resolved?.key ?: (if (benchDest != null) benchKey else ""))
+                    // THE HOST GOES ON BOTH PATHS. This branch used to return
+                    // without it, so every broadcast that reached a real Twitch
+                    // destination carried the film and NOTHING of the person
+                    // watching it — no camera, no voice. The owner's rule is
+                    // that such a broadcast is not Watch Together at all
+                    // (Decision 132), so the defect emptied the feature on the
+                    // one path a real audience would ever see. The bench path
+                    // below had it, which is why the harness never noticed.
+                    beginHost(e, context, overlayWidth, overlayHeight)
                 }
             }
             isLive = true
@@ -214,10 +223,22 @@ object StudioController {
         }
         launchEngine(e, scope, overlayWidth, overlayHeight,
                      benchDest, if (benchDest != null) benchKey else "")
+        beginHost(e, context, overlayWidth, overlayHeight)
+        isLive = true
+    }
+
+    /**
+     * The host's camera and microphone, and the state the microphone's retry
+     * needs. Called immediately after `launchEngine` on EVERY path — the
+     * camera texture does not exist until the engine's GL context does, so the
+     * order matters and is the reason this is a function rather than three
+     * lines copied twice.
+     */
+    private fun beginHost(e: StudioEngine, context: android.content.Context?,
+                          overlayWidth: Int, overlayHeight: Int) {
         showContext = context
         overlayW = overlayWidth; overlayH = overlayHeight
         openHost(e, context)
-        isLive = true
     }
 
     /**
@@ -238,6 +259,15 @@ object StudioController {
     private fun openHost(e: StudioEngine, context: android.content.Context?) {
         if (context == null) return
         val texture = e.cameraTexture
+        // NO TEXTURE YET IS THE NORMAL CASE, not a failure. The camera texture
+        // is created by the RENDER thread when it builds the GL context, and
+        // this runs on Main the instant after `launchEngine` returns — so the
+        // first attempt almost always finds null, returns in silence, and the
+        // show carries the film and no host. That is what a Pixel 8a recorded
+        // on 2026-09-20: the microphone opened (it has its own retry) and the
+        // camera never did, with not one line in the log to say so. The retry
+        // lives in `openCameraIfReady`, called from the health tick exactly as
+        // the microphone's is.
         if (texture != null) {
             val c = StudioCamera()
             if (c.open(context, texture)) {
@@ -248,6 +278,29 @@ object StudioController {
                 camera = c
             }
         }
+    }
+
+    /**
+     * Opens the camera once the engine's GL context has made a texture for it.
+     * Idempotent, and called once a second from the health tick until it takes
+     * — the same shape as the microphone's retry, and for the same reason: the
+     * resource is not ready at `start()` and waiting for it with a sleep would
+     * be a guess.
+     */
+    private fun openCameraIfReady() {
+        if (camera != null) return
+        val e = engine ?: return
+        val ctx = showContext ?: return
+        val texture = e.cameraTexture ?: return
+        val c = StudioCamera()
+        if (c.open(ctx, texture)) {
+            e.cameraAspect = c.aspect
+            android.util.Log.i("AWSTUDIOHOST", "camera opened aspect=" + c.aspect)
+        } else {
+            android.util.Log.w("AWSTUDIOHOST", "camera refused: " + (c.problem ?: "no reason given"))
+        }
+        // Kept either way: its `problem` is the sentence the host reads.
+        camera = c
     }
 
     /**
@@ -344,6 +397,7 @@ object StudioController {
         }
         // The microphone waits for the film to say what rate it runs at, and
         // that is not known until the first buffer arrives. This is the retry.
+        openCameraIfReady()
         openMicrophoneIfReady()
         // THE HOST'S FAULTS GO INTO HEALTH, where something actually reads
         // them. The camera's complaint outranks the microphone's: a host who
