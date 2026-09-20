@@ -343,3 +343,54 @@ the order is: measure the messenger; if it carries voice, build option 1 and
 own nothing; if it does not, the question becomes whether guest video is
 wanted, because that is the only thing that justifies WebRTC's weight and a
 relay's bill.
+
+## §8 CROSS-PLATFORM changes the answer: SharePlay cannot do it (2026-09-20)
+
+Owner: *"Shareplay only works on Apple Devices, so how are you going to use
+that cross-platform?"*
+
+**It cannot, and that retires §5 and §7's first option.** A `GroupSession` is
+an Apple construct: no Android device and no browser can join one. So for a
+watch party that includes Android or the web, SharePlay can be neither the
+transport NOR the sync — `AVPlayerPlaybackCoordinator` goes with it.
+
+**What survives unchanged, by design.** `StudioVoiceCodec` (§8.19) and
+`StudioVoiceRoom` (§8.20) know nothing about the transport. They were built
+first precisely so this answer could change without wasting them: packets
+arrive with a participant and a sequence, and the room reorders, conceals,
+mixes and mix-minuses identically whoever delivered them.
+
+**Cross-platform means a relay, and the relay ALREADY EXISTS on this
+account.** `worker/wrangler.toml` runs `archivewatch-pulse`, a Cloudflare
+Worker with a D1 database, for the privacy counter. A **Durable Object with
+the Hibernatable WebSocket API** is exactly a room: Cloudflare's own example
+is a chat room broadcasting to every connected client, and a WebSocket client
+reaches it from Swift, Kotlin and a browser alike. **Everyone connects
+OUTWARD**, so NAT traversal — the expensive part of any peer-to-peer design,
+and the reason WebRTC drags a TURN server behind it — simply does not arise.
+
+**THE COST IS MESSAGE COUNT, NOT BANDWIDTH, and that is the counter-intuitive
+part.** Durable Objects bill WebSocket messages as requests. Voice is 27.3
+kbps a speaker, which is nothing — but at 20 ms frames it is **50 messages a
+second a speaker**, which is a great many requests:
+
+| frames per message | latency added | a 2-hour party of four | vs the free tier/day |
+|---|---|---|---|
+| 1 (20 ms) | 0 ms | 1,440,000 | 14.4x |
+| 2 (40 ms) | 20 ms | 720,000 | 7.2x |
+| 3 (60 ms) | 40 ms | 480,000 | 4.8x |
+| 5 (100 ms) | 80 ms | 288,000 | 2.9x |
+
+Total bandwidth for that party is **109 kbps**. The free plan's 100,000
+requests a day is **33 minutes of one person talking** without batching. The
+paid plan includes a million requests a month at a $5 minimum, then $0.15 a
+million — so a two-hour party of four costs about **7 cents** in requests, and
+batching two frames to a message brings it inside the included allowance
+entirely for 20 ms of added latency.
+
+**So the honest answer to "do you want to run a server" is: you already do,
+and it will cost about five dollars a month rather than nothing.** The
+decision is not infrastructure, it is whether the feature is worth $5/mo and a
+batching choice — and the batching is a real trade, because 20 ms spent here
+comes straight out of §5.3's 150 ms conversational budget alongside the
+codec's 22 ms each way.
