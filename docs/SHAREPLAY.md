@@ -180,3 +180,63 @@ measurement it depends on.
 SharePlay.** An app can coordinate what everyone watches; it cannot hear or
 see who is watching. The routes that could carry guests are in
 `docs/WATCH-TOGETHER.md` §9.vvvvv.
+
+## §5 Guest voice (PROPOSED — the rule before the code)
+
+Owner, 2026-09-20: *"I'd like to watch the movie together and be able to talk
+with my friends and family while I'm doing it, and have that all streamed to
+YouTube or twitch."* This is the rule written BEFORE the feature, which is
+what `binding-design-doc-discipline` asks and what Android's mix controls did
+not get (they were shipped and the rule written after — `WATCH-TOGETHER`
+§9.uuuuu).
+
+**§5.1 Every app captures only its OWN microphone, and sends it.** Nothing
+reads anyone else's capture, because no API offers it and asking for one is
+the FaceTime confusion §9.wwwww corrects. A participant's own voice leaves
+their own device or it does not exist.
+
+**§5.2 The transport is the session's own messenger, in UNRELIABLE mode.**
+`GroupSessionMessenger.send(_ value: Data, to:)` carries arbitrary bytes to
+every participant. A voice frame that arrives late is worthless, and
+retransmitting it ahead of the next one makes the conversation worse — so
+reliability is the wrong default here, unlike every other message this app
+sends over that channel.
+
+**§5.3 It is GATED ON A MEASUREMENT, not on optimism.** Apple documents the
+messenger for application state and says nothing about sustained rate or
+latency. `StudioVoiceProbe` sends what the real thing would send (80-byte
+frames, 50 a second) and reports delivery and round trip. **Good enough is
+better than 90% delivered at under 150 ms one-way**; past roughly 250 ms
+people talk over each other. If the messenger misses that bar the guest
+transport is ours to build, and that is a different feature at a different
+cost — which is precisely why the number comes first.
+
+**§5.4 The host mixes guests into the PROGRAMME; everyone mixes them for
+themselves.** Each app plays the other voices locally so the conversation
+works whether or not anyone is broadcasting. The host additionally feeds them
+into the Studio mixer, where they are more inputs to something that already
+exists on four platforms with 0-10 faders and a duck (Rule 8.8c and its
+siblings). **Only the host publishes.** A guest's app must never open an RTMP
+connection — two publishers on one broadcast is a second clock and a second
+bill.
+
+**§5.5 Echo cancellation is not optional.** The film is coming out of the same
+speakers every participant's microphone is listening to, so a raw capture
+source feeds the film back into the conversation on top of itself, worse with
+every duck. Use the platform's voice-chat path (`AVAudioSession` voice-chat
+mode on Apple, `VOICE_COMMUNICATION` on Android — `ANDROID-DESIGN` §9.14).
+
+**§5.6 A guest's voice is never synced to the film, and the film is never
+synced to a voice.** Decision 098 already keeps everyone's playback together;
+conversation is live and belongs on the live clock. Any attempt to align the
+two would delay one of them, and a delayed conversation is not a
+conversation.
+
+**§5.7 The practical reach, stated plainly**: this works between people who
+each run Archive Watch and are in one SharePlay session. It is not a way to
+put an arbitrary friend on a phone call into a broadcast, and a session cannot
+be started programmatically — `prepareForActivation()` answers
+`activationDisabled` with no eligible conversation, so a person chooses the
+people. Two devices on ONE Apple ID cannot SharePlay each other, which also
+means **§5.3's measurement needs a second person with the app**, not merely a
+second device.
