@@ -227,7 +227,14 @@ struct HomeView: View {
         // Hero must be well-composed WIDE art — a real backdrop, never a cropped 2:3 poster or a
         // frame-grab cover. Require a backdrop; if too few qualify the hero shows fewer (or hides)
         // rather than cropping a poster into the full-bleed banner (owner 2026-06-29).
-        let pool = base.filter { $0.backdropURLParsed != nil }
+        // AND IT MUST BE RIGHTS-SAFE. The marquee is the one place the app
+        // SPEAKS for a film, and it was gated on artwork and playability
+        // alone — so Yojimbo, The Pink Panther and The Grapes of Wrath, all
+        // `presumed_pd` and all still owned, could carry it. Owner,
+        // 2026-09-20: "I keep seeing nazi movies, controversial films, and
+        // things with questionable public domain status."
+        // `isHeroRightsSafe` is positive evidence only; see Catalog.Item.
+        let pool = base.filter { $0.backdropURLParsed != nil && $0.isHeroRightsSafe }
         // The marquee must never feature a title that doesn't play (owner:
         // "should certainly not be highlighted on the home screen"). Prefer
         // byte-verified items; fall back to the full pool while probe coverage

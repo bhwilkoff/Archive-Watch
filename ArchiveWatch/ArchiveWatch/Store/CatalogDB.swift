@@ -251,9 +251,37 @@ final class CatalogDB {
     /// is also blocked (a wrong-match item whose year we nulled must not sneak
     /// back onto the marquee). NOT applied to Browse/Search — the full catalog
     /// stays available there.
+    /// HOME USES THE AUDIT'S VERDICT, NOT THE UPLOADER'S CLAIM.
+    ///
+    /// This was `rightsStatus IN ('public_domain','creative_commons') OR year
+    /// <= 1977`, and `rightsStatus` is what the ARCHIVE ITEM says about
+    /// itself — a field `docs/TVOS-STUDIO-RUNBOOK.md` §3 already warns about
+    /// in another context: *"Do not pick on `rightsStatus`. That field is
+    /// `public_domain` for 39,164 items; the Studio gates on the AUDIT's
+    /// bucket, which is narrower by an order of magnitude."* The Studio took
+    /// that lesson and Home never did.
+    ///
+    /// Owner, 2026-09-20: *"I keep seeing nazi movies, controversial films,
+    /// and things with questionable public domain status."* Measured at the
+    /// top of Home's own popularity ordering: Yojimbo, The Pink Panther, The
+    /// Grapes of Wrath, High and Low, Jason and the Argonauts — every one
+    /// `rightsStatus = public_domain`, every one a film a studio still owns,
+    /// and every one `rightsBucket = presumed_pd`, which Decision 027's audit
+    /// means as "1929-1963, kept on the ERA rather than on evidence".
+    ///
+    /// So Home asks the audit. `renewal_zone` and `renewal_zone_bw` are the
+    /// buckets the audit marks **report**, not keep — 1964-77, unresolved
+    /// until somebody checks a renewal — and unresolved is not a thing to put
+    /// in front of a viewer. Measured cost: 19,776 -> 17,975 eligible items,
+    /// which is 9% and leaves every shelf far above `minPerShelf`.
+    ///
+    /// `presumed_pd` STAYS on Home, and that is a deliberate line rather than
+    /// an oversight: 10,668 items turn on it, hiding them is a Decision 027
+    /// content call reserved for the owner, and the marquee is protected
+    /// separately by `heroSafeBuckets` below.
     private let homeAnd =
-        "AND (i.rightsStatus IN ('public_domain','creative_commons') " +
-        "OR (i.year >= 1888 AND i.year <= 1977))"
+        "AND i.rightsBucket IN ('safe_pd_age','safe_gov','safe_archive_license'," +
+        "'safe_cc','presumed_pd','unknown_year')"
 
     /// Commercials (contentType 'commercial') are interstitial + collection
     /// content (vintage ads — see docs/design/channels-tv-guide.md). They must

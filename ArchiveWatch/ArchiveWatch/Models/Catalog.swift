@@ -113,6 +113,33 @@ struct Catalog: Decodable, Sendable {
         /// absent verdict must read as "unknown", which `StudioRights` treats
         /// as a refusal (docs/WATCH-TOGETHER.md §3.4).
         let rightsBucket: String?
+
+        /// THE MARQUEE'S BAR: only buckets the audit calls SAFE on positive
+        /// evidence — pre-1930 by age, a government work, an explicit archive
+        /// licence, or Creative Commons. `presumed_pd` is excluded because it
+        /// is an ERA assumption (1929-1963) rather than evidence, and it is
+        /// where every wrongly-claimed title sat when the owner complained:
+        /// Yojimbo, The Pink Panther, The Grapes of Wrath, High and Low.
+        ///
+        /// It also, for free, resolves an editorial problem the rights rule
+        /// was not aimed at. Every Nazi PROPAGANDA film in the catalogue —
+        /// Triumph des Willens, Der Sieg des Glaubens, Tag der Freiheit, the
+        /// Goebbels and Hitler speeches — is `presumed_pd` and leaves the
+        /// marquee, while the Allied EVIDENCE of the same period (Nazi
+        /// Concentration Camps, the Nuremberg reels) is `safe_gov` and is
+        /// untouched. Those two things are not the same and no other field in
+        /// this catalogue separates them.
+        ///
+        /// Measured 2026-09-20: 7,158 items qualify with real designed art.
+        /// The hero shows SEVEN.
+        static let heroSafeBuckets: Set<String> =
+            ["safe_pd_age", "safe_gov", "safe_archive_license", "safe_cc"]
+
+        /// Whether this item may carry the full-bleed marquee.
+        var isHeroRightsSafe: Bool {
+            guard let b = rightsBucket else { return false }
+            return Catalog.Item.heroSafeBuckets.contains(b)
+        }
         let qualityScore: Int?
         let popularityScore: Int?
         let bestSourceType: String?
