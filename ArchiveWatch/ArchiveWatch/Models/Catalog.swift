@@ -132,8 +132,19 @@ struct Catalog: Decodable, Sendable {
         ///
         /// Measured 2026-09-20: 7,158 items qualify with real designed art.
         /// The hero shows SEVEN.
+        /// `safe_archive_license` IS DELIBERATELY NOT HERE, and it was for
+        /// about twenty minutes until the marquee was looked at on the glass.
+        /// That bucket means the archive ITEM carries a licence statement —
+        /// which is an UPLOADER's claim, and Decision 114 already named what
+        /// that is worth: *"A bare CC claim rescues nothing."* Measured: 40
+        /// of its items qualify for the hero and **24 of them are 1964 or
+        /// later** — Naked Massacre (1976), Werewolf of Washington (1973),
+        /// Track of the Moon Beast (1976), and a film from 2005. Dropping it
+        /// costs 40 candidates out of 3,652 and removes the worst of what was
+        /// left. It remains a KEEP bucket for Home and Browse, where the
+        /// audit's judgement stands; it simply may not SPEAK for the app.
         static let heroSafeBuckets: Set<String> =
-            ["safe_pd_age", "safe_gov", "safe_archive_license", "safe_cc"]
+            ["safe_pd_age", "safe_gov", "safe_cc"]
 
         /// Whether this item may carry the full-bleed marquee.
         var isHeroRightsSafe: Bool {
