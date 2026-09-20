@@ -563,6 +563,36 @@ Three further rules are ours, each from a measurement:
   one that does not move. The panel, the accent fill and the size of the
   number carry the selection instead.
 
+**Rule 8.8e — where the host sits in the picture is chosen on the GO-LIVE
+screen, not in the mixer.** The five placements (`StudioLayout`: film, corner,
+theatre, side, host) are offered as a focusable column in the right-hand
+control column of `GoLiveTV`, under the heading **"Where you go"** and in the
+SHARED words `StudioLayout.label` supplies — the same five sentences iOS,
+macOS and Android show, because a host who picks "Side by side" on a phone and
+on a television is picking the same picture
+(`cross-platform-parity-discipline`).
+
+**Why here and not in the mixer**: Rule 8.8c settles what the live mixer is —
+"two channels, a rotation, and nothing else" — and that constraint came from
+the owner and a rebuild. A five-way choice does not belong on a surface whose
+whole point is that rolling the clickpad adjusts the thing under focus. The
+go-live screen is already where the television makes its other pre-flight
+choices (platform, title, privacy, camera), so this joins them.
+
+**Why it needed a rule at all**: `GoLiveTV` built its `GoLiveRequest` with
+`layout: .corner` HARDCODED, so a television could only ever broadcast one of
+the five, and the other four existed in the shared engine with no way to reach
+them from the ten-foot screen. Found 2026-09-20 while answering the owner's
+question about whether the camera-position settings work; the same question
+found that Android had two of five, and that `theatre` was `corner` moved 64
+pixels down on every Apple platform.
+
+**Changing it mid-broadcast is deliberately NOT offered on tvOS.** iOS and
+macOS allow it from their control panels; the television does not, because the
+only surface it has while live is the mixer and 8.8c forbids it. If that turns
+out to matter, it is an amendment to 8.8c and an owner decision, not a quiet
+addition.
+
 **Rule 8.8d - the camera tile is LANDSCAPE, and the host is told so.** A
 Continuity camera always delivers its sensor's landscape frame, and
 `AVCaptureDevice.RotationCoordinator` — the API for exactly this question —

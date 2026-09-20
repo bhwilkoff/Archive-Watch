@@ -71,6 +71,16 @@ struct GoLiveTV: View {
     /// account.
     @State private var useBench = false
     @State private var showCameraPicker = false
+    /// Rule 8.8e — where the host sits in the picture. It was `.corner`
+    /// HARDCODED in `request()`, so a television could only ever broadcast one
+    /// of the five placements the shared engine has always drawn.
+    /// Seeded from `AW_STUDIO_LAYOUT` so each placement can be driven from a
+    /// door, exactly as the macOS one is — a five-way choice that can only be
+    /// exercised by a person with a remote is a five-way choice nobody will
+    /// regression-test.
+    @State private var layout: StudioLayout =
+        StudioLayout(rawValue: ProcessInfo.processInfo.environment["AW_STUDIO_LAYOUT"] ?? "")
+        ?? .corner
     @State private var cameraPaired = false
     @State private var pairedName: String?
     private static var benchDestination: URL? {
@@ -118,7 +128,7 @@ struct GoLiveTV: View {
             // platform and is not worth a d-pad form.
             category: "",
             privacy: privacy,
-            layout: .corner,
+            layout: layout,
             customServer: useBench ? Self.benchDestination : nil,
             customKey: useBench
                 ? (ProcessInfo.processInfo.environment["AW_STUDIO_KEY"] ?? "awbench")
@@ -180,6 +190,7 @@ struct GoLiveTV: View {
                     titleField
                     if platform == .youtube { privacyChoice }
                     cameraRow
+                    layoutSection
                     actions
                 }
                 // ROOM FOR FOCUS TO GROW. A ScrollView CLIPS, and a focused
@@ -499,6 +510,38 @@ struct GoLiveTV: View {
                 pairedName = name
             }
         }
+    }
+
+    /// Rule 8.8e — the five placements, in the SHARED words. A focusable
+    /// column rather than a segmented control: five ten-foot labels do not fit
+    /// across one row, and the sentences are what make the choice legible
+    /// ("Theatre row (you along the bottom)" says more than an icon can).
+    ///
+    /// No `buttonStyle(.plain)` anywhere near this — it destroys focusability
+    /// on tvOS, which is the one mistake this project has made often enough to
+    /// put in CLAUDE.md.
+    private var layoutSection: some View {
+        VStack(alignment: .leading, spacing: 16) {
+            Text("Where you go").font(.headline).foregroundStyle(.secondary)
+            ForEach(StudioLayout.allCases, id: \.self) { option in
+                Button {
+                    layout = option
+                } label: {
+                    HStack(spacing: 12) {
+                        Image(systemName: layout == option
+                              ? "largecircle.fill.circle" : "circle")
+                            .foregroundStyle(layout == option
+                                             ? StudioSignInRow.signedInAccent : .secondary)
+                        Text(option.label)
+                        Spacer(minLength: 0)
+                    }
+                }
+            }
+            Text("A camera is needed for all but the first. Pair one above.")
+                .font(.footnote)
+                .foregroundStyle(.secondary)
+        }
+        .focusSection()
     }
 
     private var actions: some View {

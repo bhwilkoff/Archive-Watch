@@ -204,9 +204,17 @@ version of that assertion failed the product when the test was wrong.
   arbitrary rects, the panel offers all five in the shared words, and
   `StudioLayoutTest` pins the Kotlin numbers to the ones §8.22 printed.
   **`side` verified on a Pixel 8a from the server's own recording.**
-- **tvOS has no layout picker at all.** `StudioLayout.allCases` is offered by
-  `GoLiveSheet_iOS`, `StudioControls_iOS`, `GoLiveSheet_macOS` and `StudioMac`
-  — and by nothing on the television.
+- ~~tvOS has no layout picker at all~~ **BUILT 2026-09-20, NOT YET SEEN ON THE
+  GLASS.** `GoLiveTV` built its request with `layout: .corner` HARDCODED, so a
+  television could only ever broadcast one of the five. Rule 8.8e adds a
+  "Where you go" column to the go-live screen in the shared words — deliberately
+  NOT in the live mixer, which Rule 8.8c settles as "two channels, a rotation,
+  and nothing else". It compiles and the suite is green, and the on-glass
+  capture is outstanding: `devicectl device capture screenshot` failed five
+  times running on Ben Bedroom this evening (`com.apple.Mercury.error 1001`),
+  which is the documented flake rather than an app fault. Changing the layout
+  MID-broadcast is still not offered on a television; that is an amendment to
+  8.8c and an owner call.
 
 #### The rule this produces
 
