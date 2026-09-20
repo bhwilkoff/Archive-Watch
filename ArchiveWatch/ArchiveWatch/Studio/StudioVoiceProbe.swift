@@ -65,9 +65,29 @@ public final class StudioVoiceProbe {
     /// Default OFF restores the control: get a session to stay up with the
     /// probe off, THEN turn it on and see what changes. That comparison is
     /// the measurement; the flood on its own never was.
+    /// ON in DEBUG, and it STOPS BY ITSELF after one ramp.
+    ///
+    /// Two failed shapes got here. Opt-in by environment variable only works
+    /// when devicectl launches the app — and a devicectl-launched app is
+    /// killed the moment it is backgrounded to start a SharePlay call, which
+    /// is exactly what the person taking this measurement has to do. On by
+    /// default with an unbounded 50/s flood is an instrument that can knock
+    /// over the thing it measures.
+    ///
+    /// CORRECTION OWED: when the owner reported "the SharePlay session keeps
+    /// quitting out" I blamed the flood and made it opt-in. That may have been
+    /// wrong. Both apps were devicectl-launched at the time, and a
+    /// debug-launched app dying on backgrounding looks identical from the
+    /// outside. The diagnosis was plausible and unproven, and it is recorded
+    /// here rather than quietly dropped.
+    ///
+    /// So: on by default (a tap works), gentle (5/s rising), and BOUNDED —
+    /// about twenty-five seconds and then it stops for good. If a session
+    /// still fails with that, the probe is not what is failing, which is the
+    /// one thing neither earlier shape could tell us.
     public static let enabled: Bool = {
         #if DEBUG
-        return ProcessInfo.processInfo.environment["AW_VOICE_PROBE"] == "1"
+        return ProcessInfo.processInfo.environment["AW_VOICE_PROBE"] != "0"
         #else
         return false
         #endif
@@ -135,10 +155,9 @@ public final class StudioVoiceProbe {
                     try? await Task.sleep(nanoseconds: period)
                 }
             }
-            while !Task.isCancelled {
-                await self?.emit(via: m)
-                try? await Task.sleep(nanoseconds: UInt64(1_000_000_000 / UInt64(Self.framesPerSecond)))
-            }
+            // AND THEN IT STOPS. A measurement that runs for the life of the
+            // call is not a measurement, it is a load test nobody asked for.
+            await MainActor.run { self?.note = "finished"; self?.stopPumpOnly(); self?.persist() }
         }
     }
 
@@ -215,6 +234,38 @@ public final class StudioVoiceProbe {
             (oneWay < 150 && delivered > 90)
                 ? "GOOD ENOUGH for a conversation"
                 : "NOT good enough — the guest transport must be ours")
+    }
+
+    /// Stops SENDING but keeps listening, so frames still in flight are
+    /// still counted and still bounced for the peer.
+    func stopPumpOnly() {
+        pump?.cancel(); pump = nil
+    }
+
+    /// THE VERDICT GOES TO ITS OWN FILE, unconditionally in DEBUG.
+    ///
+    /// `awdiag` writes to disk only when `AW_DIAG_FILE=1`, which a
+    /// devicectl launch sets and a TAP does not. This probe must be tapped —
+    /// a devicectl-launched app is killed the moment it is backgrounded to
+    /// start the call — so routing its answer through `DiagFile` meant the one
+    /// launch method that works is the one that records nothing. The
+    /// measurement would have been taken and then thrown away.
+    ///
+    /// Its own file, its own rule: if the probe ran, the number is readable.
+    func persist() {
+        #if DEBUG
+        let line = ISO8601DateFormatter().string(from: Date()) + "  " + verdict + "\n"
+        guard let dir = FileManager.default.urls(for: .cachesDirectory,
+                                                 in: .userDomainMask).first else { return }
+        let url = dir.appendingPathComponent("awvoice.log")
+        if let data = line.data(using: .utf8) {
+            if let h = try? FileHandle(forWritingTo: url) {
+                h.seekToEndOfFile(); h.write(data); try? h.close()
+            } else {
+                try? data.write(to: url)
+            }
+        }
+        #endif
     }
 
     public func stop() {

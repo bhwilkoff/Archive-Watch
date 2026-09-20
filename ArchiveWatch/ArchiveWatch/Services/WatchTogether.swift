@@ -232,6 +232,10 @@ final class WatchTogether {
                     try? await Task.sleep(nanoseconds: 2_000_000_000)
                     guard let p = self?.voiceProbe else { return }
                     awdiag("AWVOICE %@", p.verdict)
+                    // AND TO ITS OWN FILE. A session that dies mid-ramp must
+                    // still leave the number it reached — that number IS the
+                    // finding if it dies.
+                    p.persist()
                 }
             }
         }
