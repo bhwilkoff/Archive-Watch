@@ -126,6 +126,14 @@ class StudioEngine(
     @Volatile var filmSurface: Surface? = null
         private set
     @Volatile var cameraSurface: Surface? = null
+    /// THE TEXTURE, not only the Surface, because the capture SIZE is set on
+    /// it. A camera will only write sizes its `StreamConfigurationMap`
+    /// advertises, and `StudioProgramGl` seeds a placeholder (a third of the
+    /// programme) that is very unlikely to be one of them — 1920/3 x 1080/3 is
+    /// 640x360, and most sensors offer 640x480 and 1280x720 and not that. So
+    /// whoever opens the camera chooses a supported size, sets it here, and
+    /// builds its own Surface from the texture.
+    @Volatile var cameraTexture: android.graphics.SurfaceTexture? = null
         private set
 
     var layoutShowsCamera = true
@@ -296,6 +304,7 @@ class StudioEngine(
         program = pg
         filmSurface = pg.filmSurfaceTexture?.let { Surface(it) }
         cameraSurface = pg.cameraSurfaceTexture?.let { Surface(it) }
+        cameraTexture = pg.cameraSurfaceTexture
         overlay?.let { pg.setOverlayBitmap(it) }
 
         // THE SHOW'S CLOCK — one origin, both tracks.
@@ -699,6 +708,7 @@ class StudioEngine(
         aac?.stop(); aac = null
         filmSurface?.release(); filmSurface = null
         cameraSurface?.release(); cameraSurface = null
+        cameraTexture = null
         program?.tearDown(); program = null
         gl?.tearDown(); gl = null
         encoder?.stop(); encoder = null

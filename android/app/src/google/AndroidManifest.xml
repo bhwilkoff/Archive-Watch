@@ -10,6 +10,25 @@
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <!--
+      THE HOST'S CAMERA AND VOICE, google flavour ONLY.
+
+      Watch Together Studio is a google-flavour feature (Decision 129): the
+      amazon flavour is Fire TV, which has neither a camera nor a microphone,
+      and a permission a build can never use is one an installer is asked to
+      grant for nothing. Declaring them here keeps them out of that build
+      entirely rather than relying on a runtime check.
+
+      `uses-feature required="false"` for both is already in the main
+      manifest, so a television still installs — it simply never asks.
+
+      Until 2026-09-20 neither permission existed on any flavour and the app
+      declared only INTERNET, which is why Android's Studio could broadcast a
+      film and could not carry the host at all (WATCH-TOGETHER §9.qqqqq).
+    -->
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+
     <application>
         <meta-data
             android:name="com.google.android.gms.cast.framework.OPTIONS_PROVIDER_CLASS_NAME"
