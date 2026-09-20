@@ -53,6 +53,9 @@ final class WatchTogether {
     private init() {}
 
     private(set) var session: GroupSession<WatchTogetherActivity>?
+    /// §9.wwwww's measurement, behind `AW_VOICE_PROBE=1`. Nil in production.
+    private(set) var voiceProbe: StudioVoiceProbe?
+    private var probeReport: Task<Void, Never>?
     /// The film the active session is watching, or nil when not in one.
     private(set) var sharedArchiveID: String?
     /// A film a freshly-joined session wants opened. Each platform's root view
@@ -204,6 +207,8 @@ final class WatchTogether {
         session?.leave()
         session = nil
         sharedArchiveID = nil
+        voiceProbe?.stop(); voiceProbe = nil
+        probeReport?.cancel(); probeReport = nil
         stateTask?.cancel()
         stateTask = nil
     }
@@ -211,6 +216,25 @@ final class WatchTogether {
     private func adopt(_ s: GroupSession<WatchTogetherActivity>) {
         session = s
         sharedArchiveID = s.activity.archiveID
+
+        // DEBUG DOOR: measure whether this session's messenger could carry a
+        // VOICE (§9.wwwww). It answers the one unknown the guest-audio feature
+        // depends on, and it must run on the REAL session — a throughput
+        // number from anything else would be measuring the harness.
+        // `AW_VOICE_PROBE=1`, no-op in production.
+        if StudioVoiceProbe.enabled {
+            let probe = StudioVoiceProbe()
+            voiceProbe = probe
+            probe.start(session: s)
+            probeReport?.cancel()
+            probeReport = Task { [weak self] in
+                while !Task.isCancelled {
+                    try? await Task.sleep(nanoseconds: 2_000_000_000)
+                    guard let p = self?.voiceProbe else { return }
+                    awdiag("AWVOICE %@", p.verdict)
+                }
+            }
+        }
 
         // A session we started ourselves also arrives here. We are already on
         // that film, so routing again would restart it.
