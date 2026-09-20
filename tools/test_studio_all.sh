@@ -166,6 +166,9 @@ swift_case "8.17 tap resampler"    "$PUB" "$ENG" "$AUD" "$OVL" "$CHAT" "$SHIM" t
 # No $SHIM: StudioVoiceProbe calls no awdiag, and adding sources a case does
 # not need is how three cases stopped compiling for a session (§9.lllll).
 swift_case "8.18 voice frame slices" ArchiveWatch/ArchiveWatch/Studio/StudioVoiceProbe.swift tools/test_studio_voiceframe.swift
+# Apple's own Opus, which is what SHAREPLAY §5/§7 cost out. No $SHIM: the
+# codec calls no awdiag.
+swift_case "8.19 guest voice codec" ArchiveWatch/ArchiveWatch/Studio/StudioVoiceCodec.swift tools/test_studio_voicecodec.swift
 
 # The two credential-facing harnesses. Neither was in this runner, which is
 # precisely the condition §9.aaa describes: a test that exists and therefore
