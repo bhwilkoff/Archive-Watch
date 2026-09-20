@@ -448,3 +448,56 @@ a real limitation and must be said on the surface, not discovered.
 
 It also stays genuinely cross-platform: STUN and UDP reach Swift, Kotlin and a
 browser alike, which SharePlay never could (§8).
+
+## §10 THE CALL IS NOT OUR PROBLEM — and that is the design (2026-09-20)
+
+Owner: *"I mean, calling services like Google Meet, Zoom, Phone Calling or
+other services that every device has if we wanted to separate out the calling
+part from the movie playing, syncing, and streaming to youtube."*
+
+**This dissolves everything §5 through §9 were struggling with.** Those
+sections all assumed the app must CARRY the voices, and every consequence
+followed from that: a transport, NAT traversal, a relay, per-message billing,
+an SDK, a free-tier ceiling. If people simply use the call they already have,
+none of it exists.
+
+The app then owns three things, and it already does two of them well:
+
+| | who |
+|---|---|
+| the call | **whoever they like** — Zoom, Meet, FaceTime, a phone call. Not ours |
+| watching in sync | ours, cross-platform, and the only networking left |
+| the broadcast | ours, built and proven (Decision 127's RTMPS publisher) |
+
+**AND THE CONVERSATION CAN STILL REACH THE AUDIENCE**, which is the part that
+looked impossible. macOS 14.2 added **`AudioHardwareCreateProcessTap`** —
+Core Audio, native, no virtual audio driver — which captures a NAMED
+APPLICATION's audio by bundle id (`kAudioProcessPropertyBundleID` over
+`kAudioHardwarePropertyProcessObjectList`). So a host on a Mac taps the
+conversation out of Zoom, or out of the browser running Meet, and mixes it
+into the programme beside the film and their own microphone. The mixer, the
+0-10 faders and the duck all already exist and take one more input.
+
+This is also why the owner's earlier offer matters: *"If we need to gate it so
+that this can only be initiated by a MacOS device, that is okay."* The tap is
+macOS-only (`API_UNAVAILABLE(ios, watchos, tvos)`), and the host is the one
+device that must be a Mac. **Everyone else watches on anything.**
+
+**WHAT IT COSTS: nothing.** No SDK, no relay for voice, no NAT traversal, no
+per-message billing. The only traffic we carry is SYNC, which is one or two
+orders of magnitude cheaper than voice — a position update on seek and pause
+plus a heartbeat every ten seconds is ~2,900 messages for a four-person
+two-hour film, against a free 100,000 a day. That is thirty-odd parties a day
+on the Worker that already exists, rather than 1.4 (§9).
+
+**WHAT IS NOT YET KNOWN**, and should be measured before this is promised:
+whether the tap can read FaceTime specifically — system apps may be protected
+where Zoom and a browser are not — and what permission prompt it raises
+(system audio capture is TCC-gated on macOS). Neither changes the shape; both
+change what the host is told.
+
+**AND WHAT IT GIVES UP, honestly**: the audience hears the conversation, and
+the guests hear each other, but the guests' VOICES are not separable inside
+our mix — we get one stereo pair from the call app, not per-speaker tracks. So
+no per-guest fader. Against a design that costs nothing and needs no
+infrastructure at all, that is a very cheap thing to lose.
