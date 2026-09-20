@@ -235,6 +235,18 @@ public final class StudioSession {
     /// macOS needs `com.apple.security.device.camera` as well as TCC consent
     /// (macOS-DESIGN §B13e) — without the entitlement this silently finds
     /// nothing, which is indistinguishable from having no camera.
+    /// Shared with iOS, which had NO camera or microphone on its Studio path
+    /// at all until 2026-09-20 — `StudioPlayerContainer_iOS` never referenced
+    /// either, so an iPhone broadcast the film and nothing else. Owner: *"There
+    /// is no camera or microphone feed that goes to the live stream from the
+    /// iphone. You have it working only with continuity camera on the Apple TV."*
+    /// Same shape as Android's gap (§9.qqqqq): the engine supported it, the
+    /// platform never wired it.
+    static func attachHostCamera(to engine: StudioEngine) async -> AVCaptureSession? {
+        await shared.attachCameraIfAvailable(to: engine)
+        return await shared.capture
+    }
+
     private func attachCameraIfAvailable(to engine: StudioEngine) async {
         #if os(macOS) || os(iOS)
         // SAY WHICH. The comment above notes that a missing entitlement "silently
@@ -253,7 +265,18 @@ public final class StudioSession {
                    String(describing: vs))
             return
         }
-        guard let cam = AVCaptureDevice.default(for: .video),
+        // THE FRONT CAMERA ON A PHONE. `AVCaptureDevice.default(for: .video)`
+        // is the BACK camera on iOS, which points at the wall behind the
+        // host — the one thing a watch-along tile must not show. macOS has
+        // only one camera and is unaffected.
+        #if os(iOS)
+        let preferred = AVCaptureDevice.DiscoverySession(
+            deviceTypes: [.builtInWideAngleCamera], mediaType: .video, position: .front)
+            .devices.first ?? AVCaptureDevice.default(for: .video)
+        #else
+        let preferred = AVCaptureDevice.default(for: .video)
+        #endif
+        guard let cam = preferred,
               let input = try? AVCaptureDeviceInput(device: cam) else {
             awdiag("AWCAM no camera tile: authorized but no usable capture device")
             return

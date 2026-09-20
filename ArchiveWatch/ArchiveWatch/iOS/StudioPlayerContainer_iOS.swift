@@ -24,6 +24,9 @@ struct StudioPlayerContainer: View {
     @State private var health = StudioHealth()
     @State private var filmFPS = 0
     @State private var cameraFPS = 0
+    /// Retained for the show's life — a released capture session stops
+    /// delivering and the tile simply goes black (§9.kkkkk).
+    @State private var hostCapture: AVCaptureSession?
     @State private var showControls = false
     @State private var startError: String?
 
@@ -134,6 +137,12 @@ struct StudioPlayerContainer: View {
         let e = engine ?? StudioEngine(configuration: .benchDoored())
         engine = e
         await e.attachFilm(player: player)
+        // THE HOST'S OWN CAMERA AND VOICE. This was missing entirely: an
+        // iPhone broadcast the film and nothing else, while the Apple TV had
+        // had a Continuity camera for days. The helper is shared with macOS
+        // and REPORTS rather than REQUESTS — the go-live sheet does the
+        // asking, which is the only place a viewer has chosen to broadcast.
+        hostCapture = await StudioSession.attachHostCamera(to: e)
         await e.setLayout(layout)
         await pushOverlay()
         guard await !e.health.isRunning else { return }

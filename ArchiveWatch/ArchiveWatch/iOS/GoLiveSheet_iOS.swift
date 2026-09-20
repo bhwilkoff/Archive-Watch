@@ -1,4 +1,5 @@
 #if os(iOS)
+import AVFoundation
 import SwiftUI
 
 // Go Live — iOS-DESIGN §8.9, a §3.6 form sheet at the large detent.
@@ -47,6 +48,9 @@ struct GoLiveSheet: View {
                              year: film.year)
     }
 
+    @State private var hostGranted = AVCaptureDevice.authorizationStatus(for: .video) == .authorized
+        && AVCaptureDevice.authorizationStatus(for: .audio) == .authorized
+
     var body: some View {
         NavigationStack {
             ScrollViewReader { scroll in
@@ -69,6 +73,7 @@ struct GoLiveSheet: View {
                     }
                 } else {
                     destinationSection
+                    hostSection
                     programSection
                     Section {
                         Text(StudioRights.policy)
@@ -129,6 +134,50 @@ struct GoLiveSheet: View {
     /// The §3.4a section's scroll id, shared by the section and the hook so
     /// the two cannot drift apart.
     private static let warningAnchor = "aw-host-warning"
+
+    /// PUT ME IN THE SHOW — the camera and microphone, asked for HERE.
+    ///
+    /// The Studio's attach helper deliberately REPORTS rather than REQUESTS
+    /// ("the Studio REPORTS, never REQUESTS" — `StudioSession`), so something
+    /// has to do the asking, and this is the only surface where a viewer has
+    /// chosen to broadcast. Same rule as tvOS §10.2b for sign-in and Android
+    /// §9.6 for these very permissions: never at launch, never a precondition
+    /// for browsing.
+    ///
+    /// Until 2026-09-20 nothing asked at all on iOS, and nothing attached
+    /// either — an iPhone broadcast the film and nothing else while the Apple
+    /// TV had had a Continuity camera for days.
+    ///
+    /// NEITHER IS REQUIRED. A refusal does not disable Go Live: §8.8's rule is
+    /// that an absent camera is normal, so the show carries the film and the
+    /// readout says why the host is not in it.
+    @ViewBuilder
+    private var hostSection: some View {
+        Section {
+            if hostGranted {
+                Label("You are in the show — camera and microphone",
+                      systemImage: "checkmark.circle.fill")
+                    .foregroundStyle(.secondary)
+            } else {
+                Button("Put me in the show (camera and microphone)") {
+                    AVCaptureDevice.requestAccess(for: .video) { _ in
+                        AVCaptureDevice.requestAccess(for: .audio) { _ in
+                            Task { @MainActor in hostGranted = hostIsAuthorised }
+                        }
+                    }
+                }
+                Text("Optional — the film broadcasts fine on its own.")
+                    .font(.footnote).foregroundStyle(.secondary)
+            }
+        } header: {
+            Text("You")
+        }
+    }
+
+    private var hostIsAuthorised: Bool {
+        AVCaptureDevice.authorizationStatus(for: .video) == .authorized
+            && AVCaptureDevice.authorizationStatus(for: .audio) == .authorized
+    }
 
     // MARK: Sections
 
