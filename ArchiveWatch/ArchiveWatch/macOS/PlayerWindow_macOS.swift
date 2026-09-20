@@ -95,6 +95,36 @@ struct PlayerWindow: View {
                 .onChange(of: studioCard) { _, c in Task { await studio.setCard(c) } }
                 .navigationTitle(item.year.map { "\(item.title) (\($0))" } ?? item.title)
                 .toolbar {
+                    // GO LIVE, WHERE SOMEONE CAN SEE IT (Rule B13g, amended
+                    // 2026-09-20). B13g made this a MENU COMMAND for reasons
+                    // that still hold — §B13a forbids a second window, §B13b
+                    // forbids hand-drawing into the player's chrome — but it
+                    // did not consider that a host has to FIND it. Owner,
+                    // looking at the Mac: "it seems to lack the ability to set
+                    // a destination or any settings for livestreaming at all.
+                    // It just starts playing the movie." The command existed,
+                    // greyed until a film played, in a menu, invisible from
+                    // the surface it acts on.
+                    //
+                    // A NATIVE TOOLBAR ITEM is neither forbidden thing: not a
+                    // second window, not hand-drawn chrome, but what macOS
+                    // itself offers on a window that already has a toolbar.
+                    // The menu command and its shortcut stay; this is the same
+                    // command given somewhere to be seen.
+                    //
+                    // HIDDEN while live rather than disabled: §B13d already
+                    // pins the health readout over the player then, and that
+                    // readout owns ending the show. Two controls for one state
+                    // is how a host presses the wrong one.
+                    ToolbarItem(placement: .primaryAction) {
+                        if !studio.isLive {
+                            Button { router.showGoLive = true } label: {
+                                Label("Go Live…",
+                                      systemImage: "dot.radiowaves.left.and.right")
+                            }
+                            .help("Stream this film to YouTube or Twitch")
+                        }
+                    }
                     ToolbarItem(placement: .cancellationAction) {
                         Button {
                             // Closing the window ends the show. A broadcast

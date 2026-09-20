@@ -836,6 +836,30 @@ than a new idea.*
   AVPlayerView's own chrome, because the HUD auto-hides and health may not
   (`docs/WATCH-TOGETHER.md` §4). A Mac host is often not looking at the
   window at all, so the readout also states the ONE current problem in words.
+- **Rule B13g-2 — and it is ALSO a toolbar item, because a menu command
+  nobody can find is not a surface.** AMENDED 2026-09-20, owner looking at the
+  Mac: *"it seems to lack the ability to set a destination or any settings for
+  livestreaming at all. It just starts playing the movie."*
+
+  B13g's reasoning below still stands — §B13a forbids a second window and
+  §B13b forbids hand-drawing into the player's chrome, which genuinely do rule
+  out the two obvious places. What it did not weigh is DISCOVERY. The command
+  existed, worked, had a keyboard shortcut, and was greyed out until a film
+  played — and a host who started a film saw nothing at all, because the
+  player surface carries no Studio affordance until §B13d's readout appears,
+  which only happens once you are already live. Every other platform puts
+  entering a broadcast on the surface: tvOS in the transport menu (§8.8), iOS
+  on Detail (§8.9). macOS alone required knowing.
+
+  A native `ToolbarItem` is neither forbidden thing — not a window, not
+  hand-drawn chrome, but the affordance macOS itself provides on a window that
+  already has a toolbar. The menu command and ⇧⌘L stay exactly as they are;
+  this is the same command with somewhere to be seen.
+
+  It is HIDDEN while live rather than disabled, because §B13d's readout
+  already owns the live state and ending the show. Two controls for one state
+  is how a host presses the wrong one.
+
 - **Rule B13g — going live is a MENU COMMAND that opens the same form sheet
   as iOS §8.9.** APPROVED by the owner 2026-09-18 ("Yes proceed with your
   plan"), in answer to the proposal below. The two questions it left open —
