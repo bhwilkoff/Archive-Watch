@@ -343,6 +343,7 @@ public final class StudioSession {
         pump = Task { [weak self] in
             var lastFilmFrames = 0
             var lastCameraFrames = 0
+            var stall = CameraStallRecovery()
             while !Task.isCancelled {
                 try? await Task.sleep(nanoseconds: 1_000_000_000)
                 guard let self, let engine = self.engine else { return }
@@ -353,6 +354,22 @@ public final class StudioSession {
                 // either; it lived in tvOS's view loop alone.
                 _ = await engine.expireProvenanceIfDue()
                 self.cameraFramesPerSecond = max(0, h.cameraFramesReceived - lastCameraFrames)
+                // RECOVER A CAMERA THAT STOPPED — macOS and iOS had the
+                // WARNING and no recovery, while tvOS had both. macOS can use
+                // an iPhone as its camera exactly as the television can, so it
+                // drops in exactly the same way; the difference was only that
+                // the rebuild had been written inside tvOS's own view loop.
+                if stall.tick(attached: h.cameraAttached,
+                              framesReceived: h.cameraFramesReceived,
+                              framesPerSecond: self.cameraFramesPerSecond,
+                              onAir: h.showState.isOnAir) {
+                    awdiag("AWCAM camera stopped at %d frames — recovery attempt %d of %d",
+                           h.cameraFramesReceived, stall.attempts,
+                           CameraStallRecovery.maximumAttempts)
+                    let session = await StudioSession.attachHostCamera(to: engine)
+                    awdiag("AWCAM recovery %d: %@", stall.attempts,
+                           session != nil ? "re-attached" : "no camera")
+                }
                 lastCameraFrames = h.cameraFramesReceived
                 lastFilmFrames = h.filmFramesPulled
                 self.health = h

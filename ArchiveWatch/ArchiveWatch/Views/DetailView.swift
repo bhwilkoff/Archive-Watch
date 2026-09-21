@@ -1135,8 +1135,7 @@ struct PlayerScreen: View {
         /// Consecutive one-second ticks with a camera attached and no new
         /// frames, and how many rebuilds have been tried. Both reset when
         /// frames resume.
-        var cameraStallTicks = 0
-        var cameraRecoveries = 0
+        var cameraStall = CameraStallRecovery()
         // When the provenance line came up, measured from the moment the show
         // actually reached the wire.
         var liveSince: Date?
@@ -1176,19 +1175,15 @@ struct PlayerScreen: View {
             // readout says so), only while one is still discoverable, and
             // rate-limited: a rebuild that cannot succeed must not be
             // attempted once a second for the length of a show.
-            if h.cameraAttached, h.cameraFramesReceived > 0,
-               studioCameraFPS == 0, h.showState.isOnAir {
-                cameraStallTicks += 1
-                if cameraStallTicks >= 4, cameraRecoveries < 3 {
-                    cameraStallTicks = 0
-                    cameraRecoveries += 1
-                    awdiag("AWCONT camera stopped at %d frames — recovery attempt %d of 3",
-                           h.cameraFramesReceived, cameraRecoveries)
-                    let ok = await attachCamera("recovery \(cameraRecoveries)")
-                    awdiag("AWCONT recovery %d: %@", cameraRecoveries, ok ? "re-attached" : "no camera")
-                }
-            } else if studioCameraFPS > 0 {
-                cameraStallTicks = 0
+            if cameraStall.tick(attached: h.cameraAttached,
+                                framesReceived: h.cameraFramesReceived,
+                                framesPerSecond: studioCameraFPS,
+                                onAir: h.showState.isOnAir) {
+                awdiag("AWCONT camera stopped at %d frames — recovery attempt %d of %d",
+                       h.cameraFramesReceived, cameraStall.attempts,
+                       CameraStallRecovery.maximumAttempts)
+                let ok = await attachCamera("recovery \(cameraStall.attempts)")
+                awdiag("AWCONT recovery %d: %@", cameraStall.attempts, ok ? "re-attached" : "no camera")
             }
             lastCameraFrames = h.cameraFramesReceived
 
