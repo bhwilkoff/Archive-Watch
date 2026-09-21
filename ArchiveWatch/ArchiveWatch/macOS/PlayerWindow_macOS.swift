@@ -411,6 +411,16 @@ private struct PlayerSurface: View {
             RoomJoin.shared.pending = nil
             Task { await StudioSyncFollower.shared.join(code: code, player: p) { _ in } }
         }
+        // HOSTING, the same hand-off in the other direction: the landing page
+        // asks, and the room can only be opened where the player is.
+        if RoomJoin.shared.wantsToHost {
+            RoomJoin.shared.wantsToHost = false
+            Task {
+                let code = await StudioRoomHost.shared.start(player: p, filmID: archiveID)
+                RoomJoin.shared.hostCode = code
+                RoomJoin.shared.problem = StudioRoomHost.shared.problem
+            }
+        }
         endObserver = NotificationCenter.default.addObserver(
             forName: AVPlayerItem.didPlayToEndTimeNotification, object: playerItem, queue: .main) { _ in
             MainActor.assumeIsolated { onEnded?() }

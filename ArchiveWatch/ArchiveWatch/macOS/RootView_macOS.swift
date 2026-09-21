@@ -423,12 +423,46 @@ private struct WatchTogetherLanding: View {
                     // show; a joiner contributes nothing to the programme and
                     // is simply watching in step.
                     Button {
+                        // The room is opened where the AVPlayer is; this only
+                        // asks. If no film is playing there is nothing to
+                        // watch together, which is why it is disabled.
+                        RoomJoin.shared.wantsToHost = true
+                        if let film = router.nowPlaying { router.play(film) }
+                    } label: {
+                        Label("Start a room…", systemImage: "person.2.badge.plus")
+                            .padding(.horizontal, 6)
+                    }
+                    .controlSize(.large)
+                    .disabled(router.nowPlaying == nil || RoomJoin.shared.hostCode != nil)
+
+                    Button {
                         joining = true
                     } label: {
                         Label("Join a room…", systemImage: "person.badge.plus")
                             .padding(.horizontal, 6)
                     }
                     .controlSize(.large)
+                }
+
+                // HOSTING A ROOM. The code is the whole interface: it is read
+                // aloud on the call everyone is already on (§11.8), so what
+                // this surface owes a host is a number large enough to say
+                // across a room and a way to stop.
+                if let code = RoomJoin.shared.hostCode {
+                    VStack(spacing: 6) {
+                        Text("Your room code").font(.headline)
+                        Text(code)
+                            .font(.system(size: 46, weight: .bold, design: .monospaced))
+                            .textSelection(.enabled)
+                        Text("Read it out on your call. Anyone can join from any device — a phone, a television, a browser — and they do not need a camera.")
+                            .font(.callout).foregroundStyle(.secondary)
+                            .multilineTextAlignment(.center).frame(maxWidth: 460)
+                        Button("Close the room", role: .destructive) {
+                            StudioRoomHost.shared.stop()
+                            RoomJoin.shared.hostCode = nil
+                        }
+                    }
+                    .padding(.top, 4)
                 }
                 if router.nowPlaying == nil {
                     Text("Open a film first and Go Live becomes available. The Studio opens any time — you can set your camera and levels before anything is broadcast.")
@@ -568,9 +602,15 @@ private struct JoinRoomSheet: View {
 /// place an `AVPlayer` exists. A single value rather than a notification: two
 /// surfaces, one hand-off, and nothing to unsubscribe.
 @MainActor
+@Observable
 final class RoomJoin {
     static let shared = RoomJoin()
+    /// A code the landing page accepted, waiting for the player to exist.
     var pending: String?
+    /// The code THIS Mac is hosting, so the landing page can show it.
+    var hostCode: String?
+    /// Set by the landing page; consumed where the player is built.
+    var wantsToHost = false
     var problem: String?
     private init() {}
 }

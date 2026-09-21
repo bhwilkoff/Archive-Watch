@@ -39,6 +39,9 @@ declare -a ROWS=()
 row() { ROWS+=("$1|$2|$3"); }
 
 cleanup() {
+  # Only one we STARTED — a Worker the developer was already running is
+  # theirs, and killing it would be a suite perturbing its own environment.
+  [ "${TOGETHER_STARTED:-0}" = "1" ] && pkill -f "wrangler dev" >/dev/null 2>&1
   pkill -f "$SCRATCH/mtx.yml" >/dev/null 2>&1
   # Harness-started servers too: a Swift exit(0) skips `defer`, so two
   # of them outlived a completed run.
@@ -84,6 +87,41 @@ YML
     sleep 0.5
   done
   echo "mediamtx up on :19351 (api :9997)"
+fi
+
+# ---- the Worker the room tests need, started ONCE and locally.
+#
+# The same reasoning as the mediamtx above: a transport test that needs a
+# server and does not start one becomes a SKIP, and this suite's whole point
+# is that a skip is not a pass. Two cases (8.30, 8.31) were skipping the
+# moment they were written, which is exactly the state §6.2n warns about.
+#
+# --local ALWAYS. `wrangler dev --remote` would reach the owner's Cloudflare
+# account and the live archivewatch.org Worker; nothing in this suite may do
+# that.
+TOGETHER_BASE="${AW_TOGETHER_BASE:-http://127.0.0.1:8799}"
+TOGETHER_STARTED=0
+if [ -z "${AW_TOGETHER_BASE:-}" ] && [ -d worker ]; then
+  if curl -s --max-time 1 "$TOGETHER_BASE/together/ABCD" >/dev/null 2>&1; then
+    echo "a Worker is already answering on $TOGETHER_BASE"
+  else
+    echo "… starting a local Worker for the room tests"
+    ( cd worker && npx --yes wrangler d1 execute archivewatch-pulse --local \
+        --file=schema-rooms.sql >/dev/null 2>&1 \
+      && nohup npx --yes wrangler dev --local --port 8799 \
+        > "$SCRATCH/wrangler.log" 2>&1 & )
+    for _ in $(seq 1 45); do
+      curl -s --max-time 1 "$TOGETHER_BASE/together/ABCD" >/dev/null 2>&1 && break
+      sleep 1
+    done
+    if curl -s --max-time 1 "$TOGETHER_BASE/together/ABCD" >/dev/null 2>&1; then
+      TOGETHER_STARTED=1
+      echo "local Worker up on $TOGETHER_BASE"
+    else
+      echo "!! could not start a local Worker — the room tests will SKIP, which is not a pass."
+      echo "   (see $SCRATCH/wrangler.log)"
+    fi
+  fi
 fi
 
 # ---- the saturating clip the bitrate tests need (a ceiling, not a floor)
@@ -196,8 +234,8 @@ fi
 # local `wrangler dev`, and a SKIP here is not a pass — it is the transport
 # going unexercised.
 printf '\n=== %s\n' "8.30 room transport (live)"
-if curl -s --max-time 2 "${AW_TOGETHER_BASE:-http://127.0.0.1:8799}/together/ABCD" >/dev/null 2>&1; then
-  if BASE="${AW_TOGETHER_BASE:-http://127.0.0.1:8799}" node tools/test_together_live.mjs; then
+if curl -s --max-time 2 "$TOGETHER_BASE/together/ABCD" >/dev/null 2>&1; then
+  if BASE="$TOGETHER_BASE" node tools/test_together_live.mjs; then
     row "8.30 room transport" PASS ""; PASS=$((PASS+1))
   else
     row "8.30 room transport" FAIL "see output"; FAIL=$((FAIL+1))
@@ -210,8 +248,8 @@ fi
 
 # The CLIENT against the same Worker. §8.27 proves the arithmetic and §8.30
 # the routes; neither says they are wired together, which is Decision 133.
-if curl -s --max-time 2 "${AW_TOGETHER_BASE:-http://127.0.0.1:8799}/together/ABCD" >/dev/null 2>&1; then
-  AW_TOGETHER_BASE="${AW_TOGETHER_BASE:-http://127.0.0.1:8799}" \
+if curl -s --max-time 2 "$TOGETHER_BASE/together/ABCD" >/dev/null 2>&1; then
+  AW_TOGETHER_BASE="$TOGETHER_BASE" \
     swift_case "8.31 sync client (live)" \
       ArchiveWatch/ArchiveWatch/Studio/StudioSync.swift \
       ArchiveWatch/ArchiveWatch/Studio/StudioRoom.swift \
