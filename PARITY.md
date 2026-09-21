@@ -216,6 +216,31 @@ version of that assertion failed the product when the test was wrong.
   MID-broadcast is still not offered on a television; that is an amendment to
   8.8c and an owner call.
 
+#### macOS Studio, exercised on its own product path 2026-09-20
+
+The three things macOS had not learned from the television were all found by
+reading tvOS's code rather than the docs, and all the same shape — a behaviour
+written into one platform's file and believed to be the product's:
+
+| | where it had lived | why macOS needed it |
+|---|---|---|
+| camera-stall recovery | `Views/DetailView.swift` (tvOS view) | macOS can borrow an iPhone, so it drops exactly as a television does |
+| "the film's audio is not being sent" | the same tvOS view | macOS uses the `MTAudioProcessingTap`, the very path that fails to attach; tvOS pulls by film position and needs the warning LEAST |
+| the Continuity preset CRASH fix | `StudioContinuity.swift` (tvOS only) | an iPhone used as a Mac's camera IS a Continuity Camera |
+
+**Verified on the Mac's own product path**, not merely compiled — the door
+drives the same commit chain the sheet does, and the evidence is the server's
+recording: `AWCAM preset=hd1280x720 device=FaceTime HD Camera` (a built-in
+keeps its preset), `AWCAM attached camera=FaceTime HD Camera mic=MacBook Pro
+Microphone`, `AWPUB publishing`, `AWMACDOOR engineLive=true after=7.2s`, both
+tracks on the wire. The **theatre** layout renders at 729 px of a 1920 frame —
+the 0.38 sizing, materially larger than corner's 499 — with the film
+pillarboxed and no collision with the lower third.
+
+The frames from that run were DELETED rather than kept: a Mac's camera points
+at the owner's home, and the standing rule about never capturing their whole
+screen is the same consideration.
+
 #### The rule this produces
 
 **A device says which of the three it can do, and why it cannot do the others.**
