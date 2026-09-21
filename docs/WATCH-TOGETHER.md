@@ -6466,3 +6466,34 @@ ended" from "the film is buffering" is the whole difficulty, and a false
 positive is worse than the current silence — a card thrown over a film that
 was merely stalling would be a new way to ruin a broadcast. `filmFramesPulled`
 stopping is true of both.
+
+### RESOLVED 2026-09-21 — A, with the right answer one click away
+
+**The difficulty dissolves by not inferring it at all.** The paragraph above
+looks for the answer in `filmFramesPulled`, which cannot supply it.
+`AVPlayerItem.didPlayToEndTimeNotification` is the PLAYER saying the film
+ended, and no frame counter can be wrong about it. A host who seeks back
+clears it (`timeControlStatus == .playing`), because a warning that stays true
+after it stops being true is one nobody reads the next time.
+
+**A, not B**, and the owner's own words decide it: *"The stream should only
+end when the person streaming it decides that it should end."* A card thrown
+up automatically would override a host who is mid-sentence. So every surface
+SAYS it, and macOS additionally offers "Show the 'Thanks for watching' card"
+as a button — the right answer one click away rather than imposed. C is ruled
+out by the same sentence; D by §4.
+
+**It lives in `StudioEngine.attachFilm`**, not `StudioSession`. Only macOS
+goes through that object — tvOS attaches from `DetailView` and iOS from
+`StudioPlayerContainer_iOS` — and `attachFilm` is the one function all three
+call. That is what Decision 133 means by a shared code PATH rather than a
+shared type, and putting it in `StudioSession` would have shipped it inert on
+two of the three platforms for the sixth time.
+
+**The sentence outranks "the film has stopped"** on every surface. At the
+moment a film ends both are true, and only one of them is the reason —
+"stopped" implies a fault and would send a host looking for a problem that is
+not there.
+
+Android is NOT covered: its Studio has no equivalent observation yet, and
+saying so is the rule rather than letting the table imply parity.

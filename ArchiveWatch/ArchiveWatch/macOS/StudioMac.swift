@@ -30,6 +30,13 @@ struct StudioMacReadout: View {
     /// `notEncoding` outranks anything a counter can say (§9).
     private var problem: String? {
         if let d = health.showState.detail { return d }
+        // THE FILM ENDING OUTRANKS "the film has stopped", because at that
+        // moment both are true and only one of them is the reason. "Stopped"
+        // implies a fault and would send a host looking for a problem that is
+        // not there — the film simply finished (§9.bbbbbb, owner item 13).
+        if isLive && StudioSession.shared.filmHasEnded {
+            return "The film has ended — your audience is watching a still. Your camera and microphone are still live."
+        }
         if isLive && filmFramesPerSecond == 0 { return "The film has stopped — your audience sees a still picture" }
         // A CAMERA THAT DIED MID-SHOW — the guard the television has carried
         // since 2026-09-19, when a Continuity camera ran a clean 30/s for ten

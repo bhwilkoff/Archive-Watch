@@ -270,6 +270,11 @@ public struct StudioHealth: Sendable, Equatable {
     /// written and nothing acts on it).
     public var endedReason: String?
 
+    /// The FILM has ended; the SHOW has not (owner item 13, §9.bbbbbb). Not a
+    /// fault — a state a host must be told about, because their audience is
+    /// looking at a frozen frame with a live camera tile over it.
+    public var filmEnded = false
+
     /// What the SHOW is doing, in the host's terms.
     ///
     /// This exists because the first ten-foot readout said **IDLE** while the
@@ -421,6 +426,8 @@ public actor StudioEngine {
     public private(set) var health = StudioHealth()
     /// One §6.6 recovery episode at a time (see `recoverIfSevered`).
     private var recovering = false
+    private var filmEndObserver: (any NSObjectProtocol)?
+    private var filmRateObserver: NSKeyValueObservation?
     private var supervisor: Task<Void, Never>?
     private var thermalWatcher: Task<Void, Never>?
     public private(set) var layout: StudioLayout = .corner
@@ -638,6 +645,7 @@ public actor StudioEngine {
         let out = AVPlayerItemVideoOutput(outputSettings: nil)
         player.currentItem?.add(out)
         filmOutput = out
+        observeFilmEnd(player: player)
         // The film's audio, tapped off the mix it is already decoding. A film
         // with no audio track is a REAL case in this catalog (silent cinema),
         // so a false return is recorded, never treated as a failure.
@@ -645,6 +653,49 @@ public actor StudioEngine {
             sourceHasAudio = await Self.assetHasAudio(item)
             audioAttached = await mixer.film.attach(to: item)
         }
+    }
+
+    /// THE FILM ENDING, OBSERVED WHERE ALL THREE PLATFORMS MEET.
+    ///
+    /// Owner item 13 / §9.bbbbbb: a 60-second film and a 97-second broadcast
+    /// leave the audience on a frozen final frame with the camera tile live
+    /// over it, and nothing says so. Continuing to broadcast is RIGHT — the
+    /// owner's rule is that "the stream should only end when the person
+    /// streaming it decides that it should end" — but §4 says health is never
+    /// hidden, and "your audience is watching a still" is health.
+    ///
+    /// §9.bbbbbb named the hard part as telling "ended" from "buffering",
+    /// since `filmFramesPulled` stopping is true of both, and a false positive
+    /// would be a new way to ruin a broadcast. It dissolves by not inferring
+    /// it: `didPlayToEndTimeNotification` is the PLAYER saying so.
+    ///
+    /// IT LIVES HERE, not in `StudioSession`, because only macOS goes through
+    /// that object — tvOS attaches from `DetailView` and iOS from
+    /// `StudioPlayerContainer_iOS`. `attachFilm` is the one function all three
+    /// call, which is what Decision 133 means by a shared code PATH rather
+    /// than a shared type.
+    private func observeFilmEnd(player: AVPlayer) {
+        if let filmEndObserver { NotificationCenter.default.removeObserver(filmEndObserver) }
+        health.filmEnded = false
+        filmEndObserver = NotificationCenter.default.addObserver(
+            forName: AVPlayerItem.didPlayToEndTimeNotification,
+            object: player.currentItem, queue: .main) { [weak self] _ in
+                guard let self else { return }
+                Task { await self.setFilmEnded(true) }
+            }
+        // A HOST WHO SEEKS BACK IS WATCHING AGAIN. A warning that stays true
+        // after it stops being true is one nobody reads the next time.
+        filmRateObserver = player.observe(\.timeControlStatus, options: [.new]) {
+            [weak self] p, _ in
+            guard let self, p.timeControlStatus == .playing else { return }
+            Task { await self.setFilmEnded(false) }
+        }
+    }
+
+    private func setFilmEnded(_ ended: Bool) {
+        guard health.filmEnded != ended else { return }
+        health.filmEnded = ended
+        if ended { awdiag("AWFILMEND the film reached its end; the show continues") }
     }
 
     /// True when the film actually had an audio track to tap.

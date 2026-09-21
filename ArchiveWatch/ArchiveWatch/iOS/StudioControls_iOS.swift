@@ -164,6 +164,11 @@ struct StudioControlsSheet: View {
     let onEnd: () -> Void
 
     private var healthFooter: String {
+        // The film ENDING outranks "the film has stopped": both are true at
+        // that moment and only one is the reason (owner item 13, §9.bbbbbb).
+        if health.filmEnded && health.showState.isOnAir {
+            return "The film has ended — your audience is watching a still. Your camera and microphone are still live, so the show goes on until you end it."
+        }
         if filmFramesPerSecond == 0 && health.showState.isOnAir {
             return "The film has stopped sending new frames — your audience is seeing a still picture. The sound and your camera are unaffected."
         }

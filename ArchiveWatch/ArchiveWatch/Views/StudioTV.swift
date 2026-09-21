@@ -31,6 +31,12 @@ struct StudioTVHealth: View {
     /// viewer across a room reads one line.
     private var problem: String? {
         if let d = health.showState.detail { return d }
+        // THE FILM ENDING OUTRANKS "the film has stopped": at that moment both
+        // are true and only one is the reason, and "stopped" implies a fault
+        // that is not there (owner item 13, §9.bbbbbb).
+        if isLive && health.filmEnded {
+            return "The film has ended — your audience sees a still. You are still on air."
+        }
         if isLive && filmFramesPerSecond == 0 { return "The film has stopped — your audience sees a still picture" }
         if health.thermalState == "critical" { return "This Apple TV is too hot to keep streaming" }
         if health.thermalState == "serious" { return "This Apple TV is getting hot" }

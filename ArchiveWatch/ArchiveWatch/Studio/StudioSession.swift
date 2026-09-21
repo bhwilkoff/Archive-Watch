@@ -90,6 +90,11 @@ public final class StudioSession {
     /// could broadcast a silent programme with nothing on screen saying so.
     public private(set) var filmAudioProblem: String?
 
+    /// THE FILM HAS ENDED AND THE SHOW HAS NOT (owner item 13, §9.bbbbbb).
+    /// Read from the ENGINE, which is the one code path all three platforms
+    /// share — see `StudioEngine.attachFilm`.
+    public var filmHasEnded: Bool { health.filmEnded }
+
     /// Set by whichever loop is actually running. **iOS does not run this
     /// object's pump at all** — `StudioPlayerContainer_iOS` builds its own
     /// engine and polls it — so a value written only in `startPump` reaches

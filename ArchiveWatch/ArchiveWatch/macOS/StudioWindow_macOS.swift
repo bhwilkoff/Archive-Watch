@@ -566,6 +566,27 @@ struct StudioWindowView: View {
                 $0 ? "hardware" : "software" } ?? "not started")
             stat("Dropped", value: "\(health.publisher.videoFramesDropped) frames")
             stat("This Mac", value: health.thermalState)
+            // THE FILM ENDED AND THE SHOW DID NOT (owner item 13, §9.bbbbbb).
+            //
+            // Said, with the right answer one click away — NOT done
+            // automatically. The owner's rule is that "the stream should only
+            // end when the person streaming it decides that it should end",
+            // and a card thrown up on its own would override a host who is
+            // mid-sentence. The feature already owns the right graphic for
+            // this moment and offered it automatically nowhere.
+            if studio.isLive, studio.filmHasEnded {
+                VStack(alignment: .leading, spacing: 6) {
+                    Text("The film has ended. Your audience is watching a still — your camera and microphone are still live.")
+                        .font(.caption2).foregroundStyle(.orange)
+                        .fixedSize(horizontal: false, vertical: true)
+                    if controls.card == nil {
+                        Button("Show the \u{201C}Thanks for watching\u{201D} card") {
+                            controls.card = .ending
+                        }
+                        .font(.caption)
+                    }
+                }
+            }
             if let note = health.qualityNote {
                 Text(note).font(.caption2).foregroundStyle(.secondary)
                     .fixedSize(horizontal: false, vertical: true)
