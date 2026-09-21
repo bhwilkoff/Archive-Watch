@@ -323,6 +323,19 @@ emulators) · `docs/CAPTIONS.md` · `docs/SHAREPLAY.md` ·
    more mixer input. What is NOT known: what TCC prompt a signed, bundled app
    raises, since §8.21 ran as a command-line tool under the terminal's grants.
 
+12-NEW. **DOES THE TELEVISION GET CARDS? (owner decision, nothing built.)**
+   Cards — "Starting soon", "Intermission", "Thanks for watching" — are on
+   macOS, iOS and, since 2026-09-20, Android. tvOS is now the only platform
+   that can broadcast and cannot show one. It is a QUESTION rather than a port
+   because Rule 8.8c settles the television's only live surface as "two
+   channels, a rotation, and nothing else", and that rule came from the owner
+   and a rebuild. PROPOSED Rule 8.8f lays out the four places a card could
+   live and what each costs; the short version is that a second transport-menu
+   item (B) or nothing at all (D) are the honest choices, that choosing on the
+   go-live screen (C) looks tidy and defeats the purpose — an intermission is
+   decided DURING a show — and that putting it in the mixer (A) spends a rule
+   that was expensive to learn. The WORDS are not in question either way.
+
 9. **Fireplace TV is off limits for testing** (owner 2026-09-17, mid-run: "I'm
    actively watching on it now"). Bedroom and Movie Room are fine — but both
    are Apple TV 4K **3rd** gen, and Fireplace is the only **2nd** gen, i.e.

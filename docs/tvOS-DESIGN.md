@@ -593,6 +593,39 @@ only surface it has while live is the mixer and 8.8c forbids it. If that turns
 out to matter, it is an amendment to 8.8c and an owner decision, not a quiet
 addition.
 
+**PROPOSED Rule 8.8f — cards on a television, or not at all.** RESERVED FOR
+THE OWNER; nothing is built against this.
+
+Cards — "Starting soon", "Intermission", "Thanks for watching" — are a
+full-frame graphic that REPLACES the programme. macOS and iOS have had them
+for some time and **Android gained them 2026-09-20**, which leaves the
+television as the only platform that can broadcast and cannot show one. They
+are not decoration: a broadcast has moments a film does not — before it
+starts, in the middle, at the end — and a host with no card fills them with
+the film playing to nobody.
+
+**Why this is a question rather than a port.** Rule 8.8c settles the
+television's only live surface: *"the live mixer is two channels, a rotation,
+and nothing else"*, and that sentence came from the owner and a rebuild. A
+four-way choice does not belong on a screen whose whole behaviour is that
+rolling the clickpad adjusts the thing under focus. So cards on tvOS need
+somewhere to live, and every candidate costs something:
+
+| where | what it costs |
+|---|---|
+| **A. In the mixer** | amends 8.8c directly — the rule exists because that surface was once cluttered and had to be rebuilt |
+| **B. A second item in the transport menu**, beside Watch Together | §8 says everything about the show hangs off the transport menu, so this fits — but it is a second live surface competing for focus, which 8.8c's entry-point paragraph deliberately avoided |
+| **C. Chosen on the GO-LIVE screen only**, like the placement (Rule 8.8e) | cheapest and consistent, and **almost certainly wrong**: an intermission is by definition something a host decides DURING a show, and a card chosen before going live can only ever be "Starting soon" |
+| **D. Not at all on tvOS** | defensible. A television host has a phone in their hand — the one they paired as a camera — and the phone already has cards |
+
+**The recommendation, if one is wanted**: B or D. C looks tidy and defeats the
+purpose. A spends a rule that was expensive to learn.
+
+**What is NOT in question**: the words. `StudioCard` already fixes the three
+headlines and details across macOS, iOS and Android, and §8.22's sibling test
+pins them, so whichever way this goes a television would say exactly what the
+other platforms say.
+
 **Rule 8.8d - the camera tile is LANDSCAPE, and the host is told so.** A
 Continuity camera always delivers its sensor's landscape frame, and
 `AVCaptureDevice.RotationCoordinator` — the API for exactly this question —
