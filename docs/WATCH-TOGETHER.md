@@ -6430,6 +6430,41 @@ caused the reconnect. The protection would be weakest in the case it exists
 for. Sends now carry a generation; completions from a superseded connection
 are ignored, and the counter is clamped at zero.
 
+## §9.cccccc — the ten-minute soak had never been able to COMPILE (2026-09-21)
+
+§8.3 is this feature's reliability gate — ten minutes of a live show with
+nothing going wrong — and it is excluded from `test_studio_all.sh` by default
+because it takes ten minutes. Run with `--soak` for the first time in a long
+while: **it did not compile.** Its file list omits `$SHIM`, the awdiag harness
+every other engine case carries, so `RTMPPublisher` could not find `awdiag` in
+scope. (`$OUT` was missing too, from the §D4 work earlier the same day — the
+soak line is indented inside a conditional and a patch that matched
+`swift_case` at column 0 skipped it.)
+
+**The suite's own rule found this, and only because the rule was obeyed**: *a
+SKIP is not a PASS.* The soak was not merely unrun — it was unrunnable, and a
+default skip makes those two indistinguishable. The suite's header already
+records the identical failure hitting every Swift case on 2026-09-19 "because
+nobody had run the suite".
+
+**AND THEN IT PASSED.** Ten minutes against a local mediamtx:
+
+    ran 10.0 minutes
+    encoded 18001 frames, sent 18001v / 25760a, 363 MB
+    memory 76.9 → 76.6 MB (peak 91.7)
+    peak send queue 33 kB of a 1149 kB cap (2%)
+    thermal nominal; pool failures 0
+
+- the show stayed LIVE for the whole soak;
+- **zero dropped frames, total** — not "after the first minute", zero;
+- encoding held 28 fps at worst after the first minute, 29-31 throughout;
+- the send queue never approached §6.4a's cap, and §6.6 never fired;
+- no encoder faults, no pixel-buffer pool failures;
+- **memory went DOWN 0.3 MB over ten minutes**, which is the number this test
+  exists for: a leak in a two-hour broadcast is the failure nobody sees coming.
+
+Ten minutes of nothing happening, which is the point.
+
 ## §9.bbbbbb — what happens when the FILM ENDS and the show does not (2026-09-20)
 
 Measured on an iPhone 12 with a 60-second film (`Execution_of_Mary_1895`) and
