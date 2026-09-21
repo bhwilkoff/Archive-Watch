@@ -385,6 +385,13 @@ struct RootView: View {
         Tab("Surprise", systemImage: "dice.fill", value: Router.Tab.surprise) {
             NavigationStack(path: $router.surprisePath) { SurpriseView().attachDestinations() }
         }
+        // JOINING A ROOM NEEDS NO CAMERA (§11.10). Decision 132 removed the
+        // Watch Together entry from devices that cannot HOST; a television is
+        // the best device to JOIN from, which is a different question.
+        Tab("Watch Together", systemImage: "person.2.wave.2.fill",
+            value: Router.Tab.watchTogether) {
+            NavigationStack { JoinRoomTV() }
+        }
         Tab("Settings", systemImage: "gearshape.fill", value: Router.Tab.settings) {
             NavigationStack(path: $router.settingsPath) { SettingsView().attachDestinations() }
         }
@@ -417,6 +424,9 @@ struct RootView: View {
         case .favorites:   router.favoritesPath = NavigationPath()
         case .surprise:    router.surprisePath = NavigationPath()
         case .settings:    router.settingsPath = NavigationPath()
+        // It has no stack of its own (see `Router.push`), so there is
+        // nothing to reset — leaving Home's alone, which belongs to Home.
+        case .watchTogether: break
         }
     }
 }

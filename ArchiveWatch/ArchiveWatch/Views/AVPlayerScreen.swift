@@ -526,6 +526,18 @@ struct AVPlayerContainer: UIViewControllerRepresentable {
     func makeUIViewController(context: Context) -> AVPlayerViewController {
         let vc = AVPlayerViewController()
         vc.player = player
+        // FOLLOW A ROOM (§11), if the viewer joined one on the Watch Together
+        // screen. Here because this is where the television's `AVPlayer`
+        // actually reaches a surface — the same reason every other Studio
+        // hook is where it is. Everything after this is silent (§11.2a): the
+        // film simply does what the host's film is doing.
+        if let code = RoomJoinTV.shared.pending {
+            RoomJoinTV.shared.pending = nil
+            let p = player
+            Task { @MainActor in
+                await StudioSyncFollower.shared.join(code: code, player: p) { _ in }
+            }
+        }
         // The audio session must be declared and OWNED for the life of
         // playback, or an interruption ends with nobody to reactivate it and
         // the film plays on in silence (see TVAudioSession).

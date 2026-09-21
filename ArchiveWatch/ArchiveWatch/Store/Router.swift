@@ -16,11 +16,12 @@ final class Router {
 
     enum Tab: String, CaseIterable, Identifiable, Hashable {
         case home, browse, tvShows, channels, cartoons, party, screensaver,
-             collections, search, favorites, surprise, settings
+             collections, search, favorites, surprise, watchTogether, settings
         var id: String { rawValue }
 
         var title: String {
             switch self {
+            case .watchTogether: return "Watch Together"
             case .home:        return "Home"
             case .browse:      return "Movies"
             case .tvShows:     return "TV Shows"
@@ -38,6 +39,7 @@ final class Router {
 
         var icon: String {
             switch self {
+            case .watchTogether: return "person.2.wave.2.fill"
             case .home:        return "house.fill"
             case .browse:      return "film.fill"
             case .tvShows:     return "tv.fill"
@@ -104,6 +106,10 @@ final class Router {
         case .favorites:   favoritesPath.append(destination)
         case .surprise:    surprisePath.append(destination)
         case .settings:    settingsPath.append(destination)
+        // The join screen is ONE page with nothing to drill into — a code
+        // grid and a result. It borrows Home's stack rather than carrying an
+        // empty one of its own.
+        case .watchTogether: homePath.append(destination)
         }
     }
 
@@ -122,6 +128,7 @@ final class Router {
         case .favorites:   if !favoritesPath.isEmpty   { favoritesPath.removeLast() }
         case .surprise:    if !surprisePath.isEmpty    { surprisePath.removeLast() }
         case .settings:    if !settingsPath.isEmpty    { settingsPath.removeLast() }
+        case .watchTogether: if !homePath.isEmpty       { homePath.removeLast() }
         }
     }
 }
