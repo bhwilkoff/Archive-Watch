@@ -140,6 +140,39 @@ doing it, all one shape — a value that never reached the engine.
 iPadOS; **three on macOS**; one on an Android phone; and **nothing on the
 Android television boxes**, which is the correct answer rather than a gap.
 
+#### JOINING A ROOM is a fourth column, and it is NOT the third mode (2026-09-21)
+
+The table above is about what a device can HOST. §11.10 adds the question it
+never asked — what a device can JOIN — and the answers differ, which is the
+whole point:
+
+| | can HOST a room | can JOIN a room |
+|---|---|---|
+| **macOS** | ✅ shipped — Watch Together ▸ Start a room, code shown to read aloud | ✅ shipped — Watch Together ▸ Join a room |
+| **tvOS** | 🚫 the broadcast half needs a camera (Decision 132) | ✅ **shipped** — a sidebar row and a focus grid, no keyboard |
+| **iOS / iPadOS** | ⏳ not built | ⏳ not built |
+| **Android phone** | ⏳ not built | ⏳ not built |
+| **Android TV / Fire TV** | 🚫 same as tvOS | ⏳ not built, and ALLOWED — §11.10 |
+| **Web** | 🚫 cannot broadcast | ⏳ not built; the link already opens |
+
+**Joining needs no camera and no microphone**, which is why a television —
+removed from the hosting table entirely on 2026-09-20 — is the best device to
+join from. Decision 132's sentence was about a HOST offering a broadcast
+nobody is in; a guest is in somebody else's show and the conversation is on
+the call they are already on. §11.10 scopes that decision rather than
+weakening it.
+
+**Built and NOT deployed.** The sync transport (`worker/src/together.js`) runs
+on the Worker that already serves the privacy counter, on the D1 already bound
+to it — no infrastructure of its own, which is why it fits the $0 constraint
+rather than merely being cheap. Every test ran against `wrangler dev --local`;
+`--remote` appears nowhere. **Deploying is an owner step**, and until it
+happens no room can be created or joined on a real device.
+
+Proved against a running Worker rather than reasoned about: §8.27 the
+arithmetic, §8.28 the codes, §8.29 the app/Worker parity of one rule in two
+languages, §8.30 the routes, §8.31 a real host and a real guest agreeing.
+
 **Naming is binding.** These three are *With Friends*, *With the World*, and
 *With Friends and the World*. A surface may not invent a fourth phrase for one
 of them, and the third is never called "multi-cam" or "group broadcast" — it is
