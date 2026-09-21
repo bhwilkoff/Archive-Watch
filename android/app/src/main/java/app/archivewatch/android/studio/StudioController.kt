@@ -415,6 +415,8 @@ object StudioController {
     /// is branding, not provenance.
     private var liveSinceMs = 0L
     private var provenanceCleared = false
+    private val cameraStall = CameraStallRecovery()
+    private var lastCameraFramesSeen = 0
 
     /**
      * The film's real shape, from the player. Anything outside a sane range is
@@ -444,10 +446,34 @@ object StudioController {
         // THE HOST'S FAULTS GO INTO HEALTH, where something actually reads
         // them. The camera's complaint outranks the microphone's: a host who
         // cannot be seen notices before one who cannot be heard.
+        val delivered = camera?.framesDelivered?.get() ?: 0
         health = e.health.copy(
             hostFault = camera?.problem ?: mic?.problem,
-            cameraFramesDelivered = camera?.framesDelivered?.get() ?: 0,
+            cameraFramesDelivered = delivered,
         )
+        // RECOVER A CAMERA THAT STOPPED. Android had no guard at all — fairly,
+        // until this morning, because until then it had no camera to stall.
+        // A phone's camera stops whenever a call arrives, so this platform
+        // needs it more than a television does.
+        //
+        // The rule is called from THIS loop, which is the one Android actually
+        // runs. Putting it somewhere that merely looks shared is how the same
+        // behaviour reached macOS alone this afternoon.
+        val cameraPerSecond = delivered - lastCameraFramesSeen
+        lastCameraFramesSeen = delivered
+        if (cameraStall.tick(attached = camera != null, framesReceived = delivered.toLong(),
+                             framesPerSecond = cameraPerSecond,
+                             onAir = e.health.showState == "LIVE")) {
+            android.util.Log.i("AWSTUDIOHOST",
+                "camera stopped at " + delivered + " frames — recovery attempt " +
+                cameraStall.attempts + " of " + CameraStallRecovery.MAX_ATTEMPTS)
+            camera?.close()
+            camera = null
+            openCameraIfReady()
+            android.util.Log.i("AWSTUDIOHOST",
+                "recovery " + cameraStall.attempts + ": " +
+                (if (camera?.problem == null && camera != null) "re-attached" else "no camera"))
+        }
         if (e.health.endedReason != null && isLive) {
             val why = e.health.endedReason
             end()
