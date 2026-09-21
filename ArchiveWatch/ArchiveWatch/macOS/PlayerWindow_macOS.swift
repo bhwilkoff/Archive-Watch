@@ -86,6 +86,10 @@ struct PlayerWindow: View {
                 // inline `onChange`s in one expression defeated the SwiftUI
                 // type-checker on iOS and the same shape would do it here.
                 .onChange(of: studioLayout) { _, l in Task { await studio.setLayout(l) } }
+                // OPEN ON WHAT THE SHOW IS ACTUALLY DOING. The sheet arms the
+                // host's choice and this picker's own state defaulted to
+                // `.corner`, so the panel could contradict the broadcast.
+                .onAppear { studioLayout = StudioSession.shared.armedLayout }
                 .onChange(of: filmGain) { _, g in Task { await studio.setAudio(filmGain: Float(g)) } }
                 .onChange(of: micGain) { _, g in Task { await studio.setAudio(micGain: Float(g)) } }
                 .onChange(of: filmMuted) { _, m in Task { await studio.setAudio(filmMuted: m) } }

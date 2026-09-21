@@ -43,7 +43,12 @@ public final class StudioSession {
     /// Arming the layout beside the destination removes the timing question
     /// from every caller.
     public func armLayout(_ layout: StudioLayout) { armedLayout = layout }
-    private var armedLayout: StudioLayout = .corner
+    /// Readable, so a panel can OPEN on the placement the show is actually
+    /// using. It is `@State`-backed on macOS and defaulted to `.corner`, so a
+    /// host who chose "Side by side" in the sheet would have seen the engine
+    /// do the right thing while the control claimed otherwise — a readout that
+    /// lies, which §4 forbids as firmly for a picker as for a bitrate.
+    public private(set) var armedLayout: StudioLayout = .corner
 
     public private(set) var armedFilmID: String?
     public private(set) var armedTitle: String = ""
