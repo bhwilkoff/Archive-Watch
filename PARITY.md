@@ -268,7 +268,7 @@ screen is the same consideration.
 | macOS | ✅ panel + door |
 | iOS | ✅ controls sheet |
 | **Android** | ✅ **added 2026-09-20** — panel radio list, proved on the wire |
-| tvOS | 🚫 none, and deliberately left open: Rule 8.8c settles the mixer as "two channels, a rotation, and nothing else", so a four-way choice needs an owner decision rather than a quiet addition |
+| tvOS | ✅ **added 2026-09-21** — a "Show a card" submenu in the live transport menu (Rule 8.8g), with a checkmark on the one on air. Not in the mixer: 8.8c's duck toggle is the only focusable control there by design, and a second button would break the faders. **Intermission verified on the wire from an Apple TV 4K** |
 | Web | 🚫 no broadcast at all |
 
 Verified the way everything else was today — by TAPPING "Intermission" on a

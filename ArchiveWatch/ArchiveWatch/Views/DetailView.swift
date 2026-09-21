@@ -717,6 +717,20 @@ struct PlayerScreen: View {
     /// OAuth token becomes a stream key. It is nil ONLY on the `AW_STUDIO_TV`
     /// diagnostic door, which has no request and so encodes and discards; that
     /// used to be every path on this platform (§9.ccc).
+    /// Put a card on air, or take it off. Rebuilt from the show's own
+    /// overlay so removing a card restores the title and (if it is still
+    /// within its twenty seconds) the provenance line, rather than clearing
+    /// the lower third along with it.
+    @MainActor
+    private func applyStudioCard(_ card: StudioOverlay.Card?) async {
+        guard let engine = studioEngine else { return }
+        var o = studioOverlayBase
+        if !studioProvenanceShowing { o.provenance = "" }
+        o.card = card
+        await engine.setOverlay(o)
+        awdiag("AWCARD %@", card.map { String(describing: $0) } ?? "none")
+    }
+
     @MainActor
     private func runStudio(for film: Catalog.Item) async {
         guard let p = player else {
@@ -972,6 +986,7 @@ struct PlayerScreen: View {
         // description, where `StudioGoLive.description(for:)` puts it.
         // The countdown starts when the STREAM does — see the health loop below.
         let introOverlay = o
+        studioOverlayBase = o
 
         // The camera, if a phone has been paired. NOT an error when absent
         // (§8.8): a paired phone can be asleep or carried away mid-show.
@@ -1148,6 +1163,11 @@ struct PlayerScreen: View {
         // actually reached the wire.
         var liveSince: Date?
         var provenanceShowing = !introOverlay.provenance.isEmpty
+        studioProvenanceShowing = provenanceShowing
+        // Verification door, the macOS twin (AW_STUDIO_CARD). A card chosen
+        // from a focus-driven menu cannot be regression-tested by a harness,
+        // and a card is the one overlay an audience reads in full.
+        var cardDoorApplied = false
 
         while !Task.isCancelled, studioFilm != nil {
             try? await Task.sleep(nanoseconds: 1_000_000_000)
@@ -1194,6 +1214,21 @@ struct PlayerScreen: View {
                 awdiag("AWCONT recovery %d: %@", cameraStall.attempts, ok ? "re-attached" : "no camera")
             }
             lastCameraFrames = h.cameraFramesReceived
+
+            #if DEBUG
+            if !cardDoorApplied, h.showState == .live,
+               let raw = ProcessInfo.processInfo.environment["AW_STUDIO_CARD"], !raw.isEmpty {
+                cardDoorApplied = true
+                let card: StudioOverlay.Card? = switch raw {
+                case "startingSoon": .startingSoon(secondsRemaining: 60)
+                case "intermission": .intermission
+                case "ending":       .ending
+                default:             nil
+                }
+                studioCard = card
+                await applyStudioCard(card)
+            }
+            #endif
 
             // ASK AGAIN. The warning is only true until audio starts arriving.
             studioAudioProblem = await engine.filmAudioProblem(
@@ -1308,8 +1343,13 @@ struct PlayerScreen: View {
                     if let since = liveSince {
                         if Date().timeIntervalSince(since) >= 20 {
                             provenanceShowing = false
+                            studioProvenanceShowing = false
                             var later = introOverlay
                             later.provenance = ""
+                            // A CARD OUTLIVES THE PROVENANCE LINE. Without
+                            // this, the twenty-second expiry would quietly
+                            // take a host's card off the air with it.
+                            later.card = studioCard
                             await engine.setOverlay(later)
                         }
                     } else {
@@ -1432,6 +1472,16 @@ struct PlayerScreen: View {
     /// destination; a nil request encodes to nowhere, which is what the
     /// `AW_STUDIO_TV` diagnostic door wants and what a host must never get.
     @State private var studioRequest: GoLiveRequest?
+    /// Rule 8.8g — the card on air, or nil for the programme. Held here
+    /// because the television's overlay is rebuilt from `introOverlay`
+    /// whenever the provenance line expires, and a card must survive that.
+    @State private var studioCard: StudioOverlay.Card?
+    /// The show's overlay WITHOUT a card, and whether its provenance line is
+    /// still inside its twenty seconds. Both are state rather than locals
+    /// because a card is chosen from the transport menu, long after the loop
+    /// that builds them has started.
+    @State private var studioOverlayBase = StudioOverlay()
+    @State private var studioProvenanceShowing = false
     @State private var studioRefusalKind: StudioRefusalKind = .film
     /// The film the host chose to broadcast; non-nil starts the Studio on the
     /// player that is ALREADY playing it.
@@ -2038,6 +2088,25 @@ struct PlayerScreen: View {
             player?.pause()
             studioSetup = film
         }
+        // Rule 8.8g's four choices. A checkmark marks the one on air, which
+        // is how tvOS shows state in a menu — the same idiom the caption and
+        // version choosers already use, rather than a control invented here.
+        var studioCardActions: [UIMenuElement] {
+            let options: [(String, StudioOverlay.Card?)] = [
+                ("None", nil),
+                ("Starting soon", .startingSoon(secondsRemaining: 60)),
+                ("Intermission", .intermission),
+                ("Thanks for watching", .ending),
+            ]
+            return options.map { label, card in
+                let on = String(describing: studioCard) == String(describing: card)
+                return UIAction(title: label, state: on ? .on : .off) { _ in
+                    studioCard = card
+                    Task { await applyStudioCard(card) }
+                }
+            }
+        }
+
         // RULE 8.8c — ONE CONTROL WHOSE MEANING FOLLOWS THE STATE. While a
         // broadcast is on air this is the mixer; otherwise it is the way to
         // start one. Owner, 2026-09-20: "I think you should be able to launch
@@ -2053,6 +2122,28 @@ struct PlayerScreen: View {
                      image: UIImage(systemName: studioHostPaused ? "play.fill" : "pause.fill")) { _ in
                 studioHostPaused.toggle()
                 studioHostPaused ? player?.pause() : player?.play()
+            },
+            // RULE 8.8g — the cards, in the television's own idiom. They live
+            // in this menu and not in the mixer because 8.8c's duck toggle is
+            // "the one focusable control on the screen, deliberately": a
+            // second button makes the focus engine swallow the arrow keys the
+            // faders need. A menu has no such problem, and §8 already says
+            // everything about the show hangs off the transport menu.
+            UIMenu(title: "Show a card", image: UIImage(systemName: "rectangle.on.rectangle"),
+                   children: studioCardActions),
+            // RULE 8.8h — END. Owner, 2026-09-21: "The stream should only end
+            // when the person streaming it decides that it should end ...
+            // There should be an easy way to end a stream from every platform
+            // that can start one." A TELEVISION HAD NO WAY AT ALL: the only
+            // thing that set `studioFilm` to nil from anything resembling a
+            // host action was a debug door's timeout. The film keeps playing —
+            // ending the broadcast is not ending the evening.
+            UIAction(title: "End the broadcast",
+                     image: UIImage(systemName: "stop.circle"),
+                     attributes: .destructive) { _ in
+                studioCard = nil
+                studioFilm = nil
+                studioRequest = nil
             }
         ]
         let watchTogether = UIMenu(
