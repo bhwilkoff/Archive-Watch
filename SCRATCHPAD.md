@@ -463,7 +463,59 @@ suite-green but UNPHOTOGRAPHED: `devicectl device capture screenshot` fails on
 Ben Bedroom with `com.apple.Mercury.error 1001` whenever the app is actually
 rendering, and succeeds only when the panel is asleep.
 
-Suite 98 pass / 1 skip / 0 fail.
+Suite 110 pass / 1 skip / 0 fail; Kotlin 87 / 6 skipped / 0 fail.
+
+**LATER THAT EVENING — one defect shape, five times, and three blockers that
+were never real.**
+
+**THE SHAPE**: a value a host sets that never reaches the engine. Found in
+`GoLiveTV.request()` (`layout: .corner` hardcoded), in `DetailView`
+(`setLayout(.corner)` hardcoded), in the macOS SHEET (`request.layout` simply
+not read, so every Mac broadcast went out as `corner` however the host chose —
+and the macOS DOOR waited for `isLive` and set it, which is why every bench run
+I had ever done looked right), in Android's engine (read once at arm, so the
+picker was inert on the ONE platform whose picker exists only while live), and
+in the macOS panel (opening on `.corner` over a show that was doing something
+else). Each was found by DRIVING the product, and each one only because the
+previous made me look. `StudioSession.armLayout` now removes the timing
+question rather than adding a sixth caller that remembers.
+
+**AND I PRODUCED A FRESH INSTANCE WHILE WRITING ABOUT THE OTHERS.** The
+camera-stall recovery and the film-audio warning went into
+`StudioSession.startPump` and were committed as reaching "macOS and iOS".
+**iOS never arms or starts that object** — its container owns an engine and a
+loop of its own — so both were inert on the phone, and `StudioControls_iOS`
+was reading a warning nothing wrote. The shared TYPE looked like shared
+BEHAVIOUR. It surfaced not by re-reading code but by running §6.4 and finding
+the publisher's counters missing from the phone's diagnostics: I went looking
+for a logging gap and found a behavioural one.
+
+**THREE BLOCKERS THE DOCS ATTRIBUTED TO THE OWNER, NONE REAL.** "Android has
+no OAuth at all" (it has Twitch's device flow, a token store, a sign-in screen
+and a configured client id — nobody had signed in). The iOS Local Network
+prompt (an iPhone and an Apple TV both published to a local server on the first
+attempt, no prompt). And item 9a's iOS encoder readout, framed as needing "a
+screenshot" — it is a log line, and it says `hardware=true`. Each had been
+steering what got worked on, including by me. Killing the second one closed
+FOUR rows in ninety minutes: iOS placement on the wire, chat on iOS and tvOS,
+and §6.6's reconnect (0.7 s, agreed by both the app and the server).
+
+**§6.4 PASSES ON A PHONE** — queued 0 / 30 fps / 0 dropped, then 1.2-1.6 MB /
+1.8 fps / 834 dropped with audio unbroken at 43.8/s, then recovery. An earlier
+run of the same test "passed" while nothing happened to the stream, because I
+measured `pts_time` from the recording — MEDIA time, continuous by construction
+(§9.zzzzz, written down as a negative result rather than quietly re-run).
+
+**PARITY CLOSED**: all five camera placements on iOS, macOS, Android and tvOS,
+each proved ON THE WIRE; cards on Android (its panel, its words pinned to
+Apple's by test); camera-stall recovery on Android, INDUCED on hardware by
+making another app take the camera — where its first readout said "no camera"
+over a camera that had just reconnected, because it asked a stale `problem`
+string instead of what the re-open returned.
+
+**Still owner-gated, and unlike the three above these are real**: a Twitch
+device code on the Pixel (a browser approval), and whether tvOS should have
+cards at all given Rule 8.8c keeps that surface to two channels and a rotation.
 
 ### 2026-09-20 (Watch Together loop) — the mixer in numbers people read, macOS and Android catching up, and a home screen that trusted the uploader
 Owner /loop, 5-minute cron, same standing prompt; redirected several times by
