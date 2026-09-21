@@ -535,3 +535,118 @@ the guests hear each other, but the guests' VOICES are not separable inside
 our mix — we get one stereo pair from the call app, not per-speaker tracks. So
 no per-guest fader. Against a design that costs nothing and needs no
 infrastructure at all, that is a very cheap thing to lose.
+
+---
+
+## §11 KEEPING THE FILM IN SYNC WITHOUT SHAREPLAY — PROPOSED (2026-09-21)
+
+*Owner: "Have you figured out how you are going to keep the movie in sync for
+everyone on the call if we aren't going to use shareplay (because it needs to
+be cross-platform)?"*
+
+§10 says sync is "ours, cross-platform, and the only networking left" and
+estimates ~2,900 messages. It never says HOW. This is that, PROPOSED — no code
+exists, and two of its choices are the owner's.
+
+### §11.1 Send STATE, never the playhead
+
+The naive design broadcasts the current position several times a second and
+fails the $0 constraint immediately. The film is deterministic: given a
+position, a rate and the moment that position was true, every client can
+compute where the film should be now.
+
+So a host publishes a **state record** and nothing else:
+
+    { filmID, position, atServerTime, rate, paused, generation }
+
+and every client extrapolates `expected = position + (now - atServerTime) * rate`
+while `!paused`. A record is written only when the state actually CHANGES —
+play, pause, seek, rate, end. **A two-hour film has tens of those, not
+thousands**, which is what makes §10's message estimate achievable rather than
+optimistic.
+
+### §11.2 The clock is the actual problem, and the server is the reference
+
+Two devices' wall clocks differ by seconds, so `atServerTime` is meaningless
+unless everyone agrees what time it is. Each client estimates its offset
+against the SERVER with Cristian's algorithm: send `t0`, the server replies
+with its own `ts`, the reply arrives at `t1`, and
+
+    offset ≈ ts − (t0 + t1) / 2        error bounded by RTT / 2
+
+**Take the sample with the SMALLEST round trip, never the average.** The error
+bound is RTT/2, so the fastest exchange is the most accurate one; averaging
+mixes a good measurement with bad ones and throws away the bound. Re-sample
+every few minutes — a phone that changes network changes its latency.
+
+This is the same discipline Decision 119 applies to the encoder: measure
+against an independent reference, never against ourselves.
+
+### §11.3 Correct drift by RATE first, and seek only as a last resort
+
+Decision 081 already settled the shape of this for captions: *a drift
+correction may not rewind the captions past the viewer.* The same holds for a
+film, and harder, because a seek re-buffers and is visible to everyone.
+
+| how far off | what happens |
+|---|---|
+| < 150 ms | nothing. Inside human tolerance for a shared watch |
+| 150 ms – 2 s | **nudge the RATE** (0.97x / 1.03x) until aligned, then restore 1.0 |
+| > 2 s | seek, because rate-nudging would take a minute to close it |
+| paused / play | applied immediately, never nudged |
+
+A rate nudge of 3% is inaudible on speech and invisible on 24 fps film; it is
+how every video-conferencing jitter buffer works and it avoids the one thing
+viewers actually notice, which is a jump.
+
+### §11.4 A guest who stalls CATCHES UP; the show does not wait
+
+This is the consequence that makes it a product decision rather than a
+protocol. In "With Friends and the World" the host is ALSO broadcasting to an
+audience, and a stalled guest must never be able to freeze what that audience
+is watching. So the host's playhead is authoritative, and a guest who buffers
+rejoins ahead rather than dragging everyone back.
+
+**That is the opposite of SharePlay's behaviour**, which pauses for the
+straggler, and it is right here for a reason that does not apply to SharePlay:
+SharePlay has no audience.
+
+### §11.5 The transport, and why not the obvious one
+
+- **NOT Durable Objects / WebSockets.** The natural fit, and it is not on
+  Cloudflare's free plan. $0 is a hard constraint (CLAUDE.md), so this is
+  settled by the bill, not by taste.
+- **NOT Workers KV.** Free-tier writes are ~1,000/day, and worse, KV is
+  eventually consistent for up to 60 seconds — which would mean a PAUSE taking
+  a minute to reach a guest. Unusable for this.
+- **D1 (SQLite) on the Worker that already exists.** Strongly consistent,
+  free-tier limits measured in millions of reads and 100k writes a day, and
+  this repo already runs a Cloudflare Worker for the privacy counter. The host
+  writes on state change; guests poll every ~3 s and extrapolate between polls.
+  Four guests over two hours is ~9,600 reads and ~30 writes.
+
+A poll every 3 s sounds crude beside a socket and is exactly right here: the
+clients are extrapolating continuously, so the poll is only correcting drift
+and catching state changes. The visible cost of a change is at most one poll
+interval, and §11.3 absorbs that.
+
+### §11.6 What the owner has to decide
+
+1. **Who may control the film?** Host only (simplest, matches "producing a
+   show"), or anyone in the room (friendlier, and a guest pausing a live
+   broadcast is a real risk). PROPOSED: host only, because the broadcast makes
+   this asymmetric.
+2. **Does a room need to exist before the call, or is a link enough?** A link
+   carrying the film id and a room id needs no accounts (Decision 009) and no
+   server-side room creation. PROPOSED: a link, same shape as
+   `docs/PLAYLIST-SHARING.md` already uses.
+
+### §11.7 What would have to be proved before it ships
+
+Not built, and none of this is a measurement yet. In this feature's own terms
+(Decision 130) the things that would need to be shown on real devices are: the
+clock offset's error bound against a known-good reference; that a 3% rate nudge
+closes a 1-second gap without being audible; that a guest on a phone that loses
+its network rejoins at the right place rather than at the start; and that the
+free tier actually holds for a four-person two-hour film rather than in an
+estimate.
