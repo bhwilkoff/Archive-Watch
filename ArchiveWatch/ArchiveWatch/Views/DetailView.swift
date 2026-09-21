@@ -938,7 +938,15 @@ struct PlayerScreen: View {
                    sourceHasAudio.map { $0 ? "true" : "false" } ?? "unknown",
                    url?.scheme ?? "?", (url?.pathExtension ?? "?"))
         }
-        await engine.setLayout(.corner)
+        // THE HOST'S CHOICE, not a constant. Rule 8.8e put the five
+        // placements on the go-live screen and `request()` carries the one
+        // picked — and this line still said `.corner`, so the picker changed
+        // the REQUEST and the engine ignored it. Caught by a bench broadcast
+        // driven with `side`: the server's recording came back showing the
+        // film centred full-frame, which is what `corner` looks like when no
+        // camera is attached. A picker whose value never reaches the engine is
+        // worse than no picker, because it looks like it worked.
+        await engine.setLayout(studioRequest?.layout ?? .corner)
         var o = StudioOverlay()
         o.title = film.title
         o.subtitle = [film.year.map(String.init), film.director]

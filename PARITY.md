@@ -206,8 +206,19 @@ version of that assertion failed the product when the test was wrong.
   **`side` verified on a Pixel 8a from the server's own recording, and the
   PICKER seen on the phone** — "Where you go", five radio rows in the shared
   words, corner selected (2026-09-20).
-- ~~tvOS has no layout picker at all~~ **BUILT 2026-09-20, NOT YET SEEN ON THE
-  GLASS.** `GoLiveTV` built its request with `layout: .corner` HARDCODED, so a
+- ~~tvOS has no layout picker at all~~ **CLOSED AND PROVED ON THE WIRE
+  2026-09-20.** The picker itself is still unphotographed (see below), but the
+  thing that matters was verified end to end instead: a bench broadcast driven
+  with `side` came back from the server's own recording showing the film fit
+  into the LEFT TWO THIRDS — x=143..1137 of 1920, exactly 4:3 inside a 1280
+  column — with the right third empty because no camera is paired. That is
+  better evidence than a photograph of a control.
+  **AND THE FIRST RUN OF THAT TEST FAILED, which is why it was worth running**:
+  `DetailView` called `engine.setLayout(.corner)` with the value HARDCODED, so
+  the picker set the request and the engine ignored it. A picker whose value
+  never reaches the engine is worse than no picker, because it looks like it
+  worked. Now `studioRequest?.layout ?? .corner`.
+  Original note: `GoLiveTV` built its request with `layout: .corner` HARDCODED, so a
   television could only ever broadcast one of the five. Rule 8.8e adds a
   "Where you go" column to the go-live screen in the shared words — deliberately
   NOT in the live mixer, which Rule 8.8c settles as "two channels, a rotation,
