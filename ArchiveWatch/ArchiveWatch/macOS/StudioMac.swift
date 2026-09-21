@@ -39,6 +39,10 @@ struct StudioMacReadout: View {
         // attached at zero, and without it this flashes during every normal
         // start. The word is STOPPED, so it may only appear for a camera that
         // had started.
+        // BEFORE the camera: an audience hearing nothing is worse off than an
+        // audience not seeing the host. tvOS has shown this since §9.jjjj and
+        // macOS asked for it nowhere.
+        if isLive, let audio = StudioSession.shared.filmAudioProblem { return audio }
         if isLive, health.cameraAttached, health.cameraFramesReceived > 0,
            cameraFramesPerSecond == 0 {
             return "The camera has stopped — your audience sees the film without you"

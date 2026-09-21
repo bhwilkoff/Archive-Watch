@@ -540,6 +540,17 @@ public actor StudioEngine {
     /// while every other counter (fps, encode, thermals) looked healthy. The
     /// decoder there hands back its native biplanar YUV, and Core Image
     /// consumes either, so the format is left to AVFoundation.
+    /// Reads the item's audio tracks ON THE MAIN ACTOR and returns only a
+    /// Bool, because that is the one shape that can cross back into an actor:
+    /// `AVAsset` cannot.
+    @MainActor
+    private static func assetHasAudio(_ item: AVPlayerItem) async -> Bool? {
+        guard let tracks = try? await item.asset.loadTracks(withMediaType: .audio) else {
+            return nil
+        }
+        return !tracks.isEmpty
+    }
+
     public func attachFilm(player: AVPlayer) async {
         filmPlayer = player
         let out = AVPlayerItemVideoOutput(outputSettings: nil)
@@ -549,6 +560,7 @@ public actor StudioEngine {
         // with no audio track is a REAL case in this catalog (silent cinema),
         // so a false return is recorded, never treated as a failure.
         if let item = player.currentItem {
+            sourceHasAudio = await Self.assetHasAudio(item)
             audioAttached = await mixer.film.attach(to: item)
         }
     }
@@ -578,6 +590,18 @@ public actor StudioEngine {
     ///
     /// The caller passes what it knows about the SOURCE, which is the only way
     /// to separate the two.
+    /// Does the film being tapped actually HAVE an audio track?
+    ///
+    /// Recorded at attach time rather than asked for later, because
+    /// `AVPlayerItem.asset` is main-actor isolated and `AVAsset` is not
+    /// Sendable, so an actor cannot reach across for it — `attachFilm` is
+    /// already the moment the item is in hand. Nil when it could not be
+    /// determined, which `filmAudioProblem` treats as "say nothing" rather
+    /// than "no audio". It exists to tell a genuinely SILENT film — a real and
+    /// common case in a public-domain catalogue, as the owner pointed out on
+    /// 2026-09-20 — from a tap that failed to attach.
+    public private(set) var sourceHasAudio: Bool?
+
     public func filmAudioProblem(sourceHasAudio: Bool?) -> String? {
         guard !audioAttached else { return nil }
         // THE PULL PATH COUNTS. This guard used to be absent, so on tvOS — where

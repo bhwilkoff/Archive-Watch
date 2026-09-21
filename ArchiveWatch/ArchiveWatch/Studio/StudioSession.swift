@@ -48,6 +48,11 @@ public final class StudioSession {
     /// camera stops whenever a call arrives, so this is not a television's
     /// problem.
     public private(set) var cameraFramesPerSecond = 0
+    /// "The film's audio is not being sent" — the warning that existed on tvOS
+    /// ALONE. macOS and iOS use the `MTAudioProcessingTap`, which is exactly
+    /// the path that can fail to attach, so they were the two platforms that
+    /// could broadcast a silent programme with nothing on screen saying so.
+    public private(set) var filmAudioProblem: String?
     /// Why the Studio refused, for the surface that asked.
     public var refusal: String?
 
@@ -373,6 +378,14 @@ public final class StudioSession {
                 lastCameraFrames = h.cameraFramesReceived
                 lastFilmFrames = h.filmFramesPulled
                 self.health = h
+
+                // IS THE FILM'S AUDIO ACTUALLY GOING OUT? Asked every tick,
+                // because the answer changes: the warning is true only until
+                // audio starts arriving. Detected once — the asset does not
+                // grow an audio track mid-show — and treated as "say nothing"
+                // when it cannot be determined.
+                self.filmAudioProblem = await engine.filmAudioProblem(
+                    sourceHasAudio: engine.sourceHasAudio)
 
 
                 // §6.5/§6.6 END the show on their own account — too hot, or a

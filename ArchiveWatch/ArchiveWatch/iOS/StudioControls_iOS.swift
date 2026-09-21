@@ -104,6 +104,14 @@ struct StudioHealthCapsule: View {
         // start. The word is STOPPED, so it may only appear for a camera that
         // had started. A phone's camera stops whenever a call arrives, so
         // this was never a television's problem.
+        // FIRST: an audience hearing nothing is worse off than one not seeing
+        // the host. This existed on tvOS alone, and iOS is one of the two
+        // platforms that uses the tap path — the very thing that can fail to
+        // attach — so it was a platform that could broadcast a silent
+        // programme with nothing on screen saying so.
+        if isLive, let audio = StudioSession.shared.filmAudioProblem {
+            w.append(audio.replacingOccurrences(of: "The film's", with: "the film's"))
+        }
         if isLive, health.cameraAttached, health.cameraFramesReceived > 0,
            cameraFramesPerSecond == 0 {
             w.append("the camera has stopped — your audience sees the film without you")
