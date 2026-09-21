@@ -51,7 +51,21 @@ object StudioController {
      * `showsCamera` survives as a derived value so existing callers and the
      * "film only" toggle keep working.
      */
-    var layout: StudioLayout by mutableStateOf(StudioLayout.CORNER)
+    private var _layout by mutableStateOf(StudioLayout.CORNER)
+    var layout: StudioLayout
+        get() = _layout
+        set(value) {
+            _layout = value
+            // AND PUSH IT INTO A RUNNING SHOW. The engine took its layout ONCE,
+            // at `startIfArmed`, so changing the placement while live moved the
+            // radio button and nothing else — on the one platform where the
+            // picker exists ONLY while live, which made it inert in its only
+            // context. Same shape as the macOS sheet dropping `request.layout`
+            // and tvOS hardcoding `.corner`: a control whose value never
+            // reaches the engine is worse than no control, because it looks
+            // like it worked.
+            engine?.layout = value
+        }
     var showsCamera: Boolean
         get() = layout.showsCamera
         set(value) { layout = if (value) StudioLayout.CORNER else StudioLayout.FILM }

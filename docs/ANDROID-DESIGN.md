@@ -357,6 +357,15 @@ rather than a new idea.*
   aspect-FIT inside its rect where Apple crops, which is identical for every
   layout but `host` because each camera rect is derived from the camera's own
   aspect.
+- **§9.2e A placement chosen WHILE LIVE reaches the running engine.**
+  `StudioController.layout`'s setter pushes into `engine.layout`; the engine
+  took its value once, at `startIfArmed`, so changing the placement mid-show
+  moved the radio button and nothing else. That mattered more here than
+  anywhere: Android is the ONE platform whose picker exists only while live
+  (iOS, macOS and tvOS all choose on the way in), so the control was inert in
+  its only context. Proved on a Pixel 8a by TAPPING "Side by side" during a
+  broadcast and reading the change back from the server's own recording —
+  corner before, film-left/camera-right after.
 - **§9.3 The program panel is a Material bottom sheet**, the native idiom of
   the iOS §4.5 medium-detent sheet (§8.2): layout, the two faders, the cards.
   Not a dialog — the program must stay visible behind it, because changing
