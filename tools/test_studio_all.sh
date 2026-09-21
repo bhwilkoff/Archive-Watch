@@ -207,6 +207,19 @@ else
   echo "   (cd worker && npx wrangler d1 execute archivewatch-pulse --local --file=schema-rooms.sql && npx wrangler dev --local --port 8799)"
   row "8.30 room transport" SKIP "no local Worker"; SKIP=$((SKIP+1))
 fi
+
+# The CLIENT against the same Worker. §8.27 proves the arithmetic and §8.30
+# the routes; neither says they are wired together, which is Decision 133.
+if curl -s --max-time 2 "${AW_TOGETHER_BASE:-http://127.0.0.1:8799}/together/ABCD" >/dev/null 2>&1; then
+  AW_TOGETHER_BASE="${AW_TOGETHER_BASE:-http://127.0.0.1:8799}" \
+    swift_case "8.31 sync client (live)" \
+      ArchiveWatch/ArchiveWatch/Studio/StudioSync.swift \
+      ArchiveWatch/ArchiveWatch/Studio/StudioRoom.swift \
+      ArchiveWatch/ArchiveWatch/Studio/StudioSyncClient.swift \
+      tools/test_studio_syncclient.swift
+else
+  row "8.31 sync client" SKIP "no local Worker"; SKIP=$((SKIP+1))
+fi
 # No $SHIM: StudioVoiceProbe calls no awdiag, and adding sources a case does
 # not need is how three cases stopped compiling for a session (§9.lllll).
 swift_case "8.18 voice frame slices" ArchiveWatch/ArchiveWatch/Studio/StudioVoiceProbe.swift tools/test_studio_voiceframe.swift
