@@ -140,6 +140,20 @@ never on the exit code. Driving a multi-press navigation this way costs about
 a minute a press, which is why a surface needing several presses to reach gets
 a door instead (`AW_STUDIO_TV_MIXER`).
 
+**A SCREENSHOT THAT SUCCEEDS CAN STILL BE A LIE.** `devicectl device capture
+screenshot` on Ben Bedroom fails with `com.apple.Mercury.error 1001` whenever
+the app is actually rendering, and SUCCEEDS when the panel is asleep — handing
+back a perfectly valid all-black PNG that looks exactly like an app drawing
+nothing. So assert on more than "Screenshot saved": check the television is
+AWAKE first (`atv_scenario.wake_tv()` returns True and the launch says
+"Launched application"), and treat an all-black frame as "no evidence" rather
+than as a finding. The older trap in this file — a FAILED capture leaving a
+stale file in place — is the same family seen from the other side.
+
+Note also that the flag is `--destination`, not a positional path: passing the
+path bare prints USAGE and saves nothing, which reads as a silent failure. The
+`--pid` trap on `process terminate` is the same shape.
+
 **CHOOSE A FILM WITH AUDIO, and MEASURE that rather than trusting a field.**
 Owner, 2026-09-20: *"you are choosing the wizard of oz, a silent film, to test
 streaming and without audio, it is very difficult to decide whether it is

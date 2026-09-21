@@ -365,102 +365,98 @@ keep serving it.
 
 ## Session Log
 
-### 2026-09-19 (Watch Together loop) — the Continuity camera crash and the camera tile, both fixed on the glass; the audio artifacts survive four hypotheses
-Owner /loop: "get Apple TV streaming working end to end ... close all
-documentation and testing gaps ... until all aspects of streaming to YouTube
-and twitch work from Apple TV using continuity camera (with audio and videos
-working)."
+### 2026-09-20 (evening) — both phones proven, and three things macOS had never learned
+Same standing /loop. The owner supplied the two things that were blocking:
+YouTube sign-in plus camera/mic on the iPhone 12, and the Pixel's adb pairing
+code.
 
-**THE CONTINUITY CAMERA WORKS END TO END ON THE APPLE TV.** Two bugs, both
-found on the first runs that ever had a phone attached, both verified from the
-server's own recording rather than the app's claims.
+**BOTH PHONES NOW BROADCAST END TO END.** iPhone 12 to YouTube on the product
+path — `AWCAM attached camera=Front Camera mic=iPhone Microphone`, `AWPUB
+publishing`, `AWPROV provenance cleared 20s after going live` — **confirmed
+from YOUTUBE's own side**, the channel's `liveBroadcasts` totalResults going
+59 -> 61. Pixel 8a to a real server with film, camera tile and audio
+(mean -27.3 dB), read back from the server's own recording. First phone-class
+Android numbers ever: **20-22 fps against the Google TV dongle's 13**.
 
-- **The crash**: `-[AVCaptureDevice _setActiveFormat:...sessionPreset:]
-  Unsupported format ((null))`, signal 6, reproduced three times. A Continuity
-  Camera will not let the SESSION drive its format from a preset. `.inputPriority`
-  removes the call entirely. The first fix was WRONG and the device said so —
-  it chose the preset with `canSetSessionPreset`, which answered TRUE for
-  1280x720 and crashed anyway; logging `cam.formats` showed the camera HAS
-  1280x720 twice, so the format was never missing.
-- **The missing tile**: nothing retained the `AVCaptureSession`. It was a local
-  inside an `if` block; ARC freed it, capture stopped, and every log line still
-  said success because `startRunning()` had succeeded a moment earlier.
-  `AWCAM frames=0` for a whole run, then `frames=4482 (+30/s)` after the tap
-  took ownership. The tile is now in the program frame, bottom-right, measured.
+**THE FIRST PHONE FOUND TWO DEFECTS NO TELEVISION COULD.** The display pass set
+`glViewport` to the whole host surface — right where both surfaces are 16:9,
+wrong on a 1080x2400 phone, so the program went to 2.22:1 and the owner
+reported the film "heavily stretched vertically". The §9 warning that "the
+viewport belongs to the surface" was already written, from this same defect in
+its other form, and it named 1920x1080 as the host's size: that is how the
+assumption survived. And **`filmAspect` was declared with a 16:9 default and
+assigned by NOTHING**, so every film that is not 16:9 was published stretched —
+most of this catalogue, since a silent film is 4:3. Caligari went out filling a
+1.778 frame with no pillarbox; it now spans x=160..1120 of 1280, exactly 1.333.
 
-**Both platforms are READY from the television** — YouTube (Learning is Change,
-the `liveStreamingNotEnabled` block gone) and Twitch (licbhwilkoff) — and real
-broadcasts were created from the Apple TV with the camera attached.
+**THE OWNER'S RULE ABOUT WHAT THE FEATURE IS.** Shown that Google TV and Fire
+TV were quietly offering a film-only broadcast, they gave a better rule than
+either option offered: *"a broadcast with no camera and no microphone is not
+watching together ... everyone might as well just watch the movie on their
+own."* Decision 132 — the gate is that the HOST can be in the show. Android
+Watch Together now means the phone and nothing else.
 
-**THE AUDIO ARTIFACTS ARE FIXED, and the bug was one line in `AudioRing.read`.**
-`start` was computed from `writeIndex - have` — the NEWEST `have` samples. The
-type has no read index at all, so every read returned the most recently written
-chunk and silently skipped everything buffered behind it, while `available -=
-have` kept FIFO books over a LIFO read. With 120-300 ms in the ring against
-~20 ms reads, the mixer took the newest 20 ms and discarded the rest, over and
-over. Reading from `writeIndex - available` (the oldest unread sample) fixes it
-and stays self-consistent across reads. Measured against the source film, with
-the control that gives it meaning (source vs itself 0.988, source vs unrelated
-content 0.002):
+**AND THE ANDROID TWITCH PATH HAD NEVER OPENED THE HOST AT ALL.** `startIfArmed`
+has two exits and the Twitch branch returned without `openHost`, so every
+broadcast reaching a real Twitch destination carried the film and nothing of
+the person watching it. The bench path had it, which is why the harness never
+noticed. Separately `openHost` was a one-shot against a camera texture the
+render thread had not created yet — the microphone had had a retry since it was
+written, the camera never did, and that asymmetry was the whole bug.
 
-| | match to film | clicks |
-|---|---|---|
-| before | 0.189 / 0.052, positions scattered | 0.17/s |
-| after | **0.973 / 0.991 / 0.998**, positions exact | **0.00/s** |
+**THREE THINGS macOS HAD NOT LEARNED FROM THE TELEVISION**, all found by
+reading tvOS's code rather than the docs, and all the same shape — a behaviour
+written into one platform's file and believed to be the product's:
+camera-stall RECOVERY (lived in the tvOS view; macOS borrows iPhones and drops
+the same way); the **"film's audio is not being sent" warning** (lived in the
+same view, and tvOS needs it LEAST — it pulls audio by film position, while
+macOS and iOS use the tap that actually fails); and the **Continuity preset
+CRASH fix**, which had been applied in `StudioContinuity` alone while the
+shared host-camera path still set a preset before adding its input. All three
+are now shared, and the Mac was made to BROADCAST rather than merely compile:
+camera, mic, both tracks, theatre at 729 px of 1920.
 
-**AND THE FIX WAS TRUE OF ONE FILM.** Every measurement after it used
-`steamboat_bill_ipod`. On `the-docks-of-new-york` the broadcast still failed
-to match its source (0.024-0.051 against a control of 1.000) — real audio,
-wrong content — because that film is **48000 Hz** and `makeConverter` built
-its OUTPUT format at the SOURCE rate, so it entered a 44100 mixer 8.8% fast
-and drifted for ever. `acceptExternalPCM`'s contract ("interleaved stereo
-Float at the program rate") was violated by every film whose rate did not
-happen to match. Output is now built at `programRate` and `AVAudioConverter`
-resamples; on the wire that film went to **0.992 / 0.993 / 0.958**, and
-`decodedAhead` -0.51 -> +0.42, `dropped` 449-and-climbing -> 87-and-flat.
+**`.inputPriority` IS UNAVAILABLE ON macOS**, which is the platform that fix is
+most for. Copying tvOS's line verbatim would not have compiled — the macOS
+verb is to leave the preset at its default `.high`, which negotiates instead of
+demanding.
 
-**A SAMPLE OF THE CATALOGUE says this was a third of the feature**: of 18
-readable gate-passing films, 11 are 44100, **six are 48000** and one is 8000.
-Guarded by §8.16, which asserts the programme-rate contract across five
-source rates with a control that builds the old format and requires it to
-fail. The owner's standing "vary test content" rule is what surfaced it.
+**PARITY WORK THE OWNER ASKED FOR**: *"close gaps that can be closed on any
+platform."* Camera placement was broken everywhere — **"Theatre row (you along
+the bottom)" was "corner" moved 64 pixels down**, the same tile in the same
+corner, on every Apple platform. Android had two of the five placements
+(a boolean and a hardcoded corner); tvOS had ONE, with `layout: .corner`
+hardcoded in the request. All three fixed; `StudioLayoutTest` pins the Kotlin
+numbers to the Swift ones so they cannot drift.
 
-**The owner's "clicking" was the SAME bug** — the clicks were the seams where
-fragments butted together — so one fix closed both complaints.
+**FOUR INSTRUMENTS LIED TODAY**, which is the recurring lesson rather than a
+footnote. `devicectl --console` captures STDOUT only, so every `awdiag` line
+(NSLog) was invisible and four launches read as "the harness cannot deliver
+environment variables" — it delivers them fine; the DOOR was on the tvOS root
+and iOS has its own. `strings` found neither my new literal nor `AWCAP` in a
+binary where `AWCAP` demonstrably prints. `-v error` suppresses
+`volumedetect`'s own output, so every film read as silent. And a devicectl
+screenshot SUCCEEDED against a sleeping television, producing a black frame
+that looks exactly like an app rendering black.
 
-**The method is the lesson, not the fix.** Six instruments called this audio
-clean for a day (click detection, packet cadence, drift, levels, spectra, a
-throttle test) and every one was accurate and useless: correctly-formed chunks
-in the wrong order have no discontinuities, perfect timestamps, the right level
-and the right spectrum. Eliminated on the way, all measured: congestion,
-pipeline state, timestamp drift, TLS (the same artifacts arrived over YouTube's
-plaintext ingest), the mono fallback, queue ordering, sample rate, channel
-interleaving, write length, ring overflow, and a spectrogram comparison whose
-own control refuted it (unrelated film content scores 0.923). What broke it
-open was the owner supplying the DELIVERED file: our own bench recording failed
-to match the film exactly as badly as YouTube's, which moved the fault inside
-our pipeline; dumping the DECODER's PCM one stage upstream then bisected it in
-a single measurement (0.993-0.997, position advancing exactly in step), leaving
-only the three files downstream of it.
+**Corrections owed**: I said Android had no OAuth at all — it has Twitch's
+device flow, a token store, a sign-in screen and a configured client id, and
+that stale note is why Android platform testing kept being deprioritised. I
+said the 20-second provenance expiry explained the owner's overlay complaint —
+it does not, the expiry works. I wrote a comment into the codebase asserting
+`devicectl` could not deliver environment variables, which was never
+established, and removed it. And a scripted correction HALF-LANDED: the python
+assertion failed on one file while the commit went ahead, so the repo briefly
+carried the fix in PARITY and the falsehood in SCRATCHPAD.
 
-**Three observability gaps closed on the way**, each one having cost a wrong
-inference: `AWCAM` (a camera counter — `filmFramesPulled` existed for the same
-reason and the camera had none); `AWGATE` (a rights refusal set an on-screen
-sentence and returned, so a refused run and a door that never fired were
-identical in a log); and `AWPUB` — `grep -c awdiag RTMPPublisher.swift` returned
-**0**, so a publish that never connected left no trace, and I wrongly inferred
-exactly that before the owner said the page simply had not refreshed.
+**Still owner-gated**: a Twitch device code on the Pixel (raised 18:04, lapsed
+unapproved) — one browser approval and Android is proven against a real
+platform rather than a bench. And the tvOS placement picker is built and
+suite-green but UNPHOTOGRAPHED: `devicectl device capture screenshot` fails on
+Ben Bedroom with `com.apple.Mercury.error 1001` whenever the app is actually
+rendering, and succeeds only when the panel is asleep.
 
-**`docs/TVOS-STUDIO-RUNBOOK.md` is new** — the run recipe that existed only as
-scattered facts and cost an hour: waking via `atv_scenario.wake_tv()`, the two
-devices both called "Ben Bedroom", choosing a film by `rightsBucket='safe_pd_age'`
-(4,210 rows) rather than `rightsStatus`, `--console` and screenshots being
-mutually exclusive, and `DiagFile` truncating on every launch.
-
-**Still open**: the artifacts; the Continuity MICROPHONE (`micPort=none` every
-run — the SDK offers no way to enumerate a paired device, so `audioSessionInputs`
-only exists on one the picker handed over); and the camera dropping repeatedly
-(observed four times), for which detection now exists but recovery does not.
+Suite 98 pass / 1 skip / 0 fail.
 
 ### 2026-09-20 (Watch Together loop) — the mixer in numbers people read, macOS and Android catching up, and a home screen that trusted the uploader
 Owner /loop, 5-minute cron, same standing prompt; redirected several times by
