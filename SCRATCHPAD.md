@@ -81,11 +81,26 @@ emulators) · `docs/CAPTIONS.md` · `docs/SHAREPLAY.md` ·
      (owner confirmed, ~2026-09-18 14:20). Nothing further is needed from
      anyone: re-run the read-only probe (`AW_STUDIO_AUTH=probe-youtube`) after
      it clears. No re-auth, the token is already on the right channel.
-   - The OAuth consent screen is still in **Testing**, so refresh tokens expire
-     in 7 days and every host sees "Google hasn't verified this app". Publishing
-     it and passing verification is the remaining SHIP blocker for YouTube
-     (`…/auth/youtube` is a sensitive scope: needs homepage, privacy policy,
-     domain verification and a demo video — not the security assessment).
+   - **CORRECTED 2026-09-21 by looking at the console instead of the note.** The
+     consent screen is NOT in Testing — publishing status is **In production**,
+     and has been. So the "refresh tokens expire in 7 days" consequence never
+     applied either. The REAL cause of "Google hasn't verified this app" was
+     that **Data Access listed no scopes at all** — not sensitive, not
+     restricted, none — while the app requests `…/auth/youtube` at runtime. The
+     Audience page says it in as many words: "If your users are seeing the
+     'unverified app' screen, it is because your OAuth request includes
+     additional scopes that haven't been approved." An undeclared scope is an
+     unapproved scope.
+     **Done 2026-09-21**: the scope is declared with a written justification,
+     the app logo (the 1902 Méliès still, 120x120 from the app icon) is
+     uploaded, and BRANDING VERIFICATION is submitted — an automated check
+     Google says takes up to five minutes. Home page, privacy policy,
+     authorized domain and developer contact were already correct.
+     **What remains is the DATA-ACCESS review**, which is a human one and needs
+     a demo video on YouTube showing the consent flow. Google's own guidance:
+     do not record it against production traffic — use a staging route or a
+     separate project, and the unverified screen is expected to appear in the
+     video.
    - **Continuity camera can now be paired FROM the go-live sheet**
      (`continuityDevicePicker`, tvOS 17+). Owner paired a phone successfully;
      the microphone needed the audio session raised BEFORE Continuity is asked,
