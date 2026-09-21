@@ -10,6 +10,11 @@ import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material.icons.filled.Groups
+import app.archivewatch.android.ui.JoinRoomDialog
+import app.archivewatch.android.studio.StudioSyncFollower
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Tab
 import androidx.compose.material3.ScrollableTabRow
@@ -21,6 +26,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.produceState
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -57,6 +63,8 @@ import kotlinx.coroutines.launch
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun LibraryScreen(container: AppContainer, nav: Nav) {
+    var joining by remember { mutableStateOf(false) }
+    val joinScope = rememberCoroutineScope()
     val dbVersion by container.catalog.dbVersion.collectAsState()
     val userChanges by container.userState.changes.collectAsState()
     var tabIndex by remember { mutableIntStateOf(0) }
@@ -82,10 +90,37 @@ fun LibraryScreen(container: AppContainer, nav: Nav) {
         value = db.itemsByIDs(container.userState.history().map { it.archiveID })
     }
 
+    if (joining) {
+        JoinRoomDialog(
+            onDismiss = { joining = false },
+            onJoined = { code, filmID ->
+                joining = false
+                // The player is the one place an ExoPlayer exists, so the code
+                // waits there — the same hand-off macOS, tvOS and iOS use.
+                StudioSyncFollower.pending = code
+                joinScope.launch {
+                    val db = container.catalog.awaitDb()
+                    db.itemsByIDs(listOf(filmID)).firstOrNull()
+                        ?.let { nav.push(Route.Detail(it.archiveID)) }
+                }
+            },
+        )
+    }
+
     Scaffold(
         topBar = {
             TopAppBar(
                 title = { Text("Library") },
+                // JOIN A ROOM (§11.9). The app bar rather than a sixth bottom
+                // tab: the bar already carries five, and this screen's own tab
+                // row had to become scrollable because five labels wrapped on
+                // the owner's Pixel. It needs no camera (§11.10) — Decision
+                // 132 gates HOSTING, and a joiner hosts nothing.
+                actions = {
+                    IconButton(onClick = { joining = true }) {
+                        Icon(Icons.Filled.Groups, contentDescription = "Join a Watch Together room")
+                    }
+                },
                 colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = MaterialTheme.colorScheme.background,
                 ),

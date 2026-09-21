@@ -151,8 +151,8 @@ whole point:
 | **macOS** | ✅ shipped — Watch Together ▸ Start a room, code shown to read aloud | ✅ shipped — Watch Together ▸ Join a room |
 | **tvOS** | 🚫 the broadcast half needs a camera (Decision 132) | ✅ **shipped** — a sidebar row and a focus grid, no keyboard |
 | **iOS / iPadOS** | ⏳ not built | ✅ **shipped** — a toolbar item on Library, not a sixth scope (the picker is at its measured width limit) |
-| **Android phone** | ⏳ not built | ⏳ not built |
-| **Android TV / Fire TV** | 🚫 same as tvOS | ⏳ not built, and ALLOWED — §11.10 |
+| **Android phone** | ⏳ not built | ✅ **shipped** — the Library app bar, not a sixth tab (the bottom bar carries five) |
+| **Android TV / Fire TV** | 🚫 same as tvOS | ⏳ not built, and ALLOWED — §11.10. The client and follower are shared with the phone; only a ten-foot entry is missing |
 | **Web** | 🚫 cannot broadcast | ✅ **shipped** — `/together/#code-film` forwards into the hash router and the `<video>` follows the room |
 
 **Joining needs no camera and no microphone**, which is why a television —

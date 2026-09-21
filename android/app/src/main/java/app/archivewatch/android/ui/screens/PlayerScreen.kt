@@ -78,6 +78,7 @@ import androidx.media3.exoplayer.upstream.DefaultLoadErrorHandlingPolicy
 import androidx.media3.exoplayer.upstream.LoadErrorHandlingPolicy
 import androidx.media3.ui.PlayerView
 import app.archivewatch.android.studio.StudioController
+import app.archivewatch.android.studio.StudioSyncFollower
 import app.archivewatch.android.ui.StudioPanel
 import app.archivewatch.android.ui.StudioReadout
 import app.archivewatch.android.BuildConfig
@@ -302,8 +303,29 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
     }
 
     // Resume when 10s < saved position < 95% of duration. Channel lineups
+    // FOLLOW A ROOM (§11), if one was joined from Library. Here because this
+    // is where the ExoPlayer exists — the same reason every other Studio hook
+    // is where it is. Everything after this is silent (§11.2a): the film does
+    // what the host's film is doing and nobody is asked anything.
+    //
+    // It runs BEFORE the resume effect below and disables it, because a room
+    // says where the film is and a saved position says where THIS viewer left
+    // it — and in a room the host's answer is the only one that matters.
+    val followScope = rememberCoroutineScope()
+    var followingRoom by remember { mutableStateOf(false) }
+    LaunchedEffect(spec.id) {
+        val code = StudioSyncFollower.pending ?: return@LaunchedEffect
+        StudioSyncFollower.pending = null
+        followingRoom = true
+        StudioSyncFollower.join(followScope, player, code)
+    }
+    DisposableEffect(Unit) {
+        onDispose { if (followingRoom) StudioSyncFollower.stop(player) }
+    }
+
     // skip this (join-in-progress beats per-title resume).
     LaunchedEffect(spec.id) {
+        if (followingRoom) return@LaunchedEffect
         if (!spec.persistProgress || spec.startPositionMs > 0) return@LaunchedEffect
         container.userState.progressFor(spec.id)?.let { saved ->
             if (saved.isResumable) player.seekTo(saved.positionMs)
