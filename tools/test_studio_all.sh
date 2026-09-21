@@ -236,6 +236,13 @@ swift_case "8.27 film sync" ArchiveWatch/ArchiveWatch/Studio/StudioSync.swift to
 swift_case "8.28 room codes" ArchiveWatch/ArchiveWatch/Studio/StudioRoom.swift tools/test_studio_room.swift
 # The Worker and the app must normalise a code IDENTICALLY, or a code read
 # aloud reaches a different room depending on which end typed it.
+printf '\n=== %s\n' "8.34 room alphabet parity"
+if python3 tools/test_room_alphabet_parity.py; then
+  row "8.34 alphabet parity" PASS ""; PASS=$((PASS+1))
+else
+  row "8.34 alphabet parity" FAIL "see output"; FAIL=$((FAIL+1))
+fi
+
 printf '\n=== %s\n' "8.32 web room client"
 if node tools/test_together_web.mjs; then
   row "8.32 web room client" PASS ""; PASS=$((PASS+1))

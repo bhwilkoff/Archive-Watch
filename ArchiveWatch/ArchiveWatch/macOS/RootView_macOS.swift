@@ -396,7 +396,7 @@ private struct WatchTogetherLanding: View {
                 Image(systemName: "person.2.wave.2.fill")
                     .font(.system(size: 60)).foregroundStyle(.tint)
                 Text("Watch Together").font(.largeTitle.bold())
-                Text("Watch a public-domain film with other people — in a call, in front of an audience, or both at once. Your Mac is the only device that can do all three.")
+                Text(WatchTogetherHere.summary)
                     .font(.title3).foregroundStyle(.secondary)
                     .multilineTextAlignment(.center).frame(maxWidth: 520)
 
@@ -470,15 +470,15 @@ private struct WatchTogetherLanding: View {
                         .multilineTextAlignment(.center).frame(maxWidth: 520)
                 }
 
-                // The three, named (Decision 131). The names are binding and
-                // a fourth phrase may not be invented for one of them.
+                // ONLY WHAT THIS DEVICE CAN DO. Owner: "You shouldn't
+                // advertise features that don't exist on the platform you are
+                // currently on." So the list is DERIVED rather than written —
+                // five surfaces each describing the feature in their own words
+                // is five chances to promise something that is not here.
                 VStack(alignment: .leading, spacing: 14) {
-                    mode("With Friends", "person.2",
-                         "A SharePlay call with the film in sync for everyone. Start it from the player.")
-                    mode("With the World", "dot.radiowaves.left.and.right",
-                         "A live broadcast to YouTube or Twitch, with your camera and microphone over the film.")
-                    mode("With Friends and the World", "person.3",
-                         "Both: you are on Zoom, Meet or FaceTime with your friends, and the Studio mixes that conversation into the broadcast. Pick the app under Inputs.")
+                    ForEach(WatchTogetherHere.modes) { m in
+                        mode(m.title, m.systemImage, m.detail)
+                    }
                 }
                 .frame(maxWidth: 520, alignment: .leading)
                 .padding(.top, 6)

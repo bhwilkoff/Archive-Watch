@@ -35,8 +35,21 @@ struct JoinRoomTV: View {
     var body: some View {
         VStack(spacing: 34) {
             VStack(spacing: 10) {
-                Text("Join a room").font(.largeTitle.bold())
-                Text("Ask the host to read out their four-character code. You do not need a camera or a microphone — you are watching along, and the conversation is on the call you are already on.")
+                Text("Watch Together").font(.largeTitle.bold())
+                // WHAT THIS DEVICE CAN DO, and nothing else. Owner: "You
+                // shouldn't advertise features that don't exist on the
+                // platform you are currently on, but you should definitely be
+                // able to share what the current platform can do." An Apple TV
+                // can broadcast (it borrows an iPhone as camera and mic) and
+                // can join; it cannot START a SharePlay call and cannot mix a
+                // call's audio, and neither absence is mentioned, because an
+                // explanation of something unavailable is still an advert for
+                // it.
+                Text(WatchTogetherHere.summary)
+                    .font(.title3).foregroundStyle(.secondary)
+                    .multilineTextAlignment(.center)
+                    .frame(maxWidth: 900)
+                Text("Ask the host to read out their four-character code.")
                     .font(.title3).foregroundStyle(.secondary)
                     .multilineTextAlignment(.center)
                     .frame(maxWidth: 900)

@@ -38,7 +38,13 @@ struct JoinRoomSheet_iOS: View {
     var body: some View {
         NavigationStack {
             VStack(spacing: 20) {
-                Text("Ask the host to read out their four-character code. You do not need a camera or a microphone — you are watching along, and the conversation is on the call you are already on.")
+                // What THIS device can do, derived rather than written, so
+                // no surface can drift into advertising what it has not got.
+                Text(WatchTogetherHere.summary)
+                    .font(.callout).foregroundStyle(.secondary)
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal)
+                Text("Ask the host to read out their four-character code.")
                     .font(.callout).foregroundStyle(.secondary)
                     .multilineTextAlignment(.center)
                     .padding(.horizontal)

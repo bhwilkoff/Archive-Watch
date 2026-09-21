@@ -986,6 +986,47 @@ scrub bar, say, or reactions. Firebase RTDB also has a REST + server-sent
 events interface usable from plain `URLSession` with no SDK at all, which
 would be the way in if that day comes.
 
+### §11.13 ROOMS EXIST TO SERVE A LIVE STREAM, and a surface says only what THIS device can do
+
+*Owner, 2026-09-21, answering whether a plain room should be hostable
+everywhere: "I think it really only makes sense for people to coordinate calls
+across platforms for the purpose of a live stream. I don't want to confuse the
+issue, so let's make it super clear what 'Watch Together' means on each
+platform (to the user). You shouldn't advertise features that don't exist on
+the platform you are currently on, but you should definitely be able to share
+what the current platform can do."*
+
+**So hosting stays where the broadcast is.** A room hosted with no broadcast
+would be cross-platform "With Friends" by another route, and that is a fourth
+thing wearing a name Decision 131 binds. It is not built and should not be:
+the room exists so the people in a call can watch in step with a show that is
+going out, and without the show it is a different product.
+
+**And this SHARPENS Decision 131.** 131 said a surface must state which of the
+three a device can do *and why it cannot do the others*. The owner's rule is
+narrower and better: **do not put a feature in front of somebody who cannot use
+it.** An explanation of something unavailable is still an advertisement for it,
+and on a device that will never gain the hardware it is a list of things this
+box is worse at. 131's reasoning still holds for a capability a device COULD
+have and currently lacks — an unconfigured sign-in, a camera not yet permitted
+— which is Decision 128's rule and unchanged.
+
+**`WatchTogetherHere` is the mechanism, and it is a TYPE rather than a
+paragraph per platform.** Five surfaces each describing the feature in their
+own words is five chances to promise something that is not there. A surface
+asks what is true and renders only that:
+
+| | With Friends | With the World | …and the World | Join a room |
+|---|---|---|---|---|
+| macOS | ✅ | ✅ | ✅ | ✅ |
+| iOS | ✅ | ✅ | 🚫 no process tap | ✅ |
+| tvOS | 🚫 no `GroupActivitySharingController` | ✅ via a Continuity iPhone | 🚫 | ✅ |
+| Android, web, TV boxes | 🚫 | 🚫 | 🚫 | ✅ |
+
+The 🚫 rows are what the TABLE records; they are what a surface must NOT say.
+A television's Watch Together screen now opens with what an Apple TV can
+actually do and never mentions the two it cannot.
+
 ### §11.7 What would have to be proved before it ships
 
 Not built, and none of this is a measurement yet. In this feature's own terms
