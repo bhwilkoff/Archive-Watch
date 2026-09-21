@@ -353,8 +353,22 @@ public struct StudioHealth: Sendable, Equatable {
 /// Defined once and used by every Apple entry point, because "one surface
 /// fixed, siblings not" has been the recurring defect in this feature.
 extension StudioEngine.Configuration {
+    /// The ONE place the host's output choices reach the engine — Decision
+    /// 133: a control is proved where its value lands.
+    mutating func applyOutputSettings() {
+        width = StudioOutputSettings.width
+        height = StudioOutputSettings.height
+        frameRate = StudioOutputSettings.frameRate
+        videoBitrate = StudioOutputSettings.bitrateKbps * 1_000
+    }
+
     static func benchDoored() -> StudioEngine.Configuration {
         var c = StudioEngine.Configuration()
+        // THE HOST'S OWN SETTINGS FIRST (§D4), the bench door second — the
+        // door is a DEBUG override and must be able to override, but with
+        // nothing set it must not quietly reinstate the hardcoded defaults
+        // the host just changed.
+        c.applyOutputSettings()
         #if DEBUG
         if let kbps = ProcessInfo.processInfo.environment["AW_STUDIO_BITRATE"]
             .flatMap(Int.init), kbps > 0 {
@@ -412,7 +426,10 @@ public actor StudioEngine {
     public private(set) var layout: StudioLayout = .corner
     public private(set) var overlay = StudioOverlay()
 
-    private let config: Configuration
+    // `var`, because §D4 lets the host change the bitrate mid-show and §6.5's
+    // thermal RECOVERY restores to `config.videoBitrate` — so a stale value
+    // here would quietly undo the host's choice minutes after they made it.
+    private var config: Configuration
     private let publisher: RTMPPublisher
     private let renderer: ProgramRenderer
     private var encoder: H264Encoder?
@@ -480,6 +497,32 @@ public actor StudioEngine {
 
     public func setLayout(_ l: StudioLayout) { layout = l; renderer.layout = l }
     public func setOverlay(_ o: StudioOverlay) { overlay = o; renderer.overlay = o }
+
+    /// THE ONE OUTPUT SETTING THAT MAY CHANGE MID-SHOW (§D4).
+    ///
+    /// Resolution and frame rate cannot: an RTMP ingest will not accept a
+    /// change to either mid-publish, which is the correction §6.5 already
+    /// carries. The bitrate can, and the encoder already does it for thermal
+    /// steps, so a host asking for it is the same path §6.5 uses.
+    ///
+    /// `config.videoBitrate` is updated too, or the next thermal RECOVERY
+    /// would restore the OLD rate — §6.5 restores to `config.videoBitrate`,
+    /// so leaving it stale would quietly undo the host's choice minutes later.
+    @discardableResult
+    public func setVideoBitrate(_ bps: Int) -> Bool {
+        guard bps > 0 else { return false }
+        config.videoBitrate = bps
+        await_publisherBudget(bps)
+        guard let encoder else { return false }
+        let ok = encoder.setBitrate(bps)
+        if ok { health.videoBitrateNow = bps }
+        return ok
+    }
+
+    private func await_publisherBudget(_ bps: Int) {
+        Task { await publisher.setQueueBudget(videoBitrate: bps,
+                                              audioBitrate: config.audioBitrate) }
+    }
 
     /// THE PROVENANCE LINE LASTS 20 SECONDS, and the ENGINE enforces it.
     ///

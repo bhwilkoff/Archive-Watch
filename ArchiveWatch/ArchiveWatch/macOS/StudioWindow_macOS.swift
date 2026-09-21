@@ -424,13 +424,64 @@ struct StudioWindowView: View {
 
             Divider().padding(.vertical, 2)
 
-            // THE ENGINE'S OWN NUMBERS (§D4). Choosable settings are step 3;
-            // what is here is what the engine is actually doing, which is the
-            // half that may never be editable.
+            // THE HOST'S SETTINGS (§D4), with the engine's own numbers below
+            // them. Resolution and frame rate are disabled while live WITH
+            // THE REASON ON SCREEN rather than hidden: an RTMP ingest will
+            // not accept a change to either mid-publish, which is the
+            // correction §6.5 already carries. The bitrate stays live,
+            // because the encoder genuinely supports it — it is the same path
+            // a thermal step uses.
+            VStack(alignment: .leading, spacing: 8) {
+                Picker("Size", selection: Binding(
+                    get: { StudioOutputSettings.selectedSize.id },
+                    set: { id in
+                        if let s = StudioOutputSettings.sizes.first(where: { $0.id == id }) {
+                            StudioOutputSettings.width = s.width
+                            StudioOutputSettings.height = s.height
+                        }
+                    })) {
+                    ForEach(StudioOutputSettings.sizes) { Text($0.label).tag($0.id) }
+                }
+                .disabled(studio.isLive)
+
+                Picker("Frame rate", selection: Binding(
+                    get: { StudioOutputSettings.frameRate },
+                    set: { StudioOutputSettings.frameRate = $0 })) {
+                    ForEach(StudioOutputSettings.frameRates, id: \.self) { Text("\($0) fps").tag($0) }
+                }
+                .disabled(studio.isLive)
+
+                Picker("Bitrate", selection: Binding(
+                    get: { StudioOutputSettings.bitrateKbps },
+                    set: { kbps in
+                        StudioOutputSettings.bitrateKbps = kbps
+                        // AND IT LANDS AT THE ENCODER, not just in a
+                        // preference (Decision 133).
+                        Task { await studio.setVideoBitrate(kbps * 1_000) }
+                    })) {
+                    ForEach(StudioOutputSettings.bitratesKbps, id: \.self) {
+                        Text("\($0 / 1000) Mbps").tag($0)
+                    }
+                }
+
+                if studio.isLive {
+                    Text("Size and frame rate cannot change during a broadcast — an RTMP ingest will not accept it. The bitrate can.")
+                        .font(.caption2).foregroundStyle(.secondary)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
+            }
+
+            Divider().padding(.vertical, 2)
+
+            // WHAT THE ENGINE IS ACTUALLY DOING, beside what was asked for.
             stat("Picture", value: String(format: "%.1f ms per frame · %d fps",
                                           health.averageRenderMilliseconds,
                                           health.encodedFramesPerSecond))
-            stat("Bitrate", value: health.videoBitrateNow > 0
+            // ASKED vs ACTUAL, and the difference is the point (§D4): §6.5's
+            // thermal step moves the real rate, and a single number would
+            // hide that it had.
+            stat("Bitrate asked", value: "\(StudioOutputSettings.bitrateKbps) kbps")
+            stat("Bitrate actual", value: health.videoBitrateNow > 0
                  ? "\(health.videoBitrateNow / 1000) kbps"
                  : "\(measuredKbps) kbps measured")
             stat("Encoder", value: health.encoderIsHardware.map {

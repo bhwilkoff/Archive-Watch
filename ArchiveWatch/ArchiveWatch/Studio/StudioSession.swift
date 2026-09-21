@@ -613,6 +613,8 @@ public final class StudioSession {
     }
 
     public func setLayout(_ layout: StudioLayout) async { await engine?.setLayout(layout) }
+    /// §D4: the bitrate is the only output setting a live show accepts.
+    public func setVideoBitrate(_ bps: Int) async { await engine?.setVideoBitrate(bps) }
     public func setOverlay(_ overlay: StudioOverlay) async { await engine?.setOverlay(overlay) }
     /// One call, because that is the shape `StudioEngine` offers — every
     /// field optional so the panel can ride a single fader without restating

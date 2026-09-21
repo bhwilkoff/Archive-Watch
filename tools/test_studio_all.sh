@@ -144,6 +144,11 @@ DEC=ArchiveWatch/ArchiveWatch/Studio/FilmAudioDecoder.swift
 SHIM=tools/harness_awdiag.swift
 PUB=ArchiveWatch/ArchiveWatch/Studio/RTMPPublisher.swift
 ENG=ArchiveWatch/ArchiveWatch/Studio/StudioEngine.swift
+# $ENG's `Configuration.applyOutputSettings()` reads the host's §D4 choices, so
+# every case that compiles $ENG needs this too — six cases failed to build the
+# moment it landed, which is the same "every case that compiles $ENG needs
+# this" note the chat reader already earned below.
+OUT=ArchiveWatch/ArchiveWatch/Studio/StudioOutputSettings.swift
 AUD=ArchiveWatch/ArchiveWatch/Studio/StudioAudio.swift
 OVL=ArchiveWatch/ArchiveWatch/Studio/StudioOverlayRenderer.swift
 # The engine READS chat itself since the reader moved out of StudioSession
@@ -158,21 +163,22 @@ MEDIA=tools/StudioTestMedia.swift
 
 swift_case "8.1 rtmp publish"      "$PUB" "$MEDIA" "$SHIM" tools/test_rtmp_publish.swift
 swift_case "8.4 rtmp reconnect"    "$PUB" "$MEDIA" "$SHIM" tools/test_rtmp_reconnect.swift
-swift_case "8.5 thermal"           "$PUB" "$ENG" "$AUD" "$OVL" "$CHAT" "$SHIM" tools/test_studio_thermal.swift
-swift_case "8.6 back-pressure"     "$PUB" "$ENG" "$AUD" "$OVL" "$CHAT" "$SHIM" tools/test_studio_backpressure.swift
-swift_case "8.15 audio ring FIFO"  "$PUB" "$ENG" "$AUD" "$OVL" "$CHAT" "$SHIM" tools/test_studio_ring.swift
-swift_case "8.16 programme rate"   "$PUB" "$ENG" "$AUD" "$OVL" "$CHAT" "$DEC" "$SHIM" tools/test_studio_rate.swift
-swift_case "8.17 tap resampler"    "$PUB" "$ENG" "$AUD" "$OVL" "$CHAT" "$SHIM" tools/test_studio_resample.swift
+swift_case "8.5 thermal"           "$PUB" "$ENG" "$OUT" "$AUD" "$OVL" "$CHAT" "$SHIM" tools/test_studio_thermal.swift
+swift_case "8.6 back-pressure"     "$PUB" "$ENG" "$OUT" "$AUD" "$OVL" "$CHAT" "$SHIM" tools/test_studio_backpressure.swift
+swift_case "8.15 audio ring FIFO"  "$PUB" "$ENG" "$OUT" "$AUD" "$OVL" "$CHAT" "$SHIM" tools/test_studio_ring.swift
+swift_case "8.16 programme rate"   "$PUB" "$ENG" "$OUT" "$AUD" "$OVL" "$CHAT" "$DEC" "$SHIM" tools/test_studio_rate.swift
+swift_case "8.17 tap resampler"    "$PUB" "$ENG" "$OUT" "$AUD" "$OVL" "$CHAT" "$SHIM" tools/test_studio_resample.swift
 # The camera-placement settings, asserted against what their LABELS promise.
 # Owner 2026-09-20: "I'm not sure the different settings for where your camera
 # will go ... are actually working as they should." They were not: theatre was
 # corner moved 64 px down, same 332x187 tile in the same corner.
-swift_case "8.22 camera placement" "$PUB" "$ENG" "$AUD" "$OVL" "$CHAT" "$SHIM" tools/test_studio_layouts.swift
+swift_case "8.22 camera placement" "$PUB" "$ENG" "$OUT" "$AUD" "$OVL" "$CHAT" "$SHIM" tools/test_studio_layouts.swift
 # The camera-stall recovery RULE, which lived inside tvOS's own view loop and
 # so existed on exactly one platform while PARITY said "no recovery yet" for
 # the other two. No $ENG: the rule is a pure value type on purpose.
 swift_case "8.23 camera-stall recovery" ArchiveWatch/ArchiveWatch/Studio/StudioCameraStall.swift tools/test_studio_camerastall.swift
 swift_case "8.24 device selection" ArchiveWatch/ArchiveWatch/Studio/StudioDevices.swift tools/test_studio_devices.swift
+swift_case "8.25 output settings" ArchiveWatch/ArchiveWatch/Studio/StudioOutputSettings.swift tools/test_studio_output.swift
 # No $SHIM: StudioVoiceProbe calls no awdiag, and adding sources a case does
 # not need is how three cases stopped compiling for a session (§9.lllll).
 swift_case "8.18 voice frame slices" ArchiveWatch/ArchiveWatch/Studio/StudioVoiceProbe.swift tools/test_studio_voiceframe.swift
