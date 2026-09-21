@@ -985,6 +985,84 @@
     "replies": 0,
     "quotes": 0
    }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mvjhtykntj2i",
+   "platform": "bluesky",
+   "id": "BillSpragueCollection-WhatPriceGoofy-CharleyChase",
+   "slot": "viewer-said",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-09-15T01:27:10.140358+00:00",
+   "sampled": "2026-09-21T20:04:36.624512+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mvlcdy35l425",
+   "platform": "bluesky",
+   "id": "thegoldenfish",
+   "slot": "viewer-said",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-09-15T18:54:08.147861+00:00",
+   "sampled": "2026-09-21T20:04:36.624512+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117276571441826061",
+   "platform": "mastodon",
+   "id": "thegoldenfish",
+   "slot": "viewer-said",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-09-15T18:54:08.147861+00:00",
+   "sampled": "2026-09-21T20:04:36.624512+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mvxrpzq4ce2g",
+   "platform": "bluesky",
+   "id": "preserve",
+   "slot": "from-the-vaults",
+   "format": "card",
+   "window": "24h",
+   "posted": "2026-09-20T18:01:23.234790+00:00",
+   "sampled": "2026-09-21T20:04:36.624512+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 1,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117304674738446419",
+   "platform": "mastodon",
+   "id": "preserve",
+   "slot": "from-the-vaults",
+   "format": "card",
+   "window": "24h",
+   "posted": "2026-09-20T18:01:23.234790+00:00",
+   "sampled": "2026-09-21T20:04:36.624512+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
   }
  ]
 }
