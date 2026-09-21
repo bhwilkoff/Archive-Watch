@@ -116,6 +116,22 @@ emulators) · `docs/CAPTIONS.md` · `docs/SHAREPLAY.md` ·
      project — and that the unverified-app screen is EXPECTED to appear in it.
      The recording is a job for the Mac; the UPLOAD is the owner's, since it
      goes on their channel.
+     **RECORDED 2026-09-21: `~/Desktop/ArchiveWatch-OAuth-demo.mp4`** (73 s,
+     1422x800). It shows the Detail page, the film playing, the Go Live sheet
+     with the rights line, Apple's "Archive Watch Wants to Use
+     accounts.google.com", Google's unverified-app screen, Advanced -> "Go to
+     Archive Watch (unsafe)", the consent screen and Continue. The account
+     chooser is deliberately cut out — it lists the owner's family's email
+     addresses and must not reach a file Google reviews.
+     **ONE CAVEAT BEFORE SUBMITTING**: the consent screen collapsed the scope
+     into "Archive Watch already has some access" because that brand account
+     had already granted `auth/youtube`, so the video does not print the scope
+     in words. If a reviewer bounces it, revoke Archive Watch at
+     myaccount.google.com/permissions and re-record that ~20 seconds — the
+     scope line renders in full on a fresh grant (seen today on another
+     account). Use **benwilkoff@gmail.com**: the owner confirms the channels
+     approved for live streaming (Learning is Change, Archive Watch) are
+     there, not on ben@learningischange.com.
    - **Continuity camera can now be paired FROM the go-live sheet**
      (`continuityDevicePicker`, tvOS 17+). Owner paired a phone successfully;
      the microphone needed the audio session raised BEFORE Continuity is asked,
@@ -152,10 +168,24 @@ emulators) · `docs/CAPTIONS.md` · `docs/SHAREPLAY.md` ·
 7. **Watch Together Studio — the PUBLIC half is blocked on the owner ON iOS;
    tvOS and macOS also need CODE.** The three one-time steps (a/b/c below) are
    what stands between the feature and a real broadcast **from an iPhone**.
-   **macOS can now sign in and go live** (§9.ttt, 2026-09-18): the shared
-   sign-in row moved into `Studio/`, Rule B13g's missing sheet content built,
-   and macOS given a real `ASWebAuthenticationSession` anchor (it had been
-   handed an empty `NSWindow`). **tvOS still cannot** — it has the engine, the
+   **CORRECTED 2026-09-21: macOS COULD NOT SIGN IN AT ALL until today, and
+   this line said otherwise since 09-18.** It was true of the CODE — the
+   shared sign-in row, Rule B13g's sheet content, a real
+   `ASWebAuthenticationSession` anchor — and false of the product, which is
+   Decision 133's defect in its purest form. Two blockers, both found by
+   running the go-live sheet on a Mac for the first time since the ids were
+   registered: (a) `macOS/Info-macOS.plist` never declared
+   `YOUTUBE_CLIENT_ID`/`TWITCH_CLIENT_ID`, so there was nothing for the build
+   setting to substitute into and `info("YOUTUBE_CLIENT_ID")` returned nil on
+   every Mac build ever made (`plutil -p` on the built app found no key); it
+   also lacked the OAuth redirect scheme, which is the BUNDLE ID (Decision
+   128). (b) With those fixed, pressing Continue at Google **killed the app** —
+   `ASWebAuthenticationSession` is not `NS_SWIFT_UI_ACTOR` in the SDK, so its
+   completion closure inherited main-actor isolation from our type and Swift 6
+   emitted a dynamic check; iOS and tvOS deliver on the main queue so it passed
+   for a year, macOS delivers on an XPC reply queue and it TRAPPED.
+   `{ @Sendable ... }` fixes it. **The Mac has now completed a sign-in**
+   (v1.42.441–442). **tvOS still cannot** — it has the engine, the
    gates and a verified hardware encoder, and no go-live surface, because Rule
    8.8a is PROPOSED with three questions reserved for the owner (§9.ooo).
    Everything else on them is real and measured — which is why it went
@@ -366,7 +396,18 @@ emulators) · `docs/CAPTIONS.md` · `docs/SHAREPLAY.md` ·
    decided DURING a show — and that putting it in the mixer (A) spends a rule
    that was expensive to learn. The WORDS are not in question either way.
 
-13-NEW. **WHEN THE FILM ENDS, THE BROADCAST DOES NOT — AND NOBODY IS TOLD.**
+13-CLOSED 2026-09-21 (option A). Every Apple surface now says "the film has
+   ended — your audience is watching a still", and macOS offers the
+   "Thanks for watching" card as a BUTTON rather than imposing it, because the
+   owner's rule is that the host decides when a show ends. §9.bbbbbb thought
+   the hard part was telling "ended" from "buffering" via `filmFramesPulled`;
+   it dissolves by asking the PLAYER (`didPlayToEndTimeNotification`) instead
+   of a counter. It lives in `StudioEngine.attachFilm` — the one function
+   macOS, iOS and tvOS all call — because I wrote it into `StudioSession`
+   first, where it would have been inert on two platforms out of three.
+   **Android is not covered.** Original item follows.
+
+13-orig. **WHEN THE FILM ENDS, THE BROADCAST DOES NOT — AND NOBODY IS TOLD.**
    Measured 2026-09-20 on an iPhone: a 60-second film, a 97-second broadcast,
    and the last 37 seconds are the film's FINAL FRAME frozen, with the camera
    tile and lower third live over it and `state=LIVE fps=30` throughout.
@@ -377,6 +418,33 @@ emulators) · `docs/CAPTIONS.md` · `docs/SHAREPLAY.md` ·
    `docs/WATCH-TOGETHER.md` §9.bbbbbb; the hard part in any of them is telling
    "ended" from "buffering", where a false positive is worse than today's
    silence.
+
+14-NEW. **WHAT A SIGNED, SANDBOXED APP GETS FROM A PROCESS TAP IS UNKNOWN.**
+   The Studio's fourth input — a call's audio, the piece that makes "With
+   Friends and the World" real — is built and tested (§8.26), and §8.21 proved
+   the mechanism at 82 dB of isolation. But §8.21 ran as a COMMAND-LINE TOOL
+   under the terminal's grants, which is exactly Decision 130's "a harness can
+   prove the logic and say nothing about where the logic RUNS". A process tap
+   has its own TCC service, which the microphone entitlement does not cover;
+   `NSAudioCaptureUsageDescription` is now in the macOS Info.plist. **Two
+   minutes to settle**: Watch Together -> Open the Studio -> pick an app under
+   Inputs, and `StudioSession.callProblem` prints whatever macOS says. It is
+   written to say it rather than leave a silent channel.
+
+15-NEW. **THE ANDROID MARQUEE HAD NO RIGHTS GATE OF ITS OWN** (found and fixed
+   2026-09-21 from the owner seeing "Dollar Store Killers", a 2025 film, on the
+   hero row). Its hero pool asked `browse(homeOnly = true)` and so inherited
+   HOME's rule, which admits `presumed_pd` and `safe_archive_license` — both
+   excluded from the marquee on every Apple surface since 09-20. It had been
+   headlining **The Pink Panther, The Grapes of Wrath, Gentlemen Prefer
+   Blondes, Frankenstein (1931), Jason and the Argonauts**: the owner's 09-20
+   complaint, only ever half-answered. Fixed in SQL on Android (it could not be
+   fixed in Kotlin — `browse` selects `liteCols`, which carries no
+   `rightsBucket`), and a modern-year rule added on all four platforms.
+   **STILL OPEN AND OWNER-RESERVED**: 347 modern-year items sit in KEEP buckets
+   on `rightsEvidence: "source_unverified"`, including **Taxi Season 1** (1980)
+   and Die Harald Schmidt Show (1995). That is the same class as the television
+   audit below and is a Decision 027 content call.
 
 9. **Fireplace TV is off limits for testing** (owner 2026-09-17, mid-run: "I'm
    actively watching on it now"). Bedroom and Movie Room are fine — but both
