@@ -1,12 +1,12 @@
 {
   "schema": 1,
-  "updated_at": "2026-09-20T09:20:53Z",
+  "updated_at": "2026-09-21T09:49:19Z",
   "description": "Missing-episode queue: canonical episodes (from OMDb) that we don't yet have on Archive. Drained by tools/backfill_tv_episodes.py.",
   "stats": {
-    "total": 18165,
-    "wanted": 17942,
+    "total": 18201,
+    "wanted": 17978,
     "fulfilled": 223,
-    "series_with_gaps": 360
+    "series_with_gaps": 362
   },
   "wants": [
     {
@@ -23282,6 +23282,346 @@
       "episodeImdbID": "tt6348996",
       "status": "wanted",
       "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "captain-gallant-of-the-foreign-legion-1955",
+      "seriesTitle": "Captain Gallant of the Foreign Legion",
+      "season": 1,
+      "episode": 2,
+      "title": "Veils of Death",
+      "episodeImdbID": "tt0769009",
+      "status": "wanted",
+      "added_at": "2026-09-21T09:49:19Z"
+    },
+    {
+      "seriesID": "captain-gallant-of-the-foreign-legion-1955",
+      "seriesTitle": "Captain Gallant of the Foreign Legion",
+      "season": 1,
+      "episode": 4,
+      "title": "Tala's Secret",
+      "episodeImdbID": "tt0769007",
+      "status": "wanted",
+      "added_at": "2026-09-21T09:49:19Z"
+    },
+    {
+      "seriesID": "captain-gallant-of-the-foreign-legion-1955",
+      "seriesTitle": "Captain Gallant of the Foreign Legion",
+      "season": 1,
+      "episode": 8,
+      "title": "20 Fathoms Under the Desert",
+      "episodeImdbID": "tt0769004",
+      "status": "wanted",
+      "added_at": "2026-09-21T09:49:19Z"
+    },
+    {
+      "seriesID": "captain-gallant-of-the-foreign-legion-1955",
+      "seriesTitle": "Captain Gallant of the Foreign Legion",
+      "season": 1,
+      "episode": 10,
+      "title": "The Prayer Rug",
+      "episodeImdbID": "tt0769008",
+      "status": "wanted",
+      "added_at": "2026-09-21T09:49:19Z"
+    },
+    {
+      "seriesID": "captain-gallant-of-the-foreign-legion-1955",
+      "seriesTitle": "Captain Gallant of the Foreign Legion",
+      "season": 1,
+      "episode": 11,
+      "title": "The Golden Loop",
+      "episodeImdbID": "tt0536245",
+      "status": "wanted",
+      "added_at": "2026-09-21T09:49:19Z"
+    },
+    {
+      "seriesID": "captain-gallant-of-the-foreign-legion-1955",
+      "seriesTitle": "Captain Gallant of the Foreign Legion",
+      "season": 1,
+      "episode": 12,
+      "title": "Caravan Patrol",
+      "episodeImdbID": "tt0769005",
+      "status": "wanted",
+      "added_at": "2026-09-21T09:49:19Z"
+    },
+    {
+      "seriesID": "captain-gallant-of-the-foreign-legion-1955",
+      "seriesTitle": "Captain Gallant of the Foreign Legion",
+      "season": 1,
+      "episode": 27,
+      "title": "The Ransom",
+      "episodeImdbID": "tt0536247",
+      "status": "wanted",
+      "added_at": "2026-09-21T09:49:19Z"
+    },
+    {
+      "seriesID": "captain-gallant-of-the-foreign-legion-1955",
+      "seriesTitle": "Captain Gallant of the Foreign Legion",
+      "season": 1,
+      "episode": 28,
+      "title": "The Legion Is Our Home",
+      "episodeImdbID": "tt0536246",
+      "status": "wanted",
+      "added_at": "2026-09-21T09:49:19Z"
+    },
+    {
+      "seriesID": "captain-gallant-of-the-foreign-legion-1955",
+      "seriesTitle": "Captain Gallant of the Foreign Legion",
+      "season": 1,
+      "episode": 31,
+      "title": "The Hat",
+      "episodeImdbID": "tt0825798",
+      "status": "wanted",
+      "added_at": "2026-09-21T09:49:19Z"
+    },
+    {
+      "seriesID": "captain-gallant-of-the-foreign-legion-1955",
+      "seriesTitle": "Captain Gallant of the Foreign Legion",
+      "season": 1,
+      "episode": 33,
+      "title": "The Lost Caravan",
+      "episodeImdbID": "tt0825801",
+      "status": "wanted",
+      "added_at": "2026-09-21T09:49:19Z"
+    },
+    {
+      "seriesID": "captain-gallant-of-the-foreign-legion-1955",
+      "seriesTitle": "Captain Gallant of the Foreign Legion",
+      "season": 1,
+      "episode": 34,
+      "title": "Masquerade",
+      "episodeImdbID": "tt0825788",
+      "status": "wanted",
+      "added_at": "2026-09-21T09:49:19Z"
+    },
+    {
+      "seriesID": "captain-gallant-of-the-foreign-legion-1955",
+      "seriesTitle": "Captain Gallant of the Foreign Legion",
+      "season": 1,
+      "episode": 35,
+      "title": "The Clue of Herodotus",
+      "episodeImdbID": "tt0825794",
+      "status": "wanted",
+      "added_at": "2026-09-21T09:49:19Z"
+    },
+    {
+      "seriesID": "captain-gallant-of-the-foreign-legion-1955",
+      "seriesTitle": "Captain Gallant of the Foreign Legion",
+      "season": 1,
+      "episode": 37,
+      "title": "The Constance Missal",
+      "episodeImdbID": "tt0825795",
+      "status": "wanted",
+      "added_at": "2026-09-21T09:49:19Z"
+    },
+    {
+      "seriesID": "captain-gallant-of-the-foreign-legion-1955",
+      "seriesTitle": "Captain Gallant of the Foreign Legion",
+      "season": 2,
+      "episode": 1,
+      "title": "Gallant's New Post",
+      "episodeImdbID": "tt0825785",
+      "status": "wanted",
+      "added_at": "2026-09-21T09:49:19Z"
+    },
+    {
+      "seriesID": "captain-gallant-of-the-foreign-legion-1955",
+      "seriesTitle": "Captain Gallant of the Foreign Legion",
+      "season": 2,
+      "episode": 2,
+      "title": "Cuffy's Guides",
+      "episodeImdbID": "tt0825782",
+      "status": "wanted",
+      "added_at": "2026-09-21T09:49:19Z"
+    },
+    {
+      "seriesID": "captain-gallant-of-the-foreign-legion-1955",
+      "seriesTitle": "Captain Gallant of the Foreign Legion",
+      "season": 2,
+      "episode": 3,
+      "title": "The Long Night",
+      "episodeImdbID": "tt0825800",
+      "status": "wanted",
+      "added_at": "2026-09-21T09:49:19Z"
+    },
+    {
+      "seriesID": "captain-gallant-of-the-foreign-legion-1955",
+      "seriesTitle": "Captain Gallant of the Foreign Legion",
+      "season": 2,
+      "episode": 4,
+      "title": "Cuffy's Present",
+      "episodeImdbID": "tt0825783",
+      "status": "wanted",
+      "added_at": "2026-09-21T09:49:19Z"
+    },
+    {
+      "seriesID": "captain-gallant-of-the-foreign-legion-1955",
+      "seriesTitle": "Captain Gallant of the Foreign Legion",
+      "season": 2,
+      "episode": 5,
+      "title": "The Flaming Hoop",
+      "episodeImdbID": "tt0536244",
+      "status": "wanted",
+      "added_at": "2026-09-21T09:49:19Z"
+    },
+    {
+      "seriesID": "captain-gallant-of-the-foreign-legion-1955",
+      "seriesTitle": "Captain Gallant of the Foreign Legion",
+      "season": 2,
+      "episode": 6,
+      "title": "Rodeo",
+      "episodeImdbID": "tt0825792",
+      "status": "wanted",
+      "added_at": "2026-09-21T09:49:19Z"
+    },
+    {
+      "seriesID": "captain-gallant-of-the-foreign-legion-1955",
+      "seriesTitle": "Captain Gallant of the Foreign Legion",
+      "season": 2,
+      "episode": 7,
+      "title": "Fuzzy's Furlough",
+      "episodeImdbID": "tt0825784",
+      "status": "wanted",
+      "added_at": "2026-09-21T09:49:19Z"
+    },
+    {
+      "seriesID": "captain-gallant-of-the-foreign-legion-1955",
+      "seriesTitle": "Captain Gallant of the Foreign Legion",
+      "season": 2,
+      "episode": 8,
+      "title": "The Magic Lamp",
+      "episodeImdbID": "tt0825802",
+      "status": "wanted",
+      "added_at": "2026-09-21T09:49:19Z"
+    },
+    {
+      "seriesID": "captain-gallant-of-the-foreign-legion-1955",
+      "seriesTitle": "Captain Gallant of the Foreign Legion",
+      "season": 2,
+      "episode": 9,
+      "title": "A Private Affair",
+      "episodeImdbID": "tt0825779",
+      "status": "wanted",
+      "added_at": "2026-09-21T09:49:19Z"
+    },
+    {
+      "seriesID": "captain-gallant-of-the-foreign-legion-1955",
+      "seriesTitle": "Captain Gallant of the Foreign Legion",
+      "season": 2,
+      "episode": 10,
+      "title": "The Informer's Map",
+      "episodeImdbID": "tt0825799",
+      "status": "wanted",
+      "added_at": "2026-09-21T09:49:19Z"
+    },
+    {
+      "seriesID": "captain-gallant-of-the-foreign-legion-1955",
+      "seriesTitle": "Captain Gallant of the Foreign Legion",
+      "season": 2,
+      "episode": 12,
+      "title": "Guns for Sale",
+      "episodeImdbID": "tt0825786",
+      "status": "wanted",
+      "added_at": "2026-09-21T09:49:19Z"
+    },
+    {
+      "seriesID": "captain-gallant-of-the-foreign-legion-1955",
+      "seriesTitle": "Captain Gallant of the Foreign Legion",
+      "season": 2,
+      "episode": 13,
+      "title": "Shifting Sands",
+      "episodeImdbID": "tt0825793",
+      "status": "wanted",
+      "added_at": "2026-09-21T09:49:19Z"
+    },
+    {
+      "seriesID": "captain-gallant-of-the-foreign-legion-1955",
+      "seriesTitle": "Captain Gallant of the Foreign Legion",
+      "season": 2,
+      "episode": 14,
+      "title": "The Gift",
+      "episodeImdbID": "tt0825796",
+      "status": "wanted",
+      "added_at": "2026-09-21T09:49:19Z"
+    },
+    {
+      "seriesID": "captain-gallant-of-the-foreign-legion-1955",
+      "seriesTitle": "Captain Gallant of the Foreign Legion",
+      "season": 2,
+      "episode": 15,
+      "title": "Mystery Man of the Desert",
+      "episodeImdbID": "tt0825789",
+      "status": "wanted",
+      "added_at": "2026-09-21T09:49:19Z"
+    },
+    {
+      "seriesID": "captain-gallant-of-the-foreign-legion-1955",
+      "seriesTitle": "Captain Gallant of the Foreign Legion",
+      "season": 2,
+      "episode": 16,
+      "title": "Out of Bounds",
+      "episodeImdbID": "tt0825790",
+      "status": "wanted",
+      "added_at": "2026-09-21T09:49:19Z"
+    },
+    {
+      "seriesID": "captain-gallant-of-the-foreign-legion-1955",
+      "seriesTitle": "Captain Gallant of the Foreign Legion",
+      "season": 2,
+      "episode": 19,
+      "title": "The Third Person",
+      "episodeImdbID": "tt0825804",
+      "status": "wanted",
+      "added_at": "2026-09-21T09:49:19Z"
+    },
+    {
+      "seriesID": "captain-gallant-of-the-foreign-legion-1955",
+      "seriesTitle": "Captain Gallant of the Foreign Legion",
+      "season": 2,
+      "episode": 22,
+      "title": "Rescue",
+      "episodeImdbID": "tt0825791",
+      "status": "wanted",
+      "added_at": "2026-09-21T09:49:19Z"
+    },
+    {
+      "seriesID": "captain-gallant-of-the-foreign-legion-1955",
+      "seriesTitle": "Captain Gallant of the Foreign Legion",
+      "season": 2,
+      "episode": 23,
+      "title": "Lone Legionaire",
+      "episodeImdbID": "tt0825787",
+      "status": "wanted",
+      "added_at": "2026-09-21T09:49:19Z"
+    },
+    {
+      "seriesID": "captain-gallant-of-the-foreign-legion-1955",
+      "seriesTitle": "Captain Gallant of the Foreign Legion",
+      "season": 2,
+      "episode": 24,
+      "title": "Court Martial",
+      "episodeImdbID": "tt0825781",
+      "status": "wanted",
+      "added_at": "2026-09-21T09:49:19Z"
+    },
+    {
+      "seriesID": "captain-gallant-of-the-foreign-legion-1955",
+      "seriesTitle": "Captain Gallant of the Foreign Legion",
+      "season": 2,
+      "episode": 25,
+      "title": "The Man from Cairo",
+      "episodeImdbID": "tt0825803",
+      "status": "wanted",
+      "added_at": "2026-09-21T09:49:19Z"
+    },
+    {
+      "seriesID": "captain-gallant-of-the-foreign-legion-1955",
+      "seriesTitle": "Captain Gallant of the Foreign Legion",
+      "season": 2,
+      "episode": 26,
+      "title": "Too Many Suspects",
+      "episodeImdbID": "tt0825805",
+      "status": "wanted",
+      "added_at": "2026-09-21T09:49:19Z"
     },
     {
       "seriesID": "captain-n-the-game-master-1989",
@@ -53512,6 +53852,26 @@
       "status": "fulfilled",
       "added_at": "2026-06-02T08:32:33Z",
       "fulfilled_at": "2026-06-02T08:55:06Z"
+    },
+    {
+      "seriesID": "garrison-s-gorillas-1967",
+      "seriesTitle": "Garrison's Gorillas",
+      "season": 1,
+      "episode": 7,
+      "title": "The Deadly Masquerade",
+      "episodeImdbID": "tt0585884",
+      "status": "wanted",
+      "added_at": "2026-09-21T09:49:19Z"
+    },
+    {
+      "seriesID": "garrison-s-gorillas-1967",
+      "seriesTitle": "Garrison's Gorillas",
+      "season": 1,
+      "episode": 23,
+      "title": "The Plot to Kill",
+      "episodeImdbID": "tt0585892",
+      "status": "wanted",
+      "added_at": "2026-09-21T09:49:19Z"
     },
     {
       "seriesID": "gemini-man-1976",
