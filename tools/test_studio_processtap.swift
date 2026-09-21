@@ -19,6 +19,17 @@ func check(_ label: String, _ ok: Bool, _ detail: String = "") {
     if !ok { failures += 1 }
 }
 
+/// Exit 2, which `tools/test_studio_all.sh` reads as SKIP.
+///
+/// Used when a PRECONDITION of the measurement is absent rather than when the
+/// measurement fails — the difference matters because a red line that really
+/// means "somebody is using this Mac" teaches a reader to discount red lines.
+func skip(_ label: String, _ why: String) -> Never {
+    print("SKIP \(label) — \(why)")
+    print("\n8.21 SKIPPED (a skip is not a pass)")
+    exit(2)
+}
+
 // MARK: - Core Audio process objects
 
 func processObjects() -> [AudioObjectID] {
@@ -213,6 +224,34 @@ struct ProcessTapTest {
 
         if let cap = capture(pid: pa.processIdentifier, seconds: 4.0, toneA: 440, toneB: 1000) {
             let rate = Double(cap.frames) / 4.0
+            // THIS HARNESS REACHES INTO A LIVE MACHINE, and that is the one
+            // thing it must own up to. The tap follows the DEFAULT OUTPUT
+            // DEVICE, so its sample rate is whatever the person at the desk is
+            // listening through — and a Bluetooth headset in call mode runs at
+            // 24 kHz, not 44.1 or 48. At that rate these tones are resampled
+            // and attenuated to nothing, and whatever the owner is ACTUALLY
+            // listening to dominates the capture.
+            //
+            // Seen on 2026-09-21: six clean passes during the day, then
+            // "peak 0.41, 440 Hz magnitude 0.000060" at 24 kHz — real audio
+            // flowing, none of it ours, with the 1000 Hz control LOUDER than
+            // the signal. Nothing in the code had changed; the machine had.
+            //
+            // So this SKIPS rather than fails. A failure that really means
+            // "somebody is using this Mac" is worse than a skip: it teaches a
+            // reader to discount a red line, which is the one thing a suite
+            // cannot afford. `instrument_must_be_invisible` is the standing
+            // rule and this is the audio version of it.
+            guard rate >= 40_000 else {
+                pa.terminate(); pb.terminate()
+                pa.waitUntilExit(); pb.waitUntilExit()
+                try? FileManager.default.removeItem(atPath: aPath)
+                try? FileManager.default.removeItem(atPath: bPath)
+                skip("8.21.4-6 the tapped process is heard, and only it",
+                     String(format: "the default output device is running at %.0f Hz — "
+                            + "a headset in call mode, not a speaker. This harness needs "
+                            + "a 44.1/48 kHz output and a quiet machine.", rate))
+            }
             check("8.21.4 the tap delivers PCM at the device rate", cap.frames > 40_000,
                   String(format: "%d frames, %.0f Hz", cap.frames, rate))
             check("8.21.5 the tapped process is HEARD", cap.peak > 0.01 && cap.magA > 1e-4,

@@ -106,10 +106,16 @@ if [ -z "${AW_TOGETHER_BASE:-}" ] && [ -d worker ]; then
     echo "a Worker is already answering on $TOGETHER_BASE"
   else
     echo "… starting a local Worker for the room tests"
-    ( cd worker && npx --yes wrangler d1 execute archivewatch-pulse --local \
-        --file=schema-rooms.sql >/dev/null 2>&1 \
-      && nohup npx --yes wrangler dev --local --port 8799 \
-        > "$SCRATCH/wrangler.log" 2>&1 & )
+    # NOT `( cd worker && … & )`. That subshell exits immediately and takes
+    # npx's child with it often enough to be flaky — a run would print
+    # "local Worker up" and then SKIP the room cases minutes later, which is
+    # the worst shape of failure: a skip that looks like a configuration
+    # choice. `-c` removes the need to cd at all, and backgrounding here
+    # keeps the process a child of this shell.
+    npx --yes wrangler d1 execute archivewatch-pulse --local \
+      -c worker/wrangler.toml --file=worker/schema-rooms.sql >/dev/null 2>&1
+    nohup npx --yes wrangler dev --local --port 8799 \
+      -c worker/wrangler.toml > "$SCRATCH/wrangler.log" 2>&1 &
     # READY MEANS THE TABLE EXISTS, not merely that something answers.
     # `/together/ABCD` returns "no such room" as soon as the Worker is
     # routing, which is true well before `d1 execute` has finished creating
