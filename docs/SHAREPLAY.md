@@ -878,10 +878,31 @@ with nothing to point at.
   ignored and the row advances by one — with a control asserting a second
   write advances it again, since a constant would otherwise satisfy it.
 
-**NOT DEPLOYED.** `wrangler deploy` touches the owner's Cloudflare account and
-the live archivewatch.org Worker; that is theirs to run. The D1 table has to
-be created first (`schema-rooms.sql`), and `--remote` is deliberately never
-used in any of the above — every run here was local.
+**DEPLOYED 2026-09-21**, on the owner's say-so. The table was created with
+`d1 execute --remote` and the Worker shipped with `wrangler deploy`.
+
+**THE WORKER IS NOT ON archivewatch.org, and every client had that wrong.**
+That host is GitHub Pages; the Worker answers at
+`archivewatch-pulse.benwilkoff.workers.dev`, which is where the privacy
+counter has always posted (`AW_BEACON_ORIGIN` in watch.js). The Swift, Kotlin
+and browser clients were all pointed at the site, which would have reached
+Pages and 404'd on every route — caught by looking at what is actually
+deployed rather than at what the name suggested, and not by any test, because
+all of them pass a base URL in.
+
+Smoke-tested against the LIVE Worker, including the thing sharing the
+deployment:
+
+    the privacy counter still answers          HTTP 204
+    a room is created                          {"code":"R0JX","hostKey":…}
+    it reads back with the server's clock      generation 1
+    a guest with only the code tries to write  HTTP 403
+    the host writes with the key               HTTP 200
+    the host ends it                           {"ended":true} → 404
+
+And the app clients against that same live Worker: §8.31 (Swift) and §8.33
+(Kotlin) both pass end to end — a host opens a room, a guest joins BY THE
+CODE AS HEARD, the host pauses, and the guest's player is told to pause.
 
 ### §11.12 WHAT TIDBITS TRIVIA ALREADY KNEW (2026-09-21)
 

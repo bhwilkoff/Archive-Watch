@@ -92,8 +92,14 @@
 
   // ---- the client
 
+  /* THE WORKER IS NOT ON archivewatch.org — that host is GitHub Pages, and a
+     same-origin call would reach it and 404. The Worker answers at its own
+     workers.dev origin, which is where the privacy counter has always posted
+     (AW_BEACON_ORIGIN in watch.js). Cross-origin, so together.js sets CORS. */
+  const DEFAULT_BASE = 'https://archivewatch-pulse.benwilkoff.workers.dev';
+
   function Client(base) {
-    this.base = base || '';
+    this.base = base === undefined || base === null ? DEFAULT_BASE : base;
     this.clock = null;          // the FASTEST sample, never the newest
     this.code = null;
     this.state = null;
@@ -176,7 +182,7 @@
     ALPHABET, CODE_LENGTH, normalizeCode, parseRoute,
     expectedPosition, sampleOffset, correction, pollInterval,
     TOLERANCE, SEEK_THRESHOLD, NUDGE_FAST, NUDGE_SLOW, POLL_FAST, POLL_IDLE, IDLE_AFTER,
-    Client, follow,
+    Client, follow, DEFAULT_BASE,
   };
   if (typeof module !== 'undefined' && module.exports) module.exports = API;
   else global.Together = API;

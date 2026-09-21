@@ -16,10 +16,19 @@ public actor StudioSyncClient {
     public struct Config: Sendable {
         public var base: URL
         public init(base: URL) { self.base = base }
-        /// Production. The Worker lives on the site's own origin, so there is
-        /// no third party in the path — the same posture as the privacy
-        /// counter it shares a Worker with.
-        public static let live = Config(base: URL(string: "https://archivewatch.org")!)
+        /// Production.
+        ///
+        /// THE WORKER IS NOT ON archivewatch.org. That host is GitHub Pages;
+        /// the Worker answers at its own `workers.dev` origin, which is where
+        /// the privacy counter has always posted (`AW_BEACON_ORIGIN` in
+        /// watch.js). Pointing this at the site would have reached Pages and
+        /// 404'd on every route — found by looking at what was actually
+        /// deployed rather than at what the name suggested.
+        ///
+        /// Still no third party in the path: it is the owner's own Worker,
+        /// sharing a deployment with the counter.
+        public static let live = Config(
+            base: URL(string: "https://archivewatch-pulse.benwilkoff.workers.dev")!)
     }
 
     public enum JoinError: Error, Sendable {

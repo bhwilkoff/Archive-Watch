@@ -2932,7 +2932,7 @@
       }
       note.textContent = 'Joining room ' + parsed.code + '…';
 
-      const client = new Together.Client('');
+      const client = new Together.Client();   // the Worker's own origin
       client.code = parsed.code;
       let state;
       try {
