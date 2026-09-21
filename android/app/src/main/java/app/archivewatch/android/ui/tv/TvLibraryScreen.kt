@@ -55,6 +55,12 @@ private enum class LibSection(val label: String) {
     Continue("Continue Watching"),
     History("Watch History"),
     Playlists("Playlists"),
+    // JOIN A ROOM (§11.9). A Library section rather than a sixth top-level
+    // tab, because the TV shares the phone's `Tab` enum and a sixth entry
+    // there would change the phone's bottom bar too. Allowed on a television
+    // at all by §11.10: Decision 132 gates HOSTING on a camera, and joining
+    // needs none.
+    WatchTogether("Watch Together"),
 }
 
 @Composable
@@ -88,6 +94,7 @@ fun TvLibraryScreen(container: AppContainer, nav: Nav) {
         LibSection.Continue -> continueWatching
         LibSection.History -> history
         LibSection.Playlists -> emptyList()
+        LibSection.WatchTogether -> emptyList()
     }
 
     Column(Modifier.fillMaxSize()) {
@@ -135,7 +142,9 @@ fun TvLibraryScreen(container: AppContainer, nav: Nav) {
             }
         }
 
-        if (section == LibSection.Playlists) {
+        if (section == LibSection.WatchTogether) {
+            TvJoinRoomScreen(container, nav)
+        } else if (section == LibSection.Playlists) {
             if (playlists.isEmpty()) {
                 // The TV CAN make playlists — Detail's "Add to Playlist" overlay
                 // creates them. The old copy sent the viewer to another device
