@@ -128,3 +128,8 @@ secrets/
 # the belt to that braces.
 auto.crt
 auto.key
+
+# wrangler's LOCAL runtime state — a miniflare D1 and a cf.json cache, written
+# by `wrangler dev --local`. Machine-specific, regenerated on demand, and one
+# of them is a SQLite database: none of it is source.
+worker/.wrangler/
