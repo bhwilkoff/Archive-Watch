@@ -681,6 +681,57 @@ against D1's millions of reads and 100k writes a day.
 snaps it back to 2 s. A film nobody is touching is the common case in a
 two-hour watch.
 
+### §11.8 WATCHING ON A DIFFERENT DEVICE FROM THE ONE YOU ARE CALLING ON
+
+*Owner, 2026-09-21: "I think that works if they are joining the call from the
+same device that they are watching the movie on. But, how would it work if
+they join the call from one location but want to use a different device to
+'join' the movie. Is there a way that we could allow for that easily?"*
+
+**Yes, and nothing in §11.1–§11.3 has to change**, which is worth saying
+first: the sync layer never assumes the device watching the film is the device
+on the call. A room is a record; anything that can poll it can be in it. The
+only thing missing is a SECOND DOOR into the room, because a link opens on the
+device that receives it.
+
+**The second door is a spoken code.** The room carries a short,
+human-pronounceable code — six characters, ambiguous glyphs excluded (no O/0,
+no I/1/l) — shown wherever the host started it and on any joined device.
+
+    Watch Together ▸ Join a room ▸  C A L I G 7
+
+That is deliberately not a link and not a QR. **You are already on a call with
+these people**, and the cheapest transport for six characters between humans
+who are talking to each other is talking. "The code is CALIG7" needs no
+copy-paste, no second screen, and no way to mis-send it — and it is the same
+insight §10 and §11.6 already rest on: the call is carrying things for us, so
+let it.
+
+This is also a pattern this project has already settled. Decision 119: *a
+television hands over a link as a CODE* — because typing a URL with a remote
+is miserable and a short code is not. The same reasoning, in the other
+direction.
+
+**What it means in practice**: a guest is on Zoom on their laptop, hears the
+code, and types it into Archive Watch on their Apple TV. Their laptop is not
+in the room at all — it is only carrying voice. The television polls the room,
+extrapolates, and stays in step with everyone else. The two halves of "With
+Friends and the World" are on two different devices for that person, and
+neither half knows or cares.
+
+**Surfaces this needs**, none of which exist yet:
+- a **Join a room** entry beside "Open the Studio" on macOS, and on the
+  Watch Together surface of every platform that can watch (iOS, tvOS, Android,
+  web);
+- a six-character entry field — on tvOS a focus-driven one, because Rule 8.8's
+  ten-foot constraints apply;
+- the code displayed by the host, large enough to read aloud from across a
+  room.
+
+**And a QR stays worth having for the one case a code is worse at**: a phone
+joining from a television that is already in the room. The QR encoder exists
+(Decision 119) and the payload is the same join URL.
+
 ### §11.7 What would have to be proved before it ships
 
 Not built, and none of this is a measurement yet. In this feature's own terms
