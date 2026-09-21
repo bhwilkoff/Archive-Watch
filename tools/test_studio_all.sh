@@ -190,6 +190,23 @@ if node tools/test_together_worker.mjs; then
 else
   row "8.29 worker code parity" FAIL "node exit $?"; FAIL=$((FAIL+1))
 fi
+
+# The room transport against a RUNNING Worker. A route that parses is not a
+# route that works (Decision 130), so this drives the real HTTP. It needs a
+# local `wrangler dev`, and a SKIP here is not a pass — it is the transport
+# going unexercised.
+printf '\n=== %s\n' "8.30 room transport (live)"
+if curl -s --max-time 2 "${AW_TOGETHER_BASE:-http://127.0.0.1:8799}/together/ABCD" >/dev/null 2>&1; then
+  if BASE="${AW_TOGETHER_BASE:-http://127.0.0.1:8799}" node tools/test_together_live.mjs; then
+    row "8.30 room transport" PASS ""; PASS=$((PASS+1))
+  else
+    row "8.30 room transport" FAIL "see output"; FAIL=$((FAIL+1))
+  fi
+else
+  echo "   no Worker on ${AW_TOGETHER_BASE:-http://127.0.0.1:8799} — start one with:"
+  echo "   (cd worker && npx wrangler d1 execute archivewatch-pulse --local --file=schema-rooms.sql && npx wrangler dev --local --port 8799)"
+  row "8.30 room transport" SKIP "no local Worker"; SKIP=$((SKIP+1))
+fi
 # No $SHIM: StudioVoiceProbe calls no awdiag, and adding sources a case does
 # not need is how three cases stopped compiling for a session (§9.lllll).
 swift_case "8.18 voice frame slices" ArchiveWatch/ArchiveWatch/Studio/StudioVoiceProbe.swift tools/test_studio_voiceframe.swift

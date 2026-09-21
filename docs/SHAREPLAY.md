@@ -836,9 +836,27 @@ heard "oh" to 0 and the JavaScript does not, a guest who types what they heard
 reaches a different room, and the failure reads as "the code doesn't work"
 with nothing to point at.
 
+**PROVED AGAINST A RUNNING WORKER, NOT JUST PARSED** (§8.30, 20 assertions).
+`wrangler dev --local` with a real D1 behind it, driving the real HTTP:
+
+- a room is created, read back, updated and ENDED, and ending it makes the
+  room **404 rather than flagged** — a room that lingers is a row saying what
+  somebody watched;
+- an archive id full of dashes survives the round trip;
+- `atServerTime` comes back in SECONDS — a unit change at the boundary is how
+  a sync bug gets written;
+- **a code typed the way it was HEARD reaches the same room**: the generated
+  code's 1s and 0s retyped as I and O resolve to the same row, which is the
+  whole point of §11.8 and the one thing two implementations could disagree
+  about;
+- the SERVER owns the generation — a client sending `generation: 12345` is
+  ignored and the row advances by one — with a control asserting a second
+  write advances it again, since a constant would otherwise satisfy it.
+
 **NOT DEPLOYED.** `wrangler deploy` touches the owner's Cloudflare account and
 the live archivewatch.org Worker; that is theirs to run. The D1 table has to
-be created first (`schema-rooms.sql`).
+be created first (`schema-rooms.sql`), and `--remote` is deliberately never
+used in any of the above — every run here was local.
 
 ### §11.7 What would have to be proved before it ships
 
