@@ -94,12 +94,16 @@ struct GoLiveSheetMac: View {
                                     readiness = try? await StudioPlatformAuth.readiness(for: authPlatform)
                                 }
                                 .onChange(of: platform) { _, _ in readiness = nil }
-                            if let blockedReason {
-                                Label(blockedReason, systemImage: "exclamationmark.triangle.fill")
-                                    .font(.footnote)
-                                    .foregroundStyle(.orange)
-                                    .fixedSize(horizontal: false, vertical: true)
-                            }
+                            // THE ROW SAYS IT; THIS SHEET ACTS ON IT.
+                            // `StudioSignInRow` already asks
+                            // `readiness(for:)` at sign-in and draws the
+                            // answer as `blockedNote`, so a Label here
+                            // printed the same sentence a second time,
+                            // directly beneath the first (seen on the glass,
+                            // macOS 27, on the Mac's first completed sign-in).
+                            // `blockedReason` stays because `canCommit` needs
+                            // it — the split is that the row is the voice and
+                            // the sheet is the gate.
                         }
                         switch platform {
                         case .youtube:

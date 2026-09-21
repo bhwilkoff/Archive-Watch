@@ -169,12 +169,11 @@ struct GoLiveTV: View {
                 // and this is reading matter, which is what the left column is
                 // for. Three layout attempts on one screen, each judged by a
                 // capture: a ten-foot column does not fit by reasoning.
-                if signedIn, let blockedReason {
-                    Label(blockedReason, systemImage: "exclamationmark.triangle.fill")
-                        .font(.callout)
-                        .foregroundStyle(StudioSignInRow.signedInAccent)
-                        .fixedSize(horizontal: false, vertical: true)
-                }
+                // THE ROW SAYS IT; THIS SCREEN ACTS ON IT. `StudioSignInRow`
+                // already draws the readiness answer as `blockedNote`, and a
+                // ten-foot screen is the last place to print one sentence
+                // twice. `blockedReason` stays because the Go live button is
+                // disabled on it.
                 Spacer(minLength: 0)
             }
             .frame(width: 620, alignment: .leading)

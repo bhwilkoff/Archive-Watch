@@ -222,12 +222,11 @@ struct GoLiveSheet: View {
                         readiness = try? await StudioPlatformAuth.readiness(for: authPlatform)
                     }
                     .onChange(of: platform) { _, _ in readiness = nil }
-                if let blockedReason {
-                    Label(blockedReason, systemImage: "exclamationmark.triangle.fill")
-                        .font(.footnote)
-                        .foregroundStyle(.orange)
-                        .fixedSize(horizontal: false, vertical: true)
-                }
+                // THE ROW SAYS IT; THIS SHEET ACTS ON IT. `StudioSignInRow`
+                // already asks `readiness(for:)` at sign-in and draws the
+                // answer as `blockedNote`, so this printed the same sentence
+                // a second time directly beneath the first.  `blockedReason`
+                // stays because `canCommit` needs it.
             }
             switch platform {
             case .youtube:

@@ -315,7 +315,24 @@ final class GoogleAuth: NSObject {
 
     private func present(url: URL, scheme: String) async throws -> URL {
         try await withCheckedThrowingContinuation { c in
-            let s = ASWebAuthenticationSession(url: url, callbackURLScheme: scheme) { callback, error in
+            // `@Sendable` IS LOAD-BEARING, and macOS is where that shows.
+            //
+            // `ASWebAuthenticationSession` is NOT `NS_SWIFT_UI_ACTOR` in the
+            // SDK (only its presentation-context protocol is), so its
+            // completion handler imports unisolated — and a closure literal
+            // written inside this `@MainActor` type therefore INHERITS main
+            // actor isolation, which makes Swift 6 emit a dynamic isolation
+            // check at its entry. iOS and tvOS deliver the callback on the
+            // main queue, so the check passed and nobody knew it was there.
+            // macOS delivers it on an XPC reply queue, and the check TRAPS:
+            // EXC_BREAKPOINT in `_dispatch_assert_queue_fail`, every sign-in,
+            // AFTER the host has already approved at Google
+            // (`Archive Watch-2026-09-21-090954.ips`).
+            //
+            // Marking the closure `@Sendable` makes it nonisolated, so no
+            // check is emitted. Nothing in it needs the main actor: resuming
+            // a continuation is not UI work.
+            let s = ASWebAuthenticationSession(url: url, callbackURLScheme: scheme) { @Sendable callback, error in
                 if let callback { c.resume(returning: callback) }
                 else if let e = error as? ASWebAuthenticationSessionError,
                         e.code == .canceledLogin {
