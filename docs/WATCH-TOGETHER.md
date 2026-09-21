@@ -6353,3 +6353,38 @@ nothing acts on it. This is §6.3's idle timer again — a rule written in this
 document and implemented in no product path. `StudioEngine.endShow(reason:)`
 now exists (§6.6 needed it), so the wiring is small; it has not been done or
 measured, and until it is, a `.critical` broadcast keeps going.
+
+## §9.zzzzz — the iOS back-pressure run that proved NOTHING (2026-09-20)
+
+Recorded because a negative result that is not written down gets repeated.
+
+With the Local Network assumption gone, §6.4 was finally runnable on a phone:
+`rtmp_throttle_proxy` between the iPhone 12 and mediamtx, full rate for 20 s,
+then 400 kbps for 25 s against a ~3.4 Mbps programme. The proxy printed all
+three phases. **And the stream came through untouched** — 30 fps for every
+second of the throttled window, audio 1992 packets against ~2029 expected,
+video 1360 against ~1413.
+
+**TWO things are wrong there and only one of them is the product.**
+
+1. **The measurement cannot see congestion.** I built a histogram of
+   `pts_time` from the recording, which is MEDIA time — it is continuous by
+   construction unless frames are actually dropped, and says nothing about
+   when bytes arrived. A publisher that buffers through a narrow window and
+   bursts afterwards produces exactly the histogram above. The Mac's §9.z run
+   asserted on the publisher's OWN queue depth and dropped counters for this
+   reason; the phone's diagnostics file carried no such line, and I did not
+   notice until after the run.
+2. **The throttle may not have bitten at all.** At 400 kbps against 3.4 Mbps
+   for 25 s the backlog should reach ~9 MB — eight times §6.4a's 1.15 MB cap —
+   so drops should have been massive and obvious. Near-complete media says the
+   token bucket was not limiting this connection.
+
+**What NOT to do next**: re-run it and read the same histogram. The next
+attempt needs the publisher's own counters on the phone (the `AWPUB`
+diagnostics carry connect/publish lines and nothing about queue depth), and
+a check that the proxy's byte counter actually moved.
+
+PARITY's narrow-uplink row stays 🚧 for iOS and tvOS. It was tempting to call
+this a pass — the stream survived a "throttled" window, after all — and that
+would have recorded a congestion test that never created congestion.
