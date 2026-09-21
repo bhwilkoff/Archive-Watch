@@ -16,7 +16,7 @@ final class AppRouter {
     var showGoLive = false
 
     enum Section: String, CaseIterable, Identifiable, Hashable {
-        case home, movies, tv, channels, collections, surprise, search, library, create
+        case home, movies, tv, channels, collections, surprise, search, library, watchTogether, create
         var id: String { rawValue }
         var title: String {
             switch self {
@@ -24,6 +24,7 @@ final class AppRouter {
             case .channels: "Channels"
             case .collections: "Collections"; case .surprise: "Surprise"
             case .search: "Search"; case .library: "Library"
+            case .watchTogether: "Watch Together"
             case .create: "Creation Studio"
             }
         }
@@ -33,6 +34,7 @@ final class AppRouter {
             case .channels: "dot.radiowaves.left.and.right"
             case .collections: "square.stack"; case .surprise: "sparkles"
             case .search: "magnifyingglass"; case .library: "books.vertical"
+            case .watchTogether: "person.2.wave.2"
             case .create: "movieclapper"
             }
         }

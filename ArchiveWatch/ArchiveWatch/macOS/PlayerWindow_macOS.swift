@@ -92,7 +92,12 @@ struct PlayerWindow: View {
                     // readout owns ending the show. Two controls for one state
                     // is how a host presses the wrong one.
                     ToolbarItem(placement: .primaryAction) {
-                        if !studio.isLive {
+                        // HIDDEN ONLY WHEN ON AIR. This read `!studio.isLive`,
+                        // and §D5's preview leaves the engine running with no
+                        // destination — so a host who pressed Start preview
+                        // would have watched the Go Live button disappear,
+                        // which is the opposite of what a rehearsal is for.
+                        if !studio.isOnAir {
                             Button { router.showGoLive = true } label: {
                                 Label("Go Live…",
                                       systemImage: "dot.radiowaves.left.and.right")

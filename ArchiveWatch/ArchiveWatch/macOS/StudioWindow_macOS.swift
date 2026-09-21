@@ -153,6 +153,8 @@ struct StudioWindowView: View {
     @State private var microphones: [StudioDevices.Device] = []
     @State private var callApps: [StudioAudioProcesses.Process] = []
     @State private var chosenCallBundleID = ""
+    @State private var previewRefusal: String?
+    @Environment(AppRouter.self) private var router
     /// Redraw the numbers on the same second the engine publishes them.
     /// `StudioSession` is `@Observable`, so `health` alone would do it — the
     /// timer is for the two derived per-second rates it recomputes in place.
@@ -187,19 +189,40 @@ struct StudioWindowView: View {
             Color.black
             StudioProgramPreview()
             if !studio.isLive {
-                // §D5's second half — a preview that runs BEFORE going live —
-                // is step 4 of the build order, not built. Saying so is the
-                // §128 rule: an absence gets a sentence, never a blank.
-                VStack(spacing: 6) {
+                // §D5: a host frames themselves, sets levels and picks a
+                // placement BEFORE anything is broadcast. Explicit, never
+                // automatic — starting it switches the camera on, and a
+                // camera light that comes on because somebody opened a window
+                // is a surprise rather than a feature.
+                VStack(spacing: 10) {
                     Image(systemName: "rectangle.on.rectangle.slash")
                         .font(.system(size: 26))
                         .foregroundStyle(.secondary)
                     Text("Nothing is being produced yet")
                         .font(.headline).foregroundStyle(.white)
-                    Text("Start a broadcast from the player and the program appears here — the same picture your audience receives.")
-                        .font(.caption).foregroundStyle(.secondary)
-                        .multilineTextAlignment(.center)
-                        .frame(maxWidth: 380)
+                    if let film = router.nowPlaying {
+                        Text("Rehearse with \(film.title) — you will see exactly what an audience would, and nothing is sent anywhere.")
+                            .font(.caption).foregroundStyle(.secondary)
+                            .multilineTextAlignment(.center)
+                            .frame(maxWidth: 400)
+                        Button("Start preview") {
+                            if !studio.startPreview(film: film) {
+                                previewRefusal = studio.refusal
+                            }
+                        }
+                        .controlSize(.large)
+                        if let previewRefusal {
+                            Text(previewRefusal).font(.caption2)
+                                .foregroundStyle(.orange)
+                                .multilineTextAlignment(.center)
+                                .frame(maxWidth: 400)
+                        }
+                    } else {
+                        Text("Open a film in the player, and you can rehearse the whole show here before anything is broadcast.")
+                            .font(.caption).foregroundStyle(.secondary)
+                            .multilineTextAlignment(.center)
+                            .frame(maxWidth: 400)
+                    }
                 }
             }
         }
@@ -218,9 +241,13 @@ struct StudioWindowView: View {
     /// host can mistake for a rehearsal when it is a broadcast.
     private var previewBadge: some View {
         HStack(spacing: 7) {
-            Circle().fill(studio.isLive ? Color.red : Color.secondary)
+            // RED MEANS ON AIR. `isLive` means the engine is running, which
+            // includes a rehearsal that goes nowhere — a red dot keyed to it
+            // would tell a host they were broadcasting when they were not.
+            Circle().fill(studio.isOnAir ? Color.red : Color.secondary)
                 .frame(width: 8, height: 8)
-            Text(studio.isLive ? "PROGRAM — this is going out" : "PROGRAM")
+            Text(studio.isOnAir ? "PROGRAM — this is going out"
+                 : (studio.isRehearsing ? "PREVIEW — nothing is being sent" : "PROGRAM"))
                 .font(.caption2.weight(.bold))
                 .foregroundStyle(.white)
         }
@@ -567,7 +594,8 @@ struct StudioWindowView: View {
             // one." On the Mac that is here, in the window that is open for
             // the whole show, as well as on the readout over the player.
             if studio.isLive {
-                Button("End the broadcast", role: .destructive) {
+                Button(studio.isOnAir ? "End the broadcast" : "Stop the preview",
+                       role: .destructive) {
                     Task { await studio.end() }
                 }
                 .controlSize(.large)

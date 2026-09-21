@@ -55,7 +55,23 @@ public final class StudioSession {
     public private(set) var armedSubtitle: String = ""
     public private(set) var armedProvenance: String?
 
+    /// THE ENGINE IS RUNNING. Not the same as being on air, and the
+    /// difference became load-bearing the moment §D5 added a preview: this is
+    /// set whenever the engine starts, INCLUDING with no destination, which is
+    /// exactly what a rehearsal is.
     public private(set) var isLive = false
+
+    /// Whether anything is actually being SENT to anybody.
+    ///
+    /// A surface that says "live" must ask THIS. `isLive` has meant "the
+    /// engine is running" since it was written, and on macOS the engine has
+    /// always run with no destination while a film is armed — so a red dot
+    /// keyed to `isLive` would tell a host they were broadcasting during a
+    /// rehearsal that goes nowhere.
+    public var isOnAir: Bool { isLive && health.hasDestination }
+
+    /// Whether this is a rehearsal: producing a programme, sending nothing.
+    public var isRehearsing: Bool { isLive && !health.hasDestination }
     public private(set) var health = StudioHealth()
     /// Film frames in the last second — 0 while live is the frozen-picture
     /// signature, and the readouts say so (WATCH-TOGETHER §4).
@@ -116,6 +132,29 @@ public final class StudioSession {
 
     public func disarm() {
         armedFilmID = nil
+    }
+
+    /// REHEARSE: run the programme with no destination (§D5).
+    ///
+    /// Owner's §D5: "Before going live the preview still runs. A host should
+    /// be able to frame themselves, set levels and pick a placement with
+    /// nothing being broadcast — which is what OBS's preview is for, and what
+    /// no Archive Watch platform offers today."
+    ///
+    /// This is the SAME path a broadcast takes, with `armedDestination` nil,
+    /// rather than a second render loop — §D5's whole point is that the
+    /// preview cannot diverge from the programme, and two loops is how it
+    /// would. The rights gate still applies: a film that may not be streamed
+    /// may not be rehearsed either, because the rehearsal IS the programme.
+    ///
+    /// It is EXPLICIT, never automatic. Starting it attaches the camera and
+    /// the microphone, and a camera light that comes on because somebody
+    /// opened a window is a surprise, not a feature.
+    @discardableResult
+    func startPreview(film: Catalog.Item) -> Bool {
+        guard !isLive else { return true }
+        armDestination(nil)
+        return arm(film: film)
     }
 
     /// Called by the player surface once it has an `AVPlayer` for the armed

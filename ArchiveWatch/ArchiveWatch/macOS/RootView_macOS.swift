@@ -41,6 +41,15 @@ struct RootView: View {
                             // the sheet already greys Go Live for — caught here
                             // so a surprise cannot reach the host as a crash.
                             let dest = try await StudioGoLive.destination(for: request, film: film)
+                            // A REHEARSAL MUST END BEFORE A BROADCAST BEGINS.
+                            // `attachIfArmed` guards on `!isLive`, and §D5's
+                            // preview leaves the engine RUNNING with no
+                            // destination — so arming for a real broadcast
+                            // would have been silently ignored and the host
+                            // would have pressed Go Live to no effect.
+                            if StudioSession.shared.isRehearsing {
+                                await StudioSession.shared.end()
+                            }
                             StudioSession.shared.armDestination(dest)
                             // THE HOST'S PLACEMENT. The sheet offers all five
                             // and this handler dropped the answer on the floor,
@@ -351,7 +360,106 @@ struct RootView: View {
         case .surprise:    SurpriseView()
         case .search:      SearchView()
         case .library:     LibraryView()
+        case .watchTogether: WatchTogetherLanding()
         case .create:      CreationStudioLanding()
+        }
+    }
+}
+
+// WATCH TOGETHER, WHERE SOMEBODY CAN FIND IT.
+//
+// Owner, 2026-09-21: "Is it easy for a human to understand how to trigger the
+// studio? Does it need its own left navigation page?" It was not, and it did.
+// The Studio window was reachable from File > Watch Together Studio and from a
+// Controls button that only exists once a show is already running — the same
+// shape as the Go Live command that "existed, greyed until a film played, in a
+// menu, invisible from the surface it acts on" (Rule B13g, amended once
+// already for exactly this).
+//
+// Creation Studio is the precedent: a Mac-exclusive feature with a sidebar
+// entry whose landing page explains it and opens its real window. Watch
+// Together is its peer.
+//
+// AND IT IS WHERE DECISION 131 BELONGS. "Every surface must state which of the
+// three THIS device can do, and why it cannot do the others." A Mac is the
+// only platform that can do all three, and there has been nowhere to say so.
+private struct WatchTogetherLanding: View {
+    @Environment(AppRouter.self) private var router
+    @Environment(\.openWindow) private var openWindow
+    private var studio: StudioSession { StudioSession.shared }
+
+    var body: some View {
+        ScrollView {
+            VStack(spacing: 18) {
+                Image(systemName: "person.2.wave.2.fill")
+                    .font(.system(size: 60)).foregroundStyle(.tint)
+                Text("Watch Together").font(.largeTitle.bold())
+                Text("Watch a public-domain film with other people — in a call, in front of an audience, or both at once. Your Mac is the only device that can do all three.")
+                    .font(.title3).foregroundStyle(.secondary)
+                    .multilineTextAlignment(.center).frame(maxWidth: 520)
+
+                HStack(spacing: 12) {
+                    Button {
+                        openWindow(id: StudioWindowID.studio)
+                    } label: {
+                        Label("Open the Studio", systemImage: "slider.horizontal.3")
+                            .padding(.horizontal, 6)
+                    }
+                    .controlSize(.large).buttonStyle(.borderedProminent)
+
+                    Button {
+                        router.showGoLive = true
+                    } label: {
+                        Label("Go Live…", systemImage: "dot.radiowaves.left.and.right")
+                            .padding(.horizontal, 6)
+                    }
+                    .controlSize(.large)
+                    .disabled(router.nowPlaying == nil)
+                }
+                if router.nowPlaying == nil {
+                    Text("Open a film first and Go Live becomes available. The Studio opens any time — you can set your camera and levels before anything is broadcast.")
+                        .font(.callout).foregroundStyle(.secondary)
+                        .multilineTextAlignment(.center).frame(maxWidth: 520)
+                }
+
+                // The three, named (Decision 131). The names are binding and
+                // a fourth phrase may not be invented for one of them.
+                VStack(alignment: .leading, spacing: 14) {
+                    mode("With Friends", "person.2",
+                         "A SharePlay call with the film in sync for everyone. Start it from the player.")
+                    mode("With the World", "dot.radiowaves.left.and.right",
+                         "A live broadcast to YouTube or Twitch, with your camera and microphone over the film.")
+                    mode("With Friends and the World", "person.3",
+                         "Both: you are on Zoom, Meet or FaceTime with your friends, and the Studio mixes that conversation into the broadcast. Pick the app under Inputs.")
+                }
+                .frame(maxWidth: 520, alignment: .leading)
+                .padding(.top, 6)
+
+                Divider().frame(maxWidth: 520)
+
+                HStack(alignment: .top, spacing: 8) {
+                    Image(systemName: "exclamationmark.triangle").foregroundStyle(.orange)
+                    Text(StudioRights.hostWarning)
+                        .font(.footnote).foregroundStyle(.secondary)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
+                .frame(maxWidth: 520, alignment: .leading)
+            }
+            .frame(maxWidth: .infinity)
+            .padding(40)
+        }
+        .navigationTitle("Watch Together")
+    }
+
+    private func mode(_ title: String, _ icon: String, _ detail: String) -> some View {
+        HStack(alignment: .top, spacing: 12) {
+            Image(systemName: icon).font(.title3).frame(width: 26)
+                .foregroundStyle(.tint)
+            VStack(alignment: .leading, spacing: 2) {
+                Text(title).font(.headline)
+                Text(detail).font(.callout).foregroundStyle(.secondary)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
         }
     }
 }

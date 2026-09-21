@@ -1199,14 +1199,34 @@ themselves, set levels and pick a placement with nothing being broadcast —
 which is what OBS's preview is for, and what no Archive Watch platform offers
 today.
 
-## §D6 — Build order
-
-1. The window, the preview, and the existing controls moved into it
-2. Device pickers for camera and microphone (§D2)
-3. Output settings (§D4)
-4. The third audio input — a call's audio via `AudioHardwareCreateProcessTap`
-   (SHAREPLAY §10), which is the piece that makes "With Friends and the World"
-   real
-5. Per-input meters and mutes (§D3)
+## §D6 — Build order, and where it actually stands
 
 Each step ships on its own and is verified on the wire, never by compiling.
+
+| # | step | state |
+|---|---|---|
+| 1 | The window, the preview, the existing controls moved into it | **shipped** (v1.42.440), seen on the glass at 1080x860 |
+| 2 | Device pickers for camera and microphone (§D2) | **shipped** (v1.42.444), §8.24 |
+| 3 | Output settings (§D4) | **shipped** (v1.42.445), §8.25 |
+| 4 | A call's audio via `AudioHardwareCreateProcessTap` (SHAREPLAY §10) | **code + §8.26 shipped** (v1.42.446); the TCC behaviour of a SIGNED, SANDBOXED app is NOT yet measured |
+| 5 | Per-input meters and mutes (§D3) | **shipped** with 3 and 4 |
+| 6 | §D5's preview BEFORE going live | **shipped**; explicit "Start preview", never automatic |
+
+**What step 4 does not yet know.** §8.21 proved the tap as a command-line
+tool under the terminal's grants. A process tap is gated by its own TCC
+service (`NSAudioCaptureUsageDescription`, added to the macOS Info.plist),
+which the microphone entitlement does not cover, and the app is sandboxed.
+Decision 130's rule applies exactly: *a harness can prove the logic and say
+nothing about where the logic RUNS.* `StudioSession.callProblem` carries the
+refusal sentence so the answer appears on screen rather than as a silent
+channel.
+
+**`isLive` is not `isOnAir`, and §D5 is what made that matter.** `isLive` has
+always meant "the engine is running", and on macOS the engine runs with no
+destination whenever a film is armed. A rehearsal is precisely that state, so
+every surface that says "live" asks `isOnAir` (`isLive && hasDestination`)
+and every surface that means "there is a programme" asks `isLive`. Two things
+were wrong the moment the preview existed and are fixed: the Go Live toolbar
+button hid itself during a rehearsal, and `attachIfArmed`'s `!isLive` guard
+silently swallowed the arm for a real broadcast — so going live from a
+rehearsal must END it first.
