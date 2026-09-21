@@ -236,6 +236,13 @@ swift_case "8.27 film sync" ArchiveWatch/ArchiveWatch/Studio/StudioSync.swift to
 swift_case "8.28 room codes" ArchiveWatch/ArchiveWatch/Studio/StudioRoom.swift tools/test_studio_room.swift
 # The Worker and the app must normalise a code IDENTICALLY, or a code read
 # aloud reaches a different room depending on which end typed it.
+printf '\n=== %s\n' "8.32 web room client"
+if node tools/test_together_web.mjs; then
+  row "8.32 web room client" PASS ""; PASS=$((PASS+1))
+else
+  row "8.32 web room client" FAIL "node exit $?"; FAIL=$((FAIL+1))
+fi
+
 printf '\n=== %s\n' "8.29 worker/app code parity"
 if node tools/test_together_worker.mjs; then
   row "8.29 worker code parity" PASS ""; PASS=$((PASS+1))

@@ -895,6 +895,22 @@ separates a 4-letter room CODE from a 6-digit PIN, and says why on its own
 screen: *"The PIN is on the host screen, not the projector — the room code
 alone cannot drive the show."*
 
+**A CORRECTION TO A FIRST READING OF THIS, from the owner: "The host is the
+only one that moves the room on Tidbits. The projector is just a different
+surface."** That is right, and the first version of this section implied
+otherwise — it read as though Tidbits had guests who might otherwise drive
+the show, and the PIN existed to stop them. It does not. Tidbits has ONE
+host and several SURFACES: a laptop that runs the show, a projector that
+displays it, and a phone acting as the host's own remote. The PIN
+authenticates the host's OTHER DEVICE, and it exists because the code is on
+a projector where a roomful of people can read it.
+
+The security property is the same either way, and is what carried across:
+**being able to SEE the code must not be the same as being able to drive.**
+Whether the person who sees it is a guest or a stranger in the room is not
+the point; the point is that a credential displayed on a wall is not a
+credential. What was wrong was the role structure, not the lesson.
+
 Archive Watch had exactly that hole. §11.6 decided hosts alone control the
 film and **the transport enforced nothing**: any guest who heard a code could
 POST a pause to somebody's live broadcast. `POST /together/new` now returns a
@@ -904,9 +920,18 @@ is refused, a wrong key is refused, the room is unchanged by the attempt, and
 a GET never carries the key.
 
 Ours is a long random token rather than six digits, because no human ever
-types it: only the host's own app holds it. Tidbits needs a typeable PIN
-because a person drives the show from a second device; our host drives from
-the machine that made the room.
+types it: only the host's own app holds it. Tidbits needs a TYPEABLE PIN
+because the host drives from a second device and has to enter it there; our
+host drives from the machine that made the room, so the key never has to
+leave it.
+
+**That difference is worth keeping in view**, because it names a thing we
+have not built: a host's own second surface. In Tidbits the phone-as-remote
+SENDS verbs, which is why it needs the PIN. In Archive Watch a host's second
+device would only FOLLOW, which is indistinguishable from a guest joining —
+so nothing is needed today. If a host ever wants to drive the film from
+their phone while the Mac produces the broadcast, the key is what that
+device would need, and it would have to become typeable or transferable.
 
 **2. Four characters, independently arrived at.** Tidbits' rooms are
 4-letter codes with a 4–8 character rule in its database rules. §11.9 reached

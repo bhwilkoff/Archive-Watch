@@ -10,6 +10,7 @@
          /item/{id}    — the canonical share URLs the apps emit
          /series/{id}  — series share links
          /list/#{blob} — a shared playlist (blob stays in the fragment)
+         /together/#{code}-{film} — a Watch Together room (SHAREPLAY §11)
          /watch/*      — the viewer's pre-archivewatch.org address (old PWA
                          installs + bookmarks arrive here via GitHub's 301
                          from bhwilkoff.github.io/Archive-Watch/watch/...,
@@ -30,6 +31,17 @@
       if (L) {
         var blob = (location.hash || '').replace(/^#\/?/, '') || L[1] || '';
         location.replace(blob ? '/#/list/' + blob : '/');
+        return;
+      }
+      // A Watch Together room: /together/#<code>-<filmID>. Same shape and
+      // same reasoning as /list/ — the room rides the FRAGMENT, which a
+      // browser never sends to a server, so nobody's infrastructure logs who
+      // is watching what on the way. The PATH is what a native app's intent
+      // filter can match; an Android filter cannot see a fragment at all.
+      var T = p.match(/^\/together(?:\/.*)?$/);
+      if (T) {
+        var room = (location.hash || '').replace(/^#\/?/, '');
+        location.replace(room ? '/#/together/' + room : '/');
         return;
       }
       if (/^\/watch(\/|$)/.test(p)) { location.replace('/' + location.hash); return; }
