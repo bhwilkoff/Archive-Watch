@@ -65,6 +65,13 @@ struct LibraryView: View {
             }
         }
         .navigationTitle("Library")
+        // JOIN A ROOM (§11.9). A toolbar item rather than a sixth scope: the
+        // picker above is already at its measured width limit — see
+        // `Section.title` for the iPhone 12 measurement that shortened
+        // "Downloads" to "Offline".
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) { JoinRoomButton_iOS() }
+        }
         .id(store.dbVersion)
         .task {
             // Offline, Downloads is the only section that can play anything, so

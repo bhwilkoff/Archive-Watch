@@ -150,7 +150,7 @@ whole point:
 |---|---|---|
 | **macOS** | ✅ shipped — Watch Together ▸ Start a room, code shown to read aloud | ✅ shipped — Watch Together ▸ Join a room |
 | **tvOS** | 🚫 the broadcast half needs a camera (Decision 132) | ✅ **shipped** — a sidebar row and a focus grid, no keyboard |
-| **iOS / iPadOS** | ⏳ not built | ⏳ not built |
+| **iOS / iPadOS** | ⏳ not built | ✅ **shipped** — a toolbar item on Library, not a sixth scope (the picker is at its measured width limit) |
 | **Android phone** | ⏳ not built | ⏳ not built |
 | **Android TV / Fire TV** | 🚫 same as tvOS | ⏳ not built, and ALLOWED — §11.10 |
 | **Web** | 🚫 cannot broadcast | ⏳ not built; the link already opens |

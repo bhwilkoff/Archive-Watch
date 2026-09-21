@@ -248,6 +248,16 @@ struct PlayerView: UIViewControllerRepresentable {
         // WatchTogether.attach). Re-attached on every build because a rebuilt
         // player carries a new coordinator.
         WatchTogether.shared.attach(player, archiveID: archiveID)
+        // FOLLOW A ROOM (§11), if one was joined from Library. Beside
+        // SharePlay's attach because they are the same kind of thing — one
+        // syncs Apple devices in a call, the other syncs anything anywhere —
+        // and this is where the `AVPlayer` exists. Silent from here (§11.2a).
+        if let code = RoomJoin_iOS.shared.pending {
+            RoomJoin_iOS.shared.pending = nil
+            Task { @MainActor in
+                await StudioSyncFollower.shared.join(code: code, player: player) { _ in }
+            }
+        }
         onPlayerReady?(player)
         vc.player = player
         context.coordinator.observe(player, item: pItem)
