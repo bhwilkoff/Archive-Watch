@@ -215,6 +215,7 @@ into every session and the index alone carries every title.)
 - 130 — A runtime rule is proved on the PRODUCT path or it is not proved; a skip is not a pass, and the instrument is the first suspect
 - 131 — Watch Together is THREE named things, each gated by hardware rather than by effort; a device says which it can do and why not the others
 - 132 — A broadcast with no camera and no microphone is not Watch Together; the gate is that the HOST can be in the show
+- 133 — A control is proved where its value LANDS, not where it is written; a shared type is not a shared code path
 
 ---
 
@@ -575,3 +576,61 @@ accurate again in effect, though still not in the source layout — all 18 Studi
 sources remain in `src/main/` and only the permissions are flavour-scoped.
 tvOS is deliberately unaffected: it has no camera either, but it can BORROW an
 iPhone through Continuity Camera, and that is the whole difference.
+
+## 133 — A control is proved where its value LANDS, not where it is written; a shared type is not a shared code path
+*Date: 2026-09-20*
+
+Two rules, from one fault met six times in a day.
+
+**First: a control is verified by reading the value at the ENGINE, or on the
+wire, never by seeing the control move.** A picker that highlights, a switch
+that flips and a request field that is populated are all evidence that a
+surface works, and none is evidence that anything downstream received it.
+
+**Second: putting a behaviour in a shared TYPE does not put it on a shared
+PATH.** Before adding anything to `StudioSession`, `StudioEngine` or a shared
+Kotlin object, establish which platforms actually execute that code — and
+prefer wiring it into each platform's own loop over assuming one loop is
+everyone's.
+
+**Why**: the same defect appeared five times in the camera-placement work
+alone, each found only because the previous one prompted a look:
+`GoLiveTV.request()` built its request with `layout: .corner` hardcoded;
+`DetailView` then called `setLayout(.corner)` with the value hardcoded a second
+time, so fixing the first changed nothing; the **macOS go-live sheet never read
+`request.layout` at all**, so every broadcast from the path a real host takes
+went out as `corner` however they chose; Android's engine read the layout once
+at arm, leaving the picker inert on the one platform whose picker exists only
+while live; and the macOS panel opened on `.corner` over a show doing something
+else. Each looked like it worked. Only the wire disagreed.
+
+**And the sixth was self-inflicted while documenting the other five.** The
+camera-stall recovery and the "film's audio is not being sent" warning were
+added to `StudioSession.startPump` and committed as reaching "macOS and iOS".
+**iOS never arms or starts `StudioSession`** — `StudioPlayerContainer_iOS`
+owns its own engine and its own poll loop — so both were inert on the phone,
+and `StudioControls_iOS` was reading a warning nothing wrote. The type was
+shared; the path was not. It surfaced from a MISSING LOG LINE, not from
+re-reading the code: §6.4 could not be measured on the phone because
+`StudioSession.diag` writes to stderr, which reaches nothing on a device.
+
+**How to apply**: drive the product and read the result from outside it — a
+server's recording, the publisher's own counters, the framework's log. Three
+separate proofs this session inverted on that alone. A `pts_time` histogram
+showed an untroubled 30 fps through a "throttled" window because media time is
+continuous by construction; the publisher's counters showed 1.8 fps and 834
+dropped frames in the same window. An Android camera recovery logged
+`recovery 1: no camera` over a camera that had just reconnected, because it
+asked a stale `problem` string rather than what the re-open returned — the
+framework's `CameraService::connect` and the tile in the stream both said
+otherwise. And a devicectl screenshot SUCCEEDED against a sleeping television,
+returning a valid all-black frame that reads exactly like an app drawing
+nothing.
+
+**Consequences**: `StudioSession.armLayout` removes the timing question from
+every caller rather than adding a sixth that remembers it; `diag` now also
+writes to `DiagFile` so a device harness can read it; the iOS container carries
+the recovery, the warning and the health line itself; and a debug door must
+drive the chain the PRODUCT drives — the macOS door waited for `isLive` and
+called `setLayout` where the sheet arms, which is precisely why every bench run
+looked correct while the product was wrong.
