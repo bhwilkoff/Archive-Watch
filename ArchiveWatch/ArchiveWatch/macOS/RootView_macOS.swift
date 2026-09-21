@@ -42,6 +42,13 @@ struct RootView: View {
                             // so a surprise cannot reach the host as a crash.
                             let dest = try await StudioGoLive.destination(for: request, film: film)
                             StudioSession.shared.armDestination(dest)
+                            // THE HOST'S PLACEMENT. The sheet offers all five
+                            // and this handler dropped the answer on the floor,
+                            // so every macOS broadcast from the product path
+                            // went out as `corner` however the host had chosen.
+                            // Only the debug door applied it, which is exactly
+                            // why bench runs looked right.
+                            StudioSession.shared.armLayout(request.layout)
                             _ = StudioSession.shared.arm(film: film)
                         } catch {
                             StudioSession.shared.refusal =
@@ -214,6 +221,15 @@ struct RootView: View {
                             return
                         }
                         StudioSession.shared.armDestination(dest)
+                        // ARM the layout, do not SET it after going live. The
+                        // door used to wait for `isLive` and then call
+                        // `setLayout`, which is a path the product does not
+                        // have — and that difference is exactly why the door's
+                        // runs looked correct while the SHEET dropped the
+                        // host's choice entirely. A door that drives a
+                        // different chain from the product cannot find the
+                        // product's bugs.
+                        StudioSession.shared.armLayout(layout)
                         guard StudioSession.shared.arm(film: it) else {
                             awdiag("AWMACDOOR arm refused: %@",
                                    StudioSession.shared.refusal ?? "no reason given")
@@ -232,7 +248,6 @@ struct RootView: View {
                             try? await Task.sleep(for: .milliseconds(250))
                             waited += 0.25
                         }
-                        await StudioSession.shared.setLayout(layout)
                         // The CARDS, so "custom overlays" can be exercised and
                         // MEASURED rather than described. A card is a still
                         // graphic over the film, so it shows up in the

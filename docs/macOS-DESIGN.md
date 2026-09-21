@@ -1063,3 +1063,24 @@ A built-in camera keeps `.hd1280x720` deliberately: the tile is never
 full-frame, so capturing 1080p to draw a corner box is work nobody sees. Only
 the borrowed-phone case gives that up, and it costs nothing because the tile is
 scaled to its layout slot downstream regardless.
+
+### B13j — the host's PLACEMENT is ARMED, never set after going live
+
+`StudioSession.armLayout(_:)` is set beside `armDestination`, and the engine
+takes it when it is BUILT. No caller waits for `isLive` and then calls
+`setLayout`.
+
+**Why**: `arm` records INTENT — the engine is built later, when the player
+appears — so a caller that sets the layout at arm time sets it on nothing, and
+one that sets it afterwards must first wait for a state. Every caller getting
+that timing right independently is exactly what did not happen. The macOS
+GO-LIVE SHEET armed the destination and the film and **dropped
+`request.layout` on the floor**, so every broadcast from the product path went
+out as `corner` however the host had chosen; the macOS DOOR waited for `isLive`
+and applied it, so bench runs looked correct the whole time. tvOS had the same
+defect one layer down (`setLayout(.corner)` hardcoded).
+
+**How to apply**: arm the layout, do not set it. And when adding a debug door,
+make it drive the chain the PRODUCT drives — a door that waits and sets where
+the product arms cannot find the product's bugs, which is precisely how this
+one hid behind a passing bench run.

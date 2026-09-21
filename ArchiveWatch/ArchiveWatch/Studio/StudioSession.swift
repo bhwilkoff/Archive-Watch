@@ -30,6 +30,21 @@ public final class StudioSession {
     public private(set) var armedDestination: URL?
     public func armDestination(_ url: URL?) { armedDestination = url }
 
+    /// The placement the host chose, remembered until the engine exists.
+    ///
+    /// `arm` records INTENT and the engine is built later, when the player
+    /// appears — so a caller that sets the layout at arm time is setting it on
+    /// nothing, and one that sets it after must first wait for `isLive`. Every
+    /// caller getting that right independently is precisely what did not
+    /// happen: the macOS SHEET armed and never applied `request.layout` at all
+    /// (a host who picked "Side by side" got `corner`), while the macOS DOOR
+    /// waited and applied it — which is why the door's runs looked correct and
+    /// the product's path was wrong. tvOS had the same defect one layer down.
+    /// Arming the layout beside the destination removes the timing question
+    /// from every caller.
+    public func armLayout(_ layout: StudioLayout) { armedLayout = layout }
+    private var armedLayout: StudioLayout = .corner
+
     public private(set) var armedFilmID: String?
     public private(set) var armedTitle: String = ""
     public private(set) var armedSubtitle: String = ""
@@ -117,7 +132,7 @@ public final class StudioSession {
                player.rate, player.currentTime().seconds.isFinite
                    ? player.currentTime().seconds : -1,
                (player.currentItem?.asset as? AVURLAsset)?.url.lastPathComponent ?? "?")
-        await e.setLayout(.corner)
+        await e.setLayout(armedLayout)
         overlay = StudioOverlay()
         overlay.title = armedTitle
         overlay.subtitle = armedSubtitle
