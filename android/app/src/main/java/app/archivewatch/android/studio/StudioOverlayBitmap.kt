@@ -134,6 +134,61 @@ object StudioOverlayBitmap {
         return baseY - unit * 2.6f * lines - unit * 2f
     }
 
+    /**
+     * A CARD, which replaces the programme rather than sitting over it — so it
+     * paints its own opaque ground and the film must not read through.
+     *
+     * The layout follows Apple's: a marquee wordmark, a rule, the headline,
+     * the film's name (except on the ending card) and the detail line, as one
+     * optically-centred block measured from its real height rather than hung
+     * off hardcoded offsets. Type sizes are scaled from the frame so a 720p
+     * and a 1080p programme look the same.
+     */
+    fun card(width: Int, height: Int, card: StudioCard, film: String): Bitmap {
+        val bmp = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
+        val c = Canvas(bmp)
+        c.drawColor(Color.parseColor("#0A0A0A"))          // the card owns the frame
+        val scale = height / 1080f
+
+        fun paint(size: Float, bold: Boolean, colour: Int, tracking: Float = 0f) = Paint().apply {
+            isAntiAlias = true
+            textSize = size * scale
+            color = colour
+            typeface = Typeface.create(Typeface.SANS_SERIF,
+                                       if (bold) Typeface.BOLD else Typeface.NORMAL)
+            letterSpacing = tracking
+        }
+
+        val markPaint = paint(26f, true, Color.parseColor(MARQUEE), 0.18f)
+        val headPaint = paint(96f, true, Color.WHITE)
+        val filmPaint = paint(44f, false, Color.parseColor("#F2F2F2"))
+        val detPaint = paint(40f, false, Color.parseColor("#B8B8B8"))
+
+        val gap = 34f * scale
+        val ruleGap = 22f * scale
+        val showsFilm = card.showsFilm && film.isNotEmpty()
+        var blockH = 26f * scale + ruleGap + 3f * scale + gap +
+            96f * scale + gap + 40f * scale
+        if (showsFilm) blockH += gap * 0.7f + 44f * scale
+
+        val cx = width / 2f
+        var y = height / 2f - blockH / 2f + 26f * scale
+
+        c.drawText("ARCHIVE WATCH", cx - markPaint.measureText("ARCHIVE WATCH") / 2f, y, markPaint)
+        y += ruleGap
+        c.drawRect(cx - 40f * scale, y, cx + 40f * scale, y + 3f * scale,
+                   Paint().apply { color = Color.parseColor(MARQUEE) })
+        y += 3f * scale + gap + 96f * scale
+        c.drawText(card.headline, cx - headPaint.measureText(card.headline) / 2f, y, headPaint)
+        if (showsFilm) {
+            y += gap * 0.7f + 44f * scale
+            c.drawText(film, cx - filmPaint.measureText(film) / 2f, y, filmPaint)
+        }
+        y += gap + 40f * scale
+        c.drawText(card.detail, cx - detPaint.measureText(card.detail) / 2f, y, detPaint)
+        return bmp
+    }
+
     fun lowerThird(width: Int, height: Int,
                    title: String, subtitle: String, provenance: String?): Bitmap {
         val bmp = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)

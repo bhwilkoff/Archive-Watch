@@ -22,6 +22,7 @@ import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.RadioButton
 import androidx.compose.foundation.clickable
+import app.archivewatch.android.studio.StudioCard
 import app.archivewatch.android.studio.StudioLayout
 import androidx.compose.material3.Slider
 import androidx.compose.material3.Switch
@@ -139,6 +140,35 @@ fun StudioPanel(health: StudioHealth, onDismiss: () -> Unit, onEnd: () -> Unit) 
                         onClick = { StudioController.layout = option },
                     )
                     Text(option.label, fontSize = 14.sp)
+                }
+            }
+
+            Spacer(Modifier.size(16.dp))
+            HorizontalDivider()
+            Spacer(Modifier.size(16.dp))
+
+            // CARDS — a full-frame graphic that REPLACES the programme, for the
+            // moments a broadcast has and a film does not: before it starts,
+            // in the middle, at the end. They existed on macOS and iOS only.
+            Text("Show a card", fontWeight = FontWeight.SemiBold)
+            Text("Replaces the picture for your audience.",
+                 fontSize = 12.sp, color = Color(0xFF8A8F98))
+            Spacer(Modifier.size(8.dp))
+            val cards: List<Pair<String, StudioCard?>> = listOf(
+                "None" to null,
+                "Starting soon" to StudioCard.StartingSoon(60),
+                "Intermission" to StudioCard.Intermission,
+                "Thanks for watching" to StudioCard.Ending,
+            )
+            for ((label, value) in cards) {
+                val selected = StudioController.card?.javaClass == value?.javaClass
+                Row(
+                    Modifier.fillMaxWidth().clickable { StudioController.card = value },
+                    verticalAlignment = androidx.compose.ui.Alignment.CenterVertically,
+                ) {
+                    RadioButton(selected = selected,
+                                onClick = { StudioController.card = value })
+                    Text(label, fontSize = 14.sp)
                 }
             }
 

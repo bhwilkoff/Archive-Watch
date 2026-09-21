@@ -261,6 +261,22 @@ The frames from that run were DELETED rather than kept: a Mac's camera points
 at the owner's home, and the standing rule about never capturing their whole
 screen is the same consideration.
 
+#### Cards, 2026-09-20
+
+| | |
+|---|---|
+| macOS | ✅ panel + door |
+| iOS | ✅ controls sheet |
+| **Android** | ✅ **added 2026-09-20** — panel radio list, proved on the wire |
+| tvOS | 🚫 none, and deliberately left open: Rule 8.8c settles the mixer as "two channels, a rotation, and nothing else", so a four-way choice needs an owner decision rather than a quiet addition |
+| Web | 🚫 no broadcast at all |
+
+Verified the way everything else was today — by TAPPING "Intermission" on a
+Pixel during a live broadcast and reading the card back from the server's own
+recording: wordmark, rule, "Intermission", the film's name, "back shortly", on
+an opaque ground with the film fully replaced. `StudioCardTest` pins the words
+to Apple's.
+
 #### The rule this produces
 
 **A device says which of the three it can do, and why it cannot do the others.**

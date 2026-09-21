@@ -366,6 +366,19 @@ rather than a new idea.*
   its only context. Proved on a Pixel 8a by TAPPING "Side by side" during a
   broadcast and reading the change back from the server's own recording —
   corner before, film-left/camera-right after.
+- **§9.2f Cards.** "Starting soon", "Intermission", "Thanks for watching" —
+  a full-frame graphic that REPLACES the programme, so it paints its own opaque
+  ground and the film must not read through. `StudioCard` is a port of Apple's
+  `StudioOverlay.Card` and `StudioCardTest` pins the WORDS, because a card is
+  the one overlay an audience reads in full: two platforms wording it
+  differently is a parity bug the VIEWER sees rather than the developer. The
+  film is named on every card but the ending one (§2.1 — a viewer arriving at a
+  countdown should learn what they are about to watch). It rides the existing
+  overlay texture rather than a new layer: the Android overlay bitmap is
+  already full-frame, so a card is a different thing drawn into it.
+  **Cards were macOS and iOS only; tvOS still has none**, and that stays open
+  rather than being quietly added, because Rule 8.8c settles the television's
+  only live surface as "two channels, a rotation, and nothing else".
 - **§9.3 The program panel is a Material bottom sheet**, the native idiom of
   the iOS §4.5 medium-detent sheet (§8.2): layout, the two faders, the cards.
   Not a dialog — the program must stay visible behind it, because changing

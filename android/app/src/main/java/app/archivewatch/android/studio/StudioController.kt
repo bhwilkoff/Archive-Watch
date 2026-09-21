@@ -66,6 +66,25 @@ object StudioController {
             // like it worked.
             engine?.layout = value
         }
+    /**
+     * The card on air, or null for the programme. Pushes into the running
+     * engine in its SETTER — the mistake the layout made, and the one the
+     * faders had already avoided.
+     */
+    private var _card by mutableStateOf<StudioCard?>(null)
+    var card: StudioCard?
+        get() = _card
+        set(value) {
+            _card = value
+            val e = engine ?: return
+            e.pendingOverlay = if (value == null) {
+                StudioOverlayBitmap.lowerThird(overlayW, overlayH, armedTitle, armedSubtitle,
+                                               if (provenanceCleared) null else armedProvenance)
+            } else {
+                StudioOverlayBitmap.card(overlayW, overlayH, value, armedTitle)
+            }
+        }
+
     var showsCamera: Boolean
         get() = layout.showsCamera
         set(value) { layout = if (value) StudioLayout.CORNER else StudioLayout.FILM }
