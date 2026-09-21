@@ -630,16 +630,56 @@ clients are extrapolating continuously, so the poll is only correcting drift
 and catching state changes. The visible cost of a change is at most one poll
 interval, and §11.3 absorbs that.
 
-### §11.6 What the owner has to decide
+### §11.6 DECIDED — the host controls the film, and a link is the whole join
 
-1. **Who may control the film?** Host only (simplest, matches "producing a
-   show"), or anyone in the room (friendlier, and a guest pausing a live
-   broadcast is a real risk). PROPOSED: host only, because the broadcast makes
-   this asymmetric.
-2. **Does a room need to exist before the call, or is a link enough?** A link
-   carrying the film id and a room id needs no accounts (Decision 009) and no
-   server-side room creation. PROPOSED: a link, same shape as
-   `docs/PLAYLIST-SHARING.md` already uses.
+*Owner, 2026-09-21: "Given that it is only being streamed from MacOS, I think
+the host is the only one that should be able to control start/stop/pausing of
+the movie. However, how does the host launch the movie and sync up the other
+apps? How does it get triggered (and how does it keep checking)?"*
+
+**1. Only the host controls the film.** Guests' transport controls are
+disabled in a room, with a sentence saying why rather than a dead button
+(Decision 128's rule). The reason is the audience: a guest pausing the film
+pauses what YouTube is receiving, and the person answerable for that broadcast
+is the host.
+
+**2. Launching is one write and one link.** The host is already playing a film
+on the Mac. Starting a room writes the first state record and produces:
+
+    https://archivewatch.org/together/#<roomID>-<filmID>
+
+No accounts and no server-side room creation (Decision 009) — the id is random
+and the record is created by the first write. The same shape
+`docs/PLAYLIST-SHARING.md` already uses, and for the same reason: **it has to
+open for somebody with no app at all**, so the web is a real client and not a
+consolation.
+
+**3. The call does the inviting, and that is the whole trick.** The host pastes
+the link into the Zoom/Meet/FaceTime chat they are already in. The app never
+learns who the guests are, never holds an address book, and never sends an
+invitation — which is the same move §10 makes with voice, applied to the join.
+Everyone on a phone, a television or a browser opens the link and lands in the
+film at the host's position.
+
+**4. "How does it keep checking" — and the poll IS the clock sync.** A guest
+polls `GET /together/<roomID>` every 2 s. The response carries the state record
+AND the server's own time; the client measures the round trip around that same
+request. So §11.2's offset estimate and the state fetch are **one call, not
+two** — the clock costs no extra traffic at all, and every poll refreshes it.
+
+Between polls the client extrapolates (§11.1), so the poll is only correcting
+drift and catching changes. A pause reaches a guest within one interval, and
+§11.3's rate-nudge absorbs the rest.
+
+The host WRITES only on a real state change, plus a keep-alive touch every
+30 s so a guest can tell a quiet room from an abandoned one. Measured against
+the free tier: four guests for two hours is ~14,400 reads and ~270 writes,
+against D1's millions of reads and 100k writes a day.
+
+**Backoff, because a still room should cost nothing.** If the record's
+`generation` has not moved for a minute, the poll slows to 10 s; any change
+snaps it back to 2 s. A film nobody is touching is the common case in a
+two-hour watch.
 
 ### §11.7 What would have to be proved before it ships
 

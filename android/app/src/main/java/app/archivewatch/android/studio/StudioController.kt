@@ -44,6 +44,19 @@ object StudioController {
     var health: StudioHealth by mutableStateOf(StudioHealth())
         private set
 
+    /**
+     * The film reached its end while the show carried on (owner item 13).
+     *
+     * Set from `PlayerScreen`'s existing `Player.Listener`, because that is
+     * where Android's player actually is — the Apple platforms observe
+     * `didPlayToEndTime` inside `StudioEngine.attachFilm`, and Android's
+     * engine is handed a Surface rather than a Player, so there is nothing
+     * equivalent to hook there. Cleared when playback resumes: a host who
+     * seeks back is watching again, and a warning that stays true after it
+     * stops being true is one nobody reads the next time.
+     */
+    var filmEnded: Boolean by mutableStateOf(false)
+
     // What the §9.3 bottom sheet drives.
     /**
      * The chosen placement, the same five every other platform offers. It
@@ -455,6 +468,7 @@ object StudioController {
         health = e.health.copy(
             hostFault = camera?.problem ?: mic?.problem,
             cameraFramesDelivered = delivered,
+            filmEnded = filmEnded,
         )
         // RECOVER A CAMERA THAT STOPPED. Android had no guard at all — fairly,
         // until this morning, because until then it had no camera to stall.

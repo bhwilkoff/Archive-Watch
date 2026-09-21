@@ -438,9 +438,22 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
             }
 
             override fun onPlaybackStateChanged(state: Int) {
+                // OWNER ITEM 13: the film ends and the show does not, and
+                // until now nobody was told. `STATE_ENDED` is the player
+                // saying so; a frame counter reaching zero is true of
+                // buffering too.
+                if (state == Player.STATE_ENDED) StudioController.filmEnded = true
+                if (state == Player.STATE_READY && player.isPlaying) {
+                    StudioController.filmEnded = false
+                }
                 if (state == Player.STATE_ENDED && isTv && !player.hasNextMediaItem()) {
                     nav.pop()
                 }
+            }
+
+            override fun onIsPlayingChanged(isPlaying: Boolean) {
+                // A host who seeks back is watching again.
+                if (isPlaying) StudioController.filmEnded = false
             }
 
             override fun onVideoSizeChanged(videoSize: androidx.media3.common.VideoSize) {

@@ -54,6 +54,20 @@ data class StudioHealth(
     val qualityNote: String? = null,
     /** Set when the show ended on its own account rather than by the host. */
     val endedReason: String? = null,
+    /**
+     * The FILM has ended; the SHOW has not (owner item 13, §9.bbbbbb).
+     *
+     * Not a fault. The owner's rule is that "the stream should only end when
+     * the person streaming it decides that it should end" — so the broadcast
+     * correctly continues, and the audience is left on a frozen final frame
+     * with the camera tile live over it. §4 says health is never hidden, and
+     * "your audience is watching a still" is health.
+     *
+     * Taken from `Player.STATE_ENDED`, which is the PLAYER saying so —
+     * `filmFramesPerSecond` reaching 0 is true of buffering too, and a false
+     * positive here would be a new way to ruin a broadcast.
+     */
+    val filmEnded: Boolean = false,
     /** Why §6.6's last attempt failed, if it did. Never swallowed. */
     val reconnectFault: String? = null,
     /**
@@ -92,7 +106,13 @@ data class StudioHealth(
         "RECONNECTING" ->
             "The connection dropped — getting it back. Your audience sees a pause, not an ending."
         "OFFLINE" -> publisher.lastError
-        else -> if (isRunning && filmFramesPerSecond == 0)
+        // THE FILM ENDING OUTRANKS "the film has stopped": at that moment both
+        // are true and only one of them is the reason. "Stopped" implies a
+        // fault and would send a host hunting for a problem that is not there
+        // (owner item 13, §9.bbbbbb). The wording matches the Apple surfaces.
+        else -> if (isRunning && filmEnded)
+            "The film has ended — your audience is watching a still. Your camera and microphone are still live."
+        else if (isRunning && filmFramesPerSecond == 0)
             "The film has stopped — your audience sees a still picture."
         // THE HOST'S OWN HARDWARE, ranked BELOW the film: a broadcast with no
         // host is diminished, one with no picture is broken. It is a sentence
