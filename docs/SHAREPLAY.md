@@ -695,10 +695,12 @@ only thing missing is a SECOND DOOR into the room, because a link opens on the
 device that receives it.
 
 **The second door is a spoken code.** The room carries a short,
-human-pronounceable code — six characters, ambiguous glyphs excluded (no O/0,
-no I/1/l) — shown wherever the host started it and on any joined device.
+human-pronounceable code — **four** Crockford Base32 characters (the alphabet
+drops I, L, O and U; a mistyped I or L becomes 1 and a mistyped O becomes 0,
+so every spelling a listener might produce reaches the same room) — shown
+wherever the host started it and on any joined device.
 
-    Watch Together ▸ Join a room ▸  C A L I G 7
+    Watch Together ▸ Join a room ▸  C A 1 1
 
 That is deliberately not a link and not a QR. **You are already on a call with
 these people**, and the cheapest transport for six characters between humans
@@ -719,14 +721,77 @@ extrapolates, and stays in step with everyone else. The two halves of "With
 Friends and the World" are on two different devices for that person, and
 neither half knows or cares.
 
-**Surfaces this needs**, none of which exist yet:
-- a **Join a room** entry beside "Open the Studio" on macOS, and on the
-  Watch Together surface of every platform that can watch (iOS, tvOS, Android,
-  web);
-- a six-character entry field — on tvOS a focus-driven one, because Rule 8.8's
-  ten-foot constraints apply;
-- the code displayed by the host, large enough to read aloud from across a
-  room.
+### §11.9 FOUR CHARACTERS, AND WHERE "JOIN A ROOM" GOES ON EACH PLATFORM
+
+*Owner: "Do we need a 6 digit code or could we get away with 4 (shorter is
+easier)? Can we build that out on every platform with a logical place to put
+it (Settings? Library?)"*
+
+**Four.** The risk is not how many codes exist, it is the chance a random
+guess lands on a room somebody is actually in:
+
+| live rooms | 4 chars | 6 chars |
+|---|---|---|
+| 10 | 1 in 104,857 | 1 in 107,374,182 |
+| 1,000 | 1 in 1,048 | 1 in 1,073,741 |
+| 10,000 | 1 in 104 | 1 in 107,374 |
+
+A free archival-film app has single-digit concurrent rooms, and one keystroke
+fewer on a remote is worth more than headroom nobody will use. **The threshold
+is ~1,000 concurrent rooms**; past that this becomes 5 or 6, and it is one
+constant (`StudioRoom.codeLength`). Two things keep the live set small and are
+not optional: a code is checked against LIVE rooms when issued, and a room
+expires when its host stops.
+
+AirPlay and Chromecast use four DIGITS because they are scoped to a network or
+to proximity. These rooms are global, which is why the alphabet is 32 wide
+rather than 10 — four Base32 characters carry as much as six digits.
+
+### §11.10 JOINING IS NOT HOSTING — an amendment to Decision 132
+
+**Decision 132 gates the Watch Together entry on
+`canHostWatchTogether()` — a camera AND a microphone — and that rule is right
+for HOSTING and wrong for JOINING.** A television has neither and is the BEST
+device to join from: it is the big screen in the room, and the owner's own
+case is a guest on a call on their laptop who wants the film on the TV.
+
+So the gate splits:
+
+| | needs a camera + mic | why |
+|---|---|---|
+| **Host a show** | yes (Decision 132 unchanged) | "a broadcast with no camera and no microphone is not watching together" |
+| **Join a room** | **no** | a joiner contributes nothing to the programme; they are watching in step |
+
+This does not weaken Decision 132's reasoning, it scopes it. Its sentence was
+about a HOST offering a broadcast nobody is in. A guest on a television is in
+somebody else's show, and the conversation is on the call they are already on.
+
+**Where the entry goes**, and the rule is that it is a PEER of watching, never
+a setting:
+
+| platform | place |
+|---|---|
+| **macOS** | the existing **Watch Together** sidebar section — a "Join a room" button beside "Open the Studio" |
+| **tvOS** | a **Watch Together** sidebar row. The most likely joining device in the house deserves a visible one, not a Settings page |
+| **iOS / iPadOS** | the Watch Together row on the Library/More surface, per `iOS-DESIGN` |
+| **Android phone** | beside the existing Watch Together entry |
+| **Google TV / Fire TV** | a sidebar row — newly ALLOWED by §11.10 above, where Decision 132 had removed the entry entirely |
+| **web** | the link already works; a code field on `/together/` for the same reason |
+| **Roku** | a menu row; codes are why Decision 119 exists on this platform |
+
+**NOT Settings.** Settings is where you change how the app behaves; joining a
+room is a thing you DO, and burying it would repeat the mistake the owner
+already caught with the Studio ("it seems to lack the ability to set a
+destination... it just starts playing the movie").
+
+**The entry field** is four characters, uppercased as typed, with the
+confusable mapping applied live so a host reading "oh" and a guest typing O
+never diverge. On tvOS it is focus-driven (Rule 8.8's ten-foot constraints),
+and the host's own code is displayed large enough to read aloud across a room.
+
+**A QR stays worth having** for the one case a code is worse at: a phone
+joining from a television that is already in the room. The encoder exists
+(Decision 119) and the payload is the same join URL.
 
 **And a QR stays worth having for the one case a code is worse at**: a phone
 joining from a television that is already in the room. The QR encoder exists
