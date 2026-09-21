@@ -9,6 +9,8 @@ This doc covers the **whole macOS app**, in three parts:
 - **Part B — The parity face** (§B1–§B12): browse / play / library / search / channels —
   the native shell, the player, the hero, image loading, and the macOS-specific gotchas.
 - **Part C — Shipping the Mac app** (§C1–§C7): the command-line App Store pathway + its traps.
+- **Part D — Watch Together Studio** (§D0–§D6): the OBS-informed broadcast studio —
+  what we take from OBS and what we deliberately do not.
 
 Research/evidence: Part A → `docs/research/creation-studio-README.md` (+ its seven briefs).
 Part B/C codify what was learned shipping the app — see the skills `macos-native-app-shell`,
@@ -1084,3 +1086,127 @@ defect one layer down (`setLayout(.corner)` hardcoded).
 make it drive the chain the PRODUCT drives — a door that waits and sets where
 the product arms cannot find the product's bugs, which is precisely how this
 one hid behind a passing bench run.
+
+---
+
+# PART D — WATCH TOGETHER STUDIO on macOS (binding)
+
+*Opened 2026-09-21. Owner: "You should have a lot of controls on MacOS to
+determine exactly how the stream looks and which inputs/outputs are being
+managed. You had researched OBS, so you should be able to take anything you
+need from that open source project to make sure this feature is fully built
+out."*
+
+## §D0 — What we take from OBS, and what we deliberately do not
+
+OBS is the reference because it is the thing hosts already know, and because
+its hard-won answers to real problems are worth copying rather than
+rediscovering. But Archive Watch is not a general-purpose broadcaster, and
+copying OBS wholesale would make a WORSE product for this job.
+
+**TAKE:**
+
+| from OBS | why |
+|---|---|
+| **A program preview** — see what the audience sees, before and during | the single largest gap today: a Mac host reads numbers and trusts them |
+| **An input list with real device pickers** — which camera, which microphone, which app's audio | the owner's words: "which inputs/outputs are being managed". Today the Mac takes `AVCaptureDevice.default` and never says which |
+| **A per-input mixer**: fader, mute, and a meter per source | two faders is not a mixer once there are three inputs |
+| **Output settings**: resolution, frame rate, bitrate, and the encoder's identity | these exist in the engine and are chosen for the host with no way to see or change them |
+| **Stats that name a fault**: dropped frames, queue depth, reconnects | already measured (§6.4); never surfaced on macOS beyond a one-line capsule |
+
+**DO NOT TAKE:**
+
+- **Scenes as a general graph.** OBS scenes exist because OBS knows nothing
+  about your content. We know: there is a FILM, optionally a HOST, optionally
+  GUESTS, and a CARD. Rule 8.8e's five placements already name every
+  arrangement those four can make, and a host choosing "Side by side" is
+  making one decision where OBS would make six.
+- **Filters and effects.** Chroma key, colour correction, LUTs. A watch-along
+  is not a production; the film is the picture and the host is a tile.
+- **Recording to disk alongside streaming.** Tempting and cheap, and it turns
+  a viewing app into a thing that makes copies of films — a rights posture
+  this project has spent a year being careful about (Decision 027). NOT built
+  without an owner decision.
+- **Transitions.** A stinger between "film" and "film with a face in the
+  corner" is motion for its own sake.
+
+## §D1 — The Studio is a WINDOW, not a panel
+
+The Mac gets a real Studio window — `Window("Watch Together Studio")`, its own
+scene, resizable, remembered. The panel that exists today is a popover over
+the player and cannot hold a preview, an input list and a mixer at once.
+
+**Why a window and not a sheet**: a host runs a broadcast for two hours,
+alongside the player. A sheet is modal to one window and disappears when the
+player goes full-screen, which is exactly when a host most needs the controls.
+This is §B2a's reasoning (the player is the window root) applied one level out.
+
+**Layout**, and the proportions are the rule: PROGRAM PREVIEW across the top
+at the program's own aspect; beneath it three columns — **Inputs**,
+**Mixer**, **Output** — in that order, left to right, because that is the
+order a host thinks in: what is in the show, how loud is it, where is it
+going.
+
+## §D2 — Every input is NAMED, and its device is CHOSEN
+
+The input list carries one row per source. Each row shows the source's NAME
+(the device's own localised name, never "Camera"), a live state, and its
+control.
+
+| input | device choice | today |
+|---|---|---|
+| Film | the film being watched — not choosable, it IS the show | ✓ |
+| Camera | every `AVCaptureDevice` of type video, by name, plus "None" | takes `.default` silently |
+| Microphone | every audio device by name, plus "None" | takes `.default` silently |
+| A call's audio | any running process with audio, by bundle id (SHAREPLAY §10) | not built |
+
+**A device that vanishes says so in its row** and the show continues — Rule
+8.8's "an absent camera is normal" extended to every input. The camera-stall
+recovery (Decision 133's `CameraStallRecovery`) reports into the camera row.
+
+## §D3 — The mixer has one channel per AUDIBLE input, and a meter on each
+
+Film, microphone, and the call — three channels where there are three inputs,
+on the shared 0–10 scale (Rule 8.8c, `MixLevel`), each with a mute and a meter
+drawn on the fader's own scale. Auto-duck stays a single toggle: it is a
+relationship between the film and the voice, not a property of one channel.
+
+**A muted input is drawn muted and still shows its meter.** A host needs to
+see that the microphone they muted is picking up sound before they unmute it.
+
+## §D4 — Output settings are the host's, with the engine's own numbers beside them
+
+Resolution, frame rate and bitrate are choosable; the encoder's identity
+(hardware or software) and what the wire is actually carrying are shown beside
+them and are never editable. §6.5's thermal step may move the bitrate at
+runtime — when it does, the control shows the ASKED figure and the readout
+shows the ACTUAL, and the difference is the point.
+
+**Nothing here may be changed while live** except the bitrate: an RTMP ingest
+will not accept a resolution or frame-rate change mid-publish (§6.5's
+correction), so those controls are disabled with that sentence, not hidden.
+
+## §D5 — The preview is the PROGRAM, and it is honest about what it is
+
+The preview draws the same composited frame the encoder receives — not an
+approximation, not the film with an overlay drawn in SwiftUI. It is fed from
+the engine's own output so that "what I see" and "what they see" cannot
+diverge, which is the whole failure this session spent a day chasing on other
+platforms (Decision 133).
+
+**Before going live the preview still runs.** A host should be able to frame
+themselves, set levels and pick a placement with nothing being broadcast —
+which is what OBS's preview is for, and what no Archive Watch platform offers
+today.
+
+## §D6 — Build order
+
+1. The window, the preview, and the existing controls moved into it
+2. Device pickers for camera and microphone (§D2)
+3. Output settings (§D4)
+4. The third audio input — a call's audio via `AudioHardwareCreateProcessTap`
+   (SHAREPLAY §10), which is the piece that makes "With Friends and the World"
+   real
+5. Per-input meters and mutes (§D3)
+
+Each step ships on its own and is verified on the wire, never by compiling.

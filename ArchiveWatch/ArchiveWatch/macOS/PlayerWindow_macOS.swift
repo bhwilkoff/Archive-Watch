@@ -14,22 +14,12 @@ import SwiftData
 struct PlayerWindow: View {
     /// The live show, if there is one (§B13a).
     private var studio: StudioSession { StudioSession.shared }
-    /// `AW_STUDIO_MAC_PANEL=1` opens the panel on launch so §B13c can be SEEN
-    /// without clicking — §B11's reason again (SwiftUI exposes no scriptable
-    /// control). Inert unless set.
-    @State private var showStudioPanel =
+    /// `AW_STUDIO_MAC_PANEL=1` opens the Studio window on launch so §D1 can be
+    /// SEEN without clicking — §B11's reason again (SwiftUI exposes no
+    /// scriptable control). Inert unless set.
+    private let openStudioOnLaunch =
         ProcessInfo.processInfo.environment["AW_STUDIO_MAC_PANEL"] == "1"
-    // The panel's own state, pushed into the engine on change. Held here
-    // rather than read back from the engine because a slider that reads its
-    // own effect back through an actor stutters under the thumb.
-    @State private var studioLayout: StudioLayout = .corner
-    @State private var duckEnabled = true
-    @State private var filmGain: Double = 1.0
-    @State private var micGain: Double = 1.0
-    @State private var filmMuted = false
-    @State private var micMuted = false
-    @State private var showLowerThird = true
-    @State private var studioCard: StudioOverlay.Card?
+    @Environment(\.openWindow) private var openWindow
     let item: Catalog.Item
     @Environment(AppStore.self) private var store
     @Environment(AppRouter.self) private var router
@@ -65,38 +55,19 @@ struct PlayerWindow: View {
                                          filmFramesPerSecond: studio.filmFramesPerSecond,
                                          cameraFramesPerSecond: studio.cameraFramesPerSecond,
                                          onEnd: { Task { await studio.end() } },
-                                         onOpenControls: { showStudioPanel = true })
+                                         onOpenControls: { openWindow(id: StudioWindowID.studio) })
                         .transition(.opacity)
                     }
                 }
-                .sheet(isPresented: $showStudioPanel) {
-                    StudioMacPanel(health: studio.health,
-                                   audio: studio.health.audio,
-                                   filmFramesPerSecond: studio.filmFramesPerSecond,
-                                   cameraFramesPerSecond: studio.cameraFramesPerSecond,
-                                   layout: $studioLayout,
-                                   filmGain: $filmGain, micGain: $micGain,
-                                   filmMuted: $filmMuted, micMuted: $micMuted,
-                                   duckEnabled: $duckEnabled,
-                                   showLowerThird: $showLowerThird,
-                                   card: $studioCard,
-                                   onEnd: { Task { await studio.end() } })
+                // The controls themselves now live in `StudioControls`
+                // (§D1), which pushes each change into the engine, so the
+                // player pushes nothing. It used to hold seven `@State`s and
+                // seven `onChange`s; a second surface showing the same
+                // choices made two copies of them a bug rather than a
+                // simplification.
+                .onAppear {
+                    if openStudioOnLaunch { openWindow(id: StudioWindowID.studio) }
                 }
-                // Each control pushed on change, in its own modifier: seven
-                // inline `onChange`s in one expression defeated the SwiftUI
-                // type-checker on iOS and the same shape would do it here.
-                .onChange(of: studioLayout) { _, l in Task { await studio.setLayout(l) } }
-                // OPEN ON WHAT THE SHOW IS ACTUALLY DOING. The sheet arms the
-                // host's choice and this picker's own state defaulted to
-                // `.corner`, so the panel could contradict the broadcast.
-                .onAppear { studioLayout = StudioSession.shared.armedLayout }
-                .onChange(of: filmGain) { _, g in Task { await studio.setAudio(filmGain: Float(g)) } }
-                .onChange(of: micGain) { _, g in Task { await studio.setAudio(micGain: Float(g)) } }
-                .onChange(of: filmMuted) { _, m in Task { await studio.setAudio(filmMuted: m) } }
-                .onChange(of: micMuted) { _, m in Task { await studio.setAudio(micMuted: m) } }
-                .onChange(of: duckEnabled) { _, on in Task { await studio.setAudio(duckEnabled: on) } }
-                .onChange(of: showLowerThird) { _, on in Task { await studio.setLowerThird(on) } }
-                .onChange(of: studioCard) { _, c in Task { await studio.setCard(c) } }
                 .navigationTitle(item.year.map { "\(item.title) (\($0))" } ?? item.title)
                 .toolbar {
                     // GO LIVE, WHERE SOMEONE CAN SEE IT (Rule B13g, amended

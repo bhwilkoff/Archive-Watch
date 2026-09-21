@@ -9,6 +9,22 @@ import AppKit
 // window that proves the Core-reuse thesis. Reuses the SAME CloudKit container as the
 // other Apple platforms, so favorites/progress sync for free.
 
+/// Opening a window from a menu needs `openWindow`, which is an Environment
+/// value — so the command is a small VIEW rather than a bare `Button`, which
+/// is how SwiftUI intends a command to reach a scene.
+private struct StudioWindowCommand: View {
+    @Environment(\.openWindow) private var openWindow
+    var body: some View {
+        Button("Watch Together Studio") { openWindow(id: StudioWindowID.studio) }
+            .keyboardShortcut("s", modifiers: [.command, .shift])
+    }
+}
+
+/// The Studio window's scene id, in one place because three files name it.
+enum StudioWindowID {
+    static let studio = "watch-together-studio"
+}
+
 @main
 struct ArchiveWatchMacApp: App {
     @State private var store = AppStore()
@@ -113,6 +129,12 @@ struct ArchiveWatchMacApp: App {
                 Button("Go Live…") { router.showGoLive = true }
                     .keyboardShortcut("l", modifiers: [.command, .shift])
                     .disabled(router.nowPlaying == nil)
+                // The Studio window is NOT disabled without a film. §D5 says
+                // a host should be able to open it, see what it offers and
+                // set their levels before anything is broadcast; a control
+                // that is grey until you already started is one you find
+                // after you needed it.
+                StudioWindowCommand()
             }
         }
 
@@ -130,6 +152,17 @@ struct ArchiveWatchMacApp: App {
         }
         .modelContainer(modelContainer)
         .defaultSize(width: 1200, height: 760)
+
+        // WATCH TOGETHER STUDIO (macOS-DESIGN §D1) — its own window, so it
+        // survives the player going full-screen and can hold the program
+        // preview, the inputs and the mixer at once. `Window` rather than
+        // `WindowGroup`: there is one broadcast, so there is one Studio.
+        Window("Watch Together Studio", id: StudioWindowID.studio) {
+            StudioWindowView()
+                .environment(store)
+                .environment(router)
+        }
+        .defaultSize(width: 1080, height: 860)
 
         Settings {
             SettingsView()

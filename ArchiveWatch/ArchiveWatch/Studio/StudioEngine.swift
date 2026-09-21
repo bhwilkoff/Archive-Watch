@@ -365,6 +365,33 @@ extension StudioEngine.Configuration {
     }
 }
 
+/// The composed programme frame, shared with whoever wants to LOOK at it.
+///
+/// §C5: the Mac's preview must draw the frame the ENCODER receives, not an
+/// approximation assembled again in SwiftUI — "what I see" and "what they see"
+/// diverging is the exact failure Decision 133 is about. The engine is an
+/// actor and `CVPixelBuffer` is not Sendable, so the frame crosses isolation
+/// the way the camera's already does: a lock-guarded box that the producer
+/// writes and any thread may read.
+public final class StudioProgramMirror: @unchecked Sendable {
+    public static let shared = StudioProgramMirror()
+    private let lock = NSLock()
+    private var frame: CVPixelBuffer?
+    private var generation: UInt64 = 0
+
+    public func publish(_ buffer: CVPixelBuffer) {
+        lock.lock(); frame = buffer; generation &+= 1; lock.unlock()
+    }
+    /// The newest frame and its generation, so a view can skip a redraw when
+    /// nothing has changed rather than re-rendering the same picture at 30 Hz.
+    public func latest() -> (CVPixelBuffer, UInt64)? {
+        lock.lock(); defer { lock.unlock() }
+        guard let frame else { return nil }
+        return (frame, generation)
+    }
+    public func clear() { lock.lock(); frame = nil; lock.unlock() }
+}
+
 public actor StudioEngine {
 
     public struct Configuration: Sendable {
@@ -1149,6 +1176,7 @@ public actor StudioEngine {
         health.cameraFramesReceived = cameraTap?.received ?? 0
         health.cameraAttached = cameraTap != nil
         let program = renderer.render(film: lastFilmFrame, camera: cameraTap?.latest())
+        StudioProgramMirror.shared.publish(program)
         health.programFramesRendered += 1
         renderTimeTotal += (CACurrentMediaTimeCompat() - t0) * 1000
 
