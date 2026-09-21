@@ -25,6 +25,9 @@ const created = await j(await fetch(`${BASE}/together/new`, {
 }));
 check("a room is created and hands back a code", !!created?.code, JSON.stringify(created));
 const code = created?.code;
+const hostKey = created?.hostKey;
+check("creation hands back a HOST KEY, not just a code", typeof hostKey === "string" && hostKey.length >= 32,
+      hostKey ? `${hostKey.length} chars` : "none");
 check("the code is four characters", code?.length === 4, code);
 check("creation returns the server's own clock", typeof created?.serverTime === "number",
       String(created?.serverTime));
@@ -50,7 +53,7 @@ check("a code typed the way it was HEARD reaches the same room",
 // ---- update, and the server owns the generation
 const g0 = got.generation;
 const upd = await j(await fetch(`${BASE}/together/${code}`, {
-  method: "POST", headers: { "content-type": "application/json" },
+  method: "POST", headers: { "content-type": "application/json", "x-aw-host-key": hostKey },
   body: JSON.stringify({ filmID: FILM, position: 99, rate: 1, paused: true, generation: 12345 }),
 }));
 check("a host publishes a new state", upd?.position === 99, JSON.stringify(upd));
@@ -61,11 +64,33 @@ check("THE SERVER owns the generation — a client cannot set it",
 // CONTROL: a second write must move it again, or "the server owns it" could
 // be satisfied by a constant.
 const upd2 = await j(await fetch(`${BASE}/together/${code}`, {
-  method: "POST", headers: { "content-type": "application/json" },
+  method: "POST", headers: { "content-type": "application/json", "x-aw-host-key": hostKey },
   body: JSON.stringify({ filmID: FILM, position: 100 }),
 }));
 check("CONTROL: a further write advances the generation again",
       upd2?.generation === g0 + 2, `${upd?.generation} -> ${upd2?.generation}`);
+
+// ---- A GUEST WITH ONLY THE CODE CANNOT DRIVE THE SHOW.
+// Tidbits Trivia's own screen: "the room code alone cannot drive the show."
+// The code is read aloud, so it cannot also be the credential.
+const hijack = await fetch(`${BASE}/together/${code}`, {
+  method: "POST", headers: { "content-type": "application/json" },
+  body: JSON.stringify({ filmID: FILM, position: 0, paused: true }),
+});
+check("A GUEST WITH THE CODE AND NO KEY IS REFUSED", hijack.status === 403,
+      `HTTP ${hijack.status}`);
+const wrongKey = await fetch(`${BASE}/together/${code}`, {
+  method: "POST", headers: { "content-type": "application/json", "x-aw-host-key": "nope" },
+  body: JSON.stringify({ filmID: FILM, position: 0 }),
+});
+check("and a WRONG key is refused", wrongKey.status === 403, `HTTP ${wrongKey.status}`);
+// and the refusal actually protected the room
+const after = await j(await fetch(`${BASE}/together/${code}`));
+check("the room was NOT changed by the attempt", after?.position === 100,
+      String(after?.position));
+// A READ must never hand the key out, or the split is undone by the first poll.
+check("a GET never carries the host key", after?.hostKey === undefined,
+      JSON.stringify(Object.keys(after || {})));
 
 // ---- unknown and malformed
 check("an unknown room is 404",
@@ -80,7 +105,7 @@ check("creating without a film is refused",
 // ---- ending DELETES, because a room that lingers is a record of what
 // somebody watched.
 const ended = await j(await fetch(`${BASE}/together/${code}`, {
-  method: "POST", headers: { "content-type": "application/json" },
+  method: "POST", headers: { "content-type": "application/json", "x-aw-host-key": hostKey },
   body: JSON.stringify({ end: true }),
 }));
 check("ending a room reports it ended", ended?.ended === true, JSON.stringify(ended));
@@ -100,7 +125,7 @@ check("and each holds its own film",
       (await j(await fetch(`${BASE}/together/${b.code}`)))?.filmID === "b");
 for (const r of [a, b]) {
   await fetch(`${BASE}/together/${r.code}`, {
-    method: "POST", headers: { "content-type": "application/json" },
+    method: "POST", headers: { "content-type": "application/json", "x-aw-host-key": r.hostKey },
     body: JSON.stringify({ end: true }) });
 }
 

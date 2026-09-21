@@ -110,8 +110,22 @@ if [ -z "${AW_TOGETHER_BASE:-}" ] && [ -d worker ]; then
         --file=schema-rooms.sql >/dev/null 2>&1 \
       && nohup npx --yes wrangler dev --local --port 8799 \
         > "$SCRATCH/wrangler.log" 2>&1 & )
-    for _ in $(seq 1 45); do
-      curl -s --max-time 1 "$TOGETHER_BASE/together/ABCD" >/dev/null 2>&1 && break
+    # READY MEANS THE TABLE EXISTS, not merely that something answers.
+    # `/together/ABCD` returns "no such room" as soon as the Worker is
+    # routing, which is true well before `d1 execute` has finished creating
+    # the table — so a run could start, find the route alive and the table
+    # missing, and fail instead of skipping. Probe with a real CREATE and
+    # clean it up: the only honest question is "can a room be made".
+    for _ in $(seq 1 60); do
+      probe=$(curl -s --max-time 2 -X POST -H 'content-type: application/json' \
+              -d '{"filmID":"aw-readiness-probe"}' "$TOGETHER_BASE/together/new" 2>/dev/null)
+      case "$probe" in
+        *'"code"'*)
+          probe_code=$(printf '%s' "$probe" | sed -n 's/.*"code":"\([^"]*\)".*/\1/p')
+          curl -s --max-time 2 -X POST -H 'content-type: application/json' \
+               -d '{"end":true}' "$TOGETHER_BASE/together/$probe_code" >/dev/null 2>&1
+          break ;;
+      esac
       sleep 1
     done
     if curl -s --max-time 1 "$TOGETHER_BASE/together/ABCD" >/dev/null 2>&1; then
@@ -234,7 +248,8 @@ fi
 # local `wrangler dev`, and a SKIP here is not a pass — it is the transport
 # going unexercised.
 printf '\n=== %s\n' "8.30 room transport (live)"
-if curl -s --max-time 2 "$TOGETHER_BASE/together/ABCD" >/dev/null 2>&1; then
+if curl -s --max-time 2 -X POST -H 'content-type: application/json' \
+     -d '{"filmID":"probe"}' "$TOGETHER_BASE/together/new" 2>/dev/null | grep -q '"code"'; then
   if BASE="$TOGETHER_BASE" node tools/test_together_live.mjs; then
     row "8.30 room transport" PASS ""; PASS=$((PASS+1))
   else
@@ -248,7 +263,8 @@ fi
 
 # The CLIENT against the same Worker. §8.27 proves the arithmetic and §8.30
 # the routes; neither says they are wired together, which is Decision 133.
-if curl -s --max-time 2 "$TOGETHER_BASE/together/ABCD" >/dev/null 2>&1; then
+if curl -s --max-time 2 -X POST -H 'content-type: application/json' \
+     -d '{"filmID":"probe"}' "$TOGETHER_BASE/together/new" 2>/dev/null | grep -q '"code"'; then
   AW_TOGETHER_BASE="$TOGETHER_BASE" \
     swift_case "8.31 sync client (live)" \
       ArchiveWatch/ArchiveWatch/Studio/StudioSync.swift \

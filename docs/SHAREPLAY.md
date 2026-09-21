@@ -883,6 +883,63 @@ the live archivewatch.org Worker; that is theirs to run. The D1 table has to
 be created first (`schema-rooms.sql`), and `--remote` is deliberately never
 used in any of the above — every run here was local.
 
+### §11.12 WHAT TIDBITS TRIVIA ALREADY KNEW (2026-09-21)
+
+*Owner: "Is there anything we can learn from the way that we build Tidbits
+Trivia rooms that keep everyone in sync across platforms?"*
+
+Yes, and one of the three was a real hole in this design.
+
+**1. A code that is read aloud cannot also be the credential.** Tidbits
+separates a 4-letter room CODE from a 6-digit PIN, and says why on its own
+screen: *"The PIN is on the host screen, not the projector — the room code
+alone cannot drive the show."*
+
+Archive Watch had exactly that hole. §11.6 decided hosts alone control the
+film and **the transport enforced nothing**: any guest who heard a code could
+POST a pause to somebody's live broadcast. `POST /together/new` now returns a
+`hostKey` alongside the code — returned ONCE, to the creator, never by a read
+— and every write requires it. §8.30 asserts a guest with the code and no key
+is refused, a wrong key is refused, the room is unchanged by the attempt, and
+a GET never carries the key.
+
+Ours is a long random token rather than six digits, because no human ever
+types it: only the host's own app holds it. Tidbits needs a typeable PIN
+because a person drives the show from a second device; our host drives from
+the machine that made the room.
+
+**2. Four characters, independently arrived at.** Tidbits' rooms are
+4-letter codes with a 4–8 character rule in its database rules. §11.9 reached
+four from the guess-odds table. Two apps, the same answer, for the same
+reason: it gets read aloud.
+
+**3. Firebase gives PUSH where we poll — and we are not taking it.** Tidbits
+uses Firebase Realtime Database with anonymous auth and live listeners, so a
+change reaches every device immediately rather than within a poll interval.
+That is genuinely better for latency, and it is the right choice THERE: a
+trivia round is a fast, turn-taking game where a two-second lag is the whole
+experience.
+
+It is the wrong choice here, for reasons that are about this project rather
+than about Firebase:
+
+- **Decision 127**: this project ships zero third-party packages,
+  deliberately, and Firebase means an SPM dependency on three Apple platforms
+  and a Gradle one on Android — a second concurrency model and an upstream we
+  do not control, in a Swift-6-strict project.
+- **A film is not a trivia round.** What we sync is play, pause and seek —
+  tens of events in two hours. §11.3 already absorbs a poll interval with a
+  3% rate nudge that nobody can see. Tidbits cannot absorb latency that way
+  because its state changes *are* the experience.
+- **The counter is already there.** D1 on the existing Worker costs no new
+  infrastructure, which is most of why this fits $0 rather than merely being
+  cheap.
+
+**Worth revisiting if** a mode ever needs sub-second agreement — a shared
+scrub bar, say, or reactions. Firebase RTDB also has a REST + server-sent
+events interface usable from plain `URLSession` with no SDK at all, which
+would be the way in if that day comes.
+
 ### §11.7 What would have to be proved before it ships
 
 Not built, and none of this is a measurement yet. In this feature's own terms

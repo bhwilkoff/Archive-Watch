@@ -8,7 +8,12 @@ CREATE TABLE IF NOT EXISTS rooms (
   rate         REAL NOT NULL DEFAULT 1,
   paused       INTEGER NOT NULL DEFAULT 0,
   generation   INTEGER NOT NULL DEFAULT 1,
-  touched_ms   INTEGER NOT NULL
+  touched_ms   INTEGER NOT NULL,
+  -- THE CODE IS PUBLIC; THIS IS NOT. A code is read aloud on a call, so it
+  -- cannot also be the credential that drives the film — the lesson Tidbits
+  -- Trivia states on its own screen ("the room code alone cannot drive the
+  -- show"). Returned once at creation and never by a read.
+  host_key     TEXT
 );
 -- The sweep asks "what is stale", so that is what is indexed.
 CREATE INDEX IF NOT EXISTS rooms_touched ON rooms (touched_ms);

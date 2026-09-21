@@ -35,6 +35,13 @@ public actor StudioSyncClient {
     /// round trip, never an average.
     private var clock: StudioSync.ClockSample?
     private(set) public var code: String?
+    /// THE CREDENTIAL, held only by the host's own app and never displayed.
+    ///
+    /// The code is read aloud on a call, so it cannot also be what drives the
+    /// film — the lesson Tidbits Trivia puts on its own screen: "the room
+    /// code alone cannot drive the show". A guest has the code and that is
+    /// deliberately not enough.
+    private var hostKey: String?
     private(set) public var lastState: StudioSync.State?
     private var lastGenerationChangeAt: Date?
     private var lastGeneration: Int?
@@ -155,6 +162,8 @@ public actor StudioSyncClient {
             throw JoinError.transport("the room could not be created")
         }
         self.code = code
+        // Returned ONCE, at creation. A poll never carries it back.
+        self.hostKey = o["hostKey"] as? String
         return code
     }
 
@@ -167,6 +176,7 @@ public actor StudioSyncClient {
                               .appendingPathComponent(code))
         r.httpMethod = "POST"
         r.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        if let hostKey { r.setValue(hostKey, forHTTPHeaderField: "x-aw-host-key") }
         r.httpBody = try? JSONSerialization.data(withJSONObject: [
             "filmID": filmID, "position": position, "rate": rate, "paused": paused])
         _ = try await session.data(for: r)
@@ -179,8 +189,10 @@ public actor StudioSyncClient {
                               .appendingPathComponent(code))
         r.httpMethod = "POST"
         r.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        if let hostKey { r.setValue(hostKey, forHTTPHeaderField: "x-aw-host-key") }
         r.httpBody = try? JSONSerialization.data(withJSONObject: ["end": true])
         _ = try? await session.data(for: r)
         self.code = nil
+        self.hostKey = nil
     }
 }

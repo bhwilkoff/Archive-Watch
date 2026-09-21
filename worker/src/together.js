@@ -23,6 +23,21 @@
  * a record of what anyone watched — the same rule the counter beside it keeps.
  */
 
+/**
+ * THE CODE IS PUBLIC; CONTROL IS NOT.
+ *
+ * Learned from Tidbits Trivia (the owner's other app), whose own screen says
+ * it in one line: *"The PIN is on the host screen, not the projector — the
+ * room code alone cannot drive the show."* A code meant to be read aloud
+ * cannot also be the credential, or everyone who hears it can drive.
+ *
+ * Archive Watch had exactly that hole: the owner decided hosts alone control
+ * the film (§11.6) and the transport enforced nothing, so any guest who knew
+ * a code could pause somebody's live broadcast.
+ *
+ * Ours is a long random token rather than Tidbits' six digits, because no
+ * human ever types it — only the host's own app holds it.
+ */
 const CORS = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Methods": "GET,POST,OPTIONS",
@@ -52,6 +67,12 @@ export function normalizeCode(typed) {
   return out.length === CODE_LENGTH ? out : null;
 }
 
+function newHostKey() {
+  const bytes = new Uint8Array(24);
+  crypto.getRandomValues(bytes);
+  return Array.from(bytes, (b) => b.toString(16).padStart(2, "0")).join("");
+}
+
 function newCode() {
   const bytes = new Uint8Array(CODE_LENGTH);
   crypto.getRandomValues(bytes);
@@ -71,6 +92,9 @@ function json(body, status = 200) {
 }
 
 function rowToState(r, nowMs) {
+  // `host_key` is deliberately NOT in this object. It is returned once, at
+  // creation, to the creator — a read handing it back would undo the whole
+  // point of having it.
   return {
     code: r.code,
     filmID: r.film_id,
@@ -110,12 +134,16 @@ export async function handleTogether(url, request, env) {
     for (let attempt = 0; attempt < 10; attempt++) {
       const code = newCode();
       try {
+        const hostKey = newHostKey();
         await env.DB.prepare(
-          "INSERT INTO rooms (code, film_id, position, at_server_ms, rate, paused, generation, touched_ms) " +
-          "VALUES (?1, ?2, ?3, ?4, ?5, ?6, 1, ?4)"
+          "INSERT INTO rooms (code, film_id, position, at_server_ms, rate, paused, generation, touched_ms, host_key) " +
+          "VALUES (?1, ?2, ?3, ?4, ?5, ?6, 1, ?4, ?7)"
         ).bind(code, filmID, Number(body.position) || 0, now,
-               Number(body.rate) || 1, body.paused ? 1 : 0).run();
-        return json({ code, serverTime: now / 1000 });
+               Number(body.rate) || 1, body.paused ? 1 : 0, hostKey).run();
+        // The key is returned ONCE, to the creator, and never again — a GET
+        // must never be able to hand it out, or the split it exists for is
+        // undone by the first poll.
+        return json({ code, hostKey, serverTime: now / 1000 });
       } catch (e) {
         // A UNIQUE violation means the code is taken — try another. Anything
         // else is a real failure and must not be retried into a loop.
@@ -149,6 +177,16 @@ export async function handleTogether(url, request, env) {
     // ENDING IS A DELETE, not a flag. A room that lingers is a row saying what
     // somebody watched, and §11's whole storage posture is that no such record
     // outlives the watching.
+    // EVERY WRITE NEEDS THE HOST KEY. A guest has the code — they were told
+    // it out loud — and that is deliberately not enough to drive the show.
+    const room = await env.DB.prepare("SELECT host_key FROM rooms WHERE code = ?1")
+      .bind(code).first();
+    if (!room) return json({ error: "no such room" }, 404);
+    const offered = request.headers.get("x-aw-host-key") || body.hostKey || "";
+    if (!room.host_key || offered !== room.host_key) {
+      return json({ error: "only the host can change the film" }, 403);
+    }
+
     if (body.end === true) {
       await env.DB.prepare("DELETE FROM rooms WHERE code = ?1").bind(code).run();
       return json({ ended: true });
