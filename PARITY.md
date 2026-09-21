@@ -129,6 +129,13 @@ it carry the engineering detail.
 | **Fire TV** | 🚫 same | 🚫 same — entry removed 2026-09-20 | 🚫 same |
 | **Web** | 🚫 | 🚫 a browser cannot speak RTMP | 🚫 |
 
+**Placement is PROVED ON THE WIRE on every platform that has it** (2026-09-20),
+each read back from a server's own recording rather than from a control's
+appearance: tvOS `side` at x=143..1137 of 1920; iOS `side` film-left /
+camera-right; macOS `side` the same through the armed path; Android `side` both
+from a door and by TAPPING the panel mid-broadcast. Four defects were found
+doing it, all one shape — a value that never reached the engine.
+
 **So the honest one-line answer per device**: two things on tvOS, iOS and
 iPadOS; **three on macOS**; one on an Android phone; and **nothing on the
 Android television boxes**, which is the correct answer rather than a gap.

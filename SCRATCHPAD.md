@@ -235,13 +235,15 @@ emulators) · `docs/CAPTIONS.md` · `docs/SHAREPLAY.md` ·
    is real and is yours to accept.
    Also open, for the owner: widening the rights tier from `guaranteed`
    (4,210 films) to `strict` (7,517) is a Decision-027 content call.
-8a. **The Local Network prompt is ON THE PHONE NOW, unanswered.** A 2026-09-18
-   run of the iOS Studio door raised it — *"Allow ArchiveWatch to find devices
-   on local networks?"* — and it was deliberately NOT answered: a privacy grant
-   on the owner's phone is the owner's decision, and the prompt shows the
-   home's network name and an area map. The screenshot was deleted rather than
-   kept. Answering it either way is one tap, and until then the iOS encoder
-   read (item 9a) cannot complete, because the prompt sits in front of the app.
+8a. **CLOSED 2026-09-20 — a bench destination needs no Local Network grant.**
+   This item assumed since 09-18 that the iOS (and tvOS) bench door was blocked
+   behind an unanswered "Allow ArchiveWatch to find devices on local networks?"
+   prompt, and that assumption is why the PRODUCT path on those two platforms
+   was never measured against a local server. It is wrong: an iPhone 12 and an
+   Apple TV 4K both published to `rtmp://10.0.0.90:19360` on the first attempt,
+   no prompt, no refusal — verified from the server's own recording on each.
+   Whatever the state of that grant, it is not what was standing in the way.
+   Original note follows.
 
 8a-orig. **Optional, one tap**: the iOS bench door (`AW_STUDIO_IOS` +
    `AW_STUDIO_DEST`) reaches a mediamtx on the Mac only if iOS's **Local
