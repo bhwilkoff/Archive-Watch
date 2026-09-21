@@ -73,6 +73,14 @@ public final class StudioSession {
     /// the path that can fail to attach, so they were the two platforms that
     /// could broadcast a silent programme with nothing on screen saying so.
     public private(set) var filmAudioProblem: String?
+
+    /// Set by whichever loop is actually running. **iOS does not run this
+    /// object's pump at all** — `StudioPlayerContainer_iOS` builds its own
+    /// engine and polls it — so a value written only in `startPump` reaches
+    /// macOS and nothing else. That is how the warning and the camera-stall
+    /// recovery were both committed as "macOS and iOS" on 2026-09-20 while
+    /// being inert on the phone; the shared TYPE looked like shared BEHAVIOUR.
+    public func publishFilmAudioProblem(_ problem: String?) { filmAudioProblem = problem }
     /// Why the Studio refused, for the surface that asked.
     public var refusal: String?
 
@@ -398,6 +406,17 @@ public final class StudioSession {
     private func diag(_ line: String) {
         #if DEBUG
         FileHandle.standardError.write(Data((line + "\n").utf8))
+        // AND THE FILE, or this is unreadable on a device. stderr is captured
+        // when the Mac app is launched from a terminal and NOWHERE on a phone:
+        // `devicectl ... copy from` pulls `DiagFile`, and `--console` captures
+        // stdout only. So the publisher's queue depth and drop counters — the
+        // only numbers that can tell congestion from a comfortable stream —
+        // existed on every platform and could be read on exactly one.
+        //
+        // Found 2026-09-20 by running §6.4 against an iPhone, watching the
+        // stream sail through a 400 kbps window, and having no way to ask the
+        // publisher whether it had noticed (§9.zzzzz).
+        DiagFile.log(line)
         #endif
     }
 

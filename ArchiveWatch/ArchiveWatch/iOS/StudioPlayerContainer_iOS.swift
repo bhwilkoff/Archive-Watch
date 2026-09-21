@@ -187,6 +187,11 @@ struct StudioPlayerContainer: View {
     private func pollHealth() async {
         var lastFilmFrames = 0
         var lastCameraFrames = 0
+        // THE SAME RULE THE OTHER TWO PLATFORMS USE. It is here, and not only
+        // in `StudioSession`'s pump, because iOS does not run that pump: this
+        // container owns the engine and this loop. Adding the behaviour to the
+        // shared session and calling it done put it on macOS alone.
+        var stall = CameraStallRecovery()
         while !Task.isCancelled {
             try? await Task.sleep(nanoseconds: 1_000_000_000)
             guard let e = engine else { continue }
@@ -200,6 +205,35 @@ struct StudioPlayerContainer: View {
             // because the rule lived only in tvOS's own loop.
             _ = await e.expireProvenanceIfDue()
             health = h
+
+            // RECOVER A CAMERA THAT STOPPED — a phone's camera stops whenever
+            // a call arrives, so this platform needs it at least as much as a
+            // television does.
+            if stall.tick(attached: h.cameraAttached,
+                          framesReceived: h.cameraFramesReceived,
+                          framesPerSecond: cameraFPS,
+                          onAir: h.showState.isOnAir) {
+                awdiag("AWCAM camera stopped at %d frames — recovery attempt %d of %d",
+                       h.cameraFramesReceived, stall.attempts,
+                       CameraStallRecovery.maximumAttempts)
+                hostCapture = await StudioSession.attachHostCamera(to: e)
+                awdiag("AWCAM recovery %d: %@", stall.attempts,
+                       hostCapture != nil ? "re-attached" : "no camera")
+            }
+
+            // IS THE FILM'S AUDIO GOING OUT? `StudioControls_iOS` reads this
+            // from the shared session, and on this platform nothing was
+            // writing it.
+            StudioSession.shared.publishFilmAudioProblem(
+                await e.filmAudioProblem(sourceHasAudio: e.sourceHasAudio))
+
+            // The publisher's own numbers, in the file a device harness can
+            // pull. §9.zzzzz: they existed and were unreachable here.
+            let p = h.publisher
+            awdiag("AWSTUDIOHEALTH state=%@ fps=%d queued=%d vsent=%d vdrop=%d asent=%d reconnects=%d kbps=%d",
+                   h.showState.label, h.encodedFramesPerSecond, p.queuedBytes,
+                   p.videoFramesSent, p.videoFramesDropped, p.audioFramesSent,
+                   p.reconnects, h.videoBitrateNow / 1000)
 
             // A show that ENDS ITSELF says why (§6.5's `.critical`, §6.6's
             // expired deadline). It reuses the existing alert rather than
