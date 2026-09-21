@@ -96,11 +96,26 @@ emulators) · `docs/CAPTIONS.md` · `docs/SHAREPLAY.md` ·
      uploaded, and BRANDING VERIFICATION is submitted — an automated check
      Google says takes up to five minutes. Home page, privacy policy,
      authorized domain and developer contact were already correct.
-     **What remains is the DATA-ACCESS review**, which is a human one and needs
-     a demo video on YouTube showing the consent flow. Google's own guidance:
-     do not record it against production traffic — use a staging route or a
-     separate project, and the unverified screen is expected to appear in the
-     video.
+     **BRANDING IS NOW VERIFIED AND PUBLISHED** (2026-09-21): "Your branding has
+     been verified and is being shown to users." The failure on the first
+     attempt named its own cause — *"The website of your home page URL
+     'https://archivewatch.org' is not registered to you"* — so
+     `google23384a8cb98dcec2.html` was added at the repo root (deploy-pages
+     rsyncs the root into `_site`, so a root file publishes), Search Console
+     verified ownership by HTML file, and re-verification passed. **That file
+     must never be deleted**: Search Console re-checks it and losing the
+     property would fail the branding check again.
+     **ONE FIELD STANDS BETWEEN US AND A CLEAN CONSENT SCREEN: the DEMO VIDEO.**
+     Prepare-for-verification shows everything else green — branding summary,
+     the declared scope, the written justification — and says "Missing the
+     following fields for one or more requested scopes: demo video." Confirm is
+     greyed until a YouTube link is supplied.
+     The video must show the consent flow for `…/auth/youtube` and include every
+     OAuth client on the project. Google is explicit that it must NOT be
+     recorded against production traffic — use a staging route or a separate
+     project — and that the unverified-app screen is EXPECTED to appear in it.
+     The recording is a job for the Mac; the UPLOAD is the owner's, since it
+     goes on their channel.
    - **Continuity camera can now be paired FROM the go-live sheet**
      (`continuityDevicePicker`, tvOS 17+). Owner paired a phone successfully;
      the microphone needed the audio session raised BEFORE Continuity is asked,
