@@ -582,6 +582,31 @@ every few minutes — a phone that changes network changes its latency.
 This is the same discipline Decision 119 applies to the encoder: measure
 against an independent reference, never against ourselves.
 
+### §11.2a NOBODY IS EVER ASKED TO DO ANYTHING
+
+Stated plainly because the wording elsewhere invited the opposite reading:
+**every correction in §11.3 is applied by the app, silently, with no prompt
+and no instruction to a viewer.** A guest whose host pauses sees the film
+pause. They are not told to pause it, and their transport controls are
+disabled anyway (§11.6, host-only control).
+
+`StudioSyncClient.correction()` RETURNS a value rather than calling
+`pause()` itself, and that is a testing boundary, not a product one: a player
+is `AVPlayer` on three platforms, `ExoPlayer` on Android and a `<video>`
+element on the web, so a type that knew about any of them could not be
+exercised without one. §8.31 proves the whole host-to-guest chain against a
+real Worker with no device in the loop precisely because of that split. The
+platform layer is a thin caller that applies what it is handed — the same
+shape as `StudioCameraStall` and `StudioLayout`, where the rule is a value
+and the platform is a caller.
+
+Where this feature DOES address a person, it is deliberate and the owner
+chose it: the film ending says so and offers a card rather than throwing one
+up, because "the stream should only end when the person streaming it decides
+that it should end". That is a HOST decision about their own broadcast. A
+guest's playhead is not a decision, it is bookkeeping, and bookkeeping is the
+app's job.
+
 ### §11.3 Correct drift by RATE first, and seek only as a last resort
 
 Decision 081 already settled the shape of this for captions: *a drift

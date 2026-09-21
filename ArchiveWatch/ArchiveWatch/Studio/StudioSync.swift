@@ -121,8 +121,14 @@ public enum StudioSync {
     public static let nudgeFast = 1.03
     public static let nudgeSlow = 0.97
 
-    /// What a guest should do, given where they are and where the host says
-    /// the film should be.
+    /// What a guest's PLAYER should be made to do — applied by the app,
+    /// silently. Nobody is ever asked to pause or seek anything: a guest whose
+    /// host pauses simply sees the film pause, and their transport controls
+    /// are disabled anyway (§11.6, host-only control).
+    ///
+    /// This returns a value instead of driving a player because a player is
+    /// `AVPlayer` on three platforms, `ExoPlayer` on Android and a `<video>`
+    /// element on the web. That is a testing boundary, not a product one.
     ///
     /// Decision 081 is the reason this prefers a rate change: *a drift
     /// correction may not rewind the captions past the viewer*. A seek is
