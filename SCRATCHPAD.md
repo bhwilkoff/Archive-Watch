@@ -129,8 +129,18 @@ emulators) · `docs/CAPTIONS.md` · `docs/SHAREPLAY.md` ·
    gates and a verified hardware encoder, and no go-live surface, because Rule
    8.8a is PROPOSED with three questions reserved for the owner (§9.ooo).
    Everything else on them is real and measured — which is why it went
-   unnoticed. **Android has no OAuth or platform client either** (zero Kotlin
-   references to googleapis.com / api.twitch.tv), so the ids do nothing for it.
+   unnoticed. **CORRECTED 2026-09-20: Android DOES have Twitch OAuth and it IS
+   configured.** This line read "Android has no OAuth or platform client either
+   (zero Kotlin references to googleapis.com / api.twitch.tv)" and was simply
+   out of date: `TwitchLive.kt` speaks helix and reads the live ingest-PoP
+   list, `StudioPlatformAuth` runs the device flow, `StudioTokenStore` keeps
+   the token, `StudioSignIn.kt` renders twitch.tv/activate with the user code,
+   and `awTwitchClientId` is set in ~/.gradle/gradle.properties so the build
+   carries a real client id. The ONLY thing missing is that nobody has ever
+   signed in on the Pixel — a device code was raised 2026-09-20 18:04 and
+   lapsed unapproved. YouTube on Android is still genuinely absent. **This
+   stale note cost real time**: it is why Android platform testing kept being
+   deprioritised across sessions, including by me today.
    macOS needs only a CALL SITE — the clients are shared Swift both Apple
    targets already compile — plus a go-live surface
    (`docs/macOS-DESIGN.md` governs that); tvOS needs the code and still carries
