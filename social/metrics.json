@@ -938,6 +938,53 @@
     "reposts": 0,
     "replies": 0
    }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mvivd5uzkl2v",
+   "platform": "bluesky",
+   "id": "nightandthecity1950",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-09-14T19:55:40.512849+00:00",
+   "sampled": "2026-09-21T01:06:12.663775+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117271151497124090",
+   "platform": "mastodon",
+   "id": "nightandthecity1950",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-09-14T19:55:40.512849+00:00",
+   "sampled": "2026-09-21T01:06:12.663775+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mvvyf7whif2i",
+   "platform": "bluesky",
+   "id": "Sleepfor1950",
+   "slot": "from-the-vaults",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-09-20T00:55:07.639480+00:00",
+   "sampled": "2026-09-21T01:06:12.663775+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 1,
+    "replies": 0,
+    "quotes": 0
+   }
   }
  ]
 }
