@@ -138,6 +138,11 @@ final class ProgramLayerView: NSView {
 struct StudioWindowView: View {
     private var studio: StudioSession { StudioSession.shared }
     @Bindable private var controls = StudioControls.shared
+    /// The device lists, read once on appear and on demand rather than every
+    /// redraw: `AVCaptureDevice.DiscoverySession` is not free, and this view
+    /// redraws at the health tick.
+    @State private var cameras: [StudioDevices.Device] = []
+    @State private var microphones: [StudioDevices.Device] = []
     /// Redraw the numbers on the same second the engine publishes them.
     /// `StudioSession` is `@Observable`, so `health` alone would do it — the
     /// timer is for the two derived per-second rates it recomputes in place.
@@ -159,7 +164,10 @@ struct StudioWindowView: View {
             .frame(maxHeight: .infinity)
         }
         .frame(minWidth: 940, minHeight: 660)
-        .onAppear { controls.layout = studio.armedLayout }
+        .onAppear {
+            controls.layout = studio.armedLayout
+            refreshDevices()
+        }
     }
 
     // MARK: Preview
@@ -246,25 +254,46 @@ struct StudioWindowView: View {
                      healthy: !studio.isLive || studio.filmFramesPerSecond > 0,
                      icon: "film")
 
-            inputRow(name: health.cameraAttached ? "Camera" : "None",
-                     role: "Camera",
-                     state: health.cameraAttached
+            // EVERY INPUT IS NAMED, AND ITS DEVICE IS CHOSEN (§D2).
+            //
+            // This Mac reports FOUR cameras — the built-in FaceTime camera,
+            // two virtual ones, and the host's iPhone over Continuity — and
+            // `AVCaptureDevice.default` silently took the first of them. A
+            // host who wanted their phone as the camera had no way to say so.
+            deviceRow(role: "Camera", icon: "video",
+                      devices: cameras,
+                      selection: Binding(
+                        get: { StudioDevices.chosenCameraID ?? "" },
+                        set: { StudioDevices.chosenCameraID = $0.isEmpty ? nil : $0 }),
+                      state: health.cameraAttached
                         ? (health.cameraFramesReceived == 0
                            ? "starting"
                            : (studio.cameraFramesPerSecond > 0
                               ? "\(studio.cameraFramesPerSecond) fps"
                               : "stopped"))
                         : "not attached",
-                     healthy: !health.cameraAttached || health.cameraFramesReceived == 0
-                        || studio.cameraFramesPerSecond > 0,
-                     icon: "video")
+                      healthy: !health.cameraAttached || health.cameraFramesReceived == 0
+                        || studio.cameraFramesPerSecond > 0)
 
-            inputRow(name: "Default input",
-                     role: "Microphone",
-                     state: controls.micMuted ? "muted"
+            deviceRow(role: "Microphone", icon: "mic",
+                      devices: microphones,
+                      selection: Binding(
+                        get: { StudioDevices.chosenMicrophoneID ?? "" },
+                        set: { StudioDevices.chosenMicrophoneID = $0.isEmpty ? nil : $0 }),
+                      state: controls.micMuted ? "muted"
                         : (studio.isLive ? "live" : "ready"),
-                     healthy: true,
-                     icon: "mic")
+                      healthy: true)
+
+            // NOT CHANGEABLE MID-SHOW, and said rather than hidden (§D4's
+            // rule, which applies to inputs too): an `AVCaptureSession` is
+            // built once when the show starts, so a picker that appeared to
+            // work while live would be the "value that never lands" defect
+            // Decision 133 is about.
+            if studio.isLive {
+                Text("Device changes take effect on the next broadcast — the capture session is built when a show starts.")
+                    .font(.caption2).foregroundStyle(.secondary)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
 
             // §D2 names four inputs and this build has three. The fourth is
             // the piece that makes "With Friends and the World" real, and it
@@ -299,6 +328,37 @@ struct StudioWindowView: View {
                     .font(.caption2).foregroundStyle(.secondary)
                     .fixedSize(horizontal: false, vertical: true)
             }
+        }
+    }
+
+    private func refreshDevices() {
+        cameras = StudioDevices.cameras()
+        microphones = StudioDevices.microphones()
+    }
+
+    /// One input: what it IS, which device it uses, and what it is doing.
+    /// The picker carries "System default" and "None" alongside the real
+    /// devices — None is a deliberate choice and not the same as having none.
+    private func deviceRow(role: String, icon: String,
+                           devices: [StudioDevices.Device],
+                           selection: Binding<String>,
+                           state: String, healthy: Bool) -> some View {
+        VStack(alignment: .leading, spacing: 4) {
+            HStack(alignment: .firstTextBaseline, spacing: 9) {
+                Image(systemName: icon).frame(width: 16).foregroundStyle(.secondary)
+                Text(role).font(.subheadline.weight(.medium))
+                Spacer(minLength: 6)
+                Text(state).font(.caption).monospacedDigit()
+                    .foregroundStyle(healthy ? .secondary : Color.orange)
+            }
+            Picker(role, selection: selection) {
+                Text("System default").tag("")
+                Text("None").tag(StudioDevices.noneID)
+                Divider()
+                ForEach(devices) { d in Text(d.name).tag(d.id) }
+            }
+            .labelsHidden()
+            .disabled(studio.isLive)
         }
     }
 

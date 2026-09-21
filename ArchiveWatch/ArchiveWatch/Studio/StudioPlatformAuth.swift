@@ -265,6 +265,22 @@ final class GoogleAuth: NSObject {
         return c.url!
     }
 
+    /// AWAUTH — the sign-in path had NO diagnostics of any kind.
+    ///
+    /// `grep -c awdiag StudioPlatformAuth.swift` returned 0, which is the same
+    /// hole `AWPUB` was on 2026-09-19: when a sign-in stalls there is nothing
+    /// to read, so "the spinner never stopped" and "the token exchange was
+    /// refused" are the same observation. Found 2026-09-21 when a macOS
+    /// sign-in hung after the host had already approved at Google and the
+    /// app's own log had not one line about it.
+    nonisolated static func adiag(_ line: String) {
+        #if DEBUG
+        let l = "[AWAUTH] " + line
+        FileHandle.standardError.write(Data((l + "\n").utf8))
+        DiagFile.log(l)
+        #endif
+    }
+
     func authorize(scopes: [String]) async throws -> StudioTokenStore.Token {
         let verifier = Self.randomVerifier()
         let state = Self.randomVerifier()
@@ -272,19 +288,28 @@ final class GoogleAuth: NSObject {
                                challenge: Self.challenge(for: verifier),
                                state: state)
 
+        Self.adiag("google authorize scopes=\(scopes.joined(separator: ",")) "
+                   + "redirect=\(redirectURI) clientID=\(clientID.isEmpty ? "MISSING" : "set")")
         let callback = try await present(url: url, scheme: redirectScheme)
+        Self.adiag("google callback received host=\(callback.host ?? "-") "
+                   + "query=\(callback.query.map { $0.count } ?? 0) bytes")
         guard let items = URLComponents(url: callback, resolvingAgainstBaseURL: false)?.queryItems,
               let code = items.first(where: { $0.name == "code" })?.value else {
             let err = URLComponents(url: callback, resolvingAgainstBaseURL: false)?
                 .queryItems?.first(where: { $0.name == "error" })?.value
+            Self.adiag("google callback carried NO CODE err=\(err ?? "-")")
             throw StudioPlatformError.notSignedIn(err.map { "Google refused: \($0)" }
                                                   ?? "Google returned no authorisation code.")
         }
         // CSRF: a callback whose state is not the one we sent is not ours.
         guard items.first(where: { $0.name == "state" })?.value == state else {
+            Self.adiag("google STATE MISMATCH — callback is not ours")
             throw StudioPlatformError.notSignedIn("The sign-in response did not match this request.")
         }
-        return try await exchange(code: code, verifier: verifier)
+        Self.adiag("google code received, exchanging")
+        let token = try await exchange(code: code, verifier: verifier)
+        Self.adiag("google token stored refresh=\(token.refresh != nil)")
+        return token
     }
 
     private func exchange(code: String, verifier: String) async throws -> StudioTokenStore.Token {
@@ -304,7 +329,19 @@ final class GoogleAuth: NSObject {
         guard let http = resp as? HTTPURLResponse, (200..<300).contains(http.statusCode),
               let o = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
               let access = o["access_token"] as? String else {
-            throw StudioPlatformError.badResponse("Google would not exchange the code.")
+            // GOOGLE'S OWN WORDS, not ours. This threw a fixed sentence and
+            // discarded the body, so `invalid_grant`, `redirect_uri_mismatch`
+            // and `invalid_client` — three different problems with three
+            // different fixes — were one indistinguishable message.
+            let code = (resp as? HTTPURLResponse)?.statusCode ?? 0
+            let body = ((try? JSONSerialization.jsonObject(with: data)) as? [String: Any]) ?? [:]
+            let why = [body["error"] as? String,
+                       body["error_description"] as? String]
+                .compactMap { $0 }.joined(separator: " — ")
+            Self.adiag("google exchange FAILED http=\(code) \(why.isEmpty ? "no error body" : why)")
+            throw StudioPlatformError.badResponse(
+                why.isEmpty ? "Google would not exchange the code (HTTP \(code))."
+                            : "Google would not exchange the code: \(why)")
         }
         let expiresIn = (o["expires_in"] as? Double) ?? 3600
         return .init(access: access, refresh: o["refresh_token"] as? String,
@@ -333,6 +370,8 @@ final class GoogleAuth: NSObject {
             // check is emitted. Nothing in it needs the main actor: resuming
             // a continuation is not UI work.
             let s = ASWebAuthenticationSession(url: url, callbackURLScheme: scheme) { @Sendable callback, error in
+                Self.adiag("web session returned callback=\(callback != nil) "
+                           + "error=\(error.map { String(describing: $0) } ?? "-")")
                 if let callback { c.resume(returning: callback) }
                 else if let e = error as? ASWebAuthenticationSessionError,
                         e.code == .canceledLogin {
@@ -372,7 +411,9 @@ final class GoogleAuth: NSObject {
             // `GoogleDeviceAuth` remains for a platform that has no equivalent
             // hand-off, and is selected only when a TV client is configured.
             session = s
+            Self.adiag("web session start scheme=\(scheme)")
             if !s.start() {
+                Self.adiag("web session REFUSED TO START — is \(scheme) in CFBundleURLTypes?")
                 c.resume(throwing: StudioPlatformError.notConfigured(
                     "This build cannot open a sign-in window. The redirect scheme "
                     + "\(scheme) must be listed in the app's URL types."))

@@ -298,20 +298,22 @@ public final class StudioSession {
                    String(describing: vs))
             return
         }
-        // THE FRONT CAMERA ON A PHONE. `AVCaptureDevice.default(for: .video)`
-        // is the BACK camera on iOS, which points at the wall behind the
-        // host — the one thing a watch-along tile must not show. macOS has
-        // only one camera and is unaffected.
-        #if os(iOS)
-        let preferred = AVCaptureDevice.DiscoverySession(
-            deviceTypes: [.builtInWideAngleCamera], mediaType: .video, position: .front)
-            .devices.first ?? AVCaptureDevice.default(for: .video)
-        #else
-        let preferred = AVCaptureDevice.default(for: .video)
-        #endif
+        // THE HOST'S CHOSEN CAMERA (macOS-DESIGN §D2), resolved in ONE place.
+        //
+        // This used to be `AVCaptureDevice.default(for: .video)` with an iOS
+        // front-camera special case inline. `StudioDevices.resolveCamera()`
+        // owns both, so the picker's value lands HERE — at the capture
+        // session — rather than in a preference nothing reads, which is the
+        // defect Decision 133 is entirely about.
+        let (preferred, cameraFellBack) = StudioDevices.resolveCamera()
+        if cameraFellBack {
+            awdiag("AWCAM chosen camera is GONE — falling back to the system default")
+        }
         guard let cam = preferred,
               let input = try? AVCaptureDeviceInput(device: cam) else {
-            awdiag("AWCAM no camera tile: authorized but no usable capture device")
+            awdiag("AWCAM no camera tile: %@",
+                   StudioDevices.chosenCameraID == StudioDevices.noneID
+                   ? "the host chose None" : "authorized but no usable capture device")
             return
         }
         let session = AVCaptureSession()
@@ -358,11 +360,15 @@ public final class StudioSession {
             presetName = "hd1280x720"
         }
         awdiag("AWCAM preset=%@ device=%@", presetName, cam.localizedName)
+        // The host's chosen MICROPHONE, same rule (§D2).
+        let (chosenMic, micFellBack) = StudioDevices.resolveMicrophone()
+        if micFellBack { awdiag("AWCAM chosen microphone is GONE — using the system default") }
         if AVCaptureDevice.authorizationStatus(for: .audio) == .authorized,
-           let mic = AVCaptureDevice.default(for: .audio),
+           let mic = chosenMic,
            let micInput = try? AVCaptureDeviceInput(device: mic),
            session.canAddInput(micInput) {
             session.addInput(micInput)
+            awdiag("AWCAM microphone=%@", mic.localizedName)
         }
         session.commitConfiguration()
         let camTap = CameraFrameTap()

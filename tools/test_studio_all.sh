@@ -172,6 +172,7 @@ swift_case "8.22 camera placement" "$PUB" "$ENG" "$AUD" "$OVL" "$CHAT" "$SHIM" t
 # so existed on exactly one platform while PARITY said "no recovery yet" for
 # the other two. No $ENG: the rule is a pure value type on purpose.
 swift_case "8.23 camera-stall recovery" ArchiveWatch/ArchiveWatch/Studio/StudioCameraStall.swift tools/test_studio_camerastall.swift
+swift_case "8.24 device selection" ArchiveWatch/ArchiveWatch/Studio/StudioDevices.swift tools/test_studio_devices.swift
 # No $SHIM: StudioVoiceProbe calls no awdiag, and adding sources a case does
 # not need is how three cases stopped compiling for a session (§9.lllll).
 swift_case "8.18 voice frame slices" ArchiveWatch/ArchiveWatch/Studio/StudioVoiceProbe.swift tools/test_studio_voiceframe.swift
