@@ -379,6 +379,31 @@ rather than a new idea.*
   **Cards were macOS and iOS only; tvOS still has none**, and that stays open
   rather than being quietly added, because Rule 8.8c settles the television's
   only live surface as "two channels, a rotation, and nothing else".
+- **§9.2g The HOST sees the film, not the programme.** The engine draws twice
+  (`setVideoSurface` is exclusive), and the second draw was sending the
+  audience's picture — camera tile and lower third — to the host's own screen.
+  Owner, 2026-09-21: *"why does it show on the screen for the movie you are
+  watching? I thought we didn't have that on the screen on any platform?"*
+  Correct: Android was alone in it. Decision 129 argued host-sees-programme was
+  BETTER; the owner's answer is parity, and parity is right — someone watching
+  a film should see the film.
+- **§9.2h The camera frame is TURNED, and the tile takes its true shape.**
+  Camera2 delivers frames in SENSOR orientation and nothing corrected them, so
+  a phone's front camera sent a sideways picture — reported as the camera
+  looking "stretched". A Pixel 8a reports `SENSOR_ORIENTATION` 270, which makes
+  its true aspect **9:16, not 16:9**. Two consequences, and missing either one
+  leaves it wrong: the texture coordinates are rotated about the frame's centre
+  (rotating the QUAD would turn the tile's box as well as its contents), and
+  the tile is sized by `boxed(maxW, maxH, aspect)` — bounded on BOTH sides —
+  because `h = w / aspect` on a 9:16 camera gives 591 px of a 720 px frame, a
+  "corner" tile taller than the film. Apple never hit this: Rule 8.8d forces
+  its Continuity tile landscape.
+- **§9.2i A level meter is not a progress bar.** Material 3's
+  `LinearProgressIndicator` draws a GAP before the track remainder and a
+  STOP-INDICATOR dot at the end — owner, 2026-09-21: *"weird digital lines
+  going through the orange level meter"*. Those are Material's decorations for
+  something that has a destination; a meter has none. It is drawn as a plain
+  track with a marquee fill, which is the language the rest of the app uses.
 - **§9.3 The program panel is a Material bottom sheet**, the native idiom of
   the iOS §4.5 medium-detent sheet (§8.2): layout, the two faders, the cards.
   Not a dialog — the program must stay visible behind it, because changing

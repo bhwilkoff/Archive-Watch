@@ -4,7 +4,10 @@ package app.archivewatch.android.ui
 // §9.4. There is no new screen here: §9.1 (and §5.1 before it) says the Studio
 // is the player with overlays, never a parallel transport.
 
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -14,6 +17,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.ui.draw.clip
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -264,9 +268,28 @@ private fun StudioFader(
             onValueChange = { onLevel(it.toDouble()) },
             valueRange = 0f..MixLevel.MAXIMUM.toFloat(),
         )
-        LinearProgressIndicator(
-            progress = { MixLevel.meterFraction(rms).toFloat() },
-            modifier = Modifier.fillMaxWidth(),
-        )
+        // OUR OWN METER, not Material's. `LinearProgressIndicator` in M3 draws a
+        // GAP before the track remainder and a STOP-INDICATOR dot at the end —
+        // owner, 2026-09-21: "there are weird digital lines going through the
+        // orange level meter". Those lines are Material's decoration for a
+        // PROGRESS bar, and a level meter is not progress: it has no
+        // destination to indicate and nothing to leave a gap before. A plain
+        // track with a marquee fill is the design language this app already
+        // uses everywhere else.
+        val fraction = MixLevel.meterFraction(rms).toFloat().coerceIn(0f, 1f)
+        Box(
+            Modifier
+                .fillMaxWidth()
+                .height(4.dp)
+                .clip(RoundedCornerShape(2.dp))
+                .background(Color(0xFF3A3A3C)),
+        ) {
+            Box(
+                Modifier
+                    .fillMaxWidth(fraction)
+                    .fillMaxHeight()
+                    .background(Marquee),
+            )
+        }
     }
 }

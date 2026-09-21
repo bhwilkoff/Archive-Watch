@@ -315,6 +315,7 @@ object StudioController {
             if (c.open(context, texture)) {
                 camera = c
                 e.cameraAspect = c.aspect
+                e.cameraRotation = c.rotationDegrees
             } else {
                 // Kept anyway: its `problem` is the sentence the host reads.
                 camera = c
@@ -338,7 +339,9 @@ object StudioController {
         val opened = c.open(ctx, texture)
         if (opened) {
             e.cameraAspect = c.aspect
-            android.util.Log.i("AWSTUDIOHOST", "camera opened aspect=" + c.aspect)
+            e.cameraRotation = c.rotationDegrees
+            android.util.Log.i("AWSTUDIOHOST",
+                "camera opened aspect=" + c.aspect + " rotation=" + c.rotationDegrees)
         } else {
             android.util.Log.w("AWSTUDIOHOST", "camera refused: " + (c.problem ?: "no reason given"))
         }

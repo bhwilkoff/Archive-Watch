@@ -53,9 +53,15 @@ enum class StudioLayout(val label: String) {
         return when (this) {
             FILM -> Rects(full, null)
             CORNER -> {
-                val w = width * 0.26f
-                val h = w / maxOf(cameraAspect, 0.1f)
+                // BOUND BOTH SIDES. Sizing from width alone assumes a LANDSCAPE
+                // camera, which is what Apple's Continuity tile always is
+                // (Rule 8.8d) and what a phone's front camera is NOT: a Pixel
+                // 8a reports 9:16 once its 270-degree sensor rotation is
+                // applied, and `h = w / aspect` then gives 591 px of a 720 px
+                // frame — a "corner" tile taller than the film. Fit inside a
+                // box instead and the same rule serves both shapes.
                 val inset = width * 0.05f
+                val (w, h) = boxed(width * 0.26f, height * 0.34f, cameraAspect)
                 Rects(full, LayoutRect(width - w - inset, inset, width - inset, inset + h))
             }
             THEATRE -> {
@@ -73,9 +79,10 @@ enum class StudioLayout(val label: String) {
                 val fw = (width * 2f / 3f)
                 val filmH = fw * 9f / 16f
                 val film = LayoutRect(0f, (height - filmH) / 2f, fw, (height + filmH) / 2f)
-                val cw = width - fw
-                val ch = cw / maxOf(cameraAspect, 0.1f)
-                Rects(film, LayoutRect(fw, (height - ch) / 2f, fw + cw, (height + ch) / 2f))
+                val (cw, ch) = boxed(width - fw, height * 0.9f, cameraAspect)
+                val cx = fw + (width - fw) / 2f
+                Rects(film, LayoutRect(cx - cw / 2f, (height - ch) / 2f,
+                                       cx + cw / 2f, (height + ch) / 2f))
             }
             HOST -> {
                 val w = width * 0.26f
@@ -85,6 +92,17 @@ enum class StudioLayout(val label: String) {
                       full)
             }
         }
+    }
+
+    /**
+     * The largest (width, height) of `aspect` that fits inside `maxW` x `maxH`.
+     * The one piece of arithmetic that makes every layout work for a portrait
+     * camera as well as a landscape one.
+     */
+    private fun boxed(maxW: Float, maxH: Float, aspect: Float): Pair<Float, Float> {
+        val a = maxOf(aspect, 0.05f)
+        val w = minOf(maxW, maxH * a)
+        return Pair(w, w / a)
     }
 
     companion object {

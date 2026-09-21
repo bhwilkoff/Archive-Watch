@@ -173,6 +173,8 @@ class StudioEngine(
      */
     var filmAspect = 16f / 9f
     var cameraAspect = 4f / 3f
+    /** Degrees the sensor frame must turn to look upright (StudioCamera). */
+    @Volatile var cameraRotation: Int = 0
 
     private var encoder: StudioVideoEncoder? = null
     private var gl: StudioGl? = null
@@ -722,7 +724,7 @@ class StudioEngine(
             // furniture for the audience. What this gives up is 129's "a host
             // watching what their audience is watching cannot be surprised by
             // it", and it is one boolean to put back.
-            drawProgram(pg, withOverlay = false)
+            drawProgram(pg, withOverlay = false, withCamera = false)
             val dispAt = System.nanoTime()
             g.swapDisplay()
             phaseDisplayNanos += System.nanoTime() - dispAt
@@ -731,18 +733,29 @@ class StudioEngine(
         return System.nanoTime() - renderStart
     }
 
-    private fun drawProgram(pg: StudioProgramGl, withOverlay: Boolean = true) {
+    private fun drawProgram(pg: StudioProgramGl, withOverlay: Boolean = true,
+                            withCamera: Boolean = true) {
         gl?.clear(0f, 0f, 0f)
         val r = layout.rects(width.toFloat(), height.toFloat(), cameraAspect)
-        val cameraReady = layout.showsCamera && pg.cameraFramesAvailable.get() > 0
+        // THE HOST'S OWN SCREEN SHOWS THE FILM, not the programme. Owner,
+        // 2026-09-21: "why does it show on the screen for the movie you are
+        // watching? I thought we didn't have that on the screen on any
+        // platform?" — correct, and Android was alone in it. Every other
+        // platform lets the host watch the bare film because
+        // `AVPlayerItemVideoOutput` is a TAP; Android's `setVideoSurface` is
+        // exclusive, so the engine draws twice, and the second draw was
+        // sending the audience's picture to the host. Decision 129 argued that
+        // was BETTER; the owner's answer is parity, and parity is right — a
+        // host watching a film should see the film.
+        val cameraReady = withCamera && layout.showsCamera && pg.cameraFramesAvailable.get() > 0
         // Z-ORDER FOLLOWS THE LAYOUT: whichever source is the ground goes down
         // first, or the inset tile is painted over. Same rule as the Apple side.
         if (layout.cameraIsBackground) {
-            if (cameraReady) r.camera?.let { pg.drawCamera(cameraAspect, it) }
+            if (cameraReady) r.camera?.let { pg.drawCamera(cameraAspect, it, cameraRotation) }
             pg.drawFilm(filmAspect, r.film)
         } else {
             pg.drawFilm(filmAspect, r.film)
-            if (cameraReady) r.camera?.let { pg.drawCamera(cameraAspect, it) }
+            if (cameraReady) r.camera?.let { pg.drawCamera(cameraAspect, it, cameraRotation) }
         }
         // The tile is drawn only when a camera has ACTUALLY delivered a frame
         // (`cameraReady` above). `showsCamera` is the host's intent; the frame

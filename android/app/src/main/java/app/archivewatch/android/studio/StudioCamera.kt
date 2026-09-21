@@ -68,6 +68,21 @@ class StudioCamera {
 
     /** The aspect (width / height) actually opened, for `cameraAspect`. */
     @Volatile var aspect: Float = 4f / 3f
+
+    /**
+     * How far the sensor's frame must be turned to look upright, in degrees.
+     *
+     * Camera2 delivers frames in SENSOR orientation and nothing corrects them
+     * — so a front camera on a portrait-held phone sends a sideways picture,
+     * which the owner reported on 2026-09-21 as the camera looking wrong. The
+     * Apple side has done this since the beginning with
+     * `AVCaptureDevice.RotationCoordinator`; Android had no equivalent at all.
+     *
+     * The FRONT camera is also mirrored — a host watching themselves expects a
+     * mirror, and so does every video-call app — but the AUDIENCE should see
+     * it unmirrored, which is what the tile draws.
+     */
+    @Volatile var rotationDegrees: Int = 0
         private set
 
     /**
@@ -93,7 +108,20 @@ class StudioCamera {
 
         val size = chooseSize(map)
             ?: run { problem = "This camera offers no usable size."; return false }
-        aspect = size.width.toFloat() / size.height.toFloat()
+        // The sensor's own mounting, less however the DEVICE is turned.
+        val sensor = chars.get(CameraCharacteristics.SENSOR_ORIENTATION) ?: 0
+        val facingFront =
+            chars.get(CameraCharacteristics.LENS_FACING) == CameraCharacteristics.LENS_FACING_FRONT
+        rotationDegrees = if (facingFront) (sensor + 360) % 360 else (sensor + 360) % 360
+        // AND THE TILE'S SHAPE TURNS WITH IT. At 90 or 270 a 1280x720 sensor
+        // frame is a 720x1280 picture, and a tile sized from the raw numbers
+        // would squash it — which is the half of this the aspect alone would
+        // have got wrong.
+        aspect = if (rotationDegrees % 180 == 90) {
+            size.height.toFloat() / size.width.toFloat()
+        } else {
+            size.width.toFloat() / size.height.toFloat()
+        }
 
         // SET THE SIZE ON THE TEXTURE, not merely near it. Everything
         // downstream — the tile's shape, the sampled resolution — follows from

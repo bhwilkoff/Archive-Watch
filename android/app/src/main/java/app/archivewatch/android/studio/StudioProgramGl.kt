@@ -241,8 +241,22 @@ class StudioProgramGl(private val programWidth: Int, private val programHeight: 
      * letterboxes, and for every layout but `host` the difference is nil: each
      * camera rect is DERIVED from the camera's own aspect, so the fit is exact.
      */
-    fun drawCamera(cameraAspect: Float, rect: LayoutRect) {
-        drawInto(cameraTextureId, cameraTexMatrix, fit(rect, cameraAspect))
+    fun drawCamera(cameraAspect: Float, rect: LayoutRect, rotationDegrees: Int = 0) {
+        if (rotationDegrees % 360 == 0) {
+            drawInto(cameraTextureId, cameraTexMatrix, fit(rect, cameraAspect))
+            return
+        }
+        // Turn the TEXTURE COORDINATES about the centre of the frame, after
+        // whatever `getTransformMatrix` already asked for. Rotating the quad
+        // instead would turn the tile's box as well as its contents.
+        val m = FloatArray(16)
+        Matrix.setIdentityM(m, 0)
+        Matrix.translateM(m, 0, 0.5f, 0.5f, 0f)
+        Matrix.rotateM(m, 0, rotationDegrees.toFloat(), 0f, 0f, 1f)
+        Matrix.translateM(m, 0, -0.5f, -0.5f, 0f)
+        val combined = FloatArray(16)
+        Matrix.multiplyMM(combined, 0, m, 0, cameraTexMatrix, 0)
+        drawInto(cameraTextureId, combined, fit(rect, cameraAspect))
     }
 
     fun updateCameraFrame(): Boolean {

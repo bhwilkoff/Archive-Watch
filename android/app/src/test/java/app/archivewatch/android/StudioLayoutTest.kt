@@ -66,5 +66,28 @@ class StudioLayoutTest {
         assertEquals(seen.size, seen.toSet().size)
     }
 
+    // A PHONE'S FRONT CAMERA IS PORTRAIT. A Pixel 8a reports 9:16 once its
+    // 270-degree sensor rotation is applied, and sizing a tile from width
+    // alone then gives 591 px of a 720 px frame — a "corner" taller than the
+    // film, which is what the owner saw on 2026-09-21. Every tile must stay
+    // inside its box whatever shape the camera is.
+    private val portrait = 9f / 16f
+
+    @Test fun `a portrait camera still fits in the corner`() {
+        val c = StudioLayout.CORNER.rects(w, h, portrait).camera!!
+        assertTrue("corner was ${c.width}x${c.height}", c.height <= h * 0.35f)
+        assertTrue(c.width <= w * 0.27f)
+        // and it is still the camera's OWN shape, not a squashed one
+        assertEquals(portrait, c.width / c.height, 0.01f)
+    }
+
+    @Test fun `a portrait camera still fits the side column`() {
+        val s = StudioLayout.SIDE.rects(w, h, portrait)
+        val c = s.camera!!
+        assertTrue("side camera was ${c.width}x${c.height}", c.height <= h)
+        assertTrue(c.left >= s.film.width - 1f)
+        assertEquals(portrait, c.width / c.height, 0.01f)
+    }
+
     private fun StudioLayout.Rects.cameraIsBackgroundCheck() = true
 }
