@@ -329,13 +329,14 @@ object StudioController {
      * resource is not ready at `start()` and waiting for it with a sleep would
      * be a guess.
      */
-    private fun openCameraIfReady() {
-        if (camera != null) return
-        val e = engine ?: return
-        val ctx = showContext ?: return
-        val texture = e.cameraTexture ?: return
+    private fun openCameraIfReady(): Boolean {
+        if (camera != null) return false
+        val e = engine ?: return false
+        val ctx = showContext ?: return false
+        val texture = e.cameraTexture ?: return false
         val c = StudioCamera()
-        if (c.open(ctx, texture)) {
+        val opened = c.open(ctx, texture)
+        if (opened) {
             e.cameraAspect = c.aspect
             android.util.Log.i("AWSTUDIOHOST", "camera opened aspect=" + c.aspect)
         } else {
@@ -343,6 +344,7 @@ object StudioController {
         }
         // Kept either way: its `problem` is the sentence the host reads.
         camera = c
+        return opened
     }
 
     /**
@@ -469,10 +471,18 @@ object StudioController {
                 cameraStall.attempts + " of " + CameraStallRecovery.MAX_ATTEMPTS)
             camera?.close()
             camera = null
-            openCameraIfReady()
+            // REPORT WHAT THE RE-OPEN RETURNED. The first version asked
+            // `camera?.problem == null` immediately afterwards and printed
+            // "no camera" over a camera that had just reconnected — the
+            // `problem` string still held the DISCONNECT that caused the
+            // stall. Measured on a Pixel 8a 2026-09-20: the log said
+            // "camera opened" and "recovery 1: no camera" in the same
+            // millisecond, while `CameraService::connect` and the tile
+            // returning to the stream both said it had worked.
+            val reopened = openCameraIfReady()
             android.util.Log.i("AWSTUDIOHOST",
                 "recovery " + cameraStall.attempts + ": " +
-                (if (camera?.problem == null && camera != null) "re-attached" else "no camera"))
+                (if (reopened) "re-attached" else "no camera"))
         }
         if (e.health.endedReason != null && isLive) {
             val why = e.health.endedReason
