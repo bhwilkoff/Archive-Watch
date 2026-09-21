@@ -203,7 +203,9 @@ version of that assertion failed the product when the test was wrong.
   ports `rects(in:cameraAspect:)` number for number, the GLES pass draws into
   arbitrary rects, the panel offers all five in the shared words, and
   `StudioLayoutTest` pins the Kotlin numbers to the ones §8.22 printed.
-  **`side` verified on a Pixel 8a from the server's own recording.**
+  **`side` verified on a Pixel 8a from the server's own recording, and the
+  PICKER seen on the phone** — "Where you go", five radio rows in the shared
+  words, corner selected (2026-09-20).
 - ~~tvOS has no layout picker at all~~ **BUILT 2026-09-20, NOT YET SEEN ON THE
   GLASS.** `GoLiveTV` built its request with `layout: .corner` HARDCODED, so a
   television could only ever broadcast one of the five. Rule 8.8e adds a
