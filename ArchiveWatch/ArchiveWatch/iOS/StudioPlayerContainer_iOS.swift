@@ -234,6 +234,12 @@ struct StudioPlayerContainer: View {
                    h.showState.label, h.encodedFramesPerSecond, p.queuedBytes,
                    p.videoFramesSent, p.videoFramesDropped, p.audioFramesSent,
                    p.reconnects, h.videoBitrateNow / 1000)
+            // THE ENCODER'S IDENTITY. SCRATCHPAD item 9a has had this open as
+            // "iOS still waits — they need only a screenshot of the DEBUG
+            // readout", which framed a number the app already knows as a
+            // photography problem. It is a log line.
+            awdiag("AWENC hardware=%@",
+                   h.encoderIsHardware.map { $0 ? "true" : "false" } ?? "unknown")
 
             // A show that ENDS ITSELF says why (§6.5's `.critical`, §6.6's
             // expired deadline). It reuses the existing alert rather than

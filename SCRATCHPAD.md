@@ -285,9 +285,14 @@ emulators) · `docs/CAPTIONS.md` · `docs/SHAREPLAY.md` ·
    foreground app launch forbidden"*. Waking it would switch on a television in
    the owner's bedroom in the middle of the night, which is the same intrusion
    the Fireplace instruction is about; Movie Room would light another room in a
-   sleeping house. **tvOS is DONE** (2026-09-18 06:04, owner said "you can wake the bedroom tv"): the readout on an Apple TV 4K 3rd gen says `encoder: hardware`, matching the Mac, and the same run photographed the configuration refusal ("Streaming is not set up yet") for the first time. **iOS still waits** —
-   they need no bench destination, only a screenshot of the DEBUG readout, so
-   they are a two-minute job whenever the televisions are awake.
+   sleeping house. **tvOS is DONE** (2026-09-18 06:04, owner said "you can wake the bedroom tv"): the readout on an Apple TV 4K 3rd gen says `encoder: hardware`, matching the Mac, and the same run photographed the configuration refusal ("Streaming is not set up yet") for the first time. **iOS IS DONE TOO** (2026-09-20 evening):
+   `AWENC hardware=true` on an iPhone 12, at 6000 kbps, read from the device's
+   own diagnostics file. This item had said iOS needed "a screenshot of the
+   DEBUG readout", which framed a number the app already knows as a
+   photography problem — and kept it open for two days. It is a log line. The
+   reason it could not be read before is the same one that hid the publisher's
+   counters: `StudioSession.diag` wrote to stderr, which reaches nothing on a
+   phone, and the iOS loop printed no health line of its own.
 
 10. **CLOSED 2026-09-20 by the owner's rule, same day it was raised.** Both
    television boxes had been offering a film-only "Watch Together": Google TV
