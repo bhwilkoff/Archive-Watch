@@ -647,7 +647,7 @@
    * ---------------------------------------------------------------- */
   const VIEWS = ['home', 'browse', 'search', 'library', 'item', 'series', 'about',
                  'surprise', 'playlist', 'channels', 'collections', 'collection',
-                 'cartoons', 'list'];
+                 'cartoons', 'list', 'together'];
   let browseObserver = null;   // disconnected on every view switch
 
   function route() {
@@ -675,6 +675,10 @@
     // so seg[1] is the whole thing. Taking the join anyway costs nothing and
     // survives anyone "helpfully" re-encoding the link.
     if (name === 'list') SharedList.render(seg.slice(1).join(''));
+    // A Watch Together room. The code and the film id ride in ONE segment
+    // joined by a dash, and an archive id routinely contains dashes — so the
+    // parser splits on the FIRST one only (js/together.js).
+    if (name === 'together') TogetherView.render(seg.slice(1).join('/'));
     if (name === 'channels') ChannelsView.render();
     if (name === 'collections') Collections.renderList();
     if (name === 'collection') Collections.renderOne(decodeURIComponent(seg[1] || ''));
@@ -2898,6 +2902,84 @@
       .replace(/\r+/g, '')
       .replace(/(\d{2}:\d{2}:\d{2}),(\d{3})/g, '$1.$2');
   }
+
+  /** A Watch Together room on the web — SHAREPLAY §11.
+   *
+   *  §11.6's premise is that a room link opens for somebody with NO APP AT
+   *  ALL, the same promise playlist sharing makes. This is what makes that
+   *  true. A browser cannot BROADCAST — it cannot speak RTMP — and it can
+   *  certainly watch, which is the only half a joiner needs.
+   *
+   *  Nobody is asked to do anything here (§11.2a): the film is played and
+   *  then kept in step silently. There are no controls, deliberately —
+   *  §11.6 gives the host sole control of the film, so offering a scrub bar
+   *  that does nothing would be worse than offering none.
+   */
+  const TogetherView = {
+    session: null,
+
+    async render(seg) {
+      this.stop();
+      const note = $('together-note');
+      const err = $('together-error');
+      err.hidden = true;
+      const parsed = Together.parseRoute(decodeURIComponent(seg || ''));
+      if (!parsed) {
+        note.textContent = '';
+        err.hidden = false;
+        err.textContent = 'That room link is incomplete. Ask the host to read out their four-character code instead.';
+        return;
+      }
+      note.textContent = 'Joining room ' + parsed.code + '…';
+
+      const client = new Together.Client('');
+      client.code = parsed.code;
+      let state;
+      try {
+        state = await client.poll();
+      } catch (e) {
+        note.textContent = '';
+        err.hidden = false;
+        err.textContent = String(e.message).includes('ended')
+          ? 'That room has ended.'
+          : 'No room with that code. It may have ended, or a character may have been misheard.';
+        return;
+      }
+
+      const id = state.filmID;
+      const row = Data.byID.get(id);
+      if (!row) {
+        note.textContent = '';
+        err.hidden = false;
+        err.textContent = 'That room is watching a film this site cannot find.';
+        return;
+      }
+      note.textContent = 'Watching ' + row[1] + ' with the room. The host controls the film.';
+
+      // Play it the ordinary way, then follow. `persist:false` keeps a room
+      // out of Continue Watching: somebody else chose this film and chose
+      // when it started, so it is not this viewer's place in it.
+      const summary = await API.summary(id).catch(() => null);
+      if (!summary?.videoFile) {
+        err.hidden = false;
+        err.textContent = 'That film has no playable copy on this site.';
+        return;
+      }
+      const url = 'https://archive.org/download/' + encodeURIComponent(id) + '/' +
+        encodeURIComponent(summary.videoFile.name).replace(/%2F/g, '/');
+      await Player.start({ id, title: row[1], url, persist: false,
+                           startAt: Together.expectedPosition(state, client.serverNow()) });
+      const video = $('video');
+      if (video) this.session = Together.follow(video, client, () => {
+        err.hidden = false;
+        err.textContent = 'The host ended the room.';
+      });
+    },
+
+    stop() {
+      if (this.session) { this.session.stop(); this.session = null; }
+    },
+  };
 
   const Player = {
     saveTimer: null,

@@ -188,6 +188,18 @@
       <p id="list-empty" class="muted" hidden>This shared playlist could not be read — the link may be incomplete.</p>
     </section>
 
+    <!-- A Watch Together room (SHAREPLAY §11). Reached from
+         /together/#<code>-<film>, which 404.html forwards here. The whole
+         surface is a sentence and the film: a joiner has nothing to decide,
+         which is the point — the host drives and this follows, silently. -->
+    <section id="view-together" hidden>
+      <div class="surprise-head">
+        <h1 id="together-title">Watch Together</h1>
+      </div>
+      <p id="together-note" class="muted"></p>
+      <p id="together-error" class="muted" hidden></p>
+    </section>
+
     <section id="view-item" hidden>
       <!-- Ambient wash behind the Detail hero, the same device Home already
            uses and every native app relies on (tvOS/Roku/Google TV all set a
@@ -418,6 +430,8 @@
     </script>
     <script src="js/drivesync.js"></script>
     <script src="js/cloudkitsync.js"></script>
+    <!-- Watch Together rooms (SHAREPLAY §11). Before watch.js, which uses it. -->
+    <script src="js/together.js"></script>
     <script src="watch.js"></script>
   <script src="tv.js"></script>
   <!-- Google Cast sender. cast-sender.js self-disables when the framework is

@@ -153,7 +153,7 @@ whole point:
 | **iOS / iPadOS** | ⏳ not built | ✅ **shipped** — a toolbar item on Library, not a sixth scope (the picker is at its measured width limit) |
 | **Android phone** | ⏳ not built | ⏳ not built |
 | **Android TV / Fire TV** | 🚫 same as tvOS | ⏳ not built, and ALLOWED — §11.10 |
-| **Web** | 🚫 cannot broadcast | ⏳ not built; the link already opens |
+| **Web** | 🚫 cannot broadcast | ✅ **shipped** — `/together/#code-film` forwards into the hash router and the `<video>` follows the room |
 
 **Joining needs no camera and no microphone**, which is why a television —
 removed from the hosting table entirely on 2026-09-20 — is the best device to
