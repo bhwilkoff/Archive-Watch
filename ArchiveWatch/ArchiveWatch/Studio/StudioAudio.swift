@@ -914,6 +914,12 @@ public struct StudioAudioHealth: Sendable, Equatable {
     public var aacFramesEncoded = 0
     public var filmLevel: Float = 0        // 0…1 RMS, for the meter
     public var micLevel: Float = 0
+    /// The CALL's level, and whether there is a call at all. Both, because a
+    /// meter reading zero means two different things — "nobody is speaking"
+    /// and "no app is being captured" — and a host needs to tell them apart
+    /// before they start talking to an audience that cannot hear their guests.
+    public var callLevel: Float = 0
+    public var callAttached = false
     /// How far behind the host's voice is: what is queued in the mic ring and
     /// therefore not yet encoded. This IS the lip-sync error.
     public var micBacklogSeconds: Double = 0
@@ -1001,6 +1007,18 @@ final class StudioAudioMixer: @unchecked Sendable {
     let film = FilmAudioTap()
     private(set) var mic = MicAudioTap()
 
+    /// THE CALL'S AUDIO — §D2's fourth input, the piece that makes "With
+    /// Friends and the World" real (Decision 131).
+    ///
+    /// Held as a bare `AudioRing` rather than as the tap, so the mixer stays
+    /// platform-neutral: `AudioHardwareCreateProcessTap` is macOS-only and
+    /// this file is compiled on four platforms. Nil until the host picks an
+    /// app to capture — a channel that exists with nothing behind it would
+    /// show a dead meter and read as broken.
+    var callRing: AudioRing?
+    var callGain: Float = 1.0
+    var callMuted = false
+
     /// Replaces the placeholder mic tap with the one the platform built
     /// against its own capture session.
     func adopt(mic tap: MicAudioTap) {
@@ -1018,6 +1036,7 @@ final class StudioAudioMixer: @unchecked Sendable {
     private let queue = DispatchQueue(label: "org.archivewatch.studio.audiomix", qos: .userInitiated)
     private var pcm: UnsafeMutablePointer<Float>
     private var micPcm: UnsafeMutablePointer<Float>
+    private var callPcm: UnsafeMutablePointer<Float>
     private var interleaved: UnsafeMutablePointer<Int16>
     private var aacOut: UnsafeMutablePointer<UInt8>
     private var micHasEverArrived = false
@@ -1032,12 +1051,14 @@ final class StudioAudioMixer: @unchecked Sendable {
         let n = Self.framesPerPacket * 2
         pcm = .allocate(capacity: n)
         micPcm = .allocate(capacity: n)
+        callPcm = .allocate(capacity: n)
         interleaved = .allocate(capacity: n)
         aacOut = .allocate(capacity: 4096)
     }
 
     deinit {
-        pcm.deallocate(); micPcm.deallocate(); interleaved.deallocate(); aacOut.deallocate()
+        pcm.deallocate(); micPcm.deallocate(); callPcm.deallocate()
+        interleaved.deallocate(); aacOut.deallocate()
         if let converter { AudioConverterDispose(converter) }
     }
 
@@ -1115,13 +1136,26 @@ final class StudioAudioMixer: @unchecked Sendable {
         let filmReal = film.ring.read(into: pcm, count: samples)
         let micReal = mic.ring.read(into: micPcm, count: samples)
         if micReal > 0 { micHasEverArrived = true }
+        // The call, when there is one. `read` zero-fills what it cannot
+        // supply, so an absent or starved channel contributes silence rather
+        // than the previous chunk again.
+        if let callRing {
+            _ = callRing.read(into: callPcm, count: samples)
+        } else {
+            for i in 0..<samples { callPcm[i] = 0 }
+        }
 
         // Levels first: ducking is decided on what the host is ACTUALLY saying
         // in this chunk, not on a setting.
-        var filmSum: Float = 0, micSum: Float = 0
-        for i in 0..<samples { filmSum += pcm[i] * pcm[i]; micSum += micPcm[i] * micPcm[i] }
+        var filmSum: Float = 0, micSum: Float = 0, callSum: Float = 0
+        for i in 0..<samples {
+            filmSum += pcm[i] * pcm[i]
+            micSum += micPcm[i] * micPcm[i]
+            callSum += callPcm[i] * callPcm[i]
+        }
         let filmRMS = (filmSum / Float(samples)).squareRoot()
         let micRMS = (micSum / Float(samples)).squareRoot()
+        let callRMS = (callSum / Float(samples)).squareRoot()
 
         // Smooth the duck so it is a fade, not a click: ~40 ms attack, ~300 ms
         // release, which is what a viewer hears as "the film got out of the way".
@@ -1129,15 +1163,21 @@ final class StudioAudioMixer: @unchecked Sendable {
         // the film to +3 dB and then speaks keeps +3 dB — otherwise the fader
         // they just moved is overruled 12 dB by something invisible, and the
         // control lies.
-        let wantDuck = duckEnabled && !micMuted && micRMS > duckThreshold
+        // THE CALL DUCKS THE FILM AS THE HOST'S VOICE DOES. A guest speaking
+        // is a person talking over the film for exactly the reason the host
+        // is, and a duck that only heard the host would leave the guests
+        // fighting the soundtrack.
+        let callSpeaking = callRing != nil && !callMuted && callRMS > duckThreshold
+        let wantDuck = duckEnabled && ((!micMuted && micRMS > duckThreshold) || callSpeaking)
         let target: Float = wantDuck ? pow(10, duckDecibels / 20) : 1.0
         let coefficient: Float = target < duckGain ? 0.45 : 0.06
         duckGain += (target - duckGain) * coefficient
 
         let fg = (filmMuted ? 0 : filmGain) * duckGain
         let mg = micMuted ? 0 : micGain
+        let cg = (callMuted || callRing == nil) ? 0 : callGain
         for i in 0..<samples {
-            let v = pcm[i] * fg + micPcm[i] * mg
+            let v = pcm[i] * fg + micPcm[i] * mg + callPcm[i] * cg
             // Hard-limit rather than wrap: a summed peak must never invert.
             interleaved[i] = Int16(max(-1, min(1, v)) * 32767)
         }
@@ -1151,6 +1191,8 @@ final class StudioAudioMixer: @unchecked Sendable {
         health.micFramesPadded = mic.ring.framesPadded
         health.filmLevel = min(1, filmRMS * 3)
         health.micLevel = min(1, micRMS * 3)
+        health.callLevel = min(1, callRMS * 3)
+        health.callAttached = callRing != nil
         health.micBacklogSeconds = Double(mic.ring.availableSamples) / 2.0 / max(mic.programRate, 1)
         health.micDroppedForLatency = mic.ring.framesDroppedForLatency
         health.ducking = wantDuck

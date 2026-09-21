@@ -481,12 +481,24 @@ public actor StudioEngine {
     /// The §4 faders. Set at any time, including while live.
     public func setAudio(filmGain: Float? = nil, micGain: Float? = nil,
                          filmMuted: Bool? = nil, micMuted: Bool? = nil,
-                         duckEnabled: Bool? = nil) {
+                         duckEnabled: Bool? = nil,
+                         callGain: Float? = nil, callMuted: Bool? = nil) {
         if let filmGain { mixer.filmGain = filmGain }
         if let micGain { mixer.micGain = micGain }
         if let filmMuted { mixer.filmMuted = filmMuted }
         if let micMuted { mixer.micMuted = micMuted }
         if let duckEnabled { mixer.duckEnabled = duckEnabled }
+        if let callGain { mixer.callGain = callGain }
+        if let callMuted { mixer.callMuted = callMuted }
+    }
+
+    /// Attach (or detach) the CALL's audio — §D2's fourth input.
+    ///
+    /// The ring, not the tap: `AudioHardwareCreateProcessTap` is macOS-only
+    /// and this file compiles on four platforms, so the engine takes the one
+    /// thing every platform's audio path already understands.
+    nonisolated func attachCallAudio(ring: AudioRing?) {
+        mixer.callRing = ring
     }
 
     /// What the mixer is set to, so a surface can SHOW the gains rather than

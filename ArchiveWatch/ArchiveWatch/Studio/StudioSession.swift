@@ -636,9 +636,59 @@ public final class StudioSession {
     /// call gained an argument, suspect the ARGUMENT before the expression.**
     public func setAudio(filmGain: Float? = nil, micGain: Float? = nil,
                          filmMuted: Bool? = nil, micMuted: Bool? = nil,
-                         duckEnabled: Bool? = nil) async {
+                         duckEnabled: Bool? = nil,
+                         callGain: Float? = nil, callMuted: Bool? = nil) async {
         await engine?.setAudio(filmGain: filmGain, micGain: micGain,
                                filmMuted: filmMuted, micMuted: micMuted,
-                               duckEnabled: duckEnabled)
+                               duckEnabled: duckEnabled,
+                               callGain: callGain, callMuted: callMuted)
     }
+
+#if os(macOS)
+    // MARK: The call's audio (§D2, Decision 131)
+
+    /// The app whose audio is being mixed into the show, and why it is not.
+    ///
+    /// `callProblem` exists for the same reason the camera's does: "no
+    /// conversation is being captured" and "nobody is talking" are different
+    /// facts, and a host must be able to tell them apart BEFORE they start
+    /// speaking to an audience that cannot hear their guests.
+    public private(set) var callAppName: String?
+    public private(set) var callProblem: String?
+
+    /// Begin capturing a named app's audio. Idempotent: choosing the same app
+    /// twice does not stack two taps on it.
+    @discardableResult
+    public func startCallAudio(process: StudioAudioProcesses.Process) async -> String? {
+        guard #available(macOS 14.2, *) else {
+            callProblem = "Capturing another app's audio needs macOS 14.2 or later."
+            return callProblem
+        }
+        stopCallAudio()
+        let tap = StudioCallAudioTap(programRate: 44100)
+        if let why = tap.start(process: process) {
+            callProblem = why
+            diag("[AWCALL] could not tap \(process.name): \(why)")
+            return why
+        }
+        callTap = tap
+        callAppName = process.name
+        callProblem = nil
+        await engine?.attachCallAudio(ring: tap.ring)
+        diag("[AWCALL] capturing \(process.name) (\(process.bundleID))")
+        return nil
+    }
+
+    public func stopCallAudio() {
+        guard #available(macOS 14.2, *) else { return }
+        (callTap as? StudioCallAudioTap)?.stop()
+        callTap = nil
+        callAppName = nil
+        Task { await engine?.attachCallAudio(ring: nil) }
+    }
+
+    /// Held as `AnyObject` so this stored property needs no availability
+    /// annotation — a `@available` stored property is not allowed here.
+    private var callTap: AnyObject?
+#endif
 }

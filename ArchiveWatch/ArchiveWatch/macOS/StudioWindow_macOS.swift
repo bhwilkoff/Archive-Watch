@@ -62,6 +62,14 @@ final class StudioControls {
     var card: StudioOverlay.Card? {
         didSet { Task { await StudioSession.shared.setCard(card) } }
     }
+    /// The call's fader (§D3). Defaults to the same 1.0 the others do, so a
+    /// conversation arrives at the level it was spoken.
+    var callGain: Double = 1.0 {
+        didSet { Task { await StudioSession.shared.setAudio(callGain: Float(callGain)) } }
+    }
+    var callMuted = false {
+        didSet { Task { await StudioSession.shared.setAudio(callMuted: callMuted) } }
+    }
 
     private init() {}
 }
@@ -143,6 +151,8 @@ struct StudioWindowView: View {
     /// redraws at the health tick.
     @State private var cameras: [StudioDevices.Device] = []
     @State private var microphones: [StudioDevices.Device] = []
+    @State private var callApps: [StudioAudioProcesses.Process] = []
+    @State private var chosenCallBundleID = ""
     /// Redraw the numbers on the same second the engine publishes them.
     /// `StudioSession` is `@Observable`, so `health` alone would do it — the
     /// timer is for the two derived per-second rates it recomputes in place.
@@ -295,13 +305,45 @@ struct StudioWindowView: View {
                     .fixedSize(horizontal: false, vertical: true)
             }
 
-            // §D2 names four inputs and this build has three. The fourth is
-            // the piece that makes "With Friends and the World" real, and it
-            // is step 4 — a row that says so beats a list that quietly has
-            // one fewer thing in it than the design says.
-            Text("A call's audio — Zoom, Meet, FaceTime — becomes a fourth input in a later build (SHAREPLAY §10).")
-                .font(.caption2).foregroundStyle(.secondary)
-                .fixedSize(horizontal: false, vertical: true)
+            // THE FOURTH INPUT: a call's audio (§D2, Decision 131). The host
+            // uses whatever calling service they already have and the Studio
+            // captures that APP — which is what removes the guest-voice
+            // transport, and with it the relay, the NAT traversal and the
+            // running cost that failed the $0 constraint every other way.
+            VStack(alignment: .leading, spacing: 4) {
+                HStack(alignment: .firstTextBaseline, spacing: 9) {
+                    Image(systemName: "person.wave.2").frame(width: 16)
+                        .foregroundStyle(.secondary)
+                    Text("A call").font(.subheadline.weight(.medium))
+                    Spacer(minLength: 6)
+                    Text(studio.callAppName == nil ? "not captured"
+                         : (studio.health.audio.callAttached ? "capturing" : "starting"))
+                        .font(.caption).monospacedDigit()
+                        .foregroundStyle(studio.callProblem == nil ? .secondary : Color.orange)
+                }
+                Picker("A call", selection: Binding(
+                    get: { chosenCallBundleID },
+                    set: { id in
+                        chosenCallBundleID = id
+                        if id.isEmpty { studio.stopCallAudio() }
+                        else if let p = callApps.first(where: { $0.name == id }) {
+                            Task { await studio.startCallAudio(process: p) }
+                        }
+                    })) {
+                    Text("None").tag("")
+                    Divider()
+                    ForEach(callApps) { Text($0.name).tag($0.name) }
+                }
+                .labelsHidden()
+                if let why = studio.callProblem {
+                    Text(why).font(.caption2).foregroundStyle(.orange)
+                        .fixedSize(horizontal: false, vertical: true)
+                } else {
+                    Text("Zoom, Meet, FaceTime — whatever you are already on. Your guests are heard; the film is not captured twice.")
+                        .font(.caption2).foregroundStyle(.secondary)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
+            }
 
             Divider().padding(.vertical, 2)
 
@@ -334,6 +376,7 @@ struct StudioWindowView: View {
     private func refreshDevices() {
         cameras = StudioDevices.cameras()
         microphones = StudioDevices.microphones()
+        if #available(macOS 14.2, *) { callApps = StudioAudioProcesses.all() }
     }
 
     /// One input: what it IS, which device it uses, and what it is doing.
@@ -388,6 +431,14 @@ struct StudioWindowView: View {
                            gain: $controls.filmGain, muted: $controls.filmMuted)
             StudioMacFader(label: "Your microphone", icon: "mic", level: audio.micLevel,
                            gain: $controls.micGain, muted: $controls.micMuted)
+            // §D3: one channel per AUDIBLE input. The call's channel appears
+            // when there IS a call — a third fader over nothing would show a
+            // dead meter and read as broken.
+            if audio.callAttached {
+                StudioMacFader(label: studio.callAppName ?? "A call",
+                               icon: "person.wave.2", level: audio.callLevel,
+                               gain: $controls.callGain, muted: $controls.callMuted)
+            }
             Divider().padding(.vertical, 2)
             // AUTO-DUCK IS A CONTROL, NOT A SENTENCE (Rule 8.8c). A host who
             // sets Film to 9, speaks, and hears it drop 12 dB anyway will
@@ -395,8 +446,8 @@ struct StudioWindowView: View {
             Toggle("Duck the film under my voice", isOn: $controls.duckEnabled)
             Text(controls.duckEnabled
                  ? (audio.ducking
-                    ? "The film is ducking under your voice."
-                    : "The film drops 12 dB automatically while you are talking.")
+                    ? "The film is ducking under the talking."
+                    : "The film drops 12 dB automatically while you or your guests are talking.")
                  : "The film stays where you set it.")
                 .font(.caption2).foregroundStyle(.secondary)
                 .fixedSize(horizontal: false, vertical: true)

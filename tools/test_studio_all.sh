@@ -179,6 +179,7 @@ swift_case "8.22 camera placement" "$PUB" "$ENG" "$OUT" "$AUD" "$OVL" "$CHAT" "$
 swift_case "8.23 camera-stall recovery" ArchiveWatch/ArchiveWatch/Studio/StudioCameraStall.swift tools/test_studio_camerastall.swift
 swift_case "8.24 device selection" ArchiveWatch/ArchiveWatch/Studio/StudioDevices.swift tools/test_studio_devices.swift
 swift_case "8.25 output settings" ArchiveWatch/ArchiveWatch/Studio/StudioOutputSettings.swift tools/test_studio_output.swift
+swift_case "8.26 call-audio apps" ArchiveWatch/ArchiveWatch/Studio/StudioAudioProcesses.swift tools/test_studio_callapps.swift
 # No $SHIM: StudioVoiceProbe calls no awdiag, and adding sources a case does
 # not need is how three cases stopped compiling for a session (§9.lllll).
 swift_case "8.18 voice frame slices" ArchiveWatch/ArchiveWatch/Studio/StudioVoiceProbe.swift tools/test_studio_voiceframe.swift

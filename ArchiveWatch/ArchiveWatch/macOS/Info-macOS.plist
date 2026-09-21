@@ -68,6 +68,13 @@
 	<string>26.0</string>
 	<key>NSHumanReadableCopyright</key>
 	<string>© 2026 Ben Wilkoff. Video hosted by the Internet Archive.</string>
+	<!-- A process tap (macOS-DESIGN §D2's fourth input) is gated by its OWN
+	     TCC service, separate from the microphone: capturing what ANOTHER app
+	     is playing is not the same permission as listening to a microphone,
+	     and the entitlements below do not cover it. Without this key the
+	     request is refused with no prompt, which reads as a silent channel. -->
+	<key>NSAudioCaptureUsageDescription</key>
+	<string>Archive Watch mixes the audio of a call you are already on — Zoom, Meet, FaceTime — into your Watch Together broadcast, so your guests can be heard.</string>
 	<key>NSCameraUsageDescription</key>
 	<string>Show your reactions beside the film when you stream a public-domain movie with Watch Together Studio.</string>
 	<key>NSMicrophoneUsageDescription</key>
