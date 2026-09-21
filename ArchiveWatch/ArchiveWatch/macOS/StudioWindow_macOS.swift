@@ -565,6 +565,18 @@ struct StudioWindowView: View {
             stat("Encoder", value: health.encoderIsHardware.map {
                 $0 ? "hardware" : "software" } ?? "not started")
             stat("Dropped", value: "\(health.publisher.videoFramesDropped) frames")
+            // §D0's "stats that name a fault". Dropped frames alone cannot
+            // tell a struggling UPLINK from a struggling ENCODER: a backlog
+            // means the network is not taking what we produce (§6.4), and a
+            // reconnect count means the link has actually been lost and
+            // rebuilt (§6.6). Both were measured and shown nowhere on macOS.
+            stat("Waiting to send", value: backlogText)
+            if health.publisher.reconnects > 0 || health.publisher.isReconnecting {
+                stat("Reconnects", value: health.publisher.isReconnecting
+                     ? "\(health.publisher.reconnects) · rebuilding now"
+                     : "\(health.publisher.reconnects)")
+            }
+            stat("Sent", value: sentText)
             stat("This Mac", value: health.thermalState)
             // THE FILM ENDED AND THE SHOW DID NOT (owner item 13, §9.bbbbbb).
             //
@@ -632,6 +644,27 @@ struct StudioWindowView: View {
             Text(value).font(.caption).monospacedDigit()
                 .multilineTextAlignment(.trailing)
         }
+    }
+
+    /// A backlog in BYTES means nothing to a host; in seconds it is the
+    /// latency they are adding to their own show, which is what §6.4's cap is
+    /// a budget for.
+    private var backlogText: String {
+        let queued = studio.health.publisher.queuedBytes
+        guard queued > 0 else { return "nothing" }
+        let bps = max(1, studio.health.videoBitrateNow > 0
+                      ? studio.health.videoBitrateNow
+                      : StudioOutputSettings.bitrateKbps * 1_000)
+        let seconds = Double(queued * 8) / Double(bps)
+        return String(format: "%@ · %.1f s behind", byteText(queued), seconds)
+    }
+
+    private var sentText: String { byteText(studio.health.publisher.bytesSent) }
+
+    private func byteText(_ b: Int) -> String {
+        if b >= 1_000_000 { return String(format: "%.1f MB", Double(b) / 1_000_000) }
+        if b >= 1_000 { return String(format: "%.0f kB", Double(b) / 1_000) }
+        return "\(b) B"
     }
 
     private var destinationName: String {
