@@ -1195,6 +1195,18 @@
       // older index that has no column 8, so the hero can never go empty.
       const verified = base.filter(r => r[8] === 1);
       if (verified.length >= 4) base = verified;
+      // THE MARQUEE IS ARCHIVAL CINEMA. Owner, 2026-09-21: "Dollar Store
+      // Killers" (2025) reached the hero with a modern TMDb poster, because
+      // the rights audit bucketed it `safe_gov` off its archive item's
+      // `collections: ["prelinger"]` while recording the evidence as
+      // `source_unverified` -- a field the index does not carry. The index
+      // has no rights column either, so the portable half of the apps' rule
+      // is the one that does the work: the apps reject year >= 1978 unless
+      // the bucket is `safe_pd_age`, and `safe_pd_age` measures 1065-1928,
+      // so on a year alone the two rules agree exactly. A row with no year
+      // passes, as it does on the apps.
+      const archival = base.filter(r => !r[2] || Number(r[2]) < 1978);
+      if (archival.length >= 4) base = archival;
       const pool = shuffle(base).slice(0, 6);
       if (!pool.length) return [];
       const el = $('hero');

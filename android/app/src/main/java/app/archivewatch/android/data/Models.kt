@@ -153,6 +153,15 @@ data class CatalogItem(
         else -> n.toString()
     }
 
+    companion object {
+        /** Mirrors Swift `Catalog.Item.heroSafeBuckets`. `safe_archive_license`
+            is deliberately absent: that bucket means the archive ITEM carries a
+            licence statement, which is an uploader's claim (Decision 114 --
+            "a bare CC claim rescues nothing"). */
+        val HERO_SAFE_BUCKETS = setOf("safe_pd_age", "safe_gov", "safe_cc")
+        const val HERO_MODERN_YEAR = 1978
+    }
+
     // Derived predicates mirrored from the Swift model (contract §7).
     val hasDesignedArtwork: Boolean
         get() = hasRealArtwork ?: (artworkSource != null && artworkSource != "archive")
@@ -160,6 +169,27 @@ data class CatalogItem(
         get() = hasDesignedArtwork && artworkSource != "generated"
     val isSilent: Boolean
         get() = isSilentFilm ?: (contentType == "silent-film")
+
+    /** Whether this item may carry the full-bleed marquee — the Swift
+        `Catalog.Item.isHeroRightsSafe`, which Android never had: its hero
+        pool used the HOME gate, so `presumed_pd` and `safe_archive_license`
+        could headline here while being excluded on every Apple surface.
+
+        The modern-year clause is what the owner saw on 2026-09-21 — "Dollar
+        Store Killers" (2025) with a TMDb poster, bucketed `safe_gov` because
+        its archive item lists `collections: ["prelinger"]`, and carrying
+        `rightsEvidence: "source_unverified"` in a field no client can read.
+        A bucket NAME is not the evidence behind it, and the marquee is the
+        one surface that speaks for the app. */
+    val isHeroRightsSafe: Boolean
+        get() {
+            val b = rightsBucket ?: return false
+            if (b !in HERO_SAFE_BUCKETS) return false
+            val y = year
+            // `safe_pd_age` is exempt in form only: measured, it runs 1065 to
+            // 1928 and holds nothing modern at all.
+            return !(y != null && y >= HERO_MODERN_YEAR && b != "safe_pd_age")
+        }
 
     // Title-level identity for cross-shelf Home de-duplication: two uploads of the
     // same film share a title+year but differ in archiveID, so an archiveID-only

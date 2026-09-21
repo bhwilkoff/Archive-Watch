@@ -197,12 +197,15 @@ internal fun rememberHomePayload(container: AppContainer): State<HomePayload> {
         // Google TV cold start from 32s to 6.3s).
         val heroSeed = System.currentTimeMillis()
         val heroPool = db.browse(
-            sort = BrowseSort.POPULAR, limit = 1500, homeOnly = true,
+            sort = BrowseSort.POPULAR, limit = 1500, homeOnly = true, heroOnly = true,
         ).filter { it.hasProfessionalArtwork }
             .distinctBy { it.archiveID }
         val heroCandidates = heroPool.shuffled(Random(heroSeed)).take(60)
         val hero = db.itemsByIDs(heroCandidates.map { it.archiveID })
-            .filter { it.backdropURL != null }
+            // Checked AGAIN here because these are the only rows that can be:
+            // `itemsByIDs` decodes item_json, so unlike the lite browse rows
+            // they actually carry `rightsBucket`.
+            .filter { it.backdropURL != null && it.isHeroRightsSafe }
             // itemsByIDs does not promise the order it was asked in, so shuffle
             // again rather than let an id ordering decide which six lead.
             .shuffled(Random(heroSeed))

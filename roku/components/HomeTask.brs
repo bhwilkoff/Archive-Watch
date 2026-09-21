@@ -148,7 +148,19 @@ sub run()
             ' It leaves 843 films — The Seventh Seal, Metropolis, M, Double
             ' Indemnity, Nosferatu, The General — and it is why the hero no
             ' longer needs the curated-shelf allow-list to stay respectable.
-            if row[7] <> invalid and row[7] <> ""
+            '
+            ' AND THE MARQUEE IS ARCHIVAL CINEMA. Owner, 2026-09-21: "Dollar
+            ' Store Killers" (2025) headlined Home on another platform, having
+            ' been bucketed `safe_gov` off its archive item's
+            ' `collections: ["prelinger"]` with the evidence recorded as
+            ' `source_unverified` -- a field no client carries. The apps
+            ' reject year >= 1978 unless the bucket is `safe_pd_age`, and that
+            ' bucket measures 1065-1928, so a year test alone is the identical
+            ' rule. Roku's 1,000-vote floor already stopped THAT film (it has
+            ' no IMDb id at all); it does not stop a modern title that has
+            ' votes, which is why this is here and not assumed.
+            isArchival = (row[2] = invalid) or (Int(row[2]) < 1978)
+            if row[7] <> invalid and row[7] <> "" and isArchival
                 if row.Count() > 11 and row[10] <> invalid and row[11] <> invalid
                     if Int(row[11]) >= 1000 and Int(row[10]) >= 60 then heroCand.Push(row)
                 end if

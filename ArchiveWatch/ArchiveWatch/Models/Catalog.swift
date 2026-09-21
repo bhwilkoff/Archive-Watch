@@ -146,10 +146,47 @@ struct Catalog: Decodable, Sendable {
         static let heroSafeBuckets: Set<String> =
             ["safe_pd_age", "safe_gov", "safe_cc"]
 
+        /// AND A MODERN YEAR DISQUALIFIES EVERY BUCKET BUT `safe_pd_age`.
+        ///
+        /// Owner, 2026-09-21, looking at Home: *"I just saw 'Dollar Store
+        /// Killers' come up on the hero row ... why that movie (and an
+        /// obviously modern poster) made it through?"*
+        ///
+        /// It made it through because a bucket NAME is not the evidence
+        /// behind it. `dollar_store` is a 2025 thriller whose archive item
+        /// lists `collections: ["prelinger"]`, so the audit bucketed it
+        /// `safe_gov` — and recorded `rightsEvidence: "source_unverified"`
+        /// while doing so. The client never sees that field: `build_sqlite`
+        /// writes it only into `item_json`, never into the `items` table, so
+        /// this gate can check the bucket and nothing else, and `safe_gov` is
+        /// on the list above. A TMDb match (`tmdbID 1473792`) then supplied
+        /// the modern poster and the synopsis.
+        ///
+        /// The same hole holds 347 modern-year items across the KEEP buckets
+        /// on `source_unverified` evidence — among them **Taxi Season 1**
+        /// (1980) and Die Harald Schmidt Show (1995) — which is the
+        /// television problem SCRATCHPAD already reserves for the owner, and
+        /// is NOT decided here.
+        ///
+        /// What IS decided here is the marquee, because the rule it already
+        /// states for itself is positive evidence only, and this is the case
+        /// where the bucket overstates it. `safe_pd_age` keeps its exemption
+        /// because age is evidence and nothing modern can wear it. Measured:
+        /// 642 of 6,553 hero candidates are 1978-or-later, ALL of them
+        /// outside `safe_pd_age`, and they are NASA SCI Files, "This Is
+        /// Prelinger Archives" and Dollar Store — a ten percent cost in
+        /// candidates and nothing a cinematheque would have put on its
+        /// marquee.
+        static let heroModernYear = 1978
+
         /// Whether this item may carry the full-bleed marquee.
         var isHeroRightsSafe: Bool {
             guard let b = rightsBucket else { return false }
-            return Catalog.Item.heroSafeBuckets.contains(b)
+            guard Catalog.Item.heroSafeBuckets.contains(b) else { return false }
+            if let y = year, y >= Catalog.Item.heroModernYear, b != "safe_pd_age" {
+                return false
+            }
+            return true
         }
         let qualityScore: Int?
         let popularityScore: Int?

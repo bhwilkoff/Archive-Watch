@@ -150,6 +150,26 @@ class CatalogDatabase private constructor(
         " AND NOT (i.rightsBucket = 'presumed_pd'" +
             " AND i.language IS NOT NULL AND i.language <> ''" +
             " AND lower(i.language) NOT IN ('en','eng','english'))"
+    /** THE MARQUEE'S OWN GATE, which Android did not have.
+     *
+     *  The hero pool asked `browse(homeOnly = true)`, so it inherited HOME's
+     *  rule — which admits `presumed_pd` and `safe_archive_license`, both
+     *  excluded from the hero on every Apple surface. And it could not have
+     *  been fixed in Kotlin: `browse` selects `liteCols`, which carries no
+     *  `rightsBucket` at all, so a client-side bucket filter on a browse row
+     *  would have emptied the hero rather than narrowed it. It belongs in SQL.
+     *
+     *  The year clause is the owner's 2026-09-21 sighting — "Dollar Store
+     *  Killers" (2025), bucketed `safe_gov` off `collections: ["prelinger"]`
+     *  with `rightsEvidence: "source_unverified"` in a field no client reads.
+     *  On a DB with no rights column the year rule stands alone, which is
+     *  equivalent: `safe_pd_age` measures 1065-1928 and holds nothing modern.
+     */
+    private val heroAnd: String get() = if (!hasRightsBucketColumn)
+        " AND (i.year IS NULL OR i.year < 1978)"
+    else
+        " AND i.rightsBucket IN ('safe_pd_age','safe_gov','safe_cc')" +
+        " AND NOT (i.year >= 1978 AND i.rightsBucket <> 'safe_pd_age')"
     private val notCommercial = " AND i.contentType != 'commercial'"
 
     /** Restricts the most PROMINENT surfaces to titles whose bytes were verified
@@ -286,10 +306,11 @@ class CatalogDatabase private constructor(
         limit: Int = 60,
         offset: Int = 0,
         homeOnly: Boolean = false,
+        heroOnly: Boolean = false,
         full: Boolean = false,
     ): List<CatalogItem> {
         val (ct, gn, docAnd) = docCategory(contentType, genre)
-        val (where0, binds) = browseWhere(ct, decade, gn, year, homeOnly)
+        val (where0, binds) = browseWhere(ct, decade, gn, year, homeOnly, heroOnly)
         val where = where0 + docAnd
         val (joins, joinBinds) = facetJoins(gn, keyword, studio)
         // Popular = demoted ids last, designed (professional) artwork first,
@@ -377,6 +398,7 @@ class CatalogDatabase private constructor(
         genre: String?,
         year: Int?,
         homeOnly: Boolean,
+        heroOnly: Boolean = false,
     ): Pair<String, List<Any?>> {
         val binds = mutableListOf<Any?>()
         // An explicit tv-series request browses the SERIES CARDS (poster-gated:
@@ -400,6 +422,7 @@ class CatalogDatabase private constructor(
         sb.append(adultAnd).append(typeAnd)
         if (contentType != "commercial") sb.append(notCommercial)
         if (homeOnly) sb.append(homeAnd)
+        if (heroOnly) sb.append(heroAnd)
         return sb.toString() to binds
     }
 
