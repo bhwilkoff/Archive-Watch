@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Polls a Watch Together room off the render thread (SHAREPLAY §11).
+     `awRoomRead` blocks on a message port for up to eight seconds, and doing
+     that on the render thread would freeze the film it is trying to keep in
+     step — the whole point of a Task node. -->
+<component name="TogetherTask" extends="Task">
+  <interface>
+    <field id="code" type="string" />
+    <!-- Set by the player each tick so the task can compute a correction
+         without reaching back into the scene graph. -->
+    <field id="localPosition" type="float" />
+    <field id="localPaused" type="boolean" />
+    <!-- What the player should DO. `alwaysNotify` because the same verb twice
+         running is two real instructions, not a repeated one. -->
+    <field id="verb" type="assocarray" alwaysNotify="true" />
+    <field id="problem" type="string" alwaysNotify="true" />
+    <field id="running" type="boolean" value="false" />
+  </interface>
+  <script type="text/brightscript" uri="pkg:/components/TogetherTask.brs" />
+  <script type="text/brightscript" uri="pkg:/source/TogetherRoom.brs" />
+  <script type="text/brightscript" uri="pkg:/components/Theme.brs" />
+</component>

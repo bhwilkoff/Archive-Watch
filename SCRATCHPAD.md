@@ -419,6 +419,31 @@ emulators) · `docs/CAPTIONS.md` · `docs/SHAREPLAY.md` ·
    "ended" from "buffering", where a false positive is worse than today's
    silence.
 
+16-NEW. **WATCH TOGETHER ROOMS ARE BUILT AND THE WORKER IS DEPLOYED** (SHAREPLAY
+   §11, 2026-09-21). The owner's own design: people use the call they already
+   have, the app syncs the film. The transport is LIVE at
+   `archivewatch-pulse.benwilkoff.workers.dev` (the same Worker as the privacy
+   counter, on the same D1 — no new infrastructure, which is why it fits the $0
+   constraint). Smoke-tested live including the counter beside it.
+   **JOINING SHIPS on macOS, tvOS, iOS, Android phone, Android TV, Fire TV and
+   the web.** HOSTING is macOS only, and that is settled rather than missing:
+   the owner ruled that rooms exist to serve a LIVE STREAM, so a room with no
+   broadcast is not a product (§11.13).
+   **What is NOT done**: Roku's surface (the rule and the poll task exist, and
+   nothing creates them — PARITY says so); and no room has ever been driven
+   between two REAL devices, only between two clients on this Mac against the
+   live Worker.
+   **The rule that makes a spoken code work is in FIVE languages** — Swift, the
+   Worker's JS, Kotlin, the browser, BrightScript — with §8.28/§8.29/§8.32 and
+   `StudioRoomTest` asserting the same input table and §8.34 pinning the
+   alphabet across all five.
+
+15-NEW. **THE CODE IS PUBLIC AND THE HOST KEY IS NOT** — learned from the
+   owner's Tidbits Trivia, whose own screen says "the room code alone cannot
+   drive the show". This transport had NO auth: any guest who heard a code
+   could pause somebody's broadcast. Fixed and asserted live (a guest write is
+   403, the room is unchanged, a GET never carries the key).
+
 14-NEW. **WHAT A SIGNED, SANDBOXED APP GETS FROM A PROCESS TAP IS UNKNOWN.**
    The Studio's fourth input — a call's audio, the piece that makes "With
    Friends and the World" real — is built and tested (§8.26), and §8.21 proved

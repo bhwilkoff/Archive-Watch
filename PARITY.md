@@ -154,6 +154,7 @@ whole point:
 | **Android phone** | ⏳ not built | ✅ **shipped** — the Library app bar, not a sixth tab (the bottom bar carries five) |
 | **Android TV / Fire TV** | 🚫 same as tvOS | ✅ **shipped** — a Library section and a focus grid, no keyboard. Both flavours build, so Fire TV has it too |
 | **Web** | 🚫 cannot broadcast | ✅ **shipped** — `/together/#code-film` forwards into the hash router and the `<video>` follows the room |
+| **Roku** | 🚫 cannot broadcast | ⏳ **groundwork only** — `TogetherRoom.brs` (the rule, pinned by §8.34) and `TogetherTask` (the poll, off the render thread) exist and NOTHING creates them. Needs an option row, a keyboard dialog and a `roomCode` field on PlayerScreen |
 
 **Joining needs no camera and no microphone**, which is why a television —
 removed from the hosting table entirely on 2026-09-20 — is the best device to
