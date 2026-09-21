@@ -215,8 +215,18 @@ public final class StudioSession {
             let dest = armedDestination
                 ?? ProcessInfo.processInfo.environment["AW_STUDIO_DEST"]
                     .flatMap { URL(string: $0) }
+            diag("[AWSTUDIOSTART] starting engine destination=\(dest?.absoluteString ?? "none")")
             try await e.start(destination: dest)
+            diag("[AWSTUDIOSTART] engine started")
         } catch {
+            // SAY IT. This set `refusal` and returned, logging NOTHING — so a
+            // Studio that failed to start looked identical in the log to one
+            // that started fine and published nothing: camera attached, film
+            // attached, and then silence. Found 2026-09-21 running the macOS
+            // bench door against a local server, where the whole run produced
+            // zero AWPUB and zero AWSTUDIOHEALTH lines and no reason for it.
+            // The same hole as AWPUB (§9.19) and AWAUTH.
+            diag("[AWSTUDIOSTART] FAILED: \(error)")
             refusal = "The Studio could not start — \(error)"
             engine = nil
             return

@@ -1212,6 +1212,32 @@ Each step ships on its own and is verified on the wire, never by compiling.
 | 5 | Per-input meters and mutes (§D3) | **shipped** with 3 and 4 |
 | 6 | §D5's preview BEFORE going live | **shipped**; explicit "Start preview", never automatic |
 
+**§D4 IS PROVEN ON THE WIRE (2026-09-21), which is the standard this project
+holds itself to.** The host's choices were set to values that are none of the
+old hardcoded defaults — **1280x720 at 24 fps, 3000 kbps** against the former
+1920x1080/30/6000 — the macOS bench door published to a local `mediamtx`, and
+the SERVER's own recording was read back:
+
+    codec=h264 profile=High level=31  1280x720  r_frame_rate=24/1
+    bit_rate=2481440   audio=aac 44100 Hz stereo
+
+2.48 Mbps delivered against 3.0 asked is ~83%, consistent with the ~70-75%
+this encoder has always delivered (§9). A single frame of that recording
+carries the whole programme: the film, the camera tile bottom-right, and the
+lower third with title, year, director and the provenance line. So the
+pickers, the settings and the composite all reach the encoder rather than
+stopping in a preference — Decision 133's test, passed.
+
+**And the run found an observability hole before it found anything else.**
+The first three attempts published nothing and left NO trace: camera
+attached, film attached, then silence. `StudioSession` caught a failed
+`engine.start()`, set `refusal` and returned without logging — so a Studio
+that failed to start was indistinguishable in the log from one that started
+and published nothing. `[AWSTUDIOSTART]` now marks the attempt, the success
+and the failure, and it named the cause on the next run in one line (the
+harness URL lacked the `/app/streamKey` shape the publisher requires). Same
+family as the `AWPUB` and `AWAUTH` gaps.
+
 **What step 4 does not yet know.** §8.21 proved the tap as a command-line
 tool under the terminal's grants. A process tap is gated by its own TCC
 service (`NSAudioCaptureUsageDescription`, added to the macOS Info.plist),
