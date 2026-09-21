@@ -288,10 +288,48 @@ public final class StudioSession {
         }
         let session = AVCaptureSession()
         session.beginConfiguration()
-        // 720p: the tile is never full-frame, so capturing 1080p to draw a
-        // corner box is work nobody sees.
-        session.sessionPreset = .hd1280x720
         if session.canAddInput(input) { session.addInput(input) }
+        // THE PRESET GOES AFTER THE INPUT, AND A BORROWED PHONE GETS NONE.
+        //
+        // This path set `.hd1280x720` BEFORE any input existed, which is the
+        // exact sequence that killed every Continuity broadcast on tvOS
+        // (2026-09-19, reproduced twice): the failure does not surface at the
+        // assignment but later, when something forces the device to
+        // renegotiate, as an ObjC exception no Swift `try` can catch —
+        // `-[AVCaptureDevice _setActiveFormat:…sessionPreset:] Unsupported
+        // format ((null))`, signal 6. tvOS was fixed in `StudioContinuity`;
+        // this path was not, and macOS reaches the SAME device class, because
+        // an iPhone used as a Mac's camera is a Continuity Camera.
+        // `canSetSessionPreset` is not the gate — it answered TRUE for
+        // .hd1280x720 on a Continuity camera and threw anyway.
+        //
+        // A built-in camera keeps the preset: the tile is never full-frame, so
+        // capturing 1080p to draw a corner box is work nobody sees. Only the
+        // borrowed-phone case surrenders format control, and it costs nothing
+        // — the tile is scaled to its layout slot downstream regardless.
+        var borrowedPhone = false
+        if #available(iOS 17.0, macOS 14.0, tvOS 17.0, *) {
+            borrowedPhone = cam.deviceType == .continuityCamera || cam.deviceType == .external
+        }
+        //
+        // `.inputPriority` IS UNAVAILABLE ON macOS, which is the platform this
+        // fix is most for. The macOS equivalent of "stop dictating a format"
+        // is to leave the preset alone: the default `.high` NEGOTIATES the
+        // best the device offers instead of demanding a specific size, so it
+        // has no exact format to fail to find. Same intent, different verb.
+        let presetName: String
+        if borrowedPhone {
+            #if os(macOS)
+            presetName = "high (negotiated)"      // leave it at the default
+            #else
+            session.sessionPreset = .inputPriority
+            presetName = "inputPriority"
+            #endif
+        } else {
+            session.sessionPreset = .hd1280x720
+            presetName = "hd1280x720"
+        }
+        awdiag("AWCAM preset=%@ device=%@", presetName, cam.localizedName)
         if AVCaptureDevice.authorizationStatus(for: .audio) == .authorized,
            let mic = AVCaptureDevice.default(for: .audio),
            let micInput = try? AVCaptureDeviceInput(device: mic),

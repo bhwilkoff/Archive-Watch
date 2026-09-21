@@ -1033,3 +1033,33 @@ than ... decibles that most people won't understand."*
   "the film drops 12 dB automatically while you are talking". A host who sets
   Film to 9 and then speaks hears it drop anyway and reasonably concludes the
   fader is broken. Manual has to mean manual.
+
+### B13i — a BORROWED PHONE is never given a session preset
+
+The host camera path (`StudioSession.attachCameraIfAvailable`) sets
+`.hd1280x720` for a built-in camera and **surrenders format control for a
+Continuity Camera**, and it sets the preset AFTER adding the input, never
+before.
+
+**Why**: assigning the preset before any input existed is what killed every
+Continuity broadcast on tvOS (2026-09-19, reproduced twice). The failure does
+not surface at the assignment — it surfaces later, when something forces the
+device to renegotiate, as an ObjC exception no Swift `try` can catch:
+`-[AVCaptureDevice _setActiveFormat:…sessionPreset:] Unsupported format
+((null))`, signal 6. tvOS was fixed in `StudioContinuity`; **the shared path
+macOS and iOS use was not**, and macOS reaches the same device class, because
+an iPhone used as a Mac's camera IS a Continuity Camera. `canSetSessionPreset`
+is not a usable gate: it answered TRUE for `.hd1280x720` on a Continuity
+camera and the exception was thrown anyway.
+
+**How to apply**: `.inputPriority` is the verb on iOS and tvOS and is
+**unavailable on macOS**. The macOS equivalent of "stop dictating a format" is
+to leave the preset at its default `.high`, which NEGOTIATES the best the
+device offers rather than demanding an exact size, so there is no specific
+format for it to fail to find. Same intent, different verb — do not reach for
+`.inputPriority` here and assume it compiles.
+
+A built-in camera keeps `.hd1280x720` deliberately: the tile is never
+full-frame, so capturing 1080p to draw a corner box is work nobody sees. Only
+the borrowed-phone case gives that up, and it costs nothing because the tile is
+scaled to its layout slot downstream regardless.
