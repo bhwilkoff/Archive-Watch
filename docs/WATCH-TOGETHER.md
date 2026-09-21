@@ -6388,3 +6388,44 @@ a check that the proxy's byte counter actually moved.
 PARITY's narrow-uplink row stays 🚧 for iOS and tvOS. It was tempting to call
 this a pass — the stream survived a "throttled" window, after all — and that
 would have recorded a congestion test that never created congestion.
+
+## §9.aaaaaa — what an iOS host leaving the app does to the broadcast (2026-09-20)
+
+Measured, because "what happens when the host checks a notification" is a
+question a live feature has to have an answer to, and this one had never been
+asked. An iPhone 12 publishing to a bench server, then the Camera app launched
+over it:
+
+| | |
+|---|---|
+| video | STOPS DEAD — `vsent` frozen at 574, `fps=0`, `showState=STOPPED` |
+| audio | KEEPS GOING — `asent` climbing 1608 → 1825, ~43/s |
+| the link | reset by peer, and the publisher rebuilt it (`reconnects=1`) |
+| on return | the path comes back |
+
+So the audience gets a frozen picture with the room's sound continuing over
+it. The state is honest — `STOPPED` is exactly §6's word for "film frames
+pulled, encoder not encoding" — and the readout would say so, to a host who is
+not looking at it because they are in another app.
+
+**Whether that is the right BEHAVIOUR is an owner question** and is not
+answered here. The alternatives are to end the show (brutal, and wrong for a
+notification glanced at for two seconds) or to keep the picture alive from a
+still or a card while backgrounded (which is what a card is FOR, and which iOS
+may not permit for long). What is NOT acceptable is the audience having no way
+to tell — and today they have one, because the lower third and the film are
+frozen together.
+
+**IT ALSO FOUND A REAL DEFECT.** The health line read `queued=-100`. A
+negative byte count is impossible, and the cause is that `queuedBytes` is
+incremented when a message is handed to the socket and decremented when its
+completion fires — while a RECONNECT resets `health` and the OLD connection's
+completions keep arriving, each subtracting bytes the new counter never added.
+
+That is not cosmetic. `queuedBytes` IS §6.4's back-pressure gate, so a counter
+sitting below zero raises the shedding threshold by however far it has
+drifted — and it drifts furthest when a large backlog was in flight at the
+moment of the reconnect, which is to say exactly when congestion is what
+caused the reconnect. The protection would be weakest in the case it exists
+for. Sends now carry a generation; completions from a superseded connection
+are ignored, and the counter is clamped at zero.

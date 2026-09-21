@@ -142,6 +142,22 @@ public actor RTMPPublisher {
 
     public private(set) var health = RTMPHealth()
 
+    /// Which connection the in-flight sends belong to.
+    ///
+    /// `queuedBytes` is incremented as a message is handed to the socket and
+    /// decremented when its completion fires. A RECONNECT resets `health` —
+    /// and the OLD connection's completions keep arriving afterwards, each one
+    /// subtracting bytes the new counter never added. Measured on an iPhone 12
+    /// 2026-09-20: `queued=-100` after a single reconnect.
+    ///
+    /// A negative byte count is not merely untidy. `queuedBytes` IS §6.4's
+    /// back-pressure gate (`> maxQueuedBytes`), so a counter sitting below
+    /// zero raises the threshold by however far it has drifted — and it drifts
+    /// FURTHEST when a large backlog was in flight at the moment of the
+    /// reconnect, which is to say exactly when congestion is what caused it.
+    /// The protection would be weakest in the case it exists for.
+    private var sendGeneration = 0
+
     // Back-pressure: bytes handed to the socket and not yet completed. Past
     // this, VIDEO inter-frames are dropped until a keyframe; audio is never
     // dropped (WATCH-TOGETHER §6.4 — viewers forgive a frame, not a gap in
@@ -292,6 +308,7 @@ public actor RTMPPublisher {
         params.serviceClass = .interactiveVideo
         let conn = NWConnection(host: NWEndpoint.Host(host), port: NWEndpoint.Port(rawValue: port)!, using: params)
         connection = conn
+        sendGeneration += 1
 
         try await withTimeout(timeout, label: "TCP connect") { [self] in
             try await self.waitReady(conn)
@@ -822,14 +839,20 @@ public actor RTMPPublisher {
         }
         health.queuedBytes += bytes.count
         let n = bytes.count
+        let generation = sendGeneration
         connection.send(content: bytes, completion: .contentProcessed { [weak self] error in
             guard let self else { return }
-            Task { await self.sent(n, error: error) }
+            Task { await self.sent(n, generation: generation, error: error) }
         })
     }
 
-    private func sent(_ n: Int, error: NWError?) {
-        health.queuedBytes -= n
+    private func sent(_ n: Int, generation: Int, error: NWError?) {
+        // A completion from a SUPERSEDED connection settles nothing the
+        // current counter is holding, and an error on one is not this
+        // connection's error either — reporting it would close a healthy
+        // socket because a dead one finished draining.
+        guard generation == sendGeneration else { return }
+        health.queuedBytes = max(0, health.queuedBytes - n)
         health.bytesSent += n
         if let error { socketClosed(error.localizedDescription) }
     }
