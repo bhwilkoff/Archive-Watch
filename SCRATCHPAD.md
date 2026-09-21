@@ -336,6 +336,18 @@ emulators) · `docs/CAPTIONS.md` · `docs/SHAREPLAY.md` ·
    decided DURING a show — and that putting it in the mixer (A) spends a rule
    that was expensive to learn. The WORDS are not in question either way.
 
+13-NEW. **WHEN THE FILM ENDS, THE BROADCAST DOES NOT — AND NOBODY IS TOLD.**
+   Measured 2026-09-20 on an iPhone: a 60-second film, a 97-second broadcast,
+   and the last 37 seconds are the film's FINAL FRAME frozen, with the camera
+   tile and lower third live over it and `state=LIVE fps=30` throughout.
+   Continuing to broadcast is probably right — people talk after a film — but
+   §4 says health is never hidden, and "your audience is watching a still" is
+   health. The feature already has the right graphic for this moment (the
+   Ending card) and offers it automatically nowhere. Four options in
+   `docs/WATCH-TOGETHER.md` §9.bbbbbb; the hard part in any of them is telling
+   "ended" from "buffering", where a false positive is worse than today's
+   silence.
+
 9. **Fireplace TV is off limits for testing** (owner 2026-09-17, mid-run: "I'm
    actively watching on it now"). Bedroom and Movie Room are fine — but both
    are Apple TV 4K **3rd** gen, and Fireplace is the only **2nd** gen, i.e.

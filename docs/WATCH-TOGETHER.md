@@ -6429,3 +6429,40 @@ moment of the reconnect, which is to say exactly when congestion is what
 caused the reconnect. The protection would be weakest in the case it exists
 for. Sends now carry a generation; completions from a superseded connection
 are ignored, and the counter is clamped at zero.
+
+## §9.bbbbbb — what happens when the FILM ENDS and the show does not (2026-09-20)
+
+Measured on an iPhone 12 with a 60-second film (`Execution_of_Mary_1895`) and
+a 97-second broadcast. After the film runs out:
+
+- the publish continues, `state=LIVE`, `fps=30`, `queued=0`, video still sent
+- the audience sees **the film's last frame, frozen, indefinitely**
+- the camera tile and the lower third stay LIVE over it, so the host is moving
+  in the corner of a still picture
+- nothing on any surface says the film has ended
+
+**Continuing to broadcast is probably RIGHT** — a host who has just watched
+something with friends is likely still talking, and ending their show the
+instant the credits stop would be worse than this. So this is not a bug report.
+
+**What is wrong is that nobody is told.** §4's rule is that health is never
+hidden, and "your audience is looking at a frozen frame" is health. The
+feature already owns the right answer for this moment: the **Ending card**
+("Thanks for watching"), which exists on macOS, iOS and Android and is offered
+automatically by nothing.
+
+**OWNER DECISION (SCRATCHPAD item 13), because each option is a different
+product**:
+
+| | |
+|---|---|
+| **A. Say it, change nothing** | a warning — "the film has ended; your audience is watching a still" — and the host decides. Cheapest, and consistent with every other fault this feature surfaces |
+| **B. Show the Ending card automatically** | the audience gets a deliberate graphic instead of a freeze. But it overrides a host who is mid-sentence, and on tvOS there is no card to show (Rule 8.8f) |
+| **C. End the show** | almost certainly wrong, and stated for completeness |
+| **D. Nothing** | defensible only if hosts are expected to watch their own readout |
+
+**The measurement to do FIRST if A or B is chosen**: distinguishing "the film
+ended" from "the film is buffering" is the whole difficulty, and a false
+positive is worse than the current silence — a card thrown over a film that
+was merely stalling would be a new way to ruin a broadcast. `filmFramesPulled`
+stopping is true of both.
