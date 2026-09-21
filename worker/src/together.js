@@ -1,0 +1,171 @@
+/**
+ * Watch Together rooms — SHAREPLAY §11, the transport half.
+ *
+ * A room is ONE ROW. Everything clever lives in the clients (§11.1): the host
+ * publishes a state record and every client extrapolates between records, so
+ * this has nothing to compute and nothing to stream.
+ *
+ *     code | film_id | position | at_server_ms | rate | paused | generation | touched_ms
+ *
+ * WHY THIS IS NOT A WEBSOCKET. Durable Objects are the natural fit and are not
+ * on Cloudflare's free plan, and $0 is a hard constraint for this project
+ * (CLAUDE.md). Workers KV is free but eventually consistent for up to 60
+ * seconds, which would mean a PAUSE taking a minute to reach a guest —
+ * unusable for the one message that has to be instant. D1 is strongly
+ * consistent, already bound to this Worker for the privacy counter, and free
+ * at this volume: four guests for two hours is ~14,400 reads and ~270 writes
+ * against millions and 100k a day.
+ *
+ * WHAT IS STORED ABOUT PEOPLE: nothing. No account, no id, no IP, no count of
+ * who is in the room. A row says what the film is doing, and the only way to
+ * see it is to know a code somebody read aloud to you. Rooms are deleted when
+ * a host ends them and swept when they go quiet, so the table does not become
+ * a record of what anyone watched — the same rule the counter beside it keeps.
+ */
+
+const CORS = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Methods": "GET,POST,OPTIONS",
+  "Access-Control-Allow-Headers": "content-type",
+};
+
+/** Crockford Base32, matching `StudioRoom.swift` exactly. */
+const ALPHABET = "0123456789ABCDEFGHJKMNPQRSTVWXYZ";
+const CODE_LENGTH = 4;
+
+/**
+ * The same normalisation the apps do, and it MUST stay the same or a code read
+ * aloud would reach a different room depending on which end typed it.
+ * `tools/test_studio_room.swift` §8.28 is the Swift side of this contract.
+ */
+export function normalizeCode(typed) {
+  if (typeof typed !== "string") return null;
+  let out = "";
+  for (const ch of typed.toUpperCase()) {
+    if (ch === " " || ch === "-" || ch === "_") continue;
+    if (ch === "I" || ch === "L") { out += "1"; continue; }
+    if (ch === "O") { out += "0"; continue; }
+    if (ch === "U") return null;
+    if (!ALPHABET.includes(ch)) return null;
+    out += ch;
+  }
+  return out.length === CODE_LENGTH ? out : null;
+}
+
+function newCode() {
+  const bytes = new Uint8Array(CODE_LENGTH);
+  crypto.getRandomValues(bytes);
+  let out = "";
+  for (const b of bytes) out += ALPHABET[b % ALPHABET.length];
+  return out;
+}
+
+/** A room nobody has touched for this long is over. */
+const STALE_MS = 6 * 60 * 60 * 1000;   // six hours — longer than any film
+
+function json(body, status = 200) {
+  return new Response(JSON.stringify(body), {
+    status,
+    headers: { ...CORS, "content-type": "application/json" },
+  });
+}
+
+function rowToState(r, nowMs) {
+  return {
+    code: r.code,
+    filmID: r.film_id,
+    position: r.position,
+    // SECONDS, because the clients work in seconds and a unit change at the
+    // boundary is how a sync bug gets written.
+    atServerTime: r.at_server_ms / 1000,
+    rate: r.rate,
+    paused: !!r.paused,
+    generation: r.generation,
+    // THE SERVER'S OWN CLOCK, in the same response as the state (§11.6). The
+    // client measures the round trip around this one request, so the offset
+    // estimate of §11.2 costs no extra traffic at all — the poll IS the clock
+    // sync. Omitting this would double the request count for nothing.
+    serverTime: nowMs / 1000,
+  };
+}
+
+export async function handleTogether(url, request, env) {
+  if (request.method === "OPTIONS") {
+    return new Response(null, { status: 204, headers: CORS });
+  }
+  const now = Date.now();
+
+  // POST /together/new  { filmID, position, rate, paused }
+  if (url.pathname === "/together/new" && request.method === "POST") {
+    let body;
+    try { body = await request.json(); } catch { return json({ error: "bad body" }, 400); }
+    const filmID = String(body.filmID || "");
+    if (!filmID) return json({ error: "filmID required" }, 400);
+
+    // A CODE IS CHECKED AGAINST LIVE ROOMS BEFORE IT IS ISSUED. This is one of
+    // the two things that make four characters safe rather than merely short
+    // (§11.9): the risk is a guess landing on a LIVE room, so the live set is
+    // what must stay small. Ten attempts is far more than enough at any volume
+    // this app will see, and failing loudly beats handing out a duplicate.
+    for (let attempt = 0; attempt < 10; attempt++) {
+      const code = newCode();
+      try {
+        await env.DB.prepare(
+          "INSERT INTO rooms (code, film_id, position, at_server_ms, rate, paused, generation, touched_ms) " +
+          "VALUES (?1, ?2, ?3, ?4, ?5, ?6, 1, ?4)"
+        ).bind(code, filmID, Number(body.position) || 0, now,
+               Number(body.rate) || 1, body.paused ? 1 : 0).run();
+        return json({ code, serverTime: now / 1000 });
+      } catch (e) {
+        // A UNIQUE violation means the code is taken — try another. Anything
+        // else is a real failure and must not be retried into a loop.
+        if (!String(e).includes("UNIQUE")) return json({ error: "could not create" }, 500);
+      }
+    }
+    return json({ error: "no free code" }, 503);
+  }
+
+  // POST /together/<code>  — the host publishes a new state
+  // GET  /together/<code>  — anyone reads it
+  const m = url.pathname.match(/^\/together\/([^/]+)\/?$/);
+  if (!m) return json({ error: "not found" }, 404);
+  const code = normalizeCode(decodeURIComponent(m[1]));
+  if (!code) return json({ error: "bad code" }, 400);
+
+  if (request.method === "GET") {
+    const r = await env.DB.prepare("SELECT * FROM rooms WHERE code = ?1").bind(code).first();
+    if (!r) return json({ error: "no such room" }, 404);
+    if (now - r.touched_ms > STALE_MS) {
+      await env.DB.prepare("DELETE FROM rooms WHERE code = ?1").bind(code).run();
+      return json({ error: "room ended" }, 410);
+    }
+    return json(rowToState(r, now));
+  }
+
+  if (request.method === "POST") {
+    let body;
+    try { body = await request.json(); } catch { return json({ error: "bad body" }, 400); }
+
+    // ENDING IS A DELETE, not a flag. A room that lingers is a row saying what
+    // somebody watched, and §11's whole storage posture is that no such record
+    // outlives the watching.
+    if (body.end === true) {
+      await env.DB.prepare("DELETE FROM rooms WHERE code = ?1").bind(code).run();
+      return json({ ended: true });
+    }
+
+    // The generation is bumped HERE rather than sent by the client, so two
+    // hosts cannot disagree about it and a client cannot freeze it by sending
+    // the same number twice. Clients use it only to notice change (§11.6).
+    const res = await env.DB.prepare(
+      "UPDATE rooms SET film_id = ?2, position = ?3, at_server_ms = ?4, rate = ?5, " +
+      "paused = ?6, generation = generation + 1, touched_ms = ?4 WHERE code = ?1"
+    ).bind(code, String(body.filmID || ""), Number(body.position) || 0, now,
+           Number(body.rate) || 1, body.paused ? 1 : 0).run();
+    if (!res.meta || res.meta.changes === 0) return json({ error: "no such room" }, 404);
+    const r = await env.DB.prepare("SELECT * FROM rooms WHERE code = ?1").bind(code).first();
+    return json(rowToState(r, now));
+  }
+
+  return json({ error: "method not allowed" }, 405);
+}

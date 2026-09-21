@@ -797,6 +797,49 @@ joining from a television that is already in the room. The encoder exists
 joining from a television that is already in the room. The QR encoder exists
 (Decision 119) and the payload is the same join URL.
 
+### §11.11 The transport, WRITTEN and NOT DEPLOYED (2026-09-21)
+
+`worker/src/together.js` + `worker/schema-rooms.sql`. It goes into the Worker
+that already exists for the privacy counter, on the D1 that is already bound
+to it — **the sync transport needs no infrastructure of its own**, which is
+most of why it fits the $0 constraint rather than merely being cheap.
+
+Three routes and one table:
+
+    POST /together/new      → { code, serverTime }
+    GET  /together/<code>   → the state record + the server's own clock
+    POST /together/<code>   → the host publishes; { end: true } deletes
+
+**Deliberate, and each would be easy to get wrong:**
+
+- **The GET returns `serverTime` in the same response as the state.** The
+  client measures the round trip around that one request, so §11.2's offset
+  estimate costs no extra traffic — the poll IS the clock sync. A separate
+  time endpoint would double the request count for nothing.
+- **The generation is bumped by the SERVER**, never sent by the client, so two
+  hosts cannot disagree about it and a client cannot freeze it by sending the
+  same number twice.
+- **A code is checked against LIVE rooms before it is issued** (insert, catch
+  the UNIQUE violation, retry). This is one of the two things that make four
+  characters safe rather than merely short — the risk is a guess landing on a
+  live room, so the live set is what has to stay small.
+- **Ending a room DELETES it.** A room that lingers is a row saying what
+  somebody watched, and nothing here may outlive the watching — the same
+  posture as the counter sitting beside it. Stale rooms are swept on read.
+- **Nothing about people is stored**: no account, no id, no IP, not even a
+  count of who is in the room. A row says what the film is doing, and the only
+  way to see it is to know a code somebody read to you.
+
+**§8.29 asserts the Worker and the app normalise a code IDENTICALLY.** Two
+implementations of one rule is the classic way this breaks: if Swift maps a
+heard "oh" to 0 and the JavaScript does not, a guest who types what they heard
+reaches a different room, and the failure reads as "the code doesn't work"
+with nothing to point at.
+
+**NOT DEPLOYED.** `wrangler deploy` touches the owner's Cloudflare account and
+the live archivewatch.org Worker; that is theirs to run. The D1 table has to
+be created first (`schema-rooms.sql`).
+
 ### §11.7 What would have to be proved before it ships
 
 Not built, and none of this is a measurement yet. In this feature's own terms

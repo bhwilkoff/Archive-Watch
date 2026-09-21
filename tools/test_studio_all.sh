@@ -182,6 +182,14 @@ swift_case "8.25 output settings" ArchiveWatch/ArchiveWatch/Studio/StudioOutputS
 swift_case "8.26 call-audio apps" ArchiveWatch/ArchiveWatch/Studio/StudioAudioProcesses.swift tools/test_studio_callapps.swift
 swift_case "8.27 film sync" ArchiveWatch/ArchiveWatch/Studio/StudioSync.swift tools/test_studio_sync.swift
 swift_case "8.28 room codes" ArchiveWatch/ArchiveWatch/Studio/StudioRoom.swift tools/test_studio_room.swift
+# The Worker and the app must normalise a code IDENTICALLY, or a code read
+# aloud reaches a different room depending on which end typed it.
+printf '\n=== %s\n' "8.29 worker/app code parity"
+if node tools/test_together_worker.mjs; then
+  row "8.29 worker code parity" PASS ""; PASS=$((PASS+1))
+else
+  row "8.29 worker code parity" FAIL "node exit $?"; FAIL=$((FAIL+1))
+fi
 # No $SHIM: StudioVoiceProbe calls no awdiag, and adding sources a case does
 # not need is how three cases stopped compiling for a session (§9.lllll).
 swift_case "8.18 voice frame slices" ArchiveWatch/ArchiveWatch/Studio/StudioVoiceProbe.swift tools/test_studio_voiceframe.swift
@@ -320,7 +328,7 @@ if [ "$SOAK" = "1" ]; then
   # cannot finish is a suite nobody trusts.
   pkill -f "$SCRATCH/mtx.yml" >/dev/null 2>&1 || true
   sleep 2
-  swift_case "8.3 ten-minute soak" "$PUB" "$ENG" "$OUT" "$AUD" "$OVL" "$CHAT" tools/test_studio_soak.swift
+  swift_case "8.3 ten-minute soak" "$PUB" "$ENG" "$OUT" "$AUD" "$OVL" "$CHAT" "$SHIM" tools/test_studio_soak.swift
 else
   row "8.3 ten-minute soak" SKIP "not run without --soak"; SKIP=$((SKIP+1))
 fi

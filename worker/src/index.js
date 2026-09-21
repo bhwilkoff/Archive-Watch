@@ -24,6 +24,8 @@
  * individual people watched, which is the thing we said we would not keep.
  */
 
+import { handleTogether } from "./together.js";
+
 const ALLOW = "https://archivewatch.org";
 
 // A path becomes one of a small fixed set. Anything unrecognised is "/other",
@@ -94,6 +96,13 @@ export default {
 
     if (request.method === "OPTIONS") {
       return new Response(null, { status: 204, headers: cors });
+    }
+
+    // Watch Together rooms (SHAREPLAY §11). Same Worker, same D1 — the
+    // sync transport needs no infrastructure of its own, which is most of
+    // why it fits the $0 constraint at all.
+    if (url.pathname.startsWith("/together")) {
+      return handleTogether(url, request, env);
     }
 
     // The beacon. Answers 204 with no body: nothing is set, nothing returned,
