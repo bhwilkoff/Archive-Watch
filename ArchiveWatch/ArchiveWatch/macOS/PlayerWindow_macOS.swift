@@ -68,6 +68,10 @@ struct PlayerWindow: View {
                 .onAppear {
                     if openStudioOnLaunch { openWindow(id: StudioWindowID.studio) }
                 }
+                // FOLLOW A ROOM (§11). The landing page hands the code over
+                // here because this is the one place an `AVPlayer` exists;
+                // everything the follower does after that is silent (§11.2a).
+                .onDisappear { StudioSyncFollower.shared.leave() }
                 .navigationTitle(item.year.map { "\(item.title) (\($0))" } ?? item.title)
                 .toolbar {
                     // GO LIVE, WHERE SOMEONE CAN SEE IT (Rule B13g, amended
@@ -398,6 +402,15 @@ private struct PlayerSurface: View {
         // window root (§B2a) and Detail is gone by now. A no-op unless this is
         // the film the host armed.
         Task { await StudioSession.shared.attachIfArmed(player: p, archiveID: archiveID) }
+        // FOLLOW A ROOM (§11), if the host joined one on the Watch Together
+        // page. Here rather than in `PlayerWindow`, because this is where the
+        // `AVPlayer` is actually built — the same reason `attachIfArmed` is
+        // here. Everything the follower does after this is silent (§11.2a):
+        // the viewer simply sees the film do what the host's film is doing.
+        if let code = RoomJoin.shared.pending {
+            RoomJoin.shared.pending = nil
+            Task { await StudioSyncFollower.shared.join(code: code, player: p) { _ in } }
+        }
         endObserver = NotificationCenter.default.addObserver(
             forName: AVPlayerItem.didPlayToEndTimeNotification, object: playerItem, queue: .main) { _ in
             MainActor.assumeIsolated { onEnded?() }

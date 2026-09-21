@@ -386,6 +386,8 @@ struct RootView: View {
 private struct WatchTogetherLanding: View {
     @Environment(AppRouter.self) private var router
     @Environment(\.openWindow) private var openWindow
+    @Environment(AppStore.self) private var store
+    @State private var joining = false
     private var studio: StudioSession { StudioSession.shared }
 
     var body: some View {
@@ -415,6 +417,18 @@ private struct WatchTogetherLanding: View {
                     }
                     .controlSize(.large)
                     .disabled(router.nowPlaying == nil)
+
+                    // JOIN, which needs no camera and no microphone (§11.10).
+                    // Decision 132 gates HOSTING on being able to be in the
+                    // show; a joiner contributes nothing to the programme and
+                    // is simply watching in step.
+                    Button {
+                        joining = true
+                    } label: {
+                        Label("Join a room…", systemImage: "person.badge.plus")
+                            .padding(.horizontal, 6)
+                    }
+                    .controlSize(.large)
                 }
                 if router.nowPlaying == nil {
                     Text("Open a film first and Go Live becomes available. The Studio opens any time — you can set your camera and levels before anything is broadcast.")
@@ -449,6 +463,22 @@ private struct WatchTogetherLanding: View {
             .padding(40)
         }
         .navigationTitle("Watch Together")
+        .sheet(isPresented: $joining) {
+            JoinRoomSheet { code, filmID in
+                joining = false
+                // The room names the film; open it and the follower takes
+                // over from there. If this device does not have that film in
+                // its catalogue there is nothing to play, and saying so beats
+                // an empty player.
+                if let item = store.item(filmID) {
+                    RoomJoin.shared.pending = code
+                    router.play(item)
+                } else {
+                    RoomJoin.shared.problem =
+                        "This room is watching a film that is not in this device's catalogue yet."
+                }
+            }
+        }
     }
 
     private func mode(_ title: String, _ icon: String, _ detail: String) -> some View {
@@ -462,6 +492,87 @@ private struct WatchTogetherLanding: View {
             }
         }
     }
+}
+
+/// The code entry (§11.8). Four characters, normalised as they are typed, so
+/// a host reading "oh" and a guest typing O never diverge — the mapping is
+/// `StudioRoom.normalize`, the same function the Worker runs (§8.29).
+private struct JoinRoomSheet: View {
+    @Environment(\.dismiss) private var dismiss
+    let onJoin: (String, String) -> Void
+
+    @State private var typed = ""
+    @State private var problem: String?
+    @State private var working = false
+
+    private var canJoin: Bool { StudioRoom.normalize(typed) != nil && !working }
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 14) {
+            Text("Join a room").font(.title2).bold()
+            Text("Ask the host for their four-character code. You can read it out on the call you are already on — it is meant to be spoken.")
+                .font(.callout).foregroundStyle(.secondary)
+                .fixedSize(horizontal: false, vertical: true)
+
+            TextField("Code", text: $typed)
+                .font(.system(size: 34, weight: .semibold, design: .monospaced))
+                .multilineTextAlignment(.center)
+                .textFieldStyle(.roundedBorder)
+                .onChange(of: typed) { _, new in
+                    // Uppercase as typed, and stop at the code's length so a
+                    // stray keystroke cannot silently invalidate a code the
+                    // host just read out.
+                    let cleaned = new.uppercased().filter { !$0.isWhitespace && $0 != "-" }
+                    typed = String(cleaned.prefix(StudioRoom.codeLength))
+                }
+
+            if let problem {
+                Text(problem).font(.footnote).foregroundStyle(.orange)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+
+            HStack {
+                Button("Cancel") { dismiss() }.keyboardShortcut(.cancelAction)
+                Spacer()
+                Button("Join") { attempt() }
+                    .keyboardShortcut(.defaultAction)
+                    .buttonStyle(.borderedProminent)
+                    .disabled(!canJoin)
+            }
+        }
+        .padding(20)
+        .frame(width: 400)
+    }
+
+    private func attempt() {
+        guard let code = StudioRoom.normalize(typed) else { return }
+        working = true
+        problem = nil
+        Task {
+            let client = StudioSyncClient()
+            do {
+                let state = try await client.join(code: code)
+                await client.leave()
+                working = false
+                onJoin(code, state.filmID)
+                dismiss()
+            } catch {
+                working = false
+                problem = StudioSyncFollower.sentence(for: error)
+            }
+        }
+    }
+}
+
+/// Carries a joined room from the landing page to the player, which is the one
+/// place an `AVPlayer` exists. A single value rather than a notification: two
+/// surfaces, one hand-off, and nothing to unsubscribe.
+@MainActor
+final class RoomJoin {
+    static let shared = RoomJoin()
+    var pending: String?
+    var problem: String?
+    private init() {}
 }
 
 // Creation Studio is a Mac-exclusive DocumentGroup editor (Decision 042). This in-app landing
