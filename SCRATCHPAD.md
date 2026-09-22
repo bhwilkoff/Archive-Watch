@@ -835,6 +835,24 @@ discount red lines.
 Suite **138 pass / 1 skip / 0 fail** (the skip is §8.3's soak, off by default).
 Kotlin **103 / 0 / 0**. macOS, iOS and tvOS all build. v1.42.480 (1492).
 
+**TWO POST-COMMIT CHANGES, VERIFIED AFTERWARDS RATHER THAN BEFORE** — worth
+naming because shipping a behaviour change I had not seen is the thing this
+project keeps writing rules about. Both came out of self-review, both are now
+on the glass:
+
+- a CORNER drag reads both axes (it read `dx` alone, so a corner ignored
+  vertical movement): a purely vertical corner drag took the tile from the
+  default 26% to **`tile 34% x 34%`**;
+- changing PLACEMENT clears the tile and keeps the crop: switching to "Side by
+  side" took the readout from `tile 34% x 34% · zoom 2.8x` to **`zoom 2.8x`**,
+  so the placement does what it says and the host's face crop survives.
+
+**The dedup fix needs no owner action**: `publish-db` runs daily (cron 04:30
+UTC) and rebuilds the SQLite from `build_sqlite.py`, so the 49 merges land on
+the next scheduled run. It is path-filtered to `series/**` on push, so this
+commit does not trigger it early; `workflow_dispatch` would, if it is wanted
+sooner.
+
 ### 2026-09-21 — the Mac Studio finished, and Watch Together got a transport
 
 Owner /loop, 5-minute cron, standing prompt: *"continue to work on the
