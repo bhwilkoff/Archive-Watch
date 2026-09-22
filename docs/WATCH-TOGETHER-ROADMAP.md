@@ -140,7 +140,21 @@ already hold a YouTube OAuth token with `…/auth/youtube`.
   thing that makes a watch-along a shared event rather than a broadcast. It is
   the clearest learning-orientation win on this list.
 
-## 4. Microphone conditioning — a noise gate and suppression
+## 4. Microphone conditioning — **GATE BUILT 2026-09-22**
+
+*Status: the gate ships on macOS (§D15a, §8.38). Noise SUPPRESSION — spectral,
+the other half of what OBS offers — is not built and is a bigger question:
+macOS's voice-processing unit wants to own the whole input chain, which
+conflicts with the tap this Studio already installs.*
+
+The gate is off by default, the meter stays raw so a closed gate cannot be
+mistaken for a dead microphone, and a gated microphone does not duck the film
+— without that last one the gate would fix the echo and pull the soundtrack
+down 12 dB for the whole show instead.
+
+Original entry follows.
+
+## 4-orig. Microphone conditioning — a noise gate and suppression
 
 OBS ships per-source audio filters (noise gate, noise suppression, gain,
 compressor). We have gain and a duck and nothing else. **The case for it here
@@ -172,7 +186,36 @@ is no staging.
 - **Verdict**: worth doing AFTER 1–4. It is polish on a feature set; 1–4 are
   the feature set.
 
-## 6. Hotkeys
+## 6. Hotkeys — **BUILT 2026-09-22**
+
+*Status: a top-level **Broadcast** menu on macOS, verified on the glass —
+every item present, every shortcut printed, every title reflecting live state.*
+
+Eleven commands: the Studio and Go Live (moved here from File), start/stop the
+preview (⇧⌘P), end the broadcast (⇧⌘E), mute the microphone (⇧⌘M), the duck
+(⇧⌘D), the lower third (⇧⌘T), five cards (⌃⌘0–4) and five placements.
+
+**A menu rather than a global hotkey, deliberately.** A menu key equivalent is
+discoverable, prints its own shortcut beside it, needs no permission and
+cannot collide silently with another app. A system-wide hotkey needs
+Accessibility TCC and works when Archive Watch is not frontmost at all — a
+real difference, and a bigger ask. These fire whenever ANY Archive Watch
+window is front, which is the case this item actually named: a host looking at
+the player rather than the Studio.
+
+**This overturns Rule B13g's "inventing a menu is the larger claim"**, and the
+reasoning holds in reverse: that was right when there was one command, and
+with eleven, hiding them under File beside "New Project" is the larger claim.
+
+**States are honest.** "Start the Preview" and "End the Broadcast" are
+disabled with no film and no show; "My own words" is disabled until the card
+has words, because §D10 says an empty custom card is never shown and a key
+that raises nothing is worse than a key that is grey. Toggle titles say what
+pressing them will DO — "Stop Ducking the Film" when ducking is on.
+
+Original entry follows.
+
+## 6-orig. Hotkeys
 
 OBS's most-used feature by a distance, and we have none. Mute the microphone,
 raise a card, switch placement, end the show — all while the Studio is not the

@@ -58,6 +58,20 @@ public actor StudioChatYouTube {
 
     public init() {}
 
+    /// HOW A PAGE IS FETCHED, supplied by the caller.
+    ///
+    /// This reader does NOT reach into `YouTubeLive` itself, and the reason is
+    /// concrete rather than tasteful: `StudioEngine` is compiled standalone by
+    /// six §8 harness cases, and a reference from here to the platform layer
+    /// drags that whole file — and its dependencies — into every one of them.
+    /// The engine's file list is already "a second, silent copy of the module's
+    /// dependency graph" (§6.2n) and this would have made it bigger.
+    ///
+    /// It also makes the reader testable with a stub, which reaching into a
+    /// live API never is.
+    public typealias Fetch = @Sendable (_ liveChatID: String, _ pageToken: String?) async throws
+        -> (messages: [(author: String, text: String)], next: String?, pollAfterMS: Int)
+
     /// Reads `liveChatID` until `stop()`.
     ///
     /// The FIRST page is discarded on purpose. `liveChat/messages` opens with
@@ -65,18 +79,17 @@ public actor StudioChatYouTube {
     /// that has been live for a while would dump a wall of old messages into
     /// the programme at the moment a host turns chat on. A viewer reads the
     /// conversation from now.
-    public func start(liveChatID: String, token: String) {
+    public func start(liveChatID: String, fetch: @escaping Fetch) {
         stop()
         health = Health()
         health.polling = true
         task = Task { [weak self] in
-            let api = YouTubeLive(token: token)
             var first = true
             while !Task.isCancelled {
                 guard let self else { return }
                 let token = await self.pageToken
                 do {
-                    let page = try await api.chat(liveChatID: liveChatID, pageToken: token)
+                    let page = try await fetch(liveChatID, token)
                     await self.accept(page, discard: first)
                     first = false
                     let ms = max(1000, page.pollAfterMS)

@@ -132,6 +132,17 @@ final class StudioControls {
         didSet { Task { await StudioSession.shared.setAudio(callMuted: callMuted) } }
     }
 
+    /// Roadmap #4 — the microphone gate. OFF by default: a host who has never
+    /// had one should not suddenly find their quiet asides cut off, and Rule
+    /// 8.8c's "manual means manual" applies to a gate exactly as it does to
+    /// the duck. The reason to turn it on is written beside it.
+    var micGateEnabled = false {
+        didSet { Task { await StudioSession.shared.setAudio(micGateEnabled: micGateEnabled) } }
+    }
+    var micGateThreshold: Double = 0.02 {
+        didSet { Task { await StudioSession.shared.setAudio(micGateThreshold: Float(micGateThreshold)) } }
+    }
+
     /// THE HOST'S OWN CARD (macOS-DESIGN §D10), kept whether or not it is on
     /// screen — a host who writes an intermission notice, shows it, takes it
     /// down and shows it again should not have to type it twice.
@@ -1000,6 +1011,7 @@ struct StudioWindowView: View {
             }
             StudioMacFader(label: "Your microphone", icon: "mic", level: audio.micLevel,
                            gain: $controls.micGain, muted: $controls.micMuted)
+            micGate(audio)
             // §D3: one channel per AUDIBLE input. The call's channel appears
             // when there IS a call — a third fader over nothing would show a
             // dead meter and read as broken.
@@ -1028,6 +1040,43 @@ struct StudioWindowView: View {
                  : "The film stays where you set it.")
                 .font(.caption2).foregroundStyle(.secondary)
                 .fixedSize(horizontal: false, vertical: true)
+        }
+    }
+
+    /// THE GATE, and the sentence that says why it exists (roadmap #4).
+    @ViewBuilder
+    private func micGate(_ audio: StudioAudioHealth) -> some View {
+        VStack(alignment: .leading, spacing: 5) {
+            HStack(alignment: .firstTextBaseline) {
+                Toggle("Cut room noise between sentences", isOn: $controls.micGateEnabled)
+                Spacer(minLength: 6)
+                // §D3 EXTENDED: a gate that is CLOSED must say so, next to a
+                // meter that is deliberately still showing sound. "Your
+                // microphone hears this much" and "none of it is being sent"
+                // are two facts, and collapsing them is how a host spends a
+                // show wondering why nobody can hear them.
+                if controls.micGateEnabled, studio.isLive {
+                    Text(audio.micGateOpen ? "open" : "closed")
+                        .font(.caption2.weight(.medium))
+                        .foregroundStyle(audio.micGateOpen ? .secondary : Color.orange)
+                }
+            }
+            if controls.micGateEnabled {
+                HStack(spacing: 8) {
+                    Text("Opens above").font(.caption).foregroundStyle(.secondary)
+                        .frame(width: 74, alignment: .leading)
+                    Slider(value: $controls.micGateThreshold, in: 0.002...0.12)
+                    // IN dB, which is the unit a level is argued about in. A
+                    // raw 0.02 means nothing to anybody.
+                    Text(String(format: "%.0f dB",
+                                20 * log10(max(0.0001, controls.micGateThreshold))))
+                        .font(.caption).monospacedDigit()
+                        .frame(width: 46, alignment: .trailing)
+                }
+                Text("Your speakers are playing the film into your microphone, and the stream carries it twice — once clean, once a moment late. This sends your microphone only while you are actually talking. The meter above still shows everything it hears.")
+                    .font(.caption2).foregroundStyle(.secondary)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
         }
     }
 

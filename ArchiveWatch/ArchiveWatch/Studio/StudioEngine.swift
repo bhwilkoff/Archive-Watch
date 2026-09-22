@@ -661,7 +661,8 @@ public actor StudioEngine {
     public func setAudio(filmGain: Float? = nil, micGain: Float? = nil,
                          filmMuted: Bool? = nil, micMuted: Bool? = nil,
                          duckEnabled: Bool? = nil,
-                         callGain: Float? = nil, callMuted: Bool? = nil) {
+                         callGain: Float? = nil, callMuted: Bool? = nil,
+                         micGateEnabled: Bool? = nil, micGateThreshold: Float? = nil) {
         if let filmGain { mixer.filmGain = filmGain }
         if let micGain { mixer.micGain = micGain }
         if let filmMuted { mixer.filmMuted = filmMuted }
@@ -669,6 +670,8 @@ public actor StudioEngine {
         if let duckEnabled { mixer.duckEnabled = duckEnabled }
         if let callGain { mixer.callGain = callGain }
         if let callMuted { mixer.callMuted = callMuted }
+        if let micGateEnabled { mixer.micGateEnabled = micGateEnabled }
+        if let micGateThreshold { mixer.micGateThreshold = micGateThreshold }
     }
 
     /// Attach (or detach) the CALL's audio — §D2's fourth input.
@@ -795,11 +798,12 @@ public actor StudioEngine {
     /// this very broadcast — it is carried here by `StudioGoLive.Destination`,
     /// which is the change that made this possible at all: the id was being
     /// read and dropped in the same function.
-    public func attachYouTubeChat(liveChatID: String, token: String) async {
+    public func attachYouTubeChat(liveChatID: String,
+                                  fetch: @escaping StudioChatYouTube.Fetch) async {
         guard !liveChatID.isEmpty else { return }
         let chat = StudioChatYouTube()
         youtubeChat = chat
-        await chat.start(liveChatID: liveChatID, token: token)
+        await chat.start(liveChatID: liveChatID, fetch: fetch)
     }
 
     public func attachTwitchChat(channel: String) async {

@@ -925,6 +925,59 @@ public struct StudioAudioHealth: Sendable, Equatable {
     public var micBacklogSeconds: Double = 0
     public var micDroppedForLatency = 0
     public var ducking = false
+    /// Roadmap #4. Reported separately from `micLevel`, which stays RAW.
+    public var micGateEnabled = false
+    public var micGateOpen = true
+}
+
+/// THE MICROPHONE GATE — roadmap #4, as a rule you can test without an engine.
+///
+/// A Watch Together host is in a room with the FILM PLAYING OUT OF SPEAKERS,
+/// and their open microphone is picking it up — so the broadcast carries the
+/// film twice, once from the tap at full quality and once as a room-reverb
+/// copy a few milliseconds late. That is a comb filter on the thing the
+/// audience came for, and no fader fixes it: turning the microphone down
+/// turns the HOST down too. A gate does, because the two are separated in
+/// LEVEL rather than in frequency — a host speaking is far louder at the
+/// microphone than speakers across a room.
+///
+/// OBS ships one per source. This is the same idea and deliberately NOT the
+/// rest of OBS's chain: §D0 still refuses chroma key and LUTs, and this is
+/// one input made usable rather than a filter rack.
+public struct MicGate: Sendable, Equatable {
+    public var enabled = false
+    /// RMS to open at. 0.02 ≈ -34 dBFS.
+    public var threshold: Float = 0.02
+
+    /// HYSTERESIS. It opens at the threshold and closes at 60% of it, so a
+    /// voice hovering at the boundary cannot chatter the gate on every 23 ms
+    /// block — audible as a stutter, and the classic way a gate makes things
+    /// worse than no gate at all.
+    public static let closeRatio: Float = 0.6
+    /// FAST OPEN, SLOW CLOSE, and the asymmetry is the whole craft: 0.5
+    /// reaches full gain in about two blocks (~46 ms) so the first syllable
+    /// survives, while 0.04 takes ~400 ms to close so a pause between words
+    /// does not gate the middle of a sentence.
+    public static let attack: Float = 0.5
+    public static let release: Float = 0.04
+
+    public private(set) var isOpen = true
+    public private(set) var gain: Float = 1
+
+    public init() {}
+
+    /// One block. Returns the gain to apply to the microphone.
+    public mutating func tick(rms: Float) -> Float {
+        guard enabled else { isOpen = true; gain = 1; return 1 }
+        let open = isOpen ? rms > threshold * Self.closeRatio : rms > threshold
+        isOpen = open
+        let target: Float = open ? 1 : 0
+        gain += (target - gain) * (open ? Self.attack : Self.release)
+        // Snap the last sliver: an exponential approach never reaches zero,
+        // and a gate that settles at 0.001 is still sending the room.
+        if !open, gain < 0.005 { gain = 0 }
+        return gain
+    }
 }
 
 /// Pulls a fixed chunk from both rings on its own clock, applies gains and
@@ -1016,6 +1069,37 @@ final class StudioAudioMixer: @unchecked Sendable {
     /// app to capture — a channel that exists with nothing behind it would
     /// show a dead meter and read as broken.
     var callRing: AudioRing?
+
+    // MARK: The microphone gate (roadmap #4)
+    //
+    // The RULE lives in `MicGate`, a pure value type with no ring, no encoder
+    // and no clock — the same shape as `CameraStallRecovery`, and for the same
+    // reason: a rule that can only be exercised by starting a whole engine is
+    // a rule that gets argued about rather than tested (§8.23).
+    //
+    // WHY THIS PRODUCT NEEDS ONE, specifically. A Watch Together host is in a
+    // room with a FILM PLAYING OUT OF SPEAKERS, and their open microphone is
+    // picking it up — so the broadcast carries the film twice, once from the
+    // tap at full quality and once as a room-reverb copy a few milliseconds
+    // late. That is a comb filter on the thing the audience came for, and no
+    // fader fixes it: turning the mic down turns the HOST down too.
+    //
+    // A gate does fix it, because the two are separated in LEVEL rather than
+    // in frequency: a host speaking is far louder at the microphone than
+    // speakers across the room. OBS ships one per source; this is the same
+    // idea, and deliberately NOT the rest of OBS's filter chain (§D0 still
+    // refuses chroma key and LUTs — this is one input made usable).
+    var micGateEnabled = false {
+        didSet { gate.enabled = micGateEnabled }
+    }
+    /// RMS the microphone must exceed to open. 0.02 is roughly -34 dBFS:
+    /// comfortably below conversational speech at a desk microphone and
+    /// comfortably above film bleed across a room. The host can move it.
+    var micGateThreshold: Float = 0.02 {
+        didSet { gate.threshold = micGateThreshold }
+    }
+    private var gate = MicGate()
+    var micGateOpen: Bool { gate.isOpen }
     var callGain: Float = 1.0
     var callMuted = false
 
@@ -1168,13 +1252,32 @@ final class StudioAudioMixer: @unchecked Sendable {
         // is, and a duck that only heard the host would leave the guests
         // fighting the soundtrack.
         let callSpeaking = callRing != nil && !callMuted && callRMS > duckThreshold
-        let wantDuck = duckEnabled && ((!micMuted && micRMS > duckThreshold) || callSpeaking)
+        // AND A GATED MICROPHONE MUST NOT DUCK THE FILM. Without this, film
+        // bleed the gate is busy rejecting would still read as "the host is
+        // talking" and pull the soundtrack down 12 dB for the whole show —
+        // the gate would fix the echo and introduce a worse fault.
+        let hostSpeaking = !micMuted && micRMS > duckThreshold
+            && (!micGateEnabled || gate.isOpen)
+        let wantDuck = duckEnabled && (hostSpeaking || callSpeaking)
         let target: Float = wantDuck ? pow(10, duckDecibels / 20) : 1.0
         let coefficient: Float = target < duckGain ? 0.45 : 0.06
         duckGain += (target - duckGain) * coefficient
 
+        // THE GATE, decided on THIS chunk's level and applied smoothly.
+        //
+        // HYSTERESIS: it opens at the threshold and closes at 60% of it, so a
+        // voice hovering at the boundary does not chatter the gate open and
+        // shut on every 23 ms block — which is audible as a stutter and is
+        // the classic way a gate makes things worse than no gate.
+        //
+        // FAST OPEN, SLOW CLOSE, and the asymmetry is the whole craft: 0.5
+        // reaches full gain in about two blocks (~46 ms) so the first syllable
+        // survives, while 0.04 takes ~400 ms to close so a pause between words
+        // does not gate the middle of a sentence.
+        let gateGain = gate.tick(rms: micRMS)
+
         let fg = (filmMuted ? 0 : filmGain) * duckGain
-        let mg = micMuted ? 0 : micGain
+        let mg = (micMuted ? 0 : micGain) * gateGain
         let cg = (callMuted || callRing == nil) ? 0 : callGain
         for i in 0..<samples {
             let v = pcm[i] * fg + micPcm[i] * mg + callPcm[i] * cg
@@ -1196,6 +1299,13 @@ final class StudioAudioMixer: @unchecked Sendable {
         health.micBacklogSeconds = Double(mic.ring.availableSamples) / 2.0 / max(mic.programRate, 1)
         health.micDroppedForLatency = mic.ring.framesDroppedForLatency
         health.ducking = wantDuck
+        // THE METER STAYS RAW and the gate is reported separately (§D3's
+        // rule, extended). A meter showing the GATED level would sit at zero
+        // while the microphone was plainly working, which is exactly how a
+        // host concludes their microphone is broken. The honest pair is "your
+        // microphone hears this much" AND "none of it is being sent".
+        health.micGateEnabled = micGateEnabled
+        health.micGateOpen = gate.isOpen
         health.aacFramesEncoded = packetsOut
         healthLock.unlock()
         _ = filmReal

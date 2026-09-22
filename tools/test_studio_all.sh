@@ -215,6 +215,12 @@ OVL=ArchiveWatch/ArchiveWatch/Studio/StudioOverlayRenderer.swift
 # file lists are a second, silent copy of the module's dependency graph, and a
 # source move does not update them.
 CHAT=ArchiveWatch/ArchiveWatch/Studio/StudioChatTwitch.swift
+# AND YOUTUBE'S. Added 2026-09-22 and it broke six cases the moment it landed,
+# for the reason written two comments up: the engine now references
+# `StudioChatYouTube`, and this list is a second, silent copy of the module's
+# dependency graph that a new file does not update. Every case that compiles
+# $ENG needs this too.
+CHATYT=ArchiveWatch/ArchiveWatch/Studio/StudioChatYouTube.swift
 AUTH=ArchiveWatch/ArchiveWatch/Studio/StudioPlatformAuth.swift
 PLAT=ArchiveWatch/ArchiveWatch/Studio/StudioPlatforms.swift
 MEDIA=tools/StudioTestMedia.swift
@@ -225,20 +231,25 @@ swift_case "8.4 rtmp reconnect"    "$PUB" "$MEDIA" "$SHIM" tools/test_rtmp_recon
 # happens once, so this asserts the frames are the SAME frames and that both
 # servers read a complete stream back — not merely that two sockets opened.
 swift_case "8.37 simulcast"        "$PUB" "$MEDIA" "$SHIM" tools/test_studio_simulcast.swift
-swift_case "8.5 thermal"           "$PUB" "$ENG" "$OUT" "$AUD" "$OVL" "$CHAT" "$SHIM" tools/test_studio_thermal.swift
-swift_case "8.6 back-pressure"     "$PUB" "$ENG" "$OUT" "$AUD" "$OVL" "$CHAT" "$SHIM" tools/test_studio_backpressure.swift
-swift_case "8.15 audio ring FIFO"  "$PUB" "$ENG" "$OUT" "$AUD" "$OVL" "$CHAT" "$SHIM" tools/test_studio_ring.swift
-swift_case "8.16 programme rate"   "$PUB" "$ENG" "$OUT" "$AUD" "$OVL" "$CHAT" "$DEC" "$SHIM" tools/test_studio_rate.swift
-swift_case "8.17 tap resampler"    "$PUB" "$ENG" "$OUT" "$AUD" "$OVL" "$CHAT" "$SHIM" tools/test_studio_resample.swift
+swift_case "8.5 thermal"           "$PUB" "$ENG" "$OUT" "$AUD" "$OVL" "$CHAT" "$CHATYT" "$SHIM" tools/test_studio_thermal.swift
+swift_case "8.6 back-pressure"     "$PUB" "$ENG" "$OUT" "$AUD" "$OVL" "$CHAT" "$CHATYT" "$SHIM" tools/test_studio_backpressure.swift
+swift_case "8.15 audio ring FIFO"  "$PUB" "$ENG" "$OUT" "$AUD" "$OVL" "$CHAT" "$CHATYT" "$SHIM" tools/test_studio_ring.swift
+swift_case "8.16 programme rate"   "$PUB" "$ENG" "$OUT" "$AUD" "$OVL" "$CHAT" "$CHATYT" "$DEC" "$SHIM" tools/test_studio_rate.swift
+swift_case "8.17 tap resampler"    "$PUB" "$ENG" "$OUT" "$AUD" "$OVL" "$CHAT" "$CHATYT" "$SHIM" tools/test_studio_resample.swift
 # The camera-placement settings, asserted against what their LABELS promise.
 # Owner 2026-09-20: "I'm not sure the different settings for where your camera
 # will go ... are actually working as they should." They were not: theatre was
 # corner moved 64 px down, same 332x187 tile in the same corner.
-swift_case "8.22 camera placement" "$PUB" "$ENG" "$OUT" "$AUD" "$OVL" "$CHAT" "$SHIM" tools/test_studio_layouts.swift
+swift_case "8.22 camera placement" "$PUB" "$ENG" "$OUT" "$AUD" "$OVL" "$CHAT" "$CHATYT" "$SHIM" tools/test_studio_layouts.swift
 # The camera-stall recovery RULE, which lived inside tvOS's own view loop and
 # so existed on exactly one platform while PARITY said "no recovery yet" for
 # the other two. No $ENG: the rule is a pure value type on purpose.
 swift_case "8.23 camera-stall recovery" ArchiveWatch/ArchiveWatch/Studio/StudioCameraStall.swift tools/test_studio_camerastall.swift
+# THE MICROPHONE GATE as a pure rule — no ring, no encoder, no clock, the
+# shape §8.23 already uses. What is under test is not the multiply: it is that
+# the gate does not CHATTER at the boundary, does not CLIP the first syllable,
+# and actually reaches zero instead of settling on a quiet copy of the room.
+swift_case "8.38 microphone gate" "$PUB" "$AUD" "$SHIM" tools/test_studio_micgate.swift
 swift_case "8.24 device selection" ArchiveWatch/ArchiveWatch/Studio/StudioDevices.swift tools/test_studio_devices.swift
 swift_case "8.25 output settings" ArchiveWatch/ArchiveWatch/Studio/StudioOutputSettings.swift tools/test_studio_output.swift
 swift_case "8.26 call-audio apps" ArchiveWatch/ArchiveWatch/Studio/StudioAudioProcesses.swift tools/test_studio_callapps.swift
@@ -468,7 +479,7 @@ if [ "$SOAK" = "1" ]; then
   # cannot finish is a suite nobody trusts.
   pkill -f "$SCRATCH/mtx.yml" >/dev/null 2>&1 || true
   sleep 2
-  swift_case "8.3 ten-minute soak" "$PUB" "$ENG" "$OUT" "$AUD" "$OVL" "$CHAT" "$SHIM" tools/test_studio_soak.swift
+  swift_case "8.3 ten-minute soak" "$PUB" "$ENG" "$OUT" "$AUD" "$OVL" "$CHAT" "$CHATYT" "$SHIM" tools/test_studio_soak.swift
 else
   row "8.3 ten-minute soak" SKIP "not run without --soak"; SKIP=$((SKIP+1))
 fi

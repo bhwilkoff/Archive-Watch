@@ -1630,6 +1630,45 @@ as a part of the lower third."* So `expireProvenanceIfDue` stays gated on
 count — and the toggle is the host's override in both directions: off means
 never drawn, on means drawn until §4's rule takes it away.
 
+## §D15a — The microphone may be GATED, and a closed gate says so
+
+*Roadmap #4, built 2026-09-22. This extends §D3 and does not weaken §D0.*
+
+A Watch Together host is in a room with the film playing out of speakers, and
+their open microphone is picking it up — so the broadcast carries the film
+TWICE: once from the tap at full quality, and once as a room-reverb copy a few
+milliseconds late. That is a comb filter on the thing the audience came for,
+and no fader fixes it, because turning the microphone down turns the HOST down
+with it. The two are separable in LEVEL, not in frequency: a host speaking is
+far louder at the microphone than speakers across a room.
+
+**This is not §D0's "filters and effects".** That refusal is about chroma key,
+colour correction and LUTs — a production rack on a watch-along. A gate is one
+input made usable, and the distinction is that without it the microphone
+channel actively damages the programme.
+
+**Binding**:
+
+- **OFF by default.** A host who has never had a gate must not discover their
+  quiet asides being cut. Rule 8.8c's "manual means manual" applies here
+  exactly as it does to the duck.
+- **The meter stays RAW.** A meter showing the gated level sits at zero while
+  the microphone is plainly working, which is how a host concludes their
+  microphone is broken. The honest pair is two facts: *your microphone hears
+  this much*, and *none of it is being sent*. So the gate's state is drawn
+  beside the meter, never instead of it.
+- **A gated microphone does not duck the film.** Without this, bleed the gate
+  is busy rejecting still reads as "the host is talking" and pulls the
+  soundtrack down 12 dB for the whole show — the gate would fix the echo and
+  introduce something worse.
+- **The rule is a value type** (`MicGate`), testable with no ring, no encoder
+  and no clock — the shape `CameraStallRecovery` already uses. §8.38 asserts
+  the three things that separate a gate that helps from one that hurts: it
+  opens within ~23 ms so the first syllable survives, it reaches ACTUAL zero
+  rather than settling on a quiet copy of the room, and it does not chatter on
+  a level sitting at the threshold. That last one carries a control showing
+  the same signal flipping 95 times without hysteresis.
+
 ## §D16 — A film with no soundtrack SAYS SO, and a dead meter says why
 
 Owner: *"I don't see any audio from the film coming through on the source or

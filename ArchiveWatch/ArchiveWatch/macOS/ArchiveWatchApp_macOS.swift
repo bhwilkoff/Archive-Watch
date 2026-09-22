@@ -12,7 +12,7 @@ import AppKit
 /// Opening a window from a menu needs `openWindow`, which is an Environment
 /// value — so the command is a small VIEW rather than a bare `Button`, which
 /// is how SwiftUI intends a command to reach a scene.
-private struct StudioWindowCommand: View {
+struct StudioWindowCommand: View {
     @Environment(\.openWindow) private var openWindow
     var body: some View {
         Button("Watch Together Studio") { openWindow(id: StudioWindowID.studio) }
@@ -25,7 +25,7 @@ private struct StudioWindowCommand: View {
 /// a host goes to set up, "Go Live…" is what they came to do, and a menu that
 /// only offers the first makes the second look absent (which is exactly the
 /// report this rule came from).
-private struct StudioGoLiveCommand: View {
+struct StudioGoLiveCommand: View {
     @Environment(\.openWindow) private var openWindow
     var body: some View {
         Button("Go Live…") { openWindow(id: StudioWindowID.studio) }
@@ -117,6 +117,11 @@ struct ArchiveWatchMacApp: App {
         .modelContainer(modelContainer)
         .commands {
             SidebarCommands()
+            // Everything a host does while a show is running, each with a key
+            // (roadmap #6). A menu key equivalent is discoverable, prints its
+            // own shortcut, needs no permission and fires whenever any Archive
+            // Watch window is front — which is the case the roadmap named.
+            StudioBroadcastCommands()
             // With a WindowGroup (first) + a DocumentGroup, SwiftUI binds ⌘N to the
             // WindowGroup (a new Library window). Re-point New at a new Creation Studio
             // PROJECT — NSDocumentController routes to the DocumentGroup's document type.
@@ -139,20 +144,12 @@ struct ArchiveWatchMacApp: App {
                 //  • it is DISABLED with no film playing, because §B13a makes the
                 //    Studio the player in a production mode and a broadcast of
                 //    nothing is not a state the engine can serve.
-                // §D9 — ⇧⌘L OPENS THE STUDIO. It presented Rule B13g's sheet
-                // until 2026-09-22; the sheet configured a Studio that lives
-                // in a different window, which is how the owner came to find
-                // it by accident. It is no longer disabled without a film
-                // either: §D7 lets a host choose one inside the Studio, so
-                // greying this is greying the door to the room where the work
-                // is done.
-                StudioGoLiveCommand()
-                // The Studio window is NOT disabled without a film. §D5 says
-                // a host should be able to open it, see what it offers and
-                // set their levels before anything is broadcast; a control
-                // that is grey until you already started is one you find
-                // after you needed it.
-                StudioWindowCommand()
+                // §D9's ⇧⌘L and ⇧⌘S MOVED to a top-level Broadcast menu
+                // (roadmap #6). B13g declined to invent a menu because
+                // "inventing a menu is the larger claim", and that was right
+                // when there was one command. There are now eleven — mute,
+                // duck, cards, placements, preview, end — and hiding them
+                // under File beside "New Project" would be the larger claim.
             }
         }
 

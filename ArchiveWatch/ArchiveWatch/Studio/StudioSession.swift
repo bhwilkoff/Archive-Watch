@@ -379,7 +379,12 @@ public final class StudioSession {
         // chat column that only Twitch could ever fill.
         if let chatID = armedYouTubeChatID, !chatID.isEmpty {
             if let token = try? await StudioPlatformAuth.token(for: .youtube) {
-                await e.attachYouTubeChat(liveChatID: chatID, token: token)
+                // THE SESSION knows about platforms; the engine does not, and
+                // keeping it that way is what stops the §8 harnesses having to
+                // compile the whole API layer to exercise a renderer.
+                await e.attachYouTubeChat(liveChatID: chatID) { id, page in
+                    try await YouTubeLive(token: token).chat(liveChatID: id, pageToken: page)
+                }
                 diag("[AWSTUDIOCHAT] reading YouTube live chat")
             } else {
                 // SAY IT. A chat column that stays empty because a token could
@@ -1032,11 +1037,15 @@ public final class StudioSession {
     public func setAudio(filmGain: Float? = nil, micGain: Float? = nil,
                          filmMuted: Bool? = nil, micMuted: Bool? = nil,
                          duckEnabled: Bool? = nil,
-                         callGain: Float? = nil, callMuted: Bool? = nil) async {
+                         callGain: Float? = nil, callMuted: Bool? = nil,
+                         micGateEnabled: Bool? = nil,
+                         micGateThreshold: Float? = nil) async {
         await engine?.setAudio(filmGain: filmGain, micGain: micGain,
                                filmMuted: filmMuted, micMuted: micMuted,
                                duckEnabled: duckEnabled,
-                               callGain: callGain, callMuted: callMuted)
+                               callGain: callGain, callMuted: callMuted,
+                               micGateEnabled: micGateEnabled,
+                               micGateThreshold: micGateThreshold)
     }
 
 #if os(macOS)
