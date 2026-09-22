@@ -42,7 +42,21 @@ say "the session APPLIES it"           "$S/StudioSession.swift"        'attachYo
 say "the engine attaches a reader"     "$S/StudioEngine.swift"         'func attachYouTubeChat'
 say "the engine's pump reads it"       "$S/StudioEngine.swift"         'youtubeChat'
 say "and STOPS it with the show"       "$S/StudioEngine.swift"         'youtubeChat = nil'
-say "the reader polls the platform"    "$S/StudioChatYouTube.swift"    'api.chat(liveChatID:'
+say "the reader polls an injected fetch" "$S/StudioChatYouTube.swift"   'try await fetch(liveChatID'
+# AND THE READER MUST NOT REACH INTO THE PLATFORM LAYER ITSELF. The engine is
+# compiled standalone by six §8 cases, and a reference from the reader to
+# `YouTubeLive` drags that whole file — and its dependencies — into every one
+# of them. This asserts the direction, not just the presence.
+# A CONSTRUCTOR CALL, not the bare word: both mentions in that file are in
+# comments EXPLAINING that the dependency does not exist, and a check that
+# fires on its own rationale is a check nobody can satisfy.
+if grep -q "YouTubeLive(" "$S/StudioChatYouTube.swift"; then
+  echo "  FAIL  the reader reaches into the platform layer — six harnesses now need it"
+  fail=1
+else
+  echo "  PASS  the reader does NOT depend on the platform layer"
+fi
+say "the SESSION supplies the real call"  "$S/StudioSession.swift"  'YouTubeLive(token: token).chat'
 say "and honours the server's interval" "$S/StudioChatYouTube.swift"   'page.pollAfterMS'
 
 echo

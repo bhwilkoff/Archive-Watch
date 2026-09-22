@@ -1361,3 +1361,17 @@ final class StudioAudioMixer: @unchecked Sendable {
 
     var micEverArrived: Bool { micHasEverArrived }
 }
+
+// THE MONOTONIC CLOCK, here rather than in StudioEngine.
+//
+// It was defined in the engine and used by BOTH files, which inverted the
+// layering: `StudioAudio` is the lower level and could not be compiled without
+// the higher one. §8.38 found it by failing to build a test of `MicGate` — a
+// value type with no ring, no encoder and no clock — because one inline
+// function lived a layer up.
+@inline(__always) func CACurrentMediaTimeCompat() -> CFTimeInterval {
+    var t = mach_timebase_info_data_t()
+    mach_timebase_info(&t)
+    let ns = Double(mach_absolute_time()) * Double(t.numer) / Double(t.denom)
+    return ns / 1_000_000_000
+}

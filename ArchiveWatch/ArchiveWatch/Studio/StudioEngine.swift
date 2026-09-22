@@ -1638,12 +1638,10 @@ public enum StudioError: Error, CustomStringConvertible {
 
 /// `CACurrentMediaTime()` needs QuartzCore, which is not available in a
 /// command-line harness build on every platform; the mach clock is.
-@inline(__always) func CACurrentMediaTimeCompat() -> CFTimeInterval {
-    var t = mach_timebase_info_data_t()
-    mach_timebase_info(&t)
-    let ns = Double(mach_absolute_time()) * Double(t.numer) / Double(t.denom)
-    return ns / 1_000_000_000
-}
+// `CACurrentMediaTimeCompat` MOVED to StudioAudio.swift, the lower layer that
+// also uses it. It lived here, which meant `StudioAudio` could not compile
+// without the whole engine — and §8.38, a test of a pure value type with no
+// ring and no clock, dragged in six files to reach one inline function.
 
 // MARK: - Program renderer
 
