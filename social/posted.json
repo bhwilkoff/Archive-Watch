@@ -973,6 +973,54 @@
    "kind": "feature-film",
    "mediaId": null,
    "reviewer": "FlatironMike"
+  },
+  {
+   "at": "2026-09-22T18:41:50.161460+00:00",
+   "id": "TheLittlePrincess1939",
+   "title": "The Little Princess",
+   "slot": "viewer-said",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mw4uwh35da2k",
+   "format": "video",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": "lvplaclair"
+  },
+  {
+   "at": "2026-09-22T18:41:50.161460+00:00",
+   "id": "TheLittlePrincess1939",
+   "title": "The Little Princess",
+   "slot": "viewer-said",
+   "platform": "threads",
+   "url": "https://www.threads.com/@archivewatchapp/post/DdmZ3gIj878",
+   "format": "card",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": "lvplaclair"
+  },
+  {
+   "at": "2026-09-22T18:41:50.161460+00:00",
+   "id": "TheLittlePrincess1939",
+   "title": "The Little Princess",
+   "slot": "viewer-said",
+   "platform": "instagram",
+   "url": "https://www.instagram.com/p/DdmZ83hj0O7/",
+   "format": "card",
+   "kind": "feature-film",
+   "mediaId": "117316158898129924",
+   "reviewer": "lvplaclair"
+  },
+  {
+   "at": "2026-09-22T18:41:50.161460+00:00",
+   "id": "TheLittlePrincess1939",
+   "title": "The Little Princess",
+   "slot": "viewer-said",
+   "platform": "youtube",
+   "url": "https://youtube.com/watch?v=IiuPNlV_3oY",
+   "format": "video",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": "lvplaclair"
   }
  ]
 }

@@ -1095,6 +1095,37 @@
     "replies": 0,
     "quotes": 0
    }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mw2j2axu6b2f",
+   "platform": "bluesky",
+   "id": "silent-the-lady",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-09-21T20:03:53.734423+00:00",
+   "sampled": "2026-09-22T18:43:18.620438+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117310820195879390",
+   "platform": "mastodon",
+   "id": "silent-the-lady",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-09-21T20:03:53.734423+00:00",
+   "sampled": "2026-09-22T18:43:18.620438+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
   }
  ]
 }
