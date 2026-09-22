@@ -170,6 +170,7 @@ struct StudioPlayerContainer: View {
         // is armed on the shared session here rather than assumed to have been
         // armed by a macOS code path this platform never executes.
         StudioSession.shared.armYouTubeChat(d.liveChatID)
+        StudioSession.shared.armBroadcast(d.broadcastID)
         return d.url
     }
 

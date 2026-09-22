@@ -46,6 +46,14 @@ say "the reader polls the platform"    "$S/StudioChatYouTube.swift"    'api.chat
 say "and honours the server's interval" "$S/StudioChatYouTube.swift"   'page.pollAfterMS'
 
 echo
+echo "and so does the BROADCAST id — dropped by the same bare URL? return,"
+echo "which is why complete() has never been called and every YouTube show"
+echo "this app ended left its broadcast open on the host's channel"
+say "the resolver carries it"           "$S/StudioGoLive.swift"   'broadcastID: creds.broadcastID'
+say "the session can be armed with it"  "$S/StudioSession.swift"  'func armBroadcast'
+say "and ENDING the show ends it"       "$S/StudioSession.swift"  'complete(broadcastID:'
+
+echo
 echo "every go-live surface arms the chat id it was just handed"
 # EVERY surface, because fixing one and not its siblings is the defect class
 # §8.12 exists for and which has recurred four times in this feature.
@@ -55,10 +63,10 @@ for f in ArchiveWatch/ArchiveWatch/macOS/StudioWindow_macOS.swift \
   if ! grep -q "StudioGoLive.destination" "$f"; then
     echo "  FAIL  $(basename "$f") no longer resolves a destination — this list is stale"
     fail=1
-  elif grep -q "armYouTubeChat" "$f"; then
+  elif grep -q "armYouTubeChat" "$f" && grep -q "armBroadcast" "$f"; then
     echo "  PASS  $(basename "$f")"
   else
-    echo "  FAIL  $(basename "$f") resolves a destination and drops its chat id"
+    echo "  FAIL  $(basename "$f") resolves a destination and drops an id it was handed"
     fail=1
   fi
 done

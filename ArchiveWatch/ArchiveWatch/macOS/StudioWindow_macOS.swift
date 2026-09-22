@@ -1417,6 +1417,7 @@ struct StudioDestinationSection: View {
                 // THE BROADCAST'S OWN CHAT, carried rather than dropped. This
                 // is the value `destination()` used to read and throw away.
                 studio.armYouTubeChat(resolved.liveChatID)
+                studio.armBroadcast(resolved.broadcastID)
                 // A REHEARSAL MUST END BEFORE A BROADCAST BEGINS. `beginShow`
                 // guards on `!isLive`, and §D5's preview leaves the engine
                 // RUNNING with no destination — so arming for a real broadcast

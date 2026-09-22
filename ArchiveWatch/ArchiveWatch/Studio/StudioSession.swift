@@ -36,6 +36,23 @@ public final class StudioSession {
     public private(set) var armedYouTubeChatID: String?
     public func armYouTubeChat(_ id: String?) { armedYouTubeChatID = id }
 
+    /// The YouTube broadcast this show is going out on, so ending the show can
+    /// end the BROADCAST.
+    ///
+    /// `liveBroadcasts.insert` returns an id, `prepare` read it into
+    /// `StreamCredentials.broadcastID`, `YouTubeLive.complete(broadcastID:)`
+    /// was written to transition it — and the id was dropped by the same bare
+    /// `URL?` return that dropped the chat id. So `complete()` has never been
+    /// called, and every YouTube show this app has ended has left its
+    /// broadcast open on the host's channel.
+    ///
+    /// `enableAutoStop` covers the ordinary case — YouTube ends a broadcast
+    /// when the bytes stop — so this is belt and braces rather than the only
+    /// path. It is still worth having: auto-stop waits for a timeout, and a
+    /// host who pressed End expects it ended.
+    public private(set) var armedBroadcastID: String?
+    public func armBroadcast(_ id: String?) { armedBroadcastID = id }
+
     /// The placement the host chose, remembered until the engine exists.
     ///
     /// `arm` records INTENT and the engine is built later, when the player
@@ -686,6 +703,14 @@ public final class StudioSession {
     }
 
     public func end() async {
+        // THE BROADCAST ENDS WITH THE SHOW. Taken BEFORE the teardown so the
+        // id cannot be lost by anything below, and awaited rather than fired
+        // into a Task: a host who presses End and quits should not race a
+        // network call that ends their broadcast.
+        let broadcast = armedBroadcastID
+        armedBroadcastID = nil
+        armedYouTubeChatID = nil
+
         capture?.stopRunning()
         capture = nil
         pump?.cancel(); pump = nil
@@ -695,6 +720,23 @@ public final class StudioSession {
         filmFramesPerSecond = 0
         cameraFramesPerSecond = 0
         health = StudioHealth()
+
+        // AFTER the local teardown, and it may not be allowed to fail the end.
+        // Ending the show is the host's instruction; telling YouTube is a
+        // courtesy that can fail for a dozen reasons (a lapsed token, no
+        // network, a broadcast YouTube already auto-stopped) and none of them
+        // should leave the Studio half torn-down. It SAYS what happened
+        // rather than going quiet — the rule every other silent path here
+        // eventually earned.
+        if let broadcast, !broadcast.isEmpty {
+            do {
+                let token = try await StudioPlatformAuth.token(for: .youtube)
+                try await YouTubeLive(token: token).complete(broadcastID: broadcast)
+                diag("[AWSTUDIOEND] YouTube broadcast \(broadcast) marked complete")
+            } catch {
+                diag("[AWSTUDIOEND] could not end the YouTube broadcast — \(error)")
+            }
+        }
     }
 
     /// One health sample a second — the rate the `notEncoding` and
