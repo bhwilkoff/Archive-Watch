@@ -155,6 +155,18 @@ public enum StudioLayout: String, CaseIterable, Sendable {
     }
 }
 
+/// ONE MORE PLACE THE SAME SHOW GOES — simulcast (roadmap #2).
+///
+/// A name the host will recognise on a readout, and the address to send to.
+/// The address already carries its stream key (`StudioGoLive.combine` joins
+/// them), so this is never shown, logged or stored past the session — §4's
+/// rule applies to an extra destination exactly as it does to the first.
+public struct StudioExtraDestination: Sendable, Equatable {
+    public let name: String
+    public let url: URL
+    public init(name: String, url: URL) { self.name = name; self.url = url }
+}
+
 /// HOW THE HOST SITS IN THE SHOW — macOS-DESIGN §D14.
 ///
 /// Owner, 2026-09-22: *"I'd like to be able to move my camera around the
@@ -407,6 +419,19 @@ public struct StudioHealth: Sendable, Equatable {
     public var encoderIsHardware: Bool?
 
     public var publisher = RTMPHealth()
+
+    /// EVERY OTHER DESTINATION, named. §4 says health is never hidden, and a
+    /// simulcast averages into a lie: "82% of frames delivered" describes no
+    /// destination and hides that one of them is dead. The PRIMARY stays in
+    /// `publisher` so that every readout written before simulcast existed
+    /// keeps working unchanged; these are the rest.
+    public var extraDestinations: [ExtraDestination] = []
+
+    public struct ExtraDestination: Sendable, Equatable, Identifiable {
+        public var id: String { name }
+        public var name: String
+        public var health: RTMPHealth
+    }
     public var audio = StudioAudioHealth()
     /// True when a destination was supplied. Without one the engine still
     /// composites and encodes — it just sends nowhere.
@@ -735,6 +760,20 @@ public actor StudioEngine {
 
     // MARK: - Chat the program CARRIES
 
+    /// Simulcast (roadmap #2). One encode, several destinations — the
+    /// expensive half (composite, then H.264) is already done once, so a
+    /// second destination costs a second socket and no more CPU.
+    ///
+    /// WHY NOT A LIST THAT INCLUDES THE PRIMARY. The primary drives
+    /// `showState`, §6.6's reconnect and §6.4's back-pressure, and those rules
+    /// are written against one connection. Promoting them to "the worst of N"
+    /// is a real design question — should a dead Twitch end a healthy YouTube
+    /// show? — and the answer is no, so the primary keeps its meaning and
+    /// extras are best-effort. A failing extra is VISIBLE (it has its own
+    /// health) and does not end anything.
+    private var extraPublishers: [(name: String, publisher: RTMPPublisher)] = []
+
+
     private var twitchChat: StudioChatTwitch?
     /// YouTube's half. Polled rather than streamed, because the Data API
     /// offers a client of our type no streaming chat interface at all and
@@ -968,7 +1007,12 @@ public actor StudioEngine {
     /// prompt — which would need a human to tap it, and the standing rule is
     /// that the owner is never the tester. The publisher is proven separately
     /// (WATCH-TOGETHER §8.1), so the measurement does not need it in the path.
-    public func start(destination: URL?) async throws {
+    /// `additional` are simulcast destinations (roadmap #2): the same encoded
+    /// frames, sent to more sockets. They are BEST-EFFORT — one that refuses
+    /// to connect is reported and does not stop the show, because a dead
+    /// Twitch must not end a healthy YouTube broadcast.
+    public func start(destination: URL?,
+                      additional: [StudioExtraDestination] = []) async throws {
         guard !health.isRunning else { return }
 
         // §6.2 FIRST: the mixer and the film both depend on the session being
@@ -1002,6 +1046,31 @@ public actor StudioEngine {
             await publisher.setQueueBudget(videoBitrate: config.videoBitrate, audioBitrate: config.audioBitrate)
             try await publisher.publish(to: destination, config: streamConfig)
             publishing = true
+            // THE EXTRAS, each in its own `do` so one refusal cannot throw the
+            // show away. The PRIMARY above is allowed to throw — a host who
+            // asked to go live and reached nothing should hear about it — and
+            // that asymmetry is the whole design: `try` above, `try?` with a
+            // recorded reason here.
+            for spec in additional {
+                let extra = RTMPPublisher()
+                await extra.setQueueBudget(videoBitrate: config.videoBitrate,
+                                           audioBitrate: config.audioBitrate)
+                do {
+                    try await extra.publish(to: spec.url, config: streamConfig)
+                    extraPublishers.append((spec.name, extra))
+                    awdiag("AWPUB simulcast: %@ connected", spec.name)
+                } catch {
+                    // NAMED, not silent. An extra that never connected and an
+                    // extra that connected and stalled look identical on a
+                    // readout that only counts bytes, and they need opposite
+                    // fixes.
+                    var dead = RTMPHealth()
+                    dead.lastError = "\(error)"
+                    health.extraDestinations.append(
+                        StudioHealth.ExtraDestination(name: spec.name, health: dead))
+                    awdiag("AWPUB simulcast: %@ FAILED — %@", spec.name, "\(error)")
+                }
+            }
             // The broadcast must OPEN on a keyframe, for the same reason a
             // reconnected one must (§6.6).
             //
@@ -1091,6 +1160,8 @@ public actor StudioEngine {
         mixer.stop()
         encoder?.stop(); encoder = nil
         if publishing { await publisher.close() }
+        for extra in extraPublishers { await extra.publisher.close() }
+        extraPublishers = []
         health.isRunning = false
         if publishing { health.publisher = await publisher.health }
     }
@@ -1098,6 +1169,19 @@ public actor StudioEngine {
     public func refreshHealth() async {
         health.encoderIsHardware = encoder?.usingHardware
         if publishing { health.publisher = await publisher.health }
+        // EACH extra by name. Rebuilt rather than mutated so a destination
+        // that failed to connect (already in the list, carrying its reason)
+        // is not overwritten by a publisher that never existed.
+        if publishing, !extraPublishers.isEmpty {
+            var rows: [StudioHealth.ExtraDestination] = health.extraDestinations.filter { row in
+                !extraPublishers.contains { $0.name == row.name }
+            }
+            for extra in extraPublishers {
+                rows.append(StudioHealth.ExtraDestination(
+                    name: extra.name, health: await extra.publisher.health))
+            }
+            health.extraDestinations = rows
+        }
         health.audio = mixer.currentHealth()
         // The EFFECTIVE state, or a harness override would be overwritten once
         // a second by the real one and §6.5 could never be exercised.
@@ -1493,6 +1577,9 @@ public actor StudioEngine {
         health.encodedBytes += frame.count
         guard publishing else { return }
         await publisher.send(audioFrame: frame, presentationTime: pts)
+        for extra in extraPublishers {
+            await extra.publisher.send(audioFrame: frame, presentationTime: pts)
+        }
     }
 
     private func publish(video frame: EncodedVideoFrame) async {
@@ -1504,6 +1591,12 @@ public actor StudioEngine {
         health.encodedBytes += frame.avccData.count
         guard publishing else { return }
         await publisher.send(video: frame)
+        // THE SAME ENCODED FRAME, not a second encode. `EncodedVideoFrame`
+        // carries the AVCC bytes that already exist; handing it to a second
+        // publisher costs a copy into a queue.
+        for extra in extraPublishers {
+            await extra.publisher.send(video: frame)
+        }
     }
 
     // MARK: Helpers

@@ -61,7 +61,28 @@ the opposite direction and for nothing.
   process tap for sound and use SCK for picture only, or the call arrives
   twice.
 
-## 2. Simulcast — one encode, several destinations
+## 2. Simulcast — **BUILT 2026-09-22, proved on the wire**
+
+*Status: engine, session and macOS surface done; §8.37 publishes one encode to
+two destinations and reads both recordings back —
+`h264,640,360 | aac` on each, the same 151 video frames, zero dropped.*
+
+**The design decision worth knowing.** The PRIMARY destination keeps its
+meaning: it drives `showState`, §6.6's reconnect and §6.4's back-pressure,
+which are rules written against one connection. Extras are BEST EFFORT — a
+`try` above and a `try?` with a recorded reason below — because a dead Twitch
+must not end a healthy YouTube broadcast. A failing extra is visible (it has
+its own named health row) and ends nothing.
+
+**And the feature says what it costs.** Two destinations is twice the upload,
+and the readout says so in Mbps before the host presses Go Live, turning
+orange when the total exceeds what this connection has actually held. That is
+not hypothetical: the owner's line measured 68.3 Mbps down but 854 ms
+responsiveness under load, with Twitch dropping at ~4.2 Mbps.
+
+Original entry follows.
+
+## 2-orig. Simulcast — one encode, several destinations
 
 StreamYard's headline is 8 destinations at once; OBS 31 added WebRTC
 simulcast. **We own the RTMP publisher**, so this is N publishers fed from one

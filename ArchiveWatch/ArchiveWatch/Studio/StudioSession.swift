@@ -53,6 +53,11 @@ public final class StudioSession {
     public private(set) var armedBroadcastID: String?
     public func armBroadcast(_ id: String?) { armedBroadcastID = id }
 
+    /// Simulcast destinations beyond the first (roadmap #2). Armed for the
+    /// same reason everything else here is: the engine does not exist yet.
+    public private(set) var armedExtras: [StudioExtraDestination] = []
+    public func armExtras(_ extras: [StudioExtraDestination]) { armedExtras = extras }
+
     /// The placement the host chose, remembered until the engine exists.
     ///
     /// `arm` records INTENT and the engine is built later, when the player
@@ -279,9 +284,11 @@ public final class StudioSession {
     /// the programme. Returns false when the rights gate refused, and
     /// `refusal` carries the sentence.
     @discardableResult
-    func beginShow(film: Catalog.Item, destination: URL?) async -> Bool {
+    func beginShow(film: Catalog.Item, destination: URL?,
+                   additional: [StudioExtraDestination] = []) async -> Bool {
         guard !isLive else { return true }
         armDestination(destination)
+        armExtras(additional)
         guard arm(film: film) else { return false }
         // THE CAMERA AND THE MICROPHONE ARE ASKED FOR HERE (§D11), before the
         // engine is built, because `attachCameraIfAvailable` reads the
@@ -350,7 +357,7 @@ public final class StudioSession {
                 ?? ProcessInfo.processInfo.environment["AW_STUDIO_DEST"]
                     .flatMap { URL(string: $0) }
             diag("[AWSTUDIOSTART] starting engine destination=\(dest?.absoluteString ?? "none")")
-            try await e.start(destination: dest)
+            try await e.start(destination: dest, additional: armedExtras)
             diag("[AWSTUDIOSTART] engine started")
         } catch {
             // SAY IT. This set `refusal` and returned, logging NOTHING — so a
@@ -710,6 +717,7 @@ public final class StudioSession {
         let broadcast = armedBroadcastID
         armedBroadcastID = nil
         armedYouTubeChatID = nil
+        armedExtras = []
 
         capture?.stopRunning()
         capture = nil

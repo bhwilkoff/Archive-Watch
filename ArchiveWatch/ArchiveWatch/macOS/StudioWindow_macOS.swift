@@ -202,6 +202,11 @@ final class StudioMacShow {
     var privacy: YouTubePrivacy = .unlisted
     var customURL = ""
     var customKey = ""
+    /// SIMULCAST (roadmap #2) — also send this show to the OTHER platform.
+    /// One checkbox rather than StreamYard's list of eight, because two is
+    /// what this app can reach: YouTube and Twitch are the platforms it holds
+    /// credentials for, and a custom server is a diagnostic path.
+    var alsoSimulcast = false
 
     private init() {
         // The diagnostic door `GoLiveSheetMac` carried, moved rather than
@@ -1043,6 +1048,28 @@ struct StudioWindowView: View {
                 }
                 Text(destinationName)
                     .font(.caption2).foregroundStyle(.secondary)
+                // EACH EXTRA BY NAME (§4). An average across destinations
+                // describes none of them and hides a dead one; these say
+                // which is which.
+                ForEach(studio.health.extraDestinations) { extra in
+                    HStack(alignment: .firstTextBaseline, spacing: 6) {
+                        Circle()
+                            .fill(extra.health.lastError == nil ? Color.secondary : Color.orange)
+                            .frame(width: 6, height: 6)
+                        Text(extra.name).font(.caption2)
+                        Spacer(minLength: 6)
+                        Text(extra.health.lastError == nil
+                             ? byteText(extra.health.bytesSent)
+                             : "not reached")
+                            .font(.caption2).monospacedDigit()
+                            .foregroundStyle(extra.health.lastError == nil
+                                             ? .secondary : Color.orange)
+                    }
+                    if let why = extra.health.lastError {
+                        Text(why).font(.caption2).foregroundStyle(.orange)
+                            .fixedSize(horizontal: false, vertical: true)
+                    }
+                }
             }
 
             Divider().padding(.vertical, 2)
@@ -1332,6 +1359,21 @@ struct StudioDestinationSection: View {
                     .onChange(of: show.platform) { _, _ in readiness = nil }
             }
 
+            // ALSO SEND IT TO THE OTHER ONE. Only offered when there IS
+            // another one — a custom destination has no sibling, and offering
+            // a checkbox that cannot do anything is §5's disabled-control
+            // problem in checkbox form.
+            if show.platform != .custom {
+                Toggle("Also send to \(show.platform == .youtube ? "Twitch" : "YouTube")",
+                       isOn: $show.alsoSimulcast)
+                if show.alsoSimulcast {
+                    Text(simulcastNote)
+                        .font(.caption2)
+                        .foregroundStyle(simulcastFitsUplink ? .secondary : Color.orange)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
+            }
+
             switch show.platform {
             case .youtube:
                 labelled("Stream title") { TextField("", text: $show.streamTitle) }
@@ -1368,6 +1410,29 @@ struct StudioDestinationSection: View {
                 .frame(maxWidth: .infinity)
                 .disabled(cannotGoLive != nil || working)
         }
+    }
+
+    /// TWO DESTINATIONS IS TWICE THE UPLOAD, and the feature says so rather
+    /// than letting a host discover it mid-show.
+    ///
+    /// This is not a hypothetical: the owner's own line measured 68.3 Mbps
+    /// down but **854 ms responsiveness under load**, and Twitch dropped
+    /// frames at ~4.2 Mbps — bufferbloat on the local path, not the encoder
+    /// and not Twitch (WATCH-TOGETHER §9). A second destination doubles the
+    /// number that was already the problem.
+    private var simulcastFitsUplink: Bool {
+        StudioOutputSettings.bitrateKbps * 2 <= 8000
+    }
+
+    private var simulcastNote: String {
+        let each = StudioOutputSettings.bitrateKbps
+        let total = each * 2
+        let base = "Two destinations send the same picture twice — about "
+            + "\(total / 1000) Mbps up, not \(each / 1000)."
+        return simulcastFitsUplink
+            ? base + " The video is encoded once, so this costs upload rather than CPU."
+            : base + " That is more than this connection has held steadily; "
+                   + "lower the bitrate, or send to one."
     }
 
     /// One reason, the most actionable first. A list of everything wrong is a
@@ -1425,7 +1490,41 @@ struct StudioDestinationSection: View {
                 // Live to no effect.
                 if studio.isRehearsing { await studio.end() }
                 studio.armLayout(controls.layout)
-                let started = await studio.beginShow(film: film, destination: dest)
+
+                // THE SECOND DESTINATION, resolved the same way as the first:
+                // its own request through the same shared `StudioGoLive`, so
+                // a Twitch simulcast creates a real Twitch stream with a real
+                // key and is not a copy of the YouTube address.
+                //
+                // BEST EFFORT, and said rather than thrown. A host who asked
+                // for two and got one should be told which one — not have the
+                // broadcast they DID reach refused because the other platform
+                // was unreachable.
+                var extras: [StudioExtraDestination] = []
+                if show.alsoSimulcast, show.platform != .custom {
+                    let other: GoLivePlatform = show.platform == .youtube ? .twitch : .youtube
+                    let second = GoLiveRequest(
+                        archiveID: film.archiveID, platform: other,
+                        title: request.title, category: request.category,
+                        privacy: request.privacy, layout: request.layout,
+                        customServer: nil, customKey: nil)
+                    do {
+                        let r = try await StudioGoLive.destination(for: second, film: film)
+                        if let url = r.url {
+                            extras.append(StudioExtraDestination(name: other.label, url: url))
+                        }
+                        // The SECOND platform's chat is not read: the overlay
+                        // draws one column and merging two audiences into it
+                        // without saying which is which would misattribute
+                        // every line. Naming that is better than guessing.
+                    } catch {
+                        problem = "Going out to \(show.platform.label) only — "
+                                + "\(other.label) could not be reached: \(error)."
+                    }
+                }
+
+                let started = await studio.beginShow(film: film, destination: dest,
+                                                     additional: extras)
                 if !started { problem = studio.refusal }
                 onStarted()
             } catch {
