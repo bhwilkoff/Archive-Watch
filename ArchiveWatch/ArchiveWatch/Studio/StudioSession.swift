@@ -381,6 +381,39 @@ public final class StudioSession {
         isLive = true
         startPump()
         scheduleThermalInjectionIfAsked()
+        selectCallAudioIfAsked()
+    }
+
+    /// THE CALL TAP, DRIVEN WITHOUT CLICKING — DEBUG only.
+    ///
+    ///   AW_STUDIO_CALL="Google Chrome"
+    ///
+    /// §D18's question is whether a SIGNED, SANDBOXED Archive Watch actually
+    /// receives another app's audio, and that cannot be answered by a harness
+    /// (§8.21 ran as a command-line tool under the terminal's grants — the
+    /// exact gap Decision 130 names). It has to be the product, and the
+    /// product's own picker is a two-coordinate click into a popup menu, which
+    /// is not a repeatable measurement. This is the same door `AW_STUDIO_CARD`
+    /// and `AW_STUDIO_DEST` are, for the same reason.
+    private func selectCallAudioIfAsked() {
+        #if DEBUG && os(macOS)
+        guard #available(macOS 14.2, *),
+              let want = ProcessInfo.processInfo.environment["AW_STUDIO_CALL"],
+              !want.isEmpty else { return }
+        let apps = StudioAudioProcesses.all()
+        awdiag("AWCALL door wants=%@ offered=[%@]", want,
+               apps.map(\.name).joined(separator: ", "))
+        guard let match = apps.first(where: { $0.name == want })
+                ?? apps.first(where: { $0.name.localizedCaseInsensitiveContains(want) }) else {
+            awdiag("AWCALL door: nothing in the list matches %@", want)
+            return
+        }
+        Task {
+            let problem = await startCallAudio(process: match)
+            awdiag("AWCALL door selected=%@ pid=%d objects=%d problem=%@",
+                   match.name, match.pid, match.objectIDs.count, problem ?? "none")
+        }
+        #endif
     }
 
     /// §6.5 on the PRODUCT path, DEBUG only.
@@ -730,6 +763,18 @@ public final class StudioSession {
                 self.filmHasNoSoundtrack = (await engine.sourceHasAudio) == false
                 // §D18 — the call tap is OPEN and delivering NOTHING.
                 self.updateCallSilence()
+                // AND SAY IT IN A LINE A HARNESS CAN READ. The mixer's meter
+                // answers "is there sound"; it cannot answer "did ANY sample
+                // ever arrive", which is the question a process tap's TCC
+                // outcome actually turns on. A photograph of a still meter has
+                // never distinguished the two.
+                #if os(macOS)
+                if #available(macOS 14.2, *), let t = self.callTap as? StudioCallAudioTap {
+                    awdiag("AWCALL app=%@ samples=%d level=%.4f running=%@",
+                           self.callAppName ?? "?", t.samplesReceived,
+                           h.audio.callLevel, t.isRunning ? "true" : "false")
+                }
+                #endif
 
 
                 // §6.5/§6.6 END the show on their own account — too hot, or a

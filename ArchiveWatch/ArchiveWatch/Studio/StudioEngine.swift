@@ -174,49 +174,53 @@ public enum StudioLayout: String, CaseIterable, Sendable {
 /// want it undone by trying "Side by side". The crop follows the person; the
 /// preset follows the show.
 public struct StudioCameraFraming: Sendable, Equatable {
+
+    /// THE TILE ITSELF, as a normalized rect in the program frame — origin
+    /// BOTTOM-LEFT, matching Core Image and the layout rects this overrides.
+    /// `nil` means "wherever the placement puts it".
+    ///
+    /// THIS REPLACED A SCALE AND TWO OFFSETS, and the reason is the owner's:
+    /// *"Most people expect to crop the video frame (size and shape of the
+    /// actual video tile) rather than zoom and move ... it is clunky
+    /// implementation with four different sliders."* A scale can only make the
+    /// preset's rectangle bigger or smaller; it can never change its SHAPE,
+    /// and shape is what cropping a camera means. A 16:9 webcam in a 1:1 tile
+    /// IS a crop, because the tile is aspect-FILLED.
+    public var tile: CGRect?
+
     /// The crop taken from the CAMERA's own picture, 1 = the whole frame.
-    /// Clamped at 3 because past that a 720p tile is upscaling more than it
-    /// is cropping and the host looks worse than they did unzoomed.
+    /// Clamped at 4 because past that a 720p tile is upscaling more than it is
+    /// cropping and the host looks worse than they did unzoomed.
     public var zoom: CGFloat = 1
     /// Where that crop sits inside the camera's picture, -1…1 of the travel
     /// the zoom makes available. At zoom 1 there is no travel and these do
     /// nothing, which is correct rather than a special case.
     public var panX: CGFloat = 0
     public var panY: CGFloat = 0
-    /// The TILE, as a multiple of the preset's own size.
-    public var sizeScale: CGFloat = 1
-    /// The TILE's offset from where the preset puts it, as a fraction of the
-    /// program frame. Set by dragging in the STREAM preview (§D14) — the
-    /// preview exists so the host manipulates the picture rather than a
-    /// second description of it.
-    public var offsetX: CGFloat = 0
-    public var offsetY: CGFloat = 0
 
     public init() {}
 
-    public var isDefault: Bool {
-        zoom == 1 && panX == 0 && panY == 0
-            && sizeScale == 1 && offsetX == 0 && offsetY == 0
-    }
+    public var isDefault: Bool { tile == nil && zoom == 1 && panX == 0 && panY == 0 }
 
-    public static let zoomRange: ClosedRange<CGFloat> = 1...3
-    public static let sizeRange: ClosedRange<CGFloat> = 0.5...2
+    public static let zoomRange: ClosedRange<CGFloat> = 1...4
+    /// A tile may not be shrunk to nothing or grown past the frame.
+    public static let minimumTileFraction: CGFloat = 0.06
 
-    /// The preset's tile rect, moved and resized by this framing and kept
-    /// inside the frame.
+    /// The tile the renderer should draw into: the host's, or the preset's.
     ///
-    /// CLAMPED, not free: a tile dragged off the edge is a tile the host
-    /// cannot get back, and an audience watching a sliver of a face is worse
-    /// than one watching none. The clamp keeps the whole tile on screen,
-    /// which also means the drag stops at the edge rather than running away
-    /// from the pointer.
-    public func apply(to rect: CGRect, in size: CGSize) -> CGRect {
-        let s = max(0.1, sizeScale)
-        let w = rect.width * s, h = rect.height * s
-        var x = rect.midX - w / 2 + offsetX * size.width
-        var y = rect.midY - h / 2 + offsetY * size.height
-        x = min(max(0, x), max(0, size.width - w))
-        y = min(max(0, y), max(0, size.height - h))
+    /// CLAMPED, not free. A tile dragged off the edge is one the host cannot
+    /// get back, and an audience watching a sliver of a face is worse off than
+    /// one watching none.
+    public func apply(to preset: CGRect, in size: CGSize) -> CGRect {
+        guard let tile else { return preset }
+        let minW = size.width * Self.minimumTileFraction
+        let minH = size.height * Self.minimumTileFraction
+        var w = max(minW, min(size.width, tile.width * size.width))
+        var h = max(minH, min(size.height, tile.height * size.height))
+        w = min(w, size.width)
+        h = min(h, size.height)
+        let x = min(max(0, tile.minX * size.width), size.width - w)
+        let y = min(max(0, tile.minY * size.height), size.height - h)
         return CGRect(x: x, y: y, width: w, height: h)
     }
 
@@ -225,14 +229,21 @@ public struct StudioCameraFraming: Sendable, Equatable {
         let z = min(max(Self.zoomRange.lowerBound, zoom), Self.zoomRange.upperBound)
         guard z > 1 else { return extent }
         let w = extent.width / z, h = extent.height / z
-        // The travel is what the crop can move WITHOUT leaving the picture,
-        // so pan is expressed against that rather than against the frame —
-        // which is what makes -1 and 1 mean "as far as it goes" at every
-        // zoom rather than "off the edge" at low ones.
+        // The travel is what the crop can move WITHOUT leaving the picture, so
+        // pan is expressed against that rather than against the frame — which
+        // is what makes -1 and 1 mean "as far as it goes" at every zoom rather
+        // than "off the edge" at low ones.
         let travelX = (extent.width - w) / 2, travelY = (extent.height - h) / 2
         let cx = extent.midX + min(max(-1, panX), 1) * travelX
         let cy = extent.midY + min(max(-1, panY), 1) * travelY
         return CGRect(x: cx - w / 2, y: cy - h / 2, width: w, height: h)
+    }
+
+    /// Normalize a rect the host dragged in the preview back into storage.
+    public static func normalized(_ rect: CGRect, in size: CGSize) -> CGRect {
+        guard size.width > 0, size.height > 0 else { return rect }
+        return CGRect(x: rect.minX / size.width, y: rect.minY / size.height,
+                      width: rect.width / size.width, height: rect.height / size.height)
     }
 }
 
@@ -363,6 +374,11 @@ public struct StudioHealth: Sendable, Equatable {
     /// malfunction present identically — encoding simply stops — and need
     /// opposite fixes.
     public var pixelBufferPoolFailures = 0
+    /// §D14 — where the camera tile landed in the last composed frame,
+    /// normalized to the program (origin bottom-left). Nil when no tile was
+    /// drawn. A surface uses this to place drag handles on the REAL tile
+    /// rather than on its own re-derivation of the layout.
+    public var cameraTile: CGRect?
     public var thermalState: String = "nominal"
     /// The bitrate the encoder is ACTUALLY using, which §6.5 can move. Shown
     /// rather than the configured one, or a thermal step is invisible.
@@ -1061,6 +1077,7 @@ public actor StudioEngine {
         lastEncodedFrameCount = health.programFramesEncoded
         health.encoderFault = encoder?.fault
         health.pixelBufferPoolFailures = renderer.poolFailures
+        health.cameraTile = renderer.lastCameraRect
         await pumpChat()
     }
 
@@ -1504,6 +1521,9 @@ final class ProgramRenderer: @unchecked Sendable {
     var layout: StudioLayout = .corner
     /// §D14 — the host's own framing, on top of whatever the layout decides.
     var framing = StudioCameraFraming()
+    /// The camera tile's rect in the LAST composed frame, normalized. Read by
+    /// the Studio window to place its drag handles (§D14).
+    private(set) var lastCameraRect: CGRect?
     var overlay = StudioOverlay()
 
     private let ciContext: CIContext
@@ -1574,6 +1594,7 @@ final class ProgramRenderer: @unchecked Sendable {
 
         // Z-ORDER FOLLOWS THE LAYOUT: whichever source is the ground goes down
         // first, or the inset tile is painted over.
+        if camera == nil || cameraRect == nil || !layout.showsCamera { lastCameraRect = nil }
         let drawFilm = { [self] (base: CIImage) -> CIImage in
             guard let film else { return base }
             return fit(CIImage(cvPixelBuffer: film), into: filmRect).composited(over: base)
@@ -1587,6 +1608,11 @@ final class ProgramRenderer: @unchecked Sendable {
             // rather than a branch per layout.
             let placed = layout.cameraIsTile
                 ? framing.apply(to: cameraRect, in: size) : cameraRect
+            // WHERE THE TILE ACTUALLY LANDED, normalized, so a surface can put
+            // its handles on the real thing instead of recomputing the layout
+            // and drifting from it. That recomputation is exactly the "two
+            // descriptions of one picture" Decision 133 keeps finding.
+            lastCameraRect = StudioCameraFraming.normalized(placed, in: size)
             var src = CIImage(cvPixelBuffer: camera)
             let crop = framing.crop(of: src.extent)
             if crop != src.extent { src = src.cropped(to: crop) }

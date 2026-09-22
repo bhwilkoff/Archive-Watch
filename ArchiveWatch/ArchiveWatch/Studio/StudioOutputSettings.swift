@@ -1,3 +1,4 @@
+import CoreGraphics
 import Foundation
 
 /// The host's OUTPUT choices — macOS-DESIGN §D4.
@@ -31,6 +32,13 @@ public enum StudioOutputSettings {
     ]
 
     public static let frameRates = [30, 24]
+
+    /// The program frame's aspect. Derived rather than written as 16:9 in
+    /// each surface that needs it — the size list is 16:9 today and a surface
+    /// carrying its own copy is how it would stop being true in one place.
+    public static var programAspect: CGFloat {
+        CGFloat(max(1, width)) / CGFloat(max(1, height))
+    }
 
     /// Measured on an Apple TV 4K (WATCH-TOGETHER §9): zero dropped frames at
     /// 4 and 6 Mbps, 13 dropped at 8, 552 at 10. There is nothing above 6

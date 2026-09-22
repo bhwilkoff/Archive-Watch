@@ -426,8 +426,12 @@ emulators) · `docs/CAPTIONS.md` · `docs/SHAREPLAY.md` ·
    cross-platform playback sync (SharePlay is Apple-only, so this needs our own
    — low-frequency, ~2,900 messages for a four-person two-hour film, which fits
    the existing free Worker), the host's picker for WHICH app to tap, and one
-   more mixer input. What is NOT known: what TCC prompt a signed, bundled app
-   raises, since §8.21 ran as a command-line tool under the terminal's grants.
+   more mixer input. **The TCC question is now ANSWERED** (item 14 above): a
+   signed, sandboxed Archive Watch taps a named app with no prompt and no
+   refusal, and captures that app alone. So of the three things this item
+   listed as missing, the mixer input and the host's app picker are built and
+   proven; what remains is the cross-platform playback sync, and §11's room
+   transport is now live, which is most of it.
 
 12-NEW. **DOES THE TELEVISION GET CARDS? (owner decision, nothing built.)**
    Cards — "Starting soon", "Intermission", "Thanks for watching" — are on
@@ -490,7 +494,29 @@ emulators) · `docs/CAPTIONS.md` · `docs/SHAREPLAY.md` ·
    could pause somebody's broadcast. Fixed and asserted live (a guest write is
    403, the room is unchanged, a GET never carries the key).
 
-14-NEW. **WHAT A SIGNED, SANDBOXED APP GETS FROM A PROCESS TAP IS UNKNOWN.**
+14-CLOSED 2026-09-22 — **A SIGNED, SANDBOXED APP GETS THE AUDIO, AND ONLY
+   THAT APP'S AUDIO.** Measured on the product path with Chrome playing a
+   440/660 Hz tone:
+
+       AWCALL door selected=Google Chrome pid=768 objects=3 problem=none
+       AWCALL app=Google Chrome samples=1645568 level=0.7453 running=true
+       AWCALL app=Google Chrome samples=1694208 level=0.0000 running=true
+       AWCALL app=Google Chrome samples=2032128 level=0.0000 running=true
+
+   No TCC refusal; three Chrome audio objects (the browser and its helpers)
+   tapped as one. **And the negative control is the half that matters**: the
+   third line is the moment that Chrome was closed — the level fell to exactly
+   0.0000 while `samples` kept climbing, i.e. the tap still running and now
+   delivering silence — **while the film was playing its own soundtrack the
+   whole time** (*Safety Last!*, `filmHasAudio=true`). So the tap captures that
+   app and nothing else, which is §8.21's 82 dB isolation confirmed where it
+   counts: the film cannot be captured twice and fed back into its own
+   broadcast. The rate corroborates as well — ~48,600 frames a second is the
+   output device's 48 kHz, resampled to the programme's 44.1.
+   `AW_STUDIO_CALL="Google Chrome"` is the door that makes it repeatable.
+   Original item follows.
+
+14-orig. **WHAT A SIGNED, SANDBOXED APP GETS FROM A PROCESS TAP IS UNKNOWN.**
    The Studio's fourth input — a call's audio, the piece that makes "With
    Friends and the World" real — is built and tested (§8.26), and §8.21 proved
    the mechanism at 82 dB of isolation. But §8.21 ran as a COMMAND-LINE TOOL
@@ -730,6 +756,84 @@ buffers, because the tap deliberately captures the parent AND its helpers. The
 film tap and the microphone tap were always right — this one was the newest and
 the odd shape. **§8.35 is a new static gate**, verified by reinstating the bug
 and watching it go red.
+
+**AND THEN THE CALL TAP WAS PROVED, END TO END, ON THE PRODUCT PATH.** The
+owner left for an hour and said to keep testing until it was right. What
+SCRATCHPAD item 14 has called unknown since it was written — *what a SIGNED,
+SANDBOXED app gets from a process tap* — is now measured:
+
+    AWCALL door selected=Google Chrome pid=768 objects=3 problem=none
+    AWCALL app=Google Chrome samples=45568   level=0.7413 running=true
+    AWCALL app=Google Chrome samples=1645568 level=0.7453 running=true   <- tone on
+    AWCALL app=Google Chrome samples=1694208 level=0.0000 running=true   <- tone off
+    AWCALL app=Google Chrome samples=2032128 level=0.0000 running=true
+
+**A NEGATIVE CONTROL, not just a positive reading.** Chrome played a warbling
+440/660 Hz tone; the call channel sat at 0.74 for nine ticks; closing that
+Chrome dropped it to **exactly 0.0000** for eight more while `samples` kept
+climbing — the tap still running, now delivering silence. **The film was
+playing its own soundtrack throughout** (*Safety Last!*, `filmHasAudio=true`),
+and the call channel read zero, so the tap is capturing Chrome and ONLY
+Chrome. That is §8.21's 82 dB isolation, confirmed where it matters. The
+sample rate corroborates too: ~48,600 frames a second is the output device's
+48 kHz, resampled to the programme's 44.1.
+
+**THE TEST CHROME WAS AN ISOLATED INSTANCE**, `--user-data-dir=/tmp/aw-chrome-test`
+with `--autoplay-policy=no-user-gesture-required`, because the owner's own
+Chrome was full of their working tabs and clicking around in it is the same
+intrusion as the screenshot and the pkill. Worth knowing for next time: the
+Claude-in-Chrome extension's synthetic clicks and keystrokes do NOT grant
+user activation (`navigator.userActivation.hasBeenActive` stays false), so
+audio cannot be started that way at all.
+
+`AW_STUDIO_CALL="Google Chrome"` is a new DEBUG door, for the same reason
+`AW_STUDIO_CARD` is one: the picker is a two-coordinate click into a popup
+menu, which is not a repeatable measurement.
+
+**THE CROP WAS CLUNKY AND THE REASON WAS NOT "four sliders".** Owner: *"Most
+people expect to crop the video frame (size and shape of the actual video
+tile) rather than zoom and move ... surely, OBS has a way to do this."* §D14
+modelled the tile as the preset SCALED, and a scale cannot change a
+rectangle's SHAPE — so cropping was the one thing the control could not do and
+zoom was standing in for it. Researched OBS's canvas (handles, drag-to-move,
+corner-vs-side, Option-drag crop) and took all of it except the crop MODE:
+our tile is aspect-filled, so reshaping the box IS the crop — one gesture
+where OBS needs two and a modifier. **Verified on the glass**: moved, reshaped
+to portrait, corner-resized, zoomed (the Pan line appears only above 1x), and
+a negative control showing a scroll OUTSIDE the box changes nothing.
+
+**Two framework facts cost a run each.** `.offset` is a render transform, so
+the `NSView` behind an offset SwiftUI view stays where it was laid out — the
+scroll-catcher reported `rect=690,488 650x394`, the whole pane. And AppKit
+delivers `scrollWheel` to `hitTest`'s view and up ITS chain, so a
+`.background` representable is never on it; a local `NSEvent` monitor is.
+**And a third fault was MINE again**: the first zoom test scrolled DOWN, which
+zooms out from an already-minimum 1.0x, so a working gesture read as broken
+for two builds. The instrument said `inside=true` and I had not asked it.
+
+**THE TWO SCARECROWS ARE FIXED AT THE SOURCE.** Decision 040 clusters by
+normalised title before asking `_same_film`, and
+`Buster Keaton's "The Scarecrow"` keyed apart from `The Scarecrow` — while
+`_same_film` returns True for the pair. A double-quoted run ANCHORED AT THE
+END is now the title. **Measured before shipping**: 121 titles change key into
+49 clusters, every one a Keaton or Chaplin short beside its bare twin. The
+first draft handled single quotes too and produced `Let's Get Movin'` ->
+`s Get Movin`; the catalogue said the branch was not worth its damage, so it
+is double quotes only. Needs a catalogue rebuild to take effect.
+
+**AND THE SUITE FAILED ONCE FOR A REASON THAT WAS NOT THE CODE**, which is
+worth writing down rather than quietly re-running. A run taken while my own
+test instance of the app AND a second Chrome AND an earlier suite were all on
+the machine came back **127 pass / 9 skip / 3 fail** with Kotlin degraded to
+95/8/0. The same run on a quiet machine is **138 / 1 / 0** with Kotlin
+103/0/0. This is the third time contention has produced a red line here
+(§8.6's throttle proxy, §8.21's headset at 24 kHz), and the lesson is the
+same one: **check what else is running before believing a failure**, because
+a red line that really means "somebody is using this Mac" teaches a reader to
+discount red lines.
+
+Suite **138 pass / 1 skip / 0 fail** (the skip is §8.3's soak, off by default).
+Kotlin **103 / 0 / 0**. macOS, iOS and tvOS all build. v1.42.480 (1492).
 
 ### 2026-09-21 — the Mac Studio finished, and Watch Together got a transport
 

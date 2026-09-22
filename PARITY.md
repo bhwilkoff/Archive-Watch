@@ -305,6 +305,14 @@ screen is the same consideration.
 | tvOS | ✅ **added 2026-09-21** — a "Show a card" submenu in the live transport menu (Rule 8.8g), with a checkmark on the one on air. Not in the mixer: 8.8c's duck toggle is the only focusable control there by design, and a second button would break the faders. **Intermission verified on the wire from an Apple TV 4K** |
 | Web | 🚫 no broadcast at all |
 
+##### Framing the camera, 2026-09-22 (macOS-DESIGN §D14a)
+
+| | |
+|---|---|
+| macOS | ✅ OBS's canvas pattern in the STREAM preview — drag to move, corner to resize, **edge to reshape (which IS the crop, since the tile is aspect-filled)**, scroll to zoom the source, ⌥-drag to pan it. No sliders; a readout and a Reset. Verified on the glass: tile dragged bottom-right → centre, reshaped to portrait, corner-resized, `zoom > 1` confirmed by the Pan line appearing, and a negative control (scrolling OUTSIDE the box changes nothing) |
+| iOS · tvOS · Android | ⏳ the ENGINE carries `StudioCameraFraming` on every Apple platform, so the composite honours it wherever it is set; no other surface offers the gestures. A pointer-and-scroll interaction does not port to a Siri Remote or a touchscreen unchanged, and inventing one for each is a design question rather than a port |
+| Web | 🚫 no broadcast at all |
+
 ##### A card of the host's OWN WORDS, 2026-09-22 (macOS-DESIGN §D10)
 
 Owner: *"I'd like to be able to have a 'free text' option for the Cards.

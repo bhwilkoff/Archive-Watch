@@ -38,6 +38,20 @@ final class StudioControls {
     var layout: StudioLayout = .corner {
         didSet {
             guard layout != oldValue else { return }
+            // CHOOSING A PLACEMENT GIVES YOU THAT PLACEMENT (§D14a).
+            //
+            // The tile's rect is cleared, the zoom and pan are kept. §D14a
+            // says framing "is not per-layout — the crop follows the person,
+            // the preset follows the show", and that is right about the CROP
+            // and wrong about the TILE: deciding where the tile goes is the
+            // placement's entire job, so a custom rect surviving the change
+            // would make the picker look broken. A host who framed their face
+            // keeps that face; a host who asks for "Side by side" gets it.
+            if framing.tile != nil {
+                var f = framing
+                f.tile = nil
+                framing = f
+            }
             StudioSession.shared.armLayout(layout)
             Task { await StudioSession.shared.setLayout(layout) }
         }
@@ -327,9 +341,6 @@ struct StudioWindowView: View {
     @State private var callApps: [StudioAudioProcesses.Process] = []
     @State private var chosenCallBundleID = ""
     @State private var previewRefusal: String?
-    /// Where the tile's offset was when this drag began, so the gesture is
-    /// absolute rather than accumulating rounding every frame.
-    @State private var dragOrigin: CGPoint?
     @Environment(AppStore.self) private var store
     @Environment(AppRouter.self) private var router
     /// Redraw the numbers on the same second the engine publishes them.
@@ -489,67 +500,26 @@ struct StudioWindowView: View {
             ZStack {
                 Color.black
                 StudioProgramPreview()
-                // §D14 — MOVE THE TILE WHERE IT IS SEEN. The preview exists so
-                // the host looks at what the audience sees (§D5); moving the
-                // camera there is direct manipulation of that picture, where a
-                // pair of number fields would be a second description of
-                // something already on screen.
+                // §D14 — FRAME THE CAMERA BY DRAGGING IT, on OBS's own
+                // canvas pattern: drag the box to move it, a corner to resize
+                // it, a side to reshape it (which IS the crop, because the
+                // tile is aspect-filled), scroll to zoom the source inside it
+                // and Option-drag to pan that zoom.
                 //
-                // Only when there IS a tile to move: in "Film only" there is no
-                // camera, and in "You, with the film inset" the camera is the
-                // ground. Both are said in the Inputs column rather than left
-                // as a gesture that mysteriously does nothing.
-                if studio.isLive, controls.layout.cameraIsTile {
-                    GeometryReader { geo in
-                        Color.clear
-                            .contentShape(Rectangle())
-                            .gesture(
-                                DragGesture(minimumDistance: 2)
-                                    .onChanged { value in
-                                        dragTile(value, in: geo.size)
-                                    }
-                                    .onEnded { _ in dragOrigin = nil }
-                            )
-                    }
+                // The handles sit on the rect the ENGINE says it composited,
+                // never on a re-derivation of the layout in this view — the
+                // "two descriptions of one picture" Decision 133 keeps
+                // finding.
+                if studio.isLive, controls.layout.cameraIsTile,
+                   let tile = studio.health.cameraTile {
+                    StudioTileHandles(tile: tile,
+                                      programAspect: StudioOutputSettings.programAspect,
+                                      controls: controls)
                 }
                 if !studio.isLive { programIdle }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
-    }
-
-    /// Translate a drag over the preview into the tile's offset.
-    ///
-    /// THE PREVIEW IS LETTERBOXED inside its pane (the layer uses
-    /// `.resizeAspect`), so a drag of N points is N/`drawnWidth` of the
-    /// PROGRAM, not N/`paneWidth`. Getting that wrong makes the tile lag the
-    /// pointer by however much letterboxing there is — which on a tall pane is
-    /// most of the gesture.
-    ///
-    /// Y IS INVERTED: SwiftUI's drag grows downward, the program frame's
-    /// origin is bottom-left (Core Image), and the engine's clamp is expressed
-    /// in that space.
-    private func dragTile(_ value: DragGesture.Value, in pane: CGSize) {
-        let drawn = Self.aspectFit(CGSize(width: 16, height: 9), in: pane)
-        guard drawn.width > 1, drawn.height > 1 else { return }
-        let start = dragOrigin ?? CGPoint(x: controls.framing.offsetX,
-                                          y: controls.framing.offsetY)
-        dragOrigin = start
-        var f = controls.framing
-        f.offsetX = start.x + value.translation.width / drawn.width
-        f.offsetY = start.y - value.translation.height / drawn.height
-        // A GENEROUS clamp here and a REAL one at the engine: the engine keeps
-        // the whole tile on screen (it knows the tile's size), and this only
-        // stops the stored value running away while the pointer keeps moving.
-        f.offsetX = min(max(-1, f.offsetX), 1)
-        f.offsetY = min(max(-1, f.offsetY), 1)
-        controls.framing = f
-    }
-
-    static func aspectFit(_ ratio: CGSize, in box: CGSize) -> CGSize {
-        guard ratio.width > 0, ratio.height > 0 else { return .zero }
-        let s = min(box.width / ratio.width, box.height / ratio.height)
-        return CGSize(width: ratio.width * s, height: ratio.height * s)
     }
 
     @ViewBuilder
@@ -807,6 +777,11 @@ struct StudioWindowView: View {
 
     // MARK: Framing (§D14)
 
+    /// FOUR SLIDERS ARE GONE. They could size the tile and move it and never
+    /// change its SHAPE, which is what cropping a camera means — and the owner
+    /// met them as *"clunky implementation with four different sliders"*. The
+    /// controls are now the tile itself, in the stream preview; this column
+    /// says what the gestures are and offers the way back.
     @ViewBuilder
     private var cameraFraming: some View {
         let tiled = controls.layout.cameraIsTile
@@ -820,63 +795,56 @@ struct StudioWindowView: View {
                 }
             }
 
-            // ZOOM APPLIES IN EVERY LAYOUT, including `host` where the camera
-            // is the ground - that is where "crop to my face" earns its keep,
-            // because a full-frame webcam is the case a preset cannot fix.
-            labelledSlider("Zoom", value: Binding(
-                get: { controls.framing.zoom },
-                set: { controls.framing.zoom = $0 }),
-                in: StudioCameraFraming.zoomRange,
-                text: String(format: "%.1fx", controls.framing.zoom))
-
-            if controls.framing.zoom > 1 {
-                labelledSlider("Left / right", value: Binding(
-                    get: { controls.framing.panX },
-                    set: { controls.framing.panX = $0 }), in: -1...1, text: nil)
-                labelledSlider("Up / down", value: Binding(
-                    get: { controls.framing.panY },
-                    set: { controls.framing.panY = $0 }), in: -1...1, text: nil)
+            if !studio.isLive {
+                Text("Start the preview, then frame yourself by dragging the box around your tile.")
+                    .font(.caption2).foregroundStyle(.secondary)
+                    .fixedSize(horizontal: false, vertical: true)
+            } else if tiled {
+                gestureLine("Move", "drag inside the box")
+                gestureLine("Resize", "drag a corner")
+                gestureLine("Crop", "drag an edge \u{2014} a taller, narrower box crops to your face")
+                gestureLine("Zoom", "scroll inside the box")
+                if controls.framing.zoom > 1 {
+                    gestureLine("Pan", "hold \u{2325} and drag inside the box")
+                }
+            } else if controls.layout == .film {
+                Text("This placement shows no camera, so there is nothing to frame.")
+                    .font(.caption2).foregroundStyle(.secondary)
+                    .fixedSize(horizontal: false, vertical: true)
+            } else {
+                Text("Your camera fills the frame in this placement, so there is no box to drag \u{2014} scroll over the stream preview to zoom, and hold \u{2325} to pan.")
+                    .font(.caption2).foregroundStyle(.secondary)
+                    .fixedSize(horizontal: false, vertical: true)
             }
 
-            // SIZE AND POSITION ONLY WHERE THERE IS A TILE. Disabled with the
-            // reason rather than hidden, so a host who expects them learns why
-            // they are not there (§D14, and §5's rule for every other control).
-            labelledSlider("Size", value: Binding(
-                get: { controls.framing.sizeScale },
-                set: { controls.framing.sizeScale = $0 }),
-                in: StudioCameraFraming.sizeRange,
-                text: String(format: "%.1fx", controls.framing.sizeScale))
-                .disabled(!tiled)
-
-            Text(tiled
-                 ? "Drag anywhere on the stream preview to move your tile."
-                 : (controls.layout == .film
-                    ? "This placement shows no camera, so there is nothing to size or move."
-                    : "Your camera fills the frame in this placement, so there is no tile to size or move - zoom still crops it."))
-                .font(.caption2).foregroundStyle(.secondary)
-                .fixedSize(horizontal: false, vertical: true)
-
-            if !studio.isLive {
-                Text("Start the preview to see your framing.")
-                    .font(.caption2).foregroundStyle(.secondary)
+            // THE NUMBERS ARE SHOWN, NOT EDITED. OBS pairs its canvas with an
+            // Edit Transform dialog for precision; a watch-along needs to know
+            // the zoom it is at far more than it needs to type one, and a
+            // readout costs no control.
+            if studio.isLive, !controls.framing.isDefault {
+                Text(framingReadout)
+                    .font(.caption2).monospacedDigit().foregroundStyle(.secondary)
             }
         }
     }
 
-    private func labelledSlider(_ title: String, value: Binding<CGFloat>,
-                                in range: ClosedRange<CGFloat>,
-                                text: String?) -> some View {
-        HStack(spacing: 8) {
-            Text(title).font(.caption).foregroundStyle(.secondary)
-                .frame(width: 74, alignment: .leading)
-            Slider(value: Binding(get: { Double(value.wrappedValue) },
-                                  set: { value.wrappedValue = CGFloat($0) }),
-                   in: Double(range.lowerBound)...Double(range.upperBound))
-            if let text {
-                Text(text).font(.caption).monospacedDigit()
-                    .frame(width: 34, alignment: .trailing)
-            }
+    private func gestureLine(_ verb: String, _ how: String) -> some View {
+        HStack(alignment: .firstTextBaseline, spacing: 6) {
+            Text(verb).font(.caption.weight(.medium))
+                .frame(width: 48, alignment: .leading)
+            Text(how).font(.caption2).foregroundStyle(.secondary)
+                .fixedSize(horizontal: false, vertical: true)
         }
+    }
+
+    private var framingReadout: String {
+        let f = controls.framing
+        var parts: [String] = []
+        if let t = f.tile {
+            parts.append(String(format: "tile %.0f%% x %.0f%%", t.width * 100, t.height * 100))
+        }
+        if f.zoom > 1 { parts.append(String(format: "zoom %.1fx", f.zoom)) }
+        return parts.joined(separator: "  \u{00B7}  ")
     }
 
     /// Apply a device choice and make it LAND (§D11, Decision 133).

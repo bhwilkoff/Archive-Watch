@@ -336,6 +336,15 @@ else
   FAIL=$((FAIL+1))
 fi
 
+# An uploader's attribution must not fork one film into two cards (Decision
+# 040's clustering, and the owner's two Scarecrows).
+if python3 tools/test_quoted_title_merge.py >"$SCRATCH/quoted-title.log" 2>&1; then
+  row "test_quoted_title_merge.py" PASS ""; PASS=$((PASS+1))
+else
+  row "test_quoted_title_merge.py" FAIL "an attribution still forks a film"
+  FAIL=$((FAIL+1))
+fi
+
 # EVERY resampler call site passes a FRAME capacity, not a sample count. A
 # SOURCE check for the same reason §8.12 is one: a unit error is invisible at a
 # glance and produces correct audio right up to the buffer size where it stops

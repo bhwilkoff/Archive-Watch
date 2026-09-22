@@ -1529,9 +1529,84 @@ zoom is the control that matters most there, because a full-frame webcam is
 exactly where "crop to my face" earns its keep. The controls that do not apply
 are disabled with that sentence, never hidden.
 
-**Framing is NOT per-layout.** A host who framed their face does not want it
-undone by trying "Side by side". The crop follows the person; the preset
-follows the show.
+**The CROP is not per-layout** — a host who framed their face does not want it
+undone by trying "Side by side". The TILE is, and §D14a says why. *(This
+paragraph is superseded by §D14a in every other respect; it is left as written
+because these sections are append-only.)*
+
+## §D14a — CORRECTION: framing is DIRECT MANIPULATION, not sliders
+
+*Same day. Owner, on §D14's first implementation: "I think the crop is pretty
+clumsy. Most people expect to crop the video frame (size and shape of the
+actual video tile) rather than zoom and move. I like the ability to zoom the
+video within the frame and move it around the frame, but it is clunky
+implementation with four different sliders. Can you research/consult a macos
+design pattern for cropping, zooming, and moving video around a preview screen
+(surely, OBS has a way to do this as well that could be emulated or improved
+upon)."*
+
+**What §D14 got wrong.** It modelled the tile as the preset's rectangle
+SCALED, which can only ever make that rectangle bigger or smaller. Cropping a
+camera means changing its SHAPE, and a scale cannot. So the one thing the
+owner asked for — "only capture my face" — was the one thing four sliders
+could not do, and the zoom was standing in for it.
+
+**OBS is the pattern, and it is the one hosts already know**
+(obsproject.com/kb/sources-guide): drag a source INSIDE the canvas to move it,
+drag a CORNER handle to resize it keeping proportions, drag a SIDE handle to
+stretch it, and hold Option while dragging a handle to CROP — OBS turns the
+cropped edges green. Precision lives in a separate Edit Transform dialog
+(⌘E), not on the canvas.
+
+**What we take, and the one place we improve on it.** We take the handles, the
+drag-to-move, and the corner-versus-side split. We do NOT need OBS's separate
+Option-drag crop mode, and that is not laziness: our tile is aspect-FILLED, so
+reshaping the box IS the crop. A 16:9 webcam in a tall narrow box shows a tall
+narrow slice of the host, which is exactly what "crop to my face" asks for.
+One gesture where OBS has two, and no modifier key to discover.
+
+The binding set, all of it in the STREAM preview:
+
+| gesture | what it does |
+|---|---|
+| drag inside the box | move the tile |
+| drag a corner | resize, proportions kept |
+| **drag an edge** | **reshape — and that is the crop** |
+| scroll inside the box | zoom the source within the tile |
+| hold ⌥ and drag inside | pan that zoom |
+
+**No sliders, and the numbers are SHOWN rather than typed.** OBS pairs its
+canvas with Edit Transform for precision; a watch-along needs to know the crop
+it is at far more than it needs to type one, so the Inputs column carries a
+readout (`tile 35% x 72% · zoom 1.5x`) and a Reset, and no other control.
+
+**Choosing a placement RESETS the tile and keeps the crop.** The first draft
+of this rule said framing "is not per-layout" full stop, and that is right
+about the crop and wrong about the tile: deciding where the tile goes is the
+placement's entire job, so a custom rect surviving the change would make the
+picker look broken. So switching placement clears `tile` and keeps `zoom` and
+the pan — a host who framed their face keeps that face, and a host who asks
+for "Side by side" gets it.
+
+**The handles sit on the rect the ENGINE composited**, published in
+`StudioHealth.cameraTile` — never on a re-derivation of the layout inside the
+view. Two descriptions of one picture is the defect Decision 133 exists for,
+and a handle drawn 40 px from the thing it moves is the visible form of it.
+
+**Two implementation facts that cost a run each**, written down because both
+look wrong until you know them:
+
+- **`.offset` is a render transform, not layout.** The `NSView` behind an
+  offset SwiftUI view stays where it was laid out, so a scroll-catcher backing
+  the box reported the pane's top-left corner as its own frame. `.position`
+  is the layout modifier, and it must come AFTER the size and BEFORE anything
+  that needs the sized view backed.
+- **AppKit will not deliver `scrollWheel` to a sibling.** It dispatches to
+  `hitTest`'s view and then up ITS responder chain; a representable in
+  `.background` is a sibling of SwiftUI's hosting view and is never on that
+  chain. Moving it to `.overlay` only swaps the problem for a dead drag
+  gesture. A local `NSEvent` monitor sees the event first and can still ask
+  "is the pointer over me" by converting its own bounds to the screen.
 
 ## §D15 — The lower third's lines are the host's to choose
 

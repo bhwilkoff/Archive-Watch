@@ -332,7 +332,58 @@ _FILM_TYPES = {"feature-film", "short-film", "silent-film", "animation",
                "documentary", "feature"}
 
 
+# An uploader's attribution wrapped around the REAL title:
+#   Buster Keaton's "The Scarecrow"   ·   Alfred Hitchcock's 'The Lodger'
+# The quoted run IS the film's title, and the words outside it are the
+# uploader naming the star or the director.
+# ANCHORED AT THE END, which is the whole discriminator. The uploader
+# convention puts the attribution first and the title last:
+#   Buster Keaton's "The Scarecrow"      ->  The Scarecrow
+#   Alfred Hitchcock's 'The Lodger'      ->  The Lodger
+# A quoted run in the MIDDLE is a nickname inside a longer name and must be
+# left alone ("Al 'Scarface' Capone"), which anchoring gets for free.
+# DOUBLE QUOTES ONLY. A single quote is an apostrophe far more often than it
+# is a delimiter, and MEASURED against the real catalogue the single-quote
+# branch did more harm than good: `Let's Get Movin'` became `s Get Movin` and
+# `Excerpt from 'Art Linkletter's House Party'` became `s House Party`, while
+# every one of the 144 titles this rule is actually for is the double-quoted
+# form (`Buster Keaton's "The Scarecrow"`, `Charlie Chaplin's "Easy Street"`).
+# The inner run MAY contain apostrophes, and has to — otherwise
+# `Buster Keaton's "My Wife's Relations"` yields `s Relations`.
+_QUOTED_TITLE = re.compile(
+    r"[\"\u201c]\s*([^\"\u201c\u201d]{3,}?)\s*[\"\u201d]\s*[.!?]?\s*$")
+
+
+def _quoted_inner(title):
+    """The quoted part of a title, when the quotes wrap a real sub-title.
+
+    WHY ONLY QUOTED. The owner found two cards for one Buster Keaton short:
+    `Buster Keaton's "The Scarecrow"` (no imdb id, no audio) and
+    `The Scarecrow` (tt0011656). `_same_film` returns True for that pair — one
+    carries an imdb anchor, the other none, and the runtimes are 5% apart
+    against a 40% tolerance — but it is never consulted, because clustering
+    happens on the normalised TITLE first and these two produce
+    `busterkeatonsthescarecrow` and `scarecrow`.
+
+    The tempting fix is to strip any leading `<Word>'s `, and it is wrong:
+    *Pandora's Box* would become `box` and could merge with anything else of
+    that length and year. The quoted form is far narrower and is the actual
+    uploader convention — a possessive attribution OUTSIDE quotes, the title
+    INSIDE them. A title with no quotes is untouched.
+    """
+    if not title:
+        return None
+    m = _QUOTED_TITLE.search(title)
+    if not m:
+        return None
+    inner = (m.group(1) or "").strip()
+    return inner if len(inner) >= 3 else None
+
+
 def _dupe_title_key(title):
+    # A quoted sub-title replaces the whole string BEFORE anything else runs,
+    # so the attribution around it never reaches the key.
+    title = _quoted_inner(title) or title
     t = (title or "").lower()
     for q in _DUPE_QUALIFIERS:
         t = t.replace(q, " ")

@@ -217,6 +217,7 @@ into every session and the index alone carries every title.)
 - 132 — A broadcast with no camera and no microphone is not Watch Together; the gate is that the HOST can be in the show
 - 133 — A control is proved where its value LANDS, not where it is written; a shared type is not a shared code path
 - 134 — A production surface owns its show end to end; and a macOS button says what it does at every width
+- 135 — A picture is manipulated directly, not through sliders; and an uploader's attribution must not fork a film in two
 
 ---
 
@@ -704,3 +705,67 @@ other way round. Closing either window ends what it was doing (§D12): a player
 surface that goes away pauses and releases its player, which it never did, so
 a film kept playing with no transport left to stop it and a second copy
 started on the next open.
+
+## 135 — A picture is manipulated directly, not through sliders; and an uploader's attribution must not fork a film in two
+*Date: 2026-09-22*
+
+The macOS Studio frames its camera by **direct manipulation of the tile in the
+STREAM preview**, on OBS's canvas pattern: drag inside to move, a corner to
+resize, an EDGE to reshape, scroll to zoom the source, ⌥-drag to pan it. The
+four sliders that did the same job are deleted; what remains beside them is a
+readout and a Reset. Separately, `build_sqlite._dupe_title_key` treats a
+**double-quoted run at the END of a title as the title**, so
+`Buster Keaton's "The Scarecrow"` clusters with `The Scarecrow`.
+Rules: `docs/macOS-DESIGN.md` §D14a.
+
+**Why the sliders were wrong, and it is not that there were four of them.**
+§D14 modelled the tile as the preset's rectangle SCALED. A scale can make a
+rectangle bigger or smaller and can never change its SHAPE — and cropping a
+camera is exactly a change of shape. So the one thing the owner asked for
+("only capture my face") was the one thing the control could not do, and the
+zoom was standing in for it. *"Most people expect to crop the video frame
+(size and shape of the actual video tile) rather than zoom and move."*
+
+**What OBS gave us and where we improved on it.** OBS's canvas is the pattern
+hosts already know: handles, drag-to-move, corner-versus-side, and Option-drag
+for a separate crop mode that turns the edges green. We take everything except
+the crop mode, because our tile is aspect-FILLED — reshaping the box IS the
+crop, so one gesture does what OBS needs two and a modifier key for. Precision
+is a readout rather than OBS's Edit Transform dialog: a watch-along host needs
+to know the crop they are at far more than they need to type one.
+
+**How to apply**: when a control describes something already on screen, put
+the control ON the thing. Four sliders in another column were a second
+description of a picture the host was already looking at, and the mismatch
+between the two is where the clunkiness lived. And publish the composited rect
+(`StudioHealth.cameraTile`) rather than re-deriving the layout in the view —
+Decision 133's rule, in its geometric form.
+
+**Two framework facts, each of which cost a run.** `.offset` is a RENDER
+transform: the `NSView` behind an offset SwiftUI view stays where it was laid
+out, so a scroll-catcher backing the tile reported the pane's corner as its own
+frame. And AppKit dispatches `scrollWheel` to `hitTest`'s view and then up ITS
+responder chain, so a representable in `.background` — a sibling of SwiftUI's
+hosting view — is never on that chain; `.overlay` only trades it for a dead
+drag. A local `NSEvent` monitor sees the event first and can still ask whether
+the pointer is over it.
+
+**The catalogue half is the same shape of error one layer down.** Decision 040
+clusters re-uploads by NORMALISED TITLE and only then asks `_same_film`. Two
+cards for one Buster Keaton short survived because the keys were
+`busterkeatonsthescarecrow` and `scarecrow` — while `_same_film` returns True
+for that pair, and was never consulted. **The obvious fix is wrong**: stripping
+any leading `<Word>'s ` turns *Pandora's Box* into `box`. A double-quoted run
+ANCHORED AT THE END is the uploader's actual convention and leaves unquoted
+titles alone. **Measured before it shipped**: 121 titles change key into 49 new
+clusters, every one a Keaton or Chaplin short beside its bare-titled twin. The
+first draft also handled single quotes and produced `Let's Get Movin'` →
+`s Get Movin`; the catalogue itself said the branch was not worth its damage.
+
+**Consequences**: `StudioCameraFraming` is now a normalized tile rect plus zoom
+and pan, and it is NOT per-layout — the crop follows the person, the preset
+follows the show. The framing gestures are macOS-only and PARITY says so: a
+pointer-and-scroll interaction does not port to a Siri Remote unchanged, and
+inventing one per platform is a design question rather than a port. The
+catalogue change needs a rebuild to take effect, and
+`tools/test_quoted_title_merge.py` guards both the merge and the over-merge.
