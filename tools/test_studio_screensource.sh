@@ -49,7 +49,26 @@ else
   echo "  ok   a window is matched exactly, never by substring"
 fi
 
-# 5. THE NEGATIVE CONTROL. Checks 3 and 4 are greps for ABSENCE, and a grep
+# 5. A STOPPED CAPTURE STOPS DRAWING. Without this the sink keeps handing out
+#    the last picture and the broadcast shows a frozen still of people who
+#    have left — which looks live. A comment claimed this already happened
+#    before it did.
+stopclear=$(awk '/func stream\(_ stream: SCStream, didStopWithError/,/^    }/' "$SRC" \
+            | grep -c "sink.clear()")
+if [ "$stopclear" -ge 1 ]; then
+  echo "  ok   a capture that stops drops its last frame"
+else
+  echo "  FAIL didStopWithError leaves the last frame in the sink — the tile"
+  echo "       would freeze on air instead of disappearing"
+  fail=1
+fi
+if awk '/public func stop\(\)/,/^    }/' "$SRC" | grep -q "sink.clear()"; then
+  echo "  ok   stopping on purpose drops it too"
+else
+  echo "  FAIL stop() leaves the last frame in the sink"; fail=1
+fi
+
+# 6. THE NEGATIVE CONTROL. Checks 3 and 4 are greps for ABSENCE, and a grep
 #    over a file that moved passes for the wrong reason. Prove the probe is
 #    still there and still being read.
 if grep -q "AWSCREEN" "$ROOT"; then

@@ -1165,9 +1165,15 @@ struct StudioWindowView: View {
             VStack(alignment: .leading, spacing: 6) {
                 inputRow(name: studio.guestWindowLabel ?? "Your guests",
                          role: "A window",
+                         // THE ROW ASKS THE CAPTURE, not whether an object
+                         // exists. `guestsAttached` stays true for a source
+                         // whose window has closed, so it said "live" over a
+                         // tile that had just disappeared.
                          state: studio.guestWindowLabel == nil ? "not shown"
-                                : (studio.health.guestsAttached ? "live" : "starting"),
-                         healthy: studio.guestWindowLabel == nil || studio.health.guestsAttached,
+                                : (studio.guestProblem != nil ? "stopped"
+                                   : (studio.health.guestsAttached ? "live" : "starting")),
+                         healthy: studio.guestWindowLabel == nil
+                                  || (studio.guestProblem == nil && studio.health.guestsAttached),
                          icon: "person.2")
                 // NO REMEMBERED CHOICE (§D23): the menu is built when it opens,
                 // and nothing is pre-selected. A stale selection is how a host

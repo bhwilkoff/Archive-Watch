@@ -1,5 +1,144 @@
 # Archive Watch — Session Log (archive)
 
+### 2026-09-21 — the Mac Studio finished, and Watch Together got a transport
+
+Owner /loop, 5-minute cron, standing prompt: *"continue to work on the
+identified issues and feature buildout until you have solved for all
+documented issues and we have a fully functioning OBS-like studio on MacOS for
+live streaming."* Redirected repeatedly by hand — the demo video, discoverability,
+code length, Tidbits, what a surface may advertise — and stopped by the owner
+when the scope was done.
+
+**THE macOS STUDIO IS BUILT AND MEASURED** (macOS-DESIGN **Part D**, §D0-§D6,
+written this session and renumbered from a second "Part C" that collided with
+the shipping one). A real `Window("Watch Together Studio")`: PROGRAM PREVIEW
+across the top, then Inputs / Mixer / Output. All six build-order steps ship.
+
+- The preview draws **the engine's own `CVPixelBuffer`**, published from the
+  one line that hands a frame to the encoder and put on a `CALayer` as an
+  IOSurface. Not a second composite — Decision 133's failure is exactly "what
+  I see" diverging from "what they see". The displayed buffer is RETAINED,
+  because `CVPixelBufferPool` recycles on last release and a buffer that is
+  only on screen can be drawn into while the display reads it.
+- **Device pickers** (§8.24). This Mac reports **four cameras** — FaceTime HD,
+  Airtime, OBS Virtual Camera and the owner's iPhone over Continuity — and
+  seven microphones, and `AVCaptureDevice.default` had been silently taking
+  the first. A host who wanted their phone had no way to ask.
+- **Output settings** (§8.25), size and frame rate locked while live because
+  an RTMP ingest will not accept a change mid-publish, bitrate live because
+  the encoder genuinely supports it. `config` became a `var` for one reason
+  worth knowing: §6.5 restores to `config.videoBitrate` after a thermal step,
+  so a stale value would have undone the host's choice minutes later.
+- **A call's audio as a fourth input** (§8.26) — `AudioHardwareCreateProcessTap`
+  over a named app, a third mixer channel that ducks the film as the host's
+  voice does. What a SIGNED, SANDBOXED app gets from TCC is still unmeasured
+  (§8.21 ran as a CLI tool under the terminal's grants), and
+  `callProblem` carries the refusal so the answer lands on screen.
+- **A preview that runs before going live**, which exposed that `isLive` never
+  meant on-air: it has always meant "the engine is running", and on macOS the
+  engine runs with no destination whenever a film is armed. Two things broke
+  the moment a rehearsal existed — the Go Live button hid itself, and
+  `attachIfArmed`'s `!isLive` guard silently swallowed the arm for a real
+  broadcast. `isOnAir` and `isRehearsing` now say which is meant.
+
+**PROVED ON THE WIRE**, which is the standard: settings set to 1280x720 @ 24
+fps / 3000 kbps — none of them the old hardcoded default — published to a
+local mediamtx and read back from the server's own recording as
+`h264 High level 31, 1280x720, 24/1, 2481440 bps, aac 44100 stereo`, with the
+film, the camera tile and the lower third all in one frame.
+
+**AND THE TEN-MINUTE SOAK HAD NEVER BEEN ABLE TO COMPILE.** §8.3 is the
+reliability gate and it is skipped by default; run with `--soak` it failed to
+build, because its file list omits `$SHIM`. The suite's own rule found it —
+*a SKIP is not a PASS* — and the case was not merely unrun but unrunnable,
+which a default skip makes indistinguishable. Fixed, and it passes: 18,001
+frames, **zero dropped**, 29-31 fps, queue peak 2% of cap, **memory DOWN
+0.3 MB**.
+
+**THREE DEFECTS FOUND BY RUNNING THE PRODUCT PATH ON A MAC FOR THE FIRST TIME
+SINCE THE IDS WERE REGISTERED.** SCRATCHPAD had claimed since 09-18 that
+"macOS can now sign in and go live"; it was true of the code and false of the
+product.
+1. `Info-macOS.plist` never declared `YOUTUBE_CLIENT_ID`/`TWITCH_CLIENT_ID`,
+   so `info(...)` returned nil on every Mac build ever made, and it lacked the
+   OAuth redirect scheme (the bundle id).
+2. With those fixed, pressing Continue at Google **killed the app**:
+   `ASWebAuthenticationSession` is not `NS_SWIFT_UI_ACTOR`, so its completion
+   closure inherited main-actor isolation and macOS delivers it on an XPC
+   reply queue. `{ @Sendable ... }` fixes it. **The Mac has now signed in.**
+3. The first sign-in showed one sentence TWICE — the shared row and all three
+   go-live sheets each drew the readiness warning. Removed from all three.
+
+**AND THE OAUTH SCREEN STILL SAYS "Google hasn't verified this app."**
+Verifying the BRANDING was not verifying the APP for a sensitive scope. The
+demo video is recorded (`~/Desktop/ArchiveWatch-OAuth-demo.mp4`, 73 s) with
+one caveat written beside it: the consent screen collapsed the scope into
+"already has some access" because that brand account had granted it before.
+Revoke at myaccount.google.com/permissions and re-record those 20 seconds.
+
+**WATCH TOGETHER ROOMS: a transport, and it is DEPLOYED.** SHAREPLAY §11,
+designed in answer to the owner's questions and built across five languages.
+A host publishes STATE, never the playhead; clients extrapolate; the clock
+comes from Cristian's algorithm keeping the **smallest** round trip, never the
+average, because the error bound is RTT/2. Drift is closed by a 3% rate nudge
+(Decision 081's rule for captions) and only seeks past two seconds. Joining
+ships on macOS, tvOS, iOS, Android phone, Android TV, Fire TV and the web;
+hosting is macOS only and that is SETTLED — the owner ruled rooms exist to
+serve a live stream. **Roku has the rule and the poll task and NO surface**,
+and PARITY says so.
+
+**TIDBITS TRIVIA FOUND A REAL HOLE.** Asked what could be learned from it:
+its own screen says *"The PIN is on the host screen, not the projector — the
+room code alone cannot drive the show."* This transport had NO auth, so any
+guest who heard a code could pause somebody's broadcast. Fixed with a
+`hostKey` returned once at creation and asserted live (guest write 403, room
+unchanged, a GET never carries it). **The owner corrected my reading** — 
+Tidbits has one host and several surfaces, not guests who might drive — and
+the correction is in §11.12 rather than smoothed over.
+
+**DEPLOYING FOUND WHAT NO TEST COULD**: the Worker is **not** on
+archivewatch.org (that is GitHub Pages) but at
+`archivewatch-pulse.benwilkoff.workers.dev`, and all three clients were
+pointed at the site. Every test passes a base URL, so every test was happy.
+
+**THE ANDROID MARQUEE HAD NO RIGHTS GATE OF ITS OWN.** From the owner seeing
+"Dollar Store Killers" (2025) on the hero: its archive item lists
+`collections: ["prelinger"]`, so the audit bucketed it `safe_gov` while
+recording `rightsEvidence: "source_unverified"` — a field no client can read.
+Android's hero used the HOME gate, so it had been headlining **The Pink
+Panther, The Grapes of Wrath, Gentlemen Prefer Blondes, Frankenstein (1931)**
+— the owner's 09-20 complaint, only ever half-answered. Fixed on all four
+platforms. **347 modern-year items sit in KEEP buckets on unverified
+evidence** (Taxi Season 1 among them) and that is an owner call, not absorbed.
+
+**WHAT A SURFACE MAY SAY.** Owner: *"You shouldn't advertise features that
+don't exist on the platform you are currently on, but you should definitely be
+able to share what the current platform can do."* That sharpens Decision 131,
+which had surfaces explaining their own absences — an explanation of something
+unavailable is still an advertisement for it. `WatchTogetherHere` derives the
+list, because five surfaces describing a feature in their own words is five
+chances to promise something.
+
+**TWO INSTRUMENT FAULTS OF MINE, both the same shape.** §8.6 back-pressure
+failed because I had a wrangler, a mediamtx and a soak server running at once
+and the throttle proxy could not create congestion. And **§8.21 was failing
+because the owner was USING their Mac**: the tap follows the default output
+device, a headset in call mode runs at 24 kHz, and the test tones resampled to
+nothing while the control came back louder than the signal. It now SKIPS with
+the device rate in the sentence — a red line that really means "somebody is
+using this Mac" teaches a reader to discount red lines.
+
+**I leaked the owner's screen again**, and the fix is the instrument rather
+than the care taken: a region capture of the Studio's own bounds caught a
+Minerva grading queue with student names in it, because the window was not in
+front at the shutter. Deleted unread. The memory already said "activate first,
+then capture its bounds"; that is a RACE. `tools/mac_window_shot.swift` uses
+`screencapture -l<CGWindowID>`, which captures a window's own content whatever
+overlaps it. **Never pass `-R` on the owner's machine.**
+
+Suite 135 pass / 2 skip / 0 fail (the soak, run and passed separately; §8.21,
+machine in use). Kotlin 89/0/0.
+
 ### 2026-09-20 (evening) — both phones proven, and three things macOS had never learned
 Same standing /loop. The owner supplied the two things that were blocking:
 YouTube sign-in plus camera/mic on the iPhone 12, and the Pixel's adb pairing

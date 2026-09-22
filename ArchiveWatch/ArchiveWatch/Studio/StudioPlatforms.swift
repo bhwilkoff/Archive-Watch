@@ -193,8 +193,46 @@ public enum StudioPlatformAuth {
         StudioTokenStore.load(for: platform.rawValue) != nil
     }
 
+    /// Sign out, and TELL THE PLATFORM — not merely forget the token.
+    ///
+    /// This used to clear the Keychain and nothing else, which means a host who
+    /// signed out left Archive Watch sitting in their Google account,
+    /// authorized, indefinitely. Pressing Sign out is a withdrawal of consent
+    /// and should be honored where the consent is RECORDED.
+    ///
+    /// AND FOR A BRAND ACCOUNT IT IS THE ONLY WAY. Measured 2026-09-22: a
+    /// YouTube Brand Account's grant does not appear on the owning account's
+    /// Linked apps page — every Archive Watch entry there can be deleted, and
+    /// verified absent by search, while the brand's consent screen still reads
+    /// "already has some access". `myaccount.google.com/u/N/b/<brandID>/
+    /// connections` authenticates as the brand and then fails to render.
+    /// Google exposes no UI for it, so the token is the only handle anyone has.
+    ///
+    /// The revoke is best-effort and the local clear is not: the token leaves
+    /// this device whether or not the network call succeeds, because the one
+    /// thing a host pressing Sign out is certainly entitled to is that this Mac
+    /// stops holding their credential.
     public static func signOut(_ platform: Platform) {
+        let token = StudioTokenStore.load(for: platform.rawValue)
+        let clientID = clientID(for: platform)
         StudioTokenStore.clear(for: platform.rawValue)
+        // The REFRESH token: revoking it drops the whole grant, where revoking
+        // an access token drops only that one token.
+        guard let secret = token?.refresh ?? token?.access else { return }
+        Task.detached {
+            var r = URLRequest(url: platform == .youtube
+                               ? URL(string: "https://oauth2.googleapis.com/revoke")!
+                               : URL(string: "https://id.twitch.tv/oauth2/revoke")!)
+            r.httpMethod = "POST"
+            r.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+            var body = "token=\(secret)"
+            if platform == .twitch, let clientID { body += "&client_id=\(clientID)" }
+            r.httpBody = body.data(using: .utf8)
+            let code = (try? await URLSession.shared.data(for: r))
+                .flatMap { ($0.1 as? HTTPURLResponse)?.statusCode } ?? -1
+            // NEVER THE TOKEN, only what happened to it (§5).
+            GoogleAuth.adiag("signOut revoke \(platform.rawValue) HTTP \(code)")
+        }
     }
 
     /// A token for this platform, or an error naming what is missing.

@@ -191,9 +191,21 @@ public final class StudioScreenSource: NSObject, SCStreamOutput, SCStreamDelegat
     }
 
     public nonisolated func stream(_ stream: SCStream, didStopWithError error: Error) {
+        // DROP THE LAST FRAME. Without this the sink keeps handing out the
+        // final picture forever and the broadcast shows a FROZEN STILL OF
+        // PEOPLE WHO HAVE LEFT — which looks live, and is the worst of the
+        // three states a tile can be in. A comment on `guestFrame` claimed
+        // this already happened; it did not, and that is exactly the kind of
+        // claim this project keeps finding in its own comments.
+        //
+        // Cleared on the delegate thread rather than hopped to the main
+        // actor, because the compositor reads this sink from its own thread
+        // and a hop would leave the stale frame on air for as long as the
+        // main actor is busy.
+        sink.clear()
         MainActor.assumeIsolated {
             self.isRunning = false
-            self.problem = "Screen capture stopped: \(error.localizedDescription)"
+            self.problem = "The window you were showing has gone — pick another."
         }
     }
 }

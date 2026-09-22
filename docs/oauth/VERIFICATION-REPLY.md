@@ -1,79 +1,65 @@
-# OAuth verification — what Google asked for, and the reply
+# OAuth verification — the reply to Google, item by item
 
 Google's mail of **2026-09-22**, *"[Action Needed] OAuth Verification Request
-Acknowledgement"*, project `895559137709` (`archive-watch`), rejected the first
-demo video and named four things. This file tracks each to done, and holds the
-reply to send once the video exists.
+Acknowledgement"*, project `895559137709` (`archive-watch`), named four
+things. This file holds the reply and the state of each.
 
-Google requires the reply to come **on that thread** — "you must reply to this
-email after fixing the highlighted issues to continue" — so it is the owner's
-to send from benwilkoff@gmail.com.
-
-## The four items
+Google requires the reply **on that thread** — *"you must reply to this email
+after fixing the highlighted issues to continue"* — so it is the owner's to
+send from benwilkoff@gmail.com.
 
 | # | What Google asked | State |
 |---|---|---|
-| 1 | A demo video showing the **OAuth workflow**, consent screen with the scope **fully expanded and readable** | ⏳ `tools/oauth_demo_record.sh` — beats + pre-flight checks written; needs recording |
-| 2 | A demo video showing the **full operational functionality** of `…/auth/youtube`, including **the change reflected in the source account** | ⏳ same recording, beats 5–11 |
-| 3 | **Test credentials** and step-by-step navigation instructions | ✅ drafted below — the app has no login of its own |
-| 4 | A privacy policy specifying **data protection mechanisms for sensitive data** | ✅ published 2026-09-22 |
+| 1 | Demo video: the **OAuth workflow**, consent screen with scopes **fully expanded and readable** | ⏳ see "The consent screen" below |
+| 2 | Demo video: **full operational functionality** of `…/auth/youtube`, with **the change reflected in the source account** | ✅ recorded |
+| 3 | **Test credentials** + step-by-step navigation | ✅ drafted — the app has no login of its own |
+| 4 | Privacy policy specifying **data protection mechanisms for sensitive data** | ✅ published |
 
-## Why the first video was rejected, in its own words
+## The consent screen — what we learned, and why it matters to the reviewer
 
-> The demo video you provided does not sufficiently demonstrate why the
-> following scope(s) are necessary or why narrower permissions cannot be used.
+The first video was rejected because the consent screen read *"Archive Watch
+already has some access"* instead of naming the scope. The cause was NOT a
+missing revoke, which is what we assumed for two days. It is this:
 
-The first video showed a host signing in and going live. It never showed
-**what the scope is for** step by step, it never showed **the broadcast
-appearing in the YouTube account**, and its consent screen had collapsed the
-scope into *"Archive Watch already has some access"* — because that brand
-account had granted it before. That last one was written down as a caveat
-beside the file on 2026-09-21 and shipped anyway.
+**A YouTube Brand Account holds its own OAuth grant, and Google exposes no way
+to revoke it.**
 
-**The fix for it is a revoke, and it must happen before the camera rolls**:
-myaccount.google.com/permissions → Archive Watch → Remove access. The
-recording script asks about this and refuses to start until it is confirmed,
-because it is the one defect that cannot be repaired in an edit.
+Measured 2026-09-22:
 
-## Item 4 — the privacy policy (done)
+- Every Archive Watch entry was deleted from the owning account's Linked apps
+  — both the "Access to" and "Sign in with Google" categories — and verified
+  absent (search returns "No results found"). The Brand Account's consent
+  screen **still** collapsed.
+- `myaccount.google.com/u/N/b/<brandID>/connections` authenticates as the
+  brand (the avatar switches) and then fails to render. `/permissions`
+  silently redirects to the owning account's list.
+- The proof it is per-brand: signing in to a DIFFERENT brand account with no
+  prior grant showed the scope in full — *"When you allow this access, Archive
+  Watch will be able to: **Manage your YouTube account**"* — same app, same
+  client id, same owning account. The only variable was which brand.
 
-<https://archivewatch.org/privacy.html> now carries, under *Watch Together
-Studio*: what the permission is used for operation by operation; why no
-narrower scope exists (`youtube.readonly` cannot write, `youtube.upload` is
-for uploaded videos and cannot start a live event); the Keychain protection
-class the token is held under
-(`kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly` — encrypted at rest, never
-synchronized to iCloud, never copied off the device); that we operate no
-server that could receive it; that stream keys are never stored, shown or
-logged; revocation and deletion; and an explicit **Limited Use** statement
-including that the data is never used to train any AI or ML model.
-
-## Item 3 — the reply's answer on test credentials
-
-Archive Watch has **no accounts and no login of its own** (it is free, with no
-advertising and no user records — that is a design decision, not an omission).
-So there is nothing for us to issue. A reviewer installs the app from the
-public App Store listing and signs in with **their own** Google account, which
-is the only credential the integration ever uses.
-
----
+So the only handle on a brand grant is the **token itself**:
+`https://oauth2.googleapis.com/revoke`. `StudioPlatforms.signOut` now calls it
+(it previously cleared only the local Keychain), which is both the fix for
+this and a real privacy improvement — signing out used to leave the app
+authorized on the user's account indefinitely.
 
 ## Draft reply — for the owner to send on Google's thread
 
-> Thank you for the review. I have addressed all three items.
+> Thank you for the review. I have addressed each item.
 >
-> **1. Demo video — OAuth workflow and full functionality**
+> **1 & 2. Demo video — the OAuth workflow and the full functionality of the
+> scope**
 >
 > [VIDEO URL]
 >
-> The video shows the complete consent flow with the requested scope expanded
-> and legible. I revoked the application's prior access before recording, so
-> the permission is presented in full rather than collapsed as "already has
-> some access", which is why it was not readable in my first submission.
->
-> It then demonstrates the full operational use of
-> `https://www.googleapis.com/auth/youtube`, which is the only Google scope
-> the application requests:
+> The video shows the complete flow in one take: the application with a
+> public-domain film loaded and a local preview running that is explicitly not
+> being sent anywhere; the sign-in; the system prompt; the account and channel
+> selection; Google's unverified-app screen, which I have left in because it
+> is expected at this stage; the consent screen; and then the full operational
+> use of `https://www.googleapis.com/auth/youtube`, which is the only Google
+> scope the application requests:
 >
 > - reading the signed-in channel, so the host can see which channel they are
 >   about to broadcast to, and checking that live streaming is enabled on it
@@ -81,45 +67,50 @@ is the only credential the integration ever uses.
 >   setting the host chose
 > - binding them and transitioning the broadcast to live
 > - reading that broadcast's live chat, so the audience's messages can be
->   shown on screen during the presentation (the app never posts a message)
+>   shown on screen during the presentation — the application never posts a
+>   chat message
 > - transitioning the broadcast to complete when the host ends the show
 >
 > **Source account impact**: after going live, the video shows YouTube Studio
-> (Content → Live) on the same account with the newly created broadcast in the
-> list under the title typed in the app, and then shows it no longer live after
-> the host presses End in the app.
+> on the same account, under Content → Live, with the newly created broadcast
+> in the list — the title typed in the app, Type "Streaming software",
+> Visibility "Unlisted", status "Live now".
 >
-> **Why no narrower scope**: there is no Google permission that allows an
-> application to create and start a live broadcast without
+> **Why no narrower scope is possible**: there is no Google permission that
+> lets an application create and start a live broadcast without
 > `…/auth/youtube`. `youtube.readonly` cannot write, and `youtube.upload`
 > covers uploaded videos rather than live events. The application never reads
-> the user's existing videos, never uploads, never edits or deletes any
-> channel content, and never touches subscriptions, playlists or comments.
+> the user's existing videos, never uploads, never edits or deletes channel
+> content, and never touches subscriptions, playlists or comments.
 >
-> **2. Privacy policy**
+> **3. Privacy policy**
 >
-> <https://archivewatch.org/privacy.html> has been updated and now specifies
-> the data protection mechanisms for this sensitive scope: OAuth 2.0
-> authorization-code flow with PKCE in a system browser session the app cannot
-> read; tokens stored only in the device Keychain under
+> <https://archivewatch.org/privacy.html> now specifies the data protection
+> mechanisms for this scope: OAuth 2.0 authorization-code flow with PKCE in a
+> system browser session the application cannot read; tokens stored only in
+> the device Keychain under
 > `kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly`, encrypted at rest and
 > never synchronized to iCloud or copied to another device; no Archive Watch
-> server exists that could receive them, and none does; stream keys held in
-> memory for the session only and never written to disk, displayed or logged;
-> no analytics, crash reporting or telemetry of any kind on any platform; video
-> published directly from the user's device to YouTube over RTMPS. It also
-> states revocation and deletion, and an explicit Limited Use commitment
-> including that Google user data is never used to train any generalized or
-> non-personalized AI or ML model.
+> server exists that could receive them; stream keys held in memory for the
+> session only and never written to disk, displayed or logged; no analytics,
+> crash reporting or telemetry of any kind on any platform; and video
+> published directly from the user's device to YouTube over RTMPS. It states
+> revocation and deletion, and an explicit Limited Use commitment including
+> that Google user data is never used to develop, improve or train any
+> generalized or non-personalized AI or machine learning model.
 >
-> **3. Test credentials and navigation**
+> Signing out of the application now also calls
+> `https://oauth2.googleapis.com/revoke`, so a user withdrawing consent in the
+> app withdraws it at Google as well, rather than only locally.
 >
-> Archive Watch has no accounts and no login of its own — it is a free,
-> non-commercial app for watching public-domain films from the Internet
-> Archive, with no advertising and no user records. There is therefore no test
-> credential to issue and no authentication blocker to remove: the reviewer
-> signs in with their own Google account, which is the only credential the
-> integration uses.
+> **4. Test credentials and navigation**
+>
+> Archive Watch has no accounts and no login of its own. It is a free,
+> non-commercial application for watching public-domain films from the
+> Internet Archive, with no advertising and no user records, so there is no
+> test credential to issue and no authentication blocker to remove. The
+> reviewer signs in with their own Google account, which is the only
+> credential the integration uses.
 >
 > The application is publicly available on the App Store for macOS, iPhone,
 > iPad and Apple TV:
@@ -128,37 +119,35 @@ is the only credential the integration ever uses.
 > Step by step, on a Mac:
 >
 > 1. Install Archive Watch from the link above and open it. No sign-in is
->    required or offered to browse or watch.
+>    required or offered in order to browse or watch.
 > 2. Search for a pre-1930 film — for example *Safety Last!* (1923) — and open
->    its page. Only films published before 1930 may be broadcast, which the app
->    enforces and explains on screen.
+>    it. Only films published before 1930 may be broadcast, which the
+>    application enforces and explains on screen.
 > 3. Press Play, then choose **Broadcast → Watch Together Studio**
 >    (Shift-Command-S).
-> 4. In the **Output** column, choose platform **YouTube** and press
->    **Sign in**. This is the consent flow in the video.
-> 5. After consent, the Output column names the channel you signed in to.
-> 6. Type a stream title, leave privacy as **Unlisted**, and press **Go Live**.
+> 4. Optionally press **Start preview**. This produces the full program
+>    locally and sends it nowhere; the status reads "NOT SENDING — the show is
+>    being made but not sent anywhere". No Google API call is made at this
+>    stage.
+> 5. In the **Output** column, choose platform **YouTube** and press
+>    **Sign in**. This is the consent flow shown in the video.
+> 6. After consent, the Output column names the channel you signed in to.
+> 7. Type a stream title, leave privacy as **Unlisted**, and press **Go Live**.
 >    The broadcast appears on that channel.
-> 7. Press **End the broadcast** to finish; the broadcast is transitioned to
->    complete on YouTube.
+> 8. Press **End the broadcast** to finish.
 >
-> Live streaming must be enabled on the reviewer's channel beforehand
-> (youtube.com/features); the app checks this and says so before enabling
-> Go Live, but YouTube's first activation can take up to 24 hours.
+> Live streaming must already be enabled on the reviewer's channel
+> (youtube.com/features). The application checks this before enabling Go Live
+> and says so if it is not; YouTube's first activation of that setting can
+> take up to 24 hours.
 >
 > Please let me know if anything further would help.
 
 ## Before sending
 
-- [ ] Revoke Archive Watch at myaccount.google.com/permissions on the account
-      you will record with (**benwilkoff@gmail.com** — the live-enabled
-      channels are there, not on ben@learningischange.com)
-- [ ] `bash tools/oauth_demo_record.sh` and record
-- [ ] Watch it back: is the scope legible on the consent screen? Is the
-      broadcast visible in YouTube Studio?
-- [ ] Upload unlisted to YouTube, paste the URL in place of `[VIDEO URL]`
-- [ ] Confirm the Cloud Console submission still names exactly
-      `https://www.googleapis.com/auth/youtube` and resubmit there too —
-      Google asked for the privacy-policy link to be updated **in the Console**
-      as well as in the reply
-- [ ] Reply on Google's own thread (replying is what restarts the review)
+- [ ] Record the take (see `tools/oauth_demo_record.sh`)
+- [ ] Watch it back: is the scope legible on the consent screen?
+- [ ] Upload unlisted to YouTube; paste the URL over `[VIDEO URL]`
+- [ ] Update the privacy-policy link in the Cloud Console submission and
+      resubmit there — Google asked for both the reply and the Console
+- [ ] Reply on Google's own thread; replying is what restarts the review
