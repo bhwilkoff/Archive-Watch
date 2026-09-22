@@ -43,6 +43,16 @@ public final class StudioSession {
     /// Arming the layout beside the destination removes the timing question
     /// from every caller.
     public func armLayout(_ layout: StudioLayout) { armedLayout = layout }
+
+    /// §D14 — the host's framing, armed for the same reason the layout is.
+    /// `arm` records intent and the engine is built later, so a caller that
+    /// sets framing before a show starts is setting it on nothing. This is
+    /// Decision 133's lesson applied in advance rather than after the defect.
+    public private(set) var armedFraming = StudioCameraFraming()
+    public func armFraming(_ f: StudioCameraFraming) {
+        armedFraming = f
+        Task { await engine?.setCameraFraming(f) }
+    }
     /// Readable, so a panel can OPEN on the placement the show is actually
     /// using. It is `@State`-backed on macOS and defaulted to `.corner`, so a
     /// host who chose "Side by side" in the sheet would have seen the engine
@@ -104,6 +114,35 @@ public final class StudioSession {
     public func publishFilmAudioProblem(_ problem: String?) { filmAudioProblem = problem }
     /// Why the Studio refused, for the surface that asked.
     public var refusal: String?
+
+    /// §D16 — this film's asset carries NO audio track. Not a fault; a fact
+    /// with a consequence the host owns.
+    public private(set) var filmHasNoSoundtrack = false
+
+    /// §D18 — the call tap has been open for three seconds and delivered no
+    /// samples at all. A level of zero is a quiet room; no samples is an
+    /// absence, and the two may not draw the same.
+    public private(set) var callDeliveringNothing = false
+
+    private func updateCallSilence() {
+        #if os(macOS)
+        guard #available(macOS 14.2, *), let tap = callTap as? StudioCallAudioTap else {
+            callDeliveringNothing = false
+            return
+        }
+        if tap.samplesReceived > 0 {
+            callSilentSince = nil
+            callDeliveringNothing = false
+            return
+        }
+        // THREE SECONDS. A tap that is going to deliver starts within one
+        // callback; three is enough that a slow start cannot raise this, and
+        // short enough that a host learns before they begin talking.
+        let since = callSilentSince ?? Date()
+        callSilentSince = since
+        callDeliveringNothing = Date().timeIntervalSince(since) >= 3
+        #endif
+    }
 
     private var engine: StudioEngine?
     private var pump: Task<Void, Never>?
@@ -261,6 +300,7 @@ public final class StudioSession {
                    ? player.currentTime().seconds : -1,
                (player.currentItem?.asset as? AVURLAsset)?.url.lastPathComponent ?? "?")
         await e.setLayout(armedLayout)
+        await e.setCameraFraming(armedFraming)
         overlay = StudioOverlay()
         overlay.title = armedTitle
         overlay.subtitle = armedSubtitle
@@ -672,6 +712,24 @@ public final class StudioSession {
                 // when it cannot be determined.
                 self.filmAudioProblem = await engine.filmAudioProblem(
                     sourceHasAudio: engine.sourceHasAudio)
+                // §D16 — DOES THIS FILM HAVE A SOUNDTRACK AT ALL?
+                //
+                // Separate from `filmAudioProblem`, which is about the tap
+                // failing to attach. This one is not a fault: a transfer with
+                // no audio track is a real and legitimate thing in this
+                // catalogue, and the host needs to know because the
+                // CONSEQUENCE is theirs — their voice will be the only sound
+                // the audience hears.
+                //
+                // Measured on the product path before it was written: Buster
+                // Keaton's "The Scarecrow" (1920) reports
+                // `filmHasAudio=false sourceAudioTracks=0`. Most transfers of
+                // silent films DO carry a score (six probed, six with AAC), so
+                // this is the exception rather than the rule — which is
+                // exactly why it has to be said rather than assumed.
+                self.filmHasNoSoundtrack = (await engine.sourceHasAudio) == false
+                // §D18 — the call tap is OPEN and delivering NOTHING.
+                self.updateCallSilence()
 
 
                 // §6.5/§6.6 END the show on their own account — too hot, or a
@@ -803,10 +861,27 @@ public final class StudioSession {
     /// it never owned.
     private var overlay = StudioOverlay()
 
-    public func setLowerThird(_ shown: Bool) async {
-        overlay.title = shown ? armedTitle : ""
-        overlay.subtitle = shown ? armedSubtitle : ""
-        overlay.provenance = shown ? (armedProvenance ?? "") : ""
+    /// WHICH LINES THE LOWER THIRD CARRIES (§D15).
+    ///
+    /// Owner, 2026-09-22: *"you should be able to choose the information that
+    /// shows up on the lower third."* One toggle used to draw all three lines
+    /// or none.
+    ///
+    /// What a host may choose is WHICH of the catalogue's own verified facts
+    /// to show — never to retype them. §2.1's argument is that the audience
+    /// learns what the film IS, and a free-text title over a public-domain
+    /// film is how an audience learns something false.
+    ///
+    /// The provenance line keeps §4's 20-second expiry, which stays gated on
+    /// a real broadcast rather than a rehearsal (owner: *"it is fine to leave
+    /// it as only expiring on a 'live stream', but it should be able to be
+    /// manipulated as a part of the lower third"*). So this toggle is the
+    /// override in both directions: off means never drawn, on means drawn
+    /// until the rule takes it away.
+    public func setLowerThird(title: Bool, meta: Bool, provenance: Bool) async {
+        overlay.title = title ? armedTitle : ""
+        overlay.subtitle = meta ? armedSubtitle : ""
+        overlay.provenance = provenance ? (armedProvenance ?? "") : ""
         await engine?.setOverlay(overlay)
     }
 
@@ -877,7 +952,10 @@ public final class StudioSession {
         callTap = tap
         callAppName = process.name
         callProblem = nil
-        await engine?.attachCallAudio(ring: tap.ring)
+        callSilentSince = Date()
+        // Synchronous, for the same reason the clear above is: the two must
+        // not be able to land out of order (§D18).
+        engine?.attachCallAudio(ring: tap.ring)
         diag("[AWCALL] capturing \(process.name) (\(process.bundleID))")
         return nil
     }
@@ -887,8 +965,24 @@ public final class StudioSession {
         (callTap as? StudioCallAudioTap)?.stop()
         callTap = nil
         callAppName = nil
-        Task { await engine?.attachCallAudio(ring: nil) }
+        callSilentSince = nil
+        // SYNCHRONOUSLY (§D18). This was `Task { await engine?.attachCallAudio(ring: nil) }`,
+        // and `startCallAudio` calls `stopCallAudio()` FIRST — so the order
+        // was: enqueue "clear the ring", attach the new ring, return, and THEN
+        // the enqueued clear ran and took the channel away again. The owner
+        // saw exactly that: "it appeared in the mixer for a second and then
+        // disappeared."
+        //
+        // `attachCallAudio` is `nonisolated`, so there was never a reason to
+        // wrap it — the `Task` bought nothing and cost the ordering.
+        engine?.attachCallAudio(ring: nil)
     }
+
+    /// When the call tap last had NO audio at all. Nil means it is delivering,
+    /// or is not running. §D18: a level of zero is a legitimate reading (a
+    /// quiet room); no SAMPLES at all is an absence, and the two must not draw
+    /// the same.
+    private var callSilentSince: Date?
 
     /// Held as `AnyObject` so this stored property needs no availability
     /// annotation — a `@available` stored property is not allowed here.

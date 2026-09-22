@@ -96,7 +96,14 @@ final class StudioOverlayRenderer: @unchecked Sendable {
                     .joined(separator: "\u{1F}")
             }
         }
-        guard o.showLowerThird, !o.title.isEmpty else { return "" }
+        // ANY line, not the title alone (§D15). The host chooses which of the
+        // three the lower third carries, so gating on the title meant turning
+        // it off silently took the year, the director and the provenance with
+        // it — two controls doing one control's job, which is how a host
+        // concludes a toggle is broken.
+        guard o.showLowerThird,
+              !(o.title.isEmpty && o.subtitle.isEmpty && o.provenance.isEmpty)
+        else { return "" }
         return "l3:\(o.title)|\(o.subtitle)|\(o.provenance)"
     }
 
@@ -271,7 +278,12 @@ final class StudioOverlayRenderer: @unchecked Sendable {
         let subFont = font(30, weight: 0.0)
         let provFont = font(22, weight: 0.3)
 
-        let title = line(o.title, font: titleFont, color: Self.paper)
+        // EVERY line is optional now (§D15) — the title included. It used to be
+        // drawn unconditionally and its height counted into the stack, so a
+        // host who turned it off got an empty slot and a taller scrim over
+        // nothing.
+        let title = o.title.isEmpty ? nil
+            : line(o.title, font: titleFont, color: Self.paper)
         let sub = o.subtitle.isEmpty ? nil
             : line(o.subtitle, font: subFont, color: CGColor(gray: 0.85, alpha: 1))
         let prov = o.provenance.isEmpty ? nil
@@ -285,9 +297,13 @@ final class StudioOverlayRenderer: @unchecked Sendable {
         let subH = 30 * scale
         let provH = 22 * scale
         let gap = 12 * scale
-        var stackH = titleH
-        if sub != nil { stackH += gap + subH }
-        if prov != nil { stackH += gap + provH }
+        var stackH: CGFloat = 0
+        var lines = 0
+        if title != nil { stackH += titleH; lines += 1 }
+        if sub != nil { stackH += subH; lines += 1 }
+        if prov != nil { stackH += provH; lines += 1 }
+        stackH += gap * CGFloat(max(0, lines - 1))
+        guard lines > 0 else { return .zero }
 
         let baseY = inset                                   // bottom of the stack
         // The scrim must cover the stack AND the run-up above it, or the top
@@ -320,7 +336,7 @@ final class StudioOverlayRenderer: @unchecked Sendable {
             draw(sub, at: CGPoint(x: textX, y: y), in: ctx)
             y += subH + gap
         }
-        draw(title, at: CGPoint(x: textX, y: y), in: ctx)
+        if let title { draw(title, at: CGPoint(x: textX, y: y), in: ctx) }
         return CGRect(x: 0, y: 0, width: scrimW, height: scrimH)
     }
 

@@ -91,6 +91,11 @@ public enum StudioLayout: String, CaseIterable, Sendable {
         }
     }
 
+    /// Whether the camera is drawn as a TILE that can be moved and resized
+    /// (§D14). In `host` it is the ground and there is nowhere to move it to;
+    /// in `film` there is no camera at all.
+    public var cameraIsTile: Bool { self != .film && self != .host }
+
     /// In `host` the CAMERA is the ground and the film is the inset tile, so
     /// the two must be drawn in the opposite order. Drawing film-then-camera
     /// unconditionally painted the full-frame camera straight over the film
@@ -147,6 +152,87 @@ public enum StudioLayout: String, CaseIterable, Sendable {
                            width: w, height: h),
                     full)
         }
+    }
+}
+
+/// HOW THE HOST SITS IN THE SHOW — macOS-DESIGN §D14.
+///
+/// Owner, 2026-09-22: *"I'd like to be able to move my camera around the
+/// preview window AND crop the video (to only capture my face, etc.)."*
+///
+/// §4 said layouts were presets and never free-form, and that rule bought
+/// something real — five named arrangements rather than OBS's six decisions
+/// per scene, and names that a television, a phone and a Mac can agree on.
+/// What it got wrong was treating the tile's SIZE and POSITION, and the crop
+/// of the camera's own picture, as part of the arrangement. They are not.
+/// They are how a host fits themselves INTO an arrangement, and a webcam that
+/// sees a whole room when the host wanted a face is a framing problem no
+/// preset can solve.
+///
+/// So the preset still decides the arrangement and this rides on top of it.
+/// It is deliberately NOT per-layout: a host who framed their face does not
+/// want it undone by trying "Side by side". The crop follows the person; the
+/// preset follows the show.
+public struct StudioCameraFraming: Sendable, Equatable {
+    /// The crop taken from the CAMERA's own picture, 1 = the whole frame.
+    /// Clamped at 3 because past that a 720p tile is upscaling more than it
+    /// is cropping and the host looks worse than they did unzoomed.
+    public var zoom: CGFloat = 1
+    /// Where that crop sits inside the camera's picture, -1…1 of the travel
+    /// the zoom makes available. At zoom 1 there is no travel and these do
+    /// nothing, which is correct rather than a special case.
+    public var panX: CGFloat = 0
+    public var panY: CGFloat = 0
+    /// The TILE, as a multiple of the preset's own size.
+    public var sizeScale: CGFloat = 1
+    /// The TILE's offset from where the preset puts it, as a fraction of the
+    /// program frame. Set by dragging in the STREAM preview (§D14) — the
+    /// preview exists so the host manipulates the picture rather than a
+    /// second description of it.
+    public var offsetX: CGFloat = 0
+    public var offsetY: CGFloat = 0
+
+    public init() {}
+
+    public var isDefault: Bool {
+        zoom == 1 && panX == 0 && panY == 0
+            && sizeScale == 1 && offsetX == 0 && offsetY == 0
+    }
+
+    public static let zoomRange: ClosedRange<CGFloat> = 1...3
+    public static let sizeRange: ClosedRange<CGFloat> = 0.5...2
+
+    /// The preset's tile rect, moved and resized by this framing and kept
+    /// inside the frame.
+    ///
+    /// CLAMPED, not free: a tile dragged off the edge is a tile the host
+    /// cannot get back, and an audience watching a sliver of a face is worse
+    /// than one watching none. The clamp keeps the whole tile on screen,
+    /// which also means the drag stops at the edge rather than running away
+    /// from the pointer.
+    public func apply(to rect: CGRect, in size: CGSize) -> CGRect {
+        let s = max(0.1, sizeScale)
+        let w = rect.width * s, h = rect.height * s
+        var x = rect.midX - w / 2 + offsetX * size.width
+        var y = rect.midY - h / 2 + offsetY * size.height
+        x = min(max(0, x), max(0, size.width - w))
+        y = min(max(0, y), max(0, size.height - h))
+        return CGRect(x: x, y: y, width: w, height: h)
+    }
+
+    /// The crop to take from a camera frame of `extent`.
+    public func crop(of extent: CGRect) -> CGRect {
+        let z = min(max(Self.zoomRange.lowerBound, zoom), Self.zoomRange.upperBound)
+        guard z > 1 else { return extent }
+        let w = extent.width / z, h = extent.height / z
+        // The travel is what the crop can move WITHOUT leaving the picture,
+        // so pan is expressed against that rather than against the frame —
+        // which is what makes -1 and 1 mean "as far as it goes" at every
+        // zoom rather than "off the edge" at low ones.
+        let travelX = (extent.width - w) / 2, travelY = (extent.height - h) / 2
+        let cx = extent.midX + min(max(-1, panX), 1) * travelX
+        let cy = extent.midY + min(max(-1, panY), 1) * travelY
+        return CGRect(x: cx - w / 2, y: cy - h / 2, width: w, height: h)
     }
 }
 
@@ -560,6 +646,9 @@ public actor StudioEngine {
     }
 
     public func setLayout(_ l: StudioLayout) { layout = l; renderer.layout = l }
+    /// §D14 — how the host sits in whichever arrangement is chosen.
+    public func setCameraFraming(_ f: StudioCameraFraming) { renderer.framing = f }
+    public var cameraFraming: StudioCameraFraming { renderer.framing }
     public func setOverlay(_ o: StudioOverlay) { overlay = o; renderer.overlay = o }
 
     /// THE ONE OUTPUT SETTING THAT MAY CHANGE MID-SHOW (§D4).
@@ -1413,6 +1502,8 @@ public enum StudioError: Error, CustomStringConvertible {
 final class ProgramRenderer: @unchecked Sendable {
     let size: CGSize
     var layout: StudioLayout = .corner
+    /// §D14 — the host's own framing, on top of whatever the layout decides.
+    var framing = StudioCameraFraming()
     var overlay = StudioOverlay()
 
     private let ciContext: CIContext
@@ -1489,7 +1580,17 @@ final class ProgramRenderer: @unchecked Sendable {
         }
         let drawCamera = { [self] (base: CIImage) -> CIImage in
             guard let camera, let cameraRect, layout.showsCamera else { return base }
-            return fill(CIImage(cvPixelBuffer: camera), into: cameraRect).composited(over: base)
+            // §D14: the HOST'S FRAMING, applied where the pixels are — the
+            // crop to the camera's own picture, then the tile's size and
+            // position. `apply` is a no-op on a default framing and on a
+            // layout where the camera is the ground, so there is one path
+            // rather than a branch per layout.
+            let placed = layout.cameraIsTile
+                ? framing.apply(to: cameraRect, in: size) : cameraRect
+            var src = CIImage(cvPixelBuffer: camera)
+            let crop = framing.crop(of: src.extent)
+            if crop != src.extent { src = src.cropped(to: crop) }
+            return fill(src, into: placed).composited(over: base)
         }
         image = layout.cameraIsBackground ? drawFilm(drawCamera(image)) : drawCamera(drawFilm(image))
         // Chat under the lower third, so a long message can never obscure the

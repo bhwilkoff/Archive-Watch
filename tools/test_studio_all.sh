@@ -336,6 +336,18 @@ else
   FAIL=$((FAIL+1))
 fi
 
+# EVERY resampler call site passes a FRAME capacity, not a sample count. A
+# SOURCE check for the same reason §8.12 is one: a unit error is invisible at a
+# glance and produces correct audio right up to the buffer size where it stops
+# being memory-safe. `StudioCallAudioTap` passed `dst.count` and could write 2x
+# past its scratch inside a real-time CoreAudio callback.
+if bash tools/test_studio_resampler_capacity.sh >"$SCRATCH/resampler-capacity.log" 2>&1; then
+  row "8.35 resampler capacity units" PASS ""; PASS=$((PASS+1))
+else
+  row "8.35 resampler capacity units" FAIL "a call site passes a sample count as frames"
+  FAIL=$((FAIL+1))
+fi
+
 # A Continuity CAMERA with no MICROPHONE crashed the app (§9.wwww), and the
 # state is ordinary: the camera comes from discovery, the microphone only from
 # the picker's AVContinuityDevice, so dismissing the picker produces it. The

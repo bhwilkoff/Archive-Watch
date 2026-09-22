@@ -57,8 +57,29 @@ final class StudioControls {
     var duckEnabled = true {
         didSet { Task { await StudioSession.shared.setAudio(duckEnabled: duckEnabled) } }
     }
-    var showLowerThird = true {
-        didSet { Task { await StudioSession.shared.setLowerThird(showLowerThird) } }
+    // WHICH LINES THE LOWER THIRD CARRIES (§D15). One toggle used to draw all
+    // three or none; the host chooses each.
+    var showLowerThird = true { didSet { pushLowerThird() } }
+    var showFilmTitle = true { didSet { pushLowerThird() } }
+    var showFilmMeta = true { didSet { pushLowerThird() } }
+    var showProvenance = true { didSet { pushLowerThird() } }
+
+    private func pushLowerThird() {
+        let on = showLowerThird
+        Task {
+            await StudioSession.shared.setLowerThird(title: on && showFilmTitle,
+                                                     meta: on && showFilmMeta,
+                                                     provenance: on && showProvenance)
+        }
+    }
+
+    /// §D14 — how the host sits in the show. Armed rather than set, so a
+    /// choice made before the engine exists is the one the show starts with.
+    var framing = StudioCameraFraming() {
+        didSet {
+            guard framing != oldValue else { return }
+            StudioSession.shared.armFraming(framing)
+        }
     }
     /// WHICH CARD THE HOST HAS CHOSEN, which is not the same as which card is
     /// ON AIR — and conflating the two made the free-text card unreachable.
@@ -306,6 +327,9 @@ struct StudioWindowView: View {
     @State private var callApps: [StudioAudioProcesses.Process] = []
     @State private var chosenCallBundleID = ""
     @State private var previewRefusal: String?
+    /// Where the tile's offset was when this drag began, so the gesture is
+    /// absolute rather than accumulating rounding every frame.
+    @State private var dragOrigin: CGPoint?
     @Environment(AppStore.self) private var store
     @Environment(AppRouter.self) private var router
     /// Redraw the numbers on the same second the engine publishes them.
@@ -378,7 +402,8 @@ struct StudioWindowView: View {
 
     private var sourcePane: some View {
         VStack(spacing: 0) {
-            paneHeader("SOURCE", trailing: sourceHeaderControls)
+            // §D17 — FILM, not "SOURCE". Plain words: this pane is the film.
+            paneHeader("FILM", trailing: sourceHeaderControls)
             ZStack {
                 Color.black
                 if show.choosing || show.film == nil {
@@ -452,14 +477,79 @@ struct StudioWindowView: View {
 
     private var programPane: some View {
         VStack(spacing: 0) {
-            paneHeader("PROGRAM", trailing: previewBadge)
+            // §D17 — STREAM, not "PROGRAM". Owner: *"'Program' doesn't make
+            // sense as a label. I think Stream or Preview makes a lot more
+            // sense."* "Program" is vision-gallery jargon, taken from OBS
+            // along with the split itself, and it names the right thing to
+            // someone who already runs a mixer and nothing to anyone else.
+            // The BADGE still says whether it is actually being sent, so the
+            // pane's name and its state stay two separate questions — the
+            // distinction that stopped `isLive` and `isOnAir` being confused.
+            paneHeader("STREAM", trailing: previewBadge)
             ZStack {
                 Color.black
                 StudioProgramPreview()
+                // §D14 — MOVE THE TILE WHERE IT IS SEEN. The preview exists so
+                // the host looks at what the audience sees (§D5); moving the
+                // camera there is direct manipulation of that picture, where a
+                // pair of number fields would be a second description of
+                // something already on screen.
+                //
+                // Only when there IS a tile to move: in "Film only" there is no
+                // camera, and in "You, with the film inset" the camera is the
+                // ground. Both are said in the Inputs column rather than left
+                // as a gesture that mysteriously does nothing.
+                if studio.isLive, controls.layout.cameraIsTile {
+                    GeometryReader { geo in
+                        Color.clear
+                            .contentShape(Rectangle())
+                            .gesture(
+                                DragGesture(minimumDistance: 2)
+                                    .onChanged { value in
+                                        dragTile(value, in: geo.size)
+                                    }
+                                    .onEnded { _ in dragOrigin = nil }
+                            )
+                    }
+                }
                 if !studio.isLive { programIdle }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
+    }
+
+    /// Translate a drag over the preview into the tile's offset.
+    ///
+    /// THE PREVIEW IS LETTERBOXED inside its pane (the layer uses
+    /// `.resizeAspect`), so a drag of N points is N/`drawnWidth` of the
+    /// PROGRAM, not N/`paneWidth`. Getting that wrong makes the tile lag the
+    /// pointer by however much letterboxing there is — which on a tall pane is
+    /// most of the gesture.
+    ///
+    /// Y IS INVERTED: SwiftUI's drag grows downward, the program frame's
+    /// origin is bottom-left (Core Image), and the engine's clamp is expressed
+    /// in that space.
+    private func dragTile(_ value: DragGesture.Value, in pane: CGSize) {
+        let drawn = Self.aspectFit(CGSize(width: 16, height: 9), in: pane)
+        guard drawn.width > 1, drawn.height > 1 else { return }
+        let start = dragOrigin ?? CGPoint(x: controls.framing.offsetX,
+                                          y: controls.framing.offsetY)
+        dragOrigin = start
+        var f = controls.framing
+        f.offsetX = start.x + value.translation.width / drawn.width
+        f.offsetY = start.y - value.translation.height / drawn.height
+        // A GENEROUS clamp here and a REAL one at the engine: the engine keeps
+        // the whole tile on screen (it knows the tile's size), and this only
+        // stops the stored value running away while the pointer keeps moving.
+        f.offsetX = min(max(-1, f.offsetX), 1)
+        f.offsetY = min(max(-1, f.offsetY), 1)
+        controls.framing = f
+    }
+
+    static func aspectFit(_ ratio: CGSize, in box: CGSize) -> CGSize {
+        guard ratio.width > 0, ratio.height > 0 else { return .zero }
+        let s = min(box.width / ratio.width, box.height / ratio.height)
+        return CGSize(width: ratio.width * s, height: ratio.height * s)
     }
 
     @ViewBuilder
@@ -579,6 +669,10 @@ struct StudioWindowView: View {
                     Button("Choose a different film") { show.choosing = true }
                         .font(.caption).buttonStyle(.borderless).fixedSize()
                 }
+                if studio.isLive, studio.filmHasNoSoundtrack {
+                    Text("No soundtrack on this transfer").font(.caption2)
+                        .foregroundStyle(.orange)
+                }
             }
 
             // EVERY INPUT IS NAMED, AND ITS DEVICE IS CHOSEN (§D2).
@@ -675,9 +769,29 @@ struct StudioWindowView: View {
                 .labelsHidden()
             }
 
+            // §D14 — HOW THE HOST SITS IN IT. Below Placement, because the
+            // preset decides the arrangement and this is how you fit yourself
+            // into the one you picked.
+            cameraFraming
+
             VStack(alignment: .leading, spacing: 6) {
                 Text("On screen").font(.subheadline.weight(.semibold))
-                Toggle("Show the film's title", isOn: $controls.showLowerThird)
+                Toggle("Show the lower third", isOn: $controls.showLowerThird)
+                // §D15 — WHICH LINES. The host chooses which of the
+                // catalogue's own verified facts appear; never what they say.
+                // §2.1's whole argument is that the audience learns what the
+                // film IS, and hand-typed metadata over a public-domain film
+                // is how an audience learns something false.
+                Group {
+                    Toggle("Title", isOn: $controls.showFilmTitle)
+                    Toggle("Year and director", isOn: $controls.showFilmMeta)
+                    Toggle("Public-domain provenance", isOn: $controls.showProvenance)
+                    Text("The provenance line clears itself 20 seconds into a real broadcast - turning it off here keeps it off from the start.")
+                        .font(.caption2).foregroundStyle(.secondary)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
+                .disabled(!controls.showLowerThird)
+                .padding(.leading, 14)
                 Picker("Card", selection: $controls.cardChoice) {
                     ForEach(MacCardChoice.allCases, id: \.self) { Text($0.label).tag($0) }
                 }
@@ -687,6 +801,80 @@ struct StudioWindowView: View {
                 Text("A card covers the film completely — your audience sees only the card.")
                     .font(.caption2).foregroundStyle(.secondary)
                     .fixedSize(horizontal: false, vertical: true)
+            }
+        }
+    }
+
+    // MARK: Framing (§D14)
+
+    @ViewBuilder
+    private var cameraFraming: some View {
+        let tiled = controls.layout.cameraIsTile
+        VStack(alignment: .leading, spacing: 6) {
+            HStack(alignment: .firstTextBaseline) {
+                Text("Your framing").font(.subheadline.weight(.semibold))
+                Spacer(minLength: 6)
+                if !controls.framing.isDefault {
+                    Button("Reset") { controls.framing = StudioCameraFraming() }
+                        .font(.caption).buttonStyle(.borderless).fixedSize()
+                }
+            }
+
+            // ZOOM APPLIES IN EVERY LAYOUT, including `host` where the camera
+            // is the ground - that is where "crop to my face" earns its keep,
+            // because a full-frame webcam is the case a preset cannot fix.
+            labelledSlider("Zoom", value: Binding(
+                get: { controls.framing.zoom },
+                set: { controls.framing.zoom = $0 }),
+                in: StudioCameraFraming.zoomRange,
+                text: String(format: "%.1fx", controls.framing.zoom))
+
+            if controls.framing.zoom > 1 {
+                labelledSlider("Left / right", value: Binding(
+                    get: { controls.framing.panX },
+                    set: { controls.framing.panX = $0 }), in: -1...1, text: nil)
+                labelledSlider("Up / down", value: Binding(
+                    get: { controls.framing.panY },
+                    set: { controls.framing.panY = $0 }), in: -1...1, text: nil)
+            }
+
+            // SIZE AND POSITION ONLY WHERE THERE IS A TILE. Disabled with the
+            // reason rather than hidden, so a host who expects them learns why
+            // they are not there (§D14, and §5's rule for every other control).
+            labelledSlider("Size", value: Binding(
+                get: { controls.framing.sizeScale },
+                set: { controls.framing.sizeScale = $0 }),
+                in: StudioCameraFraming.sizeRange,
+                text: String(format: "%.1fx", controls.framing.sizeScale))
+                .disabled(!tiled)
+
+            Text(tiled
+                 ? "Drag anywhere on the stream preview to move your tile."
+                 : (controls.layout == .film
+                    ? "This placement shows no camera, so there is nothing to size or move."
+                    : "Your camera fills the frame in this placement, so there is no tile to size or move - zoom still crops it."))
+                .font(.caption2).foregroundStyle(.secondary)
+                .fixedSize(horizontal: false, vertical: true)
+
+            if !studio.isLive {
+                Text("Start the preview to see your framing.")
+                    .font(.caption2).foregroundStyle(.secondary)
+            }
+        }
+    }
+
+    private func labelledSlider(_ title: String, value: Binding<CGFloat>,
+                                in range: ClosedRange<CGFloat>,
+                                text: String?) -> some View {
+        HStack(spacing: 8) {
+            Text(title).font(.caption).foregroundStyle(.secondary)
+                .frame(width: 74, alignment: .leading)
+            Slider(value: Binding(get: { Double(value.wrappedValue) },
+                                  set: { value.wrappedValue = CGFloat($0) }),
+                   in: Double(range.lowerBound)...Double(range.upperBound))
+            if let text {
+                Text(text).font(.caption).monospacedDigit()
+                    .frame(width: 34, alignment: .trailing)
             }
         }
     }
@@ -810,8 +998,33 @@ struct StudioWindowView: View {
     private var mixer: some View {
         let audio = studio.health.audio
         return Group {
+            // §D16 — A DEAD METER SAYS WHY. Three faders with still meters
+            // over a film that is visibly playing reads as a broken mixer, and
+            // a host has no way to know the meters belong to the PROGRAM and
+            // the program has not started. Owner: *"I don't see any audio from
+            // the film coming through on the source or preview."*
+            if !studio.isLive {
+                Text(show.film == nil
+                     ? "Levels appear once there is a show to measure."
+                     : "Levels appear once you start the preview \u{2014} these meters read the stream, not this Mac's speakers.")
+                    .font(.caption2).foregroundStyle(.secondary)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
             StudioMacFader(label: "Film", icon: "film", level: audio.filmLevel,
                            gain: $controls.filmGain, muted: $controls.filmMuted)
+            // §D16 — THIS FILM HAS NO SOUNDTRACK. Not a fault: a transfer with
+            // no audio track is real and legitimate here, and the CONSEQUENCE
+            // is the host's. Measured on the product path before it was
+            // written (Buster Keaton's "The Scarecrow", 1920:
+            // `filmHasAudio=false sourceAudioTracks=0`) \u2014 and it is the
+            // exception rather than the rule, since six other silent-era
+            // transfers all carry AAC, which is exactly why it must be SAID
+            // for the one that does not rather than assumed for all of them.
+            if studio.isLive, studio.filmHasNoSoundtrack {
+                Text("This film has no soundtrack \u{2014} your voice will be the only sound your audience hears.")
+                    .font(.caption2).foregroundStyle(.orange)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
             StudioMacFader(label: "Your microphone", icon: "mic", level: audio.micLevel,
                            gain: $controls.micGain, muted: $controls.micMuted)
             // §D3: one channel per AUDIBLE input. The call's channel appears
@@ -821,6 +1034,14 @@ struct StudioWindowView: View {
                 StudioMacFader(label: studio.callAppName ?? "A call",
                                icon: "person.wave.2", level: audio.callLevel,
                                gain: $controls.callGain, muted: $controls.callMuted)
+                // §D18 — OPEN AND DELIVERING NOTHING. A level of zero is a
+                // legitimate reading (a quiet room); no SAMPLES at all is an
+                // absence, and a still meter draws them identically.
+                if studio.callDeliveringNothing {
+                    Text("No audio is arriving from \(studio.callAppName ?? "that app"). macOS may not be allowing Archive Watch to capture it \u{2014} check Privacy & Security \u{25B8} Audio Recording.")
+                        .font(.caption2).foregroundStyle(.orange)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
             }
             Divider().padding(.vertical, 2)
             // AUTO-DUCK IS A CONTROL, NOT A SENTENCE (Rule 8.8c). A host who

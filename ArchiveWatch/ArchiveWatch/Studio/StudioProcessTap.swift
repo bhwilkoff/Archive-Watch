@@ -112,7 +112,20 @@ public final class StudioCallAudioTap: NSObject, @unchecked Sendable {
         guard st == noErr, let procID else {
             stop(); return "This Mac would not start the tap's audio callback."
         }
-        AudioDeviceStart(aggregate, procID)
+        // THE STATUS IS READ (§D18). This was `AudioDeviceStart(aggregate, procID)`
+        // with its result discarded, so a tap macOS refused to start reported
+        // SUCCESS — and the Studio drew a mixer channel that could never carry
+        // anything. That is exactly the silent channel §D2 forbids, in the one
+        // input whose TCC behaviour has been listed as unmeasured since it was
+        // written: a process tap has its own privacy service, which neither the
+        // microphone entitlement nor the sandbox's audio-input covers.
+        let runStatus = AudioDeviceStart(aggregate, procID)
+        guard runStatus == noErr else {
+            stop()
+            return "macOS refused to start capturing \(process.name) "
+                 + "(OSStatus \(runStatus)). Check Privacy & Security ▸ "
+                 + "Audio Recording for Archive Watch."
+        }
         lock.lock(); running = true; lock.unlock()
         return nil
     }
@@ -144,16 +157,31 @@ public final class StudioCallAudioTap: NSObject, @unchecked Sendable {
         var frames = 0
         srcScratch.withUnsafeMutableBufferPointer { src in
             guard let s = src.baseAddress else { return }
+            // THE CAPACITY IS SHARED ACROSS THE WHOLE LIST, and it was being
+            // checked per BUFFER. `frames` accumulates over every buffer in
+            // the AudioBufferList while the inner bound was `min(n, src.count / 2)`
+            // — a per-buffer limit — so two buffers of 16,384 frames each wrote
+            // the second one straight past the end of `srcScratch`. That is
+            // heap corruption inside a real-time callback, on the input most
+            // likely to arrive as MANY buffers: a browser, whose audio comes
+            // from a parent process and several helpers that this tap
+            // deliberately captures together.
+            //
+            // The film tap and the microphone tap never had this because they
+            // take one buffer. This one is the odd path, and it was the newest.
+            let capacityFrames = src.count / 2
             for b in abl {
                 guard let d = b.mData else { continue }
                 let ch = max(1, Int(b.mNumberChannels))
                 let total = Int(b.mDataByteSize) / MemoryLayout<Float>.size
                 let p = d.assumingMemoryBound(to: Float.self)
                 let n = total / ch
+                let room = capacityFrames - frames
+                if room <= 0 { break }
                 // De-shape to interleaved STEREO whatever arrives: a mono tap
                 // written straight through plays at half speed in a stereo
                 // program, and a 6-channel one plays at a third.
-                for i in 0..<min(n, src.count / 2) {
+                for i in 0..<min(n, room) {
                     let l = p[i * ch]
                     let r = ch > 1 ? p[i * ch + 1] : l
                     s[frames * 2] = l
@@ -168,11 +196,21 @@ public final class StudioCallAudioTap: NSObject, @unchecked Sendable {
         // to read twice the audio that exists and write it at double speed —
         // the same class of error as the 48 kHz mismatch this resampler was
         // written to fix.
+        //
+        // AND `outCapacity` IS IN FRAMES TOO, which this call got wrong in the
+        // other direction: it passed `dst.count`, a SAMPLE count, so the
+        // resampler believed it had twice the room it really had and could
+        // write 2x past the end of `dstScratch`. `capacityNeeded` + a grown
+        // buffer is what the film and microphone taps have always done; this
+        // one is now the same shape as its two siblings rather than a third
+        // arrangement that happened to fit at one sample rate.
+        let cap = resampler.capacityNeeded(forInputFrames: frames)
+        if dstScratch.count < cap * 2 { dstScratch = [Float](repeating: 0, count: cap * 2) }
         srcScratch.withUnsafeBufferPointer { src in
             dstScratch.withUnsafeMutableBufferPointer { dst in
                 guard let sp = src.baseAddress, let dp = dst.baseAddress else { return }
                 let outFrames = resampler.process(sp, inFrames: frames,
-                                                  out: dp, outCapacity: dst.count)
+                                                  out: dp, outCapacity: cap)
                 if outFrames > 0 { ring.write(dp, count: outFrames * 2) }
             }
         }

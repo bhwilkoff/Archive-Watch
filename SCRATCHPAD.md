@@ -45,6 +45,37 @@ emulators) · `docs/CAPTIONS.md` · `docs/SHAREPLAY.md` ·
 
 ### Open owner items (nothing else is blocked)
 
+0-NEWEST. **TWO CATALOGUE ENTRIES FOR ONE BUSTER KEATON SHORT, AND THE CAUSE
+   IS EXACT** (owner, 2026-09-22: *"there are two different copies of 'The
+   Scarecrow' (one with sound and one without) ... Why are there two versions
+   of the same movie that aren't folded together as different versions that can
+   be pulled in the versions picker?"*). Not fixed; the cause is measured and
+   the fix is a catalogue-pipeline change of its own.
+
+   | | `TheScarecrow1920` | `the-scarecrow` |
+   |---|---|---|
+   | title | `Buster Keaton's "The Scarecrow"` | `The Scarecrow` |
+   | imdbID | *(none)* | `tt0011656` |
+   | runtime | 1085 s | 1140 s |
+   | audio | **none** | AAC |
+
+   **Decision 040's merge never considered them**, because it clusters by
+   normalised title FIRST and only then asks `_same_film`. Run against the two
+   titles, `build_sqlite._dupe_title_key` returns `busterkeatonsthescarecrow`
+   and `scarecrow` — different clusters. And `_same_film(a, b)` on those two
+   records returns **True**: one carries an imdb anchor, the other none,
+   runtimes are 5% apart against a 40% tolerance. So the ONLY thing standing
+   between these two cards is the uploader's `Buster Keaton's ` attribution
+   prefix, which `_DUPE_QUALIFIERS` does not strip.
+
+   **The narrow fix, and why it is not just "strip a possessive".** Stripping
+   any leading `<Word>'s ` would turn *Pandora's Box* into `box` and invite an
+   over-merge. The uploader convention here is stronger and safer: when a title
+   contains a QUOTED substring, the quoted part IS the title —
+   `Buster Keaton's "The Scarecrow"` → `The Scarecrow`. That is testable,
+   bounded, and does not touch unquoted titles at all. It needs a catalogue
+   rebuild to take effect, which is why it is its own change set.
+
 0-NEW. **PRESS "ALLOW THE CAMERA" ONCE, IN THE MAC STUDIO** (2026-09-22). The
    macOS product path had NEVER called `AVCaptureDevice.requestAccess` — only
    `StudioLab` (DEBUG), the iOS sheet and the tvOS one did — so
@@ -55,9 +86,10 @@ emulators) · `docs/CAPTIONS.md` · `docs/SHAREPLAY.md` ·
    Settings** if it has been denied), and `beginShow` asks before building the
    engine. **It is a TCC grant on the owner's own Mac, so it is deliberately
    NOT pressed by the harness** — the same rule as the iPhone's Local Network
-   prompt. Until it is pressed, the Mac's camera tile is code that has never
-   run, and this line says so rather than claiming a fix that has not been
-   exercised. The microphone is already granted (Creation Studio's voiceover).
+   prompt. **DONE, same day**: the owner pressed Allow, and the product path
+   then measured `AWCAM video=AVAuthorizationStatus(rawValue: 3)` (authorized)
+   followed by `AWCAM attached camera=FaceTime HD Camera` and a 1920x1080 BGRA
+   frame. The camera tile is on the wire in the STREAM preview.
 
 1. **Roku 1.0.65** was scheduled to go live 2026-09-14 5:00 PM PT. Pulse
    detects it (App Health crash logs carry an `App Version`); confirm and
@@ -629,6 +661,75 @@ Suite **136 pass / 1 skip / 0 fail** (the skip is §8.3's ten-minute soak, which
 is skipped by default; nothing this session touched the engine's encode loop or
 the publisher, which is what it exercises). Kotlin **103 / 0 / 0**. Builds green
 on macOS, iOS and tvOS. v1.42.477 (1489).
+
+**LATER THE SAME DAY — five more reports, three features and two defects, one
+of which I wrote.**
+
+**THE CAMERA CAN BE FRAMED AND PLACED** (§D14, amends §4's "presets, never
+free-form"). Owner: *"I'd like to be able to move my camera around the preview
+window AND crop the video (to only capture my face, etc.)."* §4's rule bought
+something real and got one thing wrong: a tile's SIZE and POSITION, and the
+crop of the camera's own picture, are not part of the arrangement — they are
+how a host fits themselves into it, and a webcam that sees a whole room is a
+framing problem no preset can solve. Zoom 1-3x with pan, size 0.5-2x, and the
+tile is MOVED BY DRAGGING IT IN THE STREAM PREVIEW, which is what the preview
+is for. **Verified on the glass**: the tile moved from bottom-right to
+mid-left, zoom 1.5x cropped to head-and-shoulders, size 0.7x. Framing is not
+per-layout — the crop follows the person, the preset follows the show.
+
+**THE LOWER THIRD'S LINES ARE THE HOST'S** (§D15) — title, year+director and
+provenance each toggle. Which of the catalogue's own verified facts to show,
+never what they say (§2.1). The provenance line keeps its 20-second expiry and
+that expiry stays gated on a real broadcast, which is the owner's own ruling
+when asked.
+
+**"PROGRAM" IS NOW "STREAM"** (§D17). Owner: *"'Program' doesn't make sense as
+a label."* It is vision-gallery jargon taken from OBS along with the split. The
+panes are **FILM** and **STREAM**; the badge still says whether it is going
+out, so the pane's name and its state stay two questions.
+
+**"NO AUDIO FROM THE FILM" WAS MY INSTRUMENT, NOT THE APP** — and the owner
+caught me at it. I measured the film-audio path on Buster Keaton's *The
+Scarecrow* (1920), which has **no audio track at all**
+(`filmHasAudio=false sourceAudioTracks=0`), and reported that as the finding.
+Owner: *"I just figured out that you picked another movie to test that doesn't
+have audio. I wish you would stop doing that. It makes it look like an error
+every time you do."* Correct. Re-measured on *Safety Last!* (1923):
+`filmHasAudio=true sourceAudioTracks=1`, and the Film meter moves. Six other
+silent-era transfers all carry AAC, so a soundtrack is the RULE here and the
+copy I picked was the exception — the generalisation I drew was wrong as well
+as badly chosen. What survives is §D16: the Studio now SAYS "this film has no
+soundtrack" when it is true, and says why the meters are dead when no engine
+is running, which is what the owner was actually looking at.
+
+**THE CALL CHANNEL THAT APPEARED AND VANISHED WAS MY RACE** (§D18). Owner:
+*"it appeared in the mixer for a second and then disappeared."*
+`stopCallAudio()` cleared the engine's ring inside an unstructured `Task {}`,
+and `startCallAudio` calls `stopCallAudio()` first — so the order was: enqueue
+the clear, attach the new ring, return, and then the clear ran and took the
+channel away. Both synchronous now. And `AudioDeviceStart`'s status was
+DISCARDED, so a tap macOS refuses to start reported success and drew a channel
+that could never carry anything — the silent channel §D2 forbids, on the one
+input whose TCC behaviour has been listed as unmeasured since it was written.
+
+**AND I KILLED THE APP UNDER THE OWNER'S HANDS.** They reported it quitting on
+choosing Google Chrome from the call list; there is no crash report, and the
+timing matches my own `pkill -f "Archive Watch.app"` to free the machine for
+the test suite. Same family as the full-desktop screenshot: the instrument
+reaching past the thing it was pointed at. **Never kill the app without
+checking whether it is in use.**
+
+**BUT THE QUESTION FOUND A REAL CRASH ANYWAY**, in exactly that path.
+`StudioCallAudioTap.consume` had TWO heap overflows in a real-time CoreAudio
+callback: `frames` accumulates across every buffer in the `AudioBufferList`
+while the bound was checked PER BUFFER, so two 16,384-frame buffers wrote the
+second one past the end of `srcScratch`; and `outCapacity` is counted in
+FRAMES while the call passed `dst.count`, a SAMPLE count, letting the resampler
+write 2x past `dstScratch`. A browser is the input most likely to deliver many
+buffers, because the tap deliberately captures the parent AND its helpers. The
+film tap and the microphone tap were always right — this one was the newest and
+the odd shape. **§8.35 is a new static gate**, verified by reinstating the bug
+and watching it go red.
 
 ### 2026-09-21 — the Mac Studio finished, and Watch Together got a transport
 

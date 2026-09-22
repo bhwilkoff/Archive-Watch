@@ -1483,3 +1483,148 @@ stay where you left them as a window resizes.
   a…" on the same screen where the buttons had just been fixed. Names and
   roles get two lines with `reservesSpace: true`, and the row is `.top`
   aligned so cells of different heights still line their portraits up.
+
+---
+
+# PART D (continued) — framing, the lower third, and what the mixer owes a host
+
+*Opened 2026-09-22, same day as §D7–§D13, from the owner running the rebuilt
+Studio. Five more reports; three of them are features and two are defects one
+of which the owner found by using a control nobody had ever exercised.*
+
+## §D14 — The camera can be FRAMED and PLACED, and the preset is where it starts
+
+**This amends §4's "layouts are presets, never free-form in v1".** Owner:
+*"I'd like to be able to move my camera around the preview window AND crop the
+video (to only capture my face, etc.)."*
+
+§4's rule bought something real — five named arrangements are five decisions
+instead of OBS's six per scene, and Rule 8.8e's names are what let a
+television, a phone and a Mac agree about what a show looks like. None of that
+is given up. What §4 got wrong is treating the tile's SIZE and POSITION, and
+the crop of the camera's own picture, as part of the arrangement. They are
+not: they are how a host fits themselves into it, and a webcam that sees a
+whole room when the host wanted a face is a framing problem that no preset can
+solve.
+
+So: **the preset still decides the arrangement. The host may then adjust the
+framing, and the adjustment rides on top.**
+
+| control | what it changes | range |
+|---|---|---|
+| **Zoom** | the crop taken from the CAMERA's own picture | 1×–3× |
+| **Pan** | where in the camera's picture that crop sits | the crop's own travel |
+| **Size** | the tile, as a multiple of the preset's | 0.5×–2× |
+| **Position** | the tile, by dragging it in the STREAM preview | clamped inside the frame |
+
+**Dragging happens in the STREAM preview, not on a pair of number fields.**
+That is the whole reason the preview exists (§D5): the host is looking at what
+the audience sees, and moving the tile there is direct manipulation of the
+thing itself. Numbers would be a second description of a picture that is
+already on screen.
+
+**Zoom applies in every layout; size and position only where the camera is a
+TILE.** In `host` the camera is the ground, so there is no tile to move — and
+zoom is the control that matters most there, because a full-frame webcam is
+exactly where "crop to my face" earns its keep. The controls that do not apply
+are disabled with that sentence, never hidden.
+
+**Framing is NOT per-layout.** A host who framed their face does not want it
+undone by trying "Side by side". The crop follows the person; the preset
+follows the show.
+
+## §D15 — The lower third's lines are the host's to choose
+
+Owner: *"you should be able to choose the information that shows up on the
+lower third."*
+
+The lower third carries three lines — the film's **title**, its **year ·
+director**, and the **provenance** ("Public domain — published 1920, before
+1930"). Until now one toggle drew all three or none.
+
+Each line is its own toggle. What a host may choose is WHICH OF THE
+CATALOGUE'S OWN VERIFIED FACTS to show — never to retype them. §2.1's argument
+is that the audience learns what the film IS, and a free-text title over a
+public-domain film is how an audience learns something false.
+
+**The provenance line keeps its 20-second expiry, and that expiry still
+belongs to a real broadcast.** Owner, asked: *"I think it is fine to leave it
+as only expiring on a 'live stream', but it should be able to be manipulated
+as a part of the lower third."* So `expireProvenanceIfDue` stays gated on
+`showState == .live` — a rehearsal is not an audience and has no 20 seconds to
+count — and the toggle is the host's override in both directions: off means
+never drawn, on means drawn until §4's rule takes it away.
+
+## §D16 — A film with no soundtrack SAYS SO, and a dead meter says why
+
+Owner: *"I don't see any audio from the film coming through on the source or
+preview."*
+
+**Measured before it was explained.** Buster Keaton's *The Scarecrow* (1920)
+through the product path: `AWMACAUDIO filmHasAudio=false sourceAudioTracks=0`.
+The film has no audio track at all. Nothing was broken — and nothing on screen
+said so, which is the defect.
+
+This is not an edge case on this platform, it is the NORMAL case. The Studio's
+rights gate is the `guaranteed` tier, which is "published before 1930", which
+is silent cinema. A majority of what a Mac host can legally broadcast here has
+either no soundtrack or a score that a particular transfer may not carry.
+
+Two sentences the Studio owes a host, and §4's "health is never hidden" is the
+rule both come from:
+
+- **"This film has no soundtrack"**, on the Film channel and on the Film input
+  row, whenever the asset reports no audio track. With the consequence
+  attached, because the consequence is the point: *your voice is the only
+  sound your audience will hear.*
+- **"Levels appear once something is running"**, whenever the mixer is drawn
+  with no engine behind it. Three faders with dead meters over a film that is
+  visibly playing is a mixer that reads as broken, and a host has no way to
+  know that the meters belong to the PROGRAM and the program has not started.
+
+## §D17 — The panes are FILM and STREAM
+
+Owner: *"'Program' doesn't make sense as a label. I think Stream or Preview
+makes a lot more sense."*
+
+"Program" is broadcast-gallery jargon, taken from OBS along with the split
+itself (§D8). It names the right thing to someone who already runs a vision
+mixer and nothing at all to anyone else, and this app's voice is plain words.
+
+**FILM** (left) is the film, with its own transport. **STREAM** (right) is what
+goes out. The badge continues to say whether it is actually being sent —
+"going out", "nothing is being sent", "idle" — so "STREAM" naming the pane and
+the badge naming its state are two different questions with two answers,
+which is what stopped `isLive` and `isOnAir` being confused in §D6.
+
+`StudioProgramMirror` and the engine's internal vocabulary keep the word
+`program`: that is the composited frame, it is what the code has always called
+it, and renaming a type to match a label is how a rename turns into a defect.
+
+## §D18 — A channel that cannot be heard is NAMED, and a discarded status is a silent channel
+
+Owner: *"I attempted to add 'a call' from the list and it appeared in the mixer
+for a second and then disappeared. Are you sure we are capturing audio
+correctly from those apps in the list?"*
+
+**Two defects, and the first one is mine from the session that built it.**
+
+1. **A race that removed the channel it had just added.** `stopCallAudio()`
+   cleared the engine's ring inside an unstructured `Task {}`, and
+   `startCallAudio` calls `stopCallAudio()` first. So the order was: enqueue
+   "clear the ring", attach the new ring synchronously, return — and then the
+   enqueued clear ran and took the channel away. The fader appeared for a tick
+   and vanished, which is exactly what the owner saw. Both calls are
+   synchronous now (`attachCallAudio` is `nonisolated`), so the order is the
+   order they are written in.
+2. **`AudioDeviceStart`'s status was discarded.** A tap that macOS refuses to
+   start therefore reported success, and the Studio drew a channel that could
+   never carry anything. That is precisely the "silent channel" §D2 forbids,
+   in the one input whose TCC behaviour SCRATCHPAD has listed as unmeasured
+   since it was written.
+
+**The rule**: every step of opening an input is checked, and an input that has
+been open for **three seconds with zero frames** says so rather than showing a
+still meter. A level of zero is a legitimate reading — a quiet room — but *no
+samples at all* is not a level, it is an absence, and the two must not draw the
+same.
