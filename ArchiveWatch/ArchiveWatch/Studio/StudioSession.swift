@@ -410,6 +410,19 @@ public final class StudioSession {
         if let c = armedChat {
             await e.setChatControls(enabled: c.enabled, side: c.side, filter: c.filter)
         }
+        #if os(macOS)
+        // §D23 — AND THE GUESTS. Going live ENDS the rehearsal and builds a
+        // second engine, so a source attached to the first one reaches
+        // nothing: a host who framed their call during the preview would have
+        // pressed Go Live and silently dropped it, with the capture still
+        // running and the tile simply gone from the broadcast. Decision 133
+        // in its purest form, and the same shape as `armedChat` two lines up
+        // — which is the argument for every armed value being re-applied in
+        // ONE place rather than remembered by each caller.
+        if let src = screenSource {
+            await e.attachGuests(src.sink)
+        }
+        #endif
         await e.attachFilm(player: player)
         // SAY WHETHER THE FILM'S AUDIO ACTUALLY ATTACHED. A file played through
         // AW_PLAY_URL reaches the video output and its audio does not reach the

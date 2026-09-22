@@ -2077,3 +2077,30 @@ whatever ends the show cleans up.
 **And `forgetSurfacePlayer` had been printing the answer all along.** It logs
 `engineHolds=YES` in exactly this case; it just did nothing with it. A
 diagnostic that names a condition nobody acts on is half a fix.
+
+## §D23a — Going live builds a second engine, and everything must survive it
+
+A rehearsal ends before a broadcast begins, so pressing Go Live tears down one
+`StudioEngine` and builds another. Every value a host set up during the
+rehearsal must be re-applied to the new engine, in **one place** —
+`StudioSession.attachIfArmed` — never remembered by each caller.
+
+**Why it is a rule and not a note.** On 2026-09-22 the call's picture was not
+in that list. A host who picked their Zoom window during the preview and
+pressed Go Live would have dropped their guests **silently**: the picker still
+named the window, ScreenCaptureKit was still capturing it, `guestProblem` was
+still nil, and the tile was simply absent from the broadcast. `armedChat`, two
+lines above it in the same function, had already had the identical fix a few
+hours earlier — which is the whole argument for the list being mechanical.
+
+**How to apply.** Add the value to `attachIfArmed`, and let §8.46 hold you to
+it: every `armedX` on `StudioSession` must appear there or be named in the
+test's exemption list **with the reason** it does not belong (there are two,
+and both are real). A live object like the screen source has no `armedX` name
+for the check to find, so it gets its own assertion.
+
+**And the reverse question is not symmetric.** `end()` must NOT stop the
+screen capture, because going live calls it — so capture is stopped where the
+show unambiguously ends, which is the Studio window closing (§D12). A window
+capture that outlived its Studio would be this app quietly reading somebody's
+screen with nothing on screen to say so.

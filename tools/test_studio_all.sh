@@ -400,6 +400,16 @@ fi
 swift_case "8.40 film-stall reasons" ArchiveWatch/ArchiveWatch/Studio/StudioFilmStall.swift \
   tools/test_studio_filmstall.swift
 
+# D133 — everything a host set up before the engine existed survives going
+# live. Going live ends the rehearsal and builds a SECOND engine; anything
+# attached to the first reaches nothing, silently.
+if bash tools/test_studio_armed.sh >"$SCRATCH/armed.log" 2>&1; then
+  row "8.46 armed values survive go-live" PASS ""; PASS=$((PASS+1))
+else
+  row "8.46 armed values survive go-live" FAIL "a host's setup is dropped at Go Live"
+  FAIL=$((FAIL+1))
+fi
+
 # §D12a — a surface never pulls the film out from under a live show. The
 # black-programme fault: reproduced twice in eight runs with no signature,
 # because it needs a view rebuild at a particular moment in a live show.

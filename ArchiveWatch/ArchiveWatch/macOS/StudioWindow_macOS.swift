@@ -444,6 +444,13 @@ struct StudioWindowView: View {
         // could close the window their audience is watching through — kept as
         // a rule now that the window exists.
         .background(AWWindowCloseWatcher {
+            // AND STOP CAPTURING THE HOST'S SCREEN (§D23). `end()` cannot do
+            // this itself, because going live ENDS the rehearsal and the
+            // guests must survive that. Closing the Studio is the one moment
+            // that unambiguously means the show is over — and a window
+            // capture that outlived its Studio would be this app quietly
+            // reading somebody's screen with nothing on screen to say so.
+            StudioSession.shared.stopGuests()
             Task { await StudioSession.shared.end() }
         })
     }
