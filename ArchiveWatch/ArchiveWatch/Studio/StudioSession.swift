@@ -345,6 +345,20 @@ public final class StudioSession {
     /// the id alone, a late teardown would forget the registration the new
     /// surface had just made — and `beginShow` would then arm a show with no
     /// player to attach, which looks exactly like the Studio doing nothing.
+    /// Is a LIVE show pulling frames from this exact player?
+    ///
+    /// Asked by a surface BEFORE it tears its player down (§D12a). This is the
+    /// black-programme fault: `teardown()` calls `replaceCurrentItem(with:
+    /// nil)` on the player it owns, and the engine may be holding that same
+    /// object — which leaves the compositor pulling from a player with no
+    /// item, so the programme goes black while every readout stays healthy.
+    /// Reproduced twice in eight runs on 2026-09-22 with no signature,
+    /// because whether SwiftUI rebuilds that view during a show is timing.
+    public func engineIsUsing(_ player: AVPlayer?) -> Bool {
+        guard let player, isLive else { return false }
+        return localPlayer === player
+    }
+
     public func forgetSurfacePlayer(_ player: AVPlayer?) {
         awdiag("AWSURFACE forget player=%lx registered=%@ engineHolds=%@",
                player.map { UInt(bitPattern: ObjectIdentifier($0).hashValue) } ?? 0,
@@ -841,6 +855,18 @@ public final class StudioSession {
         capture?.stopRunning()
         capture = nil
         pump?.cancel(); pump = nil
+        // THE PLAYER THE SURFACE LEFT ALONE (§D12a). A surface that is torn
+        // down during a live show no longer destroys its player, because the
+        // engine may be reading it — so the show has to, or the owner's
+        // original complaint comes back: "the movie seems to keep playing in
+        // the background ... and there is no way to stop the audio at all".
+        // Only when the surface is already gone: a show that ends while the
+        // player is still on screen must leave it playing.
+        if surfacePlayer !== localPlayer {
+            localPlayer?.pause()
+            localPlayer?.replaceCurrentItem(with: nil)
+        }
+        localPlayer = nil
         if let engine { await engine.stop() }
         engine = nil
         isLive = false

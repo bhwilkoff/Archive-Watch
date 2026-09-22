@@ -784,8 +784,21 @@ struct PlayerSurface: View {
         // still holds the item, the item still holds the asset, and the asset
         // is a resource-loader delegate with a live connection to archive.org.
         let mine = player
-        player?.pause()
-        player?.replaceCurrentItem(with: nil)
+        // BUT NOT OUT FROM UNDER A LIVE SHOW (§D12a). The engine may be
+        // pulling frames from this exact player, and nilling its item leaves
+        // the compositor reading nothing: the programme goes black while the
+        // film pane, the camera, the meters and the health line all stay
+        // correct. That is the fault reproduced twice in eight runs on
+        // 2026-09-22 with no signature — a view being REBUILT is not a window
+        // being CLOSED, and only the second one means the film should stop.
+        //
+        // When the show is live the player outlives this surface and
+        // `StudioSession.end()` releases it, so the owner's original complaint
+        // ("the movie seems to keep playing in the background") stays fixed.
+        if !StudioSession.shared.engineIsUsing(mine) {
+            player?.pause()
+            player?.replaceCurrentItem(with: nil)
+        }
         player = nil
         loader = nil
         StudioSession.shared.forgetSurfacePlayer(mine)

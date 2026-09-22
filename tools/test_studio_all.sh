@@ -400,6 +400,16 @@ fi
 swift_case "8.40 film-stall reasons" ArchiveWatch/ArchiveWatch/Studio/StudioFilmStall.swift \
   tools/test_studio_filmstall.swift
 
+# §D12a — a surface never pulls the film out from under a live show. The
+# black-programme fault: reproduced twice in eight runs with no signature,
+# because it needs a view rebuild at a particular moment in a live show.
+if bash tools/test_studio_playerlifetime.sh >"$SCRATCH/playerlifetime.log" 2>&1; then
+  row "8.45 player outlives a rebuild" PASS ""; PASS=$((PASS+1))
+else
+  row "8.45 player outlives a rebuild" FAIL "a teardown can black the programme"
+  FAIL=$((FAIL+1))
+fi
+
 # §D23's privacy rules for the screen source. The capture is measured on the
 # product path; this holds the part that went wrong, which was never capture.
 if [ "$(uname)" = "Darwin" ]; then

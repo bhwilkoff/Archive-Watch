@@ -2045,3 +2045,35 @@ implied by its absence.
 **Amends Rule 8.8e.** That rule named five placements; there are six, and the
 sixth is the first with a third picture in it. PARITY's "what Watch Together
 MEANS" table carries the row.
+
+## §D12a — A view being rebuilt is not a window being closed
+
+`PlayerSurface.teardown()` releases its `AVPlayer` only when no live show is
+reading it (`StudioSession.engineIsUsing(_:)`). When a show is live the player
+outlives the surface and `StudioSession.end()` releases it instead — and only
+when the surface is already gone, so a show that ends while the film is still
+on screen leaves it playing.
+
+**Why.** §D12 fixed the owner's report that a film kept playing with nothing
+left to stop it, by having a departing surface stop its player. That is right
+when a WINDOW closes. It is wrong when SwiftUI merely rebuilds the view: the
+engine may be holding that exact `AVPlayer`, and `replaceCurrentItem(with:
+nil)` leaves the compositor pulling from a player with no item. **The
+programme goes black while the FILM pane, the camera, the meters and the
+health line all stay correct** — which is why the logs of a black run and a
+healthy one were identical, line for line.
+
+It reproduced twice in eight runs on 2026-09-22 and then not at all in six
+more. That is the signature of a timing-dependent rebuild, and it is the kind
+of defect a source invariant catches and a run does not — §8.45 holds the
+shape, and fails when the unconditional teardown is put back.
+
+**How to apply.** Before releasing any resource a surface owns, ask whether
+something longer-lived is using it. The two lifetimes here are a VIEW's and a
+SHOW's, and they are not the same: a view is rebuilt for reasons that have
+nothing to do with the broadcast. When the two disagree, the show wins and
+whatever ends the show cleans up.
+
+**And `forgetSurfacePlayer` had been printing the answer all along.** It logs
+`engineHolds=YES` in exactly this case; it just did nothing with it. A
+diagnostic that names a condition nobody acts on is half a fix.

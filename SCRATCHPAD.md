@@ -473,7 +473,24 @@ emulators) · `docs/CAPTIONS.md` · `docs/SHAREPLAY.md` ·
    "ended" from "buffering", where a false positive is worse than today's
    silence.
 
-17-NEW. **THE MAC'S PROGRAM GOES BLACK ABOUT ONE RUN IN FOUR, AND NOTHING SAYS
+17-CLOSED 2026-09-22 — the cause was exact once it was LOOKED FOR rather
+   than reproduced. `PlayerSurface.teardown()` calls
+   `replaceCurrentItem(with: nil)` on the player IT owns, and the engine may
+   be holding that same object — leaving the compositor pulling from a player
+   with no item. §D12's fix (a departing surface stops its film, from the
+   owner's "no way to stop the audio at all") is right when a WINDOW closes
+   and wrong when SwiftUI merely REBUILDS the view, which is exactly why it
+   was intermittent: whether a rebuild lands during a live show is timing.
+   Guarded now by `StudioSession.engineIsUsing(_:)`, with `end()` releasing
+   the player the surface declined to — and only when the surface is already
+   gone, so a show ending under a visible player leaves it playing. §8.45
+   holds the shape and goes red when the unconditional teardown is put back.
+   **`forgetSurfacePlayer` had been printing the answer all along**: it logs
+   `engineHolds=YES` in precisely this case and did nothing with it. A
+   diagnostic that names a condition nobody acts on is half a fix.
+   Original item follows.
+
+17-orig. **THE MAC'S PROGRAM GOES BLACK ABOUT ONE RUN IN FOUR, AND NOTHING SAYS
    WHY** (2026-09-22, reproduced twice in eight). The FILM pane plays at 25 fps
    beside a STREAM pane that is black behind the lower third and the camera
    tile, the film row reads "no new frames", and the log of a black run is
