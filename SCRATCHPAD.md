@@ -617,7 +617,18 @@ the Studio and the projection window tears one surface down and builds another
 for the SAME id — with no ordering promise, a late teardown would forget the
 registration the new surface had just made. It compares the PLAYER now.
 
-Builds green on macOS, iOS and tvOS. v1.42.477 (1489).
+**THE SUITE CAUGHT MY OWN CHANGE**, which is what it is for: §8.12's
+`APPLE_SURFACES` list still named `GoLiveSheet_macOS.swift`, deleted by §D9, so
+three greps read a file that was not there. That is the "a harness's file list
+is a second copy of the module's shape" defect again (§6.2n). The list now
+points at `StudioWindow_macOS.swift` — where the gates actually live, and they
+all pass — and a MISSING file is now a FAILURE in its own right, so the list
+cannot quietly name a file nobody compiles.
+
+Suite **136 pass / 1 skip / 0 fail** (the skip is §8.3's ten-minute soak, which
+is skipped by default; nothing this session touched the engine's encode loop or
+the publisher, which is what it exercises). Kotlin **103 / 0 / 0**. Builds green
+on macOS, iOS and tvOS. v1.42.477 (1489).
 
 ### 2026-09-21 — the Mac Studio finished, and Watch Together got a transport
 
