@@ -11,6 +11,8 @@ struct RootView: View {
     @Environment(AppStore.self) private var store
     @Environment(AppRouter.self) private var router
     @Environment(\.modelContext) private var modelContext
+    /// The Studio is its own scene (§D1), so reaching it is `openWindow`.
+    @Environment(\.openWindow) private var openWindow
 
     var body: some View {
         // The player REPLACES the browse UI as the window root while playing (not an overlay on the
@@ -26,47 +28,14 @@ struct RootView: View {
                 browse
             }
         }
-        // Rule B13g — the go-live sheet, presented by the window ROOT because a
-        // menu command cannot present one itself, and because §B13a forbids a
-        // second window. A manual Binding rather than @Bindable so this works
-        // however `router` is declared upstream.
-        .sheet(isPresented: Binding(get: { router.showGoLive },
-                                    set: { router.showGoLive = $0 })) {
-            if let film = router.nowPlaying {
-                GoLiveSheetMac(film: film) { request in
-                    Task {
-                        do {
-                            // The credential path that became shared in §9.lll.
-                            // With no client id this throws, which is the state
-                            // the sheet already greys Go Live for — caught here
-                            // so a surprise cannot reach the host as a crash.
-                            let dest = try await StudioGoLive.destination(for: request, film: film)
-                            // A REHEARSAL MUST END BEFORE A BROADCAST BEGINS.
-                            // `attachIfArmed` guards on `!isLive`, and §D5's
-                            // preview leaves the engine RUNNING with no
-                            // destination — so arming for a real broadcast
-                            // would have been silently ignored and the host
-                            // would have pressed Go Live to no effect.
-                            if StudioSession.shared.isRehearsing {
-                                await StudioSession.shared.end()
-                            }
-                            StudioSession.shared.armDestination(dest)
-                            // THE HOST'S PLACEMENT. The sheet offers all five
-                            // and this handler dropped the answer on the floor,
-                            // so every macOS broadcast from the product path
-                            // went out as `corner` however the host had chosen.
-                            // Only the debug door applied it, which is exactly
-                            // why bench runs looked right.
-                            StudioSession.shared.armLayout(request.layout)
-                            _ = StudioSession.shared.arm(film: film)
-                        } catch {
-                            StudioSession.shared.refusal =
-                                "The broadcast could not start — \(error)."
-                        }
-                    }
-                }
-            }
-        }
+        // Rule B13g's GO-LIVE SHEET IS GONE (macOS-DESIGN §D9). It was
+        // presented by the window root, over the player, and configured a
+        // Studio that lives in a different window — which is how the owner
+        // came to find it by accident: "I think I may have found it hidden
+        // behind a button on the video player (rather than in the studio for
+        // some reason)." Everything it carried is now the Studio's Output
+        // column, in the order a host reads it. The menu command and the
+        // player's toolbar button remain and both OPEN THE STUDIO.
         .overlay {
             if !store.isReady {
                 ProgressView("Loading catalog…").controlSize(.large)
@@ -95,6 +64,25 @@ struct RootView: View {
             await DownloadAudit.run(store: store, container: modelContext.container)
         }
         .task { WatchTogether.shared.listen() }
+        // THE RED BUTTON STOPS THE FILM (§D12). Closing this window is not a
+        // quit, so SwiftUI keeps the scene's state — including a playing
+        // `AVPlayer` with no visible transport left to pause it, and a
+        // `nowPlaying` that would re-present the film on the next open as a
+        // second copy over the first. Clearing it here means re-opening lands
+        // on browse, which is what the host actually left.
+        .background(AWWindowCloseWatcher {
+            // ONLY THE SHOW THIS WINDOW WAS CARRYING (§D12). A broadcast run
+            // from the Studio window plays its film in the Studio's own SOURCE
+            // pane, and `nowPlaying` is nil — so ending the show here would
+            // take a host off air because they tidied away the browse window
+            // they were not using. The Studio has its own close watcher for
+            // the case that IS its own.
+            if router.nowPlaying != nil || router.nowPlayingEpisode != nil {
+                Task { await StudioSession.shared.end() }
+            }
+            router.nowPlaying = nil
+            router.nowPlayingEpisode = nil
+        })
         // A SharePlay session someone else started names a film; open it and
         // start playing so the coordinator has a player to sync. Without this the
         // Mac joined the group and then sat there — it could only ever be a
@@ -149,15 +137,13 @@ struct RootView: View {
                 // sound IN THE ROOM — the PROGRAM keeps its audio, or this door
                 // could never measure any. AW_STUDIO_MAC_SECONDS overrides the
                 // 120 s default.
-                // AW_GOLIVE_MAC=1 opens Rule B13g's sheet on launch, so the
-                // surface can be SEEN without a click — the same reason
-                // AW_AUTOPLAY exists (SwiftUI exposes no scriptable menu).
+                // AW_GOLIVE_MAC=1 puts the film in the STUDIO on launch, so
+                // §D9's checklist can be SEEN without a click — the same
+                // reason AW_AUTOPLAY exists (SwiftUI exposes no scriptable
+                // menu). It opened Rule B13g's sheet until §D9 removed it.
                 if env["AW_GOLIVE_MAC"] == "1" {
-                    router.play(it)
-                    Task { @MainActor in
-                        try? await Task.sleep(for: .seconds(2))
-                        router.showGoLive = true
-                    }
+                    StudioMacShow.shared.take(it, from: router)
+                    openWindow(id: StudioWindowID.studio)
                 }
                 // THE macOS GO-LIVE DOOR (§9.xxxx).
                 //
@@ -400,6 +386,11 @@ private struct WatchTogetherLanding: View {
                     .font(.title3).foregroundStyle(.secondary)
                     .multilineTextAlignment(.center).frame(maxWidth: 520)
 
+                // §D13: three controls, each at its ideal width, none of
+                // them abbreviated. They fit at the window's 960-point
+                // minimum, so this needs no collapse — the rule is that a
+                // label is never squeezed, not that every row must have a
+                // fallback it will never reach.
                 HStack(spacing: 12) {
                     Button {
                         openWindow(id: StudioWindowID.studio)
@@ -407,16 +398,16 @@ private struct WatchTogetherLanding: View {
                         Label("Open the Studio", systemImage: "slider.horizontal.3")
                             .padding(.horizontal, 6)
                     }
-                    .controlSize(.large).buttonStyle(.borderedProminent)
+                    .controlSize(.large).buttonStyle(.borderedProminent).fixedSize()
 
-                    Button {
-                        router.showGoLive = true
-                    } label: {
-                        Label("Go Live…", systemImage: "dot.radiowaves.left.and.right")
-                            .padding(.horizontal, 6)
-                    }
-                    .controlSize(.large)
-                    .disabled(router.nowPlaying == nil)
+                    // "Go Live…" USED TO PRESENT THE SHEET HERE and was
+                    // disabled with nothing playing. §D9 folded the form into
+                    // the Studio's Output column, so this button and the one
+                    // beside it would now do the identical thing — and a
+                    // second control for one action is how a host presses the
+                    // wrong one (§B13d's reasoning). It is gone; "Open the
+                    // Studio" is the whole answer, and it is never disabled,
+                    // because §D7 lets a host choose the film in there.
 
                     // JOIN, which needs no camera and no microphone (§11.10).
                     // Decision 132 gates HOSTING on being able to be in the
@@ -433,6 +424,7 @@ private struct WatchTogetherLanding: View {
                             .padding(.horizontal, 6)
                     }
                     .controlSize(.large)
+                    .fixedSize()
                     .disabled(router.nowPlaying == nil || RoomJoin.shared.hostCode != nil)
 
                     Button {
@@ -442,6 +434,7 @@ private struct WatchTogetherLanding: View {
                             .padding(.horizontal, 6)
                     }
                     .controlSize(.large)
+                    .fixedSize()
                 }
 
                 // HOSTING A ROOM. The code is the whole interface: it is read
@@ -630,16 +623,18 @@ private struct CreationStudioLanding: View {
                 .font(.title3).foregroundStyle(.secondary)
                 .multilineTextAlignment(.center).frame(maxWidth: 480)
 
+            // §D13: two controls at their ideal widths.
             HStack(spacing: 12) {
                 Button { NSDocumentController.shared.newDocument(nil) } label: {
                     Label("New Project", systemImage: "plus").padding(.horizontal, 6)
                 }
-                .controlSize(.large).buttonStyle(.borderedProminent).keyboardShortcut("n")
+                .controlSize(.large).buttonStyle(.borderedProminent).keyboardShortcut("n").fixedSize()
                 Button { openProject() } label: {
                     Label("Open Project…", systemImage: "folder").padding(.horizontal, 6)
                 }
-                .controlSize(.large).keyboardShortcut("o")
+                .controlSize(.large).keyboardShortcut("o").fixedSize()
             }
+            .frame(maxWidth: .infinity, alignment: .leading)
 
             VStack(alignment: .leading, spacing: 4) {
                 Text("Recent Projects").font(.headline).padding(.bottom, 2)

@@ -141,7 +141,22 @@ struct RenderOverlay {
         for (name, card) in [("soon", StudioOverlay.Card.startingSoon(secondsRemaining: 95)),
                              ("soon-zero", .startingSoon(secondsRemaining: 0)),
                              ("intermission", .intermission),
-                             ("ending", .ending)] {
+                             ("ending", .ending),
+                             // §D10 — the host's own words, in four ranks and
+                             // in one. The one-line case is the one that
+                             // matters: an editor with four empty slots must
+                             // not reserve three bands of black, and the block
+                             // must still be optically centred.
+                             ("custom", .custom(lines: [
+                                .init(id: 0, text: "Back in five", rank: .display),
+                                .init(id: 1, text: "Stretch your legs \u{2014} the projectionist needs a minute", rank: .body),
+                                .init(id: 2, text: "", rank: .body),
+                                .init(id: 3, text: "archivewatch.org", rank: .caption)])),
+                             ("custom-one-line", .custom(lines: [
+                                .init(id: 0, text: "", rank: .display),
+                                .init(id: 1, text: "Thanks for riffing along", rank: .heading),
+                                .init(id: 2, text: "", rank: .body),
+                                .init(id: 3, text: "", rank: .caption)]))] {
             var c = o
             c.card = card
             renderer.overlay = c

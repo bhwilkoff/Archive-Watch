@@ -162,6 +162,77 @@ public final class StudioSession {
         return arm(film: film)
     }
 
+    // MARK: - A surface that already has a player (macOS-DESIGN §D7)
+
+    /// The player the visible surface is driving, whether or not a show is
+    /// armed, and which film it is playing.
+    ///
+    /// WHY THIS EXISTS. `attachIfArmed` is called once, when a player is
+    /// BUILT, and it is a no-op unless the session was armed before that
+    /// moment. That was exactly right while the only way to reach the Studio
+    /// was to arm from Detail and then start playing — arm, then build, then
+    /// attach, in that order every time.
+    ///
+    /// §D7 reverses the order: the Studio window holds the film, so the player
+    /// exists first and the host decides to produce a show second. Without a
+    /// record of the running player, pressing Start preview would set
+    /// `armedFilmID` and nothing would ever come to collect it — the engine
+    /// would never be built, and the Studio would report "not attached" for
+    /// every input while looking entirely healthy. That is the shape of
+    /// Decision 133's defect (a value that lands nowhere), and the fix is the
+    /// same one: remove the timing question rather than ask each caller to get
+    /// it right.
+    private weak var surfacePlayer: AVPlayer?
+    private var surfaceArchiveID: String?
+
+    /// Called by every macOS/iOS player surface as soon as it has a player.
+    /// Carries the old `attachIfArmed` behaviour unchanged, and remembers the
+    /// player so a show armed LATER can still find it.
+    public func registerSurfacePlayer(_ player: AVPlayer, archiveID: String) async {
+        surfacePlayer = player
+        surfaceArchiveID = archiveID
+        await attachIfArmed(player: player, archiveID: archiveID)
+    }
+
+    /// The surface is going away; forget its player rather than keep a stale
+    /// one that a later `beginShow` would try to broadcast.
+    ///
+    /// IT COMPARES THE PLAYER, NOT THE FILM. Moving a film between the Studio
+    /// and the projection window (§D7) tears one surface down and builds
+    /// another for the SAME archive id, and SwiftUI does not promise that the
+    /// old one's `onDisappear` runs before the new one's `onAppear`. Keyed on
+    /// the id alone, a late teardown would forget the registration the new
+    /// surface had just made — and `beginShow` would then arm a show with no
+    /// player to attach, which looks exactly like the Studio doing nothing.
+    public func forgetSurfacePlayer(_ player: AVPlayer?) {
+        guard let player, surfacePlayer === player else { return }
+        surfacePlayer = nil
+        surfaceArchiveID = nil
+    }
+
+    /// Arm a show for a film that is ALREADY playing (§D7).
+    ///
+    /// `destination` nil is §D5's rehearsal — the same path a broadcast takes,
+    /// sending nowhere, because the preview must not be able to diverge from
+    /// the programme. Returns false when the rights gate refused, and
+    /// `refusal` carries the sentence.
+    @discardableResult
+    func beginShow(film: Catalog.Item, destination: URL?) async -> Bool {
+        guard !isLive else { return true }
+        armDestination(destination)
+        guard arm(film: film) else { return false }
+        // THE CAMERA AND THE MICROPHONE ARE ASKED FOR HERE (§D11), before the
+        // engine is built, because `attachCameraIfAvailable` reads the
+        // authorisation status and returns silently when it is not yet
+        // `.authorized` — which on macOS it always was, since nothing in the
+        // product path had ever asked.
+        _ = await requestCaptureAccess()
+        if let p = surfacePlayer, surfaceArchiveID == film.archiveID {
+            await attachIfArmed(player: p, archiveID: film.archiveID)
+        }
+        return isLive
+    }
+
     /// Called by the player surface once it has an `AVPlayer` for the armed
     /// film. A no-op unless this is the film the host armed — a host who goes
     /// live on one title and then plays another has not armed the second.
@@ -332,6 +403,84 @@ public final class StudioSession {
     static func attachHostCamera(to engine: StudioEngine) async -> AVCaptureSession? {
         await shared.attachCameraIfAvailable(to: engine)
         return await shared.capture
+    }
+
+    // MARK: - Permission, and changing a device mid-show (macOS-DESIGN §D11)
+
+    /// What macOS/iOS will let the Studio see and hear, as four distinct
+    /// states rather than one silent `return`.
+    ///
+    /// THE RULE THIS REPLACES: every Apple path here said "the Studio REPORTS,
+    /// never REQUESTS", and that came from tvOS, where raising a system prompt
+    /// on a television in someone's living room is a real intrusion. Carried
+    /// to the Mac it meant `authorizationStatus` sat at `.notDetermined` for
+    /// the life of the product, because nothing in the macOS product path has
+    /// ever called `requestAccess` — only `StudioLab` (DEBUG), the iOS go-live
+    /// sheet and the tvOS one do. So the Studio's camera row read
+    /// **"not attached"** forever and there was no way for a host to change
+    /// that from inside the app. Owner, 2026-09-22: *"I cannot seem to attach
+    /// any cameras (not even the facetime camera) to the studio."*
+    public enum CaptureAccess: Sendable, Equatable {
+        case notAsked, granted, denied, restricted
+    }
+
+    public static func access(for media: AVMediaType) -> CaptureAccess {
+        switch AVCaptureDevice.authorizationStatus(for: media) {
+        case .authorized: return .granted
+        case .denied: return .denied
+        case .restricted: return .restricted
+        case .notDetermined: return .notAsked
+        @unknown default: return .denied
+        }
+    }
+
+    /// Ask for the camera and the microphone, then rebuild whatever is running.
+    ///
+    /// EXPLICIT, never on opening a window: this is called when the host starts
+    /// a preview, goes live, or presses the row's own "Allow" button. A camera
+    /// light that comes on because somebody opened a window is a surprise, not
+    /// a feature — that reasoning stands; what did not stand was never asking
+    /// at all.
+    @discardableResult
+    public func requestCaptureAccess() async -> (camera: CaptureAccess, microphone: CaptureAccess) {
+        #if os(macOS) || os(iOS)
+        if AVCaptureDevice.authorizationStatus(for: .video) == .notDetermined {
+            _ = await AVCaptureDevice.requestAccess(for: .video)
+        }
+        if AVCaptureDevice.authorizationStatus(for: .audio) == .notDetermined {
+            _ = await AVCaptureDevice.requestAccess(for: .audio)
+        }
+        // A grant that arrives DURING a show has to reach the show. Without
+        // this, allowing the camera mid-broadcast would store a TCC answer and
+        // change nothing visible until the next one.
+        if isLive { await rebuildCapture() }
+        #endif
+        return (Self.access(for: .video), Self.access(for: .audio))
+    }
+
+    /// Swap the camera or the microphone while the show is running (§D11).
+    ///
+    /// §D2 used to say "device changes take effect on the next broadcast", and
+    /// the Studio disabled both pickers while live on the strength of it. The
+    /// fact behind that sentence is true — an `AVCaptureSession` is configured
+    /// once — and the conclusion drawn from it was not. **The capture session
+    /// is not the encoder.** The camera tile is COMPOSITED into the program, so
+    /// the wire never learns which device produced those pixels; §D4's
+    /// "not while live" belongs to resolution and frame rate, which an RTMP
+    /// ingest genuinely will not accept mid-publish, and does not reach here.
+    ///
+    /// So this tears the session down and builds a new one in place. The
+    /// engine keeps running throughout: `attachCamera(tap:)` and
+    /// `attachMicrophone(tap:)` REPLACE the tap rather than adding one, and a
+    /// program with no camera frames for a moment draws the film alone, which
+    /// is Rule 8.8's normal state rather than a fault.
+    public func rebuildCapture() async {
+        #if os(macOS) || os(iOS)
+        guard let engine else { return }
+        capture?.stopRunning()
+        capture = nil
+        await attachCameraIfAvailable(to: engine)
+        #endif
     }
 
     private func attachCameraIfAvailable(to engine: StudioEngine) async {

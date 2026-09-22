@@ -86,6 +86,14 @@ final class StudioOverlayRenderer: @unchecked Sendable {
             case .startingSoon(let s): return "card:soon:\(s)|\(o.title)"
             case .intermission: return "card:intermission|\(o.title)"
             case .ending: return "card:ending"
+            // Every line and every rank, because both change the pixels. A key
+            // that named only the text would keep a cached raster when the
+            // host re-ranked a line, which is precisely the kind of "the
+            // control moved and the program did not" that Decision 133 is
+            // about — one cache miss away from the same class of bug.
+            case .custom(let lines):
+                return "card:custom|" + lines.map { "\($0.rank.rawValue):\($0.text)" }
+                    .joined(separator: "\u{1F}")
             }
         }
         guard o.showLowerThird, !o.title.isEmpty else { return "" }
@@ -356,9 +364,23 @@ final class StudioOverlayRenderer: @unchecked Sendable {
         ctx.setFillColor(Self.ink)
         ctx.fill(CGRect(origin: .zero, size: size))
 
+        // THE HOST'S OWN WORDS (§D10) take a different block, because a fixed
+        // card has a known shape — wordmark, rule, headline, detail — and a
+        // custom one has however many lines the host wrote. It shares the
+        // ground, the wordmark and the rule, so the two read as the same
+        // object; only the middle is theirs.
+        if case .custom(let lines) = card {
+            drawCustom(lines: lines, in: ctx)
+            return
+        }
+
         let headline: String
         let detail: String
         switch card {
+        case .custom:
+            // Handled above; the compiler cannot know that, and a `default`
+            // here would silently absorb the NEXT card anyone adds.
+            return
         case .startingSoon(let seconds):
             headline = "Starting soon"
             detail = seconds > 0 ? Self.clock(seconds) : "any moment now"
@@ -410,6 +432,88 @@ final class StudioOverlayRenderer: @unchecked Sendable {
         ctx.fill(CGRect(x: centre.x - ruleW / 2, y: y, width: ruleW, height: 3 * scale))
         y += 3 * scale + ruleGap
         draw(mark, at: CGPoint(x: centre.x - width(mark) / 2, y: y), in: ctx)
+    }
+
+    /// A card of the host's own lines (§D10).
+    ///
+    /// The four ranks map to the project's own hierarchy — CLAUDE.md's "three
+    /// weights × two sizes = six levels", of which a card uses four. They are
+    /// the SAME sizes and weights the fixed cards use, which is why a custom
+    /// card cannot look like a different product: Display is the 96-point
+    /// semibold of "Thanks for watching", Body is the 40-point regular of
+    /// "back shortly", Caption is the 26-point of the wordmark.
+    ///
+    /// Lines are laid out from the block's real height so the stack is
+    /// optically centred, exactly as the fixed cards are — a custom card with
+    /// one line and one with four must both sit in the middle of the frame.
+    private func drawCustom(lines: [StudioOverlay.CardLine], in ctx: CGContext) {
+        let mark = line("ARCHIVE WATCH", font: font(26, weight: 0.4),
+                        color: Self.marqueeOrange, tracking: 4)
+
+        // AN EMPTY LINE IS DROPPED, not drawn as a gap. The host's editor
+        // starts with four slots so there is somewhere to type; three of them
+        // are usually blank, and a blank slot must not push the block
+        // off-centre or reserve a band of black.
+        let written = lines.filter { !$0.text.trimmingCharacters(in: .whitespaces).isEmpty }
+        // §D10: an empty custom card is not shown. Reaching here with nothing
+        // to say would paint the frame black over the film, which is a fault
+        // rather than a choice — so the ground stays, the wordmark stays, and
+        // the card at least identifies itself.
+        let drawn: [(CTLine, CGFloat)] = written.prefix(4).map { l in
+            let points = Self.points(for: l.rank)
+            return (line(l.text, font: font(points, weight: Self.weight(for: l.rank)),
+                         color: Self.colour(for: l.rank)), points * scale)
+        }
+
+        let markH = 26 * scale, ruleGap = 22 * scale, gap = 30 * scale
+        var blockH = markH + ruleGap + 3 * scale
+        if !drawn.isEmpty {
+            blockH += gap + drawn.map(\.1).reduce(0, +)
+                + gap * CGFloat(max(0, drawn.count - 1))
+        }
+
+        let centre = CGPoint(x: size.width / 2, y: size.height / 2)
+        var y = centre.y - blockH / 2      // baseline of the LOWEST line
+
+        // Bottom-up, because y is a baseline and the stack is built from the
+        // bottom — so the host's lines are drawn in reverse and read in order.
+        for (text, height) in drawn.reversed() {
+            draw(text, at: CGPoint(x: centre.x - width(text) / 2, y: y), in: ctx)
+            y += height + gap
+        }
+        if !drawn.isEmpty { y -= gap }
+        y += gap
+
+        ctx.setFillColor(Self.marqueeOrange)
+        let ruleW = 120 * scale
+        ctx.fill(CGRect(x: centre.x - ruleW / 2, y: y, width: ruleW, height: 3 * scale))
+        y += 3 * scale + ruleGap
+        draw(mark, at: CGPoint(x: centre.x - width(mark) / 2, y: y), in: ctx)
+    }
+
+    private static func points(for rank: StudioOverlay.CardLine.Rank) -> CGFloat {
+        switch rank {
+        case .display: return 96
+        case .heading: return 56
+        case .body:    return 40
+        case .caption: return 26
+        }
+    }
+
+    private static func weight(for rank: StudioOverlay.CardLine.Rank) -> CGFloat {
+        switch rank {
+        case .display, .heading: return 0.4      // semibold
+        case .body:              return 0.0      // regular
+        case .caption:           return 0.3      // medium
+        }
+    }
+
+    private static func colour(for rank: StudioOverlay.CardLine.Rank) -> CGColor {
+        switch rank {
+        case .display, .heading: return Self.paper
+        case .body:              return CGColor(gray: 0.85, alpha: 1)
+        case .caption:           return CGColor(gray: 0.72, alpha: 1)
+        }
     }
 
     private static func clock(_ seconds: Int) -> String {

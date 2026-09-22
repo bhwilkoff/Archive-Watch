@@ -45,6 +45,20 @@ emulators) · `docs/CAPTIONS.md` · `docs/SHAREPLAY.md` ·
 
 ### Open owner items (nothing else is blocked)
 
+0-NEW. **PRESS "ALLOW THE CAMERA" ONCE, IN THE MAC STUDIO** (2026-09-22). The
+   macOS product path had NEVER called `AVCaptureDevice.requestAccess` — only
+   `StudioLab` (DEBUG), the iOS sheet and the tvOS one did — so
+   `authorizationStatus` was `.notDetermined` for the life of the app and the
+   Studio's camera row read "not attached" forever with nothing to press. That
+   is the owner's *"I cannot seem to attach any cameras (not even the facetime
+   camera)"*. The row now offers **Allow the camera** (and **Open System
+   Settings** if it has been denied), and `beginShow` asks before building the
+   engine. **It is a TCC grant on the owner's own Mac, so it is deliberately
+   NOT pressed by the harness** — the same rule as the iPhone's Local Network
+   prompt. Until it is pressed, the Mac's camera tile is code that has never
+   run, and this line says so rather than claiming a fix that has not been
+   exercised. The microphone is already granted (Creation Studio's voiceover).
+
 1. **Roku 1.0.65** was scheduled to go live 2026-09-14 5:00 PM PT. Pulse
    detects it (App Health crash logs carry an `App Version`); confirm and
    update `ops/stores-manual.json`.
@@ -520,6 +534,91 @@ keep serving it.
 
 ## Session Log
 
+### 2026-09-22 — the Studio became the whole surface, and a button learned to say what it does
+
+The owner ran the shipped macOS Studio for the first time and reported six
+things. **Four of them were not defects in the build — they were rules that
+were wrong, faithfully implemented** (Decision 134, macOS-DESIGN §D7-§D13).
+
+**THE STUDIO NOW CONTAINS THE BROADCAST.** §D1 gave it a window and left the
+film in a different one, so it was a window of controls for a show it did not
+hold. It now carries a FILM CHOOSER (search the catalogue from inside it;
+rights-refused titles are SHOWN with their reason — *"This film is probably in
+the public domain but nothing proves it"* — rather than hidden), the film's own
+player in a **SOURCE** pane beside the **PROGRAM** preview (§D8, OBS's split),
+and "Open in a separate window" that MOVES the film out for projection and
+never copies it. Seen on the glass at 1300x1000 with Caligari and with Buster
+Keaton's *The Scarecrow*.
+
+**THE GO-LIVE SHEET IS DELETED.** Rule B13g asked where a host PRESSES Go Live
+and never where they DECIDE to, which is how the owner found it: *"I think I may
+have found it hidden behind a button on the video player (rather than in the
+studio for some reason.)"* Everything it carried is the Studio's **Output**
+column now — platform, the shared sign-in row (reading **"YouTube — Learning is
+Change"** on this Mac), the readiness answer, the title, privacy, the rights
+sentence, and a Go Live that is disabled with the reason above it. ⇧⌘L and the
+player's toolbar button open the Studio.
+
+**THE CAMERA HAD NEVER BEEN ASKED FOR.** *"I cannot seem to attach any cameras
+(not even the facetime camera) to the studio."* They could not: nothing in the
+macOS product path has ever called `requestAccess`, so
+`authorizationStatus` was `.notDetermined` for the life of the app and the row
+read **"not attached"** forever with nothing to press. The rule behind it —
+*"the Studio REPORTS, never REQUESTS"* — came from tvOS, where a prompt in a
+living room is a real intrusion, and on a Mac it was a dead end with a label on
+it. Four states now say their own names, with **Allow the camera** on
+`.notDetermined` and **Open System Settings** on denied. **OWNER STEP: press
+Allow once.**
+
+**AND THE DEVICE PICKERS ARE LIVE.** §D2 said "device changes take effect on
+the next broadcast", from a true fact (an `AVCaptureSession` is built once) and
+a wrong conclusion: the capture session is not the encoder, the tile is
+COMPOSITED, and the wire never learns which device made the pixels. §D4's "not
+while live" belongs to resolution and frame rate alone.
+
+**A CARD OF THE HOST'S OWN WORDS** (§D10) — four lines, each ranked Display /
+Heading / Body / Caption from the project's own six levels. Rendered and LOOKED
+AT (`build/qa/studio-overlay/card-custom*.png`): empty lines dropped, one-line
+and four-line cards both optically centred, same wordmark and rule as the three
+fixed ones. **Writing it produced a chicken-and-egg bug that only the glass
+found**: the picker read its value back out of `card`, and §D10 says an empty
+custom card is never shown — so choosing "My own words" set `card` to nil, the
+picker snapped back to "No card", and the editor never appeared. The CHOICE is
+now its own state, separate from what the engine is drawing.
+
+**THE BUTTON RULE TOOK TWO PASSES, AND THE FIRST ONE WAS WRONG.** *"Button
+text should never be truncated or abbreviated."* The first answer was a
+wrapping `Layout` — which kept the words and destroyed the design: seven large
+buttons reflowed into three ragged rows with "Share" stranded alone on the
+last. The owner, correctly: *"We don't want button wrapping. We want actual
+designed buttons that say what they mean and perform like macOS buttons
+should."* So `ViewThatFits` over arrangements that were each DESIGNED — at
+1500 points all seven; at 1150 **Play · Favorite · Add to Playlist · More**; at
+the 960 minimum **Play · Favorite · More** — with every control `.fixedSize()`
+(without it the first arrangement always "fits", by squeezing) and a native
+More menu that still says every word. The layout was deleted. The rule reaches
+past buttons: the same screen was rendering "Rev. Arthur Di…" and "Roger Prynne
+a…" under cast portraits, and the row was centre-aligned so portraits hung at
+different heights.
+
+**THE FILM THAT WOULD NOT STOP** (§D12). *"The movie continued to play and then
+when I opened the interface back up, a new copy of the movie started playing …
+there is no way to stop the audio at all at that point."* `teardown()` did
+everything its name implies except stop the player: it removed observers,
+cancelled tasks and saved progress, and left the `AVPlayer` running — and macOS
+keeps a closed `WindowGroup` window's `@State`, so the player survived with no
+view left to pause it and the next open built a second one over the first.
+**Measured**: 4.0% CPU playing → **0.0% after the red button**, and re-opening
+landed on Detail rather than a second copy.
+
+**A defect I introduced and caught by reading the projection path**:
+`forgetSurfacePlayer` was keyed on the archive id, and moving a film between
+the Studio and the projection window tears one surface down and builds another
+for the SAME id — with no ordering promise, a late teardown would forget the
+registration the new surface had just made. It compares the PLAYER now.
+
+Builds green on macOS, iOS and tvOS. v1.42.477 (1489).
+
 ### 2026-09-21 — the Mac Studio finished, and Watch Together got a transport
 
 Owner /loop, 5-minute cron, standing prompt: *"continue to work on the
@@ -658,150 +757,5 @@ overlaps it. **Never pass `-R` on the owner's machine.**
 
 Suite 135 pass / 2 skip / 0 fail (the soak, run and passed separately; §8.21,
 machine in use). Kotlin 89/0/0.
-
-### 2026-09-20 (evening) — both phones proven, and three things macOS had never learned
-Same standing /loop. The owner supplied the two things that were blocking:
-YouTube sign-in plus camera/mic on the iPhone 12, and the Pixel's adb pairing
-code.
-
-**BOTH PHONES NOW BROADCAST END TO END.** iPhone 12 to YouTube on the product
-path — `AWCAM attached camera=Front Camera mic=iPhone Microphone`, `AWPUB
-publishing`, `AWPROV provenance cleared 20s after going live` — **confirmed
-from YOUTUBE's own side**, the channel's `liveBroadcasts` totalResults going
-59 -> 61. Pixel 8a to a real server with film, camera tile and audio
-(mean -27.3 dB), read back from the server's own recording. First phone-class
-Android numbers ever: **20-22 fps against the Google TV dongle's 13**.
-
-**THE FIRST PHONE FOUND TWO DEFECTS NO TELEVISION COULD.** The display pass set
-`glViewport` to the whole host surface — right where both surfaces are 16:9,
-wrong on a 1080x2400 phone, so the program went to 2.22:1 and the owner
-reported the film "heavily stretched vertically". The §9 warning that "the
-viewport belongs to the surface" was already written, from this same defect in
-its other form, and it named 1920x1080 as the host's size: that is how the
-assumption survived. And **`filmAspect` was declared with a 16:9 default and
-assigned by NOTHING**, so every film that is not 16:9 was published stretched —
-most of this catalogue, since a silent film is 4:3. Caligari went out filling a
-1.778 frame with no pillarbox; it now spans x=160..1120 of 1280, exactly 1.333.
-
-**THE OWNER'S RULE ABOUT WHAT THE FEATURE IS.** Shown that Google TV and Fire
-TV were quietly offering a film-only broadcast, they gave a better rule than
-either option offered: *"a broadcast with no camera and no microphone is not
-watching together ... everyone might as well just watch the movie on their
-own."* Decision 132 — the gate is that the HOST can be in the show. Android
-Watch Together now means the phone and nothing else.
-
-**AND THE ANDROID TWITCH PATH HAD NEVER OPENED THE HOST AT ALL.** `startIfArmed`
-has two exits and the Twitch branch returned without `openHost`, so every
-broadcast reaching a real Twitch destination carried the film and nothing of
-the person watching it. The bench path had it, which is why the harness never
-noticed. Separately `openHost` was a one-shot against a camera texture the
-render thread had not created yet — the microphone had had a retry since it was
-written, the camera never did, and that asymmetry was the whole bug.
-
-**THREE THINGS macOS HAD NOT LEARNED FROM THE TELEVISION**, all found by
-reading tvOS's code rather than the docs, and all the same shape — a behaviour
-written into one platform's file and believed to be the product's:
-camera-stall RECOVERY (lived in the tvOS view; macOS borrows iPhones and drops
-the same way); the **"film's audio is not being sent" warning** (lived in the
-same view, and tvOS needs it LEAST — it pulls audio by film position, while
-macOS and iOS use the tap that actually fails); and the **Continuity preset
-CRASH fix**, which had been applied in `StudioContinuity` alone while the
-shared host-camera path still set a preset before adding its input. All three
-are now shared, and the Mac was made to BROADCAST rather than merely compile:
-camera, mic, both tracks, theatre at 729 px of 1920.
-
-**`.inputPriority` IS UNAVAILABLE ON macOS**, which is the platform that fix is
-most for. Copying tvOS's line verbatim would not have compiled — the macOS
-verb is to leave the preset at its default `.high`, which negotiates instead of
-demanding.
-
-**PARITY WORK THE OWNER ASKED FOR**: *"close gaps that can be closed on any
-platform."* Camera placement was broken everywhere — **"Theatre row (you along
-the bottom)" was "corner" moved 64 pixels down**, the same tile in the same
-corner, on every Apple platform. Android had two of the five placements
-(a boolean and a hardcoded corner); tvOS had ONE, with `layout: .corner`
-hardcoded in the request. All three fixed; `StudioLayoutTest` pins the Kotlin
-numbers to the Swift ones so they cannot drift.
-
-**FOUR INSTRUMENTS LIED TODAY**, which is the recurring lesson rather than a
-footnote. `devicectl --console` captures STDOUT only, so every `awdiag` line
-(NSLog) was invisible and four launches read as "the harness cannot deliver
-environment variables" — it delivers them fine; the DOOR was on the tvOS root
-and iOS has its own. `strings` found neither my new literal nor `AWCAP` in a
-binary where `AWCAP` demonstrably prints. `-v error` suppresses
-`volumedetect`'s own output, so every film read as silent. And a devicectl
-screenshot SUCCEEDED against a sleeping television, producing a black frame
-that looks exactly like an app rendering black.
-
-**Corrections owed**: I said Android had no OAuth at all — it has Twitch's
-device flow, a token store, a sign-in screen and a configured client id, and
-that stale note is why Android platform testing kept being deprioritised. I
-said the 20-second provenance expiry explained the owner's overlay complaint —
-it does not, the expiry works. I wrote a comment into the codebase asserting
-`devicectl` could not deliver environment variables, which was never
-established, and removed it. And a scripted correction HALF-LANDED: the python
-assertion failed on one file while the commit went ahead, so the repo briefly
-carried the fix in PARITY and the falsehood in SCRATCHPAD.
-
-**Still owner-gated**: a Twitch device code on the Pixel (raised 18:04, lapsed
-unapproved) — one browser approval and Android is proven against a real
-platform rather than a bench. And the tvOS placement picker is built and
-suite-green but UNPHOTOGRAPHED: `devicectl device capture screenshot` fails on
-Ben Bedroom with `com.apple.Mercury.error 1001` whenever the app is actually
-rendering, and succeeds only when the panel is asleep.
-
-Suite 110 pass / 1 skip / 0 fail; Kotlin 87 / 6 skipped / 0 fail.
-
-**LATER THAT EVENING — one defect shape, five times, and three blockers that
-were never real.**
-
-**THE SHAPE**: a value a host sets that never reaches the engine. Found in
-`GoLiveTV.request()` (`layout: .corner` hardcoded), in `DetailView`
-(`setLayout(.corner)` hardcoded), in the macOS SHEET (`request.layout` simply
-not read, so every Mac broadcast went out as `corner` however the host chose —
-and the macOS DOOR waited for `isLive` and set it, which is why every bench run
-I had ever done looked right), in Android's engine (read once at arm, so the
-picker was inert on the ONE platform whose picker exists only while live), and
-in the macOS panel (opening on `.corner` over a show that was doing something
-else). Each was found by DRIVING the product, and each one only because the
-previous made me look. `StudioSession.armLayout` now removes the timing
-question rather than adding a sixth caller that remembers.
-
-**AND I PRODUCED A FRESH INSTANCE WHILE WRITING ABOUT THE OTHERS.** The
-camera-stall recovery and the film-audio warning went into
-`StudioSession.startPump` and were committed as reaching "macOS and iOS".
-**iOS never arms or starts that object** — its container owns an engine and a
-loop of its own — so both were inert on the phone, and `StudioControls_iOS`
-was reading a warning nothing wrote. The shared TYPE looked like shared
-BEHAVIOUR. It surfaced not by re-reading code but by running §6.4 and finding
-the publisher's counters missing from the phone's diagnostics: I went looking
-for a logging gap and found a behavioural one.
-
-**THREE BLOCKERS THE DOCS ATTRIBUTED TO THE OWNER, NONE REAL.** "Android has
-no OAuth at all" (it has Twitch's device flow, a token store, a sign-in screen
-and a configured client id — nobody had signed in). The iOS Local Network
-prompt (an iPhone and an Apple TV both published to a local server on the first
-attempt, no prompt). And item 9a's iOS encoder readout, framed as needing "a
-screenshot" — it is a log line, and it says `hardware=true`. Each had been
-steering what got worked on, including by me. Killing the second one closed
-FOUR rows in ninety minutes: iOS placement on the wire, chat on iOS and tvOS,
-and §6.6's reconnect (0.7 s, agreed by both the app and the server).
-
-**§6.4 PASSES ON A PHONE** — queued 0 / 30 fps / 0 dropped, then 1.2-1.6 MB /
-1.8 fps / 834 dropped with audio unbroken at 43.8/s, then recovery. An earlier
-run of the same test "passed" while nothing happened to the stream, because I
-measured `pts_time` from the recording — MEDIA time, continuous by construction
-(§9.zzzzz, written down as a negative result rather than quietly re-run).
-
-**PARITY CLOSED**: all five camera placements on iOS, macOS, Android and tvOS,
-each proved ON THE WIRE; cards on Android (its panel, its words pinned to
-Apple's by test); camera-stall recovery on Android, INDUCED on hardware by
-making another app take the camera — where its first readout said "no camera"
-over a camera that had just reconnected, because it asked a stale `problem`
-string instead of what the re-open returned.
-
-**Still owner-gated, and unlike the three above these are real**: a Twitch
-device code on the Pixel (a browser approval), and whether tvOS should have
-cards at all given Rule 8.8c keeps that surface to two channels and a rotation.
 
 Older entries: `docs/SESSION-LOG.md` (verbatim, back to 2026-04-17).

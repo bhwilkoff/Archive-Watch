@@ -183,6 +183,51 @@ public struct StudioOverlay: Sendable, Equatable {
         case startingSoon(secondsRemaining: Int)
         case intermission
         case ending
+        /// THE HOST'S OWN WORDS (macOS-DESIGN §D10).
+        ///
+        /// Owner, 2026-09-22: *"I'd like to be able to have a 'free text'
+        /// option for the Cards. Ideally with multiple lines of different
+        /// weights as the cards exist now."*
+        ///
+        /// The three fixed cards cover the three moments a watch-along always
+        /// has. They do not cover the moment a host wants to say something
+        /// else, and the answer to that was to say it aloud or not at all.
+        ///
+        /// What this deliberately is NOT: a text layer, a font picker, a
+        /// colour picker or a position control. A card is a full-frame
+        /// interruption drawn in the app's own typography. The host chooses
+        /// the WORDS and their RANK; the design system keeps everything else,
+        /// exactly as it does for the three fixed cards.
+        case custom(lines: [CardLine])
+    }
+
+    /// One line of a custom card: the text, and which of the project's own
+    /// hierarchy levels it occupies.
+    ///
+    /// The ranks are the SIX LEVELS CLAUDE.md already allows ("three weights ×
+    /// two sizes"), named for what they do in a card rather than by point
+    /// size, so the card cannot grow a seventh — which is the refusal that
+    /// rule exists to make easy.
+    public struct CardLine: Sendable, Equatable, Identifiable, Hashable {
+        public enum Rank: String, Sendable, Equatable, CaseIterable, Hashable {
+            case display, heading, body, caption
+
+            public var label: String {
+                switch self {
+                case .display: return "Display"
+                case .heading: return "Heading"
+                case .body: return "Body"
+                case .caption: return "Caption"
+                }
+            }
+        }
+        public var id: Int
+        public var text: String
+        public var rank: Rank
+
+        public init(id: Int, text: String, rank: Rank) {
+            self.id = id; self.text = text; self.rank = rank
+        }
     }
 
     public init() {}

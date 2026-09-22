@@ -20,6 +20,19 @@ private struct StudioWindowCommand: View {
     }
 }
 
+/// Go Live — the same window, named for what a host is about to do (§D9).
+/// Two commands for one window is deliberate: "Watch Together Studio" is where
+/// a host goes to set up, "Go Live…" is what they came to do, and a menu that
+/// only offers the first makes the second look absent (which is exactly the
+/// report this rule came from).
+private struct StudioGoLiveCommand: View {
+    @Environment(\.openWindow) private var openWindow
+    var body: some View {
+        Button("Go Live…") { openWindow(id: StudioWindowID.studio) }
+            .keyboardShortcut("l", modifiers: [.command, .shift])
+    }
+}
+
 /// The Studio window's scene id, in one place because three files name it.
 enum StudioWindowID {
     static let studio = "watch-together-studio"
@@ -126,9 +139,14 @@ struct ArchiveWatchMacApp: App {
                 //  • it is DISABLED with no film playing, because §B13a makes the
                 //    Studio the player in a production mode and a broadcast of
                 //    nothing is not a state the engine can serve.
-                Button("Go Live…") { router.showGoLive = true }
-                    .keyboardShortcut("l", modifiers: [.command, .shift])
-                    .disabled(router.nowPlaying == nil)
+                // §D9 — ⇧⌘L OPENS THE STUDIO. It presented Rule B13g's sheet
+                // until 2026-09-22; the sheet configured a Studio that lives
+                // in a different window, which is how the owner came to find
+                // it by accident. It is no longer disabled without a film
+                // either: §D7 lets a host choose one inside the Studio, so
+                // greying this is greying the door to the room where the work
+                // is done.
+                StudioGoLiveCommand()
                 // The Studio window is NOT disabled without a film. §D5 says
                 // a host should be able to open it, see what it offers and
                 // set their levels before anything is broadcast; a control
@@ -162,7 +180,13 @@ struct ArchiveWatchMacApp: App {
                 .environment(store)
                 .environment(router)
         }
-        .defaultSize(width: 1080, height: 860)
+        // THE STUDIO HOSTS THE FILM NOW (§D7), and the film's surface writes
+        // `WatchProgress` through `@Environment(\.modelContext)`. Without this
+        // the Studio's player would reach a modelContext that belongs to no
+        // container — so a film watched in the Studio would not appear in
+        // Continue Watching, and would not sync.
+        .modelContainer(modelContainer)
+        .defaultSize(width: 1240, height: 900)
 
         Settings {
             SettingsView()

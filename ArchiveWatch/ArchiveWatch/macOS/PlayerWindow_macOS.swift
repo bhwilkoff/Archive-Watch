@@ -102,11 +102,23 @@ struct PlayerWindow: View {
                         // would have watched the Go Live button disappear,
                         // which is the opposite of what a rehearsal is for.
                         if !studio.isOnAir {
-                            Button { router.showGoLive = true } label: {
+                            // §D9 — THIS OPENS THE STUDIO, it does not present a
+                            // sheet. Owner, 2026-09-22: "I think I may have
+                            // found it hidden behind a button on the video
+                            // player (rather than in the studio for some
+                            // reason). This should all be in the studio." The
+                            // sheet was an answer to "where does a host PRESS
+                            // Go Live"; it never asked where a host DECIDES to,
+                            // and a form floating over a different window from
+                            // the controls it configures is the whole complaint.
+                            Button {
+                                StudioMacShow.shared.take(item, from: router)
+                                openWindow(id: StudioWindowID.studio)
+                            } label: {
                                 Label("Go Live…",
                                       systemImage: "dot.radiowaves.left.and.right")
                             }
-                            .help("Stream this film to YouTube or Twitch")
+                            .help("Set this film up to stream in the Watch Together Studio")
                         }
                     }
                     ToolbarItem(placement: .cancellationAction) {
@@ -204,7 +216,14 @@ struct EpisodePlayer: View {
 // The shared playback surface: builds the AVPlayer (HLS or resilient MP4), resumes
 // from + persists WatchProgress keyed by archiveID. archiveID is the resume key for
 // both films and episodes (an episode's archiveID is a real archive.org item).
-private struct PlayerSurface: View {
+//
+// INTERNAL, not private, since macOS-DESIGN §D7: the Watch Together Studio hosts
+// the film itself now, and it hosts THIS — the same surface, with the same
+// resilient loader, the same resume, the same caption paths and the same
+// `attachIfArmed` hand-off to the engine. A second player written for the
+// Studio would be a second copy of every one of those decisions, and the
+// project has already paid for that mistake once per platform.
+struct PlayerSurface: View {
     let archiveID: String
     let videoURL: URL?
     let subtitleHLS: URL?
@@ -401,7 +420,12 @@ private struct PlayerSurface: View {
         // player existed, because the player REPLACES the split view as the
         // window root (§B2a) and Detail is gone by now. A no-op unless this is
         // the film the host armed.
-        Task { await StudioSession.shared.attachIfArmed(player: p, archiveID: archiveID) }
+        // REGISTER rather than attach (§D7). `attachIfArmed` is still what
+        // runs when a show was armed before this player existed — the Detail
+        // path — but the Studio window now holds the film itself, so the
+        // player can exist BEFORE the host decides to produce a show, and the
+        // session needs to know which player to reach for when they do.
+        Task { await StudioSession.shared.registerSurfacePlayer(p, archiveID: archiveID) }
         // FOLLOW A ROOM (§11), if the host joined one on the Watch Together
         // page. Here rather than in `PlayerWindow`, because this is where the
         // `AVPlayer` is actually built — the same reason `attachIfArmed` is
@@ -741,6 +765,30 @@ private struct PlayerSurface: View {
         offlineSubtitleTask?.cancel(); offlineSubtitleTask = nil
         publishedSubtitleTask?.cancel(); publishedSubtitleTask = nil
         persist()
+        // A SURFACE THAT GOES AWAY STOPS ITS PLAYER (macOS-DESIGN §D12).
+        //
+        // Owner, 2026-09-22: "the movie seems to keep playing in the background
+        // even if I do close the movie with the x on the top right corner of
+        // the playing video window and there is no way to stop the audio at all
+        // at that point."
+        //
+        // This function did everything EXCEPT the one thing its name implies.
+        // It removed observers, cancelled tasks and saved progress, and left
+        // the `AVPlayer` playing — and on macOS a closed `WindowGroup` window
+        // keeps its scene's `@State`, so the player survived with no view left
+        // to pause it. Re-opening then built a SECOND player over the first,
+        // which is the "a new copy of the movie started playing" half of the
+        // same report.
+        //
+        // `replaceCurrentItem(with: nil)` as well as `pause()`: a paused player
+        // still holds the item, the item still holds the asset, and the asset
+        // is a resource-loader delegate with a live connection to archive.org.
+        let mine = player
+        player?.pause()
+        player?.replaceCurrentItem(with: nil)
+        player = nil
+        loader = nil
+        StudioSession.shared.forgetSurfacePlayer(mine)
     }
 
     private func savedProgress() -> Double? {

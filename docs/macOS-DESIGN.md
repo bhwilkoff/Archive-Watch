@@ -1256,3 +1256,230 @@ were wrong the moment the preview existed and are fixed: the Go Live toolbar
 button hid itself during a rehearsal, and `attachIfArmed`'s `!isLive` guard
 silently swallowed the arm for a real broadcast — so going live from a
 rehearsal must END it first.
+
+---
+
+# PART D (continued) — the Studio the owner asked for, 2026-09-22
+
+*The owner ran the shipped Studio for the first time and reported six things.
+Four of them are not defects in the build: they are places where a rule
+written earlier turns out to be wrong. This section amends those rules, and
+says which sentence each one replaces, because §D1–§D6 above stay in the file
+(append-only) and a reader must be able to tell which one binds.*
+
+> Owner, 2026-09-22: *"There doesn't seem to be any way to 'add a movie' to
+> the studio from the studio itself … the video player and all of its controls
+> should be within the studio rather than in a separate window. You should
+> still be able to create a separate video window of the playing video for if
+> you want to project the movie on a separate screen, but by default
+> everything for a stream should be accessible within the Watch Together
+> studio."*
+
+## §D7 — The Studio OWNS the show: the film is chosen in it, and the player lives in it
+
+**This amends Rule B13a and the premise of §D1.** B13a said the Studio *is the
+player in a production mode, never a second window*, and forbade a second
+window on §B2a's reasoning. §D1 then gave the Studio a window anyway, for
+reasons that still hold — but left the FILM in the other window, so the Studio
+became a window of controls for a show it did not contain. A host opening it
+with nothing playing was told to go and start a film somewhere else.
+
+The binding shape now:
+
+- **The Studio window carries a film chooser.** Search the catalogue from
+  inside the Studio, see only titles that the rights gate will actually let
+  you broadcast (`StudioRights.canGoLive`), pick one, and it becomes the show.
+  A host never leaves the Studio to assemble a broadcast.
+- **The Studio window hosts the film's player**, with `AVPlayerView`'s native
+  floating HUD (§B3a is unchanged — the transport is still never hand-drawn).
+  This is the SOURCE pane of §D8.
+- **A second window is a PROJECTION, and it is the host's choice.** "Open in a
+  separate window" moves the film to the ordinary player window (§B2a's root)
+  so it can be thrown at another display. It MOVES; it never copies. Two
+  `AVPlayer`s on one film is the defect in §D11, not a feature.
+- **One show at a time.** Arming a film in the Studio clears `nowPlaying`, and
+  playing a film in the main window hands it to the Studio if the Studio holds
+  one. The rule is that the app has exactly one film playing, wherever its
+  picture happens to be drawn.
+
+WHY the second window is now allowed where B13a forbade it: B13a's objection
+was *toolbar and title-bar bleed-through*, which is a real §B2a consequence
+for an OVERLAY on the split view. A `Window` scene has neither problem, and
+§D1 already accepted that reasoning. What B13a got right — that a host must
+not be able to close the window their audience is watching through — is kept
+by §D12 below, which ends the show when its surface goes.
+
+## §D8 — SOURCE and PROGRAM, side by side
+
+**This extends §D5.** §D5 gave the Studio one picture, the composed program.
+That is the picture that matters, and it is not the picture a host watches the
+film on: a host who wants to follow the story has to read it out of a 648-point
+preview with their own face in the corner.
+
+The top of the Studio is therefore TWO panes, side by side, left to right:
+
+| pane | what it is | why |
+|---|---|---|
+| **SOURCE** | the film itself, native transport, nothing composited | the host watches the film here, and scrubs it here |
+| **PROGRAM** | the engine's own `CVPixelBuffer`, §D5 unchanged | what the audience sees, and it may never be a second render |
+
+This is OBS's preview/program split, taken for the same reason §D0 takes
+everything else from OBS: it is the arrangement hosts already know. Each pane
+is labelled, and PROGRAM keeps §D5's badge that says whether it is going out.
+
+**The split is a native `HSplitView`**, so a host can give either pane the
+room. On a narrow window the panes stack — SOURCE above PROGRAM — rather than
+shrinking both below legibility.
+
+## §D9 — Going live is SET UP in the Studio, not in a sheet over the player
+
+**This replaces Rule B13g.** B13g put the go-live form in a sheet presented by
+the window root, and a 2026-09-20 amendment added a toolbar button to the
+player because the menu command could not be found. Both were answers to
+"where does a host press Go Live"; neither asked where a host DECIDES to go
+live. The owner found the sheet by accident — *"I think I may have found it
+hidden behind a button on the video player (rather than in the studio for some
+reason)"* — which is the honest verdict on a form that lives over a different
+window from the controls it configures.
+
+Everything the sheet carried now lives in the Studio's **Output** column, in
+this order, and it is a CHECKLIST a host reads top to bottom:
+
+1. **The film** — what is being streamed, with its provenance line.
+2. **The rights answer** — the refusal sentence, or nothing.
+3. **Where it goes** — platform, the shared `StudioSignInRow`, the readiness
+   answer, the title, privacy or category.
+4. **How it looks** — placement, lower third, cards (§D10).
+5. **The policy and §3.4a's warning.**
+6. **Go Live**, disabled with the reason above it, never disabled in silence.
+
+The menu command (⇧⌘L) and the player's toolbar button remain, and both now
+**open the Studio window** rather than presenting a sheet. A shortcut that
+lands a host in the place the work happens is still a shortcut.
+
+## §D10 — A card may carry the host's own words
+
+**This extends Rule 8.8f's card set.** The three fixed cards — Starting soon,
+Intermission, Thanks for watching — cover the three moments a watch-along
+always has. They do not cover the moment a host wants to say something else,
+and the answer to that today is to say it out loud or not at all.
+
+A fourth card is **the host's own text: up to four lines, each with a chosen
+weight**, drawn by the same renderer, on the same ground, under the same
+wordmark and rule. The weights are the SIX LEVELS the project already has
+(CLAUDE.md's "three weights × two sizes"), named for what they do in a card —
+Display, Heading, Body, Caption — so the card cannot grow a seventh.
+
+**What it is not**: a text layer, a font picker, a colour picker or a position
+control. A card is a full-frame interruption with the app's own typography.
+The host chooses the WORDS and their RANK; everything else is the design
+system's, exactly as it is for the three fixed cards.
+
+**An empty custom card is not shown.** A card that covers the film with a
+black frame and nothing on it is a fault, not a choice.
+
+## §D11 — A device change takes effect NOW
+
+**This replaces §D2's "device changes take effect on the next broadcast".**
+That sentence was written from a true fact — an `AVCaptureSession` is built
+once when a show starts — and drew the wrong conclusion from it. The capture
+session is not the encoder. Nothing about swapping which camera feeds the tile
+reaches the RTMP ingest, because the tile is COMPOSITED: the wire never learns
+that a different device produced the pixels. §D4's "not while live" rule is
+about resolution and frame rate, and it does not extend here.
+
+So: the camera and microphone pickers are live at all times. Changing one
+tears down the capture session and builds a new one, and the row reports what
+happened. A host whose webcam is pointing at the wall in the middle of a show
+can fix it in the middle of the show.
+
+**And the Studio ASKS for the camera and the microphone.** Until now every
+macOS path said "the Studio REPORTS, never REQUESTS" — a rule that came from
+tvOS, where a permission prompt on a television is a real intrusion. On a Mac
+it meant `AVCaptureDevice.authorizationStatus` was `.notDetermined` forever,
+nothing ever prompted, and the camera row said **"not attached"** for the life
+of the product. That is not reporting; it is a dead end with a label on it.
+The request is made when the host starts a preview or goes live — an explicit
+act, never on opening a window — and each of the four states says its own
+name:
+
+| state | what the row says and offers |
+|---|---|
+| `.notDetermined` | "Archive Watch has not asked yet" · **Allow the camera** |
+| `.denied` / `.restricted` | named, with **Open System Settings** |
+| `.authorized`, no device | "no camera on this Mac" |
+| `.authorized`, device | the device's own name, and its frame rate |
+
+## §D12 — Closing the window ends the show, and closing the film stops the film
+
+**This is new, and it is a correctness rule rather than a layout one.** The
+owner: *"I was able to close a playing movie and then realize that I closed
+out of the app (without actually quitting it) by using the Red 'stop light'
+button … The movie continued to play and then when I opened the interface back
+up, a new copy of the movie started playing … the movie seems to keep playing
+in the background even if I do close the movie with the x … and there is no
+way to stop the audio at all at that point."*
+
+Three separate faults, one rule:
+
+- **A player surface that goes away STOPS ITS PLAYER.** `onDisappear` must
+  pause, drop the current item and release the player, and every singleton
+  holding a strong reference to it (`WatchTogether.attachedPlayer`,
+  `StudioSession.localPlayer`, the caption scout) must be told to let go.
+  A view that vanishes while its `AVPlayer` plays on is an app with no
+  transport controls for a sound it is making.
+- **Closing a window ends what that window was doing.** The red button is a
+  close, and on macOS a closed window is not a quit — so the film stops, any
+  broadcast ends, and `nowPlaying` is cleared. Re-opening from the Dock lands
+  on the browse root, which is what the host left, not a second copy of a film
+  they thought they had closed.
+- **A broadcast never outlives its Studio.** Closing the Studio window ends
+  the show. This is B13a's one genuinely load-bearing objection to a second
+  window, kept as a rule now that the window exists.
+
+## §D13 — A button says what it does, at every window width
+
+**This is a Part B rule, placed here because it was found in the Studio and it
+is app-wide.** Owner: *"Button text should never be truncated or abbreviated
+and it happens on the mac app all of the time when you shrink the window
+size."* And, on being shown the first attempt: *"We don't want button wrapping.
+We want actual designed buttons that say what they mean and perform like macOS
+buttons should."*
+
+Those two sentences rule out both of the easy answers.
+
+- **Not truncation.** An `HStack` offered less width than its children want
+  COMPRESSES them, and a `Button`'s `Text` compresses by truncating, so "Add
+  to Playlist" reads "Add to Pl…" and the person is reading a guess at what
+  the control does.
+- **Not wrapping.** A flow layout keeps the words and loses the design: the
+  Detail action row's seven large buttons reflowed into three ragged lines
+  with "Share" stranded alone on the last one. That is not a layout anybody
+  chose; it is the absence of one.
+- **Not icon-only.** An icon with a tooltip is an abbreviation with extra
+  steps.
+
+**The rule**: a row of actions has a SMALL FIXED SET of primary buttons that
+never move, and everything else collapses into one native **"More" menu**
+whose items still carry their full names. Which arrangement is on screen is
+chosen by `ViewThatFits(in: .horizontal)` over arrangements that were each
+designed — it never reflows and never shrinks a label; it picks the richest
+bar that fits and the rest is one menu away. Every control in such a row
+carries `.fixedSize()`, and so does the row: without it the first arrangement
+always "fits", by squeezing, and `ViewThatFits` never gets to choose.
+
+This is what Music, TV and Finder do, and it is why a macOS app's controls
+stay where you left them as a window resizes.
+
+**Two corollaries, both found on the same narrow screen as the buttons:**
+
+- **A bar action and its menu item are ONE declaration.** `DetailView_macOS`
+  names each action once (`DetailAction`) and renders it either as a control
+  or as a menu item. Two parallel lists is how "Add to Playlist" becomes "Add
+  to a playlist" in one of them, and how an action gets fixed in one and not
+  the other.
+- **The rule reaches past buttons.** Any label that means something may not be
+  abbreviated: the cast row was rendering "Rev. Arthur Di…" and "Roger Prynne
+  a…" on the same screen where the buttons had just been fixed. Names and
+  roles get two lines with `reservesSpace: true`, and the row is `.top`
+  aligned so cells of different heights still line their portraits up.

@@ -22,14 +22,33 @@ cd "$(dirname "$0")/.."
 fail=0
 
 # The Apple go-live surfaces. Each collects a request and has a commit control.
+#
+# macOS MOVED on 2026-09-22 (macOS-DESIGN §D9): `GoLiveSheet_macOS.swift` is
+# deleted and its content is the Studio window's Output column, because a form
+# floating over a DIFFERENT window from the controls it configures is how the
+# owner came to find it by accident. This list is the harness's own second copy
+# of the module's shape — the exact thing §6.2n names — so a source move does
+# not update it, and the case correctly went red rather than quietly passing on
+# a file that no longer exists.
+#
+# A MISSING FILE IS A FAILURE, not a skipped check. Without this the list could
+# name a file nobody has compiled in a year and the suite would report three
+# green surfaces over two.
 APPLE_SURFACES=(
   "ArchiveWatch/ArchiveWatch/Views/GoLiveTV.swift"
   "ArchiveWatch/ArchiveWatch/iOS/GoLiveSheet_iOS.swift"
-  "ArchiveWatch/ArchiveWatch/macOS/GoLiveSheet_macOS.swift"
+  "ArchiveWatch/ArchiveWatch/macOS/StudioWindow_macOS.swift"
 )
 
+for f in "${APPLE_SURFACES[@]}"; do
+  if [ ! -f "$f" ]; then
+    echo "  FAIL  $f does not exist — a surface moved and this list did not"
+    fail=1
+  fi
+done
+
 check() { # name, file, pattern
-  if grep -q "$3" "$2"; then
+  if [ -f "$2" ] && grep -q "$3" "$2"; then
     echo "  PASS  $1 — $(basename "$2")"
   else
     echo "  FAIL  $1 — $(basename "$2") does not mention /$3/"

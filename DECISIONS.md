@@ -216,6 +216,7 @@ into every session and the index alone carries every title.)
 - 131 — Watch Together is THREE named things, each gated by hardware rather than by effort; a device says which it can do and why not the others
 - 132 — A broadcast with no camera and no microphone is not Watch Together; the gate is that the HOST can be in the show
 - 133 — A control is proved where its value LANDS, not where it is written; a shared type is not a shared code path
+- 134 — A production surface owns its show end to end; and a macOS button says what it does at every width
 
 ---
 
@@ -634,3 +635,72 @@ the recovery, the warning and the health line itself; and a debug door must
 drive the chain the PRODUCT drives — the macOS door waited for `isLive` and
 called `setLayout` where the sheet arms, which is precisely why every bench run
 looked correct while the product was wrong.
+
+## 134 — A production surface owns its show end to end; and a macOS button says what it does at every width
+*Date: 2026-09-22*
+
+The macOS Watch Together Studio now contains the whole broadcast: a film
+chooser that searches the catalogue, the film's own player in a SOURCE pane
+beside the PROGRAM preview, the device pickers, the mixer, the output
+settings, and the entire go-live checklist that used to live in a sheet over a
+different window. Rule B13g's sheet is deleted; ⇧⌘L and the player's toolbar
+button open the Studio instead. The ordinary player window becomes an optional
+PROJECTION the host asks for, and the film MOVES to it rather than being
+copied. Separately, no macOS button may abbreviate its label: a row of actions
+keeps a small fixed set of primary buttons and folds the rest into a native
+"More" menu, chosen by `ViewThatFits`. Rules: `docs/macOS-DESIGN.md` §D7–§D13.
+
+**Why**: the owner ran the shipped Studio for the first time and reported six
+things. Four of them were not defects in the build — they were places where a
+rule written earlier was wrong, and the build implemented it faithfully.
+
+- **§D1 gave the Studio a window and left the film in another one.** So the
+  Studio was a window of controls for a show it did not contain, and a host who
+  opened it with nothing playing was told to go and start a film elsewhere.
+  *"There doesn't seem to be any way to 'add a movie' to the studio from the
+  studio itself."*
+- **Rule B13g put the go-live form in a sheet**, because it asked where a host
+  PRESSES Go Live and never where a host DECIDES to. The owner found it by
+  accident: *"I think I may have found it hidden behind a button on the video
+  player (rather than in the studio for some reason.)"*
+- **§D2 said "device changes take effect on the next broadcast"**, from a true
+  fact (an `AVCaptureSession` is built once) and a wrong conclusion. The
+  capture session is not the encoder: the camera tile is COMPOSITED, so the
+  wire never learns which device made the pixels, and §D4's "not while live"
+  belongs to resolution and frame rate alone.
+- **"The Studio REPORTS, never REQUESTS"** came from tvOS, where a system
+  prompt in a living room is a real intrusion. Carried to the Mac it meant
+  nothing in the product path had ever called `requestAccess`, so
+  `authorizationStatus` was `.notDetermined` for the life of the app and the
+  camera row read **"not attached"** forever with nothing to press. That is not
+  reporting; it is a dead end with a label on it.
+
+**How to apply**: when a surface is named for an activity — a Studio, an
+editor, a console — it owns that activity end to end. If a host has to leave it
+to assemble the thing it produces, the surface is a control panel for someone
+else's work. And when a rule and a report disagree, check whether the rule was
+ever tested against the product rather than argued from a framework fact:
+every one of the four above reads as correct engineering in isolation.
+
+**The button rule is the same lesson in miniature, and it took two passes.**
+The first answer to *"Button text should never be truncated or abbreviated"*
+was a wrapping `Layout` — which kept the words and destroyed the design, since
+seven large buttons reflowed into three ragged rows with "Share" stranded
+alone. The owner: *"We don't want button wrapping. We want actual designed
+buttons that say what they mean and perform like macOS buttons should."* So:
+`ViewThatFits` over arrangements that were each DESIGNED, every control
+`.fixedSize()` (without it the first arrangement always "fits", by squeezing),
+and the overflow is a native menu that still says the words. No icon-only
+fallback — an icon with a tooltip is an abbreviation with extra steps. The
+rule reaches past buttons: the same narrow screen was rendering "Rev. Arthur
+Di…" under a cast portrait.
+
+**Consequences**: the Detail row names each action ONCE (`DetailAction`) and
+renders it either as a control or as a menu item, because two parallel lists
+is how the two copies drift. `StudioSession` gained `registerSurfacePlayer` /
+`beginShow`, since §D7 reverses the old order — the player now exists BEFORE
+the host decides to produce a show, and `attachIfArmed` only ever ran the
+other way round. Closing either window ends what it was doing (§D12): a player
+surface that goes away pauses and releases its player, which it never did, so
+a film kept playing with no transport left to stop it and a second copy
+started on the next open.
