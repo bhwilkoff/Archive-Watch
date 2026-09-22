@@ -1,5 +1,81 @@
 # Archive Watch — Session Log (archive)
 
+### 2026-09-20 (Watch Together loop) — the mixer in numbers people read, macOS and Android catching up, and a home screen that trusted the uploader
+Owner /loop, 5-minute cron, same standing prompt; redirected several times by
+hand — the mixer's visuals, the camera's orientation, iPhone/Android end to
+end, SharePlay guest audio, and finally the home screen.
+
+**THE HOME SCREEN WAS ASKING THE UPLOADER, NOT THE AUDIT.** Owner: *"I keep
+seeing nazi movies, controversial films, and things with questionable public
+domain status."* Home's whole rights gate was `rightsStatus IN
+('public_domain','creative_commons') OR year <= 1977`, and `rightsStatus` is
+what the ARCHIVE ITEM claims — the field `TVOS-STUDIO-RUNBOOK` §3 already
+warns about, which the Studio heeded and Home never did. At the top of Home's
+own popularity order: Yojimbo, The Pink Panther, The Grapes of Wrath, High and
+Low, Jason and the Argonauts, all `public_domain`, all still owned. Three
+tiers now, all from the audit: Home takes KEEP buckets only; `presumed_pd` may
+not carry a FOREIGN film, because it is a US renewal-lapse assumption and the
+**URAA (1996) restored US copyright in foreign works** (that one rule removed a
+Criterion shelf — Tokyo Story, The Seventh Seal, Harakiri, Wages of Fear); and
+the HERO takes positive evidence only. **Every Nazi propaganda film is
+`presumed_pd` and leaves the marquee while the Allied evidence is `safe_gov`
+and stays** — no other field separates those. Android and the tvOS TOP SHELF
+carried the identical defect and were corrected too; Roku had it right since
+Decision 113.
+
+**macOS AND iOS HAD NOT LEARNED THE 48 kHz LESSON.** The ring and the
+sample-buffer retain fixes were shared and arrived free; the resampling did
+not. Both tap paths were sample-DROPPING — 35.6 dB SNR at 440 Hz falling to
+**10.1 dB at 8 kHz**, aliasing nearly as loud as the signal, on a third of the
+catalogue and on the host's own voice. tvOS's `AVAudioConverter` could not be
+copied (the tap callback is real time), so `PolyphaseResampler` builds its
+kernel once: **95-107 dB** after, guarded by §8.17 with the old hold as the
+control. They were also missing the 0-10 mixer and the auto-duck TOGGLE —
+`StudioSession.setAudio` had no `duckEnabled` parameter at all, it stopped at
+the engine — and the camera-stall warning.
+
+**ANDROID COULD NOT CARRY THE HOST AT ALL**, and a PARITY line I wrote that
+morning said otherwise ("its faders are still raw amplitude" — there were no
+faders). The manifest declared only INTERNET; there was no `AudioRecord`
+anywhere; the camera's RECEIVING end was complete with nothing to feed it.
+Built on the owner's go-ahead: Camera2 (no new dependency), `AudioRecord` on
+VOICE_COMMUNICATION, a mixer that **mixes INTO the film's buffers and drives
+nothing** — because §9.qq is what a second clock cost this platform — the
+shared 0-10 scale, and permissions asked at the point of going live,
+google-flavour only. 12 tests with controls. **None of it has run on hardware**
+and PARITY says so.
+
+**THE §8 SUITE HAD NOT BEEN RUN SINCE 09-19 AND FOUR OF ITS CASES WERE LYING.**
+§8.2 asserted the BUG (`prompt=consent`, the thing that sent the first
+broadcast to the wrong channel); §8.13 asserted two gates deliberately replaced
+by better ones; §8.11 measured the harness's own keychain entitlement; §8.9
+demanded a credential withdrawn on 09-18. Each had been failing since the day
+its subject was fixed. And the Kotlin back-pressure case failed for a reason
+none of my three hypotheses covered: **a stale listener held the proxy's port**,
+so the publisher reached mediamtx unthrottled while a TCP-only readiness probe
+saw "something is listening". The proxy's own log said so and the test was
+discarding it. 13/4 -> **82 pass, 1 skip, 0 fail**.
+
+**WHAT I BROKE, AND IT IS THE POINT OF THIS ENTRY.** Chasing whether SharePlay
+could carry guest voice, I put a debug probe inside `WatchTogether.adopt()`,
+ON BY DEFAULT, in the product's own join path — and broke SharePlay, which
+shipped as Decision 098 and which the owner uses. Four separate
+self-inflicted faults in a row: an unbounded 50/s flood; a verdict written
+where a tap-launched app could not record it; a CRASH from `data[0]` on a
+`Data` SLICE (the subscript is an absolute index, and `count` reads fine on a
+slice, so the `>= 5` guard passed and the next line trapped); and confusing
+launching the APP with starting the ACTIVITY. Reverted to byte-identical, and
+`VoiceFrame` + §8.18's 16 assertions are what survive. **A working feature
+outranks a measurement and I inverted that for several rounds.**
+
+Also corrected: SharePlay is not FaceTime (the messenger sends raw `Data` and
+guest voice IS buildable — SHAREPLAY §5 is the rule, written before the code
+this time); a `GroupSession` CAN be activated programmatically when a call
+exists; and the camera's orientation cannot be read at all — `AVCaptureDevice.h`
+says external cameras report 0 "even if they physically rotate" — so after
+trying a host-stated Portrait option and finding it both wrong-way-round and
+82% of frame height, the feature is **landscape only** and the sheet says so.
+
 ### 2026-09-19 (Watch Together loop) — the Continuity camera crash and the camera tile, both fixed on the glass; the audio artifacts survive four hypotheses
 Owner /loop: "get Apple TV streaming working end to end ... close all
 documentation and testing gaps ... until all aspects of streaming to YouTube
