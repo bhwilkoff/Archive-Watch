@@ -224,6 +224,27 @@ focused card is the chrome; surrounding cards should be quiet.
 - **Default to writing no comments.** Only add one when the WHY is
   non-obvious — a hidden constraint, a subtle invariant, a workaround
   for a specific bug.
+- **Only essential information on screen.** Owner, 2026-09-22: *"You and I are
+  having a conversation, but not everything I say or what you discover needs to
+  be listed in the interface. Only essential information should be displayed,
+  anything additional just reads as noise."* A caption earns its place only if
+  it is a REFUSAL (why a control is disabled), a WARNING the host would not
+  otherwise know, or a fact they cannot discover by looking. Cut anything that
+  explains a control's own behavior, restates what just happened, or justifies
+  a design decision — that reasoning belongs in the design doc and the code
+  comments, which is where it is read on purpose.
+- **US English everywhere we write prose.** Owner, 2026-09-22, on finding
+  "programme" on a label. This binds hardest on **anything a person reads on
+  a screen** — labels, warnings, rights sentences, the privacy policy — and
+  applies to comments, design docs and commit messages too, because the owner
+  reads those. `program`, `color`, `behavior`, `license` (noun and verb),
+  `canceled`, `normalize`, `catalog`, `centered`.
+  **Two deliberate exceptions**: strings that MATCH SOMEBODY ELSE'S DATA stay
+  as that data spells them — the Party-Play keyword lists contain both `color`
+  and `colour` because archive.org's own metadata does, and dropping one would
+  narrow the search; and framework identifiers (`labelLarge`, `LabelList`) are
+  names, not words. `tools/test_us_english.py` checks user-facing strings on
+  every platform and carries the exception list.
 - **No emojis in code or commits** unless explicitly requested.
 
 ---

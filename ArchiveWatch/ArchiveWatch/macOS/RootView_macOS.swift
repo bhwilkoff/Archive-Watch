@@ -171,8 +171,21 @@ struct RootView: View {
                             if StudioSession.shared.isLive { break }
                             try? await Task.sleep(for: .milliseconds(250))
                         }
-                        awdiag("AWMACDOOR preview live=%@",
-                               StudioSession.shared.isLive ? "true" : "FALSE")
+                        // SILENT, like every other door — and this one was
+                        // not, for nine launches. `AW_STUDIO_MAC` and the
+                        // go-live door both call this; I wrote a third door
+                        // and did not, so every rehearsal played the film's
+                        // soundtrack out loud on the owner's Mac while they
+                        // were working. The PROGRAM keeps its audio (or this
+                        // door could measure none); only the room goes quiet.
+                        // AW_STUDIO_MAC_SOUND=1 opts back in, matching the
+                        // other doors rather than inventing a fourth spelling.
+                        if env["AW_STUDIO_MAC_SOUND"] != "1" {
+                            StudioSession.shared.muteLocalMonitorForHarness()
+                        }
+                        awdiag("AWMACDOOR preview live=%@ monitor=%@",
+                               StudioSession.shared.isLive ? "true" : "FALSE",
+                               env["AW_STUDIO_MAC_SOUND"] == "1" ? "audible" : "muted")
                     }
                 }
                 if let stage = env["AW_STUDIO_STAGE"],
@@ -328,7 +341,7 @@ struct RootView: View {
                         }
                     } else {
                         // The refusal path is worth reaching too: it is the
-                        // branch a host hits on most of the catalogue.
+                        // branch a host hits on most of the catalog.
                         print("[AWSTUDIOMAC] refused: \(StudioSession.shared.refusal ?? "nil")")
                     }
                 }
@@ -449,7 +462,7 @@ private struct WatchTogetherLanding: View {
 
                     // JOIN, which needs no camera and no microphone (§11.10).
                     // Decision 132 gates HOSTING on being able to be in the
-                    // show; a joiner contributes nothing to the programme and
+                    // show; a joiner contributes nothing to the program and
                     // is simply watching in step.
                     Button {
                         // The room is opened where the AVPlayer is; this only
@@ -533,14 +546,14 @@ private struct WatchTogetherLanding: View {
                 joining = false
                 // The room names the film; open it and the follower takes
                 // over from there. If this device does not have that film in
-                // its catalogue there is nothing to play, and saying so beats
+                // its catalog there is nothing to play, and saying so beats
                 // an empty player.
                 if let item = store.item(filmID) {
                     RoomJoin.shared.pending = code
                     router.play(item)
                 } else {
                     RoomJoin.shared.problem =
-                        "This room is watching a film that is not in this device's catalogue yet."
+                        "This room is watching a film that is not in this device's catalog yet."
                 }
             }
         }
@@ -559,7 +572,7 @@ private struct WatchTogetherLanding: View {
     }
 }
 
-/// The code entry (§11.8). Four characters, normalised as they are typed, so
+/// The code entry (§11.8). Four characters, normalized as they are typed, so
 /// a host reading "oh" and a guest typing O never diverge — the mapping is
 /// `StudioRoom.normalize`, the same function the Worker runs (§8.29).
 private struct JoinRoomSheet: View {

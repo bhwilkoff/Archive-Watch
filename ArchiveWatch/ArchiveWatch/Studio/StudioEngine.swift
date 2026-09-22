@@ -64,7 +64,40 @@ public enum StudioLayout: String, CaseIterable, Sendable {
     /// the camera — the same lesson the camera tiles taught: a layout decides
     /// where things can go, and assuming one position for all five is how
     /// `theatre` ended up drawing over the lower third.
-    public func chatRect(in size: CGSize, cameraAspect: CGFloat) -> CGRect? {
+    /// §D22 — `side` MIRRORS the computed rect rather than choosing a new
+    /// one. Every case below dodges the lower third and the camera tile for
+    /// this preset; re-deriving those dodges for a second side is how the two
+    /// copies drift, and one of them already had a sign error that ran the
+    /// column through the host's face.
+    public func chatRect(in size: CGSize, cameraAspect: CGFloat,
+                         side: StudioChatSide = .left) -> CGRect? {
+        guard let r = chatRectLeft(in: size, cameraAspect: cameraAspect) else { return nil }
+        guard side == .right else { return r }
+        var m = CGRect(x: size.width - r.maxX, y: r.minY, width: r.width, height: r.height)
+        // A MIRROR IS ONLY SAFE WHERE THE FRAME IS SYMMETRIC, AND IT IS NOT.
+        //
+        // `chatRectLeft` dodges the camera for THIS preset, and every preset
+        // that shows one puts it on the RIGHT — so the mirrored column lands
+        // straight on the host's face. That is the 2026-09-17 defect (§D22)
+        // arriving by a new route, and it was caught by the test rather than
+        // by reading this function, which is the only reason it is not shipped.
+        //
+        // The column yields, never the camera: a host who moved chat to the
+        // right did not ask for their own face to move.
+        if let cam = rects(in: size, cameraAspect: cameraAspect).camera, showsCamera {
+            let gap = size.height * 0.02
+            if m.intersects(cam) {
+                let floor = cam.maxY + gap                 // CI: y grows upward
+                m = CGRect(x: m.minX, y: floor, width: m.width,
+                           height: max(0, m.maxY - floor))
+            }
+        }
+        // A column too short to hold one line is not a column; say nothing
+        // rather than draw a sliver.
+        return m.height >= size.height * 0.08 ? m : nil
+    }
+
+    private func chatRectLeft(in size: CGSize, cameraAspect: CGFloat) -> CGRect? {
         let inset = size.width * 0.05
         switch self {
         case .film, .corner, .theatre, .host:
@@ -403,6 +436,11 @@ public struct StudioHealth: Sendable, Equatable {
     /// a host asks of an overlay they cannot see from the sofa.
     public var chatLinesCarried = 0
     public var chatLinesReceived = 0
+    /// How many the host's own filter dropped (§D22). Reported rather than
+    /// silent, because a filter that is quietly eating a conversation looks
+    /// exactly like an audience that stopped talking — the same confusion
+    /// §D21 names for the film, one layer up.
+    public var chatLinesFiltered = 0
     /// The audio session category actually in force, and whether activating it
     /// worked — e.g. "playback/moviePlayback active".
     ///
@@ -595,6 +633,20 @@ public actor StudioEngine {
         public init() {}
     }
 
+    /// §D22 — the host's own three chat controls, held on the ENGINE because
+    /// that is where the pump and the compositor both read them. `showChat`
+    /// above is the OVERLAY's flag (is there a column in this frame); these
+    /// are the host's intent, which the pump turns into that flag.
+    public var chatEnabled = true
+    public var chatFilter = StudioChatFilter()
+    /// Stored on the RENDERER, which is the object that draws with it. A
+    /// second copy here would be a value that can disagree with the frame —
+    /// the exact shape Decision 133 is about.
+    public var chatSide: StudioChatSide {
+        get { renderer.chatSide }
+        set { renderer.chatSide = newValue }
+    }
+
     public private(set) var health = StudioHealth()
     /// One §6.6 recovery episode at a time (see `recoverIfSevered`).
     private var recovering = false
@@ -690,6 +742,24 @@ public actor StudioEngine {
     }
 
     public func setLayout(_ l: StudioLayout) { layout = l; renderer.layout = l }
+
+    /// §D22 — all three at once. Separate setters would let a surface push
+    /// two and forget the third, which is how the layout picker stayed inert
+    /// on one platform for a session (Decision 133).
+    public func setChatControls(enabled: Bool, side: StudioChatSide,
+                                filter: StudioChatFilter) {
+        chatEnabled = enabled
+        chatSide = side
+        chatFilter = filter
+        // TAKE EFFECT NOW, not on the next message. A host turning chat off
+        // mid-show expects the column gone, and the pump only runs when new
+        // lines arrive — on a quiet channel that could be minutes.
+        // §D22a: the host's toggle can only ever turn it OFF while nothing is
+        // going out. Turning it on does not conjure an audience.
+        overlay.showChat = enabled && health.showState.isOnAir
+        if overlay.showChat { overlay.chat = filter.apply(overlay.chat) } else { overlay.chat = [] }
+        renderer.overlay = overlay
+    }
     /// §D14 — how the host sits in whichever arrangement is chosen.
     public func setCameraFraming(_ f: StudioCameraFraming) { renderer.framing = f }
     public var cameraFraming: StudioCameraFraming { renderer.framing }
@@ -811,7 +881,7 @@ public actor StudioEngine {
         let chat = StudioChatTwitch()
         twitchChat = chat
         await chat.start(channel: channel)
-        overlay.showChat = true
+        // NOT switched on here — `pumpChat` decides, and only on air (§D22a).
         renderer.overlay = overlay
     }
 
@@ -836,9 +906,35 @@ public actor StudioEngine {
             return
         }
         guard !lines.isEmpty else { return }
-        let tail = Array(lines.suffix(8))
-        guard tail.map(\.id) != overlay.chat.map(\.id) else { return }
-        overlay.showChat = true
+        // FILTER BEFORE TAKING THE TAIL (§D22). The other order looks
+        // identical and is not: filtering the last eight would leave a column
+        // of two when six of them were bot commands, instead of showing the
+        // eight most recent things a PERSON said. The host turned the bots
+        // off to see more conversation, not less.
+        // NO BROADCAST, NO CHAT (§D22a). A rehearsal is not going anywhere, so
+        // there is no audience, so there is nobody chatting — and a column
+        // drawn over one is showing the host something no viewer could ever
+        // see. The owner, on being shown exactly that: *"Shouldn't there be no
+        // chat on a stream that isn't going anywhere and certainly isn't going
+        // to twitch to get a chat from twitch?"*
+        //
+        // It is checked HERE rather than at the attach, because a show can go
+        // on air after a source is attached and can come off air while one
+        // still is; the question is about THIS FRAME.
+        guard health.showState.isOnAir else {
+            if overlay.showChat || !overlay.chat.isEmpty {
+                overlay.showChat = false
+                overlay.chat = []
+                renderer.overlay = overlay
+            }
+            return
+        }
+        let kept = chatFilter.apply(lines)
+        let tail = Array(kept.suffix(8))
+        health.chatLinesFiltered = lines.count - kept.count
+        guard tail.map(\.id) != overlay.chat.map(\.id)
+                || overlay.showChat != chatEnabled else { return }
+        overlay.showChat = chatEnabled
         overlay.chat = tail
         renderer.overlay = overlay
         health.chatLinesCarried = tail.count
@@ -1653,6 +1749,11 @@ final class ProgramRenderer: @unchecked Sendable {
     var layout: StudioLayout = .corner
     /// §D14 — the host's own framing, on top of whatever the layout decides.
     var framing = StudioCameraFraming()
+    /// §D22. On the RENDERER, beside `framing`, because that is the object
+    /// that draws the frame — the engine's `chatSide` is the host's intent and
+    /// this is where it lands. Two names for one fact is Decision 133's whole
+    /// subject, so the setter below is the only writer.
+    var chatSide: StudioChatSide = .left
     /// The camera tile's rect in the LAST composed frame, normalized. Read by
     /// the Studio window to place its drag handles (§D14).
     private(set) var lastCameraRect: CGRect?
@@ -1756,7 +1857,7 @@ final class ProgramRenderer: @unchecked Sendable {
         // seconds and the lower third does not, and one cache key for both
         // would re-rasterise the type on every message.
         if overlay.showChat, !overlay.chat.isEmpty,
-           let rect = layout.chatRect(in: size, cameraAspect: cameraAspect),
+           let rect = layout.chatRect(in: size, cameraAspect: cameraAspect, side: chatSide),
            let chat = overlayRenderer.chatImage(for: overlay, in: rect) {
             image = chat.composited(over: image)
         }

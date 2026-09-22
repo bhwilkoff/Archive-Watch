@@ -129,7 +129,7 @@ struct JoinRoomTV: View {
                 await client.leave()
                 working = false
                 guard let item = store.db?.item(state.filmID) else {
-                    problem = "That room is watching a film this Apple TV does not have in its catalogue yet."
+                    problem = "That room is watching a film this Apple TV does not have in its catalog yet."
                     typed = ""
                     return
                 }

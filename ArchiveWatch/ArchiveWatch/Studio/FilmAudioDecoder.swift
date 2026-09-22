@@ -267,7 +267,7 @@ final class FilmAudioDecoder: @unchecked Sendable {
         }
         inFormat = inF; outFormat = outF; converter = c
         if rate != programRate {
-            awdiag("AWDEC resampling %d Hz film -> %d Hz programme",
+            awdiag("AWDEC resampling %d Hz film -> %d Hz program",
                    Int(rate), Int(programRate))
         }
         return true

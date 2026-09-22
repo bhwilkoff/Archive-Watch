@@ -1,6 +1,6 @@
 // §8.40 — the film's stall names its own cause, and names the RIGHT one.
 //
-// The sentence a host reads when the programme goes quiet. Every branch is
+// The sentence a host reads when the program goes quiet. Every branch is
 // checked, and so is the ORDER, because the branches overlap: a player whose
 // item has been nilled also reports rate 0, so an implementation that asked
 // "is it paused" first would tell the host they pressed pause when in fact the
@@ -50,7 +50,7 @@ struct FilmStallTest {
               contains: "The operation could not be completed")
         check("everything looks healthy and nothing arrives",
               .init(hasPlayer: true, hasItem: true, rate: 1, likelyToKeepUp: true),
-              contains: "no frames are reaching the programme")
+              contains: "no frames are reaching the program")
 
         // THE ORDER. These two facts are BOTH true of a rebuilt window, and an
         // implementation that reordered the branches would still pass every

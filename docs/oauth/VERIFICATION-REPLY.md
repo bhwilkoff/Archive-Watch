@@ -43,7 +43,7 @@ narrower scope exists (`youtube.readonly` cannot write, `youtube.upload` is
 for uploaded videos and cannot start a live event); the Keychain protection
 class the token is held under
 (`kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly` — encrypted at rest, never
-synchronised to iCloud, never copied off the device); that we operate no
+synchronized to iCloud, never copied off the device); that we operate no
 server that could receive it; that stream keys are never stored, shown or
 logged; revocation and deletion; and an explicit **Limited Use** statement
 including that the data is never used to train any AI or ML model.
@@ -103,7 +103,7 @@ is the only credential the integration ever uses.
 > authorization-code flow with PKCE in a system browser session the app cannot
 > read; tokens stored only in the device Keychain under
 > `kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly`, encrypted at rest and
-> never synchronised to iCloud or copied to another device; no Archive Watch
+> never synchronized to iCloud or copied to another device; no Archive Watch
 > server exists that could receive them, and none does; stream keys held in
 > memory for the session only and never written to disk, displayed or logged;
 > no analytics, crash reporting or telemetry of any kind on any platform; video

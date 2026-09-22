@@ -299,7 +299,7 @@ final class GoogleAuth: NSObject {
                 .queryItems?.first(where: { $0.name == "error" })?.value
             Self.adiag("google callback carried NO CODE err=\(err ?? "-")")
             throw StudioPlatformError.notSignedIn(err.map { "Google refused: \($0)" }
-                                                  ?? "Google returned no authorisation code.")
+                                                  ?? "Google returned no authorization code.")
         }
         // CSRF: a callback whose state is not the one we sent is not ours.
         guard items.first(where: { $0.name == "state" })?.value == state else {
@@ -375,7 +375,7 @@ final class GoogleAuth: NSObject {
                 if let callback { c.resume(returning: callback) }
                 else if let e = error as? ASWebAuthenticationSessionError,
                         e.code == .canceledLogin {
-                    c.resume(throwing: StudioPlatformError.notSignedIn("Sign-in was cancelled."))
+                    c.resume(throwing: StudioPlatformError.notSignedIn("Sign-in was canceled."))
                 } else {
                     c.resume(throwing: StudioPlatformError.notSignedIn(
                         error?.localizedDescription ?? "Sign-in did not complete."))

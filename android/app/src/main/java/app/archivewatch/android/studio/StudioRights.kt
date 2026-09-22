@@ -98,7 +98,7 @@ object StudioRights {
             "modern_copyright_unconfirmed", "modern_copyright" ->
                 "This film is still under copyright. Streaming it would put your channel at risk."
             "modern_copyright_confirmed" ->
-                "This film's copyright was confirmed against archive.org's own licence record. Streaming it would put your channel at risk."
+                "This film's copyright was confirmed against archive.org's own license record. Streaming it would put your channel at risk."
             "modern_noyear_risk" ->
                 "This copy carries no year, and everything else about it points to a modern film. It is not offered for streaming."
             "no_evidence" ->
@@ -106,7 +106,7 @@ object StudioRights {
             "unknown_year" ->
                 "This film has no year on record, and age is the only public-domain claim the Studio accepts. It is not offered for streaming."
             "uploader_cannot_dedicate" ->
-                "The uploader released this under a public-domain licence, but it is not their film to release. It is not offered for streaming."
+                "The uploader released this under a public-domain license, but it is not their film to release. It is not offered for streaming."
             "wrongmatch_bw" ->
                 "This copy looks older than the film it was matched to, so the catalog is not sure which film it is. It is not offered for streaming."
             "commercial_keep", "commercial_slop", "commercial_modern_risk" ->
@@ -144,6 +144,6 @@ object StudioRights {
         Tier.GUARANTEED ->
             "Only films published before 1930 can be streamed — age is the one public-domain claim nobody can dispute, and a stream goes out under your own account."
         Tier.STRICT ->
-            "Only films the rights audit has cleared can be streamed: published before 1930, a US government work, or carrying a verified public-domain licence."
+            "Only films the rights audit has cleared can be streamed: published before 1930, a US government work, or carrying a verified public-domain license."
     }
 }

@@ -554,7 +554,7 @@ public actor RTMPPublisher {
                     // report it rather than hanging the go-live sheet.
                     if once.claim() { c.resume(throwing: RTMPPublishError.connectFailed(e.localizedDescription)) }
                 case .cancelled:
-                    if once.claim() { c.resume(throwing: RTMPPublishError.closed("cancelled")) }
+                    if once.claim() { c.resume(throwing: RTMPPublishError.closed("canceled")) }
                 default: break
                 }
             }
@@ -564,7 +564,7 @@ public actor RTMPPublisher {
             guard let self else { return }
             switch state {
             case .failed(let e): Task { await self.socketClosed("failed: \(e.localizedDescription)") }
-            case .cancelled: Task { await self.socketClosed("cancelled") }
+            case .cancelled: Task { await self.socketClosed("canceled") }
             default: break
             }
         }

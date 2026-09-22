@@ -98,7 +98,7 @@ struct JoinRoomSheet_iOS: View {
                 await client.leave()
                 working = false
                 guard let item = store.db?.item(state.filmID) else {
-                    problem = "That room is watching a film this device does not have in its catalogue yet."
+                    problem = "That room is watching a film this device does not have in its catalog yet."
                     return
                 }
                 // The player is where an `AVPlayer` exists, so the code waits

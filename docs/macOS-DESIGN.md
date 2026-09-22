@@ -801,7 +801,7 @@ engine writes, so the overlay, its styling and its teardown stay one thing.
   `feedback_native_apis_no_workarounds`.
 - **Replace Combine `Timer.publish` with `.task`-based loops** in any view (hero, screensaver, search
   debounce): a Combine timer delivering into a `@MainActor` closure can trip a Swift-runtime executor
-  fault and fire into a torn-down view. `.task(id:)` is auto-cancelled/restarted by SwiftUI.
+  fault and fire into a torn-down view. `.task(id:)` is auto-canceled/restarted by SwiftUI.
 
 ## §B11 — Launch / test hooks
 
@@ -1121,7 +1121,7 @@ copying OBS wholesale would make a WORSE product for this job.
   GUESTS, and a CARD. Rule 8.8e's five placements already name every
   arrangement those four can make, and a host choosing "Side by side" is
   making one decision where OBS would make six.
-- **Filters and effects.** Chroma key, colour correction, LUTs. A watch-along
+- **Filters and effects.** Chroma key, color correction, LUTs. A watch-along
   is not a production; the film is the picture and the host is a tile.
 - **Recording to disk alongside streaming.** Tempting and cheap, and it turns
   a viewing app into a thing that makes copies of films — a rights posture
@@ -1208,7 +1208,7 @@ Each step ships on its own and is verified on the wire, never by compiling.
 | 1 | The window, the preview, the existing controls moved into it | **shipped** (v1.42.440), seen on the glass at 1080x860 |
 | 2 | Device pickers for camera and microphone (§D2) | **shipped** (v1.42.444), §8.24 |
 | 3 | Output settings (§D4) | **shipped** (v1.42.445), §8.25 |
-| 4 | A call's audio via `AudioHardwareCreateProcessTap` (SHAREPLAY §10) | **code + §8.26 shipped** (v1.42.446); the TCC behaviour of a SIGNED, SANDBOXED app is NOT yet measured |
+| 4 | A call's audio via `AudioHardwareCreateProcessTap` (SHAREPLAY §10) | **code + §8.26 shipped** (v1.42.446); the TCC behavior of a SIGNED, SANDBOXED app is NOT yet measured |
 | 5 | Per-input meters and mutes (§D3) | **shipped** with 3 and 4 |
 | 6 | §D5's preview BEFORE going live | **shipped**; explicit "Start preview", never automatic |
 
@@ -1223,7 +1223,7 @@ the SERVER's own recording was read back:
 
 2.48 Mbps delivered against 3.0 asked is ~83%, consistent with the ~70-75%
 this encoder has always delivered (§9). A single frame of that recording
-carries the whole programme: the film, the camera tile bottom-right, and the
+carries the whole program: the film, the camera tile bottom-right, and the
 lower third with title, year, director and the provenance line. So the
 pickers, the settings and the composite all reach the encoder rather than
 stopping in a preference — Decision 133's test, passed.
@@ -1251,7 +1251,7 @@ channel.
 always meant "the engine is running", and on macOS the engine runs with no
 destination whenever a film is armed. A rehearsal is precisely that state, so
 every surface that says "live" asks `isOnAir` (`isLive && hasDestination`)
-and every surface that means "there is a programme" asks `isLive`. Two things
+and every surface that means "there is a program" asks `isLive`. Two things
 were wrong the moment the preview existed and are fixed: the Go Live toolbar
 button hid itself during a rehearsal, and `attachIfArmed`'s `!isLive` guard
 silently swallowed the arm for a real broadcast — so going live from a
@@ -1286,7 +1286,7 @@ with nothing playing was told to go and start a film somewhere else.
 
 The binding shape now:
 
-- **The Studio window carries a film chooser.** Search the catalogue from
+- **The Studio window carries a film chooser.** Search the catalog from
   inside the Studio, see only titles that the rights gate will actually let
   you broadcast (`StudioRights.canGoLive`), pick one, and it becomes the show.
   A host never leaves the Studio to assemble a broadcast.
@@ -1325,7 +1325,7 @@ The top of the Studio is therefore TWO panes, side by side, left to right:
 
 This is OBS's preview/program split, taken for the same reason §D0 takes
 everything else from OBS: it is the arrangement hosts already know. Each pane
-is labelled, and PROGRAM keeps §D5's badge that says whether it is going out.
+is labeled, and PROGRAM keeps §D5's badge that says whether it is going out.
 
 **The split is a native `HSplitView`**, so a host can give either pane the
 room. On a narrow window the panes stack — SOURCE above PROGRAM — rather than
@@ -1370,7 +1370,7 @@ wordmark and rule. The weights are the SIX LEVELS the project already has
 (CLAUDE.md's "three weights × two sizes"), named for what they do in a card —
 Display, Heading, Body, Caption — so the card cannot grow a seventh.
 
-**What it is not**: a text layer, a font picker, a colour picker or a position
+**What it is not**: a text layer, a font picker, a color picker or a position
 control. A card is a full-frame interruption with the app's own typography.
 The host chooses the WORDS and their RANK; everything else is the design
 system's, exactly as it is for the three fixed cards.
@@ -1643,9 +1643,9 @@ with it. The two are separable in LEVEL, not in frequency: a host speaking is
 far louder at the microphone than speakers across a room.
 
 **This is not §D0's "filters and effects".** That refusal is about chroma key,
-colour correction and LUTs — a production rack on a watch-along. A gate is one
+color correction and LUTs — a production rack on a watch-along. A gate is one
 input made usable, and the distinction is that without it the microphone
-channel actively damages the programme.
+channel actively damages the program.
 
 **Binding**:
 
@@ -1673,7 +1673,7 @@ channel actively damages the programme.
 
 *Roadmap #5, OBS's Studio Mode reduced to the one thing worth staging here.*
 
-§D5 is emphatic that the preview IS the programme — fed from the engine's own
+§D5 is emphatic that the preview IS the program — fed from the engine's own
 buffer so "what I see" and "what they see" cannot diverge, which is the
 failure Decision 133 is entirely about. **This rule deliberately introduces a
 second picture that is NOT going out**, so it has to earn that and be
@@ -1693,18 +1693,18 @@ four things (§D0), and of them:
 | a CARD | **yes** | composing takes time, and a half-typed card on air is the failure |
 | a PLACEMENT | no | one decision a show, and §D14a made framing a drag you watch live |
 | the FILM | no | it is the show; there is no "next film" in a watch-along |
-| the LOWER THIRD | no | it draws the catalogue's own facts (§D15) — nothing to compose |
+| the LOWER THIRD | no | it draws the catalog's own facts (§D15) — nothing to compose |
 
 **Binding, and these are the guards that keep §D5 intact:**
 
-- **NEXT is small, and labelled as not on air.** It is a thumbnail beside the
+- **NEXT is small, and labeled as not on air.** It is a thumbnail beside the
   controls, never a third pane the size of STREAM. A picture that big invites
   a host to watch the wrong one.
 - **It is only drawn when something is staged.** No empty slot, no permanent
   second window, nothing to glance at by mistake.
 - **TAKE is the only way it reaches the audience**, and taking it CLEARS the
   staging — so NEXT is never showing what is already out.
-- **It renders through the SAME `StudioOverlayRenderer` the programme uses**,
+- **It renders through the SAME `StudioOverlayRenderer` the program uses**,
   at a smaller size. A second drawing path would be a second chance to differ
   from the thing it is previewing, which is the whole mistake §D5 forbids.
 
@@ -1773,7 +1773,7 @@ correctly from those apps in the list?"*
 2. **`AudioDeviceStart`'s status was discarded.** A tap that macOS refuses to
    start therefore reported success, and the Studio drew a channel that could
    never carry anything. That is precisely the "silent channel" §D2 forbids,
-   in the one input whose TCC behaviour SCRATCHPAD has listed as unmeasured
+   in the one input whose TCC behavior SCRATCHPAD has listed as unmeasured
    since it was written.
 
 **The rule**: every step of opening an input is checked, and an input that has
@@ -1825,7 +1825,7 @@ before deciding it is fine.
 columns at 940 are narrower than the device pickers they hold. The panes
 above (§D17) are unchanged: FILM and STREAM still split the top.
 
-## §D21 — When the film stops reaching the programme, the Studio says WHY
+## §D21 — When the film stops reaching the program, the Studio says WHY
 
 The Inputs row already shows the film's frame rate, and "no new frames" is a
 true and useless sentence: it is the symptom. When the film produces nothing
@@ -1833,7 +1833,7 @@ for **three consecutive seconds** and has not simply ended, the Studio names
 the cause underneath it, in one line, from what the PLAYER says —
 `StudioFilmStall.reason(_:)`.
 
-**Why.** On 2026-09-22 the Studio's programme went black on two runs out of
+**Why.** On 2026-09-22 the Studio's program went black on two runs out of
 eight while the FILM pane beside it played perfectly, and both runs were
 silent about it: the logs of a healthy run and a black one were identical
 line for line. The camera has had a stall detector with a named cause since
@@ -1864,8 +1864,97 @@ new case fails rather than passes. Do not make this sentence reassuring: the
 fallback deliberately says the film is playing and no frames are arriving,
 which is an admission that the Studio does not know.
 
-**Still open**: the black-programme fault itself is reproduced twice in eight
+**Still open**: the black-program fault itself is reproduced twice in eight
 runs and has no signature. The identity diagnostics (`AWSURFACE register` /
 `forget` / `engine attaching`, carrying the `AVPlayer`'s identity) and this
 sentence are in place so the next occurrence names itself instead of being
 argued about.
+
+## §D22 — The host decides what the audience reads
+
+Chat gets three controls in the Studio's **On screen** column, and they are
+not optional extras: **whether it is shown**, **which side it sits on**, and
+**what is filtered out of it**. `StudioChatFilter` decides what reaches the
+program; `StudioControls.showChat` / `.chatSide` decide whether and where.
+
+**Why this is a rule and not a nicety.** Until 2026-09-22 `overlay.showChat`
+was assigned `true` in two places in the engine and by nothing else, the
+column's side came only from the layout preset, and no message was ever
+filtered. The owner, on seeing chat render for the first time: *"I don't see
+any controls for the chat (turning it on or off, moving it on the screen,
+filtering, etc.). Surely, that has to be a part of the feature, right?"*
+
+It has to, and chat is the case where it matters most, because **chat is the
+only text in this app written by strangers and the only text that is BURNED
+INTO the video**. A platform's own chat overlay can be moderated after the
+fact and a viewer can collapse it; a message we composite into H.264 is in
+the recording forever, under the host's own account, on a broadcast whose
+copyright risk §3.4a already asks them to accept. A host who cannot turn that
+off, move it off someone's face, or drop the bot spam is not in control of
+their own show.
+
+**Why a SIDE and not a position.** The column has two hard neighbors — the
+lower third beneath it and the camera tile — and `chatRect` already dodges
+both per layout, including a sign error that once ran the column through the
+host's face (§9, 2026-09-17). Free placement would re-open that by hand on
+every preset. Left or right, with the layout choosing the default, keeps the
+dodging computed and still answers "get it off my face".
+
+**What filtering means here, and what it deliberately does not.** It drops
+**commands** (a leading `!`, which on Twitch is mostly bots answering other
+bots), **links**, and **named accounts** the host lists. It is NOT moderation
+and must never be described as such: it cannot see what a platform's own
+AutoMod already blocked, it does not judge language, and a host who needs a
+person gone needs them gone from the platform, not from our overlay. The
+filter is about clutter and about what gets burned in — say that, and do not
+imply safety we cannot provide.
+
+**How to apply.** The filter is a pure function over a line, in its own file,
+for §D21's reason: a rule written inline in the pump can only be exercised by
+a live broadcast with the specific traffic it describes, so in practice it
+never is. §8.43 covers every rule and the interactions between them. Add a
+rule by adding a case and a row; do not add one that needs to see a message's
+history, because the pump hands the filter one line at a time and a stateful
+filter there would be a second place for a leak.
+
+## §D22a — No broadcast, no chat
+
+The chat column is drawn only while the show is **actually on air**. A
+rehearsal draws none, an idle Studio draws none, and the host's "Show chat"
+toggle can only ever turn it off — turning it on does not conjure an audience.
+`StudioEngine.pumpChat` checks `health.showState.isOnAir` every second, and
+clears the column the moment a show comes off air.
+
+**Why.** The owner, watching a rehearsal with chat in it: *"Shouldn't there be
+no chat on a stream that isn't going anywhere and certainly isn't going to
+twitch to get a chat from twitch?"*
+
+Exactly so, and it is §D5's rule rather than a nicety: the preview must not
+show the host something no viewer could see. A column over a show that is
+going nowhere is precisely that, and it is the more dangerous direction — a
+host rehearses to find out what their audience will get.
+
+**How it happened, which is the part worth keeping.** `AW_STUDIO_CHAT` is a
+debug door that joins a Twitch channel BY NAME, and reading Twitch needs no
+credential. So a test of mine put a busy stranger's chat over the owner's
+film, on a show with no destination, and the Studio drew it without objection
+because nothing anywhere asked whether there was a broadcast. Two separate
+wrongnesses — somebody else's audience, and no audience at all — and the
+second one is the product's.
+
+**And the same question exposed that Twitch chat had no product path.** All
+three surfaces read the channel from `AW_STUDIO_CHAT` and nowhere else,
+under a comment saying the channel would come from the host's account "once
+sign-in exists". Sign-in had existed since 2026-09-18.
+`StudioPlatformAuth.twitchAccount()` — the same read the readiness gate
+already makes — returns the host's own login, and all three now use it.
+YouTube could never have had this defect: its `liveChatId` comes back from
+the `liveBroadcasts.insert` that CREATED the broadcast, so it cannot be
+anyone else's.
+
+**How to apply.** A chat source is attached to a SHOW, never to a surface.
+When adding one, the channel must be derivable from the broadcast or the
+signed-in account and from nothing else — if a surface has to be told which
+channel to read, that is the defect, not the design. And say why the column is
+empty (§D13's rule, Decision 128's shape): "your audience's chat appears once
+you go live" is information; a permanently blank column is a fault report.

@@ -160,7 +160,7 @@ OBS ships per-source audio filters (noise gate, noise suppression, gain,
 compressor). We have gain and a duck and nothing else. **The case for it here
 is specific**: a host is in a room with a film playing out of speakers, so
 their open microphone is picking the film up and feeding a mixed copy back
-into the programme.
+into the program.
 
 - **Cost**: small-to-medium. macOS has voice-processing audio units; a gate is
   a few lines against the RMS we already compute per block.
@@ -182,7 +182,7 @@ is no staging.
 - **Rule needed**: yes, and it is the interesting one — §D5 says the preview
   IS the program, precisely so what the host sees cannot diverge from what is
   sent. A staging area deliberately reintroduces divergence, so it has to be
-  labelled hard. Probably a third small pane rather than changing STREAM.
+  labeled hard. Probably a third small pane rather than changing STREAM.
 - **Verdict**: worth doing AFTER 1–4. It is polish on a feature set; 1–4 are
   the feature set.
 

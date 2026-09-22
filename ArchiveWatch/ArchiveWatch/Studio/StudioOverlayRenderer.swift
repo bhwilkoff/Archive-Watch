@@ -201,9 +201,38 @@ final class StudioOverlayRenderer: @unchecked Sendable {
                 current = candidate
             } else {
                 if !current.isEmpty { out.append(self.line(current, font: font, color: Self.paper)) }
-                current = String(word)
                 // Only the FIRST line is indented by the author's name.
                 budget = max(20 * scale, maxWidth + firstIndent)
+                // A WORD WITH NO SPACES IN IT STILL HAS TO FIT.
+                //
+                // Splitting on spaces alone means a single long token is
+                // emitted whole, at whatever width it happens to be — and the
+                // pill behind it is clamped to the column, so the text runs
+                // out past its own background and off the frame. Seen on air
+                // 2026-09-22 with a real Twitch message
+                // ("...butthenameislessgenericsoyoudontac") over a film, which
+                // is the audience's view, not ours. Chat is the one text in
+                // this app written by strangers, so it is the one place an
+                // unbreakable token is not a rare case.
+                var rest = Substring(word)
+                while !rest.isEmpty,
+                      width(self.line(String(rest), font: font, color: Self.paper)) > budget {
+                    // Longest prefix that fits. Linear from the end rather
+                    // than a binary search: these are chat lines, the strings
+                    // are short, and the widths are not monotone enough in
+                    // practice to trust a bisection on a proportional font.
+                    var cut = rest.index(before: rest.endIndex)
+                    while cut > rest.startIndex,
+                          width(self.line(String(rest[..<cut]), font: font,
+                                          color: Self.paper)) > budget {
+                        cut = rest.index(before: cut)
+                    }
+                    guard cut > rest.startIndex else { break }   // one glyph wider than the column
+                    out.append(self.line(String(rest[..<cut]), font: font, color: Self.paper))
+                    rest = rest[cut...]
+                    if out.count >= 5 { break }
+                }
+                current = String(rest)
             }
             if out.count >= 5 { break }      // one message never owns the column
         }

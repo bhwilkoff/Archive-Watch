@@ -117,6 +117,35 @@ final class StudioControls {
     /// and what the audience can see are three different facts, and every
     /// time this feature collapsed two of them it produced a defect.
     var stagedCard: MacCardChoice = .none
+
+    // MARK: Chat (§D22)
+
+    var showChat = true {
+        didSet { guard showChat != oldValue else { return }; pushChat() }
+    }
+    var chatSide: StudioChatSide = .left {
+        didSet { guard chatSide != oldValue else { return }; pushChat() }
+    }
+    var chatHideCommands = true {
+        didSet { guard chatHideCommands != oldValue else { return }; pushChat() }
+    }
+    var chatHideLinks = true {
+        didSet { guard chatHideLinks != oldValue else { return }; pushChat() }
+    }
+    var chatBlocked = "" {
+        didSet { guard chatBlocked != oldValue else { return }; pushChat() }
+    }
+
+    /// ONE writer, so the four controls cannot disagree about what the engine
+    /// holds. Decision 133's rule: a control is proved where its value lands,
+    /// and five separate pushes are five chances for one of them to be missed.
+    private func pushChat() {
+        let f = StudioChatFilter(hideCommands: chatHideCommands,
+                                 hideLinks: chatHideLinks,
+                                 blockedText: chatBlocked)
+        let on = showChat, side = chatSide
+        Task { await StudioSession.shared.setChat(enabled: on, side: side, filter: f) }
+    }
     private(set) var card: StudioOverlay.Card? {
         didSet { Task { await StudioSession.shared.setCard(card) } }
     }
@@ -297,7 +326,7 @@ struct StudioProgramPreview: NSViewRepresentable {
 
 /// The frame is a `CVPixelBuffer` from an IOSurface-backed pool, so it reaches
 /// the screen by being handed to a `CALayer` as its contents — no copy, no
-/// colour conversion, no second render of a picture that has already been
+/// color conversion, no second render of a picture that has already been
 /// composited once.
 final class ProgramLayerView: NSView {
     private var timer: Timer?
@@ -587,7 +616,7 @@ struct StudioWindowView: View {
         Task {
             // §D11: ASK for the camera and the microphone. `beginShow` does it
             // before building the engine, because `attachCameraIfAvailable`
-            // reads the authorisation status and returns silently when it is
+            // reads the authorization status and returns silently when it is
             // not yet `.authorized` — which on macOS it always was.
             let started = await studio.beginShow(film: film, destination: nil)
             if !started { previewRefusal = studio.refusal }
@@ -793,7 +822,7 @@ struct StudioWindowView: View {
                 Text("On screen").font(.subheadline.weight(.semibold))
                 Toggle("Show the lower third", isOn: $controls.showLowerThird)
                 // §D15 — WHICH LINES. The host chooses which of the
-                // catalogue's own verified facts appear; never what they say.
+                // catalog's own verified facts appear; never what they say.
                 // §2.1's whole argument is that the audience learns what the
                 // film IS, and hand-typed metadata over a public-domain film
                 // is how an audience learns something false.
@@ -801,7 +830,7 @@ struct StudioWindowView: View {
                     Toggle("Title", isOn: $controls.showFilmTitle)
                     Toggle("Year and director", isOn: $controls.showFilmMeta)
                     Toggle("Public-domain provenance", isOn: $controls.showProvenance)
-                    Text("The provenance line clears itself 20 seconds into a real broadcast - turning it off here keeps it off from the start.")
+                    Text("Clears itself 20 seconds into a broadcast.")
                         .font(.caption2).foregroundStyle(.secondary)
                         .fixedSize(horizontal: false, vertical: true)
                 }
@@ -825,12 +854,66 @@ struct StudioWindowView: View {
                                        filmTitle: show.film?.title ?? "")
                     }
                 }
-                Text("A card covers the film completely — your audience sees only the card.")
-                    .font(.caption2).foregroundStyle(.secondary)
-                    .fixedSize(horizontal: false, vertical: true)
+                chatControls
             }
         }
     }
+    // MARK: Chat (§D22)
+
+    /// THREE CONTROLS, because chat is the only text in this app written by
+    /// strangers and the only text BURNED INTO the video. A host who cannot
+    /// turn it off, move it off a face, or drop the bot spam is not in control
+    /// of their own show.
+    @ViewBuilder
+    private var chatControls: some View {
+        Divider().padding(.vertical, 2)
+        VStack(alignment: .leading, spacing: 6) {
+            Toggle("Show chat", isOn: $controls.showChat)
+            // §D22a — SAY WHY IT IS EMPTY. A column that never appears looks
+            // broken; "there is no audience yet" is the actual reason and it
+            // is not a fault. Decision 128's rule: an absence is a state with
+            // words, not a missing thing.
+            if !studio.isOnAir {
+                Text(studio.isRehearsing
+                     ? "Appears once you go live."
+                     : "Appears while you are live.")
+                    .font(.caption2).foregroundStyle(.secondary)
+                    .fixedSize(horizontal: false, vertical: true)
+                    .padding(.leading, 14)
+            }
+            Group {
+                Picker("Side", selection: $controls.chatSide) {
+                    ForEach(StudioChatSide.allCases, id: \.self) { Text($0.label).tag($0) }
+                }
+                .pickerStyle(.segmented)
+                Toggle("Hide bot commands", isOn: $controls.chatHideCommands)
+                Toggle("Hide links", isOn: $controls.chatHideLinks)
+                VStack(alignment: .leading, spacing: 3) {
+                    Text("Hide these people").font(.caption)
+                    TextField("Hide these people", text: $controls.chatBlocked,
+                              prompt: Text("names, separated by commas"))
+                        .textFieldStyle(.roundedBorder)
+                        .labelsHidden()
+                }
+                // SAY WHAT THIS IS NOT. Calling it moderation would promise
+                // safety we cannot provide: it cannot see what the platform's
+                // own AutoMod already dropped, and it does not judge language.
+                Text("Not moderation — whatever shows is in the recording.")
+                    .font(.caption2).foregroundStyle(.secondary)
+                    .fixedSize(horizontal: false, vertical: true)
+                if studio.isLive, studio.chatLinesFiltered > 0 {
+                    // A filter quietly eating a conversation looks exactly like
+                    // an audience that stopped talking (§D21's lesson, one
+                    // layer up), so it says how many it took.
+                    Text("\(studio.chatLinesFiltered) hidden")
+                        .font(.caption2).foregroundStyle(.secondary)
+                }
+            }
+            .disabled(!controls.showChat)
+            .padding(.leading, 14)
+        }
+    }
+
     // MARK: Framing (§D14)
 
     /// FOUR SLIDERS ARE GONE. They could size the tile and move it and never
@@ -852,7 +935,7 @@ struct StudioWindowView: View {
             }
 
             if !studio.isLive {
-                Text("Start the preview, then frame yourself by dragging the box around your tile.")
+                Text("Start the preview to frame yourself.")
                     .font(.caption2).foregroundStyle(.secondary)
                     .fixedSize(horizontal: false, vertical: true)
             } else if tiled {
@@ -869,7 +952,7 @@ struct StudioWindowView: View {
                     .font(.caption2).foregroundStyle(.secondary)
                     .fixedSize(horizontal: false, vertical: true)
             } else if controls.layout == .film {
-                Text("This placement shows no camera, so there is nothing to frame.")
+                Text("No camera in this placement.")
                     .font(.caption2).foregroundStyle(.secondary)
                     .fixedSize(horizontal: false, vertical: true)
             } else {
@@ -1200,7 +1283,7 @@ struct StudioWindowView: View {
                 }
 
                 if studio.isLive {
-                    Text("Size and frame rate cannot change during a broadcast — an RTMP ingest will not accept it. The bitrate can.")
+                    Text("Size and frame rate are fixed during a broadcast.")
                         .font(.caption2).foregroundStyle(.secondary)
                         .fixedSize(horizontal: false, vertical: true)
                 }
@@ -1253,7 +1336,7 @@ struct StudioWindowView: View {
                             // THE CHOICE, not the card. Writing `card` directly
                             // would put a card on air that the picker two
                             // columns away still described as "No card" — the
-                            // control that disagrees with the programme, which
+                            // control that disagrees with the program, which
                             // is the whole of Decision 133.
                             controls.cardChoice = .ending
                         }
@@ -1408,7 +1491,7 @@ struct StudioDestinationSection: View {
     var body: some View {
         Group {
             if show.film == nil {
-                Text("Choose a film first — the rights gate decides what may be broadcast, and it needs a title to judge.")
+                Text("Choose a film first.")
                     .font(.caption2).foregroundStyle(.secondary)
                     .fixedSize(horizontal: false, vertical: true)
             } else if let refusal {
@@ -1461,17 +1544,17 @@ struct StudioDestinationSection: View {
 
             switch show.platform {
             case .youtube:
-                labelled("Stream title") { TextField("", text: $show.streamTitle) }
+                labeled("Stream title") { TextField("", text: $show.streamTitle) }
                 Picker("Privacy", selection: $show.privacy) {
                     ForEach(YouTubePrivacy.allCases, id: \.self) { Text($0.label).tag($0) }
                 }
             case .twitch:
-                labelled("Stream title") { TextField("", text: $show.streamTitle) }
-                labelled("Category") { TextField("", text: $show.category) }
+                labeled("Stream title") { TextField("", text: $show.streamTitle) }
+                labeled("Category") { TextField("", text: $show.category) }
             case .custom:
                 // The diagnostic path. A real destination is never typed.
-                labelled("rtmps://host/app") { TextField("", text: $show.customURL) }
-                labelled("Stream key") { SecureField("", text: $show.customKey) }
+                labeled("rtmps://host/app") { TextField("", text: $show.customURL) }
+                labeled("Stream key") { SecureField("", text: $show.customKey) }
             }
         }
         .disabled(studio.isOnAir)
@@ -1623,7 +1706,7 @@ struct StudioDestinationSection: View {
     /// `TextField` whatever is left — which at this width is a slot too narrow
     /// to read a film title in.
     @ViewBuilder
-    private func labelled<T: View>(_ title: String, @ViewBuilder field: () -> T) -> some View {
+    private func labeled<T: View>(_ title: String, @ViewBuilder field: () -> T) -> some View {
         VStack(alignment: .leading, spacing: 2) {
             Text(title).font(.caption).foregroundStyle(.secondary)
             field().textFieldStyle(.roundedBorder)
@@ -1633,7 +1716,7 @@ struct StudioDestinationSection: View {
 
 // MARK: - Choosing a film, in the Studio (§D7)
 
-/// Search the catalogue from inside the Studio.
+/// Search the catalog from inside the Studio.
 ///
 /// Owner, 2026-09-22: *"There doesn't seem to be any way to 'add a movie' to
 /// the studio from the studio itself. You should be able to search for a movie
@@ -1676,7 +1759,7 @@ struct StudioFilmChooser: View {
             try? await Task.sleep(for: .milliseconds(180))   // debounce
             guard !Task.isCancelled else { return }
             // A TITLE WITH NO PLAYABLE COPY CANNOT BE A SHOW. `videoURLParsed`
-            // nil means the catalogue has no file for it — a series spine, or
+            // nil means the catalog has no file for it — a series spine, or
             // an item whose copy went away — and offering one here would fail
             // at the player rather than at the choice.
             results = store.search(q).filter { $0.videoURLParsed != nil }
@@ -1694,7 +1777,7 @@ struct StudioFilmChooser: View {
                      : "Type a title to find something to stream")
                     .font(.callout).foregroundStyle(.secondary)
                 if !searched {
-                    Text("Only public-domain titles the rights audit clears can be broadcast — you will see which, and why, as you search.")
+                    Text("Only cleared public-domain titles can be broadcast.")
                         .font(.caption2).foregroundStyle(.secondary)
                         .multilineTextAlignment(.center).frame(maxWidth: 340)
                 }
@@ -1750,7 +1833,7 @@ struct StudioFilmChooser: View {
 /// The ranks are the project's own hierarchy levels, not a font size control:
 /// CLAUDE.md allows six levels and refuses a seventh, and a card uses four of
 /// them. A host chooses the WORDS and their RANK; the design system keeps
-/// typeface, colour, position and ground, which is what makes a custom card
+/// typeface, color, position and ground, which is what makes a custom card
 /// look like the three fixed ones rather than like a different product.
 struct StudioCustomCardEditor: View {
     @Bindable var controls: StudioControls
@@ -1773,7 +1856,7 @@ struct StudioCustomCardEditor: View {
             // An empty custom card is not shown (§D10), and the editor says so
             // rather than letting a host press Show over a black frame.
             if !controls.customCardHasWords {
-                Text("Write at least one line — an empty card would cover the film with nothing.")
+                Text("Write at least one line.")
                     .font(.caption2).foregroundStyle(.secondary)
                     .fixedSize(horizontal: false, vertical: true)
             }

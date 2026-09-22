@@ -108,7 +108,7 @@ public enum StudioRights {
         case "modern_copyright_unconfirmed", "modern_copyright":
             return "This film is still under copyright. Streaming it would put your channel at risk."
         case "modern_copyright_confirmed":
-            return "This film's copyright was confirmed against archive.org's own licence record. Streaming it would put your channel at risk."
+            return "This film's copyright was confirmed against archive.org's own license record. Streaming it would put your channel at risk."
         case "modern_noyear_risk":
             return "This copy carries no year, and everything else about it points to a modern film. It is not offered for streaming."
         case "no_evidence":
@@ -116,7 +116,7 @@ public enum StudioRights {
         case "unknown_year":
             return "This film has no year on record, and age is the only public-domain claim the Studio accepts. It is not offered for streaming."
         case "uploader_cannot_dedicate":
-            return "The uploader released this under a public-domain licence, but it is not their film to release. It is not offered for streaming."
+            return "The uploader released this under a public-domain license, but it is not their film to release. It is not offered for streaming."
         case "wrongmatch_bw":
             return "This copy looks older than the film it was matched to, so the catalog is not sure which film it is. It is not offered for streaming."
         case "commercial_keep", "commercial_slop", "commercial_modern_risk":
@@ -169,7 +169,7 @@ public enum StudioRights {
         case .guaranteed:
             return "Only films published before 1930 can be streamed — age is the one public-domain claim nobody can dispute, and a stream goes out under your own account."
         case .strict:
-            return "Only films the rights audit has cleared can be streamed: published before 1930, a US government work, or carrying a verified public-domain licence."
+            return "Only films the rights audit has cleared can be streamed: published before 1930, a US government work, or carrying a verified public-domain license."
         }
     }
 }

@@ -77,7 +77,7 @@ public actor StudioChatYouTube {
     /// The FIRST page is discarded on purpose. `liveChat/messages` opens with
     /// the backlog of everything said before we asked, which on a broadcast
     /// that has been live for a while would dump a wall of old messages into
-    /// the programme at the moment a host turns chat on. A viewer reads the
+    /// the program at the moment a host turns chat on. A viewer reads the
     /// conversation from now.
     public func start(liveChatID: String, fetch: @escaping Fetch) {
         stop()

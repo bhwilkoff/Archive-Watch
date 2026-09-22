@@ -8,7 +8,7 @@
 //
 //   1. that the back-pressure signal can FIRE at all. `queuedBytes` counts
 //      bytes handed to NWConnection and not yet completed, and Apple's
-//      documented behaviour is that `contentProcessed` is DEFERRED once the
+//      documented behavior is that `contentProcessed` is DEFERRED once the
 //      connection's send buffer passes its high-water mark — so the counter
 //      should climb under congestion. "Should" is not "does".
 //   2. that video is what gets dropped.

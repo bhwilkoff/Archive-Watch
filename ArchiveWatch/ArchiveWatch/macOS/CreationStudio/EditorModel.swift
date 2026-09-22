@@ -1266,7 +1266,7 @@ final class EditorModel {
                 creditLine: credit, bakeOverlays: false, beds: resolvedBeds())
             if Task.isCancelled {
                 if ProcessInfo.processInfo.environment["AW_CS_DIAG"] != nil {
-                    FileHandle.standardError.write(Data("AWCS COMPOSE bail cancelled-after-build markClean=\(markClean) compDur=\(Int(built.duration.seconds)) running=\(rebuildRunning)\n".utf8))
+                    FileHandle.standardError.write(Data("AWCS COMPOSE bail canceled-after-build markClean=\(markClean) compDur=\(Int(built.duration.seconds)) running=\(rebuildRunning)\n".utf8))
                 }
                 return false
             }

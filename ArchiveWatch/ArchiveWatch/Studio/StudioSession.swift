@@ -108,7 +108,7 @@ public final class StudioSession {
     /// rehearsal that goes nowhere.
     public var isOnAir: Bool { isLive && health.hasDestination }
 
-    /// Whether this is a rehearsal: producing a programme, sending nothing.
+    /// Whether this is a rehearsal: producing a program, sending nothing.
     public var isRehearsing: Bool { isLive && !health.hasDestination }
     public private(set) var health = StudioHealth()
     /// Film frames in the last second — 0 while live is the frozen-picture
@@ -125,7 +125,7 @@ public final class StudioSession {
     /// "The film's audio is not being sent" — the warning that existed on tvOS
     /// ALONE. macOS and iOS use the `MTAudioProcessingTap`, which is exactly
     /// the path that can fail to attach, so they were the two platforms that
-    /// could broadcast a silent programme with nothing on screen saying so.
+    /// could broadcast a silent program with nothing on screen saying so.
     public private(set) var filmAudioProblem: String?
 
     /// THE FILM HAS ENDED AND THE SHOW HAS NOT (owner item 13, §9.bbbbbb).
@@ -147,9 +147,9 @@ public final class StudioSession {
     /// with a consequence the host owns.
     public private(set) var filmHasNoSoundtrack = false
 
-    /// WHY the film has stopped reaching the programme, in words, when it has.
+    /// WHY the film has stopped reaching the program, in words, when it has.
     ///
-    /// On 2026-09-22 the Studio's programme went black on two runs out of
+    /// On 2026-09-22 the Studio's program went black on two runs out of
     /// eight while the FILM pane beside it played perfectly. Both were silent:
     /// the row said "no new frames", which is the SYMPTOM, and nothing
     /// anywhere said what the player was doing. The camera has had a stall
@@ -160,6 +160,21 @@ public final class StudioSession {
     /// lesson from telling "ended" from "buffering": a counter can only say
     /// that nothing arrived, and every cause looks identical from there.
     public private(set) var filmProblem: String?
+
+    /// What the host's filter dropped this second (§D22), for the surface.
+    public var chatLinesFiltered: Int { health.chatLinesFiltered }
+
+    /// The host's three chat controls, in ONE call so they cannot arrive
+    /// apart. Armed as well as set: a host who configures chat BEFORE going
+    /// live must not have it reset by the engine being built afterwards,
+    /// which is the timing defect `armLayout` exists for (Decision 133).
+    private var armedChat: (enabled: Bool, side: StudioChatSide, filter: StudioChatFilter)?
+
+    public func setChat(enabled: Bool, side: StudioChatSide, filter: StudioChatFilter) async {
+        armedChat = (enabled, side, filter)
+        guard let e = engine else { return }
+        await e.setChatControls(enabled: enabled, side: side, filter: filter)
+    }
 
     /// §D18 — the call tap has been open for three seconds and delivered no
     /// samples at all. A level of zero is a quiet room; no samples is an
@@ -220,7 +235,7 @@ public final class StudioSession {
         armedFilmID = nil
     }
 
-    /// REHEARSE: run the programme with no destination (§D5).
+    /// REHEARSE: run the program with no destination (§D5).
     ///
     /// Owner's §D5: "Before going live the preview still runs. A host should
     /// be able to frame themselves, set levels and pick a placement with
@@ -229,9 +244,9 @@ public final class StudioSession {
     ///
     /// This is the SAME path a broadcast takes, with `armedDestination` nil,
     /// rather than a second render loop — §D5's whole point is that the
-    /// preview cannot diverge from the programme, and two loops is how it
+    /// preview cannot diverge from the program, and two loops is how it
     /// would. The rights gate still applies: a film that may not be streamed
-    /// may not be rehearsed either, because the rehearsal IS the programme.
+    /// may not be rehearsed either, because the rehearsal IS the program.
     ///
     /// It is EXPLICIT, never automatic. Starting it attaches the camera and
     /// the microphone, and a camera light that comes on because somebody
@@ -267,10 +282,10 @@ public final class StudioSession {
     private var surfaceArchiveID: String?
 
     /// Called by every macOS/iOS player surface as soon as it has a player.
-    /// Carries the old `attachIfArmed` behaviour unchanged, and remembers the
+    /// Carries the old `attachIfArmed` behavior unchanged, and remembers the
     /// player so a show armed LATER can still find it.
     public func registerSurfacePlayer(_ player: AVPlayer, archiveID: String) async {
-        // WHICH PLAYER, by identity. The Studio's programme went black on some
+        // WHICH PLAYER, by identity. The Studio's program went black on some
         // runs and not others with identical logs, and the only difference a
         // log could show was WHICH AVPlayer each step was talking about — a
         // surface rebuild hands the engine's player to a teardown that nils its
@@ -306,7 +321,7 @@ public final class StudioSession {
     ///
     /// `destination` nil is §D5's rehearsal — the same path a broadcast takes,
     /// sending nowhere, because the preview must not be able to diverge from
-    /// the programme. Returns false when the rights gate refused, and
+    /// the program. Returns false when the rights gate refused, and
     /// `refusal` carries the sentence.
     @discardableResult
     func beginShow(film: Catalog.Item, destination: URL?,
@@ -317,7 +332,7 @@ public final class StudioSession {
         guard arm(film: film) else { return false }
         // THE CAMERA AND THE MICROPHONE ARE ASKED FOR HERE (§D11), before the
         // engine is built, because `attachCameraIfAvailable` reads the
-        // authorisation status and returns silently when it is not yet
+        // authorization status and returns silently when it is not yet
         // `.authorized` — which on macOS it always was, since nothing in the
         // product path had ever asked.
         _ = await requestCaptureAccess()
@@ -339,6 +354,10 @@ public final class StudioSession {
 
         let e = StudioEngine(configuration: .benchDoored())
         engine = e
+        // §D22 — a host who set up chat before pressing anything keeps it.
+        if let c = armedChat {
+            await e.setChatControls(enabled: c.enabled, side: c.side, filter: c.filter)
+        }
         await e.attachFilm(player: player)
         // SAY WHETHER THE FILM'S AUDIO ACTUALLY ATTACHED. A file played through
         // AW_PLAY_URL reaches the video output and its audio does not reach the
@@ -347,7 +366,7 @@ public final class StudioSession {
         let srcTracks = ((try? await player.currentItem?.asset
             .loadTracks(withMediaType: .audio)) ?? [])?.count ?? -1
         // WHEN the tap is installed, not just whether. A local file is playing
-        // within milliseconds; a catalogue film is still loading for seconds.
+        // within milliseconds; a catalog film is still loading for seconds.
         // If `item.audioMix` only takes effect before audio begins rendering,
         // that difference alone would explain why films carry audio through the
         // tap and an AW_PLAY_URL file does not — same code, different timing.
@@ -420,11 +439,41 @@ public final class StudioSession {
                 diag("[AWSTUDIOCHAT] no YouTube token — chat will stay empty")
             }
         }
-        // The channel is the SURFACE's to name; the reading and the overlay
-        // belong to the engine (see `attachTwitchChat`).
-        if let channel = ProcessInfo.processInfo.environment["AW_STUDIO_CHAT"], !channel.isEmpty {
-            await e.attachTwitchChat(channel: channel)
-            diag("[AWSTUDIOCHAT] reading #\(channel.replacingOccurrences(of: "#", with: ""))")
+        // TWITCH CHAT IS THE HOST'S OWN CHANNEL, and there is no other
+        // acceptable source (§D22).
+        //
+        // Until 2026-09-22 this read `AW_STUDIO_CHAT` and NOTHING ELSE, on all
+        // three surfaces, with a comment saying the channel would come from
+        // the host's account "once sign-in exists". Sign-in has existed since
+        // 09-18. So the product had no Twitch chat at all, and the only way to
+        // see the column was to name somebody else's channel — which is what
+        // a test of mine did, putting strangers' messages over the owner's
+        // film. Their question is what found it: *"shouldn't it only display
+        // the chat coming through on that particular stream?"* Yes. YouTube
+        // could not get this wrong — its `liveChatId` comes back from the
+        // insert that CREATED this broadcast — and Twitch takes a channel by
+        // name, which is exactly why it needed the account asked for.
+        //
+        // `twitchAccount()` is the same read the readiness gate already makes,
+        // so this costs no new call shape and no new credential.
+        if let account = try? await StudioPlatformAuth.twitchAccount() {
+            await e.attachTwitchChat(channel: account.login)
+            diag("[AWSTUDIOCHAT] reading this broadcast's own channel #\(account.login)")
+        } else if let channel = ProcessInfo.processInfo.environment["AW_STUDIO_CHAT"],
+                  !channel.isEmpty {
+            // A DEBUG DOOR, and §D22a now means it can only ever fill a column
+            // on a show that is REALLY ON AIR — the pump refuses otherwise. It
+            // survives because reading Twitch needs no credential and a bench
+            // destination is still a broadcast, so the column can be measured
+            // against a local server without a platform account.
+            //
+            // It must never be the path a host takes: somebody else's chat
+            // over your film is not your show. That is not a hypothetical —
+            // it is what this door did on 2026-09-22, and the owner caught it.
+            let name = channel.replacingOccurrences(of: "#", with: "")
+            await e.attachTwitchChat(channel: name)
+            diag("[AWSTUDIOCHAT] DEBUG DOOR reading somebody else's channel #\(name) "
+                 + "— not signed in to Twitch, so this is NOT what a host would see")
         }
         // HARNESS AUDIO STATE — applied HERE, where the engine is known to
         // exist. The first attempt set it from the launch door, one line after
@@ -879,7 +928,7 @@ public final class StudioSession {
                 // Separate from `filmAudioProblem`, which is about the tap
                 // failing to attach. This one is not a fault: a transfer with
                 // no audio track is a real and legitimate thing in this
-                // catalogue, and the host needs to know because the
+                // catalog, and the host needs to know because the
                 // CONSEQUENCE is theirs — their voice will be the only sound
                 // the audience hears.
                 //
@@ -1041,7 +1090,7 @@ public final class StudioSession {
     /// shows up on the lower third."* One toggle used to draw all three lines
     /// or none.
     ///
-    /// What a host may choose is WHICH of the catalogue's own verified facts
+    /// What a host may choose is WHICH of the catalog's own verified facts
     /// to show — never to retype them. §2.1's argument is that the audience
     /// learns what the film IS, and a free-text title over a public-domain
     /// film is how an audience learns something false.

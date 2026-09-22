@@ -13,7 +13,7 @@
 # somebody remembering to look is not verified.
 #
 # The divergence §D5 forbids is being deliberately reintroduced here, in one
-# labelled corner, so the check is against the ONE thing that makes it safe:
+# labeled corner, so the check is against the ONE thing that makes it safe:
 # `stagedCard` is read by the thumbnail and by TAKE, and by nothing else.
 #
 #   bash tools/test_studio_staging.sh
@@ -65,9 +65,9 @@ else
 fi
 
 # 4. ONE RENDERER. §D19's guard against building a second compositor that
-#    drifts from the programme's — Decision 133 in its graphical form.
+#    drifts from the program's — Decision 133 in its graphical form.
 if grep -q "StudioOverlayRenderer(" "$NEXT"; then
-  echo "ok: the thumbnail draws through the programme's own overlay renderer"
+  echo "ok: the thumbnail draws through the program's own overlay renderer"
 else
   echo "FAIL: $NEXT does not use StudioOverlayRenderer"
   fail=1

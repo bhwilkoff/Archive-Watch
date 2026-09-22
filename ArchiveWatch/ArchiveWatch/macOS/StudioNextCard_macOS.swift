@@ -5,7 +5,7 @@ import SwiftUI
 
 // NEXT — macOS-DESIGN §D19, roadmap #5.
 //
-// §D5 is emphatic that the preview IS the programme, so that "what I see" and
+// §D5 is emphatic that the preview IS the program, so that "what I see" and
 // "what they see" cannot diverge. This is the one deliberate exception, and it
 // earns it: a host composing a card mid-show writes words the audience will
 // read, and today they write them blind — the editor is four text fields and
@@ -16,11 +16,11 @@ import SwiftUI
 // staged, TAKE is the only route to the audience and taking it clears the
 // staging — so NEXT never shows what is already out.
 //
-// AND IT RENDERS THROUGH THE PROGRAMME'S OWN RENDERER. A second drawing path
+// AND IT RENDERS THROUGH THE PROGRAM'S OWN RENDERER. A second drawing path
 // would be a second chance to differ from the thing it previews, which is
 // exactly the mistake §D5 forbids. `StudioOverlayRenderer` at 640x360 draws
 // the same card the engine draws at 1920x1080 — it scales from a 1920
-// reference, so the proportions are the programme's.
+// reference, so the proportions are the program's.
 
 struct StudioNextCard: View {
     @Bindable var controls: StudioControls
@@ -40,7 +40,7 @@ struct StudioNextCard: View {
                 Text("NEXT").font(.caption2.weight(.bold)).foregroundStyle(marquee)
                 // SAID OUT LOUD, every time it is on screen. §D19: this is the
                 // one picture in the Studio that is not going out, and a host
-                // who mistakes it for the programme has been misled by us.
+                // who mistakes it for the program has been misled by us.
                 Text("not on air").font(.caption2).foregroundStyle(.secondary)
                 Spacer(minLength: 4)
                 Button("Clear") { controls.stagedCard = .none }
@@ -81,7 +81,7 @@ struct StudioNextCard: View {
         guard let card else { return nil }
 
         // 640x360: the renderer scales everything from a 1920-wide reference,
-        // so this is the programme's own layout at a third the size rather
+        // so this is the program's own layout at a third the size rather
         // than a re-proportioned copy.
         let size = CGSize(width: 640, height: 360)
         var overlay = StudioOverlay()

@@ -150,7 +150,14 @@ struct StudioPlayerContainer: View {
             let dest = try await destination()
             // Chat the program carries (§6.4) — named by the surface, read by the
             // engine. No credential is needed to read Twitch.
-            if let channel = ProcessInfo.processInfo.environment["AW_STUDIO_CHAT"], !channel.isEmpty {
+            // The host's OWN channel (§D22). This surface read AW_STUDIO_CHAT and
+            // nothing else until 2026-09-22 — see StudioSession for why that meant
+            // the product had no Twitch chat and a test showed a stranger's.
+            if let account = try? await StudioPlatformAuth.twitchAccount() {
+                await e.attachTwitchChat(channel: account.login)
+            } else if let channel = ProcessInfo.processInfo.environment["AW_STUDIO_CHAT"],
+                      !channel.isEmpty {
+                // Debug door only; never a host's path.
                 await e.attachTwitchChat(channel: channel)
             }
 

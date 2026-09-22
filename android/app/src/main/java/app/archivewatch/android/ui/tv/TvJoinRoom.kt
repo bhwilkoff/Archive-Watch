@@ -76,7 +76,7 @@ fun TvJoinRoomScreen(container: AppContainer, nav: Nav) {
                 val db = container.catalog.awaitDb()
                 val item = db.itemsByIDs(listOf(state.filmID)).firstOrNull()
                 if (item == null) {
-                    problem = "That room is watching a film this device does not have in its catalogue yet."
+                    problem = "That room is watching a film this device does not have in its catalog yet."
                     typed = ""
                     return@launch
                 }

@@ -1129,7 +1129,14 @@ struct PlayerScreen: View {
         // Chat the program carries. The channel comes from the host's own
         // Twitch account once sign-in exists; `AW_STUDIO_CHAT` names one
         // meanwhile, and reading Twitch needs no credential (§6.4).
-        if let channel = ProcessInfo.processInfo.environment["AW_STUDIO_CHAT"], !channel.isEmpty {
+        // The host's OWN channel (§D22). This surface read AW_STUDIO_CHAT and
+        // nothing else until 2026-09-22 — see StudioSession for why that meant
+        // the product had no Twitch chat and a test showed a stranger's.
+        if let account = try? await StudioPlatformAuth.twitchAccount() {
+            await engine.attachTwitchChat(channel: account.login)
+        } else if let channel = ProcessInfo.processInfo.environment["AW_STUDIO_CHAT"],
+                  !channel.isEmpty {
+            // Debug door only; never a host's path.
             await engine.attachTwitchChat(channel: channel)
         }
 
@@ -2607,7 +2614,7 @@ struct PlayerScreen: View {
             // old player always won.
             try? await Task.sleep(for: fallbackAt)
             guard !Task.isCancelled else {
-                awdiag("AWLIFE screen=%@ loadTimeout CANCELLED before 25s", screenID)
+                awdiag("AWLIFE screen=%@ loadTimeout CANCELED before 25s", screenID)
                 return
             }
             // Report the DECISION, not just the firing. Measured on the device:
@@ -2628,7 +2635,7 @@ struct PlayerScreen: View {
             }
             try? await Task.sleep(for: giveUpAt - fallbackAt)
             guard !Task.isCancelled else {
-                awdiag("AWLIFE screen=%@ loadTimeout CANCELLED before 60s", screenID)
+                awdiag("AWLIFE screen=%@ loadTimeout CANCELED before 60s", screenID)
                 return
             }
             awdiag("AWLIFE screen=%@ loadTimeout@60s playback=%@",

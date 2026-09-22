@@ -221,6 +221,10 @@ CHAT=ArchiveWatch/ArchiveWatch/Studio/StudioChatTwitch.swift
 # dependency graph that a new file does not update. Every case that compiles
 # $ENG needs this too.
 CHATYT=ArchiveWatch/ArchiveWatch/Studio/StudioChatYouTube.swift
+# The engine reads a host's chat filter, so every case that compiles the
+# engine needs it. This list is the harness's own second copy of the
+# module's dependency graph (§6.2n) — adding one file broke eight cases.
+CHATFILTER=ArchiveWatch/ArchiveWatch/Studio/StudioChatFilter.swift
 AUTH=ArchiveWatch/ArchiveWatch/Studio/StudioPlatformAuth.swift
 PLAT=ArchiveWatch/ArchiveWatch/Studio/StudioPlatforms.swift
 MEDIA=tools/StudioTestMedia.swift
@@ -231,16 +235,16 @@ swift_case "8.4 rtmp reconnect"    "$PUB" "$MEDIA" "$SHIM" tools/test_rtmp_recon
 # happens once, so this asserts the frames are the SAME frames and that both
 # servers read a complete stream back — not merely that two sockets opened.
 swift_case "8.37 simulcast"        "$PUB" "$MEDIA" "$SHIM" tools/test_studio_simulcast.swift
-swift_case "8.5 thermal"           "$PUB" "$ENG" "$OUT" "$AUD" "$OVL" "$CHAT" "$CHATYT" "$SHIM" tools/test_studio_thermal.swift
-swift_case "8.6 back-pressure"     "$PUB" "$ENG" "$OUT" "$AUD" "$OVL" "$CHAT" "$CHATYT" "$SHIM" tools/test_studio_backpressure.swift
-swift_case "8.15 audio ring FIFO"  "$PUB" "$ENG" "$OUT" "$AUD" "$OVL" "$CHAT" "$CHATYT" "$SHIM" tools/test_studio_ring.swift
-swift_case "8.16 programme rate"   "$PUB" "$ENG" "$OUT" "$AUD" "$OVL" "$CHAT" "$CHATYT" "$DEC" "$SHIM" tools/test_studio_rate.swift
-swift_case "8.17 tap resampler"    "$PUB" "$ENG" "$OUT" "$AUD" "$OVL" "$CHAT" "$CHATYT" "$SHIM" tools/test_studio_resample.swift
+swift_case "8.5 thermal"           "$PUB" "$ENG" "$CHATFILTER" "$OUT" "$AUD" "$OVL" "$CHAT" "$CHATYT" "$SHIM" tools/test_studio_thermal.swift
+swift_case "8.6 back-pressure"     "$PUB" "$ENG" "$CHATFILTER" "$OUT" "$AUD" "$OVL" "$CHAT" "$CHATYT" "$SHIM" tools/test_studio_backpressure.swift
+swift_case "8.15 audio ring FIFO"  "$PUB" "$ENG" "$CHATFILTER" "$OUT" "$AUD" "$OVL" "$CHAT" "$CHATYT" "$SHIM" tools/test_studio_ring.swift
+swift_case "8.16 programme rate"   "$PUB" "$ENG" "$CHATFILTER" "$OUT" "$AUD" "$OVL" "$CHAT" "$CHATYT" "$DEC" "$SHIM" tools/test_studio_rate.swift
+swift_case "8.17 tap resampler"    "$PUB" "$ENG" "$CHATFILTER" "$OUT" "$AUD" "$OVL" "$CHAT" "$CHATYT" "$SHIM" tools/test_studio_resample.swift
 # The camera-placement settings, asserted against what their LABELS promise.
 # Owner 2026-09-20: "I'm not sure the different settings for where your camera
 # will go ... are actually working as they should." They were not: theatre was
 # corner moved 64 px down, same 332x187 tile in the same corner.
-swift_case "8.22 camera placement" "$PUB" "$ENG" "$OUT" "$AUD" "$OVL" "$CHAT" "$CHATYT" "$SHIM" tools/test_studio_layouts.swift
+swift_case "8.22 camera placement" "$PUB" "$ENG" "$CHATFILTER" "$OUT" "$AUD" "$OVL" "$CHAT" "$CHATYT" "$SHIM" tools/test_studio_layouts.swift
 # The camera-stall recovery RULE, which lived inside tvOS's own view loop and
 # so existed on exactly one platform while PARITY said "no recovery yet" for
 # the other two. No $ENG: the rule is a pure value type on purpose.
@@ -321,8 +325,27 @@ swift_case "8.20 guest voice room" ArchiveWatch/ArchiveWatch/Studio/StudioVoiceC
 # processes and requires the untapped one to be ABSENT, because a tap that
 # caught the film as well would feed the broadcast back into itself.
 # macOS only, and no $SHIM: this touches Core Audio and nothing of ours.
+#
+# IT TAKES OVER THE SPEAKERS, so it asks. This case plays two audible tones
+# through the DEFAULT OUTPUT DEVICE for about fifteen seconds — it has to,
+# because the thing under test is a tap on what another process is really
+# rendering, and the device it follows is whatever the person at the desk is
+# listening through. On 2026-09-22 the owner asked "why do tones keep being
+# played on my computer when it doesn't seem like you are testing sound?" and
+# the answer was: because a suite somebody ran in the background took over
+# their speakers without saying so.
+#
+# So it is OPT-IN, and the skip line says exactly how to opt in. That makes it
+# a SKIP rather than a silent absence, which is this suite's own rule (a skip
+# is not a pass, and it is counted separately) — the soak has the same shape
+# for the same kind of reason.
 if [ "$(uname)" = "Darwin" ]; then
-  swift_case "8.21 per-process audio tap" tools/test_studio_processtap.swift
+  if [ "${AW_AUDIBLE:-0}" = "1" ]; then
+    swift_case "8.21 per-process audio tap" tools/test_studio_processtap.swift
+  else
+    row "8.21 per-process audio tap" SKIP "plays audible tones; run with AW_AUDIBLE=1"
+    SKIP=$((SKIP+1))
+  fi
 fi
 
 # The two credential-facing harnesses. Neither was in this runner, which is
@@ -355,6 +378,42 @@ fi
 # branches, which overlap — a rebuilt window also reads as paused.
 swift_case "8.40 film-stall reasons" ArchiveWatch/ArchiveWatch/Studio/StudioFilmStall.swift \
   tools/test_studio_filmstall.swift
+
+# §D22 — the host's chat controls. The filter is a pure function so every
+# rule and every interaction is reachable in milliseconds; the layout case
+# caught a real defect the same hour it was written (a mirrored column landing
+# on the host's face) and a wrap defect seen on air.
+swift_case "8.42 chat column layout" \
+  ArchiveWatch/ArchiveWatch/Studio/RTMPPublisher.swift \
+  ArchiveWatch/ArchiveWatch/Studio/StudioAudio.swift \
+  ArchiveWatch/ArchiveWatch/Studio/StudioOutputSettings.swift \
+  ArchiveWatch/ArchiveWatch/Studio/StudioOverlayRenderer.swift \
+  ArchiveWatch/ArchiveWatch/Studio/StudioChatTwitch.swift \
+  ArchiveWatch/ArchiveWatch/Studio/StudioChatYouTube.swift \
+  ArchiveWatch/ArchiveWatch/Studio/StudioChatFilter.swift \
+  ArchiveWatch/ArchiveWatch/Studio/StudioEngine.swift \
+  "$SHIM" tools/test_studio_chatlayout.swift
+
+swift_case "8.43 chat filter" \
+  ArchiveWatch/ArchiveWatch/Studio/RTMPPublisher.swift \
+  ArchiveWatch/ArchiveWatch/Studio/StudioAudio.swift \
+  ArchiveWatch/ArchiveWatch/Studio/StudioOutputSettings.swift \
+  ArchiveWatch/ArchiveWatch/Studio/StudioOverlayRenderer.swift \
+  ArchiveWatch/ArchiveWatch/Studio/StudioChatTwitch.swift \
+  ArchiveWatch/ArchiveWatch/Studio/StudioChatYouTube.swift \
+  ArchiveWatch/ArchiveWatch/Studio/StudioChatFilter.swift \
+  ArchiveWatch/ArchiveWatch/Studio/StudioEngine.swift \
+  "$SHIM" tools/test_studio_chatfilter.swift
+
+# US English in everything a person reads (CLAUDE.md, owner 2026-09-22). Found
+# four user-facing "catalogue" strings across four platforms on its first run
+# that a hand sweep of the same files had missed.
+if python3 tools/test_us_english.py >"$SCRATCH/us-english.log" 2>&1; then
+  row "8.41 US English on screen" PASS ""; PASS=$((PASS+1))
+else
+  row "8.41 US English on screen" FAIL "a British spelling reached a user-facing string"
+  FAIL=$((FAIL+1))
+fi
 
 # §D19's staging, guarded structurally. A card a host is PREPARING must reach
 # their own thumbnail and no further; the wire proves one value at one moment,

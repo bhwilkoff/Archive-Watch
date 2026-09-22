@@ -116,15 +116,15 @@ cat <<'TXT'
         7. Type a stream title. Set privacy to Unlisted. Press Go Live.
            The status goes to ON AIR. This is liveStreams.insert +
            liveBroadcasts.insert + bind + transition — the write half.
-        8. Show the programme: the film, your camera tile, the lower third.
+        8. Show the program: the film, your camera tile, the lower third.
         9. From a phone or a second browser, post a message in the broadcast's
-           live chat, and show it appearing over the programme. That is the
+           live chat, and show it appearing over the program. That is the
            read-chat half of the scope.
            CAVEAT, KNOWN BEFORE YOU START: this is the ONE beat never proved
            end to end. The reader is wired (macOS arms the liveChatID at
            go-live, polls at YouTube's own interval, and the renderer draws
            the column) and §8.36 asserts the id reaches the engine, but no
-           real message has ever been seen on a real programme. If nothing
+           real message has ever been seen on a real program. If nothing
            appears within ~30 s, DO NOT abandon the take: carry on to beat 10
            and cut beat 9 in the edit. The video is sufficient without it;
            beats 5-8 and 10-11 already cover read and write.
@@ -173,7 +173,7 @@ cat <<TXT
        Press CONTROL-C in this terminal to stop recording.
 TXT
 read -r -p "       Ready? [y/N] " a
-case "$a" in [yY]*) ;; *) echo "       cancelled"; exit 0;; esac
+case "$a" in [yY]*) ;; *) echo "       canceled"; exit 0;; esac
 echo "       recording in 3..."; sleep 1; echo "       2..."; sleep 1; echo "       1..."; sleep 1
 screencapture -v "$OUT"
 say "Saved: $OUT"

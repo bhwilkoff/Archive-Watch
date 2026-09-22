@@ -1,4 +1,4 @@
-// WHY the film stopped reaching the programme (§4, §D21).
+// WHY the film stopped reaching the program (§4, §D21).
 //
 // This is a pure function over four facts a caller reads off `AVPlayer`,
 // deliberately separated from the poll loop that reads them. The reason is
@@ -60,7 +60,7 @@ public enum StudioFilmStall {
         if let e = f.errorDescription {
             return "the film stopped: \(e)"
         }
-        return "the film is playing but no frames are reaching the programme"
+        return "the film is playing but no frames are reaching the program"
     }
 
     /// How many consecutive silent seconds before the cause is named. One is a

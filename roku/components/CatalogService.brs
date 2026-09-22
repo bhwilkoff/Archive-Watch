@@ -150,7 +150,7 @@ sub buildParty()
             n = n + 1
         end if
     end while
-    print "AWSVC party colour="; colour.Count(); " bw="; rest.Count(); " picked="; n
+    print "AWSVC party color="; colour.Count(); " bw="; rest.Count(); " picked="; n
     m.top.total = n
     m.top.results = root
 end sub

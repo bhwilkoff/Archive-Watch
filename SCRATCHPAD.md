@@ -31,7 +31,7 @@ on a GitHub Release, never in git.
 **Reading how it is doing**: <https://archivewatch.org/pulse/> — seven
 audience views, every store read by the route it actually offers, refreshed
 daily ~07:00 MT — cron 08:17 UTC, because GitHub runs this repo's schedules 4–5 h late (Decisions 108/109/123, `docs/PULSE-ANALYTICS.md`). The
-social programme posts daily to five platforms (`docs/SOCIAL-PROGRAM.md`,
+social program posts daily to five platforms (`docs/SOCIAL-PROGRAM.md`,
 Decision 120).
 
 **What to build next in the Studio**: `docs/WATCH-TOGETHER-ROADMAP.md`
@@ -54,7 +54,7 @@ emulators) · `docs/CAPTIONS.md` · `docs/SHAREPLAY.md` ·
    Scarecrow' (one with sound and one without) ... Why are there two versions
    of the same movie that aren't folded together as different versions that can
    be pulled in the versions picker?"*). Not fixed; the cause is measured and
-   the fix is a catalogue-pipeline change of its own.
+   the fix is a catalog-pipeline change of its own.
 
    | | `TheScarecrow1920` | `the-scarecrow` |
    |---|---|---|
@@ -64,7 +64,7 @@ emulators) · `docs/CAPTIONS.md` · `docs/SHAREPLAY.md` ·
    | audio | **none** | AAC |
 
    **Decision 040's merge never considered them**, because it clusters by
-   normalised title FIRST and only then asks `_same_film`. Run against the two
+   normalized title FIRST and only then asks `_same_film`. Run against the two
    titles, `build_sqlite._dupe_title_key` returns `busterkeatonsthescarecrow`
    and `scarecrow` — different clusters. And `_same_film(a, b)` on those two
    records returns **True**: one carries an imdb anchor, the other none,
@@ -77,7 +77,7 @@ emulators) · `docs/CAPTIONS.md` · `docs/SHAREPLAY.md` ·
    over-merge. The uploader convention here is stronger and safer: when a title
    contains a QUOTED substring, the quoted part IS the title —
    `Buster Keaton's "The Scarecrow"` → `The Scarecrow`. That is testable,
-   bounded, and does not touch unquoted titles at all. It needs a catalogue
+   bounded, and does not touch unquoted titles at all. It needs a catalog
    rebuild to take effect, which is why it is its own change set.
 
 0-NEW. **PRESS "ALLOW THE CAMERA" ONCE, IN THE MAC STUDIO** (2026-09-22). The
@@ -382,7 +382,7 @@ emulators) · `docs/CAPTIONS.md` · `docs/SHAREPLAY.md` ·
    program was stretched into the phone's portrait surface (§9.2b), and
    `filmAspect` was declared with a 16:9 default and **assigned by nothing**,
    so every non-16:9 film went out stretched — which is most of this
-   catalogue, since a silent film is 4:3. Both fixed and verified from the
+   catalog, since a silent film is 4:3. Both fixed and verified from the
    server's own recording (Caligari pillarboxed to exactly 1.333) and from the
    phone's screen.
    **STILL NOT RUN: the camera and the microphone.** Permissions are granted
@@ -473,7 +473,7 @@ emulators) · `docs/CAPTIONS.md` · `docs/SHAREPLAY.md` ·
    "ended" from "buffering", where a false positive is worse than today's
    silence.
 
-17-NEW. **THE MAC'S PROGRAMME GOES BLACK ABOUT ONE RUN IN FOUR, AND NOTHING SAYS
+17-NEW. **THE MAC'S PROGRAM GOES BLACK ABOUT ONE RUN IN FOUR, AND NOTHING SAYS
    WHY** (2026-09-22, reproduced twice in eight). The FILM pane plays at 25 fps
    beside a STREAM pane that is black behind the lower third and the camera
    tile, the film row reads "no new frames", and the log of a black run is
@@ -538,7 +538,7 @@ emulators) · `docs/CAPTIONS.md` · `docs/SHAREPLAY.md` ·
    app and nothing else, which is §8.21's 82 dB isolation confirmed where it
    counts: the film cannot be captured twice and fed back into its own
    broadcast. The rate corroborates as well — ~48,600 frames a second is the
-   output device's 48 kHz, resampled to the programme's 44.1.
+   output device's 48 kHz, resampled to the program's 44.1.
    `AW_STUDIO_CALL="Google Chrome"` is the door that makes it repeatable.
    Original item follows.
 
@@ -596,9 +596,9 @@ show, no `licenseurl`, no `rights` statement.
 
 **Scope, measured.** 202 of the 489 spines have `yearStart >= 1978`, carrying
 1,949 episodes. Fed through the FILM audit's own `bucket()`, all 202 come out
-`modern_copyright_unconfirmed` — the audit wants a licence check before
+`modern_copyright_unconfirmed` — the audit wants a license check before
 hiding, by design (it never hides on a failed fetch). A 24-show sample of
-that confirm step: **23 have no licence at all**; one (The Man from Snowy
+that confirm step: **23 have no license at all**; one (The Man from Snowy
 River, 1994) carries a genuine CC public-domain dedication and would be
 correctly rescued. Names in the hide set include Murphy Brown, Knight Rider,
 The Dukes of Hazzard, Freddy's Nightmares, Designing Women, Minder, Count
@@ -626,7 +626,7 @@ were wrong, faithfully implemented** (Decision 134, macOS-DESIGN §D7-§D13).
 
 **THE STUDIO NOW CONTAINS THE BROADCAST.** §D1 gave it a window and left the
 film in a different one, so it was a window of controls for a show it did not
-hold. It now carries a FILM CHOOSER (search the catalogue from inside it;
+hold. It now carries a FILM CHOOSER (search the catalog from inside it;
 rights-refused titles are SHOWN with their reason — *"This film is probably in
 the public domain but nothing proves it"* — rather than hidden), the film's own
 player in a **SOURCE** pane beside the **PROGRAM** preview (§D8, OBS's split),
@@ -663,7 +663,7 @@ while live" belongs to resolution and frame rate alone.
 **A CARD OF THE HOST'S OWN WORDS** (§D10) — four lines, each ranked Display /
 Heading / Body / Caption from the project's own six levels. Rendered and LOOKED
 AT (`build/qa/studio-overlay/card-custom*.png`): empty lines dropped, one-line
-and four-line cards both optically centred, same wordmark and rule as the three
+and four-line cards both optically centered, same wordmark and rule as the three
 fixed ones. **Writing it produced a chicken-and-egg bug that only the glass
 found**: the picker read its value back out of `card`, and §D10 says an empty
 custom card is never shown — so choosing "My own words" set `card` to nil, the
@@ -689,7 +689,7 @@ different heights.
 when I opened the interface back up, a new copy of the movie started playing …
 there is no way to stop the audio at all at that point."* `teardown()` did
 everything its name implies except stop the player: it removed observers,
-cancelled tasks and saved progress, and left the `AVPlayer` running — and macOS
+canceled tasks and saved progress, and left the `AVPlayer` running — and macOS
 keeps a closed `WindowGroup` window's `@State`, so the player survived with no
 view left to pause it and the next open built a second one over the first.
 **Measured**: 4.0% CPU playing → **0.0% after the red button**, and re-opening
@@ -730,7 +730,7 @@ mid-left, zoom 1.5x cropped to head-and-shoulders, size 0.7x. Framing is not
 per-layout — the crop follows the person, the preset follows the show.
 
 **THE LOWER THIRD'S LINES ARE THE HOST'S** (§D15) — title, year+director and
-provenance each toggle. Which of the catalogue's own verified facts to show,
+provenance each toggle. Which of the catalog's own verified facts to show,
 never what they say (§2.1). The provenance line keeps its 20-second expiry and
 that expiry stays gated on a real broadcast, which is the owner's own ruling
 when asked.
@@ -762,7 +762,7 @@ the clear, attach the new ring, return, and then the clear ran and took the
 channel away. Both synchronous now. And `AudioDeviceStart`'s status was
 DISCARDED, so a tap macOS refuses to start reported success and drew a channel
 that could never carry anything — the silent channel §D2 forbids, on the one
-input whose TCC behaviour has been listed as unmeasured since it was written.
+input whose TCC behavior has been listed as unmeasured since it was written.
 
 **AND I KILLED THE APP UNDER THE OWNER'S HANDS.** They reported it quitting on
 choosing Google Chrome from the call list; there is no crash report, and the
@@ -802,7 +802,7 @@ playing its own soundtrack throughout** (*Safety Last!*, `filmHasAudio=true`),
 and the call channel read zero, so the tap is capturing Chrome and ONLY
 Chrome. That is §8.21's 82 dB isolation, confirmed where it matters. The
 sample rate corroborates too: ~48,600 frames a second is the output device's
-48 kHz, resampled to the programme's 44.1.
+48 kHz, resampled to the program's 44.1.
 
 **THE TEST CHROME WAS AN ISOLATED INSTANCE**, `--user-data-dir=/tmp/aw-chrome-test`
 with `--autoplay-policy=no-user-gesture-required`, because the owner's own
@@ -838,14 +838,14 @@ zooms out from an already-minimum 1.0x, so a working gesture read as broken
 for two builds. The instrument said `inside=true` and I had not asked it.
 
 **THE TWO SCARECROWS ARE FIXED AT THE SOURCE.** Decision 040 clusters by
-normalised title before asking `_same_film`, and
+normalized title before asking `_same_film`, and
 `Buster Keaton's "The Scarecrow"` keyed apart from `The Scarecrow` — while
 `_same_film` returns True for the pair. A double-quoted run ANCHORED AT THE
 END is now the title. **Measured before shipping**: 121 titles change key into
 49 clusters, every one a Keaton or Chaplin short beside its bare twin. The
 first draft handled single quotes too and produced `Let's Get Movin'` ->
-`s Get Movin`; the catalogue said the branch was not worth its damage, so it
-is double quotes only. Needs a catalogue rebuild to take effect.
+`s Get Movin`; the catalog said the branch was not worth its damage, so it
+is double quotes only. Needs a catalog rebuild to take effect.
 
 **AND THE SUITE FAILED ONCE FOR A REASON THAT WAS NOT THE CODE**, which is
 worth writing down rather than quietly re-running. A run taken while my own
@@ -862,7 +862,7 @@ Suite **138 pass / 1 skip / 0 fail** (the skip is §8.3's soak, off by default).
 Kotlin **103 / 0 / 0**. macOS, iOS and tvOS all build. v1.42.480 (1492).
 
 **TWO POST-COMMIT CHANGES, VERIFIED AFTERWARDS RATHER THAN BEFORE** — worth
-naming because shipping a behaviour change I had not seen is the thing this
+naming because shipping a behavior change I had not seen is the thing this
 project keeps writing rules about. Both came out of self-review, both are now
 on the glass:
 
