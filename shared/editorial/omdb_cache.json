@@ -1,7 +1,7 @@
 {
   "version": 1,
   "description": "OMDb lookup results keyed by IMDb ID. Positive = poster_url; negative = null (so we don't burn daily quota retrying items OMDb doesn't have). Populated by the scheduled omdb-backfill GitHub Action + local runs of tools/omdb_backfill.py. The exporter overlays this cache over DB rows at export time.",
-  "updated_at": "2026-09-21T07:59:47Z",
+  "updated_at": "2026-09-22T07:44:57Z",
   "entries": {
     "tt0007613": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BYzUwNTY4NWUtNGRhMy00YjVmLWEyNmQtYTQyNWQyNDZhNjFmXkEyXkFqcGc@._V1_SX300.jpg",
@@ -31910,11 +31910,11 @@
     },
     "nm0101038": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm0101038\" to type \\'Double\\''",
-      "last_tried": "2026-09-21T07:59:47Z"
+      "last_tried": "2026-09-22T07:44:57Z"
     },
     "nm1947784": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm1947784\" to type \\'Double\\''",
-      "last_tried": "2026-09-21T07:59:47Z"
+      "last_tried": "2026-09-22T07:44:57Z"
     },
     "tt0000046": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BZWM2N2MzMGMtNzNkNi00OTc2LTg5NDQtNWViNTA2MGIwNmFhXkEyXkFqcGdeQXVyNTI2NTY2MDI@._V1_SX300.jpg",
@@ -323082,6 +323082,324 @@
         "Short"
       ],
       "fetched_at": "2026-09-19T07:22:14Z",
+      "schema": 3
+    },
+    "tt0014040": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNWFiMDFlNzAtMzIzNS00ODIxLWIxNTQtNjAzOTBiN2I4YTc0XkEyXkFqcGdeQXVyMjUxODE0MDY@._V1_SX300.jpg",
+      "imdb_rating": 6.3,
+      "imdb_votes": 12,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": null,
+      "director": "Malcolm St. Clair, Henry Lehrman",
+      "actors": [
+        "George O'Hara",
+        "Clara Horton",
+        "Kit Guard",
+        "Al Cooke"
+      ],
+      "genres": [
+        "Comedy"
+      ],
+      "fetched_at": "2026-09-22T07:44:57Z",
+      "schema": 3
+    },
+    "tt0066194": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BODg0ZWM2NTAtYjBmOS00NjZjLWIwMzItNDI0ZmIyMjE3MmRkXkEyXkFqcGdeQXVyMTY5Nzc4MDY@._V1_SX300.jpg",
+      "imdb_rating": 5.6,
+      "imdb_votes": 455,
+      "content_rating": "Unrated",
+      "plot": "Walter Brennan is back as the clever and funny over the hill Texas Ranger Nash Crawford. This time the gang must face corruption in their own home town. The gang put their heads together to clean up their town, take back the rule of law and rehabilitate the town lush (played by Fred Astaire) along with way.",
+      "runtime_min": 75,
+      "director": "George McCowan",
+      "actors": [
+        "Walter Brennan",
+        "Fred Astaire",
+        "Edgar Buchanan"
+      ],
+      "genres": [
+        "Comedy",
+        "Family",
+        "Western"
+      ],
+      "fetched_at": "2026-09-22T07:44:57Z",
+      "schema": 3
+    },
+    "tt0066847": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BM2ZiNGY2ZGQtMmM5Ny00YzQ2LTg3ZjMtOWEzMjgwODFhNzU0XkEyXkFqcGc@._V1_QL75_UX380_CR0,7,380,562_.jpg",
+      "imdb_rating": 4.5,
+      "imdb_votes": 543,
+      "content_rating": "GP",
+      "plot": "A sex-crimes specialist from New York travels to the Philippines to help his friend, a Manila homicide detective, solve a series of murders.",
+      "runtime_min": 74,
+      "director": "Newt Arnold",
+      "actors": [
+        "Robert Winston",
+        "Katherine Henryk",
+        "Yvonne Nielson"
+      ],
+      "genres": [
+        "Horror"
+      ],
+      "fetched_at": "2026-09-22T07:44:57Z",
+      "schema": 3
+    },
+    "tt0066856": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BYTQyMGNhNmItZDM5Yi00NWU0LTg3NjctYTljYWYyNjdlMTJmXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 5.8,
+      "imdb_votes": 2197,
+      "content_rating": "R",
+      "plot": "J.J., a former New York City hairdresser, commits petty crimes, often with his friend Billy Dynamite, to support his drug habit. He's not very good at it, with something often going wrong. One of J.J.'s more regular gigs is working as a mule for Vivian - who J.J. calls Geek Man to Vivian's chagrin - a pimp for who J.J.'s ex-wife, Veronica, also a junkie, now hustles also to support her habit. J.J.'s life has the potential to change the result of two encounters. One is with a pair of NYPD narcs who have him over a barrel concerning his drug use and what they want out of him to make a drug conviction go away. Two is with a young woman named Parm who he meets in the act of one of his crimes. J.J. and Parm enter into a relationship, the love and support within that makes J.J. want to come out on top for once in his life.",
+      "runtime_min": 88,
+      "director": "Ivan Passer",
+      "actors": [
+        "George Segal",
+        "Paula Prentiss",
+        "Karen Black"
+      ],
+      "genres": [
+        "Comedy",
+        "Crime",
+        "Drama"
+      ],
+      "fetched_at": "2026-09-22T07:44:57Z",
+      "schema": 3
+    },
+    "tt0068315": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BZTgxMTBmMDktYTE0Ny00MjBjLThhZjYtMzIzYWJiMzZiMWY2XkEyXkFqcGc@._V1_QL75_UY562_CR4,0,380,562_.jpg",
+      "imdb_rating": 7.5,
+      "imdb_votes": 9672,
+      "content_rating": "G",
+      "plot": "Gale Sayers joins the Chicago Bears and is befriended by Brian Piccolo, an over-achieving running back. Although they compete for the same spot on the team, and despite the fact that Sayers is black and Piccolo white, they become roommates on the road and very close friends, especially when Sayers is injured and Piccolo helps his recovery. Later, they and their wives must both deal with the harsh reality of Piccolo's cancer.",
+      "runtime_min": 73,
+      "director": "Buzz Kulik",
+      "actors": [
+        "James Caan",
+        "Billy Dee Williams",
+        "Jack Warden"
+      ],
+      "genres": [
+        "Biography",
+        "Drama",
+        "Sport"
+      ],
+      "fetched_at": "2026-09-22T07:44:57Z",
+      "schema": 3
+    },
+    "tt0068539": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BOWMyZTJjYzgtZjExZS00NTQxLWEyMjctMDg1MzI3YThiOWEyXkEyXkFqcGc@._V1_QL75_UX380_CR0,18,380,562_.jpg",
+      "imdb_rating": 5.7,
+      "imdb_votes": 2004,
+      "content_rating": "PG",
+      "plot": "An outspoken boy and a gunfighter-pimp save a drifter's life from hanging. The boy's uncle dies, leaving a house and some dry, useless land to the boy. The dying uncle has obtained the drifter's promise to help the boy get what is his. Meanwhile the gunfighter has decided that the drifter should marry his daughter after being with her previously. The two get into a series of brawls and shoot-outs until they arrive in the town and find the boy's inheritance -which turns out not to be as useless as it first appears.",
+      "runtime_min": 109,
+      "director": "Maurizio Lucidi",
+      "actors": [
+        "Bud Spencer",
+        "Jack Palance",
+        "Francisco Rabal"
+      ],
+      "genres": [
+        "Comedy",
+        "Drama",
+        "Western"
+      ],
+      "fetched_at": "2026-09-22T07:44:57Z",
+      "schema": 3
+    },
+    "tt0068967": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BZWU2ZDI1ZmYtMjJkYS00MjM0LTk3ZTMtMjEzNTlkMDYyOTczXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 5.1,
+      "imdb_votes": 2034,
+      "content_rating": "Not Rated",
+      "plot": "After several locals are viciously murdered, a Louisiana sheriff starts to suspect he may be dealing with a werewolf.",
+      "runtime_min": 75,
+      "director": "Daniel Petrie",
+      "actors": [
+        "David Janssen",
+        "Barbara Rush",
+        "Bradford Dillman"
+      ],
+      "genres": [
+        "Horror",
+        "Thriller"
+      ],
+      "fetched_at": "2026-09-22T07:44:57Z",
+      "schema": 3
+    },
+    "tt0069980": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMTQ2NTk2MjYyNF5BMl5BanBnXkFtZTcwNjIxMTgyMQ@@._V1_SX300.jpg",
+      "imdb_rating": 5.1,
+      "imdb_votes": 439,
+      "content_rating": "Not Rated",
+      "plot": "A two-part film, actually two concurrent stories, that reveals the dissolution of an 18-year marriage from two points of view. The stories are set in Rome, where the wealthy Martin and Jane Reynolds meet by chance after a two-year separation. In the first of the two stories, Martin has returned to Rome on business, representing an African managerial firm. Martin remembers his marriage as a rather sado-masochistic union. Part two examines the marriage from Jane's point of view, focusing more on the family life, on how the children have been scarred by the crumbling marriage.",
+      "runtime_min": 148,
+      "director": "Waris Hussein",
+      "actors": [
+        "Richard Burton",
+        "Elizabeth Taylor",
+        "Carrie Nye"
+      ],
+      "genres": [
+        "Drama",
+        "Romance"
+      ],
+      "fetched_at": "2026-09-22T07:44:57Z",
+      "schema": 3
+    },
+    "tt0074210": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNGIyNmYxMTQtNDExNi00MzJiLWI5MjItMWJlNGRlZjc3NGU3L2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyNzc5MjA3OA@@._V1_SX300.jpg",
+      "imdb_rating": 4.8,
+      "imdb_votes": 501,
+      "content_rating": "X",
+      "plot": "To make money, a Los Angeles street-fighter goes to work for gangsters.",
+      "runtime_min": 93,
+      "director": "Timothy Galfas",
+      "actors": [
+        "Richard Lawson",
+        "Annazette Chase",
+        "Philip Michael Thomas"
+      ],
+      "genres": [
+        "Action",
+        "Crime"
+      ],
+      "fetched_at": "2026-09-22T07:44:57Z",
+      "schema": 3
+    },
+    "tt0074634": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNWU3NThmZDctMTRlMS00NzcyLTgzNjktZjRhOWNhMGU2NjA3L2ltYWdlXkEyXkFqcGdeQXVyNzc5MjA3OA@@._V1_SX300.jpg",
+      "imdb_rating": 5.0,
+      "imdb_votes": 340,
+      "content_rating": null,
+      "plot": "Hollywood action film star Rafe Stoker has sunk $130,000 of his own money into his own production, but can't find legitimate financing to complete the film. His mob-connected investor demands an exorbitant amount of collateral and a guarantee that Rafe hand over a commercially acceptable film in 4 weeks, then hires a gang of psycho bikers to sabotage the picture to ensure he collects Stoker's collateral. As if a cranky local cop and bad weather didn't slow production enough, Crazy Harvey decides to take Rafe out of the picture after Rafe shows him up once too often.",
+      "runtime_min": 107,
+      "director": "Jack Starrett",
+      "actors": [
+        "William Smith",
+        "Jennifer Billingsley",
+        "Ray Girardin"
+      ],
+      "genres": [
+        "Action",
+        "Crime",
+        "Drama"
+      ],
+      "fetched_at": "2026-09-22T07:44:57Z",
+      "schema": 3
+    },
+    "tt0074719": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMjkzOTcwYjctNzk2NC00ZWYwLTg0NzItNThhNGJiNDNjYWVhXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 4.6,
+      "imdb_votes": 454,
+      "content_rating": "R",
+      "plot": "At the end of the American Civil War, African-American soldier Joshua is on his way back home. Unfortunately, one day before his arrival, a gang of five thugs kills his mother, severely wounds her neighbor Sam and kidnaps Sam's new bride. When Joshua finally arrives home, he is given the sad news about his mother's murder. The Sheriff and his posse returns empty handed from their attempt to catch the murderers who vanished into the nearby hills. Driven by revenge, Joshua decides to track down the killers himself and eliminate them, one by one.",
+      "runtime_min": 90,
+      "director": "Larry G. Spangler",
+      "actors": [
+        "Fred Williamson",
+        "Cal Bartlett",
+        "Brenda Venus"
+      ],
+      "genres": [
+        "Drama",
+        "Western"
+      ],
+      "fetched_at": "2026-09-22T07:44:57Z",
+      "schema": 3
+    },
+    "tt0300060": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BOTIzOGEyYWQtZTgxZC00NjU0LThiYWQtYjRiYTk3YWQ1ZjExXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 7.1,
+      "imdb_votes": 95,
+      "content_rating": null,
+      "plot": "Set in the \"cultural revolution\" period of China, a college of labor is set up in a mountain area of Jiangxi Province. Long Guozheng, a veteran cadre of Chinese People's Anti-Japanese Military and Political College, is sent to the new college as secretary and headmaster. He has to try his best to lead the college on the right track.",
+      "runtime_min": 122,
+      "director": "Wenhua Li",
+      "actors": [
+        "Zhenqing Guo",
+        "Suya Wang",
+        "Xiying Wen"
+      ],
+      "genres": [
+        "Drama"
+      ],
+      "fetched_at": "2026-09-22T07:44:57Z",
+      "schema": 3
+    },
+    "tt1147717": {
+      "poster_url": null,
+      "imdb_rating": 7.7,
+      "imdb_votes": 164,
+      "content_rating": null,
+      "plot": "In the aftermath of September 11th and \"America's War on Terror,\" two friends begin to suspect that their Middle-Eastern neighbor is a terrorist and devise a plan to investigate their suspicions.",
+      "runtime_min": 17,
+      "director": "Marcus Kayne",
+      "actors": [
+        "Darren Le Gallo",
+        "Marcus Kayne",
+        "James Peragine"
+      ],
+      "genres": [
+        "Short",
+        "Drama",
+        "Thriller"
+      ],
+      "fetched_at": "2026-09-22T07:44:57Z",
+      "schema": 3
+    },
+    "tt23725246": {
+      "poster_url": null,
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": "Uses advanced computer animation to discuss the problem of turning a sphere inside out by passing the surface through itself without making any holes or creases. Illustrates the homotopy with a sequence of models, showing the cruc...",
+      "runtime_min": 22,
+      "director": "William Hansard",
+      "actors": [
+        "Nelson Max",
+        "Stephen Smale",
+        "Charles Pugh"
+      ],
+      "genres": [
+        "Documentary",
+        "Animation",
+        "Short"
+      ],
+      "fetched_at": "2026-09-22T07:44:57Z",
+      "schema": 3
+    },
+    "tt34499672": {
+      "poster_url": null,
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": null,
+      "director": null,
+      "actors": [],
+      "genres": [],
+      "fetched_at": "2026-09-22T07:44:57Z",
+      "schema": 3
+    },
+    "tt5431820": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMGMwODBjNmMtYzJkNS00MTg4LWIxYzktZTg1ZjVmYWVjNzFlXkEyXkFqcGdeQXVyMjQ4MzQ0NDA@._V1_SX300.jpg",
+      "imdb_rating": 8.7,
+      "imdb_votes": 9,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": null,
+      "director": "Matthew M Stevens",
+      "actors": [
+        "Karan Batta",
+        "Kim Beavers",
+        "Phil Biedron"
+      ],
+      "genres": [
+        "Short",
+        "Drama"
+      ],
+      "fetched_at": "2026-09-22T07:44:57Z",
       "schema": 3
     }
   },
