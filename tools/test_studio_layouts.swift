@@ -90,11 +90,27 @@ struct LayoutTest {
               abs(theatre.width - corner.width) > 1 || abs(theatre.height - corner.height) > 1,
               "theatre \(Int(theatre.width))x\(Int(theatre.height)) vs corner \(Int(corner.width))x\(Int(corner.height))")
 
-        // Every camera rect distinct: a setting that changes nothing is not a setting.
+        // EVERY PLACEMENT CHANGES THE PICTURE — a setting that changes nothing
+        // is not a setting. That came from `theatre` at 0.26, which was
+        // `corner` moved down 64 px: same tile, same corner, and the owner
+        // correctly reported the control as doing nothing.
+        //
+        // WIDENED 2026-09-22, because the first version asked only about the
+        // CAMERA rect and so failed `guests` for a deliberate decision. The
+        // host's tile there is EXACTLY `corner`'s, on purpose: switching to
+        // that placement must not move somebody who was already framed. What
+        // makes it distinct is the third picture, which a camera rect cannot
+        // see. So the key is the whole COMPOSITION — camera, film, and
+        // whether a call tile is drawn — which is the question the rule was
+        // always about.
         var seen: [String] = []
         for l in StudioLayout.allCases where l != .film {
             let c = rects[l]!.camera!
-            let key = "\(Int(c.minX)),\(Int(c.minY)),\(Int(c.width)),\(Int(c.height))"
+            let f = rects[l]!.film
+            let g = l.guestRect(in: size, cameraAspect: camera16x9, guestAspect: 16.0/9.0)
+            let key = "cam:\(Int(c.minX)),\(Int(c.minY)),\(Int(c.width)),\(Int(c.height))"
+                + "|film:\(Int(f.minX)),\(Int(f.minY)),\(Int(f.width)),\(Int(f.height))"
+                + "|guests:\(g.map { "\(Int($0.minY)),\(Int($0.height))" } ?? "none")"
             check("8.22.13 \(l.rawValue) is a distinct placement", !seen.contains(key), key)
             seen.append(key)
         }

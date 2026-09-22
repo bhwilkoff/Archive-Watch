@@ -170,6 +170,44 @@ public final class StudioSession {
     /// which is the timing defect `armLayout` exists for (Decision 133).
     private var armedChat: (enabled: Bool, side: StudioChatSide, filter: StudioChatFilter)?
 
+    #if os(macOS)
+    /// §D23 — the call's picture. The SOURCE lives here rather than in the
+    /// window, because a Studio window that is closed and reopened must not
+    /// drop the call out of a live broadcast (§D12 ends the SHOW when the
+    /// window closes; it does not end it when a view redraws).
+    private var screenSource: StudioScreenSource?
+    public private(set) var guestWindowLabel: String?
+    public var guestProblem: String? { screenSource?.problem }
+
+    @discardableResult
+    public func startGuests(windowID: CGWindowID, label: String) async -> Bool {
+        stopGuests()
+        let src = StudioScreenSource()
+        screenSource = src
+        guestWindowLabel = label
+        let ok = await src.start(windowID: windowID,
+                                 size: CGSize(width: 1280, height: 720))
+        if ok {
+            await engine?.attachGuests(src.sink)
+        } else {
+            screenSource = nil
+            guestWindowLabel = nil
+        }
+        return ok
+    }
+
+    public func stopGuests() {
+        screenSource?.stop()
+        screenSource = nil
+        guestWindowLabel = nil
+        Task { await engine?.attachGuests(nil) }
+    }
+    #endif
+
+    /// The engine, for harnesses that must read a value where it LANDS
+    /// (Decision 133) rather than where it was set. Not for product code.
+    public var engineForHarness: StudioEngine? { engine }
+
     public func setChat(enabled: Bool, side: StudioChatSide, filter: StudioChatFilter) async {
         armedChat = (enabled, side, filter)
         guard let e = engine else { return }

@@ -30,15 +30,36 @@ import UIKit
 // MARK: - Layout
 
 /// The program layouts, by name (§4 — presets, never free-form in v1).
+/// Anything that can hand the engine the call's latest picture (§D23).
+///
+/// A PROTOCOL so `StudioEngine` does not import ScreenCaptureKit: the engine
+/// is compiled standalone by a dozen §8 harness cases, and a reference to a
+/// macOS-only framework would drag it into every one of them — the same
+/// dependency-inversion reason `StudioChatYouTube` takes a fetch closure.
+public protocol GuestFrameSource: AnyObject, Sendable {
+    func latest() -> CVPixelBuffer?
+}
+
 public enum StudioLayout: String, CaseIterable, Sendable {
     case film       // film full-frame, no camera
     case corner     // film full-frame, camera PiP bottom-right (default)
     case theatre    // the MST3K row: camera strip along the bottom
     case side       // film 2/3 left, camera 1/3 right
     case host       // camera full-frame, film in a PiP
+    /// §D23 — the sixth, and the first with a THIRD picture in it: the film
+    /// full-frame, and a right-hand column carrying the call above the host.
+    /// It extends `corner`'s vocabulary rather than inventing one: the host
+    /// stays where five placements have trained the eye to find them, and the
+    /// guests arrive directly above, at the same width, reading as one column
+    /// of people rather than two loose tiles.
+    case guests     // film full-frame, call + camera stacked right
 
     public var showsFilm: Bool { true }
     public var showsCamera: Bool { self != .film }
+    /// Only one placement carries the call's picture. Asked as a question
+    /// rather than compared against a case, so a seventh placement that also
+    /// showed guests would not need every call site edited.
+    public var showsGuests: Bool { self == .guests }
 
     /// User-facing names; the raw values are wire/diagnostic words.
     ///
@@ -54,7 +75,30 @@ public enum StudioLayout: String, CaseIterable, Sendable {
         case .theatre: return "Theatre row (you along the bottom)"
         case .side: return "Side by side"
         case .host: return "You, with the film inset"
+        case .guests: return "Film, you, and your guests"
         }
+    }
+
+    /// Where the CALL's picture sits, or nil where this placement has none.
+    ///
+    /// DERIVED FROM THE CAMERA'S RECT, never computed beside it: the two tiles
+    /// are one column and a second derivation is how they drift apart by a few
+    /// pixels and stop reading as one thing. `guestAspect` is the captured
+    /// WINDOW's, which is whatever shape the host's call app happens to be —
+    /// so the width is fixed and the height follows, never the reverse.
+    public func guestRect(in size: CGSize, cameraAspect: CGFloat,
+                          guestAspect: CGFloat) -> CGRect? {
+        guard showsGuests,
+              let cam = rects(in: size, cameraAspect: cameraAspect).camera else { return nil }
+        let gap = size.height * 0.02
+        let h = cam.width / max(guestAspect, 0.1)
+        let y = cam.maxY + gap
+        // A tall call window would run the column off the top of the frame.
+        // The tile is CLAMPED rather than allowed to overflow, because a
+        // guest cropped by the frame edge looks like a fault.
+        let ceiling = size.height - size.width * 0.05
+        guard y < ceiling else { return nil }
+        return CGRect(x: cam.minX, y: y, width: cam.width, height: min(h, ceiling - y))
     }
 
     /// Where the chat column sits, or nil when this layout has no room.
@@ -70,7 +114,8 @@ public enum StudioLayout: String, CaseIterable, Sendable {
     /// copies drift, and one of them already had a sign error that ran the
     /// column through the host's face.
     public func chatRect(in size: CGSize, cameraAspect: CGFloat,
-                         side: StudioChatSide = .left) -> CGRect? {
+                         side: StudioChatSide = .left,
+                         guestAspect: CGFloat? = nil) -> CGRect? {
         guard let r = chatRectLeft(in: size, cameraAspect: cameraAspect) else { return nil }
         guard side == .right else { return r }
         var m = CGRect(x: size.width - r.maxX, y: r.minY, width: r.width, height: r.height)
@@ -84,7 +129,23 @@ public enum StudioLayout: String, CaseIterable, Sendable {
         //
         // The column yields, never the camera: a host who moved chat to the
         // right did not ask for their own face to move.
+        // The camera AND the call, because §D23's placement stacks both on the
+        // right and a column that dodged only one would land on the other.
+        var obstacles: [CGRect] = []
         if let cam = rects(in: size, cameraAspect: cameraAspect).camera, showsCamera {
+            obstacles.append(cam)
+        }
+        // THE REAL SHAPE, not a guess. The first version assumed 16:9 with a
+        // comment calling that "the safe direction" — which is backwards: a
+        // WIDER window makes a SHORTER tile, so the guess under-estimated a
+        // 4:3 call by 63 px and the column landed on it. Caught by §8.42 at
+        // the first non-16:9 shape it tried. `nil` means no call is attached,
+        // so there is no tile to dodge.
+        if let ga = guestAspect,
+           let g = guestRect(in: size, cameraAspect: cameraAspect, guestAspect: ga) {
+            obstacles.append(g)
+        }
+        for cam in obstacles {
             let gap = size.height * 0.02
             if m.intersects(cam) {
                 let floor = cam.maxY + gap                 // CI: y grows upward
@@ -100,7 +161,7 @@ public enum StudioLayout: String, CaseIterable, Sendable {
     private func chatRectLeft(in size: CGSize, cameraAspect: CGFloat) -> CGRect? {
         let inset = size.width * 0.05
         switch self {
-        case .film, .corner, .theatre, .host:
+        case .film, .corner, .theatre, .host, .guests:
             let w = size.width * 0.26
             // Above the lower third's stack and its scrim.
             let bottom = size.height * 0.30
@@ -174,6 +235,14 @@ public enum StudioLayout: String, CaseIterable, Sendable {
             let cw = size.width - fw
             let ch = cw / max(cameraAspect, 0.1)
             return (film, CGRect(x: fw, y: (size.height - ch) / 2, width: cw, height: ch))
+        case .guests:
+            // The host keeps EXACTLY `corner`'s tile — same size, same
+            // position — so switching to this placement moves nobody who was
+            // already framed. Only the guests are new.
+            let w = size.width * 0.26
+            let h = w / max(cameraAspect, 0.1)
+            let inset = size.width * 0.05
+            return (full, CGRect(x: size.width - w - inset, y: inset, width: w, height: h))
         case .host:
             // The camera owns the frame; the film is a reference tile. TOP
             // right, because bottom-left is the lower third's and bottom-right
@@ -441,6 +510,8 @@ public struct StudioHealth: Sendable, Equatable {
     /// exactly like an audience that stopped talking — the same confusion
     /// §D21 names for the film, one layer up.
     public var chatLinesFiltered = 0
+    /// Whether the call's picture is reaching the program (§D23).
+    public var guestsAttached = false
     /// The audio session category actually in force, and whether activating it
     /// worked — e.g. "playback/moviePlayback active".
     ///
@@ -671,6 +742,7 @@ public actor StudioEngine {
     private var filmOutput: AVPlayerItemVideoOutput?
     private weak var filmPlayer: AVPlayer?
     private var cameraTap: CameraFrameTap?
+    private var guestSource: GuestFrameSource?
     private var ticker: Task<Void, Never>?
     private var started: CFTimeInterval = 0
     private var renderTimeTotal: Double = 0
@@ -746,6 +818,15 @@ public actor StudioEngine {
     /// §D22 — all three at once. Separate setters would let a surface push
     /// two and forget the third, which is how the layout picker stayed inert
     /// on one platform for a session (Decision 133).
+    /// §D23's call picture, as a PULLER rather than a buffer — the same
+    /// shape as `cameraTap`. Detaching sets it to nil, so a tile of a call
+    /// that has ended disappears rather than freezing: a still of people who
+    /// have gone looks live, which is the worst of the three states.
+    public func attachGuests(_ source: GuestFrameSource?) {
+        guestSource = source
+        health.guestsAttached = source != nil
+    }
+
     public func setChatControls(enabled: Bool, side: StudioChatSide,
                                 filter: StudioChatFilter) {
         chatEnabled = enabled
@@ -1653,6 +1734,7 @@ public actor StudioEngine {
 
         health.cameraFramesReceived = cameraTap?.received ?? 0
         health.cameraAttached = cameraTap != nil
+        renderer.guestFrame = guestSource?.latest()
         let program = renderer.render(film: lastFilmFrame, camera: cameraTap?.latest())
         StudioProgramMirror.shared.publish(program)
         health.programFramesRendered += 1
@@ -1749,11 +1831,19 @@ final class ProgramRenderer: @unchecked Sendable {
     var layout: StudioLayout = .corner
     /// §D14 — the host's own framing, on top of whatever the layout decides.
     var framing = StudioCameraFraming()
+    /// Where the call tile landed, normalized — published for the same reason
+    /// the camera's is (Decision 133): a surface must read the rect the
+    /// compositor USED, never re-derive it.
+    private(set) var lastGuestRect: CGRect?
     /// §D22. On the RENDERER, beside `framing`, because that is the object
     /// that draws the frame — the engine's `chatSide` is the host's intent and
     /// this is where it lands. Two names for one fact is Decision 133's whole
     /// subject, so the setter below is the only writer.
     var chatSide: StudioChatSide = .left
+    /// The call's latest picture (§D23), written once per composite from the
+    /// engine's puller — never held across frames, so a call that stops
+    /// drawing disappears rather than freezing.
+    var guestFrame: CVPixelBuffer?
     /// The camera tile's rect in the LAST composed frame, normalized. Read by
     /// the Studio window to place its drag handles (§D14).
     private(set) var lastCameraRect: CGRect?
@@ -1851,13 +1941,32 @@ final class ProgramRenderer: @unchecked Sendable {
             if crop != src.extent { src = src.cropped(to: crop) }
             return fill(src, into: placed).composited(over: base)
         }
-        image = layout.cameraIsBackground ? drawFilm(drawCamera(image)) : drawCamera(drawFilm(image))
+        // THE CALL, between the film and the host. Drawn before the camera so
+        // the host is never occluded by their own guests — the tiles do not
+        // overlap today, and this keeps that true if a placement ever lets
+        // them.
+        func drawGuests(_ base: CIImage) -> CIImage {
+            guard layout.showsGuests, let g = guestFrame else { return base }
+            let src = CIImage(cvPixelBuffer: g)
+            let aspect = src.extent.height > 0 ? src.extent.width / src.extent.height : 16.0/9.0
+            guard let placed = layout.guestRect(in: size, cameraAspect: cameraAspect,
+                                                guestAspect: aspect) else { return base }
+            lastGuestRect = StudioCameraFraming.normalized(placed, in: size)
+            return fill(src, into: placed).composited(over: base)
+        }
+        image = layout.cameraIsBackground
+            ? drawFilm(drawCamera(drawGuests(image)))
+            : drawCamera(drawGuests(drawFilm(image)))
         // Chat under the lower third, so a long message can never obscure the
         // film's own title. A SEPARATE cached layer: chat changes every few
         // seconds and the lower third does not, and one cache key for both
         // would re-rasterise the type on every message.
         if overlay.showChat, !overlay.chat.isEmpty,
-           let rect = layout.chatRect(in: size, cameraAspect: cameraAspect, side: chatSide),
+           let rect = layout.chatRect(in: size, cameraAspect: cameraAspect, side: chatSide,
+                                      guestAspect: guestFrame.map {
+                                          let e = CIImage(cvPixelBuffer: $0).extent
+                                          return e.height > 0 ? e.width / e.height : 16.0/9.0
+                                      }),
            let chat = overlayRenderer.chatImage(for: overlay, in: rect) {
             image = chat.composited(over: image)
         }

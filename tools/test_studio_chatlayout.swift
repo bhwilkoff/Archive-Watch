@@ -127,6 +127,55 @@ import Foundation
             }
         }
         print("  ok   no layout puts either side of the column on the camera")
+
+        // §D23's sixth placement: the call's tile, the host's tile and the
+        // chat column all share the right-hand side of the frame, so the three
+        // of them are the first real chance this geometry has had to collide.
+        let g = StudioLayout.guests
+        guard let host = g.rects(in: size, cameraAspect: camAspect).camera else {
+            print("FAIL: the guests placement has no camera tile"); exit(1)
+        }
+        // A 4:3 call window and a very wide one, because the tile's HEIGHT
+        // follows the captured window and a host does not choose its shape.
+        for (name, ga) in [("16:9", 16.0/9.0), ("4:3", 4.0/3.0), ("21:9", 21.0/9.0)] {
+            guard let call = g.guestRect(in: size, cameraAspect: camAspect, guestAspect: ga) else {
+                print("  \(name): no tile (clamped away) — acceptable")
+                continue
+            }
+            print("  call tile \(name): y=\(Int(call.minY))..\(Int(call.maxY)) "
+                  + "x=\(Int(call.minX))..\(Int(call.maxX))")
+            guard !call.intersects(host.insetBy(dx: 2, dy: 2)) else {
+                print("FAIL: the call tile overlaps the host's own tile at \(name)"); exit(1)
+            }
+            guard call.width == host.width else {
+                print("FAIL: the two tiles are different widths at \(name) — they are"); 
+                print("      meant to read as one column."); exit(1)
+            }
+            guard call.maxY <= size.height + 0.5, call.minX >= 0 else {
+                print("FAIL: the call tile leaves the frame at \(name)"); exit(1)
+            }
+            for side in StudioChatSide.allCases {
+                guard let col = g.chatRect(in: size, cameraAspect: camAspect, side: side,
+                                           guestAspect: ga)
+                else { continue }
+                if col.intersects(call.insetBy(dx: 4, dy: 4)) {
+                    print("FAIL: chat on the \(side.label.lowercased()) overlaps the call tile")
+                    print("      at \(name): chat \(col) call \(call)")
+                    exit(1)
+                }
+            }
+        }
+        print("  ok   the call tile shares the host's column, never overlaps it,")
+        print("       stays in frame at three window shapes, and chat clears it")
+
+        // The control for all of that: a placement WITHOUT guests must have no
+        // call tile at all, or the checks above would pass on an empty rect.
+        if StudioLayout.corner.guestRect(in: size, cameraAspect: camAspect,
+                                         guestAspect: 16.0/9.0) != nil {
+            print("FAIL: control — a placement that shows no guests returned a call tile")
+            exit(1)
+        }
+        print("  ok   control — only the guests placement has a call tile")
         print("PASS")
     }
 }

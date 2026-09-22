@@ -2008,10 +2008,40 @@ So, binding:
   in this Studio (§D5). A host must be able to see, without leaving the
   Studio, that they are sending the call and not their email.
 
+### The sixth arrangement — BUILT 2026-09-22
+
+`StudioLayout.guests`, "Film, you, and your guests": the film full-frame and a
+right-hand column carrying the call directly above the host. The host's tile is
+EXACTLY `corner`'s — same size, same position — so switching to this placement
+moves nobody who was already framed, and the call arrives at the same width so
+the two read as one column of people rather than two loose tiles.
+
+The call's tile is DERIVED from the camera's rect, never computed beside it:
+two derivations drift by a few pixels and stop reading as one thing. Its width
+is fixed and its HEIGHT follows the captured window, because a host does not
+choose the shape of their call app — and a window tall enough to run the
+column off the frame is clamped away rather than allowed to overflow, since a
+guest cropped by the frame edge looks like a fault.
+
+**Proved through the product's own chain** — the menu's `startGuests`, not a
+harness path — with `guestsAttached=true` read at the ENGINE and the tile seen
+in the composited frame above the host's.
+
+**Chat dodges BOTH tiles.** The first version guessed 16:9 for the call, with
+a comment calling that "the safe direction". It is backwards: a wider window
+makes a SHORTER tile, so the guess under-estimated a 4:3 call by 63 px and the
+column landed on it. §8.42 caught it at the first non-16:9 shape it tried. The
+real aspect is threaded through, and `nil` means no call is attached.
+
 ### What is not built yet
 
-The sixth arrangement. Rule 8.8e names five placements and none has a guest
-tile; "film, you, and your guests" needs one, and PARITY's "what Watch
-Together MEANS" table changes for macOS when it lands. The capture, the
-refusal path and the exclusion of our own window are built and measured; the
-compositing is the remaining work.
+**A guest tile is not framable.** §D14's drag-and-crop box belongs to the
+host's camera; the call's tile is placed by the layout and cannot be moved,
+resized or cropped. That is probably right — the host frames THEMSELVES, and a
+call window is already a grid somebody else's app arranged — but it is a
+decision nobody has made deliberately, so it is written here rather than
+implied by its absence.
+
+**Amends Rule 8.8e.** That rule named five placements; there are six, and the
+sixth is the first with a third picture in it. PARITY's "what Watch Together
+MEANS" table carries the row.

@@ -141,20 +141,34 @@ struct RootView: View {
                     awdiag("AWSCREEN no window for %@ — is it open and on screen?", want)
                     return
                 }
-                let src = StudioScreenSource()
-                let ok = await src.start(windowID: target.id,
-                                         size: CGSize(width: 1280, height: 720)) { _ in }
-                awdiag("AWSCREEN start=%@ app=%@ problem=%@",
-                       ok ? "true" : "FALSE", target.app, src.problem ?? "none")
+                // THE PRODUCT'S OWN CHAIN, not a standalone source: the menu
+                // calls `startGuests`, so this does too. A door that drives a
+                // different chain cannot find the product's bugs (Decision
+                // 133) — the macOS go-live door had exactly that fault.
+                //
+                // It waits for the engine, because `startGuests` attaches the
+                // sink to it and an engine built afterwards would have none.
+                var waited = 0.0
+                while StudioSession.shared.engineForHarness == nil, waited < 25 {
+                    try? await Task.sleep(for: .milliseconds(250)); waited += 0.25
+                }
+                let ok = await StudioSession.shared.startGuests(windowID: target.id,
+                                                                label: target.app)
+                awdiag("AWSCREEN start=%@ app=%@ waited=%.1fs problem=%@",
+                       ok ? "true" : "FALSE", target.app, waited,
+                       StudioSession.shared.guestProblem ?? "none")
                 guard ok else { return }
+                let src = StudioScreenSource()   // unused; kept for the reads below
+                _ = src
                 // FRAMES, not merely a started stream. A permitted
                 // stream that delivers nothing and a refused one look
                 // the same from the start call alone.
                 try? await Task.sleep(for: .seconds(4))
-                awdiag("AWSCREEN frames=%d after 4s running=%@ problem=%@",
-                       src.framesDelivered, src.isRunning ? "true" : "FALSE",
-                       src.problem ?? "none")
-                src.stop()
+                // READ IT AT THE ENGINE, which is where the value lands.
+                let attached = await StudioSession.shared.engineForHarness?.health.guestsAttached
+                awdiag("AWSCREEN engine guestsAttached=%@ problem=%@",
+                       attached == true ? "true" : "FALSE",
+                       StudioSession.shared.guestProblem ?? "none")
             }
         }
         guard env["AW_START_TAB"] != nil || env["AW_START_ITEM"] != nil else { return }
@@ -213,6 +227,15 @@ struct RootView: View {
                 if env["AW_STUDIO_MAC_PREVIEW"] == "1" {
                     Task { @MainActor in
                         StudioMacShow.shared.take(it, from: router)
+                        // THE PLACEMENT, which only the go-live door read
+                        // until now. A door that ignores a variable the
+                        // neighbouring door honours is a trap: it read
+                        // `guestsAttached=true` and drew no tile, because
+                        // `.corner` shows no guests and nothing said so.
+                        if let l = StudioLayout(rawValue: env["AW_STUDIO_LAYOUT"] ?? "") {
+                            StudioControls.shared.layout = l
+                            StudioSession.shared.armLayout(l)
+                        }
                         // The Studio's own surface needs to exist and register
                         // its player before a show can attach to it — the
                         // window has just been asked to open.

@@ -381,6 +381,11 @@ final class ProgramLayerView: NSView {
 // MARK: - The window
 
 struct StudioWindowView: View {
+    /// §D23 — rebuilt each time the menu opens and held only while this
+    /// view is alive. NEVER written to disk or to defaults: a window list is
+    /// the host's whole working day, and a remembered one would outlive the
+    /// call it was for.
+    @State private var guestWindows: [StudioScreenSource.Window] = []
     private var studio: StudioSession { StudioSession.shared }
     @Bindable private var controls = StudioControls.shared
     @Bindable private var show = StudioMacShow.shared
@@ -1147,6 +1152,42 @@ struct StudioWindowView: View {
                         .fixedSize(horizontal: false, vertical: true)
                 }
             }
+
+            // §D23 — THE CALL'S PICTURE. Beside its audio, because they are
+            // the same call and a host thinks of them as one thing.
+            VStack(alignment: .leading, spacing: 6) {
+                inputRow(name: studio.guestWindowLabel ?? "Your guests",
+                         role: "A window",
+                         state: studio.guestWindowLabel == nil ? "not shown"
+                                : (studio.health.guestsAttached ? "live" : "starting"),
+                         healthy: studio.guestWindowLabel == nil || studio.health.guestsAttached,
+                         icon: "person.2")
+                // NO REMEMBERED CHOICE (§D23): the menu is built when it opens,
+                // and nothing is pre-selected. A stale selection is how a host
+                // broadcasts the window they had open last week.
+                Menu(studio.guestWindowLabel == nil ? "Show your guests" : "Change window") {
+                    ForEach(guestWindows) { w in
+                        Button(w.label) {
+                            Task {
+                                _ = await studio.startGuests(windowID: w.id, label: w.label)
+                                controls.layout = .guests
+                            }
+                        }
+                    }
+                    if guestWindows.isEmpty { Text("No windows to show") }
+                }
+                .menuStyle(.borderlessButton).font(.caption).fixedSize()
+                .onHover { if $0 { Task { guestWindows = await StudioScreenSource.windows() } } }
+                if studio.guestWindowLabel != nil {
+                    Button("Stop showing them") { studio.stopGuests() }
+                        .font(.caption).buttonStyle(.borderless).fixedSize()
+                }
+                if let why = studio.guestProblem {
+                    Text(why).font(.caption2).foregroundStyle(.orange)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
+            }
+
             Divider().padding(.vertical, 2)
             // AUTO-DUCK IS A CONTROL, NOT A SENTENCE (Rule 8.8c). A host who
             // sets Film to 9, speaks, and hears it drop 12 dB anyway will

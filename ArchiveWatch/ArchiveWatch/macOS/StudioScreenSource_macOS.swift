@@ -54,16 +54,27 @@ public final class StudioScreenSource: NSObject, SCStreamOutput, SCStreamDelegat
     /// a second, and hopping to the main actor per frame would put the
     /// compositor behind whatever the UI is doing. A lock, because the start
     /// and the queue really do touch it from two threads.
-    private let sink = FrameSink()
+    public let sink = FrameSink()
 
-    private final class FrameSink: @unchecked Sendable {
+    /// HOLDS THE LATEST FRAME; the engine PULLS it, exactly as
+    /// `CameraFrameTap` does. Pushing each frame into an actor would send a
+    /// `CVPixelBuffer` across an isolation boundary 30 times a second, which
+    /// Swift 6 correctly refuses, and hopping per frame would put the
+    /// compositor behind whatever the UI is doing.
+    ///
+    /// The sample buffer that OWNS the pixels is retained beside it: releasing
+    /// it returns the pixels to ScreenCaptureKit's pool, which can then draw
+    /// into them while the compositor is reading. The same rule the program
+    /// preview learned (§D5).
+    public final class FrameSink: GuestFrameSource, @unchecked Sendable {
         private let lock = NSLock()
-        private var handler: ((CVPixelBuffer) -> Void)?
-        func set(_ h: ((CVPixelBuffer) -> Void)?) { lock.lock(); handler = h; lock.unlock() }
-        func deliver(_ px: CVPixelBuffer) {
-            lock.lock(); let h = handler; lock.unlock()
-            h?(px)
+        private var frame: CVPixelBuffer?
+        private var held: CMSampleBuffer?
+        func store(_ px: CVPixelBuffer, from sb: CMSampleBuffer) {
+            lock.lock(); frame = px; held = sb; lock.unlock()
         }
+        func clear() { lock.lock(); frame = nil; held = nil; lock.unlock() }
+        public func latest() -> CVPixelBuffer? { lock.lock(); defer { lock.unlock() }; return frame }
     }
 
     /// Counted on the capture queue, read from anywhere — see `FrameSink`.
@@ -104,10 +115,9 @@ public final class StudioScreenSource: NSObject, SCStreamOutput, SCStreamDelegat
         }
     }
 
-    /// Starts capturing one window. `onFrame` is called on a capture queue.
+    /// Starts capturing one window. Frames land in `sink`, to be pulled.
     @discardableResult
-    public func start(windowID: CGWindowID, size: CGSize,
-                      onFrame: @escaping (CVPixelBuffer) -> Void) async -> Bool {
+    public func start(windowID: CGWindowID, size: CGSize) async -> Bool {
         stop()
         problem = nil
         frameCount.reset()
@@ -130,7 +140,6 @@ public final class StudioScreenSource: NSObject, SCStreamOutput, SCStreamDelegat
             config.showsCursor = false        // a pointer in the guest tile is noise
             config.capturesAudio = false      // see the header: the tap owns sound
 
-            sink.set(onFrame)
             let s = SCStream(filter: filter, configuration: config, delegate: self)
             try s.addStreamOutput(self, type: .screen,
                                   sampleHandlerQueue: DispatchQueue(
@@ -159,7 +168,7 @@ public final class StudioScreenSource: NSObject, SCStreamOutput, SCStreamDelegat
         guard let s = stream else { isRunning = false; return }
         stream = nil
         isRunning = false
-        sink.set(nil)
+        sink.clear()
         Task { try? await s.stopCapture() }
     }
 
@@ -178,7 +187,7 @@ public final class StudioScreenSource: NSObject, SCStreamOutput, SCStreamDelegat
             return
         }
         frameCount.bump()
-        sink.deliver(px)
+        sink.store(px, from: sb)
     }
 
     public nonisolated func stream(_ stream: SCStream, didStopWithError error: Error) {
