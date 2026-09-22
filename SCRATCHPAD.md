@@ -34,6 +34,10 @@ daily ~07:00 MT — cron 08:17 UTC, because GitHub runs this repo's schedules 4�
 social programme posts daily to five platforms (`docs/SOCIAL-PROGRAM.md`,
 Decision 120).
 
+**What to build next in the Studio**: `docs/WATCH-TOGETHER-ROADMAP.md`
+(2026-09-22) — OBS/StreamYard researched against what we already have, ranked,
+with the two items that need an owner decision named as such.
+
 **Where the rules live** (read before changing the thing they govern):
 `docs/ENGINEERING-PROCESS.md` (the eleven disciplines) · `PARITY.md` (what
 ships where) · per-platform binding design docs `docs/tvOS-DESIGN.md`,
