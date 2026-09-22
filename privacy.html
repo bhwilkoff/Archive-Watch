@@ -19,7 +19,7 @@
 
   <main class="legal-main">
     <h2>Privacy Policy</h2>
-    <p class="updated">Last updated: June 4, 2026</p>
+    <p class="updated">Last updated: September 22, 2026</p>
 
     <p>
       Archive Watch is a free Apple TV app for browsing and watching
@@ -101,6 +101,120 @@
       <strong>Settings &rarr; Account &rarr; Delete Account</strong> in the app,
       which deletes your records from your iCloud private database and signs you
       out.
+    </p>
+
+    <h3>Watch Together Studio: connecting a YouTube or Twitch account</h3>
+    <p>
+      Archive Watch can broadcast a public-domain film, with your camera and
+      microphone, to your own YouTube or Twitch channel. This is entirely
+      optional and off by default: nothing in the rest of the app requires it,
+      and if you never open Watch Together Studio, no account is ever
+      connected and none of this section applies to you.
+    </p>
+
+    <h3>Watch Together Studio: what the YouTube permission is used for</h3>
+    <p>
+      To start a broadcast, Archive Watch asks for one Google permission,
+      <code>https://www.googleapis.com/auth/youtube</code>. It is used for
+      exactly these operations on <strong>your own channel</strong>, and
+      nothing else:
+    </p>
+    <ul>
+      <li><strong>Read your channel</strong> to show you which channel you are
+        about to broadcast to, and to check that live streaming is enabled on
+        it before you press Go Live.</li>
+      <li><strong>Create a live stream and a live broadcast</strong> with the
+        title and privacy setting you chose in the app.</li>
+      <li><strong>Bind them together and start the broadcast</strong>, which is
+        what puts you on air.</li>
+      <li><strong>End the broadcast</strong> when you stop the show.</li>
+      <li><strong>Read the live chat</strong> of that broadcast, so your
+        audience&rsquo;s messages can be shown on screen while you present.
+        Archive Watch never posts a chat message.</li>
+    </ul>
+    <p>
+      There is no narrower Google permission that allows an application to
+      create and start a live broadcast. <code>youtube.readonly</code> cannot
+      write, and <code>youtube.upload</code> covers uploaded videos rather than
+      live events, so it cannot start one either. Archive Watch never reads
+      your existing videos, never uploads a video, never edits or deletes
+      anything on your channel, never touches your subscriptions, playlists or
+      comments, and never acts on any channel other than the one you choose at
+      sign-in.
+    </p>
+
+    <h3>Watch Together Studio: how that access is protected</h3>
+    <ul>
+      <li><strong>The sign-in never passes through us.</strong> You sign in to
+        Google directly, in a system browser window the app cannot read
+        (<code>ASWebAuthenticationSession</code>), using OAuth 2.0
+        authorization code flow with PKCE. Archive Watch never sees your Google
+        password, and there is no Archive Watch account, password or profile of
+        any kind.</li>
+      <li><strong>The token stays on your device.</strong> The access and
+        refresh tokens are stored in the Apple <strong>Keychain</strong> with
+        the protection class
+        <code>kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly</code> — so they
+        are encrypted at rest, unavailable until the device has been unlocked
+        after a restart, <strong>never synchronised to iCloud</strong> and
+        never copied to another device.</li>
+      <li><strong>We operate no server that could receive it.</strong> Archive
+        Watch has no backend. The only server-side thing this project runs is
+        the anonymous counter described above, which has no authentication and
+        no user data. Your token is sent to <code>googleapis.com</code> and to
+        nowhere else, over HTTPS.</li>
+      <li><strong>Your stream key is never stored and never displayed.</strong>
+        It is fetched from YouTube at the moment you go live, held in memory
+        for that session only, and discarded when the show ends. It is never
+        written to disk, never shown on screen, and never written to a log — a
+        test in our build checks every error path for it before each
+        release.</li>
+      <li><strong>Nothing is logged about you.</strong> Archive Watch has no
+        analytics, no crash reporting service and no telemetry, on any
+        platform. Your channel name, your token and your viewers&rsquo; chat
+        messages are never recorded anywhere outside your device.</li>
+      <li><strong>The video itself goes straight to the platform.</strong> Your
+        camera, your microphone and the film are encoded on your own device and
+        published directly to YouTube over RTMPS (TLS). No Archive Watch
+        server, and no third party, sits in the path.</li>
+    </ul>
+
+    <h3>Watch Together Studio: keeping it only as long as you want it</h3>
+    <p>
+      <strong>Sign out</strong> in Watch Together Studio deletes the token from
+      your Keychain immediately; nothing of it remains. You can also revoke
+      Archive Watch&rsquo;s access at any time from your own Google account at
+      <a href="https://myaccount.google.com/permissions" rel="noopener">myaccount.google.com/permissions</a>,
+      which takes effect whether or not the app is installed. Because we hold
+      no copy on any server, there is nothing else to delete and no request to
+      make of us. Deleting the app removes the token with it.
+    </p>
+
+    <h3>Watch Together Studio: Limited Use of Google user data</h3>
+    <p>
+      Archive Watch&rsquo;s use of information received from Google APIs
+      adheres to the
+      <a href="https://developers.google.com/terms/api-services-user-data-policy" rel="noopener">Google
+      API Services User Data Policy</a>, including the
+      <strong>Limited Use</strong> requirements. Specifically: data obtained
+      through these permissions is used only to provide the broadcasting
+      feature you asked for; it is never transferred to anyone else except as
+      necessary to provide that feature, to comply with applicable law, or as
+      part of a merger or acquisition with your consent; it is never used for
+      advertising of any kind; it is never sold; <strong>it is never used to
+      develop, improve or train any generalized or non-personalized artificial
+      intelligence or machine learning model</strong>; and no human ever reads
+      it, because it never leaves your device.
+    </p>
+
+    <h3>Watch Together Studio: Twitch</h3>
+    <p>
+      Connecting Twitch works the same way and is protected the same way: an
+      OAuth device-code sign-in you complete on twitch.tv, a token held only in
+      your device&rsquo;s Keychain under the same protection class, used only to
+      fetch your own channel&rsquo;s stream key and ingest server so the app can
+      publish to it. You can revoke it at
+      <a href="https://www.twitch.tv/settings/connections" rel="noopener">twitch.tv/settings/connections</a>.
     </p>
 
     <h3>Network requests to public services</h3>
