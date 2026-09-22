@@ -147,6 +147,20 @@ public final class StudioSession {
     /// with a consequence the host owns.
     public private(set) var filmHasNoSoundtrack = false
 
+    /// WHY the film has stopped reaching the programme, in words, when it has.
+    ///
+    /// On 2026-09-22 the Studio's programme went black on two runs out of
+    /// eight while the FILM pane beside it played perfectly. Both were silent:
+    /// the row said "no new frames", which is the SYMPTOM, and nothing
+    /// anywhere said what the player was doing. The camera has had a stall
+    /// detector with a named cause since it drifted the same way; the film
+    /// — the thing the audience is actually here for — had none.
+    ///
+    /// It asks the PLAYER rather than counting frames, which is §9.bbbbbb's
+    /// lesson from telling "ended" from "buffering": a counter can only say
+    /// that nothing arrived, and every cause looks identical from there.
+    public private(set) var filmProblem: String?
+
     /// §D18 — the call tap has been open for three seconds and delivered no
     /// samples at all. A level of zero is a quiet room; no samples is an
     /// absence, and the two may not draw the same.
@@ -256,6 +270,13 @@ public final class StudioSession {
     /// Carries the old `attachIfArmed` behaviour unchanged, and remembers the
     /// player so a show armed LATER can still find it.
     public func registerSurfacePlayer(_ player: AVPlayer, archiveID: String) async {
+        // WHICH PLAYER, by identity. The Studio's programme went black on some
+        // runs and not others with identical logs, and the only difference a
+        // log could show was WHICH AVPlayer each step was talking about — a
+        // surface rebuild hands the engine's player to a teardown that nils its
+        // item, and every line up to that point reads healthy.
+        awdiag("AWSURFACE register player=%lx film=%@",
+               UInt(bitPattern: ObjectIdentifier(player).hashValue), archiveID)
         surfacePlayer = player
         surfaceArchiveID = archiveID
         await attachIfArmed(player: player, archiveID: archiveID)
@@ -272,6 +293,10 @@ public final class StudioSession {
     /// surface had just made — and `beginShow` would then arm a show with no
     /// player to attach, which looks exactly like the Studio doing nothing.
     public func forgetSurfacePlayer(_ player: AVPlayer?) {
+        awdiag("AWSURFACE forget player=%lx registered=%@ engineHolds=%@",
+               player.map { UInt(bitPattern: ObjectIdentifier($0).hashValue) } ?? 0,
+               surfacePlayer === player ? "yes" : "no",
+               localPlayer === player ? "YES" : "no")
         guard let player, surfacePlayer === player else { return }
         surfacePlayer = nil
         surfaceArchiveID = nil
@@ -309,6 +334,8 @@ public final class StudioSession {
         guard armedFilmID == archiveID, !isLive else { return }
         armedFilmID = nil
         localPlayer = player
+        awdiag("AWSURFACE engine attaching to player=%lx",
+               UInt(bitPattern: ObjectIdentifier(player).hashValue))
 
         let e = StudioEngine(configuration: .benchDoored())
         engine = e
@@ -785,6 +812,7 @@ public final class StudioSession {
             var lastFilmFrames = 0
             var lastCameraFrames = 0
             var stall = CameraStallRecovery()
+            var filmStalled = 0
             while !Task.isCancelled {
                 try? await Task.sleep(nanoseconds: 1_000_000_000)
                 guard let self, let engine = self.engine else { return }
@@ -810,6 +838,30 @@ public final class StudioSession {
                     let session = await StudioSession.attachHostCamera(to: engine)
                     awdiag("AWCAM recovery %d: %@", stall.attempts,
                            session != nil ? "re-attached" : "no camera")
+                }
+                // THE FILM'S OWN STALL, named. Three seconds, because one is
+                // a hiccup on a 24 fps transfer and the readout already shows
+                // the rate; and never while the film has simply ended, which
+                // has its own sentence (§D13).
+                if self.filmFramesPerSecond == 0, !h.filmEnded {
+                    filmStalled += 1
+                } else {
+                    filmStalled = 0
+                    if self.filmProblem != nil { self.filmProblem = nil }
+                }
+                if filmStalled == StudioFilmStall.secondsBeforeNaming {
+                    let p = self.localPlayer
+                    let item = p?.currentItem
+                    let why = StudioFilmStall.reason(.init(
+                        hasPlayer: p != nil,
+                        hasItem: item != nil,
+                        rate: p?.rate ?? 0,
+                        likelyToKeepUp: item?.isPlaybackLikelyToKeepUp ?? false,
+                        errorDescription: item?.error?.localizedDescription))
+                    self.filmProblem = why
+                    awdiag("AWFILM stalled: %@ (rate=%.2f item=%@ player=%lx)",
+                           why, p?.rate ?? -1, item == nil ? "nil" : "present",
+                           p.map { UInt(bitPattern: ObjectIdentifier($0).hashValue) } ?? 0)
                 }
                 lastCameraFrames = h.cameraFramesReceived
                 lastFilmFrames = h.filmFramesPulled

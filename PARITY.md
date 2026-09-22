@@ -545,3 +545,41 @@ remaining ten-foot passes + device QA).
    platform's design doc and mark 🚫 here with the reason.
 5. Apple platforms (tvOS · iOS · macOS) share the Swift Core — a shared-Core
    change usually moves all three columns; verify each builds.
+
+##### Staging a card before it goes out, 2026-09-22 (macOS-DESIGN §D19)
+
+A host prepares the intermission card while the film is still running, then
+takes it. §D19 is the one place the Studio deliberately shows something the
+audience cannot see, and it says so in the panel: **NEXT · not on air**.
+
+| Platform | State |
+|---|---|
+| macOS | ✅ a "Prepare" picker and a NEXT thumbnail in the Studio's new **On screen** column, rendered through the programme's OWN `StudioOverlayRenderer` at 640×360 so it cannot draw a card the engine would draw differently. "Show it now" is the only route to the audience and it clears the staging. §8.39 asserts structurally that `stagedCard` reaches the thumbnail and TAKE and nothing else — the wire proves one value at one moment, the source check proves there is no path at all |
+| iOS · tvOS · Android | ⏳ not offered. Only a CARD is stageable by design (§D19's table: a placement, a film or a lower-third change would each need a second composite, which is §D5's whole objection), so this is a small port rather than a missing capability |
+
+##### The Studio's fourth column, 2026-09-22 (macOS-DESIGN §D20)
+
+The control row is **Inputs · Mixer · On screen · Output**. Found by
+screenshotting the running Studio to verify §D19 and seeing the Inputs column
+run off the bottom of the window at "Crop", with the card picker and the whole
+NEXT panel below the fold while the Mixer column beside it was half empty. A
+camera is a source; a lower third is a drawing — the line OBS draws between
+Sources and the Audio Mixer.
+
+| Platform | State |
+|---|---|
+| macOS | ✅ four columns, minimum width 1120; the framing legend is one sentence rather than a five-row table, which is the four rows by which NEXT had been falling off the screen |
+| iOS · tvOS · Android | n/a — their Studio surfaces are sheets and menus, not columns |
+
+##### When the film stops reaching the programme, 2026-09-22 (macOS-DESIGN §D21)
+
+| Platform | State |
+|---|---|
+| macOS | ✅ `StudioFilmStall.reason(_:)` names the cause under the film row after three silent seconds — no player, an item nilled by a rebuilt window, paused, buffering, an item error, or an honest "playing and no frames are arriving". §8.40 covers every branch AND the order, because a nilled item also reads as paused |
+| iOS · tvOS · Android | ⏳ the readout shows the rate and says nothing about why. The reason is a pure function in shared Swift, so the two Apple ports are a call site each |
+
+**Open, and not claimed as fixed**: the fault that prompted §D21 — the Mac's
+programme going black while the FILM pane plays — reproduced twice in eight
+runs and has no signature. `AWSURFACE register` / `forget` / `engine
+attaching` now carry the `AVPlayer`'s identity so the next occurrence names
+itself.

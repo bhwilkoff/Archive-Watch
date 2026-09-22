@@ -473,6 +473,28 @@ emulators) · `docs/CAPTIONS.md` · `docs/SHAREPLAY.md` ·
    "ended" from "buffering", where a false positive is worse than today's
    silence.
 
+17-NEW. **THE MAC'S PROGRAMME GOES BLACK ABOUT ONE RUN IN FOUR, AND NOTHING SAYS
+   WHY** (2026-09-22, reproduced twice in eight). The FILM pane plays at 25 fps
+   beside a STREAM pane that is black behind the lower third and the camera
+   tile, the film row reads "no new frames", and the log of a black run is
+   IDENTICAL line for line to a healthy one — both get a first video frame
+   (`AWCLOCKS`) and then the pump stops in silence. Six runs afterwards were
+   healthy, so there is no signature yet and this is NOT claimed as fixed.
+   What IS done: `AWSURFACE register` / `forget` / `engine attaching` now carry
+   the `AVPlayer`'s IDENTITY, because the leading theory is that a rebuilt
+   player surface nils the item the engine is pulling from (§D12's
+   stop-the-film fix, correct where it was applied) and no line could ever have
+   shown that; and §D21 puts the CAUSE on screen under the film row after
+   three silent seconds — "the film's player has no item — its window was
+   probably rebuilt" is one of its six sentences, so the next occurrence names
+   itself. §8.40 covers every branch and their ORDER.
+   **One thing that is NOT this defect, and cost twenty minutes**: the first
+   black run was my own door. `AW_STUDIO_MAC=1` calls `router.play()` directly,
+   which MOVES the film to the projection window — a thing the product
+   disables while live, with the reason in the button's help text. A door that
+   reaches a state the UI forbids produces a very convincing false defect
+   (Decision 133 from the other direction).
+
 16-NEW. **WATCH TOGETHER ROOMS ARE BUILT AND THE WORKER IS DEPLOYED** (SHAREPLAY
    §11, 2026-09-21). The owner's own design: people use the call they already
    have, the app syncs the film. The transport is LIVE at

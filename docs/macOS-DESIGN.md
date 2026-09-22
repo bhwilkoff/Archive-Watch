@@ -1669,6 +1669,45 @@ channel actively damages the programme.
   a level sitting at the threshold. That last one carries a control showing
   the same signal flipping 95 times without hysteresis.
 
+## §D19 — NEXT: the one place the preview may diverge, and it says so out loud
+
+*Roadmap #5, OBS's Studio Mode reduced to the one thing worth staging here.*
+
+§D5 is emphatic that the preview IS the programme — fed from the engine's own
+buffer so "what I see" and "what they see" cannot diverge, which is the
+failure Decision 133 is entirely about. **This rule deliberately introduces a
+second picture that is NOT going out**, so it has to earn that and be
+impossible to mistake.
+
+**What it earns.** A host composing a card mid-show is writing words the
+audience will read, and today they write them blind: the editor is four text
+fields, and the only way to see the result is to put it on air. "Back in five
+— the projectionist needs a minute" is a sentence you want to look at before
+five hundred people do.
+
+**Why only a CARD.** OBS stages whole scenes because OBS has scenes. We have
+four things (§D0), and of them:
+
+| | staged? | why |
+|---|---|---|
+| a CARD | **yes** | composing takes time, and a half-typed card on air is the failure |
+| a PLACEMENT | no | one decision a show, and §D14a made framing a drag you watch live |
+| the FILM | no | it is the show; there is no "next film" in a watch-along |
+| the LOWER THIRD | no | it draws the catalogue's own facts (§D15) — nothing to compose |
+
+**Binding, and these are the guards that keep §D5 intact:**
+
+- **NEXT is small, and labelled as not on air.** It is a thumbnail beside the
+  controls, never a third pane the size of STREAM. A picture that big invites
+  a host to watch the wrong one.
+- **It is only drawn when something is staged.** No empty slot, no permanent
+  second window, nothing to glance at by mistake.
+- **TAKE is the only way it reaches the audience**, and taking it CLEARS the
+  staging — so NEXT is never showing what is already out.
+- **It renders through the SAME `StudioOverlayRenderer` the programme uses**,
+  at a smaller size. A second drawing path would be a second chance to differ
+  from the thing it is previewing, which is the whole mistake §D5 forbids.
+
 ## §D16 — A film with no soundtrack SAYS SO, and a dead meter says why
 
 Owner: *"I don't see any audio from the film coming through on the source or
@@ -1742,3 +1781,91 @@ been open for **three seconds with zero frames** says so rather than showing a
 still meter. A level of zero is a legitimate reading — a quiet room — but *no
 samples at all* is not a level, it is an absence, and the two must not draw the
 same.
+
+## §D20 — Four columns: a graphic is not an input
+
+The Studio's control row is **Inputs · Mixer · On screen · Output**, in that
+order. "On screen" holds everything that decides what the audience SEES over
+the film — the placement preset, the host's framing box, the lower-third
+lines, the card, and the NEXT staging area. "Inputs" keeps only the sources:
+the film, the camera, the microphone, a call.
+
+**Why this is a rule and not a tidy-up.** The Studio shipped with three
+columns, and graphics were filed under Inputs because they are configured
+alongside the camera. On 2026-09-22 a screenshot of the running Studio —
+taken to verify §D19 — showed what that costs: the Inputs column had run off
+the bottom of the window at "Crop", with the lower-third toggles, the card
+picker and the whole NEXT panel below the fold, while the Mixer column beside
+it was **half empty**. A control was in the Studio and still could not be
+found, which is a weaker form of the complaint that put the go-live checklist
+here in the first place — *"I think I may have found it hidden behind a
+button on the video player."*
+
+A scroll bar is not an answer to that. It is reachable, not visible, and the
+things below the fold are the ones a host reaches for DURING a show: an
+intermission card is decided in the moment, not configured beforehand (§D19's
+whole argument). The one control that must be one press away was the one
+furthest down.
+
+**And the split is meaningful, not merely a rebalance.** A camera is a
+source; a lower third is a drawing. OBS draws exactly this line — Sources
+against a separate Audio Mixer — and it is the line a host already thinks in:
+*what am I sending in* versus *what does it look like*. Filing a text overlay
+under "Inputs" is a claim that it is a kind of camera.
+
+**How to apply.** A new Studio control goes in the column that answers its
+question: does it choose a SOURCE (Inputs), set a LEVEL (Mixer), change what
+the audience SEES (On screen), or decide where the show GOES (Output)? If a
+control seems to belong in two, it is usually two controls. And when a column
+reaches the bottom of the window on this Mac at the Studio's own minimum
+size, that is a measurement, not an aesthetic complaint — take the screenshot
+before deciding it is fine.
+
+**Consequence.** The window's minimum width rises to 1120, because four
+columns at 940 are narrower than the device pickers they hold. The panes
+above (§D17) are unchanged: FILM and STREAM still split the top.
+
+## §D21 — When the film stops reaching the programme, the Studio says WHY
+
+The Inputs row already shows the film's frame rate, and "no new frames" is a
+true and useless sentence: it is the symptom. When the film produces nothing
+for **three consecutive seconds** and has not simply ended, the Studio names
+the cause underneath it, in one line, from what the PLAYER says —
+`StudioFilmStall.reason(_:)`.
+
+**Why.** On 2026-09-22 the Studio's programme went black on two runs out of
+eight while the FILM pane beside it played perfectly, and both runs were
+silent about it: the logs of a healthy run and a black one were identical
+line for line. The camera has had a stall detector with a named cause since
+it drifted the same way (§D23's recovery). The film — the thing the audience
+is actually there for — had none. A host would have watched their audience
+receive a black frame with every readout on the screen reading normal.
+
+**Why it asks the player rather than counting frames.** A counter can only say
+that nothing arrived, and from there every cause looks identical: paused,
+buffering, ended, a window rebuilt underneath the engine. That is §9.bbbbbb's
+lesson from telling "ended" from "buffering", and the answer is the same one
+— ask the object that knows.
+
+**Why it is a pure function in its own file.** A five-branch sentence written
+inline in the poll loop cannot be exercised without a running show and the
+specific fault it describes, so in practice it never is, and the first time
+anybody reads one of its sentences is the day something is already wrong.
+Split out, §8.40 reaches every branch in milliseconds — including the ORDER,
+which matters because the branches overlap: a player whose item has been
+nilled also reports a rate of 0, so asking "is it paused" first would tell a
+host they pressed pause when their window was rebuilt underneath them. Both
+sentences are true; only one sends them to the right place.
+
+**How to apply.** Add a cause by adding a fact to `Facts` and a branch in
+order of how completely the thing is gone, and add its row to §8.40 — the
+test asserts the reasons are DISTINCT, so a vague catch-all that swallows a
+new case fails rather than passes. Do not make this sentence reassuring: the
+fallback deliberately says the film is playing and no frames are arriving,
+which is an admission that the Studio does not know.
+
+**Still open**: the black-programme fault itself is reproduced twice in eight
+runs and has no signature. The identity diagnostics (`AWSURFACE register` /
+`forget` / `engine attaching`, carrying the `AVPlayer`'s identity) and this
+sentence are in place so the next occurrence names itself instead of being
+argued about.

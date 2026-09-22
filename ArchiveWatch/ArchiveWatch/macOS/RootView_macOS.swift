@@ -145,6 +145,41 @@ struct RootView: View {
                     StudioMacShow.shared.take(it, from: router)
                     openWindow(id: StudioWindowID.studio)
                 }
+                // THE STAGED CARD (§D19), and deliberately OUTSIDE the
+                // go-live branch. Staging is a rehearsal-time act — a host
+                // prepares the intermission card while the film is running —
+                // so the door that exercises it must work on the path that
+                // publishes NOTHING, or the only way to photograph it would be
+                // to broadcast. It writes the control the PICKER writes, and it
+                // is a SEPARATE variable from AW_STUDIO_CARD on purpose: a door
+                // that could only set both at once could never show they are
+                // two different facts.
+                // REHEARSAL, through the button's own call (§D5). The doors
+                // above either publish or play in the router's window; neither
+                // is the path a host takes when the film stays IN the Studio,
+                // which is the arrangement §D7's "the program preview beside
+                // this one is unaffected" is a promise about. Without this
+                // there was no way to compare the two.
+                if env["AW_STUDIO_MAC_PREVIEW"] == "1" {
+                    Task { @MainActor in
+                        StudioMacShow.shared.take(it, from: router)
+                        // The Studio's own surface needs to exist and register
+                        // its player before a show can attach to it — the
+                        // window has just been asked to open.
+                        for _ in 0..<40 where !StudioSession.shared.isLive {
+                            _ = await StudioSession.shared.beginShow(film: it, destination: nil)
+                            if StudioSession.shared.isLive { break }
+                            try? await Task.sleep(for: .milliseconds(250))
+                        }
+                        awdiag("AWMACDOOR preview live=%@",
+                               StudioSession.shared.isLive ? "true" : "FALSE")
+                    }
+                }
+                if let stage = env["AW_STUDIO_STAGE"],
+                   let choice = MacCardChoice(rawValue: stage) {
+                    StudioControls.shared.stagedCard = choice
+                    awdiag("AWMACDOOR staged=%@", stage)
+                }
                 // THE macOS GO-LIVE DOOR (§9.xxxx).
                 //
                 // `AW_STUDIO_MAC` arms the session so the readout can be SEEN —

@@ -203,25 +203,54 @@ struct BackPressureHarness {
             exit(1)
         }
 
-        // 1. The signal fires. Without this the rest is vacuous: a cap that is
-        //    never reached drops nothing and the test would "pass" on a link
-        //    that was never congested.
+        // 1. The signal fires — READ FROM THE PUBLISHER, NOT FROM A SAMPLER.
+        //
+        // This assertion used to be `sampledPeak > cap`, and on 2026-09-22 it
+        // failed a run that had plainly engaged: the table showed 414 kB
+        // against a 474 kB cap and 48 dropped frames in the same window. The
+        // queue crossed the cap BETWEEN two of this harness's 1 Hz samples, and
+        // the harness called that "back-pressure never engaged" — a verdict
+        // exactly opposite to the truth, from an instrument measuring the
+        // right quantity too rarely. It is the fault family this feature keeps
+        // producing (Decision 130), and it is worth noticing that the fix is
+        // not a looser threshold but a better witness.
+        //
+        // The publisher already keeps one. `send(video:)` sets
+        // `droppingUntilKeyframe` on exactly one condition —
+        // `health.queuedBytes > maxQueuedBytes` — so a single dropped video
+        // frame IS the crossing, recorded at the instant it happened by the
+        // code under test rather than glimpsed a second later by the code
+        // testing it.
         let peak = throttled.map(\.queued).max() ?? 0
-        print("\n  peak queued while throttled: \(peak / 1000) kB against a \(cap / 1000) kB cap")
-        guard peak > cap else {
+        let openPeak = open.map(\.queued).max() ?? 0
+        let crossings = throttled.last!.videoDropped - throttled.first!.videoDropped
+        print("\n  peak queued SEEN while throttled: \(peak / 1000) kB against a \(cap / 1000) kB cap")
+        print("  (a floor, not the peak — this samples once a second)")
+        guard crossings > 0 else {
             print("FAIL: the send queue never passed the cap, so back-pressure never engaged.")
             print("      Either the throttle is not throttling or `queuedBytes` does not see congestion.")
             exit(1)
         }
+        // THE SAMPLER STILL HAS A JOB, and it is the one it can actually do.
+        // Frames could in principle be dropped with the queue nowhere near the
+        // cap — that would mean the drop path fired for some reason other than
+        // congestion, which is a defect wearing this test's own green. So the
+        // queue must be seen in the same neighbourhood as the cap, while a
+        // margin below it stays unasserted because a sampler cannot see there.
+        guard Double(peak) > Double(cap) * 0.5 else {
+            print("FAIL: video was dropped while the queue was only \(peak / 1000) kB against a")
+            print("      \(cap / 1000) kB cap — something other than congestion is dropping frames.")
+            exit(1)
+        }
         // Control: it must NOT have been over the cap before the throttle, or
         // the program was simply too big for the link all along.
-        let openPeak = open.map(\.queued).max() ?? 0
         guard openPeak <= cap else {
             print("FAIL: the queue was already over the cap before the throttle (\(openPeak / 1000) kB) —")
             print("      this run proves nothing about congestion.")
             exit(1)
         }
-        print("OK: the queue crossed the cap only while throttled (\(openPeak / 1000) kB before)")
+        print("OK: the queue crossed the cap only while throttled (\(openPeak / 1000) kB before,")
+        print("    \(crossings) frames dropped after — and a frame is dropped only above the cap)")
 
         // 2. VIDEO is what gets dropped.
         let droppedDuring = (throttled.last!.videoDropped - throttled.first!.videoDropped)

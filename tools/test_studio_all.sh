@@ -351,6 +351,21 @@ else
   FAIL=$((FAIL+1))
 fi
 
+# The film's stall names its own cause. Every branch, and the ORDER of the
+# branches, which overlap — a rebuilt window also reads as paused.
+swift_case "8.40 film-stall reasons" ArchiveWatch/ArchiveWatch/Studio/StudioFilmStall.swift \
+  tools/test_studio_filmstall.swift
+
+# §D19's staging, guarded structurally. A card a host is PREPARING must reach
+# their own thumbnail and no further; the wire proves one value at one moment,
+# this proves there is no path at all.
+if bash tools/test_studio_staging.sh >"$SCRATCH/staging.log" 2>&1; then
+  row "8.39 staged card goes nowhere" PASS ""; PASS=$((PASS+1))
+else
+  row "8.39 staged card goes nowhere" FAIL "a staged card can reach the audience"
+  FAIL=$((FAIL+1))
+fi
+
 # A broadcast's chat id must reach the engine. `YouTubeLive.chat(...)` was
 # written and correct and called by nothing, because the id was read and
 # dropped inside `StudioGoLive.destination()`. Only the CHAIN fails; a unit

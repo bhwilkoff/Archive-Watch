@@ -111,6 +111,12 @@ final class StudioControls {
     var cardChoice: MacCardChoice = .none {
         didSet { applyCard() }
     }
+    /// §D19 — a card being COMPOSED, which is not on air. Staging is a
+    /// separate value from `cardChoice` for the same reason `cardChoice` is
+    /// separate from `card`: what a host has chosen, what they are preparing,
+    /// and what the audience can see are three different facts, and every
+    /// time this feature collapsed two of them it produced a defect.
+    var stagedCard: MacCardChoice = .none
     private(set) var card: StudioOverlay.Card? {
         didSet { Task { await StudioSession.shared.setCard(card) } }
     }
@@ -380,6 +386,9 @@ struct StudioWindowView: View {
                 Divider()
                 column("Mixer") { mixer }
                 Divider()
+                // §D20 — a graphic is not an input.
+                column("On screen") { onScreen }
+                Divider()
                 column("Output") {
                     // §D9 — the pre-stream checklist, in the Studio rather
                     // than in a sheet over a different window.
@@ -390,7 +399,7 @@ struct StudioWindowView: View {
             }
             .frame(maxHeight: .infinity)
         }
-        .frame(minWidth: 940, minHeight: 660)
+        .frame(minWidth: 1120, minHeight: 660)
         .onAppear {
             controls.layout = studio.armedLayout
             show.choosing = show.film == nil
@@ -659,6 +668,13 @@ struct StudioWindowView: View {
                     Text("No soundtrack on this transfer").font(.caption2)
                         .foregroundStyle(.orange)
                 }
+                // §4: health is never hidden. "no new frames" is the symptom
+                // and the host can already see it; this is the cause, which
+                // nothing on any surface has ever said.
+                if let why = studio.filmProblem {
+                    Text(why).font(.caption2).foregroundStyle(.orange)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
             }
 
             // EVERY INPUT IS NAMED, AND ITS DEVICE IS CHOSEN (§D2).
@@ -742,7 +758,20 @@ struct StudioWindowView: View {
                 }
             }
 
-            Divider().padding(.vertical, 2)
+        }
+    }
+
+    // MARK: On screen (§D20)
+
+    /// WHAT THE AUDIENCE SEES, as against what is being sent IN.
+    ///
+    /// These lived at the bottom of `inputs` until a screenshot of the
+    /// running Studio showed the column running off the window at "Crop",
+    /// with the card picker and the whole NEXT panel below the fold and the
+    /// Mixer column beside it half empty (§D20). The controls a host
+    /// reaches for DURING a show were the ones furthest down.
+    private var onScreen: some View {
+        Group {
 
             // WHERE THE CAMERA GOES. It is an input question — how the
             // sources are arranged — so it belongs in this column rather
@@ -781,8 +810,20 @@ struct StudioWindowView: View {
                 Picker("Card", selection: $controls.cardChoice) {
                     ForEach(MacCardChoice.allCases, id: \.self) { Text($0.label).tag($0) }
                 }
-                if controls.cardChoice == .custom {
+                if controls.cardChoice == .custom || controls.stagedCard == .custom {
                     StudioCustomCardEditor(controls: controls)
+                }
+                // §D19 — PREPARE ONE WITHOUT SHOWING IT. Offered only while a
+                // show is running: staging a card with nothing on air is just
+                // choosing one, and the picker above already does that.
+                if studio.isLive {
+                    Picker("Prepare", selection: $controls.stagedCard) {
+                        ForEach(MacCardChoice.allCases, id: \.self) { Text($0.label).tag($0) }
+                    }
+                    if controls.stagedCard != .none {
+                        StudioNextCard(controls: controls,
+                                       filmTitle: show.film?.title ?? "")
+                    }
                 }
                 Text("A card covers the film completely — your audience sees only the card.")
                     .font(.caption2).foregroundStyle(.secondary)
@@ -790,7 +831,6 @@ struct StudioWindowView: View {
             }
         }
     }
-
     // MARK: Framing (§D14)
 
     /// FOUR SLIDERS ARE GONE. They could size the tile and move it and never
@@ -816,13 +856,18 @@ struct StudioWindowView: View {
                     .font(.caption2).foregroundStyle(.secondary)
                     .fixedSize(horizontal: false, vertical: true)
             } else if tiled {
-                gestureLine("Move", "drag inside the box")
-                gestureLine("Resize", "drag a corner")
-                gestureLine("Crop", "drag an edge \u{2014} a taller, narrower box crops to your face")
-                gestureLine("Zoom", "scroll inside the box")
-                if controls.framing.zoom > 1 {
-                    gestureLine("Pan", "hold \u{2325} and drag inside the box")
-                }
+                // ONE SENTENCE, NOT A FIVE-ROW TABLE (§D20). The table read as
+                // documentation and cost four rows of the column, which was
+                // exactly the distance by which the NEXT panel below it fell
+                // off the bottom of the window. A legend for a direct-
+                // manipulation gesture is read once; the control it explains is
+                // reached during a show.
+                Text("Drag inside the box to move it, a corner to resize, an edge to crop to "
+                     + "your face; scroll inside it to zoom."
+                     + (controls.framing.zoom > 1
+                        ? " Hold \u{2325} and drag to pan what you have zoomed into." : ""))
+                    .font(.caption2).foregroundStyle(.secondary)
+                    .fixedSize(horizontal: false, vertical: true)
             } else if controls.layout == .film {
                 Text("This placement shows no camera, so there is nothing to frame.")
                     .font(.caption2).foregroundStyle(.secondary)
@@ -841,15 +886,6 @@ struct StudioWindowView: View {
                 Text(framingReadout)
                     .font(.caption2).monospacedDigit().foregroundStyle(.secondary)
             }
-        }
-    }
-
-    private func gestureLine(_ verb: String, _ how: String) -> some View {
-        HStack(alignment: .firstTextBaseline, spacing: 6) {
-            Text(verb).font(.caption.weight(.medium))
-                .frame(width: 48, alignment: .leading)
-            Text(how).font(.caption2).foregroundStyle(.secondary)
-                .fixedSize(horizontal: false, vertical: true)
         }
     }
 
@@ -1807,7 +1843,10 @@ struct StudioMacFader: View {
 
 /// The cards, as an exclusive choice. They are actions with consequences,
 /// not a mode toggle.
-enum MacCardChoice: CaseIterable, Hashable {
+// The raw values exist for ONE reason: a harness door names a card in an
+// environment variable (§D19), and a hand-written string table would be a
+// second place to forget a case.
+enum MacCardChoice: String, CaseIterable, Hashable {
     case none, startingSoon, intermission, ending, custom
 
     var label: String {
