@@ -30,6 +30,12 @@ public final class StudioSession {
     public private(set) var armedDestination: URL?
     public func armDestination(_ url: URL?) { armedDestination = url }
 
+    /// The broadcast's own chat id, armed for the same reason the destination
+    /// is: `arm` records intent and the engine is built later. YouTube only —
+    /// Twitch chat is read anonymously by channel name.
+    public private(set) var armedYouTubeChatID: String?
+    public func armYouTubeChat(_ id: String?) { armedYouTubeChatID = id }
+
     /// The placement the host chose, remembered until the engine exists.
     ///
     /// `arm` records INTENT and the engine is built later, when the player
@@ -341,6 +347,22 @@ public final class StudioSession {
             refusal = "The Studio could not start — \(error)"
             engine = nil
             return
+        }
+        // YOUTUBE CHAT, if this broadcast has one. The id came back from the
+        // `liveBroadcasts.insert` that created it and rode here on
+        // `StudioGoLive.Destination` — before that it was read and dropped in
+        // the same function, which is why the renderer has been drawing a
+        // chat column that only Twitch could ever fill.
+        if let chatID = armedYouTubeChatID, !chatID.isEmpty {
+            if let token = try? await StudioPlatformAuth.token(for: .youtube) {
+                await e.attachYouTubeChat(liveChatID: chatID, token: token)
+                diag("[AWSTUDIOCHAT] reading YouTube live chat")
+            } else {
+                // SAY IT. A chat column that stays empty because a token could
+                // not be refreshed looks exactly like an audience that is not
+                // talking, and the two have opposite fixes.
+                diag("[AWSTUDIOCHAT] no YouTube token — chat will stay empty")
+            }
         }
         // The channel is the SURFACE's to name; the reading and the overlay
         // belong to the engine (see `attachTwitchChat`).

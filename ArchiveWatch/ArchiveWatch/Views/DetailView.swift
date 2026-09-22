@@ -1090,7 +1090,9 @@ struct PlayerScreen: View {
         var destination: URL?
         if let request = studioRequest {
             do {
-                destination = try await StudioGoLive.destination(for: request, film: film)
+                let resolved = try await StudioGoLive.destination(for: request, film: film)
+                destination = resolved.url
+                StudioSession.shared.armYouTubeChat(resolved.liveChatID)
             } catch {
                 // LOG THE RAW THING, SHOW A SENTENCE. Without this line the
                 // four YouTube writes failed leaving no trace anywhere: the

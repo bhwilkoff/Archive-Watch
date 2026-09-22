@@ -165,7 +165,12 @@ struct StudioPlayerContainer: View {
     /// Where the program goes — resolved by shared code, so every platform
     /// can reach it (§9.lll). This wrapper keeps the call site unchanged.
     private func destination() async throws -> URL? {
-        try await StudioGoLive.destination(for: request, film: item)
+        let d = try await StudioGoLive.destination(for: request, film: item)
+        // iOS runs its OWN engine and poll loop (Decision 133), so the chat id
+        // is armed on the shared session here rather than assumed to have been
+        // armed by a macOS code path this platform never executes.
+        StudioSession.shared.armYouTubeChat(d.liveChatID)
+        return d.url
     }
 
     private func pushOverlay() async {

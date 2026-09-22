@@ -204,7 +204,9 @@ struct RootView: View {
                                 privacy: .unlisted, layout: layout,
                                 customServer: nil, customKey: nil)
                             do {
-                                dest = try await StudioGoLive.destination(for: req, film: it)
+                                let d = try await StudioGoLive.destination(for: req, film: it)
+                                dest = d.url
+                                StudioSession.shared.armYouTubeChat(d.liveChatID)
                             } catch {
                                 awdiag("AWMACDOOR %@ go-live FAILED: %@", macDoor,
                                        "\(error)".split(whereSeparator: { $0 == "\n" })

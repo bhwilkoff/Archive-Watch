@@ -62,6 +62,26 @@ enum YouTubePrivacy: String, CaseIterable, Sendable {
 /// Turns a host's request into the address the publisher sends to.
 enum StudioGoLive {
 
+    /// EVERYTHING GOING LIVE PRODUCES, not just the address.
+    ///
+    /// This used to be a bare `URL?`, and that is why YouTube chat never
+    /// reached the programme: `liveBroadcasts.insert` hands back a
+    /// `liveChatId`, `prepare` reads it into `StreamCredentials`, and the
+    /// return type had nowhere to put it — so it was read and dropped in the
+    /// same breath. `broadcastID` went the same way, which is why `complete()`
+    /// has never been called either.
+    ///
+    /// It carries NO credential. The key is joined into `url` by `combine` and
+    /// never leaves it (§4 — a stream key is never shown, stored or logged),
+    /// and the two ids below are public platform identifiers.
+    struct Destination: Sendable {
+        let url: URL?
+        let liveChatID: String?
+        let broadcastID: String?
+
+        static let none = Destination(url: nil, liveChatID: nil, broadcastID: nil)
+    }
+
     /// Where the program goes.
     ///
     /// A platform key is fetched from that platform's API and used once — it is
@@ -70,15 +90,15 @@ enum StudioGoLive {
     // Internal, not public: `Catalog.Item` is internal, and every caller is
     // in this module. A `public` face here buys nothing and will not compile.
     static func destination(for request: GoLiveRequest,
-                            film: Catalog.Item) async throws -> URL? {
+                            film: Catalog.Item) async throws -> Destination {
         switch request.platform {
         case .custom:
             guard let server = request.customServer,
                   let key = request.customKey, !key.isEmpty,
                   var c = URLComponents(url: server, resolvingAgainstBaseURL: false)
-            else { return nil }
+            else { return .none }
             c.path = (c.path.hasSuffix("/") ? c.path : c.path + "/") + key
-            return c.url
+            return Destination(url: c.url, liveChatID: nil, broadcastID: nil)
 
         case .youtube:
             let token = try await StudioPlatformAuth.token(for: .youtube)
@@ -86,7 +106,9 @@ enum StudioGoLive {
                 title: request.title,
                 description: description(for: film),
                 privacy: request.privacy.rawValue)
-            return combine(creds)
+            return Destination(url: combine(creds),
+                               liveChatID: creds.liveChatID,
+                               broadcastID: creds.broadcastID)
 
         case .twitch:
             let token = try await StudioPlatformAuth.token(for: .twitch)
@@ -96,7 +118,11 @@ enum StudioGoLive {
             let creds = try await TwitchLive(token: token, clientID: clientID).prepare(
                 title: request.title,
                 categoryName: request.category.isEmpty ? nil : request.category)
-            return combine(creds)
+            // Twitch chat is read from IRC by CHANNEL NAME, anonymously, and
+            // needs no id from here (`StudioChatTwitch`).
+            return Destination(url: combine(creds),
+                               liveChatID: nil,
+                               broadcastID: creds.broadcastID)
         }
     }
 

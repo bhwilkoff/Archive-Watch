@@ -305,6 +305,20 @@ screen is the same consideration.
 | tvOS | ✅ **added 2026-09-21** — a "Show a card" submenu in the live transport menu (Rule 8.8g), with a checkmark on the one on air. Not in the mixer: 8.8c's duck toggle is the only focusable control there by design, and a second button would break the faders. **Intermission verified on the wire from an Apple TV 4K** |
 | Web | 🚫 no broadcast at all |
 
+##### Chat ON the programme, 2026-09-22
+
+| | |
+|---|---|
+| Twitch | ✅ read anonymously over IRC since 2026-09-18 (no account needed), on every Apple platform |
+| **YouTube** | ✅ **added 2026-09-22** — `liveChat/messages` polled at the interval YouTube itself returns, armed from the `liveChatId` the broadcast's own creation hands back. macOS, iOS and tvOS, because the id is carried by the shared `StudioGoLive.Destination` rather than by any one platform's file. **Not yet seen on air** — the reader has never met a live chat id |
+| Android | ⏳ neither. `TwitchLive.kt` speaks helix but no chat reader exists, and YouTube on Android is absent entirely |
+| Web | 🚫 no broadcast at all |
+
+The renderer was never the gap: `StudioOverlay.chat` and its cached column
+have drawn since 2026-09-18. The gap was that `StudioGoLive.destination()`
+returned a bare `URL?`, so the chat id was read out of the broadcast and
+dropped in the same function. §8.36 now guards the whole chain.
+
 ##### Framing the camera, 2026-09-22 (macOS-DESIGN §D14a)
 
 | | |

@@ -79,7 +79,34 @@ already done once.
   feature should SAY that, and default to warning when asked for more than the
   measured headroom.
 
-## 3. YouTube chat on the program
+## 3. YouTube chat on the program — **BUILT 2026-09-22, unproven on air**
+
+*Status: code complete on macOS, iOS and tvOS; §8.36 guards the chain. What is
+NOT done is a real broadcast with a real audience typing — the reader has
+never seen a live `liveChatId`.*
+
+**The reason it was missing turned out not to be the work.**
+`YouTubeLive.chat(liveChatID:pageToken:)` has been written, complete and
+correct, since the platform layer was built — it lists the messages, maps
+them, and returns YouTube's own `pollingIntervalMillis`. **Nothing ever called
+it**, and the `liveChatId` it needs was read out of `liveBroadcasts.insert`
+into `StreamCredentials` and then dropped, because
+`StudioGoLive.destination()` returned a bare `URL?`. The id was read and
+discarded inside one function.
+
+That is Decision 133 in its purest form — a value proved where it is WRITTEN
+rather than where it LANDS — and no unit test could catch it, because both
+ends pass on their own and only the chain fails. §8.36 checks the chain at
+every link on every platform that can go live, and was verified by reinstating
+the bug on one surface and watching it go red.
+
+`broadcastID` was being dropped in the same breath, which is why `complete()`
+has never been called. It is now carried too, and is the next small thing:
+a host who ends a show leaves the YouTube broadcast open behind them.
+
+Original entry follows.
+
+## 3-orig. YouTube chat on the program
 
 We render chat already (`StudioOverlay.chat`, a cached column) and read only
 **Twitch**. YouTube is where these broadcasts have actually gone out, and we

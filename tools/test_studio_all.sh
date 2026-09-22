@@ -336,6 +336,17 @@ else
   FAIL=$((FAIL+1))
 fi
 
+# A broadcast's chat id must reach the engine. `YouTubeLive.chat(...)` was
+# written and correct and called by nothing, because the id was read and
+# dropped inside `StudioGoLive.destination()`. Only the CHAIN fails; a unit
+# test of either end passes.
+if bash tools/test_studio_chat_carried.sh >"$SCRATCH/chat-carried.log" 2>&1; then
+  row "8.36 chat id reaches the engine" PASS ""; PASS=$((PASS+1))
+else
+  row "8.36 chat id reaches the engine" FAIL "a link drops the live chat id"
+  FAIL=$((FAIL+1))
+fi
+
 # An uploader's attribution must not fork one film into two cards (Decision
 # 040's clustering, and the owner's two Scarecrows).
 if python3 tools/test_quoted_title_merge.py >"$SCRATCH/quoted-title.log" 2>&1; then

@@ -736,6 +736,10 @@ public actor StudioEngine {
     // MARK: - Chat the program CARRIES
 
     private var twitchChat: StudioChatTwitch?
+    /// YouTube's half. Polled rather than streamed, because the Data API
+    /// offers a client of our type no streaming chat interface at all and
+    /// tells us in each response how soon to ask again (§D-roadmap #3).
+    private var youtubeChat: StudioChatYouTube?
 
     /// Reads a Twitch channel into the overlay, for as long as the show runs.
     ///
@@ -746,6 +750,19 @@ public actor StudioEngine {
     /// §6.3's idle timer came to be implemented in one place only. Runtime
     /// behaviour belongs where the engine is; a surface's job is to name the
     /// channel.
+    /// Reads a YouTube broadcast's chat for as long as the show runs.
+    ///
+    /// The `liveChatID` comes from the `liveBroadcasts.insert` that created
+    /// this very broadcast — it is carried here by `StudioGoLive.Destination`,
+    /// which is the change that made this possible at all: the id was being
+    /// read and dropped in the same function.
+    public func attachYouTubeChat(liveChatID: String, token: String) async {
+        guard !liveChatID.isEmpty else { return }
+        let chat = StudioChatYouTube()
+        youtubeChat = chat
+        await chat.start(liveChatID: liveChatID, token: token)
+    }
+
     public func attachTwitchChat(channel: String) async {
         guard !channel.isEmpty else { return }
         let chat = StudioChatTwitch()
@@ -759,8 +776,22 @@ public actor StudioEngine {
     /// `refreshHealth`, which every surface already calls at that cadence —
     /// so no surface has to remember to do this.
     private func pumpChat() async {
-        guard let chat = twitchChat else { return }
-        let lines = await chat.lines
+        // EITHER SOURCE, one column. A broadcast reaches one platform at a
+        // time, so at most one of these is running — but the pump asks both
+        // rather than assuming which, because "whichever is attached" is a
+        // fact the caller already established and this function should not
+        // re-derive (Decision 133's rule, in its smallest form).
+        let lines: [StudioOverlay.ChatLine]
+        let received: Int
+        if let chat = twitchChat {
+            lines = await chat.lines
+            received = await chat.health.linesReceived
+        } else if let chat = youtubeChat {
+            lines = await chat.lines
+            received = await chat.health.linesReceived
+        } else {
+            return
+        }
         guard !lines.isEmpty else { return }
         let tail = Array(lines.suffix(8))
         guard tail.map(\.id) != overlay.chat.map(\.id) else { return }
@@ -768,7 +799,7 @@ public actor StudioEngine {
         overlay.chat = tail
         renderer.overlay = overlay
         health.chatLinesCarried = tail.count
-        health.chatLinesReceived = await chat.health.linesReceived
+        health.chatLinesReceived = received
     }
 
     /// Attaches the film. The player keeps playing to the viewer's own screen;
@@ -1050,6 +1081,12 @@ public actor StudioEngine {
         thermalWatcher?.cancel(); thermalWatcher = nil
         if let chat = twitchChat { await chat.stop() }
         twitchChat = nil
+        // AND THE YOUTUBE POLLER, or a finished show keeps asking YouTube for
+        // the chat of a broadcast that has ended — every 5 seconds, for as
+        // long as the app is open. A reader that outlives its show is the
+        // same defect as a player that outlives its window (§D12).
+        if let chat = youtubeChat { await chat.stop() }
+        youtubeChat = nil
         ticker?.cancel(); ticker = nil
         mixer.stop()
         encoder?.stop(); encoder = nil
