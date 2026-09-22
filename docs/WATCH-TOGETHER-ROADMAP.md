@@ -28,7 +28,25 @@ the owner's ask names things that touch them; the other two still look right.
 
 ---
 
-## 1. THE BIG ONE — guests' faces, with no relay and no running cost
+## 1. Guests' faces — **CAPTURE MEASURED 2026-09-22; the arrangement is the rest**
+
+The TCC unknown is answered, on the product path: a signed, sandboxed Archive
+Watch got `start=true problem=none` and **82 frames in 4 seconds**, no prompt,
+no refusal. `StudioScreenSource` captures one named window, excludes our own,
+and captures no audio (the process tap owns sound, or the call arrives twice).
+Rules and the privacy half in macOS-DESIGN §D23; §8.44 guards it.
+
+**What remains is the sixth arrangement** — Rule 8.8e names five placements
+and none has a guest tile. That is layout work plus a PARITY row, not an
+unknown.
+
+**And the measurement taught something that was not about capture.** Asking
+macOS what can be captured returns the host's whole working day: the first run
+of the probe printed a Slack DM naming a colleague into a log, and took the
+owner's real browser rather than the isolated test instance beside it, because
+it matched on a substring. Both are now rules (§D23) and both are tested.
+
+## 1-orig. THE BIG ONE — guests' faces, with no relay and no running cost
 
 **Capture the call app's WINDOW with ScreenCaptureKit, beside the audio we
 already tap from it.**

@@ -1958,3 +1958,60 @@ signed-in account and from nothing else — if a surface has to be told which
 channel to read, that is the defect, not the design. And say why the column is
 empty (§D13's rule, Decision 128's shape): "your audience's chat appears once
 you go live" is information; a permanently blank column is a fault report.
+
+## §D23 — The call's picture is ONE window the host names, and the list is never recorded
+
+Watch Together's third mode gets its guests' faces from
+`SCContentFilter(desktopIndependentWindow:)`: the host picks the window their
+call is already in, and that one window becomes a source. Sound still comes
+from the process tap (§D18) and never from ScreenCaptureKit.
+
+**MEASURED, on the product path, 2026-09-22**: a signed, sandboxed Archive
+Watch got `start=true problem=none` and **82 frames in 4 seconds** on the
+first attempt, with no prompt and no refusal. That closes the last of the
+three TCC unknowns this feature carried, by the same method as the process tap
+— run it in the app and print what macOS says, never reason from the docs.
+
+**Sound is not captured here, and that is a rule rather than an omission.**
+`SCStreamConfiguration.capturesAudio` is APP-level even behind a window
+filter, so switching it on delivers the same audio the process tap already
+has — the call would arrive twice, a moment apart, which is §D18's fault
+exactly. Picture here, sound there.
+
+**The Studio never captures its own window.** A Studio that captured the
+Studio would composite its preview into the program, and the preview draws the
+program: an infinite corridor, live, on somebody's channel. `windows()`
+excludes our own bundle identifier before the list is built.
+
+### The part the measurement taught, which is not about capture at all
+
+Asking macOS what can be captured returns **the host's whole working day**.
+The first run of this probe printed, into a log: a Slack DM naming a
+colleague, a PDF from someone's Drive, two university admin pages. Nothing was
+captured that the probe was not asked for — but it had been asked for
+"Google Chrome" by substring and took the owner's real browser rather than the
+isolated test instance beside it.
+
+So, binding:
+
+- **A window list is never logged, never written to disk, and never leaves the
+  machine.** Diagnostics may count windows and name applications; a window
+  TITLE is other people's business. Our own harness broke this rule first.
+- **A window is chosen by the host, explicitly, every time.** The picker does
+  not remember a choice across shows and does not pre-select one: a stale
+  selection is how a host ends up broadcasting the window they had open last
+  week rather than the call they are on.
+- **Nothing selects a window on a substring or a "first match".** Our probe
+  did, and captured the wrong browser. The host picks from a list, or the
+  Studio refuses and says why.
+- **The tile shows what is being sent, at all times**, like every other source
+  in this Studio (§D5). A host must be able to see, without leaving the
+  Studio, that they are sending the call and not their email.
+
+### What is not built yet
+
+The sixth arrangement. Rule 8.8e names five placements and none has a guest
+tile; "film, you, and your guests" needs one, and PARITY's "what Watch
+Together MEANS" table changes for macOS when it lands. The capture, the
+refusal path and the exclusion of our own window are built and measured; the
+compositing is the remaining work.

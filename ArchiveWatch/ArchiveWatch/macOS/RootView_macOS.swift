@@ -107,6 +107,56 @@ struct RootView: View {
 
     private func applyLaunchOverrides() async {
         let env = ProcessInfo.processInfo.environment
+        // WHAT A SIGNED, SANDBOXED APP GETS FROM SCREEN RECORDING
+        // (§D23). The same unknown as the process tap, answered the
+        // same way: measure it on the PRODUCT path and print what
+        // macOS says. A CLI probe under the terminal's own grants
+        // would answer a different question (Decision 130).
+        //
+        //   AW_STUDIO_SCREEN=list           — what can be captured
+        //   AW_STUDIO_SCREEN="Google Chrome" — try that app's window
+        if let want = env["AW_STUDIO_SCREEN"], !want.isEmpty {
+            Task { @MainActor in
+                let windows = await StudioScreenSource.windows()
+                // COUNT AND APP NAMES, NEVER TITLES. The first version of
+                // this printed every capturable window's title into a log,
+                // which on the owner's machine meant a Slack DM naming a
+                // colleague, a Drive PDF and two admin pages. A window title
+                // is other people's business; a harness only needs to know
+                // whether capture WORKS.
+                awdiag("AWSCREEN %d capturable window(s) across %d app(s)",
+                       windows.count, Set(windows.map(\.app)).count)
+                guard want != "list" else { return }
+                // EXACT, and one match or none. Asked for "Google Chrome" by
+                // substring this took the owner's REAL browser instead of the
+                // isolated test instance and captured their screen. If an app
+                // has several windows the door refuses rather than guessing.
+                let matches = windows.filter { $0.app == want }
+                guard matches.count <= 1 else {
+                    awdiag("AWSCREEN %@ has %d windows — refusing to guess which",
+                           want, matches.count)
+                    return
+                }
+                guard let target = matches.first else {
+                    awdiag("AWSCREEN no window for %@ — is it open and on screen?", want)
+                    return
+                }
+                let src = StudioScreenSource()
+                let ok = await src.start(windowID: target.id,
+                                         size: CGSize(width: 1280, height: 720)) { _ in }
+                awdiag("AWSCREEN start=%@ app=%@ problem=%@",
+                       ok ? "true" : "FALSE", target.app, src.problem ?? "none")
+                guard ok else { return }
+                // FRAMES, not merely a started stream. A permitted
+                // stream that delivers nothing and a refused one look
+                // the same from the start call alone.
+                try? await Task.sleep(for: .seconds(4))
+                awdiag("AWSCREEN frames=%d after 4s running=%@ problem=%@",
+                       src.framesDelivered, src.isRunning ? "true" : "FALSE",
+                       src.problem ?? "none")
+                src.stop()
+            }
+        }
         guard env["AW_START_TAB"] != nil || env["AW_START_ITEM"] != nil else { return }
         for _ in 0..<160 where !store.isReady { try? await Task.sleep(for: .milliseconds(250)) }
         if let tab = env["AW_START_TAB"], let s = AppRouter.Section(rawValue: tab) {

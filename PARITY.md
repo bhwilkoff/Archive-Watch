@@ -610,3 +610,10 @@ on air the same day: `wrap` split on spaces only, so a single unbroken token —
 most of Twitch — was emitted whole and clipped mid-glyph, its tail sitting on
 the film with no ground behind it. Fixed; §8.42 asserts it wraps. The first
 version of that test PASSED with the defect reinstated and was thrown away.
+
+##### The call's picture, 2026-09-22 (macOS-DESIGN §D23)
+
+| Platform | State |
+|---|---|
+| macOS | 🚧 capture is BUILT and MEASURED on the product path — `SCContentFilter(desktopIndependentWindow:)`, `start=true problem=none`, 82 frames in 4 s, no TCC prompt for a signed sandboxed app. No audio (the process tap owns sound), never our own window, no titles in diagnostics, no substring matching. **The sixth arrangement — "film, you, and your guests" — is not built**, so nothing composites it yet |
+| everywhere else | 🚫 ScreenCaptureKit is macOS-only, which is the same reason Decision 131 makes the Mac the only host for this mode |

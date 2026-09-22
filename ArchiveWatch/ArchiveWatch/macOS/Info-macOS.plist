@@ -73,6 +73,8 @@
 	     is playing is not the same permission as listening to a microphone,
 	     and the entitlements below do not cover it. Without this key the
 	     request is refused with no prompt, which reads as a silent channel. -->
+	<key>NSScreenCaptureUsageDescription</key>
+	<string>Archive Watch captures the window of the call you are already on, so your guests can be seen in your broadcast. It captures only the window you pick.</string>
 	<key>NSAudioCaptureUsageDescription</key>
 	<string>Archive Watch mixes the audio of a call you are already on — Zoom, Meet, FaceTime — into your Watch Together broadcast, so your guests can be heard.</string>
 	<key>NSCameraUsageDescription</key>

@@ -341,7 +341,28 @@ swift_case "8.20 guest voice room" ArchiveWatch/ArchiveWatch/Studio/StudioVoiceC
 # for the same kind of reason.
 if [ "$(uname)" = "Darwin" ]; then
   if [ "${AW_AUDIBLE:-0}" = "1" ]; then
+    # PUT THE VOLUME BACK. This case builds a private aggregate device around
+    # the default output, and on 2026-09-22 the owner asked "why do you keep
+    # turning up my speakers?" — it had been left at 100 after runs of this
+    # suite were killed part-way through. Whatever the exact CoreAudio path,
+    # the rule is the one this project already has for the owner's machine:
+    # an instrument leaves no trace of itself (the screenshot that caught
+    # their documents, the pkill that read as a crash).
+    #
+    # The trap matters more than the restore: the volume was only ever left
+    # wrong on runs that DIED, so a restore on the happy path would have
+    # fixed nothing.
+    AW_VOL_BEFORE=$(osascript -e 'output volume of (get volume settings)' 2>/dev/null || echo "")
+    if [ -n "$AW_VOL_BEFORE" ]; then
+      trap 'osascript -e "set volume output volume $AW_VOL_BEFORE" >/dev/null 2>&1' EXIT INT TERM
+    fi
     swift_case "8.21 per-process audio tap" tools/test_studio_processtap.swift
+    if [ -n "$AW_VOL_BEFORE" ]; then
+      osascript -e "set volume output volume $AW_VOL_BEFORE" >/dev/null 2>&1
+      AW_VOL_AFTER=$(osascript -e 'output volume of (get volume settings)' 2>/dev/null || echo "")
+      [ "$AW_VOL_AFTER" = "$AW_VOL_BEFORE" ] \
+        || echo "  NOTE: output volume was $AW_VOL_BEFORE before this case and is now $AW_VOL_AFTER"
+    fi
   else
     row "8.21 per-process audio tap" SKIP "plays audible tones; run with AW_AUDIBLE=1"
     SKIP=$((SKIP+1))
@@ -378,6 +399,17 @@ fi
 # branches, which overlap — a rebuilt window also reads as paused.
 swift_case "8.40 film-stall reasons" ArchiveWatch/ArchiveWatch/Studio/StudioFilmStall.swift \
   tools/test_studio_filmstall.swift
+
+# §D23's privacy rules for the screen source. The capture is measured on the
+# product path; this holds the part that went wrong, which was never capture.
+if [ "$(uname)" = "Darwin" ]; then
+  if bash tools/test_studio_screensource.sh >"$SCRATCH/screensource.log" 2>&1; then
+    row "8.44 screen source privacy" PASS ""; PASS=$((PASS+1))
+  else
+    row "8.44 screen source privacy" FAIL "a window list or title can leak"
+    FAIL=$((FAIL+1))
+  fi
+fi
 
 # §D22 — the host's chat controls. The filter is a pure function so every
 # rule and every interaction is reachable in milliseconds; the layout case
