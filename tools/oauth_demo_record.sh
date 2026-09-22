@@ -88,58 +88,55 @@ ok "use Safety Last! unless you have a reason not to"
 
 say "4. The beats, in order"
 cat <<'TXT'
-       Narrate as you go; Google reviews these with sound off as often as not,
-       so let each screen sit still for two seconds.
+       Narrate as you go; let each screen sit still for two seconds. The
+       Studio changed a lot on 2026-09-22 — this list is against the build
+       you have now (four columns: Inputs, Mixer, On screen, Output).
 
-        1. Archive Watch open on the Home screen. Say what the app is:
-           public-domain films from the Internet Archive, free, no accounts.
-        2. Open Safety Last! and press Play. Let the film run a beat.
-        3. Open Watch Together Studio (Broadcast menu, or Shift-Cmd-S).
-           Show FILM and STREAM side by side.
-        4. In OUTPUT, platform YouTube, press Sign in.
-           - Apple's "Archive Watch Wants to Use accounts.google.com"
-           - the account chooser: DO NOT FILM IT. It lists family addresses.
-             Pause the recording, choose, resume. (Google does not require
-             the chooser; it requires the CONSENT screen.)
+        1. Archive Watch on Home. Say what it is: public-domain films from the
+           Internet Archive, free, no accounts.
+        2. Open Safety Last! (1923). Note the rights line on the page — only
+           pre-1930 titles can be broadcast.
+        3. Press Play, then Broadcast -> Watch Together Studio (Shift-Cmd-S).
+           The FILM pane and the STREAM pane sit side by side.
+        4. OUTPUT column, Platform: YouTube. Press "Sign in".
+           - Apple: "Archive Watch Wants to Use accounts.google.com"
+           - THE ACCOUNT CHOOSER: DO NOT FILM IT. Pause recording, choose,
+             resume. Google needs the CONSENT screen, not the chooser.
            - Google's unverified-app screen: SHOW IT. Google expects it.
-             Advanced -> Go to Archive Watch (unsafe).
-           - THE CONSENT SCREEN. Hold it for four seconds. The line
-             "See, edit, and permanently delete your YouTube videos, ratings,
-             comments and captions" must be legible. If it instead says
-             "already has some access", STOP — step 2 was not done.
+             Advanced -> "Go to Archive Watch (unsafe)".
+           - THE CONSENT SCREEN. Hold four seconds. The YouTube permission
+             must be legible IN WORDS. If it says "already has some access",
+             STOP — step 2 of this script was not done.
            - Continue.
-        5. Back in the Studio: the row now names the CHANNEL you signed in to.
-           This is the read half of the scope, and it is why the app needs it:
-           a host must see which channel they are about to broadcast to.
-        6. Show the readiness check: the Studio asks YouTube whether live
-           streaming is enabled before it lets you press Go Live.
-        7. Type a stream title. Set privacy to Unlisted. Press Go Live.
-           The status goes to ON AIR. This is liveStreams.insert +
-           liveBroadcasts.insert + bind + transition — the write half.
-        8. Show the program: the film, your camera tile, the lower third.
-        9. From a phone or a second browser, post a message in the broadcast's
-           live chat, and show it appearing over the program. That is the
-           read-chat half of the scope.
-           CAVEAT, KNOWN BEFORE YOU START: this is the ONE beat never proved
-           end to end. The reader is wired (macOS arms the liveChatID at
-           go-live, polls at YouTube's own interval, and the renderer draws
-           the column) and §8.36 asserts the id reaches the engine, but no
-           real message has ever been seen on a real program. If nothing
-           appears within ~30 s, DO NOT abandon the take: carry on to beat 10
-           and cut beat 9 in the edit. The video is sufficient without it;
-           beats 5-8 and 10-11 already cover read and write.
-       10. THE SOURCE ACCOUNT. Switch to studio.youtube.com in a browser,
-           open Content -> Live, and show the broadcast you just created
-           sitting there with the title you typed. Google asked for this in
-           as many words; the last video did not have it.
-       11. Press End the broadcast in the app. Return to YouTube Studio,
-           refresh, and show the broadcast is no longer live. That is
-           liveBroadcasts.transition to complete — the app cleaning up after
-           itself, which is the best argument that it uses the scope narrowly.
-       12. Close on the Studio at rest.
+        5. The OUTPUT column now names the CHANNEL you signed in to. Say that
+           this is the read half of the scope and why the app needs it: a host
+           must see which channel they are about to broadcast to.
+        6. Type a Stream title. Leave Privacy on Unlisted.
+        7. Press "Start preview" first if you want to show the rehearsal —
+           worth 10 seconds, because it shows the app checking itself before
+           it touches the account. Note that the chat column is ABSENT here:
+           nothing is going out, so there is no audience.
+        8. Press "Go Live (ends the preview)". The badge turns red and reads
+           "going out". This is liveStreams.insert + liveBroadcasts.insert +
+           bind + transition — the write half of the scope.
+        9. Show the program: the film, your camera tile, the lower third.
+           Optionally switch Placement to "Film, you, and your guests".
+       10. CHAT. Now that you are live, the chat column appears. Post a message
+           from a phone or a second browser into the broadcast's live chat and
+           show it arriving over the film. That is the read-chat half of the
+           scope, and the ON SCREEN column shows the host's controls for it.
+           If nothing appears within ~30 s, carry on to 11 and cut this in the
+           edit — beats 5-9 and 11-12 already cover read and write.
+       11. THE SOURCE ACCOUNT. Switch to studio.youtube.com, Content -> Live,
+           and show the broadcast you just created, with the title you typed.
+           Google asked for this in as many words; the first video lacked it.
+       12. Press "End the broadcast" in the app. Back in YouTube Studio,
+           refresh, and show it is no longer live. That is transition to
+           complete — the app cleaning up after itself, which is the strongest
+           argument that it uses the scope narrowly.
+       13. Close on the Studio at rest.
 
-       DO NOT FILM: the account chooser, your notification centre, any other
-       window. Quit Mail, Messages and Slack first.
+       DO NOT FILM: the account chooser, notifications, any other window.
 TXT
 
 say "5. What NOT to have on screen"
