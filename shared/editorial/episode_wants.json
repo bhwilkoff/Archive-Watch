@@ -1,10 +1,10 @@
 {
   "schema": 1,
-  "updated_at": "2026-09-21T09:49:19Z",
+  "updated_at": "2026-09-22T09:07:27Z",
   "description": "Missing-episode queue: canonical episodes (from OMDb) that we don't yet have on Archive. Drained by tools/backfill_tv_episodes.py.",
   "stats": {
-    "total": 18201,
-    "wanted": 17978,
+    "total": 18215,
+    "wanted": 17992,
     "fulfilled": 223,
     "series_with_gaps": 362
   },
@@ -62260,6 +62260,16 @@
       "seriesID": "hawaii-five-o-1968",
       "seriesTitle": "Hawaii Five-O",
       "season": 1,
+      "episode": 9,
+      "title": "By the Numbers",
+      "episodeImdbID": "tt0598019",
+      "status": "wanted",
+      "added_at": "2026-09-22T09:07:27Z"
+    },
+    {
+      "seriesID": "hawaii-five-o-1968",
+      "seriesTitle": "Hawaii Five-O",
+      "season": 1,
       "episode": 10,
       "title": "Yesterday Died and Tomorrow Won't Be Born",
       "episodeImdbID": "tt0598253",
@@ -62275,6 +62285,16 @@
       "episodeImdbID": "tt0598037",
       "status": "wanted",
       "added_at": "2026-06-19T09:23:32Z"
+    },
+    {
+      "seriesID": "hawaii-five-o-1968",
+      "seriesTitle": "Hawaii Five-O",
+      "season": 1,
+      "episode": 12,
+      "title": "Pray Love Remember, Pray Love Remember",
+      "episodeImdbID": "tt0598122",
+      "status": "wanted",
+      "added_at": "2026-09-22T09:07:27Z"
     },
     {
       "seriesID": "hawaii-five-o-1968",
@@ -62440,6 +62460,16 @@
       "seriesID": "hawaii-five-o-1968",
       "seriesTitle": "Hawaii Five-O",
       "season": 2,
+      "episode": 6,
+      "title": "A Bullet for McGarrett",
+      "episodeImdbID": "tt0597981",
+      "status": "wanted",
+      "added_at": "2026-09-22T09:07:27Z"
+    },
+    {
+      "seriesID": "hawaii-five-o-1968",
+      "seriesTitle": "Hawaii Five-O",
+      "season": 2,
       "episode": 7,
       "title": "Sweet Terror",
       "episodeImdbID": "tt0598148",
@@ -62490,6 +62520,16 @@
       "seriesID": "hawaii-five-o-1968",
       "seriesTitle": "Hawaii Five-O",
       "season": 2,
+      "episode": 13,
+      "title": "The Joker's Wild, Man, Wild!",
+      "episodeImdbID": "tt0598186",
+      "status": "wanted",
+      "added_at": "2026-09-22T09:07:27Z"
+    },
+    {
+      "seriesID": "hawaii-five-o-1968",
+      "seriesTitle": "Hawaii Five-O",
+      "season": 2,
       "episode": 14,
       "title": "Which Way Did They Go?",
       "episodeImdbID": "tt0598245",
@@ -62531,6 +62571,16 @@
       "seriesID": "hawaii-five-o-1968",
       "seriesTitle": "Hawaii Five-O",
       "season": 2,
+      "episode": 19,
+      "title": "The One with the Gun",
+      "episodeImdbID": "tt0598199",
+      "status": "wanted",
+      "added_at": "2026-09-22T09:07:27Z"
+    },
+    {
+      "seriesID": "hawaii-five-o-1968",
+      "seriesTitle": "Hawaii Five-O",
+      "season": 2,
       "episode": 20,
       "title": "Cry, Lie",
       "episodeImdbID": "tt0598026",
@@ -62566,6 +62616,16 @@
       "episodeImdbID": "tt0598217",
       "status": "wanted",
       "added_at": "2026-06-19T09:23:32Z"
+    },
+    {
+      "seriesID": "hawaii-five-o-1968",
+      "seriesTitle": "Hawaii Five-O",
+      "season": 2,
+      "episode": 24,
+      "title": "Three Dead Cows at Makapuu: Part II",
+      "episodeImdbID": "tt0598218",
+      "status": "wanted",
+      "added_at": "2026-09-22T09:07:27Z"
     },
     {
       "seriesID": "hawaii-five-o-1968",
@@ -62731,6 +62791,16 @@
       "seriesID": "hawaii-five-o-1968",
       "seriesTitle": "Hawaii Five-O",
       "season": 3,
+      "episode": 17,
+      "title": "To Kill or Be Killed",
+      "episodeImdbID": "tt0598224",
+      "status": "wanted",
+      "added_at": "2026-09-22T09:07:27Z"
+    },
+    {
+      "seriesID": "hawaii-five-o-1968",
+      "seriesTitle": "Hawaii Five-O",
+      "season": 3,
       "episode": 18,
       "title": "F.O.B. Honolulu: Part I",
       "episodeImdbID": "tt0598046",
@@ -62821,6 +62891,16 @@
       "seriesID": "hawaii-five-o-1968",
       "seriesTitle": "Hawaii Five-O",
       "season": 4,
+      "episode": 4,
+      "title": "3,000 Crooked Miles to Honolulu",
+      "episodeImdbID": "tt0597976",
+      "status": "wanted",
+      "added_at": "2026-09-22T09:07:27Z"
+    },
+    {
+      "seriesID": "hawaii-five-o-1968",
+      "seriesTitle": "Hawaii Five-O",
+      "season": 4,
       "episode": 5,
       "title": "Two Doves and Mr. Heron",
       "episodeImdbID": "tt0598233",
@@ -62866,6 +62946,16 @@
       "episodeImdbID": "tt0598127",
       "status": "wanted",
       "added_at": "2026-06-19T09:23:32Z"
+    },
+    {
+      "seriesID": "hawaii-five-o-1968",
+      "seriesTitle": "Hawaii Five-O",
+      "season": 4,
+      "episode": 11,
+      "title": "A Matter of Mutual Concern",
+      "episodeImdbID": "tt0597991",
+      "status": "wanted",
+      "added_at": "2026-09-22T09:07:27Z"
     },
     {
       "seriesID": "hawaii-five-o-1968",
@@ -63296,6 +63386,16 @@
       "episodeImdbID": "tt0598227",
       "status": "wanted",
       "added_at": "2026-06-19T09:23:32Z"
+    },
+    {
+      "seriesID": "hawaii-five-o-1968",
+      "seriesTitle": "Hawaii Five-O",
+      "season": 6,
+      "episode": 8,
+      "title": "Why Wait Till Uncle Kevin Dies?",
+      "episodeImdbID": "tt0598248",
+      "status": "wanted",
+      "added_at": "2026-09-22T09:07:27Z"
     },
     {
       "seriesID": "hawaii-five-o-1968",
@@ -63836,6 +63936,16 @@
       "episodeImdbID": "tt0597992",
       "status": "wanted",
       "added_at": "2026-06-19T09:23:32Z"
+    },
+    {
+      "seriesID": "hawaii-five-o-1968",
+      "seriesTitle": "Hawaii Five-O",
+      "season": 9,
+      "episode": 1,
+      "title": "Nine Dragons",
+      "episodeImdbID": "tt0598102",
+      "status": "wanted",
+      "added_at": "2026-09-22T09:07:27Z"
     },
     {
       "seriesID": "hawaii-five-o-1968",
@@ -139079,6 +139189,16 @@
       "seriesID": "the-bob-newhart-show-1972",
       "seriesTitle": "The Bob Newhart Show",
       "season": 5,
+      "episode": 21,
+      "title": "Desperate Sessions",
+      "episodeImdbID": "tt0528351",
+      "status": "wanted",
+      "added_at": "2026-09-22T09:07:27Z"
+    },
+    {
+      "seriesID": "the-bob-newhart-show-1972",
+      "seriesTitle": "The Bob Newhart Show",
+      "season": 5,
       "episode": 22,
       "title": "The Mentor",
       "episodeImdbID": "tt0789873",
@@ -139234,6 +139354,16 @@
       "episodeImdbID": "tt0528365",
       "status": "wanted",
       "added_at": "2026-06-20T07:57:19Z"
+    },
+    {
+      "seriesID": "the-bob-newhart-show-1972",
+      "seriesTitle": "The Bob Newhart Show",
+      "season": 6,
+      "episode": 14,
+      "title": "Grizzly Emily",
+      "episodeImdbID": "tt0528368",
+      "status": "wanted",
+      "added_at": "2026-09-22T09:07:27Z"
     },
     {
       "seriesID": "the-bob-newhart-show-1972",
@@ -169532,6 +169662,16 @@
       "episodeImdbID": "tt0723774",
       "status": "wanted",
       "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "the-time-tunnel-1966",
+      "seriesTitle": "The Time Tunnel",
+      "season": 1,
+      "episode": 20,
+      "title": "The Walls of Jericho",
+      "episodeImdbID": "tt0723777",
+      "status": "wanted",
+      "added_at": "2026-09-22T09:07:27Z"
     },
     {
       "seriesID": "the-time-tunnel-1966",
