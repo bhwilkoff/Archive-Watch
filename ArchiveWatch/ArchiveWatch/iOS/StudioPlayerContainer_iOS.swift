@@ -95,6 +95,9 @@ struct StudioPlayerContainer: View {
                 Text(startError ?? "")
             }
             .task { await pollHealth() }
+            // However the Studio closes — End, the alert, or the cover being
+            // dismissed — the camera and microphone stop with it.
+            .onDisappear { StudioSession.stopHostCapture() }
             .modifier(StudioBindings(
                 layout: $layout, filmGain: $filmGain, micGain: $micGain,
                 filmMuted: $filmMuted, micMuted: $micMuted,
@@ -373,6 +376,8 @@ struct StudioPlayerContainer: View {
         await StudioSession.shared.completeArmedBroadcast()
         await engine?.stop()
         engine = nil
+        StudioSession.stopHostCapture()
+        hostCapture = nil
         onExit()
     }
 }

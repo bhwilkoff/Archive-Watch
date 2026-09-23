@@ -1013,6 +1013,18 @@ public final class StudioSession {
         return await shared.capture
     }
 
+    /// The other half of `attachHostCamera`, for the platforms that run their
+    /// own engine (Decision 133). iOS ended a show without it: the capture
+    /// session lived on in `shared.capture`, so the camera and microphone
+    /// indicators stayed lit and the battery drained after End (launch audit
+    /// A13). macOS stops it in `end()`.
+    static func stopHostCapture() {
+        guard let c = shared.capture else { return }
+        c.stopRunning()
+        shared.capture = nil
+        awdiag("AWCAM host capture stopped running=%@", c.isRunning ? "YES" : "no")
+    }
+
     // MARK: - Permission, and changing a device mid-show (macOS-DESIGN §D11)
 
     /// What macOS/iOS will let the Studio see and hear, as four distinct
