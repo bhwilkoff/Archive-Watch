@@ -1396,6 +1396,7 @@ public actor StudioEngine {
             audioBitrate: config.audioBitrate,
             audioSpecificConfig: mixer.audioSpecificConfig)
         streamConfig.frameRate = Double(config.frameRate)
+        activeStreamConfig = streamConfig
 
         if let destination {
             // §6.4's cap is a LATENCY budget, so it can only be computed from
@@ -1508,6 +1509,30 @@ public actor StudioEngine {
     /// failed videos (2026-09-23). Ten seconds in: the lower third and its
     /// provenance line are still up (it clears at twenty).
     private var thumbnailTask: Task<Void, Never>?
+
+    // MARK: §D35 — recording the program to a file
+
+    private var activeStreamConfig: RTMPStreamConfig?
+    private var recorder: StudioRecorder?
+    public var isRecording: Bool { recorder != nil }
+
+    /// Starts writing the program to `url`. Throws if the engine is not
+    /// running yet (there is no stream format to record) or the file cannot
+    /// be opened.
+    public func startRecording(to url: URL) throws {
+        guard recorder == nil else { return }
+        guard let cfg = activeStreamConfig else {
+            throw StudioPlatformError.badResponse("Start the preview or go live first.")
+        }
+        recorder = try StudioRecorder(url: url, config: cfg)
+    }
+
+    /// Finishes the file; returns it, or nil if nothing was written.
+    public func stopRecording() async -> URL? {
+        guard let r = recorder else { return nil }
+        recorder = nil
+        return await r.finish()
+    }
     private func scheduleThumbnailStill() {
         thumbnailTask?.cancel()
         thumbnailTask = Task { [weak self] in
@@ -1528,6 +1553,8 @@ public actor StudioEngine {
 
     public func stop() async {
         thumbnailTask?.cancel(); thumbnailTask = nil
+        // A show that ends mid-recording still leaves a playable file.
+        if let r = recorder { recorder = nil; _ = await r.finish() }
         // A stopped engine must not follow the film: going live stops the
         // rehearsal engine and builds a second one on the SAME player, and a
         // stale observer re-attaching on an item swap would replace the live
@@ -1966,6 +1993,8 @@ public actor StudioEngine {
             reportClockOriginsIfReady()
         }
         health.encodedBytes += frame.count
+        // §D35 — the recording takes the same packet, on air or in rehearsal.
+        if let recorder { await recorder.append(audio: frame, at: pts) }
         guard publishing else { return }
         await publisher.send(audioFrame: frame, presentationTime: pts)
         for extra in extraPublishers {
@@ -1980,6 +2009,7 @@ public actor StudioEngine {
         }
         health.programFramesEncoded += 1
         health.encodedBytes += frame.avccData.count
+        if let recorder { await recorder.append(video: frame) }
         guard publishing else { return }
         await publisher.send(video: frame)
         // THE SAME ENCODED FRAME, not a second encode. `EncodedVideoFrame`

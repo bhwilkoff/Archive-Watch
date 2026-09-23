@@ -680,6 +680,15 @@ that is wrong about the rest** — and neither is visible to a harness that
 builds a fresh renderer per call, which §8.48 did until it was made to reuse
 one.
 
+##### Record the show to a file — 2026-09-23 (macOS-DESIGN §D35)
+
+macOS ✅ Record… (Save panel, Movies) writes the program's own encoded samples to
+an MP4 — no second encode. Proved: 30.8 s recorded from a bench show, ffprobe
+reads H.264 1920×1080 (922 frames) + AAC 44.1 kHz (1327 packets), tracks aligned,
+audio −31.7 dB mean, the frame is the program. **Limit**: going live builds a new
+engine, so a recording started in rehearsal is saved at Go Live and the host
+records again. iOS / tvOS 🚫 not built.
+
 ##### Rooms from the Studio, thumbnails, and no orphans — 2026-09-23 (macOS-DESIGN §D33, §D34)
 
 | Feature | macOS | iOS · tvOS | Proof |

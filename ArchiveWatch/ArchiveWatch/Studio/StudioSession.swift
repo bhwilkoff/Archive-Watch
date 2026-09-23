@@ -143,6 +143,7 @@ public final class StudioSession {
     private var lastBytesSent = 0
     #if DEBUG
     private var proofTicks = 0
+    private var recordTicks = 0
     #endif
     private var audienceTask: Task<Void, Never>?
     /// YouTube charges 1 unit a read; 30 s is 240 units for a two-hour film
@@ -1195,6 +1196,33 @@ public final class StudioSession {
         }
     }
 
+    // MARK: §D35 — recording
+
+    public private(set) var recordingSince: Date?
+    public private(set) var lastRecording: URL?
+    public private(set) var recordingProblem: String?
+
+    public func startRecording(to url: URL) async {
+        guard let engine else { recordingProblem = "Start the preview or go live first."; return }
+        do {
+            try await engine.startRecording(to: url)
+            recordingSince = Date()
+            recordingProblem = nil
+            awdiag("AWRECORD started %@", url.lastPathComponent)
+        } catch {
+            recordingProblem = "\(error)"
+            awdiag("AWRECORD refused — %@", "\(error)")
+        }
+    }
+
+    public func stopRecording() async {
+        guard let engine else { recordingSince = nil; return }
+        let url = await engine.stopRecording()
+        recordingSince = nil
+        lastRecording = url
+        awdiag("AWRECORD finished %@", url?.lastPathComponent ?? "(nothing written)")
+    }
+
     public func completeArmedBroadcast() async {
         audienceTask?.cancel(); audienceTask = nil
         audienceCount = nil
@@ -1256,6 +1284,7 @@ public final class StudioSession {
             localPlayer?.replaceCurrentItem(with: nil)
         }
         localPlayer = nil
+        if recordingSince != nil { recordingSince = nil }
         if let engine { await engine.stop() }
         engine = nil
         isLive = false
@@ -1380,6 +1409,21 @@ public final class StudioSession {
                 // on air: AW_STUDIO_MAC_READBACK logs what YouTube HOLDS;
                 // AW_STUDIO_MAC_SHARECHAT presses the Studio's own
                 // "Share the film in chat" path.
+                // AW_STUDIO_MAC_RECORD="5@40": record from 5 s to 40 s of the
+                // engine running, into the app's own tmp (the sandbox's only
+                // unasked-for writable place), through startRecording itself.
+                if let v = ProcessInfo.processInfo.environment["AW_STUDIO_MAC_RECORD"] {
+                    recordTicks += 1
+                    let parts = v.split(separator: "@").compactMap { Int($0) }
+                    if parts.count == 2 {
+                        if recordTicks == parts[0] {
+                            let url = FileManager.default.temporaryDirectory
+                                .appendingPathComponent("aw-record-proof.mp4")
+                            Task { await self.startRecording(to: url) }
+                        }
+                        if recordTicks == parts[1] { Task { await self.stopRecording() } }
+                    }
+                }
                 if h.hasDestination, h.publisher.state == .publishing {
                     proofTicks += 1
                     let env = ProcessInfo.processInfo.environment

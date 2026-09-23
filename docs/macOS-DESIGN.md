@@ -2467,3 +2467,21 @@ LINK (§D33) is for the world; the room is for the people on the call.
 to serve a stream. Verified on the LIVE Worker: room RWT2 held the Studio's
 film and position while the bench show ran, and answered `404 no such room`
 once the show ended.
+
+## §D35 — Record the show to a file, like OBS's other button
+
+The Output column carries **Record…**: a Save panel (Movies, "<Film> — watch-along
+<date>.mp4"), then the PROGRAM is written to that file until **Stop recording**,
+with the elapsed time beside it. It works on air and in a rehearsal alike.
+
+**Why.** OBS has two buttons, Start Streaming and Start Recording, and this Studio
+had one. A host's only copy of a show was whatever YouTube or Twitch kept —
+re-encoded, and only if the platform kept it. A local file is the host's own:
+to keep, to cut clips from, to share with the friends who were there.
+
+**How to apply.** It records the SAME encoded samples the publisher sends — no
+second encode, so it costs a file write, not a second VideoToolbox session. The
+file starts at the first keyframe so it plays from its first frame. The folder
+comes from the Save panel because the app's sandbox grants only user-selected
+files; adding a Movies entitlement would be a new App Store review line for
+something the panel already does natively.

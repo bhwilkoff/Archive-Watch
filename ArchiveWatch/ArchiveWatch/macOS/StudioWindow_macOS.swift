@@ -1588,6 +1588,8 @@ struct StudioWindowView: View {
             Divider().padding(.vertical, 2)
             }
 
+            if studio.isLive { recordRow }
+
             // THE HOST'S SETTINGS (§D4), with the engine's own numbers below
             // them. Resolution and frame rate are disabled while live WITH
             // THE REASON ON SCREEN rather than hidden: an RTMP ingest will
@@ -1756,6 +1758,51 @@ struct StudioWindowView: View {
         if b >= 1_000_000 { return String(format: "%.1f MB", Double(b) / 1_000_000) }
         if b >= 1_000 { return String(format: "%.0f kB", Double(b) / 1_000) }
         return "\(b) B"
+    }
+
+    /// §D35 — OBS's other button. The Save panel is where the file goes,
+    /// because the sandbox grants only user-selected locations.
+    @ViewBuilder
+    private var recordRow: some View {
+        VStack(alignment: .leading, spacing: 4) {
+            if let since = studio.recordingSince {
+                HStack(spacing: 8) {
+                    Circle().fill(Color.red).frame(width: 7, height: 7)
+                    TimelineView(.periodic(from: since, by: 1)) { ctx in
+                        let t = max(0, Int(ctx.date.timeIntervalSince(since)))
+                        Text(String(format: "Recording %d:%02d", t / 60, t % 60))
+                            .font(.caption.weight(.semibold)).monospacedDigit()
+                    }
+                    Spacer()
+                    Button("Stop recording") { Task { await studio.stopRecording() } }
+                        .controlSize(.small).fixedSize()
+                }
+            } else {
+                HStack {
+                    Button("Record…") { chooseRecordingFile() }.controlSize(.small).fixedSize()
+                    if let last = studio.lastRecording {
+                        Button("Show in Finder") { NSWorkspace.shared.activateFileViewerSelecting([last]) }
+                            .controlSize(.small).fixedSize()
+                    }
+                }
+            }
+            if let p = studio.recordingProblem {
+                Text(p).font(.caption2).foregroundStyle(.orange)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+        }
+        .padding(.bottom, 4)
+    }
+
+    private func chooseRecordingFile() {
+        let panel = NSSavePanel()
+        panel.allowedContentTypes = [.mpeg4Movie]
+        panel.directoryURL = FileManager.default.urls(for: .moviesDirectory, in: .userDomainMask).first
+        let film = StudioMacShow.shared.film?.title ?? "Watch Together"
+        let day = Date().formatted(.dateTime.year().month(.twoDigits).day(.twoDigits))
+        panel.nameFieldStringValue = "\(film) — watch-along \(day).mp4"
+        guard panel.runModal() == .OK, let url = panel.url else { return }
+        Task { await studio.startRecording(to: url) }
     }
 
     private var destinationName: String {
