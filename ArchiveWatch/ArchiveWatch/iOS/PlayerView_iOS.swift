@@ -123,8 +123,13 @@ struct PlayerView: UIViewControllerRepresentable {
 
     func makeUIViewController(context: Context) -> AVPlayerViewController {
         let vc = AVPlayerViewController()
-        vc.allowsPictureInPicturePlayback = true          // PiP button (#1)
-        vc.canStartPictureInPictureAutomaticallyFromInline = true
+        // NO PiP IN THE STUDIO (the only caller that passes onPlayerReady).
+        // A host who swipes home mid-show would get a floating film while the
+        // camera and encoder are suspended and the audience sees a frozen
+        // frame; the Studio puts up a card instead (launch audit, iOS).
+        let inStudio = onPlayerReady != nil
+        vc.allowsPictureInPicturePlayback = !inStudio     // PiP button (#1)
+        vc.canStartPictureInPictureAutomaticallyFromInline = !inStudio
         vc.speeds = AVPlaybackSpeed.systemDefaultSpeeds   // native speed menu (#7, iOS 16+)
         vc.updatesNowPlayingInfoCenter = true             // lock-screen / Control Center
         vc.delegate = context.coordinator

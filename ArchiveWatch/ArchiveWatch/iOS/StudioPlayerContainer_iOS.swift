@@ -43,6 +43,10 @@ struct StudioPlayerContainer: View {
     @State private var micMuted = false
     @State private var card: StudioOverlay.Card?
     @State private var showLowerThird = true
+    @Environment(\.scenePhase) private var scenePhase
+    /// The Intermission card this container raised when the host left the
+    /// app — so returning takes down only THAT card, never the host's own.
+    @State private var awayCard = false
 
     init(item: Catalog.Item, request: GoLiveRequest, onExit: @escaping () -> Void) {
         self.item = item
@@ -95,6 +99,27 @@ struct StudioPlayerContainer: View {
                 Text(startError ?? "")
             }
             .task { await pollHealth() }
+            // LEAVING THE APP MID-SHOW (launch audit, iOS). iOS suspends the
+            // camera and the encoder in the background, so the audience would
+            // be left on a frozen frame with no explanation. The moment the
+            // app stops being active the program switches to Intermission, so
+            // the last picture sent says "we'll be right back"; coming back
+            // takes that card down again.
+            .onChange(of: scenePhase) { _, phase in
+                switch phase {
+                case .inactive, .background:
+                    guard engine != nil, card == nil else { return }
+                    awayCard = true
+                    card = .intermission
+                    awdiag("AWAWAY host left the app — Intermission up")
+                case .active:
+                    guard awayCard else { return }
+                    awayCard = false
+                    card = nil
+                    awdiag("AWAWAY host is back — Intermission down")
+                @unknown default: break
+                }
+            }
             // However the Studio closes — End, the alert, or the cover being
             // dismissed — the camera and microphone stop with it.
             .onDisappear { StudioSession.stopHostCapture() }
