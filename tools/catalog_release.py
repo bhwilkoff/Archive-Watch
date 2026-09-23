@@ -116,6 +116,28 @@ def fetch():
         return 1
     r = _gh_net("release", "download", TAG, "--pattern", ASSET, "--clobber",
                 "--dir", str(REPO))
+    # A LISTED ASSET THAT 404s IS GITHUB NOT SERVING IT YET, not a missing
+    # asset. 2026-09-23: publish-db uploaded catalog.json.gz at 07:56:47Z,
+    # the upload reported success, and every download of that asset id
+    # answered HTTP 404 until somewhere between 09:45Z and 10:47Z, when it
+    # healed with nothing on our side changing. Six scheduled jobs went red
+    # in that window. `_gh_net` rightly treats a 404 as definite (a missing
+    # release must not be retried into a false bootstrap), so the wait for
+    # this one shape lives here: the release exists, the asset is listed.
+    for delay in (15, 30, 45, 60, 90, 120):
+        if r.returncode == 0 and GZ.exists():
+            break
+        if "HTTP 404" not in f"{r.stderr or ''} {r.stdout or ''}":
+            break
+        a = _gh("release", "view", TAG, "--json", "assets",
+                "--jq", ".assets[].name", check=False, capture=True)
+        if a.returncode != 0 or ASSET not in (a.stdout or ""):
+            break
+        print(f"[catalog] '{ASSET}' is listed but not served (HTTP 404) — "
+              f"retrying in {delay}s", file=sys.stderr)
+        time.sleep(delay)
+        r = _gh_net("release", "download", TAG, "--pattern", ASSET, "--clobber",
+                    "--dir", str(REPO))
     if r.returncode != 0 or not GZ.exists():
         # The release exists, so a missing asset is only a bootstrap case if
         # the asset list (fetched successfully) really lacks it.
@@ -124,8 +146,15 @@ def fetch():
         if a.returncode == 0 and ASSET not in (a.stdout or ""):
             print(f"[catalog] asset '{ASSET}' not on release '{TAG}' — bootstrap, leaving local file")
             return 0
-        print(f"[catalog] download of '{ASSET}' failed — transient error, not "
-              f"bootstrap: {(r.stderr or '').strip()[:300]}", file=sys.stderr)
+        err = (r.stderr or '').strip()[:300]
+        if "HTTP 404" in err:
+            print(f"[catalog] '{ASSET}' is listed on '{TAG}' but GitHub has not "
+                  f"served it for 6 minutes (HTTP 404) — a GitHub-side fault, not "
+                  f"a missing catalog; the next scheduled run will pick it up: {err}",
+                  file=sys.stderr)
+        else:
+            print(f"[catalog] download of '{ASSET}' failed — transient error, not "
+                  f"bootstrap: {err}", file=sys.stderr)
         return 1
     with gzip.open(GZ, "rb") as fi, open(CATALOG, "wb") as fo:
         shutil.copyfileobj(fi, fo)
