@@ -39,6 +39,7 @@ struct StudioPlayerContainer: View {
     /// §D26 — mirrored from the engine once a second.
     @State private var shoutOut: StudioOverlay.ShoutOut?
     @State private var showDoorTicks = 0
+    @State private var onAirTicks = 0
     @State private var micMuted = false
     @State private var card: StudioOverlay.Card?
     @State private var showLowerThird = true
@@ -147,7 +148,8 @@ struct StudioPlayerContainer: View {
         // audio too — the tap is inside the player — so measure audio with
         // AW_STUDIO_IOS_SOUND=1.
         let env = ProcessInfo.processInfo.environment
-        if env["AW_STUDIO_IOS"] != nil, env["AW_STUDIO_IOS_SOUND"] != "1" {
+        if env["AW_STUDIO_IOS"] != nil || env["AW_STUDIO_GOLIVE"] != nil,
+           env["AW_STUDIO_IOS_SOUND"] != "1" {
             player.isMuted = true
             awdiag("AWMUTE iOS door player muted (AW_STUDIO_IOS_SOUND=1 to hear it)")
         }
@@ -177,6 +179,8 @@ struct StudioPlayerContainer: View {
         guard await !e.health.isRunning else { return }
         do {
             let dest = try await destination()
+            // Read the chat too — iOS armed the id and never read it.
+            await StudioSession.shared.attachYouTubeChatIfArmed(to: e)
             // Chat the program carries (§6.4) — named by the surface, read by the
             // engine. No credential is needed to read Twitch.
             // The host's OWN channel (§D22). This surface read AW_STUDIO_CHAT and
@@ -264,8 +268,28 @@ struct StudioPlayerContainer: View {
             // `AW_STUDIO_IOS_SHOW="2@25"`: 25 s into the show, open the
             // controls sheet and press Show on chat line 2 (oldest first),
             // through the same function the button calls.
-            if let v = ProcessInfo.processInfo.environment["AW_STUDIO_IOS_SHOW"],
-               h.showState.isOnAir {
+            if h.showState.isOnAir { onAirTicks += 1 }
+            let env = ProcessInfo.processInfo.environment
+            // PLATFORM PROOF DOORS (owner, 2026-09-23: "make sure anything we
+            // are adding can actually work on the systems we are building
+            // for"). Each fires once, at T seconds on air.
+            if let t = env["AW_STUDIO_IOS_READBACK"].flatMap(Int.init), onAirTicks == t {
+                Task { await StudioSession.shared.debugLogBroadcast() }
+            }
+            if let t = env["AW_STUDIO_IOS_SHARECHAT"].flatMap(Int.init), onAirTicks == t {
+                let meta = [item.year.map(String.init), item.director]
+                    .compactMap { $0 }.filter { !$0.isEmpty }.joined(separator: " · ")
+                Task {
+                    let problem = await StudioSession.shared.shareFilmInChat(
+                        archiveID: item.archiveID, title: item.title, meta: meta)
+                    awdiag("AWCHATSHARE door result=%@", problem ?? "posted")
+                }
+            }
+            if let t = env["AW_STUDIO_IOS_END"].flatMap(Int.init), onAirTicks == t {
+                awdiag("AWDOOR ending the show at %d s on air", t)
+                Task { await end() }
+            }
+            if let v = env["AW_STUDIO_IOS_SHOW"], h.showState.isOnAir {
                 showDoorTicks += 1
                 let parts = v.split(separator: "@")
                 if let n = Int(parts.first ?? ""), let at = parts.count > 1 ? Int(parts[1]) : 0,

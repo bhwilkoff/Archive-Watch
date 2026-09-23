@@ -765,6 +765,22 @@ public struct YouTubeLive: Sendable {
         return details?["concurrentViewers"] as? Int
     }
 
+    #if DEBUG
+    /// What YouTube HOLDS for a broadcast, read back rather than assumed —
+    /// the proof that a field we send is a field it kept.
+    func debugReadBack(broadcastID: String) async throws -> String {
+        let (data, _) = try await HTTP.send(try request(
+            "/liveBroadcasts", method: "GET",
+            query: ["part": "status,contentDetails", "id": broadcastID]))
+        let item = (try HTTP.json(data)["items"] as? [[String: Any]])?.first
+        let cd = item?["contentDetails"] as? [String: Any] ?? [:]
+        let st = item?["status"] as? [String: Any] ?? [:]
+        return "lifeCycle=\(st["lifeCycleStatus"] ?? "?") privacy=\(st["privacyStatus"] ?? "?") "
+            + "latency=\(cd["latencyPreference"] ?? "?") dvr=\(cd["enableDvr"] ?? "?") "
+            + "recordFromStart=\(cd["recordFromStart"] ?? "?") embed=\(cd["enableEmbed"] ?? "?")"
+    }
+    #endif
+
     /// The broadcast's `status.lifeCycleStatus` — `live`, `complete`,
     /// `testing`, … — so a refused transition can say what state it met.
     public func lifeCycleStatus(broadcastID: String) async throws -> String {

@@ -305,10 +305,44 @@ public final class StudioSession {
         isOnAir && armedYouTubeChatID?.isEmpty == false && surfaceArchiveID != nil
     }
 
-    public func shareFilmInChat() async -> String? {
+    /// Reads the armed YouTube broadcast's chat into `e`. ONE method, called
+    /// by every platform's start path: this lived inline in macOS's attach,
+    /// and iOS and tvOS — which arm the chat id and run their own engines
+    /// (Decision 133) — never read YouTube chat at all. Found 2026-09-23 when
+    /// the owner asked for every feature to be proved on the real platforms.
+    public func attachYouTubeChatIfArmed(to e: StudioEngine) async {
+        guard let chatID = armedYouTubeChatID, !chatID.isEmpty else { return }
+        if let token = try? await StudioPlatformAuth.token(for: .youtube) {
+            await e.attachYouTubeChat(liveChatID: chatID) { id, page in
+                try await YouTubeLive(token: token).chat(liveChatID: id, pageToken: page)
+            }
+            diag("[AWSTUDIOCHAT] reading YouTube live chat")
+        } else {
+            // A chat that stays empty because a token could not be refreshed
+            // looks exactly like an audience that is not talking.
+            diag("[AWSTUDIOCHAT] no YouTube token — chat will stay empty")
+        }
+    }
+
+    #if DEBUG
+    public func debugLogBroadcast() async {
+        guard let id = armedBroadcastID,
+              let token = try? await StudioPlatformAuth.token(for: .youtube) else {
+            awdiag("AWYTREAD no YouTube broadcast armed"); return
+        }
+        do { awdiag("AWYTREAD %@ %@", id, try await YouTubeLive(token: token).debugReadBack(broadcastID: id)) }
+        catch { awdiag("AWYTREAD failed — %@", "\(error)") }
+    }
+    #endif
+
+    /// `archiveID`/`title`/`meta` for the platforms that register no
+    /// surface (iOS, tvOS) — macOS reads its own.
+    public func shareFilmInChat(archiveID: String? = nil, title: String? = nil,
+                                meta: String? = nil) async -> String? {
         guard let chatID = armedYouTubeChatID, !chatID.isEmpty,
-              let id = surfaceArchiveID else { return "There is no YouTube chat to post in." }
-        let text = StudioChatShare.message(title: armedTitle, meta: armedSubtitle, archiveID: id)
+              let id = archiveID ?? surfaceArchiveID else { return "There is no YouTube chat to post in." }
+        let text = StudioChatShare.message(title: title ?? armedTitle,
+                                           meta: meta ?? armedSubtitle, archiveID: id)
         do {
             try await YouTubeLive(token: try await StudioPlatformAuth.token(for: .youtube))
                 .postChat(liveChatID: chatID, text: text)
@@ -728,22 +762,7 @@ public final class StudioSession {
         // `StudioGoLive.Destination` — before that it was read and dropped in
         // the same function, which is why the renderer has been drawing a
         // chat column that only Twitch could ever fill.
-        if let chatID = armedYouTubeChatID, !chatID.isEmpty {
-            if let token = try? await StudioPlatformAuth.token(for: .youtube) {
-                // THE SESSION knows about platforms; the engine does not, and
-                // keeping it that way is what stops the §8 harnesses having to
-                // compile the whole API layer to exercise a renderer.
-                await e.attachYouTubeChat(liveChatID: chatID) { id, page in
-                    try await YouTubeLive(token: token).chat(liveChatID: id, pageToken: page)
-                }
-                diag("[AWSTUDIOCHAT] reading YouTube live chat")
-            } else {
-                // SAY IT. A chat column that stays empty because a token could
-                // not be refreshed looks exactly like an audience that is not
-                // talking, and the two have opposite fixes.
-                diag("[AWSTUDIOCHAT] no YouTube token — chat will stay empty")
-            }
-        }
+        await attachYouTubeChatIfArmed(to: e)
         // TWITCH CHAT IS THE HOST'S OWN CHANNEL, and there is no other
         // acceptable source (§D22).
         //

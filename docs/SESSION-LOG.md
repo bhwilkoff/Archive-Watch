@@ -1,5 +1,116 @@
 # Archive Watch — Session Log (archive)
 
+### 2026-09-22 (afternoon) — the Studio finished its roadmap, and four instruments reached past what they were pointed at
+
+Owner /loop, standing prompt, redirected five times by hand: the OAuth
+rejection, British spelling, chat controls, interface noise, and twice about
+my own tools disturbing their machine.
+
+**THE macOS ROADMAP IS DONE** (`docs/WATCH-TOGETHER-ROADMAP.md`). Items 2-6
+were built this morning; this afternoon closed #5, #1 and #7.
+
+- **§D19 NEXT staging**: a card prepared while another is on air, drawn
+  through the PROGRAM's own `StudioOverlayRenderer` so it cannot differ from
+  what the engine would send. §8.39 guards it structurally — the wire proves
+  one value at one moment, the source check proves there is no path at all.
+- **§D20 four columns** — Inputs · Mixer · **On screen** · Output. Found by
+  screenshotting the running Studio to verify §D19 and seeing Inputs run off
+  the bottom at "Crop" with the whole NEXT panel below the fold, while Mixer
+  sat half empty. A camera is a source; a lower third is a drawing.
+- **§D21 the film says why it stopped**, as a pure function so §8.40 reaches
+  every branch AND their order — a nilled item also reads as "paused", and
+  telling a host they pressed pause sends them to the wrong place.
+- **§D22 chat controls**: on/off, side, hide bot commands, hide links, hide
+  named people. Filtering happens BEFORE the tail is taken, or turning bots
+  off would shrink the column instead of showing more conversation.
+- **§D23 the call's picture** — `SCContentFilter(desktopIndependentWindow:)`,
+  measured on the product path at `start=true problem=none`, 82 frames in 4 s,
+  no TCC prompt for a signed sandboxed app. That was the last of this
+  feature's three TCC unknowns.
+- **§D23's sixth arrangement** — "Film, you, and your guests". The host keeps
+  `corner`'s exact tile so switching moves nobody already framed; the call's
+  rect is DERIVED from it so the two cannot drift apart.
+
+**THE OWNER'S QUESTION FOUND THE DEEPER DEFECT, TWICE.** Shown chat over a
+rehearsal: *"Shouldn't there be no chat on a stream that isn't going anywhere
+and certainly isn't going to twitch to get a chat from twitch?"* Nothing
+anywhere asked whether there was a broadcast (§D22a) — and the same question
+exposed that **Twitch chat had no product path at all**: all three Apple
+surfaces read the channel from a debug door, under a comment saying it would
+come from the host's account "once sign-in exists", which it had since 09-18.
+That is why a stranger's chat was on their screen. YouTube could never have
+had this: its `liveChatId` comes back from the insert that created the
+broadcast.
+
+**THE BLACK PROGRAM, FOUND BY READING RATHER THAN REPRODUCING.** Item 17 sat
+open all day with no signature — two black runs in eight, logs identical to
+healthy ones. `PlayerSurface.teardown()` calls
+`replaceCurrentItem(with: nil)` on the player IT owns, and the engine may hold
+that same object. It is §D12's own fix applied one lifetime too wide: a
+departing surface stopping its film is right when a WINDOW closes and wrong
+when SwiftUI merely REBUILDS the view, which is the whole of the
+intermittency. **And `forgetSurfacePlayer` had been printing the answer all
+along** — it logs `engineHolds=YES` in precisely that case and did nothing
+with it.
+
+**AND A SELF-AUDIT FOUND THE SAME SHAPE IN THE FEATURE FINISHED AN HOUR
+EARLIER.** Going live ENDS the rehearsal and builds a second engine, and the
+call's picture was attached to the first: a host who framed their guests
+during the preview would have dropped them silently, picker still naming the
+window, capture still running. `armedChat` had had the identical fix hours
+before, two lines above it — so §8.46 makes the list mechanical.
+
+**FOUR INSTRUMENTS REACHED PAST WHAT THEY WERE POINTED AT, all one family,
+and every fix went into the tool rather than into my care.**
+
+- `winshot` matched a window by TITLE SUBSTRING and captured the owner's
+  TERMINAL, whose tab was named "Watch Together Studio issues…". It now
+  requires the owning application, matched exactly.
+- The ScreenCaptureKit probe printed every capturable window's title into a
+  log — a Slack DM naming a colleague, a Drive PDF, two admin pages — and then
+  captured their REAL browser instead of my isolated test instance, because it
+  matched "Google Chrome" on a substring. Both are product rules now (§D23).
+- §8.21 plays audible tones through the default output device and had been
+  doing so on every background suite run without saying so; killed mid-run it
+  left the system volume at **100**. Opt-in behind `AW_AUDIBLE=1`, and it now
+  saves and restores the volume with a trap on EXIT/INT/TERM — the trap being
+  the part that matters, since it only ever went wrong on runs that died.
+- The rehearsal door I wrote this morning never called
+  `muteLocalMonitorForHarness()`, unlike every other door, so about nine app
+  launches played *Safety Last!* out loud at them while they worked.
+
+**TWO STANDING RULES, BOTH FROM THE OWNER, BOTH NOW MECHANICAL.** *"I thought
+we had a standing rule to use US-specific english spelling"* — there was none
+written anywhere, which I said plainly rather than agreeing a rule had been
+broken; now CLAUDE.md plus §8.41, which caught four user-facing "catalogue"
+strings across four platforms that a hand sweep of the same files had missed.
+And *"not everything I say or what you discover needs to be listed in the
+interface"* — eleven captions cut or shortened; a caption now earns its place
+only as a refusal, a warning, or a fact a host cannot discover by looking.
+
+**THREE TESTS OF MINE WERE WRONG BEFORE THEY WERE RIGHT**, which is the
+recurring lesson rather than a footnote. The chat-wrap test PASSED with the
+defect reinstated and was thrown away — it measured the rightmost pixel when
+the renderer was already clipping, so what distinguishes the two cases is
+whether the word WRAPPED. The player-lifetime test counted a
+`replaceCurrentItem` written inside a COMMENT, and looked fourteen lines into
+a function where the call sits twenty-two down; both read as the product being
+wrong. And §8.42 caught my own chat-dodge guessing 16:9 for the call tile with
+a comment calling that "the safe direction" — backwards, since a wider window
+makes a SHORTER tile.
+
+**READY FOR THE OAUTH RECORDING.** Google's rejection named four items; the
+privacy policy is published with the data-protection disclosures it asked for,
+the shot list is rewritten against the Studio as it now is (13 beats, four
+columns, the checklist in Output), and a signed Release build plus an ordered
+checklist are staged on the Desktop. The step that sank the first video is a
+REVOKE that must happen before the camera rolls and cannot be repaired in the
+edit — and the app's own "Sign out" has to happen first, since revoking at
+Google does not clear the local Keychain token.
+
+Suite **148 pass / 2 skip / 0 fail**; Kotlin 103/0/0. macOS, iOS and tvOS all
+build. v1.42.487 → v1.42.496.
+
 ### 2026-09-22 — the Studio became the whole surface, and a button learned to say what it does
 
 The owner ran the shipped macOS Studio for the first time and reported six

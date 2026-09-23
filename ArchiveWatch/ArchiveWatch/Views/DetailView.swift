@@ -1094,6 +1094,8 @@ struct PlayerScreen: View {
                 destination = resolved.url
                 StudioSession.shared.armYouTubeChat(resolved.liveChatID)
                 StudioSession.shared.armBroadcast(resolved.broadcast)
+                // Read the chat too — tvOS armed the id and never read it.
+                await StudioSession.shared.attachYouTubeChatIfArmed(to: engine)
             } catch {
                 // LOG THE RAW THING, SHOW A SENTENCE. Without this line the
                 // four YouTube writes failed leaving no trace anywhere: the
