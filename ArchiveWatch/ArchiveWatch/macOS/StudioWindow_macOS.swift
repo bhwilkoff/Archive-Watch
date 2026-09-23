@@ -1538,19 +1538,32 @@ struct StudioWindowView: View {
 
     private var output: some View {
         let health = studio.health
+        // §D33: ON AIR the summary above already says "Live on …", so this
+        // block keeps only what the summary does not — a warning, and each
+        // simulcast destination's own health — and is absent when neither.
+        let onAir = studio.isOnAir
+        let quietOnAir = onAir && health.showState.detail == nil && health.extraDestinations.isEmpty
         return Group {
+            if !quietOnAir {
             VStack(alignment: .leading, spacing: 3) {
-                HStack(spacing: 8) {
-                    Circle().fill(health.showState.isOnAir ? Color.red : Color.secondary)
-                        .frame(width: 8, height: 8)
-                    Text(health.showState.label).font(.subheadline.weight(.semibold))
+                if !onAir {
+                    HStack(spacing: 8) {
+                        Circle().fill(health.showState.isOnAir ? Color.red : Color.secondary)
+                            .frame(width: 8, height: 8)
+                        Text(health.showState.label).font(.subheadline.weight(.semibold))
+                    }
                 }
                 if let detail = health.showState.detail {
                     Text(detail).font(.caption2).foregroundStyle(.orange)
                         .fixedSize(horizontal: false, vertical: true)
                 }
-                Text(destinationName)
-                    .font(.caption2).foregroundStyle(.secondary)
+                // "Sending to" only while something IS being sent: after a show
+                // ends the destination is still remembered, and the column
+                // read "OFF · Sending to 127.0.0.1" (seen 2026-09-23).
+                if !onAir, studio.isLive {
+                    Text(destinationName)
+                        .font(.caption2).foregroundStyle(.secondary)
+                }
                 // EACH EXTRA BY NAME (§4). An average across destinations
                 // describes none of them and hides a dead one; these say
                 // which is which.
@@ -1576,6 +1589,7 @@ struct StudioWindowView: View {
             }
 
             Divider().padding(.vertical, 2)
+            }
 
             // THE HOST'S SETTINGS (§D4), with the engine's own numbers below
             // them. Resolution and frame rate are disabled while live WITH
