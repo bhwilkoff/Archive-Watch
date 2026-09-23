@@ -76,6 +76,14 @@ struct StudioTVHealth: View {
                     .font(.system(size: 30, weight: .medium))
                     .monospacedDigit()
                     .foregroundStyle(.white.opacity(0.75))
+                // §D27 — how many are watching, once the platform says so.
+                if let n = StudioSession.shared.audienceCount {
+                    Label(n == 1 ? "1 watching" : "\(n.formatted()) watching",
+                          systemImage: "person.2.fill")
+                        .font(.system(size: 30, weight: .medium))
+                        .monospacedDigit()
+                        .foregroundStyle(.white.opacity(0.75))
+                }
             }
             // §6.2, DEBUG only. The session's category is the one thing a
             // screenshot cannot otherwise show, and §6.2 could only ever be

@@ -697,7 +697,7 @@ and tvOS have their own readouts and do not show elapsed time. ⏳
 | Platform | State |
 |---|---|
 | macOS | ✅ "N watching" in the AUDIENCE pane header, from the platform's own count, every 30 s. Built on all three Apple targets; **not yet read against a live broadcast** — the Debug build was signed out of both platforms when it was checked |
-| iOS · tvOS | ⏳ the shared `StudioSession.audienceCount` is populated on both (the poller rides `armBroadcast`, which both call); neither surface draws it |
+| iOS · tvOS | ✅ built (v1.42.506): the phone's live capsule shows 👥 N (VoiceOver: "N watching"); the television's readout shows "N watching" beside the bitrate. Same caveat as macOS — never yet read from a live platform |
 | Android | 🚫 no poller |
 | Web | 🚫 a browser cannot host |
 

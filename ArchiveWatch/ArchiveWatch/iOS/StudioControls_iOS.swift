@@ -58,6 +58,14 @@ struct StudioHealthCapsule: View {
 
             stat("\(kbps) kbps")
 
+            // §D27 — how many are watching, once the platform says so. The
+            // icon carries the noun: a phone's capsule has no room for it.
+            if let n = StudioSession.shared.audienceCount {
+                Label("\(n.formatted())", systemImage: "person.2.fill")
+                    .font(.caption2.weight(.semibold)).monospacedDigit()
+                    .accessibilityLabel(n == 1 ? "1 watching" : "\(n) watching")
+            }
+
             // ONE warning chip, not a row of them. Health is never hidden
             // (§4) — but "not hidden" does not mean "all on one line": a
             // capsule that runs the width of the screen collides with the
