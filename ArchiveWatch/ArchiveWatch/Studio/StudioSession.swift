@@ -1514,6 +1514,12 @@ public final class StudioSession {
                                    StudioRoomHost.shared.code ?? "none")
                         }
                     }
+                    // AW_STUDIO_MAC_KILLENC=20: invalidate the encoder at 20 s on
+                    // air, as iOS does to a backgrounded app — the control
+                    // for the engine's recovery.
+                    if let t = env["AW_STUDIO_MAC_KILLENC"].flatMap(Int.init), proofTicks == t {
+                        Task { await engine.debugInvalidateEncoder() }
+                    }
                     if let t = env["AW_STUDIO_MAC_SHARECHAT"].flatMap(Int.init), proofTicks == t {
                         Task {
                             let problem = await self.shareFilmInChat()

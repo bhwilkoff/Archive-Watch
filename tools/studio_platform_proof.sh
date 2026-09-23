@@ -44,9 +44,16 @@ stop_app() {
 # show was over, and stopped the app 15 s into a run that had not logged yet.
 # Every line starts with an epoch timestamp; anything before launch is dropped.
 STARTED=0
+# A FAILED COPY MUST SAY SO. It used to leave the previous run's file in
+# place, which the time filter then reduced to nothing — so a run whose app
+# never wrote a line read as "the phone logged nothing" (2026-09-23).
+PULL_FAILS=0
 pull() {
-  xcrun devicectl device copy from --device $PHONE --domain-type appDataContainer \
-    --domain-identifier $BUNDLE --source Library/Caches/awdiag.log --destination "$LOG.raw" >/dev/null 2>&1
+  rm -f "$LOG.raw"
+  if ! xcrun devicectl device copy from --device $PHONE --domain-type appDataContainer \
+       --domain-identifier $BUNDLE --source Library/Caches/awdiag.log --destination "$LOG.raw" >/dev/null 2>&1; then
+    PULL_FAILS=$((PULL_FAILS+1))
+  fi
   awk -v t="$STARTED" '$1+0 >= t' "$LOG.raw" 2>/dev/null > "$LOG"
 }
 launch() {
@@ -94,6 +101,8 @@ done
 stop_app
 [ "$MODE" = bench ] && pkill -f "$OUT/mtx.yml" >/dev/null 2>&1
 
+[ "$PULL_FAILS" -gt 0 ] && echo "!! $PULL_FAILS pull(s) of the phone's log FAILED — an empty result below is not evidence"
+[ -s "$LOG" ] || echo "!! no lines from THIS run — did the app launch with its environment?"
 echo "== what the phone says ($LOG)"
 grep -E "AWDOOR|AWYTREAD|AWPUB|AWSTUDIOCHAT|AWCHATSHARE|AWAUDIENCE (read|probe)|AWMARKER|AWSTUDIOEND|AWMUTE|FAILED|refused" "$LOG" | cut -c1-220
 grep AWSTUDIOHEALTH "$LOG" | tail -1 | cut -c1-160

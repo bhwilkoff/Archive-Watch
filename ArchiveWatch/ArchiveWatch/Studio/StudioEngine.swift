@@ -1613,6 +1613,7 @@ public actor StudioEngine {
         health.encodedFramesPerSecond = max(0, health.programFramesEncoded - lastEncodedFrameCount)
         lastEncodedFrameCount = health.programFramesEncoded
         health.encoderFault = encoder?.fault
+        recoverEncoderIfDead()
         health.pixelBufferPoolFailures = renderer.poolFailures
         health.cameraTile = renderer.lastCameraRect
         health.guestTile = renderer.lastGuestRect
@@ -1621,6 +1622,51 @@ public actor StudioEngine {
 
     /// The previous sample, so `encodedFramesPerSecond` is a rate.
     private var lastEncodedFrameCount = 0
+
+    /// A DEAD ENCODER IS REBUILT, not mourned.
+    ///
+    /// iOS invalidates a VideoToolbox session when the app leaves the
+    /// foreground (tvOS does it for the screen saver), and every frame after
+    /// that is refused with kVTInvalidSessionErr. Nothing rebuilt it, so on
+    /// the test iPhone a 15-second trip to Settings ended the VIDEO for the
+    /// rest of the show — audio kept flowing, the readout said STOPPED, and
+    /// returning changed nothing (measured 2026-09-23). When frames are being
+    /// pulled, none are being encoded, and the encoder is recording refusals,
+    /// the session is replaced with a new one at the current bitrate and the
+    /// next frame is a keyframe. Throttled, because in the background the new
+    /// session dies too; the attempt after the app returns is the one that
+    /// holds.
+    private var lastFaultCountSeen = 0
+    private var lastEncoderRestart: Double = 0
+    public private(set) var encoderRestarts = 0
+
+    #if DEBUG
+    /// The control for `recoverEncoderIfDead`: invalidate the live session
+    /// the way iOS does when an app leaves the foreground.
+    public func debugInvalidateEncoder() {
+        encoder?.debugInvalidate()
+        awdiag("AWENC debug: encoder session invalidated")
+    }
+    #endif
+
+    private func recoverEncoderIfDead() {
+        guard let encoder else { return }
+        let faults = encoder.faultCount
+        defer { lastFaultCountSeen = faults }
+        guard health.filmFramesPulled > 0, health.encodedFramesPerSecond == 0,
+              faults > lastFaultCountSeen else { return }
+        let now = CACurrentMediaTimeCompat()
+        guard now - lastEncoderRestart >= 3 else { return }
+        lastEncoderRestart = now
+        do {
+            try encoder.restartSession()
+            encoderRestarts += 1
+            awdiag("AWENC restarted the encoder session (%d) after %@", encoderRestarts,
+                   encoder.fault ?? "refusals")
+        } catch {
+            awdiag("AWENC could not restart the encoder — %@", "\(error)")
+        }
+    }
 
     // MARK: The program clock
 
@@ -2440,6 +2486,23 @@ final class H264Encoder: @unchecked Sendable {
             VTCompressionSessionInvalidate(session)
         }
         session = nil
+    }
+
+    #if DEBUG
+    func debugInvalidate() { if let session { VTCompressionSessionInvalidate(session) } }
+    #endif
+
+    /// Replace an invalidated session with a fresh one at the CURRENT bitrate
+    /// (a thermal step survives it), opening on a keyframe so a decoder that
+    /// lost the stream can pick it up at once. Same size, profile and rate, so
+    /// the parameter sets the publisher already sent still describe it.
+    func restartSession() throws {
+        let keep = currentBitrate
+        if let session { VTCompressionSessionInvalidate(session) }
+        session = nil
+        try start()
+        if keep != bitrate { setBitrate(keep) }
+        requestKeyframe()
     }
 
     /// §6.5: the ONE quality dial that may move mid-broadcast. Resolution and
