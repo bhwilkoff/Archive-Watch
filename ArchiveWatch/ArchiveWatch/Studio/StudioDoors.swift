@@ -76,6 +76,24 @@ enum StudioDoors {
             } catch { awdiag("AWUPCOMING failed — %@", "\(error)") }
             return true
         }
+        // `youtube-delete:<id>` — ONE named broadcast, owner-approved, and only
+        // if YouTube still lists it as upcoming: a finished broadcast is a
+        // video on the channel, and this door must never reach one.
+        if authDoor.hasPrefix("youtube-delete:") {
+            let id = String(authDoor.dropFirst("youtube-delete:".count))
+            do {
+                let yt = YouTubeLive(token: try await StudioPlatformAuth.token(for: .youtube))
+                guard let b = try await yt.debugUpcoming().first(where: { $0.id == id }) else {
+                    awdiag("AWDELETE %@ refused — not an upcoming broadcast", id)
+                    return true
+                }
+                try await yt.delete(broadcastID: id)
+                let still = try await yt.debugUpcoming().contains { $0.id == id }
+                awdiag("AWDELETE %@ \"%@\" (%@) deleted=%@", id, b.title, b.status,
+                       still ? "NO" : "yes")
+            } catch { awdiag("AWDELETE %@ failed — %@", id, "\(error)") }
+            return true
+        }
         guard authDoor == "state" else { return false }
         for platform in [StudioPlatformAuth.Platform.youtube, .twitch] {
             let configured = StudioPlatformAuth.clientID(for: platform) != nil

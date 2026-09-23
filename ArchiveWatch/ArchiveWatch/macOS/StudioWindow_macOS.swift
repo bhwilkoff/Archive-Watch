@@ -661,6 +661,15 @@ struct StudioWindowView: View {
                         Text("Playing in a separate window")
                             .font(.headline).foregroundStyle(.white)
                         Button("Bring it back into the Studio") { router.nowPlaying = nil }
+                            // The header's copy of this button was disabled
+                            // while live and this one was NOT (seen
+                            // 2026-09-23) — one press froze the audience's
+                            // picture. It lives only here now.
+                            .disabled(studio.isLive)
+                        if studio.isLive {
+                            Text("The film cannot change windows during a show.")
+                                .font(.caption2).foregroundStyle(.secondary)
+                        }
                     }
                 } else if let film = show.film {
                     // THE SAME SURFACE THE PLAYER WINDOW USES (§D7) — the same
@@ -694,15 +703,17 @@ struct StudioWindowView: View {
             ViewThatFits(in: .horizontal) {
                 HStack(spacing: 8) {
                     changeFilmButton
-                    projectButton(film)
+                    if !projecting { projectButton(film) }
                 }
                 HStack(spacing: 8) {
                     changeFilmButton
-                    Menu("More") {
-                        projectButton(film)
+                    if !projecting {
+                        Menu("More") {
+                            projectButton(film)
+                        }
+                        .menuStyle(.borderlessButton)
+                        .fixedSize()
                     }
-                    .menuStyle(.borderlessButton)
-                    .fixedSize()
                 }
             }
             .font(.caption)
@@ -716,9 +727,7 @@ struct StudioWindowView: View {
     }
 
     private func projectButton(_ film: Catalog.Item) -> some View {
-        Button(projecting ? "Bring it back" : "Open in a separate window") {
-            if projecting { router.nowPlaying = nil } else { router.play(film) }
-        }
+        Button("Open in a separate window") { router.play(film) }
         .fixedSize()
         // §D7: the film cannot change windows mid-show. Moving it
         // rebuilds the `AVPlayer`, and the engine is attached to the
@@ -1588,7 +1597,26 @@ struct StudioWindowView: View {
             Divider().padding(.vertical, 2)
             }
 
-            if studio.isLive { recordRow }
+            if studio.isLive {
+                recordRow
+                // THE STREAM ENDS WHEN THE HOST SAYS SO. Owner: "There should
+                // be an easy way to end a stream from every platform that can
+                // start one." ONE button, beside Record, as OBS keeps its two
+                // stops together — it used to be drawn twice, once above the
+                // room and once below the fold (seen 2026-09-23).
+                // No shortcut here: ⇧⌘E belongs to Broadcast ▸ End the Broadcast.
+                Button(role: .destructive) {
+                    Task {
+                        await studio.end()
+                        RoomJoin.shared.hostCode = nil
+                    }
+                } label: {
+                    Text(onAir ? "End the broadcast" : "Stop the preview")
+                        .frame(maxWidth: .infinity)
+                }
+                .controlSize(.large)
+                Divider().padding(.vertical, 2)
+            }
 
             // THE HOST'S SETTINGS (§D4), with the engine's own numbers below
             // them. Resolution and frame rate are disabled while live WITH
@@ -1715,18 +1743,6 @@ struct StudioWindowView: View {
                     .fixedSize(horizontal: false, vertical: true)
             }
 
-            // THE STREAM ENDS WHEN THE HOST SAYS SO. Owner: "There should be
-            // an easy way to end a stream from every platform that can start
-            // one." On the Mac that is here, in the window that is open for
-            // the whole show, as well as on the readout over the player.
-            if studio.isLive {
-                Button(studio.isOnAir ? "End the broadcast" : "Stop the preview",
-                       role: .destructive) {
-                    Task { await studio.end() }
-                }
-                .controlSize(.large)
-                .frame(maxWidth: .infinity)
-            }
         }
     }
 
@@ -1977,16 +1993,6 @@ struct StudioDestinationSection: View {
                        room.hostCode == nil { await openRoom() }
                 }
                 #endif
-            Button(role: .destructive) {
-                Task {
-                    await studio.end()
-                    RoomJoin.shared.hostCode = nil
-                }
-            } label: {
-                Text("End the broadcast").frame(maxWidth: .infinity)
-            }
-            .controlSize(.large)
-            // No shortcut here: ⇧⌘E belongs to Broadcast ▸ End the Broadcast.
         }
         .task(id: platformName) {
             onAirAccount = nil
