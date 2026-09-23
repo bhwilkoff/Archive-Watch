@@ -173,6 +173,10 @@ struct StudioControlsSheet: View {
     var shoutOut: StudioOverlay.ShoutOut? = nil
     var onShow: (StudioOverlay.ChatLine) -> Void = { _ in }
     var onTakeDown: () -> Void = {}
+    /// §D32 on the phone. Nil when there is no YouTube chat to post in.
+    var onShareFilm: (() async -> String?)? = nil
+    @State private var shareResult: String?
+    @State private var sharedAt: Date?
     let onEnd: () -> Void
 
     private var healthFooter: String {
@@ -207,6 +211,29 @@ struct StudioControlsSheet: View {
 
     private var audienceSection: some View {
         Section {
+            if let share = onShareFilm {
+                // Proved on YouTube 2026-09-23 (GYAQsLMDwho): the line lands in
+                // chat under the host's handle with the archive.org link whole.
+                Button {
+                    Task {
+                        let problem = await share()
+                        shareResult = problem
+                        if problem == nil { sharedAt = Date() }
+                    }
+                } label: {
+                    HStack {
+                        Label("Share the film in chat", systemImage: "link")
+                        Spacer()
+                        if let at = sharedAt {
+                            Text("shared \(at.formatted(.relative(presentation: .named)))")
+                                .font(.caption).foregroundStyle(.secondary)
+                        }
+                    }
+                }
+                if let r = shareResult {
+                    Text(r).font(.footnote).foregroundStyle(.orange)
+                }
+            }
             if let s = shoutOut {
                 HStack(alignment: .top) {
                     VStack(alignment: .leading, spacing: 2) {
@@ -249,7 +276,7 @@ struct StudioControlsSheet: View {
                 // §D26 — THE AUDIENCE FIRST. It is the one thing in this
                 // sheet that is about somebody other than the host, and it
                 // appears only when there is a conversation to show.
-                if shoutOut != nil || !health.chatRecent.isEmpty {
+                if shoutOut != nil || !health.chatRecent.isEmpty || onShareFilm != nil {
                     audienceSection
                 }
                 Section {

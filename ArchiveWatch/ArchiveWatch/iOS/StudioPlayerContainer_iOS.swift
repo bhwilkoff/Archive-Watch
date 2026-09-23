@@ -125,6 +125,7 @@ struct StudioPlayerContainer: View {
                 shoutOut = nil
                 Task { await engine?.clearShoutOut() }
             },
+            onShareFilm: shareFilmAction,
             onEnd: { Task { await end() } })
     }
 
@@ -212,6 +213,19 @@ struct StudioPlayerContainer: View {
         StudioSession.shared.armYouTubeChat(d.liveChatID)
         StudioSession.shared.armBroadcast(d.broadcast)
         return d.url
+    }
+
+    /// §D32 — offered only on air with a YouTube chat to post in.
+    private var shareFilmAction: (() async -> String?)? {
+        guard StudioSession.shared.armedYouTubeChatID?.isEmpty == false,
+              health.showState.isOnAir else { return nil }
+        let film = item
+        let meta = [film.year.map(String.init), film.director]
+            .compactMap { $0 }.filter { !$0.isEmpty }.joined(separator: " · ")
+        return {
+            await StudioSession.shared.shareFilmInChat(
+                archiveID: film.archiveID, title: film.title, meta: meta)
+        }
     }
 
     private func showShoutOut(_ line: StudioOverlay.ChatLine) {

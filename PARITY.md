@@ -700,7 +700,10 @@ on a YouTube broadcast, posting one line — title, year, director, "public
 domain, free to watch" and the archive.org link — under the host's name. The
 message rule is tested (§8.52); **not yet posted to a real YouTube chat** (no
 signed-in broadcast since it was built). Twitch 🚫 until `user:write:chat` is
-granted (a new scope — every host re-consents). iOS / tvOS 🚫 not yet.
+granted (a new scope — every host re-consents). **iOS** ⏳ the button heads the
+Audience section on a YouTube broadcast (v1.42.519); the call behind it is
+PROVED on YouTube (GYAQsLMDwho), the button itself not yet pressed live.
+tvOS 🚫 (Rule 8.8c).
 
 ##### Scenes — 2026-09-23 (macOS-DESIGN §D31)
 
