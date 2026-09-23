@@ -666,26 +666,47 @@ struct StudioWindowView: View {
     @ViewBuilder
     private var sourceHeaderControls: some View {
         if let film = show.film, !show.choosing {
-            HStack(spacing: 8) {
-                Button("Change film") { show.choosing = true }
-                    .fixedSize()
-                    .disabled(studio.isLive)
-                Button(projecting ? "Bring it back" : "Open in a separate window") {
-                    if projecting { router.nowPlaying = nil } else { router.play(film) }
+            // §D13 — two DESIGNED arrangements, never an abbreviation: both
+            // buttons when they fit, otherwise the second folds into a native
+            // menu that still says every word.
+            ViewThatFits(in: .horizontal) {
+                HStack(spacing: 8) {
+                    changeFilmButton
+                    projectButton(film)
                 }
-                .fixedSize()
-                // §D7: the film cannot change windows mid-show. Moving it
-                // rebuilds the `AVPlayer`, and the engine is attached to the
-                // one it was given — so a move during a broadcast would leave
-                // the audience on a frozen frame while everything else read
-                // healthy. Disabled WITH THE REASON, never in silence.
-                .disabled(studio.isLive)
-                .help(studio.isLive
-                      ? "Set this up before you start — the film cannot change windows during a show"
-                      : "Show the film in its own window, to put on another screen")
+                HStack(spacing: 8) {
+                    changeFilmButton
+                    Menu("More") {
+                        projectButton(film)
+                    }
+                    .menuStyle(.borderlessButton)
+                    .fixedSize()
+                }
             }
             .font(.caption)
         }
+    }
+
+    private var changeFilmButton: some View {
+        Button("Change film") { show.choosing = true }
+            .fixedSize()
+            .disabled(studio.isLive)
+    }
+
+    private func projectButton(_ film: Catalog.Item) -> some View {
+        Button(projecting ? "Bring it back" : "Open in a separate window") {
+            if projecting { router.nowPlaying = nil } else { router.play(film) }
+        }
+        .fixedSize()
+        // §D7: the film cannot change windows mid-show. Moving it
+        // rebuilds the `AVPlayer`, and the engine is attached to the
+        // one it was given — so a move during a broadcast would leave
+        // the audience on a frozen frame while everything else read
+        // healthy. Disabled WITH THE REASON, never in silence.
+        .disabled(studio.isLive)
+        .help(studio.isLive
+              ? "Set this up before you start — the film cannot change windows during a show"
+              : "Show the film in its own window, to put on another screen")
     }
 
     // MARK: PROGRAM (§D5, unchanged in substance)
@@ -785,9 +806,13 @@ struct StudioWindowView: View {
 
     private func paneHeader<T: View>(_ title: String, trailing: T) -> some View {
         HStack(spacing: 10) {
+            // A pane's NAME is never the thing that gives way: narrowing the
+            // FILM pane (§D29) let its buttons squeeze "FILM" to nothing.
             Text(title)
                 .font(.caption.weight(.bold))
                 .foregroundStyle(.secondary)
+                .fixedSize()
+                .layoutPriority(1)
             Spacer(minLength: 8)
             trailing
         }
