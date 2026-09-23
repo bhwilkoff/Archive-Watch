@@ -680,6 +680,22 @@ that is wrong about the rest** — and neither is visible to a harness that
 builds a fresh renderer per call, which §8.48 did until it was made to reuse
 one.
 
+##### The MAC STUDIO proved on YouTube AND Twitch, with a real viewer — 2026-09-23
+
+The instrument that finally worked: the TEST iPhone 12 playing the stream in
+Safari in the foreground (a hidden Chrome tab never loads media).
+
+| Feature | YouTube (`Fl0YCSDtyqM`) | Twitch (licbhwilkoff) |
+|---|---|---|
+| "N watching" (§D27) | ✅ `concurrentViewers` present, read `1` every poll; the AUDIENCE header shows "👥 1 watching" on the glass | ✅ `viewer_count` read 0, then `1` once the phone's view registered |
+| Chat | ✅ YouTube chat only — the Twitch-chat leak fix held (0 Twitch attaches) | ✅ the show's own channel |
+| Scene switch + crossfade (§D31) | ✅ (5shlTXfHNUA) | ✅ Intermission, card up |
+| Chapter marker (§D30) | n/a (YouTube has none) | ✅ `AWMARKER placed "Intermission"` — Twitch accepted it |
+| End | ✅ marked complete | ✅ ended at 240 s |
+
+Still unproved on a platform: Share the film in chat from the Mac BUTTON (the
+door path is proved), and Twitch chat posting (needs a new scope).
+
 ##### The MAC STUDIO proved on YouTube — 2026-09-23, broadcast `5shlTXfHNUA` (Learning is Change, unlisted)
 
 The owner, correctly: *"We are testing the full Watch Together studio that we've

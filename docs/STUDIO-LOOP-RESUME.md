@@ -252,3 +252,11 @@ suspect. The health line now carries `thermal=`.
 **The viewer count remains open**: a hidden Chrome tab never loads media
 (`document.hidden`, readyState 0), so it cannot be the viewer; a person on a
 visible screen, or a second device playing the stream, is the instrument.
+
+**CLOSED the same day — the viewer count works on both platforms.** The
+instrument is the TEST iPhone 12 opening the stream in Safari:
+`xcrun devicectl device process launch --device <phone> --payload-url <watch URL> com.apple.mobilesafari`.
+Both Mac accounts are signed in (YouTube = Learning is Change, Twitch =
+licbhwilkoff; `AW_STUDIO_SIGNIN=youtube,twitch` re-runs the Studio's own
+sign-in flows). The owner approved public Twitch test broadcasts on licbhwilkoff
+("No one is following that twitch stream").
