@@ -127,20 +127,30 @@
         title and privacy setting you chose in the app.</li>
       <li><strong>Bind them together and start the broadcast</strong>, which is
         what puts you on air.</li>
-      <li><strong>End the broadcast</strong> when you stop the show.</li>
+      <li><strong>Set the broadcast&rsquo;s thumbnail</strong> to a still of the
+        show itself, a few seconds after it starts.</li>
+      <li><strong>Read how many people are watching</strong> that broadcast,
+        so the number can be shown to you while you present.</li>
       <li><strong>Read the live chat</strong> of that broadcast, so your
-        audience&rsquo;s messages can be shown on screen while you present.
-        Archive Watch never posts a chat message.</li>
+        audience&rsquo;s messages can be shown on screen while you present.</li>
+      <li><strong>Post one message in that chat</strong> naming the film and
+        linking to it on the Internet Archive, only when you press
+        <strong>Share the film in chat</strong>. Archive Watch never posts on
+        its own.</li>
+      <li><strong>End the broadcast</strong> when you stop the show &mdash; or,
+        if the show stopped before the broadcast ever went live, <strong>delete
+        that broadcast</strong>, so it is not left behind in your channel&rsquo;s
+        Upcoming list.</li>
     </ul>
     <p>
       There is no narrower Google permission that allows an application to
       create and start a live broadcast. <code>youtube.readonly</code> cannot
       write, and <code>youtube.upload</code> covers uploaded videos rather than
-      live events, so it cannot start one either. Archive Watch never reads
-      your existing videos, never uploads a video, never edits or deletes
-      anything on your channel, never touches your subscriptions, playlists or
-      comments, and never acts on any channel other than the one you choose at
-      sign-in.
+      live events, so it cannot start one either. Everything above acts only on
+      the broadcast Archive Watch created for that show. It never reads your
+      other videos, never uploads a video, never edits or deletes anything else
+      on your channel, never touches your subscriptions, playlists or comments,
+      and never acts on any channel other than the one you choose at sign-in.
     </p>
 
     <h3>Watch Together Studio: how that access is protected</h3>
@@ -205,6 +215,18 @@
       develop, improve or train any generalized or non-personalized artificial
       intelligence or machine learning model</strong>; and no human ever reads
       it, because it never leaves your device.
+    </p>
+
+    <h3>Watch Together rooms</h3>
+    <p>
+      When a host opens a room, Archive Watch&rsquo;s server keeps one record for it:
+      which film is playing, where it is, and whether it is paused &mdash; so friends
+      who enter the room&rsquo;s code can watch in step. While a friend is in a room,
+      their device sends a random token every 30 seconds that is made fresh each
+      time they join and tied to nothing else; the host sees only how many such
+      tokens arrived in the last minute. No account, name or IP address is stored,
+      and the room and its tokens are deleted when the host ends it (or after six
+      hours without activity).
     </p>
 
     <h3>Watch Together Studio: Twitch</h3>

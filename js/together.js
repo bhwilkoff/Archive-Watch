@@ -134,6 +134,18 @@
     return this.state;
   };
 
+  /** "I'm here" — an anonymous token, made fresh per join, tied to nothing;
+   *  only a COUNT is ever read back (owner, 2026-09-23). Best-effort. */
+  Client.prototype.sayHere = async function (token) {
+    if (!this.code) return;
+    try {
+      await fetch(`${this.base}/together/${this.code}/here`, {
+        method: 'POST', headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ token }),
+      });
+    } catch (e) { /* a missed ping only makes the count lag */ }
+  };
+
   Client.prototype.nextPollDelay = function () {
     const quiet = this.generationChangedAt
       ? Date.now() / 1000 - this.generationChangedAt : 0;
@@ -174,8 +186,16 @@
       }
     }
 
+    // Say "I'm here" every 30 s, so the host sees friends arrive.
+    const bytes = new Uint8Array(16);
+    crypto.getRandomValues(bytes);
+    const token = Array.from(bytes, b => b.toString(16).padStart(2, '0')).join('');
+    const here = () => { if (!stopped) client.sayHere(token); };
+    here();
+    const hereTimer = setInterval(here, 30000);
+
     tick();
-    return { stop() { stopped = true; video.playbackRate = 1; } };
+    return { stop() { stopped = true; clearInterval(hereTimer); video.playbackRate = 1; } };
   }
 
   const API = {

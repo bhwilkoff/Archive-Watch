@@ -52,6 +52,9 @@ public actor StudioSyncClient {
     /// deliberately not enough.
     private var hostKey: String?
     private(set) public var lastState: StudioSync.State?
+    /// How many joined devices the room saw in the last minute (anonymous
+    /// tokens only — owner, 2026-09-23). Nil from a Worker that predates it.
+    private(set) public var lastPresent: Int?
     private var lastGenerationChangeAt: Date?
     private var lastGeneration: Int?
 
@@ -135,7 +138,21 @@ public actor StudioSyncClient {
             lastGenerationChangeAt = Date()
         }
         lastState = state
+        lastPresent = o["present"] as? Int
         return state
+    }
+
+    /// A joined device saying it is here: an anonymous token, made fresh per
+    /// join, tied to nothing. Only a COUNT is ever read back. Best-effort — a
+    /// missed ping only makes the count lag.
+    public func sayHere(token: String) async {
+        guard let code else { return }
+        var r = URLRequest(url: config.base.appendingPathComponent("together")
+                              .appendingPathComponent(code).appendingPathComponent("here"))
+        r.httpMethod = "POST"
+        r.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        r.httpBody = try? JSONSerialization.data(withJSONObject: ["token": token])
+        _ = try? await session.data(for: r)
     }
 
     /// How long to wait before polling again (§11.6). Backs off while nothing

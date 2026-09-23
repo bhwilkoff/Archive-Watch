@@ -1,5 +1,6 @@
 import Foundation
 import AVFoundation
+import Observation
 
 /// The HOST half of SHAREPLAY §11: watches an `AVPlayer` and publishes when
 /// the film's state actually changes.
@@ -14,10 +15,15 @@ import AVFoundation
 /// owns the player observation, `StudioSyncClient` owns the wire, and
 /// `StudioSync` owns nothing but arithmetic.
 @MainActor
+@Observable
 public final class StudioRoomHost {
 
     public private(set) var code: String?
     public private(set) var problem: String?
+    /// Friends in the room right now — joined devices seen in the last minute.
+    /// Nil until the first read, and from a Worker that predates presence.
+    public private(set) var present: Int?
+    private var presenceLoop: Task<Void, Never>?
 
     private let client: StudioSyncClient
     private weak var player: AVPlayer?
@@ -68,6 +74,7 @@ public final class StudioRoomHost {
             lastPublishedPosition = position.isFinite ? position : 0
             lastPublishedPaused = player.timeControlStatus != .playing
             observe(player)
+            startReadingPresence()
             return code
         } catch {
             problem = StudioSyncFollower.sentence(for: error)
@@ -82,6 +89,7 @@ public final class StudioRoomHost {
     /// most two seconds, so a dead network cannot hang the quit.
     public func endBeforeTermination() {
         guard code != nil else { return }
+        presenceLoop?.cancel()
         let c = client
         code = nil
         let done = DispatchSemaphore(value: 0)
@@ -89,7 +97,25 @@ public final class StudioRoomHost {
         _ = done.wait(timeout: .now() + 2)
     }
 
+    private func startReadingPresence() {
+        presenceLoop?.cancel()
+        presenceLoop = Task { [weak self] in
+            while !Task.isCancelled {
+                try? await Task.sleep(nanoseconds: 15_000_000_000)
+                guard let self, !Task.isCancelled else { return }
+                _ = try? await self.client.poll()
+                let n = await self.client.lastPresent
+                if n != self.present {
+                    self.present = n
+                    awdiag("AWROOM present=%@", n.map(String.init) ?? "unknown")
+                }
+            }
+        }
+    }
+
     public func stop() {
+        presenceLoop?.cancel(); presenceLoop = nil
+        present = nil
         if let timeObserver, let player { player.removeTimeObserver(timeObserver) }
         timeObserver = nil
         rateObserver = nil

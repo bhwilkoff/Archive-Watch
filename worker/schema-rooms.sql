@@ -17,3 +17,14 @@ CREATE TABLE IF NOT EXISTS rooms (
 );
 -- The sweep asks "what is stale", so that is what is indexed.
 CREATE INDEX IF NOT EXISTS rooms_touched ON rooms (touched_ms);
+
+-- PRESENCE (owner, 2026-09-23: a host should see how many friends joined).
+-- An anonymous token per joined device — random, made fresh for each join,
+-- tied to nothing — and when it was last seen. Only the COUNT of recent
+-- tokens is ever read out. Rows go when the room goes, and are swept with it.
+CREATE TABLE IF NOT EXISTS room_presence (
+  code     TEXT NOT NULL,
+  token    TEXT NOT NULL,
+  seen_ms  INTEGER NOT NULL,
+  PRIMARY KEY (code, token)
+);

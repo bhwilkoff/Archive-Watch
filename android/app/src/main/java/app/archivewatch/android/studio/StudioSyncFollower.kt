@@ -59,6 +59,15 @@ object StudioSyncFollower {
                 status = Status.Failed(sentence(e))
                 return@launch
             }
+            // "I'm here", every 30 s, so the host sees friends arrive. A child
+            // of this job, so it stops when following stops.
+            val token = java.util.UUID.randomUUID().toString().replace("-", "")
+            launch {
+                while (isActive) {
+                    c.sayHere(token)
+                    delay(30_000)
+                }
+            }
             while (isActive) {
                 val delaySeconds = c.nextPollDelaySeconds()
                 delay((delaySeconds * 1000).toLong())

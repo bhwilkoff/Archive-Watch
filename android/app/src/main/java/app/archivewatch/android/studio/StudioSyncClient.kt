@@ -158,6 +158,26 @@ class StudioSyncClient(private val base: String = LIVE) {
         hostKey = null
     }
 
+    /** A joined device saying it is here — an anonymous token, made fresh
+     *  per join, tied to nothing; only a COUNT is ever read back (owner,
+     *  2026-09-23). Best-effort: a missed ping only makes the count lag. */
+    suspend fun sayHere(token: String) = withContext(Dispatchers.IO) {
+        val c = code ?: return@withContext
+        runCatching {
+            val conn = (URL("$base/together/$c/here").openConnection() as HttpURLConnection).apply {
+                requestMethod = "POST"
+                doOutput = true
+                setRequestProperty("Content-Type", "application/json")
+                connectTimeout = 8000
+                readTimeout = 8000
+            }
+            try {
+                conn.outputStream.use { it.write(JSONObject(mapOf("token" to token)).toString().toByteArray()) }
+                conn.responseCode
+            } finally { conn.disconnect() }
+        }
+    }
+
     private fun write(c: String, payload: String) {
         val conn = (URL("$base/together/$c").openConnection() as HttpURLConnection).apply {
             requestMethod = "POST"

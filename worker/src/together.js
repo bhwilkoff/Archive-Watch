@@ -16,9 +16,13 @@
  * at this volume: four guests for two hours is ~14,400 reads and ~270 writes
  * against millions and 100k a day.
  *
- * WHAT IS STORED ABOUT PEOPLE: nothing. No account, no id, no IP, no count of
- * who is in the room. A row says what the film is doing, and the only way to
- * see it is to know a code somebody read aloud to you. Rooms are deleted when
+ * WHAT IS STORED ABOUT PEOPLE: no account, no id, no IP. A row says what the
+ * film is doing, and the only way to see it is to know a code somebody read
+ * aloud to you. The one exception, chosen by the owner on 2026-09-23 so a host
+ * can see that their friends arrived: each joined device sends an anonymous
+ * random token every 30 s (`room_presence`), and only the COUNT of tokens seen
+ * in the last minute is ever read out. The token is made fresh per join and
+ * tied to nothing; its rows are deleted with the room. Rooms are deleted when
  * a host ends them and swept when they go quiet, so the table does not become
  * a record of what anyone watched — the same rule the counter beside it keeps.
  */
@@ -83,6 +87,7 @@ function newCode() {
 
 /** A room nobody has touched for this long is over. */
 const STALE_MS = 6 * 60 * 60 * 1000;   // six hours — longer than any film
+const PRESENT_MS = 60 * 1000;           // two missed 30 s pings and a device is gone
 
 function json(body, status = 200) {
   return new Response(JSON.stringify(body), {
@@ -153,6 +158,25 @@ export async function handleTogether(url, request, env) {
     return json({ error: "no free code" }, 503);
   }
 
+  // POST /together/<code>/here  { token }  — a joined device says it is here.
+  // No host key: guests are exactly who sends this. Only a count is read out.
+  const here = url.pathname.match(/^\/together\/([^/]+)\/here\/?$/);
+  if (here && request.method === "POST") {
+    const hcode = normalizeCode(decodeURIComponent(here[1]));
+    if (!hcode) return json({ error: "bad code" }, 400);
+    let body;
+    try { body = await request.json(); } catch { return json({ error: "bad body" }, 400); }
+    const token = String(body.token || "");
+    if (!/^[A-Za-z0-9]{16,64}$/.test(token)) return json({ error: "bad token" }, 400);
+    const room = await env.DB.prepare("SELECT code FROM rooms WHERE code = ?1").bind(hcode).first();
+    if (!room) return json({ error: "no such room" }, 404);
+    await env.DB.prepare(
+      "INSERT INTO room_presence (code, token, seen_ms) VALUES (?1, ?2, ?3) " +
+      "ON CONFLICT(code, token) DO UPDATE SET seen_ms = ?3"
+    ).bind(hcode, token, now).run();
+    return json({ ok: true });
+  }
+
   // POST /together/<code>  — the host publishes a new state
   // GET  /together/<code>  — anyone reads it
   const m = url.pathname.match(/^\/together\/([^/]+)\/?$/);
@@ -165,9 +189,13 @@ export async function handleTogether(url, request, env) {
     if (!r) return json({ error: "no such room" }, 404);
     if (now - r.touched_ms > STALE_MS) {
       await env.DB.prepare("DELETE FROM rooms WHERE code = ?1").bind(code).run();
+      await env.DB.prepare("DELETE FROM room_presence WHERE code = ?1").bind(code).run();
       return json({ error: "room ended" }, 410);
     }
-    return json(rowToState(r, now));
+    const p = await env.DB.prepare(
+      "SELECT COUNT(*) AS n FROM room_presence WHERE code = ?1 AND seen_ms > ?2"
+    ).bind(code, now - PRESENT_MS).first();
+    return json({ ...rowToState(r, now), present: (p && p.n) || 0 });
   }
 
   if (request.method === "POST") {
@@ -189,6 +217,7 @@ export async function handleTogether(url, request, env) {
 
     if (body.end === true) {
       await env.DB.prepare("DELETE FROM rooms WHERE code = ?1").bind(code).run();
+      await env.DB.prepare("DELETE FROM room_presence WHERE code = ?1").bind(code).run();
       return json({ ended: true });
     }
 

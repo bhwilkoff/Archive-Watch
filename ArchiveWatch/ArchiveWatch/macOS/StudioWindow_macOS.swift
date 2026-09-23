@@ -1973,9 +1973,18 @@ struct StudioDestinationSection: View {
             Text("Friends on your call").font(.caption.weight(.semibold))
                 .foregroundStyle(.secondary)
             if let code = room.hostCode {
-                Text(code)
-                    .font(.system(size: 28, weight: .bold, design: .monospaced))
-                    .textSelection(.enabled)
+                HStack(alignment: .firstTextBaseline, spacing: 10) {
+                    Text(code)
+                        .font(.system(size: 28, weight: .bold, design: .monospaced))
+                        .textSelection(.enabled)
+                    // Who has arrived — an anonymous count (owner, 2026-09-23).
+                    if let n = StudioRoomHost.shared.present {
+                        Label(n == 1 ? "1 friend here" : "\(n) friends here",
+                              systemImage: "person.2.fill")
+                            .font(.caption.weight(.semibold))
+                            .foregroundStyle(n == 0 ? Color.secondary : Color.primary)
+                    }
+                }
                 Text("Friends enter it under Watch Together in Archive Watch.")
                     .font(.caption2).foregroundStyle(.secondary)
                     .fixedSize(horizontal: false, vertical: true)

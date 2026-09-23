@@ -77,6 +77,7 @@ public final class StudioSyncFollower {
     }
 
     public func leave() {
+        hereLoop?.cancel()
         loop?.cancel()
         loop = nil
         player?.rate = Float(hostRate)
@@ -86,7 +87,24 @@ public final class StudioSyncFollower {
 
     // MARK: The loop
 
+    private var hereLoop: Task<Void, Never>?
+
+    /// Says "I'm here" every 30 s so the host can see friends arrive — an
+    /// anonymous token, new for each join (owner, 2026-09-23).
+    private func startSayingHere() {
+        hereLoop?.cancel()
+        let token = UUID().uuidString.replacingOccurrences(of: "-", with: "")
+        hereLoop = Task { [weak self] in
+            while !Task.isCancelled {
+                guard let self else { return }
+                await self.client.sayHere(token: token)
+                try? await Task.sleep(nanoseconds: 30_000_000_000)
+            }
+        }
+    }
+
     private func startFollowing() {
+        startSayingHere()
         loop?.cancel()
         loop = Task { [weak self] in
             while !Task.isCancelled {
@@ -104,8 +122,8 @@ public final class StudioSyncFollower {
         catch {
             // A room that ended is not a failure to report as one — the host
             // finished, which is a normal way for this to stop.
-            if case StudioSyncClient.JoinError.noSuchRoom = error { status = .ended; loop?.cancel(); return }
-            if case StudioSyncClient.JoinError.ended = error { status = .ended; loop?.cancel(); return }
+            if case StudioSyncClient.JoinError.noSuchRoom = error { status = .ended; loop?.cancel(); hereLoop?.cancel(); return }
+            if case StudioSyncClient.JoinError.ended = error { status = .ended; loop?.cancel(); hereLoop?.cancel(); return }
             // Anything else is transient: a poll that failed is a poll, not a
             // reason to tear a viewer out of a film. The next one will try.
             return

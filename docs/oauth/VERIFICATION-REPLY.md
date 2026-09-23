@@ -66,10 +66,16 @@ authorized on the user's account indefinitely.
 > - creating a live stream and a live broadcast with the title and privacy
 >   setting the host chose
 > - binding them and transitioning the broadcast to live
+> - setting that broadcast's thumbnail to a still of the show itself
+> - reading how many people are watching that broadcast, shown to the host
 > - reading that broadcast's live chat, so the audience's messages can be
->   shown on screen during the presentation — the application never posts a
->   chat message
-> - transitioning the broadcast to complete when the host ends the show
+>   shown on screen during the presentation
+> - posting one message in that chat — the film's title and its Internet
+>   Archive link — only when the host presses "Share the film in chat"; the
+>   application never posts on its own
+> - transitioning the broadcast to complete when the host ends the show, or,
+>   if the show stopped before the broadcast went live, deleting that
+>   broadcast so it is not left in the channel's Upcoming list
 >
 > **Source account impact**: after going live, the video shows YouTube Studio
 > on the same account, under Content → Live, with the newly created broadcast
@@ -79,9 +85,10 @@ authorized on the user's account indefinitely.
 > **Why no narrower scope is possible**: there is no Google permission that
 > lets an application create and start a live broadcast without
 > `…/auth/youtube`. `youtube.readonly` cannot write, and `youtube.upload`
-> covers uploaded videos rather than live events. The application never reads
-> the user's existing videos, never uploads, never edits or deletes channel
-> content, and never touches subscriptions, playlists or comments.
+> covers uploaded videos rather than live events. Every operation above acts
+> only on the broadcast the application created for that show. It never reads
+> the user's other videos, never uploads, never edits or deletes anything
+> else, and never touches subscriptions, playlists or comments.
 >
 > **3. Privacy policy**
 >
