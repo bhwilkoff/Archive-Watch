@@ -125,6 +125,10 @@ class MainActivity : ComponentActivity() {
             }
             intent?.getStringExtra("aw_studio_dest")?.let { DeepLinks.pendingStudioDest.value = it }
             intent?.getStringExtra("aw_studio_key")?.let { DeepLinks.pendingStudioKey.value = it }
+            // The CONTROL for the foreground service's proof (A15): the same
+            // show with the service never started.
+            app.archivewatch.android.studio.StudioController.debugSkipForegroundService =
+                intent?.getBooleanExtra("aw_studio_no_fgs", false) == true
             intent?.getStringExtra("aw_play_url")?.let { DeepLinks.pendingPlayURL.value = it }
             // Starts Twitch's device flow and prints what a HOST would be
             // shown. DEBUG only, and it exists because Android has the auth

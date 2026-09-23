@@ -29,7 +29,18 @@
     <uses-permission android:name="android.permission.CAMERA"/>
     <uses-permission android:name="android.permission.RECORD_AUDIO"/>
 
+    <!-- A live show keeps its camera and microphone when the host locks the
+         phone or switches apps (launch audit A15, StudioBroadcastService). -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_CAMERA"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MICROPHONE"/>
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+
     <application>
+        <service
+            android:name="app.archivewatch.android.studio.StudioBroadcastService"
+            android:exported="false"
+            android:foregroundServiceType="camera|microphone" />
         <meta-data
             android:name="com.google.android.gms.cast.framework.OPTIONS_PROVIDER_CLASS_NAME"
             android:value="app.archivewatch.android.cast.CastOptionsProvider" />

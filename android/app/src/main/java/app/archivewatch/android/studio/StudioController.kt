@@ -294,7 +294,21 @@ object StudioController {
         showContext = context
         overlayW = overlayWidth; overlayH = overlayHeight
         openHost(e, context)
+        // The show survives a locked screen (A15). Started here, on every
+        // path, while the app is in the foreground — which Android requires
+        // of a camera/microphone service.
+        context?.applicationContext?.let {
+            if (debugSkipForegroundService) return@let
+            fgsContext = it
+            StudioBroadcastService.start(it)
+        }
     }
+
+    /** DEBUG: the A15 proof's control — run a show without the service. */
+    var debugSkipForegroundService = false
+
+    /** Held only to stop the service again; the application context. */
+    private var fgsContext: android.content.Context? = null
 
     /**
      * THE HOST — the camera now, the microphone when the film's rate is known.
@@ -517,6 +531,8 @@ object StudioController {
         // device claimed for the whole process.
         camera?.close(); camera = null
         mic?.stop(); mic = null
+        fgsContext?.let { StudioBroadcastService.stop(it) }
+        fgsContext = null
         showContext = null
         engine?.voice = null
         engine?.stop()

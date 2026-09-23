@@ -642,12 +642,16 @@ class StudioEngine(
                 if (BuildConfig.DEBUG) {
                     val fr = (frame - frameAtLastSecond).coerceAtLeast(1)
                     android.util.Log.i("AWSTUDIOPERF", String.format(
-                        "fps=%d  per-frame draw=%.1f drain=%.1f audio=%.1f  chat/s=%.1f  ms",
+                        "fps=%d  per-frame draw=%.1f drain=%.1f audio=%.1f  chat/s=%.1f  ms  cam=%d",
                         frame - frameAtLastSecond,
                         renderSecNanos / 1e6 / fr,
                         drainSecNanos / 1e6 / fr,
                         audioSecNanos / 1e6 / fr,
-                        chatSecNanos / 1e6))
+                        chatSecNanos / 1e6,
+                        // The camera's running frame count: a locked screen
+                        // that took the camera away shows here as a number
+                        // that stops rising (launch audit A15).
+                        pg.cameraFramesAvailable.get()))
                 }
                 if (BuildConfig.DEBUG) {
                     // §9.jjj: how far does the RENDER instant trail the frame's
