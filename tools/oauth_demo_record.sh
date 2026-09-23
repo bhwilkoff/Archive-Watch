@@ -13,7 +13,8 @@
 # Google's stated criteria, from the rejection mail, each mapped to a beat:
 #
 #   "demonstrate the full operational functionality of every requested scope"
-#       -> beats 5-9: create, bind, go live, chat, end. Not just sign-in.
+#       -> beats 5-12: create, bind, go live, thumbnail, viewers, chat read + the
+#          host-pressed post, end. Not just sign-in.
 #   "show the changes triggered in the app reflected in the user's account"
 #       -> beat 10: YouTube Studio's own Live tab, with the broadcast in it.
 #   "the consent screen must be displayed with all requested scopes fully
@@ -116,23 +117,28 @@ cat <<'TXT'
            worth 10 seconds, because it shows the app checking itself before
            it touches the account. Note that the chat column is ABSENT here:
            nothing is going out, so there is no audience.
-        8. Press "Go Live (ends the preview)". The badge turns red and reads
-           "going out". This is liveStreams.insert + liveBroadcasts.insert +
-           bind + transition — the write half of the scope.
+        8. Press "Go Live". The STREAM header turns to "● LIVE 0:04 · N Mbps"
+           and the OUTPUT column becomes "Live on YouTube, as <channel>" with
+           the audience link. This is liveStreams.insert +
+           liveBroadcasts.insert + bind + transition — the write half.
         9. Show the program: the film, your camera tile, the lower third.
-           Optionally switch Placement to "Film, you, and your guests".
-       10. CHAT. Now that you are live, the chat column appears. Post a message
-           from a phone or a second browser into the broadcast's live chat and
-           show it arriving over the film. That is the read-chat half of the
-           scope, and the ON SCREEN column shows the host's controls for it.
-           If nothing appears within ~30 s, carry on to 11 and cut this in the
-           edit — beats 5-9 and 11-12 already cover read and write.
+           About ten seconds in the app sets the broadcast's THUMBNAIL to a
+           still of this picture (thumbnails.set) — beat 11 shows it arrived.
+       10. THE AUDIENCE. Open the audience link on a phone and let it play:
+           the AUDIENCE header reads "1 watching" (videos.list,
+           liveStreamingDetails). Then press "Share the film in chat" and show
+           the line — the film's title and its Internet Archive link — arriving
+           in the broadcast's own chat on the phone (liveChatMessages.insert),
+           and in the AUDIENCE pane (the read-chat half). Say it only ever
+           posts when the host presses it.
        11. THE SOURCE ACCOUNT. Switch to studio.youtube.com, Content -> Live,
-           and show the broadcast you just created, with the title you typed.
-           Google asked for this in as many words; the first video lacked it.
+           and show the broadcast you just created: your title, Unlisted, "Live
+           now", and the program still as its thumbnail. Google asked for this
+           in as many words; the first video lacked it.
        12. Press "End the broadcast" in the app. Back in YouTube Studio,
-           refresh, and show it is no longer live. That is transition to
-           complete — the app cleaning up after itself, which is the strongest
+           refresh: "Streamed" — transition to complete. Say that a show that
+           never reaches live is DELETED instead, so nothing is left in
+           Upcoming — the app cleans up after itself, which is the strongest
            argument that it uses the scope narrowly.
        13. Close on the Studio at rest.
 
