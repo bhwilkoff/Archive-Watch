@@ -1021,6 +1021,18 @@
    "kind": "feature-film",
    "mediaId": null,
    "reviewer": "lvplaclair"
+  },
+  {
+   "at": "2026-09-23T01:30:08.497161+00:00",
+   "id": "TerrorIsland",
+   "title": "Terror Island",
+   "slot": "double-bill",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mw5lqnz5xr25",
+   "format": "video",
+   "kind": "silent-film",
+   "mediaId": null,
+   "reviewer": null
   }
  ]
 }

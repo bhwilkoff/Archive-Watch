@@ -1126,6 +1126,69 @@
     "reposts": 0,
     "replies": 0
    }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mvnsmx7i3a2k",
+   "platform": "bluesky",
+   "id": "TheManWhoCheatedHimself1950",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-09-16T18:50:47.585231+00:00",
+   "sampled": "2026-09-23T01:30:23.194548+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 1
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117282220770333658",
+   "platform": "mastodon",
+   "id": "TheManWhoCheatedHimself1950",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-09-16T18:50:47.585231+00:00",
+   "sampled": "2026-09-23T01:30:23.194548+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mvoicfwurf2d",
+   "platform": "bluesky",
+   "id": "silent-madame-dubarry",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-09-17T01:18:35.504910+00:00",
+   "sampled": "2026-09-23T01:30:23.194548+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mw33wisf5m2u",
+   "platform": "bluesky",
+   "id": "Please_Murder_Me_movie",
+   "slot": "viewer-said",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-09-22T01:41:44.639878+00:00",
+   "sampled": "2026-09-23T01:30:23.194548+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
   }
  ]
 }
