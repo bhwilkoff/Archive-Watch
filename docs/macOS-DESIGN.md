@@ -2485,3 +2485,23 @@ file starts at the first keyframe so it plays from its first frame. The folder
 comes from the Save panel because the app's sandbox grants only user-selected
 files; adding a Movies entitlement would be a new App Store review line for
 something the panel already does natively.
+
+## §D36 — The film pauses from the keyboard, and the room pauses with it
+
+Broadcast ▸ **Pause the Film** / **Play the Film**, ⇧⌘Space. The title follows
+the player's own `timeControlStatus`, and the item is disabled when the Studio
+has no film.
+
+**Why.** Stopping the film to talk about a scene is the moment a watch-along
+exists for, and it was the one show action with no key: the mic, the duck, the
+lower third, the cards and the scenes all had one, and the film needed the
+pointer on the player's own transport. A host mid-sentence is not aiming at a
+scrubber.
+
+**How to apply.** It toggles the player the Studio registered
+(`StudioSession.toggleFilmPlayback`), and nothing else. The friends' room
+follows because `StudioRoomHost` already observes that player, so there is no
+second path to keep in step. Verified from the live Worker, not the app: the
+`AW_STUDIO_MAC_PAUSE="20@35"` door took room S4BS to `paused:true`
+(generation 2) and back to `paused:false` (generation 3), with the position
+held at 1705.3 s across the pause.

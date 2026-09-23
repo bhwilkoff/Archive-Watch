@@ -591,8 +591,35 @@ public final class StudioSession {
     /// Decision 133's defect (a value that lands nowhere), and the fix is the
     /// same one: remove the timing question rather than ask each caller to get
     /// it right.
-    private weak var surfacePlayer: AVPlayer?
+    private weak var surfacePlayer: AVPlayer? {
+        didSet { observeFilmPlayback() }
+    }
     private var surfaceArchiveID: String?
+
+    /// Whether the film is playing, OBSERVABLY — a menu title that says
+    /// "Pause" over a paused film is a control that lies about itself.
+    public private(set) var filmIsPlaying = false
+    @ObservationIgnored private var filmPlaybackObserver: NSKeyValueObservation?
+    public private(set) var hasFilm = false
+
+    /// THE PAUSE FOR TALKING. Stopping the film to discuss a scene is the
+    /// moment a watch-along exists for, and it should not need the pointer.
+    /// A room follows on its own: `StudioRoomHost` observes this same player.
+    public func toggleFilmPlayback() {
+        guard let p = surfacePlayer ?? localPlayer, p.currentItem != nil else { return }
+        if p.timeControlStatus == .paused { p.play() } else { p.pause() }
+    }
+
+    private func observeFilmPlayback() {
+        filmPlaybackObserver = nil
+        hasFilm = surfacePlayer != nil
+        guard let p = surfacePlayer else { filmIsPlaying = false; return }
+        filmPlaybackObserver = p.observe(\.timeControlStatus, options: [.initial, .new]) {
+            [weak self] p, _ in
+            let playing = p.timeControlStatus != .paused
+            Task { @MainActor in self?.filmIsPlaying = playing }
+        }
+    }
 
     /// Called by every macOS/iOS player surface as soon as it has a player.
     /// Carries the old `attachIfArmed` behavior unchanged, and remembers the
@@ -1429,6 +1456,19 @@ public final class StudioSession {
                     let env = ProcessInfo.processInfo.environment
                     if let t = env["AW_STUDIO_MAC_READBACK"].flatMap(Int.init), proofTicks == t {
                         Task { await self.debugLogBroadcast() }
+                    }
+                    // AW_STUDIO_MAC_PAUSE="20@35": Broadcast ▸ Pause the Film's
+                    // own function at each tick, so a room's paused flag can be
+                    // read back from the Worker, from outside the app.
+                    if let v = env["AW_STUDIO_MAC_PAUSE"],
+                       v.split(separator: "@").compactMap({ Int($0) }).contains(proofTicks) {
+                        self.toggleFilmPlayback()
+                        Task { @MainActor in
+                            try? await Task.sleep(for: .seconds(1))
+                            awdiag("AWPAUSE door toggled at %d filmIsPlaying=%@ room=%@",
+                                   self.proofTicks, self.filmIsPlaying ? "y" : "n",
+                                   StudioRoomHost.shared.code ?? "none")
+                        }
                     }
                     if let t = env["AW_STUDIO_MAC_SHARECHAT"].flatMap(Int.init), proofTicks == t {
                         Task {

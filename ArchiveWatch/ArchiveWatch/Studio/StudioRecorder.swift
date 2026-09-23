@@ -7,6 +7,14 @@ import Foundation
 /// publisher sends are wrapped as `CMSampleBuffer`s with format descriptions
 /// built from the stream's own `avcC` and AudioSpecificConfig. The file begins
 /// at the first keyframe, so it plays from its first frame.
+/// Its own type rather than `StudioPlatformError`: a file that cannot be
+/// written is not a platform's answer, and borrowing that type made every
+/// harness that compiles the engine also need the platform clients.
+public struct StudioRecordingError: Error, CustomStringConvertible {
+    public let description: String
+    public init(_ description: String) { self.description = description }
+}
+
 public actor StudioRecorder {
     private let writer: AVAssetWriter
     private let videoInput: AVAssetWriterInput
@@ -39,7 +47,7 @@ public actor StudioRecorder {
                 allocator: kCFAllocatorDefault, codecType: kCMVideoCodecType_H264,
                 width: Int32(config.width), height: Int32(config.height),
                 extensions: ext as CFDictionary, formatDescriptionOut: &vf) == noErr,
-              let vf else { throw StudioPlatformError.badResponse("recorder: no video format") }
+              let vf else { throw StudioRecordingError("recorder: no video format") }
         videoFormat = vf
 
         var asbd = AudioStreamBasicDescription(
@@ -55,7 +63,7 @@ public actor StudioRecorder {
                 magicCookieSize: cookie.count, magicCookie: raw.baseAddress,
                 extensions: nil, formatDescriptionOut: &af)
         }
-        guard status == noErr, let af else { throw StudioPlatformError.badResponse("recorder: no audio format") }
+        guard status == noErr, let af else { throw StudioRecordingError("recorder: no audio format") }
         audioFormat = af
 
         videoInput = AVAssetWriterInput(mediaType: .video, outputSettings: nil, sourceFormatHint: vf)
@@ -63,12 +71,12 @@ public actor StudioRecorder {
         videoInput.expectsMediaDataInRealTime = true
         audioInput.expectsMediaDataInRealTime = true
         guard writer.canAdd(videoInput), writer.canAdd(audioInput) else {
-            throw StudioPlatformError.badResponse("recorder: inputs refused")
+            throw StudioRecordingError("recorder: inputs refused")
         }
         writer.add(videoInput)
         writer.add(audioInput)
         guard writer.startWriting() else {
-            throw StudioPlatformError.badResponse("recorder: \(writer.error.map { "\($0)" } ?? "could not start")")
+            throw StudioRecordingError("recorder: \(writer.error.map { "\($0)" } ?? "could not start")")
         }
     }
 

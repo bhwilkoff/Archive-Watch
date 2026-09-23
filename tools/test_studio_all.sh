@@ -202,6 +202,9 @@ DEC=ArchiveWatch/ArchiveWatch/Studio/FilmAudioDecoder.swift
 SHIM=tools/harness_awdiag.swift
 PUB=ArchiveWatch/ArchiveWatch/Studio/RTMPPublisher.swift
 ENG=ArchiveWatch/ArchiveWatch/Studio/StudioEngine.swift
+# The engine writes the recording itself (§D35), so every case that compiles
+# $ENG needs the recorder too.
+REC=ArchiveWatch/ArchiveWatch/Studio/StudioRecorder.swift
 # $ENG's `Configuration.applyOutputSettings()` reads the host's §D4 choices, so
 # every case that compiles $ENG needs this too — six cases failed to build the
 # moment it landed, which is the same "every case that compiles $ENG needs
@@ -235,16 +238,16 @@ swift_case "8.4 rtmp reconnect"    "$PUB" "$MEDIA" "$SHIM" tools/test_rtmp_recon
 # happens once, so this asserts the frames are the SAME frames and that both
 # servers read a complete stream back — not merely that two sockets opened.
 swift_case "8.37 simulcast"        "$PUB" "$MEDIA" "$SHIM" tools/test_studio_simulcast.swift
-swift_case "8.5 thermal"           "$PUB" "$ENG" "$CHATFILTER" "$OUT" "$AUD" "$OVL" "$CHAT" "$CHATYT" "$SHIM" tools/test_studio_thermal.swift
-swift_case "8.6 back-pressure"     "$PUB" "$ENG" "$CHATFILTER" "$OUT" "$AUD" "$OVL" "$CHAT" "$CHATYT" "$SHIM" tools/test_studio_backpressure.swift
-swift_case "8.15 audio ring FIFO"  "$PUB" "$ENG" "$CHATFILTER" "$OUT" "$AUD" "$OVL" "$CHAT" "$CHATYT" "$SHIM" tools/test_studio_ring.swift
-swift_case "8.16 programme rate"   "$PUB" "$ENG" "$CHATFILTER" "$OUT" "$AUD" "$OVL" "$CHAT" "$CHATYT" "$DEC" "$SHIM" tools/test_studio_rate.swift
-swift_case "8.17 tap resampler"    "$PUB" "$ENG" "$CHATFILTER" "$OUT" "$AUD" "$OVL" "$CHAT" "$CHATYT" "$SHIM" tools/test_studio_resample.swift
+swift_case "8.5 thermal"           "$PUB" "$ENG" "$REC" "$CHATFILTER" "$OUT" "$AUD" "$OVL" "$CHAT" "$CHATYT" "$SHIM" tools/test_studio_thermal.swift
+swift_case "8.6 back-pressure"     "$PUB" "$ENG" "$REC" "$CHATFILTER" "$OUT" "$AUD" "$OVL" "$CHAT" "$CHATYT" "$SHIM" tools/test_studio_backpressure.swift
+swift_case "8.15 audio ring FIFO"  "$PUB" "$ENG" "$REC" "$CHATFILTER" "$OUT" "$AUD" "$OVL" "$CHAT" "$CHATYT" "$SHIM" tools/test_studio_ring.swift
+swift_case "8.16 programme rate"   "$PUB" "$ENG" "$REC" "$CHATFILTER" "$OUT" "$AUD" "$OVL" "$CHAT" "$CHATYT" "$DEC" "$SHIM" tools/test_studio_rate.swift
+swift_case "8.17 tap resampler"    "$PUB" "$ENG" "$REC" "$CHATFILTER" "$OUT" "$AUD" "$OVL" "$CHAT" "$CHATYT" "$SHIM" tools/test_studio_resample.swift
 # The camera-placement settings, asserted against what their LABELS promise.
 # Owner 2026-09-20: "I'm not sure the different settings for where your camera
 # will go ... are actually working as they should." They were not: theatre was
 # corner moved 64 px down, same 332x187 tile in the same corner.
-swift_case "8.22 camera placement" "$PUB" "$ENG" "$CHATFILTER" "$OUT" "$AUD" "$OVL" "$CHAT" "$CHATYT" "$SHIM" tools/test_studio_layouts.swift
+swift_case "8.22 camera placement" "$PUB" "$ENG" "$REC" "$CHATFILTER" "$OUT" "$AUD" "$OVL" "$CHAT" "$CHATYT" "$SHIM" tools/test_studio_layouts.swift
 # The camera-stall recovery RULE, which lived inside tvOS's own view loop and
 # so existed on exactly one platform while PARITY said "no recovery yet" for
 # the other two. No $ENG: the rule is a pure value type on purpose.
@@ -481,6 +484,7 @@ swift_case "8.42 chat column layout" \
   ArchiveWatch/ArchiveWatch/Studio/StudioChatYouTube.swift \
   ArchiveWatch/ArchiveWatch/Studio/StudioChatFilter.swift \
   ArchiveWatch/ArchiveWatch/Studio/StudioEngine.swift \
+  ArchiveWatch/ArchiveWatch/Studio/StudioRecorder.swift \
   "$SHIM" tools/test_studio_chatlayout.swift
 
 # §D26 — the audience reaching the screen. Renders through the PRODUCT's own
@@ -495,6 +499,7 @@ swift_case "8.48 shout-out" \
   ArchiveWatch/ArchiveWatch/Studio/StudioChatYouTube.swift \
   ArchiveWatch/ArchiveWatch/Studio/StudioChatFilter.swift \
   ArchiveWatch/ArchiveWatch/Studio/StudioEngine.swift \
+  ArchiveWatch/ArchiveWatch/Studio/StudioRecorder.swift \
   "$SHIM" tools/test_studio_shoutout.swift
 
 # §D30 — a card is a chapter on the replay. PURE mapping; the countdown case
@@ -509,6 +514,7 @@ swift_case "8.52 film chat line" \
   ArchiveWatch/ArchiveWatch/Studio/StudioChatYouTube.swift \
   ArchiveWatch/ArchiveWatch/Studio/StudioChatFilter.swift \
   ArchiveWatch/ArchiveWatch/Studio/StudioEngine.swift \
+  ArchiveWatch/ArchiveWatch/Studio/StudioRecorder.swift \
   "$SHIM" tools/test_studio_chatshare.swift
 
 swift_case "8.51 card markers" \
@@ -520,6 +526,7 @@ swift_case "8.51 card markers" \
   ArchiveWatch/ArchiveWatch/Studio/StudioChatYouTube.swift \
   ArchiveWatch/ArchiveWatch/Studio/StudioChatFilter.swift \
   ArchiveWatch/ArchiveWatch/Studio/StudioEngine.swift \
+  ArchiveWatch/ArchiveWatch/Studio/StudioRecorder.swift \
   "$SHIM" tools/test_studio_markers.swift
 
 swift_case "8.43 chat filter" \
@@ -531,6 +538,7 @@ swift_case "8.43 chat filter" \
   ArchiveWatch/ArchiveWatch/Studio/StudioChatYouTube.swift \
   ArchiveWatch/ArchiveWatch/Studio/StudioChatFilter.swift \
   ArchiveWatch/ArchiveWatch/Studio/StudioEngine.swift \
+  ArchiveWatch/ArchiveWatch/Studio/StudioRecorder.swift \
   "$SHIM" tools/test_studio_chatfilter.swift
 
 # US English in everything a person reads (CLAUDE.md, owner 2026-09-22). Found
@@ -681,7 +689,7 @@ if [ "$SOAK" = "1" ]; then
   # cannot finish is a suite nobody trusts.
   pkill -f "$SCRATCH/mtx.yml" >/dev/null 2>&1 || true
   sleep 2
-  swift_case "8.3 ten-minute soak" "$PUB" "$ENG" "$OUT" "$AUD" "$OVL" "$CHAT" "$CHATYT" "$SHIM" tools/test_studio_soak.swift
+  swift_case "8.3 ten-minute soak" "$PUB" "$ENG" "$REC" "$OUT" "$AUD" "$OVL" "$CHAT" "$CHATYT" "$SHIM" tools/test_studio_soak.swift
 else
   row "8.3 ten-minute soak" SKIP "not run without --soak"; SKIP=$((SKIP+1))
 fi

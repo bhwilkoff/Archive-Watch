@@ -756,6 +756,7 @@ tvOS 🚫 (Rule 8.8c).
 | Platform | State |
 |---|---|
 | macOS | ⏳ phase 1 (v1.42.508): the scene bar above STREAM, ⌘1-⌘9 under Broadcast ▸ Scenes, five editable starters, add / rename / delete, the two toggles in Scene settings, saved across launches, a Twitch chapter per switch. **Verified**: a switch to Intermission reached the wire (the server's frame is the card) and the selection survived a relaunch. **The toggles are verified** in the running app by `AW_STUDIO_SCENE_SELFTEST=1` (8 checks through the real controls; its negative control — capture ignoring the audio toggle — fails 4), and the Mixer column and Framing label say "shared" or "this scene" (v1.42.509). **Crossfade** (v1.42.510): 0.4 s `CIDissolveTransition` from a COPIED last frame, held until the scene's changes land; measured on the wire as a smooth YAVG ramp 35.2 → 27.6 over ~9 frames with no leading step. Scene settings ▸ Crossfade between scenes turns it off |
+| macOS | ✅ Pause the film from the keyboard (v1.42.535, §D36): Broadcast ▸ Pause the Film / Play the Film, ⇧⌘Space; the friends' room pauses with it — verified from the live Worker (paused:true, then false, position held). iOS/tvOS: the player's own transport, no Studio key |
 | iOS | ⏳ later, as a compact switcher |
 | tvOS | 🚫 Rule 8.8c ("two channels, a rotation, and nothing else") |
 | Android | 🚫 not planned |

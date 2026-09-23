@@ -1522,7 +1522,7 @@ public actor StudioEngine {
     public func startRecording(to url: URL) throws {
         guard recorder == nil else { return }
         guard let cfg = activeStreamConfig else {
-            throw StudioPlatformError.badResponse("Start the preview or go live first.")
+            throw StudioRecordingError("Start the preview or go live first.")
         }
         recorder = try StudioRecorder(url: url, config: cfg)
     }

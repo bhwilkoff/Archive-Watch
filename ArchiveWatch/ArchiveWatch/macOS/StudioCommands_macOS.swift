@@ -38,6 +38,7 @@ struct StudioBroadcastCommands: Commands {
 
             Divider()
 
+            FilmPlaybackCommand()
             MicMuteCommand()
             DuckCommand()
             LowerThirdCommand()
@@ -89,6 +90,17 @@ private struct EndCommand: View {
         Button("End the Broadcast") { Task { await StudioSession.shared.end() } }
             .keyboardShortcut("e", modifiers: [.command, .shift])
             .disabled(!studio.isLive)
+    }
+}
+
+private struct FilmPlaybackCommand: View {
+    private var studio: StudioSession { StudioSession.shared }
+    var body: some View {
+        Button(studio.filmIsPlaying ? "Pause the Film" : "Play the Film") {
+            studio.toggleFilmPlayback()
+        }
+        .keyboardShortcut(.space, modifiers: [.command, .shift])
+        .disabled(!studio.hasFilm)
     }
 }
 
