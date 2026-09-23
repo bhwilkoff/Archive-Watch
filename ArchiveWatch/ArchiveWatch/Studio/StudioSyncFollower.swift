@@ -35,6 +35,8 @@ public final class StudioSyncFollower {
     /// The rate the host says, so a nudge can be undone to the RIGHT value
     /// rather than to a hardcoded 1.0 — a host watching at 1.25 would
     /// otherwise be silently corrected to normal speed every few seconds.
+    /// Seconds a seek takes on this device (§11): the next one aims this far ahead.
+    private var seekLead: Double = 0.5
     private var hostRate: Double = 1.0
 
     public init(config: StudioSyncClient.Config = .live) {
@@ -140,8 +142,26 @@ public final class StudioSyncFollower {
             // Tolerances chosen so a seek lands where it was asked rather than
             // at the nearest keyframe — which on a long GOP can be seconds
             // away, i.e. the very error being corrected.
-            player.seek(to: CMTime(seconds: to, preferredTimescale: 600),
-                        toleranceBefore: .zero, toleranceAfter: .zero)
+            //
+            // AND AIMED AHEAD by how long a seek takes here. The host keeps
+            // playing while this one seeks, so a seek to where the host WAS
+            // lands behind: measured on an iPhone 12 joining a Studio room
+            // (2026-09-23), 0.9 s behind, then ~30 s of a 3% nudge to catch
+            // up. The lead is each device's own last measured seek time.
+            let lead = seekLead * hostRate
+            let started = Date()
+            player.seek(to: CMTime(seconds: to + lead, preferredTimescale: 600),
+                        toleranceBefore: .zero, toleranceAfter: .zero) { [weak self] done in
+                guard done else { return }
+                let took = Date().timeIntervalSince(started)
+                Task { @MainActor in
+                    guard let self else { return }
+                    self.seekLead = min(3, max(0, took))
+                    #if DEBUG
+                    awdiag("AWFOLLOW seek aimed +%.2fs, took %.2fs", lead, took)
+                    #endif
+                }
+            }
         case .setPaused(let paused):
             if paused { player.pause() } else { player.rate = Float(hostRate) }
         }
