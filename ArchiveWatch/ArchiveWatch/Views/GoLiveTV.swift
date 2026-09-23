@@ -57,6 +57,7 @@ struct GoLiveTV: View {
     @State private var platform: StudioPlatformAuth.Platform
     @State private var title: String
     @State private var privacy: YouTubePrivacy = .unlisted
+    @AppStorage(StudioSession.readYouTubeChatKey) private var readYouTubeChat = false
     @State private var signedIn = false
     /// DEBUG ONLY — `AW_STUDIO_DEST` offers a bench server beside the real
     /// platforms, so the commit chain this screen exists to trigger
@@ -187,7 +188,11 @@ struct GoLiveTV: View {
                     StudioSignInRow(platform: platform) { signedIn = $0 }
                         .id(platform.rawValue)
                     titleField
-                    if platform == .youtube { privacyChoice }
+                    if platform == .youtube {
+                        privacyChoice
+                        Toggle("Show chat from YouTube", isOn: $readYouTubeChat)
+                            .focusSection()
+                    }
                     cameraRow
                     layoutSection
                     actions

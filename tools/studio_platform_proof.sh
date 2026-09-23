@@ -79,7 +79,7 @@ if [ "$MODE" = bench ]; then
   MAC=$(ipconfig getifaddr en0)
   ENV="$ENV,\"AW_STUDIO_IOS\":\"$FILM\",\"AW_STUDIO_DEST\":\"rtmp://$MAC:1935/live\",\"AW_STUDIO_KEY\":\"bench\",\"AW_STUDIO_CHAT_DEMO\":\"1\""
 else
-  ENV="$ENV,\"AW_START_ITEM\":\"$FILM\",\"AW_AUTOPLAY\":\"1\",\"AW_STUDIO_GOLIVE\":\"$MODE\""
+  ENV="$ENV,\"AW_START_ITEM\":\"$FILM\",\"AW_AUTOPLAY\":\"1\",\"AW_STUDIO_GOLIVE\":\"$MODE\",\"AW_STUDIO_YT_CHAT\":\"1\""
 fi
 echo "== $MODE proof run: $FILM, ends at $SECS s on air"
 STARTED=$(date +%s)

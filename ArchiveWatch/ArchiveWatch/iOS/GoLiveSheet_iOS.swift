@@ -30,6 +30,7 @@ struct GoLiveSheet: View {
     @State private var title: String
     @State private var category = ""
     @State private var privacy: YouTubePrivacy = .unlisted
+    @AppStorage(StudioSession.readYouTubeChatKey) private var readYouTubeChat = false
     @State private var customURL = ""
     @State private var customKey = ""
     @State private var layout: StudioLayout = .corner
@@ -242,6 +243,7 @@ struct GoLiveSheet: View {
                 Picker("Privacy", selection: $privacy) {
                     ForEach(YouTubePrivacy.allCases, id: \.self) { Text($0.label).tag($0) }
                 }
+                Toggle("Show chat from YouTube", isOn: $readYouTubeChat)
             case .twitch:
                 TextField("Stream title", text: $title, axis: .vertical)
                     .lineLimit(1...3)

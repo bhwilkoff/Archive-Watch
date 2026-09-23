@@ -1889,6 +1889,7 @@ struct StudioDestinationSection: View {
     @State private var readiness: StudioPlatformAuth.Readiness?
     @State private var problem: String?
     @State private var working = false
+    @AppStorage(StudioSession.readYouTubeChatKey) private var readYouTubeChat = false
 
     private var authPlatform: StudioPlatformAuth.Platform {
         show.platform == .twitch ? .twitch : .youtube
@@ -2177,6 +2178,7 @@ struct StudioDestinationSection: View {
                 Picker("Privacy", selection: $show.privacy) {
                     ForEach(YouTubePrivacy.allCases, id: \.self) { Text($0.label).tag($0) }
                 }
+                Toggle("Show chat from YouTube", isOn: $readYouTubeChat)
             case .twitch:
                 labeled("Stream title") { TextField("", text: $show.streamTitle) }
                 labeled("Category") { TextField("", text: $show.category) }

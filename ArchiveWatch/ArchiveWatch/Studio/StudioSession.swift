@@ -342,8 +342,22 @@ public final class StudioSession {
     /// and iOS and tvOS — which arm the chat id and run their own engines
     /// (Decision 133) — never read YouTube chat at all. Found 2026-09-23 when
     /// the owner asked for every feature to be proved on the real platforms.
+    /// READING YOUTUBE CHAT IS THE HOST'S CHOICE, and off until they make it
+    /// (Decision 136). It is ~3,600 of a show's ~4,000 units against a daily
+    /// quota every host shares; a host who wants it turns it on once and it
+    /// stays on. Twitch chat costs nothing and is not gated.
+    public static let readYouTubeChatKey = "AWStudioReadYouTubeChat"
+
     public func attachYouTubeChatIfArmed(to e: StudioEngine) async {
         guard let chatID = armedYouTubeChatID, !chatID.isEmpty else { return }
+        var wanted = UserDefaults.standard.bool(forKey: Self.readYouTubeChatKey)
+        #if DEBUG
+        if ProcessInfo.processInfo.environment["AW_STUDIO_YT_CHAT"] == "1" { wanted = true }
+        #endif
+        guard wanted else {
+            diag("[AWSTUDIOCHAT] YouTube chat not read — the host has it off")
+            return
+        }
         if (try? await StudioPlatformAuth.token(for: .youtube)) != nil {
             // THE TOKEN IS ASKED FOR ON EVERY PAGE, not captured once. A
             // Google access token lasts about an hour, so a captured one
