@@ -1924,8 +1924,20 @@ struct StudioDestinationSection: View {
                 .padding(8)
                 .background(Color.secondary.opacity(0.10), in: RoundedRectangle(cornerRadius: 6))
             }
+            friendsRoom
+                #if DEBUG
+                // AW_STUDIO_MAC_ROOM=1 — press "Open a room" through the same
+                // function, once, when the show goes on air.
+                .task {
+                    if ProcessInfo.processInfo.environment["AW_STUDIO_MAC_ROOM"] == "1",
+                       room.hostCode == nil { await openRoom() }
+                }
+                #endif
             Button(role: .destructive) {
-                Task { await studio.end() }
+                Task {
+                    await studio.end()
+                    RoomJoin.shared.hostCode = nil
+                }
             } label: {
                 Text("End the broadcast").frame(maxWidth: .infinity)
             }
@@ -1945,6 +1957,52 @@ struct StudioDestinationSection: View {
             try? await Task.sleep(for: .seconds(2))
             copiedAt = nil
         }
+    }
+
+    // MARK: §D34 — the friends on the host's call
+
+    @Bindable private var room = RoomJoin.shared
+    @State private var roomWorking = false
+    @State private var roomProblem: String?
+
+    /// The audience link is for the WORLD; a room is for the people on the
+    /// host's call, who watch the film itself in step — at full quality, on
+    /// their own device — instead of a compressed stream seconds behind.
+    private var friendsRoom: some View {
+        VStack(alignment: .leading, spacing: 6) {
+            Text("Friends on your call").font(.caption.weight(.semibold))
+                .foregroundStyle(.secondary)
+            if let code = room.hostCode {
+                Text(code)
+                    .font(.system(size: 28, weight: .bold, design: .monospaced))
+                    .textSelection(.enabled)
+                Text("They enter it in Archive Watch ▸ Watch Together, on any device.")
+                    .font(.caption2).foregroundStyle(.secondary)
+                    .fixedSize(horizontal: false, vertical: true)
+                Button("Close the room") {
+                    StudioRoomHost.shared.stop()
+                    room.hostCode = nil
+                }
+                .controlSize(.small)
+            } else {
+                Button(roomWorking ? "Opening…" : "Open a room") { Task { await openRoom() } }
+                .controlSize(.small)
+                .disabled(roomWorking)
+                if let p = roomProblem {
+                    Text(p).font(.caption2).foregroundStyle(.orange)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
+            }
+        }
+    }
+
+    private func openRoom() async {
+        roomWorking = true
+        let r = await studio.openFriendsRoom()
+        room.hostCode = r.code
+        roomProblem = r.code == nil ? (r.problem ?? "The room could not be opened.") : nil
+        roomWorking = false
+        awdiag("AWROOM studio room %@", r.code ?? "FAILED — \(roomProblem ?? "")")
     }
 
     @ViewBuilder

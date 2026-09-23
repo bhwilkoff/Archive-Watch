@@ -2445,3 +2445,25 @@ is the channel; both are public, so the Studio can hand them over.
 (which carries the key, §5). End here has no shortcut — ⇧⌘E belongs to
 Broadcast ▸ End the Broadcast. Seen on a real unlisted YouTube show
 (`qbHX46p9X_U`).
+
+## §D34 — The friends on the host's call get a room, from the Studio
+
+On air, the Output column carries **Friends on your call** → **Open a room**:
+a four-character code, where to enter it ("Archive Watch ▸ Watch Together, on
+any device"), and **Close the room**. Friends who enter it watch the FILM ITSELF
+in step with the host's player — full quality, on their own device — while
+they all talk on whatever call they are already on. Ending the show closes the
+room.
+
+**Why.** SHAREPLAY §11.13, the owner's rule: *"hosting stays where the broadcast
+is."* On macOS the broadcast has been the Studio since §D7, but the room was
+still hosted from the Watch Together landing page, which predates the Studio
+owning its show. So the one feature that is literally "watching with your
+friends" was not in the surface where a host produces the show. The audience
+LINK (§D33) is for the world; the room is for the people on the call.
+
+**How to apply.** The room opens on the player the show uses
+(`StudioSession.openFriendsRoom`), and `end()` stops it, because a room exists
+to serve a stream. Verified on the LIVE Worker: room RWT2 held the Studio's
+film and position while the bench show ran, and answered `404 no such room`
+once the show ended.

@@ -1158,6 +1158,17 @@ public final class StudioSession {
     ///
     /// It may not fail an end: telling YouTube is a courtesy that can fail for
     /// a dozen reasons, and none of them should leave a show half torn down.
+    /// §D34 — a room for the friends on the host's call, opened on the
+    /// player the SHOW is using. SHAREPLAY §11.13: "hosting stays where the
+    /// broadcast is", and on macOS the broadcast is the Studio.
+    public func openFriendsRoom() async -> (code: String?, problem: String?) {
+        guard let p = surfacePlayer, let id = surfaceArchiveID else {
+            return (nil, "There is no film in the Studio to share.")
+        }
+        let code = await StudioRoomHost.shared.start(player: p, filmID: id)
+        return (code, StudioRoomHost.shared.problem)
+    }
+
     public func completeArmedBroadcast() async {
         audienceTask?.cancel(); audienceTask = nil
         audienceCount = nil
@@ -1179,6 +1190,8 @@ public final class StudioSession {
     }
 
     public func end() async {
+        // A room exists to serve the stream (SHAREPLAY §11.13); it closes with it.
+        StudioRoomHost.shared.stop()
         // THE BROADCAST ENDS WITH THE SHOW. Taken BEFORE the teardown so the
         // id cannot be lost by anything below, and awaited rather than fired
         // into a Task: a host who presses End and quits should not race a
