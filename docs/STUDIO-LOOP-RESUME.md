@@ -219,3 +219,25 @@ of mine, both to avoid next time:
   path difference between launches or the key redaction eating the app path;
   unmeasured. Read `mediamtx`'s `paths/list` API (or `record: yes`) rather than
   assuming the path.
+
+## Autonomous platform proof (2026-09-23) — use this, not hand-typed devicectl
+
+`bash tools/studio_platform_proof.sh youtube|twitch|bench|state [seconds] [film]`
+runs a whole proof on the TEST iPhone 12 and cleans up after itself; a
+project-local permission rule (`.claude/settings.local.json`, gitignored)
+allows exactly this script, at the owner's request ("You really should be able
+to run commands yourself or create structures that allow you to do fully
+autonomous testing"). YouTube runs are UNLISTED on Learning is Change and end
+themselves. Twitch needs a one-time sign-in on the phone first.
+
+**Proved on YouTube so far** (GYAQsLMDwho, 7uM5LtZ-1A8): latency=low + DVR +
+recordFromStart + embed held; iOS reads YouTube chat; Share the film in chat
+lands under the host's handle; End marks the broadcast complete; the Audience
+section with the Share button renders during a real broadcast.
+
+**OPEN — the viewer count.** The READ is proved (791 from a live public
+stream), and every read during our own broadcasts returned `absent` for 4+
+minutes. The instrument is the suspect, not the app: the "viewer" was a Chrome
+tab whose player never left its spinner (`currentTime` 0), so YouTube's API had
+no real viewer to count. Next: a viewer that actually plays (a foreground
+window, or a second device), then re-read.
