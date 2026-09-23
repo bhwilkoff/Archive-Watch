@@ -25,13 +25,18 @@ OUT=${TMPDIR:-/tmp}/aw-proof; mkdir -p "$OUT"
 LOG="$OUT/diag-$MODE-$(date +%s).log"
 
 apps() { xcrun devicectl device info processes --device $PHONE 2>/dev/null | grep -c "ArchiveWatch.app/ArchiveWatch"; }
+# Up to three tries: an app still tearing down a show survived a single
+# terminate + 2 s wait (2026-09-23), and the run reported it honestly.
 stop_app() {
-  for p in $(xcrun devicectl device info processes --device $PHONE 2>/dev/null \
-             | grep "ArchiveWatch.app/ArchiveWatch" | awk '{print $1}'); do
-    xcrun devicectl device process terminate --device $PHONE --pid "$p" >/dev/null 2>&1
+  for attempt in 1 2 3; do
+    for p in $(xcrun devicectl device info processes --device $PHONE 2>/dev/null \
+               | grep "ArchiveWatch.app/ArchiveWatch" | awk '{print $1}'); do
+      xcrun devicectl device process terminate --device $PHONE --pid "$p" >/dev/null 2>&1
+    done
+    sleep 3
+    [ "$(apps)" = "0" ] && return 0
   done
-  sleep 2
-  [ "$(apps)" = "0" ] || { echo "!! the app is still running on the phone"; return 1; }
+  echo "!! the app is still running on the phone"; return 1
 }
 # ONLY THIS RUN'S LINES. The phone's log survives between launches and is
 # emptied only when the new instance writes its first line — so the first

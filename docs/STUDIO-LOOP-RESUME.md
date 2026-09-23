@@ -260,3 +260,13 @@ Both Mac accounts are signed in (YouTube = Learning is Change, Twitch =
 licbhwilkoff; `AW_STUDIO_SIGNIN=youtube,twitch` re-runs the Studio's own
 sign-in flows). The owner approved public Twitch test broadcasts on licbhwilkoff
 ("No one is following that twitch stream").
+
+**CORRECTION to the thermal note above (2026-09-23):** the app plays the
+`.mp4`, and The Man Who Laughs' `.mp4` is an **H.264 480p** derivative (681 MB),
+not the 1080p HEVC `.mkv` — so "the HEVC decode is the suspect" was wrong and
+the heat is our own pipeline (1080p30 encode, composite, camera). A 300 s bench
+run on The General (also 480p H.264) went nominal -> fair at 195 s and never
+reached `.serious`, at full 6000 kbps. The `.serious` run differed in two ways,
+both unmeasured: RTMPS/TLS to YouTube (bench is plaintext), and a phone already
+warm from back-to-back runs. Next measurement: the same film, TLS vs plaintext,
+from a cold phone.
