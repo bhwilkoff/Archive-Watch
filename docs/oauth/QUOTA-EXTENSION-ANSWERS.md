@@ -81,20 +81,25 @@ Complete a compliance audit to request for additional quota.
 **Quota requested: 500,000 units/day.** Justification:
 
 > Quota belongs to the project, so every host shares it. After the
-> reductions in Decision 136 a two-hour show costs about 500 units without
+> reductions in Decision 136 a two-hour show costs about 375 units without
 > chat (insert stream + broadcast + bind 150, thumbnail 50, complete 50,
-> viewer count every 60 s 120, readiness reads ~10) and about 4,100 with
+> viewer count every 60 s 120, readiness reads ~4) and about 4,000 with
 > chat read every 10 s (liveChatMessages.list, 720 calls x 5 units). At the
 > default 10,000 units that is two chat-reading shows a day for everyone.
 > 500,000 units supports roughly 100 such shows a day. The app also offers a
 > stream-key connection that uses no API at all, and stops reading on
 > quotaExceeded instead of retrying.
 
-## Section 6 — Evidence
-- Demo video: the unlisted OAuth demo video (the same one sent for OAuth
-  verification) once recorded.
-- Screenshots: the Studio's Output column signed in; the go-live broadcast
-  on YouTube Studio; the chat in the AUDIENCE pane.
+## Section 5/6 — Evidence (built 2026-09-23, in ~/Desktop/YouTube quota evidence/)
+| Form field | File |
+|---|---|
+| Privacy Policy screenshots | `privacy-policy-page.pdf` (Chrome print of the live page, URL on every page) |
+| Homepage screenshot | `homepage-privacy-link.png` (About view: Watch Together card naming YouTube, beside Privacy / Terms) |
+| Terms of Service documentation | `terms-of-service.pdf` (live terms.html, with the YouTube API Services section) |
+| Conditional: OAuth flow + player | `oauth-flow-scopes-revocation-and-player.pdf` (unverified-app screen, consent listing "Manage your YouTube account", Studio Sign out, revocation policy) |
+| Architecture diagram | `architecture-diagram.png` |
+| User flow diagrams | `user-flow-diagrams.png` |
+| Other supporting materials | `quota-justification-and-compliance.pdf` |
 
 ## Section 7 — Attestations
 Owner reads and ticks each, then Submit.
