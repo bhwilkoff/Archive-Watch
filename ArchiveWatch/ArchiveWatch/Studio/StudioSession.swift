@@ -172,6 +172,16 @@ public final class StudioSession {
     public private(set) var armedExtras: [StudioExtraDestination] = []
     public func armExtras(_ extras: [StudioExtraDestination]) { armedExtras = extras }
 
+    /// §D22: TWITCH CHAT BELONGS ONLY ON A SHOW THAT IS GOING TO TWITCH —
+    /// as the primary broadcast, or as a simulcast extra. Signed in to Twitch
+    /// is not the same fact: a proof run on YouTube (5shlTXfHNUA, 2026-09-23)
+    /// logged "reading this broadcast's own channel #licbhwilkoff", which
+    /// would have put the host's Twitch chat over a YouTube audience.
+    public var showGoesToTwitch: Bool {
+        if case .twitch = armedBroadcast { return true }
+        return armedExtras.contains { $0.name == GoLivePlatform.twitch.label }
+    }
+
     /// The placement the host chose, remembered until the engine exists.
     ///
     /// `arm` records INTENT and the engine is built later, when the player
@@ -800,7 +810,7 @@ public final class StudioSession {
         //
         // `twitchAccount()` is the same read the readiness gate already makes,
         // so this costs no new call shape and no new credential.
-        if let account = try? await StudioPlatformAuth.twitchAccount() {
+        if showGoesToTwitch, let account = try? await StudioPlatformAuth.twitchAccount() {
             await e.attachTwitchChat(channel: account.login)
             diag("[AWSTUDIOCHAT] reading this broadcast's own channel #\(account.login)")
         } else if let channel = ProcessInfo.processInfo.environment["AW_STUDIO_CHAT"],

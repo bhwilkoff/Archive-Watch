@@ -680,6 +680,16 @@ that is wrong about the rest** — and neither is visible to a harness that
 builds a fresh renderer per call, which §8.48 did until it was made to reuse
 one.
 
+##### The MAC STUDIO proved on YouTube — 2026-09-23, broadcast `5shlTXfHNUA` (Learning is Change, unlisted)
+
+The owner, correctly: *"We are testing the full Watch Together studio that we've
+built for the mac."* Run through the Mac Studio's own session and end path:
+latency=low / DVR / recordFromStart / embed HELD; YouTube chat read; **Share the
+film in chat** posted; a **scene switch mid-broadcast** (Discussion, side by
+side) with the 0.4 s crossfade; **End** marked the broadcast complete after
+240 s. "N watching" still read `absent` throughout — no counted viewer.
+It also caught the Twitch-chat leak fixed in v1.42.522.
+
 ##### Proved on YouTube itself — 2026-09-23, broadcast `GYAQsLMDwho` (iPhone 12, Learning is Change, unlisted)
 
 The owner: *"make sure anything we are adding can actually work on the systems

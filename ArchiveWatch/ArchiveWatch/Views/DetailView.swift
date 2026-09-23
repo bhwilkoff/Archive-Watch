@@ -1134,7 +1134,8 @@ struct PlayerScreen: View {
         // The host's OWN channel (§D22). This surface read AW_STUDIO_CHAT and
         // nothing else until 2026-09-22 — see StudioSession for why that meant
         // the product had no Twitch chat and a test showed a stranger's.
-        if let account = try? await StudioPlatformAuth.twitchAccount() {
+        if StudioSession.shared.showGoesToTwitch,
+           let account = try? await StudioPlatformAuth.twitchAccount() {
             await engine.attachTwitchChat(channel: account.login)
         } else if let channel = ProcessInfo.processInfo.environment["AW_STUDIO_CHAT"],
                   !channel.isEmpty {
