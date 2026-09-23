@@ -63,6 +63,8 @@ struct RootView: View {
             guard DownloadAudit.enabled else { return }
             await DownloadAudit.run(store: store, container: modelContext.container)
         }
+        // The Studio's read-only DEBUG probes; absent here until §D27 needed one.
+        .task { _ = await StudioDoors.runStateProbeIfAsked() }
         .task { WatchTogether.shared.listen() }
         // THE RED BUTTON STOPS THE FILM (§D12). Closing this window is not a
         // quit, so SwiftUI keeps the scene's state — including a playing
@@ -355,7 +357,7 @@ struct RootView: View {
                                 let d = try await StudioGoLive.destination(for: req, film: it)
                                 dest = d.url
                                 StudioSession.shared.armYouTubeChat(d.liveChatID)
-                                StudioSession.shared.armBroadcast(d.broadcastID)
+                                StudioSession.shared.armBroadcast(d.broadcast)
                             } catch {
                                 awdiag("AWMACDOOR %@ go-live FAILED: %@", macDoor,
                                        "\(error)".split(whereSeparator: { $0 == "\n" })

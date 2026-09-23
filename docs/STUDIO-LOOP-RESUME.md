@@ -103,9 +103,13 @@ some SwiftUI targets do not register the click. The Studio window sits at
 
 1. **The Studio's visual polish** — the prompt's second clause, least
    addressed. Compare against Home before designing.
-2. **A viewer count.** Nothing knows who is watching. Both platforms return
-   it and the token is already held. This is the cheapest real answer left to
-   "genuine opportunities for connection".
+2. **A viewer count — BUILT, not yet read live** (§D27, v1.42.499).
+   `StudioSession.audienceCount`, polled every 30 s from `armBroadcast` to
+   `completeArmedBroadcast`, drawn as "N watching" in the macOS AUDIENCE pane.
+   Verify with `AW_STUDIO_AUTH=audience:youtube:<liveVideoID>` (or
+   `audience:twitch:<login>`) once a platform is signed in on the Mac — the
+   Debug build was signed out of both on 09-23, so the probe could only report
+   that. iOS/tvOS have the value and no badge.
 3. **Scenes** — the largest remaining OBS gap. A design question first
    (`binding-design-doc-discipline`): our arrangements are presets and
    framing is per-show, so "scenes" would change both.
@@ -119,10 +123,14 @@ some SwiftUI targets do not register the click. The Studio window sits at
    receives no video. The film is a 1080p **HEVC** Blu-ray rip and
    `attachFilm` requests no pixel format — that is the next suspect and it is
    unmeasured.
-5. **Ending a show does not end the YouTube broadcast** — 403
-   `invalidTransition`, because the RTMP publisher is torn down before
-   `complete()` is called. An ordering fix, not yet done. The owner's channel
-   may still hold an unlisted broadcast in "Live now".
+5. **Ending a show now ends the YouTube broadcast — in source, not yet on
+   YouTube** (v1.42.499). `StudioSession.completeArmedBroadcast()` runs
+   BEFORE each platform's `engine.stop()`, and iOS and tvOS call it too — they
+   had armed the id and never completed it at all (Decision 133 again). §8.49
+   pins the ordering. A refused transition now logs the broadcast's
+   `lifeCycleStatus`, so the next real YouTube End either prints
+   `marked complete` or names the state it met. The owner's channel may still
+   hold an older unlisted broadcast in "Live now".
 6. **tvOS and iOS have the engine half of §D26 and no surface.** `showShoutOut`
    / `expireShoutOutIfDue` are on the shared `StudioEngine` and every Apple
    composite would draw a banner; neither surface offers a list to pick from.
@@ -149,3 +157,36 @@ else is staged:
   account's Linked apps page, and `myaccount.google.com/u/N/b/<brandID>/connections`
   does not render. **The only handle on one is the refresh token via the
   revoke endpoint.**
+
+## The platform APIs — what we do not use yet (researched 2026-09-23)
+
+The owner asked whether we get the most out of YouTube's and Twitch's live
+APIs. Ranked by connection value per effort. **Every YouTube item fits the
+`auth/youtube` scope under verification — do NOT add a Google scope while it
+is pending** (a new scope means a new demo video and a new review).
+
+1. DONE — YouTube `contentDetails.latencyPreference: low` (+ `enableDvr`,
+   `recordFromStart`, `enableEmbed` stated rather than defaulted).
+2. DONE (unverified live) — viewer count, above.
+3. Twitch **stream markers** (`POST /helix/streams/markers`, held scope
+   `channel:manage:broadcast`) at film start / intermission / credits — the
+   cards are already those moments. Needs VOD enabled on the channel.
+4. YouTube **`liveChatMessages.insert`** (held scope, 50 units each): a
+   `textMessageEvent` with the film's archive.org link when a film starts, and
+   `pollEvent` polls ("keep watching or intermission?"). Needs a quota budget.
+5. YouTube **captions via `liveStreams.cdn.ingestionInfo`'s
+   `closedCaptionsIngestionUrl`** (`closedCaptionsHttpPost`, 0 units) — the
+   film's own subtitle cues plus the host's speech as real toggleable
+   captions. Largest accessibility gain.
+6. YouTube `liveStreams.list?part=status` `healthStatus` into the health line
+   (§4: health is never hidden).
+7. Twitch EventSub WebSocket: `channel.chat.message` (held `user:read:chat`),
+   `channel.raid` (no scope) → §D26 acknowledgments.
+8. Host posting to Twitch chat / announcements — NEW scopes
+   (`user:write:chat`, `moderator:manage:announcements`), every host
+   re-consents. Twitch polls/predictions are Affiliate-only.
+
+**Owner calls, not built**: Twitch `tags` (a PATCH REPLACES the host's own
+channel tags every go-live — rejected for that reason), a default Twitch
+category and YouTube `categoryId` (editorial). Rights: Twitch retired Watch
+Parties 2024-04-02; public domain is the only route there.

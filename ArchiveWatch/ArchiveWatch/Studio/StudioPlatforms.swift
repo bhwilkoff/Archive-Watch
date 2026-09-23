@@ -704,8 +704,18 @@ public struct YouTubeLive: Sendable {
                    // autoStartStream so the broadcast goes live when bytes
                    // arrive, rather than needing a second transition the host
                    // would have to know about.
+                   // `low`, never the unstated `normal`: at normal a viewer's
+                   // chat answers a picture the host saw 15-30 s earlier, and
+                   // a watch-along is a conversation. Not `ultraLow`, which
+                   // gives up captions. DVR and the recording are stated
+                   // rather than defaulted — the replay is where people who
+                   // missed the show find it.
                    "contentDetails": ["enableAutoStart": true,
-                                      "enableAutoStop": true]]))
+                                      "enableAutoStop": true,
+                                      "latencyPreference": "low",
+                                      "enableDvr": true,
+                                      "recordFromStart": true,
+                                      "enableEmbed": true]]))
         let broadcast = try HTTP.json(bcData)
         guard let broadcastID = broadcast["id"] as? String else {
             throw StudioPlatformError.badResponse("liveBroadcasts.insert returned no id")
@@ -728,6 +738,30 @@ public struct YouTubeLive: Sendable {
         _ = try await HTTP.send(try request(
             "/liveBroadcasts/transition", method: "POST",
             query: ["part": "id,status", "id": broadcastID, "broadcastStatus": "complete"]))
+    }
+
+    /// `liveStreamingDetails.concurrentViewers` — a broadcast id IS its video
+    /// id. Absent until the broadcast is live, and absent when the owner has
+    /// hidden the count, so nil is "not reported" rather than zero.
+    public func concurrentViewers(videoID: String) async throws -> Int? {
+        let (data, _) = try await HTTP.send(try request(
+            "/videos", method: "GET",
+            query: ["part": "liveStreamingDetails", "id": videoID]))
+        let items = try HTTP.json(data)["items"] as? [[String: Any]] ?? []
+        let details = items.first?["liveStreamingDetails"] as? [String: Any]
+        // Documented as an unsigned long, delivered as a STRING.
+        if let s = details?["concurrentViewers"] as? String { return Int(s) }
+        return details?["concurrentViewers"] as? Int
+    }
+
+    /// The broadcast's `status.lifeCycleStatus` — `live`, `complete`,
+    /// `testing`, … — so a refused transition can say what state it met.
+    public func lifeCycleStatus(broadcastID: String) async throws -> String {
+        let (data, _) = try await HTTP.send(try request(
+            "/liveBroadcasts", method: "GET",
+            query: ["part": "status", "id": broadcastID]))
+        let items = try HTTP.json(data)["items"] as? [[String: Any]] ?? []
+        return (items.first?["status"] as? [String: Any])?["lifeCycleStatus"] as? String ?? "absent"
     }
 
     /// One page of live chat. Polling interval comes from the response —
@@ -809,6 +843,24 @@ public struct TwitchLive: Sendable {
         let (data, _) = try await HTTP.send(try request("/games", method: "GET",
                                                         query: ["name": name]))
         return ((try HTTP.json(data)["data"] as? [[String: Any]])?.first)?["id"] as? String
+    }
+
+    #if DEBUG
+    /// A channel's user id from its login — for the audience probe door only.
+    func userID(login: String) async throws -> String? {
+        let (data, _) = try await HTTP.send(try request("/users", method: "GET",
+                                                        query: ["login": login]))
+        return ((try HTTP.json(data)["data"] as? [[String: Any]])?.first)?["id"] as? String
+    }
+    #endif
+
+    /// `viewer_count` from `GET /helix/streams`. An offline channel returns an
+    /// empty `data`, which is nil — not live yet — rather than zero.
+    public func viewerCount(userID: String) async throws -> Int? {
+        let (data, _) = try await HTTP.send(try request("/streams", method: "GET",
+                                                        query: ["user_id": userID]))
+        let first = (try HTTP.json(data)["data"] as? [[String: Any]])?.first
+        return first?["viewer_count"] as? Int
     }
 
     /// The ingest endpoint and the key. The ingest list is PUBLIC (no auth) and

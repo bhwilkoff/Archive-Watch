@@ -1093,7 +1093,7 @@ struct PlayerScreen: View {
                 let resolved = try await StudioGoLive.destination(for: request, film: film)
                 destination = resolved.url
                 StudioSession.shared.armYouTubeChat(resolved.liveChatID)
-                StudioSession.shared.armBroadcast(resolved.broadcastID)
+                StudioSession.shared.armBroadcast(resolved.broadcast)
             } catch {
                 // LOG THE RAW THING, SHOW A SENTENCE. Without this line the
                 // four YouTube writes failed leaving no trace anywhere: the
@@ -1380,6 +1380,7 @@ struct PlayerScreen: View {
                 break
             }
         }
+        await StudioSession.shared.completeArmedBroadcast()
         await engine.stop()
         FilmAudioBridge.shared.setSink(nil)
         studioAudioPuller?.cancel(); studioAudioPuller = nil

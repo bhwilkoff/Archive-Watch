@@ -561,7 +561,21 @@ struct StudioWindowView: View {
     /// The header says NOTHING when there is nothing to say. A count of chat
     /// lines is not a fact a host needs — they are looking at the lines —
     /// and the first version of this printed a stray caret beside it.
-    private var audienceBadge: some View { EmptyView() }
+    ///
+    /// HOW MANY PEOPLE ARE WATCHING is (§D27): most of an audience never
+    /// types, and without it a host talks into silence not knowing whether
+    /// anyone is there. Shown only once the platform reports it — never a
+    /// zero we assumed.
+    @ViewBuilder private var audienceBadge: some View {
+        if let n = studio.audienceCount {
+            Label(n == 1 ? "1 watching" : "\(n.formatted()) watching", systemImage: "person.2.fill")
+                .labelStyle(.titleAndIcon)
+                .font(.caption.weight(.semibold))
+                .monospacedDigit()
+                .foregroundStyle(.secondary)
+                .help("Reported by the platform, about every 30 seconds")
+        }
+    }
 
     /// What is on air right now, with the way to take it down. It counts DOWN
     /// rather than saying "12 seconds": a host mid-sentence needs to know how
@@ -1841,7 +1855,7 @@ struct StudioDestinationSection: View {
                 // THE BROADCAST'S OWN CHAT, carried rather than dropped. This
                 // is the value `destination()` used to read and throw away.
                 studio.armYouTubeChat(resolved.liveChatID)
-                studio.armBroadcast(resolved.broadcastID)
+                studio.armBroadcast(resolved.broadcast)
                 // A REHEARSAL MUST END BEFORE A BROADCAST BEGINS. `beginShow`
                 // guards on `!isLive`, and §D5's preview leaves the engine
                 // RUNNING with no destination — so arming for a real broadcast

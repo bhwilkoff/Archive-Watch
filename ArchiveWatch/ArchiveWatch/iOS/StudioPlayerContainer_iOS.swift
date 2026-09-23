@@ -177,7 +177,7 @@ struct StudioPlayerContainer: View {
         // is armed on the shared session here rather than assumed to have been
         // armed by a macOS code path this platform never executes.
         StudioSession.shared.armYouTubeChat(d.liveChatID)
-        StudioSession.shared.armBroadcast(d.broadcastID)
+        StudioSession.shared.armBroadcast(d.broadcast)
         return d.url
     }
 
@@ -267,6 +267,7 @@ struct StudioPlayerContainer: View {
     }
 
     private func end() async {
+        await StudioSession.shared.completeArmedBroadcast()
         await engine?.stop()
         engine = nil
         onExit()

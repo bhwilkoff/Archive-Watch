@@ -16,6 +16,33 @@
 import AVFoundation
 import Foundation
 
+/// Which platform's broadcast a show is on, and the id that platform reads it
+/// by: a YouTube broadcast (= video) id, or the Twitch broadcaster's user id.
+public enum StudioBroadcastRef: Sendable, Equatable {
+    case youtube(String)
+    case twitch(userID: String)
+
+    var platformName: String {
+        switch self { case .youtube: "youtube"; case .twitch: "twitch" }
+    }
+}
+
+/// Reads the live audience from the platform. Nil means "not reported" —
+/// the stream is not live yet, the read failed, or the platform hides it.
+enum StudioAudience {
+    static func count(_ ref: StudioBroadcastRef) async -> Int? {
+        switch ref {
+        case .youtube(let id):
+            guard let token = try? await StudioPlatformAuth.token(for: .youtube) else { return nil }
+            return try? await YouTubeLive(token: token).concurrentViewers(videoID: id)
+        case .twitch(let userID):
+            guard let token = try? await StudioPlatformAuth.token(for: .twitch),
+                  let clientID = StudioPlatformAuth.clientID(for: .twitch) else { return nil }
+            return try? await TwitchLive(token: token, clientID: clientID).viewerCount(userID: userID)
+        }
+    }
+}
+
 @MainActor
 @Observable
 public final class StudioSession {
@@ -50,8 +77,51 @@ public final class StudioSession {
     /// when the bytes stop — so this is belt and braces rather than the only
     /// path. It is still worth having: auto-stop waits for a timeout, and a
     /// host who pressed End expects it ended.
-    public private(set) var armedBroadcastID: String?
-    public func armBroadcast(_ id: String?) { armedBroadcastID = id }
+    ///
+    /// It carries its PLATFORM. It used to be a bare id, and Twitch armed its
+    /// USER id through the same field — so a host signed in to both who ended
+    /// a Twitch show sent YouTube a `complete` for a Twitch user.
+    public private(set) var armedBroadcast: StudioBroadcastRef?
+    public var armedBroadcastID: String? {
+        if case .youtube(let id) = armedBroadcast { return id }
+        return nil
+    }
+    public func armBroadcast(_ ref: StudioBroadcastRef?) {
+        armedBroadcast = ref
+        startAudiencePolling()
+    }
+
+    /// HOW MANY PEOPLE ARE WATCHING (§D27). Nil until the platform reports a
+    /// live stream — never a zero we made up, which would tell a host nobody
+    /// came when the truth is that we have not been told yet.
+    ///
+    /// The poller is started by `armBroadcast` and stopped by
+    /// `completeArmedBroadcast`, because those are the two calls every
+    /// platform's go-live and end already make (Decision 133: a shared PATH,
+    /// not a shared type — iOS and tvOS run their own engine loops).
+    public private(set) var audienceCount: Int?
+    private var audienceTask: Task<Void, Never>?
+    /// YouTube charges 1 unit a read; 30 s is 240 units for a two-hour film
+    /// against 10,000 a day, and a count is not a thing that needs seconds.
+    static let audiencePollSeconds: UInt64 = 30
+
+    private func startAudiencePolling() {
+        audienceTask?.cancel(); audienceTask = nil
+        audienceCount = nil
+        guard let ref = armedBroadcast else { return }
+        audienceTask = Task { [weak self] in
+            while !Task.isCancelled {
+                let n = await StudioAudience.count(ref)
+                guard !Task.isCancelled else { return }
+                if let self, self.audienceCount != n {
+                    self.audienceCount = n
+                    awdiag("AWAUDIENCE %@ watching=%@", ref.platformName,
+                           n.map(String.init) ?? "unknown")
+                }
+                try? await Task.sleep(nanoseconds: Self.audiencePollSeconds * 1_000_000_000)
+            }
+        }
+    }
 
     /// Simulcast destinations beyond the first (roadmap #2). Armed for the
     /// same reason everything else here is: the engine does not exist yet.
@@ -951,13 +1021,41 @@ public final class StudioSession {
         #endif
     }
 
+    /// Ends the armed YouTube broadcast, if any. EVERY platform's End calls
+    /// this BEFORE its engine stops: YouTube accepts `complete` only from
+    /// `live`, and it used to run after the publisher had closed, so every
+    /// End answered 403 `invalidTransition` and left an unlisted broadcast in
+    /// the host's "Live now". iOS and tvOS arm the id here and run their own
+    /// engines (Decision 133), so they never reached it at all.
+    ///
+    /// It may not fail an end: telling YouTube is a courtesy that can fail for
+    /// a dozen reasons, and none of them should leave a show half torn down.
+    public func completeArmedBroadcast() async {
+        audienceTask?.cancel(); audienceTask = nil
+        audienceCount = nil
+        let armed = armedBroadcastID
+        armedBroadcast = nil
+        guard let broadcast = armed, !broadcast.isEmpty else { return }
+        do {
+            let yt = YouTubeLive(token: try await StudioPlatformAuth.token(for: .youtube))
+            do {
+                try await yt.complete(broadcastID: broadcast)
+                diag("[AWSTUDIOEND] YouTube broadcast \(broadcast) marked complete")
+            } catch {
+                let state = (try? await yt.lifeCycleStatus(broadcastID: broadcast)) ?? "unknown"
+                diag("[AWSTUDIOEND] could not end the YouTube broadcast (status=\(state)) — \(error)")
+            }
+        } catch {
+            diag("[AWSTUDIOEND] could not end the YouTube broadcast — \(error)")
+        }
+    }
+
     public func end() async {
         // THE BROADCAST ENDS WITH THE SHOW. Taken BEFORE the teardown so the
         // id cannot be lost by anything below, and awaited rather than fired
         // into a Task: a host who presses End and quits should not race a
         // network call that ends their broadcast.
-        let broadcast = armedBroadcastID
-        armedBroadcastID = nil
+        await completeArmedBroadcast()
         armedYouTubeChatID = nil
         armedExtras = []
 
@@ -982,23 +1080,6 @@ public final class StudioSession {
         filmFramesPerSecond = 0
         cameraFramesPerSecond = 0
         health = StudioHealth()
-
-        // AFTER the local teardown, and it may not be allowed to fail the end.
-        // Ending the show is the host's instruction; telling YouTube is a
-        // courtesy that can fail for a dozen reasons (a lapsed token, no
-        // network, a broadcast YouTube already auto-stopped) and none of them
-        // should leave the Studio half torn-down. It SAYS what happened
-        // rather than going quiet — the rule every other silent path here
-        // eventually earned.
-        if let broadcast, !broadcast.isEmpty {
-            do {
-                let token = try await StudioPlatformAuth.token(for: .youtube)
-                try await YouTubeLive(token: token).complete(broadcastID: broadcast)
-                diag("[AWSTUDIOEND] YouTube broadcast \(broadcast) marked complete")
-            } catch {
-                diag("[AWSTUDIOEND] could not end the YouTube broadcast — \(error)")
-            }
-        }
     }
 
     /// One health sample a second — the rate the `notEncoding` and
@@ -1091,6 +1172,9 @@ public final class StudioSession {
                     awdiag("AWFILM stalled: %@ (rate=%.2f item=%@ player=%lx)",
                            why, p?.rate ?? -1, item == nil ? "nil" : "present",
                            p.map { UInt(bitPattern: ObjectIdentifier($0).hashValue) } ?? 0)
+                    if let engine = self.engine {
+                        awdiag("AWFILM stalled output: %@", await engine.filmDiagnostics())
+                    }
                 }
                 lastCameraFrames = h.cameraFramesReceived
                 lastFilmFrames = h.filmFramesPulled

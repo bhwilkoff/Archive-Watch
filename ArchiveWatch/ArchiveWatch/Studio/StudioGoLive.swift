@@ -77,9 +77,9 @@ enum StudioGoLive {
     struct Destination: Sendable {
         let url: URL?
         let liveChatID: String?
-        let broadcastID: String?
+        let broadcast: StudioBroadcastRef?
 
-        static let none = Destination(url: nil, liveChatID: nil, broadcastID: nil)
+        static let none = Destination(url: nil, liveChatID: nil, broadcast: nil)
     }
 
     /// Where the program goes.
@@ -98,7 +98,7 @@ enum StudioGoLive {
                   var c = URLComponents(url: server, resolvingAgainstBaseURL: false)
             else { return .none }
             c.path = (c.path.hasSuffix("/") ? c.path : c.path + "/") + key
-            return Destination(url: c.url, liveChatID: nil, broadcastID: nil)
+            return Destination(url: c.url, liveChatID: nil, broadcast: nil)
 
         case .youtube:
             let token = try await StudioPlatformAuth.token(for: .youtube)
@@ -108,7 +108,7 @@ enum StudioGoLive {
                 privacy: request.privacy.rawValue)
             return Destination(url: combine(creds),
                                liveChatID: creds.liveChatID,
-                               broadcastID: creds.broadcastID)
+                               broadcast: creds.broadcastID.map { .youtube($0) })
 
         case .twitch:
             let token = try await StudioPlatformAuth.token(for: .twitch)
@@ -122,7 +122,7 @@ enum StudioGoLive {
             // needs no id from here (`StudioChatTwitch`).
             return Destination(url: combine(creds),
                                liveChatID: nil,
-                               broadcastID: creds.broadcastID)
+                               broadcast: creds.broadcastID.map { .twitch(userID: $0) })
         }
     }
 

@@ -420,6 +420,16 @@ else
   FAIL=$((FAIL+1))
 fi
 
+# §8.49 — every platform tells YouTube the show is over while it is still
+# live. After the publisher closes, `complete` is refused 403 and the
+# host's broadcast lingers in "Live now".
+if bash tools/test_studio_broadcastend.sh >"$SCRATCH/broadcastend.log" 2>&1; then
+  row "8.49 broadcast ends before publisher" PASS ""; PASS=$((PASS+1))
+else
+  row "8.49 broadcast ends before publisher" FAIL "a YouTube broadcast outlives the show"
+  FAIL=$((FAIL+1))
+fi
+
 # §D12a — a surface never pulls the film out from under a live show. The
 # black-programme fault: reproduced twice in eight runs with no signature,
 # because it needs a view rebuild at a particular moment in a live show.

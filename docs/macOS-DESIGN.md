@@ -2266,3 +2266,36 @@ however correctly the rect was computed. **A cache key that names some of its
 inputs is a cache that is wrong about the rest** — and neither defect is
 visible to a harness that builds a fresh renderer per call, which is what
 §8.48 did until it was made to reuse one.
+
+## §D27 — The host knows how many people are watching, and the broadcast is a conversation
+
+The AUDIENCE pane's header carries **"N watching"**, from the platform's own
+report (`videos.list` `liveStreamingDetails.concurrentViewers` on YouTube,
+helix `streams.viewer_count` on Twitch), read every 30 seconds. It is absent
+until the platform reports a live stream, never a zero we assumed. And every
+YouTube broadcast is created at **`latencyPreference: low`**, with DVR, the
+recording and embedding stated rather than left to defaults.
+
+**Why.** Most of an audience never types. Before this, nothing anywhere in the
+Studio, on any platform, knew who was watching: a host talking over a film
+into silence could not tell a room of twelve from an empty one, and the
+difference changes what a host says. Separately, YouTube's unstated default
+latency is `normal`, 15-30 s behind the host, so a viewer's chat answered a
+picture the host had seen half a minute earlier. A watch-along is a
+conversation, and that delay is the gap between a remark and its reply. `low`
+rather than `ultraLow`, because ultra-low gives up captions.
+
+**How to apply.** The count is the HOST's. It is not composited onto the
+broadcast: a small audience displayed to itself is a reason to leave, and
+whether to show it is a choice nobody has asked for. The poller is started by
+`armBroadcast` and stopped by `completeArmedBroadcast`, because those are the
+two calls every platform's go-live and End already make (Decision 133). A
+read that fails is "not reported", and the badge disappears rather than
+guessing. The quota budget is 240 units for a two-hour film against 10,000 a
+day.
+
+**Both halves are done from what we already hold.** Everything above sits
+inside the `auth/youtube` scope under Google verification and the three
+Twitch scopes hosts have already granted. Anything that would widen a scope
+(posting in chat, polls, announcements) is a separate decision, because a new
+Google scope means a new demo video and a new review.

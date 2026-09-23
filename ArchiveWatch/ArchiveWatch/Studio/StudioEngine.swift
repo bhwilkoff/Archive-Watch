@@ -789,6 +789,12 @@ public actor StudioEngine {
     private var recovering = false
     private var filmEndObserver: (any NSObjectProtocol)?
     private var filmRateObserver: NSKeyValueObservation?
+    /// DIAGNOSTIC for item 17's second cause (2026-09-23): the output is added
+    /// to the item current at attach, and the player can swap items under it
+    /// (caption-stall fallback, AirPlay). Audio would follow the new item and
+    /// the program would go black. Nothing could show that until now.
+    private var filmItemObserver: NSKeyValueObservation?
+    private var filmOutputItemID: UInt = 0
     private var supervisor: Task<Void, Never>?
     private var thermalWatcher: Task<Void, Never>?
     public private(set) var layout: StudioLayout = .corner
@@ -1167,6 +1173,12 @@ public actor StudioEngine {
         let out = AVPlayerItemVideoOutput(outputSettings: nil)
         player.currentItem?.add(out)
         filmOutput = out
+        filmOutputItemID = player.currentItem.map { UInt(bitPattern: ObjectIdentifier($0).hashValue) } ?? 0
+        awdiag("AWFILM output attached to item=%lx", filmOutputItemID)
+        filmItemObserver = player.observe(\.currentItem, options: [.new]) { [weak self] p, _ in
+            let now = p.currentItem.map { UInt(bitPattern: ObjectIdentifier($0).hashValue) } ?? 0
+            Task { await self?.noteFilmItemChanged(to: now) }
+        }
         observeFilmEnd(player: player)
         // The film's audio, tapped off the mix it is already decoding. A film
         // with no audio track is a REAL case in this catalog (silent cinema),
@@ -1212,6 +1224,17 @@ public actor StudioEngine {
             guard let self, p.timeControlStatus == .playing else { return }
             Task { await self.setFilmEnded(false) }
         }
+    }
+
+    private func noteFilmItemChanged(to now: UInt) {
+        awdiag("AWFILM player item changed to=%lx output on=%lx%@", now, filmOutputItemID,
+               now == filmOutputItemID ? "" : " — the program can no longer see the film")
+    }
+
+    /// Is the video output on the item the player is actually playing?
+    public var filmOutputOnCurrentItem: Bool {
+        guard let item = filmPlayer?.currentItem else { return false }
+        return UInt(bitPattern: ObjectIdentifier(item).hashValue) == filmOutputItemID
     }
 
     private func setFilmEnded(_ ended: Bool) {
@@ -1279,9 +1302,10 @@ public actor StudioEngine {
         let rate = filmPlayer?.rate ?? -1
         let status = filmPlayer?.currentItem?.status.rawValue ?? -1
         let likely = filmPlayer?.currentItem?.isPlaybackLikelyToKeepUp ?? false
-        return String(format: "rate=%.2f status=%d keepUp=%@ itemTime=%.2f hasNew=%@",
+        return String(format: "rate=%.2f status=%d keepUp=%@ itemTime=%.2f hasNew=%@ outputOnItem=%@",
                       rate, status, likely ? "y" : "n",
-                      t.isValid ? CMTimeGetSeconds(t) : -1, has ? "y" : "n")
+                      t.isValid ? CMTimeGetSeconds(t) : -1, has ? "y" : "n",
+                      filmOutputOnCurrentItem ? "y" : "n")
     }
 
     /// Attaches a camera tap. The `AVCaptureSession` is owned by the platform

@@ -678,3 +678,17 @@ drawn at its old size. **A cache key that names some of its inputs is a cache
 that is wrong about the rest** — and neither is visible to a harness that
 builds a fresh renderer per call, which §8.48 did until it was made to reuse
 one.
+
+##### The host knows how many people are watching — 2026-09-23 (macOS-DESIGN §D27)
+
+| Platform | State |
+|---|---|
+| macOS | ✅ "N watching" in the AUDIENCE pane header, from the platform's own count, every 30 s. Built on all three Apple targets; **not yet read against a live broadcast** — the Debug build was signed out of both platforms when it was checked |
+| iOS · tvOS | ⏳ the shared `StudioSession.audienceCount` is populated on both (the poller rides `armBroadcast`, which both call); neither surface draws it |
+| Android | 🚫 no poller |
+| Web | 🚫 a browser cannot host |
+
+YouTube broadcasts are created at `latencyPreference: low` on every Apple
+platform (one shared `YouTubeLive.prepare`). Android does not create YouTube
+broadcasts.
+

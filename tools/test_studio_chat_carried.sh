@@ -63,7 +63,7 @@ echo
 echo "and so does the BROADCAST id — dropped by the same bare URL? return,"
 echo "which is why complete() has never been called and every YouTube show"
 echo "this app ended left its broadcast open on the host's channel"
-say "the resolver carries it"           "$S/StudioGoLive.swift"   'broadcastID: creds.broadcastID'
+say "the resolver carries it"           "$S/StudioGoLive.swift"   'broadcast: creds.broadcastID'
 say "the session can be armed with it"  "$S/StudioSession.swift"  'func armBroadcast'
 say "and ENDING the show ends it"       "$S/StudioSession.swift"  'complete(broadcastID:'
 

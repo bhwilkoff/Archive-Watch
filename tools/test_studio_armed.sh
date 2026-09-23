@@ -23,11 +23,14 @@ fail=0
 # Values that deliberately do NOT belong in the attach. Each needs a reason,
 # because an exemption list without reasons is where a real defect goes to
 # hide.
-#   armedBroadcastID — read by end() to complete the broadcast on YouTube;
-#                      the ENGINE has no use for it.
+#   armedBroadcast   — read by completeArmedBroadcast() to end the YouTube
+#                      broadcast, and by the session's own audience poller
+#                      (§D27); the ENGINE has no use for it.
+#   armedBroadcastID — a computed read of armedBroadcast's YouTube id, not a
+#                      value anyone arms.
 #   armedFilmID      — consumed by the attach itself as its guard, and
 #                      cleared there; re-applying it would re-arm a show.
-EXEMPT="armedBroadcastID armedFilmID"
+EXEMPT="armedBroadcast armedBroadcastID armedFilmID"
 
 armed=$(grep -oE "var armed[A-Za-z]+" "$SESS" | awk '{print $2}' | sort -u)
 applied=$(awk '/public func attachIfArmed\(player/,/^    }$/' "$SESS")

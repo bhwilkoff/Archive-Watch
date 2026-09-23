@@ -36,6 +36,37 @@ enum StudioDoors {
     @MainActor
     static func runStateProbeIfAsked() async -> Bool {
         #if DEBUG
+        // `audience:youtube:<videoID>` / `audience:twitch:<login>` — reads a
+        // REAL live stream's count through the product's own parser (§D27).
+        // Read-only; one YouTube quota unit.
+        if authDoor.hasPrefix("audience:") {
+            let parts = authDoor.split(separator: ":").map(String.init)
+            guard parts.count == 3 else { return false }
+            var ref: StudioBroadcastRef?
+            awdiag("AWAUDIENCE probe signedIn youtube=%@ twitch=%@",
+                   StudioPlatformAuth.isSignedIn(.youtube) ? "y" : "n",
+                   StudioPlatformAuth.isSignedIn(.twitch) ? "y" : "n")
+            if parts[1] == "youtube" {
+                ref = .youtube(parts[2])
+                // The product swallows a failed read as "not reported"; the
+                // probe must not, or "unknown" hides WHICH layer said no.
+                do {
+                    let yt = YouTubeLive(token: try await StudioPlatformAuth.token(for: .youtube))
+                    let n = try await yt.concurrentViewers(videoID: parts[2])
+                    awdiag("AWAUDIENCE probe raw youtube=%@", n.map(String.init) ?? "absent")
+                } catch { awdiag("AWAUDIENCE probe youtube error: %@", "\(error)") }
+            }
+            if parts[1] == "twitch",
+               let token = try? await StudioPlatformAuth.token(for: .twitch),
+               let cid = StudioPlatformAuth.clientID(for: .twitch),
+               let id = try? await TwitchLive(token: token, clientID: cid).userID(login: parts[2]) {
+                ref = .twitch(userID: id)
+            }
+            let n: Int? = if let ref { await StudioAudience.count(ref) } else { nil }
+            awdiag("AWAUDIENCE probe %@ %@ watching=%@", parts[1], parts[2],
+                   n.map(String.init) ?? "unknown")
+            return true
+        }
         guard authDoor == "state" else { return false }
         for platform in [StudioPlatformAuth.Platform.youtube, .twitch] {
             let configured = StudioPlatformAuth.clientID(for: platform) != nil
