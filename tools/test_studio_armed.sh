@@ -34,6 +34,14 @@ EXEMPT="armedBroadcast armedBroadcastID armedFilmID"
 
 armed=$(grep -oE "var armed[A-Za-z]+" "$SESS" | awk '{print $2}' | sort -u)
 applied=$(awk '/public func attachIfArmed\(player/,/^    }$/' "$SESS")
+# FOLLOW THE HELPERS the attach hands the new engine to (`await x(to: e)`):
+# a value re-applied inside one is re-applied. Without this, extracting
+# `attachYouTubeChatIfArmed(to:)` so iOS and tvOS could share it read as the
+# chat id being dropped — the check was reading text, not the path.
+for h in $(echo "$applied" | grep -oE 'await [a-zA-Z]+\(to: e\)' | sed -E 's/await ([a-zA-Z]+).*/\1/' | sort -u); do
+  applied="$applied
+$(awk "/func $h\\(to e: StudioEngine\\)/,/^    }\$/" "$SESS")"
+done
 
 missing=""
 for a in $armed; do

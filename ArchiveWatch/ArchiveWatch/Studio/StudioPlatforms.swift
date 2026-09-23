@@ -760,6 +760,10 @@ public struct YouTubeLive: Sendable {
             query: ["part": "liveStreamingDetails", "id": videoID]))
         let items = try HTTP.json(data)["items"] as? [[String: Any]] ?? []
         let details = items.first?["liveStreamingDetails"] as? [String: Any]
+        #if DEBUG
+        awdiag("AWAUDIENCE youtube items=%d liveStreamingDetails keys=%@", items.count,
+               (details?.keys.sorted().joined(separator: ",")) ?? "none")
+        #endif
         // Documented as an unsigned long, delivered as a STRING.
         if let s = details?["concurrentViewers"] as? String { return Int(s) }
         return details?["concurrentViewers"] as? Int

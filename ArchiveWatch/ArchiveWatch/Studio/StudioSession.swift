@@ -30,15 +30,32 @@ public enum StudioBroadcastRef: Sendable, Equatable {
 /// Reads the live audience from the platform. Nil means "not reported" —
 /// the stream is not live yet, the read failed, or the platform hides it.
 enum StudioAudience {
+    /// The count, or nil. In DEBUG every read SAYS what it got — a number,
+    /// "absent", or the error — because the first real YouTube run
+    /// (2026-09-23, broadcast GYAQsLMDwho) showed "1 watching now" on
+    /// YouTube's page for over a minute while this logged nothing at all,
+    /// and `try?` had thrown away which layer said no.
     static func count(_ ref: StudioBroadcastRef) async -> Int? {
-        switch ref {
-        case .youtube(let id):
-            guard let token = try? await StudioPlatformAuth.token(for: .youtube) else { return nil }
-            return try? await YouTubeLive(token: token).concurrentViewers(videoID: id)
-        case .twitch(let userID):
-            guard let token = try? await StudioPlatformAuth.token(for: .twitch),
-                  let clientID = StudioPlatformAuth.clientID(for: .twitch) else { return nil }
-            return try? await TwitchLive(token: token, clientID: clientID).viewerCount(userID: userID)
+        do {
+            let n: Int?
+            switch ref {
+            case .youtube(let id):
+                let token = try await StudioPlatformAuth.token(for: .youtube)
+                n = try await YouTubeLive(token: token).concurrentViewers(videoID: id)
+            case .twitch(let userID):
+                guard let clientID = StudioPlatformAuth.clientID(for: .twitch) else { return nil }
+                let token = try await StudioPlatformAuth.token(for: .twitch)
+                n = try await TwitchLive(token: token, clientID: clientID).viewerCount(userID: userID)
+            }
+            #if DEBUG
+            awdiag("AWAUDIENCE read %@ -> %@", ref.platformName, n.map(String.init) ?? "absent")
+            #endif
+            return n
+        } catch {
+            #if DEBUG
+            awdiag("AWAUDIENCE read %@ failed — %@", ref.platformName, "\(error)")
+            #endif
+            return nil
         }
     }
 }

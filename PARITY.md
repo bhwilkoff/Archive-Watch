@@ -680,6 +680,19 @@ that is wrong about the rest** — and neither is visible to a harness that
 builds a fresh renderer per call, which §8.48 did until it was made to reuse
 one.
 
+##### Proved on YouTube itself — 2026-09-23, broadcast `GYAQsLMDwho` (iPhone 12, Learning is Change, unlisted)
+
+The owner: *"make sure anything we are adding can actually work on the systems
+we are building for."* Run on the product path, read back from YouTube:
+
+| Feature | On YouTube |
+|---|---|
+| `latencyPreference: low`, DVR, recordFromStart, embed | ✅ YouTube HOLDS `latency=low dvr=1 recordFromStart=1 embed=1` (read back with `liveBroadcasts.list`) |
+| YouTube chat read on iOS (fixed v1.42.517 — only macOS read it before) | ✅ `[AWSTUDIOCHAT] reading YouTube live chat` |
+| Share the film in chat (§D32) | ✅ posted, and on YouTube's own page under `@bhwilkoff`: "Now watching: The Man Who Laughs — 1928 · Paul Leni. Public domain, free to watch: https://archive.org/details/…" — the API; the macOS BUTTON is still unpressed on a real broadcast |
+| End completes the broadcast (§8.49, iOS had never completed one) | ✅ `YouTube broadcast GYAQsLMDwho marked complete`; YouTube's page reads "Streamed live 3 minutes ago" |
+| "N watching" (§D27) | ❌ **FAILED**: YouTube showed "1 watching now" for over a minute and the app logged no count. Every read now reports its result in DEBUG (v1.42.518); cause unknown until the next run |
+
 ##### Share the film in chat — 2026-09-23 (macOS-DESIGN §D32)
 
 macOS ⏳ built (v1.42.516): **Share the film in chat** heads the AUDIENCE pane
