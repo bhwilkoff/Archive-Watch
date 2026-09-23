@@ -680,6 +680,17 @@ that is wrong about the rest** — and neither is visible to a harness that
 builds a fresh renderer per call, which §8.48 did until it was made to reuse
 one.
 
+##### Rooms from the Studio, thumbnails, and no orphans — 2026-09-23 (macOS-DESIGN §D33, §D34)
+
+| Feature | macOS | iOS · tvOS | Proof |
+|---|---|---|---|
+| On-air Output: "Live on …", as the account, the AUDIENCE link with Copy/Open, End (§D33) | ✅ | 🚫 not these surfaces | seen on a real unlisted YouTube show (`qbHX46p9X_U`) |
+| Friends' room opened from the Studio (§D34) | ✅ | 🚫 hosting is macOS-only (SHAREPLAY §11.13) | LIVE Worker: room RWT2 held the Studio's film; 404 after the show ended; a quit now closes it too (B07S: 200 -> 404) |
+| A friend follows the room | — | ✅ iPhone (the join path every platform shares) | iPhone 12 joined 1VGP: landed 0.26 s from the anchor, in step from +2 s (the seek now aims ahead) |
+| YouTube thumbnail = a still of the show, never a card | ✅ | ✅ (engine -> session path) | i.ytimg.com serves The General with its lower third for `bsxZSp6Ydqc` |
+| A never-live YouTube broadcast is deleted, not orphaned | ✅ | ✅ (iOS via its end(); tvOS on start failure) | forced start failure: `qY5p-Vcgq90 … deleted`; Upcoming gained nothing |
+| Stream key never in a log (§5, §8.53) | ✅ | ✅ | the session's start line printed the full key until today |
+
 ##### The MAC STUDIO proved on YouTube AND Twitch, with a real viewer — 2026-09-23
 
 The instrument that finally worked: the TEST iPhone 12 playing the stream in
