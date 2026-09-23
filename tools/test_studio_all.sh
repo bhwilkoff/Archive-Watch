@@ -491,6 +491,18 @@ swift_case "8.48 shout-out" \
 
 # §D30 — a card is a chapter on the replay. PURE mapping; the countdown case
 # fails if values are compared instead of kinds (a marker every second).
+# §D32 — the film's chat line fits 200 characters and never cuts the link.
+swift_case "8.52 film chat line" \
+  ArchiveWatch/ArchiveWatch/Studio/RTMPPublisher.swift \
+  ArchiveWatch/ArchiveWatch/Studio/StudioAudio.swift \
+  ArchiveWatch/ArchiveWatch/Studio/StudioOutputSettings.swift \
+  ArchiveWatch/ArchiveWatch/Studio/StudioOverlayRenderer.swift \
+  ArchiveWatch/ArchiveWatch/Studio/StudioChatTwitch.swift \
+  ArchiveWatch/ArchiveWatch/Studio/StudioChatYouTube.swift \
+  ArchiveWatch/ArchiveWatch/Studio/StudioChatFilter.swift \
+  ArchiveWatch/ArchiveWatch/Studio/StudioEngine.swift \
+  "$SHIM" tools/test_studio_chatshare.swift
+
 swift_case "8.51 card markers" \
   ArchiveWatch/ArchiveWatch/Studio/RTMPPublisher.swift \
   ArchiveWatch/ArchiveWatch/Studio/StudioAudio.swift \

@@ -92,3 +92,30 @@ public enum StudioChatSide: String, CaseIterable, Sendable {
         }
     }
 }
+
+/// §D32 — the one line a host can post into YouTube chat about the film.
+///
+/// PURE, so the length rule is tested without a network. YouTube refuses a
+/// message over 200 characters, and the link is the point of the message —
+/// a latecomer learns what they walked into, and anyone can go and watch it
+/// themselves — so the LINK IS NEVER CUT. Words give way first, then the
+/// title is shortened with an ellipsis; a URL cut in half is a dead link
+/// under the host's name.
+enum StudioChatShare {
+    static let limit = 200
+
+    static func message(title: String, meta: String, archiveID: String) -> String {
+        let link = "https://archive.org/details/\(archiveID)"
+        let tail = " Public domain, free to watch: \(link)"
+        let shortTail = " \(link)"
+        let head = meta.isEmpty ? "Now watching: \(title)." : "Now watching: \(title) — \(meta)."
+        if head.count + tail.count <= limit { return head + tail }
+        let bare = "Now watching: \(title)."
+        if bare.count + tail.count <= limit { return bare + tail }
+        if bare.count + shortTail.count <= limit { return bare + shortTail }
+        // The title itself is too long: shorten IT, never the link.
+        let room = limit - shortTail.count - "Now watching: …".count
+        let cut = room > 0 ? String(title.prefix(room)) : ""
+        return "Now watching: \(cut)…" + shortTail
+    }
+}

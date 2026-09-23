@@ -2404,3 +2404,25 @@ holds for every scene whose tiles are inherited.
 - macOS first. iPhone later as a compact switcher. **Apple TV: none** — Rule
   8.8c keeps the television's live surface to "two channels, a rotation, and
   nothing else", and widening it is a separate owner decision.
+
+## §D32 — The host can put the film itself in front of the audience
+
+On a YouTube broadcast the AUDIENCE pane opens with **Share the film in
+chat**: one line under the host's own name — "Now watching: The Man Who Laughs
+— 1928 · Paul Leni. Public domain, free to watch: https://archive.org/details/…"
+— and "shared 5 minutes ago" beside it afterwards, never a disabled button,
+because the host may want to say it again for the people who arrived since.
+
+**Why.** Everyone who arrives after the lower third has faded is watching a
+film they cannot name, and the whole premise of this app is that the film is
+theirs to find: free, public domain, one link away. Putting the link in chat
+turns a stream into an invitation to go and watch, look further, keep going
+after the show ends — which is the owner's "genuine opportunities for
+connection for all involved" pointed at the archive rather than the host.
+
+**How to apply.** Never automatic: a host decides when the room hears about
+the film, exactly as they decide whose message is shown (§D26). YouTube's
+limit is 200 characters and the LINK IS NEVER CUT (`StudioChatShare`, §8.52):
+words give way first, then the title shortens. It costs 50 quota units a
+post, inside `auth/youtube`. Twitch needs `user:write:chat`, a new scope every
+host would have to re-consent to, so it is not offered there yet.

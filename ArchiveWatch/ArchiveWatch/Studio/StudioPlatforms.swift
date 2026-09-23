@@ -740,6 +740,17 @@ public struct YouTubeLive: Sendable {
             query: ["part": "id,status", "id": broadcastID, "broadcastStatus": "complete"]))
     }
 
+    /// `liveChatMessages.insert` — one line into the broadcast's chat under
+    /// the host's own name (§D32). 50 quota units, inside `auth/youtube`.
+    public func postChat(liveChatID: String, text: String) async throws {
+        _ = try await HTTP.send(try request(
+            "/liveChat/messages", method: "POST",
+            query: ["part": "snippet"],
+            body: ["snippet": ["liveChatId": liveChatID,
+                               "type": "textMessageEvent",
+                               "textMessageDetails": ["messageText": text]]]))
+    }
+
     /// `liveStreamingDetails.concurrentViewers` — a broadcast id IS its video
     /// id. Absent until the broadcast is live, and absent when the owner has
     /// hidden the count, so nil is "not reported" rather than zero.

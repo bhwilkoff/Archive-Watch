@@ -297,6 +297,30 @@ public final class StudioSession {
         Task { await engine.showShoutOut(author: author, text: text) }
     }
 
+    /// §D32 — the film, posted into YouTube chat by the host's own hand.
+    /// Returns what went wrong, or nil. Never automatic: a host decides when
+    /// the room hears about the film, as they decide whose message is shown.
+    public private(set) var sharedFilmAt: Date?
+    public var canShareFilmInChat: Bool {
+        isOnAir && armedYouTubeChatID?.isEmpty == false && surfaceArchiveID != nil
+    }
+
+    public func shareFilmInChat() async -> String? {
+        guard let chatID = armedYouTubeChatID, !chatID.isEmpty,
+              let id = surfaceArchiveID else { return "There is no YouTube chat to post in." }
+        let text = StudioChatShare.message(title: armedTitle, meta: armedSubtitle, archiveID: id)
+        do {
+            try await YouTubeLive(token: try await StudioPlatformAuth.token(for: .youtube))
+                .postChat(liveChatID: chatID, text: text)
+            sharedFilmAt = Date()
+            awdiag("AWCHATSHARE posted %d characters", text.count)
+            return nil
+        } catch {
+            awdiag("AWCHATSHARE refused — %@", "\(error)")
+            return "YouTube did not accept the message (\(error))."
+        }
+    }
+
     public func clearShoutOut() {
         shoutOut = nil
         guard let engine else { return }

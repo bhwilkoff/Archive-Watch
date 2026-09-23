@@ -537,6 +537,7 @@ struct StudioWindowView: View {
     private var audiencePane: some View {
         VStack(spacing: 0) {
             paneHeader("AUDIENCE", trailing: audienceBadge)
+            if studio.canShareFilmInChat { shareFilmRow }
             if let s = studio.shoutOut {
                 onScreenNow(s)
                 Divider()
@@ -572,6 +573,30 @@ struct StudioWindowView: View {
             }
         }
         .background(Color(nsColor: .textBackgroundColor))
+    }
+
+    /// §D32. One press, one line in chat; it says when it was last done
+    /// rather than disabling itself, because a host may want to say it again
+    /// for the people who arrived since.
+    @State private var shareProblem: String?
+    private var shareFilmRow: some View {
+        VStack(alignment: .leading, spacing: 4) {
+            HStack {
+                Button("Share the film in chat") {
+                    Task { shareProblem = await studio.shareFilmInChat() }
+                }
+                .controlSize(.small)
+                if let at = studio.sharedFilmAt {
+                    Text("shared \(at.formatted(.relative(presentation: .named)))")
+                        .font(.caption2).foregroundStyle(.secondary)
+                }
+            }
+            if let p = shareProblem {
+                Text(p).font(.caption2).foregroundStyle(.orange)
+            }
+        }
+        .padding(.horizontal, 10).padding(.vertical, 6)
+        .frame(maxWidth: .infinity, alignment: .leading)
     }
 
     /// The header says NOTHING when there is nothing to say. A count of chat

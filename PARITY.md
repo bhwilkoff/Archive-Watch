@@ -680,6 +680,15 @@ that is wrong about the rest** — and neither is visible to a harness that
 builds a fresh renderer per call, which §8.48 did until it was made to reuse
 one.
 
+##### Share the film in chat — 2026-09-23 (macOS-DESIGN §D32)
+
+macOS ⏳ built (v1.42.516): **Share the film in chat** heads the AUDIENCE pane
+on a YouTube broadcast, posting one line — title, year, director, "public
+domain, free to watch" and the archive.org link — under the host's name. The
+message rule is tested (§8.52); **not yet posted to a real YouTube chat** (no
+signed-in broadcast since it was built). Twitch 🚫 until `user:write:chat` is
+granted (a new scope — every host re-consents). iOS / tvOS 🚫 not yet.
+
 ##### Scenes — 2026-09-23 (macOS-DESIGN §D31)
 
 | Platform | State |
