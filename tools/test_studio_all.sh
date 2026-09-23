@@ -448,6 +448,19 @@ else
   FAIL=$((FAIL+1))
 fi
 
+# §8.55 — ending a show survives the caller's cancellation (tvOS End, A12).
+python3 -m http.server 18765 --bind 127.0.0.1 >/dev/null 2>&1 &
+HTTPPID=$!
+sleep 1
+if swiftc -O -o "$SCRATCH/endcancel" tools/test_studio_end_cancel.swift >"$SCRATCH/endcancel.build" 2>&1 \
+   && "$SCRATCH/endcancel" 18765 >"$SCRATCH/endcancel.log" 2>&1; then
+  row "8.55 end survives cancellation" PASS ""; PASS=$((PASS+1))
+else
+  row "8.55 end survives cancellation" FAIL "a cancelled teardown never completes the broadcast"
+  FAIL=$((FAIL+1))
+fi
+kill $HTTPPID 2>/dev/null || true
+
 # §8.49 — every platform tells YouTube the show is over while it is still
 # live. After the publisher closes, `complete` is refused 403 and the
 # host's broadcast lingers in "Live now".

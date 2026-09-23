@@ -1258,6 +1258,16 @@ public final class StudioSession {
     }
 
     public func completeArmedBroadcast() async {
+        // OUTSIDE THE CALLER'S CANCELLATION. tvOS ends a show by setting
+        // `studioFilm` nil, which cancels the `.task(id:)` whose teardown
+        // then calls this — and URLSession throws at once in a cancelled
+        // task, so `complete` and `delete` never reached YouTube and every
+        // television show was left in the host's channel (audit A12,
+        // 2026-09-23). An unstructured Task does not inherit cancellation.
+        await Task { await self.completeArmedBroadcastNow() }.value
+    }
+
+    private func completeArmedBroadcastNow() async {
         audienceTask?.cancel(); audienceTask = nil
         audienceCount = nil
         let armed = armedBroadcastID
