@@ -617,3 +617,28 @@ version of that test PASSED with the defect reinstated and was thrown away.
 |---|---|
 | macOS | ✅ capture AND the sixth arrangement. Capture MEASURED on the product path — `SCContentFilter(desktopIndependentWindow:)`, `start=true problem=none`, 82 frames in 4 s, no TCC prompt for a signed sandboxed app. No audio (the process tap owns sound), never our own window, no titles in diagnostics, no substring matching. **`StudioLayout.guests` — "Film, you, and your guests"** puts the call directly above the host's tile at the same width, derived from the host's rect so the two cannot drift apart; proved through the menu's own `startGuests` with `guestsAttached=true` read at the ENGINE and the tile seen in the composited frame. A guest tile is NOT framable and that is written down rather than implied (§D23). The source SURVIVES going live (§D23a) — which it did not at first: pressing Go Live builds a second engine and would have dropped the guests silently, with the picker still naming the window and the capture still running. This amends Rule 8.8e, which named five placements |
 | everywhere else | 🚫 ScreenCaptureKit is macOS-only, which is the same reason Decision 131 makes the Mac the only host for this mode |
+
+##### Framing the guests, and one call being one choice — 2026-09-23 (macOS-DESIGN §D24, §D25)
+
+Owner: *"we need to be able to move and crop the 'guest window' in the same
+way you can manipulate the camera for your own video. Additionally, the mixer
+should have audio from the call to be able to determine the levels for the
+other people talking on the call."*
+
+| Platform | State |
+|---|---|
+| macOS | ✅ **§D24** the call's tile takes §D14's gestures in full — drag to move, corner to resize, edge to crop, scroll to zoom, ⌥-drag to pan — with a **Framing: You / Your guests** picker, because §D23 stacks the two tiles in one column and overlapping handles would make a drag ambiguous. One accessor (`activeFraming`) carries every gesture, so no gesture can drive the wrong tile. ✅ **§D25** choosing the window taps that call's audio too: the mixer gains a third fader with a live level, and the film ducks under it. Verified on the glass — the tile moved and reshaped, and `AWCALL app=Google Chrome level=0.5293` with the fader on screen |
+| iOS · tvOS · Android | 🚫 no guest picture at all — ScreenCaptureKit is macOS-only (Decision 131) |
+
+**This reverses §D23's "a guest tile is not framable"**, which argued a host
+frames only themselves because a call window "is already a grid somebody
+else's app arranged". The owner's correction is the better reading: Zoom and
+Meet wrap the grid in chrome, so a call window needs cropping **more** than a
+webcam, not less.
+
+**And the audio match is by BUNDLE ID, not pid.** `StudioAudioProcesses`
+groups an app's audio objects into one row keeping the lowest pid — which for
+a browser is a HELPER, and a browser is where most calls happen. Matching on
+the window's pid found nothing and produced faces with no voices; the prefix
+test (`com.google.Chrome` against `com.google.Chrome.helper`, either way
+round) is what actually works.

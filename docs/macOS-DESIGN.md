@@ -2104,3 +2104,64 @@ screen capture, because going live calls it — so capture is stopped where the
 show unambiguously ends, which is the Studio window closing (§D12). A window
 capture that outlived its Studio would be this app quietly reading somebody's
 screen with nothing on screen to say so.
+
+## §D24 — A guest tile is framed exactly as the host's own is
+
+The call's tile gets §D14's direct manipulation in full: drag inside to move,
+a corner to resize, an edge to reshape (which is the crop, because the tile is
+aspect-filled), scroll to zoom the source, ⌥-drag to pan it. Same gestures,
+same handles, same readout as the host's camera.
+
+**Why this reverses §D23's "not built yet".** That section said a guest tile
+was placed by the layout and argued the host frames only themselves, since a
+call window "is already a grid somebody else's app arranged". The owner:
+*"we need to be able to move and crop the 'guest window' in the same way you
+can manipulate the camera for your own video."*
+
+They are right, and the reasoning I had written is wrong in a way worth
+naming: a call window is *more* in need of cropping than a webcam, not less.
+Zoom and Meet put chrome around the grid — a toolbar, a participant strip, a
+title bar — and a host who captures that window is broadcasting somebody's
+furniture along with their guests. The camera's crop exists to remove a room;
+the guest tile's crop exists to remove an interface, which is the more
+predictable need of the two.
+
+**How to apply.** `StudioCameraFraming` is already a normalized tile rect plus
+zoom and pan and is not camera-specific; the guest tile takes a second
+instance of the same value type rather than a parallel one. The selection
+model in `StudioTileHandles_macOS` draws one box at a time, so the STREAM
+preview needs a way to say WHICH tile is being framed — a picker above the
+framing controls, not two sets of handles at once, which would make a drag
+ambiguous wherever the tiles overlap.
+
+**And the placement's own rect stays the anchor.** §D23 derives the guest tile
+from the camera's so the two read as one column. Framing displaces the host's
+tile from that anchor today and must do the same for the guest's: the
+arrangement decides where a tile starts, the host decides where it ends up.
+
+## §D25 — One call is one choice
+
+Choosing the window a call is in also taps that call's audio. A host picks
+"Zoom" once and gets their guests' faces and their guests' voices; they do not
+pick Zoom twice in two different columns.
+
+**Why.** Until 2026-09-23 the Studio had two independent pickers for one
+thing: "A call" under Inputs (audio, via `AudioHardwareCreateProcessTap`) and
+"Show your guests" (picture, via ScreenCaptureKit). A host who picked the
+window got faces and **no voices**, and the mixer showed no call channel at
+all — because that channel is gated on the audio tap, which nothing had
+started. The owner, on seeing exactly that: *"the mixer should have audio from
+the call to be able to determine the levels for the other people talking on
+the call."*
+
+Two pickers for one call is the same defect class as a control whose value
+never lands (Decision 133): everything reads correct in isolation, and the
+product does half of what the host asked for.
+
+**How to apply.** `startGuests` resolves the window's owning application and
+starts the audio tap for that process, and `stopGuests` stops both. The audio
+picker stays, because the two are not always the same thing — a host may be on
+a phone call while sharing a slide — but it is now the exception rather than
+the price of admission. When the window's app cannot be tapped, the picture
+still runs and `callProblem` says why (§D18): half a call is better than a
+refusal, as long as the half that is missing is named.

@@ -243,6 +243,21 @@ front window.
   The menu route is better: discoverable, and it documents itself.
 - **Rule needed**: none. macOS-native and §B13g already put commands in menus.
 
+## 1b. Manipulating what we have built — **BUILT 2026-09-23**
+
+The owner's framing of the next stage: *"the other documented features from
+OBS and the ability to manipulate those features we have implemented."* Two
+landed today, both from that second half.
+
+- **§D24 the guest tile is framed like the camera.** Reverses §D23's "not
+  framable", which argued a call window is already a grid somebody else
+  arranged. It is — wrapped in chrome the host does not want to broadcast, so
+  it needs cropping MORE than a webcam.
+- **§D25 one call is one choice.** Picking the window taps that call's audio,
+  so the mixer gets a channel with a level. Two pickers for one call was the
+  Decision-133 shape again: everything correct in isolation, half of what the
+  host asked for in the product.
+
 ## 7. Screen or window as a source, generally
 
 Beyond the call window (#1) — sharing a slide, a map, a second film. For a

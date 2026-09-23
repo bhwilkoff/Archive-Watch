@@ -77,10 +77,19 @@ public final class StudioSession {
     /// sets framing before a show starts is setting it on nothing. This is
     /// Decision 133's lesson applied in advance rather than after the defect.
     public private(set) var armedFraming = StudioCameraFraming()
+    public private(set) var armedGuestFraming = StudioCameraFraming()
     public func armFraming(_ f: StudioCameraFraming) {
         armedFraming = f
         Task { await engine?.setCameraFraming(f) }
     }
+
+    /// §D24 — the guests' framing, armed for the same reason the camera's is:
+    /// a choice made before the engine exists is the one the show starts with.
+    public func armGuestFraming(_ f: StudioCameraFraming) {
+        armedGuestFraming = f
+        Task { await engine?.setGuestFraming(f) }
+    }
+
     /// Readable, so a panel can OPEN on the placement the show is actually
     /// using. It is `@State`-backed on macOS and defaulted to `.corner`, so a
     /// host who chose "Side by side" in the sheet would have seen the engine
@@ -180,20 +189,57 @@ public final class StudioSession {
     public var guestProblem: String? { screenSource?.problem }
 
     @discardableResult
-    public func startGuests(windowID: CGWindowID, label: String) async -> Bool {
+    public func startGuests(windowID: CGWindowID, label: String,
+                            ownerPID: pid_t? = nil,
+                            ownerBundleID: String? = nil) async -> Bool {
         stopGuests()
         let src = StudioScreenSource()
         screenSource = src
         guestWindowLabel = label
         let ok = await src.start(windowID: windowID,
                                  size: CGSize(width: 1280, height: 720))
-        if ok {
-            await engine?.attachGuests(src.sink)
-        } else {
+        guard ok else {
             screenSource = nil
             guestWindowLabel = nil
+            return false
         }
-        return ok
+        await engine?.attachGuests(src.sink)
+        // §D25 — ONE CALL IS ONE CHOICE. The same app's audio, without asking
+        // the host to name it again in another column. Matched on pid, which
+        // is exact, rather than on the display name, which two apps can share.
+        //
+        // A FAILURE HERE DOES NOT FAIL THE PICTURE. Half a call is better
+        // than a refusal as long as the missing half is named, and
+        // `callProblem` names it (§D18).
+        if callAppName == nil, ownerPID != nil || ownerBundleID != nil {
+            // MATCH ON THE BUNDLE ID, NOT THE PID. `StudioAudioProcesses`
+            // groups every audio object an app owns into one row and keeps
+            // the LOWEST pid, which for a browser is a HELPER — and a browser
+            // is the app most calls happen in. So the window's pid and the
+            // audio row's pid genuinely differ for the case this feature
+            // exists to serve. Measured 2026-09-23: Chrome's window pid found
+            // nothing, and the host got faces with no voices and an orange
+            // line blaming the app.
+            //
+            // The prefix test is the helper convention: `com.google.Chrome`
+            // against `com.google.Chrome.helper`, either way round.
+            let procs = StudioAudioProcesses.all()
+            let match = procs.first { p in
+                if let b = ownerBundleID, !b.isEmpty {
+                    if p.bundleID == b { return true }
+                    if p.bundleID.hasPrefix(b + ".") || b.hasPrefix(p.bundleID + ".") { return true }
+                }
+                if let pid = ownerPID, p.pid == pid { return true }
+                return false
+            }
+            if let match {
+                _ = await startCallAudio(process: match)
+            } else {
+                callProblem = "\(guestWindowLabel ?? "That app") is not playing any "
+                    + "audio macOS can capture yet — its voices will not be in the mix."
+            }
+        }
+        return true
     }
 
     public func stopGuests() {
@@ -201,6 +247,9 @@ public final class StudioSession {
         screenSource = nil
         guestWindowLabel = nil
         Task { await engine?.attachGuests(nil) }
+        // §D25: one choice, so one undo. A host who stops showing their
+        // guests does not expect their voices to keep arriving.
+        stopCallAudio()
     }
     #endif
 
@@ -407,6 +456,9 @@ public final class StudioSession {
         let e = StudioEngine(configuration: .benchDoored())
         engine = e
         // §D22 — a host who set up chat before pressing anything keeps it.
+        // §D24 — the guests' framing survives going live, like every other
+        // armed value (§8.46).
+        await e.setGuestFraming(armedGuestFraming)
         if let c = armedChat {
             await e.setChatControls(enabled: c.enabled, side: c.side, filter: c.filter)
         }

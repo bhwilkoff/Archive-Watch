@@ -142,7 +142,7 @@ struct StudioTileHandles: View {
     /// Turn a drag into a new tile, or into a pan of the source.
     private func apply(_ grab: Grab, _ value: DragGesture.Value, drawn: CGSize) {
         guard drawn.width > 1, drawn.height > 1 else { return }
-        let start = origin ?? (controls.framing.tile ?? tile)
+        let start = origin ?? (controls.activeFraming.tile ?? tile)
         if origin == nil { origin = start }
 
         // The preview is letterboxed, so a drag of N points is N/drawn of the
@@ -156,11 +156,11 @@ struct StudioTileHandles: View {
         // OPTION-DRAG PANS THE SOURCE, which is the one thing reshaping the
         // box cannot do: it chooses WHICH part of the camera fills the shape.
         if NSEvent.modifierFlags.contains(.option), grab == .body {
-            var f = controls.framing
+            var f = controls.activeFraming
             guard f.zoom > 1 else { return }          // nothing to pan at 1x
             f.panX = min(max(-1, f.panX - dx * 2 * f.zoom), 1)
             f.panY = min(max(-1, f.panY - dy * 2 * f.zoom), 1)
-            controls.framing = f
+            controls.activeFraming = f
             return
         }
 
@@ -200,9 +200,9 @@ struct StudioTileHandles: View {
         }
         r.origin.x = min(max(0, r.origin.x), max(0, 1 - r.width))
         r.origin.y = min(max(0, r.origin.y), max(0, 1 - r.height))
-        var f = controls.framing
+        var f = controls.activeFraming
         f.tile = r
-        controls.framing = f
+        controls.activeFraming = f
     }
 
     // MARK: Geometry
@@ -337,7 +337,7 @@ private struct ScrollZoom: ViewModifier {
             }
 
             private func zoom(delta: CGFloat, precise: Bool) {
-                var f = controls.framing
+                var f = controls.activeFraming
                 // A trackpad reports fractional, precise deltas and a wheel
                 // reports whole lines; these two factors land both somewhere
                 // that feels like one gesture rather than a jump.
@@ -345,7 +345,7 @@ private struct ScrollZoom: ViewModifier {
                 f.zoom = min(max(StudioCameraFraming.zoomRange.lowerBound, f.zoom + step),
                              StudioCameraFraming.zoomRange.upperBound)
                 if f.zoom == 1 { f.panX = 0; f.panY = 0 }
-                controls.framing = f
+                controls.activeFraming = f
             }
         }
     }

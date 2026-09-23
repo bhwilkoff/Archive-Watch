@@ -400,6 +400,16 @@ fi
 swift_case "8.40 film-stall reasons" ArchiveWatch/ArchiveWatch/Studio/StudioFilmStall.swift \
   tools/test_studio_filmstall.swift
 
+# §D24 — the guest tile is framed like the camera, and the two framings are
+# separate. A shared one would move the host's face whenever they cropped
+# their guests.
+if bash tools/test_studio_guestframing.sh >"$SCRATCH/guestframing.log" 2>&1; then
+  row "8.47 guest tile framing" PASS ""; PASS=$((PASS+1))
+else
+  row "8.47 guest tile framing" FAIL "the guest tile cannot be framed independently"
+  FAIL=$((FAIL+1))
+fi
+
 # D133 — everything a host set up before the engine existed survives going
 # live. Going live ends the rehearsal and builds a SECOND engine; anything
 # attached to the first reaches nothing, silently.

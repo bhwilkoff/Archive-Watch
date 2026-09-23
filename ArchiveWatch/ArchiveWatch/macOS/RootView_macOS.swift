@@ -131,7 +131,14 @@ struct RootView: View {
                 // substring this took the owner's REAL browser instead of the
                 // isolated test instance and captured their screen. If an app
                 // has several windows the door refuses rather than guessing.
-                let matches = windows.filter { $0.app == want }
+                // A TITLE NARROWS IT, for the case the refusal below exists
+                // for: several windows of one app, only one of which is the
+                // call. Still exact on the APP, still refusing to guess among
+                // what remains — the narrowing is the host's, not ours.
+                let titleWant = env["AW_STUDIO_SCREEN_TITLE"] ?? ""
+                let matches = windows.filter {
+                    $0.app == want && (titleWant.isEmpty || $0.title.contains(titleWant))
+                }
                 guard matches.count <= 1 else {
                     awdiag("AWSCREEN %@ has %d windows — refusing to guess which",
                            want, matches.count)
@@ -152,8 +159,14 @@ struct RootView: View {
                 while StudioSession.shared.engineForHarness == nil, waited < 25 {
                     try? await Task.sleep(for: .milliseconds(250)); waited += 0.25
                 }
+                // THE PID TOO, because the MENU passes it and §D25's audio
+                // hookup is keyed on it. Without this the door started the
+                // picture and no audio, which is the product's own bug
+                // reproduced in the harness rather than found by it.
                 let ok = await StudioSession.shared.startGuests(windowID: target.id,
-                                                                label: target.app)
+                                                                label: target.app,
+                                                                ownerPID: target.pid,
+                                                                ownerBundleID: target.bundleID)
                 awdiag("AWSCREEN start=%@ app=%@ waited=%.1fs problem=%@",
                        ok ? "true" : "FALSE", target.app, waited,
                        StudioSession.shared.guestProblem ?? "none")
@@ -259,6 +272,20 @@ struct RootView: View {
                         awdiag("AWMACDOOR preview live=%@ monitor=%@",
                                StudioSession.shared.isLive ? "true" : "FALSE",
                                env["AW_STUDIO_MAC_SOUND"] == "1" ? "audible" : "muted")
+                    }
+                }
+                // §D24's framing, as numbers. A drag is not a repeatable
+                // measurement; "tile 40% x 30%, zoom 2x" is.
+                //   AW_STUDIO_GUEST_FRAME=x,y,w,h,zoom   (fractions of frame)
+                if let g = env["AW_STUDIO_GUEST_FRAME"] {
+                    let p = g.split(separator: ",").compactMap { Double($0) }
+                    if p.count >= 5 {
+                        var f = StudioCameraFraming()
+                        f.tile = CGRect(x: p[0], y: p[1], width: p[2], height: p[3])
+                        f.zoom = CGFloat(p[4])
+                        StudioControls.shared.guestFraming = f
+                        awdiag("AWMACDOOR guest framing tile=%.2f,%.2f %.2fx%.2f zoom=%.1f",
+                               p[0], p[1], p[2], p[3], p[4])
                     }
                 }
                 if let stage = env["AW_STUDIO_STAGE"],

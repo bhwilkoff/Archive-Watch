@@ -35,6 +35,10 @@ public final class StudioScreenSource: NSObject, SCStreamOutput, SCStreamDelegat
         public let id: CGWindowID
         public let app: String
         public let title: String
+        /// The owning application, so §D25 can tap the SAME call's audio
+        /// without asking the host to name it a second time.
+        public let pid: pid_t
+        public let bundleID: String
         /// What the picker shows: the app, and the window only when the app
         /// has more than one worth telling apart.
         public var label: String { title.isEmpty ? app : "\(app) — \(title)" }
@@ -107,7 +111,9 @@ public final class StudioScreenSource: NSObject, SCStreamOutput, SCStreamDelegat
                 guard w.frame.width > 200, w.frame.height > 150 else { return nil }
                 return Window(id: w.windowID,
                               app: app.applicationName,
-                              title: w.title ?? "")
+                              title: w.title ?? "",
+                              pid: app.processID,
+                              bundleID: app.bundleIdentifier)
             }
             .sorted { ($0.app, $0.title) < ($1.app, $1.title) }
         } catch {
@@ -210,3 +216,18 @@ public final class StudioScreenSource: NSObject, SCStreamOutput, SCStreamDelegat
     }
 }
 #endif
+
+/// Which tile the framing gestures act on (§D24).
+///
+/// A picker rather than two sets of handles: §D23 stacks the host's tile and
+/// the call's in one column, so overlapping handles would make a drag
+/// ambiguous exactly where the two meet.
+public enum StudioFramingTarget: String, CaseIterable, Sendable {
+    case camera, guests
+    public var label: String {
+        switch self {
+        case .camera: return "You"
+        case .guests: return "Your guests"
+        }
+    }
+}

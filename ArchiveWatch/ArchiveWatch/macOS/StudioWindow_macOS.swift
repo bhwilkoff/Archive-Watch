@@ -95,6 +95,28 @@ final class StudioControls {
             StudioSession.shared.armFraming(framing)
         }
     }
+    /// §D24 — the guests' framing, same type, separate value.
+    var guestFraming = StudioCameraFraming() {
+        didSet {
+            guard guestFraming != oldValue else { return }
+            StudioSession.shared.armGuestFraming(guestFraming)
+        }
+    }
+    /// WHICH TILE THE HANDLES DRIVE. One box at a time: two sets of handles
+    /// would make a drag ambiguous wherever the tiles overlap, and §D23
+    /// stacks them deliberately in one column.
+    var framingTarget: StudioFramingTarget = .camera
+
+    /// The framing the handles are currently driving. The gesture code reads
+    /// and writes THIS and never names a tile — otherwise every drag, resize,
+    /// crop, zoom and pan would need its own `if target ==` and the sixth one
+    /// would be the one somebody forgets (Decision 133).
+    var activeFraming: StudioCameraFraming {
+        get { framingTarget == .camera ? framing : guestFraming }
+        set {
+            if framingTarget == .camera { framing = newValue } else { guestFraming = newValue }
+        }
+    }
     /// WHICH CARD THE HOST HAS CHOSEN, which is not the same as which card is
     /// ON AIR — and conflating the two made the free-text card unreachable.
     ///
@@ -576,8 +598,15 @@ struct StudioWindowView: View {
                 // never on a re-derivation of the layout in this view — the
                 // "two descriptions of one picture" Decision 133 keeps
                 // finding.
-                if studio.isLive, controls.layout.cameraIsTile,
+                if studio.isLive, controls.framingTarget == .camera,
+                   controls.layout.cameraIsTile,
                    let tile = studio.health.cameraTile {
+                    StudioTileHandles(tile: tile,
+                                      programAspect: StudioOutputSettings.programAspect,
+                                      controls: controls)
+                }
+                if studio.isLive, controls.framingTarget == .guests,
+                   let tile = studio.health.guestTile {
                     StudioTileHandles(tile: tile,
                                       programAspect: StudioOutputSettings.programAspect,
                                       controls: controls)
@@ -799,6 +828,49 @@ struct StudioWindowView: View {
                 }
             }
 
+            // §D23 — THE CALL'S PICTURE. Beside its audio, because they are
+            // the same call and a host thinks of them as one thing.
+            VStack(alignment: .leading, spacing: 6) {
+                inputRow(name: studio.guestWindowLabel ?? "Your guests",
+                         role: "A window",
+                         // THE ROW ASKS THE CAPTURE, not whether an object
+                         // exists. `guestsAttached` stays true for a source
+                         // whose window has closed, so it said "live" over a
+                         // tile that had just disappeared.
+                         state: studio.guestWindowLabel == nil ? "not shown"
+                                : (studio.guestProblem != nil ? "stopped"
+                                   : (studio.health.guestsAttached ? "live" : "starting")),
+                         healthy: studio.guestWindowLabel == nil
+                                  || (studio.guestProblem == nil && studio.health.guestsAttached),
+                         icon: "person.2")
+                // NO REMEMBERED CHOICE (§D23): the menu is built when it opens,
+                // and nothing is pre-selected. A stale selection is how a host
+                // broadcasts the window they had open last week.
+                Menu(studio.guestWindowLabel == nil ? "Show your guests" : "Change window") {
+                    ForEach(guestWindows) { w in
+                        Button(w.label) {
+                            Task {
+                                _ = await studio.startGuests(windowID: w.id, label: w.label,
+                                                             ownerPID: w.pid,
+                                                             ownerBundleID: w.bundleID)
+                                controls.layout = .guests
+                            }
+                        }
+                    }
+                    if guestWindows.isEmpty { Text("No windows to show") }
+                }
+                .menuStyle(.borderlessButton).font(.caption).fixedSize()
+                .onHover { if $0 { Task { guestWindows = await StudioScreenSource.windows() } } }
+                if studio.guestWindowLabel != nil {
+                    Button("Stop showing them") { studio.stopGuests() }
+                        .font(.caption).buttonStyle(.borderless).fixedSize()
+                }
+                if let why = studio.guestProblem {
+                    Text(why).font(.caption2).foregroundStyle(.orange)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
+            }
+
         }
     }
 
@@ -935,19 +1007,38 @@ struct StudioWindowView: View {
     /// says what the gestures are and offers the way back.
     @ViewBuilder
     private var cameraFraming: some View {
-        let tiled = controls.layout.cameraIsTile
+        // §D24 — the guests' tile is framed exactly as the host's is, so
+        // everything below reads `activeFraming` and the picker decides which
+        // tile that is. A second copy of this section would be a second place
+        // to fix the next gesture bug.
+        let showingGuests = controls.framingTarget == .guests
+        let tiled = showingGuests ? studio.health.guestTile != nil
+                                  : controls.layout.cameraIsTile
         VStack(alignment: .leading, spacing: 6) {
             HStack(alignment: .firstTextBaseline) {
-                Text("Your framing").font(.subheadline.weight(.semibold))
+                Text("Framing").font(.subheadline.weight(.semibold))
                 Spacer(minLength: 6)
-                if !controls.framing.isDefault {
-                    Button("Reset") { controls.framing = StudioCameraFraming() }
+                if !controls.activeFraming.isDefault {
+                    Button("Reset") { controls.activeFraming = StudioCameraFraming() }
                         .font(.caption).buttonStyle(.borderless).fixedSize()
                 }
             }
+            // Offered only when there IS a second tile to frame — a picker
+            // with one real option is furniture.
+            if studio.guestWindowLabel != nil {
+                Picker("Framing", selection: $controls.framingTarget) {
+                    ForEach(StudioFramingTarget.allCases, id: \.self) { Text($0.label).tag($0) }
+                }
+                .pickerStyle(.segmented).labelsHidden()
+            }
 
             if !studio.isLive {
-                Text("Start the preview to frame yourself.")
+                Text(showingGuests ? "Start the preview to frame your guests."
+                                   : "Start the preview to frame yourself.")
+                    .font(.caption2).foregroundStyle(.secondary)
+                    .fixedSize(horizontal: false, vertical: true)
+            } else if showingGuests && studio.health.guestTile == nil {
+                Text("Choose a window under Inputs to show your guests.")
                     .font(.caption2).foregroundStyle(.secondary)
                     .fixedSize(horizontal: false, vertical: true)
             } else if tiled {
@@ -958,8 +1049,9 @@ struct StudioWindowView: View {
                 // manipulation gesture is read once; the control it explains is
                 // reached during a show.
                 Text("Drag inside the box to move it, a corner to resize, an edge to crop to "
-                     + "your face; scroll inside it to zoom."
-                     + (controls.framing.zoom > 1
+                     + (showingGuests ? "your guests' faces" : "your face")
+                     + "; scroll inside it to zoom."
+                     + (controls.activeFraming.zoom > 1
                         ? " Hold \u{2325} and drag to pan what you have zoomed into." : ""))
                     .font(.caption2).foregroundStyle(.secondary)
                     .fixedSize(horizontal: false, vertical: true)
@@ -977,7 +1069,7 @@ struct StudioWindowView: View {
             // Edit Transform dialog for precision; a watch-along needs to know
             // the zoom it is at far more than it needs to type one, and a
             // readout costs no control.
-            if studio.isLive, !controls.framing.isDefault {
+            if studio.isLive, !controls.activeFraming.isDefault {
                 Text(framingReadout)
                     .font(.caption2).monospacedDigit().foregroundStyle(.secondary)
             }
@@ -985,7 +1077,7 @@ struct StudioWindowView: View {
     }
 
     private var framingReadout: String {
-        let f = controls.framing
+        let f = controls.activeFraming
         var parts: [String] = []
         if let t = f.tile {
             parts.append(String(format: "tile %.0f%% x %.0f%%", t.width * 100, t.height * 100))
@@ -1160,46 +1252,6 @@ struct StudioWindowView: View {
                 }
             }
 
-            // §D23 — THE CALL'S PICTURE. Beside its audio, because they are
-            // the same call and a host thinks of them as one thing.
-            VStack(alignment: .leading, spacing: 6) {
-                inputRow(name: studio.guestWindowLabel ?? "Your guests",
-                         role: "A window",
-                         // THE ROW ASKS THE CAPTURE, not whether an object
-                         // exists. `guestsAttached` stays true for a source
-                         // whose window has closed, so it said "live" over a
-                         // tile that had just disappeared.
-                         state: studio.guestWindowLabel == nil ? "not shown"
-                                : (studio.guestProblem != nil ? "stopped"
-                                   : (studio.health.guestsAttached ? "live" : "starting")),
-                         healthy: studio.guestWindowLabel == nil
-                                  || (studio.guestProblem == nil && studio.health.guestsAttached),
-                         icon: "person.2")
-                // NO REMEMBERED CHOICE (§D23): the menu is built when it opens,
-                // and nothing is pre-selected. A stale selection is how a host
-                // broadcasts the window they had open last week.
-                Menu(studio.guestWindowLabel == nil ? "Show your guests" : "Change window") {
-                    ForEach(guestWindows) { w in
-                        Button(w.label) {
-                            Task {
-                                _ = await studio.startGuests(windowID: w.id, label: w.label)
-                                controls.layout = .guests
-                            }
-                        }
-                    }
-                    if guestWindows.isEmpty { Text("No windows to show") }
-                }
-                .menuStyle(.borderlessButton).font(.caption).fixedSize()
-                .onHover { if $0 { Task { guestWindows = await StudioScreenSource.windows() } } }
-                if studio.guestWindowLabel != nil {
-                    Button("Stop showing them") { studio.stopGuests() }
-                        .font(.caption).buttonStyle(.borderless).fixedSize()
-                }
-                if let why = studio.guestProblem {
-                    Text(why).font(.caption2).foregroundStyle(.orange)
-                        .fixedSize(horizontal: false, vertical: true)
-                }
-            }
 
             Divider().padding(.vertical, 2)
             // AUTO-DUCK IS A CONTROL, NOT A SENTENCE (Rule 8.8c). A host who

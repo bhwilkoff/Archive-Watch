@@ -493,6 +493,9 @@ public struct StudioHealth: Sendable, Equatable {
     /// drawn. A surface uses this to place drag handles on the REAL tile
     /// rather than on its own re-derivation of the layout.
     public var cameraTile: CGRect?
+    /// Where the call's tile landed (§D24), so the handles sit on the rect
+    /// the compositor USED rather than a re-derivation in the view.
+    public var guestTile: CGRect?
     public var thermalState: String = "nominal"
     /// The bitrate the encoder is ACTUALLY using, which §6.5 can move. Shown
     /// rather than the configured one, or a thermal step is invisible.
@@ -843,6 +846,8 @@ public actor StudioEngine {
     }
     /// §D14 — how the host sits in whichever arrangement is chosen.
     public func setCameraFraming(_ f: StudioCameraFraming) { renderer.framing = f }
+    public func setGuestFraming(_ f: StudioCameraFraming) { renderer.guestFraming = f }
+    public var guestFraming: StudioCameraFraming { renderer.guestFraming }
     public var cameraFraming: StudioCameraFraming { renderer.framing }
     public func setOverlay(_ o: StudioOverlay) { overlay = o; renderer.overlay = o }
 
@@ -1380,6 +1385,7 @@ public actor StudioEngine {
         health.encoderFault = encoder?.fault
         health.pixelBufferPoolFailures = renderer.poolFailures
         health.cameraTile = renderer.lastCameraRect
+        health.guestTile = renderer.lastGuestRect
         await pumpChat()
     }
 
@@ -1835,6 +1841,12 @@ final class ProgramRenderer: @unchecked Sendable {
     /// the camera's is (Decision 133): a surface must read the rect the
     /// compositor USED, never re-derive it.
     private(set) var lastGuestRect: CGRect?
+    /// §D24 — the guests' own framing. A SECOND instance of the same value
+    /// type, never a parallel one: a call window needs cropping more than a
+    /// webcam does, because Zoom and Meet wrap the grid in chrome a host does
+    /// not want to broadcast.
+    var guestFraming = StudioCameraFraming()
+
     /// §D22. On the RENDERER, beside `framing`, because that is the object
     /// that draws the frame — the engine's `chatSide` is the host's intent and
     /// this is where it lands. Two names for one fact is Decision 133's whole
@@ -1947,11 +1959,17 @@ final class ProgramRenderer: @unchecked Sendable {
         // them.
         func drawGuests(_ base: CIImage) -> CIImage {
             guard layout.showsGuests, let g = guestFrame else { return base }
-            let src = CIImage(cvPixelBuffer: g)
+            var src = CIImage(cvPixelBuffer: g)
             let aspect = src.extent.height > 0 ? src.extent.width / src.extent.height : 16.0/9.0
-            guard let placed = layout.guestRect(in: size, cameraAspect: cameraAspect,
+            guard let preset = layout.guestRect(in: size, cameraAspect: cameraAspect,
                                                 guestAspect: aspect) else { return base }
+            // §D24 — the placement decides where the tile STARTS, the host
+            // decides where it ends up. Same two steps as the camera: the box
+            // is displaced and reshaped, then the SOURCE is cropped into it.
+            let placed = guestFraming.apply(to: preset, in: size)
             lastGuestRect = StudioCameraFraming.normalized(placed, in: size)
+            let crop = guestFraming.crop(of: src.extent)
+            if crop != src.extent { src = src.cropped(to: crop) }
             return fill(src, into: placed).composited(over: base)
         }
         image = layout.cameraIsBackground
