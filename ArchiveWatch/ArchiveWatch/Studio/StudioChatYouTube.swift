@@ -85,6 +85,7 @@ public actor StudioChatYouTube {
         health.polling = true
         task = Task { [weak self] in
             var first = true
+            var backoff: UInt64 = 5
             while !Task.isCancelled {
                 guard let self else { return }
                 let token = await self.pageToken
@@ -92,15 +93,25 @@ public actor StudioChatYouTube {
                     let page = try await fetch(liveChatID, token)
                     await self.accept(page, discard: first)
                     first = false
-                    let ms = max(1000, page.pollAfterMS)
+                    backoff = 5
+                    let ms = max(Self.minimumPollMS, page.pollAfterMS)
                     try? await Task.sleep(nanoseconds: UInt64(ms) * 1_000_000)
                 } catch {
+                    // THE DAILY QUOTA IS THE WHOLE APP'S, not this host's
+                    // (Decision 136). Once it is spent, every further read is a
+                    // refused call that costs the next host too — so stop, and
+                    // say so; the broadcast itself does not use the API.
+                    if Self.isQuotaExhausted(error) {
+                        await self.quotaExhausted()
+                        return
+                    }
                     await self.failed(error)
-                    // A FIXED BACKOFF, not the server's interval: the error
-                    // path has no interval to read, and hammering a failing
-                    // endpoint at 1 Hz is how a token problem becomes a rate
+                    // AN EXPONENTIAL BACKOFF, not the server's interval: the
+                    // error path has no interval to read, and hammering a
+                    // failing endpoint is how a token problem becomes a rate
                     // limit on top of a token problem.
-                    try? await Task.sleep(nanoseconds: 5_000_000_000)
+                    try? await Task.sleep(nanoseconds: backoff * 1_000_000_000)
+                    backoff = min(backoff * 2, 300)
                 }
             }
         }
@@ -130,6 +141,24 @@ public actor StudioChatYouTube {
             health.linesReceived += 1
         }
         if lines.count > maxLines { lines.removeFirst(lines.count - maxLines) }
+    }
+
+    /// Every read costs 5 units of a 10,000-unit day SHARED by every host
+    /// (Decision 136), so the chat is read no faster than this whatever
+    /// YouTube suggests. At 10 s a two-hour show spends 3,600 units on chat
+    /// instead of the ~7,200 its own 5 s interval would.
+    public static let minimumPollMS = 10_000
+
+    /// YouTube says `quotaExceeded` (daily) or `dailyLimitExceeded` in a 403
+    /// body. `rateLimitExceeded` is per-minute and only needs the backoff.
+    static func isQuotaExhausted(_ error: Error) -> Bool {
+        let s = "\(error)"
+        return s.contains("quotaExceeded") || s.contains("dailyLimitExceeded")
+    }
+
+    private func quotaExhausted() {
+        health.polling = false
+        health.lastError = "YouTube's daily limit for Archive Watch has been reached, so chat cannot be read until tomorrow. Your broadcast is not affected."
     }
 
     private func failed(_ error: Error) {

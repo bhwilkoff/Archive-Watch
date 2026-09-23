@@ -243,6 +243,7 @@ swift_case "8.6 back-pressure"     "$PUB" "$ENG" "$REC" "$CHATFILTER" "$OUT" "$A
 swift_case "8.15 audio ring FIFO"  "$PUB" "$ENG" "$REC" "$CHATFILTER" "$OUT" "$AUD" "$OVL" "$CHAT" "$CHATYT" "$SHIM" tools/test_studio_ring.swift
 swift_case "8.16 programme rate"   "$PUB" "$ENG" "$REC" "$CHATFILTER" "$OUT" "$AUD" "$OVL" "$CHAT" "$CHATYT" "$DEC" "$SHIM" tools/test_studio_rate.swift
 swift_case "8.17 tap resampler"    "$PUB" "$ENG" "$REC" "$CHATFILTER" "$OUT" "$AUD" "$OVL" "$CHAT" "$CHATYT" "$SHIM" tools/test_studio_resample.swift
+swift_case "8.56 chat quota"          "$PUB" "$ENG" "$REC" "$CHATFILTER" "$OUT" "$AUD" "$OVL" "$CHAT" "$CHATYT" "$SHIM" tools/test_studio_chat_quota.swift
 # The camera-placement settings, asserted against what their LABELS promise.
 # Owner 2026-09-20: "I'm not sure the different settings for where your camera
 # will go ... are actually working as they should." They were not: theatre was

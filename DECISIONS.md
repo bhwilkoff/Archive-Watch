@@ -218,6 +218,7 @@ into every session and the index alone carries every title.)
 - 133 — A control is proved where its value LANDS, not where it is written; a shared type is not a shared code path
 - 134 — A production surface owns its show end to end; and a macOS button says what it does at every width
 - 135 — A picture is manipulated directly, not through sliders; and an uploader's attribution must not fork a film in two
+- 136 — YouTube's quota belongs to the APP, so every read is spent on behalf of every host: slim sign-in, a quota extension, and a stream key that needs no API at all
 
 ---
 
@@ -769,3 +770,46 @@ pointer-and-scroll interaction does not port to a Siri Remote unchanged, and
 inventing one per platform is a design question rather than a port. The
 catalogue change needs a rebuild to take effect, and
 `tools/test_quoted_title_merge.py` guards both the merge and the over-merge.
+
+## 136 — YouTube's quota belongs to the APP, so every read is spent on behalf of every host: slim sign-in, a quota extension, and a stream key that needs no API at all
+*Date: 2026-09-23*
+
+YouTube Data API quota is counted per Google Cloud PROJECT — the one behind the
+app's OAuth client id — not per signed-in user. Every host who signs in to
+Archive Watch draws on the same 10,000 units a day. So the Studio does three
+things at once: (1) the signed-in path spends as little as possible — chat is
+read no faster than every 10 s, the viewer count every 60 s, a
+`quotaExceeded` answer STOPS reading and says so rather than retrying, and
+chat reading becomes something the host turns on; (2) the owner files
+Google's YouTube API quota extension (the compliance audit, separate from
+OAuth verification); (3) **"Use my own stream key"** is always offered — the
+host pastes the key from YouTube Studio, exactly as in OBS, which calls no API
+and spends no quota, and is the fallback when the shared quota is gone.
+
+**Why**: the owner, on learning the store builds ship the app's client ids —
+*"You are shipping my ID's inside of the apps instead of letting users set
+their own up? You will need to figure out a much better way to use the api
+quota as well, given that we want many people to use this as possible. Is
+everyone's own api quota their own?"* It is not. The client id identifies the
+APP (as OBS's and Streamlabs' do) and is public by design; users still sign in
+as themselves and broadcast to their own channels. But the quota follows the
+id, and the audit measured a two-hour show at ~7,700 units, ~7,200 of them
+chat polling at YouTube's own 5 s interval — about one show a day for
+everyone. "Bring your own Google Cloud project" does give each host their own
+quota and was rejected as the DEFAULT: creating a project, enabling an API and
+configuring a consent screen is a wall almost nobody climbs, which is the
+opposite of "as many people as possible". Twitch is unaffected — its rate
+limits are per user token.
+
+**How to apply**: treat every YouTube call as spent on behalf of every other
+host. Before adding one, price it (units x calls per show) and write the price
+next to the call. Never retry a `quotaExceeded`; back off exponentially on
+anything else. Every signed-in feature must degrade to "the broadcast still
+works" when the quota is gone — the RTMP stream itself uses no API. And keep
+the stream-key path first-class, not a debug door: it is the one route whose
+capacity does not depend on Google.
+
+**Consequences**: §8.56 holds the floor, the stop and the control. The
+chat-opt-in UI and the stream-key path are the next Studio changes; the
+extension is an owner action. The "Custom server" option already sends to any
+RTMP address and is the seed of the stream-key path.

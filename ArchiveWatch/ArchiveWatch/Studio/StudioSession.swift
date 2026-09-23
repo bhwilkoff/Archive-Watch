@@ -146,9 +146,10 @@ public final class StudioSession {
     private var recordTicks = 0
     #endif
     private var audienceTask: Task<Void, Never>?
-    /// YouTube charges 1 unit a read; 30 s is 240 units for a two-hour film
-    /// against 10,000 a day, and a count is not a thing that needs seconds.
-    static let audiencePollSeconds: UInt64 = 30
+    /// YouTube charges 1 unit a read, from a 10,000-unit day SHARED by every
+    /// host (Decision 136); 60 s is 120 units for a two-hour film, and a
+    /// count is not a thing that needs seconds.
+    static let audiencePollSeconds: UInt64 = 60
 
     private func startAudiencePolling() {
         audienceTask?.cancel(); audienceTask = nil
