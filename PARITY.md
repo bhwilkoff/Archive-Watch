@@ -656,7 +656,8 @@ program, so a person watching had no evidence they were heard.
 | Platform | State |
 |---|---|
 | macOS | ✅ an **AUDIENCE** pane beside FILM and STREAM — forty recent lines, post-filter, appearing when a broadcast does. **Show** (or a double-click) puts a message on the broadcast under its author's own name for twelve seconds; what is on air sits at the top of the pane with **Take down**, and clears itself. Verified on the glass through the product's own chain — clicked a row on a live bench broadcast, read the banner back out of the STREAM preview, watched it expire and the chat column return |
-| iOS · tvOS | ⏳ the ENGINE carries it — `showShoutOut` / `expireShoutOutIfDue` are on the shared `StudioEngine` and every Apple composite would draw one — but no surface offers a list to pick from. Chat is composited on both and clickable on neither, which is §D26a's whole point |
+| iOS | ⏳ built (v1.42.512), NOT yet seen on a phone: an **Audience** section heads the controls sheet when there is a conversation — fifteen recent lines newest first, **Show** or "too long to show", what is on air with **Take down**. The container's own loop expires it (the macOS expiry lives in a pump iOS does not run) and every overlay push keeps it, where a fresh overlay used to take a viewer off the air whenever a control moved. The demo-conversation door feeds only the macOS session, so there is no bench path to it yet |
+| tvOS | ⏳ the ENGINE carries it; no surface offers a list. Rule 8.8c ("two channels, a rotation, and nothing else") makes that an owner question, not a port |
 | Android | 🚫 `StudioOverlayBitmap` has no shout-out and the Kotlin engine no chat reader |
 | Web | 🚫 a browser cannot hold a stream key |
 

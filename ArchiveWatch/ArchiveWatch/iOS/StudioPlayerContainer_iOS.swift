@@ -36,6 +36,8 @@ struct StudioPlayerContainer: View {
     @State private var micGain = 1.0
     @State private var duckEnabled = true
     @State private var filmMuted = false
+    /// §D26 — mirrored from the engine once a second.
+    @State private var shoutOut: StudioOverlay.ShoutOut?
     @State private var micMuted = false
     @State private var card: StudioOverlay.Card?
     @State private var showLowerThird = true
@@ -115,6 +117,16 @@ struct StudioPlayerContainer: View {
             card: $card, showLowerThird: $showLowerThird,
             audio: health.audio, health: health, filmFramesPerSecond: filmFPS,
             cameraFramesPerSecond: cameraFPS,
+            shoutOut: shoutOut,
+            onShow: { line in
+                guard !StudioOverlay.ShoutOut.tooLong(line.text) else { return }
+                shoutOut = StudioOverlay.ShoutOut(author: line.author, text: line.text)
+                Task { await engine?.showShoutOut(author: line.author, text: line.text) }
+            },
+            onTakeDown: {
+                shoutOut = nil
+                Task { await engine?.clearShoutOut() }
+            },
             onEnd: { Task { await end() } })
     }
 
@@ -193,6 +205,9 @@ struct StudioPlayerContainer: View {
         }
         o.showLowerThird = showLowerThird
         o.card = card
+        // A FRESH overlay would take a viewer's message off the air every
+        // time the host touched a control. It keeps what is up.
+        o.shoutOut = await engine?.currentShoutOut
         await engine?.setOverlay(o)
     }
 
@@ -219,6 +234,10 @@ struct StudioPlayerContainer: View {
             // §4's provenance line, which iOS showed for the whole broadcast
             // because the rule lived only in tvOS's own loop.
             _ = await e.expireProvenanceIfDue()
+            // §D26's twelve seconds, on THIS loop: the macOS expiry lives in
+            // StudioSession's pump, which iOS does not run (Decision 133).
+            await e.expireShoutOutIfDue()
+            shoutOut = await e.currentShoutOut
             health = h
 
             // RECOVER A CAMERA THAT STOPPED — a phone's camera stops whenever

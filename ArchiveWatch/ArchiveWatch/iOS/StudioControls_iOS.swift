@@ -169,6 +169,10 @@ struct StudioControlsSheet: View {
     /// frozen-picture signature and gets said out loud.
     let filmFramesPerSecond: Int
     let cameraFramesPerSecond: Int
+    /// §D26 on the phone: what is on air, and the way to put somebody there.
+    var shoutOut: StudioOverlay.ShoutOut? = nil
+    var onShow: (StudioOverlay.ChatLine) -> Void = { _ in }
+    var onTakeDown: () -> Void = {}
     let onEnd: () -> Void
 
     private var healthFooter: String {
@@ -201,9 +205,53 @@ struct StudioControlsSheet: View {
 
     @Environment(\.dismiss) private var dismiss
 
+    private var audienceSection: some View {
+        Section {
+            if let s = shoutOut {
+                HStack(alignment: .top) {
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text(s.author).font(.subheadline.weight(.semibold))
+                            .foregroundStyle(Color(red: 1.0, green: 0.361, blue: 0.208))
+                        Text(s.text).font(.subheadline).lineLimit(3)
+                    }
+                    Spacer()
+                    Button("Take down", action: onTakeDown).buttonStyle(.bordered)
+                }
+            }
+            // Newest first: a phone list reads top-down, and the message a
+            // host just heard read aloud is the one they are looking for.
+            ForEach(Array(health.chatRecent.suffix(15).reversed())) { line in
+                HStack(alignment: .top) {
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text(line.author).font(.caption.weight(.semibold))
+                            .foregroundStyle(line.isEvent
+                                             ? Color(red: 1.0, green: 0.361, blue: 0.208)
+                                             : .secondary)
+                        Text(line.text).font(.subheadline)
+                    }
+                    Spacer(minLength: 8)
+                    // §D26a — SHOWN and REFUSED, never truncated.
+                    if StudioOverlay.ShoutOut.tooLong(line.text) {
+                        Text("too long to show").font(.caption).foregroundStyle(.secondary)
+                    } else {
+                        Button("Show") { onShow(line) }.buttonStyle(.borderless)
+                    }
+                }
+            }
+        } header: {
+            Text("Audience")
+        }
+    }
+
     var body: some View {
         NavigationStack {
             List {
+                // §D26 — THE AUDIENCE FIRST. It is the one thing in this
+                // sheet that is about somebody other than the host, and it
+                // appears only when there is a conversation to show.
+                if shoutOut != nil || !health.chatRecent.isEmpty {
+                    audienceSection
+                }
                 Section {
                     row("Broadcast", health.showState.label)
                     row("Connection", health.publisher.state.rawValue)

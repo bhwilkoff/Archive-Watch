@@ -136,7 +136,7 @@ some SwiftUI targets do not register the click. The Studio window sits at
    `lifeCycleStatus`, so the next real YouTube End either prints
    `marked complete` or names the state it met. The owner's channel may still
    hold an older unlisted broadcast in "Live now".
-6. **tvOS and iOS have the engine half of §D26 and no surface.** `showShoutOut`
+6. **iOS now has §D26's surface (v1.42.512, unseen on a phone); tvOS has the engine half and no surface** (Rule 8.8c makes that an owner question). `showShoutOut`
    / `expireShoutOutIfDue` are on the shared `StudioEngine` and every Apple
    composite would draw a banner; neither surface offers a list to pick from.
    Decision 133's rule applies — a shared type is not a shared path.
