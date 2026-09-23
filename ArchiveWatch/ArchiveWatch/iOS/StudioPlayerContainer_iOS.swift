@@ -143,8 +143,10 @@ struct StudioPlayerContainer: View {
         // and REPORTS rather than REQUESTS — the go-live sheet does the
         // asking, which is the only place a viewer has chosen to broadcast.
         hostCapture = await StudioSession.attachHostCamera(to: e)
-        await e.setLayout(layout)
-        await pushOverlay()
+        // EVERY control, not only layout and overlay: the audio was left
+        // out, so an engine built after the host touched the mixer started
+        // at defaults — the macOS defect of 2026-09-23 (§D23a) on this path.
+        await applyControls()
         guard await !e.health.isRunning else { return }
         do {
             let dest = try await destination()
