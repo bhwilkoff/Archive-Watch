@@ -141,6 +141,9 @@ public final class StudioSession {
     /// only ~70-75% of and §6.5 can lower.
     public private(set) var sendingBitsPerSecond = 0
     private var lastBytesSent = 0
+    #if DEBUG
+    private var proofTicks = 0
+    #endif
     private var audienceTask: Task<Void, Never>?
     /// YouTube charges 1 unit a read; 30 s is 240 units for a two-hour film
     /// against 10,000 a day, and a count is not a thing that needs seconds.
@@ -1307,6 +1310,26 @@ public final class StudioSession {
                 sendingBitsPerSecond = sent >= lastBytesSent ? (sent - lastBytesSent) * 8 : 0
                 lastBytesSent = sent
                 self.health = h
+                #if DEBUG
+                // macOS PLATFORM PROOF DOORS — the iPhone's, on the loop
+                // macOS actually runs (Decision 133). Each fires once, at T s
+                // on air: AW_STUDIO_MAC_READBACK logs what YouTube HOLDS;
+                // AW_STUDIO_MAC_SHARECHAT presses the Studio's own
+                // "Share the film in chat" path.
+                if h.hasDestination, h.publisher.state == .publishing {
+                    proofTicks += 1
+                    let env = ProcessInfo.processInfo.environment
+                    if let t = env["AW_STUDIO_MAC_READBACK"].flatMap(Int.init), proofTicks == t {
+                        Task { await self.debugLogBroadcast() }
+                    }
+                    if let t = env["AW_STUDIO_MAC_SHARECHAT"].flatMap(Int.init), proofTicks == t {
+                        Task {
+                            let problem = await self.shareFilmInChat()
+                            awdiag("AWCHATSHARE door result=%@", problem ?? "posted")
+                        }
+                    }
+                }
+                #endif
 
                 // IS THE FILM'S AUDIO ACTUALLY GOING OUT? Asked every tick,
                 // because the answer changes: the warning is true only until

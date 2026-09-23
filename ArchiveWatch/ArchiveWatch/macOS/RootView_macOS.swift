@@ -65,6 +65,35 @@ struct RootView: View {
         }
         // The Studio's read-only DEBUG probes; absent here until §D27 needed one.
         .task { _ = await StudioDoors.runStateProbeIfAsked() }
+        #if DEBUG
+        // `AW_STUDIO_SIGNIN=youtube,twitch` — puts the SAME sign-in flows the
+        // Studio's rows run in front of the owner, so the Mac Studio can be
+        // proved on the real platforms (owner, 2026-09-23: "Just load up the
+        // login screens and I can run them"). Nothing is approved for them.
+        .task {
+            let wanted = (ProcessInfo.processInfo.environment["AW_STUDIO_SIGNIN"] ?? "")
+                .split(separator: ",").map(String.init)
+            for w in wanted {
+                do {
+                    switch w {
+                    case "youtube":
+                        awdiag("AWSIGNIN youtube: opening Google's sign-in sheet")
+                        try await StudioPlatformAuth.signInToYouTube()
+                        awdiag("AWSIGNIN youtube: signed in")
+                    case "twitch":
+                        let p = try await StudioPlatformAuth.beginTwitchSignIn()
+                        awdiag("AWSIGNIN twitch: go to %@ and enter %@", p.verificationURI, p.userCode)
+                        if let url = URL(string: p.verificationURI) { NSWorkspace.shared.open(url) }
+                        try await StudioPlatformAuth.completeTwitchSignIn(p)
+                        awdiag("AWSIGNIN twitch: signed in")
+                    default: break
+                    }
+                } catch {
+                    awdiag("AWSIGNIN %@ failed — %@", w, "\(error)")
+                }
+            }
+        }
+        #endif
         .task { WatchTogether.shared.listen() }
         // THE RED BUTTON STOPS THE FILM (§D12). Closing this window is not a
         // quit, so SwiftUI keeps the scene's state — including a playing

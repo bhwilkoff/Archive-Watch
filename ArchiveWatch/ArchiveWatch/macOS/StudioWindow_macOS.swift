@@ -1855,6 +1855,13 @@ struct StudioDestinationSection: View {
 
             if show.platform != .custom {
                 StudioSignInRow(platform: authPlatform) { signedIn = $0 }
+                    // ONE ROW PER PLATFORM. Without this SwiftUI reuses the
+                    // row when the picker changes, carrying its @State across:
+                    // the owner saw YouTube and Twitch "as the same account",
+                    // and signing out of one looked like signing out of both
+                    // (2026-09-23, Mac). The tokens were separate all along.
+                    // tvOS has had this `.id` since the same bug there.
+                    .id(authPlatform)
                     .task(id: signedIn) {
                         guard signedIn, show.platform != .custom, readiness == nil else { return }
                         readiness = try? await StudioPlatformAuth.readiness(for: authPlatform)
