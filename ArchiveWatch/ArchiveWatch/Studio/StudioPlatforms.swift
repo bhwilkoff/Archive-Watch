@@ -785,6 +785,19 @@ public struct YouTubeLive: Sendable {
     }
     #endif
 
+    /// `thumbnails.set` — the broadcast's thumbnail, from a JPEG of the
+    /// program. The upload endpoint, not the Data API base. 50 quota units.
+    public func setThumbnail(videoID: String, jpeg: Data) async throws {
+        var c = URLComponents(string: "https://www.googleapis.com/upload/youtube/v3/thumbnails/set")!
+        c.queryItems = [URLQueryItem(name: "videoId", value: videoID)]
+        var r = URLRequest(url: c.url!)
+        r.httpMethod = "POST"
+        r.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        r.setValue("image/jpeg", forHTTPHeaderField: "Content-Type")
+        r.httpBody = jpeg
+        _ = try await HTTP.send(r)
+    }
+
     /// Removes a broadcast that never went live — an orphan in the host's
     /// "Upcoming" otherwise (owner, 2026-09-23). 50 quota units.
     public func delete(broadcastID: String) async throws {

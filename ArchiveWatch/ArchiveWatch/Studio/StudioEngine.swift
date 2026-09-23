@@ -1404,6 +1404,7 @@ public actor StudioEngine {
             await publisher.setQueueBudget(videoBitrate: config.videoBitrate, audioBitrate: config.audioBitrate)
             try await publisher.publish(to: destination, config: streamConfig)
             publishing = true
+            scheduleThumbnailStill()
             // THE EXTRAS, each in its own `do` so one refusal cannot throw the
             // show away. The PRIMARY above is allowed to throw — a host who
             // asked to go live and reached nothing should hear about it — and
@@ -1501,7 +1502,32 @@ public actor StudioEngine {
         #endif
     }
 
+    /// THE BROADCAST'S THUMBNAIL is a still of the program itself. Without
+    /// one, YouTube falls back to the channel's default art whenever it does
+    /// not make its own, and the owner's Live list read as a column of
+    /// failed videos (2026-09-23). Ten seconds in: the lower third and its
+    /// provenance line are still up (it clears at twenty).
+    private var thumbnailTask: Task<Void, Never>?
+    private func scheduleThumbnailStill() {
+        thumbnailTask?.cancel()
+        thumbnailTask = Task { [weak self] in
+            // NOT WHILE A CARD IS UP. The first proof run's thumbnail was the
+            // Intermission card, because the Studio had opened in that scene:
+            // a card sells nothing. Check every ten seconds for ten minutes
+            // for a moment with the film on screen.
+            for _ in 0..<60 {
+                try? await Task.sleep(nanoseconds: 10_000_000_000)
+                guard let self, !Task.isCancelled else { return }
+                guard await self.overlay.card == nil else { continue }
+                guard let jpeg = await self.renderer.stillJPEG(width: 1280) else { return }
+                await StudioMoments.deliverStill(jpeg)
+                return
+            }
+        }
+    }
+
     public func stop() async {
+        thumbnailTask?.cancel(); thumbnailTask = nil
         // A stopped engine must not follow the film: going live stops the
         // rehearsal engine and builds a second one on the SAME player, and a
         // stale observer re-attaching on an item swap would replace the live
@@ -2140,6 +2166,17 @@ final class ProgramRenderer: @unchecked Sendable {
         return out
     }
 
+    /// A JPEG of the last program frame, for the broadcast's thumbnail.
+    func stillJPEG(width: CGFloat) -> Data? {
+        guard let px = lastOut else { return nil }
+        let img = CIImage(cvPixelBuffer: px)
+        let scale = width / max(1, img.extent.width)
+        let scaled = img.transformed(by: CGAffineTransform(scaleX: scale, y: scale))
+        return ciContext.jpegRepresentation(
+            of: scaled, colorSpace: CGColorSpace(name: CGColorSpace.sRGB)!,
+            options: [CIImageRepresentationOption(rawValue: kCGImageDestinationLossyCompressionQuality as String): 0.85])
+    }
+
     func newBuffer() -> CVPixelBuffer? {
         guard let pool else { poolFailures += 1; return nil }
         var px: CVPixelBuffer?
@@ -2592,6 +2629,9 @@ public final class CameraFrameTap: NSObject, AVCaptureVideoDataOutputSampleBuffe
 @MainActor
 enum StudioMoments {
     static var sink: ((String) async -> Void)?
+    /// The program still for the broadcast's thumbnail.
+    static var still: ((Data) async -> Void)?
+    static func deliverStill(_ jpeg: Data) async { await still?(jpeg) }
 }
 
 /// Which moments of a show become chapter markers on the replay (§D30), from

@@ -521,6 +521,7 @@ public final class StudioSession {
     private init() {
         // §D30: the engine reports card moments here; see `StudioMoments`.
         StudioMoments.sink = { [weak self] moment in await self?.markMoment(moment) }
+        StudioMoments.still = { [weak self] jpeg in await self?.uploadThumbnail(jpeg) }
     }
 
     /// Detail's entry point. Applies the rights gate and either refuses with a
@@ -1179,6 +1180,19 @@ public final class StudioSession {
         }
         let code = await StudioRoomHost.shared.start(player: p, filmID: id)
         return (code, StudioRoomHost.shared.problem)
+    }
+
+    /// The program still as this YouTube broadcast's thumbnail (owner,
+    /// 2026-09-23: broadcasts without one "look like a failed video").
+    func uploadThumbnail(_ jpeg: Data) async {
+        guard let id = armedBroadcastID else { return }
+        do {
+            try await YouTubeLive(token: try await StudioPlatformAuth.token(for: .youtube))
+                .setThumbnail(videoID: id, jpeg: jpeg)
+            awdiag("AWTHUMB set %@ (%d KB)", id, jpeg.count / 1024)
+        } catch {
+            awdiag("AWTHUMB not set %@ — %@", id, "\(error)")
+        }
     }
 
     public func completeArmedBroadcast() async {
