@@ -479,7 +479,9 @@ struct StudioWindowView: View {
         // genuinely load-bearing objection to a second window — that a host
         // could close the window their audience is watching through — kept as
         // a rule now that the window exists.
-        .background(AWWindowCloseWatcher {
+        // §D37: while ON AIR the close button is disabled, so ⌘W cannot end
+        // the show by accident; End the broadcast is the way out.
+        .background(AWWindowCloseWatcher(preventClose: studio.isOnAir) {
             // What the host edited in the current scene is kept (§D31).
             StudioScenes.shared.capture()
             StudioScenes.shared.save()
@@ -1613,6 +1615,7 @@ struct StudioWindowView: View {
                 // room and once below the fold (seen 2026-09-23).
                 // No shortcut here: ⇧⌘E belongs to Broadcast ▸ End the Broadcast.
                 Button(role: .destructive) {
+                    guard StudioEndConfirmation.confirm() else { return }
                     Task {
                         await studio.end()
                         RoomJoin.shared.hostCode = nil

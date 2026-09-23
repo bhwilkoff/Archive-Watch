@@ -131,6 +131,7 @@ struct PlayerWindow: View {
                             // must never outlive the surface that was
                             // producing it — that is how a harness ended up
                             // playing into someone's living room (§9).
+                            guard StudioEndConfirmation.confirm() else { return }
                             Task { await studio.end() }
                             router.nowPlaying = nil
                         } label: { Image(systemName: "xmark") }

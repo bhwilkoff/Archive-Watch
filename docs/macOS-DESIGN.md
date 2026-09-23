@@ -2505,3 +2505,25 @@ second path to keep in step. Verified from the live Worker, not the app: the
 `AW_STUDIO_MAC_PAUSE="20@35"` door took room S4BS to `paused:true`
 (generation 2) and back to `paused:false` (generation 3), with the position
 held at 1705.3 s across the pause.
+
+## §D37 — One keystroke may not end a live show
+
+While a show is ON AIR: the Studio window's close button is disabled (⌘W
+beeps; End the broadcast is the way out); ⇧⌘E, the Output column's End
+button and the projection window's ✕ ask **"End the broadcast?"** with
+**End Broadcast** (destructive) and **Keep Streaming**; ⌘Q asks the same and,
+if confirmed, ends the show properly — completing the YouTube broadcast —
+before the app quits. A preview is never asked about: nobody is watching.
+
+**Why.** Launch audit A10: ⇧⌘E worked from any window (a Creation Studio
+document included), Esc was the ✕'s shortcut, ⌘W closed the Studio, and ⌘Q
+quit — each ended the broadcast an audience was watching with nothing asked,
+and a quit never completed the broadcast at all. This amends §D12 ("closing
+either window ends what it was doing") rather than replacing it: closing
+still ends the show, it just cannot happen by accident while live.
+
+**How to apply.** Every host-initiated end goes through
+`StudioEndConfirmation.confirm()`; debug doors call `end()` directly. The
+alert carries no explanatory text — the title is the whole question.
+Verified on a bench show: the Studio window logged `closable=no` from the
+moment the stream was accepted and `closable=yes` after it ended.

@@ -40,6 +40,8 @@ enum StudioWindowID {
 
 @main
 struct ArchiveWatchMacApp: App {
+    // §D37: ⌘Q during a live show asks first and completes the broadcast.
+    @NSApplicationDelegateAdaptor(ArchiveWatchAppDelegate.self) private var appDelegate
     @State private var store = AppStore()
     @State private var router = AppRouter()
     @State private var account = AccountStore()

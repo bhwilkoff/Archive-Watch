@@ -28,25 +28,43 @@ import AppKit
 // while its state is preserved. The window is the thing being asked about, so
 // the window is the thing observed.
 struct AWWindowCloseWatcher: NSViewRepresentable {
+    /// While true the window cannot be closed: its close button is disabled
+    /// and ⌘W does nothing (§D37 — a live show is ended by End, not by a
+    /// stray close).
+    var preventClose = false
     /// Called once, on the main actor, when this view's window closes.
     let onClose: () -> Void
 
     func makeNSView(context: Context) -> NSView {
         let v = WatcherView()
         v.onClose = onClose
+        v.preventClose = preventClose
         return v
     }
 
     func updateNSView(_ nsView: NSView, context: Context) {
         (nsView as? WatcherView)?.onClose = onClose
+        (nsView as? WatcherView)?.preventClose = preventClose
     }
 
     final class WatcherView: NSView {
         var onClose: (() -> Void)?
         private var observer: NSObjectProtocol?
+        var preventClose = false { didSet { applyClosable() } }
+
+        private func applyClosable() {
+            guard let window else { return }
+            if preventClose { window.styleMask.remove(.closable) }
+            else { window.styleMask.insert(.closable) }
+            #if DEBUG
+            awdiag("AWCLOSE \"%@\" closable=%@", window.title,
+                   window.styleMask.contains(.closable) ? "yes" : "no")
+            #endif
+        }
 
         override func viewDidMoveToWindow() {
             super.viewDidMoveToWindow()
+            applyClosable()
             if let observer { NotificationCenter.default.removeObserver(observer) }
             observer = nil
             guard let window else { return }

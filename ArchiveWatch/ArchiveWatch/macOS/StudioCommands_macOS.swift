@@ -87,7 +87,10 @@ private struct PreviewCommand: View {
 private struct EndCommand: View {
     private var studio: StudioSession { StudioSession.shared }
     var body: some View {
-        Button("End the Broadcast") { Task { await StudioSession.shared.end() } }
+        Button("End the Broadcast") {
+            guard StudioEndConfirmation.confirm() else { return }
+            Task { await StudioSession.shared.end() }
+        }
             .keyboardShortcut("e", modifiers: [.command, .shift])
             .disabled(!studio.isLive)
     }
