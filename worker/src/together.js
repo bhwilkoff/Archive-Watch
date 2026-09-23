@@ -45,8 +45,46 @@
 const CORS = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Methods": "GET,POST,OPTIONS",
-  "Access-Control-Allow-Headers": "content-type",
+  "Access-Control-Allow-Headers": "content-type, x-aw-host-key",
+  // A browser guest's "I'm here" is a POST with a JSON body, so every one was
+  // preceded by a preflight — twice the requests for nothing (audit A14).
+  "Access-Control-Max-Age": "86400",
 };
+
+/** What a film id may look like: the archive's own identifier alphabet. */
+const FILM_ID = /^[A-Za-z0-9._@:+-]{1,120}$/;
+/** Guests counted per room; beyond this a new token is refused. */
+const MAX_PRESENT = 50;
+
+function position(v) {
+  const n = Number(v);
+  return Number.isFinite(n) && n >= 0 && n < 7 * 86400 ? n : 0;
+}
+function rate(v) {
+  const n = Number(v);
+  return Number.isFinite(n) && n >= 0.25 && n <= 4 ? n : 1;
+}
+
+/**
+ * RATE LIMITS (launch audit A14). The Worker's free daily request budget is
+ * shared with the privacy counter and the Roku drop box, and every room
+ * route was unauthenticated and unmetered: one looping script, or a sweep of
+ * the 32^4 codes, could take all three down. Cloudflare's rate limiter keeps
+ * a per-address count for the length of its window and writes nothing down.
+ * A guest polls ~32 times a minute, so 300 is a household, not a device.
+ */
+async function limited(env, request, isCreate) {
+  const key = request.headers.get("cf-connecting-ip") || "unknown";
+  if (env.ROOM_LIMITER) {
+    const { success } = await env.ROOM_LIMITER.limit({ key });
+    if (!success) return true;
+  }
+  if (isCreate && env.ROOM_CREATE_LIMITER) {
+    const { success } = await env.ROOM_CREATE_LIMITER.limit({ key });
+    if (!success) return true;
+  }
+  return false;
+}
 
 /** Crockford Base32, matching `StudioRoom.swift` exactly. */
 const ALPHABET = "0123456789ABCDEFGHJKMNPQRSTVWXYZ";
@@ -138,13 +176,17 @@ export async function handleTogether(url, request, env) {
     return new Response(null, { status: 204, headers: CORS });
   }
   const now = Date.now();
+  const isCreate = url.pathname === "/together/new" && request.method === "POST";
+  if (await limited(env, request, isCreate)) {
+    return json({ error: "too many requests" }, 429);
+  }
 
   // POST /together/new  { filmID, position, rate, paused }
   if (url.pathname === "/together/new" && request.method === "POST") {
     let body;
     try { body = await request.json(); } catch { return json({ error: "bad body" }, 400); }
     const filmID = String(body.filmID || "");
-    if (!filmID) return json({ error: "filmID required" }, 400);
+    if (!FILM_ID.test(filmID)) return json({ error: "filmID required" }, 400);
 
     // A CODE IS CHECKED AGAINST LIVE ROOMS BEFORE IT IS ISSUED. This is one of
     // the two things that make four characters safe rather than merely short
@@ -158,8 +200,8 @@ export async function handleTogether(url, request, env) {
         await env.DB.prepare(
           "INSERT INTO rooms (code, film_id, position, at_server_ms, rate, paused, generation, touched_ms, host_key) " +
           "VALUES (?1, ?2, ?3, ?4, ?5, ?6, 1, ?4, ?7)"
-        ).bind(code, filmID, Number(body.position) || 0, now,
-               Number(body.rate) || 1, body.paused ? 1 : 0, hostKey).run();
+        ).bind(code, filmID, position(body.position), now,
+               rate(body.rate), body.paused ? 1 : 0, hostKey).run();
         // The key is returned ONCE, to the creator, and never again — a GET
         // must never be able to hand it out, or the split it exists for is
         // undone by the first poll.
@@ -185,6 +227,16 @@ export async function handleTogether(url, request, env) {
     if (!/^[A-Za-z0-9]{16,64}$/.test(token)) return json({ error: "bad token" }, 400);
     const room = await env.DB.prepare("SELECT code FROM rooms WHERE code = ?1").bind(hcode).first();
     if (!room) return json({ error: "no such room" }, 404);
+    // A COUNT, capped. Anyone with the code could post endless random tokens
+    // and inflate the host's number while spending a D1 write each (A14).
+    const known = await env.DB.prepare(
+      "SELECT 1 FROM room_presence WHERE code = ?1 AND token = ?2").bind(hcode, token).first();
+    if (!known) {
+      const c = await env.DB.prepare(
+        "SELECT COUNT(*) AS n FROM room_presence WHERE code = ?1 AND seen_ms > ?2"
+      ).bind(hcode, now - PRESENT_MS).first();
+      if (c && c.n >= MAX_PRESENT) return json({ error: "room is full" }, 429);
+    }
     await env.DB.prepare(
       "INSERT INTO room_presence (code, token, seen_ms) VALUES (?1, ?2, ?3) " +
       "ON CONFLICT(code, token) DO UPDATE SET seen_ms = ?3"
@@ -239,11 +291,14 @@ export async function handleTogether(url, request, env) {
     // The generation is bumped HERE rather than sent by the client, so two
     // hosts cannot disagree about it and a client cannot freeze it by sending
     // the same number twice. Clients use it only to notice change (§11.6).
+    // A MISSING film id KEEPS the current film; it used to blank it (A14).
+    const film = body.filmID === undefined ? null : String(body.filmID);
+    if (film !== null && !FILM_ID.test(film)) return json({ error: "bad filmID" }, 400);
     const res = await env.DB.prepare(
-      "UPDATE rooms SET film_id = ?2, position = ?3, at_server_ms = ?4, rate = ?5, " +
+      "UPDATE rooms SET film_id = COALESCE(?2, film_id), position = ?3, at_server_ms = ?4, rate = ?5, " +
       "paused = ?6, generation = generation + 1, touched_ms = ?4 WHERE code = ?1"
-    ).bind(code, String(body.filmID || ""), Number(body.position) || 0, now,
-           Number(body.rate) || 1, body.paused ? 1 : 0).run();
+    ).bind(code, film, position(body.position), now,
+           rate(body.rate), body.paused ? 1 : 0).run();
     if (!res.meta || res.meta.changes === 0) return json({ error: "no such room" }, 404);
     const r = await env.DB.prepare("SELECT * FROM rooms WHERE code = ?1").bind(code).first();
     return json(rowToState(r, now));

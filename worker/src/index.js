@@ -98,15 +98,17 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
 
-    if (request.method === "OPTIONS") {
-      return new Response(null, { status: 204, headers: cors });
-    }
-
     // Watch Together rooms (SHAREPLAY §11). Same Worker, same D1 — the
     // sync transport needs no infrastructure of its own, which is most of
-    // why it fits the $0 constraint at all.
+    // why it fits the $0 constraint at all. BEFORE the global preflight:
+    // that one allows only archivewatch.org, so a web-TV package (origin
+    // null) could never POST "I'm here" (audit A14).
     if (url.pathname.startsWith("/together")) {
       return handleTogether(url, request, env);
+    }
+
+    if (request.method === "OPTIONS") {
+      return new Response(null, { status: 204, headers: cors });
     }
 
     // The beacon. Answers 204 with no body: nothing is set, nothing returned,

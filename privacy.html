@@ -246,7 +246,9 @@
       who enter the room&rsquo;s code can watch in step. While a friend is in a room,
       their device sends a random token every 30 seconds that is made fresh each
       time they join and tied to nothing else; the host sees only how many such
-      tokens arrived in the last minute. No account, name or IP address is stored.
+      tokens arrived in the last minute. No account, name or IP address is stored;
+      to stop abuse, Cloudflare counts each network address&rsquo;s requests to
+      the rooms for up to one minute and writes nothing down.
       The room and its tokens are deleted when the host ends it, and a room
       nobody ends is deleted within an hour of reaching six hours without
       activity.
