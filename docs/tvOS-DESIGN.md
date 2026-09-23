@@ -627,6 +627,15 @@ anything resembling a host action was a DEBUG door's timeout. Owner,
 that it should end, and not the second that the movie ends. There should be an
 easy way to end a stream from every platform that can start one."*
 
+**Rule 8.8i — Menu does not end a live show by accident.** While a show is
+live the player cannot be dismissed; Menu asks **"End the broadcast?"**
+(End Broadcast / Keep Streaming), and ending keeps the film playing, as 8.8h
+does. Launch audit A12: Menu closed the cover, the teardown cancelled the
+Studio task and the broadcast ended with nothing asked — the same accident
+macOS §D37 closes for ⌘W and ⌘Q. `interactiveDismissDisabled` +
+`onExitCommand`, both only while `studioFilm != nil`, so ordinary playback's
+Menu is untouched. NOT YET PRESSED on a real remote (2026-09-23).
+
 **Rule 8.8d - the camera tile is LANDSCAPE, and the host is told so.** A
 Continuity camera always delivers its sensor's landscape frame, and
 `AVCaptureDevice.RotationCoordinator` — the API for exactly this question —

@@ -1400,6 +1400,8 @@ struct PlayerScreen: View {
 
     /// Why this film may not be broadcast — shown, never swallowed (§5).
     @State private var studioRefusal: String?
+    /// Menu was pressed during a live show (A12).
+    @State private var studioAskEnd = false
     /// The film a host has asked to broadcast but not yet confirmed — the
     /// §8.8 one-time acceptance. Nil once accepted or declined.
     @State private var studioPendingConfirm: Catalog.Item?
@@ -1706,6 +1708,20 @@ struct PlayerScreen: View {
             Button("Not now", role: .cancel) { studioPendingConfirm = nil }
         } message: {
             Text(StudioRights.hostWarning)
+        }
+        // MENU DOES NOT END A LIVE SHOW BY ACCIDENT (launch audit A12). The
+        // cover closing tore the player down, cancelled the Studio task and
+        // ended the broadcast with nothing asked. While live the cover cannot
+        // be dismissed, and Menu asks; ending keeps the film playing (8.8h).
+        .interactiveDismissDisabled(studioFilm != nil)
+        .onExitCommand(perform: studioFilm != nil ? { studioAskEnd = true } : nil)
+        .alert("End the broadcast?", isPresented: $studioAskEnd) {
+            Button("End Broadcast", role: .destructive) {
+                studioCard = nil
+                studioFilm = nil
+                studioRequest = nil
+            }
+            Button("Keep Streaming", role: .cancel) {}
         }
         // Rule 8.8a's focus-driven confirmation. Full screen rather than a
         // sheet: tvOS has no partial presentation that keeps focus sane, and
