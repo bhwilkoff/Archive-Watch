@@ -642,3 +642,39 @@ a browser is a HELPER, and a browser is where most calls happen. Matching on
 the window's pid found nothing and produced faces with no voices; the prefix
 test (`com.google.Chrome` against `com.google.Chrome.helper`, either way
 round) is what actually works.
+
+##### The audience can reach the screen — 2026-09-23 (macOS-DESIGN §D26, §D26a)
+
+Owner: *"It must also be designed well and create genuine opportunities for
+connection for all involved."*
+
+Auditing against that sentence found the thing the feature list hides:
+**everything the Studio could put on screen came from the host.** Chat
+arrived and was *displayed*; nothing an audience member did could reach the
+program, so a person watching had no evidence they were heard.
+
+| Platform | State |
+|---|---|
+| macOS | ✅ an **AUDIENCE** pane beside FILM and STREAM — forty recent lines, post-filter, appearing when a broadcast does. **Show** (or a double-click) puts a message on the broadcast under its author's own name for twelve seconds; what is on air sits at the top of the pane with **Take down**, and clears itself. Verified on the glass through the product's own chain — clicked a row on a live bench broadcast, read the banner back out of the STREAM preview, watched it expire and the chat column return |
+| iOS · tvOS | ⏳ the ENGINE carries it — `showShoutOut` / `expireShoutOutIfDue` are on the shared `StudioEngine` and every Apple composite would draw one — but no surface offers a list to pick from. Chat is composited on both and clickable on neither, which is §D26a's whole point |
+| Android | 🚫 `StudioOverlayBitmap` has no shout-out and the Kotlin engine no chat reader |
+| Web | 🚫 a browser cannot hold a stream key |
+
+**A message too long to draw is SHOWN and REFUSED, never truncated** — the
+row stays in the reader carrying "too long to show" and offers no button,
+because cutting a stranger's sentence in half and putting their name under the
+remainder is worse than declining to show it.
+
+**And the name is drawn in the case its owner typed.** Every other uppercase
+run in the overlay is a label we wrote; a handle is not ours to restyle. The
+first build said `CRAZYSPECZ`, and §8.48's one assertion that cannot pass with
+the defect reinstated is that two spellings render to different widths.
+
+**Two cache keys were incomplete in the same morning.** The lower third's
+named the title, year and provenance and not the shout-out, so a banner could
+never appear and, once up, could never expire; the chat column's named its x
+and WIDTH and not its height, so a column shortened to clear the banner was
+drawn at its old size. **A cache key that names some of its inputs is a cache
+that is wrong about the rest** — and neither is visible to a harness that
+builds a fresh renderer per call, which §8.48 did until it was made to reuse
+one.

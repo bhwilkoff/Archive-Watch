@@ -170,6 +170,45 @@ public final class StudioSession {
     /// that nothing arrived, and every cause looks identical from there.
     public private(set) var filmProblem: String?
 
+    /// The demo door's conversation. Deliberately includes an EVENT line and
+    /// one message past `maxCharacters`, so a run of the door reaches the two
+    /// rows that look different.
+    static let demoConversation: [StudioOverlay.ChatLine] = [
+        .init(id: "d1", author: "ora331", text: "first time seeing this one!"),
+        .init(id: "d2", author: "marguerite_b", text: "the clock stunt still holds up"),
+        .init(id: "d3", author: "newfollower", text: "followed", isEvent: true),
+        .init(id: "d4", author: "crazyspecz",
+              text: "my grandmother saw this in a theater in 1924"),
+        .init(id: "d5", author: "longwinded",
+              text: String(repeating: "and another thing about this picture ", count: 9)),
+        .init(id: "d6", author: "kt_projects", text: "what's the print source?"),
+    ]
+
+    /// §D26 — what is on screen right now, so the surface can offer to take
+    /// it down, and the lines the host can put up. Mirrored off the engine on
+    /// the once-a-second beat: the engine is an actor and a SwiftUI row
+    /// cannot await it.
+    public private(set) var shoutOut: StudioOverlay.ShoutOut?
+    public private(set) var chatRecent: [StudioOverlay.ChatLine] = []
+
+    /// Puts somebody in the audience on the broadcast, under their own name.
+    /// Refused above `maxCharacters` rather than truncated — cutting a
+    /// stranger's sentence in half and putting their name on the remainder is
+    /// worse than declining to show it.
+    public func showShoutOut(_ line: StudioOverlay.ChatLine) {
+        guard !StudioOverlay.ShoutOut.tooLong(line.text) else { return }
+        let author = line.author, text = line.text
+        shoutOut = StudioOverlay.ShoutOut(author: author, text: text)
+        guard let engine else { return }
+        Task { await engine.showShoutOut(author: author, text: text) }
+    }
+
+    public func clearShoutOut() {
+        shoutOut = nil
+        guard let engine else { return }
+        Task { await engine.clearShoutOut() }
+    }
+
     /// What the host's filter dropped this second (§D22), for the surface.
     public var chatLinesFiltered: Int { health.chatLinesFiltered }
 
@@ -592,6 +631,11 @@ public final class StudioSession {
             diag("[AWSTUDIOCHAT] DEBUG DOOR reading somebody else's channel #\(name) "
                  + "— not signed in to Twitch, so this is NOT what a host would see")
         }
+        // §D26's audience, INVENTED rather than borrowed. See `setDemoChat`.
+        if ProcessInfo.processInfo.environment["AW_STUDIO_CHAT_DEMO"] == "1" {
+            await e.setDemoChat(StudioSession.demoConversation)
+            diag("[AWSTUDIOCHAT] DEMO DOOR — an invented conversation, nobody's real words")
+        }
         // HARNESS AUDIO STATE — applied HERE, where the engine is known to
         // exist. The first attempt set it from the launch door, one line after
         // `play()`, and the engine is built asynchronously: `engine?.setAudio`
@@ -1000,6 +1044,13 @@ public final class StudioSession {
                 // §4's provenance line — macOS never had the 20-second rule
                 // either; it lived in tvOS's view loop alone.
                 _ = await engine.expireProvenanceIfDue()
+                // §D26 — twelve seconds, on the same beat. The MIRROR is
+                // updated whether or not it expired, because the host's Clear
+                // button has to disappear when the clock takes the banner
+                // down on its own.
+                await engine.expireShoutOutIfDue()
+                self.shoutOut = await engine.currentShoutOut
+                self.chatRecent = h.chatRecent
                 self.cameraFramesPerSecond = max(0, h.cameraFramesReceived - lastCameraFrames)
                 // RECOVER A CAMERA THAT STOPPED — macOS and iOS had the
                 // WARNING and no recovery, while tvOS had both. macOS can use

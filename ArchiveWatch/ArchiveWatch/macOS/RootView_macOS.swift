@@ -382,6 +382,16 @@ struct RootView: View {
                             return
                         }
                         router.play(it)                 // now the player finds it armed
+                        // AND SILENCE THE LOCAL MONITOR NOW, not in twenty
+                        // seconds. This door already muted — but only AFTER
+                        // the wait for `isLive` below — so every run of it
+                        // played the film out loud for as long as the engine
+                        // took to start. Same opt-out as the other doors,
+                        // which the first version of this line dropped and
+                        // would have made an audio measurement impossible.
+                        if env["AW_STUDIO_MAC_SOUND"] != "1" {
+                            StudioSession.shared.muteLocalMonitorForHarness()
+                        }
                         // WAIT FOR THE ENGINE, don't guess at it. A fixed sleep
                         // read `isLive` before the engine had finished starting
                         // and logged `engineLive=FALSE` for a run that was in

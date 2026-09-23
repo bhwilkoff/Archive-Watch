@@ -101,10 +101,19 @@ final class StudioOverlayRenderer: @unchecked Sendable {
         // it off silently took the year, the director and the provenance with
         // it — two controls doing one control's job, which is how a host
         // concludes a toggle is broken.
-        guard o.showLowerThird,
-              !(o.title.isEmpty && o.subtitle.isEmpty && o.provenance.isEmpty)
-        else { return "" }
-        return "l3:\(o.title)|\(o.subtitle)|\(o.provenance)"
+        // §D26 — the shout-out is PART OF THE KEY, and it is the half that
+        // moves. Without it the cache served the lower third alone, so a
+        // banner never appeared; and once one had appeared under some other
+        // key change, it could never expire, because nothing about the frame
+        // had changed by the time it was due to come down.
+        let shout = o.shoutOut.map { "|s:\($0.author)\u{1F}\($0.text)" } ?? ""
+        let l3 = o.showLowerThird
+            && !(o.title.isEmpty && o.subtitle.isEmpty && o.provenance.isEmpty)
+        // A shout-out stands on its own: a host may run with every lower-third
+        // line off and still put somebody on screen.
+        guard l3 || !shout.isEmpty else { return "" }
+        return l3 ? "l3:\(o.title)|\(o.subtitle)|\(o.provenance)" + shout
+                  : "l3:" + shout
     }
 
     // MARK: Chat
@@ -115,7 +124,15 @@ final class StudioOverlayRenderer: @unchecked Sendable {
     /// panel: a panel is furniture the audience has to look past, and a pill
     /// only darkens the film where there are words.
     func chatImage(for overlay: StudioOverlay, in rect: CGRect) -> CIImage? {
-        let key = "chat:\(Int(rect.minX)),\(Int(rect.width))|"
+        // THE WHOLE RECT, not just its x and width. The column's BOTTOM moves
+        // now — a shout-out shortens it (§D26) — and a key that named only the
+        // horizontal geometry handed back the image drawn at the old height,
+        // so the banner went on covering the last two lines however the rect
+        // was recomputed. Same defect as the lower third's own key, found the
+        // same morning: a cache key that names some of its inputs is a cache
+        // that is wrong about the rest.
+        let key = "chat:\(Int(rect.minX)),\(Int(rect.minY)),"
+            + "\(Int(rect.width)),\(Int(rect.height))|"
             + overlay.chat.map { "\($0.id):\($0.isEvent ? 1 : 0)" }.joined(separator: ",")
         lock.lock()
         if key == cachedChatKey, let cachedChat { lock.unlock(); return cachedChat }
@@ -258,7 +275,14 @@ final class StudioOverlayRenderer: @unchecked Sendable {
             draw(card: card, film: o.title, in: ctx)
             contentRect = CGRect(origin: .zero, size: size)   // a card owns the frame
         } else {
-            contentRect = drawLowerThird(o, in: ctx)
+            contentRect = o.showLowerThird ? drawLowerThird(o, in: ctx) : .null
+            // §D26 — ABOVE the lower third, never instead of it. The film's
+            // own identity is the one thing that must never be displaced by
+            // something a stranger typed.
+            if let s = o.shoutOut {
+                let r = drawShoutOut(s, above: contentRect, in: ctx)
+                contentRect = contentRect.union(r)
+            }
         }
         guard let cg = ctx.makeImage() else { return nil }
         // Crop to what was drawn: the rest is transparent and blending it is
@@ -301,6 +325,76 @@ final class StudioOverlayRenderer: @unchecked Sendable {
 
     /// Returns the rect it drew into.
     @discardableResult
+    /// §D26 — somebody in the audience, on the broadcast, with their name on it.
+    ///
+    /// Styled as the lower third's louder sibling rather than as a card: same
+    /// marquee rule, same paper type, same 5% title-safe inset, so it reads as
+    /// this program acknowledging someone and not as a plugin's notification.
+    /// The NAME carries the marquee orange because the name is the point —
+    /// the words could have come from anywhere; the attribution is what makes
+    /// it an acknowledgment.
+    private func drawShoutOut(_ s: StudioOverlay.ShoutOut,
+                              above lowerThird: CGRect,
+                              in ctx: CGContext) -> CGRect {
+        let inset = size.width * 0.05
+        let nameFont = font(24, weight: 0.4)
+        let textFont = font(38, weight: 0.0)
+        let maxWidth = size.width * 0.62          // never the full width: this
+                                                  // sits over a film, not on a slide
+        // NOT `.uppercased()`. Every other uppercase run in this renderer is a
+        // label WE wrote — "PUBLIC DOMAIN — …" is ours to style. A viewer's
+        // handle is their own spelling, and restyling it is the small version
+        // of getting somebody's name wrong on the one graphic that exists to
+        // name them.
+        let name = line(s.author, font: nameFont,
+                        color: Self.marqueeOrange, tracking: 0.4)
+        var body = wrap(s.text, font: textFont, maxWidth: maxWidth, firstIndent: 0)
+        guard !body.isEmpty else { return .zero }
+        // A 500-character Twitch message wraps to seven lines and covers the
+        // film. The picker refuses one this long with a reason
+        // (`ShoutOut.tooLong`); this is the backstop for a message that
+        // arrives some other way.
+        if body.count > StudioOverlay.ShoutOut.maxLines {
+            body = Array(body.prefix(StudioOverlay.ShoutOut.maxLines))
+        }
+
+        let lineH = 46 * scale
+        let pad = 22 * scale
+        let gap = 10 * scale
+        let nameH = 30 * scale
+        let blockH = CGFloat(body.count) * lineH + nameH + pad * 2
+        // Sit ABOVE whatever the lower third occupies, with a gap. When the
+        // host has turned every lower-third line off, `lowerThird` is empty
+        // and this simply takes its place near the bottom.
+        let baseY = (lowerThird.isEmpty ? size.height * 0.10 : lowerThird.maxY) + gap
+        let widest = max(width(name),
+                         body.map { width($0) }.max() ?? 0)
+        let rect = CGRect(x: inset, y: baseY,
+                          width: min(maxWidth + pad * 2, widest + pad * 2),
+                          height: blockH)
+
+        // The same near-opaque ground the chat pills use, for the same reason:
+        // white type over an arbitrary film frame is only legible if something
+        // guarantees the ground (§9.chat).
+        ctx.setFillColor(CGColor(red: 0.06, green: 0.06, blue: 0.07, alpha: 0.92))
+        ctx.fill(rect)
+        // A marquee rule down the left edge, exactly as the lower third has,
+        // so the two read as one family rather than two overlays.
+        ctx.setFillColor(Self.marqueeOrange)
+        ctx.fill(CGRect(x: rect.minX, y: rect.minY, width: 4 * scale, height: rect.height))
+
+        var y = rect.maxY - pad - 26 * scale
+        ctx.textPosition = CGPoint(x: rect.minX + pad, y: y)
+        CTLineDraw(name, ctx)
+        y -= 14 * scale
+        for l in body {
+            y -= lineH
+            ctx.textPosition = CGPoint(x: rect.minX + pad, y: y)
+            CTLineDraw(l, ctx)
+        }
+        return rect
+    }
+
     private func drawLowerThird(_ o: StudioOverlay, in ctx: CGContext) -> CGRect {
         let inset = size.width * 0.05                   // 5% title-safe
         let titleFont = font(52, weight: 0.4)           // display, semibold
@@ -332,7 +426,11 @@ final class StudioOverlayRenderer: @unchecked Sendable {
         if sub != nil { stackH += subH; lines += 1 }
         if prov != nil { stackH += provH; lines += 1 }
         stackH += gap * CGFloat(max(0, lines - 1))
-        guard lines > 0 else { return .zero }
+        // `.null`, never `.zero`: this rect gets `union`ed with the
+        // shout-out's, and `CGRect.zero` is a real rect AT THE ORIGIN, so an
+        // absent lower third would have stretched the composited strip from
+        // the banner all the way down to y=0.
+        guard lines > 0 else { return .null }
 
         let baseY = inset                                   // bottom of the stack
         // The scrim must cover the stack AND the run-up above it, or the top

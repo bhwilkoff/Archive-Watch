@@ -1,5 +1,266 @@
 # Archive Watch — Session Log (archive)
 
+### 2026-09-22 — the Studio became the whole surface, and a button learned to say what it does
+
+The owner ran the shipped macOS Studio for the first time and reported six
+things. **Four of them were not defects in the build — they were rules that
+were wrong, faithfully implemented** (Decision 134, macOS-DESIGN §D7-§D13).
+
+**THE STUDIO NOW CONTAINS THE BROADCAST.** §D1 gave it a window and left the
+film in a different one, so it was a window of controls for a show it did not
+hold. It now carries a FILM CHOOSER (search the catalog from inside it;
+rights-refused titles are SHOWN with their reason — *"This film is probably in
+the public domain but nothing proves it"* — rather than hidden), the film's own
+player in a **SOURCE** pane beside the **PROGRAM** preview (§D8, OBS's split),
+and "Open in a separate window" that MOVES the film out for projection and
+never copies it. Seen on the glass at 1300x1000 with Caligari and with Buster
+Keaton's *The Scarecrow*.
+
+**THE GO-LIVE SHEET IS DELETED.** Rule B13g asked where a host PRESSES Go Live
+and never where they DECIDE to, which is how the owner found it: *"I think I may
+have found it hidden behind a button on the video player (rather than in the
+studio for some reason.)"* Everything it carried is the Studio's **Output**
+column now — platform, the shared sign-in row (reading **"YouTube — Learning is
+Change"** on this Mac), the readiness answer, the title, privacy, the rights
+sentence, and a Go Live that is disabled with the reason above it. ⇧⌘L and the
+player's toolbar button open the Studio.
+
+**THE CAMERA HAD NEVER BEEN ASKED FOR.** *"I cannot seem to attach any cameras
+(not even the facetime camera) to the studio."* They could not: nothing in the
+macOS product path has ever called `requestAccess`, so
+`authorizationStatus` was `.notDetermined` for the life of the app and the row
+read **"not attached"** forever with nothing to press. The rule behind it —
+*"the Studio REPORTS, never REQUESTS"* — came from tvOS, where a prompt in a
+living room is a real intrusion, and on a Mac it was a dead end with a label on
+it. Four states now say their own names, with **Allow the camera** on
+`.notDetermined` and **Open System Settings** on denied. **OWNER STEP: press
+Allow once.**
+
+**AND THE DEVICE PICKERS ARE LIVE.** §D2 said "device changes take effect on
+the next broadcast", from a true fact (an `AVCaptureSession` is built once) and
+a wrong conclusion: the capture session is not the encoder, the tile is
+COMPOSITED, and the wire never learns which device made the pixels. §D4's "not
+while live" belongs to resolution and frame rate alone.
+
+**A CARD OF THE HOST'S OWN WORDS** (§D10) — four lines, each ranked Display /
+Heading / Body / Caption from the project's own six levels. Rendered and LOOKED
+AT (`build/qa/studio-overlay/card-custom*.png`): empty lines dropped, one-line
+and four-line cards both optically centered, same wordmark and rule as the three
+fixed ones. **Writing it produced a chicken-and-egg bug that only the glass
+found**: the picker read its value back out of `card`, and §D10 says an empty
+custom card is never shown — so choosing "My own words" set `card` to nil, the
+picker snapped back to "No card", and the editor never appeared. The CHOICE is
+now its own state, separate from what the engine is drawing.
+
+**THE BUTTON RULE TOOK TWO PASSES, AND THE FIRST ONE WAS WRONG.** *"Button
+text should never be truncated or abbreviated."* The first answer was a
+wrapping `Layout` — which kept the words and destroyed the design: seven large
+buttons reflowed into three ragged rows with "Share" stranded alone on the
+last. The owner, correctly: *"We don't want button wrapping. We want actual
+designed buttons that say what they mean and perform like macOS buttons
+should."* So `ViewThatFits` over arrangements that were each DESIGNED — at
+1500 points all seven; at 1150 **Play · Favorite · Add to Playlist · More**; at
+the 960 minimum **Play · Favorite · More** — with every control `.fixedSize()`
+(without it the first arrangement always "fits", by squeezing) and a native
+More menu that still says every word. The layout was deleted. The rule reaches
+past buttons: the same screen was rendering "Rev. Arthur Di…" and "Roger Prynne
+a…" under cast portraits, and the row was centre-aligned so portraits hung at
+different heights.
+
+**THE FILM THAT WOULD NOT STOP** (§D12). *"The movie continued to play and then
+when I opened the interface back up, a new copy of the movie started playing …
+there is no way to stop the audio at all at that point."* `teardown()` did
+everything its name implies except stop the player: it removed observers,
+canceled tasks and saved progress, and left the `AVPlayer` running — and macOS
+keeps a closed `WindowGroup` window's `@State`, so the player survived with no
+view left to pause it and the next open built a second one over the first.
+**Measured**: 4.0% CPU playing → **0.0% after the red button**, and re-opening
+landed on Detail rather than a second copy.
+
+**A defect I introduced and caught by reading the projection path**:
+`forgetSurfacePlayer` was keyed on the archive id, and moving a film between
+the Studio and the projection window tears one surface down and builds another
+for the SAME id — with no ordering promise, a late teardown would forget the
+registration the new surface had just made. It compares the PLAYER now.
+
+**THE SUITE CAUGHT MY OWN CHANGE**, which is what it is for: §8.12's
+`APPLE_SURFACES` list still named `GoLiveSheet_macOS.swift`, deleted by §D9, so
+three greps read a file that was not there. That is the "a harness's file list
+is a second copy of the module's shape" defect again (§6.2n). The list now
+points at `StudioWindow_macOS.swift` — where the gates actually live, and they
+all pass — and a MISSING file is now a FAILURE in its own right, so the list
+cannot quietly name a file nobody compiles.
+
+Suite **136 pass / 1 skip / 0 fail** (the skip is §8.3's ten-minute soak, which
+is skipped by default; nothing this session touched the engine's encode loop or
+the publisher, which is what it exercises). Kotlin **103 / 0 / 0**. Builds green
+on macOS, iOS and tvOS. v1.42.477 (1489).
+
+**LATER THE SAME DAY — five more reports, three features and two defects, one
+of which I wrote.**
+
+**THE CAMERA CAN BE FRAMED AND PLACED** (§D14, amends §4's "presets, never
+free-form"). Owner: *"I'd like to be able to move my camera around the preview
+window AND crop the video (to only capture my face, etc.)."* §4's rule bought
+something real and got one thing wrong: a tile's SIZE and POSITION, and the
+crop of the camera's own picture, are not part of the arrangement — they are
+how a host fits themselves into it, and a webcam that sees a whole room is a
+framing problem no preset can solve. Zoom 1-3x with pan, size 0.5-2x, and the
+tile is MOVED BY DRAGGING IT IN THE STREAM PREVIEW, which is what the preview
+is for. **Verified on the glass**: the tile moved from bottom-right to
+mid-left, zoom 1.5x cropped to head-and-shoulders, size 0.7x. Framing is not
+per-layout — the crop follows the person, the preset follows the show.
+
+**THE LOWER THIRD'S LINES ARE THE HOST'S** (§D15) — title, year+director and
+provenance each toggle. Which of the catalog's own verified facts to show,
+never what they say (§2.1). The provenance line keeps its 20-second expiry and
+that expiry stays gated on a real broadcast, which is the owner's own ruling
+when asked.
+
+**"PROGRAM" IS NOW "STREAM"** (§D17). Owner: *"'Program' doesn't make sense as
+a label."* It is vision-gallery jargon taken from OBS along with the split. The
+panes are **FILM** and **STREAM**; the badge still says whether it is going
+out, so the pane's name and its state stay two questions.
+
+**"NO AUDIO FROM THE FILM" WAS MY INSTRUMENT, NOT THE APP** — and the owner
+caught me at it. I measured the film-audio path on Buster Keaton's *The
+Scarecrow* (1920), which has **no audio track at all**
+(`filmHasAudio=false sourceAudioTracks=0`), and reported that as the finding.
+Owner: *"I just figured out that you picked another movie to test that doesn't
+have audio. I wish you would stop doing that. It makes it look like an error
+every time you do."* Correct. Re-measured on *Safety Last!* (1923):
+`filmHasAudio=true sourceAudioTracks=1`, and the Film meter moves. Six other
+silent-era transfers all carry AAC, so a soundtrack is the RULE here and the
+copy I picked was the exception — the generalisation I drew was wrong as well
+as badly chosen. What survives is §D16: the Studio now SAYS "this film has no
+soundtrack" when it is true, and says why the meters are dead when no engine
+is running, which is what the owner was actually looking at.
+
+**THE CALL CHANNEL THAT APPEARED AND VANISHED WAS MY RACE** (§D18). Owner:
+*"it appeared in the mixer for a second and then disappeared."*
+`stopCallAudio()` cleared the engine's ring inside an unstructured `Task {}`,
+and `startCallAudio` calls `stopCallAudio()` first — so the order was: enqueue
+the clear, attach the new ring, return, and then the clear ran and took the
+channel away. Both synchronous now. And `AudioDeviceStart`'s status was
+DISCARDED, so a tap macOS refuses to start reported success and drew a channel
+that could never carry anything — the silent channel §D2 forbids, on the one
+input whose TCC behavior has been listed as unmeasured since it was written.
+
+**AND I KILLED THE APP UNDER THE OWNER'S HANDS.** They reported it quitting on
+choosing Google Chrome from the call list; there is no crash report, and the
+timing matches my own `pkill -f "Archive Watch.app"` to free the machine for
+the test suite. Same family as the full-desktop screenshot: the instrument
+reaching past the thing it was pointed at. **Never kill the app without
+checking whether it is in use.**
+
+**BUT THE QUESTION FOUND A REAL CRASH ANYWAY**, in exactly that path.
+`StudioCallAudioTap.consume` had TWO heap overflows in a real-time CoreAudio
+callback: `frames` accumulates across every buffer in the `AudioBufferList`
+while the bound was checked PER BUFFER, so two 16,384-frame buffers wrote the
+second one past the end of `srcScratch`; and `outCapacity` is counted in
+FRAMES while the call passed `dst.count`, a SAMPLE count, letting the resampler
+write 2x past `dstScratch`. A browser is the input most likely to deliver many
+buffers, because the tap deliberately captures the parent AND its helpers. The
+film tap and the microphone tap were always right — this one was the newest and
+the odd shape. **§8.35 is a new static gate**, verified by reinstating the bug
+and watching it go red.
+
+**AND THEN THE CALL TAP WAS PROVED, END TO END, ON THE PRODUCT PATH.** The
+owner left for an hour and said to keep testing until it was right. What
+SCRATCHPAD item 14 has called unknown since it was written — *what a SIGNED,
+SANDBOXED app gets from a process tap* — is now measured:
+
+    AWCALL door selected=Google Chrome pid=768 objects=3 problem=none
+    AWCALL app=Google Chrome samples=45568   level=0.7413 running=true
+    AWCALL app=Google Chrome samples=1645568 level=0.7453 running=true   <- tone on
+    AWCALL app=Google Chrome samples=1694208 level=0.0000 running=true   <- tone off
+    AWCALL app=Google Chrome samples=2032128 level=0.0000 running=true
+
+**A NEGATIVE CONTROL, not just a positive reading.** Chrome played a warbling
+440/660 Hz tone; the call channel sat at 0.74 for nine ticks; closing that
+Chrome dropped it to **exactly 0.0000** for eight more while `samples` kept
+climbing — the tap still running, now delivering silence. **The film was
+playing its own soundtrack throughout** (*Safety Last!*, `filmHasAudio=true`),
+and the call channel read zero, so the tap is capturing Chrome and ONLY
+Chrome. That is §8.21's 82 dB isolation, confirmed where it matters. The
+sample rate corroborates too: ~48,600 frames a second is the output device's
+48 kHz, resampled to the program's 44.1.
+
+**THE TEST CHROME WAS AN ISOLATED INSTANCE**, `--user-data-dir=/tmp/aw-chrome-test`
+with `--autoplay-policy=no-user-gesture-required`, because the owner's own
+Chrome was full of their working tabs and clicking around in it is the same
+intrusion as the screenshot and the pkill. Worth knowing for next time: the
+Claude-in-Chrome extension's synthetic clicks and keystrokes do NOT grant
+user activation (`navigator.userActivation.hasBeenActive` stays false), so
+audio cannot be started that way at all.
+
+`AW_STUDIO_CALL="Google Chrome"` is a new DEBUG door, for the same reason
+`AW_STUDIO_CARD` is one: the picker is a two-coordinate click into a popup
+menu, which is not a repeatable measurement.
+
+**THE CROP WAS CLUNKY AND THE REASON WAS NOT "four sliders".** Owner: *"Most
+people expect to crop the video frame (size and shape of the actual video
+tile) rather than zoom and move ... surely, OBS has a way to do this."* §D14
+modelled the tile as the preset SCALED, and a scale cannot change a
+rectangle's SHAPE — so cropping was the one thing the control could not do and
+zoom was standing in for it. Researched OBS's canvas (handles, drag-to-move,
+corner-vs-side, Option-drag crop) and took all of it except the crop MODE:
+our tile is aspect-filled, so reshaping the box IS the crop — one gesture
+where OBS needs two and a modifier. **Verified on the glass**: moved, reshaped
+to portrait, corner-resized, zoomed (the Pan line appears only above 1x), and
+a negative control showing a scroll OUTSIDE the box changes nothing.
+
+**Two framework facts cost a run each.** `.offset` is a render transform, so
+the `NSView` behind an offset SwiftUI view stays where it was laid out — the
+scroll-catcher reported `rect=690,488 650x394`, the whole pane. And AppKit
+delivers `scrollWheel` to `hitTest`'s view and up ITS chain, so a
+`.background` representable is never on it; a local `NSEvent` monitor is.
+**And a third fault was MINE again**: the first zoom test scrolled DOWN, which
+zooms out from an already-minimum 1.0x, so a working gesture read as broken
+for two builds. The instrument said `inside=true` and I had not asked it.
+
+**THE TWO SCARECROWS ARE FIXED AT THE SOURCE.** Decision 040 clusters by
+normalized title before asking `_same_film`, and
+`Buster Keaton's "The Scarecrow"` keyed apart from `The Scarecrow` — while
+`_same_film` returns True for the pair. A double-quoted run ANCHORED AT THE
+END is now the title. **Measured before shipping**: 121 titles change key into
+49 clusters, every one a Keaton or Chaplin short beside its bare twin. The
+first draft handled single quotes too and produced `Let's Get Movin'` ->
+`s Get Movin`; the catalog said the branch was not worth its damage, so it
+is double quotes only. Needs a catalog rebuild to take effect.
+
+**AND THE SUITE FAILED ONCE FOR A REASON THAT WAS NOT THE CODE**, which is
+worth writing down rather than quietly re-running. A run taken while my own
+test instance of the app AND a second Chrome AND an earlier suite were all on
+the machine came back **127 pass / 9 skip / 3 fail** with Kotlin degraded to
+95/8/0. The same run on a quiet machine is **138 / 1 / 0** with Kotlin
+103/0/0. This is the third time contention has produced a red line here
+(§8.6's throttle proxy, §8.21's headset at 24 kHz), and the lesson is the
+same one: **check what else is running before believing a failure**, because
+a red line that really means "somebody is using this Mac" teaches a reader to
+discount red lines.
+
+Suite **138 pass / 1 skip / 0 fail** (the skip is §8.3's soak, off by default).
+Kotlin **103 / 0 / 0**. macOS, iOS and tvOS all build. v1.42.480 (1492).
+
+**TWO POST-COMMIT CHANGES, VERIFIED AFTERWARDS RATHER THAN BEFORE** — worth
+naming because shipping a behavior change I had not seen is the thing this
+project keeps writing rules about. Both came out of self-review, both are now
+on the glass:
+
+- a CORNER drag reads both axes (it read `dx` alone, so a corner ignored
+  vertical movement): a purely vertical corner drag took the tile from the
+  default 26% to **`tile 34% x 34%`**;
+- changing PLACEMENT clears the tile and keeps the crop: switching to "Side by
+  side" took the readout from `tile 34% x 34% · zoom 2.8x` to **`zoom 2.8x`**,
+  so the placement does what it says and the host's face crop survives.
+
+**The dedup fix needs no owner action**: `publish-db` runs daily (cron 04:30
+UTC) and rebuilds the SQLite from `build_sqlite.py`, so the 49 merges land on
+the next scheduled run. It is path-filtered to `series/**` on push, so this
+commit does not trigger it early; `workflow_dispatch` would, if it is wanted
+sooner.
+
 ### 2026-09-21 — the Mac Studio finished, and Watch Together got a transport
 
 Owner /loop, 5-minute cron, standing prompt: *"continue to work on the

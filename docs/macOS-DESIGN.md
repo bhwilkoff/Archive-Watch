@@ -2165,3 +2165,104 @@ a phone call while sharing a slide — but it is now the exception rather than
 the price of admission. When the window's app cannot be tapped, the picture
 still runs and `callProblem` says why (§D18): half a call is better than a
 refusal, as long as the half that is missing is named.
+
+## §D26 — The audience can reach the screen
+
+A host can take a message out of the chat column and put it **on the
+broadcast**, large, over the film, attributed to the person who wrote it. It
+sits above the lower third, holds for twelve seconds, and clears itself.
+
+**Why this rule exists, and why it is the most important one in Part D.** On
+2026-09-23 the owner said the Studio *"doesn't fulfill the promise of live
+streaming a public domain movie with your friends ... It must also be designed
+well and create genuine opportunities for connection for all involved."*
+
+Auditing against that sentence found something the feature list hides:
+**everything the Studio can put on screen comes from the host.** Starting
+soon, Intermission, Thanks for watching, the host's own words, the host's
+face, the host's guests. Chat arrives and is *displayed* — a column of small
+type the audience cannot tell is being read. Nothing an audience member does
+can reach the program. A person watching has no evidence they were heard.
+
+That is not a missing feature; it is the difference between a broadcast and a
+room. "Watching together" is the product's own claim, and one-directional is
+the opposite of together.
+
+**Why a BANNER and not a card.** §D10 settles that a card covers the film
+completely and the audience sees only the card. A shout-out must not do that:
+the film is what everyone came for, and stopping it to show a comment makes
+the comment an interruption rather than an acknowledgment. The banner sits
+over the film with the film still running, which is exactly the relationship
+the moment has.
+
+**Why it clears itself.** A message left up becomes furniture, and the next
+person's message has to wait for a host who is watching a film. Twelve seconds
+is long enough to read a sentence aloud and respond to it, which is what a
+host does with it.
+
+**Why the ATTRIBUTION is not optional.** The point is that a particular person
+was heard. A message on screen without a name is content; with a name it is an
+acknowledgment, and the person watching knows it was theirs.
+
+**How to apply.** One at a time — a queue would turn a human moment into a
+ticker. It is drawn by the program's own `StudioOverlayRenderer` (§D19's
+rule), so what the host previews is what the audience gets. And it is never
+automatic: a host chooses to acknowledge someone, and an algorithm choosing
+for them would be picking whose words matter.
+
+### §D26a — The AUDIENCE pane, and why it is not the chat column
+
+This rule first said the host "picks from the chat they can already see, so
+there is no second list to keep." **That was wrong, and building it showed
+why.** The chat a host can see is the one composited into the STREAM preview:
+eight lines because eight is what fits beside a film, obedient to the host's
+*Show chat* switch, and made of pixels nobody can click. It is what the
+AUDIENCE sees. A host needs something else — more lines, kept whether or not
+any are being shown to anybody, and clickable.
+
+So the Studio has a third pane beside FILM and STREAM: **AUDIENCE**. It
+carries forty recent lines, newest last, post-filter — a host may not elevate
+a message they have already told the program to hide. Clicking **Show** (or
+double-clicking the row) puts it on the broadcast; what is on air appears at
+the top of the pane with **Take down** beside it, and disappears by itself
+when the twelve seconds are up.
+
+**It appears when a broadcast does**, and not before. Chat comes from YouTube
+and Twitch, so during setup this pane would be an empty box explaining
+itself — the noise the owner's caption rule is about. The chat controls in
+*On screen* already say "Appears once you go live."
+
+**CHAT YIELDS TO THE BANNER; the banner does not cover chat.** The lower
+third sitting over the chat column is deliberate — a long message must never
+hide the film's own title. Applying the same rule to a shout-out put it
+straight through the last two lines the host had been reading, because a
+banner is tall and arrives mid-conversation. The column moves up for the
+twelve seconds one is up, and drops away entirely if what is left is too
+short to read. Only on the left: the banner is anchored to the lower third's
+5% inset, so a right-hand column never meets it.
+
+**THE NAME IS DRAWN IN THE CASE ITS OWNER TYPED.** Every other uppercase run
+in the overlay is a label we wrote — "PUBLIC DOMAIN — PUBLISHED 1923" is ours
+to style. A viewer's handle is not, and `crazyspecz` rendered as `CRAZYSPECZ`
+is the small version of getting somebody's name wrong on the one graphic that
+exists to name them. This is the same rule as the catalog's: a string that is
+somebody else's data is spelled the way they spell it.
+
+**A message too long to draw is SHOWN and REFUSED, never truncated.** Twitch
+allows 500 characters, which wraps to seven lines and covers the film. The
+row stays in the reader — a host should see everything the audience said —
+carries "too long to show", and offers no button. Cutting a stranger's
+sentence in half and putting their name under the remainder is worse than
+declining to show it. The ceiling is four lines
+(`ShoutOut.maxCharacters`), and §8.48 checks that guess against the
+renderer's own wrapping rather than letting the two drift.
+
+**Two cache keys were wrong in the same morning, in the same way.** The lower
+third's named the title, year and provenance and not the shout-out, so a
+banner could never appear and, once up, could never expire. The chat
+column's named its x and WIDTH and not its height, so the shortened column
+was drawn at its old size and the banner went on covering `kt_projects`
+however correctly the rect was computed. **A cache key that names some of its
+inputs is a cache that is wrong about the rest** — and neither defect is
+visible to a harness that builds a fresh renderer per call, which is what
+§8.48 did until it was made to reuse one.

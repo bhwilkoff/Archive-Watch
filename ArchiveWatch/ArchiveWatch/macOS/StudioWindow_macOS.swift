@@ -493,8 +493,93 @@ struct StudioWindowView: View {
                 .frame(minWidth: 320, idealWidth: 520)
             programPane
                 .frame(minWidth: 320, idealWidth: 520)
+            // §D26 — THE AUDIENCE IS PART OF THE SHOW, so it sits up here
+            // beside the film and the stream rather than down among the
+            // controls. It appears when a broadcast does: chat comes from
+            // YouTube and Twitch, so before one exists this pane would be an
+            // empty box explaining itself, which is exactly the noise the
+            // owner's caption rule is about. The chat controls already say
+            // "Appears once you go live."
+            if studio.isOnAir {
+                audiencePane
+                    .frame(minWidth: 220, idealWidth: 300)
+            }
         }
         .frame(maxWidth: .infinity, minHeight: 230, idealHeight: 340, maxHeight: 460)
+    }
+
+    // MARK: AUDIENCE (§D26)
+
+    /// The host's own copy of the conversation, and the one place a viewer can
+    /// reach the screen.
+    ///
+    /// It is NOT the chat burned into the stream. That one is eight lines
+    /// because eight is what fits beside a film, it obeys the host's Show
+    /// chat switch, and it is made of pixels nobody can click. A host reading
+    /// along wants more lines, wants them whether or not the audience is
+    /// being shown any, and wants to be able to answer one.
+    private var audiencePane: some View {
+        VStack(spacing: 0) {
+            paneHeader("AUDIENCE", trailing: audienceBadge)
+            if let s = studio.shoutOut {
+                onScreenNow(s)
+                Divider()
+            }
+            if studio.chatRecent.isEmpty {
+                // Not a fault, and not the same sentence as "chat is off":
+                // the broadcast is out there and nobody has said anything yet.
+                VStack {
+                    Spacer()
+                    Text("Nobody has said anything yet.")
+                        .font(.callout).foregroundStyle(.secondary)
+                    Spacer()
+                }
+                .frame(maxWidth: .infinity)
+            } else {
+                ScrollViewReader { proxy in
+                    ScrollView {
+                        LazyVStack(alignment: .leading, spacing: 0) {
+                            ForEach(studio.chatRecent) { line in
+                                AudienceRow(line: line) { studio.showShoutOut(line) }
+                                    .id(line.id)
+                            }
+                        }
+                        .padding(.vertical, 4)
+                    }
+                    // Newest last, like every chat client, so the host's eye
+                    // already knows where a new line lands.
+                    .onChange(of: studio.chatRecent.last?.id) { _, id in
+                        guard let id else { return }
+                        withAnimation { proxy.scrollTo(id, anchor: .bottom) }
+                    }
+                }
+            }
+        }
+        .background(Color(nsColor: .textBackgroundColor))
+    }
+
+    /// The header says NOTHING when there is nothing to say. A count of chat
+    /// lines is not a fact a host needs — they are looking at the lines —
+    /// and the first version of this printed a stray caret beside it.
+    private var audienceBadge: some View { EmptyView() }
+
+    /// What is on air right now, with the way to take it down. It counts DOWN
+    /// rather than saying "12 seconds": a host mid-sentence needs to know how
+    /// long they have left, which is not a fact they can get by looking at the
+    /// stream.
+    private func onScreenNow(_ s: StudioOverlay.ShoutOut) -> some View {
+        HStack(alignment: .top, spacing: 8) {
+            VStack(alignment: .leading, spacing: 1) {
+                Text(s.author).font(.caption.weight(.semibold))
+                    .foregroundStyle(Color(red: 1.0, green: 0.361, blue: 0.208))
+                Text(s.text).font(.caption).lineLimit(2)
+            }
+            Spacer(minLength: 4)
+            Button("Take down") { studio.clearShoutOut() }
+                .controlSize(.small)
+        }
+        .padding(.horizontal, 10).padding(.vertical, 6)
+        .background(Color(red: 1.0, green: 0.361, blue: 0.208).opacity(0.14))
     }
 
     // MARK: SOURCE (§D7, §D8)
@@ -2058,6 +2143,66 @@ enum MacCardChoice: String, CaseIterable, Hashable {
         case .intermission: return .intermission
         case .ending: return .ending
         }
+    }
+}
+// MARK: - One line of the audience (§D26)
+
+/// A row a host can put on the broadcast.
+///
+/// The button appears on hover rather than sitting on every row: forty rows
+/// each carrying a permanent "Show" is a wall of controls, and the thing a
+/// host is doing here most of the time is READING.
+///
+/// A message too long to draw is shown and NOT offered, with the reason. It is
+/// not hidden — a host reading along should see everything the audience said —
+/// and it is not truncated, because cutting a stranger's sentence in half and
+/// putting their name under the remainder is worse than declining to show it.
+private struct AudienceRow: View {
+    let line: StudioOverlay.ChatLine
+    let show: () -> Void
+    @State private var hovering = false
+
+    private var tooLong: Bool { StudioOverlay.ShoutOut.tooLong(line.text) }
+
+    var body: some View {
+        HStack(alignment: .firstTextBaseline, spacing: 6) {
+            VStack(alignment: .leading, spacing: 0) {
+                Text(line.author)
+                    .font(.caption.weight(.semibold))
+                    .foregroundStyle(line.isEvent
+                                     ? Color(red: 1.0, green: 0.361, blue: 0.208)
+                                     : .secondary)
+                Text(line.text)
+                    .font(.callout)
+                    // A 500-character Twitch message is legal and took ELEVEN
+                    // lines of the reader on the glass, pushing the rest of
+                    // the conversation off the pane. Four here; the full text
+                    // is in the tooltip, and it is refused on air anyway.
+                    .lineLimit(4)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+            Spacer(minLength: 4)
+            if tooLong {
+                if hovering {
+                    Text("too long to show")
+                        .font(.caption2).foregroundStyle(.secondary)
+                }
+            } else if hovering {
+                Button("Show", action: show)
+                    .controlSize(.small)
+                    .help("Put this on the broadcast for \(Int(StudioOverlay.ShoutOut.seconds)) seconds")
+            }
+        }
+        .padding(.horizontal, 10).padding(.vertical, 4)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background(hovering ? Color.primary.opacity(0.06) : .clear)
+        .contentShape(Rectangle())
+        .help(line.text)
+        .onHover { hovering = $0 }
+        // A DOUBLE-CLICK DOES IT TOO, because the button is the discoverable
+        // way and the gesture is the fast one — a host answering a comment
+        // aloud is not aiming at a 40-point target.
+        .onTapGesture(count: 2) { if !tooLong { show() } }
     }
 }
 #endif

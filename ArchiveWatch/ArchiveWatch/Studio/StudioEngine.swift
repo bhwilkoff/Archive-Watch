@@ -158,6 +158,32 @@ public enum StudioLayout: String, CaseIterable, Sendable {
         return m.height >= size.height * 0.08 ? m : nil
     }
 
+    /// §D26 — CHAT YIELDS TO A SHOUT-OUT, it is not covered by one.
+    ///
+    /// The lower third sitting OVER chat is deliberate: a long message must
+    /// never hide the film's own title. Applying that same rule to the banner
+    /// put it straight through the last two lines a host had been reading —
+    /// seen on the glass, with `kt_projects` behind it — because a banner is
+    /// tall and arrives mid-conversation. So the column shortens for the
+    /// twelve seconds one is up.
+    ///
+    /// Only on the LEFT: a banner is anchored to the lower third's 5% inset,
+    /// so a right-hand column never meets it and shortening that one would
+    /// take lines away for nothing.
+    ///
+    /// Returns `.null` when what is left is too short to be chat. A column
+    /// with room for one line is worse than no column: it reads as chat having
+    /// broken, rather than as one message being featured.
+    public static func chatYielding(_ rect: CGRect, toOverlayTop top: CGFloat?,
+                                    side: StudioChatSide, in size: CGSize) -> CGRect {
+        guard let top, side == .left else { return rect }
+        let clear = top + size.height * 0.015
+        guard clear > rect.minY else { return rect }
+        let shortened = CGRect(x: rect.minX, y: clear,
+                               width: rect.width, height: rect.maxY - clear)
+        return shortened.height > size.height * 0.12 ? shortened : .null
+    }
+
     private func chatRectLeft(in size: CGSize, cameraAspect: CGFloat) -> CGRect? {
         let inset = size.width * 0.05
         switch self {
@@ -377,6 +403,41 @@ public struct StudioOverlay: Sendable, Equatable {
     public var chat: [ChatLine] = []
     public var showChat: Bool = true
 
+    /// §D26 — a message the host has put ON the broadcast, attributed.
+    ///
+    /// The one thing in this overlay that did not originate with the host.
+    /// Everything else here — the cards, the lower third, the placement — is
+    /// the host talking; this is the host listening, in public.
+    public var shoutOut: ShoutOut?
+
+    public struct ShoutOut: Sendable, Equatable {
+        public var author: String
+        public var text: String
+        /// When it went up, so it can be cleared without anybody remembering
+        /// to. A host reading a comment aloud is not also watching a timer.
+        public var shownAt: Date
+        /// §D26: long enough to read a sentence aloud and answer it.
+        public static let seconds: TimeInterval = 12
+        /// The banner never grows past this, because past it the graphic is
+        /// covering the film rather than sitting under it.
+        public static let maxLines = 4
+        /// What the PICKER uses to refuse a message before the host puts it up.
+        /// Derived from the renderer's own geometry — 38pt paper over 62% of a
+        /// 1920 frame is ~62 characters a line — and §8.48 asserts the two
+        /// agree by wrapping a string of exactly this length and counting.
+        public static let maxCharacters = 62 * maxLines
+
+        public static func tooLong(_ text: String) -> Bool {
+            text.count > maxCharacters
+        }
+
+        public init(author: String, text: String, shownAt: Date = Date()) {
+            self.author = author
+            self.text = text
+            self.shownAt = shownAt
+        }
+    }
+
     public struct ChatLine: Sendable, Equatable, Identifiable {
         public var id: String
         public var author: String
@@ -513,6 +574,8 @@ public struct StudioHealth: Sendable, Equatable {
     /// exactly like an audience that stopped talking — the same confusion
     /// §D21 names for the film, one layer up.
     public var chatLinesFiltered = 0
+    /// §D26 — the host's reader, newest last. Not what the audience sees.
+    public var chatRecent: [StudioOverlay.ChatLine] = []
     /// Whether the call's picture is reaching the program (§D23).
     public var guestsAttached = false
     /// The audio session category actually in force, and whether activating it
@@ -830,6 +893,36 @@ public actor StudioEngine {
         health.guestsAttached = source != nil
     }
 
+    /// §D26. Replaces whatever is up: one at a time, because a queue turns
+    /// an acknowledgment into a ticker.
+    public func showShoutOut(author: String, text: String) {
+        overlay.shoutOut = StudioOverlay.ShoutOut(author: author, text: text)
+        renderer.overlay = overlay
+    }
+
+    /// What is on screen, for the surface's mirror.
+    public var currentShoutOut: StudioOverlay.ShoutOut? { overlay.shoutOut }
+
+    public func clearShoutOut() {
+        guard overlay.shoutOut != nil else { return }
+        overlay.shoutOut = nil
+        renderer.overlay = overlay
+    }
+
+    /// Clears a shout-out that has had its twelve seconds. Called on the same
+    /// once-a-second beat the provenance line uses, rather than a timer of its
+    /// own — one clock for the overlay's self-clearing things.
+    @discardableResult
+    public func expireShoutOutIfDue() -> Bool {
+        guard let s = overlay.shoutOut else { return false }
+        guard Date().timeIntervalSince(s.shownAt) > StudioOverlay.ShoutOut.seconds else {
+            return false
+        }
+        overlay.shoutOut = nil
+        renderer.overlay = overlay
+        return true
+    }
+
     public func setChatControls(enabled: Bool, side: StudioChatSide,
                                 filter: StudioChatFilter) {
         chatEnabled = enabled
@@ -962,6 +1055,19 @@ public actor StudioEngine {
         await chat.start(liveChatID: liveChatID, fetch: fetch)
     }
 
+    /// A CONVERSATION WE INVENTED, for `AW_STUDIO_CHAT_DEMO`.
+    ///
+    /// The older `AW_STUDIO_CHAT` door names a REAL Twitch channel, which is
+    /// how strangers' messages ended up over the owner's film on 2026-09-22.
+    /// Verifying §D26's audience pane needs lines, not a stranger, so these
+    /// are written here — including the over-long one, because the row that
+    /// REFUSES to be shown is the half a happy-path demo never reaches.
+    private(set) var demoChat: [StudioOverlay.ChatLine] = []
+
+    public func setDemoChat(_ lines: [StudioOverlay.ChatLine]) {
+        demoChat = lines
+    }
+
     public func attachTwitchChat(channel: String) async {
         guard !channel.isEmpty else { return }
         let chat = StudioChatTwitch()
@@ -988,6 +1094,9 @@ public actor StudioEngine {
         } else if let chat = youtubeChat {
             lines = await chat.lines
             received = await chat.health.linesReceived
+        } else if !demoChat.isEmpty {
+            lines = demoChat
+            received = demoChat.count
         } else {
             return
         }
@@ -1018,6 +1127,13 @@ public actor StudioEngine {
         let kept = chatFilter.apply(lines)
         let tail = Array(kept.suffix(8))
         health.chatLinesFiltered = lines.count - kept.count
+        // §D26 — THE HOST'S OWN COPY, and it is not the audience's.
+        // The composited tail is eight lines because that is what fits beside
+        // a film; a host reading along wants more, and wants them whether or
+        // not chat is being shown to anybody. These are the lines they can put
+        // on screen, so they are POST-filter: a host cannot elevate something
+        // they have already told the program to hide.
+        health.chatRecent = Array(kept.suffix(40))
         guard tail.map(\.id) != overlay.chat.map(\.id)
                 || overlay.showChat != chatEnabled else { return }
         overlay.showChat = chatEnabled
@@ -1979,20 +2095,26 @@ final class ProgramRenderer: @unchecked Sendable {
         // film's own title. A SEPARATE cached layer: chat changes every few
         // seconds and the lower third does not, and one cache key for both
         // would re-rasterise the type on every message.
+        // Rasterised BEFORE chat now, because its height decides chat's.
+        let l3 = overlayRenderer.image(for: overlay)
         if overlay.showChat, !overlay.chat.isEmpty,
-           let rect = layout.chatRect(in: size, cameraAspect: cameraAspect, side: chatSide,
+           var rect = layout.chatRect(in: size, cameraAspect: cameraAspect, side: chatSide,
                                       guestAspect: guestFrame.map {
                                           let e = CIImage(cvPixelBuffer: $0).extent
                                           return e.height > 0 ? e.width / e.height : 16.0/9.0
-                                      }),
-           let chat = overlayRenderer.chatImage(for: overlay, in: rect) {
-            image = chat.composited(over: image)
+                                      }) {
+            rect = StudioLayout.chatYielding(rect,
+                                             toOverlayTop: overlay.shoutOut == nil
+                                                ? nil : l3?.extent.maxY,
+                                             side: chatSide, in: size)
+            if !rect.isEmpty,
+               let chat = overlayRenderer.chatImage(for: overlay, in: rect) {
+                image = chat.composited(over: image)
+            }
         }
         // The lower third sits ON TOP of both, and is a cached bitmap — the
         // text is laid out only when its content changes, never per frame.
-        if let l3 = overlayRenderer.image(for: overlay) {
-            image = l3.composited(over: image)
-        }
+        if let l3 { image = l3.composited(over: image) }
         ciContext.render(image, to: out)
         return out
     }

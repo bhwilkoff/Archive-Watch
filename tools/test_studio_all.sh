@@ -456,6 +456,20 @@ swift_case "8.42 chat column layout" \
   ArchiveWatch/ArchiveWatch/Studio/StudioEngine.swift \
   "$SHIM" tools/test_studio_chatlayout.swift
 
+# §D26 — the audience reaching the screen. Renders through the PRODUCT's own
+# overlay renderer and asserts the geometry the glass showed wrong twice: a
+# banner over the chat column, and a name in a case its owner never typed.
+swift_case "8.48 shout-out" \
+  ArchiveWatch/ArchiveWatch/Studio/RTMPPublisher.swift \
+  ArchiveWatch/ArchiveWatch/Studio/StudioAudio.swift \
+  ArchiveWatch/ArchiveWatch/Studio/StudioOutputSettings.swift \
+  ArchiveWatch/ArchiveWatch/Studio/StudioOverlayRenderer.swift \
+  ArchiveWatch/ArchiveWatch/Studio/StudioChatTwitch.swift \
+  ArchiveWatch/ArchiveWatch/Studio/StudioChatYouTube.swift \
+  ArchiveWatch/ArchiveWatch/Studio/StudioChatFilter.swift \
+  ArchiveWatch/ArchiveWatch/Studio/StudioEngine.swift \
+  "$SHIM" tools/test_studio_shoutout.swift
+
 swift_case "8.43 chat filter" \
   ArchiveWatch/ArchiveWatch/Studio/RTMPPublisher.swift \
   ArchiveWatch/ArchiveWatch/Studio/StudioAudio.swift \
