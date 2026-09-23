@@ -437,6 +437,8 @@ input[type="search"] {
   border-radius: var(--radius); padding: 14px 16px; margin: 14px 0;
 }
 .about-card h2 { margin: 0 0 8px; }
+.brand-head { display: flex; align-items: center; gap: 10px; }
+.yt-logo { width: 34px; height: 24px; flex: none; }
 .about-card p { margin: 8px 0; color: #d9d9d9; font-size: 0.95rem; }
 .about-notice { font-weight: 600; color: var(--text); }
 .about-donate {
