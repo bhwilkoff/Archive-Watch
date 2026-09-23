@@ -1839,9 +1839,97 @@ struct StudioDestinationSection: View {
                     Text(StudioRights.policy).font(.caption2).foregroundStyle(.secondary)
                         .fixedSize(horizontal: false, vertical: true)
                 }
+            } else if studio.isOnAir {
+                onAir
             } else {
                 form
             }
+        }
+    }
+
+    // MARK: §D33 — on air, the Output column is about THE SHOW, not a form
+
+    @State private var onAirAccount: String?
+    @State private var copiedAt: Date?
+
+    /// Where the audience watches, when the platform gives it a public
+    /// address: a YouTube broadcast id IS its video id; a Twitch show is the
+    /// channel. Nil for a bench or custom server.
+    private var audienceURL: URL? {
+        switch studio.armedBroadcast {
+        case .youtube(let id)?: return URL(string: "https://www.youtube.com/watch?v=\(id)")
+        case .twitch?:
+            return onAirAccount.flatMap { URL(string: "https://www.twitch.tv/\($0)") }
+        case nil: return nil
+        }
+    }
+
+    private var platformName: String {
+        switch studio.armedBroadcast {
+        case .youtube?: return "YouTube"
+        case .twitch?: return "Twitch"
+        case nil: return studio.armedDestination?.host ?? "a custom server"
+        }
+    }
+
+    private var onAir: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            HStack(spacing: 6) {
+                Circle().fill(Color.red).frame(width: 8, height: 8)
+                Text("Live on \(platformName)").font(.subheadline.weight(.semibold))
+            }
+            if let who = onAirAccount {
+                Text("as \(who)").font(.caption).foregroundStyle(.secondary)
+            }
+            if !show.streamTitle.isEmpty {
+                Text(show.streamTitle).font(.callout).lineLimit(2)
+            }
+            if case .youtube? = studio.armedBroadcast {
+                Text(show.privacy.label).font(.caption).foregroundStyle(.secondary)
+            }
+            if let url = audienceURL {
+                // THE INVITATION. "With your friends" means somebody has to be
+                // told where to come; this is the one address to send them.
+                VStack(alignment: .leading, spacing: 6) {
+                    Text(url.absoluteString)
+                        .font(.caption.monospaced())
+                        .textSelection(.enabled)
+                        .lineLimit(1).truncationMode(.middle)
+                    HStack(spacing: 8) {
+                        Button(copiedAt == nil ? "Copy link" : "Copied") {
+                            NSPasteboard.general.clearContents()
+                            NSPasteboard.general.setString(url.absoluteString, forType: .string)
+                            copiedAt = Date()
+                        }
+                        .fixedSize()
+                        Button("Open") { NSWorkspace.shared.open(url) }
+                            .fixedSize()
+                    }
+                    .controlSize(.small)
+                }
+                .padding(8)
+                .background(Color.secondary.opacity(0.10), in: RoundedRectangle(cornerRadius: 6))
+            }
+            Button(role: .destructive) {
+                Task { await studio.end() }
+            } label: {
+                Text("End the broadcast").frame(maxWidth: .infinity)
+            }
+            .controlSize(.large)
+            // No shortcut here: ⇧⌘E belongs to Broadcast ▸ End the Broadcast.
+        }
+        .task(id: platformName) {
+            onAirAccount = nil
+            switch studio.armedBroadcast {
+            case .youtube?: onAirAccount = try? await StudioPlatformAuth.accountName(for: .youtube)
+            case .twitch?: onAirAccount = try? await StudioPlatformAuth.accountName(for: .twitch)
+            case nil: break
+            }
+        }
+        .task(id: copiedAt) {
+            guard copiedAt != nil else { return }
+            try? await Task.sleep(for: .seconds(2))
+            copiedAt = nil
         }
     }
 

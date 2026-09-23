@@ -2426,3 +2426,22 @@ limit is 200 characters and the LINK IS NEVER CUT (`StudioChatShare`, §8.52):
 words give way first, then the title shortens. It costs 50 quota units a
 post, inside `auth/youtube`. Twitch needs `user:write:chat`, a new scope every
 host would have to re-consent to, so it is not offered there yet.
+
+## §D33 — On air, the Output column is about the show
+
+Once a broadcast is on air, the Output column stops being a form (every
+field of which is locked) and says: **● Live on YouTube**, *as* the account,
+the stream title, the privacy, **the audience's own link** with **Copy link**
+and **Open**, and **End the broadcast**.
+
+**Why.** Every live screenshot on 2026-09-23 showed the setup form still filling
+the column — Platform, Stream title, Privacy, a paragraph about the 1930 rule,
+a greyed Go Live — with the show's actual state half-way down. And nothing in
+the Studio offered the one thing "watching with your friends" needs first:
+the address to send them. A YouTube broadcast id is its video id; a Twitch show
+is the channel; both are public, so the Studio can hand them over.
+
+**How to apply.** The link is the audience's address, never the ingest URL
+(which carries the key, §5). End here has no shortcut — ⇧⌘E belongs to
+Broadcast ▸ End the Broadcast. Seen on a real unlisted YouTube show
+(`qbHX46p9X_U`).
