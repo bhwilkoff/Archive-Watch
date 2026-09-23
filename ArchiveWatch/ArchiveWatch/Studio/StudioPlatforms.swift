@@ -854,6 +854,15 @@ public struct TwitchLive: Sendable {
     }
     #endif
 
+    /// `POST /helix/streams/markers` — a chapter on the VOD, under the
+    /// `channel:manage:broadcast` scope hosts already grant. Description is
+    /// capped at 140 characters by Twitch.
+    public func createMarker(userID: String, description: String) async throws {
+        _ = try await HTTP.send(try request("/streams/markers", method: "POST",
+                                            body: ["user_id": userID,
+                                                   "description": String(description.prefix(140))]))
+    }
+
     /// `viewer_count` from `GET /helix/streams`. An offline channel returns an
     /// empty `data`, which is nil — not live yet — rather than zero.
     public func viewerCount(userID: String) async throws -> Int? {

@@ -103,6 +103,21 @@ public final class StudioSession {
 
     /// When the platform's server accepted the stream (§D28). Nil until then
     /// and after the show ends.
+    /// A chapter on the replay (§D30). Twitch only: YouTube's `cuepoints`
+    /// are ad breaks, not chapters. Twitch refuses when the channel does not
+    /// keep VODs or the stream is not live yet; that is said and not retried.
+    func markMoment(_ description: String) async {
+        guard case .twitch(let userID) = armedBroadcast else { return }
+        do {
+            guard let cid = StudioPlatformAuth.clientID(for: .twitch) else { return }
+            let tw = TwitchLive(token: try await StudioPlatformAuth.token(for: .twitch), clientID: cid)
+            try await tw.createMarker(userID: userID, description: description)
+            awdiag("AWMARKER placed \"%@\"", description)
+        } catch {
+            awdiag("AWMARKER not placed \"%@\" — %@", description, "\(error)")
+        }
+    }
+
     public private(set) var onAirSince: Date?
     /// What actually left the Mac in the last second, from the publisher's
     /// byte counter — not the configured target, which the encoder delivers
@@ -415,7 +430,10 @@ public final class StudioSession {
     /// stops delivering, and the tile simply goes black.
     private var capture: AVCaptureSession?
 
-    private init() {}
+    private init() {
+        // §D30: the engine reports card moments here; see `StudioMoments`.
+        StudioMoments.sink = { [weak self] moment in await self?.markMoment(moment) }
+    }
 
     /// Detail's entry point. Applies the rights gate and either refuses with a
     /// sentence the host can act on, or arms the session.

@@ -489,6 +489,19 @@ swift_case "8.48 shout-out" \
   ArchiveWatch/ArchiveWatch/Studio/StudioEngine.swift \
   "$SHIM" tools/test_studio_shoutout.swift
 
+# §D30 — a card is a chapter on the replay. PURE mapping; the countdown case
+# fails if values are compared instead of kinds (a marker every second).
+swift_case "8.51 card markers" \
+  ArchiveWatch/ArchiveWatch/Studio/RTMPPublisher.swift \
+  ArchiveWatch/ArchiveWatch/Studio/StudioAudio.swift \
+  ArchiveWatch/ArchiveWatch/Studio/StudioOutputSettings.swift \
+  ArchiveWatch/ArchiveWatch/Studio/StudioOverlayRenderer.swift \
+  ArchiveWatch/ArchiveWatch/Studio/StudioChatTwitch.swift \
+  ArchiveWatch/ArchiveWatch/Studio/StudioChatYouTube.swift \
+  ArchiveWatch/ArchiveWatch/Studio/StudioChatFilter.swift \
+  ArchiveWatch/ArchiveWatch/Studio/StudioEngine.swift \
+  "$SHIM" tools/test_studio_markers.swift
+
 swift_case "8.43 chat filter" \
   ArchiveWatch/ArchiveWatch/Studio/RTMPPublisher.swift \
   ArchiveWatch/ArchiveWatch/Studio/StudioAudio.swift \

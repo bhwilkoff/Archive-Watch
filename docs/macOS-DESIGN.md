@@ -2332,3 +2332,26 @@ third and the camera tile's handles were all being read and dragged at
 thumbnail size. The film is FOLLOWED in its pane; the stream is INSPECTED.
 **This does not amend §B13h's 0-10 fader**, which a first look at the mixer's
 "8.0" was about to: that scale is the owner's own (2026-09-20).
+
+## §D30 — A card is a chapter on the replay
+
+On Twitch, each card change places a stream marker on the VOD: "Starting
+soon", "The film begins" (when it comes down), "Intermission", "Back from
+intermission", "Thanks for watching", or a custom card's first line. Only
+while publishing; kinds are compared, never values, so the Starting-soon
+countdown does not mark every second. YouTube gets none: its `cuepoints` are
+ad breaks, not chapters.
+
+**Why.** The owner asked for "genuine opportunities for connection for all
+involved", and the people a live show does not reach are the ones who come
+later. A two-hour watch-along with no chapters is a replay nobody navigates;
+the moments a host already marks with a card are exactly the ones a latecomer
+wants to find. It uses `channel:manage:broadcast`, which every Twitch host has
+already granted, so it costs nobody a re-consent.
+
+**How to apply.** The engine names no session type: it publishes moments to
+`StudioMoments.sink` and `StudioSession` subscribes, because the §8 harnesses
+compile the engine without the session. Every platform's cards pass through
+`StudioEngine.setOverlay`, so macOS, iOS and tvOS all mark. A refusal (VOD
+storage off, not live yet) is logged as `AWMARKER not placed` and never
+retried. NOT yet placed against a real Twitch channel.

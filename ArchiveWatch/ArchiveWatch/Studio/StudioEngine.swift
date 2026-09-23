@@ -948,7 +948,17 @@ public actor StudioEngine {
     public func setGuestFraming(_ f: StudioCameraFraming) { renderer.guestFraming = f }
     public var guestFraming: StudioCameraFraming { renderer.guestFraming }
     public var cameraFraming: StudioCameraFraming { renderer.framing }
-    public func setOverlay(_ o: StudioOverlay) { overlay = o; renderer.overlay = o }
+    public func setOverlay(_ o: StudioOverlay) {
+        let before = overlay.card
+        overlay = o; renderer.overlay = o
+        // A CARD IS A CHAPTER (§D30). Here, because this is the one call every
+        // platform's cards reach (Decision 133); the session decides whether
+        // the armed broadcast can take a marker. Only while publishing: a
+        // rehearsal has no VOD to mark.
+        if publishing, let moment = StudioMarkers.moment(from: before, to: o.card) {
+            Task { @MainActor in await StudioMoments.sink?(moment) }
+        }
+    }
 
     /// THE ONE OUTPUT SETTING THAT MAY CHANGE MID-SHOW (§D4).
     ///
@@ -2500,5 +2510,48 @@ public final class CameraFrameTap: NSObject, AVCaptureVideoDataOutputSampleBuffe
                    Int32((fmt >> 8) & 0xff), Int32(fmt & 0xff), count)
         }
         lock.unlock()
+    }
+}
+
+/// Where a show's moments go. The ENGINE must not name `StudioSession`: the
+/// §8 harnesses compile the engine without it, and a reference here is the
+/// build-only-the-suite-performs breakage `harness_awdiag.swift` describes.
+/// The session subscribes when it is created.
+@MainActor
+enum StudioMoments {
+    static var sink: ((String) async -> Void)?
+}
+
+/// Which moments of a show become chapter markers on the replay (§D30), from
+/// the card going up or coming down. PURE, so the mapping is tested without a
+/// network. Kinds are compared, not values: "Starting soon" carries a
+/// countdown that changes every second and would otherwise mark every tick.
+enum StudioMarkers {
+    static func moment(from before: StudioOverlay.Card?, to after: StudioOverlay.Card?) -> String? {
+        guard kind(before) != kind(after) else { return nil }
+        switch after {
+        case .startingSoon: return "Starting soon"
+        case .intermission: return "Intermission"
+        case .ending: return "Thanks for watching"
+        case .custom(let lines):
+            let first = lines.map(\.text).first { !$0.trimmingCharacters(in: .whitespaces).isEmpty }
+            return first.map { String($0.prefix(140)) }
+        case nil:
+            switch before {
+            case .startingSoon: return "The film begins"
+            case .intermission: return "Back from intermission"
+            default: return nil
+            }
+        }
+    }
+
+    private static func kind(_ c: StudioOverlay.Card?) -> Int {
+        switch c {
+        case nil: 0
+        case .startingSoon: 1
+        case .intermission: 2
+        case .ending: 3
+        case .custom(let lines): 4 + lines.map(\.text).joined(separator: "\n").hashValue & 0xFFFF
+        }
     }
 }

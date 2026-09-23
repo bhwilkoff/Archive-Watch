@@ -173,9 +173,8 @@ is pending** (a new scope means a new demo video and a new review).
 1. DONE — YouTube `contentDetails.latencyPreference: low` (+ `enableDvr`,
    `recordFromStart`, `enableEmbed` stated rather than defaulted).
 2. DONE (unverified live) — viewer count, above.
-3. Twitch **stream markers** (`POST /helix/streams/markers`, held scope
-   `channel:manage:broadcast`) at film start / intermission / credits — the
-   cards are already those moments. Needs VOD enabled on the channel.
+3. BUILT (v1.42.505, §D30, §8.51) — Twitch stream markers from card
+   changes. Not yet placed on a real channel: watch for `AWMARKER placed`.
 4. YouTube **`liveChatMessages.insert`** (held scope, 50 units each): a
    `textMessageEvent` with the film's archive.org link when a film starts, and
    `pollEvent` polls ("keep watching or intermission?"). Needs a quota budget.

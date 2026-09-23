@@ -679,6 +679,12 @@ that is wrong about the rest** — and neither is visible to a harness that
 builds a fresh renderer per call, which §8.48 did until it was made to reuse
 one.
 
+##### A card is a chapter on the Twitch replay — 2026-09-23 (macOS-DESIGN §D30)
+
+macOS · iOS · tvOS ⏳ built on the shared path (`StudioEngine.setOverlay`), the
+mapping tested (§8.51); not yet placed against a real Twitch channel. YouTube
+🚫 (no chapter API for live). Android 🚫 (no card-to-marker hook).
+
 ##### The STREAM header is the host's status bar — 2026-09-23 (macOS-DESIGN §D28)
 
 macOS ✅ "● LIVE 1:11 · 2.4 Mbps" (+ dropped / reconnecting when true), verified
