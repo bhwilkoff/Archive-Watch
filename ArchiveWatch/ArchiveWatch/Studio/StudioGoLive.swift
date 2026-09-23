@@ -35,10 +35,35 @@ struct GoLiveRequest: Sendable, Equatable, Identifiable {
     let layout: StudioLayout
     let customServer: URL?
     let customKey: String?
+    /// A stream key the host PASTED for YouTube or Twitch (Decision 136).
+    /// When present nothing is signed in and no API is called: the program
+    /// goes to the platform's public ingest with this key, which spends none
+    /// of the app's shared YouTube quota. Never stored past the session,
+    /// never logged.
+    var typedKey: String? = nil
 }
 
 enum GoLivePlatform: String, CaseIterable, Sendable {
     case youtube, twitch, custom
+
+    /// Where a pasted stream key goes — each platform's documented RTMPS
+    /// ingest, the same address OBS offers for it.
+    var publicIngest: URL? {
+        switch self {
+        case .youtube: return URL(string: "rtmps://a.rtmps.youtube.com/live2")
+        case .twitch: return URL(string: "rtmps://live.twitch.tv/app")
+        case .custom: return nil
+        }
+    }
+
+    /// Where the host finds that key.
+    var streamKeyPage: URL? {
+        switch self {
+        case .youtube: return URL(string: "https://studio.youtube.com")
+        case .twitch: return URL(string: "https://dashboard.twitch.tv/settings/stream")
+        case .custom: return nil
+        }
+    }
     var label: String {
         switch self {
         case .youtube: return "YouTube"
@@ -91,6 +116,14 @@ enum StudioGoLive {
     // in this module. A `public` face here buys nothing and will not compile.
     static func destination(for request: GoLiveRequest,
                             film: Catalog.Item) async throws -> Destination {
+        // THE STREAM-KEY PATH (Decision 136): no sign-in, no API, no quota —
+        // and so no broadcast id, no chat id and no audience count.
+        if let key = request.typedKey?.trimmingCharacters(in: .whitespacesAndNewlines),
+           !key.isEmpty, let ingest = request.platform.publicIngest,
+           var c = URLComponents(url: ingest, resolvingAgainstBaseURL: false) {
+            c.path = (c.path.hasSuffix("/") ? c.path : c.path + "/") + key
+            return Destination(url: c.url, liveChatID: nil, broadcast: nil)
+        }
         switch request.platform {
         case .custom:
             guard let server = request.customServer,

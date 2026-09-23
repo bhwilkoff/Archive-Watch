@@ -275,8 +275,14 @@ final class StudioMacShow {
     /// what this app can reach: YouTube and Twitch are the platforms it holds
     /// credentials for, and a custom server is a diagnostic path.
     var alsoSimulcast = false
+    /// DECISION 136 — connect with a pasted stream key instead of signing in.
+    /// No API, so none of the app's shared YouTube quota. The key is held in
+    /// memory for this session only: never written to disk, never logged.
+    var connectWithKey = false
+    var platformKey = ""
 
     private init() {
+        #if DEBUG
         // The diagnostic door `GoLiveSheetMac` carried, moved rather than
         // dropped: AW_GOLIVE_CUSTOM pre-seeds a custom destination so the
         // whole go-live path can be driven without the owner's client ids.
@@ -285,6 +291,7 @@ final class StudioMacShow {
             customURL = u
             customKey = "macbench"
         }
+        #endif
     }
 
     /// The Studio takes a film — from the chooser, or from a player window
@@ -2105,6 +2112,28 @@ struct StudioDestinationSection: View {
             .disabled(studio.isOnAir)
 
             if show.platform != .custom {
+                // TWO WAYS IN (Decision 136). Signing in creates the broadcast
+                // and reads its chat; a stream key needs nothing from the
+                // platform's API, so it works however busy the app's shared
+                // YouTube quota is — exactly as OBS connects.
+                Picker("Connect", selection: $show.connectWithKey) {
+                    Text("Sign in").tag(false)
+                    Text("Stream key").tag(true)
+                }
+                .pickerStyle(.segmented)
+                .fixedSize()
+            }
+
+            if show.platform != .custom, show.connectWithKey {
+                labeled("Stream key") { SecureField("", text: $show.platformKey) }
+                if let page = show.platform.streamKeyPage {
+                    Link("Find your stream key", destination: page).font(.caption)
+                }
+                Text("Chat and the viewer count need sign-in.")
+                    .font(.caption2).foregroundStyle(.secondary)
+            }
+
+            if show.platform != .custom, !show.connectWithKey {
                 StudioSignInRow(platform: authPlatform) { signedIn = $0 }
                     // ONE ROW PER PLATFORM. Without this SwiftUI reuses the
                     // row when the picker changes, carrying its @State across:
@@ -2124,7 +2153,7 @@ struct StudioDestinationSection: View {
             // another one — a custom destination has no sibling, and offering
             // a checkbox that cannot do anything is §5's disabled-control
             // problem in checkbox form.
-            if show.platform != .custom {
+            if show.platform != .custom, !show.connectWithKey {
                 Toggle("Also send to \(show.platform == .youtube ? "Twitch" : "YouTube")",
                        isOn: $show.alsoSimulcast)
                 if show.alsoSimulcast {
@@ -2136,6 +2165,10 @@ struct StudioDestinationSection: View {
             }
 
             switch show.platform {
+            case .youtube where show.connectWithKey, .twitch where show.connectWithKey:
+                // The title, privacy and category are set on the platform's
+                // own page for a keyed stream — this app has no call to set them.
+                EmptyView()
             case .youtube:
                 labeled("Stream title") { TextField("", text: $show.streamTitle) }
                 Picker("Privacy", selection: $show.privacy) {
@@ -2206,6 +2239,10 @@ struct StudioDestinationSection: View {
             }
             return nil
         }
+        if show.connectWithKey {
+            return show.platformKey.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+                ? "Paste your \(show.platform.label) stream key." : nil
+        }
         guard !show.streamTitle.trimmingCharacters(in: .whitespaces).isEmpty else {
             return "Your broadcast needs a title."
         }
@@ -2236,7 +2273,8 @@ struct StudioDestinationSection: View {
                 privacy: show.privacy,
                 layout: controls.layout,
                 customServer: show.platform == .custom ? URL(string: show.customURL) : nil,
-                customKey: show.platform == .custom ? show.customKey : nil)
+                customKey: show.platform == .custom ? show.customKey : nil,
+                typedKey: show.platform != .custom && show.connectWithKey ? show.platformKey : nil)
             do {
                 let resolved = try await StudioGoLive.destination(for: request, film: film)
                 let dest = resolved.url
@@ -2269,7 +2307,7 @@ struct StudioDestinationSection: View {
                 // broadcast they DID reach refused because the other platform
                 // was unreachable.
                 var extras: [StudioExtraDestination] = []
-                if show.alsoSimulcast, show.platform != .custom {
+                if show.alsoSimulcast, show.platform != .custom, !show.connectWithKey {
                     let other: GoLivePlatform = show.platform == .youtube ? .twitch : .youtube
                     let second = GoLiveRequest(
                         archiveID: film.archiveID, platform: other,
