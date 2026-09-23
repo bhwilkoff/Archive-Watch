@@ -2355,3 +2355,52 @@ compile the engine without the session. Every platform's cards pass through
 `StudioEngine.setOverlay`, so macOS, iOS and tvOS all mark. A refusal (VOD
 storage off, not live yet) is logged as `AWMARKER not placed` and never
 retried. NOT yet placed against a real Twitch channel.
+
+## §D31 — Scenes: every part customizable, and each scene chooses what it inherits
+
+A **scene** is a named, saved setup of everything the audience sees and
+hears. A host builds as many as they like, switches between them live, and
+each one is **fully customizable**:
+
+| Part | What it holds |
+|---|---|
+| Placement | the arrangement (film full-frame, you in the corner, side by side, guests up, …) |
+| On screen | lower-third lines, chat on/off and side, the card |
+| Tiles | the camera tile's box and crop, the guest tile's box and crop |
+| Audio | film / microphone / call levels, mutes, the duck |
+
+**Each scene carries two toggles — "Use the show's tiles" and "Use the
+show's audio".** On (the default), that part follows the show-wide setting,
+which is §D14a's rule exactly: the crop follows the person across every
+scene that inherits it. Off, the scene keeps its own copy, seeded from the
+show's values at the moment it is switched off, and editing it changes that
+scene alone. Placement and On screen always belong to the scene; they are
+what makes one scene different from another.
+
+**Why.** Owner, 2026-09-23, asked whether a scene should move the camera tile
+and carry the mix: *"Each scene should be fully customizable and you should
+be able to say (with a setting/toggle) whether to keep the default audio/tiles
+or build new ones for the scene."* It keeps §D14a for the host who wants their
+framing fixed and gives OBS's per-scene freedom to the one who does not —
+chosen per scene rather than once for the Studio.
+
+**This amends §D14a** from a rule to a default: "the crop follows the person"
+holds for every scene whose tiles are inherited.
+
+**How to apply.**
+- While a scene is selected, every control edits THAT scene. A control whose
+  part is inherited edits the show-wide value, and says so with one word
+  beside the section ("shared") — the only caption this rule adds, because
+  otherwise a host changing the mic in one scene would not know they changed
+  it in five.
+- Switching: a row of scene buttons above STREAM, and ⌘1-⌘9 in the Broadcast
+  menu (OBS's hotkeys). A short crossfade by default, a Cut option. A switch
+  places a Twitch chapter marker (§D30) named for the scene.
+- Scenes persist across shows; a host builds them once. Starter set: Starting
+  soon, Film, Intermission, Discussion, Thanks — each an ordinary, editable
+  scene.
+- Going live starts in the selected scene. Rehearsal switches scenes exactly
+  as a live show does (§D19: the preview never diverges silently).
+- macOS first. iPhone later as a compact switcher. **Apple TV: none** — Rule
+  8.8c keeps the television's live surface to "two channels, a rotation, and
+  nothing else", and widening it is a separate owner decision.

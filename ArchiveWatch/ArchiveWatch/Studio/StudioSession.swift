@@ -517,6 +517,18 @@ public final class StudioSession {
                UInt(bitPattern: ObjectIdentifier(player).hashValue), archiveID)
         surfacePlayer = player
         surfaceArchiveID = archiveID
+        #if DEBUG
+        // EVERY DOOR IS SILENT IN THE ROOM, including the one that only opens
+        // the Studio. `muteLocalMonitorForHarness` reaches `localPlayer`, which
+        // exists once a show is armed — so `AW_GOLIVE_MAC=1` alone played The
+        // Man Who Laughs out loud at the owner on 2026-09-23. Every door's
+        // player passes through here, so this is where it is silenced.
+        let env = ProcessInfo.processInfo.environment
+        if env["AW_GOLIVE_MAC"] == "1", env["AW_STUDIO_MAC_SOUND"] != "1" {
+            player.isMuted = true
+            awdiag("AWMUTE door surface muted (AW_STUDIO_MAC_SOUND=1 to hear it)")
+        }
+        #endif
         await attachIfArmed(player: player, archiveID: archiveID)
     }
 

@@ -413,6 +413,14 @@ struct PlayerSurface: View {
         // native HUD controls.
 
         let p = AVPlayer(playerItem: playerItem)
+        #if DEBUG
+        // Silent from its first frame under a Studio door — registration
+        // (which also mutes) comes ~0.4 s after `play()` below.
+        if ProcessInfo.processInfo.environment["AW_GOLIVE_MAC"] == "1",
+           ProcessInfo.processInfo.environment["AW_STUDIO_MAC_SOUND"] != "1" {
+            p.isMuted = true
+        }
+        #endif
         // SharePlay: main player only — never the caption scout (see
         // WatchTogether.attach). Re-attached on every build because a rebuilt
         // player carries a new coordinator.
