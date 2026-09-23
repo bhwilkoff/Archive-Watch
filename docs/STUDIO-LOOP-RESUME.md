@@ -203,12 +203,17 @@ air: open the controls sheet and press Show on chat line N through
 `showShoutOut`), and the iOS door now MUTES its player (`AW_STUDIO_IOS_SOUND=1`
 to hear it). Test phone: iPhone 12 `B4E756E2-…` — NEVER the 15 Pro (owner's).
 
-**Proven**: the demo conversation reaches the iPhone's program (server frame
-shows all six lines). **Not yet seen**: the banner itself. Two instrument faults
+**Proven, all of it** (v1.42.515): the banner reached the wire from the
+iPhone 12 and expired on time. Two things that cost the first attempts: Two instrument faults
 of mine, both to avoid next time:
 - `: > mtx.log` on a RUNNING mediamtx does not reset its write offset; later
   lines land past the old end and a grep misses them. Restart the server with
   a new log file instead.
+- `devicectl ... launch --terminate-existing` over a LIVE instance left the new
+  one on a black screen, twice. Terminate by `--pid`, confirm zero processes,
+  THEN launch. And the publisher's `redactingKey` labels the app path `live`
+  as `<key>` when the key is passed separately — the path WAS `live/bench`
+  (mediamtx says so). Previously noted:
 - A relaunch's publisher logged `rtmp://10.0.0.90:1935/%3Ckey%3E` — no `/live`
   — while the first run of the day published to `live/bench`. Either a real
   path difference between launches or the key redaction eating the app path;
