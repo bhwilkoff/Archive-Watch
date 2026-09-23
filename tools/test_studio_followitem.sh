@@ -43,4 +43,22 @@ stop=$(awk '/public func stop\(\) async/,/^    }$/' "$E" | code)
 echo "$stop" | grep -q 'filmItemObserver?.invalidate()' \
   && ok "stop() releases the item observer" \
   || bad "stop() leaves the item observer running"
+
+# AND NO SWAP TO FOLLOW, where it can be avoided. A player feeding the program
+# skips Decision 067's plain-URL path (system captions never reach the
+# program); measured as a `reason=stall` swap ten seconds in without this.
+ROOT=${AW_SOURCE_ROOT:-ArchiveWatch/ArchiveWatch}
+P=$ROOT/macOS/PlayerWindow_macOS.swift
+W=$ROOT/macOS/StudioWindow_macOS.swift
+if [ -f "$P" ] && [ -f "$W" ]; then
+  code < "$P" | grep -A1 "else if let url = videoURL" | grep -q "!feedsProgram" \
+    && ok "a program-feeding player never takes the plain-URL path" \
+    || bad "a program-feeding player can start on the plain URL and stall into a swap"
+  code < "$W" | grep -q "feedsProgram: true" \
+    && ok "the Studio's FILM pane says it feeds the program" \
+    || bad "the Studio's FILM pane does not say it feeds the program"
+  code < "$P" | grep -q "feedsProgram: studio.isLive || studio.armedFilmID" \
+    && ok "the projection window feeds the program when armed, not only when live" \
+    || bad "the projection window only counts as feeding the program once live"
+fi
 exit $fail

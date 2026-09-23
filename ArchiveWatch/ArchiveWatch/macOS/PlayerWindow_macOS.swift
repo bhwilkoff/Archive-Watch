@@ -45,7 +45,11 @@ struct PlayerWindow: View {
                           }(),
                           captionsOff: CaptionChoiceSession.byItem[item.archiveID] == .off,
                           publishedVTT: item.publishedVTTURL,
-                          onEnded: autoplayNext)
+                          onEnded: autoplayNext,
+                          // Live, rehearsing, or ARMED for this film — the
+                          // projection a show is about to attach to feeds the
+                          // program as surely as one already attached.
+                          feedsProgram: studio.isLive || studio.armedFilmID == item.archiveID)
                 // §B13d: health is pinned over the player, OUTSIDE
                 // AVPlayerView's floating HUD, because the HUD auto-hides and
                 // health may not (WATCH-TOGETHER §4).
@@ -231,6 +235,13 @@ struct PlayerSurface: View {
     /// The published WebVTT, so the track can be CHECKED rather than trusted.
     var publishedVTT: URL? = nil
     var onEnded: (() -> Void)? = nil
+    /// This player's frames are COMPOSITED INTO A BROADCAST. Such a player
+    /// skips Decision 067's plain-URL path: that path exists so the system can
+    /// caption the film in AVPlayerView, and system captions never reach the
+    /// program. It measured as a stall ten seconds into The Man Who Laughs,
+    /// then a swap to the loader (`AWPLAYER ... reason=stall`) — a visible
+    /// hitch on the wire bought for captions nobody watching could see.
+    var feedsProgram: Bool = false
 
     @Environment(\.modelContext) private var ctx
     @State private var player: AVPlayer?
@@ -374,7 +385,7 @@ struct PlayerSurface: View {
             loader = l
             playerItem = AVPlayerItem(asset: asset)
             loaderIsPrimary = true
-        } else if let url = videoURL,
+        } else if let url = videoURL, !feedsProgram,
                   SystemCaptions.prefersDirectPlayback(hasPublishedSubtitles: false) {
             // From 27 the system captions video that carries none — but only for
             // an ordinary asset. Through `aw-stream://` no subtitle track is
@@ -392,6 +403,9 @@ struct PlayerSurface: View {
             return
         }
         playerItem.preferredForwardBufferDuration = 300
+        awdiag("AWPLAYER source path=%@ feedsProgram=%@ captionedHLS=%@",
+               loaderIsPrimary ? "loader" : usedDirectURL ? "direct" : "other",
+               feedsProgram ? "yes" : "no", subtitleHLS != nil ? "yes" : "no")
         // Title rides the native window title bar (navigationTitle "Title (Year)"). macOS AVPlayerItem
         // has NO externalMetadata (iOS/tvOS only — verified in the SDK), and the only way to override
         // the MP4's own embedded title is to wrap the asset, which over our custom-scheme resilient
@@ -471,10 +485,10 @@ struct PlayerSurface: View {
         // shapes that can trade captions away get the stall monitor.
         if (subtitleHLS != nil || usedDirectURL || loaderIsPrimary), videoURL != nil {
             statusObs = playerItem.observe(\.status, options: [.new]) { item, _ in
-                MainActor.assumeIsolated { if item.status == .failed { fallbackToResilientMP4() } }
+                MainActor.assumeIsolated { if item.status == .failed { fallbackToResilientMP4(reason: "load failed") } }
             }
             if !loaderIsPrimary {
-                captionStall.attach(player: p, item: playerItem) { fallbackToResilientMP4() }
+                captionStall.attach(player: p, item: playerItem) { fallbackToResilientMP4(reason: "stall") }
             }
         }
         // EVERY item is watched for "this will never play", not just captioned
@@ -577,6 +591,7 @@ struct PlayerSurface: View {
     private func externalPlaybackChanged(_ active: Bool) {
         guard active != isExternalActive, let p = player else { return }
         isExternalActive = active
+        awdiag("AWPLAYER swapping item for AirPlay active=%@", active ? "yes" : "no")
         let newItem: AVPlayerItem
         if active {
             // The stall/failure machinery watches the LOCAL loader paths; it must
@@ -631,10 +646,14 @@ struct PlayerSurface: View {
     /// Rebuild through the resilient loader and STAY ARMED to do it again.
     /// See the iOS twin for the incident: one retry per film is not a policy
     /// when archive.org resets idle connections as a matter of course.
-    private func fallbackToResilientMP4() {
+    private func fallbackToResilientMP4(reason: String) {
         guard recoveryAttempts < Self.maxRecovery, let url = videoURL,
               let p = player else { return }
         recoveryAttempts += 1
+        // A swap is a visible event on a broadcast (the engine follows it,
+        // §8.50), so it says why it happened.
+        awdiag("AWPLAYER swapping to the resilient loader reason=%@ attempt=%d at=%.1fs",
+               reason, recoveryAttempts, p.currentTime().seconds)
         captionStall.detach()
         statusObs = nil
         let pos = p.currentTime()
@@ -666,7 +685,7 @@ struct PlayerSurface: View {
         guard recoveryAttempts < Self.maxRecovery else { return }
         let delay = min(Double(recoveryAttempts) * 2.0, 8.0)
         DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
-            MainActor.assumeIsolated { fallbackToResilientMP4() }
+            MainActor.assumeIsolated { fallbackToResilientMP4(reason: "retry") }
         }
     }
 

@@ -638,7 +638,8 @@ struct StudioWindowView: View {
                                       return (c == .automatic || c == .off) ? nil : film.subtitleHLSURL
                                   }(),
                                   captionsOff: CaptionChoiceSession.byItem[film.archiveID] == .off,
-                                  publishedVTT: film.publishedVTTURL)
+                                  publishedVTT: film.publishedVTTURL,
+                                  feedsProgram: true)
                         .id(film.archiveID)
                 }
             }

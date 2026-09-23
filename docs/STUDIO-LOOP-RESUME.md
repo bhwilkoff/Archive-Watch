@@ -121,9 +121,13 @@ some SwiftUI targets do not register the click. The Studio window sits at
    `stop()` invalidates the observer so a stopped rehearsal engine cannot
    overwrite the live engine's `audioMix`. Verified from the server's own
    frames: centre YAVG 36-60 across 45 s after the swap, no stall line (the
-   unfixed run stalled 13 s after go-live). §8.50 pins it. **Still open**:
-   WHY the player swaps at ~10 s (a fallback copy? the caption path?) is
-   unmeasured — harmless now, but a swap is a stutter on the wire.
+   unfixed run stalled 13 s after go-live). §8.50 pins it. **And the swap itself is gone** (v1.42.501): it was
+   `AWPLAYER swapping to the resilient loader reason=stall` — the projection
+   window started on Decision 067's plain-URL path (kept so the SYSTEM can
+   caption the film, which never reaches the program) and stalled. A player
+   with `feedsProgram` (the Studio pane; the projection window when live OR
+   armed) now starts on the loader. Re-measured: one attach, no swap, film on
+   the wire. §8.50 covers both halves.
 5. **Ending a show now ends the YouTube broadcast — in source, not yet on
    YouTube** (v1.42.499). `StudioSession.completeArmedBroadcast()` runs
    BEFORE each platform's `engine.stop()`, and iOS and tvOS call it too — they
