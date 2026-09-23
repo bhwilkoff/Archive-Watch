@@ -50,7 +50,7 @@ enum VoiceFrame {
     /// `[0]` tag, `[1..<5]` little-endian sequence, then padding to `size`.
     static func encode(tag: UInt8, seq: UInt32, size: Int) -> Data {
         var payload = Data(count: max(size, 5))
-        payload.withUnsafeMutableBytes { dst in
+        payload.withUnsafeMutableBytes { (dst: UnsafeMutableRawBufferPointer) in
             dst[0] = tag
             withUnsafeBytes(of: seq.littleEndian) { raw in
                 for i in 0..<4 { dst[1 + i] = raw[i] }
@@ -73,7 +73,7 @@ enum VoiceFrame {
     /// what this always meant.
     static func decode(_ data: Data) -> (tag: UInt8, seq: UInt32)? {
         guard data.count >= 5 else { return nil }
-        return data.withUnsafeBytes { raw in
+        return data.withUnsafeBytes { (raw: UnsafeRawBufferPointer) -> (tag: UInt8, seq: UInt32) in
             var v: UInt32 = 0
             withUnsafeMutableBytes(of: &v) { out in
                 for i in 0..<4 { out[i] = raw[1 + i] }
@@ -86,8 +86,8 @@ enum VoiceFrame {
     /// mutating a slice somebody else owns.
     static func bounce(_ data: Data, tag: UInt8) -> Data {
         var back = Data(count: data.count)
-        data.withUnsafeBytes { src in
-            back.withUnsafeMutableBytes { dst in
+        data.withUnsafeBytes { (src: UnsafeRawBufferPointer) in
+            back.withUnsafeMutableBytes { (dst: UnsafeMutableRawBufferPointer) in
                 for i in 0..<data.count { dst[i] = src[i] }
                 dst[0] = tag
             }

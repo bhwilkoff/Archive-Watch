@@ -93,7 +93,7 @@ public final class StudioVoiceCodec {
         // withUnsafeBytes, never a subscript: a `Data` off a transport is
         // routinely a SLICE whose startIndex is not zero, and `packet[0]`
         // traps on one. §8.18 is the case that bought that lesson.
-        packet.withUnsafeBytes { raw in
+        packet.withUnsafeBytes { (raw: UnsafeRawBufferPointer) in
             buf.data.copyMemory(from: raw.baseAddress!, byteCount: packet.count)
         }
         buf.byteLength = UInt32(packet.count)
