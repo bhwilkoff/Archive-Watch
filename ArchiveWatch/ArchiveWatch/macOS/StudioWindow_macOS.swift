@@ -660,9 +660,6 @@ struct StudioWindowView: View {
                             .font(.system(size: 26)).foregroundStyle(.secondary)
                         Text("Playing in a separate window")
                             .font(.headline).foregroundStyle(.white)
-                        Text("Put that window on the screen you are projecting from. The program preview beside this one is unaffected.")
-                            .font(.caption).foregroundStyle(.secondary)
-                            .multilineTextAlignment(.center).frame(maxWidth: 360)
                         Button("Bring it back into the Studio") { router.nowPlaying = nil }
                     }
                 } else if let film = show.film {
@@ -794,7 +791,7 @@ struct StudioWindowView: View {
             Text("Nothing is being produced yet")
                 .font(.headline).foregroundStyle(.white)
             if let film = show.film {
-                Text("Rehearse with \(film.title) — you will see exactly what an audience would, and nothing is sent anywhere.")
+                Text("Nothing is sent until you go live.")
                     .font(.caption).foregroundStyle(.secondary)
                     .multilineTextAlignment(.center)
                     .frame(maxWidth: 360)
@@ -807,7 +804,7 @@ struct StudioWindowView: View {
                         .frame(maxWidth: 360)
                 }
             } else {
-                Text("Choose a film on the left, and you can rehearse the whole show here before anything is broadcast.")
+                Text("Choose a film on the left.")
                     .font(.caption).foregroundStyle(.secondary)
                     .multilineTextAlignment(.center)
                     .frame(maxWidth: 360)
@@ -1050,7 +1047,7 @@ struct StudioWindowView: View {
                     Text(why).font(.caption2).foregroundStyle(.orange)
                         .fixedSize(horizontal: false, vertical: true)
                 } else {
-                    Text("Zoom, Meet, FaceTime — whatever you are already on. Your guests are heard; the film is not captured twice.")
+                    Text("The app your call is in — Zoom, Meet, FaceTime.")
                         .font(.caption2).foregroundStyle(.secondary)
                         .fixedSize(horizontal: false, vertical: true)
                 }
@@ -1289,7 +1286,7 @@ struct StudioWindowView: View {
                     .font(.caption2).foregroundStyle(.secondary)
                     .fixedSize(horizontal: false, vertical: true)
             } else {
-                Text("Your camera fills the frame in this placement, so there is no box to drag \u{2014} scroll over the stream preview to zoom, and hold \u{2325} to pan.")
+                Text("Scroll over the stream to zoom; hold \u{2325} to pan.")
                     .font(.caption2).foregroundStyle(.secondary)
                     .fixedSize(horizontal: false, vertical: true)
             }
@@ -1457,7 +1454,7 @@ struct StudioWindowView: View {
             // transfers all carry AAC, which is exactly why it must be SAID
             // for the one that does not rather than assumed for all of them.
             if studio.isLive, studio.filmHasNoSoundtrack {
-                Text("This film has no soundtrack \u{2014} your voice will be the only sound your audience hears.")
+                Text("This film has no soundtrack.")
                     .font(.caption2).foregroundStyle(.orange)
                     .fixedSize(horizontal: false, vertical: true)
             }
@@ -1527,7 +1524,7 @@ struct StudioWindowView: View {
                         .font(.caption).monospacedDigit()
                         .frame(width: 46, alignment: .trailing)
                 }
-                Text("Your speakers are playing the film into your microphone, and the stream carries it twice — once clean, once a moment late. This sends your microphone only while you are actually talking. The meter above still shows everything it hears.")
+                Text("Your speakers are feeding the film into your microphone, so the stream carries it twice. This sends your microphone only while you talk.")
                     .font(.caption2).foregroundStyle(.secondary)
                     .fixedSize(horizontal: false, vertical: true)
             }
@@ -1677,7 +1674,7 @@ struct StudioWindowView: View {
             // this moment and offered it automatically nowhere.
             if studio.isLive, studio.filmHasEnded {
                 VStack(alignment: .leading, spacing: 6) {
-                    Text("The film has ended. Your audience is watching a still — your camera and microphone are still live.")
+                    Text("The film has ended — your audience sees a still.")
                         .font(.caption2).foregroundStyle(.orange)
                         .fixedSize(horizontal: false, vertical: true)
                     if controls.card == nil {
