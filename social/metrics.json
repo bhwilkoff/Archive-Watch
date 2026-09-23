@@ -1189,6 +1189,53 @@
     "replies": 0,
     "quotes": 0
    }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mvqdnrsbpg2t",
+   "platform": "bluesky",
+   "id": "LaBoiteACigares",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-09-17T19:00:44.747106+00:00",
+   "sampled": "2026-09-23T19:04:46.359217+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117287923627427873",
+   "platform": "mastodon",
+   "id": "LaBoiteACigares",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-09-17T19:00:44.747106+00:00",
+   "sampled": "2026-09-23T19:04:46.359217+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mw4uwh35da2k",
+   "platform": "bluesky",
+   "id": "TheLittlePrincess1939",
+   "slot": "viewer-said",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-09-22T18:41:50.161460+00:00",
+   "sampled": "2026-09-23T19:04:46.359217+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
   }
  ]
 }

@@ -1033,6 +1033,66 @@
    "kind": "silent-film",
    "mediaId": null,
    "reviewer": null
+  },
+  {
+   "at": "2026-09-23T19:03:10.203608+00:00",
+   "id": "whitemane_201611",
+   "title": "White Mane",
+   "slot": "now-showing",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mw7glv4ech2v",
+   "format": "video",
+   "kind": "short-film",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-09-23T19:03:10.203608+00:00",
+   "id": "whitemane_201611",
+   "title": "White Mane",
+   "slot": "now-showing",
+   "platform": "mastodon",
+   "url": "https://mastodon.social/@archivewatch/117321906856409519",
+   "format": "video",
+   "kind": "short-film",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-09-23T19:03:10.203608+00:00",
+   "id": "whitemane_201611",
+   "title": "White Mane",
+   "slot": "now-showing",
+   "platform": "threads",
+   "url": "https://www.threads.com/@archivewatchapp/post/DdpBIJHoNo2",
+   "format": "card",
+   "kind": "short-film",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-09-23T19:03:10.203608+00:00",
+   "id": "whitemane_201611",
+   "title": "White Mane",
+   "slot": "now-showing",
+   "platform": "instagram",
+   "url": "https://www.instagram.com/p/DdpBNYiIJ8t/",
+   "format": "card",
+   "kind": "short-film",
+   "mediaId": "117321905912428118",
+   "reviewer": null
+  },
+  {
+   "at": "2026-09-23T19:03:10.203608+00:00",
+   "id": "whitemane_201611",
+   "title": "White Mane",
+   "slot": "now-showing",
+   "platform": "youtube",
+   "url": "https://youtube.com/watch?v=p4XnxSXySsk",
+   "format": "video",
+   "kind": "short-film",
+   "mediaId": null,
+   "reviewer": null
   }
  ]
 }
