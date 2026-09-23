@@ -462,6 +462,14 @@ else
 fi
 kill $HTTPPID 2>/dev/null || true
 
+# §8.57 — a live show's film cannot change under it (A11).
+if bash tools/test_studio_film_locked.sh >"$SCRATCH/filmlocked.log" 2>&1; then
+  row "8.57 film locked while live" PASS ""; PASS=$((PASS+1))
+else
+  row "8.57 film locked while live" FAIL "autoplay or Play Next can swap the film on air"
+  FAIL=$((FAIL+1))
+fi
+
 # §8.49 — every platform tells YouTube the show is over while it is still
 # live. After the publisher closes, `complete` is refused 403 and the
 # host's broadcast lingers in "Live now".

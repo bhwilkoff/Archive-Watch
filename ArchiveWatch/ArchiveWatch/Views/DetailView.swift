@@ -2166,7 +2166,9 @@ struct PlayerScreen: View {
             title: "Watch Together",
             image: UIImage(systemName: "person.2.wave.2"),
             children: studioFilm != nil ? liveChildren : [withFriends, withTheWorld])
-        var items: [UIMenuElement] = [playNext, muteToggle, watchTogether]
+        var items: [UIMenuElement] = studioFilm == nil
+            ? [playNext, muteToggle, watchTogether]
+            : [muteToggle, watchTogether]
         // An EPHEMERAL lineup (Party Play, a channel, a cartoon marathon) is a
         // wall of films the viewer did not choose — so the two questions it
         // raises are "what IS this?" and "keep this". tvOS-DESIGN §9.3 bound
@@ -2278,6 +2280,10 @@ struct PlayerScreen: View {
     /// manual control is never a dead end. Shared by the manual "Play Next" (#5)
     /// and the end-of-film autoplay (#10).
     private func advanceNow() {
+        // A LIVE SHOW'S FILM DOES NOT CHANGE UNDER IT (launch audit A11): the
+        // engine is attached to this player once, and the next title never
+        // passed the rights gate. Ending the broadcast frees the lineup again.
+        guard studioFilm == nil else { return }
         if let lineup, lineupIndex + 1 < lineup.count {
             lineupIndex += 1
             current = lineup[lineupIndex]
@@ -2689,6 +2695,8 @@ struct PlayerScreen: View {
             forName: .AVPlayerItemDidPlayToEndTime, object: playerItem, queue: .main
         ) { _ in
             Task { @MainActor in
+                // Not while live (A11) — the host decides what comes next.
+                guard studioFilm == nil else { return }
                 // #1 channels: advance through the fixed lineup first.
                 if let lineup, lineupIndex + 1 < lineup.count {
                     lineupIndex += 1

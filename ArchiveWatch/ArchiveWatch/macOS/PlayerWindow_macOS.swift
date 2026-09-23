@@ -145,7 +145,9 @@ struct PlayerWindow: View {
     /// When a film ends and Autoplay is on, swap the player to the next title
     /// (router.nowPlaying drives the overlay, so changing it re-presents the player).
     private func autoplayNext() {
-        guard store.autoplayMode != .off,
+        // Not while live (launch audit A11): the Studio's engine is attached
+        // to THIS film, and the next one never passed the rights gate.
+        guard !StudioSession.shared.isLive, store.autoplayMode != .off,
               let next = ContinuousPlayback.next(after: item, mode: store.autoplayMode, store: store)
         else { return }
         router.play(next)
