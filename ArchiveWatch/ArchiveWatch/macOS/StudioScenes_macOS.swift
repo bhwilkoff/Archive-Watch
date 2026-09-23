@@ -119,6 +119,9 @@ final class StudioScenes {
         // instead of a synthesized click: pointer automation on the owner's
         // machine landed on their main display on 2026-09-23 when the Studio
         // sat on a second one.
+        if ProcessInfo.processInfo.environment["AW_STUDIO_SCENE_SELFTEST"] == "1" {
+            Task { @MainActor in self.selfTest() }
+        }
         if let v = ProcessInfo.processInfo.environment["AW_STUDIO_SCENE"] {
             let parts = v.split(separator: "@")
             if let n = Int(parts.first ?? ""), n >= 1,
@@ -173,6 +176,57 @@ final class StudioScenes {
         // an empty custom card is refused by the controls themselves (§D10).
         c.cardChoice = s.card
     }
+
+    #if DEBUG
+    /// §D31's inheritance, driven through the REAL controls and the real
+    /// store — a harness of its own would test a copy. Restores the saved
+    /// scenes exactly afterwards, because they are the owner's.
+    func selfTest() {
+        let saved = UserDefaults.standard.data(forKey: Self.key)
+        let before = (scenes, selectedID, showTiles, showAudio)
+        let c = StudioControls.shared
+        var fails = 0
+        func check(_ name: String, _ ok: Bool) {
+            awdiag("AWSCENETEST %@ %@", ok ? "ok  " : "FAIL", name)
+            if !ok { fails += 1 }
+        }
+        guard scenes.count >= 4 else { awdiag("AWSCENETEST FAIL needs four scenes"); return }
+        let a = scenes[1].id, b = scenes[3].id, d = scenes[2].id
+        // Every scene inherits to start with.
+        for i in scenes.indices { scenes[i].useShowAudio = true; scenes[i].useShowTiles = true }
+
+        select(a); c.filmGain = 1.0
+        select(b); setUseShowAudio(false)
+        check("a scene's own audio starts from the show's", abs(c.filmGain - 1.0) < 0.001)
+        c.filmGain = 0.3
+        select(a)
+        check("its own level does not leak into the show", abs(c.filmGain - 1.0) < 0.001)
+        select(b)
+        check("and comes back with the scene", abs(c.filmGain - 0.3) < 0.001)
+        select(a); c.filmGain = 0.7
+        select(d)
+        check("an inheriting scene follows the show", abs(c.filmGain - 0.7) < 0.001)
+        select(b)
+        check("the scene with its own mix ignores the show", abs(c.filmGain - 0.3) < 0.001)
+        setUseShowAudio(true)
+        check("switching the toggle back returns to the show's", abs(c.filmGain - 0.7) < 0.001)
+
+        let box = CGRect(x: 0.1, y: 0.1, width: 0.3, height: 0.3)
+        select(b); setUseShowTiles(false)
+        var f = c.framing; f.tile = box; c.framing = f
+        select(a)
+        check("its own tile does not move the show's", c.framing.tile != box)
+        select(b)
+        check("and the tile returns with the scene", c.framing.tile == box)
+
+        // Restore: the owner's scenes, exactly.
+        (scenes, selectedID, showTiles, showAudio) = before
+        if let saved { UserDefaults.standard.set(saved, forKey: Self.key) }
+        else { UserDefaults.standard.removeObject(forKey: Self.key) }
+        apply()
+        awdiag("AWSCENETEST RESULT %@ (%d failed)", fails == 0 ? "PASS" : "FAIL", fails)
+    }
+    #endif
 
     // MARK: §D31's toggles
 

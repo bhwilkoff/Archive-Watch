@@ -683,7 +683,7 @@ one.
 
 | Platform | State |
 |---|---|
-| macOS | ⏳ phase 1 (v1.42.508): the scene bar above STREAM, ⌘1-⌘9 under Broadcast ▸ Scenes, five editable starters, add / rename / delete, the two toggles in Scene settings, saved across launches, a Twitch chapter per switch. **Verified**: a switch to Intermission reached the wire (the server's frame is the card) and the selection survived a relaunch. **Not yet**: the crossfade (switching is a cut), the "shared" word beside inherited sections, and the own-tiles / own-audio toggles exercised on a run |
+| macOS | ⏳ phase 1 (v1.42.508): the scene bar above STREAM, ⌘1-⌘9 under Broadcast ▸ Scenes, five editable starters, add / rename / delete, the two toggles in Scene settings, saved across launches, a Twitch chapter per switch. **Verified**: a switch to Intermission reached the wire (the server's frame is the card) and the selection survived a relaunch. **The toggles are verified** in the running app by `AW_STUDIO_SCENE_SELFTEST=1` (8 checks through the real controls; its negative control — capture ignoring the audio toggle — fails 4), and the Mixer column and Framing label say "shared" or "this scene" (v1.42.509). **Not yet**: the crossfade (switching is a cut) |
 | iOS | ⏳ later, as a compact switcher |
 | tvOS | 🚫 Rule 8.8c ("two channels, a rotation, and nothing else") |
 | Android | 🚫 not planned |

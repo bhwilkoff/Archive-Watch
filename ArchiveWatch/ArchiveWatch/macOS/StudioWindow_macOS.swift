@@ -411,6 +411,7 @@ struct StudioWindowView: View {
     private var studio: StudioSession { StudioSession.shared }
     @Bindable private var controls = StudioControls.shared
     @Bindable private var show = StudioMacShow.shared
+    @Bindable private var scenes = StudioScenes.shared
     /// The device lists, read once on appear and on demand rather than every
     /// redraw: `AVCaptureDevice.DiscoverySession` is not free, and this view
     /// redraws at the health tick.
@@ -440,7 +441,7 @@ struct StudioWindowView: View {
             HStack(alignment: .top, spacing: 0) {
                 column("Inputs") { inputs }
                 Divider()
-                column("Mixer") { mixer }
+                column("Mixer", scope: scenes.selected.useShowAudio ? "shared" : "this scene") { mixer }
                 Divider()
                 // §D20 — a graphic is not an input.
                 column("On screen") { onScreen }
@@ -856,20 +857,37 @@ struct StudioWindowView: View {
 
     // MARK: Columns
 
-    private func column<Content: View>(_ title: String,
+    private func column<Content: View>(_ title: String, scope: String? = nil,
                                        @ViewBuilder content: () -> Content) -> some View {
         VStack(alignment: .leading, spacing: 0) {
-            Text(title)
-                .font(.caption.weight(.bold))
-                .foregroundStyle(.secondary)
-                .textCase(.uppercase)
-                .padding(.horizontal, 16).padding(.top, 14).padding(.bottom, 8)
+            HStack(alignment: .firstTextBaseline) {
+                Text(title)
+                    .font(.caption.weight(.bold))
+                    .foregroundStyle(.secondary)
+                    .textCase(.uppercase)
+                Spacer(minLength: 6)
+                if let scope { scopeBadge(scope) }
+            }
+            .padding(.horizontal, 16).padding(.top, 14).padding(.bottom, 8)
             ScrollView {
                 VStack(alignment: .leading, spacing: 14) { content() }
                     .padding(.horizontal, 16).padding(.bottom, 16)
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+    }
+
+    /// §D31 — the one caption scenes add: whether an edit here reaches every
+    /// scene that inherits it ("shared") or only the one on screen.
+    private func scopeBadge(_ text: String) -> some View {
+        Text(text)
+            .font(.caption2.weight(.semibold))
+            .foregroundStyle(text == "shared" ? Color.secondary : Color.accentColor)
+            .padding(.horizontal, 6).padding(.vertical, 1)
+            .background(Color.secondary.opacity(0.12), in: Capsule())
+            .help(text == "shared"
+                  ? "Changes here apply to every scene that uses the show's settings"
+                  : "Changes here apply to this scene only")
     }
 
     // MARK: Inputs (§D2, §D11)
@@ -1177,6 +1195,7 @@ struct StudioWindowView: View {
         VStack(alignment: .leading, spacing: 6) {
             HStack(alignment: .firstTextBaseline) {
                 Text("Framing").font(.subheadline.weight(.semibold))
+                scopeBadge(scenes.selected.useShowTiles ? "shared" : "this scene")
                 Spacer(minLength: 6)
                 if !controls.activeFraming.isDefault {
                     Button("Reset") { controls.activeFraming = StudioCameraFraming() }
