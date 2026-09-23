@@ -489,10 +489,16 @@ struct StudioWindowView: View {
     /// already know. `HSplitView` so the host decides which pane gets the room.
     private var stage: some View {
         HSplitView {
+            // STREAM STARTS LARGEST (§D29). It is the picture the audience
+            // gets and the one a host must be able to read chat and framing
+            // on; the film is followed, not inspected. The host can still
+            // drag the dividers.
             sourcePane
-                .frame(minWidth: 320, idealWidth: 520)
+                .frame(minWidth: 320, idealWidth: 420)
+                .layoutPriority(0)
             programPane
-                .frame(minWidth: 320, idealWidth: 520)
+                .frame(minWidth: 420, idealWidth: 680)
+                .layoutPriority(1)
             // §D26 — THE AUDIENCE IS PART OF THE SHOW, so it sits up here
             // beside the film and the stream rather than down among the
             // controls. It appears when a broadcast does: chat comes from

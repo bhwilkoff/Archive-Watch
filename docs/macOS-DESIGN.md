@@ -2319,3 +2319,16 @@ so a configured "6 Mbps" is a number the audience never receives.
 
 **How to apply.** Nothing is added here that is not true right now; a
 dropped-frame count of zero is not shown, because a zero is not information.
+
+## §D29 — STREAM starts as the largest pane
+
+The stage opens with STREAM widest (ideal 680 pt, layout priority 1), FILM
+narrower (420 pt), AUDIENCE beside them. The host can still drag the dividers.
+
+**Why.** §D8 gave FILM and STREAM equal ideal widths, and once §D26's
+AUDIENCE pane appeared the split took its room from STREAM, so the picture the
+audience actually gets was the smallest on screen: chat lines, the lower
+third and the camera tile's handles were all being read and dragged at
+thumbnail size. The film is FOLLOWED in its pane; the stream is INSPECTED.
+**This does not amend §B13h's 0-10 fader**, which a first look at the mixer's
+"8.0" was about to: that scale is the owner's own (2026-09-20).
