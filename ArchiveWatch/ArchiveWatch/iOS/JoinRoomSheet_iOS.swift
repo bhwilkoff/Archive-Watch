@@ -104,6 +104,7 @@ struct JoinRoomSheet_iOS: View {
                 // The player is where an `AVPlayer` exists, so the code waits
                 // there — the same hand-off macOS and tvOS use.
                 RoomJoin_iOS.shared.pending = code
+                RoomJoin_iOS.shared.pendingFilm = item.archiveID
                 dismiss()
                 router.push(item)
             } catch {
@@ -118,6 +119,10 @@ struct JoinRoomSheet_iOS: View {
 final class RoomJoin_iOS {
     static let shared = RoomJoin_iOS()
     var pending: String?
+    /// The film the room is watching. A code is taken only by a player for
+    /// THIS film — otherwise backing out of it left the code waiting, and the
+    /// next unrelated film was seeked and paused by the room (audit A16).
+    var pendingFilm: String?
     private init() {}
 }
 #endif

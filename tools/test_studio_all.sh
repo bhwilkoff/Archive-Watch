@@ -470,6 +470,14 @@ else
   FAIL=$((FAIL+1))
 fi
 
+# §8.58 — a room code is taken only by the room's film; players leave on close (A16).
+if bash tools/test_studio_room_handoff.sh >"$SCRATCH/roomhandoff.log" 2>&1; then
+  row "8.58 room hand-off" PASS ""; PASS=$((PASS+1))
+else
+  row "8.58 room hand-off" FAIL "a room code hijacks another film, or a closed player stays in the room"
+  FAIL=$((FAIL+1))
+fi
+
 # §8.49 — every platform tells YouTube the show is over while it is still
 # live. After the publisher closes, `complete` is refused 403 and the
 # host's broadcast lingers in "Live now".

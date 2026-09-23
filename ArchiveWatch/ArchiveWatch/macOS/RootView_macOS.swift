@@ -691,6 +691,7 @@ private struct WatchTogetherLanding: View {
                 // an empty player.
                 if let item = store.item(filmID) {
                     RoomJoin.shared.pending = code
+                    RoomJoin.shared.pendingFilm = item.archiveID
                     router.play(item)
                 } else {
                     RoomJoin.shared.problem =
@@ -792,6 +793,8 @@ final class RoomJoin {
     static let shared = RoomJoin()
     /// A code the landing page accepted, waiting for the player to exist.
     var pending: String?
+    /// The room's film: only a player for it takes the code (audit A16).
+    var pendingFilm: String?
     /// The code THIS Mac is hosting, so the landing page can show it.
     var hostCode: String?
     /// Set by the landing page; consumed where the player is built.

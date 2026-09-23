@@ -75,7 +75,7 @@ struct PlayerWindow: View {
                 // FOLLOW A ROOM (§11). The landing page hands the code over
                 // here because this is the one place an `AVPlayer` exists;
                 // everything the follower does after that is silent (§11.2a).
-                .onDisappear { StudioSyncFollower.shared.leave() }
+                .onDisappear { StudioSyncFollower.shared.leaveIfFollowing() }
                 .navigationTitle(item.year.map { "\(item.title) (\($0))" } ?? item.title)
                 .toolbar {
                     // GO LIVE, WHERE SOMEONE CAN SEE IT (Rule B13g, amended
@@ -456,8 +456,10 @@ struct PlayerSurface: View {
         // `AVPlayer` is actually built — the same reason `attachIfArmed` is
         // here. Everything the follower does after this is silent (§11.2a):
         // the viewer simply sees the film do what the host's film is doing.
-        if let code = RoomJoin.shared.pending {
+        if let code = RoomJoin.shared.pending,
+           RoomJoin.shared.pendingFilm.map({ $0 == archiveID }) ?? true {
             RoomJoin.shared.pending = nil
+            RoomJoin.shared.pendingFilm = nil
             Task { await StudioSyncFollower.shared.join(code: code, player: p) { _ in } }
         }
         // HOSTING, the same hand-off in the other direction: the landing page

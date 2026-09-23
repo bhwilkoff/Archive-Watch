@@ -252,8 +252,10 @@ struct PlayerView: UIViewControllerRepresentable {
         // SharePlay's attach because they are the same kind of thing — one
         // syncs Apple devices in a call, the other syncs anything anywhere —
         // and this is where the `AVPlayer` exists. Silent from here (§11.2a).
-        if let code = RoomJoin_iOS.shared.pending {
+        if let code = RoomJoin_iOS.shared.pending,
+           RoomJoin_iOS.shared.pendingFilm.map({ $0 == archiveID }) ?? true {
             RoomJoin_iOS.shared.pending = nil
+            RoomJoin_iOS.shared.pendingFilm = nil
             #if DEBUG
             // A door join makes no sound in the room the test phone sits in.
             if ProcessInfo.processInfo.environment["AW_ROOM_JOIN"] != nil { player.isMuted = true }
@@ -329,6 +331,9 @@ struct PlayerView: UIViewControllerRepresentable {
     static func dismantleUIViewController(_ vc: AVPlayerViewController, coordinator: Coordinator) {
         coordinator.persist(vc.player)
         vc.player?.pause()
+        // Closing the player leaves the room, as the Mac does — or it went on
+        // polling and telling the host "I'm here" (audit A16).
+        StudioSyncFollower.shared.leaveIfFollowing()
     }
 
     @MainActor

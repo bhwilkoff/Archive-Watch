@@ -76,6 +76,14 @@ public final class StudioSyncFollower {
         }
     }
 
+    /// Leave only if a room is actually being followed — a player going away
+    /// calls this unconditionally, and `leave()` sets the rate of the player
+    /// it last followed.
+    public func leaveIfFollowing() {
+        if case .idle = status { return }
+        leave()
+    }
+
     public func leave() {
         hereLoop?.cancel()
         loop?.cancel()

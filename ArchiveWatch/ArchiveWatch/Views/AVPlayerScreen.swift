@@ -511,6 +511,9 @@ struct AVPlayerContainer: UIViewControllerRepresentable {
 
     let player: AVPlayer
     var menuItems: [UIMenuElement] = []   // #10: per-video transport menu (autoplay override)
+    /// Which film this is, so a pending room code is taken only by the
+    /// room's own film (audit A16).
+    var archiveID: String? = nil
     /// Source URL for live captions. When present and the title has no subtitle
     /// track, the audio is transcribed AHEAD of playback and drawn over the
     /// picture — the same engine iOS and macOS use, wired here so the living
@@ -531,8 +534,10 @@ struct AVPlayerContainer: UIViewControllerRepresentable {
         // actually reaches a surface — the same reason every other Studio
         // hook is where it is. Everything after this is silent (§11.2a): the
         // film simply does what the host's film is doing.
-        if let code = RoomJoinTV.shared.pending {
+        if let code = RoomJoinTV.shared.pending,
+           RoomJoinTV.shared.pendingFilm == nil || RoomJoinTV.shared.pendingFilm == archiveID {
             RoomJoinTV.shared.pending = nil
+            RoomJoinTV.shared.pendingFilm = nil
             let p = player
             Task { @MainActor in
                 await StudioSyncFollower.shared.join(code: code, player: p) { _ in }
@@ -563,6 +568,8 @@ struct AVPlayerContainer: UIViewControllerRepresentable {
                                           coordinator: CaptionCoordinator) {
         coordinator.stop()
         TVAudioSession.shared.end()
+        // Leaving the player leaves the room (audit A16).
+        StudioSyncFollower.shared.leaveIfFollowing()
     }
 
     func updateUIViewController(_ vc: AVPlayerViewController, context: Context) {

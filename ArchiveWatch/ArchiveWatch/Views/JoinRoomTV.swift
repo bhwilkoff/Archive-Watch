@@ -137,6 +137,7 @@ struct JoinRoomTV: View {
                 // handed over rather than followed here — the same shape the
                 // Mac uses.
                 RoomJoinTV.shared.pending = code
+                RoomJoinTV.shared.pendingFilm = item.archiveID
                 // tvOS navigates to DETAIL and the host presses Play — the
                 // platform's own shape, rather than dropping someone into a
                 // player they did not ask to open. The code is held until an
@@ -159,6 +160,8 @@ struct JoinRoomTV: View {
 final class RoomJoinTV {
     static let shared = RoomJoinTV()
     var pending: String?
+    /// The room's film: only a player for it takes the code (audit A16).
+    var pendingFilm: String?
     private init() {}
 }
 #endif

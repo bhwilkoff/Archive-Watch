@@ -1650,6 +1650,7 @@ struct PlayerScreen: View {
                 failureView(message)
             } else if let player {
                 AVPlayerContainer(player: player, menuItems: autoplayMenu,
+                                  archiveID: current?.archiveID ?? archiveID,
                                   liveCaptionURL: liveCaptionSource,
                                   reviewSource: subtitleReviewSource,
                                   captionChoice: captionChoice)
