@@ -20,4 +20,10 @@ check "macOS player takes the code only for the room's film" "grep -A1 'if let c
 check "each join records the room's film" "grep -q 'RoomJoin_iOS.shared.pendingFilm = item.archiveID' '$R/iOS/JoinRoomSheet_iOS.swift' && grep -q 'RoomJoinTV.shared.pendingFilm = item.archiveID' '$R/Views/JoinRoomTV.swift' && grep -q 'RoomJoin.shared.pendingFilm = item.archiveID' '$R/macOS/RootView_macOS.swift'"
 check "iOS player leaves the room when it goes away" "awk '/static func dismantleUIViewController/{on=1} on&&/leaveIfFollowing/{f=1} on&&/^    }$/{on=0} END{exit !f}' '$R/iOS/PlayerView_iOS.swift'"
 check "tvOS player leaves the room when it goes away" "awk '/static func dismantleUIViewController\(_ vc: AVPlayerViewController,\$/{on=1} on&&/leaveIfFollowing/{f=1} on&&/^    }$/{on=0} END{exit !f}' '$R/Views/AVPlayerScreen.swift'"
+A=${AW_ANDROID_ROOT:-android/app/src/main/java/app/archivewatch/android}
+W=${AW_WEB_ROOT:-.}
+check "Android player takes the code only for the room's film" "grep -A3 'val code = StudioSyncFollower.pending' '$A/ui/screens/PlayerScreen.kt' | grep -q 'pendingFilm'"
+check "Android joins record the room's film" "grep -q 'StudioSyncFollower.pendingFilm = item.archiveID' '$A/ui/tv/TvJoinRoom.kt' && grep -q 'StudioSyncFollower.pendingFilm = filmID' '$A/ui/screens/LibraryScreen.kt'"
+check "web player close leaves the room" "awk '/^    close\(\) \{/{on=1} on&&/TogetherView.stop\(\)/{f=1} on&&/^    },/{on=0} END{exit !f}' '$W/watch.js'"
+check "web navigation away leaves the room" "grep -q \"if (name !== 'together') TogetherView.stop();\" '$W/watch.js'"
 [ $fail = 0 ] && echo "PASS" || { echo "FAIL"; exit 1; }

@@ -46,6 +46,11 @@ object StudioSyncFollower {
      *  place an ExoPlayer exists. */
     var pending: String? = null
 
+    /** The room's film. Only a player for THIS film takes [pending]: backing
+     *  out of it used to leave the code waiting, and the next, unrelated film
+     *  was seeked and paused by the room (launch audit A16). */
+    var pendingFilm: String? = null
+
     fun join(scope: CoroutineScope, player: Player, code: String,
              base: String = StudioSyncClient.LIVE) {
         stop(player)

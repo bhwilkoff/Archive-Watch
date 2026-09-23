@@ -83,6 +83,7 @@ fun TvJoinRoomScreen(container: AppContainer, nav: Nav) {
                 // The player is where the ExoPlayer exists, so the code waits
                 // there — the same hand-off every other platform uses.
                 StudioSyncFollower.pending = code
+                StudioSyncFollower.pendingFilm = item.archiveID
                 nav.push(Route.Detail(item.archiveID))
             } catch (e: Exception) {
                 working = false

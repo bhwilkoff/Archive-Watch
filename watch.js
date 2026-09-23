@@ -660,6 +660,10 @@
 
     let name = seg[0] || 'home';
     if (!VIEWS.includes(name)) name = 'home';
+    // Leaving the room's page leaves the room (launch audit A16): the
+    // follower kept polling, kept telling the host "I'm here", and steered
+    // the next film played in the same <video>.
+    if (name !== 'together') TogetherView.stop();
     showView(name);
     updateSmartBanner(name, seg);
 
@@ -3280,6 +3284,7 @@
       clearInterval(this.countdown);   // an autoplay timer must not outlive the player
       this.countdown = null;
       $('player-endcard').hidden = true;
+      TogetherView.stop();   // closing the player leaves the room (A16)
       video.pause();
       video.removeAttribute('src');
       video.load();

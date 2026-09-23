@@ -98,6 +98,7 @@ fun LibraryScreen(container: AppContainer, nav: Nav) {
                 // The player is the one place an ExoPlayer exists, so the code
                 // waits there — the same hand-off macOS, tvOS and iOS use.
                 StudioSyncFollower.pending = code
+                StudioSyncFollower.pendingFilm = filmID
                 joinScope.launch {
                     val db = container.catalog.awaitDb()
                     db.itemsByIDs(listOf(filmID)).firstOrNull()

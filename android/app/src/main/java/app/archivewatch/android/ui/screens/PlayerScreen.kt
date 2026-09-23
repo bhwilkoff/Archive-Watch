@@ -315,7 +315,10 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
     var followingRoom by remember { mutableStateOf(false) }
     LaunchedEffect(spec.id) {
         val code = StudioSyncFollower.pending ?: return@LaunchedEffect
+        val film = StudioSyncFollower.pendingFilm
+        if (film != null && film != spec.id) return@LaunchedEffect
         StudioSyncFollower.pending = null
+        StudioSyncFollower.pendingFilm = null
         followingRoom = true
         StudioSyncFollower.join(followScope, player, code)
     }

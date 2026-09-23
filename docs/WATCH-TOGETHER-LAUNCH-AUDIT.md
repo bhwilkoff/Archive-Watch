@@ -30,7 +30,7 @@ Items marked *(suspected)* were inferred from code and need a run before a fix.
 | A13 | iOS End leaves the camera and mic running (privacy dots, battery) | `StudioPlayerContainer_iOS.end()` | **FIXED v1.42.542** — `StudioSession.stopHostCapture()` on End and on disappear; iPhone 12 bench run: `AWCAM host capture stopped running=no` 97 ms after the show ended |
 | A14 | Worker: ~~no stale-room sweep~~ (**hourly sweep deployed v1.42.541**, SQL tested on the real schema); no rate limit on `/together/*`; free-plan request cap shared with the counter and Roku ingest | `worker/` | CODE |
 | A15 | Android has no foreground service for a live broadcast — locking the phone kills camera/mic | Android manifest | CODE |
-| A16 | Rooms: a pending code joins whatever film plays next (Android, iOS, tvOS); followers never leave on close (web, iOS, tvOS) — inflated presence, next film hijacked | followers, `watch.js` | **Apple FIXED v1.42.548** — code tied to the room's film, iOS/tvOS leave on close (§8.58, control fails). OPEN: Android and web |
+| A16 | Rooms: a pending code joins whatever film plays next (Android, iOS, tvOS); followers never leave on close (web, iOS, tvOS) — inflated presence, next film hijacked | followers, `watch.js` | **Apple FIXED v1.42.548** — code tied to the room's film, iOS/tvOS leave on close (§8.58, control fails). Android and web FIXED v1.42.550 (Android code tied to the film; web leaves on close and on navigation) |
 
 ## B. Should-fix before or soon after launch
 
