@@ -108,9 +108,12 @@ jobs:
           KEY_ALIAS: ${{ secrets.UPLOAD_KEY_ALIAS }}
           KEY_PASS: ${{ secrets.UPLOAD_KEY_PASSWORD }}
           OS_KEY: ${{ secrets.AW_OPENSUBTITLES_API_KEY }}
+          # The Studio's public Twitch client — without it the Play build's
+          # Twitch sign-in is "not set up" (audit, 2026-09-23).
+          TW_ID: ${{ secrets.AW_TWITCH_CLIENT_ID }}
         run: |
           set -euo pipefail
-          for v in KS_B64 KS_PASS KEY_ALIAS KEY_PASS; do
+          for v in KS_B64 KS_PASS KEY_ALIAS KEY_PASS TW_ID; do
             [ -n "${!v:-}" ] || { echo "::error::secret for $v is missing"; exit 1; }
           done
           mkdir -p "$HOME/keystores" "$HOME/.gradle"
@@ -122,6 +125,7 @@ jobs:
             echo "UPLOAD_KEY_ALIAS=$KEY_ALIAS"
             echo "UPLOAD_KEY_PASSWORD=$KEY_PASS"
             echo "awOpenSubtitlesApiKey=${OS_KEY:-}"
+            echo "awTwitchClientId=$TW_ID"
           } >> "$HOME/.gradle/gradle.properties"
 
       - name: Bump versionCode and sync versionName

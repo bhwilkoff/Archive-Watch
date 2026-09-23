@@ -343,9 +343,15 @@ public final class StudioSession {
     /// the owner asked for every feature to be proved on the real platforms.
     public func attachYouTubeChatIfArmed(to e: StudioEngine) async {
         guard let chatID = armedYouTubeChatID, !chatID.isEmpty else { return }
-        if let token = try? await StudioPlatformAuth.token(for: .youtube) {
+        if (try? await StudioPlatformAuth.token(for: .youtube)) != nil {
+            // THE TOKEN IS ASKED FOR ON EVERY PAGE, not captured once. A
+            // Google access token lasts about an hour, so a captured one
+            // stopped the chat partway through every long show and then
+            // polled 401s for the rest of it (audit, 2026-09-23). `token(for:)`
+            // returns the cached one until it needs refreshing.
             await e.attachYouTubeChat(liveChatID: chatID) { id, page in
-                try await YouTubeLive(token: token).chat(liveChatID: id, pageToken: page)
+                let token = try await StudioPlatformAuth.token(for: .youtube)
+                return try await YouTubeLive(token: token).chat(liveChatID: id, pageToken: page)
             }
             diag("[AWSTUDIOCHAT] reading YouTube live chat")
         } else {
