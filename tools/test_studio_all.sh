@@ -429,6 +429,14 @@ else
   FAIL=$((FAIL+1))
 fi
 
+# §8.53 — no log line prints a destination URL (its last component is the key).
+if bash tools/test_studio_key_in_logs.sh >"$SCRATCH/keylogs.log" 2>&1; then
+  row "8.53 no stream key in logs" PASS ""; PASS=$((PASS+1))
+else
+  row "8.53 no stream key in logs" FAIL "a log line prints a stream key"
+  FAIL=$((FAIL+1))
+fi
+
 # §8.49 — every platform tells YouTube the show is over while it is still
 # live. After the publisher closes, `complete` is refused 403 and the
 # host's broadcast lingers in "Live now".

@@ -67,6 +67,15 @@ enum StudioDoors {
                    n.map(String.init) ?? "unknown")
             return true
         }
+        if authDoor == "youtube-upcoming" {
+            do {
+                let yt = YouTubeLive(token: try await StudioPlatformAuth.token(for: .youtube))
+                let list = try await yt.debugUpcoming()
+                awdiag("AWUPCOMING %d upcoming broadcast(s)", list.count)
+                for b in list { awdiag("AWUPCOMING %@ %@ \"%@\"", b.id, b.status, b.title) }
+            } catch { awdiag("AWUPCOMING failed — %@", "\(error)") }
+            return true
+        }
         guard authDoor == "state" else { return false }
         for platform in [StudioPlatformAuth.Platform.youtube, .twitch] {
             let configured = StudioPlatformAuth.clientID(for: platform) != nil

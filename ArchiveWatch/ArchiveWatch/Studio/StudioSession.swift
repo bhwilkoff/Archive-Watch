@@ -771,7 +771,16 @@ public final class StudioSession {
             let dest = armedDestination
                 ?? ProcessInfo.processInfo.environment["AW_STUDIO_DEST"]
                     .flatMap { URL(string: $0) }
-            diag("[AWSTUDIOSTART] starting engine destination=\(dest?.absoluteString ?? "none")")
+            // REDACTED: this line printed the full stream key for every platform
+            // show (found 2026-09-23 on a YouTube run) — §5 says never.
+            diag("[AWSTUDIOSTART] starting engine destination=\(dest.map { redactingKey($0) } ?? "none")")
+            #if DEBUG
+            // AW_STUDIO_FAIL_START=1 — a start that fails AFTER the platform
+            // broadcast was created, to prove the never-live tidy-up.
+            if ProcessInfo.processInfo.environment["AW_STUDIO_FAIL_START"] == "1" {
+                throw StudioPlatformError.badResponse("forced start failure (AW_STUDIO_FAIL_START)")
+            }
+            #endif
             try await e.start(destination: dest, additional: armedExtras)
             diag("[AWSTUDIOSTART] engine started")
         } catch {
@@ -783,6 +792,9 @@ public final class StudioSession {
             // zero AWPUB and zero AWSTUDIOHEALTH lines and no reason for it.
             // The same hole as AWPUB (§9.19) and AWAUTH.
             diag("[AWSTUDIOSTART] FAILED: \(error)")
+            // The broadcast was CREATED before the engine failed to start;
+            // left alone it is an orphan in the host's "Upcoming".
+            await completeArmedBroadcast()
             refusal = "The Studio could not start — \(error)"
             engine = nil
             return
@@ -1182,7 +1194,22 @@ public final class StudioSession {
                 diag("[AWSTUDIOEND] YouTube broadcast \(broadcast) marked complete")
             } catch {
                 let state = (try? await yt.lifeCycleStatus(broadcastID: broadcast)) ?? "unknown"
-                diag("[AWSTUDIOEND] could not end the YouTube broadcast (status=\(state)) — \(error)")
+                // A BROADCAST THAT NEVER WENT LIVE IS DELETED, not left. YouTube
+                // refuses `complete` except from `live`, so a go-live that
+                // failed — or a show ended before any video arrived — left a
+                // scheduled broadcast in the host's "Upcoming" forever (owner,
+                // 2026-09-23: "some videos that are set for the future are
+                // orphaned"). Only THIS show's own id is ever touched.
+                if ["created", "ready", "testStarting", "testing"].contains(state) {
+                    do {
+                        try await yt.delete(broadcastID: broadcast)
+                        diag("[AWSTUDIOEND] YouTube broadcast \(broadcast) never went live (\(state)) — deleted")
+                    } catch {
+                        diag("[AWSTUDIOEND] could not delete never-live broadcast \(broadcast) — \(error)")
+                    }
+                } else {
+                    diag("[AWSTUDIOEND] could not end the YouTube broadcast (status=\(state)) — \(error)")
+                }
             }
         } catch {
             diag("[AWSTUDIOEND] could not end the YouTube broadcast — \(error)")

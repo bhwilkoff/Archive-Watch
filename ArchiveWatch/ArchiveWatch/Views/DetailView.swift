@@ -1122,6 +1122,8 @@ struct PlayerScreen: View {
             try await engine.start(destination: destination)
         } catch {
             awdiag("AWGOLIVE engine.start FAILED: %@", Self.studioFlat("\(error)"))
+            // Created, never live: delete it rather than orphan it in Upcoming.
+            await StudioSession.shared.completeArmedBroadcast()
             studioRefusalKind = .platform
             studioRefusal = Self.studioHumanError(error)
             studioFilm = nil; studioRequest = nil

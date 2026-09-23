@@ -785,6 +785,29 @@ public struct YouTubeLive: Sendable {
     }
     #endif
 
+    /// Removes a broadcast that never went live — an orphan in the host's
+    /// "Upcoming" otherwise (owner, 2026-09-23). 50 quota units.
+    public func delete(broadcastID: String) async throws {
+        _ = try await HTTP.send(try request("/liveBroadcasts", method: "DELETE",
+                                            query: ["id": broadcastID]))
+    }
+
+    #if DEBUG
+    /// The host's upcoming broadcasts, read-only — to count orphans.
+    func debugUpcoming() async throws -> [(id: String, title: String, status: String)] {
+        let (data, _) = try await HTTP.send(try request(
+            "/liveBroadcasts", method: "GET",
+            query: ["part": "snippet,status", "broadcastStatus": "upcoming",
+                    "broadcastType": "all", "maxResults": "50"]))
+        let items = try HTTP.json(data)["items"] as? [[String: Any]] ?? []
+        return items.map {
+            (($0["id"] as? String) ?? "?",
+             (($0["snippet"] as? [String: Any])?["title"] as? String) ?? "?",
+             (($0["status"] as? [String: Any])?["lifeCycleStatus"] as? String) ?? "?")
+        }
+    }
+    #endif
+
     /// The broadcast's `status.lifeCycleStatus` — `live`, `complete`,
     /// `testing`, … — so a refused transition can say what state it met.
     public func lifeCycleStatus(broadcastID: String) async throws -> String {
