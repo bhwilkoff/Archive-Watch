@@ -343,10 +343,12 @@ struct StudioPlayerContainer: View {
             // The publisher's own numbers, in the file a device harness can
             // pull. §9.zzzzz: they existed and were unreachable here.
             let p = h.publisher
-            awdiag("AWSTUDIOHEALTH state=%@ fps=%d queued=%d vsent=%d vdrop=%d asent=%d reconnects=%d kbps=%d",
+            // `thermal` too: a proof run on YouTube (yY2hfXeb5fE) stepped
+            // 6000 -> 3600 kbps two minutes in and this line never said why.
+            awdiag("AWSTUDIOHEALTH state=%@ fps=%d queued=%d vsent=%d vdrop=%d asent=%d reconnects=%d kbps=%d thermal=%@",
                    h.showState.label, h.encodedFramesPerSecond, p.queuedBytes,
                    p.videoFramesSent, p.videoFramesDropped, p.audioFramesSent,
-                   p.reconnects, h.videoBitrateNow / 1000)
+                   p.reconnects, h.videoBitrateNow / 1000, h.thermalState)
             // THE ENCODER'S IDENTITY. SCRATCHPAD item 9a has had this open as
             // "iOS still waits — they need only a screenshot of the DEBUG
             // readout", which framed a number the app already knows as a

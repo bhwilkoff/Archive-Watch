@@ -241,3 +241,14 @@ minutes. The instrument is the suspect, not the app: the "viewer" was a Chrome
 tab whose player never left its spinner (`currentTime` 0), so YouTube's API had
 no real viewer to count. Next: a viewer that actually plays (a foreground
 window, or a second device), then re-read.
+
+**Found by the autonomous run (yY2hfXeb5fE, 2026-09-23):** the iPhone 12 hit
+`.serious` thermal ~130 s into a 1080p HEVC film and §6.5 stepped the video to
+3600 kbps (60%), with 0 queued and 0 dropped — correct behavior, surfaced as the
+capsule's ⚠︎. But two minutes is short: a two-hour watch-along on this phone
+spends most of the film at reduced quality. Unmeasured: whether a smaller
+source copy (720p H.264) avoids it — the decode, not the encode, is the
+suspect. The health line now carries `thermal=`.
+**The viewer count remains open**: a hidden Chrome tab never loads media
+(`document.hidden`, readyState 0), so it cannot be the viewer; a person on a
+visible screen, or a second device playing the stream, is the instrument.
