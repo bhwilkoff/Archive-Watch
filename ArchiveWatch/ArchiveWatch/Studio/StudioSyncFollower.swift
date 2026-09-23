@@ -117,6 +117,10 @@ public final class StudioSyncFollower {
         guard let correction = await client.correction(localPosition: local,
                                                        localPaused: !isPlaying) else { return }
         lastCorrection = correction
+        #if DEBUG
+        awdiag("AWFOLLOW local=%.1f playing=%@ correction=%@", local,
+               isPlaying ? "y" : "n", "\(correction)")
+        #endif
         apply(correction, to: player)
     }
 

@@ -28,6 +28,17 @@ struct RootView: View {
         // lived only in the tvOS one — so on a phone it was not shut, it was
         // absent (StudioDoors).
         .task { _ = await StudioDoors.runStateProbeIfAsked() }
+        #if DEBUG
+        // `AW_ROOM_JOIN=<code>` with AW_START_ITEM + AW_AUTOPLAY: join a
+        // Studio room the way the join sheet hands it over — the code waits
+        // for the player, which consumes it when built.
+        .task {
+            if let code = ProcessInfo.processInfo.environment["AW_ROOM_JOIN"], !code.isEmpty {
+                RoomJoin_iOS.shared.pending = code
+                awdiag("AWFOLLOW door will join room %@", code)
+            }
+        }
+        #endif
         .task { WatchTogether.shared.listen() }
         .task { network.start() }
         // Dev affordance: `AW_STUDIO_LAB=1` measures Watch Together Studio's

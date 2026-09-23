@@ -254,6 +254,10 @@ struct PlayerView: UIViewControllerRepresentable {
         // and this is where the `AVPlayer` exists. Silent from here (§11.2a).
         if let code = RoomJoin_iOS.shared.pending {
             RoomJoin_iOS.shared.pending = nil
+            #if DEBUG
+            // A door join makes no sound in the room the test phone sits in.
+            if ProcessInfo.processInfo.environment["AW_ROOM_JOIN"] != nil { player.isMuted = true }
+            #endif
             Task { @MainActor in
                 await StudioSyncFollower.shared.join(code: code, player: player) { _ in }
             }

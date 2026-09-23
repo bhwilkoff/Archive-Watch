@@ -47,6 +47,12 @@ struct ArchiveWatchMacApp: App {
     private let modelContainer: ModelContainer
 
     init() {
+        // A friends' room must not outlive the app (§D34): end it before the
+        // process exits, which a Task in stop() never got to do.
+        NotificationCenter.default.addObserver(
+            forName: NSApplication.willTerminateNotification, object: nil, queue: .main) { _ in
+            MainActor.assumeIsolated { StudioRoomHost.shared.endBeforeTermination() }
+        }
         URLCache.shared = URLCache(memoryCapacity: 64_000_000, diskCapacity: 400_000_000)
         modelContainer = Self.makeModelContainer()
         #if DEBUG

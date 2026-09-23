@@ -75,6 +75,20 @@ public final class StudioRoomHost {
         }
     }
 
+    /// For app termination. `stop()` ends the room from a Task, and a quitting
+    /// process exits before that request leaves: room 127T stayed open on the
+    /// live Worker after the Mac app quit (2026-09-23), so friends in it would
+    /// have kept following a host that no longer existed. This waits — at
+    /// most two seconds, so a dead network cannot hang the quit.
+    public func endBeforeTermination() {
+        guard code != nil else { return }
+        let c = client
+        code = nil
+        let done = DispatchSemaphore(value: 0)
+        Task.detached { await c.endRoom(); done.signal() }
+        _ = done.wait(timeout: .now() + 2)
+    }
+
     public func stop() {
         if let timeObserver, let player { player.removeTimeObserver(timeObserver) }
         timeObserver = nil
