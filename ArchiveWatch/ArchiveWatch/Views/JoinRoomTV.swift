@@ -49,7 +49,7 @@ struct JoinRoomTV: View {
                     .font(.title3).foregroundStyle(.secondary)
                     .multilineTextAlignment(.center)
                     .frame(maxWidth: 900)
-                Text("Ask the host to read out their four-character code.")
+                Text("Enter the code your host reads out. The film plays here in step with theirs.")
                     .font(.title3).foregroundStyle(.secondary)
                     .multilineTextAlignment(.center)
                     .frame(maxWidth: 900)

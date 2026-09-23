@@ -58,9 +58,7 @@ fun JoinRoomDialog(onDismiss: () -> Unit, onJoined: (code: String, filmID: Strin
         text = {
             Column {
                 Text(
-                    "Ask the host to read out their four-character code. You do not " +
-                        "need a camera or a microphone — you are watching along, and the " +
-                        "conversation is on the call you are already on.",
+                    "Enter the code your host reads out. The film plays here in step with theirs.",
                     style = MaterialTheme.typography.bodyMedium,
                 )
                 Spacer(Modifier.size(16.dp))

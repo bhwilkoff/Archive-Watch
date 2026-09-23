@@ -85,13 +85,13 @@ public enum WatchTogetherHere {
         if canMixACall {
             out.append(Mode(
                 id: "both", title: "With Friends and the World",
-                detail: "Both at once: you are on Zoom, Meet or FaceTime with your friends, and the Studio mixes that conversation into the broadcast.",
+                detail: "Your call with friends — Zoom, Meet, FaceTime — mixed into the broadcast, with a room so they watch in step.",
                 systemImage: "person.3"))
         }
         if canJoinARoom {
             out.append(Mode(
                 id: "join", title: "Join someone's room",
-                detail: "Watch in step with a host who is broadcasting. Four characters, read out on the call you are already on — no camera needed.",
+                detail: "Enter a host's code and the film plays here in step with their broadcast.",
                 systemImage: "person.badge.plus"))
         }
         return out
@@ -101,11 +101,11 @@ public enum WatchTogetherHere {
     /// device and no other.
     public static var summary: String {
         if canMixACall {
-            return "Watch a public-domain film with other people — in a call, in front of an audience, or both at once. This Mac can do all of it."
+            return "Watch a public-domain film with other people: on a call, with an audience, or both."
         }
         if canBroadcast {
-            return "Watch a public-domain film with other people — broadcast it with your camera and microphone, or join somebody else's room and watch in step."
+            return "Broadcast a public-domain film with your camera and microphone, or join someone's room and watch in step."
         }
-        return "Join somebody's room and watch a public-domain film in step with them. The conversation runs on whatever call you are already on."
+        return "Join someone's room and watch a public-domain film in step with them."
     }
 }

@@ -639,7 +639,7 @@ private struct WatchTogetherLanding: View {
                         Text(code)
                             .font(.system(size: 46, weight: .bold, design: .monospaced))
                             .textSelection(.enabled)
-                        Text("Read it out on your call. Anyone can join from any device — a phone, a television, a browser — and they do not need a camera.")
+                        Text("Read it out on your call.")
                             .font(.callout).foregroundStyle(.secondary)
                             .multilineTextAlignment(.center).frame(maxWidth: 460)
                         Button("Close the room", role: .destructive) {
@@ -650,7 +650,7 @@ private struct WatchTogetherLanding: View {
                     .padding(.top, 4)
                 }
                 if router.nowPlaying == nil {
-                    Text("Open a film first and Go Live becomes available. The Studio opens any time — you can set your camera and levels before anything is broadcast.")
+                    Text("Open a film to go live.")
                         .font(.callout).foregroundStyle(.secondary)
                         .multilineTextAlignment(.center).frame(maxWidth: 520)
                 }
@@ -729,7 +729,7 @@ private struct JoinRoomSheet: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 14) {
             Text("Join a room").font(.title2).bold()
-            Text("Ask the host for their four-character code. You can read it out on the call you are already on — it is meant to be spoken.")
+            Text("Enter the code your host reads out. The film plays here in step with theirs.")
                 .font(.callout).foregroundStyle(.secondary)
                 .fixedSize(horizontal: false, vertical: true)
 

@@ -110,9 +110,7 @@ fun TvJoinRoomScreen(container: AppContainer, nav: Nav) {
         Text("Join a room", fontSize = 34.sp, fontWeight = FontWeight.Bold, color = Color.White)
         Spacer(Modifier.size(10.dp))
         Text(
-            "Ask the host to read out their four-character code. You do not need a camera " +
-                "or a microphone — you are watching along, and the conversation is on the " +
-                "call you are already on.",
+            "Enter the code your host reads out. The film plays here in step with theirs.",
             fontSize = 15.sp, color = Color(0xFF8A8F98), textAlign = TextAlign.Center,
             modifier = Modifier.width(700.dp),
         )

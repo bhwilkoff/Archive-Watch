@@ -2927,7 +2927,7 @@
       if (!parsed) {
         note.textContent = '';
         err.hidden = false;
-        err.textContent = 'That room link is incomplete. Ask the host to read out their four-character code instead.';
+        err.textContent = 'That room link is incomplete. Ask the host to send it again.';
         return;
       }
       note.textContent = 'Joining room ' + parsed.code + '…';

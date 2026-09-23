@@ -44,7 +44,7 @@ struct JoinRoomSheet_iOS: View {
                     .font(.callout).foregroundStyle(.secondary)
                     .multilineTextAlignment(.center)
                     .padding(.horizontal)
-                Text("Ask the host to read out their four-character code.")
+                Text("Enter the code your host reads out. The film plays here in step with theirs.")
                     .font(.callout).foregroundStyle(.secondary)
                     .multilineTextAlignment(.center)
                     .padding(.horizontal)

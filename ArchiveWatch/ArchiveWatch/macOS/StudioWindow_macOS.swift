@@ -1976,7 +1976,7 @@ struct StudioDestinationSection: View {
                 Text(code)
                     .font(.system(size: 28, weight: .bold, design: .monospaced))
                     .textSelection(.enabled)
-                Text("They enter it in Archive Watch ▸ Watch Together, on any device.")
+                Text("Friends enter it under Watch Together in Archive Watch.")
                     .font(.caption2).foregroundStyle(.secondary)
                     .fixedSize(horizontal: false, vertical: true)
                 Button("Close the room") {
