@@ -2299,3 +2299,23 @@ inside the `auth/youtube` scope under Google verification and the three
 Twitch scopes hosts have already granted. Anything that would widen a scope
 (posting in chat, polls, announcements) is a separate decision, because a new
 Google scope means a new demo video and a new review.
+
+## §D28 — The STREAM header is the host's status bar
+
+While on air the STREAM header reads **● LIVE 1:11 · 2.4 Mbps**, adding
+**N dropped** and **reconnecting** only when true. The clock starts when the
+server ACCEPTS the stream (`publisher.state == .publishing`), not when Go Live
+is pressed, and a reconnect does not restart it. The rate is what left the Mac
+in the last second, from the publisher's byte counter, never the configured
+target. Before the server accepts, it reads "connecting".
+
+**Why.** The header used to say "going out" and nothing else, while OBS's
+status bar tells a host exactly these three things. How long they have been
+live is the first thing a host needs mid-show (to pace an intermission, to
+know when the film started for latecomers), and it was nowhere on screen; the
+only live status sat half-way down the Output column. The ACTUAL rate matters
+because the encoder delivers ~70-75% of what it is asked (WATCH-TOGETHER §9),
+so a configured "6 Mbps" is a number the audience never receives.
+
+**How to apply.** Nothing is added here that is not true right now; a
+dropped-frame count of zero is not shown, because a zero is not information.

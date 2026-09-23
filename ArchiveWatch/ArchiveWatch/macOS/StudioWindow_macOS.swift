@@ -787,11 +787,54 @@ struct StudioWindowView: View {
             // would tell a host they were broadcasting when they were not.
             Circle().fill(studio.isOnAir ? Color.red : Color.secondary)
                 .frame(width: 7, height: 7)
-            Text(studio.isOnAir ? "going out"
-                 : (studio.isRehearsing ? "nothing is being sent" : "idle"))
-                .font(.caption2.weight(.semibold))
-                .foregroundStyle(studio.isOnAir ? .primary : .secondary)
+            if studio.isOnAir, let since = studio.onAirSince {
+                onAirClock(since: since)
+            } else {
+                Text(studio.isOnAir ? "connecting"
+                     : (studio.isRehearsing ? "nothing is being sent" : "idle"))
+                    .font(.caption2.weight(.semibold))
+                    .foregroundStyle(.secondary)
+            }
         }
+    }
+
+    /// §D28 — what OBS's status bar tells a host, in the one header they are
+    /// always looking at: how long the audience has been able to see this,
+    /// and what is actually leaving the Mac. Dropped frames appear only when
+    /// there are some; a zero is not information.
+    private func onAirClock(since: Date) -> some View {
+        let dropped = studio.health.publisher.videoFramesDropped
+        return HStack(spacing: 8) {
+            TimelineView(.periodic(from: since, by: 1)) { ctx in
+                Text("LIVE  " + Self.elapsed(from: since, to: ctx.date))
+                    .font(.caption.weight(.bold))
+                    .monospacedDigit()
+            }
+            Text(Self.megabits(studio.sendingBitsPerSecond))
+                .font(.caption2).monospacedDigit()
+                .foregroundStyle(.secondary)
+            if dropped > 0 {
+                Text("\(dropped.formatted()) dropped")
+                    .font(.caption2.weight(.semibold)).monospacedDigit()
+                    .foregroundStyle(.orange)
+            }
+            if studio.health.publisher.isReconnecting {
+                Text("reconnecting")
+                    .font(.caption2.weight(.semibold))
+                    .foregroundStyle(.orange)
+            }
+        }
+    }
+
+    static func elapsed(from: Date, to: Date) -> String {
+        let s = max(0, Int(to.timeIntervalSince(from)))
+        return s >= 3600
+            ? String(format: "%d:%02d:%02d", s / 3600, s / 60 % 60, s % 60)
+            : String(format: "%d:%02d", s / 60, s % 60)
+    }
+
+    static func megabits(_ bps: Int) -> String {
+        String(format: "%.1f Mbps", Double(bps) / 1_000_000)
     }
 
     // MARK: Columns

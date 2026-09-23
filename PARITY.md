@@ -679,6 +679,13 @@ that is wrong about the rest** — and neither is visible to a harness that
 builds a fresh renderer per call, which §8.48 did until it was made to reuse
 one.
 
+##### The STREAM header is the host's status bar — 2026-09-23 (macOS-DESIGN §D28)
+
+macOS ✅ "● LIVE 1:11 · 2.4 Mbps" (+ dropped / reconnecting when true), verified
+on a bench broadcast. The values (`onAirSince`, `sendingBitsPerSecond`) live
+on the shared `StudioSession`, which only macOS drives (Decision 133) — iOS
+and tvOS have their own readouts and do not show elapsed time. ⏳
+
 ##### The host knows how many people are watching — 2026-09-23 (macOS-DESIGN §D27)
 
 | Platform | State |

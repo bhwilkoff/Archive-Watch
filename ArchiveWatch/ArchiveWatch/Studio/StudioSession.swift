@@ -100,6 +100,15 @@ public final class StudioSession {
     /// platform's go-live and end already make (Decision 133: a shared PATH,
     /// not a shared type — iOS and tvOS run their own engine loops).
     public private(set) var audienceCount: Int?
+
+    /// When the platform's server accepted the stream (§D28). Nil until then
+    /// and after the show ends.
+    public private(set) var onAirSince: Date?
+    /// What actually left the Mac in the last second, from the publisher's
+    /// byte counter — not the configured target, which the encoder delivers
+    /// only ~70-75% of and §6.5 can lower.
+    public private(set) var sendingBitsPerSecond = 0
+    private var lastBytesSent = 0
     private var audienceTask: Task<Void, Never>?
     /// YouTube charges 1 unit a read; 30 s is 240 units for a two-hour film
     /// against 10,000 a day, and a count is not a thing that needs seconds.
@@ -1077,6 +1086,9 @@ public final class StudioSession {
         if let engine { await engine.stop() }
         engine = nil
         isLive = false
+        onAirSince = nil
+        sendingBitsPerSecond = 0
+        lastBytesSent = 0
         filmFramesPerSecond = 0
         cameraFramesPerSecond = 0
         health = StudioHealth()
@@ -1178,6 +1190,16 @@ public final class StudioSession {
                 }
                 lastCameraFrames = h.cameraFramesReceived
                 lastFilmFrames = h.filmFramesPulled
+                // THE ON-AIR CLOCK starts when the server accepts the stream,
+                // not when the host pressed Go Live — the minutes a host
+                // counts are the ones the audience could see. A reconnect
+                // does not restart it; the show did not start over.
+                if onAirSince == nil, h.hasDestination, h.publisher.state == .publishing {
+                    onAirSince = Date()
+                }
+                let sent = h.publisher.bytesSent
+                sendingBitsPerSecond = sent >= lastBytesSent ? (sent - lastBytesSent) * 8 : 0
+                lastBytesSent = sent
                 self.health = h
 
                 // IS THE FILM'S AUDIO ACTUALLY GOING OUT? Asked every tick,
