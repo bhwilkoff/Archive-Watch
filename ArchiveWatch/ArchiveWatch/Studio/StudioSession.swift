@@ -642,11 +642,27 @@ public final class StudioSession {
                (player.currentItem?.asset as? AVURLAsset)?.url.lastPathComponent ?? "?")
         await e.setLayout(armedLayout)
         await e.setCameraFraming(armedFraming)
+        // A FRESH OVERLAY, but not a forgetful one: the card a scene put up
+        // before the engine existed, and the lower-third lines the host
+        // turned off, both used to vanish here (measured: a Studio opened on
+        // Intermission broadcast the film with no card).
+        let card = overlay.card
         overlay = StudioOverlay()
-        overlay.title = armedTitle
-        overlay.subtitle = armedSubtitle
-        overlay.provenance = armedProvenance ?? ""
+        overlay.title = lowerThirdLines.title ? armedTitle : ""
+        overlay.subtitle = lowerThirdLines.meta ? armedSubtitle : ""
+        overlay.provenance = lowerThirdLines.provenance ? (armedProvenance ?? "") : ""
+        overlay.card = card
         await e.setOverlay(overlay)
+        await e.setAudio(filmGain: mix.filmGain, micGain: mix.micGain,
+                         filmMuted: mix.filmMuted, micMuted: mix.micMuted,
+                         duckEnabled: mix.duckEnabled,
+                         callGain: mix.callGain, callMuted: mix.callMuted,
+                         micGateEnabled: mix.micGateEnabled,
+                         micGateThreshold: mix.micGateThreshold)
+        awdiag("AWARMED re-applied card=%@ micMuted=%@ filmGain=%@",
+               card == nil ? "none" : "yes",
+               mix.micMuted.map { $0 ? "yes" : "no" } ?? "default",
+               mix.filmGain.map { String(format: "%.2f", $0) } ?? "default")
 
         await attachCameraIfAvailable(to: e)
 
@@ -1399,6 +1415,15 @@ public final class StudioSession {
     /// changed without the panel having to rebuild the title and provenance
     /// it never owned.
     private var overlay = StudioOverlay()
+    /// Everything the host set that a NEW engine must be given (§D23a):
+    /// the mix, and which lower-third lines are on. The card rides `overlay`.
+    private struct Mix {
+        var filmGain: Float?, micGain: Float?, callGain: Float?
+        var filmMuted: Bool?, micMuted: Bool?, callMuted: Bool?
+        var duckEnabled: Bool?, micGateEnabled: Bool?, micGateThreshold: Float?
+    }
+    private var mix = Mix()
+    private var lowerThirdLines = (title: true, meta: true, provenance: true)
 
     /// WHICH LINES THE LOWER THIRD CARRIES (§D15).
     ///
@@ -1418,6 +1443,7 @@ public final class StudioSession {
     /// override in both directions: off means never drawn, on means drawn
     /// until the rule takes it away.
     public func setLowerThird(title: Bool, meta: Bool, provenance: Bool) async {
+        lowerThirdLines = (title, meta, provenance)
         overlay.title = title ? armedTitle : ""
         overlay.subtitle = meta ? armedSubtitle : ""
         overlay.provenance = provenance ? (armedProvenance ?? "") : ""
@@ -1430,6 +1456,7 @@ public final class StudioSession {
     }
 
     public func setLayout(_ layout: StudioLayout) async { await engine?.setLayout(layout) }
+    public func beginTransition(seconds: Double) async { await engine?.beginTransition(seconds: seconds) }
     /// §D4: the bitrate is the only output setting a live show accepts.
     public func setVideoBitrate(_ bps: Int) async { await engine?.setVideoBitrate(bps) }
     public func setOverlay(_ overlay: StudioOverlay) async { await engine?.setOverlay(overlay) }
@@ -1457,6 +1484,18 @@ public final class StudioSession {
                          callGain: Float? = nil, callMuted: Bool? = nil,
                          micGateEnabled: Bool? = nil,
                          micGateThreshold: Float? = nil) async {
+        // KEPT, not only forwarded (§D23a). `engine?` drops a value when no
+        // engine exists, and going live builds a SECOND one — so a host who
+        // muted their microphone during the preview went out unmuted.
+        if let v = filmGain { mix.filmGain = v }
+        if let v = micGain { mix.micGain = v }
+        if let v = filmMuted { mix.filmMuted = v }
+        if let v = micMuted { mix.micMuted = v }
+        if let v = duckEnabled { mix.duckEnabled = v }
+        if let v = callGain { mix.callGain = v }
+        if let v = callMuted { mix.callMuted = v }
+        if let v = micGateEnabled { mix.micGateEnabled = v }
+        if let v = micGateThreshold { mix.micGateThreshold = v }
         await engine?.setAudio(filmGain: filmGain, micGain: micGain,
                                filmMuted: filmMuted, micMuted: micMuted,
                                duckEnabled: duckEnabled,

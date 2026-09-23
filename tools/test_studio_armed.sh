@@ -74,5 +74,19 @@ else
   fail=1
 fi
 
+# AND THE VALUES THAT ARE NOT NAMED "armed". The mix, the card and the
+# lower-third lines were kept nowhere and forwarded to `engine?` — so going
+# live (a second engine) broadcast a microphone the host had muted in the
+# preview, and a Studio opened on Intermission broadcast no card (measured on
+# the wire, 2026-09-23). The attach must hand all three to the new engine.
+for want in 'e.setAudio(filmGain: mix.filmGain' 'overlay.card = card' 'lowerThirdLines.title'; do
+  if echo "$applied" | grep -qF "$want"; then
+    echo "  ok   the attach re-applies $want"
+  else
+    echo "  FAIL the attach does not re-apply $want — a new engine forgets it"
+    fail=1
+  fi
+done
+
 [ $fail -eq 0 ] && echo "RESULT: PASS" || echo "RESULT: FAIL"
 exit $fail

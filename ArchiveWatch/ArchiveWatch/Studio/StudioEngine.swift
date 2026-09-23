@@ -945,6 +945,8 @@ public actor StudioEngine {
     }
     /// §D14 — how the host sits in whichever arrangement is chosen.
     public func setCameraFraming(_ f: StudioCameraFraming) { renderer.framing = f }
+    /// §D31 — dissolve from the frame on air now to whatever comes next.
+    public func beginTransition(seconds: Double) { renderer.beginTransition(seconds: seconds) }
     public func setGuestFraming(_ f: StudioCameraFraming) { renderer.guestFraming = f }
     public var guestFraming: StudioCameraFraming { renderer.guestFraming }
     public var cameraFraming: StudioCameraFraming { renderer.framing }
@@ -2066,6 +2068,78 @@ final class ProgramRenderer: @unchecked Sendable {
     /// opposite.
     private(set) var poolFailures = 0
 
+    // §D31 — THE CROSSFADE. The last program frame is COPIED when a switch
+    // starts: the film and camera buffers are recycled by their pools, so a
+    // lazy CIImage of the old composite would show the new frame, not the
+    // old one, and the "fade" would be a cut.
+    private var lastOut: CVPixelBuffer?
+    private var transitionFrom: CIImage?
+    private var transitionBuffer: CVPixelBuffer?
+    private var transitionStart: CFTimeInterval = 0
+    private var transitionSeconds: CFTimeInterval = 0.4
+    /// THE CLOCK WAITS FOR THE CHANGE. A scene's settings reach this
+    /// renderer over several actor hops, ~160 ms after the snapshot — so a
+    /// clock started at the snapshot was 40% through before the new picture
+    /// existed, measured as a one-frame YAVG step 27.6 -> 50.5 ahead of the
+    /// ramp. The old frame is HELD until what this renderer draws changes,
+    /// then dissolves; `holdLimit` keeps a switch between look-alike scenes
+    /// from freezing.
+    private var transitionArmedAt: CFTimeInterval = 0
+    private var transitionSignature = ""
+    private var transitionClockRunning = false
+    private let holdLimit: CFTimeInterval = 0.25
+
+    private var renderSignature: String {
+        "\(layout)|\(String(describing: overlay.card))|\(overlay.title)|\(overlay.subtitle)|"
+        + "\(overlay.showChat)|\(chatSide)|\(framing)|\(guestFraming)"
+    }
+
+    func beginTransition(seconds: Double) {
+        guard seconds > 0, let last = lastOut, let copy = newBuffer() else {
+            awdiag("AWFADE skipped (lastOut=%@)", lastOut == nil ? "nil" : "present")
+            return
+        }
+        awdiag("AWFADE begin %.2fs", seconds)
+        ciContext.render(CIImage(cvPixelBuffer: last), to: copy)
+        transitionBuffer = copy
+        transitionFrom = CIImage(cvPixelBuffer: copy)
+        transitionArmedAt = CACurrentMediaTimeCompat()
+        transitionSignature = renderSignature
+        transitionClockRunning = false
+        transitionSeconds = seconds
+    }
+
+    /// Every program frame leaves through here, so the dissolve applies to
+    /// cards and layouts alike.
+    private func finish(_ composed: CIImage, into out: CVPixelBuffer) -> CVPixelBuffer {
+        var image = composed
+        if let from = transitionFrom, !transitionClockRunning {
+            let now = CACurrentMediaTimeCompat()
+            if renderSignature != transitionSignature || now - transitionArmedAt > holdLimit {
+                transitionClockRunning = true
+                transitionStart = now
+            } else {
+                ciContext.render(from, to: out)
+                return out
+            }
+        }
+        if let from = transitionFrom {
+            let t = (CACurrentMediaTimeCompat() - transitionStart) / transitionSeconds
+            if t < 1 {
+                image = from.applyingFilter("CIDissolveTransition", parameters: [
+                    kCIInputTargetImageKey: composed,
+                    kCIInputTimeKey: max(0, t),
+                ]).cropped(to: CGRect(origin: .zero, size: size))
+            } else {
+                transitionFrom = nil
+                transitionBuffer = nil
+            }
+        }
+        ciContext.render(image, to: out)
+        lastOut = out
+        return out
+    }
+
     func newBuffer() -> CVPixelBuffer? {
         guard let pool else { poolFailures += 1; return nil }
         var px: CVPixelBuffer?
@@ -2092,8 +2166,7 @@ final class ProgramRenderer: @unchecked Sendable {
             if let card = overlayRenderer.image(for: overlay) {
                 image = card.composited(over: image)
             }
-            ciContext.render(image, to: out)
-            return out
+            return finish(image, into: out)
         }
 
         let cameraAspect: CGFloat = {
@@ -2174,8 +2247,7 @@ final class ProgramRenderer: @unchecked Sendable {
         // The lower third sits ON TOP of both, and is a cached bitmap — the
         // text is laid out only when its content changes, never per frame.
         if let l3 { image = l3.composited(over: image) }
-        ciContext.render(image, to: out)
-        return out
+        return finish(image, into: out)
     }
 
     /// Aspect-FIT: never reshape the film (Decision 097's rule, carried into

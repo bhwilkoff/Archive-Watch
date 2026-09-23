@@ -55,6 +55,8 @@ final class StudioScenes {
     /// The show-wide tiles and audio every inheriting scene shares.
     private var showTiles: StudioSceneTiles
     private var showAudio: StudioSceneAudio
+    /// §D31: a short dissolve between scenes, or a cut.
+    var crossfade = true { didSet { save() } }
 
     private static let key = "StudioScenes.v1"
 
@@ -63,6 +65,9 @@ final class StudioScenes {
         var selectedID: UUID
         var showTiles: StudioSceneTiles
         var showAudio: StudioSceneAudio
+        // OPTIONAL, or every scene set saved before this field existed would
+        // fail to decode and be replaced by the starters.
+        var crossfade: Bool?
     }
 
     static let starters: [StudioScene] = [
@@ -80,6 +85,7 @@ final class StudioScenes {
             selectedID = s.scenes.contains { $0.id == s.selectedID } ? s.selectedID : s.scenes[0].id
             showTiles = s.showTiles
             showAudio = s.showAudio
+            crossfade = s.crossfade ?? true
         } else {
             scenes = Self.starters
             selectedID = Self.starters[1].id      // "Film": what a Studio opened on a film shows
@@ -97,8 +103,25 @@ final class StudioScenes {
         guard id != selectedID, scenes.contains(where: { $0.id == id }) else { return }
         capture()
         selectedID = id
-        apply()
         save()
+        // THE SNAPSHOT MUST PRECEDE THE CHANGE. The first build fired the
+        // transition in a Task and applied at once, so a frame of the NEW
+        // scene rendered before the snapshot was taken and the dissolve ran
+        // new-to-new — measured as a one-frame YAVG step 36.5 -> 60.2 on the
+        // wire. So with an engine running, apply waits for the snapshot.
+        if crossfade, StudioSession.shared.isLive {
+            Task { @MainActor in
+                await StudioSession.shared.beginTransition(seconds: 0.4)
+                self.apply()
+                self.logSwitch()
+            }
+        } else {
+            apply()
+            logSwitch()
+        }
+    }
+
+    private func logSwitch() {
         awdiag("AWSCENE now %@ layout=%@ card=%@", selected.name,
                selected.layout.rawValue, selected.card.rawValue)
         // A switch is a chapter on the replay (§D30), named for the scene.
@@ -293,7 +316,8 @@ final class StudioScenes {
     }
 
     func save() {
-        let s = Saved(scenes: scenes, selectedID: selectedID, showTiles: showTiles, showAudio: showAudio)
+        let s = Saved(scenes: scenes, selectedID: selectedID, showTiles: showTiles,
+                      showAudio: showAudio, crossfade: crossfade)
         if let data = try? JSONEncoder().encode(s) {
             UserDefaults.standard.set(data, forKey: Self.key)
         }
@@ -375,6 +399,7 @@ struct StudioSceneBar: View {
                                                           set: { store.setUseShowTiles($0) }))
             Toggle("Use the show's audio", isOn: Binding(get: { s.useShowAudio },
                                                           set: { store.setUseShowAudio($0) }))
+            Toggle("Crossfade between scenes", isOn: $store.crossfade)
             Divider()
             Button("Rename “\(s.name)”…") { draft = s.name; renaming = s.id }
             Button("Delete “\(s.name)”", role: .destructive) { store.delete(s.id) }
