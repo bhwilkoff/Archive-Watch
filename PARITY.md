@@ -691,7 +691,7 @@ we are building for."* Run on the product path, read back from YouTube:
 | YouTube chat read on iOS (fixed v1.42.517 — only macOS read it before) | ✅ `[AWSTUDIOCHAT] reading YouTube live chat` |
 | Share the film in chat (§D32) | ✅ posted, and on YouTube's own page under `@bhwilkoff`: "Now watching: The Man Who Laughs — 1928 · Paul Leni. Public domain, free to watch: https://archive.org/details/…" — the API; the macOS BUTTON is still unpressed on a real broadcast |
 | End completes the broadcast (§8.49, iOS had never completed one) | ✅ `YouTube broadcast GYAQsLMDwho marked complete`; YouTube's page reads "Streamed live 3 minutes ago" |
-| "N watching" (§D27) | ❌ **FAILED**: YouTube showed "1 watching now" for over a minute and the app logged no count. Every read now reports its result in DEBUG (v1.42.518); cause unknown until the next run |
+| "N watching" (§D27) | ❌ **FAILED**: YouTube showed "1 watching now" for over a minute and the app logged no count. Every read now reports its result in DEBUG (v1.42.518). **The read itself is proved** against a live public stream from the same phone (Lofi Girl `nI725iVsyoQ`: `concurrentViewers` present, parsed as 791), so the failure is timing (YouTube's API count lagging its page) or the poller during our show — the next run's per-read log says which |
 
 ##### Share the film in chat — 2026-09-23 (macOS-DESIGN §D32)
 
