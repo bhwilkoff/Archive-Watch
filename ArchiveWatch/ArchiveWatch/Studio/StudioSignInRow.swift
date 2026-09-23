@@ -177,6 +177,18 @@ struct StudioSignInRow: View {
                     }
                 }
                 .disabled(working)
+                // REQUIRED, not explanatory: YouTube's API Services policy
+                // asks every client to put its Terms of Service in front of a
+                // user before they connect (launch audit A5).
+                if platform == .youtube {
+                    #if os(tvOS)
+                    Text("By signing in you agree to the YouTube Terms of Service (youtube.com/t/terms).")
+                        .font(.footnote).foregroundStyle(.secondary)
+                    #else
+                    Text("By signing in you agree to the [YouTube Terms of Service](https://www.youtube.com/t/terms).")
+                        .font(.footnote).foregroundStyle(.secondary)
+                    #endif
+                }
             }
 
             if let blockedNote {

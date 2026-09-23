@@ -63,9 +63,11 @@ authorized on the user's account indefinitely.
 >
 > - reading the signed-in channel, so the host can see which channel they are
 >   about to broadcast to, and checking that live streaming is enabled on it
+>   (one `liveBroadcasts.list` of the channel's broadcast ids, used only to
+>   learn whether the request succeeds and then discarded)
 > - creating a live stream and a live broadcast with the title and privacy
 >   setting the host chose
-> - binding them and transitioning the broadcast to live
+> - binding them, so YouTube starts the broadcast itself when the video arrives (the broadcast is created with enableAutoStart)
 > - setting that broadcast's thumbnail to a still of the show itself
 > - reading how many people are watching that broadcast, shown to the host
 > - reading that broadcast's live chat, so the audience's messages can be

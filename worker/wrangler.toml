@@ -7,3 +7,8 @@ compatibility_date = "2026-01-01"
 binding = "DB"
 database_name = "archivewatch-pulse"
 database_id = "14d3c2d8-53db-4172-a18a-1215f548abbf"
+
+# The hourly room sweep (together.js sweepRooms): a room idle six hours is
+# deleted with its presence rows, which is what privacy.html promises.
+[triggers]
+crons = ["17 * * * *"]

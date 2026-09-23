@@ -19,28 +19,31 @@
 
   <main class="legal-main">
     <h2>Privacy Policy</h2>
-    <p class="updated">Last updated: September 22, 2026</p>
+    <p class="updated">Last updated: September 23, 2026</p>
 
     <p>
-      Archive Watch is a free Apple TV app for browsing and watching
-      public-domain films and television from the Internet Archive. It is
-      built to respect your privacy completely: there is no advertising, no
-      tracking, and nothing about you is ever sold or shared. The apps
-      collect nothing at all. The website keeps one aggregate counter,
-      described below, that stores nothing about you.
+      Archive Watch is a free app for Apple TV, iPhone, iPad, Mac, Android,
+      Fire TV, Roku and the web for browsing and watching public-domain films
+      and television from the Internet Archive. It is built to respect your
+      privacy completely: there is no advertising, no tracking, and nothing
+      about you is ever sold or shared. The apps have no analytics. Two small
+      server features exist, both described below: the website&rsquo;s
+      aggregate counter, and Watch Together rooms. Neither stores anything
+      about who you are.
     </p>
 
     <h3>What we collect</h3>
     <p>
-      <strong>The apps collect nothing at all.</strong> Archive Watch&rsquo;s
-      Apple TV, iPhone, iPad, Mac, Android, Fire TV and Roku apps have no
-      analytics of any kind. We never receive, see, or store any information
-      about you or how you use them.
+      <strong>The apps have no analytics of any kind.</strong> Archive
+      Watch&rsquo;s Apple TV, iPhone, iPad, Mac, Android, Fire TV and Roku apps
+      never send us information about you or how you use them. The only thing
+      an app ever sends our server is a Watch Together room&rsquo;s playback
+      position, and only if you open or join a room (see below).
     </p>
     <p>
       <strong>The website keeps one counter</strong>, described immediately
-      below. It is the only thing we run, and it is written so that it cannot
-      hold anything about a person even if we wanted it to.
+      below. It is written so that it cannot hold anything about a person even
+      if we wanted it to.
     </p>
 
     <h3>The website counter</h3>
@@ -69,16 +72,17 @@
       the counter is contacted at all.
     </p>
     <p>
-      The counter runs on Cloudflare Workers. It is the only server-side thing
-      this project operates; there is no other backend, no advertising, no
-      third&#8209;party analytics service, and nothing is ever sold or shared.
+      The counter runs on Cloudflare Workers, alongside Watch Together rooms;
+      those two are the only server-side things this project operates. There
+      is no advertising, no third&#8209;party analytics service, and nothing
+      is ever sold or shared.
       The counts exist so we know which films people are finding useful.
     </p>
 
     <h3>Information stored on your device</h3>
     <p>
-      To make the app useful, some information is stored locally on your Apple
-      TV and never leaves it except as described under iCloud sync below:
+      To make the app useful, some information is stored locally on your device
+      and never leaves it except as described under sync below:
     </p>
     <ul>
       <li>Your Continue Watching progress (where you stopped in a title).</li>
@@ -122,11 +126,14 @@
     <ul>
       <li><strong>Read your channel</strong> to show you which channel you are
         about to broadcast to, and to check that live streaming is enabled on
-        it before you press Go Live.</li>
+        it before you press Go Live. That check asks YouTube for a list of your
+        broadcasts&rsquo; ids; only whether the request succeeds is used, and
+        the list is discarded.</li>
       <li><strong>Create a live stream and a live broadcast</strong> with the
         title and privacy setting you chose in the app.</li>
-      <li><strong>Bind them together and start the broadcast</strong>, which is
-        what puts you on air.</li>
+      <li><strong>Bind them together</strong>, so that YouTube starts the
+        broadcast by itself when the video arrives. That is what puts you on
+        air.</li>
       <li><strong>Set the broadcast&rsquo;s thumbnail</strong> to a still of the
         show itself, a few seconds after it starts.</li>
       <li><strong>Read how many people are watching</strong> that broadcast,
@@ -147,8 +154,8 @@
       create and start a live broadcast. <code>youtube.readonly</code> cannot
       write, and <code>youtube.upload</code> covers uploaded videos rather than
       live events, so it cannot start one either. Everything above acts only on
-      the broadcast Archive Watch created for that show. It never reads your
-      other videos, never uploads a video, never edits or deletes anything else
+      the broadcast Archive Watch created for that show, apart from the
+      discarded list of ids above. It never reads your other videos, never uploads a video, never edits or deletes anything else
       on your channel, never touches your subscriptions, playlists or comments,
       and never acts on any channel other than the one you choose at sign-in.
     </p>
@@ -168,14 +175,16 @@
         are encrypted at rest, unavailable until the device has been unlocked
         after a restart, <strong>never synchronized to iCloud</strong> and
         never copied to another device.</li>
-      <li><strong>We operate no server that could receive it.</strong> Archive
-        Watch has no backend. The only server-side thing this project runs is
-        the anonymous counter described above, which has no authentication and
-        no user data. Your token is sent to <code>googleapis.com</code> and to
-        nowhere else, over HTTPS.</li>
+      <li><strong>No server of ours ever receives it.</strong> The only
+        server-side things this project runs are the anonymous counter and
+        Watch Together rooms described on this page; neither receives or
+        stores any token or account. Your token is sent to
+        <code>googleapis.com</code> and to nowhere else, over HTTPS.</li>
       <li><strong>Your stream key is never stored and never displayed.</strong>
-        It is fetched from YouTube at the moment you go live, held in memory
-        for that session only, and discarded when the show ends. It is never
+        It is fetched from YouTube at the moment you go live &mdash; or, if you
+        choose to paste your own stream key instead of signing in, taken from
+        what you pasted &mdash; held in memory for that session only, and
+        discarded when the app quits. It is never
         written to disk, never shown on screen, and never written to a log — a
         test in our build checks every error path for it before each
         release.</li>
@@ -191,13 +200,26 @@
 
     <h3>Watch Together Studio: keeping it only as long as you want it</h3>
     <p>
-      <strong>Sign out</strong> in Watch Together Studio deletes the token from
-      your Keychain immediately; nothing of it remains. You can also revoke
-      Archive Watch&rsquo;s access at any time from your own Google account at
-      <a href="https://myaccount.google.com/permissions" rel="noopener">myaccount.google.com/permissions</a>,
-      which takes effect whether or not the app is installed. Because we hold
-      no copy on any server, there is nothing else to delete and no request to
-      make of us. Deleting the app removes the token with it.
+      <strong>Sign out</strong> in Watch Together Studio revokes Archive
+      Watch&rsquo;s access at Google and deletes the token from your device
+      immediately; nothing of it remains. You can also revoke access at any
+      time from your Google account&rsquo;s security settings at
+      <a href="https://security.google.com/settings/security/permissions" rel="noopener">security.google.com/settings/security/permissions</a>.
+      If you broadcast as a YouTube <em>Brand Account</em>, Google does not
+      list that account&rsquo;s access there, so use Sign out in the app.
+      Because we hold no copy on any server, there is nothing else to delete
+      and no request to make of us. On iPhone, iPad and Mac the Keychain can
+      keep an item after an app is deleted, so sign out before deleting the
+      app if you want the access gone at once.
+    </p>
+
+    <h3>Watch Together Studio: YouTube API Services</h3>
+    <p>
+      Watch Together Studio uses <strong>YouTube API Services</strong>. By
+      connecting a YouTube account you agree to be bound by the
+      <a href="https://www.youtube.com/t/terms" rel="noopener">YouTube Terms of Service</a>,
+      and Google&rsquo;s handling of your information is governed by the
+      <a href="https://policies.google.com/privacy" rel="noopener">Google Privacy Policy</a>.
     </p>
 
     <h3>Watch Together Studio: Limited Use of Google user data</h3>
@@ -224,18 +246,22 @@
       who enter the room&rsquo;s code can watch in step. While a friend is in a room,
       their device sends a random token every 30 seconds that is made fresh each
       time they join and tied to nothing else; the host sees only how many such
-      tokens arrived in the last minute. No account, name or IP address is stored,
-      and the room and its tokens are deleted when the host ends it (or after six
-      hours without activity).
+      tokens arrived in the last minute. No account, name or IP address is stored.
+      The room and its tokens are deleted when the host ends it, and a room
+      nobody ends is deleted within an hour of reaching six hours without
+      activity.
     </p>
 
     <h3>Watch Together Studio: Twitch</h3>
     <p>
       Connecting Twitch works the same way and is protected the same way: an
-      OAuth device-code sign-in you complete on twitch.tv, a token held only in
-      your device&rsquo;s Keychain under the same protection class, used only to
-      fetch your own channel&rsquo;s stream key and ingest server so the app can
-      publish to it. You can revoke it at
+      OAuth device-code sign-in you complete on twitch.tv, and a token held only
+      on your device (the Keychain on Apple devices; Keystore-encrypted storage
+      on Android). It is used only on your own channel: to fetch your stream key
+      and ingest server so the app can publish, to set the stream&rsquo;s title
+      and category to the ones you chose, to place a stream marker when you
+      change scene or card, and to read how many people are watching. Chat is
+      read from Twitch&rsquo;s public chat without your token. You can revoke it at
       <a href="https://www.twitch.tv/settings/connections" rel="noopener">twitch.tv/settings/connections</a>.
     </p>
 

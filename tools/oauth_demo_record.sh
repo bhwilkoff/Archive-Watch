@@ -120,7 +120,7 @@ cat <<'TXT'
         8. Press "Go Live". The STREAM header turns to "● LIVE 0:04 · N Mbps"
            and the OUTPUT column becomes "Live on YouTube, as <channel>" with
            the audience link. This is liveStreams.insert +
-           liveBroadcasts.insert + bind + transition — the write half.
+           liveBroadcasts.insert + bind (YouTube auto-starts it) — the write half.
         9. Show the program: the film, your camera tile, the lower third.
            About ten seconds in the app sets the broadcast's THUMBNAIL to a
            still of this picture (thumbnails.set) — beat 11 shows it arrived.

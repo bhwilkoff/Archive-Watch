@@ -89,6 +89,21 @@ function newCode() {
 const STALE_MS = 6 * 60 * 60 * 1000;   // six hours — longer than any film
 const PRESENT_MS = 60 * 1000;           // two missed 30 s pings and a device is gone
 
+/**
+ * THE HOURLY SWEEP. A stale room used to be deleted only when somebody asked
+ * for that exact code again, so a room nobody revisited stayed in D1 forever
+ * with its presence rows — and privacy.html said it was deleted after six
+ * hours (audit A14, 2026-09-23). Now it is.
+ */
+export async function sweepRooms(env, now = Date.now()) {
+  const stale = now - STALE_MS;
+  await env.DB.prepare(
+    "DELETE FROM room_presence WHERE seen_ms < ?1 OR code IN (SELECT code FROM rooms WHERE touched_ms < ?2) OR code NOT IN (SELECT code FROM rooms)"
+  ).bind(now - PRESENT_MS, stale).run();
+  const r = await env.DB.prepare("DELETE FROM rooms WHERE touched_ms < ?1").bind(stale).run();
+  return r.meta?.changes ?? 0;
+}
+
 function json(body, status = 200) {
   return new Response(JSON.stringify(body), {
     status,

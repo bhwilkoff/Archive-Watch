@@ -24,7 +24,7 @@
  * individual people watched, which is the thing we said we would not keep.
  */
 
-import { handleTogether } from "./together.js";
+import { handleTogether, sweepRooms } from "./together.js";
 
 const ALLOW = "https://archivewatch.org";
 
@@ -91,6 +91,10 @@ const cors = {
 };
 
 export default {
+  async scheduled(event, env, ctx) {
+    ctx.waitUntil(sweepRooms(env));
+  },
+
   async fetch(request, env) {
     const url = new URL(request.url);
 
