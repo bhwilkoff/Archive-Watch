@@ -47,6 +47,11 @@ ships where) · per-platform binding design docs `docs/tvOS-DESIGN.md`,
 emulators) · `docs/CAPTIONS.md` · `docs/SHAREPLAY.md` ·
 `docs/PLAYLIST-SHARING.md` · `docs/CATALOG-CONTRACT.md`.
 
+**RESUMING THE STUDIO LOOP**: `docs/STUDIO-LOOP-RESUME.md` (2026-09-23) — the
+prompt verbatim, the bench-harness recipe that produces a real broadcast, the
+six open threads in order, and the traps that cost time this session. Written
+because the loop was stopped mid-stride for a Claude update.
+
 ### Open owner items (nothing else is blocked)
 
 0-NEWEST. **TWO CATALOGUE ENTRIES FOR ONE BUSTER KEATON SHORT, AND THE CAUSE
