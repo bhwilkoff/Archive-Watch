@@ -38,6 +38,7 @@ struct StudioPlayerContainer: View {
     @State private var filmMuted = false
     /// §D26 — mirrored from the engine once a second.
     @State private var shoutOut: StudioOverlay.ShoutOut?
+    @State private var showDoorTicks = 0
     @State private var micMuted = false
     @State private var card: StudioOverlay.Card?
     @State private var showLowerThird = true
@@ -118,11 +119,7 @@ struct StudioPlayerContainer: View {
             audio: health.audio, health: health, filmFramesPerSecond: filmFPS,
             cameraFramesPerSecond: cameraFPS,
             shoutOut: shoutOut,
-            onShow: { line in
-                guard !StudioOverlay.ShoutOut.tooLong(line.text) else { return }
-                shoutOut = StudioOverlay.ShoutOut(author: line.author, text: line.text)
-                Task { await engine?.showShoutOut(author: line.author, text: line.text) }
-            },
+            onShow: { line in showShoutOut(line) },
             onTakeDown: {
                 shoutOut = nil
                 Task { await engine?.clearShoutOut() }
@@ -144,6 +141,17 @@ struct StudioPlayerContainer: View {
     // MARK: Lifecycle
 
     private func attach(player: AVPlayer) async {
+        #if DEBUG
+        // A door launch makes no sound in the room the phone sits in (the
+        // macOS rule, v1.42.507). On iOS this silences the BROADCAST's film
+        // audio too — the tap is inside the player — so measure audio with
+        // AW_STUDIO_IOS_SOUND=1.
+        let env = ProcessInfo.processInfo.environment
+        if env["AW_STUDIO_IOS"] != nil, env["AW_STUDIO_IOS_SOUND"] != "1" {
+            player.isMuted = true
+            awdiag("AWMUTE iOS door player muted (AW_STUDIO_IOS_SOUND=1 to hear it)")
+        }
+        #endif
         // Re-entrant by design: a Decision-077 copy fallback rebuilds the
         // player, and the engine must follow it to the new item.
         let e = engine ?? StudioEngine(configuration: .benchDoored())
@@ -155,6 +163,13 @@ struct StudioPlayerContainer: View {
         // and REPORTS rather than REQUESTS — the go-live sheet does the
         // asking, which is the only place a viewer has chosen to broadcast.
         hostCapture = await StudioSession.attachHostCamera(to: e)
+        #if DEBUG
+        // The INVENTED conversation (never a real channel), so §D26's phone
+        // surface can be exercised on a bench broadcast.
+        if ProcessInfo.processInfo.environment["AW_STUDIO_CHAT_DEMO"] == "1" {
+            await e.setDemoChat(StudioSession.demoConversation)
+        }
+        #endif
         // EVERY control, not only layout and overlay: the audio was left
         // out, so an engine built after the host touched the mixer started
         // at defaults — the macOS defect of 2026-09-23 (§D23a) on this path.
@@ -193,6 +208,12 @@ struct StudioPlayerContainer: View {
         StudioSession.shared.armYouTubeChat(d.liveChatID)
         StudioSession.shared.armBroadcast(d.broadcast)
         return d.url
+    }
+
+    private func showShoutOut(_ line: StudioOverlay.ChatLine) {
+        guard !StudioOverlay.ShoutOut.tooLong(line.text) else { return }
+        shoutOut = StudioOverlay.ShoutOut(author: line.author, text: line.text)
+        Task { await engine?.showShoutOut(author: line.author, text: line.text) }
     }
 
     private func pushOverlay() async {
@@ -239,6 +260,26 @@ struct StudioPlayerContainer: View {
             await e.expireShoutOutIfDue()
             shoutOut = await e.currentShoutOut
             health = h
+            #if DEBUG
+            // `AW_STUDIO_IOS_SHOW="2@25"`: 25 s into the show, open the
+            // controls sheet and press Show on chat line 2 (oldest first),
+            // through the same function the button calls.
+            if let v = ProcessInfo.processInfo.environment["AW_STUDIO_IOS_SHOW"],
+               h.showState.isOnAir {
+                showDoorTicks += 1
+                let parts = v.split(separator: "@")
+                if let n = Int(parts.first ?? ""), let at = parts.count > 1 ? Int(parts[1]) : 0,
+                   showDoorTicks == at {
+                    showControls = true
+                    if n >= 1, n <= h.chatRecent.count {
+                        awdiag("AWSHOUT door showing line %d (%@)", n, h.chatRecent[n - 1].author)
+                        showShoutOut(h.chatRecent[n - 1])
+                    } else {
+                        awdiag("AWSHOUT door: only %d chat lines", h.chatRecent.count)
+                    }
+                }
+            }
+            #endif
 
             // RECOVER A CAMERA THAT STOPPED — a phone's camera stops whenever
             // a call arrives, so this platform needs it at least as much as a

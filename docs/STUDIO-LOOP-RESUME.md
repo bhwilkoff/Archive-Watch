@@ -194,3 +194,23 @@ is pending** (a new scope means a new demo video and a new review).
 channel tags every go-live — rejected for that reason), a default Twitch
 category and YouTube `categoryId` (editorial). Rights: Twitch retired Watch
 Parties 2024-04-02; public domain is the only route there.
+
+## The iPhone §D26 run (2026-09-23, v1.42.514) — where it stopped
+
+Doors added to `StudioPlayerContainer_iOS`: `AW_STUDIO_CHAT_DEMO=1` (the
+invented conversation into the iOS engine), `AW_STUDIO_IOS_SHOW="N@T"` (T s on
+air: open the controls sheet and press Show on chat line N through
+`showShoutOut`), and the iOS door now MUTES its player (`AW_STUDIO_IOS_SOUND=1`
+to hear it). Test phone: iPhone 12 `B4E756E2-…` — NEVER the 15 Pro (owner's).
+
+**Proven**: the demo conversation reaches the iPhone's program (server frame
+shows all six lines). **Not yet seen**: the banner itself. Two instrument faults
+of mine, both to avoid next time:
+- `: > mtx.log` on a RUNNING mediamtx does not reset its write offset; later
+  lines land past the old end and a grep misses them. Restart the server with
+  a new log file instead.
+- A relaunch's publisher logged `rtmp://10.0.0.90:1935/%3Ckey%3E` — no `/live`
+  — while the first run of the day published to `live/bench`. Either a real
+  path difference between launches or the key redaction eating the app path;
+  unmeasured. Read `mediamtx`'s `paths/list` API (or `record: yes`) rather than
+  assuming the path.
