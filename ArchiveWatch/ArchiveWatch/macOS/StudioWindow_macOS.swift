@@ -457,7 +457,13 @@ struct StudioWindowView: View {
         }
         .frame(minWidth: 1120, minHeight: 660)
         .onAppear {
-            controls.layout = studio.armedLayout
+            // THE STUDIO OPENS IN THE SCENE IT WAS LEFT IN (§D31).
+            StudioScenes.shared.applySelected()
+            #if DEBUG
+            if ProcessInfo.processInfo.environment["AW_STUDIO_LAYOUT"] != nil {
+                controls.layout = studio.armedLayout
+            }
+            #endif
             show.choosing = show.film == nil
             refreshDevices()
         }
@@ -466,6 +472,9 @@ struct StudioWindowView: View {
         // could close the window their audience is watching through — kept as
         // a rule now that the window exists.
         .background(AWWindowCloseWatcher {
+            // What the host edited in the current scene is kept (§D31).
+            StudioScenes.shared.capture()
+            StudioScenes.shared.save()
             // AND STOP CAPTURING THE HOST'S SCREEN (§D23). `end()` cannot do
             // this itself, because going live ENDS the rehearsal and the
             // guests must survive that. Closing the Studio is the one moment
@@ -691,6 +700,8 @@ struct StudioWindowView: View {
             // pane's name and its state stay two separate questions — the
             // distinction that stopped `isLive` and `isOnAir` being confused.
             paneHeader("STREAM", trailing: previewBadge)
+            // §D31 — the scenes sit on the picture they change.
+            StudioSceneBar()
             ZStack {
                 Color.black
                 StudioProgramPreview()

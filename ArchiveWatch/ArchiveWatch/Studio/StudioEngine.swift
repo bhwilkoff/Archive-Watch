@@ -313,7 +313,7 @@ public struct StudioExtraDestination: Sendable, Equatable {
 /// It is deliberately NOT per-layout: a host who framed their face does not
 /// want it undone by trying "Side by side". The crop follows the person; the
 /// preset follows the show.
-public struct StudioCameraFraming: Sendable, Equatable {
+public struct StudioCameraFraming: Sendable, Equatable, Codable {
 
     /// THE TILE ITSELF, as a normalized rect in the program frame — origin
     /// BOTTOM-LEFT, matching Core Image and the layout rects this overrides.

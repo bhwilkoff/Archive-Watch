@@ -49,6 +49,9 @@ struct StudioBroadcastCommands: Commands {
                     CardCommand(choice: choice, index: index)
                 }
             }
+            Menu("Scenes") {
+                ForEach(0..<9, id: \.self) { SceneCommand(index: $0) }
+            }
             Menu("Placement") {
                 ForEach(StudioLayout.allCases, id: \.self) { layout in
                     PlacementCommand(layout: layout)

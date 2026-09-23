@@ -679,6 +679,15 @@ that is wrong about the rest** — and neither is visible to a harness that
 builds a fresh renderer per call, which §8.48 did until it was made to reuse
 one.
 
+##### Scenes — 2026-09-23 (macOS-DESIGN §D31)
+
+| Platform | State |
+|---|---|
+| macOS | ⏳ phase 1 (v1.42.508): the scene bar above STREAM, ⌘1-⌘9 under Broadcast ▸ Scenes, five editable starters, add / rename / delete, the two toggles in Scene settings, saved across launches, a Twitch chapter per switch. **Verified**: a switch to Intermission reached the wire (the server's frame is the card) and the selection survived a relaunch. **Not yet**: the crossfade (switching is a cut), the "shared" word beside inherited sections, and the own-tiles / own-audio toggles exercised on a run |
+| iOS | ⏳ later, as a compact switcher |
+| tvOS | 🚫 Rule 8.8c ("two channels, a rotation, and nothing else") |
+| Android | 🚫 not planned |
+
 ##### A card is a chapter on the Twitch replay — 2026-09-23 (macOS-DESIGN §D30)
 
 macOS · iOS · tvOS ⏳ built on the shared path (`StudioEngine.setOverlay`), the
