@@ -1919,6 +1919,38 @@ struct StudioDestinationSection: View {
                 form
             }
         }
+        #if DEBUG
+        // AW_STUDIO_MAC_PREVIEW_LIVE="youtube@90": the path a host takes —
+        // Start the Preview, then THIS view's own goLive(), then end() after
+        // 90 s on air. The older go-live door arms and begins directly, which
+        // is why a preview-then-live defect that deleted the new broadcast
+        // was never seen (Decision 133, from the door's side).
+        .task {
+            let env = ProcessInfo.processInfo.environment
+            guard let v = env["AW_STUDIO_MAC_PREVIEW_LIVE"] else { return }
+            let parts = v.split(separator: "@")
+            guard parts.count == 2, let secs = Int(parts[1]),
+                  let platform = GoLivePlatform.allCases.first(where: { "\($0)" == parts[0] })
+            else { return }
+            for _ in 0..<30 where show.film == nil { try? await Task.sleep(for: .seconds(1)) }
+            guard let film = show.film else { awdiag("AWPREVLIVE no film"); return }
+            try? await Task.sleep(for: .seconds(6))
+            _ = await studio.beginShow(film: film, destination: nil)
+            try? await Task.sleep(for: .seconds(10))
+            awdiag("AWPREVLIVE rehearsing=%@ — pressing Go Live", studio.isRehearsing ? "y" : "n")
+            show.platform = platform
+            if show.streamTitle.isEmpty { show.streamTitle = "\(film.title) — preview-then-live test" }
+            goLive()
+            for _ in 0..<60 where !studio.isOnAir { try? await Task.sleep(for: .seconds(1)) }
+            awdiag("AWPREVLIVE onAir=%@ broadcast=%@ problem=%@",
+                   studio.isOnAir ? "y" : "n",
+                   studio.armedBroadcast.map { "\($0)" } ?? "NONE",
+                   problem ?? "none")
+            try? await Task.sleep(for: .seconds(secs))
+            await studio.end()
+            awdiag("AWPREVLIVE ended")
+        }
+        #endif
     }
 
     // MARK: §D33 — on air, the Output column is about THE SHOW, not a form
@@ -2208,16 +2240,23 @@ struct StudioDestinationSection: View {
             do {
                 let resolved = try await StudioGoLive.destination(for: request, film: film)
                 let dest = resolved.url
-                // THE BROADCAST'S OWN CHAT, carried rather than dropped. This
-                // is the value `destination()` used to read and throw away.
-                studio.armYouTubeChat(resolved.liveChatID)
-                studio.armBroadcast(resolved.broadcast)
                 // A REHEARSAL MUST END BEFORE A BROADCAST BEGINS. `beginShow`
                 // guards on `!isLive`, and §D5's preview leaves the engine
                 // RUNNING with no destination — so arming for a real broadcast
                 // would be silently ignored and the host would have pressed Go
                 // Live to no effect.
+                //
+                // AND IT MUST END BEFORE ANYTHING IS ARMED. `end()` completes
+                // the armed broadcast, and a YouTube one still in `ready` is
+                // DELETED as an orphan — so ending the preview after arming
+                // deleted the broadcast Go Live had just created, and dropped
+                // its chat and the Twitch channel with it (audit, 2026-09-23).
+                // After the destination resolves, so a refusal keeps the preview.
                 if studio.isRehearsing { await studio.end() }
+                // THE BROADCAST'S OWN CHAT, carried rather than dropped. This
+                // is the value `destination()` used to read and throw away.
+                studio.armYouTubeChat(resolved.liveChatID)
+                studio.armBroadcast(resolved.broadcast)
                 studio.armLayout(controls.layout)
 
                 // THE SECOND DESTINATION, resolved the same way as the first:

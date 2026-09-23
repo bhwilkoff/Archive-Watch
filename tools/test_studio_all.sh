@@ -440,6 +440,14 @@ else
   FAIL=$((FAIL+1))
 fi
 
+# §8.54 — Go Live ends the preview before arming the broadcast end() deletes.
+if bash tools/test_studio_golive_order.sh >"$SCRATCH/goliveorder.log" 2>&1; then
+  row "8.54 preview ends before arming" PASS ""; PASS=$((PASS+1))
+else
+  row "8.54 preview ends before arming" FAIL "Go Live from a preview deletes its own broadcast"
+  FAIL=$((FAIL+1))
+fi
+
 # §8.49 — every platform tells YouTube the show is over while it is still
 # live. After the publisher closes, `complete` is refused 403 and the
 # host's broadcast lingers in "Live now".

@@ -887,7 +887,8 @@ public final class StudioSession {
         // which is the incident this guard was written for in the first place
         // (§9.oo, ~88 MB of recordings deleted). A guard that names one door by
         // hand stops guarding the moment a second door exists.
-        if env["AW_STUDIO_MAC"] == "1" || !(env["AW_STUDIO_MAC_GOLIVE"] ?? "").isEmpty {
+        if env["AW_STUDIO_MAC"] == "1" || !(env["AW_STUDIO_MAC_GOLIVE"] ?? "").isEmpty
+            || env["AW_STUDIO_MAC_PREVIEW_LIVE"] != nil {
             // A BENCH RUN MUST NEVER CARRY THE OWNER'S ROOM. The mic tap is
             // attached whenever macOS has granted audio permission and
             // `micMuted` defaults to false, so an unattended harness broadcast
