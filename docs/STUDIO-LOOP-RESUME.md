@@ -113,16 +113,17 @@ some SwiftUI targets do not register the click. The Studio window sits at
 3. **Scenes** — the largest remaining OBS gap. A design question first
    (`binding-design-doc-discipline`): our arrangements are presets and
    framing is per-show, so "scenes" would change both.
-4. **Item 17 is NOT closed, and there is new evidence.** Two of three bench
-   runs on The Man Who Laughs showed a BLACK program. §D21's diagnostic named
-   it correctly — *"the film is playing but no frames are reaching the program
-   (rate=1.00 item=present player=30de07361c7ba51)"* — with `AWSURFACE forget
-   ... engineHolds=no`, i.e. §D12a's guard behaved and the torn-down surface
-   was not the engine's. **So this is a DIFFERENT cause from the one closed on
-   09-22**: the engine holds a live player with an item, playing audio, and
-   receives no video. The film is a 1080p **HEVC** Blu-ray rip and
-   `attachFilm` requests no pixel format — that is the next suspect and it is
-   unmeasured.
+4. **Item 17's second cause is FOUND AND FIXED** (v1.42.500). The Mac
+   player swaps its `AVPlayerItem` ~10 s into a show, and the engine's video
+   output and audio tap stayed on the discarded item: measured as
+   `AWFILM player item changed ... output on=<old>` then `outputOnItem=n`.
+   `StudioEngine.noteFilmItemChanged` now re-adds both to the new item, and
+   `stop()` invalidates the observer so a stopped rehearsal engine cannot
+   overwrite the live engine's `audioMix`. Verified from the server's own
+   frames: centre YAVG 36-60 across 45 s after the swap, no stall line (the
+   unfixed run stalled 13 s after go-live). §8.50 pins it. **Still open**:
+   WHY the player swaps at ~10 s (a fallback copy? the caption path?) is
+   unmeasured — harmless now, but a swap is a stutter on the wire.
 5. **Ending a show now ends the YouTube broadcast — in source, not yet on
    YouTube** (v1.42.499). `StudioSession.completeArmedBroadcast()` runs
    BEFORE each platform's `engine.stop()`, and iOS and tvOS call it too — they

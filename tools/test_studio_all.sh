@@ -420,6 +420,15 @@ else
   FAIL=$((FAIL+1))
 fi
 
+# §8.50 — the engine follows the player's item. The Mac player swaps items
+# under a running show; the output left behind is a black program.
+if bash tools/test_studio_followitem.sh >"$SCRATCH/followitem.log" 2>&1; then
+  row "8.50 engine follows the film's item" PASS ""; PASS=$((PASS+1))
+else
+  row "8.50 engine follows the film's item" FAIL "an item swap blacks out the program"
+  FAIL=$((FAIL+1))
+fi
+
 # §8.49 — every platform tells YouTube the show is over while it is still
 # live. After the publisher closes, `complete` is refused 403 and the
 # host's broadcast lingers in "Live now".

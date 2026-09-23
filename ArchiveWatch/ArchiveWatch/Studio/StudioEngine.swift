@@ -1226,9 +1226,29 @@ public actor StudioEngine {
         }
     }
 
-    private func noteFilmItemChanged(to now: UInt) {
-        awdiag("AWFILM player item changed to=%lx output on=%lx%@", now, filmOutputItemID,
-               now == filmOutputItemID ? "" : " — the program can no longer see the film")
+    /// THE ENGINE FOLLOWS THE PLAYER'S ITEM (item 17's second cause,
+    /// measured 2026-09-23). The video output and the audio tap both live on
+    /// an `AVPlayerItem`, and the player swaps items under a running show —
+    /// the Mac player's fallback copy, AirPlay, a caption-stall recovery. Ten
+    /// seconds into a bench run on The Man Who Laughs it did exactly that, and
+    /// the program went black with `outputOnItem=n` while the film played on
+    /// in the FILM pane: a black picture and, less visibly, a silent film.
+    private func noteFilmItemChanged(to now: UInt) async {
+        guard now != filmOutputItemID, filmItemObserver != nil else { return }
+        awdiag("AWFILM player item changed to=%lx from=%lx — following it", now, filmOutputItemID)
+        guard now != 0, let player = filmPlayer, let item = player.currentItem else {
+            filmOutputItemID = now
+            return
+        }
+        let out = AVPlayerItemVideoOutput(outputSettings: nil)
+        item.add(out)
+        filmOutput = out
+        filmOutputItemID = now
+        observeFilmEnd(player: player)
+        sourceHasAudio = await Self.assetHasAudio(item)
+        audioAttached = await mixer.film.attach(to: item)
+        awdiag("AWFILM output and audio re-attached to item=%lx audio=%@", now,
+               audioAttached ? "yes" : "no")
     }
 
     /// Is the video output on the item the player is actually playing?
@@ -1470,6 +1490,11 @@ public actor StudioEngine {
     }
 
     public func stop() async {
+        // A stopped engine must not follow the film: going live stops the
+        // rehearsal engine and builds a second one on the SAME player, and a
+        // stale observer re-attaching on an item swap would replace the live
+        // engine's audio tap with a dead one (`audioMix` is one per item).
+        filmItemObserver?.invalidate(); filmItemObserver = nil
         await Self.holdTheScreenAwake(false)
         restoreAudioSession()
         supervisor?.cancel(); supervisor = nil

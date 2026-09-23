@@ -478,6 +478,12 @@ because the loop was stopped mid-stride for a Claude update.
    "ended" from "buffering", where a false positive is worse than today's
    silence.
 
+17b-CLOSED 2026-09-23 — THE SECOND BLACK-PROGRAM CAUSE. The Mac player
+   swaps its AVPlayerItem ~10 s into a show and the engine's video output and
+   audio tap stayed on the old item (`outputOnItem=n`). The engine now follows
+   the item; verified from the server's frames; §8.50. Why the player swaps
+   at all is still unmeasured.
+
 17-CLOSED 2026-09-22 — the cause was exact once it was LOOKED FOR rather
    than reproduced. `PlayerSurface.teardown()` calls
    `replaceCurrentItem(with: nil)` on the player IT owns, and the engine may
