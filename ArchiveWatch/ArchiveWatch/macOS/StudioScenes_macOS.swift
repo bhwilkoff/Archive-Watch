@@ -190,7 +190,11 @@ final class StudioScenes {
         c.guestFraming = t.guests
         let a = s.useShowAudio ? showAudio : (s.audio ?? showAudio)
         c.filmGain = a.filmGain; c.micGain = a.micGain; c.callGain = a.callGain
-        c.filmMuted = a.filmMuted; c.micMuted = a.micMuted; c.callMuted = a.callMuted
+        // THE HOST'S MUTES ARE NOT A SCENE'S TO CHANGE (launch audit B). A
+        // host who pressed ⇧⌘M and then switched to a scene with its own mix
+        // was live again without being told. The mic and the call describe
+        // the PERSON; the film's mute is a real scene choice and stays one.
+        c.filmMuted = a.filmMuted
         c.duckEnabled = a.duck
         c.showLowerThird = s.lowerThird; c.showFilmTitle = s.lowerTitle
         c.showFilmMeta = s.lowerMeta; c.showProvenance = s.lowerProvenance
@@ -241,6 +245,15 @@ final class StudioScenes {
         check("its own tile does not move the show's", c.framing.tile != box)
         select(b)
         check("and the tile returns with the scene", c.framing.tile == box)
+
+        let micBefore = c.micMuted
+        select(b); setUseShowAudio(false); c.micMuted = true
+        select(a)
+        check("a muted microphone stays muted across a scene switch", c.micMuted)
+        c.micMuted = false
+        select(b)
+        check("an unmuted microphone stays unmuted across a scene switch", !c.micMuted)
+        c.micMuted = micBefore
 
         // Restore: the owner's scenes, exactly.
         (scenes, selectedID, showTiles, showAudio) = before

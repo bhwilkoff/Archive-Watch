@@ -2527,3 +2527,11 @@ still ends the show, it just cannot happen by accident while live.
 alert carries no explanatory text — the title is the whole question.
 Verified on a bench show: the Studio window logged `closable=no` from the
 moment the stream was accepted and `closable=yes` after it ended.
+
+**§D31 amendment (2026-09-23) — a scene never changes the host's mutes.** A
+scene's own mix carries the film, microphone and call LEVELS and the film's
+mute; it no longer carries the microphone or call mute. Launch audit B: a
+host who muted with ⇧⌘M and then switched to a scene with its own audio was
+put back on air without being told. Mutes describe the person, not the
+scene. The in-app self-test (`AW_STUDIO_SCENE_SELFTEST=1`) checks both
+directions; with the old line restored it fails both.
