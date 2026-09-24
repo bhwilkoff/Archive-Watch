@@ -1105,6 +1105,54 @@
    "kind": "feature-film",
    "mediaId": null,
    "reviewer": "Verified1"
+  },
+  {
+   "at": "2026-09-24T18:50:25.334814+00:00",
+   "id": "privatehell361954_202001",
+   "title": "Private Hell 36",
+   "slot": "now-showing",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mwbwdeszr72u",
+   "format": "card",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": "Colorado Strong435"
+  },
+  {
+   "at": "2026-09-24T18:50:25.334814+00:00",
+   "id": "privatehell361954_202001",
+   "title": "Private Hell 36",
+   "slot": "now-showing",
+   "platform": "mastodon",
+   "url": "https://mastodon.social/@archivewatch/117327516806958054",
+   "format": "card",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": "Colorado Strong435"
+  },
+  {
+   "at": "2026-09-24T18:50:25.334814+00:00",
+   "id": "privatehell361954_202001",
+   "title": "Private Hell 36",
+   "slot": "now-showing",
+   "platform": "threads",
+   "url": "https://www.threads.com/@archivewatchapp/post/DdrkZisCc3b",
+   "format": "card",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": "Colorado Strong435"
+  },
+  {
+   "at": "2026-09-24T18:50:25.334814+00:00",
+   "id": "privatehell361954_202001",
+   "title": "Private Hell 36",
+   "slot": "now-showing",
+   "platform": "instagram",
+   "url": "https://www.instagram.com/p/DdrkeX0CWIr/",
+   "format": "card",
+   "kind": "feature-film",
+   "mediaId": "117327516711010441",
+   "reviewer": "Colorado Strong435"
   }
  ]
 }

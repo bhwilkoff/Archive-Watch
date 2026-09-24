@@ -1252,6 +1252,84 @@
     "replies": 0,
     "quotes": 0
    }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mvqyptg4a22t",
+   "platform": "bluesky",
+   "id": "SherlockHolmesAndTheSecretWeapon1943",
+   "slot": "one-line",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-09-18T01:17:38.533584+00:00",
+   "sampled": "2026-09-24T18:51:25.025058+00:00",
+   "metrics": {
+    "likes": 1,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mvsromupyu2k",
+   "platform": "bluesky",
+   "id": "lying_lips_ipod",
+   "slot": "one-line",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-09-18T18:17:05.414847+00:00",
+   "sampled": "2026-09-24T18:51:25.025058+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117293412988375446",
+   "platform": "mastodon",
+   "id": "lying_lips_ipod",
+   "slot": "one-line",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-09-18T18:17:05.414847+00:00",
+   "sampled": "2026-09-24T18:51:25.025058+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mw7glv4ech2v",
+   "platform": "bluesky",
+   "id": "whitemane_201611",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-09-23T19:03:10.203608+00:00",
+   "sampled": "2026-09-24T18:51:25.025058+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117321906856409519",
+   "platform": "mastodon",
+   "id": "whitemane_201611",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-09-23T19:03:10.203608+00:00",
+   "sampled": "2026-09-24T18:51:25.025058+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
   }
  ]
 }
