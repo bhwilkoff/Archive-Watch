@@ -354,6 +354,13 @@ an Apple construct: no Android device and no browser can join one. So for a
 watch party that includes Android or the web, SharePlay can be neither the
 transport NOR the sync — `AVPlayerPlaybackCoordinator` goes with it.
 
+> **REMOVED 2026-09-24** (owner: "Delete unused code that you don't think we
+> need"). Decision 131 settled guest voice the other way — people use the call
+> they already have, and the host's Mac taps it — so no guest voice travels
+> through this app, and `StudioVoiceProbe`, `StudioVoiceCodec` and
+> `StudioVoiceRoom` (with §8.18-§8.20) were deleted. They remain in git history
+> should that ever change. The paragraph below is kept as it was written.
+
 **What survives unchanged, by design.** `StudioVoiceCodec` (§8.19) and
 `StudioVoiceRoom` (§8.20) know nothing about the transport. They were built
 first precisely so this answer could change without wasting them: packets

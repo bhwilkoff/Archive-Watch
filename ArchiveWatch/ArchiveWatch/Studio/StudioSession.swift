@@ -1078,6 +1078,34 @@ public final class StudioSession {
         }
     }
 
+    /// WHY THE HOST CANNOT BE IN THIS SHOW, or nil when they can.
+    ///
+    /// Owner, 2026-09-24: *"Streaming a movie on your own serves no purpose, as
+    /// the movie on its own is already available via archive.org and streaming
+    /// it without a camera or microphone only puts another copy online with no
+    /// additional value being added."* Decision 132 made that the rule for
+    /// Android's entry; this is the same rule at the moment of going live, on
+    /// the Mac and the iPhone (tvOS asks for a paired iPhone instead). A camera
+    /// AND a microphone, each allowed, present, and not set to None.
+    public static func hostAbsentReason() -> String? {
+        let video = access(for: .video), audio = access(for: .audio)
+        if video != .granted || audio != .granted {
+            var off: [String] = []
+            if video != .granted { off.append("camera") }
+            if audio != .granted { off.append("microphone") }
+            return "Going live needs your \(off.joined(separator: " and ")) — you are the show."
+        }
+        #if os(macOS)
+        if StudioDevices.chosenCameraID == StudioDevices.noneID || StudioDevices.cameras().isEmpty {
+            return "Going live needs a camera — you are the show."
+        }
+        if StudioDevices.chosenMicrophoneID == StudioDevices.noneID || StudioDevices.microphones().isEmpty {
+            return "Going live needs a microphone — you are the show."
+        }
+        #endif
+        return nil
+    }
+
     /// Ask for the camera and the microphone, then rebuild whatever is running.
     ///
     /// EXPLICIT, never on opening a window: this is called when the host starts

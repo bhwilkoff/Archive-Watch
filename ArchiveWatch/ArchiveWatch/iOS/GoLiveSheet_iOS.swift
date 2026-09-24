@@ -183,14 +183,17 @@ struct GoLiveSheet: View {
                     }
                 }
             } else {
-                Button("Put me in the show (camera and microphone)") {
+                Button("Allow the camera and microphone") {
                     AVCaptureDevice.requestAccess(for: .video) { _ in
                         AVCaptureDevice.requestAccess(for: .audio) { _ in
                             Task { @MainActor in hostGranted = hostIsAuthorised }
                         }
                     }
                 }
-                Text("Optional — the film broadcasts fine on its own.")
+                // A refusal, not an option: the film alone is already on
+                // archive.org, so a broadcast without the host adds nothing
+                // (owner, 2026-09-24).
+                Text("Going live needs your camera and microphone — you are the show.")
                     .font(.footnote).foregroundStyle(.secondary)
             }
         } header: {
@@ -347,6 +350,7 @@ struct GoLiveSheet: View {
 
     private var canCommit: Bool {
         guard refusal == nil else { return false }
+        guard hostGranted else { return false }
         if platform != .custom, connectWithKey {
             return !platformKey.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
         }

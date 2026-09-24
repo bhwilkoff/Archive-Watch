@@ -461,8 +461,9 @@ struct GoLiveTV: View {
     /// device becomes visible to `StudioContinuity`'s discovery and the
     /// existing attach path picks it up unchanged.
     ///
-    /// It is never REQUIRED. §8.8 already treats an absent camera as normal,
-    /// and a host who wants only the film should not have to dismiss anything.
+    /// REQUIRED since 2026-09-24 (owner): a broadcast without the host is
+    /// another copy of a film archive.org already serves, so Go live waits for
+    /// a paired phone — the television's only camera and microphone.
     private var cameraRow: some View {
         VStack(alignment: .leading, spacing: 16) {
             Button {
@@ -483,7 +484,10 @@ struct GoLiveTV: View {
             Text(cameraPaired
                  // Not "in the corner": that is one layout of several.
                  ? "Hold your phone on its side — the camera tile is landscape."
-                 : "Optional — the film broadcasts fine on its own.")
+                 // A refusal, not an option (owner, 2026-09-24): the film
+                 // alone is on archive.org already, so a broadcast without
+                 // the host adds nothing. The phone is the camera AND mic.
+                 : "Going live needs you in the show — pair an iPhone as your camera and microphone.")
                 .font(.caption).foregroundStyle(.secondary)
         }
         // THE SAME TREATMENT AS EVERY OTHER FOCUSABLE GROUP HERE, and the first
@@ -555,7 +559,7 @@ struct GoLiveTV: View {
                 }
                 // The bench needs no token and no channel: it is a server on
                 // this network, and the gates above are about a platform.
-                .disabled(!useBench && (!signedIn || blockedReason != nil))
+                .disabled(!useBench && (!signedIn || blockedReason != nil || !cameraPaired))
                 .focused($focus, equals: .goLive)
 
                 Button("Not now", role: .cancel) { onCancel() }

@@ -108,6 +108,8 @@ public final class StudioScreenSource: NSObject, SCStreamOutput, SCStreamDelegat
             return content.windows.compactMap { w in
                 guard let app = w.owningApplication else { return nil }
                 guard app.bundleIdentifier != mine else { return nil }   // never ourselves
+                // Only a call's window (Decision 138) — never a player's.
+                guard StudioCallApps.kind(bundleID: app.bundleIdentifier) != .other else { return nil }
                 guard w.frame.width > 200, w.frame.height > 150 else { return nil }
                 return Window(id: w.windowID,
                               app: app.applicationName,

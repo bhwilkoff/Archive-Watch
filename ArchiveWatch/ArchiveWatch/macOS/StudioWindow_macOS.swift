@@ -425,6 +425,7 @@ struct StudioWindowView: View {
     @State private var cameras: [StudioDevices.Device] = []
     @State private var microphones: [StudioDevices.Device] = []
     @State private var callApps: [StudioAudioProcesses.Process] = []
+    @State private var guestIsBrowser = false
     @State private var chosenCallBundleID = ""
     @State private var previewRefusal: String?
     @Environment(AppStore.self) private var store
@@ -1072,6 +1073,11 @@ struct StudioWindowView: View {
                     ForEach(callApps) { Text($0.name).tag($0.name) }
                 }
                 .labelsHidden()
+                if let chosen = callApps.first(where: { $0.name == chosenCallBundleID }),
+                   StudioCallApps.kind(bundleID: chosen.bundleID) == .browser {
+                    Text(StudioCallApps.browserWarning).font(.caption2).foregroundStyle(.orange)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
                 if let why = studio.callProblem {
                     Text(why).font(.caption2).foregroundStyle(.orange)
                         .fixedSize(horizontal: false, vertical: true)
@@ -1103,6 +1109,7 @@ struct StudioWindowView: View {
                                 _ = await studio.startGuests(windowID: w.id, label: w.label,
                                                              ownerPID: w.pid,
                                                              ownerBundleID: w.bundleID)
+                                guestIsBrowser = StudioCallApps.kind(bundleID: w.bundleID) == .browser
                                 controls.layout = .guests
                             }
                         }
@@ -1126,6 +1133,10 @@ struct StudioWindowView: View {
                         }
                         try? await Task.sleep(for: .seconds(4))
                     }
+                }
+                if studio.guestWindowLabel != nil, guestIsBrowser {
+                    Text(StudioCallApps.browserWarning).font(.caption2).foregroundStyle(.orange)
+                        .fixedSize(horizontal: false, vertical: true)
                 }
                 if studio.guestWindowLabel != nil {
                     Button("Stop showing them") { studio.stopGuests() }
@@ -2300,6 +2311,9 @@ struct StudioDestinationSection: View {
     /// list nobody reads; the next thing to do is one thing.
     private var cannotGoLive: String? {
         guard show.film != nil else { return "Choose a film first." }
+        // YOU ARE THE SHOW (owner, 2026-09-24): a film alone is already on
+        // archive.org, so a broadcast without the host adds nothing.
+        if let absent = StudioSession.hostAbsentReason() { return absent }
         if show.platform == .custom {
             guard URL(string: show.customURL)?.host != nil, !show.customKey.isEmpty else {
                 return "A custom destination needs a server and a stream key."

@@ -136,16 +136,19 @@ fun StudioGoLiveDialog(
                     TextButton(onClick = {
                         askHost.launch(arrayOf(Manifest.permission.CAMERA,
                                                Manifest.permission.RECORD_AUDIO))
-                    }) { Text("Put me in the show (camera and microphone)") }
+                    }) { Text("Allow the camera and microphone") }
+                    // A refusal, not an option (owner, 2026-09-24): the film
+                    // alone is already on archive.org, so a broadcast without
+                    // the host adds nothing (Decision 132, at go-live).
                     Text(
-                        "Optional — the film broadcasts fine on its own.",
+                        "Going live needs your camera and microphone — you are the show.",
                         style = MaterialTheme.typography.bodySmall,
                     )
                 }
             }
         },
         confirmButton = {
-            TextButton(enabled = signedIn, onClick = onGoLive) { Text("Go live") }
+            TextButton(enabled = signedIn && hostOk, onClick = onGoLive) { Text("Go live") }
         },
         dismissButton = {
             TextButton(onClick = onDismiss) { Text("Not now") }

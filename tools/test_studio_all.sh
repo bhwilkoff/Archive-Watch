@@ -261,6 +261,7 @@ swift_case "8.64 sign-in revocation (validate + refresh)" ArchiveWatch/ArchiveWa
 swift_case "8.67 recent bitrate" "$PUB" "$ENG" "$REC" "$CHATFILTER" "$OUT" "$AUD" "$OVL" "$CHAT" "$CHATYT" "$SHIM" tools/test_studio_recent_kbps.swift
 swift_case "8.68 server text never carries the key" "$PUB" "$ENG" "$REC" "$CHATFILTER" "$OUT" "$AUD" "$OVL" "$CHAT" "$CHATYT" "$SHIM" tools/test_studio_key_redaction.swift
 swift_case "8.69 keyboard tile framing" "$PUB" "$ENG" "$REC" "$CHATFILTER" "$OUT" "$AUD" "$OVL" "$CHAT" "$CHATYT" "$SHIM" tools/test_studio_tile_keys.swift
+swift_case "8.70 only a call is captured" ArchiveWatch/ArchiveWatch/Studio/StudioAudioProcesses.swift tools/test_studio_call_apps.swift
 # The camera-placement settings, asserted against what their LABELS promise.
 # Owner 2026-09-20: "I'm not sure the different settings for where your camera
 # will go ... are actually working as they should." They were not: theatre was
@@ -352,13 +353,9 @@ if curl -s --max-time 2 -X POST -H 'content-type: application/json' \
 else
   row "8.31 sync client" SKIP "no local Worker"; SKIP=$((SKIP+1))
 fi
-# No $SHIM: StudioVoiceProbe calls no awdiag, and adding sources a case does
 # not need is how three cases stopped compiling for a session (§9.lllll).
-swift_case "8.18 voice frame slices" ArchiveWatch/ArchiveWatch/Studio/StudioVoiceProbe.swift tools/test_studio_voiceframe.swift
 # Apple's own Opus, which is what SHAREPLAY §5/§7 cost out. No $SHIM: the
 # codec calls no awdiag.
-swift_case "8.19 guest voice codec" ArchiveWatch/ArchiveWatch/Studio/StudioVoiceCodec.swift tools/test_studio_voicecodec.swift
-swift_case "8.20 guest voice room" ArchiveWatch/ArchiveWatch/Studio/StudioVoiceCodec.swift ArchiveWatch/ArchiveWatch/Studio/StudioVoiceRoom.swift tools/test_studio_voiceroom.swift
 # SHAREPLAY §10: the owner's own answer to the transport problem — let people
 # use the call service they already have, and tap it. Plays two tones from two
 # processes and requires the untapped one to be ABSENT, because a tap that

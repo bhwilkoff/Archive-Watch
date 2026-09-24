@@ -220,6 +220,7 @@ into every session and the index alone carries every title.)
 - 135 — A picture is manipulated directly, not through sliders; and an uploader's attribution must not fork a film in two
 - 136 — YouTube's quota belongs to the APP, so every read is spent on behalf of every host: slim sign-in, a quota extension, and a stream key that needs no API at all
 - 137 — "Public domain by age" follows the calendar, never a literal year
+- 138 — You are the show: going live needs the host, and the Studio captures only what a call runs in
 
 ---
 
@@ -847,4 +848,39 @@ widening `guaranteed` to other buckets remains the owner's call (Decision 027).
 **Consequences**: the buckets move at the next catalog build and again every
 January 1 with no code change; `tools/test_studio_rights.swift` pins the
 date arithmetic (2026-12-31 -> 1930, 2027-01-01 -> 1931).
+
+## 138 — You are the show: going live needs the host, and the Studio captures only what a call runs in
+*Date: 2026-09-24*
+
+Go Live now requires the host to be in the broadcast on every platform: a
+camera AND a microphone, allowed and present (Mac and iPhone,
+`StudioSession.hostAbsentReason()`), a paired iPhone as camera and microphone
+(Apple TV), camera and microphone permissions (Android phone). The "Optional —
+the film broadcasts fine on its own" line is gone; the refusal says "Going
+live needs your camera and microphone — you are the show." Separately, the Mac
+Studio's call-audio and guest-window pickers offer only calling apps and web
+browsers (`StudioCallApps`), with a warning under a chosen browser.
+
+**Why**: the owner, 2026-09-24 — *"Streaming a movie on your own serves no
+purpose, as the movie on its own is already available via archive.org and
+streaming it without a camera or microphone only puts another copy online with
+no additional value being added."* Decision 132 had applied that to Android's
+ENTRY on hardware grounds; this applies it at the moment of going live,
+everywhere. The capture rule answers the owner's delegated editorial call on
+the rights gap the launch audit found: the pickers could put ANY app's sound
+or picture on air, which is a way around the rights gate. Restricting them to
+what a call runs in keeps Decision 131's "use the call you already have"
+working — including Meet and Zoom in a browser, which is how a great many
+people call — while closing the door on a music or video app.
+
+**How to apply**: a new way onto the air must pass `hostAbsentReason()` (or
+its platform equivalent), and a new capture source must pass
+`StudioCallApps.kind`. Extend `StudioCallApps.calls` when a calling app is
+missing; never add a media player. The DEBUG bench doors still broadcast
+without capture, because they test transport, not a show.
+
+**Consequences**: §8.70 pins the classifier (calls, browsers, refused players,
+a look-alike control). The guest-voice code (`StudioVoice*`, §8.18-20) was
+deleted the same day at the owner's word — Decision 131 settled voice the
+other way, and git keeps it.
 

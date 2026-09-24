@@ -119,9 +119,9 @@ public enum StudioAudioProcesses {
     ///    `NSRunningApplication` at all, and dropping it would remove Google
     ///    Meet — the single most likely thing a host is on.
     private static func isWorthOffering(bundleID: String, pid: pid_t) -> Bool {
-        if let app = NSRunningApplication(processIdentifier: pid),
-           app.activationPolicy == .regular { return true }
-        return !bundleID.hasPrefix("com.apple.")
+        // Only what a call runs in (Decision 138): a music or video app is not
+        // a call, and capturing it would carry its audio past the rights gate.
+        StudioCallApps.kind(bundleID: bundleID) != .other
     }
 
     /// A helper process has its OWN localized name — "Google Chrome Helper",
@@ -158,3 +158,48 @@ public enum StudioAudioProcesses {
     }
 }
 #endif
+
+/// WHICH APPS THE STUDIO WILL CAPTURE (Decision 138).
+///
+/// A call's audio and its window are how friends on the host's call reach the
+/// broadcast (Decision 131). They are also a door around the rights gate: any
+/// app's sound or picture could be put on air, so a host could broadcast a
+/// streaming service's film under a public-domain one. So the pickers offer
+/// only what a CALL runs in — the calling apps, and web browsers, because Meet,
+/// and Zoom or Teams in a browser, are how a great many people call. A browser
+/// is allowed with a warning, since it can also be playing anything else.
+public enum StudioCallApps {
+    public enum Kind: Equatable { case call, browser, other }
+
+    /// Calling apps, by bundle id (or its prefix, for helper processes).
+    static let calls = [
+        "us.zoom.xos", "com.apple.FaceTime", "com.microsoft.teams",
+        "com.microsoft.teams2", "com.hnc.Discord", "com.tinyspeck.slackmacgap",
+        "net.whatsapp.WhatsApp", "desktop.WhatsApp", "com.skype.skype",
+        "org.whispersystems.signal-desktop", "com.cisco.webexmeetingsapp",
+        "Cisco-Systems.Spark", "com.webex.meetingmanager", "com.ringcentral.glip",
+        // A Meet or Zoom web app installed from Chrome is its own bundle.
+        "com.google.Chrome.app.",
+    ]
+    static let browsers = [
+        "com.google.Chrome", "com.apple.Safari", "org.mozilla.firefox",
+        "com.microsoft.edgemac", "com.brave.Browser", "company.thebrowser.Browser",
+        "com.operasoftware.Opera", "com.vivaldi.Vivaldi", "com.apple.WebKit",
+    ]
+
+    public static func kind(bundleID: String) -> Kind {
+        if calls.contains(where: { bundleID == $0 || bundleID.hasPrefix($0.hasSuffix(".") ? $0 : $0 + ".") }) {
+            return .call
+        }
+        if browsers.contains(where: { bundleID == $0 || bundleID.hasPrefix($0 + ".") }) {
+            return .browser
+        }
+        return .other
+    }
+
+    /// Said under a browser that has been chosen: a warning the host would not
+    /// otherwise have, which is the only kind of caption this Studio carries.
+    public static let browserWarning =
+        "Anything this browser plays goes out on your broadcast — keep it to the call."
+}
+
