@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <full-backup-content>
-    <!-- FILL IN: exclude any local-state path that contains tokens
-         or secrets. DataStore-encrypted preferences should already
-         be safe, but explicit exclusions document intent. -->
-    <!-- <exclude domain="sharedpref" path="secrets.xml"/> -->
+    <!-- The Studio's encrypted sign-in tokens: their Keystore key never
+         leaves the device, so a restored copy could not be decrypted. -->
+    <exclude domain="sharedpref" path="studio_oauth.xml"/>
 </full-backup-content>

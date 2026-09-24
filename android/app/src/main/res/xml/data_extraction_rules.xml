@@ -2,10 +2,15 @@
 <!-- Android 12+ replaces fullBackupContent with this. Mirror the
      same exclusion list as backup_rules.xml. -->
 <data-extraction-rules>
+    <!-- The Studio's sign-in tokens are encrypted with a key the Android
+         Keystore holds, and that key NEVER leaves the device. Copied to a new
+         phone, the file cannot be decrypted, and the store could not be
+         reopened at all. allowBackup="false" does not stop Android 12+
+         device-to-device transfer; only these rules do. -->
     <cloud-backup>
-        <!-- <exclude domain="sharedpref" path="secrets.xml"/> -->
+        <exclude domain="sharedpref" path="studio_oauth.xml"/>
     </cloud-backup>
     <device-transfer>
-        <!-- <exclude domain="sharedpref" path="secrets.xml"/> -->
+        <exclude domain="sharedpref" path="studio_oauth.xml"/>
     </device-transfer>
 </data-extraction-rules>

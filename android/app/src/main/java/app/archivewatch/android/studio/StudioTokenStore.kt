@@ -43,7 +43,7 @@ data class StudioToken(
 object StudioTokenStore {
     private const val FILE = "studio_oauth"
 
-    private fun prefs(context: Context): SharedPreferences {
+    private fun open(context: Context): SharedPreferences {
         val key = MasterKey.Builder(context)
             .setKeyScheme(MasterKey.KeyScheme.AES256_GCM)
             .build()
@@ -52,6 +52,21 @@ object StudioTokenStore {
             EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
             EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM,
         )
+    }
+
+    /**
+     * A store that cannot be DECRYPTED is discarded and made new. It happens
+     * when the file outlives its Keystore key — restored or transferred to
+     * another phone, or the key invalidated — and every open then throws, so
+     * `save` failed forever and the host could never sign in again. A token
+     * nobody can read is worth nothing; signing in once more is the cost.
+     */
+    private fun prefs(context: Context): SharedPreferences = try {
+        open(context)
+    } catch (e: Exception) {
+        android.util.Log.w("AWAUTH", "studio token store unreadable (${e.javaClass.simpleName}) — reset")
+        context.deleteSharedPreferences(FILE)
+        open(context)
     }
 
     /// Returns whether the write actually landed.
