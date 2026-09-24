@@ -42,6 +42,9 @@ sub pollLoop()
     token.Setup("sha256")
     token = Left(token.Process(ba), 32)
     lastHereAt = -1000#
+    ' A seek is buffering for a few seconds, and the video's position reads 0
+    ' meanwhile — correcting against that re-seeks on every poll.
+    lastSeekAt = -1000#
 
     while m.top.running
         if awNowSeconds() - lastHereAt >= 30
@@ -85,8 +88,9 @@ sub pollLoop()
             ' inside a second, leave it; beyond, seek. That is coarser than
             ' §11.3 and is a platform limit rather than a choice, so the
             ' threshold is named here rather than hidden.
-            if magnitude >= 1.0
+            if magnitude >= 1.0 and awNowSeconds() - lastSeekAt >= 4
                 m.top.verb = { kind: "seek", to: expected }
+                lastSeekAt = awNowSeconds()
             end if
         else
             ' BOTH paused: on the host's FRAME, not merely paused — the host
@@ -94,8 +98,9 @@ sub pollLoop()
             ' gained on 2026-09-23).
             gap = room.position - local
             if gap < 0 then gap = -gap
-            if gap > 0.5
+            if gap > 0.5 and awNowSeconds() - lastSeekAt >= 4
                 m.top.verb = { kind: "seek", to: room.position }
+                lastSeekAt = awNowSeconds()
             end if
         end if
 

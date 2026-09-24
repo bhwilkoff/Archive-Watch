@@ -19,6 +19,7 @@ sub Main(args as Dynamic)
         if args.mediaType <> invalid then scene.deepLinkMediaType = args.mediaType
         scene.deepLinkContentId = args.contentId
     end if
+    if args <> invalid and args.awRoom <> invalid then scene.launchRoomCode = args.awRoom
 
     ' A deep link that arrives while the channel is ALREADY RUNNING comes
     ' through roInput, not through Main's args — a channel that only reads args

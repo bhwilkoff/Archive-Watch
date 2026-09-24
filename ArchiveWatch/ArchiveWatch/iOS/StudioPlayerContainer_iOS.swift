@@ -109,7 +109,9 @@ struct StudioPlayerContainer: View {
             // IPAD-DESIGN §5b: beside the program at regular width, so each
             // change is judged against the picture it changes; a sheet on
             // the iPhone, exactly as before.
-            .inspector(isPresented: $showControls) { controlsSheet }
+            .inspector(isPresented: $showControls) {
+                controlsSheet.inspectorColumnWidth(min: 320, ideal: 360, max: 440)
+            }
             .alert(alertTitle, isPresented: .constant(startError != nil)) {
                 Button("OK") { startError = nil; Task { await end() } }
             } message: {
@@ -154,7 +156,12 @@ struct StudioPlayerContainer: View {
         }, captionChoice: nil, onPlayerReady: { p in
             Task { await attach(player: p) }
         })
-        .ignoresSafeArea()
+        // NOT the trailing edge while the controls are open: the inspector
+        // reports its column as a trailing inset, and ignoring it laid the
+        // film UNDER the column instead of beside it (iPad Pro, 2026-09-24 —
+        // a caption cut off at the column's edge). On the iPhone the
+        // controls are a sheet, so this changes nothing there.
+        .ignoresSafeArea(.container, edges: showControls ? [.top, .bottom, .leading] : .all)
     }
 
     private var controlsSheet: some View {

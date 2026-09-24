@@ -133,11 +133,20 @@ function awJsonSeconds(body as String, key as String) as Double
     rx = CreateObject("roRegex", Chr(34) + key + Chr(34) + "\s*:\s*(\d+)(?:\.(\d+))?", "")
     m = rx.Match(body)
     if m.Count() < 2 then return 0#
-    whole = CDbl(Val(m[1]))
+    ' DIGIT BY DIGIT into a Double. Val() returns a single-precision Float,
+    ' which resolves today's epoch in 128-second steps — so atServerTime and
+    ' the clock offset were wrong, elapsed time clamped to zero, and a guest
+    ' seeked back to the host's last published position on every poll
+    ' (Streaming Stick 4K, 2026-09-24: seeks at 910, 921, 931, 942 ...).
+    whole = 0#
+    digits = m[1]
+    for i = 1 to Len(digits)
+        whole = whole * 10# + CDbl(Asc(Mid(digits, i, 1)) - 48)
+    end for
     frac = 0#
     if m.Count() > 2 and m[2] <> invalid and m[2] <> ""
-        digits = Left(m[2], 6)
-        frac = CDbl(Val(digits)) / (10# ^ Len(digits))
+        fd = Left(m[2], 6)
+        frac = CDbl(Val(fd)) / (10# ^ Len(fd))
     end if
     return whole + frac
 end function

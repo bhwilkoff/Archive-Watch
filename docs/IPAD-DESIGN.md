@@ -182,7 +182,11 @@ with `.inspector(isPresented:)`. At regular width that is a trailing column
 beside the content, which stays visible and live; at compact width SwiftUI
 presents the same content as a sheet, so the iPhone is unchanged. One modifier,
 no size-class branch. Applies first to `StudioPlayerContainer_iOS`'s controls.
-Not yet seen at iPad width.
+SEEN at iPad width 2026-09-24 (iPad Pro 12.9, a bench show on air): the first
+run found the film laid UNDER the column — the player ignored every safe-area
+edge, and the inspector reports its column as a trailing inset — so the player
+now keeps the trailing edge while the controls are open, and the column is
+320–440 pt (at the default ~270 pt a chat line wrapped a word a line).
 
 ## §6 — Anti-patterns (never)
 

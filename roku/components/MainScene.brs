@@ -908,6 +908,19 @@ sub onRoomCodeButton()
         refocus(m.library)
         return
     end if
+    lookUpRoom(typed)
+end sub
+
+' A launch with `awRoom=<code>` (ECP /launch/dev?awRoom=ABCD) joins the way
+' the keyboard's OK does, so a room can be proved without counting key presses.
+sub onLaunchRoom()
+    typed = m.top.launchRoomCode
+    if typed = invalid or typed = "" then return
+    print "AWROOM launch door "; typed
+    lookUpRoom(typed)
+end sub
+
+sub lookUpRoom(typed as String)
     code = awRoomNormalize(typed)
     if code = ""
         showRoomProblem("That is not a room code. They are four characters — ask the host to read it again.")
