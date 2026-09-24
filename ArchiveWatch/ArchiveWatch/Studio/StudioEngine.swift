@@ -1941,6 +1941,7 @@ public actor StudioEngine {
                 try? await Task.sleep(nanoseconds: 1_000_000_000)
                 guard let self else { return }
                 await self.recoverIfSevered()
+                await self.recoverExtrasIfSevered()
             }
         }
     }
@@ -1987,6 +1988,47 @@ public actor StudioEngine {
         // The window has closed. End the show rather than hold a readout that
         // says RECONNECTING over a stream the platform finished minutes ago.
         await endShow(reason: "the connection could not be restored within \(Int(Self.reconnectDeadline)) seconds")
+    }
+
+    /// A SIMULCAST EXTRA RECONNECTS TOO (launch audit B). Only the primary
+    /// was supervised, so one network blip dropped every extra destination
+    /// for the rest of the show while the readout said so and nothing acted.
+    /// Same backoff as the primary; an extra never ends the show, and keeps
+    /// trying at the longest interval for as long as the show runs.
+    private var extraRetryAt: [String: Double] = [:]
+    private var extraAttempts: [String: Int] = [:]
+    private var extraDown: Set<String> = []
+
+    private func recoverExtrasIfSevered() async {
+        guard health.isRunning, publishing, !extraPublishers.isEmpty else { return }
+        for extra in extraPublishers {
+            // ONCE DOWN, DOWN UNTIL A RECONNECT SUCCEEDS. A failed attempt
+            // leaves the publisher mid-connect rather than `.failed`, so
+            // `needsReconnect` alone stopped the retries after the second
+            // attempt — measured on the bench, with the server back and
+            // nothing trying again.
+            if extraDown.contains(extra.name) == false {
+                guard await extra.publisher.needsReconnect else { continue }
+                extraDown.insert(extra.name)
+            }
+            let now = CACurrentMediaTimeCompat()
+            if let at = extraRetryAt[extra.name], now < at { continue }
+            let n = (extraAttempts[extra.name] ?? 0) + 1
+            extraAttempts[extra.name] = n
+            do {
+                try await extra.publisher.reconnect()
+                extraAttempts[extra.name] = 0
+                extraRetryAt[extra.name] = nil
+                extraDown.remove(extra.name)
+                // A rejoining session must open on a keyframe (Decision 129).
+                encoder?.requestKeyframe()
+                awdiag("AWPUB simulcast: %@ reconnected after %d attempt(s)", extra.name, n)
+            } catch {
+                let b = RTMPReconnectPolicy.backoffSeconds
+                extraRetryAt[extra.name] = CACurrentMediaTimeCompat() + b[min(n - 1, b.count - 1)]
+                awdiag("AWPUB simulcast: %@ reconnect %d failed", extra.name, n)
+            }
+        }
     }
 
     /// Stops the show and says why, so the surface can draw an end card

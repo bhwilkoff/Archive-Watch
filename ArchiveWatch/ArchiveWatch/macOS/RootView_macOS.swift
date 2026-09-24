@@ -398,6 +398,12 @@ struct RootView: View {
                             return
                         }
                         StudioSession.shared.armDestination(dest)
+                        // AW_STUDIO_EXTRA=rtmp://… — a second destination, as
+                        // the simulcast checkbox adds, so an extra's own
+                        // reconnect can be proved on a bench.
+                        if let x = env["AW_STUDIO_EXTRA"].flatMap(URL.init(string:)) {
+                            StudioSession.shared.armExtras([StudioExtraDestination(name: "Bench 2", url: x)])
+                        }
                         // ARM the layout, do not SET it after going live. The
                         // door used to wait for `isLive` and then call
                         // `setLayout`, which is a path the product does not
