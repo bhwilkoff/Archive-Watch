@@ -15,6 +15,11 @@
     <field id="verb" type="assocarray" alwaysNotify="true" />
     <field id="problem" type="string" alwaysNotify="true" />
     <field id="running" type="boolean" value="false" />
+    <!-- JOIN: read the room ONCE and report it in `room` (or `problem`), so
+         the Scene can start the right film at the right place before the
+         player follows. Off the render thread like every other read. -->
+    <field id="lookupOnly" type="boolean" value="false" />
+    <field id="room" type="assocarray" alwaysNotify="true" />
   </interface>
   <script type="text/brightscript" uri="pkg:/components/TogetherTask.brs" />
   <script type="text/brightscript" uri="pkg:/source/TogetherRoom.brs" />

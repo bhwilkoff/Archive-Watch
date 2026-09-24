@@ -339,13 +339,35 @@ Detail.
 | Cover-art screensaver | Prohibited in a streaming app |
 | Clip Studio / Creation Studio | Never on a TV (Decisions 033/042) |
 | Downloads / offline | No durable storage (§7.3) |
-| Watch Together | Apple-only framework |
+| Hosting a Watch Together room | Rooms serve a live stream, and hosting is the Mac (SHAREPLAY §11.13) |
 | Cast / AirPlay send | Roku is a receiver; sending is meaningless |
 | Picture-in-Picture | Not a Roku app affordance |
 | Background media controls | A video app pauses on switch-away |
 | Sign-in / cross-ecosystem sync | **Blocked by Roku policy, not by plumbing.** Certification prohibits off-device sign-in, which is structurally what Google's limited-input device flow is — the one route that would have reached Drive App Data. CloudKit is doubly out. Roku's own Continue Watching gives cross-device progress without an account of ours, and that is the whole answer here |
 
 ---
+
+### §8a Watch Together — JOIN a room (2026-09-24)
+
+The line above said "Watch Together — Apple-only framework". That was true of
+SharePlay and stopped being true of Watch Together when rooms shipped on the
+Worker (SHAREPLAY §11): a room is plain HTTPS polling, which a Roku does as
+well as anything. So a Roku JOINS; it never hosts.
+
+- **Where**: Library ▸ Options ▸ *Join a Watch Together room…* — the same place
+  Android TV puts it (§11.9), and the one options panel that is not about the
+  focused film.
+- **How**: `StandardKeyboardDialog` (certification 4.12, and `wasClosed`
+  observed — `openNamer`'s two traps), the code normalized by the shared
+  alphabet rule (§8.34), the room read ONCE off the render thread, then that
+  film starts AT THE ROOM'S POSITION through the same DetailTask every id-play
+  uses, and `PlayerScreen.roomCode` follows.
+- **What is said**: only failures (not a code / no such room / cannot reach it
+  / a film this Roku cannot play) in a `StandardMessageDialog`, and "The host
+  ended the room." as the player's notice. Nothing while in step.
+- **Coarser than the others, by platform limit**: a Roku `Video` has no
+  playback-rate control, so there is no 3% nudge — inside a second it is left
+  alone, beyond it is seeked.
 
 ## 9. The ship gate — "does this read like an Android app on a Roku?"
 

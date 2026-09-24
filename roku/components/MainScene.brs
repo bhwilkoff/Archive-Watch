@@ -832,6 +832,9 @@ sub openLibraryOptions()
         opts.Push({ id: "removeitem", label: "Remove this film from the playlist" })
         opts.Push({ id: "deletelist", label: "Delete this playlist" })
     end if
+    ' Watch Together: JOIN a friend's room (SHAREPLAY §11.9, ROKU-DESIGN §8a).
+    ' A Roku cannot host — rooms serve a live stream, and hosting is the Mac.
+    opts.Push({ id: "joinroom", label: "Join a Watch Together room…" })
     opts.Push({ id: "settings", label: "App settings…" })
     opts.Push({ id: "cancel", label: "Done" })
     m.moreMode = "library"
@@ -870,8 +873,90 @@ sub onLibraryOptionPicked(pick as String)
     else if pick = "settings"
         openOptions()
         return
+    else if pick = "joinroom"
+        openRoomCode()
+        return
     end if
     refocus(m.library)
+end sub
+
+' ---- Watch Together: join a room (ROKU-DESIGN §8a). The same two dialog
+' traps as openNamer: StandardKeyboardDialog, and wasClosed observed.
+sub openRoomCode()
+    k = CreateObject("roSGNode", "StandardKeyboardDialog")
+    k.title = "Enter the room code"
+    k.buttons = ["Join", "Cancel"]
+    k.ObserveField("buttonSelected", "onRoomCodeButton")
+    k.ObserveField("wasClosed", "onRoomCodeClosed")
+    m.roomKeyboard = k
+    m.top.dialog = k
+end sub
+
+sub onRoomCodeClosed()
+    m.top.dialog = invalid
+    m.roomKeyboard = invalid
+    refocus(m.library)
+end sub
+
+sub onRoomCodeButton()
+    k = m.roomKeyboard
+    if k = invalid then return
+    typed = k.text
+    m.top.dialog = invalid
+    m.roomKeyboard = invalid
+    if k.buttonSelected <> 0
+        refocus(m.library)
+        return
+    end if
+    code = awRoomNormalize(typed)
+    if code = ""
+        showRoomProblem("That is not a room code. They are four characters — ask the host to read it again.")
+        return
+    end if
+    m.roomLookup = CreateObject("roSGNode", "TogetherTask")
+    m.roomLookup.code = code
+    m.roomLookup.lookupOnly = true
+    m.roomLookup.ObserveField("room", "onRoomFound")
+    m.roomLookup.ObserveField("problem", "onRoomLookupProblem")
+    m.roomLookup.control = "RUN"
+    m.roomJoinCode = code
+    print "AWROOM looking up "; code
+end sub
+
+sub onRoomLookupProblem()
+    if m.roomLookup = invalid then return
+    showRoomProblem(m.roomLookup.problem)
+    m.roomLookup = invalid
+end sub
+
+sub showRoomProblem(text as String)
+    d = CreateObject("roSGNode", "StandardMessageDialog")
+    d.title = "Could not join"
+    d.message = [text]
+    d.buttons = ["OK"]
+    d.ObserveField("buttonSelected", "onRoomCodeClosed")
+    d.ObserveField("wasClosed", "onRoomCodeClosed")
+    m.top.dialog = d
+end sub
+
+' The room names the film and where it is: play THAT film from THERE, then
+' follow. Resolved through the same DetailTask every other id-play uses.
+sub onRoomFound()
+    r = m.roomLookup.room
+    m.roomLookup = invalid
+    if r = invalid then return
+    print "AWROOM found film="; r.filmID; " at "; r.position
+    m.pendingEpisode = { id: r.filmID, title: "", meta: "Watch Together  ·  the host controls the film",
+                         queue: [r.filmID], queueTitles: [r.filmID], index: 0, fromLibrary: false,
+                         origin: "library", ephemeral: true, muted: false,
+                         roomCode: m.roomJoinCode, roomStart: r.position }
+    if m.dtask = invalid
+        m.dtask = CreateObject("roSGNode", "DetailTask")
+        m.dtask.ObserveField("detail", "onDetailLoaded")
+        m.dtask.ObserveField("status", "onDetailTaskStatus")
+    end if
+    m.dtask.archiveID = r.filmID
+    m.dtask.control = "RUN"
 end sub
 
 ' Play All over a list of archiveIDs. Each url is resolved one at a time as the
@@ -1763,6 +1848,10 @@ sub playPendingEpisode(d as Object)
     m.pendingEpisode = invalid
     if d = invalid or d.url = invalid or d.url = ""
         print "AWSER queued item has no playable url: "; e.id
+        if e.roomCode <> invalid
+            showRoomProblem("That room is watching a film this Roku cannot play.")
+            return
+        end if
         ' A dead item must not end the whole queue — skip to the next.
         if m.chQueue <> invalid
         m.chQueue.index = m.chQueue.index + 1
@@ -1808,6 +1897,8 @@ sub playPendingEpisode(d as Object)
         m.player.progressOwner = ""
     end if
     m.player.startAt = awGetProgress(e.id)
+    ' A ROOM starts where the room is, not where this viewer left off.
+    if e.roomCode <> invalid then m.player.startAt = Int(e.roomStart)
     t = e.title
     if t = "" and d.canonicalTitle <> invalid then t = fmt(d.canonicalTitle)
     if t = "" then t = e.id
@@ -1816,6 +1907,7 @@ sub playPendingEpisode(d as Object)
     m.player.captionUrl = ""
     setChromeVisible(false)
     m.player.playUrl = d.url
+    if e.roomCode <> invalid then m.player.roomCode = e.roomCode else m.player.roomCode = ""
     m.player.setFocus(true)
     if e.origin <> invalid and e.origin <> ""
         m.cameFrom = e.origin

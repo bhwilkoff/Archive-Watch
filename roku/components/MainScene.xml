@@ -14,6 +14,7 @@
   <script type="text/brightscript" uri="pkg:/components/UserStore.brs" />
   <script type="text/brightscript" uri="pkg:/components/LayoutAudit.brs" />
   <script type="text/brightscript" uri="pkg:/components/MainScene.brs" />
+  <script type="text/brightscript" uri="pkg:/source/TogetherRoom.brs" />
   <children>
     <Rectangle id="bg" width="1920" height="1080" color="0x0B0B0CFF" />
 

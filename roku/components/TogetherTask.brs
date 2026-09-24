@@ -1,16 +1,10 @@
 ' The room poll, off the render thread — SHAREPLAY §11.
 '
-' NOT REACHABLE YET. This task and `source/TogetherRoom.brs` are the working
-' parts; NOTHING CREATES THIS NODE. Roku's join still needs three things: an
-' option row in `openLibraryOptions`, a `StandardKeyboardDialog` (see
-' `openNamer` for the two traps that are not optional), and a `roomCode` field
-' on `PlayerScreen` that starts this task and applies its `verb`.
-'
-' It is left in the tree deliberately rather than deleted: §8.34 pins this
-' file's alphabet against the other four implementations, so the rule cannot
-' drift out from under a later session, and the hard part — polling off the
-' render thread with a clock sample taken around the same request — is done.
-' PARITY records Roku as NOT BUILT, which is the honest state.
+' REACHABLE since v1.42.615 (ROKU-DESIGN §8a): Library ▸ Options ▸ "Join a
+' Watch Together room…" opens a keyboard, a `lookupOnly` run of this task
+' reads the room once, the Scene starts that film at the room's position, and
+' `PlayerScreen.roomCode` runs this task again to FOLLOW. §8.34 still pins the
+' alphabet against the other four implementations.
 '
 ' It owns the loop and the arithmetic and touches no video: the player applies
 ' what comes back. Same split as every other platform (§11.2a) — the rule is a
@@ -24,12 +18,26 @@ end sub
 sub pollLoop()
     code = m.top.code
     if code = "" then return
+    if m.top.lookupOnly
+        room = awRoomRead(code)
+        if room = invalid
+            m.top.problem = "Could not reach the room. Check the connection and try again."
+        else if room.DoesExist("ended")
+            m.top.problem = "No room with that code. It may have ended, or a character may have been misheard."
+        else
+            m.top.room = { filmID: room.filmID, position: awRoomExpectedPosition(room), paused: (room.paused = true) }
+        end if
+        return
+    end if
     m.top.running = true
     lastGeneration = -1
     lastChangeAt = awNowSeconds()
     ' A fresh anonymous token per join, for the host's "friends here" count.
     ba = CreateObject("roByteArray")
-    ba.FromAsciiString(CreateObject("roDeviceInfo").GetRandomUUID())
+    ' Two lines, not one: BrightScript refuses a method call on a function's
+    ' return value (see PlayerScreen's nowSeconds).
+    di = CreateObject("roDeviceInfo")
+    ba.FromAsciiString(di.GetRandomUUID())
     token = CreateObject("roEVPDigest")
     token.Setup("sha256")
     token = Left(token.Process(ba), 32)

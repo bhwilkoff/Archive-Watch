@@ -34,6 +34,9 @@
     <field id="ended" type="boolean" alwaysNotify="true" />
     <!-- A failure the VIEWER has to be told about, not just a console line. -->
     <field id="failed" type="string" alwaysNotify="true" />
+    <!-- A Watch Together room to FOLLOW (SHAREPLAY §11). Set after playUrl;
+         "" stops following. The host controls the film. -->
+    <field id="roomCode" type="string" onChange="onRoomCode" />
     <function name="stopPlayback" />
     <!-- "Remember this film": the Watched row is the record on Roku. -->
     <function name="rememberFilm" />
@@ -50,5 +53,6 @@
     <Label id="hudMeta" />
     <Label id="diag" />
     <Timer id="watchdog" repeat="true" duration="5" />
+    <Timer id="roomTick" repeat="true" duration="1" />
   </children>
 </component>

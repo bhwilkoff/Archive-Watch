@@ -265,8 +265,63 @@ sub stopPlayback()
         end if
     end if
     m.dog.control = "stop"
+    stopRoom()
     m.video.control = "stop"
     m.video.content = invalid
+end sub
+
+' ---- Watch Together (SHAREPLAY §11): FOLLOW a room. The task polls off the
+' render thread and hands back a verb; this applies it, silently (§11.2a).
+sub onRoomCode()
+    stopRoom()
+    code = m.top.roomCode
+    if code = invalid or code = "" then return
+    m.room = CreateObject("roSGNode", "TogetherTask")
+    m.room.code = code
+    m.room.ObserveField("verb", "onRoomVerb")
+    m.room.ObserveField("problem", "onRoomProblem")
+    m.roomTick = m.top.FindNode("roomTick")
+    m.roomTick.ObserveField("fire", "onRoomTick")
+    m.roomTick.control = "start"
+    onRoomTick()
+    m.room.control = "RUN"
+    print "AWROOM following "; code
+end sub
+
+' The task needs where THIS film is, each second, to compute a correction.
+sub onRoomTick()
+    if m.room = invalid then return
+    m.room.localPosition = m.video.position
+    m.room.localPaused = (m.video.state = "paused")
+end sub
+
+sub onRoomVerb()
+    v = m.room.verb
+    if v = invalid then return
+    if v.kind = "seek"
+        m.video.seek = v.to
+        print "AWROOM seek "; v.to
+    else if v.kind = "paused"
+        if v.paused = true then m.video.control = "pause" else m.video.control = "resume"
+        print "AWROOM paused="; v.paused
+    end if
+end sub
+
+' The host ended the room: the film keeps playing — it is this viewer's now —
+' and they are told they are no longer in step.
+sub onRoomProblem()
+    if m.room = invalid then return
+    showNotice(m.room.problem)
+    stopRoom()
+end sub
+
+sub stopRoom()
+    if m.room <> invalid
+        m.room.running = false
+        m.room.control = "STOP"
+        m.room = invalid
+    end if
+    if m.roomTick <> invalid then m.roomTick.control = "stop"
 end sub
 
 ' §3.1 — OK reveals the HUD. Instant Replay rewinds 15s, inside Roku's
