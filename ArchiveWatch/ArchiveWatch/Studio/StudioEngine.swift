@@ -1450,17 +1450,31 @@ public actor StudioEngine {
 
         // Convert on the encoder's callback thread: EncodedVideoFrame is
         // Sendable, a CMSampleBuffer is not.
-        enc.onSample = { [weak self] sample in
-            guard let self, let frame = EncodedVideoFrame(sample) else { return }
-            Task { await self.publish(video: frame) }
+        // ONE ORDERED FEED PER TRACK (launch audit B). Each frame used to be
+        // handed over in its own `Task`, and Swift does not promise that
+        // tasks run in the order they were made — so frames could reach the
+        // wire out of order, a candidate for the audio glitches a platform
+        // heard and the bench never did. A stream has one consumer, in order.
+        let (videoStream, videoCont) = AsyncStream.makeStream(of: EncodedVideoFrame.self)
+        videoFeed = videoCont
+        feedTasks.append(Task { [weak self] in
+            for await frame in videoStream { await self?.publish(video: frame) }
+        })
+        enc.onSample = { sample in
+            guard let frame = EncodedVideoFrame(sample) else { return }
+            videoCont.yield(frame)
         }
 
         // Audio starts with video so the two clocks share an origin; the
         // publisher's first timestamp is whichever arrives first and both are
         // measured from here.
-        mixer.onFrame = { [weak self] data, pts in
-            guard let self else { return }
-            Task { await self.publish(audio: data, at: pts) }
+        let (audioStream, audioCont) = AsyncStream.makeStream(of: AudioPacket.self)
+        audioFeed = audioCont
+        feedTasks.append(Task { [weak self] in
+            for await p in audioStream { await self?.publish(audio: p.data, at: p.pts) }
+        })
+        mixer.onFrame = { data, pts in
+            audioCont.yield(AudioPacket(data: data, pts: pts))
         }
         mixer.start()
 
@@ -1552,7 +1566,15 @@ public actor StudioEngine {
     }
 
     public func stop() async {
+        #if DEBUG
+        awdiag("AWORDER video backwards=%d audio backwards=%d (frames published out of order)",
+               videoBackwards, audioBackwards)
+        #endif
         thumbnailTask?.cancel(); thumbnailTask = nil
+        videoFeed?.finish(); videoFeed = nil
+        audioFeed?.finish(); audioFeed = nil
+        for t in feedTasks { t.cancel() }
+        feedTasks = []
         // A show that ends mid-recording still leaves a playable file.
         if let r = recorder { recorder = nil; _ = await r.finish() }
         // A stopped engine must not follow the film: going live stops the
@@ -1619,6 +1641,16 @@ public actor StudioEngine {
         health.guestTile = renderer.lastGuestRect
         await pumpChat()
     }
+
+    /// The ordered hand-off from the encoder and the mixer to the publisher.
+    struct AudioPacket: Sendable { let data: Data; let pts: CMTime }
+    private var videoFeed: AsyncStream<EncodedVideoFrame>.Continuation?
+    private var audioFeed: AsyncStream<AudioPacket>.Continuation?
+    private var feedTasks: [Task<Void, Never>] = []
+    #if DEBUG
+    private var lastVideoDTS: CMTime?, lastAudioPTS: CMTime?
+    private var videoBackwards = 0, audioBackwards = 0
+    #endif
 
     /// The previous sample, so `encodedFramesPerSecond` is a rate.
     private var lastEncodedFrameCount = 0
@@ -2081,6 +2113,10 @@ public actor StudioEngine {
             reportClockOriginsIfReady()
         }
         health.encodedBytes += frame.count
+        #if DEBUG
+        if let last = lastAudioPTS, CMTimeCompare(pts, last) < 0 { audioBackwards += 1 }
+        lastAudioPTS = pts
+        #endif
         // §D35 — the recording takes the same packet, on air or in rehearsal.
         if let recorder { await recorder.append(audio: frame, at: pts) }
         guard publishing else { return }
@@ -2097,6 +2133,10 @@ public actor StudioEngine {
         }
         health.programFramesEncoded += 1
         health.encodedBytes += frame.avccData.count
+        #if DEBUG
+        if let last = lastVideoDTS, CMTimeCompare(frame.decodeTime, last) < 0 { videoBackwards += 1 }
+        lastVideoDTS = frame.decodeTime
+        #endif
         if let recorder { await recorder.append(video: frame) }
         guard publishing else { return }
         await publisher.send(video: frame)
