@@ -251,7 +251,15 @@ public enum StudioPlatformAuth {
                 "Sign in to \(platform.displayName) to stream. Archive Watch will fetch the stream key itself.")
         }
         if stored.isFresh { return stored.access }
+        return try await refreshGate.run(platform.rawValue) {
+            try await refreshNow(platform, clientID: clientID, stored: stored)
+        }
+    }
 
+    static let refreshGate = StudioRefreshGate()
+
+    private static func refreshNow(_ platform: Platform, clientID: String,
+                                   stored: StudioTokenStore.Token) async throws -> String {
         let renewed: StudioTokenStore.Token
         switch platform {
         case .youtube:

@@ -230,6 +230,9 @@ CHATYT=ArchiveWatch/ArchiveWatch/Studio/StudioChatYouTube.swift
 CHATFILTER=ArchiveWatch/ArchiveWatch/Studio/StudioChatFilter.swift
 AUTH=ArchiveWatch/ArchiveWatch/Studio/StudioPlatformAuth.swift
 PLAT=ArchiveWatch/ArchiveWatch/Studio/StudioPlatforms.swift
+# token(for:) refreshes through the gate (§8.59), so every case that compiles
+# $PLAT needs it too.
+GATE=ArchiveWatch/ArchiveWatch/Studio/StudioRefreshGate.swift
 MEDIA=tools/StudioTestMedia.swift
 
 swift_case "8.1 rtmp publish"      "$PUB" "$MEDIA" "$SHIM" tools/test_rtmp_publish.swift
@@ -244,6 +247,7 @@ swift_case "8.15 audio ring FIFO"  "$PUB" "$ENG" "$REC" "$CHATFILTER" "$OUT" "$A
 swift_case "8.16 programme rate"   "$PUB" "$ENG" "$REC" "$CHATFILTER" "$OUT" "$AUD" "$OVL" "$CHAT" "$CHATYT" "$DEC" "$SHIM" tools/test_studio_rate.swift
 swift_case "8.17 tap resampler"    "$PUB" "$ENG" "$REC" "$CHATFILTER" "$OUT" "$AUD" "$OVL" "$CHAT" "$CHATYT" "$SHIM" tools/test_studio_resample.swift
 swift_case "8.56 chat quota"          "$PUB" "$ENG" "$REC" "$CHATFILTER" "$OUT" "$AUD" "$OVL" "$CHAT" "$CHATYT" "$SHIM" tools/test_studio_chat_quota.swift
+swift_case "8.59 refresh single-flight" ArchiveWatch/ArchiveWatch/Studio/StudioRefreshGate.swift tools/test_studio_refresh_gate.swift
 # The camera-placement settings, asserted against what their LABELS promise.
 # Owner 2026-09-20: "I'm not sure the different settings for where your camera
 # will go ... are actually working as they should." They were not: theatre was
@@ -377,14 +381,14 @@ fi
 # precisely the condition §9.aaa describes: a test that exists and therefore
 # does not get run. Both send DELIBERATELY invalid credentials to the real
 # endpoints and need no account, no server and no device — only a network.
-swift_case "8.2 sign-in shapes"    "$AUTH" "$PLAT" "$SHIM" tools/test_studio_signin.swift
-swift_case "8.7 live-platform shapes" "$AUTH" "$PLAT" "$SHIM" tools/test_studio_live_shapes.swift
+swift_case "8.2 sign-in shapes"    "$AUTH" "$PLAT" "$GATE" "$SHIM" tools/test_studio_signin.swift
+swift_case "8.7 live-platform shapes" "$AUTH" "$PLAT" "$GATE" "$SHIM" tools/test_studio_live_shapes.swift
 # The REGISTERED clients. Skips (exit 2) where Secrets.xcconfig carries no
 # client id, which is every machine but the owner's - and a skip is not a
 # pass, so `--strict` makes it a failure once the ids exist. 8.2 proves the
 # shapes with credentials that are wrong on purpose; this proves OUR
 # registration accepts them, which is a defect class 8.2 cannot see.
-swift_case "8.9 registered clients" "$AUTH" "$PLAT" "$SHIM" tools/test_studio_registered.swift
+swift_case "8.9 registered clients" "$AUTH" "$PLAT" "$GATE" "$SHIM" tools/test_studio_registered.swift
 # §5's credential rule, guarded. Needs no network and no account: it throws a
 # sentinel key at every error path the publisher can reach and asserts the
 # string comes back in none of them. Its first run found a live leak.
@@ -658,7 +662,7 @@ swift_case "8.10 stream-key hygiene" "$PUB" "$SHIM" tools/test_studio_key_hygien
 # it cannot disturb a real sign-in. Reports the keychain CHOICE rather than
 # judging it — an unentitled binary cannot reach the data-protection keychain,
 # so that question belongs inside the signed app (§9.rrr).
-swift_case "8.11 token store"       "$AUTH" "$PLAT" "$SHIM" tools/test_studio_token_store.swift
+swift_case "8.11 token store"       "$AUTH" "$PLAT" "$GATE" "$SHIM" tools/test_studio_token_store.swift
 # ---- the rights tests, which need no server at all
 for t in tools/test_studio_rights_parity.py tools/test_studio_rights_coverage.py; do
   name="$(basename "$t")"
