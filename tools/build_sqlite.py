@@ -1142,6 +1142,10 @@ def populate_items(db, items, rotate_seed="0", skip_aids=frozenset()):
             " ".join(it.get("countries") or []),
             " ".join(it.get("keywords") or []),
             it.get("originalTitle") or "", " ".join(it.get("akaTitles") or []),
+            # The series a film belongs to: "hopalong" found 1 of the 11
+            # Hopalong Cassidy films, because the rest are titled "Bar 20
+            # Rides Again" and the like (2026-09-24).
+            it.get("franchise") or "",
             syn[:400],
         ]).strip()
         fts_rows.append((aid, it.get("title") or "", names, extra))

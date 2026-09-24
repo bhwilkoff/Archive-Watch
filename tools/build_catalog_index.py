@@ -217,6 +217,8 @@ def main():
         if it.get("writer"):
             search_parts.append(it["writer"])
         search_parts += studios
+        if it.get("franchise"):          # the series it belongs to (same as the apps' FTS)
+            search_parts.append(it["franchise"])
         search = " ".join(search_parts).lower() or None
         # Wide backdrop (column 7, schema 7) — the web hero uses it so it shows well-composed wide
         # art, never a cropped 2:3 poster (owner 2026-06-29). Only a real designed backdrop; null
