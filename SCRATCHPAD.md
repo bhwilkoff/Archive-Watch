@@ -60,6 +60,17 @@ because the loop was stopped mid-stride for a Claude update.
    Everything below in item 7 about the demo video is history. After approval:
    add the Terms of Service URL to Branding (audit A9).
 
+0-NEWEST-3. **MODERN FILMS KEPT ON AN UPLOADER'S LICENCE (owner call, 2026-09-24).**
+   Ingest now HOLDS a new modern (1978+) item whose only claim to stay is the
+   archive item's licence: queue status `held_modern_license` in
+   `shared/editorial/discovery_candidates.json`, never ingested (a trial held
+   A Better Tomorrow, Hard Boiled, Police Story, Taxi Driver). Genuine creator
+   CC works are held with them; review the list and release any by setting the
+   status back to `new`. Separately, 55 VISIBLE modern titles already sit in
+   `safe_archive_license` on the same basis — mostly real creator CC work
+   (Star Wreck, activist shorts) plus Taxi Season 1 and Wishbone (item 15-NEW).
+   `license_rescues` still keeps those; tightening it is Decision 027/114's call.
+
 0-NEWEST-2. **THREE SMALL OWNER CALLS FROM 2026-09-23** (nothing blocked on them).
    (a) The social poster's YouTube token is `youtube.upload` only, so
    `social_metrics.py` has never read a YouTube view or like (14 × HTTP 403 a
