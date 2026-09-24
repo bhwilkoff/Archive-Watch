@@ -46,7 +46,6 @@ object StudioPlatformAuth {
     val twitchScopes = listOf(
         "channel:read:stream_key",
         "channel:manage:broadcast",
-        "user:read:chat",
     )
     private val twitchRequiredScopes = listOf(
         "channel:read:stream_key",
@@ -200,7 +199,38 @@ object StudioPlatformAuth {
         val stored = StudioTokenStore.load(context, TWITCH)
             ?: throw IllegalStateException(
                 "Sign in to Twitch to stream. Archive Watch will fetch the stream key itself.")
-        return if (stored.isFresh) stored.access else refresh(context, stored).access
+        val access = if (stored.isFresh) stored.access else refresh(context, stored).access.also {
+            lastValidatedMillis = System.currentTimeMillis()
+        }
+        if (validationDue(lastValidatedMillis, System.currentTimeMillis())) validate(context, access)
+        return access
+    }
+
+    /// Twitch requires an hourly `/oauth2/validate` while a token is in use
+    /// (launch audit B); the same rule as Apple's `StudioValidationClock`.
+    @Volatile private var lastValidatedMillis = 0L
+    private const val VALIDATE_EVERY_MILLIS = 3_600_000L
+
+    fun validationDue(last: Long, now: Long): Boolean =
+        last == 0L || now - last >= VALIDATE_EVERY_MILLIS
+
+    /// Only a 401 ends a sign-in; no network or a 5xx says nothing about the
+    /// token, and clearing it then would sign a host out over a Wi-Fi hiccup.
+    fun validationRevokes(status: Int?): Boolean = status == 401
+
+    private fun validate(context: Context, access: String) {
+        val req = Request.Builder()
+            .url("https://id.twitch.tv/oauth2/validate")
+            .header("Authorization", "OAuth $access")
+            .build()
+        val status = runCatching { http.newCall(req).execute().use { it.code } }.getOrNull()
+        when {
+            status in 200..299 -> lastValidatedMillis = System.currentTimeMillis()
+            validationRevokes(status) -> {
+                StudioTokenStore.clear(context, TWITCH)
+                throw IllegalStateException("Twitch has ended this sign-in. Sign in again to use Twitch.")
+            }
+        }
     }
 
     // MARK: - Readiness, asked with a READ

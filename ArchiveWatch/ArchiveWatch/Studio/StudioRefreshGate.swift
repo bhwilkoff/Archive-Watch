@@ -20,3 +20,34 @@ actor StudioRefreshGate {
         return try await task.value
     }
 }
+
+/// TWITCH REQUIRES AN HOURLY `/oauth2/validate` WHILE A TOKEN IS IN USE
+/// (launch audit B; Twitch's "Validating requests"). A token the host revoked
+/// at twitch.tv stays in the Keychain until something asks, and an app that
+/// never asks keeps presenting it. `token(for: .twitch)` consults this clock,
+/// so every caller — the viewer count every 60 s, a chapter marker, the
+/// go-live read — carries the check without having to remember it.
+actor StudioValidationClock {
+    static let interval: TimeInterval = 3600
+    private var last: [String: Date] = [:]
+
+    func isDue(_ key: String, now: Date = Date()) -> Bool {
+        guard let t = last[key] else { return true }
+        return now.timeIntervalSince(t) >= Self.interval
+    }
+
+    func mark(_ key: String, at now: Date = Date()) { last[key] = now }
+
+    enum Verdict: Equatable { case valid, revoked, unknown }
+
+    /// Only a 401 ends a sign-in. A 5xx, a timeout or no network says nothing
+    /// about the token, and clearing it then would sign a host out mid-show
+    /// because their Wi-Fi hiccupped.
+    static func verdict(status: Int?) -> Verdict {
+        switch status {
+        case .some(200..<300): .valid
+        case .some(401): .revoked
+        default: .unknown
+        }
+    }
+}

@@ -152,7 +152,10 @@ public enum StudioPlatformAuth {
             // `youtube` covers creating the broadcast and reading live chat.
             return ["https://www.googleapis.com/auth/youtube"]
         case .twitch:
-            return ["channel:read:stream_key", "channel:manage:broadcast", "user:read:chat"]
+            // No chat scope: chat is read anonymously over IRC
+            // (StudioChatTwitch), so asking for it would be a permission the
+            // consent screen names and nothing spends.
+            return ["channel:read:stream_key", "channel:manage:broadcast"]
         }
     }
 
@@ -250,13 +253,46 @@ public enum StudioPlatformAuth {
             throw StudioPlatformError.notSignedIn(
                 "Sign in to \(platform.displayName) to stream. Archive Watch will fetch the stream key itself.")
         }
-        if stored.isFresh { return stored.access }
-        return try await refreshGate.run(platform.rawValue) {
-            try await refreshNow(platform, clientID: clientID, stored: stored)
+        let access: String
+        if stored.isFresh {
+            access = stored.access
+        } else {
+            access = try await refreshGate.run(platform.rawValue) {
+                try await refreshNow(platform, clientID: clientID, stored: stored)
+            }
+            await validationClock.mark(platform.rawValue)
         }
+        if platform == .twitch, await validationClock.isDue(platform.rawValue) {
+            try await validateTwitch(access)
+        }
+        return access
     }
 
     static let refreshGate = StudioRefreshGate()
+    static let validationClock = StudioValidationClock()
+
+    /// The hourly check Twitch requires. A revoked token is CLEARED, so the
+    /// sign-in row says "not signed in" rather than the name of an account
+    /// that has withdrawn consent. The broadcast itself is not touched: it
+    /// runs on the stream key, which is already in the publisher.
+    private static func validateTwitch(_ access: String) async throws {
+        var r = URLRequest(url: URL(string: "https://id.twitch.tv/oauth2/validate")!)
+        r.setValue("OAuth \(access)", forHTTPHeaderField: "Authorization")
+        r.timeoutInterval = 10
+        let status = (try? await URLSession.shared.data(for: r))
+            .flatMap { ($0.1 as? HTTPURLResponse)?.statusCode }
+        switch StudioValidationClock.verdict(status: status) {
+        case .valid:
+            await validationClock.mark(Platform.twitch.rawValue)
+        case .revoked:
+            StudioTokenStore.clear(for: Platform.twitch.rawValue)
+            GoogleAuth.adiag("twitch validate HTTP 401 — token cleared")
+            throw StudioPlatformError.notSignedIn(
+                "Twitch has ended this sign-in. Sign in again to use Twitch.")
+        case .unknown:
+            break   // asked again on the next call
+        }
+    }
 
     private static func refreshNow(_ platform: Platform, clientID: String,
                                    stored: StudioTokenStore.Token) async throws -> String {
