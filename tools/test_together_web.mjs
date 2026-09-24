@@ -136,5 +136,46 @@ check("a quiet room backs off", near(T.pollInterval(120), T.POLL_IDLE));
   check("after stop, nothing is re-checked", polls === before + 1, `polls=${polls}`);
 }
 
+// ---- a seek AIMS AHEAD by this browser's own last seek time (§11.3)
+{
+  class V extends EventTarget {
+    constructor() { super(); this._t = 10; this.paused = false; this.playbackRate = 1; this.readyState = 4; this.sets = []; }
+    get currentTime() { return this._t; }
+    set currentTime(v) { this._t = v; this.sets.push(v); }
+    pause() { this.paused = true; } play() { this.paused = false; return Promise.resolve(); }
+  }
+  let pos = 500;
+  const now = () => Date.now() / 1000;
+  const client = {
+    async poll() { return { filmID: "x", position: pos, atServerTime: now(), rate: 1, paused: false, generation: 1 }; },
+    serverNow: now, nextPollDelay: () => 60, sayHere() {},
+  };
+  const v = new V();
+  const session = T.follow(v, client, null, null);
+  await new Promise(r => setTimeout(r, 30));
+  const first = v.sets[0];
+  check("the first catch-up seek aims at the host (no lead until one is measured)", first !== undefined && Math.abs(first - 500) < 0.05,
+        `seeked to ${first}`);
+  // The seek "took" 200 ms; the next one should aim that far ahead.
+  await new Promise(r => setTimeout(r, 200));
+  v.dispatchEvent(new Event("seeked"));
+  v._t = 10; pos = 900; v.sets = [];
+  v.dispatchEvent(new Event("seeking"));   // wake the follower (a guest move)
+  await new Promise(r => setTimeout(r, 1600)); // past the own-move window
+  v.dispatchEvent(new Event("seeking"));
+  await new Promise(r => setTimeout(r, 40));
+  const second = v.sets[v.sets.length - 1];
+  check("the next seek uses the MEASURED seek time (~0.2 s)", second !== undefined && second - 900 > 0.15 && second - 900 < 0.35,
+        `seeked to ${second}`);
+  session.stop();
+  // A paused guest gets no lead: nothing moves while a still frame loads.
+  const p = new V(); p.paused = true;
+  const pc = { ...client, async poll() { return { filmID: "x", position: 300, atServerTime: now(), rate: 1, paused: true, generation: 1 }; } };
+  const s2 = T.follow(p, pc, null, null);
+  await new Promise(r => setTimeout(r, 30));
+  check("a paused guest is seeked to the exact frame, no lead", p.sets[0] === 300, `seeked to ${p.sets[0]}`);
+  s2.stop();
+}
+
 console.log(failures === 0 ? "=== §8.32 OK ===" : `=== §8.32 ${failures} FAILURES ===`);
 process.exit(failures === 0 ? 0 : 1);

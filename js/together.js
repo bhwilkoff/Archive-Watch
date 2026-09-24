@@ -169,6 +169,16 @@
     let hostRate = 1;
     let timer = null;
     let appliedAt = 0;          // when WE last moved the player
+    // AIMED AHEAD by how long a seek takes here, as Apple's follower does
+    // (§11.3): the host keeps playing while this one seeks, so a seek to
+    // where the host WAS lands behind and then spends up to half a minute
+    // catching up at +3%. The lead is this browser's own last seek time.
+    // ZERO until measured. A default lead is a guess, and in a browser it is
+    // a wrong one: seeking buffered mp4 is near-instant, and §8.66 landed
+    // 0.27 s AHEAD with the iPhone's 0.5 and 0.2-0.26 ahead with 0.2, against
+    // 0.03 with none. Only a seek this browser has timed may aim ahead.
+    let seekLead = 0;
+    let seekStartedAt = 0;
     const OWN_EVENT_MS = 1500;  // a pause/seek this soon after ours is ours
 
     async function tick() {
@@ -196,7 +206,12 @@
           if (!video.paused && video.playbackRate !== hostRate) video.playbackRate = hostRate;
           break;
         case 'nudge': video.playbackRate = hostRate * c.rate; break;
-        case 'seek': video.currentTime = c.to; break;
+        case 'seek': {
+          const lead = video.paused ? 0 : seekLead * hostRate;
+          seekStartedAt = Date.now();
+          video.currentTime = c.to + lead;
+          break;
+        }
         case 'setPaused':
           if (c.paused) video.pause();
           else { video.playbackRate = hostRate; video.play().catch(() => {}); }
@@ -211,6 +226,13 @@
     const here = () => { if (!stopped) client.sayHere(token); };
     here();
     const hereTimer = setInterval(here, 30000);
+
+    const seeked = () => {
+      if (!seekStartedAt) return;
+      seekLead = Math.min(3, Math.max(0, (Date.now() - seekStartedAt) / 1000));
+      seekStartedAt = 0;
+    };
+    video.addEventListener('seeked', seeked);
 
     const guestMoved = () => {
       if (stopped || Date.now() - appliedAt < OWN_EVENT_MS) return;
@@ -228,6 +250,7 @@
         clearInterval(hereTimer);
         video.removeEventListener('pause', guestMoved);
         video.removeEventListener('seeking', guestMoved);
+        video.removeEventListener('seeked', seeked);
         video.playbackRate = 1;
       },
     };
