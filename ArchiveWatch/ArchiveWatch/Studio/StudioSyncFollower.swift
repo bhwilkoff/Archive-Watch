@@ -47,6 +47,9 @@ public final class StudioSyncFollower {
     /// When WE last moved the player, so our own seeks and pauses are not
     /// mistaken for the guest's.
     @ObservationIgnored private var appliedAt = Date.distantPast
+    /// When following began: the app is still loading and positioning the
+    /// film for the first seconds, and none of that is the guest's.
+    @ObservationIgnored private var followingSince = Date.distantFuture
     @ObservationIgnored private var rateObservation: NSKeyValueObservation?
     @ObservationIgnored private var jumpObserver: NSObjectProtocol?
     @ObservationIgnored private let client: StudioSyncClient
@@ -90,6 +93,7 @@ public final class StudioSyncFollower {
         do {
             let state = try await client.join(code: typed)
             status = .following(code: (await client.code) ?? typed, filmID: state.filmID)
+            followingSince = Date()
             onFilm(state.filmID)
             watchForGuestMoves(on: player)
             startFollowing()
@@ -128,6 +132,7 @@ public final class StudioSyncFollower {
         stopWatchingForGuestMoves()
         noticeClear?.cancel()
         notice = nil
+        followingSince = .distantFuture
         player?.rate = Float(hostRate)
         Task { await client.leave() }
         status = .idle
@@ -144,10 +149,15 @@ public final class StudioSyncFollower {
     /// rule as the web's `follow`.
     private func watchForGuestMoves(on player: AVPlayer) {
         stopWatchingForGuestMoves()
-        rateObservation = player.observe(\.rate, options: [.new]) { [weak self] p, _ in
-            let rate = p.rate
+        // A PAUSE is a PLAYING player stopping: `old > 0`, `new == 0`. The
+        // first version fired on `rate == 0` alone, and a player starting up
+        // reports exactly that — measured on the iPhone 12, 2026-09-24: "The
+        // host controls the film." at the moment of joining, with nobody
+        // having touched anything.
+        rateObservation = player.observe(\.rate, options: [.old, .new]) { [weak self] _, change in
+            let old = change.oldValue ?? 0, new = change.newValue ?? 0
             Task { @MainActor in
-                guard let self, rate == 0 else { return }
+                guard let self, old > 0, new == 0 else { return }
                 self.guestMoved()
             }
         }
@@ -164,16 +174,38 @@ public final class StudioSyncFollower {
         jumpObserver = nil
     }
 
+    /// An event only RAISES the question; the answer is whether the guest
+    /// is actually out of step. The player reports rate changes and time
+    /// jumps of its own — loading, resuming, our own seeks landing late — and
+    /// every event-shaped filter tried first still spoke over a guest who had
+    /// touched nothing (iPhone 12, 2026-09-24). So a notice needs a
+    /// correction that only a guest's move produces: paused while the host
+    /// plays, or far enough off that the room must seek.
     private func guestMoved() {
         guard case .following = status,
+              Date().timeIntervalSince(followingSince) > 5,
               Date().timeIntervalSince(appliedAt) > 1.5 else { return }
         // A pause the HOST asked for is not the guest's.
         if let s = lastKnownState, s.paused { return }
         // Nor is the film reaching its end.
         if let item = player?.currentItem, item.duration.isNumeric,
            item.currentTime().seconds >= item.duration.seconds - 1 { return }
-        say("The host controls the film.", for: 3)
-        Task { await tick() }
+        Task { [weak self] in
+            guard let self, let player = self.player else { return }
+            let local = player.currentTime().seconds
+            guard local.isFinite else { return }
+            // Intent, not buffering: a stalled player still has a rate.
+            guard let c = await self.client.correction(localPosition: local,
+                                                       localPaused: player.rate == 0) else { return }
+            switch c {
+            case .seek, .setPaused:
+                self.say("The host controls the film.", for: 3)
+                self.lastCorrection = c
+                self.apply(c, to: player)
+            case .none, .nudge:
+                return
+            }
+        }
     }
 
     private func say(_ text: String, for seconds: Double?) {
@@ -290,6 +322,10 @@ public final class StudioSyncFollower {
                 let took = Date().timeIntervalSince(started)
                 Task { @MainActor in
                     guard let self else { return }
+                    // Our own seek's time-jump can land after it COMPLETES —
+                    // measured 2.2 s after it started — so the "this was us"
+                    // window runs from completion, not from the request.
+                    self.appliedAt = Date()
                     self.seekLead = min(3, max(0, took))
                     #if DEBUG
                     awdiag("AWFOLLOW seek aimed +%.2fs, took %.2fs", lead, took)

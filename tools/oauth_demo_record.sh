@@ -64,18 +64,22 @@ cat <<'TXT'
        account has already granted it, Google collapses it to "Archive Watch
        already has some access" and the sentence never appears.
 
-       Before recording, on the account you will use:
-         1. open https://myaccount.google.com/permissions
-         2. find Archive Watch, Remove access, confirm
-         3. confirm it is gone from the list
+       myaccount.google.com/permissions CANNOT do this for a Brand Account
+       (measured 2026-09-22: the grant survives every removal there). The
+       token is the only handle, and the Studio's Sign out revokes it:
+         1. sign in once in the Studio to the channel you will film
+            (choose the Brand Account), off camera
+         2. press Sign out: it calls oauth2.googleapis.com/revoke, which
+            drops the whole grant, including other devices' tokens
+         3. the next sign-in prints "Manage your YouTube account" in words
 
        Use benwilkoff@gmail.com — the channels approved for live streaming
        (Learning is Change, Archive Watch) are on that account.
 TXT
 if [ "$CHECK_ONLY" = "0" ]; then
-  read -r -p "       Has access been revoked for this account? [y/N] " a
+  read -r -p "       Signed in and out once (Sign out revokes)? [y/N] " a
   case "$a" in [yY]*) ok "revoked — the consent screen will print the scope";;
-    *) bad "revoke first, or the video is rejected for the same reason again"; esac
+    *) bad "sign in + Sign out first, or the consent screen collapses again"; esac
 fi
 
 say "3. A film that is rights-KEEP and has a soundtrack"
