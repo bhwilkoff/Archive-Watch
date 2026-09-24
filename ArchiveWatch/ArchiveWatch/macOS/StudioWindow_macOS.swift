@@ -476,6 +476,19 @@ struct StudioWindowView: View {
             #endif
             show.choosing = show.film == nil
             refreshDevices()
+            #if DEBUG
+            // AW_STUDIO_WINDOW_SIZE=1120x660 — size the Studio window, so a
+            // layout can be checked at the minimum without a pointer.
+            if let v = ProcessInfo.processInfo.environment["AW_STUDIO_WINDOW_SIZE"] {
+                let p = v.split(separator: "x").compactMap { Double($0) }
+                if p.count == 2 {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                        NSApp.windows.first { $0.title == "Watch Together Studio" }?
+                            .setContentSize(NSSize(width: p[0], height: p[1]))
+                    }
+                }
+            }
+            #endif
         }
         // A BROADCAST NEVER OUTLIVES ITS STUDIO (§D12). This is Rule B13a's one
         // genuinely load-bearing objection to a second window — that a host

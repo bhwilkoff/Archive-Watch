@@ -350,11 +350,30 @@ struct StudioSceneBar: View {
 
     var body: some View {
         HStack(spacing: 6) {
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 6) {
-                    ForEach(Array(store.scenes.enumerated()), id: \.element.id) { i, scene in
-                        sceneButton(scene, index: i)
+            // AT THE MINIMUM WIDTH the fifth scene sat cut off behind "+", with
+            // nothing saying more existed (seen at 1120x660, 2026-09-23). The
+            // row fades at its trailing edge — over empty space when everything
+            // fits, so it shows only when something is hidden — and the scene
+            // on air is always scrolled into view, whichever way it was chosen.
+            ScrollViewReader { proxy in
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 6) {
+                        ForEach(Array(store.scenes.enumerated()), id: \.element.id) { i, scene in
+                            sceneButton(scene, index: i).id(scene.id)
+                        }
                     }
+                    .padding(.trailing, 20)
+                }
+                .mask(
+                    HStack(spacing: 0) {
+                        Rectangle()
+                        LinearGradient(colors: [.black, .clear],
+                                       startPoint: .leading, endPoint: .trailing)
+                            .frame(width: 20)
+                    }
+                )
+                .onChange(of: store.selectedID) { _, id in
+                    withAnimation(.easeOut(duration: 0.2)) { proxy.scrollTo(id, anchor: .center) }
                 }
             }
             Button { store.add() } label: { Image(systemName: "plus") }
