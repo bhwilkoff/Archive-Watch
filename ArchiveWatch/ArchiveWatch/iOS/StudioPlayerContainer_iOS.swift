@@ -472,6 +472,18 @@ struct StudioPlayerContainer: View {
             let src = await e.filmAudioSourcePosition
             let buf = await e.filmAudioBuffered
             let head = filmPlayer?.currentTime().seconds ?? -1
+            // THE DOOR'S MUTE MUST HOLD. On an iPhone 12 (iOS 26.6.1,
+            // 2026-09-24) it read `muted=n` within a second of "AWMUTE iOS
+            // door player muted" and the film played aloud for the whole run;
+            // the iPad kept it. Nothing of ours unmutes, so the player view
+            // adopting the player is the suspect — re-assert, and say so.
+            let doorEnv = ProcessInfo.processInfo.environment
+            if let p = filmPlayer, !p.isMuted,
+               doorEnv["AW_STUDIO_IOS"] != nil || doorEnv["AW_STUDIO_GOLIVE"] != nil,
+               doorEnv["AW_STUDIO_IOS_SOUND"] != "1" {
+                p.isMuted = true
+                awdiag("AWMUTE iOS door player was UNMUTED by something else — muted again")
+            }
             awdiag("AWIOSMIX filmFrames=%d filmLevel=%.4f micLevel=%.4f ringFill=%.2f padded=%d source=%.2f playhead=%.2f buffered=%.2f rate=%.2f muted=%@",
                    h.audio.filmFramesWritten, h.audio.filmLevel, h.audio.micLevel, bed.filmRingFill,
                    h.audio.filmFramesPadded, src ?? -1, head, buf,
