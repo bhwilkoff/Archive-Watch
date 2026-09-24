@@ -620,19 +620,11 @@ private struct WatchTogetherLanding: View {
                     // Decision 132 gates HOSTING on being able to be in the
                     // show; a joiner contributes nothing to the program and
                     // is simply watching in step.
-                    Button {
-                        // The room is opened where the AVPlayer is; this only
-                        // asks. If no film is playing there is nothing to
-                        // watch together, which is why it is disabled.
-                        RoomJoin.shared.wantsToHost = true
-                        if let film = router.nowPlaying { router.play(film) }
-                    } label: {
-                        Label("Start a room…", systemImage: "person.2.badge.plus")
-                            .padding(.horizontal, 6)
-                    }
-                    .controlSize(.large)
-                    .fixedSize()
-                    .disabled(router.nowPlaying == nil || RoomJoin.shared.hostCode != nil)
+                    // "Start a room…" WAS HERE, disabled whenever no film was
+                    // playing in a player window — which, since §D7 put the
+                    // film inside the Studio, was always. §11.13 puts hosting
+                    // where the broadcast is, and the Studio's "Friends on
+                    // your call" is that place.
 
                     Button {
                         joining = true
@@ -664,11 +656,8 @@ private struct WatchTogetherLanding: View {
                     }
                     .padding(.top, 4)
                 }
-                if router.nowPlaying == nil {
-                    Text("Open a film to go live.")
-                        .font(.callout).foregroundStyle(.secondary)
-                        .multilineTextAlignment(.center).frame(maxWidth: 520)
-                }
+                // "Open a film to go live." stood here; §D7 lets the host
+                // choose the film inside the Studio, so it was untrue.
 
                 // ONLY WHAT THIS DEVICE CAN DO. Owner: "You shouldn't
                 // advertise features that don't exist on the platform you are

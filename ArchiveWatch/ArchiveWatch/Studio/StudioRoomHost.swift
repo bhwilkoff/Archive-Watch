@@ -28,6 +28,15 @@ public final class StudioRoomHost {
     private let client: StudioSyncClient
     private weak var player: AVPlayer?
     private var filmID: String = ""
+
+    /// The link a guest opens with NO APP AT ALL (SHAREPLAY §11.6.2): the
+    /// web's `#/together/<code>-<film>` route, which joins in any browser.
+    public var inviteURL: URL? {
+        guard let code, !filmID.isEmpty,
+              let film = filmID.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)
+        else { return nil }
+        return URL(string: "https://archivewatch.org/#/together/\(code)-\(film)")
+    }
     private var rateObserver: NSKeyValueObservation?
     private var timeObserver: Any?
     /// The last position we told the room about, so a SEEK can be told apart

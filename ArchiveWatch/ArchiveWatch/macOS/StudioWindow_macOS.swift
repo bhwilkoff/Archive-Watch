@@ -2086,6 +2086,7 @@ struct StudioDestinationSection: View {
 
     @Bindable private var room = RoomJoin.shared
     @State private var roomWorking = false
+    @State private var inviteCopiedAt: Date?
     @State private var roomProblem: String?
 
     /// The audience link is for the WORLD; a room is for the people on the
@@ -2108,14 +2109,31 @@ struct StudioDestinationSection: View {
                             .foregroundStyle(n == 0 ? Color.secondary : Color.primary)
                     }
                 }
-                Text("Friends enter it under Watch Together in Archive Watch.")
+                Text("Friends open the link in any browser, or enter the code under Watch Together in Archive Watch.")
                     .font(.caption2).foregroundStyle(.secondary)
                     .fixedSize(horizontal: false, vertical: true)
-                Button("Close the room") {
-                    StudioRoomHost.shared.stop()
-                    room.hostCode = nil
+                HStack(spacing: 8) {
+                    // Pasted into the call's own chat, this is the whole join
+                    // for anyone without the app (§11.6.2).
+                    if let invite = StudioRoomHost.shared.inviteURL {
+                        Button(inviteCopiedAt == nil ? "Copy invite link" : "Copied") {
+                            NSPasteboard.general.clearContents()
+                            NSPasteboard.general.setString(invite.absoluteString, forType: .string)
+                            inviteCopiedAt = Date()
+                        }
+                        .controlSize(.small)
+                        .task(id: inviteCopiedAt) {
+                            guard inviteCopiedAt != nil else { return }
+                            try? await Task.sleep(for: .seconds(2))
+                            inviteCopiedAt = nil
+                        }
+                    }
+                    Button("Close the room") {
+                        StudioRoomHost.shared.stop()
+                        room.hostCode = nil
+                    }
+                    .controlSize(.small)
                 }
-                .controlSize(.small)
             } else {
                 Button(roomWorking ? "Opening…" : "Open a room") { Task { await openRoom() } }
                 .controlSize(.small)
