@@ -184,7 +184,11 @@ def main():
         {"archiveID": "keep2", "title": "K2", "year": 1960, "contentType": "feature-film", "artworkSource": "archive"},
     ]}
     tmp = Path(tempfile.mktemp(suffix=".sqlite"))
-    B.build_db_obj(cat, tmp)
+    # materialize_episodes=False: Decision 045 made the full build also add
+    # every TV episode from the repo's real series/*.json (2,769 of them), so
+    # this three-film catalog came back with thousands of rows and the check
+    # failed on a build that was skipping `hide1` correctly all along.
+    B.build_db_obj(cat, tmp, materialize_episodes=False)
     con = sqlite3.connect(str(tmp))
     ids = sorted(r[0] for r in con.execute("SELECT archiveID FROM items"))
     con.close(); tmp.unlink()
