@@ -730,10 +730,27 @@ public struct YouTubeLive: Sendable {
         }
         let chatID = (broadcast["snippet"] as? [String: Any])?["liveChatId"] as? String
 
-        // 3. Bind them.
-        _ = try await HTTP.send(try request(
-            "/liveBroadcasts/bind", method: "POST",
-            query: ["part": "id,contentDetails", "id": broadcastID, "streamId": streamID]))
+        // 3. Bind them. A FAILED BIND DELETES THE BROADCAST IT JUST MADE
+        // (launch audit B): otherwise the error reaches the host and the
+        // unbound broadcast stays in their channel's Upcoming list, the orphan
+        // the owner reported. Only THIS call's broadcast is touched, and a
+        // failed clean-up never hides the error that caused it.
+        var bindStream = streamID
+        #if DEBUG
+        // AW_STUDIO_BREAK_BIND=1 — make the bind fail on purpose, to prove the
+        // clean-up below leaves nothing in Upcoming.
+        if ProcessInfo.processInfo.environment["AW_STUDIO_BREAK_BIND"] == "1" { bindStream = "not-a-stream" }
+        #endif
+        do {
+            _ = try await HTTP.send(try request(
+                "/liveBroadcasts/bind", method: "POST",
+                query: ["part": "id,contentDetails", "id": broadcastID, "streamId": bindStream]))
+        } catch {
+            let cleaned = (try? await delete(broadcastID: broadcastID)) != nil
+            awdiag("AWYTBIND bind failed — broadcast %@ %@", broadcastID,
+                   cleaned ? "deleted" : "COULD NOT BE DELETED")
+            throw error
+        }
 
         return StreamCredentials(server: server, key: key,
                                  backupServer: backupString.flatMap(URL.init(string:)),
