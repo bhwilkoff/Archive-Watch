@@ -154,14 +154,18 @@ for (const p of list) {
 }
 check("switching to every section renders without throwing", threw === null, threw || "");
 
-api.show(DATA, list, "roku");
+// webOS, not Roku: Roku stopped being a no-API store on 2026-09-14, when its
+// Looker dashboards began DELIVERING to our drop box (pulse.js), so the page
+// rightly no longer calls it API-less and this check failed on a correct page.
+// LG's Content Store still publishes nothing we can read.
+api.show(DATA, list, "webos");
 // Assert on the ROWS alone. Including the lede made this pass off a sentence
 // the lede always prints, so it was not testing the branch it names — a
 // negative control caught it before the commit, which is the point of running
 // one on every case rather than on the suite.
-const rokuRows = byId.get("platform-rows").textContent;
+const noApiRows = byId.get("platform-rows").textContent;
 check("a store with no API says so in words, not an empty chart",
-      /publishes no numbers we can read/i.test(rokuRows), JSON.stringify(rokuRows.slice(0, 70)));
+      /publishes no numbers we can read/i.test(noApiRows), JSON.stringify(noApiRows.slice(0, 70)));
 check("...and its lede names the store", 
       /exposes no API/i.test(byId.get("platform-lede").innerHTML));
 
