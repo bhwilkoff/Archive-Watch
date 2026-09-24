@@ -33,6 +33,11 @@ struct GoLiveSheet: View {
     @AppStorage(StudioSession.readYouTubeChatKey) private var readYouTubeChat = false
     @State private var customURL = ""
     @State private var customKey = ""
+    /// Decision 136's third route: the host's own key from the platform's
+    /// page, as OBS connects. No sign-in, no API call, no shared quota — and
+    /// so no chat or viewer count. Held for this sheet only; never saved.
+    @State private var connectWithKey = false
+    @State private var platformKey = ""
     @State private var layout: StudioLayout = .corner
     @State private var showPolicy = false
 
@@ -238,9 +243,24 @@ struct GoLiveSheet: View {
                     Text(p.label).tag(p)
                 }
             }
+            if platform != .custom {
+                Picker("Connect", selection: $connectWithKey) {
+                    Text("Sign in").tag(false)
+                    Text("Stream key").tag(true)
+                }
+                .pickerStyle(.segmented)
+            }
+            if platform != .custom, connectWithKey {
+                SecureField("Stream key", text: $platformKey)
+                    .textInputAutocapitalization(.never)
+                    .autocorrectionDisabled()
+                if let page = platform.streamKeyPage {
+                    Link("Find your stream key", destination: page)
+                }
+            }
             // Who the broadcast goes out AS. Above the title field, because
             // a host cannot usefully name a stream they cannot publish.
-            if platform != .custom {
+            if platform != .custom, !connectWithKey {
                 StudioSignInRow(platform: authPlatform) { signedIn = $0 }
                     // ONE ROW PER PLATFORM. Without this SwiftUI reuses the
                     // row when the picker changes, carrying its @State across:
@@ -261,6 +281,10 @@ struct GoLiveSheet: View {
                 // stays because `canCommit` needs it.
             }
             switch platform {
+            case .youtube where connectWithKey, .twitch where connectWithKey:
+                // Title, privacy and category are set on the platform's own
+                // page for a keyed stream — this app makes no call to set them.
+                EmptyView()
             case .youtube:
                 TextField("Stream title", text: $title, axis: .vertical)
                     .lineLimit(1...3)
@@ -292,6 +316,9 @@ struct GoLiveSheet: View {
         if platform == .custom {
             return "For testing against your own server. Keys typed here are kept for this session only and never saved."
         }
+        if connectWithKey {
+            return "Chat and the viewer count need sign-in. The key is never saved."
+        }
         if StudioPlatformAuth.configurationProblem(for: authPlatform) != nil {
             return "Until that is set up, nothing can be published to \(platform.label) from this build."
         }
@@ -314,6 +341,9 @@ struct GoLiveSheet: View {
 
     private var canCommit: Bool {
         guard refusal == nil else { return false }
+        if platform != .custom, connectWithKey {
+            return !platformKey.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+        }
         guard !title.trimmingCharacters(in: .whitespaces).isEmpty else { return false }
         if platform == .custom {
             return URL(string: customURL)?.host != nil && !customKey.isEmpty
@@ -369,7 +399,8 @@ struct GoLiveSheet: View {
             privacy: privacy,
             layout: layout,
             customServer: platform == .custom ? URL(string: customURL) : nil,
-            customKey: platform == .custom ? customKey : nil))
+            customKey: platform == .custom ? customKey : nil,
+            typedKey: platform != .custom && connectWithKey ? platformKey : nil))
         dismiss()
     }
 

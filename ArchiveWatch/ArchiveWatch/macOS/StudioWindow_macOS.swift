@@ -2231,7 +2231,19 @@ struct StudioDestinationSection: View {
                 .fixedSize(horizontal: false, vertical: true)
         }
         if !studio.isOnAir {
-            Button(studio.isRehearsing ? "Go Live (ends the preview)" : "Go Live") { goLive() }
+            // Going live is several platform calls before a byte is sent —
+            // seconds on YouTube — so the button says it is working rather
+            // than merely greying out.
+            Button { goLive() } label: {
+                if working {
+                    HStack(spacing: 6) {
+                        ProgressView().controlSize(.small)
+                        Text("Going Live…")
+                    }
+                } else {
+                    Text(studio.isRehearsing ? "Go Live (ends the preview)" : "Go Live")
+                }
+            }
                 .controlSize(.large)
                 .frame(maxWidth: .infinity)
                 .disabled(cannotGoLive != nil || working)
