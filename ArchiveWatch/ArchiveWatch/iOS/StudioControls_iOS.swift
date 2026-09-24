@@ -139,10 +139,12 @@ struct StudioHealthCapsule: View {
 
     private var kbps: Int {
         // Encoded bytes are the program's real rate whether or not a
-        // destination is attached.
-        max(0, health.encodedBytes * 8 / 1000 / max(1, secondsLive))
+        // destination is attached — over the last seconds, not the whole
+        // show, or a collapse an hour in would still read as healthy.
+        if health.encodedKbpsRecent > 0 { return health.encodedKbpsRecent }
+        let seconds = max(1, health.programFramesEncoded / max(1, StudioOutputSettings.frameRate))
+        return max(0, health.encodedBytes * 8 / 1000 / seconds)
     }
-    private var secondsLive: Int { max(1, health.programFramesEncoded / 30) }
 
     private func stat(_ text: String, tint: Color = .white) -> some View {
         Text(text)

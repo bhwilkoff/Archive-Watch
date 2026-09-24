@@ -140,7 +140,9 @@ struct StudioTVHealth: View {
     }
 
     private var kbps: Int {
-        let seconds = max(1, health.programFramesEncoded / 30)
+        // The last seconds, not the whole show (see `encodedKbpsRecent`).
+        if health.encodedKbpsRecent > 0 { return health.encodedKbpsRecent }
+        let seconds = max(1, health.programFramesEncoded / max(1, StudioOutputSettings.frameRate))
         return max(0, health.encodedBytes * 8 / 1000 / seconds)
     }
 }

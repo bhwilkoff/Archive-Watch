@@ -1817,8 +1817,9 @@ struct StudioWindowView: View {
                 HStack(spacing: 8) {
                     Circle().fill(Color.red).frame(width: 7, height: 7)
                     TimelineView(.periodic(from: since, by: 1)) { ctx in
-                        let t = max(0, Int(ctx.date.timeIntervalSince(since)))
-                        Text(String(format: "Recording %d:%02d", t / 60, t % 60))
+                        // The same clock as the LIVE badge: past an hour this
+                        // read "Recording 75:03" beside "LIVE 1:15:03".
+                        Text("Recording " + StudioWindowView.elapsed(from: since, to: ctx.date))
                             .font(.caption.weight(.semibold)).monospacedDigit()
                     }
                     Spacer()
@@ -1858,9 +1859,13 @@ struct StudioWindowView: View {
         return url.host.map { "Sending to \($0)" } ?? "Destination set"
     }
 
-    /// The measured rate, for before `videoBitrateNow` is known.
+    /// The measured rate, for before `videoBitrateNow` is known: bytes over
+    /// the frames' own duration at the frame rate the show was built at. It
+    /// assumed 30, so a 24 fps show read 25% low.
     private var measuredKbps: Int {
-        let seconds = max(1, studio.health.programFramesEncoded / 30)
+        if studio.health.encodedKbpsRecent > 0 { return studio.health.encodedKbpsRecent }
+        let fps = max(1, StudioOutputSettings.frameRate)
+        let seconds = max(1, studio.health.programFramesEncoded / fps)
         return max(0, studio.health.encodedBytes * 8 / 1000 / seconds)
     }
 }

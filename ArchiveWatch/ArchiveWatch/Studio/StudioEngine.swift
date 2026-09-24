@@ -540,6 +540,11 @@ public struct StudioHealth: Sendable, Equatable {
     /// stopped at 293 s and every other counter stayed healthy for the
     /// remaining five minutes (§9).
     public var encodedFramesPerSecond = 0
+    /// The picture's encoded rate over the last ~5 s, in kbps. The readouts
+    /// divided ALL bytes by ALL frames, a lifetime average that barely moves
+    /// an hour in — so a rate that had collapsed a minute ago still read as
+    /// healthy. 0 until two samples exist.
+    public var encodedKbpsRecent = 0
     /// The last thing VideoToolbox refused to do, if anything. Swallowed
     /// before that soak: neither `VTCompressionSessionEncodeFrame`'s return
     /// nor its callback status was read.
@@ -1635,6 +1640,7 @@ public actor StudioEngine {
         // This is called once a second by every caller.
         health.encodedFramesPerSecond = max(0, health.programFramesEncoded - lastEncodedFrameCount)
         lastEncodedFrameCount = health.programFramesEncoded
+        health.encodedKbpsRecent = recentKbps(now: Date(), bytes: health.encodedBytes)
         health.encoderFault = encoder?.fault
         recoverEncoderIfDead()
         health.pixelBufferPoolFailures = renderer.poolFailures
@@ -1655,6 +1661,22 @@ public actor StudioEngine {
 
     /// The previous sample, so `encodedFramesPerSecond` is a rate.
     private var lastEncodedFrameCount = 0
+    /// (time, total encoded bytes), one a second, the last six.
+    private var byteSamples: [(Date, Int)] = []
+
+    func recentKbps(now: Date, bytes: Int) -> Int {
+        byteSamples.append((now, bytes))
+        if byteSamples.count > 6 { byteSamples.removeFirst(byteSamples.count - 6) }
+        return Self.kbps(over: byteSamples)
+    }
+
+    /// Kbps between the first and last of `samples` (time, total bytes).
+    static func kbps(over samples: [(Date, Int)]) -> Int {
+        guard let first = samples.first, let last = samples.last, samples.count >= 2 else { return 0 }
+        let dt = last.0.timeIntervalSince(first.0)
+        guard dt > 0.5 else { return 0 }
+        return max(0, Int(Double(last.1 - first.1) * 8 / 1000 / dt))
+    }
 
     /// A DEAD ENCODER IS REBUILT, not mourned.
     ///

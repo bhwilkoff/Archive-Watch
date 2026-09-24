@@ -258,6 +258,7 @@ if [ -f Secrets.xcconfig ]; then
     export AW_YOUTUBE_CLIENT_ID="$(grep -E '^[[:space:]]*YOUTUBE_CLIENT_ID' Secrets.xcconfig | sed 's/.*= *//')"
 fi
 swift_case "8.64 sign-in revocation (validate + refresh)" ArchiveWatch/ArchiveWatch/Studio/StudioRefreshGate.swift tools/test_studio_twitch_validate.swift
+swift_case "8.67 recent bitrate" "$PUB" "$ENG" "$REC" "$CHATFILTER" "$OUT" "$AUD" "$OVL" "$CHAT" "$CHATYT" "$SHIM" tools/test_studio_recent_kbps.swift
 # The camera-placement settings, asserted against what their LABELS promise.
 # Owner 2026-09-20: "I'm not sure the different settings for where your camera
 # will go ... are actually working as they should." They were not: theatre was
