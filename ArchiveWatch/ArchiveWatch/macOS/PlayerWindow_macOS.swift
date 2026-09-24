@@ -423,6 +423,8 @@ struct PlayerSurface: View {
            ProcessInfo.processInfo.environment["AW_STUDIO_MAC_SOUND"] != "1" {
             p.isMuted = true
         }
+        // A room guest under the join door is silent too.
+        if ProcessInfo.processInfo.environment["AW_ROOM_JOIN"] != nil { p.isMuted = true }
         #endif
         // SharePlay: main player only — never the caption scout (see
         // WatchTogether.attach). Re-attached on every build because a rebuilt

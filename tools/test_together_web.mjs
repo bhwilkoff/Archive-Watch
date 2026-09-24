@@ -67,8 +67,10 @@ check("CONTROL: behind and ahead differ", c(129).rate !== c(131).rate);
 check("far off seeks", c(120).kind === "seek" && near(c(120).to, 130));
 check("a host's pause is applied at once",
       T.correction(130, false, paused, 1030).kind === "setPaused");
-check("a paused film is never seeked for drift",
-      T.correction(10, true, paused, 1030).kind === "none");
+check("a paused guest on the wrong FRAME is moved to the host's",
+      T.correction(104.7, true, paused, 1030).kind === "seek" && T.correction(104.7, true, paused, 1030).to === 100);
+check("and one within tolerance is left alone",
+      T.correction(100.1, true, paused, 1030).kind === "none");
 
 // ---- the clock: the fastest sample, and why
 // Asymmetric delays, because under SYMMETRIC delay Cristian's algorithm is

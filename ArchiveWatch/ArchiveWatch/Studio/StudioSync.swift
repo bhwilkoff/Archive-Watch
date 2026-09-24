@@ -142,8 +142,14 @@ public enum StudioSync {
         // RUN STATE FIRST, and never nudged. A host who pressed pause wants
         // the film stopped now, not eased to a halt over thirty seconds.
         if state.paused != localPaused { return .setPaused(state.paused) }
-        // A paused film cannot drift, so there is nothing to correct.
-        if state.paused { return .none }
+        // A PAUSED film cannot drift, but it can be on the wrong FRAME. A host
+        // who pauses to talk about a shot means that shot: measured 2026-09-23,
+        // a Mac guest paused 4.7 s past the host's frame and stayed there,
+        // because this returned .none for every paused state.
+        if state.paused {
+            return abs(state.position - localPosition) > toleranceSeconds
+                ? .seek(to: state.position) : .none
+        }
 
         let expected = state.expectedPosition(atServerTime: serverNow)
         let drift = expected - localPosition      // positive = the guest is BEHIND

@@ -123,12 +123,20 @@ struct StudioSyncTest {
         check("a paused film in step needs no correction",
               StudioSync.correction(localPosition: 100, localPaused: true,
                                     state: paused, serverNow: 1030) == .none)
-        // A paused film cannot drift, so even a large gap must not seek — the
-        // host will move it when they resume.
-        check("a PAUSED film is never seeked for drift",
+        // A paused film cannot DRIFT, but it can be on the wrong FRAME: a host
+        // pauses to talk about a shot, and the guests must see that shot.
+        // (This asserted the opposite until 2026-09-23, when a Mac guest was
+        // measured paused 4.7 s past the host's frame.)
+        check("a paused guest on the WRONG FRAME is moved to the host's",
+              StudioSync.correction(localPosition: 104.7, localPaused: true,
+                                    state: paused, serverNow: 1030) == .seek(to: 100),
+              "\(StudioSync.correction(localPosition: 104.7, localPaused: true, state: paused, serverNow: 1030))")
+        check("and one within tolerance of it is left alone",
+              StudioSync.correction(localPosition: 100.1, localPaused: true,
+                                    state: paused, serverNow: 1030) == .none)
+        check("the frame is the paused POSITION, not an elapsed-time guess",
               StudioSync.correction(localPosition: 10, localPaused: true,
-                                    state: paused, serverNow: 1030) == .none,
-              "\(StudioSync.correction(localPosition: 10, localPaused: true, state: paused, serverNow: 1030))")
+                                    state: paused, serverNow: 5000) == .seek(to: 100))
 
         // Thresholds must be ordered, or a band disappears silently.
         check("tolerance is below the seek threshold",

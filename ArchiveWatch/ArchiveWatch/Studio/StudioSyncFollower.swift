@@ -174,7 +174,9 @@ public final class StudioSyncFollower {
             // lands behind: measured on an iPhone 12 joining a Studio room
             // (2026-09-23), 0.9 s behind, then ~30 s of a 3% nudge to catch
             // up. The lead is each device's own last measured seek time.
-            let lead = seekLead * hostRate
+            // No lead onto a PAUSED frame: nothing moves while the seek runs,
+            // and a lead would land past it and seek again every poll.
+            let lead = player.rate == 0 ? 0 : seekLead * hostRate
             let started = Date()
             player.seek(to: CMTime(seconds: to + lead, preferredTimescale: 600),
                         toleranceBefore: .zero, toleranceAfter: .zero) { [weak self] done in

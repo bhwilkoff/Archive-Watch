@@ -227,6 +227,15 @@ struct RootView: View {
             }
             if let it = store.itemsByIDs([id]).first {
                 router.openDetail(it)
+                #if DEBUG
+                // `AW_ROOM_JOIN=<code>` + AW_AUTOPLAY: join a room the way the
+                // join sheet hands it over (the iOS door's twin), muted.
+                if let code = env["AW_ROOM_JOIN"], !code.isEmpty {
+                    RoomJoin.shared.pending = code
+                    RoomJoin.shared.pendingFilm = it.archiveID
+                    awdiag("AWFOLLOW door will join room %@", code)
+                }
+                #endif
                 // AW_AUTOPLAY starts playback too, so a test can reach the PLAYER
                 // without clicking — the same reason the other hooks exist, and
                 // the only way to verify live captions in the real app (SwiftUI

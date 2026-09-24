@@ -65,15 +65,20 @@ class StudioSyncTest {
         assertTrue(corr(129.0) != corr(131.0))
     }
 
-    @Test fun `run state is applied at once and a paused film is never seeked`() {
+    @Test fun `run state is applied at once and a paused guest is on the host's frame`() {
         assertEquals(
             StudioSync.Correction.SetPaused(true),
             StudioSync.correction(130.0, false, paused, 1030.0),
         )
         assertEquals(
-            "a paused film cannot drift, however large the gap",
+            "a paused guest on the wrong frame is moved to the host's",
+            StudioSync.Correction.Seek(100.0),
+            StudioSync.correction(104.7, true, paused, 1030.0),
+        )
+        assertEquals(
+            "one within tolerance is left alone",
             StudioSync.Correction.None,
-            StudioSync.correction(10.0, true, paused, 1030.0),
+            StudioSync.correction(100.1, true, paused, 1030.0),
         )
     }
 

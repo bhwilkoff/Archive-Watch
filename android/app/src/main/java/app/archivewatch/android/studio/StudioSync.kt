@@ -86,8 +86,12 @@ object StudioSync {
         // Run state first, and never eased: a host who pressed pause wants the
         // film stopped now.
         if (state.paused != localPaused) return Correction.SetPaused(state.paused)
-        // A paused film cannot drift.
-        if (state.paused) return Correction.None
+        // A paused film cannot drift, but it can be on the wrong FRAME — the
+        // host paused to talk about a shot (same rule as StudioSync.swift).
+        if (state.paused) {
+            return if (abs(state.position - localPosition) > TOLERANCE_SECONDS)
+                Correction.Seek(state.position) else Correction.None
+        }
         val drift = state.expectedPosition(serverNow) - localPosition   // + = behind
         val magnitude = abs(drift)
         if (magnitude <= TOLERANCE_SECONDS) return Correction.None

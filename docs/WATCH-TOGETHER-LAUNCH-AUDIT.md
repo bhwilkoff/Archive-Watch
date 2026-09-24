@@ -49,6 +49,8 @@ Items marked *(suspected)* were inferred from code and need a run before a fix.
 
 - **Web room join was broken since v1.42.469** — found v1.42.584 by opening a room in Chrome: `TogetherView` called a `summary` that js/api.js never exported, so every browser guest got "Watching … with the room" and no player. FIXED v1.42.584 (Detail's two sources: the catalog's `downloadURL`, then archive.org metadata); verified in Chrome against the live Worker — the guest landed at 257.8 s of a room started at 120 s ~2.3 min earlier, a guest pause was undone within 1.2 s with the note shown, no rate saved, and an autoplay-blocked guest is told "Press play to join the room." §8.65 guards every `API.<name>` call; the old watch.js fails it.
 
+- **A paused guest sat on a different frame from the host** — measured v1.42.585 on the Mac product path against a live room (new `AW_ROOM_JOIN` door on macOS, muted): host paused at 506 s, guest paused at 510.7 and stayed, because every correction returned none while paused. Swift, Kotlin and web now seek a paused guest to the host's paused position (no seek lead onto a still frame). Re-measured: host paused at 635, guest moved to 635.0 and held. The join itself also measured healthy: seek to 367.9, three 0.97 nudges, then in tolerance; a host jump to 1000 landed at 1005.6 two seconds later.
+
 ## C. Roku rooms (not built)
 
 About 200–250 lines: an options row, a keyboard dialog, a `roomCode` on PlayerScreen driving `TogetherTask`, an ended/failed message — plus three fixes in the existing BrightScript: `awNowSeconds() as Float` (128-second steps at 1.8e9 — must be Double), one blip ends the room (end only on 404/410), no presence ping.

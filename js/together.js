@@ -77,7 +77,11 @@
    *  a person (§11.2a). */
   function correction(localPosition, localPaused, state, serverNow) {
     if (state.paused !== localPaused) return { kind: 'setPaused', paused: state.paused };
-    if (state.paused) return { kind: 'none' };
+    // Paused on the host's FRAME, not merely paused (same rule as StudioSync).
+    if (state.paused) {
+      return Math.abs(state.position - localPosition) > TOLERANCE
+        ? { kind: 'seek', to: state.position } : { kind: 'none' };
+    }
     const expected = expectedPosition(state, serverNow);
     const drift = expected - localPosition;       // positive = behind
     const magnitude = Math.abs(drift);
