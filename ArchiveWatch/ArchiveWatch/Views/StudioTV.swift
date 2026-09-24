@@ -24,6 +24,10 @@ struct StudioTVHealth: View {
     /// died, and on 2026-09-19 one died ten seconds into a Twitch broadcast
     /// while every other number stayed healthy and the screen said nothing.
     var cameraFramesPerSecond: Int = 0
+    /// The host paused the film (the transport's play/pause, Rule 8.8c) — a
+    /// still is then their choice, and "the film has stopped" would read as a
+    /// fault on the television across the room.
+    var filmPausedByHost = false
 
     private var isLive: Bool { health.showState.isOnAir }
 
@@ -37,7 +41,7 @@ struct StudioTVHealth: View {
         if isLive && health.filmEnded {
             return "The film has ended — your audience sees a still. You are still on air."
         }
-        if isLive && filmFramesPerSecond == 0 { return "The film has stopped — your audience sees a still picture" }
+        if isLive && filmFramesPerSecond == 0 && !filmPausedByHost { return "The film has stopped — your audience sees a still picture" }
         if health.thermalState == "critical" { return "This Apple TV is too hot to keep streaming" }
         if health.thermalState == "serious" { return "This Apple TV is getting hot" }
         if let e = health.publisher.lastError { return e }

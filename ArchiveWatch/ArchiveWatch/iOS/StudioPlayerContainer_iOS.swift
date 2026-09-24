@@ -23,6 +23,9 @@ struct StudioPlayerContainer: View {
     @State private var engine: StudioEngine?
     @State private var health = StudioHealth()
     @State private var filmFPS = 0
+    /// The film player, for one question: did the HOST pause it?
+    @State private var filmPlayer: AVPlayer?
+    @State private var filmPausedByHost = false
     @State private var cameraFPS = 0
     /// Retained for the show's life — a released capture session stops
     /// delivering and the tile simply goes black (§9.kkkkk).
@@ -68,7 +71,8 @@ struct StudioPlayerContainer: View {
             .overlay(alignment: .topLeading) {
                 VStack(alignment: .leading, spacing: 4) {
                     StudioHealthCapsule(health: health, filmFramesPerSecond: filmFPS,
-                                        cameraFramesPerSecond: cameraFPS) {
+                                        cameraFramesPerSecond: cameraFPS,
+                                        filmPausedByHost: filmPausedByHost) {
                         showControls = true
                     }
                     // §6.2, DEBUG only, and BELOW the capsule rather than
@@ -153,6 +157,7 @@ struct StudioPlayerContainer: View {
             card: $card, showLowerThird: $showLowerThird,
             audio: health.audio, health: health, filmFramesPerSecond: filmFPS,
             cameraFramesPerSecond: cameraFPS,
+            filmPausedByHost: filmPausedByHost,
             shoutOut: shoutOut,
             onShow: { line in showShoutOut(line) },
             onTakeDown: {
@@ -177,6 +182,7 @@ struct StudioPlayerContainer: View {
     // MARK: Lifecycle
 
     private func attach(player: AVPlayer) async {
+        filmPlayer = player
         #if DEBUG
         // A door launch makes no sound in the room the phone sits in (the
         // macOS rule, v1.42.507). On iOS this silences the BROADCAST's film
@@ -304,6 +310,7 @@ struct StudioPlayerContainer: View {
             let h = await e.health
             filmFPS = max(0, h.filmFramesPulled - lastFilmFrames)
             lastFilmFrames = h.filmFramesPulled
+            filmPausedByHost = filmPlayer?.timeControlStatus == .paused
             cameraFPS = max(0, h.cameraFramesReceived - lastCameraFrames)
             lastCameraFrames = h.cameraFramesReceived
             // §4's provenance line, which iOS showed for the whole broadcast

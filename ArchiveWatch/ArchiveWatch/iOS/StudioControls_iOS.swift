@@ -30,6 +30,9 @@ struct StudioHealthCapsule: View {
     /// delivered, is the tile-went-dark signature. A phone's camera stops
     /// whenever a call arrives, so this is not a television's problem.
     let cameraFramesPerSecond: Int
+    /// The HOST paused the film. A still picture is then their choice, not a
+    /// fault, and "the film has stopped" would say otherwise.
+    var filmPausedByHost = false
     let onOpenControls: () -> Void
 
     private var isLive: Bool { health.showState.isOnAir }
@@ -102,7 +105,7 @@ struct StudioHealthCapsule: View {
         // §5's adaptive step, with its numbers. Written by the engine and
         // rendered by nothing until now on any platform.
         if let note = health.qualityNote { w.append(note) }
-        if isLive && filmFramesPerSecond == 0 { w.append("the film has stopped arriving") }
+        if isLive && filmFramesPerSecond == 0 && !filmPausedByHost { w.append("the film has stopped arriving") }
         // A CAMERA THAT DIED MID-SHOW — the guard the television has carried
         // since 2026-09-19, when a Continuity camera ran a clean 30/s for ten
         // seconds and then stopped dead for eighty while every other number
@@ -171,6 +174,8 @@ struct StudioControlsSheet: View {
     /// frozen-picture signature and gets said out loud.
     let filmFramesPerSecond: Int
     let cameraFramesPerSecond: Int
+    /// The host paused the film — a still is their choice, not a fault.
+    var filmPausedByHost = false
     /// §D26 on the phone: what is on air, and the way to put somebody there.
     var shoutOut: StudioOverlay.ShoutOut? = nil
     var onShow: (StudioOverlay.ChatLine) -> Void = { _ in }
@@ -187,7 +192,7 @@ struct StudioControlsSheet: View {
         if health.filmEnded && health.showState.isOnAir {
             return "The film has ended — your audience is watching a still. Your camera and microphone are still live, so the show goes on until you end it."
         }
-        if filmFramesPerSecond == 0 && health.showState.isOnAir {
+        if filmFramesPerSecond == 0 && health.showState.isOnAir && !filmPausedByHost {
             return "The film has stopped sending new frames — your audience is seeing a still picture. The sound and your camera are unaffected."
         }
         if health.showState.isOnAir, health.cameraAttached,

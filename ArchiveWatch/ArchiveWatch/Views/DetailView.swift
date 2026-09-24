@@ -1783,7 +1783,8 @@ struct PlayerScreen: View {
             if studioFilm != nil {
                 StudioTVHealth(health: studioHealth, filmFramesPerSecond: studioFilmFPS,
                                audioProblem: studioAudioProblem,
-                               cameraFramesPerSecond: studioCameraFPS)
+                               cameraFramesPerSecond: studioCameraFPS,
+                               filmPausedByHost: player?.timeControlStatus == .paused)
             }
         }
         .task(id: studioFilm?.archiveID) {
