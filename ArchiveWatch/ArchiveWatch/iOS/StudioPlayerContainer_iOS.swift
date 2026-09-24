@@ -26,6 +26,10 @@ struct StudioPlayerContainer: View {
     /// The film player, for one question: did the HOST pause it?
     @State private var filmPlayer: AVPlayer?
     @State private var filmPausedByHost = false
+    /// §D21 on the phone: WHY the film stopped reaching the program, named
+    /// after `StudioFilmStall.secondsBeforeNaming` silent seconds.
+    @State private var filmStallReason: String?
+    @State private var filmSilentSeconds = 0
     @State private var cameraFPS = 0
     /// Retained for the show's life — a released capture session stops
     /// delivering and the tile simply goes black (§9.kkkkk).
@@ -72,7 +76,8 @@ struct StudioPlayerContainer: View {
                 VStack(alignment: .leading, spacing: 4) {
                     StudioHealthCapsule(health: health, filmFramesPerSecond: filmFPS,
                                         cameraFramesPerSecond: cameraFPS,
-                                        filmPausedByHost: filmPausedByHost) {
+                                        filmPausedByHost: filmPausedByHost,
+                                        filmStallReason: filmStallReason) {
                         showControls = true
                     }
                     // §6.2, DEBUG only, and BELOW the capsule rather than
@@ -161,6 +166,7 @@ struct StudioPlayerContainer: View {
             audio: health.audio, health: health, filmFramesPerSecond: filmFPS,
             cameraFramesPerSecond: cameraFPS,
             filmPausedByHost: filmPausedByHost,
+            filmStallReason: filmStallReason,
             shoutOut: shoutOut,
             onShow: { line in showShoutOut(line) },
             onTakeDown: {
@@ -315,6 +321,17 @@ struct StudioPlayerContainer: View {
             filmFPS = max(0, h.filmFramesPulled - lastFilmFrames)
             lastFilmFrames = h.filmFramesPulled
             filmPausedByHost = filmPlayer?.timeControlStatus == .paused
+            filmSilentSeconds = (filmFPS == 0 && h.showState.isOnAir) ? filmSilentSeconds + 1 : 0
+            if filmSilentSeconds >= StudioFilmStall.secondsBeforeNaming {
+                let item = filmPlayer?.currentItem
+                filmStallReason = StudioFilmStall.reason(.init(
+                    hasPlayer: filmPlayer != nil, hasItem: item != nil,
+                    rate: filmPlayer?.rate ?? 0,
+                    likelyToKeepUp: item?.isPlaybackLikelyToKeepUp ?? false,
+                    errorDescription: item?.error?.localizedDescription))
+            } else {
+                filmStallReason = nil
+            }
             cameraFPS = max(0, h.cameraFramesReceived - lastCameraFrames)
             lastCameraFrames = h.cameraFramesReceived
             // §4's provenance line, which iOS showed for the whole broadcast

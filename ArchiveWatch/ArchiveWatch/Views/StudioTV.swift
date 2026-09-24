@@ -28,6 +28,8 @@ struct StudioTVHealth: View {
     /// still is then their choice, and "the film has stopped" would read as a
     /// fault on the television across the room.
     var filmPausedByHost = false
+    /// §D21 on the television: the cause, once named.
+    var filmStallReason: String? = nil
 
     private var isLive: Bool { health.showState.isOnAir }
 
@@ -41,7 +43,10 @@ struct StudioTVHealth: View {
         if isLive && health.filmEnded {
             return "The film has ended — your audience sees a still. You are still on air."
         }
-        if isLive && filmFramesPerSecond == 0 && !filmPausedByHost { return "The film has stopped — your audience sees a still picture" }
+        if isLive && filmFramesPerSecond == 0 && !filmPausedByHost {
+            if let why = filmStallReason { return "The film has stopped: \(why)" }
+            return "The film has stopped — your audience sees a still picture"
+        }
         if health.thermalState == "critical" { return "This Apple TV is too hot to keep streaming" }
         if health.thermalState == "serious" { return "This Apple TV is getting hot" }
         if let e = health.publisher.lastError { return e }

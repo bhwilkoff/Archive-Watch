@@ -33,6 +33,8 @@ struct StudioHealthCapsule: View {
     /// The HOST paused the film. A still picture is then their choice, not a
     /// fault, and "the film has stopped" would say otherwise.
     var filmPausedByHost = false
+    /// The cause, once one has been named (StudioFilmStall).
+    var filmStallReason: String? = nil
     let onOpenControls: () -> Void
 
     private var isLive: Bool { health.showState.isOnAir }
@@ -105,7 +107,9 @@ struct StudioHealthCapsule: View {
         // §5's adaptive step, with its numbers. Written by the engine and
         // rendered by nothing until now on any platform.
         if let note = health.qualityNote { w.append(note) }
-        if isLive && filmFramesPerSecond == 0 && !filmPausedByHost { w.append("the film has stopped arriving") }
+        if isLive && filmFramesPerSecond == 0 && !filmPausedByHost {
+            w.append(filmStallReason.map { "the film has stopped arriving — \($0)" } ?? "the film has stopped arriving")
+        }
         // A CAMERA THAT DIED MID-SHOW — the guard the television has carried
         // since 2026-09-19, when a Continuity camera ran a clean 30/s for ten
         // seconds and then stopped dead for eighty while every other number
@@ -176,6 +180,7 @@ struct StudioControlsSheet: View {
     let cameraFramesPerSecond: Int
     /// The host paused the film — a still is their choice, not a fault.
     var filmPausedByHost = false
+    var filmStallReason: String? = nil
     /// §D26 on the phone: what is on air, and the way to put somebody there.
     var shoutOut: StudioOverlay.ShoutOut? = nil
     var onShow: (StudioOverlay.ChatLine) -> Void = { _ in }
@@ -197,7 +202,8 @@ struct StudioControlsSheet: View {
             return "The film has ended — your audience is watching a still. Your camera and microphone are still live, so the show goes on until you end it."
         }
         if filmFramesPerSecond == 0 && health.showState.isOnAir && !filmPausedByHost {
-            return "The film has stopped sending new frames — your audience is seeing a still picture. The sound and your camera are unaffected."
+            let why = filmStallReason.map { " The cause: \($0)." } ?? ""
+            return "The film has stopped sending new frames — your audience is seeing a still picture. The sound and your camera are unaffected." + why
         }
         if health.showState.isOnAir, health.cameraAttached,
            health.cameraFramesReceived > 0, cameraFramesPerSecond == 0 {

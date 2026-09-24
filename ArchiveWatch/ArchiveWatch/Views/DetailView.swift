@@ -1190,6 +1190,18 @@ struct PlayerScreen: View {
             let h = await engine.health
             studioFilmFPS = max(0, h.filmFramesPulled - lastFilmFrames)
             lastFilmFrames = h.filmFramesPulled
+            // §D21 on the television, from the same shared function the Mac
+            // uses: after three silent seconds, ask the player why.
+            studioFilmSilent = (studioFilmFPS == 0 && h.showState.isOnAir) ? studioFilmSilent + 1 : 0
+            if studioFilmSilent >= StudioFilmStall.secondsBeforeNaming {
+                let item = player?.currentItem
+                studioFilmStallReason = StudioFilmStall.reason(.init(
+                    hasPlayer: player != nil, hasItem: item != nil, rate: player?.rate ?? 0,
+                    likelyToKeepUp: item?.isPlaybackLikelyToKeepUp ?? false,
+                    errorDescription: item?.error?.localizedDescription))
+            } else {
+                studioFilmStallReason = nil
+            }
             studioHealth = h
 
             // THE CAMERA TILE. On 2026-09-19 the attach chain logged success
@@ -1531,6 +1543,8 @@ struct PlayerScreen: View {
     }()
 
     @State private var studioFilmFPS = 0
+    @State private var studioFilmSilent = 0
+    @State private var studioFilmStallReason: String?
     /// Camera frames in the last second, for the readout's "camera stopped"
     /// line. Mirrors `studioFilmFPS`.
     @State private var studioCameraFPS = 0
@@ -1796,7 +1810,8 @@ struct PlayerScreen: View {
                 StudioTVHealth(health: studioHealth, filmFramesPerSecond: studioFilmFPS,
                                audioProblem: studioAudioProblem,
                                cameraFramesPerSecond: studioCameraFPS,
-                               filmPausedByHost: player?.timeControlStatus == .paused)
+                               filmPausedByHost: player?.timeControlStatus == .paused,
+                               filmStallReason: studioFilmStallReason)
             }
         }
         .task(id: studioFilm?.archiveID) {
