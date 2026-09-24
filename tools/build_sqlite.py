@@ -107,6 +107,18 @@ def _registered_collections():
 REGISTERED_COLLECTIONS = _registered_collections()
 
 
+# Film SERIES collections (id `series-*`, 2026-09-24): not Archive.org
+# collections — a film belongs when its `franchise` is one the entry lists.
+def _series_by_franchise():
+    try:
+        d = json.loads((REPO / "shared" / "editorial" / "collection_metadata.json").read_text())
+    except Exception:  # noqa: BLE001
+        return {}
+    return {f: c["id"] for c in d.get("collections", []) for f in (c.get("franchises") or [])}
+
+SERIES_BY_FRANCHISE = _series_by_franchise()
+
+
 def _shelf_collection_map():
     """{collectionID: [shelfID,...]} parsed from each dynamic shelf's
     `collection:X` query in featured.json. Lets build_sqlite assign Home-shelf
@@ -1071,6 +1083,8 @@ def populate_items(db, items, rotate_seed="0", skip_aids=frozenset()):
         for c in (it.get("collections") or []):
             if c and str(c) in REGISTERED_COLLECTIONS:
                 coll_rows.append((aid, str(c)))
+        if (series := SERIES_BY_FRANCHISE.get(it.get("franchise") or "")):
+            coll_rows.append((aid, series))
         for kw in (it.get("keywords") or []):
             if kw:
                 kw_rows.append((aid, str(kw)))

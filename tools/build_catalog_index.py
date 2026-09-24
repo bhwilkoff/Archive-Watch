@@ -157,6 +157,7 @@ def main():
         except Exception:  # noqa: BLE001
             curated_collections = []
     curated_lower = {c.lower(): c for c in curated_collections}
+    from build_sqlite import SERIES_BY_FRANCHISE  # film series collections
 
     adult = set()
     if FEATURED.exists():
@@ -286,6 +287,8 @@ def main():
         for c in cols:
             if (canon := curated_lower.get(c)):
                 collection_members.setdefault(canon, []).append((designed, pop_score, aid))
+        if (series := SERIES_BY_FRANCHISE.get(it.get("franchise") or "")):
+            collection_members.setdefault(series, []).append((designed, pop_score, aid))
         # Community shelves — vote-floored to recognized films (apps' parity): raw
         # counts are dominated by un-IMDb'd foreign edge cases, which have no votes.
         if pro and (it.get("imdbVotes") or 0) >= 1000 and it.get("contentType") in _FILM:

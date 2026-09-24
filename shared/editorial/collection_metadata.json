@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0",
-  "notes": "Single source of truth for Archive.org collection display metadata. Read by the Swift app (CollectionMetadata.swift) and the Python pipeline (registry_pipeline.py / export_catalog.py). IDs are Archive.org's internal collection slugs — use these verbatim in Archive scrape queries. Never show the raw slug to users; always look up the display title here.",
+  "notes": "Film SERIES entries (id `series-*`) are not Archive.org collections: their members are the films whose `franchise` is one of `franchises` (build_sqlite / build_catalog_index). Single source of truth for Archive.org collection display metadata. Read by the Swift app (CollectionMetadata.swift) and the Python pipeline (registry_pipeline.py / export_catalog.py). IDs are Archive.org's internal collection slugs — use these verbatim in Archive scrape queries. Never show the raw slug to users; always look up the display title here.",
   "collections": [
     { "id": "Film_Noir",                "title": "Film Noir",              "blurb": "Shadows, second thoughts, venetian-blind lighting.",       "accent": "#FF5C35", "category": "feature-film" },
     { "id": "SciFi_Horror",             "title": "Sci-Fi & Horror",        "blurb": "B-movies, creature features, postwar paranoia.",           "accent": "#7C5BBA", "category": "feature-film" },
@@ -32,6 +32,26 @@
     { "id": "ephemera",                 "title": "Ephemera",               "blurb": "The overlooked films between the films.",             "accent": "#7C5BBA", "category": "ephemeral" },
     { "id": "newsandpublicaffairs",     "title": "Newsreels",              "blurb": "How the 20th century reported itself to itself.",          "accent": "#8A8F98", "category": "newsreel" },
 
-    { "id": "aw_commercials",           "title": "Vintage Commercials",    "blurb": "Public-domain TV ads from the golden age of the 30-second spot.", "accent": "#E8A317", "category": "commercial" }
+    { "id": "aw_commercials",           "title": "Vintage Commercials",    "blurb": "Public-domain TV ads from the golden age of the 30-second spot.", "accent": "#E8A317", "category": "commercial" },
+
+    { "id": "series-our-gang-silents", "title": "Our Gang: The Silents", "blurb": "Hal Roach's kids, 1922–1929 — before the talkies made them the Little Rascals.", "accent": "#C9A66B", "category": "silent-film", "franchises": ["Our Gang: The Roach/Pathé silents (1922-1928)", "Our Gang: The Roach/MGM silents (1927–1929)"] },
+    { "id": "series-sherlock-holmes-rathbone", "title": "Sherlock Holmes with Basil Rathbone", "blurb": "Rathbone and Nigel Bruce's Holmes and Watson, 1939–1946.", "accent": "#FF5C35", "category": "feature-film", "franchises": ["Sherlock Holmes (Basil Rathbone) Collection"] },
+    { "id": "series-superman-cartoons", "title": "Superman Cartoons", "blurb": "The Fleischer and Famous Studios shorts, 1941–1943.", "accent": "#FF4D8D", "category": "animation", "franchises": ["Superman (Fleischer Studios) Collection", "Superman (Famous Studios) Collection"] },
+    { "id": "series-why-we-fight", "title": "Why We Fight", "blurb": "Frank Capra's wartime documentary series, 1942–1945.", "accent": "#3FA796", "category": "documentary", "franchises": ["Why We Fight"] },
+    { "id": "series-hazards-of-helen", "title": "The Hazards of Helen", "blurb": "The railroad-cliffhanger serial, 1914–1917.", "accent": "#C9A66B", "category": "silent-film", "franchises": ["The Hazards of Helen"] },
+    { "id": "series-charlie-chan-toler", "title": "Charlie Chan with Sidney Toler", "blurb": "Toler's Charlie Chan mysteries, 1940–1946.", "accent": "#FF5C35", "category": "feature-film", "franchises": ["Charlie Chan (Sidney Toler) Collection"] },
+    { "id": "series-mr-wong", "title": "Mr. Wong", "blurb": "Boris Karloff as the detective James Lee Wong, 1938–1940.", "accent": "#FF5C35", "category": "feature-film", "franchises": ["Mr. Wong Collection"] },
+    { "id": "series-philo-vance", "title": "Philo Vance", "blurb": "S. S. Van Dine's gentleman detective, 1929–1939.", "accent": "#FF5C35", "category": "feature-film", "franchises": ["Philo Vance Collection"] },
+    { "id": "series-ellery-queen", "title": "Ellery Queen", "blurb": "The detective-novelist on screen, 1935–1942.", "accent": "#FF5C35", "category": "feature-film", "franchises": ["Ellery Queen Collection"] },
+    { "id": "series-bulldog-drummond-howard", "title": "Bulldog Drummond with John Howard", "blurb": "The gentleman adventurer, 1937–1939.", "accent": "#FF5C35", "category": "feature-film", "franchises": ["Bulldog Drummond (John Howard) Collection"] },
+    { "id": "series-the-whistler", "title": "The Whistler", "blurb": "Richard Dix in the radio mystery's film series, 1944–1948.", "accent": "#FF5C35", "category": "feature-film", "franchises": ["The Whistler Collection"] },
+    { "id": "series-boston-blackie", "title": "Boston Blackie", "blurb": "Chester Morris as the reformed jewel thief, 1941–1946.", "accent": "#FF5C35", "category": "feature-film", "franchises": ["Boston Blackie Collection"] },
+    { "id": "series-dr-christian", "title": "Dr. Christian", "blurb": "Jean Hersholt's country doctor, 1939–1941.", "accent": "#FF5C35", "category": "feature-film", "franchises": ["Dr. Christian Collection"] },
+    { "id": "series-east-side-kids", "title": "East Side Kids", "blurb": "Leo Gorcey and the Monogram gang, 1940–1945.", "accent": "#FF5C35", "category": "feature-film", "franchises": ["East Side Kids Collection"] },
+    { "id": "series-billy-the-kid-crabbe", "title": "Billy the Kid with Buster Crabbe", "blurb": "PRC's B-western series, 1941–1946.", "accent": "#FF5C35", "category": "feature-film", "franchises": ["Billy the Kid (Buster Crabbe) Collection"] },
+    { "id": "series-hopalong-cassidy", "title": "Hopalong Cassidy", "blurb": "William Boyd in the long-running western series.", "accent": "#FF5C35", "category": "feature-film", "franchises": ["Hopalong Cassidy Collection"] },
+    { "id": "series-range-busters", "title": "The Range Busters", "blurb": "Monogram's trio westerns, 1940–1943.", "accent": "#FF5C35", "category": "feature-film", "franchises": ["Range Busters Collection"] },
+    { "id": "series-three-mesquiteers", "title": "The Three Mesquiteers", "blurb": "Republic's trio westerns, 1936–1943.", "accent": "#FF5C35", "category": "feature-film", "franchises": ["The Three Mesquiteers Collection"] },
+    { "id": "series-texas-rangers", "title": "The Texas Rangers", "blurb": "PRC's singing-ranger westerns, 1942–1945.", "accent": "#FF5C35", "category": "feature-film", "franchises": ["Texas Rangers Collections"] }
   ]
 }
