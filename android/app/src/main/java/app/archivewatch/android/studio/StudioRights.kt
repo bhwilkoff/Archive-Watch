@@ -18,7 +18,7 @@ object StudioRights {
 
     /** Which rights verdicts may go live. The names are `audit_rights.bucket`'s. */
     enum class Tier(val buckets: Set<String>) {
-        /** Pre-1930 by age alone. What the Roku feed ships. */
+        /** Public domain by age alone ([lastPublicDomainYear]). What the Roku feed ships. */
         GUARANTEED(setOf("safe_pd_age")),
 
         /**
@@ -66,12 +66,23 @@ object StudioRights {
         // agree. A bucket without a year is a bucket computed from a release
         // date the item no longer carries.
         if (rightsBucket == "safe_pd_age" && tier == Tier.GUARANTEED) {
-            if (year == null || year > 1929) {
+            if (year == null || year > lastPublicDomainYear()) {
                 return "This film is cleared by age, but the catalog's year does not support it — so it is not offered for streaming."
             }
         }
         return null
     }
+
+    /**
+     * The newest publication year in the US public domain BY AGE: 95 years of
+     * protection, free on January 1 of year + 96 (1930 films on 2026-01-01).
+     * Same rule as Apple's `StudioRights.lastPublicDomainYear` and
+     * `tools/audit_rights.py`.
+     */
+    fun lastPublicDomainYear(nowMillis: Long = System.currentTimeMillis()): Int =
+        java.util.Calendar.getInstance(java.util.TimeZone.getTimeZone("UTC"))
+            .apply { timeInMillis = nowMillis }
+            .get(java.util.Calendar.YEAR) - 96
 
     fun canGoLive(rightsBucket: String?, contentType: String?, year: Int?): Boolean =
         refusal(rightsBucket, contentType, year) == null
@@ -142,8 +153,8 @@ object StudioRights {
      */
     val policy: String get() = when (tier) {
         Tier.GUARANTEED ->
-            "Only films published before 1930 can be streamed — age is the one public-domain claim nobody can dispute, and a stream goes out under your own account."
+            "Only films published in ${lastPublicDomainYear()} or earlier can be streamed — age is the one public-domain claim nobody can dispute, and a stream goes out under your own account."
         Tier.STRICT ->
-            "Only films the rights audit has cleared can be streamed: published before 1930, a US government work, or carrying a verified public-domain license."
+            "Only films the rights audit has cleared can be streamed: published in ${lastPublicDomainYear()} or earlier, a US government work, or carrying a verified public-domain license."
     }
 }

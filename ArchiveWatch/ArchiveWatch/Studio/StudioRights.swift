@@ -27,7 +27,7 @@ public enum StudioRights {
 
     /// Which rights verdicts may go live. The names are `audit_rights.bucket`'s.
     public enum Tier: String, Sendable, CaseIterable {
-        /// Pre-1930 by age alone. What the Roku feed ships.
+        /// Public domain by age alone (`lastPublicDomainYear`). What the Roku feed ships.
         case guaranteed
         /// Adds government collections, an archive.org licence, and a
         /// Creative Commons mark. **An owner decision, not a developer one**
@@ -77,7 +77,7 @@ public enum StudioRights {
         // to agree. A bucket without a year is a bucket computed from a
         // release date the item no longer carries.
         if rightsBucket == "safe_pd_age", tier == .guaranteed {
-            guard let year, year <= 1929 else {
+            guard let year, year <= lastPublicDomainYear() else {
                 return "This film is cleared by age, but the catalog's year does not support it — so it is not offered for streaming."
             }
         }
@@ -164,12 +164,24 @@ public enum StudioRights {
 
     /// The one-line explanation of the rule itself, for the go-live sheet.
     /// A host who cannot find their film should learn WHY, not hunt.
+    /// The newest publication year in the US public domain BY AGE. A work is
+    /// protected for 95 years, through December 31 of year + 95, so it enters
+    /// the public domain on January 1 of year + 96: 1930 films on 2026-01-01.
+    /// This was the literal 1929 — two New Years stale, keeping every 1929
+    /// and 1930 film (the first sound era) off the air. It follows the
+    /// calendar now, as `tools/audit_rights.py` does.
+    public static func lastPublicDomainYear(now: Date = Date()) -> Int {
+        var cal = Calendar(identifier: .gregorian)
+        cal.timeZone = TimeZone(identifier: "UTC")!
+        return cal.component(.year, from: now) - 96
+    }
+
     public static var policy: String {
         switch tier {
         case .guaranteed:
-            return "Only films published before 1930 can be streamed — age is the one public-domain claim nobody can dispute, and a stream goes out under your own account."
+            return "Only films published in \(lastPublicDomainYear()) or earlier can be streamed — age is the one public-domain claim nobody can dispute, and a stream goes out under your own account."
         case .strict:
-            return "Only films the rights audit has cleared can be streamed: published before 1930, a US government work, or carrying a verified public-domain license."
+            return "Only films the rights audit has cleared can be streamed: published in \(lastPublicDomainYear()) or earlier, a US government work, or carrying a verified public-domain license."
         }
     }
 }

@@ -410,14 +410,14 @@ def pick_line(film_id: str, captions, runtime, seed_key: str) -> dict | None:
 # vocabulary (audit_rights.py / remediate_catalog._GOV_PD_COLLECTIONS):
 #   * a US government production — PD on creation, whatever its year;
 #   * a Creative Commons dedication the uploader actually made;
-#   * published before 1930 — US copyright expired by age (PD_BY_AGE);
+#   * published before PD_BY_AGE (1931 in 2026) — US copyright expired by age;
 #   * 1930-1963 — the rights audit confirmed it (Decision 027), the band
 #     where non-renewal put most of this catalog in the public domain.
 # Everything else — the 1964-77 renewal zone and anything modern without a
 # government or CC basis — is NOT posted. Those are exactly the items
 # Decision 027 left visible-but-unverifiable, and an unverifiable film is one
 # we must not stand behind in public.
-PD_BY_AGE = 1930
+PD_BY_AGE = __import__("datetime").date.today().year - 95  # audit_rights.PD_BY_AGE
 GOV_COLLECTIONS = {"prelinger", "nasa", "usgovfilms", "nationalarchives",
                    "fedflix", "newsandpublicaffairs"}
 
@@ -475,10 +475,10 @@ def pd_basis(row: list, detail: list, gov_ids: set | None = None) -> tuple[str, 
                 "public domain."), "index.collections (nasa/prelinger/gov)"
     if year and year < PD_BY_AGE:
         return (f"Published in {year}. Its US copyright has expired.",
-                "index.year < 1930 (audit_rights.PD_BY_AGE)")
+                f"index.year < {PD_BY_AGE} (audit_rights.PD_BY_AGE)")
     if year and PD_BY_AGE <= year < 1964:
         return (f"Published in {year}, in the public domain in the United States.",
-                "index.year 1930-1963 + rights audit (Decision 027)")
+                f"index.year {PD_BY_AGE}-1963 + rights audit (Decision 027)")
     return None
 
 

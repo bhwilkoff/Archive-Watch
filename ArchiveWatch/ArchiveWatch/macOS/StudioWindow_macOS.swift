@@ -336,7 +336,7 @@ final class StudioMacShow {
 
     static func provenanceLine(for film: Catalog.Item) -> String? {
         guard film.rightsBucket == "safe_pd_age", let y = film.year else { return nil }
-        return "Public domain \u{2014} published \(y), before 1930"
+        return "Public domain \u{2014} published \(y)"
     }
 }
 

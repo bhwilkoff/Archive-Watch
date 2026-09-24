@@ -181,7 +181,7 @@ object StudioController {
         armedSubtitle = listOfNotNull(item.year?.toString(), item.director)
             .filter { it.isNotBlank() }.joinToString(" · ")
         armedProvenance = if (item.rightsBucket == "safe_pd_age" && item.year != null)
-            "Public domain — published ${item.year}, before 1930" else null
+            "Public domain — published ${item.year}" else null
         return true
     }
 

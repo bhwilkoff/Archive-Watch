@@ -561,7 +561,7 @@ public final class StudioSession {
         armedSubtitle = [film.year.map(String.init), film.director]
             .compactMap { $0 }.filter { !$0.isEmpty }.joined(separator: " · ")
         armedProvenance = (film.rightsBucket == "safe_pd_age" && film.year != nil)
-            ? "Public domain — published \(film.year!), before 1930" : nil
+            ? "Public domain — published \(film.year!)" : nil
         return true
     }
 

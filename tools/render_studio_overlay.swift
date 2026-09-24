@@ -124,7 +124,7 @@ struct RenderOverlay {
         var long = o
         long.title = "L'Arrivée d'un train en gare de La Ciotat"
         long.subtitle = "1896 · Auguste Lumière, Louis Lumière"
-        long.provenance = "Public domain — published before 1930"
+        long.provenance = "Public domain — published 1923"
         renderer.overlay = long
         write(renderer.render(film: film, camera: nil), to: "lowerthird-long.png")
 

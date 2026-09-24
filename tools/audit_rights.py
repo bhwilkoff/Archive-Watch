@@ -56,6 +56,7 @@ from __future__ import annotations
 
 import argparse
 import collections
+import datetime as _dt
 import json
 import re
 import sys
@@ -71,7 +72,13 @@ import remediate_catalog as R  # noqa: E402  (_GOV_PD_COLLECTIONS, _clear_wrong_
 REPO = Path(__file__).resolve().parent.parent
 CATALOG = REPO / "catalog.json"
 
-PD_BY_AGE = 1929
+# The first publication year NOT yet public domain by age. US works are
+# protected 95 years and enter the public domain on January 1 of year + 96, so
+# in 2026 everything published through 1930 is free. This was the literal 1929
+# from 2024 and kept 1,691 items from 1929-30 in presumed_pd (the ERA
+# assumption) when they are PD by AGE. It follows the calendar now; the Studio
+# clients compute the same line (StudioRights.lastPublicDomainYear).
+PD_BY_AGE = _dt.date.today().year - 95
 RENEWAL_ZONE_START = 1964
 MODERN = 1978
 COMMERCIAL_MODERN = 1995  # vintage-commercial cutoff; modern brand ads are copyrighted

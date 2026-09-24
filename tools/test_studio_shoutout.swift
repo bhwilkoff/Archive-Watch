@@ -46,7 +46,7 @@ import Foundation
         var o = StudioOverlay()
         o.title = "Safety Last!"
         o.subtitle = "1923 · Fred C. Newmeyer"
-        o.provenance = "Public domain — published 1923, before 1930"
+        o.provenance = "Public domain — published 1923"
         return o
     }
 

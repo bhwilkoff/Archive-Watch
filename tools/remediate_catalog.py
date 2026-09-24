@@ -553,7 +553,7 @@ _GOV_PD_COLLECTIONS = {
     "fedflix", "nasa", "nasaeclips", "jsc-pao-video-collection", "usgovfilms",
     "prelinger", "prelingerhomemovies", "nationalarchives", "dl-archive",
 }
-_PD_BY_AGE = 1929  # US: anything published before this is public domain by age.
+_PD_BY_AGE = __import__("datetime").date.today().year - 95  # first year NOT yet PD by age (audit_rights.PD_BY_AGE)
 
 
 def infer_rights(it):

@@ -219,6 +219,7 @@ into every session and the index alone carries every title.)
 - 134 — A production surface owns its show end to end; and a macOS button says what it does at every width
 - 135 — A picture is manipulated directly, not through sliders; and an uploader's attribution must not fork a film in two
 - 136 — YouTube's quota belongs to the APP, so every read is spent on behalf of every host: slim sign-in, a quota extension, and a stream key that needs no API at all
+- 137 — "Public domain by age" follows the calendar, never a literal year
 
 ---
 
@@ -813,3 +814,37 @@ capacity does not depend on Google.
 chat-opt-in UI and the stream-key path are the next Studio changes; the
 extension is an owner action. The "Custom server" option already sends to any
 RTMP address and is the seed of the stream-key path.
+
+## 137 — "Public domain by age" follows the calendar, never a literal year
+*Date: 2026-09-23*
+
+The age line is computed, everywhere it is drawn: a US work is protected 95
+years and enters the public domain on January 1 of year + 96, so the newest
+public-domain year is `this year - 96` (1930, in 2026). `tools/audit_rights.py`
+(`PD_BY_AGE = today.year - 95`, the first year NOT yet free),
+`remediate_catalog.py`, `social_select.py`, and the Studio's
+`StudioRights.lastPublicDomainYear()` on Apple and Android all compute it. The
+on-air provenance line is now "Public domain — published 1930" with no
+"before 19xx" clause to go stale.
+
+**Why**: the audit carried the literal `1929` from 2024, and the Studio the
+literal "before 1930". So two New Years had passed unapplied: 1,691 catalog
+items from 1929-30 sat in `presumed_pd` — the ERA assumption the marquee, the
+Roku feed's guaranteed tier and the Studio all refuse — when they are public
+domain by AGE, the one claim nobody can argue. Those two years are the first
+sound era, which is exactly what a watch-along needs (the owner: stop picking
+films with no audio; the guaranteed tier had made that impossible by
+construction). A 1930 film would also have gone on air labeled "published
+1930, before 1930".
+
+**How to apply**: never write a public-domain year as a literal. Measured
+before shipping: 1,690 `presumed_pd -> safe_pd_age` and 1 `commercial_keep ->
+safe_pd_age`, all keep-to-keep — nothing is hidden or un-hidden, because
+`renewed_copyright_classic` and every hide bucket run BEFORE the age test. This
+is the tier's own definition applied on the right date, not a widening of it;
+widening `guaranteed` to other buckets remains the owner's call (Decision 027).
+
+**Consequences**: the buckets move at the next catalog build and again every
+January 1 with no code change; `tools/test_studio_rights.swift` pins the
+date arithmetic (2026-12-31 -> 1930, 2027-01-01 -> 1931).
+

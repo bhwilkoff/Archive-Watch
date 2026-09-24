@@ -966,7 +966,7 @@ struct PlayerScreen: View {
         o.subtitle = [film.year.map(String.init), film.director]
             .compactMap { $0 }.filter { !$0.isEmpty }.joined(separator: " · ")
         if film.rightsBucket == "safe_pd_age", let y = film.year {
-            o.provenance = "Public domain — published \(y), before 1930"
+            o.provenance = "Public domain — published \(y)"
         }
         await engine.setOverlay(o)
 

@@ -31,12 +31,23 @@ struct RightsTest {
                StudioRights.canGoLive(rightsBucket: "safe_pd_age", contentType: "feature-film", year: 1926), true)
         expect("a 1908 Méliès short, safe_pd_age",
                StudioRights.canGoLive(rightsBucket: "safe_pd_age", contentType: "short-film", year: 1908), true)
+        let lastPD = StudioRights.lastPublicDomainYear()
+        expect("a \(lastPD) film, safe_pd_age (the newest year in the public domain)",
+               StudioRights.canGoLive(rightsBucket: "safe_pd_age", contentType: "feature-film", year: lastPD), true)
         expect("a 1929 silent, safe_pd_age",
                StudioRights.canGoLive(rightsBucket: "safe_pd_age", contentType: "silent-film", year: 1929), true)
+        // The line follows the calendar: 95 years, free on January 1 of +96.
+        let utc = { (s: String) in ISO8601DateFormatter().date(from: s)! }
+        expect("in mid-2026 the last public-domain year is 1930",
+               StudioRights.lastPublicDomainYear(now: utc("2026-06-01T00:00:00Z")) == 1930, true)
+        expect("on 2026-12-31 it is still 1930",
+               StudioRights.lastPublicDomainYear(now: utc("2026-12-31T23:59:59Z")) == 1930, true)
+        expect("on 2027-01-01 1931 films enter it",
+               StudioRights.lastPublicDomainYear(now: utc("2027-01-01T00:00:00Z")) == 1931, true)
 
         // MUST refuse.
-        expect("a 1930 film (one year past the line)",
-               StudioRights.canGoLive(rightsBucket: "safe_pd_age", contentType: "feature-film", year: 1930), false)
+        expect("a \(lastPD + 1) film (one year past the line)",
+               StudioRights.canGoLive(rightsBucket: "safe_pd_age", contentType: "feature-film", year: lastPD + 1), false)
         expect("safe_pd_age with NO year (bucket without evidence)",
                StudioRights.canGoLive(rightsBucket: "safe_pd_age", contentType: "feature-film", year: nil), false)
         expect("safe_cc — an uploader's claim about someone else's film",
