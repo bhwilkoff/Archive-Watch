@@ -5,7 +5,7 @@ Each check names the change and the evidence that proves it on the live
 plane, never a local build:
   hero      catalog-index.json schema >= 13 with a `heroSafe` column (col 16)
   series    the index's collections map carries `series-*` entries
-  shelves   no index shelf member is 1978+ without hero-safe evidence
+  shelves   no index shelf member is 1978+ without the shelf rule's evidence
   related   the published catalog.sqlite has item_related with rows
   details   a detail shard record carries index 10 (related)
   search    FTS finds >= 5 films for "hopalong"
@@ -32,14 +32,6 @@ schema = idx.get("schema"); fields = idx.get("fields") or []
 rec("hero", (schema or 0) >= 13 and "heroSafe" in fields, f"schema={schema} last fields={fields[-2:]}")
 ser = {k: len(v) for k, v in (idx.get("collections") or {}).items() if k.startswith("series-")}
 rec("series", len(ser) >= 15, f"{len(ser)} series collections {dict(list(ser.items())[:3])}")
-if "heroSafe" in fields:
-    col = fields.index("heroSafe"); rows = {r[0]: r for r in idx["items"]}
-    bad = [a for ids in (idx.get("shelves") or {}).values() for a in (ids if isinstance(ids, list) else [])
-           if a in rows and isinstance(rows[a][2], int) and rows[a][2] >= 1978 and len(rows[a]) > col and rows[a][col] != 1]
-    rec("shelves", not bad, f"{len(bad)} modern shelf members without evidence")
-else:
-    rec("shelves", False, "index has no heroSafe column yet")
-
 tmp = tempfile.mkdtemp()
 zz = os.path.join(tmp, "c.zz"); db = os.path.join(tmp, "c.sqlite")
 subprocess.run(["gh", "release", "download", "catalog-db", "-R", "bhwilkoff/Archive-Watch",
@@ -55,6 +47,17 @@ try:
 except sqlite3.Error:
     n = 0
 rec("related", n > 5000, f"item_related rows={n}")
+# Shelves: judged by the SHELF rule (build_sqlite.SHELF_MODERN_BUCKETS, which
+# admits modern government work), from the published DB's rightsBucket. The
+# first version borrowed the hero's column and read 19 NASA videos as misses.
+from build_sqlite import SHELF_MODERN_BUCKETS
+bucket = dict(con.execute("SELECT archiveID, rightsBucket FROM items"))
+# The year the SHELF shows is the index row's: an archiveID can also be a
+# materialized episode row in the DB with its own year (Decision 045).
+year = {r[0]: r[2] for r in idx["items"]}
+bad = [a for ids in (idx.get("shelves") or {}).values() for a in ids
+       if isinstance(year.get(a), int) and year[a] >= 1978 and bucket.get(a) not in SHELF_MODERN_BUCKETS]
+rec("shelves", not bad, f"{len(bad)} modern shelf members without evidence {bad[:3]}")
 hop = con.execute("SELECT count(*) FROM items_fts WHERE items_fts MATCH 'hopalong'").fetchone()[0]
 rec("search", hop >= 5, f'"hopalong" -> {hop} films')
 aid = con.execute("SELECT archiveID FROM items WHERE title='Metropolis' AND year=1927 LIMIT 1").fetchone()
