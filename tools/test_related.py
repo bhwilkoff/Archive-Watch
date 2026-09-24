@@ -28,7 +28,10 @@ items = [
     film("hgf2", "His Girl Friday", 1940, director="Howard Hawks"),           # another copy
     film("hidden", "Hidden Hawks", 1941, director="Howard Hawks"),
     film("era", "Same Era Comedy", 1940),                                     # era + genre only
-] + [film(f"f{i}", f"Filler {i}", 1950 + i, keywords=["newspaper"]) for i in range(20)]
+] + [film(f"f{i}", f"Filler {i}", 1950 + i % 40, keywords=["newspaper"]) for i in range(200)]
+# 200 fillers make a keyword on two films rare enough to name a reason on its
+# own (the ranking now admits only candidates with a named link), so the
+# control below can still show the pile winning without the cap.
 eligible = lambda it: it["archiveID"] != "hidden"
 
 def shelf(cap):

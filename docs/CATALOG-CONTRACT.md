@@ -158,7 +158,7 @@ CREATE INDEX idx_episodes_series ON episodes(seriesID, position);
   the pipeline (`tools/build_related.py`, called by `populate_related`). One
   row per film: `related` is up to 10 archiveIDs joined by TAB, best first;
   `reasons` is the matching TAB-joined `<kind>:<label>`, kind one of
-  `franchise`, `director`, `cast`, `writer`, `keyword` — the strongest link.
+  `franchise`, `director`, `cast`, `writer`, `keyword`, `subject` (archive.org's own subject tag; added 2026-09-24 for the shorts, ephemera and newsreels TMDb never reaches) — the strongest link. Every entry has a named reason: faint signals alone never admit a film.
   Every id is a live, non-adult row of `items`; never another copy of the
   same film. Absent row = no meaningful connection: fall back to the client's
   type + era query. `tools/test_related.py` pins the ranking.

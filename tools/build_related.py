@@ -26,8 +26,8 @@ KEYWORD_DF_CAP = 300
 KEYWORD_PAIR_CAP = 24
 CAST_BILLED = 6
 W = {"franchise": 60, "director": 30, "cast": 14, "writer": 10,
-     "keyword": 2.0, "genre": 1.5, "decade": 2, "type": 3}
-REASON_ORDER = ("franchise", "director", "cast", "writer", "keyword")
+     "keyword": 2.0, "subject": 1.5, "genre": 1.5, "decade": 2, "type": 3}
+REASON_ORDER = ("franchise", "director", "cast", "writer", "keyword", "subject")
 
 
 def _norm(s):
@@ -39,6 +39,30 @@ def _same_film_key(it):
     if it.get("imdbID"):
         keys.add("i:" + it["imdbID"])
     return keys
+
+
+# Uploader tags that say nothing about what a film is about: bare years and
+# the archive's own housekeeping words. Measured in a random sample
+# (2026-09-24): "complete", "rare" and "1926" linked Tarzan the Tiger to
+# Black Friday and three unrelated 1928 films.
+_SUBJECT_STOP = {
+    "complete", "rare", "full", "movie", "movies", "film", "films", "video",
+    "public domain", "classic", "classics", "old", "vintage", "hd", "sd",
+    "full movie", "feature film", "feature", "short", "black and white",
+    "b&w", "color", "english", "subtitles", "restored", "archive",
+    "internet archive", "free", "watch", "download", "dvd", "vhs",
+}
+
+
+def _subjects(it):
+    out = set()
+    for s in it.get("subjects") or []:
+        if isinstance(s, str):
+            for x in s.split(";"):
+                k = _norm(x)
+                if len(k) > 2 and k not in _SUBJECT_STOP and not re.fullmatch(r"\d{4}s?", k):
+                    out.add(k)
+    return out
 
 
 def _people(it):
@@ -78,6 +102,8 @@ def compute_related(items, eligible=lambda it: True):
     for it in pool:
         for k in set(it.get("keywords") or []):
             kw_df[_norm(k)] += 1
+        for k in _subjects(it):
+            kw_df["s:" + k] += 1
     n = max(1, len(pool))
     for it in pool:
         a = it["archiveID"]
@@ -88,6 +114,13 @@ def compute_related(items, eligible=lambda it: True):
             "writer": [(_norm(w), w) for w in _writers(it)],
             "keyword": [(_norm(k), k) for k in set(it.get("keywords") or [])
                         if 2 <= kw_df[_norm(k)] <= KEYWORD_DF_CAP],
+            # archive.org's own subject tags: the only descriptive signal on
+            # most shorts, ephemera and newsreels TMDb never reaches (6,360 of
+            # the 7,582 films with no shelf, 2026-09-24). Weaker than a
+            # keyword, same rarity weighting and df cap, and they share the
+            # keyword pair cap so tags cannot outweigh a person.
+            "subject": [("s:" + k, k) for k in _subjects(it)
+                        if 2 <= kw_df["s:" + k] <= KEYWORD_DF_CAP],
         }
         feats[a] = f
         for kind, pairs in f.items():
@@ -104,11 +137,14 @@ def compute_related(items, eligible=lambda it: True):
                 others = inv[kind][key]
                 if len(others) > 2000:
                     continue
-                w = W[kind] * (math.log(n / kw_df[key]) if kind == "keyword" else 1.0)
+                w0 = W[kind] * (math.log(n / kw_df[key]) if kind in ("keyword", "subject") else 1.0)
                 for r in others:
                     if r == a:
                         continue
-                    if kind == "keyword":
+                    # Per candidate: this used to overwrite `w` itself, so one
+                    # capped candidate shrank the weight for every later one.
+                    w = w0
+                    if kind in ("keyword", "subject"):
                         room = KEYWORD_PAIR_CAP - kw_score[r]
                         if room <= 0:
                             continue
@@ -134,7 +170,11 @@ def compute_related(items, eligible=lambda it: True):
                 s += W["decade"]
             if (o.get("contentType") or "") == (it.get("contentType") or ""):
                 s += W["type"]
-            if s < MIN_SCORE:
+            # A shelf entry must have a NAMED reason: a person, a series, or a
+            # tag rare enough to count. Several faint signals (genre, decade,
+            # type, a common tag) summed past MIN_SCORE and put Volcano
+            # Eruptions under Nuremberg with an empty reason.
+            if s < MIN_SCORE or r not in best:
                 continue
             # a light quality prior so, among equals, the film people watch wins
             s += min(3.0, math.log10(1 + (o.get("popularityScore") or 0)))
