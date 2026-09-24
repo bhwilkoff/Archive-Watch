@@ -398,6 +398,10 @@ struct DetailView: View {
                 playing = false
                 playbackError = message
             }, captionChoice: captionPlaybackChoice).ignoresSafeArea()
+            // A room guest's one line (SHAREPLAY §11.6.1).
+            .overlay(alignment: .top) {
+                StudioRoomNotice().padding(.top, 12)
+            }
         }
         .alert("Can't play this title", isPresented: .constant(playbackError != nil)) {
             Button("OK") { playbackError = nil }

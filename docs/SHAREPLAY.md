@@ -668,6 +668,19 @@ disabled in a room, with a sentence saying why rather than a dead button
 pauses what YouTube is receiving, and the person answerable for that broadcast
 is the host.
 
+**1a. What that became on Apple and the web (2026-09-23).** The player's own
+controls STAY — volume, captions and full screen belong to the guest, and
+disabling a native transport is not something `AVPlayerView`, `AVPlayerViewController`
+or a `<video>` element can do selectively. Instead a guest's own pause or
+scrub is answered AT ONCE (it used to wait for the next poll, up to 10 s)
+and the player says, for three seconds, **"The host controls the film."**
+That line is one of exactly three a guest ever sees, drawn by
+`StudioRoomNotice` on macOS, iOS and tvOS and by `#player-note` on the web:
+that one; **"The host ended the room."** (the film keeps playing — it is the
+guest's now — but they are no longer in step and must be told); and the
+join-failure sentence, since a failed join otherwise plays the film alone
+and looks like success. Nothing is said while a guest is simply in step.
+
 **2. Launching is one write and one link.** The host is already playing a film
 on the Mac. Starting a room writes the first state record and produces:
 

@@ -72,6 +72,11 @@ struct PlayerWindow: View {
                 .onAppear {
                     if openStudioOnLaunch { openWindow(id: StudioWindowID.studio) }
                 }
+                // A room guest's one line (SHAREPLAY §11.6.1), top-center so
+                // it never sits on AVPlayerView's transport bar.
+                .overlay(alignment: .top) {
+                    StudioRoomNotice().padding(.top, 14)
+                }
                 // FOLLOW A ROOM (§11). The landing page hands the code over
                 // here because this is the one place an `AVPlayer` exists;
                 // everything the follower does after that is silent (§11.2a).

@@ -1656,6 +1656,11 @@ struct PlayerScreen: View {
                             VHSVideoOverlay().allowsHitTesting(false)
                         }
                     }
+                    // A room guest's one line (SHAREPLAY §11.6.1), inside the
+                    // overscan-safe band.
+                    .overlay(alignment: .top) {
+                        StudioRoomNotice().padding(.top, 60)
+                    }
             } else {
                 ProgressView().controlSize(.large).tint(.white)
             }
