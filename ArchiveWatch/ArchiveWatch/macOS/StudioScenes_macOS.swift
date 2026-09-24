@@ -437,9 +437,22 @@ struct StudioSceneBar: View {
 }
 
 /// ⌘1…⌘9 — OBS's scene hotkeys (§D31).
+/// Whether the Watch Together Studio is the frontmost window.
+struct StudioWindowIsKeyKey: FocusedValueKey { typealias Value = Bool }
+extension FocusedValues {
+    var studioWindowIsKey: Bool? {
+        get { self[StudioWindowIsKeyKey.self] }
+        set { self[StudioWindowIsKeyKey.self] = newValue }
+    }
+}
+
 struct SceneCommand: View {
     let index: Int
     @Bindable private var store = StudioScenes.shared
+    /// ⌘1–9 switched scenes from ANY window — typing ⌘2 in a Creation Studio
+    /// document crossfaded a live show and dropped a Twitch chapter (launch
+    /// audit B). They act only while the Studio is in front.
+    @FocusedValue(\.studioWindowIsKey) private var studioIsKey
     var body: some View {
         if index < store.scenes.count {
             let scene = store.scenes[index]
@@ -450,6 +463,7 @@ struct SceneCommand: View {
                 else { Text(scene.name) }
             }
             .keyboardShortcut(KeyEquivalent(Character("\(index + 1)")), modifiers: .command)
+            .disabled(studioIsKey != true)
         }
     }
 }

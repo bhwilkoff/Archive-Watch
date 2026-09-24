@@ -2535,3 +2535,11 @@ host who muted with ⇧⌘M and then switched to a scene with its own audio was
 put back on air without being told. Mutes describe the person, not the
 scene. The in-app self-test (`AW_STUDIO_SCENE_SELFTEST=1`) checks both
 directions; with the old line restored it fails both.
+
+**§D31 amendment (2026-09-23) — scene keys belong to the Studio window.**
+⌘1–9 act only while the Watch Together Studio is the frontmost window
+(`focusedSceneValue(\.studioWindowIsKey)`); from any other window they do
+nothing. The Watch Together Studio menu item no longer carries ⇧⌘S, which is
+Save As in a Creation Studio document; Go Live… (⇧⌘L) opens the same window.
+Mute (⇧⌘M), cards (⌃⌘0–4) and End (⇧⌘E, which asks while on air) stay global
+on purpose: a host must be able to reach them from anywhere.

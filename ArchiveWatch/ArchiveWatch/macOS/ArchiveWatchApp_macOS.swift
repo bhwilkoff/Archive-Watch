@@ -15,8 +15,9 @@ import AppKit
 struct StudioWindowCommand: View {
     @Environment(\.openWindow) private var openWindow
     var body: some View {
+        // No ⇧⌘S: it is Save As in a Creation Studio document (audit B), and
+        // Go Live… (⇧⌘L) already opens this same window.
         Button("Watch Together Studio") { openWindow(id: StudioWindowID.studio) }
-            .keyboardShortcut("s", modifiers: [.command, .shift])
     }
 }
 

@@ -464,6 +464,8 @@ struct StudioWindowView: View {
             .frame(maxHeight: .infinity)
         }
         .frame(minWidth: 1120, minHeight: 660)
+        // Scene keys (⌘1–9) act only while THIS window is in front (audit B).
+        .focusedSceneValue(\.studioWindowIsKey, true)
         .onAppear {
             // THE STUDIO OPENS IN THE SCENE IT WAS LEFT IN (§D31).
             StudioScenes.shared.applySelected()
