@@ -68,6 +68,20 @@ jobs:
           echo "## Verify external matches" >> $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY; tail -3 verify.log >> $GITHUB_STEP_SUMMARY; echo '```' >> $GITHUB_STEP_SUMMARY
 
+      - name: Judge year twins and episodes matched as films
+        # Two judges that ran by hand on 2026-09-16 and nowhere since. The
+        # discovery sweep now queues ~1,300 candidates a night (2026-09-24),
+        # and every new TMDb match can be an uploader's wrong year or an
+        # episode matched to a film. Both judge only on their own evidence
+        # and leave anything unresolvable alone; a dry run on 2026-09-24
+        # found 0 to change, so a non-zero line here is new drift.
+        env:
+          TMDB_BEARER_TOKEN: ${{ secrets.TMDB_BEARER_TOKEN }}
+        run: |
+          python tools/judge_episode_matches.py --apply | tail -1 | sed 's/^/[judge-episodes] /' | tee -a judge.log
+          python tools/judge_year_twins.py --apply | tail -1 | sed 's/^/[judge-year-twins] /' | tee -a judge.log
+          echo '```' >> $GITHUB_STEP_SUMMARY; cat judge.log >> $GITHUB_STEP_SUMMARY; echo '```' >> $GITHUB_STEP_SUMMARY
+
       - name: Remediate catalog data quality
         run: python tools/remediate_catalog.py
 
