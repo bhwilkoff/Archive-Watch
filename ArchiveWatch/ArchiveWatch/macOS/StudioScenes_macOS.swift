@@ -360,6 +360,7 @@ struct StudioSceneBar: View {
             Button { store.add() } label: { Image(systemName: "plus") }
                 .buttonStyle(.borderless)
                 .help("New scene from this one")
+                .accessibilityLabel("New scene")
             settingsMenu
         }
         .padding(.horizontal, 12).padding(.vertical, 6)
@@ -398,6 +399,11 @@ struct StudioSceneBar: View {
             .fixedSize()
         }
         .buttonStyle(.borderless)
+        // VoiceOver hears the scene's NAME and whether it is the one showing,
+        // not "1 Starting soon button" with no state (launch audit B).
+        .accessibilityLabel(scene.name)
+        .accessibilityAddTraits(on ? .isSelected : [])
+        .accessibilityHint(index < 9 ? "Command-\(index + 1)" : "")
         .contextMenu {
             Button("Rename…") { draft = scene.name; renaming = scene.id }
             Button("Delete", role: .destructive) { store.delete(scene.id) }

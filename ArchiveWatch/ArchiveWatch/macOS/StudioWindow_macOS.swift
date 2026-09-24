@@ -2546,6 +2546,9 @@ struct StudioMacFader: View {
                     Text(muted ? "Muted" : "On")
                 }
                 .toggleStyle(.switch).controlSize(.mini)
+                // "On, switch" said nothing about WHICH channel (audit B).
+                .accessibilityLabel(label)
+                .accessibilityValue(muted ? "Muted" : "On")
             }
             // The meter reads on the FADER'S scale, not linearly. A linear
             // 0-1 meter draws 2% for speech at RMS 0.02 and looks dead, which
@@ -2561,11 +2564,16 @@ struct StudioMacFader: View {
                 }
             }
             .frame(height: 4)
+            .accessibilityElement()
+            .accessibilityLabel("\(label) meter")
+            .accessibilityValue("\(Int(min(1, max(0, MixLevel.meterFraction(rms: level))) * 100)) percent")
             HStack(spacing: 10) {
                 Slider(value: Binding(get: { MixLevel.level(Float(gain)) },
                                       set: { gain = Double(MixLevel.gain($0)) }),
                        in: 0...MixLevel.maximum)
                     .disabled(muted)
+                    .accessibilityLabel("\(label) level")
+                    .accessibilityValue(MixLevel.text(MixLevel.level(Float(gain))))
                 Text(MixLevel.text(MixLevel.level(Float(gain))))
                     .font(.subheadline.weight(.medium)).monospacedDigit()
                     .foregroundStyle(muted ? .secondary : .primary)
@@ -2659,6 +2667,12 @@ private struct AudienceRow: View {
         .contentShape(Rectangle())
         .help(line.text)
         .onHover { hovering = $0 }
+        // HOVER AND DOUBLE-CLICK ARE NOT THE ONLY WAYS IN (audit B): VoiceOver
+        // reads the row as one message and offers the action by name.
+        .accessibilityElement(children: .combine)
+        .accessibilityAction(named: tooLong ? "Too long to show" : "Show on the broadcast") {
+            if !tooLong { show() }
+        }
         // A DOUBLE-CLICK DOES IT TOO, because the button is the discoverable
         // way and the gesture is the fast one — a host answering a comment
         // aloud is not aiming at a 40-point target.
