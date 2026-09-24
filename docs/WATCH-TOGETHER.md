@@ -6567,3 +6567,35 @@ early — the in-app figure is good to ~70 ms (§9.ggggg), so the threshold is 1
 **Still unmeasured**: iOS on the wire (same engine code path, not yet run with the
 stimulus), and the first ~1-2 s of a show, which carries the start-up offset
 until the second reading.
+
+## §9.eeeeee — an iPhone show whose film was already playing broadcast silence, or froze; one owner for the audio session (2026-09-24)
+
+Found with the flash-and-beep stimulus through the iPhone's product path
+(`AW_PLAY_URL`, now an iOS door, with `studio_platform_proof.sh bench` and
+`AW_PROOF_RECORD=1`). A film that starts playing BEFORE the show's audio session
+is set — a downloaded film, a cached one, one the host was already watching —
+either lost its broadcast audio after 0.6 s (the tap stopped being called while
+the player kept playing) or paused itself, depending on which session change
+landed first. There were THREE owners of one `AVAudioSession`: the film player
+(`PlayerView_iOS` forced `.playback/.moviePlayback` whenever it was built), the
+camera and microphone (`AVCaptureSession` reconfigures the session itself by
+default), and the engine (`.playAndRecord`). Each change raised route changes
+(reason 3) under a playing film, a camera — which stalled after one frame and
+had to be recovered — and a microphone.
+
+**Now one owner**: the iPhone Studio sets the show's session before any player
+exists; the player leaves the session alone in the Studio; the capture session
+is told not to configure it (iOS only — tvOS's borrowed camera still needs
+AVFoundation to pick its microphone); the engine skips a raise that is already
+satisfied, and re-attaches the film's tap if the film is under way at show
+start. Four consecutive runs: 0 route changes, 0 camera stalls, 0 film pauses,
+every beep delivered, lip sync -10/-9/+9/-9 ms. Microphone checked separately:
+level 0.022-0.029 with the phone hearing its own speaker.
+
+**The harness had to be fixed first**, and that is recorded because it looked
+like flakiness: the iOS Studio door drew an empty full-screen cover on its
+first request (its content read a second @State the closure saw as unset), so
+runs "alternated" with catalog refreshes. `studio_platform_proof.sh` now reports
+stages with the app's own console (`devicectl --console`), and refuses to launch
+over a running instance. Two theories on the way (scene phase, the shell swap)
+were measured wrong and removed.

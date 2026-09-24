@@ -25,6 +25,7 @@ struct StudioPlayerContainer: View {
     @State private var filmFPS = 0
     /// The film player, for one question: did the HOST pause it?
     @State private var filmPlayer: AVPlayer?
+    @State private var rateWatch: NSKeyValueObservation?
     @State private var filmPausedByHost = false
     /// §D21 on the phone: WHY the film stopped reaching the program, named
     /// after `StudioFilmStall.secondsBeforeNaming` silent seconds.
@@ -149,7 +150,26 @@ struct StudioPlayerContainer: View {
                 apply: { await applyControls() }))
     }
 
-    private var player: some View {
+    /// THE SESSION BEFORE THE FILM. The film used to start under `.playback`
+    /// and then have the category changed under it twice — by the camera and
+    /// microphone attaching, and by the engine — and depending on which landed
+    /// first it either lost its broadcast audio or paused itself (iPhone 12,
+    /// 2026-09-24). So no player exists until the show's session is set.
+    @State private var sessionReady = false
+
+    @ViewBuilder private var player: some View {
+        if sessionReady { filmPlayerView } else {
+            Color.black.ignoresSafeArea()
+                .task {
+                    let e = engine ?? StudioEngine(configuration: .benchDoored())
+                    engine = e
+                    await e.prepareAudioSession()
+                    sessionReady = true
+                }
+        }
+    }
+
+    private var filmPlayerView: some View {
         PlayerView(item: item, autoplayIn: nil, onUnplayable: { msg in
             alertTitle = "This film cannot be played"
             startError = msg
@@ -200,6 +220,25 @@ struct StudioPlayerContainer: View {
 
     private func attach(player: AVPlayer) async {
         filmPlayer = player
+        #if DEBUG
+        // WHO STOPS THE FILM. A door run showed the film player at rate 0 from
+        // 0.51 s for the whole show (2026-09-24); every rate change is logged
+        // with the reason AVFoundation gives, and the item's own status.
+        for name in [AVAudioSession.interruptionNotification, AVAudioSession.routeChangeNotification,
+                     AVAudioSession.mediaServicesWereResetNotification] {
+            NotificationCenter.default.addObserver(forName: name, object: nil, queue: nil) { n in
+                awdiag("AWSESSION %@ %@", n.name.rawValue, "\(n.userInfo ?? [:])")
+            }
+        }
+        rateWatch = player.observe(\.timeControlStatus, options: [.new]) { p, _ in
+            awdiag("AWIOSRATE rate=%.2f status=%d waiting=%@ itemStatus=%d error=%@ t=%.2f",
+                   p.rate, p.timeControlStatus.rawValue,
+                   p.reasonForWaitingToPlay?.rawValue ?? "-",
+                   p.currentItem?.status.rawValue ?? -1,
+                   p.currentItem?.error?.localizedDescription ?? "-",
+                   p.currentTime().seconds)
+        }
+        #endif
         #if DEBUG
         // A door launch makes no sound in the room the phone sits in (the
         // macOS rule, v1.42.507). On iOS this silences the BROADCAST's film
@@ -425,6 +464,19 @@ struct StudioPlayerContainer: View {
             // photography problem. It is a log line.
             awdiag("AWENC hardware=%@",
                    h.encoderIsHardware.map { $0 ? "true" : "false" } ?? "unknown")
+            // THE FILM'S AUDIO, as the Mac's AWMACMIX/AWMACSYNC say it. iOS
+            // had no line at all, so "only the first beep of a local file
+            // reaches the broadcast" (2026-09-24) could not be located.
+            #if DEBUG
+            let bed = await e.filmAudioBed
+            let src = await e.filmAudioSourcePosition
+            let buf = await e.filmAudioBuffered
+            let head = filmPlayer?.currentTime().seconds ?? -1
+            awdiag("AWIOSMIX filmFrames=%d filmLevel=%.4f micLevel=%.4f ringFill=%.2f padded=%d source=%.2f playhead=%.2f buffered=%.2f rate=%.2f muted=%@",
+                   h.audio.filmFramesWritten, h.audio.filmLevel, h.audio.micLevel, bed.filmRingFill,
+                   h.audio.filmFramesPadded, src ?? -1, head, buf,
+                   filmPlayer?.rate ?? -1, (filmPlayer?.isMuted ?? false) ? "y" : "n")
+            #endif
 
             // A show that ENDS ITSELF says why (§6.5's `.critical`, §6.6's
             // expired deadline). It reuses the existing alert rather than

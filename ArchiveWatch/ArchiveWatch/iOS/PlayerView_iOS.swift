@@ -139,8 +139,17 @@ struct PlayerView: UIViewControllerRepresentable {
         // frequently fails to start, stalls, or plays silently — especially with
         // our custom resource loader (Decision 021) or when the ringer is silent.
         // tvOS doesn't need this; this is the main iOS-vs-tvOS playback gap.
-        try? AVAudioSession.sharedInstance().setCategory(.playback, mode: .moviePlayback)
-        try? AVAudioSession.sharedInstance().setActive(true)
+        //
+        // NOT IN THE STUDIO. The Studio has already set a recording session
+        // for the show; resetting it to .playback here and having the Studio
+        // set it back put three category changes under a playing film, a
+        // camera and a microphone — the film lost its broadcast audio or
+        // paused, and the camera stalled after one frame (iPhone 12,
+        // 2026-09-24). A .playAndRecord session plays the film just as well.
+        if !inStudio {
+            try? AVAudioSession.sharedInstance().setCategory(.playback, mode: .moviePlayback)
+            try? AVAudioSession.sharedInstance().setActive(true)
+        }
 
         // The caption-type choice reshapes the ASSET (owner 2026-08-26): the
         // file rides the captioned-HLS wrapper; Automatic/Off take the plain

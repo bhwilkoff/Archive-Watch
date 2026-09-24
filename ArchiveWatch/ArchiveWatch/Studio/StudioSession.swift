@@ -1204,6 +1204,18 @@ public final class StudioSession {
             return
         }
         let session = AVCaptureSession()
+        #if os(iOS)
+        // ONE OWNER FOR THE AUDIO SESSION on the iPhone: the Studio, which
+        // set it BEFORE the film started (StudioPlayerContainer_iOS). Left to
+        // configure it automatically, the capture session re-set it the
+        // moment it started — under a film already playing — and the film
+        // either lost its broadcast audio or paused itself, depending on
+        // which change landed first (iPhone 12, 2026-09-24). tvOS keeps the
+        // automatic path (StudioContinuity): there the camera is borrowed and
+        // AVFoundation must pick its microphone.
+        session.usesApplicationAudioSession = true
+        session.automaticallyConfiguresApplicationAudioSession = false
+        #endif
         session.beginConfiguration()
         if session.canAddInput(input) { session.addInput(input) }
         // THE PRESET GOES AFTER THE INPUT, AND A BORROWED PHONE GETS NONE.

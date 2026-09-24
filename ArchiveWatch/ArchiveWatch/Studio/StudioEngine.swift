@@ -1398,7 +1398,28 @@ public actor StudioEngine {
         // §6.2 FIRST: the mixer and the film both depend on the session being
         // in the right category, and on iOS it arrives here still in
         // `.playback`.
+        #if os(iOS)
+        let categoryBefore = AVAudioSession.sharedInstance().category
+        #endif
         raiseAudioSessionForShow()
+        #if os(iOS)
+        // A FILM ALREADY PLAYING LOSES ITS TAP to that change. Measured on an
+        // iPhone 12 (2026-09-24): a film that started before the show — a
+        // local file, so a downloaded film, or one the host was watching —
+        // had its tap deliver 0.6 s of audio and then never again once the
+        // session moved .playback -> .playAndRecord (route change, reason 3),
+        // while the player went on playing: the broadcast carried the
+        // picture and silence. A network film that starts AFTER the change
+        // never showed it. Re-attaching builds the tap on the new session.
+        // And whenever the film is already under way, whoever changed the
+        // session: the camera and microphone attaching change it too.
+        if audioAttached, let item = filmPlayer?.currentItem,
+           AVAudioSession.sharedInstance().category != categoryBefore
+            || item.currentTime().seconds > 0 {
+            audioAttached = await mixer.film.attach(to: item)
+            awdiag("AWSESSION re-attached the film's audio tap after the session change")
+        }
+        #endif
 
         let enc = H264Encoder(width: config.width, height: config.height,
                               frameRate: config.frameRate, bitrate: config.videoBitrate)
@@ -1805,6 +1826,10 @@ public actor StudioEngine {
     private func raiseAudioSessionForShow() {
         #if os(iOS) || os(tvOS)
         let s = AVAudioSession.sharedInstance()
+        awdiag("AWSESSION raising the audio session for the show (was %@ / %@ options=%lu)",
+               s.category.rawValue, s.mode.rawValue, s.categoryOptions.rawValue)
+        defer { awdiag("AWSESSION now %@ / %@ options=%lu", s.category.rawValue, s.mode.rawValue,
+                       s.categoryOptions.rawValue) }
         if previousAudioCategory == nil { previousAudioCategory = s.category }
         do {
             // The CONTROL for §6.2, and it exists because "the film still
@@ -1864,9 +1889,15 @@ public actor StudioEngine {
             //
             // The host's voice is genuinely unavailable during a call. The
             // film is not, so the film goes out.
+            // ALREADY SO, NOTHING TO DO: setting the same category again
+            // still raised route changes under a playing film.
+            let wanted: AVAudioSession.CategoryOptions = [.mixWithOthers, .allowBluetooth, .defaultToSpeaker]
+            if s.category == .playAndRecord, s.mode == .default, s.categoryOptions == wanted {
+                health.audioSessionState = "PlayAndRecord/Default active"
+                return
+            }
             do {
-                try s.setCategory(.playAndRecord, mode: .default,
-                                  options: [.mixWithOthers, .allowBluetooth, .defaultToSpeaker])
+                try s.setCategory(.playAndRecord, mode: .default, options: wanted)
             } catch {
                 try s.setCategory(.playback, mode: .moviePlayback, options: [.mixWithOthers])
                 try s.setActive(true)

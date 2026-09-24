@@ -368,8 +368,6 @@ extension View {
     }
 }
 
-#endif
-
 /// What the Studio door presents: the film and the request TOGETHER, so the
 /// cover never reads the film from a separate piece of state.
 private struct StudioDoorShow: Identifiable {
@@ -377,3 +375,5 @@ private struct StudioDoorShow: Identifiable {
     let request: GoLiveRequest
     var id: UUID { request.id }
 }
+
+#endif
