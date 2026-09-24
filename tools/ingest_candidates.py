@@ -42,6 +42,7 @@ import requests
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import omdb_lib as L  # noqa: E402
 import archive_lib as A  # noqa: E402
+import audit_rights as AR  # noqa: E402  (the confirm pass's own evidence)
 from content_type import classify  # noqa: E402  (shared, dependency-free)
 
 REPO = Path(__file__).resolve().parent.parent
@@ -177,6 +178,36 @@ def build_item(cand, meta, session, omdb_key, omdb_cache, now):
         "isSilentFilm": (year is not None and year < 1928),
         "discoverySource": cand.get("source") or "wikidata",
     }
+
+    # CONFIRMED AT INGEST. The rights audit hides a modern (1978+) title only
+    # once `rightsConfirmed` says its archive licence and date were read; until
+    # then it is `modern_copyright_unconfirmed` and VISIBLE, which lasted until
+    # the next day's --confirm run. We hold that very metadata object now, so
+    # stamp what --confirm would, and the same night's publish-db --apply
+    # judges the item fully. Mattered little at 18 ingests a night; at the
+    # sweep's ~750 (2026-09-24) it would have shown hundreds of modern films.
+    #
+    # Only for the buckets the confirm pass itself targets: stamping a licence
+    # on everything rescued 2006-2011 commercials the owner's cutoff hides.
+    if AR.bucket(item)[0] in AR.NEED_CONFIRM:
+        lic, ayr, aimdb = AR.confirm_fields(md)
+        item["rightsConfirmed"] = True
+        if lic:
+            item["archiveLicense"] = lic
+        if isinstance(ayr, int):
+            item["archiveDate"] = ayr
+        if aimdb and not item.get("imdbID"):
+            item["archiveImdb"] = aimdb
+    # HELD, NOT INGESTED: a modern work whose only claim to stay is the
+    # uploader's licence. license_rescues keeps it while it has no IMDb votes,
+    # and a fresh ingest never has any — so every pirated studio upload with a
+    # CC tag passed (a 52-item trial: A Better Tomorrow, Hard Boiled, Police
+    # Story, Taxi Driver). Decision 114: a bare CC claim rescues nothing. The
+    # candidate keeps this status for review rather than vanishing.
+    b = AR.bucket(item)[0]
+    if b == "safe_archive_license" and isinstance(item.get("year"), int) \
+            and item["year"] >= AR.MODERN:
+        return None, "held_modern_license"
 
     # OMDb enrichment (poster + rich fields) when we have an IMDb ID.
     imdb = cand.get("imdbID")
@@ -316,6 +347,26 @@ def main():
     workable = [c for c in candidates
                 if c.get("status") == "new" and c.get("iaid")
                 and (args.include_low_confidence or c.get("rightsConfidence") == "high")]
+    # Already in the catalog: a candidate queued before another route (a TV
+    # backfill, a rebuild, an earlier run) added it. Settle those HERE, before
+    # the --max-items slice. They used to be recognised only inside the loop,
+    # AFTER the slice, so they spent the night's budget: 2026-09-24, 881 of
+    # 900 slots went to items already present and 18 films were added.
+    stale = [c for c in workable
+             if c["iaid"] in have or c["iaid"].rsplit(".", 1)[0] in have]
+    for c in stale:
+        c["status"] = "duplicate"
+    if stale:
+        workable = [c for c in workable if c.get("status") == "new"]
+        print(f"[ingest] {len(stale):,} queued candidates were already in the catalog "
+              f"— settled as duplicate, not counted against --max-items", flush=True)
+    # OLDEST FIRST. The queue arrives newest-year-first (the discovery writers
+    # sort `-year`), so a bounded night spent its budget on 2026 uploads and
+    # commercials — a 60-item trial (2026-09-24) ingested 45 items and every
+    # one was hidden by the rights audit — while 1930 films waited behind
+    # them. Public domain is a property of AGE; spend the night on it.
+    # Unknown years go last. Stable, so prioritize_source below still wins.
+    workable.sort(key=lambda c: (not isinstance(c.get("year"), int), c.get("year") or 0))
     # Optionally float a named discovery source (e.g. "commercials") to the front
     # so a bounded run drains it first regardless of queue position. Stable sort
     # preserves existing order within each group.

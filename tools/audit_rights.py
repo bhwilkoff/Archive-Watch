@@ -698,6 +698,13 @@ def fetch_archive(aid: str, timeout=20, retries=3):
             time.sleep(1.5 * (attempt + 1))
     if md is None:
         return False, None, None, None
+    return (True, *confirm_fields(md))
+
+
+def confirm_fields(md: dict):
+    """(licenseurl, year, imdb) from an archive.org `metadata` object — the
+    confirm pass's evidence, as a pure function so ingest (which has already
+    fetched the same object) stamps exactly what --confirm would."""
     lic = md.get("licenseurl")
     if isinstance(lic, list):
         lic = lic[0] if lic else None
@@ -720,7 +727,12 @@ def fetch_archive(aid: str, timeout=20, retries=3):
             if m:
                 imdb = m.group(1)
                 break
-    return True, lic, yr, imdb
+    return lic, yr, imdb
+
+
+# The buckets the confirm pass fetches archive evidence for — and so the only
+# ones ingest may stamp from the metadata it already holds.
+NEED_CONFIRM = {"modern_copyright_unconfirmed", "wrongmatch_bw", "modern_noyear_risk"}
 
 
 def confirm_pass(cat, workers, limit):
@@ -728,9 +740,8 @@ def confirm_pass(cat, workers, limit):
     buckets, annotate the catalog (additive, resumable via rightsConfirmed),
     and re-date wrong-dated old films (Tier-2)."""
     items = cat["items"]
-    need_confirm = {"modern_copyright_unconfirmed", "wrongmatch_bw", "modern_noyear_risk"}
     targets = [it for it in items
-               if bucket(it)[0] in need_confirm and not it.get("rightsConfirmed")]
+               if bucket(it)[0] in NEED_CONFIRM and not it.get("rightsConfirmed")]
     if limit:
         targets = targets[:limit]
     print(f"[confirm] fetching Archive metadata for {len(targets)} risk items "
