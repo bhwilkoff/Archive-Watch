@@ -9,10 +9,10 @@ difference should stay flat.
 
     python3 tools/measure_av_drift.py <dir-or-file.mp4>
 
-Measured 2026-09-23 on macOS (M3, That Certain Thing, 6 Mbps, 30 fps), five
-readings over 1,200 s on air: +51, +48, +46, +50, +37 ms — no trend; both
-spans matched wall time (1200.62 / 1200.66 s). iOS, tvOS and Android are
-not yet measured this way.
+CHECK THE RECORDING IS THE FILM before believing a flat line: the first
+1,200 s run was flat because it was a still closing card at 88 kbps with no
+film audio — the audio clock under test never ran. Look at the bitrate and a
+frame, and run `volumedetect` on the audio, first.
 """
 import glob
 import os

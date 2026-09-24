@@ -82,7 +82,19 @@ final class StudioScenes {
         if let data = UserDefaults.standard.data(forKey: Self.key),
            let s = try? JSONDecoder().decode(Saved.self, from: data), !s.scenes.isEmpty {
             scenes = s.scenes
-            selectedID = s.scenes.contains { $0.id == s.selectedID } ? s.selectedID : s.scenes[0].id
+            var pick = s.scenes.contains { $0.id == s.selectedID } ? s.selectedID : s.scenes[0].id
+            // A SHOW NEVER OPENS ON ITS CLOSING CARD. The selection persists,
+            // so a Studio last left on "Thanks" went live with "Thanks for
+            // watching" over the film for the whole next broadcast — found
+            // 2026-09-23 when a 20-minute bench run recorded 88 kbps of the
+            // ending card and no film. Any scene the host opens on
+            // deliberately ("Starting soon") is still restored.
+            if let chosen = s.scenes.first(where: { $0.id == pick }), chosen.card == .ending {
+                let opener = s.scenes.first { $0.card == .none } ?? s.scenes[0]
+                pick = opener.id
+                awdiag("AWSCENE opened on %@ rather than the closing card", opener.name)
+            }
+            selectedID = pick
             showTiles = s.showTiles
             showAudio = s.showAudio
             crossfade = s.crossfade ?? true
