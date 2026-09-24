@@ -260,6 +260,7 @@ fi
 swift_case "8.64 sign-in revocation (validate + refresh)" ArchiveWatch/ArchiveWatch/Studio/StudioRefreshGate.swift tools/test_studio_twitch_validate.swift
 swift_case "8.67 recent bitrate" "$PUB" "$ENG" "$REC" "$CHATFILTER" "$OUT" "$AUD" "$OVL" "$CHAT" "$CHATYT" "$SHIM" tools/test_studio_recent_kbps.swift
 swift_case "8.68 server text never carries the key" "$PUB" "$ENG" "$REC" "$CHATFILTER" "$OUT" "$AUD" "$OVL" "$CHAT" "$CHATYT" "$SHIM" tools/test_studio_key_redaction.swift
+swift_case "8.69 keyboard tile framing" "$PUB" "$ENG" "$REC" "$CHATFILTER" "$OUT" "$AUD" "$OVL" "$CHAT" "$CHATYT" "$SHIM" tools/test_studio_tile_keys.swift
 # The camera-placement settings, asserted against what their LABELS promise.
 # Owner 2026-09-20: "I'm not sure the different settings for where your camera
 # will go ... are actually working as they should." They were not: theatre was

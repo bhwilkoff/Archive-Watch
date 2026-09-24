@@ -119,7 +119,7 @@ struct StudioTileHandles: View {
             default: return .ignored
             }
             var f = controls.activeFraming
-            f.tile = Self.nudged(f.tile ?? tile, dx: dx, dy: dy,
+            f.tile = StudioCameraFraming.nudged(f.tile ?? tile, dx: dx, dy: dy,
                                  reshape: press.modifiers.contains(.option))
             controls.activeFraming = f
             return .handled
@@ -129,22 +129,6 @@ struct StudioTileHandles: View {
         .accessibilityHint("Arrow keys move it; Option with the arrow keys resizes it.")
     }
 
-    /// One keyboard step, clamped exactly as a drag is: never outside the
-    /// frame, never below `minimumTileFraction`.
-    static func nudged(_ r: CGRect, dx: CGFloat, dy: CGFloat, reshape: Bool) -> CGRect {
-        let minSide = StudioCameraFraming.minimumTileFraction
-        var out = r
-        if reshape {
-            out.size.width = min(1, max(minSide, r.width + dx))
-            out.size.height = min(1, max(minSide, r.height + dy))
-        } else {
-            out.origin.x += dx
-            out.origin.y += dy
-        }
-        out.origin.x = min(max(0, out.origin.x), 1 - out.width)
-        out.origin.y = min(max(0, out.origin.y), 1 - out.height)
-        return out
-    }
 
     @ViewBuilder
     private func dragTarget(_ grab: Grab, rect: CGRect, drawn: CGSize) -> some View {

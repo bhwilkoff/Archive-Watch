@@ -342,6 +342,23 @@ public struct StudioCameraFraming: Sendable, Equatable, Codable {
 
     public var isDefault: Bool { tile == nil && zoom == 1 && panX == 0 && panY == 0 }
 
+    /// One KEYBOARD step on a normalized tile (macOS-DESIGN §D14a): a move,
+    /// or with `reshape` a change of width/height, clamped exactly as a drag
+    /// is — never outside the frame, never below `minimumTileFraction`.
+    public static func nudged(_ r: CGRect, dx: CGFloat, dy: CGFloat, reshape: Bool) -> CGRect {
+        var out = r
+        if reshape {
+            out.size.width = min(1, max(minimumTileFraction, r.width + dx))
+            out.size.height = min(1, max(minimumTileFraction, r.height + dy))
+        } else {
+            out.origin.x += dx
+            out.origin.y += dy
+        }
+        out.origin.x = min(max(0, out.origin.x), 1 - out.width)
+        out.origin.y = min(max(0, out.origin.y), 1 - out.height)
+        return out
+    }
+
     public static let zoomRange: ClosedRange<CGFloat> = 1...4
     /// A tile may not be shrunk to nothing or grown past the frame.
     public static let minimumTileFraction: CGFloat = 0.06
