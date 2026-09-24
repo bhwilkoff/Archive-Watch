@@ -44,6 +44,8 @@ public final class StudioRoomHost {
     /// publish continuously and §11.1 would be a comment rather than a rule.
     private var lastPublishedPosition: Double = 0
     private var lastPublishedPaused = true
+    private var lastPublishedRate: Double = 1
+    private var lastPublishedAt = Date()
 
     /// A jump larger than this is a seek rather than the film advancing. One
     /// second is comfortably more than the observer's own interval, so normal
@@ -77,11 +79,13 @@ public final class StudioRoomHost {
             let code = try await client.createRoom(
                 filmID: filmID,
                 position: position.isFinite ? position : 0,
-                paused: player.timeControlStatus != .playing)
+                paused: player.rate == 0)
             self.code = code
             problem = nil
             lastPublishedPosition = position.isFinite ? position : 0
-            lastPublishedPaused = player.timeControlStatus != .playing
+            lastPublishedPaused = player.rate == 0
+            lastPublishedRate = player.rate == 0 ? 1 : Double(player.rate)
+            lastPublishedAt = Date()
             observe(player)
             startReadingPresence()
             return code
@@ -134,10 +138,17 @@ public final class StudioRoomHost {
     }
 
     private func observe(_ player: AVPlayer) {
-        // PLAY AND PAUSE, which are the two a guest notices instantly.
-        rateObserver = player.observe(\.timeControlStatus, options: [.new]) {
+        // PLAY AND PAUSE, which are the two a guest notices instantly — and
+        // the HOST'S INTENT, which is `rate`. This observed
+        // `timeControlStatus`, whose `.waitingToPlayAtSpecifiedRate` is
+        // BUFFERING: every hiccup on the host's connection went out as a
+        // pause and froze every guest (launch audit, sync). A stall that
+        // leaves the host behind is caught by `publishIfSeeked` instead, as
+        // one position update.
+        rateObserver = player.observe(\.rate, options: [.new]) {
             [weak self] p, _ in
-            Task { @MainActor in self?.publishIfChanged(paused: p.timeControlStatus != .playing) }
+            let rate = p.rate
+            Task { @MainActor in self?.publishIfChanged(rate: rate) }
         }
         // AND SEEKS, which have no notification of their own. A periodic
         // observer is the only way to see one, and it publishes ONLY when the
@@ -153,21 +164,23 @@ public final class StudioRoomHost {
         guard let player, code != nil else { return }
         let now = player.currentTime().seconds
         guard now.isFinite else { return }
-        let rate = Double(player.rate == 0 ? 1 : player.rate)
-        // What the position WOULD be if the film had simply played on. A
-        // difference beyond the threshold is somebody having moved it.
-        let drift = abs(now - lastPublishedPosition)
-        let expected = lastPublishedPaused ? lastPublishedPosition
-                                           : lastPublishedPosition + 0.5 * rate
-        if abs(now - expected) > Self.seekThreshold || drift > 30 {
-            publish(position: now, paused: player.timeControlStatus != .playing)
-        } else {
-            lastPublishedPosition = now
+        // Off the room's timeline — a seek, or a stall that left the host
+        // behind — by more than the threshold: say where the film really is.
+        if StudioSync.hostShouldRepublish(position: now,
+                                          lastPosition: lastPublishedPosition,
+                                          lastPaused: lastPublishedPaused,
+                                          lastRate: lastPublishedRate,
+                                          secondsSincePublish: Date().timeIntervalSince(lastPublishedAt),
+                                          threshold: Self.seekThreshold) {
+            publish(position: now, paused: player.rate == 0)
         }
     }
 
-    private func publishIfChanged(paused: Bool) {
-        guard let player, code != nil, paused != lastPublishedPaused else { return }
+    private func publishIfChanged(rate: Float) {
+        guard let player, code != nil else { return }
+        let paused = rate == 0
+        let newRate = paused ? lastPublishedRate : Double(rate)
+        guard paused != lastPublishedPaused || newRate != lastPublishedRate else { return }
         let now = player.currentTime().seconds
         publish(position: now.isFinite ? now : lastPublishedPosition, paused: paused)
     }
@@ -175,7 +188,9 @@ public final class StudioRoomHost {
     private func publish(position: Double, paused: Bool) {
         lastPublishedPosition = position
         lastPublishedPaused = paused
+        lastPublishedAt = Date()
         let rate = Double(player?.rate ?? 1)
+        if rate != 0 { lastPublishedRate = rate }
         let film = filmID
         Task {
             try? await client.publish(filmID: film, position: position,

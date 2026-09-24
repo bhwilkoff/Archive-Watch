@@ -159,6 +159,29 @@ struct StudioSyncTest {
         check("four guests for two hours stays well inside a free daily read budget",
               reads < 100_000, String(format: "%.0f reads", reads))
 
+        // THE HOST'S SIDE: when must it republish? Against the ROOM's clock.
+        check("a host playing on schedule does not republish",
+              !StudioSync.hostShouldRepublish(position: 130, lastPosition: 100, lastPaused: false,
+                                              lastRate: 1, secondsSincePublish: 30))
+        check("a host a stall left 5 s behind DOES republish",
+              StudioSync.hostShouldRepublish(position: 125, lastPosition: 100, lastPaused: false,
+                                             lastRate: 1, secondsSincePublish: 30))
+        // CONTROL: the old rule compared each half-second sample with the one
+        // before (baseline reset every tick), so a 0.5 s tick that saw no
+        // progress read as within tolerance and the stall was never said.
+        check("control: the per-tick comparison misses that stall",
+              !StudioSync.hostShouldRepublish(position: 110, lastPosition: 110, lastPaused: false,
+                                              lastRate: 1, secondsSincePublish: 0.5))
+        check("a paused host that has not moved does not republish",
+              !StudioSync.hostShouldRepublish(position: 100, lastPosition: 100, lastPaused: true,
+                                              lastRate: 1, secondsSincePublish: 600))
+        check("a paused host that seeks does",
+              StudioSync.hostShouldRepublish(position: 40, lastPosition: 100, lastPaused: true,
+                                             lastRate: 1, secondsSincePublish: 5))
+        check("a 1.25x host on schedule does not",
+              !StudioSync.hostShouldRepublish(position: 125, lastPosition: 100, lastPaused: false,
+                                              lastRate: 1.25, secondsSincePublish: 20))
+
         print(failures == 0 ? "=== §8.27 OK ===" : "=== §8.27 \(failures) FAILURES ===")
         exit(failures == 0 ? 0 : 1)
     }

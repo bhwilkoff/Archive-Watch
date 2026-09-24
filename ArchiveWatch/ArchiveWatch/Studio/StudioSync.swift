@@ -135,6 +135,23 @@ public enum StudioSync {
     /// visible, re-buffers, and is the one thing an audience actually
     /// notices; a 3% rate change is neither audible on speech nor visible at
     /// 24 fps.
+    /// Whether a HOST must republish its position: it has left the timeline
+    /// the room is extrapolating. Measured against the room's clock since the
+    /// last publish — not against the previous half-second sample, which
+    /// reset the baseline every tick, so a host who fell behind after a stall
+    /// never said so and every guest drifted ahead of the film they were
+    /// supposedly watching together.
+    public static func hostShouldRepublish(position: Double,
+                                           lastPosition: Double,
+                                           lastPaused: Bool,
+                                           lastRate: Double,
+                                           secondsSincePublish: Double,
+                                           threshold: Double = 1.0) -> Bool {
+        let expected = lastPaused ? lastPosition
+                                  : lastPosition + max(0, secondsSincePublish) * lastRate
+        return abs(position - expected) > threshold
+    }
+
     public static func correction(localPosition: Double,
                                   localPaused: Bool,
                                   state: State,
