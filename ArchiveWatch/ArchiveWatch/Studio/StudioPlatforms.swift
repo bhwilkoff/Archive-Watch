@@ -772,8 +772,14 @@ public struct YouTubeLive: Sendable {
             body: ["snippet": ["title": title,
                                "description": description,
                                "scheduledStartTime": ISO8601DateFormatter().string(from: Date())],
-                   "status": ["privacyStatus": privacy,
-                              "selfDeclaredMadeForKids": false],
+                   // NO `selfDeclaredMadeForKids`. It was hard-coded `false`,
+                   // which declared every broadcast "not made for kids" on the
+                   // host's behalf — overriding a channel whose audience is
+                   // set to kids, for a catalog full of 1920s cartoons. The
+                   // field is optional on insert (API reference), and COPPA
+                   // puts the declaration on the channel owner; leaving it out
+                   // lets YouTube apply the channel's own audience setting.
+                   "status": ["privacyStatus": privacy],
                    // autoStartStream so the broadcast goes live when bytes
                    // arrive, rather than needing a second transition the host
                    // would have to know about.
