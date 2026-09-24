@@ -157,7 +157,7 @@ def main():
         except Exception:  # noqa: BLE001
             curated_collections = []
     curated_lower = {c.lower(): c for c in curated_collections}
-    from build_sqlite import SERIES_BY_FRANCHISE  # film series collections
+    from build_sqlite import SERIES_BY_FRANCHISE, shelf_rights_ok
 
     adult = set()
     if FEATURED.exists():
@@ -282,7 +282,7 @@ def main():
         # instead of live scrape (which bypasses the rights/adult pipeline).
         designed = 1 if poster else 0
         pop_score = it.get("popularityScore") or 0
-        for shelf_id in (it.get("shelves") or []):
+        for shelf_id in (it.get("shelves") or []) if shelf_rights_ok(it) else []:
             shelf_members.setdefault(shelf_id, []).append((designed, pop_score, aid))
         for c in cols:
             if (canon := curated_lower.get(c)):

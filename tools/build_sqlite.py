@@ -155,9 +155,29 @@ def _tv_category_shelves():
 TV_CATEGORY_SHELVES = _tv_category_shelves()
 
 
+# A title from 1978 on reaches a curated Home shelf only on POSITIVE rights
+# evidence — the hero's modern-year rule (Catalog.Item.isHeroRightsSafe),
+# applied to the shelves. Measured 2026-09-24: 52 modern titles sat on Home
+# on an uploader's licence alone, among them two Kojak compilations leading
+# the 1970s TV shelf and a 1989 Popeye. Browse and Search keep them; this is
+# about what the app PUTS IN FRONT of someone. NASA and other US-government
+# work (`safe_gov`) is unaffected.
+SHELF_MODERN_YEAR = 1978
+SHELF_MODERN_BUCKETS = {"safe_pd_age", "safe_gov", "safe_cc"}
+
+
+def shelf_rights_ok(it):
+    y = it.get("year")
+    if not isinstance(y, int) or y < SHELF_MODERN_YEAR:
+        return True
+    return _rights_bucket(it) in SHELF_MODERN_BUCKETS
+
+
 def _shelf_ids_for(it):
     """Full Home-shelf membership for an item: its stored `shelves` UNION any
     shelf whose collection: query the item's collections satisfy."""
+    if not shelf_rights_ok(it):
+        return set()
     ids = set(it.get("shelves") or [])
     for c in (it.get("collections") or []):
         ids.update(SHELF_COLLECTION_MAP.get(str(c), []))

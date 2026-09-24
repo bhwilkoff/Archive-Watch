@@ -24,8 +24,11 @@ kt_b = set(re.findall(r"'(\w+)'", re.search(r"rightsBucket IN \(([^)]*)\)", hero
 kt_y = {int(y) for y in re.findall(r"year >= (\d+)", hero_kt)}
 py_b, py_y = set(b.HERO_SAFE_BUCKETS), b.HERO_MODERN_YEAR
 
+import build_sqlite as bs   # Home shelves use the hero's modern-year bar (2026-09-24)
+
 def check(pb, py):
-    return pb == sw_b == kt_b and py == sw_y and kt_y == {py}
+    return pb == sw_b == kt_b == set(bs.SHELF_MODERN_BUCKETS) and py == sw_y == bs.SHELF_MODERN_YEAR \
+        and kt_y == {py}
 
 if check(py_b | {"presumed_pd"}, py_y):
     print("CONTROL FAIL: a one-sided bucket did not break parity"); sys.exit(2)
@@ -38,4 +41,9 @@ for bk, y, want in cases:
     got = b.hero_safe(bk, y)
     ok &= got == want
     print(f"  {'ok  ' if got == want else 'FAIL'} hero_safe({bk}, {y}) = {got}")
+for y, bk, want in [(1989, "safe_archive_license", False), (2015, "safe_gov", True), (1950, "presumed_pd", True)]:
+    bs._rights_bucket = lambda it, _b=bk: _b
+    got = bs.shelf_rights_ok({"year": y})
+    ok &= got == want
+    print(f"  {'ok  ' if got == want else 'FAIL'} shelf_rights_ok({y}, {bk}) = {got}")
 print("PASS" if ok else "FAIL"); sys.exit(0 if ok else 1)
