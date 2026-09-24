@@ -102,6 +102,19 @@ struct RootView: View {
         // underneath it. Presented WITHOUT autoplay, the go-live sheet never
         // appears at all and the door never runs — the owner got no prompt
         // whatsoever. The root view is on screen either way.
+        #if DEBUG
+        // `AW_ROOM_JOIN=<code>` with AW_START_ITEM + AW_AUTOPLAY: join a room
+        // the way the join grid hands it over (RoomJoinTV), so an Apple TV
+        // guest can be run without a remote — the iOS and macOS doors' twin.
+        .task {
+            let env = ProcessInfo.processInfo.environment
+            if let code = env["AW_ROOM_JOIN"], !code.isEmpty {
+                RoomJoinTV.shared.pending = code
+                RoomJoinTV.shared.pendingFilm = env["AW_START_ITEM"]
+                awdiag("AWFOLLOW door will join room %@", code)
+            }
+        }
+        #endif
         .task {
             #if DEBUG
             let authDoor = StudioDoors.authDoor

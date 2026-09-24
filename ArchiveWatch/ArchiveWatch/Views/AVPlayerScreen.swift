@@ -539,6 +539,10 @@ struct AVPlayerContainer: UIViewControllerRepresentable {
             RoomJoinTV.shared.pending = nil
             RoomJoinTV.shared.pendingFilm = nil
             let p = player
+            #if DEBUG
+            // A door join makes no sound in the room the television is in.
+            if ProcessInfo.processInfo.environment["AW_ROOM_JOIN"] != nil { p.isMuted = true }
+            #endif
             Task { @MainActor in
                 await StudioSyncFollower.shared.join(code: code, player: p) { _ in }
             }
