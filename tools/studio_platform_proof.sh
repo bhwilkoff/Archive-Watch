@@ -18,7 +18,8 @@
 # Optional: AW_PROOF_DEVICE=<udid> (the test iPad, never the owner's 15 Pro),
 # AW_PROOF_APP=<path to a Debug-iphoneos .app>, AW_PROOF_ENV='"K":"V",...'
 # (more doors, e.g. AW_STUDIO_IOS_SHOW), AW_PROOF_SHOT=<s> (a screenshot
-# that many seconds after launch, into the output folder).
+# that many seconds after launch, into the output folder), AW_PROOF_RECORD=1
+# (bench only: the server keeps the recording, under the output folder's rec/).
 set -u
 cd "$(dirname "$0")/.."
 export DEVELOPER_DIR=${DEVELOPER_DIR:-/Applications/Xcode-beta.app/Contents/Developer}
@@ -86,7 +87,12 @@ fi
 ENV="\"AW_DIAG_FILE\":\"1\",\"AW_STUDIO_IOS_READBACK\":\"15\",\"AW_STUDIO_IOS_SHARECHAT\":\"30\",\"AW_STUDIO_IOS_END\":\"$SECS\""
 if [ "$MODE" = bench ]; then
   MTXLOG="$OUT/mtx-$(date +%s).log"
-  printf 'logLevel: info\nrecord: no\npaths:\n  all:\n    source: publisher\n' > "$OUT/mtx.yml"
+  if [ "${AW_PROOF_RECORD:-}" = 1 ]; then
+    # Keep what the server received, for measure_av_sync.py — delete after.
+    printf 'logLevel: info\npaths:\n  all:\n    source: publisher\n    record: yes\n    recordPath: %s/rec/%%path/%%Y-%%m-%%d_%%H-%%M-%%S-%%f\n    recordFormat: fmp4\n' "$OUT" > "$OUT/mtx.yml"
+  else
+    printf 'logLevel: info\nrecord: no\npaths:\n  all:\n    source: publisher\n' > "$OUT/mtx.yml"
+  fi
   pkill -f "$OUT/mtx.yml" >/dev/null 2>&1; sleep 1
   mediamtx "$OUT/mtx.yml" > "$MTXLOG" 2>&1 &
   MAC=$(ipconfig getifaddr en0)
@@ -96,8 +102,20 @@ else
 fi
 [ -n "${AW_PROOF_ENV:-}" ] && ENV="$ENV,$AW_PROOF_ENV"
 echo "== $MODE proof run: $FILM, ends at $SECS s on air"
+# STAGES, each with its own evidence, so a run that fails says WHERE (owner,
+# 2026-09-24: "You shouldn't have intermittent failures for the same harness.
+# You should be able to investigate from end to end"). The app's own console
+# is captured for the whole run: the diag file is only as good as its pull.
+CONSOLE="$OUT/console-$MODE-$(date +%s).log"
+n0=$(apps)
+echo "[stage 0] instances before launch: $n0"
+[ "$n0" = 0 ] || { echo "!! an instance is already running — refusing to launch over it"; exit 1; }
 STARTED=$(date +%s)
-launch "{$ENV}"
+xcrun devicectl device process launch --device $PHONE --console --environment-variables "{$ENV}" $BUNDLE > "$CONSOLE" 2>&1 &
+CONSOLE_PID=$!
+sleep 10
+echo "[stage 1] after 10 s: instances=$(apps) console-lines=$(grep -c . "$CONSOLE") launch-says=\"$(head -1 "$CONSOLE" | cut -c1-80)\""
+grep -m1 "AWMUTE\|AWFILM\|AWCAM" "$CONSOLE" | cut -c1-140 | sed 's/^/          first app line: /'
 
 # Wait for the show to end itself (the END door), pulling the log as we go.
 DEADLINE=$((SECONDS + SECS + 150))
@@ -109,9 +127,16 @@ while [ $SECONDS -lt $DEADLINE ]; do
       && echo "== screenshot: $(ls -t "$OUT"/shot-*.png | head -1)" || echo "!! screenshot failed"
     SHOT_AT=
   fi
-  grep -q "AWSTUDIOEND\|AWDOOR ending" "$LOG" 2>/dev/null && { sleep 5; pull; break; }
+  if [ "$MODE" = bench ] && [ -z "${SAW_PUBLISH:-}" ] && grep -q "is publishing" "$MTXLOG" 2>/dev/null; then
+    SAW_PUBLISH=1; echo "[stage 2] the server has a publisher ($(grep -m1 'is publishing' "$MTXLOG" | cut -c1-19))"
+  fi
+  grep -q "AWSTUDIOEND\|AWDOOR ending" "$LOG" "$CONSOLE" 2>/dev/null && { sleep 5; pull; break; }
 done
+[ "$MODE" = bench ] && [ -z "${SAW_PUBLISH:-}" ] && echo "!! [stage 2] the server NEVER saw a publisher — last app lines:" \
+  && grep -E "AWPUB|AWSTUDIO|AWFILM" "$CONSOLE" | tail -4 | cut -c1-160
 stop_app
+wait $CONSOLE_PID 2>/dev/null
+echo "[stage 3] console captured: $CONSOLE ($(grep -c . "$CONSOLE") lines)"
 [ "$MODE" = bench ] && pkill -f "$OUT/mtx.yml" >/dev/null 2>&1
 
 [ "$PULL_FAILS" -gt 0 ] && echo "!! $PULL_FAILS pull(s) of the phone's log FAILED — an empty result below is not evidence"

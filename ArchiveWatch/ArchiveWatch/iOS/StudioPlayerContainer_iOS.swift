@@ -211,6 +211,17 @@ struct StudioPlayerContainer: View {
             player.isMuted = true
             awdiag("AWMUTE iOS door player muted (AW_STUDIO_IOS_SOUND=1 to hear it)")
         }
+        // NOR DOES IT BROADCAST THE ROOM. macOS's door has muted the host's
+        // microphone since the bench recorded the owner's room (StudioSession,
+        // AW_STUDIO_MIC); that rule lived in the Mac's session only, so every
+        // iPhone door run sent — and a recording server kept — whatever the
+        // test phone heard in the house. It also buried the lip-sync stimulus
+        // under the phone's own speaker (2026-09-24). AW_STUDIO_MIC=1 opts in.
+        if env["AW_STUDIO_IOS"] != nil || env["AW_STUDIO_GOLIVE"] != nil,
+           env["AW_STUDIO_MIC"] != "1" {
+            micMuted = true
+            awdiag("AWMUTE iOS door microphone muted (AW_STUDIO_MIC=1 to send it)")
+        }
         #endif
         // Re-entrant by design: a Decision-077 copy fallback rebuilds the
         // player, and the engine must follow it to the new item.

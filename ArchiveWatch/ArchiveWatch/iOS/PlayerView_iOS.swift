@@ -163,7 +163,7 @@ struct PlayerView: UIViewControllerRepresentable {
         // still has something a receiver can fetch (Decision 051).
         let localFileURL = OfflineLibrary.videoURL(for: archiveID)
 
-        let pItem: AVPlayerItem
+        var pItem: AVPlayerItem
         if let local = localFileURL {
             pItem = AVPlayerItem(url: local)
         } else if effectiveHLS != nil, let mp4 = videoURL {
@@ -244,6 +244,25 @@ struct PlayerView: UIViewControllerRepresentable {
         // in its own chrome, shown/hidden WITH the transport controls (the Apple TV
         // app's behavior). This replaces a custom overlay — it's controls-synced
         // for free and survives load.
+        // `AW_PLAY_URL=<file path or url>`, DEBUG only: play THIS instead of
+        // the film — the lip-sync stimulus (WATCH-TOGETHER §9.dddddd), as the
+        // Mac's door does. Gated for the same reason: honouring it in a
+        // release build would let anyone make the player fetch anything.
+        let playURLOverride: URL? = {
+            #if DEBUG
+            guard let s = ProcessInfo.processInfo.environment["AW_PLAY_URL"], !s.isEmpty else { return nil }
+            if s.contains("://") { return URL(string: s) }
+            // A bare name is in the app's own Documents — where `devicectl
+            // device copy to --domain-type appDataContainer` can put a file.
+            // Not tmp: the system empties it between launches, and a door
+            // whose file has gone never reaches a show.
+            return s.hasPrefix("/") ? URL(fileURLWithPath: s)
+                : URL.documentsDirectory.appendingPathComponent(s)
+            #else
+            return nil
+            #endif
+        }()
+        if let playURLOverride { pItem = AVPlayerItem(url: playURLOverride) }
         pItem.externalMetadata = playerExternalMetadata(title: overlayTitle, subtitle: overlaySubtitle,
                                                         description: overlayDescription)
         context.coordinator.fallbackMetadata = pItem.externalMetadata
@@ -277,7 +296,7 @@ struct PlayerView: UIViewControllerRepresentable {
         // Channel join-in-progress beats per-title resume; otherwise resume.
         if let so = startOffset {
             if so > 5 { player.seek(to: CMTime(seconds: so, preferredTimescale: 600)) }
-        } else if let p = context.coordinator.savedProgress(), p > 10 {
+        } else if playURLOverride == nil, let p = context.coordinator.savedProgress(), p > 10 {
             player.seek(to: CMTime(seconds: p, preferredTimescale: 600))
         }
         player.play()

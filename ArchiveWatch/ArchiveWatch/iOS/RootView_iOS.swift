@@ -74,6 +74,7 @@ struct RootView: View {
         // exactly as the sheet is: a door must not skip a gate the product
         // enforces. No-op in production.
         .task(id: store.dbVersion) {
+            guard !studioDoorFired else { return }
             guard let id = ProcessInfo.processInfo.environment["AW_STUDIO_IOS"],
                   !id.isEmpty, store.isReady,
                   let dest = ProcessInfo.processInfo.environment["AW_STUDIO_DEST"],
@@ -85,19 +86,25 @@ struct RootView: View {
                 print("[AWSTUDIOIOS] refused: \(why)")
                 return
             }
-            studioDoorItem = film
-            studioDoorRequest = GoLiveRequest(
+            studioDoorFired = true
+            awdiag("AWSTUDIOIOS door requests the Studio for %@", film.archiveID)
+            studioDoor = StudioDoorShow(film: film, request: GoLiveRequest(
                 archiveID: film.archiveID, platform: .custom,
                 title: film.title, category: "", privacy: .unlisted,
                 layout: .corner, customServer: server,
-                customKey: ProcessInfo.processInfo.environment["AW_STUDIO_KEY"] ?? "awbench")
+                customKey: ProcessInfo.processInfo.environment["AW_STUDIO_KEY"] ?? "awbench"))
         }
-        .fullScreenCover(item: $studioDoorRequest) { req in
-            if let film = studioDoorItem {
-                StudioPlayerContainer(item: film, request: req) {
-                    studioDoorRequest = nil
-                }
+        // THE FILM TRAVELS IN THE ITEM. The cover used to read a SECOND piece
+        // of @State for the film, and a presentation closure can see that
+        // state as it was before it was set — so the first presentation drew
+        // nothing (a black screen, 2026-09-24) and only a later re-request,
+        // after the film already existed, showed the Studio. That is what
+        // made the iPhone proof harness look intermittent.
+        .fullScreenCover(item: $studioDoor) { show in
+            StudioPlayerContainer(item: show.film, request: show.request) {
+                studioDoor = nil
             }
+            .onAppear { awdiag("AWSTUDIOIOS door: the Studio is on screen") }
         }
         // Dev affordance: `AW_STUDIO_CONTROLS_DEMO=1` shows the live health
         // capsule over the shell and opens the controls sheet, so both can be
@@ -133,8 +140,9 @@ struct RootView: View {
     @State private var demoDuck = true
     @State private var demoFilmGain = 1.0
     @State private var demoMicGain = 1.0
-    @State private var studioDoorRequest: GoLiveRequest?
-    @State private var studioDoorItem: Catalog.Item?
+    @State private var studioDoor: StudioDoorShow?
+    /// One show per launch: a later catalog refresh must not open another.
+    @State private var studioDoorFired = false
     @State private var demoFilmMuted = false
     @State private var demoMicMuted = false
     @State private var demoCard: StudioOverlay.Card?
@@ -361,3 +369,11 @@ extension View {
 }
 
 #endif
+
+/// What the Studio door presents: the film and the request TOGETHER, so the
+/// cover never reads the film from a separate piece of state.
+private struct StudioDoorShow: Identifiable {
+    let film: Catalog.Item
+    let request: GoLiveRequest
+    var id: UUID { request.id }
+}
