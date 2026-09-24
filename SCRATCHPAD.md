@@ -618,8 +618,7 @@ because the loop was stopped mid-stride for a Claude update.
    the Studio's hardware floor. The §8.3 ten-minute soak passes on the 3rd gen
    (`docs/WATCH-TOGETHER.md` §9); the 2nd-gen repeat needs a window the owner
    offers, and **no window is currently agreed** — ask before touching
-   Fireplace. Movie Room is NOT in the tvOS provisioning profile — it fails to
-   install; Bedroom works.
+   Fireplace. Movie Room is provisioned since 2026-09-24 (DEVICE-TESTING §1).
 
 ---
 

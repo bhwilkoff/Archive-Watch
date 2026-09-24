@@ -60,6 +60,14 @@ public final class StudioSyncFollower {
     /// otherwise be silently corrected to normal speed every few seconds.
     /// Seconds a seek takes on this device (§11): the next one aims this far ahead.
     @ObservationIgnored private var seekLead: Double = 0.5
+    /// Seeks requested and not yet completed (a superseded seek completes too,
+    /// with `done == false`, so this counts rather than flags). The
+    /// seek's own time-jump can reach `guestMoved` BEFORE the completion's
+    /// task stamps `appliedAt`, so a seek slower than the 1.5 s window read as
+    /// the guest's move: measured on Ben Bedroom 2026-09-24, a host seek into
+    /// unbuffered film took 2.18 s, the guest was told "The host controls the
+    /// film." and seeked again, landing 2 s past the host.
+    @ObservationIgnored private var seeksInFlight = 0
     @ObservationIgnored private var hostRate: Double = 1.0
 
     public init(config: StudioSyncClient.Config = .live) {
@@ -184,6 +192,7 @@ public final class StudioSyncFollower {
     private func guestMoved() {
         guard case .following = status,
               Date().timeIntervalSince(followingSince) > 5,
+              seeksInFlight == 0,
               Date().timeIntervalSince(appliedAt) > 1.5 else { return }
         // A pause the HOST asked for is not the guest's.
         if let s = lastKnownState, s.paused { return }
@@ -316,12 +325,14 @@ public final class StudioSyncFollower {
             // and a lead would land past it and seek again every poll.
             let lead = player.rate == 0 ? 0 : seekLead * hostRate
             let started = Date()
+            seeksInFlight += 1
             player.seek(to: CMTime(seconds: to + lead, preferredTimescale: 600),
                         toleranceBefore: .zero, toleranceAfter: .zero) { [weak self] done in
-                guard done else { return }
                 let took = Date().timeIntervalSince(started)
                 Task { @MainActor in
                     guard let self else { return }
+                    self.seeksInFlight = max(0, self.seeksInFlight - 1)
+                    guard done else { return }
                     // Our own seek's time-jump can land after it COMPLETES —
                     // measured 2.2 s after it started — so the "this was us"
                     // window runs from completion, not from the request.

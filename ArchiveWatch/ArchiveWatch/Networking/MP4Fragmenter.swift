@@ -495,7 +495,6 @@ extension MP4Fragmenter {
         let masterIdx = m.tracks.firstIndex { $0.handler == "vide" } ?? 0
         while true {
             var fts: [FragTrack] = []
-            var spanSeconds = seconds
 
             // 1. The master track: run to at least `seconds`, then to the next
             //    sync sample so the fragment is independently decodable.
@@ -514,16 +513,27 @@ extension MP4Fragmenter {
                     fts.append(FragTrack(trackID: mt.id, firstSample: cursor[masterIdx],
                                          count: taken, baseDecodeTime: decode[masterIdx],
                                          byteCount: bytes))
-                    spanSeconds = Double(dur) / Double(mt.timescale)
                     cursor[masterIdx] += taken
                     decode[masterIdx] += dur
                 }
             }
 
-            // 2. Every other track covers exactly that span.
+            // 2. Every other track runs to where the master track now ENDS —
+            //    a running total, not this fragment's span. Cutting each run
+            //    to "at least the span" overshot by up to one audio frame per
+            //    fragment and the overshoot accumulated: 42 s of audio lead by
+            //    the end of an 85-minute film in 2-s fragments. Linear play
+            //    never noticed (tfdt is exact); a SEEK loads the segment for
+            //    the video time and its audio starts that far later
+            //    (tools/test_fragmenter_alignment.swift).
+            let masterEnd = Double(decode[masterIdx]) / Double(mt.timescale)
             for (ti, t) in m.tracks.enumerated() where ti != masterIdx {
                 guard cursor[ti] < t.samples.count else { continue }
-                let want = UInt64(Double(t.timescale) * spanSeconds)
+                let end = cursor[masterIdx] >= mt.samples.count
+                    ? UInt64.max
+                    : UInt64(Double(t.timescale) * masterEnd)
+                guard decode[ti] < end || fts.isEmpty else { continue }
+                let want = end == .max ? UInt64.max : end - min(end, decode[ti])
                 var taken = 0, dur: UInt64 = 0, bytes = 0
                 var i = cursor[ti]
                 while i < t.samples.count {

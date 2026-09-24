@@ -26,8 +26,8 @@ The pyatv `--id` is the anchor — addresses are DHCP and drift.
 
 **Fireplace TV is off limits** (owner, 2026-09-17). It is also the only
 2nd-gen box, i.e. the Studio's hardware floor, so the floor cannot be
-measured without asking first. Movie Room is not in the tvOS provisioning
-profile and fails to install.
+measured without asking first. Movie Room (tvOS 26.6) is provisioned since
+2026-09-24 — see DEVICE-TESTING §1 for how.
 
 ## 2. Wake it first — `devicectl` has no wake verb
 

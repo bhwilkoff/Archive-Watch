@@ -94,7 +94,18 @@ awake (`wake_tv()` True) and advertising `_remotepairing._tcp`. None of these
 restored it: the lease + wake + long-timeout UDID call, `devicectl device
 reboot` (it needs the same connection), or restarting CoreDeviceService. An
 earlier note here blamed the tvOS 27.2 update and prescribed re-pairing; Movie
-Room on 26.6 in the same state disproves that. Unresolved — record what fixes it.
+Room on 26.6 in the same state disproves that. **RESOLVED 2026-09-24 by restarting
+the Mac** (the owner restarted and updated it to macOS 27.2): every TV read
+`available (paired)` straight afterwards and the documented lease + wake + UDID
+install worked first time. The update also removed the Metal toolchain, so the
+first tvOS build failed until `xcodebuild -downloadComponent MetalToolchain`.
+
+**Movie Room was never in the tvOS provisioning profile** (MIInstallerErrorDomain
+13, "This provisioning profile cannot be installed on this device"). Fixed
+2026-09-24 by building once against it: `xcodebuild ... -destination
+id=FE70998C-0E9E-5763-B421-D2977E16FB59 -allowProvisioningUpdates
+-allowProvisioningDeviceRegistration build`, which registers the device and
+regenerates the profile; the generic-destination build then installs there too.
 
 ## 2. Device leases — sharing hardware with another session
 
