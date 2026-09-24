@@ -293,6 +293,13 @@ else
   row "8.32 web room client" FAIL "node exit $?"; FAIL=$((FAIL+1))
 fi
 
+printf '\n=== %s\n' "8.65 web calls only what js/api.js exports"
+if python3 tools/test_web_api_calls.py; then
+  row "8.65 web API calls exist" PASS ""; PASS=$((PASS+1))
+else
+  row "8.65 web API calls exist" FAIL "see output"; FAIL=$((FAIL+1))
+fi
+
 printf '\n=== %s\n' "8.29 worker/app code parity"
 if node tools/test_together_worker.mjs; then
   row "8.29 worker code parity" PASS ""; PASS=$((PASS+1))

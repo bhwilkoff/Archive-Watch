@@ -2963,14 +2963,28 @@
       // Play it the ordinary way, then follow. `persist:false` keeps a room
       // out of Continue Watching: somebody else chose this film and chose
       // when it started, so it is not this viewer's place in it.
-      const summary = await API.summary(id).catch(() => null);
-      if (!summary?.videoFile) {
+      // The same two sources Detail's Play uses. This called a `summary`
+      // that js/api.js has never had, so from v1.42.469 every browser guest got
+      // "Watching … with the room" and no player at all (found 2026-09-23 by
+      // opening a room in Chrome).
+      let url = null;
+      const det = await Details.get(id).catch(() => null);
+      if (det?.downloadURL) {
+        url = det.downloadURL;
+      } else {
+        try {
+          const s = API.summarize(await API.fetchMetadata(id, { timeoutMs: 12000 }));
+          if (s?.videoFile) {
+            url = 'https://archive.org/download/' + encodeURIComponent(id) + '/' +
+              encodeURIComponent(s.videoFile.name).replace(/%2F/g, '/');
+          }
+        } catch { /* said below */ }
+      }
+      if (!url) {
         err.hidden = false;
         err.textContent = 'That film has no playable copy on this site.';
         return;
       }
-      const url = 'https://archive.org/download/' + encodeURIComponent(id) + '/' +
-        encodeURIComponent(summary.videoFile.name).replace(/%2F/g, '/');
       await Player.start({ id, title: row[1], url, persist: false, room: true,
                            startAt: Together.expectedPosition(state, client.serverNow()) });
       const video = $('video');
@@ -2978,6 +2992,12 @@
         err.hidden = false;
         err.textContent = 'The host ended the room.';
       }, () => Player.flashNote('The host controls the film.'));
+      // A browser that blocks autoplay with sound leaves a guest looking at a
+      // paused film with no idea the room is running without them.
+      if (video?.paused) {
+        Player.flashNote('Press play to join the room.', 0);
+        video.addEventListener('playing', () => { $('player-note').hidden = true; }, { once: true });
+      }
     },
 
     stop() {
@@ -3003,13 +3023,14 @@
         plays. `startAt` joins a channel program in progress; `persist:false`
         keeps channel playback out of Continue Watching (the apps' rule). */
     noteTimer: null,
-    flashNote(text) {
+    /** `ms` 0 keeps the note up until something hides it. */
+    flashNote(text, ms = 3000) {
       const n = $('player-note');
       if (!n) return;
       n.textContent = text;
       n.hidden = false;
       clearTimeout(this.noteTimer);
-      this.noteTimer = setTimeout(() => { n.hidden = true; }, 3000);
+      if (ms > 0) this.noteTimer = setTimeout(() => { n.hidden = true; }, ms);
     },
 
     async start({ id, title, url, queue = null, queueIndex = 0,

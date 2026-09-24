@@ -47,6 +47,8 @@ Items marked *(suspected)* were inferred from code and need a run before a fix.
 
 - **Stream key on iOS** (Decision 136 says always offered; only macOS had it): BUILT v1.42.580, not yet seen on a device. tvOS and Android: not built (PARITY).
 
+- **Web room join was broken since v1.42.469** — found v1.42.584 by opening a room in Chrome: `TogetherView` called a `summary` that js/api.js never exported, so every browser guest got "Watching … with the room" and no player. FIXED v1.42.584 (Detail's two sources: the catalog's `downloadURL`, then archive.org metadata); verified in Chrome against the live Worker — the guest landed at 257.8 s of a room started at 120 s ~2.3 min earlier, a guest pause was undone within 1.2 s with the note shown, no rate saved, and an autoplay-blocked guest is told "Press play to join the room." §8.65 guards every `API.<name>` call; the old watch.js fails it.
+
 ## C. Roku rooms (not built)
 
 About 200–250 lines: an options row, a keyboard dialog, a `roomCode` on PlayerScreen driving `TogetherTask`, an ended/failed message — plus three fixes in the existing BrightScript: `awNowSeconds() as Float` (128-second steps at 1.8e9 — must be Double), one blip ends the room (end only on 404/410), no presence ping.
