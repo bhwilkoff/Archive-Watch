@@ -60,6 +60,23 @@ because the loop was stopped mid-stride for a Claude update.
    Everything below in item 7 about the demo video is history. After approval:
    add the Terms of Service URL to Branding (audit A9).
 
+0-NEWEST-4. **HOME'S COMMUNITY ROWS ARE LED BY RENEWED STUDIO FILMS (owner call,
+   2026-09-24 audit).** The hero takes positive evidence only; Home's Most
+   Discussed / Community Favorites / Watching Now take `presumed_pd` (an ERA
+   assumption, 1929-63), and 22-23 of each row's 24 tiles are that bucket:
+   Cleopatra (1963), The Longest Day, The Guns of Navarone, Sabrina, Gentlemen
+   Prefer Blondes, Moby Dick, Jason and the Argonauts, Frankenstein (1931). All
+   four titles you named as WRONGLY claimed on 09-20 — Yojimbo, The Pink
+   Panther, The Grapes of Wrath, High and Low — are still visible everywhere
+   but the hero. Two levers, both yours (Decision 027): add named films to
+   `audit_rights._RENEWED_CLASSICS` (a hide), or give Home's community rows the
+   hero's evidence bar (a Home-only change; Browse/Search keep them).
+   **And a data defect inside it**: both "The Pink Panther" items wear the wrong
+   identity — a 25-min cartoon compilation matched to the 1963 feature (60,928
+   borrowed votes), and a 110-min upload typed `animation` matched to the 2006
+   Steve Martin remake (97,155 votes). The borrowed votes are what put them at
+   the top of three community rows.
+
 0-NEWEST-3. **MODERN FILMS KEPT ON AN UPLOADER'S LICENCE (owner call, 2026-09-24).**
    Ingest now HOLDS a new modern (1978+) item whose only claim to stay is the
    archive item's licence: queue status `held_modern_license` in
