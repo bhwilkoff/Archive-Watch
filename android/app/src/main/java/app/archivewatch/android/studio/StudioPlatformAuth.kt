@@ -169,6 +169,21 @@ object StudioPlatformAuth {
 
     /// One-time-use refresh tokens: the NEW one must be stored or the host is
     /// signed out silently at the next call.
+    /// A renewal for sign-out's revoke only: the result is never stored.
+    private fun refreshUnsaved(token: StudioToken): String? {
+        val clientId = twitchClientId() ?: return null
+        val refresh = token.refresh ?: return null
+        val body = FormBody.Builder()
+            .add("client_id", clientId)
+            .add("refresh_token", refresh)
+            .add("grant_type", "refresh_token")
+            .build()
+        val req = Request.Builder().url("https://id.twitch.tv/oauth2/token").post(body).build()
+        return http.newCall(req).execute().use {
+            JSONObject(it.body?.string().orEmpty()).optString("access_token").ifEmpty { null }
+        }
+    }
+
     fun refresh(context: Context, token: StudioToken): StudioToken {
         val clientId = twitchClientId() ?: error("no Twitch client id")
         val refresh = token.refresh ?: throw IllegalStateException("Sign in to Twitch again.")
@@ -192,6 +207,37 @@ object StudioPlatformAuth {
                 "Twitch renewed the sign-in but it could not be stored. Sign in again.")
         }
         return renewed
+    }
+
+    /// Sign out, and TELL TWITCH — the same rule as Apple's `signOut`: the
+    /// local clear is certain, the revoke is best-effort. Pressing Sign out
+    /// withdraws consent, and privacy.html promises it ends at the platform.
+    /// The clear happens NOW, on the caller's thread; the returned revoke is
+    /// network work for a background thread, and may be dropped without
+    /// leaving the token on the device.
+    fun signOut(context: Context): (() -> Unit)? {
+        val stored = StudioTokenStore.load(context, TWITCH)
+        StudioTokenStore.clear(context, TWITCH)
+        lastValidatedMillis = 0L
+        val clientId = twitchClientId() ?: return null
+        if (stored == null) return null
+        return { revoke(clientId, stored) }
+    }
+
+    private fun revoke(clientId: String, stored: StudioToken) {
+        // Twitch documents revoke for an ACCESS token, and refuses an expired
+        // one: renew a stale token first (never stored) and revoke the result.
+        val secret = if (stored.isFresh) stored.access else runCatching {
+            refreshUnsaved(stored)
+        }.getOrNull() ?: stored.access
+        val body = FormBody.Builder()
+            .add("client_id", clientId)
+            .add("token", secret)
+            .build()
+        val req = Request.Builder().url("https://id.twitch.tv/oauth2/revoke").post(body).build()
+        val code = runCatching { http.newCall(req).execute().use { it.code } }.getOrDefault(-1)
+        // NEVER the token, only what happened to it (§5).
+        android.util.Log.i("AWAUTH", "signOut revoke twitch HTTP $code")
     }
 
     fun token(context: Context): String {

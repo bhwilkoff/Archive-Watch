@@ -219,10 +219,23 @@ public enum StudioPlatformAuth {
         let token = StudioTokenStore.load(for: platform.rawValue)
         let clientID = clientID(for: platform)
         StudioTokenStore.clear(for: platform.rawValue)
-        // The REFRESH token: revoking it drops the whole grant, where revoking
-        // an access token drops only that one token.
-        guard let secret = token?.refresh ?? token?.access else { return }
+        guard let token else { return }
         Task.detached {
+            // Google: the REFRESH token, which drops the whole grant. Twitch
+            // documents revoke for an ACCESS token only, and an expired one is
+            // refused — so a stale Twitch token is renewed first (the new
+            // pair is never stored) and the fresh access token is revoked.
+            let secret: String
+            if platform == .twitch {
+                if !token.isFresh, let clientID,
+                   let renewed = try? await TwitchDeviceAuth(clientID: clientID).refresh(token) {
+                    secret = renewed.access
+                } else {
+                    secret = token.access
+                }
+            } else {
+                secret = token.refresh ?? token.access
+            }
             var r = URLRequest(url: platform == .youtube
                                ? URL(string: "https://oauth2.googleapis.com/revoke")!
                                : URL(string: "https://id.twitch.tv/oauth2/revoke")!)

@@ -42,6 +42,7 @@ import androidx.compose.ui.unit.sp
 import app.archivewatch.android.studio.StudioPlatformAuth
 import app.archivewatch.android.studio.StudioTokenStore
 import app.archivewatch.android.ui.tv.qrBitmap
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
@@ -96,9 +97,13 @@ fun StudioSignIn(
                 )
                 Spacer(Modifier.width(16.dp))
                 TextButton(onClick = {
-                    StudioTokenStore.clear(context, StudioPlatformAuth.TWITCH)
                     account = null
                     signedIn = false
+                    // Not the composition's scope: leaving the screen must
+                    // not cancel the revoke.
+                    StudioPlatformAuth.signOut(context)?.let { revoke ->
+                        CoroutineScope(Dispatchers.IO).launch { revoke() }
+                    }
                 }) { Text("Sign out") }
             }
 
