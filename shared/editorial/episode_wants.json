@@ -1,10 +1,10 @@
 {
   "schema": 1,
-  "updated_at": "2026-09-22T09:07:27Z",
+  "updated_at": "2026-09-24T09:09:16Z",
   "description": "Missing-episode queue: canonical episodes (from OMDb) that we don't yet have on Archive. Drained by tools/backfill_tv_episodes.py.",
   "stats": {
-    "total": 18215,
-    "wanted": 17992,
+    "total": 18227,
+    "wanted": 18004,
     "fulfilled": 223,
     "series_with_gaps": 362
   },
@@ -903,6 +903,16 @@
       "seriesID": "adam-12-1968",
       "seriesTitle": "Adam-12",
       "season": 1,
+      "episode": 1,
+      "title": "Log 1: The Impossible Mission",
+      "episodeImdbID": "tt0505321",
+      "status": "wanted",
+      "added_at": "2026-09-24T09:09:16Z"
+    },
+    {
+      "seriesID": "adam-12-1968",
+      "seriesTitle": "Adam-12",
+      "season": 1,
       "episode": 2,
       "title": "Log 141: The Color TV Bandit",
       "episodeImdbID": "tt0505304",
@@ -968,6 +978,16 @@
       "episodeImdbID": "tt0505285",
       "status": "wanted",
       "added_at": "2026-06-19T09:23:32Z"
+    },
+    {
+      "seriesID": "adam-12-1968",
+      "seriesTitle": "Adam-12",
+      "season": 1,
+      "episode": 10,
+      "title": "Log 132: Producer",
+      "episodeImdbID": "tt0505301",
+      "status": "wanted",
+      "added_at": "2026-09-24T09:09:16Z"
     },
     {
       "seriesID": "adam-12-1968",
@@ -46822,6 +46842,36 @@
       "seriesID": "emmerdale-1972",
       "seriesTitle": "Emmerdale",
       "season": 1,
+      "episode": 17,
+      "title": "Episode #1.17",
+      "episodeImdbID": "tt1273907",
+      "status": "wanted",
+      "added_at": "2026-09-24T09:09:16Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 19,
+      "title": "Episode #1.19",
+      "episodeImdbID": "tt1273909",
+      "status": "wanted",
+      "added_at": "2026-09-24T09:09:16Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 20,
+      "title": "Episode #1.20",
+      "episodeImdbID": "tt1273910",
+      "status": "wanted",
+      "added_at": "2026-09-24T09:09:16Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
       "episode": 23,
       "title": "Episode #1.23",
       "episodeImdbID": "tt1274325",
@@ -46867,6 +46917,16 @@
       "episodeImdbID": "tt1512600",
       "status": "wanted",
       "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 33,
+      "title": "Episode #1.33",
+      "episodeImdbID": "tt1515393",
+      "status": "wanted",
+      "added_at": "2026-09-24T09:09:16Z"
     },
     {
       "seriesID": "emmerdale-1972",
@@ -47567,6 +47627,16 @@
       "episodeImdbID": "tt8090862",
       "status": "wanted",
       "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 136,
+      "title": "Episode #1.136",
+      "episodeImdbID": "tt8561208",
+      "status": "wanted",
+      "added_at": "2026-09-24T09:09:16Z"
     },
     {
       "seriesID": "emmerdale-1972",
@@ -119387,6 +119457,16 @@
       "seriesID": "special-branch-1969",
       "seriesTitle": "Special Branch",
       "season": 4,
+      "episode": 4,
+      "title": "Stand and Deliver",
+      "episodeImdbID": "tt0706511",
+      "status": "wanted",
+      "added_at": "2026-09-24T09:09:16Z"
+    },
+    {
+      "seriesID": "special-branch-1969",
+      "seriesTitle": "Special Branch",
+      "season": 4,
       "episode": 5,
       "title": "Something About a Soldier",
       "episodeImdbID": "tt0706508",
@@ -152395,6 +152475,26 @@
     {
       "seriesID": "the-good-life-1975",
       "seriesTitle": "The Good Life",
+      "season": 1,
+      "episode": 1,
+      "title": "Plough Your Own Furrow",
+      "episodeImdbID": "tt0590335",
+      "status": "wanted",
+      "added_at": "2026-09-24T09:09:16Z"
+    },
+    {
+      "seriesID": "the-good-life-1975",
+      "seriesTitle": "The Good Life",
+      "season": 2,
+      "episode": 2,
+      "title": "The Guru of Surbiton",
+      "episodeImdbID": "tt0590342",
+      "status": "wanted",
+      "added_at": "2026-09-24T09:09:16Z"
+    },
+    {
+      "seriesID": "the-good-life-1975",
+      "seriesTitle": "The Good Life",
       "season": 2,
       "episode": 4,
       "title": "The Day Peace Broke Out",
@@ -152406,11 +152506,31 @@
       "seriesID": "the-good-life-1975",
       "seriesTitle": "The Good Life",
       "season": 3,
+      "episode": 1,
+      "title": "The Early Birds",
+      "episodeImdbID": "tt0778250",
+      "status": "wanted",
+      "added_at": "2026-09-24T09:09:16Z"
+    },
+    {
+      "seriesID": "the-good-life-1975",
+      "seriesTitle": "The Good Life",
+      "season": 3,
       "episode": 6,
       "title": "Whose Fleas Are These?",
       "episodeImdbID": "tt0590351",
       "status": "wanted",
       "added_at": "2026-06-02T08:32:33Z"
+    },
+    {
+      "seriesID": "the-good-life-1975",
+      "seriesTitle": "The Good Life",
+      "season": 3,
+      "episode": 7,
+      "title": "The Last Posh Frock",
+      "episodeImdbID": "tt0590344",
+      "status": "wanted",
+      "added_at": "2026-09-24T09:09:16Z"
     },
     {
       "seriesID": "the-hollywood-palace-1964",
