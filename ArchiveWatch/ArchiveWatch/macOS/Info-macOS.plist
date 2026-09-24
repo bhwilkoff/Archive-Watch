@@ -80,7 +80,7 @@
 	<key>NSCameraUsageDescription</key>
 	<string>Show your reactions beside the film when you stream a public-domain movie with Watch Together Studio.</string>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>Record a voiceover narration for your Creation Studio edits.</string>
+	<string>Carry your voice over the film when you stream a watch-along with Watch Together Studio, and record voiceover narration for your Creation Studio edits.</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
 	<key>NSUserActivityTypes</key>

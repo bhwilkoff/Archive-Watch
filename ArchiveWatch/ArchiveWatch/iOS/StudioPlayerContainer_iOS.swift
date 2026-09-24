@@ -29,6 +29,11 @@ struct StudioPlayerContainer: View {
     @State private var hostCapture: AVCaptureSession?
     @State private var showControls = false
     @State private var startError: String?
+    /// Three different things reach the one alert — a refused start, a film
+    /// that will not play, and a show that ENDED ITSELF after it was live —
+    /// and the last used to be titled "Could not go live" over a show that
+    /// had been live for an hour.
+    @State private var alertTitle = "Could not go live"
 
     // Controls, bound into the sheet.
     @State private var layout: StudioLayout
@@ -93,7 +98,7 @@ struct StudioPlayerContainer: View {
                 }
             }
             .sheet(isPresented: $showControls) { controlsSheet }
-            .alert("Could not go live", isPresented: .constant(startError != nil)) {
+            .alert(alertTitle, isPresented: .constant(startError != nil)) {
                 Button("OK") { startError = nil; Task { await end() } }
             } message: {
                 Text(startError ?? "")
@@ -132,6 +137,7 @@ struct StudioPlayerContainer: View {
 
     private var player: some View {
         PlayerView(item: item, autoplayIn: nil, onUnplayable: { msg in
+            alertTitle = "This film cannot be played"
             startError = msg
         }, captionChoice: nil, onPlayerReady: { p in
             Task { await attach(player: p) }
@@ -228,7 +234,8 @@ struct StudioPlayerContainer: View {
         } catch {
             // The platform's own words, or ours about what is missing. Never
             // a dead capsule (§5).
-            startError = "\(error)"
+            alertTitle = "Could not go live"
+            startError = studioSentence(for: error)
         }
     }
 
@@ -391,7 +398,8 @@ struct StudioPlayerContainer: View {
             // way — why am I not live? — and `endedReason` was read by nothing
             // on Apple until now, so the Studio just vanished.
             if let why = h.endedReason {
-                startError = "The broadcast ended — \(why)."
+                alertTitle = "The broadcast ended"
+                startError = why.prefix(1).uppercased() + why.dropFirst() + "."
                 return
             }
         }
