@@ -46,6 +46,12 @@ struct GoLiveSheet: View {
         self.onGoLive = onGoLive
         // Pre-filled from the catalog's own audited record — the host edits it.
         _title = State(initialValue: Self.suggestedTitle(for: film))
+        #if DEBUG
+        // Verification hook: `AW_GOLIVE_CONNECT=key` opens on the stream-key route.
+        if ProcessInfo.processInfo.environment["AW_GOLIVE_CONNECT"] == "key" {
+            _connectWithKey = State(initialValue: true)
+        }
+        #endif
     }
 
     private var refusal: String? {
