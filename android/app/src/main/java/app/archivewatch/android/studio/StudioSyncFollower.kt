@@ -51,6 +51,9 @@ object StudioSyncFollower {
     private var noticeJob: Job? = null
     /** When WE last moved the player, so our own seek/pause is not the guest's. */
     private var appliedAtMillis = 0L
+    /** Seconds this device's last catch-up seek took; 0 until one is timed. */
+    private var seekLeadSeconds = 0.0
+    private var seekStartedMillis = 0L
     private var lastPaused = false
     private var listener: Player.Listener? = null
     private val wake = Channel<Unit>(Channel.CONFLATED)
@@ -156,6 +159,14 @@ object StudioSyncFollower {
                 if (!playWhenReady &&
                     reason == Player.PLAY_WHEN_READY_CHANGE_REASON_USER_REQUEST) guestMoved(player)
             }
+            override fun onPlaybackStateChanged(state: Int) {
+                // A catch-up seek has finished when the player is READY again.
+                if (state == Player.STATE_READY && seekStartedMillis != 0L) {
+                    seekLeadSeconds = ((System.currentTimeMillis() - seekStartedMillis) / 1000.0)
+                        .coerceIn(0.0, 3.0)
+                    seekStartedMillis = 0L
+                }
+            }
             override fun onPositionDiscontinuity(
                 old: Player.PositionInfo, new: Player.PositionInfo, reason: Int,
             ) {
@@ -178,6 +189,16 @@ object StudioSyncFollower {
         say("The host controls the film.", 3_000)
         wake.trySend(Unit)
     }
+
+    /**
+     * Where a catch-up seek should land (SHAREPLAY §11.3): ahead of the host
+     * by this device's own MEASURED seek time, because the host keeps playing
+     * while the guest seeks — the same rule as Apple's follower and the
+     * web's. Nothing until a seek has been timed (a guessed lead overshot in
+     * the browser, §8.66), and nothing for a paused guest.
+     */
+    fun seekTarget(to: Double, playing: Boolean, leadSeconds: Double, hostRate: Double): Double =
+        if (playing) to + leadSeconds * hostRate else to
 
     /**
      * Whether a pause or seek is the GUEST's: not one this follower made in
@@ -217,8 +238,10 @@ object StudioSyncFollower {
                 }
             is StudioSync.Correction.Nudge ->
                 player.playbackParameters = PlaybackParameters((hostRate * c.rate).toFloat())
-            is StudioSync.Correction.Seek ->
-                player.seekTo((c.to * 1000).toLong())
+            is StudioSync.Correction.Seek -> {
+                seekStartedMillis = System.currentTimeMillis()
+                player.seekTo((seekTarget(c.to, player.isPlaying, seekLeadSeconds, hostRate) * 1000).toLong())
+            }
             is StudioSync.Correction.SetPaused ->
                 if (c.paused) player.pause() else {
                     player.playbackParameters = PlaybackParameters(hostRate.toFloat())
