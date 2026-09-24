@@ -2004,6 +2004,14 @@ struct StudioDestinationSection: View {
             if case .youtube? = studio.armedBroadcast {
                 Text(show.privacy.label).font(.caption).foregroundStyle(.secondary)
             }
+            // A WARNING FROM GOING LIVE SURVIVES GOING LIVE (launch audit B).
+            // "Going out to YouTube only — Twitch could not be reached" was set
+            // a moment before this view replaced the form, so no host ever
+            // read it.
+            if let problem {
+                Text(problem).font(.caption2).foregroundStyle(.orange)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
             if let url = audienceURL {
                 // THE INVITATION. "With your friends" means somebody has to be
                 // told where to come; this is the one address to send them.
@@ -2330,7 +2338,7 @@ struct StudioDestinationSection: View {
                         // every line. Naming that is better than guessing.
                     } catch {
                         problem = "Going out to \(show.platform.label) only — "
-                                + "\(other.label) could not be reached: \(error)."
+                                + "\(other.label) could not be reached: \(studioSentence(for: error))"
                     }
                 }
 
@@ -2339,7 +2347,7 @@ struct StudioDestinationSection: View {
                 if !started { problem = studio.refusal }
                 onStarted()
             } catch {
-                problem = "The broadcast could not start — \(error)."
+                problem = "The broadcast could not start — \(studioSentence(for: error))"
             }
         }
     }

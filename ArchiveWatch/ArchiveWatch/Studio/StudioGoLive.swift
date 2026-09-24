@@ -43,6 +43,22 @@ struct GoLiveRequest: Sendable, Equatable, Identifiable {
     var typedKey: String? = nil
 }
 
+/// A platform or network error as a sentence a host can read. YouTube's JSON
+/// errors carry a `message`; a network failure has a localized description;
+/// anything longer than a sentence is summarized rather than dumped (launch
+/// audit B — the Mac showed raw `\(error)` text).
+func studioSentence(for error: Error) -> String {
+    let raw = "\(error)"
+    for marker in ["\"message\": \"", "\"message\":\""] {
+        if let r = raw.range(of: marker),
+           let end = raw[r.upperBound...].firstIndex(of: "\"") {
+            return String(raw[r.upperBound..<end])
+        }
+    }
+    if let u = error as? URLError { return u.localizedDescription }
+    return raw.count > 180 ? "The platform refused the broadcast." : raw
+}
+
 enum GoLivePlatform: String, CaseIterable, Sendable {
     case youtube, twitch, custom
 

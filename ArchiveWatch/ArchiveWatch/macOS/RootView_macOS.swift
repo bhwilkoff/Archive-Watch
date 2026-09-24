@@ -796,7 +796,15 @@ final class RoomJoin {
     /// The room's film: only a player for it takes the code (audit A16).
     var pendingFilm: String?
     /// The code THIS Mac is hosting, so the landing page can show it.
-    var hostCode: String?
+    /// ONE SOURCE OF TRUTH: the room host itself (launch audit B). This was a
+    /// stored copy cleared only by the Studio's End button, so ⇧⌘E, the
+    /// readout's End or closing a window left a dead code on screen — and the
+    /// landing page refusing to open another room. Writes are ignored: the
+    /// host's own start and stop are what change it.
+    var hostCode: String? {
+        get { StudioRoomHost.shared.code }
+        set { }
+    }
     /// Set by the landing page; consumed where the player is built.
     var wantsToHost = false
     var problem: String?

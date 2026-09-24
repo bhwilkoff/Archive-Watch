@@ -1443,16 +1443,7 @@ struct PlayerScreen: View {
         s.split(whereSeparator: { $0 == "\n" || $0 == "\r" }).joined(separator: " ")
     }
 
-    static func studioHumanError(_ error: Error) -> String {
-        let raw = "\(error)"
-        for marker in ["\"message\": \"", "\"message\":\""] {
-            if let r = raw.range(of: marker),
-               let end = raw[r.upperBound...].firstIndex(of: "\"") {
-                return String(raw[r.upperBound..<end])
-            }
-        }
-        return raw.count > 180 ? "The platform refused the broadcast." : raw
-    }
+    static func studioHumanError(_ error: Error) -> String { studioSentence(for: error) }
 
     /// Why this television cannot broadcast, or nil when it can.
     ///
