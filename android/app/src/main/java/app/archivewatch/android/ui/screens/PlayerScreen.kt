@@ -686,6 +686,21 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
                 } else Modifier,
             ),
     ) {
+        // A room guest's one line (SHAREPLAY §11.6.1a), over the film.
+        StudioSyncFollower.notice?.let { text ->
+            Box(
+                Modifier.fillMaxSize().zIndex(12f).padding(top = 20.dp),
+                contentAlignment = androidx.compose.ui.Alignment.TopCenter,
+            ) {
+                Text(
+                    text,
+                    color = Color.White,
+                    modifier = Modifier
+                        .background(Color(0xBF000000), androidx.compose.foundation.shape.RoundedCornerShape(50))
+                        .padding(horizontal = 16.dp, vertical = 8.dp),
+                )
+            }
+        }
         playbackError?.let { msg ->
             // zIndex, not source order: a Box draws later children on top, and
             // this sits above the AndroidView that follows it.

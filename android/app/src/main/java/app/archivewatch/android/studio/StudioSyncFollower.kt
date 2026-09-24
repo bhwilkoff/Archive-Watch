@@ -9,6 +9,11 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import kotlinx.coroutines.withTimeoutOrNull
+import kotlinx.coroutines.channels.Channel
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 
 /**
  * The Android platform layer for SHAREPLAY §11: polls a room and APPLIES what
@@ -34,6 +39,23 @@ object StudioSyncFollower {
     var status: Status = Status.Idle
         private set
 
+    /**
+     * The ONE sentence a guest's player shows, or null (SHAREPLAY §11.6.1a) —
+     * the same three as Apple's `StudioRoomNotice` and the web's
+     * `#player-note`: the guest moved the film (3 s, after the room has put it
+     * back), the host ended the room, or joining failed. Nothing while a
+     * guest is in step.
+     */
+    var notice: String? by mutableStateOf(null)
+        private set
+    private var noticeJob: Job? = null
+    /** When WE last moved the player, so our own seek/pause is not the guest's. */
+    private var appliedAtMillis = 0L
+    private var lastPaused = false
+    private var listener: Player.Listener? = null
+    private val wake = Channel<Unit>(Channel.CONFLATED)
+    private var noticeScope: CoroutineScope? = null
+
     private var client: StudioSyncClient? = null
     private var job: Job? = null
     /** The rate the HOST is playing at, so a nudge is undone to the right
@@ -56,14 +78,21 @@ object StudioSyncFollower {
         stop(player)
         val c = StudioSyncClient(base)
         client = c
+        noticeScope = scope
         job = scope.launch {
             try {
                 val state = c.join(code)
                 status = Status.Following(c.code ?: code, state.filmID)
+                lastPaused = state.paused
             } catch (e: Exception) {
-                status = Status.Failed(sentence(e))
+                val why = sentence(e)
+                status = Status.Failed(why)
+                // Said on the player: the film plays on alone, and a guest who
+                // is not told would think they were in the room.
+                say(why, null)
                 return@launch
             }
+            withContext(Dispatchers.Main) { watchForGuestMoves(player) }
             // "I'm here", every 30 s, so the host sees friends arrive. A child
             // of this job, so it stops when following stops.
             val token = java.util.UUID.randomUUID().toString().replace("-", "")
@@ -75,17 +104,24 @@ object StudioSyncFollower {
             }
             while (isActive) {
                 val delaySeconds = c.nextPollDelaySeconds()
-                delay((delaySeconds * 1000).toLong())
+                // Woken early by a guest's own move, so it is answered now
+                // rather than at the next poll (up to 10 s).
+                withTimeoutOrNull((delaySeconds * 1000).toLong()) { wake.receive() }
                 if (!isActive) return@launch
                 try {
                     val s = c.poll()
                     hostRate = s.rate
+                    lastPaused = s.paused
                 } catch (e: Exception) {
                     // A room that ENDED is not a failure to report as one:
                     // the host finished, which is a normal way to stop.
                     if (e is StudioSyncClient.JoinError.NoSuchRoom ||
                         e is StudioSyncClient.JoinError.Ended) {
                         status = Status.Ended
+                        withContext(Dispatchers.Main) { unwatch(player) }
+                        // The film keeps playing — it is the guest's now —
+                        // and they are told they are no longer in step.
+                        say("The host ended the room.", 8_000)
                         return@launch
                     }
                     // Anything else is transient. A poll that failed is a
@@ -103,6 +139,9 @@ object StudioSyncFollower {
 
     fun stop(player: Player? = null) {
         job?.cancel(); job = null
+        noticeJob?.cancel(); noticeJob = null
+        notice = null
+        player?.let { unwatch(it) }
         val c = client
         client = null
         status = Status.Idle
@@ -110,8 +149,64 @@ object StudioSyncFollower {
         if (c != null) CoroutineScope(Dispatchers.IO).launch { runCatching { c.leave() } }
     }
 
+    private fun watchForGuestMoves(player: Player) {
+        unwatch(player)
+        val l = object : Player.Listener {
+            override fun onPlayWhenReadyChanged(playWhenReady: Boolean, reason: Int) {
+                if (!playWhenReady &&
+                    reason == Player.PLAY_WHEN_READY_CHANGE_REASON_USER_REQUEST) guestMoved(player)
+            }
+            override fun onPositionDiscontinuity(
+                old: Player.PositionInfo, new: Player.PositionInfo, reason: Int,
+            ) {
+                if (reason == Player.DISCONTINUITY_REASON_SEEK) guestMoved(player)
+            }
+        }
+        listener = l
+        player.addListener(l)
+    }
+
+    private fun unwatch(player: Player) {
+        listener?.let { player.removeListener(it) }
+        listener = null
+    }
+
+    private fun guestMoved(player: Player) {
+        if (status !is Status.Following) return
+        if (!isGuestMove(System.currentTimeMillis() - appliedAtMillis, lastPaused,
+                         player.duration, player.currentPosition)) return
+        say("The host controls the film.", 3_000)
+        wake.trySend(Unit)
+    }
+
+    /**
+     * Whether a pause or seek is the GUEST's: not one this follower made in
+     * the last 1.5 s, not a host pause, and not the film reaching its end.
+     */
+    fun isGuestMove(sinceOwnMoveMillis: Long, hostPaused: Boolean,
+                    durationMs: Long, positionMs: Long): Boolean {
+        if (sinceOwnMoveMillis < 1_500) return false
+        if (hostPaused) return false
+        if (durationMs > 0 && positionMs >= durationMs - 1_000) return false
+        return true
+    }
+
+    private fun say(text: String, forMillis: Long?) {
+        noticeJob?.cancel()
+        notice = text
+        if (forMillis == null) return
+        noticeJob = (noticeScope ?: CoroutineScope(Dispatchers.Main)).launch {
+            delay(forMillis)
+            notice = null
+        }
+    }
+
     /** Silently — this function is the whole of §11.2a on Android. */
     private fun apply(c: StudioSync.Correction, player: Player) {
+        if (c is StudioSync.Correction.Seek ||
+            (c is StudioSync.Correction.SetPaused && c.paused)) {
+            appliedAtMillis = System.currentTimeMillis()
+        }
         when (c) {
             is StudioSync.Correction.None ->
                 // Back to the HOST's rate, not to 1. A nudge left in place is

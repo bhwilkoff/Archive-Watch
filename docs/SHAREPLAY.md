@@ -675,7 +675,8 @@ or a `<video>` element can do selectively. Instead a guest's own pause or
 scrub is answered AT ONCE (it used to wait for the next poll, up to 10 s)
 and the player says, for three seconds, **"The host controls the film."**
 That line is one of exactly three a guest ever sees, drawn by
-`StudioRoomNotice` on macOS, iOS and tvOS and by `#player-note` on the web:
+`StudioRoomNotice` on macOS, iOS and tvOS, by `StudioSyncFollower.notice` in
+the Android player, and by `#player-note` on the web:
 that one; **"The host ended the room."** (the film keeps playing — it is the
 guest's now — but they are no longer in step and must be told); and the
 join-failure sentence, since a failed join otherwise plays the film alone
