@@ -138,6 +138,23 @@ func redactingKey(_ url: URL) -> String {
     return c.url?.absoluteString ?? "\(url.scheme ?? "?")://\(url.host ?? "?")/<redacted>"
 }
 
+/// Text a SERVER wrote, with the stream key taken out (launch audit B).
+/// An ingest's refusal can quote the stream name back — nginx-rtmp's
+/// "already publishing", Wowza's "streamName is already publishing" — and
+/// that text reaches the host's screen, a log, and possibly a screenshot of
+/// either. The key is a credential for the host's channel; §5 says it is
+/// never logged, and a server repeating it is not an exception.
+func redactingKey(in text: String, key: String) -> String {
+    // A key this short cannot be told apart from ordinary words.
+    guard key.count >= 6 else { return text }
+    var out = text.replacingOccurrences(of: key, with: "<key>")
+    // Also the percent-encoded form, which a server may echo from the path.
+    if let enc = key.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed), enc != key {
+        out = out.replacingOccurrences(of: enc, with: "<key>")
+    }
+    return out
+}
+
 public actor RTMPPublisher {
 
     public private(set) var health = RTMPHealth()
@@ -630,6 +647,7 @@ public actor RTMPPublisher {
         guard health.state != .closed, health.state != .failed else { return }
         let wasPublishing = health.state == .publishing
         health.state = wasPublishing ? .closed : .failed
+        let reason = redactingKey(in: reason, key: streamKey)
         health.lastError = reason
         awdiag("AWPUB socket closed (%@): %@",
                wasPublishing ? "was publishing" : "NEVER PUBLISHED", reason)
@@ -779,8 +797,12 @@ public actor RTMPPublisher {
     @discardableResult
     private func fail(_ e: RTMPPublishError) -> RTMPPublishError {
         health.state = .failed
-        health.lastError = e.description
-        awdiag("AWPUB FAILED: %@", e.description)
+        let said = redactingKey(in: e.description, key: streamKey)
+        health.lastError = said
+        awdiag("AWPUB FAILED: %@", said)
+        if case .rejected(let code, let desc) = e {
+            return .rejected(code: code, description: redactingKey(in: desc, key: streamKey))
+        }
         return e
     }
 

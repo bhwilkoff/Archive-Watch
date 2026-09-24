@@ -39,6 +39,21 @@ import kotlin.random.Random
 
 class RtmpException(message: String) : Exception(message)
 
+/**
+ * Text a SERVER wrote, with the stream key taken out — the same rule as the
+ * Apple publisher's `redactingKey(in:key:)`. A refusal can quote the stream
+ * name back ("… already publishing"), and this text reaches the host's
+ * screen and the log. A key under six characters is indistinguishable from
+ * words and is left alone.
+ */
+fun redactKey(text: String, key: String): String {
+    if (key.length < 6) return text
+    var out = text.replace(key, "<key>")
+    val enc = java.net.URLEncoder.encode(key, "UTF-8").replace("+", "%20")
+    if (enc != key) out = out.replace(enc, "<key>")
+    return out
+}
+
 /** What the publisher knows about itself, for a health readout. */
 data class RtmpHealth(
     var state: String = "idle",
@@ -251,7 +266,7 @@ class RtmpPublisher {
                     // The link is gone. Recorded, never swallowed — a writer
                     // thread that dies quietly looks exactly like a stalled
                     // encoder from the readout.
-                    health.lastError = e.message ?: e.toString()
+                    health.lastError = redactKey(e.message ?: e.toString(), streamKey)
                     if (health.state != "closed") health.state = "failed"
                     writing = false
                 } finally {
@@ -608,7 +623,7 @@ class RtmpPublisher {
             val msg = readMessage() ?: continue
             if (msg.first == 20) {
                 val text = String(msg.second, Charsets.ISO_8859_1)
-                if (text.contains("_error")) throw RtmpException("server refused: $text")
+                if (text.contains("_error")) throw RtmpException("server refused: ${redactKey(text, streamKey)}")
                 if (text.contains("_result") || text.contains("onStatus")) return
             }
         }
