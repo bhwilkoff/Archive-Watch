@@ -194,9 +194,19 @@ object StudioPlatformAuth {
             .build()
         val req = Request.Builder()
             .url("https://id.twitch.tv/oauth2/token").post(body).build()
-        val o = http.newCall(req).execute().use { JSONObject(it.body?.string().orEmpty()) }
+        val (code, o) = http.newCall(req).execute().use {
+            it.code to runCatching { JSONObject(it.body?.string().orEmpty()) }.getOrDefault(JSONObject())
+        }
         val access = o.optString("access_token").ifEmpty { null }
-            ?: throw IllegalStateException("Sign in to Twitch again.")
+        if (access == null) {
+            // Twitch's own answer for a revoked grant; anything else (an
+            // outage, a 5xx) keeps the sign-in — same rule as Apple's.
+            if (refreshWasRevoked(code, o.optString("message"))) {
+                StudioTokenStore.clear(context, TWITCH)
+                throw IllegalStateException("Twitch has ended this sign-in. Sign in again to use Twitch.")
+            }
+            throw IllegalStateException("Sign in to Twitch again.")
+        }
         val renewed = StudioToken(
             access = access,
             refresh = o.optString("refresh_token").ifEmpty { null } ?: refresh,
@@ -263,6 +273,10 @@ object StudioPlatformAuth {
     /// Only a 401 ends a sign-in; no network or a 5xx says nothing about the
     /// token, and clearing it then would sign a host out over a Wi-Fi hiccup.
     fun validationRevokes(status: Int?): Boolean = status == 401
+
+    /// Twitch answers a dead refresh token `400 {"message":"Invalid refresh token"}`.
+    fun refreshWasRevoked(status: Int, message: String?): Boolean =
+        status == 400 && message.equals("Invalid refresh token", ignoreCase = true)
 
     private fun validate(context: Context, access: String) {
         val req = Request.Builder()

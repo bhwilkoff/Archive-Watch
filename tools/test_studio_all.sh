@@ -251,7 +251,13 @@ swift_case "8.59 refresh single-flight" ArchiveWatch/ArchiveWatch/Studio/StudioR
 swift_case "8.60 first frame cannot hang" "$PUB" "$ENG" "$REC" "$CHATFILTER" "$OUT" "$AUD" "$OVL" "$CHAT" "$CHATYT" "$SHIM" tools/test_studio_first_frame.swift
 swift_case "8.61 pool exhaustion survived" "$PUB" "$ENG" "$REC" "$CHATFILTER" "$OUT" "$AUD" "$OVL" "$CHAT" "$CHATYT" "$SHIM" tools/test_studio_pool_exhaustion.swift
 swift_case "8.63 chat bytes split mid-character" "$PUB" "$ENG" "$REC" "$CHATFILTER" "$OUT" "$AUD" "$OVL" "$CHAT" "$CHATYT" "$SHIM" tools/test_studio_chat_bytes.swift
-swift_case "8.64 Twitch hourly validate" ArchiveWatch/ArchiveWatch/Studio/StudioRefreshGate.swift tools/test_studio_twitch_validate.swift
+# The registered ids are public (they ship in every build); with them §8.64
+# asks Google and Twitch themselves how a dead refresh token is refused.
+if [ -f Secrets.xcconfig ]; then
+    export AW_TWITCH_CLIENT_ID="$(grep -E '^[[:space:]]*TWITCH_CLIENT_ID' Secrets.xcconfig | sed 's/.*= *//')"
+    export AW_YOUTUBE_CLIENT_ID="$(grep -E '^[[:space:]]*YOUTUBE_CLIENT_ID' Secrets.xcconfig | sed 's/.*= *//')"
+fi
+swift_case "8.64 sign-in revocation (validate + refresh)" ArchiveWatch/ArchiveWatch/Studio/StudioRefreshGate.swift tools/test_studio_twitch_validate.swift
 # The camera-placement settings, asserted against what their LABELS promise.
 # Owner 2026-09-20: "I'm not sure the different settings for where your camera
 # will go ... are actually working as they should." They were not: theatre was

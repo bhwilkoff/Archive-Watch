@@ -54,6 +54,10 @@ public struct StreamCredentials: Sendable {
 public enum StudioPlatformError: Error, CustomStringConvertible {
     case notConfigured(String)
     case notSignedIn(String)
+    /// The platform refused the REFRESH token itself: the host revoked access
+    /// or the grant expired. Unlike a network failure this is permanent, so
+    /// the stored token is cleared rather than kept saying "Signed in".
+    case grantRevoked(String)
     case http(Int, String)
     case badResponse(String)
     case ineligible(String)
@@ -62,6 +66,7 @@ public enum StudioPlatformError: Error, CustomStringConvertible {
         switch self {
         case .notConfigured(let s): return s
         case .notSignedIn(let s): return s
+        case .grantRevoked(let s): return s
         case .http(let code, let body):
             return "the platform answered \(code)" + (body.isEmpty ? "" : ": \(body)")
         case .badResponse(let s): return "unexpected answer from the platform: \(s)"
@@ -309,6 +314,17 @@ public enum StudioPlatformAuth {
 
     private static func refreshNow(_ platform: Platform, clientID: String,
                                    stored: StudioTokenStore.Token) async throws -> String {
+        do {
+            return try await renewAndStore(platform, clientID: clientID, stored: stored)
+        } catch StudioPlatformError.grantRevoked(let why) {
+            StudioTokenStore.clear(for: platform.rawValue)
+            GoogleAuth.adiag("refresh \(platform.rawValue) refused — grant revoked, token cleared")
+            throw StudioPlatformError.notSignedIn(why)
+        }
+    }
+
+    private static func renewAndStore(_ platform: Platform, clientID: String,
+                                      stored: StudioTokenStore.Token) async throws -> String {
         let renewed: StudioTokenStore.Token
         switch platform {
         case .youtube:

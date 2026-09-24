@@ -453,14 +453,17 @@ struct GoogleTokenRefresh: Sendable {
                            .init(name: "refresh_token", value: refresh),
                            .init(name: "grant_type", value: "refresh_token")]
         r.httpBody = body.percentEncodedQuery?.data(using: .utf8)
-        let (data, _) = try await URLSession.shared.data(for: r)
-        guard let o = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
-              let access = o["access_token"] as? String else {
+        let (data, resp) = try await URLSession.shared.data(for: r)
+        let o = try? JSONSerialization.jsonObject(with: data) as? [String: Any]
+        guard let access = o?["access_token"] as? String else {
             // A refresh token can be revoked from the account page, and an
             // expired Google grant answers 400 — neither is recoverable here.
+            if StudioValidationClock.refreshWasRevoked(status: (resp as? HTTPURLResponse)?.statusCode, json: o) {
+                throw StudioPlatformError.grantRevoked("YouTube has ended this sign-in. Sign in again to use YouTube.")
+            }
             throw StudioPlatformError.notSignedIn("Sign in to YouTube again.")
         }
-        let expiresIn = (o["expires_in"] as? Double) ?? 3600
+        let expiresIn = (o?["expires_in"] as? Double) ?? 3600
         // Google does not resend the refresh token; keep the one we have.
         return .init(access: access, refresh: refresh,
                      expires: Date().addingTimeInterval(expiresIn))
@@ -610,9 +613,12 @@ public struct TwitchDeviceAuth: Sendable {
                            .init(name: "refresh_token", value: refresh),
                            .init(name: "grant_type", value: "refresh_token")]
         r.httpBody = body.percentEncodedQuery?.data(using: .utf8)
-        let (data, _) = try await URLSession.shared.data(for: r)
-        guard let o = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
-              let access = o["access_token"] as? String else {
+        let (data, resp) = try await URLSession.shared.data(for: r)
+        let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any]
+        guard let o = json, let access = o["access_token"] as? String else {
+            if StudioValidationClock.refreshWasRevoked(status: (resp as? HTTPURLResponse)?.statusCode, json: json) {
+                throw StudioPlatformError.grantRevoked("Twitch has ended this sign-in. Sign in again to use Twitch.")
+            }
             throw StudioPlatformError.notSignedIn("Sign in to Twitch again.")
         }
         return .init(access: access,
@@ -785,9 +791,12 @@ public struct GoogleDeviceAuth: Sendable {
                            .init(name: "refresh_token", value: refresh),
                            .init(name: "grant_type", value: "refresh_token")]
         r.httpBody = body.percentEncodedQuery?.data(using: .utf8)
-        let (data, _) = try await URLSession.shared.data(for: r)
-        guard let o = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
-              let access = o["access_token"] as? String else {
+        let (data, resp) = try await URLSession.shared.data(for: r)
+        let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any]
+        guard let o = json, let access = o["access_token"] as? String else {
+            if StudioValidationClock.refreshWasRevoked(status: (resp as? HTTPURLResponse)?.statusCode, json: json) {
+                throw StudioPlatformError.grantRevoked("YouTube has ended this sign-in. Sign in again to use YouTube.")
+            }
             throw StudioPlatformError.notSignedIn("Sign in to YouTube again.")
         }
         return .init(access: access,

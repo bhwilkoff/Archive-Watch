@@ -34,6 +34,40 @@ struct TwitchValidate {
         check(StudioValidationClock.verdict(status: 503) == .unknown, "a 5xx does not revoke")
         check(StudioValidationClock.verdict(status: nil) == .unknown, "no answer does not revoke")
 
+        // A refused REFRESH: only the platforms' own "the grant is gone"
+        // answers clear a sign-in.
+        check(StudioValidationClock.refreshWasRevoked(status: 400, json: ["error": "invalid_grant"]),
+              "Google invalid_grant clears")
+        check(StudioValidationClock.refreshWasRevoked(status: 400, json: ["status": 400, "message": "Invalid refresh token"]),
+              "Twitch's invalid refresh token clears")
+        check(!StudioValidationClock.refreshWasRevoked(status: 500, json: ["error": "invalid_grant"]),
+              "a 500 keeps the sign-in")
+        check(!StudioValidationClock.refreshWasRevoked(status: 400, json: ["error": "invalid_request"]),
+              "a malformed request keeps the sign-in")
+        check(!StudioValidationClock.refreshWasRevoked(status: nil, json: nil), "no answer keeps the sign-in")
+
+        for (name, url, body) in [
+            ("Google", "https://oauth2.googleapis.com/token", "client_id=\(ProcessInfo.processInfo.environment["AW_YOUTUBE_CLIENT_ID"] ?? "")&refresh_token=bogus0000&grant_type=refresh_token"),
+            ("Twitch", "https://id.twitch.tv/oauth2/token", "client_id=\(ProcessInfo.processInfo.environment["AW_TWITCH_CLIENT_ID"] ?? "")&refresh_token=bogus0000&grant_type=refresh_token"),
+        ] {
+            // A REAL client id: with a made-up one Google answers 401
+            // invalid_client, which is a different question (and must not
+            // clear anyone's sign-in).
+            let key = name == "Google" ? "AW_YOUTUBE_CLIENT_ID" : "AW_TWITCH_CLIENT_ID"
+            if ProcessInfo.processInfo.environment[key] == nil {
+                print("SKIP: \(name) refresh (set \(key))"); continue
+            }
+            var r = URLRequest(url: URL(string: url)!)
+            r.httpMethod = "POST"; r.timeoutInterval = 8
+            r.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+            r.httpBody = body.data(using: .utf8)
+            guard let (d, resp) = try? await URLSession.shared.data(for: r) else { print("SKIP: \(name) unreachable"); continue }
+            let j = try? JSONSerialization.jsonObject(with: d) as? [String: Any]
+            let st = (resp as? HTTPURLResponse)?.statusCode
+            check(StudioValidationClock.refreshWasRevoked(status: st, json: j),
+                  "\(name) refuses a dead refresh token (\(st ?? 0)) and it reads as revoked")
+        }
+
         let live = await status("https://id.twitch.tv/oauth2/validate", "OAuth notarealtoken0000000000000")
         if live == nil {
             print("SKIP: Twitch unreachable from here")

@@ -20,6 +20,12 @@ class StudioTwitchValidateTest {
         assertFalse(StudioPlatformAuth.validationRevokes(200))
     }
 
+    @Test fun onlyTwitchsOwnAnswerClearsOnRefresh() {
+        assertTrue(StudioPlatformAuth.refreshWasRevoked(400, "Invalid refresh token"))
+        assertFalse(StudioPlatformAuth.refreshWasRevoked(500, "Invalid refresh token"))
+        assertFalse(StudioPlatformAuth.refreshWasRevoked(400, "missing client id"))
+    }
+
     @Test fun noChatScopeRequested() {
         assertFalse("user:read:chat" in StudioPlatformAuth.twitchScopes)
     }
