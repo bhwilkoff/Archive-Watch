@@ -56,12 +56,16 @@ DEFAULT_COLLECTIONS = [
     "prelinger",
     "animationandcartoons",
     "more_animation",
-    "film_noir",
+    # Collection ids are CASE-SENSITIVE: `film_noir` and `comedy_films`
+    # returned 0 items on every run until 2026-09-24.
+    "Film_Noir",
     "SciFi_Horror",
-    "comedy_films",
+    "Comedy_Films",
     "short_films",
     "newsandpublicaffairs",
-    "documentary_films",
+    # `documentary_films` was here and does not exist on archive.org under
+    # any spelling (0 items, 2026-09-24); documentaries arrive via FedFlix,
+    # prelinger and the government collections below.
     # Government / public-domain collections that fill weak categories
     # (newsreel, ephemeral, documentary were badly under-populated). All are
     # PD or US-gov works — no rights risk. Verified counts (2026-06) in parens.
@@ -87,6 +91,7 @@ DEFAULT_COLLECTIONS = [
     "avgeeks", "prelingerhomemovies", "DriveInMovieAds",  # ephemera
     "german_cinema",                           # German PD (104)
     "classic_cartoons", "segundodechomon",     # cartoons / early silent pioneer
+    "georgesmelies", "vintage_cartoons",       # Home shelves never swept (2026-09-24)
     "nasaeclips", "jsc-pao-video-collection",  # NASA gov PD
 ]
 
@@ -104,16 +109,22 @@ def load_existing_ids():
     return ia
 
 
-def scrape_query(q, session, *, limit, min_downloads):
+def scrape_query(q, session, *, limit, min_downloads, is_new=lambda it: True):
     """Cursor-paginate any scrape query, most-downloaded first. Yields
-    dicts with identifier/title/year/downloads/subject."""
+    dicts with identifier/title/year/downloads/subject.
+
+    `limit` caps the items that `is_new` accepts, not the items read. It
+    used to count every row, so with the catalog already holding the top of
+    a collection the nightly sweep re-read the same 600 most-downloaded items
+    forever: 6,521 feature_films items were never queued (2026-09-24). The
+    walk is cheap (ids only, 5,000 a page); the cap is what ingest can drain."""
     cursor = None
     got = 0
     while got < limit:
         params = {
             "q": q,
             "fields": "identifier,title,year,downloads,subject",
-            "count": min(500, limit - got),
+            "count": 5000,
             "sorts": "downloads desc",
         }
         if cursor:
@@ -132,6 +143,8 @@ def scrape_query(q, session, *, limit, min_downloads):
                     continue
             except (TypeError, ValueError):
                 pass
+            if not is_new(it):
+                continue
             yield it
             got += 1
             if got >= limit:
@@ -142,10 +155,11 @@ def scrape_query(q, session, *, limit, min_downloads):
         time.sleep(0.3)
 
 
-def scrape_collection(coll, session, *, per_collection, min_downloads):
+def scrape_collection(coll, session, *, per_collection, min_downloads, is_new):
     """Mine one Archive collection (movies only), most-downloaded first."""
     yield from scrape_query(f"collection:{coll} AND mediatype:movies", session,
-                            limit=per_collection, min_downloads=min_downloads)
+                            limit=per_collection, min_downloads=min_downloads,
+                            is_new=is_new)
 
 
 def year_of(it):
@@ -162,11 +176,15 @@ def main():
     ap.add_argument("--min-downloads", type=int, default=200,
                     help="Popularity floor — skips obscure/broken uploads "
                          "(default 200).")
-    ap.add_argument("--pd-day-years", default="1928,1929,1930",
+    # Decision 137: never a literal year. A US work enters the public domain
+    # on January 1 of year + 96, so the newest PD year is this year - 96.
+    newest_pd = dt.date.today().year - 96
+    ap.add_argument("--pd-day-years",
+                    default=",".join(str(y) for y in range(newest_pd - 2, newest_pd + 1)),
                     help="Comma-separated publication years to mine as a "
                          "Public-Domain-Day feed (films of these years are "
-                         "PD by age). Default: the most recently entered. "
-                         "Empty string disables.")
+                         "PD by age). Default: the three most recently "
+                         "entered, from the calendar. Empty string disables.")
     ap.add_argument("--pd-day-cap", type=int, default=400,
                     help="Max items per PD-Day year (default 400).")
     args = ap.parse_args()
@@ -191,6 +209,11 @@ def main():
     session = requests.Session()
     now = dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z")
     added = 0
+
+    def is_new(it):
+        iaid = it.get("identifier") or ""
+        return bool(iaid) and iaid not in have_ia \
+            and iaid.rsplit(".", 1)[0] not in have_ia and iaid not in existing
 
     def add_candidate(it, *, source, collection=None):
         iaid = it.get("identifier")
@@ -224,7 +247,8 @@ def main():
         c_added = 0
         for it in scrape_collection(coll, session,
                                     per_collection=args.per_collection,
-                                    min_downloads=args.min_downloads):
+                                    min_downloads=args.min_downloads,
+                                    is_new=is_new):
             if add_candidate(it, source="archive_collection", collection=coll):
                 added += 1
                 c_added += 1
@@ -238,7 +262,7 @@ def main():
         y_added = 0
         q = f"mediatype:movies AND year:{yr}"
         for it in scrape_query(q, session, limit=args.pd_day_cap,
-                               min_downloads=args.min_downloads):
+                               min_downloads=args.min_downloads, is_new=is_new):
             if add_candidate(it, source="public_domain_day"):
                 added += 1
                 y_added += 1
