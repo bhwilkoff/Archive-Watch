@@ -183,6 +183,28 @@ fun TvAppRoot(container: AppContainer) {
         }
     }
 
+    // Verification hook: join a room straight into the film's player, the
+    // phone's AppRoot twin. Collected in AppRoot ONLY until 2026-09-24, so on
+    // the Google TV and Fire TV the door did nothing and the host counted one
+    // guest out of three. MUTED: a television is in somebody's room.
+    LaunchedEffect(Unit) {
+        DeepLinks.pendingRoomJoin.collect { pair ->
+            val (code, filmID) = pair ?: return@collect
+            DeepLinks.pendingRoomJoin.value = null
+            val item = container.catalog.awaitDb().item(filmID) ?: return@collect
+            val url = item.downloadURL ?: return@collect
+            android.util.Log.i("AWFOLLOW", "door will join room $code")
+            app.archivewatch.android.studio.StudioSyncFollower.pending = code
+            app.archivewatch.android.studio.StudioSyncFollower.pendingFilm = item.archiveID
+            nav.push(Route.Player(PlaySpec(
+                id = item.archiveID, title = item.title,
+                description = item.synopsis, url = url,
+                captions = item.captions ?: emptyList(),
+                runtimeSeconds = item.runtimeSeconds,
+                startMuted = true)))
+        }
+    }
+
     // §1.7 — Back is sacred. It pops the stack; from the root it is NOT
     // consumed, so the system returns to the launcher home (TV-DB).
     BackHandler(enabled = nav.stack.isNotEmpty()) { nav.pop() }
