@@ -163,12 +163,14 @@ nobody is in; a guest is in somebody else's show and the conversation is on
 the call they are already on. §11.10 scopes that decision rather than
 weakening it.
 
-**Built and NOT deployed.** The sync transport (`worker/src/together.js`) runs
-on the Worker that already serves the privacy counter, on the D1 already bound
-to it — no infrastructure of its own, which is why it fits the $0 constraint
-rather than merely being cheap. Every test ran against `wrangler dev --local`;
-`--remote` appears nowhere. **Deploying is an owner step**, and until it
-happens no room can be created or joined on a real device.
+**Built and DEPLOYED** (2026-09-21; rate limits, validation and the hourly
+sweep added 2026-09-23). The sync transport (`worker/src/together.js`) runs on
+the Worker that already serves the privacy counter, on the D1 already bound to
+it — no infrastructure of its own, which is why it fits the $0 constraint
+rather than merely being cheap. Proved LIVE on 2026-09-23: a Mac guest (join,
+seek, nudge, host pause on the exact frame, host end) and a browser guest on
+archivewatch.org (§8.66, headless Chrome: in step to 0.03 s, pause on the
+host's frame).
 
 Proved against a running Worker rather than reasoned about: §8.27 the
 arithmetic, §8.28 the codes, §8.29 the app/Worker parity of one rule in two
