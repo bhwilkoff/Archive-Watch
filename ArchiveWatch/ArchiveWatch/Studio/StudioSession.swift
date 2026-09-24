@@ -1284,6 +1284,13 @@ public final class StudioSession {
         awdiag("AWRECORD finished %@", url?.lastPathComponent ?? "(nothing written)")
     }
 
+    /// Observation notifies on every assignment, equal or not; the pump runs
+    /// once a second, so this is what keeps a still value from redrawing its
+    /// readers (launch audit B).
+    private func setIfChanged<T: Equatable>(_ key: ReferenceWritableKeyPath<StudioSession, T>, _ value: T) {
+        if self[keyPath: key] != value { self[keyPath: key] = value }
+    }
+
     public func completeArmedBroadcast() async {
         // OUTSIDE THE CALLER'S CANCELLATION. tvOS ends a show by setting
         // `studioFilm` nil, which cancels the `.task(id:)` whose teardown
@@ -1415,9 +1422,13 @@ public final class StudioSession {
                 // button has to disappear when the clock takes the banner
                 // down on its own.
                 await engine.expireShoutOutIfDue()
-                self.shoutOut = await engine.currentShoutOut
-                self.chatRecent = h.chatRecent
-                self.cameraFramesPerSecond = max(0, h.cameraFramesReceived - lastCameraFrames)
+                // ASSIGNED ONLY WHEN CHANGED (launch audit B). Observation
+                // notifies on every assignment, equal or not, so re-setting an
+                // unchanged forty-line chat list once a second redrew the
+                // AUDIENCE pane and everything else that read it.
+                setIfChanged(\.shoutOut, await engine.currentShoutOut)
+                setIfChanged(\.chatRecent, h.chatRecent)
+                setIfChanged(\.cameraFramesPerSecond, max(0, h.cameraFramesReceived - lastCameraFrames))
                 // RECOVER A CAMERA THAT STOPPED — macOS and iOS had the
                 // WARNING and no recovery, while tvOS had both. macOS can use
                 // an iPhone as its camera exactly as the television can, so it
@@ -1471,7 +1482,7 @@ public final class StudioSession {
                     onAirSince = Date()
                 }
                 let sent = h.publisher.bytesSent
-                sendingBitsPerSecond = sent >= lastBytesSent ? (sent - lastBytesSent) * 8 : 0
+                setIfChanged(\.sendingBitsPerSecond, sent >= lastBytesSent ? (sent - lastBytesSent) * 8 : 0)
                 lastBytesSent = sent
                 self.health = h
                 #if DEBUG
@@ -1534,8 +1545,9 @@ public final class StudioSession {
                 // audio starts arriving. Detected once — the asset does not
                 // grow an audio track mid-show — and treated as "say nothing"
                 // when it cannot be determined.
-                self.filmAudioProblem = await engine.filmAudioProblem(
+                let audioProblem = await engine.filmAudioProblem(
                     sourceHasAudio: engine.sourceHasAudio)
+                setIfChanged(\.filmAudioProblem, audioProblem)
                 // §D16 — DOES THIS FILM HAVE A SOUNDTRACK AT ALL?
                 //
                 // Separate from `filmAudioProblem`, which is about the tap
@@ -1551,7 +1563,7 @@ public final class StudioSession {
                 // silent films DO carry a score (six probed, six with AAC), so
                 // this is the exception rather than the rule — which is
                 // exactly why it has to be said rather than assumed.
-                self.filmHasNoSoundtrack = (await engine.sourceHasAudio) == false
+                setIfChanged(\.filmHasNoSoundtrack, (await engine.sourceHasAudio) == false)
                 // §D18 — the call tap is OPEN and delivering NOTHING.
                 self.updateCallSilence()
                 // AND SAY IT IN A LINE A HARNESS CAN READ. The mixer's meter
