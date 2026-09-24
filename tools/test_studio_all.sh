@@ -476,6 +476,14 @@ else
   FAIL=$((FAIL+1))
 fi
 
+# §8.62 — a reconnect is not hit by news from the connection it replaced.
+if bash tools/test_studio_reconnect_stale.sh >"$SCRATCH/reconnectstale.log" 2>&1; then
+  row "8.62 reconnect ignores stale news" PASS ""; PASS=$((PASS+1))
+else
+  row "8.62 reconnect ignores stale news" FAIL "a cancelled connection's close reached the new one"
+  FAIL=$((FAIL+1))
+fi
+
 # §8.58 — a room code is taken only by the room's film; players leave on close (A16).
 if bash tools/test_studio_room_handoff.sh >"$SCRATCH/roomhandoff.log" 2>&1; then
   row "8.58 room hand-off" PASS ""; PASS=$((PASS+1))

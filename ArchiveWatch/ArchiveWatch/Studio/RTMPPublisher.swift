@@ -563,8 +563,8 @@ public actor RTMPPublisher {
         conn.stateUpdateHandler = { [weak self] state in
             guard let self else { return }
             switch state {
-            case .failed(let e): Task { await self.socketClosed("failed: \(e.localizedDescription)") }
-            case .cancelled: Task { await self.socketClosed("canceled") }
+            case .failed(let e): Task { await self.socketClosed("failed: \(e.localizedDescription)", from: conn) }
+            case .cancelled: Task { await self.socketClosed("canceled", from: conn) }
             default: break
             }
         }
@@ -611,14 +611,22 @@ public actor RTMPPublisher {
             guard let self else { return }
             Task {
                 if let data, !data.isEmpty { await self.ingest(data) }
-                if let error { await self.socketClosed(error.localizedDescription); return }
-                if isComplete { await self.socketClosed("server closed the connection"); return }
+                if let error { await self.socketClosed(error.localizedDescription, from: conn); return }
+                if isComplete { await self.socketClosed("server closed the connection", from: conn); return }
                 await self.startReceiving(conn)
             }
         }
     }
 
-    private func socketClosed(_ reason: String) {
+    /// `from` names the connection the news is about. A reconnect CANCELS
+    /// the old connection, and its `.cancelled` state and its receive loop
+    /// reported "canceled" here a moment later — by which time the NEW
+    /// connection was mid-handshake, so it was marked failed and its pending
+    /// publish was thrown away (launch audit B). News from a connection that
+    /// is no longer current is ignored; the send path already did the same
+    /// with its generation number.
+    private func socketClosed(_ reason: String, from conn: NWConnection? = nil) {
+        if let conn, conn !== connection { return }
         guard health.state != .closed, health.state != .failed else { return }
         let wasPublishing = health.state == .publishing
         health.state = wasPublishing ? .closed : .failed
