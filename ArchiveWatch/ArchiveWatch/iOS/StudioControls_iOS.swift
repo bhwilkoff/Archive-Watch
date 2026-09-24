@@ -184,6 +184,10 @@ struct StudioControlsSheet: View {
     var onShareFilm: (() async -> String?)? = nil
     @State private var shareResult: String?
     @State private var sharedAt: Date?
+    /// Closes the panel. Explicit because it is an INSPECTOR on iPad
+    /// (IPAD-DESIGN §5b), and a column is closed by its binding, not by
+    /// `dismiss`, which is a sheet's word.
+    var onClose: (() -> Void)? = nil
     let onEnd: () -> Void
 
     private var healthFooter: String {
@@ -215,6 +219,7 @@ struct StudioControlsSheet: View {
     }
 
     @Environment(\.dismiss) private var dismiss
+    private func close() { if let onClose { onClose() } else { dismiss() } }
 
     private var audienceSection: some View {
         Section {
@@ -362,7 +367,7 @@ struct StudioControlsSheet: View {
 
                 Section {
                     Button("End the broadcast", role: .destructive) {
-                        onEnd(); dismiss()
+                        onEnd(); close()
                     }
                 }
             }
@@ -370,7 +375,7 @@ struct StudioControlsSheet: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("Done") { dismiss() }
+                    Button("Done") { close() }
                 }
             }
         }

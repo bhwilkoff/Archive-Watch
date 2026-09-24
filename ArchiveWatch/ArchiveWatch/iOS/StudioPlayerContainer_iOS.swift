@@ -101,7 +101,10 @@ struct StudioPlayerContainer: View {
                     #endif
                 }
             }
-            .sheet(isPresented: $showControls) { controlsSheet }
+            // IPAD-DESIGN §5b: beside the program at regular width, so each
+            // change is judged against the picture it changes; a sheet on
+            // the iPhone, exactly as before.
+            .inspector(isPresented: $showControls) { controlsSheet }
             .alert(alertTitle, isPresented: .constant(startError != nil)) {
                 Button("OK") { startError = nil; Task { await end() } }
             } message: {
@@ -165,6 +168,7 @@ struct StudioPlayerContainer: View {
                 Task { await engine?.clearShoutOut() }
             },
             onShareFilm: shareFilmAction,
+            onClose: { showControls = false },
             onEnd: { Task { await end() } })
     }
 

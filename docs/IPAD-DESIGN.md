@@ -167,6 +167,23 @@ presentation modifier.
 KEEP state and has not been read at iPad width; the sheet scrolls, so it is
 present, but it has not been looked at.
 
+## §5b — Controls FOR something on screen are an inspector, not a sheet (binding)
+
+*Added 2026-09-23 from the Watch Together launch audit: "iPad controls sheet
+covers the program".* §5a's form sheet is centred over the whole screen, which
+is right for a task that replaces what is behind it (going live, getting
+subtitles) and wrong for controls that ADJUST what is behind it. The Studio's
+controls — layout, the two faders, cards, the audience — change the program
+the host is watching; a form sheet hides the very picture each change is meant
+to be judged on.
+
+**Rule:** a panel whose job is to adjust something still on screen is presented
+with `.inspector(isPresented:)`. At regular width that is a trailing column
+beside the content, which stays visible and live; at compact width SwiftUI
+presents the same content as a sheet, so the iPhone is unchanged. One modifier,
+no size-class branch. Applies first to `StudioPlayerContainer_iOS`'s controls.
+Not yet seen at iPad width.
+
 ## §6 — Anti-patterns (never)
 
 6.1 **Never `frame(maxWidth: .infinity)` on prose or on a primary button**
