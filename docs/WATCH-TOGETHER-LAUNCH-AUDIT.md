@@ -57,7 +57,7 @@ Items marked *(suspected)* were inferred from code and need a run before a fix.
 
 ## C. Roku rooms (not built)
 
-About 200–250 lines: an options row, a keyboard dialog, a `roomCode` on PlayerScreen driving `TogetherTask`, an ended/failed message — plus three fixes in the existing BrightScript: `awNowSeconds() as Float` (128-second steps at 1.8e9 — must be Double), one blip ends the room (end only on 404/410), no presence ping.
+About 200–250 lines: an options row, a keyboard dialog, a `roomCode` on PlayerScreen driving `TogetherTask`, an ended/failed message — ~~plus three fixes in the existing BrightScript~~ (DONE v1.42.614: `awNowSeconds` is a Double and the two epoch fields are read from the JSON TEXT into Doubles, since a Float resolves 1.8e9 in 128 s steps; a failed poll is skipped and only 404/410 ends the room, via `DoesExist("ended")` — `room.ended = true` would have been a runtime type mismatch on every normal room; an anonymous "I'm here" every 30 s; and a paused guest is moved to the host's frame, the rule the other platforms gained today. Syntax-checked with bsc; NOT run on a Roku — nothing creates the task yet, and sideloading would switch on a television at night). The surface (option row, keyboard, `roomCode` on PlayerScreen) is still unbuilt.
 
 ## D. Polish
 

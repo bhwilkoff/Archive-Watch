@@ -27,17 +27,32 @@ sub pollLoop()
     m.top.running = true
     lastGeneration = -1
     lastChangeAt = awNowSeconds()
+    ' A fresh anonymous token per join, for the host's "friends here" count.
+    ba = CreateObject("roByteArray")
+    ba.FromAsciiString(CreateObject("roDeviceInfo").GetRandomUUID())
+    token = CreateObject("roEVPDigest")
+    token.Setup("sha256")
+    token = Left(token.Process(ba), 32)
+    lastHereAt = -1000#
 
     while m.top.running
+        if awNowSeconds() - lastHereAt >= 30
+            awRoomSayHere(code, token)
+            lastHereAt = awNowSeconds()
+        end if
         room = awRoomRead(code)
-        if room = invalid
-            ' A room that has GONE is over; anything else is a poll that
-            ' failed, and a poll that failed is a poll — not a reason to tear
-            ' a viewer out of a film.
-            m.top.problem = "The room has ended."
+        ' DoesExist, not `room.ended = true`: a normal room has no `ended` key,
+        ' and comparing invalid with a boolean is a runtime type mismatch.
+        if room <> invalid and room.DoesExist("ended")
+            ' A room that has GONE (404/410) is over.
+            m.top.problem = "The host ended the room."
             m.top.running = false
             exit while
         end if
+        ' A poll that FAILED (invalid) is a poll — not a reason to tear a
+        ' viewer out of a film. It used to end the room on the first blip; now
+        ' it simply skips to the next poll.
+        if room <> invalid
 
         if room.generation <> lastGeneration
             lastGeneration = room.generation
@@ -65,6 +80,17 @@ sub pollLoop()
             if magnitude >= 1.0
                 m.top.verb = { kind: "seek", to: expected }
             end if
+        else
+            ' BOTH paused: on the host's FRAME, not merely paused — the host
+            ' paused to talk about a shot (the rule every other platform
+            ' gained on 2026-09-23).
+            gap = room.position - local
+            if gap < 0 then gap = -gap
+            if gap > 0.5
+                m.top.verb = { kind: "seek", to: room.position }
+            end if
+        end if
+
         end if
 
         ' Back off while nothing is happening — a film nobody is touching is

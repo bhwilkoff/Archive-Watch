@@ -62,8 +62,11 @@ function awRoomOrigin() as String
     return "https://archivewatch-pulse.benwilkoff.workers.dev"
 end function
 
-' Read a room. Returns invalid when there is none, so a caller can tell "no
-' such room" from "the film is paused at zero".
+'
+' Read a room. Returns the room, `{ ended: true }` when the room is GONE (404
+' or 410 — the host ended it), or invalid for a poll that merely FAILED. The
+' two used to be one `invalid`, so a single dropped request told a Roku guest
+' "The room has ended." and stopped following a room that was still running.
 function awRoomRead(code as String) as Object
     if code = "" then return invalid
     port = CreateObject("roMessagePort")
@@ -81,9 +84,17 @@ function awRoomRead(code as String) as Object
         return invalid
     end if
     receivedAt = awNowSeconds()
-    if msg.GetResponseCode() <> 200 then return invalid
-    o = ParseJson(msg.GetString())
+    status = msg.GetResponseCode()
+    if status = 404 or status = 410 then return { ended: true }
+    if status <> 200 then return invalid
+    body = msg.GetString()
+    o = ParseJson(body)
     if o = invalid or o.filmID = invalid then return invalid
+    ' The two epoch times are ~1.8e9 s. Whatever numeric type ParseJson picks,
+    ' a Float holds that in 128-second steps, so they are read from the TEXT
+    ' into Doubles here rather than trusted to the parser.
+    o.serverTime = awJsonSeconds(body, "serverTime")
+    o.atServerTime = awJsonSeconds(body, "atServerTime")
     ' The state AND the server's clock in one response (§11.6), so the round
     ' trip measured around this very request is the clock sample — the poll IS
     ' the sync, and a second endpoint would double the traffic for nothing.
@@ -98,7 +109,7 @@ end function
 ' Where the film should be, on this box's clock. A PAUSED film does not
 ' advance — the thing an elapsed-time formula gets wrong the moment it forgets
 ' to ask.
-function awRoomExpectedPosition(room as Object) as Float
+function awRoomExpectedPosition(room as Object) as Double
     if room = invalid then return 0
     if room.paused = true then return room.position
     serverNow = awNowSeconds() + room.awOffset
@@ -107,7 +118,39 @@ function awRoomExpectedPosition(room as Object) as Float
     return room.position + elapsed * room.rate
 end function
 
-function awNowSeconds() as Float
+' A DOUBLE. This was `as Float`, and a 32-bit float at today's epoch
+' (~1.8e9 s) resolves in 128-second steps — every elapsed-time and clock
+' computation built on it was off by up to two minutes (launch audit C).
+function awNowSeconds() as Double
     d = CreateObject("roDateTime")
-    return d.AsSeconds() + d.GetMilliseconds() / 1000.0
+    return CDbl(d.AsSeconds()) + CDbl(d.GetMilliseconds()) / 1000#
 end function
+
+' A seconds value read from the JSON TEXT as a Double: "key":1790000000.123
+' -> 1790000000.123#. The integer and fraction are parsed separately, because
+' Val() on the whole string may round through a Float.
+function awJsonSeconds(body as String, key as String) as Double
+    rx = CreateObject("roRegex", Chr(34) + key + Chr(34) + "\s*:\s*(\d+)(?:\.(\d+))?", "")
+    m = rx.Match(body)
+    if m.Count() < 2 then return 0#
+    whole = CDbl(Val(m[1]))
+    frac = 0#
+    if m.Count() > 2 and m[2] <> invalid and m[2] <> ""
+        digits = Left(m[2], 6)
+        frac = CDbl(Val(digits)) / (10# ^ Len(digits))
+    end if
+    return whole + frac
+end function
+
+' "I'm here", so the host's count includes a Roku guest. Best effort: a
+' missed ping only makes the count lag. The token is fresh per join and tied
+' to nothing (owner, 2026-09-23).
+sub awRoomSayHere(code as String, token as String)
+    if code = "" then return
+    x = CreateObject("roUrlTransfer")
+    x.SetUrl(awRoomOrigin() + "/together/" + code + "/here")
+    x.SetCertificatesFile("common:/certs/ca-bundle.crt")
+    x.InitClientCertificates()
+    x.AddHeader("content-type", "application/json")
+    x.PostFromString(FormatJson({ token: token }))
+end sub
