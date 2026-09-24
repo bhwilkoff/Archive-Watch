@@ -2562,3 +2562,49 @@ go-live form at all times (it still appears where a film is REFUSED), and
 once you start the preview." Kept: "The film is ducking under the talking",
 shown only while it happens, because it explains a level the host hears
 drop.
+
+## §D38 — PROPOSED: Voice Isolation for the host's microphone (not built)
+
+*Written 2026-09-24 from research, not from a build.* OBS hosts routinely put
+noise suppression on their microphone. Apple offers the system's own:
+**Mic Modes** (Standard / Voice Isolation / Wide Spectrum), chosen by the user
+in Control Center, which an app can OPEN with
+`AVCaptureDevice.showSystemUserInterface(.microphoneModes)` and read with
+`preferredMicrophoneMode` / `activeMicrophoneMode`.
+
+**The catch, and why it is a rebuild rather than a button**: Mic Modes apply
+only to an app that captures through Apple's voice-processing unit (AUVoiceIO,
+i.e. `AVAudioEngine.inputNode.setVoiceProcessingEnabled(true)`). The Studio's
+microphone today is an `AVCaptureSession` audio output feeding
+`StudioMicAudio`, which Mic Modes do not touch. So the proposal is to move the
+microphone — only the microphone; the film tap and the call tap stay as they
+are — onto an `AVAudioEngine` input node with voice processing on, and to offer
+one row in Audio: **Voice Isolation…** that opens the system panel and shows
+the active mode beside it.
+
+**Three things to settle BY MEASUREMENT before it ships**, each of which could
+make it worse than the gate it would sit beside (§D3's MicGate):
+1. **Ducking.** Voice processing ducks OTHER audio while it runs. The film is
+   other audio. `voiceProcessingOtherAudioDuckingConfiguration` exists
+   (macOS 14) with a minimum level; whether minimum is inaudible on the
+   BROADCAST (the film is tapped before the output device, so it may not be
+   affected at all) or only on the host's speakers must be read off the wire.
+2. **Channels.** Enabling voice processing on macOS has been reported to raise
+   the input's channel count (to 5 on some hardware, via an aggregate device);
+   the mixer must take channel 0 by design, not by accident.
+3. **Echo.** AUVoiceIO's echo cancellation references what IT plays; the film
+   plays through `AVPlayer`, not through the engine, so it may not cancel film
+   bleed at all. If so, the existing MicGate remains the answer to bleed and
+   Voice Isolation is only for room noise (keyboards, fans), which is still
+   worth having.
+
+**Test plan**: an AUDIBLE bench run (owner's yes required —
+`ask_before_audible_test`) with a fan or keyboard noise near the Mac: record
+the broadcast with Voice Isolation off and on, compare the noise floor in the
+host's pauses with `volumedetect`, and check the film's level on the wire is
+unchanged between the two. Not started until that run is agreed.
+
+Sources: Apple's `AVCaptureDevice.SystemUserInterface.microphoneModes` and
+`MicrophoneMode.voiceIsolation` documentation; WWDC21 "What's new in camera
+capture"; `AVAudioInputNode.voiceProcessingOtherAudioDuckingConfiguration`;
+Apple Developer Forums thread 771530 (channel count).
