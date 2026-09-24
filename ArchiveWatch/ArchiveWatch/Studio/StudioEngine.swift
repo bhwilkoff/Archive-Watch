@@ -2471,6 +2471,19 @@ final class H264Encoder: @unchecked Sendable {
         // only one is recoverable by restarting the session.
         _fault = "the encoder refused a frame (\(where_) \(status))"
         lock.unlock()
+        failPendingFormat(status)
+    }
+
+    /// A start waiting for its first frame must not wait for one that will
+    /// never come (launch audit B): if the encoder refuses the frame, or
+    /// answers nothing, the waiting `start()` fails instead of hanging — and
+    /// the caller's never-went-live clean-up then removes the broadcast.
+    private func failPendingFormat(_ status: OSStatus) {
+        lock.lock()
+        let pending = firstFormatContinuation
+        firstFormatContinuation = nil
+        lock.unlock()
+        pending?.resume(throwing: StudioError.encoderUnavailable(status))
     }
 
     init(width: Int, height: Int, frameRate: Int, bitrate: Int) {
@@ -2634,6 +2647,11 @@ final class H264Encoder: @unchecked Sendable {
         try await withCheckedThrowingContinuation { c in
             lock.lock(); firstFormatContinuation = c; lock.unlock()
             encode(pixelBuffer, at: .zero)
+            // Five seconds is far past any real encoder's first frame; -1 marks
+            // "no answer" as distinct from a VideoToolbox status.
+            DispatchQueue.global().asyncAfter(deadline: .now() + 5) { [weak self] in
+                self?.failPendingFormat(-1)
+            }
         }
     }
 }
