@@ -97,7 +97,7 @@ cat <<'TXT'
            Internet Archive, free, no accounts.
         2. Open Safety Last! (1923). Note the rights line on the page — only
            pre-1930 titles can be broadcast.
-        3. Press Play, then Broadcast -> Watch Together Studio (Shift-Cmd-S).
+        3. Press Play, then Watch Together Studio (Shift-Cmd-L).
            The FILM pane and the STREAM pane sit side by side.
         4. OUTPUT column, Platform: YouTube. Press "Sign in".
            - Apple: "Archive Watch Wants to Use accounts.google.com"

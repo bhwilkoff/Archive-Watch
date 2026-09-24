@@ -10,10 +10,56 @@ send from benwilkoff@gmail.com.
 
 | # | What Google asked | State |
 |---|---|---|
-| 1 | Demo video: the **OAuth workflow**, consent screen with scopes **fully expanded and readable** | ⏳ see "The consent screen" below |
+| 1 | Demo video: the **OAuth workflow**, consent screen with scopes **fully expanded and readable** | ✅ 2026-09-24, <https://youtu.be/N0zP6D6hOm8> (unlisted, Archive Watch channel); Console link + justification updated the same day |
 | 2 | Demo video: **full operational functionality** of `…/auth/youtube`, with **the change reflected in the source account** | ✅ recorded |
 | 3 | **Test credentials** + step-by-step navigation | ✅ drafted — the app has no login of its own |
 | 4 | Privacy policy specifying **data protection mechanisms for sensitive data** | ✅ published |
+
+## The reply as it stands (2026-09-24) — ready except the test build
+
+The video is <https://youtu.be/N0zP6D6hOm8>, 6:43, recorded on the Release
+build 1.42.623 against the **Archive Watch** brand after revoking its grant
+with the Studio's own Sign out, so the consent screen prints *"Manage your
+YouTube account"* and "See access details" expands it. Beats, each introduced
+by a title card that names the API calls: the Console's one declared scope;
+the app; Sign in; Apple's prompt; the unverified-app screen; the consent
+screen (plus two enlarged holds); Go Live; the viewer's page with a viewer's
+chat message and the host-pressed share; the Studio's AUDIENCE pane with
+"1 watching"; YouTube Studio > Content > Live showing the broadcast "Live
+now"; ending it; YouTube Studio showing "Streamed"; Sign out (revoke); and why
+no narrower scope works. The account chooser is never on screen.
+
+The Console's justification said "exactly four Live Streaming API calls",
+which the app had outgrown (thumbnail, viewers, chat read, the one chat post,
+transition, delete); it was rewritten on 2026-09-24 to list every call, so the
+text, the video and the code agree.
+
+**The one open item is where a reviewer gets the build.** The App Store has
+1.42.120 (2026-09-15), which predates the Mac Studio, so "install from the App
+Store" in the draft below would not reproduce the video. Either ship the
+current build to the App Store first, or give the reviewer a TestFlight public
+link — Google's own Console text asks that unverified scopes be demonstrated
+from a staging route rather than production, which favors TestFlight.
+
+**Corrections to the draft below before sending**: step 3 is now "open the
+Watch Together Studio (Shift-Command-L, or Watch Together in the sidebar) and
+choose the film in its FILM pane" — there is no Broadcast menu and no
+Shift-Command-S; and "in one take" is wrong, the video is edited with title
+cards.
+
+### How the recording was made (so the next one takes an hour, not three)
+
+- `tools/demo_window_record.swift` records ONE window (ScreenCaptureKit).
+  **A secure system dialog — Apple's "wants to use accounts.google.com", the
+  End Broadcast confirmation — interrupts EVERY running capture**, and a
+  capture started while one is up hangs. Stop recording before pressing a
+  control that raises one, grab the dialog as a still with
+  `screencapture -l <windowID>`, and record the next beat as a new clip.
+- `tools/ax_press.swift` presses controls by NAME through Accessibility, in
+  the app and in Chrome's Google pages (`focus` + Return where AXPress is
+  ignored), so nothing is a coordinate click.
+- Crop Chrome to the page: the vertical tab strip lists the owner's other tabs.
+- Hide YouTube Studio's "2-Step Verification" banner before filming it.
 
 ## The consent screen — what we learned, and why it matters to the reviewer
 
