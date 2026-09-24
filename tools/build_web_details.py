@@ -19,7 +19,7 @@ view:
 Positional record indices (trailing nulls trimmed — APPEND new fields at the
 end so existing indices never shift; keep watch.js `Details.get` in sync):
     0 downloadURL   3 cast      6 backdropURL   9 extras (Decision 046)
-    1 synopsis      4 genres    7 captions
+    1 synopsis      4 genres    7 captions      10 related (Decision 139)
     2 director      5 runtime   8 community
 `extras` (index 9, Decision 046) is a compact object of the rich-metadata
 fields — present keys only, the whole object omitted when empty so sparse
@@ -35,6 +35,9 @@ Shard = FNV-1a 32-bit hash of the archiveID, low byte, hex — the JS side
 Adult/excluded filtering matches build_catalog_index.py (the index is the
 gatekeeper; an item absent there is never requested here).
 
+`related` (index 10, Decision 139) is More Like This as the pipeline ranked
+it — archiveIDs, best first — read from `item_related` in ./catalog.sqlite,
+which publish-db builds earlier in the same job. Omitted when absent.
 Reads ./catalog.json (fetch via catalog_release.py first). Writes ./details/.
 """
 
@@ -67,6 +70,18 @@ def main():
         return 1
     catalog = json.loads(CATALOG.read_text(encoding="utf-8"))
     items = catalog.get("items", catalog if isinstance(catalog, list) else [])
+
+    related = {}
+    db_path = REPO / "catalog.sqlite"
+    if db_path.exists():
+        import sqlite3
+        try:
+            con = sqlite3.connect(db_path)
+            related = {a: r.split("\t") for a, r in con.execute("SELECT archiveID, related FROM item_related")}
+            con.close()
+        except sqlite3.Error as e:
+            print(f"[details] no related table ({e}) — shards ship without it", flush=True)
+    print(f"[details] {len(related):,} films carry a pipeline related list", flush=True)
 
     shards: dict[str, dict] = {f"{i:02x}": {} for i in range(256)}
     kept = 0
@@ -172,6 +187,7 @@ def main():
             captions or None,
             community,
             extras or None,
+            related.get(aid) or None,
         ]
         # Trim trailing nulls so empty tails cost nothing on the wire.
         while record and record[-1] is None:

@@ -200,6 +200,13 @@ class CatalogDatabase private constructor(
     // every film surface; episodes remain in `search` (which applies no TV exclusion).
     private val notStandaloneTV = " AND i.contentType NOT IN ('tv-special','tv-episode')"
 
+    /** Decision 139's `item_related` table — absent from a cached older DB. */
+    private val hasRelatedTable: Boolean = try {
+        queryRaw("PRAGMA table_info(item_related)") { it.getText(1) }.contains("related")
+    } catch (_: Throwable) {
+        false
+    }
+
     /** `rightsBucket` arrived with schema 2 and a shipped build may still be
      *  reading a cached schema-1 catalog — the same trap `playable` set. */
     private val hasRightsBucketColumn: Boolean = try {
@@ -537,7 +544,32 @@ class CatalogDatabase private constructor(
 
     /** "More Like This": same category, then year proximity (±10y), then popularity; finally
      *  prefer the SAME B&W-vs-color as the subject (colorMode is JSON-only, so ranked in Kotlin). */
+    /** Decision 139: More Like This as the PIPELINE ranked it — shared series,
+        director, cast, writer or rare keywords, best first, one copy each.
+        Empty on an older DB or for a film with no meaningful connection. */
+    suspend fun pipelineRelated(to: CatalogItem): List<CatalogItem> {
+        if (!hasRelatedTable) return emptyList()
+        val ids = dbCall {
+            queryRaw("SELECT related FROM item_related WHERE archiveID = ?", listOf(to.archiveID)) {
+                it.getText(0)
+            }
+        }.firstOrNull()?.split('\t')?.filter { it.isNotEmpty() } ?: return emptyList()
+        if (ids.isEmpty()) return emptyList()
+        val marks = ids.joinToString(",") { "?" }
+        val found = itemsLite("$itemSelect WHERE i.archiveID IN ($marks)$adultAnd$typeAnd", ids)
+            .associateBy { it.archiveID }
+        return ids.mapNotNull { found[it] }
+    }
+
     suspend fun related(to: CatalogItem, limit: Int = 20): List<CatalogItem> {
+        val ranked = pipelineRelated(to)
+        if (ranked.size >= limit) return ranked.take(limit)
+        val seen = ranked.mapTo(HashSet()) { it.archiveID }
+        return (ranked + typeEraRelated(to, limit).filter { seen.add(it.archiveID) }).take(limit)
+    }
+
+    /** The pre-139 query: the fallback when the pipeline found no connection. */
+    private suspend fun typeEraRelated(to: CatalogItem, limit: Int): List<CatalogItem> {
         val yearKey = to.year?.let {
             "(CASE WHEN i.year IS NOT NULL AND ABS(i.year - $it) <= 10 THEN 1 ELSE 0 END) DESC, "
         } ?: ""

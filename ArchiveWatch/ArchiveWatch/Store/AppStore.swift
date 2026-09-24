@@ -274,6 +274,7 @@ final class AppStore {
     func dbTVSpecialsCount() -> Int { db?.tvSpecialsCount() ?? 0 }
     func dbItem(_ id: String) -> Catalog.Item? { db?.item(id) }
     func dbRelated(to item: Catalog.Item) -> [Catalog.Item] { db?.related(to: item) ?? [] }
+    func dbPipelineRelated(to item: Catalog.Item) -> [Catalog.Item] { db?.pipelineRelated(to: item) ?? [] }
     func dbDecadeCounts() -> [Int: Int] { db?.decadeCounts() ?? [:] }
     /// Live count of searchable titles in the loaded DB (tracks seed→full + rebuilds).
     var dbSearchableCount: Int { db?.searchableCount ?? 0 }

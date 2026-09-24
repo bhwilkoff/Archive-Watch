@@ -559,7 +559,6 @@ struct DetailView: View {
         var pool = store.dbRelated(to: item)
         if let d = item.director, !d.isEmpty { pool += store.dbByDirector(d) }
         var seen = Set([item.archiveID]); pool = pool.filter { seen.insert($0.archiveID).inserted }
-        guard !pool.isEmpty else { return [] }
         var scored: [(Catalog.Item, Int)] = []
         for other in pool where other.archiveID != item.archiveID {
             var score = 0
@@ -572,10 +571,15 @@ struct DetailView: View {
             score += sharedGenres.count * 2
             if score > 0 { scored.append((other, score)) }
         }
-        return scored
+        // The pipeline's ranking leads (Decision 139); this view's own scoring
+        // only fills the rest of the row.
+        let ranked = store.dbPipelineRelated(to: item)
+        var taken = Set(ranked.map(\.archiveID))
+        let rest = scored
             .sorted { ($0.1, $0.0.title) > ($1.1, $1.0.title) }
-            .prefix(14)
             .map { $0.0 }
+            .filter { taken.insert($0.archiveID).inserted }
+        return Array((ranked + rest).prefix(14))
     }
 
     // MARK: - Backdrop

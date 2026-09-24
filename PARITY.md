@@ -98,7 +98,7 @@ macOS) since they share the Swift Core.
 |---|---|---|---|---|---|---|
 | Detail (backdrop, metadata, cast) | ✅ | ✅ | ✅ poster + metadata + cast row | ✅ | ✅ | shared item record |
 | "Also known as" alternate release title | ✅ under the hero title | ✅ under the title | ✅ under the title | ✅ under the title | ✅ phone + TV Detail | Decision 100 — `canonicalTitle` only, ligature+diacritic folded; 1,646 items. Web carries it as `extras.ct` in the detail shards |
-| More Like This | ✅ | ✅ | ✅ `store.related` | ✅ | ✅ | shared `related` query |
+| More Like This | ✅ | ✅ | ✅ `store.related` | ✅ | ✅ | **Ranked once in the pipeline** (Decision 139, `item_related`; web + Roku via detail shard index 10): shared series, director, cast, writer, keywords lead, then the old type + era query fills the row. Roku still type + era only — its DetailTask reads the shard but does not use index 10 yet |
 | Cast → person filmography | ✅ | ✅ | ✅ tappable cast (TMDb photos) → byPerson | ✅ cast bubble → search, resolved through the `people.json` sidecar | ✅ | |
 | Share titles / series | ✅ ShareSheet + QR | ✅ ShareLink | ✅ `ShareLink` (item + series) | ✅ share menu | ✅ ACTION_SEND | archivewatch.org URLs (Decision 030) |
 | Open in Callsheet (cast/crew app) | n/a | ✅ (App Store fallback) | ✅ `NSWorkspace` open/probe + App Store fallback | n/a | n/a | Decision 038 (+macOS amendment 2026-06-23) |

@@ -374,6 +374,7 @@
         originalTitle: x?.ot || null,
         canonicalTitle: x?.ct || null,
         synopsisSource: x?.ss || null,
+        related: rec[10] || null,   // Decision 139: pipeline-ranked archiveIDs
       };
     },
   };
@@ -798,7 +799,18 @@
    *  then POPULARITY (index order). No shuffle — that made it random on every
    *  visit. (colorMode isn't in the index, so the apps' colour tiebreak is
    *  app-only.) */
-  function relatedRows(row, limit) {
+  function relatedRows(row, limit, ranked = null) {
+    const [id, , year, type] = row;
+    // Decision 139: the pipeline's ranking (shared series, director, cast,
+    // writer, keywords) leads when the detail shard carries it; the old rule
+    // below only fills the rest of the row.
+    const lead = (ranked || []).map(a => Data.byID.get(a)).filter(r => r && r[0] !== id);
+    if (lead.length >= limit) return lead.slice(0, limit);
+    const taken = new Set(lead.map(r => r[0]));
+    return lead.concat(fallbackRelated(row, limit).filter(r => !taken.has(r[0]))).slice(0, limit);
+  }
+
+  function fallbackRelated(row, limit) {
     const [id, , year, type] = row;
     return Data.rows
       .filter(r => r[0] !== id && r[3] === type && Data.isPro(r))
@@ -2409,6 +2421,7 @@
       if (this.current.id !== id) return;     // navigated away mid-fetch
       if (det) {
         this.current.detail = det;
+        if (det.related) this.related(row, det.related);
         const meta = [
           row[2] && String(row[2]),
           det.runtimeSeconds && `${Math.round(det.runtimeSeconds / 60)} min`,
@@ -2642,8 +2655,8 @@
     /** More Like This (apps' related query): same category, then YEAR proximity (±10y),
         then POPULARITY (index order). No shuffle — that made it random on every visit.
         (colorMode isn't in the index, so the apps' color tiebreak is app-only.) */
-    related(row) {
-      const rows = relatedRows(row, 12);
+    related(row, ranked = null) {
+      const rows = relatedRows(row, 12, ranked);
       $('item-related-row').replaceChildren(...rows.map(card));
       $('item-related').hidden = rows.length < 4;
     },

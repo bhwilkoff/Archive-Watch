@@ -67,6 +67,7 @@ final class CatalogDB {
         // on self (metaInt below) — all stored properties initialized first.
         hasPlayableColumn = Self.columnExists(h, table: "items", column: "playable")
         hasHiddenGemColumn = Self.columnExists(h, table: "items", column: "hiddenGem")
+        hasRelatedTable = Self.columnExists(h, table: "item_related", column: "related")
         // Fail fast if it isn't actually our schema.
         guard metaInt("itemCount") != nil else {
             sqlite3_close(h); return nil
@@ -87,6 +88,7 @@ final class CatalogDB {
 
     private let hasPlayableColumn: Bool
     private let hasHiddenGemColumn: Bool
+    private let hasRelatedTable: Bool
 
     /// Restricts a surface to titles whose bytes were verified playable
     /// (tools/check_liveness.py). Applied to the most PROMINENT surfaces only —
@@ -673,7 +675,37 @@ final class CatalogDB {
     /// then prefers the SAME black-and-white-vs-color as the subject in Swift (colorMode lives
     /// in the item_json blob, not the scalar `items` table, so it can't be an ORDER BY key).
     /// Over-fetches so the color preference has room to reorder without starving the row.
+    /// Decision 139: More Like This as the PIPELINE ranked it — the films this
+    /// one shares a series, director, cast, writer or rare keywords with, best
+    /// first, one copy each. Same gates as every other surface. Empty on an
+    /// older DB (no table) or for a film with no meaningful connection.
+    func pipelineRelated(to item: Catalog.Item) -> [Catalog.Item] {
+        guard hasRelatedTable,
+              let row = pairRows("SELECT related, reasons FROM item_related WHERE archiveID = ?",
+                                 [item.archiveID]).first
+        else { return [] }
+        let ids = row.0.split(separator: "\t").map(String.init)
+        guard !ids.isEmpty else { return [] }
+        let placeholders = ids.map { _ in "?" }.joined(separator: ",")
+        let found = items("""
+            SELECT j.json FROM items i JOIN item_json j USING(archiveID)
+            WHERE i.archiveID IN (\(placeholders)) \(adultAnd) \(typeAnd)
+        """, ids)
+        let byID = Dictionary(found.map { ($0.archiveID, $0) }, uniquingKeysWith: { a, _ in a })
+        return ids.compactMap { byID[$0] }
+    }
+
     func related(to item: Catalog.Item, limit: Int = 20) -> [Catalog.Item] {
+        let ranked = pipelineRelated(to: item)
+        guard ranked.count < limit else { return Array(ranked.prefix(limit)) }
+        var seen = Set(ranked.map(\.archiveID))
+        let rest = typeEraRelated(to: item, limit: limit).filter { seen.insert($0.archiveID).inserted }
+        return Array((ranked + rest).prefix(limit))
+    }
+
+    /// The pre-139 query, kept as the fallback for films the pipeline found
+    /// no connection for (and for a DB that predates the table).
+    private func typeEraRelated(to item: Catalog.Item, limit: Int) -> [Catalog.Item] {
         let yearKey = item.year.map {
             "(CASE WHEN i.year IS NOT NULL AND ABS(i.year - \($0)) <= 10 THEN 1 ELSE 0 END) DESC,"
         } ?? ""

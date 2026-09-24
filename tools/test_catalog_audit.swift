@@ -18,9 +18,18 @@
 //   xcrun swiftc -parse-as-library \
 //     ArchiveWatch/ArchiveWatch/Store/CatalogDB.swift \
 //     ArchiveWatch/ArchiveWatch/Models/Catalog.swift \
+//     ArchiveWatch/ArchiveWatch/Services/HTMLStripper.swift \
 //     tools/test_catalog_audit.swift -o /tmp/awcatalog && /tmp/awcatalog
 
 import Foundation
+
+// CatalogDB reports a corrupt file to this actor; the app's real one downloads
+// a replacement. The harness only needs the call to exist (the documented
+// recipe stopped compiling when that call was added).
+actor CatalogRefreshService {
+    static let shared = CatalogRefreshService()
+    func discardCachedDatabase(reason: String) { print("[AWAUDIT] would discard: \(reason)") }
+}
 
 @main
 struct Harness {
@@ -143,6 +152,31 @@ struct Harness {
         let broad = db.search("the", limit: 200)
         check("search.noSpecialLeak", !broad.isEmpty
               && !broad.contains { $0.contentType == "tv-special" }, "\(broad.count) hits")
+
+        // ── More Like This (Decision 139) ───────────────────────────────────
+        // The pipeline's ranking leads when the DB carries it; a DB without
+        // the table must still fill the shelf from the type + era fallback.
+        var withPipeline = 0, selfOrDup = 0
+        for it in db.browse(limit: 400) {
+            let ranked = db.pipelineRelated(to: it)
+            if !ranked.isEmpty { withPipeline += 1 }
+            let shelf = db.related(to: it)
+            let ids = shelf.map(\.archiveID)
+            if ids.contains(it.archiveID) || Set(ids).count != ids.count { selfOrDup += 1 }
+            if !ranked.isEmpty && Array(ids.prefix(ranked.count)) != ranked.map(\.archiveID) { selfOrDup += 1 }
+        }
+        check("related.neverSelfOrDuplicate", selfOrDup == 0, "\(selfOrDup) bad shelves of 400")
+        let expectPipeline = ProcessInfo.processInfo.environment["AW_EXPECT_RELATED"] == "1"
+        check("related.pipelinePresent", expectPipeline ? withPipeline > 50 : true,
+              "\(withPipeline) of 400 browse items carry a pipeline shelf")
+        if expectPipeline, let m = db.search("Metropolis").first(where: { $0.title == "Metropolis" && $0.year == 1927 }) {
+            let lead = db.pipelineRelated(to: m).first
+            check("related.metropolisLeadsWithLang", (lead?.director ?? "").contains("Fritz Lang"),
+                  "\(lead?.title ?? "nil") / \(lead?.director ?? "nil")")
+        }
+        if let any = db.browse(limit: 1).first {
+            check("related.fallbackFills", !db.related(to: any).isEmpty, "shelf non-empty")
+        }
 
         // ── Surprise ────────────────────────────────────────────────────────
         var surpriseOK = true, why = ""
