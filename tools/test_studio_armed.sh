@@ -38,9 +38,17 @@ applied=$(awk '/public func attachIfArmed\(player/,/^    }$/' "$SESS")
 # a value re-applied inside one is re-applied. Without this, extracting
 # `attachYouTubeChatIfArmed(to:)` so iOS and tvOS could share it read as the
 # chat id being dropped — the check was reading text, not the path.
-for h in $(echo "$applied" | grep -oE 'await [a-zA-Z]+\(to: e\)' | sed -E 's/await ([a-zA-Z]+).*/\1/' | sort -u); do
-  applied="$applied
+# RECURSIVELY: v1.42.616 routed the chat through `attachChat(to:)`, which in
+# turn calls `attachYouTubeChatIfArmed(to:)`; a one-level follow read that as
+# the chat id being dropped. Three passes is deeper than any real chain.
+seen=""
+for pass in 1 2 3; do
+  for h in $(echo "$applied" | grep -oE 'await [a-zA-Z]+\(to: e\)' | sed -E 's/await ([a-zA-Z]+).*/\1/' | sort -u); do
+    case " $seen " in *" $h "*) continue ;; esac
+    seen="$seen $h"
+    applied="$applied
 $(awk "/func $h\\(to e: StudioEngine\\)/,/^    }\$/" "$SESS")"
+  done
 done
 
 missing=""

@@ -230,21 +230,9 @@ struct StudioPlayerContainer: View {
         guard await !e.health.isRunning else { return }
         do {
             let dest = try await destination()
-            // Read the chat too — iOS armed the id and never read it.
-            await StudioSession.shared.attachYouTubeChatIfArmed(to: e)
-            // Chat the program carries (§6.4) — named by the surface, read by the
-            // engine. No credential is needed to read Twitch.
-            // The host's OWN channel (§D22). This surface read AW_STUDIO_CHAT and
-            // nothing else until 2026-09-22 — see StudioSession for why that meant
-            // the product had no Twitch chat and a test showed a stranger's.
-            if StudioSession.shared.showGoesToTwitch,
-               let account = try? await StudioPlatformAuth.twitchAccount() {
-                await e.attachTwitchChat(channel: account.login)
-            } else if let channel = ProcessInfo.processInfo.environment["AW_STUDIO_CHAT"],
-                      !channel.isEmpty {
-                // Debug door only; never a host's path.
-                await e.attachTwitchChat(channel: channel)
-            }
+            // The broadcast's own chat — YouTube's if armed, the host's own
+            // Twitch channel — through the one shared function (§D22).
+            await StudioSession.shared.attachChat(to: e)
 
             try await e.start(destination: dest)
         } catch {

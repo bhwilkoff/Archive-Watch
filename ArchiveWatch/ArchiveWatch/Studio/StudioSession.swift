@@ -348,6 +348,52 @@ public final class StudioSession {
     /// stays on. Twitch chat costs nothing and is not gated.
     public static let readYouTubeChatKey = "AWStudioReadYouTubeChat"
 
+    /// THE ONE PLACE A BROADCAST'S CHAT IS ATTACHED, for macOS, iOS and tvOS.
+    ///
+    /// It was written out three times — here, in `StudioPlayerContainer_iOS`
+    /// and in tvOS's `DetailView` — and each copy had to learn §D22 (the host's
+    /// OWN channel, never a stranger's) separately (launch audit D). A shared
+    /// TYPE is not a shared PATH (Decision 133), so each platform CALLS this.
+    func attachChat(to e: StudioEngine) async {
+        await attachYouTubeChatIfArmed(to: e)
+        // TWITCH CHAT IS THE HOST'S OWN CHANNEL, and there is no other
+        // acceptable source (§D22).
+        //
+        // Until 2026-09-22 this read `AW_STUDIO_CHAT` and NOTHING ELSE, on all
+        // three surfaces, with a comment saying the channel would come from
+        // the host's account "once sign-in exists". Sign-in has existed since
+        // 09-18. So the product had no Twitch chat at all, and the only way to
+        // see the column was to name somebody else's channel — which is what
+        // a test of mine did, putting strangers' messages over the owner's
+        // film. Their question is what found it: *"shouldn't it only display
+        // the chat coming through on that particular stream?"* Yes. YouTube
+        // could not get this wrong — its `liveChatId` comes back from the
+        // insert that CREATED this broadcast — and Twitch takes a channel by
+        // name, which is exactly why it needed the account asked for.
+        //
+        // `twitchAccount()` is the same read the readiness gate already makes,
+        // so this costs no new call shape and no new credential.
+        if showGoesToTwitch, let account = try? await StudioPlatformAuth.twitchAccount() {
+            await e.attachTwitchChat(channel: account.login)
+            diag("[AWSTUDIOCHAT] reading this broadcast's own channel #\(account.login)")
+        } else if let channel = ProcessInfo.processInfo.environment["AW_STUDIO_CHAT"],
+                  !channel.isEmpty {
+            // A DEBUG DOOR, and §D22a now means it can only ever fill a column
+            // on a show that is REALLY ON AIR — the pump refuses otherwise. It
+            // survives because reading Twitch needs no credential and a bench
+            // destination is still a broadcast, so the column can be measured
+            // against a local server without a platform account.
+            //
+            // It must never be the path a host takes: somebody else's chat
+            // over your film is not your show. That is not a hypothetical —
+            // it is what this door did on 2026-09-22, and the owner caught it.
+            let name = channel.replacingOccurrences(of: "#", with: "")
+            await e.attachTwitchChat(channel: name)
+            diag("[AWSTUDIOCHAT] DEBUG DOOR reading somebody else's channel #\(name) "
+                 + "— not signed in to Twitch, so this is NOT what a host would see")
+        }
+    }
+
     public func attachYouTubeChatIfArmed(to e: StudioEngine) async {
         guard let chatID = armedYouTubeChatID, !chatID.isEmpty else { return }
         var wanted = UserDefaults.standard.bool(forKey: Self.readYouTubeChatKey)
@@ -854,43 +900,7 @@ public final class StudioSession {
         // `StudioGoLive.Destination` — before that it was read and dropped in
         // the same function, which is why the renderer has been drawing a
         // chat column that only Twitch could ever fill.
-        await attachYouTubeChatIfArmed(to: e)
-        // TWITCH CHAT IS THE HOST'S OWN CHANNEL, and there is no other
-        // acceptable source (§D22).
-        //
-        // Until 2026-09-22 this read `AW_STUDIO_CHAT` and NOTHING ELSE, on all
-        // three surfaces, with a comment saying the channel would come from
-        // the host's account "once sign-in exists". Sign-in has existed since
-        // 09-18. So the product had no Twitch chat at all, and the only way to
-        // see the column was to name somebody else's channel — which is what
-        // a test of mine did, putting strangers' messages over the owner's
-        // film. Their question is what found it: *"shouldn't it only display
-        // the chat coming through on that particular stream?"* Yes. YouTube
-        // could not get this wrong — its `liveChatId` comes back from the
-        // insert that CREATED this broadcast — and Twitch takes a channel by
-        // name, which is exactly why it needed the account asked for.
-        //
-        // `twitchAccount()` is the same read the readiness gate already makes,
-        // so this costs no new call shape and no new credential.
-        if showGoesToTwitch, let account = try? await StudioPlatformAuth.twitchAccount() {
-            await e.attachTwitchChat(channel: account.login)
-            diag("[AWSTUDIOCHAT] reading this broadcast's own channel #\(account.login)")
-        } else if let channel = ProcessInfo.processInfo.environment["AW_STUDIO_CHAT"],
-                  !channel.isEmpty {
-            // A DEBUG DOOR, and §D22a now means it can only ever fill a column
-            // on a show that is REALLY ON AIR — the pump refuses otherwise. It
-            // survives because reading Twitch needs no credential and a bench
-            // destination is still a broadcast, so the column can be measured
-            // against a local server without a platform account.
-            //
-            // It must never be the path a host takes: somebody else's chat
-            // over your film is not your show. That is not a hypothetical —
-            // it is what this door did on 2026-09-22, and the owner caught it.
-            let name = channel.replacingOccurrences(of: "#", with: "")
-            await e.attachTwitchChat(channel: name)
-            diag("[AWSTUDIOCHAT] DEBUG DOOR reading somebody else's channel #\(name) "
-                 + "— not signed in to Twitch, so this is NOT what a host would see")
-        }
+        await attachChat(to: e)
         // §D26's audience, INVENTED rather than borrowed. See `setDemoChat`.
         if ProcessInfo.processInfo.environment["AW_STUDIO_CHAT_DEMO"] == "1" {
             await e.setDemoChat(StudioSession.demoConversation)
