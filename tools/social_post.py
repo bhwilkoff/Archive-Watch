@@ -370,6 +370,11 @@ def compose(spec: dict, platform: str) -> str:
     budget = limit - (len(tag_line) + 2 if tag_line else 0)
 
     order = ORDER.get(platform, ["identity", "hook", "link"])
+    # LINK_FIRST was declared and never applied, so YouTube's link sat after
+    # the quote and the synopsis — past the ~150 characters a viewer sees
+    # before "more". The title names the film; the link is the next thing.
+    if platform in LINK_FIRST:
+        order = ["identity", "link"] + [k for k in order if k not in ("identity", "link")]
     # Two parts are RESERVED before anything competes for the space: the film's
     # name and the link. A post that quotes a viewer beautifully and never says
     # which film they watched, or where to watch it, has failed at the only two
