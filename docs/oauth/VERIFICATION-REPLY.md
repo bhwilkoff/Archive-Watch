@@ -34,18 +34,15 @@ which the app had outgrown (thumbnail, viewers, chat read, the one chat post,
 transition, delete); it was rewritten on 2026-09-24 to list every call, so the
 text, the video and the code agree.
 
-**The one open item is where a reviewer gets the build.** The App Store has
-1.42.120 (2026-09-15), which predates the Mac Studio, so "install from the App
-Store" in the draft below would not reproduce the video. Either ship the
-current build to the App Store first, or give the reviewer a TestFlight public
-link — Google's own Console text asks that unverified scopes be demonstrated
-from a staging route rather than production, which favors TestFlight.
-
-**Corrections to the draft below before sending**: step 3 is now "open the
-Watch Together Studio (Shift-Command-L, or Watch Together in the sidebar) and
-choose the film in its FILM pane" — there is no Broadcast menu and no
-Shift-Command-S; and "in one take" is wrong, the video is edited with title
-cards.
+**SENT 2026-09-24 09:59** from benwilkoff@gmail.com (a send-as address of the
+ben@learningischange.com mailbox, which is where Google's thread lives), on
+Google's own thread. The reviewer's build is the Mac App Store's **1.42.543**
+(approved 2026-09-23), which already has everything the video shows: the
+Studio (1.42.477), revoke on sign-out (.496), "Share the film in chat" (.516),
+thumbnails (.530). The reply's steps were written against THAT build, so they
+leave out the host-required gate (1.42.622). The text sent differs from the
+draft below in the steps (Shift-Command-L; "Use this film"; no Broadcast menu)
+and in listing every API call.
 
 ### How the recording was made (so the next one takes an hour, not three)
 
