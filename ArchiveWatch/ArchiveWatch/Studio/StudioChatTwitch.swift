@@ -57,9 +57,20 @@ public actor StudioChatTwitch {
 
     private var connection: NWConnection?
     private let queue = DispatchQueue(label: "org.archivewatch.twitchchat")
-    private var inbound = ""
+    /// RAW BYTES until a whole line has arrived (launch audit B). Each read
+    /// used to be decoded as UTF-8 on its own, and a read that ended in the
+    /// middle of an emoji failed to decode — dropping every message in it.
+    /// A line ends in CR LF, which can never sit inside a multi-byte
+    /// character, so a complete line always decodes.
+    private var inbound = Data()
     private var channel = ""
     private var running = false
+    /// One ordered hand-off from the socket's queue to this actor: a Task per
+    /// read does not promise order, and chat lines are bytes in sequence.
+    private var feed: AsyncStream<(NWConnection, Data)>.Continuation?
+    private var feedTask: Task<Void, Never>?
+    /// A reconnect already waiting — one failure must not open two.
+    private var reconnecting = false
 
     public init() {}
 
@@ -69,6 +80,11 @@ public actor StudioChatTwitch {
         let name = rawChannel.hasPrefix("#") ? String(rawChannel.dropFirst()) : rawChannel
         channel = name.lowercased()
         running = true
+        let (stream, cont) = AsyncStream.makeStream(of: (NWConnection, Data).self)
+        feed = cont
+        feedTask = Task { [weak self] in
+            for await (c, data) in stream { await self?.deliver(data, from: c) }
+        }
         await connect()
     }
 
@@ -76,6 +92,8 @@ public actor StudioChatTwitch {
         running = false
         connection?.cancel()
         connection = nil
+        feed?.finish(); feed = nil
+        feedTask?.cancel(); feedTask = nil
         health.connected = false
         health.joined = false
     }
@@ -83,18 +101,23 @@ public actor StudioChatTwitch {
     private func connect() async {
         let params = NWParameters.tls
         params.serviceClass = .responsiveData
+        // The old connection goes before the new one starts, and its bytes
+        // are not carried into the new one's first line.
+        connection?.cancel()
+        inbound.removeAll()
         let c = NWConnection(host: "irc.chat.twitch.tv", port: 6697, using: params)
         connection = c
         c.stateUpdateHandler = { [weak self] state in
             guard let self else { return }
             switch state {
             case .ready: Task { await self.handshake() }
-            case .failed(let e): Task { await self.dropped(e.localizedDescription) }
+            case .failed(let e): Task { await self.dropped(e.localizedDescription, from: c) }
+            case .waiting(let e): Task { await self.waiting(e.localizedDescription, on: c) }
             case .cancelled: break
             default: break
             }
         }
-        receive(on: c)
+        if let feed { receive(on: c, into: feed) }
         c.start(queue: queue)
     }
 
@@ -124,32 +147,45 @@ public actor StudioChatTwitch {
     /// counting messages. `NWConnection` delivers one callback per `receive`,
     /// so anything that can drop between the callback and the next `receive`
     /// ends the stream silently. Nothing may sit in that gap.
-    private nonisolated func receive(on c: NWConnection) {
+    private nonisolated func receive(on c: NWConnection,
+                                     into feed: AsyncStream<(NWConnection, Data)>.Continuation) {
         c.receive(minimumIncompleteLength: 1, maximumLength: 16 * 1024) { [weak self] data, _, isComplete, error in
             guard let self else { return }
-            if let data, !data.isEmpty, let text = String(data: data, encoding: .utf8) {
-                Task { await self.deliver(text) }
-            }
+            if let data, !data.isEmpty { feed.yield((c, data)) }
             if let error {
-                Task { await self.dropped(error.localizedDescription) }
+                Task { await self.dropped(error.localizedDescription, from: c) }
                 return
             }
             if isComplete {
-                Task { await self.dropped("closed by the server") }
+                Task { await self.dropped("closed by the server", from: c) }
                 return
             }
             // Before any await, and unconditionally.
-            self.receive(on: c)
+            self.receive(on: c, into: feed)
         }
     }
 
-    private func deliver(_ text: String) {
+    private func deliver(_ data: Data, from c: NWConnection) {
+        guard c === connection else { return }   // bytes from a replaced connection
         health.receiveCallbacks += 1
-        ingest(text)
+        ingest(data)
     }
 
-    private func dropped(_ why: String) async {
-        guard running else { return }
+    /// No route yet (Wi-Fi changing, offline). NWConnection retries by itself
+    /// when the network returns, so this is said, not acted on.
+    private func waiting(_ why: String, on c: NWConnection) {
+        guard c === connection else { return }
+        health.connected = false
+        health.lastError = "waiting for the network — \(why)"
+    }
+
+    private func dropped(_ why: String, from c: NWConnection) async {
+        // ONE reconnect per failure, and only for the CURRENT connection: an
+        // error followed by .failed used to call this twice, and each call
+        // opened its own new connection (launch audit B).
+        guard running, c === connection, !reconnecting else { return }
+        reconnecting = true
+        defer { reconnecting = false }
         health.connected = false
         health.joined = false
         health.lastError = why
@@ -161,15 +197,19 @@ public actor StudioChatTwitch {
         if running { await connect() }
     }
 
-    private func ingest(_ text: String) {
-        inbound += text
-        while let idx = inbound.range(of: "\r\n") {
-            let line = String(inbound[inbound.startIndex..<idx.lowerBound])
-            inbound.removeSubrange(inbound.startIndex..<idx.upperBound)
+    private func ingest(_ data: Data) {
+        inbound.append(data)
+        let crlf = Data([0x0D, 0x0A])
+        while let r = inbound.range(of: crlf) {
+            let lineBytes = inbound.subdata(in: inbound.startIndex..<r.lowerBound)
+            inbound.removeSubrange(inbound.startIndex..<r.upperBound)
             health.rawLines += 1
-            handle(line)
+            handle(String(decoding: lineBytes, as: UTF8.self))
         }
     }
+
+    /// The byte path without a socket, for §8.63.
+    func ingestForTest(_ data: Data) { ingest(data) }
 
     private func handle(_ line: String) {
         // A PING that goes unanswered ends the connection within minutes, and
