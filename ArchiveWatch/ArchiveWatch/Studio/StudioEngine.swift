@@ -552,6 +552,10 @@ public struct StudioHealth: Sendable, Equatable {
     /// frames" cannot be told apart from "this show has no camera", and a
     /// warning that fires on every film-only broadcast is one nobody reads.
     public var cameraAttached = false
+    /// The same for the microphone. The Mac's Inputs row said "live" for any
+    /// live show, so a bench run with no microphone read as the owner's room
+    /// going out (2026-09-24).
+    public var microphoneAttached = false
     /// Frames the ENCODER produced in the last second. Zero while the film is
     /// still arriving is the fault the 2026-09-17 tvOS soak found: encoding
     /// stopped at 293 s and every other counter stayed healthy for the
@@ -1375,6 +1379,7 @@ public actor StudioEngine {
     /// is: an `AVCaptureSession` is not `Sendable` and cannot cross in here.
     public func attachMicrophone(tap: MicAudioTap) {
         mixer.adopt(mic: tap)
+        health.microphoneAttached = true
     }
 
     /// Starts encoding and publishing. `destination` is an rtmp(s):// URL

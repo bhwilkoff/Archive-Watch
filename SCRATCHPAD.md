@@ -660,6 +660,34 @@ keep serving it.
 
 ## Session Log
 
+### 2026-09-24 (evening) — the Studio run across every test device, after the Mac restart
+
+Owner: *"Can you resume testing the Watch Together Studio across all of my
+testing devices? In particular, you were struggling to install on the Apple
+TVs ... I've fully restarted and updated the mac."* v1.42.636 -> v1.42.640.
+
+**The restart was the fix** for the TVs' `unavailable / transport None`; the
+documented lease + wake + UDID install then worked first time. The macOS 27.2
+update removed the Metal toolchain (one download). Movie Room was registered
+into the tvOS profile (`-allowProvisioningDeviceRegistration`); it installs,
+but it cannot be LAUNCHED asleep — pyatv has no Companion pairing for it (a
+PIN on that TV, the owner's step).
+
+**Broadcasts, judged from the server's recording**: Apple TV (Morocco, 1080p30,
+"encoder: hardware"), iPhone 12, iPad Pro, Pixel 8a (720p, 21 fps, camera
+tile), Mac (1080p, 31 fps). **Room guests**: Apple TV, Pixel, Google TV, Fire
+TV and the web (§8.66) all pause on the host's frame and follow a seek.
+
+**Found and fixed**: (1) `MP4Fragmenter.plan` let each fragment's audio
+overshoot by up to a frame and the overshoot ACCUMULATED — 42 s by the end of
+an 85-min film — so every tvOS 27 seek landed seconds late (§8.71). (2) A slow
+Apple seek read as the guest's own move. (3) The Android room door was never
+collected on a television. (4) The Mac's Microphone row said "live" with no
+microphone attached. (5) The iPhone door's mute did not hold once (the film
+played aloud from the test phone); now re-asserted and logged — not reproduced.
+**Open**: on tvOS's HLS path a 1.03 nudge is accepted and not honored, so a
+late-landing guest stays ~0.5-1 s behind (LAUNCH-AUDIT).
+
 ### 2026-09-24 — the OAuth video submitted, and the iPhone's broadcast audio made deterministic
 
 Owner: *"Please create a perfect video that answers every single question
@@ -686,53 +714,5 @@ freezing when the film was already playing — THREE owners of one audio session
 intermittent failures for the same harness."* The proof script now reports
 stages with the app's own console; that found the Debug door drawing an empty
 cover. Memory `harness_must_be_deterministic`.
-
-### 2026-09-23/24 — the launch audit, worked down: rooms that actually work, and five measurements that corrected me
-
-Owner /loop (5-minute cron), the standing Studio prompt; mid-loop the quota
-extension form was driven and refilled in Chrome, and the Pixel was unlocked
-once. v1.42.573 → v1.42.609, ~37 commits, all against
-`docs/WATCH-TOGETHER-LAUNCH-AUDIT.md`, which records each item's evidence.
-
-**ROOMS, MEASURED LIVE FOR THE FIRST TIME, AND THEY WERE BROKEN IN THREE WAYS.**
-(1) A browser could NEVER join: `TogetherView` called an `API.summary` that
-never existed (since v1.42.469) — fixed, guarded by §8.65. (2) A paused guest
-sat on a DIFFERENT FRAME from the host (every copy of the sync rule returned
-none while paused) — now seeks to the host's frame on Swift, Kotlin and web.
-(3) A host's BUFFERING was published as a pause to every guest, and a host
-who fell behind after a stall never said so — the host now publishes intent
-(`rate`) and measures drift on the room's clock. Guests on every platform are
-now told the three things they need (host controls the film / room ended /
-join failed), and the Mac Studio hands out an invite link a browser can open.
-§8.66 proves a browser guest PLAYS in step on the live site (0.03 s, pause on
-the exact frame) with its own headless Chrome.
-
-**THE STUDIO WENT LIVE ON ITS CLOSING CARD.** The selected scene persists, so
-a Studio last left on "Thanks" broadcast "Thanks for watching" over the whole
-next show. Found only because a 20-minute recording was 88 kbps. Fixed.
-
-**MY INSTRUMENTS, FIVE TIMES.** A tools-driven Chrome tab is HIDDEN and defers
-media, and a room's seeks move `currentTime` anyway — two "in step" readings
-were the room writing numbers (memory `chrome_hidden_tab_defers_media`). The
-first drift run measured a still card; the second measured the owner's ROOM
-MICROPHONE, because on macOS the door's mute silences the film in the
-broadcast and the bench attached the real FaceTime camera and mic — the bench
-now attaches neither (v1.42.602, memory `mac_bench_captures_owner`).
-Conclusion that survives: no A/V drift over 20 min on macOS for a hardware
-audio clock; the film-tap path and LIP SYNC remain unmeasured. (UPDATE 2026-09-24: measured and fixed on the Mac, WATCH-TOGETHER §9.dddddd — a start-up backlog made the sound 200-700 ms late on some runs; now trimmed, five runs within -32..+7 ms.)
-
-**Also**: Twitch hourly /validate, revoke on sign-out (Android too), revoked
-grants cleared; the chat reader's split-emoji bug; public-domain-by-age now
-follows the calendar (1929-30 films, Decision 137); stream-key route on iOS;
-recent bitrate on every readout; key redaction from server text; iPad
-controls as an inspector (IPAD-DESIGN §5b); Watch Together one tap from a film
-on iOS (§3.5a); Android sign-in is a button not a QR on a phone; tokens
-excluded from Android transfer; selfDeclaredMadeForKids no longer sent;
-keyboard framing on the Mac (§8.69).
-
-**OWNER, BLOCKING DEVICE CHECKS**: the iPhone 12 is behind a Screen Time
-limit; the iPad Pro and the Pixel were locked; an AUDIBLE lip-sync run on the
-Mac waits for a yes; the window/app capture rights question and the inert
-`StudioVoiceProbe` are the owner's calls.
 
 Older entries: `docs/SESSION-LOG.md` (verbatim, back to 2026-04-17).

@@ -1031,7 +1031,8 @@ struct StudioWindowView: View {
                         get: { StudioDevices.chosenMicrophoneID ?? "" },
                         set: { id in changeDevice { StudioDevices.chosenMicrophoneID = id.isEmpty ? nil : id } }),
                       state: controls.micMuted ? "muted"
-                        : (studio.isLive ? "live" : "ready"),
+                        : (!studio.isLive ? "ready"
+                           : (health.microphoneAttached ? "live" : "not attached")),
                       healthy: true)
 
             // §D11 REPLACED THE SENTENCE THAT USED TO BE HERE — "device changes
