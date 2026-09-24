@@ -249,6 +249,7 @@ swift_case "8.17 tap resampler"    "$PUB" "$ENG" "$REC" "$CHATFILTER" "$OUT" "$A
 swift_case "8.56 chat quota"          "$PUB" "$ENG" "$REC" "$CHATFILTER" "$OUT" "$AUD" "$OVL" "$CHAT" "$CHATYT" "$SHIM" tools/test_studio_chat_quota.swift
 swift_case "8.59 refresh single-flight" ArchiveWatch/ArchiveWatch/Studio/StudioRefreshGate.swift tools/test_studio_refresh_gate.swift
 swift_case "8.60 first frame cannot hang" "$PUB" "$ENG" "$REC" "$CHATFILTER" "$OUT" "$AUD" "$OVL" "$CHAT" "$CHATYT" "$SHIM" tools/test_studio_first_frame.swift
+swift_case "8.61 pool exhaustion survived" "$PUB" "$ENG" "$REC" "$CHATFILTER" "$OUT" "$AUD" "$OVL" "$CHAT" "$CHATYT" "$SHIM" tools/test_studio_pool_exhaustion.swift
 # The camera-placement settings, asserted against what their LABELS promise.
 # Owner 2026-09-20: "I'm not sure the different settings for where your camera
 # will go ... are actually working as they should." They were not: theatre was

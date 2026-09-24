@@ -85,7 +85,9 @@ struct RenderOverlay {
         return buffer
     }
 
-    static func write(_ px: CVPixelBuffer, to name: String) {
+    static func write(_ frame: CVPixelBuffer?, to name: String) {
+        // render() returns nil only when no buffer could be had — fatal here.
+        guard let px = frame else { print("no program buffer for \(name)"); exit(1) }
         let ci = CIImage(cvPixelBuffer: px)
         let ctx = CIContext()
         guard let cg = ctx.createCGImage(ci, from: ci.extent) else { print("  ! no image for \(name)"); return }

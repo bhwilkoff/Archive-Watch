@@ -1386,7 +1386,8 @@ public actor StudioEngine {
         // The first encoded frame carries the avcC we must publish before any
         // media, so encode one black frame and wait for its FORMAT (read on
         // the encoder's thread — a CMSampleBuffer does not cross to here).
-        guard let avcC = try await enc.encodeAndAwaitFormat(renderer.blankFrame()) else {
+        guard let blank = renderer.blankFrame() else { throw StudioError.noVideoFormat }
+        guard let avcC = try await enc.encodeAndAwaitFormat(blank) else {
             throw StudioError.noVideoFormat
         }
         var streamConfig = RTMPStreamConfig(
@@ -2091,7 +2092,9 @@ public actor StudioEngine {
         health.cameraFramesReceived = cameraTap?.received ?? 0
         health.cameraAttached = cameraTap != nil
         renderer.guestFrame = guestSource?.latest()
-        let program = renderer.render(film: lastFilmFrame, camera: cameraTap?.latest())
+        guard let program = renderer.render(film: lastFilmFrame, camera: cameraTap?.latest()) else {
+            return   // no buffer and no previous frame: skip this tick (counted in poolFailures)
+        }
         StudioProgramMirror.shared.publish(program)
         health.programFramesRendered += 1
         renderTimeTotal += (CACurrentMediaTimeCompat() - t0) * 1000
@@ -2338,21 +2341,38 @@ final class ProgramRenderer: @unchecked Sendable {
     func newBuffer() -> CVPixelBuffer? {
         guard let pool else { poolFailures += 1; return nil }
         var px: CVPixelBuffer?
-        CVPixelBufferPoolCreatePixelBuffer(nil, pool, &px)
+        // A CEILING (launch audit B): without one the pool grows for as long
+        // as the encoder holds frames, which is exactly when memory is
+        // tightest. Past twelve outstanding buffers the allocation fails, is
+        // counted, and the frame is skipped instead.
+        CVPixelBufferPoolCreatePixelBufferWithAuxAttributes(
+            nil, pool, [kCVPixelBufferPoolAllocationThresholdKey as String: 12] as CFDictionary, &px)
         if px == nil { poolFailures += 1 }
         return px
     }
 
+    /// The last program frame drawn — held when no new buffer can be had, so
+    /// the audience sees the previous frame rather than the app crashing.
+    private(set) var lastProgram: CVPixelBuffer?
+
     /// A black program frame — what `start` encodes to learn the avcC, and
     /// what the cards are drawn over.
-    func blankFrame() -> CVPixelBuffer {
-        let px = newBuffer()!
+    func blankFrame() -> CVPixelBuffer? {
+        // No force-unwrap: this was the fallback for a failed allocation, so
+        // it ran precisely when a new buffer could not be had — and crashed.
+        guard let px = newBuffer() else { return nil }
         ciContext.render(CIImage(color: .black).cropped(to: CGRect(origin: .zero, size: size)), to: px)
         return px
     }
 
-    func render(film: CVPixelBuffer?, camera: CVPixelBuffer?) -> CVPixelBuffer {
-        guard let out = newBuffer() else { return blankFrame() }
+    func render(film: CVPixelBuffer?, camera: CVPixelBuffer?) -> CVPixelBuffer? {
+        guard let out = newBuffer() else { return lastProgram }
+        let drawn = draw(into: out, film: film, camera: camera)
+        lastProgram = drawn
+        return drawn
+    }
+
+    private func draw(into out: CVPixelBuffer, film: CVPixelBuffer?, camera: CVPixelBuffer?) -> CVPixelBuffer {
         var image = CIImage(color: CIColor(red: 0.039, green: 0.039, blue: 0.039))  // --color-text ground
             .cropped(to: CGRect(origin: .zero, size: size))
 
