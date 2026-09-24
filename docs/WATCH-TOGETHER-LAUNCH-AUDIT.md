@@ -51,7 +51,7 @@ About 200–250 lines: an options row, a keyboard dialog, a `roomCode` on Player
 
 ## D. Polish
 
-Captions that explain rather than refuse/warn (macOS, iOS, tvOS lists in the reviews); typography beyond six levels and hard-coded brand orange beside system-orange warnings; ~660 lines of dead `StudioVoice*` code; Android `createRoom/publish/endRoom` unused; duplicated chat-attach in three places; stale PARITY (rooms "not deployed"), SCRATCHPAD item 7, `Secrets.xcconfig.example`, the `tv_signin_is_qr_and_phone` memory; web guest has native controls that fight sync; iOS Watch Together two menus deep.
+Captions that explain rather than refuse/warn (macOS DONE v1.42.563; iOS and tvOS lists in the reviews still open); typography beyond six levels and hard-coded brand orange beside system-orange warnings; ~660 lines of dead `StudioVoice*` code; Android `createRoom/publish/endRoom` unused; duplicated chat-attach in three places; stale PARITY (rooms "not deployed"), SCRATCHPAD item 7, `Secrets.xcconfig.example`, the `tv_signin_is_qr_and_phone` memory; web guest has native controls that fight sync; iOS Watch Together two menus deep.
 
 ## Quota per two-hour YouTube show (review estimate — confirm against Google's table)
 

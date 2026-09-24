@@ -1726,8 +1726,9 @@ either no soundtrack or a score that a particular transfer may not carry.
 Two sentences the Studio owes a host, and §4's "health is never hidden" is the
 rule both come from:
 
-- **"This film has no soundtrack"**, on the Film channel and on the Film input
-  row, whenever the asset reports no audio track. With the consequence
+- **"This film has no soundtrack"**, on the Film input row (it was also on
+  the Film channel until 2026-09-23 — one statement per fact, per the owner's
+  essential-information rule), whenever the asset reports no audio track. With the consequence
   attached, because the consequence is the point: *your voice is the only
   sound your audience will hear.*
 - **"Levels appear once something is running"**, whenever the mixer is drawn
@@ -2543,3 +2544,14 @@ nothing. The Watch Together Studio menu item no longer carries ⇧⌘S, which is
 Save As in a Creation Studio document; Go Live… (⇧⌘L) opens the same window.
 Mute (⇧⌘M), cards (⌃⌘0–4) and End (⇧⌘E, which asks while on air) stay global
 on purpose: a host must be able to reach them from anywhere.
+
+**Copy pass (2026-09-23), against the owner's rule that a caption is a
+refusal, a warning, or a fact a host cannot discover by looking.** Cut:
+"Nothing is sent until you go live" (Start preview says it), the call
+picker's "The app your call is in — Zoom, Meet, FaceTime", the duck
+switch's two descriptions of itself, the rights policy printed under the
+go-live form at all times (it still appears where a film is REFUSED), and
+"costs upload rather than CPU". Shortened: the meters note to "Levels appear
+once you start the preview." Kept: "The film is ducking under the talking",
+shown only while it happens, because it explains a level the host hears
+drop.

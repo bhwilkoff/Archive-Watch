@@ -824,10 +824,6 @@ struct StudioWindowView: View {
             Text("Nothing is being produced yet")
                 .font(.headline).foregroundStyle(.white)
             if let film = show.film {
-                Text("Nothing is sent until you go live.")
-                    .font(.caption).foregroundStyle(.secondary)
-                    .multilineTextAlignment(.center)
-                    .frame(maxWidth: 360)
                 Button("Start preview") { startPreview(film) }
                     .controlSize(.large)
                 if let previewRefusal {
@@ -1078,10 +1074,6 @@ struct StudioWindowView: View {
                 .labelsHidden()
                 if let why = studio.callProblem {
                     Text(why).font(.caption2).foregroundStyle(.orange)
-                        .fixedSize(horizontal: false, vertical: true)
-                } else {
-                    Text("The app your call is in — Zoom, Meet, FaceTime.")
-                        .font(.caption2).foregroundStyle(.secondary)
                         .fixedSize(horizontal: false, vertical: true)
                 }
             }
@@ -1488,7 +1480,7 @@ struct StudioWindowView: View {
             if !studio.isLive {
                 Text(show.film == nil
                      ? "Levels appear once there is a show to measure."
-                     : "Levels appear once you start the preview \u{2014} these meters read the stream, not this Mac's speakers.")
+                     : "Levels appear once you start the preview.")
                     .font(.caption2).foregroundStyle(.secondary)
                     .fixedSize(horizontal: false, vertical: true)
             }
@@ -1502,11 +1494,9 @@ struct StudioWindowView: View {
             // exception rather than the rule, since six other silent-era
             // transfers all carry AAC, which is exactly why it must be SAID
             // for the one that does not rather than assumed for all of them.
-            if studio.isLive, studio.filmHasNoSoundtrack {
-                Text("This film has no soundtrack.")
-                    .font(.caption2).foregroundStyle(.orange)
-                    .fixedSize(horizontal: false, vertical: true)
-            }
+            // (The "no soundtrack" fact is said once, beside the film in
+            // Inputs — it was said here as well; the owner's rule is one
+            // statement per fact.)
             StudioMacFader(label: "Your microphone", icon: "mic", level: audio.micLevel,
                            gain: $controls.micGain, muted: $controls.micMuted)
             micGate(audio)
@@ -1533,13 +1523,14 @@ struct StudioWindowView: View {
             // sets Film to 9, speaks, and hears it drop 12 dB anyway will
             // reasonably conclude the fader is broken. Manual means manual.
             Toggle("Duck the film under my voice", isOn: $controls.duckEnabled)
-            Text(controls.duckEnabled
-                 ? (audio.ducking
-                    ? "The film is ducking under the talking."
-                    : "The film drops 12 dB automatically while you or your guests are talking.")
-                 : "The film stays where you set it.")
-                .font(.caption2).foregroundStyle(.secondary)
-                .fixedSize(horizontal: false, vertical: true)
+            // Only WHILE it happens: it explains a level the host hears drop
+            // and might take for a fault. Describing the switch itself is
+            // what the owner's rule cuts.
+            if controls.duckEnabled, audio.ducking {
+                Text("The film is ducking under the talking.")
+                    .font(.caption2).foregroundStyle(.secondary)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
         }
     }
 
@@ -2229,9 +2220,6 @@ struct StudioDestinationSection: View {
         }
         .disabled(studio.isOnAir)
 
-        Text(StudioRights.policy).font(.caption2).foregroundStyle(.secondary)
-            .fixedSize(horizontal: false, vertical: true)
-
         if let problem {
             Text(problem).font(.caption2).foregroundStyle(.orange)
                 .fixedSize(horizontal: false, vertical: true)
@@ -2268,7 +2256,7 @@ struct StudioDestinationSection: View {
         let base = "Two destinations send the same picture twice — about "
             + "\(total / 1000) Mbps up, not \(each / 1000)."
         return simulcastFitsUplink
-            ? base + " The video is encoded once, so this costs upload rather than CPU."
+            ? base
             : base + " That is more than this connection has held steadily; "
                    + "lower the bitrate, or send to one."
     }
