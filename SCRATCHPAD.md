@@ -54,6 +54,12 @@ because the loop was stopped mid-stride for a Claude update.
 
 ### Open owner items (nothing else is blocked)
 
+0-NOW. **GOOGLE OAUTH: RESUBMITTED 2026-09-24, NOTHING TO DO UNTIL GOOGLE REPLIES.**
+   New demo video <https://youtu.be/N0zP6D6hOm8>, Console link + justification
+   updated, reply sent on Google's thread (docs/oauth/VERIFICATION-REPLY.md).
+   Everything below in item 7 about the demo video is history. After approval:
+   add the Terms of Service URL to Branding (audit A9).
+
 0-NEWEST-2. **THREE SMALL OWNER CALLS FROM 2026-09-23** (nothing blocked on them).
    (a) The social poster's YouTube token is `youtube.upload` only, so
    `social_metrics.py` has never read a YouTube view or like (14 × HTTP 403 a
@@ -655,6 +661,33 @@ keep serving it.
 
 ## Session Log
 
+### 2026-09-24 — the OAuth video submitted, and the iPhone's broadcast audio made deterministic
+
+Owner: *"Please create a perfect video that answers every single question
+from the email from google"*, then a 5-minute /loop *"finish all documented
+work and fix all issues you find."* v1.42.624 -> v1.42.631.
+
+**OAuth**: <https://youtu.be/N0zP6D6hOm8> (unlisted) — the consent screen
+printing "Manage your YouTube account" (the brand grant revoked first by the
+Studio's own Sign out), every API call in title cards, "Live now" and
+"Streamed" in YouTube Studio. The Console justification (which said "exactly
+four calls") was rewritten to match, and the reply went on Google's thread from
+benwilkoff@gmail.com (a send-as of ben@learningischange.com). Reviewer build:
+the Mac App Store's 1.42.543.
+
+**Fixed and measured on devices**: a guest's false "host controls the film"
+notice (Apple); the first Android room join (new door, Pixel); the iPad
+inspector laid over the film; a Roku guest that re-seeked every poll (a Float
+epoch); the Mac's film sound 200-700 ms late on some shows (backlog trim, five
+runs within 32 ms); and the iPhone's broadcast losing the film's sound or
+freezing when the film was already playing — THREE owners of one audio session
+(§9.eeeeee), now one; four runs within 10 ms, microphone verified.
+
+**The owner stopped me retrying a flaky harness**: *"You shouldn't have
+intermittent failures for the same harness."* The proof script now reports
+stages with the app's own console; that found the Debug door drawing an empty
+cover. Memory `harness_must_be_deterministic`.
+
 ### 2026-09-23/24 — the launch audit, worked down: rooms that actually work, and five measurements that corrected me
 
 Owner /loop (5-minute cron), the standing Studio prompt; mid-loop the quota
@@ -702,57 +735,5 @@ keyboard framing on the Mac (§8.69).
 limit; the iPad Pro and the Pixel were locked; an AUDIBLE lip-sync run on the
 Mac waits for a yes; the window/app capture rights question and the inert
 `StudioVoiceProbe` are the owner's calls.
-
-### 2026-09-23 (later) — scenes, a status bar, and the settings a new engine forgot
-
-Owner /loop (5-minute cron), same standing prompt, plus two mid-loop asks:
-*"Let's also make sure that we are getting the most out of the livestreaming
-API from both Youtube and Twitch"* and *"Can you also look at all of the Github
-errors that fired overnight"*. v1.42.499 → v1.42.516, eighteen commits.
-
-**SCENES (§D31), from the owner's own answer**: *"Each scene should be fully
-customizable and you should be able to say (with a setting/toggle) whether to
-keep the default audio/tiles or build new ones."* Built as capture-on-leave /
-apply-on-arrive over `StudioControls`, so no control had to learn about scenes.
-A bar above STREAM, ⌘1-⌘9, five editable starters, persisted, the two toggles,
-"shared"/"this scene" on the Mixer and Framing, a Twitch chapter per switch,
-and a 0.4 s crossfade measured smooth on the wire. The toggles are proved by an
-in-app self-test through the real controls (8/8; its negative control fails 4).
-
-**THE MOST IMPORTANT FIX WAS FOUND BY MEASURING THE CROSSFADE**: a new engine
-started with none of the host's settings. `setAudio` forwarded to `engine?` and
-kept nothing, and `attachIfArmed` rebuilt the overlay from scratch — so going
-live (a SECOND engine) broadcast a microphone muted in the preview, lower-third
-lines the host had turned off, and no card. The session now keeps and replays
-all three; §8.46 checks them (its first version passed its own negative control
-because two DEBUG-door `setAudio` calls matched). iOS had the audio half of the
-same gap; tvOS did not.
-
-**ITEM 17's SECOND CAUSE, FOUND AND GONE**: the Mac player swaps its
-`AVPlayerItem` ~10 s in (a `reason=stall` fallback off Decision 067's plain-URL
-path) and the engine's output and audio tap stayed on the old item. The engine
-now follows the item (§8.50), and a player that feeds the program never takes
-the plain-URL path, so the swap no longer happens.
-
-**Connection**: "N watching" on all three Apple platforms (§D27, unread live —
-the Debug build is signed out); YouTube at `latencyPreference: low`; Twitch
-chapter markers from cards (§D30); the iPhone audience banner, SEEN on the wire
-from an iPhone 12; "Share the film in chat" (§D32, unposted). The STREAM header
-is a status bar (● LIVE 1:11 · 2.4 Mbps, §D28); STREAM opens largest (§D29).
-The YouTube broadcast is now completed before the publisher closes, on all
-three platforms — iOS and tvOS had never completed one (§8.49, unproven live).
-
-**OVERNIGHT CI**: six of eight reds were one GitHub-side fault — a catalog asset
-that uploaded cleanly then 404'd for 2-3 hours. No data lost (40,561 items in
-every run). `catalog_release.py fetch` now waits six minutes for a LISTED asset
-that 404s. The social poster's YouTube token is `youtube.upload` only, so
-YouTube metrics have never been read — an owner call (new scope or an API key).
-
-**MY INSTRUMENTS, AGAIN**: a Studio door that played the film out loud at the
-owner (every door now mutes at player creation); cliclick clicking the owner's
-MAIN display because the Studio sat on a second one (no more synthesized
-clicks — a DEBUG door per UI path instead); a truncated log of a running
-mediamtx; and `--terminate-existing` over a live iOS instance leaving a black
-screen. Each is written into the tool or a memory, not into care.
 
 Older entries: `docs/SESSION-LOG.md` (verbatim, back to 2026-04-17).

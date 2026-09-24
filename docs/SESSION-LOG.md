@@ -1,5 +1,57 @@
 # Archive Watch — Session Log (archive)
 
+### 2026-09-23 (later) — scenes, a status bar, and the settings a new engine forgot
+
+Owner /loop (5-minute cron), same standing prompt, plus two mid-loop asks:
+*"Let's also make sure that we are getting the most out of the livestreaming
+API from both Youtube and Twitch"* and *"Can you also look at all of the Github
+errors that fired overnight"*. v1.42.499 → v1.42.516, eighteen commits.
+
+**SCENES (§D31), from the owner's own answer**: *"Each scene should be fully
+customizable and you should be able to say (with a setting/toggle) whether to
+keep the default audio/tiles or build new ones."* Built as capture-on-leave /
+apply-on-arrive over `StudioControls`, so no control had to learn about scenes.
+A bar above STREAM, ⌘1-⌘9, five editable starters, persisted, the two toggles,
+"shared"/"this scene" on the Mixer and Framing, a Twitch chapter per switch,
+and a 0.4 s crossfade measured smooth on the wire. The toggles are proved by an
+in-app self-test through the real controls (8/8; its negative control fails 4).
+
+**THE MOST IMPORTANT FIX WAS FOUND BY MEASURING THE CROSSFADE**: a new engine
+started with none of the host's settings. `setAudio` forwarded to `engine?` and
+kept nothing, and `attachIfArmed` rebuilt the overlay from scratch — so going
+live (a SECOND engine) broadcast a microphone muted in the preview, lower-third
+lines the host had turned off, and no card. The session now keeps and replays
+all three; §8.46 checks them (its first version passed its own negative control
+because two DEBUG-door `setAudio` calls matched). iOS had the audio half of the
+same gap; tvOS did not.
+
+**ITEM 17's SECOND CAUSE, FOUND AND GONE**: the Mac player swaps its
+`AVPlayerItem` ~10 s in (a `reason=stall` fallback off Decision 067's plain-URL
+path) and the engine's output and audio tap stayed on the old item. The engine
+now follows the item (§8.50), and a player that feeds the program never takes
+the plain-URL path, so the swap no longer happens.
+
+**Connection**: "N watching" on all three Apple platforms (§D27, unread live —
+the Debug build is signed out); YouTube at `latencyPreference: low`; Twitch
+chapter markers from cards (§D30); the iPhone audience banner, SEEN on the wire
+from an iPhone 12; "Share the film in chat" (§D32, unposted). The STREAM header
+is a status bar (● LIVE 1:11 · 2.4 Mbps, §D28); STREAM opens largest (§D29).
+The YouTube broadcast is now completed before the publisher closes, on all
+three platforms — iOS and tvOS had never completed one (§8.49, unproven live).
+
+**OVERNIGHT CI**: six of eight reds were one GitHub-side fault — a catalog asset
+that uploaded cleanly then 404'd for 2-3 hours. No data lost (40,561 items in
+every run). `catalog_release.py fetch` now waits six minutes for a LISTED asset
+that 404s. The social poster's YouTube token is `youtube.upload` only, so
+YouTube metrics have never been read — an owner call (new scope or an API key).
+
+**MY INSTRUMENTS, AGAIN**: a Studio door that played the film out loud at the
+owner (every door now mutes at player creation); cliclick clicking the owner's
+MAIN display because the Studio sat on a second one (no more synthesized
+clicks — a DEBUG door per UI path instead); a truncated log of a running
+mediamtx; and `--terminate-existing` over a live iOS instance leaving a black
+screen. Each is written into the tool or a memory, not into care.
+
 ### 2026-09-23 — the audience got a way onto the screen, and two caches were wrong about themselves
 
 Owner /loop: *"It still doesn't fulfill the promise of live streaming a public
