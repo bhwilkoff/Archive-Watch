@@ -293,6 +293,17 @@ else
   row "8.32 web room client" FAIL "node exit $?"; FAIL=$((FAIL+1))
 fi
 
+printf '\n=== %s\n' "8.66 a browser guest PLAYS in step (live site, headless, muted)"
+if [ -x "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" ]; then
+  if node tools/test_web_room_playback.mjs; then
+    row "8.66 web room playback" PASS ""; PASS=$((PASS+1))
+  else
+    row "8.66 web room playback" FAIL "see output"; FAIL=$((FAIL+1))
+  fi
+else
+  row "8.66 web room playback" SKIP "no Chrome"; SKIP=$((SKIP+1))
+fi
+
 printf '\n=== %s\n' "8.65 web calls only what js/api.js exports"
 if python3 tools/test_web_api_calls.py; then
   row "8.65 web API calls exist" PASS ""; PASS=$((PASS+1))
