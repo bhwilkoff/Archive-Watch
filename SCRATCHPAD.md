@@ -674,6 +674,13 @@ correctly rescued. Names in the hide set include Murphy Brown, Knight Rider,
 The Dukes of Hazzard, Freddy's Nightmares, Designing Women, Minder, Count
 Duckula, Honey I Shrunk the Kids, and a 2025 documentary.
 
+**Addendum 2026-09-24 — television typed as FILM escapes this audit too.**
+48 visible film-typed items carry episode markers or TV collections; beyond
+NASA's own series (government work, fine) they include Roots (ABC 1977, 8
+parts), The World at War (Thames 1973-74) and Destination America, all typed
+`short-film`. They are catalog items, so the series-spine fix below would not
+reach them; whatever the owner decides for television should cover them too.
+
 **The fix is understood but NOT applied**, because hiding ~194 shows and
 ~1,870 episodes is a content decision of the same kind Decision 027 reserved
 for the owner (who set the 1964-77 keep and the 1995 commercials cutoff):
