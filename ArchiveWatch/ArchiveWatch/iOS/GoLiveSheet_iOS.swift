@@ -159,6 +159,18 @@ struct GoLiveSheet: View {
                 Label("You are in the show — camera and microphone",
                       systemImage: "checkmark.circle.fill")
                     .foregroundStyle(.secondary)
+            } else if let refused = hostRefusal {
+                // requestAccess returns at once, with no prompt, once a host
+                // has said no — so the old button did nothing at all here.
+                Text(refused).font(.footnote).foregroundStyle(.secondary)
+                if AVCaptureDevice.authorizationStatus(for: .video) != .restricted,
+                   AVCaptureDevice.authorizationStatus(for: .audio) != .restricted {
+                    Button("Open Settings") {
+                        if let url = URL(string: UIApplication.openSettingsURLString) {
+                            UIApplication.shared.open(url)
+                        }
+                    }
+                }
             } else {
                 Button("Put me in the show (camera and microphone)") {
                     AVCaptureDevice.requestAccess(for: .video) { _ in
@@ -173,6 +185,20 @@ struct GoLiveSheet: View {
         } header: {
             Text("You")
         }
+    }
+
+    /// A sentence when the system will no longer ask, or nil.
+    private var hostRefusal: String? {
+        let v = AVCaptureDevice.authorizationStatus(for: .video)
+        let a = AVCaptureDevice.authorizationStatus(for: .audio)
+        let off = [v == .denied || v == .restricted ? "camera" : nil,
+                   a == .denied || a == .restricted ? "microphone" : nil].compactMap { $0 }
+        guard !off.isEmpty else { return nil }
+        let what = off.joined(separator: " and ")
+        if v == .restricted || a == .restricted {
+            return "The \(what) is restricted on this iPhone."
+        }
+        return "Archive Watch is not allowed to use the \(what). Turn it on in Settings."
     }
 
     private var hostIsAuthorised: Bool {

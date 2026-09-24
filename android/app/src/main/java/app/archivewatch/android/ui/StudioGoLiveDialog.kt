@@ -34,6 +34,13 @@ import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.ui.platform.LocalContext
 import androidx.core.content.ContextCompat
+import android.content.Intent
+import android.net.Uri
+import android.provider.Settings
+import androidx.compose.runtime.DisposableEffect
+import androidx.compose.ui.platform.LocalLifecycleOwner
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleEventObserver
 import app.archivewatch.android.studio.StudioRights
 
 @Composable
@@ -60,10 +67,29 @@ fun StudioGoLiveDialog(
     val context = LocalContext.current
     fun granted(p: String) =
         ContextCompat.checkSelfPermission(context, p) == PackageManager.PERMISSION_GRANTED
-    var hostAsked by remember { mutableStateOf(granted(Manifest.permission.CAMERA)
-                                               && granted(Manifest.permission.RECORD_AUDIO)) }
+    fun hostGranted() = granted(Manifest.permission.CAMERA) && granted(Manifest.permission.RECORD_AUDIO)
+    var hostOk by remember { mutableStateOf(hostGranted()) }
+    // Set when the system has answered no. Android stops showing the prompt
+    // after a second refusal and the launcher returns at once, so without
+    // this the button did nothing and nothing said why.
+    var hostRefused by remember { mutableStateOf(false) }
     val askHost = rememberLauncherForActivityResult(
-        ActivityResultContracts.RequestMultiplePermissions()) { hostAsked = true }
+        ActivityResultContracts.RequestMultiplePermissions()) {
+        hostOk = hostGranted()
+        hostRefused = !hostOk
+    }
+    // Back from Settings: read the grant again.
+    val lifecycle = LocalLifecycleOwner.current.lifecycle
+    DisposableEffect(lifecycle) {
+        val obs = LifecycleEventObserver { _, e ->
+            if (e == Lifecycle.Event.ON_RESUME) {
+                hostOk = hostGranted()
+                if (hostOk) hostRefused = false
+            }
+        }
+        lifecycle.addObserver(obs)
+        onDispose { lifecycle.removeObserver(obs) }
+    }
 
     AlertDialog(
         onDismissRequest = onDismiss,
@@ -91,7 +117,22 @@ fun StudioGoLiveDialog(
                         style = MaterialTheme.typography.bodySmall,
                     )
                 }
-                if (!hostAsked) {
+                if (!hostOk && hostRefused) {
+                    val off = listOfNotNull(
+                        "camera".takeIf { !granted(Manifest.permission.CAMERA) },
+                        "microphone".takeIf { !granted(Manifest.permission.RECORD_AUDIO) },
+                    ).joinToString(" and ")
+                    Text(
+                        "Archive Watch is not allowed to use the $off. Turn it on in Settings.",
+                        style = MaterialTheme.typography.bodySmall,
+                    )
+                    TextButton(onClick = {
+                        context.startActivity(
+                            Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
+                                   Uri.fromParts("package", context.packageName, null))
+                                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
+                    }) { Text("Open Settings") }
+                } else if (!hostOk) {
                     TextButton(onClick = {
                         askHost.launch(arrayOf(Manifest.permission.CAMERA,
                                                Manifest.permission.RECORD_AUDIO))
