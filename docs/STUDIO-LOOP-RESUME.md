@@ -57,6 +57,10 @@ AW_STUDIO_KEY=bench \
 AW_STUDIO_CHAT_DEMO=1 \          # an INVENTED conversation (see below)
 AW_STUDIO_LAYOUT=corner \
 AW_STUDIO_MAC_SECONDS=420 \
+# The camera and microphone are NOT attached under these doors (v1.42.602):
+# this Mac's are the owner's. AW_STUDIO_CAPTURE=1 only for a run about capture,
+# and the local-monitor mute also silences the FILM in the broadcast on macOS —
+# AW_STUDIO_MAC_SOUND=1 (audible; ask the owner first) to measure film audio.
 "$APP/Contents/MacOS/Archive Watch" > $B/app.log 2>&1 &
 ```
 

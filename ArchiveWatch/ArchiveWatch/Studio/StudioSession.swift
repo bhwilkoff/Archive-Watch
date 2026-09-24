@@ -1119,6 +1119,18 @@ public final class StudioSession {
 
     private func attachCameraIfAvailable(to engine: StudioEngine) async {
         #if os(macOS) || os(iOS)
+        #if DEBUG && os(macOS)
+        // A BENCH RUN ON THE OWNER'S MAC DOES NOT FILM THE OWNER. The camera
+        // and microphone are authorized here, so every door-driven broadcast
+        // used to attach the real FaceTime camera and the room's microphone
+        // and send them to a recording (2026-09-23). Off under the Mac doors
+        // unless a run is deliberately about capture: AW_STUDIO_CAPTURE=1.
+        let env = ProcessInfo.processInfo.environment
+        if env["AW_GOLIVE_MAC"] == "1", env["AW_STUDIO_CAPTURE"] != "1" {
+            awdiag("AWCAM bench run — camera and microphone NOT attached (AW_STUDIO_CAPTURE=1 to attach)")
+            return
+        }
+        #endif
         // SAY WHICH. The comment above notes that a missing entitlement "silently
         // finds nothing, which is indistinguishable from having no camera" — and
         // that is equally true of TCC consent not yet given, of consent denied,
