@@ -1104,6 +1104,22 @@ struct StudioWindowView: View {
                 }
                 .menuStyle(.borderlessButton).font(.caption).fixedSize()
                 .onHover { if $0 { Task { guestWindows = await StudioScreenSource.windows() } } }
+                // FILLED WITHOUT A POINTER TOO (audit B). The list was built
+                // only on hover, so opening the menu from the keyboard or
+                // VoiceOver showed "No windows to show". Nothing is selected
+                // by this — §D23's rule is about choices, not the list.
+                // ONLY where access is already granted: CGPreflight asks
+                // without prompting, so opening the Studio can never raise
+                // the Screen Recording dialog unasked. Before the grant, the
+                // host's own hover still fills the list as it always did.
+                .task {
+                    while !Task.isCancelled {
+                        if CGPreflightScreenCaptureAccess() {
+                            guestWindows = await StudioScreenSource.windows()
+                        }
+                        try? await Task.sleep(for: .seconds(4))
+                    }
+                }
                 if studio.guestWindowLabel != nil {
                     Button("Stop showing them") { studio.stopGuests() }
                         .font(.caption).buttonStyle(.borderless).fixedSize()
@@ -2360,7 +2376,9 @@ struct StudioDestinationSection: View {
     private func labeled<T: View>(_ title: String, @ViewBuilder field: () -> T) -> some View {
         VStack(alignment: .leading, spacing: 2) {
             Text(title).font(.caption).foregroundStyle(.secondary)
-            field().textFieldStyle(.roundedBorder)
+            // The fields are built with an empty label so the title above
+            // can be styled; VoiceOver hears the title (audit B).
+            field().textFieldStyle(.roundedBorder).accessibilityLabel(title)
         }
     }
 }
