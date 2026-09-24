@@ -160,6 +160,10 @@ sub run()
             ' no IMDb id at all); it does not stop a modern title that has
             ' votes, which is why this is here and not assumed.
             isArchival = (row[2] = invalid) or (Int(row[2]) < 1978)
+            ' AND THE APPS' RIGHTS BAR, now that the index carries it (col 16,
+            ' schema 13, build_catalog_index.hero_safe). The year test alone let
+            ' 526 of 779 candidates through that the apps refuse (2026-09-24).
+            if row.Count() > 16 and row[16] <> invalid then isArchival = isArchival and (row[16] = 1)
             if row[7] <> invalid and row[7] <> "" and isArchival
                 if row.Count() > 11 and row[10] <> invalid and row[11] <> invalid
                     if Int(row[11]) >= 1000 and Int(row[10]) >= 60 then heroCand.Push(row)

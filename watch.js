@@ -1193,7 +1193,13 @@
       // Prefer WIDE backdrops (col 7) so the hero is well-composed art, never a cropped 2:3 poster
       // (owner 2026-06-29). Fall back to the poster pool only if too few backdrops exist (e.g. before
       // the index carries the backdrop column).
-      const filmPool = Data.rows.filter(r => Data.isPro(r) && Data.isFilm(r));
+      // THE APPS' MARQUEE RULE, carried by the index (col 16, schema 13 —
+      // tools/build_catalog_index.hero_safe): positive rights evidence only.
+      // Without it 46% of this pool was presumed-PD or renewal-zone films the
+      // apps refuse (2026-09-24). An older index has no column 16 and falls
+      // back to the year test below.
+      const heroOK = r => r.length <= 16 || r[16] === 1;
+      const filmPool = Data.rows.filter(r => Data.isPro(r) && Data.isFilm(r) && heroOK(r));
       const wide = filmPool.filter(r => r[7]).slice(0, 300);
       const useWide = wide.length >= 4;
       let base = useWide ? wide : filmPool.slice(0, 300);

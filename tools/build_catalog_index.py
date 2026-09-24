@@ -39,6 +39,27 @@ from pathlib import Path
 import sys as _sys
 _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parent))
 from build_sqlite import _is_adult  # noqa: E402  (Decision 105: one adult predicate)
+from build_sqlite import _rights_bucket  # noqa: E402  (the audit's own verdict)
+
+# THE MARQUEE'S BAR, the same rule as Catalog.Item.isHeroRightsSafe (Swift)
+# and CatalogDatabase.heroAnd (Kotlin); tools/test_hero_rule_parity.py holds
+# the three together. The web and Roku read this index, which carried no
+# rights column, so each copied only the year half — measured 2026-09-24,
+# 46% of the web's hero pool and 67% of Roku's were `presumed_pd` or
+# renewal-zone films the apps refuse (Double Indemnity, The Seventh Seal).
+HERO_SAFE_BUCKETS = ("safe_pd_age", "safe_gov", "safe_cc")
+HERO_MODERN_YEAR = 1978
+
+
+def hero_safe(bucket, year):
+    if bucket not in HERO_SAFE_BUCKETS:
+        return False
+    try:
+        if year is not None and int(year) >= HERO_MODERN_YEAR and bucket != "safe_pd_age":
+            return False
+    except (TypeError, ValueError):
+        pass
+    return True
 
 REPO = Path(__file__).resolve().parent.parent
 CATALOG = REPO / "catalog.json"
@@ -245,10 +266,12 @@ def main():
         cm = (it.get("colorMode") or "")[:1] or None
         # Column 15 (schema 12): a published trick-play BIF. Roku reads this
         # and nothing else does — see bif_ids() above.
+        # Column 16 (schema 13): may this title carry the hero? See hero_safe.
+        hero = 1 if hero_safe(_rights_bucket(it), it.get("year")) else 0
         rows.append([aid, it.get("title") or aid, it.get("year"),
                      it.get("contentType") or "", poster, pro, search, backdrop,
                      playable, docs, rating, votes, director, genres, cm,
-                     1 if aid in bifs else 0])
+                     1 if aid in bifs else 0, hero])
         for k in keywords:
             keyword_freq[k] = keyword_freq.get(k, 0) + 1
         for s in studios:
@@ -321,7 +344,7 @@ def main():
     }
 
     out = {
-        "schema": 12,
+        "schema": 13,
         "updatedAt": catalog.get("updatedAt") or "",
         "count": len(rows),
         # Must list EVERY column. Rows carry 10 entries at schema 9 and this
@@ -330,7 +353,7 @@ def main():
         # were shipping, undeclared, for two schema bumps.
         "fields": ["id", "title", "year", "contentType", "poster", "pro", "search",
                    "backdrop", "playable", "documentary", "rating10", "votes",
-                   "director", "genres", "color", "bif"],
+                   "director", "genres", "color", "bif", "heroSafe"],
         "facets": facets,
         "shelves": shelves,
         "collections": collections,

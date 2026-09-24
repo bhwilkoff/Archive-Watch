@@ -64,7 +64,7 @@ macOS) since they share the Swift Core.
 
 | Feature | tvOS | iOS | macOS | Web | Android | Notes |
 |---|---|---|---|---|---|---|
-| Hero / featured banner | ✅ focus carousel | ✅ paged carousel (7s auto-advance) | ✅ `HeroBanner` — full-width **16:9 aspect-locked, never cropped at any window size** (no height cap; macOS windows resize, see macOS-DESIGN §B4) | ✅ Marquee scroll-snap carousel | ✅ 7s auto-advance hero | Same pool/logic; sizing per idiom |
+| Hero / featured banner | ✅ focus carousel | ✅ paged carousel (7s auto-advance) | ✅ `HeroBanner` — full-width **16:9 aspect-locked, never cropped at any window size** (no height cap; macOS windows resize, see macOS-DESIGN §B4) | ✅ Marquee scroll-snap carousel | ✅ 7s auto-advance hero | Same pool/logic; sizing per idiom. **One rights bar everywhere** (2026-09-24): positive evidence only — `safe_pd_age`/`safe_gov`/`safe_cc`, nothing 1978+ unless PD by age. Apple `isHeroRightsSafe`, Android `heroAnd`, web + Roku index col 16 `heroSafe`; `tools/test_hero_rule_parity.py` |
 | Curated + dynamic shelves | ✅ | ✅ horizontal rows, deduped | ✅ shelves (Top Rated / Watching Now / Hidden Gems / Community Favorites / Most Discussed) | ✅ scroll-snap rails | ✅ `LazyRow`s | `featured.json` shared |
 | Category tiles | ✅ | ✅ tile row → filtered grid | ✅ tile row → filtered grid | ✅ accent tiles | ✅ tile row → filtered grid | accent colors shared; count-gated ≥30 |
 | Decade tiles | ✅ | ✅ era tiles + counts | ✅ era tiles + counts | ✅ era tiles | ✅ era tiles | |
