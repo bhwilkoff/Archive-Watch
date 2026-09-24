@@ -17,7 +17,7 @@ not a recollection.
 
 | Lease name | Device | UDID prefix | OS | Notes |
 |---|---|---|---|---|
-| `atv` | Ben Bedroom — Apple TV 4K (3rd gen) | `C3FBA9DE` | tvOS 27.2 (24K5093g) — needs re-pairing since the update | The long-standing harness unit |
+| `atv` | Ben Bedroom — Apple TV 4K (3rd gen) | `C3FBA9DE` | tvOS 27.2 (24K5093g) | The long-standing harness unit |
 | `atv-fireplace` | **Fireplace TV — Apple TV 4K (2nd gen)** | `F994DF01` | tvOS 27.0 (24J5360a) | **The unit the owner actually WATCHES on**, paired 2026-09-11. `AppleTV11,1` — the older silicon behind Decision 096's "Fireplace-class hardware constraint" |
 | `atv-movieroom` | **Movie Room — Apple TV 4K (3rd gen)** | `FE70998C` | **tvOS 26.6 (23L773)** | Paired 2026-09-11. The only unit NOT on tvOS 27 — it is the CONTROL for Decision 106's audio fault, which is 27-only |
 | `ipad` | iPad Pro 12.9 (5th gen) | `AC5377E9` | iPadOS 27.0 | Signed in as benwilkoff@gmail.com |
@@ -85,13 +85,16 @@ disconnected` until something talks to it; addressing it BY NAME can fail with
 "multiple devices have the name", so **address a TV by its UDID** and allow a
 long timeout on the first call, which is what actually establishes the tunnel.
 
-**A TV that UPDATED needs this again.** After Ben Bedroom moved to tvOS 27.2
-(24K5093g, 2026-09-24) it read `unavailable`, and every install / `info apps`
-answered `CoreDeviceError 4016` ("usage assertion requirements") with
-`CurrentlyAssertableStates = ()` — not even `coreDeviceServicesLoaded`. That
-signature means no trusted connection exists: waking it (`wake_tv()` said On),
-the lease, and a long-timeout UDID call all run cleanly and change nothing.
-The fix is the pairing path above, which needs the owner at the TV.
+**`unavailable` with `transport None` is the MAC not finding the TV — not the
+TV.** 2026-09-24, both Ben Bedroom (tvOS 27.2) and Movie Room (26.6) read
+`tunnel unavailable, transport None` after each had connected earlier that
+day, while the iPad read `localNetwork`; every install answered
+`CoreDeviceError 4016` with `CurrentlyAssertableStates = ()`. The TVs were
+awake (`wake_tv()` True) and advertising `_remotepairing._tcp`. None of these
+restored it: the lease + wake + long-timeout UDID call, `devicectl device
+reboot` (it needs the same connection), or restarting CoreDeviceService. An
+earlier note here blamed the tvOS 27.2 update and prescribed re-pairing; Movie
+Room on 26.6 in the same state disproves that. Unresolved — record what fixes it.
 
 ## 2. Device leases — sharing hardware with another session
 
