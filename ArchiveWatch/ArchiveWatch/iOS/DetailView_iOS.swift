@@ -71,6 +71,51 @@ struct DetailView: View {
                     }
                     .buttonStyle(.bordered)
 
+                    // WATCH TOGETHER, ONE TAP FROM THE FILM (iOS-DESIGN §3.5a).
+                    // It sat two menus deep inside "Share and more", which is
+                    // where Subtitles once lived and where nobody looked —
+                    // and a watch-along is a way to WATCH this film, not a
+                    // way to send it somewhere.
+                    Menu {
+                        // SharePlay. The phone is where a session actually
+                        // starts, because that is where the FaceTime call is;
+                        // the Apple TV joins. Offering it outside a call is
+                        // harmless — prepareForActivation just declines.
+                        Button {
+                            Task {
+                                switch await WatchTogether.shared.share(
+                                    archiveID: item.archiveID,
+                                    title: item.title,
+                                    year: item.year) {
+                                case .started:
+                                    playing = true
+                                case .needsCall:
+                                    // No call yet — let the system start one
+                                    // rather than silently playing the film.
+                                    startingSharePlay = true
+                                case .cancelled:
+                                    break
+                                }
+                            }
+                        } label: {
+                            Label("With friends…", systemImage: "shareplay")
+                        }
+                        // The public half of the SAME feature
+                        // (docs/WATCH-TOGETHER.md §1): one name, two
+                        // qualifiers. Always OFFERED, even for a film the
+                        // rights audit will not clear — the sheet explains
+                        // why, and a hidden control teaches nothing (§8.8).
+                        Button {
+                            goingLive = true
+                        } label: {
+                            Label("With the world…", systemImage: "dot.radiowaves.left.and.right")
+                        }
+                    } label: {
+                        Image(systemName: "person.2.wave.2")
+                            .accessibilityLabel("Watch Together")
+                    }
+                    .buttonStyle(.bordered)
+
                     // Watched is a badge on tiles; this is where the viewer
                     // corrects it (tvOS parity — a film abandoned near the
                     // end reads as finished, one seen elsewhere never
@@ -172,43 +217,6 @@ struct DetailView: View {
                     }
 
                     Menu {
-                      Menu {
-                        // SharePlay. The phone is where a session actually
-                        // starts, because that is where the FaceTime call is;
-                        // the Apple TV joins. Offering it outside a call is
-                        // harmless — prepareForActivation just declines.
-                        Button {
-                            Task {
-                                switch await WatchTogether.shared.share(
-                                    archiveID: item.archiveID,
-                                    title: item.title,
-                                    year: item.year) {
-                                case .started:
-                                    playing = true
-                                case .needsCall:
-                                    // No call yet — let the system start one
-                                    // rather than silently playing the film.
-                                    startingSharePlay = true
-                                case .cancelled:
-                                    break
-                                }
-                            }
-                        } label: {
-                            Label("With friends…", systemImage: "shareplay")
-                        }
-                        // The public half of the SAME feature
-                        // (docs/WATCH-TOGETHER.md §1): one name, two
-                        // qualifiers. Always OFFERED, even for a film the
-                        // rights audit will not clear — the sheet explains
-                        // why, and a hidden control teaches nothing (§8.8).
-                        Button {
-                            goingLive = true
-                        } label: {
-                            Label("With the world…", systemImage: "dot.radiowaves.left.and.right")
-                        }
-                      } label: {
-                          Label("Watch Together", systemImage: "person.2.wave.2")
-                      }
                         if Callsheet.supports(item) {
                             Button { Callsheet.open(Callsheet.url(for: item)) } label: {
                                 Label(Callsheet.actionTitle, systemImage: Callsheet.actionIcon)

@@ -145,6 +145,13 @@ destructive verbs (§4.3).
 3.5 **Detail** — scroll view: hero artwork → title/meta → action row (Play
 prominent, Favorite, Add-to-playlist, Share) → synopsis → cast shelf → More
 Like This. Series detail is the variant with season Menu + episode list.
+3.5a **Watch Together is in the action row**, as one bordered menu (icon
+`person.2.wave.2`, two named items: *With friends…* and *With the world…*),
+after Add-to-playlist. It was two menus deep inside "Share and more" until
+2026-09-23 (launch audit: "iOS Watch Together two menus deep"); a watch-along
+is a way to watch this film with people, which is the app's purpose, not a way
+to send a link. The row's `ViewThatFits` scrolls rather than squeezes if it no
+longer fits.
 An "Also known as …" line sits directly under the title when the film's
 primary title differs from the Archive uploader's (Decision 100) — quiet and
 secondary, never a second title competing with the first.
