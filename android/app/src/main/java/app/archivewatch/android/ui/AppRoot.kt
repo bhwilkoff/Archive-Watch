@@ -122,6 +122,23 @@ fun AppRoot(container: AppContainer) {
         }
     }
 
+    LaunchedEffect(Unit) {
+        DeepLinks.pendingRoomJoin.collect { pair ->
+            val (code, filmID) = pair ?: return@collect
+            DeepLinks.pendingRoomJoin.value = null
+            val item = container.catalog.awaitDb().item(filmID) ?: return@collect
+            val url = item.downloadURL ?: return@collect
+            android.util.Log.i("AWFOLLOW", "door will join room $code")
+            app.archivewatch.android.studio.StudioSyncFollower.pending = code
+            app.archivewatch.android.studio.StudioSyncFollower.pendingFilm = item.archiveID
+            nav.push(Route.Player(PlaySpec(
+                id = item.archiveID, title = item.title,
+                description = item.synopsis, url = url,
+                captions = item.captions ?: emptyList(),
+                runtimeSeconds = item.runtimeSeconds)))
+        }
+    }
+
     BackHandler(enabled = nav.stack.isNotEmpty()) { nav.pop() }
 
     // The player is the one route that lives OUTSIDE the navigation scaffold.

@@ -164,6 +164,14 @@ object DeepLinks {
     val pendingStudioChat = MutableStateFlow<String?>(null)
 
     /**
+     * `--es aw_room_join <code> --es aw_room_film <archiveID>` — join a
+     * Watch Together room the way the Join dialog hands it over, straight into
+     * the film's player. DEBUG ONLY: a verification door, like Apple's
+     * AW_ROOM_JOIN.
+     */
+    val pendingRoomJoin = MutableStateFlow<Pair<String, String>?>(null)
+
+    /**
      * `--es aw_play_url <url>` — play THIS url instead of resolving the
      * archive id. DEBUG ONLY, and gated for the same reason the bench
      * destination is: honouring it in a release build would let any app make

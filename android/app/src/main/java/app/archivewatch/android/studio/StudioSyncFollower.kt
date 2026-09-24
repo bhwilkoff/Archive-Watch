@@ -46,8 +46,14 @@ object StudioSyncFollower {
      * back), the host ended the room, or joining failed. Nothing while a
      * guest is in step.
      */
-    var notice: String? by mutableStateOf(null)
-        private set
+    private var noticeState by mutableStateOf<String?>(null)
+    var notice: String?
+        get() = noticeState
+        private set(value) {
+            // The same line Apple's follower writes, so a device run can be read.
+            if (value != noticeState) android.util.Log.i("AWFOLLOW", "notice=${value ?: "none"}")
+            noticeState = value
+        }
     private var noticeJob: Job? = null
     /** When WE last moved the player, so our own seek/pause is not the guest's. */
     private var appliedAtMillis = 0L
@@ -134,6 +140,8 @@ object StudioSyncFollower {
                 withContext(Dispatchers.Main) {
                     val local = player.currentPosition / 1000.0
                     val correction = c.correction(local, !player.isPlaying) ?: return@withContext
+                    android.util.Log.d("AWFOLLOW", "local=%.1f playing=%s correction=%s"
+                        .format(local, if (player.isPlaying) "y" else "n", correction))
                     apply(correction, player)
                 }
             }

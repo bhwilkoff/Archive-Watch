@@ -14,10 +14,16 @@
 #   bash tools/studio_platform_proof.sh twitch  [seconds] [film-archive-id]
 #   bash tools/studio_platform_proof.sh bench   [seconds] [film-archive-id]   # local mediamtx
 #   bash tools/studio_platform_proof.sh state                                 # read-only sign-in probe
+#
+# Optional: AW_PROOF_DEVICE=<udid> (the test iPad, never the owner's 15 Pro),
+# AW_PROOF_APP=<path to a Debug-iphoneos .app>, AW_PROOF_ENV='"K":"V",...'
+# (more doors, e.g. AW_STUDIO_IOS_SHOW), AW_PROOF_SHOT=<s> (a screenshot
+# that many seconds after launch, into the output folder).
 set -u
 cd "$(dirname "$0")/.."
 export DEVELOPER_DIR=${DEVELOPER_DIR:-/Applications/Xcode-beta.app/Contents/Developer}
-PHONE=B4E756E2-CBFA-5F63-8CEE-21D226637AF7          # iPhone 12 — the test device
+PHONE=${AW_PROOF_DEVICE:-B4E756E2-CBFA-5F63-8CEE-21D226637AF7}   # iPhone 12 — the test device
+[ "$PHONE" = 988DE0A7-63DB-561C-B5FA-2BAAB60643E1 ] && { echo "!! that is the owner's own iPhone"; exit 2; }
 BUNDLE=app.archivewatch.tvos
 MODE=${1:-}; SECS=${2:-180}
 FILM=${3:-the-man-who-laughs-1928-1080p-blu-ray-x-265-ghost}
@@ -65,7 +71,7 @@ case "$MODE" in
   *) echo "usage: $0 youtube|twitch|bench|state [seconds] [film]"; exit 2 ;;
 esac
 
-APP=$(ls -d ~/Library/Developer/Xcode/DerivedData/ArchiveWatch-*/Build/Products/Debug-iphoneos/ArchiveWatch.app 2>/dev/null | head -1)
+APP=${AW_PROOF_APP:-$(ls -d ~/Library/Developer/Xcode/DerivedData/ArchiveWatch-*/Build/Products/Debug-iphoneos/ArchiveWatch.app 2>/dev/null | head -1)}
 [ -n "$APP" ] || { echo "!! no Debug-iphoneos build — build for the device first"; exit 1; }
 stop_app || exit 1
 xcrun devicectl device install app --device $PHONE "$APP" >/dev/null 2>&1 || { echo "!! install failed"; exit 1; }
@@ -88,14 +94,21 @@ if [ "$MODE" = bench ]; then
 else
   ENV="$ENV,\"AW_START_ITEM\":\"$FILM\",\"AW_AUTOPLAY\":\"1\",\"AW_STUDIO_GOLIVE\":\"$MODE\",\"AW_STUDIO_YT_CHAT\":\"1\""
 fi
+[ -n "${AW_PROOF_ENV:-}" ] && ENV="$ENV,$AW_PROOF_ENV"
 echo "== $MODE proof run: $FILM, ends at $SECS s on air"
 STARTED=$(date +%s)
 launch "{$ENV}"
 
 # Wait for the show to end itself (the END door), pulling the log as we go.
 DEADLINE=$((SECONDS + SECS + 150))
+SHOT_AT=${AW_PROOF_SHOT:+$((SECONDS + AW_PROOF_SHOT))}
 while [ $SECONDS -lt $DEADLINE ]; do
   sleep 15; pull
+  if [ -n "$SHOT_AT" ] && [ $SECONDS -ge $SHOT_AT ]; then
+    xcrun devicectl device capture screenshot --device $PHONE --destination "$OUT/shot-$(date +%s).png" >/dev/null 2>&1 \
+      && echo "== screenshot: $(ls -t "$OUT"/shot-*.png | head -1)" || echo "!! screenshot failed"
+    SHOT_AT=
+  fi
   grep -q "AWSTUDIOEND\|AWDOOR ending" "$LOG" 2>/dev/null && { sleep 5; pull; break; }
 done
 stop_app

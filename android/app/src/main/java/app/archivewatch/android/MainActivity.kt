@@ -117,6 +117,11 @@ class MainActivity : ComponentActivity() {
         // let any app redirect a host's broadcast. The values are never
         // logged (§5).
         if (BuildConfig.DEBUG) {
+            val roomCode = intent?.getStringExtra("aw_room_join")
+            val roomFilm = intent?.getStringExtra("aw_room_film")
+            if (roomCode != null && roomFilm != null) {
+                DeepLinks.pendingRoomJoin.value = roomCode to roomFilm
+            }
             // The layout, so each placement can be VERIFIED on a device rather
             // than only unit-tested. The Apple doors take AW_STUDIO_LAYOUT.
             intent?.getStringExtra("aw_studio_layout")?.let {
