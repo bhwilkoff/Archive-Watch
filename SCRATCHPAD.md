@@ -655,6 +655,54 @@ keep serving it.
 
 ## Session Log
 
+### 2026-09-23/24 — the launch audit, worked down: rooms that actually work, and five measurements that corrected me
+
+Owner /loop (5-minute cron), the standing Studio prompt; mid-loop the quota
+extension form was driven and refilled in Chrome, and the Pixel was unlocked
+once. v1.42.573 → v1.42.609, ~37 commits, all against
+`docs/WATCH-TOGETHER-LAUNCH-AUDIT.md`, which records each item's evidence.
+
+**ROOMS, MEASURED LIVE FOR THE FIRST TIME, AND THEY WERE BROKEN IN THREE WAYS.**
+(1) A browser could NEVER join: `TogetherView` called an `API.summary` that
+never existed (since v1.42.469) — fixed, guarded by §8.65. (2) A paused guest
+sat on a DIFFERENT FRAME from the host (every copy of the sync rule returned
+none while paused) — now seeks to the host's frame on Swift, Kotlin and web.
+(3) A host's BUFFERING was published as a pause to every guest, and a host
+who fell behind after a stall never said so — the host now publishes intent
+(`rate`) and measures drift on the room's clock. Guests on every platform are
+now told the three things they need (host controls the film / room ended /
+join failed), and the Mac Studio hands out an invite link a browser can open.
+§8.66 proves a browser guest PLAYS in step on the live site (0.03 s, pause on
+the exact frame) with its own headless Chrome.
+
+**THE STUDIO WENT LIVE ON ITS CLOSING CARD.** The selected scene persists, so
+a Studio last left on "Thanks" broadcast "Thanks for watching" over the whole
+next show. Found only because a 20-minute recording was 88 kbps. Fixed.
+
+**MY INSTRUMENTS, FIVE TIMES.** A tools-driven Chrome tab is HIDDEN and defers
+media, and a room's seeks move `currentTime` anyway — two "in step" readings
+were the room writing numbers (memory `chrome_hidden_tab_defers_media`). The
+first drift run measured a still card; the second measured the owner's ROOM
+MICROPHONE, because on macOS the door's mute silences the film in the
+broadcast and the bench attached the real FaceTime camera and mic — the bench
+now attaches neither (v1.42.602, memory `mac_bench_captures_owner`).
+Conclusion that survives: no A/V drift over 20 min on macOS for a hardware
+audio clock; the film-tap path and LIP SYNC remain unmeasured.
+
+**Also**: Twitch hourly /validate, revoke on sign-out (Android too), revoked
+grants cleared; the chat reader's split-emoji bug; public-domain-by-age now
+follows the calendar (1929-30 films, Decision 137); stream-key route on iOS;
+recent bitrate on every readout; key redaction from server text; iPad
+controls as an inspector (IPAD-DESIGN §5b); Watch Together one tap from a film
+on iOS (§3.5a); Android sign-in is a button not a QR on a phone; tokens
+excluded from Android transfer; selfDeclaredMadeForKids no longer sent;
+keyboard framing on the Mac (§8.69).
+
+**OWNER, BLOCKING DEVICE CHECKS**: the iPhone 12 is behind a Screen Time
+limit; the iPad Pro and the Pixel were locked; an AUDIBLE lip-sync run on the
+Mac waits for a yes; the window/app capture rights question and the inert
+`StudioVoiceProbe` are the owner's calls.
+
 ### 2026-09-23 (later) — scenes, a status bar, and the settings a new engine forgot
 
 Owner /loop (5-minute cron), same standing prompt, plus two mid-loop asks:
@@ -706,101 +754,5 @@ MAIN display because the Studio sat on a second one (no more synthesized
 clicks — a DEBUG door per UI path instead); a truncated log of a running
 mediamtx; and `--terminate-existing` over a live iOS instance leaving a black
 screen. Each is written into the tool or a memory, not into care.
-
-### 2026-09-23 — the audience got a way onto the screen, and two caches were wrong about themselves
-
-Owner /loop: *"It still doesn't fulfill the promise of live streaming a public
-domain movie with your friends and having full control over the stream as you
-would on OBS ... It must also be designed well and create genuine
-opportunities for connection for all involved."* Ended by the owner mid-tick.
-
-**THE AUDIT AGAINST THAT LAST CLAUSE FOUND THE THING THE FEATURE LIST HIDES:
-everything the Studio could put on screen came from the HOST.** Starting soon,
-Intermission, Thanks for watching, the host's own words, their face, their
-guests. Chat arrived and was *displayed* — small type the audience cannot tell
-is being read. Nothing a viewer did could reach the program, so a person
-watching had no evidence they were heard. That is not a missing feature; it is
-the difference between a broadcast and a room.
-
-**§D26 — a host can put somebody's message ON the broadcast**, large, over the
-film, under their own name, for twelve seconds. A banner rather than a card,
-because §D10's card covers the film completely and stopping the film to show a
-comment makes it an interruption rather than an acknowledgment.
-
-**§D26a — and the pane it is picked from is NOT the chat column.** The rule
-first said "the host picks from the chat they can already see, so there is no
-second list to keep", and building it showed that was wrong: the chat a host
-can see is composited into the STREAM, is eight lines because eight is what
-fits beside a film, obeys the *Show chat* switch, and is made of pixels nobody
-can click. So the Studio has a third pane beside FILM and STREAM — **AUDIENCE**
-— carrying forty lines, post-filter, appearing when a broadcast does.
-
-**TWO CACHE KEYS WERE INCOMPLETE IN THE SAME MORNING, IN THE SAME WAY.** The
-lower third's named the title, year and provenance and not the shout-out, so a
-banner could never appear and, having appeared, could never expire — nothing
-about the frame had changed by the time it was due down. The chat column's
-named its x and WIDTH and not its height, so a column shortened to clear the
-banner was drawn at its old size and the banner went on covering
-`kt_projects` however correctly the rect was computed. **A cache key that
-names some of its inputs is a cache that is wrong about the rest.** Neither is
-visible to a harness that builds a fresh renderer per call, which §8.48 did
-until it was made to reuse one — an instrument that constructs its subject
-fresh cannot see a staleness bug.
-
-**I RESTYLED SOMEBODY'S NAME AND THE RENDER CAUGHT IT.** The first draft drew
-`crazyspecz` as `CRAZYSPECZ`. Every other uppercase run in this renderer is a
-label we wrote — "PUBLIC DOMAIN — PUBLISHED 1923" is ours to style — and a
-handle is not. It is the same rule as the catalog's: a string that is somebody
-else's data is spelled the way they spell it. §8.48's one assertion that cannot
-pass with the defect reinstated is that two spellings render to different
-widths, and the FIRST version of that assertion failed over a correct product
-because it measured the union with the lower third's scrim, which swamps a
-short banner.
-
-**A 500-CHARACTER MESSAGE IS LEGAL AND COVERS THE FILM.** It is SHOWN in the
-reader and REFUSED on air — "too long to show", no button — never truncated,
-because cutting a stranger's sentence in half and putting their name under the
-remainder is worse than declining. The picker's ceiling is a hand-derived
-character count, so §8.48 checks it against the renderer's own wrapping rather
-than letting the two drift.
-
-**THREE OF MY OWN INSTRUMENTS AND TESTS WERE WRONG BEFORE THEY WERE RIGHT**,
-which is the recurring lesson rather than a footnote. The name-case assertion
-above. A clearance assertion that demanded the chat block not grow upward,
-failing over a product that was right — chat is bottom-anchored, so
-shortening its rect moves the conversation UP rather than cropping it, and
-what matters is clearance, not a smaller block. And the macOS go-live door
-muted the local monitor only AFTER its twenty-second wait for `isLive`, so
-every run of it played the film out loud at the owner for twenty seconds; the
-first fix then dropped `AW_STUDIO_MAC_SOUND=1`, which would have made an audio
-measurement impossible.
-
-**`AW_STUDIO_CHAT_DEMO=1` IS AN INVENTED CONVERSATION, NOT A BORROWED ONE.**
-The older `AW_STUDIO_CHAT` door names a REAL Twitch channel, which is how
-strangers' messages ended up over the owner's film on 09-22. Verifying an
-audience pane needs lines, not a stranger. It deliberately includes an event
-line and one message past the ceiling, so a run reaches the row that refuses.
-
-**A STRUCTURAL FACT WORTH WRITING DOWN: every film the Studio may broadcast is
-pre-1930.** `StudioRights.tier` is `guaranteed`, which is `safe_pd_age` AND
-`year <= 1929` — so the standing rule to vary test content and the owner's
-"stop picking films with no audio" collide by construction, and the only way
-out is the tier widening already listed as an owner content call. This run used
-**The Man Who Laughs (1928)**, which carries a real soundtrack
-(`filmHasAudio=true sourceAudioTracks=1`) and has not been used before.
-
-**ITEM 17 IS NOT CLOSED.** Two of three bench runs on that film showed a BLACK
-program, and §D21's diagnostic named the state correctly in the log — *"the
-film is playing but no frames are reaching the program (rate=1.00 item=present
-player=30de07361c7ba51)"* — with `AWSURFACE forget ... engineHolds=no`, i.e.
-the §D12a guard behaved and the torn-down surface was not the engine's. So
-this is a DIFFERENT cause from the one closed on 09-22: the engine is attached
-to a live player with an item, playing audio, and receives no video. The film
-is a 1080p HEVC Blu-ray rip, which is the obvious next suspect and is
-unmeasured.
-
-Suite **150 pass / 2 skip / 0 fail** (§8.3's soak, off by default; §8.21's
-tones, opt-in). Kotlin **103 / 0 / 0**. macOS, iOS and tvOS all build.
-v1.42.498 (1510).
 
 Older entries: `docs/SESSION-LOG.md` (verbatim, back to 2026-04-17).
