@@ -636,6 +636,14 @@ dialog#player::backdrop { background: rgba(0, 0, 0, 0.85); }
   opacity: 1; transition: opacity 0.3s ease;
 }
 .player-overlay.hidden { opacity: 0; }
+/* A room guest who pressed pause or scrubbed: said once, briefly, over the
+   film — the room has already put the film back. */
+.player-note {
+  position: absolute; left: 50%; bottom: 72px; transform: translateX(-50%);
+  margin: 0; padding: 8px 14px; border-radius: 8px;
+  background: rgba(0, 0, 0, 0.75); color: #fff; font-size: 0.95rem;
+  pointer-events: none;
+}
 .player-overlay strong { display: block; font-size: 1.25rem; line-height: 1.2; }
 .player-overlay p {
   margin: 6px 0 0; font-size: 0.95rem; opacity: 0.85; max-width: 60ch;

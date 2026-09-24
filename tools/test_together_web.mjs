@@ -87,5 +87,52 @@ check("CONTROL: averaging is materially worse",
 check("a busy room polls fast", near(T.pollInterval(5), T.POLL_FAST));
 check("a quiet room backs off", near(T.pollInterval(120), T.POLL_IDLE));
 
+// ---- a guest's own pause or scrub is answered AT ONCE, ours are not
+{
+  class FakeVideo extends EventTarget {
+    constructor() { super(); this.currentTime = 100; this.paused = false; this.playbackRate = 1; }
+    pause() { this.paused = true; this.dispatchEvent(new Event("pause")); }
+    play() { this.paused = false; return Promise.resolve(); }
+  }
+  const now = () => Date.now() / 1000;
+  let polls = 0;
+  let hostPaused = false;
+  const client = {
+    async poll() { polls++; return { filmID: "x", position: 100, atServerTime: now(), rate: 1, paused: hostPaused, generation: 1 }; },
+    serverNow: now, nextPollDelay: () => 60, sayHere() {},
+  };
+  const settle = () => new Promise(r => setTimeout(r, 20));
+  const video = new FakeVideo();
+  let overrides = 0;
+  const session = T.follow(video, client, null, () => { overrides++; });
+  await settle();
+  check("follow polls once on start", polls === 1, `polls=${polls}`);
+
+  video.pause();                       // the GUEST presses pause
+  await settle();
+  check("a guest's pause is re-checked at once, not at the next poll", polls === 2, `polls=${polls}`);
+  check("the guest is told who holds the film", overrides === 1, `overrides=${overrides}`);
+  check("and the film is playing again", video.paused === false);
+
+  video.dispatchEvent(new Event("seeking"));   // the guest drags the bar
+  await settle();
+  check("a guest's scrub is re-checked at once", polls === 3, `polls=${polls}`);
+
+  // CONTROL: a pause the ROOM makes is not the guest's.
+  hostPaused = true;
+  await new Promise(r => setTimeout(r, 1600));   // past the own-event window
+  const before = polls;
+  video.dispatchEvent(new Event("seeking"));      // provoke a poll...
+  await settle();                                 // ...which pauses the film itself
+  check("control: the room's own pause does not count as the guest's",
+        polls === before + 1 && overrides === 3 && video.paused === true,
+        `polls ${before}->${polls}, overrides=${overrides}, paused=${video.paused}`);
+
+  session.stop();
+  video.pause();
+  await settle();
+  check("after stop, nothing is re-checked", polls === before + 1, `polls=${polls}`);
+}
+
 console.log(failures === 0 ? "=== §8.32 OK ===" : `=== §8.32 ${failures} FAILURES ===`);
 process.exit(failures === 0 ? 0 : 1);

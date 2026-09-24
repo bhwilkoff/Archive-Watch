@@ -152,13 +152,24 @@
     return pollInterval(quiet);
   };
 
-  /** Drive a <video> from a room. Silent: nobody is ever asked to pause. */
-  function follow(video, client, onEnded) {
+  /** Drive a <video> from a room. Silent: nobody is ever asked to pause.
+   *
+   *  A GUEST'S OWN pause or scrub is answered at once. The browser's controls
+   *  stay (volume, fullscreen and captions are the guest's), so a guest can
+   *  still press pause or drag the bar — and the room used to undo it on the
+   *  next poll, up to ten seconds later, which reads as the player fighting
+   *  them. Now the room re-asserts itself immediately and `onOverride` lets
+   *  the page say who holds the film. */
+  function follow(video, client, onEnded, onOverride) {
     let stopped = false;
     let hostRate = 1;
+    let timer = null;
+    let appliedAt = 0;          // when WE last moved the player
+    const OWN_EVENT_MS = 1500;  // a pause/seek this soon after ours is ours
 
     async function tick() {
       if (stopped) return;
+      clearTimeout(timer);
       try {
         const state = await client.poll();
         hostRate = state.rate || 1;
@@ -167,10 +178,13 @@
         if (String(e.message).includes('ended')) { stopped = true; onEnded && onEnded(); return; }
         // A poll that failed is a poll, not a reason to stop a film.
       }
-      setTimeout(tick, client.nextPollDelay() * 1000);
+      if (!stopped) timer = setTimeout(tick, client.nextPollDelay() * 1000);
     }
 
     function apply(c) {
+      // Only moves that fire a pause/seeking event of their own; a resume
+      // fires neither, and counting it would swallow the guest's next scrub.
+      if (c.kind === 'seek' || (c.kind === 'setPaused' && c.paused)) appliedAt = Date.now();
       switch (c.kind) {
         case 'none':
           // Back to the HOST's rate, not to 1: a nudge left in place plays
@@ -194,8 +208,25 @@
     here();
     const hereTimer = setInterval(here, 30000);
 
+    const guestMoved = () => {
+      if (stopped || Date.now() - appliedAt < OWN_EVENT_MS) return;
+      onOverride && onOverride();
+      tick();
+    };
+    video.addEventListener('pause', guestMoved);
+    video.addEventListener('seeking', guestMoved);
+
     tick();
-    return { stop() { stopped = true; clearInterval(hereTimer); video.playbackRate = 1; } };
+    return {
+      stop() {
+        stopped = true;
+        clearTimeout(timer);
+        clearInterval(hereTimer);
+        video.removeEventListener('pause', guestMoved);
+        video.removeEventListener('seeking', guestMoved);
+        video.playbackRate = 1;
+      },
+    };
   }
 
   const API = {

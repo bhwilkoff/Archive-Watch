@@ -2971,13 +2971,13 @@
       }
       const url = 'https://archive.org/download/' + encodeURIComponent(id) + '/' +
         encodeURIComponent(summary.videoFile.name).replace(/%2F/g, '/');
-      await Player.start({ id, title: row[1], url, persist: false,
+      await Player.start({ id, title: row[1], url, persist: false, room: true,
                            startAt: Together.expectedPosition(state, client.serverNow()) });
       const video = $('video');
       if (video) this.session = Together.follow(video, client, () => {
         err.hidden = false;
         err.textContent = 'The host ended the room.';
-      });
+      }, () => Player.flashNote('The host controls the film.'));
     },
 
     stop() {
@@ -3002,8 +3002,18 @@
         `queue`/`queueIndex` enable binge: on ended, the next queued entry
         plays. `startAt` joins a channel program in progress; `persist:false`
         keeps channel playback out of Continue Watching (the apps' rule). */
+    noteTimer: null,
+    flashNote(text) {
+      const n = $('player-note');
+      if (!n) return;
+      n.textContent = text;
+      n.hidden = false;
+      clearTimeout(this.noteTimer);
+      this.noteTimer = setTimeout(() => { n.hidden = true; }, 3000);
+    },
+
     async start({ id, title, url, queue = null, queueIndex = 0,
-                  startAt = 0, persist = true, muted = false }) {
+                  startAt = 0, persist = true, muted = false, room = false }) {
       this.ctx = { id, title, queue, queueIndex, persist, muted };
       /* WHICH FILM was played, as one aggregate count. Fired HERE rather than
          on a `play` event because the queue advances by calling start() again:
@@ -3062,7 +3072,8 @@
       }
 
       $('player').showModal();
-      video.playbackRate = Number(localStorage.getItem('aw_rate') || 1);
+      // A room plays at the HOST's rate, never this viewer's saved speed.
+      video.playbackRate = room ? 1 : Number(localStorage.getItem('aw_rate') || 1);
       if (!$('player-rate').hidden) $('player-rate').value = String(video.playbackRate);
       try { await video.play(); } catch { /* user gesture rules; controls remain */ }
 
@@ -3284,6 +3295,7 @@
       clearInterval(this.countdown);   // an autoplay timer must not outlive the player
       this.countdown = null;
       $('player-endcard').hidden = true;
+      $('player-note').hidden = true;
       TogetherView.stop();   // closing the player leaves the room (A16)
       video.pause();
       video.removeAttribute('src');
@@ -3332,6 +3344,9 @@
     // in the browser's. Without this, hiding our select would still force the
     // stored rate on every open and silently undo a native speed change.
     video.addEventListener('ratechange', () => {
+      // A room nudges the rate to 0.97/1.03 to stay in step; saving that
+      // made the viewer's NEXT films play 3% off speed.
+      if (TogetherView.session) return;
       const r = video.playbackRate;
       if (r > 0) localStorage.setItem('aw_rate', String(r));
     });
