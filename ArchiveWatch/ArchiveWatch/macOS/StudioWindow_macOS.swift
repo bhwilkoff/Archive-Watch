@@ -434,7 +434,7 @@ struct StudioWindowView: View {
     /// timer is for the two derived per-second rates it recomputes in place.
     @State private var tick = 0
 
-    private let marquee = Color(hex: "#FF5C35") ?? .orange
+    private let marquee = Brand.primary
 
     /// The film's picture is in the ORDINARY player window, not in here (§D7).
     /// Derived rather than stored: one film has one player, so "is the main
@@ -650,7 +650,7 @@ struct StudioWindowView: View {
         HStack(alignment: .top, spacing: 8) {
             VStack(alignment: .leading, spacing: 1) {
                 Text(s.author).font(.caption.weight(.semibold))
-                    .foregroundStyle(Color(red: 1.0, green: 0.361, blue: 0.208))
+                    .foregroundStyle(Brand.primary)
                 Text(s.text).font(.caption).lineLimit(2)
             }
             Spacer(minLength: 4)
@@ -658,7 +658,7 @@ struct StudioWindowView: View {
                 .controlSize(.small)
         }
         .padding(.horizontal, 10).padding(.vertical, 6)
-        .background(Color(red: 1.0, green: 0.361, blue: 0.208).opacity(0.14))
+        .background(Brand.primary.opacity(0.14))
     }
 
     // MARK: SOURCE (§D7, §D8)
@@ -2591,7 +2591,7 @@ struct StudioMacFader: View {
     @Binding var gain: Double
     @Binding var muted: Bool
 
-    private let marquee = Color(hex: "#FF5C35") ?? .orange
+    private let marquee = Brand.primary
 
     var body: some View {
         VStack(alignment: .leading, spacing: 5) {
@@ -2694,7 +2694,7 @@ private struct AudienceRow: View {
                 Text(line.author)
                     .font(.caption.weight(.semibold))
                     .foregroundStyle(line.isEvent
-                                     ? Color(red: 1.0, green: 0.361, blue: 0.208)
+                                     ? Brand.primary
                                      : .secondary)
                 Text(line.text)
                     .font(.callout)
