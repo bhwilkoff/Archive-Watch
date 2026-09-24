@@ -51,14 +51,18 @@ public enum StudioFilmStall {
             // exactly what a healthy log looks like.
             return "the film's player has no item — its window was probably rebuilt"
         }
+        // An item that FAILED is more gone than a paused one, and its rate is
+        // 0 too: asked after "paused", a film that could not be opened was
+        // reported as one the host had paused (Mac bench, 2026-09-24 — an
+        // unreadable file, status=failed, "the film is paused").
+        if let e = f.errorDescription {
+            return "the film stopped: \(e)"
+        }
         if f.rate == 0 {
             return "the film is paused"
         }
         if !f.likelyToKeepUp {
             return "the film is still buffering"
-        }
-        if let e = f.errorDescription {
-            return "the film stopped: \(e)"
         }
         return "the film is playing but no frames are reaching the program"
     }

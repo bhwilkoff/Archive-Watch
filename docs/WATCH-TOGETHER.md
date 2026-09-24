@@ -6532,3 +6532,38 @@ not there.
 
 Android is NOT covered: its Studio has no equivalent observation yet, and
 saying so is the rule rather than letting the table imply parity.
+
+## §9.dddddd — lip sync on the Mac, measured on the wire: right on some runs, 200-700 ms late on others, and now trimmed (2026-09-24)
+
+The first stimulus run on the macOS product path (AW_PLAY_URL + AW_STUDIO_MAC_SOUND,
+recorded by mediamtx, read by `tools/measure_av_sync.py`). Owner-approved as an
+audible run.
+
+**The stimulus had to change first.** The clip on disk put a flash and a beep
+every SECOND, and a broadcast offset near half a second made "nearest beep"
+ambiguous — it read +475 ms with a 976 ms spread, which is a pairing artifact,
+not a number. A 5-second-period clip (`flashbeep5.mp4`, generated with ffmpeg,
+self-measured at -8 ms) removes the ambiguity. The 1-second clip also first sat
+in the wrong app container, so the sandboxed app could not open it — which the
+Studio's own diagnostic reported as "the film is paused" (fixed: a failed item
+now outranks paused, §8.40).
+
+**The defect.** The film-audio offset is fixed when a show starts and differs
+run to run: -11 ms on one run, **+201 ms late** on the next, ~+500 ms on a third,
+held for the whole show. The in-app `[AWMACSYNC]` figure tracked the wire both
+times (ring 0.02-0.09 s -> offset ~0 -> wire -11 ms; ring ~0.30 s -> offset -0.21
+-> wire +201 ms). The ring's backlog is set by the start-up race between the tap
+and the mixer and then never drains, because both run in real time.
+
+**The fix.** `StudioEngine.keepFilmAudioOnPicture` (every 2 s from the frame pump,
+so it runs on macOS AND iOS; not tvOS's pull path, which keeps its cushion on
+purpose): when the ring makes the film's sound late by more than 120 ms on two
+consistent readings, the oldest backlog is discarded. After, five runs in a row
+settled at -11, -20, -6, -32 and +7 ms (bar: 40 ms). One of them would have been
+734 ms late for the whole show without it. A first threshold of 60 ms trimmed on
+an 80 ms reading while the wire was already in step and left the sound 50 ms
+early — the in-app figure is good to ~70 ms (§9.ggggg), so the threshold is 120.
+
+**Still unmeasured**: iOS on the wire (same engine code path, not yet run with the
+stimulus), and the first ~1-2 s of a show, which carries the start-up offset
+until the second reading.

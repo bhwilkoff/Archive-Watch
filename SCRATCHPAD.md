@@ -687,7 +687,7 @@ MICROPHONE, because on macOS the door's mute silences the film in the
 broadcast and the bench attached the real FaceTime camera and mic — the bench
 now attaches neither (v1.42.602, memory `mac_bench_captures_owner`).
 Conclusion that survives: no A/V drift over 20 min on macOS for a hardware
-audio clock; the film-tap path and LIP SYNC remain unmeasured.
+audio clock; the film-tap path and LIP SYNC remain unmeasured. (UPDATE 2026-09-24: measured and fixed on the Mac, WATCH-TOGETHER §9.dddddd — a start-up backlog made the sound 200-700 ms late on some runs; now trimmed, five runs within -32..+7 ms.)
 
 **Also**: Twitch hourly /validate, revoke on sign-out (Android too), revoked
 grants cleared; the chat reader's split-emoji bug; public-domain-by-age now

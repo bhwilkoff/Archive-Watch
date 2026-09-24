@@ -64,6 +64,19 @@ struct FilmStallTest {
             print("  ok   a rebuilt window outranks \"paused\", which is also true of it")
         }
 
+        // A FAILED item has a rate of 0 as well, so "paused" is true of it
+        // too — and naming it that sends the host to a pause button that
+        // cannot help.
+        let failed = StudioFilmStall.Facts(hasPlayer: true, hasItem: true, rate: 0,
+                                           likelyToKeepUp: false,
+                                           errorDescription: "The file couldn't be opened.")
+        if StudioFilmStall.reason(failed).contains("couldn't be opened") {
+            print("  ok   a failed item outranks \"paused\", which is also true of it")
+        } else {
+            print("  FAIL a film that could not be opened is reported as paused")
+            failures += 1
+        }
+
         // NEGATIVE CONTROL. Every check above asks `contains`, and a function
         // that returned one long sentence naming all six causes would pass all
         // of them. The reasons must be DISTINCT.

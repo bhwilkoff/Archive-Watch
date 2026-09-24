@@ -2126,6 +2126,7 @@ public actor StudioEngine {
                 lastFilmFrame = px
                 health.filmFramesPulled += 1
             }
+            if frameIndex % 60 == 0 { keepFilmAudioOnPicture(playhead: itemTime.seconds) }
         }
 
         health.cameraFramesReceived = cameraTap?.received ?? 0
@@ -2140,6 +2141,38 @@ public actor StudioEngine {
 
         let pts = CMTime(value: CMTimeValue(frameIndex), timescale: CMTimeScale(config.frameRate))
         encoder.encode(program, at: pts)
+    }
+
+    /// FILM SOUND ON FILM PICTURE (tap path: macOS and iOS). The picture is
+    /// whatever the player shows now; the sound is the OLDEST audio in the
+    /// ring. Whatever backlog the ring holds when a show starts, it keeps for
+    /// the whole show, because tap and mixer both run in real time — and that
+    /// backlog differed run to run: measured on the wire with a flash-and-beep
+    /// clip (Mac, 2026-09-24), ring 0.02-0.09 s -> sound -11 ms, ring ~0.30 s
+    /// -> sound +201 ms LATE for the whole show, with the in-app offset below
+    /// reading -0.21 s in step with the wire. So a backlog that makes the film
+    /// late is trimmed back to the picture. Only when it reads the same twice
+    /// (a seek's transient does not), only for the tap (tvOS's pull path keeps
+    /// its cushion on purpose, §9.tttt), and only late — early sound pads
+    /// itself with silence at the ring.
+    private var lateFilmAudioReading: Double?
+    private func keepFilmAudioOnPicture(playhead: Double) {
+        let film = mixer.film
+        guard playhead.isFinite, !film.isReceivingExternal,
+              let source = film.sourceFilmPosition else { lateFilmAudioReading = nil; return }
+        let offset = source - playhead - film.bufferedSeconds   // negative = sound late
+        // 120 ms, not less: this in-app reading is good to ~70 ms (§9.ggggg),
+        // and a trim on an 80 ms reading while the wire was already in step
+        // left the sound 50 ms EARLY for the rest of the show. Every real
+        // backlog seen was 182-734 ms.
+        guard offset < -0.12, offset > -1.5 else { lateFilmAudioReading = nil; return }
+        if let prev = lateFilmAudioReading, abs(prev - offset) < 0.03 {
+            film.trimBacklog(seconds: -offset - 0.02)
+            awdiag("AWAVTRIM film sound was %.0f ms late; trimmed the backlog", -offset * 1000)
+            lateFilmAudioReading = nil
+        } else {
+            lateFilmAudioReading = offset
+        }
     }
 
     private func publish(audio frame: Data, at pts: CMTime) async {

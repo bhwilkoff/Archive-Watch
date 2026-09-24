@@ -154,7 +154,7 @@ whole point:
 | **Android phone** | ⏳ not built | ✅ **shipped** — the Library app bar, not a sixth tab (the bottom bar carries five) |
 | **Android TV / Fire TV** | 🚫 same as tvOS | ✅ **shipped** — a Library section and a focus grid, no keyboard. Both flavours build, so Fire TV has it too |
 | **Web** | 🚫 cannot broadcast | ✅ **shipped** — `/together/#code-film` forwards into the hash router and the `<video>` follows the room |
-| **Roku** | 🚫 cannot broadcast | 🚧 **BUILT v1.42.615, not yet run on a Roku** — Library ▸ Options ▸ *Join a Watch Together room…*: a `StandardKeyboardDialog`, the room read once off the render thread, the film started at the room's position, `PlayerScreen.roomCode` following (ROKU-DESIGN §8a). No rate nudge (the `Video` node has no rate control): inside a second it is left, beyond it is seeked. The clock is a Double and a blip no longer ends the room (v1.42.614) |
+| **Roku** | 🚫 cannot broadcast | 🚧 **RUN on a Roku 2026-09-24 (v1.42.628), not yet in a store package** — the first device run re-seeked on almost every poll (a Float epoch, and no hold while a seek buffered); fixed, and now one join seek, one catch-up, then in step. Launch door `awRoom=<code>`. Library ▸ Options ▸ *Join a Watch Together room…*: a `StandardKeyboardDialog`, the room read once off the render thread, the film started at the room's position, `PlayerScreen.roomCode` following (ROKU-DESIGN §8a). No rate nudge (the `Video` node has no rate control): inside a second it is left, beyond it is seeked. The clock is a Double and a blip no longer ends the room (v1.42.614) |
 
 **Joining needs no camera and no microphone**, which is why a television —
 removed from the hosting table entirely on 2026-09-20 — is the best device to

@@ -120,6 +120,17 @@ final class AudioRing: @unchecked Sendable {
         lock.unlock()
     }
 
+    /// Drops the OLDEST `count` samples (rounded down to whole stereo frames),
+    /// the same way `maxBacklog` does — for a backlog that is making the film
+    /// late against its own picture.
+    func discardOldest(_ count: Int) {
+        lock.lock()
+        let n = min(max(0, count), available) & ~1
+        available -= n
+        framesDroppedForLatency += n
+        lock.unlock()
+    }
+
     /// Reads exactly `count` frames, padding the shortfall with silence.
     /// Returns how many were real.
     func read(into out: UnsafeMutablePointer<Float>, count: Int) -> Int {
@@ -466,6 +477,11 @@ final class FilmAudioTap: @unchecked Sendable {
         let v = CMTimeGetSeconds(t)
         guard v.isFinite else { return }
         lock.lock(); lastSourceSeconds = v; lock.unlock()
+    }
+
+    /// Discards `seconds` of the oldest waiting film audio.
+    func trimBacklog(seconds: Double) {
+        ring.discardOldest(Int(seconds * programRate) * 2)
     }
 
     /// Where in the film the tapped audio came from; nil before the first
