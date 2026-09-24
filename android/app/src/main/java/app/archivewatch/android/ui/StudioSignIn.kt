@@ -40,6 +40,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import app.archivewatch.android.studio.StudioPlatformAuth
+import app.archivewatch.android.ui.tv.isTelevision
 import app.archivewatch.android.studio.StudioTokenStore
 import app.archivewatch.android.ui.tv.qrBitmap
 import kotlinx.coroutines.CoroutineScope
@@ -113,7 +114,12 @@ fun StudioSignIn(
                     // The QR carries Twitch's verification_uri, which ALREADY
                     // embeds the user code (§9.11) — scanning reaches a
                     // pre-filled page rather than a form.
-                    val bmp: Bitmap? = remember(p.verificationUri) { qrBitmap(p.verificationUri, 320) }
+                    // A QR only helps a device that is NOT the phone doing the
+                    // scanning. The Studio is phone-only here (Decision 132),
+                    // so on a phone this used to say "scan the code ... on
+                    // your phone" to someone holding it.
+                    val onTv = remember { context.isTelevision() }
+                    val bmp: Bitmap? = if (onTv) remember(p.verificationUri) { qrBitmap(p.verificationUri, 320) } else null
                     if (bmp != null) {
                         Image(
                             bitmap = bmp.asImageBitmap(),
@@ -128,11 +134,24 @@ fun StudioSignIn(
                     Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
                         // Short host+path, never the full URI — the full string
                         // reads as noise directly above the code it contains.
-                        Text(
-                            "Scan the code, or open ${shortHost(p.verificationUri)} " +
-                                "on your phone and enter:",
-                            style = MaterialTheme.typography.bodyMedium,
-                        )
+                        if (onTv) {
+                            Text(
+                                "Scan the code, or open ${shortHost(p.verificationUri)} " +
+                                    "on your phone and enter:",
+                                style = MaterialTheme.typography.bodyMedium,
+                            )
+                        } else {
+                            // The URI already carries the code, so the page
+                            // opens with it filled in.
+                            Button(onClick = {
+                                runCatching {
+                                    context.startActivity(
+                                        android.content.Intent(android.content.Intent.ACTION_VIEW,
+                                            android.net.Uri.parse(p.verificationUri)))
+                                }
+                            }) { Text("Open ${shortHost(p.verificationUri)}") }
+                            Text("If it asks, enter:", style = MaterialTheme.typography.bodyMedium)
+                        }
                         Text(
                             p.userCode,
                             fontFamily = FontFamily.Monospace,

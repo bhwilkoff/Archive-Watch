@@ -271,7 +271,15 @@ struct StudioSignInRow: View {
                 .font(.footnote)
                 .foregroundStyle(.secondary)
             #else
-            Text("Open \(p.verificationURI) and enter this code:")
+            // A LINK, not a sentence to retype on the same device (launch
+            // audit, iOS). The URI already carries the code, so the page
+            // opens with it filled in; the code stays below for the page
+            // that asks anyway.
+            if let url = URL(string: p.verificationURI) {
+                Link("Open \(Self.shortHost(p.verificationURI))", destination: url)
+                    .font(.body.weight(.semibold))
+            }
+            Text("If it asks, enter:")
                 .font(.footnote)
                 .foregroundStyle(.secondary)
             #endif
