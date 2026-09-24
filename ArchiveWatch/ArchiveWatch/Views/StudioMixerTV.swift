@@ -145,8 +145,7 @@ struct StudioMixerTV: View {
                 .font(.system(size: 26))
                 .foregroundStyle(.white.opacity(0.7))
                 .frame(maxWidth: 1200, alignment: .leading)
-            Text("8 is the level the source already has. Above that is a boost; "
-                 + "auto-duck drops the film under your voice until you turn it off.")
+            Text("8 is the level the source already has.")
                 .font(.system(size: 26))
                 .foregroundStyle(.white.opacity(0.55))
                 .frame(maxWidth: 1200, alignment: .leading)

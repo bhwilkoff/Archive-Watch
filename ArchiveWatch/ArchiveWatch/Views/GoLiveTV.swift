@@ -409,9 +409,6 @@ struct GoLiveTV: View {
             Text("What it is called").font(.headline).foregroundStyle(.secondary)
             TextField("Broadcast title", text: $title)
                 .focused($focus, equals: .title)
-            Text("Pre-filled from this film's record. Leave it as it is, or "
-                 + "press to rename the show.")
-                .font(.caption).foregroundStyle(.secondary)
         }
     }
 
@@ -433,9 +430,6 @@ struct GoLiveTV: View {
                     .focused($focus, equals: .privacy(p.rawValue))
                 }
             }
-            Text("Unlisted means anyone with the link can watch and YouTube "
-                 + "does not list it. You can change this on YouTube afterwards.")
-                .font(.caption).foregroundStyle(.secondary)
         }
         .focusSection()
     }
@@ -487,8 +481,8 @@ struct GoLiveTV: View {
             // (Rule 8.8d), so the one thing a host needs to know is said here
             // rather than discovered on the stream.
             Text(cameraPaired
-                 ? "Your phone will appear in the corner of the broadcast. "
-                   + "Hold it on its side — the tile is landscape."
+                 // Not "in the corner": that is one layout of several.
+                 ? "Hold your phone on its side — the camera tile is landscape."
                  : "Optional — the film broadcasts fine on its own.")
                 .font(.caption).foregroundStyle(.secondary)
         }
@@ -567,12 +561,9 @@ struct GoLiveTV: View {
                 Button("Not now", role: .cancel) { onCancel() }
                     .focused($focus, equals: .cancel)
             }
+            // A REFUSAL, kept: why Go live is not available yet.
             if !signedIn {
-                Text("Sign in above to go live. Nothing is broadcast until you "
-                     + "press Go live.")
-                    .font(.caption).foregroundStyle(.secondary)
-            } else if blockedReason == nil {
-                Text("Nothing is broadcast until you press Go live.")
+                Text("Sign in above to go live.")
                     .font(.caption).foregroundStyle(.secondary)
             }
         }

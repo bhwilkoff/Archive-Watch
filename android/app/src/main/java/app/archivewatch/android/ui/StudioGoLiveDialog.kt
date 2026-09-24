@@ -87,7 +87,7 @@ fun StudioGoLiveDialog(
                 )
                 if (!signedIn) {
                     Text(
-                        "Sign in above to go live. Nothing is broadcast until you press Go live.",
+                        "Sign in above to go live.",
                         style = MaterialTheme.typography.bodySmall,
                     )
                 }

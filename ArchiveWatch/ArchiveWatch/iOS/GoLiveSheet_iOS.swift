@@ -202,8 +202,6 @@ struct GoLiveSheet: View {
             }
         } header: {
             Text("What you are streaming")
-        } footer: {
-            Text("Your audience sees this title, year and director on screen, from the catalog's own checked record.")
         }
     }
 
@@ -283,8 +281,6 @@ struct GoLiveSheet: View {
             }
         } header: {
             Text("How it looks")
-        } footer: {
-            Text("You can change the layout, the faders and the cards at any time while you are live.")
         }
     }
 

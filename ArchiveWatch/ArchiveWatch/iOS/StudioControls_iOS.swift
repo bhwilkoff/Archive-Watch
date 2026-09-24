@@ -351,8 +351,6 @@ struct StudioControlsSheet: View {
                     }
                 } header: {
                     Text("On screen")
-                } footer: {
-                    Text("A card covers the film completely — your audience sees only the card.")
                 }
 
                 Section {
