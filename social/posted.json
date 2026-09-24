@@ -1093,6 +1093,18 @@
    "kind": "short-film",
    "mediaId": null,
    "reviewer": null
+  },
+  {
+   "at": "2026-09-24T01:16:05.884535+00:00",
+   "id": "CreatureFromTheHauntedSea",
+   "title": "Creature from the Haunted Sea",
+   "slot": "now-showing",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mwa3gea24i23",
+   "format": "video",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": "Verified1"
   }
  ]
 }
