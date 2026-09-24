@@ -37,7 +37,7 @@ cases = [
      {"IG_USER_ID": "1", "IG_ACCESS_TOKEN": "t"}, None, VID, ("DRY-RUN (reel)", None)),
     ("neither -> says why, does not crash",
      {"IG_USER_ID": "1", "IG_ACCESS_TOKEN": "t"}, None, None,
-     (None, "no public media URL (set SOCIAL_MEDIA_BASE_URL)")),
+     (None, sp.MEDIA_FAIL_REASON)),
 ]
 
 # Threads follows the SAME rule, so the two Meta surfaces cannot diverge by
@@ -54,7 +54,7 @@ thread_cases = [
     ("threads: teaser -> video", TH, CARD, VID, ("DRY-RUN (video)", None)),
     ("threads: no teaser -> image", TH, CARD, None, ("DRY-RUN (image)", None)),
     ("threads: neither -> says why", TH, None, None,
-     (None, "no public media URL (set SOCIAL_MEDIA_BASE_URL)")),
+     (None, sp.MEDIA_FAIL_REASON)),
 ]
 
 fails = 0
