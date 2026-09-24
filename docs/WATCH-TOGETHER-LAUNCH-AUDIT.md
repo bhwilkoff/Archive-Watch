@@ -42,7 +42,7 @@ Items marked *(suspected)* were inferred from code and need a run before a fix.
 - **Sync**: correction policy differs — "paused" means buffering on Swift/Android but not web; only Swift seeks with `seekLead`; macOS host publishes buffering as a pause to every guest.
 - **Worker**: validate `filmID`/`rate`/`position`; `/together` preflights answered by the global handler (web-TV presence fails); cap presence rows; `Access-Control-Max-Age`.
 - **Twitch**: hourly `/validate` during a show; drop unused `user:read:chat`; IRC reader drops split UTF-8 chunks and double-reconnects.
-- **Recorder**: non-fragmented MP4 loses everything on a crash; dropping P-frames corrupts until the next keyframe.
+- **Recorder**: ~~non-fragmented MP4 loses everything on a crash; dropping P-frames corrupts~~ FIXED v1.42.568 — 10-s fragments (crash at ~35 s left a 30.0-s playable file; control without fragments: "moov atom not found"); a dropped frame now drops until the next keyframe.
 - **Other**: macOS mic usage string mentions only Creation Studio (5.1.1 risk); call-audio / window capture can carry copyrighted audio past the rights gate; `selfDeclaredMadeForKids` hard-coded; revoked token still shows "Signed in"; `StudioRights` cutoff `<= 1929` should follow the year (1930 entered the US public domain 2026-01-01 — safe, just stale).
 
 ## C. Roku rooms (not built)

@@ -24,6 +24,10 @@ public actor StudioRecorder {
     private var started = false
     private var sessionStart: CMTime?
     public private(set) var framesWritten = 0
+    /// Frames not written because the writer was behind, counted rather than
+    /// hidden; and whether the next frame written must be a keyframe.
+    public private(set) var framesDropped = 0
+    private var waitingForKeyframe = false
     private var reportedFailure = false
     private func report(_ what: String) {
         guard !reportedFailure else { return }
@@ -37,6 +41,11 @@ public actor StudioRecorder {
         self.url = url
         try? FileManager.default.removeItem(at: url)
         writer = try AVAssetWriter(outputURL: url, fileType: .mp4)
+        // A CRASH MUST NOT TAKE THE WHOLE SHOW WITH IT (launch audit B). A
+        // plain MP4 writes its index only when it is finished, so a crash two
+        // hours in left a file nothing could open. Fragments written every
+        // ten seconds make everything up to the last one playable.
+        writer.movieFragmentInterval = CMTime(seconds: 10, preferredTimescale: 600)
 
         var vf: CMVideoFormatDescription?
         let atoms: [String: Any] = ["avcC": config.avcC as NSData]
@@ -87,7 +96,19 @@ public actor StudioRecorder {
             sessionStart = frame.presentationTime
             started = true
         }
-        guard videoInput.isReadyForMoreMediaData else { return }
+        // A DROPPED FRAME DROPS THE REST OF ITS GROUP (audit B). Skipping one
+        // P-frame and writing the next makes every frame after it decode from
+        // a reference that is not there — corruption until the next keyframe.
+        // So once the writer falls behind, nothing is written until a keyframe.
+        if waitingForKeyframe {
+            guard frame.isKeyframe else { framesDropped += 1; return }
+            waitingForKeyframe = false
+        }
+        guard videoInput.isReadyForMoreMediaData else {
+            framesDropped += 1
+            waitingForKeyframe = true
+            return
+        }
         guard let sb = Self.sample(frame.avccData, format: videoFormat,
                                    pts: frame.presentationTime, dts: frame.decodeTime,
                                    keyframe: frame.isKeyframe) else { report("video sample build"); return }
