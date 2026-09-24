@@ -478,10 +478,29 @@ sub moreLike(spec as Object)
         if not awSkip then hits.Push(r)
     end for
     root = CreateObject("roSGNode", "ContentNode")
+    ' Decision 139: the pipeline's ranking (shared series, director, cast,
+    ' writer, keywords) leads, in order; the sample below fills the rest.
+    ' Only rows this index carries with designed art, like the sample.
+    ranked = {}
+    if spec.related <> invalid and GetInterface(spec.related, "ifArray") <> invalid
+        if m.rowByID = invalid
+            m.rowByID = {}
+            for each r in m.items
+                m.rowByID[fmt(r[0])] = r
+            end for
+        end if
+        for each rid in spec.related
+            r = m.rowByID[fmt(rid)]
+            if r <> invalid and r[5] = 1 and root.GetChildCount() < 12
+                appendRow(root, r)
+                ranked[fmt(rid)] = true
+            end if
+        end for
+    end if
     ' Sampled, not sliced: taking the first 12 of a type would show the same
     ' twelve films on every 1950s drama in the catalog.
     n = hits.Count()
-    take = 12
+    take = 12 - root.GetChildCount()
     if n < take then take = n
     used = {}
     got = 0
@@ -491,11 +510,13 @@ sub moreLike(spec as Object)
         i = Rnd(n) - 1
         if used[fmt(i)] = invalid
             used[fmt(i)] = true
-            appendRow(root, hits[i])
-            got = got + 1
+            if ranked[fmt(hits[i][0])] = invalid
+                appendRow(root, hits[i])
+                got = got + 1
+            end if
         end if
     end while
-    print "AWSVC moreLike type='"; want; "' pool="; n; " shown="; root.GetChildCount()
+    print "AWSVC moreLike type='"; want; "' ranked="; ranked.Count(); " pool="; n; " shown="; root.GetChildCount()
     m.top.total = n
     m.top.results = root
 end sub

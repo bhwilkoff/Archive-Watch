@@ -80,6 +80,8 @@ sub run()
         if r[9].ct <> invalid then d.canonicalTitle = r[9].ct
         if r[9].ss <> invalid then d.synopsisSource = r[9].ss
     end if
+    ' Decision 139: More Like This as the pipeline ranked it (archiveIDs).
+    if r.Count() > 10 and r[10] <> invalid then d.related = r[10]
     print "AWROKU detail ok "; aid; " url="; (d.url <> invalid)
     m.top.detail = d
     m.top.status = "ready"

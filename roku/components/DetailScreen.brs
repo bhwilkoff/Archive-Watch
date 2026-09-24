@@ -820,7 +820,7 @@ sub onDetail()
     end if
     ct = ""
     if m.top.item <> invalid and m.top.item.awType <> invalid then ct = m.top.item.awType
-    m.top.wantLike = { id: m.archiveID, contentType: ct, year: yr }
+    m.top.wantLike = { id: m.archiveID, contentType: ct, year: yr, related: d.related }
 
     ' Captions ride in the shard as [[lang, label, url], ...]. Only ~17% of the
     ' catalog has any, so the absence of a track is the normal case and must
