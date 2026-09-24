@@ -221,6 +221,7 @@ into every session and the index alone carries every title.)
 - 136 — YouTube's quota belongs to the APP, so every read is spent on behalf of every host: slim sign-in, a quota extension, and a stream key that needs no API at all
 - 137 — "Public domain by age" follows the calendar, never a literal year
 - 138 — You are the show: going live needs the host, and the Studio captures only what a call runs in
+- 139 — More Like This is ranked once, in the pipeline, by the people and series films share, and it says why
 
 ---
 
@@ -883,4 +884,40 @@ without capture, because they test transport, not a show.
 a look-alike control). The guest-voice code (`StudioVoice*`, §8.18-20) was
 deleted the same day at the owner's word — Decision 131 settled voice the
 other way, and git keeps it.
+
+## 139 — More Like This is ranked once, in the pipeline, by the people and series films share, and it says why
+*Date: 2026-09-24*
+
+`build_sqlite` now writes `item_related` (one row per film: up to ten related
+archiveIDs and, for each, the strongest shared link — `franchise`, `director`,
+`cast`, `writer` or `keyword`), computed by `tools/build_related.py` over the
+rows that actually reached `items`. Clients read it and fall back to their
+existing type + era query when a film has no row.
+
+**Why**: every platform ranked "related" its own way — contentType, then ±10
+years, then popularity, with tvOS alone re-scoring by director and collection
+and the web using type and year only — so the same film had a different shelf
+on every screen, and none of them used what the catalog knows best about how
+films connect. 57% of visible titles carry TMDb cast with person ids and 9,807
+people appear in two or more films; 217 franchises span 927 films (the
+Rathbone Holmes, Why We Fight, Our Gang). Measured on the real catalog, the
+pipeline ranking gives Metropolis → M, Dr. Mabuse, Woman in the Moon, Spies;
+Nosferatu → Faust, Sunrise, The Last Laugh and Dracula (via Bram Stoker);
+Detour → the rest of Edgar G. Ulmer. The reason exists because a shelf that
+can say *why* two films belong together invites the viewer to follow a
+thread — a director, a series, a writer — rather than scroll a feed.
+
+**How to apply**: tune weights in `build_related.py`, never per client, and run
+`tools/test_related.py` (a person must outrank a pile of rare keywords; a film
+never lists another copy of itself; its control lifts the keyword cap and must
+fail). Compute over post-merge, post-rights rows only: on `catalog.json`
+directly the first draft filled Nosferatu's shelf with five Nosferatus.
+
+**Consequences**: a row per LINK with its own index cost 15.5 MB raw / 5 MB
+compressed (+16% on every download); one TAB-joined row per film costs 5.9 MB
+raw / 1.9 MB compressed (+6%), accepted for 12,351 films with shelves. The web
+and Roku read no SQLite and need the same data in their own channel (detail
+shards / index) — not yet built. Whether the reason is SHOWN is a per-platform
+design-doc question under the owner's essential-information rule, not settled
+here.
 

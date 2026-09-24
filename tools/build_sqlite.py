@@ -959,6 +959,7 @@ def create_schema(db):
     CREATE TABLE item_keywords (archiveID TEXT, keyword TEXT);
     CREATE TABLE item_studios (archiveID TEXT, studio TEXT);
     CREATE TABLE item_shelves (shelfID TEXT, archiveID TEXT, position INTEGER);
+    CREATE TABLE item_related (archiveID TEXT PRIMARY KEY, related TEXT, reasons TEXT) WITHOUT ROWID;
     CREATE TABLE series (
       seriesID TEXT PRIMARY KEY, title TEXT, yearStart INTEGER, yearEnd INTEGER,
       overview TEXT, posterURL TEXT, backdropURL TEXT, networks_json TEXT,
@@ -1325,6 +1326,34 @@ def populate_series(db, materialize_episode_items=True):
     return len(s_rows), len(e_rows)
 
 
+def populate_related(db, items):
+    """More Like This, ONE ranking for every platform (tools/build_related.py).
+
+    Computed over the rows that actually reached `items` — after the rights
+    skip and the duplicate merge — so a shelf never offers a hidden film or a
+    second copy. Mature items are left out on both sides: a related shelf is
+    a recommendation, and Decision 105's setting gates display, not advice.
+    ONE ROW PER FILM: `related` is the ranked archiveIDs joined by TAB, and
+    `reasons` the matching "<kind>:<label>" (franchise / director / cast /
+    writer / keyword), also TAB-joined. A row per LINK with its own index cost
+    15.5 MB raw / 5 MB compressed (+16% on every download, 2026-09-24).
+    Clients may say the reason or ignore it. Additive: older clients never
+    query the table."""
+    try:
+        from build_related import compute_related
+    except Exception as e:  # noqa: BLE001
+        print(f"[related] skipped: {e}", flush=True)
+        return 0
+    live = {r[0] for r in db.execute("SELECT archiveID FROM items WHERE isAdult = 0")}
+    rel = compute_related(items, eligible=lambda it: it.get("archiveID") in live)
+    rows = [(a, "\t".join(r for r, _s, _w in lst), "\t".join(w for _r, _s, w in lst))
+            for a, lst in rel.items()]
+    db.executemany("INSERT INTO item_related VALUES (?,?,?)", rows)
+    links = sum(len(lst) for lst in rel.values())
+    print(f"[related] {len(rel):,} items carry {links:,} related films", flush=True)
+    return links
+
+
 def create_indexes(db):
     db.executescript("""
     CREATE INDEX idx_items_type     ON items(contentType);
@@ -1422,6 +1451,7 @@ def build_db_obj(cat, out_db, rotate_seed="0", materialize_episodes=True,
         print(f"[dedup] wrote {aliases_out} ({len(web_rows)} pairs) for the web viewer"
               f" ({len(rows) - len(web_rows)} mature survivors withheld)")
     n_series, n_eps = populate_series(db, materialize_episode_items=materialize_episodes)
+    populate_related(db, deduped)
     create_indexes(db)
     db.execute("INSERT OR REPLACE INTO meta VALUES ('schemaVersion', ?)", (str(SCHEMA_VERSION),))
     db.execute("INSERT OR REPLACE INTO meta VALUES ('generatedAt', ?)", (cat.get("generatedAt", ""),))

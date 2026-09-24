@@ -110,6 +110,7 @@ CREATE TABLE item_collections (archiveID TEXT, collection TEXT);
 CREATE TABLE item_keywords (archiveID TEXT, keyword TEXT);   -- Decision 046: TMDb keyword facets
 CREATE TABLE item_studios (archiveID TEXT, studio TEXT);     -- Decision 046: production-company facets
 CREATE TABLE item_shelves (shelfID TEXT, archiveID TEXT, position INTEGER);
+CREATE TABLE item_related (archiveID TEXT PRIMARY KEY, related TEXT, reasons TEXT) WITHOUT ROWID;
 CREATE TABLE series (
   seriesID TEXT PRIMARY KEY, title TEXT, yearStart INTEGER, yearEnd INTEGER,
   overview TEXT, posterURL TEXT, backdropURL TEXT, networks_json TEXT,
@@ -153,6 +154,14 @@ CREATE INDEX idx_episodes_series ON episodes(seriesID, position);
 - **`item_collections`** — ONLY collections registered in
   `collection_metadata.json` (26 curated ids), not all ~48 noisy Archive
   memberships per item.
+- **`item_related`** (2026-09-24, additive) — More Like This, ranked ONCE in
+  the pipeline (`tools/build_related.py`, called by `populate_related`). One
+  row per film: `related` is up to 10 archiveIDs joined by TAB, best first;
+  `reasons` is the matching TAB-joined `<kind>:<label>`, kind one of
+  `franchise`, `director`, `cast`, `writer`, `keyword` — the strongest link.
+  Every id is a live, non-adult row of `items`; never another copy of the
+  same film. Absent row = no meaningful connection: fall back to the client's
+  type + era query. `tools/test_related.py` pins the ranking.
 - **`item_shelves`** — Home-shelf membership: the item's stored `shelves`
   array UNION any `featured.json` dynamic shelf whose `collection:X` query
   token matches one of the item's collections. `position` is the
