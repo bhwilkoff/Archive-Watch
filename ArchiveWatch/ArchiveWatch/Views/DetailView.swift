@@ -1477,6 +1477,9 @@ struct PlayerScreen: View {
     /// from `studioFilm`, which means the Studio is RUNNING: between them sits
     /// a host who has not pressed anything yet.
     @State private var studioSetup: Catalog.Item?
+    /// Whether the film was PLAYING when Go Live paused it, so leaving that
+    /// screen without going live resumes only a film that was running.
+    @State private var playingBeforeSetup = false
     /// What that confirmation returned. Read once by `runStudio` to resolve a
     /// destination; a nil request encodes to nowhere, which is what the
     /// `AW_STUDIO_TV` diagnostic door wants and what a host must never get.
@@ -1722,7 +1725,16 @@ struct PlayerScreen: View {
         // Rule 8.8a's focus-driven confirmation. Full screen rather than a
         // sheet: tvOS has no partial presentation that keeps focus sane, and
         // the film is paused behind it anyway.
-        .fullScreenCover(item: $studioSetup) { film in
+        // MENU ON THE REMOTE dismisses a full-screen cover without calling
+        // `onCancel`, and the film stayed paused behind it (launch audit,
+        // tvOS). Whatever closed it, a film that was playing and did not go
+        // live plays again.
+        .fullScreenCover(item: $studioSetup, onDismiss: {
+            if studioFilm == nil, playingBeforeSetup, player?.timeControlStatus == .paused {
+                player?.play()
+            }
+            playingBeforeSetup = false
+        }) { film in
             GoLiveTV(film: film) { request in
                 studioRequest = request
                 studioSetup = nil
@@ -2115,6 +2127,7 @@ struct PlayerScreen: View {
             // The genuine bug was the diagnostic's race, fixed below: the door
             // paused before the stream was ready, so the readiness observer's
             // own `play()` landed afterwards.
+            playingBeforeSetup = player?.timeControlStatus != .paused
             player?.pause()
             studioSetup = film
         }
