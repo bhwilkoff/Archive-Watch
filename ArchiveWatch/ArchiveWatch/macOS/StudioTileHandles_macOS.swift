@@ -56,7 +56,7 @@ struct StudioTileHandles: View {
     }
 
     private static let handle: CGFloat = 9
-    private let marquee = Color(hex: "#FF5C35") ?? .orange
+    private let marquee = Brand.primary
 
     var body: some View {
         GeometryReader { geo in
@@ -101,6 +101,49 @@ struct StudioTileHandles: View {
             }
             .frame(width: geo.size.width, height: geo.size.height, alignment: .topLeading)
         }
+        // THE KEYBOARD, as OBS offers it (launch audit, macOS): arrows move
+        // the tile by 1% of the frame, Shift by 10%; Option-arrows reshape it
+        // (left/right narrow and widen, down/up shorten and lengthen). The
+        // same clamp as a drag, so a key can never push the tile out of the
+        // frame or shrink it to nothing — and it is the only way to frame
+        // the camera without a pointer.
+        .focusable()
+        .onKeyPress(keys: [.leftArrow, .rightArrow, .upArrow, .downArrow]) { press in
+            let step: CGFloat = press.modifiers.contains(.shift) ? 0.10 : 0.01
+            var dx: CGFloat = 0, dy: CGFloat = 0
+            switch press.key {
+            case .leftArrow: dx = -step
+            case .rightArrow: dx = step
+            case .upArrow: dy = step      // origin bottom-left: up is +y
+            case .downArrow: dy = -step
+            default: return .ignored
+            }
+            var f = controls.activeFraming
+            f.tile = Self.nudged(f.tile ?? tile, dx: dx, dy: dy,
+                                 reshape: press.modifiers.contains(.option))
+            controls.activeFraming = f
+            return .handled
+        }
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel("Camera tile")
+        .accessibilityHint("Arrow keys move it; Option with the arrow keys resizes it.")
+    }
+
+    /// One keyboard step, clamped exactly as a drag is: never outside the
+    /// frame, never below `minimumTileFraction`.
+    static func nudged(_ r: CGRect, dx: CGFloat, dy: CGFloat, reshape: Bool) -> CGRect {
+        let minSide = StudioCameraFraming.minimumTileFraction
+        var out = r
+        if reshape {
+            out.size.width = min(1, max(minSide, r.width + dx))
+            out.size.height = min(1, max(minSide, r.height + dy))
+        } else {
+            out.origin.x += dx
+            out.origin.y += dy
+        }
+        out.origin.x = min(max(0, out.origin.x), 1 - out.width)
+        out.origin.y = min(max(0, out.origin.y), 1 - out.height)
+        return out
     }
 
     @ViewBuilder

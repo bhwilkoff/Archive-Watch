@@ -1608,6 +1608,13 @@ look wrong until you know them:
   gesture. A local `NSEvent` monitor sees the event first and can still ask
   "is the pointer over me" by converting its own bounds to the screen.
 
+**Keyboard (amendment, 2026-09-24).** The tile is also focusable: arrows move
+it 1% of the frame, Shift-arrows 10%, Option-arrows reshape it (left/right
+narrow and widen, down/up shorten and lengthen), clamped exactly as a drag.
+OBS offers arrow-key nudging of a selected source, and without it the camera
+could not be framed without a pointer at all. VoiceOver reads it as "Camera
+tile" with the keys as its hint.
+
 ## §D15 — The lower third's lines are the host's to choose
 
 Owner: *"you should be able to choose the information that shows up on the
