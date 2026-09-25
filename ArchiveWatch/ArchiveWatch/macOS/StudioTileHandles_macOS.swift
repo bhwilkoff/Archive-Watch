@@ -378,3 +378,37 @@ private struct ScrollZoom: ViewModifier {
     }
 }
 #endif
+
+
+/// §D24 — the tile that is NOT being framed, as a thing to click. A thin
+/// dashed outline, so a host can see there is a second tile to frame and
+/// select it where it is, rather than finding a picker in another column.
+struct StudioTileSelector: View {
+    let tile: CGRect
+    let programAspect: CGFloat
+    let help: String
+    let select: () -> Void
+    @State private var hovering = false
+
+    var body: some View {
+        GeometryReader { geo in
+            let drawn = StudioTileHandles.aspectFit(programAspect, in: geo.size)
+            let inset = CGPoint(x: (geo.size.width - drawn.width) / 2,
+                                y: (geo.size.height - drawn.height) / 2)
+            let box = StudioTileHandles.viewRect(tile, drawn: drawn, inset: inset)
+            Rectangle()
+                .strokeBorder(Color.white.opacity(hovering ? 0.9 : 0.45),
+                              style: StrokeStyle(lineWidth: hovering ? 1.5 : 1, dash: [5, 4]))
+                .contentShape(Rectangle())
+                .frame(width: box.width, height: box.height)
+                .onHover { hovering = $0 }
+                .onTapGesture { select() }
+                .help(help)
+                .accessibilityElement()
+                .accessibilityLabel(help)
+                .accessibilityAddTraits(.isButton)
+                .offset(x: box.minX, y: box.minY)
+                .frame(width: geo.size.width, height: geo.size.height, alignment: .topLeading)
+        }
+    }
+}

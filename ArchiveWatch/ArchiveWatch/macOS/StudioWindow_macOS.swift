@@ -812,6 +812,18 @@ struct StudioWindowView: View {
                 // never on a re-derivation of the layout in this view — the
                 // "two descriptions of one picture" Decision 133 keeps
                 // finding.
+                // §D24 — the OTHER tile is clickable where it is, so the
+                // host frames their guests by clicking the guests.
+                if studio.isLive, controls.framingTarget == .camera,
+                   let tile = studio.health.guestTile {
+                    StudioTileSelector(tile: tile, programAspect: StudioOutputSettings.programAspect,
+                                       help: "Frame your guests") { controls.framingTarget = .guests }
+                }
+                if studio.isLive, controls.framingTarget == .guests,
+                   controls.layout.cameraIsTile, let tile = studio.health.cameraTile {
+                    StudioTileSelector(tile: tile, programAspect: StudioOutputSettings.programAspect,
+                                       help: "Frame yourself") { controls.framingTarget = .camera }
+                }
                 if studio.isLive, controls.framingTarget == .camera,
                    controls.layout.cameraIsTile,
                    let tile = studio.health.cameraTile {

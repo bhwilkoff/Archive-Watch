@@ -2199,6 +2199,17 @@ preview needs a way to say WHICH tile is being framed — a picker above the
 framing controls, not two sets of handles at once, which would make a drag
 ambiguous wherever the tiles overlap.
 
+**Choosing the tile is done ON the picture (2026-09-25).** The owner, with a
+call on screen: *"I thought we added the ability to crop and move the Call
+window in the same way that we have it working for the webcam. I don't see that
+ability."* It was built and unreachable in practice: the handles always sat on
+the host's tile, and the only way to move them was a segmented control in
+another column that appears only once a call is chosen. So the tile that is NOT
+being framed carries a thin dashed outline in the STREAM preview, and clicking
+it makes it the one being framed; its handles appear at once. Still one set of
+handles at a time — the rule above — and the segmented control stays as the
+keyboard route.
+
 **And the placement's own rect stays the anchor.** §D23 derives the guest tile
 from the camera's so the two read as one column. Framing displaces the host's
 tile from that anchor today and must do the same for the guest's: the
