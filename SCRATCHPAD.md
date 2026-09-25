@@ -62,13 +62,16 @@ because the loop was stopped mid-stride for a Claude update.
 
 0-DECIDED-2026-09-25. **SIX OWNER CALLS, ANSWERED — IN PROGRESS.** Asked as a
    series; the answers, verbatim where the owner wrote their own:
-   1. Modern CC-only titles: *"If you have proof of genuine creator CC, then
+   1. ~~Modern CC-only titles: *"If you have proof of genuine creator CC, then
       you can release them. Otherwise, it is clear that many of these have no
       business being in an app built to watch the public domain. Unless we
-      have evidence for CC or PD, an uploader's word is not enough."*
+      have evidence for CC or PD, an uploader's word is not enough."*~~
+      **LIVE 2026-09-25** (Decision 140): 1,387 hidden as
+      `uploader_licence_only`; 7 kept on Wikidata evidence (Star Wreck, Fossils…).
    2. Home's community rows take the HERO's evidence bar (Home only).
    3. "New to Archive Watch" Home row: yes, all platforms.
    4. Director rows ranked by popularity, computed in the pipeline.
+      Committed 4392f7279 (`director_rank`); live after the next publish-db.
    5. Television typed as film (Roots, The World at War...): retype as TV,
       decide with the TV rights question.
    6. The TV rights question (section below): apply the film audit to TV,
