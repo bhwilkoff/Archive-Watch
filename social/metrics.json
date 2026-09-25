@@ -1330,6 +1330,38 @@
     "reposts": 0,
     "replies": 0
    }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mvtiwm6tea25",
+   "platform": "bluesky",
+   "id": "TheMonster1903_72",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-09-19T01:13:09.321955+00:00",
+   "sampled": "2026-09-25T01:13:24.544595+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mwa3gea24i23",
+   "platform": "bluesky",
+   "id": "CreatureFromTheHauntedSea",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-09-24T01:16:05.884535+00:00",
+   "sampled": "2026-09-25T01:13:24.544595+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
   }
  ]
 }
