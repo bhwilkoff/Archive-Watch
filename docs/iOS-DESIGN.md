@@ -416,8 +416,11 @@ the **custom destination** used for diagnostics.
 
 8.10 **Cast hands the film to a Google Cast TV and the phone becomes its
 remote** (Reddit r/classicfilms, 2026-09-13: *"Would it be possible to use
-this app to stream from iPhone to a Chromecast?"*). It is a Detail action
-beside Watch Together (the row scrolls on a phone, and its end is unseen), opening a §3.6 sheet at the medium detent — NOT a button over
+this app to stream from iPhone to a Chromecast?"*). It is an item in Detail's
+"Share and more" menu ("Cast to a TV…", which reads "Casting to <TV>…" while
+this film is on one) — not a row button: most iPhone owners reach a TV by
+AirPlay, which the player already offers, so Cast is there to be found, not
+promoted (owner, 2026-09-25). It opens a §3.6 sheet at the medium detent — NOT a button over
 the player: `AVPlayerViewController` has no custom-transport API on iOS, an
 overlay cannot fade with its controls, and AirPlay already owns the player's
 route button. Resume makes the two equivalent: close the player, press Cast,

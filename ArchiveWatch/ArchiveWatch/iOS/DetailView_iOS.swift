@@ -117,19 +117,6 @@ struct DetailView: View {
                     }
                     .buttonStyle(.bordered)
 
-                    // Cast to a TV (iOS-DESIGN §8.10), beside Watch Together: both
-                    // are ways to watch this film, and the row scrolls, so
-                    // what sits at its end is not seen on a phone. Tinted while this film
-                    // is on a television, so the way back to its remote shows.
-                    if item.videoURLParsed != nil {
-                        Button { casting = true } label: {
-                            Image(systemName: "tv")
-                                .accessibilityLabel("Cast to a TV")
-                        }
-                        .buttonStyle(.bordered)
-                        .tint(CastController.shared.archiveID == item.archiveID
-                              && CastController.shared.phase == .casting ? Brand.accent : nil)
-                    }
 
                     // Watched is a badge on tiles; this is where the viewer
                     // corrects it (tvOS parity — a film abandoned near the
@@ -242,6 +229,17 @@ struct DetailView: View {
                         }
                         Link(destination: archiveOrgURL) {
                             Label("View on archive.org", systemImage: "globe")
+                        }
+                        // Cast to a TV (iOS-DESIGN §8.10). A menu item, not a
+                        // row button: most iPhone owners reach a TV by
+                        // AirPlay, and the player already offers that.
+                        if item.videoURLParsed != nil {
+                            Button { casting = true } label: {
+                                let cast = CastController.shared
+                                Label(cast.archiveID == item.archiveID && cast.phase == .casting
+                                      ? "Casting to \(cast.deviceName)…" : "Cast to a TV…",
+                                      systemImage: "tv")
+                            }
                         }
                     } label: {
                         Image(systemName: "square.and.arrow.up")
