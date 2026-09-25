@@ -275,7 +275,7 @@ def build_page(*, url, app_arg, title_tag, og_title, desc, image, wide, og_type,
 
 
 def page_body(*, h1, aka, meta, tagline, genres, viewer, source_url, poster,
-              synopsis, synopsis_src, facts, cast, reviews, related) -> str:
+              synopsis, synopsis_src, facts, cast, reviews, related, episodes=()) -> str:
     out = ['<section class="hero">']
     if poster:
         out.append(f'<img src="{e(poster)}" alt="Poster for {e(h1)}" width="220" '
@@ -313,6 +313,16 @@ def page_body(*, h1, aka, meta, tagline, genres, viewer, source_url, poster,
             rl = f' <span class="m">{html.escape(role)}</span>' if role else ""
             li.append(f"<li>{pic}<span>{html.escape(name)}{rl}</span></li>")
         out.append('<h2>Cast &amp; crew</h2><ul class="cast">' + "".join(li) + "</ul>")
+    if episodes:
+        # A series page lists what can be watched; each episode opens in the
+        # viewer, and its title is text a search can find.
+        li = []
+        for season, number, etitle, eyear, eurl in episodes:
+            tag = (f"S{season}E{number} · " if season and number else
+                   f"Episode {number} · " if number else "")
+            yr = f' <span class="m">{eyear}</span>' if eyear else ""
+            li.append(f'<li><a href="{e(eurl)}">{html.escape(tag + etitle)}</a>{yr}</li>')
+        out.append(f"<h2>Episodes</h2><ul class=\"list\">{''.join(li)}</ul>")
     if reviews:
         out.append("<h2>Reviews on the Internet Archive</h2>")
         for stars, rtitle, rbody, who, when in reviews:
@@ -444,6 +454,7 @@ def main() -> int:
     ap.add_argument("--out", default="_site")
     ap.add_argument("--index", default=str(REPO / "catalog-index.json"))
     ap.add_argument("--details", default=str(REPO / "details"))
+    ap.add_argument("--episodes", default=str(REPO / "episodes-index.json"))
     ap.add_argument("--limit", type=int, default=0, help="0 = every item")
     args = ap.parse_args()
 
@@ -464,6 +475,21 @@ def main() -> int:
                 details.update(json.loads(sh.read_text(encoding="utf-8")))
             except Exception:  # noqa: BLE001
                 continue
+
+    episodes_by_slug: dict = {}
+    epath = Path(args.episodes)
+    if epath.exists():
+        ei = json.loads(epath.read_text(encoding="utf-8"))
+        f = {name: n for n, name in enumerate(ei.get("fields") or [])}
+        for ep in ei.get("episodes") or []:
+            aid_e, slug_e = ep[f["archiveID"]], ep[f["slug"]]
+            if not aid_e or not slug_e:
+                continue
+            episodes_by_slug.setdefault(slug_e, []).append((
+                ep[f["season"]], ep[f["episode"]], strip_html(str(ep[f["title"]] or aid_e)),
+                ep[f["year"]], f"{SITE}/#/item/{aid_e}"))
+        for v in episodes_by_slug.values():
+            v.sort(key=lambda t: (t[0] is None, t[0] or 0, t[1] is None, t[1] or 0, t[2]))
 
     out = Path(args.out)
     out.mkdir(parents=True, exist_ok=True)
@@ -583,7 +609,8 @@ def main() -> int:
             tagline=strip_html(x.get("tg") or ""), genres=genres, viewer=viewer,
             source_url=source_url, poster=tmdb_at(poster or backdrop, 342), synopsis=synopsis,
             synopsis_src=SOURCE.get(str(x.get("ss") or "").lower(), UPLOADER),
-            facts=facts, cast=people, reviews=reviews, related=related)
+            facts=facts, cast=people, reviews=reviews, related=related,
+            episodes=episodes_by_slug.get(aid[len("series:"):], ()) if aid.startswith("series:") else ())
         path.mkdir(parents=True, exist_ok=True)
         (path / "index.html").write_text(build_page(
             url=url, app_arg=app_arg, title_tag=f"{headline} — free to watch on Archive Watch",

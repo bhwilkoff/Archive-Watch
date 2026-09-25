@@ -1471,86 +1471,6 @@ def web_usage(state):
             f"visit(s) over {len(daily)} day(s), {len(by_path)} surface(s)")
 
 
-def distribution(state):
-    """How the written reviews divide across the five stars, per store."""
-    by = {}
-    for r in state["reviews"]:
-        if not r.get("rating"):
-            continue
-        by.setdefault(r["store"], {i: 0 for i in range(1, 6)})[int(r["rating"])] += 1
-    state["distribution"] = by
-    return ", ".join(f"{k}: {sum(v.values())} rated" for k, v in by.items()) or "none yet"
-
-
-def _reports_token():
-    """A SEPARATE key for reports, when one exists.
-
-    App Store Connect states it plainly on the key page: a key "can't be
-    modified to access more services once created". The release key is App
-    Manager and can never gain Sales and Reports, and widening the key that
-    ships builds so a dashboard can read a download count is the wrong trade.
-    So: `ASC_REPORTS_KEY_ID` + `ASC_REPORTS_KEY_P8` (base64, same issuer) if
-    they are set, and the ordinary key otherwise — which fails honestly with
-    "the API key in use does not allow this request"."""
-    kid = os.environ.get("ASC_REPORTS_KEY_ID", "").strip()
-    p8 = os.environ.get("ASC_REPORTS_KEY_P8", "").strip()
-    if not (kid and p8):
-        return _asc().token()
-    import base64
-    import time
-    import jwt                                       # already a dependency of asc_release
-    key = base64.b64decode(p8).decode()
-    iss = os.environ["ASC_ISSUER_ID"]
-    return jwt.encode({"iss": iss, "iat": int(time.time()),
-                       "exp": int(time.time()) + 900, "aud": "appstoreconnect-v1"},
-                      key, algorithm="ES256", headers={"kid": kid, "typ": "JWT"})
-
-
-def _asc_raw(ep, accept, reports=False):
-    """ASC endpoints that do not speak JSON. `asc_release.call` sets
-    Accept: application/json and gets a 406 from both of these, which reads
-    exactly like a permission problem and is not one."""
-    tok = _reports_token() if reports else _asc().token()
-    req = urllib.request.Request("https://api.appstoreconnect.apple.com/" + ep,
-                                 headers={"Authorization": "Bearer " + tok,
-                                          "Accept": accept})
-    with urllib.request.urlopen(req, timeout=45) as r:
-        return r.read()
-
-
-def apple_performance(state):
-    """Launch time, hang rate, memory, disk — Apple's own aggregated field
-    metrics, and the one Apple-side signal that says something needs fixing
-    before a user writes a review about it."""
-    body = _asc_raw(f"v1/apps/{_asc().app_id()}/perfPowerMetrics",
-                    "application/vnd.apple.xcode-metrics+json")
-    d = json.loads(body)
-    prods = d.get("productData") or []
-    ins = d.get("insights") or {}
-    rows = []
-    for p in prods:
-        for m in p.get("metricCategories", []):
-            for metric in m.get("metrics", []):
-                pts = metric.get("datasets", [{}])[0].get("points", [])
-                if not pts:
-                    continue
-                rows.append({"platform": p.get("platform"),
-                             "category": m.get("identifier"),
-                             "metric": metric.get("identifier"),
-                             "value": pts[-1].get("value"),
-                             "unit": metric.get("unit")})
-    state["health"]["applePerf"] = {
-        "metrics": rows[:20],
-        "regressions": [clamp(i.get("summaryString") or i.get("metric"), 160)
-                        for i in (ins.get("regressions") or [])][:8],
-        "improving": [clamp(i.get("summaryString") or i.get("metric"), 160)
-                      for i in (ins.get("trendingUp") or [])][:8],
-    }
-    if not rows and not ins.get("regressions"):
-        return "Apple has not aggregated enough device data yet"
-    return f"{len(rows)} metric(s), {len(ins.get('regressions') or [])} regression(s)"
-
-
 def apple_downloads(state):
     """Daily first-time installs, split by DEVICE, country and version.
 
@@ -2412,17 +2332,42 @@ def manual_stores(state):
                 r["versionCode"] = vc
             r["read"] = "Amazon submission API"
             read += 1
-        if r.get("store") == "Roku Channel Store":
-            seen = (h.get("rokuEngagement") or {}).get("versionsSeen") or []
-            if seen:
-                newest = max(seen, key=lambda v: _vkey(v.get("version")))
-                r["version"] = newest["version"]
-                r["live"] = newest["version"]
-                r["since"] = newest.get("firstSeen") or r.get("since")
-                r["read"] = "seen in Roku's own delivery"
+    # The website ships on every Pages deploy; its row says WHEN the newest
+    # one went out, read from the deploy workflow, not "rolling".
+    web = next((r for r in rows if r.get("store") == "Web (PWA)"), None)
+    tok = os.environ.get("GH_TOKEN") or os.environ.get("GITHUB_TOKEN")
+    if web and tok:
+        try:
+            runs = get_json("https://api.github.com/repos/bhwilkoff/Archive-Watch/actions/workflows/"
+                            "deploy-pages.yml/runs?status=success&per_page=1",
+                            headers={"Authorization": f"Bearer {tok}",
+                                     "Accept": "application/vnd.github+json"}).get("workflow_runs") or []
+            if runs:
+                web["version"] = runs[0]["head_sha"][:7]
+                web["since"] = runs[0]["updated_at"]
+                web["read"] = "the newest successful Pages deploy"
                 read += 1
+        except Exception:                            # noqa: BLE001 — the row keeps what it declared
+            pass
     state["stores"] += rows
+    # Roku's version is applied in main(), AFTER versionsSeen is merged with
+    # earlier readings: on a run with no Roku delivery this reader sees no
+    # versions at all and the row fell back to the hand-typed one.
     return f"{len(rows)} declared store(s), {read} version(s) read rather than declared"
+
+
+def roku_store_version(state) -> bool:
+    """The Roku row's version = the newest build Roku's own delivery has ever
+    reported (versionsSeen, merged across readings)."""
+    seen = ((state.get("health") or {}).get("rokuEngagement") or {}).get("versionsSeen") or []
+    row = next((r for r in state.get("stores", []) if r.get("store") == "Roku Channel Store"), None)
+    if not seen or not row:
+        return False
+    newest = max(seen, key=lambda v: _vkey(v.get("version")))
+    row["version"] = row["live"] = newest["version"]
+    row["since"] = newest.get("firstSeen") or row.get("since")
+    row["read"] = "seen in Roku's own delivery"
+    return True
 
 
 def _vkey(v):
@@ -3057,6 +3002,7 @@ def main() -> int:
                 v["firstSeen"] = min(filter(None, [old_v.get("firstSeen"), v["firstSeen"]]) or [""])
             prev_v[v["version"]] = v
         rk["versionsSeen"] = sorted(prev_v.values(), key=lambda x: _vkey(x["version"]))
+    roku_store_version(state)
 
     hist = [h for h in prev.get("history", []) if h.get("date") != today()]
     hist.append(history_row(state))

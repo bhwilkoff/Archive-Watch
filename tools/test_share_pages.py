@@ -160,6 +160,19 @@ def main() -> int:
         check("sitemap lists the A-Z directory", "https://archivewatch.org/films/" in s1, True)
         check("sitemap uses the served url", "https://archivewatch.org/item/suddenly/</loc>" in s1, True)
 
+        epi = td / "epi.json"
+        epi.write_text(json.dumps({"fields": ["archiveID", "slug", "series", "season", "episode", "title", "still", "year"],
+            "episodes": [["show_s1e2", "the-show", "The Show", 1, 2, "The Second One", None, 1955],
+                         ["show_s1e1", "the-show", "The Show", 1, 1, "The Pilot", None, 1955]]}), encoding="utf-8")
+        r3 = subprocess.run(
+            [sys.executable, str(REPO / "tools" / "build_share_pages.py"),
+             "--out", str(td / "site3"), "--index", str(idx), "--details", str(td / "nodetails"),
+             "--episodes", str(epi)], capture_output=True, text=True)
+        hs3 = (td / "site3" / "series" / "the-show" / "index.html").read_text(encoding="utf-8")
+        check("series page lists its episodes in order",
+              hs3.find("S1E1 · The Pilot") < hs3.find("S1E2 · The Second One") and "S1E1 · The Pilot" in hs3, True)
+        check("an episode opens in the viewer", 'href="https://archivewatch.org/#/item/show_s1e1"' in hs3, True)
+
         ser = td / "site" / "series" / "the-show" / "index.html"
         check("series page exists at /series/<slug>", ser.exists(), True)
         hs = ser.read_text(encoding="utf-8") if ser.exists() else ""

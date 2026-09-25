@@ -7,12 +7,9 @@
    "state": "LIVE",
    "version": "1.42.6 (vc57)",
    "since": "2026-09-10",
-   "note": "Live version is read from the API, not declared here. Installs come from the sales report — every free install is a $0.00 Charge row. Device coverage went 38 -> 91 with the minSdk 23 build (Decision 115).",
+   "note": "Live and in-review versions are read from the Amazon submission API. Installs come from the sales report — every free install is a $0.00 Charge row. Device coverage went 38 -> 91 with the minSdk 23 build (Decision 115).",
    "url": "https://developer.amazon.com/apps-and-games/console/apps/list.html",
    "api": "vitals",
-   "units30d": 2,
-   "unitsAsOf": "2026-09-09",
-   "unitsNote": "unique app purchases, 30 days, all Amazon.com",
    "route": "version read from the submission API; installs from the sales report"
   },
   {
@@ -54,7 +51,7 @@
    "state": "LIVE",
    "version": "rolling",
    "since": "2026-06-10",
-   "note": "Ships on every Pages deploy.",
+   "note": "Ships on every Pages deploy; the version is the deploy's commit, read from GitHub.",
    "url": "https://archivewatch.org",
    "api": null,
    "route": "state declared by hand; usage measured by our own counter"
