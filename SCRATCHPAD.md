@@ -68,12 +68,18 @@ because the loop was stopped mid-stride for a Claude update.
       have evidence for CC or PD, an uploader's word is not enough."*~~
       **LIVE 2026-09-25** (Decision 140): 1,387 hidden as
       `uploader_licence_only`; 7 kept on Wikidata evidence (Star Wreck, Fossils…).
-   2. Home's community rows take the HERO's evidence bar (Home only).
-   3. "New to Archive Watch" Home row: yes, all platforms.
-   4. Director rows ranked by popularity, computed in the pipeline.
-      Committed 4392f7279 (`director_rank`); live after the next publish-db.
-   5. Television typed as film (Roots, The World at War...): retype as TV,
-      decide with the TV rights question.
+   2. ~~Home's community rows take the HERO's evidence bar (Home only).~~
+      **LIVE 2026-09-25**: all three index rows 60/60 hero-safe; apps via `heroRightsAnd`/`heroAnd`.
+   3. ~~"New to Archive Watch" Home row: yes, all platforms.~~
+      **LIVE 2026-09-25**: `new-arrivals` (addedAt within 45 days), 1,325 in
+      item_shelves, 60 in the index; rule in all seven design docs.
+   4. ~~Director rows ranked by popularity, computed in the pipeline.~~
+      **LIVE 2026-09-25**: `director_rank` (60) + index `directorRank`;
+      Roger Corman, Izzy Sparber, Dave Fleischer, Sam Newfield lead.
+   5. ~~Television typed as film (Roots, The World at War...): retype as TV,
+      decide with the TV rights question.~~ **LIVE 2026-09-25**: 50 of the 52
+      curated ids are TV in the live DB (2 are hidden); the 1942 US-government
+      "TheWorldAtWar" stays a film.
    6. The TV rights question (section below): apply the film audit to TV,
       hide what fails, gate TV backfill so it cannot refill.
    Work order: 1, 5, 6 (rights) then 2, 4, 3 (Home). Each lands as its own
