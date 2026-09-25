@@ -69,7 +69,7 @@ android {
         targetSdk = 36
         // Play rejects ANY previously-uploaded versionCode — bump +1 before
         // every Play upload, even if that upload was never released.
-        versionCode = 64
+        versionCode = 65
         // Marketing version tracks the Apple apps so a user report names one
         // version family across platforms — READ from AppVersion.xcconfig
         // rather than copied, because copying is what went wrong: this line
