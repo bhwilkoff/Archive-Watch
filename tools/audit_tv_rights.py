@@ -140,6 +140,23 @@ def verdict(year: int | None, meta: dict, title_year: int | None = None) -> tupl
                          if lic else ", no licence claimed"))
 
 
+def manifest_ids() -> dict:
+    """archiveID -> why, for every item an earlier run removed. Rows are read
+    from the END, because the header predates the removedAt column: old rows
+    have six fields and appended ones seven, and the last three are always
+    archiveID, episode, why."""
+    out = {}
+    if not MANIFEST.exists():
+        return out
+    import csv
+    with MANIFEST.open(newline="", encoding="utf-8") as fh:
+        rows = list(csv.reader(fh))
+    for r in rows[1:]:
+        if len(r) >= 6 and r[-3]:
+            out[r[-3]] = r[-1]
+    return out
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(
         description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -208,11 +225,19 @@ def main() -> int:
         else:
             kept += 1
 
+    # The verdict belongs to the ITEM, not to the spine it was matched onto.
+    # One archive.org upload can sit under several spines, and a wrong match
+    # can put a 1982 Minder episode under Broken Arrow (1956), where the
+    # year-only rule would keep it. So an item removed anywhere — this run or
+    # any earlier one (the manifest) — is removed from EVERY spine, including
+    # pre-1978 ones. Measured 2026-09-25: 27 removed items were still served
+    # through older spines.
+    for aid, why in manifest_ids().items():
+        drop_ids.setdefault(aid, why)
+
     changed_files = emptied = eps_removed = 0
     for f, d in spines.items():
         y = spine_year(d)
-        if y is not None and y < AR.MODERN:
-            continue
         hit = False
         for s in d.get("seasons") or []:
             keep_eps = []
