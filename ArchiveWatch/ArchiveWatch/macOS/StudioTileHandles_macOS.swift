@@ -377,8 +377,6 @@ private struct ScrollZoom: ViewModifier {
         }
     }
 }
-#endif
-
 
 /// §D24 — the tile that is NOT being framed, as a thing to click. A thin
 /// dashed outline, so a host can see there is a second tile to frame and
@@ -412,3 +410,4 @@ struct StudioTileSelector: View {
         }
     }
 }
+#endif

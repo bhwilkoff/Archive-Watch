@@ -19,6 +19,27 @@ final class IntentInbox {
         case randomCategory    // jump to Browse
         case openItem(String)  // open a specific title (deep link / widget)
         case openSharedList(PlaylistShare.Shared)   // a playlist someone sent as a link
+        case joinRoom(code: String, film: String)   // a Watch Together room link (SHAREPLAY §11)
+    }
+
+    /// A room link: `https://archivewatch.org/together/#<code>-<film>` (the
+    /// shape every platform emits and 404.html forwards) or
+    /// `archivewatch://together/<code>-<film>`. The code is normalized the way
+    /// a typed one is, so a link and the keyboard reach the same room.
+    static func room(from url: URL) -> Request? {
+        let raw: String
+        if url.scheme == "archivewatch", url.host == "together" {
+            raw = url.path.trimmingCharacters(in: CharacterSet(charactersIn: "/"))
+        } else if url.scheme == "https", url.host?.hasSuffix("archivewatch.org") == true,
+                  url.path.hasPrefix("/together") {
+            raw = url.fragment ?? ""
+        } else {
+            return nil
+        }
+        guard let dash = raw.firstIndex(of: "-"),
+              let code = StudioRoom.normalize(String(raw[..<dash])) else { return nil }
+        let film = String(raw[raw.index(after: dash)...])
+        return film.isEmpty ? nil : .joinRoom(code: code, film: film)
     }
 
     /// Parse an `archivewatch://` deep link into a request.
@@ -28,6 +49,7 @@ final class IntentInbox {
         // opens for somebody with no app at all. The playlist is INSIDE the
         // url, so this resolves completely here with nothing to look up.
         if let shared = PlaylistShare.shared(from: url) { return .openSharedList(shared) }
+        if let room = room(from: url) { return room }
         guard url.scheme == "archivewatch" else { return nil }
         switch url.host {
         case "item":           let id = url.lastPathComponent

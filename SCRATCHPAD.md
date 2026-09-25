@@ -145,6 +145,11 @@ because the loop was stopped mid-stride for a Claude update.
    followed by `AWCAM attached camera=FaceTime HD Camera` and a 1920x1080 BGRA
    frame. The camera tile is on the wire in the STREAM preview.
 
+0-AFTER-IOS-RELEASE. **Add `/together/*` to `.well-known/apple-app-site-association`**
+   once an iOS build carrying v1.42.716 (room links handled, 2026-09-25) is LIVE
+   on the App Store — not before: a shipped app that does not handle the route
+   would swallow room links that today open the website (memory share_link_shape).
+
 1. **Roku 1.0.65** was scheduled to go live 2026-09-14 5:00 PM PT. Pulse
    detects it (App Health crash logs carry an `App Version`); confirm and
    update `ops/stores-manual.json`.

@@ -329,6 +329,19 @@ struct RootView: View {
             router.libraryPath = NavigationPath()
             router.libraryPath.append(SharedListRoute(name: shared.name,
                                                       archiveIDs: shared.archiveIDs))
+        case .joinRoom(let code, let film):
+            // Same wait-for-the-catalog rule as a deep-linked item: a link
+            // opens the app COLD and the film resolves once the catalog is up.
+            guard let item = store.item(film) else {
+                if store.dbVersion > 1 { inbox.request = nil }
+                return
+            }
+            // The code waits for the player; Detail starts it (JoinRoomSheet's
+            // hand-off, reached from a link instead of the keyboard).
+            RoomJoin_iOS.shared.pending = code
+            RoomJoin_iOS.shared.pendingFilm = item.archiveID
+            router.tab = .home
+            router.openDetail(item)
         case .openItem(let id):
             guard let item = store.item(id) else {
                 // Not resolvable yet — keep the request for the next catalog

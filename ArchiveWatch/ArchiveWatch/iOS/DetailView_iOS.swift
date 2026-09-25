@@ -463,6 +463,16 @@ struct DetailView: View {
                 WatchTogether.shared.consumePendingJoin()
                 playing = true
             }
+            // JOINING A ROOM STARTS THE FILM, the same as joining SharePlay
+            // above. The code waits for the player (it is where the AVPlayer
+            // exists) and nothing opened one, so a guest who typed the code
+            // landed on Detail and nothing happened. Owner, 2026-09-25: "it
+            // isn't working to launch into the Watch Together experience."
+            if RoomJoin_iOS.shared.pending != nil,
+               RoomJoin_iOS.shared.pendingFilm == item.archiveID,
+               item.videoURLParsed != nil {
+                playing = true
+            }
             if ProcessInfo.processInfo.environment["AW_AUTOPLAY"] == "1",
                item.videoURLParsed != nil {
                 // The go-live door presents the STUDIO cover — the same one the
