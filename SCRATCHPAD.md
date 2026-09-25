@@ -697,6 +697,32 @@ keep serving it.
 
 ## Session Log
 
+### 2026-09-25 (afternoon) — Pulse rebuilt around action, and every film made searchable
+
+Owner: *"make The Pulse a much more action-oriented ... portal"*, then /loop
+*"I'd love the full set of movies to be searchable with all of the info on
+each page being a part of the search index ... without creating overhead or
+slowdown ... or making it so we have to modify our privacy stance."*
+v1.42.700 -> v1.42.709.
+
+**Pulse**: Needs attention / Going well from one RULES table, one drill-down
+drawer for every dataset, dated charts, Mountain time. New readers: Search
+Console, `search_index` (sampled film-page indexing), Watch Together rooms
+(Worker tally: day | kind | count, no film) and YouTube broadcasts + quota from
+Google's own API metrics (Decision 142 — the apps send nothing). Store rows
+are read, not typed; twice-daily readings plus a store re-read after every
+release. Found: YouTube quota hit 9,765/10,000 on 09-23 (chat reads).
+
+**Search**: every `/item/` and `/series/` page is now the full Detail as HTML
+(cast photos, reviews, More Like This, episodes) with JSON-LD and NO forward —
+the forward is why none of ~27,000 pages was ever indexed. `sitemap.xml`,
+`/films/` A-Z, footer links. App source no longer published, so the site got
+smaller. Baseline 0/150 indexed; Pulse's Search view tracks it. **Owner,
+optional**: submit `sitemap.xml` in Search Console to speed the first crawl.
+
+**Also**: Android black player after End fixed (v1.42.700); iOS Chromecast
+sender built (CASTV2, in "Share and more"), not yet submitted.
+
 ### 2026-09-24/25 — the catalog loop: sourcing that actually runs, one hero rule, connected films
 
 Owner /loop (5-minute cron): *"further enhancements for the title/movie
@@ -726,33 +752,5 @@ calls recorded above: items 0-NEWEST-3/4/5 and the TV-rights addendum.
 
 **Mistake**: a Roku `mediaType=movie` deep link PLAYS; Metropolis ran ~80 s
 in the bedroom (memory `roku_deeplink_movie_autoplays`).
-
-### 2026-09-24 (evening) — the Studio run across every test device, after the Mac restart
-
-Owner: *"Can you resume testing the Watch Together Studio across all of my
-testing devices? In particular, you were struggling to install on the Apple
-TVs ... I've fully restarted and updated the mac."* v1.42.636 -> v1.42.640.
-
-**The restart was the fix** for the TVs' `unavailable / transport None`; the
-documented lease + wake + UDID install then worked first time. The macOS 27.2
-update removed the Metal toolchain (one download). Movie Room was registered
-into the tvOS profile (`-allowProvisioningDeviceRegistration`); it installs,
-but it cannot be LAUNCHED asleep — pyatv has no Companion pairing for it (a
-PIN on that TV, the owner's step).
-
-**Broadcasts, judged from the server's recording**: Apple TV (Morocco, 1080p30,
-"encoder: hardware"), iPhone 12, iPad Pro, Pixel 8a (720p, 21 fps, camera
-tile), Mac (1080p, 31 fps). **Room guests**: Apple TV, Pixel, Google TV, Fire
-TV and the web (§8.66) all pause on the host's frame and follow a seek.
-
-**Found and fixed**: (1) `MP4Fragmenter.plan` let each fragment's audio
-overshoot by up to a frame and the overshoot ACCUMULATED — 42 s by the end of
-an 85-min film — so every tvOS 27 seek landed seconds late (§8.71). (2) A slow
-Apple seek read as the guest's own move. (3) The Android room door was never
-collected on a television. (4) The Mac's Microphone row said "live" with no
-microphone attached. (5) The iPhone door's mute did not hold once (the film
-played aloud from the test phone); now re-asserted and logged — not reproduced.
-**Open**: on tvOS's HLS path a 1.03 nudge is accepted and not honored, so a
-late-landing guest stays ~0.5-1 s behind (LAUNCH-AUDIT).
 
 Older entries: `docs/SESSION-LOG.md` (verbatim, back to 2026-04-17).

@@ -1,5 +1,33 @@
 # Archive Watch — Session Log (archive)
 
+### 2026-09-24 (evening) — the Studio run across every test device, after the Mac restart
+
+Owner: *"Can you resume testing the Watch Together Studio across all of my
+testing devices? In particular, you were struggling to install on the Apple
+TVs ... I've fully restarted and updated the mac."* v1.42.636 -> v1.42.640.
+
+**The restart was the fix** for the TVs' `unavailable / transport None`; the
+documented lease + wake + UDID install then worked first time. The macOS 27.2
+update removed the Metal toolchain (one download). Movie Room was registered
+into the tvOS profile (`-allowProvisioningDeviceRegistration`); it installs,
+but it cannot be LAUNCHED asleep — pyatv has no Companion pairing for it (a
+PIN on that TV, the owner's step).
+
+**Broadcasts, judged from the server's recording**: Apple TV (Morocco, 1080p30,
+"encoder: hardware"), iPhone 12, iPad Pro, Pixel 8a (720p, 21 fps, camera
+tile), Mac (1080p, 31 fps). **Room guests**: Apple TV, Pixel, Google TV, Fire
+TV and the web (§8.66) all pause on the host's frame and follow a seek.
+
+**Found and fixed**: (1) `MP4Fragmenter.plan` let each fragment's audio
+overshoot by up to a frame and the overshoot ACCUMULATED — 42 s by the end of
+an 85-min film — so every tvOS 27 seek landed seconds late (§8.71). (2) A slow
+Apple seek read as the guest's own move. (3) The Android room door was never
+collected on a television. (4) The Mac's Microphone row said "live" with no
+microphone attached. (5) The iPhone door's mute did not hold once (the film
+played aloud from the test phone); now re-asserted and logged — not reproduced.
+**Open**: on tvOS's HLS path a 1.03 nudge is accepted and not honored, so a
+late-landing guest stays ~0.5-1 s behind (LAUNCH-AUDIT).
+
 ### 2026-09-24 — the OAuth video submitted, and the iPhone's broadcast audio made deterministic
 
 Owner: *"Please create a perfect video that answers every single question

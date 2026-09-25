@@ -867,13 +867,22 @@ def play_rating(state):
     avg = float(m.group(1)) if m else None
     c = re.search(r'(\d[\d,]*)\s*(?:reviews|ratings)', html)
     cnt = int(c.group(1).replace(",", "")) if c else None
+    via = "the store page"
+    if avg is None:
+        # The listing's markup moves, and a missed scrape read as "no rating
+        # yet" while Play's own daily export held 3.25. The export's `total`
+        # is Play's cumulative average; use it, and say that is the source.
+        rs = [r for r in (((state.get("health") or {}).get("playDaily") or {}).get("ratings") or [])
+              if isinstance(r.get("total"), (int, float))]
+        if rs:
+            avg, via = round(float(rs[-1]["total"]), 2), f"Play's daily export to {rs[-1].get('date')}"
     if avg is None and cnt is None:
         raise RuntimeError("Play listing carries no rating yet")
     state["ratings"].append({
-        "store": "Google Play", "average": avg, "count": cnt,
+        "store": "Google Play", "average": avg, "count": cnt, "via": via,
         "url": f"https://play.google.com/store/apps/details?id={PLAY_PACKAGE}",
     })
-    return f"{avg} from {cnt}"
+    return f"{avg} from {cnt if cnt is not None else 'an uncounted number of'} rating(s), via {via}"
 
 # ─────────────────────────────────────────────────── Who is talking about us
 
@@ -2702,12 +2711,12 @@ SOURCES = [
     ("apple_downloads", apple_downloads),
     ("play_stores", play_stores),
     ("play_reviews", play_reviews),
-    ("play_rating", play_rating),
     ("play_vitals", play_vitals),
     ("play_crashes", play_crashes),
     ("play_users", play_users),
     ("play_reports", play_reports),
     ("play_daily_exports", play_daily_exports),
+    ("play_rating", play_rating),                        # after the export it falls back to
     ("play_acquisition", play_acquisition),
     ("amazon_vitals", amazon_vitals),
     ("amazon_installs", amazon_installs),
