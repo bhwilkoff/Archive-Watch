@@ -1,5 +1,32 @@
 # Archive Watch — Session Log (archive)
 
+### 2026-09-24 — the OAuth video submitted, and the iPhone's broadcast audio made deterministic
+
+Owner: *"Please create a perfect video that answers every single question
+from the email from google"*, then a 5-minute /loop *"finish all documented
+work and fix all issues you find."* v1.42.624 -> v1.42.631.
+
+**OAuth**: <https://youtu.be/N0zP6D6hOm8> (unlisted) — the consent screen
+printing "Manage your YouTube account" (the brand grant revoked first by the
+Studio's own Sign out), every API call in title cards, "Live now" and
+"Streamed" in YouTube Studio. The Console justification (which said "exactly
+four calls") was rewritten to match, and the reply went on Google's thread from
+benwilkoff@gmail.com (a send-as of ben@learningischange.com). Reviewer build:
+the Mac App Store's 1.42.543.
+
+**Fixed and measured on devices**: a guest's false "host controls the film"
+notice (Apple); the first Android room join (new door, Pixel); the iPad
+inspector laid over the film; a Roku guest that re-seeked every poll (a Float
+epoch); the Mac's film sound 200-700 ms late on some shows (backlog trim, five
+runs within 32 ms); and the iPhone's broadcast losing the film's sound or
+freezing when the film was already playing — THREE owners of one audio session
+(§9.eeeeee), now one; four runs within 10 ms, microphone verified.
+
+**The owner stopped me retrying a flaky harness**: *"You shouldn't have
+intermittent failures for the same harness."* The proof script now reports
+stages with the app's own console; that found the Debug door drawing an empty
+cover. Memory `harness_must_be_deterministic`.
+
 ### 2026-09-23/24 — the launch audit, worked down: rooms that actually work, and five measurements that corrected me
 
 Owner /loop (5-minute cron), the standing Studio prompt; mid-loop the quota

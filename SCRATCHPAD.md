@@ -60,6 +60,15 @@ because the loop was stopped mid-stride for a Claude update.
    Everything below in item 7 about the demo video is history. After approval:
    add the Terms of Service URL to Branding (audit A9).
 
+0-NEWEST-5. **A "NEW TO ARCHIVE WATCH" HOME ROW? (design call, 2026-09-25).**
+   The deeper discovery sweep now adds hundreds of films a night (885 on its
+   first run; 331 matched with designed art within hours — The Blue Angel,
+   Fleischer's Wise Flies). Nothing on Home says so: curated shelves are keyed
+   to collections and categories, and these finds reach only the catch-all
+   Animation / Silent Era shelves and the rows computed from ratings. A row of
+   recently-added titles with designed art would make the sourcing visible. It
+   is a new Home row, so it needs a rule in each platform's design doc first.
+
 0-NEWEST-4. **HOME'S COMMUNITY ROWS ARE LED BY RENEWED STUDIO FILMS (owner call,
    2026-09-24 audit).** The hero takes positive evidence only; Home's Most
    Discussed / Community Favorites / Watching Now take `presumed_pd` (an ERA
@@ -698,6 +707,36 @@ keep serving it.
 
 ## Session Log
 
+### 2026-09-24/25 — the catalog loop: sourcing that actually runs, one hero rule, connected films
+
+Owner /loop (5-minute cron): *"further enhancements for the title/movie
+database ... better sourcing of missing movies ... ways to connect movies
+together ... audits of home screens and hero rows ... better workers/action on
+GitHub."* v1.42.641 -> v1.42.663. `tools/verify_catalog_changes_2026_09_24.py`
+reads the live plane; it went 0/7 -> 7/7.
+
+**Sourcing**: the nightly sweep re-read the top 600 of each collection forever
+(6,521 feature_films never queued); two collection ids were wrong-cased and one
+did not exist. Ingest spent 881 of 900 slots on stale entries, newest-first. All
+fixed; the first run ingested 885 (was 18), 625 visible, oldest first; 331
+matched with art within hours. Guards added because the volume made them
+necessary: a queue ceiling, holds for modern licence-only uploads and for age
+claims the title contradicts, and "a year before 1874 is not evidence".
+PD-by-age backfill (1880-1927, 300 a night) is ON.
+
+**Connections**: More Like This ranked once in the pipeline (Decision 139) by
+series, director, cast, writer, keywords and archive subject tags — 17,243
+films, verified on the web and on the Roku. 19 film-series Collections.
+Franchise search.
+
+**Home/hero**: web and Roku had no hero rights bar (46% / 67% of their pools);
+Home shelves admitted modern titles on an uploader's licence; the web's
+curated shelves were starved (Silent Era 7 vs 3,467). All fixed and live. Owner
+calls recorded above: items 0-NEWEST-3/4/5 and the TV-rights addendum.
+
+**Mistake**: a Roku `mediaType=movie` deep link PLAYS; Metropolis ran ~80 s
+in the bedroom (memory `roku_deeplink_movie_autoplays`).
+
 ### 2026-09-24 (evening) — the Studio run across every test device, after the Mac restart
 
 Owner: *"Can you resume testing the Watch Together Studio across all of my
@@ -725,32 +764,5 @@ microphone attached. (5) The iPhone door's mute did not hold once (the film
 played aloud from the test phone); now re-asserted and logged — not reproduced.
 **Open**: on tvOS's HLS path a 1.03 nudge is accepted and not honored, so a
 late-landing guest stays ~0.5-1 s behind (LAUNCH-AUDIT).
-
-### 2026-09-24 — the OAuth video submitted, and the iPhone's broadcast audio made deterministic
-
-Owner: *"Please create a perfect video that answers every single question
-from the email from google"*, then a 5-minute /loop *"finish all documented
-work and fix all issues you find."* v1.42.624 -> v1.42.631.
-
-**OAuth**: <https://youtu.be/N0zP6D6hOm8> (unlisted) — the consent screen
-printing "Manage your YouTube account" (the brand grant revoked first by the
-Studio's own Sign out), every API call in title cards, "Live now" and
-"Streamed" in YouTube Studio. The Console justification (which said "exactly
-four calls") was rewritten to match, and the reply went on Google's thread from
-benwilkoff@gmail.com (a send-as of ben@learningischange.com). Reviewer build:
-the Mac App Store's 1.42.543.
-
-**Fixed and measured on devices**: a guest's false "host controls the film"
-notice (Apple); the first Android room join (new door, Pixel); the iPad
-inspector laid over the film; a Roku guest that re-seeked every poll (a Float
-epoch); the Mac's film sound 200-700 ms late on some shows (backlog trim, five
-runs within 32 ms); and the iPhone's broadcast losing the film's sound or
-freezing when the film was already playing — THREE owners of one audio session
-(§9.eeeeee), now one; four runs within 10 ms, microphone verified.
-
-**The owner stopped me retrying a flaky harness**: *"You shouldn't have
-intermittent failures for the same harness."* The proof script now reports
-stages with the app's own console; that found the Debug door drawing an empty
-cover. Memory `harness_must_be_deterministic`.
 
 Older entries: `docs/SESSION-LOG.md` (verbatim, back to 2026-04-17).
