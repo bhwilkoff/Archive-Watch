@@ -60,6 +60,14 @@ because the loop was stopped mid-stride for a Claude update.
    Everything below in item 7 about the demo video is history. After approval:
    add the Terms of Service URL to Branding (audit A9).
 
+0-NEWEST-6. **HOME'S DIRECTOR ROWS ARE PICKED BY VOLUME (editorial call,
+   2026-09-25).** `topDirectors` ranks by film COUNT, so today's four rows are
+   Dave Fleischer (272), Mannie Davis (167, Terrytoons), D.W. Griffith (164)
+   and Connie Rasinski (148, Terrytoons) — Chaplin, Keaton, Lang, Murnau and
+   Hitchcock never get one. Proposed: rank by the combined popularity / vote
+   footprint of a director's films, computed ONCE in the pipeline (Decision
+   050) instead of in four clients. Say the word and it is built.
+
 0-NEWEST-5. **A "NEW TO ARCHIVE WATCH" HOME ROW? (design call, 2026-09-25).**
    The deeper discovery sweep now adds hundreds of films a night (885 on its
    first run; 331 matched with designed art within hours — The Blue Angel,
