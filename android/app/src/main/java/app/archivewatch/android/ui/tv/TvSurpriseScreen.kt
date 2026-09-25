@@ -49,7 +49,7 @@ fun TvSurpriseScreen(container: AppContainer, nav: Nav) {
         for (t in types) {
             val pick = if (t == "feature-film") db.randomFeatureFilm()
                        else db.randomPlayable(contentType = t)
-            pick?.let { picks.putIfAbsent(it.archiveID, it) }
+            pick?.let { if (it.archiveID !in picks) picks[it.archiveID] = it }
         }
         value = picks.values.toList()
     }

@@ -65,7 +65,11 @@ object StudioTokenStore {
         open(context)
     } catch (e: Exception) {
         android.util.Log.w("AWAUTH", "studio token store unreadable (${e.javaClass.simpleName}) — reset")
-        context.deleteSharedPreferences(FILE)
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+            context.deleteSharedPreferences(FILE)
+        } else {
+            context.getSharedPreferences(FILE, Context.MODE_PRIVATE).edit().clear().commit()
+        }
         open(context)
     }
 

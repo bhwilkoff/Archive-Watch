@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Android 7.0 and earlier (API 23-24) do not trust Let's Encrypt's ISRG
+     roots, and the catalog download (archivewatch.org, GitHub release assets),
+     TMDb posters and the Watch Together worker all chain to them. Bundling the
+     two roots as EXTRA trust anchors beside the system store lets those
+     devices reach the catalog; on newer Android it changes nothing.
+     Fingerprints checked against letsencrypt.org 2026-09-25:
+     X1 96:BC:EC:06:...:DF:08:C6, X2 69:72:9B:8E:...:CB:14:70. -->
+<network-security-config>
+    <base-config>
+        <trust-anchors>
+            <certificates src="system" />
+            <certificates src="@raw/isrg_root_x1" />
+            <certificates src="@raw/isrg_root_x2" />
+        </trust-anchors>
+    </base-config>
+</network-security-config>

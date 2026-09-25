@@ -75,6 +75,8 @@ class MainActivity : ComponentActivity() {
         // a PiP window (the player's lifecycle observer does the pausing).
         // docs/TV-DESIGN.md §5.4.
         if (isTelevision()) return
+        // PictureInPictureParams is API 26; the Fire TV flavor installs from 23.
+        if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.O) return
         if (!packageManager.hasSystemFeature(PackageManager.FEATURE_PICTURE_IN_PICTURE)) return
         val w = PlaybackPresence.aspectWidth
         val h = PlaybackPresence.aspectHeight

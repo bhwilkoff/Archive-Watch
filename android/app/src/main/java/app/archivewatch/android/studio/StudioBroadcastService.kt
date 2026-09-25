@@ -41,22 +41,25 @@ class StudioBroadcastService : Service() {
             stopSelf()
             return START_NOT_STICKY
         }
-        val nm = getSystemService(NotificationManager::class.java)
-        nm.createNotificationChannel(
-            NotificationChannel(CHANNEL, "Live broadcast", NotificationManager.IMPORTANCE_LOW))
+        // Channels are API 26 and the build installs from 23; the Compat
+        // builder below ignores the channel id where there are none.
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            getSystemService(NotificationManager::class.java).createNotificationChannel(
+                NotificationChannel(CHANNEL, "Live broadcast", NotificationManager.IMPORTANCE_LOW))
+        }
         val end = PendingIntent.getService(
             this, 1, Intent(this, StudioBroadcastService::class.java).setAction(ACTION_END),
             PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT)
         val open = packageManager.getLaunchIntentForPackage(packageName)?.let {
             PendingIntent.getActivity(this, 0, it, PendingIntent.FLAG_IMMUTABLE)
         }
-        val n = Notification.Builder(this, CHANNEL)
+        val n = androidx.core.app.NotificationCompat.Builder(this, CHANNEL)
             .setSmallIcon(R.drawable.ic_stat_live)
             .setContentTitle("You're live")
             .setOngoing(true)
             .setCategory(Notification.CATEGORY_SERVICE)
             .setContentIntent(open)
-            .addAction(Notification.Action.Builder(null, "End the broadcast", end).build())
+            .addAction(0, "End the broadcast", end)
             .build()
         // ONLY the types whose permission is granted: Android 14 refuses to
         // start a camera-type service without CAMERA, and throws.
@@ -83,7 +86,8 @@ class StudioBroadcastService : Service() {
         checkSelfPermission(p) == PackageManager.PERMISSION_GRANTED
 
     private fun stopForegroundCompat() {
-        stopForeground(STOP_FOREGROUND_REMOVE)
+        androidx.core.app.ServiceCompat.stopForeground(
+            this, androidx.core.app.ServiceCompat.STOP_FOREGROUND_REMOVE)
     }
 
     companion object {
@@ -94,7 +98,8 @@ class StudioBroadcastService : Service() {
 
         fun start(context: Context) {
             try {
-                context.startForegroundService(Intent(context, StudioBroadcastService::class.java))
+                androidx.core.content.ContextCompat.startForegroundService(
+                    context, Intent(context, StudioBroadcastService::class.java))
             } catch (e: Exception) {
                 Log.w(TAG, "AWFGS start refused: $e")
             }
