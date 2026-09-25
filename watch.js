@@ -3177,7 +3177,10 @@
       const host = $('player-endcard');
       const row = Data.byID.get(this.ctx?.id);      // episodes aren't index rows
       if (!host || !row) return false;
-      const rows = relatedRows(row, 4);
+      // The pipeline's ranking when the Detail this film was opened from has
+      // it (Decision 139) — Detail and the end card must not disagree.
+      const ranked = Item.current?.id === row[0] ? Item.current?.detail?.related : null;
+      const rows = relatedRows(row, 4, ranked);
       if (rows.length < 4) return false;
 
       const h = document.createElement('h3');
