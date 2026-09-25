@@ -10,8 +10,8 @@
     "version": "1.42.543",
     "state": "IN_REVIEW"
    },
-   "repoVersion": "1.42.703",
-   "repoBuild": "1715",
+   "repoVersion": "1.42.704",
+   "repoBuild": "1716",
    "url": "https://appstoreconnect.apple.com/apps/6776697407/distribution"
   },
   {
@@ -24,8 +24,8 @@
     "version": "1.42.543",
     "state": "WAITING_FOR_REVIEW"
    },
-   "repoVersion": "1.42.703",
-   "repoBuild": "1715",
+   "repoVersion": "1.42.704",
+   "repoBuild": "1716",
    "url": "https://appstoreconnect.apple.com/apps/6776697407/distribution"
   },
   {
@@ -34,8 +34,8 @@
    "state": "READY_FOR_SALE",
    "version": "1.42.543",
    "live": "1.42.543",
-   "repoVersion": "1.42.703",
-   "repoBuild": "1715",
+   "repoVersion": "1.42.704",
+   "repoBuild": "1716",
    "url": "https://appstoreconnect.apple.com/apps/6776697407/distribution"
   },
   {
@@ -90,15 +90,13 @@
    "store": "Roku Channel Store",
    "platform": "Roku",
    "state": "LIVE",
-   "version": "1.0.75",
-   "since": "2026-09-19",
+   "version": "1.0.65",
+   "since": "2026-09-15",
    "note": "Channel 881015. 1.0.65 published 2026-09-15 (Dashboard: Last publish Sep 15, 2026) — the first build the legacy tier can run. Roku has no API to read this from; the app's own analytics arrive daily by scheduled delivery. NOTE: sunset players on Roku OS 9.1 (Roku 2 XD etc.) are NOT offered new channels by the Streaming Store regardless of the package's v8.0.0 floor — see ROKU-SUBMISSION.md §Legacy players.",
    "url": "https://channelstore.roku.com/details/12a571a872732e40fe8d1d6c59f3849f:5ec8f46dcec2324229c8d096ea23c089/archive-watch",
    "api": null,
    "route": "no API — its Looker dashboards deliver to us daily",
-   "manual": true,
-   "live": "1.0.75",
-   "read": "seen in Roku's own delivery"
+   "manual": true
   },
   {
    "store": "LG Content Store",
@@ -140,8 +138,8 @@
  "ratings": [
   {
    "store": "App Store",
-   "average": 4,
-   "count": 7,
+   "average": 4.125,
+   "count": 8,
    "version": "1.42.120",
    "releasedAt": "2026-09-15T17:58:12Z",
    "url": "https://apps.apple.com/us/app/archive-watch/id6776697407?uo=4"
@@ -3675,23 +3673,23 @@
      "name": "crashMetricSet",
      "description": "App crash metrics",
      "metrics": [
-      "userPerceivedCrashRate28dUserWeighted",
-      "userPerceivedCrashRate7dUserWeighted",
-      "crashRate28dUserWeighted",
-      "userPerceivedCrashRate",
-      "crashRate",
       "crashRate7dUserWeighted",
-      "distinctDevices",
-      "crashCount"
+      "crashRate",
+      "userPerceivedCrashRate",
+      "crashRate28dUserWeighted",
+      "userPerceivedCrashRate7dUserWeighted",
+      "userPerceivedCrashRate28dUserWeighted",
+      "crashCount",
+      "distinctDevices"
      ],
      "dimensions": [
-      "deviceName",
-      "versionCode",
       "osVersion",
-      "deviceType",
-      "countryCode",
+      "versionCode",
+      "deviceName",
+      "deviceOS",
       "deviceModel",
-      "deviceOS"
+      "countryCode",
+      "deviceType"
      ],
      "freshnessInfo": [
       {
@@ -3742,22 +3740,22 @@
      "description": "Low Memory Killer metrics",
      "metrics": [
       "userPerceivedLmkRate",
-      "userPerceivedLmkRate7dUserWeighted",
-      "distinctDevices",
-      "lmkCount",
-      "lmkRate28dUserWeighted",
-      "userPerceivedLmkRate28dUserWeighted",
+      "lmkRate",
       "lmkRate7dUserWeighted",
-      "lmkRate"
+      "userPerceivedLmkRate28dUserWeighted",
+      "lmkRate28dUserWeighted",
+      "lmkCount",
+      "distinctDevices",
+      "userPerceivedLmkRate7dUserWeighted"
      ],
      "dimensions": [
-      "deviceOS",
-      "deviceModel",
-      "countryCode",
-      "deviceType",
-      "osVersion",
+      "deviceName",
       "versionCode",
-      "deviceName"
+      "osVersion",
+      "deviceType",
+      "countryCode",
+      "deviceModel",
+      "deviceOS"
      ],
      "freshnessInfo": [
       {
@@ -4189,69 +4187,8 @@
     "Average Bitrate (Megabits)": 0.128,
     "Buffering as % of Total Streaming Time": 0.89
    },
-   "tiles": [
-    "amarillo_1080",
-    "amarillo_4k",
-    "athens",
-    "austin_mustang",
-    "ave_minutes___visitor",
-    "average_daily_visitors",
-    "bailey",
-    "bayside",
-    "benjamin",
-    "benjamin-w",
-    "brewster",
-    "brightscript_crash_logs",
-    "brightscript_crash_logs_with_stacktraces",
-    "briscoe",
-    "bryan",
-    "bryan_2",
-    "camden",
-    "channel_crashes_by_product",
-    "channel_visitors_and_streaming_viewers",
-    "chico",
-    "cooper",
-    "cumulative_net_installs",
-    "damon",
-    "data_transfer_speeds",
-    "devices_with_channel_crashes",
-    "devices_with_channel_crashes_by_product",
-    "el_paso",
-    "fruitland",
-    "ftworth",
-    "gilbert",
-    "gilbert_4k",
-    "install_base_growth",
-    "lakeport",
-    "liberty",
-    "littlefield",
-    "lockhart",
-    "logan",
-    "longview",
-    "madison",
-    "malone",
-    "marlin",
-    "miami",
-    "midland",
-    "minutes_streamed",
-    "nemo",
-    "new_installs",
-    "rebuffers-tile",
-    "rebuffers_per_streaming_hour",
-    "reno",
-    "rockett",
-    "roma",
-    "roxton",
-    "sandia",
-    "shiner",
-    "streaming_ratios",
-    "total_hours_streamed",
-    "trinidad",
-    "uninstalls",
-    "viewership_details",
-    "visits_and_streams"
-   ],
-   "dropsRead": 4,
+   "tiles": [],
+   "dropsRead": 0,
    "unreadable": [],
    "byReport": {
     "App Health": {
@@ -5711,20 +5648,20 @@
     },
     {
      "date": "2026-09-25",
-     "views": 2977,
-     "visits": 895
+     "views": 2992,
+     "visits": 905
     }
    ],
-   "views28d": 45423,
-   "views7d": 19966,
-   "visits28d": 15637,
-   "visits7d": 6291,
+   "views28d": 45438,
+   "views7d": 19981,
+   "visits28d": 15647,
+   "visits7d": 6301,
    "byPath": {
-    "/": 16503,
-    "/item": 11348,
+    "/": 16512,
+    "/item": 11350,
     "/browse": 11019,
-    "/search": 3073,
-    "/channels": 747,
+    "/search": 3075,
+    "/channels": 749,
     "/series": 668,
     "/library": 634,
     "/surprise": 406,
@@ -6001,14 +5938,14 @@
     },
     {
      "date": "2026-09-25",
-     "open": 526,
+     "open": 528,
      "play": 257
     }
    ],
    "distinctPlayed": 1368,
-   "distinctOpened": 2410,
+   "distinctOpened": 2412,
    "totals": {
-    "open": 6018,
+    "open": 6020,
     "play": 2905
    },
    "scope": "the WEBSITE only — the apps collect nothing, and they are most of the audience, so this is a sample rather than the platform"
@@ -6066,8 +6003,8 @@
      "impressions": 159,
      "ctr": 0.6981,
      "position": 1.0,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6076,8 +6013,8 @@
      "impressions": 448,
      "ctr": 0.0446,
      "position": 5.24,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6086,8 +6023,8 @@
      "impressions": 659,
      "ctr": 0.0137,
      "position": 6.99,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6096,8 +6033,8 @@
      "impressions": 14,
      "ctr": 0.5,
      "position": 2.36,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6106,8 +6043,8 @@
      "impressions": 146,
      "ctr": 0.0274,
      "position": 6.12,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6116,8 +6053,8 @@
      "impressions": 46,
      "ctr": 0.0652,
      "position": 6.17,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6126,8 +6063,8 @@
      "impressions": 4,
      "ctr": 0.75,
      "position": 1.0,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6136,8 +6073,8 @@
      "impressions": 3,
      "ctr": 1.0,
      "position": 1.0,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6146,8 +6083,8 @@
      "impressions": 71,
      "ctr": 0.0282,
      "position": 5.68,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6156,8 +6093,8 @@
      "impressions": 39,
      "ctr": 0.0513,
      "position": 3.31,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6166,8 +6103,8 @@
      "impressions": 16,
      "ctr": 0.125,
      "position": 6.69,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6176,8 +6113,8 @@
      "impressions": 9,
      "ctr": 0.2222,
      "position": 4.33,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6186,8 +6123,8 @@
      "impressions": 5,
      "ctr": 0.4,
      "position": 2.4,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6196,8 +6133,8 @@
      "impressions": 2,
      "ctr": 1.0,
      "position": 6.5,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6206,8 +6143,8 @@
      "impressions": 230,
      "ctr": 0.0043,
      "position": 6.75,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6216,8 +6153,8 @@
      "impressions": 60,
      "ctr": 0.0167,
      "position": 8.6,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6226,8 +6163,8 @@
      "impressions": 59,
      "ctr": 0.0169,
      "position": 6.61,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6236,8 +6173,8 @@
      "impressions": 54,
      "ctr": 0.0185,
      "position": 8.3,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6246,8 +6183,8 @@
      "impressions": 28,
      "ctr": 0.0357,
      "position": 7.43,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6256,8 +6193,8 @@
      "impressions": 26,
      "ctr": 0.0385,
      "position": 5.38,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6266,8 +6203,8 @@
      "impressions": 17,
      "ctr": 0.0588,
      "position": 4.88,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6276,8 +6213,8 @@
      "impressions": 16,
      "ctr": 0.0625,
      "position": 6.0,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6286,8 +6223,8 @@
      "impressions": 10,
      "ctr": 0.1,
      "position": 6.3,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6296,8 +6233,8 @@
      "impressions": 9,
      "ctr": 0.1111,
      "position": 5.22,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6306,8 +6243,8 @@
      "impressions": 8,
      "ctr": 0.125,
      "position": 7.0,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6316,8 +6253,8 @@
      "impressions": 7,
      "ctr": 0.1429,
      "position": 5.14,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6326,8 +6263,8 @@
      "impressions": 7,
      "ctr": 0.1429,
      "position": 7.57,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6336,8 +6273,8 @@
      "impressions": 7,
      "ctr": 0.1429,
      "position": 3.86,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6346,8 +6283,8 @@
      "impressions": 6,
      "ctr": 0.1667,
      "position": 7.83,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6356,8 +6293,8 @@
      "impressions": 6,
      "ctr": 0.1667,
      "position": 8.67,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6366,8 +6303,8 @@
      "impressions": 4,
      "ctr": 0.25,
      "position": 2.5,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6376,8 +6313,8 @@
      "impressions": 4,
      "ctr": 0.25,
      "position": 6.75,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6386,8 +6323,8 @@
      "impressions": 4,
      "ctr": 0.25,
      "position": 5.25,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6396,8 +6333,8 @@
      "impressions": 3,
      "ctr": 0.3333,
      "position": 1.0,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6406,8 +6343,8 @@
      "impressions": 3,
      "ctr": 0.3333,
      "position": 8.33,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6416,8 +6353,8 @@
      "impressions": 2,
      "ctr": 0.5,
      "position": 7.5,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6426,8 +6363,8 @@
      "impressions": 2,
      "ctr": 0.5,
      "position": 5.5,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6436,8 +6373,8 @@
      "impressions": 2,
      "ctr": 0.5,
      "position": 9.0,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6446,8 +6383,8 @@
      "impressions": 1,
      "ctr": 1.0,
      "position": 5.0,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6456,8 +6393,8 @@
      "impressions": 1,
      "ctr": 1.0,
      "position": 8.0,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6466,8 +6403,8 @@
      "impressions": 1,
      "ctr": 1.0,
      "position": 1.0,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6476,8 +6413,8 @@
      "impressions": 28,
      "ctr": 0.0,
      "position": 8.75,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6486,8 +6423,8 @@
      "impressions": 13,
      "ctr": 0.0,
      "position": 7.62,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6496,8 +6433,8 @@
      "impressions": 13,
      "ctr": 0.0,
      "position": 8.92,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6506,8 +6443,8 @@
      "impressions": 12,
      "ctr": 0.0,
      "position": 4.58,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6516,8 +6453,8 @@
      "impressions": 10,
      "ctr": 0.0,
      "position": 2.8,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6526,8 +6463,8 @@
      "impressions": 9,
      "ctr": 0.0,
      "position": 8.0,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6536,8 +6473,8 @@
      "impressions": 8,
      "ctr": 0.0,
      "position": 4.62,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6546,8 +6483,8 @@
      "impressions": 8,
      "ctr": 0.0,
      "position": 5.38,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6556,8 +6493,8 @@
      "impressions": 8,
      "ctr": 0.0,
      "position": 8.38,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6566,8 +6503,8 @@
      "impressions": 8,
      "ctr": 0.0,
      "position": 8.5,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6576,8 +6513,8 @@
      "impressions": 7,
      "ctr": 0.0,
      "position": 10.14,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6586,8 +6523,8 @@
      "impressions": 6,
      "ctr": 0.0,
      "position": 8.0,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6596,8 +6533,8 @@
      "impressions": 5,
      "ctr": 0.0,
      "position": 4.2,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6606,8 +6543,8 @@
      "impressions": 5,
      "ctr": 0.0,
      "position": 4.4,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6616,8 +6553,8 @@
      "impressions": 5,
      "ctr": 0.0,
      "position": 5.0,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6626,8 +6563,8 @@
      "impressions": 5,
      "ctr": 0.0,
      "position": 16.0,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6636,8 +6573,8 @@
      "impressions": 5,
      "ctr": 0.0,
      "position": 6.6,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6646,8 +6583,8 @@
      "impressions": 4,
      "ctr": 0.0,
      "position": 6.75,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6656,8 +6593,8 @@
      "impressions": 4,
      "ctr": 0.0,
      "position": 21.25,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6666,8 +6603,8 @@
      "impressions": 3,
      "ctr": 0.0,
      "position": 10.0,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6676,8 +6613,8 @@
      "impressions": 3,
      "ctr": 0.0,
      "position": 11.0,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6686,8 +6623,8 @@
      "impressions": 3,
      "ctr": 0.0,
      "position": 4.67,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6696,8 +6633,8 @@
      "impressions": 3,
      "ctr": 0.0,
      "position": 9.0,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6706,8 +6643,8 @@
      "impressions": 3,
      "ctr": 0.0,
      "position": 6.67,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6716,8 +6653,8 @@
      "impressions": 2,
      "ctr": 0.0,
      "position": 9.0,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6726,8 +6663,8 @@
      "impressions": 2,
      "ctr": 0.0,
      "position": 9.5,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6736,8 +6673,8 @@
      "impressions": 2,
      "ctr": 0.0,
      "position": 10.5,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6746,8 +6683,8 @@
      "impressions": 2,
      "ctr": 0.0,
      "position": 7.5,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6756,8 +6693,8 @@
      "impressions": 2,
      "ctr": 0.0,
      "position": 27.0,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6766,8 +6703,8 @@
      "impressions": 2,
      "ctr": 0.0,
      "position": 11.5,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6776,8 +6713,8 @@
      "impressions": 2,
      "ctr": 0.0,
      "position": 9.5,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6786,8 +6723,8 @@
      "impressions": 2,
      "ctr": 0.0,
      "position": 7.5,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6796,8 +6733,8 @@
      "impressions": 2,
      "ctr": 0.0,
      "position": 7.0,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6806,8 +6743,8 @@
      "impressions": 2,
      "ctr": 0.0,
      "position": 34.0,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6816,8 +6753,8 @@
      "impressions": 2,
      "ctr": 0.0,
      "position": 5.5,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6826,8 +6763,8 @@
      "impressions": 2,
      "ctr": 0.0,
      "position": 6.5,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6836,8 +6773,8 @@
      "impressions": 1,
      "ctr": 0.0,
      "position": 4.0,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6846,8 +6783,8 @@
      "impressions": 1,
      "ctr": 0.0,
      "position": 6.0,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6856,8 +6793,8 @@
      "impressions": 1,
      "ctr": 0.0,
      "position": 18.0,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6866,8 +6803,8 @@
      "impressions": 1,
      "ctr": 0.0,
      "position": 20.0,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6876,8 +6813,8 @@
      "impressions": 1,
      "ctr": 0.0,
      "position": 7.0,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6886,8 +6823,8 @@
      "impressions": 1,
      "ctr": 0.0,
      "position": 8.0,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6896,8 +6833,8 @@
      "impressions": 1,
      "ctr": 0.0,
      "position": 10.0,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6906,8 +6843,8 @@
      "impressions": 1,
      "ctr": 0.0,
      "position": 6.0,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6916,8 +6853,8 @@
      "impressions": 1,
      "ctr": 0.0,
      "position": 15.0,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6926,8 +6863,8 @@
      "impressions": 1,
      "ctr": 0.0,
      "position": 8.0,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6936,8 +6873,8 @@
      "impressions": 1,
      "ctr": 0.0,
      "position": 7.0,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6946,8 +6883,8 @@
      "impressions": 1,
      "ctr": 0.0,
      "position": 8.0,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6956,8 +6893,8 @@
      "impressions": 1,
      "ctr": 0.0,
      "position": 15.0,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6966,8 +6903,8 @@
      "impressions": 1,
      "ctr": 0.0,
      "position": 8.0,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6976,8 +6913,8 @@
      "impressions": 1,
      "ctr": 0.0,
      "position": 5.0,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6986,8 +6923,8 @@
      "impressions": 1,
      "ctr": 0.0,
      "position": 3.0,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -6996,8 +6933,8 @@
      "impressions": 1,
      "ctr": 0.0,
      "position": 25.0,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -7006,8 +6943,8 @@
      "impressions": 1,
      "ctr": 0.0,
      "position": 6.0,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -7016,8 +6953,8 @@
      "impressions": 1,
      "ctr": 0.0,
      "position": 6.0,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -7026,8 +6963,8 @@
      "impressions": 1,
      "ctr": 0.0,
      "position": 4.0,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -7036,8 +6973,8 @@
      "impressions": 1,
      "ctr": 0.0,
      "position": 5.0,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -7046,8 +6983,8 @@
      "impressions": 1,
      "ctr": 0.0,
      "position": 6.0,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -7056,8 +6993,8 @@
      "impressions": 1,
      "ctr": 0.0,
      "position": 9.0,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     }
    ],
@@ -7068,8 +7005,8 @@
      "impressions": 4449,
      "ctr": 0.0591,
      "position": 6.72,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -7078,8 +7015,8 @@
      "impressions": 70,
      "ctr": 0.0,
      "position": 8.7,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -7088,8 +7025,8 @@
      "impressions": 70,
      "ctr": 0.0,
      "position": 8.7,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -7098,8 +7035,8 @@
      "impressions": 70,
      "ctr": 0.0,
      "position": 8.7,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -7108,8 +7045,8 @@
      "impressions": 70,
      "ctr": 0.0,
      "position": 8.7,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -7118,8 +7055,8 @@
      "impressions": 49,
      "ctr": 0.0,
      "position": 6.84,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -7128,8 +7065,8 @@
      "impressions": 37,
      "ctr": 0.0,
      "position": 7.38,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -7138,8 +7075,8 @@
      "impressions": 21,
      "ctr": 0.0,
      "position": 4.95,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -7148,8 +7085,8 @@
      "impressions": 15,
      "ctr": 0.0,
      "position": 5.4,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -7158,8 +7095,8 @@
      "impressions": 6,
      "ctr": 0.0,
      "position": 4.0,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     }
    ],
@@ -7170,8 +7107,8 @@
      "impressions": 1128,
      "ctr": 0.0408,
      "position": 6.97,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -7180,8 +7117,8 @@
      "impressions": 256,
      "ctr": 0.0664,
      "position": 7.18,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -7190,8 +7127,8 @@
      "impressions": 485,
      "ctr": 0.0309,
      "position": 6.8,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -7200,8 +7137,8 @@
      "impressions": 105,
      "ctr": 0.1143,
      "position": 6.16,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -7210,8 +7147,8 @@
      "impressions": 77,
      "ctr": 0.1558,
      "position": 5.87,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -7220,8 +7157,8 @@
      "impressions": 108,
      "ctr": 0.0926,
      "position": 6.56,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -7230,8 +7167,8 @@
      "impressions": 68,
      "ctr": 0.1029,
      "position": 6.34,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -7240,8 +7177,8 @@
      "impressions": 63,
      "ctr": 0.1111,
      "position": 7.27,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -7250,8 +7187,8 @@
      "impressions": 41,
      "ctr": 0.1463,
      "position": 5.32,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -7260,8 +7197,8 @@
      "impressions": 53,
      "ctr": 0.0943,
      "position": 5.98,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -7270,8 +7207,8 @@
      "impressions": 11,
      "ctr": 0.4545,
      "position": 3.73,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -7280,8 +7217,8 @@
      "impressions": 143,
      "ctr": 0.028,
      "position": 7.59,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -7290,8 +7227,8 @@
      "impressions": 39,
      "ctr": 0.1026,
      "position": 6.56,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -7300,8 +7237,8 @@
      "impressions": 28,
      "ctr": 0.1429,
      "position": 5.61,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -7310,8 +7247,8 @@
      "impressions": 28,
      "ctr": 0.1429,
      "position": 7.36,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -7320,8 +7257,8 @@
      "impressions": 26,
      "ctr": 0.1538,
      "position": 5.85,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -7330,8 +7267,8 @@
      "impressions": 19,
      "ctr": 0.2105,
      "position": 5.32,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -7340,8 +7277,8 @@
      "impressions": 9,
      "ctr": 0.4444,
      "position": 6.89,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -7350,8 +7287,8 @@
      "impressions": 98,
      "ctr": 0.0306,
      "position": 6.61,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -7360,8 +7297,8 @@
      "impressions": 61,
      "ctr": 0.0492,
      "position": 6.25,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -7370,8 +7307,8 @@
      "impressions": 54,
      "ctr": 0.0556,
      "position": 7.24,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -7380,8 +7317,8 @@
      "impressions": 43,
      "ctr": 0.0698,
      "position": 7.88,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -7390,8 +7327,8 @@
      "impressions": 34,
      "ctr": 0.0882,
      "position": 7.24,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -7400,8 +7337,8 @@
      "impressions": 29,
      "ctr": 0.1034,
      "position": 8.48,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -7410,8 +7347,8 @@
      "impressions": 22,
      "ctr": 0.1364,
      "position": 5.64,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -7420,8 +7357,8 @@
      "impressions": 21,
      "ctr": 0.1429,
      "position": 6.43,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -7430,8 +7367,8 @@
      "impressions": 16,
      "ctr": 0.1875,
      "position": 4.44,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -7440,8 +7377,8 @@
      "impressions": 11,
      "ctr": 0.2727,
      "position": 6.09,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -7450,8 +7387,8 @@
      "impressions": 6,
      "ctr": 0.5,
      "position": 4.33,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -7460,8 +7397,8 @@
      "impressions": 71,
      "ctr": 0.0282,
      "position": 6.39,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -7470,8 +7407,8 @@
      "impressions": 30,
      "ctr": 0.0667,
      "position": 7.27,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -7480,8 +7417,8 @@
      "impressions": 30,
      "ctr": 0.0667,
      "position": 5.8,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -7490,8 +7427,8 @@
      "impressions": 28,
      "ctr": 0.0714,
      "position": 4.86,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -7500,8 +7437,8 @@
      "impressions": 26,
      "ctr": 0.0769,
      "position": 7.73,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -7510,8 +7447,8 @@
      "impressions": 17,
      "ctr": 0.1176,
      "position": 5.35,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -7520,8 +7457,8 @@
      "impressions": 7,
      "ctr": 0.2857,
      "position": 5.57,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -7530,8 +7467,8 @@
      "impressions": 7,
      "ctr": 0.2857,
      "position": 4.43,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -7540,8 +7477,8 @@
      "impressions": 3,
      "ctr": 0.6667,
      "position": 3.0,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -7550,8 +7487,8 @@
      "impressions": 136,
      "ctr": 0.0074,
      "position": 8.21,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -7560,8 +7497,8 @@
      "impressions": 80,
      "ctr": 0.0125,
      "position": 6.38,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -7570,8 +7507,8 @@
      "impressions": 80,
      "ctr": 0.0125,
      "position": 11.18,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -7580,8 +7517,8 @@
      "impressions": 33,
      "ctr": 0.0303,
      "position": 6.64,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -7590,8 +7527,8 @@
      "impressions": 28,
      "ctr": 0.0357,
      "position": 5.93,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -7600,8 +7537,8 @@
      "impressions": 16,
      "ctr": 0.0625,
      "position": 4.88,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -7610,8 +7547,8 @@
      "impressions": 15,
      "ctr": 0.0667,
      "position": 6.4,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -7620,8 +7557,8 @@
      "impressions": 14,
      "ctr": 0.0714,
      "position": 6.0,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -7630,8 +7567,8 @@
      "impressions": 12,
      "ctr": 0.0833,
      "position": 5.83,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -7640,8 +7577,8 @@
      "impressions": 10,
      "ctr": 0.1,
      "position": 5.1,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -7650,8 +7587,8 @@
      "impressions": 8,
      "ctr": 0.125,
      "position": 6.25,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -7660,8 +7597,8 @@
      "impressions": 6,
      "ctr": 0.1667,
      "position": 2.67,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -7670,8 +7607,8 @@
      "impressions": 6,
      "ctr": 0.1667,
      "position": 6.17,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -7680,8 +7617,8 @@
      "impressions": 6,
      "ctr": 0.1667,
      "position": 2.67,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -7690,8 +7627,8 @@
      "impressions": 3,
      "ctr": 0.3333,
      "position": 2.67,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -7700,8 +7637,8 @@
      "impressions": 3,
      "ctr": 0.3333,
      "position": 4.0,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -7710,8 +7647,8 @@
      "impressions": 3,
      "ctr": 0.3333,
      "position": 10.67,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -7720,8 +7657,8 @@
      "impressions": 3,
      "ctr": 0.3333,
      "position": 6.0,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -7730,8 +7667,8 @@
      "impressions": 2,
      "ctr": 0.5,
      "position": 1.5,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -7740,8 +7677,8 @@
      "impressions": 2,
      "ctr": 0.5,
      "position": 3.0,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -7750,8 +7687,8 @@
      "impressions": 2,
      "ctr": 0.5,
      "position": 3.0,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -7760,8 +7697,8 @@
      "impressions": 2,
      "ctr": 0.5,
      "position": 5.5,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     }
    ],
@@ -7772,8 +7709,8 @@
      "impressions": 2337,
      "ctr": 0.0539,
      "position": 6.51,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -7782,8 +7719,8 @@
      "impressions": 1909,
      "ctr": 0.0655,
      "position": 6.92,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     },
     {
@@ -7792,8 +7729,8 @@
      "impressions": 212,
      "ctr": 0.0566,
      "position": 7.38,
-     "prevClicks": 0,
-     "prevImpressions": 0,
+     "prevClicks": null,
+     "prevImpressions": null,
      "prevPosition": null
     }
    ],
@@ -7806,16 +7743,16 @@
    "youtubeDaily": [
     {
      "date": "2026-09-18",
-     "calls": 211,
+     "calls": 230,
      "errors": 46,
-     "units": 995,
+     "units": 1014,
      "lives": 4
     },
     {
      "date": "2026-09-19",
-     "calls": 257,
+     "calls": 238,
      "errors": 0,
-     "units": 1139,
+     "units": 1120,
      "lives": 6
     },
     {
@@ -7922,12 +7859,12 @@
     {
      "date": "2026-09-18",
      "lives": 4,
-     "units": 995
+     "units": 1014
     },
     {
      "date": "2026-09-19",
      "lives": 6,
-     "units": 1139
+     "units": 1120
     },
     {
      "date": "2026-09-20",
@@ -8024,207 +7961,207 @@
   "apple_stores": {
    "ok": true,
    "note": "3 Apple platform(s)",
-   "at": "2026-09-25T21:18:55+00:00"
+   "at": "2026-09-25T21:33:28+00:00"
   },
   "apple_reviews": {
    "ok": true,
    "note": "6 review(s)",
-   "at": "2026-09-25T21:18:55+00:00"
+   "at": "2026-09-25T21:33:28+00:00"
   },
   "apple_rating": {
    "ok": true,
-   "note": "4 from 7",
-   "at": "2026-09-25T21:18:55+00:00"
+   "note": "4.125 from 8",
+   "at": "2026-09-25T21:33:29+00:00"
   },
   "apple_performance": {
    "ok": true,
    "note": "Apple has not aggregated enough device data yet",
-   "at": "2026-09-25T21:18:56+00:00"
+   "at": "2026-09-25T21:33:29+00:00"
   },
   "apple_downloads": {
    "ok": true,
    "note": "1174 first-time download(s) over 31 day(s), 4 device type(s), 93 country/countries; skipped 6971 unit(s) across 2 other product type(s)",
-   "at": "2026-09-25T21:19:16+00:00"
+   "at": "2026-09-25T21:33:52+00:00"
   },
   "play_stores": {
    "ok": true,
    "note": "3 track(s)",
-   "at": "2026-09-25T21:19:18+00:00"
+   "at": "2026-09-25T21:33:53+00:00"
   },
   "play_reviews": {
    "ok": true,
    "note": "0 review(s) in Play's 7-day window",
-   "at": "2026-09-25T21:19:18+00:00"
+   "at": "2026-09-25T21:33:53+00:00"
   },
   "play_rating": {
    "ok": false,
    "note": "Play listing carries no rating yet",
-   "at": "2026-09-25T21:19:19+00:00"
+   "at": "2026-09-25T21:33:53+00:00"
   },
   "play_vitals": {
    "ok": true,
    "note": "crashRate=0.0, anrRate=0.0",
-   "at": "2026-09-25T21:19:24+00:00"
+   "at": "2026-09-25T21:33:55+00:00"
   },
   "play_crashes": {
    "ok": true,
    "note": "17 cluster(s), 0 still on build 65",
-   "at": "2026-09-25T21:21:00+00:00"
+   "at": "2026-09-25T21:34:24+00:00"
   },
   "play_users": {
    "ok": true,
    "note": "1 day(s) of users, 0 dimension(s)",
-   "at": "2026-09-25T21:21:10+00:00"
+   "at": "2026-09-25T21:34:29+00:00"
   },
   "play_reports": {
    "ok": true,
    "note": "NO NEW INSTALL ROW IN 17 DAYS — newest is 2026-09-08. Past the normal ~6-day lag and past the monthly-file delay, so check the bucket with tools/play_bucket_probe.py before assuming it is a lag. 598 install(s) over 28 day(s)",
-   "at": "2026-09-25T21:21:20+00:00"
+   "at": "2026-09-25T21:34:36+00:00"
   },
   "play_daily_exports": {
    "ok": true,
    "note": "ratings: 36 day(s) to 2026-09-23, crashes: 40 day(s) to 2026-09-21",
-   "at": "2026-09-25T21:21:35+00:00"
+   "at": "2026-09-25T21:34:44+00:00"
   },
   "play_acquisition": {
    "ok": true,
    "note": "875 acquisition(s) from 2074 visitor(s) to 2026-09-18, 42% conversion",
-   "at": "2026-09-25T21:21:37+00:00"
+   "at": "2026-09-25T21:34:45+00:00"
   },
   "amazon_vitals": {
    "ok": true,
    "note": "3 metric set(s) with data, 0 empty",
-   "at": "2026-09-25T21:21:39+00:00"
+   "at": "2026-09-25T21:34:46+00:00"
   },
   "amazon_installs": {
    "ok": true,
    "note": "34 install(s) across 1 month(s), 7 countries",
-   "at": "2026-09-25T21:21:40+00:00"
+   "at": "2026-09-25T21:34:47+00:00"
   },
   "amazon_live": {
    "ok": true,
    "note": "versionCode 64 in the OPEN edit — a submission is in flight, so this is what is staged rather than what is live",
-   "at": "2026-09-25T21:21:44+00:00"
+   "at": "2026-09-25T21:34:50+00:00"
   },
   "roku_engagement": {
    "ok": true,
-   "note": "4 drop(s), 9 day(s), 60 tile(s) from 4 report(s) [App Engagement, App Health, App Stability, Viewership Summary]",
-   "at": "2026-09-25T21:21:44+00:00"
+   "note": "no delivery waiting — the schedule fires daily at 06:00, so this is normal between runs",
+   "at": "2026-09-25T21:34:50+00:00"
   },
   "manual_stores": {
    "ok": true,
-   "note": "5 declared store(s), 2 version(s) read rather than declared",
-   "at": "2026-09-25T21:21:44+00:00"
+   "note": "5 declared store(s), 1 version(s) read rather than declared",
+   "at": "2026-09-25T21:34:50+00:00"
   },
   "social_program": {
    "ok": true,
    "note": "101 post(s) across 5 platform(s), 53 measured",
-   "at": "2026-09-25T21:21:44+00:00"
+   "at": "2026-09-25T21:34:50+00:00"
   },
   "social_reach": {
    "ok": true,
    "note": "bluesky=10, mastodon=0, instagram=1",
-   "at": "2026-09-25T21:21:46+00:00"
+   "at": "2026-09-25T21:34:52+00:00"
   },
   "social_replies": {
    "ok": true,
    "note": "1 reply/mention notification(s)",
-   "at": "2026-09-25T21:21:47+00:00"
+   "at": "2026-09-25T21:34:52+00:00"
   },
   "social_liveness": {
    "ok": true,
    "note": "54 live, 4 deleted, 43 could not be checked",
-   "at": "2026-09-25T21:21:55+00:00"
+   "at": "2026-09-25T21:34:59+00:00"
   },
   "youtube_channel": {
    "ok": true,
    "note": "stats need youtube.readonly (the token is upload-only, by design), 0 comment(s)",
-   "at": "2026-09-25T21:21:57+00:00"
+   "at": "2026-09-25T21:35:00+00:00"
   },
   "mentions_reddit": {
    "ok": true,
    "note": "0 kept",
-   "at": "2026-09-25T21:21:59+00:00"
+   "at": "2026-09-25T21:35:00+00:00"
   },
   "mentions_hn": {
    "ok": true,
    "note": "0 kept of 0",
-   "at": "2026-09-25T21:21:59+00:00"
+   "at": "2026-09-25T21:35:01+00:00"
   },
   "mentions_lemmy": {
    "ok": true,
    "note": "0 kept",
-   "at": "2026-09-25T21:22:01+00:00"
+   "at": "2026-09-25T21:35:02+00:00"
   },
   "mentions_news": {
    "ok": true,
    "note": "0 kept",
-   "at": "2026-09-25T21:22:01+00:00"
+   "at": "2026-09-25T21:35:02+00:00"
   },
   "mentions_bluesky": {
    "ok": true,
    "note": "2 kept",
-   "at": "2026-09-25T21:22:03+00:00"
+   "at": "2026-09-25T21:35:03+00:00"
   },
   "mentions_mastodon": {
    "ok": true,
-   "note": "1 kept",
-   "at": "2026-09-25T21:22:05+00:00"
+   "note": "0 kept",
+   "at": "2026-09-25T21:35:04+00:00"
   },
   "github": {
    "ok": true,
    "note": "1 star(s), 0 open issue(s), 0 from outside",
-   "at": "2026-09-25T21:22:06+00:00"
+   "at": "2026-09-25T21:35:05+00:00"
   },
   "workflows": {
    "ok": true,
    "note": "2 finding(s), 0 urgent",
-   "at": "2026-09-25T21:23:37+00:00"
+   "at": "2026-09-25T21:36:06+00:00"
   },
   "catalog": {
    "ok": true,
    "note": "22631 items, schema 13",
-   "at": "2026-09-25T21:23:38+00:00"
+   "at": "2026-09-25T21:36:07+00:00"
   },
   "web_usage": {
    "ok": true,
-   "note": "45423 route view(s) and 15637 visit(s) over 17 day(s), 14 surface(s)",
-   "at": "2026-09-25T21:23:38+00:00"
+   "note": "45438 route view(s) and 15647 visit(s) over 17 day(s), 14 surface(s)",
+   "at": "2026-09-25T21:36:07+00:00"
   },
   "web_titles": {
    "ok": true,
-   "note": "1368 film(s) played, 2410 opened, over 12 day(s)",
-   "at": "2026-09-25T21:23:38+00:00"
+   "note": "1368 film(s) played, 2412 opened, over 12 day(s)",
+   "at": "2026-09-25T21:36:07+00:00"
   },
   "search_console": {
    "ok": true,
    "note": "263 clicks / 4458 impressions in 28 days to 2026-09-23 (prior 28: 0 / 0)",
-   "at": "2026-09-25T21:23:40+00:00"
+   "at": "2026-09-25T21:36:09+00:00"
   },
   "together_rooms": {
    "ok": true,
    "note": "0 room(s), 0 guest join(s) since the tally began",
-   "at": "2026-09-25T21:23:40+00:00"
+   "at": "2026-09-25T21:36:09+00:00"
   },
   "youtube_usage": {
    "ok": true,
    "note": "44 YouTube broadcast(s) in 90 days; peak quota day 9,765/10,000 units",
-   "at": "2026-09-25T21:23:44+00:00"
+   "at": "2026-09-25T21:36:09+00:00"
   },
   "together_summary": {
    "ok": true,
    "note": "28 days: {'rooms': 0, 'guests': 0, 'lives': 44}",
-   "at": "2026-09-25T21:23:44+00:00"
+   "at": "2026-09-25T21:36:09+00:00"
   },
   "distribution": {
    "ok": true,
    "note": "App Store: 6 rated",
-   "at": "2026-09-25T21:23:44+00:00"
+   "at": "2026-09-25T21:36:09+00:00"
   },
   "asks": {
    "ok": true,
    "note": "0 request(s), 5 bit(s) of praise",
-   "at": "2026-09-25T21:23:44+00:00"
+   "at": "2026-09-25T21:36:09+00:00"
   }
  },
  "_apply": true,
@@ -8491,8 +8428,8 @@
   },
   {
    "date": "2026-09-25",
-   "appleRating": 4,
-   "appleRatings": 7,
+   "appleRating": 4.125,
+   "appleRatings": 8,
    "playRating": null,
    "playRatings": null,
    "reviews": 7,
@@ -8506,8 +8443,8 @@
    "urgent": 0
   }
  ],
- "generatedAt": "2026-09-25T21:23:44+00:00",
- "repoVersion": "1.42.703",
- "repoBuild": "1715",
+ "generatedAt": "2026-09-25T21:36:09+00:00",
+ "repoVersion": "1.42.704",
+ "repoBuild": "1716",
  "_": "Written by tools/pulse_collect.py. `history` is the series and is append-only per day; everything else is the latest reading. A source that could not answer says so in `sources` — never assume a zero."
 }
