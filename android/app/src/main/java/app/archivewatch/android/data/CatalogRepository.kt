@@ -193,7 +193,7 @@ class CatalogRepository(
                     if (!staging.renameTo(dbFile)) return@withContext
                     swap(CatalogDatabase.open(dbFile.path, json))
                     mark("swap:done")
-                    old?.close()
+                    old?.closeWhenIdle()
 
                     // Store the new ETag only after the swap (§9.4).
                     response.header("ETag")?.let { etagFile.writeText(it) }

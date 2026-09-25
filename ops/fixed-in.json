@@ -12,6 +12,48 @@
    "version": "1.42.6",
    "what": "Compose duplicate lazy-list keys",
    "fix": "List.uniqueBy at 14 call sites; UniqueByTest, negative-controlled"
+  },
+  "1512a7d9459c2a4ae4371f3899db8e0d": {
+   "build": 1704,
+   "version": "1.42.692",
+   "what": "SQLException preparing a query on a closed catalog connection",
+   "fix": "the catalog swap closed the old database while a Home count still held it; closeWhenIdle takes the query lock and a closed database answers empty"
+  },
+  "4c04da8b34da8b7ea6519d6c60887dc7": {
+   "build": 1704,
+   "version": "1.42.692",
+   "what": "SQLException preparing a query on a closed catalog connection",
+   "fix": "same cause as 1512a7d9: closeWhenIdle"
+  },
+  "fcd107cc3378dccebee2ae07712ffa38": {
+   "build": 1704,
+   "version": "1.42.692",
+   "what": "SQLException preparing a query on a closed catalog connection",
+   "fix": "same cause as 1512a7d9: closeWhenIdle"
+  },
+  "c4b5f96e1ef10fd43992556a8ce60a71": {
+   "build": 1704,
+   "version": "1.42.692",
+   "what": "OutOfMemoryError in playback: the player buffer had no byte cap",
+   "fix": "setPrioritizeTimeOverSizeThresholds(true) disabled the cap (120 s + 30 s of a 15 Mbps file ~280 MB vs a 256 MB heap); now a quarter of the heap"
+  },
+  "e585dd3f05a2c86113ef89c1fca296d0": {
+   "build": 1704,
+   "version": "1.42.692",
+   "what": "ANR: RenderThread stalled in the Mali GPU driver",
+   "fix": "full-screen RenderEffect blur removed on televisions and low-RAM devices; the 96 px upscale is the wash (a driver stall, so a mitigation, verified by the cluster not recurring)"
+  },
+  "a6de15e9a91794d45b55e1a9282d0460": {
+   "build": 1704,
+   "version": "1.42.692",
+   "what": "ANR: RenderThread stalled in the Mali GPU driver",
+   "fix": "as e585dd3f: no Gaussian RenderEffect on TV / low-RAM (mitigation)"
+  },
+  "48ef98e1faadb5ac9a4b0d3f74ec490d": {
+   "build": 1704,
+   "version": "1.42.692",
+   "what": "ANR: RenderThread stalled in the Mali GPU driver",
+   "fix": "as e585dd3f: no Gaussian RenderEffect on TV / low-RAM (mitigation)"
   }
  },
  "note": "The id here is the LARGEST cluster of the five that share the subcompose stack. They are one bug; Play splits them by device and version. Add the others' ids as they surface."

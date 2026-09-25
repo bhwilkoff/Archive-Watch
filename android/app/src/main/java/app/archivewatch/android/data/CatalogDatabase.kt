@@ -96,7 +96,22 @@ class CatalogDatabase private constructor(
         get() = if (demotedIDs.isEmpty()) "" else
             "(i.archiveID IN (${demotedIDs.joinToString(",") { "'${it.replace("'", "''")}'" }})) ASC, "
 
+    /** Set under [mutex] by [closeWhenIdle]; a query that reaches a closed
+     *  database answers empty instead of preparing on a dead connection. */
+    @Volatile private var closed = false
+
+    /** Close after any query already holding (or waiting for) the lock has
+     *  finished. The catalog swap used to call [close] straight after
+     *  swapping in a new file, and a Home count still running on the OLD
+     *  database then prepared on a closed connection: Play cluster 1512a7d9,
+     *  a message-less SQLException out of browseCount. */
+    suspend fun closeWhenIdle() = mutex.withLock {
+        closed = true
+        try { connection.close() } catch (_: Throwable) {}
+    }
+
     fun close() {
+        closed = true
         try { connection.close() } catch (_: Throwable) {}
     }
 
@@ -772,10 +787,13 @@ class CatalogDatabase private constructor(
     )
 
     private suspend fun itemsLite(sql: String, binds: List<Any?>): List<CatalogItem> = dbCall {
-        // The SQL already committed to a column count when it was built; the
-        // row reader must use THAT answer, not ask again later (§9.ggg).
-        val withRights = sql.contains("rightsBucket")
-        queryRaw(sql, binds) { liteFromRow(it, withRights) }
+        // The row reader asks the STATEMENT how many columns it returned — the
+        // one answer that cannot drift from the SQL (§9.ggg). This used
+        // `sql.contains("rightsBucket")`, which went true the moment a WHERE
+        // clause filtered on rightsBucket (the community rows' hero bar,
+        // 2026-09-25) while the SELECT stayed 17 columns, and every launch
+        // crashed with "column index out of range" reading column 17.
+        queryRaw(sql, binds) { liteFromRow(it, it.getColumnCount() > 17) }
     }
 
     private suspend fun <T> dbCall(block: () -> T): T =
@@ -803,7 +821,7 @@ class CatalogDatabase private constructor(
         sql: String,
         binds: List<Any?> = emptyList(),
         map: (SQLiteStatement) -> T,
-    ): List<T> = try {
+    ): List<T> = if (closed) emptyList() else try {
         queryRawOrThrow(sql, binds, map)
     } catch (t: Throwable) {
         if (!isCorruption(t)) throw t

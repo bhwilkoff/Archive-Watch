@@ -1,5 +1,6 @@
 package app.archivewatch.android.ui
 
+import app.archivewatch.android.ui.tv.isTelevision
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -143,12 +144,23 @@ fun BackdropImage(
                 .precision(coil3.size.Precision.INEXACT)
                 .build()
         } else url
+        // The Gaussian pass is a full-screen RenderEffect every frame. On the
+        // 32-bit Mali TV boxes in Play's ANR clusters (e585dd3f, a6de15e9,
+        // 48ef98e1: the main thread waiting on a RenderThread stuck in
+        // libGLES_mali) that is exactly the load that stalls the driver, and
+        // the 96 px upscale above is already the wash. So televisions and
+        // low-RAM devices get the upscale alone.
+        val gaussian = soft && remember(ctx) {
+            !ctx.isTelevision() &&
+                !(ctx.getSystemService(android.content.Context.ACTIVITY_SERVICE)
+                    as android.app.ActivityManager).isLowRamDevice
+        }
         AsyncImage(
             model = model,
             contentDescription = contentDescription,
             contentScale = ContentScale.Crop,
             onError = { failed = true },
-            modifier = if (soft) modifier.blur(28.dp) else modifier,
+            modifier = if (gaussian) modifier.blur(28.dp) else modifier,
         )
     } else {
         Box(

@@ -179,12 +179,18 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
 
             override fun getMinimumLoadableRetryCount(dataType: Int): Int = 8
         }
-        // Time-prioritized buffering: the Archive resets idle connections, and
-        // DefaultLoadControl's default byte cap (bitrate-derived) banks only a
-        // few seconds for a high-bitrate progressive MP4 — too little to ride
-        // out a reset. Buffer by TIME with deep headroom (~120s cap avoids the
-        // high-bitrate OOM path where targetBufferBytes balloons). The tvOS
-        // ResilientStreamLoader pins 300s; this is the Android analog.
+        // Deep TIME headroom, because the Archive resets idle connections and
+        // a few seconds of buffer cannot ride one out (the tvOS
+        // ResilientStreamLoader pins 300s; this is the Android analog) — but
+        // under a BYTE ceiling, because ExoPlayer's buffer is Java heap.
+        // This used setPrioritizeTimeOverSizeThresholds(true), which is what
+        // DISABLES the byte cap: 120 s ahead + 30 s back of a 15 Mbps 1080p
+        // upload is ~280 MB against a 256 MB heap. Play cluster c4b5f96e
+        // (OutOfMemoryError inside MediaCodec.getInputBuffer, build 60) is
+        // that. A quarter of the heap still buys the full 120 s at the 2-4
+        // Mbps most of the catalog runs at, and ~30 s at 15 Mbps.
+        val heapQuarter = (Runtime.getRuntime().maxMemory() / 4)
+            .coerceIn(16L * 1024 * 1024, 128L * 1024 * 1024).toInt()
         val loadControl = DefaultLoadControl.Builder()
             .setBufferDurationsMs(
                 50_000,   // minBufferMs
@@ -192,7 +198,8 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
                 2_500,    // bufferForPlaybackMs
                 5_000,    // bufferForPlaybackAfterRebufferMs
             )
-            .setPrioritizeTimeOverSizeThresholds(true)  // buffer by TIME not bytes
+            .setTargetBufferBytes(heapQuarter)
+            .setPrioritizeTimeOverSizeThresholds(false)
             .setBackBuffer(30_000, true)                // cheap re-seek without refetch
             .build()
         ExoPlayer.Builder(context)
