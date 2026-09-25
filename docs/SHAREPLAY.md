@@ -822,7 +822,7 @@ a setting:
 | **iOS / iPadOS** | the Watch Together row on the Library/More surface, per `iOS-DESIGN` |
 | **Android phone** | beside the existing Watch Together entry |
 | **Google TV / Fire TV** | a sidebar row — newly ALLOWED by §11.10 above, where Decision 132 had removed the entry entirely |
-| **web** | the link already works; a code field on `/together/` for the same reason |
+| **web** | the link, and a **Join a room** entry on Library opening a code field on `/together/` (built 2026-09-25) |
 | **Roku** | a menu row; codes are why Decision 119 exists on this platform |
 
 **NOT Settings.** Settings is where you change how the app behaves; joining a

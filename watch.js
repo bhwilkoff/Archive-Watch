@@ -2950,12 +2950,22 @@
       this.stop();
       const note = $('together-note');
       const err = $('together-error');
+      const form = $('together-join');
       err.hidden = true;
-      const parsed = Together.parseRoute(decodeURIComponent(seg || ''));
+      const raw = decodeURIComponent(seg || '');
+      // A bare code is enough: the room names its own film (state.filmID).
+      // SHAREPLAY §11.10 — the web joins by typed code as well as by link.
+      const bare = raw && !raw.includes('-') ? Together.normalizeCode(raw) : null;
+      const parsed = bare ? { code: bare } : Together.parseRoute(raw);
+      form.hidden = !!parsed;
       if (!parsed) {
         note.textContent = '';
-        err.hidden = false;
-        err.textContent = 'That room link is incomplete. Ask the host to send it again.';
+        if (raw) {
+          err.hidden = false;
+          err.textContent = 'That room link is incomplete. Ask the host to send it again.';
+        }
+        this.bindJoin();
+        $('together-code').focus();
         return;
       }
       note.textContent = 'Joining room ' + parsed.code + '…';
@@ -3022,6 +3032,23 @@
         Player.flashNote('Press play to join the room.', 0);
         video.addEventListener('playing', () => { $('player-note').hidden = true; }, { once: true });
       }
+    },
+
+    bindJoin() {
+      const form = $('together-join');
+      if (form.dataset.bound) return;
+      form.dataset.bound = '1';
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const code = Together.normalizeCode($('together-code').value);
+        const err = $('together-error');
+        if (!code) {
+          err.hidden = false;
+          err.textContent = 'A room code is four letters or numbers.';
+          return;
+        }
+        location.hash = '#/together/' + code;
+      });
     },
 
     stop() {

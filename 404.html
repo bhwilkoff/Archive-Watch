@@ -41,7 +41,7 @@
       var T = p.match(/^\/together(?:\/.*)?$/);
       if (T) {
         var room = (location.hash || '').replace(/^#\/?/, '');
-        location.replace(room ? '/#/together/' + room : '/');
+        location.replace('/#/together' + (room ? '/' + room : ''));
         return;
       }
       if (/^\/watch(\/|$)/.test(p)) { location.replace('/' + location.hash); return; }

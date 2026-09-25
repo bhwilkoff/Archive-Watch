@@ -116,6 +116,8 @@
       <h2>Playlists</h2>
       <div id="library-playlists" class="playlist-list"></div>
       <p id="library-playlists-empty" class="muted" hidden>No playlists yet — use “＋ Playlist” on any title.</p>
+      <h2>Watch Together</h2>
+      <a class="btn" href="#/together">Join a room</a>
       <h2>History</h2>
       <div id="library-history" class="grid"></div>
       <p id="library-history-empty" class="muted" hidden>Everything you watch shows up here.</p>
@@ -196,6 +198,14 @@
       <div class="surprise-head">
         <h1 id="together-title">Watch Together</h1>
       </div>
+      <form id="together-join" class="together-join" hidden>
+        <label class="field-label" for="together-code">Room code</label>
+        <div class="together-join-row">
+          <input id="together-code" class="field-input" type="text" inputmode="text"
+                 maxlength="9" autocomplete="off" autocapitalize="characters" spellcheck="false">
+          <button class="btn btn-primary" type="submit">Join</button>
+        </div>
+      </form>
       <p id="together-note" class="muted"></p>
       <p id="together-error" class="muted" hidden></p>
     </section>
