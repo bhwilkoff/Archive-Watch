@@ -443,7 +443,12 @@
   "canonicalEpisodesCount": 251,
   "tvdbID": "75716",
   "artworkSource": "tvdb",
-  "seriesImdbID": "tt0041061",
-  "canonicalEpisodeCount": 193,
-  "canonicalSeasons": 6
+  "cast": [
+    {
+      "name": "Rex Marshall",
+      "character": "Announcer",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/415/1039513.jpg"
+    }
+  ]
 }

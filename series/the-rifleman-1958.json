@@ -1,0 +1,69 @@
+{
+  "version": 2,
+  "seriesID": "the-rifleman-1958",
+  "tvmazeID": 3877,
+  "title": "The Rifleman",
+  "yearStart": 1958,
+  "yearEnd": 1963,
+  "overview": "Lucas McCain is an ex-soldier who loses his wife after the birth of one son, Mark. Lucas and Mark move to North Fork and attempt to make a living as farmers. However, outlaws and criminals ride into North Fork regularly, and Lucas' past comes back to haunt him from time to time. Inevitably, Lucas has to pick up his rifle and uses his marksmanship skills to deal with trouble.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/72089-2.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Action",
+    "Adventure",
+    "Western"
+  ],
+  "networks": [
+    "ABC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "the-rifleman-tv-1958-colorized-s01e01-the-sharpshooter",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The Sharpshooter",
+          "overview": "Lucas and Mark decide to enter a local turkey shoot to raise money to buy a ranch. The competition pits Lucas against the young sharpshooter, Vernon Tippert, who is sponsored by his bullying uncle, Wes Tippert. Although Vernon is a crack shot, he is no match against Lucas's superior skills as a marksman. The dramatic tension in \"The Sharpshooter\" turns on McCain throwing the match after the competition's promoter threatens to harm Lucas' young son should Tippert lose the competition. The unfolding story shows Lucas McCain reconciling the moral dilemma of protecting his young son and participating in a rigged competition.\"The Sharpshooter\" introduced not only the main characters, setting and back story for THE RIFLEMAN series, but also established its thematic distinctions from other popular western adventure programs produced during the Golden Age of television. To be sure, the staples of the genre inform THE RIFLEMAN's storylines—law and order, right and wrong, pioneer spirit and rugged individualism—but the central themes revolve around the father and son relationship—the first primetime television series to portray a single parent raising a child alone—and nuanced morality plays that explored human nobility and very human frailties, foibles and failings, as well as the archetypal white-hatted good guys and black hatted bad guys and outlaws.",
+          "stillURL": "https://archive.org/services/img/the-rifleman-tv-1958-colorized-s01e01-the-sharpshooter",
+          "airDate": "1958-09-30",
+          "year": 1958,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Rifleman TV 1958 colorized s01e01 The Sharpshooter.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 162271171,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-rifleman-tv-1958-colorized-s01e01-the-sharpshooter/The%20Rifleman%20TV%201958%20colorized%20s01e01%20The%20Sharpshooter.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1,
+  "canonicalEpisodesCount": 168,
+  "tvdbID": "72089",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Paul Fix",
+      "character": "Micah Torrance",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/14674.jpg"
+    },
+    {
+      "name": "Johnny Crawford",
+      "character": "Mark McCain",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/14675.jpg"
+    },
+    {
+      "name": "Chuck Connors",
+      "character": "Lucas McCain",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/14676.jpg"
+    }
+  ]
+}

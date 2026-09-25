@@ -292,7 +292,12 @@
   ],
   "episodesCount": 15,
   "canonicalEpisodesCount": 2,
-  "seriesImdbID": "tt0050012",
-  "canonicalEpisodeCount": 26,
-  "canonicalSeasons": 6
+  "cast": [
+    {
+      "name": "Dinah Shore",
+      "character": "Host",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/524/1311330.jpg"
+    }
+  ]
 }

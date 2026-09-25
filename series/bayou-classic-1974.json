@@ -286,6 +286,24 @@
   ],
   "episodesCount": 14,
   "canonicalEpisodesCount": 52,
-  "seriesImdbID": null,
-  "canonicalEpisodeCount": 0
+  "cast": [
+    {
+      "name": "Chris Lewis",
+      "character": "Play-by-Play Announcer",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/545/1364854.jpg"
+    },
+    {
+      "name": "Anthony Herron",
+      "character": "Analyst",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/545/1364855.jpg"
+    },
+    {
+      "name": "Lewis Johnson",
+      "character": "Sideline Reporter",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/545/1364856.jpg"
+    }
+  ]
 }

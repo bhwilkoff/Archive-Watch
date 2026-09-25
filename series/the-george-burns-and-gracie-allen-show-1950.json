@@ -299,7 +299,18 @@
   ],
   "episodesCount": 15,
   "canonicalEpisodesCount": 291,
-  "seriesImdbID": "tt0042111",
-  "canonicalEpisodeCount": 259,
-  "canonicalSeasons": 8
+  "cast": [
+    {
+      "name": "Gracie Allen",
+      "character": "Gracie Allen",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/338/845714.jpg"
+    },
+    {
+      "name": "George Burns",
+      "character": "George Burns",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/140/351161.jpg"
+    }
+  ]
 }

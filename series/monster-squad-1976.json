@@ -45,7 +45,30 @@
   "canonicalEpisodesCount": 13,
   "tvdbID": "76972",
   "artworkSource": "tvdb",
-  "seriesImdbID": "tt0128000",
-  "canonicalEpisodeCount": 8,
-  "canonicalSeasons": 1
+  "cast": [
+    {
+      "name": "Buck Kartalian",
+      "character": "Bruce W. Wolf",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/594/1486519.jpg"
+    },
+    {
+      "name": "Henry Polic II",
+      "character": "Dracula",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/28/70611.jpg"
+    },
+    {
+      "name": "Mike Lane",
+      "character": "Frank N. Stein",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/78/196695.jpg"
+    },
+    {
+      "name": "Fred Grandy",
+      "character": "Walter",
+      "order": 3,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/26/67269.jpg"
+    }
+  ]
 }

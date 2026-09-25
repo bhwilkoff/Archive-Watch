@@ -60,7 +60,12 @@
   ],
   "episodesCount": 2,
   "canonicalEpisodesCount": 298,
-  "seriesImdbID": "tt0334826",
-  "canonicalEpisodeCount": 1,
-  "canonicalSeasons": 1
+  "cast": [
+    {
+      "name": "Laurie Searle",
+      "character": "Hostess",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/83/208648.jpg"
+    }
+  ]
 }

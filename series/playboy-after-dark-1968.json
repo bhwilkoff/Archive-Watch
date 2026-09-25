@@ -963,7 +963,12 @@
   ],
   "episodesCount": 52,
   "canonicalEpisodesCount": 52,
-  "seriesImdbID": "tt0063940",
-  "canonicalEpisodeCount": 20,
-  "canonicalSeasons": 2
+  "cast": [
+    {
+      "name": "Hugh Hefner",
+      "character": "Host",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/31/79800.jpg"
+    }
+  ]
 }

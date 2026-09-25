@@ -67,6 +67,60 @@
   ],
   "episodesCount": 2,
   "canonicalEpisodesCount": 83,
-  "seriesImdbID": null,
-  "canonicalEpisodeCount": 0
+  "cast": [
+    {
+      "name": "Guy Williams",
+      "character": "Professor John Robinson",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/10/25200.jpg"
+    },
+    {
+      "name": "June Lockhart",
+      "character": "Dr. Maureen Robinson",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/523/1309999.jpg"
+    },
+    {
+      "name": "Jonathan Harris",
+      "character": "Dr. Zachary Smith",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/276/691712.jpg"
+    },
+    {
+      "name": "Bill Mumy",
+      "character": "Will Robinson",
+      "order": 3,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/188/470699.jpg"
+    },
+    {
+      "name": "Dick Tufeld",
+      "character": "Narrator",
+      "order": 4,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/10/26159.jpg"
+    },
+    {
+      "name": "Bob May",
+      "character": "Robot",
+      "order": 5,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/10/26158.jpg"
+    },
+    {
+      "name": "Marta Kristen",
+      "character": "Judy Robinson",
+      "order": 6,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/272/680049.jpg"
+    },
+    {
+      "name": "Angela Cartwright",
+      "character": "Penny Robinson",
+      "order": 7,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/10/26156.jpg"
+    },
+    {
+      "name": "Mark Goddard",
+      "character": "Major Donald West",
+      "order": 8,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/10/25201.jpg"
+    }
+  ]
 }

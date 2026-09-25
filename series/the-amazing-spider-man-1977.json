@@ -67,7 +67,48 @@
   ],
   "episodesCount": 2,
   "canonicalEpisodesCount": 14,
-  "seriesImdbID": "tt0076975",
-  "canonicalEpisodeCount": 2,
-  "canonicalSeasons": 1
+  "cast": [
+    {
+      "name": "Nicholas Hammond",
+      "character": "Peter Parker/Spider-Man",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/490/1227345.jpg"
+    },
+    {
+      "name": "David White",
+      "character": "J. Jonah Jameson",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/621/1553668.jpg"
+    },
+    {
+      "name": "Robert F. Simon",
+      "character": "J. Jonah Jameson",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/91/227916.jpg"
+    },
+    {
+      "name": "Chip Fields",
+      "character": "Rita Conway",
+      "order": 3,
+      "profilePath": null
+    },
+    {
+      "name": "Ellen Bry",
+      "character": "Julie Masters",
+      "order": 4,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/100/250668.jpg"
+    },
+    {
+      "name": "Michael Pataki",
+      "character": "Captain Barbera",
+      "order": 5,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/188/471098.jpg"
+    },
+    {
+      "name": "Irene Tedrow",
+      "character": "Aunt May",
+      "order": 6,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/204/510388.jpg"
+    }
+  ]
 }

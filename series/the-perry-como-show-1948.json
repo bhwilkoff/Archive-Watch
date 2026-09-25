@@ -276,6 +276,12 @@
   ],
   "episodesCount": 14,
   "canonicalEpisodesCount": 14,
-  "seriesImdbID": null,
-  "canonicalEpisodeCount": 0
+  "cast": [
+    {
+      "name": "Perry Como",
+      "character": "Host",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/35/89879.jpg"
+    }
+  ]
 }

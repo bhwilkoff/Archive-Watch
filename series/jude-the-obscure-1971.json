@@ -44,7 +44,42 @@
   "canonicalEpisodesCount": 6,
   "tvdbID": "324839",
   "artworkSource": "tvdb",
-  "seriesImdbID": "tt0066674",
-  "canonicalEpisodeCount": 6,
-  "canonicalSeasons": 1
+  "cast": [
+    {
+      "name": "Robert Powell",
+      "character": "Jude Fawley",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/106/267454.jpg"
+    },
+    {
+      "name": "Fiona Walker",
+      "character": "Sue Bridehead",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/83/207893.jpg"
+    },
+    {
+      "name": "John Franklyn-Robbins",
+      "character": "Richard Phillotson",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/585/1463098.jpg"
+    },
+    {
+      "name": "Daphne Heard",
+      "character": "Drusilla Fawley",
+      "order": 3,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/387/968825.jpg"
+    },
+    {
+      "name": "Alex Marshall",
+      "character": "Arabella Down",
+      "order": 4,
+      "profilePath": null
+    },
+    {
+      "name": "Gwen Nelson",
+      "character": "Mrs. Edlin",
+      "order": 5,
+      "profilePath": null
+    }
+  ]
 }

@@ -576,6 +576,12 @@
   ],
   "episodesCount": 30,
   "canonicalEpisodesCount": 69,
-  "seriesImdbID": null,
-  "canonicalEpisodeCount": 0
+  "cast": [
+    {
+      "name": "Reed Hadley",
+      "character": "Bart Matthews",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/204/512213.jpg"
+    }
+  ]
 }

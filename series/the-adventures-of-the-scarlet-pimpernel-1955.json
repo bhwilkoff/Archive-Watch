@@ -62,6 +62,42 @@
   ],
   "episodesCount": 2,
   "canonicalEpisodesCount": 18,
-  "seriesImdbID": null,
-  "canonicalEpisodeCount": 0
+  "cast": [
+    {
+      "name": "Marius Goring",
+      "character": "Sir Percy Blakeney / The Scarlet Pimpernel",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/593/1484491.jpg"
+    },
+    {
+      "name": "Stanley Van Beers",
+      "character": "Chauvelin",
+      "order": 1,
+      "profilePath": null
+    },
+    {
+      "name": "Patrick Troughton",
+      "character": "Sir Andrew Ffoulkes",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/18/46761.jpg"
+    },
+    {
+      "name": "Anthony Newlands",
+      "character": "Lord Richard Hastings",
+      "order": 3,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/99/249287.jpg"
+    },
+    {
+      "name": "Alexander Gauge",
+      "character": "George, The Prince Regent",
+      "order": 4,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/418/1045445.jpg"
+    },
+    {
+      "name": "Lucie Mannheim",
+      "character": "Countess La Valliere",
+      "order": 5,
+      "profilePath": null
+    }
+  ]
 }

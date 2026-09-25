@@ -176,7 +176,12 @@
   "canonicalEpisodesCount": 49,
   "tvdbID": "71699",
   "artworkSource": "tvdb",
-  "seriesImdbID": "tt0056777",
-  "canonicalEpisodeCount": 47,
-  "canonicalSeasons": 2
+  "cast": [
+    {
+      "name": "Vic Perrin",
+      "character": "The Control Voice",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/12/30869.jpg"
+    }
+  ]
 }

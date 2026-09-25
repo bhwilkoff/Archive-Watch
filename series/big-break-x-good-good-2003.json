@@ -42,6 +42,18 @@
   ],
   "episodesCount": 1,
   "canonicalEpisodesCount": 255,
-  "seriesImdbID": null,
-  "canonicalEpisodeCount": 0
+  "cast": [
+    {
+      "name": "Blair O'Neal",
+      "character": "Co-Host",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/638/1595069.jpg"
+    },
+    {
+      "name": "Wells Adams",
+      "character": "Co-Host",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/277/694054.jpg"
+    }
+  ]
 }

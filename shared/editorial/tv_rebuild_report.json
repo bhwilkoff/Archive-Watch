@@ -2498,6 +2498,43 @@
    ]
   },
   {
+   "slug": "nanny-and-the-professor-1970",
+   "tvmazeID": 17424,
+   "title": "Nanny and the Professor",
+   "matched": true,
+   "canonEps": 54,
+   "ourItems": 3,
+   "mappedEps": 3,
+   "extras": 0,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "availableEps": 3,
+   "kinds": [
+    "series",
+    "single"
+   ],
+   "mergedFrom": 4,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "nanny-and-the-professor-1970"
+    },
+    {
+     "kind": "single",
+     "ref": "NannyandtheProfessorSeason3"
+    },
+    {
+     "kind": "single",
+     "ref": "NannyandtheProfessorSeason1"
+    },
+    {
+     "kind": "single",
+     "ref": "NannyandtheProfessorSeason2"
+    }
+   ]
+  },
+  {
    "slug": "playhouse-90-1956",
    "tvmazeID": 21854,
    "title": "Playhouse 90",
@@ -2770,43 +2807,6 @@
     {
      "kind": "series",
      "ref": "make-room-for-daddy-1953"
-    }
-   ]
-  },
-  {
-   "slug": "nanny-and-the-professor-1970",
-   "tvmazeID": 17424,
-   "title": "Nanny and the Professor",
-   "matched": true,
-   "canonEps": 54,
-   "ourItems": 3,
-   "mappedEps": 2,
-   "extras": 1,
-   "repicked": 1,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "availableEps": 3,
-   "kinds": [
-    "series",
-    "single"
-   ],
-   "mergedFrom": 4,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "nanny-and-the-professor-1970"
-    },
-    {
-     "kind": "single",
-     "ref": "NannyandtheProfessorSeason3"
-    },
-    {
-     "kind": "single",
-     "ref": "NannyandtheProfessorSeason1"
-    },
-    {
-     "kind": "single",
-     "ref": "NannyandtheProfessorSeason2"
     }
    ]
   },
@@ -4930,6 +4930,35 @@
    ]
   },
   {
+   "slug": "sydney-s-new-year-s-eve-1996",
+   "tvmazeID": 91153,
+   "title": "Sydney's New Year's Eve",
+   "matched": true,
+   "canonEps": 83,
+   "ourItems": 1,
+   "mappedEps": 1,
+   "extras": 0,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "availableEps": 1,
+   "kinds": [
+    "series",
+    "single"
+   ],
+   "mergedFrom": 2,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "sydney-s-new-year-s-eve-1996"
+    },
+    {
+     "kind": "single",
+     "ref": "Jack_Benny_New_Years_Eve"
+    }
+   ]
+  },
+  {
    "slug": "tate-1960",
    "tvmazeID": 40982,
    "title": "Tate",
@@ -4987,7 +5016,7 @@
    "tvmazeID": 2100,
    "title": "The Challenge",
    "matched": true,
-   "canonEps": 646,
+   "canonEps": 647,
    "ourItems": 1,
    "mappedEps": 1,
    "extras": 0,
@@ -5359,6 +5388,30 @@
    ]
   },
   {
+   "slug": "captain-gallant-of-the-foreign-legion-1955",
+   "tvmazeID": 56745,
+   "title": "Captain Gallant of the Foreign Legion",
+   "matched": true,
+   "canonEps": 63,
+   "ourItems": 1,
+   "mappedEps": 1,
+   "extras": 0,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "availableEps": 1,
+   "kinds": [
+    "series"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "captain-gallant-of-the-foreign-legion-1955"
+    }
+   ]
+  },
+  {
    "slug": "danger-man-1960",
    "tvmazeID": 16146,
    "title": "Danger Man",
@@ -5403,6 +5456,30 @@
     {
      "kind": "series",
      "ref": "escape-into-night-1972"
+    }
+   ]
+  },
+  {
+   "slug": "garrison-s-gorillas-1967",
+   "tvmazeID": 16242,
+   "title": "Garrison's Gorillas",
+   "matched": true,
+   "canonEps": 26,
+   "ourItems": 1,
+   "mappedEps": 1,
+   "extras": 0,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "availableEps": 1,
+   "kinds": [
+    "series"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "garrison-s-gorillas-1967"
     }
    ]
   },
@@ -6097,30 +6174,6 @@
    ]
   },
   {
-   "slug": "captain-gallant-of-the-foreign-legion-1955",
-   "tvmazeID": 56745,
-   "title": "Captain Gallant of the Foreign Legion",
-   "matched": true,
-   "canonEps": 63,
-   "ourItems": 1,
-   "mappedEps": 1,
-   "extras": 0,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "availableEps": 1,
-   "kinds": [
-    "orphan-episode"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "orphan-episode",
-     "ref": "Captain-Gallant_S1E36_The-Boy-Who-Found-Christmas"
-    }
-   ]
-  },
-  {
    "slug": "man-from-atlantis-1977",
    "tvmazeID": 1485,
    "title": "Man from Atlantis",
@@ -6374,11 +6427,11 @@
    ]
   },
   {
-   "slug": "inside-the-big-east-2005",
-   "tvmazeID": 11255,
-   "title": "Inside the Big East",
+   "slug": "big-cats-about-the-house-2018",
+   "tvmazeID": 35443,
+   "title": "Big Cats About the House",
    "matched": true,
-   "canonEps": 7,
+   "canonEps": 3,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -6439,30 +6492,6 @@
     {
      "kind": "orphan-episode",
      "ref": "Dragnet_The_Big_Lift"
-    }
-   ]
-  },
-  {
-   "slug": "garrison-s-gorillas-1967",
-   "tvmazeID": 16242,
-   "title": "Garrison's Gorillas",
-   "matched": true,
-   "canonEps": 26,
-   "ourItems": 1,
-   "mappedEps": 1,
-   "extras": 0,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "availableEps": 1,
-   "kinds": [
-    "orphan-episode"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "orphan-episode",
-     "ref": "Garrisons-Gorillas-1967-Series"
     }
    ]
   },
@@ -6582,6 +6611,29 @@
    ]
   },
   {
+   "slug": "bear-in-the-big-blue-house-1997",
+   "tvmazeID": 8913,
+   "title": "Bear in the Big Blue House",
+   "matched": true,
+   "canonEps": 116,
+   "ourItems": 1,
+   "mappedEps": 0,
+   "extras": 1,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "kinds": [
+    "orphan-episode"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "orphan-episode",
+     "ref": "Dragnet_-_4x08_The_Big_Bar"
+    }
+   ]
+  },
+  {
    "slug": "the-invisible-man-1975",
    "tvmazeID": 10072,
    "title": "The Invisible Man",
@@ -6629,17 +6681,18 @@
    ]
   },
   {
-   "slug": "bear-in-the-big-blue-house-1997",
-   "tvmazeID": 8913,
-   "title": "Bear in the Big Blue House",
+   "slug": "the-rifleman-1958",
+   "tvmazeID": 3877,
+   "title": "The Rifleman",
    "matched": true,
-   "canonEps": 116,
+   "canonEps": 168,
    "ourItems": 1,
-   "mappedEps": 0,
-   "extras": 1,
+   "mappedEps": 1,
+   "extras": 0,
    "repicked": 0,
    "deadItems": 0,
    "repickSkipped": 0,
+   "availableEps": 1,
    "kinds": [
     "orphan-episode"
    ],
@@ -6647,7 +6700,7 @@
    "consumedRefs": [
     {
      "kind": "orphan-episode",
-     "ref": "Dragnet_-_4x08_The_Big_Bar"
+     "ref": "the-rifleman-tv-1958-colorized-s01e01-the-sharpshooter"
     }
    ]
   },
@@ -6721,11 +6774,11 @@
    ]
   },
   {
-   "slug": "the-great-train-robbery-2013",
-   "tvmazeID": 6884,
-   "title": "The Great Train Robbery",
+   "slug": "the-great-rhino-robbery-2024",
+   "tvmazeID": 72842,
+   "title": "The Great Rhino Robbery",
    "matched": true,
-   "canonEps": 2,
+   "canonEps": 3,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -6790,11 +6843,11 @@
    ]
   },
   {
-   "slug": "rico-to-the-rescue-2023",
-   "tvmazeID": 65820,
-   "title": "Rico to the Rescue",
+   "slug": "amanda-to-the-rescue-2018",
+   "tvmazeID": 39403,
+   "title": "Amanda to the Rescue",
    "matched": true,
-   "canonEps": 17,
+   "canonEps": 20,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -7089,11 +7142,11 @@
    ]
   },
   {
-   "slug": "mr-bean-1990",
-   "tvmazeID": 1719,
+   "slug": "mr-bean-2002",
+   "tvmazeID": 5251,
    "title": "Mr. Bean",
    "matched": true,
-   "canonEps": 14,
+   "canonEps": 156,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -7342,11 +7395,11 @@
    ]
   },
   {
-   "slug": "bless-this-house-1971",
-   "tvmazeID": 7763,
+   "slug": "bless-this-house-1995",
+   "tvmazeID": 56547,
    "title": "Bless This House",
    "matched": true,
-   "canonEps": 65,
+   "canonEps": 16,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -7457,11 +7510,11 @@
    ]
   },
   {
-   "slug": "a-fine-romance-1981",
-   "tvmazeID": 7755,
+   "slug": "a-fine-romance-1989",
+   "tvmazeID": 41745,
    "title": "A Fine Romance",
    "matched": true,
-   "canonEps": 26,
+   "canonEps": 12,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -7848,11 +7901,11 @@
    ]
   },
   {
-   "slug": "big-brother-best-shows-ever-2020",
-   "tvmazeID": 48066,
-   "title": "Big Brother: Best Shows Ever",
+   "slug": "the-armando-iannucci-shows-2001",
+   "tvmazeID": 2574,
+   "title": "The Armando Iannucci Shows",
    "matched": true,
-   "canonEps": 10,
+   "canonEps": 8,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -8469,11 +8522,11 @@
    ]
   },
   {
-   "slug": "dogs-the-untold-story-2016",
-   "tvmazeID": 24043,
-   "title": "Dogs: The Untold Story",
+   "slug": "tiger-king-the-doc-antle-story-2021",
+   "tvmazeID": 59396,
+   "title": "Tiger King: The Doc Antle Story",
    "matched": true,
-   "canonEps": 5,
+   "canonEps": 3,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -9251,11 +9304,11 @@
    ]
   },
   {
-   "slug": "franklin-2024",
-   "tvmazeID": 74480,
+   "slug": "franklin-1997",
+   "tvmazeID": 17755,
    "title": "Franklin",
    "matched": true,
-   "canonEps": 8,
+   "canonEps": 156,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -9481,11 +9534,11 @@
    ]
   },
   {
-   "slug": "fit-for-tv-the-reality-of-the-biggest-loser-2025",
-   "tvmazeID": 86139,
-   "title": "Fit for TV: The Reality of the Biggest Loser",
+   "slug": "tv-systrar-2021",
+   "tvmazeID": 50970,
+   "title": "Två systrar",
    "matched": true,
-   "canonEps": 3,
+   "canonEps": 8,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -10033,11 +10086,11 @@
    ]
   },
   {
-   "slug": "harry-2013",
-   "tvmazeID": 7272,
+   "slug": "harry-2016",
+   "tvmazeID": 6373,
    "title": "Harry",
    "matched": true,
-   "canonEps": 6,
+   "canonEps": 176,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -10148,9 +10201,9 @@
    ]
   },
   {
-   "slug": "alice-zouroku-2017",
-   "tvmazeID": 25928,
-   "title": "Alice & Zouroku",
+   "slug": "alice-or-alice-2018",
+   "tvmazeID": 35313,
+   "title": "Alice or Alice",
    "matched": true,
    "canonEps": 12,
    "ourItems": 1,
@@ -10701,11 +10754,11 @@
    ]
   },
   {
-   "slug": "dennis-the-menace-1959",
-   "tvmazeID": 2121,
+   "slug": "dennis-the-menace-1986",
+   "tvmazeID": 26779,
    "title": "Dennis the Menace",
    "matched": true,
-   "canonEps": 146,
+   "canonEps": 36,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -10797,7 +10850,7 @@
    "tvmazeID": 3309,
    "title": "The Waltons",
    "matched": true,
-   "canonEps": 219,
+   "canonEps": 218,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -11138,11 +11191,11 @@
    ]
   },
   {
-   "slug": "a-league-of-their-own-2022",
-   "tvmazeID": 46094,
+   "slug": "a-league-of-their-own-2010",
+   "tvmazeID": 3983,
    "title": "A League of Their Own",
    "matched": true,
-   "canonEps": 8,
+   "canonEps": 192,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -11552,30 +11605,6 @@
    ]
   },
   {
-   "slug": "sydney-s-new-year-s-eve-1996",
-   "tvmazeID": 91153,
-   "title": "Sydney's New Year's Eve",
-   "matched": true,
-   "canonEps": 83,
-   "ourItems": 1,
-   "mappedEps": 1,
-   "extras": 0,
-   "repicked": 1,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "availableEps": 1,
-   "kinds": [
-    "single"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "single",
-     "ref": "Jack_Benny_New_Years_Eve"
-    }
-   ]
-  },
-  {
    "slug": "some-mothers-do-ave-em-1973",
    "tvmazeID": 8051,
    "title": "Some Mothers Do 'Ave 'Em",
@@ -11689,6 +11718,52 @@
      "ref": "rob-_Lando18"
     }
    ]
+  },
+  {
+   "slug": "like-family-2003",
+   "tvmazeID": 39682,
+   "title": "Like Family",
+   "matched": true,
+   "canonEps": 22,
+   "ourItems": 1,
+   "mappedEps": 0,
+   "extras": 1,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "kinds": [
+    "single"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "single",
+     "ref": "ep-02-under-one-roof"
+    }
+   ]
+  },
+  {
+   "slug": "rude-awakening-1998",
+   "tvmazeID": 23047,
+   "title": "Rude Awakening",
+   "matched": true,
+   "canonEps": 55,
+   "ourItems": 1,
+   "mappedEps": 0,
+   "extras": 1,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "kinds": [
+    "single"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "single",
+     "ref": "rude-awakening-complete-series"
+    }
+   ]
   }
  ],
  "reclassifyArchiveIDs": [
@@ -11717,8 +11792,8 @@
   "Dragnet_S05E12_-_The_Big_Bounce",
   "Dragnet_S05E06_-_The_Big_Gap",
   "PeteAndGladys1960CbsSneakPreview",
-  "the-invisible-man-the-complete-series-1975_202505",
   "Dragnet_-_4x08_The_Big_Bar",
+  "the-invisible-man-the-complete-series-1975_202505",
   "on-the-buses-1969-73",
   "Tales_Of_Tomorrow_-_World_Of_Water",
   "Tales_Of_Tomorrow_-_Red_Dust",
@@ -11935,7 +12010,9 @@
   "the-pebbles-and-bamm-bamm-show",
   "It_Aint_Half_Hot_Mum",
   "Bram-Alice-complete-series",
-  "rob-_Lando18"
+  "rob-_Lando18",
+  "ep-02-under-one-roof",
+  "rude-awakening-complete-series"
  ],
  "orphanSeriesSlugs": [],
  "unmatched": [
@@ -12529,7 +12606,7 @@
   },
   {
    "title": "Chiaroscuro, Baby",
-   "year": 2009,
+   "year": null,
    "items": 1,
    "kind": "orphan-episode",
    "ref": "ChiaroscuroBaby"
@@ -13473,13 +13550,6 @@
    "ref": "Dragnet_The_Big_Producer"
   },
   {
-   "title": "JBVO episodes",
-   "year": null,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "jbvo-episodes_202405"
-  },
-  {
    "title": "Triumph des Willens Das Dokument vom Reichsparteitag",
    "year": 1935,
    "items": 1,
@@ -13732,13 +13802,6 @@
    "ref": "Love_That_Bob_Ep4x32_Grandpas_Old_Buddy"
   },
   {
-   "title": "The Jackie Gleason Show",
-   "year": 1966,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "series-09-the-jackie-gleason-show-season-5-1966-1967"
-  },
-  {
    "title": "drifters 202605",
    "year": 1929,
    "items": 1,
@@ -13786,34 +13849,6 @@
    "items": 1,
    "kind": "orphan-episode",
    "ref": "kojak-chronicles-s01e12-15"
-  },
-  {
-   "title": "The Avengers S 05 E 10 Never Never Say Die",
-   "year": 1967,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "the.avengers.s05e10.never.never.say.die"
-  },
-  {
-   "title": "The Avengers 3 X 12 Don't Look Behind You",
-   "year": 1964,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "theavengers3x12dontlookbehindyou"
-  },
-  {
-   "title": "The Avengers 2x 12 The Big Thinker",
-   "year": 1963,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "theavengers2x12thebigthinker"
-  },
-  {
-   "title": "The Heart Is a Handout",
-   "year": 1962,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "Heart_Is_a_Handout--Checkmate"
   },
   {
    "title": "Diver Dan , episode 22",
@@ -13914,6 +13949,34 @@
    "ref": "DiverDan_Ep27_Ghost_Is_Clear"
   },
   {
+   "title": "Diver Dan , episode 1",
+   "year": null,
+   "items": 1,
+   "kind": "orphan-episode",
+   "ref": "DiverDan_Ep01_Hard_Water"
+  },
+  {
+   "title": "The Avengers S 05 E 10 Never Never Say Die",
+   "year": 1967,
+   "items": 1,
+   "kind": "orphan-episode",
+   "ref": "the.avengers.s05e10.never.never.say.die"
+  },
+  {
+   "title": "The Avengers 3 X 12 Don't Look Behind You",
+   "year": 1964,
+   "items": 1,
+   "kind": "orphan-episode",
+   "ref": "theavengers3x12dontlookbehindyou"
+  },
+  {
+   "title": "The Avengers 2x 12 The Big Thinker",
+   "year": 1963,
+   "items": 1,
+   "kind": "orphan-episode",
+   "ref": "theavengers2x12thebigthinker"
+  },
+  {
    "title": "Climax Dr Jekyll and Mr Hyde",
    "year": 1955,
    "items": 1,
@@ -13928,32 +13991,25 @@
    "ref": "climax_202103"
   },
   {
-   "title": "Bonanza Death on Sun Mountain",
-   "year": null,
+   "title": "Geraldine Page",
+   "year": 1958,
    "items": 1,
    "kind": "orphan-episode",
-   "ref": "Bonanza-DeathOnSunMountain"
+   "ref": "01-geraldine-page"
   },
   {
-   "title": "Dragnet The Big Oskar",
-   "year": null,
+   "title": "𝕋𝕙𝕖 𝕃𝕚𝕗𝕖 𝔸𝕟𝕕 𝕃𝕖𝕘𝕖𝕟𝕕 𝕆𝕗 𝕎𝕪𝕒𝕥𝕥 𝔼𝕒𝕣𝕡",
+   "year": 1955,
    "items": 1,
    "kind": "orphan-episode",
-   "ref": "Dragnet_The_Big_Oskar"
+   "ref": "the-life-and-legend-of-wyatt-earp-s-02-e-39-the-time-for-all-good-men"
   },
   {
-   "title": "Bonanza The Abduction",
-   "year": null,
+   "title": "The Brain from Planet Arous – Public Domain Sci Fi Feature",
+   "year": 1957,
    "items": 1,
    "kind": "orphan-episode",
-   "ref": "Bonanza-TheAbductionEp2x08"
-  },
-  {
-   "title": "Diver Dan , episode 1",
-   "year": null,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "DiverDan_Ep01_Hard_Water"
+   "ref": "the-brain-from-planet-arous-1957-sci-fi-feature"
   },
   {
    "title": "Lucy meets John Wayne",
@@ -22935,6 +22991,41 @@
    "items": 1,
    "kind": "single",
    "ref": "family-man-1990"
+  },
+  {
+   "title": "Logo Histories Reupload By Stacey Langston",
+   "year": null,
+   "items": 1,
+   "kind": "single",
+   "ref": "20th-century-fox-television-logo-history_202408"
+  },
+  {
+   "title": "US Savings Bonds With John Wayne",
+   "year": 1975,
+   "items": 1,
+   "kind": "single",
+   "ref": "1976USSavingsBondsWithJohnWayne"
+  },
+  {
+   "title": "Fort Bragg City Council - July 8, 2013",
+   "year": null,
+   "items": 1,
+   "kind": "single",
+   "ref": "7877FBCC7813"
+  },
+  {
+   "title": "TD-1",
+   "year": null,
+   "items": 1,
+   "kind": "single",
+   "ref": "236Crawford1"
+  },
+  {
+   "title": "DVD-6862 - The Partridge Family",
+   "year": null,
+   "items": 1,
+   "kind": "single",
+   "ref": "dvd-6862-the-partridge-family"
   }
  ]
 }

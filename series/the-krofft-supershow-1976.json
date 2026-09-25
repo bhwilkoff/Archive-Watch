@@ -6,7 +6,7 @@
   "yearStart": 1976,
   "yearEnd": 1977,
   "overview": "The Krofft Supershow was a variety show composed of several live-action segments, hosted by \"Kaptain Kool and the Kongs\", a rock band created for the series.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/174/435547.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/v4/series/73405/posters/6ab44772a59fa.jpg",
   "backdropURL": null,
   "genres": [],
   "networks": [
@@ -154,6 +154,7 @@
   "episodesCount": 7,
   "canonicalEpisodesCount": 32,
   "tvdbID": "73405",
+  "artworkSource": "tvdb",
   "cast": [
     {
       "name": "Debra Clinger",
@@ -185,8 +186,5 @@
       "order": 4,
       "profilePath": null
     }
-  ],
-  "seriesImdbID": "tt0074014",
-  "canonicalEpisodeCount": 29,
-  "canonicalSeasons": 2
+  ]
 }

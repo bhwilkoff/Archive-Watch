@@ -220,7 +220,12 @@
   ],
   "episodesCount": 11,
   "canonicalEpisodesCount": 28,
-  "seriesImdbID": "tt0043210",
-  "canonicalEpisodeCount": 15,
-  "canonicalSeasons": 1
+  "cast": [
+    {
+      "name": "Kate Smith",
+      "character": "Hostess",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/336/841731.jpg"
+    }
+  ]
 }
