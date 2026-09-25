@@ -68,6 +68,7 @@ final class CatalogDB {
         hasPlayableColumn = Self.columnExists(h, table: "items", column: "playable")
         hasHiddenGemColumn = Self.columnExists(h, table: "items", column: "hiddenGem")
         hasRelatedTable = Self.columnExists(h, table: "item_related", column: "related")
+        hasDirectorRank = Self.columnExists(h, table: "director_rank", column: "rank")
         // Fail fast if it isn't actually our schema.
         guard metaInt("itemCount") != nil else {
             sqlite3_close(h); return nil
@@ -89,6 +90,7 @@ final class CatalogDB {
     private let hasPlayableColumn: Bool
     private let hasHiddenGemColumn: Bool
     private let hasRelatedTable: Bool
+    private let hasDirectorRank: Bool
 
     /// Restricts a surface to titles whose bytes were verified playable
     /// (tools/check_liveness.py). Applied to the most PROMINENT surfaces only —
@@ -809,12 +811,20 @@ final class CatalogDB {
     /// Most-prolific directors (≥ minFilms with designed art) → (name, count).
     /// Home surface → home-gated so we don't headline a director whose only
     /// shown films would be filtered off Home.
+    /// The pipeline's popularity rank first (owner, 2026-09-25: director rows
+    /// "by popularity"; build_sqlite.DIRECTOR_RANK_SQL), film count after it.
+    private var directorOrder: String {
+        hasDirectorRank
+            ? "COALESCE((SELECT r.rank FROM director_rank r WHERE r.director = i.director), 1000000),"
+            : ""
+    }
+
     func topDirectors(minFilms: Int = 3, limit: Int = 4) -> [(name: String, count: Int)] {
         scalarRows("""
             SELECT i.director, COUNT(*) c FROM items i
             WHERE i.director IS NOT NULL AND i.director != '' AND i.hasRealArtwork = 1 \(adultAnd) \(homeAnd) \(notCommercial) \(notStandaloneTV) \(typeAnd) \(verifiedAnd)
             GROUP BY i.director HAVING c >= \(minFilms)
-            ORDER BY c DESC, i.director LIMIT \(limit)
+            ORDER BY \(directorOrder) c DESC, i.director LIMIT \(limit)
         """).map { (name: $0.0, count: $0.1) }
     }
 

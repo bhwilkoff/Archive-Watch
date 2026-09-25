@@ -277,7 +277,7 @@ sub run()
     ' Director shelves, from index column 12 (schema 10). Built in the SAME
     ' pass that already walked every row — a second walk to count directors
     ' would double the 41ms scan for nothing.
-    addDirectorRows(root, index.items, byDirector)
+    addDirectorRows(root, index, byDirector)
     rowCount = rowCount + m.directorRowsAdded + m.extraRows
 
     ' Cross-shelf dedup, LAST, so it sees every row: no title appears twice
@@ -422,15 +422,27 @@ sub addPlainRow(root as Object, title as String, rows as Object)
     m.extraRows = m.extraRows + 1
 end sub
 
-sub addDirectorRows(root as Object, items as Object, byDirector as Object)
+sub addDirectorRows(root as Object, index as Object, byDirector as Object)
     m.directorRowsAdded = 0
     if byDirector = invalid then return
+    ' The pipeline's popularity order (index.directorRank, owner 2026-09-25);
+    ' a director it did not rank, or an older index, falls back to film count.
+    rankOf = {}
+    if index.directorRank <> invalid
+        for i = 0 to index.directorRank.Count() - 1
+            rankOf[index.directorRank[i]] = i
+        end for
+    end if
     ranked = []
     for each name in byDirector
         n = byDirector[name].Count()
-        if n >= 6 then ranked.Push({ n: n, name: name })
+        if n >= 6
+            k = 1000000 - n
+            if rankOf.DoesExist(name) then k = rankOf[name]
+            ranked.Push({ k: k, name: name })
+        end if
     end for
-    ranked.SortBy("n", "r")
+    ranked.SortBy("k")
     made = 0
     for each e in ranked
         row = root.CreateChild("ContentNode")

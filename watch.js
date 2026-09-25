@@ -176,6 +176,7 @@
       this.byID.clear();          // a reload re-populates; never accumulate
       this.rows = idx.items || [];
       this.shelves = idx.shelves || {};
+      this.directorRank = idx.directorRank || [];
       this.collections = idx.collections || {};
       // Decision 046 — keyword/studio facet names (schema 6; absent on older idx).
       this.facets = idx.facets || { keywords: [], studios: [] };
@@ -1106,9 +1107,13 @@
         if (!list) dirFilms.set(d, list = []);
         list.push(r);
       }
+      // Order: the pipeline's popularity rank (index.directorRank, owner
+      // 2026-09-25); unranked directors, or an older index, by film count.
+      const rankOf = new Map((Data.directorRank || []).map((d, i) => [d, i]));
+      const rk = (d, n) => rankOf.has(d) ? rankOf.get(d) : 1e6 - n;
       const topDirs = [...dirFilms.entries()]
         .filter(([, films]) => films.length >= 3)
-        .sort((a, b) => b[1].length - a[1].length || a[0].localeCompare(b[0]))
+        .sort((a, b) => rk(a[0], a[1].length) - rk(b[0], b[1].length) || a[0].localeCompare(b[0]))
         // Take more candidates than shelves: the apps show 4, and skipping a
         // director a curated shelf already covers must not cost us a row.
         .slice(0, 12);

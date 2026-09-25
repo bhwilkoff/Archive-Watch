@@ -207,6 +207,12 @@ class CatalogDatabase private constructor(
         false
     }
 
+    private val hasDirectorRank: Boolean = try {
+        queryRaw("PRAGMA table_info(director_rank)") { it.getText(1) }.contains("rank")
+    } catch (_: Throwable) {
+        false
+    }
+
     /** `rightsBucket` arrived with schema 2 and a shipped build may still be
      *  reading a cached schema-1 catalog — the same trap `playable` set. */
     private val hasRightsBucketColumn: Boolean = try {
@@ -639,12 +645,17 @@ class CatalogDatabase private constructor(
         )
     }
 
+    /** The pipeline's popularity rank first (owner, 2026-09-25; build_sqlite
+     *  DIRECTOR_RANK_SQL), film count after it. Empty on an older DB. */
+    private val directorOrder: String get() = if (hasDirectorRank)
+        "COALESCE((SELECT r.rank FROM director_rank r WHERE r.director = i.director), 1000000)," else ""
+
     suspend fun topDirectors(minFilms: Int = 3, limit: Int = 4): List<String> = dbCall {
         queryRaw(
             """SELECT i.director, COUNT(*) AS c FROM items i
                WHERE i.director IS NOT NULL AND i.director != '' AND i.hasRealArtwork = 1
                $adultAnd$homeAnd$notCommercial$notStandaloneTV$typeAnd
-               GROUP BY i.director HAVING c >= ? ORDER BY c DESC, i.director LIMIT ?""",
+               GROUP BY i.director HAVING c >= ? ORDER BY $directorOrder c DESC, i.director LIMIT ?""",
             listOf(minFilms, limit),
         ) { it.getText(0) }
     }

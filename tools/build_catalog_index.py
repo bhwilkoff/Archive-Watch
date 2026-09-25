@@ -374,6 +374,7 @@ def main():
                    "backdrop", "playable", "documentary", "rating10", "votes",
                    "director", "genres", "color", "bif", "heroSafe"],
         "facets": facets,
+        "directorRank": _director_rank(),
         "shelves": shelves,
         "collections": collections,
         "items": rows,
@@ -522,6 +523,21 @@ def _hidden_gem_ids(limit: int = 60) -> list:
         "ORDER BY imdbRating DESC, imdbVotes DESC LIMIT ?", (limit,))]
     db.close()
     print(f"[index] hidden-gems shelf: {len(rows)} items", flush=True)
+    return rows
+
+
+def _director_rank() -> list:
+    """Home's director order, from build_sqlite's `director_rank` (owner,
+    2026-09-25: by popularity). [] on an older DB; the viewer then counts."""
+    if not CATALOG_DB.exists():
+        return []
+    import sqlite3
+    db = sqlite3.connect(CATALOG_DB)
+    try:
+        rows = [r[0] for r in db.execute("SELECT director FROM director_rank ORDER BY rank")]
+    except sqlite3.OperationalError:
+        rows = []
+    db.close()
     return rows
 
 

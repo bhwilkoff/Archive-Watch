@@ -1011,6 +1011,7 @@ def create_schema(db):
     CREATE TABLE item_studios (archiveID TEXT, studio TEXT);
     CREATE TABLE item_shelves (shelfID TEXT, archiveID TEXT, position INTEGER);
     CREATE TABLE item_related (archiveID TEXT PRIMARY KEY, related TEXT, reasons TEXT) WITHOUT ROWID;
+    CREATE TABLE director_rank (director TEXT PRIMARY KEY, rank INTEGER) WITHOUT ROWID;
     CREATE TABLE series (
       seriesID TEXT PRIMARY KEY, title TEXT, yearStart INTEGER, yearEnd INTEGER,
       overview TEXT, posterURL TEXT, backdropURL TEXT, networks_json TEXT,
@@ -1411,6 +1412,41 @@ def populate_related(db, items):
     return links
 
 
+# Home's "Directed by" rows, ranked by POPULARITY rather than by film count
+# (owner, 2026-09-25). Counting films put Dave Fleischer, Mannie Davis and
+# Connie Rasinski first on volume of cartoon shorts. The score is the summed
+# popularity of a director's TEN best-known Home-eligible films, so a large
+# filmography cannot outrank a famous one: Kurosawa, Hitchcock, Lang, Keaton.
+# The pool is Home's own gate (CatalogDB.homeAnd) so the ranking is over what
+# Home can show. Clients keep their own per-viewer filters (content types,
+# the >= 3 films floor) and take the first few that survive them.
+DIRECTOR_RANK_TOP = 10
+DIRECTOR_RANK_KEEP = 60
+DIRECTOR_RANK_SQL = """
+    WITH e AS (
+      SELECT i.director d, COALESCE(i.popularityScore, 0) p,
+             ROW_NUMBER() OVER (PARTITION BY i.director
+                                ORDER BY i.popularityScore DESC) rn
+      FROM items i
+      WHERE i.director IS NOT NULL AND i.director != '' AND i.hasRealArtwork = 1
+        AND i.isAdult = 0 AND i.playable = 1
+        AND i.contentType NOT IN ('commercial', 'tv-special', 'tv-episode', 'tv-series')
+        AND i.rightsBucket IN ('safe_pd_age','safe_gov','safe_archive_license',
+                               'safe_cc','presumed_pd','unknown_year')
+        AND NOT (i.rightsBucket = 'presumed_pd' AND i.language IS NOT NULL
+                 AND i.language <> '' AND lower(i.language) NOT IN ('en','eng','english')))
+    SELECT d, SUM(CASE WHEN rn <= ? THEN p ELSE 0 END) s FROM e
+    GROUP BY d HAVING COUNT(*) >= 3 ORDER BY s DESC, d LIMIT ?"""
+
+
+def populate_director_rank(db):
+    rows = db.execute(DIRECTOR_RANK_SQL, (DIRECTOR_RANK_TOP, DIRECTOR_RANK_KEEP)).fetchall()
+    db.executemany("INSERT INTO director_rank VALUES (?,?)",
+                   [(d, n) for n, (d, _s) in enumerate(rows)])
+    print(f"[directors] ranked {len(rows)}: " + ", ".join(d for d, _ in rows[:6]), flush=True)
+    return len(rows)
+
+
 def create_indexes(db):
     db.executescript("""
     CREATE INDEX idx_items_type     ON items(contentType);
@@ -1509,6 +1545,7 @@ def build_db_obj(cat, out_db, rotate_seed="0", materialize_episodes=True,
               f" ({len(rows) - len(web_rows)} mature survivors withheld)")
     n_series, n_eps = populate_series(db, materialize_episode_items=materialize_episodes)
     populate_related(db, deduped)
+    populate_director_rank(db)
     create_indexes(db)
     db.execute("INSERT OR REPLACE INTO meta VALUES ('schemaVersion', ?)", (str(SCHEMA_VERSION),))
     db.execute("INSERT OR REPLACE INTO meta VALUES ('generatedAt', ?)", (cat.get("generatedAt", ""),))
