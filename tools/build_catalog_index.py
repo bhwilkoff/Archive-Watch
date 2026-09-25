@@ -51,6 +51,11 @@ HERO_SAFE_BUCKETS = ("safe_pd_age", "safe_gov", "safe_cc")
 HERO_MODERN_YEAR = 1978
 
 
+# The same bar, as SQL, for rows the pipeline queries from the built DB.
+HERO_SQL = ("AND i.rightsBucket IN ('safe_pd_age','safe_gov','safe_cc') "
+            "AND NOT (i.year >= 1978 AND i.rightsBucket <> 'safe_pd_age')")
+
+
 def hero_safe(bucket, year):
     if bucket not in HERO_SAFE_BUCKETS:
         return False
@@ -298,7 +303,11 @@ def main():
             collection_members.setdefault(series, []).append((designed, pop_score, aid))
         # Community shelves — vote-floored to recognized films (apps' parity): raw
         # counts are dominated by un-IMDb'd foreign edge cases, which have no votes.
-        if pro and (it.get("imdbVotes") or 0) >= 1000 and it.get("contentType") in _FILM:
+        # The three COMMUNITY rows take the hero's evidence bar (owner,
+        # 2026-09-25): they were ~90% presumed_pd studio films — Cleopatra,
+        # Sabrina, The Longest Day. Top Rated keeps the Home rule.
+        community_ok = hero_safe(_rights_bucket(it), it.get("year"))
+        if pro and (it.get("imdbVotes") or 0) >= 1000 and it.get("contentType") in _FILM and community_ok:
             if (it.get("views30d") or 0) > 0:
                 community["watching-now"].append((it["views30d"], aid))
             if (it.get("numFavorites") or 0) > 0:
@@ -469,9 +478,9 @@ def _topshelf_rows(pd_year):
          _signal_sql(f"i.imdbRating IS NOT NULL AND {votes}",
                      "i.imdbRating DESC, i.imdbVotes DESC"), MIN_ROW),
         ("watching-now", "Watching Now on the Archive",
-         _signal_sql(f"COALESCE(i.views30d,0) > 0 AND {votes}", "i.views30d DESC"), MIN_ROW),
+         _signal_sql(f"COALESCE(i.views30d,0) > 0 AND {votes} {HERO_SQL}", "i.views30d DESC"), MIN_ROW),
         ("community-favorites", "Community Favorites",
-         _signal_sql(f"COALESCE(i.numFavorites,0) > 0 AND {votes}", "i.numFavorites DESC"), MIN_ROW),
+         _signal_sql(f"COALESCE(i.numFavorites,0) > 0 AND {votes} {HERO_SQL}", "i.numFavorites DESC"), MIN_ROW),
         # The build-time flag, not a threshold restated here (see _mark_hidden_gems).
         ("hidden-gems", "Hidden Gems",
          _signal_sql("i.hiddenGem = 1", "i.imdbRating DESC, i.imdbVotes DESC"), MIN_ROW),
@@ -485,7 +494,7 @@ def _topshelf_rows(pd_year):
         ("comedy", "Comedy", _shelf_sql(["comedy"]), MIN_ROW),
         ("melies", "Early Cinema", _shelf_sql(["melies"]), MIN_ROW),
         ("most-discussed", "Most Discussed",
-         _signal_sql(f"COALESCE(i.numReviews,0) > 0 AND {votes}", "i.numReviews DESC"), MIN_ROW),
+         _signal_sql(f"COALESCE(i.numReviews,0) > 0 AND {votes} {HERO_SQL}", "i.numReviews DESC"), MIN_ROW),
         ("prelinger", "The Prelinger Archives", _shelf_sql(["prelinger"]), MIN_ROW),
         ("nasa", "From the NASA Archive", _shelf_sql(["nasa"]), MIN_ROW),
         ("newsreels", "Newsreels", _shelf_sql(["newsreels"]), MIN_ROW),

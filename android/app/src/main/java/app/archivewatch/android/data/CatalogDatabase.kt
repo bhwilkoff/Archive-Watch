@@ -596,21 +596,21 @@ class CatalogDatabase private constructor(
         adult filter can't catch, but those have no votes (iOS/tvOS parity). */
     suspend fun watchingNow(limit: Int = 24, minVotes: Int = 1000): List<CatalogItem> = itemsLite(
         "$itemSelect WHERE COALESCE(i.views30d, 0) > 0 AND COALESCE(i.imdbVotes, 0) >= ?" +
-            " AND i.hasRealArtwork = 1$adultAnd$homeAnd$notCommercial$notStandaloneTV$typeAnd$verifiedAnd" +
+            " AND i.hasRealArtwork = 1$adultAnd$homeAnd$notCommercial$notStandaloneTV$typeAnd$verifiedAnd$heroAnd" +
             " ORDER BY i.views30d DESC LIMIT ?",
         listOf(minVotes, limit),
     )
 
     suspend fun communityFavorites(limit: Int = 24, minVotes: Int = 1000): List<CatalogItem> = itemsLite(
         "$itemSelect WHERE COALESCE(i.numFavorites, 0) > 0 AND COALESCE(i.imdbVotes, 0) >= ?" +
-            " AND i.hasRealArtwork = 1$adultAnd$homeAnd$notCommercial$notStandaloneTV$typeAnd$verifiedAnd" +
+            " AND i.hasRealArtwork = 1$adultAnd$homeAnd$notCommercial$notStandaloneTV$typeAnd$verifiedAnd$heroAnd" +
             " ORDER BY i.numFavorites DESC LIMIT ?",
         listOf(minVotes, limit),
     )
 
     suspend fun mostDiscussed(limit: Int = 24, minVotes: Int = 1000): List<CatalogItem> = itemsLite(
         "$itemSelect WHERE COALESCE(i.numReviews, 0) > 0 AND COALESCE(i.imdbVotes, 0) >= ?" +
-            " AND i.hasRealArtwork = 1$adultAnd$homeAnd$notCommercial$notStandaloneTV$typeAnd$verifiedAnd" +
+            " AND i.hasRealArtwork = 1$adultAnd$homeAnd$notCommercial$notStandaloneTV$typeAnd$verifiedAnd$heroAnd" +
             " ORDER BY i.numReviews DESC LIMIT ?",
         listOf(minVotes, limit),
     )

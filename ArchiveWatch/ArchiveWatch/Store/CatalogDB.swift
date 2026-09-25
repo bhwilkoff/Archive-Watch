@@ -322,6 +322,13 @@ final class CatalogDB {
     /// the three intentional surfaces omit it.
     private let notCommercial = "AND i.contentType != 'commercial'"
 
+    /// The HERO's evidence bar (`Catalog.Item.isHeroRightsSafe`) as SQL, for
+    /// the three community rows (owner, 2026-09-25): they were ~90% presumed-PD
+    /// studio films. `tools/test_hero_rule_parity.py` holds it to the others.
+    private let heroRightsAnd =
+        "AND i.rightsBucket IN ('safe_pd_age','safe_gov','safe_cc') " +
+        "AND NOT (i.year >= 1978 AND i.rightsBucket <> 'safe_pd_age')"
+
     /// Standalone/atomic TV — tv-special (specials + un-folded episodes) and
     /// tv-episode (first-class episode items, Decision 045) — must NEVER appear
     /// on film surfaces: Home discovery shelves, Random Film, director/quality
@@ -774,7 +781,7 @@ final class CatalogDB {
         items("""
             SELECT j.json FROM items i JOIN item_json j USING(archiveID)
             WHERE COALESCE(i.numReviews, 0) > 0 AND COALESCE(i.imdbVotes, 0) >= \(minVotes)
-              AND i.hasRealArtwork = 1 \(adultAnd) \(homeAnd) \(notCommercial) \(notStandaloneTV) \(typeAnd) \(verifiedAnd)
+              AND i.hasRealArtwork = 1 \(adultAnd) \(homeAnd) \(notCommercial) \(notStandaloneTV) \(typeAnd) \(verifiedAnd) \(heroRightsAnd)
             ORDER BY i.numReviews DESC LIMIT \(limit)
         """)
     }
@@ -784,7 +791,7 @@ final class CatalogDB {
         items("""
             SELECT j.json FROM items i JOIN item_json j USING(archiveID)
             WHERE COALESCE(i.numFavorites, 0) > 0 AND COALESCE(i.imdbVotes, 0) >= \(minVotes)
-              AND i.hasRealArtwork = 1 \(adultAnd) \(homeAnd) \(notCommercial) \(notStandaloneTV) \(typeAnd) \(verifiedAnd)
+              AND i.hasRealArtwork = 1 \(adultAnd) \(homeAnd) \(notCommercial) \(notStandaloneTV) \(typeAnd) \(verifiedAnd) \(heroRightsAnd)
             ORDER BY i.numFavorites DESC LIMIT \(limit)
         """)
     }
@@ -794,7 +801,7 @@ final class CatalogDB {
         items("""
             SELECT j.json FROM items i JOIN item_json j USING(archiveID)
             WHERE COALESCE(i.views30d, 0) > 0 AND COALESCE(i.imdbVotes, 0) >= \(minVotes)
-              AND i.hasRealArtwork = 1 \(adultAnd) \(homeAnd) \(notCommercial) \(notStandaloneTV) \(typeAnd) \(verifiedAnd)
+              AND i.hasRealArtwork = 1 \(adultAnd) \(homeAnd) \(notCommercial) \(notStandaloneTV) \(typeAnd) \(verifiedAnd) \(heroRightsAnd)
             ORDER BY i.views30d DESC LIMIT \(limit)
         """)
     }

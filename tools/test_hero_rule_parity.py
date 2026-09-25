@@ -23,6 +23,15 @@ hero_kt = re.search(r"heroAnd: String get\(\).*?notCommercial", kt, re.S).group(
 kt_b = set(re.findall(r"'(\w+)'", re.search(r"rightsBucket IN \(([^)]*)\)", hero_kt).group(1)))
 kt_y = {int(y) for y in re.findall(r"year >= (\d+)", hero_kt)}
 py_b, py_y = set(b.HERO_SAFE_BUCKETS), b.HERO_MODERN_YEAR
+# The community rows' SQL copies of the bar (2026-09-25): Swift and the index.
+swift_db = (R / "ArchiveWatch/ArchiveWatch/Store/CatalogDB.swift").read_text()
+sw_rows = re.search(r"heroRightsAnd =(.*?safe_pd_age'\)\")", swift_db, re.S).group(1)
+for label, sql in (("swift heroRightsAnd", sw_rows), ("index HERO_SQL", b.HERO_SQL)):
+    got_b = set(re.findall(r"'(\w+)'", re.search(r"rightsBucket IN \(([^)]*)\)", sql).group(1)))
+    got_y = {int(y) for y in re.findall(r"year >= (\d+)", sql)}
+    if got_b != py_b or got_y != {py_y}:
+        print(f"FAIL {label}: {sorted(got_b)} {sorted(got_y)}"); sys.exit(1)
+    print(f"  ok   {label} matches")
 
 import build_sqlite as bs   # Home shelves use the hero's modern-year bar (2026-09-24)
 
