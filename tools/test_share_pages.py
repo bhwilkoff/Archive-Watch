@@ -142,7 +142,8 @@ def main() -> int:
         for label, frag in (("full synopsis", "A town is held hostage."),
                             ("synopsis source named as the viewer names it", "Synopsis from TMDb"),
                             ("tagline", "The town that lived in terror"),
-                            ("cast", "<li>Sterling Hayden</li>"),
+                            ("cast", "<span>Sterling Hayden</span>"),
+                            ("director first in cast & crew", "Lewis Allen <span class=\"m\">Director</span>"),
                             ("writer", "<dd>Richard Sale</dd>"),
                             ("genres", "<li>Crime</li>"),
                             ("runtime", "77 min"),
@@ -155,7 +156,8 @@ def main() -> int:
         sm = (td / "site2" / "sitemap.xml").read_text(encoding="utf-8")
         check("sitemap index names its files", "sitemap-1.xml" in sm, True)
         s1 = (td / "site2" / "sitemap-1.xml").read_text(encoding="utf-8")
-        check("sitemap lists every page", s1.count("<loc>"), 4)
+        check("sitemap lists every film page", s1.count("/item/") + s1.count("/series/"), 3)
+        check("sitemap lists the A-Z directory", "https://archivewatch.org/films/" in s1, True)
         check("sitemap uses the served url", "https://archivewatch.org/item/suddenly/</loc>" in s1, True)
 
         ser = td / "site" / "series" / "the-show" / "index.html"

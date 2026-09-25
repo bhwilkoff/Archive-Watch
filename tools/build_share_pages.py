@@ -108,12 +108,24 @@ text-decoration:none;padding:12px 24px;border-radius:999px}
 dl{display:grid;grid-template-columns:minmax(0,1fr);gap:4px 16px;margin:0}
 dt{color:var(--muted);font-size:.9rem}
 dd{margin:0 0 10px}
-.cast{columns:2 160px;margin:0;padding:0;list-style:none}
-.cast li{break-inside:avoid;margin:0 0 6px}
+.cast{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px 16px;
+margin:0;padding:0;list-style:none}
+.cast li{display:flex;align-items:center;gap:10px}
+.cast img,.cast .ini{width:56px;height:56px;border-radius:50%;object-fit:cover;flex:none;
+background:var(--panel)}
+.cast .ini{display:grid;place-items:center;color:var(--muted);font-weight:700}
+.cast .m{display:block;margin:0;font-size:.8rem}
 .rv{border-top:1px solid var(--line);padding:12px 0}
 .rv p{margin:4px 0}
-.rel{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px 16px;
+.rel{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:16px;
 margin:0;padding:0;list-style:none}
+.rel a{display:block;text-decoration:none;color:var(--text);font-size:.9rem}
+.rel img,.rel .noart{display:block;width:100%;height:auto;aspect-ratio:2/3;object-fit:cover;
+border-radius:8px;background:var(--panel);margin:0 0 6px}
+.az{display:flex;flex-wrap:wrap;gap:6px 14px;margin:0 0 24px;padding:0;list-style:none}
+.list{margin:0;padding:0;list-style:none}
+.list li{padding:6px 0;border-bottom:1px solid var(--line)}
+.list .m,.az .m{margin:0;font-size:.85rem}
 footer{max-width:900px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:.85rem}
 @media (min-width:640px){
 .hero{flex-direction:row}
@@ -150,7 +162,8 @@ HEAD = """<!DOCTYPE html>
 
 FOOT = """</main>
 <footer>Public domain, from the Internet Archive. Free to watch on Archive Watch
-&mdash; no account, no ads. <a href="/privacy.html">Privacy</a></footer>
+&mdash; no account, no ads. <a href="/films/">All films A&ndash;Z</a> &middot;
+<a href="/privacy.html">Privacy</a></footer>
 </body>
 </html>
 """
@@ -199,6 +212,14 @@ def safe_segment(s: str):
     if not s or s in (".", "..") or "/" in s or "\\" in s or s.startswith("."):
         return None
     return s
+
+
+def tmdb_at(url, width: int):
+    """TMDb serves fixed widths; ask for the one the page draws at, never the
+    full-size art (watch.js tmdbAtWidth's steps). Other hosts pass through."""
+    if not url or "image.tmdb.org/t/p/" not in str(url):
+        return url
+    return re.sub(r"/t/p/(w\d+|original)/", f"/t/p/w{width}/", str(url))
 
 
 def e(s) -> str:
@@ -282,8 +303,16 @@ def page_body(*, h1, aka, meta, tagline, genres, viewer, source_url, poster,
             out.append(f"<dt>{html.escape(k)}</dt><dd>{html.escape(v)}</dd>")
         out.append("</dl>")
     if cast:
-        out.append("<h2>Cast</h2><ul class=\"cast\">"
-                   + "".join(f"<li>{html.escape(c)}</li>" for c in cast) + "</ul>")
+        # The viewer's cast row: director first, TMDb w185 photos, an initial
+        # where there is none. Lazy, sized, so a long cast costs nothing above
+        # the fold.
+        li = []
+        for name, role, photo in cast:
+            pic = (f'<img src="{e(photo)}" alt="" width="56" height="56" loading="lazy" decoding="async">'
+                   if photo else f'<span class="ini" aria-hidden="true">{html.escape(name[:1])}</span>')
+            rl = f' <span class="m">{html.escape(role)}</span>' if role else ""
+            li.append(f"<li>{pic}<span>{html.escape(name)}{rl}</span></li>")
+        out.append('<h2>Cast &amp; crew</h2><ul class="cast">' + "".join(li) + "</ul>")
     if reviews:
         out.append("<h2>Reviews on the Internet Archive</h2>")
         for stars, rtitle, rbody, who, when in reviews:
@@ -294,9 +323,12 @@ def page_body(*, h1, aka, meta, tagline, genres, viewer, source_url, poster,
             out.append(f'<div class="rv"><p class="m">{head}</p>'
                        f"<p>{html.escape(strip_html(str(rbody or '')))}</p></div>")
     if related:
-        out.append("<h2>More like this</h2><ul class=\"rel\">"
-                   + "".join(f'<li><a href="{e(u)}">{html.escape(t)}</a></li>' for u, t in related)
-                   + "</ul>")
+        tiles = []
+        for u, t, pic in related:
+            art = (f'<img src="{e(pic)}" alt="" width="150" height="225" loading="lazy" decoding="async">'
+                   if pic else '<span class="noart" aria-hidden="true"></span>')
+            tiles.append(f'<li><a href="{e(u)}">{art}<span>{html.escape(t)}</span></a></li>')
+        out.append('<h2>More like this</h2><ul class="rel">' + "".join(tiles) + "</ul>")
     return "\n".join(out) + "\n"
 
 
@@ -329,6 +361,61 @@ LIST_LANDING = """<!DOCTYPE html>
 <body><p>Opening the playlist… <a href="/">Archive Watch</a></p></body>
 </html>
 """
+
+
+def write_directory(out: Path, entries) -> list:
+    """/films/ and /films/<letter>/: every title, A to Z, as plain links.
+
+    The viewer links by hash, which a crawler cannot follow, so without this a
+    film page is reachable only from the sitemap and from other film pages. The
+    viewer's footer links here, so every film is two links from the home page —
+    for people browsing the whole collection as much as for Google. Sorted and
+    grouped by the viewer's own title key, so "The General" is under G."""
+    groups: dict = {}
+    for key, headline, kind, url in entries:
+        # title_key keeps a-z0-9 only, so a Greek or Cyrillic title has no
+        # letter here; it joins the digits rather than minting a page per script.
+        ch = key[:1].upper() if "a" <= key[:1] <= "z" else "0-9"
+        groups.setdefault(ch, []).append((key, headline, kind, url))
+    letters = sorted(groups, key=lambda c: (c != "0-9", c))
+    nav = "".join(f'<li><a href="{SITE}/films/{c.lower()}/">{c}</a> '
+                  f'<span class="m">{len(groups[c]):,}</span></li>' for c in letters)
+
+    def page(title, desc, url, body):
+        return (HEAD.format(title_tag=html.escape(title), og_title=e(title), desc=e(desc),
+                            url=e(url), app_arg=e(f"{SITE}/"), app_id=IOS_APP_ID,
+                            og_type="website", image_tags="", tw_card="summary",
+                            ld=json.dumps({"@context": "https://schema.org",
+                                           "@type": "CollectionPage", "name": title,
+                                           "url": url}, separators=(",", ":")))
+                + body + FOOT)
+
+    written = []
+    total = len(entries)
+    d = out / "films"
+    d.mkdir(parents=True, exist_ok=True)
+    idx_url = f"{SITE}/films/"
+    (d / "index.html").write_text(page(
+        "Every film on Archive Watch, A to Z",
+        f"All {total:,} public-domain films and series on Archive Watch, free to watch.",
+        idx_url,
+        f"<h1>Every film, A to Z</h1><p class=\"m\">{total:,} titles, all free to watch.</p>"
+        f'<ul class="az">{nav}</ul>\n'), encoding="utf-8")
+    written.append(idx_url)
+    for c in letters:
+        rows = sorted(groups[c])
+        u = f"{SITE}/films/{c.lower()}/"
+        items = "".join(f'<li><a href="{e(url)}">{html.escape(h)}</a> '
+                        f'<span class="m">{html.escape(k)}</span></li>' for _, h, k, url in rows)
+        (d / c.lower()).mkdir(exist_ok=True)
+        (d / c.lower() / "index.html").write_text(page(
+            f"Films starting with {c} — Archive Watch",
+            f"{len(rows):,} public-domain titles starting with {c}, free to watch on Archive Watch.",
+            u,
+            f'<h1>Films: {c}</h1><ul class="az">{nav}</ul>'
+            f'<ul class="list">{items}</ul>\n'), encoding="utf-8")
+        written.append(u)
+    return written
 
 
 def write_sitemaps(out: Path, urls, lastmod: str) -> None:
@@ -386,7 +473,8 @@ def main() -> int:
     for r in index["items"]:
         rid, rt, ry = at(r, I_ID), at(r, I_TITLE), at(r, I_YEAR)
         if rid and rt:
-            names[str(rid)] = strip_html(str(rt)) + (f" ({ry})" if ry else "")
+            names[str(rid)] = (strip_html(str(rt)) + (f" ({ry})" if ry else ""),
+                               tmdb_at(at(r, I_POSTER), 185))
 
     def page_url(aid: str):
         if aid.startswith("series:"):
@@ -395,6 +483,7 @@ def main() -> int:
         return (f"{SITE}/item/{aid}/", f"{SITE}/item/{aid}") if safe_segment(aid) else (None, None)
 
     urls = []
+    directory = []
     made = skipped = 0
     for r in rows:
         aid = str(at(r, I_ID) or "")
@@ -442,6 +531,14 @@ def main() -> int:
 
         cast_rows = at(d, D_CAST) or []
         cast = [str(c[0] if isinstance(c, list) else c) for c in cast_rows if c][:40]
+
+        def photo(pp):
+            if not pp:
+                return None
+            return pp if str(pp).startswith("http") else f"https://image.tmdb.org/t/p/w185{pp}"
+        people = ([(str(director), "Director", photo(x.get("dp")))] if director else [])
+        people += [(str(c[0]), None, photo(c[1] if len(c) > 1 else None)) if isinstance(c, list)
+                   else (str(c), None, None) for c in cast_rows if c][:40]
         facts = []
         for label, val in (("Director", director), ("Writer", x.get("w")),
                            ("Composer", x.get("co")), ("Cinematography", x.get("ci")),
@@ -452,12 +549,12 @@ def main() -> int:
             if val:
                 facts.append((label, strip_html(str(val))))
         comm = at(d, D_COMMUNITY) or {}
-        reviews = [rv for rv in (comm.get("rv") or []) if isinstance(rv, list) and len(rv) >= 5][:3]
+        reviews = [rv for rv in (comm.get("rv") or []) if isinstance(rv, list) and len(rv) >= 5]
         related = []
         for rid in (at(d, D_RELATED) or [])[:12]:
             ru, _ = page_url(str(rid))
             if ru and str(rid) in names:
-                related.append((ru, names[str(rid)]))
+                related.append((ru, *names[str(rid)]))
 
         ld = {"@context": "https://schema.org", "@type": ld_type, "name": title,
               "url": url, "isAccessibleForFree": True,
@@ -484,17 +581,19 @@ def main() -> int:
         body = page_body(
             h1=headline, aka=also_known_as(title, x.get("ct")), meta=meta,
             tagline=strip_html(x.get("tg") or ""), genres=genres, viewer=viewer,
-            source_url=source_url, poster=poster or backdrop, synopsis=synopsis,
+            source_url=source_url, poster=tmdb_at(poster or backdrop, 342), synopsis=synopsis,
             synopsis_src=SOURCE.get(str(x.get("ss") or "").lower(), UPLOADER),
-            facts=facts, cast=cast, reviews=reviews, related=related)
+            facts=facts, cast=people, reviews=reviews, related=related)
         path.mkdir(parents=True, exist_ok=True)
         (path / "index.html").write_text(build_page(
             url=url, app_arg=app_arg, title_tag=f"{headline} — free to watch on Archive Watch",
             og_title=headline, desc=desc, image=backdrop or poster, wide=bool(backdrop),
             og_type=og_type, body=body, ld=ld), encoding="utf-8")
         urls.append(url)
+        directory.append((title_key(title) or title.lower(), headline, kind, url))
         made += 1
 
+    urls += write_directory(out, directory)
     write_sitemaps(out, urls, str(index.get("updatedAt") or "")[:10])
 
     # ---- the shared-playlist landing page -----------------------------

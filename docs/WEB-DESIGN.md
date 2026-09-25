@@ -113,6 +113,19 @@ separate tool with its own conventions (CLAUDE.md) — these rules govern the
     it is files in the artifact the deploy already uploads.
   - **One stylesheet** (`/share.css`), mobile-first, brand chrome only; no
     inline styles; posters lazy, sized, never a layout shift.
+  - **The page looks like the Detail it stands for** (owner, 2026-09-25:
+    *"Where are the cast images and the other movie posters that typically
+    show on an individual detail page? Also, reviews from Archive.org, etc?"*):
+    cast & crew with TMDb w185 photos (an initial where there is none,
+    director first), More Like This as poster tiles, and EVERY archive.org
+    review the catalog keeps (at most six). TMDb sizes are asked for at the
+    width drawn (w185 people and tiles, w342 the poster), below-the-fold images
+    are `loading="lazy"`. The same TMDb images the viewer already loads, so
+    privacy is unchanged.
+  - **`/films/` is the A-Z directory** of every page (letter pages; any title
+    whose key has no a-z letter joins 0-9), linked from the viewer's footer
+    and every page's footer, so each film is two plain links from the home
+    page. It is in the sitemap too.
 
 - **§3.3 One router.** `route()` reads the hash, `showView(name)` toggles
   `<section hidden>`. Per-view `IntersectionObserver`s are disconnected on
