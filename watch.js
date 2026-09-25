@@ -1461,8 +1461,7 @@
 
     async run(qs) {
       const grid = $('search-grid');
-      if (!qs) { grid.replaceChildren(); this.renderEpisodes([]); $('search-hint').hidden = false; return; }
-      $('search-hint').hidden = true;
+      if (!qs) { grid.replaceChildren(); this.renderEpisodes([]); return; }
       const terms = foldText(qs).split(/\s+/).filter(Boolean);
       const hits = [];
       // Title + the rich-metadata search blob (Decision 046, schema 6: TMDb
@@ -1555,23 +1554,33 @@
         b.onclick = on;
         return b;
       };
-      const kids = [];
+      // Two rows in Browse's chip style (§4.3a): one of types, one of decades,
+      // each scrolling sideways rather than wrapping into a block.
+      const row = (kids) => {
+        const d = document.createElement('div');
+        d.className = 'chips';
+        d.append(...kids);
+        return d;
+      };
+      const rows = [];
       if (types.length > 1) {
-        kids.push(chip('All types', !this.fType, () => { this.fType = ''; this.applyFilters(); }));
+        const kids = [chip('All types', !this.fType, () => { this.fType = ''; this.applyFilters(); })];
         for (const t of types) {
           kids.push(chip(TYPE_LABELS[t] || t.replace(/-/g, ' '), this.fType === t,
             () => { this.fType = t; this.applyFilters(); }));
         }
+        rows.push(row(kids));
       }
       if (decades.length > 1) {
-        kids.push(chip('All decades', !this.fDecade,
-          () => { this.fDecade = ''; this.applyFilters(); }));
+        const kids = [chip('All decades', !this.fDecade,
+          () => { this.fDecade = ''; this.applyFilters(); })];
         for (const d of decades) {
           kids.push(chip(`${d}s`, this.fDecade === String(d),
             () => { this.fDecade = String(d); this.applyFilters(); }));
         }
+        rows.push(row(kids));
       }
-      host.replaceChildren(...kids);
+      host.replaceChildren(...rows);
       host.hidden = false;
     },
 
@@ -2787,9 +2796,13 @@
         : null;
       const eps = (series.seasons || []).flatMap(s => s.episodes || [])
         .filter(e => e.downloadURL);
-      $('series-meta').textContent = [yr, `${eps.length} playable episodes`]
+      $('series-meta').textContent = [yr, `${eps.length} playable episode${eps.length === 1 ? '' : 's'}`]
         .filter(Boolean).join(' · ');
-      $('series-overview').textContent = stripHTML(series.overview || '').slice(0, 600);
+      // Cut at the last sentence that fits, never mid-word ("a sashaying m").
+      const ov = stripHTML(series.overview || '');
+      const cut = ov.length <= 600 ? ov
+        : (ov.slice(0, 600).match(/^[\s\S]*[.!?](?=\s)/)?.[0] || ov.slice(0, 600).replace(/\s+\S*$/, '') + '…');
+      $('series-overview').textContent = cut;
       if (series.posterURL) wireArt($('series-poster'), [series.posterURL]);
 
       const seasons = (series.seasons || []).filter(s => (s.episodes || []).some(e => e.downloadURL));

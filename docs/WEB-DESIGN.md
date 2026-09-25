@@ -69,6 +69,16 @@ separate tool with its own conventions (CLAUDE.md) — these rules govern the
 
 ## §3 Routing + URL state
 
+- **§3.0 Navigation is a top bar on a wide screen and a bottom tab bar on a
+  phone** (below 700px; owner audit 2026-09-25). The six destinations —
+  Home, Browse, Channels, Surprise, Search, Library — did not fit a phone's
+  top bar: from Channels on they sat off-screen in an unmarked horizontal
+  scroll, so half the app was invisible. On a phone the SAME `<nav>` is laid
+  out as a tab bar under `<main>`, each item an icon over its word, the
+  current one in the brand color; the top bar keeps only the brand. It is a
+  flex child of `body` (the Safari rule forbids `position: fixed`): the header
+  is `display: contents` and the nav takes `order` after `<main>`. The TV
+  layer (`html.tv`) keeps the top bar.
 - **§3.1 Hash routes**: `#/`, `#/browse`, `#/search`, `#/library`,
   `#/item/{id}`, `#/about`. Filters live in the hash query
   (`#/browse?type=animation&decade=1930&sort=az`) so every filtered view is a
@@ -121,6 +131,15 @@ separate tool with its own conventions (CLAUDE.md) — these rules govern the
   `archivewatch://` scheme on Apple, an `intent://` URL with this page as
   the fallback on Android. Universal Links take over on iOS once the
   Associated Domains capability lands (Decision 030).
+- **§4.4a Reading width** (2026-09-25): Detail and Series sit in a column no
+  wider than 1200px, centered, and running text (synopsis, reviews,
+  descriptions) keeps a ~72-character measure. At 1440px the synopsis and the
+  archive.org reviews ran past the right edge of the window.
+- **§4.3a Search sits on the page grid** (2026-09-25): its filter chips are two
+  horizontal chip rows (types, decades) in the Browse chip style and gutter,
+  and the Episodes block keeps the page gutter; both had been flush with the
+  screen edge. No hint under the field: the placeholder already says what it
+  searches.
 - **§4.5 Library** = Continue Watching (progress 10s–95%) + Favorites, both
   IndexedDB. Empty states are explicit sentences, not blank space.
   **Amended 2026-09-25** (owner: *"extremely poorly designed. There is plain
@@ -293,8 +312,9 @@ separate tool with its own conventions (CLAUDE.md) — these rules govern the
   `tools/test_web_adult_gate.py` locks the shared rule.
 - **§8.4 Sign-in controls are the providers' own.** Google: a custom button
   built to Google's branding guidelines (the four-colour G at 20px, "Sign in
-  with Google", Roboto Medium 14px, 40px tall, the dark theme on this dark
-  page; the logo inline so §8.2 holds). Apple: CloudKit JS draws Apple's own
+  with Google", Roboto Medium 14px, 40px tall, the LIGHT theme since
+  2026-09-25 so it pairs with Apple's white button in §4.5's Sync card — it
+  was the dark theme before; the logo inline so §8.2 holds). Apple: CloudKit JS draws Apple's own
   button, asked for the white theme Apple's HIG prescribes on a dark
   background, never restyled. Both rows align at 40px with the sync status
   beside, and keep the page gutter (`margin: … var(--pad)`).
@@ -304,6 +324,16 @@ separate tool with its own conventions (CLAUDE.md) — these rules govern the
   every store is listed, and the row is `nowrap` with overflow hidden so it
   can never grow. The device links return at width. Measured 2026-09-10: four
   device links wrapped to five rows and took a third of an iPhone screen.
+  **SUPERSEDED 2026-09-25** by §8.5a.
+- **§8.5a The footer ends the page; it is not chrome.** Owner, 2026-09-25:
+  *"the footer is quite large on mobile phone size screens."* A strip pinned
+  under every screen spends height on every page to repeat links nobody needs
+  mid-browse, and on a phone it shared the bottom edge with the tab bar
+  (§3.0). The footer now sits at the END of `<main>`'s scroll content on every
+  width: the brand mark, the four store links, About & attribution and Support
+  the Archive, wrapping and centered on a phone because it no longer has to
+  fit one line. §8.1's "reachable from the footer" still holds, and About
+  stays one tap from every page through it.
 
 ## §9 Parity discipline
 

@@ -140,6 +140,32 @@ a { color: var(--color-accent); }
   font-size: 0.95rem; padding: 6px 10px; border-radius: 999px;
 }
 .topnav a[aria-current="true"] { color: #fff; background: var(--bg-raise); }
+.topnav svg {
+  display: none; width: 24px; height: 24px;
+  fill: none; stroke: currentColor; stroke-width: 1.7;
+  stroke-linecap: round; stroke-linejoin: round;
+}
+/* §3.0 — on a phone the same <nav> is a bottom tab bar. The header dissolves
+   (display: contents) so the brand and the nav become body's own flex items,
+   and the nav is ordered after <main>: a tab bar without position: fixed,
+   which the Safari rule forbids. */
+@media (max-width: 699px) {
+  html:not(.tv) .topbar { display: contents; }
+  html:not(.tv) .brand { padding: 10px var(--pad); border-bottom: 1px solid var(--border); }
+  html:not(.tv) .topnav {
+    order: 1; margin: 0; overflow: visible;
+    display: grid; grid-template-columns: repeat(6, 1fr); gap: 0;
+    border-top: 1px solid var(--border); background: var(--bg);
+    padding: 4px 0 6px;
+  }
+  html:not(.tv) .topnav a {
+    display: flex; flex-direction: column; align-items: center; gap: 2px;
+    padding: 6px 0 2px; border-radius: 0; background: none;
+    font-size: 0.68rem; font-weight: 600; color: var(--text-dim);
+  }
+  html:not(.tv) .topnav svg { display: block; }
+  html:not(.tv) .topnav a[aria-current="true"] { color: var(--color-primary); background: none; }
+}
 
 /* Footer reads as quiet chrome, not a stray hyperlink: centered, dim,
    brand-marked; links inherit the dim tone instead of accent blue. */
@@ -368,7 +394,9 @@ input[type="search"] {
 }
 
 /* ---- detail ---- */
-.detail { padding: var(--pad); }
+.detail { padding: var(--pad); max-width: 1200px; margin-inline: auto; }
+/* §4.4a — running text keeps a readable measure at any width. */
+#item-desc, #series-overview, .review-body, .item-tagline { max-width: 72ch; }
 .detail-art img {
   width: min(46vw, 220px); aspect-ratio: 2 / 3; object-fit: cover;
   border-radius: var(--radius); border: 1px solid var(--border);
@@ -377,6 +405,14 @@ input[type="search"] {
 .detail-body h1 { margin: 14px 0 2px; padding: 0; }
 .detail-body .muted { margin: 0 0 12px; padding: 0; }
 .detail-actions { display: flex; flex-wrap: wrap; gap: 10px; margin: 12px 0; }
+/* A phone gets a designed action row, not a ragged wrap: Play spans the
+   width, the three secondary verbs share the row beneath it equally. */
+@media (max-width: 699px) {
+  .detail-actions { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .detail-actions .btn-primary { grid-column: 1 / -1; }
+  .detail-actions .btn-ghost { padding: 10px 4px; text-align: center; white-space: nowrap; }
+  .detail-actions [hidden] { display: none; }
+}
 .btn-primary {
   background: var(--color-primary); color: #fff; border: 0;
   border-radius: 999px; padding: 10px 22px; font-size: 1rem; font-weight: 700;
@@ -454,7 +490,7 @@ input[type="search"] {
 }
 
 /* ---- community section: archive.org stats + filtered reviews (P2) ---- */
-#item-community { margin: 8px var(--pad) 0; }
+#item-community { margin: 8px 0 0; }
 #item-community h2 { font-size: 1rem; margin: 14px 0 8px; }
 .community-stats { margin: 0 0 4px; font-size: 0.95rem; color: var(--text); }
 .review-card {
@@ -712,7 +748,10 @@ dialog#player::backdrop { background: rgba(0, 0, 0, 0.85); }
   h1 { font-size: 1.9rem; }
   .grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
   .shelf-row .card { flex-basis: 148px; }
-  .detail { display: grid; grid-template-columns: 230px 1fr; gap: 26px; }
+  /* minmax(0, …): a bare 1fr track cannot shrink below its content's
+     minimum, and the cast row pushed the column (and the synopsis and the
+     reviews with it) past the right edge of a 1440px window. */
+  .detail { display: grid; grid-template-columns: 230px minmax(0, 1fr); gap: 26px; }
   .detail-art img { width: 100%; margin: 0; }
   .detail-body h1 { margin-top: 0; }
 }
@@ -721,7 +760,7 @@ dialog#player::backdrop { background: rgba(0, 0, 0, 0.85); }
 }
 
 /* Episode search results (an "Episodes" section above the film grid). */
-#search-episodes { margin-bottom: 20px; }
+#search-episodes { margin-bottom: 20px; padding: 0 var(--pad); }
 #search-episodes h2 { font-size: 1.1rem; margin: 8px 0; }
 .episode-row {
   display: flex; align-items: center; gap: 12px;
@@ -791,14 +830,19 @@ dialog#player::backdrop { background: rgba(0, 0, 0, 0.85); }
    wrapped to five rows and took a third of the screen (owner screenshot,
    2026-09-10). Below 640px the label alone remains and links to About,
    where every store is listed; the device links return at width. */
-@media (max-width: 640px) {
-  .foot { flex-wrap: nowrap; white-space: nowrap; overflow: hidden; }
-  .foot-apps { flex-wrap: nowrap; }
-  .foot-apps a:not(.foot-apps-label) { display: none; }
-  .foot-apps-label { display: inline; }
-}
+/* The footer ends each page inside <main> (§8.5a), so it may wrap: on a
+   phone it stacks centered — the store links on their own lines — instead of
+   being clipped to one line of persistent chrome. */
+.foot { flex-wrap: wrap; text-align: center; margin-top: 40px; row-gap: 8px; }
+.foot-apps { justify-content: center; }
 @media (min-width: 641px) {
   .foot-apps-label { display: none; }
+}
+@media (max-width: 640px) {
+  .foot { flex-direction: column; padding: 20px var(--pad) 8px; }
+  .foot-sep, .foot > span[aria-hidden] { display: none; }
+  .foot-apps { flex-direction: column; gap: 6px; }
+  .foot-apps a:not(.foot-apps-label) + a::before { content: none; }
 }
 
 
@@ -902,19 +946,13 @@ a.person:focus-visible { outline: 2px solid var(--color-primary); outline-offset
 .pref-row small { color: var(--text-dim); }
 
 /* The two mode entries under the Surprise grid. */
-.mode-links { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: .25rem; }
+.mode-links { display: flex; flex-wrap: wrap; gap: .6rem; margin: 8px var(--pad) 0; }
 
 /* Search result filters — the same chip language as Browse, but built from
    the results in hand so a chip can never lead to an empty grid. */
-.search-filters { display: flex; flex-wrap: wrap; gap: .4rem; margin: .1rem 0 .9rem; }
-.search-filters button {
-  background: var(--bg-raise); color: var(--text-dim);
-  border: 1px solid var(--border); border-radius: 999px;
-  padding: .3rem .75rem; font-size: .82rem; cursor: pointer;
-}
-.search-filters button[aria-pressed="true"] {
-  border-color: var(--color-primary); color: var(--color-primary);
-}
+/* §4.3a — Browse's chips, two rows, on the page gutter. */
+.search-filters { display: flex; flex-direction: column; gap: 6px; margin: 6px 0 4px; }
+.search-filters[hidden] { display: none; }
 
 /* Connectivity notice. Same gating discipline as the app banner: an author
    `display` beats the UA's [hidden] rule, so it is stated on :not([hidden]). */

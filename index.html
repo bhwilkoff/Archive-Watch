@@ -52,12 +52,12 @@
       <span>Archive&nbsp;Watch</span>
     </a>
     <nav class="topnav" aria-label="Primary">
-      <a href="#/" data-nav="home">Home</a>
-      <a href="#/browse" data-nav="browse">Browse</a>
-      <a href="#/channels" data-nav="channels">Channels</a>
-      <a href="#/surprise" data-nav="surprise">Surprise</a>
-      <a href="#/search" data-nav="search">Search</a>
-      <a href="#/library" data-nav="library">Library</a>
+      <a href="#/" data-nav="home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11.5 12 5l8 6.5V19a1 1 0 0 1-1 1h-4.5v-5h-5v5H5a1 1 0 0 1-1-1z"/></svg><span>Home</span></a>
+      <a href="#/browse" data-nav="browse"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="6.5" height="6.5" rx="1.2"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.2"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.2"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.2"/></svg><span>Browse</span></a>
+      <a href="#/channels" data-nav="channels"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="6.5" width="17" height="11.5" rx="1.8"/><path d="M9 3.5l3 3 3-3M8.5 21h7"/></svg><span>Channels</span></a>
+      <a href="#/surprise" data-nav="surprise"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h3.2c1.6 0 2.6.7 3.5 2l2.6 4c.9 1.3 1.9 2 3.5 2H20M17.5 12.5 20 15l-2.5 2.5M4 17h3.2c1 0 1.7-.3 2.3-.8M14 8.8c.6-.5 1.3-.8 2.3-.8H20M17.5 5.5 20 8l-2.5 2.5"/></svg><span>Surprise</span></a>
+      <a href="#/search" data-nav="search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6"/><path d="m15 15 5 5"/></svg><span>Search</span></a>
+      <a href="#/library" data-nav="library"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4.5v15M9 4.5v15M13 5l4.5 14.2"/><path d="M3.5 19.5h17"/></svg><span>Library</span></a>
     </nav>
   </header>
 
@@ -97,8 +97,6 @@
       <h1>Search</h1>
       <input id="search-input" type="search" placeholder="Title, cast or director — e.g. Boris Karloff"
              autocomplete="off" autocapitalize="none">
-      <p id="search-hint" class="muted">Search 30,000+ public-domain films and shows —
-         by title, cast, director, studio or subject.</p>
       <div id="search-filters" class="search-filters" hidden></div>
       <div id="search-grid" class="grid"></div>
     </section>
@@ -145,7 +143,7 @@
         <h1>Channels</h1>
         <button id="channels-create" class="btn-ghost">＋ New channel</button>
       </div>
-      <p class="muted">A broadcast day, scheduled fresh at 6 AM — scroll the listing, tap to tune in. Tap a channel you created to delete it.</p>
+      <p class="muted">Tap a channel you created to delete it.</p>
       <p id="channels-error" class="error" hidden></p>
       <div id="epg" class="epg"></div>
     </section>
@@ -155,11 +153,10 @@
         <h1>Surprise Me</h1>
         <button id="surprise-reroll" class="btn-primary">⟲ Re-roll</button>
       </div>
-      <p class="muted">A fresh hand from the archive — tap any tile, or re-roll the lot.</p>
       <div id="surprise-grid" class="grid"></div>
       <div class="mode-links">
-        <a class="btn-ghost" href="#/cartoons">🖌️ Cartoon Mode — animation all day</a>
-        <button id="party-start" class="btn-ghost">🎉 Party Play — muted visuals, nonstop</button>
+        <a class="btn-ghost" href="#/cartoons">Cartoon Mode</a>
+        <button id="party-start" class="btn-ghost">Party Play</button>
       </div>
     </section>
 
@@ -382,6 +379,20 @@
     </section>
 
     <p id="apperror" class="error" hidden></p>
+    <footer class="foot">
+      <img src="assets/app-icon/app-icon.png" alt="" width="30" height="18">
+      <nav class="foot-apps" aria-label="Get the app">
+        <a class="foot-apps-label" href="#/about">Get the app</a>
+        <a href="https://apps.apple.com/us/app/archive-watch/id6776697407" target="_blank" rel="noopener">Apple TV, iPhone, iPad &amp; Mac</a>
+        <a href="https://play.google.com/store/apps/details?id=com.archivewatch.app" target="_blank" rel="noopener">Android &amp; Google TV</a>
+        <a href="https://www.amazon.com/gp/mas/dl/android?p=com.archivewatch.app" target="_blank" rel="noopener">Fire TV &amp; Fire tablets</a>
+        <a href="https://channelstore.roku.com/details/12a571a872732e40fe8d1d6c59f3849f:5ec8f46dcec2324229c8d096ea23c089/archive-watch" target="_blank" rel="noopener">Roku</a>
+      </nav>
+      <span class="foot-sep" aria-hidden="true">·</span>
+      <a href="#/about">About &amp; attribution</a>
+      <span aria-hidden="true">·</span>
+      <a href="https://archive.org/donate" target="_blank" rel="noopener">Support the Archive</a>
+    </footer>
   </main>
 
   <!-- The persistent footer (WEB-DESIGN 8.1) now names the DEVICE rather than
@@ -390,20 +401,6 @@
        universal app covering Apple TV, iPhone, iPad and Mac, which "App Store"
        alone never communicated. Links carry no store badge images: they would
        be third-party assets on a site that ships none (8.2). -->
-  <footer class="foot">
-    <img src="assets/app-icon/app-icon.png" alt="" width="30" height="18">
-    <nav class="foot-apps" aria-label="Get the app">
-      <a class="foot-apps-label" href="#/about">Get the app</a>
-      <a href="https://apps.apple.com/us/app/archive-watch/id6776697407" target="_blank" rel="noopener">Apple TV, iPhone, iPad &amp; Mac</a>
-      <a href="https://play.google.com/store/apps/details?id=com.archivewatch.app" target="_blank" rel="noopener">Android &amp; Google TV</a>
-      <a href="https://www.amazon.com/gp/mas/dl/android?p=com.archivewatch.app" target="_blank" rel="noopener">Fire TV &amp; Fire tablets</a>
-      <a href="https://channelstore.roku.com/details/12a571a872732e40fe8d1d6c59f3849f:5ec8f46dcec2324229c8d096ea23c089/archive-watch" target="_blank" rel="noopener">Roku</a>
-    </nav>
-    <span class="foot-sep" aria-hidden="true">·</span>
-    <a href="#/about">About &amp; attribution</a>
-    <span aria-hidden="true">·</span>
-    <a href="https://archive.org/donate" target="_blank" rel="noopener">Support the Archive</a>
-  </footer>
 
   <dialog id="playlistmenu" class="sharemenu">
     <h2 class="dlg-title">Add to playlist</h2>
