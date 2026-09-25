@@ -1,4 +1,5 @@
 #if os(macOS)
+@preconcurrency import ScreenCaptureKit
 import SwiftUI
 import AppKit
 import AVFoundation
@@ -414,7 +415,6 @@ struct StudioWindowView: View {
     /// view is alive. NEVER written to disk or to defaults: a window list is
     /// the host's whole working day, and a remembered one would outlive the
     /// call it was for.
-    @State private var guestWindows: [StudioScreenSource.Window] = []
     private var studio: StudioSession { StudioSession.shared }
     @Bindable private var controls = StudioControls.shared
     @Bindable private var show = StudioMacShow.shared
@@ -426,7 +426,6 @@ struct StudioWindowView: View {
     @State private var microphones: [StudioDevices.Device] = []
     @State private var callApps: [StudioAudioProcesses.Process] = []
     @State private var guestIsBrowser = false
-    @State private var chosenCallBundleID = ""
     @State private var previewRefusal: String?
     @Environment(AppStore.self) private var store
     @Environment(AppRouter.self) private var router
@@ -434,6 +433,16 @@ struct StudioWindowView: View {
     /// `StudioSession` is `@Observable`, so `health` alone would do it — the
     /// timer is for the two derived per-second rates it recomputes in place.
     @State private var tick = 0
+    /// CAMERA AND MICROPHONE PERMISSION, AS STATE. The rows used to read
+    /// `AVCaptureDevice.authorizationStatus` while SwiftUI drew them, and
+    /// nothing tells SwiftUI that status changed — so a grant made in the
+    /// system prompt or in System Settings did not appear until some unrelated
+    /// state redrew the window. The owner met exactly that: *"the camera and
+    /// microphone permissions didn't show up correctly until I also shared the
+    /// Google Chrome window"*. Read on appear, on every return to the app, after
+    /// every request, and once a second while the window is open.
+    @State private var cameraAccess = StudioSession.access(for: .video)
+    @State private var microphoneAccess = StudioSession.access(for: .audio)
 
     private let marquee = Brand.primary
 
@@ -477,6 +486,7 @@ struct StudioWindowView: View {
             #endif
             show.choosing = show.film == nil
             refreshDevices()
+            refreshAccess()
             #if DEBUG
             // AW_STUDIO_WINDOW_SIZE=1120x660 — size the Studio window, so a
             // layout can be checked at the minimum without a pointer.
@@ -490,6 +500,15 @@ struct StudioWindowView: View {
                 }
             }
             #endif
+        }
+        .onReceive(NotificationCenter.default.publisher(for: NSApplication.didBecomeActiveNotification)) { _ in
+            refreshAccess()
+        }
+        .task {
+            while !Task.isCancelled {
+                try? await Task.sleep(for: .seconds(1))
+                refreshAccess()
+            }
         }
         // A BROADCAST NEVER OUTLIVES ITS STUDIO (§D12). This is Rule B13a's one
         // genuinely load-bearing objection to a second window — that a host
@@ -1044,106 +1063,54 @@ struct StudioWindowView: View {
             // learns which device produced those pixels. A host whose webcam
             // is pointing at the wall can now fix it mid-show.
 
-            // THE FOURTH INPUT: a call's audio (§D2, Decision 131). The host
-            // uses whatever calling service they already have and the Studio
-            // captures that APP — which is what removes the guest-voice
-            // transport, and with it the relay, the NAT traversal and the
-            // running cost that failed the $0 constraint every other way.
-            VStack(alignment: .leading, spacing: 4) {
-                HStack(alignment: .firstTextBaseline, spacing: 9) {
-                    Image(systemName: "person.wave.2").frame(width: 16)
-                        .foregroundStyle(.secondary)
-                    Text("A call").font(.subheadline.weight(.medium))
-                    Spacer(minLength: 6)
-                    Text(studio.callAppName == nil ? "not captured"
-                         : (studio.health.audio.callAttached ? "capturing" : "starting"))
-                        .font(.caption).monospacedDigit()
-                        .foregroundStyle(studio.callProblem == nil ? .secondary : Color.orange)
-                }
-                Picker("A call", selection: Binding(
-                    get: { chosenCallBundleID },
-                    set: { id in
-                        chosenCallBundleID = id
-                        if id.isEmpty { studio.stopCallAudio() }
-                        else if let p = callApps.first(where: { $0.name == id }) {
-                            Task { await studio.startCallAudio(process: p) }
-                        }
-                    })) {
-                    Text("None").tag("")
-                    Divider()
-                    ForEach(callApps) { Text($0.name).tag($0.name) }
-                }
-                .labelsHidden()
-                if let chosen = callApps.first(where: { $0.name == chosenCallBundleID }),
-                   StudioCallApps.kind(bundleID: chosen.bundleID) == .browser {
-                    Text(StudioCallApps.browserWarning).font(.caption2).foregroundStyle(.orange)
-                        .fixedSize(horizontal: false, vertical: true)
-                }
-                if let why = studio.callProblem {
-                    Text(why).font(.caption2).foregroundStyle(.orange)
-                        .fixedSize(horizontal: false, vertical: true)
-                }
-            }
-
-            // §D23 — THE CALL'S PICTURE. Beside its audio, because they are
-            // the same call and a host thinks of them as one thing.
-            VStack(alignment: .leading, spacing: 6) {
-                inputRow(name: studio.guestWindowLabel ?? "Your guests",
-                         role: "A window",
-                         // THE ROW ASKS THE CAPTURE, not whether an object
-                         // exists. `guestsAttached` stays true for a source
-                         // whose window has closed, so it said "live" over a
-                         // tile that had just disappeared.
-                         state: studio.guestWindowLabel == nil ? "not shown"
+            // §D23b — YOUR CALL: one choice, in macOS's own picker. The window
+            // chosen there is the guests' tile and its app is the call's
+            // sound (§D25), so the host never matches an app name to a
+            // window ("which Chrome window?"), and nothing here lists windows
+            // — which is what needed Screen Recording. Decision 131's third
+            // mode: the call runs in the app they already use.
+            VStack(alignment: .leading, spacing: 5) {
+                inputRow(name: "Your call",
+                         role: studio.guestWindowLabel == nil ? "A window" : "Picture and sound",
+                         state: studio.guestWindowLabel == nil ? "not chosen"
                                 : (studio.guestProblem != nil ? "stopped"
                                    : (studio.health.guestsAttached ? "live" : "starting")),
                          healthy: studio.guestWindowLabel == nil
                                   || (studio.guestProblem == nil && studio.health.guestsAttached),
                          icon: "person.2")
-                // NO REMEMBERED CHOICE (§D23): the menu is built when it opens,
-                // and nothing is pre-selected. A stale selection is how a host
-                // broadcasts the window they had open last week.
-                Menu(studio.guestWindowLabel == nil ? "Show your guests" : "Change window") {
-                    ForEach(guestWindows) { w in
-                        Button(w.label) {
+                if let label = studio.guestWindowLabel {
+                    Text(label).font(.caption).lineLimit(2)
+                        .fixedSize(horizontal: false, vertical: true)
+                    Label(studio.callAppName.map { "Sound from \($0)" } ?? "No sound captured",
+                          systemImage: studio.callAppName == nil ? "speaker.slash" : "speaker.wave.2")
+                        .font(.caption)
+                        .foregroundStyle(studio.callAppName != nil && studio.callProblem == nil
+                                         ? .secondary : Color.orange)
+                }
+                HStack(spacing: 12) {
+                    Button(studio.guestWindowLabel == nil ? "Choose your call…" : "Choose another window…") {
+                        StudioCallPicker.shared.present { filter in
+                            let bundle = filter.includedWindows.first?.owningApplication?.bundleIdentifier ?? ""
                             Task {
-                                _ = await studio.startGuests(windowID: w.id, label: w.label,
-                                                             ownerPID: w.pid,
-                                                             ownerBundleID: w.bundleID)
-                                guestIsBrowser = StudioCallApps.kind(bundleID: w.bundleID) == .browser
-                                controls.layout = .guests
+                                if await studio.startGuests(filter: filter) {
+                                    guestIsBrowser = StudioCallApps.kind(bundleID: bundle) == .browser
+                                    controls.layout = .guests
+                                }
                             }
                         }
                     }
-                    if guestWindows.isEmpty { Text("No windows to show") }
-                }
-                .menuStyle(.borderlessButton).font(.caption).fixedSize()
-                .onHover { if $0 { Task { guestWindows = await StudioScreenSource.windows() } } }
-                // FILLED WITHOUT A POINTER TOO (audit B). The list was built
-                // only on hover, so opening the menu from the keyboard or
-                // VoiceOver showed "No windows to show". Nothing is selected
-                // by this — §D23's rule is about choices, not the list.
-                // ONLY where access is already granted: CGPreflight asks
-                // without prompting, so opening the Studio can never raise
-                // the Screen Recording dialog unasked. Before the grant, the
-                // host's own hover still fills the list as it always did.
-                .task {
-                    while !Task.isCancelled {
-                        if CGPreflightScreenCaptureAccess() {
-                            guestWindows = await StudioScreenSource.windows()
-                        }
-                        try? await Task.sleep(for: .seconds(4))
+                    .font(.caption).fixedSize()
+                    if studio.guestWindowLabel != nil {
+                        Button("Stop showing them") { studio.stopGuests() }
+                            .font(.caption).buttonStyle(.borderless).fixedSize()
                     }
                 }
                 if studio.guestWindowLabel != nil, guestIsBrowser {
                     Text(StudioCallApps.browserWarning).font(.caption2).foregroundStyle(.orange)
                         .fixedSize(horizontal: false, vertical: true)
                 }
-                if studio.guestWindowLabel != nil {
-                    Button("Stop showing them") { studio.stopGuests() }
-                        .font(.caption).buttonStyle(.borderless).fixedSize()
-                }
-                if let why = studio.guestProblem {
+                ForEach([studio.guestProblem, studio.callProblem, StudioCallPicker.shared.problem]
+                            .compactMap { $0 }, id: \.self) { why in
                     Text(why).font(.caption2).foregroundStyle(.orange)
                         .fixedSize(horizontal: false, vertical: true)
                 }
@@ -1379,6 +1346,17 @@ struct StudioWindowView: View {
         }
     }
 
+    /// Assigns only on a change, so the once-a-second read redraws nothing
+    /// unless a permission actually moved — and when one moves to granted,
+    /// the device lists are read again, since they are empty until it is.
+    private func refreshAccess() {
+        let v = StudioSession.access(for: .video), a = StudioSession.access(for: .audio)
+        guard v != cameraAccess || a != microphoneAccess else { return }
+        cameraAccess = v
+        microphoneAccess = a
+        refreshDevices()
+    }
+
     private func refreshDevices() {
         cameras = StudioDevices.cameras()
         microphones = StudioDevices.microphones()
@@ -1402,7 +1380,7 @@ struct StudioWindowView: View {
                            devices: [StudioDevices.Device],
                            selection: Binding<String>,
                            state: String, healthy: Bool) -> some View {
-        let access = StudioSession.access(for: media)
+        let access = media == .video ? cameraAccess : microphoneAccess
         return VStack(alignment: .leading, spacing: 4) {
             HStack(alignment: .firstTextBaseline, spacing: 9) {
                 Image(systemName: icon).frame(width: 16).foregroundStyle(.secondary)
@@ -1429,6 +1407,7 @@ struct StudioWindowView: View {
                 Button("Allow the \(role.lowercased())") {
                     Task {
                         _ = await studio.requestCaptureAccess()
+                        refreshAccess()
                         refreshDevices()
                     }
                 }
@@ -1928,6 +1907,10 @@ struct StudioDestinationSection: View {
     @State private var readiness: StudioPlatformAuth.Readiness?
     @State private var problem: String?
     @State private var working = false
+    /// `hostAbsentReason()` as STATE, for the same reason as the Inputs rows:
+    /// read during drawing, a permission granted in System Settings left
+    /// "Going live needs your camera" on screen until something else redrew.
+    @State private var hostAbsent = StudioSession.hostAbsentReason()
     @AppStorage(StudioSession.readYouTubeChatKey) private var readYouTubeChat = false
 
     private var authPlatform: StudioPlatformAuth.Platform {
@@ -1967,6 +1950,13 @@ struct StudioDestinationSection: View {
                 onAir
             } else {
                 form
+            }
+        }
+        .task {
+            while !Task.isCancelled {
+                let now = StudioSession.hostAbsentReason()
+                if now != hostAbsent { hostAbsent = now }
+                try? await Task.sleep(for: .seconds(1))
             }
         }
         #if DEBUG
@@ -2314,7 +2304,7 @@ struct StudioDestinationSection: View {
         guard show.film != nil else { return "Choose a film first." }
         // YOU ARE THE SHOW (owner, 2026-09-24): a film alone is already on
         // archive.org, so a broadcast without the host adds nothing.
-        if let absent = StudioSession.hostAbsentReason() { return absent }
+        if let absent = hostAbsent { return absent }
         if show.platform == .custom {
             guard URL(string: show.customURL)?.host != nil, !show.customKey.isEmpty else {
                 return "A custom destination needs a server and a stream key."

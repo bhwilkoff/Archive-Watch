@@ -136,7 +136,22 @@ public final class StudioScreenSource: NSObject, SCStreamOutput, SCStreamDelegat
                 problem = "That window has closed."
                 return false
             }
-            let filter = SCContentFilter(desktopIndependentWindow: window)
+            return await start(filter: SCContentFilter(desktopIndependentWindow: window), size: size)
+        } catch {
+            problem = "\(error.localizedDescription)"
+            return false
+        }
+    }
+
+    /// Starts capturing the content the host chose in macOS's own picker
+    /// (§D23b). The filter arrives from `SCContentSharingPicker`, so nothing
+    /// here lists windows — which is what needed Screen Recording.
+    @discardableResult
+    public func start(filter: SCContentFilter, size: CGSize) async -> Bool {
+        stop()
+        problem = nil
+        frameCount.reset()
+        do {
             let config = SCStreamConfiguration()
             config.width = Int(size.width)
             config.height = Int(size.height)
@@ -157,17 +172,11 @@ public final class StudioScreenSource: NSObject, SCStreamOutput, SCStreamDelegat
             isRunning = true
             return true
         } catch {
-            // NAME IT. A `TCCError 3` here means the person has not granted
-            // Screen Recording, and "the operation couldn't be completed" is
-            // not something a host can act on.
-            let ns = error as NSError
-            if ns.domain == "com.apple.ScreenCaptureKit.SCStreamErrorDomain"
-                || "\(error)".contains("declined") || "\(error)".contains("TCC") {
-                problem = "macOS has not granted Screen Recording to Archive Watch. "
-                    + "System Settings ▸ Privacy & Security ▸ Screen Recording."
-            } else {
-                problem = "\(error.localizedDescription)"
-            }
+            // NAME IT, in words a host can act on. A window chosen in the
+            // system picker needs no Screen Recording grant (§D23b), so the
+            // useful sentence is "choose it again", not a trip to Settings.
+            problem = "macOS stopped showing that window (\(error.localizedDescription)) — "
+                + "choose your call again."
             return false
         }
     }
@@ -214,6 +223,66 @@ public final class StudioScreenSource: NSObject, SCStreamOutput, SCStreamDelegat
         MainActor.assumeIsolated {
             self.isRunning = false
             self.problem = "The window you were showing has gone — pick another."
+        }
+    }
+}
+
+/// §D23b — "Choose your call…": macOS's own window picker.
+///
+/// The host chooses in `SCContentSharingPicker`, a system process macOS
+/// trusts, so the Studio needs no Screen Recording grant and never sees a list
+/// of anyone's windows — the picker shows thumbnails, which answers "which
+/// Chrome window?" the way no list of titles can. One window, never our own.
+@MainActor @Observable
+public final class StudioCallPicker: NSObject, SCContentSharingPickerObserver {
+    public static let shared = StudioCallPicker()
+
+    @ObservationIgnored private var onPick: ((SCContentFilter) -> Void)?
+    @ObservationIgnored private var observing = false
+    public private(set) var problem: String?
+
+    /// A filter crosses from whatever thread the picker calls back on to the
+    /// main actor. It is handed over once and never touched on the way.
+    private struct Handoff: @unchecked Sendable { let filter: SCContentFilter }
+
+    public func present(onPick: @escaping (SCContentFilter) -> Void) {
+        self.onPick = onPick
+        problem = nil
+        let picker = SCContentSharingPicker.shared
+        var config = SCContentSharingPickerConfiguration()
+        config.allowedPickerModes = .singleWindow
+        if let me = Bundle.main.bundleIdentifier { config.excludedBundleIDs = [me] }
+        picker.defaultConfiguration = config
+        if !observing { picker.add(self); observing = true }
+        picker.isActive = true
+        picker.present(using: .window)
+    }
+
+    public nonisolated func contentSharingPicker(_ picker: SCContentSharingPicker,
+                                                 didUpdateWith filter: SCContentFilter,
+                                                 for stream: SCStream?) {
+        let h = Handoff(filter: filter)
+        Task { @MainActor in
+            SCContentSharingPicker.shared.isActive = false
+            self.onPick?(h.filter)
+            self.onPick = nil
+        }
+    }
+
+    public nonisolated func contentSharingPicker(_ picker: SCContentSharingPicker,
+                                                 didCancelFor stream: SCStream?) {
+        Task { @MainActor in
+            SCContentSharingPicker.shared.isActive = false
+            self.onPick = nil
+        }
+    }
+
+    public nonisolated func contentSharingPickerStartDidFailWithError(_ error: Error) {
+        let why = error.localizedDescription
+        Task { @MainActor in
+            SCContentSharingPicker.shared.isActive = false
+            self.problem = "The window picker could not open (\(why))."
+            self.onPick = nil
         }
     }
 }

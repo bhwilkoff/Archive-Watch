@@ -15,6 +15,9 @@
 
 import AVFoundation
 import Foundation
+#if os(macOS)
+@preconcurrency import ScreenCaptureKit
+#endif
 
 /// Which platform's broadcast a show is on, and the id that platform reads it
 /// by: a YouTube broadcast (= video) id, or the Twitch broadcaster's user id.
@@ -477,16 +480,38 @@ public final class StudioSession {
     public private(set) var guestWindowLabel: String?
     public var guestProblem: String? { screenSource?.problem }
 
+    /// §D23b — the window the host chose in macOS's own picker. Its label
+    /// and its app (for the call's sound, §D25) come from the filter itself.
+    @discardableResult
+    public func startGuests(filter: SCContentFilter) async -> Bool {
+        let w = filter.includedWindows.first
+        let app = w?.owningApplication ?? filter.includedApplications.first
+        let appName = app?.applicationName ?? "Your call"
+        let title = w?.title ?? ""
+        return await beginGuests(label: title.isEmpty ? appName : "\(appName) — \(title)",
+                                 ownerPID: app?.processID, ownerBundleID: app?.bundleIdentifier) {
+            await $0.start(filter: filter, size: CGSize(width: 1280, height: 720))
+        }
+    }
+
+    /// By window id: the DEBUG harness door (RootView), which lists windows
+    /// itself. The product path is `startGuests(filter:)`.
     @discardableResult
     public func startGuests(windowID: CGWindowID, label: String,
                             ownerPID: pid_t? = nil,
                             ownerBundleID: String? = nil) async -> Bool {
+        await beginGuests(label: label, ownerPID: ownerPID, ownerBundleID: ownerBundleID) {
+            await $0.start(windowID: windowID, size: CGSize(width: 1280, height: 720))
+        }
+    }
+
+    private func beginGuests(label: String, ownerPID: pid_t?, ownerBundleID: String?,
+                             start: (StudioScreenSource) async -> Bool) async -> Bool {
         stopGuests()
         let src = StudioScreenSource()
         screenSource = src
         guestWindowLabel = label
-        let ok = await src.start(windowID: windowID,
-                                 size: CGSize(width: 1280, height: 720))
+        let ok = await start(src)
         guard ok else {
             screenSource = nil
             guestWindowLabel = nil

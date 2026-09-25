@@ -2096,6 +2096,53 @@ whatever ends the show cleans up.
 `engineHolds=YES` in exactly this case; it just did nothing with it. A
 diagnostic that names a condition nobody acts on is half a fix.
 
+## §D23b — The call is chosen in macOS's own picker, and the Studio never lists windows (2026-09-25)
+
+**"Choose your call…"** opens `SCContentSharingPicker` (single window, our own
+bundle excluded). The window the host picks there is the guests' tile, and its
+owning app — read from the filter's `includedWindows` — is the call's sound,
+tapped as before (§D18, §D25). One choice, one undo ("Stop showing them" ends
+both). The name-list menus for the window and for the call's app are gone.
+
+**Why.** The owner, after a manual run: *"It keeps asking for permissions that
+it already has. I also think we need to be able to use a native Window/Call
+picker to choose the audio and the video. The names of the different apps isn't
+helpful (which chrome window?). And I don't see any way to choose a window for
+'your guests' at all."* Measured and read, not guessed:
+
+- **Listing windows is what needs Screen Recording.** `SCShareableContent` is
+  the API behind the old menu; it requires the Screen Recording grant and, from
+  macOS 15, raises the recurring "bypass the system private window picker"
+  alert. Content chosen in the system picker needs **no** Screen Recording grant
+  at all — the host grants it by choosing, in a process macOS trusts (macOS 15
+  release notes; WWDC23 10136).
+- **The old menu was empty for this host.** It filled only when Screen
+  Recording was already granted, or on a hover — so the only way into the
+  guests' tile was invisible.
+- **A picker shows thumbnails.** "Which Chrome window?" is answered by looking
+  at it, which no list of titles can do.
+- **Sound stays on the process tap.** Audio from a picker-selected stream is
+  delivered as silence unless the app ALSO holds Screen Recording (measured by
+  others on macOS 26.5), which would bring every prompt back. So the picker
+  names the app; the tap captures it. The tap's own permission, "System Audio
+  Recording Only", is asked once.
+
+**Permissions a host now meets:** Camera, Microphone (each once, from their
+own rows), System Audio Recording Only (once, on the first call). No Screen
+Recording. The Inputs rows hold permission as STATE, re-read on every return to
+the app and once a second: a grant made in System Settings used to stay
+invisible until something unrelated redrew the window — the owner saw it appear
+only "until I also shared the Google Chrome window".
+
+**One app identity per Mac.** macOS keys every grant to the app's signature. A
+TestFlight copy and a development build of the same bundle id cannot satisfy
+each other's signature, so running both makes each re-ask and replace the
+other's grants. Test one or the other on a given Mac.
+
+§D23's list rules stand, and the picker keeps them by construction: nothing is
+logged (we never see the list), nothing is remembered or pre-selected, nothing
+is matched on a substring.
+
 ## §D23a — Going live builds a second engine, and everything must survive it
 
 A rehearsal ends before a broadcast begins, so pressing Go Live tears down one
