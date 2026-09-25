@@ -1,7 +1,7 @@
 {
   "version": 1,
   "description": "OMDb lookup results keyed by IMDb ID. Positive = poster_url; negative = null (so we don't burn daily quota retrying items OMDb doesn't have). Populated by the scheduled omdb-backfill GitHub Action + local runs of tools/omdb_backfill.py. The exporter overlays this cache over DB rows at export time.",
-  "updated_at": "2026-09-25T07:19:54Z",
+  "updated_at": "2026-09-25T07:53:16Z",
   "entries": {
     "tt0007613": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BYzUwNTY4NWUtNGRhMy00YjVmLWEyNmQtYTQyNWQyNDZhNjFmXkEyXkFqcGc@._V1_SX300.jpg",
@@ -31910,11 +31910,11 @@
     },
     "nm0101038": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm0101038\" to type \\'Double\\''",
-      "last_tried": "2026-09-25T07:19:54Z"
+      "last_tried": "2026-09-25T07:53:16Z"
     },
     "nm1947784": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm1947784\" to type \\'Double\\''",
-      "last_tried": "2026-09-25T07:19:54Z"
+      "last_tried": "2026-09-25T07:53:16Z"
     },
     "tt0000046": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BZWM2N2MzMGMtNzNkNi00OTc2LTg5NDQtNWViNTA2MGIwNmFhXkEyXkFqcGdeQXVyNTI2NTY2MDI@._V1_SX300.jpg",
@@ -324009,6 +324009,1217 @@
         "Short"
       ],
       "fetched_at": "2026-09-25T07:19:54Z",
+      "schema": 3
+    },
+    "tt0000003": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMTJjNGM5ZjEtMTVkMi00ODc2LWE5N2MtN2NhNGQyMzNmZDI2XkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 6.5,
+      "imdb_votes": 2229,
+      "content_rating": "TV-PG",
+      "plot": "One night, Arlequin come to see his lover Colombine. But then Pierrot knocks at the door and Colombine and Arlequin hide. Pierrot starts singing but Arlequin scares him and the poor man goes away.",
+      "runtime_min": 5,
+      "director": "Émile Reynaud",
+      "actors": [],
+      "genres": [
+        "Animation",
+        "Short",
+        "Comedy"
+      ],
+      "fetched_at": "2026-09-25T07:53:16Z",
+      "schema": 3
+    },
+    "tt0000005": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNzdkNmIzOTAtM2RjMC00NDA0LTg3M2EtNGIyN2YyMDUwODU1XkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 6.2,
+      "imdb_votes": 2995,
+      "content_rating": "Unrated",
+      "plot": "A stationary camera looks at a large anvil with a blacksmith behind it and one on either side. The smith in the middle draws a heated metal rod from the fire, places it on the anvil, and all three begin a rhythmic hammering. After several blows, the metal goes back in the fire. One smith pulls out a bottle of beer, and they each take a swig. Then, out comes the glowing metal and the hammering resumes.",
+      "runtime_min": 1,
+      "director": "William K.L. Dickson",
+      "actors": [
+        "Charles Kayser",
+        "John Ott"
+      ],
+      "genres": [
+        "Short"
+      ],
+      "fetched_at": "2026-09-25T07:53:16Z",
+      "schema": 3
+    },
+    "tt0000178": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BOTFiMzk2NGMtZDJiZi00OWJmLWIxNDEtZGMzNTdhMWM4YzMzXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 5.2,
+      "imdb_votes": 257,
+      "content_rating": null,
+      "plot": "\"He sits asleep at a bare table; old witch enters, raps three times, then disappears; cavalier sees table spread for a sumptuous repast. Mephistopheles appears; then the old witch, who suddenly changes to a beautiful young girl. The changes and magical appearances are startling and instantaneous.\"",
+      "runtime_min": 1,
+      "director": "Edwin S. Porter",
+      "actors": [],
+      "genres": [
+        "Short",
+        "Horror"
+      ],
+      "fetched_at": "2026-09-25T07:53:16Z",
+      "schema": 3
+    },
+    "tt0000184": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNjg1MGM4Y2MtYThkNy00NDc0LWIxMzItYzk0MDc1ZTRhNTkxXkEyXkFqcGdeQXVyNzg5OTk2OA@@._V1_SX300.jpg",
+      "imdb_rating": 4.8,
+      "imdb_votes": 332,
+      "content_rating": null,
+      "plot": "A vignette of a barroom/liquor-store in the West, no plot per se. However this short is usually regarded as the first \"Western\" in the sense that it depicts a western scene.",
+      "runtime_min": 1,
+      "director": "James H. White",
+      "actors": [],
+      "genres": [
+        "Western",
+        "Short"
+      ],
+      "fetched_at": "2026-09-25T07:53:16Z",
+      "schema": 3
+    },
+    "tt0003401": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNjliZWQ3N2YtOTVmZi00MjJmLTgyODctNTZmNzhkZmE3NjcyXkEyXkFqcGdeQXVyMTcyODY2NDQ@._V1_SX300.jpg",
+      "imdb_rating": 5.2,
+      "imdb_votes": 34,
+      "content_rating": null,
+      "plot": "Dr. Reid, a young American physician in the Philippines, risks his life in the cause of patriotism, and eventually wins the love of the girl of his choice. With the idea of developing in the natives in his community the spirit of manly citizenship, Dr. Reid requests the War Department to furnish him with a number of discarded Winchesters with which to drill the natives. His request is granted and he succeeds in getting together quite an enthusiastic company. Dr, Reid is not the only instructor in patriotism. Young Pauline Bush, a teacher in the Islands, has for some time been instructing her pupils in all that the American flag means to her. When she finds that Dr, Reid is also patriotically inclined, a bond of friendship is cemented between the two Americans. Bonita, one of Pauline's pupils, has for some time been deeply but hopelessly in love with the young doctor, and is very despondent when she sees the growing attraction between the young Americans. Her father wishes to join Dr. Reid's company, but because of his age is not allowed to do so. Dr. Reid, however, gives him a gun, which the old man becomes very fond of. Camped close to the settlement is a company of Spaniards, one of whom, through disorderly conduct, is stripped of his uniform and driven from camp. This renegade makes his way to the settlement and there encounters Bonita, the young native girl. Bonita's beauty attracts the renegade, who makes insulting advances to her. Doctor Reid witnesses the encounter and after a short, sharp fight with the renegade, he is sent about his business. The renegade, smarting under the drubbing he has received, vows revenge on the American, and when he discovers him drilling the natives, he hastens to the Spanish camp and informs the officer in charge that the American doctor is teaching the Filippinos war. The Spaniards hasten to the settlement and finding Bonita's father fondling the gun given him by the doctor; they decide to make an example of him. They seize the old man and drag him to a nearby wall, where they proceed to execute him, Bonita, who witnesses the shooting of her father, is wild with grief, and runs to her beloved teacher and tells her what has occurred. Pauline fearlessly rushes to the place of the execution, and furiously reprimands the two Spaniards who are standing by the body. They debate for a moment, then grab the teacher and attempt to drag her away. Dr. Reid, who is hunting nearby, sees the struggle and swiftly dispatches both soldiers. He hastens to Pauline's side and leads both girls away. Dr. Reid realizes the significance of the shooting of the old man and quickly gathers his little company together. They are not a moment too soon, for the Spaniards charge the settlement. The women and children hide at the school house, where they are at last joined by the men, fighting each inch of the way. A desperate battle is waged around the tiny school house and the doctor and his little band are more than outnumbered. Bonita sees the battle from a distance and hastens swiftly to the American camp and informs the officer what she has seen. The American troops hurry to the scene of the conflict and reach the schoolhouse just as the doctor, who has fired his last round of ammunition, is about to surrender. The Americans quickly drive the Spaniards from the field, but Bonita, who has followed, is shot. She falls, clutching the American flag which she has learned to love. Dr. Reid and Pauline find the young native girl and feelingly drape her remains with the silken folds of \"Old Glory.\"",
+      "runtime_min": 31,
+      "director": "Allan Dwan",
+      "actors": [
+        "Wallace Reid",
+        "Pauline Bush",
+        "Jessalyn Van Trump"
+      ],
+      "genres": [
+        "Drama",
+        "Short"
+      ],
+      "fetched_at": "2026-09-25T07:53:16Z",
+      "schema": 3
+    },
+    "tt0005999": {
+      "poster_url": null,
+      "imdb_rating": 5.1,
+      "imdb_votes": 26,
+      "content_rating": null,
+      "plot": "Tom see a post card of an actress he at a kiosk and decided he's in love. He obsesses over the photo and shows his cowboy friends who laugh at him. He goes ahead and writes a letter to her. She reads it at the recording studio on \"The East\". She gets so excited that she convinces her movie company to go to his ranch in Arizona to film. He is initially to shy to approach her, but eventually does a gets in a scuffle with the lead man and ends up throwing a punch and knocking him out and injuring his jaw. Seeing the the lead man's jaw is injured, the director asks Tom to fill in. The lead man decided to get even with Tom at this point. He convinces Tom that any good actor can wrestle a bull. Tom is afraid but decided to do it to prove himself to his love interest and be in a film with her. Tom learns to challenge the bull successfully and says he's ready to film with the heroine. The lead male now informs him that she got a telegram from her husband that her youngest son is sick and she decided to return home. Tom sits down clearly upset and embarrassed and tosses her photo. The end.",
+      "runtime_min": 12,
+      "director": "Tom Mix",
+      "actors": [
+        "Tom Mix",
+        "Goldie Colwell",
+        "Ed Brady"
+      ],
+      "genres": [
+        "Short",
+        "Comedy",
+        "Western"
+      ],
+      "fetched_at": "2026-09-25T07:53:16Z",
+      "schema": 3
+    },
+    "tt0007720": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMWFmZDhhYTktNGI4YS00MDVhLTk5NDUtMzU2NmU3MGQ3MTc1XkEyXkFqcGdeQXVyNDY2NDMxNDY@._V1_SX300.jpg",
+      "imdb_rating": 5.9,
+      "imdb_votes": 167,
+      "content_rating": null,
+      "plot": "Bobby Bumps is getting ready for school with the help from among others his faithful dog, Fido. Bobby is the bane of his teacher's existence since he often daydreams, today about playing baseball with Fido, rather than focus on his schoolwork. Even during recess, Bobby is the cause of an incident which in turn results in the teacher having problems getting the students back into class following the recess break. But that break ends up being even longer because of Bobby and what happens with his teacher.",
+      "runtime_min": 5,
+      "director": "Earl Hurd",
+      "actors": [],
+      "genres": [
+        "Animation",
+        "Comedy",
+        "Short"
+      ],
+      "fetched_at": "2026-09-25T07:53:16Z",
+      "schema": 3
+    },
+    "tt0008075": {
+      "poster_url": null,
+      "imdb_rating": 6.3,
+      "imdb_votes": 32,
+      "content_rating": null,
+      "plot": "Our heroine is obsessed with the idea that she can and must sing. Living on a farm she has lots of open space in which to exercise her voice, but is compelled to admit that not even the cows and chickens will listen to her. During an opportunity to sing in the choir she awakens every living thing, among others a number of peacefully sleeping members of the congregation. From the city comes a smooth-talking man who promises her the world if she will only be his. They go to the big city where, at a trial given to her in a cabaret, she nearly causes a riot. Of course, everything ends happily. Catalogue of Kodascope Library Motion Pictures, Third Edition.",
+      "runtime_min": 10,
+      "director": null,
+      "actors": [
+        "Leatrice Joy"
+      ],
+      "genres": [
+        "Comedy",
+        "Short"
+      ],
+      "fetched_at": "2026-09-25T07:53:16Z",
+      "schema": 3
+    },
+    "tt0008144": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BYzYyOGFjYmItZTVkNC00NzRkLWE1M2UtZDA0MmQ2ZjlkM2IzXkEyXkFqcGdeQXVyNDUxNjc5NjY@._V1_SX300.jpg",
+      "imdb_rating": 4.7,
+      "imdb_votes": 31,
+      "content_rating": "Approved",
+      "plot": "Jack,exchanges his cow for some magic beans. The beans grow overnight into a beanstalk which Jack climbs, arriving at a magical land ruled over by a cruel giant. Jack battles the giant and decides to rescue a young princess held captive in the giant's castle.",
+      "runtime_min": 100,
+      "director": "Chester M. Franklin, Sidney Franklin",
+      "actors": [
+        "Francis Carpenter",
+        "Virginia Lee Corbin",
+        "Violet Radcliffe"
+      ],
+      "genres": [
+        "Fantasy"
+      ],
+      "fetched_at": "2026-09-25T07:53:16Z",
+      "schema": 3
+    },
+    "tt0016112": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMmM3ZTU0MDItYjdmYy00YmVhLTljMWItYTJhNGIzODY3YzU4XkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 7.3,
+      "imdb_votes": 96,
+      "content_rating": null,
+      "plot": "Jean Valjean is a good man who is nevertheless convicted and imprisoned for a minor offense. When he escapes, he is pursued for decades by the unrelenting lawman, Javert.",
+      "runtime_min": 359,
+      "director": "Henri Fescourt",
+      "actors": [
+        "Gabriel Gabrio",
+        "Paul Jorge",
+        "Sandra Milovanoff"
+      ],
+      "genres": [
+        "Drama"
+      ],
+      "fetched_at": "2026-09-25T07:53:16Z",
+      "schema": 3
+    },
+    "tt0016695": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BYzA4ZjI1OWQtMjkyYy00N2Q2LTkzMWItMTc0Y2NmY2NkM2MwXkEyXkFqcGdeQXVyNjc4MTM4NDQ@._V1_SX300.jpg",
+      "imdb_rating": 6.1,
+      "imdb_votes": 24,
+      "content_rating": "Passed",
+      "plot": "Buffalo Bill performs kindnesses for a native American and a runaway slave, and plans to build a new town along a planned train route.",
+      "runtime_min": 54,
+      "director": "Frank S. Mattison",
+      "actors": [
+        "Roy Stewart",
+        "Kathryn McGuire",
+        "Cullen Landis"
+      ],
+      "genres": [
+        "Action",
+        "History",
+        "Romance"
+      ],
+      "fetched_at": "2026-09-25T07:53:16Z",
+      "schema": 3
+    },
+    "tt0016939": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMTk4OTMyMzMxNl5BMl5BanBnXkFtZTgwMjM3Njk5MTE@._V1_SX300.jpg",
+      "imdb_rating": 6.3,
+      "imdb_votes": 383,
+      "content_rating": null,
+      "plot": "Cullen has hired Tom to try and stop the robberies on his railroad. Knowing Cullen's secretary Holt is tipping off the gang, Tom works undercover by posing as a highwayman. To help him bring in the gang he enlists the help of the hobo DeLuxe Harry.",
+      "runtime_min": 53,
+      "director": "Lewis Seiler",
+      "actors": [
+        "Tom Mix",
+        "Dorothy Dwan",
+        "Tony the Horse"
+      ],
+      "genres": [
+        "Drama",
+        "Western"
+      ],
+      "fetched_at": "2026-09-25T07:53:16Z",
+      "schema": 3
+    },
+    "tt0016964": {
+      "poster_url": null,
+      "imdb_rating": 6.2,
+      "imdb_votes": 26,
+      "content_rating": null,
+      "plot": "Two ex-jailbirds join up with a con man. After saving a farm girl's life, they are rewarded with lodging by her widowed mother. The older man and the con man devise a plan to swindle the generous lady by convincing her that a valuable mineral spring exists on her land.",
+      "runtime_min": 70,
+      "director": "Joseph De Grasse",
+      "actors": [
+        "Mary Carr",
+        "Gloria Grey",
+        "Tom Santschi"
+      ],
+      "genres": [
+        "Crime",
+        "Drama"
+      ],
+      "fetched_at": "2026-09-25T07:53:16Z",
+      "schema": 3
+    },
+    "tt0017196": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BODIzMDExMTA4NV5BMl5BanBnXkFtZTgwODkzOTA5MTE@._V1_SX300.jpg",
+      "imdb_rating": 6.6,
+      "imdb_votes": 985,
+      "content_rating": "Not Rated",
+      "plot": "Based on the famous novel by Emile Zola. The vivacious and beautiful Nana seeks fame on the stages of Paris in the shows at the Théâtre des Variétés. (which will look familiar to lovers of \"Children of Paradise\"). When she bombs as an actress, Nana becomes a courtesan, using her allure and charisma more directly to entice and pleasure men. She is kept in a sumptuous fashion by a wealthy count, and several prominent and wealthy men find themselves unable to withstand her charms. In the novel, the theater manager describe Nana: \"Nana has something else, dammit, and something that takes the place of everything else. I scented it out, and it smells damnably strong in her, or else I lost my sense of smell.\" But there's a pain and a pathos at the heart of Nana's situation, and it slowly makes its poisonous way into the lives of all in Nana's orbit.",
+      "runtime_min": 150,
+      "director": "Jean Renoir",
+      "actors": [
+        "Catherine Hessling",
+        "Pierre Lestringuez",
+        "Jacqueline Forzane"
+      ],
+      "genres": [
+        "Drama",
+        "Romance"
+      ],
+      "fetched_at": "2026-09-25T07:53:16Z",
+      "schema": 3
+    },
+    "tt0017936": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BZjhkZTM1MTMtYzBmZC00MjM5LTkzM2QtOGU5YTMyYjAxMjdlXkEyXkFqcGdeQXVyNTUyMTMyMDg@._V1_SX300.jpg",
+      "imdb_rating": 6.9,
+      "imdb_votes": 68,
+      "content_rating": null,
+      "plot": "Dr. Burton's divorce is about to be official when his flapper ex-wife Irene visits him and turns everything upside-down. To avoid explanations to his bride-to-be and her mother, they all take the train, including Irene and her law...",
+      "runtime_min": 60,
+      "director": "Erle C. Kenton",
+      "actors": [
+        "Marie Prevost",
+        "Harrison Ford",
+        "Franklin Pangborn"
+      ],
+      "genres": [
+        "Comedy"
+      ],
+      "fetched_at": "2026-09-25T07:53:16Z",
+      "schema": 3
+    },
+    "tt0028057": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BYTEyYzNmMDAtY2VlYS00ZjRkLTgwMWItYTU1NDA4MTk3YjlkXkEyXkFqcGdeQXVyNzYzNzUzMjE@._V1_SX300.jpg",
+      "imdb_rating": 5.5,
+      "imdb_votes": 273,
+      "content_rating": "Approved",
+      "plot": "The fish and frogs gather at the old mill pond to hear a jazz concert. Performers include caricatures of Cab Calloway, Fats Waller, and tap dancer Bill Robinson (\"Bojangles\").",
+      "runtime_min": 8,
+      "director": "Hugh Harman",
+      "actors": [
+        "Harland Evans",
+        "The Four Blackbirds",
+        "Geraldine Harris"
+      ],
+      "genres": [
+        "Animation",
+        "Short",
+        "Music"
+      ],
+      "fetched_at": "2026-09-25T07:53:16Z",
+      "schema": 3
+    },
+    "tt0030034": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BZGRmMjY3Y2EtYzk0Yi00NjRkLThhYTItOTYwOGQ5MTE1YWVlXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 7.0,
+      "imdb_votes": 742,
+      "content_rating": "Approved",
+      "plot": "A very early appearance of a barely recognisable Daffy Duck, seen here tormenting Egghead, a prototype Elmer Fudd who is just as unsuccessful with ducks as he was later to be with a certain wascally wabbit.",
+      "runtime_min": 7,
+      "director": "Tex Avery",
+      "actors": [
+        "Mel Blanc",
+        "Robert Clampett",
+        "Tedd Pierce"
+      ],
+      "genres": [
+        "Family",
+        "Animation",
+        "Short"
+      ],
+      "fetched_at": "2026-09-25T07:53:16Z",
+      "schema": 3
+    },
+    "tt0032447": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMzI4ZmYxYTEtMTVhYS00ZmYxLWFiOTItZDBmMzAyMTUxY2VkL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyMjUxODE0MDY@._V1_SX300.jpg",
+      "imdb_rating": 7.0,
+      "imdb_votes": 1169,
+      "content_rating": "Approved",
+      "plot": "An American goes to Germany to find his mother and discovers her in a concentration camp. With the help of a German countess he engineers her escape.",
+      "runtime_min": 104,
+      "director": "Mervyn LeRoy",
+      "actors": [
+        "Norma Shearer",
+        "Robert Taylor",
+        "Conrad Veidt"
+      ],
+      "genres": [
+        "Crime",
+        "Drama",
+        "Mystery"
+      ],
+      "fetched_at": "2026-09-25T07:53:16Z",
+      "schema": 3
+    },
+    "tt0034843": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BZjgzOWFjOGEtYTUxYy00YmU0LWIyMTgtOTUyMGJjZjNkMzcxXkEyXkFqcGdeQXVyMzI5NjUyMDM@._V1_SX300.jpg",
+      "imdb_rating": 4.8,
+      "imdb_votes": 67,
+      "content_rating": null,
+      "plot": "Documentary short film dramatizing the efforts of a black farmer and his family to help the American war effort by increasing production.",
+      "runtime_min": 9,
+      "director": "Roger Barlow",
+      "actors": [
+        "Canada Lee"
+      ],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "fetched_at": "2026-09-25T07:53:16Z",
+      "schema": 3
+    },
+    "tt0035526": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BZDMwMTUyMTAtM2MzZi00ZjcwLThlNDYtYTQwOTdlMzE2YzE4XkEyXkFqcGdeQXVyMzU0NzkwMDg@._V1_SX300.jpg",
+      "imdb_rating": 5.4,
+      "imdb_votes": 64,
+      "content_rating": null,
+      "plot": "The gang 'Our gang' who sings and plays in Södermalm of Stockholm loses their clubhouse, but finds a new member in Alice.",
+      "runtime_min": 90,
+      "director": "Gunnar Skoglund",
+      "actors": [
+        "Gösta Cederlund",
+        "Fritiof Billquist",
+        "Torsten Hillberg"
+      ],
+      "genres": [
+        "Comedy",
+        "Music"
+      ],
+      "fetched_at": "2026-09-25T07:53:16Z",
+      "schema": 3
+    },
+    "tt0036445": {
+      "poster_url": null,
+      "imdb_rating": 5.6,
+      "imdb_votes": 64,
+      "content_rating": null,
+      "plot": "World War II public education film about sexually transmitted diseases focused on syphilis.",
+      "runtime_min": 21,
+      "director": "Arthur Lubin",
+      "actors": [
+        "Jean Hersholt",
+        "Norman T. Kirk",
+        "Thomas Parran"
+      ],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "fetched_at": "2026-09-25T07:53:16Z",
+      "schema": 3
+    },
+    "tt0143959": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMTk2NDQ0ODg1M15BMl5BanBnXkFtZTgwODE5NjIzMDE@._V1_QL75_UX48_CR0,0,48,48_.jpg",
+      "imdb_rating": 6.6,
+      "imdb_votes": 11,
+      "content_rating": null,
+      "plot": "This Robert Bruce travelogue of tropical islands shows an incredibly strong sense of composition, and the use of the Desmet color process to restore the tinting and toning of the original release adds to the visuals in a way that tinting and toning often did not in silent film. It's an integral part of the composition instead of a poor substitute or a pointless extra. The overall effect is stunning -- were I to see these in almost any movie I would assume it was a carefully decorated set and not the real thing.Bruce's travelogues were distributed by Educational from 1916 through 1934 and were deservedly popular, justifying the \"Educational\" part of the name -- other than these, the distributor was best known for a strong series of short comedies, often produced by Jack White. These Bruce travelogues are hard to find -- this is only the second I have seen -- but if those two are any guide, they stand head and shoulders above the others.",
+      "runtime_min": 12,
+      "director": "Robert C. Bruce",
+      "actors": [],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "fetched_at": "2026-09-25T07:53:16Z",
+      "schema": 3
+    },
+    "tt0147039": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMjQ0NjQwY2YtMDJmYS00YmRiLWJhMGYtYjI0MzEyNGQ2OGUzXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 7.8,
+      "imdb_votes": 2789,
+      "content_rating": null,
+      "plot": "In the aftermath of a shocking, brutal axe murder, two young sisters move to Paris, in the impoverished, working-class district of Ménilmontant. To eke out an existence, in the heart of a faceless, bustling-with-people metropolis, the girls make artificial flowers; however, a chance encounter with a handsome but ill-intended man will pave the way for seduction, jealousy, estrangement, and even prostitution.",
+      "runtime_min": 38,
+      "director": "Dimitri Kirsanoff",
+      "actors": [
+        "Nadia Sibirskaïa",
+        "Yolande Beaulieu",
+        "Guy Belmont"
+      ],
+      "genres": [
+        "Short",
+        "Drama"
+      ],
+      "fetched_at": "2026-09-25T07:53:16Z",
+      "schema": 3
+    },
+    "tt0154152": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BZGRjNDRjMTMtNjc1ZS00NDIwLTgzM2ItNGZkYWFmZDZiZThiXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 6.5,
+      "imdb_votes": 2445,
+      "content_rating": "Not Rated",
+      "plot": "Annabelle (Whitford) Moore performs one of her popular dance routines. She uses her dance steps and her long, flowing skirts to create a variety of visual patterns.",
+      "runtime_min": 1,
+      "director": "William K.L. Dickson, William Heise",
+      "actors": [
+        "Annabelle Moore"
+      ],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "fetched_at": "2026-09-25T07:53:16Z",
+      "schema": 3
+    },
+    "tt0178922": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNjY0NGQxOWMtY2QwZi00NmZmLThjM2QtMGY3NzRlMjM3MTgzXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 7.0,
+      "imdb_votes": 363,
+      "content_rating": null,
+      "plot": "In November 1940, the Tacoma Narrows Bridge collapsed due to a combination of high winds and poor construction. In this footage, the bridge can be seen literally waving and twisting for several minutes before finally collapsing into Puget Sound.",
+      "runtime_min": 8,
+      "director": null,
+      "actors": [],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "fetched_at": "2026-09-25T07:53:16Z",
+      "schema": 3
+    },
+    "tt0178979": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNWQxYTY5MTMtMWM4OC00ZjExLWI4M2MtN2Q3N2FhYzhiZjYyXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 4.9,
+      "imdb_votes": 135,
+      "content_rating": null,
+      "plot": "A group of men weld one area of a large ring in a fire. They lift the ring, which is hanging horizontally on chains, out of the fire. Four men hammer the hot area on the ring into shape while the remaining men hold the ring. They put the ring into the fire again, take it out, and take it over to a machine which continuously hammers down on that area of the ring. The men then take it away from the machine and hammer it themselves into shape. The ring is presumably a piece of a generator.",
+      "runtime_min": 6,
+      "director": null,
+      "actors": [],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "fetched_at": "2026-09-25T07:53:16Z",
+      "schema": 3
+    },
+    "tt0181629": {
+      "poster_url": null,
+      "imdb_rating": 4.5,
+      "imdb_votes": 26,
+      "content_rating": null,
+      "plot": "An absentee landlord's agent frames his rival for burglary.",
+      "runtime_min": 90,
+      "director": "Fred O'Donovan",
+      "actors": [
+        "Brian Magowan",
+        "Fred O'Donovan",
+        "Kathleen Murphy"
+      ],
+      "genres": [
+        "Crime",
+        "Drama"
+      ],
+      "fetched_at": "2026-09-25T07:53:16Z",
+      "schema": 3
+    },
+    "tt0195747": {
+      "poster_url": null,
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": null,
+      "director": null,
+      "actors": [],
+      "genres": [
+        "Documentary"
+      ],
+      "fetched_at": "2026-09-25T07:53:16Z",
+      "schema": 3
+    },
+    "tt0204902": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BZjBhOTIwZTUtOWNjNS00ZTNlLTgzMTItNTg4MjBjY2ZiN2ExXkEyXkFqcGdeQXVyNTM3MDMyMDQ@._V1_SX300.jpg",
+      "imdb_rating": 5.3,
+      "imdb_votes": 344,
+      "content_rating": "Not Rated",
+      "plot": "The Black Diamond Express, the fastest train of the Lehigh Valley Railroad, speeds along the track, moving directly towards the camera. As it approaches, a group of workers along the tracks pull back from the rails. Some of them begin to wave at the train as it comes nearer.",
+      "runtime_min": 1,
+      "director": "James H. White",
+      "actors": [
+        "Benjamin F. Hardesty",
+        "Charles Lee"
+      ],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "fetched_at": "2026-09-25T07:53:16Z",
+      "schema": 3
+    },
+    "tt0217553": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMjRjN2QzNWQtYWIyOC00ZTAzLTk4NGYtMTMxNmI2NWQ2YzE5XkEyXkFqcGdeQXVyODAwMDUyMjE@._V1_SX300.jpg",
+      "imdb_rating": 4.1,
+      "imdb_votes": 127,
+      "content_rating": null,
+      "plot": "\"Shows a party of tourists at this famous resort; located in Monterey, Cal., on the Southern Pacific Railroad. The magnificence of its surroundings is clearly shown.\"",
+      "runtime_min": null,
+      "director": "James H. White",
+      "actors": [],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "fetched_at": "2026-09-25T07:53:16Z",
+      "schema": 3
+    },
+    "tt0233871": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMjMwMmQ2ODAtMGU3Yi00ZDQ4LTgwODUtNmRkZjAzOTJmZjc4XkEyXkFqcGdeQXVyNjYxMzM2NA@@._V1_SX300.jpg",
+      "imdb_rating": 5.5,
+      "imdb_votes": 69,
+      "content_rating": null,
+      "plot": "A nicely-dressed man is riding on a bicycle, but he is clearly new at it. He cannot manage to steer in a straight line, and it is not long before he becomes quite a hazard to pedestrians and to others in his path.",
+      "runtime_min": 10,
+      "director": "Gilbert M. 'Broncho Billy' Anderson",
+      "actors": [],
+      "genres": [
+        "Short",
+        "Comedy",
+        "Family"
+      ],
+      "fetched_at": "2026-09-25T07:53:16Z",
+      "schema": 3
+    },
+    "tt0246475": {
+      "poster_url": null,
+      "imdb_rating": 4.9,
+      "imdb_votes": 12,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": 10,
+      "director": "Nick Cogley",
+      "actors": [
+        "Harry Gribbon",
+        "Alice Jorgens",
+        "Joseph Callahan"
+      ],
+      "genres": [
+        "Comedy",
+        "Short"
+      ],
+      "fetched_at": "2026-09-25T07:53:16Z",
+      "schema": 3
+    },
+    "tt0248025": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMzgyYjZlYzctN2M0Ni00NGZmLThjMzQtMDkyZmM5NmQ0NjdmXkEyXkFqcGdeQXVyMDU0Mzg3Nw@@._V1_SX300.jpg",
+      "imdb_rating": 3.8,
+      "imdb_votes": 12,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": null,
+      "director": "Albert Ray",
+      "actors": [
+        "Cliff Bowes",
+        "Sidney Smith",
+        "Virginia Vance"
+      ],
+      "genres": [
+        "Short",
+        "Comedy"
+      ],
+      "fetched_at": "2026-09-25T07:53:16Z",
+      "schema": 3
+    },
+    "tt0260110": {
+      "poster_url": null,
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": "A sloppy, untidy young boy is shown the errors of his ways by his Good Self, an angel, who warns him that if he doesn't shape up, he'll be turned into a pig.",
+      "runtime_min": 18,
+      "director": null,
+      "actors": [
+        "Bob Holt"
+      ],
+      "genres": [
+        "Animation",
+        "Short"
+      ],
+      "fetched_at": "2026-09-25T07:53:16Z",
+      "schema": 3
+    },
+    "tt0270201": {
+      "poster_url": null,
+      "imdb_rating": 5.3,
+      "imdb_votes": 47,
+      "content_rating": null,
+      "plot": "A stunning picture of the well-known actress in the drinking song which made such a hit in \"Papa's Wife.\" The figure is shown in bust view, making the head very large and giving a clear view of the facial expressions of the beautiful artiste.",
+      "runtime_min": 1,
+      "director": null,
+      "actors": [
+        "Anna Held"
+      ],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "fetched_at": "2026-09-25T07:53:16Z",
+      "schema": 3
+    },
+    "tt0282562": {
+      "poster_url": null,
+      "imdb_rating": 2.1,
+      "imdb_votes": 503,
+      "content_rating": null,
+      "plot": "A middle-aged auto sales manager is having poor results with his staff, so he gets some advice from his hanky-wearing father.",
+      "runtime_min": 19,
+      "director": null,
+      "actors": [],
+      "genres": [
+        "Short"
+      ],
+      "fetched_at": "2026-09-25T07:53:16Z",
+      "schema": 3
+    },
+    "tt0309435": {
+      "poster_url": null,
+      "imdb_rating": 3.9,
+      "imdb_votes": 97,
+      "content_rating": null,
+      "plot": "This picture shows the prisoners after completing their day's work of cleaning up the grounds of the Charleston Exposition, taking their positions along the long chain which secures the whole band of prisoners. They are marched past our camera to the prison, accompanied by the guards, who carry shotguns to prevent any from escaping.",
+      "runtime_min": 1,
+      "director": null,
+      "actors": [],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "fetched_at": "2026-09-25T07:53:16Z",
+      "schema": 3
+    },
+    "tt0321860": {
+      "poster_url": null,
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": "Alas, the fifteen minutes that survive are only half the film although, quite frankly, the half that does exist does not give one an overwhelming desire to see the rest. It has however two points of interest even in its existing truncated form. The hero, Paul Drummond, is played by Wheeler Dryden, the half-brother of Charlie Chaplin and the poor fellow he left to fight off the FBI on his behalf when he skipped off to Switzerland. It also features - really rather more interestingly - Signor Antonio Corsi as his guardian, Father Ferdinand (the IMDB cast-list was evidently written by a poorly-trained monkey). Corsi is the subject of a film to come out next year, Corsi Prince of Models, whose advance publicity describes him (quite wrongly) as the first male super-model. The film-makers should perhaps read up on the subject of Eugen Sandow......i cannot write a spoiler because I don't know how the film ends - and, to be honest, I don't care.",
+      "runtime_min": 15,
+      "director": "R. Dale Armstrong",
+      "actors": [
+        "Kitty Bradbury",
+        "Audrey Chapman",
+        "Antonio Corsi"
+      ],
+      "genres": [
+        "Short"
+      ],
+      "fetched_at": "2026-09-25T07:53:16Z",
+      "schema": 3
+    },
+    "tt0322638": {
+      "poster_url": null,
+      "imdb_rating": 5.1,
+      "imdb_votes": 15,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": 19,
+      "director": null,
+      "actors": [],
+      "genres": [
+        "Documentary",
+        "Animation",
+        "Short"
+      ],
+      "fetched_at": "2026-09-25T07:53:16Z",
+      "schema": 3
+    },
+    "tt0325846": {
+      "poster_url": null,
+      "imdb_rating": 5.8,
+      "imdb_votes": 21,
+      "content_rating": null,
+      "plot": "This is 1947 biography movie about how Alexander Graham Bell and his partner Thomas Augustus Watson invented the first discernible speech, transmitted over a telephone.",
+      "runtime_min": 32,
+      "director": "Richard Fleischer",
+      "actors": [
+        "Raymond Edward Johnson",
+        "Mason Adams",
+        "Sara Anderson"
+      ],
+      "genres": [
+        "Short"
+      ],
+      "fetched_at": "2026-09-25T07:53:16Z",
+      "schema": 3
+    },
+    "tt0326521": {
+      "poster_url": null,
+      "imdb_rating": 4.8,
+      "imdb_votes": 29,
+      "content_rating": null,
+      "plot": "Johnny is a troubled 15-year-old who falls in with a bad crowd, steals a car and gets caught by the police. However, instead of sending Johnny to reform school, the judge takes an interest in him and assigns a probation officer to try to steer Johnny away from a life of crime.",
+      "runtime_min": 10,
+      "director": "David H. Lion",
+      "actors": [
+        "Niles Welch"
+      ],
+      "genres": [
+        "Short",
+        "Crime",
+        "Drama"
+      ],
+      "fetched_at": "2026-09-25T07:53:16Z",
+      "schema": 3
+    },
+    "tt0332526": {
+      "poster_url": null,
+      "imdb_rating": 3.0,
+      "imdb_votes": 28,
+      "content_rating": null,
+      "plot": "Two family situations are presented with several options of how each could have been handled. Teenager Mary is told by her parents that she can't meet her boyfriend for a date at the lake, and brother Bill sneaks in well past his curfew.",
+      "runtime_min": 7,
+      "director": "George Blake",
+      "actors": [
+        "Don Goddard"
+      ],
+      "genres": [
+        "Short"
+      ],
+      "fetched_at": "2026-09-25T07:53:16Z",
+      "schema": 3
+    },
+    "tt0333336": {
+      "poster_url": null,
+      "imdb_rating": 4.7,
+      "imdb_votes": 32,
+      "content_rating": null,
+      "plot": "Dramatized presentation of proper table etiquette for teenagers, heavy on criticism and guilt. This film was provided by the Prelinger Archives collection under the Creative Commons License (Public Domain).",
+      "runtime_min": 22,
+      "director": null,
+      "actors": [],
+      "genres": [
+        "Short"
+      ],
+      "fetched_at": "2026-09-25T07:53:16Z",
+      "schema": 3
+    },
+    "tt0361921": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMzdlY2ZhZGYtNWZiOS00OTVlLTlhZDctMWFhMTMxZjI0MmQ3XkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 4.9,
+      "imdb_votes": 1689,
+      "content_rating": "Not Rated",
+      "plot": "Monkeyshines, No. 1 was shot by William K.L. Dickson and William Heise for the Edison labs. Scholars have differing opinions on whether the first was shot in June 1889 starring John Ott or sometime between November 21-27, 1890 starring G. Sacco Albanese. Both men were fellow lab workers at the company; contradictory evidence exists for each claim. The film was intended to be internal test of the new camera system, and was not created for commercial use; its rise to prominence resulted much later due to work by film historians. The film shows a blurry figure in white standing in one place making large gestures and are only a few seconds long.",
+      "runtime_min": 1,
+      "director": "William K.L. Dickson, William Heise",
+      "actors": [
+        "Giuseppe Sacco Albanese"
+      ],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "fetched_at": "2026-09-25T07:53:16Z",
+      "schema": 3
+    },
+    "tt0377347": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMTJmZDExY2MtYWYzNy00MzY4LTkxYmYtOWY5ZGEyMjAxYTZkXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 6.7,
+      "imdb_votes": 23,
+      "content_rating": null,
+      "plot": "Adventurer Capt. Jack Robertson and champion archer Art Young set out to explore the wilds of Alaska and Siberia, relying on Young's skills at archery for meat. They are present at the breaking up of the thick ice on the Yukon River, hordes of salmon fighting to go upstream during spawning season and come across such wildlife as Kodiak bears, mountain sheep and Arctic deer.",
+      "runtime_min": null,
+      "director": "Jack Robertson",
+      "actors": [
+        "Jack Robertson",
+        "Art Young",
+        "Wrongstart"
+      ],
+      "genres": [
+        "Adventure"
+      ],
+      "fetched_at": "2026-09-25T07:53:16Z",
+      "schema": 3
+    },
+    "tt0401151": {
+      "poster_url": null,
+      "imdb_rating": 4.0,
+      "imdb_votes": 13,
+      "content_rating": null,
+      "plot": "As the nation prepares for war, the U.S. Public Health Service reminds people that the strength of the armed services depends on the health of the people, which depends on good teeth. At a Selective Service office, volunteers receive a physical exam. Bad teeth is the largest cause for failing the physical. With bad teeth, a person might be turned down by the army, business, and romance. Almost everyone has decayed teeth, says the narrator, so a regular visit to the dentist is a requirement. Danny Smith, age 24, is our example of someone who cares for his teeth, sees a dentist regularly, and occasionally gets tooth decay. What's all this got to do with defense? Plenty.",
+      "runtime_min": 10,
+      "director": null,
+      "actors": [
+        "Lowell Thomas"
+      ],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "fetched_at": "2026-09-25T07:53:16Z",
+      "schema": 3
+    },
+    "tt0496918": {
+      "poster_url": null,
+      "imdb_rating": 4.8,
+      "imdb_votes": 7,
+      "content_rating": null,
+      "plot": "The challenge and opportunity of work in air transportation. The film goes through aviation industry job categories starting with workers on the ground: in offices, dispatching, and radio; meteorologists, mechanics, general maintenance, and cargo handlers. Then, it's on to the flight crew: hostesses, women who are single, in good health, from 5'2\" to 5'6\" tall, from 21 to 28 years of age, and of normal weight. It ends with pilots. For most jobs, the narrator informs us of the training and certification required. The narration also references small companies, getting one's start in the armed forces, and how to get more information from various sources.",
+      "runtime_min": 10,
+      "director": null,
+      "actors": [],
+      "genres": [
+        "Short"
+      ],
+      "fetched_at": "2026-09-25T07:53:16Z",
+      "schema": 3
+    },
+    "tt0496921": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BYzE5MTVjODYtYTQxNy00MDU1LWFhYmYtYzQ5N2JjNzBiNGIyXkEyXkFqcGdeQXVyMTU0MjI4NzY@._V1_SX300.jpg",
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": "Father Bernard Hubbard, S.J., the Glacier Priest, narrates a look at Alaska. After a look at Alaska's size, we visit the state's three regions: the Yukon, where dogs are man's best friend and the Eskimo winter because of abundant food. Then to the southeast, where Juneau is as warm as Washington, D.C. Then on to the peninsula and Aleutian Islands, the cradle of storms. Here the salmon are nature and the economy's life blood. We watch the spawning, the fishing, and the canning.",
+      "runtime_min": 33,
+      "director": null,
+      "actors": [
+        "Bernard R. Hubbard"
+      ],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "fetched_at": "2026-09-25T07:53:16Z",
+      "schema": 3
+    },
+    "tt0496923": {
+      "poster_url": null,
+      "imdb_rating": 5.3,
+      "imdb_votes": 7,
+      "content_rating": null,
+      "plot": "This educational short examines the chemical makeup of film and the process in which it's developed.",
+      "runtime_min": 28,
+      "director": null,
+      "actors": [],
+      "genres": [
+        "Short"
+      ],
+      "fetched_at": "2026-09-25T07:53:16Z",
+      "schema": 3
+    },
+    "tt0499300": {
+      "poster_url": null,
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": "Domesticated animals and their many uses. Of 500,000 species of animals, an off-screen narrator tells us that about 50 have been domesticated. We see the uses of animals for food, for travel and transport, for clothing, for sport, and for work. Chickens are bred to provide eggs or meat. Cows and steers provide milk or meat. We visit sanitary packing houses, meat lockers, and the refrigerator cars of trains. We watch the harvest of ocean fish and visit a salmon cannery. Honey, silk, wool, and game come to use thanks to the talents of animals. We watch the fly, a public health enemy. Last, 80 percent of the world depends on animal power, but machines are making inroads.",
+      "runtime_min": 11,
+      "director": null,
+      "actors": [],
+      "genres": [
+        "Short"
+      ],
+      "fetched_at": "2026-09-25T07:53:16Z",
+      "schema": 3
+    },
+    "tt0820929": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BOTZlYTIyN2YtNjhhNy00ZDEwLWJkZDctMWQ4MGFlNGZjMjhmXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": null,
+      "director": "Joe Rock",
+      "actors": [
+        "Jimmy Aubrey"
+      ],
+      "genres": [
+        "Short",
+        "Comedy"
+      ],
+      "fetched_at": "2026-09-25T07:53:16Z",
+      "schema": 3
+    },
+    "tt0855903": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BZDJkYjUxYjMtZDExMi00M2E5LTkzZTctOTY3OGE4MWMxZDcwXkEyXkFqcGdeQXVyMDU0Mzg3Nw@@._V1_SX300.jpg",
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": "Due to the success of Hal Roach's Our Gang series, there soon were quite a few knock-off versions by rival studios. \"Oh Boy\" looks much like an Our Gang film....as did the Mickey McGuire series (starring Mickey Rooney) and a few others. However, none of them ever came close to the quality and staying power of Roach's films.Like the Our Gang comedies, this one had many of the same sorts of characters....the fat kid, the black kid, the rich effeminate kid as a rival as well as a dog. If you didn't know better, you'd swear that this Bray production was an Our Gang film....that is until you realized it just wasn't as fun to watch.In \"Oh Boy\", the effeminate rich kid, Cuthbert, is out to romance the girl across the street. The gang tries to stop him and ends up getting beaten up by the surprisingly macho boy. However, things get very weird. In the Our Gang shorts, often the kids had homemade fire engines or cars...but they clearly were kid-powered toys. Here, inexplicably, Cuthbert and the kids all drive real automobiles...which really makes no sense at all nor is there any explanation of this....it just is. Ultimately, there's another showdown and Cuthbert is bested.Apart from a joke involving suspenders, there aren't any real laughs in this one. Also, the underlying message is that if a boy is effeminate, the best thing to do is beat him up for the good of society! All in all, not funny and a bit mean spirited....and ample proof that the Roach films simply had better writing and better characters.",
+      "runtime_min": 15,
+      "director": "Harry McCoy",
+      "actors": [
+        "The McDougall Kids",
+        "Peaches Jackson",
+        "Buddy Williams"
+      ],
+      "genres": [
+        "Short",
+        "Comedy"
+      ],
+      "fetched_at": "2026-09-25T07:53:16Z",
+      "schema": 3
+    },
+    "tt1013774": {
+      "poster_url": null,
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": 11,
+      "director": null,
+      "actors": [],
+      "genres": [
+        "Short"
+      ],
+      "fetched_at": "2026-09-25T07:53:16Z",
+      "schema": 3
+    },
+    "tt1031633": {
+      "poster_url": null,
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": null,
+      "director": null,
+      "actors": [],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "fetched_at": "2026-09-25T07:53:16Z",
+      "schema": 3
+    },
+    "tt1089653": {
+      "poster_url": null,
+      "imdb_rating": null,
+      "imdb_votes": 15,
+      "content_rating": null,
+      "plot": "This is a Biblical drama performed 3317 years B.C., a picture of the destruction of the world by a flood. The Lord, observing the wickedness of the world, decides to destroy it. He instructs Noah to build an ark, or boat, in which her and his three sons, his wife and their wives take refuge. He is also told to take into the ark two of each of all living creatures. Noah does as he is told; the rain descends upon the earth, covering it with water, and the people are destroyed, but Noah, his sons and their families are saved. After forty days of inundation the water subsides. Noah sends out a dove from the ark; it returns with an olive branch in its mouth. After a short period the ark rests on Mount Ararat; Noah releases all the inmates from the ark; he and his sons and their wives build an altar unto the Lord, make sacrifice and offer up prayer and thanksgiving for their deliverance. The Lord sets a rainbow in the sky as a promise that he will never destroy the world again with a deluge.",
+      "runtime_min": 17,
+      "director": null,
+      "actors": [],
+      "genres": [
+        "Short",
+        "Drama"
+      ],
+      "fetched_at": "2026-09-25T07:53:16Z",
+      "schema": 3
+    },
+    "tt16059116": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BZTA1NjEyNDgtMWFiYy00YmExLTkzZjMtYThlYzUyYThkZjM0XkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": "Drought conditions in the Great Plains during the 1930s, known as the \"Dust Bowl\".",
+      "runtime_min": 10,
+      "director": "Clair Lanning",
+      "actors": [
+        "David Ross"
+      ],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "fetched_at": "2026-09-25T07:53:16Z",
+      "schema": 3
+    },
+    "tt1964514": {
+      "poster_url": null,
+      "imdb_rating": 6.2,
+      "imdb_votes": 6,
+      "content_rating": null,
+      "plot": "After listening to the unnamed narrator of this film that was apparently made for a distributors' convention, the only thing I am certain of is that as of 1940 there were twenty-three Auto-Lite plants across the nation producing a vast variety of parts for the automobile industry. The script is floridly written. No one makes anything. Instead, everything is produced by the vast army of skilled workman under the rigorous supervision of trained technicians. After twenty minutes of having this ground into your head with pictures of machines doing things with only occasional shots of people -- peripheral profile shots for women while the machines are central, three-quarters profile for men examining little gadgets and lots of hands putting things together -- we get a stop motion parade like George Pal producing a Soviet Army Day parade -- in fact, I'd be willing to wager that's Pal's work, uncredited like the narrator.See if you can skip the first twenty minutes.",
+      "runtime_min": 23,
+      "director": "Cullen Landis",
+      "actors": [],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "fetched_at": "2026-09-25T07:53:16Z",
+      "schema": 3
+    },
+    "tt21927914": {
+      "poster_url": null,
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": 9,
+      "director": null,
+      "actors": [],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "fetched_at": "2026-09-25T07:53:16Z",
+      "schema": 3
+    },
+    "tt2335268": {
+      "poster_url": null,
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": "This documentary offers a look at the activities of the Works Progress Administration and examines and work being done on various types of projects.",
+      "runtime_min": 35,
+      "director": null,
+      "actors": [],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "fetched_at": "2026-09-25T07:53:16Z",
+      "schema": 3
+    },
+    "tt26449965": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMWE2YmU4OWQtZTUzYS00YjRlLWE3Y2UtOTNmMmI1MTU3ZGY5XkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": "A traffic accident occurs once every six seconds, most leading to property damage, injury, and/or death. Most of these accidents are preventable, and are caused purely by carelessness, impatience, inattention, and/or recklessness ...",
+      "runtime_min": 10,
+      "director": null,
+      "actors": [],
+      "genres": [
+        "Documentary",
+        "Animation",
+        "Short"
+      ],
+      "fetched_at": "2026-09-25T07:53:16Z",
+      "schema": 3
+    },
+    "tt32793079": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BZDA1NDFkZGItMTZlYi00MWZkLWEyZWEtNjQ1NGJlYzcwZjAyXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": "Virginia Hopkins visits etiquette expert Emily Post, who is reading letters from fans. They seem to ask more about table manners than anything else. In Virginia stating that the frequency is probably due to people feeling comforta...",
+      "runtime_min": 10,
+      "director": null,
+      "actors": [
+        "Virginia Hopkins",
+        "Emily Post"
+      ],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "fetched_at": "2026-09-25T07:53:16Z",
+      "schema": 3
+    },
+    "tt4106976": {
+      "poster_url": null,
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": null,
+      "director": null,
+      "actors": [
+        "Lowell Thomas"
+      ],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "fetched_at": "2026-09-25T07:53:16Z",
+      "schema": 3
+    },
+    "tt4108224": {
+      "poster_url": null,
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": null,
+      "director": null,
+      "actors": [
+        "Lowell Thomas"
+      ],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "fetched_at": "2026-09-25T07:53:16Z",
+      "schema": 3
+    },
+    "tt4620840": {
+      "poster_url": null,
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": "Raises questions about what purpose the machines, after the gigantic war effort is concluded, will they add to our lives, make consumption more affordable to everyone, our are they a threat to our jobs, well-being and our lifestyle?",
+      "runtime_min": 14,
+      "director": "Walter Niebuhr",
+      "actors": [
+        "Don Goddard"
+      ],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "fetched_at": "2026-09-25T07:53:16Z",
+      "schema": 3
+    },
+    "tt4902560": {
+      "poster_url": null,
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": "An educational documentary short, commissioned by the Chevrolet Motor Company, explaining a manual car transmission works.",
+      "runtime_min": null,
+      "director": null,
+      "actors": [],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "fetched_at": "2026-09-25T07:53:16Z",
+      "schema": 3
+    },
+    "tt5503754": {
+      "poster_url": null,
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": 38,
+      "director": null,
+      "actors": [],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "fetched_at": "2026-09-25T07:53:16Z",
+      "schema": 3
+    },
+    "tt6740900": {
+      "poster_url": null,
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": "Shows the processes that crystals have to go through before they are ready to be inserted into radios to facilitate clearer communications.",
+      "runtime_min": 42,
+      "director": null,
+      "actors": [],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "fetched_at": "2026-09-25T07:53:16Z",
+      "schema": 3
+    },
+    "tt7917740": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMzRhYTVmYWYtYjczMS00ZWM0LTkzZTQtMjkzYTBlYzdmMTUyXkEyXkFqcGdeQXVyMzA0MTQ0NjI@._V1_SX300.jpg",
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": "A guitar playing Barcelona man is in love with a woman, and she says the only way he can attain her love is if he faces off with a bull. But things do not go as planned.",
+      "runtime_min": null,
+      "director": "Joseph Sunn",
+      "actors": [],
+      "genres": [
+        "Animation",
+        "Short"
+      ],
+      "fetched_at": "2026-09-25T07:53:16Z",
       "schema": 3
     }
   },
