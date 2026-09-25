@@ -137,6 +137,7 @@ jobs:
           # catches titles outside the curated collections.
           python tools/discover_archive_collections.py \
             --per-collection ${{ github.event.inputs.arch_per_collection || '600' }} \
+            --pd-age-backfill 300 \
             ${{ github.event.inputs.pd_day_years && format('--pd-day-years {0}', github.event.inputs.pd_day_years) || '' }} \
             | tee arch_discover.log
 

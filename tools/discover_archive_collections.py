@@ -230,8 +230,7 @@ def main():
     def is_new(it):
         iaid = it.get("identifier") or ""
         return bool(iaid) and iaid not in have_ia \
-            and iaid.rsplit(".", 1)[0] not in have_ia and iaid not in existing \
-            and awaiting[0] < args.max_awaiting
+            and iaid.rsplit(".", 1)[0] not in have_ia and iaid not in existing
 
     def add_candidate(it, *, source, collection=None):
         iaid = it.get("identifier")
@@ -266,7 +265,9 @@ def main():
     for yr in pd_years:
         y_added = 0
         q = f"mediatype:movies AND year:{yr}"
-        for it in scrape_query(q, session, limit=min(args.pd_day_cap, max(0, args.max_awaiting - awaiting[0])),
+        # Exempt from the ceiling (self-capped): ingest takes the oldest first,
+        # so these jump a queue full of ephemera rather than waiting behind it.
+        for it in scrape_query(q, session, limit=args.pd_day_cap,
                                min_downloads=args.min_downloads, is_new=is_new):
             if add_candidate(it, source="public_domain_day"):
                 added += 1
@@ -282,7 +283,7 @@ def main():
         first = min(int(y) for y in pd_years)
         b_added = 0
         q = f"mediatype:movies AND year:[1880 TO {first - 1}]"
-        for it in scrape_query(q, session, limit=min(args.pd_age_backfill, max(0, args.max_awaiting - awaiting[0])),
+        for it in scrape_query(q, session, limit=args.pd_age_backfill,
                                min_downloads=args.min_downloads, is_new=is_new):
             if add_candidate(it, source="pd_age_backfill"):
                 added += 1
