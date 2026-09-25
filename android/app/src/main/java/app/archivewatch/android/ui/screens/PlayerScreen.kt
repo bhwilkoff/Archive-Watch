@@ -667,6 +667,16 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
             }
             kotlinx.coroutines.delay(if (handedOver) 1000 else 100)
         }
+        // The show ended: give the video BACK to the screen. The player was
+        // rendering into the engine's texture, and nothing returned it — the
+        // AndroidView's `update` re-assigns the same player, which PlayerView
+        // ignores — so a host who pressed End was left looking at a black
+        // player while the film ran on with nowhere to draw (2026-09-25).
+        // Detaching and re-attaching makes PlayerView re-bind its own surface.
+        if (handedOver) {
+            player.clearVideoSurface()
+            playerViewRef?.let { v -> v.player = null; v.player = player }
+        }
     }
     // Ending the show must not outlive the surface producing it — the lesson
     // that came out of a harness left running in someone's living room.
