@@ -90,6 +90,9 @@ concurrency:
 jobs:
   discover-ingest:
     runs-on: ubuntu-latest
+    # ~70 min normally. Without this the job's ceiling was GitHub's 6 hours,
+    # held under the shared catalog lock (a remediate hang, 2026-09-25).
+    timeout-minutes: 180
     permissions:
       contents: write
       actions: write        # dispatch publish-db after the catalog updates

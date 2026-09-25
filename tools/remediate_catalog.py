@@ -1702,6 +1702,46 @@ def _drop_youtube_availability(s):
     return "".join(keep)
 
 
+class _CleanTimeout(Exception):
+    pass
+
+
+_GUARDED_FIELDS = ("title", "synopsis", "synopsisSource", "descriptionClaimsCopyright")
+CLEAN_SECONDS = 5.0
+
+
+def _guarded(fn, it, stats):
+    """Run one per-item cleaner under a time limit. A single pathological
+    uploader description made two regexes backtrack and held remediate — and
+    the catalog lock every writer shares — for 25+ minutes (2026-09-25). Any
+    item that takes longer than CLEAN_SECONDS is left exactly as it was and
+    named in the log; the run carries on. SIGALRM is Unix-only; elsewhere the
+    cleaner runs unguarded."""
+    import signal
+    if not hasattr(signal, "setitimer"):
+        return fn(it)
+    snap = {k: it.get(k) for k in _GUARDED_FIELDS}
+    def _alarm(_sig, _frame):
+        raise _CleanTimeout()
+    prev = signal.signal(signal.SIGALRM, _alarm)
+    signal.setitimer(signal.ITIMER_REAL, CLEAN_SECONDS)
+    try:
+        return fn(it)
+    except _CleanTimeout:
+        for k, v in snap.items():
+            if v is None:
+                it.pop(k, None)
+            else:
+                it[k] = v
+        stats["clean_timeouts"] += 1
+        print(f"[remediate] {fn.__name__} gave up on {it.get('archiveID')} after "
+              f"{CLEAN_SECONDS:.0f}s — left unchanged", flush=True)
+        return None
+    finally:
+        signal.setitimer(signal.ITIMER_REAL, 0)
+        signal.signal(signal.SIGALRM, prev)
+
+
 def sanitize_synopsis(it):
     """Returns 'cleaned', 'nulled', or None."""
     raw = _synopsis_text(it)
@@ -3105,10 +3145,10 @@ def remediate(items):
             stats["rights_inferred_pd"] += 1
 
         # 7) TEXT SANITIZATION (Tier 1): clean the free-text fields users read.
-        sy = sanitize_synopsis(it)
+        sy = _guarded(sanitize_synopsis, it, stats)
         if sy:
             stats[f"synopsis_{sy}"] += 1
-        if sanitize_title(it):
+        if _guarded(sanitize_title, it, stats):
             stats["title_cleaned"] += 1
 
         # 8) ARTWORK FLOOR (#13): every Archive item should show at least its
@@ -3139,7 +3179,7 @@ def remediate(items):
     # ("Checkmate: The Human Touch (1961)", "One Flew Over the Cuckoo's Nest (1975)"
     # trailer). sanitize_title is conservative + idempotent, so this only cleans artifacts.
     for it in items:
-        if it.get("contentType") not in MOVIE_TYPES and sanitize_title(it):
+        if it.get("contentType") not in MOVIE_TYPES and _guarded(sanitize_title, it, stats):
             stats["other_title_cleaned"] += 1
 
     _drop_stale_year_markers()
