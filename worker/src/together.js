@@ -51,6 +51,21 @@ const CORS = {
   "Access-Control-Max-Age": "86400",
 };
 
+/**
+ * One more to today's anonymous tally (`together_days`: day | kind | count).
+ * Nothing about the room goes in -- not its code, film, token or key -- so the
+ * tally cannot be joined back to a room, and it may outlive every room it
+ * counted. A failure here must never fail the room itself.
+ */
+async function tally(env, kind) {
+  try {
+    await env.DB.prepare(
+      "INSERT INTO together_days (day, kind, count) VALUES (?1, ?2, 1) " +
+      "ON CONFLICT(day, kind) DO UPDATE SET count = count + 1"
+    ).bind(new Date().toISOString().slice(0, 10), kind).run();
+  } catch { /* a counter is not worth a failed room */ }
+}
+
 /** What a film id may look like: the archive's own identifier alphabet. */
 const FILM_ID = /^[A-Za-z0-9._@:+-]{1,120}$/;
 /** Guests counted per room; beyond this a new token is refused. */
@@ -202,6 +217,7 @@ export async function handleTogether(url, request, env) {
           "VALUES (?1, ?2, ?3, ?4, ?5, ?6, 1, ?4, ?7)"
         ).bind(code, filmID, position(body.position), now,
                rate(body.rate), body.paused ? 1 : 0, hostKey).run();
+        await tally(env, "room");
         // The key is returned ONCE, to the creator, and never again — a GET
         // must never be able to hand it out, or the split it exists for is
         // undone by the first poll.
@@ -241,6 +257,7 @@ export async function handleTogether(url, request, env) {
       "INSERT INTO room_presence (code, token, seen_ms) VALUES (?1, ?2, ?3) " +
       "ON CONFLICT(code, token) DO UPDATE SET seen_ms = ?3"
     ).bind(hcode, token, now).run();
+    if (!known) await tally(env, "guest");   // a device arriving, counted once per join
     return json({ ok: true });
   }
 

@@ -261,7 +261,22 @@ def main():
     _, tag = call(tok, "GET", f"/applications/{app}/edits/{eid}")
     call(tok, "POST", f"/applications/{app}/edits/{eid}/commit", body=b"", etag=tag)
     print(f"edit {eid} COMMITTED — Amazon review begins.")
+    _refresh_pulse()
     return 0
+
+
+def _refresh_pulse():
+    """Ask Pulse to re-read the stores now, so the page shows this release
+    today rather than at tomorrow's reading. Best effort: a release never
+    fails because a dashboard could not be poked."""
+    import subprocess
+    try:
+        subprocess.run(["gh", "workflow", "run", "pulse.yml", "-f",
+                        "only=apple_stores,play_stores,amazon_live,roku_engagement,manual_stores,play_crashes"],
+                       check=False, timeout=60, capture_output=True)
+        print("asked Pulse to re-read the stores")
+    except Exception:                                # noqa: BLE001
+        pass
 
 
 if __name__ == "__main__":

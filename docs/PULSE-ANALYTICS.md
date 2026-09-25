@@ -314,3 +314,49 @@ not defined" — reported to the reader as *"Could not load the readings"*,
 because the fetch chain's own `.catch()` treats every error the same. That is
 the second time in one day a code bug wore a data failure's clothes there. When
 a rewrite is mechanical, check what else matches the pattern.
+
+## 11. Three new routes, and when a reading happens (2026-09-25)
+
+Owner: *"make updates to those processes to ensure that the latest and
+greatest data are always live on the page ... Another data source that I would
+like to add is the Google Search Console ... We should also figure out a way to
+track how many rooms are being opened or streams that are being started with
+the app if that is possible to do anonymously within our privacy framework."*
+
+**All three new readers use the Pulse robot** (`archivewatch-ci@archivewatch-play`,
+the Play service account, `_google()` in `pulse_collect.py`), and every grant it
+holds is read-only and was made by the owner's word on 2026-09-25:
+
+| Reader | Route | Grant | Gotcha |
+|---|---|---|---|
+| `search_console` -> `health.searchConsole` | Search Console API `searchAnalytics.query` + `sitemaps.list` on `https://archivewatch.org/` | **Restricted** user on the property; Search Console API enabled on `archivewatch-play` | Data is `final` only and lags 2-3 days, so `through` is Google's newest finished day and every comparison is 28 days to `through` vs the 28 before. The property's data begins 2026-09-20. No sitemap had ever been submitted when this was built. |
+| `together_rooms` -> `health.together.roomsDaily` | our Worker, `GET /rooms-daily` | none (public aggregate, like `/views`) | The tally (`together_days`: day, kind, count) began 2026-09-25 and holds **no film** (owner's choice), no code, token or address. A deploy reaches Cloudflare's servers over a few seconds; a request in that window runs the old code. |
+| `youtube_usage` -> `health.together.youtubeDaily` / `youtubeByMethod` | Cloud Monitoring `serviceruntime.googleapis.com/api/request_count`, `consumed_api`, service `youtube.googleapis.com`, on project **`archive-watch`** (the OAuth client's project) | **Monitoring Viewer** + **Service Usage Consumer** on `archive-watch` | Google serves these metrics only when the read is BILLED to a project with billing, so the request carries `x-goog-user-project: archive-watch` (billing linked, reads free at this volume). Without the header it answers "requires billing" for the robot's own project. |
+
+**A broadcast is a successful `liveBroadcasts.insert`** — the one call every
+signed-in go-live makes once. So Twitch and own-stream-key shows are not
+counted and cannot be, and the page says so. This is NOT telemetry: it is
+Google's count of the calls our OAuth client made; the apps send us nothing,
+which is what privacy.html promises. An app-side "went live" ping was offered
+and declined for exactly that reason (Decision 142).
+
+**Quota is on the same reading** (Decision 136): each day's calls are priced
+from Google's quota table (`_YT_UNITS`; chat reads 5, writes 50, lists 1)
+against the 10,000 units the whole app shares. The first reading found
+**9,765 units on 2026-09-23**, 71% of it live-chat reads — one heavy test day
+from the ceiling.
+
+**When a reading happens.** Twice a day by cron (08:17 and 20:17 UTC, which
+GitHub runs 4-5 h late: ~06:30 and ~18:30 MT), plus a store-only re-read
+(`--only apple_stores,play_stores,amazon_live,roku_engagement,manual_stores,play_crashes`)
+when `Play release` or `App Store submit (cloud)` finishes, and when
+`tools/play_promote.py` or `tools/submit-amazon.py` succeeds locally. A
+release is on the page within minutes, not the next morning.
+
+**Store rows read before they declare.** Play reads every release on a track
+(live = completed, `inFlight` = the other), Apple rows carry `inFlight`,
+Amazon's version is the submission API's live versionCode and Roku's is the
+newest version seen in Roku's own delivery. "Behind the repo" is gone: the
+repo's version moves on every commit, so it was true of every row within an
+hour. `ops/fixed-in.json` carries the Android `versionCode` of each fix, so a
+crash is judged against Android builds rather than an Apple build number.

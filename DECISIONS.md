@@ -224,6 +224,7 @@ into every session and the index alone carries every title.)
 - 139 — More Like This is ranked once, in the pipeline, by the people and series films share, and it says why
 - 140 — An uploader's word is not enough: a modern or undated title kept only on its archive licence needs independent evidence
 - 141 — Android runs from Android 6 (API 23) on every store; the floor is held by lint NewApi and by the bundled Let's Encrypt roots
+- 142 — Watch Together is counted from what our servers and Google already see, never from the apps
 
 ---
 
@@ -977,3 +978,29 @@ NewApi); a call above 23 needs a `Build.VERSION.SDK_INT` guard or a Compat
 equivalent. Never remove the ISRG trust anchors while any endpoint chains to
 Let's Encrypt. No test device runs below Android 11, so Play's crash clusters
 by API level are the first real evidence from 23-29; read them after release.
+
+
+## 142 — Watch Together is counted from what our servers and Google already see, never from the apps
+*Date: 2026-09-25*
+
+Pulse counts rooms opened and guests joined from a tally the Worker keeps as it
+creates rooms (`together_days`: day, kind, count — no film, code, token or
+address), and counts YouTube broadcasts from Google Cloud Monitoring's
+request counts for the app's OAuth project (`liveBroadcasts.insert`, 2xx).
+No app sends anything new. Twitch and own-stream-key broadcasts are therefore
+not counted, and the page says so.
+
+**Why**: the owner asked to count rooms and streams "anonymously within our
+privacy framework", and the framework is a published promise — privacy.html:
+*"The apps have no analytics of any kind"* and *"The only thing an app ever
+sends our server is a Watch Together room's playback position."* An app-side
+"went live" ping would have counted every broadcast and broken that sentence,
+while Google was reviewing that same page for OAuth verification. Offered both,
+the owner chose Google's own counts and a room tally without the film.
+
+**How to apply**: a new Pulse number about app usage must come from something a
+server ALREADY receives to provide the feature, or from a vendor's own
+reporting — never from a client sending a count. If a question cannot be
+answered that way, the answer is a privacy.html change the owner makes, not a
+reader. The Monitoring read must carry `x-goog-user-project: archive-watch`
+(docs/PULSE-ANALYTICS.md §11).

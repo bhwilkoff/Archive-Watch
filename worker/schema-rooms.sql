@@ -28,3 +28,16 @@ CREATE TABLE IF NOT EXISTS room_presence (
   seen_ms  INTEGER NOT NULL,
   PRIMARY KEY (code, token)
 );
+
+-- THE DAILY TALLY (owner, 2026-09-25: "track how many rooms are being opened
+-- ... anonymously within our privacy framework"). A date, what happened, a
+-- count -- the counter's own grain, and deliberately LESS than the counter:
+-- no film (the owner's choice), no code, no token, no host key. It is written
+-- when a room is created and when a new guest token first arrives, and it
+-- outlives the rooms because it describes none of them.
+CREATE TABLE IF NOT EXISTS together_days (
+  day    TEXT NOT NULL,    -- YYYY-MM-DD (UTC)
+  kind   TEXT NOT NULL,    -- 'room' | 'guest'
+  count  INTEGER NOT NULL DEFAULT 0,
+  PRIMARY KEY (day, kind)
+);

@@ -86,6 +86,7 @@ def main() -> int:
         eid = None
         print(f"promoted versionCode {vc}: {from_track} -> {a.to}"
               + (f" at {a.rollout:.0%}" if a.rollout else " (full)"))
+        _refresh_pulse()
     finally:
         if eid:
             try:
@@ -93,6 +94,20 @@ def main() -> int:
             except Exception:                        # noqa: BLE001
                 pass
     return 0
+
+
+def _refresh_pulse():
+    """Ask Pulse to re-read the stores now, so the page shows this release
+    today rather than at tomorrow's reading. Best effort: a release never
+    fails because a dashboard could not be poked."""
+    import subprocess
+    try:
+        subprocess.run(["gh", "workflow", "run", "pulse.yml", "-f",
+                        "only=apple_stores,play_stores,amazon_live,roku_engagement,manual_stores,play_crashes"],
+                       check=False, timeout=60, capture_output=True)
+        print("asked Pulse to re-read the stores")
+    except Exception:                                # noqa: BLE001
+        pass
 
 
 if __name__ == "__main__":

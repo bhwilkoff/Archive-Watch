@@ -150,6 +150,22 @@ export default {
       return new Response(null, { status: 204, headers: cors });
     }
 
+    // The read side for the rooms tally (together_days): day | kind | count,
+    // public like /views because there is nothing in it about anybody.
+    if (url.pathname === "/rooms-daily") {
+      const days = Math.min(400, Math.max(1, Number(url.searchParams.get("days") || 90)));
+      const since = new Date(Date.now() - days * 864e5).toISOString().slice(0, 10);
+      try {
+        const { results } = await env.DB.prepare(
+          "SELECT day, kind, count FROM together_days WHERE day >= ?1 ORDER BY day"
+        ).bind(since).all();
+        return Response.json({ since, rows: results || [] },
+                             { headers: { ...cors, "Cache-Control": "public, max-age=300" } });
+      } catch (e) {
+        return Response.json({ error: String(e) }, { status: 500, headers: cors });
+      }
+    }
+
     // The read side for titles. Public like /views: counts of PUBLIC films on
     // a public site, with nothing in them about anybody.
     if (url.pathname === "/titles") {

@@ -20,7 +20,23 @@ on:
     # 13:17 UTC therefore reached the page around noon Mountain, never 07:17.
     # 08:17 UTC (02:17 MT) + the lag lands ~06:30-07:30 MT.
     - cron: "17 8 * * *"
+    # A second reading for the afternoon (20:17 UTC + the same lag ~ 18:30 MT),
+    # so a day's store actions are on the page the same evening rather than
+    # the next morning (owner, 2026-09-25: "the latest and greatest data are
+    # always live on the page").
+    - cron: "17 20 * * *"
+  # A RELEASE CHANGES WHAT THE PAGE SHOULD SAY, so the stores are re-read the
+  # moment one finishes. Only the store readers: a whole reading is ten
+  # minutes and most of it does not move when a build ships.
+  workflow_run:
+    workflows: ["Play release", "App Store submit (cloud)"]
+    types: [completed]
   workflow_dispatch:
+    inputs:
+      only:
+        description: "comma-separated readers (blank = a full reading)"
+        required: false
+        default: ""
 
 permissions:
   contents: write
@@ -93,7 +109,11 @@ jobs:
           YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
           YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: python3 tools/pulse_collect.py --apply
+          # Stores only after a release (workflow_run), or what a dispatch
+          # named; a full reading otherwise. --only keeps every section it did
+          # not re-read (pulse_collect's partial-run rule).
+          ONLY: ${{ github.event_name == 'workflow_run' && 'apple_stores,play_stores,amazon_live,roku_engagement,manual_stores,play_crashes' || inputs.only }}
+        run: python3 tools/pulse_collect.py --apply ${ONLY:+--only "$ONLY"}
 
       - name: Say what could not be read
         run: |

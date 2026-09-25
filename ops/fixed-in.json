@@ -1,59 +1,68 @@
 {
- "_": "Crash clusters whose CAUSE has been fixed in the repo but whose fix has not reached users. A crash with a fix in hand is a different thing from one nobody has looked at: the action is no longer 'fix it', it is 'ship it'. Keyed by the Play Console issue id (the hash in its issueUri). Remove an entry once the cluster stops appearing on a build at or above `build`.",
+ "_": "Crash clusters whose CAUSE has been fixed in the repo but whose fix has not reached users. A crash with a fix in hand is a different thing from one nobody has looked at: the action is no longer 'fix it', it is 'ship it'. Keyed by the Play Console issue id (the hash in its issueUri). Remove an entry once the cluster stops appearing on a build at or above `build`. `versionCode` is the first ANDROID release carrying the fix (the Apple `build` is not comparable to it); the page compares it to the Play production and in-flight versionCodes.",
  "clusters": {
   "493daebebd66d48f2bbc41e2c9ad0f60": {
    "build": 1018,
    "version": "1.42.6",
    "what": "Compose duplicate lazy-list keys",
-   "fix": "List.uniqueBy at 14 call sites; UniqueByTest, negative-controlled"
+   "fix": "List.uniqueBy at 14 call sites; UniqueByTest, negative-controlled",
+   "versionCode": 57
   },
   "46cce2ccb32b3c8eb548f273f0aa655c": {
    "build": 1018,
    "version": "1.42.6",
    "what": "Compose duplicate lazy-list keys",
-   "fix": "List.uniqueBy at 14 call sites; UniqueByTest, negative-controlled"
+   "fix": "List.uniqueBy at 14 call sites; UniqueByTest, negative-controlled",
+   "versionCode": 57
   },
   "1512a7d9459c2a4ae4371f3899db8e0d": {
    "build": 1704,
    "version": "1.42.692",
    "what": "SQLException preparing a query on a closed catalog connection",
-   "fix": "the catalog swap closed the old database while a Home count still held it; closeWhenIdle takes the query lock and a closed database answers empty"
+   "fix": "the catalog swap closed the old database while a Home count still held it; closeWhenIdle takes the query lock and a closed database answers empty",
+   "versionCode": 64
   },
   "4c04da8b34da8b7ea6519d6c60887dc7": {
    "build": 1704,
    "version": "1.42.692",
    "what": "SQLException preparing a query on a closed catalog connection",
-   "fix": "same cause as 1512a7d9: closeWhenIdle"
+   "fix": "same cause as 1512a7d9: closeWhenIdle",
+   "versionCode": 64
   },
   "fcd107cc3378dccebee2ae07712ffa38": {
    "build": 1704,
    "version": "1.42.692",
    "what": "SQLException preparing a query on a closed catalog connection",
-   "fix": "same cause as 1512a7d9: closeWhenIdle"
+   "fix": "same cause as 1512a7d9: closeWhenIdle",
+   "versionCode": 64
   },
   "c4b5f96e1ef10fd43992556a8ce60a71": {
    "build": 1704,
    "version": "1.42.692",
    "what": "OutOfMemoryError in playback: the player buffer had no byte cap",
-   "fix": "setPrioritizeTimeOverSizeThresholds(true) disabled the cap (120 s + 30 s of a 15 Mbps file ~280 MB vs a 256 MB heap); now a quarter of the heap"
+   "fix": "setPrioritizeTimeOverSizeThresholds(true) disabled the cap (120 s + 30 s of a 15 Mbps file ~280 MB vs a 256 MB heap); now a quarter of the heap",
+   "versionCode": 64
   },
   "e585dd3f05a2c86113ef89c1fca296d0": {
    "build": 1704,
    "version": "1.42.692",
    "what": "ANR: RenderThread stalled in the Mali GPU driver",
-   "fix": "full-screen RenderEffect blur removed on televisions and low-RAM devices; the 96 px upscale is the wash (a driver stall, so a mitigation, verified by the cluster not recurring)"
+   "fix": "full-screen RenderEffect blur removed on televisions and low-RAM devices; the 96 px upscale is the wash (a driver stall, so a mitigation, verified by the cluster not recurring)",
+   "versionCode": 64
   },
   "a6de15e9a91794d45b55e1a9282d0460": {
    "build": 1704,
    "version": "1.42.692",
    "what": "ANR: RenderThread stalled in the Mali GPU driver",
-   "fix": "as e585dd3f: no Gaussian RenderEffect on TV / low-RAM (mitigation)"
+   "fix": "as e585dd3f: no Gaussian RenderEffect on TV / low-RAM (mitigation)",
+   "versionCode": 64
   },
   "48ef98e1faadb5ac9a4b0d3f74ec490d": {
    "build": 1704,
    "version": "1.42.692",
    "what": "ANR: RenderThread stalled in the Mali GPU driver",
-   "fix": "as e585dd3f: no Gaussian RenderEffect on TV / low-RAM (mitigation)"
+   "fix": "as e585dd3f: no Gaussian RenderEffect on TV / low-RAM (mitigation)",
+   "versionCode": 64
   }
  },
  "note": "The id here is the LARGEST cluster of the five that share the subcompose stack. They are one bug; Play splits them by device and version. Add the others' ids as they surface."

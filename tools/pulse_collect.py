@@ -130,6 +130,9 @@ def apple_stores(state):
             "state": cur["attributes"]["appStoreState"] if cur else "NONE",
             "version": cur["attributes"]["versionString"] if cur else None,
             "live": live["attributes"]["versionString"] if live else None,
+            **({"inFlight": {"version": flight["attributes"]["versionString"],
+                             "state": flight["attributes"]["appStoreState"]}}
+               if flight and live else {}),
             "repoVersion": mv,
             "repoBuild": bn,
             "url": f"https://appstoreconnect.apple.com/apps/{aid}/distribution",
@@ -222,18 +225,32 @@ def play_stores(state):
             pass
     rows = []
     for t in tracks.get("tracks", []):
-        rel = (t.get("releases") or [{}])[0]
-        if not rel.get("status"):
+        # A track can hold a COMPLETED release and a newer one in progress or in
+        # review at the same time. Reading only releases[0] showed whichever
+        # Google listed first, so the morning after a promotion the row still
+        # said the old build and `playLiveBuild` (which play_crashes reads) was
+        # sometimes the NEW one. Live is the completed release; the other is in
+        # flight, the same split apple_stores makes.
+        rels = [r for r in (t.get("releases") or []) if r.get("status")]
+        if not rels:
             continue
-        rows.append({
+        done = next((r for r in rels if r.get("status") == "completed"), None)
+        flight = next((r for r in rels if r.get("status") != "completed"), None)
+        cur = flight or done
+        row = {
             "store": "Google Play",
             "platform": t["track"].title(),
-            "state": (rel.get("status") or "").upper(),
-            "version": rel.get("name"),
-            "live": rel.get("name") if rel.get("status") == "completed" else None,
-            "build": ", ".join(rel.get("versionCodes") or []),
+            "state": (cur.get("status") or "").upper(),
+            "version": cur.get("name"),
+            "live": done.get("name") if done else None,
+            "build": ", ".join((done or cur).get("versionCodes") or []),
             "url": f"https://play.google.com/console/developers/app/{PLAY_PACKAGE}",
-        })
+        }
+        if flight and done:
+            row["inFlight"] = {"version": flight.get("name"),
+                               "build": ", ".join(flight.get("versionCodes") or []),
+                               "state": (flight.get("status") or "").upper()}
+        rows.append(row)
     state["stores"] += rows
     return f"{len(rows)} track(s)"
 
@@ -2039,7 +2056,7 @@ def roku_versions_in(tables):
             if day:
                 slot["firstSeen"] = min(slot["firstSeen"] or day, day)
                 slot["lastSeen"] = max(slot["lastSeen"] or day, day)
-    return sorted(seen.values(), key=lambda x: x["version"])
+    return sorted(seen.values(), key=lambda x: _vkey(x["version"]))
 
 
 def roku_engagement(state):
@@ -2374,8 +2391,277 @@ def manual_stores(state):
     rows = json.loads(MANUAL.read_text()).get("stores", [])
     for r in rows:
         r.setdefault("manual", True)
+    # A DECLARED FACT LOSES TO A READ ONE. Amazon's live versionCode comes from
+    # its submission API (amazon_live) and Roku's newest build from its own
+    # daily delivery (versionsSeen); the hand-typed rows were a week behind
+    # both, and the Amazon row's note claimed to be read when it was typed.
+    h = state.get("health") or {}
+    read = 0
+    for r in rows:
+        al = h.get("amazonLive") or {}
+        if r.get("store") == "Amazon Appstore" and al.get("liveVersionCode"):
+            vc = al["liveVersionCode"]
+            if al.get("submissionInFlight"):
+                # The open edit holds what is STAGED, not what is live: live
+                # stays as declared until the review clears.
+                r["state"] = "IN REVIEW"
+                r["inFlight"] = {"version": f"vc{vc}", "state": "IN REVIEW"}
+                r["live"] = r.get("version")
+            else:
+                r["version"] = r["live"] = f"vc{vc}"
+                r["versionCode"] = vc
+            r["read"] = "Amazon submission API"
+            read += 1
+        if r.get("store") == "Roku Channel Store":
+            seen = (h.get("rokuEngagement") or {}).get("versionsSeen") or []
+            if seen:
+                newest = max(seen, key=lambda v: _vkey(v.get("version")))
+                r["version"] = newest["version"]
+                r["live"] = newest["version"]
+                r["since"] = newest.get("firstSeen") or r.get("since")
+                r["read"] = "seen in Roku's own delivery"
+                read += 1
     state["stores"] += rows
-    return f"{len(rows)} declared store(s)"
+    return f"{len(rows)} declared store(s), {read} version(s) read rather than declared"
+
+
+def _vkey(v):
+    """1.0.75 sorts after 1.0.9: compare versions as numbers, never as strings."""
+    try:
+        return tuple(int(x) for x in str(v or "").split("."))
+    except ValueError:
+        return (0,)
+
+
+# ─────────────────────────────────── Google Search Console + Watch Together
+
+SEARCH_SITE = "https://archivewatch.org/"
+GCP_OAUTH_PROJECT = "archive-watch"      # the project behind the app's YouTube client id
+
+
+def _google(scopes):
+    """The Pulse robot (the Play service account) for any Google API.
+
+    It is a Restricted user on the Search Console property and holds
+    Monitoring Viewer + Service Usage Consumer on `archive-watch` — all
+    read-only, all granted by the owner on 2026-09-25."""
+    from google.oauth2 import service_account
+    from google.auth.transport.requests import Request
+    key = os.environ.get("PLAY_SERVICE_ACCOUNT_JSON",
+                         os.path.expanduser("~/.config/play/archivewatch-play.json"))
+    if key.strip().startswith("{"):
+        creds = service_account.Credentials.from_service_account_info(json.loads(key), scopes=scopes)
+    else:
+        if not os.path.exists(key):
+            raise RuntimeError("no service-account key (set PLAY_SERVICE_ACCOUNT_JSON)")
+        creds = service_account.Credentials.from_service_account_file(key, scopes=scopes)
+    creds.refresh(Request())
+    return creds.token
+
+
+def _gpost(url, token, body, extra=None):
+    req = urllib.request.Request(url, data=json.dumps(body).encode(), method="POST",
+                                 headers={"Authorization": f"Bearer {token}",
+                                          "Content-Type": "application/json", **(extra or {})})
+    with urllib.request.urlopen(req, timeout=45) as r:
+        return json.loads(r.read().decode())
+
+
+def search_console(state):
+    """How people FIND the website: Google Search's clicks, impressions, CTR and
+    average position for archivewatch.org, from the Search Console API.
+
+    Owner, 2026-09-25: "Another data source that I would like to add is the
+    Google Search Console". Search data lags ~2-3 days, so `through` is the
+    newest day Google has finished, and every comparison is 28 days against
+    the 28 before them."""
+    tok = _google(["https://www.googleapis.com/auth/webmasters.readonly"])
+    base = ("https://searchconsole.googleapis.com/webmasters/v3/sites/"
+            + urllib.parse.quote(SEARCH_SITE, safe=""))
+    end = dt.date.today()
+    first = end - dt.timedelta(days=95)
+
+    def q(start, stop, dims, limit=100):
+        body = {"startDate": str(start), "endDate": str(stop), "dimensions": dims,
+                "rowLimit": limit, "dataState": "final"}
+        return _gpost(base + "/searchAnalytics/query", tok, body).get("rows") or []
+
+    def row(r):
+        return {"clicks": int(r.get("clicks") or 0), "impressions": int(r.get("impressions") or 0),
+                "ctr": round(float(r.get("ctr") or 0), 4), "position": round(float(r.get("position") or 0), 2)}
+
+    daily = [{"date": r["keys"][0], **row(r)} for r in q(first, end, ["date"], 400)]
+    if not daily:
+        raise RuntimeError("Search Console returned no days")
+    through = dt.date.fromisoformat(daily[-1]["date"])
+    cur0, prev0 = through - dt.timedelta(days=27), through - dt.timedelta(days=55)
+    prev1 = cur0 - dt.timedelta(days=1)
+
+    def total(start, stop):
+        rs = [d for d in daily if str(start) <= d["date"] <= str(stop)]
+        c = sum(d["clicks"] for d in rs); i = sum(d["impressions"] for d in rs)
+        pos = (sum(d["position"] * d["impressions"] for d in rs) / i) if i else None
+        return {"clicks": c, "impressions": i, "ctr": round(c / i, 4) if i else None,
+                "position": round(pos, 2) if pos else None, "days": len(rs)}
+
+    def split(dim, limit=100):
+        now_rows = {r["keys"][0]: row(r) for r in q(cur0, through, [dim], limit)}
+        before = {r["keys"][0]: row(r) for r in q(prev0, prev1, [dim], 1000)}
+        out = []
+        for k, v in now_rows.items():
+            b = before.get(k) or {}
+            out.append({"key": k, **v, "prevClicks": b.get("clicks", 0),
+                        "prevImpressions": b.get("impressions", 0),
+                        "prevPosition": b.get("position")})
+        return sorted(out, key=lambda r: (-r["clicks"], -r["impressions"]))
+
+    sitemaps = []
+    try:
+        req = urllib.request.Request(base + "/sitemaps", headers={"Authorization": f"Bearer {tok}"})
+        with urllib.request.urlopen(req, timeout=30) as r:
+            for sm in json.loads(r.read().decode()).get("sitemap") or []:
+                contents = sm.get("contents") or []
+                sitemaps.append({
+                    "path": sm.get("path"), "lastSubmitted": sm.get("lastSubmitted"),
+                    "lastDownloaded": sm.get("lastDownloaded"), "isPending": sm.get("isPending"),
+                    "errors": int(sm.get("errors") or 0), "warnings": int(sm.get("warnings") or 0),
+                    "submitted": sum(int(c.get("submitted") or 0) for c in contents),
+                    "indexed": sum(int(c.get("indexed") or 0) for c in contents)})
+    except Exception:                                # noqa: BLE001 — a part, not the reading
+        pass
+
+    last28, prev28 = total(cur0, through), total(prev0, prev1)
+    state["health"]["searchConsole"] = {
+        "through": str(through), "daily": daily,
+        "last28": last28, "prev28": prev28,
+        "queries": split("query"), "pages": split("page", 50),
+        "countries": split("country", 60), "devices": split("device", 5),
+        "sitemaps": sitemaps,
+        "url": "https://search.google.com/search-console?resource_id="
+               + urllib.parse.quote(SEARCH_SITE, safe=""),
+    }
+    return (f"{last28['clicks']} clicks / {last28['impressions']} impressions in 28 days "
+            f"to {through} (prior 28: {prev28['clicks']} / {prev28['impressions']})")
+
+
+def together_rooms(state):
+    """Watch Together rooms opened and guests who joined, per day.
+
+    Owner, 2026-09-25: "track how many rooms are being opened ... if that is
+    possible to do anonymously within our privacy framework." The Worker creates
+    every room already, so it keeps `together_days` — day | kind | count, and
+    by the owner's choice not even the film. No app sends anything new."""
+    if not WEB_COUNTER:
+        raise RuntimeError("set AW_PULSE_COUNTER to the counter's origin")
+    d = get_json(f"{WEB_COUNTER}/rooms-daily?days=120", timeout=30)
+    days: dict = {}
+    for r in d.get("rows") or []:
+        k = {"room": "rooms", "guest": "guests"}.get(r.get("kind"))
+        if k:
+            days.setdefault(r["day"], {})[k] = int(r.get("count") or 0)
+    t = state["health"].setdefault("together", {})
+    t["roomsDaily"] = [{"date": k, "rooms": v.get("rooms", 0), "guests": v.get("guests", 0)}
+                       for k, v in sorted(days.items())]
+    t["roomsSince"] = "2026-09-25"                    # the tally began with this change
+    n = sum(v.get("rooms", 0) for v in days.values())
+    return f"{n} room(s), {sum(v.get('guests', 0) for v in days.values())} guest join(s) since the tally began"
+
+
+# YouTube Data API quota cost per call, from Google's published quota table.
+# Chat reads are 5 in the table's current edition; every write is 50.
+_YT_UNITS = {"List": 1, "Insert": 50, "Update": 50, "Delete": 50, "Bind": 50,
+             "Transition": 50, "Set": 50}
+_YT_UNITS_METHOD = {"youtube.api.v3.V3DataLiveChatMessageService.List": 5}
+
+
+def youtube_usage(state):
+    """Broadcasts the app started, and what the app spent of YouTube's quota.
+
+    NOT telemetry: this is Google's own count of the YouTube API calls made
+    under the app's OAuth client (Cloud Monitoring, serviceruntime request_count
+    on `archive-watch`). The apps send us nothing (privacy.html). A broadcast is
+    a successful liveBroadcasts.insert — the call every signed-in go-live makes
+    once — so Twitch and own-stream-key shows are NOT here, and cannot be.
+
+    Quota belongs to the APP (Decision 136): every host draws on the same
+    10,000 units a day, so the daily spend against that line is the number that
+    says when the extension request is urgent."""
+    tok = _google(["https://www.googleapis.com/auth/monitoring.read"])
+    end = dt.datetime.now(dt.timezone.utc).replace(microsecond=0)
+    start = end - dt.timedelta(days=90)
+    params = urllib.parse.urlencode([
+        ("filter", 'metric.type="serviceruntime.googleapis.com/api/request_count" '
+                   'AND resource.type="consumed_api" '
+                   'AND resource.labels.service="youtube.googleapis.com"'),
+        ("interval.startTime", start.strftime("%Y-%m-%dT%H:%M:%SZ")),
+        ("interval.endTime", end.strftime("%Y-%m-%dT%H:%M:%SZ")),
+        ("aggregation.alignmentPeriod", "86400s"),
+        ("aggregation.perSeriesAligner", "ALIGN_SUM"),
+        ("aggregation.crossSeriesReducer", "REDUCE_SUM"),
+        ("aggregation.groupByFields", "resource.labels.method"),
+        ("aggregation.groupByFields", "metric.labels.response_code_class"),
+    ])
+    req = urllib.request.Request(
+        f"https://monitoring.googleapis.com/v3/projects/{GCP_OAUTH_PROJECT}/timeSeries?{params}",
+        headers={"Authorization": f"Bearer {tok}", "x-goog-user-project": GCP_OAUTH_PROJECT})
+    with urllib.request.urlopen(req, timeout=45) as r:
+        series = json.loads(r.read().decode()).get("timeSeries") or []
+
+    # Google's aligned day ENDS at the point's endTime; the day it describes is
+    # the one before, in UTC.
+    def day_of(pt):
+        t = dt.datetime.strptime(pt["interval"]["endTime"][:19], "%Y-%m-%dT%H:%M:%S")
+        return str((t - dt.timedelta(seconds=1)).date())
+
+    days: dict = {}
+    by_method: dict = {}
+    for ts in series:
+        method = ts["resource"]["labels"].get("method", "")
+        cls = ts["metric"]["labels"].get("response_code_class", "")
+        short = method.rsplit(".", 2)[-2].replace("V3Data", "").replace("Service", "") + "." + method.rsplit(".", 1)[-1]
+        unit = _YT_UNITS_METHOD.get(method, _YT_UNITS.get(method.rsplit(".", 1)[-1], 1))
+        for pt in ts.get("points") or []:
+            n = int(pt["value"].get("int64Value") or 0)
+            dd = days.setdefault(day_of(pt), {"calls": 0, "errors": 0, "units": 0, "lives": 0})
+            dd["calls"] += n
+            dd["units"] += n * unit
+            if cls != "2xx":
+                dd["errors"] += n
+            if method.endswith("LiveBroadcastService.Insert") and cls == "2xx":
+                dd["lives"] += n
+            m = by_method.setdefault(short, {"calls": 0, "errors": 0, "units": 0})
+            m["calls"] += n; m["units"] += n * unit
+            if cls != "2xx":
+                m["errors"] += n
+    t = state["health"].setdefault("together", {})
+    t["youtubeDaily"] = [{"date": k, **v} for k, v in sorted(days.items())]
+    t["youtubeByMethod"] = dict(sorted(by_method.items(), key=lambda kv: -kv[1]["units"]))
+    t["quotaPerDay"] = 10000
+    t["livesNote"] = "YouTube sign-in shows only"
+    lives = sum(v["lives"] for v in days.values())
+    peak = max((v["units"] for v in days.values()), default=0)
+    return f"{lives} YouTube broadcast(s) in 90 days; peak quota day {peak:,}/10,000 units"
+
+
+def together_summary(state):
+    """One series for the page: rooms, guests and YouTube broadcasts by day,
+    with 28-day totals against the 28 before. Runs after both readers."""
+    t = state["health"].get("together")
+    if not t:
+        raise RuntimeError("neither rooms nor YouTube usage answered")
+    merged: dict = {}
+    for r in t.get("roomsDaily") or []:
+        merged.setdefault(r["date"], {}).update(rooms=r["rooms"], guests=r["guests"])
+    for r in t.get("youtubeDaily") or []:
+        merged.setdefault(r["date"], {}).update(lives=r["lives"], units=r["units"])
+    t["daily"] = [{"date": k, **v} for k, v in sorted(merged.items())]
+    today_ = dt.date.today()
+
+    def window(a, b):
+        rs = [r for r in t["daily"] if str(today_ - dt.timedelta(days=a)) <= r["date"] <= str(today_ - dt.timedelta(days=b))]
+        return {k: sum(r.get(k, 0) for r in rs) for k in ("rooms", "guests", "lives")}
+    t["last28"], t["prev28"] = window(27, 0), window(55, 28)
+    return f"28 days: {t['last28']}"
 
 
 # ─────────────────────────────────────────────────────────────────── The run
@@ -2416,6 +2702,10 @@ SOURCES = [
     ("catalog", catalog),
     ("web_usage", web_usage),
     ("web_titles", web_titles),
+    ("search_console", search_console),
+    ("together_rooms", together_rooms),
+    ("youtube_usage", youtube_usage),
+    ("together_summary", together_summary),              # after both of the above
     ("distribution", distribution),
     ("asks", asks),                                  # must run last: it reads the rest
 ]
@@ -2591,6 +2881,7 @@ def main() -> int:
                    "amazon_live": "amazonLive",
                    "roku_engagement": "rokuEngagement",
                    "web_usage": "webUsage", "web_titles": "webTitles",
+                   "search_console": "searchConsole", "together_summary": "together",
                    "catalog": "catalog",
                    # Scalars and notes, preserved for the same reason as the
                    # sections: a stale reading carries a `stale` timestamp and
@@ -2612,6 +2903,12 @@ def main() -> int:
             if res and not res["ok"] and not state["health"].get(key) and prev_health.get(key):
                 state["health"][key] = prev_health[key]
                 stale[key] = prev.get("generatedAt")
+    # A reader that ANSWERED can still be holding old data: Play's install
+    # export past its normal lags (see play_reports) is a warning the page must
+    # see, not a note in a list nobody opens.
+    pi = state["health"].get("playInstalls") or {}
+    if (pi.get("staleDays") or 0) > 14:
+        stale["playInstalls"] = pi.get("asOf")
     state["stale"] = stale
 
     # Mentions and reviews ACCUMULATE. Somebody who posted about us yesterday
@@ -2672,7 +2969,7 @@ def main() -> int:
             if old_v:
                 v["firstSeen"] = min(filter(None, [old_v.get("firstSeen"), v["firstSeen"]]) or [""])
             prev_v[v["version"]] = v
-        rk["versionsSeen"] = sorted(prev_v.values(), key=lambda x: x["version"])
+        rk["versionsSeen"] = sorted(prev_v.values(), key=lambda x: _vkey(x["version"]))
 
     hist = [h for h in prev.get("history", []) if h.get("date") != today()]
     hist.append(history_row(state))
