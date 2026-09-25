@@ -519,6 +519,11 @@ public final class StudioSession {
     public func startGuests(filter: SCContentFilter) async -> Bool {
         let w = filter.includedWindows.first
         let app = w?.owningApplication ?? filter.includedApplications.first
+        // What the picker handed over — counts and the app's id, NEVER a
+        // window title (§D23: a window list is other people's business).
+        awdiag("AWCALL picker windows=%d apps=%d app=%@ pid=%d",
+               filter.includedWindows.count, filter.includedApplications.count,
+               app?.bundleIdentifier ?? "NONE", Int(app?.processID ?? 0))
         let appName = app?.applicationName ?? "Your call"
         let title = w?.title ?? ""
         return await beginGuests(label: title.isEmpty ? appName : "\(appName) — \(title)",
@@ -536,6 +541,17 @@ public final class StudioSession {
         await beginGuests(label: label, ownerPID: ownerPID, ownerBundleID: ownerBundleID) {
             await $0.start(windowID: windowID, size: CGSize(width: 1280, height: 720))
         }
+    }
+
+    /// The browser a bundle id belongs to: an installed web app
+    /// (`com.google.Chrome.app.<id>`, `com.microsoft.edgemac.app.<id>`) and a
+    /// helper (`com.google.Chrome.helper.Renderer`) both reduce to the browser
+    /// itself. Any other id is its own family.
+    nonisolated static func browserFamily(_ bundleID: String) -> String {
+        for marker in [".app.", ".helper"] {
+            if let r = bundleID.range(of: marker) { return String(bundleID[..<r.lowerBound]) }
+        }
+        return bundleID
     }
 
     private func beginGuests(label: String, ownerPID: pid_t?, ownerBundleID: String?,
@@ -560,6 +576,13 @@ public final class StudioSession {
         // A FAILURE HERE DOES NOT FAIL THE PICTURE. Half a call is better
         // than a refusal as long as the missing half is named, and
         // `callProblem` names it (§D18).
+        if callAppName == nil, ownerPID == nil, ownerBundleID == nil {
+            // SAID, never silent: "No sound captured" with no reason is what
+            // the owner met, and this is one way to get there.
+            callProblem = "macOS did not say which app that window belongs to, so its sound "
+                + "cannot be captured."
+            awdiag("AWCALL no owning app for the chosen window")
+        }
         if callAppName == nil, ownerPID != nil || ownerBundleID != nil {
             // MATCH ON THE BUNDLE ID, NOT THE PID. `StudioAudioProcesses`
             // groups every audio object an app owns into one row and keeps
@@ -577,12 +600,25 @@ public final class StudioSession {
                 if let b = ownerBundleID, !b.isEmpty {
                     if p.bundleID == b { return true }
                     if p.bundleID.hasPrefix(b + ".") || b.hasPrefix(p.bundleID + ".") { return true }
+                    // AN INSTALLED WEB APP plays through its BROWSER. Meet
+                    // installed from Chrome is its own app to macOS —
+                    // `com.google.Chrome.app.<id>` — while its sound comes
+                    // from `com.google.Chrome.helper`, and neither id extends
+                    // the other. Measured 2026-09-25 on the owner's Meet
+                    // window: NO MATCH, "No sound captured". Compared by the
+                    // browser they share.
+                    if Self.browserFamily(p.bundleID) == Self.browserFamily(b) { return true }
                 }
                 if let pid = ownerPID, p.pid == pid { return true }
                 return false
             }
+            awdiag("AWCALL match owner=%@ pid=%d among %d app(s) with audio: %@ -> %@",
+                   ownerBundleID ?? "nil", Int(ownerPID ?? 0), procs.count,
+                   procs.map { $0.bundleID }.joined(separator: ","),
+                   match?.bundleID ?? "NO MATCH")
             if let match {
-                _ = await startCallAudio(process: match)
+                let why = await startCallAudio(process: match)
+                awdiag("AWCALL tap %@: %@", match.bundleID, why ?? "started")
             } else {
                 callProblem = "\(guestWindowLabel ?? "That app") is not playing any "
                     + "audio macOS can capture yet — its voices will not be in the mix."
