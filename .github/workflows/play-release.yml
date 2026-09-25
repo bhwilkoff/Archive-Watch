@@ -163,6 +163,25 @@ jobs:
             || { echo "::error::the bundle is not signed — the keystore step did not take"; exit 1; }
           echo "signed bundle: $(du -h "$AAB" | cut -f1)"
 
+      # The Fire TV build, from the SAME commit, key and versionCode (Decision
+      # 110: the owner's machine is not a build server). It is attached to the
+      # run rather than submitted here: the APK is smoke-tested on a real Fire
+      # TV first, then tools/submit-amazon.py uploads that exact file, with the
+      # Amazon credentials that live on the owner's Mac.
+      - name: Build the Fire TV APK
+        if: ${{ inputs.promote == '' }}
+        working-directory: android
+        run: ./gradlew --no-daemon assembleAmazonRelease
+
+      - name: Attach the Fire TV APK
+        if: ${{ inputs.promote == '' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: amazon-release-apk
+          path: android/app/build/outputs/apk/amazon/release/*.apk
+          if-no-files-found: error
+          retention-days: 30
+
       - name: Publish
         if: ${{ inputs.promote == '' }}
         env:
