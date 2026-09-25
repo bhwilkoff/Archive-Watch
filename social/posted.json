@@ -1153,6 +1153,54 @@
    "kind": "feature-film",
    "mediaId": "117327516711010441",
    "reviewer": "Colorado Strong435"
+  },
+  {
+   "at": "2026-09-25T19:20:25.210223+00:00",
+   "id": "i.-don-t.-want.-to.-be.-a.-man.-1918-ctb-550-br-vl-8.mp-4",
+   "title": "I Don't Want to Be a Man",
+   "slot": "one-line",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mweii74zly2s",
+   "format": "video",
+   "kind": "silent-film",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-09-25T19:20:25.210223+00:00",
+   "id": "i.-don-t.-want.-to.-be.-a.-man.-1918-ctb-550-br-vl-8.mp-4",
+   "title": "I Don't Want to Be a Man",
+   "slot": "one-line",
+   "platform": "mastodon",
+   "url": "https://mastodon.social/@archivewatch/117333298652069904",
+   "format": "video",
+   "kind": "silent-film",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-09-25T19:20:25.210223+00:00",
+   "id": "i.-don-t.-want.-to.-be.-a.-man.-1918-ctb-550-br-vl-8.mp-4",
+   "title": "I Don't Want to Be a Man",
+   "slot": "one-line",
+   "platform": "instagram",
+   "url": "https://www.instagram.com/p/DduMrAwILQZ/",
+   "format": "card",
+   "kind": "silent-film",
+   "mediaId": "117333297649206171",
+   "reviewer": null
+  },
+  {
+   "at": "2026-09-25T19:20:25.210223+00:00",
+   "id": "i.-don-t.-want.-to.-be.-a.-man.-1918-ctb-550-br-vl-8.mp-4",
+   "title": "I Don't Want to Be a Man",
+   "slot": "one-line",
+   "platform": "youtube",
+   "url": "https://youtube.com/watch?v=1vPEyH6zPXc",
+   "format": "video",
+   "kind": "silent-film",
+   "mediaId": null,
+   "reviewer": null
   }
  ]
 }

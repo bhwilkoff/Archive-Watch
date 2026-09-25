@@ -1362,6 +1362,68 @@
     "replies": 0,
     "quotes": 0
    }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mvvb4jh2mo25",
+   "platform": "bluesky",
+   "id": "turner_video_392336",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-09-19T17:58:35.528986+00:00",
+   "sampled": "2026-09-25T19:21:12.319812+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117299002604275319",
+   "platform": "mastodon",
+   "id": "turner_video_392336",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-09-19T17:58:35.528986+00:00",
+   "sampled": "2026-09-25T19:21:12.319812+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mwbwdeszr72u",
+   "platform": "bluesky",
+   "id": "privatehell361954_202001",
+   "slot": "now-showing",
+   "format": "card",
+   "window": "24h",
+   "posted": "2026-09-24T18:50:25.334814+00:00",
+   "sampled": "2026-09-25T19:21:12.319812+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117327516806958054",
+   "platform": "mastodon",
+   "id": "privatehell361954_202001",
+   "slot": "now-showing",
+   "format": "card",
+   "window": "24h",
+   "posted": "2026-09-24T18:50:25.334814+00:00",
+   "sampled": "2026-09-25T19:21:12.319812+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
   }
  ]
 }
