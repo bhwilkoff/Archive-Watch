@@ -506,10 +506,6 @@ textarea.control-input { resize: vertical; min-height: 60px; font-family: var(--
   background: var(--color-surface-2); color: var(--color-text);
   border: 1px solid var(--color-border-strong); border-radius: var(--radius-md);
   font: inherit; font-size: 1rem; }
-/* Join a Watch Together room by code (SHAREPLAY §11.10, web). */
-.together-join { display: flex; flex-direction: column; gap: var(--space-2); max-width: 22rem; margin-bottom: var(--space-4); }
-.together-join-row { display: flex; gap: var(--space-2); }
-.together-join-row .field-input { flex: 1; min-width: 0; text-transform: uppercase; letter-spacing: .2em; }
 .field-input:focus { outline: 2px solid var(--color-accent); outline-offset: 1px; border-color: var(--color-accent); }
 textarea.field-input { resize: vertical; }
 .suggest-actions { display: flex; align-items: center; gap: var(--space-4); margin-top: var(--space-2); }

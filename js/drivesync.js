@@ -298,10 +298,7 @@ window.AWDriveSync = (() => {
       btn.setAttribute('aria-label', 'Sign in with Google');
       btn.innerHTML = GOOGLE_G + '<span class="gsi-btn-label">Sign in with Google</span>';
       btn.onclick = () => syncNow(true);
-      const hint = document.createElement('span');
-      hint.className = 'sync-hint';
-      hint.textContent = 'Sync across your devices';
-      ui.append(btn, hint);
+      ui.append(btn);   // no caption: WEB-DESIGN §4.5 (status only once signed in)
     }
     if (lastError) {
       const err = document.createElement('span');

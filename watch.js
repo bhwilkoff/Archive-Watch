@@ -1618,8 +1618,16 @@
   // AW_GOOGLE_CLIENT_ID in index.html. Init after DB exists.
   setTimeout(() => {
     const host = document.getElementById('library-sync');
+    const apple = document.getElementById('library-sync-apple');
+    // The Sync card shows when either provider is configured: each module
+    // unhides its own host, and the card follows them (WEB-DESIGN §4.5).
+    const card = document.getElementById('library-sync-card');
+    const follow = () => { card.hidden = host.hidden && apple.hidden; };
+    const mo = new MutationObserver(follow);
+    for (const el of [host, apple]) mo.observe(el, { attributes: true, attributeFilter: ['hidden'] });
     window.AWDriveSync?.init(DB, host);
-    window.AWCloudKitSync?.init(DB, document.getElementById('library-sync-apple'));
+    window.AWCloudKitSync?.init(DB, apple);
+    follow();
   }, 0);
   // A pull that landed while the Library is open must show up without a
   // reload — the first web sync (2026-09-03) merged the phone's progress
@@ -1638,6 +1646,7 @@
       const cont = progress.map(p => Data.byID.get(p.id) || contAlias.get(p.id)
         || [p.id, p.title || p.id, null, '', null]);
       fillGrid($('library-continue'), cont);
+      $('library-continue').hidden = !cont.length;
       $('library-continue-empty').hidden = cont.length > 0;
 
       const favIDs = (await DB.favorites()).sort((a, b) => b.addedAt - a.addedAt)
@@ -1646,6 +1655,7 @@
       const favs = favIDs.map(id => Data.byID.get(id) || favAlias.get(id))
         .filter(Boolean);
       fillGrid($('library-favs'), favs);
+      $('library-favs').hidden = !favs.length;
       $('library-favs-empty').hidden = favs.length > 0;
 
       const playlists = (await DB.playlists().catch(() => []))
@@ -1662,6 +1672,7 @@
         a.append(t, n);
         return a;
       }));
+      host.hidden = !playlists.length;
       $('library-playlists-empty').hidden = playlists.length > 0;
 
       // The complete watch record (Decision 078): everything ever played,
@@ -1671,6 +1682,7 @@
       const hist = all.map(p => Data.byID.get(p.id) || histAlias.get(p.id)
         || [p.id, p.title || p.id, null, '', null]);
       fillGrid($('library-history'), hist);
+      $('library-history').hidden = !hist.length;
       $('library-history-empty').hidden = hist.length > 0;
     },
   };

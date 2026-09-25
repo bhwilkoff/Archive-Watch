@@ -169,12 +169,16 @@ window.AWCloudKitSync = (() => {
     // two ids; it shows whichever applies after setUpAuth().
     const inBtn = document.createElement('div'); inBtn.id = 'apple-sign-in-button';
     const outBtn = document.createElement('div'); outBtn.id = 'apple-sign-out-button';
-    const status = document.createElement('span');
-    status.className = 'sync-hint';
-    status.textContent = lastSync
-      ? `iCloud synced ${new Date(lastSync).toLocaleTimeString()}`
-      : (localStorage.getItem('aw_cksync') ? 'iCloud sync on' : 'Sync with your Apple TV, iPhone and Mac');
-    ui.append(inBtn, status, outBtn);
+    ui.append(inBtn, outBtn);
+    // A status line only once signed in; never a caption under the button
+    // (WEB-DESIGN §4.5).
+    if (lastSync || localStorage.getItem('aw_cksync')) {
+      const status = document.createElement('span');
+      status.className = 'sync-hint';
+      status.textContent = lastSync
+        ? `iCloud synced ${new Date(lastSync).toLocaleTimeString()}` : 'iCloud sync on';
+      ui.append(status);
+    }
     if (lastError) {
       const err = document.createElement('span');
       err.className = 'sync-error';

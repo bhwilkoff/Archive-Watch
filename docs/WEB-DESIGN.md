@@ -123,6 +123,30 @@ separate tool with its own conventions (CLAUDE.md) — these rules govern the
   Associated Domains capability lands (Decision 030).
 - **§4.5 Library** = Continue Watching (progress 10s–95%) + Favorites, both
   IndexedDB. Empty states are explicit sentences, not blank space.
+  **Amended 2026-09-25** (owner: *"extremely poorly designed. There is plain
+  text written on the screen. There are many different kinds of buttons for
+  syncing to google and apple. The Join Room is completely undesigned and
+  shows up after all of the rest"*). The page is built from Home's own parts,
+  in this order and no other:
+  1. **Header**: `Library` with **Join a room** as the header's action — a
+     pill button with the two-person glyph, the web's equivalent of the iOS
+     Library toolbar item and the Android Library app bar. Never a link in
+     the body, never below the viewer's own films.
+  2. **Continue Watching** and **History** are Home shelves (`.shelf` +
+     `.shelf-row` rails, 116px cards); **Favorites** is a grid (a collection
+     you add to, not a queue); **Playlists** keep `.playlist-card`.
+  3. An empty section is ONE compact `.lib-empty` panel directly under its
+     heading — no empty grid above it, so no dead gap.
+  4. **Sync** closes the page, in one `.lib-card`: the Google and Apple
+     buttons side by side at 40px, BOTH in their providers' light theme
+     (Google's light spec #FFFFFF / #747775 / #1F1F1F, Apple's CloudKit
+     `white`), so two brands read as one row. No caption under a button:
+     the status line appears only once signed in, and an error always shows.
+- **§4.5a Join a room** (`#/together`, SHAREPLAY §11.10): a centered
+  `.join-card` — the label **Room code**, one wide code field (four
+  characters, uppercase, spaced like the code a host reads aloud) and a
+  primary **Join**. A refusal is one sentence under the field. The card hides
+  once the room answers, and the room's own line takes its place.
 - **§4.6 Modals use `<dialog showModal>`** — the player and the Detail
   share menu (Open in app / Share link / archive.org — keeps the action row
   to Play · ♡ · Share) are the only modals.

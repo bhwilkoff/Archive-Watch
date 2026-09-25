@@ -40,32 +40,81 @@ h1 { font-size: 1.5rem; margin: 16px var(--pad) 8px; }
 h2 { font-size: 1.1rem; margin: 20px var(--pad) 8px; }
 a { color: var(--color-accent); }
 .muted { color: var(--text-dim); font-size: 0.9rem; margin: 4px var(--pad); }
-/* Sync status on the Library page. The error is never silent (the
-   per-ecosystem-sync-islands rule): a blocked pop-up or a revoked
-   token says so here rather than leaving a button that does nothing. */
-.sync-error { color: #FF8A6B; }
-/* Sign-in rows: each provider draws its own button to its own brand spec —
-   Google's guidelines for a custom button, Apple's via CloudKit JS — and the
-   row aligns them at 40px with the status beside. */
-#library-sync, #library-sync-apple {
-  display: flex; align-items: center; flex-wrap: wrap; gap: 12px;
-  min-height: 40px; margin: 8px var(--pad);   /* keep the page gutter .muted had */
+/* ---- Library (WEB-DESIGN §4.5) ---- */
+.page-head {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 12px; margin: 16px var(--pad) 8px;
 }
-#library-sync .sync-out { margin-left: 0; }
+.page-head h1 { flex: 1; margin: 0; }
+.btn-icon { display: inline-flex; align-items: center; gap: 8px; white-space: nowrap; }
+.btn-icon svg {
+  width: 20px; height: 20px; flex: none;
+  fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round;
+}
+/* An empty section is one compact panel under its heading, never a gap. */
+.lib-empty {
+  margin: 2px var(--pad) 0; padding: 14px 16px;
+  border: 1px dashed var(--border); border-radius: var(--radius);
+  color: var(--text-dim); font-size: 0.9rem;
+}
+.shelf-row[hidden], .grid[hidden], .playlist-list[hidden],
+.lib-card[hidden], #library-sync[hidden], #library-sync-apple[hidden] { display: none; }
+.lib-card {
+  margin: 28px var(--pad) 8px; padding: 14px 16px 16px;
+  background: var(--bg-raise); border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.lib-card h2 { margin: 0 0 12px; }
+.lib-sync-row { display: flex; flex-wrap: wrap; gap: 12px; }
+/* Each provider draws its own button to its own brand spec, both in their
+   LIGHT theme so the two read as one row: Google's light custom button
+   (#FFFFFF / #747775 / #1F1F1F), Apple's CloudKit `white`. The status and
+   any error sit beside; an error is never silent (sync-islands rule). */
+#library-sync, #library-sync-apple {
+  display: flex; align-items: center; flex-wrap: wrap; gap: 8px 12px; min-height: 40px;
+}
+.sync-hint { color: var(--text-dim); font-size: 0.9rem; }
+.sync-error { color: #FF8A6B; font-size: 0.9rem; }
+.sync-out {
+  background: none; border: 0; padding: 0; cursor: pointer;
+  color: var(--text-dim); font: inherit; font-size: 0.9rem; text-decoration: underline;
+}
 .gsi-btn {
   display: inline-flex; align-items: center; gap: 12px;
   height: 40px; padding: 0 12px; box-sizing: border-box;
-  background: #131314; color: #E3E3E3; border: 1px solid #8E918F;
+  background: #FFFFFF; color: #1F1F1F; border: 1px solid #747775;
   border-radius: 4px; cursor: pointer;
   font: 500 14px/20px Roboto, system-ui, -apple-system, "Segoe UI", sans-serif;
   letter-spacing: 0.25px; white-space: nowrap;
 }
-.gsi-btn:hover { background: #1f1f20; }
+.gsi-btn:hover { background: #F2F2F2; }
 .gsi-btn:focus-visible { outline: 2px solid #4285F4; outline-offset: 2px; }
 .gsi-btn-logo { width: 20px; height: 20px; flex: none; }
-.sync-hint { color: #9A9AA0; }
 #apple-sign-in-button, #apple-sign-out-button { display: inline-block; min-height: 40px; }
 #apple-sign-in-button:empty, #apple-sign-out-button:empty { display: none; }
+
+/* ---- Join a room (WEB-DESIGN §4.5a) ---- */
+.join-card {
+  width: min(360px, calc(100% - var(--pad) * 2)); margin: 20px auto 12px;
+  display: flex; flex-direction: column; gap: 12px; padding: 20px;
+  background: var(--bg-raise); border: 1px solid var(--border); border-radius: 14px;
+}
+.join-card[hidden] { display: none; }
+.join-card label {
+  font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--text-dim);
+}
+.join-card input {
+  width: 100%; padding: 12px 0 12px 0.5em;
+  font: 700 2rem/1.2 ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  letter-spacing: 0.5em; text-align: center; text-transform: uppercase;
+  background: var(--bg); color: var(--text);
+  border: 1px solid var(--border); border-radius: var(--radius);
+}
+.join-card input::placeholder { color: #3A3A3A; }
+.join-card input:focus { outline: 2px solid var(--color-accent); outline-offset: 1px; }
+.join-card .btn-primary { width: 100%; }
+#view-together .muted { text-align: center; }
 .error {
   background: #3a1410; color: #ffb4a4; border: 1px solid #62221a;
   border-radius: var(--radius); padding: 10px 14px; margin: 12px var(--pad);
@@ -254,7 +303,11 @@ a { color: var(--color-accent); }
   display: grid; gap: 14px; padding: 10px var(--pad);
   grid-template-columns: repeat(auto-fill, minmax(108px, 1fr));
 }
-.card { text-decoration: none; color: var(--text); display: block; }
+/* min-width 0: a flex/grid item's minimum is its content, so one unbroken
+   title (an archive id standing in for a missing one) widened a rail card to
+   the full length of that word. */
+.card { text-decoration: none; color: var(--text); display: block; min-width: 0; }
+.card .t, .card-ph span { overflow-wrap: anywhere; }
 .card img {
   width: 100%; aspect-ratio: 2 / 3; object-fit: cover; display: block;
   border-radius: var(--radius); background: var(--bg-raise);
@@ -484,7 +537,10 @@ input[type="search"] {
 #surprise-reroll { border: 0; }
 
 /* ---- playlists ---- */
-.playlist-list { display: flex; flex-direction: column; gap: 10px; padding: 4px var(--pad); }
+.playlist-list {
+  display: grid; gap: 10px; padding: 4px var(--pad);
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+}
 .playlist-card {
   display: flex; align-items: baseline; justify-content: space-between; gap: 12px;
   background: var(--bg-raise); border: 1px solid var(--border);

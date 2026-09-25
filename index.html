@@ -104,23 +104,40 @@
     </section>
 
     <section id="view-library" hidden>
-      <h1>Library</h1>
-      <p id="library-sync" class="muted" hidden></p>
-      <p id="library-sync-apple" class="muted" hidden></p>
-      <h2>Continue Watching</h2>
-      <div id="library-continue" class="grid"></div>
-      <p id="library-continue-empty" class="muted" hidden>Nothing in progress — playback picks up where you left off, on this browser.</p>
-      <h2>Favorites</h2>
-      <div id="library-favs" class="grid"></div>
-      <p id="library-favs-empty" class="muted" hidden>No favorites yet — tap the heart on any title.</p>
-      <h2>Playlists</h2>
-      <div id="library-playlists" class="playlist-list"></div>
-      <p id="library-playlists-empty" class="muted" hidden>No playlists yet — use “＋ Playlist” on any title.</p>
-      <h2>Watch Together</h2>
-      <a class="btn" href="#/together">Join a room</a>
-      <h2>History</h2>
-      <div id="library-history" class="grid"></div>
-      <p id="library-history-empty" class="muted" hidden>Everything you watch shows up here.</p>
+      <div class="page-head">
+        <h1>Library</h1>
+        <a class="btn-ghost btn-icon" href="#/together">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3 19c0-3.3 2.7-5.5 6-5.5s6 2.2 6 5.5"/><circle cx="17" cy="9" r="2.6"/><path d="M15.5 13.7c.5-.1 1-.2 1.5-.2 2.5 0 4.5 1.8 4.5 4.5"/></svg>
+          Join a room
+        </a>
+      </div>
+      <div class="shelf">
+        <h2>Continue Watching</h2>
+        <div id="library-continue" class="shelf-row"></div>
+        <p id="library-continue-empty" class="lib-empty" hidden>Nothing in progress. Playback picks up where you left off, on this browser.</p>
+      </div>
+      <div class="shelf">
+        <h2>Favorites</h2>
+        <div id="library-favs" class="grid"></div>
+        <p id="library-favs-empty" class="lib-empty" hidden>No favorites yet. Tap the heart on any title.</p>
+      </div>
+      <div class="shelf">
+        <h2>Playlists</h2>
+        <div id="library-playlists" class="playlist-list"></div>
+        <p id="library-playlists-empty" class="lib-empty" hidden>No playlists yet. Use “＋ Playlist” on any title.</p>
+      </div>
+      <div class="shelf">
+        <h2>History</h2>
+        <div id="library-history" class="shelf-row"></div>
+        <p id="library-history-empty" class="lib-empty" hidden>Everything you watch shows up here.</p>
+      </div>
+      <div id="library-sync-card" class="lib-card" hidden>
+        <h2>Sync</h2>
+        <div class="lib-sync-row">
+          <div id="library-sync" hidden></div>
+          <div id="library-sync-apple" hidden></div>
+        </div>
+      </div>
     </section>
 
     <section id="view-channels" hidden>
@@ -198,13 +215,12 @@
       <div class="surprise-head">
         <h1 id="together-title">Watch Together</h1>
       </div>
-      <form id="together-join" class="together-join" hidden>
-        <label class="field-label" for="together-code">Room code</label>
-        <div class="together-join-row">
-          <input id="together-code" class="field-input" type="text" inputmode="text"
-                 maxlength="9" autocomplete="off" autocapitalize="characters" spellcheck="false">
-          <button class="btn btn-primary" type="submit">Join</button>
-        </div>
+      <form id="together-join" class="join-card" hidden>
+        <label for="together-code">Room code</label>
+        <input id="together-code" type="text" inputmode="text" maxlength="9"
+               autocomplete="off" autocapitalize="characters" spellcheck="false"
+               placeholder="····">
+        <button class="btn-primary" type="submit">Join</button>
       </form>
       <p id="together-note" class="muted"></p>
       <p id="together-error" class="muted" hidden></p>
