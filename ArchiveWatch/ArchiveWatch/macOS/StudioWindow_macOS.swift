@@ -487,6 +487,11 @@ struct StudioWindowView: View {
             show.choosing = show.film == nil
             refreshDevices()
             refreshAccess()
+            // A window changed from macOS's own sharing controls, or from the
+            // picker again, replaces the call's tile (§D23b).
+            StudioCallPicker.shared.onChange = { filter in
+                Task { _ = await StudioSession.shared.startGuests(filter: filter) }
+            }
             #if DEBUG
             // AW_STUDIO_WINDOW_SIZE=1120x660 — size the Studio window, so a
             // layout can be checked at the minimum without a pointer.
@@ -1086,7 +1091,9 @@ struct StudioWindowView: View {
                          role: studio.guestWindowLabel == nil ? "A window" : "Picture and sound",
                          state: studio.guestWindowLabel == nil ? "not chosen"
                                 : (studio.guestProblem != nil ? "stopped"
-                                   : (studio.health.guestsAttached ? "live" : "starting")),
+                                   : (!studio.health.guestsAttached ? "starting"
+                                      : (studio.guestFramesPerSecond > 0
+                                         ? "\(studio.guestFramesPerSecond) fps" : "live, still"))),
                          healthy: studio.guestWindowLabel == nil
                                   || (studio.guestProblem == nil && studio.health.guestsAttached),
                          icon: "person.2")
@@ -1121,7 +1128,8 @@ struct StudioWindowView: View {
                     Text(StudioCallApps.browserWarning).font(.caption2).foregroundStyle(.orange)
                         .fixedSize(horizontal: false, vertical: true)
                 }
-                ForEach([studio.guestProblem, studio.callProblem, StudioCallPicker.shared.problem]
+                ForEach([studio.guestProblem, studio.guestStall, studio.callProblem,
+                         StudioCallPicker.shared.problem]
                             .compactMap { $0 }, id: \.self) { why in
                     Text(why).font(.caption2).foregroundStyle(.orange)
                         .fixedSize(horizontal: false, vertical: true)

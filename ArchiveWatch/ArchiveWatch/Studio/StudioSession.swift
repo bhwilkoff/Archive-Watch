@@ -478,6 +478,39 @@ public final class StudioSession {
     /// window closes; it does not end it when a view redraws).
     private var screenSource: StudioScreenSource?
     public private(set) var guestWindowLabel: String?
+    /// New pictures per second from the call's window, and — when that is
+    /// zero — what ScreenCaptureKit says instead (§D23b).
+    public private(set) var guestFramesPerSecond = 0
+    public private(set) var guestStall: String?
+    private var lastGuestFrames = 0
+    private var lastGuestStatus: [SCFrameStatus: Int] = [:]
+
+    /// Once a second from the health loop: the rate, and the reason when it
+    /// is zero.
+    func sampleGuests() {
+        guard let src = screenSource else {
+            if guestFramesPerSecond != 0 { guestFramesPerSecond = 0 }
+            if guestStall != nil { guestStall = nil }
+            return
+        }
+        let n = src.framesDelivered
+        let rate = max(0, n - lastGuestFrames)
+        lastGuestFrames = n
+        let now = src.statusCounts.snapshot()
+        func delta(_ s: SCFrameStatus) -> Int { (now[s] ?? 0) - (lastGuestStatus[s] ?? 0) }
+        let stall: String? = rate > 0 ? nil
+            : delta(.suspended) > 0 ? "macOS has paused that window's capture."
+            : delta(.blank) > 0 ? "That window is hidden or minimized — nothing to show."
+            : delta(.idle) > 0 ? nil          // unchanged picture: a still call, not a fault
+            : (src.isRunning ? "No new pictures from that window." : nil)
+        if rate != guestFramesPerSecond || stall != guestStall {
+            awdiag("AWGUEST fps=%d complete=%d idle=%d blank=%d suspended=%d",
+                   rate, delta(.complete), delta(.idle), delta(.blank), delta(.suspended))
+        }
+        lastGuestStatus = now
+        if guestFramesPerSecond != rate { guestFramesPerSecond = rate }
+        if guestStall != stall { guestStall = stall }
+    }
     public var guestProblem: String? { screenSource?.problem }
 
     /// §D23b — the window the host chose in macOS's own picker. Its label
@@ -510,6 +543,8 @@ public final class StudioSession {
         stopGuests()
         let src = StudioScreenSource()
         screenSource = src
+        lastGuestFrames = 0
+        lastGuestStatus = [:]
         guestWindowLabel = label
         let ok = await start(src)
         guard ok else {
@@ -1516,6 +1551,9 @@ public final class StudioSession {
                 setIfChanged(\.shoutOut, await engine.currentShoutOut)
                 setIfChanged(\.chatRecent, h.chatRecent)
                 setIfChanged(\.cameraFramesPerSecond, max(0, h.cameraFramesReceived - lastCameraFrames))
+                #if os(macOS)
+                self.sampleGuests()
+                #endif
                 // RECOVER A CAMERA THAT STOPPED — macOS and iOS had the
                 // WARNING and no recovery, while tvOS had both. macOS can use
                 // an iPhone as its camera exactly as the television can, so it

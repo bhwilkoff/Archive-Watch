@@ -95,6 +95,22 @@ public final class StudioScreenSource: NSObject, SCStreamOutput, SCStreamDelegat
     /// window is not drawing" — two states that look identical on screen.
     public var framesDelivered: Int { frameCount.value }
 
+    /// Every frame ScreenCaptureKit handed over, by status — so "the guests
+    /// are not updating" can be answered from a number (owner, 2026-09-25:
+    /// *"I was pretty sure that it wasn't updating when it should be"*).
+    public let statusCounts = StatusCounts()
+    public final class StatusCounts: @unchecked Sendable {
+        private let lock = NSLock()
+        private var n: [Int: Int] = [:]
+        func bump(_ s: SCFrameStatus) { lock.lock(); n[s.rawValue, default: 0] += 1; lock.unlock() }
+        public func snapshot() -> [SCFrameStatus: Int] {
+            lock.lock(); defer { lock.unlock() }
+            var out: [SCFrameStatus: Int] = [:]
+            for (k, v) in n { if let s = SCFrameStatus(rawValue: k) { out[s] = v } }
+            return out
+        }
+    }
+
     /// Every window a host could pick, minus our own.
     ///
     /// `onScreenWindowsOnly: true` is the right filter and not merely a
@@ -201,8 +217,13 @@ public final class StudioScreenSource: NSObject, SCStreamOutput, SCStreamDelegat
             as? [[SCStreamFrameInfo: Any]],
            let raw = a.first?[.status] as? Int,
            let status = SCFrameStatus(rawValue: raw), status != .complete {
+            // COUNTED, not just dropped: a tile that is not updating is one
+            // of these, and which one says why (idle = nothing changed,
+            // blank/suspended = the window is hidden, minimised or paused).
+            statusCounts.bump(status)
             return
         }
+        statusCounts.bump(.complete)
         frameCount.bump()
         sink.store(px, from: sb)
     }
@@ -220,9 +241,17 @@ public final class StudioScreenSource: NSObject, SCStreamOutput, SCStreamDelegat
         // and a hop would leave the stale frame on air for as long as the
         // main actor is busy.
         sink.clear()
-        MainActor.assumeIsolated {
+        // A HOP, NOT AN ASSERTION. ScreenCaptureKit calls this on ReplayKit's
+        // XPC queue — e.g. when the host presses "Stop sharing" in macOS's
+        // own controls — and `MainActor.assumeIsolated` TRAPPED there: the
+        // owner's crash, 2026-09-25 (StudioScreenSource_macOS.swift:223 on
+        // com.apple.NSXPCConnection.m-user.com.apple.replayd). The same fault
+        // the Mac's sign-in completion had (SCRATCHPAD 7).
+        let why = error.localizedDescription
+        awdiag("AWGUEST stream stopped: %@", why)
+        Task { @MainActor in
             self.isRunning = false
-            self.problem = "The window you were showing has gone — pick another."
+            self.problem = "Your call's window is no longer being shared — choose your call again."
         }
     }
 }
@@ -239,6 +268,11 @@ public final class StudioCallPicker: NSObject, SCContentSharingPickerObserver {
 
     @ObservationIgnored private var onPick: ((SCContentFilter) -> Void)?
     @ObservationIgnored private var observing = false
+    /// A choice made AFTER the first one — from the picker again or from
+    /// macOS's own sharing controls — is the host changing their call, and
+    /// must reach the tile. It used to be dropped, because only the pick that
+    /// followed "Choose your call…" had a handler.
+    @ObservationIgnored public var onChange: ((SCContentFilter) -> Void)?
     public private(set) var problem: String?
 
     /// A filter crosses from whatever thread the picker calls back on to the
@@ -263,9 +297,12 @@ public final class StudioCallPicker: NSObject, SCContentSharingPickerObserver {
                                                  for stream: SCStream?) {
         let h = Handoff(filter: filter)
         Task { @MainActor in
-            SCContentSharingPicker.shared.isActive = false
-            self.onPick?(h.filter)
-            self.onPick = nil
+            if let pick = self.onPick {
+                self.onPick = nil
+                pick(h.filter)
+            } else {
+                self.onChange?(h.filter)
+            }
         }
     }
 
