@@ -1689,6 +1689,19 @@ def _wiki_lead_is_another_film(it, raw):
     return abs(ly - iy) > 15   # a 2022 public-access "A Heart of Gold!" is not the 1923 film
 
 
+_AVAIL_WORD = re.compile(r"\b(?:viewable|available|watch(?:ed)?|streams?|found)\b")
+
+
+def _drop_youtube_availability(s):
+    """Drop each SENTENCE that says the film is on YouTube. Linear: split at
+    periods, test each piece — any single regex spanning the sentence
+    backtracks on long period-free text."""
+    parts = re.split(r"(?<=\.)", s)
+    keep = [p for p in parts if not ("YouTube" in p and p.rstrip().endswith(".")
+                                     and _AVAIL_WORD.search(p))]
+    return "".join(keep)
+
+
 def sanitize_synopsis(it):
     """Returns 'cleaned', 'nulled', or None."""
     raw = _synopsis_text(it)
@@ -1737,7 +1750,13 @@ def sanitize_synopsis(it):
     s = _TAG.sub(" ", _fix_mojibake(_html.unescape(raw)))
     # A Wikipedia lead's availability sentence ("The film is viewable free of
     # charge on YouTube.") is about a website, not the film — any source.
-    s = re.sub(r"\s*[^.]*\b(?:viewable|available|watch(?:ed)?|streams?|found)\b[^.]*\bYouTube\b[^.]*\.", "", s)
+    #
+    # LINEAR. The regex form ("\s*[^.]*\b(...)\b[^.]*\bYouTube...") backtracked
+    # catastrophically on a 9,911-character description of Google-search URLs
+    # (oswald-the-lucky-rabbit-1927-1928_202307) and held remediate — and the
+    # catalog lock — for 25+ minutes before it was cancelled (2026-09-25).
+    if "youtube" in s.lower():
+        s = _drop_youtube_availability(s)
     s = _strip_title_summary_dump(s)   # IMDb-scrape "Title: … Summary: …" dump
     s = _extract_plot_body(s)          # drop taglines/cast/release/source cruft, prefer a labeled plot
     s = _FROM_IMDB_PREFIX.sub("", s)   # "From IMDb : <plot>" -> "<plot>" (B6)
@@ -1759,6 +1778,10 @@ def sanitize_synopsis(it):
         # uploader's apostrophes and quotes ("companyÃs", "ÂMr. ManÂ");
         # "DIREÇÃO" and "L'Âge" are untouched.
         s = re.sub(r"(?<=[A-Za-z])Ã(?=s\b)", "'", s).replace("Â_", "").replace("(Â", "(\u201c").replace("Â)", "\u201d)")
+        # Collapse whitespace FIRST: several _NARA_STAMP branches open with
+        # \s*, and the long blank runs left by tag removal made it quadratic
+        # (the same 9,911-char description as the YouTube sentence above).
+        s = re.sub(r"\s+", " ", s)
         s = _NARA_STAMP.sub(" ", s)                       # "ARC Identifier 91500", agency date ranges
         if _is_placeholder_synopsis(s, it):
             it["synopsis"] = None
