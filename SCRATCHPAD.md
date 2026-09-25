@@ -60,53 +60,21 @@ because the loop was stopped mid-stride for a Claude update.
    Everything below in item 7 about the demo video is history. After approval:
    add the Terms of Service URL to Branding (audit A9).
 
-0-NEWEST-6. **HOME'S DIRECTOR ROWS ARE PICKED BY VOLUME (editorial call,
-   2026-09-25).** `topDirectors` ranks by film COUNT, so today's four rows are
-   Dave Fleischer (272), Mannie Davis (167, Terrytoons), D.W. Griffith (164)
-   and Connie Rasinski (148, Terrytoons) — Chaplin, Keaton, Lang, Murnau and
-   Hitchcock never get one. Proposed: rank by the combined popularity / vote
-   footprint of a director's films, computed ONCE in the pipeline (Decision
-   050) instead of in four clients. Say the word and it is built.
-
-0-NEWEST-5. **A "NEW TO ARCHIVE WATCH" HOME ROW? (design call, 2026-09-25).**
-   The deeper discovery sweep now adds hundreds of films a night (885 on its
-   first run; 331 matched with designed art within hours — The Blue Angel,
-   Fleischer's Wise Flies). Nothing on Home says so: curated shelves are keyed
-   to collections and categories, and these finds reach only the catch-all
-   Animation / Silent Era shelves and the rows computed from ratings. A row of
-   recently-added titles with designed art would make the sourcing visible. It
-   is a new Home row, so it needs a rule in each platform's design doc first.
-
-0-NEWEST-4. **HOME'S COMMUNITY ROWS ARE LED BY RENEWED STUDIO FILMS (owner call,
-   2026-09-24 audit).** The hero takes positive evidence only; Home's Most
-   Discussed / Community Favorites / Watching Now take `presumed_pd` (an ERA
-   assumption, 1929-63), and 22-23 of each row's 24 tiles are that bucket:
-   Cleopatra (1963), The Longest Day, The Guns of Navarone, Sabrina, Gentlemen
-   Prefer Blondes, Moby Dick, Jason and the Argonauts, Frankenstein (1931). All
-   four titles you named as WRONGLY claimed on 09-20 — Yojimbo, The Pink
-   Panther, The Grapes of Wrath, High and Low — are still visible everywhere
-   but the hero. Two levers, both yours (Decision 027): add named films to
-   `audit_rights._RENEWED_CLASSICS` (a hide), or give Home's community rows the
-   hero's evidence bar (a Home-only change; Browse/Search keep them).
-   **And a data defect inside it**: both "The Pink Panther" items wear the wrong
-   identity — a 25-min cartoon compilation matched to the 1963 feature (60,928
-   borrowed votes), and a 110-min upload typed `animation` matched to the 2006
-   Steve Martin remake (97,155 votes). The borrowed votes are what put them at
-   the top of three community rows.
-
-0-NEWEST-3. **MODERN FILMS KEPT ON AN UPLOADER'S LICENCE (owner call, 2026-09-24).**
-   Ingest now HOLDS a new modern (1978+) item whose only claim to stay is the
-   archive item's licence: queue status `held_modern_license` in
-   `shared/editorial/discovery_candidates.json`, never ingested (a trial held
-   A Better Tomorrow, Hard Boiled, Police Story, Taxi Driver). Genuine creator
-   CC works are held with them; review the list and release any by setting the
-   status back to `new`. A second held status, `held_suspect_year`, marks
-   public-domain-BY-AGE claims whose title contradicts the uploader's year
-   (fancy-text/emoji uploads, "feat.", 60 fps, a 1980+ year) — mostly junk, but
-   a few real restorations that name their restoration year land there too. Separately, 55 VISIBLE modern titles already sit in
-   `safe_archive_license` on the same basis — mostly real creator CC work
-   (Star Wreck, activist shorts) plus Taxi Season 1 and Wishbone (item 15-NEW).
-   `license_rescues` still keeps those; tightening it is Decision 027/114's call.
+0-DECIDED-2026-09-25. **SIX OWNER CALLS, ANSWERED — IN PROGRESS.** Asked as a
+   series; the answers, verbatim where the owner wrote their own:
+   1. Modern CC-only titles: *"If you have proof of genuine creator CC, then
+      you can release them. Otherwise, it is clear that many of these have no
+      business being in an app built to watch the public domain. Unless we
+      have evidence for CC or PD, an uploader's word is not enough."*
+   2. Home's community rows take the HERO's evidence bar (Home only).
+   3. "New to Archive Watch" Home row: yes, all platforms.
+   4. Director rows ranked by popularity, computed in the pipeline.
+   5. Television typed as film (Roots, The World at War...): retype as TV,
+      decide with the TV rights question.
+   6. The TV rights question (section below): apply the film audit to TV,
+      hide what fails, gate TV backfill so it cannot refill.
+   Work order: 1, 5, 6 (rights) then 2, 4, 3 (Home). Each lands as its own
+   commit and is struck from this item when live.
 
 0-NEWEST-2. **THREE SMALL OWNER CALLS FROM 2026-09-23** (nothing blocked on them).
    (a) The social poster's YouTube token is `youtube.upload` only, so

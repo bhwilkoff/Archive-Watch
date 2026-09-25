@@ -222,6 +222,7 @@ into every session and the index alone carries every title.)
 - 137 — "Public domain by age" follows the calendar, never a literal year
 - 138 — You are the show: going live needs the host, and the Studio captures only what a call runs in
 - 139 — More Like This is ranked once, in the pipeline, by the people and series films share, and it says why
+- 140 — An uploader's word is not enough: a modern or undated title kept only on its archive licence needs independent evidence
 
 ---
 
@@ -920,4 +921,33 @@ and Roku read no SQLite and need the same data in their own channel (detail
 shards / index) — not yet built. Whether the reason is SHOWN is a per-platform
 design-doc question under the owner's essential-information rule, not settled
 here.
+
+## 140 — An uploader's word is not enough: a modern or undated title kept only on its archive licence needs independent evidence
+*Date: 2026-09-25*
+
+A title that `license_rescues` would keep, and whose year is 1978 or later or
+unknown, is kept only when it carries `rightsCorroborated` — Wikidata records a
+Creative Commons licence (P275) or public-domain status (P6216) on the item
+whose Internet Archive ID (P724) is this archiveID, or
+`shared/editorial/licence_evidence.json` names a source URL for it. Otherwise
+it is `uploader_licence_only`, a HIDE bucket. The 1931-77 band keeps the renewal
+rules' judgement. `tools/corroborate_licences.py` runs in rights-audit.
+
+**Why**: the owner, asked about modern titles kept on an uploader's CC tag:
+*"If you have proof of genuine creator CC, then you can release them.
+Otherwise, it is clear that many of these have no business being in an app
+built to watch the public domain. Unless we have evidence for CC or PD, an
+uploader's word is not enough."* Measured first: the class was not the 55
+modern titles the question described but 1,345 visible titles, 1,266 of them
+undated (features, shorts, classic-TV episodes, commercials, drive-in ads,
+junk such as "714 Z 2"). Shown that scale, the owner chose modern + undated.
+Wikidata corroborates genuine creator releases — Star Wreck: In the
+Pirkining, Fossils, Apartment 5A, Spirit Chaser — and 1,321 titles are hidden.
+
+**How to apply**: never widen a rescue on the licence URL alone. To bring a
+title back, add evidence: a Wikidata statement or a `licence_evidence.json`
+entry whose `source` a reader can open. The hide is recomputed every build, so
+evidence lifts it on the next publish. Ingest holds such uploads
+(`held_modern_license`) on the same bucket, so the two cannot disagree.
+`tools/test_audit_rights.py` pairs each case: hidden without evidence, kept with it.
 

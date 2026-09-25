@@ -522,6 +522,14 @@ def bucket(it):
     if uploader_cannot_dedicate(it, yi) and it.get("archiveLicense"):
         return "uploader_cannot_dedicate", "hide"
     if license_rescues(it.get("archiveLicense"), yi, it.get("imdbVotes")):
+        # AN UPLOADER'S WORD IS NOT ENOUGH (owner, 2026-09-25): "Unless we have
+        # evidence for CC or PD, an uploader's word is not enough." For a
+        # modern or undated title the licence is the ONLY claim, so it needs
+        # independent corroboration (tools/corroborate_licences.py: Wikidata
+        # P275/P6216 by Internet Archive ID, or a curated source URL). The
+        # 1931-77 band keeps the renewal rules' judgement — the owner's scope.
+        if (yi is None or yi >= MODERN) and not it.get("rightsCorroborated"):
+            return "uploader_licence_only", "hide"
         return "safe_archive_license", "keep"
     # A pre-1964 year the item's OWN id contradicts is a wrong match, not an
     # old film: "the.-tinder.-swindler.-2022" filed as The Swindler (1919), a
@@ -591,7 +599,7 @@ def bucket(it):
     return "presumed_pd", "keep"            # 1929-1963
 
 
-HIDE_BUCKETS = {"modern_copyright_confirmed", "modern_noyear_risk",
+HIDE_BUCKETS = {"modern_copyright_confirmed", "modern_noyear_risk", "uploader_licence_only",
                 "commercial_modern_risk", "commercial_slop",
                 "renewed_copyright_classic", "renewal_zone_commercial",
                 "copyrighted_trailer", "wrongmatch_idyear", "wrongmatch_title",

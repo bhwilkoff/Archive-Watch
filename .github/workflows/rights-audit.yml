@@ -64,6 +64,13 @@ jobs:
           echo "## Rights audit — confirm" >> $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY; tail -4 confirm.log >> $GITHUB_STEP_SUMMARY; echo '```' >> $GITHUB_STEP_SUMMARY
 
+      - name: Corroborate licence-only titles (Wikidata + curated evidence)
+        # Owner, 2026-09-25: "Unless we have evidence for CC or PD, an
+        # uploader's word is not enough." A modern or undated title kept only
+        # on its archive licence is hidden (uploader_licence_only) unless this
+        # step finds independent evidence. Additive; never removes one.
+        run: python tools/corroborate_licences.py | tail -2
+
       - name: Report (what WOULD be rejected) + bucket summary
         run: |
           python tools/audit_rights.py --report-rejected tools/rejected_audit.csv | tee audit.log

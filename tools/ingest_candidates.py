@@ -237,8 +237,7 @@ def build_item(cand, meta, session, omdb_key, omdb_cache, now):
     # Story, Taxi Driver). Decision 114: a bare CC claim rescues nothing. The
     # candidate keeps this status for review rather than vanishing.
     b = AR.bucket(item)[0]
-    if b == "safe_archive_license" and isinstance(item.get("year"), int) \
-            and item["year"] >= AR.MODERN:
+    if b == "uploader_licence_only":     # the audit's own verdict (owner, 2026-09-25)
         return None, "held_modern_license"
     # HELD, NOT INGESTED: public domain BY AGE resting on an uploader's year
     # that the title contradicts. The audit trusts the year, so a 2015 music
