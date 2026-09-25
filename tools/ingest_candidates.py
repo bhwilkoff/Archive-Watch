@@ -74,6 +74,11 @@ def as_list(v):
     return v if isinstance(v, list) else [v]
 
 
+_MODERN_TITLE_RE = re.compile(
+    r"[\U0001D400-\U0001D7FF\U0001F300-\U0001FAFF]|\bfeat\.?\s|\bft\.\s"
+    r"|\b60\s?fps\b|\b(19[89]\d|20[0-3]\d)\b", re.I)
+
+
 def build_item(cand, meta, session, omdb_key, omdb_cache, now):
     """Construct a catalog item from Archive metadata + candidate, enriched
     via OMDb. Returns (item, reason) — item is None with a reason string
@@ -208,6 +213,17 @@ def build_item(cand, meta, session, omdb_key, omdb_cache, now):
     if b == "safe_archive_license" and isinstance(item.get("year"), int) \
             and item["year"] >= AR.MODERN:
         return None, "held_modern_license"
+    # HELD, NOT INGESTED: public domain BY AGE resting on an uploader's year
+    # that the title contradicts. The audit trusts the year, so a 2015 music
+    # video tagged 1919 ("ME! ME! ME! Daoko (feat Teddy Loid) (1080p 60fps)")
+    # and emoji-titled compilations came out safe_pd_age. Unicode fancy text
+    # or pictographs, "feat.", 60 fps, or a 1980+ year in the title. Measured
+    # 2026-09-24: 204 of 8,220 pre-1928 archive items would hold (community TV
+    # tapes, restoration-credit clips, AI-colourised footage, and a few real
+    # restorations naming their year — review those), 0 of 573 1928-30
+    # candidates. "1080p" alone is NOT a marker: restorations use it.
+    if b == "safe_pd_age" and _MODERN_TITLE_RE.search(item.get("title") or ""):
+        return None, "held_suspect_year"
 
     # OMDb enrichment (poster + rich fields) when we have an IMDb ID.
     imdb = cand.get("imdbID")

@@ -83,7 +83,10 @@ because the loop was stopped mid-stride for a Claude update.
    `shared/editorial/discovery_candidates.json`, never ingested (a trial held
    A Better Tomorrow, Hard Boiled, Police Story, Taxi Driver). Genuine creator
    CC works are held with them; review the list and release any by setting the
-   status back to `new`. Separately, 55 VISIBLE modern titles already sit in
+   status back to `new`. A second held status, `held_suspect_year`, marks
+   public-domain-BY-AGE claims whose title contradicts the uploader's year
+   (fancy-text/emoji uploads, "feat.", 60 fps, a 1980+ year) — mostly junk, but
+   a few real restorations that name their restoration year land there too. Separately, 55 VISIBLE modern titles already sit in
    `safe_archive_license` on the same basis — mostly real creator CC work
    (Star Wreck, activist shorts) plus Taxi Season 1 and Wishbone (item 15-NEW).
    `license_rescues` still keeps those; tightening it is Decision 027/114's call.
