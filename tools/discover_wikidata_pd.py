@@ -165,6 +165,12 @@ def collect(rows, have_ia, have_imdb, candidates):
     return added
 
 
+def queue_key(i, c):
+    """A candidate's identity in the merge: its Wikidata QID, else its archive
+    id, else its position. Never None — see the merge in main()."""
+    return c.get("wikidataQID") or (f"ia:{c['iaid']}" if c.get("iaid") else f"row:{i}")
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--limit", type=int, default=8000,
@@ -179,8 +185,14 @@ def main():
     existing = {}
     if CANDIDATES.exists():
         prior = json.loads(CANDIDATES.read_text(encoding="utf-8"))
-        for c in prior.get("candidates", []):
-            existing[c["wikidataQID"]] = c
+        # Keyed by QID only when there IS one. Every archive-collection and
+        # wants candidate carries wikidataQID None, and keying on it alone
+        # collapsed all of them onto one dict entry: this step silently DELETED
+        # every non-Wikidata candidate every night (measured 2026-09-25 — the
+        # queue went 12,341 awaiting -> 771, held entries vanished, and the
+        # sweep re-found the same items daily).
+        for i, c in enumerate(prior.get("candidates", [])):
+            existing[queue_key(i, c)] = c
     print(f"[discover] {len(existing):,} candidates already tracked", flush=True)
 
     candidates = dict(existing)
