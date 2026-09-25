@@ -767,6 +767,12 @@ installed. One consolidated Share menu (Open in Creation Studio when `isClippabl
 `ShareLink` to `archivewatch.org/item/{id}` · archive.org). "Open in Creation Studio" queues
 `store.pendingClipItem` then opens a fresh project window (the editor's `.task` consumes it).
 
+## §B7a — A collection's grid sorts like Browse
+
+Same rule as iOS-DESIGN 5.1c: the collection grid carries Browse's Sort picker
+(Popular, Top Rated, A–Z, Newest, Oldest) as a toolbar control, applied with
+`CatalogDB.ordered`. tvOS reaches a collection through Browse and needs nothing.
+
 ## §B8 — Channels EPG
 
 - **Rule B8a — a FIXED-window proportional EPG** (fixed channel rail + pinned time ruler + runtime-sized

@@ -52,8 +52,12 @@ struct CollectionGridView: View {
     let ref: CollectionRef
     @Environment(AppStore.self) private var store
     @Environment(Router.self) private var router
-    @State private var items: [Catalog.Item] = []
+    @State private var loaded: [Catalog.Item] = []
+    @State private var sort: CatalogDB.Sort = .popular
     private let cols = [GridItem(.adaptive(minimum: 110), spacing: 14)]
+
+    /// iOS-DESIGN 5.1c: Browse's sort, on the collection's own grid.
+    private var items: [Catalog.Item] { CatalogDB.ordered(loaded, by: sort) }
 
     var body: some View {
         ScrollView {
@@ -70,7 +74,22 @@ struct CollectionGridView: View {
             }.padding()
         }
         .navigationTitle(ref.title).navigationBarTitleDisplayMode(.inline)
-        .task(id: store.dbVersion) { items = store.byCollection(ref.id) }
+        .toolbar {
+            ToolbarItem(placement: .primaryAction) {
+                Menu {
+                    Picker("Sort", selection: $sort) {
+                        Text("Popular").tag(CatalogDB.Sort.popular)
+                        Text("Top Rated").tag(CatalogDB.Sort.rating)
+                        Text("A–Z").tag(CatalogDB.Sort.alphabetical)
+                        Text("Newest").tag(CatalogDB.Sort.newest)
+                        Text("Oldest").tag(CatalogDB.Sort.oldest)
+                    }
+                } label: {
+                    Label("Sort", systemImage: "arrow.up.arrow.down")
+                }
+            }
+        }
+        .task(id: store.dbVersion) { loaded = store.byCollection(ref.id) }
     }
 }
 

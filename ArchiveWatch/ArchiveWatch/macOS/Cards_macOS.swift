@@ -99,6 +99,11 @@ private let posterColumns = [GridItem(.adaptive(minimum: 150, maximum: 200), spa
 struct GridView: View {
     let title: String
     let items: [Catalog.Item]
+    /// macOS-DESIGN §B7a: a collection's grid carries Browse's sort.
+    var sortable = false
+    @State private var sort: CatalogDB.Sort = .popular
+
+    private var shown: [Catalog.Item] { sortable ? CatalogDB.ordered(items, by: sort) : items }
 
     var body: some View {
         ScrollView {
@@ -107,12 +112,27 @@ struct GridView: View {
                     .padding(.top, 80)
             } else {
                 LazyVGrid(columns: posterColumns, spacing: 18) {
-                    ForEach(items) { PosterCard(item: $0) }
+                    ForEach(shown) { PosterCard(item: $0) }
                 }
                 .padding()
             }
         }
         .navigationTitle(title)
+        .toolbar {
+            if sortable {
+                ToolbarItem {
+                    Picker("Sort", selection: $sort) {
+                        Text("Popular").tag(CatalogDB.Sort.popular)
+                        Text("Top Rated").tag(CatalogDB.Sort.rating)
+                        Text("A–Z").tag(CatalogDB.Sort.alphabetical)
+                        Text("Newest").tag(CatalogDB.Sort.newest)
+                        Text("Oldest").tag(CatalogDB.Sort.oldest)
+                    }
+                    .pickerStyle(.menu)
+                    .fixedSize()
+                }
+            }
+        }
     }
 }
 
