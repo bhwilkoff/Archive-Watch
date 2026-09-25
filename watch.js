@@ -3515,9 +3515,13 @@
         // Reload once so they match — but NEVER mid-film: the player dialog
         // holds the video, and reloading would kill playback. A user who is
         // watching gets the new build on their next visit instead.
+        // Only a REPLACED worker means old code: on a first visit
+        // clients.claim() fires controllerchange too, and reloading then
+        // wiped whatever the visitor had started typing (a room code).
+        const hadController = !!navigator.serviceWorker.controller;
         let reloading = false;
         navigator.serviceWorker.addEventListener('controllerchange', () => {
-          if (reloading || $('player').open) return;
+          if (!hadController || reloading || $('player').open) return;
           reloading = true;
           location.reload();
         });

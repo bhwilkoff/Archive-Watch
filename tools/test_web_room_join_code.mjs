@@ -93,12 +93,26 @@ try {
   const form = await waitFor(`!document.getElementById('together-join').hidden`);
   check("it opens the code field", form, await evaluate("location.hash"));
 
+  // A first visit must not reload under the guest. The service worker's
+  // clients.claim() fires controllerchange on a FIRST visit too, and the
+  // page reloaded on it — wiping a half-typed code (found 2026-09-25, when
+  // this harness's refusal check read an empty error after a reload).
+  await evaluate(`document.getElementById('together-code').value = 'zz'`);
+  await sleep(6000);
+  check("a first visit is not reloaded under the guest",
+        (await evaluate(`performance.getEntriesByType('navigation')[0].type`)) !== "reload"
+          && (await evaluate(`document.getElementById('together-code').value`)) === "zz",
+        JSON.stringify(await evaluate(`({ nav: performance.getEntriesByType('navigation')[0].type,
+          typed: document.getElementById('together-code')?.value, sw: !!navigator.serviceWorker?.controller })`)));
+
   // Refused: three characters.
   await evaluate(`document.getElementById('together-code').value = 'ab1';
     document.getElementById('together-join').requestSubmit()`);
-  await sleep(300);
-  check("a short code is refused with a sentence",
-        /four letters or numbers/.test(await text("together-error")), await text("together-error"));
+  const refused = await waitFor(`/four letters or numbers/.test(document.getElementById('together-error').textContent)`, 3000);
+  check("a short code is refused with a sentence", refused,
+        JSON.stringify(await evaluate(`({ hash: location.hash, err: document.getElementById('together-error').textContent,
+          errHidden: document.getElementById('together-error').hidden, bound: document.getElementById('together-join').dataset.bound || null,
+          sw: !!navigator.serviceWorker?.controller })`)));
 
   // The code as a guest would type what they heard: lower case, with a
   // spoken "oh" / "ell" standing in for 0 / 1 wherever the code has one.
