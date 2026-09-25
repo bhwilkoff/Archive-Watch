@@ -180,8 +180,12 @@ check("Fire TV does NOT claim Amazon publishes nothing",
       JSON.stringify(fire.slice(0, 90)));
 check("Fire TV reports its Vitals API state instead",
       /Vitals API/i.test(fire), JSON.stringify(fire.slice(0, 90)));
-check("Fire TV shows the console-only unit count",
-      /Units/.test(byId.get("platform-panels").innerHTML));
+// The hand-typed console unit count was removed 2026-09-25 (stale since
+// 09-09); installs are read from Amazon's sales report instead.
+check("Fire TV shows installs read from the sales report",
+      /installs/i.test(byId.get("platform-panels").innerHTML));
+check("...and no hand-typed unit count",
+      !/>Units</.test(byId.get("platform-panels").innerHTML));
 check("...and its lede does not say 'no API at all'",
       !/exposes no API at all/i.test(byId.get("platform-lede").innerHTML));
 

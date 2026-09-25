@@ -67,6 +67,7 @@ sub init()
     m.focused = false
     m.isTile = false
     setSize(m.t.posterW, m.t.posterH)
+    onFocusChanged()
 end sub
 
 sub setSize(w as Integer, h as Integer)
@@ -184,6 +185,12 @@ sub positionRing()
 end sub
 
 sub onFocusChanged()
+    ' A focus field can change BEFORE init() has run (RowList sets them as it
+    ' builds the tile — the same race as itemContent above), and m.t, m.plate
+    ' and m.caption do not exist yet: 1.0.75's most common crash, lines 197
+    ' and 214 of this function (Roku App Health, 2026-09-19..25). init() calls
+    ' this once at its end, so the early change is applied, not lost.
+    if m.t = invalid or m.caption = invalid then return
     ' §13.3 — same gate as GridTile: RowList keeps itemHasFocus on the
     ' last item after focus leaves the row, so the ROW's focus gates the ring.
     ' rowHasFocus stays true on the current row after the LIST loses focus

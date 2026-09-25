@@ -2796,7 +2796,10 @@ sub onPlaybackFailed()
     if msg = invalid or msg = "" then return
     print "AWPLAY failed-notice "; msg
     closePlayer()
-    m.detail.toast = msg
+    ' A film started from a deep link or a channel has no Detail behind it,
+    ' and `m.detail.toast` on invalid crashed the channel inside its own
+    ' error handler (Roku App Health, 1.0.75: MainScene.brs(2695), 2 devices).
+    if m.detail <> invalid then m.detail.toast = msg
 end sub
 
 sub onPlaybackEnded()

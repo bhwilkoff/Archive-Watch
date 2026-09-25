@@ -24,6 +24,7 @@ sub init()
     m.tileLabel.maxLines = 5
     m.tileLabel.lineSpacing = 2
     setSize(192, 288)
+    onFocusChanged()
 end sub
 
 sub onArtLoaded()
@@ -75,6 +76,9 @@ sub onContent()
 end sub
 
 sub onFocusChanged()
+    ' Before init() the nodes do not exist (1.0.75: GridTile.brs(40), setSize
+    ' on an invalid plate). init() calls this once at its end.
+    if m.t = invalid or m.plate = invalid then return
     ' §13.3 — one lit thing at a time. A tile that stays ringed after focus
     ' moves to the chips above it is a second lit thing; MarkupGrid keeps
     ' itemHasFocus on the last item, so the grid's OWN focus must gate it.

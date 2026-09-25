@@ -134,10 +134,14 @@ function buildSeries(d) {
   add({ key: "apple-dl", label: "Apple downloads", unit: " downloads", view: "reach",
         points: pts(h.appleDownloads?.daily, "date", "units"),
         src: "https://appstoreconnect.apple.com/analytics", reader: "apple_downloads" });
+  // Lags MEASURED, not assumed: across 15 readings (09-12..09-25) Play's
+  // acquisition data ran 6-8 days behind, so 3 called every normal day stale.
+  // The install export's own alarm is 14 days (play_reports), past its two
+  // stacked lags (PULSE-ANALYTICS §9).
   add({ key: "android-acq", label: "Android listing acquisitions", unit: " acquisitions",
-        view: "reach", points: pts(h.playAcquisition?.daily, "date", "acquisitions"),
+        view: "reach", lag: 8, points: pts(h.playAcquisition?.daily, "date", "acquisitions"),
         src: "https://play.google.com/console", reader: "play_acquisition" });
-  add({ key: "android-inst", label: "Android installs", unit: " installs", view: "reach",
+  add({ key: "android-inst", label: "Android installs", unit: " installs", view: "reach", lag: 14,
         points: pts(h.playInstalls?.daily, "date", "installs"),
         src: "https://play.google.com/console", reader: "play_reports",
         staleNote: h.playInstalls?.staleDays

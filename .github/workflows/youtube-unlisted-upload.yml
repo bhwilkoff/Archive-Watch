@@ -37,5 +37,5 @@ jobs:
         run: |
           URL=$(python3 tools/youtube_upload_unlisted.py "/tmp/v/${{ inputs.asset }}" \
                 --title "${{ inputs.title }}" --description "${{ inputs.description }}")
-          echo "$URL"
+          echo "[youtube-upload] uploaded unlisted: $URL"
           echo "### $URL" >> "$GITHUB_STEP_SUMMARY"
