@@ -145,8 +145,12 @@ xcrun devicectl device install app --device <UDID> /path/ArchiveWatch.app
 xcrun devicectl device info apps --device <UDID>          # VERIFY the version
 xcrun devicectl device process launch --device <UDID> --terminate-existing <bundle>
 xcrun devicectl device process launch --device <UDID> --console <bundle>   # readable log
-xcrun devicectl device capture screenshot --device <UDID> out.png          # 3840x2160 on ATV
-xcrun devicectl device openURL --device <UDID> --url 'archivewatch://item/x'
+xcrun devicectl device capture screenshot --device <UDID> --destination out.png   # 3840x2160 on ATV
+# There is no `openURL` subcommand (Xcode 27 beta). Open a URL by launching the
+# app that should receive it; for the web app on a phone that is Safari:
+xcrun devicectl device process launch --device <UDID> --payload-url 'https://archivewatch.org/#/library' com.apple.mobilesafari
+# Pixel / Android Chrome:  adb -s <serial> shell am start -a android.intent.action.VIEW -d '<url>' com.android.chrome
+#                          adb -s <serial> exec-out screencap -p > out.png
 ```
 
 Gotchas, each of which cost a debugging cycle:
