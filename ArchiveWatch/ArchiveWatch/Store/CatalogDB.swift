@@ -338,12 +338,17 @@ final class CatalogDB {
     /// Movies"). tv-series cards are handled per-query (they DO lead TV shelves).
     /// tv-specials surface via the TV tab's TV Specials grid; tv-episodes via the
     /// series Detail + favorites/playlists/SEARCH (episodes ARE searchable — see
-    /// `searchExclude`, which keeps them in the index while this drops them here).
+    /// `search`, which keeps every type while this drops them here).
     private let notStandaloneTV = "AND i.contentType NOT IN ('tv-special','tv-episode')"
 
-    /// Search MAY return episode items (the whole point of making them items —
-    /// Decision 045), so it drops only tv-special, not tv-episode.
-    private let searchExclude = "AND i.contentType != 'tv-special'"
+    /// Search returns EVERY content type the viewer's settings allow, TV
+    /// specials included. It used to drop `tv-special` (Decision 045, when a
+    /// special was mostly an un-folded episode duplicating an episode item);
+    /// by 2026-09 specials were standalone programs with no other door into
+    /// search — a viewer found a 1959 "Maigret" on Roku and could not find it
+    /// on Apple TV "using menus or search" (r/classicfilms). Web, Roku and
+    /// Android never excluded them. One archiveID is one row, so there is no
+    /// duplicate to guard against.
 
     // MARK: - Queries the views use
 
@@ -626,7 +631,7 @@ final class CatalogDB {
             SELECT j.json FROM items_fts f
             JOIN item_json j ON j.archiveID = f.archiveID
             JOIN items i ON i.archiveID = f.archiveID
-            WHERE items_fts MATCH ? \(adultAnd) \(notCommercial) \(searchExclude) \(typeAnd)
+            WHERE items_fts MATCH ? \(adultAnd) \(notCommercial) \(typeAnd)
             ORDER BY (LOWER(i.title) = LOWER(?)) DESC, rank, i.popularityScore DESC
             LIMIT \(limit)
         """, [q, query])
