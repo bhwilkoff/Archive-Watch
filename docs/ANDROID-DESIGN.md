@@ -16,7 +16,7 @@ or tvOS rule, that inversion is deliberate — do not "harmonize" them.
   tvOS chrome; never invent a custom control where an M3 one exists
   (`native-platform-first`).
 - **§1.2 Compose-only, single Activity.** No Fragments, no AppCompat, no
-  XML layouts beyond the splash/launcher theme. `minSdk 29`, edge-to-edge.
+  XML layouts beyond the splash/launcher theme. `minSdk 23` on both flavors (Decision 141), edge-to-edge.
 - **§1.3 One shared data plane** (Decisions 017/028). The phone consumes the
   same `catalog.sqlite` (bundled seed → cached → downloaded `.zz`), the same
   `featured.json`, and the same `series/*.json` as every other client. No
@@ -416,8 +416,10 @@ rather than a new idea.*
   being read closely.
 - **§9.5 The Studio is a GOOGLE-FLAVOUR feature.** The `amazon` flavour is
   minSdk 23 for Fire TV (Decision 100/115), Fire TV has no camera, and the
-  encode path assumes APIs the Google flavour's minSdk 29 guarantees. Gate it
-  at the flavour, not with a runtime check that degrades.
+  encode path has only been measured on Android 10+. Since Decision 141 took
+  the whole app to minSdk 23, that floor is held by `canHostShow`
+  (`MIN_HOST_SDK = 29`) beside the camera-and-microphone gate, so an older
+  phone is never offered a broadcast nobody has seen work.
 - **§9.6 Camera and microphone are asked for AT THE POINT OF GOING LIVE**,
   never at launch and never as a precondition for browsing. A viewer who
   never broadcasts is never asked, which is the same rule §1 applies to every

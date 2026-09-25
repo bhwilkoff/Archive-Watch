@@ -61,7 +61,11 @@ android {
         // applicationId must match it. The Kotlin namespace above stays
         // app.archivewatch.android (source packages don't move).
         applicationId = "com.archivewatch.app"
-        minSdk = 29
+        // Android 6+ on every store (owner, 2026-09-25; Decision 141). Lint NewApi
+        // must stay clean at this floor, and the ISRG roots in
+        // network_security_config.xml are what let Android 6.0-7.0 download
+        // the catalog at all.
+        minSdk = 23
         targetSdk = 36
         // Play rejects ANY previously-uploaded versionCode — bump +1 before
         // every Play upload, even if that upload was never released.
@@ -121,7 +125,8 @@ android {
         }
         create("amazon") {
             dimension = "store"
-            // PROBE: find the true dependency floor for the Fire TV build.
+            // Fire OS 7 (API 28) and older Fire TVs; the whole app now shares
+            // this floor (Decision 141).
             minSdk = 23
             // Amazon Appstore. Deliberately ZERO GMS: no Cast, no Play
             // Services of any kind. If you are about to add a dependency

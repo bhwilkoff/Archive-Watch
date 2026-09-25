@@ -29,4 +29,10 @@ class StudioCapabilityTest {
     @Test fun `a microphone with no camera cannot host`() {
         assertFalse(StudioCapability.canHostShow(hasCamera = false, hasMicrophone = true))
     }
+
+    @Test
+    fun `an Android older than 10 is not offered hosting, even with a camera and microphone`() {
+        assertFalse(StudioCapability.canHostShow(hasCamera = true, hasMicrophone = true, sdk = 28))
+        assertTrue(StudioCapability.canHostShow(hasCamera = true, hasMicrophone = true, sdk = 29))
+    }
 }

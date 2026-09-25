@@ -223,6 +223,7 @@ into every session and the index alone carries every title.)
 - 138 — You are the show: going live needs the host, and the Studio captures only what a call runs in
 - 139 — More Like This is ranked once, in the pipeline, by the people and series films share, and it says why
 - 140 — An uploader's word is not enough: a modern or undated title kept only on its archive licence needs independent evidence
+- 141 — Android runs from Android 6 (API 23) on every store; the floor is held by lint NewApi and by the bundled Let's Encrypt roots
 
 ---
 
@@ -951,3 +952,28 @@ evidence lifts it on the next publish. Ingest holds such uploads
 (`held_modern_license`) on the same bucket, so the two cannot disagree.
 `tools/test_audit_rights.py` pairs each case: hidden without evidence, kept with it.
 
+
+## 141 — Android runs from Android 6 (API 23) on every store; the floor is held by lint NewApi and by the bundled Let's Encrypt roots
+*Date: 2026-09-25*
+
+The Google Play build's `minSdk` drops from 29 to **23**, the floor the Fire
+TV flavor already shipped at (Decision 100). Twelve calls above API 23 in the
+shared source are guarded or moved to AndroidX compat, and ISRG Root X1/X2 are
+bundled as extra trust anchors in `res/xml/network_security_config.xml`.
+
+**Why**: the owner asked what stopped older Android and Google TV devices from
+being supported. Measured: no dependency needs more than 23 (the manifest merge
+passes), so the floor of 29 was a number nobody had questioned. What DID stand
+in the way was invisible from the build: lint NewApi found 12 calls that do
+not exist below Android 7-8 — live hazards in the Fire TV build already — and
+every endpoint the catalog and posters come from chains to Let's Encrypt,
+which Android 6.0-7.0 do not trust, so on those devices the app would install
+and then fail to download its catalog. Owner, choosing the floor: "Android 6+
+(API 23)".
+
+**How to apply**: keep `lint NewApi` clean at 23 for BOTH flavors before any
+release (`./gradlew :app:lintGoogleRelease :app:lintAmazonRelease` with
+NewApi); a call above 23 needs a `Build.VERSION.SDK_INT` guard or a Compat
+equivalent. Never remove the ISRG trust anchors while any endpoint chains to
+Let's Encrypt. No test device runs below Android 11, so Play's crash clusters
+by API level are the first real evidence from 23-29; read them after release.

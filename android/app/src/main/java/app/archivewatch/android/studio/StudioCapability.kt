@@ -29,8 +29,15 @@ import android.content.pm.PackageManager
 object StudioCapability {
 
     /** The decision, as a pure function, so it can be tested without a device. */
-    fun canHostShow(hasCamera: Boolean, hasMicrophone: Boolean): Boolean =
-        hasCamera && hasMicrophone
+    /** Hosting has only ever been measured on Android 10+ (the app's floor
+     *  until Decision 141 took the rest of the app to 23): the encode path's
+     *  behaviour on older MediaCodec implementations is untested, and a host
+     *  whose broadcast fails is worse than one who is not offered it. */
+    const val MIN_HOST_SDK = 29
+
+    fun canHostShow(hasCamera: Boolean, hasMicrophone: Boolean,
+                    sdk: Int = MIN_HOST_SDK): Boolean =
+        hasCamera && hasMicrophone && sdk >= MIN_HOST_SDK
 }
 
 /**
@@ -41,4 +48,5 @@ fun Context.canHostWatchTogether(): Boolean =
     StudioCapability.canHostShow(
         hasCamera = packageManager.hasSystemFeature(PackageManager.FEATURE_CAMERA_ANY),
         hasMicrophone = packageManager.hasSystemFeature(PackageManager.FEATURE_MICROPHONE),
+        sdk = android.os.Build.VERSION.SDK_INT,
     )
