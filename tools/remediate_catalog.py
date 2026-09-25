@@ -2054,6 +2054,13 @@ def sanitize_title(it):
     m = re.match(r"^\s*\[(.+)\]\s*$", t)
     if m:
         t = m.group(1).strip()
+    # ...and one followed only by part/reel markers: "[Amateur film: Medicus
+    # collection: New York World's Fair, 1939-40] (Reel 2) (Part I)". The
+    # bracket-strip below deleted the real title and left 42 visible cards
+    # called "(Part I)" (2026-09-25).
+    m = re.match(r"^\s*\[([^\]]+)\]\s*((?:\([^)]*\)\s*)+)$", t)
+    if m:
+        t = f"{m.group(1).strip()} {m.group(2).strip()}"
     t = _audit.T_BRACKET.sub(" ", t)
     t = _audit.T_RES.sub(" ", t)
     # Drop "(Disc 2)"/"Reel 5"/"(Tape 1)" volume markers when real text remains.
@@ -2064,6 +2071,11 @@ def sanitize_title(it):
     # after quality/rip/bracket strips have peeled off whatever followed it. A paren that LEADS
     # with a year (incl. genre junk, or a year-paren followed by another paren) goes first, then
     # the bare leading/trailing year forms.
+    # A part marker is identity (see _PART_MARKER): the year steps below cut
+    # 'Title, 1939-40 (Part I)' at the year and took the marker with it, so
+    # every part of a reel set came out with the same title. Put it back.
+    part = _PART_MARKER.search(t)
+    part = part.group(0).strip() if part else None
     t = _keep_if_lettered(_PAREN_LEADING_YEAR.sub(" ", t), t)
     t = _keep_if_lettered(_TRAIL_OPEN_YEAR.sub("", t), t)
     t = _keep_if_lettered(_LANG_PAREN.sub(" ", t), t)
@@ -2074,6 +2086,8 @@ def sanitize_title(it):
     t = _strip_trailing_year(t)
     t = _strip_trailing_year_field(t, it.get("year"))
     t = re.sub(r"\s+", " ", t).strip(" -_|")
+    if part and part.lower() not in t.lower():
+        t = f"{t.rstrip(' ,;:')} {part}"
     if t and t.isupper() and len(t.split()) > 1:
         t = _title_case(t)
     elif t and t == t.lower() and len(t.split()) > 1 and re.search(r"[a-z]", t):

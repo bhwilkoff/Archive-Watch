@@ -324,6 +324,10 @@ jobs:
       # rebuilds the SQLite from it on its schedule.
       # Self-healing data-quality pass (year leaks, silent/animation
       # misclass, adult flags) before the catalog goes to the release.
+      - name: Repair titles the cleaner reduced to a parenthetical
+        # Idempotent: a no-op once the 2026-09-25 damage ("(Part I)") is gone.
+        run: python tools/repair_bracket_titles.py | tail -3
+
       - name: Remediate catalog data quality
         run: python tools/remediate_catalog.py
 
