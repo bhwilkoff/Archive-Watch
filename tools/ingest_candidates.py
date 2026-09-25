@@ -100,6 +100,12 @@ def build_item(cand, meta, session, omdb_key, omdb_cache, now):
 
     subjects = as_list(md.get("subject"))
     title = md.get("title") or cand.get("title") or iaid
+    # archive.org sometimes returns a LIST for title; one such item at the
+    # head of the oldest-first queue crashed a whole night's ingest
+    # (2026-09-25, run 36093064909: TypeError in the year regex, 0 ingested).
+    if isinstance(title, list):
+        title = next((t for t in title if isinstance(t, str) and t.strip()), None) or iaid
+    title = str(title)
 
     # Year: Archive metadata.year, the candidate's Wikidata year, or a year in
     # the title. Deliberately NOT metadata.date — that's frequently the upload/
@@ -429,7 +435,14 @@ def main():
                 cand["status"] = "duplicate"; skipped += 1; continue
             if status.startswith("error"):
                 cand["status"] = "error"; cand["error"] = status[6:]; errored += 1; continue
-            item, reason = build_item(cand, meta, sess(), omdb_key, omdb_cache, now)
+            # One malformed archive record must not end the night: it did, on
+            # 2026-09-25, and 900 slots produced nothing. Mark it and go on.
+            try:
+                item, reason = build_item(cand, meta, sess(), omdb_key, omdb_cache, now)
+            except Exception as e:  # noqa: BLE001
+                cand["status"] = "error"; cand["error"] = f"build: {type(e).__name__}: {e}"[:200]
+                errored += 1
+                continue
             if item is None:
                 cand["status"] = reason; no_video += 1; continue
             iaid = cand["iaid"]
