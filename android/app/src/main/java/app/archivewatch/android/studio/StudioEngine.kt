@@ -743,11 +743,12 @@ class StudioEngine(
             // the overlay which no other interface shows (other than the
             // livestream)" — true, and Android was alone in it, because
             // `setVideoSurface` is exclusive so the host must be shown the
-            // program rather than the bare film (Decision 129). The film and
-            // the camera tile are what a host needs to see; the title card is
-            // furniture for the audience. What this gives up is 129's "a host
-            // watching what their audience is watching cannot be surprised by
-            // it", and it is one boolean to put back.
+            // program rather than the bare film (Decision 129). And without the
+            // camera tile too (owner, 2026-09-21: "why does it show on the
+            // screen for the movie you are watching?") — every platform lets
+            // the host watch the bare film. What this gives up is 129's "a
+            // host watching what their audience is watching cannot be
+            // surprised by it", and it is two booleans to put back.
             drawProgram(pg, withOverlay = false, withCamera = false)
             val dispAt = System.nanoTime()
             g.swapDisplay()

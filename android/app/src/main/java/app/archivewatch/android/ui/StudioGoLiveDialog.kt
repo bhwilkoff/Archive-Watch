@@ -78,6 +78,22 @@ fun StudioGoLiveDialog(
         hostOk = hostGranted()
         hostRefused = !hostOk
     }
+    // Android 13+ hides a foreground service's notification until
+    // POST_NOTIFICATIONS is granted, and the manifest declared it without the
+    // app ever asking — so a host never saw "You're live" or its "End the
+    // broadcast" action (found recording Play's foreground-service demo,
+    // 2026-09-25). Asked as Go live is pressed; the show starts whatever the
+    // answer, because the notification helps the host and gates nothing.
+    val askNotify = rememberLauncherForActivityResult(
+        ActivityResultContracts.RequestPermission()) { onGoLive() }
+    val goLive: () -> Unit = {
+        if (android.os.Build.VERSION.SDK_INT >= 33 &&
+            !granted(Manifest.permission.POST_NOTIFICATIONS)) {
+            askNotify.launch(Manifest.permission.POST_NOTIFICATIONS)
+        } else {
+            onGoLive()
+        }
+    }
     // Back from Settings: read the grant again.
     val lifecycle = LocalLifecycleOwner.current.lifecycle
     DisposableEffect(lifecycle) {
@@ -148,7 +164,7 @@ fun StudioGoLiveDialog(
             }
         },
         confirmButton = {
-            TextButton(enabled = signedIn && hostOk, onClick = onGoLive) { Text("Go live") }
+            TextButton(enabled = signedIn && hostOk, onClick = goLive) { Text("Go live") }
         },
         dismissButton = {
             TextButton(onClick = onDismiss) { Text("Not now") }

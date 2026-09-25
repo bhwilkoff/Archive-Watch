@@ -1,0 +1,41 @@
+name: YouTube unlisted upload
+# Store-review evidence (a demo video a reviewer opens by link). Manual only.
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "release tag holding the video asset"
+        required: true
+        default: ops-media
+      asset:
+        description: "asset file name"
+        required: true
+      title:
+        description: "video title"
+        required: true
+      description:
+        description: "video description"
+        required: false
+        default: ""
+permissions:
+  contents: read
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch the video
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh release download "${{ inputs.tag }}" --pattern "${{ inputs.asset }}" --dir /tmp/v
+      - name: Upload unlisted
+        env:
+          YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
+          YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
+          YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
+        run: |
+          URL=$(python3 tools/youtube_upload_unlisted.py "/tmp/v/${{ inputs.asset }}" \
+                --title "${{ inputs.title }}" --description "${{ inputs.description }}")
+          echo "$URL"
+          echo "### $URL" >> "$GITHUB_STEP_SUMMARY"

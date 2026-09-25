@@ -183,6 +183,9 @@ def main():
                          "'has the fix shipped yet' is the question this answers "
                          "without hand-rolling an API call.")
     ap.add_argument("--apk", help="APK to upload as a new version")
+    ap.add_argument("--notes", help="'Recent changes' for the en-US listing. "
+                    "Amazon refuses the commit without them "
+                    "(error_release_notes_incomplete).")
     ap.add_argument("--commit", action="store_true",
                     help="submit the edit for review (default: leave it open)")
     ap.add_argument("--add", action="store_true",
@@ -240,6 +243,18 @@ def main():
         print(f"\nedit {eid} left OPEN — review it in the console, then re-run "
               f"with --commit, or commit it there.")
         return 0
+
+    # "Recent changes" live on each language's LISTING, not the edit, and a
+    # commit without them is refused (error_release_notes_incomplete —
+    # 2026-09-25, the first submission since Decision 111 that needed them).
+    if a.notes:
+        lst, ltag = call(tok, "GET", f"/applications/{app}/edits/{eid}/listings/en-US")
+        if not isinstance(lst, dict):
+            sys.exit(f"could not read the en-US listing: {str(lst)[:200]}")
+        lst["recentChanges"] = a.notes
+        call(tok, "PUT", f"/applications/{app}/edits/{eid}/listings/en-US",
+             body=json.dumps(lst).encode(), etag=ltag)
+        print("en-US recent changes set")
 
     # The commit is conditional on the edit's current ETag; fetch it fresh so we
     # can never commit a version of the edit we did not just build.
