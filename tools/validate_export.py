@@ -93,8 +93,8 @@ def check_shelf_populations(catalog, featured, min_count):
             shelf_items[s] = shelf_items.get(s, 0) + 1
     underpopulated = []
     for shelf in featured.get("shelves", []):
-        if shelf.get("type") == "seeded":
-            continue  # seeded shelves are placeholders for future work
+        if shelf.get("type") in ("seeded", "computed"):
+            continue  # seeded: placeholders; computed: membership is build_sqlite's
         count = shelf_items.get(shelf["id"], 0)
         if count < min_count:
             underpopulated.append({"shelf": shelf["id"], "count": count, "min": min_count})

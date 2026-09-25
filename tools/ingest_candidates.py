@@ -469,6 +469,7 @@ def main():
             if iaid in have:                 # de-dup within the concurrent chunk
                 cand["status"] = "duplicate"; skipped += 1; continue
             have.add(iaid)
+            item.setdefault("addedAt", now)      # "New to Archive Watch" (owner 2026-09-25)
             chunk_items.append(item)
             ingested_ids.append(iaid)
             cand["status"] = "ingested"; cand["ingested_at"] = now; ingested += 1

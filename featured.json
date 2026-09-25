@@ -129,6 +129,13 @@
       "limit": 24
     },
     {
+      "id": "new-arrivals",
+      "title": "New to Archive Watch",
+      "subtitle": "Films added to the catalog in the last few weeks",
+      "category": "feature-film",
+      "type": "computed"
+    },
+    {
       "id": "all-time-features",
       "title": "All-Time Favorites",
       "subtitle": "The ones viewers come back to, year after year",

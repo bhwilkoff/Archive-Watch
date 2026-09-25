@@ -228,6 +228,8 @@ tvOS Home — owner direction 2026-06-11; the Modes row was removed 2026-06-10,
 see §2.6). Inserting a section means amending this rule, not appending
 wherever.
 
+5.1a **New to Archive Watch** (`new-arrivals`, owner 2026-09-25: "Yes, all platforms"): the films the catalog GAINED in the last 45 days, from each item's `addedAt` stamp. Membership is computed ONCE in the pipeline (`build_sqlite._shelf_ids_for`, Decision 050) and gated like every shelf (`shelf_rights_ok`, professional art, plays). It is the SECOND featured shelf in the canonical order, after `popular-features`, and it obeys this platform's shelf floor: a quiet month has no row, never an apology. (It is therefore one of the "first two featured shelves" above.)
+
 5.1b **Category tiles must open robust grids.** A tile only shows when its
 content type has ≥30 browseable items (`browseCount` gate, both platforms —
 the classifier emits almost no "documentary", and a near-empty grid reads as

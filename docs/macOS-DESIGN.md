@@ -724,6 +724,10 @@ Three SwiftUI scenes, in order: `WindowGroup("Archive Watch")` (parity face, roo
 - **Rule B4c — rotation via structured concurrency, not a Combine timer** (§B10). `HeroCarousel`
   cross-fades every 7 s via `.task(id: items.map(\.archiveID))`; hover pauses.
 
+## §B4b — Home shelves follow the shared canonical order
+
+`Featured.homeShelfPriority` (shared with tvOS/iOS) is the macOS order too. **New to Archive Watch** (`new-arrivals`, owner 2026-09-25: "Yes, all platforms"): the films the catalog GAINED in the last 45 days, from each item's `addedAt` stamp. Membership is computed ONCE in the pipeline (`build_sqlite._shelf_ids_for`, Decision 050) and gated like every shelf (`shelf_rights_ok`, professional art, plays). It is the SECOND featured shelf in the canonical order, after `popular-features`, and it obeys this platform's shelf floor: a quiet month has no row, never an apology.
+
 ## §B5 — The player title rule (no externalMetadata on macOS)
 
 - **Rule B5a — the on-screen title rides the WINDOW TITLE BAR** (`navigationTitle("Title (Year)")`),

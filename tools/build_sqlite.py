@@ -191,12 +191,56 @@ def shelf_rights_ok(it):
     return _rights_bucket(it) in SHELF_MODERN_BUCKETS
 
 
+# "New to Archive Watch" (owner, 2026-09-25: "Yes, all platforms"): what the
+# catalog GAINED recently. `addedAt` is stamped at ingest; items ingested
+# before the stamp existed take their candidate's `ingested_at` from the
+# discovery queue, so the row is right on the first build rather than empty
+# for a month. Rules: docs/*-DESIGN.md "New to Archive Watch".
+NEW_ARRIVALS_SHELF = "new-arrivals"
+NEW_ARRIVALS_DAYS = 45
+
+
+def _queue_ingested_at():
+    try:
+        q = json.loads((REPO / "shared" / "editorial" / "discovery_candidates.json")
+                       .read_text(encoding="utf-8"))
+    except Exception:  # noqa: BLE001
+        return {}
+    q = q if isinstance(q, list) else q.get("candidates", [])
+    return {c["iaid"]: c["ingested_at"] for c in q
+            if c.get("status") == "ingested" and c.get("iaid") and c.get("ingested_at")}
+
+
+_QUEUE_ADDED = None
+
+
+def added_at(it):
+    global _QUEUE_ADDED
+    if it.get("addedAt"):
+        return str(it["addedAt"])
+    if _QUEUE_ADDED is None:
+        _QUEUE_ADDED = _queue_ingested_at()
+    return _QUEUE_ADDED.get(it.get("archiveID"))
+
+
+def _new_arrivals_since():
+    import datetime as _dt
+    return (_dt.datetime.now(_dt.timezone.utc)
+            - _dt.timedelta(days=NEW_ARRIVALS_DAYS)).strftime("%Y-%m-%d")
+
+
+NEW_ARRIVALS_SINCE = _new_arrivals_since()
+
+
 def _shelf_ids_for(it):
     """Full Home-shelf membership for an item: its stored `shelves` UNION any
     shelf whose collection: query the item's collections satisfy."""
     if not shelf_rights_ok(it):
         return set()
     ids = set(it.get("shelves") or [])
+    a = added_at(it)
+    if a and a[:10] >= NEW_ARRIVALS_SINCE:
+        ids.add(NEW_ARRIVALS_SHELF)
     for c in (it.get("collections") or []):
         ids.update(SHELF_COLLECTION_MAP.get(str(c), []))
     ids.update(SHELF_TYPE_MAP.get(it.get("contentType") or "", []))

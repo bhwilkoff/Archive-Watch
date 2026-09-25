@@ -46,6 +46,8 @@ cannot inspect. Archive Watch exposes the structure of the catalog (categories,
 decades, collections, community signals) so a viewer learns how the archive is
 organized. A black-box row teaches nothing. *(Learning-orientation guardrail 1.)*
 
+**1.4a** **New to Archive Watch** (`new-arrivals`, owner 2026-09-25: "Yes, all platforms"): the films the catalog GAINED in the last 45 days, from each item's `addedAt` stamp. Membership is computed ONCE in the pipeline (`build_sqlite._shelf_ids_for`, Decision 050) and gated like every shelf (`shelf_rights_ok`, professional art, plays). It is the SECOND featured shelf in the canonical order, after `popular-features`, and it obeys this platform's shelf floor: a quiet month has no row, never an apology. It passes 1.4 because it is inspectable: the row is exactly "what arrived", ranked by nothing a viewer cannot see.
+
 **1.5 No lean-back-only degraded build.** It is tempting to ship TV as "hero +
 autoplay + nothing else." Browse, Search, Favorites, Playlists, Channels and
 Surprise are what make the catalog explorable rather than consumable. A TV build

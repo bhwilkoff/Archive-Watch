@@ -82,6 +82,7 @@ separate tool with its own conventions (CLAUDE.md) — these rules govern the
 
 ## §4 Surfaces
 
+- **§4.1a** **New to Archive Watch** (`new-arrivals`, owner 2026-09-25: "Yes, all platforms"): the films the catalog GAINED in the last 45 days, from each item's `addedAt` stamp. Membership is computed ONCE in the pipeline (`build_sqlite._shelf_ids_for`, Decision 050) and gated like every shelf (`shelf_rights_ok`, professional art, plays). It is the SECOND featured shelf in the canonical order, after `popular-features`, and it obeys this platform's shelf floor: a quiet month has no row, never an apology. Web: `HOME_SHELF_PRIORITY` in watch.js.
 - **§4.1 Home** = the Marquee hero + Browse-by-Category accent tiles
   (count-gated ≥30, featured.json accents) + featured shelves + Hidden Gems
   (designed art from the popularity tail) + Public Domain Day (year =

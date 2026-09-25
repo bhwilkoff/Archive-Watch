@@ -231,6 +231,8 @@ shelves, Public Domain Day, then category tiles, and **decade tiles last** —
 matching every other platform. Each row shows its title and, on focus, the
 platform row counter. Shelf subtitles from `featured.json` render at Meta.
 
+**6.1a** **New to Archive Watch** (`new-arrivals`, owner 2026-09-25: "Yes, all platforms"): the films the catalog GAINED in the last 45 days, from each item's `addedAt` stamp. Membership is computed ONCE in the pipeline (`build_sqlite._shelf_ids_for`, Decision 050) and gated like every shelf (`shelf_rights_ok`, professional art, plays). It is the SECOND featured shelf in the canonical order, after `popular-features`, and it obeys this platform's shelf floor: a quiet month has no row, never an apology. Roku orders featured shelves by `featured.json` FILE order, so the entry sits after `popular-features` there too.
+
 **6.2 Home gates on `hasProfessionalArtwork`** (Decision 097). A shelf that
 cannot field six professional posters hides rather than padding itself with
 frame grabs. This does NOT apply to the viewer's own Favorites.

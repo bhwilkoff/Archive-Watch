@@ -72,7 +72,8 @@ macOS) since they share the Swift Core.
 | Top Rated shelf (IMDb) + rating sort in Browse | ✅ | ✅ | ✅ shelf + Browse sort (`CatalogDB.Sort`) | ✅ Home shelf (index `top-rated`); Browse rating sort ⏳ | ✅ | votes floor ≥1,000. Membership is COMPUTED in `build_catalog_index`, never restated client-side (D050) |
 | Community shelves (Watching Now / Favorites / Most Discussed) | ✅ | ✅ | ✅ | ✅ | ✅ | archive.org signals; vote-floored ≥1,000 |
 | Detail community (stats + genuine reviews) | ✅ | ✅ | ✅ | ✅ | ✅ | reviews filtered in the pipeline (`comment_fit.py`), baked into the catalog |
-| Director shelves | ✅ | ✅ | ✅ | ✅ top 4 by film count, grouped on the index's `director` column | ✅ | shared query. Web skips a director a curated shelf already covers |
+| Director shelves | ✅ | ✅ | ✅ | ✅ grouped on the index's `director` column | ✅ | ordered by the pipeline's popularity rank (`director_rank` / index `directorRank`, owner 2026-09-25), film count as fallback; Roku too. Web skips a director a curated shelf already covers |
+| "New to Archive Watch" shelf | ✅ | ✅ | ✅ | ✅ | ✅ | owner 2026-09-25, all platforms. `new-arrivals` in featured.json (type `computed`); membership = `addedAt` within 45 days, computed in `build_sqlite._shelf_ids_for` for every platform (D050). Second featured shelf in the canonical order; Roku by featured.json file order |
 | Continue Watching | ✅ | ✅ | ✅ progress + widget + Home shelf | ✅ | ✅ | progress store (§6) |
 | Modes row | ✅ | ➖ removed (Channels tab; modes via Surprise grid) | ➖ (Cartoon via Modes; Channels/Surprise are sidebar) | ➖ removed, as on iOS/macOS — Channels is top-level nav and the modes live on Surprise (Cartoon Mode, Party Play) | ⏳ | links to §5 |
 | Public Domain Day section | ✅ | ✅ Home shelf + year-chip explorer | ⏳ | ✅ Home shelf | ✅ Home row | seasonal, shared |

@@ -28,7 +28,7 @@
   const PAGE_SIZE = 60;
   // Canonical Home shelf order, matching Apple TV (Featured.homeShelfPriority) — owner 2026-06-29.
   const HOME_SHELF_PRIORITY = [
-    'popular-features', 'wikidata-pd', 'film-noir', 'scifi-horror',
+    'popular-features', 'new-arrivals', 'wikidata-pd', 'film-noir', 'scifi-horror',
     'silent-hall-of-fame', 'melies', 'video-cellar', 'comedy',
     'animation-all', 'vintage-cartoons', 'nasa', 'classic-tv-1960s',
     'classic-tv-1950s', 'classic-tv-1970s', 'ephemera', 'newsreels',

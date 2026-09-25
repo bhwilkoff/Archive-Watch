@@ -94,6 +94,7 @@ or tvOS rule, that inversion is deliberate — do not "harmonize" them.
   platforms). The Home top bar carries a shuffle action → Surprise grid.
   Inserting a section means amending this rule. Hide-watched (Settings
   toggle) filters completed titles from shelves/gems/PD Day.
+- **§4.1a** **New to Archive Watch** (`new-arrivals`, owner 2026-09-25: "Yes, all platforms"): the films the catalog GAINED in the last 45 days, from each item's `addedAt` stamp. Membership is computed ONCE in the pipeline (`build_sqlite._shelf_ids_for`, Decision 050) and gated like every shelf (`shelf_rights_ok`, professional art, plays). It is the SECOND featured shelf in the canonical order, after `popular-features`, and it obeys this platform's shelf floor: a quiet month has no row, never an apology.
 - **§4.2 Browse** = scope FilterChips (All/Films/TV/Silent/Animation/Shorts/
   Newsreels/Documentary/Ephemera) + decade, sort, **keyword and studio**
   dropdowns + adaptive `LazyVerticalGrid` with paging-on-scroll (60/page) and
