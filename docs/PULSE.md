@@ -73,8 +73,54 @@ visual form.)
 hairlines. No tinted boxes, no shadows, no rounded floating cards stacked on a
 background — the density rule this project applies everywhere else.
 
+**8. Every number opens, and it opens the same way.** (Added 2026-09-25, from
+the owner: *"make The Pulse a much more action-oriented ... better drill downs,
+more information overall"*.) There is ONE drill-down on this page: a native
+`<dialog class="drawer">`, opened from a panel header, a Needs/Going-well item,
+a store row, a chart, or a table row. Its route is in the hash —
+`#<view>/<drawer>` (e.g. `#health/crash/<clusterId>`, `#reach/series/apple-dl`)
+— so a drawer is linkable and survives a reload. Every drawer carries, in this
+order: (1) the full series as a DATED chart with the change against the prior
+period, (2) the COMPLETE table behind the figure, sortable by any column — never
+a silently capped list — and (3) a link to the source ↗. A panel that has none
+of the three has nothing to open and says so by not offering a chevron.
+`panel()`'s `detail` rows are that table, so every caller upgrades at once.
+
+**9. A chart over time shows WHEN.** A drawer chart (`timeChart`) prints its
+first and last dates and the top of its scale, and reads out the date and
+every value under the pointer, on focus, and with the arrow keys. A sparkline
+beside a number stays word-sized (rule 5); anything a reader is asked to act
+on gets dates. Days are calendar days and are labeled as written. Instants
+(when a reader ran, when a review was left) are shown in Mountain time
+(America/Denver), never UTC. Series shown side by side share one calendar and
+one scale; days a series does not cover are greyed, so a stalled reader looks
+different from a quiet week.
+
+**10. A change names its period.** Every delta on the page is written by one
+function and always ends in its comparison: *"+18% vs prior 7 days"*, *"no
+change vs yesterday"*, *"−0.2 vs prior 28 days"*. No bare "—", "level" or
+"no change". A day still in progress is never compared. Color follows
+direction-of-good: a falling average search position is teal.
+
+**11. A panel standing on an old reading says "as of".** When a panel's newest
+data is older than its source's normal lag (two days by default, four for
+Search Console, whose own lag is two to three), its header carries an amber
+*as of <date>* chip, and the reader appears in Needs attention as stale.
+
+**12. Only essential words.** (Owner, 2026-09-22 — the project-wide rule.) A
+caption on this page is a REFUSAL (why a number is absent), a WARNING, or a
+fact the reader could not discover by looking. The reasons for a chart's shape
+live in this document and in code comments, never under the chart.
+
+**13. The page writes no style declarations.** Presentation is in
+`pulse.css`, keyed by class and `data-` attribute. The one exception is a
+COMPUTED length — a bar's width, a mark's position, the chart tooltip's `--x`
+— which exists only once the data does, lives inside `charts.js`, and is set
+as a custom property where the DOM allows it.
+
 The kit that implements this is `pulse/charts.js`: `bullet`, `bars`, `spark`,
-`stack`, `legend`, `dots`, `ratio`, `cadence`. Hand-rolled inline SVG, no
+`stack`, `legend`, `dots`, `ratio`, `cadence`, `runChart`, `calendarHeat`,
+`dotPlot`, `pareto`, and `timeChart` with `interact` for the drawers. Hand-rolled inline SVG, no
 library, no build step. `tools/test_pulse_charts.mjs` asserts the properties a
 reader actually relies on — a bar's length is proportional, a bullet's measure
 lands at the right position and clamps past the top of its scale, a stack sums
@@ -95,6 +141,14 @@ and all 31 cases were checked to FAIL against broken versions of each rule.
 | Enjoying vs asking | stacked bar | two parts of one body of feedback |
 | Posting cadence | lanes on a shared 30-day axis | a programme's question is "did they keep coming", not "how many" |
 | Anything over time | sparkline | shape and level, at the size of a word, beside the number |
+| Anything over time, opened | `timeChart` in the drawer | dates, the top of the scale, and a readout per day (rule 9) |
+| Installs across platforms | small multiples on one calendar and one scale | a shared axis is the only honest comparison of shape; a stalled series greys its missing days |
+| Google Play rating | bullet (bands 3 and 4, target 4.5) + dated run chart | the same scale as the App Store's, so the two ratings read alike |
+| Roku stability | bullets: crash % of streaming devices (marker at the 2% rule), rebuffers per streaming hour | Roku's own headline figures, with the threshold this page acts on |
+| Store-listing funnel | two-line dated chart (visitors, acquisitions) + conversion | a funnel is two counts and the ratio between them |
+| Web titles | two-line dated chart (opened, played) + the play/open ratio per title | opening is interest, playing is choice; the ratio is the finding |
+| Search | clicks and impressions as separate dated charts; CTR and average position against the prior 28 days | two magnitudes three orders apart cannot share an axis; position is labeled *lower is better* |
+| Watch Together | rooms and guests on one dated chart | two counts of one activity, same unit |
 
 ---
 
@@ -124,6 +178,8 @@ and all 31 cases were checked to FAIL against broken versions of each rule.
 | Stars, issues, repo traffic | `gh api` | `GH_TOKEN` | CI + local |
 | Workflow fleet health | `tools/audit_workflow_health.py` | `GH_TOKEN` | CI + local |
 | Catalog size and coverage | `archivewatch.org/catalog-index.json` | none | anywhere |
+| Search clicks, queries, sitemaps | Search Console API (`health.searchConsole`) | Google | CI |
+| Watch Together rooms / guests / YouTube shows | our Worker's anonymous tally + Cloud API usage (`health.together`) | — | CI |
 
 ### Measured, and worth knowing
 
@@ -261,13 +317,86 @@ The collector needs `PyJWT cryptography google-api-python-client google-auth`;
 
 ## Reading the page
 
-* **Needs you** — the only list that asks for a decision: urgent workflow
-  findings, reviews under four stars in the last 60 days (replied or not — a
-  person who could not play a film is still a person who could not play a film),
-  crash clusters, issues opened from outside, a store in a rejected state, and
-  requests waiting to be read. When it is empty it says so in words.
+### Needs attention / Going well (binding, 2026-09-25)
+
+The Overview opens on two columns — **Needs attention** and **Going well** —
+which replace the old ticker and "Needs you". On a phone they stack, Needs
+first. Each item is one line: a sentence, a number, its comparison, and its
+period, with a state rule down the left edge — **red** = decide, **amber** =
+watch, **teal** = good (rule 3's colors). Clicking an item opens its drawer.
+Each column shows six and then "N more"; an empty column says so in words.
+
+Every item comes from ONE `RULES` table in `pulse.js` — a rule names the JSON
+path it reads, its threshold, and its tier, so a new signal is a new row, not
+a new branch of rendering code:
+
+| Rule | Reads | Threshold | Tier |
+|---|---|---|---|
+| Live crash cluster, no fix recorded | `health.playCrashes[]` | not `stale` | decide |
+| Fix in the repo, not released | `playCrashes[].fixedIn.versionCode` | above the Play production versionCode and any in-flight one | decide |
+| Fix in review | `playCrashes[].fixedIn.versionCode` | at or below the in-flight versionCode | watch |
+| Unreplied low review | `reviews[]` | ≤ 3★, not responded, last 60 days | decide |
+| Store rejected | `stores[].state` | REJECT / REMOVED / INVALID | decide |
+| Workflow broken or killed | `health.workflows[]` | BROKEN, KILLED | decide |
+| Workflow failed | `health.workflows[]` | any other severity | watch |
+| Request waiting | `asks[]` | any | watch |
+| Play rating low | `health.playDaily.ratings[-1].total` | < 4 | watch |
+| Roku crash share | `health.rokuEngagement.headline["Channel Crashes as % of Total Devices Streaming"]` | > 2 | decide |
+| Usage fell | every usage series (below) | ≥ 30% down week over week, prior week ≥ 10 | watch |
+| Sitemap errors | `health.searchConsole.sitemaps[].errors` | > 0 | decide |
+| Stale reader | `stale`, `sources[].at`, each series' last date | older than 36 h / its lag | watch |
+| Newer build waiting | `stores[].inFlight` | present | watch |
+| Usage rose | every usage series | ≥ 30% up week over week, this week ≥ 10 | good |
+| New praise | `reviews[]` 5★, `loves[]` | last 14 days | good |
+| Crash clusters cleared | `playCrashes[]` | `stale` (not on the live build) | good |
+| Store went live | `stores[].since` | live, within 14 days | good |
+| Catalog grew | `history[].catalogItems` | up vs 7 days ago | good |
+| Every reader answered | `sources` | all ok | good |
+| New top-10 queries | `searchConsole.queries[]` | position ≤ 10, no impressions in the prior 28 days, and only once `prev28` has impressions — ONE line for all of them, led by the most-clicked (a new property made all 85 queries "new") | good |
+
+The usage series are Apple downloads, Android store-listing acquisitions,
+Android installs, Fire TV installs, Roku installs, website visits, web plays,
+Search clicks and impressions, and Watch Together rooms. Week over week means
+the last seven COMPLETE days of a series against the seven before; a series
+whose newest day is older than its lag is reported as stale rather than
+compared, because a week that is really three weeks ago is not "this week".
+
+**Fixed-in** (`ops/fixed-in.json`, read into `playCrashes[].fixedIn`): its
+Android `versionCode` is compared to the Play production versionCode
+(`health.playLiveBuild`, else the Production row's `live` build) — at or below
+it reads *shipped, clears as users update*; at or below the in-flight
+versionCode, *fix in review*; otherwise *fix in repo, not released*. An entry
+without a `versionCode` is shown as recorded and never compared: the Apple
+build number is a different counter and says nothing about Android.
+
+### The rest
+
 * **Where we are shipping** — every store on one list, machine-read and declared
-  side by side, with a note when a store is behind `AppVersion.xcconfig`.
+  side by side. A row says a newer build is waiting ONLY from its `inFlight`
+  field (a release uploaded or in review but not yet live). It is never
+  compared to `AppVersion.xcconfig`, which moves on every commit, so a
+  comparison with it says "behind" about every store every day and means
+  nothing. Each row opens a drawer: live version, what is in flight, and the
+  history the store exposes.
+* **Tabs** are grouped **Views** (Overview, Reach, Engagement, Health, Voice,
+  Search, Ops), **Apps** (one per platform) and **Social** (Program, one per
+  network), each row labeled and scrollable with a visible edge, so the tabs
+  past the width of a phone are findable.
+* **Search** — Google Search Console for `https://archivewatch.org/`
+  (`health.searchConsole`): clicks and impressions by day, CTR, average
+  position (lower is better), queries, pages, countries and devices against the
+  prior 28 days, rising and falling queries, and sitemap health. Search Console
+  runs two to three days behind; its panels carry *as of* only past four.
+* **Watch Together** (Engagement; `health.together`) — rooms and guests a day
+  from our Worker's anonymous tally, and `lives`: YouTube broadcasts the app
+  created, read from Google Cloud's API usage. Twitch and own-stream-key shows
+  are not counted, and the drawer says so. No film is recorded. Any field may
+  be absent; only what exists is drawn, and an absent block reads *not
+  collected yet* — never a zero.
+* **Web titles** are shown as TITLES, resolved from `/catalog-index.json`,
+  which is loaded only when a titles surface opens (it is ~6 MB). An id the
+  index does not carry is shown as the id, marked *not in the catalog index* —
+  usually a title the rights audit hid, which is itself worth knowing.
 * **What people said** — reviews and mentions in one reading list, newest first.
   A sentence detected as a request is marked with an orange rule down its left.
 * **Over time** — fills in from the second day. One reading per day, forever.

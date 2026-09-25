@@ -16,109 +16,101 @@
   <span class="when" id="when">reading…</span>
 </header>
 
-<p class="ticker" id="ticker"><span class="flat">loading the day…</span></p>
+<nav class="tabs" id="tabs" aria-label="Pulse views"></nav>
 
-<nav class="tabs" id="tabs" role="tablist"></nav>
+<p class="load-error" id="status" role="alert" hidden></p>
 
 <main>
   <div id="sec-overview">
-  <!-- Shneiderman: overview first, then one section per platform to zoom into,
-       with details on demand inside each panel. The overview stays short on
-       purpose — a dashboard that shows everything at once shows nothing. -->
-  <section class="needs">
-    <h2>Needs you <span class="count" id="needs-n"></span>
-      <span class="hint">the only list that asks for a decision</span></h2>
-    <div id="needs" class="rows"></div>
+  <!-- docs/PULSE.md "Needs attention / Going well": two columns built from the
+       RULES table in pulse.js; they stack on a phone with Needs first. -->
+  <section class="board">
+    <div class="col">
+      <h2>Needs attention <span class="count" id="needs-n"></span></h2>
+      <ol id="needs" class="items"></ol>
+    </div>
+    <div class="col">
+      <h2>Going well <span class="count" id="well-n"></span></h2>
+      <ol id="well" class="items"></ol>
+    </div>
   </section>
 
   <section>
-    <h2>At a glance <span class="hint">every number against something</span></h2>
+    <h2>At a glance</h2>
     <div id="tiles" class="panels"></div>
   </section>
 
   <section>
-    <h2>Where we are shipping <span class="count" id="stores-n"></span>
-      <span class="hint">every store, machine-read or declared</span></h2>
+    <h2>Where we are shipping <span class="count" id="stores-n"></span></h2>
     <div id="stores" class="rows"></div>
   </section>
 
-
   <section>
-    <h2>Over time <span class="hint">one reading a day</span></h2>
+    <h2>Over time</h2>
     <div id="trend"></div>
   </section>
-
-
   </div>
 
-  <!-- The programme is its OWN view, not a panel on the usage page.
-       Owner, 2026-09-14: "Social Media should not be combined with usage
-       metrics." The dashboard literature agrees for a reason that is not
-       tidiness — a dashboard answers ONE question, and "did anyone install
-       it?" and "what did we post?" are different questions with different
-       audiences. Put them side by side and a reader draws a causal line
-       between a post and a spike that neither number supports. -->
-
-  <!-- One view per QUESTION, split by audience: strategic (at a glance, no
-       controls), analytical (drill down), operational (now, act now). A page
-       that mixes them serves none of them — which is also why the programme
-       is not on the usage pages. -->
+  <!-- One view per QUESTION (docs/PULSE-ANALYTICS.md §1). The program is its
+       own view: "Social Media should not be combined with usage metrics"
+       (owner, 2026-09-14). -->
   <section id="sec-reach" hidden>
-    <p class="lede">Who is installing, where, and on what. Store-side counts
-      only — the apps themselves collect nothing.</p>
+    <p class="lede">Store-side counts only; the apps collect nothing.</p>
     <div id="tiles-reach" class="panels"></div>
   </section>
 
   <section id="sec-engagement" hidden>
-    <p class="lede">Who came back, and what they actually watched. The website
-      is the only surface that can answer the second question, so treat it as a
-      sample rather than the platform.</p>
+    <p class="lede">The website is the only surface that reports what was watched.</p>
     <div id="tiles-engagement" class="panels"></div>
   </section>
 
   <section id="sec-health" hidden>
-    <p class="lede">What is broken, on which platform and which build. An empty
-      panel here is good news; a panel that could not read says so.</p>
     <div id="tiles-health" class="panels"></div>
   </section>
 
   <section id="sec-voice" hidden>
-    <p class="lede">What people said, in their words. Nothing here is
-      summarised, scored or paraphrased.</p>
     <div id="tiles-voice" class="panels"></div>
-    <h2>What people said <span class="count" id="said-n"></span>
-      <span class="hint">their words, never a summary</span></h2>
+    <h2 class="sub-h">What people said <span class="count" id="said-n"></span></h2>
     <div class="chips" id="said-chips"></div>
-    <div id="said" class="rows"></div>
+    <div id="said" class="rows said"></div>
+  </section>
+
+  <section id="sec-search" hidden>
+    <div id="tiles-search" class="panels"></div>
   </section>
 
   <section id="sec-ops" hidden>
-    <p class="lede">The machinery that feeds every other view. If something
-      here is wrong, distrust the numbers elsewhere.</p>
     <div id="tiles-ops" class="panels"></div>
-    <h2>Where this came from <span class="count" id="src-n"></span>
-      <span class="hint">a reader that could not read says so</span></h2>
-    <div id="sources" class="rows"></div>
+    <h2 class="sub-h">Where this came from <span class="count" id="src-n"></span></h2>
+    <div id="sources" class="rows sources"></div>
   </section>
 
   <section id="sec-program" hidden>
-    <p class="lede">What we posted, and what it did. Deliberately kept apart
-      from installs and usage: a post and an install on the same day are not
-      evidence about each other.</p>
     <div id="tiles-program" class="panels"></div>
-    <h2>The program <span class="count" id="social-n"></span>
-      <span class="hint">what we posted, and what it did</span></h2>
-    <div id="social" class="rows"></div>
+    <h2 class="sub-h">The program <span class="count" id="social-n"></span></h2>
+    <div id="social"></div>
   </section>
 
   <section id="sec-platform" hidden>
     <p class="lede" id="platform-lede"></p>
     <div id="platform-panels" class="panels"></div>
-    <h2 id="platform-h2" style="margin-top:26px">Detail</h2>
+    <h2 id="platform-h2" class="sub-h">Detail</h2>
     <div id="platform-rows" class="rows"></div>
   </section>
 
 </main>
+
+<!-- docs/PULSE.md rule 8: the ONE drill-down. Routed by the hash
+     (#<view>/<drawer>), so every drawer is linkable. -->
+<dialog class="drawer" id="drawer" aria-labelledby="drawer-title">
+  <div class="dr-in">
+    <div class="dr-head">
+      <h2 id="drawer-title"></h2>
+      <button type="button" class="dr-x" id="drawer-x" aria-label="Close">×</button>
+    </div>
+    <div class="dr-body" id="drawer-body"></div>
+  </div>
+</dialog>
 
 <footer>
   Built by <code>tools/pulse_collect.py</code>, once a day. Unlisted — not linked

@@ -2504,14 +2504,21 @@ def search_console(state):
         return {"clicks": c, "impressions": i, "ctr": round(c / i, 4) if i else None,
                 "position": round(pos, 2) if pos else None, "days": len(rs)}
 
+    # A prior period Google never measured is not a zero: the property's data
+    # began 2026-09-20, so until a whole prior 28 days exists the `prev*`
+    # fields are null and the page compares nothing.
+    prev_whole = sum(1 for d in daily if str(prev0) <= d["date"] <= str(prev1)) >= 28
+
     def split(dim, limit=100):
         now_rows = {r["keys"][0]: row(r) for r in q(cur0, through, [dim], limit)}
-        before = {r["keys"][0]: row(r) for r in q(prev0, prev1, [dim], 1000)}
+        before = ({r["keys"][0]: row(r) for r in q(prev0, prev1, [dim], 1000)}
+                  if prev_whole else None)
         out = []
         for k, v in now_rows.items():
-            b = before.get(k) or {}
-            out.append({"key": k, **v, "prevClicks": b.get("clicks", 0),
-                        "prevImpressions": b.get("impressions", 0),
+            b = (before or {}).get(k) or {}
+            out.append({"key": k, **v,
+                        "prevClicks": b.get("clicks", 0) if before is not None else None,
+                        "prevImpressions": b.get("impressions", 0) if before is not None else None,
                         "prevPosition": b.get("position")})
         return sorted(out, key=lambda r: (-r["clicks"], -r["impressions"]))
 
