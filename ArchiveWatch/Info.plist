@@ -47,8 +47,14 @@
 	<array>
 		<string>callsheet</string>
 	</array>
+	<key>NSBonjourServices</key>
+	<array>
+		<string>_googlecast._tcp</string>
+	</array>
 	<key>NSCameraUsageDescription</key>
 	<string>Show your reactions beside the film when you stream a public-domain movie with Watch Together Studio. On Apple TV, this uses a nearby iPhone as the camera.</string>
+	<key>NSLocalNetworkUsageDescription</key>
+	<string>Archive Watch looks for Chromecast and Google TV devices on your Wi-Fi so you can play a film on your TV.</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>Add your live commentary to a Watch Together Studio broadcast, and record narration for the clips you create.</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>

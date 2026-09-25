@@ -27,6 +27,7 @@ struct DetailView: View {
     @State private var clipping = false
     @State private var gettingSubtitles = false
     @State private var downloading = false
+    @State private var casting = false
     @Query private var downloads: [DownloadedFilm]
     @State private var captionPlaybackChoice: CaptionPlaybackChoice?
     @State private var playbackError: String?
@@ -115,6 +116,20 @@ struct DetailView: View {
                             .accessibilityLabel("Watch Together")
                     }
                     .buttonStyle(.bordered)
+
+                    // Cast to a TV (iOS-DESIGN §8.10), beside Watch Together: both
+                    // are ways to watch this film, and the row scrolls, so
+                    // what sits at its end is not seen on a phone. Tinted while this film
+                    // is on a television, so the way back to its remote shows.
+                    if item.videoURLParsed != nil {
+                        Button { casting = true } label: {
+                            Image(systemName: "tv")
+                                .accessibilityLabel("Cast to a TV")
+                        }
+                        .buttonStyle(.bordered)
+                        .tint(CastController.shared.archiveID == item.archiveID
+                              && CastController.shared.phase == .casting ? Brand.accent : nil)
+                    }
 
                     // Watched is a badge on tiles; this is where the viewer
                     // corrects it (tvOS parity — a film abandoned near the
@@ -429,6 +444,10 @@ struct DetailView: View {
         .sheet(isPresented: $downloading) {
             DownloadSheet(item: item)
         }
+        .sheet(isPresented: $casting) {
+            CastSheet(item: item)
+                .presentationDetents([.medium, .large])
+        }
         // Dev affordance (with AW_START_ITEM): start playback immediately so
         // playback diagnostics can run unattended on the simulator.
         .task(id: item.archiveID) {
@@ -465,6 +484,9 @@ struct DetailView: View {
             if ProcessInfo.processInfo.environment["AW_SHOW_SUBTITLES"] == "1" {
                 gettingSubtitles = true
             }
+            #if DEBUG
+            if ProcessInfo.processInfo.environment["AW_CAST"] != nil { casting = true }
+            #endif
         }
     }
 

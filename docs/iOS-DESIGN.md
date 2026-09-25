@@ -414,6 +414,40 @@ sentence, and it never asks for a stream key — the key is fetched from the
 platform's own API (WATCH-TOGETHER §4). The only field that accepts a URL is
 the **custom destination** used for diagnostics.
 
+8.10 **Cast hands the film to a Google Cast TV and the phone becomes its
+remote** (Reddit r/classicfilms, 2026-09-13: *"Would it be possible to use
+this app to stream from iPhone to a Chromecast?"*). It is a Detail action
+beside Watch Together (the row scrolls on a phone, and its end is unseen), opening a §3.6 sheet at the medium detent — NOT a button over
+the player: `AVPlayerViewController` has no custom-transport API on iOS, an
+overlay cannot fade with its controls, and AirPlay already owns the player's
+route button. Resume makes the two equivalent: close the player, press Cast,
+and the TV starts where the phone stopped.
+
+- **The sender is ours**, CASTV2 over `Network.framework`
+  (`Networking/CastClient.swift`), to the same custom receiver `58AF34C3` the
+  web and Android senders use, with the LOAD request field for field what
+  `cast-sender.js` sends. No Google Cast SDK (Decision 127's reasoning).
+  `tools/test_cast_sender.swift` proves it against a real TV and reads the
+  verdict from the RECEIVER's MEDIA_STATUS.
+- **Discovery starts when the sheet opens, never at launch.** Browsing
+  `_googlecast._tcp` raises iOS's Local Network prompt, and a prompt with no
+  visible reason is a prompt people refuse. It stops when the sheet closes.
+- **Four states**: searching; the devices found; none ("No Cast devices on
+  this Wi-Fi network."); refused (Local Network denied — the refusal and
+  Open Settings).
+- **While casting the sheet is the TV's remote**: its name, a scrubber with
+  elapsed and remaining time, back 30 / play-pause / forward 30, the TV's
+  volume, a Subtitles switch when the film carries a track, and Stop. The
+  receiver is the clock; the phone only fills the seconds between its
+  statuses. (The first cut had play/pause, back 30 and Stop alone; the owner
+  asked, 2026-09-25, *"Why are only the skip back and pause controls on the
+  casting sheet?"* — a remote with no position and no way to move is not a
+  remote.)
+- **When a cast ends, the TV's position is recorded as `WatchProgress`**
+  (§8.4), so the phone resumes where the television stopped.
+- The TV needs a URL it can fetch: the viewer's chosen copy, never a
+  `file://` download or a loader scheme (`AirPlayRouting.isReceiverFetchable`).
+
 ---
 
 ## §9 — State, persistence & sync (binding)
