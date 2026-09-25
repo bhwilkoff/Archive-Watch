@@ -33,6 +33,7 @@ class CatalogRepository(
         private const val SEED_ASSET = "seed.sqlite"
         /** How long a check stays fresh before a foreground resume re-checks. */
         const val DEFAULT_STALE_AFTER_MS = 6L * 60 * 60 * 1000
+        const val METERED_MAX_AGE_MS = 7L * 24 * 60 * 60 * 1000
     }
 
     private val dbFile: File get() = File(context.filesDir, "catalog.sqlite")
@@ -132,6 +133,13 @@ class CatalogRepository(
     private val refreshMutex = kotlinx.coroutines.sync.Mutex()
     @Volatile private var refreshInFlight = false
 
+    private fun isMetered(): Boolean = try {
+        (context.getSystemService(Context.CONNECTIVITY_SERVICE)
+            as android.net.ConnectivityManager).isActiveNetworkMetered
+    } catch (_: Throwable) {
+        false
+    }
+
     /** ETag-conditional download → inflate → validate → atomic swap. */
     suspend fun refresh() {
         // A second caller returns immediately rather than queueing: by the time
@@ -153,6 +161,18 @@ class CatalogRepository(
                 "AWLOAD", "$what +${android.os.SystemClock.elapsedRealtime() - t0}ms")
         }
         mark("refresh:enter")
+        // On a METERED network, keep a catalog that is less than a week old.
+        // The pipeline publishes several times a day, so an unconditional
+        // refresh on launch pulled a fresh 41 MB almost every time the app
+        // opened — a viewer on a capped mobile plan: "it eats up all my data
+        // before I can even press play" (r/classicfilms, 2026-09-12). Wi-Fi
+        // behaves as before, and a device with no catalog always downloads.
+        if (isMetered() && dbFile.exists() &&
+            System.currentTimeMillis() - dbFile.lastModified() < METERED_MAX_AGE_MS
+        ) {
+            mark("refresh:skip-metered")
+            return@withContext
+        }
         try {
             val builder = Request.Builder().url(ZZ_URL)
             val etag = etagFile.takeIf { it.exists() }?.readText()?.trim()
