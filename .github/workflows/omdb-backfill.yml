@@ -21,9 +21,11 @@ on:
         required: false
         default: '600'
       enrich_calls:
-        description: 'OMDb movie-resolution calls (title->IMDb for archive-only)'
+        description: 'Movie-resolution calls (title->IMDb for archive-only; TMDb, no daily cap)'
         required: false
-        default: '350'
+        # The scheduled run uses 4000 (the `|| '4000'` below); a hand-started
+        # run defaulted to 350 and so matched a tenth as many (2026-09-25).
+        default: '4000'
       dry_run:
         description: 'Compute queue only, no HTTP or writes'
         required: false
