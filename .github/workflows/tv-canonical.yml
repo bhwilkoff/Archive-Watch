@@ -98,6 +98,13 @@ jobs:
       # a rebuilt series loses the cast Series Detail shows; TheTVDB has none for
       # ~100 of the 305 shows. TVmaze (free, no key) filled 19 of 30 of those
       # in a trial (2026-09-24). Fills only where cast is missing.
+      # Owner, 2026-09-25 (decision 6): apply the FILM rights audit to TV.
+      # Episodes live only in series/*.json, which the apps fetch directly, so
+      # a failing episode is REMOVED from its spine (manifest + git history are
+      # the undo). Runs after the rebuild so nothing it re-adds survives.
+      - name: Apply the rights audit to television episodes
+        run: python tools/audit_tv_rights.py --apply | tail -8
+
       - name: Fill missing series cast from TVmaze
         run: python tools/enrich_tv_cast.py | tail -2
 
@@ -134,7 +141,9 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -A series/ \
                   shared/editorial/tv_discovery.json \
-                  shared/editorial/tv_rebuild_report.json
+                  shared/editorial/tv_rebuild_report.json \
+                  shared/editorial/tv_rights_cache.json \
+                  shared/editorial/tv_rights_removed.csv
           if git diff --cached --quiet; then
             echo "No series changes (catalog still published below)."
             exit 0
