@@ -352,6 +352,8 @@ a new branch of rendering code:
 | Store went live | `stores[].since` | live, within 14 days | good |
 | Catalog grew | `history[].catalogItems` | up vs 7 days ago | good |
 | Every reader answered | `sources` | all ok | good |
+| Film-page faults | `searchIndex.faults[]` | any sampled film page with a redirect, a noindex, or Google choosing a different canonical — ours to fix | decide |
+| Film pages indexed rose | `history[].filmPagesIndexed` | the sampled indexed share up 5 points or more over 7 days | good |
 | New top-10 queries | `searchConsole.queries[]` | position ≤ 10, no impressions in the prior 28 days, and only once `prev28` has impressions — ONE line for all of them, led by the most-clicked (a new property made all 85 queries "new") | good |
 
 The usage series are Apple downloads, Android store-listing acquisitions,

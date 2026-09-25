@@ -2538,10 +2538,17 @@ def search_console(state):
         pass
 
     last28, prev28 = total(cur0, through), total(prev0, prev1)
+    pages = split("page", 1000)
+    film = [r for r in pages if re.search(r"archivewatch\.org/(item|series)/", r["key"])]
     state["health"]["searchConsole"] = {
         "through": str(through), "daily": daily,
         "last28": last28, "prev28": prev28,
-        "queries": split("query"), "pages": split("page", 50),
+        "queries": split("query"), "pages": pages[:50],
+        # The film pages (WEB-DESIGN §3.2a): how much of search lands on a
+        # film rather than on the home page.
+        "filmPages": {"clicks": sum(r["clicks"] for r in film),
+                      "impressions": sum(r["impressions"] for r in film),
+                      "pages": len(film), "top": film[:25]},
         "countries": split("country", 60), "devices": split("device", 5),
         "sitemaps": sitemaps,
         "url": "https://search.google.com/search-console?resource_id="
@@ -2549,6 +2556,75 @@ def search_console(state):
     }
     return (f"{last28['clicks']} clicks / {last28['impressions']} impressions in 28 days "
             f"to {through} (prior 28: {prev28['clicks']} / {prev28['impressions']})")
+
+
+def search_index(state):
+    """How much of the catalog Google has actually INDEXED.
+
+    The film pages (WEB-DESIGN §3.2a) exist so every film can be found in
+    search; this is the reading that says whether that is happening. Each run
+    inspects a rotating sample of the sitemap's URLs through the URL
+    Inspection API (2,000 a day per property; two readings a day spend 300)
+    and reports the share in each coverage state, with the technical faults
+    that are ours to fix — a redirect, a noindex, Google choosing a different
+    canonical — named per URL. A sample, so the share is an ESTIMATE and the
+    page says so; the sample rotates by date, so a week covers ~2,000 films."""
+    import random
+    tok = _google(["https://www.googleapis.com/auth/webmasters.readonly"])
+    idx = get("https://archivewatch.org/sitemap.xml", timeout=30).decode()
+    urls = []
+    for sm in re.findall(r"<loc>([^<]+)</loc>", idx):
+        urls += re.findall(r"<loc>([^<]+)</loc>", get(sm, timeout=60).decode())
+    films = [u for u in urls if re.search(r"/(item|series)/", u)]
+    if not films:
+        raise RuntimeError("the sitemap lists no film pages yet")
+    rnd = random.Random(f"{today()}-{dt.datetime.now(dt.timezone.utc).hour // 12}")
+    sample = rnd.sample(films, min(150, len(films)))
+    by_state: dict = {}
+    faults, examples = [], []
+
+    def inspect(u):
+        try:
+            return u, _gpost("https://searchconsole.googleapis.com/v1/urlInspection/index:inspect",
+                             tok, {"inspectionUrl": u, "siteUrl": SEARCH_SITE})
+        except urllib.error.HTTPError as e:
+            if e.code == 429:                        # the day's quota: report what we have
+                return u, None
+            raise
+
+    # One call takes seconds; 150 in a row outran a reading's whole budget.
+    # Eight at a time stays far under the API's 600 a minute.
+    from concurrent.futures import ThreadPoolExecutor
+    with ThreadPoolExecutor(max_workers=8) as pool:
+        results = list(pool.map(inspect, sample))
+    for u, res in results:
+        if res is None:
+            continue
+        ix = (res.get("inspectionResult") or {}).get("indexStatusResult") or {}
+        cov = ix.get("coverageState") or "unknown"
+        by_state[cov] = by_state.get(cov, 0) + 1
+        row = {"url": u, "state": cov, "verdict": ix.get("verdict"),
+               "lastCrawl": ix.get("lastCrawlTime"), "fetch": ix.get("pageFetchState"),
+               "googleCanonical": ix.get("googleCanonical")}
+        bad = (ix.get("pageFetchState") not in (None, "SUCCESSFUL", "PAGE_FETCH_STATE_UNSPECIFIED")
+               or ix.get("indexingState") in ("BLOCKED_BY_META_TAG", "BLOCKED_BY_HTTP_HEADER")
+               or (ix.get("googleCanonical") and ix.get("userCanonical")
+                   and ix["googleCanonical"] != ix["userCanonical"]))
+        if bad:
+            faults.append(row)
+        elif ix.get("verdict") != "PASS" and len(examples) < 40:
+            examples.append(row)
+    n = sum(by_state.values())
+    indexed = sum(v for k, v in by_state.items() if "indexed" in k.lower() and "not indexed" not in k.lower())
+    state["health"]["searchIndex"] = {
+        "published": len(films), "sampled": n,
+        "indexedShare": round(indexed / n, 3) if n else None,
+        "byState": dict(sorted(by_state.items(), key=lambda kv: -kv[1])),
+        "faults": faults, "examples": examples,
+        "since": "2026-09-25",                       # the pages became indexable that day
+    }
+    return (f"{indexed}/{n} sampled film pages indexed of {len(films):,} published; "
+            f"{len(faults)} technical fault(s)")
 
 
 def together_rooms(state):
@@ -2710,6 +2786,7 @@ SOURCES = [
     ("web_usage", web_usage),
     ("web_titles", web_titles),
     ("search_console", search_console),
+    ("search_index", search_index),
     ("together_rooms", together_rooms),
     ("youtube_usage", youtube_usage),
     ("together_summary", together_summary),              # after both of the above
@@ -2768,6 +2845,8 @@ def history_row(state):
         "stars": state.get("github", {}).get("stars"),
         "views14d": state.get("github", {}).get("views14d"),
         "catalogItems": cat.get("items"),
+        "filmPagesIndexed": (state.get("health", {}).get("searchIndex") or {}).get("indexedShare"),
+        "searchClicks28d": ((state.get("health", {}).get("searchConsole") or {}).get("last28") or {}).get("clicks"),
         "urgent": sum(1 for f in state.get("health", {}).get("workflows", [])
                       if f.get("severity") in ("BROKEN", "KILLED")),
     }
@@ -2888,7 +2967,8 @@ def main() -> int:
                    "amazon_live": "amazonLive",
                    "roku_engagement": "rokuEngagement",
                    "web_usage": "webUsage", "web_titles": "webTitles",
-                   "search_console": "searchConsole", "together_summary": "together",
+                   "search_console": "searchConsole", "search_index": "searchIndex",
+                   "together_summary": "together",
                    "catalog": "catalog",
                    # Scalars and notes, preserved for the same reason as the
                    # sections: a stale reading carries a `stale` timestamp and

@@ -360,3 +360,18 @@ newest version seen in Roku's own delivery. "Behind the repo" is gone: the
 repo's version moves on every commit, so it was true of every row within an
 hour. `ops/fixed-in.json` carries the Android `versionCode` of each fix, so a
 crash is judged against Android builds rather than an Apple build number.
+
+### 11a. Is the catalog in Google? (`search_index`, 2026-09-25)
+
+The film pages (WEB-DESIGN §3.2a) exist so every film can be found in search.
+`search_index` reads the live `sitemap.xml`, inspects a date-seeded sample of
+**150** film URLs per reading through the URL Inspection API (2,000 a day per
+property; the robot's Restricted access is enough), eight at a time — one at a
+time outran the whole reading's budget — and writes `health.searchIndex`:
+published count, the indexed share (an ESTIMATE, labeled so), the count per
+coverage state, `faults` (redirect, noindex, a Google canonical that differs
+from ours — the things we can fix) and examples of pages not yet indexed.
+`history[].filmPagesIndexed` keeps the share per day. `search_console` also
+totals the clicks and impressions that land on `/item/` and `/series/` pages
+(`searchConsole.filmPages`). Baseline at launch: 0 of 150 sampled, every one
+"URL is unknown to Google" — the pages had been live for minutes.

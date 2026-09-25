@@ -299,6 +299,13 @@ const RULES = [
       .map((m) => ({ text: `Sitemap errors: ${m.path}`, num: plural(Number(m.errors), "error"),
         period: m.lastDownloaded ? `read ${day(m.lastDownloaded)}` : "",
         route: "search-sitemaps" })) },
+  { id: "index-faults", tier: "decide", path: "health.searchIndex.faults[]", threshold: 0,
+    find: (d) => {
+      const f = d.health?.searchIndex?.faults || [];
+      return f.length ? [{ text: "Film pages Google cannot index as written",
+        num: plural(f.length, "page"), cmp: "redirect, noindex or a different canonical",
+        period: "this reading's sample", route: "search-index" }] : [];
+    } },
   { id: "stale", tier: "watch", path: "generatedAt, stale, sources[].at, series last day",
     threshold: { hours: 36 },
     find: (d, x, r) => {
@@ -373,6 +380,17 @@ const RULES = [
       return back !== cur && diff > 0 ? [{ text: "Catalog grew", num: `+${int(diff)}`,
         cmp: `${int(cur.catalogItems)} titles`, period: `vs ${day(back.date)}`,
         route: "history/catalogItems" }] : [];
+    } },
+  { id: "index-rose", tier: "good", path: "history[].filmPagesIndexed", threshold: 0.05,
+    find: (d, x, r) => {
+      const h = (d.history || []).filter((q) => typeof q.filmPagesIndexed === "number");
+      const cur = h[h.length - 1];
+      if (!cur) return [];
+      const back = [...h].reverse().find((q) => q.date <= addDays(cur.date, -7)) || h[0];
+      const gain = cur.filmPagesIndexed - back.filmPagesIndexed;
+      return back !== cur && gain >= r.threshold ? [{ text: "More film pages indexed by Google",
+        num: `${num(cur.filmPagesIndexed * 100, 0)}%`, cmp: `from ${num(back.filmPagesIndexed * 100, 0)}%`,
+        period: `vs ${day(back.date)}`, route: "search-index" }] : [];
     } },
   { id: "readers-ok", tier: "good", path: "sources", threshold: "all ok",
     find: (d) => {
@@ -1555,11 +1573,27 @@ function search(d) {
           value: r.clicks || 0, tone: "measure" }))) },
       drill: route });
   });
+  // Film pages in Google (WEB-DESIGN §3.2a): a SAMPLE of the sitemap each
+  // reading, so the share is an estimate and says so.
+  const si = d.health?.searchIndex;
+  if (si && si.sampled) {
+    const bs = si.byState || {};
+    const tone = (k) => (/not indexed|discovered|crawled/i.test(k) ? "flight"
+      : /indexed/i.test(k) ? "live" : /unknown/i.test(k) ? "idle" : "stop");
+    const segs = Object.entries(bs).map(([k, v]) => ({ label: k, value: v, tone: tone(k) }));
+    const fp = sc.filmPages || {};
+    panel(box, { k: "Film pages in Google", right: `${int(si.published)} published`,
+      v: `${num((si.indexedShare || 0) * 100, 0)}%<small> indexed, est. from ${int(si.sampled)} sampled</small>`,
+      chart: { html: C.stack(segs, { label: "coverage states" }) + C.legend(segs) },
+      cap: si.faults?.length ? `<span class="down">${plural(si.faults.length, "page")} with a fault</span>`
+        : (fp.clicks ? `${int(fp.clicks)} search clicks landed on a film page in 28 days` : null),
+      drill: "search-index", href: sc.url });
+  }
   const sm = sc.sitemaps || [];
   panel(box, { k: "Sitemaps", right: sm.length ? plural(sm.length, "sitemap") : "",
     v: sm.length ? (sm.some((m) => Number(m.errors) > 0)
       ? `<span class="down">${sm.reduce((a, m) => a + Number(m.errors || 0), 0)}</span><small> errors</small>`
-      : `<span class="up">no errors</span>`) : "<small>none submitted</small>",
+      : `<span class="up">no errors</span>`) : (si?.published ? "<small>named in robots.txt, not submitted</small>" : "<small>none submitted</small>"),
     cap: sm.map((m) => `${esc(m.path)}: ${int(Number(m.indexed ?? 0))} of ${int(Number(m.submitted ?? 0))} indexed`).join("<br>") || null,
     drill: sm.length ? "search-sitemaps" : null, href: sc.url });
 }
@@ -1944,6 +1978,23 @@ const DRAWERS = {
       tables: [{ title: "Rising", rows: q.filter((r) => r.dd > 0), cols: SC_COLS("Query"), sort: { k: "d", dir: -1 } },
                { title: "Falling", rows: q.filter((r) => r.dd < 0), cols: SC_COLS("Query"), sort: { k: "d", dir: 1 } }],
       source: { href: sc.url, label: "Search Console" } };
+  },
+  "search-index"(d) {
+    const si = d.health?.searchIndex;
+    if (!si) return null;
+    const cols = [
+      { k: "url", label: "Page", href: (r) => r.url, fmt: (v) => pagePath(v) },
+      { k: "state", label: "Coverage" },
+      { k: "fetch", label: "Fetch" },
+      { k: "googleCanonical", label: "Google's canonical", fmt: (v) => (v ? pagePath(v) : "—") },
+      { k: "lastCrawl", label: "Last crawled", fmt: (v) => (v ? whenMT(v) : "never") }];
+    return { title: "Film pages in Google",
+      tables: [
+        { title: "Coverage, this reading's sample", rows: Object.entries(si.byState || {}).map(([k, v]) => ({ k, v })),
+          cols: [{ k: "k", label: "State" }, { k: "v", label: "Pages", num: true }], sort: { k: "v", dir: -1 } },
+        ...(si.faults?.length ? [{ title: "Faults to fix", rows: si.faults, cols }] : []),
+        { title: "Not yet indexed (examples)", rows: si.examples || [], cols }],
+      source: { href: d.health?.searchConsole?.url, label: "Search Console" } };
   },
   "search-sitemaps"(d) {
     const sc = d.health?.searchConsole;
