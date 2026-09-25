@@ -3,15 +3,11 @@
   {
    "store": "App Store",
    "platform": "Apple TV",
-   "state": "IN_REVIEW",
+   "state": "READY_FOR_SALE",
    "version": "1.42.543",
-   "live": "1.42.120",
-   "inFlight": {
-    "version": "1.42.543",
-    "state": "IN_REVIEW"
-   },
-   "repoVersion": "1.42.706",
-   "repoBuild": "1718",
+   "live": "1.42.543",
+   "repoVersion": "1.42.709",
+   "repoBuild": "1721",
    "url": "https://appstoreconnect.apple.com/apps/6776697407/distribution"
   },
   {
@@ -24,8 +20,8 @@
     "version": "1.42.543",
     "state": "WAITING_FOR_REVIEW"
    },
-   "repoVersion": "1.42.706",
-   "repoBuild": "1718",
+   "repoVersion": "1.42.709",
+   "repoBuild": "1721",
    "url": "https://appstoreconnect.apple.com/apps/6776697407/distribution"
   },
   {
@@ -34,8 +30,8 @@
    "state": "READY_FOR_SALE",
    "version": "1.42.543",
    "live": "1.42.543",
-   "repoVersion": "1.42.706",
-   "repoBuild": "1718",
+   "repoVersion": "1.42.709",
+   "repoBuild": "1721",
    "url": "https://appstoreconnect.apple.com/apps/6776697407/distribution"
   },
   {
@@ -71,12 +67,9 @@
    "state": "IN REVIEW",
    "version": "1.42.6 (vc57)",
    "since": "2026-09-10",
-   "note": "Live version is read from the API, not declared here. Installs come from the sales report — every free install is a $0.00 Charge row. Device coverage went 38 -> 91 with the minSdk 23 build (Decision 115).",
+   "note": "Live and in-review versions are read from the Amazon submission API. Installs come from the sales report — every free install is a $0.00 Charge row. Device coverage went 38 -> 91 with the minSdk 23 build (Decision 115).",
    "url": "https://developer.amazon.com/apps-and-games/console/apps/list.html",
    "api": "vitals",
-   "units30d": 2,
-   "unitsAsOf": "2026-09-09",
-   "unitsNote": "unique app purchases, 30 days, all Amazon.com",
    "route": "version read from the submission API; installs from the sales report",
    "manual": true,
    "inFlight": {
@@ -90,13 +83,15 @@
    "store": "Roku Channel Store",
    "platform": "Roku",
    "state": "LIVE",
-   "version": "1.0.65",
-   "since": "2026-09-15",
+   "version": "1.0.75",
+   "since": "2026-09-19",
    "note": "Channel 881015. 1.0.65 published 2026-09-15 (Dashboard: Last publish Sep 15, 2026) — the first build the legacy tier can run. Roku has no API to read this from; the app's own analytics arrive daily by scheduled delivery. NOTE: sunset players on Roku OS 9.1 (Roku 2 XD etc.) are NOT offered new channels by the Streaming Store regardless of the package's v8.0.0 floor — see ROKU-SUBMISSION.md §Legacy players.",
    "url": "https://channelstore.roku.com/details/12a571a872732e40fe8d1d6c59f3849f:5ec8f46dcec2324229c8d096ea23c089/archive-watch",
    "api": null,
    "route": "no API — its Looker dashboards deliver to us daily",
-   "manual": true
+   "manual": true,
+   "live": "1.0.75",
+   "read": "seen in Roku's own delivery"
   },
   {
    "store": "LG Content Store",
@@ -126,13 +121,14 @@
    "store": "Web (PWA)",
    "platform": "archivewatch.org",
    "state": "LIVE",
-   "version": "rolling",
-   "since": "2026-06-10",
-   "note": "Ships on every Pages deploy.",
+   "version": "c7e965d",
+   "since": "2026-09-25T22:12:25Z",
+   "note": "Ships on every Pages deploy; the version is the deploy's commit, read from GitHub.",
    "url": "https://archivewatch.org",
    "api": null,
    "route": "state declared by hand; usage measured by our own counter",
-   "manual": true
+   "manual": true,
+   "read": "the newest successful Pages deploy"
   }
  ],
  "ratings": [
@@ -143,6 +139,13 @@
    "version": "1.42.120",
    "releasedAt": "2026-09-15T17:58:12Z",
    "url": "https://apps.apple.com/us/app/archive-watch/id6776697407?uo=4"
+  },
+  {
+   "store": "Google Play",
+   "average": 3.25,
+   "count": null,
+   "via": "Play's daily export to 2026-09-23",
+   "url": "https://play.google.com/store/apps/details?id=com.archivewatch.app"
   }
  ],
  "reviews": [
@@ -2378,7 +2381,7 @@
      "fix": "same cause as 1512a7d9: closeWhenIdle",
      "versionCode": 64
     },
-    "ours": "Exception android.database.SQLException: Error code: 11, message: database disk image is malformed · at app.archivewatch.android.data.CatalogDatabase.queryRaw (CatalogDatabase.kt:561)"
+    "ours": "Exception android.database.SQLException: · at app.archivewatch.android.data.CatalogDatabase.queryRaw (CatalogDatabase.kt:561)"
    },
    {
     "type": "APPLICATION_NOT_RESPONDING",
@@ -3673,23 +3676,23 @@
      "name": "crashMetricSet",
      "description": "App crash metrics",
      "metrics": [
-      "userPerceivedCrashRate28dUserWeighted",
-      "userPerceivedCrashRate7dUserWeighted",
-      "crashRate28dUserWeighted",
-      "userPerceivedCrashRate",
-      "crashRate",
       "crashRate7dUserWeighted",
-      "distinctDevices",
-      "crashCount"
+      "crashRate",
+      "userPerceivedCrashRate",
+      "crashRate28dUserWeighted",
+      "userPerceivedCrashRate7dUserWeighted",
+      "userPerceivedCrashRate28dUserWeighted",
+      "crashCount",
+      "distinctDevices"
      ],
      "dimensions": [
-      "deviceName",
-      "versionCode",
       "osVersion",
-      "deviceType",
-      "countryCode",
+      "versionCode",
+      "deviceName",
+      "deviceOS",
       "deviceModel",
-      "deviceOS"
+      "countryCode",
+      "deviceType"
      ],
      "freshnessInfo": [
       {
@@ -3706,23 +3709,23 @@
      "name": "anrMetricSet",
      "description": "App ANR (Application Not Responding) metrics",
      "metrics": [
-      "userPerceivedAnrRate7dUserWeighted",
-      "userPerceivedAnrRate",
-      "anrRate",
-      "anrRate7dUserWeighted",
       "distinctDevices",
-      "userPerceivedAnrRate28dUserWeighted",
+      "anrRate7dUserWeighted",
+      "anrRate",
+      "userPerceivedAnrRate",
+      "userPerceivedAnrRate7dUserWeighted",
+      "anrCount",
       "anrRate28dUserWeighted",
-      "anrCount"
+      "userPerceivedAnrRate28dUserWeighted"
      ],
      "dimensions": [
-      "osVersion",
-      "deviceType",
-      "countryCode",
       "deviceModel",
-      "deviceOS",
+      "countryCode",
+      "deviceType",
+      "osVersion",
+      "versionCode",
       "deviceName",
-      "versionCode"
+      "deviceOS"
      ],
      "freshnessInfo": [
       {
@@ -3739,22 +3742,22 @@
      "name": "lmkMetricSet",
      "description": "Low Memory Killer metrics",
      "metrics": [
-      "userPerceivedLmkRate",
-      "lmkRate",
-      "lmkRate7dUserWeighted",
-      "userPerceivedLmkRate28dUserWeighted",
-      "lmkRate28dUserWeighted",
-      "lmkCount",
       "distinctDevices",
+      "lmkCount",
+      "lmkRate28dUserWeighted",
+      "userPerceivedLmkRate28dUserWeighted",
+      "lmkRate7dUserWeighted",
+      "lmkRate",
+      "userPerceivedLmkRate",
       "userPerceivedLmkRate7dUserWeighted"
      ],
      "dimensions": [
-      "deviceName",
-      "versionCode",
-      "osVersion",
-      "deviceType",
-      "countryCode",
       "deviceModel",
+      "countryCode",
+      "deviceType",
+      "osVersion",
+      "versionCode",
+      "deviceName",
       "deviceOS"
      ],
      "freshnessInfo": [
@@ -5648,19 +5651,19 @@
     },
     {
      "date": "2026-09-25",
-     "views": 3130,
-     "visits": 928
+     "views": 3143,
+     "visits": 930
     }
    ],
-   "views28d": 45576,
-   "views7d": 20119,
-   "visits28d": 15670,
-   "visits7d": 6324,
+   "views28d": 45589,
+   "views7d": 20132,
+   "visits28d": 15672,
+   "visits7d": 6326,
    "byPath": {
-    "/": 16534,
-    "/item": 11396,
-    "/browse": 11067,
-    "/search": 3089,
+    "/": 16538,
+    "/item": 11402,
+    "/browse": 11069,
+    "/search": 3090,
     "/channels": 749,
     "/series": 674,
     "/library": 635,
@@ -5938,15 +5941,15 @@
     },
     {
      "date": "2026-09-25",
-     "open": 560,
-     "play": 277
+     "open": 563,
+     "play": 280
     }
    ],
-   "distinctPlayed": 1377,
-   "distinctOpened": 2426,
+   "distinctPlayed": 1378,
+   "distinctOpened": 2427,
    "totals": {
-    "open": 6052,
-    "play": 2925
+    "open": 6055,
+    "play": 2928
    },
    "scope": "the WEBSITE only — the apps collect nothing, and they are most of the audience, so this is a sample rather than the platform"
   },
@@ -8088,17 +8091,17 @@
     },
     {
      "date": "2026-09-19",
-     "calls": 262,
+     "calls": 270,
      "errors": 0,
-     "units": 1732,
-     "lives": 10
+     "units": 1887,
+     "lives": 11
     },
     {
      "date": "2026-09-20",
-     "calls": 108,
+     "calls": 100,
      "errors": 0,
-     "units": 1725,
-     "lives": 11
+     "units": 1570,
+     "lives": 10
     },
     {
      "date": "2026-09-21",
@@ -8116,16 +8119,16 @@
     },
     {
      "date": "2026-09-23",
-     "calls": 1681,
+     "calls": 1695,
      "errors": 4,
-     "units": 9765,
+     "units": 9779,
      "lives": 12
     },
     {
      "date": "2026-09-24",
-     "calls": 332,
+     "calls": 318,
      "errors": 1,
-     "units": 1537,
+     "units": 1523,
      "lives": 4
     }
    ],
@@ -8201,13 +8204,13 @@
     },
     {
      "date": "2026-09-19",
-     "lives": 10,
-     "units": 1732
+     "lives": 11,
+     "units": 1887
     },
     {
      "date": "2026-09-20",
-     "lives": 11,
-     "units": 1725
+     "lives": 10,
+     "units": 1570
     },
     {
      "date": "2026-09-21",
@@ -8222,12 +8225,12 @@
     {
      "date": "2026-09-23",
      "lives": 12,
-     "units": 9765
+     "units": 9779
     },
     {
      "date": "2026-09-24",
      "lives": 4,
-     "units": 1537
+     "units": 1523
     }
    ],
    "last28": {
@@ -8299,212 +8302,212 @@
   "apple_stores": {
    "ok": true,
    "note": "3 Apple platform(s)",
-   "at": "2026-09-25T22:02:56+00:00"
+   "at": "2026-09-25T22:13:43+00:00"
   },
   "apple_reviews": {
    "ok": true,
    "note": "6 review(s)",
-   "at": "2026-09-25T22:02:56+00:00"
+   "at": "2026-09-25T22:13:44+00:00"
   },
   "apple_rating": {
    "ok": true,
    "note": "4.125 from 8",
-   "at": "2026-09-25T22:02:56+00:00"
+   "at": "2026-09-25T22:13:44+00:00"
   },
   "apple_performance": {
    "ok": true,
    "note": "Apple has not aggregated enough device data yet",
-   "at": "2026-09-25T22:02:57+00:00"
+   "at": "2026-09-25T22:13:45+00:00"
   },
   "apple_downloads": {
    "ok": true,
    "note": "1174 first-time download(s) over 31 day(s), 4 device type(s), 93 country/countries; skipped 6971 unit(s) across 2 other product type(s)",
-   "at": "2026-09-25T22:03:20+00:00"
+   "at": "2026-09-25T22:14:07+00:00"
   },
   "play_stores": {
    "ok": true,
    "note": "3 track(s)",
-   "at": "2026-09-25T22:03:21+00:00"
+   "at": "2026-09-25T22:14:08+00:00"
   },
   "play_reviews": {
    "ok": true,
    "note": "0 review(s) in Play's 7-day window",
-   "at": "2026-09-25T22:03:21+00:00"
-  },
-  "play_rating": {
-   "ok": false,
-   "note": "Play listing carries no rating yet",
-   "at": "2026-09-25T22:03:21+00:00"
+   "at": "2026-09-25T22:14:09+00:00"
   },
   "play_vitals": {
    "ok": true,
    "note": "crashRate=0.0, anrRate=0.0",
-   "at": "2026-09-25T22:03:23+00:00"
+   "at": "2026-09-25T22:14:10+00:00"
   },
   "play_crashes": {
    "ok": true,
    "note": "17 cluster(s), 0 still on build 65",
-   "at": "2026-09-25T22:03:56+00:00"
+   "at": "2026-09-25T22:14:40+00:00"
   },
   "play_users": {
    "ok": true,
    "note": "1 day(s) of users, 0 dimension(s)",
-   "at": "2026-09-25T22:04:01+00:00"
+   "at": "2026-09-25T22:14:45+00:00"
   },
   "play_reports": {
    "ok": true,
    "note": "NO NEW INSTALL ROW IN 17 DAYS — newest is 2026-09-08. Past the normal ~6-day lag and past the monthly-file delay, so check the bucket with tools/play_bucket_probe.py before assuming it is a lag. 598 install(s) over 28 day(s)",
-   "at": "2026-09-25T22:04:07+00:00"
+   "at": "2026-09-25T22:14:51+00:00"
   },
   "play_daily_exports": {
    "ok": true,
    "note": "ratings: 36 day(s) to 2026-09-23, crashes: 40 day(s) to 2026-09-21",
-   "at": "2026-09-25T22:04:14+00:00"
+   "at": "2026-09-25T22:14:58+00:00"
+  },
+  "play_rating": {
+   "ok": true,
+   "note": "3.25 from an uncounted number of rating(s), via Play's daily export to 2026-09-23",
+   "at": "2026-09-25T22:14:59+00:00"
   },
   "play_acquisition": {
    "ok": true,
    "note": "875 acquisition(s) from 2074 visitor(s) to 2026-09-18, 42% conversion",
-   "at": "2026-09-25T22:04:16+00:00"
+   "at": "2026-09-25T22:15:00+00:00"
   },
   "amazon_vitals": {
    "ok": true,
    "note": "3 metric set(s) with data, 0 empty",
-   "at": "2026-09-25T22:04:16+00:00"
+   "at": "2026-09-25T22:15:01+00:00"
   },
   "amazon_installs": {
    "ok": true,
    "note": "36 install(s) across 1 month(s), 7 countries",
-   "at": "2026-09-25T22:04:17+00:00"
+   "at": "2026-09-25T22:15:01+00:00"
   },
   "amazon_live": {
    "ok": true,
    "note": "versionCode 64 in the OPEN edit — a submission is in flight, so this is what is staged rather than what is live",
-   "at": "2026-09-25T22:04:21+00:00"
+   "at": "2026-09-25T22:15:05+00:00"
   },
   "roku_engagement": {
    "ok": true,
    "note": "no delivery waiting — the schedule fires daily at 06:00, so this is normal between runs",
-   "at": "2026-09-25T22:04:21+00:00"
+   "at": "2026-09-25T22:15:05+00:00"
   },
   "manual_stores": {
    "ok": true,
-   "note": "5 declared store(s), 1 version(s) read rather than declared",
-   "at": "2026-09-25T22:04:21+00:00"
+   "note": "5 declared store(s), 2 version(s) read rather than declared",
+   "at": "2026-09-25T22:15:05+00:00"
   },
   "social_program": {
    "ok": true,
    "note": "101 post(s) across 5 platform(s), 53 measured",
-   "at": "2026-09-25T22:04:21+00:00"
+   "at": "2026-09-25T22:15:05+00:00"
   },
   "social_reach": {
    "ok": true,
    "note": "bluesky=10, mastodon=0, instagram=1",
-   "at": "2026-09-25T22:04:22+00:00"
+   "at": "2026-09-25T22:15:06+00:00"
   },
   "social_replies": {
    "ok": true,
    "note": "1 reply/mention notification(s)",
-   "at": "2026-09-25T22:04:22+00:00"
+   "at": "2026-09-25T22:15:06+00:00"
   },
   "social_liveness": {
    "ok": true,
    "note": "54 live, 4 deleted, 43 could not be checked",
-   "at": "2026-09-25T22:04:28+00:00"
+   "at": "2026-09-25T22:15:12+00:00"
   },
   "youtube_channel": {
    "ok": true,
    "note": "stats need youtube.readonly (the token is upload-only, by design), 0 comment(s)",
-   "at": "2026-09-25T22:04:28+00:00"
+   "at": "2026-09-25T22:15:13+00:00"
   },
   "mentions_reddit": {
    "ok": true,
    "note": "0 kept",
-   "at": "2026-09-25T22:04:29+00:00"
+   "at": "2026-09-25T22:15:13+00:00"
   },
   "mentions_hn": {
    "ok": true,
    "note": "0 kept of 0",
-   "at": "2026-09-25T22:04:29+00:00"
+   "at": "2026-09-25T22:15:13+00:00"
   },
   "mentions_lemmy": {
    "ok": true,
    "note": "0 kept",
-   "at": "2026-09-25T22:04:31+00:00"
+   "at": "2026-09-25T22:15:15+00:00"
   },
   "mentions_news": {
    "ok": true,
    "note": "0 kept",
-   "at": "2026-09-25T22:04:31+00:00"
+   "at": "2026-09-25T22:15:15+00:00"
   },
   "mentions_bluesky": {
    "ok": true,
    "note": "2 kept",
-   "at": "2026-09-25T22:04:32+00:00"
+   "at": "2026-09-25T22:15:16+00:00"
   },
   "mentions_mastodon": {
    "ok": true,
    "note": "1 kept",
-   "at": "2026-09-25T22:04:35+00:00"
+   "at": "2026-09-25T22:15:18+00:00"
   },
   "github": {
    "ok": true,
    "note": "1 star(s), 0 open issue(s), 0 from outside",
-   "at": "2026-09-25T22:04:36+00:00"
+   "at": "2026-09-25T22:15:19+00:00"
   },
   "workflows": {
    "ok": true,
    "note": "2 finding(s), 0 urgent",
-   "at": "2026-09-25T22:05:31+00:00"
+   "at": "2026-09-25T22:16:15+00:00"
   },
   "catalog": {
    "ok": true,
    "note": "22631 items, schema 13",
-   "at": "2026-09-25T22:05:31+00:00"
+   "at": "2026-09-25T22:16:15+00:00"
   },
   "web_usage": {
    "ok": true,
-   "note": "45576 route view(s) and 15670 visit(s) over 17 day(s), 14 surface(s)",
-   "at": "2026-09-25T22:05:31+00:00"
+   "note": "45589 route view(s) and 15672 visit(s) over 17 day(s), 14 surface(s)",
+   "at": "2026-09-25T22:16:15+00:00"
   },
   "web_titles": {
    "ok": true,
-   "note": "1377 film(s) played, 2426 opened, over 12 day(s)",
-   "at": "2026-09-25T22:05:32+00:00"
+   "note": "1378 film(s) played, 2427 opened, over 12 day(s)",
+   "at": "2026-09-25T22:16:15+00:00"
   },
   "search_console": {
    "ok": true,
    "note": "263 clicks / 4458 impressions in 28 days to 2026-09-23 (prior 28: 0 / 0)",
-   "at": "2026-09-25T22:05:33+00:00"
+   "at": "2026-09-25T22:16:17+00:00"
   },
   "search_index": {
    "ok": true,
    "note": "0/150 sampled film pages indexed of 22,631 published; 0 technical fault(s)",
-   "at": "2026-09-25T22:07:39+00:00"
+   "at": "2026-09-25T22:18:16+00:00"
   },
   "together_rooms": {
    "ok": true,
    "note": "0 room(s), 0 guest join(s) since the tally began",
-   "at": "2026-09-25T22:07:40+00:00"
+   "at": "2026-09-25T22:18:16+00:00"
   },
   "youtube_usage": {
    "ok": true,
-   "note": "44 YouTube broadcast(s) in 90 days; peak quota day 9,765/10,000 units",
-   "at": "2026-09-25T22:07:45+00:00"
+   "note": "44 YouTube broadcast(s) in 90 days; peak quota day 9,779/10,000 units",
+   "at": "2026-09-25T22:18:17+00:00"
   },
   "together_summary": {
    "ok": true,
    "note": "28 days: {'rooms': 0, 'guests': 0, 'lives': 44}",
-   "at": "2026-09-25T22:07:45+00:00"
+   "at": "2026-09-25T22:18:17+00:00"
   },
   "distribution": {
    "ok": true,
    "note": "App Store: 6 rated",
-   "at": "2026-09-25T22:07:45+00:00"
+   "at": "2026-09-25T22:18:17+00:00"
   },
   "asks": {
    "ok": true,
    "note": "0 request(s), 5 bit(s) of praise",
-   "at": "2026-09-25T22:07:45+00:00"
+   "at": "2026-09-25T22:18:17+00:00"
   }
  },
  "_apply": true,
@@ -8773,7 +8776,7 @@
    "date": "2026-09-25",
    "appleRating": 4.125,
    "appleRatings": 8,
-   "playRating": null,
+   "playRating": 3.25,
    "playRatings": null,
    "reviews": 7,
    "mentions": 5,
@@ -8788,8 +8791,8 @@
    "urgent": 0
   }
  ],
- "generatedAt": "2026-09-25T22:07:45+00:00",
- "repoVersion": "1.42.706",
- "repoBuild": "1718",
+ "generatedAt": "2026-09-25T22:18:17+00:00",
+ "repoVersion": "1.42.709",
+ "repoBuild": "1721",
  "_": "Written by tools/pulse_collect.py. `history` is the series and is append-only per day; everything else is the latest reading. A source that could not answer says so in `sources` — never assume a zero."
 }
