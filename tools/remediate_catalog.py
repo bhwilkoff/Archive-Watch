@@ -3415,6 +3415,32 @@ def fix_tmdb_collisions(items, stats):
                 stats["tmdb_collision_fixed"] = stats.get("tmdb_collision_fixed", 0) + 1
 
 
+TV_TYPED_AS_FILM = REPO / "shared" / "editorial" / "tv_typed_as_film.json"
+
+
+def retype_tv_typed_as_film(items, stats):
+    """Owner, 2026-09-25: television that entered as FILM (Roots, The World at
+    War, Alistair Cooke's America) is retyped as TV, so it leaves Movies and
+    falls under the TV rights decision. A curated id list — a pattern caught
+    Mickey Mouse "Season" compilations and educational films. Idempotent;
+    removing an entry reverses it on the next run."""
+    try:
+        listed = json.loads(TV_TYPED_AS_FILM.read_text(encoding="utf-8")).get("items", {})
+    except (OSError, ValueError):
+        return
+    for it in items:
+        aid = it.get("archiveID")
+        if aid in listed and it.get("contentType") != "tv-special":
+            it["contentTypeWas"] = it.get("contentType")
+            it["contentType"] = "tv-special"
+            it["retypedAsTV"] = listed[aid]
+            stats["retyped_tv_as_film"] += 1
+        elif aid not in listed and it.get("retypedAsTV"):
+            it["contentType"] = it.pop("contentTypeWas", None) or "short-film"
+            it.pop("retypedAsTV", None)
+            stats["retype_reversed"] += 1
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--dry-run", action="store_true")
@@ -3427,6 +3453,7 @@ def main():
     if isinstance(cat.get("stats"), dict):
         cat["stats"]["totalItems"] = len(cat["items"])
     stats = remediate(cat["items"])
+    retype_tv_typed_as_film(cat["items"], stats)
     fix_tmdb_collisions(cat["items"], stats)   # #20 year-independent wrong-poster pass
     # NOT called from the build. `subtitleDead` is a marker this pass cannot
     # verify, and it is STALE for 35 of the 43 items carrying it — their files
