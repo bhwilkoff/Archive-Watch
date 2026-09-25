@@ -902,6 +902,15 @@ public final class StudioSession {
         if let src = screenSource {
             await e.attachGuests(src.sink)
         }
+        // AND THE CALL'S SOUND, for the same reason. Only the picture was
+        // re-applied, so a call chosen before the preview (or carried from the
+        // preview into Go Live) kept its tap running into a ring no engine
+        // read: no call fader in the Mixer and no guests' voices in the mix.
+        // Owner, 2026-09-25: "There doesn't seem to be a mixer option for the
+        // call on the mixer interface."
+        if #available(macOS 14.2, *), let tap = callTap as? StudioCallAudioTap {
+            e.attachCallAudio(ring: tap.ring)
+        }
         #endif
         await e.attachFilm(player: player)
         // SAY WHETHER THE FILM'S AUDIO ACTUALLY ATTACHED. A file played through

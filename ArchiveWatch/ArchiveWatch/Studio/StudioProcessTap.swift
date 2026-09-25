@@ -66,6 +66,16 @@ public final class StudioCallAudioTap: NSObject, @unchecked Sendable {
         // EVERY object the app owns — a browser's audio comes from its
         // helper, so tapping only the parent would capture silence.
         let desc = CATapDescription(stereoMixdownOfProcesses: process.objectIDs)
+        // AND BY BUNDLE ID, FOLLOWED ACROSS RESTARTS (macOS 26). A browser
+        // renders a call's sound in a helper that can start AFTER the host
+        // picked the window — a tap bound only to the audio objects that
+        // existed at that moment hears nothing from the new one. Measured
+        // 2026-09-25 on the owner's Meet call: the tap ran, 13.9 million
+        // samples, every level 0.0000. The browser itself and its helper are
+        // both named so either one's audio is followed.
+        let family = StudioSession.browserFamily(process.bundleID)
+        desc.bundleIDs = Array(Set([process.bundleID, family, family + ".helper"]))
+        desc.isProcessRestoreEnabled = true
         // PRIVATE and UNMUTED: private so the tap does not appear as a device
         // to anything else on the machine, unmuted so the HOST still hears the
         // call they are in. Muting it would capture the conversation and
