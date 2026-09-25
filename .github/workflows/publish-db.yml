@@ -259,7 +259,12 @@ jobs:
           fi
           git commit -m "Refresh web catalog index + detail shards [skip ci]"
           for i in 1 2 3 4 5; do
-            if git pull --rebase --autostash origin main && git push; then
+            # -X theirs: these files are GENERATED, and publish-db runs one at
+            # a time, so the build being pushed is always the newest; on a
+            # conflict it wins. Without it a conflict left the rebase half-done,
+            # every later attempt failed at once, and the run went green while
+            # the site kept the old episodes-index (2026-09-25, run 36159051772).
+            if git pull --rebase -X theirs --autostash origin main && git push; then
               echo "pushed index on attempt $i"
               # The index commit carries [skip ci] (so it doesn't re-trigger heavy
               # writer workflows), which ALSO suppresses the push-triggered Deploy
@@ -269,6 +274,9 @@ jobs:
               bash tools/gh_dispatch.sh deploy-pages.yml
               exit 0
             fi
+            git rebase --abort 2>/dev/null || true
             echo "push race, retry $i"; sleep $((i * 3))
           done
-          echo "index push still racing after retries — non-fatal, DB already shipped"
+          # Decision 107: the DB shipped, the web artifacts did not. That is a
+          # partial success, and it must be visible rather than green.
+          echo "::warning::web index + episodes-index were NOT pushed after 5 attempts; the site is serving the previous build"

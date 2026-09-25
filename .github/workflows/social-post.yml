@@ -227,6 +227,7 @@ jobs:
             if git pull --rebase --autostash origin main && git push; then
               echo "ledger pushed on attempt $i"; exit 0
             fi
+            git rebase --abort 2>/dev/null || true
             sleep $((i * 3))
           done
           echo "::warning::ledger push kept racing; it will be retried next run"

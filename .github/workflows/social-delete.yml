@@ -67,6 +67,7 @@ jobs:
           git commit -m "Social: removed deleted posts from the ledger [skip ci]"
           for i in 1 2 3 4 5; do
             if git pull --rebase --autostash origin main && git push; then exit 0; fi
+            git rebase --abort 2>/dev/null || true
             sleep $((i * 3))
           done
           echo "ledger push still racing after retries"; exit 1
