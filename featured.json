@@ -154,6 +154,7 @@
     },
     {
       "id": "silent-era",
+      "alsoContentTypes": ["silent-film"],
       "title": "From the Silent Era",
       "subtitle": "Cinema before sound",
       "category": "silent-film",
@@ -274,6 +275,7 @@
     },
     {
       "id": "animation-all",
+      "alsoContentTypes": ["animation"],
       "title": "Animation",
       "subtitle": "From Fleischer to Terrytoons and beyond",
       "category": "animation",

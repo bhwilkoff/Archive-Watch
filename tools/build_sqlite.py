@@ -140,6 +140,24 @@ def _shelf_collection_map():
 SHELF_COLLECTION_MAP = _shelf_collection_map()
 
 
+def _shelf_type_map():
+    """{contentType: [shelfID,...]} from a shelf's `alsoContentTypes`. For the
+    catch-all shelves only (Animation, Silent Era): a film that is animation
+    belongs on "Animation" whichever feed found it. Collection-keyed
+    membership alone kept the Public Domain Day finds off every curated shelf
+    — Fleischer's Wise Flies (1930) sat on none (2026-09-25)."""
+    out = defaultdict(list)
+    try:
+        for sh in json.loads(FEATURED.read_text(encoding="utf-8")).get("shelves", []):
+            for ct in sh.get("alsoContentTypes") or []:
+                out[ct].append(sh["id"])
+    except Exception:  # noqa: BLE001
+        pass
+    return dict(out)
+
+SHELF_TYPE_MAP = _shelf_type_map()
+
+
 def _tv_category_shelves():
     """Shelves that featured.json declares are TELEVISION. Read from the
     declaration rather than hardcoded, so a new TV row behaves correctly the
@@ -181,6 +199,7 @@ def _shelf_ids_for(it):
     ids = set(it.get("shelves") or [])
     for c in (it.get("collections") or []):
         ids.update(SHELF_COLLECTION_MAP.get(str(c), []))
+    ids.update(SHELF_TYPE_MAP.get(it.get("contentType") or "", []))
     return ids
 
 

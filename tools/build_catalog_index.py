@@ -157,7 +157,7 @@ def main():
         except Exception:  # noqa: BLE001
             curated_collections = []
     curated_lower = {c.lower(): c for c in curated_collections}
-    from build_sqlite import SERIES_BY_FRANCHISE, shelf_rights_ok
+    from build_sqlite import SERIES_BY_FRANCHISE, _shelf_ids_for
 
     adult = set()
     if FEATURED.exists():
@@ -284,7 +284,12 @@ def main():
         # instead of live scrape (which bypasses the rights/adult pipeline).
         designed = 1 if poster else 0
         pop_score = it.get("popularityScore") or 0
-        for shelf_id in (it.get("shelves") or []) if shelf_rights_ok(it) else []:
+        # The SAME membership the apps' item_shelves gets (_shelf_ids_for:
+        # stored shelves + collection map + content type, behind the shelf
+        # rights rule). This read `shelves` alone — a field only the old
+        # catalog builder set — so the web's Silent Era shelf had 7 films to
+        # the apps' 3,467, Newsreels 11 to 995 (2026-09-25).
+        for shelf_id in _shelf_ids_for(it):
             shelf_members.setdefault(shelf_id, []).append((designed, pop_score, aid))
         for c in cols:
             if (canon := curated_lower.get(c)):
