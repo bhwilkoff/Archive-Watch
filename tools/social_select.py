@@ -797,31 +797,39 @@ def main() -> int:
     pick = None
     partner = None
     quote_line = None
-    for row in shortlist:
-        d = details.get(row[I_ID])
-        if not d:
-            continue
-        synopsis = d[D_SYNOPSIS] if len(d) > D_SYNOPSIS else None
-        url = d[D_URL] if len(d) > D_URL else None
-        if not url:                      # not playable right now — never promote it
-            continue
-        if not pd_basis(row, d, gov):
-            continue          # cannot state why it is free — do not promote it
-        if slot == "one-line":
-            caps = d[D_CAPTIONS] if len(d) > D_CAPTIONS else None
-            rt = d[D_RUNTIME] if len(d) > D_RUNTIME else None
-            quote_line = pick_line(row[I_ID], caps, rt, when.isoformat())
-            if not quote_line:
+    # A demanding slot that finds nothing falls back to now-showing (which
+    # needs only a playable film, a stated PD basis and a synopsis) rather
+    # than posting nothing: 2026-09-25's 'one-line' found no quotable subtitle
+    # line in its 60-film shortlist and the day went unposted (exit 3).
+    for slot in ([slot] if slot == "now-showing" else [slot, "now-showing"]):
+        for row in shortlist:
+            d = details.get(row[I_ID])
+            if not d:
                 continue
-            pick = (row, d, None)
+            synopsis = d[D_SYNOPSIS] if len(d) > D_SYNOPSIS else None
+            url = d[D_URL] if len(d) > D_URL else None
+            if not url:                      # not playable right now — never promote it
+                continue
+            if not pd_basis(row, d, gov):
+                continue          # cannot state why it is free — do not promote it
+            if slot == "one-line":
+                caps = d[D_CAPTIONS] if len(d) > D_CAPTIONS else None
+                rt = d[D_RUNTIME] if len(d) > D_RUNTIME else None
+                quote_line = pick_line(row[I_ID], caps, rt, when.isoformat())
+                if not quote_line:
+                    continue
+                pick = (row, d, None)
+                break
+            review = pick_review(d, row[I_ID], used_reviews)
+            if slot == "viewer-said" and not review:
+                continue
+            if slot != "viewer-said" and not synopsis:
+                continue
+            pick = (row, d, review)
             break
-        review = pick_review(d, row[I_ID], used_reviews)
-        if slot == "viewer-said" and not review:
-            continue
-        if slot != "viewer-said" and not synopsis:
-            continue
-        pick = (row, d, review)
-        break
+        if pick:
+            break
+        print(f"no candidate satisfied slot '{slot}'", file=sys.stderr)
 
     if not pick:
         print(f"no candidate satisfied slot '{slot}'", file=sys.stderr)
