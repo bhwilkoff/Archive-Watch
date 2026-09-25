@@ -77162,7 +77162,7 @@
       "rightsConfidence": "high",
       "source": "archive_collection",
       "archiveCollection": "feature_films",
-      "status": "held_suspect_year",
+      "status": "new",
       "discovered_at": "2026-09-25T04:29:30Z"
     },
     {
@@ -77175,7 +77175,7 @@
       "rightsConfidence": "high",
       "source": "archive_collection",
       "archiveCollection": "Comedy_Films",
-      "status": "held_suspect_year",
+      "status": "new",
       "discovered_at": "2026-09-25T04:29:30Z"
     },
     {
@@ -77188,7 +77188,7 @@
       "rightsConfidence": "high",
       "source": "archive_collection",
       "archiveCollection": "Comedy_Films",
-      "status": "held_suspect_year",
+      "status": "new",
       "discovered_at": "2026-09-25T04:29:30Z"
     },
     {
@@ -84837,7 +84837,7 @@
       "rightsConfidence": "high",
       "source": "pd_age_backfill",
       "archiveCollection": null,
-      "status": "held_suspect_year",
+      "status": "new",
       "discovered_at": "2026-09-25T04:29:30Z"
     },
     {
@@ -101798,7 +101798,7 @@
       "rightsConfidence": "high",
       "source": "pd_age_backfill",
       "archiveCollection": null,
-      "status": "held_suspect_year",
+      "status": "new",
       "discovered_at": "2026-09-25T04:29:30Z"
     },
     {
@@ -105428,7 +105428,7 @@
       "rightsConfidence": "high",
       "source": "pd_age_backfill",
       "archiveCollection": null,
-      "status": "held_suspect_year",
+      "status": "new",
       "discovered_at": "2026-09-25T05:04:02Z"
     },
     {

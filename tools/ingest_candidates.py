@@ -79,6 +79,27 @@ _MODERN_TITLE_RE = re.compile(
     r"|\b60\s?fps\b|\b(19[89]\d|20[0-3]\d)\b", re.I)
 
 
+# A modern year that belongs to an EDITION, not the film: "Buster Keaton
+# Short Films Collection (2011)", "Masters of Cinema (2008)", "1994
+# Restoration", "Riedizione 2021". The first nightly hold list (2026-09-25)
+# held three copies of Keaton's The Love Nest (1923) on exactly this.
+_EDITION_WORDS = re.compile(
+    r"\b(collection|masters of cinema|criterion|kino|edition|restor\w*|remaster\w*"
+    r"|riedizione|blu-?ray|dvd|reconstruct\w*)\b", re.I)
+_MODERN_YEAR = re.compile(r"\b(19[89]\d|20[0-3]\d)\b")
+
+
+def _suspect_age_title(title):
+    if not _MODERN_TITLE_RE.search(title):
+        return False
+    # Emoji / fancy text, "feat.", 60 fps hold regardless; a modern year
+    # alone does not when the title is describing an edition of the film.
+    stripped = _MODERN_YEAR.sub("", title)
+    if _MODERN_TITLE_RE.search(stripped):
+        return True
+    return not _EDITION_WORDS.search(title)
+
+
 def build_item(cand, meta, session, omdb_key, omdb_cache, now):
     """Construct a catalog item from Archive metadata + candidate, enriched
     via OMDb. Returns (item, reason) — item is None with a reason string
@@ -228,7 +249,7 @@ def build_item(cand, meta, session, omdb_key, omdb_cache, now):
     # tapes, restoration-credit clips, AI-colourised footage, and a few real
     # restorations naming their year — review those), 0 of 573 1928-30
     # candidates. "1080p" alone is NOT a marker: restorations use it.
-    if b == "safe_pd_age" and _MODERN_TITLE_RE.search(item.get("title") or ""):
+    if b == "safe_pd_age" and _suspect_age_title(item.get("title") or ""):
         return None, "held_suspect_year"
 
     # OMDb enrichment (poster + rich fields) when we have an IMDb ID.
