@@ -1,10 +1,10 @@
 {
   "schema": 1,
-  "updated_at": "2026-09-24T09:09:16Z",
+  "updated_at": "2026-09-25T01:38:42Z",
   "description": "Missing-episode queue: canonical episodes (from OMDb) that we don't yet have on Archive. Drained by tools/backfill_tv_episodes.py.",
   "stats": {
-    "total": 18227,
-    "wanted": 18004,
+    "total": 18238,
+    "wanted": 18015,
     "fulfilled": 223,
     "series_with_gaps": 362
   },
@@ -3729,6 +3729,16 @@
       "seriesID": "alfred-hitchcock-presents-1955",
       "seriesTitle": "Alfred Hitchcock Presents",
       "season": 1,
+      "episode": 28,
+      "title": "Portrait of Jocelyn",
+      "episodeImdbID": "tt0508230",
+      "status": "wanted",
+      "added_at": "2026-09-25T01:38:42Z"
+    },
+    {
+      "seriesID": "alfred-hitchcock-presents-1955",
+      "seriesTitle": "Alfred Hitchcock Presents",
+      "season": 1,
       "episode": 29,
       "title": "The Orderly World of Mr. Appleby",
       "episodeImdbID": "tt0508333",
@@ -3804,6 +3814,16 @@
       "episodeImdbID": "tt0508151",
       "status": "wanted",
       "added_at": "2026-06-05T16:31:07Z"
+    },
+    {
+      "seriesID": "alfred-hitchcock-presents-1955",
+      "seriesTitle": "Alfred Hitchcock Presents",
+      "season": 1,
+      "episode": 38,
+      "title": "The Creeper",
+      "episodeImdbID": "tt0508274",
+      "status": "wanted",
+      "added_at": "2026-09-25T01:38:42Z"
     },
     {
       "seriesID": "alfred-hitchcock-presents-1955",
@@ -4319,6 +4339,16 @@
       "seriesID": "alfred-hitchcock-presents-1955",
       "seriesTitle": "Alfred Hitchcock Presents",
       "season": 3,
+      "episode": 13,
+      "title": "Night of the Execution",
+      "episodeImdbID": "tt0508213",
+      "status": "wanted",
+      "added_at": "2026-09-25T01:38:42Z"
+    },
+    {
+      "seriesID": "alfred-hitchcock-presents-1955",
+      "seriesTitle": "Alfred Hitchcock Presents",
+      "season": 3,
       "episode": 14,
       "title": "The Percentage",
       "episodeImdbID": "tt0508335",
@@ -4469,6 +4499,16 @@
       "seriesID": "alfred-hitchcock-presents-1955",
       "seriesTitle": "Alfred Hitchcock Presents",
       "season": 3,
+      "episode": 31,
+      "title": "The Festive Season",
+      "episodeImdbID": "tt0508292",
+      "status": "wanted",
+      "added_at": "2026-09-25T01:38:42Z"
+    },
+    {
+      "seriesID": "alfred-hitchcock-presents-1955",
+      "seriesTitle": "Alfred Hitchcock Presents",
+      "season": 3,
       "episode": 32,
       "title": "Listen, Listen.....!",
       "episodeImdbID": "tt0508191",
@@ -4514,6 +4554,16 @@
       "episodeImdbID": "tt0508343",
       "status": "wanted",
       "added_at": "2026-06-05T16:31:07Z"
+    },
+    {
+      "seriesID": "alfred-hitchcock-presents-1955",
+      "seriesTitle": "Alfred Hitchcock Presents",
+      "season": 3,
+      "episode": 37,
+      "title": "The Canary Sedan",
+      "episodeImdbID": "tt0508266",
+      "status": "wanted",
+      "added_at": "2026-09-25T01:38:42Z"
     },
     {
       "seriesID": "alfred-hitchcock-presents-1955",
@@ -4694,6 +4744,26 @@
       "episodeImdbID": "tt0508358",
       "status": "wanted",
       "added_at": "2026-06-05T16:31:07Z"
+    },
+    {
+      "seriesID": "alfred-hitchcock-presents-1955",
+      "seriesTitle": "Alfred Hitchcock Presents",
+      "season": 4,
+      "episode": 18,
+      "title": "The Last Dark Step",
+      "episodeImdbID": "tt0508313",
+      "status": "wanted",
+      "added_at": "2026-09-25T01:38:42Z"
+    },
+    {
+      "seriesID": "alfred-hitchcock-presents-1955",
+      "seriesTitle": "Alfred Hitchcock Presents",
+      "season": 4,
+      "episode": 19,
+      "title": "The Morning of the Bride",
+      "episodeImdbID": "tt0508327",
+      "status": "wanted",
+      "added_at": "2026-09-25T01:38:42Z"
     },
     {
       "seriesID": "alfred-hitchcock-presents-1955",
@@ -5364,6 +5434,16 @@
       "episodeImdbID": "tt0508314",
       "status": "wanted",
       "added_at": "2026-06-05T16:31:07Z"
+    },
+    {
+      "seriesID": "alfred-hitchcock-presents-1955",
+      "seriesTitle": "Alfred Hitchcock Presents",
+      "season": 6,
+      "episode": 19,
+      "title": "The Landlady",
+      "episodeImdbID": "tt0508312",
+      "status": "wanted",
+      "added_at": "2026-09-25T01:38:42Z"
     },
     {
       "seriesID": "alfred-hitchcock-presents-1955",
@@ -28442,6 +28522,16 @@
       "seriesID": "dad-s-army-1968",
       "seriesTitle": "Dad's Army",
       "season": 1,
+      "episode": 5,
+      "title": "The Showing Up of Corporal Jones",
+      "episodeImdbID": "tt0552335",
+      "status": "wanted",
+      "added_at": "2026-09-25T01:38:42Z"
+    },
+    {
+      "seriesID": "dad-s-army-1968",
+      "seriesTitle": "Dad's Army",
+      "season": 1,
       "episode": 6,
       "title": "Shooting Pains",
       "episodeImdbID": "tt0552312",
@@ -28567,6 +28657,16 @@
       "episodeImdbID": "tt0552285",
       "status": "wanted",
       "added_at": "2026-06-03T23:58:16Z"
+    },
+    {
+      "seriesID": "dad-s-army-1968",
+      "seriesTitle": "Dad's Army",
+      "season": 4,
+      "episode": 3,
+      "title": "Boots, Boots, Boots",
+      "episodeImdbID": "tt0552280",
+      "status": "wanted",
+      "added_at": "2026-09-25T01:38:42Z"
     },
     {
       "seriesID": "dad-s-army-1968",
@@ -94532,6 +94632,16 @@
       "episodeImdbID": "tt0674014",
       "status": "wanted",
       "added_at": "2026-06-05T16:31:07Z"
+    },
+    {
+      "seriesID": "petticoat-junction-1963",
+      "seriesTitle": "Petticoat Junction",
+      "season": 2,
+      "episode": 1,
+      "title": "Betty Jo's Dog",
+      "episodeImdbID": "tt0673901",
+      "status": "wanted",
+      "added_at": "2026-09-25T01:38:42Z"
     },
     {
       "seriesID": "petticoat-junction-1963",
