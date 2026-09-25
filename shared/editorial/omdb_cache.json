@@ -1,7 +1,7 @@
 {
   "version": 1,
   "description": "OMDb lookup results keyed by IMDb ID. Positive = poster_url; negative = null (so we don't burn daily quota retrying items OMDb doesn't have). Populated by the scheduled omdb-backfill GitHub Action + local runs of tools/omdb_backfill.py. The exporter overlays this cache over DB rows at export time.",
-  "updated_at": "2026-09-25T02:50:08Z",
+  "updated_at": "2026-09-25T02:55:08Z",
   "entries": {
     "tt0007613": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BYzUwNTY4NWUtNGRhMy00YjVmLWEyNmQtYTQyNWQyNDZhNjFmXkEyXkFqcGc@._V1_SX300.jpg",
@@ -31910,11 +31910,11 @@
     },
     "nm0101038": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm0101038\" to type \\'Double\\''",
-      "last_tried": "2026-09-25T02:50:08Z"
+      "last_tried": "2026-09-25T02:55:08Z"
     },
     "nm1947784": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm1947784\" to type \\'Double\\''",
-      "last_tried": "2026-09-25T02:50:08Z"
+      "last_tried": "2026-09-25T02:55:08Z"
     },
     "tt0000046": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BZWM2N2MzMGMtNzNkNi00OTc2LTg5NDQtNWViNTA2MGIwNmFhXkEyXkFqcGdeQXVyNTI2NTY2MDI@._V1_SX300.jpg",
@@ -323417,6 +323417,211 @@
         "Sci-Fi"
       ],
       "fetched_at": "2026-09-24T07:37:59Z",
+      "schema": 3
+    },
+    "tt0008696": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMTE2M2Y1YWItYmJhMy00OTg4LTk3NzctOGJlOGUxZmQ3NWNmXkEyXkFqcGdeQXVyNjA5MTAzODY@._V1_SX300.jpg",
+      "imdb_rating": 6.5,
+      "imdb_votes": 27,
+      "content_rating": null,
+      "plot": "Documentary on the then-new Chinese Republic, taken over a ten-year period. Footage includes races at Shanghai, imperial ceremonies at the national Temple of Heaven, scenes of the destruction caused by the typhoon of 1914, and the installation of government officials at the Peking palaces.",
+      "runtime_min": 108,
+      "director": "Benjamin Brodsky",
+      "actors": [],
+      "genres": [
+        "Documentary"
+      ],
+      "fetched_at": "2026-09-25T02:55:08Z",
+      "schema": 3
+    },
+    "tt0018196": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNTFlZTIzMTYtNzIwYS00YTllLThlNmUtNWJjOTkzNzZjOWYxXkEyXkFqcGdeQXVyNDcwNDI2MTk@._V1_SX300.jpg",
+      "imdb_rating": null,
+      "imdb_votes": 37,
+      "content_rating": null,
+      "plot": "Oswald takes Ortensia (\"Sadie\") out for a ride in his jalopy and soon finds himself in a race with a chasing police car.",
+      "runtime_min": 6,
+      "director": "Walt Disney",
+      "actors": [],
+      "genres": [
+        "Animation",
+        "Short",
+        "Comedy"
+      ],
+      "fetched_at": "2026-09-25T02:55:08Z",
+      "schema": 3
+    },
+    "tt0020566": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMTA0YmI1OTYtMDIwNC00NzYwLTgzYmUtZjE1ZTExM2NhYWM5XkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 6.0,
+      "imdb_votes": 344,
+      "content_rating": null,
+      "plot": "A simple story of two friends who live together in a poor tenement and who share about everything in life. Everything goes well until they gallantly rescue a woman injured in a road accident. Since the lady has nowhere to go, the two good-hearted friends invite her to their home.",
+      "runtime_min": 14,
+      "director": "Yasujirô Ozu",
+      "actors": [
+        "Atsushi Watanabe",
+        "Hisao Yoshitani",
+        "Eiko Takamatsu"
+      ],
+      "genres": [
+        "Short",
+        "Comedy"
+      ],
+      "fetched_at": "2026-09-25T02:55:08Z",
+      "schema": 3
+    },
+    "tt0159110": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BZDliN2M0NTMtMzM4Yi00YmJmLWJhY2MtZGJlNTI2ZjEyOTM3XkEyXkFqcGdeQXVyNjA5MTAzODY@._V1_SX300.jpg",
+      "imdb_rating": null,
+      "imdb_votes": 12,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": null,
+      "director": null,
+      "actors": [],
+      "genres": [
+        "Documentary"
+      ],
+      "fetched_at": "2026-09-25T02:55:08Z",
+      "schema": 3
+    },
+    "tt0273473": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMGI3M2VmNmUtZWM2OC00NzBhLTk1NGEtZDA4MzRhOWZhNjVmXkEyXkFqcGdeQXVyMDU4MTQ0Ng@@._V1_SX300.jpg",
+      "imdb_rating": 6.4,
+      "imdb_votes": 130,
+      "content_rating": null,
+      "plot": "The curtain opens; behind it are two pianos where Charles Bourne and Phil Ellis, billed as the Music Boxes, are seated playing. After a few bars, Blossom Seeley and Bennie Fields enter - she's in tulle, he's in sport coat, worsted trousers, vest, and tie carrying a cane and straw hat. They do three numbers, \"Hello Mr. Bluebird,\" Irving Berlin's \"The Call of the South,\" and \"(A Pretty Spanish Town) On a Night Like This.\" Between the first two numbers, they kibbutz about southern music, and for the third song, she dons a sombrero and a serape and he sports a guitar and a gaucho hat. There's also a bit of dancing during the third number.",
+      "runtime_min": 10,
+      "director": null,
+      "actors": [
+        "Blossom Seeley",
+        "Benny Fields",
+        "Charles Bourne"
+      ],
+      "genres": [
+        "Short",
+        "Music"
+      ],
+      "fetched_at": "2026-09-25T02:55:08Z",
+      "schema": 3
+    },
+    "tt0409414": {
+      "poster_url": null,
+      "imdb_rating": 4.7,
+      "imdb_votes": 126,
+      "content_rating": null,
+      "plot": "Scene, interior of a street-car. A stout man enters and sits down alongside of a friend and proceeds to read a comic paper. He shows a joke in the paper to his friend, and the both laugh heartily. The friend leaves the car, and his absence is not noted by the stout man. An elderly matron takes the seat. Without looking up the stout man shoves the paper in front of the face of the old lady, thinking his friend is still there. He goes into a fit of laughter over the joke, punching her in the ribs with his thumb, and slapping her on the knee. She becomes very much embarrassed and indignant. She shakes him by the shoulder, he looks around, discovers his mistake, and sinks through the floor.",
+      "runtime_min": 1,
+      "director": "Edwin S. Porter",
+      "actors": [],
+      "genres": [
+        "Comedy",
+        "Short"
+      ],
+      "fetched_at": "2026-09-25T02:55:08Z",
+      "schema": 3
+    },
+    "tt0422266": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMDU4OGE2NjktNGM3MC00MGUwLWI2MjEtNjlhYWNkNzA3OGVkXkEyXkFqcGdeQXVyNTM3MDMyMDQ@._V1_SX300.jpg",
+      "imdb_rating": 3.7,
+      "imdb_votes": 20,
+      "content_rating": "Not Rated",
+      "plot": "Toots and Casper think they are going on a relaxing vacation until their rich relative decides to come along.",
+      "runtime_min": 25,
+      "director": "Earl Montgomery",
+      "actors": [
+        "Thelma Hill",
+        "Bud Duncan",
+        "Cullen Johnson"
+      ],
+      "genres": [
+        "Short",
+        "Comedy"
+      ],
+      "fetched_at": "2026-09-25T02:55:08Z",
+      "schema": 3
+    },
+    "tt0842703": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNDE2YTZlMTMtYTg0Ni00OGQ1LTg3YzAtN2E5YmVjZmRmZjJkXkEyXkFqcGdeQXVyMjc3MjgzOTU@._V1_SX300.jpg",
+      "imdb_rating": 5.7,
+      "imdb_votes": 12,
+      "content_rating": null,
+      "plot": "Toots (Thelma Hill) and Casper (Bud Duncan) visit a college campus and get mistaken for freshmen.",
+      "runtime_min": null,
+      "director": "St. Elmo Boyce",
+      "actors": [
+        "Thelma Hill",
+        "Bud Duncan",
+        "Cullen Johnson"
+      ],
+      "genres": [
+        "Short",
+        "Comedy"
+      ],
+      "fetched_at": "2026-09-25T02:55:08Z",
+      "schema": 3
+    },
+    "tt1226777": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMDE1NjVjNTAtZjk3OS00NTQ2LWE4OGItYTlmZDUzYmI0MjY1XkEyXkFqcGdeQXVyNzMwOTY2NTI@._V1_SX300.jpg",
+      "imdb_rating": 5.4,
+      "imdb_votes": 367,
+      "content_rating": null,
+      "plot": "A boy writes on a board, then tips his hat to the viewer.",
+      "runtime_min": 1,
+      "director": null,
+      "actors": [],
+      "genres": [
+        "Animation",
+        "Short"
+      ],
+      "fetched_at": "2026-09-25T02:55:08Z",
+      "schema": 3
+    },
+    "tt3290628": {
+      "poster_url": null,
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": "This film gives a short history of wheeled transportation in the US, from bicycles and wagons to automobiles, and how a better system of roads and highways will make transportation easier and more profitable.",
+      "runtime_min": 14,
+      "director": null,
+      "actors": [],
+      "genres": [
+        "Short"
+      ],
+      "fetched_at": "2026-09-25T02:55:08Z",
+      "schema": 3
+    },
+    "tt7900918": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BYzZkNzU0M2UtYTY3OC00N2UxLTgwYWEtZDcxZDUwNDVhOGE0XkEyXkFqcGdeQXVyMzA0MTQ0NjI@._V1_SX300.jpg",
+      "imdb_rating": 5.6,
+      "imdb_votes": 10,
+      "content_rating": null,
+      "plot": "A horse always finds greener grass in his neighbors yard, but his neighbors are not too happy.",
+      "runtime_min": 5,
+      "director": "Joseph Sunn",
+      "actors": [],
+      "genres": [
+        "Animation",
+        "Short"
+      ],
+      "fetched_at": "2026-09-25T02:55:08Z",
+      "schema": 3
+    },
+    "tt8228356": {
+      "poster_url": null,
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": null,
+      "director": "Joseph Sunn",
+      "actors": [],
+      "genres": [
+        "Short"
+      ],
+      "fetched_at": "2026-09-25T02:55:08Z",
       "schema": 3
     }
   },
