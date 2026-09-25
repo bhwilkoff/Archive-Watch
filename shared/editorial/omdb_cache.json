@@ -1,7 +1,7 @@
 {
   "version": 1,
   "description": "OMDb lookup results keyed by IMDb ID. Positive = poster_url; negative = null (so we don't burn daily quota retrying items OMDb doesn't have). Populated by the scheduled omdb-backfill GitHub Action + local runs of tools/omdb_backfill.py. The exporter overlays this cache over DB rows at export time.",
-  "updated_at": "2026-09-25T02:55:08Z",
+  "updated_at": "2026-09-25T07:19:54Z",
   "entries": {
     "tt0007613": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BYzUwNTY4NWUtNGRhMy00YjVmLWEyNmQtYTQyNWQyNDZhNjFmXkEyXkFqcGc@._V1_SX300.jpg",
@@ -31910,11 +31910,11 @@
     },
     "nm0101038": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm0101038\" to type \\'Double\\''",
-      "last_tried": "2026-09-25T02:55:08Z"
+      "last_tried": "2026-09-25T07:19:54Z"
     },
     "nm1947784": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm1947784\" to type \\'Double\\''",
-      "last_tried": "2026-09-25T02:55:08Z"
+      "last_tried": "2026-09-25T07:19:54Z"
     },
     "tt0000046": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BZWM2N2MzMGMtNzNkNi00OTc2LTg5NDQtNWViNTA2MGIwNmFhXkEyXkFqcGdeQXVyNTI2NTY2MDI@._V1_SX300.jpg",
@@ -323622,6 +323622,393 @@
         "Short"
       ],
       "fetched_at": "2026-09-25T02:55:08Z",
+      "schema": 3
+    },
+    "tt0019802": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BOTM1OWFkMWUtYjc4Ny00MzkzLWIxODEtMDkyOTUwMjdiMGYxXkEyXkFqcGdeQXVyNDg5MjMyMTM@._V1_SX300.jpg",
+      "imdb_rating": 6.4,
+      "imdb_votes": 128,
+      "content_rating": null,
+      "plot": "A surreal short film in which a young man embarks on a journey through villages and the countryside.",
+      "runtime_min": 46,
+      "director": "Jorge Brum do Canto",
+      "actors": [
+        "Machado Correia",
+        "Jorge Brum do Canto",
+        "Maria Do Carmo"
+      ],
+      "genres": [
+        "Short"
+      ],
+      "fetched_at": "2026-09-25T07:19:54Z",
+      "schema": 3
+    },
+    "tt0020281": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BZGY0NGI2NGQtMDg2Yi00Nzc1LWI2NWQtNWQzZWUxMjg5NTQxXkEyXkFqcGdeQXVyMTAzNTE4MDcy._V1_SX300.jpg",
+      "imdb_rating": 5.6,
+      "imdb_votes": 35,
+      "content_rating": null,
+      "plot": "A poor clerk pretends that he has lots of money.",
+      "runtime_min": 15,
+      "director": "Bryan Foy",
+      "actors": [
+        "Franklin Pangborn",
+        "Helen Ferguson",
+        "Clara Blandick"
+      ],
+      "genres": [
+        "Comedy",
+        "Short"
+      ],
+      "fetched_at": "2026-09-25T07:19:54Z",
+      "schema": 3
+    },
+    "tt0020840": {
+      "poster_url": null,
+      "imdb_rating": 3.8,
+      "imdb_votes": 11,
+      "content_rating": null,
+      "plot": "When their wives go on strike, two husbands form an organization they call the \"Husbands Protective League\".",
+      "runtime_min": 20,
+      "director": "William Watson",
+      "actors": [
+        "Johnny Arthur",
+        "Bert Roach",
+        "Frances Lee"
+      ],
+      "genres": [
+        "Comedy",
+        "Short"
+      ],
+      "fetched_at": "2026-09-25T07:19:54Z",
+      "schema": 3
+    },
+    "tt0021408": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BODRmMGZlMGQtMjA4MS00MmY2LTg4MTUtOTFhOThhNGY0YjkxXkEyXkFqcGdeQXVyMDMxMjQwMw@@._V1_SX300.jpg",
+      "imdb_rating": 5.8,
+      "imdb_votes": 538,
+      "content_rating": "Passed",
+      "plot": "Mr. Schmidt's costume store is bankrupt because he spends his time on Rube Goldberg-style inventions. The creditors send a young manager who falls for Schmidt's niece Louise, but she'll have none of him. Schmidt's friends Ted, Queenie, and some goofy firemen try to help out, and things come to a slapstick head when Louise needs rescuing from a fire.",
+      "runtime_min": 70,
+      "director": "Benjamin Stoloff",
+      "actors": [
+        "Ted Healy",
+        "Charles Winninger",
+        "Frances McCoy"
+      ],
+      "genres": [
+        "Comedy",
+        "Musical",
+        "Romance"
+      ],
+      "fetched_at": "2026-09-25T07:19:54Z",
+      "schema": 3
+    },
+    "tt0021824": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BZmJjM2ExNjgtYWVjZi00MTk3LWIyZWMtYzQ5NDljOWE3NTc0XkEyXkFqcGdeQXVyNjMxMzM3NDI@._V1_SX300.jpg",
+      "imdb_rating": 5.4,
+      "imdb_votes": 204,
+      "content_rating": null,
+      "plot": "Bosko in his scrappy, anthropomorphic plane and a fearsome beast in his awesome, cannon-hauling machine are in a dogfight, and Bosko loses. His plane is vaporized in mid-air, but Bosko's fall is broken by the keys of a piano. Bombs have destroyed most of the house surrounding the piano, but the instrument itself is undamaged. Bosko meets Honey, a French girl who happens to skip by. His piano playing impresses her, but the fearsome beast interrupts his performance by dropping a bomb on him. This time Bosko uses a dachshund for an airplane by spinning its head around like a propeller. Now, with a homemade machine gun and the pickets from a picket fence for bullets, Bosko can't lose.",
+      "runtime_min": 7,
+      "director": "Hugh Harman, Rudolf Ising",
+      "actors": [
+        "Carman Maxwell",
+        "Bernard B. Brown"
+      ],
+      "genres": [
+        "Animation",
+        "Short",
+        "Comedy"
+      ],
+      "fetched_at": "2026-09-25T07:19:54Z",
+      "schema": 3
+    },
+    "tt0022666": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BYzczMGIzY2ItMTQ4Ny00ZDVmLWEzYmQtNzY4NTUxOWQ5Y2ZmXkEyXkFqcGdeQXVyODgzNDIwODA@._V1_SX300.jpg",
+      "imdb_rating": 6.6,
+      "imdb_votes": 189,
+      "content_rating": null,
+      "plot": "On a special train, Betty's show troupe rehearses: Betty sings, Bimbo juggles, and Koko does a soft-shoe. The train itself also does tricks.",
+      "runtime_min": 7,
+      "director": "Dave Fleischer, Willard Bowsky",
+      "actors": [
+        "Billy Murray",
+        "Mae Questel"
+      ],
+      "genres": [
+        "Animation",
+        "Short",
+        "Comedy"
+      ],
+      "fetched_at": "2026-09-25T07:19:54Z",
+      "schema": 3
+    },
+    "tt0023803": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNzMzMjJlNDMtZDdiMi00M2VhLThkYjAtY2U0Yzg5ZGRjYWRjXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 7.1,
+      "imdb_votes": 288,
+      "content_rating": null,
+      "plot": "Bimbo and Koko work on explosive and monster formulas in a lab, but one of the latter gets out of hand while they're distracted by Betty exercising on the roof next door.",
+      "runtime_min": 7,
+      "director": "Dave Fleischer, Willard Bowsky",
+      "actors": [
+        "Jack Mercer",
+        "Billy Murray",
+        "Mae Questel"
+      ],
+      "genres": [
+        "Animation",
+        "Short",
+        "Comedy"
+      ],
+      "fetched_at": "2026-09-25T07:19:54Z",
+      "schema": 3
+    },
+    "tt0024803": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNDNiM2E5MjctOTM0NC00ZmJkLWIyMmYtNzE3MTIwM2I0Y2I2XkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 7.2,
+      "imdb_votes": 9513,
+      "content_rating": "Not Rated",
+      "plot": "Bruel, Caussat, and Colin are three students at a boarding school. There is a continual battle between the school's authority figures and the students. The teachers and monitors are always giving the three in particular \"zero for conduct\" and Sunday detention for their behavior. Conversely, most of the students believe the headmaster, teachers and monitors are a combination of authoritarian, inept, and/or corrupt. The one exception among the teachers is Huguet, newly arrived to the school; he has a penchant for imitating Charles Chaplin as the Little Tramp, and doing handstands whenever the mood suits him, which includes in class. The boys are always doing whatever it takes to amuse themselves, and if it causes the teachers grief, so much the better. The three are the masterminds of a plot to overtake the school's Commemoration Day celebrations. The one student not involved is Tabard, who is seen as a sissy among the student body. Bruel believes Tabard should be involved, to show them he's truly \"one of them.\"",
+      "runtime_min": 47,
+      "director": "Jean Vigo",
+      "actors": [
+        "Jean Dasté",
+        "Robert le Flon",
+        "Louis Lefebvre"
+      ],
+      "genres": [
+        "Drama"
+      ],
+      "fetched_at": "2026-09-25T07:19:54Z",
+      "schema": 3
+    },
+    "tt0125776": {
+      "poster_url": null,
+      "imdb_rating": 6.1,
+      "imdb_votes": 124,
+      "content_rating": null,
+      "plot": "A commercial for the Works Progress Administration. We see hands close up: working, playing, praying, whittling, and strumming. Hands use saws and hammers, lift stones, turn wheels, then write, type, apply a bandage, play a violin, use a compass, and hold a U.S. Treasury note. Hands put a shoe on a customer, shake a thermometer, and count out bills and coins into other waiting hands. A hand places an engagement ring on a finger, buys a movie ticket, and reels in a fishing line. There are multiple images repeating what we've seen. A chicken is basted; other chickens get grain. It's a national celebration.",
+      "runtime_min": 4,
+      "director": "Ralph Steiner, Willard Van Dyke",
+      "actors": [],
+      "genres": [
+        "Short"
+      ],
+      "fetched_at": "2026-09-25T07:19:54Z",
+      "schema": 3
+    },
+    "tt0142067": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BZTI0ZTQwODMtYzE2Zi00MjY0LTgwNTAtYWJjYTY1MmNhYTAyXkEyXkFqcGdeQXVyNzQ1NjM2MDg@._V1_SX300.jpg",
+      "imdb_rating": 6.1,
+      "imdb_votes": 100,
+      "content_rating": null,
+      "plot": "Oswald is riding on a camel; he defeats an attacking lion, using the camel's humps as cannonballs. In Cairo, he meets a queen and sings her his theme song; the sphinx and a couple pyramids join in, but the king isn't as happy.",
+      "runtime_min": 10,
+      "director": "Walter Lantz, William Nolan",
+      "actors": [
+        "Pinto Colvig"
+      ],
+      "genres": [
+        "Animation",
+        "Short",
+        "Comedy"
+      ],
+      "fetched_at": "2026-09-25T07:19:54Z",
+      "schema": 3
+    },
+    "tt0142137": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMGE2ODI1ZGItNmViNS00Mzg1LWFiNzgtN2IyZWVlODE1MWY3XkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 6.2,
+      "imdb_votes": 51,
+      "content_rating": null,
+      "plot": "Oswald goes to a night club, where the doorman makes him fold up his car and put it in his pants rather than leave it parked outside. About the same time, the fat, top-hatted bad guy often seen as Oswald's nemesis is intrigued by a poster on the place and goes in, leaving his baby-bonneted son behind, who spends the film in a running gag, asking if his father is inside one place or another, referencing the old time temperance play device. Oswald dances on tables and gets into various scrapes with patrons, including an altercation where his head gets torn off and chucked into a spittoon. Fights break out until the whole building is hauled off by the police.",
+      "runtime_min": 10,
+      "director": "Walter Lantz",
+      "actors": [
+        "Walter Lantz",
+        "William Nolan"
+      ],
+      "genres": [
+        "Animation",
+        "Short"
+      ],
+      "fetched_at": "2026-09-25T07:19:54Z",
+      "schema": 3
+    },
+    "tt0164686": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BYzBmYmVjZGMtMmY1Yi00Njk0LWIxOGUtYjc5NGRlZjU4NzcyXkEyXkFqcGdeQXVyMzg1ODEwNQ@@._V1_SX300.jpg",
+      "imdb_rating": 4.1,
+      "imdb_votes": 221,
+      "content_rating": "Passed",
+      "plot": "An expedition enters an area of the Congo jungle to investigate reports of a gorilla-worshipping tribe. After many dangerous adventures, they come upon the tribe they sought, only to watch as a virgin is sacrificed to a huge gorilla, who takes her away. The expedition follows the gorilla in an attempt to save the woman.",
+      "runtime_min": 85,
+      "director": "William Campbell",
+      "actors": [
+        "Sir Hubert Winstead",
+        "Charles Gemora",
+        "Arthur Clayton"
+      ],
+      "genres": [
+        "Action",
+        "Adventure",
+        "Fantasy"
+      ],
+      "fetched_at": "2026-09-25T07:19:54Z",
+      "schema": 3
+    },
+    "tt0178869": {
+      "poster_url": null,
+      "imdb_rating": 4.8,
+      "imdb_votes": 26,
+      "content_rating": null,
+      "plot": "A Songwriter falls asleep while writing a song about the NRA. He dreams that Washington, Lincoln and Teddy Roosevelt appear in his room asking him why he wants to write such a song and they're reassuring him that FDR is the right way. When he starts singing his new song, he finds himself alone, but he knows that the FDR will lead the USA back on the road to prosperity.",
+      "runtime_min": 7,
+      "director": "Alfred E. Green",
+      "actors": [
+        "Dick Powell",
+        "Alan Dinehart",
+        "Charles Middleton"
+      ],
+      "genres": [
+        "Musical",
+        "Short"
+      ],
+      "fetched_at": "2026-09-25T07:19:54Z",
+      "schema": 3
+    },
+    "tt0497707": {
+      "poster_url": null,
+      "imdb_rating": 4.2,
+      "imdb_votes": 12,
+      "content_rating": "Approved",
+      "plot": "Short film documenting 'The 1936 All-American Soap Box Derby', featuring many highlights from the event and concluding with the derby's awards ceremony.",
+      "runtime_min": 10,
+      "director": null,
+      "actors": [],
+      "genres": [
+        "Documentary",
+        "Short",
+        "Sport"
+      ],
+      "fetched_at": "2026-09-25T07:19:54Z",
+      "schema": 3
+    },
+    "tt1008060": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BOGRhZjlhOWUtNjEzMC00N2RjLWFjNjEtYzk2NjI0ZjIyY2FhXkEyXkFqcGdeQXVyMDMxMjQwMw@@._V1_SX300.jpg",
+      "imdb_rating": 6.0,
+      "imdb_votes": 8,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": 10,
+      "director": null,
+      "actors": [
+        "Lloyd Hamilton",
+        "Olive Borden",
+        "Dorothy Burgess"
+      ],
+      "genres": [
+        "Short"
+      ],
+      "fetched_at": "2026-09-25T07:19:54Z",
+      "schema": 3
+    },
+    "tt1217623": {
+      "poster_url": null,
+      "imdb_rating": 4.8,
+      "imdb_votes": 39,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": 14,
+      "director": "Nick Grinde",
+      "actors": [
+        "Frances White",
+        "The Ponce Sisters",
+        "The Reynold Sisters"
+      ],
+      "genres": [
+        "Short",
+        "Comedy",
+        "Music"
+      ],
+      "fetched_at": "2026-09-25T07:19:54Z",
+      "schema": 3
+    },
+    "tt1221197": {
+      "poster_url": null,
+      "imdb_rating": 5.3,
+      "imdb_votes": 36,
+      "content_rating": null,
+      "plot": "Metro Movietone Revue featuring various vaudeville acts.",
+      "runtime_min": 19,
+      "director": "Nick Grinde",
+      "actors": [
+        "George Dewey Washington",
+        "The Ponce Sisters",
+        "Joseph Regan"
+      ],
+      "genres": [
+        "Short",
+        "Comedy",
+        "Music"
+      ],
+      "fetched_at": "2026-09-25T07:19:54Z",
+      "schema": 3
+    },
+    "tt1223453": {
+      "poster_url": null,
+      "imdb_rating": 4.9,
+      "imdb_votes": 39,
+      "content_rating": null,
+      "plot": "M-G-M presents four acts from the vaudeville stages in this early sound short.",
+      "runtime_min": 8,
+      "director": null,
+      "actors": [
+        "Tom Waring",
+        "Johnny Marvin",
+        "Yvette Rugel"
+      ],
+      "genres": [
+        "Short",
+        "Comedy",
+        "Music"
+      ],
+      "fetched_at": "2026-09-25T07:19:54Z",
+      "schema": 3
+    },
+    "tt6835384": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNzJlMzVlNzUtNThhYy00NDY1LWI2MTctMmU0YWIyODdkMzU1XkEyXkFqcGdeQXVyMDU4MTQ0Ng@@._V1_SX300.jpg",
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": "Humorist Irvin S. Cobb goes fishing with sportswriter Grantland Rice.",
+      "runtime_min": 9,
+      "director": null,
+      "actors": [
+        "Irvin S. Cobb",
+        "Grantland Rice"
+      ],
+      "genres": [
+        "Short"
+      ],
+      "fetched_at": "2026-09-25T07:19:54Z",
+      "schema": 3
+    },
+    "tt7010100": {
+      "poster_url": null,
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": 11,
+      "director": null,
+      "actors": [],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "fetched_at": "2026-09-25T07:19:54Z",
       "schema": 3
     }
   },
