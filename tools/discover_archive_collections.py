@@ -185,6 +185,12 @@ def main():
                          "Public-Domain-Day feed (films of these years are "
                          "PD by age). Default: the three most recently "
                          "entered, from the calendar. Empty string disables.")
+    ap.add_argument("--pd-age-backfill", type=int, default=0,
+                    help="Also mine every year from 1880 up to the oldest "
+                         "PD-Day year, adding at most this many new candidates "
+                         "a night (0 = off). Measured 2026-09-24: 8,220 "
+                         "archive.org items dated 1880-1927 were in neither the "
+                         "catalog nor the queue, 3,415 above the download floor.")
     ap.add_argument("--pd-day-cap", type=int, default=400,
                     help="Max items per PD-Day year (default 400).")
     args = ap.parse_args()
@@ -267,6 +273,22 @@ def main():
                 added += 1
                 y_added += 1
         print(f"  pd-day:{yr:>27} +{y_added} new", flush=True)
+
+    # Feed 3 — PD-by-age BACKFILL: every earlier year, one query, most
+    # downloaded first, capped per night. Off by default. Relies on ingest's
+    # guards for what an uploader's year cannot prove: held_suspect_year (the
+    # title contradicts the year) and the duplicate merge (most of the top of
+    # this list is another copy of a film we have).
+    if args.pd_age_backfill and pd_years:
+        first = min(int(y) for y in pd_years)
+        b_added = 0
+        q = f"mediatype:movies AND year:[1880 TO {first - 1}]"
+        for it in scrape_query(q, session, limit=args.pd_age_backfill,
+                               min_downloads=args.min_downloads, is_new=is_new):
+            if add_candidate(it, source="pd_age_backfill"):
+                added += 1
+                b_added += 1
+        print(f"  pd-age backfill 1880-{first - 1}:      +{b_added} new", flush=True)
 
     # Re-order: archive-collection candidates (already playable) and
     # high-confidence first.
