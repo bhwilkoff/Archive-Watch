@@ -80,8 +80,13 @@ because the loop was stopped mid-stride for a Claude update.
       decide with the TV rights question.~~ **LIVE 2026-09-25**: 50 of the 52
       curated ids are TV in the live DB (2 are hidden); the 1942 US-government
       "TheWorldAtWar" stays a film.
-   6. The TV rights question (section below): apply the film audit to TV,
-      hide what fails, gate TV backfill so it cannot refill.
+   6. ~~The TV rights question (section below): apply the film audit to TV,
+      hide what fails, gate TV backfill so it cannot refill.~~ **LIVE
+      2026-09-25**: `audit_tv_rights --apply` runs in tv-canonical; 1,920 items
+      removed (manifest `tv_rights_removed.csv`), from EVERY spine they were
+      matched onto, and a manifest item stays removed on later runs. Live
+      episodes-index: 0 of 2,678 are removed items. Getting there exposed a
+      publish-db push loop that went green with a stale index (7d6359537).
    Work order: 1, 5, 6 (rights) then 2, 4, 3 (Home). Each lands as its own
    commit and is struck from this item when live.
 
@@ -647,7 +652,7 @@ because the loop was stopped mid-stride for a Claude update.
 
 ---
 
-## OPEN — OWNER DECISION: television has never passed the rights audit
+## RESOLVED 2026-09-25 (owner: apply the film audit to TV) — television had never passed the rights audit
 
 Found 2026-09-06 from the owner's question "2 Stupid Dogs is a show from the
 1990s, so how is it public domain?" It is not. The gates are working — on
