@@ -185,6 +185,13 @@ def main():
                          "Public-Domain-Day feed (films of these years are "
                          "PD by age). Default: the three most recently "
                          "entered, from the calendar. Empty string disables.")
+    ap.add_argument("--max-awaiting", type=int, default=4000,
+                    help="Stop adding once this many candidates await ingest "
+                         "(~4 nights at ingest's 900). Measured 2026-09-25: the "
+                         "first full-depth sweep queued +12,369 in one night and "
+                         "doubled the committed queue file; newsandpublicaffairs "
+                         "alone holds 3.4M items, so without a ceiling the queue "
+                         "grows ~11k a night forever.")
     ap.add_argument("--pd-age-backfill", type=int, default=0,
                     help="Also mine every year from 1880 up to the oldest "
                          "PD-Day year, adding at most this many new candidates "
@@ -216,10 +223,15 @@ def main():
     now = dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z")
     added = 0
 
+    awaiting = [sum(1 for c in existing.values() if c.get("status") == "new")]
+    print(f"[arch-discover] {awaiting[0]:,} already await ingest (ceiling {args.max_awaiting:,})",
+          flush=True)
+
     def is_new(it):
         iaid = it.get("identifier") or ""
         return bool(iaid) and iaid not in have_ia \
-            and iaid.rsplit(".", 1)[0] not in have_ia and iaid not in existing
+            and iaid.rsplit(".", 1)[0] not in have_ia and iaid not in existing \
+            and awaiting[0] < args.max_awaiting
 
     def add_candidate(it, *, source, collection=None):
         iaid = it.get("identifier")
@@ -243,31 +255,18 @@ def main():
             "discovered_at": now,
         }
         have_ia.add(iaid)
+        awaiting[0] += 1
         return True
 
-    # Feed 1 — curated PD collections.
-    for coll in collections:
-        coll = coll.strip()
-        if not coll:
-            continue
-        c_added = 0
-        for it in scrape_collection(coll, session,
-                                    per_collection=args.per_collection,
-                                    min_downloads=args.min_downloads,
-                                    is_new=is_new):
-            if add_candidate(it, source="archive_collection", collection=coll):
-                added += 1
-                c_added += 1
-        print(f"  collection:{coll:24} +{c_added} new", flush=True)
-
-    # Feed 2 — Public Domain Day: films published in a just-entered PD year
+    # Feed 1 — Public Domain Day (FIRST, so the ceiling below never crowds
+    # out films that are public domain by age): films published in a just-entered PD year
     # (e.g. 1930 entered US PD on 2026-01-01). PD by age, regardless of
     # collection — catches films outside the curated collections above.
     pd_years = [y.strip() for y in (args.pd_day_years or "").split(",") if y.strip()]
     for yr in pd_years:
         y_added = 0
         q = f"mediatype:movies AND year:{yr}"
-        for it in scrape_query(q, session, limit=args.pd_day_cap,
+        for it in scrape_query(q, session, limit=min(args.pd_day_cap, max(0, args.max_awaiting - awaiting[0])),
                                min_downloads=args.min_downloads, is_new=is_new):
             if add_candidate(it, source="public_domain_day"):
                 added += 1
@@ -283,12 +282,33 @@ def main():
         first = min(int(y) for y in pd_years)
         b_added = 0
         q = f"mediatype:movies AND year:[1880 TO {first - 1}]"
-        for it in scrape_query(q, session, limit=args.pd_age_backfill,
+        for it in scrape_query(q, session, limit=min(args.pd_age_backfill, max(0, args.max_awaiting - awaiting[0])),
                                min_downloads=args.min_downloads, is_new=is_new):
             if add_candidate(it, source="pd_age_backfill"):
                 added += 1
                 b_added += 1
         print(f"  pd-age backfill 1880-{first - 1}:      +{b_added} new", flush=True)
+
+    # Feed 2 — curated PD collections, in value order, until the ceiling.
+    for coll in collections:
+        coll = coll.strip()
+        if not coll:
+            continue
+        room = args.max_awaiting - awaiting[0]
+        if room <= 0:
+            print(f"  collection:{coll:24} skipped — queue at ceiling", flush=True)
+            continue
+        c_added = 0
+        # The limit is the room left, so a full queue stops the WALK too —
+        # rejecting every row would still page through 3.4M newsreel ids.
+        for it in scrape_collection(coll, session,
+                                    per_collection=min(args.per_collection, room),
+                                    min_downloads=args.min_downloads,
+                                    is_new=is_new):
+            if add_candidate(it, source="archive_collection", collection=coll):
+                added += 1
+                c_added += 1
+        print(f"  collection:{coll:24} +{c_added} new", flush=True)
 
     # Re-order: archive-collection candidates (already playable) and
     # high-confidence first.
