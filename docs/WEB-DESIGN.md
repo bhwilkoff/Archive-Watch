@@ -86,6 +86,34 @@ separate tool with its own conventions (CLAUDE.md) — these rules govern the
 - **§3.2 Canonical share URLs are paths**, `/item/{id}` — the
   exact URLs the iOS/tvOS Share buttons emit. `404.html` forwards them into
   the hash router. Never change this shape; shipped apps depend on it.
+- **§3.2a Every film's share URL is a real page Google can index** (owner,
+  2026-09-25: *"I'd love the full set of movies to be searchable with all of
+  the info on each page being a part of the search index ... without creating
+  overhead or slowdown for our current infrastructure or making it so we have
+  to modify our privacy stance"*; chose "Film page + Watch now"). The page at
+  `/item/{id}/` (and `/series/{slug}/`) is generated at deploy by
+  `tools/build_share_pages.py` from `catalog-index.json` + `details/`, and
+  carries EVERYTHING the viewer's Detail shows as HTML — title, also-known-as,
+  year, kind, runtime, tagline, full synopsis with its source, genres,
+  director, writer, cast, composer, cinematographer, studio, release date,
+  awards, archive.org reviews and More Like This as links to their own pages —
+  plus `schema.org/Movie` (`TVSeries`) JSON-LD and a primary **Watch now**
+  into `/#/item/{id}`. Rules:
+  - **No script, and no forward.** A page that forwards is read by Google as a
+    redirect to the site root (the hash is not a URL to a crawler), which is
+    why none of ~27,000 pages was indexed. Showing people a forward and
+    crawlers a page would be cloaking. No script also means no counter: the
+    privacy stance is unchanged, and plays are still counted only in the
+    viewer.
+  - **Canonical is the URL Pages actually serves**, with the trailing slash
+    (`/item/{id}/`); `/item/{id}` 301s there. The Smart App Banner's
+    `app-argument` keeps the no-slash form the apps parse.
+  - **Discoverable**: `sitemap.xml` (an index of ≤10,000-URL files) is written
+    by the same tool and named in `robots.txt`. No server, no build service —
+    it is files in the artifact the deploy already uploads.
+  - **One stylesheet** (`/share.css`), mobile-first, brand chrome only; no
+    inline styles; posters lazy, sized, never a layout shift.
+
 - **§3.3 One router.** `route()` reads the hash, `showView(name)` toggles
   `<section hidden>`. Per-view `IntersectionObserver`s are disconnected on
   every view switch.

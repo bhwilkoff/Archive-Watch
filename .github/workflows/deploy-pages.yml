@@ -81,7 +81,17 @@ jobs:
           # plus the fetched /subs. Missing a path here would break the live site
           # on flip, so we copy everything rather than enumerate.
           mkdir _site
-          rsync -a --exclude='.git' --exclude='_site' --exclude='catalog.json' --exclude='catalog.json.gz' ./ _site/
+          # App SOURCE is not the website: the Swift, Kotlin, pipeline tools and
+          # design docs (~60 MB) were published for nothing, and the full-detail
+          # film pages (WEB-DESIGN §3.2a, +~55 MB) now need that room under
+          # Pages' 1 GB. The ONE file the viewer fetches from the Apple tree
+          # (collection_metadata.json, watch.js Collections) is kept.
+          rsync -a --exclude='.git' --exclude='_site' --exclude='catalog.json' --exclude='catalog.json.gz' \
+            --include='/ArchiveWatch/' --include='/ArchiveWatch/ArchiveWatch/' \
+            --include='/ArchiveWatch/ArchiveWatch/collection_metadata.json' \
+            --exclude='/ArchiveWatch/**' --exclude='/tools/' --exclude='/docs/' --exclude='/android/' \
+            ./ _site/
+          test -s _site/ArchiveWatch/ArchiveWatch/collection_metadata.json
 
       - name: Build the legacy Roku sideload (/roku-legacy/archivewatch-roku.zip)
         run: |

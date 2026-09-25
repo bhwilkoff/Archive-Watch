@@ -17,10 +17,19 @@ deploy-pages.yml, not from the branch, so these ~27,000 files are generated at
 deploy time and never committed — the same reasoning as Decision 018, which
 kept the catalog out of git.
 
-WHAT EACH PAGE IS. Open Graph tags built from the catalog, the iOS Smart App
-Banner, real visible content for anything that renders it, and a script that
-forwards a human into the viewer. Crawlers do not run scripts, so they read
-the metadata and stop.
+WHAT EACH PAGE IS (rewritten 2026-09-25, WEB-DESIGN §3.2a). The film's whole
+Detail as HTML — synopsis with its source, credits, cast, genres, facts,
+archive.org reviews, More Like This as links — with schema.org JSON-LD, Open
+Graph tags, the iOS Smart App Banner and one primary "Watch now" into the
+viewer. NO SCRIPT: the page used to forward humans with location.replace(),
+and Google runs scripts, so it read all ~27,000 pages as redirects to the site
+root (a hash is not a URL to a crawler) and indexed none of them. The owner
+chose the page over the jump: "I'd love the full set of movies to be
+searchable with all of the info on each page being a part of the search
+index." No script is also no counter, so privacy.html needs no change.
+
+It also writes sitemap.xml (an index of <=10,000-URL files), which robots.txt
+names, so Google can find every page without a submission.
 
 A NOTE ON RUNNING THIS LOCALLY. Two catalog ids differ only in case
 (`macleanstoot` and `MacleansToot`), so a case-insensitive filesystem — macOS
@@ -54,6 +63,16 @@ I_BACKDROP, I_DIRECTOR = 7, 12
 # details/<shard>.json record order, documented in build_web_details.py.
 # TRAILING NULLS ARE TRIMMED, so every read is length-guarded via at().
 D_SYNOPSIS, D_DIRECTOR, D_RUNTIME, D_BACKDROP = 1, 2, 5, 6
+D_CAST, D_GENRES, D_COMMUNITY, D_EXTRAS, D_RELATED = 3, 4, 8, 9, 10
+I_GENRES = 13
+SITEMAP_CHUNK = 10000
+
+# The viewer's own provenance labels (watch.js, Detail), so a page and the
+# app name a synopsis's source in the same words.
+SOURCE = {"tmdb": "Synopsis from TMDb", "omdb": "Synopsis from OMDb",
+          "wikipedia": "Synopsis from Wikipedia", "tvmaze": "Synopsis from TVmaze",
+          "agent-reviewed": "Synopsis, reviewed"}
+UPLOADER = "Uploader's description on archive.org"
 
 KIND = {
     "feature-film": "Feature film", "silent-film": "Silent film",
@@ -64,25 +83,49 @@ KIND = {
     "commercial": "Commercial",
 }
 
-SHARE_CSS = """:root{color-scheme:dark}
-body{margin:0;background:#0B0B0C;color:#EBEBEB;
-font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
-display:flex;min-height:100vh;align-items:center;justify-content:center;padding:24px}
-.w{max-width:620px;display:flex;gap:24px;flex-wrap:wrap}
-.w img{width:200px;border-radius:10px;background:#16161A}
-.t{flex:1;min-width:260px}
-h1{font-size:1.6rem;margin:0 0 6px}
-.m{color:#9A9AA0;font-size:.95rem;margin:0 0 14px}
-p{margin:0 0 14px}
-a.b{display:inline-block;background:#FF5C35;color:#0B0B0C;font-weight:600;
-text-decoration:none;padding:10px 20px;border-radius:999px}
-.f{color:#9A9AA0;font-size:.85rem;margin-top:18px}
+SHARE_CSS = """:root{color-scheme:dark;--bg:#0B0B0C;--panel:#16161A;--text:#EBEBEB;
+--muted:#9A9AA0;--line:#26262B;--primary:#FF5C35;--accent:#7FA3FF}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);
+font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+a{color:var(--accent)}
+.top{padding:14px 16px;border-bottom:1px solid var(--line)}
+.top a{color:var(--primary);font-weight:700;text-decoration:none;letter-spacing:.01em}
+main{max-width:900px;margin:0 auto;padding:20px 16px 48px}
+.hero{display:flex;flex-direction:column;gap:20px}
+.hero img{width:180px;height:270px;object-fit:cover;border-radius:10px;background:var(--panel)}
+h1{font-size:1.7rem;line-height:1.2;margin:0 0 6px}
+h2{font-size:1.05rem;margin:32px 0 10px;color:var(--muted);font-weight:600;
+text-transform:uppercase;letter-spacing:.06em}
+.aka,.m,.src,.f{color:var(--muted);font-size:.95rem;margin:0 0 10px}
+.tg{font-style:italic;margin:0 0 12px}
+.src{font-size:.85rem}
+.gen{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 16px;padding:0;list-style:none}
+.gen li{border:1px solid var(--line);border-radius:999px;padding:2px 12px;font-size:.9rem}
+.acts{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:4px 0 8px}
+a.b{display:inline-block;background:var(--primary);color:var(--bg);font-weight:700;
+text-decoration:none;padding:12px 24px;border-radius:999px}
+dl{display:grid;grid-template-columns:minmax(0,1fr);gap:4px 16px;margin:0}
+dt{color:var(--muted);font-size:.9rem}
+dd{margin:0 0 10px}
+.cast{columns:2 160px;margin:0;padding:0;list-style:none}
+.cast li{break-inside:avoid;margin:0 0 6px}
+.rv{border-top:1px solid var(--line);padding:12px 0}
+.rv p{margin:4px 0}
+.rel{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px 16px;
+margin:0;padding:0;list-style:none}
+footer{max-width:900px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:.85rem}
+@media (min-width:640px){
+.hero{flex-direction:row}
+.hero img{width:220px;height:330px;flex:none}
+dl{grid-template-columns:max-content minmax(0,1fr)}
+dd{margin:0 0 6px}
+}
 """
 
 # X/Twitter falls back to Open Graph for title, description and image, so only
-# the card TYPE needs a twitter: tag. Three duplicated strings per page across
-# 26,740 pages is the whole reason to care.
-PAGE = """<!DOCTYPE html>
+# the card TYPE needs a twitter: tag.
+HEAD = """<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -90,7 +133,7 @@ PAGE = """<!DOCTYPE html>
 <title>{title_tag}</title>
 <meta name="description" content="{desc}">
 <link rel="canonical" href="{url}">
-<meta name="apple-itunes-app" content="app-id={app_id}, app-argument={url}">
+<meta name="apple-itunes-app" content="app-id={app_id}, app-argument={app_arg}">
 <meta property="og:site_name" content="Archive Watch">
 <meta property="og:type" content="{og_type}">
 <meta property="og:title" content="{og_title}">
@@ -98,22 +141,16 @@ PAGE = """<!DOCTYPE html>
 <meta property="og:url" content="{url}">{image_tags}
 <meta name="twitter:card" content="{tw_card}">
 <link rel="stylesheet" href="/share.css">
+<script type="application/ld+json">{ld}</script>
 </head>
 <body>
-<div class="w">
-{poster_img}<div class="t">
-<h1>{h1}</h1>
-<p class="m">{meta}</p>
-<p>{blurb}</p>
-<a class="b" href="{viewer}">Watch it free</a>
-<p class="f">Free to watch on Archive Watch — public domain, no account.</p>
-</div></div>
-<script>
-/* Humans go straight through to the viewer; crawlers do not run scripts, so
-   they read the metadata above and stop. replace() keeps the Back button
-   pointing at wherever the link was shared. */
-location.replace({viewer_js});
-</script>
+<header class="top"><a href="/">Archive Watch</a></header>
+<main>
+"""
+
+FOOT = """</main>
+<footer>Public domain, from the Internet Archive. Free to watch on Archive Watch
+&mdash; no account, no ads. <a href="/privacy.html">Privacy</a></footer>
 </body>
 </html>
 """
@@ -164,28 +201,103 @@ def safe_segment(s: str):
     return s
 
 
-def build_page(url, title_tag, og_title, h1, desc, meta, blurb, image, wide,
-               viewer, og_type) -> str:
+def e(s) -> str:
+    return html.escape(str(s), quote=True)
+
+
+def title_key(s: str) -> str:
+    """watch.js titleKey(): the same folding, so "also known as" appears on a
+    page exactly when it appears in the viewer."""
+    import unicodedata
+    lig = {"œ": "oe", "Œ": "oe", "æ": "ae", "Æ": "ae", "ß": "ss", "ø": "o",
+           "Ø": "o", "ł": "l", "Ł": "l", "đ": "d", "Đ": "d"}
+    s = "".join(lig.get(c, c) for c in str(s or ""))
+    s = "".join(c for c in unicodedata.normalize("NFD", s) if not unicodedata.combining(c))
+    s = re.sub(r"\(.*?\)", " ", s.lower())
+    s = re.sub(r"^(the|a|an)\s+", "", s)
+    return re.sub(r"[^a-z0-9]+", "", s)
+
+
+def also_known_as(title, canonical) -> str:
+    canon = str(canonical or "").strip()
+    if not canon:
+        return ""
+    a, b = title_key(canon), title_key(title)
+    if not a or not b or a == b or a in b or b in a:
+        return ""
+    return canon
+
+
+def as_list(v):
+    if not v:
+        return []
+    if isinstance(v, (list, tuple)):
+        return [str(x) for x in v if x]
+    return [x.strip() for x in re.split(r"[|,]", str(v)) if x.strip()]
+
+
+def build_page(*, url, app_arg, title_tag, og_title, desc, image, wide, og_type,
+               body, ld) -> str:
     image_tags = ""
-    poster_img = ""
     if image:
-        e = html.escape(image, quote=True)
-        image_tags = (f'\n<meta property="og:image" content="{e}">'
-                      f'\n<meta property="og:image:alt" content="{html.escape(og_title)}">')
-        poster_img = f'<img src="{e}" alt="" width="200">'
-    return PAGE.format(
-        title_tag=html.escape(title_tag),
-        og_title=html.escape(og_title, quote=True),
-        h1=html.escape(h1), desc=html.escape(desc, quote=True),
-        meta=html.escape(meta), blurb=html.escape(blurb),
-        url=html.escape(url, quote=True), app_id=IOS_APP_ID,
-        og_type=og_type, image_tags=image_tags, poster_img=poster_img,
-        viewer=html.escape(viewer, quote=True), viewer_js=json.dumps(viewer),
+        image_tags = (f'\n<meta property="og:image" content="{e(image)}">'
+                      f'\n<meta property="og:image:alt" content="{e(og_title)}">')
+    # "</" inside JSON-LD would end the script element early.
+    ld_json = json.dumps(ld, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
+    return HEAD.format(
+        title_tag=html.escape(title_tag), og_title=e(og_title), desc=e(desc),
+        url=e(url), app_arg=e(app_arg), app_id=IOS_APP_ID, og_type=og_type,
+        image_tags=image_tags, ld=ld_json,
         # A tall poster inside a wide card is letterboxed by every platform,
-        # so a film with only a 2:3 poster gets the SMALL card, which shows
-        # the poster whole. Decision 097's rule, applied to someone else's
-        # layout.
-        tw_card="summary_large_image" if wide else "summary")
+        # so a film with only a 2:3 poster gets the SMALL card (Decision 097).
+        tw_card="summary_large_image" if wide else "summary") + body + FOOT
+
+
+def page_body(*, h1, aka, meta, tagline, genres, viewer, source_url, poster,
+              synopsis, synopsis_src, facts, cast, reviews, related) -> str:
+    out = ['<section class="hero">']
+    if poster:
+        out.append(f'<img src="{e(poster)}" alt="Poster for {e(h1)}" width="220" '
+                   f'height="330" loading="eager" decoding="async">')
+    out.append("<div>")
+    out.append(f"<h1>{html.escape(h1)}</h1>")
+    if aka:
+        out.append(f'<p class="aka">Also known as {html.escape(aka)}</p>')
+    out.append(f'<p class="m">{html.escape(meta)}</p>')
+    if tagline:
+        out.append(f'<p class="tg">{html.escape(tagline)}</p>')
+    if genres:
+        out.append('<ul class="gen">' + "".join(f"<li>{html.escape(g)}</li>" for g in genres) + "</ul>")
+    out.append(f'<div class="acts"><a class="b" href="{e(viewer)}">Watch now</a>')
+    if source_url:
+        out.append(f'<a href="{e(source_url)}" rel="noopener">On the Internet Archive</a>')
+    out.append("</div></div></section>")
+    if synopsis:
+        out.append("<h2>Synopsis</h2>")
+        out.append(f"<p>{html.escape(synopsis)}</p>")
+        out.append(f'<p class="src">{html.escape(synopsis_src)}</p>')
+    if facts:
+        out.append("<h2>Details</h2><dl>")
+        for k, v in facts:
+            out.append(f"<dt>{html.escape(k)}</dt><dd>{html.escape(v)}</dd>")
+        out.append("</dl>")
+    if cast:
+        out.append("<h2>Cast</h2><ul class=\"cast\">"
+                   + "".join(f"<li>{html.escape(c)}</li>" for c in cast) + "</ul>")
+    if reviews:
+        out.append("<h2>Reviews on the Internet Archive</h2>")
+        for stars, rtitle, rbody, who, when in reviews:
+            head = " · ".join(x for x in [
+                ("★" * int(stars)) if isinstance(stars, (int, float)) and stars else "",
+                html.escape(str(rtitle or "")), html.escape(str(who or "")),
+                html.escape(str(when or ""))[:10]] if x)
+            out.append(f'<div class="rv"><p class="m">{head}</p>'
+                       f"<p>{html.escape(strip_html(str(rbody or '')))}</p></div>")
+    if related:
+        out.append("<h2>More like this</h2><ul class=\"rel\">"
+                   + "".join(f'<li><a href="{e(u)}">{html.escape(t)}</a></li>' for u, t in related)
+                   + "</ul>")
+    return "\n".join(out) + "\n"
 
 
 LIST_LANDING = """<!DOCTYPE html>
@@ -219,6 +331,26 @@ LIST_LANDING = """<!DOCTYPE html>
 """
 
 
+def write_sitemaps(out: Path, urls, lastmod: str) -> None:
+    """sitemap.xml is an INDEX of files of at most SITEMAP_CHUNK URLs (Google
+    takes 50,000; smaller files keep each fetch light). robots.txt names it."""
+    pages = [f"{SITE}/"] + urls
+    lm = f"<lastmod>{lastmod}</lastmod>" if re.match(r"\d{4}-\d{2}-\d{2}$", lastmod) else ""
+    names = []
+    for n, k in enumerate(range(0, len(pages), SITEMAP_CHUNK), 1):
+        name = f"sitemap-{n}.xml"
+        body = "".join(f"<url><loc>{html.escape(u)}</loc>{lm}</url>\n" for u in pages[k:k + SITEMAP_CHUNK])
+        (out / name).write_text('<?xml version="1.0" encoding="UTF-8"?>\n'
+                                '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+                                + body + "</urlset>\n", encoding="utf-8")
+        names.append(name)
+    (out / "sitemap.xml").write_text(
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+        + "".join(f"<sitemap><loc>{SITE}/{n}</loc>{lm}</sitemap>\n" for n in names)
+        + "</sitemapindex>\n", encoding="utf-8")
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(
         description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -250,60 +382,120 @@ def main() -> int:
     out.mkdir(parents=True, exist_ok=True)
     (out / "share.css").write_text(SHARE_CSS, encoding="utf-8")
 
+    names = {}
+    for r in index["items"]:
+        rid, rt, ry = at(r, I_ID), at(r, I_TITLE), at(r, I_YEAR)
+        if rid and rt:
+            names[str(rid)] = strip_html(str(rt)) + (f" ({ry})" if ry else "")
+
+    def page_url(aid: str):
+        if aid.startswith("series:"):
+            slug = safe_segment(aid[len("series:"):])
+            return (f"{SITE}/series/{slug}/", f"{SITE}/series/{slug}") if slug else (None, None)
+        return (f"{SITE}/item/{aid}/", f"{SITE}/item/{aid}") if safe_segment(aid) else (None, None)
+
+    urls = []
     made = skipped = 0
     for r in rows:
         aid = str(at(r, I_ID) or "")
         title = strip_html(str(at(r, I_TITLE) or aid))
         year = at(r, I_YEAR)
-        kind = KIND.get(at(r, I_TYPE), "Film")
+        ctype = at(r, I_TYPE)
+        kind = KIND.get(ctype, "Film")
         d = details.get(aid)
+        x = at(d, D_EXTRAS) or {}
         synopsis = strip_html(at(d, D_SYNOPSIS) or "")
         director = at(d, D_DIRECTOR) or at(r, I_DIRECTOR)
         runtime = at(d, D_RUNTIME)
         backdrop = at(d, D_BACKDROP) or at(r, I_BACKDROP)
         poster = at(r, I_POSTER)
+        genres = as_list(at(d, D_GENRES)) or as_list(at(r, I_GENRES))
 
+        url, app_arg = page_url(aid)
+        if not url:
+            skipped += 1
+            continue
         if aid.startswith("series:"):
-            slug = safe_segment(aid[len("series:"):])
-            if not slug:
-                skipped += 1
-                continue
-            path, url = out / "series" / slug, f"{SITE}/series/{slug}"
-            viewer, og_type = f"{SITE}/#/series/{slug}", "video.tv_show"
+            slug = aid[len("series:"):]
+            path = out / "series" / slug
+            viewer, og_type, ld_type = f"{SITE}/#/series/{slug}", "video.tv_show", "TVSeries"
+            source_url = None
         else:
-            if not safe_segment(aid):
-                skipped += 1
-                continue
-            path, url = out / "item" / aid, f"{SITE}/item/{aid}"
-            viewer, og_type = f"{SITE}/#/item/{aid}", "video.movie"
+            path = out / "item" / aid
+            viewer, og_type, ld_type = f"{SITE}/#/item/{aid}", "video.movie", "Movie"
+            source_url = f"https://archive.org/details/{aid}"
 
+        mins = int(runtime) // 60 if runtime else 0
         bits = [str(year)] if year else []
         bits.append(kind)
-        if runtime:
-            mins = int(runtime) // 60
-            if mins:
-                bits.append(f"{mins} min")
+        if mins:
+            bits.append(f"{mins} min")
         if director:
             bits.append(f"dir. {director}")
         meta = "  ·  ".join(bits)
-
         headline = title + (f" ({year})" if year else "")
-        # The description is what a person reads in the preview, so it leads
-        # with what the film IS and ends with the one fact that matters here.
+
         desc = clip(synopsis, 180) if synopsis else meta
         if "free" not in desc.lower():
             desc = (desc.rstrip(" .") + ". ") if desc else ""
             desc += "Free to watch on Archive Watch — public domain."
 
+        cast_rows = at(d, D_CAST) or []
+        cast = [str(c[0] if isinstance(c, list) else c) for c in cast_rows if c][:40]
+        facts = []
+        for label, val in (("Director", director), ("Writer", x.get("w")),
+                           ("Composer", x.get("co")), ("Cinematography", x.get("ci")),
+                           ("Studio", ", ".join(as_list(x.get("st")))),
+                           ("Released", x.get("rd")), ("Original title", x.get("ot")),
+                           ("Series", x.get("fr")), ("Awards", x.get("aw")),
+                           ("Running time", f"{mins} minutes" if mins else None)):
+            if val:
+                facts.append((label, strip_html(str(val))))
+        comm = at(d, D_COMMUNITY) or {}
+        reviews = [rv for rv in (comm.get("rv") or []) if isinstance(rv, list) and len(rv) >= 5][:3]
+        related = []
+        for rid in (at(d, D_RELATED) or [])[:12]:
+            ru, _ = page_url(str(rid))
+            if ru and str(rid) in names:
+                related.append((ru, names[str(rid)]))
+
+        ld = {"@context": "https://schema.org", "@type": ld_type, "name": title,
+              "url": url, "isAccessibleForFree": True,
+              "potentialAction": {"@type": "WatchAction", "target": viewer}}
+        if synopsis:
+            ld["description"] = clip(synopsis, 500)
+        if poster or backdrop:
+            ld["image"] = poster or backdrop
+        if x.get("rd") or year:
+            ld["datePublished"] = str(x.get("rd") or year)
+        if mins and ld_type == "Movie":
+            ld["duration"] = f"PT{mins}M"
+        if genres:
+            ld["genre"] = genres
+        if director:
+            ld["director"] = {"@type": "Person", "name": str(director)}
+        if cast:
+            ld["actor"] = [{"@type": "Person", "name": c} for c in cast[:15]]
+        if x.get("st"):
+            ld["productionCompany"] = [{"@type": "Organization", "name": n} for n in as_list(x["st"])]
+        if source_url:
+            ld["sameAs"] = source_url
+
+        body = page_body(
+            h1=headline, aka=also_known_as(title, x.get("ct")), meta=meta,
+            tagline=strip_html(x.get("tg") or ""), genres=genres, viewer=viewer,
+            source_url=source_url, poster=poster or backdrop, synopsis=synopsis,
+            synopsis_src=SOURCE.get(str(x.get("ss") or "").lower(), UPLOADER),
+            facts=facts, cast=cast, reviews=reviews, related=related)
         path.mkdir(parents=True, exist_ok=True)
         (path / "index.html").write_text(build_page(
-            url=url, title_tag=f"{headline} — free to watch on Archive Watch",
-            og_title=headline, h1=headline, desc=desc, meta=meta,
-            blurb=clip(synopsis, 320) if synopsis else
-                  "A public-domain title from the Internet Archive.",
-            image=backdrop or poster, wide=bool(backdrop),
-            viewer=viewer, og_type=og_type), encoding="utf-8")
+            url=url, app_arg=app_arg, title_tag=f"{headline} — free to watch on Archive Watch",
+            og_title=headline, desc=desc, image=backdrop or poster, wide=bool(backdrop),
+            og_type=og_type, body=body, ld=ld), encoding="utf-8")
+        urls.append(url)
         made += 1
+
+    write_sitemaps(out, urls, str(index.get("updatedAt") or "")[:10])
 
     # ---- the shared-playlist landing page -----------------------------
     #
@@ -331,7 +523,8 @@ def main() -> int:
 
     note = f"; skipped {skipped} unsafe id(s)" if skipped else ""
     print(f"[share] wrote {made:,} share pages under {out}/item and "
-          f"{out}/series{note}; plus the /list/ playlist landing page")
+          f"{out}/series{note}; plus the /list/ playlist landing page and "
+          f"sitemap.xml ({len(urls) + 1:,} URLs)")
     return 0
 
 

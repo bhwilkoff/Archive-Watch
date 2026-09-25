@@ -91,15 +91,24 @@ def main() -> int:
         check("links the shared stylesheet", 'href="/share.css"' in h, True)
         check("shared stylesheet is written",
               (td / "site" / "share.css").exists(), True)
-        check("canonical url has no #",
-              '<link rel="canonical" href="https://archivewatch.org/item/suddenly">' in h,
+        # §3.2a: canonical is the URL Pages SERVES (trailing slash) — the
+        # no-slash form 301s, and a canonical that redirects is ignored.
+        check("canonical is the served url, with its slash",
+              '<link rel="canonical" href="https://archivewatch.org/item/suddenly/">' in h,
               True)
         check("og:url is the share url, not the hash route",
-              '<meta property="og:url" content="https://archivewatch.org/item/suddenly">' in h,
+              '<meta property="og:url" content="https://archivewatch.org/item/suddenly/">' in h,
               True)
-        check("forwards to the hash route",
-              'location.replace("https://archivewatch.org/#/item/suddenly")' in h,
-              True)
+        # THE DEFECT: a forwarding page is a redirect to the site root to
+        # Google, which runs scripts; no page was ever indexed. No script at
+        # all, so no counter either (privacy unchanged).
+        check("no forward", "location.replace" in h, False)
+        check("no executable script", "<script>" in h, False)
+        check("a Watch now into the viewer",
+              'href="https://archivewatch.org/#/item/suddenly">Watch now</a>' in h, True)
+        check("schema.org Movie JSON-LD", '"@type":"Movie"' in h, True)
+        check("app banner keeps the no-slash argument the apps parse",
+              "app-argument=https://archivewatch.org/item/suddenly\"" in h, True)
         check("carries the iOS app banner", "apple-itunes-app" in h, True)
         # A 2:3 poster inside a wide card is letterboxed by every platform.
         check("poster-only film uses the small card",
@@ -112,6 +121,42 @@ def main() -> int:
               "og:image" in ht, False)
         check("thin item still has a description",
               'property="og:description"' in ht, True)
+
+        # The full Detail, from a details record (the shape build_web_details
+        # writes, trailing nulls trimmed).
+        det = td / "det"
+        det.mkdir()
+        (det / "00.json").write_text(json.dumps({"suddenly": [
+            "u", "A town is held hostage.", "Lewis Allen",
+            [["Frank Sinatra", None, 1], ["Sterling Hayden", None, 2]],
+            ["Crime", "Drama"], 4620, None, None,
+            {"r": 4, "v": 10, "f": 1, "rv": [[5, "Great", "Tense <b>noir</b>.", "fan", "2011-02-19"]]},
+            {"w": "Richard Sale", "ct": "Suddenly!", "ss": "tmdb", "tg": "The town that lived in terror"},
+            ["thin_item", "nope_not_in_index"]]}), encoding="utf-8")
+        r2 = subprocess.run(
+            [sys.executable, str(REPO / "tools" / "build_share_pages.py"),
+             "--out", str(td / "site2"), "--index", str(idx), "--details", str(det)],
+            capture_output=True, text=True)
+        check("build with details succeeds", r2.returncode, 0)
+        hf = (td / "site2" / "item" / "suddenly" / "index.html").read_text(encoding="utf-8")
+        for label, frag in (("full synopsis", "A town is held hostage."),
+                            ("synopsis source named as the viewer names it", "Synopsis from TMDb"),
+                            ("tagline", "The town that lived in terror"),
+                            ("cast", "<li>Sterling Hayden</li>"),
+                            ("writer", "<dd>Richard Sale</dd>"),
+                            ("genres", "<li>Crime</li>"),
+                            ("runtime", "77 min"),
+                            ("review text, HTML stripped", "Tense noir."),
+                            ("related film linked to its own page", 'href="https://archivewatch.org/item/thin_item/"')):
+            check(f"page carries the {label}", frag in hf, True)
+        check("a related id not in the index is not linked", "nope_not_in_index" in hf, False)
+        # "Suddenly!" folds to the same key as "Suddenly", so no also-known-as.
+        check("also-known-as folds like the viewer", "Also known as" in hf, False)
+        sm = (td / "site2" / "sitemap.xml").read_text(encoding="utf-8")
+        check("sitemap index names its files", "sitemap-1.xml" in sm, True)
+        s1 = (td / "site2" / "sitemap-1.xml").read_text(encoding="utf-8")
+        check("sitemap lists every page", s1.count("<loc>"), 4)
+        check("sitemap uses the served url", "https://archivewatch.org/item/suddenly/</loc>" in s1, True)
 
         ser = td / "site" / "series" / "the-show" / "index.html"
         check("series page exists at /series/<slug>", ser.exists(), True)
