@@ -392,5 +392,8 @@
       "order": 2,
       "profilePath": null
     }
-  ]
+  ],
+  "seriesImdbID": "tt0043223",
+  "canonicalEpisodeCount": 42,
+  "canonicalSeasons": 3
 }

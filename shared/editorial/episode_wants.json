@@ -1,10 +1,10 @@
 {
   "schema": 1,
-  "updated_at": "2026-09-25T04:37:07Z",
+  "updated_at": "2026-09-25T05:21:17Z",
   "description": "Missing-episode queue: canonical episodes (from OMDb) that we don't yet have on Archive. Drained by tools/backfill_tv_episodes.py.",
   "stats": {
-    "total": 18260,
-    "wanted": 18037,
+    "total": 18263,
+    "wanted": 18040,
     "fulfilled": 223,
     "series_with_gaps": 362
   },
@@ -44092,6 +44092,16 @@
       "seriesID": "dragnet-1951",
       "seriesTitle": "Dragnet",
       "season": 5,
+      "episode": 9,
+      "title": "The Big Bird",
+      "episodeImdbID": "tt0565714",
+      "status": "wanted",
+      "added_at": "2026-09-25T05:21:17Z"
+    },
+    {
+      "seriesID": "dragnet-1951",
+      "seriesTitle": "Dragnet",
+      "season": 5,
       "episode": 10,
       "title": "The Big Laugh",
       "episodeImdbID": "tt0565828",
@@ -45017,6 +45027,16 @@
       "episodeImdbID": "tt0565819",
       "status": "wanted",
       "added_at": "2026-06-13T07:56:51Z"
+    },
+    {
+      "seriesID": "dragnet-1951",
+      "seriesTitle": "Dragnet",
+      "season": 8,
+      "episode": 1,
+      "title": "The Big Beating",
+      "episodeImdbID": "tt0565707",
+      "status": "wanted",
+      "added_at": "2026-09-25T05:21:17Z"
     },
     {
       "seriesID": "dragnet-1951",
@@ -59220,6 +59240,16 @@
       "episodeImdbID": "tt0592681",
       "status": "wanted",
       "added_at": "2026-06-14T08:26:25Z"
+    },
+    {
+      "seriesID": "green-acres-1965",
+      "seriesTitle": "Green Acres",
+      "season": 1,
+      "episode": 27,
+      "title": "Never Look a Gift Tractor in the Mouth",
+      "episodeImdbID": "tt0592731",
+      "status": "wanted",
+      "added_at": "2026-09-25T05:21:17Z"
     },
     {
       "seriesID": "green-acres-1965",
