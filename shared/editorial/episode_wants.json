@@ -1,10 +1,10 @@
 {
   "schema": 1,
-  "updated_at": "2026-09-25T01:38:42Z",
+  "updated_at": "2026-09-25T04:37:07Z",
   "description": "Missing-episode queue: canonical episodes (from OMDb) that we don't yet have on Archive. Drained by tools/backfill_tv_episodes.py.",
   "stats": {
-    "total": 18238,
-    "wanted": 18015,
+    "total": 18260,
+    "wanted": 18037,
     "fulfilled": 223,
     "series_with_gaps": 362
   },
@@ -12060,6 +12060,16 @@
     {
       "seriesID": "are-you-being-served-1972",
       "seriesTitle": "Are You Being Served?",
+      "season": 5,
+      "episode": 7,
+      "title": "It Pays to Advertise",
+      "episodeImdbID": "tt0514510",
+      "status": "wanted",
+      "added_at": "2026-09-25T04:37:07Z"
+    },
+    {
+      "seriesID": "are-you-being-served-1972",
+      "seriesTitle": "Are You Being Served?",
       "season": 6,
       "episode": 1,
       "title": "By Appointment",
@@ -12161,6 +12171,26 @@
       "seriesID": "are-you-being-served-1972",
       "seriesTitle": "Are You Being Served?",
       "season": 8,
+      "episode": 3,
+      "title": "Front Page Story",
+      "episodeImdbID": "tt0514500",
+      "status": "wanted",
+      "added_at": "2026-09-25T04:37:07Z"
+    },
+    {
+      "seriesID": "are-you-being-served-1972",
+      "seriesTitle": "Are You Being Served?",
+      "season": 8,
+      "episode": 4,
+      "title": "Sit Out",
+      "episodeImdbID": "tt0514523",
+      "status": "wanted",
+      "added_at": "2026-09-25T04:37:07Z"
+    },
+    {
+      "seriesID": "are-you-being-served-1972",
+      "seriesTitle": "Are You Being Served?",
+      "season": 8,
       "episode": 5,
       "title": "Heir Apparent",
       "episodeImdbID": "tt0765551",
@@ -12246,6 +12276,26 @@
       "episodeImdbID": "tt0514505",
       "status": "wanted",
       "added_at": "2026-06-06T07:00:09Z"
+    },
+    {
+      "seriesID": "are-you-being-served-1972",
+      "seriesTitle": "Are You Being Served?",
+      "season": 10,
+      "episode": 4,
+      "title": "Gambling Fever",
+      "episodeImdbID": "tt0514501",
+      "status": "wanted",
+      "added_at": "2026-09-25T04:37:07Z"
+    },
+    {
+      "seriesID": "are-you-being-served-1972",
+      "seriesTitle": "Are You Being Served?",
+      "season": 10,
+      "episode": 5,
+      "title": "The Night Club",
+      "episodeImdbID": "tt0514536",
+      "status": "wanted",
+      "added_at": "2026-09-25T04:37:07Z"
     },
     {
       "seriesID": "around-the-world-in-80-days-2021",
@@ -132607,6 +132657,16 @@
       "seriesID": "the-avengers-1961",
       "seriesTitle": "The Avengers",
       "season": 4,
+      "episode": 25,
+      "title": "How to Succeed .... At Murder",
+      "episodeImdbID": "tt0516849",
+      "status": "wanted",
+      "added_at": "2026-09-25T04:37:07Z"
+    },
+    {
+      "seriesID": "the-avengers-1961",
+      "seriesTitle": "The Avengers",
+      "season": 4,
       "episode": 26,
       "title": "Honey for the Prince",
       "episodeImdbID": "tt0516847",
@@ -145986,6 +146046,16 @@
       "seriesID": "the-dick-van-dyke-show-1961",
       "seriesTitle": "The Dick Van Dyke Show",
       "season": 1,
+      "episode": 25,
+      "title": "Where You Been, Fassbinder?",
+      "episodeImdbID": "tt0559865",
+      "status": "wanted",
+      "added_at": "2026-09-25T04:37:07Z"
+    },
+    {
+      "seriesID": "the-dick-van-dyke-show-1961",
+      "seriesTitle": "The Dick Van Dyke Show",
+      "season": 1,
       "episode": 26,
       "title": "I Am My Brother's Keeper",
       "episodeImdbID": "tt0559764",
@@ -146076,6 +146146,16 @@
       "seriesID": "the-dick-van-dyke-show-1961",
       "seriesTitle": "The Dick Van Dyke Show",
       "season": 2,
+      "episode": 6,
+      "title": "My Husband Is Not a Drunk",
+      "episodeImdbID": "tt0559779",
+      "status": "wanted",
+      "added_at": "2026-09-25T04:37:07Z"
+    },
+    {
+      "seriesID": "the-dick-van-dyke-show-1961",
+      "seriesTitle": "The Dick Van Dyke Show",
+      "season": 2,
       "episode": 7,
       "title": "What's in a Middle Name?",
       "episodeImdbID": "tt0559862",
@@ -146101,6 +146181,16 @@
       "episodeImdbID": "tt0559836",
       "status": "wanted",
       "added_at": "2026-06-06T07:00:09Z"
+    },
+    {
+      "seriesID": "the-dick-van-dyke-show-1961",
+      "seriesTitle": "The Dick Van Dyke Show",
+      "season": 2,
+      "episode": 10,
+      "title": "The Secret Life of Buddy and Sally",
+      "episodeImdbID": "tt0559843",
+      "status": "wanted",
+      "added_at": "2026-09-25T04:37:07Z"
     },
     {
       "seriesID": "the-dick-van-dyke-show-1961",
@@ -146201,6 +146291,26 @@
       "episodeImdbID": "tt0559769",
       "status": "wanted",
       "added_at": "2026-06-06T07:00:09Z"
+    },
+    {
+      "seriesID": "the-dick-van-dyke-show-1961",
+      "seriesTitle": "The Dick Van Dyke Show",
+      "season": 2,
+      "episode": 21,
+      "title": "My Husband Is a Check-Grabber",
+      "episodeImdbID": "tt0559780",
+      "status": "wanted",
+      "added_at": "2026-09-25T04:37:07Z"
+    },
+    {
+      "seriesID": "the-dick-van-dyke-show-1961",
+      "seriesTitle": "The Dick Van Dyke Show",
+      "season": 2,
+      "episode": 22,
+      "title": "Don't Trip Over That Mountain",
+      "episodeImdbID": "tt0559749",
+      "status": "wanted",
+      "added_at": "2026-09-25T04:37:07Z"
     },
     {
       "seriesID": "the-dick-van-dyke-show-1961",
@@ -146376,6 +146486,16 @@
       "seriesID": "the-dick-van-dyke-show-1961",
       "seriesTitle": "The Dick Van Dyke Show",
       "season": 3,
+      "episode": 10,
+      "title": "The Ballad of the Betty Lou",
+      "episodeImdbID": "tt0559814",
+      "status": "wanted",
+      "added_at": "2026-09-25T04:37:07Z"
+    },
+    {
+      "seriesID": "the-dick-van-dyke-show-1961",
+      "seriesTitle": "The Dick Van Dyke Show",
+      "season": 3,
       "episode": 11,
       "title": "Turtles, Ties, and Toreadors",
       "episodeImdbID": "tt0559856",
@@ -146406,6 +146526,16 @@
       "seriesID": "the-dick-van-dyke-show-1961",
       "seriesTitle": "The Dick Van Dyke Show",
       "season": 3,
+      "episode": 16,
+      "title": "The Lady and the Tiger and the Lawyer",
+      "episodeImdbID": "tt0559828",
+      "status": "wanted",
+      "added_at": "2026-09-25T04:37:07Z"
+    },
+    {
+      "seriesID": "the-dick-van-dyke-show-1961",
+      "seriesTitle": "The Dick Van Dyke Show",
+      "season": 3,
       "episode": 17,
       "title": "The Life and Love of Joe Coogan",
       "episodeImdbID": "tt0559830",
@@ -146421,6 +146551,16 @@
       "episodeImdbID": "tt0559731",
       "status": "wanted",
       "added_at": "2026-06-06T07:00:09Z"
+    },
+    {
+      "seriesID": "the-dick-van-dyke-show-1961",
+      "seriesTitle": "The Dick Van Dyke Show",
+      "season": 3,
+      "episode": 19,
+      "title": "Happy Birthday and Too Many More",
+      "episodeImdbID": "tt0559759",
+      "status": "wanted",
+      "added_at": "2026-09-25T04:37:07Z"
     },
     {
       "seriesID": "the-dick-van-dyke-show-1961",
@@ -146536,11 +146676,31 @@
       "seriesID": "the-dick-van-dyke-show-1961",
       "seriesTitle": "The Dick Van Dyke Show",
       "season": 3,
+      "episode": 31,
+      "title": "I'd Rather Be Bald Than Have No Head at All",
+      "episodeImdbID": "tt0559767",
+      "status": "wanted",
+      "added_at": "2026-09-25T04:37:07Z"
+    },
+    {
+      "seriesID": "the-dick-van-dyke-show-1961",
+      "seriesTitle": "The Dick Van Dyke Show",
+      "season": 3,
       "episode": 32,
       "title": "Teacher's Petrie",
       "episodeImdbID": "tt0559809",
       "status": "wanted",
       "added_at": "2026-06-06T07:00:09Z"
+    },
+    {
+      "seriesID": "the-dick-van-dyke-show-1961",
+      "seriesTitle": "The Dick Van Dyke Show",
+      "season": 4,
+      "episode": 1,
+      "title": "My Mother Can Beat Up My Father",
+      "episodeImdbID": "tt0559782",
+      "status": "wanted",
+      "added_at": "2026-09-25T04:37:07Z"
     },
     {
       "seriesID": "the-dick-van-dyke-show-1961",
@@ -146646,6 +146806,16 @@
       "seriesID": "the-dick-van-dyke-show-1961",
       "seriesTitle": "The Dick Van Dyke Show",
       "season": 4,
+      "episode": 12,
+      "title": "The Death of the Party",
+      "episodeImdbID": "tt0559821",
+      "status": "wanted",
+      "added_at": "2026-09-25T04:37:07Z"
+    },
+    {
+      "seriesID": "the-dick-van-dyke-show-1961",
+      "seriesTitle": "The Dick Van Dyke Show",
+      "season": 4,
       "episode": 15,
       "title": "Brother, Can You Spare $2500?",
       "episodeImdbID": "tt0559741",
@@ -146671,6 +146841,16 @@
       "episodeImdbID": "tt0559805",
       "status": "wanted",
       "added_at": "2026-06-06T07:00:09Z"
+    },
+    {
+      "seriesID": "the-dick-van-dyke-show-1961",
+      "seriesTitle": "The Dick Van Dyke Show",
+      "season": 4,
+      "episode": 19,
+      "title": "Boy #1, Boy #2",
+      "episodeImdbID": "tt0559739",
+      "status": "wanted",
+      "added_at": "2026-09-25T04:37:07Z"
     },
     {
       "seriesID": "the-dick-van-dyke-show-1961",
@@ -146751,6 +146931,16 @@
       "episodeImdbID": "tt0559735",
       "status": "wanted",
       "added_at": "2026-06-06T07:00:09Z"
+    },
+    {
+      "seriesID": "the-dick-van-dyke-show-1961",
+      "seriesTitle": "The Dick Van Dyke Show",
+      "season": 4,
+      "episode": 30,
+      "title": "One Hundred Terrible Hours",
+      "episodeImdbID": "tt0559726",
+      "status": "wanted",
+      "added_at": "2026-09-25T04:37:07Z"
     },
     {
       "seriesID": "the-dick-van-dyke-show-1961",
@@ -146886,6 +147076,16 @@
       "seriesID": "the-dick-van-dyke-show-1961",
       "seriesTitle": "The Dick Van Dyke Show",
       "season": 5,
+      "episode": 14,
+      "title": "Fifty-Two, Forty-Five or Work",
+      "episodeImdbID": "tt0559753",
+      "status": "wanted",
+      "added_at": "2026-09-25T04:37:07Z"
+    },
+    {
+      "seriesID": "the-dick-van-dyke-show-1961",
+      "seriesTitle": "The Dick Van Dyke Show",
+      "season": 5,
       "episode": 15,
       "title": "Who Stole My Watch",
       "episodeImdbID": "tt0559867",
@@ -146901,6 +147101,16 @@
       "episodeImdbID": "tt0559831",
       "status": "wanted",
       "added_at": "2026-06-06T07:00:09Z"
+    },
+    {
+      "seriesID": "the-dick-van-dyke-show-1961",
+      "seriesTitle": "The Dick Van Dyke Show",
+      "season": 5,
+      "episode": 19,
+      "title": "The Bottom of Mel Cooley's Heart",
+      "episodeImdbID": "tt0559815",
+      "status": "wanted",
+      "added_at": "2026-09-25T04:37:07Z"
     },
     {
       "seriesID": "the-dick-van-dyke-show-1961",
@@ -172474,6 +172684,16 @@
       "episodeImdbID": "tt0063150",
       "status": "wanted",
       "added_at": "2026-06-06T07:00:09Z"
+    },
+    {
+      "seriesID": "the-wednesday-play-1969",
+      "seriesTitle": "The Wednesday Play",
+      "season": 7,
+      "episode": 21,
+      "title": "Let's Murder Vivaldi",
+      "episodeImdbID": "tt0416916",
+      "status": "wanted",
+      "added_at": "2026-09-25T04:37:07Z"
     },
     {
       "seriesID": "the-wednesday-play-1969",
