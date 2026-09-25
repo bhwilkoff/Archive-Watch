@@ -81,6 +81,7 @@ CATALOG = REPO / "catalog.json"
 PD_BY_AGE = _dt.date.today().year - 95
 RENEWAL_ZONE_START = 1964
 MODERN = 1978
+EARLIEST_MOTION_YEAR = 1874
 COMMERCIAL_MODERN = 1995  # vintage-commercial cutoff; modern brand ads are copyrighted
 COMMERCIAL_VOTES = 100    # an IMDb vote count >= this = a real theatrical/video release;
                           # no genuine rights-holder dedicates such a film to CC/CC0, so an
@@ -443,6 +444,13 @@ def bucket(it):
     rs = (it.get("rightsStatus") or "").lower()
     y = it.get("year")
     yi = y if isinstance(y, int) else None
+    # A year before any photographed motion (Janssen's 1874 revolver is the
+    # earliest) is a typo, not evidence: `sirocco-1951` carried 1065 and so
+    # was public domain BY AGE — the tier the hero, Roku's feed and the Studio
+    # trust most — and a 1903 Alice carried 1803 (2026-09-25). Treat it as no
+    # year, so the release date or the no-evidence rules judge it instead.
+    if yi is not None and yi < EARLIEST_MOTION_YEAR:
+        yi = None
     # A missing `year` used to mean UNJUDGEABLE, and an unjudgeable item is
     # KEPT — so a modern studio film with no year sailed through as
     # "unknown_year" and reached Home. Tinker Bell and the Lost Treasure
