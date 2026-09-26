@@ -1296,6 +1296,7 @@ sub onDetailMore()
     opts.Push({ id: "playlist", label: "Add to playlist" })
     opts.Push({ id: "versions", label: "Choose a different copy…" })
     opts.Push({ id: "share", label: "Watch this on another device" })
+    opts.Push({ id: "report", label: "Something wrong with this film?" })
     opts.Push({ id: "cancel", label: "Done" })
     m.moreMode = "detail"
     print "AWPANEL open more n="; opts.Count()
@@ -1413,6 +1414,13 @@ sub onMorePicked()
         openShareCard(id, m.detail.item.title)
         return
     end if
+    if pick = "report"
+        ' "Something wrong with this film?" (2026-09-26): the same pre-filled
+        ' issue form every platform opens; a television hands it to a phone.
+        m.shareFrom = "detail"
+        shareCardNode().callFunc("open", { link: filmProblemURL(id), title: m.detail.item.title, head: "Something wrong with this film?", scanOnly: true })
+        return
+    end if
     if pick = "watch"
         awMarkWatched(id, m.detail.runtimeSeconds)
         m.detail.toast = "Marked as watched."
@@ -1435,6 +1443,14 @@ sub onMorePicked()
     m.detail.callFunc("refresh")
     refocus(m.detail)
 end sub
+
+' The URL every platform builds (FilmProblem): only the film and where it was
+' seen. Well under QR.brs's 271-byte ceiling for any catalog id.
+function filmProblemURL(id as String) as String
+    ' encodeName, not roUrlTransfer: this runs on the render thread.
+    where = "Roku " + CreateObject("roAppInfo").GetVersion()
+    return "https://github.com/bhwilkoff/Archive-Watch/issues/new?template=film-problem.yml&film=" + encodeName(id) + "&where=" + encodeName(where)
+end function
 
 sub openShareCard(id as String, title as String)
     m.shareFrom = "detail"

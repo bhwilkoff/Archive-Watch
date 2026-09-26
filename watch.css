@@ -1013,3 +1013,6 @@ a.person:focus-visible { outline: 2px solid var(--color-primary); outline-offset
   font-size: 0.8rem;
   color: var(--color-text-secondary, #9A9A9A);
 }
+/* "Something wrong with this film?" — present, and quiet (WEB-DESIGN §4.4c). */
+.item-report { margin: 28px 0 8px; font-size: 0.85rem; }
+.item-report a { color: var(--text-dim); }

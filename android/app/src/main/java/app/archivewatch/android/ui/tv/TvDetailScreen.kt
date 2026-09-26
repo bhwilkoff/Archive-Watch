@@ -618,6 +618,8 @@ fun TvDetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
                 "https://archivewatch.org/series/" + current.archiveID.removePrefix("series:")
             else "https://archivewatch.org/item/" + current.archiveID,
             onDone = { showShare = false },
+            reportUrl = if (current.contentType == "tv-series") null
+                else app.archivewatch.android.data.FilmProblem.url(current.archiveID, television = true),
         )
     }
     if (showVersions) {

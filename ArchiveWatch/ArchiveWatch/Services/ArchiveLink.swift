@@ -17,3 +17,26 @@ enum ArchiveLink {
         return id.removingPercentEncoding ?? id
     }
 }
+
+/// "Something wrong with this film?" (2026-09-26, the Orphaned Films
+/// research): a pre-filled GitHub issue form carrying only what identifies the
+/// report — the film and where it was seen. Nothing is sent until the viewer
+/// submits it. Short, because the Apple TV shows it as a QR code. The web's
+/// `filmProblemURL`, Android's and Roku's `FilmProblem` build the same URL.
+enum FilmProblem {
+    static func url(archiveID: String) -> URL? {
+        let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
+        #if os(tvOS)
+        let platform = "tvOS"
+        #elseif os(macOS)
+        let platform = "macOS"
+        #else
+        let platform = "iOS"
+        #endif
+        var c = URLComponents(string: "https://github.com/bhwilkoff/Archive-Watch/issues/new")
+        c?.queryItems = [URLQueryItem(name: "template", value: "film-problem.yml"),
+                         URLQueryItem(name: "film", value: archiveID),
+                         URLQueryItem(name: "where", value: "\(platform) \(version)")]
+        return c?.url
+    }
+}

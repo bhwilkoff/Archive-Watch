@@ -235,6 +235,10 @@ platform row counter. Shelf subtitles from `featured.json` render at Meta.
 
 **6.1b** **An Hour or Less** (`hour-or-less`, 2026-09-26, from the Orphaned Films research, adapted): feature films (not documentaries, which have their own shelf) whose upload runs 40–60 minutes — the B-westerns, second features and programmers this catalog is rich in (about 1,200 titles). A plain rule over `runtimeSeconds` and `contentType`, computed ONCE in the pipeline (`build_sqlite._shelf_ids_for`, Decision 050), gated like every shelf; no model picks it and no copy is written for it (CLAUDE.md). "Under 90 minutes" was measured and refused: 8,093 of 11,006 features already run under 90, so it would describe the catalog rather than help someone choose. It sits after `wikidata-pd` in the canonical order. Roku orders featured shelves by `featured.json` FILE order; the entry follows `wikidata-pd` there.
 
+**6.1c** **Browse filters by length** (2026-09-26): a fifth chip, LAST so `submit()`'s positional reads of chips 0-3 do not shift — *Any length · Under 60 minutes · 60 to 90 minutes · Over 90 minutes* — over index column 17, cleared once read (`qLength`) so it cannot leak into Search. 318 px step: the row ends inside the grid and the safe area.
+
+**6.1d** **"Something wrong with this film?"** in Detail's More panel (2026-09-26): the share card shows the pre-filled GitHub issue form as a QR code (`scanOnly`: the address is for the camera, never printed cut off). Only the film id and where it was seen; nothing is sent until the viewer submits it on their phone.
+
 **6.2 Home gates on `hasProfessionalArtwork`** (Decision 097). A shelf that
 cannot field six professional posters hides rather than padding itself with
 frame grabs. This does NOT apply to the viewer's own Favorites.

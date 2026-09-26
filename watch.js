@@ -767,6 +767,16 @@
    * film a merged upload became (aliases.json). Anything else says so  *
    * and links back: this site shows what its rights audit keeps.      *
    * ---------------------------------------------------------------- */
+  /** "Something wrong with this film?" (2026-09-26, the Orphaned Films
+   *  research): a pre-filled GitHub issue form. Only what identifies the
+   *  report — the film's id and where it was seen; nothing is sent until the
+   *  viewer submits it themselves. Short, because the TVs show it as a QR code.
+   *  Every platform builds the same URL (FilmProblem on Apple/Android/Roku). */
+  function filmProblemURL(id, where) {
+    return 'https://github.com/bhwilkoff/Archive-Watch/issues/new?template=film-problem.yml' +
+      `&film=${encodeURIComponent(id)}&where=${encodeURIComponent(where)}`;
+  }
+
   const ArchiveAddress = {
     /** The archive.org identifier in a pasted link, or null. */
     idFrom(text) {
@@ -2548,6 +2558,7 @@
         this.favUI(await DB.toggleFavorite(id).catch(() => false));
       $('item-share').onclick = () => this.shareMenu(row);
       $('item-playlist').onclick = () => this.playlistMenu(id);
+      $('item-report').href = filmProblemURL(id, 'Web');
       $('item-version').hidden = true;
       $('item-version').closest('.detail-actions').classList.remove('has-version');
       this.related(row);

@@ -1,0 +1,34 @@
+name: Something wrong with a film
+description: A wrong poster or match, a wrong synopsis, a film that will not play, or a rights question.
+title: "Film problem: "
+labels: ["film-problem"]
+body:
+  - type: input
+    id: film
+    attributes:
+      label: Film
+      description: Filled in for you when you come from the film's page.
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What is wrong?
+      options:
+        - The poster or the film it was matched to is wrong
+        - The synopsis, cast or year is wrong
+        - It will not play, or plays the wrong thing
+        - It should not be here (rights)
+        - Something else
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: What did you see?
+      description: What should it be instead, if you know.
+  - type: input
+    id: where
+    attributes:
+      label: Where
+      description: Filled in for you — the app and its version.

@@ -525,6 +525,11 @@ struct DetailView: View {
         Link(destination: URL(string: item.sourceDetailsURL)!) {
             Label("View on archive.org", systemImage: "globe")
         }
+        if let report = FilmProblem.url(archiveID: item.archiveID) {
+            Link(destination: report) {
+                Label("Something wrong with this film?", systemImage: "exclamationmark.bubble")
+            }
+        }
     }
 
     private func loadVersions() async {

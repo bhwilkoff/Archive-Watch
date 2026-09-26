@@ -232,6 +232,11 @@ struct DetailView: View {
                         Link(destination: archiveOrgURL) {
                             Label("View on archive.org", systemImage: "globe")
                         }
+                        if let report = FilmProblem.url(archiveID: item.archiveID) {
+                            Link(destination: report) {
+                                Label("Something wrong with this film?", systemImage: "exclamationmark.bubble")
+                            }
+                        }
                         // Cast to a TV (iOS-DESIGN §8.10). A menu item, not a
                         // row button: most iPhone owners reach a TV by
                         // AirPlay, and the player already offers that.

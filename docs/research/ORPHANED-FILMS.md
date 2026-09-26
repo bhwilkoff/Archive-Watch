@@ -192,7 +192,7 @@ private analytics console (Pulse), adult-content filter by default (Decision
 | 2 | Channels on one clock + "tune in with me" | ❓ OWNER CALL: every platform anchors the broadcast day at 6 AM LOCAL and builds pools from its own DB; one global clock means published pools + a UTC timeline and giving up the local day. Feeds (#3) will need a pipeline-built global schedule either way |
 | 1 | Lists from archive.org users' lists/favorites + curated collections | queued |
 | 5 | archive.org addresses open here; paste a link in search | ✅ web v1.42.729; Apple + Android v1.42.731 (Pixel verified); Roku 🚫 by design |
-| 8 | "Something wrong with this film?" report path | queued |
+| 8 | "Something wrong with this film?" report path | ✅ v1.42.732 every platform; TVs hand it to the phone as a QR (Roku decoded on device) |
 | 9 | Removal-request page + hide marker | queued |
 | 3 | M3U + XMLTV feeds (website docs page only) | queued |
 | 4 | MCP endpoint on the Worker (website docs page only) | queued |

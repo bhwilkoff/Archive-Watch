@@ -12,7 +12,9 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -29,9 +31,13 @@ import com.google.zxing.qrcode.QRCodeWriter
  * the canonical archivewatch.org URL, scanned in a second.
  */
 @Composable
-fun TvShareOverlay(title: String, url: String, onDone: () -> Unit) {
+fun TvShareOverlay(title: String, url: String, onDone: () -> Unit, reportUrl: String? = null) {
     androidx.activity.compose.BackHandler(true) { onDone() }
-    val qr = remember(url) { qrBitmap(url, 640) }
+    // A film's overlay can swap to "Something wrong with this film?"
+    // (2026-09-26): a television has no browser, so the phone opens the form.
+    var reporting by androidx.compose.runtime.saveable.rememberSaveable { androidx.compose.runtime.mutableStateOf(false) }
+    val shown = if (reporting && reportUrl != null) reportUrl else url
+    val qr = remember(shown) { qrBitmap(shown, 640) }
     Box(Modifier.fillMaxSize().background(Color(0xCC000000))) {
         Column(
             Modifier
@@ -40,19 +46,20 @@ fun TvShareOverlay(title: String, url: String, onDone: () -> Unit) {
                 .padding(40.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            Text("Share “$title”", fontSize = 20.sp, fontWeight = FontWeight.Medium, color = Color.White)
+            Text(if (reporting) "Something wrong with “$title”?" else "Share “$title”",
+                fontSize = 20.sp, fontWeight = FontWeight.Medium, color = Color.White)
             Text(
                 // Not "this film": the same overlay carries a PLAYLIST link,
                 // and on a television the viewer is looking at the thing they
                 // just pressed Share on — naming it wrongly is worse than not
                 // naming it.
-                "Scan with your phone to open or send it.",
+                if (reporting) "Scan to tell us on your phone." else "Scan with your phone to open or send it.",
                 fontSize = 13.sp, color = Color(0xFF9A9A9A),
                 modifier = Modifier.padding(top = 4.dp, bottom = 20.dp),
             )
             qr?.let {
                 Box(Modifier.background(Color.White, RoundedCornerShape(12.dp)).padding(14.dp)) {
-                    Image(it.asImageBitmap(), contentDescription = url, modifier = Modifier.size(280.dp))
+                    Image(it.asImageBitmap(), contentDescription = shown, modifier = Modifier.size(280.dp))
                 }
             }
             // ONLY IF IT CAN BE TYPED. A playlist link carries the whole list
@@ -62,7 +69,9 @@ fun TvShareOverlay(title: String, url: String, onDone: () -> Unit) {
             // characters from a television. Same rule the web TV build
             // settled on: write the link out when it is short enough to be
             // useful, and otherwise let the code carry it.
-            if (url.length <= 120) {
+            if (reporting) {
+                // The form's link is for the camera, not for typing.
+            } else if (url.length <= 120) {
                 Text(
                     url,
                     fontSize = 13.sp,
@@ -76,6 +85,19 @@ fun TvShareOverlay(title: String, url: String, onDone: () -> Unit) {
                     color = Color(0xFF9A9A9A),
                     modifier = Modifier.padding(top = 16.dp),
                 )
+            }
+            if (reportUrl != null) {
+                val focus = remember { androidx.compose.ui.focus.FocusRequester() }
+                Box(
+                    Modifier
+                        .padding(top = 18.dp)
+                        .tvFocusable(onClick = { reporting = !reporting }, focusRequester = focus)
+                        .padding(horizontal = 18.dp, vertical = 8.dp),
+                ) {
+                    Text(if (reporting) "Share this film" else "Report a problem",
+                        fontSize = 14.sp, color = Color.White)
+                }
+                androidx.compose.runtime.LaunchedEffect(Unit) { runCatching { focus.requestFocus() } }
             }
             Text(
                 "Press Back to close",

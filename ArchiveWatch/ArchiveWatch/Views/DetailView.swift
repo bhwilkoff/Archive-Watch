@@ -2905,6 +2905,15 @@ struct ShareSheet: View {   // reused by SeriesDetailView (series + episodes)
     let archiveID: String
     @Environment(\.dismiss) private var dismiss
     @FocusState private var doneFocused: Bool
+    /// The same sheet, showing the "Something wrong with this film?" form
+    /// instead (2026-09-26): a TV has no browser, so the phone opens it.
+    @State private var reporting = false
+
+    /// A catalog film — the only thing a problem report is about.
+    private var reportable: Bool {
+        explicitURL == nil && !archiveID.isEmpty
+            && !archiveID.hasPrefix("loc:") && !archiveID.hasPrefix("series:")
+    }
 
     /// An explicit URL, for things that are not a catalogue item — a shared
     /// PLAYLIST carries itself in its link (see `PlaylistShare`), so there is
@@ -2940,30 +2949,38 @@ struct ShareSheet: View {   // reused by SeriesDetailView (series + episodes)
 
     var body: some View {
         VStack(spacing: 28) {
-            Text("Share \u{201C}\(title)\u{201D}")
+            Text(reporting ? "Something wrong with \u{201C}\(title)\u{201D}?"
+                           : "Share \u{201C}\(title)\u{201D}")
                 .font(.system(size: 38, weight: .bold))
                 .foregroundStyle(.white)
                 .multilineTextAlignment(.center)
                 .lineLimit(2)
 
-            QRCode(string: webURL)
+            QRCode(string: reporting ? (FilmProblem.url(archiveID: archiveID)?.absoluteString ?? webURL)
+                                     : webURL)
                 .frame(width: 300, height: 300)
                 .background(.white, in: RoundedRectangle(cornerRadius: 16))
 
             VStack(spacing: 6) {
-                Text("Scan to watch on archivewatch.org")
+                Text(reporting ? "Scan to tell us on your phone" : "Scan to watch on archivewatch.org")
                     .font(.system(size: 22))
                     .foregroundStyle(.white.opacity(0.6))
-                Text(webURL)
+                if !reporting { Text(webURL)
                     .font(.system(.title3, design: .monospaced).weight(.semibold))
                     .foregroundStyle(Color(hex: "#FF5C35") ?? .orange)
-                    .lineLimit(1).minimumScaleFactor(0.5)
+                    .lineLimit(1).minimumScaleFactor(0.5) }
             }
 
-            Button("Done") { dismiss() }
-                .buttonStyle(.borderedProminent)
-                .focused($doneFocused)
-                .padding(.top, 8)
+            HStack(spacing: 24) {
+                Button("Done") { dismiss() }
+                    .buttonStyle(.borderedProminent)
+                    .focused($doneFocused)
+                if reportable {
+                    Button(reporting ? "Share this film" : "Report a problem") { reporting.toggle() }
+                        .buttonStyle(.bordered)
+                }
+            }
+            .padding(.top, 8)
         }
         .padding(60)
         .frame(maxWidth: .infinity, maxHeight: .infinity)

@@ -74,6 +74,9 @@ sub open(payload as Object)
     ' could type it the card says what the code is for instead of printing it.
     ' The web-TV sheet draws the same conclusion at the same threshold.
     if Len(label) > 120 then label = "This link is too long to type — the code carries it."
+    ' A report form's address is for the camera only (2026-09-26): printed, it
+    ' was cut off mid-parameter, and nobody keys a GitHub form in by remote.
+    if payload.scanOnly = true then label = "Scan it with your phone."
     m.url.text = label
 
     ' The encoder refuses anything past a version-40 payload. A card with an

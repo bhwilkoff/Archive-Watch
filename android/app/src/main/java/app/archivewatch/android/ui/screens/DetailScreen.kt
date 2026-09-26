@@ -446,6 +446,22 @@ fun DetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
                                 )
                             },
                         )
+                        if (current.contentType != "tv-series") {
+                            DropdownMenuItem(
+                                text = { Text("Something wrong with this film?") },
+                                onClick = {
+                                    showOverflow = false
+                                    context.startActivity(
+                                        Intent(
+                                            Intent.ACTION_VIEW,
+                                            android.net.Uri.parse(
+                                                app.archivewatch.android.data.FilmProblem.url(current.archiveID, television = false),
+                                            ),
+                                        ),
+                                    )
+                                },
+                            )
+                        }
                     }
                 }
             }

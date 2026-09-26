@@ -254,6 +254,8 @@ separate tool with its own conventions (CLAUDE.md) — these rules govern the
   badges hydrate from IndexedDB afterward. Old `#/item/series:*` links
   redirect here.
 
+**"Something wrong with this film?"** (2026-09-26, from the Orphaned Films research): a quiet way to report a wrong match, synopsis, a film that will not play, or a rights question. It opens a pre-filled GitHub issue form (`.github/ISSUE_TEMPLATE/film-problem.yml`) carrying only the film id and where it was seen — nothing is sent until the viewer submits it, and it needs no server. Phones, tablets, Mac and web open the form; a television shows it as a QR code for the phone. Never a primary control: a menu item or a closing link.
+
 
 - **§4.9 Surprise** (`#/surprise`, topnav): a re-rollable grid — one random
   designed-art pick per content type plus popular extras, fresh per visit

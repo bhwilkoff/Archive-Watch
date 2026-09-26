@@ -132,6 +132,8 @@ active, with a visible exit + Back (§9). Channels, Cartoon, Party, Screensaver.
 
 **A pasted archive.org link opens what it points at** (2026-09-26): an archive.org or archivewatch.org `details`/`download`/`embed` link typed or pasted into Search returns the film we keep, or the film a merged upload became (`item_aliases`), and otherwise nothing — never a guess. One rule in the shared search query (`CatalogDB.search` / `CatalogDatabase.search`, parser `ArchiveLink` / `archiveIdFromLink`), the same table as the web (WEB-DESIGN §4.3b).
 
+**"Something wrong with this film?"** (2026-09-26, from the Orphaned Films research): a quiet way to report a wrong match, synopsis, a film that will not play, or a rights question. It opens a pre-filled GitHub issue form (`.github/ISSUE_TEMPLATE/film-problem.yml`) carrying only the film id and where it was seen — nothing is sent until the viewer submits it, and it needs no server. Phones, tablets, Mac and web open the form; a television shows it as a QR code for the phone. Never a primary control: a menu item or a closing link.
+
 ---
 
 ## §4 — Typography (binding; mechanics in playbook §4)
