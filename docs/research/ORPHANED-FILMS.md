@@ -182,3 +182,20 @@ private analytics console (Pulse), adult-content filter by default (Decision
 - **Browsing all of archive.org.** They open any collection live, unaudited. Any
   archive.org address we accept must resolve to a catalog film we keep, or say
   why not (#5).
+
+## Build status (the /loop of 2026-09-26)
+
+| # | Item | State |
+|---|---|---|
+| 6 | "An Hour or Less" Home row (adapted from "Under 90") | ✅ v1.42.726 — verify membership in the live index after the next publish |
+| 6b | Runtime filter in Browse | next |
+| 2 | Channels on one clock + "tune in with me" | queued |
+| 1 | Lists from archive.org users' lists/favorites + curated collections | queued |
+| 5 | archive.org addresses open here; paste a link in search | queued |
+| 8 | "Something wrong with this film?" report path | queued |
+| 9 | Removal-request page + hide marker | queued |
+| 3 | M3U + XMLTV feeds (website docs page only) | queued |
+| 4 | MCP endpoint on the Worker (website docs page only) | queued |
+| 10 | Critics' scores from OMDb | queued |
+| 7 | Scrub previews — measure each player first | queued |
+| 11 | Smaller items (subtitle status, multi-film uploads, black-video fallback, daily pick) | queued |
