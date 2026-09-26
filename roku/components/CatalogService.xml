@@ -21,6 +21,9 @@
     <field id="qSort" type="string" value="popular" />
     <field id="qText" type="string" />
     <field id="qGenre" type="string" />
+    <!-- "under" | "hour" | "over" | "" — Browse's length chip, over index
+         column 17 (minutes). Cleared once read, like qScope. -->
+    <field id="qLength" type="string" />
     <field id="qCartoons" type="boolean" value="false" />
     <field id="qParty" type="boolean" value="false" />
     <field id="qWall" type="boolean" value="false" />

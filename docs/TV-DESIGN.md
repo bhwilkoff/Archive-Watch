@@ -193,7 +193,7 @@ surface and does not ship on the ten-foot build.
 Grids are for a *chosen* scope — a category, a decade, search results — where the
 user has already narrowed and wants density.
 
-**4.6a Browse filters by length** (2026-09-26): a chip group after the eras — *Any length · Under an hour · An hour to 90 minutes · Over 90 minutes*, the same bands as every platform (`RuntimeBand`, index column 17 `minutes`). Words, never abbreviations, even at ten feet.
+**4.6a Browse filters by length** (2026-09-26): a chip group after the eras — *Any length · Under 60 minutes · 60 to 90 minutes · Over 90 minutes*, the same bands as every platform (`RuntimeBand`, index column 17 `minutes`). Words, never abbreviations, even at ten feet.
 
 ---
 

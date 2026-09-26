@@ -54,9 +54,12 @@ sub init()
         { id: "type",   label: "Type",   values: ["All", "Feature Film", "Silent Era", "Animation", "Short Film", "Newsreel", "Documentary"] },
         { id: "decade", label: "Decade", values: ["All", "1900s", "1910s", "1920s", "1930s", "1940s", "1950s", "1960s", "1970s"] },
         { id: "genre",  label: "Genre",  values: ["All", "Drama", "Comedy", "Animation", "Crime", "Romance", "Action", "Western", "Documentary", "Thriller", "Horror", "Mystery", "Adventure", "War", "Family", "Fantasy"] },
-        { id: "sort",   label: "Sort",   values: ["Popular", "Newest", "Oldest", "A-Z", "Top Rated", "Shuffle"] }
+        { id: "sort",   label: "Sort",   values: ["Popular", "Newest", "Oldest", "A-Z", "Top Rated", "Shuffle"] },
+        ' LAST, so chips 0-3 keep the positions submit() reads them by
+        ' (2026-09-26, the Orphaned Films research; the same bands everywhere).
+        { id: "length", label: "Length", values: ["All", "Under 60 minutes", "60 to 90 minutes", "Over 90 minutes"] }
     ]
-    m.chipIndex = [0, 0, 0, 0]
+    m.chipIndex = [0, 0, 0, 0, 0]
     m.chips = []
     m.restPills = []
     x = 0
@@ -67,8 +70,8 @@ sub init()
         AWPillLayout(rest, x, 0, 300)
         b = m.chipGroup.CreateChild("Button")
         b.translation = [x, 0]
-        ' Four chips now, so each is narrower: 4 x 390 fits the content column
-        ' where 4 x 429 did not.
+        ' Five chips at 300 wide on a 318 step: the last ends at x=1698 on
+        ' screen, inside the grid's own edge and the 1824 overscan-safe line.
         b.minWidth = 300
         b.height = 60
         b.textColor = m.t.textPri
@@ -90,7 +93,7 @@ sub init()
         b.ObserveField("buttonSelected", "onChipSelected")
         m.chips.Push(b)
         m.restPills.Push(rest)
-        x = x + 336
+        x = x + 318
     end for
     m.chipGroup.translation = [42, 240]
     m.focusRow = 0      ' 0 = chips, 1 = grid
@@ -118,6 +121,7 @@ function chipTitle(id as String) as String
     if id = "decade" then return "Decade"
     if id = "genre" then return "Genre"
     if id = "sort" then return "Sort by"
+    if id = "length" then return "Length"
     return id
 end function
 
@@ -134,6 +138,7 @@ function displayValue(d as Object, v as String) as String
         end if
         if d.id = "decade" then return "Any decade"
         if d.id = "genre" then return "Any genre"
+        if d.id = "length" then return "Any length"
     end if
     if d.id = "sort" and v = "Popular" then return "Most popular"
     return v
@@ -229,7 +234,7 @@ sub onScope()
     s = m.top.scope
     ' F14 — "the filters should reset when you go from films to tv": decade,
     ' genre and sort carried over, so TV opened pre-narrowed by a Movies pick.
-    m.chipIndex[1] = 0 : m.chipIndex[2] = 0 : m.chipIndex[3] = 0
+    m.chipIndex[1] = 0 : m.chipIndex[2] = 0 : m.chipIndex[3] = 0 : m.chipIndex[4] = 0
     m.focusChip = 0
     m.collectionID = ""
     m.chipGroup.visible = true
@@ -293,6 +298,11 @@ sub submit()
     if sv = "a-z" then sv = "alpha"
     if sv = "top rated" then sv = "rating"
     svc.qSort = sv
+    lv = m.chipDefs[4].values[m.chipIndex[4]]
+    if lv = "Under 60 minutes" then svc.qLength = "under"
+    if lv = "60 to 90 minutes" then svc.qLength = "hour"
+    if lv = "Over 90 minutes" then svc.qLength = "over"
+    if lv = "All" then svc.qLength = ""
     svc.qText = ""
     ' One bump, after every field is set — the service triggers on this alone.
     print "AWBROWSE submit sort="; sv; " qid="; svc.queryId

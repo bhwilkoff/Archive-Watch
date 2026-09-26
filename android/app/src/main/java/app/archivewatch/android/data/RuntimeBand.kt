@@ -7,7 +7,7 @@ package app.archivewatch.android.data
  * minutes, ~28% longer. Labels are whole words, never abbreviated.
  */
 enum class RuntimeBand(val label: String, val sql: String) {
-    UNDER_HOUR("Under an hour", "i.runtimeSeconds > 0 AND i.runtimeSeconds < 3600"),
-    HOUR_TO_90("An hour to 90 minutes", "i.runtimeSeconds >= 3600 AND i.runtimeSeconds <= 5400"),
+    UNDER_HOUR("Under 60 minutes", "i.runtimeSeconds > 0 AND i.runtimeSeconds < 3600"),
+    HOUR_TO_90("60 to 90 minutes", "i.runtimeSeconds >= 3600 AND i.runtimeSeconds <= 5400"),
     OVER_90("Over 90 minutes", "i.runtimeSeconds > 5400"),
 }

@@ -1419,8 +1419,8 @@
   // How long a film runs (2026-09-26): the SAME bands as Apple and Android's
   // RuntimeBand, over index column 17 (minutes; 0 = unknown, never matched).
   const LENGTHS = [
-    ['under', 'Under an hour', m => m > 0 && m < 60],
-    ['hour', 'An hour to 90 minutes', m => m >= 60 && m <= 90],
+    ['under', 'Under 60 minutes', m => m > 0 && m < 60],
+    ['hour', '60 to 90 minutes', m => m >= 60 && m <= 90],
     ['over', 'Over 90 minutes', m => m > 90],
   ];
 

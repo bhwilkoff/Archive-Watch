@@ -188,7 +188,7 @@ private analytics console (Pulse), adult-content filter by default (Decision
 | # | Item | State |
 |---|---|---|
 | 6 | "An Hour or Less" Home row (adapted from "Under 90") | ✅ v1.42.726 — verify membership in the live index after the next publish |
-| 6b | Length filter in Browse | ✅ v1.42.727 Apple, Android, web (index schema 14 `minutes`); Roku next |
+| 6b | Length filter in Browse | ✅ v1.42.727 Apple, Android, web (index schema 14 `minutes`); Roku ✅ v1.42.728 |
 | 2 | Channels on one clock + "tune in with me" | queued |
 | 1 | Lists from archive.org users' lists/favorites + curated collections | queued |
 | 5 | archive.org addresses open here; paste a link in search | queued |

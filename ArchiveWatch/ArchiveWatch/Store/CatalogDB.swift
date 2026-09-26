@@ -22,8 +22,8 @@ enum RuntimeBand: String, CaseIterable, Hashable, Sendable, Identifiable {
     var id: String { rawValue }
     var label: String {
         switch self {
-        case .underHour: return "Under an hour"
-        case .hourTo90: return "An hour to 90 minutes"
+        case .underHour: return "Under 60 minutes"
+        case .hourTo90: return "60 to 90 minutes"
         case .over90: return "Over 90 minutes"
         }
     }

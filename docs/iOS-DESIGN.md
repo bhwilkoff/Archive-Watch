@@ -192,7 +192,7 @@ Facets/sort = a toolbar `Menu` of Pickers (Browse's filter menu). Forms =
 `ContentUnavailableView` (every list/grid/sheet declares loading · loaded ·
 empty · error — `universal-feature-states`).
 
-**Length** (2026-09-26, from the Orphaned Films research): Browse filters by how long the upload runs — *Any length · Under an hour · An hour to 90 minutes · Over 90 minutes* — the same bands on every platform (Apple/Android `RuntimeBand`, web `LENGTHS`, index column 17 `minutes`). Bands were chosen from the catalog (~12% / ~60% / ~28% of features); an unknown runtime never matches. Words, never abbreviations.
+**Length** (2026-09-26, from the Orphaned Films research): Browse filters by how long the upload runs — *Any length · Under 60 minutes · 60 to 90 minutes · Over 90 minutes* — the same bands on every platform (Apple/Android `RuntimeBand`, web `LENGTHS`, index column 17 `minutes`). Bands were chosen from the catalog (~12% / ~60% / ~28% of features); an unknown runtime never matches. Words, never abbreviations.
 
 4.3 **Destructive verbs are swipe actions** (`onDelete`) on List rows —
 playlists, user channels. Deletion of synced models goes through

@@ -105,7 +105,7 @@ or tvOS rule, that inversion is deliberate — do not "harmonize" them.
   like the genre join — `browse`/`browseCount` gained parallel `keyword`/`studio`
   params, and `topKeywords`/`topStudios` feed the facet menus (count-floored,
   hidden when empty; not offered in the TV scope).
-- **§4.2a** **Length** (2026-09-26, from the Orphaned Films research): Browse filters by how long the upload runs — *Any length · Under an hour · An hour to 90 minutes · Over 90 minutes* — the same bands on every platform (Apple/Android `RuntimeBand`, web `LENGTHS`, index column 17 `minutes`). Bands were chosen from the catalog (~12% / ~60% / ~28% of features); an unknown runtime never matches. Words, never abbreviations.
+- **§4.2a** **Length** (2026-09-26, from the Orphaned Films research): Browse filters by how long the upload runs — *Any length · Under 60 minutes · 60 to 90 minutes · Over 90 minutes* — the same bands on every platform (Apple/Android `RuntimeBand`, web `LENGTHS`, index column 17 `minutes`). Bands were chosen from the catalog (~12% / ~60% / ~28% of features); an unknown runtime never matches. Words, never abbreviations.
 - **§4.3 Search** = debounced (~180 ms) full-text search over the catalog's
   FTS5 index (`search` verb), grid results, explicit empty states.
 - **§4.4 Detail** = backdrop header → title/meta → **tagline (italic)** → Play

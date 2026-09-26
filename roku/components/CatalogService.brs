@@ -697,6 +697,8 @@ sub runQuery()
     text = LCase(m.top.qText)
     wantGenre = m.top.qGenre
     sort = m.top.qSort
+    wantLength = m.top.qLength
+    m.top.qLength = ""
 
     hits = []
     for each r in m.items
@@ -736,6 +738,15 @@ sub runQuery()
                 awSkip = (g = invalid)
             end if
             if not awSkip then awSkip = (Instr(1, "|" + fmt(g) + "|", "|" + wantGenre + "|") = 0)
+        end if
+        ' The same bands as every platform (RuntimeBand): an unknown runtime,
+        ' or an index older than schema 14, never matches a length.
+        if not awSkip and wantLength <> ""
+            mins = 0
+            if r.Count() > 17 and r[17] <> invalid then mins = r[17]
+            if wantLength = "under" then awSkip = not (mins > 0 and mins < 60)
+            if wantLength = "hour" then awSkip = not (mins >= 60 and mins <= 90)
+            if wantLength = "over" then awSkip = not (mins > 90)
         end if
         if not awSkip and decade > 0
             y = r[2]
