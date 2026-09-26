@@ -19,6 +19,7 @@ struct BrowseView: View {
     // Films state
     @State private var contentType: String? = nil
     @State private var decade: Int? = nil
+    @State private var runtime: RuntimeBand? = nil
     @State private var sort: CatalogDB.Sort = .popular
     @State private var items: [Catalog.Item] = []
     @State private var page = 0
@@ -90,6 +91,7 @@ struct BrowseView: View {
         }
         .onChange(of: contentType) { reload() }
         .onChange(of: decade) { reload() }
+        .onChange(of: runtime) { reload() }
         .onChange(of: sort) { reload() }
     }
 
@@ -105,6 +107,10 @@ struct BrowseView: View {
                 // is a label, not a quantity. Every other decade site in the app
                 // already uses verbatim/String(); Browse was the last holdout.
                 ForEach(decades, id: \.self) { Text(verbatim: "\($0)s").tag(Int?.some($0)) }
+            }
+            Picker("Length", selection: $runtime) {
+                Text("Any Length").tag(RuntimeBand?.none)
+                ForEach(RuntimeBand.allCases) { Text($0.label).tag(RuntimeBand?.some($0)) }
             }
             Picker("Sort", selection: $sort) {
                 Text("Popular").tag(CatalogDB.Sort.popular)
@@ -141,12 +147,12 @@ struct BrowseView: View {
     private func reload() {
         page = 0
         items = store.browse(contentType: contentType, decade: decade, sort: sort,
-                             limit: pageSize, offset: 0)
+                             limit: pageSize, offset: 0, runtime: runtime)
     }
     private func loadMore() {
         page += 1
         items += store.browse(contentType: contentType, decade: decade, sort: sort,
-                              limit: pageSize, offset: page * pageSize)
+                              limit: pageSize, offset: page * pageSize, runtime: runtime)
     }
 
     // MARK: TV

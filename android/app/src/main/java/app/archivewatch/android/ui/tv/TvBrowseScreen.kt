@@ -75,6 +75,7 @@ fun TvBrowseScreen(container: AppContainer, nav: Nav) {
 
     var activeScope by remember { mutableStateOf(TvScope.All) }
     var activeDecade by remember { mutableStateOf<Int?>(null) }
+    var activeRuntime by remember { mutableStateOf<app.archivewatch.android.data.RuntimeBand?>(null) }
     var activeSort by remember { mutableStateOf(BrowseSort.POPULAR) }
     var total by remember { mutableIntStateOf(0) }
     var endReached by remember { mutableStateOf(false) }
@@ -86,7 +87,7 @@ fun TvBrowseScreen(container: AppContainer, nav: Nav) {
     val gridState = rememberLazyGridState()
     val chipState = rememberLazyListState()
 
-    LaunchedEffect(dbVersion, activeScope, activeDecade, activeSort) {
+    LaunchedEffect(dbVersion, activeScope, activeDecade, activeRuntime, activeSort) {
         loading = true
         items.clear()
         endReached = false
@@ -97,10 +98,12 @@ fun TvBrowseScreen(container: AppContainer, nav: Nav) {
             total = cards.size
             endReached = true
         } else {
-            total = db.browseCount(contentType = activeScope.contentType, decade = activeDecade)
+            total = db.browseCount(contentType = activeScope.contentType, decade = activeDecade,
+                                   runtime = activeRuntime)
             val page = db.browse(
                 contentType = activeScope.contentType,
                 decade = activeDecade,
+                runtime = activeRuntime,
                 sort = activeSort,
                 limit = PAGE_SIZE,
                 offset = 0,
@@ -117,6 +120,7 @@ fun TvBrowseScreen(container: AppContainer, nav: Nav) {
         val page = db.browse(
             contentType = activeScope.contentType,
             decade = activeDecade,
+            runtime = activeRuntime,
             sort = activeSort,
             limit = PAGE_SIZE,
             offset = items.size,
@@ -158,6 +162,8 @@ fun TvBrowseScreen(container: AppContainer, nav: Nav) {
                 onSort = { activeSort = it },
                 decade = activeDecade,
                 onDecade = { activeDecade = it },
+                runtime = activeRuntime,
+                onRuntime = { activeRuntime = it },
             )
         }
 
@@ -216,6 +222,8 @@ private fun TvRefineChips(
     onSort: (BrowseSort) -> Unit,
     decade: Int?,
     onDecade: (Int?) -> Unit,
+    runtime: app.archivewatch.android.data.RuntimeBand?,
+    onRuntime: (app.archivewatch.android.data.RuntimeBand?) -> Unit,
 ) {
     LazyRow(
         contentPadding = PaddingValues(start = TvDims.OverscanH, end = TvDims.OverscanH),
@@ -242,6 +250,21 @@ private fun TvRefineChips(
                 label = "" + d + "s",
                 selected = decade == d,
                 onClick = { onDecade(if (decade == d) null else d) },
+            )
+        }
+        item(key = "len-div") {
+            Box(Modifier.padding(horizontal = 6.dp)) {
+                Text("·", fontSize = 14.sp, color = Color(0xFF666666))
+            }
+        }
+        item(key = "len-all") {
+            TvChip(label = "Any length", selected = runtime == null, onClick = { onRuntime(null) })
+        }
+        items(app.archivewatch.android.data.RuntimeBand.entries.toList(), key = { "len-" + it.name }) { b ->
+            TvChip(
+                label = b.label,
+                selected = runtime == b,
+                onClick = { onRuntime(if (runtime == b) null else b) },
             )
         }
     }

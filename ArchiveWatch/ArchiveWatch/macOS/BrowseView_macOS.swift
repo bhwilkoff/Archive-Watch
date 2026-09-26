@@ -13,6 +13,7 @@ struct BrowseView: View {
     @State private var items: [Catalog.Item] = []
     @State private var typeFilter: String? = nil      // narrows WITHIN the section (parity with iOS)
     @State private var decade: Int? = nil
+    @State private var runtime: RuntimeBand? = nil
     @State private var sort: CatalogDB.Sort = .popular
     @State private var total = 0
     @State private var offset = 0
@@ -23,7 +24,9 @@ struct BrowseView: View {
 
     // The effective content type: the section's fixed type, or the user-chosen narrowing.
     private var effectiveType: String? { contentType ?? typeFilter }
-    private var filterActive: Bool { typeFilter != nil || decade != nil || sort != .popular }
+    private var filterActive: Bool {
+        typeFilter != nil || decade != nil || runtime != nil || sort != .popular
+    }
 
     private let types: [(String, String?)] = [
         ("All Types", nil), ("Films", "feature-film"), ("Silent", "silent-film"),
@@ -60,6 +63,10 @@ struct BrowseView: View {
                         Text("All Decades").tag(Int?.none)
                         ForEach(decadeList, id: \.self) { d in Text(verbatim: "\(d)s").tag(Int?.some(d)) }
                     }
+                    Picker("Length", selection: $runtime) {
+                        Text("Any Length").tag(RuntimeBand?.none)
+                        ForEach(RuntimeBand.allCases) { Text($0.label).tag(RuntimeBand?.some($0)) }
+                    }
                     Picker("Sort", selection: $sort) {
                         Text("Popular").tag(CatalogDB.Sort.popular)
                         Text("Top Rated").tag(CatalogDB.Sort.rating)
@@ -89,7 +96,7 @@ struct BrowseView: View {
                     }
                     if filterActive {
                         Button("Clear Filters", role: .destructive) {
-                            typeFilter = nil; decade = nil; sort = .popular
+                            typeFilter = nil; decade = nil; runtime = nil; sort = .popular
                         }
                     }
                 } label: {
@@ -97,7 +104,7 @@ struct BrowseView: View {
                           ? "line.3.horizontal.decrease.circle.fill"
                           : "line.3.horizontal.decrease.circle")
                 }
-                .help("Filter by type, decade, or sort order")
+                .help("Filter by type, decade, length, or sort order")
             }
         }
         .task(id: store.dbVersion) {
@@ -107,6 +114,7 @@ struct BrowseView: View {
         }
         .onChange(of: typeFilter) { _, _ in reset() }
         .onChange(of: decade) { _, _ in reset() }
+        .onChange(of: runtime) { _, _ in reset() }
         .onChange(of: sort) { _, _ in reset() }
     }
 
@@ -114,16 +122,17 @@ struct BrowseView: View {
 
     private func reset() {
         offset = 0
-        total = store.db?.browseCount(contentType: effectiveType, decade: decade, genre: nil, year: nil) ?? 0
+        total = store.db?.browseCount(contentType: effectiveType, decade: decade, genre: nil, year: nil,
+                                      runtime: runtime) ?? 0
         items = store.browse(contentType: effectiveType, decade: decade, genre: nil, year: nil,
-                             sort: sort, limit: page, offset: 0)
+                             sort: sort, limit: page, offset: 0, runtime: runtime)
         offset = items.count
     }
 
     private func loadMore() {
         guard items.count < total else { return }
         let next = store.browse(contentType: effectiveType, decade: decade, genre: nil, year: nil,
-                               sort: sort, limit: page, offset: offset)
+                               sort: sort, limit: page, offset: offset, runtime: runtime)
         items.append(contentsOf: next)
         offset += next.count
     }

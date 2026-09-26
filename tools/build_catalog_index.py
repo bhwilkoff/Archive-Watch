@@ -276,10 +276,14 @@ def main():
         # and nothing else does — see bif_ids() above.
         # Column 16 (schema 13): may this title carry the hero? See hero_safe.
         hero = 1 if hero_safe(_rights_bucket(it), it.get("year")) else 0
+        # Column 17 (schema 14): the upload's runtime in whole minutes, 0 when
+        # unknown — Browse's length filter (2026-09-26). Minutes, not a band
+        # code, so the bands stay the clients' (Apple/Android RuntimeBand).
+        minutes = round((it.get("runtimeSeconds") or 0) / 60)
         rows.append([aid, it.get("title") or aid, it.get("year"),
                      it.get("contentType") or "", poster, pro, search, backdrop,
                      playable, docs, rating, votes, director, genres, cm,
-                     1 if aid in bifs else 0, hero])
+                     1 if aid in bifs else 0, hero, minutes])
         for k in keywords:
             keyword_freq[k] = keyword_freq.get(k, 0) + 1
         for s in studios:
@@ -363,7 +367,7 @@ def main():
     }
 
     out = {
-        "schema": 13,
+        "schema": 14,
         "updatedAt": catalog.get("updatedAt") or "",
         "count": len(rows),
         # Must list EVERY column. Rows carry 10 entries at schema 9 and this
@@ -372,7 +376,7 @@ def main():
         # were shipping, undeclared, for two schema bumps.
         "fields": ["id", "title", "year", "contentType", "poster", "pro", "search",
                    "backdrop", "playable", "documentary", "rating10", "votes",
-                   "director", "genres", "color", "bif", "heroSafe"],
+                   "director", "genres", "color", "bif", "heroSafe", "minutes"],
         "facets": facets,
         "directorRank": _director_rank(),
         "shelves": shelves,

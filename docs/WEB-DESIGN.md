@@ -159,6 +159,7 @@ separate tool with its own conventions (CLAUDE.md) — these rules govern the
   is always shown. Keyword + studio filters (Decision 046) are `kw`/`studio`
   hash params matched against the index `search` column (§2.6); their dropdowns
   come from the index `facets`.
+- **§4.2a** **Length** (2026-09-26, from the Orphaned Films research): Browse filters by how long the upload runs — *Any length · Under an hour · An hour to 90 minutes · Over 90 minutes* — the same bands on every platform (Apple/Android `RuntimeBand`, web `LENGTHS`, index column 17 `minutes`). Bands were chosen from the catalog (~12% / ~60% / ~28% of features); an unknown runtime never matches. Words, never abbreviations.
 - **§4.3 Search** is client-side over the index (all terms must match the
   title OR the `search` column — keywords/AKA/writer/studio per Decision 046,
   §2.6), debounced 180ms, capped at 200 results, query mirrored to the URL.

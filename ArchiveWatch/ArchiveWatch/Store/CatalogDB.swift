@@ -13,6 +13,30 @@ import SQLite3   // system module on tvOS — no third-party package (Decision 0
 
 private let SQLITE_TRANSIENT = unsafeBitCast(-1, to: sqlite3_destructor_type.self)
 
+/// How long a film runs, as a Browse filter (2026-09-26, from the Orphaned
+/// Films research). Bands over the upload's own `runtimeSeconds`, chosen from
+/// the catalog: of 11,006 features, ~12% run under an hour, ~60% an hour to
+/// 90 minutes, ~28% longer. Labels are whole words — never abbreviated.
+enum RuntimeBand: String, CaseIterable, Hashable, Sendable, Identifiable {
+    case underHour, hourTo90, over90
+    var id: String { rawValue }
+    var label: String {
+        switch self {
+        case .underHour: return "Under an hour"
+        case .hourTo90: return "An hour to 90 minutes"
+        case .over90: return "Over 90 minutes"
+        }
+    }
+    /// A SQL condition on `i.runtimeSeconds`; unknown runtimes never match.
+    var sql: String {
+        switch self {
+        case .underHour: return "i.runtimeSeconds > 0 AND i.runtimeSeconds < 3600"
+        case .hourTo90: return "i.runtimeSeconds >= 3600 AND i.runtimeSeconds <= 5400"
+        case .over90: return "i.runtimeSeconds > 5400"
+        }
+    }
+}
+
 final class CatalogDB {
     private let handle: OpaquePointer
     private let decoder = JSONDecoder()
@@ -434,7 +458,8 @@ final class CatalogDB {
     /// Shared WHERE/ORDER builder so browse() and the off-main paging path
     /// (browsePageJSON) stay in lockstep.
     private func browseSQL(contentType: String?, decade: Int?, genre: String?, year: Int?,
-                           sort: Sort, limit: Int, offset: Int, homeOnly: Bool) -> (String, [String]) {
+                           sort: Sort, limit: Int, offset: Int, homeOnly: Bool,
+                           runtime: RuntimeBand? = nil) -> (String, [String]) {
         // Series cards are excluded from general browse grids — but when the
         // caller EXPLICITLY asks for tv-series (the Classic TV category tile),
         // they ARE the result set. The old unconditional exclusion contradicted
@@ -492,6 +517,7 @@ final class CatalogDB {
         // caller explicitly asks for contentType == "commercial".
         if contentType != "commercial" { where_.append("i.contentType != 'commercial'") }
         if let decade { where_.append("i.decade = \(decade)") }
+        if let runtime { where_.append(runtime.sql) }
         if let year { where_.append("i.year = \(year)") }   // #15 Public Domain Day (exact year)
         var join = ""
         if let genre {
@@ -539,10 +565,10 @@ final class CatalogDB {
     /// Browse grid: filter by content type / decade / genre, sorted, paginated.
     func browse(contentType: String? = nil, decade: Int? = nil, genre: String? = nil,
                 year: Int? = nil, sort: Sort = .popular, limit: Int = 60, offset: Int = 0,
-                homeOnly: Bool = false) -> [Catalog.Item] {
+                homeOnly: Bool = false, runtime: RuntimeBand? = nil) -> [Catalog.Item] {
         let (sql, binds) = browseSQL(contentType: contentType, decade: decade, genre: genre,
                                      year: year, sort: sort, limit: limit, offset: offset,
-                                     homeOnly: homeOnly)
+                                     homeOnly: homeOnly, runtime: runtime)
         return items(sql, binds)
     }
 
@@ -551,10 +577,11 @@ final class CatalogDB {
     /// to `CatalogDB.decodeItems(_:)` off the main thread so paging a big grid
     /// doesn't hitch fast scrolling (the JSON decode is the expensive part).
     func browsePageJSON(contentType: String? = nil, decade: Int? = nil, genre: String? = nil,
-                        sort: Sort = .popular, limit: Int = 300, offset: Int = 0) -> [String] {
+                        sort: Sort = .popular, limit: Int = 300, offset: Int = 0,
+                        runtime: RuntimeBand? = nil) -> [String] {
         let (sql, binds) = browseSQL(contentType: contentType, decade: decade, genre: genre,
                                      year: nil, sort: sort, limit: limit, offset: offset,
-                                     homeOnly: false)
+                                     homeOnly: false, runtime: runtime)
         return rawColumn(sql, binds)
     }
 
@@ -587,7 +614,8 @@ final class CatalogDB {
     /// header can show the real catalog size ("36,944 titles") while only a page
     /// is loaded. Mirrors browse()'s WHERE exactly.
     func browseCount(contentType: String? = nil, decade: Int? = nil,
-                     genre: String? = nil, year: Int? = nil) -> Int {
+                     genre: String? = nil, year: Int? = nil,
+                     runtime: RuntimeBand? = nil) -> Int {
         // Same explicit-tv-series rule as browseSQL (see comment there).
         var where_: [String] = []
         var binds: [String] = []
@@ -605,6 +633,7 @@ final class CatalogDB {
         if hideAdult { where_.append("i.isAdult = 0") }
         if contentType != "commercial" { where_.append("i.contentType != 'commercial'") }
         if let decade { where_.append("i.decade = \(decade)") }
+        if let runtime { where_.append(runtime.sql) }
         if let year { where_.append("i.year = \(year)") }
         var join = ""
         if let genre {

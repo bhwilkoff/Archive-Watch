@@ -1416,6 +1416,14 @@
   // series cards and standalone tv-specials are reachable only via their chips.
   const TV_TYPES = new Set(['tv-series', 'tv-special']);
 
+  // How long a film runs (2026-09-26): the SAME bands as Apple and Android's
+  // RuntimeBand, over index column 17 (minutes; 0 = unknown, never matched).
+  const LENGTHS = [
+    ['under', 'Under an hour', m => m > 0 && m < 60],
+    ['hour', 'An hour to 90 minutes', m => m >= 60 && m <= 90],
+    ['over', 'Over 90 minutes', m => m > 90],
+  ];
+
   const Browse = {
     filtered: [],
     shown: 0,
@@ -1423,16 +1431,19 @@
     render(q) {
       const type = q.get('type') || '';
       const decade = q.get('decade') || '';
+      const len = q.get('len') || '';
+      const lenTest = (LENGTHS.find(l => l[0] === len) || [])[2];
       const sort = q.get('sort') || 'pop';
       // Keyword/studio filters (Decision 046) run client-side against the index's
       // search column (r[6]) — no per-row id map, so the committed index stays lean.
       const kw = (q.get('kw') || '').toLowerCase();
       const studio = (q.get('studio') || '').toLowerCase();
-      this.controls(type, decade, sort, kw, studio);
+      this.controls(type, decade, sort, kw, studio, len);
 
       this.filtered = Data.rows.filter(r =>
         Data.matchesCategory(r, type) &&
         (!decade || (r[2] && Math.floor(r[2] / 10) * 10 === Number(decade))) &&
+        (!lenTest || lenTest(r[17] || 0)) &&
         (!kw || (r[6] && r[6].includes(kw))) &&
         (!studio || (r[6] && r[6].includes(studio))));
       if (sort === 'az') this.filtered = [...this.filtered].sort((a, b) => a[1].localeCompare(b[1]));
@@ -1462,7 +1473,7 @@
       location.hash = `#/browse?${q.toString()}`;
     },
 
-    controls(type, decade, sort, kw, studio) {
+    controls(type, decade, sort, kw, studio, len) {
       const chips = $('browse-type-chips');
       chips.replaceChildren(...TYPES.map(([val, label]) => {
         const b = document.createElement('button');
@@ -1479,6 +1490,15 @@
         ...decades.map(d => new Option(`${d}s`, String(d))));
       sel.value = decade;
       sel.onchange = () => this.setParam('decade', sel.value);
+
+      // Shown only once the published index carries minutes (schema 14):
+      // before that every length would match nothing.
+      const lenSel = $('browse-length');
+      lenSel.hidden = !Data.rows.some(r => r.length > 17 && r[17] > 0);
+      lenSel.replaceChildren(new Option('Any length', ''),
+        ...LENGTHS.map(([v, label]) => new Option(label, v)));
+      lenSel.value = len;
+      lenSel.onchange = () => this.setParam('len', lenSel.value);
 
       // Keyword + studio facet dropdowns (Decision 046) — most-common names from
       // the index; the long tail is still reachable via the free-text search box.

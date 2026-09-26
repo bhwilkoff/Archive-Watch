@@ -343,9 +343,10 @@ class CatalogDatabase private constructor(
         homeOnly: Boolean = false,
         heroOnly: Boolean = false,
         full: Boolean = false,
+        runtime: RuntimeBand? = null,
     ): List<CatalogItem> {
         val (ct, gn, docAnd) = docCategory(contentType, genre)
-        val (where0, binds) = browseWhere(ct, decade, gn, year, homeOnly, heroOnly)
+        val (where0, binds) = browseWhere(ct, decade, gn, year, homeOnly, heroOnly, runtime)
         val where = where0 + docAnd
         val (joins, joinBinds) = facetJoins(gn, keyword, studio)
         // Popular = demoted ids last, designed (professional) artwork first,
@@ -381,9 +382,10 @@ class CatalogDatabase private constructor(
         studio: String? = null,
         year: Int? = null,
         homeOnly: Boolean = false,
+        runtime: RuntimeBand? = null,
     ): Int {
         val (ct, gn, docAnd) = docCategory(contentType, genre)
-        val (where0, binds) = browseWhere(ct, decade, gn, year, homeOnly)
+        val (where0, binds) = browseWhere(ct, decade, gn, year, homeOnly, runtime = runtime)
         val where = where0 + docAnd
         val (joins, joinBinds) = facetJoins(gn, keyword, studio)
         return dbCall {
@@ -434,6 +436,7 @@ class CatalogDatabase private constructor(
         year: Int?,
         homeOnly: Boolean,
         heroOnly: Boolean = false,
+        runtime: RuntimeBand? = null,
     ): Pair<String, List<Any?>> {
         val binds = mutableListOf<Any?>()
         // An explicit tv-series request browses the SERIES CARDS (poster-gated:
@@ -453,6 +456,7 @@ class CatalogDatabase private constructor(
             b
         }
         if (decade != null) { sb.append(" AND i.decade = ?"); binds.add(decade) }
+        if (runtime != null) sb.append(" AND ").append(runtime.sql)
         if (year != null) { sb.append(" AND i.year = ?"); binds.add(year) }
         sb.append(adultAnd).append(typeAnd)
         if (contentType != "commercial") sb.append(notCommercial)

@@ -66,6 +66,7 @@ fun BrowseScreen(container: AppContainer, nav: Nav) {
     var scope by remember { mutableStateOf(Scope.All) }
     val hiddenCategories by container.settings.hiddenCategories.collectAsState(initial = emptySet())
     var decade by remember { mutableStateOf<Int?>(null) }
+    var runtime by remember { mutableStateOf<app.archivewatch.android.data.RuntimeBand?>(null) }
     // Metadata-expansion facets (Decision 046): keyword (thematic) + studio filters.
     var keyword by remember { mutableStateOf<String?>(null) }
     var studio by remember { mutableStateOf<String?>(null) }
@@ -88,7 +89,7 @@ fun BrowseScreen(container: AppContainer, nav: Nav) {
     }
 
     // Reset + first page whenever a facet, sort, or the DB changes.
-    LaunchedEffect(dbVersion, scope, decade, keyword, studio, sort) {
+    LaunchedEffect(dbVersion, scope, decade, runtime, keyword, studio, sort) {
         loading = true
         items.clear()
         endReached = false
@@ -102,11 +103,11 @@ fun BrowseScreen(container: AppContainer, nav: Nav) {
         } else {
             total = db.browseCount(
                 contentType = scope.contentType, decade = decade,
-                keyword = keyword, studio = studio,
+                keyword = keyword, studio = studio, runtime = runtime,
             )
             val page = db.browse(
                 contentType = scope.contentType, decade = decade,
-                keyword = keyword, studio = studio,
+                keyword = keyword, studio = studio, runtime = runtime,
                 sort = sort, limit = PAGE_SIZE, offset = 0,
             )
             items.addAll(page)
@@ -120,7 +121,7 @@ fun BrowseScreen(container: AppContainer, nav: Nav) {
         val db = container.catalog.db ?: return
         val page = db.browse(
             contentType = scope.contentType, decade = decade,
-            keyword = keyword, studio = studio,
+            keyword = keyword, studio = studio, runtime = runtime,
             sort = sort, limit = PAGE_SIZE, offset = items.size,
         )
         items.addAll(page)
@@ -175,6 +176,7 @@ fun BrowseScreen(container: AppContainer, nav: Nav) {
                 verticalAlignment = androidx.compose.ui.Alignment.CenterVertically,
             ) {
                 DecadeMenu(decade, decades) { decade = it }
+                if (scope != Scope.TV) LengthMenu(runtime) { runtime = it }
                 SortMenu(sort) { sort = it }
                 // Keyword/studio facets don't apply to the TV scope (series cards).
                 if (scope != Scope.TV) {
@@ -242,6 +244,21 @@ private fun DecadeMenu(
                 text = { Text("${d}s ($count)") },
                 onClick = { onSelect(d); open = false },
             )
+        }
+    }
+}
+
+@Composable
+private fun LengthMenu(
+    selected: app.archivewatch.android.data.RuntimeBand?,
+    onSelect: (app.archivewatch.android.data.RuntimeBand?) -> Unit,
+) {
+    var open by remember { mutableStateOf(false) }
+    TextButton(onClick = { open = true }) { Text(selected?.label ?: "Any length") }
+    DropdownMenu(expanded = open, onDismissRequest = { open = false }) {
+        DropdownMenuItem(text = { Text("Any length") }, onClick = { onSelect(null); open = false })
+        app.archivewatch.android.data.RuntimeBand.entries.forEach { b ->
+            DropdownMenuItem(text = { Text(b.label) }, onClick = { onSelect(b); open = false })
         }
     }
 }

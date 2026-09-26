@@ -84,6 +84,7 @@ macOS) since they share the Swift Core.
 |---|---|---|---|---|---|---|
 | "An Hour or Less" Home row (`hour-or-less`, 40–60 min features, no documentaries) | ✅ | ✅ | ✅ | ✅ | ✅ phone + TV | Roku ✅ by `featured.json` order. One pipeline rule (`build_sqlite.hour_or_less`); from the Orphaned Films research, adapted — "Under 90" measured and refused (8,093 of 11,006 features already are). Membership lands on the next catalog publish |
 | Movies grid + facets + sort | ✅ | ✅ | ✅ `LazyVGrid` + decade/sort `Picker`s + real counts + paging | ✅ CSS grid + chips | ✅ grid + chips | shared `CatalogDB.browse` |
+| Browse length filter (Under an hour / An hour to 90 minutes / Over 90 minutes) | ✅ chip row | ✅ Filter menu picker | ✅ Filter menu picker | ✅ select (after index schema 14 publishes) | ✅ phone menu + TV chips | Roku ⏳ next (a fifth chip changes its four-chip layout). Same bands everywhere: `RuntimeBand` / web `LENGTHS` over index column 17 `minutes` |
 | Infinite scroll / paging | ✅ | ✅ | ✅ offset paging | ✅ IntersectionObserver | ✅ | |
 | TV series → season → episode | ✅ | ✅ | ✅ `seriesCards()` → `SeriesDetail` → episode play | ✅ `#/series/{slug}` | ✅ phone `SeriesDetailScreen`; **Google TV: `TvSeriesScreen`, a TV-native scene** (TV-DESIGN §4.9, 2026-09-04) — hero, eyebrow, meta, favorite/share, season chips selecting on focus, episode rows | `series/*.json` shared |
 | TV never appears in Movies | ✅ | ✅ | ✅ | ✅ | ✅ | Decision 036 (shared `CatalogDB`) |

@@ -266,9 +266,11 @@ final class AppStore {
 
     func dbBrowse(contentType: String? = nil, decade: Int? = nil, genre: String? = nil,
                   year: Int? = nil, sort: CatalogDB.Sort = .popular, limit: Int = 60,
-                  offset: Int = 0, homeOnly: Bool = false) -> [Catalog.Item] {
+                  offset: Int = 0, homeOnly: Bool = false,
+                  runtime: RuntimeBand? = nil) -> [Catalog.Item] {
         db?.browse(contentType: contentType, decade: decade, genre: genre, year: year,
-                   sort: sort, limit: limit, offset: offset, homeOnly: homeOnly) ?? []
+                   sort: sort, limit: limit, offset: offset, homeOnly: homeOnly,
+                   runtime: runtime) ?? []
     }
     func dbSearch(_ q: String) -> [Catalog.Item] { db?.search(q) ?? [] }
     func dbSeriesCards() -> [Catalog.Item] { db?.seriesCards() ?? [] }
@@ -295,13 +297,16 @@ final class AppStore {
     func dbByPerson(_ name: String) -> [Catalog.Item] { db?.byPerson(name) ?? [] }   // #4
     /// Raw JSON for a browse page — fast SQLite read on main; decode off-main.
     func dbBrowsePageJSON(contentType: String? = nil, decade: Int? = nil, genre: String? = nil,
-                          sort: CatalogDB.Sort = .popular, limit: Int = 300, offset: Int = 0) -> [String] {
+                          sort: CatalogDB.Sort = .popular, limit: Int = 300, offset: Int = 0,
+                          runtime: RuntimeBand? = nil) -> [String] {
         db?.browsePageJSON(contentType: contentType, decade: decade, genre: genre,
-                           sort: sort, limit: limit, offset: offset) ?? []
+                           sort: sort, limit: limit, offset: offset, runtime: runtime) ?? []
     }
     func dbBrowseCount(contentType: String? = nil, decade: Int? = nil,
-                       genre: String? = nil, year: Int? = nil) -> Int {
-        db?.browseCount(contentType: contentType, decade: decade, genre: genre, year: year) ?? 0
+                       genre: String? = nil, year: Int? = nil,
+                       runtime: RuntimeBand? = nil) -> Int {
+        db?.browseCount(contentType: contentType, decade: decade, genre: genre, year: year,
+                        runtime: runtime) ?? 0
     }
     func dbByCollection(_ id: String, limit: Int = 2000) -> [Catalog.Item] { db?.byCollection(id, limit: limit) ?? [] }
     func dbCollectionCount(_ id: String) -> Int { db?.collectionCount(id) ?? 0 }

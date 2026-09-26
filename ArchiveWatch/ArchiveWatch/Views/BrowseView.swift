@@ -8,6 +8,7 @@ import SwiftUI
 struct BrowseFilter: Hashable, Sendable {
     var category: String? = nil
     var decade: Int? = nil
+    var runtime: RuntimeBand? = nil   // how long the film runs (Orphaned Films research)
     var genre: String? = nil
     var collection: String? = nil
     var person: String? = nil   // #4: films featuring this cast member / director
@@ -15,7 +16,7 @@ struct BrowseFilter: Hashable, Sendable {
     var studio: String? = nil   // Decision 046: production-company facet
 
     var isEmpty: Bool {
-        category == nil && decade == nil && genre == nil && collection == nil
+        category == nil && decade == nil && runtime == nil && genre == nil && collection == nil
             && person == nil && keyword == nil && studio == nil
     }
 }
@@ -90,9 +91,11 @@ struct BrowseView: View {
     private func reload() {
         if paginable {
             items = store.dbBrowse(contentType: filter.category, decade: filter.decade,
-                                   genre: filter.genre, sort: dbSort, limit: pageSize, offset: 0)
+                                   genre: filter.genre, sort: dbSort, limit: pageSize, offset: 0,
+                                   runtime: filter.runtime)
             totalCount = store.dbBrowseCount(contentType: filter.category,
-                                             decade: filter.decade, genre: filter.genre)
+                                             decade: filter.decade, genre: filter.genre,
+                                             runtime: filter.runtime)
         } else {
             items = computeItems()
             totalCount = items.count
@@ -107,7 +110,8 @@ struct BrowseView: View {
         loadingMore = true
         let jsons = store.dbBrowsePageJSON(contentType: filter.category, decade: filter.decade,
                                            genre: filter.genre, sort: dbSort,
-                                           limit: pageSize, offset: items.count)
+                                           limit: pageSize, offset: items.count,
+                                           runtime: filter.runtime)
         Task { @MainActor in
             let decoded = await Task.detached { CatalogDB.decodeItems(jsons) }.value
             let have = Set(items.map(\.archiveID))
@@ -140,7 +144,8 @@ struct BrowseView: View {
             return page
         }
         var page = store.dbBrowse(contentType: filter.category, decade: filter.decade,
-                                  genre: filter.genre, sort: dbSort, limit: Self.filteredGridCap)
+                                  genre: filter.genre, sort: dbSort, limit: Self.filteredGridCap,
+                                  runtime: filter.runtime)
         if let k = filter.collection {
             page = page.filter { $0.collections.contains(k) }
         }
@@ -262,6 +267,7 @@ struct FilterChipBar: View {
         VStack(alignment: .leading, spacing: 12) {
             categoryRow
             decadeRow
+            runtimeRow
             genreRow
             keywordRow
             studioRow
@@ -302,6 +308,22 @@ struct FilterChipBar: View {
                     let on = filter.decade == d
                     Chip(label: "\(d)s", isOn: on, accent: .accentColor) {
                         filter.decade = on ? nil : d
+                    }
+                }
+            }
+        }
+    }
+
+    private var runtimeRow: some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack(spacing: 12) {
+                Chip(label: "Any Length", isOn: filter.runtime == nil, accent: .accentColor) {
+                    filter.runtime = nil
+                }
+                ForEach(RuntimeBand.allCases) { band in
+                    let on = filter.runtime == band
+                    Chip(label: band.label, isOn: on, accent: .accentColor) {
+                        filter.runtime = on ? nil : band
                     }
                 }
             }
