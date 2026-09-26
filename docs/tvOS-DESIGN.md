@@ -130,6 +130,8 @@ active, with a visible exit + Back (§9). Channels, Cartoon, Party, Screensaver.
 3.7 **Player** — `AVPlayerViewController` baseline + the resilient loader
 (Decision 021). Custom chrome only as overlays (§8).
 
+**A pasted archive.org link opens what it points at** (2026-09-26): an archive.org or archivewatch.org `details`/`download`/`embed` link typed or pasted into Search returns the film we keep, or the film a merged upload became (`item_aliases`), and otherwise nothing — never a guess. One rule in the shared search query (`CatalogDB.search` / `CatalogDatabase.search`, parser `ArchiveLink` / `archiveIdFromLink`), the same table as the web (WEB-DESIGN §4.3b).
+
 ---
 
 ## §4 — Typography (binding; mechanics in playbook §4)

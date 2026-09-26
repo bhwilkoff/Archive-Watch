@@ -195,6 +195,8 @@ user has already narrowed and wants density.
 
 **4.6a Browse filters by length** (2026-09-26): a chip group after the eras — *Any length · Under 60 minutes · 60 to 90 minutes · Over 90 minutes*, the same bands as every platform (`RuntimeBand`, index column 17 `minutes`). Words, never abbreviations, even at ten feet.
 
+**A pasted archive.org link opens what it points at** (2026-09-26): an archive.org or archivewatch.org `details`/`download`/`embed` link typed or pasted into Search returns the film we keep, or the film a merged upload became (`item_aliases`), and otherwise nothing — never a guess. One rule in the shared search query (`CatalogDB.search` / `CatalogDatabase.search`, parser `ArchiveLink` / `archiveIdFromLink`), the same table as the web (WEB-DESIGN §4.3b).
+
 ---
 
 ## §5 — Player surfaces (binding)

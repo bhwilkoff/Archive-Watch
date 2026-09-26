@@ -659,6 +659,11 @@ final class CatalogDB {
     /// equally relevant matches without letting a famous film outrank an exact
     /// title match, which is the failure mode of ordering by popularity alone.
     func search(_ query: String, limit: Int = 200) -> [Catalog.Item] {
+        // A PASTED archive.org LINK opens what it points at (2026-09-26, the
+        // Orphaned Films research; WEB-DESIGN §4.3b): the film we keep, or
+        // the film a merged upload became (itemsByIDs follows item_aliases).
+        // Anything else is simply not here — no results, never a guess.
+        if let id = ArchiveLink.id(from: query) { return itemsByIDs([id]) }
         let q = ftsQuery(query)
         guard !q.isEmpty else { return [] }
         return items("""

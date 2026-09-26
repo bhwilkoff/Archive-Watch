@@ -124,6 +124,8 @@ or tvOS rule, that inversion is deliberate — do not "harmonize" them.
   `https://archive.org/services/img/{id}`. Stable `key`s on every
   LazyGrid/LazyRow.
 
+**A pasted archive.org link opens what it points at** (2026-09-26): an archive.org or archivewatch.org `details`/`download`/`embed` link typed or pasted into Search returns the film we keep, or the film a merged upload became (`item_aliases`), and otherwise nothing — never a guess. One rule in the shared search query (`CatalogDB.search` / `CatalogDatabase.search`, parser `ArchiveLink` / `archiveIdFromLink`), the same table as the web (WEB-DESIGN §4.3b).
+
 
 - **§4.6 Channels is a proportional EPG grid** (2026-06-12): sticky ruler
   (LazyColumn stickyHeader), fixed rail, custom Layout placing blocks by

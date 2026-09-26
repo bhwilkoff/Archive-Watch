@@ -194,6 +194,8 @@ empty · error — `universal-feature-states`).
 
 **Length** (2026-09-26, from the Orphaned Films research): Browse filters by how long the upload runs — *Any length · Under 60 minutes · 60 to 90 minutes · Over 90 minutes* — the same bands on every platform (Apple/Android `RuntimeBand`, web `LENGTHS`, index column 17 `minutes`). Bands were chosen from the catalog (~12% / ~60% / ~28% of features); an unknown runtime never matches. Words, never abbreviations.
 
+**A pasted archive.org link opens what it points at** (2026-09-26): an archive.org or archivewatch.org `details`/`download`/`embed` link typed or pasted into Search returns the film we keep, or the film a merged upload became (`item_aliases`), and otherwise nothing — never a guess. One rule in the shared search query (`CatalogDB.search` / `CatalogDatabase.search`, parser `ArchiveLink` / `archiveIdFromLink`), the same table as the web (WEB-DESIGN §4.3b).
+
 4.3 **Destructive verbs are swipe actions** (`onDelete`) on List rows —
 playlists, user channels. Deletion of synced models goes through
 `SyncNudge.recordDeletion`, never a bare `ctx.delete` (§9.4).

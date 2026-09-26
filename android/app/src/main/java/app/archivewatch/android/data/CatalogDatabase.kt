@@ -28,6 +28,16 @@ class CatalogDatabase private constructor(
     private val mutex = Mutex()
 
     companion object {
+        /** The identifier in an archive.org / archivewatch.org details,
+         *  download or embed link, or null (the web's ArchiveAddress). */
+        fun archiveIdFromLink(text: String): String? =
+            LINK.find(text.trim())?.groupValues?.get(1)?.let { java.net.URLDecoder.decode(it, "UTF-8") }
+
+        private val LINK = Regex(
+            "^(?:https?://)?(?:www\\.)?(?:archive\\.org|archivewatch\\.org)/(?:details|download|embed)/([^/?#\\s]+)",
+            RegexOption.IGNORE_CASE,
+        )
+
         private const val liteCols =
             "i.archiveID,i.title,i.year,i.decade,i.contentType,i.posterURL," +
             "i.hasRealArtwork,i.artworkSource,i.runtimeSeconds,i.popularityScore," +
@@ -466,6 +476,10 @@ class CatalogDatabase private constructor(
     }
 
     suspend fun search(query: String, limit: Int = 200): List<CatalogItem> {
+        // A PASTED archive.org LINK opens what it points at (2026-09-26; the
+        // web's ArchiveAddress): the film we keep, or the film a merged upload
+        // became (itemsByIDs follows item_aliases). Otherwise: not here.
+        archiveIdFromLink(query)?.let { return itemsByIDs(listOf(it)) }
         val match = ftsQuery(query) ?: return emptyList()
         return itemsLite(
             """SELECT $liteCols FROM items_fts f
