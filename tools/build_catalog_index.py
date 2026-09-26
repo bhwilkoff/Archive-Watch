@@ -383,6 +383,7 @@ def main():
         "directorRank": _director_rank(),
         "shelves": shelves,
         "collections": collections,
+        "tonight": tonight_schedule(rows, _previous_tonight()),
         "items": rows,
     }
     OUT.write_text(json.dumps(out, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
@@ -392,6 +393,62 @@ def main():
 
     write_topshelf_feed()
     return 0
+
+
+# ---------------------------------------------------------------------------
+# Tonight (ORPHANED-FILMS #11, 2026-09-26)
+# ---------------------------------------------------------------------------
+# One film a day, the same for everyone who opens Archive Watch on that date —
+# something to talk about, and a natural film for a Watch Together room. Chosen
+# by RULE, never by a model (owner, 2026-09-26): the marquee's own bar (heroSafe,
+# byte-verified playable, a designed poster, archival), a feature film or silent
+# feature of an hour or more with 1,000+ IMDb votes (a film people can find
+# something to say about: 246 films on 2026-09-26), then a hash of the date over the pool sorted by id.
+# No film repeats within TONIGHT_GAP days. Days already published keep their film
+# across rebuilds, so a publish at noon never changes tonight. Dates are calendar
+# days; a client reads its OWN local date, and the schedule starts yesterday so
+# every time zone finds today.
+TONIGHT_DAYS = 14
+TONIGHT_GAP = 90
+TONIGHT_MIN_VOTES = 1000
+
+
+def _previous_tonight() -> dict:
+    try:
+        return json.loads(OUT.read_text(encoding="utf-8")).get("tonight") or {}
+    except Exception:  # noqa: BLE001
+        return {}
+
+
+def tonight_schedule(rows: list, previous: dict, today=None) -> dict:
+    import datetime as dt
+    import hashlib
+    today = today or dt.date.today()
+    pool = sorted(r[0] for r in rows
+                  if r[16] == 1 and r[8] == 1 and r[5] == 1
+                  and r[3] in ("feature-film", "silent-film")
+                  and (r[17] or 0) >= 60 and (r[11] or 0) >= TONIGHT_MIN_VOTES
+                  and (not r[2] or int(r[2]) < 1978))
+    if not pool:
+        return {}
+    ok = set(pool)
+    start = today - dt.timedelta(days=1)
+    kept = {d: i for d, i in previous.items()
+            if i in ok and d >= (today - dt.timedelta(days=TONIGHT_GAP)).isoformat()}
+    out = {}
+    for k in range(TONIGHT_DAYS + 1):
+        day = (start + dt.timedelta(days=k)).isoformat()
+        if day in kept:
+            out[day] = kept[day]
+            continue
+        recent = {i for d, i in {**kept, **out}.items() if d != day}
+        h = int(hashlib.sha1(day.encode()).hexdigest(), 16)
+        for step in range(len(pool)):
+            pick = pool[(h + step) % len(pool)]
+            if pick not in recent:
+                break
+        out[day] = pick
+    return out
 
 
 # ---------------------------------------------------------------------------

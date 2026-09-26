@@ -178,6 +178,9 @@
       this.shelves = idx.shelves || {};
       this.directorRank = idx.directorRank || [];
       this.collections = idx.collections || {};
+      // Tonight (WEB-DESIGN §4.1b): {date: archiveID}, chosen by rule in the
+      // pipeline (build_catalog_index.tonight_schedule).
+      this.tonight = idx.tonight || {};
       // Decision 046 — keyword/studio facet names (schema 6; absent on older idx).
       this.facets = idx.facets || { keywords: [], studios: [] };
       this.rows.forEach(r => this.byID.set(r[0], r));
@@ -1342,7 +1345,14 @@
       // passes, as it does on the apps.
       const archival = base.filter(r => !r[2] || Number(r[2]) < 1978);
       if (archival.length >= 4) base = archival;
-      const pool = shuffle(base).slice(0, 6);
+      // Tonight leads (WEB-DESIGN §4.1b): the same film for everyone on this
+      // LOCAL date, from the pipeline's schedule. The rest stay per-visit.
+      const d = new Date();
+      const today = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+      const tonight = Data.byID.get(Data.tonight?.[today]);
+      const pool = tonight
+        ? [tonight, ...shuffle(base.filter(r => r[0] !== tonight[0])).slice(0, 5)]
+        : shuffle(base).slice(0, 6);
       if (!pool.length) return [];
       const el = $('hero');
       const rail = $('hero-rail');
@@ -1361,13 +1371,14 @@
         const ambient = document.createElement('div');
         ambient.className = 'hero-ambient';
 
+        const wideArt = useWide && row[7];
         const poster = document.createElement('img');
-        poster.className = useWide ? 'hero-poster hero-wide' : 'hero-poster';
+        poster.className = wideArt ? 'hero-poster hero-wide' : 'hero-poster';
         poster.alt = '';
         poster.loading = i === 0 ? 'eager' : 'lazy';
         // Ambient mirrors whatever art actually loaded (it shares the HTTP
         // cache entry), so a throttled poster can't strand a blank backdrop.
-        wireArt(poster, useWide ? [row[7]] : [Data.poster(row), API.thumbnailURL(id)],
+        wireArt(poster, wideArt ? [row[7]] : [Data.poster(row), API.thumbnailURL(id)],
           src => { ambient.style.backgroundImage = `url("${src}")`; },
           () => { const ph = placeholderArt(row); ph.classList.add('hero-poster'); poster.replaceWith(ph); });
 
@@ -1375,8 +1386,8 @@
         copy.className = 'hero-copy';
         const eyebrow = document.createElement('p');
         eyebrow.className = 'hero-eyebrow';
-        eyebrow.textContent = [eraLabel(year), (type || '').replace(/-/g, ' ')]
-          .filter(Boolean).join(' · ');
+        eyebrow.textContent = row === tonight ? 'Tonight'
+          : [eraLabel(year), (type || '').replace(/-/g, ' ')].filter(Boolean).join(' · ');
         const h = document.createElement('h2');
         h.className = 'hero-title';
         h.textContent = title;
