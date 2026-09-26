@@ -54,11 +54,15 @@ because the loop was stopped mid-stride for a Claude update.
 
 ### Open owner items (nothing else is blocked)
 
-0-NOW. **GOOGLE OAUTH: RESUBMITTED 2026-09-24, NOTHING TO DO UNTIL GOOGLE REPLIES.**
-   New demo video <https://youtu.be/N0zP6D6hOm8>, Console link + justification
-   updated, reply sent on Google's thread (docs/oauth/VERIFICATION-REPLY.md).
-   Everything below in item 7 about the demo video is history. After approval:
-   add the Terms of Service URL to Branding (audit A9).
+0-NOW. **OAUTH APPROVED (2026-09-26); QUOTA SCREENCAST SENT, WAITING ON GOOGLE.**
+   The `auth/youtube` verification passed; no code change was needed. The
+   quota team (thread "YouTube API Services: Thank you for your submission",
+   due ~2026-10-06) asked for a screencast; it is <https://youtu.be/6QiRJhHyw3E>,
+   answered 2026-09-26 with the call-by-call explanation
+   (docs/oauth/QUOTA-SCREENCAST.md). The reply went from ben@learningischange.com
+   while Google writes to benwilkoff@gmail.com. The Terms of Service URL on
+   Branding (audit A9) is NOT added: changing Branding re-opens verification,
+   so it waits until the quota review closes.
 
 0-DECIDED-2026-09-25. **SIX OWNER CALLS, ANSWERED — IN PROGRESS.** Asked as a
    series; the answers, verbatim where the owner wrote their own:
