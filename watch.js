@@ -2561,6 +2561,8 @@
       $('item-report').href = filmProblemURL(id, 'Web');
       $('item-version').hidden = true;
       $('item-version').closest('.detail-actions').classList.remove('has-version');
+      $('item-scenes').hidden = true;
+      $('item-scenes-row').replaceChildren();
       this.related(row);
       $('item-play').onclick = () => {
         const d = this.current.detail;
@@ -2578,6 +2580,7 @@
       if (det) {
         this.current.detail = det;
         if (det.related) this.related(row, det.related);
+        this.scenes(id, row, det);
         const meta = [
           row[2] && String(row[2]),
           det.runtimeSeconds && `${Math.round(det.runtimeSeconds / 60)} min`,
@@ -2812,6 +2815,50 @@
     /** More Like This (apps' related query): same category, then YEAR proximity (±10y),
         then POPULARITY (index order). No shuffle — that made it random on every visit.
         (colorMode isn't in the index, so the apps' color tiebreak is app-only.) */
+    /* Scenes (WEB-DESIGN §4.4e, ORPHANED-FILMS #7): archive.org keeps a frame
+       a minute for every video file, named by its second (`_000054.jpg`).
+       Only the frames of the copy that will PLAY are used — two uploads of
+       one film differ in length, and a frame from another copy would start
+       the film at the wrong moment. Read after the page is up; archive.org
+       never holds Detail back. */
+    async scenes(id, row, det) {
+      const url = Versions.preferred(id, det.downloadURL || '');
+      const m = /^https:\/\/archive\.org\/download\/([^/]+)\/(.+)$/.exec(url);
+      if (!m) return;
+      const item = decodeURIComponent(m[1]);
+      const file = m[2].split('/').map(decodeURIComponent).join('/');
+      let frames;
+      try {
+        const meta = await API.fetchMetadata(item, { timeoutMs: 12000 });
+        frames = (meta.files || [])
+          .filter(f => f.format === 'Thumbnail' && f.original === file)
+          .map(f => ({ name: f.name, t: Number((/_(\d{6})\.jpg$/.exec(f.name) || [])[1]) }))
+          .filter(f => f.t >= 30)
+          .sort((a, b) => a.t - b.t);
+      } catch { return; }
+      if (this.current?.id !== id || frames.length < 4) return;
+      const want = Math.min(12, frames.length);
+      const picked = Array.from({ length: want },
+        (_, k) => frames[Math.floor(k * frames.length / want)]);
+      const two = n => String(n).padStart(2, '0');
+      const clock = t => (t >= 3600 ? `${Math.floor(t / 3600)}:${two(Math.floor(t / 60) % 60)}`
+        : `${Math.floor(t / 60)}`) + `:${two(t % 60)}`;
+      $('item-scenes-row').replaceChildren(...picked.map(f => {
+        const b = document.createElement('button');
+        b.className = 'scene';
+        b.setAttribute('aria-label', `Play from ${clock(f.t)}`);
+        const img = document.createElement('img');
+        img.loading = 'lazy'; img.alt = '';
+        img.src = Versions.url(item, f.name);
+        const time = document.createElement('span');
+        time.textContent = clock(f.t);
+        b.append(img, time);
+        b.onclick = () => Player.start({ id, title: row[1], url, startAt: f.t });
+        return b;
+      }));
+      $('item-scenes').hidden = false;
+    },
+
     related(row, ranked = null) {
       const rows = relatedRows(row, 12, ranked);
       $('item-related-row').replaceChildren(...rows.map(card));

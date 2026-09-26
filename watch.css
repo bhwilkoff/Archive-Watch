@@ -323,6 +323,19 @@ a { color: var(--color-accent); }
 }
 .shelf-row::-webkit-scrollbar { display: none; }
 .shelf-row .card { flex: 0 0 116px; scroll-snap-align: start; }
+/* Scenes (WEB-DESIGN §4.4e): archive.org's own frames, one a minute. */
+.scene {
+  flex: 0 0 160px; scroll-snap-align: start; padding: 0; border: 0;
+  background: none; color: var(--text-dim); font: inherit; text-align: left;
+  cursor: pointer;
+}
+.scene img {
+  width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block;
+  border-radius: var(--radius); background: var(--bg-raise);
+  border: 1px solid var(--border);
+}
+.scene span { display: block; padding-top: 4px; font-size: 0.8rem; }
+.scene:focus-visible img, .scene:hover img { border-color: var(--color-accent); }
 
 /* ---- cards + grid ---- */
 .grid {
@@ -591,9 +604,9 @@ input[type="search"] {
 .dlg-title { margin: 0 0 10px; padding: 0; font-size: 1.05rem; }
 
 /* ---- detail: more like this ---- */
-#item-related { margin-top: 18px; }
-#item-related h2 { margin: 0 0 8px; padding: 0; }
-#item-related .shelf-row { padding-left: 0; padding-right: 0; }
+#item-related, #item-scenes { margin-top: 18px; }
+#item-related h2, #item-scenes h2 { margin: 0 0 8px; padding: 0; }
+#item-related .shelf-row, #item-scenes .shelf-row { padding-left: 0; padding-right: 0; }
 
 /* ---- channels EPG (a true TV listing: sticky rail + sticky ruler) ---- */
 :root { --epg-rail-w: 92px; }

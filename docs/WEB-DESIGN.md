@@ -189,6 +189,17 @@ separate tool with its own conventions (CLAUDE.md) — these rules govern the
   §11.14), never this viewer's choice — host and guests must share one
   timeline. On a phone, four secondary verbs sit in two rows of two, designed,
   rather than three and one stranded beneath them.
+- **§4.4e Scenes** (2026-09-26, ORPHANED-FILMS #7): between the community line
+  and More Like This, a row headed **Scenes** of up to 12 evenly spaced frames
+  from archive.org's own per-minute thumbnails (`<file>.thumbs/<name>_SSSSSS.jpg`,
+  the suffix is the second), each labeled with its time; pressing one plays the
+  film from that second. Only the frames of the copy that will PLAY
+  (`Versions.preferred`) — uploads of one film differ in length, so another
+  copy's frame starts at the wrong moment. Hidden under four frames. Read after
+  the page is up. Orphaned Films puts frames on a custom scrub bar; this site
+  keeps the browser's own controls (§4.5), so the frames live on Detail, where
+  they also let a viewer look through a film before choosing it.
+  `tools/test_web_scenes.mjs`.
 - **§4.4d No picture** (2026-09-26, from ORPHANED-FILMS #11): a copy whose
   video this browser cannot decode — MPEG-4 Part 2, which Chrome and Firefox
   do not play; 1 in 24 sampled "MPEG4" uploads, *The Silver Fleet* among them —
