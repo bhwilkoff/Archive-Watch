@@ -46,6 +46,7 @@ import app.archivewatch.android.app.AppContainer
 import app.archivewatch.android.data.BrowseSort
 import app.archivewatch.android.data.CatalogItem
 import app.archivewatch.android.ui.BackdropImage
+import app.archivewatch.android.ui.KindEyebrow
 import app.archivewatch.android.ui.LoadingBox
 import app.archivewatch.android.ui.Nav
 import app.archivewatch.android.ui.accentColor
@@ -58,6 +59,7 @@ import kotlin.random.Random
 
 internal data class HomePayload(
     val hero: List<CatalogItem> = emptyList(),
+    val tonightID: String? = null,
     val continueWatching: List<CatalogItem> = emptyList(),
     val shelves: List<Pair<String, List<CatalogItem>>> = emptyList(),
     val topRated: List<CatalogItem> = emptyList(),
@@ -210,6 +212,15 @@ internal fun rememberHomePayload(container: AppContainer): State<HomePayload> {
             // again rather than let an id ordering decide which six lead.
             .shuffled(Random(heroSeed))
             .take(6)
+        // Tonight (ANDROID-DESIGN §4.1c) leads: the same film every platform
+        // shows on this local date. SimpleDateFormat, not java.time: minSdk 23.
+        val today = java.text.SimpleDateFormat("yyyy-MM-dd", java.util.Locale.US).format(java.util.Date())
+        val tonight = container.editorial.tonightID(today)?.let { id ->
+            db.itemsByIDs(listOf(id)).firstOrNull { it.backdropURL != null && it.isHeroRightsSafe }
+        }
+        val heroFinal = if (tonight != null) {
+            listOf(tonight) + hero.filter { it.archiveID != tonight.archiveID }.take(5)
+        } else hero
 
         val pdYear = Calendar.getInstance().get(Calendar.YEAR) - 95
         // Category tiles count-gate >=30 (the apps' rule — a near-empty grid
@@ -218,7 +229,8 @@ internal fun rememberHomePayload(container: AppContainer): State<HomePayload> {
             .filter { db.browseCount(contentType = it.id) >= 30 }
         qmark("queries:begin")
         val built = HomePayload(
-            hero = hero,
+            hero = heroFinal,
+            tonightID = tonight?.archiveID,
             continueWatching = continueWatching,
             shelves = shelves,
             topRated = claim(db.topRated().filter { it.hasProfessionalArtwork }),
@@ -275,7 +287,7 @@ fun HomeScreen(container: AppContainer, nav: Nav) {
             verticalArrangement = Arrangement.spacedBy(16.dp),
         ) {
             if (payload.hero.isNotEmpty()) {
-                item(key = "hero") { HeroCarousel(payload.hero) { nav.openItem(it.archiveID, it.seriesID, it.contentType) } }
+                item(key = "hero") { HeroCarousel(payload.hero, payload.tonightID) { nav.openItem(it.archiveID, it.seriesID, it.contentType) } }
             }
             if (payload.categories.isNotEmpty()) {
                 item(key = "cats") {
@@ -377,7 +389,7 @@ fun HomeScreen(container: AppContainer, nav: Nav) {
 
 /** Rotating hero — designed-art items, auto-advance every 7s. */
 @Composable
-private fun HeroCarousel(items: List<CatalogItem>, onItem: (CatalogItem) -> Unit) {
+private fun HeroCarousel(items: List<CatalogItem>, tonightID: String?, onItem: (CatalogItem) -> Unit) {
     val pagerState = rememberPagerState { items.size }
     LaunchedEffect(items.size) {
         while (true) {
@@ -417,6 +429,9 @@ private fun HeroCarousel(items: List<CatalogItem>, onItem: (CatalogItem) -> Unit
                     .align(androidx.compose.ui.Alignment.BottomStart)
                     .padding(16.dp),
             ) {
+                if (item.archiveID == tonightID) {
+                    KindEyebrow(item.contentType, item.accentColor, label = "Tonight")
+                }
                 Text(
                     item.title,
                     style = MaterialTheme.typography.titleLarge,

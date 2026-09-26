@@ -50,6 +50,8 @@ organized. A black-box row teaches nothing. *(Learning-orientation guardrail 1.)
 
 **1.4b** **An Hour or Less** (`hour-or-less`, 2026-09-26, from the Orphaned Films research, adapted): feature films (not documentaries, which have their own shelf) whose upload runs 40–60 minutes — the B-westerns, second features and programmers this catalog is rich in (about 1,200 titles). A plain rule over `runtimeSeconds` and `contentType`, computed ONCE in the pipeline (`build_sqlite._shelf_ids_for`, Decision 050), gated like every shelf; no model picks it and no copy is written for it (CLAUDE.md). "Under 90 minutes" was measured and refused: 8,093 of 11,006 features already run under 90, so it would describe the catalog rather than help someone choose. It sits after `wikidata-pd` in the canonical order.
 
+**1.4c** **Tonight** (2026-09-26): Android TV and Google TV lead the hero with the day's film from `tonight.json`, KindEyebrow reading TONIGHT in the film's accent; see ANDROID-DESIGN §4.1c.
+
 **1.5 No lean-back-only degraded build.** It is tempting to ship TV as "hero +
 autoplay + nothing else." Browse, Search, Favorites, Playlists, Channels and
 Surprise are what make the catalog explorable rather than consumable. A TV build

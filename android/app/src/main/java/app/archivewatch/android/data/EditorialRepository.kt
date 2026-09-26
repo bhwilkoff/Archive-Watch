@@ -5,6 +5,8 @@ import android.net.Uri
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import kotlinx.serialization.json.Json
+import kotlinx.serialization.json.jsonObject
+import kotlinx.serialization.json.jsonPrimitive
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import java.util.concurrent.ConcurrentHashMap
@@ -102,6 +104,24 @@ class EditorialRepository(
             fetch("$RAW_BASE/series/${Uri.encode(slug)}.json")?.let {
                 runCatching { json.decodeFromString<SeriesDetail>(it) }.getOrNull()
             }?.also { seriesCache[slug] = it }
+        }
+    }
+
+    @Volatile private var tonightCache: Map<String, String>? = null
+
+    /** Tonight (ANDROID-DESIGN §4.1c): the pipeline's rule-picked film for
+     *  [date] (yyyy-MM-dd, the device's local date), from tonight.json. */
+    suspend fun tonightID(date: String): String? {
+        tonightCache?.let { return it[date] }
+        return withContext(Dispatchers.IO) {
+            val map = fetch("$RAW_BASE/tonight.json")?.let { text ->
+                runCatching {
+                    json.parseToJsonElement(text).jsonObject["tonight"]?.jsonObject
+                        ?.mapValues { it.value.jsonPrimitive.content }
+                }.getOrNull()
+            }
+            if (map != null) tonightCache = map
+            map?.get(date)
         }
     }
 

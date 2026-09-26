@@ -157,6 +157,7 @@ fun TvHomeScreen(container: AppContainer, nav: Nav) {
                     TvHero(
                         item = heroItem,
                         heroCount = payload.hero.size,
+                        tonightID = payload.tonightID,
                         heroIndex = heroIndex,
                         focusRequester = heroFocus,
                         onPlay = { nav.openItem(heroItem.archiveID, heroItem.seriesID, heroItem.contentType) },
@@ -270,6 +271,7 @@ private fun androidx.compose.foundation.lazy.LazyListScope.shelf(
 private fun TvHero(
     item: CatalogItem,
     heroCount: Int,
+    tonightID: String?,
     heroIndex: Int,
     focusRequester: FocusRequester,
     onPlay: () -> Unit,
@@ -309,7 +311,8 @@ private fun TvHero(
                         .fillMaxWidth(0.55f),
                 ) {
                     if (h.contentType.isNotBlank()) {
-                        KindEyebrow(h.contentType, h.accentColor, Modifier.padding(bottom = 6.dp))
+                        KindEyebrow(h.contentType, h.accentColor, Modifier.padding(bottom = 6.dp),
+                            label = if (h.archiveID == tonightID) "Tonight" else null)
                     }
                     Text(
                         h.title,

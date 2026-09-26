@@ -356,9 +356,9 @@ fun metaGenres(genres: List<String>): List<String> =
  *  title. It is the ONE place the kind is stated, so meta lines below it carry
  *  year, genres and rating instead of repeating it. */
 @Composable
-fun KindEyebrow(contentType: String, accent: Color, modifier: Modifier = Modifier) {
+fun KindEyebrow(contentType: String, accent: Color, modifier: Modifier = Modifier, label: String? = null) {
     Text(
-        kindLabel(contentType).uppercase(),
+        (label ?: kindLabel(contentType)).uppercase(),
         fontSize = 13.sp,
         letterSpacing = 2.sp,
         fontWeight = FontWeight.SemiBold,
