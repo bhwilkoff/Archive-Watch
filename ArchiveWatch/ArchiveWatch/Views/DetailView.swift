@@ -230,7 +230,8 @@ struct DetailView: View {
                 watchedButton
                 shareButton
                 playlistButton
-                versionsButton
+                // In a Watch Together room the HOST chooses the copy.
+                if !StudioRoomCopy.isActive(for: item.archiveID) { versionsButton }
                 if SubtitleFinder.shouldOffer(for: item) { subtitlesButton }
             }
             .padding(.top, 8)
@@ -338,7 +339,7 @@ struct DetailView: View {
                     .lastPathComponent.removingPercentEncoding
             ) { choice in
                 ArchiveVersions.choose(choice, for: item.archiveID)
-                chosenVersionName = choice?.name
+                chosenVersionName = choice?.choiceKey
             }
         }
         .onAppear { chosenVersionName = ArchiveVersions.chosenName(for: item.archiveID) }
@@ -2262,7 +2263,7 @@ struct PlayerScreen: View {
         // picker only helps before you start; the moment that matters is three
         // minutes in when the picture is stuttering, and backing out to change
         // it costs the viewer their place.
-        if playerVersions.count > 1 {
+        if playerVersions.count > 1, !StudioRoomCopy.isActive(for: activeArchiveID) {
             let chosen = ArchiveVersions.chosenName(for: activeArchiveID)
             let pipelineName = (current ?? catalogItem)?.videoURLParsed?
                 .lastPathComponent.removingPercentEncoding

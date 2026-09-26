@@ -225,6 +225,7 @@ into every session and the index alone carries every title.)
 - 140 — An uploader's word is not enough: a modern or undated title kept only on its archive licence needs independent evidence
 - 141 — Android runs from Android 6 (API 23) on every store; the floor is held by lint NewApi and by the bundled Let's Encrypt roots
 - 142 — Watch Together is counted from what our servers and Google already see, never from the apps
+- 143 — A room carries the host's copy, and every guest plays exactly that file
 
 ---
 
@@ -1004,3 +1005,32 @@ reporting — never from a client sending a count. If a question cannot be
 answered that way, the answer is a privacy.html change the owner makes, not a
 reader. The Monitoring read must carry `x-goog-user-project: archive-watch`
 (docs/PULSE-ANALYTICS.md §11).
+
+
+## 143 — A room carries the host's copy, and every guest plays exactly that file
+*Date: 2026-09-26*
+
+A Watch Together room now stores `copy` — `<archive item>/<file name>`, the file
+the host's player is showing — and every guest plays that file and no other:
+the join screens, room links and debug doors read the room before a player is
+built, `ArchiveVersions.preferredURL` answers the room's copy first on Apple and
+Android, a downloaded file of another copy is skipped, and the pickers refuse
+with a reason while in a room. The web plays `Together.copyURL(state.copy)`.
+Rules: SHAREPLAY §11.14.
+
+**Why**: the owner — *"The host chooses the video that all Watch Together
+participants should be watching. There should be no way to choose the wrong one
+via the four digit code."* The room held only the title, so each guest played
+its own saved copy; the versions work that exposed merged uploads (Decision 040)
+made that likelier, and copies differ in length (the two Keaton Scarecrows by
+55 s), so a guest syncing to the host's position on another copy was on another
+timeline. Measured before the fix: the live web guest played the title's
+default while the host named another file.
+
+**How to apply**: a room names a FILE on archive.org, never a URL — every client
+builds the download URL from `<item>/<file>` with the same rules as the
+Worker's `normalizeCopy`, so a room cannot point a guest's player at another
+host. Any new join path must `prime` the room before building its player, and
+any new play path must go through `preferredURL`. A host that predates `copy`
+gets the title's DEFAULT copy for everyone, never each viewer's choice.
+

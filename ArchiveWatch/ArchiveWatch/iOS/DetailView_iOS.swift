@@ -172,13 +172,15 @@ struct DetailView: View {
                     // wifi does (owner, 2026-08-17).
                     if item.videoURLParsed != nil {
                         Menu {
-                            if versions.isEmpty {
+                            if StudioRoomCopy.isActive(for: item.archiveID) {
+                                Text("In a Watch Together room, the host chooses the copy.")
+                            } else if versions.isEmpty {
                                 Text(loadingVersions ? "Loading…" : "No other copies")
                             } else {
                                 ForEach(versions) { v in
                                     Button {
                                         ArchiveVersions.choose(v, for: item.archiveID)
-                                        chosenVersionName = v.name
+                                        chosenVersionName = v.choiceKey
                                     } label: {
                                         Label(v.label, systemImage:
                                             chosenVersionName == v.choiceKey
@@ -468,9 +470,15 @@ struct DetailView: View {
             // exists) and nothing opened one, so a guest who typed the code
             // landed on Detail and nothing happened. Owner, 2026-09-25: "it
             // isn't working to launch into the Watch Together experience."
-            if RoomJoin_iOS.shared.pending != nil,
+            if let code = RoomJoin_iOS.shared.pending,
                RoomJoin_iOS.shared.pendingFilm == item.archiveID,
                item.videoURLParsed != nil {
+                // A ROOM LINK names the film but not the host's copy, so the
+                // room is read first: the player built next must play the
+                // host's file (StudioRoomCopy), never this device's choice.
+                if !StudioRoomCopy.isActive(for: item.archiveID) {
+                    _ = await StudioRoomCopy.prime(code: code)
+                }
                 playing = true
             }
             if ProcessInfo.processInfo.environment["AW_AUTOPLAY"] == "1",

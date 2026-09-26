@@ -25,6 +25,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import app.archivewatch.android.studio.StudioRoom
+import app.archivewatch.android.studio.StudioRoomCopy
 import app.archivewatch.android.studio.StudioSyncClient
 import app.archivewatch.android.studio.StudioSyncFollower
 import kotlinx.coroutines.launch
@@ -103,6 +104,8 @@ fun JoinRoomDialog(onDismiss: () -> Unit, onJoined: (code: String, filmID: Strin
                         try {
                             val state = client.join(code)
                             client.leave()
+                            // The host's copy, remembered BEFORE the player is built.
+                            StudioRoomCopy.set(state.filmID, state.copy)
                             working = false
                             onJoined(code, state.filmID)
                         } catch (e: Exception) {

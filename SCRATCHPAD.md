@@ -62,14 +62,12 @@ because the loop was stopped mid-stride for a Claude update.
    Terms of Service URL on Branding (audit A9) waits until the quota review
    closes: changing Branding re-opens verification.
 
-0-OPEN-2026-09-26. **WHICH COPY DOES A ROOM PLAY?** Now that merged uploads can
-   be chosen (their runtimes differ — the two Scarecrows are 55 s apart), a
-   guest whose device prefers another copy syncs to the host's POSITION on a
-   different timeline. The web plays the default copy in rooms; Apple and
-   Android play each device's own choice. The clean answer is for the room to
-   carry the host's copy (`@item:name`) so every guest plays that file — a
-   Worker + five-client protocol change, so it is written here rather than done
-   quietly.
+0-OPEN-2026-09-26. ~~Which copy does a room play?~~ **DONE same day**: owner,
+   *"The host chooses the video that all Watch Together participants should be
+   watching."* Rooms carry the host's copy and every guest plays exactly that
+   file (Decision 143, SHAREPLAY §11.14). privacy.html now says a room records
+   "which film is playing (and which copy of it)" — a one-phrase change for the
+   owner to glance at, since that page is theirs (Decision 142).
 
 0-DECIDED-2026-09-25. **SIX OWNER CALLS, ANSWERED — IN PROGRESS.** Asked as a
    series; the answers, verbatim where the owner wrote their own:

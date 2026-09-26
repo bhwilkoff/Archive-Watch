@@ -132,7 +132,8 @@ public actor StudioSyncClient {
             filmID: filmID, position: position, atServerTime: atServerTime,
             rate: (o["rate"] as? Double) ?? 1.0,
             paused: (o["paused"] as? Bool) ?? false,
-            generation: (o["generation"] as? Int) ?? 1)
+            generation: (o["generation"] as? Int) ?? 1,
+            copy: o["copy"] as? String)
         if state.generation != lastGeneration {
             lastGeneration = state.generation
             lastGenerationChangeAt = Date()
@@ -175,13 +176,14 @@ public actor StudioSyncClient {
     // MARK: Hosting
 
     /// Create a room for a film, returning the code to read aloud.
-    public func createRoom(filmID: String, position: Double,
+    public func createRoom(filmID: String, copy: String? = nil, position: Double,
                            rate: Double = 1, paused: Bool = false) async throws -> String {
         var r = URLRequest(url: config.base.appendingPathComponent("together/new"))
         r.httpMethod = "POST"
         r.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        r.httpBody = try? JSONSerialization.data(withJSONObject: [
-            "filmID": filmID, "position": position, "rate": rate, "paused": paused])
+        var body: [String: Any] = ["filmID": filmID, "position": position, "rate": rate, "paused": paused]
+        if let copy { body["copy"] = copy }
+        r.httpBody = try? JSONSerialization.data(withJSONObject: body)
         let (data, _) = try await session.data(for: r)
         guard let o = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
               let code = o["code"] as? String else {
@@ -195,7 +197,7 @@ public actor StudioSyncClient {
 
     /// Publish a state change. Called on play, pause, seek and rate — NEVER on
     /// a timer, which is what keeps a two-hour film at tens of writes (§11.1).
-    public func publish(filmID: String, position: Double,
+    public func publish(filmID: String, copy: String? = nil, position: Double,
                         rate: Double = 1, paused: Bool = false) async throws {
         guard let code else { throw JoinError.noSuchRoom }
         var r = URLRequest(url: config.base.appendingPathComponent("together")
@@ -203,8 +205,9 @@ public actor StudioSyncClient {
         r.httpMethod = "POST"
         r.setValue("application/json", forHTTPHeaderField: "Content-Type")
         if let hostKey { r.setValue(hostKey, forHTTPHeaderField: "x-aw-host-key") }
-        r.httpBody = try? JSONSerialization.data(withJSONObject: [
-            "filmID": filmID, "position": position, "rate": rate, "paused": paused])
+        var body: [String: Any] = ["filmID": filmID, "position": position, "rate": rate, "paused": paused]
+        if let copy { body["copy"] = copy }
+        r.httpBody = try? JSONSerialization.data(withJSONObject: body)
         _ = try await session.data(for: r)
     }
 
@@ -220,5 +223,17 @@ public actor StudioSyncClient {
         _ = try? await session.data(for: r)
         self.code = nil
         self.hostKey = nil
+    }
+}
+
+extension StudioRoomCopy {
+    /// Read a room and remember its copy, so the player built next plays it.
+    /// Returns the state, or nil if the room could not be read.
+    public static func prime(code: String) async -> StudioSync.State? {
+        let client = StudioSyncClient()
+        defer { Task { await client.leave() } }
+        guard let state = try? await client.join(code: code) else { return nil }
+        set(film: state.filmID, copy: state.copy)
+        return state
     }
 }

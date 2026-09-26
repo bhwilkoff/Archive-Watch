@@ -1030,7 +1030,7 @@ private fun PhonePlayerOptionsSheet(
         mutableStateOf(app.archivewatch.android.data.ArchiveVersions.chosenName(context, spec.id))
     }
     LaunchedEffect(spec.id) {
-        if (spec.queue.isEmpty()) versions = app.archivewatch.android.data.ArchiveVersions.list(spec.id)
+        if (spec.queue.isEmpty()) versions = if (app.archivewatch.android.studio.StudioRoomCopy.isActive(spec.id)) null else app.archivewatch.android.data.ArchiveVersions.list(spec.id)
     }
 
     ModalBottomSheet(onDismissRequest = onDismiss, sheetState = sheetState) {
@@ -1191,7 +1191,7 @@ private fun TvPlayerOptionsPanel(
     }
     LaunchedEffect(spec.id) {
         if (spec.queue.isEmpty()) {
-            versions = app.archivewatch.android.data.ArchiveVersions.list(spec.id)
+            versions = if (app.archivewatch.android.studio.StudioRoomCopy.isActive(spec.id)) null else app.archivewatch.android.data.ArchiveVersions.list(spec.id)
         }
     }
     val firstFocus = remember { androidx.compose.ui.focus.FocusRequester() }

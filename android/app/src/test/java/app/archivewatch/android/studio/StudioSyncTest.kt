@@ -87,4 +87,30 @@ class StudioSyncTest {
         assertEquals(StudioSync.POLL_IDLE_SECONDS, StudioSync.pollInterval(120.0), 1e-9)
         assertTrue(StudioSync.POLL_IDLE_SECONDS > StudioSync.POLL_FAST_SECONDS)
     }
+
+    // THE HOST'S COPY (2026-09-26): the Worker's and Apple's table again.
+    @Test fun `a room copy becomes an archive dot org URL and nothing else`() {
+        assertEquals("https://archive.org/download/the-scarecrow/The%20Scarecrow.mp4",
+            StudioRoomCopy.urlFromPath("the-scarecrow/The Scarecrow.mp4"))
+        assertEquals("https://archive.org/download/reels/r/reel1.mov",
+            StudioRoomCopy.urlFromPath("reels/r/reel1.mov"))
+        for (bad in listOf("https://evil.example/x.mp4", "//evil.example/x.mp4", "a/../b.mp4",
+                           "the-scarecrow", "the-scarecrow/", "bad item!/x.mp4", "a/b\u0000.mp4")) {
+            assertEquals("refused: $bad", null, StudioRoomCopy.urlFromPath(bad))
+        }
+    }
+
+    @Test fun `in a room the HOST chooses, and outside one nothing is overridden`() {
+        val fallback = "https://archive.org/download/TheScarecrow1920/default.mp4"
+        StudioRoomCopy.clear()
+        assertEquals(null, StudioRoomCopy.url("TheScarecrow1920", fallback))
+        StudioRoomCopy.set("TheScarecrow1920", "the-scarecrow/The Scarecrow.mp4")
+        assertEquals("https://archive.org/download/the-scarecrow/The%20Scarecrow.mp4",
+            StudioRoomCopy.url("TheScarecrow1920", fallback))
+        assertEquals(null, StudioRoomCopy.url("Metropolis", fallback))
+        StudioRoomCopy.set("TheScarecrow1920", null)
+        assertEquals("an older host plays the DEFAULT, not the viewer's choice",
+            fallback, StudioRoomCopy.url("TheScarecrow1920", fallback))
+        StudioRoomCopy.clear()
+    }
 }

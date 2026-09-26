@@ -28,6 +28,8 @@ public final class StudioRoomHost {
     private let client: StudioSyncClient
     private weak var player: AVPlayer?
     private var filmID: String = ""
+    /// The host's file, `<item>/<file>` — what every guest will play.
+    private var copy: String?
 
     /// The link a guest opens with NO APP AT ALL (SHAREPLAY §11.6.2): the
     /// web's `#/together/<code>-<film>` route, which joins in any browser.
@@ -70,14 +72,15 @@ public final class StudioRoomHost {
     /// Open a room for the film this player is showing, and return the code to
     /// read aloud.
     @discardableResult
-    public func start(player: AVPlayer, filmID: String) async -> String? {
+    public func start(player: AVPlayer, filmID: String, copyURL: URL?) async -> String? {
         stop()
         self.player = player
         self.filmID = filmID
+        self.copy = StudioRoomCopy.path(from: copyURL)
         let position = player.currentTime().seconds
         do {
             let code = try await client.createRoom(
-                filmID: filmID,
+                filmID: filmID, copy: copy,
                 position: position.isFinite ? position : 0,
                 paused: player.rate == 0)
             self.code = code
@@ -192,8 +195,9 @@ public final class StudioRoomHost {
         let rate = Double(player?.rate ?? 1)
         if rate != 0 { lastPublishedRate = rate }
         let film = filmID
+        let copy = copy
         Task {
-            try? await client.publish(filmID: film, position: position,
+            try? await client.publish(filmID: film, copy: copy, position: position,
                                       rate: rate == 0 ? 1 : rate, paused: paused)
         }
     }

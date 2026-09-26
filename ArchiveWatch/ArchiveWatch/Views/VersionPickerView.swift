@@ -52,7 +52,7 @@ struct VersionPickerView: View {
                         ForEach(versions) { version in
                             Button {
                                 let isReselect = chosen == version.choiceKey
-                                chosen = isReselect ? nil : version.name
+                                chosen = isReselect ? nil : version.choiceKey
                                 onChoose(isReselect ? nil : version)
                                 dismiss()
                             } label: {

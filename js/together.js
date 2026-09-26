@@ -133,6 +133,8 @@
     this.state = {
       filmID: o.filmID, position: o.position, atServerTime: o.atServerTime,
       rate: o.rate || 1, paused: !!o.paused, generation: o.generation || 1,
+      // The HOST's copy, `<item>/<file>` — the file every guest plays.
+      copy: typeof o.copy === 'string' ? o.copy : null,
     };
     if (this.state.generation !== prev) this.generationChangedAt = Date.now() / 1000;
     return this.state;
@@ -256,8 +258,24 @@
     };
   }
 
+  /** The archive.org URL for a room's copy, or null. Built HERE, so a room can
+   *  only ever name a file on archive.org — the Worker's normalizeCopy, again.
+   *  Owner, 2026-09-26: "The host chooses the video that all Watch Together
+   *  participants should be watching." */
+  function copyURL(path) {
+    if (typeof path !== 'string' || path.length > 520) return null;
+    const slash = path.indexOf('/');
+    if (slash < 1) return null;
+    const item = path.slice(0, slash);
+    const name = path.slice(slash + 1);
+    if (!/^[A-Za-z0-9._@:+-]{1,120}$/.test(item) || !name || name.startsWith('/')) return null;
+    if (name.includes('..') || name.includes('\\') || /[\u0000-\u001f]/.test(name)) return null;
+    return `https://archive.org/download/${encodeURIComponent(item)}/` +
+      name.split('/').map(encodeURIComponent).join('/');
+  }
+
   const API = {
-    ALPHABET, CODE_LENGTH, normalizeCode, parseRoute,
+    ALPHABET, CODE_LENGTH, normalizeCode, parseRoute, copyURL,
     expectedPosition, sampleOffset, correction, pollInterval,
     TOLERANCE, SEEK_THRESHOLD, NUDGE_FAST, NUDGE_SLOW, POLL_FAST, POLL_IDLE, IDLE_AFTER,
     Client, follow, DEFAULT_BASE,

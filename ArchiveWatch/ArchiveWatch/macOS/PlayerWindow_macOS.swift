@@ -366,7 +366,9 @@ struct PlayerSurface: View {
         }
         // DOWNLOADED FIRST (Decision 099): a plain local file, with none of the
         // resilience machinery — a `file://` URL has no connection to lose.
-        else if let local = OfflineLibrary.videoURL(for: archiveID) {
+        // Not in a room: a downloaded file may be another copy than the host's.
+        else if !StudioRoomCopy.isActive(for: archiveID),
+                let local = OfflineLibrary.videoURL(for: archiveID) {
             playerItem = AVPlayerItem(url: local)
         } else if subtitleHLS != nil, let mp4 = videoURL {
             // A CAPTIONED FILM PLAYS LIKE ANY OTHER ONE (Decision 070, carried
@@ -457,7 +459,8 @@ struct PlayerSurface: View {
         // path — but the Studio window now holds the film itself, so the
         // player can exist BEFORE the host decides to produce a show, and the
         // session needs to know which player to reach for when they do.
-        Task { await StudioSession.shared.registerSurfacePlayer(p, archiveID: archiveID) }
+        Task { await StudioSession.shared.registerSurfacePlayer(p, archiveID: archiveID,
+                                                                copyURL: videoURL) }
         // FOLLOW A ROOM (§11), if the host joined one on the Watch Together
         // page. Here rather than in `PlayerWindow`, because this is where the
         // `AVPlayer` is actually built — the same reason `attachIfArmed` is
@@ -474,7 +477,8 @@ struct PlayerSurface: View {
         if RoomJoin.shared.wantsToHost {
             RoomJoin.shared.wantsToHost = false
             Task {
-                let code = await StudioRoomHost.shared.start(player: p, filmID: archiveID)
+                let code = await StudioRoomHost.shared.start(player: p, filmID: archiveID,
+                                                             copyURL: videoURL)
                 RoomJoin.shared.hostCode = code
                 RoomJoin.shared.problem = StudioRoomHost.shared.problem
             }

@@ -114,6 +114,12 @@ if [ -z "${AW_TOGETHER_BASE:-}" ] && [ -d worker ]; then
     # keeps the process a child of this shell.
     npx --yes wrangler d1 execute archivewatch-pulse --local \
       -c worker/wrangler.toml --file=worker/schema-rooms.sql >/dev/null 2>&1
+    # An EXISTING local database predates later columns, and CREATE TABLE IF
+    # NOT EXISTS never alters it: without this every room create was a 500
+    # and 8.30/8.31 plus the Kotlin live tests failed (2026-09-26). A repeat
+    # answers "duplicate column", which is fine.
+    npx --yes wrangler d1 execute archivewatch-pulse --local \
+      -c worker/wrangler.toml --file=worker/migrate-rooms-copy.sql >/dev/null 2>&1
     nohup npx --yes wrangler dev --local --port 8799 \
       -c worker/wrangler.toml > "$SCRATCH/wrangler.log" 2>&1 &
     # READY MEANS THE TABLE EXISTS, not merely that something answers.

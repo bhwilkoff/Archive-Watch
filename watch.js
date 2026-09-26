@@ -3129,18 +3129,22 @@
       // that js/api.js has never had, so from v1.42.469 every browser guest got
       // "Watching … with the room" and no player at all (found 2026-09-23 by
       // opening a room in Chrome).
-      let url = null;
-      const det = await Details.get(id).catch(() => null);
-      if (det?.downloadURL) {
-        url = det.downloadURL;
-      } else {
-        try {
-          const s = API.summarize(await API.fetchMetadata(id, { timeoutMs: 12000 }));
-          if (s?.videoFile) {
-            url = 'https://archive.org/download/' + encodeURIComponent(id) + '/' +
-              encodeURIComponent(s.videoFile.name).replace(/%2F/g, '/');
-          }
-        } catch { /* said below */ }
+      // THE HOST'S COPY, exactly — never this viewer's own choice (§4.4b).
+      // A host that predates `copy` gets the title's default below.
+      let url = Together.copyURL(state.copy);
+      if (!url) {
+        const det = await Details.get(id).catch(() => null);
+        if (det?.downloadURL) {
+          url = det.downloadURL;
+        } else {
+          try {
+            const s = API.summarize(await API.fetchMetadata(id, { timeoutMs: 12000 }));
+            if (s?.videoFile) {
+              url = 'https://archive.org/download/' + encodeURIComponent(id) + '/' +
+                encodeURIComponent(s.videoFile.name).replace(/%2F/g, '/');
+            }
+          } catch { /* said below */ }
+        }
       }
       if (!url) {
         err.hidden = false;

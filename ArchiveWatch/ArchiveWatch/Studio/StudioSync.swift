@@ -1,4 +1,5 @@
 import Foundation
+import Synchronization
 
 /// KEEPING THE FILM IN SYNC WITHOUT SHAREPLAY — SHAREPLAY §11.
 ///
@@ -20,6 +21,11 @@ public enum StudioSync {
     /// two-hour watch tens of messages instead of thousands.
     public struct State: Equatable, Sendable {
         public let filmID: String
+        /// The HOST's copy, `<archive item>/<file name>` — the file every
+        /// guest plays (owner, 2026-09-26: "The host chooses the video that
+        /// all Watch Together participants should be watching."). Nil from a
+        /// host that predates it: guests then play the title's DEFAULT copy.
+        public let copy: String?
         /// Seconds into the film.
         public let position: Double
         /// The SERVER's clock when `position` was true — never a client's,
@@ -32,8 +38,10 @@ public enum StudioSync {
         public let generation: Int
 
         public init(filmID: String, position: Double, atServerTime: Double,
-                    rate: Double = 1.0, paused: Bool = false, generation: Int = 1) {
+                    rate: Double = 1.0, paused: Bool = false, generation: Int = 1,
+                    copy: String? = nil) {
             self.filmID = filmID
+            self.copy = copy
             self.position = position
             self.atServerTime = atServerTime
             self.rate = rate
@@ -190,4 +198,61 @@ public enum StudioSync {
     public static func pollInterval(secondsSinceGenerationChanged: Double) -> Double {
         secondsSinceGenerationChanged >= idleAfterSeconds ? pollIdleSeconds : pollFastSeconds
     }
+}
+
+/// WHICH FILE A ROOM PLAYS, enforced where every Apple player chooses one.
+///
+/// Every play path asks `ArchiveVersions.preferredURL`, and that asks this
+/// first: while a device is in a room for a film, the answer is the host's
+/// copy — or the title's DEFAULT copy for a host that predates `copy` — and
+/// never this viewer's own saved choice or a downloaded file of another copy.
+/// Owner, 2026-09-26: "There should be no way to choose the wrong one via the
+/// four digit code." Copies of one title differ in length (Keaton's two
+/// Scarecrows are 55 s apart), so the wrong copy is a different timeline.
+///
+/// Set by every join screen BEFORE a player is built (`prime`), kept current
+/// by the follower, cleared when the follower leaves. A lock rather than an
+/// actor: players ask synchronously, as they are being built.
+public enum StudioRoomCopy {
+    private static let active = Mutex<(film: String, copy: String?)?>(nil)
+
+    public static func set(film: String, copy: String?) {
+        active.withLock { $0 = (film, copy) }
+    }
+    public static func clear() { active.withLock { $0 = nil } }
+
+    public static func isActive(for film: String) -> Bool {
+        active.withLock { $0?.film == film }
+    }
+
+    /// What a player must play for `film`, or nil when not in a room for it.
+    public static func url(for film: String, default fallback: URL) -> URL? {
+        guard let room = active.withLock({ $0 }), room.film == film else { return nil }
+        return room.copy.flatMap(url(fromPath:)) ?? fallback
+    }
+
+    /// `<item>/<file>` for an archive.org download URL, or nil for anything else.
+    public static func path(from url: URL?) -> String? {
+        guard let url, let host = url.host?.lowercased(),
+              host == "archive.org" || host.hasSuffix(".archive.org") else { return nil }
+        let parts = url.pathComponents.filter { $0 != "/" }
+        guard parts.count >= 3, parts[0] == "download" else { return nil }
+        return parts.dropFirst().joined(separator: "/")
+    }
+
+    /// The archive.org download URL for a room's copy — built HERE, so a room
+    /// can only ever name a file on archive.org. Mirrors the Worker's
+    /// `normalizeCopy`.
+    public static func url(fromPath path: String) -> URL? {
+        guard path.count <= 520, let slash = path.firstIndex(of: "/") else { return nil }
+        let item = String(path[..<slash])
+        let name = String(path[path.index(after: slash)...])
+        let itemOK = item.range(of: "^[A-Za-z0-9._@:+-]{1,120}$", options: .regularExpression) != nil
+        guard itemOK, !name.isEmpty, !name.hasPrefix("/"), !name.contains(".."),
+              !name.contains("\\"), !name.unicodeScalars.contains(where: { $0.value < 0x20 }),
+              let encoded = name.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)
+        else { return nil }
+        return URL(string: "https://archive.org/download/\(item)/\(encoded)")
+    }
+
 }

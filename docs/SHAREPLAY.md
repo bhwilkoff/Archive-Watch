@@ -1048,6 +1048,48 @@ The 🚫 rows are what the TABLE records; they are what a surface must NOT say.
 A television's Watch Together screen now opens with what an Apple TV can
 actually do and never mentions the two it cannot.
 
+### §11.14 THE HOST CHOOSES THE COPY (2026-09-26)
+
+Owner: *"The host chooses the video that all Watch Together participants
+should be watching. There should be no way to choose the wrong one via the
+four digit code."*
+
+A room carries `copy`, `<archive item>/<file name>` — the exact file the
+host's player is showing — beside `filmID`. Every guest plays THAT file: the
+Worker stores it (`normalizeCopy`), and each platform builds
+`https://archive.org/download/<item>/<file>` itself from the same rules
+(Swift `StudioRoomCopy`, Kotlin `StudioRoomCopy`, web `Together.copyURL`), so a
+room can never send a guest's player anywhere but archive.org.
+
+**Why it matters, measured**: one title can hold several copies — its own
+item's transfers and, since Decision 040 merges re-uploads, other uploads'
+files — and they are not the same length (Keaton's two Scarecrows are 55 s
+apart). A guest syncing to the host's POSITION on another copy is on another
+timeline, and every correction lands on the wrong frame.
+
+**How it is enforced**: every Apple and Android player chooses its file through
+`ArchiveVersions.preferredURL`, and that answers the room's copy first while
+the device is in a room for that film — over the viewer's own saved choice, and
+a downloaded file of another copy is skipped. A host that predates `copy` gets
+the title's DEFAULT copy, never the viewer's choice. Every join entry point
+(join screens, room links, the debug doors) reads the room BEFORE the player is
+built (`prime`), and the pickers say *"In a Watch Together room, the host
+chooses the copy."* (Mac, iPhone, Android sheets) or are hidden (tvOS, the
+in-player menus). The web plays `Together.copyURL(state.copy)`.
+
+**Proved**: the live Worker refuses a URL to another host, a `..` escape and a
+guest's write (403) and keeps the copy through an update that omits it; the web
+guest played the host's non-default copy and stayed within 0.07 s of the room,
+while the SAME test against the live site without this change played the
+title's default and failed (the control); the Mac guest, given a conflicting
+saved choice of its own, logged `AWROOMCOPY TheScarecrow1920 plays the room's
+copy …/the-scarecrow/The%20Scarecrow.mp4` and synced. Roku has no room surface
+yet (PARITY), so it has nothing to enforce.
+
+The copy is set when the room opens; a host who changes copy mid-room is not
+yet followed by guests (the Mac host's player is rebuilt by such a change and
+the room was never carried across it either).
+
 ### §11.7 What would have to be proved before it ships
 
 Not built, and none of this is a measurement yet. In this feature's own terms

@@ -146,6 +146,8 @@ object ArchiveVersions {
      *  pipeline's pick unchanged. Rebuilt from the stored NAME so honouring
      *  a choice never waits on /metadata. */
     fun preferredURL(context: Context, archiveID: String, fallback: String): String {
+        // IN A WATCH TOGETHER ROOM THE HOST CHOOSES (StudioRoomCopy).
+        app.archivewatch.android.studio.StudioRoomCopy.url(archiveID, playable(fallback))?.let { return it }
         val key = chosenName(context, archiveID) ?: return playable(fallback)
         val (item, name) = location(key, archiveID)
         return downloadURL(item, name)

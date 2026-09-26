@@ -111,6 +111,9 @@ struct RootView: View {
             if let code = env["AW_ROOM_JOIN"], !code.isEmpty {
                 RoomJoinTV.shared.pending = code
                 RoomJoinTV.shared.pendingFilm = env["AW_START_ITEM"]
+                // The door drives the product's chain (Decision 133): read the
+                // room so the player built next plays the HOST's copy.
+                _ = await StudioRoomCopy.prime(code: code)
                 awdiag("AWFOLLOW door will join room %@", code)
             }
         }

@@ -127,6 +127,8 @@ struct JoinRoomTV: View {
             do {
                 let state = try await client.join(code: code)
                 await client.leave()
+                // The host's copy, remembered BEFORE the player is built.
+                StudioRoomCopy.set(film: state.filmID, copy: state.copy)
                 working = false
                 guard let item = store.db?.item(state.filmID) else {
                     problem = "That room is watching a film this Apple TV does not have in its catalog yet."

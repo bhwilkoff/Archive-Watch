@@ -72,6 +72,8 @@ fun TvJoinRoomScreen(container: AppContainer, nav: Nav) {
             try {
                 val state = client.join(code)
                 client.leave()
+                // The host's copy, remembered BEFORE the player is built.
+                app.archivewatch.android.studio.StudioRoomCopy.set(state.filmID, state.copy)
                 working = false
                 val db = container.catalog.awaitDb()
                 val item = db.itemsByIDs(listOf(state.filmID)).firstOrNull()

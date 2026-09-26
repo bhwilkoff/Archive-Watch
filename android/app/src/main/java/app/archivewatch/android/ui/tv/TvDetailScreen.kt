@@ -831,8 +831,10 @@ private fun TvVersionOverlay(
     var chosen by remember {
         mutableStateOf(app.archivewatch.android.data.ArchiveVersions.chosenName(context, archiveID))
     }
+    // In a Watch Together room the HOST chooses the copy.
+    val inRoom = app.archivewatch.android.studio.StudioRoomCopy.isActive(archiveID)
     LaunchedEffect(archiveID) {
-        versions = app.archivewatch.android.data.ArchiveVersions.list(archiveID)
+        versions = if (inRoom) emptyList() else app.archivewatch.android.data.ArchiveVersions.list(archiveID)
     }
     val firstFocus = remember { FocusRequester() }
     ClaimInitialFocus(firstFocus, key = versions != null)
@@ -849,7 +851,8 @@ private fun TvVersionOverlay(
         ) {
             Text("Choose a Copy", fontSize = 22.sp, fontWeight = FontWeight.Medium, color = Color.White)
             Text(
-                "The Archive often holds several transfers of the same film.",
+                if (inRoom) "In a Watch Together room, the host chooses the copy."
+                else "The Archive often holds several transfers of the same film.",
                 fontSize = 13.sp, color = Color(0xFF9A9A9A),
                 modifier = Modifier.padding(top = 4.dp, bottom = 16.dp),
             )

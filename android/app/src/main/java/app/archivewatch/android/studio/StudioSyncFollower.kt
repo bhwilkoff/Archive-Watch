@@ -91,6 +91,7 @@ object StudioSyncFollower {
         job = scope.launch {
             try {
                 val state = c.join(code)
+                StudioRoomCopy.set(state.filmID, state.copy)
                 status = Status.Following(c.code ?: code, state.filmID)
                 lastPaused = state.paused
             } catch (e: Exception) {
@@ -119,6 +120,7 @@ object StudioSyncFollower {
                 if (!isActive) return@launch
                 try {
                     val s = c.poll()
+                    StudioRoomCopy.set(s.filmID, s.copy)
                     hostRate = s.rate
                     lastPaused = s.paused
                 } catch (e: Exception) {
@@ -127,6 +129,7 @@ object StudioSyncFollower {
                     if (e is StudioSyncClient.JoinError.NoSuchRoom ||
                         e is StudioSyncClient.JoinError.Ended) {
                         status = Status.Ended
+                        StudioRoomCopy.clear()
                         withContext(Dispatchers.Main) { unwatch(player) }
                         // The film keeps playing — it is the guest's now —
                         // and they are told they are no longer in step.
@@ -149,6 +152,7 @@ object StudioSyncFollower {
     }
 
     fun stop(player: Player? = null) {
+        StudioRoomCopy.clear()
         job?.cancel(); job = null
         noticeJob?.cancel(); noticeJob = null
         notice = null

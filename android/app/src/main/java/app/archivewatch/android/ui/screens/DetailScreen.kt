@@ -700,14 +700,17 @@ private fun VersionSheet(archiveID: String, onDone: () -> Unit) {
     var chosen by remember {
         mutableStateOf(app.archivewatch.android.data.ArchiveVersions.chosenName(context, archiveID))
     }
+    // In a Watch Together room the HOST chooses the copy.
+    val inRoom = app.archivewatch.android.studio.StudioRoomCopy.isActive(archiveID)
     LaunchedEffect(archiveID) {
-        versions = app.archivewatch.android.data.ArchiveVersions.list(archiveID)
+        versions = if (inRoom) emptyList() else app.archivewatch.android.data.ArchiveVersions.list(archiveID)
     }
     androidx.compose.material3.ModalBottomSheet(onDismissRequest = onDone) {
         Column(Modifier.padding(horizontal = 20.dp, vertical = 4.dp)) {
             Text("Choose a copy", style = MaterialTheme.typography.titleMedium)
             Text(
-                "The Archive often holds several transfers of the same film.",
+                if (inRoom) "In a Watch Together room, the host chooses the copy."
+                else "The Archive often holds several transfers of the same film.",
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                 modifier = Modifier.padding(top = 2.dp, bottom = 8.dp),

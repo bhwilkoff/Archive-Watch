@@ -182,6 +182,37 @@ struct StudioSyncTest {
               !StudioSync.hostShouldRepublish(position: 125, lastPosition: 100, lastPaused: false,
                                               lastRate: 1.25, secondsSincePublish: 20))
 
+        // THE HOST'S COPY (2026-09-26): the same table as the Worker's
+        // normalizeCopy and the web's copyURL, so no client can be sent to a
+        // file the others would refuse, or anywhere but archive.org.
+        let good = URL(string: "https://archive.org/download/the-scarecrow/The%20Scarecrow.mp4")!
+        check("a download URL becomes item/file",
+              StudioRoomCopy.path(from: good) == "the-scarecrow/The Scarecrow.mp4")
+        check("and back, exactly",
+              StudioRoomCopy.url(fromPath: "the-scarecrow/The Scarecrow.mp4") == good)
+        check("a file in a folder survives",
+              StudioRoomCopy.url(fromPath: "reels/r/reel1.mov")?.absoluteString
+                == "https://archive.org/download/reels/r/reel1.mov")
+        check("another host is not a copy",
+              StudioRoomCopy.path(from: URL(string: "https://evil.example/download/a/b.mp4")) == nil)
+        for bad in ["https://evil.example/x.mp4", "//evil.example/x.mp4", "a/../b.mp4",
+                    "the-scarecrow", "the-scarecrow/", "bad item!/x.mp4", "a/b\u{0}.mp4"] {
+            check("refused: \(bad.debugDescription)", StudioRoomCopy.url(fromPath: bad) == nil)
+        }
+        // In a room the HOST's file wins; outside one, nothing is overridden.
+        let fallback = URL(string: "https://archive.org/download/TheScarecrow1920/default.mp4")!
+        StudioRoomCopy.clear()
+        check("no room: no override", StudioRoomCopy.url(for: "TheScarecrow1920", default: fallback) == nil)
+        StudioRoomCopy.set(film: "TheScarecrow1920", copy: "the-scarecrow/The Scarecrow.mp4")
+        check("in a room: the host's copy",
+              StudioRoomCopy.url(for: "TheScarecrow1920", default: fallback) == good)
+        check("another film is untouched",
+              StudioRoomCopy.url(for: "Metropolis", default: fallback) == nil)
+        StudioRoomCopy.set(film: "TheScarecrow1920", copy: nil)
+        check("an older host: the DEFAULT copy, not the viewer's",
+              StudioRoomCopy.url(for: "TheScarecrow1920", default: fallback) == fallback)
+        StudioRoomCopy.clear()
+
         print(failures == 0 ? "=== §8.27 OK ===" : "=== §8.27 \(failures) FAILURES ===")
         exit(failures == 0 ? 0 : 1)
     }

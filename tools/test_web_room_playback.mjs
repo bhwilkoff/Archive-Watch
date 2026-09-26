@@ -7,7 +7,11 @@
 // position as playback ONLY with readyState >= 2 and a buffered range that
 // covers it.
 //
-//   node tools/test_web_room_playback.mjs [film] [siteRoot]
+//   node tools/test_web_room_playback.mjs [film] [siteRoot] [copy]
+//
+// With [copy] (`<item>/<file>`, 2026-09-26) the room is created carrying the
+// HOST's copy and the guest must play exactly that file — owner: "There should
+// be no way to choose the wrong one via the four digit code."
 //
 // Creates a real room on the live Worker, opens the invite link, asserts:
 //   1. the film PLAYS (readyState >= 2, buffered covers the playhead)
@@ -20,6 +24,7 @@ import { spawn } from "node:child_process";
 const FILM = process.argv[2] || "that-certain-thing-1928";
 const SITE = process.argv[3] || "https://archivewatch.org/";
 const WORKER = "https://archivewatch-pulse.benwilkoff.workers.dev/together";
+const COPY = process.argv[4] || null;
 const CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
 const PORT = 9334;
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -37,7 +42,8 @@ try {
 
 const room = await fetch(`${WORKER}/new`, {
   method: "POST", headers: { "content-type": "application/json" },
-  body: JSON.stringify({ filmID: FILM, position: 300, rate: 1, paused: false }),
+  body: JSON.stringify({ filmID: FILM, position: 300, rate: 1, paused: false,
+                        ...(COPY ? { copy: COPY } : {}) }),
 }).then((r) => r.json());
 if (!room.code) { console.log("FAIL could not create a room", room); process.exit(1); }
 const host = (body) => fetch(`${WORKER}/${room.code}`, {
@@ -99,9 +105,25 @@ try {
     s = await evaluate(STATE);
     if (s && s.rs >= 2 && s.covered && !s.paused) break;
   }
+  if (!(s && s.rs >= 2)) {
+    // Say what the PAGE says when it did not play — a failed join, a missing
+    // film and a script error all look identical from the video's side.
+    console.log("page:", JSON.stringify(await evaluate(`({ hash: location.hash,
+      err: document.getElementById('together-error')?.textContent,
+      note: document.getElementById('together-note')?.textContent,
+      rows: typeof Data !== 'undefined' ? Data.byID?.size : 'no Data',
+      src: document.getElementById('video')?.currentSrc })`)));
+  }
   check("the page is visible to itself (not the hidden-tab trap)", s && s.hidden === false, JSON.stringify(s));
   check("the film PLAYS: readyState >= 2 and the playhead is buffered",
         s && s.rs >= 2 && s.covered && !s.paused, JSON.stringify(s));
+  if (COPY) {
+    // What the <video> actually LOADED, not what the page meant to load.
+    const src = await evaluate("document.getElementById('video').currentSrc");
+    const want = "https://archive.org/download/" + COPY.split("/").map(encodeURIComponent).join("/");
+    check("the guest plays the HOST's copy, not the title's default", src === want,
+          `src ${src} want ${want}`);
+  }
   const t0 = s?.t ?? 0;
   await sleep(4000);
   const s2 = await evaluate(STATE);

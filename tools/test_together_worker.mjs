@@ -9,7 +9,7 @@
 //
 // The Swift side is tools/test_studio_room.swift (§8.28); this asserts the
 // SAME table of inputs against the JavaScript.
-import { normalizeCode } from "../worker/src/together.js";
+import { normalizeCode, normalizeCopy } from "../worker/src/together.js";
 
 let failures = 0;
 function check(label, ok, detail = "") {
@@ -59,5 +59,29 @@ for (const [input, why] of rejects) {
 // nothing at all.
 check("CONTROL: a well-formed code is still accepted", normalizeCode("XYZ9") === "XYZ9");
 
+
+// THE HOST'S COPY (2026-09-26): a room carries `<item>/<file>` and nothing
+// that could send a guest's player to another host.
+console.log("=== room copy ===");
+const goodCopies = [
+  ["the-scarecrow/TheScarecrow.mp4", "a plain file"],
+  ["TheScarecrow1920/The Scarecrow (1920).mp4", "spaces and parentheses"],
+  ["busterkeatonridesagain/reels/reel1.mov", "a file in a folder"],
+];
+for (const [c, why] of goodCopies) check(`accepted (${why})`, normalizeCopy(c) === c, String(normalizeCopy(c)));
+const badCopies = [
+  ["https://evil.example/x.mp4", "a URL to another host"],
+  ["//evil.example/x.mp4", "a protocol-relative URL"],
+  ["the-scarecrow/../other/x.mp4", "a parent-directory escape"],
+  ["the-scarecrow", "no file"],
+  ["the-scarecrow/", "an empty file"],
+  ["bad item!/x.mp4", "an item outside archive.org's alphabet"],
+  ["the-scarecrow/a\u0000b.mp4", "a control character"],
+  ["x".repeat(600), "too long"],
+  [42, "not a string"],
+];
+for (const [c, why] of badCopies) check(`refused (${why})`, normalizeCopy(c) === null, String(normalizeCopy(c)));
+check("CONTROL: the refusals are not refusing everything",
+  normalizeCopy("item/file.mp4") === "item/file.mp4");
 console.log(failures === 0 ? "=== §8.29 OK ===" : `=== §8.29 ${failures} FAILURES ===`);
 process.exit(failures === 0 ? 0 : 1);

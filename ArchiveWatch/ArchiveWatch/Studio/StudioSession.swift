@@ -790,6 +790,8 @@ public final class StudioSession {
         didSet { observeFilmPlayback() }
     }
     private var surfaceArchiveID: String?
+    /// The archive.org file the surface is playing — a room's copy (§11).
+    private var surfaceCopyURL: URL?
 
     /// Whether the film is playing, OBSERVABLY — a menu title that says
     /// "Pause" over a paused film is a control that lies about itself.
@@ -819,7 +821,8 @@ public final class StudioSession {
     /// Called by every macOS/iOS player surface as soon as it has a player.
     /// Carries the old `attachIfArmed` behavior unchanged, and remembers the
     /// player so a show armed LATER can still find it.
-    public func registerSurfacePlayer(_ player: AVPlayer, archiveID: String) async {
+    public func registerSurfacePlayer(_ player: AVPlayer, archiveID: String,
+                                      copyURL: URL? = nil) async {
         // WHICH PLAYER, by identity. The Studio's program went black on some
         // runs and not others with identical logs, and the only difference a
         // log could show was WHICH AVPlayer each step was talking about — a
@@ -829,6 +832,7 @@ public final class StudioSession {
                UInt(bitPattern: ObjectIdentifier(player).hashValue), archiveID)
         surfacePlayer = player
         surfaceArchiveID = archiveID
+        surfaceCopyURL = copyURL
         #if DEBUG
         // EVERY DOOR IS SILENT IN THE ROOM, including the one that only opens
         // the Studio. `muteLocalMonitorForHarness` reaches `localPlayer`, which
@@ -1442,7 +1446,8 @@ public final class StudioSession {
         guard let p = surfacePlayer, let id = surfaceArchiveID else {
             return (nil, "There is no film in the Studio to share.")
         }
-        let code = await StudioRoomHost.shared.start(player: p, filmID: id)
+        let code = await StudioRoomHost.shared.start(player: p, filmID: id,
+                                                     copyURL: surfaceCopyURL)
         return (code, StudioRoomHost.shared.problem)
     }
 

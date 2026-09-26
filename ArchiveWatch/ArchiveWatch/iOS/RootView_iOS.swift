@@ -35,6 +35,9 @@ struct RootView: View {
         .task {
             if let code = ProcessInfo.processInfo.environment["AW_ROOM_JOIN"], !code.isEmpty {
                 RoomJoin_iOS.shared.pending = code
+                // The door drives the product's chain (Decision 133): read the
+                // room so the player built next plays the HOST's copy.
+                _ = await StudioRoomCopy.prime(code: code)
                 awdiag("AWFOLLOW door will join room %@", code)
             }
         }

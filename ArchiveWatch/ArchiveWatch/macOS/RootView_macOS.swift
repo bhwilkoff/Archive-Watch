@@ -233,6 +233,9 @@ struct RootView: View {
                 if let code = env["AW_ROOM_JOIN"], !code.isEmpty {
                     RoomJoin.shared.pending = code
                     RoomJoin.shared.pendingFilm = it.archiveID
+                    // The door drives the product's chain (Decision 133): read the
+                    // room so the player built next plays the HOST's copy.
+                    _ = await StudioRoomCopy.prime(code: code)
                     awdiag("AWFOLLOW door will join room %@", code)
                 }
                 #endif
@@ -777,6 +780,8 @@ private struct JoinRoomSheet: View {
             do {
                 let state = try await client.join(code: code)
                 await client.leave()
+                // The host's copy, remembered BEFORE the player is built.
+                StudioRoomCopy.set(film: state.filmID, copy: state.copy)
                 working = false
                 onJoin(code, state.filmID)
                 dismiss()

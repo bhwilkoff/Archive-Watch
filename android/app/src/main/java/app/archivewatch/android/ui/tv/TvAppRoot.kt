@@ -194,6 +194,9 @@ fun TvAppRoot(container: AppContainer) {
             val item = container.catalog.awaitDb().item(filmID) ?: return@collect
             val url = item.downloadURL ?: return@collect
             android.util.Log.i("AWFOLLOW", "door will join room $code")
+            // A LINK names the film but not the host's copy: read the room so
+            // the player built next plays the host's file.
+            app.archivewatch.android.studio.StudioRoomCopy.prime(code)
             app.archivewatch.android.studio.StudioSyncFollower.pending = code
             app.archivewatch.android.studio.StudioSyncFollower.pendingFilm = item.archiveID
             nav.push(Route.Player(PlaySpec(

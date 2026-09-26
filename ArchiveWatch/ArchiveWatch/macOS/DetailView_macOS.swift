@@ -466,13 +466,15 @@ struct DetailView: View {
 
     @ViewBuilder
     private var versionMenuContents: some View {
-        if versions.isEmpty {
+        if StudioRoomCopy.isActive(for: item.archiveID) {
+            Text("In a Watch Together room, the host chooses the copy.")
+        } else if versions.isEmpty {
             Text(loadingVersions ? "Loading…" : "No other copies")
         } else {
             ForEach(versions) { v in
                 Button {
                     ArchiveVersions.choose(v, for: item.archiveID)
-                    chosenVersionName = v.name
+                    chosenVersionName = v.choiceKey
                 } label: {
                     Label(v.label, systemImage:
                         chosenVersionName == v.choiceKey ? "checkmark.circle.fill" : "circle")

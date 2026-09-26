@@ -96,6 +96,7 @@ class StudioSyncClient(private val base: String = LIVE) {
             rate = o.optDouble("rate", 1.0),
             paused = o.optBoolean("paused", false),
             generation = o.optInt("generation", 1),
+            copy = if (o.isNull("copy")) null else o.optString("copy").ifEmpty { null },
         )
         if (state.generation != lastState?.generation) {
             generationChangedAt = System.currentTimeMillis()

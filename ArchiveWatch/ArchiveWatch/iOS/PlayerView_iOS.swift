@@ -170,7 +170,9 @@ struct PlayerView: UIViewControllerRepresentable {
         // one asset shape that works with the radio off, which is the point.
         // `context.coordinator.directVideoURL` keeps the REMOTE url so AirPlay
         // still has something a receiver can fetch (Decision 051).
-        let localFileURL = OfflineLibrary.videoURL(for: archiveID)
+        // Not in a room: a downloaded file may be another copy than the host's.
+        let localFileURL = StudioRoomCopy.isActive(for: archiveID)
+            ? nil : OfflineLibrary.videoURL(for: archiveID)
 
         var pItem: AVPlayerItem
         if let local = localFileURL {

@@ -68,6 +68,29 @@ async function tally(env, kind) {
 
 /** What a film id may look like: the archive's own identifier alphabet. */
 const FILM_ID = /^[A-Za-z0-9._@:+-]{1,120}$/;
+
+/**
+ * THE HOST'S COPY — `<archive item>/<file name>`, the exact file the host is
+ * playing. Owner, 2026-09-26: "The host chooses the video that all Watch
+ * Together participants should be watching. There should be no way to choose
+ * the wrong one via the four digit code." A title can hold several copies
+ * (and merged uploads, Decision 040) of different lengths, so a guest syncing
+ * to the host's POSITION on another copy is on another timeline.
+ *
+ * Only an archive.org path, never a URL: every client builds
+ * https://archive.org/download/<item>/<name> itself, so a room can never point
+ * a guest's player at another host. Returns the path, or null if malformed.
+ */
+export function normalizeCopy(v) {
+  if (typeof v !== "string" || v.length > 520) return null;
+  const slash = v.indexOf("/");
+  if (slash < 1) return null;
+  const item = v.slice(0, slash);
+  const name = v.slice(slash + 1);
+  if (!FILM_ID.test(item) || !name || name.startsWith("/")) return null;
+  if (name.includes("..") || name.includes("\\") || /[\u0000-\u001f]/.test(name)) return null;
+  return `${item}/${name}`;
+}
 /** Guests counted per room; beyond this a new token is refused. */
 const MAX_PRESENT = 50;
 
@@ -171,6 +194,9 @@ function rowToState(r, nowMs) {
   return {
     code: r.code,
     filmID: r.film_id,
+    // Null from a host build that predates it; a guest then plays the
+    // title's DEFAULT copy, never its own saved choice.
+    copy: r.copy || null,
     position: r.position,
     // SECONDS, because the clients work in seconds and a unit change at the
     // boundary is how a sync bug gets written.
@@ -202,6 +228,8 @@ export async function handleTogether(url, request, env) {
     try { body = await request.json(); } catch { return json({ error: "bad body" }, 400); }
     const filmID = String(body.filmID || "");
     if (!FILM_ID.test(filmID)) return json({ error: "filmID required" }, 400);
+    const copy = body.copy === undefined || body.copy === null ? null : normalizeCopy(body.copy);
+    if (body.copy && !copy) return json({ error: "bad copy" }, 400);
 
     // A CODE IS CHECKED AGAINST LIVE ROOMS BEFORE IT IS ISSUED. This is one of
     // the two things that make four characters safe rather than merely short
@@ -213,10 +241,10 @@ export async function handleTogether(url, request, env) {
       try {
         const hostKey = newHostKey();
         await env.DB.prepare(
-          "INSERT INTO rooms (code, film_id, position, at_server_ms, rate, paused, generation, touched_ms, host_key) " +
-          "VALUES (?1, ?2, ?3, ?4, ?5, ?6, 1, ?4, ?7)"
+          "INSERT INTO rooms (code, film_id, position, at_server_ms, rate, paused, generation, touched_ms, host_key, copy) " +
+          "VALUES (?1, ?2, ?3, ?4, ?5, ?6, 1, ?4, ?7, ?8)"
         ).bind(code, filmID, position(body.position), now,
-               rate(body.rate), body.paused ? 1 : 0, hostKey).run();
+               rate(body.rate), body.paused ? 1 : 0, hostKey, copy).run();
         await tally(env, "room");
         // The key is returned ONCE, to the creator, and never again — a GET
         // must never be able to hand it out, or the split it exists for is
@@ -311,11 +339,14 @@ export async function handleTogether(url, request, env) {
     // A MISSING film id KEEPS the current film; it used to blank it (A14).
     const film = body.filmID === undefined ? null : String(body.filmID);
     if (film !== null && !FILM_ID.test(film)) return json({ error: "bad filmID" }, 400);
+    // A missing copy KEEPS the current one, like the film; a bad one is refused.
+    const copy = body.copy === undefined || body.copy === null ? null : normalizeCopy(body.copy);
+    if (body.copy && !copy) return json({ error: "bad copy" }, 400);
     const res = await env.DB.prepare(
-      "UPDATE rooms SET film_id = COALESCE(?2, film_id), position = ?3, at_server_ms = ?4, rate = ?5, " +
-      "paused = ?6, generation = generation + 1, touched_ms = ?4 WHERE code = ?1"
+      "UPDATE rooms SET film_id = COALESCE(?2, film_id), copy = COALESCE(?7, copy), position = ?3, " +
+      "at_server_ms = ?4, rate = ?5, paused = ?6, generation = generation + 1, touched_ms = ?4 WHERE code = ?1"
     ).bind(code, film, position(body.position), now,
-           rate(body.rate), body.paused ? 1 : 0).run();
+           rate(body.rate), body.paused ? 1 : 0, copy).run();
     if (!res.meta || res.meta.changes === 0) return json({ error: "no such room" }, 404);
     const r = await env.DB.prepare("SELECT * FROM rooms WHERE code = ?1").bind(code).first();
     return json(rowToState(r, now));

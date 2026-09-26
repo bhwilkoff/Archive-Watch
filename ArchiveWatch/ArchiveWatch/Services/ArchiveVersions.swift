@@ -238,6 +238,12 @@ enum ArchiveVersions {
     /// the choice working when the Archive is slow to answer, which is
     /// precisely the evening someone reaches for a lighter copy.
     static func preferredURL(for archiveID: String, default fallback: URL) -> URL {
+        // IN A WATCH TOGETHER ROOM THE HOST CHOOSES: the room's copy, or the
+        // title's default, never this viewer's own choice (StudioRoomCopy).
+        if let room = StudioRoomCopy.url(for: archiveID, default: fallback) {
+            awdiag("AWROOMCOPY %@ plays the room's copy %@", archiveID, room.absoluteString)
+            return room
+        }
         guard let key = chosenName(for: archiveID) else { return fallback }
         let (item, name) = location(of: key, title: archiveID)
         guard let encoded = name.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed),

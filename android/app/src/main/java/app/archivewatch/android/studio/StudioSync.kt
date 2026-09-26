@@ -34,6 +34,9 @@ object StudioSync {
         val rate: Double = 1.0,
         val paused: Boolean = false,
         val generation: Int = 1,
+        /** The HOST's copy, `<archive item>/<file name>` — the file every guest
+         *  plays (owner, 2026-09-26). Null from a host that predates it. */
+        val copy: String? = null,
     ) {
         /**
          * Where the film should be at [serverNow].
@@ -102,4 +105,53 @@ object StudioSync {
     /** Back off while nothing happens; snap back the moment it does. */
     fun pollInterval(secondsSinceGenerationChanged: Double): Double =
         if (secondsSinceGenerationChanged >= IDLE_AFTER_SECONDS) POLL_IDLE_SECONDS else POLL_FAST_SECONDS
+}
+
+/**
+ * WHICH FILE A ROOM PLAYS, enforced where the player chooses one: while this
+ * device is in a room for a film, [ArchiveVersions.preferredURL] returns the
+ * HOST's copy — or the title's default for a host that predates it — never
+ * this viewer's own saved choice. Owner, 2026-09-26: "There should be no way to
+ * choose the wrong one via the four digit code." Copies of a title differ in
+ * length, so the wrong copy is a different timeline. Mirrors Apple's
+ * StudioRoomCopy and the Worker's normalizeCopy.
+ */
+object StudioRoomCopy {
+    @Volatile private var active: Pair<String, String?>? = null
+    private val ITEM = Regex("^[A-Za-z0-9._@:+-]{1,120}$")
+
+    fun set(film: String, copy: String?) { active = film to copy }
+    fun clear() { active = null }
+    fun isActive(film: String): Boolean = active?.first == film
+
+    /** What a player must play for [film], or null when not in a room for it. */
+    fun url(film: String, fallback: String): String? {
+        val room = active ?: return null
+        if (room.first != film) return null
+        return room.second?.let { urlFromPath(it) } ?: fallback
+    }
+
+    /** The archive.org URL for a room's copy — built here, so a room can only
+     *  ever name a file on archive.org. */
+    fun urlFromPath(path: String): String? {
+        if (path.length > 520) return null
+        val slash = path.indexOf('/')
+        if (slash < 1) return null
+        val item = path.substring(0, slash)
+        val name = path.substring(slash + 1)
+        if (!ITEM.matches(item) || name.isEmpty() || name.startsWith("/") || name.contains("..") ||
+            name.contains('\\') || name.any { it.code < 0x20 }) return null
+        val encoded = name.split('/').joinToString("/") {
+            java.net.URLEncoder.encode(it, "UTF-8").replace("+", "%20")
+        }
+        return "https://archive.org/download/$item/$encoded"
+    }
+
+    /** Read a room and remember its copy, so the player built next plays it. */
+    suspend fun prime(code: String): StudioSync.State? {
+        val client = StudioSyncClient()
+        return try {
+            client.join(code).also { set(it.filmID, it.copy) }
+        } catch (_: Exception) { null } finally { client.leave() }
+    }
 }

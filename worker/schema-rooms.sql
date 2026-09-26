@@ -13,7 +13,10 @@ CREATE TABLE IF NOT EXISTS rooms (
   -- cannot also be the credential that drives the film — the lesson Tidbits
   -- Trivia states on its own screen ("the room code alone cannot drive the
   -- show"). Returned once at creation and never by a read.
-  host_key     TEXT
+  host_key     TEXT,
+  -- THE HOST'S COPY, `<archive item>/<file name>` (2026-09-26): every guest
+  -- plays exactly this file. Existing databases: ALTER TABLE rooms ADD COLUMN copy TEXT;
+  copy         TEXT
 );
 -- The sweep asks "what is stale", so that is what is indexed.
 CREATE INDEX IF NOT EXISTS rooms_touched ON rooms (touched_ms);

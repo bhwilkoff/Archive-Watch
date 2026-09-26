@@ -100,6 +100,7 @@ public final class StudioSyncFollower {
         self.player = player
         do {
             let state = try await client.join(code: typed)
+            StudioRoomCopy.set(film: state.filmID, copy: state.copy)
             status = .following(code: (await client.code) ?? typed, filmID: state.filmID)
             followingSince = Date()
             onFilm(state.filmID)
@@ -143,6 +144,7 @@ public final class StudioSyncFollower {
         followingSince = .distantFuture
         player?.rate = Float(hostRate)
         Task { await client.leave() }
+        StudioRoomCopy.clear()
         status = .idle
     }
 
@@ -270,6 +272,7 @@ public final class StudioSyncFollower {
             return
         }
         guard let player, let state = await client.lastState else { return }
+        StudioRoomCopy.set(film: state.filmID, copy: state.copy)
         lastKnownState = state
         hostRate = state.rate
 
@@ -289,6 +292,7 @@ public final class StudioSyncFollower {
     /// The host finished. The film keeps playing — it is the guest's now —
     /// and the guest is told, rather than left believing they are in step.
     private func roomEnded() {
+        StudioRoomCopy.clear()
         status = .ended
         loop?.cancel(); hereLoop?.cancel()
         stopWatchingForGuestMoves()
