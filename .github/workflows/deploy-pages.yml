@@ -180,6 +180,11 @@ jobs:
           # zeros, and took the whole site update with it.
           python3 tools/build_vetting_page.py --out _site
           test -s _site/vetting/index.html
+          # M3U playlists for other players (/feeds/, ORPHANED-FILMS #3): the
+          # same guaranteed-rights gate as the Roku feed, and the same
+          # catalog-lifetime reason to live in this step. Refuses under 1,000.
+          python3 tools/build_film_feeds.py --out _site
+          test -s _site/feeds/films.m3u
           rm -f catalog.json
           n=$(python3 -c "import json;print(json.load(open('_site/roku-search/manifest.json'))['assets'])")
           echo "roku search feed assets: $n"
