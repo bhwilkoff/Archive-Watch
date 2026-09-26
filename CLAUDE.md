@@ -233,6 +233,17 @@ focused card is the chrome; surrounding cards should be quiet.
   explains a control's own behavior, restates what just happened, or justifies
   a design decision — that reasoning belongs in the design doc and the code
   comments, which is where it is read on purpose.
+- **No AI-written lists or copy in the product.** Owner, 2026-09-26: *"I don't
+  want AI making lists and writing copy. Any time we can use metadata or user
+  copy/categorization from archive.org."* Lists, notes, blurbs and shelf
+  membership come from data: archive.org metadata (subjects, collections,
+  descriptions), uploaders' and reviewers' own words, archive.org users' lists
+  and favorites, TMDb/Wikidata facts, or rules over those fields (genre ×
+  decade). A human editor may write; a model may not.
+- **Side doors stay out of the way.** Owner, 2026-09-26: finding and playing
+  films is the core; feeds for other apps (IPTV playlists/guides) and assistant
+  access (MCP) must not distract from it — documented on the website, never a
+  button, row or menu item in the apps' main surfaces.
 - **US English everywhere we write prose.** Owner, 2026-09-22, on finding
   "programme" on a label. This binds hardest on **anything a person reads on
   a screen** — labels, warnings, rights sentences, the privacy policy — and
