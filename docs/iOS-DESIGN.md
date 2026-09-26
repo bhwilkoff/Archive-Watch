@@ -230,6 +230,8 @@ wherever.
 
 5.1a **New to Archive Watch** (`new-arrivals`, owner 2026-09-25: "Yes, all platforms"): the films the catalog GAINED in the last 45 days, from each item's `addedAt` stamp. Membership is computed ONCE in the pipeline (`build_sqlite._shelf_ids_for`, Decision 050) and gated like every shelf (`shelf_rights_ok`, professional art, plays). It is the SECOND featured shelf in the canonical order, after `popular-features`, and it obeys this platform's shelf floor: a quiet month has no row, never an apology. (It is therefore one of the "first two featured shelves" above.)
 
+5.1b **An Hour or Less** (`hour-or-less`, 2026-09-26, from the Orphaned Films research, adapted): feature films (not documentaries, which have their own shelf) whose upload runs 40–60 minutes — the B-westerns, second features and programmers this catalog is rich in (about 1,200 titles). A plain rule over `runtimeSeconds` and `contentType`, computed ONCE in the pipeline (`build_sqlite._shelf_ids_for`, Decision 050), gated like every shelf; no model picks it and no copy is written for it (CLAUDE.md). "Under 90 minutes" was measured and refused: 8,093 of 11,006 features already run under 90, so it would describe the catalog rather than help someone choose. It sits after `wikidata-pd` in the canonical order.
+
 5.1c **A collection's grid sorts like Browse** (2026-09-25; a viewer on iPad:
 *"Would be nice to have sort features like by year browsing through film
 noir"*). tvOS opens a collection THROUGH Browse and so always had Browse's

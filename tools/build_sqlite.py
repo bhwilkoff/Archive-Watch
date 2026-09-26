@@ -231,6 +231,22 @@ def _new_arrivals_since():
 
 NEW_ARRIVALS_SINCE = _new_arrivals_since()
 
+# "An Hour or Less" (2026-09-26): feature films whose UPLOAD runs 40-60 min.
+# A plain rule over the item's own fields (CLAUDE.md: no model picks lists).
+# "Under 90" was measured and refused: 8,093 of 11,006 features run under 90,
+# so it described the catalog instead of helping anyone choose.
+HOUR_OR_LESS_SHELF = "hour-or-less"
+
+
+def hour_or_less(it):
+    """Documentaries are left out: they have their own shelf, and the first
+    sample put the 1945 camp-liberation footage beside B-westerns on a row
+    about fitting a film into an evening."""
+    rt = it.get("runtimeSeconds") or 0
+    genres = {str(g).lower() for g in (it.get("genres") or [])}
+    return (it.get("contentType") == "feature-film" and 40 * 60 <= rt <= 60 * 60
+            and "documentary" not in genres)
+
 
 def _shelf_ids_for(it):
     """Full Home-shelf membership for an item: its stored `shelves` UNION any
@@ -241,6 +257,8 @@ def _shelf_ids_for(it):
     a = added_at(it)
     if a and a[:10] >= NEW_ARRIVALS_SINCE:
         ids.add(NEW_ARRIVALS_SHELF)
+    if hour_or_less(it):
+        ids.add(HOUR_OR_LESS_SHELF)
     for c in (it.get("collections") or []):
         ids.update(SHELF_COLLECTION_MAP.get(str(c), []))
     ids.update(SHELF_TYPE_MAP.get(it.get("contentType") or "", []))

@@ -76,7 +76,7 @@ internal data class HomePayload(
 // The canonical Home shelf order, matching Apple TV (Featured.homeShelfPriority on Apple) — owner
 // 2026-06-29: replicated across all platforms.
 private val HOME_SHELF_PRIORITY = listOf(
-    "popular-features", "new-arrivals", "wikidata-pd", "film-noir", "scifi-horror",
+    "popular-features", "new-arrivals", "wikidata-pd", "hour-or-less", "film-noir", "scifi-horror",
     "silent-hall-of-fame", "melies", "video-cellar", "comedy",
     "animation-all", "vintage-cartoons", "nasa", "classic-tv-1960s",
     "classic-tv-1950s", "classic-tv-1970s", "ephemera", "newsreels",

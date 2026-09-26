@@ -117,6 +117,13 @@
       "limit": 120
     },
     {
+      "id": "hour-or-less",
+      "title": "An Hour or Less",
+      "subtitle": "Feature films that run 60 minutes or less",
+      "category": "feature-film",
+      "type": "computed"
+    },
+    {
       "id": "popular-features",
       "title": "Popular Feature Films",
       "subtitle": "What everyone's watching this week",

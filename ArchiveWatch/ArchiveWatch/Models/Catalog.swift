@@ -610,7 +610,7 @@ struct Featured: Decodable, Sendable {
     // order and titles of the Apple TV app… replicated across all platforms"). featured.json file
     // order is NOT used for Home — this priority list is. Ids absent from the catalog are skipped.
     static let homeShelfPriority: [String] = [
-        "popular-features", "new-arrivals", "wikidata-pd", "film-noir", "scifi-horror",
+        "popular-features", "new-arrivals", "wikidata-pd", "hour-or-less", "film-noir", "scifi-horror",
         "silent-hall-of-fame", "melies", "video-cellar", "comedy",
         "animation-all", "vintage-cartoons", "nasa", "classic-tv-1960s",
         "classic-tv-1950s", "classic-tv-1970s", "ephemera", "newsreels",
