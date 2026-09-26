@@ -117,8 +117,17 @@ sub run()
     ' so it is right on the 1st of January without anyone editing a file.
     dt = CreateObject("roDateTime")
     pdYear = dt.GetYear() - 95
+    ' Tonight (ROKU-DESIGN §6.1e): the index's rule-picked film for this LOCAL
+    ' date leads the hero, the same one every platform shows today.
+    lt = CreateObject("roDateTime")
+    lt.ToLocalTime()
+    today = Stri(lt.GetYear()).Trim() + "-" + Right("0" + Stri(lt.GetMonth()).Trim(), 2) + "-" + Right("0" + Stri(lt.GetDayOfMonth()).Trim(), 2)
+    tonightId = ""
+    if index.tonight <> invalid and index.tonight[today] <> invalid then tonightId = fmt(index.tonight[today])
+    tonightRow = invalid
     for each row in index.items
         aid = row[0]
+        if tonightId <> "" and fmt(aid) = tonightId then tonightRow = row
         ' A director shelf recommends, so it takes professionally-presented
         ' films only (Decision 097) and never a series spine.
         if row[5] = 1 and Left(fmt(aid), 7) <> "series:"
@@ -242,6 +251,14 @@ sub run()
         end for
     end if
     taken = {}
+    if tonightRow <> invalid and tonightRow[7] <> invalid and tonightRow[7] <> ""
+        taken[tonightId] = true
+        h = heroPool.CreateChild("ContentNode")
+        fillItem(h, tonightRow)
+        h.AddFields({ awTonight: true })
+        if fmt(tonightRow[3]) = "animation" then m.heroAnim = m.heroAnim + 1
+    end if
+    print "AWHERO tonight="; tonightId; " today="; today; " led="; (heroPool.GetChildCount() = 1)
     for each r in heroCand
         if heroPool.GetChildCount() >= 12 then exit for
         id = fmt(r[0])

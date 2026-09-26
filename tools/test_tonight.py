@@ -8,10 +8,11 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import build_catalog_index as B
 
 def row(i, votes=5000, minutes=80, hero=1):
-    r = [f"f{i}", f"Film {i}", 1925, "silent-film", "p", 1, "", None, 1, 0, 70, votes,
+    r = [f"f{i}", f"Film {i}", 1925, "silent-film", "p", 1, "", "b", 1, 0, 70, votes,
          "", "", "b", 0, hero, minutes]
     return r
 rows = [row(i) for i in range(200)] + [row(900, votes=10), row(901, minutes=30), row(902, hero=0)]
+nob = row(903); nob[7] = None; rows.append(nob)
 today = dt.date(2026, 9, 26)
 t = B.tonight_schedule(rows, {}, today=today)
 fails = 0
@@ -20,7 +21,8 @@ def check(label, ok):
 check("yesterday through 13 days ahead", len(t) == 15 and "2026-09-25" in t and "2026-10-09" in t)
 check("no repeats inside the schedule", len(set(t.values())) == len(t))
 check("control: under the vote floor is never picked", "f900" not in t.values())
-check("short and non-marquee films are never picked", not {"f901", "f902"} & set(t.values()))
+check("short, non-marquee and backdrop-less films are never picked",
+      not {"f901", "f902", "f903"} & set(t.values()))
 later = B.tonight_schedule(rows, t, today=today + dt.timedelta(days=5))
 check("a published day keeps its film on a later rebuild",
       all(later[d] == t[d] for d in later if d in t))

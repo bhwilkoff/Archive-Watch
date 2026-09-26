@@ -401,7 +401,8 @@ def main():
 # One film a day, the same for everyone who opens Archive Watch on that date —
 # something to talk about, and a natural film for a Watch Together room. Chosen
 # by RULE, never by a model (owner, 2026-09-26): the marquee's own bar (heroSafe,
-# byte-verified playable, a designed poster, archival), a feature film or silent
+# byte-verified playable, a designed poster, a wide backdrop every TV hero
+# needs, archival), a feature film or silent
 # feature of an hour or more with 1,000+ IMDb votes (a film people can find
 # something to say about: 246 films on 2026-09-26), then a hash of the date over the pool sorted by id.
 # No film repeats within TONIGHT_GAP days. Days already published keep their film
@@ -425,7 +426,7 @@ def tonight_schedule(rows: list, previous: dict, today=None) -> dict:
     import hashlib
     today = today or dt.date.today()
     pool = sorted(r[0] for r in rows
-                  if r[16] == 1 and r[8] == 1 and r[5] == 1
+                  if r[16] == 1 and r[8] == 1 and r[5] == 1 and r[7]
                   and r[3] in ("feature-film", "silent-film")
                   and (r[17] or 0) >= 60 and (r[11] or 0) >= TONIGHT_MIN_VOTES
                   and (not r[2] or int(r[2]) < 1978))

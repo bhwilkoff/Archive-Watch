@@ -239,6 +239,8 @@ platform row counter. Shelf subtitles from `featured.json` render at Meta.
 
 **6.1d** **"Something wrong with this film?"** in Detail's More panel (2026-09-26): the share card shows the pre-filled GitHub issue form as a QR code (`scanOnly`: the address is for the camera, never printed cut off). Only the film id and where it was seen; nothing is sent until the viewer submits it on their phone.
 
+**6.1e** **Tonight** (2026-09-26, WEB-DESIGN §4.1c): the index's `tonight` {date: id} for the device's LOCAL date leads the hero, its kind line reading TONIGHT; the rest of the pool rotates as before. The pipeline only picks films with a backdrop, since the Roku hero is built on one. No `tonight`, or no entry for today, and the hero is exactly what it was.
+
 **6.2 Home gates on `hasProfessionalArtwork`** (Decision 097). A shelf that
 cannot field six professional posters hides rather than padding itself with
 frame grabs. This does NOT apply to the viewer's own Favorites.
