@@ -253,8 +253,8 @@ jobs:
           # reported "unchanged" and committed nothing — the artifact was
           # built correctly every run and never reached the repo. Any new
           # artifact added to this list would have failed the same silent way.
-          git add catalog-index.json topshelf.json details/ channel-pools.json episodes-index.json aliases.json people.json ops/image-dims.json
-          if git diff --cached --quiet -- catalog-index.json topshelf.json details/ channel-pools.json episodes-index.json aliases.json people.json ops/image-dims.json; then
+          git add catalog-index.json topshelf.json tonight.json details/ channel-pools.json episodes-index.json aliases.json people.json ops/image-dims.json
+          if git diff --cached --quiet -- catalog-index.json topshelf.json tonight.json details/ channel-pools.json episodes-index.json aliases.json people.json ops/image-dims.json; then
             echo "web index + details + channel pools + episodes unchanged"; exit 0
           fi
           git commit -m "Refresh web catalog index + detail shards [skip ci]"

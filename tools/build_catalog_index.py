@@ -70,6 +70,7 @@ REPO = Path(__file__).resolve().parent.parent
 CATALOG = REPO / "catalog.json"
 FEATURED = REPO / "featured.json"
 OUT = REPO / "catalog-index.json"
+TONIGHT_OUT = REPO / "tonight.json"
 
 
 
@@ -368,6 +369,11 @@ def main():
                                          key=lambda kv: kv[1], reverse=True)[:40]],
     }
 
+    tonight = tonight_schedule(rows, _previous_tonight())
+    # The apps read the catalog DB, which is uploaded BEFORE this runs, so they
+    # fetch the same schedule as its own small file (like topshelf.json).
+    TONIGHT_OUT.write_text(json.dumps({"tonight": tonight}, separators=(",", ":")) + "\n",
+                           encoding="utf-8")
     out = {
         "schema": 14,
         "updatedAt": catalog.get("updatedAt") or "",
@@ -383,7 +389,7 @@ def main():
         "directorRank": _director_rank(),
         "shelves": shelves,
         "collections": collections,
-        "tonight": tonight_schedule(rows, _previous_tonight()),
+        "tonight": tonight,
         "items": rows,
     }
     OUT.write_text(json.dumps(out, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
@@ -404,7 +410,8 @@ def main():
 # byte-verified playable, a designed poster, a wide backdrop every TV hero
 # needs, archival), a feature film or silent
 # feature of an hour or more with 1,000+ IMDb votes (a film people can find
-# something to say about: 246 films on 2026-09-26), then a hash of the date over the pool sorted by id.
+# something to say about: 172 films on 2026-09-26), then a hash of the date
+# over the pool sorted by id.
 # No film repeats within TONIGHT_GAP days. Days already published keep their film
 # across rebuilds, so a publish at noon never changes tonight. Dates are calendar
 # days; a client reads its OWN local date, and the schedule starts yesterday so
