@@ -703,7 +703,12 @@ swift_case "8.11 token store"       "$AUTH" "$PLAT" "$GATE" "$SHIM" tools/test_s
 for t in tools/test_studio_rights_parity.py tools/test_studio_rights_coverage.py; do
   name="$(basename "$t")"
   printf '\n=== %s\n' "$name"
-  if python3 "$t" 2>&1 | tail -6; then
+  # The TEST's exit code, not tail's: `python3 ... | tail -6` in the `if`
+  # read tail's 0, so both rights tests reported PASS over their own FAILED
+  # line from v1.42.195 until 2026-09-26 (an unexplained bucket reached hosts).
+  if python3 "$t" >"$SCRATCH/$name.log" 2>&1; then ok=1; else ok=0; fi
+  tail -6 "$SCRATCH/$name.log"
+  if [ "$ok" = 1 ]; then
     row "$name" PASS ""; PASS=$((PASS+1))
   else
     row "$name" FAIL "non-zero exit"; FAIL=$((FAIL+1))

@@ -2343,6 +2343,21 @@ inputs is a cache that is wrong about the rest** — and neither defect is
 visible to a harness that builds a fresh renderer per call, which is what
 §8.48 did until it was made to reuse one.
 
+**§D26 amendment (2026-09-26) — the chat switch lives where the chat is.**
+On a YouTube broadcast the AUDIENCE pane carries **Show chat from YouTube**,
+the same setting as the Output column's, honored mid-show: on starts reading
+(`liveChatMessages.list`), off stops it and empties the pane. It used to be read
+once at go-live, so a host who went live with it off could not see their
+audience until the next show. With it off the pane says nothing — "Nobody has
+said anything yet" would be false, since nothing is being read.
+
+**§D37 amendment (2026-09-26) — a show ends once.** Ending awaits YouTube's
+`transition` for a second or two in which the show still reads as on air, so a
+second press raised a second "End the broadcast?" and ran a second `end()`.
+`StudioSession.isEnding` closes that window: `confirm()` does not ask while a
+show is ending, the End controls grey out, and `end()` returns at once if
+called again. The iPhone's End now asks too (iOS-DESIGN §8.8).
+
 ## §D27 — The host knows how many people are watching, and the broadcast is a conversation
 
 The AUDIENCE pane's header carries **"N watching"**, from the platform's own

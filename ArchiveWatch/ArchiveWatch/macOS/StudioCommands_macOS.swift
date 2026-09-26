@@ -92,7 +92,7 @@ private struct EndCommand: View {
             Task { await StudioSession.shared.end() }
         }
             .keyboardShortcut("e", modifiers: [.command, .shift])
-            .disabled(!studio.isLive)
+            .disabled(!studio.isLive || studio.isEnding)
     }
 }
 

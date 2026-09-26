@@ -402,6 +402,32 @@ public final class StudioSession {
         }
     }
 
+    /// True while this show's YouTube chat is being read, so a surface can
+    /// tell "chat is off" from "nobody has said anything yet".
+    public private(set) var readingYouTubeChat = false
+
+    /// The host's switch, honored mid-show. It used to be read ONCE at go-live,
+    /// so a host who went live with it off could not see their audience until
+    /// the next show. `e` is the engine of the calling surface: macOS passes
+    /// nil for the session's own, iOS passes its container's (Decision 133).
+    public func setReadYouTubeChat(_ on: Bool, engine e: StudioEngine? = nil) async {
+        UserDefaults.standard.set(on, forKey: Self.readYouTubeChatKey)
+        // A passed engine is the caller's own live show (iOS never starts the
+        // session, so `isOnAir` is false there); the session's needs checking.
+        let target: StudioEngine?
+        if let e { target = e } else { target = isOnAir ? engine : nil }
+        guard let e = target else { return }
+        let reading = await e.readsYouTubeChat
+        if on, !reading {
+            await attachYouTubeChatIfArmed(to: e)
+        } else if !on, reading {
+            await e.detachYouTubeChat()
+            readingYouTubeChat = false
+            chatRecent = []
+            diag("[AWSTUDIOCHAT] YouTube chat turned off during the show")
+        }
+    }
+
     public func attachYouTubeChatIfArmed(to e: StudioEngine) async {
         guard let chatID = armedYouTubeChatID, !chatID.isEmpty else { return }
         var wanted = UserDefaults.standard.bool(forKey: Self.readYouTubeChatKey)
@@ -422,6 +448,7 @@ public final class StudioSession {
                 let token = try await StudioPlatformAuth.token(for: .youtube)
                 return try await YouTubeLive(token: token).chat(liveChatID: id, pageToken: page)
             }
+            readingYouTubeChat = true
             diag("[AWSTUDIOCHAT] reading YouTube live chat")
         } else {
             // A chat that stays empty because a token could not be refreshed
@@ -1372,11 +1399,13 @@ public final class StudioSession {
         // The host's chosen MICROPHONE, same rule (§D2).
         let (chosenMic, micFellBack) = StudioDevices.resolveMicrophone()
         if micFellBack { awdiag("AWCAM chosen microphone is GONE — using the system default") }
+        var attachedMic = "none"
         if AVCaptureDevice.authorizationStatus(for: .audio) == .authorized,
            let mic = chosenMic,
            let micInput = try? AVCaptureDeviceInput(device: mic),
            session.canAddInput(micInput) {
             session.addInput(micInput)
+            attachedMic = mic.localizedName
             awdiag("AWCAM microphone=%@", mic.localizedName)
         }
         session.commitConfiguration()
@@ -1389,9 +1418,10 @@ public final class StudioSession {
             await engine.attachMicrophone(tap: micTap)
         }
         session.startRunning()
-        awdiag("AWCAM attached camera=%@ mic=%@", cam.localizedName,
-               AVCaptureDevice.authorizationStatus(for: .audio) == .authorized
-                   ? (AVCaptureDevice.default(for: .audio)?.localizedName ?? "yes") : "no")
+        // The mic ADDED above, not `AVCaptureDevice.default(for: .audio)`:
+        // the default printed "Ear Magic" beside a chosen MacBook Pro
+        // Microphone, which reads as the picker not landing when it had.
+        awdiag("AWCAM attached camera=%@ mic=%@", cam.localizedName, attachedMic)
         capture = session
         #endif
     }
@@ -1476,6 +1506,10 @@ public final class StudioSession {
     private func completeArmedBroadcastNow() async {
         audienceTask?.cancel(); audienceTask = nil
         audienceCount = nil
+        // Per-show state, cleared here because iOS and tvOS end through this
+        // and never call `end()`.
+        readingYouTubeChat = false
+        sharedFilmAt = nil
         let armed = armedBroadcastID
         armedBroadcast = nil
         guard let broadcast = armed, !broadcast.isEmpty else { return }
@@ -1508,7 +1542,16 @@ public final class StudioSession {
         }
     }
 
+    /// True from the moment a host confirms End until the show is down.
+    /// Ending awaits YouTube's `transition`, a second or two in which the show
+    /// still reads as on air — long enough for a second press to raise a
+    /// second "End the broadcast?" and run a second `end()`.
+    public private(set) var isEnding = false
+
     public func end() async {
+        guard !isEnding else { return }
+        isEnding = true
+        defer { isEnding = false }
         // A room exists to serve the stream (SHAREPLAY §11.13); it closes with it.
         StudioRoomHost.shared.stop()
         // THE BROADCAST ENDS WITH THE SHOW. Taken BEFORE the teardown so the
@@ -1518,6 +1561,7 @@ public final class StudioSession {
         await completeArmedBroadcast()
         armedYouTubeChatID = nil
         sharedFilmAt = nil
+        readingYouTubeChat = false
         armedExtras = []
 
         capture?.stopRunning()

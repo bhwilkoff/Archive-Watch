@@ -1099,6 +1099,21 @@ public actor StudioEngine {
         await chat.start(liveChatID: liveChatID, fetch: fetch)
     }
 
+    /// The host turned YouTube chat off during the show: stop polling (every
+    /// read spends the shared quota, Decision 136) and empty both the host's
+    /// copy and the column on the program.
+    public func detachYouTubeChat() async {
+        if let chat = youtubeChat { await chat.stop() }
+        youtubeChat = nil
+        health.chatRecent = []
+        if !overlay.chat.isEmpty {
+            overlay.chat = []
+            renderer.overlay = overlay
+        }
+    }
+
+    public var readsYouTubeChat: Bool { youtubeChat != nil }
+
     /// A CONVERSATION WE INVENTED, for `AW_STUDIO_CHAT_DEMO`.
     ///
     /// The older `AW_STUDIO_CHAT` door names a REAL Twitch channel, which is
@@ -1206,6 +1221,19 @@ public actor StudioEngine {
         return !tracks.isEmpty
     }
 
+    /// A PAUSED FILM HANDS A NEW OUTPUT NOTHING: `hasNewPixelBuffer` stays
+    /// false until playback moves, so a show begun over a paused film went out
+    /// BLACK behind the camera tile (quota screencast, 2026-09-26). An exact
+    /// seek to where it already is decodes that one frame into the output, and
+    /// `renderOne` then holds it like any paused frame. A playing film needs
+    /// nothing.
+    @MainActor
+    private static func primeFrameIfPaused(_ player: AVPlayer) async -> Bool {
+        guard player.rate == 0, let item = player.currentItem else { return false }
+        return await player.seek(to: item.currentTime(),
+                                 toleranceBefore: .zero, toleranceAfter: .zero)
+    }
+
     public func attachFilm(player: AVPlayer) async {
         filmPlayer = player
         let out = AVPlayerItemVideoOutput(outputSettings: nil)
@@ -1218,6 +1246,9 @@ public actor StudioEngine {
             Task { await self?.noteFilmItemChanged(to: now) }
         }
         observeFilmEnd(player: player)
+        if await Self.primeFrameIfPaused(player) {
+            awdiag("AWFILM film is paused — primed its current frame")
+        }
         // The film's audio, tapped off the mix it is already decoding. A film
         // with no audio track is a REAL case in this catalog (silent cinema),
         // so a false return is recorded, never treated as a failure.
@@ -1283,6 +1314,7 @@ public actor StudioEngine {
         filmOutput = out
         filmOutputItemID = now
         observeFilmEnd(player: player)
+        _ = await Self.primeFrameIfPaused(player)
         sourceHasAudio = await Self.assetHasAudio(item)
         audioAttached = await mixer.film.attach(to: item)
         awdiag("AWFILM output and audio re-attached to item=%lx audio=%@", now,

@@ -93,9 +93,9 @@ public enum StudioRights {
     /// the viewer learns how the public domain actually works (§2.1).
     static func explain(bucket: String) -> String {
         switch bucket {
+        // Not only government works: the bucket is _GOV_PD_COLLECTIONS,
+        // which also holds Prelinger's sponsored films (Last Date, 1949).
         case "safe_gov":
-            // Not only government works: the bucket is _GOV_PD_COLLECTIONS,
-            // which also holds Prelinger's sponsored films (Last Date, 1949).
             return "Public domain through its collection, not its age — not offered for streaming yet."
         case "safe_archive_license", "safe_cc":
             return "This copy's public-domain claim comes from its uploader, not from its age. Uploaders are often wrong about films they did not make, so it is not offered for streaming."
@@ -117,6 +117,9 @@ public enum StudioRights {
             return "Nothing in the catalog says when this film was published, so its rights cannot be judged. It is not offered for streaming."
         case "unknown_year":
             return "This film has no year on record, and age is the only public-domain claim the Studio accepts. It is not offered for streaming."
+        // Decision 140.
+        case "uploader_licence_only":
+            return "Only the uploader says this film is free to share, and nothing independent confirms it, so it is not offered for streaming."
         case "uploader_cannot_dedicate":
             return "The uploader released this under a public-domain license, but it is not their film to release. It is not offered for streaming."
         case "wrongmatch_bw":

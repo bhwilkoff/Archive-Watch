@@ -587,11 +587,16 @@ struct StudioWindowView: View {
         VStack(spacing: 0) {
             paneHeader("AUDIENCE", trailing: audienceBadge)
             if studio.canShareFilmInChat { shareFilmRow }
+            if onYouTube { youTubeChatSwitch }
             if let s = studio.shoutOut {
                 onScreenNow(s)
                 Divider()
             }
-            if studio.chatRecent.isEmpty {
+            if onYouTube, !studio.readingYouTubeChat {
+                // Chat is off, so "nobody has said anything" would be false:
+                // the switch above is the whole story.
+                Spacer()
+            } else if studio.chatRecent.isEmpty {
                 // Not a fault, and not the same sentence as "chat is off":
                 // the broadcast is out there and nobody has said anything yet.
                 VStack {
@@ -622,6 +627,19 @@ struct StudioWindowView: View {
             }
         }
         .background(Color(nsColor: .textBackgroundColor))
+    }
+
+    private var onYouTube: Bool { studio.armedYouTubeChatID?.isEmpty == false }
+
+    /// The same switch as the Output column's, live: reading chat can start or
+    /// stop during a show rather than only at go-live.
+    private var youTubeChatSwitch: some View {
+        Toggle("Show chat from YouTube", isOn: Binding(
+            get: { studio.readingYouTubeChat },
+            set: { on in Task { await studio.setReadYouTubeChat(on) } }))
+            .toggleStyle(.switch).controlSize(.small)
+            .padding(.horizontal, 10).padding(.bottom, 6)
+            .frame(maxWidth: .infinity, alignment: .leading)
     }
 
     /// §D32. One press, one line in chat; it says when it was last done
@@ -1658,6 +1676,7 @@ struct StudioWindowView: View {
                         .frame(maxWidth: .infinity)
                 }
                 .controlSize(.large)
+                .disabled(studio.isEnding)
                 Divider().padding(.vertical, 2)
             }
 

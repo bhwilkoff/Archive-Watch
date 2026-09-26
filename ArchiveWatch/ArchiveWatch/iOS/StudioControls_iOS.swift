@@ -187,8 +187,11 @@ struct StudioControlsSheet: View {
     var onTakeDown: () -> Void = {}
     /// §D32 on the phone. Nil when there is no YouTube chat to post in.
     var onShareFilm: (() async -> String?)? = nil
+    /// Offered on a YouTube broadcast: reading chat can start or stop mid-show.
+    var onYouTubeChat: ((Bool) async -> Void)? = nil
     @State private var shareResult: String?
     @State private var sharedAt: Date?
+    @State private var askEnd = false
     /// Closes the panel. Explicit because it is an INSPECTOR on iPad
     /// (IPAD-DESIGN §5b), and a column is closed by its binding, not by
     /// `dismiss`, which is a sheet's word.
@@ -231,7 +234,7 @@ struct StudioControlsSheet: View {
         Section {
             if let share = onShareFilm {
                 // Proved on YouTube 2026-09-23 (GYAQsLMDwho): the line lands in
-                // chat under the host's handle with the archive.org link whole.
+                // chat under the host's handle with the link whole.
                 Button {
                     Task {
                         let problem = await share()
@@ -251,6 +254,11 @@ struct StudioControlsSheet: View {
                 if let r = shareResult {
                     Text(r).font(.footnote).foregroundStyle(.orange)
                 }
+            }
+            if let setChat = onYouTubeChat {
+                Toggle("Show chat from YouTube", isOn: Binding(
+                    get: { StudioSession.shared.readingYouTubeChat },
+                    set: { on in Task { await setChat(on) } }))
             }
             if let s = shoutOut {
                 HStack(alignment: .top) {
@@ -294,7 +302,8 @@ struct StudioControlsSheet: View {
                 // §D26 — THE AUDIENCE FIRST. It is the one thing in this
                 // sheet that is about somebody other than the host, and it
                 // appears only when there is a conversation to show.
-                if shoutOut != nil || !health.chatRecent.isEmpty || onShareFilm != nil {
+                if shoutOut != nil || !health.chatRecent.isEmpty || onShareFilm != nil
+                    || onYouTubeChat != nil {
                     audienceSection
                 }
                 Section {
@@ -372,8 +381,15 @@ struct StudioControlsSheet: View {
                 }
 
                 Section {
+                    // §D37 on the phone: one tap may not end what an audience
+                    // is watching. The Mac and the television already ask.
                     Button("End the broadcast", role: .destructive) {
-                        onEnd(); close()
+                        askEnd = true
+                    }
+                    .confirmationDialog("End the broadcast?", isPresented: $askEnd,
+                                        titleVisibility: .visible) {
+                        Button("End Broadcast", role: .destructive) { onEnd(); close() }
+                        Button("Keep Streaming", role: .cancel) {}
                     }
                 }
             }

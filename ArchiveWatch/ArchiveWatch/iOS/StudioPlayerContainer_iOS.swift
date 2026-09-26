@@ -21,6 +21,7 @@ struct StudioPlayerContainer: View {
     @Environment(AppStore.self) private var store
 
     @State private var engine: StudioEngine?
+    @State private var ending = false
     @State private var health = StudioHealth()
     @State private var filmFPS = 0
     /// The film player, for one question: did the HOST pause it?
@@ -201,6 +202,7 @@ struct StudioPlayerContainer: View {
                 Task { await engine?.clearShoutOut() }
             },
             onShareFilm: shareFilmAction,
+            onYouTubeChat: youTubeChatAction,
             onClose: { showControls = false },
             onEnd: { Task { await end() } })
     }
@@ -310,6 +312,13 @@ struct StudioPlayerContainer: View {
         StudioSession.shared.armYouTubeChat(d.liveChatID)
         StudioSession.shared.armBroadcast(d.broadcast)
         return d.url
+    }
+
+    /// §D26 — the chat switch, offered on the same condition as sharing.
+    private var youTubeChatAction: ((Bool) async -> Void)? {
+        guard shareFilmAction != nil else { return nil }
+        let e = engine
+        return { on in await StudioSession.shared.setReadYouTubeChat(on, engine: e) }
     }
 
     /// §D32 — offered only on air with a YouTube chat to post in.
@@ -504,6 +513,10 @@ struct StudioPlayerContainer: View {
     }
 
     private func end() async {
+        // Once only: a second end while YouTube's transition is in flight
+        // would stop an engine that is already stopping.
+        guard !ending else { return }
+        ending = true
         await StudioSession.shared.completeArmedBroadcast()
         await engine?.stop()
         engine = nil

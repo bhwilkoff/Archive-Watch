@@ -406,6 +406,13 @@ Specifics:
 - Only films `StudioRights.canGoLive` clears are offered (WATCH-TOGETHER
   §3.4). The entry point is *shown* for an ineligible film and *disabled with
   its reason* — never hidden, because a missing control teaches nothing.
+- **Ending a live show asks** (macOS §D37 on the phone): "End the broadcast"
+  raises a confirmation dialog titled **End the broadcast?** with **End
+  Broadcast** (destructive) and **Keep Streaming**. One tap used to end what an
+  audience was watching; the Mac and the television already asked.
+- **"Show chat from YouTube" is in the Audience section while live**, not only
+  on the go-live sheet, so a host who went live with it off can turn it on
+  (and off, to save the shared quota — Decision 136) during the show.
 
 8.9 **Go live is a §3.6 form sheet** at the large detent (it needs a
 keyboard for the title): platform, title pre-filled from the catalog,

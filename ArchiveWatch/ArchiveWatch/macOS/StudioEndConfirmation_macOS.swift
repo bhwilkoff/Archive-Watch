@@ -11,6 +11,9 @@ import AppKit
 enum StudioEndConfirmation {
     /// True when the show may end — immediately if nothing is on air.
     static func confirm() -> Bool {
+        // Already ending: the host has answered once, and a second dialog
+        // would start a second end.
+        guard !StudioSession.shared.isEnding else { return false }
         guard StudioSession.shared.isOnAir else { return true }
         let alert = NSAlert()
         alert.messageText = "End the broadcast?"
