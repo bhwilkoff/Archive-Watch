@@ -31,33 +31,6 @@
    "url": "https://appstoreconnect.apple.com/apps/6776697407/distribution"
   },
   {
-   "store": "Google Play",
-   "platform": "Production",
-   "state": "COMPLETED",
-   "version": "65 (1.42.699)",
-   "live": "65 (1.42.699)",
-   "build": "65",
-   "url": "https://play.google.com/console/developers/app/com.archivewatch.app"
-  },
-  {
-   "store": "Google Play",
-   "platform": "Beta",
-   "state": "DRAFT",
-   "version": null,
-   "live": null,
-   "build": "",
-   "url": "https://play.google.com/console/developers/app/com.archivewatch.app"
-  },
-  {
-   "store": "Google Play",
-   "platform": "Internal",
-   "state": "COMPLETED",
-   "version": "1.42.699",
-   "live": "1.42.699",
-   "build": "65",
-   "url": "https://play.google.com/console/developers/app/com.archivewatch.app"
-  },
-  {
    "store": "Amazon Appstore",
    "platform": "Fire TV",
    "state": "LIVE",
@@ -120,6 +93,33 @@
    "route": "state declared by hand; usage measured by our own counter",
    "manual": true,
    "read": "the newest successful Pages deploy"
+  },
+  {
+   "store": "Google Play",
+   "platform": "Production",
+   "state": "COMPLETED",
+   "version": "65 (1.42.699)",
+   "live": "65 (1.42.699)",
+   "build": "65",
+   "url": "https://play.google.com/console/developers/app/com.archivewatch.app"
+  },
+  {
+   "store": "Google Play",
+   "platform": "Beta",
+   "state": "DRAFT",
+   "version": null,
+   "live": null,
+   "build": "",
+   "url": "https://play.google.com/console/developers/app/com.archivewatch.app"
+  },
+  {
+   "store": "Google Play",
+   "platform": "Internal",
+   "state": "COMPLETED",
+   "version": "1.42.699",
+   "live": "1.42.699",
+   "build": "65",
+   "url": "https://play.google.com/console/developers/app/com.archivewatch.app"
   }
  ],
  "ratings": [
@@ -2348,7 +2348,7 @@
     "firstBuild": "34",
     "lastBuild": "34",
     "api": "31-35",
-    "stale": true,
+    "stale": false,
     "url": "https://play.google.com/console/developers/7973176709446146294/app/4975776198955106385/vitals/crashes/493daebebd66d48f2bbc41e2c9ad0f60/details",
     "fixedIn": {
      "build": 1018,
@@ -2369,7 +2369,7 @@
     "firstBuild": "32",
     "lastBuild": "56",
     "api": "31-36",
-    "stale": true,
+    "stale": false,
     "url": "https://play.google.com/console/developers/7973176709446146294/app/4975776198955106385/vitals/crashes/4c04da8b34da8b7ea6519d6c60887dc7/details",
     "fixedIn": {
      "build": 1704,
@@ -2390,7 +2390,7 @@
     "firstBuild": "49",
     "lastBuild": "60",
     "api": "29-34",
-    "stale": true,
+    "stale": false,
     "url": "https://play.google.com/console/developers/7973176709446146294/app/4975776198955106385/vitals/crashes/a6de15e9a91794d45b55e1a9282d0460/details",
     "fixedIn": {
      "build": 1704,
@@ -2411,7 +2411,7 @@
     "firstBuild": "56",
     "lastBuild": "56",
     "api": "30-34",
-    "stale": true,
+    "stale": false,
     "url": "https://play.google.com/console/developers/7973176709446146294/app/4975776198955106385/vitals/crashes/fcd107cc3378dccebee2ae07712ffa38/details",
     "fixedIn": {
      "build": 1704,
@@ -2432,7 +2432,7 @@
     "firstBuild": "60",
     "lastBuild": "60",
     "api": "34-34",
-    "stale": true,
+    "stale": false,
     "url": "https://play.google.com/console/developers/7973176709446146294/app/4975776198955106385/vitals/crashes/e585dd3f05a2c86113ef89c1fca296d0/details",
     "fixedIn": {
      "build": 1704,
@@ -2453,7 +2453,7 @@
     "firstBuild": "60",
     "lastBuild": "60",
     "api": "34-34",
-    "stale": true,
+    "stale": false,
     "url": "https://play.google.com/console/developers/7973176709446146294/app/4975776198955106385/vitals/crashes/1512a7d9459c2a4ae4371f3899db8e0d/details",
     "fixedIn": {
      "build": 1704,
@@ -2474,7 +2474,7 @@
     "firstBuild": "54",
     "lastBuild": "54",
     "api": "34-34",
-    "stale": true,
+    "stale": false,
     "url": "https://play.google.com/console/developers/7973176709446146294/app/4975776198955106385/vitals/crashes/1cd545662a4cbb17b2e38d89322dea1f/details",
     "fixedIn": null,
     "ours": "at app.archivewatch.android.app.AppContainer$special$$inlined$-addInterceptor$1.intercept (AppContainer.java:1080)"
@@ -2489,7 +2489,7 @@
     "firstBuild": "54",
     "lastBuild": "54",
     "api": "31-31",
-    "stale": true,
+    "stale": false,
     "url": "https://play.google.com/console/developers/7973176709446146294/app/4975776198955106385/vitals/crashes/46cce2ccb32b3c8eb548f273f0aa655c/details",
     "fixedIn": {
      "build": 1018,
@@ -2510,7 +2510,7 @@
     "firstBuild": "60",
     "lastBuild": "60",
     "api": "34-34",
-    "stale": true,
+    "stale": false,
     "url": "https://play.google.com/console/developers/7973176709446146294/app/4975776198955106385/vitals/crashes/48ef98e1faadb5ac9a4b0d3f74ec490d/details",
     "fixedIn": {
      "build": 1704,
@@ -2531,7 +2531,7 @@
     "firstBuild": "49",
     "lastBuild": "49",
     "api": "31-31",
-    "stale": true,
+    "stale": false,
     "url": "https://play.google.com/console/developers/7973176709446146294/app/4975776198955106385/vitals/crashes/5d8cad4d866c375e7eafd6aecff64721/details",
     "fixedIn": null,
     "ours": "Exception java.lang.IllegalArgumentException:"
@@ -2546,7 +2546,7 @@
     "firstBuild": "54",
     "lastBuild": "54",
     "api": "34-34",
-    "stale": true,
+    "stale": false,
     "url": "https://play.google.com/console/developers/7973176709446146294/app/4975776198955106385/vitals/crashes/6bfa9c96e1235052236c9e307d86909d/details",
     "fixedIn": null,
     "ours": null
@@ -2561,7 +2561,7 @@
     "firstBuild": "48",
     "lastBuild": "48",
     "api": "34-34",
-    "stale": true,
+    "stale": false,
     "url": "https://play.google.com/console/developers/7973176709446146294/app/4975776198955106385/vitals/crashes/6e7bb0449a76a5d08fc45f087754d548/details",
     "fixedIn": null,
     "ours": "at app.archivewatch.android.data.CatalogDatabase.queryRaw (CatalogDatabase.kt:612)"
@@ -2576,7 +2576,7 @@
     "firstBuild": "56",
     "lastBuild": "56",
     "api": "34-34",
-    "stale": true,
+    "stale": false,
     "url": "https://play.google.com/console/developers/7973176709446146294/app/4975776198955106385/vitals/crashes/a4785bdf0a0ee8a28761fbc2ff6b09a3/details",
     "fixedIn": null,
     "ours": "at app.archivewatch.android.app.AppContainer$special$$inlined$-addInterceptor$1.intercept (AppContainer.java:1080)"
@@ -2591,7 +2591,7 @@
     "firstBuild": "48",
     "lastBuild": "48",
     "api": "34-34",
-    "stale": true,
+    "stale": false,
     "url": "https://play.google.com/console/developers/7973176709446146294/app/4975776198955106385/vitals/crashes/ac5ef98791d33f9ec839b55aec97a7e6/details",
     "fixedIn": null,
     "ours": "Exception java.lang.OutOfMemoryError:"
@@ -2606,7 +2606,7 @@
     "firstBuild": "60",
     "lastBuild": "60",
     "api": "36-36",
-    "stale": true,
+    "stale": false,
     "url": "https://play.google.com/console/developers/7973176709446146294/app/4975776198955106385/vitals/crashes/c4b5f96e1ef10fd43992556a8ce60a71/details",
     "fixedIn": {
      "build": 1704,
@@ -2627,7 +2627,7 @@
     "firstBuild": "32",
     "lastBuild": "32",
     "api": "36-36",
-    "stale": true,
+    "stale": false,
     "url": "https://play.google.com/console/developers/7973176709446146294/app/4975776198955106385/vitals/crashes/d916c6550c2b586da2c4fc90087117a0/details",
     "fixedIn": null,
     "ours": "Exception java.lang.IllegalArgumentException:"
@@ -2642,13 +2642,13 @@
     "firstBuild": "49",
     "lastBuild": "49",
     "api": "34-34",
-    "stale": true,
+    "stale": false,
     "url": "https://play.google.com/console/developers/7973176709446146294/app/4975776198955106385/vitals/crashes/eb136af9d2910a5de52948ece1402ce3/details",
     "fixedIn": null,
     "ours": null
    }
   ],
-  "playLiveBuild": 65,
+  "playLiveBuild": null,
   "playUsers": {
    "daily": [
     {
@@ -6688,7 +6688,7 @@
   "apple_stores": {
    "ok": true,
    "note": "3 Apple platform(s)",
-   "at": "2026-09-26T16:19:58+00:00"
+   "at": "2026-09-26T16:22:00+00:00"
   },
   "apple_reviews": {
    "ok": true,
@@ -6711,9 +6711,9 @@
    "at": "2026-09-26T13:10:23+00:00"
   },
   "play_stores": {
-   "ok": true,
-   "note": "3 track(s)",
-   "at": "2026-09-26T16:19:59+00:00"
+   "ok": false,
+   "note": "<HttpError 503 when requesting https://androidpublisher.googleapis.com/androidpublisher/v3/applications/com.archivewatch.app/edits/18379918761613288566/tracks?alt=json returned \"The service is current",
+   "at": "2026-09-26T16:22:02+00:00"
   },
   "play_reviews": {
    "ok": true,
@@ -6727,8 +6727,8 @@
   },
   "play_crashes": {
    "ok": true,
-   "note": "17 cluster(s), 0 still on build 65",
-   "at": "2026-09-26T16:20:45+00:00"
+   "note": "17 cluster(s)",
+   "at": "2026-09-26T16:22:30+00:00"
   },
   "play_users": {
    "ok": true,
@@ -6768,17 +6768,17 @@
   "amazon_live": {
    "ok": true,
    "note": "versionCode 64 is live on Fire TV",
-   "at": "2026-09-26T16:20:54+00:00"
+   "at": "2026-09-26T16:22:38+00:00"
   },
   "roku_engagement": {
    "ok": true,
    "note": "no delivery waiting — the schedule fires daily at 06:00, so this is normal between runs",
-   "at": "2026-09-26T16:20:54+00:00"
+   "at": "2026-09-26T16:22:38+00:00"
   },
   "manual_stores": {
    "ok": true,
    "note": "5 declared store(s), 2 version(s) read rather than declared",
-   "at": "2026-09-26T16:20:54+00:00"
+   "at": "2026-09-26T16:22:39+00:00"
   },
   "social_program": {
    "ok": true,
@@ -6899,6 +6899,7 @@
  "_apply": true,
  "_force": false,
  "stale": {
+  "stores": "2026-09-26T16:20:54+00:00",
   "playInstalls": "2026-09-08"
  },
  "history": [
@@ -7195,7 +7196,7 @@
    "urgent": 0
   }
  ],
- "generatedAt": "2026-09-26T16:20:54+00:00",
+ "generatedAt": "2026-09-26T16:22:39+00:00",
  "repoVersion": "1.42.720",
  "repoBuild": "1732",
  "_": "Written by tools/pulse_collect.py. `history` is the series and is append-only per day; everything else is the latest reading. A source that could not answer says so in `sources` — never assume a zero."
