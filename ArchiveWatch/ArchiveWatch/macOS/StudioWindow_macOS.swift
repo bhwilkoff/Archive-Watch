@@ -2534,9 +2534,11 @@ struct StudioFilmChooser: View {
                 .overlay {
                     if let u = item.posterURLParsed {
                         AsyncImage(url: u) { $0.resizable().scaledToFill() } placeholder: { Color.clear }
-                            .clipShape(RoundedRectangle(cornerRadius: 4))
                     }
                 }
+                // The FRAME is clipped, not the image: a filled landscape still
+                // clipped to its own bounds spilled over the title beside it.
+                .clipShape(RoundedRectangle(cornerRadius: 4))
             VStack(alignment: .leading, spacing: 2) {
                 Text(item.title).font(.subheadline.weight(.medium)).lineLimit(2)
                 if let meta = StudioMacShow.metaLine(for: item) {

@@ -2485,9 +2485,17 @@ holds for every scene whose tiles are inherited.
 
 On a YouTube broadcast the AUDIENCE pane opens with **Share the film in
 chat**: one line under the host's own name — "Now watching: The Man Who Laughs
-— 1928 · Paul Leni. Public domain, free to watch: https://archive.org/details/…"
+— 1928 · Paul Leni. Public domain, free to watch: https://archivewatch.org/item/…/"
 — and "shared 5 minutes ago" beside it afterwards, never a disabled button,
 because the host may want to say it again for the people who arrived since.
+"Shared …" belongs to ONE broadcast: a new show starts without it.
+
+**The link is the film's Archive Watch page, not archive.org** (owner,
+2026-09-26: *"While I want people to be able to access the original content,
+they should be accessing it from our site, as there are multiple different
+videos and derivatives that are stored in a single title on Archive Watch."*).
+One title here gathers every copy and version of a film, and its page links
+the archive.org source for anyone who wants the original.
 
 **Why.** Everyone who arrives after the lower third has faded is watching a
 film they cannot name, and the whole premise of this app is that the film is

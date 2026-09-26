@@ -101,11 +101,15 @@ public enum StudioChatSide: String, CaseIterable, Sendable {
 /// themselves — so the LINK IS NEVER CUT. Words give way first, then the
 /// title is shortened with an ellipsis; a URL cut in half is a dead link
 /// under the host's name.
+///
+/// The link is the film's Archive Watch page, not archive.org: one title here
+/// gathers every copy and version of a film, and its page links the archive
+/// source for anyone who wants the original (owner, 2026-09-26).
 enum StudioChatShare {
     static let limit = 200
 
     static func message(title: String, meta: String, archiveID: String) -> String {
-        let link = "https://archive.org/details/\(archiveID)"
+        let link = "https://archivewatch.org/item/\(archiveID)/"
         let tail = " Public domain, free to watch: \(link)"
         let shortTail = " \(link)"
         let head = meta.isEmpty ? "Now watching: \(title)." : "Now watching: \(title) — \(meta)."

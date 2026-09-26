@@ -10,7 +10,7 @@ import Foundation
             print(ok ? "  ok   \(name)" : "  FAIL \(name)"); if !ok { fail += 1 }
         }
         let id = "the-man-who-laughs-1928-1080p-blu-ray-x-265-ghost"
-        let link = "https://archive.org/details/\(id)"
+        let link = "https://archivewatch.org/item/\(id)/"
         let normal = StudioChatShare.message(title: "The Man Who Laughs", meta: "1928 · Paul Leni", archiveID: id)
         print("  msg: \(normal)")
         check("a normal film says everything", normal.contains("1928 · Paul Leni") && normal.hasSuffix(link))
@@ -21,6 +21,8 @@ import Foundation
             check("title of \(t.count): fits (\(m.count))", m.count <= 200)
             check("title of \(t.count): the link is whole", m.hasSuffix(link))
         }
+        check("the link is the film's Archive Watch page, not archive.org",
+              !normal.contains("archive.org/details"))
         // CONTROL: the obvious implementation would pass "fits" and fail this.
         let long = "Now watching: " + String(repeating: "x", count: 190) + " " + link
         check("control: a naive prefix(200) cuts the link", !String(long.prefix(200)).hasSuffix(link))

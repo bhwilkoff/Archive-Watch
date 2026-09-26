@@ -81,7 +81,12 @@ public final class StudioSession {
     /// is: `arm` records intent and the engine is built later. YouTube only —
     /// Twitch chat is read anonymously by channel name.
     public private(set) var armedYouTubeChatID: String?
-    public func armYouTubeChat(_ id: String?) { armedYouTubeChatID = id }
+    /// A new chat is a new audience, so "shared 9 minutes ago" from the last
+    /// show must not carry over onto this one.
+    public func armYouTubeChat(_ id: String?) {
+        armedYouTubeChatID = id
+        sharedFilmAt = nil
+    }
 
     /// The YouTube broadcast this show is going out on, so ending the show can
     /// end the BROADCAST.
@@ -1512,6 +1517,7 @@ public final class StudioSession {
         // network call that ends their broadcast.
         await completeArmedBroadcast()
         armedYouTubeChatID = nil
+        sharedFilmAt = nil
         armedExtras = []
 
         capture?.stopRunning()

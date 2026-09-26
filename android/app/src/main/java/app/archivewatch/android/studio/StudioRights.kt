@@ -94,8 +94,10 @@ object StudioRights {
      */
     fun explain(bucket: String): String =
         when (bucket) {
+            // Not only government works: the bucket is _GOV_PD_COLLECTIONS,
+            // which also holds Prelinger's sponsored films (Last Date, 1949).
             "safe_gov" ->
-                "This is a government work, which is free of copyright in the US but may carry other restrictions abroad — it is not offered for streaming yet."
+                "Public domain through its collection, not its age — not offered for streaming yet."
             "safe_archive_license", "safe_cc" ->
                 "This copy's public-domain claim comes from its uploader, not from its age. Uploaders are often wrong about films they did not make, so it is not offered for streaming."
             "presumed_pd" ->
@@ -155,6 +157,6 @@ object StudioRights {
         Tier.GUARANTEED ->
             "Only films published in ${lastPublicDomainYear()} or earlier can be streamed — age is the one public-domain claim nobody can dispute, and a stream goes out under your own account."
         Tier.STRICT ->
-            "Only films the rights audit has cleared can be streamed: published in ${lastPublicDomainYear()} or earlier, a US government work, or carrying a verified public-domain license."
+            "Only films the rights audit has cleared can be streamed: published in ${lastPublicDomainYear()} or earlier, from a government or public-domain archive collection, or carrying a verified public-domain license."
     }
 }
