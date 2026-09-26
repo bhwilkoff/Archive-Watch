@@ -24,6 +24,7 @@
  * individual people watched, which is the thing we said we would not keep.
  */
 
+import { handleMCP } from "./mcp.js";
 import { handleTogether, sweepRooms } from "./together.js";
 
 const ALLOW = "https://archivewatch.org";
@@ -105,6 +106,11 @@ export default {
     // null) could never POST "I'm here" (audit A14).
     if (url.pathname.startsWith("/together")) {
       return handleTogether(url, request, env);
+    }
+
+    // The assistant endpoint (mcp.js). Open to any origin, stores nothing.
+    if (url.pathname === "/mcp") {
+      return handleMCP(request);
     }
 
     if (request.method === "OPTIONS") {

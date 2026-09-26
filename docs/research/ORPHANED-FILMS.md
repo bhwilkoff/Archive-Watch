@@ -195,7 +195,7 @@ private analytics console (Pulse), adult-content filter by default (Decision
 | 8 | "Something wrong with this film?" report path | ✅ v1.42.732 every platform; TVs hand it to the phone as a QR (Roku decoded on device) |
 | 9 | Removal-request page + hide marker | ✅ v1.42.733 — takedown.html + takedowns.json honored every publish; OWNER to read the page's wording |
 | 3 | M3U + XMLTV feeds (website docs page only) | ✅ M3U v1.42.735 — /feeds/ page (footer link only), films.m3u + four per-kind playlists, 5,153 films at the Roku feed's guaranteed tier, built in deploy-pages; sampled URLs answer 206 video/mp4. XMLTV waits on #2 (one clock) |
-| 4 | MCP endpoint on the Worker (website docs page only) | queued |
+| 4 | MCP endpoint on the Worker (website docs page only) | ✅ v1.42.736 — `/mcp` on the existing Worker: search_films (title, director, top-billed cast), get_film (synopsis with its source, attributed archive.org reviews), more_like_this; reads only published shards (`/mcp/`, built in deploy-pages), stores nothing; documented on /feeds/ only |
 | 10 | Critics' scores from OMDb | 🔶 v1.42.734 pipeline: `criticsRT`/`criticsMC` from OMDb `Ratings` (cache schema 4); refresh ~17 days at the free tier, most-voted first, known misses never re-spent. Display waits for coverage |
 | 7 | Scrub previews — measure each player first | queued |
 | 11 | Smaller items (subtitle status, multi-film uploads, black-video fallback, daily pick) | queued |
