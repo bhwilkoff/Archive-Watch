@@ -1,5 +1,8 @@
 package app.archivewatch.android.ui.screens
 
+import app.archivewatch.android.data.ArchiveVersions
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.contentDescription
 import android.content.Intent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -530,6 +533,48 @@ fun DetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
 
         CommunityDetailSection(current)
 
+        // Scenes (§4.2b): a frame plays the film from its second.
+        val context = androidx.compose.ui.platform.LocalContext.current
+        val scenes by produceState(emptyList<ArchiveVersions.Scene>(), current.archiveID, current.downloadURL) {
+            value = current.downloadURL?.let { ArchiveVersions.scenes(context, current.archiveID, it) } ?: emptyList()
+        }
+        if (scenes.isNotEmpty()) {
+            Spacer(Modifier.height(8.dp))
+            Text("Scenes", style = MaterialTheme.typography.titleMedium,
+                modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp))
+            LazyRow(
+                contentPadding = PaddingValues(horizontal = 16.dp),
+                horizontalArrangement = Arrangement.spacedBy(12.dp),
+            ) {
+                items(scenes, key = { it.seconds }) { scene ->
+                    Column(
+                        Modifier
+                            .width(160.dp)
+                            .clickable {
+                                nav.push(Route.Player(PlaySpec(
+                                    id = current.archiveID, title = current.title,
+                                    description = current.synopsis, url = current.downloadURL ?: "",
+                                    captions = current.captions ?: emptyList(),
+                                    runtimeSeconds = current.runtimeSeconds,
+                                    startPositionMs = scene.seconds * 1000L,
+                                )))
+                            }
+                            .semantics { contentDescription = "Play from ${clock(scene.seconds)}" },
+                    ) {
+                        AsyncImage(
+                            model = scene.imageURL, contentDescription = null,
+                            contentScale = ContentScale.Crop,
+                            modifier = Modifier.fillMaxWidth().aspectRatio(4f / 3f)
+                                .clip(RoundedCornerShape(10.dp)),
+                        )
+                        Text(clock(scene.seconds), style = MaterialTheme.typography.labelSmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            modifier = Modifier.padding(top = 4.dp))
+                    }
+                }
+            }
+        }
+
         if (related.isNotEmpty()) {
             Spacer(Modifier.height(8.dp))
             ShelfRow("More Like This", related, onItem = {
@@ -850,3 +895,6 @@ private fun GetSubtitlesSheet(
         }
     }
 }
+
+private fun clock(t: Int): String =
+    if (t >= 3600) "%d:%02d:%02d".format(t / 3600, t / 60 % 60, t % 60) else "%d:%02d".format(t / 60, t % 60)

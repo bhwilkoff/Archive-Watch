@@ -182,6 +182,39 @@ object ArchiveVersions {
         if (!url.contains(' ') && !url.contains('#')) url
         else url.replace(" ", "%20").replace("#", "%23")
 
+    /** Scenes (ANDROID-DESIGN §4.2b, WEB-DESIGN §4.4e): up to 12 of archive.org's
+     *  own per-minute frames (`<file>.thumbs/<name>_SSSSSS.jpg`, the suffix is the
+     *  second) of the copy that will PLAY — uploads of one film differ in
+     *  length, so another copy's frame would start at the wrong moment. */
+    data class Scene(val seconds: Int, val imageURL: String)
+
+    suspend fun scenes(context: Context, archiveID: String, fallback: String): List<Scene> =
+        withContext(Dispatchers.IO) {
+            runCatching {
+                val url = preferredURL(context, archiveID, fallback)
+                val m = Regex("^https://archive\\.org/download/([^/]+)/(.+)$").find(url) ?: return@runCatching emptyList()
+                val item = java.net.URLDecoder.decode(m.groupValues[1], "UTF-8")
+                val file = m.groupValues[2].split("/").joinToString("/") {
+                    java.net.URLDecoder.decode(it.replace("+", "%2B"), "UTF-8")
+                }
+                val req = Request.Builder().url("https://archive.org/metadata/$item").build()
+                val files = http.newCall(req).execute().use { resp ->
+                    if (!resp.isSuccessful) return@runCatching emptyList()
+                    JSONObject(resp.body?.string() ?: return@runCatching emptyList()).optJSONArray("files")
+                } ?: return@runCatching emptyList()
+                val frames = (0 until files.length()).mapNotNull { i ->
+                    val f = files.optJSONObject(i) ?: return@mapNotNull null
+                    if (f.optString("format") != "Thumbnail" || f.optString("original") != file) return@mapNotNull null
+                    val t = Regex("_(\\d{6})\\.jpg$").find(f.optString("name"))?.groupValues?.get(1)?.toIntOrNull()
+                        ?: return@mapNotNull null
+                    if (t < 30) null else Scene(t, downloadURL(item, f.optString("name")))
+                }.sortedBy { it.seconds }
+                if (frames.size < 4) return@runCatching emptyList()
+                val want = minOf(12, frames.size)
+                List(want) { k -> frames[k * frames.size / want] }
+            }.getOrDefault(emptyList())
+        }
+
     private fun downloadURL(itemID: String, name: String): String {
         val encoded = name.split("/").joinToString("/") {
             URLEncoder.encode(it, "UTF-8").replace("+", "%20")
