@@ -1,1 +1,117 @@
-{"version":2,"seriesID":"the-amazing-spider-man-1977","tvmazeID":7623,"title":"The Amazing Spider-Man","yearStart":1977,"yearEnd":1979,"overview":"With the powers given by the bite of a radioactive spider, a young man fights crime as a wall-crawling superhero.","posterURL":"https://static.tvmaze.com/uploads/images/original_untouched/28/70308.jpg","backdropURL":null,"genres":["Action","Adventure","Science-Fiction"],"networks":["CBS"],"creator":null,"seasons":[{"seasonNumber":2,"episodes":[{"archiveID":"the-amazing-spider-man-complete-series-1977","seasonNumber":2,"episodeNumber":7,"title":"The Chinese Web: Part 1","overview":null,"stillURL":"https://archive.org/download/archivewatch-covers/the-amazing-spider-man-complete-series-1977.6fc26323.jpg","airDate":"1979-07-06","year":1979,"runtimeSeconds":3600,"videoFile":{"name":"The Amazing Spider-Man S02E07-E08 - The Chinese Web.mp4","format":"h.264","sizeBytes":555405483,"tier":2},"downloadURL":"https://archive.org/download/the-amazing-spider-man-complete-series-1977/The%20Amazing%20Spider-Man%20S02E07-E08%20-%20The%20Chinese%20Web.mp4"}]}],"episodesCount":1,"canonicalEpisodesCount":14,"cast":[{"name":"Nicholas Hammond","character":"Peter Parker/Spider-Man","order":0,"profilePath":"https://static.tvmaze.com/uploads/images/medium_portrait/490/1227345.jpg"},{"name":"David White","character":"J. Jonah Jameson","order":1,"profilePath":"https://static.tvmaze.com/uploads/images/medium_portrait/621/1553668.jpg"},{"name":"Robert F. Simon","character":"J. Jonah Jameson","order":2,"profilePath":"https://static.tvmaze.com/uploads/images/medium_portrait/91/227916.jpg"},{"name":"Chip Fields","character":"Rita Conway","order":3,"profilePath":null},{"name":"Ellen Bry","character":"Julie Masters","order":4,"profilePath":"https://static.tvmaze.com/uploads/images/medium_portrait/100/250668.jpg"},{"name":"Michael Pataki","character":"Captain Barbera","order":5,"profilePath":"https://static.tvmaze.com/uploads/images/medium_portrait/188/471098.jpg"},{"name":"Irene Tedrow","character":"Aunt May","order":6,"profilePath":"https://static.tvmaze.com/uploads/images/medium_portrait/204/510388.jpg"}]}
+{
+  "version": 2,
+  "seriesID": "the-amazing-spider-man-1977",
+  "tvmazeID": 7623,
+  "title": "The Amazing Spider-Man",
+  "yearStart": 1979,
+  "yearEnd": 1979,
+  "overview": "With the powers given by the bite of a radioactive spider, a young man fights crime as a wall-crawling superhero.",
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/28/70308.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Action",
+    "Adventure",
+    "Science-Fiction"
+  ],
+  "networks": [
+    "CBS"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "lost-media-found-the-amazing-adventures-of-spider-man-film-scenes-screen-animations",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "LOST MEDIA FOUND The Amazing Adventures Of Spider Man Film Scenes Screen Animations",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/lost-media-found-the-amazing-adventures-of-spider-man-film-scenes-screen-animations",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 209,
+          "videoFile": {
+            "name": "LOST MEDIA FOUND The Amazing Adventures of SpiderMan  Film ScenesScreen Animations.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 76615563,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/lost-media-found-the-amazing-adventures-of-spider-man-film-scenes-screen-animations/LOST%20MEDIA%20FOUND%20The%20Amazing%20Adventures%20of%20SpiderMan%20%20Film%20ScenesScreen%20Animations.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "the-amazing-spider-man-complete-series-1977",
+          "seasonNumber": 2,
+          "episodeNumber": 7,
+          "title": "The Chinese Web: Part 1",
+          "overview": null,
+          "stillURL": "https://archive.org/download/archivewatch-covers/the-amazing-spider-man-complete-series-1977.6fc26323.jpg",
+          "airDate": "1979-07-06",
+          "year": 1979,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The Amazing Spider-Man S02E07-E08 - The Chinese Web.mp4",
+            "format": "h.264",
+            "sizeBytes": 555405483,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-amazing-spider-man-complete-series-1977/The%20Amazing%20Spider-Man%20S02E07-E08%20-%20The%20Chinese%20Web.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2,
+  "canonicalEpisodesCount": 14,
+  "cast": [
+    {
+      "name": "Nicholas Hammond",
+      "character": "Peter Parker/Spider-Man",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/490/1227345.jpg"
+    },
+    {
+      "name": "David White",
+      "character": "J. Jonah Jameson",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/621/1553668.jpg"
+    },
+    {
+      "name": "Robert F. Simon",
+      "character": "J. Jonah Jameson",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/91/227916.jpg"
+    },
+    {
+      "name": "Chip Fields",
+      "character": "Rita Conway",
+      "order": 3,
+      "profilePath": null
+    },
+    {
+      "name": "Ellen Bry",
+      "character": "Julie Masters",
+      "order": 4,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/100/250668.jpg"
+    },
+    {
+      "name": "Michael Pataki",
+      "character": "Captain Barbera",
+      "order": 5,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/188/471098.jpg"
+    },
+    {
+      "name": "Irene Tedrow",
+      "character": "Aunt May",
+      "order": 6,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/204/510388.jpg"
+    }
+  ],
+  "seriesImdbID": "tt0076975",
+  "canonicalEpisodeCount": 2,
+  "canonicalSeasons": 1
+}
