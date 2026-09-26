@@ -193,6 +193,16 @@ separate tool with its own conventions (CLAUDE.md) — these rules govern the
   wider than 1200px, centered, and running text (synopsis, reviews,
   descriptions) keeps a ~72-character measure. At 1440px the synopsis and the
   archive.org reviews ran past the right edge of the window.
+- **§4.3b archive.org addresses open here** (2026-09-26, from the Orphaned Films
+  research): `archivewatch.org/details/<id>` (404.html forwards it) and an
+  archive.org link pasted into search (`/details/`, `/download/`, `/embed/`)
+  resolve to a film we keep, or to the film a merged upload became
+  (`aliases.json`). Anything else shows **Not in Archive Watch** and a link to it
+  on archive.org — nothing more, since the page cannot say which of several
+  reasons applies. An archive.org COLLECTION address cannot become a Browse yet:
+  the index carries no item's archive.org collections. Locked by
+  `tools/test_web_archive_address.mjs` (its control: the site without this fails
+  all five).
 - **§4.3a Search sits on the page grid** (2026-09-25): its filter chips are two
   horizontal chip rows (types, decades) in the Browse chip style and gutter,
   and the Episodes block keeps the page gutter; both had been flush with the

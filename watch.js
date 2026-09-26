@@ -716,7 +716,7 @@
    * ---------------------------------------------------------------- */
   const VIEWS = ['home', 'browse', 'search', 'library', 'item', 'series', 'about',
                  'surprise', 'playlist', 'channels', 'collections', 'collection',
-                 'cartoons', 'list', 'together'];
+                 'cartoons', 'list', 'together', 'details'];
   let browseObserver = null;   // disconnected on every view switch
 
   function route() {
@@ -757,7 +757,34 @@
     if (name === 'collection') Collections.renderOne(decodeURIComponent(seg[1] || ''));
     if (name === 'cartoons') Cartoons.render();
     if (name === 'about') renderCategoryPrefs();
+    if (name === 'details') ArchiveAddress.render(decodeURIComponent(seg[1] || ''));
   }
+
+  /* ---------------------------------------------------------------- *
+   * archive.org addresses (2026-09-26, the Orphaned Films research):  *
+   * swap archive.org for archivewatch.org, or paste an archive.org    *
+   * link into search, and land on the film — the one we keep, or the  *
+   * film a merged upload became (aliases.json). Anything else says so  *
+   * and links back: this site shows what its rights audit keeps.      *
+   * ---------------------------------------------------------------- */
+  const ArchiveAddress = {
+    /** The archive.org identifier in a pasted link, or null. */
+    idFrom(text) {
+      const m = String(text || '').trim()
+        .match(/^(?:https?:\/\/)?(?:www\.)?(?:archive\.org|archivewatch\.org)\/(?:details|download|embed)\/([^/?#\s]+)/i);
+      return m ? decodeURIComponent(m[1]) : null;
+    },
+    async render(id) {
+      const title = $('details-title'), link = $('details-archive');
+      title.textContent = ''; link.hidden = true;
+      // route() runs only after Data.load(), so the index is here already.
+      const here = Data.byID.get(id) ? id : await Aliases.survivor(id);
+      if (here) { location.replace(`#/item/${encodeURIComponent(here)}`); return; }
+      title.textContent = 'Not in Archive Watch';
+      link.href = `https://archive.org/details/${encodeURIComponent(id)}`;
+      link.hidden = false;
+    },
+  };
 
   /** Small on/off preferences kept in localStorage. Each reads its default on
    *  every access rather than caching, so a change in About takes effect on the
@@ -1549,6 +1576,9 @@
     async run(qs) {
       const grid = $('search-grid');
       if (!qs) { grid.replaceChildren(); this.renderEpisodes([]); return; }
+      // A pasted archive.org link opens what it points at (ArchiveAddress).
+      const pasted = ArchiveAddress.idFrom(qs);
+      if (pasted) { location.hash = `#/details/${encodeURIComponent(pasted)}`; return; }
       const terms = foldText(qs).split(/\s+/).filter(Boolean);
       const hits = [];
       // Title + the rich-metadata search blob (Decision 046, schema 6: TMDb

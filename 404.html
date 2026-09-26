@@ -44,6 +44,11 @@
         location.replace('/#/together' + (room ? '/' + room : ''));
         return;
       }
+      // An archive.org address with the domain swapped (/details/<id>, the
+      // file-level /details/<id>/<file> too): the viewer resolves it — a film
+      // we keep, the film a merged upload became, or a plain "not here".
+      var D = p.match(/^\/details\/([^/]+)/);
+      if (D) { location.replace('/#/details/' + D[1]); return; }
       if (/^\/watch(\/|$)/.test(p)) { location.replace('/' + location.hash); return; }
       location.replace('/');
     })();
