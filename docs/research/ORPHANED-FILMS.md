@@ -187,8 +187,8 @@ private analytics console (Pulse), adult-content filter by default (Decision
 
 | # | Item | State |
 |---|---|---|
-| 6 | "An Hour or Less" Home row (adapted from "Under 90") | ✅ v1.42.726 — verify membership in the live index after the next publish |
-| 6b | Length filter in Browse | ✅ v1.42.727 Apple, Android, web (index schema 14 `minutes`); Roku ✅ v1.42.728 |
+| 6 | "An Hour or Less" Home row (adapted from "Under 90") | ✅ v1.42.726 — LIVE: 60 in the published index |
+| 6b | Length filter in Browse | ✅ Apple, Android, web (index schema 14 LIVE, `minutes` on 22,253 rows); Roku ✅ verified on device |
 | 2 | Channels on one clock + "tune in with me" | ❓ OWNER CALL: every platform anchors the broadcast day at 6 AM LOCAL and builds pools from its own DB; one global clock means published pools + a UTC timeline and giving up the local day. Feeds (#3) will need a pipeline-built global schedule either way |
 | 1 | Lists from archive.org users' lists/favorites + curated collections | queued |
 | 5 | archive.org addresses open here; paste a link in search | ✅ web v1.42.729; apps next |
