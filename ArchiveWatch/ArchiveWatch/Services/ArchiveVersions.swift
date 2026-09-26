@@ -32,8 +32,20 @@ enum ArchiveVersions {
         /// HALF THE FILM. A choice that plays the wrong half is worse than one
         /// that cannot play at all: it looks like it worked.
         var disambiguator: String?
+        /// The archive.org item the file is on. A title's OWN item, or an
+        /// upload the catalog merged into it (Decision 040) — owner,
+        /// 2026-09-22, on Keaton's two Scarecrows: *"Why are there two
+        /// versions of the same movie that aren't folded together as
+        /// different versions that can be pulled in the versions picker?"*
+        /// The merge folded the cards and left the sound copy unreachable.
+        var sourceItemID: String = ""
+        var isOtherUpload = false
+        /// What a choice is remembered by: the bare file name for the title's
+        /// own item (so every choice saved before this still reads), and
+        /// `@item:name` for a merged upload's file.
+        var choiceKey: String { isOtherUpload ? "@\(sourceItemID):\(name)" : name }
 
-        var id: String { name }
+        var id: String { choiceKey }
 
         /// `480p · H.264 · 575 MB — Archive derivative`. Literal, not a
         /// judgement: "Best"/"Auto" labels hide what is actually being chosen,
@@ -46,6 +58,7 @@ enum ArchiveVersions {
             if !codec.isEmpty { parts.append(codec) }
             parts.append(Self.sizeText(sizeBytes))
             if let d = disambiguator { parts.append(d) }
+            if isOtherUpload { parts.append("another upload") }
             let origin = isDerivative ? "Archive derivative" : "uploader original"
             return parts.joined(separator: " · ") + " — " + origin
         }
@@ -64,6 +77,7 @@ enum ArchiveVersions {
             if !codec.isEmpty { parts.append(codec) }
             parts.append(Self.sizeText(sizeBytes))
             if let d = disambiguator { parts.append(d) }
+            if isOtherUpload { parts.append("another upload") }
             return parts.joined(separator: " · ")
         }
 
@@ -109,7 +123,24 @@ enum ArchiveVersions {
     /// "3_L001965_FR-B422_H264" and "2-of-3_L001965_FR-B422". Screenshot
     /// evidence, not the app's own report — the standing rule for tvOS.
     static let appleContainers = ["mp4", "mov", "m4v"]
+    /// The ids of uploads merged into a title, set by the store that owns the
+    /// catalog each time it opens one (`item_aliases`).
+    @MainActor static var mergedIDs: ((String) -> [String])?
+
     static func list(itemID: String) async -> [Version] {
+        let own = await files(on: itemID)
+        let merged = await MainActor.run { mergedIDs?(itemID) ?? [] }
+        var others: [Version] = []
+        for other in merged where other != itemID {
+            for var v in await files(on: other) {
+                v.isOtherUpload = true
+                others.append(v)
+            }
+        }
+        return ordered(own + others)
+    }
+
+    private static func files(on itemID: String) async -> [Version] {
         guard let metaURL = URL(string: "https://archive.org/metadata/\(itemID)") else { return [] }
         var req = URLRequest(url: metaURL)
         req.timeoutInterval = 15
@@ -128,14 +159,20 @@ enum ArchiveVersions {
                   let url = URL(string: "https://archive.org/download/\(itemID)/\(encoded)")
             else { continue }
             let format = (f["format"] as? String) ?? ""
-            out.append(Version(
+            var v = Version(
                 name: name,
                 url: url,
                 sizeBytes: size,
                 format: format,
                 heightPixels: (f["height"] as? String).flatMap { Int($0) },
-                isDerivative: (f["source"] as? String) == "derivative"))
+                isDerivative: (f["source"] as? String) == "derivative")
+            v.sourceItemID = itemID
+            out.append(v)
         }
+        return out
+    }
+
+    private static func ordered(_ out: [Version]) -> [Version] {
         // RESOLUTION first, size only to break ties. Sorting by size alone
         // was wrong and the device showed it: Utopia's 240p MPEG-4 copy is
         // 591 MB against 563 MB for its 480p H.264, because MPEG-4 Part 2 is
@@ -188,7 +225,7 @@ enum ArchiveVersions {
 
     static func choose(_ version: Version?, for archiveID: String) {
         var map = defaults.dictionary(forKey: key) ?? [:]
-        if let version { map[archiveID] = version.name } else { map.removeValue(forKey: archiveID) }
+        if let version { map[archiveID] = version.choiceKey } else { map.removeValue(forKey: archiveID) }
         defaults.set(map, forKey: key)
     }
 
@@ -201,11 +238,21 @@ enum ArchiveVersions {
     /// the choice working when the Archive is slow to answer, which is
     /// precisely the evening someone reaches for a lighter copy.
     static func preferredURL(for archiveID: String, default fallback: URL) -> URL {
-        guard let name = chosenName(for: archiveID),
-              let encoded = name.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed),
-              let url = URL(string: "https://archive.org/download/\(archiveID)/\(encoded)")
+        guard let key = chosenName(for: archiveID) else { return fallback }
+        let (item, name) = location(of: key, title: archiveID)
+        guard let encoded = name.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed),
+              let url = URL(string: "https://archive.org/download/\(item)/\(encoded)")
         else { return fallback }
         return url
+    }
+
+    /// `@item:name` is a merged upload's file; anything else is a file on the
+    /// title's own item.
+    static func location(of key: String, title archiveID: String) -> (item: String, name: String) {
+        guard key.hasPrefix("@"), let colon = key.firstIndex(of: ":") else { return (archiveID, key) }
+        let item = String(key[key.index(after: key.startIndex)..<colon])
+        let name = String(key[key.index(after: colon)...])
+        return item.isEmpty || name.isEmpty ? (archiveID, key) : (item, name)
     }
 
     private static var defaults: UserDefaults { .standard }

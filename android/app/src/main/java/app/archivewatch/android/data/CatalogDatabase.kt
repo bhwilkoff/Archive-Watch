@@ -316,6 +316,13 @@ class CatalogDatabase private constructor(
         return pairs.mapNotNull { (old, new) -> byNew[new]?.let { old to it } }
     }
 
+    /** The uploads merged INTO a title (Decision 040), for its versions picker. */
+    suspend fun mergedIDs(into: String): List<String> = dbCall {
+        runCatching {
+            queryRaw("SELECT oldID FROM item_aliases WHERE newID = ?", listOf(into)) { it.getText(0) }
+        }.getOrDefault(emptyList())
+    }
+
     /** The un-aliased lookup, so alias resolution cannot recurse. */
     private suspend fun itemsByIDsDirect(ids: List<String>): List<CatalogItem> {
         if (ids.isEmpty()) return emptyList()

@@ -871,11 +871,11 @@ private fun TvVersionOverlay(
                         val ver = v[i]
                         TvVersionRow(
                             label = ver.label,
-                            selected = chosen == ver.name,
+                            selected = chosen == ver.choiceKey,
                             accent = accent,
                         ) {
                             app.archivewatch.android.data.ArchiveVersions.choose(context, archiveID, ver)
-                            chosen = ver.name
+                            chosen = ver.choiceKey
                         }
                     }
                     if (v.isEmpty()) {

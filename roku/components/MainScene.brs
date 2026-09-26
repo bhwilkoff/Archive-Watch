@@ -1055,7 +1055,10 @@ sub onVersionPicked(pick as String)
             ' archive.org's own download path, percent-encoded the way every
             ' other url in this app is — a filename here can contain spaces,
             ' commas and semicolons.
-            url = "https://archive.org/download/" + m.detail.item.id + "/" + encodeName(v.name)
+            ' A merged upload's file lives on ITS item, not the title's.
+            vItem = m.detail.item.id
+            if v.item <> invalid and v.item <> "" then vItem = v.item
+            url = "https://archive.org/download/" + vItem + "/" + encodeName(v.name)
             m.chosenURL = url
             m.detail.toast = "Playing " + v.label
             m.detail.play = url

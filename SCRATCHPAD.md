@@ -55,14 +55,21 @@ because the loop was stopped mid-stride for a Claude update.
 ### Open owner items (nothing else is blocked)
 
 0-NOW. **OAUTH APPROVED (2026-09-26); QUOTA SCREENCAST SENT, WAITING ON GOOGLE.**
-   The `auth/youtube` verification passed; no code change was needed. The
-   quota team (thread "YouTube API Services: Thank you for your submission",
-   due ~2026-10-06) asked for a screencast; it is <https://youtu.be/6QiRJhHyw3E>,
-   answered 2026-09-26 with the call-by-call explanation
-   (docs/oauth/QUOTA-SCREENCAST.md). The reply went from ben@learningischange.com
-   while Google writes to benwilkoff@gmail.com. The Terms of Service URL on
-   Branding (audit A9) is NOT added: changing Branding re-opens verification,
-   so it waits until the quota review closes.
+   `auth/youtube` verification passed; no code change was needed. The quota
+   team's screencast is <https://youtu.be/6QiRJhHyw3E>, answered 2026-09-26
+   (docs/oauth/QUOTA-SCREENCAST.md); their window closes ~2026-10-06. The reply
+   went from ben@learningischange.com while Google writes to benwilkoff@gmail.com.
+   Terms of Service URL on Branding (audit A9) waits until the quota review
+   closes: changing Branding re-opens verification.
+
+0-OPEN-2026-09-26. **WHICH COPY DOES A ROOM PLAY?** Now that merged uploads can
+   be chosen (their runtimes differ — the two Scarecrows are 55 s apart), a
+   guest whose device prefers another copy syncs to the host's POSITION on a
+   different timeline. The web plays the default copy in rooms; Apple and
+   Android play each device's own choice. The clean answer is for the room to
+   carry the host's copy (`@item:name`) so every guest plays that file — a
+   Worker + five-client protocol change, so it is written here rather than done
+   quietly.
 
 0-DECIDED-2026-09-25. **SIX OWNER CALLS, ANSWERED — IN PROGRESS.** Asked as a
    series; the answers, verbatim where the owner wrote their own:
@@ -103,36 +110,13 @@ because the loop was stopped mid-stride for a Claude update.
    because `PATCH /channels` REPLACES a host's own tags on every go-live. (c) A
    default Twitch category / YouTube `categoryId` is editorial.
 
-0-NEWEST. **TWO CATALOGUE ENTRIES FOR ONE BUSTER KEATON SHORT, AND THE CAUSE
-   IS EXACT** (owner, 2026-09-22: *"there are two different copies of 'The
-   Scarecrow' (one with sound and one without) ... Why are there two versions
-   of the same movie that aren't folded together as different versions that can
-   be pulled in the versions picker?"*). Not fixed; the cause is measured and
-   the fix is a catalog-pipeline change of its own.
-
-   | | `TheScarecrow1920` | `the-scarecrow` |
-   |---|---|---|
-   | title | `Buster Keaton's "The Scarecrow"` | `The Scarecrow` |
-   | imdbID | *(none)* | `tt0011656` |
-   | runtime | 1085 s | 1140 s |
-   | audio | **none** | AAC |
-
-   **Decision 040's merge never considered them**, because it clusters by
-   normalized title FIRST and only then asks `_same_film`. Run against the two
-   titles, `build_sqlite._dupe_title_key` returns `busterkeatonsthescarecrow`
-   and `scarecrow` — different clusters. And `_same_film(a, b)` on those two
-   records returns **True**: one carries an imdb anchor, the other none,
-   runtimes are 5% apart against a 40% tolerance. So the ONLY thing standing
-   between these two cards is the uploader's `Buster Keaton's ` attribution
-   prefix, which `_DUPE_QUALIFIERS` does not strip.
-
-   **The narrow fix, and why it is not just "strip a possessive".** Stripping
-   any leading `<Word>'s ` would turn *Pandora's Box* into `box` and invite an
-   over-merge. The uploader convention here is stronger and safer: when a title
-   contains a QUOTED substring, the quoted part IS the title —
-   `Buster Keaton's "The Scarecrow"` → `The Scarecrow`. That is testable,
-   bounded, and does not touch unquoted titles at all. It needs a catalog
-   rebuild to take effect, which is why it is its own change set.
+0-NEWEST. ~~Two catalog entries for one Buster Keaton short~~ **DONE
+   2026-09-26**: Decision 135's quoted-title rule folded them into
+   `TheScarecrow1920`, and every versions picker now lists the merged uploads'
+   files, so the copy with sound (`the-scarecrow`, 1080p original) can be
+   chosen again — verified on the Roku (4 copies, 3 "another upload"). The
+   survivor is still the SILENT copy by default; which copy a merge keeps is
+   Decision 040's ranking and a separate call.
 
 0-NEW. **PRESS "ALLOW THE CAMERA" ONCE, IN THE MAC STUDIO** (2026-09-22). The
    macOS product path had NEVER called `AVCaptureDevice.requestAccess` — only
@@ -706,6 +690,29 @@ keep serving it.
 
 ## Session Log
 
+### 2026-09-26 — OAuth approved, the quota screencast, and a day of loose ends closed
+
+Owner: *"the OAuth has been approved ... a new video needs to be created for
+the API increase ... fully run the screencast, recording it and replying"*,
+then *"fix all documented items now and if you find more, please fix those
+too"* and *"make sure you are documenting full parity."* v1.42.717 -> .720.
+
+**Quota**: a live broadcast on Archive Watch (`ah780Fm7ky8`) recorded window by
+window and cut with English title cards: <https://youtu.be/6QiRJhHyw3E>, sent on
+Google's thread (docs/oauth/QUOTA-SCREENCAST.md). No OAuth code change needed.
+
+**Studio**: chat link is the film's Archive Watch page; "shared N ago" is per
+show; chat reading switches mid-show (Mac, iPhone); a show ends once; End asks
+on the iPhone and on Android as it already did on Mac and TV; a show over a
+paused film shows its frame, not black; refusal sentences for safe_gov
+(Prelinger is not a government) and Decision 140's bucket.
+
+**Found**: `test_studio_all.sh` read `| tail`'s exit code, so two failing
+rights tests reported PASS since v1.42.195; `asc_release.py status` went red on
+a normal "not uploaded yet". **Versions**: the Scarecrow merge had left the
+SOUND copy unreachable; every picker (Apple, Android, Roku, and a new web one)
+now lists merged uploads' files — verified on the Roku.
+
 ### 2026-09-25 (afternoon) — Pulse rebuilt around action, and every film made searchable
 
 Owner: *"make The Pulse a much more action-oriented ... portal"*, then /loop
@@ -731,35 +738,5 @@ optional**: submit `sitemap.xml` in Search Console to speed the first crawl.
 
 **Also**: Android black player after End fixed (v1.42.700); iOS Chromecast
 sender built (CASTV2, in "Share and more"), not yet submitted.
-
-### 2026-09-24/25 — the catalog loop: sourcing that actually runs, one hero rule, connected films
-
-Owner /loop (5-minute cron): *"further enhancements for the title/movie
-database ... better sourcing of missing movies ... ways to connect movies
-together ... audits of home screens and hero rows ... better workers/action on
-GitHub."* v1.42.641 -> v1.42.663. `tools/verify_catalog_changes_2026_09_24.py`
-reads the live plane; it went 0/7 -> 7/7.
-
-**Sourcing**: the nightly sweep re-read the top 600 of each collection forever
-(6,521 feature_films never queued); two collection ids were wrong-cased and one
-did not exist. Ingest spent 881 of 900 slots on stale entries, newest-first. All
-fixed; the first run ingested 885 (was 18), 625 visible, oldest first; 331
-matched with art within hours. Guards added because the volume made them
-necessary: a queue ceiling, holds for modern licence-only uploads and for age
-claims the title contradicts, and "a year before 1874 is not evidence".
-PD-by-age backfill (1880-1927, 300 a night) is ON.
-
-**Connections**: More Like This ranked once in the pipeline (Decision 139) by
-series, director, cast, writer, keywords and archive subject tags — 17,243
-films, verified on the web and on the Roku. 19 film-series Collections.
-Franchise search.
-
-**Home/hero**: web and Roku had no hero rights bar (46% / 67% of their pools);
-Home shelves admitted modern titles on an uploader's licence; the web's
-curated shelves were starved (Silent Era 7 vs 3,467). All fixed and live. Owner
-calls recorded above: items 0-NEWEST-3/4/5 and the TV-rights addendum.
-
-**Mistake**: a Roku `mediaType=movie` deep link PLAYS; Metropolis ran ~80 s
-in the bedroom (memory `roku_deeplink_movie_autoplays`).
 
 Older entries: `docs/SESSION-LOG.md` (verbatim, back to 2026-04-17).

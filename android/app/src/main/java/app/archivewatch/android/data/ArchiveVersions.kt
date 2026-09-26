@@ -37,7 +37,19 @@ object ArchiveVersions {
         // that plays the wrong half is worse than one that cannot play: it
         // looks like it worked.
         val disambiguator: String? = null,
+        // The archive.org item the file is on: the title's own, or an upload
+        // the catalog merged into it (Decision 040). Owner, 2026-09-22, on
+        // Keaton's two Scarecrows: "folded together as different versions
+        // that can be pulled in the versions picker". The merge folded the
+        // cards and left the sound copy unreachable.
+        val sourceItemID: String = "",
+        val isOtherUpload: Boolean = false,
     ) {
+        /** Bare name for the title's own item (every saved choice still
+         *  reads), `@item:name` for a merged upload's file. */
+        val choiceKey: String
+            get() = if (isOtherUpload) "@$sourceItemID:$name" else name
+
         /** `480p · H.264 · 575 MB — Archive derivative` — literal, never "Best". */
         val label: String
             get() {
@@ -47,6 +59,7 @@ object ArchiveVersions {
                         ?.let { add(it.replace(Regex("h\\.264", RegexOption.IGNORE_CASE), "H.264")) }
                     add(sizeText(sizeBytes))
                     disambiguator?.let { add(it) }
+                    if (isOtherUpload) add("another upload")
                 }
                 val origin = if (isDerivative) "Archive derivative" else "uploader original"
                 return parts.joinToString(" · ") + " — " + origin
@@ -55,10 +68,22 @@ object ArchiveVersions {
 
     private val http = OkHttpClient()
 
-    /** Playable video copies on the item, best quality first (resolution,
-     *  then size as the tiebreak — bytes measure the encoder, not the
-     *  transfer: a 240p MPEG-4 can outweigh a 480p H.264). */
-    suspend fun list(itemID: String): List<Version> = withContext(Dispatchers.IO) {
+    /** Merged-upload ids for a title, set by CatalogRepository per catalog. */
+    @Volatile var mergedIDs: (suspend (String) -> List<String>)? = null
+
+    /** Playable video copies on the title's item and on any upload merged
+     *  into it, best quality first (resolution, then size as the tiebreak —
+     *  bytes measure the encoder, not the transfer: a 240p MPEG-4 can
+     *  outweigh a 480p H.264). */
+    suspend fun list(itemID: String): List<Version> {
+        val own = files(itemID)
+        val others = (mergedIDs?.invoke(itemID) ?: emptyList())
+            .filter { it != itemID }
+            .flatMap { other -> files(other).map { it.copy(isOtherUpload = true) } }
+        return ordered(own + others)
+    }
+
+    private suspend fun files(itemID: String): List<Version> = withContext(Dispatchers.IO) {
         runCatching {
             val req = Request.Builder()
                 .url("https://archive.org/metadata/$itemID")
@@ -82,20 +107,25 @@ object ArchiveVersions {
                             format = f.optString("format"),
                             heightPixels = f.optString("height").toIntOrNull(),
                             isDerivative = f.optString("source") == "derivative",
+                            sourceItemID = itemID,
                         ),
                     )
                 }
+                out.toList()
+            }
+        }.getOrDefault(emptyList())
+    }
+
+    private fun ordered(out: List<Version>): List<Version> {
                 val sorted = out.sortedWith(
                     compareByDescending<Version> { it.heightPixels ?: 0 }
                         .thenByDescending { it.sizeBytes },
                 )
                 // Two copies that render the same label are not a choice.
                 val seen = sorted.groupingBy { it.label }.eachCount()
-                sorted.map {
+                return sorted.map {
                     if ((seen[it.label] ?: 0) > 1) it.copy(disambiguator = stem(it.name)) else it
                 }
-            }
-        }.getOrDefault(emptyList())
     }
 
     // MARK: per-title choice (SharedPreferences map, name-keyed)
@@ -108,7 +138,7 @@ object ArchiveVersions {
 
     fun choose(context: Context, archiveID: String, version: Version?) {
         context.getSharedPreferences(PREFS, Context.MODE_PRIVATE).edit().apply {
-            if (version == null) remove(archiveID) else putString(archiveID, version.name)
+            if (version == null) remove(archiveID) else putString(archiveID, version.choiceKey)
         }.apply()
     }
 
@@ -116,8 +146,17 @@ object ArchiveVersions {
      *  pipeline's pick unchanged. Rebuilt from the stored NAME so honouring
      *  a choice never waits on /metadata. */
     fun preferredURL(context: Context, archiveID: String, fallback: String): String {
-        val name = chosenName(context, archiveID) ?: return playable(fallback)
-        return downloadURL(archiveID, name)
+        val key = chosenName(context, archiveID) ?: return playable(fallback)
+        val (item, name) = location(key, archiveID)
+        return downloadURL(item, name)
+    }
+
+    /** `@item:name` is a merged upload's file; anything else is on the title's item. */
+    fun location(key: String, archiveID: String): Pair<String, String> {
+        if (!key.startsWith("@")) return archiveID to key
+        val colon = key.indexOf(':')
+        if (colon < 2 || colon == key.length - 1) return archiveID to key
+        return key.substring(1, colon) to key.substring(colon + 1)
     }
 
     /**

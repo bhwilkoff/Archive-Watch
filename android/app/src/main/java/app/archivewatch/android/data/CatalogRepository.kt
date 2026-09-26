@@ -230,6 +230,10 @@ class CatalogRepository(
         newDb?.hideAdult = hideAdult
         newDb?.hiddenTypes = hiddenTypes
         db = newDb
+        ArchiveVersions.mergedIDs = newDb?.let { d ->
+            val lookup: suspend (String) -> List<String> = { id -> d.mergedIDs(id) }
+            lookup
+        }
         _dbVersion.value += 1
     }
 

@@ -436,6 +436,7 @@ same sentence that offers what it CAN do.
 | Per-ecosystem sync (own cloud) | ✅ CloudKit | ✅ CloudKit | ✅ CloudKit (SAME container; Settings → Account; `CloudKitSyncService`) | ✅ Drive App Data + ✅ CloudKit JS (Sign in with Apple, live 2026-09-10) | ✅ Drive App Data (Settings → Sync) | Apple islands converge on one iCloud private DB; the WEB is the only client that can hold both — Apple token created 2026-09-10 (docs/web-apple-sync.md) |
 | Cross-ecosystem sync (all platforms) | 🚫 | 🚫 | 🚫 | ✅ Google Drive (D102) + Apple via CloudKit JS, both live; one merge (Decision 078) | 🚫 | Out of scope as a BACKEND (D028). The web is the exception: signed into both clouds it merges Apple + Google state with one set of rules |
 | Deletions carry tombstones | ✅ | ✅ | ✅ | ✅ | ✅ | without one, a removed favorite is resurrected by the next pull — Apple's #84, now closed on Android + web too |
+| **Choose a copy** (every playable file of a title, INCLUDING uploads merged into it — Decision 040) | ✅ | ✅ | ✅ | ✅ NEW 2026-09-26: a **Version** button on Detail, shown only when there is a choice, a `<dialog>` like Share; mp4/m4v/webm only (what every engine plays); remembered per title in localStorage | ✅ phone + TV | Owner, 2026-09-22: *"folded together as different versions that can be pulled in the versions picker."* The merge (D135) folded Keaton's two Scarecrows and left the SOUND copy unreachable; every picker now also lists the merged uploads' files, marked "another upload". A choice is remembered as `@item:name` for another upload's file, the bare name otherwise, so older choices still read. **Roku** ✅ too (not a column here): *Choose a different copy…* lists them, **verified on the Streaming Stick 4K** — The Scarecrow shows 4 copies, 3 from merged uploads incl. a 1080p original. Rooms keep the DEFAULT copy on the web (host and guests must play the same timeline); Apple/Android rooms still use each device's choice — open, see SCRATCHPAD |
 | **Download a film for offline viewing** | 🚫 **platform cannot** | ✅ Detail ⬇ → copy-picker sheet · **22/22 on iPhone 12 + iPad Pro** | ✅ Detail Download menu · **verified on this Mac** | 🚫 | ⏳ Media3 `DownloadManager` | Decision 099. tvOS has NO durable storage — a purgeable `Caches` plus ~500 KB of `NSUserDefaults`, no Documents dir — so a download there is a promise the OS may delete between launches. Web: browser quota will not hold a feature film. Background `URLSession` → Application Support, `isExcludedFromBackup` |
 | Downloads in Library (manage + remove) | 🚫 | ✅ Downloads section, swipe delete / pause / resume | ✅ Downloads rows + Remove | 🚫 | ⏳ | Downloads is the FIRST Library section and the tab opens there when offline |
 | Play a downloaded film with no network | 🚫 | ✅ plain `AVPlayerItem(url: file://)` — decoded off disk on both devices | ✅ **proven with the network DENIED to the process** (negative control: archive.org unreachable) | 🚫 | ⏳ | iOS-DESIGN §8.7 / macOS-DESIGN §B9b — the resilient loader is skipped; nothing to be resilient about |
@@ -754,6 +755,23 @@ granted (a new scope — every host re-consents). **iOS** ⏳ the button heads t
 Audience section on a YouTube broadcast (v1.42.519); the call behind it is
 PROVED on YouTube (GYAQsLMDwho), the button itself not yet pressed live.
 tvOS 🚫 (Rule 8.8c).
+**Updated 2026-09-26**: macOS ✅ POSTED LIVE from the Studio's button
+(broadcast `ah780Fm7ky8`, Archive Watch, the quota screencast). The link is now
+the film's **Archive Watch page** (`archivewatch.org/item/<id>/`), not
+archive.org — owner: one title gathers every copy and version, and its page
+links the source. Same one function on macOS and iOS (`StudioChatShare`,
+§8.52); Android 🚫 (no YouTube sign-in on Android).
+
+##### Chat reading switches mid-show; a show ends once; a paused film is not black — 2026-09-26 (macOS-DESIGN §D26/§D37 amendments, iOS-DESIGN §8.8)
+
+| Feature | macOS | iOS | tvOS | Android | Proof |
+|---|---|---|---|---|---|
+| "Show chat from YouTube" honored mid-show | ✅ AUDIENCE pane switch | ✅ Audience section switch | 🚫 Rule 8.8c: the television's live surface is two channels and a rotation; set on the go-live screen | 🚫 no YouTube on Android | builds; the read path is the one proved in `ah780Fm7ky8`; the mid-show flip is not yet run live |
+| With chat off, no "Nobody has said anything yet" | ✅ | ✅ (section shows the switch) | n/a | n/a | code |
+| End confirms | ✅ §D37 | ✅ NEW — one tap used to end a live show | ✅ Menu asks | ✅ NEW — the readout's End and the panel's End the broadcast both ended a live show in one tap; now "End the broadcast?" (a preview still stops without asking) | builds; Android compiles both flavors |
+| A show ends once (no second dialog / second end) | ✅ `isEnding` | ✅ container guard | ✅ ending clears the handler | — | builds |
+| A show begun over a paused film shows its frame, not black | ✅ engine | ✅ engine (shared `attachFilm`) | ✅ engine | ExoPlayer renders the first frame of a paused item into its surface by itself | seen on the Mac: `AWFILM film is paused — primed its current frame`, STREAM pane shows the frame |
+| The safe_gov and uploader_licence_only refusals say something true | ✅ | ✅ | ✅ | ✅ | `test_studio_rights_parity.py` — which the suite runner had been reporting PASS over its own FAILED line |
 
 ##### Scenes — 2026-09-23 (macOS-DESIGN §D31)
 

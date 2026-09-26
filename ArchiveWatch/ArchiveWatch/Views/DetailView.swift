@@ -2268,7 +2268,9 @@ struct PlayerScreen: View {
                 .lastPathComponent.removingPercentEncoding
             let versionActions = playerVersions.map { version in
                 UIAction(title: version.compactLabel,
-                         state: (chosen ?? pipelineName) == version.name ? .on : .off) { _ in
+                         state: (chosen.map { $0 == version.choiceKey }
+                                 ?? (!version.isOtherUpload && pipelineName == version.name))
+                                ? .on : .off) { _ in
                     switchToVersion(version)
                 }
             }

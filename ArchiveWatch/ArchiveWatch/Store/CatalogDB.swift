@@ -406,6 +406,11 @@ final class CatalogDB {
         return ids.compactMap { byID[$0] }
     }
 
+    /// The uploads merged INTO a title (Decision 040), for its versions picker.
+    func mergedIDs(into archiveID: String) -> [String] {
+        pairRows("SELECT oldID, newID FROM item_aliases WHERE newID = ?", [archiveID]).map(\.0)
+    }
+
     /// Follow merged-away ids to the card that replaced them.
     private func resolveAliases(_ ids: [String]) -> [(String, Catalog.Item)] {
         guard !ids.isEmpty else { return [] }

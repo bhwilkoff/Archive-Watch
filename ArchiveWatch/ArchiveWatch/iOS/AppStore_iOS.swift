@@ -174,6 +174,7 @@ final class AppStore {
         newDB.hiddenTypes = Self.contentTypes(for: hiddenCategories)
         newDB.demotedIDs = Set(featured?.deprioritizedSeries ?? [])
         db = newDB
+        ArchiveVersions.mergedIDs = { [weak newDB] id in newDB?.mergedIDs(into: id) ?? [] }
         dbPath = path
         dbVersion += 1
     }

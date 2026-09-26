@@ -770,6 +770,11 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
                 },
                 modifier = Modifier.fillMaxSize().zIndex(5f),
             )
+            var askEnd by remember { mutableStateOf(false) }
+            val requestEnd: () -> Unit = {
+                if (StudioController.health.showState == "LIVE") askEnd = true
+                else scope.launch { StudioController.end() }   // a preview: nobody is watching
+            }
             Box(
                 Modifier.fillMaxSize().zIndex(11f).padding(16.dp),
                 contentAlignment = androidx.compose.ui.Alignment.TopStart,
@@ -777,14 +782,33 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
                 StudioReadout(
                     health = StudioController.health,
                     onOpenPanel = { StudioController.panelOpen = true },
-                    onEnd = { scope.launch { StudioController.end() } },
+                    onEnd = requestEnd,
                 )
             }
             if (StudioController.panelOpen) {
                 StudioPanel(
                     health = StudioController.health,
                     onDismiss = { StudioController.panelOpen = false },
-                    onEnd = { scope.launch { StudioController.end() } },
+                    onEnd = requestEnd,
+                )
+            }
+            // One tap may not end what an audience is watching (macOS §D37,
+            // iOS §8.8, tvOS's Menu): the same question on every platform.
+            if (askEnd) {
+                androidx.compose.material3.AlertDialog(
+                    onDismissRequest = { askEnd = false },
+                    title = { Text("End the broadcast?") },
+                    confirmButton = {
+                        androidx.compose.material3.TextButton(onClick = {
+                            askEnd = false
+                            scope.launch { StudioController.end() }
+                        }) { Text("End Broadcast") }
+                    },
+                    dismissButton = {
+                        androidx.compose.material3.TextButton(onClick = { askEnd = false }) {
+                            Text("Keep Streaming")
+                        }
+                    },
                 )
             }
         }
@@ -1109,10 +1133,10 @@ private fun PhonePlayerOptionsSheet(
                 v.forEach { ver ->
                     ListItem(
                         headlineContent = { Text(ver.label) },
-                        leadingContent = { RadioButton(selected = chosenVersion == ver.name, onClick = null) },
+                        leadingContent = { RadioButton(selected = chosenVersion == ver.choiceKey, onClick = null) },
                         modifier = Modifier.clickable {
                             app.archivewatch.android.data.ArchiveVersions.choose(context, spec.id, ver)
-                            chosenVersion = ver.name
+                            chosenVersion = ver.choiceKey
                             val pos = player.currentPosition
                             player.currentMediaItem?.buildUpon()?.setUri(ver.url)?.build()?.let {
                                 player.setMediaItem(it, pos)
@@ -1264,9 +1288,9 @@ private fun TvPlayerOptionsPanel(
                     }
                     items(v.size, key = { v[it].name }) { i ->
                         val ver = v[i]
-                        TvMenuRow(ver.label, if (chosenVersion == ver.name) "✓" else null, null) {
+                        TvMenuRow(ver.label, if (chosenVersion == ver.choiceKey) "✓" else null, null) {
                             app.archivewatch.android.data.ArchiveVersions.choose(context, spec.id, ver)
-                            chosenVersion = ver.name
+                            chosenVersion = ver.choiceKey
                             // Swap mid-film, keeping the seat: buildUpon keeps
                             // metadata + subtitle configs; only the uri moves.
                             val pos = player.currentPosition

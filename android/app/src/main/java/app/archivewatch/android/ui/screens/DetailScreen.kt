@@ -733,11 +733,11 @@ private fun VersionSheet(archiveID: String, onDone: () -> Unit) {
                         androidx.compose.material3.ListItem(
                             headlineContent = { Text(ver.label, style = MaterialTheme.typography.bodyMedium) },
                             trailingContent = {
-                                if (chosen == ver.name) Icon(Icons.Default.Check, null)
+                                if (chosen == ver.choiceKey) Icon(Icons.Default.Check, null)
                             },
                             modifier = Modifier.clickable {
                                 app.archivewatch.android.data.ArchiveVersions.choose(context, archiveID, ver)
-                                chosen = ver.name
+                                chosen = ver.choiceKey
                             },
                         )
                     }

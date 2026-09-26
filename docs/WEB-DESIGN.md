@@ -172,6 +172,20 @@ separate tool with its own conventions (CLAUDE.md) — these rules govern the
   `archivewatch://` scheme on Apple, an `intent://` URL with this page as
   the fallback on Android. Universal Links take over on iOS once the
   Associated Domains capability lands (Decision 030).
+- **§4.4b Version** (2026-09-26, parity with every app): Detail gains a
+  **Version** button only when the title has more than one playable copy — the
+  apps' rule; a button that opens a list of one is noise. The copies are read
+  AFTER the page is up (`Versions.list`, through `API.fetchMetadata`), so
+  archive.org can never hold Detail back. They include every upload the catalog
+  merged into the title (inverted from `aliases.json`), marked **another
+  upload** — owner, 2026-09-22: *"folded together as different versions that
+  can be pulled in the versions picker."* Only mp4/m4v/webm are listed: those
+  play in every engine this site supports, and a row that fails in one browser
+  is worse than no row. The picker is a `<dialog>` like Share (§4.6); the
+  choice is per title in localStorage and honored by Play and by lineups. A
+  ROOM always plays the default copy, since host and guests must share one
+  timeline. On a phone, four secondary verbs sit in two rows of two, designed,
+  rather than three and one stranded beneath them.
 - **§4.4a Reading width** (2026-09-25): Detail and Series sit in a column no
   wider than 1200px, centered, and running text (synopsis, reviews,
   descriptions) keeps a ~72-character measure. At 1440px the synopsis and the

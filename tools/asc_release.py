@@ -139,10 +139,14 @@ def attached_build(version_id):
 
 # ----------------------------------------------------------------- status
 
-def status(aid):
+def status(aid, build=None):
     mv, bn = repo_version()
+    # The build a release is SHIPPING, when named: a commit after the upload
+    # moves the repo's number past the build that is actually on Connect.
+    if build:
+        bn = str(build)
     print(f"repo: {mv} ({bn})\n")
-    worst = 0
+    pending = []
     for name, platform in PLATFORMS.items():
         vs = versions(aid, platform)
         live = next((v for v in vs if v["attributes"]["appStoreState"] == "READY_FOR_SALE"), None)
@@ -156,8 +160,14 @@ def status(aid):
         print(f"        build {bn}: {bstate}"
               + (f"   attached to {attached_build(edit['id'])}" if edit else ""))
         if bstate != "VALID":
-            worst = 1
-    return worst
+            pending.append(f"{name} build {bn} {bstate}")
+    # A READ that read everything is a success (Decision 107). "Not uploaded"
+    # before a build and "PROCESSING" just after one are the normal states of a
+    # release, and exiting 1 on them turned a status check red on 2026-09-26
+    # and ended appstore-build's summary step under `bash -e`. Say it instead.
+    if pending:
+        print(f"\n::warning::not ready to attach yet: {'; '.join(pending)}")
+    return 0
 
 
 # ----------------------------------------------------------------- ship
@@ -383,7 +393,7 @@ def main():
             sys.exit(f"set {var} (see tools/asc-credentials.env)")
 
     aid = app_id()
-    return status(aid) if a.mode == "status" else ship(aid, a)
+    return status(aid, a.build) if a.mode == "status" else ship(aid, a)
 
 
 if __name__ == "__main__":

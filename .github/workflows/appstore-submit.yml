@@ -88,7 +88,7 @@ jobs:
           echo "ASC_ISSUER_ID=$ISS" >> "$GITHUB_ENV"
 
       - name: Status before
-        run: python3 tools/asc_release.py status || true
+        run: python3 tools/asc_release.py status ${{ inputs.build && format('--build {0}', inputs.build) || '' }}
 
       - name: Ship
         if: ${{ inputs.mode == 'ship' }}
@@ -105,4 +105,4 @@ jobs:
       # The tool's own success message is not evidence — read the state back.
       - name: Status after
         if: always()
-        run: python3 tools/asc_release.py status
+        run: python3 tools/asc_release.py status ${{ inputs.build && format('--build {0}', inputs.build) || '' }}

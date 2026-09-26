@@ -1,5 +1,35 @@
 # Archive Watch — Session Log (archive)
 
+### 2026-09-24/25 — the catalog loop: sourcing that actually runs, one hero rule, connected films
+
+Owner /loop (5-minute cron): *"further enhancements for the title/movie
+database ... better sourcing of missing movies ... ways to connect movies
+together ... audits of home screens and hero rows ... better workers/action on
+GitHub."* v1.42.641 -> v1.42.663. `tools/verify_catalog_changes_2026_09_24.py`
+reads the live plane; it went 0/7 -> 7/7.
+
+**Sourcing**: the nightly sweep re-read the top 600 of each collection forever
+(6,521 feature_films never queued); two collection ids were wrong-cased and one
+did not exist. Ingest spent 881 of 900 slots on stale entries, newest-first. All
+fixed; the first run ingested 885 (was 18), 625 visible, oldest first; 331
+matched with art within hours. Guards added because the volume made them
+necessary: a queue ceiling, holds for modern licence-only uploads and for age
+claims the title contradicts, and "a year before 1874 is not evidence".
+PD-by-age backfill (1880-1927, 300 a night) is ON.
+
+**Connections**: More Like This ranked once in the pipeline (Decision 139) by
+series, director, cast, writer, keywords and archive subject tags — 17,243
+films, verified on the web and on the Roku. 19 film-series Collections.
+Franchise search.
+
+**Home/hero**: web and Roku had no hero rights bar (46% / 67% of their pools);
+Home shelves admitted modern titles on an uploader's licence; the web's
+curated shelves were starved (Silent Era 7 vs 3,467). All fixed and live. Owner
+calls recorded above: items 0-NEWEST-3/4/5 and the TV-rights addendum.
+
+**Mistake**: a Roku `mediaType=movie` deep link PLAYS; Metropolis ran ~80 s
+in the bedroom (memory `roku_deeplink_movie_autoplays`).
+
 ### 2026-09-24 (evening) — the Studio run across every test device, after the Mac restart
 
 Owner: *"Can you resume testing the Watch Together Studio across all of my

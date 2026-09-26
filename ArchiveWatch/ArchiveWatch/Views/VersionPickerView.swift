@@ -51,7 +51,7 @@ struct VersionPickerView: View {
                     VStack(spacing: 14) {
                         ForEach(versions) { version in
                             Button {
-                                let isReselect = chosen == version.name
+                                let isReselect = chosen == version.choiceKey
                                 chosen = isReselect ? nil : version.name
                                 onChoose(isReselect ? nil : version)
                                 dismiss()
@@ -73,15 +73,15 @@ struct VersionPickerView: View {
 
     private func row(for version: ArchiveVersions.Version) -> some View {
         HStack(spacing: 20) {
-            Image(systemName: chosen == version.name
+            Image(systemName: chosen == version.choiceKey
                   ? "checkmark.circle.fill" : "circle")
                 .font(.title2)
-                .foregroundStyle(chosen == version.name ? .white : .white.opacity(0.35))
+                .foregroundStyle(chosen == version.choiceKey ? .white : .white.opacity(0.35))
             VStack(alignment: .leading, spacing: 4) {
                 Text(version.label)
                     .font(.system(size: 26, weight: .medium))
                     .foregroundStyle(.white)
-                if version.name == pipelineChoiceName {
+                if !version.isOtherUpload, version.name == pipelineChoiceName {
                     Text("Currently playing by default")
                         .font(.system(size: 20))
                         .foregroundStyle(.white.opacity(0.5))

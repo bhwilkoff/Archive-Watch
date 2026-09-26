@@ -289,6 +289,73 @@
   };
 
   /* ---------------------------------------------------------------- *
+   * Versions — every playable copy of a title, so the VIEWER chooses    *
+   * (the apps' ArchiveVersions, ported). The title's own archive.org    *
+   * item plus any upload the catalog merged into it (Decision 040):     *
+   * owner, 2026-09-22, on Keaton's two Scarecrows — "folded together as *
+   * different versions that can be pulled in the versions picker". The  *
+   * choice is per title and per browser: the right copy depends on this *
+   * screen and this network.                                            *
+   * ---------------------------------------------------------------- */
+  const Versions = {
+    KEY: 'aw.versionChoice',
+    // What every engine this site supports can play. .mov/.avi are left out:
+    // Firefox plays neither, and a row that fails on one browser is worse
+    // than no row.
+    PLAYABLE: ['.mp4', '.m4v', '.webm'],
+    cache: new Map(),
+    url(item, name) {
+      return `https://archive.org/download/${encodeURIComponent(item)}/` +
+        name.split('/').map(encodeURIComponent).join('/');
+    },
+    async files(item, other) {
+      try {
+        const meta = await API.fetchMetadata(item, { timeoutMs: 12000 });
+        return (meta.files || [])
+          .filter(f => this.PLAYABLE.some(x => String(f.name).toLowerCase().endsWith(x)))
+          .filter(f => Number(f.size) > 5000000)            // stubs, samples, thumbnails
+          .map(f => ({
+            item, name: f.name, other,
+            size: Number(f.size), height: Number(f.height) || 0,
+            format: (f.format || '').replace(/h\.264/i, 'H.264'),
+            derivative: f.source === 'derivative',
+          }));
+      } catch { return []; }
+    },
+    async list(id) {
+      if (!this.cache.has(id)) {
+        this.cache.set(id, (async () => {
+          const map = await Aliases.all();
+          const merged = Object.keys(map).filter(k => map[k] === id && k !== id);
+          const all = (await Promise.all([this.files(id, false),
+            ...merged.map(m => this.files(m, true))])).flat();
+          // Resolution first, size to break ties: bytes measure the encoder.
+          return all.sort((a, b) => (b.height - a.height) || (b.size - a.size));
+        })());
+      }
+      return this.cache.get(id);
+    },
+    label(v) {
+      const mb = v.size >= 1e9 ? `${(v.size / 1e9).toFixed(1)} GB` : `${Math.round(v.size / 1e6)} MB`;
+      const parts = [v.height ? `${v.height}p` : '', v.format, mb, v.other ? 'another upload' : '']
+        .filter(Boolean);
+      return `${parts.join(' · ')} — ${v.derivative ? 'Archive derivative' : 'uploader original'}`;
+    },
+    read() { try { return JSON.parse(localStorage.getItem(this.KEY) || '{}'); } catch { return {}; } },
+    chosen(id) { return this.read()[id] || null; },
+    choose(id, v) {
+      const m = this.read();
+      if (v) m[id] = { item: v.item, name: v.name }; else delete m[id];
+      try { localStorage.setItem(this.KEY, JSON.stringify(m)); } catch { /* private mode */ }
+    },
+    /** The copy to play: the viewer's choice, else the pipeline's pick. */
+    preferred(id, fallback) {
+      const c = this.chosen(id);
+      return c ? this.url(c.item, c.name) : fallback;
+    },
+  };
+
+  /* ---------------------------------------------------------------- *
    * Detail shards — the catalog's own per-item display fields           *
    * (downloadURL, synopsis, director, cast, genres, runtime, backdrop), *
    * sharded by FNV-1a low byte (keep in sync with build_web_details.py).*
@@ -2301,7 +2368,7 @@
       if (unresolved.length) {
         await Promise.all(unresolved.map(async q => {
           const det = await Details.get(q.id).catch(() => null);
-          q.url = det?.downloadURL || null;
+          q.url = det?.downloadURL ? Versions.preferred(q.id, det.downloadURL) : null;
         }));
       }
       const playable = queue.filter(q => q.url);
@@ -2431,11 +2498,13 @@
         this.favUI(await DB.toggleFavorite(id).catch(() => false));
       $('item-share').onclick = () => this.shareMenu(row);
       $('item-playlist').onclick = () => this.playlistMenu(id);
+      $('item-version').hidden = true;
+      $('item-version').closest('.detail-actions').classList.remove('has-version');
       this.related(row);
       $('item-play').onclick = () => {
         const d = this.current.detail;
         if (d?.downloadURL) {
-          Player.start({ id, title: row[1], url: d.downloadURL });
+          Player.start({ id, title: row[1], url: Versions.preferred(id, d.downloadURL) });
         } else {
           Player.play(this.current);
         }
@@ -2488,7 +2557,8 @@
         this.communityRow(det);
         if (det.downloadURL) {
           $('item-play').disabled = false;
-          return;                              // playable — done, no archive.org call
+          this.versionButton(id);
+          return;                              // playable — done
         }
       }
       // Fallback (item not in the shards yet, or no baked URL): resolve via
@@ -2685,6 +2755,39 @@
       const rows = relatedRows(row, 12, ranked);
       $('item-related-row').replaceChildren(...rows.map(card));
       $('item-related').hidden = rows.length < 4;
+    },
+
+    /** Version appears only when there is a choice to make — the apps' rule.
+     *  Fetched after the page is up, so archive.org can never hold it back. */
+    async versionButton(id) {
+      const list = await Versions.list(id);
+      if (this.current.id !== id || list.length < 2) return;
+      const btn = $('item-version');
+      btn.hidden = false;
+      btn.closest('.detail-actions').classList.add('has-version');
+      btn.onclick = () => this.versionMenu(id, list);
+    },
+
+    versionMenu(id, list) {
+      const dlg = $('versionmenu');
+      const render = () => {
+        const c = Versions.chosen(id);
+        const row = (text, on, pick) => {
+          const b = document.createElement('button');
+          b.className = 'btn-ghost';
+          b.textContent = `${on ? '✓ ' : ''}${text}`;
+          b.onclick = () => { pick(); dlg.close(); };
+          return b;
+        };
+        $('versionmenu-list').replaceChildren(
+          row('Default copy', !c, () => Versions.choose(id, null)),
+          ...list.map(v => row(Versions.label(v),
+            !!c && c.item === v.item && c.name === v.name,
+            () => Versions.choose(id, v))));
+      };
+      $('versionmenu-cancel').onclick = () => dlg.close();
+      render();
+      dlg.showModal();
     },
 
     /** Add-to-playlist dialog: toggle membership per playlist, create new. */

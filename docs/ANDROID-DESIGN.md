@@ -529,3 +529,19 @@ rather than a new idea.*
   worse with every duck. `VOICE_COMMUNICATION` is the source Android documents
   as carrying acoustic echo cancellation and noise suppression, which is
   exactly this job.
+- **§9.15 Ending a live show asks** (2026-09-26, macOS §D37 / iOS §8.8 on the
+  phone): the readout's **End** and the panel's **End the broadcast** raise
+  **End the broadcast?** with **End Broadcast** and **Keep Streaming**. Both
+  used to end what an audience was watching in one tap. A PREVIEW stops without
+  asking — nobody is watching it.
+
+## §10 Choose a copy (2026-09-26)
+
+The versions sheet (phone Detail, TV Detail, and the player's own menu) lists
+every playable file on the title's item AND on any upload the catalog merged
+into it (Decision 040), the latter marked **another upload**. Owner,
+2026-09-22: *"folded together as different versions that can be pulled in the
+versions picker."* A merged upload's choice is stored as `@item:name` so the
+play URL is rebuilt on the right item; a bare name is the title's own file, so
+every choice saved before this still reads. `CatalogRepository.swap` hands
+`ArchiveVersions` the `item_aliases` lookup each time a catalog opens.

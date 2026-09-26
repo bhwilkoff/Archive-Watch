@@ -181,7 +181,7 @@ struct DetailView: View {
                                         chosenVersionName = v.name
                                     } label: {
                                         Label(v.label, systemImage:
-                                            chosenVersionName == v.name
+                                            chosenVersionName == v.choiceKey
                                                 ? "checkmark.circle.fill" : "circle")
                                     }
                                 }

@@ -412,7 +412,11 @@ input[type="search"] {
   .detail-actions .btn-primary { grid-column: 1 / -1; }
   .detail-actions .btn-ghost { padding: 10px 4px; text-align: center; white-space: nowrap; }
   .detail-actions [hidden] { display: none; }
+  /* With Version showing there are four secondary verbs: two rows of two,
+     designed, rather than three and one stranded beneath them. */
+  .detail-actions.has-version { grid-template-columns: repeat(2, 1fr); }
 }
+.detail-actions [hidden] { display: none; }
 .btn-primary {
   background: var(--color-primary); color: #fff; border: 0;
   border-radius: 999px; padding: 10px 22px; font-size: 1rem; font-weight: 700;
