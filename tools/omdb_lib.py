@@ -31,7 +31,7 @@ DESIGNED_SOURCES = {"tmdb", "fanart", "omdb", "commons", "wikidata", "aapb"}
 # Cache schema version. Bumping this signals omdb_backfill that older
 # entries are poster-only and should be re-fetched once to pick up the
 # rich fields. v1 = poster_url only; v2 = rich fields.
-CACHE_SCHEMA_VERSION = 3   # 3: + identity fields (director/actors/genres)
+CACHE_SCHEMA_VERSION = 4   # 3: + identity fields (director/actors/genres); 4: + critics
 
 
 # ---------------------------------------------------------------------------
@@ -70,6 +70,23 @@ def _int_votes(v):
         return None
     digits = re.sub(r"[^0-9]", "", s)
     return int(digits) if digits else None
+
+
+def _critics(ratings):
+    """OMDb's `Ratings` array -> {"rt": 97, "mc": 88} (either may be absent),
+    or None. Rotten Tomatoes is "97%", Metacritic "88/100" (2026-09-26, from
+    the Orphaned Films research: critics beside the audience)."""
+    out = {}
+    for r in ratings or []:
+        src, val = str(r.get("Source", "")), str(r.get("Value", ""))
+        m = re.match(r"(\d{1,3})", val)
+        if not m:
+            continue
+        if src == "Rotten Tomatoes":
+            out["rt"] = int(m.group(1))
+        elif src == "Metacritic":
+            out["mc"] = int(m.group(1))
+    return out or None
 
 
 def _float_rating(v):
@@ -132,6 +149,7 @@ def fetch_omdb(imdb_id, api_key, session, *, full_plot=True):
         "writer":         _clean(d.get("Writer")),
         "runtime_min":    runtime_min,
         "omdb_genre":     _clean(d.get("Genre")),
+        "critics":        _critics(d.get("Ratings")),
         "omdb_type":      _clean(d.get("Type")),
         # Identity fields — already in the fetched record, so apply_identity can
         # fill cast/director/genres with NO extra OMDb call (Track B, iter 5).
@@ -212,6 +230,7 @@ def fetch_omdb_full(api_key, session, *, imdb_id=None, title=None, year=None,
         "genres":         [g.strip() for g in (_clean(d.get("Genre")) or "").split(",") if g.strip()],
         "runtime_min":    runtime_min,
         "omdb_type":      _clean(d.get("Type")),
+        "critics":        _critics(d.get("Ratings")),
     }
 
 
@@ -316,6 +335,13 @@ def apply_rich(item, rec):
     if rec.get("imdb_votes") is not None and item.get("imdbVotes") != rec["imdb_votes"]:
         item["imdbVotes"] = rec["imdb_votes"]
         changed = True
+    # Critics beside the audience (schema 4): stored as OMDb reports them,
+    # refreshed with every fetch; never invented, never estimated.
+    for key, field in (("rt", "criticsRT"), ("mc", "criticsMC")):
+        v = (rec.get("critics") or {}).get(key)
+        if v is not None and item.get(field) != v:
+            item[field] = v
+            changed = True
     if rec.get("content_rating") and not item.get("contentRating"):
         item["contentRating"] = rec["content_rating"]
         changed = True
@@ -352,6 +378,7 @@ def cache_record(rec, now):
         "director":       rec.get("director"),
         "actors":         rec.get("actors") or [],
         "genres":         rec.get("genres") or [],
+        "critics":        rec.get("critics"),
         "fetched_at":     now,
         "schema":         CACHE_SCHEMA_VERSION,
     }

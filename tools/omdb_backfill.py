@@ -68,7 +68,11 @@ def needs_fetch(entry):
         return True
     if entry.get("error"):
         return True
-    return int(entry.get("schema", 1)) < L.CACHE_SCHEMA_VERSION
+    if int(entry.get("schema", 1)) >= L.CACHE_SCHEMA_VERSION:
+        return False
+    # An older NEGATIVE entry (OMDb had no such film) stays negative: a schema
+    # bump for new fields must not re-spend the daily quota on known misses.
+    return bool(entry.get("poster_url") or entry.get("imdb_rating") or entry.get("director"))
 
 
 def collect_queue(catalogs, cache_entries):
@@ -86,7 +90,15 @@ def collect_queue(catalogs, cache_entries):
                 queue[imdb] = {"is_seed": is_seed, "title": item.get("title")}
             elif is_seed:
                 queue[imdb]["is_seed"] = True
-    return sorted(queue.items(), key=lambda kv: (not kv[1]["is_seed"], kv[0]))
+    # Never-fetched first: a schema refresh (e.g. 4's critics) takes weeks at
+    # the free tier and must not hold back a new film's first lookup.
+    # A refresh then goes most-voted first, so the films people look at most
+    # carry the new fields soonest.
+    def order(kv):
+        prior = cache_entries.get(kv[0])
+        return (prior is not None, not kv[1]["is_seed"],
+                -int((prior or {}).get("imdb_votes") or 0), kv[0])
+    return sorted(queue.items(), key=order)
 
 
 def apply_cache_to_catalog(catalog, cache_entries):
@@ -111,6 +123,7 @@ def apply_cache_to_catalog(catalog, cache_entries):
             "director":       entry.get("director"),
             "actors":         entry.get("actors") or [],
             "genres":         entry.get("genres") or [],
+            "critics":        entry.get("critics"),
         }
         changed = L.apply_rich(item, rec)
         # Also fill cast/director/genres where empty (identity fields, schema 3).
