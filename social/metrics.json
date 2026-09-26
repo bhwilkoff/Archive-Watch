@@ -1440,6 +1440,68 @@
     "replies": 0,
     "quotes": 0
    }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mvxrpzq4ce2g",
+   "platform": "bluesky",
+   "id": "preserve",
+   "slot": "from-the-vaults",
+   "format": "card",
+   "window": "7d",
+   "posted": "2026-09-20T18:01:23.234790+00:00",
+   "sampled": "2026-09-26T18:32:47.769129+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 1,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117304674738446419",
+   "platform": "mastodon",
+   "id": "preserve",
+   "slot": "from-the-vaults",
+   "format": "card",
+   "window": "7d",
+   "posted": "2026-09-20T18:01:23.234790+00:00",
+   "sampled": "2026-09-26T18:32:47.769129+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mweii74zly2s",
+   "platform": "bluesky",
+   "id": "i.-don-t.-want.-to.-be.-a.-man.-1918-ctb-550-br-vl-8.mp-4",
+   "slot": "one-line",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-09-25T19:20:25.210223+00:00",
+   "sampled": "2026-09-26T18:32:47.769129+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117333298652069904",
+   "platform": "mastodon",
+   "id": "i.-don-t.-want.-to.-be.-a.-man.-1918-ctb-550-br-vl-8.mp-4",
+   "slot": "one-line",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-09-25T19:20:25.210223+00:00",
+   "sampled": "2026-09-26T18:32:47.769129+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
   }
  ]
 }

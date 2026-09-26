@@ -1213,6 +1213,66 @@
    "kind": "animation",
    "mediaId": null,
    "reviewer": null
+  },
+  {
+   "at": "2026-09-26T18:31:11.668838+00:00",
+   "id": "noveltoon_the_stupidstitious_cat",
+   "title": "The Stupidstitious Cat",
+   "slot": "now-showing",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mwgw7a2prk2w",
+   "format": "video",
+   "kind": "animation",
+   "mediaId": null,
+   "reviewer": "indianacarnie"
+  },
+  {
+   "at": "2026-09-26T18:31:11.668838+00:00",
+   "id": "noveltoon_the_stupidstitious_cat",
+   "title": "The Stupidstitious Cat",
+   "slot": "now-showing",
+   "platform": "mastodon",
+   "url": "https://mastodon.social/@archivewatch/117338767783462942",
+   "format": "video",
+   "kind": "animation",
+   "mediaId": null,
+   "reviewer": "indianacarnie"
+  },
+  {
+   "at": "2026-09-26T18:31:11.668838+00:00",
+   "id": "noveltoon_the_stupidstitious_cat",
+   "title": "The Stupidstitious Cat",
+   "slot": "now-showing",
+   "platform": "threads",
+   "url": "https://www.threads.com/@archivewatchapp/post/Ddwr2G4GWp0",
+   "format": "card",
+   "kind": "animation",
+   "mediaId": null,
+   "reviewer": "indianacarnie"
+  },
+  {
+   "at": "2026-09-26T18:31:11.668838+00:00",
+   "id": "noveltoon_the_stupidstitious_cat",
+   "title": "The Stupidstitious Cat",
+   "slot": "now-showing",
+   "platform": "instagram",
+   "url": "https://www.instagram.com/p/Ddwr7bFGYY-/",
+   "format": "card",
+   "kind": "animation",
+   "mediaId": "117338766578711480",
+   "reviewer": "indianacarnie"
+  },
+  {
+   "at": "2026-09-26T18:31:11.668838+00:00",
+   "id": "noveltoon_the_stupidstitious_cat",
+   "title": "The Stupidstitious Cat",
+   "slot": "now-showing",
+   "platform": "youtube",
+   "url": "https://youtube.com/watch?v=1J3dTapS4gw",
+   "format": "video",
+   "kind": "animation",
+   "mediaId": null,
+   "reviewer": "indianacarnie"
   }
  ]
 }
