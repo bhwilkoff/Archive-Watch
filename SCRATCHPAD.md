@@ -695,7 +695,7 @@ keep serving it.
 Owner: *"the OAuth has been approved ... a new video needs to be created for
 the API increase ... fully run the screencast, recording it and replying"*,
 then *"fix all documented items now and if you find more, please fix those
-too"* and *"make sure you are documenting full parity."* v1.42.717 -> .720.
+too"* and *"make sure you are documenting full parity."* v1.42.717 -> .722.
 
 **Quota**: a live broadcast on Archive Watch (`ah780Fm7ky8`) recorded window by
 window and cut with English title cards: <https://youtu.be/6QiRJhHyw3E>, sent on
@@ -712,6 +712,14 @@ rights tests reported PASS since v1.42.195; `asc_release.py status` went red on
 a normal "not uploaded yet". **Versions**: the Scarecrow merge had left the
 SOUND copy unreachable; every picker (Apple, Android, Roku, and a new web one)
 now lists merged uploads' files — verified on the Roku.
+
+**Shipped**: Apple 1.42.720 (1732) WAITING_FOR_REVIEW on tvOS, iOS and macOS
+(auto-release on approval) — the first store build since 1.42.543. The first
+ship went red for a real reason: the Ship step pasted What's New into bash and a
+double quote cut it off (fixed, inputs now arrive as env). **Roku**: the next
+package — after 1.0.76 goes live Mon Sep 28 — carries the three 1.0.75 crash
+fixes AND the merged-upload versions list (sideload-verified today). **Android**
+changes (versions, End asks) are in source, not yet on Play.
 
 ### 2026-09-25 (afternoon) — Pulse rebuilt around action, and every film made searchable
 
