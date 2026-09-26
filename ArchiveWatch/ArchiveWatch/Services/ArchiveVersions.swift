@@ -237,6 +237,39 @@ enum ArchiveVersions {
     /// download URL for a file on an item is deterministic. That also keeps
     /// the choice working when the Archive is slow to answer, which is
     /// precisely the evening someone reaches for a lighter copy.
+    /// Scenes (iOS-DESIGN §5.2c, WEB-DESIGN §4.4e): up to 12 of archive.org's
+    /// own per-minute frames (`<file>.thumbs/<name>_SSSSSS.jpg`, the suffix is
+    /// the second) of the copy that will PLAY — uploads of one film differ in
+    /// length, so another copy's frame would start at the wrong moment.
+    struct Scene: Hashable, Sendable { let seconds: Int; let image: URL }
+
+    @MainActor
+    static func scenes(for archiveID: String, default fallback: URL) async -> [Scene] {
+        let url = preferredURL(for: archiveID, default: fallback)
+        let parts = url.path.split(separator: "/", maxSplits: 2).map(String.init)
+        guard url.host == "archive.org", parts.count == 3, parts[0] == "download",
+              let metaURL = URL(string: "https://archive.org/metadata/\(parts[1])") else { return [] }
+        let item = parts[1], file = parts[2]
+        var req = URLRequest(url: metaURL)
+        req.timeoutInterval = 12
+        guard let (data, _) = try? await URLSession.shared.data(for: req),
+              let obj = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
+              let files = obj["files"] as? [[String: Any]] else { return [] }
+        let frames: [Scene] = files.compactMap { f in
+            guard f["format"] as? String == "Thumbnail", f["original"] as? String == file,
+                  let name = f["name"] as? String,
+                  let m = name.range(of: #"_(\d{6})\.jpg$"#, options: .regularExpression),
+                  let t = Int(name[m].dropFirst().prefix(6)), t >= 30,
+                  let encoded = name.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed),
+                  let image = URL(string: "https://archive.org/download/\(item)/\(encoded)")
+            else { return nil }
+            return Scene(seconds: t, image: image)
+        }.sorted { $0.seconds < $1.seconds }
+        guard frames.count >= 4 else { return [] }
+        let want = min(12, frames.count)
+        return (0..<want).map { frames[$0 * frames.count / want] }
+    }
+
     static func preferredURL(for archiveID: String, default fallback: URL) -> URL {
         // IN A WATCH TOGETHER ROOM THE HOST CHOOSES: the room's copy, or the
         // title's default, never this viewer's own choice (StudioRoomCopy).

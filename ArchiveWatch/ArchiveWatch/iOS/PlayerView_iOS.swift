@@ -60,8 +60,10 @@ struct PlayerView: UIViewControllerRepresentable {
     init(item: Catalog.Item, autoplayIn store: AppStore? = nil,
          onUnplayable: ((String) -> Void)? = nil,
          captionChoice: CaptionPlaybackChoice? = nil,
-         onPlayerReady: ((AVPlayer) -> Void)? = nil) {
+         onPlayerReady: ((AVPlayer) -> Void)? = nil,
+         startAt: TimeInterval? = nil) {
         self.captionChoice = captionChoice
+        startOffset = startAt
         self.onPlayerReady = onPlayerReady
         archiveID = item.archiveID
         // Honour the viewer's chosen copy (ArchiveVersions). Rebuilt from the

@@ -16,6 +16,8 @@ struct DetailView: View {
     @Environment(\.horizontalSizeClass) private var hSize
     @Query private var favorites: [Favorite]
     @State private var playing = false
+    @State private var sceneStart: TimeInterval?
+    @State private var scenes: [ArchiveVersions.Scene] = []
     @State private var startingSharePlay = false
     @State private var goingLive = false
     @State private var liveRequest: GoLiveRequest?
@@ -351,6 +353,7 @@ struct DetailView: View {
                 CommunityDetailSection(item: item)
                     .frame(maxWidth: hSize == .regular ? 700 : .infinity,
                            alignment: .leading)
+                scenesSection
                 relatedSection
     }
 
@@ -421,11 +424,11 @@ struct DetailView: View {
             }
             .ignoresSafeArea()
         }
-        .fullScreenCover(isPresented: $playing) {
+        .fullScreenCover(isPresented: $playing, onDismiss: { sceneStart = nil }) {
             PlayerView(item: item, autoplayIn: store, onUnplayable: { message in
                 playing = false
                 playbackError = message
-            }, captionChoice: captionPlaybackChoice).ignoresSafeArea()
+            }, captionChoice: captionPlaybackChoice, startAt: sceneStart).ignoresSafeArea()
             // A room guest's one line (SHAREPLAY §11.6.1).
             .overlay(alignment: .top) {
                 StudioRoomNotice().padding(.top, 12)
@@ -556,6 +559,43 @@ struct DetailView: View {
             ctx.insert(Favorite(archiveID: item.archiveID)); try? ctx.save()
             SyncNudge.nudge(ctx)
         }
+    }
+
+    /// Scenes (iOS-DESIGN §5.2c): a frame plays the film from its second.
+    @ViewBuilder private var scenesSection: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            if !scenes.isEmpty {
+                Text("Scenes").font(.title3).fontWeight(.semibold)
+                ScrollView(.horizontal) {
+                    LazyHStack(spacing: 14) {
+                        ForEach(scenes, id: \.seconds) { s in
+                            Button {
+                                sceneStart = TimeInterval(s.seconds)
+                                playing = true
+                            } label: {
+                                VStack(alignment: .leading, spacing: 4) {
+                                    AsyncImage(url: s.image) { $0.resizable().scaledToFill() } placeholder: { Color.secondary.opacity(0.2) }
+                                        .frame(width: 160, height: 120)
+                                        .clipShape(.rect(cornerRadius: 10))
+                                    Text(Self.clock(s.seconds)).font(.caption).foregroundStyle(.secondary)
+                                }
+                            }
+                            .buttonStyle(.plain)
+                            .accessibilityLabel("Play from \(Self.clock(s.seconds))")
+                        }
+                    }
+                }.scrollIndicators(.hidden)
+            }
+        }
+        .task(id: item.archiveID) {
+            guard let url = item.videoURLParsed else { scenes = []; return }
+            scenes = await ArchiveVersions.scenes(for: item.archiveID, default: url)
+        }
+    }
+
+    private static func clock(_ t: Int) -> String {
+        t >= 3600 ? String(format: "%d:%02d:%02d", t / 3600, t / 60 % 60, t % 60)
+                  : String(format: "%d:%02d", t / 60, t % 60)
     }
 
     @ViewBuilder private var relatedSection: some View {

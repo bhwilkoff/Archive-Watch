@@ -254,6 +254,8 @@ broken). The grid's Popular sort leads with designed (non-generated) artwork,
 then popularity; the tv-series category browses SERIES CARDS (deepest shows
 first by episode count) and routes to SeriesDetail.
 
+5.2c **Scenes** (2026-09-26, WEB-DESIGN §4.4e): on Detail, between the community section and More Like This, up to 12 of archive.org's own per-minute frames of the copy that will PLAY (`ArchiveVersions.scenes`, through `preferredURL`), each labeled with its time; a frame opens the player at that second (`PlayerView(item:…, startAt:)`). Hidden under four frames. iPhone and iPad; the Mac and tvOS need their own rule (a separate player window; a focus row).
+
 5.2 **Shelves resolve by id through the prebuilt `item_shelves` map**
 (`store.items(forShelf:)`, Decision 017). Never resolve a featured shelf by
 browsing its `contentType` — that is the duplicate-shelf bug (every
