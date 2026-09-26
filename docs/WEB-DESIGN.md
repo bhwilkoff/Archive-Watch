@@ -189,6 +189,18 @@ separate tool with its own conventions (CLAUDE.md) — these rules govern the
   §11.14), never this viewer's choice — host and guests must share one
   timeline. On a phone, four secondary verbs sit in two rows of two, designed,
   rather than three and one stranded beneath them.
+- **§4.4d No picture** (2026-09-26, from ORPHANED-FILMS #11): a copy whose
+  video this browser cannot decode — MPEG-4 Part 2, which Chrome and Firefox
+  do not play; 1 in 24 sampled "MPEG4" uploads, *The Silver Fleet* among them —
+  loads, plays its sound and reports a picture 0 pixels wide. At
+  `loadedmetadata` the player checks `videoWidth`: outside a room it moves to
+  another H.264 copy of the film (`Versions.list`, merged uploads included) at
+  the same position, trying each copy once; in a room, or with no other copy,
+  the player's error line says "This copy's picture doesn't play in this
+  browser. Safari or the Archive Watch app may play it." — a warning the viewer
+  could not otherwise read from a black screen. `tools/test_web_no_picture.mjs`
+  (control: an H.264 film, and the live site before the fix). The move to
+  another copy is not yet exercised by a real film.
 - **§4.4a Reading width** (2026-09-25): Detail and Series sit in a column no
   wider than 1200px, centered, and running text (synopsis, reviews,
   descriptions) keeps a ~72-character measure. At 1440px the synopsis and the

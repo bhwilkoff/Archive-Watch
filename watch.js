@@ -3301,6 +3301,14 @@
       video.querySelectorAll('track').forEach(t => t.remove());   // clear last title's subs
       video.dataset.awItem = id;
       video.src = url;
+      /* Sound over a black picture: a copy whose video this browser cannot
+         decode (MPEG-4 Part 2 in Chrome and Firefox — ~4% of "MPEG4" uploads,
+         measured 2026-09-26) still loads and plays its audio, with a picture
+         0 pixels wide. Move to another H.264 copy of the same film; in a room
+         the host's copy is the rule (Decision 143), so only say so there. */
+      video.addEventListener('loadedmetadata', () => {
+        if (this.ctx?.id === id && video.videoWidth === 0) this.noPicture(id, title, url, room);
+      }, { once: true });
 
       // Title + description overlay (fades with the controls — see syncOverlay).
       $('player-overlay-title').textContent = title;
@@ -3499,6 +3507,27 @@
       video.play().catch(() => { /* user-gesture rules; controls remain */ });
       // Stage 3 — still stuck after a short window → full buffer-dropping reset.
       this.stallTimer = setTimeout(() => this.recover('stall'), 4000);
+    },
+
+    tried: new Map(),
+    async noPicture(id, title, url, room) {
+      const tried = this.tried.get(id) || new Set();
+      tried.add(url);
+      this.tried.set(id, tried);
+      if (!room) {
+        const alt = (await Versions.list(id)).find(v =>
+          /H\.264/.test(v.format) && !tried.has(Versions.url(v.item, v.name)));
+        if (alt && this.ctx?.id === id) {
+          const { queue, queueIndex, persist, muted } = this.ctx;
+          return this.start({ id, title, url: Versions.url(alt.item, alt.name), queue, queueIndex,
+                              persist, muted, startAt: $('video').currentTime || 0 });
+        }
+      }
+      if (this.ctx?.id !== id) return;
+      const e = $('player-error');
+      e.textContent = "This copy's picture doesn't play in this browser. " +
+        'Safari or the Archive Watch app may play it.';
+      e.hidden = false;
     },
 
     recover(kind) {

@@ -198,7 +198,7 @@ private analytics console (Pulse), adult-content filter by default (Decision
 | 4 | MCP endpoint on the Worker (website docs page only) | ✅ v1.42.736 — `/mcp` on the existing Worker: search_films (title, director, top-billed cast), get_film (synopsis with its source, attributed archive.org reviews), more_like_this; reads only published shards (`/mcp/`, built in deploy-pages), stores nothing; documented on /feeds/ only |
 | 10 | Critics' scores from OMDb | 🔶 v1.42.734 pipeline: `criticsRT`/`criticsMC` from OMDb `Ratings` (cache schema 4); refresh ~17 days at the free tier, most-voted first, known misses never re-spent. Display waits for coverage |
 | 7 | Scrub previews — measure each player first | queued |
-| 11 | Smaller items (subtitle status, multi-film uploads, black-video fallback, daily pick) | queued |
+| 11 | Smaller items (subtitle status, multi-film uploads, black-video fallback, daily pick) | 🔶 black-video fallback ✅ web v1.42.738 (WEB-DESIGN §4.4d): 1/24 sampled "MPEG4" uploads are MPEG-4 Part 2, black in Chrome/Firefox; Apple and Android decode Simple Profile, Roku unmeasured. Others queued |
 
 **Found while building #1 (owner to read):** the older Collections' blurbs in
 `collection_metadata.json` ("Shadows, second thoughts, venetian-blind
