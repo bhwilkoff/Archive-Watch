@@ -1,5 +1,6 @@
 package app.archivewatch.android.ui.tv
 
+import app.archivewatch.android.ui.theme.BrandSurface
 import app.archivewatch.android.studio.canHostWatchTogether
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -99,6 +100,13 @@ fun TvDetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
     }
     val related by produceState<List<CatalogItem>>(emptyList(), item) {
         value = item?.let { container.catalog.awaitDb().related(it) } ?: emptyList()
+    }
+    val sceneContext = androidx.compose.ui.platform.LocalContext.current
+    val scenes by produceState<List<app.archivewatch.android.data.ArchiveVersions.Scene>>(emptyList(), item?.archiveID) {
+        val it = item
+        value = it?.downloadURL?.let { url ->
+            app.archivewatch.android.data.ArchiveVersions.scenes(sceneContext, it.archiveID, url)
+        } ?: emptyList()
     }
     var showPlaylists by remember { mutableStateOf(false) }
     var showVersions by remember { mutableStateOf(false) }
@@ -558,6 +566,58 @@ fun TvDetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
                                         modifier = Modifier.padding(top = 8.dp),
                                     )
                                 }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        // Scenes (TV-DESIGN 4.6b): archive.org's own frames of the copy that
+        // plays; a frame starts the film at its second.
+        if (scenes.isNotEmpty()) {
+            item(key = "scenes") {
+                Column(Modifier.padding(bottom = TvDims.RowSpacing)) {
+                    Text("Scenes", fontSize = 18.sp, fontWeight = FontWeight.Medium, color = Color.White,
+                        modifier = Modifier.padding(start = TvDims.OverscanH, bottom = 12.dp))
+                    LazyRow(
+                        contentPadding = PaddingValues(start = TvDims.OverscanH, end = TvDims.OverscanH * 2),
+                        horizontalArrangement = Arrangement.spacedBy(TvDims.PosterSpacing),
+                    ) {
+                        items(scenes, key = { it.seconds }) { scene ->
+                            Column(Modifier.width(240.dp)) {
+                                Box(
+                                    Modifier
+                                        .fillMaxWidth()
+                                        .aspectRatio(4f / 3f)
+                                        .tvFocusable(
+                                            onClick = {
+                                                nav.push(Route.Player(PlaySpec(
+                                                    id = current.archiveID, title = current.title,
+                                                    description = current.synopsis, url = current.downloadURL ?: "",
+                                                    captions = current.captions ?: emptyList(),
+                                                    runtimeSeconds = current.runtimeSeconds,
+                                                    startPositionMs = scene.seconds * 1000L,
+                                                )))
+                                            },
+                                            focusTag = "scene:${scene.seconds}",
+                                        )
+                                        .clip(RoundedCornerShape(10.dp))
+                                        .background(BrandSurface),
+                                ) {
+                                    coil3.compose.AsyncImage(
+                                        model = scene.imageURL, contentDescription = null,
+                                        contentScale = androidx.compose.ui.layout.ContentScale.Crop,
+                                        modifier = Modifier.fillMaxSize(),
+                                    )
+                                }
+                                val t = scene.seconds
+                                Text(
+                                    if (t >= 3600) "%d:%02d:%02d".format(t / 3600, t / 60 % 60, t % 60)
+                                    else "%d:%02d".format(t / 60, t % 60),
+                                    fontSize = 14.sp, color = Color(0xFFB0B0B0),
+                                    modifier = Modifier.padding(top = 8.dp),
+                                )
                             }
                         }
                     }

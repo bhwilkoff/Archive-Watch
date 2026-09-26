@@ -33,6 +33,8 @@ struct DetailView: View {
     @Query private var favorites: [Favorite]
     @Query(sort: \WatchProgress.lastWatchedAt, order: .reverse) private var allProgress: [WatchProgress]
     @State private var isPlaying = false
+    @State private var sceneStart: TimeInterval?
+    @State private var scenes: [ArchiveVersions.Scene] = []
     @State private var showShare = false
     @State private var showAddPlaylist = false
     @State private var showGetSubtitles = false
@@ -72,6 +74,7 @@ struct DetailView: View {
                     CommunityDetailSection(item: item)
                         .padding(.horizontal, 80)
                         .padding(.bottom, 48)
+                    scenesSection
                     relatedSection
                 }
             }
@@ -88,10 +91,15 @@ struct DetailView: View {
                 activity.isEligibleForHandoff = true
                 activity.isEligibleForSearch = true
             }
-            .fullScreenCover(isPresented: $isPlaying) {
+            .fullScreenCover(isPresented: $isPlaying, onDismiss: { sceneStart = nil }) {
                 if let url = item.videoURLParsed {
-                    PlayerScreen(url: url, archiveID: item.archiveID, catalogItem: item)
+                    PlayerScreen(url: url, archiveID: item.archiveID, catalogItem: item,
+                                 sceneStart: sceneStart)
                 }
+            }
+            .task(id: item.archiveID) {
+                guard let url = item.videoURLParsed else { scenes = []; return }
+                scenes = await ArchiveVersions.scenes(for: item.archiveID, default: url)
             }
             .defaultFocus($focusTarget, .play, priority: .userInitiated)
             .task(id: item.archiveID) {
@@ -512,6 +520,56 @@ struct DetailView: View {
         if let dp = item.cinematographer, !dp.isEmpty { out.append(("Cinematography", dp)) }
         if let a = item.awards, !a.isEmpty { out.append(("Awards", a)) }
         return out
+    }
+
+    // MARK: - Scenes (tvOS-DESIGN §2.5c)
+
+    /// archive.org's own frames of the copy that will play; a frame starts the
+    /// film at its second. The native card style gives focus its lift.
+    @ViewBuilder
+    private var scenesSection: some View {
+        if !scenes.isEmpty {
+            VStack(alignment: .leading, spacing: 20) {
+                Text("Scenes")
+                    .font(.system(size: 38, weight: .semibold))
+                    .foregroundStyle(.white)
+                    .padding(.horizontal, 80)
+                ScrollView(.horizontal, showsIndicators: false) {
+                    LazyHStack(alignment: .top, spacing: 40) {
+                        ForEach(scenes, id: \.seconds) { s in
+                            VStack(alignment: .leading, spacing: 12) {
+                                Button {
+                                    sceneStart = TimeInterval(s.seconds)
+                                    isPlaying = true
+                                } label: {
+                                    AsyncImage(url: s.image) { $0.resizable().scaledToFill() } placeholder: { Color.white.opacity(0.08) }
+                                        .frame(width: 360, height: 270)
+                                        .clipped()
+                                }
+                                .buttonStyle(.card)
+                                .accessibilityLabel("Play from \(Self.sceneClock(s.seconds))")
+                                .onMoveCommand { direction in
+                                    if direction == .up { focusTarget = .play }
+                                }
+                                Text(Self.sceneClock(s.seconds))
+                                    .font(.system(size: 24, weight: .medium))
+                                    .foregroundStyle(.white.opacity(0.7))
+                            }
+                        }
+                    }
+                    .padding(.horizontal, 80)
+                    .padding(.vertical, 24)
+                }
+                .scrollClipDisabled()
+            }
+            .focusSection()
+            .padding(.top, 24)
+        }
+    }
+
+    private static func sceneClock(_ t: Int) -> String {
+        t >= 3600 ? String(format: "%d:%02d:%02d", t / 3600, t / 60 % 60, t % 60)
+                  : String(format: "%d:%02d", t / 60, t % 60)
     }
 
     // MARK: - Related
@@ -1594,11 +1652,15 @@ struct PlayerScreen: View {
     // #92: seconds to seek into the FIRST program when joining a channel live.
     // Consumed once (zeroed after the first setup) so lineup advances start at 0.
     @State private var joinOffset: TimeInterval = 0
+    // A Scenes frame the viewer chose (§2.5c): it beats every resume position.
+    @State private var sceneStartAt: TimeInterval?
     @Environment(\.dismiss) private var dismiss
 
     init(url: URL, archiveID: String, catalogItem: Catalog.Item? = nil,
          lineup: [Catalog.Item]? = nil, startMuted: Bool = false, startOffset: TimeInterval = 0,
-         channelContext: Bool = false, ephemeralLineup: Bool = false) {
+         channelContext: Bool = false, ephemeralLineup: Bool = false,
+         sceneStart: TimeInterval? = nil) {
+        _sceneStartAt = State(initialValue: sceneStart)
         self.url = url
         self.archiveID = archiveID
         self.catalogItem = catalogItem
@@ -2704,7 +2766,10 @@ struct PlayerScreen: View {
         let noResume = ProcessInfo.processInfo.environment["AW_NO_RESUME"] == "1"
         // An in-place version switch carries its own position and it WINS: it
         // is where the viewer actually is, one moment ago, on the same film.
-        if !noResume, let carried = switchResumeSeconds {
+        if let chosen = sceneStartAt, chosen > 5 {
+            sceneStartAt = nil
+            pendingSeekSeconds = chosen
+        } else if !noResume, let carried = switchResumeSeconds {
             switchResumeSeconds = nil
             pendingSeekSeconds = carried
             awdiag("AWLIFE screen=%@ resume from version switch t=%.0f", screenID, carried)

@@ -109,6 +109,8 @@ hidden gems, seasonal). New Home shelves must declare a removal/empty rule
 
 2.4c **Tonight** (2026-09-26, WEB-DESIGN §4.1c): the hero leads with the pipeline's film for the device's local date, read once a launch from `tonight.json` (`Services/Tonight.swift`, the same schedule every platform reads) and gated again by `isHeroRightsSafe` and a backdrop; its eyebrow reads TONIGHT. No file, no entry, or a film that fails the gate: the hero is unchanged. On tvOS the eyebrow replaces the category line.
 
+2.5c **Scenes** (2026-09-26, WEB-DESIGN §4.4e): Detail carries a row headed **Scenes** before More Like This: up to 12 of archive.org's own per-minute frames of the copy that will PLAY (`ArchiveVersions.scenes`), 360x270 in the native `.card` button style (never `.plain`), each labeled with its time, in its own focus section; Up returns to Play as it does from More Like This. Select opens the player at that second, and a chosen frame beats every saved resume position (`PlayerScreen(sceneStart:)`). Hidden under four frames.
+
 2.5 **Every list/grid/shelf/sheet declares all states.** loading · loaded ·
 empty · error — each user-visible (CLAUDE.md). Empty states must contain a
 focusable element or focus traps (playbook §2.5; the Favorites empty-state bug).
