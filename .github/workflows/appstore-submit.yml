@@ -88,21 +88,37 @@ jobs:
           echo "ASC_ISSUER_ID=$ISS" >> "$GITHUB_ENV"
 
       - name: Status before
-        run: python3 tools/asc_release.py status ${{ inputs.build && format('--build {0}', inputs.build) || '' }}
+        env:
+          BUILD: ${{ inputs.build }}
+        run: python3 tools/asc_release.py status ${BUILD:+--build "$BUILD"}
 
       - name: Ship
         if: ${{ inputs.mode == 'ship' }}
+        # INPUTS ARRIVE AS ENVIRONMENT, never pasted into the script. Pasted,
+        # a What's New containing a double quote ("Share and more") closed the
+        # shell string, --notes never reached the tool, and Apple refused all
+        # three submissions for a missing whatsNew (2026-09-26). Free text
+        # pasted into a shell line is also an injection route.
+        env:
+          PLATFORM: ${{ inputs.platform }}
+          VERSION: ${{ inputs.version }}
+          BUILD: ${{ inputs.build }}
+          NOTES: ${{ inputs.release_notes }}
+          SUBMIT: ${{ inputs.submit }}
+          DRY_RUN: ${{ inputs.dry_run }}
         run: |
           set -euo pipefail
-          args=(ship --platform "${{ inputs.platform }}")
-          [ -n "${{ inputs.version }}" ] && args+=(--version "${{ inputs.version }}")
-          [ -n "${{ inputs.build }}" ]   && args+=(--build "${{ inputs.build }}")
-          [ -n "${{ inputs.release_notes }}" ] && args+=(--notes "${{ inputs.release_notes }}")
-          [ "${{ inputs.submit }}" = "true" ]  && args+=(--submit)
-          [ "${{ inputs.dry_run }}" = "true" ] && args+=(--dry-run)
+          args=(ship --platform "$PLATFORM")
+          if [ -n "$VERSION" ]; then args+=(--version "$VERSION"); fi
+          if [ -n "$BUILD" ]; then args+=(--build "$BUILD"); fi
+          if [ -n "$NOTES" ]; then args+=(--notes "$NOTES"); fi
+          if [ "$SUBMIT" = "true" ]; then args+=(--submit); fi
+          if [ "$DRY_RUN" = "true" ]; then args+=(--dry-run); fi
           python3 tools/asc_release.py "${args[@]}"
 
       # The tool's own success message is not evidence — read the state back.
       - name: Status after
         if: always()
-        run: python3 tools/asc_release.py status ${{ inputs.build && format('--build {0}', inputs.build) || '' }}
+        env:
+          BUILD: ${{ inputs.build }}
+        run: python3 tools/asc_release.py status ${BUILD:+--build "$BUILD"}

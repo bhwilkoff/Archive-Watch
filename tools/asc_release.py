@@ -79,9 +79,27 @@ IN_FLIGHT = {"WAITING_FOR_REVIEW", "IN_REVIEW", "PENDING_DEVELOPER_RELEASE"}
 
 
 class ASCError(RuntimeError):
+    """Apple's REASON is in meta.associatedErrors, which a 400-character cut
+    of the raw JSON never reached (2026-09-26: three 409s that said only
+    "is not in valid state"). Summarize every error and associated error."""
     def __init__(self, status, body):
-        super().__init__(f"{status}: {body[:400]}")
+        super().__init__(f"{status}: {self.summarize(body)}")
         self.status, self.body = status, body
+
+    @staticmethod
+    def summarize(body):
+        try:
+            errs = json.loads(body).get("errors") or []
+        except ValueError:
+            return body[:400]
+        lines = []
+        for e in errs:
+            lines.append(f"{e.get('code')}: {e.get('title')} {e.get('detail') or ''}".strip())
+            assoc = (e.get("meta") or {}).get("associatedErrors") or {}
+            for where, items in assoc.items():
+                for a in items:
+                    lines.append(f"  {where}: {a.get('code')} — {a.get('detail') or a.get('title')}")
+        return "\n".join(lines) or body[:400]
 
 
 def call(path, method="GET", body=None):
@@ -319,6 +337,12 @@ def ship(aid, args):
     notes = args.notes
     if args.notes_file:
         notes = pathlib.Path(args.notes_file).read_text().strip()
+    if args.submit and not (notes or "").strip():
+        # Apple refuses review without whatsNew — AFTER the version is created
+        # and the build attached, leaving three half-made versions behind.
+        print("refusing to submit without What's New (--notes / --notes-file)",
+              file=sys.stderr)
+        return 1
     targets = list(PLATFORMS) if args.platform == "all" else [args.platform]
     print(f"shipping {version} (build {number}) to: {', '.join(targets)}"
           + ("   [DRY RUN]" if args.dry_run else "") + "\n")
