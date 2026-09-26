@@ -190,7 +190,7 @@ private analytics console (Pulse), adult-content filter by default (Decision
 | 6 | "An Hour or Less" Home row (adapted from "Under 90") | ✅ v1.42.726 — LIVE: 60 in the published index |
 | 6b | Length filter in Browse | ✅ Apple, Android, web (index schema 14 LIVE, `minutes` on 22,253 rows); Roku ✅ verified on device |
 | 2 | Channels on one clock + "tune in with me" | ❓ OWNER CALL: every platform anchors the broadcast day at 6 AM LOCAL and builds pools from its own DB; one global clock means published pools + a UTC timeline and giving up the local day. Feeds (#3) will need a pipeline-built global schedule either way |
-| 1 | Lists from archive.org users' lists/favorites + curated collections | queued |
+| 1 | Lists from archive.org users' lists/favorites + curated collections | ✅ v1.42.737 — 18 member lists as Collections (weekly `member-lists.yml`): public, 8+ of our films and 60%+ ours, no queue/genre-only names, no email-bearing screen names, near-duplicates folded; titled in the maker's words. Curated archive.org collections were already Collections. Review-excerpt notes per film: not built (a list here has no per-film note to carry) |
 | 5 | archive.org addresses open here; paste a link in search | ✅ web v1.42.729; Apple + Android v1.42.731 (Pixel verified); Roku 🚫 by design |
 | 8 | "Something wrong with this film?" report path | ✅ v1.42.732 every platform; TVs hand it to the phone as a QR (Roku decoded on device) |
 | 9 | Removal-request page + hide marker | ✅ v1.42.733 — takedown.html + takedowns.json honored every publish; OWNER to read the page's wording |
@@ -199,3 +199,11 @@ private analytics console (Pulse), adult-content filter by default (Decision
 | 10 | Critics' scores from OMDb | 🔶 v1.42.734 pipeline: `criticsRT`/`criticsMC` from OMDb `Ratings` (cache schema 4); refresh ~17 days at the free tier, most-voted first, known misses never re-spent. Display waits for coverage |
 | 7 | Scrub previews — measure each player first | queued |
 | 11 | Smaller items (subtitle status, multi-film uploads, black-video fallback, daily pick) | queued |
+
+**Found while building #1 (owner to read):** the older Collections' blurbs in
+`collection_metadata.json` ("Shadows, second thoughts, venetian-blind
+lighting.", the film-series lines) were written by the assistant before the
+no-AI-copy rule. They are product copy a model wrote. Options: replace each
+with the archive.org collection's own description (curated collections) or a
+plain fact line (series: studio and years), or keep them as edited by the
+owner. Not changed without your word.

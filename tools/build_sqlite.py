@@ -119,6 +119,22 @@ def _series_by_franchise():
 SERIES_BY_FRANCHISE = _series_by_franchise()
 
 
+# Member lists (id `list-*`, tools/harvest_member_lists.py, 2026-09-26): lists
+# archive.org members made by hand; the entry names its films in `members`.
+def _list_members():
+    try:
+        d = json.loads((REPO / "shared" / "editorial" / "collection_metadata.json").read_text())
+    except Exception:  # noqa: BLE001
+        return {}
+    out = {}
+    for c in d.get("collections", []):
+        for aid in c.get("members") or []:
+            out.setdefault(aid, []).append(c["id"])
+    return out
+
+LIST_MEMBERS = _list_members()
+
+
 def _shelf_collection_map():
     """{collectionID: [shelfID,...]} parsed from each dynamic shelf's
     `collection:X` query in featured.json. Lets build_sqlite assign Home-shelf
@@ -1187,6 +1203,8 @@ def populate_items(db, items, rotate_seed="0", skip_aids=frozenset()):
                 coll_rows.append((aid, str(c)))
         if (series := SERIES_BY_FRANCHISE.get(it.get("franchise") or "")):
             coll_rows.append((aid, series))
+        for member_list in LIST_MEMBERS.get(aid, ()):
+            coll_rows.append((aid, member_list))
         for kw in (it.get("keywords") or []):
             if kw:
                 kw_rows.append((aid, str(kw)))
