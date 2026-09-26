@@ -779,6 +779,10 @@ installed. One consolidated Share menu (Open in Creation Studio when `isClippabl
 
 **"Something wrong with this film?"** (2026-09-26, from the Orphaned Films research): a quiet way to report a wrong match, synopsis, a film that will not play, or a rights question. It opens a pre-filled GitHub issue form (`.github/ISSUE_TEMPLATE/film-problem.yml`) carrying only the film id and where it was seen — nothing is sent until the viewer submits it, and it needs no server. Phones, tablets, Mac and web open the form; a television shows it as a QR code for the phone. Never a primary control: a menu item or a closing link.
 
+## §B7c — Scenes on Detail
+
+**Scenes** (2026-09-26, WEB-DESIGN §4.4e): after the cast, before More Like This, up to 12 of archive.org's own per-minute frames of the copy that will PLAY (`ArchiveVersions.scenes`, through `preferredURL`), each labeled with its time and a tooltip; a frame opens the player window at that second (`AppRouter.play(_:at:)` → `PlayerSurface.startAt`, which beats the saved resume position). Hidden under four frames.
+
 ## §B7a — A collection's grid sorts like Browse
 
 Same rule as iOS-DESIGN 5.1c: the collection grid carries Browse's Sort picker

@@ -49,7 +49,8 @@ struct PlayerWindow: View {
                           // Live, rehearsing, or ARMED for this film — the
                           // projection a show is about to attach to feeds the
                           // program as surely as one already attached.
-                          feedsProgram: studio.isLive || studio.armedFilmID == item.archiveID)
+                          feedsProgram: studio.isLive || studio.armedFilmID == item.archiveID,
+                          startAt: router.playStart)
                 // §B13d: health is pinned over the player, OUTSIDE
                 // AVPlayerView's floating HUD, because the HUD auto-hides and
                 // health may not (WATCH-TOGETHER §4).
@@ -250,6 +251,8 @@ struct PlayerSurface: View {
     /// then a swap to the loader (`AWPLAYER ... reason=stall`) — a visible
     /// hitch on the wire bought for captions nobody watching could see.
     var feedsProgram: Bool = false
+    /// A Scenes frame's second (§B7c); beats the saved resume position.
+    var startAt: TimeInterval? = nil
 
     @Environment(\.modelContext) private var ctx
     @State private var player: AVPlayer?
@@ -445,7 +448,9 @@ struct PlayerSurface: View {
         // was broadcasting its final second. That produced four separate
         // "findings" — vanished beeps, lost video markers, 97.7% silent audio —
         // none of which were about the Studio at all (§9.fffff).
-        if playURLOverride == nil, let resume = savedProgress(), resume > 5 {
+        if let s = startAt, s > 5 {
+            p.seek(to: CMTime(seconds: s, preferredTimescale: 600))
+        } else if playURLOverride == nil, let resume = savedProgress(), resume > 5 {
             p.seek(to: CMTime(seconds: resume, preferredTimescale: 600))
         }
         p.play()

@@ -14,6 +14,7 @@ struct DetailView: View {
     @Environment(\.modelContext) private var ctx
     @Query private var favorites: [Favorite]
     @State private var showPlaylistSheet = false
+    @State private var scenes: [ArchiveVersions.Scene] = []
     @State private var versions: [ArchiveVersions.Version] = []
     @State private var loadingVersions = false
     @State private var chosenVersionName: String?
@@ -79,6 +80,7 @@ struct DetailView: View {
                     .buttonStyle(.bordered)
                 }
                 if !item.cast.isEmpty { castRow }
+                if !scenes.isEmpty { scenesRow }
                 let related = store.related(to: item)
                 if !related.isEmpty {
                     VStack(alignment: .leading, spacing: 8) {
@@ -95,6 +97,10 @@ struct DetailView: View {
             .padding(28)
         }
         .navigationTitle(item.title)
+        .task(id: item.archiveID) {
+            guard let url = item.videoURLParsed else { scenes = []; return }
+            scenes = await ArchiveVersions.scenes(for: item.archiveID, default: url)
+        }
         .sheet(isPresented: $showPlaylistSheet) {
             AddToPlaylistSheet(archiveID: item.archiveID)
         }
@@ -538,6 +544,35 @@ struct DetailView: View {
         loadingVersions = true
         versions = await ArchiveVersions.list(itemID: item.archiveID)
         loadingVersions = false
+    }
+
+    /// Scenes (macOS-DESIGN §B7c): a frame plays the film from its second.
+    private var scenesRow: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            Text("Scenes").font(.title3).fontWeight(.semibold)
+            ScrollView(.horizontal, showsIndicators: false) {
+                LazyHStack(spacing: 14) {
+                    ForEach(scenes, id: \.seconds) { s in
+                        Button { router.play(item, at: TimeInterval(s.seconds)) } label: {
+                            VStack(alignment: .leading, spacing: 4) {
+                                AsyncImage(url: s.image) { $0.resizable().scaledToFill() } placeholder: { Color.secondary.opacity(0.2) }
+                                    .frame(width: 180, height: 135)
+                                    .clipShape(.rect(cornerRadius: 8))
+                                Text(Self.clock(s.seconds)).font(.caption).foregroundStyle(.secondary)
+                            }
+                        }
+                        .buttonStyle(.plain)
+                        .help("Play from \(Self.clock(s.seconds))")
+                        .accessibilityLabel("Play from \(Self.clock(s.seconds))")
+                    }
+                }
+            }
+        }
+    }
+
+    private static func clock(_ t: Int) -> String {
+        t >= 3600 ? String(format: "%d:%02d:%02d", t / 3600, t / 60 % 60, t % 60)
+                  : String(format: "%d:%02d", t / 60, t % 60)
     }
 
     private var castRow: some View {

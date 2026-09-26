@@ -43,6 +43,7 @@ final class AppRouter {
     var section: Section = .home
     var path = NavigationPath()
     var nowPlaying: Catalog.Item?          // drives the item player sheet
+    var playStart: TimeInterval?           // Scenes (§B7c): start here instead of resuming
     var nowPlayingEpisode: EpisodeContext? // drives the episode player sheet
     var screensaverActive = false          // a full-window, full-screen poster-wall overlay
 
@@ -53,7 +54,10 @@ final class AppRouter {
     }
     func openPerson(_ name: String) { path.append(PersonRoute(name: name)) }
     func openCollection(_ id: String, _ title: String) { path.append(CollectionRoute(id: id, title: title)) }
-    func play(_ item: Catalog.Item) { nowPlaying = item }
+    func play(_ item: Catalog.Item, at start: TimeInterval? = nil) {
+        playStart = start
+        nowPlaying = item
+    }
     func playEpisode(_ episode: Episode, in series: Series?) {
         guard let series else { return }
         nowPlayingEpisode = EpisodeContext(series: series, episode: episode)

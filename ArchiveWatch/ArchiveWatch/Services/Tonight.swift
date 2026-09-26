@@ -1,6 +1,6 @@
 import Foundation
 
-/// Tonight (tvOS-DESIGN §2.4c, iOS-DESIGN §5.1c, macOS-DESIGN §B4d;
+/// Tonight (tvOS-DESIGN §2.4c, iOS-DESIGN §5.1d, macOS-DESIGN §B4d;
 /// WEB-DESIGN §4.1c): one film a day, the same on every platform on that local
 /// date, picked by rule in the pipeline (`build_catalog_index.tonight_schedule`)
 /// and published as tonight.json. It leads the hero with a TONIGHT eyebrow and
