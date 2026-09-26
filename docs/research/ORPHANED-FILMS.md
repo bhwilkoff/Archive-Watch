@@ -193,7 +193,7 @@ private analytics console (Pulse), adult-content filter by default (Decision
 | 1 | Lists from archive.org users' lists/favorites + curated collections | queued |
 | 5 | archive.org addresses open here; paste a link in search | ✅ web v1.42.729; Apple + Android v1.42.731 (Pixel verified); Roku 🚫 by design |
 | 8 | "Something wrong with this film?" report path | ✅ v1.42.732 every platform; TVs hand it to the phone as a QR (Roku decoded on device) |
-| 9 | Removal-request page + hide marker | queued |
+| 9 | Removal-request page + hide marker | ✅ v1.42.733 — takedown.html + takedowns.json honored every publish; OWNER to read the page's wording |
 | 3 | M3U + XMLTV feeds (website docs page only) | queued |
 | 4 | MCP endpoint on the Worker (website docs page only) | queued |
 | 10 | Critics' scores from OMDb | queued |

@@ -2234,6 +2234,23 @@ def exclude_not_films(items, stats):
             stats["not_film_excluded"] += 1
 
 
+def exclude_takedowns(items, stats):
+    """Removal requests (2026-09-26, takedown.html): every archiveID in
+    shared/editorial/takedowns.json is hidden on every surface, every build.
+    `excludedReason` is a marker the rights reconcile keeps (Decision 083), so
+    a removal holds; ingest never re-adds an item already in the catalog. An
+    entry names who asked and when, so a removal can be audited or undone by
+    deleting the line."""
+    p = REPO / "shared/editorial/takedowns.json"
+    table = json.loads(p.read_text()) if p.exists() else {}
+    table = {k: v for k, v in table.items() if not k.startswith("_")}
+    for it in items:
+        if it.get("archiveID") in table and it.get("excludedReason") != "takedown":
+            it["excluded"] = True
+            it["excludedReason"] = "takedown"
+            stats["takedown_excluded"] += 1
+
+
 def exclude_hate_propaganda(items, stats):
     """Reversibly exclude uploads whose own title advertises Holocaust denial or
     child sexual abuse material (Decision 027's `excluded` mechanism)."""
@@ -3185,6 +3202,7 @@ def remediate(items):
     _drop_stale_year_markers()
     exclude_hate_propaganda(items, stats)
     exclude_not_films(items, stats)
+    exclude_takedowns(items, stats)
     refilter_reviews(items, stats)
     stamp_reviewed_provenance(items, stats)
     # After the year/runtime rules above have settled — flag_trailers reads both.

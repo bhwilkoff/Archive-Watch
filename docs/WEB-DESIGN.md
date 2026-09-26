@@ -193,6 +193,12 @@ separate tool with its own conventions (CLAUDE.md) — these rules govern the
   wider than 1200px, centered, and running text (synopsis, reviews,
   descriptions) keeps a ~72-character measure. At 1440px the synopsis and the
   archive.org reviews ran past the right edge of the window.
+- **§4.3c Removal requests** (2026-09-26): `takedown.html`, linked from the
+  footer, says the file is the Internet Archive's to remove and how to ask for a
+  title to come off Archive Watch (the published contact address). A request is
+  honored by adding the id to `shared/editorial/takedowns.json`; every publish
+  hides it on every surface (`remediate_catalog.exclude_takedowns`,
+  `tools/test_takedowns.py`).
 - **§4.3b archive.org addresses open here** (2026-09-26, from the Orphaned Films
   research): `archivewatch.org/details/<id>` (404.html forwards it) and an
   archive.org link pasted into search (`/details/`, `/download/`, `/embed/`)
