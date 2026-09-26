@@ -238,6 +238,8 @@ wherever.
 
 5.1b **An Hour or Less** (`hour-or-less`, 2026-09-26, from the Orphaned Films research, adapted): feature films (not documentaries, which have their own shelf) whose upload runs 40–60 minutes — the B-westerns, second features and programmers this catalog is rich in (about 1,200 titles). A plain rule over `runtimeSeconds` and `contentType`, computed ONCE in the pipeline (`build_sqlite._shelf_ids_for`, Decision 050), gated like every shelf; no model picks it and no copy is written for it (CLAUDE.md). "Under 90 minutes" was measured and refused: 8,093 of 11,006 features already run under 90, so it would describe the catalog rather than help someone choose. It sits after `wikidata-pd` in the canonical order.
 
+5.1c **Tonight** (2026-09-26, WEB-DESIGN §4.1c): the hero leads with the pipeline's film for the device's local date, read once a launch from `tonight.json` (`Services/Tonight.swift`, the same schedule every platform reads) and gated again by `isHeroRightsSafe` and a backdrop; its eyebrow reads TONIGHT. No file, no entry, or a film that fails the gate: the hero is unchanged. iPhone and iPad show the eyebrow only on that card.
+
 5.1c **A collection's grid sorts like Browse** (2026-09-25; a viewer on iPad:
 *"Would be nice to have sort features like by year browsing through film
 noir"*). tvOS opens a collection THROUGH Browse and so always had Browse's

@@ -730,6 +730,8 @@ Three SwiftUI scenes, in order: `WindowGroup("Archive Watch")` (parity face, roo
 
 **B4c** **An Hour or Less** (`hour-or-less`, 2026-09-26, from the Orphaned Films research, adapted): feature films (not documentaries, which have their own shelf) whose upload runs 40–60 minutes — the B-westerns, second features and programmers this catalog is rich in (about 1,200 titles). A plain rule over `runtimeSeconds` and `contentType`, computed ONCE in the pipeline (`build_sqlite._shelf_ids_for`, Decision 050), gated like every shelf; no model picks it and no copy is written for it (CLAUDE.md). "Under 90 minutes" was measured and refused: 8,093 of 11,006 features already run under 90, so it would describe the catalog rather than help someone choose. It sits after `wikidata-pd` in the canonical order.
 
+**B4d** **Tonight** (2026-09-26, WEB-DESIGN §4.1c): the hero leads with the pipeline's film for the device's local date, read once a launch from `tonight.json` (`Services/Tonight.swift`, the same schedule every platform reads) and gated again by `isHeroRightsSafe` and a backdrop; its eyebrow reads TONIGHT. No file, no entry, or a film that fails the gate: the hero is unchanged.
+
 ## §B5 — The player title rule (no externalMetadata on macOS)
 
 - **Rule B5a — the on-screen title rides the WINDOW TITLE BAR** (`navigationTitle("Title (Year)")`),

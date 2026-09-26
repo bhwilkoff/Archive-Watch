@@ -40,6 +40,11 @@ struct HomeView: View {
         }
         .navigationTitle("Home")
         .task(id: store.dbVersion) { reload() }
+        .task {
+            if let id = await Tonight.load() {
+                heroItems = Tonight.lead(heroItems, with: store.item(id))
+            }
+        }
         .onChange(of: store.hideWatchedOnHome) { reload() }
     }
 
@@ -78,7 +83,8 @@ struct HomeView: View {
         let verified = pool.filter { $0.isPlaybackVerified }
         let heroPool = verified.count >= 7 ? verified : pool
         var rng = SplitMix(seed: heroSeed)
-        heroItems = Array(heroPool.shuffled(using: &rng).prefix(7))
+        heroItems = Tonight.lead(Array(heroPool.shuffled(using: &rng).prefix(7)),
+                                 with: Tonight.currentID.flatMap { store.item($0) })
         heroItems.forEach { used.insert($0.dedupKey) }
         continueItems.forEach { used.insert($0.dedupKey) }   // don't resurface Continue Watching
 
@@ -186,6 +192,9 @@ struct HeroBanner: View {
             LinearGradient(colors: [.clear, .black.opacity(0.75)],
                            startPoint: .center, endPoint: .bottom)
             VStack(alignment: .leading, spacing: 8) {
+                if item.archiveID == Tonight.currentID {
+                    Text("TONIGHT").font(.caption.bold()).tracking(1.5).foregroundStyle(.white.opacity(0.85))
+                }
                 Text(item.title).font(.largeTitle).fontWeight(.bold)
                 if let s = item.displaySynopsis {
                     Text(s).font(.callout).lineLimit(2).foregroundStyle(.white.opacity(0.85))

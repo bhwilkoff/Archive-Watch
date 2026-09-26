@@ -75,7 +75,8 @@ struct HomeView: View {
         let verified = pool.filter { $0.isPlaybackVerified }
         let heroPool = verified.count >= 7 ? verified : pool
         var rng = SplitMix(seed: UInt64(heroSeed))
-        return Array(heroPool.shuffled(using: &rng).prefix(7))
+        return Tonight.lead(Array(heroPool.shuffled(using: &rng).prefix(7)),
+                            with: Tonight.currentID.flatMap { store.dbItem($0) })
     }
 
     // The canonical Home shelf order, shared with iOS/macOS (Featured.homeShelfPriority).
@@ -124,6 +125,11 @@ struct HomeView: View {
         .background(Color.black.ignoresSafeArea())
         .task(id: "\(heroSeed)-\(store.dbGeneration)-\(store.hideWatchedOnHome)-\(store.completedArchiveIDs.count)-\(store.continueArchiveIDs.count)") {
             rebuild()
+        }
+        .task {
+            if let id = await Tonight.load() {
+                heroItems = Tonight.lead(heroItems, with: store.dbItem(id))
+            }
         }
     }
 
@@ -417,7 +423,8 @@ struct HeroBanner: View {
     }
 
     private var categoryLabel: String {
-        store.featured?.category(id: categoryID)?.displayName ?? "Featured"
+        if item.archiveID == Tonight.currentID { return "Tonight" }
+        return store.featured?.category(id: categoryID)?.displayName ?? "Featured"
     }
 
     private var categoryID: String {

@@ -105,6 +105,11 @@ struct HomeView: View {
         }
         .id(store.dbVersion)   // re-query when the DB swaps (seed → full)
         .task(id: store.dbVersion) { rebuild() }
+        .task {
+            if let id = await Tonight.load() {
+                heroItems = Tonight.lead(heroItems, with: store.item(id))
+            }
+        }
         // The Settings sheet is attached OUTSIDE that .id on purpose. Every
         // Settings toggle bumps dbVersion (it changes what every query
         // returns), and while the sheet sat inside the identified subtree
@@ -244,7 +249,8 @@ struct HomeView: View {
         let verified = pool.filter { $0.isPlaybackVerified }
         let heroPool = verified.count >= 7 ? verified : pool
         var rng = SplitMix(seed: heroSeed)
-        return Array(heroPool.shuffled(using: &rng).prefix(7))
+        return Tonight.lead(Array(heroPool.shuffled(using: &rng).prefix(7)),
+                            with: Tonight.currentID.flatMap { store.item($0) })
     }
 
 }
@@ -301,6 +307,9 @@ private struct HeroCarousel: View {
             .clipShape(.rect(cornerRadius: 16))
             .overlay(alignment: .bottomLeading) {
                 VStack(alignment: .leading, spacing: 2) {
+                    if item.archiveID == Tonight.currentID {
+                        Text("TONIGHT").font(.caption.bold()).tracking(1.5).foregroundStyle(.white.opacity(0.85))
+                    }
                     Text(item.title).font(.title3.bold()).foregroundStyle(.white).lineLimit(2)
                     if let y = item.year {
                         Text(verbatim: String(y)).font(.subheadline).foregroundStyle(.white.opacity(0.85))
