@@ -1273,6 +1273,18 @@
    "kind": "animation",
    "mediaId": null,
    "reviewer": "indianacarnie"
+  },
+  {
+   "at": "2026-09-27T01:21:37.845692+00:00",
+   "id": "theconquestofeverest",
+   "title": "The Conquest of Everest",
+   "slot": "from-the-vaults",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mwhn4zt2w42h",
+   "format": "video",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": null
   }
  ]
 }
