@@ -526,7 +526,7 @@ struct DetailView: View {
             Button {
                 ArchiveVersions.choose(nil, for: item.archiveID)
                 chosenVersionName = nil
-            } label: { Label("Use the default copy", systemImage: "arrow.uturn.backward") }
+            } label: { Label("Use the Default Copy", systemImage: "arrow.uturn.backward") }
         }
     }
 
@@ -569,7 +569,7 @@ struct DetailView: View {
         }
         if let report = FilmProblem.url(archiveID: item.archiveID) {
             Link(destination: report) {
-                Label("Something wrong with this film?", systemImage: "exclamationmark.bubble")
+                Label("Something Wrong with This Film?", systemImage: "exclamationmark.bubble")
             }
         }
     }

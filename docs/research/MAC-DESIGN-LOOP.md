@@ -350,3 +350,10 @@ through Accessibility and its items pressed there (never pointer clicks).
   AX). The context menu itself is built, not driven: AXShowMenu on a
   SwiftUI context menu returns -25204, and the owner's real playlists were
   not to be touched.
+- v1.42.822: menu items in Title Case, as the menu bar's already are. A
+  film's More menu said "Something wrong with this film?" beside the Film
+  menu's "Something Wrong with This Film?"; also "Use the Default Copy",
+  Supercut's "Add Random", the Studio's "New Scene" / "Scene Settings".
+  Checkbox labels stay in sentence case (the Mac convention), and the
+  Studio's sentence-style buttons are its design doc's, left alone.
+  Verified in the built binary: the new strings present, the old one gone.

@@ -391,7 +391,7 @@ struct StudioSceneBar: View {
             Button { store.add() } label: { Image(systemName: "plus") }
                 .buttonStyle(.borderless)
                 .help("New scene from this one")
-                .accessibilityLabel("New scene")
+                .accessibilityLabel("New Scene")
             settingsMenu
         }
         .padding(.horizontal, 12).padding(.vertical, 6)
@@ -455,7 +455,7 @@ struct StudioSceneBar: View {
             Button("Delete “\(s.name)”", role: .destructive) { store.delete(s.id) }
                 .disabled(store.scenes.count < 2)
         } label: {
-            Label("Scene settings", systemImage: "slider.horizontal.3")
+            Label("Scene Settings", systemImage: "slider.horizontal.3")
         }
         .menuStyle(.borderlessButton)
         .fixedSize()

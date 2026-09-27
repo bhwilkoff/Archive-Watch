@@ -232,7 +232,7 @@ struct SupercutSheet: View {
             }.pickerStyle(.menu).labelsHidden().fixedSize()
             Spacer()
             // The count lives once, in the footer ("3 of 177 selected").
-            Menu("Add random") {
+            Menu("Add Random") {
                 ForEach([10, 25, 50, 100], id: \.self) { n in
                     Button("\(n) random") { addRandom(n) }.disabled(filteredRows.isEmpty)
                 }
