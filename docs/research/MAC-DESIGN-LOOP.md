@@ -91,3 +91,13 @@ through Accessibility and its items pressed there (never pointer clicks).
   block, each framed where it is drawn; pressing one selects it. Measured
   through the AX API on the running editor: the dump lists both clips with
   the right selection, and an AXPress on clip 1 moved the selection to it.
+- v1.42.790: the mark-in/out sheet gave up on nothing. With archive.org
+  refusing this network it read "Loading the film…" for over two minutes,
+  because `asset.load(.duration)` never returned and the 60 s give-up waited
+  behind it. The length now loads beside the poll; after the give-up the sheet
+  says "This film's frames could not be loaded — archive.org did not answer",
+  the frame strip stops spinning, and Add to Timeline is disabled (the clip
+  would only fail again in the editor). Seen on the Mac with archive.org
+  unreachable. And J/L shuttle as in Final Cut: J plays backward (it had
+  only paused), L forward, the same key again doubles to 8×; a preview that
+  cannot reverse pauses as before. Built; not driven (needs a loaded film).

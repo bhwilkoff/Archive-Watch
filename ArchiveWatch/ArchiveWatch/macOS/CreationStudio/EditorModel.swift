@@ -1439,6 +1439,21 @@ final class EditorModel {
 
     func togglePlay() { isPlaying ? pause() : play() }
     func play() { player.play(); isPlaying = true }
+
+    /// J / L shuttle, as in Final Cut: J plays backward, L forward, and pressing
+    /// the same key again doubles the speed (up to 8×); the other key reverses.
+    /// J had only paused (Mac loop, 2026-09-27). A preview that cannot play
+    /// backward pauses instead, as before.
+    func shuttle(forward: Bool) {
+        let r = player.rate
+        if forward {
+            player.rate = r > 0 ? min(r * 2, 8) : 1
+        } else {
+            guard player.currentItem?.canPlayReverse == true else { pause(); return }
+            player.rate = r < 0 ? max(r * 2, -8) : -1
+        }
+        isPlaying = true
+    }
     func pause() {
         player.pause(); isPlaying = false
         // Catch the preview up to the timeline if clip fills were deferred while playing.

@@ -329,7 +329,8 @@ struct MarkClipView: View {
             .frame(width: 720, height: 405)
 
             // Instant thumbnail scrubber — drag to navigate the whole movie.
-            ThumbnailScrubber(thumbs: thumbs, total: totalDuration, position: $navSeconds, scrubbing: $scrubbing)
+            ThumbnailScrubber(thumbs: thumbs, total: totalDuration, position: $navSeconds, scrubbing: $scrubbing,
+                              failed: thumbsFailed && videoFailed)
                 .padding(.horizontal, 14).padding(.top, 8)
                 .onChange(of: navSeconds) { _, s in if videoReady, scrubbing { seek(to: s, exact: false) } }
                 .onChange(of: scrubbing) { _, on in
@@ -384,7 +385,9 @@ struct MarkClipView: View {
                 Button("Cancel") { dismiss() }
                 Button("Add to Timeline") { add() }
                     .keyboardShortcut(.defaultAction)
-                    .disabled(outSeconds <= inSeconds)
+                    // A film that could not be reached would only fail again in
+                    // the editor, as a clip with no picture.
+                    .disabled(outSeconds <= inSeconds || (thumbsFailed && videoFailed))
             }
             .padding(12)
         }
@@ -419,7 +422,13 @@ struct MarkClipView: View {
         let pi = AVPlayerItem(asset: asset)
         pi.preferredForwardBufferDuration = 30
         player.replaceCurrentItem(with: pi)
-        if let d = try? await asset.load(.duration), d.seconds.isFinite, d.seconds > 1 { duration = d.seconds }
+        // The length arrives BESIDE the poll, not before it: with archive.org not
+        // answering, `load(.duration)` never returned and the 60 s give-up below
+        // never started — the sheet read "Loading the film…" for good (Mac loop,
+        // 2026-09-27, archive.org refusing this network).
+        Task { @MainActor in
+            if let d = try? await asset.load(.duration), d.seconds.isFinite, d.seconds > 1 { duration = d.seconds }
+        }
         for _ in 0..<300 {            // poll up to ~60s; navigation works the whole time
             if Task.isCancelled { return }
             switch pi.status {
@@ -463,6 +472,8 @@ private struct ThumbnailScrubber: View {
     let total: Double
     @Binding var position: Double
     @Binding var scrubbing: Bool
+    /// Nothing is coming: an empty strip, not a spinner.
+    var failed = false
 
     var body: some View {
         GeometryReader { geo in
@@ -470,7 +481,7 @@ private struct ThumbnailScrubber: View {
             ZStack(alignment: .topLeading) {
                 if thumbs.isEmpty {
                     RoundedRectangle(cornerRadius: 4).fill(.quaternary)
-                        .overlay { ProgressView().controlSize(.small) }
+                        .overlay { if !failed { ProgressView().controlSize(.small) } }
                 } else {
                     HStack(spacing: 1) {
                         ForEach(sampled(width: w), id: \.id) { t in

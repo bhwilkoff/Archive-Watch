@@ -882,9 +882,9 @@ final class TimelineContentView: NSView, NSMenuItemValidation {
         case "\u{F701}": model.goToEdit(forward: true)     // ↓ next edit point (FCP)
         case "b", "B": model.splitAtPlayhead()             // blade at playhead (FCP B)
         case "m", "M": model.toggleMarkerAtPlayhead()      // marker (FCP M)
-        case "l", "L": model.play()                        // FCP L = play forward
+        case "l", "L": model.shuttle(forward: true)        // FCP L = play forward, again = faster
         case "k", "K": model.pause()                       // FCP K = pause
-        case "j", "J": model.pause()                       // FCP J = reverse (no reverse playback → pause)
+        case "j", "J": model.shuttle(forward: false)       // FCP J = play backward, again = faster
         case "+", "=": model.zoom(by: 1.25)                // zoom in
         case "-", "_": model.zoom(by: 0.8)                 // zoom out
         case ",": model.goToMarker(forward: false)
