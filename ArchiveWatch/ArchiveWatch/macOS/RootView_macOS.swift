@@ -739,7 +739,8 @@ private struct JoinRoomSheet: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 14) {
             Text("Join a room").font(.title2).bold()
-            Text("Enter the code your host reads out. The film plays here in step with theirs.")
+            // The landing behind this sheet already says the film plays in step.
+            Text("Enter the code your host reads out.")
                 .font(.callout).foregroundStyle(.secondary)
                 .fixedSize(horizontal: false, vertical: true)
 
@@ -761,8 +762,8 @@ private struct JoinRoomSheet: View {
             }
 
             HStack {
+                Spacer()   // a Mac sheet's buttons sit together at the trailing edge
                 Button("Cancel") { dismiss() }.keyboardShortcut(.cancelAction)
-                Spacer()
                 Button("Join") { attempt() }
                     .keyboardShortcut(.defaultAction)
                     .buttonStyle(.borderedProminent)

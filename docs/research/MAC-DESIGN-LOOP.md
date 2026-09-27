@@ -294,3 +294,8 @@ through Accessibility and its items pressed there (never pointer clicks).
   Undo/Redo items (which also serve every text field in every window), a
   larger change than a label is worth; the names are in place for when it
   is done. Behavior unchanged; build verified.
+- v1.42.813: the Join a room sheet. Its buttons sat at opposite edges
+  (Cancel far left, Join far right); a Mac sheet puts them together at the
+  trailing edge, Cancel then the default. Its second sentence ("The film
+  plays here in step with theirs.") repeated the landing behind it and is
+  cut. Seen on the Mac.
