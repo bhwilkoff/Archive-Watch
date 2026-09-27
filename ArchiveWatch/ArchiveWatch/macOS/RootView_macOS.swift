@@ -833,7 +833,7 @@ private struct CreationStudioLanding: View {
             Image(systemName: "movieclapper.fill")
                 .font(.system(size: 60)).foregroundStyle(.tint)
             Text("Creation Studio").font(.largeTitle.bold())
-            Text("Cut public-domain films from the archive into clips, montages, and supercuts — then export to share. A Mac-only editor.")
+            Text("Cut public-domain films into clips, montages and supercuts, then export them.")
                 .font(.title3).foregroundStyle(.secondary)
                 .multilineTextAlignment(.center).frame(maxWidth: 480)
 
@@ -842,18 +842,21 @@ private struct CreationStudioLanding: View {
                 Button { NSDocumentController.shared.newDocument(nil) } label: {
                     Label("New Project", systemImage: "plus").padding(.horizontal, 6)
                 }
-                .controlSize(.large).buttonStyle(.borderedProminent).keyboardShortcut("n").fixedSize()
+                // File ▸ New Project owns ⌘N and File ▸ Open… ⌘O (§B14); a
+                // second binding here was the same key twice.
+                .controlSize(.large).buttonStyle(.borderedProminent).fixedSize()
                 Button { openProject() } label: {
                     Label("Open Project…", systemImage: "folder").padding(.horizontal, 6)
                 }
-                .controlSize(.large).keyboardShortcut("o").fixedSize()
+                .controlSize(.large).fixedSize()
             }
-            .frame(maxWidth: .infinity, alignment: .leading)
+            // Centered under the centered title (it sat at the leading edge).
+            .frame(maxWidth: .infinity, alignment: .center)
 
             VStack(alignment: .leading, spacing: 4) {
                 Text("Recent Projects").font(.headline).padding(.bottom, 2)
                 if recents.isEmpty {
-                    Text("Projects you save will appear here. Use New Project to start one, or Open Project… to load an existing .archiveproj.")
+                    Text("No recent projects yet.")
                         .font(.callout).foregroundStyle(.secondary)
                 } else {
                     ForEach(recents.prefix(10), id: \.self) { url in

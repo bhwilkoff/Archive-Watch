@@ -37,9 +37,14 @@ struct PublishSheet: View {
             switch stage {
             case .form:
                 if !publisher.hasCredentials {
-                    Label("Add your archive.org S3 keys in Settings ▸ Publishing first.",
-                          systemImage: "key.fill")
-                        .foregroundStyle(.orange).font(.callout)
+                    // A refusal with its way out beside it (it pointed at
+                    // Settings and offered no way there).
+                    HStack {
+                        Label("Publishing needs your archive.org S3 keys.", systemImage: "key.fill")
+                            .foregroundStyle(.orange).font(.callout)
+                        Spacer()
+                        SettingsLink { Text("Open Settings…") }
+                    }
                 }
                 Form {
                     TextField("Title", text: $title)
@@ -52,6 +57,7 @@ struct PublishSheet: View {
                 HStack {
                     Spacer()
                     Button("Cancel") { dismiss() }
+                        .keyboardShortcut(.cancelAction)
                     Button("Publish") { Task { await run() } }
                         .keyboardShortcut(.defaultAction)
                         .disabled(!publisher.hasCredentials || title.trimmingCharacters(in: .whitespaces).isEmpty)
@@ -85,7 +91,11 @@ struct PublishSheet: View {
                     Label("Couldn’t publish", systemImage: "exclamationmark.triangle.fill")
                         .foregroundStyle(.orange).font(.headline)
                     Text(msg).font(.callout).foregroundStyle(.secondary)
-                    HStack { Spacer(); Button("Close") { dismiss() }.keyboardShortcut(.defaultAction) }
+                    HStack {
+                        Spacer()
+                        Button("Close") { dismiss() }.keyboardShortcut(.cancelAction)
+                        Button("Try Again") { stage = .form }.keyboardShortcut(.defaultAction)
+                    }
                 }
             }
         }

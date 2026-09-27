@@ -76,4 +76,11 @@ through Accessibility and its items pressed there (never pointer clicks).
   picker have real labels (empty `Picker("")` announced nothing). Built, not
   driven: an export needs the Save panel (a click) and archive.org is still
   refusing this network.
+- v1.42.788: Publish — the missing-keys refusal has "Open Settings…" beside it
+  (it named Settings and gave no way there), a failure offers Try Again (back to
+  the form, title kept) beside Close, Esc cancels the form. The Creation Studio
+  landing no longer binds ⌘N/⌘O a second time (File owns them), its buttons sit
+  centered under the centered title, and its copy says what it does ("Cut
+  public-domain films into clips, montages and supercuts, then export them.";
+  "No recent projects yet."). Library, Watch Together and Settings seen clean.
 
