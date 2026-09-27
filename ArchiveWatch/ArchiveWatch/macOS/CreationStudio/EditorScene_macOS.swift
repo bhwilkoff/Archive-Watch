@@ -76,9 +76,14 @@ struct ProjectEditorView: View {
                     }
                     // Nothing to prepare on an empty timeline: a pass still winding down
                     // after the last clip went read "Preparing clips — 0 of 0 ready".
-                    if (model.isBuildingPreview && !model.clips.isEmpty) || model.isRefining || !model.prepStatus.failures.isEmpty || model.supercutVerifyNote != nil || model.previewBlockedReason != nil {
+                    if (model.isBuildingPreview && !model.clips.isEmpty) || model.isRefining || !model.prepStatus.failures.isEmpty || model.supercutVerifyNote != nil || model.previewBlockedReason != nil || model.removedNotice != nil {
                         let s = model.prepStatus
                         VStack(spacing: 6) {
+                            if let removed = model.removedNotice {
+                                Label(removed, systemImage: "exclamationmark.triangle.fill")
+                                    .font(.caption).foregroundStyle(.orange)
+                                    .multilineTextAlignment(.center)
+                            }
                             if let note = model.supercutVerifyNote {
                                 Label(note, systemImage: "checkmark.seal")
                                     .font(.caption2).foregroundStyle(.white.opacity(0.85))

@@ -272,6 +272,21 @@ final class EditorModel {
             self.scheduleRebuild()                                  // load settles; overlay clears
         }
     }
+    /// "Removed “X” — it could not be loaded." for a few seconds after a give-up.
+    var removedNotice: String?
+    @ObservationIgnored private var removedNoticeTask: Task<Void, Never>?
+    private func showRemovedNotice(_ names: [String]) {
+        guard let first = names.first else { return }
+        let what = names.count == 1 ? "\u{201C}\(first)\u{201D}" : "\(names.count) clips"
+        removedNotice = "Removed \(what) — it could not be loaded. Undo puts it back."
+        removedNoticeTask?.cancel()
+        removedNoticeTask = Task { [weak self] in
+            try? await Task.sleep(for: .seconds(10))
+            guard !Task.isCancelled else { return }
+            self?.removedNotice = nil
+        }
+    }
+
     /// A give-up removes a clip only when the network is PROVEN to work — some
     /// other clip on the timeline has loaded — so the failure is this clip's.
     /// With nothing loaded, the likelier cause is archive.org not answering at
@@ -299,6 +314,13 @@ final class EditorModel {
         permanentlyFailed[source] = reason
         let ids = Set(project.timeline.clips.filter { $0.sourceURL.absoluteString == source }.map(\.id))
         guard !ids.isEmpty else { return false }
+        // Said, and undoable. A removal was silent and permanent, and with
+        // archive.org flickering a GOOD clip went this way (Blue Plate Symphony,
+        // Mac loop 2026-09-27): the person should know, and ⌘Z should restore it.
+        let names = project.timeline.clips.filter { ids.contains($0.id) }.map(\.label)
+        checkpoint()
+        undoManager?.setActionName("Remove Clip That Could Not Load")
+        showRemovedNotice(names)
         for id in ids { clipPrep[id] = nil; clipCache[id] = nil; thumbnails[id] = nil; clipActualDuration[id] = nil }
         project.timeline.clips.removeAll { ids.contains($0.id) }
         selectedIDs.subtract(ids)

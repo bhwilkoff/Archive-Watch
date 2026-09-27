@@ -221,3 +221,16 @@ through Accessibility and its items pressed there (never pointer clicks).
   their true positions (NOW first; a mark within 64 pt of NOW or of the
   right edge is skipped, which also stops "7:00 P" being clipped). Program
   placement is unchanged. Seen: NOW · 4:30 · 5:00 · 5:30 · 6:00 · 6:30.
+- v1.42.806: with archive.org up for a few minutes: the player played The
+  General (Controls menu enabled only where it should be), and **J/L/K were
+  driven on real footage** — L 4 s → 6 s, J 6 → 5 → 4 → 3 s backward, K
+  held at 3 s. Then archive.org flickered and one of two clips (Blue Plate
+  Symphony) was given up and REMOVED — allowed, since the other clip had
+  loaded — silently and with no undo. A removal now records an undo step
+  ("Remove Clip That Could Not Load") and says so over the preview for ten
+  seconds: "Removed “X” — it could not be loaded. Undo puts it back."
+  (Built; not yet seen, since it needs a source to die while another loads.)
+  OPEN: an H.264 export through the real Save panel sat at "Caching clips…"
+  for 6+ minutes with archive.org down, past the 2 × 90 s cache timeout;
+  being instrumented (AW_CS_DIAG). Its Save panel also proposes the name
+  "Archive Watch" rather than the project's.
