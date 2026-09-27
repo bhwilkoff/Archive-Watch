@@ -92,6 +92,13 @@ struct SettingsView: View {
                 .tabItem { Label("Publishing", systemImage: "square.and.arrow.up") }
         }
         .frame(width: 480, height: 420)
+        // AppKit gives a new window's first text field the focus, which here is the
+        // OpenSubtitles username: opening Settings raised the Passwords autofill
+        // over the window (with the account's email) and it floated over every tab.
+        // Nothing is typed on open, so nothing is focused on open.
+        .onAppear {
+            DispatchQueue.main.async { NSApp.keyWindow?.makeFirstResponder(nil) }
+        }
     }
 
     @ViewBuilder private func PublishingSettings() -> some View { PublishingSettingsView() }

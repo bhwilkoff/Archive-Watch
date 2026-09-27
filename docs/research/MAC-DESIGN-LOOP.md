@@ -333,3 +333,11 @@ through Accessibility and its items pressed there (never pointer clicks).
   Verified through AX: Home lists 30 AXHeading, "Continue Watching" first.
   Also seen: a series' episode rows are buttons that read "S1 · E1, <title>,
   <synopsis>" — fine as they were.
+- v1.42.820: opening Settings raised the Passwords autofill (showing the
+  account's email) over the window, and it floated over every tab: AppKit
+  focuses a new window's first text field, here the OpenSubtitles username.
+  Settings now opens with nothing focused. Verified through AX: reopened
+  straight onto General, the focused element is the window, not the field.
+  Also: archive.org now refuses this network in ~40 ms (a block on the
+  address, not an outage), so editor runs that fetch clips are paused to
+  let it lift — the Creation Studio connection-discipline note applies.
