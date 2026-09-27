@@ -802,6 +802,11 @@ Same rule as iOS-DESIGN 5.1c: the collection grid carries Browse's Sort picker
   the viewer's zone; no file and no cache is an error state with Retry. User channels keep
   `ChannelScheduler`.
 
+**B8a — no program is drawn as a column of letters (2026-09-27).** A block under
+48pt draws no title and one under 80pt no start time; the title is the block's
+hover tag and accessibility label; no fixed point sizes (the iPhone's §2.5c,
+measured on the Mac at 960pt: "1: 0…" for five-minute cartoons).
+
 ## §B9 — Sync touch-points
 
 Removals propagate via `Tombstone` keys: `fav:<id>` (DetailView favorites), `ch:<id>` (user channels);
@@ -985,6 +990,9 @@ no menu item and no key.
   pressing the items: Go to Start → Next Edit → two frames → Split at Playhead
   made 3 clips of 2, Add Marker placed one at the playhead, Zoom In respaced
   the ruler, and the document marked itself Edited.
+- **Help** ▸ Archive Watch Help ⌘? (archivewatch.org/support.html — the item
+  was the system's placeholder with no Help Book behind it), Feeds &
+  Integrations, How Titles Are Vetted, Privacy Policy, Terms of Use.
 - **One key, one live meaning**: a command that belongs to a kind of window is
   enabled only while that window is key, through `focusedSceneValue`
   (`browseWindowIsKey`, `filmActions`); Go's ⌘1–⌘8 are disabled while a player is

@@ -52,7 +52,7 @@ through Accessibility and its items pressed there (never pointer clicks).
    toolbar buttons (Supercut's `text.magnifyingglass` reads as Search); the
    inspector's "Landscape · 16:…" truncates; Delete is disabled while
    Duplicate is enabled for the same selection (selectedIDs vs selection).
-5. Channels grid slivers; Search order; Help menu destination.
+5. ✅ (v1.42.786) Channels grid slivers (§B8a); Search leads with Films & Shows, episodes at five with Show All; Help ▸ real destinations.
 
 ## Log
 - v1.42.785: the mark-in/out sheet names its film (title and year) — it named

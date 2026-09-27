@@ -140,6 +140,7 @@ struct ArchiveWatchMacApp: App {
             EditorClipCommands()
             EditorMarkCommands()
             EditorViewCommands()
+            HelpCommands()
             StudioBroadcastCommands()
             // With a WindowGroup (first) + a DocumentGroup, SwiftUI binds ⌘N to the
             // WindowGroup (a new Library window). Re-point New at a new Creation Studio

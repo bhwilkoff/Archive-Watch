@@ -232,4 +232,21 @@ struct ControlsCommands: Commands {
         p.volume = min(1, max(0, p.volume + delta))
     }
 }
+/// Help: where the answers are. "Archive Watch Help" was the system's
+/// placeholder with no Help Book behind it (Mac loop, 2026-09-27).
+struct HelpCommands: Commands {
+    @Environment(\.openURL) private var openURL
+    var body: some Commands {
+        CommandGroup(replacing: .help) {
+            Button("Archive Watch Help") { open("https://archivewatch.org/support.html") }
+                .keyboardShortcut("?", modifiers: .command)
+            Divider()
+            Button("Feeds & Integrations") { open("https://archivewatch.org/#/feeds") }
+            Button("How Titles Are Vetted") { open("https://archivewatch.org/vetting/") }
+            Button("Privacy Policy") { open("https://archivewatch.org/privacy.html") }
+            Button("Terms of Use") { open("https://archivewatch.org/terms.html") }
+        }
+    }
+    private func open(_ s: String) { if let u = URL(string: s) { openURL(u) } }
+}
 #endif

@@ -210,7 +210,7 @@ struct ChannelsView: View {
             ForEach(visible) { slot in
                 let visStart = max(slot.start, winStart)
                 let visEnd = min(slot.end, winEnd)
-                let w = max(26, CGFloat(visEnd.timeIntervalSince(visStart) / 60) * ppm - 2)
+                let w = max(8, CGFloat(visEnd.timeIntervalSince(visStart) / 60) * ppm - 2)
                 programBlock(slot, channel: ch, width: w, airing: slot.contains(nowTick))
             }
             Spacer(minLength: 0)
@@ -222,17 +222,25 @@ struct ChannelsView: View {
     private func programBlock(_ slot: ScheduledProgram, channel: GuideChannel,
                               width: CGFloat, airing: Bool) -> some View {
         Button { tune(channel, from: slot) } label: {
+            // A block too narrow for words draws none (macOS-DESIGN §B8a, the
+            // iPhone's §2.5c): a five-minute cartoon broke into "1: 0…". Its
+            // title is the hover tag and the accessibility label.
             VStack(alignment: .leading, spacing: 2) {
-                Text(slot.item.title)
-                    .font(.caption.weight(airing ? .bold : .medium))
-                    .lineLimit(2)
-                    .foregroundStyle(airing ? .white : .primary)
+                if width >= 48 {
+                    Text(slot.item.title)
+                        .font(.caption.weight(airing ? .bold : .medium))
+                        .lineLimit(2)
+                        .foregroundStyle(airing ? .white : .primary)
+                }
                 Spacer(minLength: 0)
-                Text(slot.start, style: .time)
-                    .font(.system(size: 9, weight: .medium).monospacedDigit())
-                    .foregroundStyle(airing ? .white.opacity(0.85) : .secondary)
+                if width >= 80 {
+                    Text(slot.start, style: .time)
+                        .font(.caption2.monospacedDigit())
+                        .lineLimit(1)
+                        .foregroundStyle(airing ? .white.opacity(0.85) : .secondary)
+                }
             }
-            .padding(.horizontal, 7).padding(.vertical, 5)
+            .padding(.horizontal, width >= 48 ? 7 : 0).padding(.vertical, 5)
             .frame(width: width, height: rowH - 8, alignment: .topLeading)
             .background(
                 airing ? AnyShapeStyle(channel.accent.gradient)
@@ -247,6 +255,7 @@ struct ChannelsView: View {
         }
         .buttonStyle(.plain)
         .help("\(slot.item.title) · \(slot.start.formatted(date: .omitted, time: .shortened))")
+        .accessibilityLabel("\(slot.item.title), \(slot.start.formatted(date: .omitted, time: .shortened))")
     }
 
     // MARK: - build the guide (mirrors the iOS/tvOS rebuild)

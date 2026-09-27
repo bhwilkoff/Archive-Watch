@@ -9,6 +9,7 @@ struct SearchView: View {
     @Environment(AppStore.self) private var store
     @Environment(AppRouter.self) private var router
     @State private var query = ""
+    @State private var allEpisodes = false
     @FocusState private var searchFieldFocused: Bool
     @State private var results: [Catalog.Item] = []
     @State private var contentType: String? = nil
@@ -53,16 +54,10 @@ struct SearchView: View {
                     ContentUnavailableView.search(text: query).padding(.top, 80)
                 }
             } else {
+                // Films and shows first, episodes after at five (the iPhone's
+                // iOS-DESIGN §4.2b): "keaton" led with four episode rows, one a
+                // Saturday Night Live sketch with Michael Keaton.
                 VStack(alignment: .leading, spacing: 8) {
-                    if showEpisodes {
-                        Text("Episodes").font(.title2.bold()).padding(.horizontal)
-                        VStack(spacing: 2) {
-                            ForEach(episodeResults) { item in
-                                Button { router.openDetail(item) } label: { EpisodeItemRow(item: item) }
-                                    .buttonStyle(.plain)
-                            }
-                        }
-                    }
                     if !filtered.isEmpty {
                         if showEpisodes { Text("Films & Shows").font(.title2.bold()).padding([.horizontal, .top]) }
                         LazyVGrid(columns: [GridItem(.adaptive(minimum: 150, maximum: 200), spacing: 16)],
@@ -70,6 +65,19 @@ struct SearchView: View {
                             ForEach(filtered) { PosterCard(item: $0) }
                         }
                         .padding()
+                    }
+                    if showEpisodes {
+                        Text("Episodes").font(.title2.bold()).padding(.horizontal)
+                        VStack(spacing: 2) {
+                            ForEach(allEpisodes ? episodeResults : Array(episodeResults.prefix(5))) { item in
+                                Button { router.openDetail(item) } label: { EpisodeItemRow(item: item) }
+                                    .buttonStyle(.plain)
+                            }
+                        }
+                        if episodeResults.count > 5 && !allEpisodes {
+                            Button("Show All \(episodeResults.count) Episodes") { allEpisodes = true }
+                                .padding(.horizontal)
+                        }
                     }
                 }
             }
@@ -102,6 +110,7 @@ struct SearchView: View {
             }
         }
         .task(id: query) {
+            allEpisodes = false
             let q = query.trimmingCharacters(in: .whitespaces)
             guard q.count >= 2 else { results = []; return }
             try? await Task.sleep(for: .milliseconds(180))   // debounce
