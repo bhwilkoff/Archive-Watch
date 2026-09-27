@@ -273,3 +273,15 @@ through Accessibility and its items pressed there (never pointer clicks).
   checkpoint, so ⌘Z could not take a grade back from the inspector either.
   Verified through AX: Look lists None…B&W with None checked, choosing Noir
   moves the check, and Edit › Undo returns it to None.
+- v1.42.811: undo for the inspector. None of its controls took a
+  checkpoint — clip Audio / fades / transition length, audio volume and
+  fades, the text overlay's words, position, color, size and timing, an
+  audio track's name — so ⌘Z walked straight past every one. Sliders now
+  take one step as a drag begins; the text overlay and the audio name take
+  a COALESCED step (`checkpointCoalesced`: one per burst to one element,
+  1.5 s), and an edit that does not change the value records nothing —
+  the first try recorded a no-op step when the field lost focus, because
+  SwiftUI writes the same value back, and the first ⌘Z was spent on it.
+  Verified through AX + keystrokes: add text, type "Goodbye", move focus
+  to the timeline (so the field's own undo is gone), one Edit › Undo →
+  "Title", the text kept. Slider undo is built, not driven (it needs a drag).

@@ -931,6 +931,18 @@ final class EditorModel {
         let before = project
         undoManager?.registerUndo(withTarget: self) { editor in editor.applyHistory(before) }
     }
+    /// One undo step per burst of edits to one element (typing, a stepper held
+    /// down, a picker tried several times): a checkpoint unless the same element
+    /// was edited within the last 1.5 s. The inspector's controls took NO
+    /// checkpoint at all, so ⌘Z skipped every fade, volume and text change
+    /// (Mac loop, 2026-09-27).
+    @ObservationIgnored private var lastCoalescedEdit: (id: UUID, at: Date)?
+    func checkpointCoalesced(_ id: UUID) {
+        let now = Date()
+        defer { lastCoalescedEdit = (id, now) }
+        if let last = lastCoalescedEdit, last.id == id, now.timeIntervalSince(last.at) < 1.5 { return }
+        checkpoint()
+    }
     private func applyHistory(_ snapshot: ClipProject) {
         let inverse = project                       // re-registers as redo
         undoManager?.registerUndo(withTarget: self) { editor in editor.applyHistory(inverse) }

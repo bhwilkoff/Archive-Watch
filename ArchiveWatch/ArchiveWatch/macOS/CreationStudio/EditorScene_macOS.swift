@@ -835,7 +835,10 @@ private struct ProjectInspector: View {
                 if let ov = model.textOverlays.first(where: { $0.id == id }) {
                     TextOverlayEditor(
                         overlay: Binding(get: { model.textOverlays.first(where: { $0.id == id }) ?? ov },
-                                         set: { model.updateOverlay($0) }),
+                                         set: { new in
+                                             // A focus change writes the same value back; that is not an edit.
+                                             guard new != model.textOverlays.first(where: { $0.id == id }) else { return }
+                                             model.checkpointCoalesced(id); model.updateOverlay(new) }),
                         onDelete: { model.deleteOverlay(id) })
                 }
             case .clip:
@@ -889,7 +892,8 @@ private struct ProjectInspector: View {
 
     @ViewBuilder private func audioInspector(_ a: AudioClip) -> some View {
         Section {
-            TextField("Name", text: Binding(get: { a.displayName }, set: { model.renameAudio(a.id, $0) }))
+            TextField("Name", text: Binding(get: { a.displayName }, set: { name in guard name != a.displayName else { return }
+                model.checkpointCoalesced(a.id); model.renameAudio(a.id, name) }))
             sliderRow("Volume", 
                       value: Binding(get: { a.volume }, set: { model.setAudioVolume(a.id, $0) }),
                       range: 0...1.5, format: { "\(Int($0 * 100))%" })
@@ -948,7 +952,8 @@ private struct ProjectInspector: View {
         // stub in a 280 pt inspector (Mac loop, 2026-09-27).
         LabeledContent(title) {
             HStack {
-                Slider(value: value, in: range)
+                // One undo step per drag, taken as it begins.
+                Slider(value: value, in: range) { began in if began { model.checkpoint() } }
                     .frame(minWidth: 90)
                     .accessibilityLabel(title)
                     .accessibilityValue(format(value.wrappedValue))
