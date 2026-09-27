@@ -321,3 +321,7 @@ through Accessibility and its items pressed there (never pointer clicks).
   its description — archive.org's own words, per the owner's 2026-09-27
   answer — appeared only in the Collections list. It now heads the page
   (selectable, at reading width), as the iPhone's does. Seen on Film Noir.
+- v1.42.818: a series page's season menu drew two chevrons (one in its
+  label, one the menu's own); it reads "Season 1 ⌄". Seen on One Step
+  Beyond. NOTED, not built: a series page has no Play (first episode, or
+  resume) on the Mac or the iPhone — a feature, not a fix, so it waits.

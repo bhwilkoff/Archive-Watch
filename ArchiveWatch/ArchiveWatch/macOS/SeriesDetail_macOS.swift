@@ -113,7 +113,8 @@ struct SeriesDetailView: View {
                 Button(s.displayTitle) { selectedSeason = s.seasonNumber }
             }
         } label: {
-            Label(currentSeasonTitle, systemImage: "chevron.down").font(.headline)
+            // The menu draws its own indicator; a chevron in the label made two.
+            Text(currentSeasonTitle).font(.headline)
         }
         .menuStyle(.borderlessButton)
         .fixedSize()
