@@ -202,3 +202,10 @@ through Accessibility and its items pressed there (never pointer clicks).
   one in the inspector with no readout; it reads "5.0%" (a share of the
   frame's width) and says so to VoiceOver. Seen with Clip › Add Text on the
   running editor; AX reads "Text, Title".
+- v1.42.803: the Voiceover panel (opening it lists microphones and records
+  nothing, so it was safe to open unattended). The device name was cut to
+  "MacBook P…" beside its label in the 280 pt inspector — against Decision
+  134's no-truncation rule; the picker has its own full-width row under the
+  Voiceover heading and reads "MacBook Pro Microphone". The inspector's
+  no-selection hint ("Select a clip, title or audio track to edit it.")
+  explained the interface, and said "title" for text; cut.

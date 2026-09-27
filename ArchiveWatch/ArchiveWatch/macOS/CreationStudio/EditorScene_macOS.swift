@@ -757,10 +757,15 @@ private struct VoiceoverPanel: View {
     @Bindable var model: EditorModel
     var body: some View {
         Section {
+            // Its own full-width row: beside the "Microphone" label in a 280 pt
+            // inspector the device name was cut to "MacBook P…" (Mac loop,
+            // 2026-09-27; no macOS label is truncated, Decision 134).
             Picker("Microphone", selection: $model.selectedAudioInputID) {
                 if model.audioInputs.isEmpty { Text("No microphones found").tag(String?.none) }
                 ForEach(model.audioInputs) { Text($0.name).tag(Optional($0.id)) }
             }
+            .labelsHidden()
+            .frame(maxWidth: .infinity, alignment: .leading)
             .disabled(model.isRecordingVoiceover)
             Text("Records onto a new voiceover track starting at the playhead.")
                 .font(.caption).foregroundStyle(.secondary)
@@ -919,12 +924,6 @@ private struct ProjectInspector: View {
         } footer: {
             Text("Adds “archivewatch.org · Public Domain” to the picture.")
                 .font(.caption).foregroundStyle(.secondary)
-        }
-        if case .none = model.selection {
-            Section {
-                Text("Select a clip, title or audio track to edit it.")
-                    .font(.caption).foregroundStyle(.secondary)
-            }
         }
     }
 
