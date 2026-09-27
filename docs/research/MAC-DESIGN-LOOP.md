@@ -42,7 +42,13 @@ through Accessibility and its items pressed there (never pointer clicks).
    Record Voiceover, Supercut…, Duplicate, Delete, Mute Audio, Clear Fades),
    Mark (Add Marker, Previous/Next Marker, Previous/Next Edit, Go to Start/End),
    View (Zoom In/Out/Fit, Show Inspector ⌥⌘I), File ▸ Export… ⌘E, Publish…
-4. Creation Studio polish, surface by surface. Seen so far: nine icon-only
+4. Creation Studio polish, surface by surface. ✅ v1.42.784: every toolbar
+   button and the transport's play/zoom have help tags (with their keys) and
+   VoiceOver labels; Supercut's icon is quote.bubble; Aspect presets are short
+   ("16:9 Landscape") so the inspector never truncates them; selection and
+   the multi-selection set stay in step (Delete and Duplicate agree); Clip ▸
+   Deselect All ⇧⌘A; the inspector's two explanatory captions cut to facts.
+   Seen before the fix: nine icon-only
    toolbar buttons (Supercut's `text.magnifyingglass` reads as Search); the
    inspector's "Landscape · 16:…" truncates; Delete is disabled while
    Duplicate is enabled for the same selection (selectedIDs vs selection).

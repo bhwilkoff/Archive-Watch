@@ -150,15 +150,19 @@ struct ProjectEditorView: View {
                 Button { showBrowser = true } label: {
                     Label("Add Clip", systemImage: "plus.rectangle.on.folder")
                 }
+                .help("Add a clip from a film (⌘I)")
                 Button { model.splitAtPlayhead() } label: {
                     Label("Split", systemImage: "scissors")
                 }.disabled(model.project.timeline.clips.isEmpty)
+                .help("Split the clip at the playhead (⌘B)")
                 Button { model.addTextOverlay() } label: {
                     Label("Add Text", systemImage: "textformat")
                 }.disabled(model.project.timeline.clips.isEmpty)
+                .help("Add text over the picture (⌥⌘T)")
                 Button { pickMusic() } label: {
                     Label("Add Music", systemImage: "music.note")
                 }
+                .help("Add a music file under the picture")
                 if model.isRecordingVoiceover {
                     Button { model.stopVoiceover() } label: {
                         Label("Stop", systemImage: "stop.circle.fill")
@@ -168,21 +172,28 @@ struct ProjectEditorView: View {
                     Button { inspectorShown = true; model.armVoiceover() } label: {
                         Label("Voiceover", systemImage: "mic")
                     }
+                    .help("Record a voiceover")
                 }
+                // Not text.magnifyingglass: beside an Export icon it read as
+                // Search. A supercut is built from spoken words (quote.bubble).
                 Button { showSupercut = true } label: {
-                    Label("Supercut", systemImage: "text.magnifyingglass")
+                    Label("Supercut", systemImage: "quote.bubble")
                 }
+                .help("Build a supercut from a phrase spoken in films")
                 Button { showExportSheet = true } label: {
                     Label("Export", systemImage: "square.and.arrow.up")
                 }
+                .help("Export a movie file (⌘E)")
                 .disabled(model.project.timeline.clips.isEmpty || exporter.isBusy)
                 Button { model.pause(); showPublishSheet = true } label: {
                     Label("Publish", systemImage: "icloud.and.arrow.up")
                 }
+                .help("Publish to archive.org")
                 .disabled(model.project.timeline.clips.isEmpty || exporter.isBusy)
                 Button { inspectorShown.toggle() } label: {
                     Label("Inspector", systemImage: "sidebar.trailing")
                 }
+                .help(inspectorShown ? "Hide the inspector (⌥⌘I)" : "Show the inspector (⌥⌘I)")
             }
         }
         .onAppear { model.undoManager = undoManager }   // ⌘Z + Edit menu drive our snapshot history
@@ -309,11 +320,15 @@ struct ProjectEditorView: View {
                 Image(systemName: model.isPlaying ? "pause.fill" : "play.fill")
             }
             .keyboardShortcut(.space, modifiers: [])
+            .help(model.isPlaying ? "Pause (Space)" : "Play (Space)")
+            .accessibilityLabel(model.isPlaying ? "Pause" : "Play")
             Text(timecode(model.playheadSeconds) + " / " + timecode(model.totalDuration))
                 .font(.caption.monospacedDigit()).foregroundStyle(.secondary)
             Spacer()
             Button { model.zoom(by: 1.0 / 1.5) } label: { Image(systemName: "minus.magnifyingglass") }
+                .help("Zoom out (⌘−)").accessibilityLabel("Zoom out")
             Button { model.zoom(by: 1.5) } label: { Image(systemName: "plus.magnifyingglass") }
+                .help("Zoom in (⌘=)").accessibilityLabel("Zoom in")
         }
         .padding(.horizontal, 14).padding(.vertical, 6)
     }
@@ -862,12 +877,12 @@ private struct ProjectInspector: View {
         } header: {
             Label("Project · Export", systemImage: "square.and.arrow.up")
         } footer: {
-            Text("Adds a small “archivewatch.org · Public Domain” credit to the video. Turn off for a clean export.")
+            Text("Adds “archivewatch.org · Public Domain” to the picture.")
                 .font(.caption).foregroundStyle(.secondary)
         }
         if case .none = model.selection {
             Section {
-                Text("Select a clip, title, or audio track to edit it here — these project settings stay available no matter what’s selected.")
+                Text("Select a clip, title or audio track to edit it.")
                     .font(.caption).foregroundStyle(.secondary)
             }
         }

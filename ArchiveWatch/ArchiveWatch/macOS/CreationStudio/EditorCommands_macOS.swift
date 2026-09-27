@@ -88,6 +88,9 @@ struct EditorClipCommands: Commands {
             .disabled(model?.selectedClip.map { $0.fadeInSeconds == 0 && $0.fadeOutSeconds == 0 } ?? true)
             Button("Delete") { model?.deleteSelection() }
                 .disabled(!hasSelection)
+            Button("Deselect All") { model?.clearSelection() }
+                .keyboardShortcut("a", modifiers: [.command, .shift])
+                .disabled(!hasSelection)
             Divider()
             Button("Add Text") { model?.addTextOverlay() }
                 .keyboardShortcut("t", modifiers: [.command, .option])

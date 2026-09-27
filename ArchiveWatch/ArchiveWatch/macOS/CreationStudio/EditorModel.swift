@@ -27,7 +27,12 @@ final class EditorModel {
         case none, clip(UUID), overlay(UUID), audio(UUID)
         var id: UUID? { switch self { case .clip(let i), .overlay(let i), .audio(let i): return i; case .none: return nil } }
     }
-    var selection: Selection = .none
+    /// Setting the primary selection directly keeps the multi-selection set in
+    /// step: they had drifted (Clip ▸ Duplicate enabled, Delete disabled, for
+    /// the same selected clip — found by the menu audit, 2026-09-27).
+    var selection: Selection = .none {
+        didSet { if let id = selection.id, !selectedIDs.contains(id) { selectedIDs = [id] } }
+    }
     /// The FULL multi-selection set (UUIDs across clips/overlays/audio — all globally unique). The
     /// primary `selection` is always one of these (or `.none` when empty).
     var selectedIDs: Set<UUID> = []
@@ -1667,11 +1672,11 @@ final class EditorModel {
         var size: RenderSize { RenderSize(width: width, height: height) }
     }
     static let canvasPresets: [CanvasPreset] = [
-        .init(name: "Landscape · 16:9 (1920×1080)", width: 1920, height: 1080),
-        .init(name: "Portrait · 9:16 (1080×1920)", width: 1080, height: 1920),
-        .init(name: "Square · 1:1 (1080×1080)", width: 1080, height: 1080),
-        .init(name: "Portrait · 4:5 (1080×1350)", width: 1080, height: 1350),
-        .init(name: "Landscape · 4:3 (1440×1080)", width: 1440, height: 1080),
+        .init(name: "16:9 Landscape", width: 1920, height: 1080),
+        .init(name: "9:16 Portrait", width: 1080, height: 1920),
+        .init(name: "1:1 Square", width: 1080, height: 1080),
+        .init(name: "4:5 Portrait", width: 1080, height: 1350),
+        .init(name: "4:3 Landscape", width: 1440, height: 1080),
     ]
     /// The preset matching the current render size, or a synthetic "Custom" entry.
     var matchedCanvasPreset: CanvasPreset {
