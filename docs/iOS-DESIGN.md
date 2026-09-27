@@ -228,6 +228,17 @@ Facets/sort = a toolbar `Menu` of Pickers (Browse's filter menu). Forms =
 `ContentUnavailableView` (every list/grid/sheet declares loading · loaded ·
 empty · error — `universal-feature-states`).
 
+4.2a **Browse's filters are chips you can see.** Owner, 2026-09-27, on Browse's
+"many different tabs with different, sometimes competing, purposes." Measured on
+the iPhone 12: every facet and the sort lived behind one unlabeled toolbar icon,
+so nothing on screen said what the grid held. Under the Films / TV /
+Collections scope, a horizontally scrolling row of capsule chips — Type,
+Decade, Length, Sort, Keyword, Studio — each a native `Menu` naming its current
+value ("Silent", "1920s", "Sort: Popular"); a chip that narrows the grid is
+filled with the brand color, and **Clear** leads the row once anything is set
+(the end of the row is off a 390pt screen). Keyword and Studio still push their
+own grid (Decision 046). The same chips at regular width.
+
 **Length** (2026-09-26, from the Orphaned Films research): Browse filters by how long the upload runs — *Any length · Under 60 minutes · 60 to 90 minutes · Over 90 minutes* — the same bands on every platform (Apple/Android `RuntimeBand`, web `LENGTHS`, index column 17 `minutes`). Bands were chosen from the catalog (~12% / ~60% / ~28% of features); an unknown runtime never matches. Words, never abbreviations.
 
 **A pasted archive.org link opens what it points at** (2026-09-26): an archive.org or archivewatch.org `details`/`download`/`embed` link typed or pasted into Search returns the film we keep, or the film a merged upload became (`item_aliases`), and otherwise nothing — never a guess. One rule in the shared search query (`CatalogDB.search` / `CatalogDatabase.search`, parser `ArchiveLink` / `archiveIdFromLink`), the same table as the web (WEB-DESIGN §4.3b).

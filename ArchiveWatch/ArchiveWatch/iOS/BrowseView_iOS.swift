@@ -55,6 +55,8 @@ struct BrowseView: View {
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(.horizontal).padding(.bottom, 8)
 
+            if scope == .films { filterChips }
+
             switch scope {
             case .films: filmsGrid
             case .tv: tvGrid
@@ -62,12 +64,19 @@ struct BrowseView: View {
             }
         }
         .navigationTitle("Browse")
-        .toolbar {
-            if scope == .films {
-                ToolbarItem(placement: .topBarTrailing) { filterMenu }
-            }
-        }
         .task {
+            #if DEBUG
+            // Harness door: AW_BROWSE_FILTER="type=silent-film,decade=1920"
+            // sets chips so the sweep can photograph a filtered grid.
+            if let f = ProcessInfo.processInfo.environment["AW_BROWSE_FILTER"] {
+                for pair in f.split(separator: ",") {
+                    let kv = pair.split(separator: "=").map(String.init)
+                    guard kv.count == 2 else { continue }
+                    if kv[0] == "type" { contentType = kv[1] }
+                    if kv[0] == "decade" { decade = Int(kv[1]) }
+                }
+            }
+            #endif
             if items.isEmpty { reload() }
             if series.isEmpty { series = store.seriesCards() }
             specialsCount = store.tvSpecialsCount()
@@ -95,51 +104,109 @@ struct BrowseView: View {
         .onChange(of: sort) { reload() }
     }
 
-    private var filterMenu: some View {
-        Menu("Filter", systemImage: "line.3.horizontal.decrease.circle") {
-            Picker("Type", selection: $contentType) {
-                ForEach(types, id: \.1) { Text($0.0).tag($0.1) }
-            }
-            Picker("Decade", selection: $decade) {
-                Text("All Decades").tag(Int?.none)
-                // `Text("\(int)s")` builds a LocalizedStringKey, which formats the
-                // Int with locale GROUPING — "2,010s" instead of "2010s". A decade
-                // is a label, not a quantity. Every other decade site in the app
-                // already uses verbatim/String(); Browse was the last holdout.
-                ForEach(decades, id: \.self) { Text(verbatim: "\($0)s").tag(Int?.some($0)) }
-            }
-            Picker("Length", selection: $runtime) {
-                Text("Any Length").tag(RuntimeBand?.none)
-                ForEach(RuntimeBand.allCases) { Text($0.label).tag(RuntimeBand?.some($0)) }
-            }
-            Picker("Sort", selection: $sort) {
-                Text("Popular").tag(CatalogDB.Sort.popular)
-                Text("Top Rated").tag(CatalogDB.Sort.rating)
-                Text("A–Z").tag(CatalogDB.Sort.alphabetical)
-                Text("Newest").tag(CatalogDB.Sort.newest)
-                Text("Oldest").tag(CatalogDB.Sort.oldest)
-            }
-            // Decision 046: keyword + studio facets open a dedicated filtered grid
-            // (they're join-table queries, not part of the paged films grid).
-            if !keywordFacets.isEmpty {
-                Menu("Keyword") {
-                    ForEach(keywordFacets, id: \.self) { k in
-                        Button(k.capitalized) {
-                            router.browsePath.append(BrowseFilterRoute(title: k.capitalized, keyword: k))
-                        }
-                    }
-                }
-            }
-            if !studioFacets.isEmpty {
-                Menu("Studio") {
-                    ForEach(studioFacets, id: \.self) { s in
-                        Button(s) {
-                            router.browsePath.append(BrowseFilterRoute(title: s, studio: s))
-                        }
-                    }
-                }
-            }
+    // MARK: Filters you can see (iOS-DESIGN §4.2a)
+    //
+    // Every facet and the sort used to live behind one unlabeled toolbar icon,
+    // so nothing on screen said what the grid was showing. Each is now a chip
+    // that names its current value and opens its own native menu; a chip that
+    // narrows the grid is filled, and Clear appears once anything is set.
+
+    private var typeLabel: String { types.first { $0.1 == contentType }?.0 ?? "All" }
+    private var sortLabel: String {
+        switch sort {
+        case .popular: "Popular"
+        case .rating: "Top Rated"
+        case .alphabetical: "A–Z"
+        case .newest: "Newest"
+        case .oldest: "Oldest"
         }
+    }
+    private var anyFilter: Bool { contentType != nil || decade != nil || runtime != nil }
+
+    private var filterChips: some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack(spacing: 8) {
+                // First, not last: with two filters set, the end of the row is
+                // off a 390pt screen.
+                if anyFilter {
+                    Button("Clear") {
+                        contentType = nil; decade = nil; runtime = nil
+                    }
+                    .buttonStyle(.borderless)
+                    .font(.subheadline.weight(.semibold))
+                    .padding(.horizontal, 4)
+                }
+                chip(contentType == nil ? "Type" : typeLabel, active: contentType != nil) {
+                    Picker("Type", selection: $contentType) {
+                        ForEach(types, id: \.1) { Text($0.0).tag($0.1) }
+                    }
+                }
+                chip(decade.map { "\($0)s" } ?? "Decade", active: decade != nil) {
+                    Picker("Decade", selection: $decade) {
+                        Text("All Decades").tag(Int?.none)
+                        // A decade is a label, not a quantity: verbatim, never
+                        // a LocalizedStringKey that groups "2,010s".
+                        ForEach(decades, id: \.self) { Text(verbatim: "\($0)s").tag(Int?.some($0)) }
+                    }
+                }
+                chip(runtime?.label ?? "Length", active: runtime != nil) {
+                    Picker("Length", selection: $runtime) {
+                        Text("Any Length").tag(RuntimeBand?.none)
+                        ForEach(RuntimeBand.allCases) { Text($0.label).tag(RuntimeBand?.some($0)) }
+                    }
+                }
+                chip("Sort: \(sortLabel)", active: false) {
+                    Picker("Sort", selection: $sort) {
+                        Text("Popular").tag(CatalogDB.Sort.popular)
+                        Text("Top Rated").tag(CatalogDB.Sort.rating)
+                        Text("A–Z").tag(CatalogDB.Sort.alphabetical)
+                        Text("Newest").tag(CatalogDB.Sort.newest)
+                        Text("Oldest").tag(CatalogDB.Sort.oldest)
+                    }
+                }
+                // Decision 046: keyword + studio facets open a dedicated
+                // filtered grid (join-table queries, not the paged grid).
+                if !keywordFacets.isEmpty {
+                    chip("Keyword", active: false) {
+                        ForEach(keywordFacets, id: \.self) { k in
+                            Button(k.capitalized) {
+                                router.browsePath.append(BrowseFilterRoute(title: k.capitalized, keyword: k))
+                            }
+                        }
+                    }
+                }
+                if !studioFacets.isEmpty {
+                    chip("Studio", active: false) {
+                        ForEach(studioFacets, id: \.self) { st in
+                            Button(st) {
+                                router.browsePath.append(BrowseFilterRoute(title: st, studio: st))
+                            }
+                        }
+                    }
+                }
+            }
+            .padding(.horizontal)
+            .padding(.bottom, 8)
+        }
+    }
+
+    private func chip<Content: View>(_ title: String, active: Bool,
+                                     @ViewBuilder content: () -> Content) -> some View {
+        Menu {
+            content()
+        } label: {
+            HStack(spacing: 4) {
+                Text(title).lineLimit(1)
+                Image(systemName: "chevron.down").font(.caption.weight(.semibold))
+            }
+            .font(.subheadline.weight(.semibold))
+            .padding(.horizontal, 12)
+            .padding(.vertical, 7)
+            .foregroundStyle(active ? Color.white : Color.primary)
+            .background(active ? AnyShapeStyle(Brand.primary) : AnyShapeStyle(Color(.secondarySystemBackground)),
+                        in: .capsule)
+        }
+        .accessibilityLabel(active ? "\(title) filter, set" : title)
     }
 
     private var decades: [Int] { store.decadeCounts().keys.sorted(by: >) }
