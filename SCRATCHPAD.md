@@ -54,6 +54,13 @@ because the loop was stopped mid-stride for a Claude update.
 
 ### Open owner items (nothing else is blocked)
 
+0-NEW-2026-09-27. **TWO APPLE DEVICES COULD NOT BE CHECKED.** The iPhone 12
+   shows a Screen Time "Time Limit — You've reached your limit on ArchiveWatch"
+   wall (left untouched: a family setting), and the iPad Pro was locked, so
+   Channels-on-one-clock, Tonight and Scenes are unseen on iOS. Either one
+   freed would close it. The Roku one-clock guide also needs the next store
+   package (sideloaded and verified on both Rokus).
+
 0-NOW. **OAUTH APPROVED (2026-09-26); QUOTA SCREENCAST SENT, WAITING ON GOOGLE.**
    `auth/youtube` verification passed; no code change was needed. The quota
    team's screencast is <https://youtu.be/6QiRJhHyw3E>, answered 2026-09-26
@@ -688,6 +695,32 @@ keep serving it.
 
 ## Session Log
 
+### 2026-09-27 — Channels on one clock, collections in archive.org's words, and the owner's five answers
+
+Owner, answering five questions: one clock ("you can choose UTC, but all times
+should show as their local times"); collections "written from archive.org
+language originally" with readable titles; page wording fine; "use the Apple TVs
+whenever you want right now"; the sync prompt "seems like a bug". v1.42.752 -> .757.
+
+**Channels** (Decision 144): the pipeline publishes `channel-schedule.json`, one
+UTC timeline per channel, and every platform plays and draws it in local time;
+XMLTV at /feeds/guide.xml. Seen agreeing at 12:06-12:11 UTC on the web (LA and
+Kiritimati), Ben Bedroom, the Pixel, the Google TV, the Stick 4K and the Roku 2
+XD. Built by three forks in worktrees (Apple, Android, Roku) against one contract.
+
+**Collections**: archive.org's own descriptions and titles for the 26
+collections, the series' years for the 19 series, 13 member-list names touched
+up in `collection_touchups.json` (the weekly harvest applies it), one dropped.
+
+**The "Continue as Ben" sheet is the YOUTUBE app's**, not ours: its window
+belongs to com.google.android.youtube (task 637), floating over our task.
+Archive Watch asks Google only from Settings > Sign in. Nothing changed.
+
+**Seen on the Apple TV**: Tonight ("TONIGHT · The Cocoanuts") and Scenes.
+**Not seen**: iPhone 12 is behind a Screen Time "Time Limit" for the app; the
+iPad Pro was locked. **Roku**: the one-clock guide is sideloaded, not packaged;
+the Kitchen Roku 2 XD was running another session's dev build, now replaced.
+
 ### 2026-09-26 — OAuth approved, the quota screencast, and a day of loose ends closed
 
 Owner: *"the OAuth has been approved ... a new video needs to be created for
@@ -718,31 +751,5 @@ double quote cut it off (fixed, inputs now arrive as env). **Roku**: the next
 package — after 1.0.76 goes live Mon Sep 28 — carries the three 1.0.75 crash
 fixes AND the merged-upload versions list (sideload-verified today). **Android**
 changes (versions, End asks) are in source, not yet on Play.
-
-### 2026-09-25 (afternoon) — Pulse rebuilt around action, and every film made searchable
-
-Owner: *"make The Pulse a much more action-oriented ... portal"*, then /loop
-*"I'd love the full set of movies to be searchable with all of the info on
-each page being a part of the search index ... without creating overhead or
-slowdown ... or making it so we have to modify our privacy stance."*
-v1.42.700 -> v1.42.709.
-
-**Pulse**: Needs attention / Going well from one RULES table, one drill-down
-drawer for every dataset, dated charts, Mountain time. New readers: Search
-Console, `search_index` (sampled film-page indexing), Watch Together rooms
-(Worker tally: day | kind | count, no film) and YouTube broadcasts + quota from
-Google's own API metrics (Decision 142 — the apps send nothing). Store rows
-are read, not typed; twice-daily readings plus a store re-read after every
-release. Found: YouTube quota hit 9,765/10,000 on 09-23 (chat reads).
-
-**Search**: every `/item/` and `/series/` page is now the full Detail as HTML
-(cast photos, reviews, More Like This, episodes) with JSON-LD and NO forward —
-the forward is why none of ~27,000 pages was ever indexed. `sitemap.xml`,
-`/films/` A-Z, footer links. App source no longer published, so the site got
-smaller. Baseline 0/150 indexed; Pulse's Search view tracks it. **Owner,
-optional**: submit `sitemap.xml` in Search Console to speed the first crawl.
-
-**Also**: Android black player after End fixed (v1.42.700); iOS Chromecast
-sender built (CASTV2, in "Share and more"), not yet submitted.
 
 Older entries: `docs/SESSION-LOG.md` (verbatim, back to 2026-04-17).

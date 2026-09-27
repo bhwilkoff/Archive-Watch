@@ -1,5 +1,31 @@
 # Archive Watch — Session Log (archive)
 
+### 2026-09-25 (afternoon) — Pulse rebuilt around action, and every film made searchable
+
+Owner: *"make The Pulse a much more action-oriented ... portal"*, then /loop
+*"I'd love the full set of movies to be searchable with all of the info on
+each page being a part of the search index ... without creating overhead or
+slowdown ... or making it so we have to modify our privacy stance."*
+v1.42.700 -> v1.42.709.
+
+**Pulse**: Needs attention / Going well from one RULES table, one drill-down
+drawer for every dataset, dated charts, Mountain time. New readers: Search
+Console, `search_index` (sampled film-page indexing), Watch Together rooms
+(Worker tally: day | kind | count, no film) and YouTube broadcasts + quota from
+Google's own API metrics (Decision 142 — the apps send nothing). Store rows
+are read, not typed; twice-daily readings plus a store re-read after every
+release. Found: YouTube quota hit 9,765/10,000 on 09-23 (chat reads).
+
+**Search**: every `/item/` and `/series/` page is now the full Detail as HTML
+(cast photos, reviews, More Like This, episodes) with JSON-LD and NO forward —
+the forward is why none of ~27,000 pages was ever indexed. `sitemap.xml`,
+`/films/` A-Z, footer links. App source no longer published, so the site got
+smaller. Baseline 0/150 indexed; Pulse's Search view tracks it. **Owner,
+optional**: submit `sitemap.xml` in Search Console to speed the first crawl.
+
+**Also**: Android black player after End fixed (v1.42.700); iOS Chromecast
+sender built (CASTV2, in "Share and more"), not yet submitted.
+
 ### 2026-09-24/25 — the catalog loop: sourcing that actually runs, one hero rule, connected films
 
 Owner /loop (5-minute cron): *"further enhancements for the title/movie

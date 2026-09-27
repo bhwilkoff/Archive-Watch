@@ -226,6 +226,7 @@ into every session and the index alone carries every title.)
 - 141 — Android runs from Android 6 (API 23) on every store; the floor is held by lint NewApi and by the bundled Let's Encrypt roots
 - 142 — Watch Together is counted from what our servers and Google already see, never from the apps
 - 143 — A room carries the host's copy, and every guest plays exactly that file
+- 144 — Channels run on one clock: the pipeline publishes the timeline, every client plays it and shows it in local time
 
 ---
 
@@ -1033,4 +1034,36 @@ Worker's `normalizeCopy`, so a room cannot point a guest's player at another
 host. Any new join path must `prime` the room before building its player, and
 any new play path must go through `preferredURL`. A host that predates `copy`
 gets the title's DEFAULT copy for everyone, never each viewer's choice.
+
+
+## 144 — Channels run on one clock: the pipeline publishes the timeline, every client plays it and shows it in local time
+*Date: 2026-09-27*
+
+Preset channels no longer compute a schedule on the device. `tools/build_channel_schedule.py`
+(publish-db) writes `channel-schedule.json`: for each channel, UTC days from yesterday to
+three days ahead, each a start time and a list of `[id, seconds]`, with a fixed gap between
+programs and each day starting where the previous one ended. Every client (Apple, Android
+phone and TV, Roku, web) reads it, plays a slot at `now - start`, and labels every time in
+the viewer's zone. Published days are held across rebuilds; a program that leaves the
+catalog is replaced in place by the channel's film of nearest length, so no start time
+ever moves. User channels are personal and keep the per-device scheduler.
+`/feeds/guide.xml` (XMLTV) is built from the same file.
+
+**Why**: the owner — *"Move forward with a single clock. If you need a time zone to organize
+around, you can choose UTC, but all times should show as their local times when they look
+at channels. This should only be to sync all titles to the same time."* The old design
+(`docs/design/channels-tv-guide.md`) promised "any two Apple TVs compute the same grid" from
+a shared seed, and it never held: the day anchored at 6 AM LOCAL, the shuffle existed in
+three incompatible ports (Swift's `next(upperBound:)`, Kotlin's `%` with a pre-added golden
+ratio, JS/Roku's `%` without), Apple and Android built pools from their own DB while web and
+Roku read `channel-pools.json`, and the Cartoon channel was shuffled unseeded. Two viewers
+agreed on 0 of 14 channels across zones. Publishing the RESULT rather than porting the
+algorithm a fifth time makes agreement a property of the data.
+
+**How to apply**: never reintroduce an on-device schedule for a preset channel; change the
+builder. A client with no file and no cached copy shows an error with Retry, never a guessed
+local schedule (it would silently disagree). Keep `slot_seconds` in the builder the one
+duration rule. The builder's test (`tools/test_channel_schedule.py`) pins continuity, holding,
+in-place repair and zone independence, with a control; `tools/test_web_channels_clock.mjs`
+proves two far-apart zones agree, against the live site's old code as its control.
 
