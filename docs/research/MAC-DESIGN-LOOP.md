@@ -317,3 +317,7 @@ through Accessibility and its items pressed there (never pointer clicks).
   button-style Toggle ("Commercial Breaks", pressed when on). The "+" is
   "New Channel", as its sheet is now titled. Verified through AX: an
   AXToggle whose value flips 1 → 0 → 1 on press (left as it was, on).
+- v1.42.817: a collection's page on the Mac opened straight onto posters;
+  its description — archive.org's own words, per the owner's 2026-09-27
+  answer — appeared only in the Collections list. It now heads the page
+  (selectable, at reading width), as the iPhone's does. Seen on Film Noir.

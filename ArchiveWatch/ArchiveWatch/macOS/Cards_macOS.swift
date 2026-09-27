@@ -110,6 +110,9 @@ struct GridView: View {
     let items: [Catalog.Item]
     /// macOS-DESIGN §B7a: a collection's grid carries Browse's sort.
     var sortable = false
+    /// A collection's own words (archive.org's, SCRATCHPAD 2026-09-27), above its films as
+    /// the iPhone shows them; the Mac opened straight onto posters.
+    var blurb: String? = nil
     @State private var sort: CatalogDB.Sort = .popular
 
     private var shown: [Catalog.Item] { sortable ? CatalogDB.ordered(items, by: sort) : items }
@@ -120,6 +123,13 @@ struct GridView: View {
                 ContentUnavailableView("Nothing here yet", systemImage: "film.stack")
                     .padding(.top, 80)
             } else {
+                if let blurb, !blurb.isEmpty {
+                    Text(blurb).font(.body).foregroundStyle(.secondary)
+                        .frame(maxWidth: 680, alignment: .leading)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding([.horizontal, .top])
+                        .textSelection(.enabled)
+                }
                 LazyVGrid(columns: posterColumns, spacing: 18) {
                     ForEach(shown) { PosterCard(item: $0) }
                 }

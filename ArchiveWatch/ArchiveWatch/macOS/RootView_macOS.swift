@@ -526,8 +526,9 @@ struct RootView: View {
                     .navigationDestination(for: PersonRoute.self) {
                         GridView(title: $0.name, items: store.byPerson($0.name))
                     }
-                    .navigationDestination(for: CollectionRoute.self) {
-                        GridView(title: $0.title, items: store.byCollection($0.id), sortable: true)
+                    .navigationDestination(for: CollectionRoute.self) { route in
+                        GridView(title: route.title, items: store.byCollection(route.id), sortable: true,
+                                 blurb: CollectionMetadata.all.first(where: { $0.id == route.id })?.blurb)
                     }
                     .navigationDestination(for: SeriesRef.self) { SeriesDetailView(card: $0.card) }
                     .navigationDestination(for: BrowseFilterRoute.self) { FilteredGridView(route: $0) }
