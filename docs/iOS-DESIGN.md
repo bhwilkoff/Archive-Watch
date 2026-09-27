@@ -203,6 +203,23 @@ condition does). It is not an error toast and never carries content. A second
 condition needs a rule here first — two stacked banners is a redesign signal,
 not a layout.
 
+3.5b **Detail's actions are four labeled buttons, and the rest are in More.**
+Owner, 2026-09-27: *"Further research for the best ways to display detailed
+information without overwhelming the user is likely warranted."* Measured on
+the iPhone 12: up to nine unlabeled bordered icons (favorite, playlist, Watch
+Together, watched, subtitles, clip, copy, download, share) in a row that
+scrolled off the screen, so most could be neither read nor reached. HIG: one
+primary action; a pull-down menu for the rest, of three or more items. Now:
+**Play** alone on its row (unchanged); beneath it four equal tiles, an icon
+over a word — **Favorite** (Saved), **Download** (its state), **Together**
+(the §3.5a menu), **More** — and More holds Add to Playlist, Mark as Watched,
+Subtitles, Create a Clip, Choose a Copy, Share Link, Callsheet, Cast to a TV,
+View on archive.org and "Something wrong with this film?". A synopsis over
+240 characters opens at four lines with More/Less; the studio, writer, music,
+cinematography and awards fold into one **Details** disclosure, shown only
+when there is a fact to disclose. Regular width keeps the facts beside the
+artwork and caps the tiles at 480pt (IPAD-DESIGN §2.2).
+
 3.8 **Tile** — `PosterTile` (2:3 poster + caption) for content;
 gradient-on-accent compact tiles (category/decade/mode/surprise) for
 navigation chips. New tile shapes extend these two, not a third family.

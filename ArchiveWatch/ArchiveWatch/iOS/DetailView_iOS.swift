@@ -25,6 +25,8 @@ struct DetailView: View {
     @State private var versions: [ArchiveVersions.Version] = []
     @State private var loadingVersions = false
     @State private var chosenVersionName: String?
+    /// §3.5b: a long synopsis opens at four lines, with More.
+    @State private var synopsisExpanded = false
     @State private var addingToPlaylist = false
     @State private var clipping = false
     @State private var gettingSubtitles = false
@@ -58,205 +60,177 @@ struct DetailView: View {
         }
     }
 
-    /// The Detail action row's buttons, shared by both ViewThatFits branches
-    /// so the plain and scrolling rows can never drift apart.
+    /// The Detail action row (iOS-DESIGN §3.5b): four labeled buttons of
+    /// equal width — Favorite, Download, Watch Together, More — and every
+    /// other verb inside More. It was up to nine unlabeled icons in a row that
+    /// scrolled off a 390pt screen (measured on the iPhone 12), so a viewer
+    /// could neither read nor reach most of them.
     @ViewBuilder private var actionButtons: some View {
-                    Button { toggleFavorite() } label: {
-                        Image(systemName: isFav ? "heart.fill" : "heart")
-                            .accessibilityLabel(isFav ? "Remove from favorites"
-                                                      : "Add to favorites")
-                    }
-                    .buttonStyle(.bordered)
+        HStack(spacing: 8) {
+            actionTile(isFav ? "Saved" : "Favorite", isFav ? "heart.fill" : "heart") {
+                toggleFavorite()
+            }
+            .accessibilityLabel(isFav ? "Remove from favorites" : "Add to favorites")
 
-                    Button { addingToPlaylist = true } label: {
-                        Image(systemName: "text.badge.plus")
-                            .accessibilityLabel("Add to playlist")
-                    }
-                    .buttonStyle(.bordered)
+            if item.videoURLParsed != nil {
+                let download = downloads.first { $0.archiveID == item.archiveID }
+                actionTile(downloadWord(download), downloadIcon(download),
+                           tint: download?.state == .completed ? .green : nil) {
+                    downloading = true
+                }
+                .accessibilityLabel(downloadLabel(download))
+            }
 
-                    // WATCH TOGETHER, ONE TAP FROM THE FILM (iOS-DESIGN §3.5a).
-                    // It sat two menus deep inside "Share and more", which is
-                    // where Subtitles once lived and where nobody looked —
-                    // and a watch-along is a way to WATCH this film, not a
-                    // way to send it somewhere.
+            // WATCH TOGETHER, ONE TAP FROM THE FILM (§3.5a): a way to WATCH
+            // this film, so it stays on the row rather than inside More.
+            Menu {
+                // SharePlay starts on the phone, where the FaceTime call is.
+                Button {
+                    Task {
+                        switch await WatchTogether.shared.share(
+                            archiveID: item.archiveID, title: item.title, year: item.year) {
+                        case .started: playing = true
+                        case .needsCall: startingSharePlay = true
+                        case .cancelled: break
+                        }
+                    }
+                } label: { Label("With friends…", systemImage: "shareplay") }
+                // Always offered; the sheet explains a film it cannot air (§8.8).
+                Button { goingLive = true } label: {
+                    Label("With the world…", systemImage: "dot.radiowaves.left.and.right")
+                }
+            } label: {
+                tileLabel("Together", "person.2.wave.2")
+            }
+            .accessibilityLabel("Watch Together")
+
+            Menu {
+                Button { addingToPlaylist = true } label: {
+                    Label("Add to Playlist", systemImage: "text.badge.plus")
+                }
+                // Watched is a badge on tiles; this is where the viewer
+                // corrects it (tvOS parity).
+                Button {
+                    if WatchProgress.setWatched(!isWatchedState, in: ctx, archiveID: item.archiveID) {
+                        isWatchedState.toggle()
+                    }
+                    SyncNudge.nudge(ctx)
+                    if isWatchedState { store.completedArchiveIDs.insert(item.archiveID) }
+                    else { store.completedArchiveIDs.remove(item.archiveID) }
+                } label: {
+                    Label(isWatchedState ? "Mark as Not Watched" : "Mark as Watched",
+                          systemImage: isWatchedState ? "checkmark.circle.fill" : "checkmark.circle")
+                }
+                if item.videoURLParsed != nil {
+                    Button { gettingSubtitles = true } label: {
+                        Label("Subtitles", systemImage: "captions.bubble")
+                    }
+                }
+                // Decision 033: shown only for clippable (rights-cleared) titles.
+                if item.isClippable {
+                    Button { clipping = true } label: {
+                        Label("Create a Clip", systemImage: "scissors")
+                    }
+                }
+                // Which copy plays (owner, 2026-08-17): a phone on cellular
+                // has every reason to want a lighter transfer.
+                if item.videoURLParsed != nil {
                     Menu {
-                        // SharePlay. The phone is where a session actually
-                        // starts, because that is where the FaceTime call is;
-                        // the Apple TV joins. Offering it outside a call is
-                        // harmless — prepareForActivation just declines.
-                        Button {
-                            Task {
-                                switch await WatchTogether.shared.share(
-                                    archiveID: item.archiveID,
-                                    title: item.title,
-                                    year: item.year) {
-                                case .started:
-                                    playing = true
-                                case .needsCall:
-                                    // No call yet — let the system start one
-                                    // rather than silently playing the film.
-                                    startingSharePlay = true
-                                case .cancelled:
-                                    break
-                                }
-                            }
-                        } label: {
-                            Label("With friends…", systemImage: "shareplay")
-                        }
-                        // The public half of the SAME feature
-                        // (docs/WATCH-TOGETHER.md §1): one name, two
-                        // qualifiers. Always OFFERED, even for a film the
-                        // rights audit will not clear — the sheet explains
-                        // why, and a hidden control teaches nothing (§8.8).
-                        Button {
-                            goingLive = true
-                        } label: {
-                            Label("With the world…", systemImage: "dot.radiowaves.left.and.right")
-                        }
-                    } label: {
-                        Image(systemName: "person.2.wave.2")
-                            .accessibilityLabel("Watch Together")
-                    }
-                    .buttonStyle(.bordered)
-
-
-                    // Watched is a badge on tiles; this is where the viewer
-                    // corrects it (tvOS parity — a film abandoned near the
-                    // end reads as finished, one seen elsewhere never
-                    // registers at all).
-                    Button {
-                        if WatchProgress.setWatched(
-                            !isWatchedState, in: ctx, archiveID: item.archiveID) {
-                            isWatchedState.toggle()
-                        }
-                        SyncNudge.nudge(ctx)
-                        if isWatchedState {
-                            store.completedArchiveIDs.insert(item.archiveID)
+                        if StudioRoomCopy.isActive(for: item.archiveID) {
+                            Text("In a Watch Together room, the host chooses the copy.")
+                        } else if versions.isEmpty {
+                            Text(loadingVersions ? "Loading…" : "No other copies")
                         } else {
-                            store.completedArchiveIDs.remove(item.archiveID)
-                        }
-                    } label: {
-                        Image(systemName: isWatchedState
-                              ? "checkmark.circle.fill" : "checkmark.circle")
-                            .accessibilityLabel(isWatchedState
-                                ? "Mark as not watched" : "Mark as watched")
-                    }
-                    .buttonStyle(.bordered)
-
-                    // Subtitles. This lived inside the share menu, which is
-                    // where nobody looks for subtitles — a viewer who wants
-                    // them looks at the film, not at a share sheet. Now the
-                    // caption-type hub (owner 2026-08-26), it shows for
-                    // every playable title: a film WITH a subtitle file is
-                    // exactly where choosing File vs Automatic matters.
-                    if item.videoURLParsed != nil {
-                        Button { gettingSubtitles = true } label: {
-                            Image(systemName: "captions.bubble")
-                                .accessibilityLabel("Get subtitles")
-                        }
-                        .buttonStyle(.bordered)
-                    }
-
-                    // Create: clip / GIF / fan-edit this title (Decision 033).
-                    // Rights-gated — only public-domain / CC content (the
-                    // affordance is hidden, not disabled, when not clippable).
-                    if item.isClippable {
-                        Button { clipping = true } label: {
-                            Image(systemName: "scissors")
-                                .accessibilityLabel("Create a clip or GIF")
-                        }
-                        .buttonStyle(.bordered)
-                    }
-
-                    // Choose which copy of the film to play — the same
-                    // control tvOS has, since a phone on cellular has even
-                    // more reason to want a lighter transfer than a TV on
-                    // wifi does (owner, 2026-08-17).
-                    if item.videoURLParsed != nil {
-                        Menu {
-                            if StudioRoomCopy.isActive(for: item.archiveID) {
-                                Text("In a Watch Together room, the host chooses the copy.")
-                            } else if versions.isEmpty {
-                                Text(loadingVersions ? "Loading…" : "No other copies")
-                            } else {
-                                ForEach(versions) { v in
-                                    Button {
-                                        ArchiveVersions.choose(v, for: item.archiveID)
-                                        chosenVersionName = v.choiceKey
-                                    } label: {
-                                        Label(v.label, systemImage:
-                                            chosenVersionName == v.choiceKey
-                                                ? "checkmark.circle.fill" : "circle")
-                                    }
+                            ForEach(versions) { v in
+                                Button {
+                                    ArchiveVersions.choose(v, for: item.archiveID)
+                                    chosenVersionName = v.choiceKey
+                                } label: {
+                                    Label(v.label, systemImage:
+                                        chosenVersionName == v.choiceKey ? "checkmark.circle.fill" : "circle")
                                 }
-                                Button(role: .destructive) {
-                                    ArchiveVersions.choose(nil, for: item.archiveID)
-                                    chosenVersionName = nil
-                                } label: { Label("Use the default copy", systemImage: "arrow.uturn.backward") }
                             }
-                        } label: {
-                            Image(systemName: "rectangle.stack")
-                                .accessibilityLabel("Choose another copy")
-                        }
-                        .buttonStyle(.bordered)
-                        .tint(chosenVersionName == nil ? nil : .accentColor)
-                        .task {
-                            chosenVersionName = ArchiveVersions.chosenName(for: item.archiveID)
-                            guard versions.isEmpty else { return }
-                            loadingVersions = true
-                            versions = await ArchiveVersions.list(itemID: item.archiveID)
-                            loadingVersions = false
-                        }
-                    }
-
-                    // Keep it on this device (Decision 099). Sits beside the
-                    // copy picker because they are the same question asked
-                    // twice: which transfer, and whether to keep it.
-                    if item.videoURLParsed != nil {
-                        let download = downloads.first { $0.archiveID == item.archiveID }
-                        Button { downloading = true } label: {
-                            Image(systemName: downloadIcon(download))
-                                .accessibilityLabel(downloadLabel(download))
-                        }
-                        .buttonStyle(.bordered)
-                        .tint(download?.state == .completed ? .green : nil)
-                    }
-
-                    Menu {
-                        if Callsheet.supports(item) {
-                            Button { Callsheet.open(Callsheet.url(for: item)) } label: {
-                                Label(Callsheet.actionTitle, systemImage: Callsheet.actionIcon)
-                            }
-                        }
-                        ShareLink(item: shareURL) {
-                            Label("Share link…", systemImage: "square.and.arrow.up")
-                        }
-                        Link(destination: archiveOrgURL) {
-                            Label("View on archive.org", systemImage: "globe")
-                        }
-                        if let report = FilmProblem.url(archiveID: item.archiveID) {
-                            Link(destination: report) {
-                                Label("Something wrong with this film?", systemImage: "exclamationmark.bubble")
-                            }
-                        }
-                        // Cast to a TV (iOS-DESIGN §8.10). A menu item, not a
-                        // row button: most iPhone owners reach a TV by
-                        // AirPlay, and the player already offers that.
-                        if item.videoURLParsed != nil {
-                            Button { casting = true } label: {
-                                let cast = CastController.shared
-                                Label(cast.archiveID == item.archiveID && cast.phase == .casting
-                                      ? "Casting to \(cast.deviceName)…" : "Cast to a TV…",
-                                      systemImage: "tv")
-                            }
+                            Button(role: .destructive) {
+                                ArchiveVersions.choose(nil, for: item.archiveID)
+                                chosenVersionName = nil
+                            } label: { Label("Use the default copy", systemImage: "arrow.uturn.backward") }
                         }
                     } label: {
-                        Image(systemName: "square.and.arrow.up")
-                            .accessibilityLabel("Share and more")
+                        Label(chosenVersionName == nil ? "Choose a Copy" : "Choose a Copy (chosen)",
+                              systemImage: "rectangle.stack")
                     }
-                    .buttonStyle(.bordered)
+                }
+                Divider()
+                ShareLink(item: shareURL) {
+                    Label("Share Link…", systemImage: "square.and.arrow.up")
+                }
+                if Callsheet.supports(item) {
+                    Button { Callsheet.open(Callsheet.url(for: item)) } label: {
+                        Label(Callsheet.actionTitle, systemImage: Callsheet.actionIcon)
+                    }
+                }
+                // Cast to a TV (§8.10): most iPhone owners reach a TV by
+                // AirPlay, which the player already offers.
+                if item.videoURLParsed != nil {
+                    Button { casting = true } label: {
+                        let cast = CastController.shared
+                        Label(cast.archiveID == item.archiveID && cast.phase == .casting
+                              ? "Casting to \(cast.deviceName)…" : "Cast to a TV…",
+                              systemImage: "tv")
+                    }
+                }
+                Link(destination: archiveOrgURL) {
+                    Label("View on archive.org", systemImage: "globe")
+                }
+                if let report = FilmProblem.url(archiveID: item.archiveID) {
+                    Link(destination: report) {
+                        Label("Something wrong with this film?", systemImage: "exclamationmark.bubble")
+                    }
+                }
+            } label: {
+                tileLabel("More", "ellipsis")
+            }
+            .accessibilityLabel("More actions")
+        }
+        .task(id: item.archiveID) {
+            chosenVersionName = ArchiveVersions.chosenName(for: item.archiveID)
+            guard item.videoURLParsed != nil, versions.isEmpty else { return }
+            loadingVersions = true
+            versions = await ArchiveVersions.list(itemID: item.archiveID)
+            loadingVersions = false
+        }
     }
 
+    private func downloadWord(_ d: DownloadedFilm?) -> String {
+        switch d?.state {
+        case .completed?: "Downloaded"
+        case .queued?, .downloading?: "Downloading"
+        case .paused?: "Paused"
+        case .failed?: "Retry"
+        case nil: "Download"
+        }
+    }
+
+    /// An icon over a word, filling an equal share of the row.
+    private func tileLabel(_ word: String, _ icon: String, tint: Color? = nil) -> some View {
+        VStack(spacing: 4) {
+            Image(systemName: icon).font(.title3).frame(height: 24)
+            Text(word).font(.caption.weight(.semibold)).lineLimit(1).minimumScaleFactor(0.8)
+        }
+        .foregroundStyle(tint ?? .primary)
+        // A fixed height: the four symbols differ in height, and a menu label
+        // and a button label size themselves differently.
+        .frame(maxWidth: .infinity)
+        .frame(height: 60)
+        .background(Color(.secondarySystemBackground), in: .rect(cornerRadius: 12))
+        .contentShape(.rect)
+    }
+
+    private func actionTile(_ word: String, _ icon: String, tint: Color? = nil,
+                            action: @escaping () -> Void) -> some View {
+        Button(action: action) { tileLabel(word, icon, tint: tint) }
+            .buttonStyle(.plain)
+    }
 
     /// Title, meta, the primary action and the action row — the column that
     /// sits beside the artwork at regular width (IPAD-DESIGN §3.1).
@@ -292,23 +266,12 @@ struct DetailView: View {
                 .controlSize(.large)
                 .disabled(item.videoURLParsed == nil)
 
-                // Seven bordered buttons stopped fitting a 390pt phone, and an
-                // overflowing HStack does not merely clip itself: it makes the
-                // whole Detail COLUMN wider than the screen, so the ScrollView
-                // centres an oversized column and every line of text loses its
-                // first glyph ("His Girl Friday" drew as "-lis", 1940 as 940 —
-                // measured on the iPhone 12, 2026-08-28). Tightening the spacing
-                // would buy one more action; ViewThatFits cannot overflow at all.
-                ViewThatFits(in: .horizontal) {
-                    HStack(spacing: 12) {
-                        actionButtons
-                        Spacer(minLength: 0)
-                    }
-                    ScrollView(.horizontal) {
-                        HStack(spacing: 12) { actionButtons }
-                    }
-                    .scrollIndicators(.hidden)
-                }
+                // Four equal tiles cannot overflow (§3.5b). Before them, nine
+                // bordered icons overflowed a 390pt phone and needed a
+                // horizontal ScrollView; an overflowing HStack also widens the
+                // whole column (the "-lis" defect of 2026-08-28).
+                actionButtons
+                    .frame(maxWidth: hSize == .regular ? 480 : .infinity)
 
     }
 
@@ -318,16 +281,34 @@ struct DetailView: View {
                     Text(tagline).font(.callout).italic().foregroundStyle(.secondary)
                 }
                 if let s = item.displaySynopsis {
+                    // Four lines, then More (§3.5b): the synopsis is the part
+                    // everyone reads the start of and few read to the end, and
+                    // at full length it pushed the cast off the first screen.
+                    let long = s.count > 240
                     Text(s).font(.body).foregroundStyle(.primary.opacity(0.9))
+                        .lineLimit(long && !synopsisExpanded ? 4 : nil)
+                    if long {
+                        Button(synopsisExpanded ? "Less" : "More") {
+                            withAnimation(.easeInOut(duration: 0.2)) { synopsisExpanded.toggle() }
+                        }
+                        .font(.subheadline.weight(.semibold))
+                        .buttonStyle(.borderless)
+                    }
                     if let prov = item.synopsisProvenance {
                         Text(prov).font(.caption).foregroundStyle(.secondary)
                     }
                 }
                 // The facts are short label/value pairs, so at regular width
                 // they ride the trailing column BESIDE the artwork (where an
-                // iPad reader expects a metadata panel) instead of leaving it
-                // half empty. Compact keeps them in the single stack.
-                if hSize != .regular { DetailFacts(item: item) }
+                // iPad reader expects a metadata panel). Compact folds them
+                // into one Details disclosure (§3.5b): studio, writer, music
+                // and cinematography are wanted by some readers, not first.
+                if hSize != .regular, DetailFacts.hasFacts(item) {
+                    DisclosureGroup("Details") {
+                        DetailFacts(item: item).padding(.top, 6)
+                    }
+                    .font(.subheadline.weight(.semibold))
+                }
                 // Episode item (Decision 045): a way back to the full series.
                 if item.isEpisode, let sid = item.seriesID {
                     Button {
@@ -751,7 +732,11 @@ private struct DetailFacts: View {
         }
     }
 
-    private var facts: [(String, String)] {
+    /// Whether there is anything to disclose — a Details row over nothing
+    /// is a promise the page cannot keep.
+    static func hasFacts(_ item: Catalog.Item) -> Bool { !DetailFacts(item: item).facts.isEmpty }
+
+    fileprivate var facts: [(String, String)] {
         var out: [(String, String)] = []
         if let f = item.franchise, !f.isEmpty { out.append(("Part of", f)) }
         if !item.studios.isEmpty { out.append(("Studio", item.studios.joined(separator: ", "))) }
