@@ -146,6 +146,10 @@ struct PlayerView: UIViewControllerRepresentable {
         vc.updatesNowPlayingInfoCenter = true             // lock-screen / Control Center
         vc.delegate = context.coordinator
         context.coordinator.playerVC = vc
+        // In-app picture-in-picture (iOS-DESIGN §4.4a): a new film ends the
+        // one floating in PiP, and this player can step aside for its own.
+        PiPKeeper.shared.endFloating()
+        context.coordinator.dismissScreen = { [dismiss] in dismiss() }
         if onTap != nil {
             context.coordinator.onTap = onTap
             let tap = UITapGestureRecognizer(target: context.coordinator,
@@ -389,6 +393,9 @@ struct PlayerView: UIViewControllerRepresentable {
 
     static func dismantleUIViewController(_ vc: AVPlayerViewController, coordinator: Coordinator) {
         coordinator.persist(vc.player)
+        // The screen closed BECAUSE picture-in-picture started: the film goes
+        // on in the floating window, held by PiPKeeper, not paused here.
+        if coordinator.isPiPActive { return }
         vc.player?.pause()
         // Closing the player leaves the room, as the Mac does — or it went on
         // polling and telling the host "I'm here" (audit A16).
@@ -413,7 +420,10 @@ struct PlayerView: UIViewControllerRepresentable {
         private var backgroundObserver: NSObjectProtocol?
         private var foregroundObserver: NSObjectProtocol?
         private var interruptionObserver: NSObjectProtocol?
-        private var isPiPActive = false
+        private(set) var isPiPActive = false
+        /// Closes the SwiftUI screen the player sits in (its presenter's
+        /// `dismiss`), so picture-in-picture leaves the app to browse.
+        var dismissScreen: (() -> Void)?
         private weak var player: AVPlayer?
         // HLS-subtitle → resilient-MP4 fallback (non-faststart MP4s fail to start
         // as a single HLS segment; the loader handles moov-at-EOF via byte ranges).
@@ -1027,6 +1037,12 @@ struct PlayerView: UIViewControllerRepresentable {
 
         private func enterBackground() {
             guard !isPiPActive, let vc = playerVC, vc.player != nil else { return }
+            // A playing film is about to go into picture-in-picture (§4.4a):
+            // detaching it here, before AVKit has flagged PiP, left the window
+            // on a frozen frame (measured on the iPhone 12, 2026-09-27).
+            if vc.allowsPictureInPicturePlayback, vc.canStartPictureInPictureAutomaticallyFromInline,
+               AVPictureInPictureController.isPictureInPictureSupported(),
+               (player?.rate ?? 0) > 0 { return }
             persist(player)
             vc.player = nil
         }
@@ -1038,22 +1054,51 @@ struct PlayerView: UIViewControllerRepresentable {
 
         // MARK: AVPlayerViewControllerDelegate (PiP lifecycle)
 
+        // IN-APP PICTURE-IN-PICTURE (iOS-DESIGN §4.4a). Owner, 2026-09-27:
+        // "make in-app picture-in-picture work well to allow for playing a
+        // movie while browsing for another movie to watch or add to
+        // playlists." The full-screen player used to STAY over the app while
+        // PiP ran, so there was nothing to browse. Now: when PiP starts, the
+        // player and this coordinator are handed to PiPKeeper and the screen
+        // closes; restore presents the same controller again; closing either
+        // one saves progress and stops.
         func playerViewControllerWillStartPictureInPicture(_ vc: AVPlayerViewController) {
             isPiPActive = true
+            PiPKeeper.shared.hold(vc, coordinator: self)
+        }
+
+        func playerViewControllerDidStartPictureInPicture(_ vc: AVPlayerViewController) {
+            // Only when the player is on screen inside the app's own cover;
+            // a restored UIKit presentation dismisses itself below.
+            if vc.presentingViewController == nil { dismissScreen?() }
+            else { vc.dismiss(animated: true) }
         }
 
         func playerViewControllerDidStopPictureInPicture(_ vc: AVPlayerViewController) {
             isPiPActive = false
+            // Closed from the floating window rather than restored: done.
+            if vc.view.window == nil { PiPKeeper.shared.finish(vc) }
         }
 
-        // The full-screen player stays in the hierarchy while PiP runs, so
-        // restoring from the PiP window is just "show it again".
         func playerViewController(
             _ vc: AVPlayerViewController,
             restoreUserInterfaceForPictureInPictureStopWithCompletionHandler
             completionHandler: @escaping (Bool) -> Void
         ) {
-            completionHandler(true)
+            if vc.view.window != nil { completionHandler(true); return }
+            PiPKeeper.shared.restore(vc, completion: completionHandler)
+        }
+
+        /// The restored player's own close button (it is presented modally,
+        /// so AVKit gives it one).
+        func playerViewController(
+            _ vc: AVPlayerViewController,
+            willEndFullScreenPresentationWithAnimationCoordinator coordinator: UIViewControllerTransitionCoordinator
+        ) {
+            guard PiPKeeper.shared.isHolding(vc) else { return }
+            coordinator.animate(alongsideTransition: nil) { ctx in
+                if !ctx.isCancelled, !self.isPiPActive { PiPKeeper.shared.finish(vc) }
+            }
         }
 
         /// On end-of-item: persist (marks it complete) and, if a queue supplies a
@@ -1218,6 +1263,64 @@ final class EpisodeQueue: PlaybackQueue {
         guard let n = series.episode(after: current), let u = n.videoURLParsed else { return nil }
         current = n
         return (n.archiveID, u, n.title, n.overview)
+    }
+}
+
+
+/// Holds the one player that is floating in picture-in-picture while the app
+/// is browsed underneath it (iOS-DESIGN §4.4a). SwiftUI tears a screen's
+/// controller down when the screen closes, so something has to keep the
+/// AVPlayerViewController and its coordinator (progress, queue, captions)
+/// alive until the viewer restores or closes the window.
+@MainActor
+final class PiPKeeper {
+    static let shared = PiPKeeper()
+    private var vc: AVPlayerViewController?
+    private var coordinator: PlayerView.Coordinator?
+
+    func hold(_ vc: AVPlayerViewController, coordinator: PlayerView.Coordinator) {
+        self.vc = vc
+        self.coordinator = coordinator
+    }
+
+    func isHolding(_ vc: AVPlayerViewController) -> Bool { self.vc === vc }
+
+    /// Back to full screen: present the SAME controller over whatever the
+    /// viewer is looking at, then let AVKit move the picture into it.
+    func restore(_ vc: AVPlayerViewController, completion: @escaping (Bool) -> Void) {
+        guard let top = Self.topViewController() else { completion(false); return }
+        // It was a child of the closed screen; a child cannot be presented.
+        if vc.parent != nil {
+            vc.willMove(toParent: nil)
+            vc.view.removeFromSuperview()
+            vc.removeFromParent()
+        }
+        vc.modalPresentationStyle = .fullScreen
+        top.present(vc, animated: true) { completion(true) }
+    }
+
+    /// Saved and stopped: the window was closed, or the restored player was.
+    func finish(_ vc: AVPlayerViewController) {
+        guard self.vc === vc else { return }
+        coordinator?.persist(vc.player)
+        vc.player?.pause()
+        self.vc = nil
+        coordinator = nil
+    }
+
+    /// A new film is starting: the floating one ends.
+    func endFloating() {
+        guard let vc else { return }
+        finish(vc)
+    }
+
+    private static func topViewController() -> UIViewController? {
+        let scene = UIApplication.shared.connectedScenes
+            .compactMap { $0 as? UIWindowScene }
+            .first { $0.activationState == .foregroundActive }
+        var top = scene?.keyWindow?.rootViewController
+        while let next = top?.presentedViewController { top = next }
+        return top
     }
 }
 

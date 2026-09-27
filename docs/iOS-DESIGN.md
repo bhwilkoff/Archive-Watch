@@ -297,6 +297,23 @@ content is data-dependent — `fullScreenCover(item:)` for episodes and
 see the `unsolved_tv_episode_playback` memory). The cover content applies
 `.ignoresSafeArea()`.
 
+4.4a **Picture-in-picture leaves you in the app.** Owner, 2026-09-27: *"You can
+also make in-app picture-in-picture work well to allow for playing a movie while
+browsing for another movie to watch or add to playlists."* The full-screen
+player used to stay over the app while PiP ran, so there was nothing to browse.
+Now, when PiP starts, `PiPKeeper` holds the AVPlayerViewController and its
+coordinator (progress, the episode or channel queue, captions) and the player's
+screen closes; the film floats over Home, Browse, Detail, anywhere. Restore
+presents the same controller again, full screen, with the picture moving back
+into it; closing the window, or closing the restored player, saves progress and
+stops. Starting another film ends the floating one. The app's background
+handler no longer detaches a PLAYING film's player when PiP is about to take it
+(that left the window on a frozen frame). Seen on the iPhone 12, muted: The
+General floating over Settings, then over the app's own Detail page, frames
+changing (mean pixel difference 51 over six seconds; 0 before the fix).
+Restore is built on AVKit's delegate and not yet driven on a device (it needs a
+tap on the window).
+
 4.5 **Pickers open at medium detent.** Selection sheets that act on the
 current screen (Add to Playlist) use `presentationDetents([.medium, .large])`
 so the context stays visible behind them.

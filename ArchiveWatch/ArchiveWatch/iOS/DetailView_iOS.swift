@@ -486,6 +486,9 @@ struct DetailView: View {
                 if let req = StudioDoors.goLiveRequest(film: item) {
                     liveRequest = req
                 } else {
+                    // After the screen settles: a cover requested during the
+                    // first task can be dropped by the presentation machinery.
+                    try? await Task.sleep(for: .seconds(1.5))
                     playing = true
                 }
             }
