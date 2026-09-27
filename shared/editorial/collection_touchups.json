@@ -1,0 +1,19 @@
+{
+  "notes": "Touch-ups to archive.org members' own list names and descriptions, applied by tools/harvest_member_lists.py on every weekly run (the harvest rewrites the list-* entries, so a hand edit there would not survive). Owner, 2026-09-27: \"I don't mind if you touch up some of the collection descriptions from archive.org, but I'd like all of the collections to be written from archive.org language originally. I notice that a few collection titles will also need to be touched up (all capital letters, etc.). We are creating/finding collections that everyone will want to watch, so they need to be generally understandable to the public.\" Each entry keeps the maker's words and fixes case, spelling or clarity; `hide` drops a list whose name cannot be made clear without becoming a Collection we already have. An ALL-CAPS name no one has touched up yet is title-cased by rule.",
+  "lists": {
+    "list-robert-caso-2":                 { "hide": true, "why": "\"Fes Films Verified\" says nothing to the public, and the clear name for it (horror and science fiction) is the Sci-Fi & Horror Collection" },
+    "list-alexbratianu-2":                { "title": "Prewar and Postwar Japan Through Its Films" },
+    "list-misfit666jerry73-5":            { "title": "Classic Horror Monster Films", "description": "Classic Hollywood monster films from Universal, Warner Bros. and other studios." },
+    "list-screen-prism-3":                { "title": "Mary Pickford Films" },
+    "list-proneverdoer-4":                { "title": "Foreign-Language Films" },
+    "list-alexbratianu-1":                { "title": "Japanese Jidaigeki (Period Dramas)" },
+    "list-jeffery-burney-shellkrakker-4": { "title": "Akira Kurosawa" },
+    "list-spirit-of-76-6":                { "title": "Sherlock Holmes" },
+    "list-dan-mayson951-53":              { "title": "Japanese Film" },
+    "list-ianbrx-51":                     { "title": "Classic Silent Cinema from Around the World" },
+    "list-curiousquail-2":                { "title": "Movie-House Trailers and Intermissions" },
+    "list-banzuelo666-7":                 { "title": "Roger Corman" },
+    "list-arthurjerry-3":                 { "title": "Pre-Code Hollywood" },
+    "list-mgoghremb-7":                   { "title": "Edward G. Robinson", "description": "" }
+  }
+}

@@ -46,6 +46,7 @@ from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
 META = REPO / "shared" / "editorial" / "collection_metadata.json"
+TOUCHUPS = REPO / "shared" / "editorial" / "collection_touchups.json"
 MIN_FAVORITES = 20
 MIN_OURS = 8
 MIN_SHARE = 0.6
@@ -146,6 +147,35 @@ def select(user: str, lists: list, visible: dict, aliases: dict) -> list:
     return out
 
 
+def tidy_name(name: str) -> str:
+    """Mechanical only: runs of punctuation become one space, and a name
+    written in capitals is title-cased (short words stay lower)."""
+    name = re.sub(r"\s*([-_=*~|])\1{1,}\s*", " ", name).strip()
+    letters = [c for c in name if c.isalpha()]
+    if letters and all(c.isupper() for c in letters) and len(letters) > 3:
+        small = {"a", "an", "and", "as", "at", "by", "for", "in", "of", "on", "or", "the", "to"}
+        words = name.lower().split()
+        name = " ".join(w if k and w in small else w[:1].upper() + w[1:] for k, w in enumerate(words))
+    return name
+
+
+def touch_up(entries: list, touchups: dict) -> list:
+    """The owner-approved touch-ups (collection_touchups.json), then the
+    mechanical name rule for anything not touched up by hand."""
+    out = []
+    for e in entries:
+        t = touchups.get(e["id"], {})
+        if t.get("hide"):
+            continue
+        e = dict(e)
+        e["title"] = t.get("title") or tidy_name(e["title"])
+        if "description" in t:
+            credit = e["blurb"].split(" on archive.org.")[0] + " on archive.org."
+            e["blurb"] = f"{credit} {t['description']}".strip()
+        out.append(e)
+    return out
+
+
 def fold_overlaps(entries: list) -> list:
     kept = []
     for e in sorted(entries, key=lambda e: (-len(e["members"]), e["id"])):
@@ -196,6 +226,11 @@ def main() -> int:
                 continue
             entries += select(user, lists, visible, aliases)
     entries = fold_overlaps(entries)
+    try:
+        touchups = json.loads(TOUCHUPS.read_text(encoding="utf-8")).get("lists") or {}
+    except FileNotFoundError:
+        touchups = {}
+    entries = touch_up(entries, touchups)
     entries.sort(key=lambda e: (-len(e["members"]), e["id"]))
     print(f"[member-lists] {len(users)} members asked, {failed} unreachable; "
           f"{len(entries)} lists: " + "; ".join(f"{e['title']} ({len(e['members'])})" for e in entries))
