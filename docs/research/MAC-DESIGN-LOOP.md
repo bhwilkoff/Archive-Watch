@@ -38,9 +38,12 @@ through Accessibility and its items pressed there (never pointer clicks).
 2. ✅ (v1.42.782) Controls menu for the player: Play/Pause, skip ±10 s, next/previous episode,
    subtitles, speed (use `SpeedMenu`'s choices), Picture in Picture, full screen;
    Mark as Watched on the Mac (Film menu + Detail).
-3. Creation Studio menus: Clip (Split ⌘B, Add Clip… ⌘I, Add Text, Add Music,
+3. ✅ (v1.42.783) Creation Studio menus: Clip (Split ⌘B, Add Clip… ⌘I, Add Text, Add Music,
    Record Voiceover, Supercut…, Duplicate, Delete, Mute Audio, Clear Fades),
    Mark (Add Marker, Previous/Next Marker, Previous/Next Edit, Go to Start/End),
    View (Zoom In/Out/Fit, Show Inspector ⌥⌘I), File ▸ Export… ⌘E, Publish…
-4. Creation Studio polish, surface by surface.
+4. Creation Studio polish, surface by surface. Seen so far: nine icon-only
+   toolbar buttons (Supercut's `text.magnifyingglass` reads as Search); the
+   inspector's "Landscape · 16:…" truncates; Delete is disabled while
+   Duplicate is enabled for the same selection (selectedIDs vs selection).
 5. Channels grid slivers; Search order; Help menu destination.

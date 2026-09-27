@@ -971,6 +971,20 @@ no menu item and no key.
   (and Esc). Verified on a muted film: Play/Pause froze the picture (frame
   difference 0.0 over 3 s, 18 while playing), Skip Forward moved it (58), Close
   Player returned to the film's page.
+- **The Creation Studio's menus** (Rule 7d — "one coherent scheme wired to the
+  menu bar" — had none): File ▸ Add Clip from a Film… ⌘I, Add Music…, Export
+  Movie… ⌘E, Publish… (the Import/Export group; DocumentGroup owns Save's);
+  **Clip** ▸ Split at Playhead ⌘B, Duplicate ⌘D, Mute / Unmute Audio, Clear Fades,
+  Delete, Add Text ⌥⌘T, Record Voiceover… / Stop Recording Voiceover,
+  Supercut…; **Mark** ▸ Play / Pause, Add or Remove Marker ⌃M, Next / Previous
+  Marker ⌥⌘↓ / ⌥⌘↑, Next / Previous Edit ⌘↓ / ⌘↑, Go to Start / End ⌘← / ⌘→,
+  Next / Previous Frame; View ▸ Zoom In ⌘=, Zoom Out ⌘−, Show / Hide Inspector
+  ⌥⌘I. **No menu item takes a bare key** — a letter or arrow in the menu bar is
+  taken from the inspector's text fields; the timeline keeps its own bare keys
+  (B, M, J/K/L, arrows) while it has focus. Verified on the test project by
+  pressing the items: Go to Start → Next Edit → two frames → Split at Playhead
+  made 3 clips of 2, Add Marker placed one at the playhead, Zoom In respaced
+  the ruler, and the document marked itself Edited.
 - **One key, one live meaning**: a command that belongs to a kind of window is
   enabled only while that window is key, through `focusedSceneValue`
   (`browseWindowIsKey`, `filmActions`); Go's ⌘1–⌘8 are disabled while a player is

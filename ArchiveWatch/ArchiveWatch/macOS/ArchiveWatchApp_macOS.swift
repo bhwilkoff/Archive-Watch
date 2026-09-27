@@ -135,6 +135,11 @@ struct ArchiveWatchMacApp: App {
             GoCommands(router: router, store: store)
             FilmCommands()
             ControlsCommands(router: router)
+            // The Creation Studio's (Rule 7d): enabled only while an editor is key.
+            EditorFileCommands()
+            EditorClipCommands()
+            EditorMarkCommands()
+            EditorViewCommands()
             StudioBroadcastCommands()
             // With a WindowGroup (first) + a DocumentGroup, SwiftUI binds ⌘N to the
             // WindowGroup (a new Library window). Re-point New at a new Creation Studio

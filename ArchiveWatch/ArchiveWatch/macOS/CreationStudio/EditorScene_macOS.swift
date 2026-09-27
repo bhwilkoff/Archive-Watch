@@ -270,6 +270,21 @@ struct ProjectEditorView: View {
             SupercutSheet(model: model).environment(store)
         }
         .background(WindowFitter())     // keep the window within the screen (DocumentGroup ignores .defaultSize)
+        // The editor's menus (Rule 7d, §B14): File ▸ Add Clip / Export, Clip, Mark, View.
+        .focusedSceneValue(\.editorCommands, EditorCommandContext(
+            model: model,
+            inspectorShown: inspectorShown,
+            exportBusy: exporter.isBusy,
+            addClip: { showBrowser = true },
+            addMusic: { pickMusic() },
+            voiceover: {
+                if model.isRecordingVoiceover { model.stopVoiceover() }
+                else { inspectorShown = true; model.armVoiceover() }
+            },
+            supercut: { showSupercut = true },
+            export: { showExportSheet = true },
+            publish: { model.pause(); showPublishSheet = true },
+            toggleInspector: { inspectorShown.toggle() }))
     }
 
     /// A marked clip joins the proxy-clip Library (for reuse) and the timeline.
