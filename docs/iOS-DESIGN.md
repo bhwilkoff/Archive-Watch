@@ -381,9 +381,14 @@ reports back through `onAdvance` so the capsule stays anchored to what's
 actually playing. New in-player affordances follow this overlay pattern.
 
 8.6 **Channels weave commercials** between programs (vintage PD ads from
-`randomCommercials`), schedule deterministically via the shared date-seeded
-`ChannelScheduler`, and emphasize color for animation pools (Decision 025,
-B&W capped to a minority). Commercials stay off Home.
+`randomCommercials`), and emphasize color for animation pools (Decision 025,
+B&W capped to a minority, now applied once in the pipeline's pools).
+Commercials stay off Home. **One clock (2026-09-27)**: Owner, 2026-09-27: *"Move forward with a single clock. If you need a time zone to organize around, you can choose UTC, but all times should show as their local times when they look at channels. This should only be to sync all titles to the same time."* Preset channels,
+the guide AND the per-channel schedule list, play the published UTC timeline
+(`channel-schedule.json` via `Services/ChannelSchedule.swift`); times show in
+the viewer's zone; the guide's shift floor is the local broadcast day but never
+before the file's first program; no file and no cache is an error state with
+Retry. User channels keep the local date-seeded `ChannelScheduler`.
 
 8.7 **A downloaded film plays as a plain local file** (Decision 099).
 `OfflineLibrary.videoURL(for:)` is checked FIRST in `makeUIViewController`

@@ -1,6 +1,8 @@
 import Foundation
 
 // Channels P2 (#90): a deterministic, date-seeded program schedule.
+// Since 2026-09-27 this schedules USER channels only; preset channels play the
+// published UTC timeline (ChannelSchedule.swift, tvOS-DESIGN §9.1a).
 //
 // Given a channel's program pool and a date, produce a reproducible timeline:
 // the same channel shows the same program at the same wall-clock moment on every

@@ -3,8 +3,9 @@ import SwiftUI
 import SwiftData
 
 // Channels (docs/macOS-DESIGN.md §1 — the parity face includes "channels"; §1's
-// "build Mac-native, do not port touch idioms"). Same deterministic date-seeded
-// schedule + presets as every platform (shared ChannelScheduler + Models/Channels.swift):
+// "build Mac-native, do not port touch idioms"). Preset channels play the ONE UTC
+// timeline the pipeline publishes (ChannelSchedule, Rule B8a); user channels keep
+// the local ChannelScheduler:
 // a proportional EPG with a fixed channel rail, a pinned time ruler, and program
 // blocks sized to their real runtimes on a shared time window. The window holds still
 // (the proven tvOS/iOS layout — no fragile offset-mirrored 2D frozen-column scroll);
@@ -25,6 +26,7 @@ struct ChannelsView: View {
     @State private var nowTick = Date()
     /// The visible window's left edge. nil = "live": the window starts at NOW.
     @State private var windowStart: Date?
+    @State private var scheduleMissing = false
 
     private let railW: CGFloat = 152
     private let rowH: CGFloat = 58
@@ -37,7 +39,9 @@ struct ChannelsView: View {
 
     var body: some View {
         Group {
-            if guide.isEmpty {
+            if scheduleMissing {
+                ChannelGuideUnavailable { Task { await load() } }
+            } else if guide.isEmpty {
                 ProgressView("Building the guide…")
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
             } else {
@@ -66,7 +70,7 @@ struct ChannelsView: View {
                     .help("Create a custom channel")
             }
         }
-        .task(id: store.dbVersion) { rebuild() }
+        .task(id: store.dbVersion) { await load() }
         .onChange(of: userChannels.count) { rebuild() }
         .sheet(item: $playing) { box in
             ChannelPlayer(lineup: box.items, startOffset: box.startOffset)
@@ -100,11 +104,13 @@ struct ChannelsView: View {
         return "\(winStart.formatted(f)) – \(winEnd.formatted(f))"
     }
 
-    /// Shift the window, clamped to the broadcast day (anchor → +20h). Landing within
+    /// Shift the window, clamped to the broadcast day (anchor → +20h) and never
+    /// earlier than the published schedule's first program. Landing within
     /// 5 minutes of NOW snaps back to live mode (the red now-line returns).
     private func shift(_ minutes: Double) {
         let proposed = (windowStart ?? nowTick).addingTimeInterval(minutes * 60)
-        let floor = ChannelScheduler.dayAnchor(for: nowTick)
+        let floor = max(ChannelScheduler.dayAnchor(for: nowTick),
+                        ChannelSchedule.current?.firstStart ?? .distantPast)
         let ceiling = nowTick.addingTimeInterval(20 * 3600)
         let clamped = min(max(proposed, floor), ceiling)
         withAnimation(.easeOut(duration: 0.15)) {
@@ -245,6 +251,12 @@ struct ChannelsView: View {
 
     // MARK: - build the guide (mirrors the iOS/tvOS rebuild)
 
+    private func load() async {
+        scheduleMissing = false
+        scheduleMissing = await ChannelSchedule.load() == nil
+        rebuild()
+    }
+
     private func rebuild() {
         nowTick = Date()
         let now = nowTick
@@ -260,36 +272,14 @@ struct ChannelsView: View {
                                     icon: "dot.radiowaves.left.and.right", slots: slots))
             number += 1
         }
-        for ch in Channel.all {
-            var pool = playable(store.dbBrowse(contentType: ch.contentType, genre: ch.genre,
-                                               sort: .popular, limit: 90))
-            if ch.contentType == "animation" { pool = colorEmphasized(pool, bwFraction: 0.10) }
-            let slots = ChannelScheduler.schedule(channelID: ch.id, programs: pool, now: now)
-            guard !slots.isEmpty else { continue }
-            out.append(GuideChannel(id: ch.id, number: number, title: ch.title,
-                                    accent: ch.accent, icon: ch.icon, slots: slots))
-            number += 1
+        if let file = ChannelSchedule.current {
+            out += ChannelSchedule.guide(file, store: store, firstNumber: number, now: now)
         }
         guide = out
     }
 
     private func playable(_ items: [Catalog.Item]) -> [Catalog.Item] {
         items.filter { $0.videoURLParsed != nil }
-    }
-
-    /// Color animation leads; B&W/silent capped to a minority (Decision 025).
-    private func colorEmphasized(_ items: [Catalog.Item], bwFraction: Double) -> [Catalog.Item] {
-        func bwOrSilent(_ it: Catalog.Item) -> Bool {
-            if it.isColor == true { return false }
-            if it.isBlackAndWhite { return true }
-            if it.isSilentFilm == true { return true }
-            if let y = it.year, y < 1930 { return true }
-            return false
-        }
-        let color = items.filter { !bwOrSilent($0) }.shuffled()
-        let bw = items.filter { bwOrSilent($0) }.shuffled()
-        let cap = max(3, Int(Double(color.count) * bwFraction))
-        return color + Array(bw.prefix(cap))
     }
 
     // MARK: - tune in

@@ -270,6 +270,14 @@ collection / user-built from full-DB filters) realized as a continuous now/next
 lineup with a guide. The lean-in affordance is the guide + "jump to this title's
 detail."
 
+9.1a **One clock.** Owner, 2026-09-27: *"Move forward with a single clock. If you need a time zone to organize around, you can choose UTC, but all times should show as their local times when they look at channels. This should only be to sync all titles to the same time."* Preset channels play the ONE UTC timeline the
+pipeline publishes (`channel-schedule.json`, `tools/build_channel_schedule.py`),
+read through `Services/ChannelSchedule.swift` and cached in Caches; a program
+this device's DB lacks airs from the file's own title and address, so no slot is
+dropped and no time moves. Times are drawn in the viewer's zone and locale. No
+file and no cache is an error state with Retry — never a locally computed
+schedule. User channels are personal and keep the local `ChannelScheduler`.
+
 9.2 **Cartoon mode (#2)** — a mode scoping the catalog to animation with a
 simplified, large-target, kid-safe shell (adult filter forced on) and autoplay.
 Launched from Home/Settings. Lean-in: big "what's this?" reveal.

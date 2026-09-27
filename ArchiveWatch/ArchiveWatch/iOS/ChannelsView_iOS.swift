@@ -5,8 +5,8 @@ import SwiftData
 // Channels (PARITY §5) — the touch guide for the tvOS EPG, reworked 2026-06-12
 // as a TRUE TV-listing grid (owner: "a series of tiles rather than the true
 // grid that is essential for it to feel like you are looking at a tv listing").
-// Same deterministic date-seeded schedule (shared ChannelScheduler) and presets
-// (Models/Channels.swift). Anatomy mirrors tvOS's proportional EPG: a pinned
+// Preset channels play the ONE UTC timeline the pipeline publishes
+// (ChannelSchedule, iOS-DESIGN §8.6); user channels keep ChannelScheduler. Anatomy mirrors tvOS's proportional EPG: a pinned
 // time ruler, a fixed channel rail, and program blocks sized to their real
 // runtimes on a shared time window — vertical scrolling only (the reliable
 // axis), with the window shifted by chevrons or a horizontal swipe (the touch
@@ -28,12 +28,15 @@ struct ChannelsView: View {
     @State private var showCreate = false
     /// The guide window's left edge. nil = "live": the window starts at NOW.
     @State private var windowStart: Date?
+    @State private var scheduleMissing = false
 
     private var windowMinutes: Double { hSize == .regular ? 180 : 120 }
 
     var body: some View {
         Group {
-            if guide.isEmpty {
+            if scheduleMissing {
+                ChannelGuideUnavailable { Task { await load() } }
+            } else if guide.isEmpty {
                 ProgressView("Building the guide…")
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
             } else {
@@ -65,7 +68,7 @@ struct ChannelsView: View {
                 }
             }
         }
-        .task(id: store.dbVersion) { rebuild() }
+        .task(id: store.dbVersion) { await load() }
         .onChange(of: userChannels.count) { rebuild() }
         .fullScreenCover(item: $playing) { box in
             if let player = PlayerView(lineup: box.items, startOffset: box.startOffset) {
@@ -77,18 +80,26 @@ struct ChannelsView: View {
         .sheet(isPresented: $showCreate, onDismiss: rebuild) { CreateChannelSheet() }
     }
 
-    /// Shift the visible window, clamped to the broadcast day (anchor → +20h).
+    /// Shift the visible window, clamped to the broadcast day (anchor → +20h),
+    /// never earlier than the published schedule's first program.
     /// Landing within 5 minutes of NOW snaps back to live mode.
     private func shift(by minutes: Double) {
         let now = Date()
         let proposed = (windowStart ?? now).addingTimeInterval(minutes * 60)
-        let floor = ChannelScheduler.dayAnchor(for: now)
+        let floor = max(ChannelScheduler.dayAnchor(for: now),
+                        ChannelSchedule.current?.firstStart ?? .distantPast)
         let ceiling = now.addingTimeInterval(20 * 3600)
         let clamped = min(max(proposed, floor), ceiling)
         windowStart = abs(clamped.timeIntervalSince(now)) < 300 ? nil : clamped
     }
 
     // MARK: schedule build (mirrors tvOS ChannelsView.rebuild)
+
+    private func load() async {
+        scheduleMissing = false
+        scheduleMissing = await ChannelSchedule.load() == nil
+        rebuild()
+    }
 
     private func rebuild() {
         let now = Date()
@@ -104,18 +115,8 @@ struct ChannelsView: View {
                                     icon: "dot.radiowaves.left.and.right", slots: slots))
             number += 1
         }
-        for ch in Channel.all {
-            let raw = store.dbBrowse(contentType: ch.contentType, genre: ch.genre,
-                                     sort: .popular, limit: 90)
-            var pool = playable(raw)
-            if ch.contentType == "animation" {
-                pool = colorEmphasized(pool, bwFraction: 0.10)
-            }
-            let slots = ChannelScheduler.schedule(channelID: ch.id, programs: pool, now: now)
-            guard !slots.isEmpty else { continue }
-            out.append(GuideChannel(id: ch.id, number: number, title: ch.title,
-                                    accent: ch.accent, icon: ch.icon, slots: slots))
-            number += 1
+        if let file = ChannelSchedule.current {
+            out += ChannelSchedule.guide(file, store: store, firstNumber: number, now: now)
         }
         builtAt = now
         guide = out
@@ -123,21 +124,6 @@ struct ChannelsView: View {
 
     private func playable(_ items: [Catalog.Item]) -> [Catalog.Item] {
         items.filter { $0.videoURLParsed != nil }
-    }
-
-    /// Color animation leads; B&W/silent capped to a minority (Decision 025).
-    private func colorEmphasized(_ items: [Catalog.Item], bwFraction: Double) -> [Catalog.Item] {
-        func bwOrSilent(_ it: Catalog.Item) -> Bool {
-            if it.isColor == true { return false }
-            if it.isBlackAndWhite { return true }
-            if it.isSilentFilm == true { return true }
-            if let y = it.year, y < 1930 { return true }
-            return false
-        }
-        let color = items.filter { !bwOrSilent($0) }.shuffled()
-        let bw = items.filter { bwOrSilent($0) }.shuffled()
-        let cap = max(3, Int(Double(color.count) * bwFraction))
-        return color + Array(bw.prefix(cap))
     }
 
     // MARK: tune in
@@ -420,7 +406,10 @@ struct ChannelScheduleView: View {
         }
         .navigationTitle(channel?.title ?? "Schedule")
         .navigationBarTitleDisplayMode(.inline)
-        .task(id: store.dbVersion) { build() }
+        .task(id: store.dbVersion) {
+            if Channel.all.contains(where: { $0.id == channelID }) { _ = await ChannelSchedule.load() }
+            build()
+        }
         .fullScreenCover(item: $playing) { box in
             if let player = PlayerView(lineup: box.items, startOffset: box.startOffset) {
                 player.ignoresSafeArea()
@@ -432,13 +421,13 @@ struct ChannelScheduleView: View {
 
     private func build() {
         let now = Date()
-        if let preset = Channel.all.first(where: { $0.id == channelID }) {
-            let pool = store.dbBrowse(contentType: preset.contentType, genre: preset.genre,
-                                      sort: .popular, limit: 90)
-                .filter { $0.videoURLParsed != nil }
-            let slots = ChannelScheduler.schedule(channelID: preset.id, programs: pool, now: now)
-            channel = GuideChannel(id: preset.id, number: 0, title: preset.title,
-                                   accent: preset.accent, icon: preset.icon, slots: slots)
+        if Channel.all.contains(where: { $0.id == channelID }) {
+            // The same published timeline as the guide, so the list and the
+            // grid can never disagree about what is on.
+            channel = ChannelSchedule.current.flatMap {
+                ChannelSchedule.guide($0, store: store, firstNumber: 0, now: now)
+                    .first { $0.id == channelID }
+            }
         } else if channelID.hasPrefix("user-") {
             let gid = channelID.replacingOccurrences(of: "user-", with: "")
             let ucs = (try? ctx.fetch(FetchDescriptor<UserChannel>())) ?? []

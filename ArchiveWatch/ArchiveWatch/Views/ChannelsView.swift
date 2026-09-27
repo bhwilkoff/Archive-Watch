@@ -2,8 +2,9 @@
 import SwiftUI
 import SwiftData
 
-// #1 / Channels P2+P3: a real TV guide. Each channel is a deterministic,
-// date-seeded program schedule (ChannelScheduler) rendered as an old-school EPG
+// #1 / Channels P2+P3: a real TV guide. Each preset channel plays the ONE UTC
+// timeline the pipeline publishes (ChannelSchedule, tvOS-DESIGN §9.1); user
+// channels keep the local ChannelScheduler. Rendered as an old-school EPG
 // grid — channel rows × half-hour time columns, program titles filling the slots.
 // Tuning in tunes the channel from whatever's airing now and plays straight
 // through (the F4 ContinuousPlayback path), with vintage PD commercials between
@@ -19,6 +20,7 @@ struct ChannelsView: View {
     @State private var showCommercialOptions = false
     @State private var guide: [GuideChannel] = []
     @State private var builtAt = Date()
+    @State private var scheduleMissing = false
 
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
@@ -30,7 +32,10 @@ struct ChannelsView: View {
                     .focusSection()
                     .transition(.opacity.combined(with: .move(edge: .top)))
             }
-            if guide.isEmpty {
+            if scheduleMissing {
+                ChannelGuideUnavailable { Task { await load() } }
+                    .focusSection()
+            } else if guide.isEmpty {
                 Spacer()
                 Text("Building the guide…")
                     .font(.title2).foregroundStyle(.white.opacity(0.5))
@@ -43,7 +48,7 @@ struct ChannelsView: View {
             }
         }
         .background(Color.black.ignoresSafeArea())
-        .onAppear { if guide.isEmpty { rebuild() } }
+        .task { await load() }
         .fullScreenCover(item: $playing) { box in
             if let screen = PlayerScreen(lineup: box.items, startOffset: box.startOffset,
                                          channelContext: true) {
@@ -101,6 +106,13 @@ struct ChannelsView: View {
 
     // MARK: - Schedule build
 
+    private func load() async {
+        scheduleMissing = false
+        let file = await ChannelSchedule.load()
+        scheduleMissing = file == nil
+        rebuild()
+    }
+
     private func rebuild() {
         let now = Date()
         var out: [GuideChannel] = []
@@ -115,24 +127,8 @@ struct ChannelsView: View {
                                     icon: "dot.radiowaves.left.and.right", slots: slots))
             number += 1
         }
-        for ch in Channel.all {
-            // contentType + genre together (TV channels use both; movie genre
-            // channels pass contentType nil, type channels pass genre nil).
-            // #2: a tighter top-N pool so channels skew to higher-interest titles
-            // (the scheduler shuffles the WHOLE pool, so a big limit dilutes it).
-            let raw = store.dbBrowse(contentType: ch.contentType, genre: ch.genre,
-                                     sort: .popular, limit: 90)
-            var pool = playable(raw)
-            // Cartoon channel: emphasize color; classic silent/B&W stay available
-            // but capped at ~10% of the lineup.
-            if ch.contentType == "animation" {
-                pool = store.colorEmphasizedAnimation(pool, bwFraction: 0.10)
-            }
-            let slots = ChannelScheduler.schedule(channelID: ch.id, programs: pool, now: now)
-            guard !slots.isEmpty else { continue }
-            out.append(GuideChannel(id: ch.id, number: number, title: ch.title,
-                                    accent: ch.accent, icon: ch.icon, slots: slots))
-            number += 1
+        if let file = ChannelSchedule.current {
+            out += ChannelSchedule.guide(file, store: store, firstNumber: number, now: now)
         }
         builtAt = now
         guide = out

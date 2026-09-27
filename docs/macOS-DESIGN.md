@@ -795,8 +795,12 @@ Same rule as iOS-DESIGN 5.1c: the collection grid carries Browse's Sort picker
   program blocks), NOT a 2D frozen-column scroll. The window holds still (the proven tvOS/iOS layout);
   pointer chrome (Earlier/Later/Now) shifts it — the Mac substitute for tvOS focus-paging / the iOS swipe
   (§1 says don't port touch idioms). An offset-mirrored 2D approach rendered the rail unreliably; don't
-  reintroduce it. The window clamps to the broadcast day (`dayAnchor` → +20 h); landing within 5 min of
-  NOW snaps back to live. User-channel delete writes a `ch:<id>` Tombstone (§B9).
+  reintroduce it. The window clamps to the broadcast day (`dayAnchor` → +20 h, never before the
+  published schedule's first program); landing within 5 min of NOW snaps back to live. User-channel
+  delete writes a `ch:<id>` Tombstone (§B9). **One clock (2026-09-27)**: Owner, 2026-09-27: *"Move forward with a single clock. If you need a time zone to organize around, you can choose UTC, but all times should show as their local times when they look at channels. This should only be to sync all titles to the same time."* Preset channels
+  play the published UTC timeline (`channel-schedule.json`, `Services/ChannelSchedule.swift`), drawn in
+  the viewer's zone; no file and no cache is an error state with Retry. User channels keep
+  `ChannelScheduler`.
 
 ## §B9 — Sync touch-points
 

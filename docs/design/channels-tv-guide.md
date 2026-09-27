@@ -67,6 +67,16 @@ good home as standalone browse items. The channel is their reason to exist.
 
 ### 1. Deterministic scheduling (no backend)
 
+> **Superseded for preset channels, 2026-09-27 (ORPHANED-FILMS #2).** Owner, 2026-09-27: *"Move forward with a single clock. If you need a time zone to organize around, you can choose UTC, but all times should show as their local times when they look at channels. This should only be to sync all titles to the same time."*
+> The pipeline now builds one UTC timeline per preset channel
+> (`tools/build_channel_schedule.py` -> `channel-schedule.json`: days back to
+> back across UTC midnight, published days held, a hidden film replaced in
+> place without moving a start time) and every platform plays and draws from
+> it, showing local times. The per-device 6:00 AM local anchor below never
+> produced one grid: Swift, Kotlin and JS/Roku shuffled three different ways
+> over two different pool sources. The text below still describes USER
+> channels, which are personal.
+
 The schedule must be reproducible on-device from a seed — we have no server
 (Decision 009/010). Model a channel's program day as a function of
 **(channelID, date)**:
