@@ -7,6 +7,31 @@ import SwiftUI
 // (focus-engine sized); these share the same queries and accent semantics.
 
 /// A pushable browse filter — the iOS analog of the tvOS `BrowseFilter` route.
+extension View {
+    /// A screen whose title comes from data (iOS-DESIGN §4.5a): the title
+    /// stays the screen's navigationTitle — the back button and VoiceOver use
+    /// it — but the bar does not draw it, because an inline title is one line
+    /// and truncated ("Japanese Jidaigeki (Period D…" on the iPhone 12). The
+    /// screen shows it in full, wrapping, with `ContentTitle` at the top.
+    func titleInContent(_ title: String) -> some View {
+        navigationTitle(title)
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar(removing: .title)
+    }
+}
+
+/// The page title a `titleInContent` screen draws itself: wraps, never
+/// truncates, and is the screen's heading for VoiceOver.
+struct ContentTitle: View {
+    let text: String
+    var body: some View {
+        Text(text)
+            .font(.title2.bold())
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .accessibilityAddTraits(.isHeader)
+    }
+}
+
 struct BrowseFilterRoute: Hashable {
     var title: String
     var contentType: String? = nil
@@ -37,6 +62,7 @@ struct FilteredGridView: View {
 
     var body: some View {
         ScrollView {
+            ContentTitle(text: route.title).padding([.horizontal, .top])
             LazyVGrid(columns: cols, spacing: 18) {
                 ForEach(items) { item in
                     Button { open(item) } label: { PosterTile(item: item) }
@@ -45,8 +71,7 @@ struct FilteredGridView: View {
                 }
             }.padding()
         }
-        .navigationTitle(route.title)
-        .navigationBarTitleDisplayMode(.inline)
+        .titleInContent(route.title)
         .toolbar {
             if total > 0 {
                 ToolbarItem(placement: .topBarTrailing) {

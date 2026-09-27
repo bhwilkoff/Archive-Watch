@@ -323,6 +323,17 @@ changing (mean pixel difference 51 over six seconds; 0 before the fix).
 Restore is built on AVKit's delegate and not yet driven on a device (it needs a
 tap on the window).
 
+4.5a **A title that comes from data is drawn by the screen, not the bar.**
+Measured on the iPhone 12: an inline navigation title is one line, so
+"Japanese Jidaigeki (Period Dramas)" read "Japanese Jidaigeki (Period D…" and
+a Detail bar repeated a film's title cut short above the full one; a principal
+toolbar item does not wrap either (tried). Collection, category/person/keyword
+grids and Detail use `titleInContent(_:)`: the title stays the screen's
+navigationTitle (back button, VoiceOver) with `.toolbar(removing: .title)`, and
+the screen shows it in full — `ContentTitle` (`.title2.bold`, wrapping, a
+header trait) at the top of a grid; Detail's own title under the hero. Fixed
+titles ("Library", "Channels", "Settings") keep the bar.
+
 4.5 **Pickers open at medium detent.** Selection sheets that act on the
 current screen (Add to Playlist) use `presentationDetents([.medium, .large])`
 so the context stays visible behind them.

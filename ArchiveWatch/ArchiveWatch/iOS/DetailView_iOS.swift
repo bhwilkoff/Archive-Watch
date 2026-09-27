@@ -386,7 +386,7 @@ struct DetailView: View {
                     .padding(.horizontal)
             }
         }
-        .navigationTitle(item.title).navigationBarTitleDisplayMode(.inline)
+        .titleInContent(item.title)
         .sheet(isPresented: $startingSharePlay) {
             SharePlayStarter(
                 activity: WatchTogether.shared.activity(archiveID: item.archiveID,

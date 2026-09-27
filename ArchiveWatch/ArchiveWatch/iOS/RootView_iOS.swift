@@ -291,6 +291,16 @@ struct RootView: View {
                     startItemOpened = true
                     router.openDetail(item)
                 }
+                // AW_OPEN_COLLECTION=<id> opens a Collection; AW_OPEN_CATEGORY=<contentType> a category grid.
+                if let cid = env["AW_OPEN_COLLECTION"], router.browsePath.isEmpty,
+                   let meta = CollectionMetadata.all.first(where: { $0.id == cid }) {
+                    router.tab = .browse
+                    router.push(CollectionRef(id: meta.id, title: meta.title, blurb: meta.blurb))
+                }
+                if let ct = env["AW_OPEN_CATEGORY"], router.homePath.isEmpty {
+                    router.tab = .home
+                    router.push(BrowseFilterRoute(title: ContentType.label(ct), contentType: ct))
+                }
                 // AW_OPEN_SCHEDULE=<channel id> opens that channel's day.
                 if let cid = env["AW_OPEN_SCHEDULE"], router.channelsPath.isEmpty {
                     router.tab = .channels

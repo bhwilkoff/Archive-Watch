@@ -61,10 +61,11 @@ struct CollectionGridView: View {
 
     var body: some View {
         ScrollView {
+            ContentTitle(text: ref.title).padding([.horizontal, .top])
             if !ref.blurb.isEmpty {
                 Text(ref.blurb).font(.subheadline).foregroundStyle(.secondary)
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding([.horizontal, .top])
+                    .padding(.horizontal).padding(.top, 4)
             }
             LazyVGrid(columns: cols, spacing: 18) {
                 ForEach(items) { item in
@@ -73,7 +74,7 @@ struct CollectionGridView: View {
                 }
             }.padding()
         }
-        .navigationTitle(ref.title).navigationBarTitleDisplayMode(.inline)
+        .titleInContent(ref.title)
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
                 Menu {
