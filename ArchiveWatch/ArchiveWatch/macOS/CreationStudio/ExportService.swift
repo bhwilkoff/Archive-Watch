@@ -168,11 +168,11 @@ final class ExportService {
                 switch phase { case .caching: "caching"; case .composing: "composing"
                                case .exporting: "exporting"; default: "" }
             }()
-            // Cancelled by the viewer: back to idle, and a half-written file
+            // Canceled by the viewer: back to idle, and a half-written file
             // is not left behind.
             if error is CancellationError || Task.isCancelled {
                 try? FileManager.default.removeItem(at: url)
-                Self.diag("cancelled during \(stageLabel)")
+                Self.diag("canceled during \(stageLabel)")
                 phase = .idle
                 return
             }
