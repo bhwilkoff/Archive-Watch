@@ -53,3 +53,17 @@ through Accessibility and its items pressed there (never pointer clicks).
    inspector's "Landscape · 16:…" truncates; Delete is disabled while
    Duplicate is enabled for the same selection (selectedIDs vs selection).
 5. Channels grid slivers; Search order; Help menu destination.
+
+## Log
+- v1.42.785: the mark-in/out sheet names its film (title and year) — it named
+  it nowhere but the clip name's placeholder; a frame strip that comes back
+  empty moves to "Loading the film…" and, if the film cannot load either, to
+  "This film's frames could not be loaded" rather than spinning forever; the
+  play button and Set In / Set Out have help tags; `AW_CS_TEST=browser` opens
+  the Add-a-Clip browser for the sweep.
+- 2026-09-27 14:30 MT: archive.org REFUSES connections from this network
+  (`connect to 207.241.224.2 port 443 … Connection refused`; archivewatch.org
+  and apple.com answer). Known behavior: archive.org blocks an address after a
+  burst (memory creation_studio_connection_discipline). The loop stopped
+  launching anything that fetches films until it lifts.
+

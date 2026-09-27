@@ -264,6 +264,8 @@ struct MarkClipView: View {
     @State private var player = AVPlayer()
     @State private var loader: ResilientStreamLoader?
     @State private var thumbs: [ArchiveThumb] = []
+    /// The frame strip was asked for and came back empty: say so, never spin.
+    @State private var thumbsFailed = false
     @State private var navSeconds = 0.0          // the scrubber position — the source of truth
     @State private var scrubbing = false
     @State private var videoReady = false
@@ -286,6 +288,16 @@ struct MarkClipView: View {
 
     var body: some View {
         VStack(spacing: 0) {
+            // Which film this is. The sheet named it nowhere but in the clip
+            // name's placeholder (Mac loop, 2026-09-27).
+            HStack(alignment: .firstTextBaseline, spacing: 8) {
+                Text(item.title).font(.headline).lineLimit(1)
+                if let y = item.year {
+                    Text(String(y)).font(.subheadline).foregroundStyle(.secondary)
+                }
+                Spacer()
+            }
+            .padding(.horizontal, 16).padding(.vertical, 10)
             // Preview: the verified video frame once it's ready, else the nearest thumbnail (instant).
             ZStack {
                 Color.black
@@ -302,8 +314,16 @@ struct MarkClipView: View {
                             Spacer()
                         } }.padding(10)
                     }
+                } else if thumbsFailed && videoFailed {
+                    // Nothing to show and nothing coming: a state, not a spinner.
+                    ContentUnavailableView("This film's frames could not be loaded",
+                                           systemImage: "film",
+                                           description: Text("archive.org did not answer. Try again later."))
+                        .foregroundStyle(.white)
+                } else if thumbsFailed {
+                    ProgressView("Loading the film…").controlSize(.large).tint(.white).foregroundStyle(.white)
                 } else {
-                    ProgressView("Loading thumbnails…").controlSize(.large).tint(.white).foregroundStyle(.white)
+                    ProgressView("Loading frames…").controlSize(.large).tint(.white).foregroundStyle(.white)
                 }
             }
             .frame(width: 720, height: 405)
@@ -322,6 +342,8 @@ struct MarkClipView: View {
                     Image(systemName: isPlaying ? "pause.fill" : "play.fill").font(.title3).frame(width: 20)
                 }
                 .buttonStyle(.borderless).disabled(!videoReady)
+                .help(videoReady ? (isPlaying ? "Pause" : "Play") : "The film is still loading")
+                .accessibilityLabel(isPlaying ? "Pause" : "Play")
                 Text(timecode(navSeconds)).font(.caption.monospacedDigit())
                     .foregroundStyle(.secondary).frame(width: 64, alignment: .leading)
                 Spacer()
@@ -344,10 +366,12 @@ struct MarkClipView: View {
             Form {
                 HStack {
                     Button("Set In") { inSeconds = min(navSeconds, max(0, totalDuration - 0.2)) }
+                        .help("Start the clip at the current frame")
                     Text(timecode(inSeconds)).font(.callout.monospacedDigit()).foregroundStyle(.secondary)
                     Spacer()
                     Text(timecode(outSeconds)).font(.callout.monospacedDigit()).foregroundStyle(.secondary)
                     Button("Set Out") { outSeconds = max(navSeconds, inSeconds + 0.2) }
+                        .help("End the clip at the current frame")
                 }
                 LabeledContent("Length", value: String(format: "%.1f s", max(0, outSeconds - inSeconds)))
                 TextField("Clip name", text: $label, prompt: Text(item.title))
@@ -367,7 +391,7 @@ struct MarkClipView: View {
         .task { await loadThumbnails() }
         .task { await loadVideo() }
         .onDisappear { player.pause() }
-        .frame(width: 720, height: 700)
+        .frame(width: 720, height: 740)
     }
 
     private func togglePlay() {
@@ -380,9 +404,9 @@ struct MarkClipView: View {
     }
 
     private func loadThumbnails() async {
-        guard let url = item.videoURLParsed else { return }
+        guard let url = item.videoURLParsed else { thumbsFailed = true; return }
         let t = await ArchiveThumbnails.strip(for: url)
-        if !Task.isCancelled { thumbs = t }
+        if !Task.isCancelled { thumbs = t; thumbsFailed = t.isEmpty }
     }
 
     // The full video loads in the BACKGROUND (it's just for verifying the exact frame). It never

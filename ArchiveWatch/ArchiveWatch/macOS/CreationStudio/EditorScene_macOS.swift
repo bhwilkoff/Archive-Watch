@@ -223,6 +223,8 @@ struct ProjectEditorView: View {
                     CreationStudioTest.populate(model, store)
                 } else if mode == "markclip" {
                     testMark = CreationStudioTest.clippable(store)   // presents the Add-Clip scrubber
+                } else if mode == "browser" {
+                    showBrowser = true                               // the Add-a-Clip browser
                 }
             }
             model.loadFilmstrips()   // instant filmstrips for already-present (saved-project) clips
