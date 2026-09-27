@@ -220,6 +220,16 @@ cinematography and awards fold into one **Details** disclosure, shown only
 when there is a fact to disclose. Regular width keeps the facts beside the
 artwork and caps the tiles at 480pt (IPAD-DESIGN §2.2).
 
+3.5c **Every redesigned surface holds at the accessibility text sizes.**
+Checked on the iPhone 12 at `accessibility2` (the DEBUG `AW_TYPE_SIZE` door
+renders the app at a size without touching the phone's settings): On Now
+reflows, its icon square is a `@ScaledMetric`; Detail's four tiles become two
+by two (`dynamicTypeSize.isAccessibilitySize`) with a scaled height, where four
+across truncated "Downl…"; a Library row moves its count under the name
+(`ViewThatFits`) where "Downloads" broke in two. The Guide grid stays cramped
+at these sizes by nature — which is one reason a phone opens on On Now
+(§2.5c).
+
 3.8 **Tile** — `PosterTile` (2:3 poster + caption) for content;
 gradient-on-accent compact tiles (category/decade/mode/surprise) for
 navigation chips. New tile shapes extend these two, not a third family.

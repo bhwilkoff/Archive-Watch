@@ -27,6 +27,9 @@ struct DetailView: View {
     @State private var chosenVersionName: String?
     /// §3.5b: a long synopsis opens at four lines, with More.
     @State private var synopsisExpanded = false
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
+    /// The action tiles grow with the text they carry.
+    @ScaledMetric(relativeTo: .caption) private var tileHeight: CGFloat = 60
     @State private var addingToPlaylist = false
     @State private var clipping = false
     @State private var gettingSubtitles = false
@@ -66,7 +69,11 @@ struct DetailView: View {
     /// scrolled off a 390pt screen (measured on the iPhone 12), so a viewer
     /// could neither read nor reach most of them.
     @ViewBuilder private var actionButtons: some View {
-        HStack(spacing: 8) {
+        // Four across at every text size a phone row can hold; at the
+        // accessibility sizes the words truncated ("Downl…"), so two by two.
+        LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 8),
+                                 count: dynamicTypeSize.isAccessibilitySize ? 2 : 4),
+                  spacing: 8) {
             actionTile(isFav ? "Saved" : "Favorite", isFav ? "heart.fill" : "heart") {
                 toggleFavorite()
             }
@@ -214,14 +221,14 @@ struct DetailView: View {
     /// An icon over a word, filling an equal share of the row.
     private func tileLabel(_ word: String, _ icon: String, tint: Color? = nil) -> some View {
         VStack(spacing: 4) {
-            Image(systemName: icon).font(.title3).frame(height: 24)
+            Image(systemName: icon).font(.title3).frame(minHeight: 24)
             Text(word).font(.caption.weight(.semibold)).lineLimit(1).minimumScaleFactor(0.8)
         }
         .foregroundStyle(tint ?? .primary)
         // A fixed height: the four symbols differ in height, and a menu label
         // and a button label size themselves differently.
         .frame(maxWidth: .infinity)
-        .frame(height: 60)
+        .frame(height: tileHeight)
         .background(Color(.secondarySystemBackground), in: .rect(cornerRadius: 12))
         .contentShape(.rect)
     }

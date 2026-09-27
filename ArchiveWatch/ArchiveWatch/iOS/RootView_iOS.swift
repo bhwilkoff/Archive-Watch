@@ -6,6 +6,16 @@ import SwiftData
 // shared `navigationDestination` for Catalog.Item → Detail. Search is its own tab
 // (`role: .search` on iOS 26). iPad adaptivity (NavigationSplitView) is Phase 2.
 struct RootView: View {
+    #if DEBUG
+    static var harnessTypeSize: DynamicTypeSize? {
+        switch ProcessInfo.processInfo.environment["AW_TYPE_SIZE"] {
+        case "xxxLarge": .xxxLarge
+        case "accessibility2": .accessibility2
+        case "accessibility3": .accessibility3
+        default: nil
+        }
+    }
+    #endif
     @Environment(AppStore.self) private var store
     @Environment(Router.self) private var router
     @Environment(AccountStore.self) private var account
@@ -232,6 +242,12 @@ struct RootView: View {
             // iPad/regular width (the same control tvOS uses). Native idiom for
             // both without a separate NavigationSplitView code path.
             .tabViewStyle(.sidebarAdaptable)
+            #if DEBUG
+            // Harness door: AW_TYPE_SIZE=xxxLarge|accessibility2 renders the app
+            // at that Dynamic Type size, so the sweep can check large type
+            // without touching the phone's settings.
+            .dynamicTypeSize(Self.harnessTypeSize.map { $0 ... $0 } ?? (.xSmall ... .accessibility5))
+            #endif
             // Siri/Shortcuts + deep links land in the inbox; act once foreground.
             .onChange(of: inbox.request) { handle(inbox.request) }
             .task { handle(inbox.request) }

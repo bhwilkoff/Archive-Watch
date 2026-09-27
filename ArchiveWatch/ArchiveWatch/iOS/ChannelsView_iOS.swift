@@ -207,6 +207,8 @@ struct ChannelLineup: Identifiable {
 // a sliver of letters.
 
 private struct OnNowList: View {
+    /// The icon's square grows with Dynamic Type, or the symbol outgrows it.
+    @ScaledMetric(relativeTo: .title3) private var iconSide: CGFloat = 44
     let channels: [GuideChannel]
     let onTune: (GuideChannel, ScheduledProgram) -> Void
     let onSchedule: (GuideChannel) -> Void
@@ -234,7 +236,7 @@ private struct OnNowList: View {
                     Image(systemName: ch.icon)
                         .font(.title3)
                         .foregroundStyle(.white)
-                        .frame(width: 44, height: 44)
+                        .frame(width: iconSide, height: iconSide)
                         .background(ch.accent.gradient, in: .rect(cornerRadius: 10))
                         .accessibilityHidden(true)
                     VStack(alignment: .leading, spacing: 4) {

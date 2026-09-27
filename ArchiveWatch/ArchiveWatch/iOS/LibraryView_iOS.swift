@@ -131,14 +131,25 @@ struct LibraryView: View {
                             Image(systemName: place.icon)
                                 .font(.title3)
                                 .foregroundStyle(Brand.primary)
-                                .frame(width: 30)
-                            Text(place.title)
-                                .font(.body)
-                                .foregroundStyle(.primary)
-                            Spacer(minLength: 8)
-                            Text(countLabel(place))
-                                .font(.body.monospacedDigit())
-                                .foregroundStyle(.secondary)
+                                .frame(minWidth: 30)
+                            // Name and count side by side while they fit; at
+                            // the accessibility sizes "Downloads" broke in two,
+                            // so the count moves under the name.
+                            ViewThatFits(in: .horizontal) {
+                                HStack {
+                                    Text(place.title).font(.body).foregroundStyle(.primary)
+                                        .fixedSize()
+                                    Spacer(minLength: 8)
+                                    Text(countLabel(place)).font(.body.monospacedDigit())
+                                        .foregroundStyle(.secondary).fixedSize()
+                                }
+                                VStack(alignment: .leading, spacing: 2) {
+                                    Text(place.title).font(.body).foregroundStyle(.primary)
+                                    Text(countLabel(place)).font(.body.monospacedDigit())
+                                        .foregroundStyle(.secondary)
+                                }
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                            }
                             Image(systemName: "chevron.right")
                                 .font(.footnote.weight(.semibold))
                                 .foregroundStyle(.tertiary)

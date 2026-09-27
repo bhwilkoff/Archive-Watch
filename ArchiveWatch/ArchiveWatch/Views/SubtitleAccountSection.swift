@@ -38,8 +38,8 @@ struct SubtitleAccountSection: View {
             Text("Subtitles")
         } footer: {
             Text(account.isConnected
-                 ? "Archive Watch will look for subtitles on OpenSubtitles when a film has none. Downloads count against your own account."
-                 : "Connect a free OpenSubtitles account to find subtitles for films that don't have them. Your daily download allowance is your own — it isn't shared with other viewers.")
+                 ? "Subtitle downloads count against your own OpenSubtitles account."
+                 : "A free OpenSubtitles account finds subtitles for films that have none.")
         }
     }
 
@@ -129,8 +129,6 @@ struct AutoCaptionsSettingsSection: View {
     var body: some View {
         if AutoCaptions.isSupported {
             Section {
-                Label("Open a film, then choose Subtitles.", systemImage: "captions.bubble")
-                    .foregroundStyle(.secondary)
                 // The device reports its own caption behaviour, on screen —
                 // an Apple TV's console cannot be read from a development
                 // machine, and this is how the tvOS 27 generated-subtitles
@@ -170,7 +168,10 @@ struct AutoCaptionsSettingsSection: View {
                 // scout STREAMS the same film ahead of playback. Describing a
                 // download that no longer happens misleads a viewer deciding
                 // whether to leave this on.
-                Text("When a film has no subtitles, this device can transcribe it while you watch — a second, silent stream runs ahead of playback so complete lines appear on time. Nothing is uploaded. Automatic captions are labeled as such, are never offered for silent films, and are discarded when the audio is too poor to transcribe well. Turning this off leaves published subtitle files untouched.")
+                // Trimmed to what a viewer cannot see (owner's essential-
+                // information rule, 2026-09-22): the second stream (data),
+                // nothing uploaded (privacy), and that a machine can be wrong.
+                Text("Transcribed on this device while you watch, from a second stream that runs ahead of playback. Nothing is uploaded. Automatic captions are labeled, and can be wrong.")
             }
         }
     }
