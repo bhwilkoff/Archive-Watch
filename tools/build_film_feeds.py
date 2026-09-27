@@ -87,7 +87,18 @@ def label(item: dict) -> str:
 
 
 def group(item: dict) -> str:
-    return GROUP.get(KIND.get(item.get("contentType"), "Film"), "Films")
+    """One category per film (the Xtream API allows one). Documentary is the
+    GENRE for features, shorts and silents, as in the apps' own Documentary
+    category (contentType "documentary" held four films); ephemeral films and
+    newsreels keep their own categories, and home movies sit with the
+    ephemeral films rather than in a category of 53."""
+    ctype = item.get("contentType")
+    if ctype in ("feature-film", "short-film", "silent-film", "documentary") and \
+            "Documentary" in (item.get("genres") or []):
+        return "Documentaries"
+    if ctype == "home-movie":
+        return "Ephemeral Films"
+    return GROUP.get(KIND.get(ctype, "Film"), "Films")
 
 
 def poster(item: dict) -> str | None:
@@ -408,7 +419,10 @@ def main() -> int:
     kinds = collections.Counter(group(i) for i in items)
     (out / "manifest.json").write_text(json.dumps(
         {"films": len(items), "channels": len(schedule["channels"]), "groups": kinds,
-         **counts, "scope": "served index"}, indent=1), encoding="utf-8")
+         **counts, "scope": "served index",
+         # The Worker keys its cache on this, so a publish replaces every
+         # list it serves within minutes (xtream.js build()).
+         "build": datetime.now(timezone.utc).strftime("%Y%m%d%H%M%S")}, indent=1), encoding="utf-8")
     print(f"[film-feeds] {len(items)} films in {len(kinds)} groups, {counts['series']} series "
           f"({counts['episodes']} episodes), {len(schedule['channels'])} channels; "
           f"left out: {dict(skipped)}")

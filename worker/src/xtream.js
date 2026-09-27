@@ -19,7 +19,6 @@ import { joinURL, onAir, schedule } from "./live.js";
 const SITE = "https://archivewatch.org";
 const FEEDS = `${SITE}/feeds/xtream`;
 const SHARDS = 256;
-const TTL = 3600;
 
 const json = (body) => new Response(JSON.stringify(body), {
   headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*",
@@ -29,11 +28,28 @@ const redirect = (to) => new Response(null, {
   status: 302, headers: { Location: to, "Cache-Control": "no-store", "Access-Control-Allow-Origin": "*" },
 });
 
+// Every file is fetched under the publish's build stamp, so the edge cache can
+// hold it for a day and still never serve a list from an earlier publish: the
+// first full list (6,315 films, one of them ephemeral) outlived its
+// replacement by more than an hour under a plain TTL. Only the small manifest
+// is fetched fresh.
+async function build() {
+  const r = await fetch(`${SITE}/feeds/manifest.json`, { cf: { cacheTtl: 120, cacheEverything: true } });
+  if (!r.ok) throw new Error(`manifest ${r.status}`);
+  return (await r.json()).build || "0";
+}
+
+async function get(name) {
+  const r = await fetch(`${FEEDS}/${name}?v=${await build()}`,
+    { cf: { cacheTtl: 86400, cacheEverything: true } });
+  if (!r.ok) throw new Error(`${name} ${r.status}`);
+  return r;
+}
+
 // Whole lists are passed through as they are: parsing a 6 MB list would spend
 // the free Worker's CPU allowance on one request.
 async function pass(name) {
-  const r = await fetch(`${FEEDS}/${name}`, { cf: { cacheTtl: TTL, cacheEverything: true } });
-  if (!r.ok) throw new Error(`${name} ${r.status}`);
+  const r = await get(name);
   return new Response(r.body, {
     headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*",
                "Cache-Control": "public, max-age=600" },
@@ -41,9 +57,7 @@ async function pass(name) {
 }
 
 async function feed(name) {
-  const r = await fetch(`${FEEDS}/${name}`, { cf: { cacheTtl: TTL, cacheEverything: true } });
-  if (!r.ok) throw new Error(`${name} ${r.status}`);
-  return r.json();
+  return (await get(name)).json();
 }
 
 async function vodInfo(id) {
