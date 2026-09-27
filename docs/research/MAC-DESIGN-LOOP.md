@@ -121,3 +121,12 @@ through Accessibility and its items pressed there (never pointer clicks).
   "Surprise", over a sentence explaining itself; it is "Surprise" and the
   sentence is gone. Verified: Go's items read back in sidebar order, Go ›
   Surprise opens the page, View has one separator.
+- v1.42.794: every poster card on the Mac (Home, Library, Browse, Search,
+  Collections) opened on `onTapGesture`, which VoiceOver cannot see: the card
+  read as loose text with nothing to press. It is now one button, "The
+  General, 1926", whose press opens the page. Verified through AX on the
+  running app: Library's cards list as AXButton with AXPress, and pressing
+  "The General, 1926" put the window on The General.
+  Also seen with archive.org briefly up: the mark-in/out sheet loaded a
+  1:11:33 film (length, Play and Add live) while the frame strip came back
+  empty — the metadata call lost the race to archive.org going away again.

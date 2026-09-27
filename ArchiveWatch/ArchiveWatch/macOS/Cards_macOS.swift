@@ -42,6 +42,12 @@ struct PosterCard: View {
         .onHover { hovering = $0 }
         .animation(.easeOut(duration: 0.12), value: hovering)
         .onTapGesture { router.openDetail(item) }
+        // A tap gesture is invisible to VoiceOver: the card read as loose
+        // text with nothing to press (Mac loop, 2026-09-27).
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel([item.title, item.year.map(String.init)].compactMap { $0 }.joined(separator: ", "))
+        .accessibilityAddTraits(.isButton)
+        .accessibilityAction { router.openDetail(item) }
         .contextMenu {
             Button("Open") { router.openDetail(item) }
             if item.videoURLParsed != nil {
