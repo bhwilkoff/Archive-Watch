@@ -406,10 +406,8 @@ private struct CreateChannelSheet: View {
             .formStyle(.grouped)
             Divider()
             HStack {
-                Text("Pick any mix — your channel plays it straight through, all day.")
-                    .font(.caption).foregroundStyle(.secondary)
                 Spacer()
-                Button("Cancel") { dismiss() }
+                Button("Cancel") { dismiss() }.keyboardShortcut(.cancelAction)   // Esc closes the sheet
                 Button("Create") { create() }
                     .keyboardShortcut(.defaultAction)
                     .disabled(!canSave)

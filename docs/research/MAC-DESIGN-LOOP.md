@@ -299,3 +299,9 @@ through Accessibility and its items pressed there (never pointer clicks).
   trailing edge, Cancel then the default. Its second sentence ("The film
   plays here in step with theirs.") repeated the landing behind it and is
   cut. Seen on the Mac.
+- v1.42.814: Esc. Four Cancel buttons were not the cancel action, so Esc
+  did nothing on the Export sheet, the Add-Clip (mark in/out) sheet, the
+  Create Channel sheet and the Studio's rename-scene popover; each now is
+  (every other sheet already was). Verified on the Export sheet through
+  AX: present, Esc, absent. Create Channel also loses its footer sentence
+  explaining what a channel does.

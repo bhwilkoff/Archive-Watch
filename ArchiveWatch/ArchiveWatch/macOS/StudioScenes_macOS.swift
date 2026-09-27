@@ -405,7 +405,7 @@ struct StudioSceneBar: View {
                     .onSubmit(commitRename)
                 HStack {
                     Spacer()
-                    Button("Cancel") { renaming = nil }
+                    Button("Cancel") { renaming = nil }.keyboardShortcut(.cancelAction)
                     Button("Rename", action: commitRename).keyboardShortcut(.defaultAction)
                 }
             }

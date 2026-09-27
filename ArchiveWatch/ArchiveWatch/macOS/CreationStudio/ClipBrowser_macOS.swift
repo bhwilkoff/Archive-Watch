@@ -382,7 +382,7 @@ struct MarkClipView: View {
             Divider()
             HStack {
                 Spacer()
-                Button("Cancel") { dismiss() }
+                Button("Cancel") { dismiss() }.keyboardShortcut(.cancelAction)   // Esc closes the sheet
                 Button("Add to Timeline") { add() }
                     .keyboardShortcut(.defaultAction)
                     // A film that could not be reached would only fail again in

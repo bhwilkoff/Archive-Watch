@@ -569,7 +569,7 @@ private struct ExportSettingsSheet: View {
             Divider()
             HStack {
                 Spacer()
-                Button("Cancel") { dismiss() }
+                Button("Cancel") { dismiss() }.keyboardShortcut(.cancelAction)   // Esc closes the sheet
                 Button("Choose Destination…") { dismiss(); onExport(format) }
                     .keyboardShortcut(.defaultAction)
             }
