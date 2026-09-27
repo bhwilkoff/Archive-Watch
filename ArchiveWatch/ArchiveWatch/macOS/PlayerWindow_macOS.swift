@@ -223,6 +223,10 @@ struct EpisodePlayer: View {
                 }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+        // Controls ▸ Next / Previous Episode (Rule B14).
+        .focusedSceneValue(\.episodeNavigation, EpisodeNavigation(
+            previous: prev.map { p in { episode = p } },
+            next: next.map { n in { episode = n } }))
     }
 }
 
@@ -341,6 +345,8 @@ struct PlayerSurface: View {
         }
         .onAppear(perform: setup)
         .onDisappear(perform: teardown)
+        // Controls ▸ (Rule B14).
+        .focusedSceneValue(\.playbackControls, player.map { PlaybackControls(player: $0) })
     }
 
     private func setup() {
@@ -426,6 +432,10 @@ struct PlayerSurface: View {
         // native HUD controls.
 
         let p = AVPlayer(playerItem: playerItem)
+        #if DEBUG
+        // Harness door: a silent player for runs on the owner's Mac.
+        if ProcessInfo.processInfo.environment["AW_MUTE"] == "1" { p.isMuted = true }
+        #endif
         #if DEBUG
         // Silent from its first frame under a Studio door — registration
         // (which also mutes) comes ~0.4 s after `play()` below.

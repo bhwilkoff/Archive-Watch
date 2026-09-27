@@ -14,6 +14,7 @@ struct DetailView: View {
     @Environment(\.modelContext) private var ctx
     @Query private var favorites: [Favorite]
     @State private var showPlaylistSheet = false
+    @State private var watchedTick = 0
     @State private var scenes: [ArchiveVersions.Scene] = []
     @State private var versions: [ArchiveVersions.Version] = []
     @State private var loadingVersions = false
@@ -139,7 +140,23 @@ struct DetailView: View {
             watchWithTheWorld: { startStudio() },
             pageURL: shareURL,
             archiveURL: URL(string: item.sourceDetailsURL) ?? shareURL,
-            reportURL: FilmProblem.url(archiveID: item.archiveID))
+            reportURL: FilmProblem.url(archiveID: item.archiveID),
+            isWatched: isWatched,
+            toggleWatched: {
+                if WatchProgress.setWatched(!isWatched, in: ctx, archiveID: item.archiveID) {
+                    watchedTick += 1
+                    if !isWatched { store.completedArchiveIDs.remove(item.archiveID) }
+                    else { store.completedArchiveIDs.insert(item.archiveID) }
+                }
+            })
+    }
+
+    /// Re-read after a toggle (`watchedTick`), so the menu title follows.
+    private var isWatched: Bool {
+        _ = watchedTick
+        let id = item.archiveID
+        let d = FetchDescriptor<WatchProgress>(predicate: #Predicate { $0.archiveID == id })
+        return (try? ctx.fetch(d).first)?.isWatched ?? false
     }
 
     private func toggleFavorite() {

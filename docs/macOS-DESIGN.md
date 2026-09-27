@@ -962,6 +962,15 @@ no menu item and no key.
   Remove from Favorites ⌘D (Safari's bookmark key), Add to Playlist…,
   Subtitles…, Open in Creation Studio, Watch Together ▸ With Friends… / With the
   World…, Copy Link ⇧⌘C, View on archive.org, Something Wrong with This Film?
+- **Film ▸ Mark as Watched / Mark as Not Watched** ⇧⌘U — the Mac had no way to
+  mark a film watched at all; the title follows the state.
+- **Controls** (a player in front): Play/Pause Space (live only while a player
+  is key, so it never takes a space from a text field), Skip Forward / Back 10
+  Seconds ⌘→ / ⌘←, Next / Previous Episode ⇧⌘→ / ⇧⌘← (episode player only),
+  Speed ▸ 0.5× … 2×, Volume Up / Down ⌘↑ / ⌘↓, Mute ⌥⌘↓, Close Player ⌘.
+  (and Esc). Verified on a muted film: Play/Pause froze the picture (frame
+  difference 0.0 over 3 s, 18 while playing), Skip Forward moved it (58), Close
+  Player returned to the film's page.
 - **One key, one live meaning**: a command that belongs to a kind of window is
   enabled only while that window is key, through `focusedSceneValue`
   (`browseWindowIsKey`, `filmActions`); Go's ⌘1–⌘8 are disabled while a player is

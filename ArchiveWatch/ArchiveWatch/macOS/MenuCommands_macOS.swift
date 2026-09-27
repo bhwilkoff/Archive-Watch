@@ -1,5 +1,6 @@
 #if os(macOS)
 import SwiftUI
+import AVFoundation
 
 // The menu bar for the browsing window (docs/macOS-DESIGN.md Rule B14).
 //
@@ -33,7 +34,20 @@ struct FilmActions {
     let pageURL: URL
     let archiveURL: URL
     let reportURL: URL?
+    let isWatched: Bool
+    let toggleWatched: () -> Void
 }
+
+/// The player in front.
+struct PlaybackControls { let player: AVPlayer }
+struct PlaybackControlsKey: FocusedValueKey { typealias Value = PlaybackControls }
+
+/// An episode player's chevrons (nil ends of the season are nil).
+struct EpisodeNavigation {
+    let previous: (() -> Void)?
+    let next: (() -> Void)?
+}
+struct EpisodeNavigationKey: FocusedValueKey { typealias Value = EpisodeNavigation }
 struct FilmActionsKey: FocusedValueKey { typealias Value = FilmActions }
 
 extension FocusedValues {
@@ -44,6 +58,14 @@ extension FocusedValues {
     var filmActions: FilmActions? {
         get { self[FilmActionsKey.self] }
         set { self[FilmActionsKey.self] = newValue }
+    }
+    var playbackControls: PlaybackControls? {
+        get { self[PlaybackControlsKey.self] }
+        set { self[PlaybackControlsKey.self] = newValue }
+    }
+    var episodeNavigation: EpisodeNavigation? {
+        get { self[EpisodeNavigationKey.self] }
+        set { self[EpisodeNavigationKey.self] = newValue }
     }
 }
 
@@ -111,6 +133,12 @@ struct FilmCommands: Commands {
                 .disabled(film?.subtitles == nil)
             Button("Open in Creation Studio") { film?.openInCreationStudio?() }
                 .disabled(film?.openInCreationStudio == nil)
+            // The Mac had no way to mark a film watched at all (loop, 2026-09-27).
+            Button(film?.isWatched == true ? "Mark as Not Watched" : "Mark as Watched") {
+                film?.toggleWatched()
+            }
+            .keyboardShortcut("u", modifiers: [.command, .shift])
+            .disabled(film == nil)
             Divider()
             Menu("Watch Together") {
                 Button("With Friends…") { film?.watchWithFriends() }
@@ -130,6 +158,78 @@ struct FilmCommands: Commands {
             Button("Something Wrong with This Film?") { if let u = film?.reportURL { openURL(u) } }
                 .disabled(film?.reportURL == nil)
         }
+    }
+}
+/// Controls: the player in front (Rule B14). The HUD does all of this with a
+/// pointer; the menu is where a keyboard finds it and where its keys are shown.
+struct ControlsCommands: Commands {
+    let router: AppRouter
+    @FocusedValue(\.playbackControls) private var playback
+    @FocusedValue(\.episodeNavigation) private var episodes
+
+    private static let speeds: [Double] = [0.5, 1.0, 1.25, 1.5, 2.0]
+
+    var body: some Commands {
+        CommandMenu("Controls") {
+            Button("Play/Pause") {
+                guard let p = playback?.player else { return }
+                if p.rate == 0 { p.play() } else { p.pause() }
+            }
+            .keyboardShortcut(.space, modifiers: [])
+            .disabled(playback == nil)
+            Button("Skip Forward 10 Seconds") { skip(10) }
+                .keyboardShortcut(.rightArrow, modifiers: .command)
+                .disabled(playback == nil)
+            Button("Skip Back 10 Seconds") { skip(-10) }
+                .keyboardShortcut(.leftArrow, modifiers: .command)
+                .disabled(playback == nil)
+            Divider()
+            Button("Next Episode") { episodes?.next?() }
+                .keyboardShortcut(.rightArrow, modifiers: [.command, .shift])
+                .disabled(episodes?.next == nil)
+            Button("Previous Episode") { episodes?.previous?() }
+                .keyboardShortcut(.leftArrow, modifiers: [.command, .shift])
+                .disabled(episodes?.previous == nil)
+            Divider()
+            Menu("Speed") {
+                ForEach(Self.speeds, id: \.self) { s in
+                    Button(s == 1 ? "Normal" : (s == s.rounded() ? "\(Int(s))×" : "\(s)×")) {
+                        guard let p = playback?.player else { return }
+                        p.defaultRate = Float(s)
+                        if p.rate != 0 { p.rate = Float(s) }
+                    }
+                }
+            }
+            .disabled(playback == nil)
+            Button("Volume Up") { volume(+0.1) }
+                .keyboardShortcut(.upArrow, modifiers: .command)
+                .disabled(playback == nil)
+            Button("Volume Down") { volume(-0.1) }
+                .keyboardShortcut(.downArrow, modifiers: .command)
+                .disabled(playback == nil)
+            Button("Mute") { playback?.player.isMuted.toggle() }
+                .keyboardShortcut(.downArrow, modifiers: [.command, .option])
+                .disabled(playback == nil)
+            Divider()
+            Button("Close Player") {
+                router.nowPlaying = nil
+                router.nowPlayingEpisode = nil
+            }
+            .keyboardShortcut(".", modifiers: .command)
+            .disabled(playback == nil)
+        }
+    }
+
+    private func skip(_ seconds: Double) {
+        guard let p = playback?.player else { return }
+        let t = CMTimeAdd(p.currentTime(), CMTime(seconds: seconds, preferredTimescale: 600))
+        p.seek(to: CMTimeMaximum(t, .zero), toleranceBefore: .zero, toleranceAfter: .zero)
+    }
+
+    private func volume(_ delta: Float) {
+        guard let p = playback?.player else { return }
+        p.isMuted = false
+        p.volume = min(1, max(0, p.volume + delta))
     }
 }
 #endif

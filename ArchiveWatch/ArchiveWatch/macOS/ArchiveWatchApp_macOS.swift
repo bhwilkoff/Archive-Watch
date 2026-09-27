@@ -134,6 +134,7 @@ struct ArchiveWatchMacApp: App {
             // action on a film's page, reachable from the menu bar with keys.
             GoCommands(router: router, store: store)
             FilmCommands()
+            ControlsCommands(router: router)
             StudioBroadcastCommands()
             // With a WindowGroup (first) + a DocumentGroup, SwiftUI binds ⌘N to the
             // WindowGroup (a new Library window). Re-point New at a new Creation Studio

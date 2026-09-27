@@ -35,7 +35,7 @@ through Accessibility and its items pressed there (never pointer clicks).
 ## Queue
 
 1. ✅ Go and Film menus (macOS-DESIGN §B14), v1.42.781.
-2. Controls menu for the player: Play/Pause, skip ±10 s, next/previous episode,
+2. ✅ (v1.42.782) Controls menu for the player: Play/Pause, skip ±10 s, next/previous episode,
    subtitles, speed (use `SpeedMenu`'s choices), Picture in Picture, full screen;
    Mark as Watched on the Mac (Film menu + Detail).
 3. Creation Studio menus: Clip (Split ⌘B, Add Clip… ⌘I, Add Text, Add Music,
