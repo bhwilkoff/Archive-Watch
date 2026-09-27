@@ -101,7 +101,10 @@ struct ChannelsView: View {
         #endif
         .onChange(of: userChannels.count) { rebuild() }
         .fullScreenCover(item: $playing) { box in
-            if let player = PlayerView(lineup: box.items, startOffset: box.startOffset) {
+            if let cid = box.channelID, let start = guide.firstIndex(where: { $0.id == cid }) {
+                SurfPlayer(channels: guide, index: start, first: box,
+                           weave: weaveCommercials(into:))
+            } else if let player = PlayerView(lineup: box.items, startOffset: box.startOffset) {
                 player.ignoresSafeArea()
             } else {
                 ContentUnavailableView("Channel unavailable", systemImage: "tv.slash")
@@ -129,6 +132,19 @@ struct ChannelsView: View {
         scheduleMissing = false
         scheduleMissing = await ChannelSchedule.load() == nil
         rebuild()
+        #if DEBUG
+        // Harness door: AW_TUNE_CHANNEL=<id> tunes that channel on launch.
+        if let cid = ProcessInfo.processInfo.environment["AW_TUNE_CHANNEL"], playing == nil {
+            // After the screen is up: a cover set during the first task is
+            // dropped by the presentation machinery.
+            try? await Task.sleep(for: .seconds(2))
+            if let ch = guide.first(where: { $0.id == cid }),
+               let slot = ch.slots.first(where: { $0.contains(Date()) })
+                   ?? ch.slots.first(where: { $0.start > Date() }) {
+                tune(ch, from: slot)
+            }
+        }
+        #endif
     }
 
     private func rebuild() {
@@ -162,7 +178,8 @@ struct ChannelsView: View {
         let programs = channel.slots.drop { $0.id != slot.id }.map(\.item)
         let now = Date()
         let offset = slot.contains(now) ? max(0, now.timeIntervalSince(slot.start)) : 0
-        playing = ChannelLineup(items: weaveCommercials(into: Array(programs)), startOffset: offset)
+        playing = ChannelLineup(items: weaveCommercials(into: Array(programs)), startOffset: offset,
+                                channelID: channel.id)
     }
 
     /// #89: drop a vintage PD commercial between programs (gated by setting).
@@ -196,6 +213,9 @@ struct ChannelLineup: Identifiable {
     let id = UUID()
     let items: [Catalog.Item]
     var startOffset: TimeInterval = 0
+    /// The guide channel this was tuned from — set when surfing is possible
+    /// (iOS-DESIGN §2.5d).
+    var channelID: String? = nil
 }
 
 // MARK: - On Now (iOS-DESIGN §2.5c): the phone's first view of Channels
@@ -286,6 +306,114 @@ private struct OnNowList: View {
             .accessibilityLabel("\(ch.title) schedule")
         }
         .padding(.vertical, 4)
+    }
+}
+
+// MARK: - Channel surfing in the player (iOS-DESIGN §2.5d)
+//
+// Owner, 2026-09-27: "allowing users to navigate easily around the channels."
+// The phone guides people keep using let you change channel without leaving
+// the picture (Pluto's 2026 redesign removed it and its rating fell from 3.15
+// to 2.32). AVPlayerViewController takes no custom transport buttons on iOS, so
+// a strip over the video — previous channel, the channel and what is on,
+// next channel — shows on tune-in and with the player's own controls on a tap,
+// then fades. Changing channel joins that channel's program where it is now.
+
+private struct SurfPlayer: View {
+    let channels: [GuideChannel]
+    @State var index: Int
+    @State private var lineup: ChannelLineup
+    @State private var stripVisible = true
+    @State private var hideTask: Task<Void, Never>?
+    let weave: ([Catalog.Item]) -> [Catalog.Item]
+
+    init(channels: [GuideChannel], index: Int, first: ChannelLineup,
+         weave: @escaping ([Catalog.Item]) -> [Catalog.Item]) {
+        self.channels = channels
+        _index = State(initialValue: index)
+        _lineup = State(initialValue: first)
+        self.weave = weave
+    }
+
+    var body: some View {
+        ZStack(alignment: .top) {
+            if let player = PlayerView(lineup: lineup.items, startOffset: lineup.startOffset) {
+                player.onTapVideo { showStrip() }
+                    .id(lineup.id)
+                    .ignoresSafeArea()
+            } else {
+                ContentUnavailableView("Channel unavailable", systemImage: "tv.slash")
+            }
+            if stripVisible { strip.transition(.opacity) }
+        }
+        .onAppear { showStrip() }
+        #if DEBUG
+        // Harness door: AW_SURF=N changes channel N times, 6 s apart.
+        .task {
+            let n = Int(ProcessInfo.processInfo.environment["AW_SURF"] ?? "") ?? 0
+            for _ in 0..<n {
+                try? await Task.sleep(for: .seconds(6))
+                surf(1)
+            }
+        }
+        #endif
+    }
+
+    private var channel: GuideChannel { channels[index] }
+
+    private var strip: some View {
+        let now = Date()
+        let onNow = channel.slots.first { $0.contains(now) }
+        return HStack(spacing: 10) {
+            Button { surf(-1) } label: {
+                Image(systemName: "chevron.up").font(.headline).frame(width: 44, height: 44)
+            }
+            .accessibilityLabel("Previous channel, \(channels[(index - 1 + channels.count) % channels.count].title)")
+            VStack(spacing: 2) {
+                Text(channel.title).font(.subheadline.weight(.semibold))
+                if let onNow {
+                    Text(onNow.item.title).font(.caption).foregroundStyle(.secondary).lineLimit(1)
+                }
+            }
+            .frame(minWidth: 140)
+            Button { surf(1) } label: {
+                Image(systemName: "chevron.down").font(.headline).frame(width: 44, height: 44)
+            }
+            .accessibilityLabel("Next channel, \(channels[(index + 1) % channels.count].title)")
+        }
+        .padding(.horizontal, 6)
+        .foregroundStyle(.white)
+        .background(.ultraThinMaterial, in: .capsule)
+        .environment(\.colorScheme, .dark)
+        .padding(.top, 64)
+    }
+
+    private func showStrip() {
+        withAnimation(.easeInOut(duration: 0.2)) { stripVisible = true }
+        hideTask?.cancel()
+        hideTask = Task {
+            try? await Task.sleep(for: .seconds(4))
+            guard !Task.isCancelled else { return }
+            withAnimation(.easeInOut(duration: 0.3)) { stripVisible = false }
+        }
+    }
+
+    /// Tune the neighboring channel where it is now: the program airing, from
+    /// its current second, or the next one if the channel is between programs.
+    private func surf(_ step: Int) {
+        let now = Date()
+        for k in 1...channels.count {
+            let i = (index + step * k + channels.count * k) % channels.count
+            let ch = channels[i]
+            guard let slot = ch.slots.first(where: { $0.contains(now) })
+                ?? ch.slots.first(where: { $0.start > now }) else { continue }
+            let programs = ch.slots.drop { $0.id != slot.id }.map(\.item)
+            let offset = slot.contains(now) ? max(0, now.timeIntervalSince(slot.start)) : 0
+            index = i
+            lineup = ChannelLineup(items: weave(Array(programs)), startOffset: offset, channelID: ch.id)
+            showStrip()
+            return
+        }
     }
 }
 

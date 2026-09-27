@@ -136,6 +136,20 @@ nothing uses a fixed point size. The **day schedule** folds three or more
 consecutive programs under fifteen minutes into one "N short films · Until
 <time>" disclosure row. Regular width (iPad) keeps the grid alone.
 
+2.5d **You can change channel without leaving the picture.** Owner,
+2026-09-27: *"allowing users to navigate easily around the channels."* The
+research's warning case: Pluto's 2026 redesign removed channel surfing and its
+rating fell from 3.15 to 2.32. AVPlayerViewController takes no custom transport
+buttons on iOS, so a channel tuned from On Now or the Guide plays inside
+`SurfPlayer`: a capsule over the video — ▲ previous channel, the channel and
+what is on, ▼ next channel — that shows on tune-in and on any tap (a tap
+recognizer that never cancels the player's own), and fades after four
+seconds. A channel change joins that channel's program at its current
+second, or the next program if it is between two, with the same commercial
+weave. The day schedule's own taps play without it (they are not live).
+Seen on the iPhone 12, muted (DEBUG doors `AW_TUNE_CHANNEL`, `AW_SURF`,
+`AW_MUTE`): Drama Theater, then Comedy Hour · The Rage of Paris, then faded.
+
 2.6 **Modes are pushes on iOS, not takeovers.** Cartoon Mode, Surprise, and
 Public Domain Day are ordinary pushed screens reached from Home's shuffle
 toolbar button → Surprise grid (and registered per §2.3) — back-swipe always

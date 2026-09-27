@@ -54,6 +54,16 @@ struct PlayerView: UIViewControllerRepresentable {
     /// it brings a new SharePlay coordinator. Adding an output is not a
     /// parallel transport, so §8.1 holds.
     var onPlayerReady: ((AVPlayer) -> Void)? = nil
+    /// A tap anywhere on the video, seen ALONGSIDE the player's own (it never
+    /// cancels them): Channels shows its channel strip with the controls
+    /// (iOS-DESIGN §2.5d).
+    var onTap: (() -> Void)? = nil
+
+    func onTapVideo(_ action: @escaping () -> Void) -> PlayerView {
+        var copy = self
+        copy.onTap = action
+        return copy
+    }
 
     /// Play a movie/standalone item. Pass `store` to enable movie autoplay
     /// (gated by `store.autoplayMode`; .off means play just this one).
@@ -136,6 +146,14 @@ struct PlayerView: UIViewControllerRepresentable {
         vc.updatesNowPlayingInfoCenter = true             // lock-screen / Control Center
         vc.delegate = context.coordinator
         context.coordinator.playerVC = vc
+        if onTap != nil {
+            context.coordinator.onTap = onTap
+            let tap = UITapGestureRecognizer(target: context.coordinator,
+                                             action: #selector(Coordinator.videoTapped))
+            tap.cancelsTouchesInView = false
+            tap.delegate = context.coordinator
+            vc.view.addGestureRecognizer(tap)
+        }
 
         // iOS/iPadOS REQUIRE an active .playback audio session or AVPlayer
         // frequently fails to start, stalls, or plays silently — especially with
@@ -296,6 +314,10 @@ struct PlayerView: UIViewControllerRepresentable {
             #if DEBUG
             // A door join makes no sound in the room the test phone sits in.
             if ProcessInfo.processInfo.environment["AW_ROOM_JOIN"] != nil { player.isMuted = true }
+            #if DEBUG
+            // Harness door: a silent player for device runs (never audible at the owner).
+            if ProcessInfo.processInfo.environment["AW_MUTE"] == "1" { player.isMuted = true }
+            #endif
             #endif
             Task { @MainActor in
                 await StudioSyncFollower.shared.join(code: code, player: player) { _ in }
@@ -374,7 +396,11 @@ struct PlayerView: UIViewControllerRepresentable {
     }
 
     @MainActor
-    final class Coordinator: NSObject, AVPlayerViewControllerDelegate {
+    final class Coordinator: NSObject, AVPlayerViewControllerDelegate, UIGestureRecognizerDelegate {
+        var onTap: (() -> Void)?
+        @objc func videoTapped() { onTap?() }
+        func gestureRecognizer(_ g: UIGestureRecognizer,
+                               shouldRecognizeSimultaneouslyWith other: UIGestureRecognizer) -> Bool { true }
         private(set) var archiveID: String
         let ctx: ModelContext
         let queue: PlaybackQueue?
