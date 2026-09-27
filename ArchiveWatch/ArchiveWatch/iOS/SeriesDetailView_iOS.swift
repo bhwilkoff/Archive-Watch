@@ -19,6 +19,9 @@ struct SeriesDetailView: View {
     @State private var selectedSeason: Int? = nil
     @State private var playingEpisode: Episode?
     @State private var clippingEpisode: Episode?   // Clip Studio on an individual episode (Decision 033)
+    /// iOS-DESIGN §3.5b: a long overview opens at four lines, so the episodes
+    /// are on the first screen.
+    @State private var overviewExpanded = false
 
     var body: some View {
         ScrollView {
@@ -34,7 +37,16 @@ struct SeriesDetailView: View {
                         Text(meta).font(.subheadline).foregroundStyle(.secondary)
                     }
                     if let o = series?.overview ?? card.synopsis, !o.isEmpty {
+                        let long = o.count > 240
                         Text(o).font(.body).foregroundStyle(.primary.opacity(0.9))
+                            .lineLimit(long && !overviewExpanded ? 4 : nil)
+                        if long {
+                            Button(overviewExpanded ? "Less" : "More") {
+                                withAnimation(.easeInOut(duration: 0.2)) { overviewExpanded.toggle() }
+                            }
+                            .font(.subheadline.weight(.semibold))
+                            .buttonStyle(.borderless)
+                        }
                     }
                     if loading {
                         ProgressView().frame(maxWidth: .infinity).padding(.vertical, 24)

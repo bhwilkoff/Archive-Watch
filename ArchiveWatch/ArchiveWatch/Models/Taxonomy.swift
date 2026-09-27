@@ -37,6 +37,21 @@ enum ContentType: String, Codable, CaseIterable, Sendable {
         }
     }
 
+    /// The words for any catalog contentType, including the ones this enum
+    /// does not model. Capitalizing the raw code printed "Tv Episode" on the
+    /// iPhone's Detail (iPhone 12 sweep, 2026-09-27).
+    static func label(_ raw: String) -> String {
+        if let t = ContentType(rawValue: raw) { return t.displayName }
+        switch raw {
+        case "tv-episode": return "TV Episode"
+        case "commercial": return "Commercial"
+        case "excerpt": return "Excerpt"
+        default:
+            return raw.replacingOccurrences(of: "-", with: " ").capitalized
+                .replacingOccurrences(of: "Tv ", with: "TV ")
+        }
+    }
+
     /// Preferred aspect ratio for artwork in this bucket.
     var preferredPosterAspect: PosterAspect {
         switch self {

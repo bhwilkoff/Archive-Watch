@@ -343,7 +343,7 @@ private struct CreateChannelSheet: View {
     private let decades = [1900, 1910, 1920, 1930, 1940, 1950, 1960, 1970, 1980, 1990, 2000, 2010]
 
     private func typeLabel(_ t: String) -> String {
-        t.replacingOccurrences(of: "-", with: " ").capitalized
+        ContentType.label(t)
     }
     private var autoName: String {
         let parts = [decade.map { "\(String($0))s" }, genre, type.map(typeLabel)].compactMap { $0 }

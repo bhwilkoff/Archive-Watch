@@ -497,7 +497,7 @@ struct DetailView: View {
 
     private var metaLine: String {
         [item.year.map(String.init), item.runtimeSeconds.map { "\($0/60) min" },
-         item.contentType.replacingOccurrences(of: "-", with: " ").capitalized,
+         ContentType.label(item.contentType),
          item.director.map { "Dir. \($0)" }].compactMap { $0 }.joined(separator: " · ")
     }
     /// "Resume · 34 min" once there is a position worth returning to, matching

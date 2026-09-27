@@ -68,6 +68,10 @@ struct BrowseView: View {
             #if DEBUG
             // Harness door: AW_BROWSE_FILTER="type=silent-film,decade=1920"
             // sets chips so the sweep can photograph a filtered grid.
+            // AW_BROWSE_SCOPE=tv|collections opens that scope.
+            if let sc = ProcessInfo.processInfo.environment["AW_BROWSE_SCOPE"] {
+                scope = sc == "tv" ? .tv : sc == "collections" ? .collections : .films
+            }
             if let f = ProcessInfo.processInfo.environment["AW_BROWSE_FILTER"] {
                 for pair in f.split(separator: ",") {
                     let kv = pair.split(separator: "=").map(String.init)

@@ -118,6 +118,12 @@ struct HomeView: View {
         // page mid-edit (measured on the iPhone 12, 2026-08-28: the row was
         // gone from the tree 30s later because it had scrolled away, while the
         // app itself stayed responsive throughout).
+        #if DEBUG
+        // Harness door: AW_OPEN_SETTINGS=1 opens Settings for the device sweep.
+        .onAppear {
+            if ProcessInfo.processInfo.environment["AW_OPEN_SETTINGS"] == "1" { showSettings = true }
+        }
+        #endif
         .sheet(isPresented: $showSettings) {
             NavigationStack {
                 SettingsView()

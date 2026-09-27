@@ -33,16 +33,15 @@ struct SettingsView: View {
                 }
             } header: {
                 Text("Home & Categories")
-            } footer: {
-                Text("Hidden categories disappear from Home, Browse, and Search on this device.")
             }
 
             Section("Playback") {
                 Picker("Autoplay next", selection: $store.autoplayMode) {
                     ForEach(AutoplayMode.allCases) { Text($0.label).tag($0) }
                 }
-                Text("When a film ends, what plays next. TV episodes always continue "
-                     + "to the next episode.")
+                // The one fact the picker cannot show (owner's essential-
+                // information rule, 2026-09-22): episodes ignore it.
+                Text("TV episodes always continue to the next episode.")
                     .font(.footnote).foregroundStyle(.secondary)
             }
 
@@ -52,9 +51,6 @@ struct SettingsView: View {
                 Link(destination: URL(string: "https://archive.org/donate")!) {
                     Label("Support the Internet Archive", systemImage: "heart")
                 }
-                Text("Archive Watch is free and takes nothing for itself. If it's brought you "
-                     + "something worth keeping, support the people who keep the films online.")
-                    .font(.footnote).foregroundStyle(.secondary)
             }
 
             Section("Sources & Attribution") {
@@ -105,8 +101,7 @@ struct SettingsView: View {
                          + "and watch history are not affected.")
                 }
             } else {
-                Text("Nothing downloaded yet. Use the download button on a film's page "
-                     + "to keep it on this device.")
+                Text("Nothing downloaded yet.")
                     .font(.footnote).foregroundStyle(.secondary)
             }
         }
@@ -168,9 +163,8 @@ struct SettingsView: View {
         } header: {
             Text("Account & Sync")
         } footer: {
-            Text("Sign in with Apple to sync favorites, playlists, and watch progress across your "
-                 + "Apple devices — including your Apple TV. Optional: browsing and playback work "
-                 + "without it; nothing leaves this device until you sign in.")
+            Text("Syncs favorites, playlists and watch progress across your Apple devices, "
+                 + "including Apple TV. Nothing leaves this device until you sign in.")
         }
     }
 
