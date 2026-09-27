@@ -234,3 +234,22 @@ through Accessibility and its items pressed there (never pointer clicks).
   for 6+ minutes with archive.org down, past the 2 × 90 s cache timeout;
   being instrumented (AW_CS_DIAG). Its Save panel also proposes the name
   "Archive Watch" rather than the project's.
+- v1.42.807: **Export hung forever when archive.org did not answer.** Root
+  cause, from the AW_CS_DIAG log: `ClipCacheService.withTimeout` raced the
+  work against a deadline in a TASK GROUP, and a group cannot return until
+  every child ends — so on the deadline it cancelled the work and then
+  WAITED for it, and a read stuck on an unanswered connection ignores
+  cancellation. Six minutes produced not one "cached" or "failed" line
+  against a 2 × 90 s deadline. It is now a race on a once-only continuation
+  (the first of {work, deadline} resumes; late work is cancelled and
+  abandoned). The same helper bounds the PREVIEW's clip cache, so this is
+  likely also the "stubborn downloading clip" the 90 s stuck-ceiling was
+  added to paper over. Measured after: both clips failed with -1001 after
+  two tries and the export ended at ~3 min. Then two words fixed: with
+  nothing downloaded it said "The clips could not be put together." (the
+  empty timeline failed in composing) — now "None of the clips could be
+  downloaded from archive.org." with Try Again; and when SOME clips go out
+  as black gaps, Exported says how many. An unsaved project's Save panel
+  proposed "Archive Watch.mp4"; it now proposes the film's name when every
+  clip is from one film, else "Untitled" (as the window says).
+  Seen: the failure bar photographed after the real Save panel run.

@@ -376,6 +376,12 @@ struct ProjectEditorView: View {
             if let url = exporter.outputURL {
                 HStack {
                     Label("Exported", systemImage: "checkmark.circle.fill").foregroundStyle(.green)
+                    // A clip that could not be downloaded went out as a black gap; say so.
+                    if exporter.gapCount > 0 {
+                        Text(exporter.gapCount == 1 ? "1 clip could not be downloaded and is black."
+                                                    : "\(exporter.gapCount) clips could not be downloaded and are black.")
+                            .font(.caption).foregroundStyle(.orange)
+                    }
                     Spacer()
                     Button("Reveal in Finder") { NSWorkspace.shared.activateFileViewerSelecting([url]) }
                     Button("Dismiss") { exporter.dismiss() }
@@ -418,9 +424,12 @@ struct ProjectEditorView: View {
     private func runExport(_ format: ExportFormat) {
         let panel = NSSavePanel()
         panel.allowedContentTypes = [format == .h264 ? .mpeg4Movie : .quickTimeMovie]
-        // Seed the Save panel from the document's own name (its filename); "Archive Watch" only
-        // when the project hasn't been saved yet (no filename to borrow).
-        let base = documentName.isEmpty ? "Archive Watch" : documentName
+        // Seed the Save panel from the document's own name (its filename). Unsaved: the film's
+        // name when every clip is from one film, else "Untitled" as the window says ("Archive
+        // Watch.mp4" named the app, not the movie; Mac loop, 2026-09-27).
+        let films = Set(model.project.timeline.clips.map(\.catalogItemID))
+        let base = !documentName.isEmpty ? documentName
+            : (films.count == 1 ? (model.project.timeline.clips.first?.label ?? "Untitled") : "Untitled")
         panel.nameFieldStringValue = "\(base).\(format.fileExtension)"
         guard panel.runModal() == .OK, let url = panel.url else { return }
         model.pause()                 // an export must not leave the preview playing (owner 2026-06-29)

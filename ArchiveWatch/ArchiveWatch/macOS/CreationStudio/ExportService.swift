@@ -44,6 +44,8 @@ final class ExportService {
     private(set) var phase: Phase = .idle
     private(set) var progress: Double = 0
     private(set) var outputURL: URL?
+    /// Clips that could not be downloaded and went out as black gaps in the last export.
+    private(set) var gapCount = 0
 
     var isBusy: Bool { phase == .caching || phase == .composing || phase == .exporting }
     /// The last export asked for — Try Again repeats it.
@@ -59,7 +61,7 @@ final class ExportService {
     func export(_ project: ClipProject, to url: URL, format: ExportFormat = .h264) async {
         guard !project.timeline.clips.isEmpty else { phase = .failed("The timeline is empty."); return }
         lastRequest = (project, url, format)
-        phase = .caching; progress = 0; outputURL = nil
+        phase = .caching; progress = 0; outputURL = nil; gapCount = 0
         // Attribution is optional (owner decision): burn the credit only when the project
         // opts in. The archive.org source still rides in metadata regardless.
         let creditLine: String? = project.burnAttribution ? Self.defaultCredit : nil
@@ -94,6 +96,13 @@ final class ExportService {
                 }
             }
             Self.diag("composing \(clips.count) clip(s), \(cached.count) cached")
+            // Nothing downloaded: say THAT. It used to fall through to composing and
+            // report "The clips could not be put together." (Mac loop, 2026-09-27).
+            if cached.isEmpty {
+                phase = .failed("None of the clips could be downloaded from archive.org.")
+                return
+            }
+            gapCount = clips.count - cached.count
 
             // 2) Compile the (composition, videoComposition) from the LOCAL cached files.
             phase = .composing

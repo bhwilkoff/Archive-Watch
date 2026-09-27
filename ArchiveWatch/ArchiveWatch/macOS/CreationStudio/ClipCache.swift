@@ -547,14 +547,60 @@ enum ClipCacheService {
     /// attempt turns a hang into a thrown timeout, so `cachedWindow`'s retry loop re-resolves a
     /// healthy node instead of freezing forever (owner: "videos hang for a long time"). On timeout
     /// the export task is cancelled (the async export observes it and stops fetching).
+    ///
+    /// NOT a task group. A group cannot return until EVERY child has finished, so
+    /// when the deadline fired it cancelled the op and then waited for it — and an
+    /// op stuck in a read that never answers ignores cancellation, so the timeout
+    /// never returned. Measured 2026-09-27 (Mac loop, archive.org refusing this
+    /// network): an export sat at "Caching clips…" 6+ minutes with no clip ever
+    /// reported cached or failed, against a 2 × 90 s deadline. Here the first of
+    /// {op, deadline} resumes the caller; a late op is cancelled and abandoned.
     private static func withTimeout(_ seconds: Double,
                                     _ op: @escaping @Sendable () async throws -> Void) async throws {
-        try await withThrowingTaskGroup(of: Void.self) { group in
-            group.addTask { try await op() }
-            group.addTask { try await Task.sleep(for: .seconds(seconds)); throw CancellationError() }
-            defer { group.cancelAll() }
-            try await group.next()      // first to finish (op done, op error, or timeout)
+        let gate = TimeoutGate()
+        let work = Task { try await op() }
+        try await withTaskCancellationHandler {
+            try await withCheckedThrowingContinuation { (c: CheckedContinuation<Void, Error>) in
+                gate.arm(c)
+                Task {
+                    do { try await work.value; gate.finish(.success(())) }
+                    catch { gate.finish(.failure(error)) }
+                }
+                Task {
+                    try? await Task.sleep(for: .seconds(seconds))
+                    if gate.finish(.failure(URLError(.timedOut))) { work.cancel() }
+                }
+            }
+        } onCancel: {
+            work.cancel()
+            gate.finish(.failure(CancellationError()))
         }
+    }
+}
+
+/// Resumes a continuation exactly once, whichever side gets there first.
+private final class TimeoutGate: @unchecked Sendable {
+    private let lock = NSLock()
+    private var continuation: CheckedContinuation<Void, Error>?
+    private var early: Result<Void, Error>?
+    private var done = false
+
+    func arm(_ c: CheckedContinuation<Void, Error>) {
+        lock.lock()
+        if let r = early { lock.unlock(); c.resume(with: r); return }
+        continuation = c
+        lock.unlock()
+    }
+
+    /// True when this call was the one that resumed.
+    @discardableResult
+    func finish(_ r: Result<Void, Error>) -> Bool {
+        lock.lock()
+        guard !done else { lock.unlock(); return false }
+        done = true
+        if let c = continuation { continuation = nil; lock.unlock(); c.resume(with: r) }
+        else { early = r; lock.unlock() }
+        return true
     }
 }
 
