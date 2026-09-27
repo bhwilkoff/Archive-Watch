@@ -41,7 +41,7 @@ testing device for rapid iteration." Sweep: `tools/ios_scenario.py`.
 ## Queue
 
 1. ✅ **Channels** — On Now list + Guide grid (iOS-DESIGN §2.5c), v1.42.769, seen on the iPhone 12.
-2. **Library** — a list of places: Downloads, Favorites, Playlists, History, Clips, each a row with its count and an icon, opening one place; Join a Room stays a toolbar button. Empty places say what fills them.
+2. ✅ **Library** (v1.42.770, iOS-DESIGN §2.7, seen on the iPhone 12) — a list of places: Downloads, Favorites, Playlists, History, Clips, each a row with its count and an icon, opening one place; Join a Room stays a toolbar button. Empty places say what fills them.
 3. **Browse** — Films / TV / Collections stays (three segments); the filters become a visible chip row (Type, Decade, Length, Sort), each chip a menu showing its value; a Clear chip when any is set.
 4. **Detail** — Play; three labeled buttons (Favorite, Watch Together, Share); everything else in a More menu; synopsis clamped with More; the facts in a disclosure.
 5. **Home, Search, Settings, Surprise, Series detail, Collections** — sweep each for the same faults.

@@ -378,6 +378,7 @@ extension View {
             .navigationDestination(for: PublicDomainRoute.self) { _ in PublicDomainView() }
             .navigationDestination(for: ChannelsRoute.self) { _ in ChannelsView() }
             .navigationDestination(for: CartoonRoute.self) { _ in CartoonView() }
+            .navigationDestination(for: LibraryPlaceRoute.self) { LibraryView(place: $0.place) }
             .navigationDestination(for: ChannelScheduleRoute.self) {
                 ChannelScheduleView(channelID: $0.channelID)
             }

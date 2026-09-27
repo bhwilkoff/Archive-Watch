@@ -3,12 +3,18 @@ import SwiftUI
 import SwiftData
 
 // Library: Downloads, Favorites, History, Playlists and Clips — backed by
-// SwiftData. A segmented picker switches sections.
+// SwiftData. The tab is a LIST OF PLACES (iOS-DESIGN §2.7): each row opens one
+// place, with its count, and Recently Watched sits beneath them.
 //
 // Everything here except Downloads is SYNCED to the Apple TV via CloudKit,
 // because it records an intention. Downloads records a FILE, which exists on
 // exactly one device, so it is deliberately local (iOS-DESIGN §9.7).
+/// One Library place, pushed from the list (iOS-DESIGN §2.7).
+struct LibraryPlaceRoute: Hashable { let place: LibraryView.Section }
+
 struct LibraryView: View {
+    /// nil = the list of places; a value = that one place, pushed.
+    var place: Section? = nil
     @Environment(AppStore.self) private var store
     @Environment(Router.self) private var router
     @Environment(\.modelContext) private var ctx
@@ -17,67 +23,155 @@ struct LibraryView: View {
     @Query(sort: \Playlist.createdAt, order: .reverse) private var playlists: [Playlist]
     @Query(sort: \VideoClip.createdAt, order: .reverse) private var clips: [VideoClip]
     @Query(sort: \DownloadedFilm.addedAt, order: .reverse) private var downloads: [DownloadedFilm]
-    @State private var section: Section = .favorites
 
     // No `watched` case (owner, 2026-08-17): it listed the completed subset
     // of `history`, so a finished film appeared under both and the two
     // could disagree. Completion is a badge on the poster instead.
     //
-    // Downloads leads the list: when the network is gone it is the only section
+    // Downloads leads the list: when the network is gone it is the only place
     // with anything playable in it, and the tab opens there (Decision 099).
     enum Section: String, CaseIterable, Identifiable {
         case downloads, favorites, history, playlists, clips
         var id: String { rawValue }
-        /// "Offline", not "Downloads". Measured on an iPhone 12: a segmented
-        /// control apportions width equally across its segments, so the longest
-        /// label decides for all of them, and at five scopes on a 390pt screen
-        /// "Downloads" rendered as "Downloa…". Narrowing the row's gutter was
-        /// not enough. "Offline" is shorter than "Favorites" and "Playlists",
-        /// which already render whole, so it cannot be the binding constraint —
-        /// and it names what the section is for rather than how it got there.
-        var title: String { self == .downloads ? "Offline" : rawValue.capitalized } }
+        /// "Downloads" again: it was "Offline" only because five SEGMENTS
+        /// split a 390pt row equally and "Downloads" truncated; a list row
+        /// has the width (iOS-DESIGN §2.7).
+        var title: String { self == .downloads ? "Downloads" : rawValue.capitalized }
+        var icon: String {
+            switch self {
+            case .downloads: "arrow.down.circle"
+            case .favorites: "heart"
+            case .history: "clock.arrow.circlepath"
+            case .playlists: "rectangle.stack"
+            case .clips: "scissors"
+            }
+        }
+    }
 
     private let cols = [GridItem(.adaptive(minimum: 110), spacing: 14)]
 
-    // IPAD-DESIGN §1.2: size class, never a device check.
-    @Environment(\.horizontalSizeClass) private var hSize
-
     var body: some View {
-        VStack(spacing: 0) {
-            Picker("", selection: $section) {
-                ForEach(Section.allCases) { Text($0.title).tag($0) }
+        Group {
+            if let place {
+                content(place)
+                    .navigationTitle(place.title)
+                    .navigationBarTitleDisplayMode(.inline)
+            } else {
+                places
+                    .navigationTitle("Library")
+                    // JOIN A ROOM (§11.9): a toolbar item, not a place — it
+                    // opens a room, it is not a collection of yours.
+                    .toolbar {
+                        ToolbarItem(placement: .topBarTrailing) { JoinRoomButton_iOS() }
+                    }
+                    .task {
+                        // Offline, Downloads is the only place that can play
+                        // anything, so the tab opens there (Decision 099).
+                        if !NetworkMonitor.shared.isOnline, !downloads.isEmpty,
+                           router.libraryPath.isEmpty {
+                            router.push(LibraryPlaceRoute(place: .downloads))
+                        }
+                    }
             }
-            .pickerStyle(.segmented)
-            // IPAD-DESIGN §2.2a — see BrowseView for the measurement.
-            .frame(maxWidth: hSize == .regular ? 560 : .infinity, alignment: .leading)
-            .frame(maxWidth: .infinity, alignment: .leading)
-            // A fifth scope arrived with Downloads; the row keeps the standard
-            // inset because the LABEL was shortened instead (see Section.title).
-            .padding()
-
-            switch section {
-            case .downloads: downloadsList
-            case .favorites: grid(store.itemsByIDs(favorites.map(\.archiveID)),
-                                  empty: "No favorites yet", icon: "heart")
-            case .history: historyList
-            case .playlists: playlistList
-            case .clips: clipsList
-            }
-        }
-        .navigationTitle("Library")
-        // JOIN A ROOM (§11.9). A toolbar item rather than a sixth scope: the
-        // picker above is already at its measured width limit — see
-        // `Section.title` for the iPhone 12 measurement that shortened
-        // "Downloads" to "Offline".
-        .toolbar {
-            ToolbarItem(placement: .topBarTrailing) { JoinRoomButton_iOS() }
         }
         .id(store.dbVersion)
-        .task {
-            // Offline, Downloads is the only section that can play anything, so
-            // the tab opens there rather than on a grid of unreachable posters.
-            if !NetworkMonitor.shared.isOnline, !downloads.isEmpty { section = .downloads }
+    }
+
+    @ViewBuilder private func content(_ place: Section) -> some View {
+        switch place {
+        case .downloads: downloadsList
+        case .favorites: grid(store.itemsByIDs(favorites.map(\.archiveID)),
+                              empty: "No favorites yet", icon: "heart")
+        case .history: historyList
+        case .playlists: playlistList
+        case .clips: clipsList
         }
+    }
+
+    // MARK: - The list of places (iOS-DESIGN §2.7)
+    //
+    // Measured on the iPhone 12: five segments were the width limit of a 390pt
+    // row ("Downloads" had already been shortened to "Offline" to fit), the
+    // tab opened on an empty Favorites grid, and nothing said what the other
+    // four held. A list of places names each one with its count, so an empty
+    // one is visible as empty without being the first thing you see — the
+    // shape of Apple Music's and the Apple TV app's libraries.
+
+    private func count(_ place: Section) -> Int {
+        switch place {
+        case .downloads: downloads.count
+        case .favorites: favorites.count
+        case .history: progress.count
+        case .playlists: playlists.count
+        case .clips: clips.count
+        }
+    }
+
+    private func countLabel(_ place: Section) -> String {
+        let n = count(place)
+        switch place {
+        case .downloads: return n == 0 ? "None" : "\(n) \(n == 1 ? "film" : "films")"
+        case .playlists: return n == 0 ? "None" : "\(n)"
+        case .clips: return n == 0 ? "None" : "\(n)"
+        default: return n == 0 ? "None" : "\(n)"
+        }
+    }
+
+    private var recent: [Catalog.Item] {
+        let ids = progress.sorted { $0.lastWatchedAt > $1.lastWatchedAt }.prefix(12).map(\.archiveID)
+        return store.itemsByIDs(Array(ids))
+    }
+
+    private var places: some View {
+        List {
+            SwiftUI.Section {
+                ForEach(Section.allCases) { place in
+                    Button { router.push(LibraryPlaceRoute(place: place)) } label: {
+                        HStack(spacing: 14) {
+                            Image(systemName: place.icon)
+                                .font(.title3)
+                                .foregroundStyle(Brand.primary)
+                                .frame(width: 30)
+                            Text(place.title)
+                                .font(.body)
+                                .foregroundStyle(.primary)
+                            Spacer(minLength: 8)
+                            Text(countLabel(place))
+                                .font(.body.monospacedDigit())
+                                .foregroundStyle(.secondary)
+                            Image(systemName: "chevron.right")
+                                .font(.footnote.weight(.semibold))
+                                .foregroundStyle(.tertiary)
+                        }
+                        .contentShape(.rect)
+                    }
+                    .buttonStyle(.plain)
+                    .accessibilityLabel("\(place.title), \(countLabel(place))")
+                }
+            }
+            if !recent.isEmpty {
+                SwiftUI.Section {
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        LazyHStack(alignment: .top, spacing: 14) {
+                            ForEach(recent) { item in
+                                Button { router.openDetail(item) } label: {
+                                    PosterTile(item: item, width: 110)
+                                }
+                                .buttonStyle(.plain)
+                            }
+                        }
+                        .padding(.vertical, 4)
+                    }
+                    .listRowInsets(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
+                } header: {
+                    Text("Recently Watched")
+                        .font(.title3.weight(.semibold))
+                        .foregroundStyle(.primary)
+                        .textCase(nil)
+                }
+            }
+        }
+        .listStyle(.insetGrouped)
     }
 
     // MARK: - Downloads (Decision 099)

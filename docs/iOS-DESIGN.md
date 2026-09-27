@@ -145,6 +145,21 @@ was removed the same day — owner: the pills "are all accessible from the
 deliberately inverts tvOS-DESIGN §9 ("a mode replaces the shell"): on the
 phone the nav bar IS the exit affordance.
 
+2.7 **Library is a list of places.** Owner, 2026-09-27: *"I'd like to figure out
+if there are better design patterns for Browse and Library (many different tabs
+with different, sometimes competing, purposes)."* Measured on the iPhone 12:
+five segments were the width limit of a 390pt row ("Downloads" had been cut to
+"Offline" to fit), the tab opened on an empty Favorites grid, and nothing said
+what the other four held. Now the tab is an inset-grouped List: Downloads,
+Favorites, History, Playlists, Clips, each a row with its icon and its count
+("None" when empty), pushing that one place (`LibraryPlaceRoute`, registered
+per §2.3). **Recently Watched** (the last twelve played) sits beneath as a
+poster row, so the tab is never an empty screen. Join a Room stays a toolbar
+button (it opens a room; it is not a collection of yours). Offline with
+downloads, the tab still opens straight onto Downloads (Decision 099). This is
+the shape of Apple Music's and the Apple TV app's libraries. A new kind of
+saved thing is a new ROW, never a segment.
+
 ---
 
 ## §3 — Surface taxonomy (the only allowed shapes)
@@ -205,7 +220,7 @@ List rows that contain two tap targets use `.borderless` so both hit-test
 (the Channels row pattern). Never apply the tvOS rule to iOS files or vice
 versa.
 
-4.2 **Native controls only.** Scopes = segmented `Picker` (Browse, Library).
+4.2 **Native controls only.** Scopes = segmented `Picker` (Browse; Channels at compact width, §2.5c — Library is a list of places, §2.7).
 Facets/sort = a toolbar `Menu` of Pickers (Browse's filter menu). Forms =
 `Form`/`Section` (Settings, Create Channel). Search = `.searchable` with
 `.navigationBarDrawer(displayMode: .always)` + a ~180 ms debounced
