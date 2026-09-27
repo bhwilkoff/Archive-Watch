@@ -14,6 +14,9 @@ struct LibraryView: View {
     @Query(sort: \Playlist.modifiedAt, order: .reverse) private var playlists: [Playlist]
     @Query(sort: \DownloadedFilm.addedAt, order: .reverse) private var downloads: [DownloadedFilm]
     @Environment(AppRouter.self) private var router
+    @Environment(\.modelContext) private var ctx
+    /// The playlist a "Delete Playlist…" is asking about.
+    @State private var deleting: Playlist?
 
     var body: some View {
         ScrollView {
@@ -37,18 +40,23 @@ struct LibraryView: View {
                             ShareLink(item: url) { Image(systemName: "square.and.arrow.up") }
                                 .buttonStyle(.borderless)
                                 .help("Share this playlist as a link")
+                                .accessibilityLabel("Share \(pl.name)")
                         }
                     }
                         .contextMenu {
                             if let url {
                                 ShareLink(item: url) {
-                                    Label("Share playlist", systemImage: "square.and.arrow.up")
+                                    Label("Share Playlist", systemImage: "square.and.arrow.up")
                                 }
                                 Button {
                                     NSPasteboard.general.clearContents()
                                     NSPasteboard.general.setString(url.absoluteString, forType: .string)
-                                } label: { Label("Copy link", systemImage: "link") }
+                                } label: { Label("Copy Link", systemImage: "link") }
                             }
+                            // The iPhone could delete a playlist and the Mac could not
+                            // (Mac loop, 2026-09-27). Asked first: it syncs everywhere.
+                            Divider()
+                            Button("Delete Playlist…", role: .destructive) { deleting = pl }
                         }
                 }
 
@@ -70,6 +78,19 @@ struct LibraryView: View {
             .padding(24)
         }
         .navigationTitle("Library")
+        .confirmationDialog("Delete \u{201C}\(deleting?.name ?? "")\u{201D}?",
+                            isPresented: Binding(get: { deleting != nil }, set: { if !$0 { deleting = nil } }),
+                            titleVisibility: .visible) {
+            Button("Delete Playlist", role: .destructive) {
+                if let pl = deleting {
+                    ctx.delete(pl)
+                    SyncNudge.recordDeletion("pl:\(pl.id)", in: ctx)   // as the iPhone does, so it stays deleted
+                }
+                deleting = nil
+            }
+        } message: {
+            Text("It is removed from your other devices too.")
+        }
     }
 
     // MARK: - Downloads (Decision 099)

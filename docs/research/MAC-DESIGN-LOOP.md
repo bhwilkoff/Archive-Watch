@@ -341,3 +341,12 @@ through Accessibility and its items pressed there (never pointer clicks).
   Also: archive.org now refuses this network in ~40 ms (a block on the
   address, not an outage), so editor runs that fetch clips are paused to
   let it lift — the Creation Studio connection-discipline note applies.
+- v1.42.821: playlists in Library. The Mac could share a playlist and not
+  delete one (the iPhone can): its shelf's context menu adds "Delete
+  Playlist…" behind a confirmation ("It is removed from your other devices
+  too."), deleting as the iPhone does, tombstone included (Decision 102).
+  The menu's items are Title Case ("Share Playlist", "Copy Link") and the
+  icon-only Share button is named ("Share Trippy Stuff" — verified through
+  AX). The context menu itself is built, not driven: AXShowMenu on a
+  SwiftUI context menu returns -25204, and the owner's real playlists were
+  not to be touched.
