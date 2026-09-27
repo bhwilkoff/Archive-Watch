@@ -139,23 +139,45 @@ struct ChannelsView: View {
     }
 
     private func ruler(timelineW: CGFloat) -> some View {
-        let ticks = Int(windowMinutes / 30)
-        let tickW = timelineW / CGFloat(ticks)
-        return HStack(spacing: 0) {
-            Color.clear.frame(width: railW)
-            ForEach(0..<ticks, id: \.self) { i in
-                let t = winStart.addingTimeInterval(Double(i) * 1800)
-                Text(isLive && i == 0 ? "NOW" : t.formatted(date: .omitted, time: .shortened))
-                    .font(.caption.weight(.semibold).monospacedDigit())
-                    .foregroundStyle(isLive && i == 0 ? accent : .secondary)
-                    .frame(width: tickW, alignment: .leading)
-                    .overlay(alignment: .leading) {
-                        Rectangle().fill(.secondary.opacity(0.25)).frame(width: 1)
-                    }
+        // Labels sit on the :00 and :30 marks, as a guide's do. The window starts
+        // at the current minute when live, so equal half-hour cells from there
+        // read "4:38, 5:08, 5:38" (Mac loop, 2026-09-27). The first label is
+        // NOW (or the window's own start); a mark too close to it is skipped.
+        let ppm = timelineW / CGFloat(windowMinutes)
+        let cal = Calendar.current
+        var marks: [Date] = []
+        if let hour = cal.dateInterval(of: .hour, for: winStart)?.start {
+            var t = hour
+            while t < winEnd {
+                let x = t.timeIntervalSince(winStart) * Double(ppm) / 60
+                if x >= 64 && x <= Double(timelineW) - 64 { marks.append(t) }   // clear of NOW and of the edge
+                t = t.addingTimeInterval(1800)
+            }
+        }
+        return ZStack(alignment: .topLeading) {
+            Color.clear.frame(width: railW + timelineW, height: 28)
+            tick(isLive ? "NOW" : winStart.formatted(date: .omitted, time: .shortened),
+                 highlighted: isLive)
+                .offset(x: railW)
+            ForEach(marks, id: \.self) { m in
+                tick(m.formatted(date: .omitted, time: .shortened), highlighted: false)
+                    .offset(x: railW + CGFloat(m.timeIntervalSince(winStart) / 60) * ppm)
             }
         }
         .frame(height: 28)
+        .clipped()
         .background(Color(nsColor: .underPageBackgroundColor))   // pinned header occludes rows beneath
+    }
+
+    private func tick(_ label: String, highlighted: Bool) -> some View {
+        Text(label)
+            .font(.caption.weight(.semibold).monospacedDigit())
+            .foregroundStyle(highlighted ? accent : .secondary)
+            .padding(.leading, 4)
+            .frame(height: 28)
+            .overlay(alignment: .leading) {
+                Rectangle().fill(.secondary.opacity(0.25)).frame(width: 1)
+            }
     }
 
     @ViewBuilder

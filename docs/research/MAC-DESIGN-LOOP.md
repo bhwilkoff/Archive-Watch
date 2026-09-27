@@ -215,3 +215,9 @@ through Accessibility and its items pressed there (never pointer clicks).
   blank when there is none (and hidden from VoiceOver then). Seen in Movies.
   The Pink Panther having no year at all is logged against the owner's
   Creation Studio rights question in SCRATCHPAD.
+- v1.42.805: the Channels ruler. Live, the window starts at the current
+  minute, and the ruler cut it into equal half hours from there: "NOW,
+  4:38, 5:08, 5:38…". Labels now sit on the clock's :00 and :30 marks at
+  their true positions (NOW first; a mark within 64 pt of NOW or of the
+  right edge is skipped, which also stops "7:00 P" being clipped). Program
+  placement is unchanged. Seen: NOW · 4:30 · 5:00 · 5:30 · 6:00 · 6:30.
