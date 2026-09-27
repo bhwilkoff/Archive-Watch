@@ -207,6 +207,7 @@ final class TimelineContentView: NSView, NSMenuItemValidation {
         layer?.sublayers?.forEach { $0.removeFromSuperlayer() }
         removeAllToolTips()   // re-added per handle below so the direct-manipulation grips are discoverable
         guard let layer else { return }
+        rebuildAccessibility()
 
         // Ruler ticks + labels.
         let stepSec = rulerStep(for: state.pps)
@@ -899,6 +900,62 @@ final class TimelineContentView: NSView, NSMenuItemValidation {
             default:  super.keyDown(with: event)
             }
         }
+    }
+}
+
+// VoiceOver. The timeline is drawn in CALayers, so it announced nothing: a
+// VoiceOver user heard "timeline" and could not find, count or select a clip
+// (Mac loop, 2026-09-27). Each clip, title and music block is an element with
+// its own frame; pressing it selects it, which is what a click does.
+private final class TimelineAXElement: NSAccessibilityElement {
+    var onPress: () -> Void = {}
+    override func accessibilityPerformPress() -> Bool { onPress(); return true }
+}
+
+extension TimelineContentView {
+    override func isAccessibilityElement() -> Bool { true }
+    override func accessibilityRole() -> NSAccessibility.Role? { .group }
+    override func accessibilityLabel() -> String? { "Timeline" }
+    override func accessibilityValue() -> Any? {
+        "Playhead at \(spoken(model.playheadSeconds)) of \(spoken(model.totalDuration))"
+    }
+
+    fileprivate func spoken(_ s: Double) -> String {
+        let t = Int(s.rounded())
+        return t >= 60 ? "\(t / 60) min \(t % 60) s" : "\(t) s"
+    }
+
+    private func axRect(start: Double, duration: Double, y: CGFloat, h: CGFloat) -> CGRect {
+        CGRect(x: x(start), y: y, width: max(2, x(duration)), height: h)
+    }
+
+    func rebuildAccessibility() {
+        var kids: [TimelineAXElement] = []
+        func add(_ label: String, _ rect: CGRect, _ id: UUID) {
+            let e = TimelineAXElement()
+            e.setAccessibilityParent(self)
+            e.setAccessibilityRole(.button)
+            e.setAccessibilityLabel(label)
+            e.setAccessibilityFrameInParentSpace(rect)
+            e.setAccessibilitySelected(state.selectedIDs.contains(id))
+            e.onPress = { [weak self] in self?.model.selectOnly(id) }
+            kids.append(e)
+        }
+        for (i, c) in state.clips.enumerated() {
+            add("Clip \(i + 1) of \(state.clips.count), \(c.label), \(spoken(c.sourceRange.duration.seconds))",
+                axRect(start: c.timelineStart.seconds, duration: c.sourceRange.duration.seconds, y: trackTop, h: trackH), c.id)
+        }
+        for o in state.overlays {
+            add("Title, \(o.text)",
+                axRect(start: o.timelineRange.start.seconds, duration: o.timelineRange.duration.seconds, y: titleTop, h: laneH), o.id)
+        }
+        for (lane, clips) in packedAudioLanes().enumerated() {
+            for a in clips {
+                add("\(a.kind.label), \(a.displayName)",
+                    axRect(start: a.startSeconds, duration: audioBlockDuration(a), y: audioLaneY(lane), h: laneH), a.id)
+            }
+        }
+        setAccessibilityChildren(kids)
     }
 }
 #endif

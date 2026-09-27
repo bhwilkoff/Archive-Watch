@@ -84,3 +84,10 @@ through Accessibility and its items pressed there (never pointer clicks).
   public-domain films into clips, montages and supercuts, then export them.";
   "No recent projects yet."). Library, Watch Together and Settings seen clean.
 
+- v1.42.789: the timeline speaks. It is CALayers in one NSView, so VoiceOver
+  heard "timeline" and nothing inside it. Now it is a group whose value is the
+  playhead ("Playhead at 4 s of 15 s") and whose children are every clip
+  ("Clip 1 of 2, Dick Tracy Movie Serial Chapter 6, 8 s"), title and music
+  block, each framed where it is drawn; pressing one selects it. Measured
+  through the AX API on the running editor: the dump lists both clips with
+  the right selection, and an AXPress on clip 1 moved the selection to it.
