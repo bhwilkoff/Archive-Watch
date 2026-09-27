@@ -261,3 +261,8 @@ through Accessibility and its items pressed there (never pointer clicks).
   disabled on an empty title) waits for it. Seen in the sheet (nothing was
   published). Its "N public-domain titles" line is tied to the open owner
   rights question in SCRATCHPAD and is left as is.
+- v1.42.809: a Look was labeled "Techni" — an abbreviation (Decision 134)
+  of a company's trademark. It is "Vivid", which is what the chain does
+  (chrome + saturation), on macOS, iOS and Android alike; the raw value and
+  the Kotlin enum name are unchanged, so saved projects keep their grade.
+  Mac and iOS build; Android's is a label string only.

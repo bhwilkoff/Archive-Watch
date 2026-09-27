@@ -131,7 +131,7 @@ enum class ClipLook(val label: String) {
     SILENT("Silent"),
     NOIR("Noir"),
     FADED("Faded"),
-    TECHNICOLOR("Techni"),
+    TECHNICOLOR("Vivid"), // was "Techni" (an abbreviation of a trademark); the enum name stays for saved state
     MONO("B&W");
 
     /** Native Media3 video effects for this look. Empty for NONE. */

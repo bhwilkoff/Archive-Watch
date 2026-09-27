@@ -20,7 +20,7 @@ enum ClipLook: String, CaseIterable, Identifiable, Sendable, Codable {
         case .silent:      return "Silent"
         case .noir:        return "Noir"
         case .faded:       return "Faded"
-        case .technicolor: return "Techni"
+        case .technicolor: return "Vivid"   // was "Techni": an abbreviation, of a trademark (the raw value stays for saved projects)
         case .mono:        return "B&W"
         }
     }
