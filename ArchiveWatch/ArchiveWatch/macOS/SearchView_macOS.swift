@@ -59,7 +59,7 @@ struct SearchView: View {
                 // Saturday Night Live sketch with Michael Keaton.
                 VStack(alignment: .leading, spacing: 8) {
                     if !filtered.isEmpty {
-                        if showEpisodes { Text("Films & Shows").font(.title2.bold()).padding([.horizontal, .top]) }
+                        if showEpisodes { Text("Films & Shows").font(.title2.bold()).accessibilityAddTraits(.isHeader).padding([.horizontal, .top]) }
                         LazyVGrid(columns: [GridItem(.adaptive(minimum: 150, maximum: 200), spacing: 16)],
                                   spacing: 18) {
                             ForEach(filtered) { PosterCard(item: $0) }
@@ -67,7 +67,7 @@ struct SearchView: View {
                         .padding()
                     }
                     if showEpisodes {
-                        Text("Episodes").font(.title2.bold()).padding(.horizontal)
+                        Text("Episodes").font(.title2.bold()).accessibilityAddTraits(.isHeader).padding(.horizontal)
                         VStack(spacing: 2) {
                             ForEach(allEpisodes ? episodeResults : Array(episodeResults.prefix(5))) { item in
                                 Button { router.openDetail(item) } label: { EpisodeItemRow(item: item) }

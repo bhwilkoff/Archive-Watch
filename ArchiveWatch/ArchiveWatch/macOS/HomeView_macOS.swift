@@ -247,7 +247,7 @@ struct CategoryTilesRow: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             if !categories.isEmpty {
-                Text("Browse by Category").font(.title3).fontWeight(.semibold)
+                Text("Browse by Category").font(.title3).fontWeight(.semibold).accessibilityAddTraits(.isHeader)
                 ScrollView(.horizontal, showsIndicators: false) {
                     LazyHStack(spacing: 12) {
                         ForEach(categories) { cat in
@@ -314,7 +314,7 @@ struct DecadeTilesRow: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             if !decades.isEmpty {
-                Text("Browse by Era").font(.title3).fontWeight(.semibold)
+                Text("Browse by Era").font(.title3).fontWeight(.semibold).accessibilityAddTraits(.isHeader)
                 ScrollView(.horizontal, showsIndicators: false) {
                     LazyHStack(spacing: 12) {
                         ForEach(decades, id: \.self) { decade in

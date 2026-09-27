@@ -87,7 +87,7 @@ struct PartyPlayView: View {
                     .buttonStyle(.borderedProminent).controlSize(.large).padding(.top, 4)
                 }
                 if !preview.isEmpty {
-                    Text("What's in the mix").font(.title3).fontWeight(.semibold)
+                    Text("What's in the mix").font(.title3).fontWeight(.semibold).accessibilityAddTraits(.isHeader)
                     ScrollView(.horizontal, showsIndicators: false) {
                         LazyHStack(spacing: 14) {
                             ForEach(preview) { PosterCard(item: $0).frame(width: 140) }

@@ -85,7 +85,7 @@ struct DetailView: View {
                 let related = store.related(to: item)
                 if !related.isEmpty {
                     VStack(alignment: .leading, spacing: 8) {
-                        Text("More Like This").font(.title3).fontWeight(.semibold)
+                        Text("More Like This").font(.title3).fontWeight(.semibold).accessibilityAddTraits(.isHeader)
                         ScrollView(.horizontal, showsIndicators: false) {
                             LazyHStack(spacing: 14) {
                                 ForEach(related) { PosterCard(item: $0).frame(width: 140) }
@@ -585,7 +585,7 @@ struct DetailView: View {
     /// Scenes (macOS-DESIGN §B7c): a frame plays the film from its second.
     private var scenesRow: some View {
         VStack(alignment: .leading, spacing: 8) {
-            Text("Scenes").font(.title3).fontWeight(.semibold)
+            Text("Scenes").font(.title3).fontWeight(.semibold).accessibilityAddTraits(.isHeader)
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack(spacing: 14) {
                     ForEach(scenes, id: \.seconds) { s in
@@ -613,7 +613,7 @@ struct DetailView: View {
 
     private var castRow: some View {
         VStack(alignment: .leading, spacing: 8) {
-            Text("Cast & Crew").font(.title3).fontWeight(.semibold)
+            Text("Cast & Crew").font(.title3).fontWeight(.semibold).accessibilityAddTraits(.isHeader)
             ScrollView(.horizontal, showsIndicators: false) {
                 // TOP-ALIGNED, because the cells are not all the same height:
                 // a director has a role line and a cast member may not, and
@@ -694,7 +694,7 @@ struct DetailView: View {
 
     private var reviews: some View {
         VStack(alignment: .leading, spacing: 10) {
-            Text("Reviews").font(.title3).fontWeight(.semibold)
+            Text("Reviews").font(.title3).fontWeight(.semibold).accessibilityAddTraits(.isHeader)
             ForEach(item.displayReviews.prefix(6)) { r in
                 VStack(alignment: .leading, spacing: 3) {
                     HStack {

@@ -80,7 +80,7 @@ struct LibraryView: View {
     @ViewBuilder private var downloadsSection: some View {
         VStack(alignment: .leading, spacing: 10) {
             HStack(alignment: .firstTextBaseline) {
-                Text("Downloads").font(.title2.weight(.semibold))
+                Text("Downloads").font(.title2.weight(.semibold)).accessibilityAddTraits(.isHeader)
                 Text("\(downloads.count) on this Mac · "
                      + OfflineLibrary.byteText(OfflineLibrary.bytesUsed()))
                     .font(.subheadline).foregroundStyle(.secondary)

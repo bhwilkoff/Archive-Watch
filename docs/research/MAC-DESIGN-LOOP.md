@@ -325,3 +325,11 @@ through Accessibility and its items pressed there (never pointer clicks).
   label, one the menu's own); it reads "Season 1 ⌄". Seen on One Step
   Beyond. NOTED, not built: a series page has no Play (first episode, or
   resume) on the Mac or the iPhone — a feature, not a fix, so it waits.
+- v1.42.819: headings. Home's ~30 shelf titles, Detail's More Like This /
+  Scenes / Cast & Crew / Reviews, Library's Downloads, Search's Films &
+  Shows / Episodes, Browse by Category / Era and Party Play's mix were all
+  plain text, so VoiceOver could not jump section to section (VO-⌘-H) — on
+  Home the only way down was every poster in turn. Each is a header now.
+  Verified through AX: Home lists 30 AXHeading, "Continue Watching" first.
+  Also seen: a series' episode rows are buttons that read "S1 · E1, <title>,
+  <synopsis>" — fine as they were.

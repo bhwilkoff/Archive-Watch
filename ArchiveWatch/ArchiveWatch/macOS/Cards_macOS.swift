@@ -174,7 +174,9 @@ struct ShelfRow<Trailing: View>: View {
         if !items.isEmpty {
             VStack(alignment: .leading, spacing: 8) {
                 HStack(spacing: 10) {
-                    Text(title).font(.title3).fontWeight(.semibold).foregroundStyle(accent)
+                    // A heading, so VoiceOver can jump shelf to shelf (VO-⌘-H); as plain text the
+                    // only way down Home was every poster in turn (Mac loop, 2026-09-27).
+                    Text(title).font(.title3).fontWeight(.semibold).foregroundStyle(accent).accessibilityAddTraits(.isHeader)
                     trailing()
                 }
                 ScrollView(.horizontal, showsIndicators: false) {
