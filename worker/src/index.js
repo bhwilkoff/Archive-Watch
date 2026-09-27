@@ -119,6 +119,7 @@ export default {
     // feeds, and each channel as a link. Open to any origin, stores nothing.
     if (url.pathname === "/player_api.php" || url.pathname === "/get.php" ||
         url.pathname === "/xmltv.php" || url.pathname.startsWith("/movie/") ||
+        url.pathname.startsWith("/series/") ||
         /^\/live\/[^/]+\/[^/]+\//.test(url.pathname)) {
       const r = await handleXtream(url);
       if (r) return r;

@@ -47,9 +47,15 @@ DAYS_BACK = 1
 DAYS_AHEAD = 3
 
 
+# A known length is the film's length. The apps' old rule trusted only lengths
+# over two minutes and gave anything shorter its type's default, so a 104-second
+# silent film got a 90-minute slot of dead air (the owner's Documentary channel,
+# 2026-09-27). Under MIN_KNOWN seconds a runtime is treated as unknown.
+MIN_KNOWN = 30
+
+
 def slot_seconds(runtime, ctype) -> int:
-    """The apps' own rule (ChannelScheduler.duration), kept identical."""
-    if runtime and runtime > 120:
+    if runtime and runtime >= MIN_KNOWN:
         return int(min(runtime, 3 * 3600))
     if ctype in ("feature-film", "silent-film"):
         return 90 * 60
@@ -119,6 +125,15 @@ def build(pools: dict, previous: dict, today: dt.date) -> dict:
         for day in days:
             key = day.isoformat()
             block = held.get(key)
+            if block and day > today and any(
+                    s[0] in eligible and s[1] != slot_seconds(eligible[s[0]][2], eligible[s[0]][4])
+                    for s in block["slots"]):
+                # A future day laid out under the old length rule is rebuilt
+                # (from here on, since each day starts where the last ended);
+                # today and earlier keep their published times.
+                print(f"  {ch['id']} {key}: slot lengths from the old rule, rebuilt")
+                held = {k: v for k, v in held.items() if k < key}
+                block = None
             if block and block.get("slots"):
                 block = {"start": block["start"], "slots": [list(s) for s in block["slots"]]}
                 if day >= today:

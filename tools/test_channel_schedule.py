@@ -84,5 +84,10 @@ os.environ["TZ"] = "Pacific/Kiritimati"; time.tzset()
 e = S.build(POOLS, {}, TODAY)
 check("the schedule is the same in any time zone", e["channels"] == a["channels"])
 
+# A short film's slot is its own length, not its type's 90-minute default.
+check("a 104-second silent film gets a 104-second slot", S.slot_seconds(104, "silent-film") == 104)
+check("control: an unknown length still takes the type default", S.slot_seconds(None, "silent-film") == 90 * 60)
+check("a runtime under 30 s is treated as unknown", S.slot_seconds(5, "feature-film") == 90 * 60)
+
 print(f"\n{fails} failure(s)")
 sys.exit(1 if fails else 0)

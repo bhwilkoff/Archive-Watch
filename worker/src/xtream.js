@@ -106,7 +106,7 @@ function account(url) {
     user_info: {
       username, password, message: "Archive Watch — public-domain films from the Internet Archive",
       auth: 1, status: "Active", exp_date: null, is_trial: "0", active_cons: "0",
-      created_at: "1790467200", max_connections: "1", allowed_output_formats: ["ts", "m3u8"],
+      created_at: "1790467200", max_connections: "1000", allowed_output_formats: ["ts", "m3u8"],
     },
     server_info: {
       url: url.hostname, port: "443", https_port: "443", server_protocol: "https",

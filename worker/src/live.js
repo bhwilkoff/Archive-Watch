@@ -44,8 +44,12 @@ export function onAir(file, channelId, now) {
         const p = file.programs[id];
         if (!p) return null;
         const offset = Math.max(0, now - t);
-        found = { id, title: p[0], url: p[2], offset, ends: end, length: secs,
-                  remaining: end - Math.max(now, t), next: null };
+        // The slot can outlast the film: days published before 2026-09-27
+        // gave a film of two minutes or less a 90-minute slot. What is left
+        // is measured against the FILM's length, never the slot's.
+        const length = p[1] && p[1] > 0 ? Math.min(secs, p[1]) : secs;
+        found = { id, title: p[0], url: p[2], offset, ends: end, length,
+                  remaining: Math.max(0, t + length - Math.max(now, t)), next: null };
       }
       t = end + file.gap;
     }
