@@ -55,19 +55,18 @@ struct ChannelsView: View {
         .navigationTitle("Channels")
         .toolbar {
             ToolbarItem {
-                Button {
-                    store.channelCommercialBreaks.toggle()
-                } label: {
-                    Label("Commercial breaks",
-                          systemImage: store.channelCommercialBreaks ? "tv.fill" : "tv.slash")
+                // A TOGGLE, not a button that swaps icons: it shows its state
+                // as pressed, and VoiceOver reads it as on or off.
+                Toggle(isOn: Binding(get: { store.channelCommercialBreaks },
+                                     set: { store.channelCommercialBreaks = $0 })) {
+                    Label("Commercial Breaks", systemImage: "tv")
                 }
-                .help(store.channelCommercialBreaks
-                      ? "Commercial breaks on — click to turn off"
-                      : "Commercial breaks off — click to turn on")
+                .toggleStyle(.button)
+                .help("Commercial breaks between programs")
             }
             ToolbarItem {
-                Button { showCreate = true } label: { Label("Create channel", systemImage: "plus") }
-                    .help("Create a custom channel")
+                Button { showCreate = true } label: { Label("New Channel", systemImage: "plus") }
+                    .help("New Channel")
             }
         }
         .task(id: store.dbVersion) { await load() }

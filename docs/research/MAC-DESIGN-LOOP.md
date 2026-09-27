@@ -311,3 +311,9 @@ through Accessibility and its items pressed there (never pointer clicks).
   disabled button — a refusal, which is what a caption is for. The name
   field's "My Channel" is the placeholder for a name built from the chosen
   filters ("1940s Drama"), shown only while none is chosen, so it stays.
+- v1.42.816: Channels' commercial-breaks control was a button that swapped
+  two icons (tv.fill / tv.slash): VoiceOver heard a button with no state,
+  and on screen the only sign of on/off was which glyph. It is a native
+  button-style Toggle ("Commercial Breaks", pressed when on). The "+" is
+  "New Channel", as its sheet is now titled. Verified through AX: an
+  AXToggle whose value flips 1 → 0 → 1 on press (left as it was, on).
