@@ -442,6 +442,14 @@ separate tool with its own conventions (CLAUDE.md) — these rules govern the
   the Archive, wrapping and centered on a phone because it no longer has to
   fit one line. §8.1's "reachable from the footer" still holds, and About
   stays one tap from every page through it.
+- **§8.6 Side doors are findable, never featured.** Owner, 2026-09-26: feeds
+  for other apps and assistant access *"must not distract"* from finding and
+  playing films; 2026-09-27: make them *"more prominent ... without making
+  them tentpole features."* So /feeds/ (the M3U playlists, the XMLTV guide,
+  the MCP address) is reached from ONE footer link on every page ("In other
+  players", including the film pages) and ONE About card after "Get the app",
+  and from nowhere else: no navigation tab, no Home row, no Detail button,
+  and nothing in the native apps.
 
 ## §9 Parity discipline
 

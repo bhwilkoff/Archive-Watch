@@ -163,7 +163,7 @@ HEAD = """<!DOCTYPE html>
 FOOT = """</main>
 <footer>Public domain, from the Internet Archive. Free to watch on Archive Watch
 &mdash; no account, no ads. <a href="/films/">All films A&ndash;Z</a> &middot;
-<a href="/privacy.html">Privacy</a></footer>
+<a href="/feeds/">In other players</a> &middot; <a href="/privacy.html">Privacy</a></footer>
 </body>
 </html>
 """
