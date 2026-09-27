@@ -68,8 +68,8 @@ because the loop was stopped mid-stride for a Claude update.
    locally is one thing; **Publish uploads the edit to archive.org dedicated to
    the public domain (CC0)**, and a CC0 dedication over a 1963 studio film is a
    claim we cannot stand behind. The Watch Together Studio and the Home marquee
-   already use a stronger tier (`isHeroRightsSafe`: safe buckets, and
-   `safe_pd_age` only from 1978 on). Options: (a) gate PUBLISH (not clipping)
+   already use a stronger tier (`isHeroRightsSafe`: the hero-safe buckets
+   only, and a title from 1978 on only if public domain by age). Options: (a) gate PUBLISH (not clipping)
    on every clip being hero-rights-safe, with a refusal naming the film;
    (b) gate clipping itself the same way; (c) leave it. (a) is my
    recommendation — Decision 027 reserves the call.
