@@ -384,6 +384,10 @@ private struct CreateChannelSheet: View {
 
     var body: some View {
         VStack(spacing: 0) {
+            // The sheet opened on "Filters" with nothing saying what it made.
+            Text("New Channel").font(.headline)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding([.horizontal, .top], 20)
             Form {
                 Section("Filters") {
                     Picker("Genre", selection: $genre) {
@@ -406,6 +410,10 @@ private struct CreateChannelSheet: View {
             .formStyle(.grouped)
             Divider()
             HStack {
+                // A refusal says why: Create was greyed with no reason.
+                if !canSave {
+                    Text("Choose at least one filter.").font(.caption).foregroundStyle(.secondary)
+                }
                 Spacer()
                 Button("Cancel") { dismiss() }.keyboardShortcut(.cancelAction)   // Esc closes the sheet
                 Button("Create") { create() }
@@ -414,7 +422,7 @@ private struct CreateChannelSheet: View {
             }
             .padding(12)
         }
-        .frame(width: 440, height: 340)
+        .frame(width: 440, height: 380)
     }
 
     private func create() {

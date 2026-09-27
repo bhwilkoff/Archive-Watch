@@ -305,3 +305,9 @@ through Accessibility and its items pressed there (never pointer clicks).
   (every other sheet already was). Verified on the Export sheet through
   AX: present, Esc, absent. Create Channel also loses its footer sentence
   explaining what a channel does.
+- v1.42.815: Create Channel. It opened on "Filters" with no heading, and
+  Create sat greyed with no reason (it needs at least one filter). It is
+  headed "New Channel" and says "Choose at least one filter." beside the
+  disabled button — a refusal, which is what a caption is for. The name
+  field's "My Channel" is the placeholder for a name built from the chosen
+  filters ("1940s Drama"), shown only while none is chosen, so it stays.
