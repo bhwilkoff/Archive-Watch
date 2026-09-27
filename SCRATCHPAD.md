@@ -54,12 +54,12 @@ because the loop was stopped mid-stride for a Claude update.
 
 ### Open owner items (nothing else is blocked)
 
-0-NEW-2026-09-27. **TWO APPLE DEVICES COULD NOT BE CHECKED.** The iPhone 12
-   shows a Screen Time "Time Limit — You've reached your limit on ArchiveWatch"
-   wall (left untouched: a family setting), and the iPad Pro was locked, so
-   Channels-on-one-clock, Tonight and Scenes are unseen on iOS. Either one
-   freed would close it. The Roku one-clock guide also needs the next store
-   package (sideloaded and verified on both Rokus).
+0-NEW-2026-09-27. **The iPhone 12 is free again** (the Screen Time wall
+   lifted; Tonight and the new Channels are seen on it). **Open**: tap the
+   restore button of a picture-in-picture window once (§4.4a — the one path
+   not automatable); the Film Noir collection holds The Grapes of Wrath and
+   Sabrina because archive.org's does (keep or override: yours); the Roku
+   one-clock guide needs the next store package (sideloaded and verified).
 
 0-NOW. **OAUTH APPROVED (2026-09-26); QUOTA SCREENCAST SENT, WAITING ON GOOGLE.**
    `auth/youtube` verification passed; no code change was needed. The quota
@@ -715,6 +715,16 @@ up in `collection_touchups.json` (the weekly harvest applies it), one dropped.
 **The "Continue as Ben" sheet is the YOUTUBE app's**, not ours: its window
 belongs to com.google.android.youtube (task 637), floating over our task.
 Archive Watch asks Google only from Settings > Sign in. Nothing changed.
+
+**iPhone design loop** (owner: "a design iteration on every surface of the
+iPhone app", on the iPhone 12; `docs/research/IPHONE-DESIGN-LOOP.md`),
+v1.42.769 -> .779: Channels opens on an On Now list with the Guide grid a tap
+away and channel surfing in the player; Library is a list of places; Browse's
+filters are visible chips; Detail is Play + four labeled actions + More, a
+four-line synopsis and a Details disclosure; Search leads with films; titles
+from data wrap in the page; large text sizes hold; in-app picture-in-picture
+leaves the app browsable (restore not yet tapped). Shelf subtitles on EVERY
+platform now name their source instead of model-written taglines.
 
 **Seen on the Apple TV**: Tonight ("TONIGHT · The Cocoanuts") and Scenes.
 **Not seen**: iPhone 12 is behind a Screen Time "Time Limit" for the app; the

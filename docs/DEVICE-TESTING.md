@@ -266,6 +266,35 @@ xcodebuild -scheme "Archive Watch Mac"  -destination 'generic/platform=macOS'
 | `tools/verify_tv_focus.sh`, `tv_browser_tests.js` | Focus reachability on TV surfaces |
 | `tools/download_audit.py` + `DownloadAudit.swift` (`AW_DOWNLOAD_AUDIT`) | Offline downloads end to end: a real archive.org transfer, the file on disk, AVFoundation decoding it, removal — and the offline surfaces by OCR |
 
+### 8a. iPhone launch doors (DEBUG builds only)
+
+Pass as `-e '{...}'` to `devicectl device process launch` (or `env=` in
+`tools/ios_scenario.launch`). They exist so a sweep reaches every surface
+without a tap on the owner's device (2026-09-27 design loop). The iPhone 12 is
+the rapid-iteration device (owner: "Use the iPhone 12 as the testing device
+for rapid iteration").
+
+| Door | What it does |
+|---|---|
+| `AW_START_TAB=home\|browse\|channels\|search\|library` | lands on a tab |
+| `AW_START_ITEM=<archiveID>` | opens that Detail; with `AW_AUTOPLAY=1` plays it |
+| `AW_MUTE=1` | the player is silent (use it: never play audio at the owner) |
+| `AW_CHANNELS_MODE=onNow\|guide` | Channels' phone view |
+| `AW_TUNE_CHANNEL=<id>`, `AW_SURF=N` | tunes a channel; changes channel N times, 6 s apart |
+| `AW_OPEN_SCHEDULE=<channel id>` | a channel's day schedule |
+| `AW_BROWSE_SCOPE=tv\|collections`, `AW_BROWSE_FILTER=type=…,decade=…` | Browse scope and chips |
+| `AW_SEARCH=<query>` | types a search |
+| `AW_OPEN_COLLECTION=<id>`, `AW_OPEN_CATEGORY=<contentType>` | a collection or category grid |
+| `AW_OPEN_SETTINGS=1` | the Settings sheet |
+| `AW_HOME_SCROLL=categories\|decades` | Home scrolled to a row |
+| `AW_TYPE_SIZE=xxxLarge\|accessibility2\|accessibility3` | the whole app at that Dynamic Type size |
+
+Picture-in-picture is exercised by playing a film (`AW_AUTOPLAY` + `AW_MUTE`),
+launching another app (`com.apple.Preferences`) so PiP starts automatically,
+then launching Archive Watch again WITHOUT `--terminate-existing`; judge motion
+by differencing two screenshots of the PiP window. Restore needs a tap and is
+not automated.
+
 ## 9. Severing the network without severing yourself
 
 To prove something works offline, deny the network to the APP'S PROCESS:
