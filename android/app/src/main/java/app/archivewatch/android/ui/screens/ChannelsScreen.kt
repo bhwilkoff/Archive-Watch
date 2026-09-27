@@ -57,17 +57,19 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.clipToBounds
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import app.archivewatch.android.app.AppContainer
-import app.archivewatch.android.data.ChannelPresets
+import app.archivewatch.android.data.guide
 import app.archivewatch.android.data.ChannelScheduler
 import app.archivewatch.android.data.GuideChannel
 import app.archivewatch.android.data.PlaySpec
 import app.archivewatch.android.data.QueueEntry
 import app.archivewatch.android.data.ScheduledProgram
+import app.archivewatch.android.ui.EmptyState
 import app.archivewatch.android.ui.LoadingBox
 import app.archivewatch.android.ui.Nav
 import app.archivewatch.android.ui.tv.TvPageHeader
@@ -80,9 +82,7 @@ import app.archivewatch.android.ui.tv.tvTextFieldEscape
 import app.archivewatch.android.ui.Route
 import app.archivewatch.android.ui.theme.colorFromHex
 import kotlinx.coroutines.launch
-import java.text.SimpleDateFormat
 import java.util.Date
-import java.util.Locale
 
 // Channels (PARITY §5, ANDROID-DESIGN §4.6): the proportional EPG guide in the
 // Material idiom. Same anatomy as tvOS/iOS: a sticky half-hour ruler, a fixed
@@ -100,8 +100,14 @@ fun ChannelsScreen(container: AppContainer, nav: Nav) {
     val userChanges by container.userState.changes.collectAsState()
     var windowStartMs by remember { mutableStateOf<Long?>(null) }   // null = live
     var showCreate by remember { mutableStateOf(false) }
+    var retry by remember { mutableStateOf(0) }
+    // The first slot the published schedule carries: the guide cannot shift
+    // earlier than the timeline it has. Null = no schedule, so the preset
+    // rows are replaced by a Retry row.
+    var scheduleFloorMs by remember { mutableStateOf<Long?>(null) }
+    var scheduleMissing by remember { mutableStateOf(false) }
 
-    val guide by produceState<List<GuideChannel>?>(null, dbVersion, userChanges) {
+    val guide by produceState<List<GuideChannel>?>(null, dbVersion, userChanges, retry) {
         val db = container.catalog.awaitDb()
         val nowMs = System.currentTimeMillis()
         // User channels lead the guide (same as the Apple apps).
@@ -119,15 +125,20 @@ fun ChannelsScreen(container: AppContainer, nav: Nav) {
             if (slots.isEmpty()) null
             else GuideChannel("user-${uc.id}", uc.name, "#0047FF", slots)
         }
-        val presets = ChannelPresets.all.mapNotNull { preset ->
-            val pool = db.browse(
-                contentType = preset.contentType, genre = preset.genre,
-                limit = 90, full = true,
-            ).filter { it.downloadURL != null }
-            val slots = ChannelScheduler.schedule(preset.id, pool, nowMs)
-            if (slots.isEmpty()) null
-            else GuideChannel(preset.id, preset.title, preset.accentHex, slots)
+        // Presets play the ONE published timeline (ANDROID-DESIGN §4.6):
+        // the same program at the same instant for every viewer anywhere.
+        val schedule = container.editorial.channelSchedule(nowMs)
+        val fromMs = ChannelScheduler.dayAnchorMs(nowMs)
+        val untilMs = nowMs + 26 * 3600_000L
+        val presets = if (schedule == null) emptyList() else {
+            val ids = schedule.channels.flatMap { ch ->
+                ch.slots.filter { it.endMs > fromMs && it.startMs < untilMs }.map { it.id }
+            }.distinct()
+            val known = db.itemsByIDs(ids).associateBy { it.archiveID }
+            schedule.guide(fromMs, untilMs, known)
         }
+        scheduleMissing = schedule == null
+        scheduleFloorMs = schedule?.firstStartMs
         value = user + presets
     }
 
@@ -158,6 +169,15 @@ fun ChannelsScreen(container: AppContainer, nav: Nav) {
     ) { padding ->
         val channels = guide
         if (channels == null) { LoadingBox(Modifier.padding(padding)); return@Scaffold }
+        if (channels.isEmpty() && scheduleMissing) {
+            EmptyState(
+                "The channel guide could not be loaded.",
+                Modifier.padding(padding),
+                onRetry = { retry += 1 },
+            )
+            return@Scaffold
+        }
+        val fmt = rememberTimeFormat()
 
         val nowMs = System.currentTimeMillis()
         val isCompact = LocalConfiguration.current.screenWidthDp < 600
@@ -185,18 +205,18 @@ fun ChannelsScreen(container: AppContainer, nav: Nav) {
                 verticalAlignment = Alignment.CenterVertically,
             ) {
                 IconButton(onClick = {
-                    windowStartMs = shift(windowStartMs, -90, nowMs)
+                    windowStartMs = shift(windowStartMs, -90, nowMs, scheduleFloorMs)
                 }) {
                     Icon(Icons.AutoMirrored.Filled.KeyboardArrowLeft, contentDescription = "Earlier")
                 }
                 Text(
-                    "${timeLabel(start)} – ${timeLabel(endMs)}",
+                    "${timeLabel(start, fmt)} – ${timeLabel(endMs, fmt)}",
                     style = MaterialTheme.typography.labelLarge,
                     modifier = Modifier.weight(1f),
                     fontWeight = FontWeight.SemiBold,
                 )
                 IconButton(onClick = {
-                    windowStartMs = shift(windowStartMs, 90, nowMs)
+                    windowStartMs = shift(windowStartMs, 90, nowMs, scheduleFloorMs)
                 }) {
                     Icon(Icons.AutoMirrored.Filled.KeyboardArrowRight, contentDescription = "Later")
                 }
@@ -227,22 +247,48 @@ fun ChannelsScreen(container: AppContainer, nav: Nav) {
                         }) else null,
                     )
                 }
+                if (scheduleMissing) {
+                    item(key = "schedule-missing") {
+                        Row(
+                            Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 8.dp),
+                            verticalAlignment = Alignment.CenterVertically,
+                        ) {
+                            Text(
+                                "The channel guide could not be loaded.",
+                                style = MaterialTheme.typography.bodyMedium,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                modifier = Modifier.weight(1f),
+                            )
+                            androidx.compose.material3.TextButton(onClick = { retry += 1 }) {
+                                Text("Retry")
+                            }
+                        }
+                    }
+                }
                 item(key = "footer") { Spacer(Modifier.height(24.dp)) }
             }
         }
     }
 }
 
-private fun shift(current: Long?, minutes: Long, nowMs: Long): Long? {
+private fun shift(current: Long?, minutes: Long, nowMs: Long, scheduleFloorMs: Long?): Long? {
     val proposed = (current ?: nowMs) + minutes * 60_000L
-    val floor = ChannelScheduler.dayAnchorMs(nowMs)
+    // The local broadcast day bounds how far back the guide goes, and never
+    // past the first program the published schedule carries.
+    val floor = maxOf(ChannelScheduler.dayAnchorMs(nowMs), scheduleFloorMs ?: Long.MIN_VALUE)
     val ceiling = nowMs + 20 * 3600_000L
     val clamped = proposed.coerceIn(floor, ceiling)
     return if (kotlin.math.abs(clamped - nowMs) < 300_000L) null else clamped
 }
 
-private fun timeLabel(ms: Long): String =
-    SimpleDateFormat("h:mm a", Locale.getDefault()).format(Date(ms))
+/** The device's own 12/24-hour setting, in the viewer's zone. */
+@Composable
+private fun rememberTimeFormat(): java.text.DateFormat {
+    val context = LocalContext.current
+    return remember(context) { android.text.format.DateFormat.getTimeFormat(context) }
+}
+
+private fun timeLabel(ms: Long, fmt: java.text.DateFormat): String = fmt.format(Date(ms))
 
 private suspend fun tune(container: AppContainer, nav: Nav,
                          channel: GuideChannel, slot: ScheduledProgram) {
@@ -290,6 +336,7 @@ private suspend fun tune(container: AppContainer, nav: Nav,
 @Composable
 private fun Ruler(startMs: Long, windowMinutes: Int, railW: androidx.compose.ui.unit.Dp,
                   isLive: Boolean) {
+    val fmt = rememberTimeFormat()
     val ticks = windowMinutes / 30
     Row(
         Modifier
@@ -301,7 +348,7 @@ private fun Ruler(startMs: Long, windowMinutes: Int, railW: androidx.compose.ui.
         Row(Modifier.weight(1f)) {
             repeat(ticks) { i ->
                 Text(
-                    if (isLive && i == 0) "NOW" else timeLabel(startMs + i * 1800_000L),
+                    if (isLive && i == 0) "NOW" else timeLabel(startMs + i * 1800_000L, fmt),
                     style = MaterialTheme.typography.labelSmall,
                     fontWeight = FontWeight.Bold,
                     color = if (isLive && i == 0) MaterialTheme.colorScheme.primary
@@ -321,6 +368,7 @@ private fun ChannelGuideRow(channel: GuideChannel, startMs: Long, endMs: Long,
                             onDelete: (suspend () -> Unit)? = null,
                             claimInitialFocus: Boolean = false) {
     val accent = colorFromHex(channel.accentHex) ?: MaterialTheme.colorScheme.primary
+    val fmt = rememberTimeFormat()
     val scope = androidx.compose.runtime.rememberCoroutineScope()
     val isTv = LocalIsTelevision.current
     // Claimed by the airing block below, so the guide — not the header's "+"
@@ -429,7 +477,7 @@ private fun ChannelGuideRow(channel: GuideChannel, startMs: Long, endMs: Long,
                         )
                         Spacer(Modifier.weight(1f))
                         Text(
-                            timeLabel(slot.startMs),
+                            timeLabel(slot.startMs, fmt),
                             style = MaterialTheme.typography.labelSmall,
                             color = if (airing) Color.White.copy(alpha = 0.85f)
                                     else MaterialTheme.colorScheme.onSurfaceVariant,

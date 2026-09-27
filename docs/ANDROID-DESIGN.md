@@ -137,10 +137,25 @@ or tvOS rule, that inversion is deliberate — do not "harmonize" them.
   chevron window paging clamped to the broadcast day, NOW snap-back. Tuning
   pushes the existing Media3 queue player with commercials woven between
   programs, `startPositionMs` join-in-progress, and `persistProgress=false`
-  (channel playback never pollutes Continue Watching). The scheduler port
-  (`data/ChannelScheduler.kt`) keeps the apps' constants — FNV-1a(channel+
-  day) seed, SplitMix64, 6 AM local anchor, per-type runtime defaults,
-  2-minute buffer. Never regress the guide to a list.
+  (channel playback never pollutes Continue Watching). Never regress the
+  guide to a list.
+  **One clock (2026-09-27).** Owner: *"Move forward with a single clock. If
+  you need a time zone to organize around, you can choose UTC, but all times
+  should show as their local times when they look at channels. This should
+  only be to sync all titles to the same time."* PRESET channels play the
+  pipeline's UTC timeline, `channel-schedule.json`
+  (`tools/build_channel_schedule.py`), expanded by `data/PublishedSchedule.kt`:
+  slot i starts at its day's `start` plus every earlier duration and gap.
+  Each id plays the device's own catalog card, or the file's `programs[id]`
+  when the DB lacks it — a slot is never dropped and a time never moved.
+  Fetched with the editorial client, cached in `filesDir` for offline, and
+  refetched past six hours old or within a day of its last program. No file
+  and no cache = an error with Retry, never a locally invented guide. Times
+  follow the device's zone and 12/24-hour setting
+  (`DateFormat.getTimeFormat`); the earlier-chevron stops at the local
+  broadcast day or the schedule's first program, whichever is later. The
+  viewer's OWN channels keep `data/ChannelScheduler.kt` (6 AM local anchor,
+  FNV-1a + SplitMix64) — they are theirs alone.
 
 - **§4.8 Clip Studio is the Create surface** (CREATE-STUDIO-PLAN §5,
   Decision 033) — the Android twin of iOS `ClipStudioView`. A scissors

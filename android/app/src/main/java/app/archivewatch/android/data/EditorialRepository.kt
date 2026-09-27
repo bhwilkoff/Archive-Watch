@@ -125,6 +125,40 @@ class EditorialRepository(
         }
     }
 
+    @Volatile private var scheduleCache: PublishedSchedule? = null
+    @Volatile private var scheduleFetchedAt = 0L
+
+    /**
+     * Channels on one clock (ANDROID-DESIGN §4.6): the pipeline's UTC timeline,
+     * kept on disk so the guide works offline. Refetched when the copy is
+     * older than six hours or its last program is within a day of now. Null
+     * only when there has never been a readable copy — the guide then says so.
+     */
+    suspend fun channelSchedule(nowMs: Long = System.currentTimeMillis()): PublishedSchedule? =
+        withContext(Dispatchers.IO) {
+            val file = java.io.File(context.filesDir, "channel-schedule.json")
+            if (scheduleCache == null && file.exists()) {
+                PublishedSchedule.parse(file.readText(), json)?.let {
+                    scheduleCache = it
+                    scheduleFetchedAt = file.lastModified()
+                }
+            }
+            val cached = scheduleCache
+            val stale = cached == null ||
+                nowMs - scheduleFetchedAt > 6 * 3600_000L ||
+                (cached.lastEndMs ?: 0L) - nowMs < 24 * 3600_000L
+            if (stale) {
+                fetch("$RAW_BASE/channel-schedule.json")?.let { text ->
+                    PublishedSchedule.parse(text, json)?.let {
+                        scheduleCache = it
+                        scheduleFetchedAt = nowMs
+                        runCatching { file.writeText(text) }
+                    }
+                }
+            }
+            scheduleCache
+        }
+
     private fun fetch(url: String): String? = try {
         okHttp.newCall(Request.Builder().url(url).build()).execute().use { response ->
             if (response.isSuccessful) response.body?.string() else null

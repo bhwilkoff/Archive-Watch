@@ -2,44 +2,14 @@ package app.archivewatch.android.data
 
 import java.util.Calendar
 
+// PRESET channels no longer use this: they play the pipeline's one UTC
+// timeline (PublishedSchedule.kt, channel-schedule.json). What remains
+// schedules a viewer's OWN channels, which are theirs alone.
+//
 // Kotlin port of the shared date-seeded channel scheduler
-// (ArchiveWatch Services/ChannelScheduler.swift + Models/Channels.swift).
-// Same presets, same 6 AM broadcast-day anchor, same FNV-1a(channelID+day)
-// seed into SplitMix64, same per-type runtime defaults and 2-minute
-// inter-program buffer — so an Android device shows the same channel
-// PERSONALITY on the same day as the Apple apps (cross-ecosystem schedule
-// identity is approximate, not byte-exact: shuffle bound mapping differs
-// from Swift's RandomNumberGenerator and the device DB build may differ).
-
-/** Channel presets — same ids/pools as the Apple apps. */
-data class ChannelPreset(
-    val id: String,
-    val title: String,
-    val tagline: String,
-    val accentHex: String,
-    val contentType: String? = null,
-    val genre: String? = null,
-)
-
-object ChannelPresets {
-    val all = listOf(
-        ChannelPreset("drama", "Drama Theater", "The big stories", "#FF5C35", genre = "Drama"),
-        ChannelPreset("comedy", "Comedy Hour", "Laughs around the clock", "#E8A317", genre = "Comedy"),
-        ChannelPreset("noir", "Crime & Mystery", "Shadows and suspects", "#2D5BFF", genre = "Crime"),
-        ChannelPreset("thrill", "Thriller", "Edge of your seat", "#0047FF", genre = "Thriller"),
-        ChannelPreset("horror", "Horror", "After dark", "#7C5BBA", genre = "Horror"),
-        ChannelPreset("western", "Western Trail", "The frontier rolls on", "#C9A66B", genre = "Western"),
-        ChannelPreset("scifi", "Sci-Fi Theater", "Worlds beyond", "#3FA796", genre = "Science Fiction"),
-        ChannelPreset("silent", "Silent Cinema", "The age before sound", "#C9A66B", contentType = "silent-film"),
-        ChannelPreset("cartoon", "Cartoon Classics", "Animation all day", "#FF4D8D", contentType = "animation"),
-        ChannelPreset("news", "Newsreel Desk", "History as it broke", "#8A8F98", contentType = "newsreel"),
-        ChannelPreset("docs", "Documentary", "Real stories", "#3FA796", contentType = "documentary"),
-        ChannelPreset("tv", "Classic TV", "Vintage television", "#2D5BFF", contentType = "tv-special"),
-        ChannelPreset("tv-comedy", "TV Comedy", "Sitcoms & sketch", "#E8A317", contentType = "tv-special", genre = "Comedy"),
-        ChannelPreset("tv-drama", "TV Drama", "Series drama", "#FF5C35", contentType = "tv-special", genre = "Drama"),
-        ChannelPreset("tv-western", "TV Westerns", "Saddle up, every hour", "#C9A66B", contentType = "tv-special", genre = "Western"),
-    )
-}
+// (ArchiveWatch Services/ChannelScheduler.swift): a 6 AM local broadcast
+// day, FNV-1a(channelID+day) into SplitMix64, per-type runtime defaults and
+// a 2-minute buffer.
 
 data class ScheduledProgram(
     val item: CatalogItem,
