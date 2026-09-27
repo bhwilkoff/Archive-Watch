@@ -117,8 +117,9 @@ struct SupercutSheet: View {
     private var header: some View {
         VStack(alignment: .leading, spacing: 12) {
             HStack(spacing: 8) {
-                Image(systemName: "wand.and.stars").foregroundStyle(.tint)
-                Text("Text → Supercut").font(.headline)
+                // The name the menu and the toolbar use, with the toolbar's icon.
+                Image(systemName: "quote.bubble").foregroundStyle(.tint)
+                Text("Supercut").font(.headline)
                 Spacer()
             }
             Picker("Mode", selection: $mode) { ForEach(Mode.allCases) { Text($0.rawValue).tag($0) } }
@@ -150,10 +151,9 @@ struct SupercutSheet: View {
             }
 
             HStack(spacing: 6) {
-                if building {
-                    ProgressView().controlSize(.small)
-                    Text("Building the subtitle index…")
-                } else if let n = indexedLines {
+                // While building, the content area says so; saying it twice
+                // was the same sentence stacked on itself.
+                if !building, let n = indexedLines {
                     Text("\(n.formatted()) lines indexed")
                 }
                 Spacer()
@@ -192,7 +192,7 @@ struct SupercutSheet: View {
                       systemImage: searched ? "text.magnifyingglass" : "quote.bubble")
             } description: {
                 Text(searched ? "Try a shorter or more common phrase."
-                              : "Type a phrase people say on screen, then press Find. Every matching moment across the public-domain catalog becomes an editable clip.")
+                              : "Every moment it is spoken across the catalog becomes a clip.")
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         } else {
@@ -231,7 +231,7 @@ struct SupercutSheet: View {
                 ForEach(presentDecades, id: \.self) { Text(verbatim: "\($0)s").tag(Int?($0)) }
             }.pickerStyle(.menu).labelsHidden().fixedSize()
             Spacer()
-            Text("\(selection.count) selected").font(.caption).foregroundStyle(.secondary)
+            // The count lives once, in the footer ("3 of 177 selected").
             Menu("Add random") {
                 ForEach([10, 25, 50, 100], id: \.self) { n in
                     Button("\(n) random") { addRandom(n) }.disabled(filteredRows.isEmpty)
@@ -283,7 +283,7 @@ struct SupercutSheet: View {
             ContentUnavailableView {
                 Label("Supercut Search", systemImage: "quote.bubble")
             } description: {
-                Text("Type a line and the catalog will speak it back, word by word, using the fewest clips. Missing words become editable gaps you can fill.")
+                Text("Spoken back word by word in the fewest clips; a missing word becomes a gap you can fill.")
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         } else {
@@ -365,11 +365,17 @@ struct SupercutSheet: View {
                 Toggle("Add subtitles to supercut clips", isOn: $addSubtitles)
             }
             .toggleStyle(.checkbox).font(.callout)
+            .frame(maxWidth: .infinity, alignment: .leading)   // they sat centered under a left-aligned table
             .padding(.horizontal, 20).padding(.vertical, 10)
         }
     }
 
     // MARK: Footer (pinned) — Cancel + default action
+
+    /// "Add Clips" until there is something to add — never "Add 0 Clips".
+    private func addTitle(_ n: Int) -> String {
+        n == 0 ? "Add Clips" : "Add \(n) Clip\(n == 1 ? "" : "s")"
+    }
 
     private var footer: some View {
         HStack {
@@ -377,10 +383,10 @@ struct SupercutSheet: View {
             Spacer()
             Button("Cancel") { dismiss() }.keyboardShortcut(.cancelAction)
             if mode == .find {
-                Button("Add \(selection.count) Clip\(selection.count == 1 ? "" : "s")") { assembleFind() }
+                Button(addTitle(selection.count)) { assembleFind() }
                     .keyboardShortcut(.defaultAction).disabled(selection.isEmpty)
             } else {
-                Button("Add \(planFound) Clips") { assembleCompose() }
+                Button(addTitle(planFound)) { assembleCompose() }
                     .keyboardShortcut(.defaultAction).disabled(planFound == 0)
             }
         }

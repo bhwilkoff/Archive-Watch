@@ -162,3 +162,15 @@ through Accessibility and its items pressed there (never pointer clicks).
   idle, Output is the state, the three settings and the rights warning.
   The Mixer's "8.0" is the owner's chosen fader scale and stays. Seen in the
   Studio window (camera not started, nothing captured).
+- v1.42.799: the Supercut sheet, driven for the first time this loop
+  (the index is local, so archive.org's outage does not stop it): "I love
+  you" found 177 lines in 4,375,727 indexed. Fixes: the title is "Supercut"
+  with the toolbar's quote-bubble (it said "Text → Supercut" under a wand,
+  a third name for one command); "Building the subtitle index…" was said
+  twice at once (header and body) and is said once; the button reads "Add
+  Clips" until something is chosen, never "Add 0 Clips"; the selection
+  count was shown twice ("0 selected" over the table, "0 of 177 selected"
+  in the footer) and lives in the footer; the option checkboxes sat
+  centered under a left-aligned table and now align left; both empty states
+  keep only their fact ("Every moment it is spoken across the catalog
+  becomes a clip."). Typed and searched through AX, not the pointer.
