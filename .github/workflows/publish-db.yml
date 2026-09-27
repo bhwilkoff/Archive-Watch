@@ -231,6 +231,9 @@ jobs:
           # After the shards, which are its only input.
           python tools/build_people_index.py
           python tools/build_channel_pools.py
+          # Channels on one clock: the UTC timeline every client plays from
+          # (ORPHANED-FILMS #2). Holds the days it already published.
+          python tools/build_channel_schedule.py
           python tools/build_episode_index.py
           # Pixel sizes of the images the Roku Search feed publishes, so the
           # feed can refuse posters Roku's validator refuses (2:3 / 16:9
@@ -253,8 +256,8 @@ jobs:
           # reported "unchanged" and committed nothing — the artifact was
           # built correctly every run and never reached the repo. Any new
           # artifact added to this list would have failed the same silent way.
-          git add catalog-index.json topshelf.json tonight.json details/ channel-pools.json episodes-index.json aliases.json people.json ops/image-dims.json
-          if git diff --cached --quiet -- catalog-index.json topshelf.json tonight.json details/ channel-pools.json episodes-index.json aliases.json people.json ops/image-dims.json; then
+          git add catalog-index.json topshelf.json tonight.json details/ channel-pools.json channel-schedule.json episodes-index.json aliases.json people.json ops/image-dims.json
+          if git diff --cached --quiet -- catalog-index.json topshelf.json tonight.json details/ channel-pools.json channel-schedule.json episodes-index.json aliases.json people.json ops/image-dims.json; then
             echo "web index + details + channel pools + episodes unchanged"; exit 0
           fi
           git commit -m "Refresh web catalog index + detail shards [skip ci]"

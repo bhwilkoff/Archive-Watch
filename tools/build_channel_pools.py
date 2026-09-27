@@ -40,7 +40,7 @@ PRESETS = [
     {"id": "silent",  "title": "Silent Cinema",   "tagline": "The age before sound",   "accent": "#C9A66B", "type": "silent-film"},
     {"id": "cartoon", "title": "Cartoon Classics","tagline": "Animation all day",      "accent": "#FF4D8D", "type": "animation"},
     {"id": "news",    "title": "Newsreel Desk",   "tagline": "History as it broke",    "accent": "#8A8F98", "type": "newsreel"},
-    {"id": "docs",    "title": "Documentary",     "tagline": "Real stories",           "accent": "#3FA796", "type": "documentary"},
+    {"id": "docs",    "title": "Documentary",     "tagline": "Real stories",           "accent": "#3FA796", "genre": "Documentary"},
     {"id": "tv",        "title": "Classic TV",  "tagline": "Vintage television",   "accent": "#2D5BFF", "type": "tv-special"},
     {"id": "tv-comedy", "title": "TV Comedy",   "tagline": "Sitcoms & sketch",     "accent": "#E8A317", "type": "tv-special", "genre": "Comedy"},
     {"id": "tv-drama",  "title": "TV Drama",    "tagline": "Series drama",         "accent": "#FF5C35", "type": "tv-special", "genre": "Drama"},
@@ -56,7 +56,17 @@ def visible(it):
             and it.get("downloadURL"))
 
 
+# The apps' browse rules (CatalogDB.browseSQL): a genre channel carries no
+# television or commercials, and Documentary is the GENRE without animation
+# (contentType "documentary" holds one film, so the channel was never built).
+NOT_ON_GENRE_CHANNELS = {"tv-series", "tv-special", "tv-episode", "commercial"}
+
+
 def matches(it, preset):
+    if not preset.get("type") and it.get("contentType") in NOT_ON_GENRE_CHANNELS:
+        return False
+    if preset.get("genre") == "Documentary" and it.get("contentType") == "animation":
+        return False
     if t := preset.get("type"):
         if it.get("contentType") != t:
             return False
