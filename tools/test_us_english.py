@@ -35,6 +35,7 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 # check that cries wolf is a check people disable.
 BRITISH = {
     "programme": "program", "colour": "color", "behaviour": "behavior",
+    "theatre": "theater",
     "centred": "centered", "licence": "license", "favourite": "favorite",
     "cancelled": "canceled", "cancelling": "canceling",
     "normalise": "normalize", "normalised": "normalized", "normalising": "normalizing",

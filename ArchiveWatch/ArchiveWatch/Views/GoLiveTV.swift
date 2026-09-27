@@ -517,7 +517,7 @@ struct GoLiveTV: View {
     /// Rule 8.8e — the five placements, in the SHARED words. A focusable
     /// column rather than a segmented control: five ten-foot labels do not fit
     /// across one row, and the sentences are what make the choice legible
-    /// ("Theatre row (you along the bottom)" says more than an icon can).
+    /// ("Theater row (you along the bottom)" says more than an icon can).
     ///
     /// No `buttonStyle(.plain)` anywhere near this — it destroys focusability
     /// on tvOS, which is the one mistake this project has made often enough to

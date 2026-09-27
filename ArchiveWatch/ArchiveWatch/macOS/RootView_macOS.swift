@@ -28,6 +28,8 @@ struct RootView: View {
                 browse
             }
         }
+        // Go ▸ (Rule B14) acts only while the browsing UI, not a player, is up.
+        .focusedSceneValue(\.browseWindowIsKey, router.nowPlaying == nil && router.nowPlayingEpisode == nil)
         // Rule B13g's GO-LIVE SHEET IS GONE (macOS-DESIGN §D9). It was
         // presented by the window root, over the player, and configured a
         // Studio that lives in a different window — which is how the owner

@@ -130,6 +130,10 @@ struct ArchiveWatchMacApp: App {
             // (roadmap #6). A menu key equivalent is discoverable, prints its
             // own shortcut, needs no permission and fires whenever any Archive
             // Watch window is front — which is the case the roadmap named.
+            // Go and Film (Rule B14): the sidebar, Search, Back and every
+            // action on a film's page, reachable from the menu bar with keys.
+            GoCommands(router: router, store: store)
+            FilmCommands()
             StudioBroadcastCommands()
             // With a WindowGroup (first) + a DocumentGroup, SwiftUI binds ⌘N to the
             // WindowGroup (a new Library window). Re-point New at a new Creation Studio
@@ -137,28 +141,6 @@ struct ArchiveWatchMacApp: App {
             CommandGroup(replacing: .newItem) {
                 Button("New Project") { NSDocumentController.shared.newDocument(nil) }
                     .keyboardShortcut("n", modifiers: .command)
-            }
-            CommandGroup(after: .newItem) {
-                Button("Surprise Me") { router.surprise(store) }
-                    .keyboardShortcut("r", modifiers: [.command, .shift])
-                // Rule B13g — going live is a MENU COMMAND, because §B13a
-                // forbids a second window and §B13b forbids hand-drawing into
-                // the player's chrome, which rules out both obvious places.
-                //
-                // B13g left two questions unanswered, and these are the
-                // CONSERVATIVE readings rather than decisions:
-                //  • it lives beside the existing commands rather than in a new
-                //    top-level Broadcast menu, because inventing a menu is the
-                //    larger claim;
-                //  • it is DISABLED with no film playing, because §B13a makes the
-                //    Studio the player in a production mode and a broadcast of
-                //    nothing is not a state the engine can serve.
-                // §D9's ⇧⌘L and ⇧⌘S MOVED to a top-level Broadcast menu
-                // (roadmap #6). B13g declined to invent a menu because
-                // "inventing a menu is the larger claim", and that was right
-                // when there was one command. There are now eleven — mute,
-                // duck, cards, placements, preview, end — and hiding them
-                // under File beside "New Project" would be the larger claim.
             }
         }
 

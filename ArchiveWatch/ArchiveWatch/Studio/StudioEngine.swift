@@ -72,7 +72,7 @@ public enum StudioLayout: String, CaseIterable, Sendable {
         switch self {
         case .film: return "Film only"
         case .corner: return "Film with you in the corner"
-        case .theatre: return "Theatre row (you along the bottom)"
+        case .theatre: return "Theater row (you along the bottom)"
         case .side: return "Side by side"
         case .host: return "You, with the film inset"
         case .guests: return "Film, you, and your guests"

@@ -77,7 +77,7 @@ struct LayoutTest {
         check("8.22.9 corner sits bottom-right, inset from the edges",
               corner.minY > 0 && corner.maxX < size.width && corner.minX > size.width / 2)
 
-        // THE ONE THE OWNER IS ASKING ABOUT. "Theatre row (you along the
+        // THE ONE THE OWNER IS ASKING ABOUT. "Theater row (you along the
         // bottom)" promises a ROW. A row is WIDE — otherwise it is `corner`
         // moved down, and a host who picks it sees no change worth the setting.
         let theatre = rects[.theatre]!.camera!

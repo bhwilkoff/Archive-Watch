@@ -37,7 +37,7 @@ data class LayoutRect(val left: Float, val top: Float, val right: Float, val bot
 enum class StudioLayout(val label: String) {
     FILM("Film only"),
     CORNER("Film with you in the corner"),
-    THEATRE("Theatre row (you along the bottom)"),
+    THEATRE("Theater row (you along the bottom)"),
     SIDE("Side by side"),
     HOST("You, with the film inset");
 

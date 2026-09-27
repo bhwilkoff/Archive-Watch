@@ -941,6 +941,36 @@ than a new idea.*
   ScreenCaptureKit ambition is for a *guest call* (a FaceTime window beside
   the film), never for the film itself.
 
+## §B14 — Every command is in the menu bar (2026-09-27)
+
+Owner, 2026-09-27: *"make sure that all features that should have menu items
+(macOS specific need), that they are well represented in the menu structure."*
+HIG, the menu bar: *"Even when commands are available elsewhere in your app,
+it's important to list them in the menu bar."* Measured by reading the live menu
+bar through Accessibility: the only custom items were New Project, Surprise Me
+and Broadcast — the sidebar, Search, Back and every action on a film's page had
+no menu item and no key.
+
+- **Order**: App, File, Edit, View, then the app's menus from most general to
+  least — **Go**, **Film**, **Controls** (player), the editor's menus, **Broadcast**
+  — then Window, Help (HIG).
+- **Go**: the sidebar sections Home ⌘1, Movies ⌘2, TV ⌘3, Channels ⌘4,
+  Collections ⌘5, Library ⌘6, Watch Together ⌘7, Creation Studio ⌘8; Surprise
+  (the section); Search ⌘F (focuses the field — `searchFocused`); Back ⌘[;
+  Surprise Me ⇧⌘R (it plays, so it left File).
+- **Film**: the page in front — Play ⌘P (Print means nothing here), Add to /
+  Remove from Favorites ⌘D (Safari's bookmark key), Add to Playlist…,
+  Subtitles…, Open in Creation Studio, Watch Together ▸ With Friends… / With the
+  World…, Copy Link ⇧⌘C, View on archive.org, Something Wrong with This Film?
+- **One key, one live meaning**: a command that belongs to a kind of window is
+  enabled only while that window is key, through `focusedSceneValue`
+  (`browseWindowIsKey`, `filmActions`); Go's ⌘1–⌘8 are disabled while a player is
+  up or the Studio is key, which is when the Studio's scene keys ⌘1–⌘9 are live.
+  **Disable, never hide** (HIG): the menus keep their shape in every window.
+- Verified by reading the menu bar back through Accessibility and pressing items
+  there (not pointer clicks): Go ▸ Channels switched the window; Go ▸ Search put
+  the cursor in the field and typed text landed in it.
+
 ## §B12 — Capabilities, identifiers, Info.plist
 
 - **Shared with tvOS/iOS** (one ASC record, Decision 042): bundle id `app.archivewatch.tvos`, CloudKit

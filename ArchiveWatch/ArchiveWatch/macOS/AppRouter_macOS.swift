@@ -41,6 +41,8 @@ final class AppRouter {
     }
 
     var section: Section = .home
+    /// Go ▸ Search (⌘F) bumps this; Search focuses its field on each change.
+    var searchFocusRequest = 0
     var path = NavigationPath()
     var nowPlaying: Catalog.Item?          // drives the item player sheet
     var playStart: TimeInterval?           // Scenes (§B7c): start here instead of resuming

@@ -9,6 +9,7 @@ struct SearchView: View {
     @Environment(AppStore.self) private var store
     @Environment(AppRouter.self) private var router
     @State private var query = ""
+    @FocusState private var searchFieldFocused: Bool
     @State private var results: [Catalog.Item] = []
     @State private var contentType: String? = nil
     @State private var decade: Int? = nil
@@ -75,6 +76,10 @@ struct SearchView: View {
         }
         .navigationTitle("Search")
         .searchable(text: $query, prompt: "Films, shows, people…")
+        .searchFocused($searchFieldFocused)
+        // Go ▸ Search (⌘F) lands here with the field ready to type into.
+        .onAppear { if router.searchFocusRequest > 0 { searchFieldFocused = true } }
+        .onChange(of: router.searchFocusRequest) { searchFieldFocused = true }
         .toolbar {
             ToolbarItem {
                 Menu {

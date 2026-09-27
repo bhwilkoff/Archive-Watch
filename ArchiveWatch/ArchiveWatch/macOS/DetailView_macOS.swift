@@ -121,6 +121,25 @@ struct DetailView: View {
         } message: {
             Text((studio.refusal ?? "") + "\n\n" + StudioRights.policy)
         }
+        // Film ▸ (Rule B14): this page's actions, for the menu bar.
+        .focusedSceneValue(\.filmActions, filmActions)
+    }
+
+    /// Film ▸ (Rule B14): this page's actions, for the menu bar.
+    private var filmActions: FilmActions {
+        FilmActions(
+            title: item.title,
+            isFavorite: isFav,
+            play: { router.play(item) },
+            toggleFavorite: { toggleFavorite() },
+            addToPlaylist: { showPlaylistSheet = true },
+            subtitles: item.videoURLParsed == nil ? nil : { showGetSubtitles = true },
+            openInCreationStudio: item.isClippable ? { openInCreationStudio() } : nil,
+            watchWithFriends: { startWatchTogether() },
+            watchWithTheWorld: { startStudio() },
+            pageURL: shareURL,
+            archiveURL: URL(string: item.sourceDetailsURL) ?? shareURL,
+            reportURL: FilmProblem.url(archiveID: item.archiveID))
     }
 
     private func toggleFavorite() {
