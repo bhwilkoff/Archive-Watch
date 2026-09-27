@@ -146,24 +146,35 @@ struct ProjectEditorView: View {
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .toolbar {
-            ToolbarItemGroup {
+        // Customizable (Mac loop, 2026-09-27): nine unlabeled icons, and the
+        // system's "Icon and Text" and Customize Toolbar… only exist for a
+        // toolbar with an id.
+        .toolbar(id: "creation-studio") {
+            ToolbarItem(id: "add-clip") {
                 Button { showBrowser = true } label: {
                     Label("Add Clip", systemImage: "plus.rectangle.on.folder")
                 }
                 .help("Add a clip from a film (⌘I)")
+            }
+            ToolbarItem(id: "split") {
                 Button { model.splitAtPlayhead() } label: {
                     Label("Split", systemImage: "scissors")
                 }.disabled(model.project.timeline.clips.isEmpty)
                 .help("Split the clip at the playhead (⌘B)")
+            }
+            ToolbarItem(id: "add-text") {
                 Button { model.addTextOverlay() } label: {
                     Label("Add Text", systemImage: "textformat")
                 }.disabled(model.project.timeline.clips.isEmpty)
                 .help("Add text over the picture (⌥⌘T)")
+            }
+            ToolbarItem(id: "add-music") {
                 Button { pickMusic() } label: {
                     Label("Add Music", systemImage: "music.note")
                 }
                 .help("Add a music file under the picture")
+            }
+            ToolbarItem(id: "voiceover") {
                 if model.isRecordingVoiceover {
                     Button { model.stopVoiceover() } label: {
                         Label("Stop", systemImage: "stop.circle.fill")
@@ -175,22 +186,30 @@ struct ProjectEditorView: View {
                     }
                     .help("Record a voiceover")
                 }
+            }
+            ToolbarItem(id: "supercut") {
                 // Not text.magnifyingglass: beside an Export icon it read as
                 // Search. A supercut is built from spoken words (quote.bubble).
                 Button { showSupercut = true } label: {
                     Label("Supercut", systemImage: "quote.bubble")
                 }
                 .help("Build a supercut from a phrase spoken in films")
+            }
+            ToolbarItem(id: "export") {
                 Button { showExportSheet = true } label: {
                     Label("Export", systemImage: "square.and.arrow.up")
                 }
                 .help("Export a movie file (⌘E)")
                 .disabled(model.project.timeline.clips.isEmpty || exporter.isBusy)
+            }
+            ToolbarItem(id: "publish") {
                 Button { model.pause(); showPublishSheet = true } label: {
                     Label("Publish", systemImage: "icloud.and.arrow.up")
                 }
                 .help("Publish to archive.org")
                 .disabled(model.project.timeline.clips.isEmpty || exporter.isBusy)
+            }
+            ToolbarItem(id: "inspector") {
                 Button { inspectorShown.toggle() } label: {
                     Label("Inspector", systemImage: "sidebar.trailing")
                 }

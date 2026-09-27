@@ -126,6 +126,8 @@ struct ArchiveWatchMacApp: App {
         .modelContainer(modelContainer)
         .commands {
             SidebarCommands()
+            // Show/Hide Toolbar and Customize Toolbar… (the editor's toolbar is customizable).
+            ToolbarCommands()
             // Everything a host does while a show is running, each with a key
             // (roadmap #6). A menu key equivalent is discoverable, prints its
             // own shortcut, needs no permission and fires whenever any Archive

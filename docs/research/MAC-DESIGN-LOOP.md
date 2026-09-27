@@ -140,3 +140,11 @@ through Accessibility and its items pressed there (never pointer clicks).
   list 1–7 with the showing one selected and a press on 3 moved the hero;
   the rows list as AXButton with AXPress plus "Add to Timeline", and a
   press selected the NASA row.
+- v1.42.796: the Creation Studio's toolbar is a customizable one
+  (`.toolbar(id:)`, an id per item) and the app declares `ToolbarCommands()`.
+  It had been nine unlabeled icons with no way to see their names but a
+  hover, and View had neither Show/Hide Toolbar nor Customize Toolbar…. Now
+  View carries both, and the palette opens with every item named and a
+  Show: Icon Only / Icon and Text choice — so a person who wants words gets
+  them the native way. Seen: View's items read back through AX, and the
+  palette photographed over the editor.
