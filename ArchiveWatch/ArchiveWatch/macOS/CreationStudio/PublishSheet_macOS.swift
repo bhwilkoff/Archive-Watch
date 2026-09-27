@@ -47,7 +47,7 @@ struct PublishSheet: View {
                     }
                 }
                 Form {
-                    TextField("Title", text: $title)
+                    TextField("Title", text: $title, prompt: Text("Name your edit"))
                     TextField("Description", text: $desc, axis: .vertical).lineLimit(2...5)
                     LabeledContent("Sources", value: "\(sources.count) public-domain title\(sources.count == 1 ? "" : "s")")
                 }
@@ -101,7 +101,10 @@ struct PublishSheet: View {
         }
         .padding(20)
         .frame(width: 460)
-        .onAppear { if title.isEmpty { title = defaultTitle.isEmpty ? "My Archive Watch Edit" : defaultTitle } }
+        // No invented title: "My Archive Watch Edit" went to archive.org as the
+        // name of whatever was published. A saved project brings its own name;
+        // otherwise the field is empty and Publish waits for the person to name it.
+        .onAppear { if title.isEmpty { title = defaultTitle } }
     }
 
     private func progress(_ label: String, value: Double) -> some View {

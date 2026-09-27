@@ -253,3 +253,11 @@ through Accessibility and its items pressed there (never pointer clicks).
   proposed "Archive Watch.mp4"; it now proposes the film's name when every
   clip is from one film, else "Untitled" (as the window says).
   Seen: the failure bar photographed after the real Save panel run.
+- v1.42.808: Publish proposed the title "My Archive Watch Edit" for an
+  unsaved project — invented copy that would go to archive.org as the name
+  of the work (owner 2026-09-26: no written-for-you copy; a person names
+  their own work). A saved project still brings its own name; otherwise the
+  field is empty with the prompt "Name your edit", and Publish (already
+  disabled on an empty title) waits for it. Seen in the sheet (nothing was
+  published). Its "N public-domain titles" line is tied to the open owner
+  rights question in SCRATCHPAD and is left as is.
