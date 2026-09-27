@@ -14,9 +14,10 @@ by AGE, in the public index, not television, not a commercial, not removed —
 with any art (an M3U logo is a thumbnail, not an advertisement). Each entry
 plays the film's own file on archive.org; Archive Watch hosts no video.
 
-WHAT IS NOT HERE: an XMLTV guide. A guide needs Channels on ONE clock, and
-every platform's Channels anchor the broadcast day at 6 AM LOCAL — an owner
-decision (ORPHANED-FILMS #2) that must come first.
+/feeds/guide.xml is an XMLTV guide to Archive Watch's channels, read from
+channel-schedule.json — the one UTC clock every app plays from (owner,
+2026-09-27; ORPHANED-FILMS #2). Times are written in UTC, which every guide
+reader shows in its own zone; each programme links to the film's page.
 
 Files: /feeds/films.m3u (everything), /feeds/<kind>.m3u per kind of 100 or
 more (the same KIND words the Roku feed uses), /feeds/manifest.json (counts, for the
@@ -86,6 +87,38 @@ def build(catalog: dict, index_ids: set) -> tuple[dict, collections.Counter]:
     return groups, skipped
 
 
+def guide(schedule: dict, years: dict) -> str:
+    from datetime import datetime, timezone
+    from xml.sax.saxutils import escape, quoteattr
+
+    def stamp(t: int) -> str:
+        return datetime.fromtimestamp(t, timezone.utc).strftime("%Y%m%d%H%M%S +0000")
+
+    out = ['<?xml version="1.0" encoding="UTF-8"?>\n',
+           '<tv generator-info-name="Archive Watch" generator-info-url="https://archivewatch.org/">\n']
+    for ch in schedule["channels"]:
+        out.append(f'  <channel id={quoteattr(ch["id"] + ".archivewatch.org")}>'
+                   f'<display-name>{escape(ch["title"])}</display-name>'
+                   f'<url>https://archivewatch.org/#/channels</url></channel>\n')
+    for ch in schedule["channels"]:
+        cid = quoteattr(ch["id"] + ".archivewatch.org")
+        for key in sorted(ch["days"]):
+            day = ch["days"][key]
+            t = day["start"]
+            for pid, secs in day["slots"]:
+                prog = schedule["programs"].get(pid)
+                if prog:
+                    year = years.get(pid)
+                    out.append(
+                        f'  <programme start="{stamp(t)}" stop="{stamp(t + secs)}" channel={cid}>'
+                        f'<title>{escape(prog[0])}</title>'
+                        + (f"<date>{year}</date>" if year else "")
+                        + f"<url>https://archivewatch.org/item/{escape(pid)}</url></programme>\n")
+                t += secs + schedule["gap"]
+    out.append("</tv>\n")
+    return "".join(out)
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--catalog", default=str(REPO / "catalog.json"))
@@ -116,6 +149,15 @@ def main() -> int:
     (out / "manifest.json").write_text(json.dumps(
         {"films": total, "kinds": counts, "tier": "guaranteed"}, indent=1), encoding="utf-8")
     print(f"[film-feeds] {total} films in {len(counts)} kinds; left out: {dict(skipped)}")
+    sched_path = REPO / "channel-schedule.json"
+    if sched_path.exists():
+        schedule = json.loads(sched_path.read_text(encoding="utf-8"))
+        years = {i["archiveID"]: i["year"] for i in catalog.get("items", []) if i.get("year")}
+        (out / "guide.xml").write_text(guide(schedule, years), encoding="utf-8")
+        print(f"[film-feeds] guide.xml: {len(schedule['channels'])} channels")
+    else:
+        print("[film-feeds] no channel-schedule.json — guide.xml not written", file=sys.stderr)
+        return 1
     if total < FLOOR:
         print(f"[film-feeds] refusing: {total} films is under the floor of {FLOOR}", file=sys.stderr)
         return 1

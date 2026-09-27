@@ -2194,12 +2194,13 @@
   /* ---------------------------------------------------------------- *
    * Channels — the EPG guide (PARITY §5, the apps' date-seeded grid)  *
    *                                                                   *
-   * Pools come precomputed (channel-pools.json, build_channel_pools)  *
-   * because the index has no runtime/genre; the SCHEDULE is computed  *
-   * HERE with the same FNV-1a + SplitMix64 + 6 AM-local broadcast-day *
-   * algorithm as the apps' ChannelScheduler, so the guide anchors to  *
-   * the viewer's local day. Sticky rail + ruler = the web-native way  *
-   * to pin both axes of a TV listing.                                 *
+   * One clock (ORPHANED-FILMS #2): the preset channels' programs     *
+   * come from channel-schedule.json, one UTC timeline per channel     *
+   * built in the pipeline, so every viewer on every platform is on    *
+   * the same film at the same moment; times are drawn in the         *
+   * viewer's own zone. User channels are personal and keep the local  *
+   * scheduler below. Sticky rail + ruler = the web-native way to pin  *
+   * both axes of a TV listing.                                        *
    * ---------------------------------------------------------------- */
   const Scheduler = (() => {
     const MASK = (1n << 64n) - 1n;
@@ -2259,7 +2260,26 @@
       }
       return slots;
     }
-    return { schedule, dayAnchor };
+    /** The published timeline for one channel, as the same slot shape:
+        a slot starts where the previous ended plus the file's gap, and
+        days run back to back. Only slots that touch [from, until). */
+    function published(file, ch, from, until) {
+      const slots = [];
+      for (const key of Object.keys(ch.days).sort()) {
+        const day = ch.days[key];
+        let t = day.start * 1000;
+        for (const [id, secs] of day.slots) {
+          const end = t + secs * 1000;
+          const p = file.programs[id];
+          if (p && end > from && t < until) {
+            slots.push({ prog: [id, p[0], p[1], p[2], p[3]], start: t, end });
+          }
+          t = end + file.gap * 1000;
+        }
+      }
+      return slots;
+    }
+    return { schedule, dayAnchor, published };
   })();
 
   // Web stand-ins for the apps' SF Symbol channel icons.
@@ -2274,12 +2294,19 @@
     data: null,
     built: false,
 
+    schedule: null,
+
     async loadPools() {
-      if (!this.data) {
-        const r = await fetch(new URL('channel-pools.json', PAGES_ROOT),
-                              { signal: AbortSignal.timeout(15000) });
+      const get = async name => {
+        const r = await fetch(new URL(name, PAGES_ROOT), { signal: AbortSignal.timeout(15000) });
         if (!r.ok) throw new Error(`HTTP ${r.status}`);
-        this.data = await r.json();
+        return r.json();
+      };
+      if (!this.data || !this.schedule) {
+        // The pools still carry the commercials; the schedule carries the
+        // programs and their times.
+        [this.data, this.schedule] = await Promise.all([
+          get('channel-pools.json'), get('channel-schedule.json')]);
       }
       return this.data;
     },
@@ -2338,10 +2365,14 @@
             .slice(0, 150)
             .map(r => [r[0], r[1], null, null, r[3]]),
         })).filter(c => c.programs.length >= 5),
-        ...this.data.channels,
+        ...this.schedule.channels,
       ];
+      const until = now.getTime() + 26 * 3600e3;
       for (const ch of guideChannels) {
-        const slots = Scheduler.schedule(ch.id, ch.programs, now);
+        const slots = ch.user
+          ? Scheduler.schedule(ch.id, ch.programs, now)
+          : Scheduler.published(this.schedule, ch, anchor.getTime(), until);
+        if (!slots.length) continue;
         const row = document.createElement('div');
         row.className = 'epg-row';
         const rail = document.createElement('div');
@@ -2375,8 +2406,11 @@
         strip.className = 'epg-strip';
         strip.style.width = `${stripW}px`;
         for (const slot of slots) {
-          const left = (slot.start - anchor.getTime()) / 60e3 * PPM;
-          const width = Math.max(16, (slot.end - slot.start) / 60e3 * PPM - 3);
+          // A program already running at the guide's first hour is drawn
+          // from that hour; its time label still says when it began.
+          const from = Math.max(slot.start, anchor.getTime());
+          const left = (from - anchor.getTime()) / 60e3 * PPM;
+          const width = Math.max(16, (slot.end - from) / 60e3 * PPM - 3);
           const b = document.createElement('button');
           b.className = 'epg-block';
           b.title = slot.prog[1];   // tooltip carries the title for tiny blocks

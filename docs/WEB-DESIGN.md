@@ -302,11 +302,19 @@ separate tool with its own conventions (CLAUDE.md) — these rules govern the
 - **§4.13 Channels** (`#/channels`, topnav): a true TV listing — the scroll
   container pins BOTH axes with CSS sticky (rail `left:0`, ruler `top:0`;
   rows/ruler are `width: max-content` so the sticky containing box spans the
-  full strip). Pools come precomputed from `channel-pools.json`
-  (`tools/build_channel_pools.py`, refreshed by publish-db — the index has no
-  runtime/genre); the SCHEDULE is computed in the browser by the JS
-  `Scheduler` (FNV-1a + SplitMix64 BigInt port, 6 AM LOCAL broadcast-day
-  anchor, the apps' runtime defaults + 2-min buffer). Tuning builds the
+  full strip). **One clock** (owner, 2026-09-27: *"Move forward with a
+  single clock. If you need a time zone to organize around, you can choose
+  UTC, but all times should show as their local times when they look at
+  channels. This should only be to sync all titles to the same time."*): the
+  preset channels' programs AND their times come from `channel-schedule.json`
+  (`tools/build_channel_schedule.py`, publish-db), one UTC timeline per
+  channel shared by every platform, so everyone is on the same film at the
+  same moment. The guide still opens on the viewer's local 6 AM and labels
+  every time in the viewer's zone; a program already running at that hour is
+  drawn from it. `channel-pools.json` now carries only the commercials. User
+  channels are personal and keep the browser `Scheduler` (FNV-1a +
+  SplitMix64). No schedule file: the guide's error line, never a guessed
+  local schedule. Tuning builds the
   binge queue from the tapped slot with commercials woven between programs,
   joins live slots in progress (`startAt`), and never persists resume
   progress (`persist:false` — the apps' channel rule).
