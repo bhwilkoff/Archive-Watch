@@ -82,7 +82,7 @@ struct EditorClipCommands: Commands {
             .disabled(model?.selectedClipID == nil)
             Button("Clear Fades") {
                 guard let id = model?.selectedClipID else { return }
-                model?.checkpoint()
+                model?.checkpoint("Clear Fades")
                 model?.setClipFade(id, fadeIn: 0, fadeOut: 0)
             }
             .disabled(model?.selectedClip.map { $0.fadeInSeconds == 0 && $0.fadeOutSeconds == 0 } ?? true)

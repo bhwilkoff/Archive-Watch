@@ -70,7 +70,7 @@ final class EditorModel {
     /// Delete every selected element (clips, overlays, audio), as one undo step.
     func deleteSelection() {
         guard !selectedIDs.isEmpty else { return }
-        checkpoint()
+        checkpoint("Delete")
         let ids = selectedIDs
         for id in ids {
             switch kindOf(id) {
@@ -453,7 +453,7 @@ final class EditorModel {
     /// rebuild, so the preview updates after a brief render.
     func setClipLook(_ id: UUID, _ look: ClipLook) {
         guard let i = project.timeline.clips.firstIndex(where: { $0.id == id }) else { return }
-        checkpoint()   // a discrete choice, so ⌘Z takes it back (from the inspector or the Clip menu)
+        checkpoint("Change Look")   // a discrete choice, so ⌘Z takes it back (from the inspector or the Clip menu)
         project.timeline.clips[i].lookRaw = look.rawValue
         scheduleRebuild()
     }
@@ -474,14 +474,14 @@ final class EditorModel {
     /// Set the transition STYLE (dissolve / wipe / push) for this clip's incoming transition.
     func setClipTransitionKind(_ id: UUID, _ kind: TransitionKind) {
         guard let i = project.timeline.clips.firstIndex(where: { $0.id == id }) else { return }
-        checkpoint()   // a discrete choice, so ⌘Z takes it back (from the inspector or the Clip menu)
+        checkpoint("Change Transition Style")   // a discrete choice, so ⌘Z takes it back (from the inspector or the Clip menu)
         project.timeline.clips[i].transitionKindRaw = kind.rawValue
         scheduleRebuild()
     }
 
     /// Add a clip from a saved proxy (dragged from the Library, or just-marked).
     func addClip(from proxy: ProxyClip) {
-        checkpoint()
+        checkpoint("Add Clip")
         let clip = TimelineClip.from(proxy, at: .zero)
         project.timeline.clips.append(clip)
         relayout()
@@ -494,7 +494,7 @@ final class EditorModel {
     /// Inserts before the first clip starting at/after the playhead, so it lands where you're parked
     /// rather than always at the end.
     func addClipAtPlayhead(from proxy: ProxyClip) {
-        checkpoint()
+        checkpoint("Add Clip")
         let clip = TimelineClip.from(proxy, at: .zero)
         let t = playheadSeconds
         // `clips` is the timeline-ordered view and the document array is kept in that same order by
@@ -547,7 +547,7 @@ final class EditorModel {
     /// processed one-by-one — this is the fix.)
     func addSupercutClips(_ takes: [SupercutTake], tighten: Bool, evenVolume: Bool, addSubtitles: Bool = false) {
         guard !takes.isEmpty else { return }
-        checkpoint()
+        checkpoint("Add Supercut")
         // Start a fresh supercut at the BEGINNING (owner 2026-06-29: "It should start at the beginning of
         // the clip and play through"). Without this the playhead keeps whatever value it had, and as the
         // verify pass removes clips the timeline shifts under it — landing it in the middle of the first
@@ -772,7 +772,7 @@ final class EditorModel {
     }
 
     func deleteClip(_ id: UUID) {
-        checkpoint()
+        checkpoint("Delete Clip")
         project.timeline.clips.removeAll { $0.id == id }
         thumbnails[id] = nil; clipCache[id] = nil
         if selectedClipID == id { selection = .none }
@@ -833,7 +833,7 @@ final class EditorModel {
         let clip = project.timeline.clips[i]
         let offsetInClip = t - clip.timelineStart.seconds                   // seconds into the clip
         guard offsetInClip > 0.05, offsetInClip < clip.sourceRange.duration.seconds - 0.05 else { return }
-        checkpoint()
+        checkpoint("Split")
         let cutSource = clip.sourceRange.start.seconds + offsetInClip
         var left = clip
         left.sourceRange = TimeRange(startSeconds: clip.sourceRange.start.seconds, durationSeconds: offsetInClip)
@@ -866,7 +866,7 @@ final class EditorModel {
     /// Duplicate a clip immediately after itself (context menu).
     func duplicateClip(_ id: UUID) {
         guard let i = project.timeline.clips.firstIndex(where: { $0.id == id }) else { return }
-        checkpoint()
+        checkpoint("Duplicate")
         let src = project.timeline.clips[i]
         let copy = TimelineClip(
             proxyClipID: src.proxyClipID, catalogItemID: src.catalogItemID, sourceURL: src.sourceURL,
@@ -890,7 +890,7 @@ final class EditorModel {
     func bumpOverlayRevision() { overlayRevision &+= 1 }
 
     func addTextOverlay() {
-        checkpoint()
+        checkpoint("Add Text")
         let start = playheadSeconds
         let avail = max(0, totalDuration - start)
         let ov = TextOverlay(text: "Title",
@@ -911,7 +911,7 @@ final class EditorModel {
     }
 
     func deleteOverlay(_ id: UUID) {
-        checkpoint()
+        checkpoint("Delete Text")
         project.timeline.textOverlays.removeAll { $0.id == id }
         if selectedOverlayID == id { selection = .none }
         bumpOverlayRevision()
@@ -927,9 +927,12 @@ final class EditorModel {
 
     /// Capture the project so the next edit is undoable. Call BEFORE a discrete edit, or once at
     /// the start of a drag (the timeline calls this on mouseDown).
-    func checkpoint() {
+    /// `actionName` is what Edit › Undo says ("Undo Split"); a Mac names the
+    /// action it will take back (Mac loop, 2026-09-27 — it only ever said "Undo").
+    func checkpoint(_ actionName: String? = nil) {
         let before = project
         undoManager?.registerUndo(withTarget: self) { editor in editor.applyHistory(before) }
+        if let actionName { undoManager?.setActionName(actionName) }
     }
     /// One undo step per burst of edits to one element (typing, a stepper held
     /// down, a picker tried several times): a checkpoint unless the same element
@@ -941,7 +944,7 @@ final class EditorModel {
         let now = Date()
         defer { lastCoalescedEdit = (id, now) }
         if let last = lastCoalescedEdit, last.id == id, now.timeIntervalSince(last.at) < 1.5 { return }
-        checkpoint()
+        checkpoint("Typing")
     }
     private func applyHistory(_ snapshot: ClipProject) {
         let inverse = project                       // re-registers as redo
@@ -960,7 +963,7 @@ final class EditorModel {
     }
     func paste() {
         guard let c = clipboard else { return }
-        checkpoint()
+        checkpoint("Paste")
         let copy = TimelineClip(proxyClipID: c.proxyClipID, catalogItemID: c.catalogItemID,
                                 sourceURL: c.sourceURL, sourceRange: c.sourceRange,
                                 timelineStart: .zero, track: 0, label: c.label, audioVolume: c.audioVolume,
@@ -979,7 +982,7 @@ final class EditorModel {
     /// Mute / unmute the selected clip's audio.
     func toggleMuteSelected() {
         guard let id = selectedClipID, let c = clips.first(where: { $0.id == id }) else { return }
-        checkpoint()
+        checkpoint(c.audioVolume == 0 ? "Unmute Audio" : "Mute Audio")
         setClipVolume(id, c.audioVolume == 0 ? 1 : 0)
     }
 
@@ -1550,7 +1553,7 @@ final class EditorModel {
         let dst = ProjectMediaCache.directory.appendingPathComponent(name)
         try? FileManager.default.removeItem(at: dst)
         guard (try? FileManager.default.copyItem(at: src, to: dst)) != nil else { return }
-        checkpoint()
+        checkpoint("Add Music")
         let clip = AudioClip(kind: .music, fileName: name,
                              displayName: src.deletingPathExtension().lastPathComponent,
                              volume: 0.5, startSeconds: max(0, playheadSeconds))
@@ -1585,7 +1588,7 @@ final class EditorModel {
         guard let i = audioIndex(id) else { return }
         let clip = project.timeline.audioClips[i]
         try? FileManager.default.removeItem(at: ProjectMediaCache.directory.appendingPathComponent(clip.fileName))
-        checkpoint()
+        checkpoint("Delete Audio")
         project.timeline.audioClips.remove(at: i)
         if selectedAudioID == id { selection = .none }
         scheduleRebuild()
@@ -1711,7 +1714,7 @@ final class EditorModel {
     @MainActor private func finishVoiceover(url: URL, error: Error?) {
         teardownCapture()
         if let error { voiceoverError = "Recording failed: \(error.localizedDescription)"; return }
-        checkpoint()
+        checkpoint("Record Voiceover")
         let clip = AudioClip(kind: .voiceover, fileName: url.lastPathComponent, displayName: "Voiceover",
                              volume: 1.0, startSeconds: voiceStartSeconds)
         project.timeline.audioClips.append(clip)
@@ -1758,7 +1761,7 @@ final class EditorModel {
     }
     func setRenderSize(_ s: RenderSize) {
         guard project.timeline.renderSize != s else { return }
-        checkpoint()
+        checkpoint("Change Aspect")
         project.timeline.renderSize = s
         scheduleRebuild()
     }

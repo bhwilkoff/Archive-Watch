@@ -515,6 +515,18 @@ final class TimelineContentView: NSView, NSMenuItemValidation {
         return .none
     }
 
+    /// What Edit › Undo says after this drag.
+    private func undoName(_ d: Drag) -> String {
+        switch d {
+        case .move, .moveSelection: "Move"
+        case .trimLeft, .trimRight: "Trim"
+        case .fadeIn, .fadeOut: "Change Fade"
+        case .transition: "Change Transition"
+        case .moveOverlay: "Move Text"
+        case .moveAudio: "Move Audio"
+        case .none, .scrub, .marquee: "Edit"
+        }
+    }
     private func clip(_ id: UUID) -> TimelineClip? { state.clips.first { $0.id == id } }
 
     /// The element id a drag region refers to (nil for scrub/marquee/empty).
@@ -630,7 +642,7 @@ final class TimelineContentView: NSView, NSMenuItemValidation {
         let now = CACurrentMediaTime()
         guard now - lastEditDragTime >= 0.033 else { return }
         lastEditDragTime = now
-        if pendingCheckpoint { model.checkpoint(); pendingCheckpoint = false }   // one undo step per drag
+        if pendingCheckpoint { model.checkpoint(undoName(drag)); pendingCheckpoint = false }   // one undo step per drag
         applyDrag(p)
     }
 
@@ -816,10 +828,10 @@ final class TimelineContentView: NSView, NSMenuItemValidation {
     @objc private func ctxDeleteAudio() { if let id = contextAudioID { model.removeAudio(id) } }
     @objc private func ctxDeleteOverlay() { if let id = contextOverlayID { model.deleteOverlay(id) } }
     @objc private func ctxDeleteSelection() { model.deleteSelection() }
-    @objc private func ctxClearFades() { if let id = contextClipID { model.checkpoint(); model.setClipFade(id, fadeIn: 0, fadeOut: 0) } }
-    @objc private func ctxClearTransition() { if let id = contextClipID { model.checkpoint(); model.setClipTransition(id, 0) } }
+    @objc private func ctxClearFades() { if let id = contextClipID { model.checkpoint("Clear Fades"); model.setClipFade(id, fadeIn: 0, fadeOut: 0) } }
+    @objc private func ctxClearTransition() { if let id = contextClipID { model.checkpoint("Clear Transition"); model.setClipTransition(id, 0) } }
     @objc private func ctxMute() {
-        if let id = contextClipID, let c = clip(id) { model.checkpoint(); model.setClipVolume(id, c.audioVolume == 0 ? 1 : 0) }
+        if let id = contextClipID, let c = clip(id) { model.checkpoint(c.audioVolume == 0 ? "Unmute Audio" : "Mute Audio"); model.setClipVolume(id, c.audioVolume == 0 ? 1 : 0) }
     }
 
     // The standard Edit-menu Copy/Paste (⌘C/⌘V) route here while the timeline is first responder.

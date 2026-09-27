@@ -953,7 +953,7 @@ private struct ProjectInspector: View {
         LabeledContent(title) {
             HStack {
                 // One undo step per drag, taken as it begins.
-                Slider(value: value, in: range) { began in if began { model.checkpoint() } }
+                Slider(value: value, in: range) { began in if began { model.checkpoint("Change \(title)") } }
                     .frame(minWidth: 90)
                     .accessibilityLabel(title)
                     .accessibilityValue(format(value.wrappedValue))

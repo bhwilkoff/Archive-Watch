@@ -285,3 +285,12 @@ through Accessibility and its items pressed there (never pointer clicks).
   Verified through AX + keystrokes: add text, type "Goodbye", move focus
   to the timeline (so the field's own undo is gone), one Edit › Undo →
   "Title", the text kept. Slider undo is built, not driven (it needs a drag).
+- v1.42.812: every undo step now carries an action name ("Split", "Delete",
+  "Add Text", "Change Look", "Trim", "Move Text", "Mute Audio", "Change
+  Fade In"…; `checkpoint(_:)`), because a Mac says what Undo will take
+  back. FINDING, not fixed: this app's Edit menu shows plain "Undo" even for
+  AppKit's own "Undo Typing" in a text field — SwiftUI's undo command does
+  not surface action names here. Surfacing them means replacing the system
+  Undo/Redo items (which also serve every text field in every window), a
+  larger change than a label is worth; the names are in place for when it
+  is done. Behavior unchanged; build verified.
