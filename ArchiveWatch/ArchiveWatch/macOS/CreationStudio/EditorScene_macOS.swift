@@ -978,8 +978,13 @@ private struct TextOverlayEditor: View {
                 }
             }
             LabeledContent("Size") {
-                Slider(value: $overlay.fontScale, in: 0.025...0.12).frame(minWidth: 90)
+                // The only slider here with no readout; the value is a share of the
+                // frame's width, so it reads as one.
+                HStack { Slider(value: $overlay.fontScale, in: 0.025...0.12).frame(minWidth: 90)
                     .accessibilityLabel("Size")
+                    .accessibilityValue(String(format: "%.1f%% of the width", overlay.fontScale * 100))
+                    Text(String(format: "%.1f%%", overlay.fontScale * 100)).font(.caption.monospacedDigit())
+                        .foregroundStyle(.secondary).frame(width: 38, alignment: .trailing) }
             }
             Toggle("Legibility shadow", isOn: $overlay.hasBackground)
             LabeledContent("Start") {
@@ -990,7 +995,7 @@ private struct TextOverlayEditor: View {
             }
             Button("Remove Text", role: .destructive) { onDelete() }
         } header: {
-            Text("Text Overlay")
+            Text("Text")   // the name the menu, toolbar and lane use
         }
     }
 

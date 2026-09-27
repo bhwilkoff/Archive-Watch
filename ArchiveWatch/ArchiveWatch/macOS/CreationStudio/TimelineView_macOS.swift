@@ -343,7 +343,7 @@ final class TimelineContentView: NSView, NSMenuItemValidation {
 
         // Lanes below the video track: a TITLES lane + a packed stack of audio lanes (multi-track).
         // Each block sits at its start time and is draggable to retime independently of the video.
-        addLane(y: titleTop, label: "TITLES", on: layer)
+        addLane(y: titleTop, label: "TEXT", on: layer)
         for ov in state.overlays {
             layer.addSublayer(laneBlock(x: x(ov.timelineRange.start.seconds), y: titleTop,
                 w: max(6, x(ov.timelineRange.duration.seconds)),
@@ -946,7 +946,7 @@ extension TimelineContentView {
                 axRect(start: c.timelineStart.seconds, duration: c.sourceRange.duration.seconds, y: trackTop, h: trackH), c.id)
         }
         for o in state.overlays {
-            add("Title, \(o.text)",
+            add("Text, \(o.text)",
                 axRect(start: o.timelineRange.start.seconds, duration: o.timelineRange.duration.seconds, y: titleTop, h: laneH), o.id)
         }
         for (lane, clips) in packedAudioLanes().enumerated() {

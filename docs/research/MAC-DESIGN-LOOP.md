@@ -195,3 +195,10 @@ through Accessibility and its items pressed there (never pointer clicks).
   the playhead to the new length. Verified through AX: after the deletes
   the timeline reads "Playhead at 0 s of 0 s", the preview shows only
   Empty Timeline, and Edit › Undo twice brings both clips back.
+- v1.42.802: one name for text. The menu and toolbar said "Add Text", the
+  inspector "Text Overlay", the timeline lane "TITLES" and VoiceOver
+  "Title, …" — four names for one thing. All say Text now (section "Text",
+  lane "TEXT", element "Text, <its words>"). The Size slider was the only
+  one in the inspector with no readout; it reads "5.0%" (a share of the
+  frame's width) and says so to VoiceOver. Seen with Clip › Add Text on the
+  running editor; AX reads "Text, Title".
