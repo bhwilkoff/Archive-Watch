@@ -710,6 +710,37 @@ keep serving it.
 
 ## Session Log
 
+### 2026-09-27 (evening) — the macOS audit loop: menus, the Creation Studio, and two real defects
+
+Owner: *"conduct a similar audit and design iteration loop on the MacOS
+version ... pay close attention to every single feature within the Creation
+Studio ... make sure that all features that should have menu items ... are
+well represented in the menu structure."* v1.42.784 -> .822, one commit a
+tick; the log is `docs/research/MAC-DESIGN-LOOP.md`.
+
+**Two defects that lost work or hung**, both found because archive.org
+refused this network for most of the afternoon: (1) an outage DELETED every
+clip on a timeline — the give-up meant for a dead source cannot tell an
+outage from one; a give-up now removes only while another clip has loaded,
+and a removal is announced and undoable; (2) Export sat at "Caching clips…"
+forever — `withTimeout` raced in a task group, which waits for a child that
+ignores cancellation; it is a once-only continuation now, and Export ends in
+~3 min saying none of the clips could be downloaded.
+
+**Menus**: Go follows the sidebar; Film, Controls, Clip (with Look and
+Transition Style), Mark, a customizable editor toolbar with View's Show /
+Customize Toolbar, Title Case throughout, Esc closes every sheet. **Undo**:
+every inspector edit is undoable (none were), coalesced per burst.
+**VoiceOver**: the timeline, poster cards, clip rows, hero dots and section
+headings all reachable. **Verified on real footage** while archive.org was
+up: J/L/K shuttle, the player and its Controls menu.
+
+**Owner, new**: which films the Creation Studio may PUBLISH as CC0 (item
+0-NEW-2026-09-27-B; The Pink Panther is clippable and has no year). **Not
+yet seen**: a successful Export file, the removal notice, slider undo —
+all need archive.org to answer; editor runs that fetch clips are paused to
+let the block on this address lift.
+
 ### 2026-09-27 — Channels on one clock, collections in archive.org's words, and the owner's five answers
 
 Owner, answering five questions: one clock ("you can choose UTC, but all times
@@ -745,36 +776,5 @@ platform now name their source instead of model-written taglines.
 **Not seen**: iPhone 12 is behind a Screen Time "Time Limit" for the app; the
 iPad Pro was locked. **Roku**: the one-clock guide is sideloaded, not packaged;
 the Kitchen Roku 2 XD was running another session's dev build, now replaced.
-
-### 2026-09-26 — OAuth approved, the quota screencast, and a day of loose ends closed
-
-Owner: *"the OAuth has been approved ... a new video needs to be created for
-the API increase ... fully run the screencast, recording it and replying"*,
-then *"fix all documented items now and if you find more, please fix those
-too"* and *"make sure you are documenting full parity."* v1.42.717 -> .722.
-
-**Quota**: a live broadcast on Archive Watch (`ah780Fm7ky8`) recorded window by
-window and cut with English title cards: <https://youtu.be/6QiRJhHyw3E>, sent on
-Google's thread (docs/oauth/QUOTA-SCREENCAST.md). No OAuth code change needed.
-
-**Studio**: chat link is the film's Archive Watch page; "shared N ago" is per
-show; chat reading switches mid-show (Mac, iPhone); a show ends once; End asks
-on the iPhone and on Android as it already did on Mac and TV; a show over a
-paused film shows its frame, not black; refusal sentences for safe_gov
-(Prelinger is not a government) and Decision 140's bucket.
-
-**Found**: `test_studio_all.sh` read `| tail`'s exit code, so two failing
-rights tests reported PASS since v1.42.195; `asc_release.py status` went red on
-a normal "not uploaded yet". **Versions**: the Scarecrow merge had left the
-SOUND copy unreachable; every picker (Apple, Android, Roku, and a new web one)
-now lists merged uploads' files — verified on the Roku.
-
-**Shipped**: Apple 1.42.720 (1732) WAITING_FOR_REVIEW on tvOS, iOS and macOS
-(auto-release on approval) — the first store build since 1.42.543. The first
-ship went red for a real reason: the Ship step pasted What's New into bash and a
-double quote cut it off (fixed, inputs now arrive as env). **Roku**: the next
-package — after 1.0.76 goes live Mon Sep 28 — carries the three 1.0.75 crash
-fixes AND the merged-upload versions list (sideload-verified today). **Android**
-changes (versions, End asks) are in source, not yet on Play.
 
 Older entries: `docs/SESSION-LOG.md` (verbatim, back to 2026-04-17).
