@@ -14,7 +14,7 @@
  * fields exist only because the protocol has them. Nothing is stored or logged.
  */
 
-import { onAir, schedule } from "./live.js";
+import { joinURL, onAir, schedule } from "./live.js";
 
 const SITE = "https://archivewatch.org";
 const FEEDS = `${SITE}/feeds/xtream`;
@@ -29,6 +29,17 @@ const redirect = (to) => new Response(null, {
   status: 302, headers: { Location: to, "Cache-Control": "no-store", "Access-Control-Allow-Origin": "*" },
 });
 
+// Whole lists are passed through as they are: parsing a 6 MB list would spend
+// the free Worker's CPU allowance on one request.
+async function pass(name) {
+  const r = await fetch(`${FEEDS}/${name}`, { cf: { cacheTtl: TTL, cacheEverything: true } });
+  if (!r.ok) throw new Error(`${name} ${r.status}`);
+  return new Response(r.body, {
+    headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*",
+               "Cache-Control": "public, max-age=600" },
+  });
+}
+
 async function feed(name) {
   const r = await fetch(`${FEEDS}/${name}`, { cf: { cacheTtl: TTL, cacheEverything: true } });
   if (!r.ok) throw new Error(`${name} ${r.status}`);
@@ -42,13 +53,19 @@ async function vodInfo(id) {
   return shard[String(n)] || null;
 }
 
+async function episodeURL(id) {
+  const n = Number(id);
+  if (!Number.isInteger(n)) return null;
+  const shard = await feed(`episodes/${n % SHARDS}.json`);
+  return shard[String(n)] || null;
+}
+
 async function liveTarget(streamId) {
   const channels = await feed("live_streams.json");
   const ch = channels.find((c) => String(c.stream_id) === String(streamId));
   if (!ch) return null;
   const p = onAir(await schedule(), ch.channel, Math.floor(Date.now() / 1000));
-  if (!p) return null;
-  return p.offset >= 10 ? `${p.url}?start=${Math.floor(p.offset)}` : p.url;
+  return p ? joinURL(p) : null;
 }
 
 const b64 = (s) => btoa(unescape(encodeURIComponent(s || "")));
@@ -104,24 +121,31 @@ export async function handleXtream(url) {
     if (path === "/player_api.php") {
       const action = url.searchParams.get("action");
       const cat = url.searchParams.get("category_id");
+      const byCat = (all, dir) => (cat && /^\d+$/.test(cat) ? pass(`${dir}/${cat}.json`) : pass(all));
       const within = (list) => (cat ? list.filter((s) => String(s.category_id) === cat) : list);
       switch (action) {
         case null: case "": return json(account(url));
-        case "get_vod_categories": return json(await feed("vod_categories.json"));
-        case "get_vod_streams": return json(within(await feed("vod_streams.json")));
+        case "get_vod_categories": return pass("vod_categories.json");
+        case "get_vod_streams": return byCat("vod_streams.json", "vod_streams");
         case "get_vod_info": {
           const info = await vodInfo(url.searchParams.get("vod_id"));
           if (!info) return json({ info: [], movie_data: [] });
           return json({ info: info.info, movie_data: info.movie_data });
         }
-        case "get_live_categories": return json(await feed("live_categories.json"));
+        case "get_live_categories": return pass("live_categories.json");
         case "get_live_streams": return json(within(await feed("live_streams.json")));
         case "get_short_epg":
         case "get_simple_data_table":
           return json(await shortEpg(url.searchParams.get("stream_id"),
             action === "get_short_epg" ? Number(url.searchParams.get("limit") || 4) : 60));
-        case "get_series_categories": case "get_series": return json([]);
-        case "get_series_info": return json({ seasons: [], info: {}, episodes: {} });
+        case "get_series_categories": return pass("series_categories.json");
+        case "get_series": return byCat("series.json", "series");
+        case "get_series_info": {
+          const id = url.searchParams.get("series_id");
+          if (!/^\d+$/.test(id || "")) return json({ seasons: [], info: {}, episodes: {} });
+          try { return await pass(`series_info/${id}.json`); }
+          catch { return json({ seasons: [], info: {}, episodes: {} }); }
+        }
         default: return json([]);
       }
     }
@@ -132,6 +156,12 @@ export async function handleXtream(url) {
     if (m) {
       const info = await vodInfo(m[1]);
       return info ? redirect(info.url) : new Response("Not found\n", { status: 404 });
+    }
+    // /series/<user>/<pass>/<episode id>.<ext>
+    m = path.match(/^\/series\/[^/]+\/[^/]+\/(\d+)(?:\.\w+)?$/);
+    if (m) {
+      const to = await episodeURL(m[1]);
+      return to ? redirect(to) : new Response("Not found\n", { status: 404 });
     }
     // /live/<user>/<pass>/<id>.<ext>
     m = path.match(/^\/live\/[^/]+\/[^/]+\/(\d+)(?:\.\w+)?$/);

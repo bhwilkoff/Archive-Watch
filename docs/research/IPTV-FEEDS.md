@@ -54,6 +54,12 @@ second it has reached; when it ends, a player that reconnects is sent to the
 next. Channel URLs carry no `.mp4` extension, so players do not file them as
 films.
 
+**A short film's last seconds are not joinable**: `?start=100` on a 104 s
+film returns 4 s and 39 KB, which may hold no whole picture (the owner's
+Documentary channel "wouldn't play" on *Egyptian Fakir with Dancing Monkey*,
+2026-09-27). Inside the last minute, or the last quarter of a short film, the
+channel starts the NEXT program from its beginning instead (`live.js joinURL`).
+
 **Unverified on a real player**: whether UHF and TiviMate reconnect a live
 channel when its film ends, rather than stopping. The owner's devices do not
 have UHF or TiviMate installed, and installing an app is the owner's step.
@@ -62,11 +68,21 @@ have UHF or TiviMate installed, and installing an app is the owner's step.
 
 | Address | What |
 |---|---|
-| `/feeds/archivewatch.m3u` | everything: 15 channels (`group-title="Live Channels"`, `tvg-chno`), then every film (`tvg-type="movie"`, grouped by kind, poster, length); header names the guide |
+| `/feeds/archivewatch.m3u` | everything: 15 channels (`group-title="Live Channels"`, `tvg-chno`), every film (`tvg-type="movie"`, grouped by kind, poster, length), every series episode (`tvg-type="series"`, grouped by series); header names the guide |
 | `/feeds/live.m3u` | the channels only |
 | `/feeds/guide.xml` | XMLTV, every programme with synopsis, credits, year, genres, poster, rating |
-| Worker `/player_api.php`, `/movie/…`, `/live/…`, `/get.php`, `/xmltv.php` | the Xtream API |
+| Worker `/player_api.php`, `/movie/…`, `/series/…`, `/live/…`, `/get.php`, `/xmltv.php` | the Xtream API: Live, Movies and Series |
 | `/feeds/films.m3u` | the same as archivewatch.m3u, kept for players added 2026-09-26; not listed |
 
-Films are the Roku feed's `guaranteed` tier (public domain by age, Decision
-113); channels play what the apps' Channels play.
+**Scope (Decision 145)**: everything the apps show. The first version carried
+only the Roku feed's public-domain-by-age tier (6,315 films); the owner:
+*"the Xtream feed has a much smaller selection, very few items in each
+category, and the tv shows are not separated into 'series' as apps like UHF
+expect."* Now: every film in the served index (19,848 on 2026-09-27) and every
+series spine with the episodes the served episode index carries (290 series,
+2,674 episodes), as the Xtream Series section and, in the M3U, as episodes
+named `Show S01E02 Title` with `tvg-serie` / `tvg-season` / `tvg-episode`.
+
+**The Worker passes lists through untouched** (a 6 MB list parsed per request
+would exceed the free plan's CPU): whole lists and per-category lists are
+separate files, and lookups are 256 small shards.

@@ -227,6 +227,7 @@ into every session and the index alone carries every title.)
 - 142 — Watch Together is counted from what our servers and Google already see, never from the apps
 - 143 — A room carries the host's copy, and every guest plays exactly that file
 - 144 — Channels run on one clock: the pipeline publishes the timeline, every client plays it and shows it in local time
+- 145 — The IPTV feeds carry everything the apps show, television as series, and a channel never joins a film's last scrap
 
 ---
 
@@ -1066,4 +1067,30 @@ local schedule (it would silently disagree). Keep `slot_seconds` in the builder 
 duration rule. The builder's test (`tools/test_channel_schedule.py`) pins continuity, holding,
 in-place repair and zone independence, with a control; `tools/test_web_channels_clock.mjs`
 proves two far-apart zones agree, against the live site's old code as its control.
+
+
+## 145 — The IPTV feeds carry everything the apps show, television as series, and a channel never joins a film's last scrap
+*Date: 2026-09-27*
+
+`/feeds/archivewatch.m3u` and the Worker's Xtream API list every film in the served
+index and every series spine with its served episodes, not the Roku feed's
+public-domain-by-age tier. Television is an Xtream Series section (seasons, episodes)
+and, in the M3U, episodes named `Show S01E02` with `tvg-serie`/`tvg-season`/`tvg-episode`.
+A live channel whose film has under a minute (or a quarter of a short film) left sends
+the player to the next program from its start.
+
+**Why**: the owner, after the first feeds — *"the Xtream feed has a much smaller
+selection, very few items in each category, and the tv shows are not separated into
+'series' as apps like UHF expect. I also noticed that the movie on the documentary
+channel wouldn't play."* The tier was Decision 113's rule for a list handed to another
+company's search index; applied to a playlist, it hid two thirds of what anyone can
+already open in Archive Watch, and every title in the served index has passed the rights
+audit, takedowns and the mature filter. The Documentary channel had joined a 104-second
+film at its end: archive.org answers `?start=100` with 4 s and 39 KB.
+
+**How to apply**: the served index (and the served episode index) is the gate for the
+feeds as for every client; do not re-derive membership in the builder. The Roku Search
+feed keeps its tier (Decision 113 stands for search indexes). Keep the Worker's lists
+pass-through: a new list goes out as a file, per category if players filter by one.
+`tools/test_film_feeds.py` holds the shape.
 

@@ -31,12 +31,15 @@ Files (/feeds/):
   xtream/*.json      the Xtream API's data
   manifest.json      counts, for the deploy's floor check
 
-WHICH FILMS: exactly what the Roku Search feed advertises (Decision 113) —
-`build_roku_search_feed.eligibility` at the `guaranteed` tier, public domain by
-AGE — because a list handed to another company's app is a list we call free to
-watch. A CHANNEL plays what the apps' Channels play (Decision 144), through
-the Worker's /live/<channel>, which joins the film at the second it has
-reached.
+WHICH TITLES: everything the apps show (Decision 145). Owner, 2026-09-27, on
+the first feeds, which carried only the Roku feed's public-domain-by-age tier:
+"the Xtream feed has a much smaller selection, very few items in each category,
+and the tv shows are not separated into 'series' as apps like UHF expect." So
+the films are every film in the served index (the gate every client reads:
+the rights audit, takedowns, the mature filter), and television is every
+series spine with the episodes the served episode index carries. A CHANNEL
+plays what the apps' Channels play (Decision 144), through the Worker's
+/live/<channel>, which joins the film at the second it has reached.
 
     python3 tools/build_film_feeds.py --out _site
 """
@@ -53,7 +56,7 @@ from pathlib import Path
 from xml.sax.saxutils import escape, quoteattr
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from build_roku_search_feed import KIND, eligibility  # noqa: E402
+from build_roku_search_feed import KIND  # noqa: E402
 
 REPO = Path(__file__).resolve().parent.parent
 FEED_DIR = "feeds"
@@ -78,12 +81,6 @@ def clean(s) -> str:
     return re.sub(r"\s+", " ", str(s or "")).replace('"', "'").strip()
 
 
-def stream_id(archive_id: str) -> int:
-    """A stable integer for the Xtream API, which numbers its streams: the
-    same film keeps its number across builds, so a player's favorites hold."""
-    return int(hashlib.sha1(archive_id.encode()).hexdigest()[:7], 16) + 1000
-
-
 def label(item: dict) -> str:
     title = clean(item.get("title"))
     return f"{title} ({item['year']})" if item.get("year") else title
@@ -97,14 +94,17 @@ def poster(item: dict) -> str | None:
     return item.get("posterURL") if item.get("hasRealArtwork") else None
 
 
+NOT_FILMS = {"tv-series", "tv-episode", "commercial", "excerpt"}
+
+
 def films(catalog: dict, index_ids: set) -> tuple[list, collections.Counter]:
     out, skipped = [], collections.Counter()
     for item in catalog.get("items", []):
-        why = eligibility(item, index_ids, "guaranteed", "any")
-        if why == "no_poster":
-            why = None       # a poster is optional in a playlist
-        if why:
-            skipped[why.split(":")[0]] += 1
+        if item.get("archiveID") not in index_ids:
+            skipped["not_in_public_index"] += 1
+            continue
+        if item.get("contentType") in NOT_FILMS:
+            skipped[item.get("contentType")] += 1
             continue
         if not (item.get("downloadURL") or "").startswith("https://archive.org/download/"):
             skipped["no_archive_file"] += 1
@@ -112,6 +112,75 @@ def films(catalog: dict, index_ids: set) -> tuple[list, collections.Counter]:
         out.append(item)
     out.sort(key=lambda i: (group(i), -(i.get("popularityScore") or 0), i.get("title") or ""))
     return out, skipped
+
+
+def series_list(repo: Path, episodes_index: dict) -> list:
+    """Every series spine, with only the episodes the served episode index
+    carries (the TV rights audit's gate, Decision 140's television half)."""
+    f = {n: i for i, n in enumerate(episodes_index["fields"])}
+    served = collections.defaultdict(set)
+    for row in episodes_index["episodes"]:
+        served[row[f["slug"]]].add(row[f["archiveID"]])
+    out = []
+    for slug in sorted(served):
+        path = repo / "series" / f"{slug}.json"
+        if not path.exists():
+            continue
+        spine = json.loads(path.read_text(encoding="utf-8"))
+        eps = []
+        for season in spine.get("seasons") or []:
+            for e in season.get("episodes") or []:
+                if e.get("archiveID") in served[slug] and \
+                        (e.get("downloadURL") or "").startswith("https://archive.org/download/"):
+                    eps.append(e)
+        if eps:
+            spine["slug"] = slug
+            spine["served"] = eps
+            out.append(spine)
+    return out
+
+
+def number_ids(keys: list) -> dict:
+    """Stable integers for the Xtream API, which numbers its streams and whose
+    players often hold them in a 32-bit int: a hash of the id, and on the rare
+    collision the next free number, in id order so the result is repeatable."""
+    taken, out = set(), {}
+    for k in sorted(keys):
+        n = int(hashlib.sha1(k.encode()).hexdigest()[:8], 16) % 2_000_000_000 + 1000
+        while n in taken:
+            n += 1
+        taken.add(n)
+        out[k] = n
+    return out
+
+
+def episode_order(spine: dict) -> list:
+    """(season, episode, item) with numbers for every episode: the spine's own
+    where it has them, else in the spine's order within season 1."""
+    out, counter = [], collections.Counter()
+    for e in spine["served"]:
+        season = e.get("seasonNumber") or 1
+        counter[season] += 1
+        out.append((season, e.get("episodeNumber") or counter[season], e))
+    return out
+
+
+def episode_name(spine: dict, season: int, number: int, e: dict) -> str:
+    title = clean(e.get("title"))
+    base = f"{clean(spine['title'])} S{season:02d}E{number:02d}"
+    return f"{base} {title}" if title and title != clean(spine["title"]) else base
+
+
+def episode_entry(spine: dict, season: int, number: int, e: dict) -> str:
+    art = e.get("stillURL") or spine.get("posterURL")
+    attrs = [f'tvg-id="{clean(e["archiveID"])}"', f'tvg-name="{episode_name(spine, season, number, e)}"',
+             'tvg-type="series"', f'tvg-serie="{clean(spine["title"])}"',
+             f'tvg-season="{season}"', f'tvg-episode="{number}"',
+             f'group-title="{clean(spine["title"])}"']
+    if art:
+        attrs.append(f'tvg-logo="{clean(art)}"')
+    secs = int(e.get("runtimeSeconds") or -1)
+    return f"#EXTINF:{secs} {' '.join(attrs)},{episode_name(spine, season, number, e)}\n{e['downloadURL']}\n"
 
 
 def film_entry(item: dict) -> str:
@@ -189,66 +258,126 @@ def guide(schedule: dict, by_id: dict) -> str:
     return "".join(out)
 
 
-def xtream(items: list, schedule: dict, out: Path) -> None:
-    """The Xtream API's data. The Worker answers player_api.php from these
-    files and adds nothing of its own."""
+def hms(secs: int) -> str:
+    return f"{secs // 3600:02d}:{secs // 60 % 60:02d}:{secs % 60:02d}"
+
+
+def cast_names(people, n=10) -> str:
+    return ", ".join(c["name"] for c in (people or [])[:n] if c.get("name"))
+
+
+def write_json(path: Path, body) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(body, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+
+
+def xtream(items: list, shows: list, schedule: dict, out: Path) -> dict:
+    """The Xtream API's data, laid out so the Worker PASSES FILES THROUGH
+    rather than parsing them (the free Worker has ~10 ms of CPU a request):
+    whole lists and per-category lists are separate files, and the lookups
+    (a film's details, an episode's address) are small shards."""
     x = out / "xtream"
-    (x / "info").mkdir(parents=True, exist_ok=True)
+    # -- films
     groups = sorted({group(i) for i in items})
     cat = {g: str(k + 1) for k, g in enumerate(groups)}
-    (x / "vod_categories.json").write_text(json.dumps(
-        [{"category_id": cat[g], "category_name": g, "parent_id": 0} for g in groups]))
-    streams, shards = [], collections.defaultdict(dict)
+    write_json(x / "vod_categories.json",
+               [{"category_id": cat[g], "category_name": g, "parent_id": 0} for g in groups])
+    ids = number_ids([i["archiveID"] for i in items])
+    streams, by_cat, shards = [], collections.defaultdict(list), collections.defaultdict(dict)
     for n, i in enumerate(items):
-        sid = stream_id(i["archiveID"])
+        sid = ids[i["archiveID"]]
         rating = i.get("imdbRating") or 0
-        cast = ", ".join(c["name"] for c in (i.get("cast") or [])[:10] if c.get("name"))
-        streams.append({
-            "num": n + 1, "name": label(i), "stream_type": "movie", "stream_id": sid,
-            "stream_icon": poster(i) or "", "rating": str(rating),
-            "rating_5based": round(rating / 2, 1), "added": "0",
-            "category_id": cat[group(i)], "container_extension": "mp4",
-            "custom_sid": "", "direct_source": i["downloadURL"],
-        })
+        row = {"num": n + 1, "name": label(i), "stream_type": "movie", "stream_id": sid,
+               "stream_icon": poster(i) or "", "rating": str(rating),
+               "rating_5based": round(rating / 2, 1), "added": "0",
+               "category_id": cat[group(i)], "container_extension": "mp4",
+               "custom_sid": "", "direct_source": ""}
+        streams.append(row)
+        by_cat[row["category_id"]].append(row)
         secs = int(i.get("runtimeSeconds") or 0)
         shards[sid % INFO_SHARDS][str(sid)] = {
             "info": {
                 "name": i.get("title") or "", "o_name": i.get("title") or "",
                 "plot": i.get("synopsis") or "", "description": i.get("synopsis") or "",
-                "cast": cast, "actors": cast, "director": i.get("director") or "",
-                "genre": ", ".join(i.get("genres") or []),
+                "cast": cast_names(i.get("cast")), "actors": cast_names(i.get("cast")),
+                "director": i.get("director") or "", "genre": ", ".join(i.get("genres") or []),
                 "releasedate": i.get("releaseDate") or (str(i["year"]) if i.get("year") else ""),
-                "year": str(i.get("year") or ""),
-                "rating": str(rating), "duration_secs": secs,
-                "duration": f"{secs // 3600:02d}:{secs // 60 % 60:02d}:{secs % 60:02d}",
+                "year": str(i.get("year") or ""), "rating": str(rating),
+                "duration_secs": secs, "duration": hms(secs),
                 "movie_image": poster(i) or "", "cover_big": poster(i) or "",
                 "backdrop_path": [i["backdropURL"]] if i.get("backdropURL") else [],
                 "tmdb_id": str(i.get("tmdbID") or ""),
                 "country": ", ".join(i.get("countries") or []), "youtube_trailer": "",
             },
-            "movie_data": {
-                "stream_id": sid, "name": label(i), "added": "0",
-                "category_id": cat[group(i)], "container_extension": "mp4",
-                "custom_sid": "", "direct_source": i["downloadURL"],
-            },
+            "movie_data": {"stream_id": sid, "name": label(i), "added": "0",
+                           "category_id": cat[group(i)], "container_extension": "mp4",
+                           "custom_sid": "", "direct_source": ""},
             "url": i["downloadURL"],
         }
-    ids = [s["stream_id"] for s in streams]
-    if len(ids) != len(set(ids)):
-        raise SystemExit("[film-feeds] two films share an Xtream stream id — widen stream_id()")
-    (x / "vod_streams.json").write_text(json.dumps(streams, ensure_ascii=False, separators=(",", ":")))
+    write_json(x / "vod_streams.json", streams)
+    for c, rows in by_cat.items():
+        write_json(x / "vod_streams" / f"{c}.json", rows)
     for k in range(INFO_SHARDS):
-        (x / "info" / f"{k}.json").write_text(
-            json.dumps(shards.get(k, {}), ensure_ascii=False, separators=(",", ":")))
-    (x / "live_categories.json").write_text(json.dumps(
-        [{"category_id": "1", "category_name": LIVE_GROUP, "parent_id": 0}]))
-    (x / "live_streams.json").write_text(json.dumps([
+        write_json(x / "info" / f"{k}.json", shards.get(k, {}))
+
+    # -- television, as Series
+    genres = sorted({(s.get("genres") or ["Television"])[0] for s in shows})
+    scat = {g: str(k + 1) for k, g in enumerate(genres)}
+    write_json(x / "series_categories.json",
+               [{"category_id": scat[g], "category_name": g, "parent_id": 0} for g in genres])
+    sids = number_ids([s["slug"] for s in shows])
+    eids = number_ids([e["archiveID"] for s in shows for e in s["served"]])
+    rows, by_scat, eshards = [], collections.defaultdict(list), collections.defaultdict(dict)
+    for n, sp in enumerate(shows):
+        sid = sids[sp["slug"]]
+        g = (sp.get("genres") or ["Television"])[0]
+        info = {"name": sp["title"], "title": sp["title"], "cover": sp.get("posterURL") or "",
+                "plot": sp.get("overview") or "", "cast": cast_names(sp.get("cast")),
+                "director": sp.get("creator") or "", "genre": ", ".join(sp.get("genres") or []),
+                "releaseDate": str(sp.get("yearStart") or ""), "last_modified": "0",
+                "rating": "0", "rating_5based": 0,
+                "backdrop_path": [sp["backdropURL"]] if sp.get("backdropURL") else [],
+                "youtube_trailer": "", "episode_run_time": "", "category_id": scat[g]}
+        row = {"num": n + 1, "series_id": sid, **info}
+        rows.append(row)
+        by_scat[scat[g]].append(row)
+        seasons, episodes = {}, collections.defaultdict(list)
+        for season, number, e in episode_order(sp):
+            eid = eids[e["archiveID"]]
+            secs = int(e.get("runtimeSeconds") or 0)
+            episodes[str(season)].append({
+                "id": str(eid), "episode_num": number, "season": season,
+                "title": episode_name(sp, season, number, e), "container_extension": "mp4",
+                "info": {"movie_image": e.get("stillURL") or sp.get("posterURL") or "",
+                         "plot": e.get("overview") or "", "releasedate": e.get("airDate") or "",
+                         "duration_secs": secs, "duration": hms(secs)},
+                "custom_sid": "", "added": "0", "direct_source": ""})
+            seasons.setdefault(season, {"season_number": season, "name": f"Season {season}",
+                                        "episode_count": 0, "id": season, "overview": "",
+                                        "air_date": "", "cover": sp.get("posterURL") or "",
+                                        "cover_big": sp.get("posterURL") or ""})
+            seasons[season]["episode_count"] += 1
+            eshards[eid % INFO_SHARDS][str(eid)] = e["downloadURL"]
+        write_json(x / "series_info" / f"{sid}.json",
+                   {"seasons": [seasons[k] for k in sorted(seasons)], "info": info,
+                    "episodes": dict(episodes)})
+    write_json(x / "series.json", rows)
+    for c, r in by_scat.items():
+        write_json(x / "series" / f"{c}.json", r)
+    for k in range(INFO_SHARDS):
+        write_json(x / "episodes" / f"{k}.json", eshards.get(k, {}))
+
+    # -- channels
+    write_json(x / "live_categories.json",
+               [{"category_id": "1", "category_name": LIVE_GROUP, "parent_id": 0}])
+    write_json(x / "live_streams.json", [
         {"num": n + 1, "name": ch["title"], "stream_type": "live", "stream_id": n + 1,
          "stream_icon": f"{SITE}/assets/app-icon/app-icon.png",
          "epg_channel_id": f"{ch['id']}.archivewatch.org", "added": "0",
          "category_id": "1", "custom_sid": "", "tv_archive": 0, "direct_source": "",
          "tv_archive_duration": 0, "channel": ch["id"]}
-        for n, ch in enumerate(schedule["channels"])], separators=(",", ":")))
+        for n, ch in enumerate(schedule["channels"])])
+    return {"series": len(rows), "episodes": len(eids)}
 
 
 def main() -> int:
@@ -265,21 +394,24 @@ def main() -> int:
     by_id = {i["archiveID"]: i for i in catalog.get("items", [])}
 
     items, skipped = films(catalog, index_ids)
+    shows = series_list(REPO, json.loads((REPO / "episodes-index.json").read_text(encoding="utf-8")))
     out = Path(args.out) / FEED_DIR
     out.mkdir(parents=True, exist_ok=True)
     live = "".join(channel_entry(ch, n + 1) for n, ch in enumerate(schedule["channels"]))
-    everything = header() + live + "".join(film_entry(i) for i in items)
+    tv = "".join(episode_entry(sp, se, ep, e) for sp in shows for se, ep, e in episode_order(sp))
+    everything = header() + live + "".join(film_entry(i) for i in items) + tv
     (out / "archivewatch.m3u").write_text(everything, encoding="utf-8")
     (out / "films.m3u").write_text(everything, encoding="utf-8")
     (out / "live.m3u").write_text(header() + live, encoding="utf-8")
     (out / "guide.xml").write_text(guide(schedule, by_id), encoding="utf-8")
-    xtream(items, schedule, out)
+    counts = xtream(items, shows, schedule, out)
     kinds = collections.Counter(group(i) for i in items)
     (out / "manifest.json").write_text(json.dumps(
         {"films": len(items), "channels": len(schedule["channels"]), "groups": kinds,
-         "tier": "guaranteed"}, indent=1), encoding="utf-8")
-    print(f"[film-feeds] {len(items)} films in {len(kinds)} groups + "
-          f"{len(schedule['channels'])} channels; left out: {dict(skipped)}")
+         **counts, "scope": "served index"}, indent=1), encoding="utf-8")
+    print(f"[film-feeds] {len(items)} films in {len(kinds)} groups, {counts['series']} series "
+          f"({counts['episodes']} episodes), {len(schedule['channels'])} channels; "
+          f"left out: {dict(skipped)}")
     if len(items) < FLOOR:
         print(f"[film-feeds] refusing: {len(items)} films is under the floor of {FLOOR}", file=sys.stderr)
         return 1

@@ -29,20 +29,42 @@ export async function schedule() {
 export function onAir(file, channelId, now) {
   const ch = file.channels.find((c) => c.id === channelId);
   if (!ch) return null;
+  let found = null;
   for (const key of Object.keys(ch.days).sort()) {
     const day = ch.days[key];
     let t = day.start;
     for (const [id, secs] of day.slots) {
       const end = t + secs;
+      if (found) {
+        const p = file.programs[id];
+        found.next = p ? { id, title: p[0], url: p[2] } : null;
+        return found;
+      }
       if (now < end) {
         const p = file.programs[id];
         if (!p) return null;
-        return { id, title: p[0], url: p[2], offset: Math.max(0, now - t), ends: end };
+        const offset = Math.max(0, now - t);
+        found = { id, title: p[0], url: p[2], offset, ends: end, length: secs,
+                  remaining: end - Math.max(now, t), next: null };
       }
       t = end + file.gap;
     }
   }
-  return null;
+  return found;
+}
+
+// Joining a film this close to its end hands the player a scrap: archive.org
+// answers ?start=100 on a 104 s film with 4 s and 39 KB, which may hold no
+// whole picture (measured 2026-09-27; the owner's Documentary channel "wouldn't
+// play" on Egyptian Fakir with Dancing Monkey). Inside the last minute, or the
+// last quarter of a short film, the channel starts the NEXT program instead.
+const TAIL = 60;
+
+export function joinURL(p) {
+  if (p.remaining < Math.max(TAIL, p.length / 4) && p.next) {
+    return p.next.url;
+  }
+  return p.offset >= 10 ? `${p.url}?start=${Math.floor(p.offset)}` : p.url;
 }
 
 export async function handleLive(url) {
@@ -58,8 +80,5 @@ export async function handleLive(url) {
   const now = Math.floor(Date.now() / 1000);
   const p = onAir(file, m[1], now);
   if (!p) return new Response("Unknown channel\n", { status: 404, headers });
-  // Seconds under ten are the opening credits; the whole file is better
-  // than a rewritten one for so little.
-  const target = p.offset >= 10 ? `${p.url}?start=${Math.floor(p.offset)}` : p.url;
-  return new Response(null, { status: 302, headers: { ...headers, Location: target } });
+  return new Response(null, { status: 302, headers: { ...headers, Location: joinURL(p) } });
 }
