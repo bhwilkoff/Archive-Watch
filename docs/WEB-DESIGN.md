@@ -455,6 +455,18 @@ separate tool with its own conventions (CLAUDE.md) — these rules govern the
   a lot of sense, given that most people don't have apps installed"*), and a
   "Get a player" row names players to install.
 
+- **§8.7 A page's name is Title Case, and a link says the name of the page it
+  opens.** Owner, 2026-09-27: *"It seems like you aren't using capital case in
+  the footer. Shouldn't integrations be capitalized? Please check it for
+  consistency and accuracy."* Page titles, the links to them (footer, About's
+  link row, legal-page footers, film-page footers) and section headings are
+  Title Case: "About & Attribution", "Feeds & Integrations", "All Films A–Z",
+  "How Titles Are Vetted", "Privacy Policy", "Terms of Use", "Removal
+  Requests", "Suggest & Curate", "Get the App". A link reads exactly as its
+  page's own title ("Privacy" became "Privacy Policy"; the A–Z page, titled
+  "Every film, A to Z", became "All Films A–Z" to match its links). Sentences,
+  captions and button verbs ("Copy", "Add to playlist") stay sentence case.
+
 ## §9 Parity discipline
 
 - **§9.1** Update `PARITY.md` in the same change set as any user-facing

@@ -162,8 +162,8 @@ HEAD = """<!DOCTYPE html>
 
 FOOT = """</main>
 <footer>Public domain, from the Internet Archive. Free to watch on Archive Watch
-&mdash; no account, no ads. <a href="/films/">All films A&ndash;Z</a> &middot;
-<a href="/#/feeds">Feeds &amp; integrations</a> &middot; <a href="/privacy.html">Privacy</a></footer>
+&mdash; no account, no ads. <a href="/films/">All Films A&ndash;Z</a> &middot;
+<a href="/#/feeds">Feeds &amp; Integrations</a> &middot; <a href="/privacy.html">Privacy Policy</a></footer>
 </body>
 </html>
 """
@@ -406,10 +406,10 @@ def write_directory(out: Path, entries) -> list:
     d.mkdir(parents=True, exist_ok=True)
     idx_url = f"{SITE}/films/"
     (d / "index.html").write_text(page(
-        "Every film on Archive Watch, A to Z",
+        "All Films A–Z on Archive Watch",
         f"All {total:,} public-domain films and series on Archive Watch, free to watch.",
         idx_url,
-        f"<h1>Every film, A to Z</h1><p class=\"m\">{total:,} titles, all free to watch.</p>"
+        f"<h1>All Films A&ndash;Z</h1><p class=\"m\">{total:,} titles, all free to watch.</p>"
         f'<ul class="az">{nav}</ul>\n'), encoding="utf-8")
     written.append(idx_url)
     for c in letters:

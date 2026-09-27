@@ -123,7 +123,7 @@ def render(m: dict) -> str:
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>How titles are vetted — Archive Watch</title>
+  <title>How Titles Are Vetted — Archive Watch</title>
   <meta name="theme-color" content="#0A0A0A">
   <meta name="description" content="What Archive Watch checks before a film is
     shown, what it hides and why — with the current numbers from the live catalog.">
@@ -139,7 +139,7 @@ def render(m: dict) -> str:
   </header>
 
   <main class="legal-main">
-    <h2>How titles are vetted</h2>
+    <h2>How Titles Are Vetted</h2>
     <p class="updated">Measured from the live catalog on {today}.</p>
 
     <p>
