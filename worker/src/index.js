@@ -26,6 +26,8 @@
 
 import { handleMCP } from "./mcp.js";
 import { handleTogether, sweepRooms } from "./together.js";
+import { handleLive } from "./live.js";
+import { handleXtream } from "./xtream.js";
 
 const ALLOW = "https://archivewatch.org";
 
@@ -111,6 +113,18 @@ export default {
     // The assistant endpoint (mcp.js). Open to any origin, stores nothing.
     if (url.pathname === "/mcp") {
       return handleMCP(request);
+    }
+
+    // IPTV players (xtream.js, live.js): the Xtream API over the published
+    // feeds, and each channel as a link. Open to any origin, stores nothing.
+    if (url.pathname === "/player_api.php" || url.pathname === "/get.php" ||
+        url.pathname === "/xmltv.php" || url.pathname.startsWith("/movie/") ||
+        /^\/live\/[^/]+\/[^/]+\//.test(url.pathname)) {
+      const r = await handleXtream(url);
+      if (r) return r;
+    }
+    if (url.pathname.startsWith("/live/")) {
+      return handleLive(url);
     }
 
     if (request.method === "OPTIONS") {

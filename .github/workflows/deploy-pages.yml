@@ -191,11 +191,14 @@ jobs:
           # M3U playlists for other players (/feeds/, ORPHANED-FILMS #3): the
           # same guaranteed-rights gate as the Roku feed, and the same
           # catalog-lifetime reason to live in this step. Refuses under 1,000.
-          # guide.xml is the XMLTV guide to the channels, from the committed
-          # channel-schedule.json (the one UTC clock, ORPHANED-FILMS #2).
+          # One playlist of every film and channel, the channels alone, the
+          # XMLTV guide (from the committed channel-schedule.json, Decision
+          # 144) and the Xtream API's data the Worker serves (xtream.js).
           python3 tools/build_film_feeds.py --out _site
-          test -s _site/feeds/films.m3u
+          test -s _site/feeds/archivewatch.m3u
+          test -s _site/feeds/live.m3u
           test -s _site/feeds/guide.xml
+          test -s _site/feeds/xtream/vod_streams.json
           rm -f catalog.json
           n=$(python3 -c "import json;print(json.load(open('_site/roku-search/manifest.json'))['assets'])")
           echo "roku search feed assets: $n"

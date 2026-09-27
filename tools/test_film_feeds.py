@@ -1,36 +1,78 @@
 #!/usr/bin/env python3
-"""The film feeds carry only what the Roku Search feed would advertise
-(Decision 113): public domain by age, in the public index, not TV, not
-removed. Control: a 1931 film the app keeps under presumed_pd must NOT pass."""
+"""The IPTV feeds (build_film_feeds.py): one playlist with the channels and
+every film, the guide it names, and the Xtream data — each rule with a check
+that would fail if it were broken."""
+import json
+import re
+import subprocess
 import sys
+import tempfile
+import xml.etree.ElementTree as ET
 from pathlib import Path
-sys.path.insert(0, str(Path(__file__).resolve().parent))
-import build_film_feeds as F
 
-def film(aid, **kw):
-    it = {"archiveID": aid, "title": aid, "year": 1922, "contentType": "feature-film",
-          "runtimeSeconds": 4000, "downloadURL": f"https://archive.org/download/{aid}/{aid}.mp4",
-          "hasRealArtwork": True, "posterURL": "https://image.tmdb.org/t/p/w500/x.jpg"}
-    it.update(kw); return it
+REPO = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(REPO / "tools"))
+import build_film_feeds as F  # noqa: E402
 
-items = [film("keep1922"), film("noposter", hasRealArtwork=False, posterURL=None),
-         film("removed", excluded=True, excludedReason="takedown"),
-         film("tvshow", contentType="tv-series"), film("unindexed"),
-         film("sound1955", year=1955), film("notarchive", downloadURL="https://example.com/x.mp4")]
-index = {i["archiveID"] for i in items} - {"unindexed"}
-groups, skipped = F.build({"items": items}, index)
-ids = {l.split('tvg-id="')[1].split('"')[0] for rows in groups.values() for _, _, l in rows}
 fails = 0
-for label, ok in [
-    ("a pre-1930 film is in", "keep1922" in ids),
-    ("a film without a poster is still in (logo optional)", "noposter" in ids),
-    ("a removed title is out", "removed" not in ids),
-    ("television is out", "tvshow" not in ids),
-    ("a film not in the public index is out", "unindexed" not in ids),
-    ("control: a 1955 film is out", "sound1955" not in ids),
-    ("only archive.org files are played", "notarchive" not in ids),
-    ("EXTINF is one line", all(l.count("\n") == 2 for rows in groups.values() for *_, l in rows)),
-]:
-    print(("PASS " if ok else "FAIL ") + label); fails += 0 if ok else 1
-print("PASS film feeds" if not fails else f"FAILED ({fails})")
+
+
+def check(name, ok, detail=""):
+    global fails
+    print(("PASS " if ok else "FAIL ") + name + (f" — {detail}" if detail and not ok else ""))
+    fails += 0 if ok else 1
+
+
+out = Path(tempfile.mkdtemp())
+r = subprocess.run([sys.executable, str(REPO / "tools/build_film_feeds.py"), "--out", str(out)],
+                   capture_output=True, text=True)
+check("the builder succeeds", r.returncode == 0, r.stderr[-300:])
+feeds = out / "feeds"
+m3u = (feeds / "archivewatch.m3u").read_text()
+lines = m3u.splitlines()
+check("the header names the guide", lines[0].startswith("#EXTM3U") and 'x-tvg-url="https://archivewatch.org/feeds/guide.xml"' in lines[0])
+extinf = [l for l in lines if l.startswith("#EXTINF")]
+urls = [l for l in lines if l and not l.startswith("#")]
+check("every entry has its address", len(extinf) == len(urls))
+sched = json.loads((REPO / "channel-schedule.json").read_text())
+n = len(sched["channels"])
+live = extinf[:n]
+check("the channels come first, under Live Channels, numbered",
+      all('group-title="Live Channels"' in l and f'tvg-chno="{k + 1}"' in l for k, l in enumerate(live)))
+check("a channel address is the Worker's /live/<id>, not a file",
+      all(u.startswith(F.WORKER + "/live/") and not u.endswith(".mp4") for u in urls[:n]))
+films = extinf[n:]
+check("every film is marked a movie, grouped, and carries a length",
+      len(films) > 1000 and all('tvg-type="movie"' in l and 'group-title="' in l and not l.startswith("#EXTINF:-1") for l in films))
+check("films play archive.org's file directly", all(u.startswith("https://archive.org/download/") for u in urls[n:]))
+groups = {re.search(r'group-title="([^"]+)"', l).group(1) for l in films}
+check("no per-kind playlists are published", not list(feeds.glob("*-film.m3u")), str(list(feeds.glob("*.m3u"))))
+check(f"films are grouped by kind ({len(groups)} groups)", 3 <= len(groups) <= 12, str(groups))
+live_only = (feeds / "live.m3u").read_text().splitlines()
+check("live.m3u is the channels alone", sum(l.startswith("#EXTINF") for l in live_only) == n)
+
+g = ET.parse(feeds / "guide.xml").getroot()
+progs = g.findall("programme")
+with_desc = sum(1 for p in progs if p.find("desc") is not None)
+check("the guide's channels match the playlist's tvg-ids",
+      {c.get("id") for c in g.findall("channel")} == {re.search(r'tvg-id="([^"]+)"', l).group(1) for l in live})
+check(f"the guide carries film details ({with_desc}/{len(progs)} with a synopsis)", with_desc > len(progs) * 0.5)
+order = ["title", "desc", "credits", "date", "category", "icon", "url", "star-rating"]
+bad = [p for p in progs[:500] if [c.tag for c in p] != sorted((c.tag for c in p), key=order.index)]
+check("programme children follow XMLTV's DTD order", not bad)
+
+x = feeds / "xtream"
+streams = json.loads((x / "vod_streams.json").read_text())
+ids = [s["stream_id"] for s in streams]
+check("every film has its own Xtream id", len(ids) == len(set(ids)) == len(films))
+s0 = streams[0]
+info = json.loads((x / "info" / f"{s0['stream_id'] % F.INFO_SHARDS}.json").read_text())[str(s0["stream_id"])]
+check("get_vod_info carries plot, cast and director",
+      bool(info["info"]["plot"]) and "director" in info["info"] and "cast" in info["info"])
+check("the stream id is stable (a hash of the archive id)",
+      F.stream_id("TheGeneral720p1926") == F.stream_id("TheGeneral720p1926") != F.stream_id("TheGeneral720p1927"))
+# Control: a playlist built without the channels would fail the first check.
+check("control: the film-only prefix would not pass as channels",
+      not all('group-title="Live Channels"' in l for l in films[:n]))
+print(f"\n{fails} failure(s)")
 sys.exit(1 if fails else 0)

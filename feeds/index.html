@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Playlists for other players — Archive Watch</title>
+  <title>Archive Watch in other players</title>
   <meta name="theme-color" content="#0A0A0A">
   <link rel="stylesheet" href="../css/styles.css">
   <link rel="stylesheet" href="../css/legal.css">
@@ -17,37 +17,40 @@
   </header>
 
   <main class="legal-main">
-    <h2>Playlists for other players</h2>
+    <h2>Archive Watch in other players</h2>
 
     <p>
-      Archive Watch's public-domain films as an M3U playlist. Add this one
-      address to your player and it stays current: it is rebuilt every time
-      the catalog is.
+      Every film that is public domain by age, and every Archive Watch channel
+      live, in one IPTV playlist. Add it once; it updates with the catalog.
     </p>
 
-    <p><a href="films.m3u"><strong>https://archivewatch.org/feeds/films.m3u</strong></a></p>
+    <p class="keys">https://archivewatch.org/feeds/archivewatch.m3u</p>
+    <p><a class="btn-primary" href="archivewatch.m3u">Open the playlist</a></p>
 
     <p>
-      It lists only films that are public domain by age, and each one plays its
-      file from the <a href="https://archive.org" rel="noopener">Internet Archive</a>.
-      Players that open a playlist address include
-      <a href="https://apps.apple.com/us/app/uhf-love-your-iptv/id6443751726" rel="noopener">UHF</a>
-      (Apple TV, iPhone, iPad and Mac), VLC, Kodi, Jellyfin, Plex, Infuse and TiviMate.
+      The films are grouped by kind in your player, the channels are under
+      Live Channels, and the program guide loads with them. Each film plays
+      its own file from the <a href="https://archive.org" rel="noopener">Internet Archive</a>.
     </p>
 
-    <p>By kind:</p>
+    <h3>Players</h3>
     <ul>
-      <li><a href="feature-film.m3u">Feature films</a></li>
-      <li><a href="silent-film.m3u">Silent films</a></li>
-      <li><a href="short-film.m3u">Short films</a></li>
-      <li><a href="animated-film.m3u">Animated films</a></li>
+      <li><a href="https://apps.apple.com/us/app/uhf-love-your-iptv/id6443751726" rel="noopener">UHF</a> — Apple TV, iPhone, iPad and Mac</li>
+      <li>TiviMate and IPTV Smarters — Android TV, Fire TV and phones</li>
+      <li>VLC, Kodi, Jellyfin and Plex</li>
     </ul>
 
-    <h3>Program guide</h3>
+    <h3>Film details: plot, cast and ratings</h3>
     <p>
-      What each Archive Watch channel is playing, as an XMLTV guide:
-      <a href="guide.xml">https://archivewatch.org/feeds/guide.xml</a>
+      A playlist carries only titles and posters. In UHF, TiviMate or IPTV
+      Smarters, add Archive Watch as an Xtream Codes source instead to get a
+      Movies section with each film's plot, cast, director and rating:
     </p>
+    <p class="keys">Server: https://archivewatch-pulse.benwilkoff.workers.dev<br>Username: archivewatch<br>Password: archivewatch</p>
+
+    <h3>Channels only</h3>
+    <p class="keys">https://archivewatch.org/feeds/live.m3u</p>
+    <p>Program guide (XMLTV): <a href="guide.xml">https://archivewatch.org/feeds/guide.xml</a></p>
 
     <h3>For AI assistants</h3>
     <p>
