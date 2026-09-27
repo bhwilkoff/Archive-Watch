@@ -21,7 +21,7 @@ struct HiddenGemsShelf: View {
     private static let shelfDef = Featured.Shelf(
         id: "hidden-gems",
         title: "Hidden Gems",
-        subtitle: "High craft, low traffic",
+        subtitle: "Rarely watched on archive.org",
         category: "feature-film",
         type: "dynamic",
         items: nil, query: nil, sort: nil, limit: nil

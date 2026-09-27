@@ -208,7 +208,7 @@ fun TvHomeScreen(container: AppContainer, nav: Nav) {
             // §1.4 — these are OUR editorial + the community's own signals, each
             // with a subtitle saying where the ranking comes from. Never an opaque
             // "recommended for you" row.
-            shelf("toprated", "Top Rated", "The crowd's verdict — IMDb favorites", payload.topRated, nav, onItemFocused)
+            shelf("toprated", "Top Rated", "Highest rated on IMDb", payload.topRated, nav, onItemFocused)
             shelf("watchingnow", "Watching Now", "Most-viewed on archive.org this month", payload.watchingNow, nav, onItemFocused)
             shelf("commfav", "Community Favorites", "Most-favorited by archive.org viewers", payload.communityFavorites, nav, onItemFocused)
             shelf("discussed", "Most Discussed", "Most-reviewed on archive.org", payload.mostDiscussed, nav, onItemFocused)

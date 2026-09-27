@@ -37,7 +37,7 @@ struct MostDiscussedShelf: View {
     @Environment(AppStore.self) private var store
     @State private var items: [Catalog.Item] = []
     private static let def = communityShelfDef(
-        "most-discussed", "Most Discussed", "The films people are talking about")
+        "most-discussed", "Most Discussed", "Most reviewed on archive.org")
     var body: some View {
         Group { items.isEmpty ? AnyView(EmptyView()) : AnyView(ShelfRow(shelf: Self.def, items: items)) }
             .task(id: store.dbGeneration) { items = store.dbMostDiscussed().filter { $0.hasProfessionalArtwork } }

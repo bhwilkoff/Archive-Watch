@@ -209,18 +209,18 @@ struct HomeView: View {
         // Dynamic shelves, in the same order they used to render as standalone views.
         dynamicPayloads = [
             dynShelf("public-domain-day", "Public Domain Day",
-                     "Class of \(String(pdYear)) — newly free to share",
+                     "Published in \(String(pdYear)), public domain since January 1",
                      store.filteringWatched(store.dbBrowse(year: pdYear, sort: .popular, limit: 120))
                         .filter { $0.hasProfessionalArtwork }),
-            dynShelf("top-rated", "Top Rated", "The crowd's verdict — IMDb favorites",
+            dynShelf("top-rated", "Top Rated", "Highest rated on IMDb",
                      store.filteringWatched(store.dbTopRated()).filter { $0.hasProfessionalArtwork }),
             dynShelf("watching-now", "Watching Now", "Most-viewed on archive.org this month",
                      store.filteringWatched(store.dbWatchingNow()).filter { $0.hasProfessionalArtwork }),
             dynShelf("community-favorites", "Community Favorites", "Most-favorited by archive.org viewers",
                      store.filteringWatched(store.dbCommunityFavorites()).filter { $0.hasProfessionalArtwork }),
-            dynShelf("most-discussed", "Most Discussed", "The films people are talking about",
+            dynShelf("most-discussed", "Most Discussed", "Most reviewed on archive.org",
                      store.filteringWatched(store.dbMostDiscussed()).filter { $0.hasProfessionalArtwork }),
-            dynShelf("hidden-gems", "Hidden Gems", "High craft, low traffic",
+            dynShelf("hidden-gems", "Hidden Gems", "Rarely watched on archive.org",
                      store.filteringWatched(store.dbHiddenGems()).filter { $0.hasProfessionalArtwork }),
         ].compactMap { $0 }
 

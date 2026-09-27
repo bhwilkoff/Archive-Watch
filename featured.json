@@ -126,7 +126,7 @@
     {
       "id": "popular-features",
       "title": "Popular Feature Films",
-      "subtitle": "What everyone's watching this week",
+      "subtitle": "Most watched on archive.org",
       "category": "feature-film",
       "type": "dynamic",
       "query": "mediatype:movies AND collection:feature_films",

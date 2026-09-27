@@ -14,7 +14,7 @@ struct TopRatedShelf: View {
     private static let shelfDef = Featured.Shelf(
         id: "top-rated",
         title: "Top Rated",
-        subtitle: "The crowd's verdict — IMDb favorites",
+        subtitle: "Highest rated on IMDb",
         category: "feature-film",
         type: "dynamic",
         items: nil, query: nil, sort: nil, limit: nil

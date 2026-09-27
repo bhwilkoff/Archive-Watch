@@ -313,7 +313,7 @@ fun HomeScreen(container: AppContainer, nav: Nav) {
                     ShelfRow(
                         "Top Rated",
                         payload.topRated,
-                        subtitle = "The crowd's verdict — IMDb favorites",
+                        subtitle = "Highest rated on IMDb",
                         onItem = { nav.openItem(it.archiveID, it.seriesID, it.contentType) },
                     )
                 }
@@ -335,7 +335,7 @@ fun HomeScreen(container: AppContainer, nav: Nav) {
             if (payload.mostDiscussed.isNotEmpty()) {
                 item(key = "mostdisc") {
                     ShelfRow("Most Discussed", payload.mostDiscussed,
-                        subtitle = "The films people are talking about",
+                        subtitle = "Most reviewed on archive.org",
                         onItem = { nav.openItem(it.archiveID, it.seriesID, it.contentType) })
                 }
             }

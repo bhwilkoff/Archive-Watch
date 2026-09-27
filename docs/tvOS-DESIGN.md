@@ -57,6 +57,13 @@ curiosity.
   "catalogued on Wikidata", "filter: X", "Pre-1970 animation", "items", "results",
   "tap to…", raw counts as the whole subtitle. The viewer never sees how the
   sausage is made (downloads, sources, tiers, queries).
+- **SUPERSEDED 2026-09-27 for anything a model would write.** Owner,
+  2026-09-26: *"I don't want AI making lists and writing copy. Any time we can
+  use metadata or user copy/categorization from archive.org."* A shelf subtitle
+  is now a plain fact about where the list comes from ("Highest rated on IMDb",
+  "Most reviewed on archive.org", "Rarely watched on archive.org"), or the
+  words of a human editor or of archive.org; the voice below applies only to
+  what an editor writes by hand.
 - **Wanted** (the programmer's note): evocative + specific, ≤ ~8 words, present
   tense, concrete nouns. The bar is the copy that already works —
   *"The magician who invented cinema"*, *"How they reported the 20th century"*,

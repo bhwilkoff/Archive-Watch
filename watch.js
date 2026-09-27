@@ -1206,7 +1206,7 @@
       indexShelf('top-rated', 'Top Rated', 'The highest-rated films in the archive');
       indexShelf('watching-now', 'Watching Now', 'Most-viewed on archive.org this month');
       indexShelf('community-favorites', 'Community Favorites', 'Most-favorited by archive.org viewers');
-      indexShelf('most-discussed', 'Most Discussed', 'The films people are talking about');
+      indexShelf('most-discussed', 'Most Discussed', 'Most reviewed on archive.org');
       // Hidden Gems — the index's `hidden-gems` shelf, which the pipeline fills
       // from the SAME computed flag the apps query (build_sqlite _mark_hidden_gems).
       // This used to shuffle the popularity TAIL, which is "random obscure", not
@@ -1229,7 +1229,7 @@
         r[2] === pdYear && Data.isPro(r) && Data.isFilm(r) && Data.plays(r) && !used.has(dedupKey(r)))).slice(0, 16);
       if (pd.length >= 6) {
         host.append(shelfSection('Public Domain Day',
-          `Class of ${pdYear} — newly free to share`, pd));
+          `Published in ${pdYear}, public domain since January 1`, pd));
       }
       // Director shelves, the apps' topDirectors rule: a director with at
       // least 3 qualifying films, the top 4 by count then name, titled

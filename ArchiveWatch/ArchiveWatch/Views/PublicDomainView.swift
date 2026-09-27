@@ -108,7 +108,7 @@ struct PublicDomainShelf: View {
         Featured.Shelf(
             id: "public-domain-day",
             title: "Public Domain Day",
-            subtitle: "Class of \(String(pubYear)) — newly free to share",
+            subtitle: "Published in \(String(pubYear)), public domain since January 1",
             category: "feature-film",
             type: "dynamic",
             items: nil, query: nil, sort: nil, limit: nil

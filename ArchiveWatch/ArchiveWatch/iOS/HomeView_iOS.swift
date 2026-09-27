@@ -42,6 +42,7 @@ struct HomeView: View {
     }
 
     var body: some View {
+        ScrollViewReader { proxy in
         ScrollView {
             LazyVStack(alignment: .leading, spacing: 28) {
                 if !heroItems.isEmpty {
@@ -50,7 +51,7 @@ struct HomeView: View {
                 if !continueItems.isEmpty {
                     Shelf(title: "Continue Watching", subtitle: nil, items: continueItems)
                 }
-                CategoryTilesRow()
+                CategoryTilesRow().id("categories")
                 // Featured shelves (canonical order), then the dynamic block in the SAME order as
                 // Apple TV: Public Domain Day, Top Rated, Watching Now, Community Favorites, Most
                 // Discussed, Hidden Gems — then Directors (owner 2026-06-29 shelf parity).
@@ -59,11 +60,11 @@ struct HomeView: View {
                 }
                 if !pdItems.isEmpty {
                     Shelf(title: "Public Domain Day",
-                          subtitle: "Class of \(String(pdYear)) — newly free to share", items: pdItems)
+                          subtitle: "Published in \(String(pdYear)), public domain since January 1", items: pdItems)
                 }
                 if !topRated.isEmpty {
                     Shelf(title: "Top Rated",
-                          subtitle: "The crowd's verdict — IMDb favorites", items: topRated)
+                          subtitle: "Highest rated on IMDb", items: topRated)
                 }
                 if !watchingNow.isEmpty {
                     Shelf(title: "Watching Now",
@@ -75,20 +76,29 @@ struct HomeView: View {
                 }
                 if !mostDiscussed.isEmpty {
                     Shelf(title: "Most Discussed",
-                          subtitle: "The films people are talking about", items: mostDiscussed)
+                          subtitle: "Most reviewed on archive.org", items: mostDiscussed)
                 }
                 if !gems.isEmpty {
                     Shelf(title: "Hidden Gems",
-                          subtitle: "High craft, low traffic", items: gems)
+                          subtitle: "Rarely watched on archive.org", items: gems)
                 }
                 ForEach(directorShelves, id: \.name) { shelf in
                     Shelf(title: "Directed by \(shelf.name)", subtitle: nil, items: shelf.items)
                 }
                 // Last row, matching tvOS Home (owner direction 2026-06-11:
                 // "move the browse by era to the bottom of the shelves").
-                DecadeTilesRow()
+                DecadeTilesRow().id("decades")
             }
             .padding(.vertical)
+        }
+        #if DEBUG
+        // Harness door: AW_HOME_SCROLL=categories|decades scrolls there.
+        .task {
+            guard let target = ProcessInfo.processInfo.environment["AW_HOME_SCROLL"] else { return }
+            try? await Task.sleep(for: .seconds(2))
+            proxy.scrollTo(target, anchor: .top)
+        }
+        #endif
         }
         .navigationTitle("Archive Watch")
         .toolbar {
