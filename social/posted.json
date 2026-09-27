@@ -1285,6 +1285,54 @@
    "kind": "feature-film",
    "mediaId": null,
    "reviewer": null
+  },
+  {
+   "at": "2026-09-27T19:05:26.389938+00:00",
+   "id": "you_and_your_work",
+   "title": "You and Your Work",
+   "slot": "from-the-vaults",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mwjilaolgp22",
+   "format": "video",
+   "kind": "short-film",
+   "mediaId": null,
+   "reviewer": "big texas cheeseburger"
+  },
+  {
+   "at": "2026-09-27T19:05:26.389938+00:00",
+   "id": "you_and_your_work",
+   "title": "You and Your Work",
+   "slot": "from-the-vaults",
+   "platform": "mastodon",
+   "url": "https://mastodon.social/@archivewatch/117344563569389784",
+   "format": "video",
+   "kind": "short-film",
+   "mediaId": null,
+   "reviewer": "big texas cheeseburger"
+  },
+  {
+   "at": "2026-09-27T19:05:26.389938+00:00",
+   "id": "you_and_your_work",
+   "title": "You and Your Work",
+   "slot": "from-the-vaults",
+   "platform": "instagram",
+   "url": "https://www.instagram.com/p/DdzUhhjoAw1/",
+   "format": "card",
+   "kind": "short-film",
+   "mediaId": "117344563220683858",
+   "reviewer": "big texas cheeseburger"
+  },
+  {
+   "at": "2026-09-27T19:05:26.389938+00:00",
+   "id": "you_and_your_work",
+   "title": "You and Your Work",
+   "slot": "from-the-vaults",
+   "platform": "youtube",
+   "url": "https://youtube.com/watch?v=WQhlgqdxj6Q",
+   "format": "video",
+   "kind": "short-film",
+   "mediaId": null,
+   "reviewer": "big texas cheeseburger"
   }
  ]
 }
