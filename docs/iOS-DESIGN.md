@@ -115,6 +115,27 @@ the window pages via chevrons or a deliberate horizontal swipe (±90 min,
 clamped to the broadcast day), with a NOW snap-back and red now-line. Never
 regress it to a tile list.
 
+2.5c **On a phone, Channels opens on "On Now"; the grid is one tap away.**
+Owner, 2026-09-27: *"I'd also love to figure out better ways to display the
+channels interface to allow understanding of each item on smaller screens and
+allowing users to navigate easily around the channels."* Measured on the
+iPhone 12 (390pt): the 2.5b grid gives ~2.5pt a minute, so a five-minute
+cartoon was a 20pt sliver whose title broke into a column of single letters,
+and the rail and start times used 9pt type (a §6.1 violation). At compact
+width a segmented **On Now | Guide** control sits under the title (the choice
+is remembered); **On Now** is a List, one row per channel: the channel's icon
+and name, the program on now in full (`.headline`, two lines), a progress bar
+in the channel's accent, "Ends 1:06 PM", and "Next: <title> · <time>". The row
+tunes in (joined in progress); a trailing calendar button opens the day. This
+follows the phone guides that work (Samsung TV Plus defaults to a now list;
+YouTube TV's 2026 phone guide keeps names readable) and is not the tile list
+2.5b forbids: every row is a channel, not a program. **Guide** is the 2.5b grid,
+with two repairs: a block narrower than 44pt draws no text (its title is its
+accessibility label and is on the schedule), a start time needs 72pt, and
+nothing uses a fixed point size. The **day schedule** folds three or more
+consecutive programs under fifteen minutes into one "N short films · Until
+<time>" disclosure row. Regular width (iPad) keeps the grid alone.
+
 2.6 **Modes are pushes on iOS, not takeovers.** Cartoon Mode, Surprise, and
 Public Domain Day are ordinary pushed screens reached from Home's shuffle
 toolbar button → Surprise grid (and registered per §2.3) — back-swipe always

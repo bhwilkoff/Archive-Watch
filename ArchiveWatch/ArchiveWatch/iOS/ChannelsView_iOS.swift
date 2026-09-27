@@ -29,8 +29,13 @@ struct ChannelsView: View {
     /// The guide window's left edge. nil = "live": the window starts at NOW.
     @State private var windowStart: Date?
     @State private var scheduleMissing = false
+    /// iOS-DESIGN §2.5c: a phone opens on the On Now list; the grid is one tap
+    /// away. Regular width has room for the grid and shows only the grid.
+    @AppStorage("channels.phoneMode") private var phoneMode = PhoneMode.onNow.rawValue
 
+    private enum PhoneMode: String { case onNow, guide }
     private var windowMinutes: Double { hSize == .regular ? 180 : 120 }
+    private var showsList: Bool { hSize != .regular && phoneMode == PhoneMode.onNow.rawValue }
 
     var body: some View {
         Group {
@@ -40,14 +45,31 @@ struct ChannelsView: View {
                 ProgressView("Building the guide…")
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
             } else {
-                EPGGuide(channels: guide,
-                         windowStart: windowStart ?? Date(),
-                         windowMinutes: windowMinutes,
-                         isLive: windowStart == nil,
-                         onShift: shift(by:),
-                         onJumpToNow: { windowStart = nil },
-                         onTune: tune(_:from:),
-                         onRail: { router.push(ChannelScheduleRoute(channelID: $0.id)) })
+                VStack(spacing: 0) {
+                    if hSize != .regular {
+                        Picker("View", selection: $phoneMode) {
+                            Text("On Now").tag(PhoneMode.onNow.rawValue)
+                            Text("Guide").tag(PhoneMode.guide.rawValue)
+                        }
+                        .pickerStyle(.segmented)
+                        .padding(.horizontal, 16)
+                        .padding(.vertical, 8)
+                    }
+                    if showsList {
+                        OnNowList(channels: guide,
+                                  onTune: tune(_:from:),
+                                  onSchedule: { router.push(ChannelScheduleRoute(channelID: $0.id)) })
+                    } else {
+                        EPGGuide(channels: guide,
+                                 windowStart: windowStart ?? Date(),
+                                 windowMinutes: windowMinutes,
+                                 isLive: windowStart == nil,
+                                 onShift: shift(by:),
+                                 onJumpToNow: { windowStart = nil },
+                                 onTune: tune(_:from:),
+                                 onRail: { router.push(ChannelScheduleRoute(channelID: $0.id)) })
+                    }
+                }
             }
         }
         .navigationTitle("Channels")
@@ -69,6 +91,14 @@ struct ChannelsView: View {
             }
         }
         .task(id: store.dbVersion) { await load() }
+        #if DEBUG
+        // Harness door: AW_CHANNELS_MODE=guide|onNow opens that view, so the
+        // device sweep can photograph both without a tap.
+        .onAppear {
+            if let m = ProcessInfo.processInfo.environment["AW_CHANNELS_MODE"],
+               PhoneMode(rawValue: m) != nil { phoneMode = m }
+        }
+        #endif
         .onChange(of: userChannels.count) { rebuild() }
         .fullScreenCover(item: $playing) { box in
             if let player = PlayerView(lineup: box.items, startOffset: box.startOffset) {
@@ -166,6 +196,95 @@ struct ChannelLineup: Identifiable {
     let id = UUID()
     let items: [Catalog.Item]
     var startOffset: TimeInterval = 0
+}
+
+// MARK: - On Now (iOS-DESIGN §2.5c): the phone's first view of Channels
+//
+// One row per channel, readable at any Dynamic Type size: the program airing
+// now in full, how far in it is, when it ends, and what follows. The row tunes
+// in; the calendar button opens the channel's day. A List reflows where a
+// fixed-height grid row cannot, and it never cuts a five-minute cartoon down to
+// a sliver of letters.
+
+private struct OnNowList: View {
+    let channels: [GuideChannel]
+    let onTune: (GuideChannel, ScheduledProgram) -> Void
+    let onSchedule: (GuideChannel) -> Void
+
+    var body: some View {
+        // Redrawn every minute so progress and "ends" stay true while the
+        // screen is open.
+        TimelineView(.everyMinute) { context in
+            List(channels) { ch in
+                row(ch, now: context.date)
+            }
+            .listStyle(.plain)
+        }
+    }
+
+    @ViewBuilder
+    private func row(_ ch: GuideChannel, now: Date) -> some View {
+        let current = ch.slots.first { $0.contains(now) }
+        let next = ch.slots.first { $0.start >= (current?.end ?? now) }
+        HStack(alignment: .top, spacing: 12) {
+            Button {
+                if let slot = current ?? next { onTune(ch, slot) }
+            } label: {
+                HStack(alignment: .top, spacing: 12) {
+                    Image(systemName: ch.icon)
+                        .font(.title3)
+                        .foregroundStyle(.white)
+                        .frame(width: 44, height: 44)
+                        .background(ch.accent.gradient, in: .rect(cornerRadius: 10))
+                        .accessibilityHidden(true)
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text(ch.title)
+                            .font(.subheadline.weight(.semibold))
+                            .foregroundStyle(.secondary)
+                        if let slot = current {
+                            Text(slot.item.title)
+                                .font(.headline)
+                                .foregroundStyle(.primary)
+                                .lineLimit(2)
+                            ProgressView(value: now.timeIntervalSince(slot.start),
+                                         total: max(1, slot.end.timeIntervalSince(slot.start)))
+                                .tint(ch.accent)
+                            Text("Ends \(slot.end.formatted(date: .omitted, time: .shortened))")
+                                .font(.subheadline.monospacedDigit())
+                                .foregroundStyle(.secondary)
+                        } else if let slot = next {
+                            Text(slot.item.title)
+                                .font(.headline)
+                                .lineLimit(2)
+                            Text("Starts \(slot.start.formatted(date: .omitted, time: .shortened))")
+                                .font(.subheadline.monospacedDigit())
+                                .foregroundStyle(.secondary)
+                        }
+                        if current != nil, let slot = next {
+                            Text("Next: \(slot.item.title) · \(slot.start.formatted(date: .omitted, time: .shortened))")
+                                .font(.subheadline)
+                                .foregroundStyle(.secondary)
+                                .lineLimit(1)
+                        }
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                }
+                .contentShape(.rect)
+            }
+            .buttonStyle(.plain)
+            .accessibilityLabel(current.map { "\(ch.title), on now: \($0.item.title)" } ?? ch.title)
+            .accessibilityHint("Tunes in")
+
+            Button { onSchedule(ch) } label: {
+                Image(systemName: "calendar")
+                    .font(.title3)
+                    .frame(width: 44, height: 44)
+            }
+            .buttonStyle(.borderless)
+            .accessibilityLabel("\(ch.title) schedule")
+        }
+        .padding(.vertical, 4)
+    }
 }
 
 // MARK: - The touch EPG grid (proportional TV listing)
@@ -304,9 +423,10 @@ private struct EPGGuide: View {
                     .frame(width: 30, height: 30)
                     .background(ch.accent.gradient, in: .rect(cornerRadius: 7))
                 Text(ch.title)
-                    .font(.system(size: 9, weight: .semibold))
+                    .font(.caption2.weight(.semibold))
                     .multilineTextAlignment(.center)
                     .lineLimit(2)
+                    .minimumScaleFactor(0.8)
                     .foregroundStyle(.secondary)
             }
             .frame(width: railW, height: rowH)
@@ -327,7 +447,7 @@ private struct EPGGuide: View {
             ForEach(visible) { slot in
                 let visStart = max(slot.start, windowStart)
                 let visEnd = min(slot.end, windowEnd)
-                let w = max(20, CGFloat(visEnd.timeIntervalSince(visStart) / 60) * ppm - 2)
+                let w = max(8, CGFloat(visEnd.timeIntervalSince(visStart) / 60) * ppm - 2)
                 programBlock(slot, channel: ch, width: w, airing: slot.contains(now))
             }
             Spacer(minLength: 0)
@@ -339,15 +459,24 @@ private struct EPGGuide: View {
     private func programBlock(_ slot: ScheduledProgram, channel: GuideChannel,
                               width: CGFloat, airing: Bool) -> some View {
         Button { onTune(channel, slot) } label: {
+            // A block too narrow for words draws none: at 390pt a five-minute
+            // cartoon is ~12pt wide, and its title broke into a column of
+            // single letters. Its name is in the accessibility label and in
+            // the channel's schedule.
             VStack(alignment: .leading, spacing: 2) {
-                Text(slot.item.title)
-                    .font(.caption.weight(airing ? .bold : .semibold))
-                    .lineLimit(2)
-                    .foregroundStyle(airing ? .white : .primary)
+                if width >= 44 {
+                    Text(slot.item.title)
+                        .font(.caption.weight(airing ? .bold : .semibold))
+                        .lineLimit(2)
+                        .foregroundStyle(airing ? .white : .primary)
+                }
                 Spacer(minLength: 0)
-                Text(slot.start, style: .time)
-                    .font(.system(size: 9, weight: .medium).monospacedDigit())
-                    .foregroundStyle(airing ? .white.opacity(0.85) : .secondary)
+                if width >= 72 {
+                    Text(slot.start, style: .time)
+                        .font(.caption2.monospacedDigit())
+                        .lineLimit(1)
+                        .foregroundStyle(airing ? .white.opacity(0.85) : .secondary)
+                }
             }
             .padding(.horizontal, 6)
             .padding(.vertical, 5)
@@ -363,6 +492,7 @@ private struct EPGGuide: View {
             )
         }
         .buttonStyle(.plain)
+        .accessibilityLabel("\(slot.item.title), \(slot.start.formatted(date: .omitted, time: .shortened))")
     }
 }
 
@@ -380,27 +510,33 @@ struct ChannelScheduleView: View {
     var body: some View {
         List {
             if let ch = channel {
-                ForEach(ch.slots) { slot in
-                    Button {
-                        let programs = ch.slots.drop { $0.id != slot.id }.map(\.item)
-                        let now = Date()
-                        let offset = slot.contains(now) ? max(0, now.timeIntervalSince(slot.start)) : 0
-                        playing = ChannelLineup(items: Array(programs), startOffset: offset)
-                    } label: {
-                        HStack(alignment: .firstTextBaseline, spacing: 12) {
-                            Text(slot.start, style: .time)
-                                .font(.caption.monospacedDigit()).foregroundStyle(.secondary)
-                                .frame(width: 64, alignment: .leading)
-                            VStack(alignment: .leading, spacing: 2) {
-                                Text(slot.item.title).font(.subheadline).foregroundStyle(.primary)
-                                if slot.contains(Date()) {
-                                    Text("On now").font(.caption2.weight(.bold))
-                                        .foregroundStyle(Brand.primary)
+                ForEach(runs(ch.slots), id: \.first!.id) { run in
+                    if run.count >= 3 {
+                        // Three or more shorts in a row fold into one line
+                        // (iOS-DESIGN §2.5c): a cartoon channel is otherwise a
+                        // wall of five-minute rows.
+                        DisclosureGroup {
+                            ForEach(run) { slot in slotRow(ch, slot) }
+                        } label: {
+                            HStack(alignment: .firstTextBaseline, spacing: 12) {
+                                Text(run.first!.start, style: .time)
+                                    .font(.subheadline.monospacedDigit()).foregroundStyle(.secondary)
+                                    .frame(width: 76, alignment: .leading)
+                                VStack(alignment: .leading, spacing: 2) {
+                                    Text("\(run.count) short films")
+                                        .font(.body)
+                                    Text("Until \(run.last!.end.formatted(date: .omitted, time: .shortened))")
+                                        .font(.subheadline).foregroundStyle(.secondary)
+                                    if run.contains(where: { $0.contains(Date()) }) {
+                                        Text("On now").font(.subheadline.weight(.semibold))
+                                            .foregroundStyle(Brand.primary)
+                                    }
                                 }
                             }
                         }
+                    } else {
+                        ForEach(run) { slot in slotRow(ch, slot) }
                     }
-                    .buttonStyle(.plain)
                 }
             }
         }
@@ -417,6 +553,45 @@ struct ChannelScheduleView: View {
                 ContentUnavailableView("Channel unavailable", systemImage: "tv.slash")
             }
         }
+    }
+
+    /// Consecutive programs under fifteen minutes form one run; every other
+    /// program is a run of one.
+    private func runs(_ slots: [ScheduledProgram]) -> [[ScheduledProgram]] {
+        var out: [[ScheduledProgram]] = []
+        for slot in slots {
+            let short = slot.end.timeIntervalSince(slot.start) < 15 * 60
+            if short, let last = out.last?.last, last.end.timeIntervalSince(last.start) < 15 * 60 {
+                out[out.count - 1].append(slot)
+            } else {
+                out.append([slot])
+            }
+        }
+        return out
+    }
+
+    private func slotRow(_ ch: GuideChannel, _ slot: ScheduledProgram) -> some View {
+        Button {
+            let programs = ch.slots.drop { $0.id != slot.id }.map(\.item)
+            let now = Date()
+            let offset = slot.contains(now) ? max(0, now.timeIntervalSince(slot.start)) : 0
+            playing = ChannelLineup(items: Array(programs), startOffset: offset)
+        } label: {
+            HStack(alignment: .firstTextBaseline, spacing: 12) {
+                Text(slot.start, style: .time)
+                    .font(.subheadline.monospacedDigit()).foregroundStyle(.secondary)
+                    .frame(width: 76, alignment: .leading)
+                VStack(alignment: .leading, spacing: 2) {
+                    Text(slot.item.title).font(.body).foregroundStyle(.primary)
+                    if slot.contains(Date()) {
+                        Text("On now").font(.subheadline.weight(.semibold))
+                            .foregroundStyle(Brand.primary)
+                    }
+                }
+            }
+            .contentShape(.rect)
+        }
+        .buttonStyle(.plain)
     }
 
     private func build() {
