@@ -167,10 +167,13 @@ function buildSeries(d) {
         reader: "search_console" });
   add({ key: "together-rooms", label: "Watch Together rooms", unit: " rooms",
         view: "engagement", lag: 2, points: pts(h.together?.daily, "date", "rooms") });
+  add({ key: "feeds-signins", label: "IPTV player sign-ins", unit: " sign-ins",
+        view: "engagement", lag: 2, points: pts(h.feeds?.daily, "date", "signin") });
   return m;
 }
 const USAGE = ["apple-dl", "android-acq", "android-inst", "firetv-inst", "roku-inst",
-               "web-visits", "web-plays", "search-clicks", "search-impr", "together-rooms"];
+               "web-visits", "web-plays", "search-clicks", "search-impr", "together-rooms",
+               "feeds-signins"];
 const lastDay = (s) => s.points[s.points.length - 1]?.date;
 const isStale = (s) => daysApart(lastDay(s), todayMT()) > s.lag;
 // A panel's "as of" chip (rule 11): only when its data is older than its lag.
@@ -1036,6 +1039,7 @@ function glance(d, list) {
     });
   }
   togetherPanel(B("engagement"), h.together);
+  feedsPanel(B("engagement"), h.feeds);
 
   /* ── HEALTH ── */
   const x = releaseCtx(d);
@@ -1294,6 +1298,24 @@ function togetherPanel(box, tg) {
     chart: series.length ? { html: C.timeChart(series, { label: "Watch Together rooms", h: 64 }) } : null,
     cap: typeof l.lives === "number" ? `${plural(l.lives, "YouTube show")} in 28 days` : null,
     drill: "together",
+  });
+}
+
+const FEED_KINDS = { signin: "Player sign-ins", play: "Plays", channel: "Channel tunes", mcp: "Assistant calls" };
+function feedsPanel(box, f) {
+  if (!box) return;
+  if (!f) { panel(box, { k: "Feeds & integrations", v: "<small>not collected yet</small>" }); return; }
+  const l = f.last28 || {}, pv = f.prev28 || {};
+  const series = ["signin", "play", "channel"].map((k) => ({ label: FEED_KINDS[k].toLowerCase(),
+    points: pts(f.daily, "date", k) })).filter((s) => s.points.length);
+  panel(box, {
+    k: "Feeds & integrations", right: chg(l.signin, pv.signin, "vs prior 28 days"),
+    v: typeof l.signin === "number"
+      ? `${int(l.signin)}<small> player sign-ins · ${int(l.play)} plays · ${int(l.channel)} channel tunes · 28 days</small>`
+      : "<small>no 28-day total</small>",
+    chart: series.length ? { html: C.timeChart(series, { label: "Feeds & integrations", h: 64 }) } : null,
+    cap: typeof l.mcp === "number" ? `${plural(l.mcp, "assistant call")} in 28 days` : null,
+    drill: "feeds",
   });
 }
 
@@ -1933,6 +1955,22 @@ const DRAWERS = {
       ],
       note: [keys.includes("lives") ? "YouTube shows count YouTube sign-in shows only; Twitch and own-stream-key shows are not counted." : null,
         tg.note || null].filter(Boolean).join(" "),
+    };
+  },
+  feeds(d) {
+    const f = d.health?.feeds;
+    if (!f) return { title: "Feeds & integrations", note: "Not collected yet." };
+    const keys = Object.keys(FEED_KINDS);
+    const l = f.last28 || {}, pv = f.prev28 || {};
+    return {
+      title: "Feeds & integrations",
+      deltas: keys.map((k) => ({ label: `${FEED_KINDS[k]}, 28 days`, html: chg(l[k], pv[k], "vs prior 28 days") })),
+      charts: [C.timeChart(keys.map((k) => ({ label: FEED_KINDS[k].toLowerCase(), points: pts(f.daily, "date", k) })), { label: "Feeds & integrations", h: 130 })],
+      facts: keys.map((k) => [`${FEED_KINDS[k]}, 28 days`, typeof l[k] === "number" ? `${int(l[k])} (prior 28 days: ${int(pv[k])})` : ""]),
+      tables: [{ title: "By day", rows: f.daily || [], sort: { k: "date", dir: -1 }, cols: [
+        { k: "date", label: "Day", fmt: (v) => day(v, true) },
+        ...keys.map((k) => ({ k, label: FEED_KINDS[k], num: true }))] }],
+      note: `A sign-in is a player loading the Xtream source, not a person. The playlist and guide files are served by GitHub Pages, which keeps no log we can read, so a player that only reads the playlist is counted when it tunes a channel. Counted since ${day(f.since)}.`,
     };
   },
   post(d, [i]) {

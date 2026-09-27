@@ -2604,6 +2604,40 @@ def together_rooms(state):
     return f"{n} room(s), {sum(v.get('guests', 0) for v in days.values())} guest join(s) since the tally began"
 
 
+def feeds_usage(state):
+    """IPTV players and AI assistants, per day: Xtream sign-ins (a player
+    loading the source: sessions, not people), films and episodes played
+    through it, channels tuned, and assistant tool calls.
+
+    Owner, 2026-09-27: "are we going to keep track of how many people are
+    using the feeds/mcp on the Archive Watch Pulse page?" The Worker answers
+    every one of these requests to provide the feature, so it keeps
+    `feeds_days` — day | kind | count, nothing else (Decision 142's rule). The
+    M3U playlist and the guide are served by GitHub Pages, which keeps no log
+    we can read, so a player that only reads the playlist is counted when it
+    tunes a channel and not before."""
+    if not WEB_COUNTER:
+        raise RuntimeError("set AW_PULSE_COUNTER to the counter's origin")
+    d = get_json(f"{WEB_COUNTER}/feeds-daily?days=120", timeout=30)
+    kinds = ("signin", "play", "channel", "mcp")
+    days: dict = {}
+    for r in d.get("rows") or []:
+        if r.get("kind") in kinds:
+            days.setdefault(r["day"], {})[r["kind"]] = int(r.get("count") or 0)
+    f = state["health"].setdefault("feeds", {})
+    f["daily"] = [{"date": k, **{x: v.get(x, 0) for x in kinds}} for k, v in sorted(days.items())]
+    f["since"] = "2026-09-27"                       # the tally began with this change
+    today_ = dt.date.today()
+
+    def window(a, b):
+        rs = [r for r in f["daily"] if str(today_ - dt.timedelta(days=a)) <= r["date"] <= str(today_ - dt.timedelta(days=b))]
+        return {k: sum(r.get(k, 0) for r in rs) for k in kinds}
+    f["last28"], f["prev28"] = window(27, 0), window(55, 28)
+    l = f["last28"]
+    return (f"28 days: {l['signin']} player sign-in(s), {l['play']} play(s), "
+            f"{l['channel']} channel tune(s), {l['mcp']} assistant call(s)")
+
+
 # YouTube Data API quota cost per call, from Google's published quota table.
 # Chat reads are 5 in the table's current edition; every write is 50.
 _YT_UNITS = {"List": 1, "Insert": 50, "Update": 50, "Delete": 50, "Bind": 50,
@@ -2744,6 +2778,7 @@ SOURCES = [
     ("together_rooms", together_rooms),
     ("youtube_usage", youtube_usage),
     ("together_summary", together_summary),              # after both of the above
+    ("feeds_usage", feeds_usage),
     ("distribution", distribution),
     ("asks", asks),                                  # must run last: it reads the rest
 ]
@@ -2923,6 +2958,7 @@ def main() -> int:
                    "web_usage": "webUsage", "web_titles": "webTitles",
                    "search_console": "searchConsole", "search_index": "searchIndex",
                    "together_summary": "together",
+                   "feeds_usage": "feeds",
                    "catalog": "catalog",
                    # Scalars and notes, preserved for the same reason as the
                    # sections: a stale reading carries a `stale` timestamp and

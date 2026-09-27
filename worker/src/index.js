@@ -112,7 +112,7 @@ export default {
 
     // The assistant endpoint (mcp.js). Open to any origin, stores nothing.
     if (url.pathname === "/mcp") {
-      return handleMCP(request);
+      return handleMCP(request, env);
     }
 
     // IPTV players (xtream.js, live.js): the Xtream API over the published
@@ -121,11 +121,11 @@ export default {
         url.pathname === "/xmltv.php" || url.pathname.startsWith("/movie/") ||
         url.pathname.startsWith("/series/") ||
         /^\/live\/[^/]+\/[^/]+\//.test(url.pathname)) {
-      const r = await handleXtream(url);
+      const r = await handleXtream(url, env);
       if (r) return r;
     }
     if (url.pathname.startsWith("/live/")) {
-      return handleLive(url);
+      return handleLive(url, env);
     }
 
     if (request.method === "OPTIONS") {
@@ -169,6 +169,23 @@ export default {
         } catch { /* same rule: a counter is not worth an error page */ }
       }
       return new Response(null, { status: 204, headers: cors });
+    }
+
+    // The read side for the feeds tally (feeds_days, tally.js): day | kind |
+    // count, public like /rooms-daily because there is nothing in it about
+    // anybody.
+    if (url.pathname === "/feeds-daily") {
+      const days = Math.min(400, Math.max(1, Number(url.searchParams.get("days") || 90)));
+      const since = new Date(Date.now() - days * 864e5).toISOString().slice(0, 10);
+      try {
+        const { results } = await env.DB.prepare(
+          "SELECT day, kind, count FROM feeds_days WHERE day >= ?1 ORDER BY day"
+        ).bind(since).all();
+        return Response.json({ since, rows: results || [] },
+                             { headers: { ...cors, "Cache-Control": "public, max-age=300" } });
+      } catch (e) {
+        return Response.json({ error: String(e) }, { status: 500, headers: cors });
+      }
     }
 
     // The read side for the rooms tally (together_days): day | kind | count,

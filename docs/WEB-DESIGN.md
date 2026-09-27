@@ -445,11 +445,15 @@ separate tool with its own conventions (CLAUDE.md) — these rules govern the
 - **§8.6 Side doors are findable, never featured.** Owner, 2026-09-26: feeds
   for other apps and assistant access *"must not distract"* from finding and
   playing films; 2026-09-27: make them *"more prominent ... without making
-  them tentpole features."* So /feeds/ (the M3U playlists, the XMLTV guide,
-  the MCP address) is reached from ONE footer link on every page ("In other
-  players", including the film pages) and ONE About card after "Get the app",
-  and from nowhere else: no navigation tab, no Home row, no Detail button,
-  and nothing in the native apps.
+  them tentpole features,"* then *"change it to Feeds and Integrations and
+  make it feel a part of the rest of the web app."* So **Feeds &
+  Integrations** is a view of the web app (`#/feeds`, the About view's header
+  and cards; `/feeds/` forwards to it), reached from ONE footer link on every
+  page (film pages included) and ONE About card, and from nowhere else: no
+  navigation tab, no Home row, no Detail button, nothing in the native apps.
+  An address is COPIED, never opened (*"the open playlist button doesn't make
+  a lot of sense, given that most people don't have apps installed"*), and a
+  "Get a player" row names players to install.
 
 ## §9 Parity discipline
 

@@ -560,6 +560,28 @@ input[type="search"] {
 .about-foot a:hover { color: var(--text); }
 .about-back { margin-top: 4px; }
 
+/* ---- feeds & integrations (WEB-DESIGN §8.6): an address row is a label,
+   the address in a monospace well, and Copy. Mobile-first: the address
+   wraps under its label on a phone and sits beside it from 640px. ---- */
+.feed-sub { margin: 14px 0 0; font-size: 0.95rem; }
+.feed-addr {
+  display: grid; grid-template-columns: 1fr auto; gap: 6px 10px;
+  align-items: center; margin: 10px 0;
+}
+.feed-addr-label { grid-column: 1 / -1; color: var(--text-dim); font-size: 0.85rem; }
+.feed-addr code {
+  min-width: 0; overflow-wrap: anywhere; font-size: 0.9rem;
+  word-break: normal;
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: 8px; padding: 9px 11px; user-select: all;
+}
+.feed-copy { padding: 8px 14px; font-size: 0.9rem; }
+@media (min-width: 640px) {
+  .feeds { max-width: 760px; }
+  .feed-addr { grid-template-columns: 6.5rem 1fr auto; }
+  .feed-addr-label { grid-column: auto; }
+}
+
 /* ---- discovery tiles (Browse by Category / Era — apps' Home rows) ---- */
 .shelf .shelf-sub { margin: -4px var(--pad) 4px; }
 .tile-row { align-items: stretch; }

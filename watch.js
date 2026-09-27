@@ -715,11 +715,44 @@
   }
 
   /* ---------------------------------------------------------------- *
+   * Feeds & Integrations (#/feeds, WEB-DESIGN §8.6): the IPTV playlist, *
+   * the Xtream sign-in and the MCP address, each with a Copy button —  *
+   * an address is pasted into another app, not opened in this one.    *
+   * ---------------------------------------------------------------- */
+  const FeedsView = {
+    bound: false,
+    render() {
+      if (this.bound) return;
+      this.bound = true;
+      const status = $('feeds-copy-status');
+      for (const b of document.querySelectorAll('.feed-copy')) {
+        b.addEventListener('click', async () => {
+          const el = $(b.dataset.copy);
+          try {
+            await navigator.clipboard.writeText(el.textContent.trim());
+            b.textContent = 'Copied';
+            setTimeout(() => { b.textContent = 'Copy'; }, 1600);
+          } catch {
+            // No clipboard permission (an embedded web view, an old
+            // browser): select the address so it can be copied by hand.
+            const r = document.createRange();
+            r.selectNodeContents(el);
+            const sel = getSelection();
+            sel.removeAllRanges();
+            sel.addRange(r);
+            status.textContent = 'Could not copy; the address is selected.';
+          }
+        });
+      }
+    },
+  };
+
+  /* ---------------------------------------------------------------- *
    * Router — URL-driven state (the web superpower)                    *
    * ---------------------------------------------------------------- */
   const VIEWS = ['home', 'browse', 'search', 'library', 'item', 'series', 'about',
                  'surprise', 'playlist', 'channels', 'collections', 'collection',
-                 'cartoons', 'list', 'together', 'details'];
+                 'cartoons', 'list', 'together', 'details', 'feeds'];
   let browseObserver = null;   // disconnected on every view switch
 
   function route() {
@@ -760,6 +793,7 @@
     if (name === 'collection') Collections.renderOne(decodeURIComponent(seg[1] || ''));
     if (name === 'cartoons') Cartoons.render();
     if (name === 'about') renderCategoryPrefs();
+    if (name === 'feeds') FeedsView.render();
     if (name === 'details') ArchiveAddress.render(decodeURIComponent(seg[1] || ''));
   }
 

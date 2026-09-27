@@ -15,6 +15,7 @@
  */
 
 import { joinURL, onAir, schedule } from "./live.js";
+import { tally } from "./tally.js";
 
 const SITE = "https://archivewatch.org";
 const FEEDS = `${SITE}/feeds/xtream`;
@@ -129,7 +130,7 @@ function account(url) {
   };
 }
 
-export async function handleXtream(url) {
+export async function handleXtream(url, env) {
   const path = url.pathname;
   try {
     if (path === "/player_api.php") {
@@ -138,7 +139,7 @@ export async function handleXtream(url) {
       const byCat = (all, dir) => (cat && /^\d+$/.test(cat) ? pass(`${dir}/${cat}.json`) : pass(all));
       const within = (list) => (cat ? list.filter((s) => String(s.category_id) === cat) : list);
       switch (action) {
-        case null: case "": return json(account(url));
+        case null: case "": await tally(env, "signin"); return json(account(url));
         case "get_vod_categories": return pass("vod_categories.json");
         case "get_vod_streams": return byCat("vod_streams.json", "vod_streams");
         case "get_vod_info": {
@@ -169,18 +170,21 @@ export async function handleXtream(url) {
     let m = path.match(/^\/movie\/[^/]+\/[^/]+\/(\d+)(?:\.\w+)?$/);
     if (m) {
       const info = await vodInfo(m[1]);
+      if (info) await tally(env, "play");
       return info ? redirect(info.url) : new Response("Not found\n", { status: 404 });
     }
     // /series/<user>/<pass>/<episode id>.<ext>
     m = path.match(/^\/series\/[^/]+\/[^/]+\/(\d+)(?:\.\w+)?$/);
     if (m) {
       const to = await episodeURL(m[1]);
+      if (to) await tally(env, "play");
       return to ? redirect(to) : new Response("Not found\n", { status: 404 });
     }
     // /live/<user>/<pass>/<id>.<ext>
     m = path.match(/^\/live\/[^/]+\/[^/]+\/(\d+)(?:\.\w+)?$/);
     if (m) {
       const to = await liveTarget(m[1]);
+      if (to) await tally(env, "channel");
       return to ? redirect(to) : new Response("Not found\n", { status: 404 });
     }
   } catch {

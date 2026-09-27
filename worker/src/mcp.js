@@ -1,3 +1,4 @@
+import { tally } from "./tally.js";
 /**
  * /mcp — a Model Context Protocol endpoint so an assistant can find films in
  * Archive Watch and hand back links that play (ORPHANED-FILMS #4).
@@ -212,7 +213,7 @@ const HEADERS = {
   "Access-Control-Allow-Headers": "Content-Type, Accept, Mcp-Protocol-Version",
 };
 
-export async function handleMCP(request) {
+export async function handleMCP(request, env) {
   if (request.method === "OPTIONS") return new Response(null, { status: 204, headers: HEADERS });
   if (request.method !== "POST") {
     return new Response(null, { status: 405, headers: { ...HEADERS, Allow: "POST" } });
@@ -222,6 +223,7 @@ export async function handleMCP(request) {
     return new Response(JSON.stringify(rpcError(null, -32700, "Parse error")), { status: 400, headers: HEADERS });
   }
   const batch = Array.isArray(body);
+  if ((batch ? body : [body]).some((m) => m && m.method === "tools/call")) await tally(env, "mcp");
   const replies = (await Promise.all((batch ? body : [body]).map(answer))).filter(Boolean);
   if (!replies.length) return new Response(null, { status: 202, headers: HEADERS });
   return new Response(JSON.stringify(batch ? replies : replies[0]), { headers: HEADERS });

@@ -14,6 +14,8 @@
  * Reads only the published schedule; stores nothing, logs nothing.
  */
 
+import { tally } from "./tally.js";
+
 const SITE = "https://archivewatch.org";
 const SCHEDULE_TTL = 600;
 
@@ -71,7 +73,7 @@ export function joinURL(p) {
   return p.offset >= 10 ? `${p.url}?start=${Math.floor(p.offset)}` : p.url;
 }
 
-export async function handleLive(url) {
+export async function handleLive(url, env) {
   const m = url.pathname.match(/^\/live\/([a-z0-9-]+?)(?:\.(?:mp4|ts|m3u8))?\/?$/);
   const headers = { "Access-Control-Allow-Origin": "*", "Cache-Control": "no-store" };
   if (!m) return new Response("Unknown channel\n", { status: 404, headers });
@@ -84,5 +86,6 @@ export async function handleLive(url) {
   const now = Math.floor(Date.now() / 1000);
   const p = onAir(file, m[1], now);
   if (!p) return new Response("Unknown channel\n", { status: 404, headers });
+  await tally(env, "channel");
   return new Response(null, { status: 302, headers: { ...headers, Location: joinURL(p) } });
 }

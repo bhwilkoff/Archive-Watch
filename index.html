@@ -375,12 +375,11 @@
         </section>
 
         <section class="about-card">
-          <h2>In other players</h2>
-          <p>Every film and series, and the Channels live, as one playlist
-             for UHF, TiviMate, VLC, Kodi and other IPTV players. AI assistants
-             can search them over MCP.</p>
+          <h2>Feeds &amp; integrations</h2>
+          <p>Every film and series, and the Channels live, in UHF, TiviMate,
+             VLC and other IPTV players, and searchable by AI assistants.</p>
           <div class="store-links">
-            <a class="btn-ghost" href="feeds/">Playlists, guide &amp; MCP</a>
+            <a class="btn-ghost" href="#/feeds">Feeds &amp; integrations</a>
           </div>
         </section>
 
@@ -394,8 +393,88 @@
         </section>
 
         <p class="muted about-foot">
-           <a href="vetting/">How titles are vetted</a> · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="takedown.html">Removal requests</a> · <a href="feeds/">Playlists for other players</a> · <a href="curate/">Suggest &amp; curate</a></p>
+           <a href="vetting/">How titles are vetted</a> · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="takedown.html">Removal requests</a> · <a href="#/feeds">Feeds &amp; integrations</a> · <a href="curate/">Suggest &amp; curate</a></p>
 
+        <a class="btn-ghost about-back" href="#/">← Back to Home</a>
+      </div>
+    </section>
+
+    <section id="view-feeds" hidden>
+      <div class="about feeds">
+        <header class="about-head">
+          <h1>Feeds &amp; Integrations</h1>
+          <a class="about-close" href="#/" aria-label="Close — back to Home">✕</a>
+        </header>
+
+        <p class="about-lede">Watch Archive Watch's films, series and live
+           channels in the IPTV player you already use, or let an AI assistant
+           search them. Each film plays from the Internet Archive.</p>
+
+        <section class="about-card">
+          <h2>IPTV playlist</h2>
+          <p>Every film and series, and every channel live, in one address.
+             Add it to your player once; it stays current.</p>
+            <div class="feed-addr">
+              <span class="feed-addr-label">Playlist</span>
+              <code id="feed-m3u">https://<wbr>archivewatch.<wbr>org/<wbr>feeds/<wbr>archivewatch.<wbr>m3u</code>
+              <button class="btn-ghost feed-copy" data-copy="feed-m3u" type="button">Copy</button>
+            </div>
+          <h3 class="feed-sub">Get a player</h3>
+          <div class="store-links">
+            <a class="btn-ghost" href="https://apps.apple.com/us/app/uhf-love-your-iptv/id6443751726" target="_blank" rel="noopener">UHF · Apple TV, iPhone, iPad, Mac ↗</a>
+            <a class="btn-ghost" href="https://play.google.com/store/apps/details?id=ar.tvplayer.tv" target="_blank" rel="noopener">TiviMate · Android TV, Fire TV ↗</a>
+            <a class="btn-ghost" href="https://www.videolan.org/vlc/" target="_blank" rel="noopener">VLC · computers and phones ↗</a>
+          </div>
+        </section>
+
+        <section class="about-card">
+          <h2>Posters, plots and series</h2>
+          <p>In UHF, TiviMate or IPTV Smarters, add an Xtream Codes source with
+             these details for Movies and Series sections with every title's
+             poster, plot, cast and rating.</p>
+            <div class="feed-addr">
+              <span class="feed-addr-label">Server</span>
+              <code id="feed-xt-server">https://<wbr>archivewatch-pulse.<wbr>benwilkoff.<wbr>workers.<wbr>dev</code>
+              <button class="btn-ghost feed-copy" data-copy="feed-xt-server" type="button">Copy</button>
+            </div>
+            <div class="feed-addr">
+              <span class="feed-addr-label">Username</span>
+              <code id="feed-xt-user">archivewatch</code>
+              <button class="btn-ghost feed-copy" data-copy="feed-xt-user" type="button">Copy</button>
+            </div>
+            <div class="feed-addr">
+              <span class="feed-addr-label">Password</span>
+              <code id="feed-xt-pass">archivewatch</code>
+              <button class="btn-ghost feed-copy" data-copy="feed-xt-pass" type="button">Copy</button>
+            </div>
+        </section>
+
+        <section class="about-card">
+          <h2>Channels only</h2>
+            <div class="feed-addr">
+              <span class="feed-addr-label">Playlist</span>
+              <code id="feed-live">https://<wbr>archivewatch.<wbr>org/<wbr>feeds/<wbr>live.<wbr>m3u</code>
+              <button class="btn-ghost feed-copy" data-copy="feed-live" type="button">Copy</button>
+            </div>
+            <div class="feed-addr">
+              <span class="feed-addr-label">Guide (XMLTV)</span>
+              <code id="feed-guide">https://<wbr>archivewatch.<wbr>org/<wbr>feeds/<wbr>guide.<wbr>xml</code>
+              <button class="btn-ghost feed-copy" data-copy="feed-guide" type="button">Copy</button>
+            </div>
+        </section>
+
+        <section class="about-card">
+          <h2>AI assistants</h2>
+          <p>An MCP server that searches the films and answers with links that
+             play. No sign-in; it keeps no record of what is asked.</p>
+            <div class="feed-addr">
+              <span class="feed-addr-label">MCP (HTTP)</span>
+              <code id="feed-mcp">https://<wbr>archivewatch-pulse.<wbr>benwilkoff.<wbr>workers.<wbr>dev/<wbr>mcp</code>
+              <button class="btn-ghost feed-copy" data-copy="feed-mcp" type="button">Copy</button>
+            </div>
+        </section>
+
+        <p id="feeds-copy-status" class="muted" role="status" aria-live="polite"></p>
         <a class="btn-ghost about-back" href="#/">← Back to Home</a>
       </div>
     </section>
@@ -415,7 +494,7 @@
       <span aria-hidden="true">·</span>
       <a href="/films/">All films A&ndash;Z</a>
       <span aria-hidden="true">·</span>
-      <a href="feeds/">In other players</a>
+      <a href="#/feeds">Feeds &amp; integrations</a>
       <span aria-hidden="true">·</span>
       <a href="https://archive.org/donate" target="_blank" rel="noopener">Support the Archive</a>
     </footer>
