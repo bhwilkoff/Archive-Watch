@@ -291,6 +291,11 @@ struct RootView: View {
                     startItemOpened = true
                     router.openDetail(item)
                 }
+                // AW_OPEN_SCHEDULE=<channel id> opens that channel's day.
+                if let cid = env["AW_OPEN_SCHEDULE"], router.channelsPath.isEmpty {
+                    router.tab = .channels
+                    router.push(ChannelScheduleRoute(channelID: cid))
+                }
             }
             // #11b live sync, the tvOS ContentView triggers mirrored (the iPhone
             // previously synced only at launch + after local edits, so Library

@@ -134,7 +134,9 @@ with two repairs: a block narrower than 44pt draws no text (its title is its
 accessibility label and is on the schedule), a start time needs 72pt, and
 nothing uses a fixed point size. The **day schedule** folds three or more
 consecutive programs under fifteen minutes into one "N short films · Until
-<time>" disclosure row. Regular width (iPad) keeps the grid alone.
+<time>" disclosure row, and the day opens scrolled to what is on now (it
+began at the broadcast anchor, hours earlier). Regular width (iPad) keeps the
+grid alone.
 
 2.5d **You can change channel without leaving the picture.** Owner,
 2026-09-27: *"allowing users to navigate easily around the channels."* The
@@ -279,6 +281,13 @@ value ("Silent", "1920s", "Sort: Popular"); a chip that narrows the grid is
 filled with the brand color, and **Clear** leads the row once anything is set
 (the end of the row is off a 390pt screen). Keyword and Studio still push their
 own grid (Decision 046). The same chips at regular width.
+
+4.2b **Search leads with films, and filters once.** Measured on the iPhone 12:
+"keaton" opened on four episode rows (one a Saturday Night Live sketch with
+Michael Keaton) and the films sat below the first screen; the Type and decade
+filters existed twice, as chips and again in a toolbar menu. Now Films & Shows
+come first, Episodes after them at five rows with "Show all N episodes", and the
+chip row (Type, Decade — the word Browse uses) is the only filter.
 
 **Length** (2026-09-26, from the Orphaned Films research): Browse filters by how long the upload runs — *Any length · Under 60 minutes · 60 to 90 minutes · Over 90 minutes* — the same bands on every platform (Apple/Android `RuntimeBand`, web `LENGTHS`, index column 17 `minutes`). Bands were chosen from the catalog (~12% / ~60% / ~28% of features); an unknown runtime never matches. Words, never abbreviations.
 

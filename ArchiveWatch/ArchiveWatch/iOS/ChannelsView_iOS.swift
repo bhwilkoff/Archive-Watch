@@ -638,6 +638,7 @@ struct ChannelScheduleView: View {
     @State private var playing: ChannelLineup?
 
     var body: some View {
+        ScrollViewReader { proxy in
         List {
             if let ch = channel {
                 ForEach(runs(ch.slots), id: \.first!.id) { run in
@@ -669,6 +670,15 @@ struct ChannelScheduleView: View {
                     }
                 }
             }
+        }
+        // Opens on what is airing (§2.5c): the day starts at the broadcast
+        // anchor, hours before now, and the viewer came for now.
+        .onChange(of: channel?.id) {
+            guard let ch = channel,
+                  let run = runs(ch.slots).first(where: { r in r.contains { $0.contains(Date()) } })
+            else { return }
+            proxy.scrollTo(run.first!.id, anchor: .top)
+        }
         }
         .navigationTitle(channel?.title ?? "Schedule")
         .navigationBarTitleDisplayMode(.inline)

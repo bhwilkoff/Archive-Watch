@@ -12,6 +12,8 @@ struct SearchView: View {
     @State private var results: [Catalog.Item] = []
     @State private var contentType: String? = nil
     @State private var decade: Int? = nil
+    /// Episodes follow the films and open at five (iOS-DESIGN §4.2b).
+    @State private var allEpisodes = false
 
     // Episode items (Decision 045) come back in `results` like any item; we just
     // group them into their own section. Shown unless filtered to a non-TV type.
@@ -63,7 +65,7 @@ struct SearchView: View {
                     ForEach(decades, id: \.self) { Text(verbatim: "\($0)s").tag(Int?.some($0)) }
                 }
             } label: {
-                Label(decade.map { "\($0)s" } ?? "Era", systemImage: "calendar")
+                Label(decade.map { "\($0)s" } ?? "Decade", systemImage: "calendar")
                     .font(.subheadline)
             }
             .buttonStyle(.bordered)
@@ -106,15 +108,10 @@ struct SearchView: View {
             } else {
                 ScrollView {
                     filterBar
-                    if showEpisodes {
-                        VStack(alignment: .leading, spacing: 6) {
-                            Text("Episodes").font(.title3.bold()).padding(.horizontal)
-                            ForEach(episodeResults) { item in
-                                Button { router.openDetail(item) } label: { EpisodeItemRow(item: item) }
-                                    .buttonStyle(.plain)
-                            }
-                        }.padding(.top, 8)
-                    }
+                    // Films and shows first, episodes after (§4.2b): "keaton"
+                    // led with four episode rows, one a Saturday Night Live
+                    // sketch with Michael Keaton, and pushed the films below
+                    // the first screen of a 390pt phone.
                     if !filtered.isEmpty {
                         if showEpisodes {
                             Text("Films & Shows").font(.title3.bold())
@@ -128,33 +125,35 @@ struct SearchView: View {
                             }
                         }.padding()
                     }
+                    if showEpisodes {
+                        VStack(alignment: .leading, spacing: 6) {
+                            Text("Episodes").font(.title3.bold()).padding(.horizontal)
+                            ForEach(allEpisodes ? episodeResults : Array(episodeResults.prefix(5))) { item in
+                                Button { router.openDetail(item) } label: { EpisodeItemRow(item: item) }
+                                    .buttonStyle(.plain)
+                            }
+                            if episodeResults.count > 5 && !allEpisodes {
+                                Button("Show all \(episodeResults.count) episodes") { allEpisodes = true }
+                                    .font(.subheadline.weight(.semibold))
+                                    .padding(.horizontal)
+                                    .padding(.top, 4)
+                            }
+                        }.padding(.top, 8).padding(.bottom, 24)
+                    }
                 }
             }
         }
         .navigationTitle("Search")
+        #if DEBUG
+        // Harness door: AW_SEARCH=<query> types it, for the device sweep.
+        .onAppear {
+            if query.isEmpty, let q = ProcessInfo.processInfo.environment["AW_SEARCH"] { query = q }
+        }
+        #endif
         .searchable(text: $query, placement: .navigationBarDrawer(displayMode: .always),
                     prompt: "Films, shows, people…")
-        .toolbar {
-            ToolbarItem(placement: .topBarTrailing) {
-                Menu("Filter", systemImage: filterActive
-                     ? "line.3.horizontal.decrease.circle.fill"
-                     : "line.3.horizontal.decrease.circle") {
-                    Picker("Type", selection: $contentType) {
-                        ForEach(types, id: \.1) { Text($0.0).tag($0.1) }
-                    }
-                    Picker("Decade", selection: $decade) {
-                        Text("All Decades").tag(Int?.none)
-                        ForEach(decades, id: \.self) { Text(verbatim: "\($0)s").tag(Int?.some($0)) }
-                    }
-                    if filterActive {
-                        Button("Clear Filters", role: .destructive) {
-                            contentType = nil; decade = nil
-                        }
-                    }
-                }
-            }
-        }
         .task(id: query) {
+            allEpisodes = false
             guard query.count >= 2 else { results = []; return }
             try? await Task.sleep(for: .milliseconds(180))   // debounce
             if !Task.isCancelled {
