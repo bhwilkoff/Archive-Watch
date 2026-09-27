@@ -14,6 +14,8 @@
     <field id="tune" type="assocarray" alwaysNotify="true" />
     <field id="chosen" type="string" alwaysNotify="true" />
     <field id="exitLeft" type="boolean" alwaysNotify="true" />
+    <!-- OK on the could-not-load line: fetch the schedule again. -->
+    <field id="retry" type="boolean" alwaysNotify="true" />
     <!-- Which channel the focus is on, and whether the viewer made it. -->
     <field id="focusedUserChannel" type="string" />
     <function name="showChannels" />

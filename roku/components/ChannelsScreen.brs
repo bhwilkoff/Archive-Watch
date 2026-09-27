@@ -62,6 +62,7 @@ sub showChannels(payload as Object)
         m.empty.text = "The channel guide could not be loaded. Check the network and try again."
         return
     end if
+    m.empty.visible = false
     ' The viewer's own channels lead the list. They made them; ours are the
     ' default programming underneath.
     m.channels = []
@@ -93,7 +94,7 @@ sub clearGroup(g as Object)
 end sub
 
 function windowStart() as Integer
-    return nowLocalSeconds() + m.offsetMin * 60
+    return nowUtcSeconds() + m.offsetMin * 60
 end function
 
 ' The three-hour window laid out as blocks: each channel a row, each slot a
@@ -105,7 +106,7 @@ sub paintGrid()
     m.grid = []
     if m.channels = invalid then return
     g = m.g
-    nowS = nowLocalSeconds()
+    nowS = nowUtcSeconds()
     winS = windowStart()
     winE = winS + g.windowMin * 60
     ppm = g.timelineW / g.windowMin
@@ -163,14 +164,15 @@ sub paintGrid()
         num.text = "CH " + fmt(r + 1)
         entry.rail = rail
 
-        if c.programs = invalid
+        if c.userType <> invalid
             ' A user channel is a QUERY, not a schedule: one block for the
             ' whole window saying what it plays.
             rec = makeBlock(y, x0, g.timelineW, "Plays " + describeFacets(c.userType, c.userDecade) + ", shuffled", "", false, acc)
             rec.slot = invalid : rec.x = x0 : rec.w = g.timelineW : rec.isNow = true : rec.userChannel = true
             entry.blocks.Push(rec)
         else
-            slots = buildSchedule(fmt(c.id), c.programs, nowS)
+            slots = c.slots
+            if slots = invalid then slots = []
             entry.slots = slots
             for i = 0 to slots.Count() - 1
                 s = slots[i]
@@ -430,7 +432,7 @@ sub tuneIn(idx as Integer)
     end if
     e = m.grid[idx]
     if e.slots = invalid or e.slots.Count() = 0 then return
-    nowS = nowLocalSeconds()
+    nowS = nowUtcSeconds()
     for i = 0 to e.slots.Count() - 1
         s = e.slots[i]
         if s.startS <= nowS and nowS < s.endS
@@ -480,6 +482,11 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
     if not m.top.focusOn then return false
     if m.grid.Count() = 0
         if key = "left" then m.top.exitLeft = true : return true
+        if key = "OK" and m.empty.visible
+            m.empty.text = "Loading the channel guide…"
+            m.top.retry = true
+            return true
+        end if
         return false
     end if
     e = m.grid[m.row]

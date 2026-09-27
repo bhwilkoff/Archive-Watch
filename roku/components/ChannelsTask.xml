@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<!-- Fetches the precomputed channel pools. The SCHEDULE is not fetched: it is
-     computed on the device from the day and the channel id, which is what lets
-     the listings anchor to the viewer's own 6 AM without a server knowing
-     anything about their timezone. -->
+<!-- Fetches the published schedule (channel-schedule.json): one UTC timeline
+     per channel, the same on every platform (ROKU-DESIGN 6.7). The pools file
+     is read only for commercials and the Cartoon Marathon. -->
 <component name="ChannelsTask" extends="Task">
   <interface>
     <field id="status" type="string" alwaysNotify="true" />

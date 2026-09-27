@@ -2020,19 +2020,26 @@ sub openChannels()
         m.channels.ObserveField("tune", "onTune")
         m.channels.ObserveField("chosen", "onChannelItemChosen")
         m.channels.ObserveField("exitLeft", "focusRail")
+        m.channels.ObserveField("retry", "retryChannels")
     end if
     hideAllSurfaces()
     m.channels.visible = true
     m.rail.focusOn = false
     m.route = "channels"
     print "AWFOCUS channels"
-    if m.chtask = invalid
-        m.chtask = CreateObject("roSGNode", "ChannelsTask")
-        m.chtask.ObserveField("status", "onChannelsLoaded")
-        m.chtask.control = "RUN"
+    if m.chtask = invalid or m.chtask.status = "error"
+        retryChannels()
     else
         refocus(m.channels)
     end if
+end sub
+
+' A guide that could not load asks again on the next visit or on OK; the task
+' is rebuilt because a finished Task node cannot be run twice.
+sub retryChannels()
+    m.chtask = CreateObject("roSGNode", "ChannelsTask")
+    m.chtask.ObserveField("status", "onChannelsLoaded")
+    m.chtask.control = "RUN"
 end sub
 
 sub onChannelsLoaded()

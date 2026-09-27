@@ -283,8 +283,22 @@ known position. Every recovery is a visible cold re-buffer, and the viewer will
 see it. This regression is recorded in PARITY rather than hidden.
 
 **6.7 Channels** uses the platform EPG: channel rows, programmes sized by
-duration, a now-line, join-in-progress, commercial breaks woven. Our date-seeded
-scheduler is the content source; the layout is the platform's. The Now/Next view
+duration, a now-line, join-in-progress, commercial breaks woven. **The content
+source is the published schedule, `channel-schedule.json`** (amended
+2026-09-27): one UTC timeline per channel, built by
+`tools/build_channel_schedule.py` and played by every platform, so a viewer on
+any screen finds the same program on the same channel at the same minute. The
+owner: *"Move forward with a single clock. If you need a time zone to organize
+around, you can choose UTC, but all times should show as their local times when
+they look at channels. This should only be to sync all titles to the same
+time."* So every second in `Sched.brs` is UTC epoch seconds, and local time is
+applied only where a clock is printed (`clockLabel`). The 6 AM local broadcast
+day and the on-device FNV-1a/SplitMix shuffle are retired; `channel-pools.json`
+is read only for commercials and the Cartoon Marathon. With no schedule there is
+no guide: the screen says it could not load, and OK or the next visit asks again — never a local
+stand-in, which would put this Roku on a different program from every other
+screen. The viewer's own channels are queries, not schedules, and are
+unchanged. The layout is the platform's. The Now/Next view
 is the degradation path for low-end hardware, not a reduced grid we invent.
 Presets ship first; creating a channel needs text entry and is deferred with a
 recorded reason.
