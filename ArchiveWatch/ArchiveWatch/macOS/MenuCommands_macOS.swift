@@ -82,25 +82,33 @@ struct GoCommands: Commands {
 
     var body: some Commands {
         CommandMenu("Go") {
-            ForEach(Array(Self.numbered.enumerated()), id: \.element) { index, section in
-                Button(section.title) { go(section) }
-                    .keyboardShortcut(KeyEquivalent(Character(String(index + 1))), modifiers: .command)
+            // The sidebar's order, so the menu reads as the same list. Surprise
+            // takes no number (it is a page of dice), Search has ⌘F.
+            ForEach(AppRouter.Section.allCases) { section in
+                if section == .search {
+                    Button("Search") {
+                        go(.search)
+                        router.searchFocusRequest += 1
+                    }
+                    .keyboardShortcut("f", modifiers: .command)
                     .disabled(browseIsKey != true)
+                } else if let n = Self.numbered.firstIndex(of: section) {
+                    Button(section.title) { go(section) }
+                        .keyboardShortcut(KeyEquivalent(Character(String(n + 1))), modifiers: .command)
+                        .disabled(browseIsKey != true)
+                } else {
+                    Button(section.title) { go(section) }
+                        .disabled(browseIsKey != true)
+                }
             }
-            Button("Surprise") { go(.surprise) }
-                .disabled(browseIsKey != true)
             Divider()
-            Button("Search") {
-                go(.search)
-                router.searchFocusRequest += 1
-            }
-            .keyboardShortcut("f", modifiers: .command)
-            .disabled(browseIsKey != true)
             Button("Back") { router.path.removeLast() }
                 .keyboardShortcut("[", modifiers: .command)
                 .disabled(browseIsKey != true || router.path.isEmpty)
             Divider()
-            Button("Surprise Me") { router.surprise(store) }
+            // Beside the sidebar's "Surprise" (a page), "Surprise Me" read as the
+            // same item twice; this one PLAYS, so it says so.
+            Button("Play a Surprise Film") { router.surprise(store) }
                 .keyboardShortcut("r", modifiers: [.command, .shift])
         }
     }

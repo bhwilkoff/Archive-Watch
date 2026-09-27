@@ -112,3 +112,12 @@ through Accessibility and its items pressed there (never pointer clicks).
   after the selected tab is the system's Settings behavior and stays.
   Note: screenshots of Publishing show the owner's access key, and the
   username field raises Passwords autofill with their email; capture neither.
+- v1.42.793: the whole menu bar dumped through AX and read top to bottom.
+  Go now lists the sidebar in the sidebar's order (Surprise and Search in
+  place; ⌘1–⌘8 unchanged), and "Surprise Me" beside "Surprise" read as one
+  item twice — it PLAYS a random film, so it is "Play a Surprise Film"
+  (⇧⌘R). View had two separators in a row (the editor group added its own).
+  The Surprise page's title said "Surprise Me" under a sidebar saying
+  "Surprise", over a sentence explaining itself; it is "Surprise" and the
+  sentence is gone. Verified: Go's items read back in sidebar order, Go ›
+  Surprise opens the page, View has one separator.

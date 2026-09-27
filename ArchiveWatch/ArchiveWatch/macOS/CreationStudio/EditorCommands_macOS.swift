@@ -153,7 +153,6 @@ struct EditorViewCommands: Commands {
 
     var body: some Commands {
         CommandGroup(after: .toolbar) {
-            Divider()
             Button("Zoom In") { editor?.model.zoom(by: 1.5) }
                 .keyboardShortcut("=", modifiers: .command)
                 .disabled(editor == nil)

@@ -159,8 +159,6 @@ struct SurpriseView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
-                Text("Ways to wander the archive — pick one, or come back to re-roll.")
-                    .font(.title3).foregroundStyle(.secondary)
                 LazyVGrid(columns: cols, spacing: 16) {
                     ForEach(actions) { action in
                         Button { perform(action) } label: { SurpriseTile(action: action) }
@@ -170,7 +168,7 @@ struct SurpriseView: View {
             }
             .padding(24)
         }
-        .navigationTitle("Surprise Me")
+        .navigationTitle("Surprise")   // the sidebar's name for this page
     }
 
     private func perform(_ action: Action) {
