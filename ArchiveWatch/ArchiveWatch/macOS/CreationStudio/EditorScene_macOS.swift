@@ -834,22 +834,18 @@ private struct ProjectInspector: View {
 
     @ViewBuilder private func clipInspector(_ clip: TimelineClip) -> some View {
         Section {
-            sliderRow("Audio", icon: clip.audioVolume == 0 ? "speaker.slash" : "speaker.wave.2",
-                      value: Binding(get: { clip.audioVolume }, set: { model.setClipVolume(clip.id, $0) }),
+            sliderRow("Audio", value: Binding(get: { clip.audioVolume }, set: { model.setClipVolume(clip.id, $0) }),
                       range: 0...1.5, format: { "\(Int($0 * 100))%" })
             let maxFade = max(0.1, clip.sourceRange.duration.seconds / 2)
-            sliderRow("Fade in", icon: "circle.lefthalf.filled",
-                      value: Binding(get: { clip.fadeInSeconds }, set: { model.setClipFade(clip.id, fadeIn: $0) }),
+            sliderRow("Fade in", value: Binding(get: { clip.fadeInSeconds }, set: { model.setClipFade(clip.id, fadeIn: $0) }),
                       range: 0...maxFade, format: { String(format: "%.1fs", $0) })
-            sliderRow("Fade out", icon: "circle.righthalf.filled",
-                      value: Binding(get: { clip.fadeOutSeconds }, set: { model.setClipFade(clip.id, fadeOut: $0) }),
+            sliderRow("Fade out", value: Binding(get: { clip.fadeOutSeconds }, set: { model.setClipFade(clip.id, fadeOut: $0) }),
                       range: 0...maxFade, format: { String(format: "%.1fs", $0) })
             Picker("Look", selection: Binding(get: { clip.look }, set: { model.setClipLook(clip.id, $0) })) {
                 ForEach(ClipLook.allCases) { Text($0.label).tag($0) }
             }
             if model.clips.first?.id != clip.id {
-                sliderRow("Transition", icon: "square.on.square.dashed",
-                          value: Binding(get: { clip.transitionInSeconds }, set: { model.setClipTransition(clip.id, $0) }),
+                sliderRow("Transition", value: Binding(get: { clip.transitionInSeconds }, set: { model.setClipTransition(clip.id, $0) }),
                           range: 0...maxFade, format: { String(format: "%.1fs", $0) })
                 if clip.transitionInSeconds > 0 {
                     Picker("Style", selection: Binding(get: { clip.transitionKind },
@@ -871,7 +867,7 @@ private struct ProjectInspector: View {
     @ViewBuilder private func audioInspector(_ a: AudioClip) -> some View {
         Section {
             TextField("Name", text: Binding(get: { a.displayName }, set: { model.renameAudio(a.id, $0) }))
-            sliderRow("Volume", icon: a.volume == 0 ? "speaker.slash" : a.kind.symbol,
+            sliderRow("Volume", 
                       value: Binding(get: { a.volume }, set: { model.setAudioVolume(a.id, $0) }),
                       range: 0...1.5, format: { "\(Int($0 * 100))%" })
             LabeledContent("Start") {
@@ -881,11 +877,9 @@ private struct ProjectInspector: View {
                 }
             }
             let maxFade = max(0.5, (a.sourceDuration > 0 ? a.sourceDuration : 8) / 2)
-            sliderRow("Fade in", icon: "circle.lefthalf.filled",
-                      value: Binding(get: { a.fadeInSeconds }, set: { model.setAudioFade(a.id, fadeIn: $0) }),
+            sliderRow("Fade in", value: Binding(get: { a.fadeInSeconds }, set: { model.setAudioFade(a.id, fadeIn: $0) }),
                       range: 0...maxFade, format: { String(format: "%.1fs", $0) })
-            sliderRow("Fade out", icon: "circle.righthalf.filled",
-                      value: Binding(get: { a.fadeOutSeconds }, set: { model.setAudioFade(a.id, fadeOut: $0) }),
+            sliderRow("Fade out", value: Binding(get: { a.fadeOutSeconds }, set: { model.setAudioFade(a.id, fadeOut: $0) }),
                       range: 0...maxFade, format: { String(format: "%.1fs", $0) })
         } header: {
             Label(a.kind.label, systemImage: a.kind.symbol)
@@ -931,14 +925,18 @@ private struct ProjectInspector: View {
     }
 
     /// A labeled icon + slider + value readout row (the inspector's workhorse control).
-    private func sliderRow(_ title: String, icon: String, value: Binding<Double>,
+    private func sliderRow(_ title: String, value: Binding<Double>,
                            range: ClosedRange<Double>, format: @escaping (Double) -> String) -> some View {
+        // No icon: it repeated the label and squeezed the slider to a ~50 pt
+        // stub in a 280 pt inspector (Mac loop, 2026-09-27).
         LabeledContent(title) {
             HStack {
-                Image(systemName: icon).foregroundStyle(.secondary)
                 Slider(value: value, in: range)
+                    .frame(minWidth: 90)
+                    .accessibilityLabel(title)
+                    .accessibilityValue(format(value.wrappedValue))
                 Text(format(value.wrappedValue)).font(.caption.monospacedDigit())
-                    .foregroundStyle(.secondary).frame(width: 46, alignment: .trailing)
+                    .foregroundStyle(.secondary).frame(width: 40, alignment: .trailing)
             }
         }
     }
@@ -958,12 +956,14 @@ private struct TextOverlayEditor: View {
             }
             // Continuous X/Y (0…1) — the precise complement to dragging the overlay on screen (#3).
             LabeledContent("X") {
-                HStack { Slider(value: $overlay.positionX, in: 0...1)
+                HStack { Slider(value: $overlay.positionX, in: 0...1).frame(minWidth: 90)
+                        .accessibilityLabel("Horizontal position")
                     Text("\(Int(overlay.positionX * 100))%").font(.caption.monospacedDigit())
                         .foregroundStyle(.secondary).frame(width: 38, alignment: .trailing) }
             }
             LabeledContent("Y") {
-                HStack { Slider(value: $overlay.positionY, in: 0...1)
+                HStack { Slider(value: $overlay.positionY, in: 0...1).frame(minWidth: 90)
+                        .accessibilityLabel("Vertical position")
                     Text("\(Int(overlay.positionY * 100))%").font(.caption.monospacedDigit())
                         .foregroundStyle(.secondary).frame(width: 38, alignment: .trailing) }
             }
@@ -973,7 +973,10 @@ private struct TextOverlayEditor: View {
                     Text(name).tag(hex)
                 }
             }
-            HStack { Text("Size"); Slider(value: $overlay.fontScale, in: 0.025...0.12) }
+            LabeledContent("Size") {
+                Slider(value: $overlay.fontScale, in: 0.025...0.12).frame(minWidth: 90)
+                    .accessibilityLabel("Size")
+            }
             Toggle("Legibility shadow", isOn: $overlay.hasBackground)
             LabeledContent("Start") {
                 HStack { Text(String(format: "%.1fs", startBinding.wrappedValue)); Stepper("", value: startBinding, in: 0...3600, step: 0.5).labelsHidden() }

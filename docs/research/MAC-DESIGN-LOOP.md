@@ -148,3 +148,10 @@ through Accessibility and its items pressed there (never pointer clicks).
   Show: Icon Only / Icon and Text choice — so a person who wants words gets
   them the native way. Seen: View's items read back through AX, and the
   palette photographed over the editor.
+- v1.42.797: the inspector's slider rows (clip Audio / Fade in / Fade out /
+  Transition, audio Volume / fades, text X / Y / Size). Each carried an icon
+  repeating its label, which left a ~50 pt slider stub in the 280 pt
+  inspector. The icon is gone, sliders take at least 90 pt (110 wrapped
+  "Fade out" under its label), and each slider speaks its name and value
+  ("Fade in, 1.5s") — they had announced nothing but a percentage. Text Size
+  is a labeled row like the others. Seen in the inspector on the Mac.
