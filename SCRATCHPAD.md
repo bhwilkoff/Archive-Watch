@@ -61,6 +61,19 @@ because the loop was stopped mid-stride for a Claude update.
    Sabrina because archive.org's does (keep or override: yours); the Roku
    one-clock guide needs the next store package (sideloaded and verified).
 
+0-NEW-2026-09-27-B. **WHICH FILMS MAY THE CREATION STUDIO PUBLISH? (owner call, nothing changed.)**
+   Found in the Mac loop: Add a Clip offers The Pink Panther (1963), because
+   clipping is gated on `isClippable` (any visible title whose rightsStatus is
+   PD/CC/absent — Rule 5c), not on a rights TIER. Clipping and exporting a file
+   locally is one thing; **Publish uploads the edit to archive.org dedicated to
+   the public domain (CC0)**, and a CC0 dedication over a 1963 studio film is a
+   claim we cannot stand behind. The Watch Together Studio and the Home marquee
+   already use a stronger tier (`isHeroRightsSafe`: safe buckets, and
+   `safe_pd_age` only from 1978 on). Options: (a) gate PUBLISH (not clipping)
+   on every clip being hero-rights-safe, with a refusal naming the film;
+   (b) gate clipping itself the same way; (c) leave it. (a) is my
+   recommendation — Decision 027 reserves the call.
+
 0-NOW. **OAUTH APPROVED (2026-09-26); QUOTA SCREENCAST SENT, WAITING ON GOOGLE.**
    `auth/youtube` verification passed; no code change was needed. The quota
    team's screencast is <https://youtu.be/6QiRJhHyw3E>, answered 2026-09-26
