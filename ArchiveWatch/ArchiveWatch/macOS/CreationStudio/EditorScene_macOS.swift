@@ -33,6 +33,7 @@ struct ProjectEditorView: View {
     @State private var testMark: Catalog.Item?     // AW_CS_TEST=markclip presents this in a sheet
     @State private var markItem: Catalog.Item?     // "Open in Creation Studio" mark-in/out target
     @State private var showExportSheet = false
+    @State private var exportTask: Task<Void, Never>?
 
     init(document: ClipProjectDocument) {
         self.document = document
@@ -349,6 +350,7 @@ struct ProjectEditorView: View {
                     Label("Exported", systemImage: "checkmark.circle.fill").foregroundStyle(.green)
                     Spacer()
                     Button("Reveal in Finder") { NSWorkspace.shared.activateFileViewerSelecting([url]) }
+                    Button("Dismiss") { exporter.dismiss() }
                 }
                 .padding(10).background(.ultraThinMaterial).padding(12)
             }
@@ -356,12 +358,21 @@ struct ProjectEditorView: View {
             HStack {
                 Label(message, systemImage: "exclamationmark.triangle.fill").foregroundStyle(.orange)
                 Spacer()
+                if let last = exporter.lastRequest {
+                    Button("Try Again") {
+                        exportTask = Task { await exporter.export(last.project, to: last.url, format: last.format) }
+                    }
+                }
+                Button("Dismiss") { exporter.dismiss() }
             }
             .padding(10).background(.ultraThinMaterial).padding(12)
         default:
             HStack(spacing: 12) {
                 ProgressView(value: exporter.progress).frame(maxWidth: 240)
                 Text(phaseLabel).font(.caption).foregroundStyle(.secondary)
+                Spacer()
+                Button("Cancel") { exportTask?.cancel() }
+                    .keyboardShortcut(".", modifiers: .command)
             }
             .padding(10).background(.ultraThinMaterial).padding(12)
         }
@@ -386,7 +397,7 @@ struct ProjectEditorView: View {
         guard panel.runModal() == .OK, let url = panel.url else { return }
         model.pause()                 // an export must not leave the preview playing (owner 2026-06-29)
         let project = model.project
-        Task { await exporter.export(project, to: url, format: format) }
+        exportTask = Task { await exporter.export(project, to: url, format: format) }
     }
 }
 

@@ -66,4 +66,14 @@ through Accessibility and its items pressed there (never pointer clicks).
   and apple.com answer). Known behavior: archive.org blocks an address after a
   burst (memory creation_studio_connection_discipline). The loop stopped
   launching anything that fetches films until it lifts.
+- v1.42.787: Export — Cancel (⌘.) while it runs (the half-written file is
+  removed), failures say in words which step failed ("A clip could not be
+  downloaded from archive.org.") with the domain/code chain kept for the
+  diagnostics log, Try Again repeats the last export, Dismiss clears a finished
+  or failed bar (the Exported bar used to stay forever). Supercut — the clear
+  button, the include checkmarks and the ‹ › take chevrons have help tags and
+  VoiceOver labels; the Color/Type/Decade pickers and the clip browser's source
+  picker have real labels (empty `Picker("")` announced nothing). Built, not
+  driven: an export needs the Save panel (a click) and archive.org is still
+  refusing this network.
 

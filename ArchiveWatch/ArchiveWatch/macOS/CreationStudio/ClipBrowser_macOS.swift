@@ -58,7 +58,7 @@ struct ClipBrowserSheet: View {
     var body: some View {
         NavigationStack {
             VStack(spacing: 0) {
-                Picker("", selection: $mode) {
+                Picker("Source", selection: $mode) {
                     ForEach(Mode.allCases) { Text($0.rawValue).tag($0) }
                 }
                 .pickerStyle(.segmented).labelsHidden()

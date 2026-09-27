@@ -138,6 +138,7 @@ struct SupercutSheet: View {
                     if !phrase.isEmpty {
                         Button { phrase = "" } label: { Image(systemName: "xmark.circle.fill") }
                             .buttonStyle(.borderless).foregroundStyle(.secondary)
+                            .help("Clear").accessibilityLabel("Clear")
                     }
                 }
                 .padding(.horizontal, 8).padding(.vertical, 6)
@@ -217,16 +218,18 @@ struct SupercutSheet: View {
     // Facet filters (Color / Type / Decade) + selection controls + "Add N random" (owner ask).
     @ViewBuilder private var findFilterBar: some View {
         HStack(spacing: 8) {
-            Picker("", selection: $colorFilter) { ForEach(ColorFilter.allCases) { Text($0.rawValue).tag($0) } }
-                .pickerStyle(.menu).fixedSize()
-            Picker("", selection: $typeFilter) {
+            // Labeled (the label is hidden by labelsHidden, and read by
+            // VoiceOver); an empty Picker("") announced nothing.
+            Picker("Color", selection: $colorFilter) { ForEach(ColorFilter.allCases) { Text($0.rawValue).tag($0) } }
+                .pickerStyle(.menu).labelsHidden().fixedSize()
+            Picker("Type", selection: $typeFilter) {
                 Text("Any type").tag(String?.none)
                 ForEach(presentTypes, id: \.self) { Text(Self.kindLabel(for: $0)).tag(String?($0)) }
-            }.pickerStyle(.menu).fixedSize()
-            Picker("", selection: $decadeFilter) {
+            }.pickerStyle(.menu).labelsHidden().fixedSize()
+            Picker("Decade", selection: $decadeFilter) {
                 Text("Any era").tag(Int?.none)
                 ForEach(presentDecades, id: \.self) { Text(verbatim: "\($0)s").tag(Int?($0)) }
-            }.pickerStyle(.menu).fixedSize()
+            }.pickerStyle(.menu).labelsHidden().fixedSize()
             Spacer()
             Text("\(selection.count) selected").font(.caption).foregroundStyle(.secondary)
             Menu("Add random") {
@@ -305,6 +308,8 @@ struct SupercutSheet: View {
                                 Image(systemName: on ? "checkmark.circle.fill" : "circle")
                                     .foregroundStyle(on ? Color.accentColor : .secondary)
                             }.buttonStyle(.borderless)
+                            .help(on ? "Leave this phrase out" : "Include this phrase")
+                            .accessibilityLabel(on ? "Included" : "Left out")
                         } else {
                             Image(systemName: "exclamationmark.circle").foregroundStyle(.orange)
                         }
@@ -315,9 +320,11 @@ struct SupercutSheet: View {
                             if seg.candidates.count > 1 {
                                 Button { seg.selected = (seg.selected + seg.candidates.count - 1) % seg.candidates.count } label: { Image(systemName: "chevron.left") }
                                     .buttonStyle(.borderless)
+                                    .help("Previous film that says this").accessibilityLabel("Previous take")
                                 Text("\(seg.selected + 1)/\(seg.candidates.count)").font(.caption2.monospacedDigit()).foregroundStyle(.secondary)
                                 Button { seg.selected = (seg.selected + 1) % seg.candidates.count } label: { Image(systemName: "chevron.right") }
                                     .buttonStyle(.borderless)
+                                    .help("Next film that says this").accessibilityLabel("Next take")
                             }
                         } else {
                             // Gap recovery: type a replacement word that IS in the corpus.

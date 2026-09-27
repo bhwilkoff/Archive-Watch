@@ -46,6 +46,11 @@ final class ExportService {
     private(set) var outputURL: URL?
 
     var isBusy: Bool { phase == .caching || phase == .composing || phase == .exporting }
+    /// The last export asked for — Try Again repeats it.
+    private(set) var lastRequest: (project: ClipProject, url: URL, format: ExportFormat)?
+
+    /// Clear a finished or failed result from the window.
+    func dismiss() { if !isBusy { phase = .idle } }
 
     /// The standard public-domain credit. Per-item CC dedications (Catalog.Item.clipCreditLine)
     /// can override this once the real browser supplies the item — Phase 1 ships PD-only.
@@ -53,6 +58,7 @@ final class ExportService {
 
     func export(_ project: ClipProject, to url: URL, format: ExportFormat = .h264) async {
         guard !project.timeline.clips.isEmpty else { phase = .failed("The timeline is empty."); return }
+        lastRequest = (project, url, format)
         phase = .caching; progress = 0; outputURL = nil
         // Attribution is optional (owner decision): burn the credit only when the project
         // opts in. The archive.org source still rides in metadata regardless.
@@ -162,9 +168,27 @@ final class ExportService {
                 switch phase { case .caching: "caching"; case .composing: "composing"
                                case .exporting: "exporting"; default: "" }
             }()
+            // Cancelled by the viewer: back to idle, and a half-written file
+            // is not left behind.
+            if error is CancellationError || Task.isCancelled {
+                try? FileManager.default.removeItem(at: url)
+                Self.diag("cancelled during \(stageLabel)")
+                phase = .idle
+                return
+            }
             let msg = "\(ns.localizedDescription) [\(Self.errorChain(ns))]"
             Self.diag("FAILED during \(stageLabel): \(msg)")
-            phase = .failed(msg)
+            // The window says what failed in words; the domain/code chain
+            // is for the diagnostics log above, not for the viewer.
+            let words: String = {
+                switch stageLabel {
+                case "caching": "A clip could not be downloaded from archive.org."
+                case "composing": "The clips could not be put together."
+                case "exporting": "The movie file could not be written."
+                default: "The movie could not be exported."
+                }
+            }()
+            phase = .failed(words)
         }
     }
 
