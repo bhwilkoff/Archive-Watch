@@ -209,3 +209,9 @@ through Accessibility and its items pressed there (never pointer clicks).
   Voiceover heading and reads "MacBook Pro Microphone". The inspector's
   no-selection hint ("Select a clip, title or audio track to edit it.")
   explained the interface, and said "title" for text; cut.
+- v1.42.804: poster grids (Movies, TV, Search, Library…) centered each card
+  in its row, so a title with no year sat half a line lower than its
+  neighbors (The Pink Panther in Movies). Every card lays out the year line,
+  blank when there is none (and hidden from VoiceOver then). Seen in Movies.
+  The Pink Panther having no year at all is logged against the owner's
+  Creation Studio rights question in SCRATCHPAD.

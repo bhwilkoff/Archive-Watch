@@ -72,7 +72,9 @@ because the loop was stopped mid-stride for a Claude update.
    only, and a title from 1978 on only if public domain by age). Options: (a) gate PUBLISH (not clipping)
    on every clip being hero-rights-safe, with a refusal naming the film;
    (b) gate clipping itself the same way; (c) leave it. (a) is my
-   recommendation — Decision 027 reserves the call.
+   recommendation — Decision 027 reserves the call. NOTE: The Pink Panther
+   carries NO YEAR in the catalog (seen in the Mac Movies grid), so any
+   year-based rule, including the tier's 1978 check, cannot see it is modern.
 
 0-NOW. **OAUTH APPROVED (2026-09-26); QUOTA SCREENCAST SENT, WAITING ON GOOGLE.**
    `auth/youtube` verification passed; no code change was needed. The quota

@@ -34,9 +34,12 @@ struct PosterCard: View {
                 .scaleEffect(hovering ? 1.03 : 1.0)
 
             Text(item.title).font(.caption).fontWeight(.medium).lineLimit(1)
-            if let y = item.year {
-                Text(verbatim: String(y)).font(.caption2).foregroundStyle(.secondary)
-            }
+            // The year line is always laid out: a grid centers its cells, so a
+            // card with no year sat half a line lower than its row (The Pink
+            // Panther in Movies; Mac loop, 2026-09-27).
+            Text(verbatim: item.year.map(String.init) ?? " ")
+                .font(.caption2).foregroundStyle(.secondary)
+                .accessibilityHidden(item.year == nil)
         }
         .contentShape(Rectangle())
         .onHover { hovering = $0 }
