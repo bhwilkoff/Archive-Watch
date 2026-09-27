@@ -89,6 +89,10 @@ check("get_vod_info for The General carries plot, cast, director and backdrop",
       bool(info["plot"]) and "Buster Keaton" in info["cast"] and info["director"] and info["backdrop_path"])
 plots = sum(1 for k in range(F.INFO_SHARDS)
             for v in json.loads((x / "info" / f"{k}.json").read_text()).values() if v["info"]["plot"])
+check("every film in the list has a poster, and most carry their plot in the list itself",
+      all(s["stream_icon"] for s in streams) and sum(1 for s in streams if s["plot"]) > 0.6 * len(streams))
+check("no negative 'added' timestamps", all(int(s["added"]) >= 0 for s in streams))
+check("every series has a cover", all(r["cover"] for r in series))
 check(f"most films have a plot ({plots}/{len(streams)})", plots > 0.6 * len(streams))
 a, b = F.number_ids(["TheGeneral720p1926", "x"]), F.number_ids(["y", "TheGeneral720p1926", "z"])
 check("a film keeps its number when others come and go", a["TheGeneral720p1926"] == b["TheGeneral720p1926"])

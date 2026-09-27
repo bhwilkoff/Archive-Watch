@@ -101,8 +101,26 @@ def group(item: dict) -> str:
     return GROUP.get(KIND.get(ctype, "Film"), "Films")
 
 
-def poster(item: dict) -> str | None:
-    return item.get("posterURL") if item.get("hasRealArtwork") else None
+def poster(item: dict) -> str:
+    """Every film's poster: a designed poster where there is one, else the
+    cover the apps themselves show (generated frames, archive.org's own
+    tile). Owner, 2026-09-27, on the Xtream feed in UHF: posters and
+    descriptions were not coming through for most films; 2,538 were sent with
+    none because only "professional" art was passed on (Decision 097 is a
+    rule for the Home screen's hero, not for a player's grid)."""
+    return item.get("posterURL") or f"https://archive.org/services/img/{item['archiveID']}"
+
+
+def epoch(item: dict) -> str:
+    """Xtream's `added`: players sort "recently added" by it. The release
+    date stands in, since the catalog keeps no ingest time per film; before
+    1970 it is 0."""
+    d = item.get("releaseDate") or (f"{item['year']}-01-01" if item.get("year") else None)
+    try:
+        t = int(datetime.fromisoformat(d).replace(tzinfo=timezone.utc).timestamp()) if d else 0
+        return str(max(t, 0))   # a negative epoch is refused by some players
+    except ValueError:
+        return "0"
 
 
 NOT_FILMS = {"tv-series", "tv-episode", "commercial", "excerpt"}
@@ -298,11 +316,19 @@ def xtream(items: list, shows: list, schedule: dict, out: Path) -> dict:
     for n, i in enumerate(items):
         sid = ids[i["archiveID"]]
         rating = i.get("imdbRating") or 0
+        # The list carries the details too: some players build their grid
+        # and detail page from get_vod_streams alone and never ask
+        # get_vod_info (the mock Xtream servers written for these players
+        # do the same).
         row = {"num": n + 1, "name": label(i), "stream_type": "movie", "stream_id": sid,
-               "stream_icon": poster(i) or "", "rating": str(rating),
-               "rating_5based": round(rating / 2, 1), "added": "0",
-               "category_id": cat[group(i)], "container_extension": "mp4",
-               "custom_sid": "", "direct_source": ""}
+               "stream_icon": poster(i), "rating": str(rating),
+               "rating_5based": round(rating / 2, 1), "added": epoch(i),
+               "category_id": cat[group(i)], "category_ids": [int(cat[group(i)])],
+               "container_extension": "mp4", "custom_sid": "", "direct_source": "",
+               "tmdb": str(i.get("tmdbID") or ""), "year": str(i.get("year") or ""),
+               "plot": i.get("synopsis") or "", "genre": ", ".join(i.get("genres") or []),
+               "director": i.get("director") or "", "cast": cast_names(i.get("cast"), 5),
+               "backdrop_path": [i["backdropURL"]] if i.get("backdropURL") else []}
         streams.append(row)
         by_cat[row["category_id"]].append(row)
         secs = int(i.get("runtimeSeconds") or 0)
@@ -315,12 +341,13 @@ def xtream(items: list, shows: list, schedule: dict, out: Path) -> dict:
                 "releasedate": i.get("releaseDate") or (str(i["year"]) if i.get("year") else ""),
                 "year": str(i.get("year") or ""), "rating": str(rating),
                 "duration_secs": secs, "duration": hms(secs),
-                "movie_image": poster(i) or "", "cover_big": poster(i) or "",
+                "movie_image": poster(i), "cover_big": poster(i),
                 "backdrop_path": [i["backdropURL"]] if i.get("backdropURL") else [],
                 "tmdb_id": str(i.get("tmdbID") or ""),
                 "country": ", ".join(i.get("countries") or []), "youtube_trailer": "",
+                "kinopoisk_url": "", "video": {}, "audio": {}, "bitrate": 0,
             },
-            "movie_data": {"stream_id": sid, "name": label(i), "added": "0",
+            "movie_data": {"stream_id": sid, "name": label(i), "added": epoch(i),
                            "category_id": cat[group(i)], "container_extension": "mp4",
                            "custom_sid": "", "direct_source": ""},
             "url": i["downloadURL"],
@@ -342,7 +369,9 @@ def xtream(items: list, shows: list, schedule: dict, out: Path) -> dict:
     for n, sp in enumerate(shows):
         sid = sids[sp["slug"]]
         g = (sp.get("genres") or ["Television"])[0]
-        info = {"name": sp["title"], "title": sp["title"], "cover": sp.get("posterURL") or "",
+        cover = sp.get("posterURL") or next((e.get("stillURL") for e in sp["served"] if e.get("stillURL")), None) \
+            or f"https://archive.org/services/img/{sp['served'][0]['archiveID']}"
+        info = {"name": sp["title"], "title": sp["title"], "cover": cover,
                 "plot": sp.get("overview") or "", "cast": cast_names(sp.get("cast")),
                 "director": sp.get("creator") or "", "genre": ", ".join(sp.get("genres") or []),
                 "releaseDate": str(sp.get("yearStart") or ""), "last_modified": "0",
@@ -359,14 +388,13 @@ def xtream(items: list, shows: list, schedule: dict, out: Path) -> dict:
             episodes[str(season)].append({
                 "id": str(eid), "episode_num": number, "season": season,
                 "title": episode_name(sp, season, number, e), "container_extension": "mp4",
-                "info": {"movie_image": e.get("stillURL") or sp.get("posterURL") or "",
+                "info": {"movie_image": e.get("stillURL") or cover,
                          "plot": e.get("overview") or "", "releasedate": e.get("airDate") or "",
                          "duration_secs": secs, "duration": hms(secs)},
                 "custom_sid": "", "added": "0", "direct_source": ""})
             seasons.setdefault(season, {"season_number": season, "name": f"Season {season}",
                                         "episode_count": 0, "id": season, "overview": "",
-                                        "air_date": "", "cover": sp.get("posterURL") or "",
-                                        "cover_big": sp.get("posterURL") or ""})
+                                        "air_date": "", "cover": cover, "cover_big": cover})
             seasons[season]["episode_count"] += 1
             eshards[eid % INFO_SHARDS][str(eid)] = e["downloadURL"]
         write_json(x / "series_info" / f"{sid}.json",
