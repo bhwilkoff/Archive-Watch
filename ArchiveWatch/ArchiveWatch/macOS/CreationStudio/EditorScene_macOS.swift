@@ -74,7 +74,9 @@ struct ProjectEditorView: View {
                         // preview is WYSIWYG and "Add Text" is visible.
                         TextOverlayPreview(model: model, renderSize: model.project.timeline.renderSize)
                     }
-                    if model.isBuildingPreview || model.isRefining || !model.prepStatus.failures.isEmpty || model.supercutVerifyNote != nil || model.previewBlockedReason != nil {
+                    // Nothing to prepare on an empty timeline: a pass still winding down
+                    // after the last clip went read "Preparing clips — 0 of 0 ready".
+                    if (model.isBuildingPreview && !model.clips.isEmpty) || model.isRefining || !model.prepStatus.failures.isEmpty || model.supercutVerifyNote != nil || model.previewBlockedReason != nil {
                         let s = model.prepStatus
                         VStack(spacing: 6) {
                             if let note = model.supercutVerifyNote {
@@ -92,7 +94,7 @@ struct ProjectEditorView: View {
                                 Text("Your clips are kept and will load when archive.org answers.")
                                     .font(.caption2).foregroundStyle(.white.opacity(0.6))
                                     .multilineTextAlignment(.center)
-                            } else if model.isBuildingPreview {
+                            } else if model.isBuildingPreview && !model.clips.isEmpty {
                                 ProgressView().controlSize(.small).tint(.white)
                                 Text("Preparing clips — \(s.ready) of \(s.total) ready" +
                                      (s.caching > 0 ? " · \(s.caching) downloading" : "") +

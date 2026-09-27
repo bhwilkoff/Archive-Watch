@@ -188,3 +188,10 @@ through Accessibility and its items pressed there (never pointer clicks).
   same outage, both clips still on the timeline at 170 s (read through AX)
   and the overlay photographed. The pass-level removal already required
   something to have loaded, and is unchanged.
+- v1.42.801: an emptied timeline. Deleting every clip (Clip › Delete twice)
+  left "Preparing clips — 0 of 0 ready" spinning over "Empty Timeline" (a
+  pass still winding down) and the playhead reading "0:04 / 0:00". The
+  overlay's preparing line needs a clip to prepare, and `relayout` clamps
+  the playhead to the new length. Verified through AX: after the deletes
+  the timeline reads "Playhead at 0 s of 0 s", the preview shows only
+  Empty Timeline, and Edit › Undo twice brings both clips back.

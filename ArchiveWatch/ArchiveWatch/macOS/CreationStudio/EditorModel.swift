@@ -966,6 +966,9 @@ final class EditorModel {
             cursor = start + dur
         }
         project.timeline.clips = rebuilt
+        // A shorter timeline must not leave the playhead past its end ("0:04 / 0:00"
+        // after deleting every clip; Mac loop, 2026-09-27).
+        if playheadSeconds > totalDuration { playheadSeconds = max(0, totalDuration) }
     }
 
     // MARK: - Preview (rebuild-and-swap, debounced)
