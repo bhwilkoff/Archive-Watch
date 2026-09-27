@@ -155,3 +155,10 @@ through Accessibility and its items pressed there (never pointer clicks).
   "Fade out" under its label), and each slider speaks its name and value
   ("Fade in, 1.5s") — they had announced nothing but a percentage. Text Size
   is a labeled row like the others. Seen in the inspector on the Mac.
+- v1.42.798: Watch Together Studio, Output column. Idle, it listed nine
+  engine rows of zeros ("0.0 ms per frame · 0 fps", "Encoder not started",
+  "Dropped 0 frames", "Sent 0 B"…) under a Studio that had nothing running.
+  They appear once there is an engine (preview or live), divider and all;
+  idle, Output is the state, the three settings and the rights warning.
+  The Mixer's "8.0" is the owner's chosen fader scale and stays. Seen in the
+  Studio window (camera not started, nothing captured).

@@ -1727,35 +1727,40 @@ struct StudioWindowView: View {
                 }
             }
 
-            Divider().padding(.vertical, 2)
+            // Only while there is an engine to report on (preview or live):
+            // idle, these nine rows were zeros and "not started" — noise under
+            // the owner's essential-information rule (Mac loop, 2026-09-27).
+            if studio.isLive {
+                Divider().padding(.vertical, 2)
 
-            // WHAT THE ENGINE IS ACTUALLY DOING, beside what was asked for.
-            stat("Picture", value: String(format: "%.1f ms per frame · %d fps",
-                                          health.averageRenderMilliseconds,
-                                          health.encodedFramesPerSecond))
-            // ASKED vs ACTUAL, and the difference is the point (§D4): §6.5's
-            // thermal step moves the real rate, and a single number would
-            // hide that it had.
-            stat("Bitrate asked", value: "\(StudioOutputSettings.bitrateKbps) kbps")
-            stat("Bitrate actual", value: health.videoBitrateNow > 0
-                 ? "\(health.videoBitrateNow / 1000) kbps"
-                 : "\(measuredKbps) kbps measured")
-            stat("Encoder", value: health.encoderIsHardware.map {
-                $0 ? "hardware" : "software" } ?? "not started")
-            stat("Dropped", value: "\(health.publisher.videoFramesDropped) frames")
-            // §D0's "stats that name a fault". Dropped frames alone cannot
-            // tell a struggling UPLINK from a struggling ENCODER: a backlog
-            // means the network is not taking what we produce (§6.4), and a
-            // reconnect count means the link has actually been lost and
-            // rebuilt (§6.6). Both were measured and shown nowhere on macOS.
-            stat("Waiting to send", value: backlogText)
-            if health.publisher.reconnects > 0 || health.publisher.isReconnecting {
-                stat("Reconnects", value: health.publisher.isReconnecting
-                     ? "\(health.publisher.reconnects) · rebuilding now"
-                     : "\(health.publisher.reconnects)")
+                // WHAT THE ENGINE IS ACTUALLY DOING, beside what was asked for.
+                stat("Picture", value: String(format: "%.1f ms per frame · %d fps",
+                                              health.averageRenderMilliseconds,
+                                              health.encodedFramesPerSecond))
+                // ASKED vs ACTUAL, and the difference is the point (§D4): §6.5's
+                // thermal step moves the real rate, and a single number would
+                // hide that it had.
+                stat("Bitrate asked", value: "\(StudioOutputSettings.bitrateKbps) kbps")
+                stat("Bitrate actual", value: health.videoBitrateNow > 0
+                     ? "\(health.videoBitrateNow / 1000) kbps"
+                     : "\(measuredKbps) kbps measured")
+                stat("Encoder", value: health.encoderIsHardware.map {
+                    $0 ? "hardware" : "software" } ?? "not started")
+                stat("Dropped", value: "\(health.publisher.videoFramesDropped) frames")
+                // §D0's "stats that name a fault". Dropped frames alone cannot
+                // tell a struggling UPLINK from a struggling ENCODER: a backlog
+                // means the network is not taking what we produce (§6.4), and a
+                // reconnect count means the link has actually been lost and
+                // rebuilt (§6.6). Both were measured and shown nowhere on macOS.
+                stat("Waiting to send", value: backlogText)
+                if health.publisher.reconnects > 0 || health.publisher.isReconnecting {
+                    stat("Reconnects", value: health.publisher.isReconnecting
+                         ? "\(health.publisher.reconnects) · rebuilding now"
+                         : "\(health.publisher.reconnects)")
+                }
+                stat("Sent", value: sentText)
+                stat("This Mac", value: health.thermalState)
             }
-            stat("Sent", value: sentText)
-            stat("This Mac", value: health.thermalState)
             // THE FILM ENDED AND THE SHOW DID NOT (owner item 13, §9.bbbbbb).
             //
             // Said, with the right answer one click away — NOT done
