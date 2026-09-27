@@ -155,11 +155,17 @@ struct HeroCarousel: View {
             }
             if items.count > 1 {
                 HStack(spacing: 7) {
+                    // Buttons, not tap gestures, so VoiceOver can reach each slide.
                     ForEach(items.indices, id: \.self) { i in
-                        Capsule()
-                            .fill(i == index ? Color.white : Color.white.opacity(0.35))
-                            .frame(width: i == index ? 18 : 7, height: 7)
-                            .onTapGesture { withAnimation(.easeInOut) { index = i } }
+                        Button { withAnimation(.easeInOut) { index = i } } label: {
+                            Capsule()
+                                .fill(i == index ? Color.white : Color.white.opacity(0.35))
+                                .frame(width: i == index ? 18 : 7, height: 7)
+                        }
+                        .buttonStyle(.plain)
+                        .accessibilityLabel(items[i].title)
+                        .accessibilityValue("\(i + 1) of \(items.count)")
+                        .accessibilityAddTraits(i == index ? .isSelected : [])
                     }
                 }
                 .padding(14)

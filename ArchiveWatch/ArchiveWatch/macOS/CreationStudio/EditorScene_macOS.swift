@@ -605,6 +605,15 @@ private struct LibrarySidebar: View {
                    onAdd: { model.addClipAtPlayhead(from: proxy(for: clip)) })
             .contentShape(Rectangle())
             .onTapGesture { selectOnTap(clip) }            // single-tap selects (＋ adds)
+            // One element per clip: press selects, as a click does; the ＋ is a
+            // named action rather than a second, unlabeled stop.
+            .accessibilityElement(children: .ignore)
+            .accessibilityLabel(clip.title.isEmpty ? clip.label : clip.title)
+            .accessibilityValue([clip.caption.trimmingCharacters(in: CharacterSet(charactersIn: " ,;")), String(format: "%.1f seconds", max(0, clip.outSeconds - clip.inSeconds))]
+                .filter { !$0.isEmpty }.joined(separator: ", "))
+            .accessibilityAddTraits(selection.contains(clip.id) ? [.isButton, .isSelected] : .isButton)
+            .accessibilityAction { selectOnTap(clip) }
+            .accessibilityAction(named: "Add to Timeline") { model.addClipAtPlayhead(from: proxy(for: clip)) }
             .draggable(containerItemID: proxy(for: clip).id)   // ProxyClip.ID (UUID); part of the drag container
             .contextMenu {
                 let t = targets(for: clip)
@@ -702,6 +711,7 @@ private struct LibraryRow: View {
             Button(action: onAdd) {
                 Image(systemName: "plus.circle")
             }
+            .accessibilityLabel("Add to Timeline")
             .buttonStyle(.borderless).foregroundStyle(.secondary)
             .help("Add to the timeline at the playhead")
         }

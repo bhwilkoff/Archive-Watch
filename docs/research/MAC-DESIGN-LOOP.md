@@ -130,3 +130,13 @@ through Accessibility and its items pressed there (never pointer clicks).
   Also seen with archive.org briefly up: the mark-in/out sheet loaded a
   1:11:33 film (length, Play and Add live) while the frame strip came back
   empty — the metadata call lost the race to archive.org going away again.
+- v1.42.795: the other tap-gesture-only controls. Home's hero dots were
+  Capsules with `onTapGesture`: now buttons named for their film, valued
+  "3 of 7", selected when showing. The Creation Studio's saved-clip rows
+  selected on a tap gesture VoiceOver could not see; each is now one
+  button — the film, then its line and length ("Welcome to the 2017 ASCAN
+  class., 5.7 seconds") — whose press selects and whose named action is
+  "Add to Timeline" (the ＋ is labeled too). Verified through AX: the dots
+  list 1–7 with the showing one selected and a press on 3 moved the hero;
+  the rows list as AXButton with AXPress plus "Add to Timeline", and a
+  press selected the NASA row.
