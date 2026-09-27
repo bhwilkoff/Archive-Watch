@@ -39,8 +39,7 @@ struct SettingsView: View {
                         Text("Favorites, playlists and watch history are not affected.")
                             .font(.footnote).foregroundStyle(.secondary)
                     } else {
-                        Text("Nothing downloaded yet. Use Download on a film's page to keep "
-                             + "it on this Mac and play it with no internet.")
+                        Text("Nothing downloaded yet.")
                             .font(.footnote).foregroundStyle(.secondary)
                     }
                 }
@@ -55,7 +54,7 @@ struct SettingsView: View {
                 } header: {
                     Text("Playback")
                 } footer: {
-                    Text("When a film ends, automatically play a related title, one from the same era, or a surprise. TV episodes always continue to the next.")
+                    Text("TV episodes always continue to the next.")
                         .font(.caption).foregroundStyle(.secondary)
                 }
                 if let cats = store.featured?.categories, !cats.isEmpty {
@@ -116,9 +115,9 @@ private struct PublishingSettingsView: View {
     var body: some View {
         Form {
             Section {
-                Text("Publish finished edits to your Internet Archive account. These are your personal S3-like keys — they stay in this Mac's Keychain.")
+                Text("Your keys stay in this Mac's Keychain.")
                     .font(.callout).foregroundStyle(.secondary)
-                Link("Get your keys (archive.org/account/s3.php)",
+                Link("Get Your Keys on archive.org",
                      destination: URL(string: "https://archive.org/account/s3.php")!)
             }
             Section {

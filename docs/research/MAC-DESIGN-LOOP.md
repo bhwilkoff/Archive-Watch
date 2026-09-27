@@ -101,3 +101,14 @@ through Accessibility and its items pressed there (never pointer clicks).
   unreachable. And J/L shuttle as in Final Cut: J plays backward (it had
   only paused), L forward, the same key again doubles to 8×; a preview that
   cannot reverse pauses as before. Built; not driven (needs a loaded film).
+- v1.42.791: Settings. Captions that explained a control's own behavior are
+  cut to the fact a viewer could not discover: Autoplay's footer is now only
+  "TV episodes always continue to the next."; empty Downloads reads "Nothing
+  downloaded yet."; Publishing says "Your keys stay in this Mac's Keychain."
+  and "Get Your Keys on archive.org" (the link printed its own path). The
+  OpenSubtitles field's title wrapped to two lines beside a Mac field; the
+  "not your email" warning now rides in the empty field as its prompt (iOS
+  unchanged, where the title IS the placeholder). The window titling itself
+  after the selected tab is the system's Settings behavior and stays.
+  Note: screenshots of Publishing show the owner's access key, and the
+  username field raises Passwords autofill with their email; capture neither.

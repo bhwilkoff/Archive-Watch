@@ -58,11 +58,21 @@ struct SubtitleAccountSection: View {
         }
     }
 
+    // A Mac form puts the title BESIDE the field, where the long version
+    // wrapped to two lines; there the warning rides in the empty field.
+    #if os(macOS)
+    private static let userTitle = "OpenSubtitles username"
+    private static let userPrompt: Text? = Text("Not your email")
+    #else
+    private static let userTitle = "OpenSubtitles username (not your email)"
+    private static let userPrompt: Text? = nil
+    #endif
+
     private var signIn: some View {
         Group {
             // Say "not your email" up front. OpenSubtitles rejects an email in
             // this field, and it is the single most likely thing a person types.
-            TextField("OpenSubtitles username (not your email)", text: $username)
+            TextField(Self.userTitle, text: $username, prompt: Self.userPrompt)
                 .textContentType(.username)
                 .focused($focused, equals: .user)
                 #if !os(macOS)
