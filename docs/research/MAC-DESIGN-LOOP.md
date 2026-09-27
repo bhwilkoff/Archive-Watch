@@ -174,3 +174,17 @@ through Accessibility and its items pressed there (never pointer clicks).
   centered under a left-aligned table and now align left; both empty states
   keep only their fact ("Every moment it is spoken across the catalog
   becomes a clip."). Typed and searched through AX, not the pointer.
+- v1.42.800: **the editor erased a whole edit when archive.org was down.**
+  With archive.org refusing this network, a two-clip project opened, sat
+  ~90 s, and came back "Empty Timeline — Preparing clips — 0 of 0 ready":
+  the give-up timers (20 s from first failure, 90 s from first attempt)
+  REMOVE a clip that will not load (owner 2026-06-29, meant for a dead
+  source), and an outage looks the same from inside one clip. A give-up now
+  removes only while some other clip on the timeline has loaded — proof the
+  network works and this source is dead; with nothing loaded the clips stay,
+  the timers re-arm, and the preview says "Can't load clips — … Retrying…"
+  over "Your clips are kept and will load when archive.org answers." (it
+  claimed archive.org was rate-limiting, a guess). Verified: same project,
+  same outage, both clips still on the timeline at 170 s (read through AX)
+  and the overlay photographed. The pass-level removal already required
+  something to have loaded, and is unchanged.

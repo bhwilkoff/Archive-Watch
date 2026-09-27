@@ -87,7 +87,9 @@ struct ProjectEditorView: View {
                                 Label("Can’t load clips — \(blocked). Retrying…", systemImage: "wifi.slash")
                                     .font(.caption).foregroundStyle(.orange)
                                     .multilineTextAlignment(.center)
-                                Text("archive.org limits how many videos load at once — give it a moment.")
+                                // The fact a person needs here is that nothing was lost (the clips
+                                // are kept through an outage, EditorModel.keepThroughOutage).
+                                Text("Your clips are kept and will load when archive.org answers.")
                                     .font(.caption2).foregroundStyle(.white.opacity(0.6))
                                     .multilineTextAlignment(.center)
                             } else if model.isBuildingPreview {

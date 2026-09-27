@@ -220,6 +220,7 @@ final class EditorModel {
                 guard let self, self.firstFailAt[source] != nil,         // still failing = never succeeded
                       self.permanentlyFailed[source] == nil else { return }
                 let r = self.sourceFailReason[source] ?? "took too long to load"
+                if self.keepThroughOutage(source, reason: r) { return }
                 self.removeFailedSource(source, reason: r)               // REMOVE the dead clip (owner 2026-06-29)
                 self.scheduleRebuild()                                    // editor stays usable; overlay clears
             }
@@ -266,10 +267,27 @@ final class EditorModel {
             let stuck = self.clips.contains { $0.sourceURL.absoluteString == source && self.clipPrep[$0.id] != .ready }
             guard stuck else { return }
             let r = self.sourceFailReason[source] ?? "took too long to load"
+            if self.keepThroughOutage(source, reason: r) { return }
             self.removeFailedSource(source, reason: r)              // REMOVE the dead clip (owner 2026-06-29)
             self.scheduleRebuild()                                  // load settles; overlay clears
         }
     }
+    /// A give-up removes a clip only when the network is PROVEN to work — some
+    /// other clip on the timeline has loaded — so the failure is this clip's.
+    /// With nothing loaded, the likelier cause is archive.org not answering at
+    /// all, and removing then ERASED THE WHOLE EDIT: on 2026-09-27, with
+    /// archive.org refusing this network, both clips of a test project were
+    /// deleted about 90 s after opening (Mac loop). Kept, the preview says it
+    /// cannot reach the server, and the give-up re-arms for the next attempt.
+    private func keepThroughOutage(_ source: String, reason: String) -> Bool {
+        let anyReady = project.timeline.clips.contains { clipPrep[$0.id] == .ready }
+        guard !anyReady else { return false }
+        firstFailAt[source] = nil
+        firstAttemptAt[source] = nil
+        previewBlockedReason = reason
+        return true
+    }
+
     /// A source that permanently failed (dead, or exhausted its retries / the stuck-ceiling) — REMOVE
     /// its clip(s) from the timeline instead of leaving dead black slots. Owner 2026-06-29: "the clips
     /// still show in the timeline (they should be removed if they aren't going to load)" + the preview's
