@@ -266,3 +266,10 @@ through Accessibility and its items pressed there (never pointer clicks).
   (chrome + saturation), on macOS, iOS and Android alike; the raw value and
   the Kotlin enum name are unchanged, so saved projects keep their grade.
   Mac and iOS build; Android's is a label string only.
+- v1.42.810: Clip › Look and Clip › Transition Style — the inspector's two
+  one-of-several pickers as checkmarked submenus (Look needs a selected
+  clip; Transition Style needs one with an incoming transition). And both
+  choices are now undoable: `setClipLook` / `setClipTransitionKind` took no
+  checkpoint, so ⌘Z could not take a grade back from the inspector either.
+  Verified through AX: Look lists None…B&W with None checked, choosing Noir
+  moves the check, and Edit › Undo returns it to None.

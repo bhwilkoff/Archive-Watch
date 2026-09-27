@@ -453,6 +453,7 @@ final class EditorModel {
     /// rebuild, so the preview updates after a brief render.
     func setClipLook(_ id: UUID, _ look: ClipLook) {
         guard let i = project.timeline.clips.firstIndex(where: { $0.id == id }) else { return }
+        checkpoint()   // a discrete choice, so ⌘Z takes it back (from the inspector or the Clip menu)
         project.timeline.clips[i].lookRaw = look.rawValue
         scheduleRebuild()
     }
@@ -473,6 +474,7 @@ final class EditorModel {
     /// Set the transition STYLE (dissolve / wipe / push) for this clip's incoming transition.
     func setClipTransitionKind(_ id: UUID, _ kind: TransitionKind) {
         guard let i = project.timeline.clips.firstIndex(where: { $0.id == id }) else { return }
+        checkpoint()   // a discrete choice, so ⌘Z takes it back (from the inspector or the Clip menu)
         project.timeline.clips[i].transitionKindRaw = kind.rawValue
         scheduleRebuild()
     }

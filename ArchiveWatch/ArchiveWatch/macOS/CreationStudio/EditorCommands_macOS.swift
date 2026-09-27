@@ -86,6 +86,21 @@ struct EditorClipCommands: Commands {
                 model?.setClipFade(id, fadeIn: 0, fadeOut: 0)
             }
             .disabled(model?.selectedClip.map { $0.fadeInSeconds == 0 && $0.fadeOutSeconds == 0 } ?? true)
+            // The inspector's two pickers, in the menu too (Mac loop, 2026-09-27):
+            // a checkmarked submenu is how a Mac lists a one-of-several choice.
+            Picker("Look", selection: Binding(
+                get: { model?.selectedClip?.look ?? .none },
+                set: { look in if let id = model?.selectedClipID { model?.setClipLook(id, look) } })) {
+                ForEach(ClipLook.allCases) { Text($0.label).tag($0) }
+            }
+            .disabled(model?.selectedClipID == nil)
+            Picker("Transition Style", selection: Binding(
+                get: { model?.selectedClip?.transitionKind ?? .dissolve },
+                set: { kind in if let id = model?.selectedClipID { model?.setClipTransitionKind(id, kind) } })) {
+                ForEach(TransitionKind.allCases) { Text($0.label).tag($0) }
+            }
+            // Only a clip with an incoming transition has a style to choose.
+            .disabled((model?.selectedClip?.transitionInSeconds ?? 0) == 0)
             Button("Delete") { model?.deleteSelection() }
                 .disabled(!hasSelection)
             Button("Deselect All") { model?.clearSelection() }
