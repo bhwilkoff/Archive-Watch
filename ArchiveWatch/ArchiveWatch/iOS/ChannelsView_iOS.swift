@@ -676,13 +676,6 @@ struct ChannelScheduleView: View {
     @Environment(\.modelContext) private var ctx
     @State private var channel: GuideChannel?
     @State private var playing: ChannelLineup?
-    @Environment(\.horizontalSizeClass) private var hSize
-    @State private var listWidth: CGFloat = 0
-    /// IPAD-DESIGN §2.1: the rows end at the 700pt measure; the list itself
-    /// (its scrolling and background) still fills the window.
-    private var trailingMargin: CGFloat {
-        hSize == .regular ? max(0, listWidth - 700) : 0
-    }
 
     var body: some View {
         ScrollViewReader { proxy in
@@ -716,8 +709,7 @@ struct ChannelScheduleView: View {
                 }
             }
         }
-        .contentMargins(.trailing, trailingMargin, for: .scrollContent)
-        .onGeometryChange(for: CGFloat.self) { $0.size.width } action: { listWidth = $0 }
+        .readableListWidth()
         // Opens on what is airing (§2.5c): the day starts at the broadcast
         // anchor, hours before now, and the viewer came for now.
         .onChange(of: channel?.id) {

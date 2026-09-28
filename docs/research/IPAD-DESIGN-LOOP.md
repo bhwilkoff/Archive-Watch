@@ -88,6 +88,15 @@ rule in IPAD-DESIGN.md before it ships (binding-design-doc discipline).
   text size (it was a fixed 76 pt — iPhone too). Seen on the iPad Pro (Drama
   Theater). Keys not pressed: no keyboard on the iPad.
 
+- v1.42.875: **Library lists at the reading width** — History, Downloads,
+  Playlists, Clips and a channel's day share `readableListWidth()` (content
+  margins, so scrolling, swipe-to-delete and the background still fill the
+  window). Seen: History on the iPad Pro. Owner: no Party Play and no Creation
+  Studio on iPad (§13). Keyboard/trackpad: the owner connected the Mac's over
+  Universal Control; synthesizing keys from the Mac was refused by the
+  session's permission check, so the menu bar, shortcuts, windows and drag are
+  still unverified.
+
 ## Found, data (for the copyright/scrub work, not the iPad)
 
 - `SelfCons1951` "Self-Conscious Guy" (Coronet, 10 min) leads Home's hero with

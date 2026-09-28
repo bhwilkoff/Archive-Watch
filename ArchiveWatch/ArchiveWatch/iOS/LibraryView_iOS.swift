@@ -243,6 +243,7 @@ struct LibraryView: View {
                 }
             }
             .listStyle(.plain)
+            .readableListWidth()
         }
     }
 
@@ -325,6 +326,7 @@ struct LibraryView: View {
                 }
             }
             .listStyle(.plain)
+            .readableListWidth()
         }
     }
 
@@ -406,6 +408,7 @@ struct LibraryView: View {
                     }
                 }
             }
+            .readableListWidth()
         }
     }
 
@@ -449,6 +452,7 @@ struct LibraryView: View {
                     }
                 }
             }
+            .readableListWidth()
         }
     }
 }

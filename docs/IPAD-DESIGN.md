@@ -324,6 +324,14 @@ the Favorites sidebar entry favorites it. A dropped archive.org or
 archivewatch.org link to a film we keep counts the same as a dragged tile; any
 other drop is refused, never guessed.
 
+## §13 — What the iPad does not do (binding)
+
+13.1 **No Party Play and no Creation Studio on iPad** (owner, 2026-09-28:
+*"Neither Party Play nor the Creation Studio really make sense on the iPad
+Pro."*). Party Play stays on the televisions and the Mac; the multi-clip
+Creation Studio stays Mac-exclusive (Decision 042). The iPad keeps the phone's
+single-clip Clip Studio. Neither is a gap to close: PARITY records them 🚫.
+
 ## Verified (2026-08-28)
 
 Measured on the owner's iPad Pro 12.9 (iPadOS 27, wireless) and asserted by
