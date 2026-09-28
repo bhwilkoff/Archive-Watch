@@ -97,9 +97,22 @@ titles, alert bodies, the caption label's 4 lines).
   Battle of the Bulge); 8 translated titles kept in
   `shared/editorial/runtime_match_keep.json`. Takes effect on the next build.
 
+- v1.42.842: **Deploy Pages was red since at least 06:27 MT** (owner: "The deploy
+  pages github action failed"): `build_mcp_data.load_cast` indexed `rec[3]` on
+  detail records that stop at two fields. Guarded, `tools/test_mcp_data.py`
+  with the old read as control; a dispatched run went green.
+- v1.42.843: **Series page leads with Play** naming its episode ("Play S1, E1",
+  "Resume S2, E4", "Next S2, E5"), tvOS-DESIGN §3.4b. **Launch focus**: the
+  hero's single claim 60 ms after appearing found the sidebar holding focus
+  and changed nothing (AWFOCUS: `claimed; now=nil`, focus arrived ~9 s later
+  on its own; on other launches the sidebar stayed open over the hero or a
+  deep-linked Detail). Home and Detail now keep claiming for up to 3 s until
+  it lands. NOT yet seen on a TV: both Apple TVs were asleep and are not woken
+  without the owner's word.
+
 ## Queue
 
-1. Series page: no Play/Resume action; the poster sits mid-hero
+1. Series page: the poster sits mid-hero (no rule covers series art yet)
 2. Dynamic Type: move the fixed sizes onto the ramp as relative fonts
 3. Sidebar budget: 13 -> 9 (owner call: which modes leave the sidebar)
 4. Search -> find -> play path, timed; SILENT badge collides with poster art

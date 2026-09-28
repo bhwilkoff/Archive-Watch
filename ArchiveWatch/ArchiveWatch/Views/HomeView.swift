@@ -323,8 +323,14 @@ struct HeroCarousel: View {
         .task {
             guard !claimedInitialFocus else { return }
             claimedInitialFocus = true
-            try? await Task.sleep(for: .milliseconds(60))
-            focus = .banner
+            // One claim at launch is lost whenever the sidebar still holds
+            // focus (measured: focus stayed nil after it, and the sidebar sat
+            // open over the hero). Keep claiming until it lands, briefly.
+            for _ in 0..<20 where focus == nil && !Task.isCancelled {
+                try? await Task.sleep(for: .milliseconds(150))
+                focus = .banner
+            }
+            awdiag("AWFOCUS hero settled focus=%@", String(describing: focus))
         }
     }
 
