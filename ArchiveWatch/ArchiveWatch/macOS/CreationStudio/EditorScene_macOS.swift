@@ -55,7 +55,7 @@ struct ProjectEditorView: View {
         // user-draggable and let the window inflate). Fixed-width side panels + a flexible
         // center, so the window resizes like a normal Mac window with the panels pinned.
         HStack(spacing: 0) {
-            LibrarySidebar(model: model)
+            LibrarySidebar(model: model, addClip: { showBrowser = true })
                 .frame(width: 240)
             Divider()
 
@@ -583,6 +583,8 @@ private struct ExportSettingsSheet: View {
 
 private struct LibrarySidebar: View {
     let model: EditorModel
+    /// Opens the Add-a-Clip browser (the same as File › Add Clip from a Film…).
+    let addClip: () -> Void
     @Environment(AppStore.self) private var store
     @Environment(\.modelContext) private var ctx
     @Query(sort: \LibraryClip.addedAt, order: .reverse) private var clips: [LibraryClip]
@@ -668,7 +670,11 @@ private struct LibrarySidebar: View {
                 ContentUnavailableView {
                     Label("No Clips Yet", systemImage: "film.stack")
                 } description: {
-                    Text("Use “Add Clip” to mark an in/out point on a public-domain title. Saved clips appear here — drag a clip onto the timeline, or use ＋.")
+                    // The one thing it cannot show: what to do with a clip once it is here.
+                    Text("Drag a clip onto the timeline, or use ＋.")
+                } actions: {
+                    // The button, not a sentence describing where the button is.
+                    Button("Add Clip…", action: addClip)
                 }
             } else {
                 VStack(spacing: 0) {

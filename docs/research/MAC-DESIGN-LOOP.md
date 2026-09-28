@@ -357,3 +357,8 @@ through Accessibility and its items pressed there (never pointer clicks).
   Checkbox labels stay in sentence case (the Mac convention), and the
   Studio's sentence-style buttons are its design doc's, left alone.
   Verified in the built binary: the new strings present, the old one gone.
+- v1.42.823: the editor's empty clip library said where the Add Clip button
+  was in a two-sentence instruction. It now IS the button ("Add Clip…",
+  the same browser as File › Add Clip from a Film…), with one line for the
+  thing it cannot show: "Drag a clip onto the timeline, or use ＋." Built,
+  not seen — the owner's library holds clips and was not emptied to look.
