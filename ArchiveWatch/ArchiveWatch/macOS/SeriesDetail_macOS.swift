@@ -1,5 +1,6 @@
 #if os(macOS)
 import SwiftUI
+import SwiftData
 
 // TV drill-in (parity with iOS/tvOS): a series card routes here instead of the
 // movie DetailView. The episode list lazy-loads from /series/{slug}.json via the
@@ -17,6 +18,9 @@ struct SeriesDetailView: View {
     @State private var series: Series?
     @State private var loading = true
     @State private var selectedSeason: Int? = nil
+    @State private var upNext: SeriesUpNext?
+    @Environment(\.modelContext) private var ctx
+    @Query private var favorites: [Favorite]
 
     var body: some View {
         ScrollView {
@@ -38,6 +42,7 @@ struct SeriesDetailView: View {
         }
         .navigationTitle(series?.title ?? card.title)
         .task { await load() }
+        .onAppear { if series != nil { upNext = SeriesUpNext.compute(for: series, in: ctx) } }
     }
 
     // Poster + metadata header, IDENTICAL to DetailView (movie/episode pages) so the poster shows
@@ -64,15 +69,24 @@ struct SeriesDetailView: View {
                     Text(o).font(.body).foregroundStyle(.primary.opacity(0.9))
                         .fixedSize(horizontal: false, vertical: true)
                 }
-                HStack(spacing: 10) {
-                    ShareLink(item: seriesShareURL) {
-                        Label("Share", systemImage: "square.and.arrow.up")
+                // §D13: a button never abbreviates. The full row when it
+                // fits; otherwise Share and Callsheet fold into More ("Open in
+                // C…" at a narrow window, measured 2026-09-28).
+                ViewThatFits(in: .horizontal) {
+                    HStack(spacing: 10) {
+                        primaryActions
+                        shareButton
+                        callsheetButton
                     }
-                    if Callsheet.supports(card) {
-                        Button { Callsheet.open(Callsheet.url(for: card)) } label: {
-                            Label(Callsheet.actionTitle, systemImage: Callsheet.actionIcon)
+                    HStack(spacing: 10) {
+                        primaryActions
+                        Menu {
+                            shareButton
+                            callsheetButton
+                        } label: {
+                            Label("More", systemImage: "ellipsis.circle")
                         }
-                        .help("Cast & crew in Callsheet")
+                        .fixedSize()
                     }
                 }
                 .padding(.top, 2)
@@ -88,7 +102,58 @@ struct SeriesDetailView: View {
         let slug = card.seriesID ?? card.archiveID.replacingOccurrences(of: "series:", with: "")
         series = await SeriesStore.shared.load(seriesID: slug)
         loading = false
+        upNext = SeriesUpNext.compute(for: series, in: ctx)
         if selectedSeason == nil { selectedSeason = series?.seasons.first?.seasonNumber }
+    }
+
+    /// One primary action that names the episode it plays, and Favorite
+    /// beside it — every other platform's series page (tvOS-DESIGN §3.4b,
+    /// iOS-DESIGN §3.5d; shared SeriesUpNext).
+    @ViewBuilder private var primaryActions: some View {
+        if let upNext, let series {
+            Button { router.playEpisode(upNext.episode, in: series) } label: {
+                Label(upNext.label, systemImage: "play.fill")
+            }
+            .buttonStyle(.borderedProminent)
+            .tint(Brand.primary)
+            .controlSize(.large)
+            .keyboardShortcut(.defaultAction)
+            .fixedSize()
+        }
+        Button(action: toggleFavorite) {
+            Label(isFavorite ? "Favorited" : "Favorite",
+                  systemImage: isFavorite ? "heart.fill" : "heart")
+        }
+        .controlSize(.large)
+        .fixedSize()
+    }
+
+    private var shareButton: some View {
+        ShareLink(item: seriesShareURL) {
+            Label("Share", systemImage: "square.and.arrow.up")
+        }
+        .fixedSize()
+    }
+
+    @ViewBuilder private var callsheetButton: some View {
+        if Callsheet.supports(card) {
+            Button { Callsheet.open(Callsheet.url(for: card)) } label: {
+                Label(Callsheet.actionTitle, systemImage: Callsheet.actionIcon)
+            }
+            .help("Cast & crew in Callsheet")
+            .fixedSize()
+        }
+    }
+
+    private var isFavorite: Bool { favorites.contains { $0.archiveID == card.archiveID } }
+    private func toggleFavorite() {
+        if let f = favorites.first(where: { $0.archiveID == card.archiveID }) {
+            ctx.delete(f)
+            ctx.insert(Tombstone(key: "fav:\(card.archiveID)"))
+        } else {
+            ctx.insert(Favorite(archiveID: card.archiveID))
+        }
+        try? ctx.save()
     }
 
     private var seriesSlug: String {
