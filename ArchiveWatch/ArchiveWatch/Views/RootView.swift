@@ -84,7 +84,6 @@ struct RootView: View {
         // the set empty and every finished film looked unwatched.
         TabView(selection: tabSelection) {
             browseTabs
-            modeTabs
             libraryTabs
         }
         .tabViewStyle(.sidebarAdaptable)
@@ -250,11 +249,12 @@ struct RootView: View {
         // screensaver directly). Unset in production (no-op).
         .task {
             guard let m = ProcessInfo.processInfo.environment["AW_START_MODE"] else { return }
-            let tab: Router.Tab? = ["kids": .cartoons, "party": .party, "saver": .screensaver][m]
-            guard let tab else { return }
+            let route: ModeRoute? = ["kids": .cartoons, "party": .party, "saver": .saver][m]
+            guard let route else { return }
             for _ in 0..<150 {
                 if store.isReady {
-                    router.tab = tab
+                    router.tab = .surprise
+                    router.push(route)
                     if m == "saver" { showSaver = true }
                     return
                 }
@@ -388,20 +388,6 @@ struct RootView: View {
     }
 
     @TabContentBuilder<Router.Tab>
-    private var modeTabs: some TabContent<Router.Tab> {
-        @Bindable var router = router
-        Tab("Cartoons", systemImage: "pawprint.fill", value: Router.Tab.cartoons) {
-            NavigationStack(path: $router.cartoonsPath) { KidsModeView() }
-        }
-        Tab("Party Play", systemImage: "sparkles.tv.fill", value: Router.Tab.party) {
-            NavigationStack(path: $router.partyPath) { PartyView().attachDestinations() }
-        }
-        Tab("Screensaver", systemImage: "photo.stack.fill", value: Router.Tab.screensaver) {
-            NavigationStack(path: $router.screensaverPath) { ScreensaverHomeView() }
-        }
-    }
-
-    @TabContentBuilder<Router.Tab>
     private var libraryTabs: some TabContent<Router.Tab> {
         @Bindable var router = router
         Tab("Collections", systemImage: "square.stack.3d.up.fill", value: Router.Tab.collections) {
@@ -482,6 +468,15 @@ extension View {
             }
             .navigationDestination(for: PublicDomainRoute.self) { _ in
                 PublicDomainView()
+            }
+            // Cartoons, Party Play and the cover-art wall open from Surprise,
+            // as on every other platform (owner, 2026-09-28), not the sidebar.
+            .navigationDestination(for: ModeRoute.self) { route in
+                switch route {
+                case .cartoons: KidsModeView()
+                case .party:    PartyView()
+                case .saver:    ScreensaverHomeView()
+                }
             }
             .navigationDestination(for: PlaylistRoute.self) { route in
                 PlaylistDetailView(playlistID: route.id)

@@ -55,10 +55,9 @@ because the loop was stopped mid-stride for a Claude update.
 ### Open owner items (nothing else is blocked)
 
 0-NEW-2026-09-28. **FIVE OWNER CALLS FROM THE tvOS LOOP** (nothing blocked):
-   (a) the tvOS sidebar has 13 entries against tvOS-DESIGN §2.1's ceiling of 9 —
-   which of Cartoons, Party Play, Screensaver, Watch Together move to Home or
-   Settings (§2.3 says modes are not tabs); (b) a used Apple TV HD (~$30-60) to
-   verify the oldest supported box (Decision 148); (c) `Juden Ohne Maske` (1937
+   ~~(a) the sidebar's 13 entries~~ ANSWERED: Cartoons, Party Play and the
+   screensaver open from Surprise as on other platforms (v1.42.862, §2.2a); ~~(b) an Apple TV HD~~ ANSWERED: "Kitchen" (Apple TV HD, tvOS 26.6) is on the
+   network; pairing needs the owner at the TV; (c) `Juden Ohne Maske` (1937
    propaganda) keeps its identity under the runtime-match keep-list —
    `exclude_hate_propaganda` or not; (d) junk uploads that carried a matched
    film's year (a 1916 "Spectrum outage" clip) keep that year after the match

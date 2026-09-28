@@ -101,6 +101,8 @@ Surprise · Settings. Changes from today: **Channels** is added (§9.1 earns a t
 replaces the standalone Favorites tab and absorbs Favorites + Playlists + Watched
 (§10). That is 9 — the ceiling. Anything else nests.
 
+2.2a **Modes open from Surprise** (owner, 2026-09-28: *"All of the other platforms put party play, screensaver and cartoons in the surprise section. Is there any way to put them into that section on Apple TV as well?"*). Cartoons, Party Play and the cover-art wall are Surprise tiles that push their page (`ModeRoute`) onto Surprise's own stack; Back returns to Surprise. They are not sidebar entries. The sidebar holds ten: Home, Movies, TV Shows, Channels, Collections, Search, Library, Surprise, Watch Together, Settings.
+
 2.3 **What nests, and where** (binding placement for the backlog):
 - **People / cast / crew / characters (#4)** → reached from Detail; a
   detail-class destination in the active tab's `NavigationStack`. NOT a tab.

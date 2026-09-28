@@ -7,6 +7,9 @@ import SwiftUI
 // participation + agency, no hidden funnel). Each tile re-rolls on every press,
 // so "roll again" is just pressing the same tile again — no separate control.
 
+/// A lean-back mode opened from Surprise (tvOS-DESIGN §2.2).
+enum ModeRoute: Hashable { case cartoons, party, saver }
+
 struct SurpriseView: View {
     @Environment(AppStore.self) private var store
     @Environment(Router.self) private var router
@@ -93,11 +96,11 @@ struct SurpriseView: View {
         case "pubdomain":
             router.push(PublicDomainRoute())
         case "party":
-            router.tab = .party        // now a top-level tab
+            router.push(ModeRoute.party)
         case "cartoon":
-            router.tab = .cartoons     // now a top-level tab
+            router.push(ModeRoute.cartoons)
         case "saver":
-            router.tab = .screensaver  // now a top-level tab
+            router.push(ModeRoute.saver)
         default:
             break
         }
