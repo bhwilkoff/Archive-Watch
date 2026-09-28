@@ -243,6 +243,7 @@ MEDIA=tools/StudioTestMedia.swift
 
 swift_case "8.1 rtmp publish"      "$PUB" "$MEDIA" "$SHIM" tools/test_rtmp_publish.swift
 swift_case "8.4 rtmp reconnect"    "$PUB" "$MEDIA" "$SHIM" tools/test_rtmp_reconnect.swift
+swift_case "8.4b silent server"     "$PUB" "$SHIM" tools/test_rtmp_silent_server.swift
 # ONE ENCODE, TWO DESTINATIONS. Simulcast's claim is that the expensive half
 # happens once, so this asserts the frames are the SAME frames and that both
 # servers read a complete stream back — not merely that two sockets opened.

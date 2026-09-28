@@ -928,17 +928,37 @@ public actor RTMPPublisher {
 
     // MARK: - Timeout
 
+    /// Races `body` against a deadline and resumes the caller ONCE, whichever
+    /// comes first. Not a task group: a group waits for every child before it
+    /// returns, and these steps wait on continuations that ignore
+    /// cancellation — so a server that accepted and then said nothing held
+    /// Go Live forever past a 3 s timeout (measured,
+    /// tools/test_rtmp_silent_server.swift; the Creation Studio's Export hung
+    /// on the same shape, Mac loop v1.42.807). On the deadline the socket is
+    /// cancelled too, which fails the stranded step's pending read.
     private func withTimeout<T: Sendable>(_ seconds: TimeInterval, label: String, _ body: @escaping @Sendable () async throws -> T) async throws -> T {
-        try await withThrowingTaskGroup(of: T.self) { group in
-            group.addTask { try await body() }
-            group.addTask {
-                try await Task.sleep(nanoseconds: UInt64(seconds * 1_000_000_000))
-                throw RTMPPublishError.timeout(label)
+        let once = OnceFlag()
+        return try await withCheckedThrowingContinuation { (c: CheckedContinuation<T, Error>) in
+            let work = Task {
+                do {
+                    let r = try await body()
+                    if once.claim() { c.resume(returning: r) }
+                } catch {
+                    if once.claim() { c.resume(throwing: error) }
+                }
             }
-            let r = try await group.next()!
-            group.cancelAll()
-            return r
+            Task { [weak self] in
+                try? await Task.sleep(nanoseconds: UInt64(seconds * 1_000_000_000))
+                guard once.claim() else { return }
+                work.cancel()
+                await self?.abandonConnectionAfterTimeout()
+                c.resume(throwing: RTMPPublishError.timeout(label))
+            }
         }
+    }
+
+    private func abandonConnectionAfterTimeout() {
+        connection?.cancel()
     }
 }
 
