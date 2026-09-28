@@ -134,6 +134,18 @@ rule in IPAD-DESIGN.md before it ships (binding-design-doc discipline).
   Also: rights-audit run 36467063171 marked **985** claims (CI); tonight's
   publish-db applies the hide.
 
+- v1.42.879: **Search's episode results in columns** at regular width
+  (adaptive, 360 pt; titles on two lines; pointer highlight) — asserted by
+  `test_15` (two rows share a line) and seen with "lone ranger".
+  **A test that had changed the owner's library**: `test_13`'s cleanup found
+  the film again by its tile and, when that missed, said nothing — four runs
+  left The Big Parade, Brute Force, Reefer Madness and The Tingler in the
+  owner's Favorites (seen on the iPad). All four removed and the list checked
+  against the 12:58 photograph; the cleanup now relaunches on the film's page
+  by id and ASSERTS the heart is empty.
+  Handoff: the owner says the iPhone 12 and this Mac are on different Apple
+  Accounts on purpose; iPad -> Mac also showed no Dock item, still unseen.
+
 ## Found, data (for the copyright/scrub work, not the iPad)
 
 - `SelfCons1951` "Self-Conscious Guy" (Coronet, 10 min) leads Home's hero with

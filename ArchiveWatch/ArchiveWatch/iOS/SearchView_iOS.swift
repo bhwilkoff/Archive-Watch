@@ -14,6 +14,11 @@ struct SearchView: View {
     @State private var decade: Int? = nil
     /// Episodes follow the films and open at five (iOS-DESIGN §4.2b).
     @State private var allEpisodes = false
+    @Environment(\.horizontalSizeClass) private var hSize
+    private var episodeColumns: [GridItem] {
+        hSize == .regular ? [GridItem(.adaptive(minimum: 360), spacing: 16, alignment: .top)]
+                          : [GridItem(.flexible())]
+    }
 
     // Episode items (Decision 045) come back in `results` like any item; we just
     // group them into their own section. Shown unless filtered to a non-TV type.
@@ -126,9 +131,14 @@ struct SearchView: View {
                     if showEpisodes {
                         VStack(alignment: .leading, spacing: 6) {
                             Text("Episodes").font(.title3.bold()).padding(.horizontal)
-                            ForEach(allEpisodes ? episodeResults : Array(episodeResults.prefix(5))) { item in
-                                Button { router.openDetail(item) } label: { EpisodeItemRow(item: item) }
-                                    .buttonStyle(.plain)
+                            // Columns at regular width (IPAD-DESIGN §2.1): one
+                            // row ran its chevron ~1000pt from its title.
+                            LazyVGrid(columns: episodeColumns, alignment: .leading, spacing: 0) {
+                                ForEach(allEpisodes ? episodeResults : Array(episodeResults.prefix(5))) { item in
+                                    Button { router.openDetail(item) } label: { EpisodeItemRow(item: item) }
+                                        .buttonStyle(.plain)
+                                        .hoverEffect(.highlight)
+                                }
                             }
                             if episodeResults.count > 5 && !allEpisodes {
                                 Button("Show all \(episodeResults.count) episodes") { allEpisodes = true }
@@ -180,7 +190,7 @@ private struct EpisodeItemRow: View {
             PosterImage(url: item.posterURLParsed, contentMode: .fill)
                 .frame(width: 84, height: 47).clipShape(.rect(cornerRadius: 6))
             VStack(alignment: .leading, spacing: 2) {
-                Text(item.title).font(.subheadline.weight(.medium)).lineLimit(1)
+                Text(item.title).font(.subheadline.weight(.medium)).lineLimit(2)
                 Text([item.seriesTitle, item.episodeNumberLabel].compactMap { $0 }.joined(separator: " · "))
                     .font(.caption).foregroundStyle(.secondary).lineLimit(1)
             }

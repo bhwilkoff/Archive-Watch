@@ -121,35 +121,63 @@ final class IPadInputUITests: XCTestCase {
         snap("hover tile")
     }
 
+    /// Candidates for the drop, each with the id its page opens by, so the
+    /// cleanup reaches the film by its id rather than by finding its tile.
+    private static let dropCandidates: [(title: String, id: String)] = [
+        ("The Big Parade", "rec-20231112164007"),
+        ("Brute Force", "brute-force-1947-restored-movie-720p-hd"),
+        ("Reefer Madness", "reefer-madness-4-k"),
+        ("The Tingler", "the-tingler-1959_202510"),
+    ]
+
     /// §12.2: a poster dropped on the sidebar's Favorites favorites the film.
-    /// The film is un-favorited again at the end, so the owner's library is
-    /// left as found; a film already in Favorites is not used.
+    /// The film is un-favorited again at the end — by relaunching on its page
+    /// and asserting the heart is empty — so the owner's library is left as
+    /// found. (An earlier cleanup that looked the tile up again failed
+    /// silently and left four films in the owner's Favorites.)
     func test_13_dragPosterToFavorites() {
         launch()
         app.typeKey("6", modifierFlags: .command)
         sleep(2)
-        let candidates = ["The Big Parade", "Brute Force", "Reefer Madness", "The Tingler"]
-        let pick = candidates.first { !app.staticTexts[$0].exists }
-        guard let film = pick else { return XCTFail("every candidate is already a favorite") }
+        guard let pick = Self.dropCandidates.first(where: { !app.staticTexts[$0.title].exists }) else {
+            return XCTFail("every candidate is already a favorite")
+        }
         app.typeKey("1", modifierFlags: .command)
-        let tile = app.buttons.matching(NSPredicate(format: "label CONTAINS %@", film)).firstMatch
-        guard tile.waitForExistence(timeout: 10) else { return XCTFail("no \(film) tile on Home") }
+        let tile = app.buttons.matching(NSPredicate(format: "label CONTAINS %@", pick.title)).firstMatch
+        guard tile.waitForExistence(timeout: 10) else { return XCTFail("no \(pick.title) tile on Home") }
         let target = sidebarEntry("Favorites")
         guard target.waitForExistence(timeout: 5) else { return XCTFail("no Favorites in the sidebar") }
         tile.press(forDuration: 1.0, thenDragTo: target)
         sleep(2)
         app.typeKey("6", modifierFlags: .command)
-        let landed = app.staticTexts[film].waitForExistence(timeout: 5)
-            || app.buttons.matching(NSPredicate(format: "label CONTAINS %@", film)).firstMatch.exists
+        let landed = app.staticTexts[pick.title].waitForExistence(timeout: 5)
         snap("favorites after drop")
-        XCTAssertTrue(landed, "\(film) did not arrive in Favorites")
-        guard landed else { return }
-        // Leave the library as found.
-        app.buttons.matching(NSPredicate(format: "label CONTAINS %@", film)).firstMatch.tap()
-        let fav = app.buttons.matching(NSPredicate(format: "label == 'Remove from favorites'")).firstMatch
-        if fav.waitForExistence(timeout: 10) { fav.tap() }
+        XCTAssertTrue(landed, "\(pick.title) did not arrive in Favorites")
+        restore(pick.id)
+    }
+
+    /// Opens the film's page by id and leaves it NOT favorited, asserting so.
+    private func restore(_ id: String) {
+        launch(["AW_START_ITEM": id])
+        let remove = app.buttons.matching(NSPredicate(format: "label == 'Remove from favorites'")).firstMatch
+        let add = app.buttons.matching(NSPredicate(format: "label == 'Add to favorites'")).firstMatch
+        _ = remove.waitForExistence(timeout: 20) || add.waitForExistence(timeout: 1)
+        if remove.exists { remove.tap() }
+        XCTAssertTrue(add.waitForExistence(timeout: 5), "\(id) is still a favorite")
+    }
+
+    /// IPAD-DESIGN §2.1: at regular width episode results form columns, so
+    /// two of them share a row.
+    func test_15_searchEpisodesInColumns() {
+        launch(["AW_START_TAB": "search", "AW_SEARCH": "lone ranger"])
+        let header = app.staticTexts["Episodes"]
+        for _ in 0..<8 where !(header.exists && header.isHittable) { app.swipeUp() }
+        app.swipeUp()
         sleep(1)
-        snap("after un-favorite")
+        snap("episode results")
+        let rows = app.buttons.matching(NSPredicate(format: "label CONTAINS 'S1'")).allElementsBoundByIndex
+            .map { $0.frame }.filter { $0.width > 0 }
+        let sharesARow = rows.contains { a in rows.contains { b in a != b && abs(a.minY - b.minY) < 2 } }
+        XCTAssertTrue(sharesARow, "episode rows do not form columns: \(rows.prefix(4))")
     }
 }
-
