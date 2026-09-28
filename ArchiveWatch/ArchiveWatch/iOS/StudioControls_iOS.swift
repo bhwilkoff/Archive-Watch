@@ -192,6 +192,11 @@ struct StudioControlsSheet: View {
     @State private var shareResult: String?
     @State private var sharedAt: Date?
     @State private var askEnd = false
+    @Bindable private var customCard = StudioCustomCardText.shared
+    private var isCustomCard: Bool {
+        if case .custom = card { return true }
+        return false
+    }
     /// Closes the panel. Explicit because it is an INSPECTOR on iPad
     /// (IPAD-DESIGN §5b), and a column is closed by its binding, not by
     /// `dismiss`, which is a sheet's word.
@@ -376,8 +381,31 @@ struct StudioControlsSheet: View {
                         }
                         .tint(.primary)
                     }
+                    // §D10 on the phone: the host's own words, in the card's
+                    // own type. Two lines here (the Mac has four); an empty
+                    // card is never shown, and edits reach the audience as
+                    // typed while it is up.
+                    Button {
+                        card = isCustomCard ? nil : customCard.card
+                    } label: {
+                        HStack {
+                            Text("Your own card")
+                            Spacer()
+                            if isCustomCard {
+                                Image(systemName: "checkmark").foregroundStyle(Brand.primary)
+                            }
+                        }
+                    }
+                    .tint(.primary)
+                    .disabled(!customCard.hasWords && !isCustomCard)
+                    TextField("Heading", text: $customCard.heading)
+                    TextField("Message", text: $customCard.message, axis: .vertical)
+                        .lineLimit(1...3)
                 } header: {
                     Text("On screen")
+                }
+                .onChange(of: customCard.card) { _, now in
+                    if isCustomCard { card = now }
                 }
 
                 Section {
@@ -484,6 +512,26 @@ private enum CardChoice: CaseIterable, Hashable {
         case .intermission: return .intermission
         case .ending: return .ending
         }
+    }
+}
+
+/// The host's own card text for this session: kept while the controls sheet
+/// is closed and reopened, as the Mac's is (§D10), and never saved.
+@MainActor @Observable
+final class StudioCustomCardText {
+    static let shared = StudioCustomCardText()
+    var heading = ""
+    var message = ""
+    var hasWords: Bool {
+        !(heading + message).trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+    }
+    /// nil when there is nothing to show: an empty card is a fault.
+    var card: StudioOverlay.Card? {
+        guard hasWords else { return nil }
+        return .custom(lines: [
+            .init(id: 0, text: heading, rank: .display),
+            .init(id: 1, text: message, rank: .body),
+        ])
     }
 }
 #endif

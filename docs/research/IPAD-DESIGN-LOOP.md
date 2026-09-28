@@ -234,9 +234,14 @@ rule in IPAD-DESIGN.md before it ships (binding-design-doc discipline).
   owner's house. Spotlight indexing of the ~27k titles is not done (a larger
   job: CSSearchableIndex from the catalog, kept current per publish).
 
-**Remaining (2026-09-28 13:47, updated 17:11):** code — Clip Studio Space (I/O done),
-channel-surf ↑/↓ (three routes failed; control first),  Spotlight indexing (Open Film for Siri is built), the Studio's Mac-only features that port to iPad (film-stall
-reason, custom card, Record); verify — picture-in-picture restore; research — a film window opening as a floating window; owner — none.
+- v1.42.890: **Your own card** in the iPhone/iPad Studio (Mac §D10): a
+  heading and a message in the card's own type, live while it is up, refused
+  while empty, kept for the session. The film-stall reason the audit listed
+  was already on iOS (StudioPlayerContainer_iOS) — the audit note was stale.
+  Built; NOT seen: running the Studio attaches the owner's camera and mic.
+
+**Remaining (2026-09-28 13:47, updated 17:14):** code — Clip Studio Space (I/O done),
+channel-surf ↑/↓ (three routes failed; control first),  Spotlight indexing (Open Film for Siri is built), the Studio's Record (the custom card is built; film-stall reason was already there); verify — picture-in-picture restore; research — a film window opening as a floating window; owner — none.
 
 ## Found, data (for the copyright/scrub work, not the iPad)
 
