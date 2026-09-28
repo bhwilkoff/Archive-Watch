@@ -494,3 +494,10 @@ through Accessibility and its items pressed there (never pointer clicks).
   on screen (`onScrollVisibilityChange`), then stays. Measured: 7 rows
   started. The earlier "four a second is too fast" reading was the count,
   not the pace.
+- VERIFIED (.834): empty editor launch — 7 rows started, 0 main-host
+  requests (every still from the disk cache), and the archive.org probe
+  answered 200 at every 5 s sample for a full minute. Before .832–.834
+  every launch was refused within 5–14 s. The block this loop ran into all
+  afternoon was the app's own doing: a whole-film leak (.829) and a clip
+  list that fetched 191 stills at every open (.832 disk cache, .833 pace,
+  .834 visible rows only).
