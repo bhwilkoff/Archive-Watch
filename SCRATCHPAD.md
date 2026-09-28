@@ -744,11 +744,19 @@ every inspector edit is undoable (none were), coalesced per burst.
 headings all reachable. **Verified on real footage** while archive.org was
 up: J/L/K shuttle, the player and its Controls menu.
 
+**The archive.org refusals were the app's own doing** (measured with
+nettop, v1.42.829–.834): every cached clip kept streaming its whole film
+(542 MB on one connection), and the editor fetched all 191 saved clips'
+stills at every open — `.dragContainer` defeats LazyVStack. Fixed with a
+loader `invalidate()`, a disk cache for stills, main-host pacing and
+visible-rows-only loading; an editor open now makes 0 main-host requests
+and archive.org stays open. iOS Clip Studio had the same leak (.837).
+**Verified after**: a real Export (19 MB, 1080p H.264 + AAC), the mark-in/
+out sheet, the removal notice + undo, slider undo.
+
 **Owner, new**: which films the Creation Studio may PUBLISH as CC0 (item
-0-NEW-2026-09-27-B; The Pink Panther is clippable and has no year). **Not
-yet seen**: a successful Export file, the removal notice, slider undo —
-all need archive.org to answer; editor runs that fetch clips are paused to
-let the block on this address lift.
+0-NEW-2026-09-27-B); playback fetching ~45 min ahead in its first 15 s
+(item 0-NEW-2026-09-27-C, measured, not changed).
 
 ### 2026-09-27 — Channels on one clock, collections in archive.org's words, and the owner's five answers
 
