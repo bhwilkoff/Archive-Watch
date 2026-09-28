@@ -650,12 +650,39 @@ private struct EPGGuide: View {
 
 struct ChannelScheduleRoute: Hashable { let channelID: String }
 
+/// A schedule's time column: as wide as the widest time in this locale at this
+/// text size, on one line. A fixed 76pt broke "12:01 PM" in two on the iPad.
+private struct ScheduleTime: View {
+    let date: Date
+    private static let widest: [String] = [0, 12].map { h in
+        let d = Calendar.current.date(bySettingHour: h, minute: 58, second: 0, of: Date()) ?? Date()
+        return d.formatted(date: .omitted, time: .shortened)
+    }
+    var body: some View {
+        ZStack(alignment: .leading) {
+            ForEach(Self.widest, id: \.self) { Text($0).hidden() }
+            Text(date, style: .time)
+        }
+        .lineLimit(1)
+        .font(.subheadline.monospacedDigit())
+        .foregroundStyle(.secondary)
+        .fixedSize()
+    }
+}
+
 struct ChannelScheduleView: View {
     let channelID: String
     @Environment(AppStore.self) private var store
     @Environment(\.modelContext) private var ctx
     @State private var channel: GuideChannel?
     @State private var playing: ChannelLineup?
+    @Environment(\.horizontalSizeClass) private var hSize
+    @State private var listWidth: CGFloat = 0
+    /// IPAD-DESIGN §2.1: the rows end at the 700pt measure; the list itself
+    /// (its scrolling and background) still fills the window.
+    private var trailingMargin: CGFloat {
+        hSize == .regular ? max(0, listWidth - 700) : 0
+    }
 
     var body: some View {
         ScrollViewReader { proxy in
@@ -670,9 +697,7 @@ struct ChannelScheduleView: View {
                             ForEach(run) { slot in slotRow(ch, slot) }
                         } label: {
                             HStack(alignment: .firstTextBaseline, spacing: 12) {
-                                Text(run.first!.start, style: .time)
-                                    .font(.subheadline.monospacedDigit()).foregroundStyle(.secondary)
-                                    .frame(width: 76, alignment: .leading)
+                                ScheduleTime(date: run.first!.start)
                                 VStack(alignment: .leading, spacing: 2) {
                                     Text("\(run.count) short films")
                                         .font(.body)
@@ -691,6 +716,8 @@ struct ChannelScheduleView: View {
                 }
             }
         }
+        .contentMargins(.trailing, trailingMargin, for: .scrollContent)
+        .onGeometryChange(for: CGFloat.self) { $0.size.width } action: { listWidth = $0 }
         // Opens on what is airing (§2.5c): the day starts at the broadcast
         // anchor, hours before now, and the viewer came for now.
         .onChange(of: channel?.id) {
@@ -738,9 +765,7 @@ struct ChannelScheduleView: View {
             playing = ChannelLineup(items: Array(programs), startOffset: offset)
         } label: {
             HStack(alignment: .firstTextBaseline, spacing: 12) {
-                Text(slot.start, style: .time)
-                    .font(.subheadline.monospacedDigit()).foregroundStyle(.secondary)
-                    .frame(width: 76, alignment: .leading)
+                ScheduleTime(date: slot.start)
                 VStack(alignment: .leading, spacing: 2) {
                     Text(slot.item.title).font(.body).foregroundStyle(.primary)
                     if slot.contains(Date()) {
@@ -835,7 +860,7 @@ private struct CreateChannelSheet: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
-                    Button("Cancel") { dismiss() }
+                    Button("Cancel") { dismiss() }.keyboardShortcut(.cancelAction)
                 }
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Create") {
@@ -846,6 +871,7 @@ private struct CreateChannelSheet: View {
                         SyncNudge.nudge(ctx)
                         dismiss()
                     }
+                    .keyboardShortcut(.defaultAction)
                     .disabled(!canSave)
                 }
             }

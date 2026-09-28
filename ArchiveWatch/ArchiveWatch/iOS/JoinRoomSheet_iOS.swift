@@ -77,10 +77,10 @@ struct JoinRoomSheet_iOS: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
-                    Button("Cancel") { dismiss() }
+                    Button("Cancel") { dismiss() }.keyboardShortcut(.cancelAction)
                 }
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("Join") { attempt() }.disabled(!canJoin)
+                    Button("Join") { attempt() }.keyboardShortcut(.defaultAction).disabled(!canJoin)
                 }
             }
             .onAppear { focused = true }

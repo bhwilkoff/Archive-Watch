@@ -79,6 +79,15 @@ rule in IPAD-DESIGN.md before it ships (binding-design-doc discipline).
   ↑/↓ surfing (rule 8.3 gives the player its keys, and without a keyboard on
   the iPad whether AVKit answers ↑/↓ is unmeasured — a guess either way).
 
+- v1.42.873: **Return and Esc** on every iPad sheet (Create Channel, Join a
+  Room, Go Live, Clip Studio, Downloads, Cast, Add to Playlist, Settings) — the
+  Mac's convention; Add to Playlist's Return stays with its name field.
+  **A channel's day** ends at the §2.1 measure (content margins, so the list
+  still scrolls full width), and its **time column** no longer broke
+  "12:01 PM" in two: it is as wide as the locale's widest time at the current
+  text size (it was a fixed 76 pt — iPhone too). Seen on the iPad Pro (Drama
+  Theater). Keys not pressed: no keyboard on the iPad.
+
 ## Found, data (for the copyright/scrub work, not the iPad)
 
 - `SelfCons1951` "Self-Conscious Guy" (Coronet, 10 min) leads Home's hero with
