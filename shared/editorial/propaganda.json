@@ -1,5 +1,5 @@
 {
-  "_about": "Evidence for remediate_catalog.flag_propaganda (Decision 149). Flagged items are never recommended (Home, hero, More Like This, channels, Top Shelf, Tonight, Surprise, social) and stay reachable by Search, Detail and Browse. Owner, 2026-09-28: \"All true propaganda should be hidden from recommendations, but avaialble via search.\" Every entry names a source a reader can open.",
+  "_about": "Evidence for remediate_catalog.flag_propaganda (Decision 149). Flagged items are never recommended (Home, hero, More Like This, channels, Top Shelf, Tonight, Surprise, social) and stay reachable by Search, Detail and Browse. Owner, 2026-09-28: \"All true propaganda should be hidden from recommendations, but avaialble via search.\" Every entry names a source a reader can open. Owner, 2026-09-28, on two films seen headlining Home: keep them off recommendations too (\"Keep off recommendations\") — named one by one in `add`, each with its source, never by a rule.",
   "vorbehaltsfilme": {
     "source": "https://de.wikipedia.org/wiki/Vorbehaltsfilm",
     "note": "Nazi-era films the Friedrich-Wilhelm-Murnau-Stiftung releases only for supervised screenings because of their propaganda content. Matched on title and year (within two years).",
@@ -24,7 +24,11 @@
   },
   "add": {
     "1937-Juden-ohne-Maske": "Juden ohne Maske (1937), antisemitic propaganda film produced by the Reichspropagandaleitung der NSDAP — https://www.wikidata.org/wiki/Q134963953 ; https://de.wikipedia.org/wiki/Reichspropagandaleitung_der_NSDAP",
-    "1937-juden-ohne-maske-13m-02s-448x-336-ohne-ton": "Juden ohne Maske (1937), antisemitic propaganda film produced by the Reichspropagandaleitung der NSDAP — https://www.wikidata.org/wiki/Q134963953 ; https://de.wikipedia.org/wiki/Reichspropagandaleitung_der_NSDAP"
+    "1937-juden-ohne-maske-13m-02s-448x-336-ohne-ton": "Juden ohne Maske (1937), antisemitic propaganda film produced by the Reichspropagandaleitung der NSDAP — https://www.wikidata.org/wiki/Q134963953 ; https://de.wikipedia.org/wiki/Reichspropagandaleitung_der_NSDAP",
+    "TheBirthofaNation1080p": "The Birth of a Nation (1915), D. W. Griffith; glorifies the Ku Klux Klan and portrays Black Americans through white actors in blackface — https://en.wikipedia.org/wiki/The_Birth_of_a_Nation ; https://www.wikidata.org/wiki/Q220394",
+    "TheBirthOfANationP1": "The Birth of a Nation (1915), D. W. Griffith; glorifies the Ku Klux Klan and portrays Black Americans through white actors in blackface — https://en.wikipedia.org/wiki/The_Birth_of_a_Nation ; https://www.wikidata.org/wiki/Q220394",
+    "birth_of_a_nation": "The Birth of a Nation (1915), D. W. Griffith; glorifies the Ku Klux Klan and portrays Black Americans through white actors in blackface — https://en.wikipedia.org/wiki/The_Birth_of_a_Nation ; https://www.wikidata.org/wiki/Q220394",
+    "check-and-double-check-4-k": "Check and Double Check (1930), the Amos 'n' Andy feature; its white leads perform in blackface — https://en.wikipedia.org/wiki/Check_and_Double_Check"
   },
   "not": {
     "DeathMills": "Death Mills (1945) is the US War Department's film of the liberated camps (Billy Wilder) — Allied evidence, not propaganda of the regime it documents; caught only by its German-language version"

@@ -173,13 +173,19 @@ rule in IPAD-DESIGN.md before it ships (binding-design-doc discipline).
   §13.2-13.4): no More Like This reason; no Watch Together room from an iPad,
   iPhone or Apple TV Studio. Suite: 9 of 9.
 
-**Remaining (2026-09-28 13:47, updated 16:23):** code — Clip Studio keys (I/O, Space),
+- v1.42.884: owner's two answers. **"Archive Watch"** is the display name on
+  iPhone, iPad and Apple TV (the shared Info.plist never set one, so the
+  system showed the bundle's "ArchiveWatch"); seen in the iPad's status bar.
+  **The Birth of a Nation and Check and Double Check leave every
+  recommendation** ("Keep off recommendations") as sourced `add` entries in
+  `propaganda.json` — named one by one, not a new rule; they take effect at
+  the next publish and stay in Search and Browse.
+
+**Remaining (2026-09-28 13:47, updated 16:28):** code — Clip Studio keys (I/O, Space),
 channel-surf ↑/↓ (now testable with XCUITest), context menus on Scenes /
 More Like This / guide blocks, an App Intents film entity (Siri + Spotlight,
 all Apple), the Studio's Mac-only features that port to iPad (film-stall
-reason, custom card, Record); verify — a film window's close control, picture-in-picture restore; owner —
-the display name ("ArchiveWatch" under the icon and in the menu bar); two
-Home heroes (Check and Double Check, The Birth of a Nation).
+reason, custom card, Record); verify — a film window's close control, picture-in-picture restore; owner — none.
 
 ## Found, data (for the copyright/scrub work, not the iPad)
 
