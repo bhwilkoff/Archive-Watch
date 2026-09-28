@@ -2680,6 +2680,20 @@ struct PlayerScreen: View {
         tunePlaybackBuffering(item: playerItem, player: p)
         p.isMuted = muted   // #3 party play (persists across lineup advances)
         player = p
+        if PlaybackDiag.enabled {
+            // Time from building the player to the picture moving (the viewer's
+            // wait), for the 2nd-gen speed pass.
+            let t0 = Date()
+            Task { @MainActor [weak p] in
+                for _ in 0..<600 {
+                    guard let p else { return }
+                    if p.timeControlStatus == .playing {
+                        awdiag("AWPERF play start %.2fs", Date().timeIntervalSince(t0)); return
+                    }
+                    try? await Task.sleep(for: .milliseconds(100))
+                }
+            }
+        }
         #if DEBUG
         if ProcessInfo.processInfo.environment["AW_PLAY_PATH"] != nil {
             // Near-silent in someone's bedroom; audio still renders for the OS captions.

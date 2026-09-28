@@ -172,6 +172,13 @@ titles, alert bodies, the caption label's 4 lines).
   Confirmed on the glass (Fireplace): the series page's "Play S1, E1" takes
   focus; Detail's Play takes focus and the director has its own line.
 
+- v1.42.851: **Speed of search / find / play on Fireplace (2nd gen)**, measured:
+  Search runs 0.01-0.11 s a keystroke (worst, "the": 0.23 s); the Movies grid's
+  first 300 titles load in ~0.1 s; a film goes from player built to playing in
+  2.45 s (His Girl Friday), 4.66 s (The Grapes of Wrath), 4.66 s (Reefer
+  Madness) on the tvOS 27 HLS path. None needs a change. `AWPERF play start`
+  (under AW_PLAYBACK_DIAG) keeps the last number measurable.
+
 ## Queue
 
 1. Series page: the poster sits mid-hero (no rule covers series art yet)
