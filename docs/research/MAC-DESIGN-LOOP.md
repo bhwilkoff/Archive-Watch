@@ -432,3 +432,12 @@ through Accessibility and its items pressed there (never pointer clicks).
   for macOS and iOS. NOT YET MEASURED: needs archive.org open — the check
   is an editor run whose app total stops growing once "AWCS CACHE … reencode"
   prints.
+- v1.42.829 MEASURED (same editor run, fixed build, nettop every 20 s): the
+  app's total reached 27.5 MB by +60 s and did not grow again (it fell as
+  flows closed); the two clips cached in 968 ms and 1461 ms. Before the fix
+  the same run held 542 MB on ONE connection at +3 min and was still
+  rising. The whole-film leak is closed. STILL OPEN: archive.org refused
+  this address again right after the run, so the block is not only the
+  leak — either the rest of an editor launch (27 MB in the first 20 s,
+  mostly unaccounted for) or a longer penalty on an address that ran the
+  leak for hours. Next: what the 27 MB is, flow by flow.
