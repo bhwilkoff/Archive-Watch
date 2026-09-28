@@ -472,3 +472,14 @@ through Accessibility and its items pressed there (never pointer clicks).
   the cache, then a second must leave the probe at 200. (A first launch
   with many uncached clips still bursts; pacing that is the next step if
   the second launch passes.)
+- v1.42.833: first-launch pacing. The empty-editor run on .832 tripped the
+  block again, as expected for a cold cache, and left 100 stills on disk —
+  the owner's library is large, so a first open sent well over a hundred
+  main-host requests at once. `StudioNet.data` now spaces requests to
+  archive.org's main host to four a second (`MainHostPace`); storage nodes
+  and other hosts are unpaced, and a still on disk costs no request. The
+  existing comment had named this exact storm and relied on the
+  3-connection cap + URLCache; the cap bounds concurrency, not rate, and
+  every launch was refused. Built. To verify when reachable: (1) an
+  empty-editor launch with the cache now warm must leave the probe at 200;
+  (2) with the cache cleared, pacing alone should too.

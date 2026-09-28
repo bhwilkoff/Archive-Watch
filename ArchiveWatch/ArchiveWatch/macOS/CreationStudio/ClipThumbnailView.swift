@@ -23,7 +23,28 @@ enum StudioNet {
         return URLSession(configuration: cfg)
     }()
     static func data(from url: URL) async -> Data? {
-        (try? await session.data(from: url))?.0
+        if url.host == "archive.org" { await MainHostPace.shared.wait() }
+        return (try? await session.data(from: url))?.0
+    }
+}
+
+/// Spaces requests to archive.org's MAIN host to four a second. The connection
+/// cap bounds how many are open, not how fast they go: on three kept-alive
+/// connections an editor opening onto ~100 saved clips still sent a burst,
+/// and the host refused this address within five seconds, every time (Mac
+/// loop 2026-09-27). Storage nodes and other hosts are not paced; a still
+/// already on disk (ClipThumbnailCache) makes no request at all.
+actor MainHostPace {
+    static let shared = MainHostPace()
+    private var next = Date.distantPast
+    private let gap: TimeInterval = 0.25
+
+    func wait() async {
+        let now = Date()
+        let slot = max(now, next)
+        next = slot.addingTimeInterval(gap)
+        let delay = slot.timeIntervalSince(now)
+        if delay > 0 { try? await Task.sleep(for: .seconds(delay)) }
     }
 }
 
