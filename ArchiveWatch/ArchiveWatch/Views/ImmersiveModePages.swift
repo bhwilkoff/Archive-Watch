@@ -22,7 +22,6 @@ struct PartyView: View {
             VStack(alignment: .leading, spacing: 36) {
                 ModeHeader(
                     title: "Party Play",
-                    subtitle: "Nonstop, muted color visuals for the background of any gathering.",
                     accent: Color(hex: "#FF4D8D") ?? .pink)
 
                 Button { playing = ModeLineupBox(items: store.partyLineup()) } label: {
@@ -72,7 +71,6 @@ struct ScreensaverHomeView: View {
             VStack(alignment: .leading, spacing: 36) {
                 ModeHeader(
                     title: "Screensaver",
-                    subtitle: "A living wall of classic movie posters. Also appears on its own after a few idle minutes (Settings).",
                     accent: Color(hex: "#0047FF") ?? .blue)
 
                 Button { showSaver = true } label: {
@@ -116,18 +114,12 @@ struct ScreensaverHomeView: View {
 
 private struct ModeHeader: View {
     let title: String
-    let subtitle: String
     let accent: Color
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             Text(title)
                 .font(.system(size: 54, weight: .heavy, design: .serif))
                 .foregroundStyle(.white)
-            Text(subtitle)
-                .font(.title3)
-                .foregroundStyle(.white.opacity(0.6))
-                .frame(maxWidth: 1100, alignment: .leading)
-                .fixedSize(horizontal: false, vertical: true)
         }
         .padding(.horizontal, 80)
         .overlay(alignment: .bottomLeading) {

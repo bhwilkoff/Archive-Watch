@@ -40,9 +40,6 @@ struct CollectionsView: View {
                     Text("Collections")
                         .font(.system(size: 54, weight: .heavy, design: .serif))
                         .foregroundStyle(.white)
-                    Text("Curator-led paths through the archive.")
-                        .font(.title3)
-                        .foregroundStyle(.white.opacity(0.6))
                 }
                 .padding(.horizontal, 80)
                 .padding(.top, 48)

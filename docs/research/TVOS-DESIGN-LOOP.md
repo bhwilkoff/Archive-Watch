@@ -186,6 +186,15 @@ titles, alert bodies, the caption label's 4 lines).
   in…" and a lone "l"); seen on Fireplace. **TV Shows** header "271 series to
   settle into" -> "271 series" (a written tagline, CLAUDE.md's no-AI-copy rule).
 
+- v1.42.853: **Written taglines removed** (CLAUDE.md: no AI-written copy; only
+  essential information): Collections "Curator-led paths through the archive.",
+  Cartoons "Pick a character or just press play", Party Play "Nonstop, muted
+  color visuals…" (tvOS and macOS), Screensaver "A living wall of classic movie
+  posters…", Surprise "A dozen ways to wander the archive…". Swept on Fireplace:
+  Collections, Cartoons, Party Play, Screensaver, Surprise, Library, Settings.
+  (A backgrounded Watch Together capture caught a personal Photos screensaver
+  image; deleted unviewed beyond the first look, not kept.)
+
 ## Queue
 
 1. Series page: the poster sits mid-hero (no rule covers series art yet)

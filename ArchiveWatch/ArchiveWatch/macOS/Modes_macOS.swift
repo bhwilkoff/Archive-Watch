@@ -79,8 +79,6 @@ struct PartyPlayView: View {
             VStack(alignment: .leading, spacing: 20) {
                 VStack(alignment: .leading, spacing: 8) {
                     Text("Party Play").font(.largeTitle.bold())
-                    Text("Nonstop, muted color visuals for the background of any gathering.")
-                        .font(.title3).foregroundStyle(.secondary)
                     Button { start() } label: {
                         Label("Start", systemImage: "play.fill")
                     }

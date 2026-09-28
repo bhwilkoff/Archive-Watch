@@ -87,9 +87,6 @@ struct KidsModeView: View {
                     .font(.system(size: 72, weight: .black, design: .rounded))
                     .foregroundStyle(.white)
                     .shadow(color: .black.opacity(0.25), radius: 6, y: 3)
-                Text("Pick a character or just press play")
-                    .font(.system(size: 26, weight: .semibold, design: .rounded))
-                    .foregroundStyle(.white.opacity(0.9))
             }
             Spacer()
             Button { playing = KidsLineup(items: store.kidsCartoonPool(limit: 300)) } label: {
