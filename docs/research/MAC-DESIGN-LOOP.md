@@ -362,3 +362,9 @@ through Accessibility and its items pressed there (never pointer clicks).
   the same browser as File › Add Clip from a Film…), with one line for the
   thing it cannot show: "Drag a clip onto the timeline, or use ＋." Built,
   not seen — the owner's library holds clips and was not emptied to look.
+- v1.42.824: Search, when its type/decade filters hide every result, said
+  so ("N results are hidden by the type/decade filters.") with the way out
+  a trip away in the toolbar's filter menu. The empty state now carries
+  Clear Filters. Built, not driven (needs a query and filters set through
+  the toolbar menu). The other empty states were read: each says a fact a
+  viewer could not otherwise know, and stays.

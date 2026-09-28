@@ -46,10 +46,16 @@ struct SearchView: View {
                     .padding(.top, 80)
             } else if filtered.isEmpty && !showEpisodes {
                 if filterActive && !results.isEmpty {
-                    ContentUnavailableView("No matches with these filters",
-                        systemImage: "line.3.horizontal.decrease.circle",
-                        description: Text("\(results.count) results are hidden by the type/decade filters."))
-                        .padding(.top, 80)
+                    // The way out, on the screen that needs it: the filters live in a
+                    // toolbar menu, a trip away from the "nothing here" they caused.
+                    ContentUnavailableView {
+                        Label("No matches with these filters", systemImage: "line.3.horizontal.decrease.circle")
+                    } description: {
+                        Text("\(results.count) results are hidden by the type/decade filters.")
+                    } actions: {
+                        Button("Clear Filters") { contentType = nil; decade = nil }
+                    }
+                    .padding(.top, 80)
                 } else {
                     ContentUnavailableView.search(text: query).padding(.top, 80)
                 }
