@@ -88,9 +88,7 @@ struct SearchView: View {
     var body: some View {
         Group {
             if query.isEmpty {
-                ContentUnavailableView("Search the archive",
-                    systemImage: "magnifyingglass",
-                    description: Text("Title, director, cast, genre, country, or synopsis."))
+                ContentUnavailableView("Search the archive", systemImage: "magnifyingglass")
             } else if filtered.isEmpty && !showEpisodes {
                 if filterActive && !results.isEmpty {
                     VStack {

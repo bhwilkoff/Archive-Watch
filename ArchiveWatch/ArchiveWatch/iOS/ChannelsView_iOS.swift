@@ -502,24 +502,40 @@ private struct EPGGuide: View {
         return "\(windowStart.formatted(f)) – \(windowEnd.formatted(f))"
     }
 
+    // The window's start (NOW when live), then the clock's own :00 and :30 at
+    // their true positions; labels at start + 30 min read "12:31, 1:01…".
     private func ruler(timelineW: CGFloat) -> some View {
-        let ticks = Int(windowMinutes / 30)
-        let tickW = timelineW / CGFloat(ticks)
-        return HStack(spacing: 0) {
-            Color.clear.frame(width: railW + 4)
-            ForEach(0..<ticks, id: \.self) { i in
-                let t = windowStart.addingTimeInterval(Double(i) * 1800)
-                Text(isLive && i == 0 ? "NOW" : t.formatted(date: .omitted, time: .shortened))
-                    .font(.caption2.weight(.bold))
-                    .foregroundStyle(isLive && i == 0 ? Brand.primary : .secondary)
-                    .frame(width: tickW, alignment: .leading)
-                    .overlay(alignment: .leading) {
-                        Rectangle().fill(.secondary.opacity(0.25)).frame(width: 1)
-                    }
+        let ppm = timelineW / CGFloat(windowMinutes)
+        let cal = Calendar.current
+        let toNext = Double(30 - cal.component(.minute, from: windowStart) % 30) * 60
+            - Double(cal.component(.second, from: windowStart))
+        // No mark in the last quarter hour: its label would run off the edge.
+        let marks = stride(from: toNext, to: windowMinutes * 60 - 900, by: 1800)
+            .map { windowStart.addingTimeInterval($0) }
+        return ZStack(alignment: .topLeading) {
+            tick(isLive ? "NOW" : windowStart.formatted(date: .omitted, time: .shortened),
+                 strong: isLive)
+                .offset(x: railW + 4)
+            ForEach(marks, id: \.self) { t in
+                let x = CGFloat(t.timeIntervalSince(windowStart) / 60) * ppm
+                if x > 56 {   // one too close to the start would print over it
+                    tick(t.formatted(date: .omitted, time: .shortened), strong: false)
+                        .offset(x: railW + 4 + x)
+                }
             }
         }
-        .frame(height: 24)
+        .frame(maxWidth: .infinity, minHeight: 24, maxHeight: 24, alignment: .leading)
         .background(.background)   // pinned header must occlude rows beneath
+    }
+
+    private func tick(_ label: String, strong: Bool) -> some View {
+        Text(label)
+            .font(.caption2.weight(.bold))
+            .foregroundStyle(strong ? Brand.primary : .secondary)
+            .padding(.leading, 4)
+            .overlay(alignment: .leading) {
+                Rectangle().fill(.secondary.opacity(0.25)).frame(width: 1)
+            }
     }
 
     @ViewBuilder
@@ -594,7 +610,9 @@ private struct EPGGuide: View {
             // single letters. Its name is in the accessibility label and in
             // the channel's schedule.
             VStack(alignment: .leading, spacing: 2) {
-                if width >= 44 {
+                // 84pt, not 44: between the two a title still broke mid-word
+                // ("Moo / nbird") on the iPad guide.
+                if width >= 84 {
                     Text(slot.item.title)
                         .font(.caption.weight(airing ? .bold : .semibold))
                         .lineLimit(2)
@@ -622,6 +640,7 @@ private struct EPGGuide: View {
             )
         }
         .buttonStyle(.plain)
+        .help(slot.item.title)   // with a pointer, a block too narrow for words still names itself
         .accessibilityLabel("\(slot.item.title), \(slot.start.formatted(date: .omitted, time: .shortened))")
     }
 }

@@ -300,7 +300,7 @@ private struct ChannelGuide: View {
         let toNext = Double(30 - minute % 30) * 60
             - Double(cal.component(.second, from: now))
         let firstMark = now.addingTimeInterval(toNext)
-        let marks = stride(from: 0.0, to: windowMinutes * 60 - toNext, by: 1800)
+        let marks = stride(from: 0.0, to: windowMinutes * 60 - toNext - 900, by: 1800)   // none in the last quarter hour
             .map { firstMark.addingTimeInterval($0) }
         return ZStack(alignment: .topLeading) {
             tick("NOW", strong: true)
