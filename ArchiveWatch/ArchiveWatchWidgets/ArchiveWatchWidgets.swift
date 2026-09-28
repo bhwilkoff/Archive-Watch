@@ -103,10 +103,16 @@ struct SurpriseProvider: TimelineProvider {
 private struct PosterCard: View {
     let item: WidgetItem
     var showProgress = false
+    /// Many small tiles (the iPad's extra-large): smaller words, or they cut
+    /// to "A Wom…" on a 130pt poster.
+    var compact = false
     var body: some View {
         ZStack(alignment: .bottomLeading) {
             if let img = awArt(item.artFile) {
-                img.resizable().aspectRatio(contentMode: .fill)
+                // The art fills the card as a BACKGROUND: sized by its own
+                // aspect, a landscape still widened the card and pushed the
+                // words past its edges ("Girl Friday", "in left").
+                Color.clear.overlay { img.resizable().aspectRatio(contentMode: .fill) }
             } else {
                 LinearGradient(colors: [brand.opacity(0.6), .black], startPoint: .top, endPoint: .bottom)
                 Text(item.title).font(.caption).bold().foregroundStyle(.white)
@@ -115,13 +121,20 @@ private struct PosterCard: View {
             }
             LinearGradient(colors: [.clear, .clear, .black.opacity(0.85)], startPoint: .top, endPoint: .bottom)
             VStack(alignment: .leading, spacing: 2) {
-                Text(item.title).font(.caption).bold().foregroundStyle(.white).lineLimit(2)
-                if let s = item.subtitle { Text(s).font(.caption2).foregroundStyle(.white.opacity(0.8)).lineLimit(1) }
+                // Compact: a fixed small size — the extra-large widget draws
+                // .caption2 large enough to cut a title after one word.
+                Text(item.title)
+                    .font(compact ? .system(size: 10, weight: .bold) : .caption.bold())
+                    .foregroundStyle(.white).lineLimit(2)
+                if let s = item.subtitle {
+                    Text(s).font(compact ? .system(size: 9) : .caption2)
+                        .foregroundStyle(.white.opacity(0.8)).lineLimit(1)
+                }
                 if showProgress, let p = item.progress {
                     ProgressView(value: p).tint(brand).scaleEffect(x: 1, y: 0.6).padding(.top, 1)
                 }
             }
-            .padding(8)
+            .padding(compact ? 6 : 8)
         }
         .clipped()
     }
@@ -175,10 +188,10 @@ struct ContinueWatchingView: View {
         if items.isEmpty { empty } else {
             VStack(alignment: .leading, spacing: 10) {
                 if !snapshot.continueWatching.isEmpty {
-                    row("CONTINUE WATCHING", snapshot.continueWatching.prefix(6), play: true)
+                    row("CONTINUE WATCHING", snapshot.continueWatching.prefix(8), play: true)
                 }
                 if !snapshot.favorites.isEmpty {
-                    row("FROM YOUR FAVORITES", snapshot.favorites.prefix(6), play: false)
+                    row("FROM YOUR FAVORITES", snapshot.favorites.prefix(8), play: false)
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
@@ -192,11 +205,7 @@ struct ContinueWatchingView: View {
             Text(heading).font(.caption2).bold().foregroundStyle(brand)
             HStack(spacing: 8) {
                 ForEach(Array(row)) { item in
-                    Link(destination: deepLink(play ? "play/\(item.id)" : "item/\(item.id)")) {
-                        PosterCard(item: item, showProgress: play)
-                            .aspectRatio(2.0/3.0, contentMode: .fit)
-                            .clipShape(RoundedRectangle(cornerRadius: 8))
-                    }
+                    tile(item, play: play, compact: true)
                 }
             }
         }
@@ -230,16 +239,16 @@ struct ContinueWatchingView: View {
 
     @ViewBuilder private var grid: some View {
         if items.isEmpty { empty } else {
-            let count = family == .systemLarge ? 6 : 3
+            let playing = !snapshot.continueWatching.isEmpty
+            let shown = Array(items.prefix(family == .systemLarge ? 6 : 3))
             VStack(alignment: .leading, spacing: 6) {
-                Text(snapshot.continueWatching.isEmpty ? "FROM YOUR FAVORITES" : "CONTINUE WATCHING")
+                Text(playing ? "CONTINUE WATCHING" : "FROM YOUR FAVORITES")
                     .font(.caption2).bold().foregroundStyle(brand)
-                HStack(spacing: 8) {
-                    ForEach(items.prefix(count)) { item in
-                        Link(destination: deepLink(snapshot.continueWatching.isEmpty ? "item/\(item.id)" : "play/\(item.id)")) {
-                            PosterCard(item: item, showProgress: !snapshot.continueWatching.isEmpty)
-                                .aspectRatio(2.0/3.0, contentMode: .fit)
-                                .clipShape(RoundedRectangle(cornerRadius: 8))
+                // Large: two rows of three, not six slivers in one.
+                ForEach(Array(stride(from: 0, to: shown.count, by: 3)), id: \.self) { start in
+                    HStack(spacing: 8) {
+                        ForEach(shown[start..<min(start + 3, shown.count)]) { item in
+                            tile(item, play: playing, compact: false)
                         }
                     }
                 }
@@ -247,6 +256,17 @@ struct ContinueWatchingView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
             .padding(12)
             .containerBackground(.black, for: .widget)
+        }
+    }
+
+    /// One poster: the FRAME is 2:3 whatever the art is — a landscape still
+    /// made its tile twice as wide as its neighbors.
+    private func tile(_ item: WidgetItem, play: Bool, compact: Bool) -> some View {
+        Link(destination: deepLink(play ? "play/\(item.id)" : "item/\(item.id)")) {
+            Color.clear
+                .aspectRatio(2.0/3.0, contentMode: .fit)
+                .overlay { PosterCard(item: item, showProgress: play, compact: compact) }
+                .clipShape(RoundedRectangle(cornerRadius: 8))
         }
     }
 

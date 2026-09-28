@@ -41,7 +41,7 @@ enum WidgetSnapshotWriter {
                       favorites: [Catalog.Item],
                       surprisePool: [Catalog.Item]) {
         // Plain Sendable snapshots of the inputs so the detached task is clean.
-        let cw = continueWatching.prefix(6).map { Spec(from: $0, wide: false, progress: progressByID[$0.archiveID]) }
+        let cw = continueWatching.prefix(8).map { Spec(from: $0, wide: false, progress: progressByID[$0.archiveID]) }
         let pick = pickOfDay.map { Spec(from: $0, wide: true) }
         let favs = favorites.prefix(8).map { Spec(from: $0, wide: false) }
         let pool = surprisePool.prefix(12).map { Spec(from: $0, wide: false) }

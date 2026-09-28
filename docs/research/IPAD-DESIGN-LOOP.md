@@ -146,6 +146,18 @@ rule in IPAD-DESIGN.md before it ships (binding-design-doc discipline).
   Handoff: the owner says the iPhone 12 and this Mac are on different Apple
   Accounts on purpose; iPad -> Mac also showed no Dock item, still unseen.
 
+- v1.42.881: **The extra-large widget, seen on the owner's Home Screen**
+  (they placed it; photographs cropped to the widget, the rest deleted). First
+  sight found three faults, all fixed and seen: a landscape still (His Girl
+  Friday, Utopia) made its tile twice as wide — the frame is now 2:3 whatever
+  the art; the words were centered on the still's width and cut at the tile's
+  edges ("Girl Friday", "in left") — the art is a background now; and the
+  widget draws .caption2 so large on iPad that titles cut after one word — a
+  fixed small size in the compact tile. Rows take 8 films (Continue Watching
+  now writes 8). The large widget (iPhone and iPad) is two rows of three
+  instead of six slivers, on the same tile. `test_98` holds the Home Screen so
+  a widget can be photographed.
+
 ## Found, data (for the copyright/scrub work, not the iPad)
 
 - `SelfCons1951` "Self-Conscious Guy" (Coronet, 10 min) leads Home's hero with

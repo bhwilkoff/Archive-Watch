@@ -180,4 +180,12 @@ final class IPadInputUITests: XCTestCase {
         let sharesARow = rows.contains { a in rows.contains { b in a != b && abs(a.minY - b.minY) < 2 } }
         XCTAssertTrue(sharesARow, "episode rows do not form columns: \(rows.prefix(4))")
     }
+
+    /// Leaves the device on its Home Screen, so a widget there can be
+    /// photographed (IPAD-DESIGN §14). Changes nothing.
+    func test_98_showHomeScreen() {
+        XCUIDevice.shared.press(.home)
+        XCUIApplication(bundleIdentifier: "com.apple.springboard").activate()
+        sleep(25)   // the capture is taken during this wait
+    }
 }
