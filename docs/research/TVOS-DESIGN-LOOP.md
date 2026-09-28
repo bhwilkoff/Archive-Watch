@@ -134,6 +134,13 @@ titles, alert bodies, the caption label's 4 lines).
   rights refusal in tvOS `.alert`s — shared text on every platform, so it is
   changed only after it is seen clipped.
 
+- v1.42.848: **The player's Version menu** keeps what tells copies apart in its
+  title (`480p · 575 MB · reel1 · another upload`) and moves the codec, the
+  same on nearly every copy, to the subtitle: tvOS cuts transport-menu titles
+  at a fixed width, and it was cutting exactly the distinguishing end. The
+  unfocused poster style no longer asks for a 24pt shadow at 0% opacity.
+  Not yet seen on a TV.
+
 ## Queue
 
 1. Series page: the poster sits mid-hero (no rule covers series art yet)

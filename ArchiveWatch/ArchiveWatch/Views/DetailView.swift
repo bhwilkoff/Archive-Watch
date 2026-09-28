@@ -2388,7 +2388,8 @@ struct PlayerScreen: View {
             let pipelineName = (current ?? catalogItem)?.videoURLParsed?
                 .lastPathComponent.removingPercentEncoding
             let versionActions = playerVersions.map { version in
-                UIAction(title: version.compactLabel,
+                UIAction(title: version.menuTitle,
+                         subtitle: version.menuSubtitle,
                          state: (chosen.map { $0 == version.choiceKey }
                                  ?? (!version.isOtherUpload && pipelineName == version.name))
                                 ? .on : .off) { _ in

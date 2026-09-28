@@ -81,6 +81,25 @@ enum ArchiveVersions {
             return parts.joined(separator: " · ")
         }
 
+        /// The transport bar cuts its menu titles at a fixed width, and the
+        /// end of `compactLabel` (which file, which upload) is the only part
+        /// that tells two copies apart. The title keeps that; the codec, the
+        /// same on nearly every copy, moves to the subtitle.
+        var menuTitle: String {
+            var parts: [String] = []
+            if let h = heightPixels, h > 0 { parts.append("\(h)p") }
+            parts.append(Self.sizeText(sizeBytes))
+            if let d = disambiguator { parts.append(d) }
+            if isOtherUpload { parts.append("another upload") }
+            return parts.joined(separator: " · ")
+        }
+
+        var menuSubtitle: String? {
+            let codec = format
+                .replacingOccurrences(of: "h.264", with: "H.264", options: .caseInsensitive)
+            return codec.isEmpty ? nil : codec
+        }
+
         private static func sizeText(_ bytes: Int64) -> String {
             let f = ByteCountFormatter()
             f.allowedUnits = [.useMB, .useGB]

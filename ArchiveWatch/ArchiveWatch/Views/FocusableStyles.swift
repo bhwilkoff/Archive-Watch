@@ -26,7 +26,7 @@ struct PosterButtonStyle: ButtonStyle {
         var body: some View {
             configuration.label
                 .scaleEffect(isFocused ? Motion.focusScalePoster : 1.0)
-                .shadow(color: .black.opacity(isFocused ? 0.45 : 0), radius: 24, y: 10)
+                .shadow(color: .black.opacity(isFocused ? 0.45 : 0), radius: isFocused ? 24 : 0, y: isFocused ? 10 : 0)
                 .animation(Motion.focus, value: isFocused)
         }
     }
