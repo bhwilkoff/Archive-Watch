@@ -152,7 +152,9 @@ struct EpisodePlayerScreen: View {
         // embedded creation year (epoch-0 -> "1969") the same way the movie
         // player does (see suppressedDateMetadata).
         item.externalMetadata =
-            [metaEntry(.commonIdentifierTitle, episode.title)].compactMap { $0 }
+            [metaEntry(.commonIdentifierTitle, episode.title),
+             episode.overview.flatMap { $0.isEmpty ? nil : metaEntry(.commonIdentifierDescription, $0) }]
+                .compactMap { $0 }
             + suppressedDateMetadata()
         let p = AVPlayer(playerItem: item)
         tunePlaybackBuffering(item: item, player: p)

@@ -308,7 +308,7 @@ final class CaptionCoordinator {
                 // and would never draw anything. Time-boxed: an explanation
                 // earns a few seconds over a film, not the whole running time.
                 if let l = self?.label, let note = self?.systemNote, !note.isEmpty {
-                    l.numberOfLines = 4
+                    l.numberOfLines = 0
                     l.text = "  \(note)  "
                     l.isHidden = false
                     Task { @MainActor [weak self] in
@@ -389,9 +389,9 @@ final class CaptionCoordinator {
                     line = lc.line(at: now)
                 }
                 let text = (self?.draws ?? true) ? (line.isEmpty ? lc.notice : line) : ""
-                // Stacked rapid-dialogue captions are two cues, either of which
-                // may wrap once at ten-foot size.
-                self?.label?.numberOfLines = 4
+                // Never clamped: two stacked cues that each wrap, at a large
+                // system caption size, ran past four lines and lost their end.
+                self?.label?.numberOfLines = 0
                 self?.label?.text = text.isEmpty ? nil : text
                     .components(separatedBy: "\n")
                     .map { "  \($0)  " }

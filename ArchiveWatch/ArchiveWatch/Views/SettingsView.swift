@@ -69,7 +69,7 @@ struct SettingsView: View {
         } header: {
             Text("Show on Home & Browse")
         } footer: {
-            Text("Turn a category off to hide it everywhere. Favorites and Continue Watching are unaffected.")
+            Text("Favorites and Continue Watching still show hidden categories.")
         }
     }
 
@@ -82,7 +82,7 @@ struct SettingsView: View {
         } header: {
             Text("Home")
         } footer: {
-            Text("On by default. Finished titles stay out of Home shelves but remain in Search, Browse, and Continue Watching.")
+            Text("Finished titles stay in Search and Browse.")
         }
     }
 
@@ -149,7 +149,7 @@ struct SettingsView: View {
         } header: {
             Text("Account")
         } footer: {
-            Text("Sign in with Apple to sync your favorites, playlists, and watch progress across your Apple TVs. Optional — browsing and playback work without it; nothing leaves your device until you sign in.")
+            Text("Syncs favorites, playlists and watch progress across your Apple devices. Nothing leaves this device until you sign in.")
         }
     }
 
@@ -182,7 +182,7 @@ struct SettingsView: View {
         } header: {
             Text("Playback")
         } footer: {
-            Text("When a film ends, automatically play another. Off by default. You can also change this for the current video from its transport menu. TV episodes always continue to the next episode. Commercial breaks play vintage public-domain ads between programs on Channels — the 1990s-TV feel. The idle screensaver shows the cover-art wall after a few minutes of inactivity (never during playback). The VHS look adds an analog tape/CRT veneer — scanlines, a tracking band, grain, and vignette — over channel playback, fitting for archival film and TV. You can also toggle it from the Channels screen.")
+            Text("TV episodes always continue to the next episode.")
         }
     }
 
@@ -218,7 +218,7 @@ struct SettingsView: View {
         } header: {
             Text("Mature Content")
         } footer: {
-            Text("Off by default — the Archive includes adult-leaning collections. Leave off on a shared TV.")
+            Text("Off by default — the Internet Archive includes adult-leaning collections.")
         }
     }
 

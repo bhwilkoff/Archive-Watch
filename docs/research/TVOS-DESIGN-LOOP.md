@@ -110,6 +110,14 @@ titles, alert bodies, the caption label's 4 lines).
   it lands. NOT yet seen on a TV: both Apple TVs were asleep and are not woken
   without the owner's word.
 
+- v1.42.844: **Decision 148** — the tvOS 26 floor serves the Apple TV HD and 4K
+  1st gen; `tools/test_tvos_floor.py` refuses 27+ in `appstore-build.yml`.
+- v1.42.845: **Settings** footers cut to what a viewer cannot see (the Playback
+  footer was 700 characters explaining every switch), matching the iPhone.
+  **The episode player's Info panel** carries the episode's description (it
+  had only the title). **Captions are never clamped**: two stacked cues that
+  each wrap, at a large system caption size, ran past the label's four lines.
+
 ## Queue
 
 1. Series page: the poster sits mid-hero (no rule covers series art yet)
