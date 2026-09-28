@@ -501,3 +501,12 @@ through Accessibility and its items pressed there (never pointer clicks).
   afternoon was the app's own doing: a whole-film leak (.829) and a clip
   list that fetched 191 stills at every open (.832 disk cache, .833 pace,
   .834 visible rows only).
+- VERIFIED: **a successful export**, through the real Save panel into
+  Downloads — 19 MB, 14.5 s (two clips over a 1.5 s dissolve), H.264
+  1920x1080 + AAC (ffprobe), written 10 s after Save; the bar read
+  "Exported" with Reveal in Finder / Dismiss. Two "permission" failures
+  before it were the HARNESS: the panel had kept its last folder,
+  /System/Library/Sounds (from the music test), and the script only set
+  the name. A staging-then-move change written on that misreading was
+  reverted uncommitted; the script now navigates to ~/Downloads first and
+  prints where it saved. Test file deleted.
