@@ -483,3 +483,14 @@ through Accessibility and its items pressed there (never pointer clicks).
   every launch was refused. Built. To verify when reachable: (1) an
   empty-editor launch with the cache now warm must leave the probe at 200;
   (2) with the cache cleared, pacing alone should too.
+- v1.42.834: **the clip list loaded every row, not the visible ones.** With
+  paced requests logged (AW_CS_DIAG, `AWNET`): an empty editor made 125
+  main-host requests (73 metadata, 52 downloads) at a steady 4/s and was
+  refused between +5 and +14 s — so the pace was right and the COUNT was
+  wrong: 73 different films for ~8 visible rows. `AWTHUMB start` per row:
+  191 rows started at once. Removing `.dragContainer` (multi-clip drag)
+  → 8. The container makes the LazyVStack build every row. It stays (the
+  drag is the feature); each row's still now waits until the row has been
+  on screen (`onScrollVisibilityChange`), then stays. Measured: 7 rows
+  started. The earlier "four a second is too fast" reading was the count,
+  not the pace.

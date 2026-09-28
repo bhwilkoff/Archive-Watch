@@ -24,7 +24,14 @@ enum StudioNet {
     }()
     static func data(from url: URL) async -> Data? {
         if url.host == "archive.org" { await MainHostPace.shared.wait() }
-        return (try? await session.data(from: url))?.0
+        if ProcessInfo.processInfo.environment["AW_CS_DIAG"] != nil {
+            FileHandle.standardError.write(Data("AWNET \(Date().timeIntervalSince1970) \(url.host ?? "") \(url.path.prefix(60))\n".utf8))
+        }
+        let r = try? await session.data(from: url)
+        if r == nil, ProcessInfo.processInfo.environment["AW_CS_DIAG"] != nil {
+            FileHandle.standardError.write(Data("AWNET FAIL \(url.host ?? "") \(url.path.prefix(60))\n".utf8))
+        }
+        return r?.0
     }
 }
 
@@ -184,6 +191,9 @@ struct ClipThumbnailView: View {
             .clipShape(RoundedRectangle(cornerRadius: corner))
         // ONE gated, cached fetch per clip (frame → poster → universal) — no ungated AsyncImage bursts.
         .task(id: "\(catalogItemID)@\(Int(atSeconds.rounded()))") {
+            if ProcessInfo.processInfo.environment["AW_CS_DIAG"] != nil {
+                FileHandle.standardError.write(Data("AWTHUMB start \(catalogItemID)\n".utf8))
+            }
             image = await ClipThumbnailCache.shared.image(
                 catalogItemID: catalogItemID, sourceURL: sourceURL,
                 atSeconds: atSeconds, fallbackPoster: fallbackPoster)

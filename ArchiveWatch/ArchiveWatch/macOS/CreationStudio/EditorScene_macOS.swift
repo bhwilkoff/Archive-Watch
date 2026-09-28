@@ -727,14 +727,27 @@ private struct LibraryRow: View {
     let poster: URL?
     let selected: Bool
     let onAdd: () -> Void
+    /// Has this row been on screen? `.dragContainer` (multi-clip drag) makes the
+    /// LazyVStack build EVERY row, so every row's still was fetched at once — 191
+    /// rows started loading for 8 visible, and archive.org refused the address
+    /// (Mac loop 2026-09-27; measured 191 with the container, 8 without). The
+    /// still waits until the row is actually seen; once seen, it stays.
+    @State private var seen = false
     var body: some View {
         HStack(spacing: 10) {
             // The clip's actual in-point frame (the row itself is the drag source — see the ForEach).
-            ClipThumbnailView(catalogItemID: clip.catalogItemID,
-                              sourceURL: URL(string: clip.sourceURLString),
-                              atSeconds: clip.inSeconds,
-                              fallbackPoster: poster)
+            Group {
+                if seen {
+                    ClipThumbnailView(catalogItemID: clip.catalogItemID,
+                                      sourceURL: URL(string: clip.sourceURLString),
+                                      atSeconds: clip.inSeconds,
+                                      fallbackPoster: poster)
+                } else {
+                    RoundedRectangle(cornerRadius: 4).fill(.quaternary)
+                }
+            }
                 .frame(width: 44, height: 30)
+                .onScrollVisibilityChange(threshold: 0.01) { visible in if visible { seen = true } }
             VStack(alignment: .leading, spacing: 2) {
                 // Film title — word-wraps so longer titles read fully (owner #5).
                 // Whole, however long: it was cut at two lines ("MIT 6.0002
