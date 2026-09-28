@@ -70,20 +70,8 @@ because the loop was stopped mid-stride for a Claude update.
    tuned against stalls, so a cap is yours to weigh (metered links and
    archive.org's per-address limit vs. stall resistance).
 
-0-NEW-2026-09-27-B. **WHICH FILMS MAY THE CREATION STUDIO PUBLISH? (owner call, nothing changed.)**
-   Found in the Mac loop: Add a Clip offers The Pink Panther (1963), because
-   clipping is gated on `isClippable` (any visible title whose rightsStatus is
-   PD/CC/absent — Rule 5c), not on a rights TIER. Clipping and exporting a file
-   locally is one thing; **Publish uploads the edit to archive.org dedicated to
-   the public domain (CC0)**, and a CC0 dedication over a 1963 studio film is a
-   claim we cannot stand behind. The Watch Together Studio and the Home marquee
-   already use a stronger tier (`isHeroRightsSafe`: the hero-safe buckets
-   only, and a title from 1978 on only if public domain by age). Options: (a) gate PUBLISH (not clipping)
-   on every clip being hero-rights-safe, with a refusal naming the film;
-   (b) gate clipping itself the same way; (c) leave it. (a) is my
-   recommendation — Decision 027 reserves the call. NOTE: The Pink Panther
-   carries NO YEAR in the catalog (seen in the Mac Movies grid), so any
-   year-based rule, including the tier's 1978 check, cannot see it is modern.
+0-DONE-2026-09-28. ~~Which films may the Creation Studio publish?~~ Owner: all
+   titles the apps show — fair use is the Creation Studio's rule (Decision 146).
 
 0-NOW. **OAUTH APPROVED (2026-09-26); QUOTA SCREENCAST SENT, WAITING ON GOOGLE.**
    `auth/youtube` verification passed; no code change was needed. The quota

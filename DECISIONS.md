@@ -228,6 +228,7 @@ into every session and the index alone carries every title.)
 - 143 — A room carries the host's copy, and every guest plays exactly that file
 - 144 — Channels run on one clock: the pipeline publishes the timeline, every client plays it and shows it in local time
 - 145 — The IPTV feeds carry everything the apps show, television as series, and a channel never joins a film's last scrap
+- 146 — The Creation Studio clips any title the apps show; fair use is its rule, not the broadcast tier
 
 ---
 
@@ -1093,4 +1094,28 @@ feeds as for every client; do not re-derive membership in the builder. The Roku 
 feed keeps its tier (Decision 113 stands for search indexes). Keep the Worker's lists
 pass-through: a new list goes out as a file, per category if players filter by one.
 `tools/test_film_feeds.py` holds the shape.
+
+
+## 146 — The Creation Studio clips any title the apps show; fair use is its rule, not the broadcast tier
+*Date: 2026-09-28*
+
+Every title visible in the apps' catalog may be clipped, cut and exported in
+the Creation Studio (`Catalog.Item.isClippable`: playable, and a rights status
+of public domain, Creative Commons or absent). It does NOT take the Watch
+Together Studio's broadcast tier (`isHeroRightsSafe`), and Publish is not
+narrowed either.
+
+**Why**: the owner, asked whether Publish should require the stricter tier
+after the Mac loop found The Pink Panther (1963, no year in the catalog)
+clippable: *"Since fair use is something we can use for the creation studio
+that doesn't work for the Watch Together Studio, we can have far more loose
+rules for what can be included. I think we can leave in all titles that are
+included in the database for viewing within the apps."* A clip, a montage or
+a supercut is transformative commentary; a live broadcast of a whole film is
+not, which is why the two Studios answer differently.
+
+**How to apply**: do not import the broadcast tier into the Creation Studio's
+browser, Supercut index or Publish. The catalog's own gates (the rights audit,
+takedowns, the mature filter) are the Creation Studio's gates. A title the
+apps hide is not clippable; a title the apps show is.
 
