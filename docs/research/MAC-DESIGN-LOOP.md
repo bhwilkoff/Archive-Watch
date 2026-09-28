@@ -403,3 +403,13 @@ through Accessibility and its items pressed there (never pointer clicks).
   on the audio lane, VoiceOver reads "Music, Glass", and its inspector
   (Name, Volume at a deliberate 50% under the film, Start, fades, Delete
   Music) needs nothing. The unsaved test project was discarded.
+- OPEN (a question, not a finding): each time archive.org let this network
+  back in (a minute of 200s from curl), an editor test launch was followed
+  within minutes by a new refusal, and every clip cache in that run —
+  preview and export alike — timed out (-1001, the new withTimeout's error).
+  Hypothesis to MEASURE, not assume: the app's launch + editor open sends
+  archive.org enough requests (catalog art fallbacks, clip thumbnails,
+  metadata, two cache windows) to trip its per-address limit. Next time it
+  is reachable: count the app's connections to 207.241.224.0/24 (nettop -p)
+  from launch to the first refusal, with the Home window alone first, then
+  the editor — and only then decide whether anything should change.
