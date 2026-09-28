@@ -18,13 +18,22 @@ final class IPadInputUITests: XCTestCase {
     }
 
     private func launch(_ env: [String: String] = [:]) {
+        // A film window left by an earlier test restores in front; every test
+        // starts from the main window. Cleaned on a PLAIN launch first: a
+        // launch that opens a full-screen player hides the sidebar, and the
+        // cleanup would read that as a film window and press ⌘W on it.
+        if !env.isEmpty {
+            app.launchEnvironment = [:]
+            app.launch()
+            _ = app.staticTexts.firstMatch.waitForExistence(timeout: 30)
+            closeFilmWindows()
+            app.terminate()
+        }
         app.launchEnvironment = env
         app.launch()
         _ = app.staticTexts.firstMatch.waitForExistence(timeout: 30)
-        sleep(4)
-        // A film window left by an earlier test restores in front; every
-        // test starts from the main window.
-        closeFilmWindows()
+        sleep(env.isEmpty ? 4 : 1)
+        if env.isEmpty { closeFilmWindows() }
     }
 
     /// A film window (§9.1) has no sidebar. Close any that a run left open
@@ -224,7 +233,7 @@ final class IPadInputUITests: XCTestCase {
         // (owner: "clicking on ArchiveWatch at the top of the windowed app").
         // Exactly "ArchiveWatch" (the bundle name): "Archive Watch" is also
         // Home's heading, which the first try clicked instead.
-        let name = NSPredicate(format: "label == 'ArchiveWatch'")
+        let name = NSPredicate(format: "label == 'Archive Watch' OR label == 'ArchiveWatch'")
         // Two elements carry the name: the window itself and the small title
         // at the screen's top edge. Take the small one.
         let candidates = springboard.descendants(matching: .any).matching(name).allElementsBoundByIndex

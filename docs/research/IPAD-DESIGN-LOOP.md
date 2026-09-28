@@ -181,8 +181,23 @@ rule in IPAD-DESIGN.md before it ships (binding-design-doc discipline).
   `propaganda.json` — named one by one, not a new rule; they take effect at
   the next publish and stay in Search and Browse.
 
-**Remaining (2026-09-28 13:47, updated 16:28):** code — Clip Studio keys (I/O, Space),
-channel-surf ↑/↓ (now testable with XCUITest), context menus on Scenes /
+- v1.42.885: **↑/↓ channel surfing — NOT shipped, and why.** Three routes,
+  each measured on the iPad with the strip's own "Previous channel, <name>"
+  button as the instrument (a name on screen proves nothing: the guide behind
+  the player lists every channel), and none tuned a channel: (1) Go menu
+  commands on ↑/↓ published by the surf player; (2) UIKeyCommands with
+  priority on an AVPlayerViewController subclass; (3) the same, with the player
+  taking first responder on appear. An earlier "pass" was that instrument
+  fault and is withdrawn. Unknown still: whether XCUITest's arrow key reaches
+  the app at all — the next step is that control (an arrow where the app is
+  known to act on it) plus an on-screen DEBUG counter of key commands
+  received, before any fourth implementation. Code reverted.
+  Also: the menu-bar test follows the new name ("Archive Watch"), and a test
+  that opens a full-screen player cleans windows on a plain launch first (the
+  cleanup read a player as a film window and pressed ⌘W on it).
+
+**Remaining (2026-09-28 13:47, updated 16:43):** code — Clip Studio keys (I/O, Space),
+channel-surf ↑/↓ (three routes failed; control first), context menus on Scenes /
 More Like This / guide blocks, an App Intents film entity (Siri + Spotlight,
 all Apple), the Studio's Mac-only features that port to iPad (film-stall
 reason, custom card, Record); verify — a film window's close control, picture-in-picture restore; owner — none.
