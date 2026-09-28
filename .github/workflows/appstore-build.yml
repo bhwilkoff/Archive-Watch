@@ -174,6 +174,11 @@ jobs:
           set -a; . ./asc-credentials.env; set +a
           python3 asc_build_exists.py "$VER" "$BUILD"
 
+      # Decision 148: tvOS 27 dropped the Apple TV HD and 4K 1st gen; a floor
+      # of 27 would silently stop shipping to them.
+      - name: Refuse a tvOS floor of 27 or above
+        run: python3 tools/test_tvos_floor.py
+
       - name: Archive + sign + upload to App Store Connect
         env:
           ASC_DIST_CERT_ID: ${{ secrets.APPLE_DIST_CERT_ID }}

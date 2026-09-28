@@ -230,6 +230,7 @@ into every session and the index alone carries every title.)
 - 145 — The IPTV feeds carry everything the apps show, television as series, and a channel never joins a film's last scrap
 - 146 — The Creation Studio clips any title the apps show; fair use is its rule, not the broadcast tier
 - 147 — A film the system can caption plays through the loopback proxy, paced to twice its bitrate
+- 148 — Older Apple TVs are served by the tvOS 26 floor, not a second app; the floor is held below 27
 
 ---
 
@@ -1184,3 +1185,35 @@ path the captions listen to).
 direct. Open, separately: the Mac's OWN caption engine, which takes over when
 the system does not caption, reads ~3 minutes of film ahead at line rate
 (~580 MB on Brute Force) — the next bandwidth item, not addressed here.
+
+
+## 148 — Older Apple TVs are served by the tvOS 26 floor, not a second app; the floor is held below 27
+*Date: 2026-09-28*
+
+The tvOS app keeps `TVOS_DEPLOYMENT_TARGET = 26.x`, which already installs on
+every Apple TV that can run an App Store app: the Apple TV HD (2015, A8, 2 GB)
+and the Apple TV 4K 1st gen (2017, A10X), whose last system is tvOS 26, plus
+the 4K 2nd and 3rd gen on 27. `tools/test_tvos_floor.py` refuses a target of 27
+or above, and `appstore-build.yml` runs it before archiving. tvOS 27 features go
+behind `#available`. No separate "classic" app and no lower floor.
+
+**Why**: the owner asked *"if it is possible for making a version of the app
+functional on older apple tv hardware ... not full parity ... but rather a fully
+functional experience in the same way that we have been able to manage on old
+Roku and Android hardware."* Measured: tvOS 27 dropped the HD and 4K 1st gen;
+the Apple TV 3rd gen and earlier have no App Store at all. So the old boxes that
+CAN run apps are on tvOS 26, which is our floor already. Roku and Android needed
+legacy tiers because old OS versions there cannot update; any Apple TV on 17/18
+can update to 26 for free, and tvOS cannot be downgraded, so a lower floor would
+be untestable on real hardware and would serve nobody. Test builds at 18.0 and
+17.0 fail in 4 and 7 files (Liquid Glass, SpeechAnalyzer, the tab API, `Mutex`).
+The risk that remained was invisible: moving the floor to 27 in some future
+cleanup would cut both boxes off with no error anywhere.
+
+**How to apply**: never raise the tvOS floor to 27 while the HD and 4K 1st gen
+are supported; that is an owner decision, taken with this entry, not a build
+setting. Put new tvOS 27 APIs behind `#available(tvOS 27, *)` with a tvOS 26
+path. What the old boxes still lack is VERIFICATION: nobody has run the app on
+an A8 (no HEVC decoder, 2 GB, the ~148 MB catalog DB to open), and this project
+tests on real hardware only.
+

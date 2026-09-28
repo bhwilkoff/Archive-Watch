@@ -474,6 +474,7 @@ same sentence that offers what it CAN do.
 | Spotlight / system search | n/a | 🔮 Core Spotlight | 🔮 Core Spotlight | n/a | 🔮 App Search | |
 | Installable app | App Store (cloud-built) | App Store (cloud-built) | **App Store — UPLOADED 1.3.249/771** via the cloud workflow (`.github/workflows/appstore-build.yml`, GitHub `macos-26` runner = released macOS + Xcode 26.6 → clears ITMS-90301 beta-OS + ITMS-90111 floor; free for this public repo). Same `app.archivewatch.tvos` record (Decision 042); manual `.p12` signing; macOS-DESIGN §C2c. Local `submit-appstore.sh` only works on a released-macOS box. | ✅ PWA | Play Store | All 3 Apple platforms build cloud-side now |
 | Handoff / continuity | 🔮 | 🔮 | 🔮 | n/a | n/a | NSUserActivity declared |
+| Oldest hardware served | ✅ **tvOS 26 floor** = Apple TV HD (2015) and 4K 1st gen (2017), both dropped by tvOS 27; held below 27 by `tools/test_tvos_floor.py` in `appstore-build.yml` (Decision 148). ⏳ never run on an A8 | iOS 26 floor | macOS floor per target | any evergreen browser | ✅ Android 6 / API 23 (Decision 141) | Roku legacy tier (ROKU-DESIGN); Apple TV 3rd gen and earlier cannot run App Store apps |
 
 ## 8b. Non-Apple TV platforms (Decision 047 · `docs/TV-DESIGN.md`)
 
