@@ -405,6 +405,27 @@ struct PlayerSurface: View {
             playerItem = AVPlayerItem(asset: asset)
             loaderIsPrimary = true
         } else if let url = videoURL, !feedsProgram,
+                  let forced = awDebugPlayPath {
+            // DEBUG research door (owner 2026-09-28: "keep direct, research a
+            // hybrid"): force the loopback PROXY or its HLS segmenting, to measure
+            // bytes against direct playback and whether the OS still generates
+            // captions on a plain http://127.0.0.1 asset.
+            let local = forced == "hls" ? LocalMediaServer.shared.hlsURL(for: url)
+                      : forced == "proxy" ? LocalMediaServer.shared.proxyURL(for: url) : url
+            playerItem = AVPlayerItem(url: local ?? url)
+            usedDirectURL = true
+            awdiag("AWPLAYER research path=%@ url=%@", forced, (local ?? url).absoluteString)
+            let probePlayer = player
+            Task { @MainActor in
+                let offered = await SystemCaptions.waitForLegibleOption(on: probePlayer, within: 30)
+                awdiag("AWPLAYER research legibleOption=%@", offered ? "yes" : "no")
+                if offered {
+                    let sel = await SystemCaptions.selectIfWanted(on: probePlayer)
+                    let text = await SystemCaptions.emitsCaptions(on: probePlayer, within: 75)
+                    awdiag("AWPLAYER research selected=%@ captionText=%@", sel ? "yes" : "no", text ? "yes" : "no")
+                }
+            }
+        } else if let url = videoURL, !feedsProgram,
                   SystemCaptions.prefersDirectPlayback(hasPublishedSubtitles: false) {
             // From 27 the system captions video that carries none — but only for
             // an ordinary asset. Through `aw-stream://` no subtitle track is
@@ -1009,5 +1030,13 @@ struct VideoPlayerNS: NSViewRepresentable {
         if v.player !== player { v.player = player }
         if v.controlsStyle != controlsStyle { v.controlsStyle = controlsStyle }
     }
+}
+/// DEBUG research door: AW_PLAY_PATH=direct|proxy|hls (always nil in release).
+private var awDebugPlayPath: String? {
+    #if DEBUG
+    ProcessInfo.processInfo.environment["AW_PLAY_PATH"]
+    #else
+    nil
+    #endif
 }
 #endif

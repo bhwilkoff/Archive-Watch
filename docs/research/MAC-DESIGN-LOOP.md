@@ -584,3 +584,24 @@ through Accessibility and its items pressed there (never pointer clicks).
   021/031/077 tuned the loader against real stalls); an OWNER call, with
   these numbers. The obvious candidates: cap an open-ended request's
   delivery ahead of the playhead, or bound it by the item's buffer target.
+- PLAYBACK RESEARCH (owner 2026-09-28: "keep direct, research a hybrid").
+  Why direct at all: films with no subtitles play the plain archive.org URL
+  so the OS can generate captions (SystemCaptions; the resource loader gets
+  no option, a single-segment HLS wrapper gets a silent one). Measured on
+  this Mac, The General (TheGeneral720p, ~1.3 Mbps), 2 min muted each, via
+  a DEBUG door AW_PLAY_PATH=direct|proxy|hls and nettop:
+      direct  ~476 MB  (+427 MB in the first 15 s)   OS caption option: none in 30 s
+      proxy   ~509 MB  (+344 MB in the first 15 s)   none
+      hls     ~66 MB   (+12 MB in the first 15 s)    none
+  `hls` is LocalMediaServer's real fMP4 segmenting (tvOS's Decision 106
+  path), not the single-segment wrapper: it holds AVFoundation to its
+  buffer target, ~7x less over two minutes and no burst. BUT on this Mac no
+  path — direct included — was offered a generated caption track, so
+  direct is currently paying ~450 MB per play here for no captions; and
+  whether segmented HLS KEEPS the OS captions where they work is not yet
+  known. Also found: the Mac's LocalMediaServer has never been able to run
+  — the sandbox lacks com.apple.security.network.server ("AWPROXY listener
+  failed: Operation not permitted"); the measurement added it to a local
+  build only and it is reverted. Next: the same three paths on a device
+  whose OS DOES caption (Generated Subtitles on), for the one number that
+  decides it — does `hls` get caption text?
