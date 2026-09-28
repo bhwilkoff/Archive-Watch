@@ -545,3 +545,10 @@ through Accessibility and its items pressed there (never pointer clicks).
   the element still exists and deselects only one the undo removed.
   Verified through AX: nudge Fade out 1.0 → 2.2, Undo, and the inspector
   (not reselected) reads 1.8.
+- NOTED, not changed: a clip whose item does not exist is given up only
+  after ~111 s (two -1001 timeouts), because the shared stream loader
+  treats a 404 as ONE NODE's failure and rotates — right for playback,
+  where archive.org does 404 from one node while another serves the file.
+  Telling "the item is gone" (a 404 from the origin, no redirect) from "this
+  node is bad" would speed the rare dead clip, and touches the loader every
+  player uses; not worth the risk inside this loop.
