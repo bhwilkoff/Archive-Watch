@@ -283,4 +283,27 @@ final class IPadInputUITests: XCTestCase {
         snap("poster menu")
         app.typeKey(XCUIKeyboardKey.escape, modifierFlags: [])
     }
+
+    /// §8.1c: in the Clip Studio, O marks the end and I the start at the
+    /// playhead. At the film's first second O makes a 0.5 s clip and I makes
+    /// it the default length again. Nothing plays and nothing is created.
+    func test_20_clipStudioIAndO() {
+        launch(["AW_START_ITEM": "Nosferatu_most_complete_version_93_mins."])
+        let more = app.buttons.matching(NSPredicate(format: "label == 'More'")).firstMatch
+        XCTAssertTrue(more.waitForExistence(timeout: 20))
+        more.tap()
+        app.buttons.matching(NSPredicate(format: "label == 'Create a Clip'")).firstMatch.tap()
+        let clip = app.staticTexts.matching(NSPredicate(format: "label MATCHES 'Clip [0-9.]+s.*'")).firstMatch
+        XCTAssertTrue(clip.waitForExistence(timeout: 60), "the editor did not open")
+        sleep(2)
+        let before = clip.label
+        app.typeKey("o", modifierFlags: [])
+        sleep(1)
+        XCTAssertEqual(clip.label, "Clip 0.5s", "O did not mark the end (was \(before))")
+        app.typeKey("i", modifierFlags: [])
+        sleep(1)
+        XCTAssertEqual(clip.label, before, "I did not mark the start")
+        snap("after i and o")
+        app.buttons.matching(NSPredicate(format: "label == 'Cancel'")).firstMatch.tap()
+    }
 }

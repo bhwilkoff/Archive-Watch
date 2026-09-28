@@ -203,7 +203,15 @@ rule in IPAD-DESIGN.md before it ships (binding-design-doc discipline).
   opens, so a grid does not observe every favorite. Seen on the iPad Pro
   (His Girl Friday in Films) and asserted by `test_19`, which chooses nothing.
 
-**Remaining (2026-09-28 13:47, updated 16:51):** code — Clip Studio keys (I/O, Space),
+- v1.42.887: **Clip Studio I and O** (audit #24): the Mac editor's keys on
+  Set Start / Set End. `test_20` measures them where they land — at the film's
+  first second O turns "Clip 15.0s" into "Clip 0.5s" and I turns it back —
+  with nothing played or created. **This also narrows the ↑/↓ question**: a
+  plain, modifier-free key from XCUITest DOES reach the app in a sheet, so
+  the channel failure is the full-screen player holding the arrows, not the
+  instrument. Space (play) not added: it would play the film aloud to test.
+
+**Remaining (2026-09-28 13:47, updated 16:54):** code — Clip Studio Space (I/O done),
 channel-surf ↑/↓ (three routes failed; control first), context menus on Scenes and guide blocks (posters done), an App Intents film entity (Siri + Spotlight,
 all Apple), the Studio's Mac-only features that port to iPad (film-stall
 reason, custom card, Record); verify — a film window's close control, picture-in-picture restore; owner — none.

@@ -612,12 +612,16 @@ struct ClipStudioView: View {
             .frame(height: 92)
 
             HStack(spacing: 12) {
+                // I and O, the Mac editor's keys (a text field that has the
+                // keyboard keeps its letters).
                 Button { model.setStart() } label: {
                     Label("Set Start", systemImage: "arrow.left.to.line").frame(maxWidth: .infinity)
                 }.buttonStyle(.bordered)
+                .keyboardShortcut("i", modifiers: [])
                 Button { model.setEnd() } label: {
                     Label("Set End", systemImage: "arrow.right.to.line").frame(maxWidth: .infinity)
                 }.buttonStyle(.bordered)
+                .keyboardShortcut("o", modifiers: [])
             }
             Text("Drag the filmstrip to scrub · pinch to zoom · mark Set Start/End at the playhead, or drag the handles.")
                 .font(.caption2).foregroundStyle(.tertiary).multilineTextAlignment(.center)

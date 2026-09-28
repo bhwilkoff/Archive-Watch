@@ -257,6 +257,10 @@ default key is Return where the sheet has one confirming action. A sheet whose
 only button closes it takes ⌘. on that button, never Return, so Return stays
 with a text field. Esc is not the iPad's cancel key (measured 2026-09-28).
 
+8.1c **The Clip Studio takes I and O** to mark the start and end at the
+playhead, as the Mac's editor does. A text field with the keyboard keeps its
+letters.
+
 8.2 **A command for a film is published by the film's page, per window**
 (`focusedSceneValue`). With no film in front it is dimmed, never hidden (HIG,
 menus: "keep items visible and disable them").
