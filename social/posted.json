@@ -1345,6 +1345,54 @@
    "kind": "animation",
    "mediaId": null,
    "reviewer": null
+  },
+  {
+   "at": "2026-09-28T21:16:09.689519+00:00",
+   "id": "la-boheme_202512",
+   "title": "La Bohème",
+   "slot": "now-showing",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mwmadwip5a2t",
+   "format": "video",
+   "kind": "silent-film",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-09-28T21:16:09.689519+00:00",
+   "id": "la-boheme_202512",
+   "title": "La Bohème",
+   "slot": "now-showing",
+   "platform": "mastodon",
+   "url": "https://mastodon.social/@archivewatch/117350739990918400",
+   "format": "video",
+   "kind": "silent-film",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-09-28T21:16:09.689519+00:00",
+   "id": "la-boheme_202512",
+   "title": "La Bohème",
+   "slot": "now-showing",
+   "platform": "instagram",
+   "url": "https://www.instagram.com/p/Dd2ISFLgQRj/",
+   "format": "card",
+   "kind": "silent-film",
+   "mediaId": "117350739589328067",
+   "reviewer": null
+  },
+  {
+   "at": "2026-09-28T21:16:09.689519+00:00",
+   "id": "la-boheme_202512",
+   "title": "La Bohème",
+   "slot": "now-showing",
+   "platform": "youtube",
+   "url": "https://youtube.com/watch?v=bUNz2_wkNfk",
+   "format": "video",
+   "kind": "silent-film",
+   "mediaId": null,
+   "reviewer": null
   }
  ]
 }
