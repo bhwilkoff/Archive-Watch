@@ -20,6 +20,7 @@ struct SeriesDetailView: View {
     @Environment(AppStore.self) private var store
     @Environment(Router.self) private var router
     @Environment(\.modelContext) private var modelContext
+    @Environment(\.dynamicTypeSize) private var typeSize
     @Query private var favorites: [Favorite]
     // #3: share / add-to-playlist targets (series OR a long-pressed episode).
     @State private var shareTarget: ShareTarget?
@@ -113,7 +114,8 @@ struct SeriesDetailView: View {
                 .padding(.trailing, 80)
                 .padding(.bottom, 64)
         }
-        .frame(height: 700)
+        // Grows with the title and facts at the largest Text Sizes.
+        .frame(minHeight: 700)
     }
 
     @ViewBuilder
@@ -139,16 +141,19 @@ struct SeriesDetailView: View {
     private var heroText: some View {
         VStack(alignment: .leading, spacing: 16) {
             Text("SERIES")
-                .font(.system(size: 15, weight: .bold))
+                .scaledFont(15, weight: .bold)
                 .tracking(2.2)
                 .foregroundStyle(store.accentColor(forCategory: "tv-series"))
             Text(series?.title ?? seriesCard.title)
-                .font(.system(size: 64, weight: .heavy, design: .serif))
+                .scaledFont(64, weight: .heavy, design: .serif)
                 .foregroundStyle(.white)
                 .lineLimit(2)
                 .minimumScaleFactor(0.55)
                 .shadow(color: .black.opacity(0.6), radius: 12, y: 4)
-            HStack(spacing: 18) {
+            let factsLayout = typeSize.isAccessibilitySize
+                ? AnyLayout(VStackLayout(alignment: .leading, spacing: 8))
+                : AnyLayout(HStackLayout(spacing: 18))
+            factsLayout {
                 if let range = yearRangeLabel {
                     Text(range)
                 }
@@ -162,7 +167,7 @@ struct SeriesDetailView: View {
                     Text("Aired on \(net)")
                 }
             }
-            .font(.system(size: 22, weight: .regular))
+            .scaledFont(22, weight: .regular)
             .foregroundStyle(.white.opacity(0.85))
             // #3: overview + cast moved OUT of the hero (they used to overlay the
             // poster); only the title/metadata + actions sit on the artwork now.
@@ -285,7 +290,7 @@ struct SeriesDetailView: View {
         VStack(alignment: .leading, spacing: 22) {
             if let overview = series?.overview ?? seriesCard.synopsis, !overview.isEmpty {
                 ReadableTextBlock(text: overview, collapsedLines: 4, title: seriesCard.title)
-                    .font(.system(size: 29, weight: .regular))
+                    .scaledFont(TVType.body, weight: .regular)
                     .frame(maxWidth: 1100, alignment: .leading)
             }
             castRow
@@ -387,7 +392,7 @@ struct SeriesDetailView: View {
                 Image(systemName: "arrow.triangle.2.circlepath")
                 Text("\(have) of \(total) episodes available — more are added as they surface in the archive.")
             }
-            .font(.system(size: 18, weight: .medium))
+            .scaledFont(18, weight: .medium)
             .foregroundStyle(.white.opacity(0.45))
             .padding(.horizontal, 80)
             .padding(.top, 28)
@@ -491,19 +496,19 @@ struct EpisodeCard: View {
             VStack(alignment: .leading, spacing: 6) {
                 if let num = episode.numberLabel {
                     Text(num)
-                        .font(.system(size: 15, weight: .bold))
+                        .scaledFont(15, weight: .bold)
                         .tracking(1.6)
                         .foregroundStyle(.white.opacity(0.55))
                 }
                 Text(episode.title)
-                    .font(.system(size: 29, weight: .semibold))
+                    .scaledFont(TVType.body, weight: .semibold)
                     .foregroundStyle(.white)
                     .lineLimit(2)
                     .multilineTextAlignment(.leading)
                     .fixedSize(horizontal: false, vertical: true)
                 if let overview = episode.overview, !overview.isEmpty {
                     Text(overview)
-                        .font(.system(size: 23))
+                        .scaledFont(TVType.meta)
                         .foregroundStyle(.white.opacity(0.6))
                         .lineLimit(3)
                         .multilineTextAlignment(.leading)

@@ -244,7 +244,7 @@ Rules:
 - Avoid Ultralight/Thin — they shimmer at distance.
 - Line-height 1.1–1.25×, never tighter than 1.05×.
 - Serif is acceptable as display type (Archive Watch's editorial flavor) but **body must stay sans at 29 pt**.
-- **Dynamic Type does NOT apply on tvOS.** Bold Text is honored automatically when using system tokens.
+- **Dynamic Type arrived on tvOS in 27** (Settings > Accessibility > Text Size; WWDC26 session 221). Fixed `.system(size:)` never scales; use `.scaledFont` (tvOS-DESIGN §4.1a). Bold Text is honored automatically when using system tokens.
 
 ### 4.2 Reading text on hero art
 

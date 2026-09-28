@@ -30,6 +30,7 @@ struct DetailView: View {
     @Environment(Router.self) private var router
     @Environment(\.modelContext) private var modelContext
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    @Environment(\.dynamicTypeSize) private var typeSize
     @Query private var favorites: [Favorite]
     @Query(sort: \WatchProgress.lastWatchedAt, order: .reverse) private var allProgress: [WatchProgress]
     @State private var isPlaying = false
@@ -155,6 +156,7 @@ struct DetailView: View {
             backdrop
                 .frame(height: 820)
                 .clipped()
+                .frame(maxHeight: .infinity, alignment: .top)
 
             LinearGradient(
                 colors: [
@@ -167,6 +169,7 @@ struct DetailView: View {
                 startPoint: .top, endPoint: .bottom
             )
             .frame(height: 820)
+            .frame(maxHeight: .infinity, alignment: .top)
             .allowsHitTesting(false)
 
             heroInfoOverlay
@@ -174,18 +177,20 @@ struct DetailView: View {
                 .padding(.trailing, 80)
                 .padding(.bottom, 84)
         }
-        .frame(height: 820)
+        // At least the backdrop's height; at the largest Text Sizes the title,
+        // facts and actions outgrow it and the hero grows downward with them.
+        .frame(minHeight: 820)
     }
 
     private var heroInfoOverlay: some View {
         VStack(alignment: .leading, spacing: 20) {
             Text(categoryLabel.uppercased())
-                .font(.system(size: 14, weight: .bold))
+                .scaledFont(14, weight: .bold)
                 .tracking(2.5)
                 .foregroundStyle(accent)
 
             Text(item.title)
-                .font(.system(size: 76, weight: .heavy, design: .serif))
+                .scaledFont(TVType.display, weight: .heavy, design: .serif)
                 .foregroundStyle(.white)
                 .lineLimit(2)
                 .minimumScaleFactor(0.6)
@@ -196,14 +201,19 @@ struct DetailView: View {
             // synopsis under it opens with another name for the same film.
             if let aka = item.alsoKnownAs {
                 Text("Also known as \(aka)")
-                    .font(.system(size: 26, weight: .regular, design: .serif))
+                    .scaledFont(26, weight: .regular, design: .serif)
                     .italic()
                     .foregroundStyle(.white.opacity(0.75))
                     .lineLimit(1)
                     .shadow(color: .black.opacity(0.5), radius: 8, y: 2)
             }
 
-            HStack(spacing: 18) {
+            // At the accessibility Text Sizes one line of facts is wider than
+            // the screen, so they stack instead of running off its edge.
+            let factsLayout = typeSize.isAccessibilitySize
+                ? AnyLayout(VStackLayout(alignment: .leading, spacing: 8))
+                : AnyLayout(HStackLayout(spacing: 18))
+            factsLayout {
                 if let rating = item.imdbRatingDisplay {
                     HStack(spacing: 7) {
                         Image(systemName: "star.fill")
@@ -219,7 +229,7 @@ struct DetailView: View {
                 }
                 if let rated = item.contentRating {
                     Text(rated)
-                        .font(.system(size: 21, weight: .semibold))
+                        .scaledFont(21, weight: .semibold)
                         .padding(.horizontal, 10)
                         .padding(.vertical, 3)
                         .overlay(RoundedRectangle(cornerRadius: 5)
@@ -235,27 +245,34 @@ struct DetailView: View {
             // broke "Directed by / Howard Hawks" across two ragged lines.
             .lineLimit(1)
             .fixedSize(horizontal: true, vertical: false)
-            .font(.system(size: 29, weight: .regular))
+            .scaledFont(TVType.body, weight: .regular)
             .foregroundStyle(.white.opacity(0.85))
 
             if let byline = item.byline {
                 Text(byline)
-                    .font(.system(size: 29, weight: .regular))
+                    .scaledFont(TVType.body, weight: .regular)
                     .foregroundStyle(.white.opacity(0.85))
                     .fixedSize(horizontal: false, vertical: true)
             }
 
-            HStack(spacing: 20) {
+            // At the accessibility Text Sizes Play's label alone can fill the
+            // row, so the circles move to a line of their own beneath it.
+            let actionsLayout = typeSize.isAccessibilitySize
+                ? AnyLayout(VStackLayout(alignment: .leading, spacing: 20))
+                : AnyLayout(HStackLayout(spacing: 20))
+            actionsLayout {
                 // Play outranks the icon buttons when the row is tight: they are
                 // fixed-size circles, it is the one carrying text.
                 playButton.layoutPriority(1)
-                favoriteButton
-                watchedButton
-                shareButton
-                playlistButton
-                // In a Watch Together room the HOST chooses the copy.
-                if !StudioRoomCopy.isActive(for: item.archiveID) { versionsButton }
-                if SubtitleFinder.shouldOffer(for: item) { subtitlesButton }
+                HStack(spacing: 20) {
+                    favoriteButton
+                    watchedButton
+                    shareButton
+                    playlistButton
+                    // In a Watch Together room the HOST chooses the copy.
+                    if !StudioRoomCopy.isActive(for: item.archiveID) { versionsButton }
+                    if SubtitleFinder.shouldOffer(for: item) { subtitlesButton }
+                }
             }
             .padding(.top, 8)
             // Dedicated focus section for the action row so up-arrow
@@ -267,7 +284,7 @@ struct DetailView: View {
             // line is always laid out, so moving along the row never shifts
             // the page.
             Text(actionName ?? " ")
-                .font(.system(size: 23, weight: .semibold))
+                .scaledFont(TVType.meta, weight: .semibold)
                 .foregroundStyle(.white.opacity(0.8))
                 .accessibilityHidden(true)
         }
@@ -448,7 +465,7 @@ struct DetailView: View {
         VStack(alignment: .leading, spacing: 20) {
             if let tagline = item.tagline, !tagline.isEmpty {
                 Text(tagline)
-                    .font(.system(size: 26, weight: .regular, design: .serif))
+                    .scaledFont(26, weight: .regular, design: .serif)
                     .italic()
                     .foregroundStyle(.white.opacity(0.6))
                     .frame(maxWidth: 1100, alignment: .leading)
@@ -464,11 +481,11 @@ struct DetailView: View {
                 // right over the description"). A synopsis the clamp cuts opens
                 // whole on its own page.
                 ReadableTextBlock(text: synopsis, collapsedLines: 6, title: item.title)
-                    .font(.system(size: 29, weight: .regular))
+                    .scaledFont(TVType.body, weight: .regular)
                     .frame(maxWidth: 1100, alignment: .leading)
                 if let prov = item.synopsisProvenance {
                     Text(prov)
-                        .font(.system(size: 23, weight: .medium))
+                        .scaledFont(TVType.meta, weight: .medium)
                         .foregroundStyle(.secondary)
                         .frame(maxWidth: 1100, alignment: .leading)
                 }
@@ -514,7 +531,7 @@ struct DetailView: View {
 
             if let series = item.seriesName, series != item.title {
                 Text(series)
-                    .font(.system(size: 23, weight: .regular))
+                    .scaledFont(TVType.meta, weight: .regular)
                     .foregroundStyle(.white.opacity(0.6))
             }
 
@@ -525,7 +542,7 @@ struct DetailView: View {
             }
 
             Text(sourceBadge)
-                .font(.system(size: 19, weight: .medium))
+                .scaledFont(19, weight: .medium)
                 .tracking(1)
                 .foregroundStyle(.white.opacity(0.35))
                 .padding(.top, 6)
@@ -540,10 +557,10 @@ struct DetailView: View {
                 ForEach(rows, id: \.0) { row in
                     HStack(alignment: .firstTextBaseline, spacing: 10) {
                         Text(row.0)
-                            .font(.system(size: 22, weight: .semibold))
+                            .scaledFont(22, weight: .semibold)
                             .foregroundStyle(.white.opacity(0.5))
                         Text(row.1)
-                            .font(.system(size: 22, weight: .regular))
+                            .scaledFont(22, weight: .regular)
                             .foregroundStyle(.white.opacity(0.8))
                     }
                 }
@@ -572,7 +589,7 @@ struct DetailView: View {
         if !scenes.isEmpty {
             VStack(alignment: .leading, spacing: 20) {
                 Text("Scenes")
-                    .font(.system(size: 38, weight: .semibold))
+                    .scaledFont(TVType.heading, weight: .semibold)
                     .foregroundStyle(.white)
                     .padding(.horizontal, 80)
                 ScrollView(.horizontal, showsIndicators: false) {
@@ -621,7 +638,7 @@ struct DetailView: View {
         if !related.isEmpty {
             VStack(alignment: .leading, spacing: 20) {
                 Text("More Like This")
-                    .font(.system(size: 38, weight: .semibold))
+                    .scaledFont(TVType.heading, weight: .semibold)
                     .foregroundStyle(.white)
                     .padding(.horizontal, 80)
                 ScrollView(.horizontal, showsIndicators: false) {
@@ -2443,10 +2460,10 @@ struct PlayerScreen: View {
                 .font(.system(size: 64))
                 .foregroundStyle(.yellow)
             Text("Can't play this title")
-                .font(.system(size: 38, weight: .bold))
+                .scaledFont(TVType.heading, weight: .bold)
                 .foregroundStyle(.white)
             Text(message)
-                .font(.system(size: 24))
+                .scaledFont(24)
                 .foregroundStyle(.white.opacity(0.7))
                 .multilineTextAlignment(.center)
                 .frame(maxWidth: 900)
@@ -2458,13 +2475,13 @@ struct PlayerScreen: View {
                     setupPlayer()
                 } label: {
                     Label("Try Again", systemImage: "arrow.clockwise")
-                        .font(.system(size: 24, weight: .semibold))
+                        .scaledFont(24, weight: .semibold)
                         .padding(.horizontal, 28).padding(.vertical, 12)
                 }
                 .buttonStyle(.borderedProminent)
                 Button { dismiss() } label: {
                     Text("Back")
-                        .font(.system(size: 24, weight: .semibold))
+                        .scaledFont(24, weight: .semibold)
                         .padding(.horizontal, 28).padding(.vertical, 12)
                 }
                 .buttonStyle(BarButtonStyle())
@@ -2963,6 +2980,8 @@ struct PersonChip: View {   // reused by SeriesDetailView's cast row
 
     private let chipWidth: CGFloat = 200
     private let avatar: CGFloat = 150
+    /// Two lines of name and two of role, at whatever Text Size is chosen.
+    @ScaledMetric(relativeTo: .caption2) private var chipTextHeight: CGFloat = 92
 
     var body: some View {
         // #7: only the avatar is the focusable .card button (so focus scaling
@@ -2990,14 +3009,14 @@ struct PersonChip: View {   // reused by SeriesDetailView's cast row
 
             VStack(spacing: 4) {
                 Text(name)
-                    .font(.system(size: 20, weight: .semibold))
+                    .scaledFont(20, weight: .semibold)
                     .foregroundStyle(.white)
                     .lineLimit(2)
                     .multilineTextAlignment(.center)
                     .minimumScaleFactor(0.7)
                 if let role, !role.isEmpty {
                     Text(role)
-                        .font(.system(size: 16, weight: .regular))
+                        .scaledFont(16, weight: .regular)
                         .foregroundStyle(.white.opacity(0.55))
                         .lineLimit(2)
                         .multilineTextAlignment(.center)
@@ -3006,7 +3025,7 @@ struct PersonChip: View {   // reused by SeriesDetailView's cast row
             }
             // Reserve room for 2-line name + 2-line role, top-aligned — uniform
             // chips, no clipping, no overlap with neighbors.
-            .frame(width: chipWidth, height: 92, alignment: .top)
+            .frame(width: chipWidth, height: chipTextHeight, alignment: .top)
             .opacity(isFocused ? 1.0 : 0.8)
             .animation(Motion.focus, value: isFocused)
         }
@@ -3077,7 +3096,7 @@ struct ShareSheet: View {   // reused by SeriesDetailView (series + episodes)
         VStack(spacing: 28) {
             Text(reporting ? "Something wrong with \u{201C}\(title)\u{201D}?"
                            : "Share \u{201C}\(title)\u{201D}")
-                .font(.system(size: 38, weight: .bold))
+                .scaledFont(TVType.heading, weight: .bold)
                 .foregroundStyle(.white)
                 .multilineTextAlignment(.center)
                 .lineLimit(2)
@@ -3089,7 +3108,7 @@ struct ShareSheet: View {   // reused by SeriesDetailView (series + episodes)
 
             VStack(spacing: 6) {
                 Text(reporting ? "Scan to tell us on your phone" : "Scan to watch on archivewatch.org")
-                    .font(.system(size: 22))
+                    .scaledFont(22)
                     .foregroundStyle(.white.opacity(0.6))
                 if !reporting { Text(webURL)
                     .font(.system(.title3, design: .monospaced).weight(.semibold))
@@ -3167,7 +3186,7 @@ struct ReadableTextBlock: View {
                     }
                 if truncated {
                     Text("More")
-                        .font(.system(size: 23, weight: .bold))
+                        .scaledFont(TVType.meta, weight: .bold)
                         .foregroundStyle(.white.opacity(0.7))
                 }
             }
@@ -3214,12 +3233,12 @@ struct FullTextReader: View {
             VStack(alignment: .leading, spacing: 28) {
                 if let title {
                     Text(title)
-                        .font(.system(size: 57, weight: .bold, design: .serif))
+                        .scaledFont(TVType.title, weight: .bold, design: .serif)
                         .fixedSize(horizontal: false, vertical: true)
                 }
                 ForEach(Array(chunks.enumerated()), id: \.offset) { _, chunk in
                     ReadableTextBlock(text: chunk, collapsedLines: nil, dimmed: 0.9)
-                        .font(.system(size: 29, weight: .regular))
+                        .scaledFont(TVType.body, weight: .regular)
                         .fixedSize(horizontal: false, vertical: true)
                 }
             }

@@ -155,6 +155,18 @@ active, with a visible exit + Back (§9). Channels, Cartoon, Party, Screensaver.
 (76/57/38/29/23). Body floor 29pt; never below 23pt. A seventh level is refused —
 refactor (CLAUDE.md density rule). Use the playbook's tokens, never hardcode.
 
+4.1a **Reading surfaces follow Text Size** (tvOS 27 Dynamic Type, 2026-09-28).
+Detail, the series page, the full-text page, Subtitles, Choose Version and the
+playlist sheets set type through `.scaledFont(_:weight:design:)`
+(`Components/TVType.swift`): the default Text Size renders exactly the ramp, and
+every other size scales it with the ramp level the size belongs to. Tokens:
+`TVType.display` 76 · `.title` 57 · `.heading` 38 · `.body` 29 · `.meta` 23. Never
+a fixed `.system(size:)` beside a semantic font on these surfaces — at large sizes
+the two read as different apps. What would run off the screen stacks instead
+(`isAccessibilitySize` + `AnyLayout`: the facts row, and Detail's icon circles
+under Play); a hero grows downward from its backdrop's height. Shelves, tiles,
+Home and Channels are the next pass.
+
 4.2 **No synopsis at 10 ft on transient surfaces** (hero, shelf, channel banner).
 Synopsis lives on Detail and the player info overlay only.
 

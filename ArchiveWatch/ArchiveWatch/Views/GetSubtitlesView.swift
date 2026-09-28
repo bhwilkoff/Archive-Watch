@@ -147,7 +147,7 @@ struct GetSubtitlesView: View {
     private var header: some View {
         VStack(alignment: .leading, spacing: 6) {
             #if os(tvOS)
-            Text("Subtitles").font(.system(size: 44, weight: .bold))
+            Text("Subtitles").scaledFont(44, weight: .bold)
             #else
             Text("Subtitles").font(.title2.weight(.semibold))
             #endif

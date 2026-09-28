@@ -25,11 +25,11 @@ struct VersionPickerView: View {
         VStack(alignment: .leading, spacing: 28) {
             VStack(alignment: .leading, spacing: 8) {
                 Text("Choose Version")
-                    .font(.system(size: 46, weight: .bold))
+                    .scaledFont(46, weight: .bold)
                 Text("This film exists on the Internet Archive in more than one "
                      + "transfer. Pick the one that plays best for you — it will "
                      + "be remembered for this title on this device.")
-                    .font(.system(size: 24))
+                    .scaledFont(24)
                     .foregroundStyle(.white.opacity(0.65))
                     .frame(maxWidth: 900, alignment: .leading)
             }
@@ -42,7 +42,7 @@ struct VersionPickerView: View {
                 // "there is only one copy" and should not be dressed up as it.
                 Text("Couldn't reach the Internet Archive for this title's file "
                      + "list. The film still plays — try again in a moment.")
-                    .font(.system(size: 24))
+                    .scaledFont(24)
                     .foregroundStyle(.white.opacity(0.65))
                     .frame(maxWidth: 900, alignment: .leading)
                     .padding(.vertical, 20)
@@ -79,11 +79,11 @@ struct VersionPickerView: View {
                 .foregroundStyle(chosen == version.choiceKey ? .white : .white.opacity(0.35))
             VStack(alignment: .leading, spacing: 4) {
                 Text(version.label)
-                    .font(.system(size: 26, weight: .medium))
+                    .scaledFont(26, weight: .medium)
                     .foregroundStyle(.white)
                 if !version.isOtherUpload, version.name == pipelineChoiceName {
                     Text("Currently playing by default")
-                        .font(.system(size: 20))
+                        .scaledFont(20)
                         .foregroundStyle(.white.opacity(0.5))
                 }
             }

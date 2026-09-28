@@ -21,13 +21,13 @@ struct AddToPlaylistSheet: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 36) {
                 Text("Add to Playlist")
-                    .font(.system(size: 48, weight: .heavy, design: .serif))
+                    .scaledFont(48, weight: .heavy, design: .serif)
                     .foregroundStyle(.white)
 
                 // New playlist: full-width field, then a full-width primary action
                 // (stacked, so it never collides with the field and stays uniform).
                 VStack(alignment: .leading, spacing: 12) {
-                    Text("New Playlist").font(.system(size: 24, weight: .bold))
+                    Text("New Playlist").scaledFont(24, weight: .bold)
                         .foregroundStyle(.white.opacity(0.85))
                     TextField("Name", text: $newName)
                         .textFieldStyle(.plain)
@@ -47,7 +47,7 @@ struct AddToPlaylistSheet: View {
                 }
 
                 if !playlists.isEmpty {
-                    Text("Your Playlists").font(.system(size: 24, weight: .bold))
+                    Text("Your Playlists").scaledFont(24, weight: .bold)
                         .foregroundStyle(.white.opacity(0.85))
                         .padding(.top, 8)
                     LazyVStack(spacing: 14) {
@@ -105,11 +105,11 @@ private struct PlaylistPickRow: View {
                 Image(systemName: isOn ? "checkmark.circle.fill" : "circle")
                     .font(.system(size: 30))
                     .foregroundStyle(isOn ? (Color(hex: "#FF5C35") ?? .orange) : .white.opacity(0.5))
-                Text(name).font(.system(size: 24, weight: .semibold))
+                Text(name).scaledFont(24, weight: .semibold)
                     .foregroundStyle(.white).lineLimit(1)
                 Spacer()
                 Text("\(count) \(count == 1 ? "title" : "titles")")
-                    .font(.system(size: 20)).foregroundStyle(.white.opacity(0.5))
+                    .scaledFont(20).foregroundStyle(.white.opacity(0.5))
             }
             .padding(.horizontal, 28).padding(.vertical, 20)
             .frame(maxWidth: .infinity, alignment: .leading)
@@ -147,12 +147,12 @@ struct PlaylistDetailView: View {
             VStack(alignment: .leading, spacing: 24) {
                 HStack(spacing: 24) {
                     Text(playlist?.name ?? "Playlist")
-                        .font(.system(size: 48, weight: .heavy, design: .serif))
+                        .scaledFont(48, weight: .heavy, design: .serif)
                         .foregroundStyle(.white)
                     if !items.isEmpty {
                         Button { playing = items } label: {
                             Label("Play All", systemImage: "play.fill")
-                                .font(.system(size: 22, weight: .semibold))
+                                .scaledFont(22, weight: .semibold)
                                 .padding(.horizontal, 24).padding(.vertical, 12)
                         }
                         .buttonStyle(.borderedProminent)
@@ -168,7 +168,7 @@ struct PlaylistDetailView: View {
                                                        archiveIDs: pl.archiveIDs) {
                             Button { shareURL = url.absoluteString } label: {
                                 Label("Share", systemImage: "qrcode")
-                                    .font(.system(size: 22, weight: .semibold))
+                                    .scaledFont(22, weight: .semibold)
                                     .padding(.horizontal, 24).padding(.vertical, 12)
                             }
                             .buttonStyle(.bordered)
