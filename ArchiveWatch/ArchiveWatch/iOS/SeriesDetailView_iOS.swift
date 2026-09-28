@@ -1,5 +1,6 @@
 #if os(iOS)
 import SwiftUI
+import SwiftData
 
 // A series card pushed from Browse → TV. The full episode list is lazy-loaded
 // from /series/{slug}.json via the shared SeriesStore (the card's archiveID IS
@@ -13,6 +14,9 @@ struct SeriesDetailView: View {
     let card: Catalog.Item
     @Environment(AppStore.self) private var store
     @Environment(Router.self) private var router
+    @Environment(\.modelContext) private var modelContext
+    @Query private var favorites: [Favorite]
+    @State private var upNext: SeriesUpNext?
 
     @State private var series: Series?
     @State private var loading = true
@@ -35,6 +39,28 @@ struct SeriesDetailView: View {
                     Text(series?.title ?? card.title).font(.title.bold())
                     if let meta = metaLine {
                         Text(meta).font(.subheadline).foregroundStyle(.secondary)
+                    }
+                    // One primary action that names the episode it plays, and
+                    // Favorite beside it — the tvOS series page's pair
+                    // (tvOS-DESIGN §3.4b; iOS-DESIGN §3.5d).
+                    if let upNext {
+                        HStack(spacing: 10) {
+                            Button { playingEpisode = upNext.episode } label: {
+                                Label(upNext.label, systemImage: "play.fill")
+                                    .font(.headline)
+                                    .frame(maxWidth: .infinity)
+                                    .padding(.vertical, 6)
+                            }
+                            .buttonStyle(.borderedProminent)
+                            .tint(Brand.primary)
+                            Button(action: toggleFavorite) {
+                                Label(isFavorited ? "Favorited" : "Favorite",
+                                      systemImage: isFavorited ? "heart.fill" : "heart")
+                                    .padding(.vertical, 6)
+                            }
+                            .buttonStyle(.bordered)
+                        }
+                        .frame(maxWidth: 480, alignment: .leading)
                     }
                     if let o = series?.overview ?? card.synopsis, !o.isEmpty {
                         let long = o.count > 240
@@ -81,6 +107,9 @@ struct SeriesDetailView: View {
         .fullScreenCover(item: $playingEpisode) { ep in
             EpisodePlayerContainer(start: ep, in: series).ignoresSafeArea()
         }
+        .onChange(of: playingEpisode) { _, now in
+            if now == nil { upNext = SeriesUpNext.compute(for: series, in: modelContext) }
+        }
         .sheet(item: $clippingEpisode) { ep in
             ClipStudioView(source: ep.clipSource)
         }
@@ -94,7 +123,19 @@ struct SeriesDetailView: View {
         let slug = card.seriesID ?? card.archiveID.replacingOccurrences(of: "series:", with: "")
         series = await SeriesStore.shared.load(seriesID: slug)
         loading = false
+        upNext = SeriesUpNext.compute(for: series, in: modelContext)
         if selectedSeason == nil { selectedSeason = series?.seasons.first?.seasonNumber }
+    }
+
+    private var isFavorited: Bool { favorites.contains { $0.archiveID == card.archiveID } }
+    private func toggleFavorite() {
+        if let f = favorites.first(where: { $0.archiveID == card.archiveID }) {
+            modelContext.delete(f)
+        } else {
+            modelContext.insert(Favorite(archiveID: card.archiveID))
+        }
+        try? modelContext.save()
+        SyncNudge.nudge(modelContext)
     }
 
     /// The series page on archivewatch.org (slugs can be non-ASCII — encode).

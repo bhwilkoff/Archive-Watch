@@ -400,7 +400,12 @@ extension View {
     /// collection, or a filtered grid identically (Home's category/decade tiles
     /// and Surprise's decade action push these from outside the Browse tab).
     func withItemDestination() -> some View {
-        navigationDestination(for: Catalog.Item.self) { DetailView(item: $0) }
+        // A series card is a series page wherever it was tapped (More Like
+        // This, Library, a deep link), not only where a caller remembered to
+        // wrap it in SeriesRef — the tvOS destination's rule.
+        navigationDestination(for: Catalog.Item.self) { item in
+            if item.contentType == "tv-series" { SeriesDetailView(card: item) } else { DetailView(item: item) }
+        }
             .navigationDestination(for: SeriesRef.self) { SeriesDetailView(card: $0.card) }
             .navigationDestination(for: CollectionRef.self) { CollectionGridView(ref: $0) }
             .navigationDestination(for: BrowseFilterRoute.self) { FilteredGridView(route: $0) }
