@@ -1333,6 +1333,18 @@
    "kind": "short-film",
    "mediaId": null,
    "reviewer": "big texas cheeseburger"
+  },
+  {
+   "at": "2026-09-28T01:37:13.240884+00:00",
+   "id": "silent-the-bomb-idea",
+   "title": "The Bomb Idea",
+   "slot": "now-showing",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mwk6hybkqs2g",
+   "format": "video",
+   "kind": "animation",
+   "mediaId": null,
+   "reviewer": null
   }
  ]
 }
