@@ -96,19 +96,21 @@ struct JoinRoomTV: View {
                                     .font(.system(size: 34, weight: .semibold, design: .monospaced))
                                     .frame(width: 84, height: 74)
                             }
-                            // NEVER `.plain` on tvOS — it destroys focusability
-                            // (CLAUDE.md). `.borderless` keeps the focus halo.
-                            .buttonStyle(.borderless)
+                            // NEVER `.plain` on tvOS (it destroys focusability).
+                            // `.bordered`, not `.borderless`: the borderless lift
+                            // was invisible on this background, so nothing on the
+                            // keypad showed where focus was (seen on Fireplace).
+                            .buttonStyle(.bordered)
                             .focused($focused, equals: String(ch))
                         }
                     }
                 }
                 HStack(spacing: 20) {
                     Button("Delete") { if !typed.isEmpty { typed.removeLast(); problem = nil } }
-                        .buttonStyle(.borderless)
+                        .buttonStyle(.bordered)
                         .disabled(typed.isEmpty)
                     Button("Cancel") { router.tab = .home }
-                        .buttonStyle(.borderless)
+                        .buttonStyle(.bordered)
                 }
                 .padding(.top, 6)
             }

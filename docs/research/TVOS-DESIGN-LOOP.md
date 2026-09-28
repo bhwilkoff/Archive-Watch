@@ -214,6 +214,14 @@ titles, alert bodies, the caption label's 4 lines).
   land backgrounded about one time in four, and remote presses then drive the
   tvOS home screen).
 
+- v1.42.856: **Join a Room showed no focus at all** (seen on Fireplace): the
+  keypad and Delete/Cancel used `.borderless`, whose lift is invisible on that
+  background, so a viewer could not tell which key they were on. Now
+  `.bordered`, the native platter (focused "9" lifts white). The page scrolls to
+  Delete/Cancel as focus moves (v1.42.840's ScrollView, now seen). **Detail at
+  accessibility5, seen on Fireplace**: facts stack, the icons take their own row
+  under Resume, the synopsis scales, nothing is cut (v1.42.846 proven).
+
 ## Queue
 
 1. Series page: the poster sits mid-hero (no rule covers series art yet)
