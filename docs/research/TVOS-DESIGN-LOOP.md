@@ -264,6 +264,13 @@ titles, alert bodies, the caption label's 4 lines).
   Big Parade's long synopsis with its own MORE and "From Beginning" — native,
   nothing cut.
 
+- v1.42.861: **Search ranking on Android and the web** too (PARITY "Search
+  ranking"; `tools/test_search_rank_parity.py` runs the ORDER BY Swift and
+  Kotlin ship and asserts they are one string; `tools/test_web_search_rank.mjs`).
+  Roku unchanged. Settings' transcription footer -> "Transcribed on this device;
+  nothing is uploaded. Automatic captions can be wrong." (Settings swept on
+  Fireplace otherwise uncut.)
+
 ## Queue
 
 1. Series page: the poster sits mid-hero (no rule covers series art yet)

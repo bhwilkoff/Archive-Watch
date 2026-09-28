@@ -181,7 +181,7 @@ struct AutoCaptionsSettingsSection: View {
                 // Trimmed to what a viewer cannot see (owner's essential-
                 // information rule, 2026-09-22): the second stream (data),
                 // nothing uploaded (privacy), and that a machine can be wrong.
-                Text("Transcribed on this device while you watch, from a second stream that runs ahead of playback. Nothing is uploaded. Automatic captions are labeled, and can be wrong.")
+                Text("Transcribed on this device; nothing is uploaded. Automatic captions can be wrong.")
             }
         }
     }
