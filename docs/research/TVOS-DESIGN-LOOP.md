@@ -222,6 +222,19 @@ titles, alert bodies, the caption label's 4 lines).
   accessibility5, seen on Fireplace**: facts stack, the icons take their own row
   under Resume, the synopsis scales, nothing is cut (v1.42.846 proven).
 
+- **Seen on Fireplace, no change needed**: the rights refusal alert for a film
+  that is not provably PD (His Girl Friday) wraps in full — title and both
+  paragraphs, nothing cut. Go Live (The General, 1926) opened with its left
+  column's warning readable; the broadcast-title field shows
+  "The General (1926) — a public domain…" on one line, which is the native
+  tvOS text field (Select opens the keyboard with the whole title).
+- **Owner item**: opening Go Live raises the system "Allow ArchiveWatch to
+  access your microphone?" prompt on Fireplace (asked on the sheet by design,
+  GoLiveTV `.task`). It is a privacy grant on the owner's TV, so it was NOT
+  answered; the test app was terminated by pid and the prompt left unanswered.
+  The Go Live right column and the first-broadcast alert therefore remain
+  unseen below it.
+
 ## Queue
 
 1. Series page: the poster sits mid-hero (no rule covers series art yet)
