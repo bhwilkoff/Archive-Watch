@@ -260,7 +260,13 @@ rule in IPAD-DESIGN.md before it ships (binding-design-doc discipline).
   SCRATCHPAD already names this as the one path not automatable; it stays a
   one-tap check for the owner. Nothing shipped; the test is removed.
 
-**Remaining (2026-09-28 13:47, updated 17:27):** code — Clip Studio Space (I/O done),
+- v1.42.893: **Clips rows are buttons** (audit #16): the row was a tap
+  gesture, so it answered neither the pointer nor the keyboard; now a button
+  with a highlight, captions on two lines, and a menu (Open Film, Share…,
+  Delete Clip) beside the existing swipe-to-delete. Seen on the iPad Pro;
+  `test_24` looks at the menu and chooses nothing (it holds Delete).
+
+**Remaining (2026-09-28 13:47, updated 17:29):** code — Clip Studio Space (I/O done),
 channel-surf ↑/↓ (three routes failed; control first),  Spotlight indexing (Open Film for Siri is built), the Studio's Record (the custom card is built; film-stall reason was already there); verify — picture-in-picture restore; research — a film window opening as a floating window; owner — none.
 
 ## Found, data (for the copyright/scrub work, not the iPad)

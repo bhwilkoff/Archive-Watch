@@ -321,4 +321,20 @@ final class IPadInputUITests: XCTestCase {
         snap("guide block menu")
         app.typeKey(XCUIKeyboardKey.escape, modifierFlags: [])
     }
+
+    /// §11.1: a clip row is a button with the film's actions. The menu is
+    /// only LOOKED at — it holds Delete Clip, and nothing is chosen.
+    func test_24_clipRowHasAMenu() {
+        launch(["AW_START_TAB": "clips"])
+        sleep(3)
+        let row = app.buttons.matching(NSPredicate(format: "label MATCHES '.*(GIF|MP4|VIDEO) · [0-9.]+s.*'")).firstMatch
+        guard row.waitForExistence(timeout: 10) else {
+            snap("clips"); return XCTFail("no clip row (no clips on this iPad?)")
+        }
+        row.press(forDuration: 1.2)
+        XCTAssertTrue(app.buttons.matching(NSPredicate(format: "label == 'Open Film'")).firstMatch
+            .waitForExistence(timeout: 5), "no menu on the clip row")
+        snap("clip menu")
+        app.typeKey(XCUIKeyboardKey.escape, modifierFlags: [])
+    }
 }

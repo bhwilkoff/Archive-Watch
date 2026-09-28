@@ -425,35 +425,58 @@ struct LibraryView: View {
                 ForEach(clips) { clip in
                     let fileURL = clip.renderFilename.map { ClipExporter.renderURL(filename: $0) }
                     let exists = fileURL.map { FileManager.default.fileExists(atPath: $0.path) } ?? false
+                    // A real button, not a tap gesture: it answers the
+                    // pointer and the keyboard (IPAD-DESIGN §11.1).
                     HStack {
-                        VStack(alignment: .leading, spacing: 2) {
-                            Text(clip.caption.isEmpty ? clip.sourceTitle : clip.caption)
-                                .font(.headline).lineLimit(1)
-                            Text("\(clip.format.uppercased()) · \(String(format: "%.1fs", clip.durationSeconds))"
-                                 + (exists ? "" : " · render cleared"))
-                                .font(.caption).foregroundStyle(.secondary)
+                        Button {
+                            if let item = store.item(clip.sourceArchiveID) { router.openDetail(item) }
+                        } label: {
+                            HStack {
+                                VStack(alignment: .leading, spacing: 2) {
+                                    Text(clip.caption.isEmpty ? clip.sourceTitle : clip.caption)
+                                        .font(.headline).lineLimit(2)
+                                    Text("\(clip.format.uppercased()) · \(String(format: "%.1fs", clip.durationSeconds))"
+                                         + (exists ? "" : " · render cleared"))
+                                        .font(.caption).foregroundStyle(.secondary)
+                                }
+                                Spacer(minLength: 0)
+                            }
+                            .contentShape(Rectangle())
                         }
-                        Spacer()
+                        .buttonStyle(.plain)
+                        .hoverEffect(.highlight)
                         if exists, let fileURL {
                             ShareLink(item: fileURL) { Image(systemName: "square.and.arrow.up") }
                                 .labelStyle(.iconOnly)
                         }
                     }
-                    .contentShape(Rectangle())
-                    .onTapGesture { if let item = store.item(clip.sourceArchiveID) { router.openDetail(item) } }
+                    .contextMenu {
+                        if let item = store.item(clip.sourceArchiveID) {
+                            Button { router.openDetail(item) } label: {
+                                Label("Open Film", systemImage: "film")
+                            }
+                        }
+                        if exists, let fileURL {
+                            ShareLink(item: fileURL) { Label("Share…", systemImage: "square.and.arrow.up") }
+                        }
+                        Button(role: .destructive) { delete(clip) } label: {
+                            Label("Delete Clip", systemImage: "trash")
+                        }
+                    }
                 }
                 .onDelete { offsets in
-                    for i in offsets {
-                        let clip = clips[i]
-                        if let f = clip.renderFilename {
-                            try? FileManager.default.removeItem(at: ClipExporter.renderURL(filename: f))
-                        }
-                        ctx.delete(clip)
-                    }
+                    for i in offsets { delete(clips[i]) }
                 }
             }
             .readableListWidth()
         }
+    }
+
+    private func delete(_ clip: VideoClip) {
+        if let f = clip.renderFilename {
+            try? FileManager.default.removeItem(at: ClipExporter.renderURL(filename: f))
+        }
+        ctx.delete(clip)
     }
 }
 
