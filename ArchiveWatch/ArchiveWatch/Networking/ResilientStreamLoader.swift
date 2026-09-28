@@ -446,6 +446,21 @@ final class ResilientStreamLoader: NSObject, AVAssetResourceLoaderDelegate, @unc
         tasks.removeValue(forKey: id)
     }
 
+    /// Stop every fetch this loader is running. AVFoundation cancels a loading
+    /// request when a PLAYER lets go of it, but an AVAssetReader that finishes
+    /// its window and is released does not reliably do so — and an open-ended
+    /// request ("to the end of the resource") then kept streaming the WHOLE film
+    /// in 8 MB chunks: 542 MB on one connection after an 11-second clip was
+    /// already cached (Mac loop 2026-09-27, read with nettop), which is also
+    /// what got this address refused by archive.org. A reader-driven caller
+    /// (the Creation Studio's clip cache) calls this when it is done.
+    func invalidate() {
+        queue.async {
+            for task in self.tasks.values { task.cancel() }
+            self.tasks.removeAll()
+        }
+    }
+
     // MARK: Request handling
 
     private func handle(_ request: AVAssetResourceLoadingRequest, id: ObjectIdentifier) async {
@@ -844,7 +859,7 @@ final class ResilientStreamLoader: NSObject, AVAssetResourceLoaderDelegate, @unc
             return
         }
 
-        while !request.isCancelled && !request.isFinished {
+        while !request.isCancelled && !request.isFinished && !Task.isCancelled {
             if let upperBound, offset >= upperBound { request.finishLoading(); return }
 
             let hi = upperBound.map { min(offset + chunkSize, $0) } ?? (offset + chunkSize)

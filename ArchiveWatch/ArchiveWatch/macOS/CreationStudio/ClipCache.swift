@@ -361,6 +361,7 @@ enum ClipCacheService {
     /// first keyframe, so the visible clip is clean. Validated on real archive.org H.264 derivatives.
     private static func copyWindow(sourceURL: URL, range: CMTimeRange, to out: URL) async throws {
         let (srcAsset, loader) = ResilientStreamLoader.makeAsset(for: sourceURL)
+        defer { loader?.invalidate() }   // the window is read; stop fetching the rest of the film
         guard let srcV = try await srcAsset.loadTracks(withMediaType: .video).first else {
             throw CreationStudioError.noVideoTrack
         }
@@ -447,6 +448,7 @@ enum ClipCacheService {
     /// local file (passthrough copy is unsafe from an arbitrary, mid-GOP window start).
     private static func reencodeWindow(sourceURL: URL, range: CMTimeRange, to out: URL) async throws {
         let (srcAsset, loader) = ResilientStreamLoader.makeAsset(for: sourceURL)
+        defer { loader?.invalidate() }   // the window is read; stop fetching the rest of the film
 
         guard let srcV = try await srcAsset.loadTracks(withMediaType: .video).first else {
             throw CreationStudioError.noVideoTrack

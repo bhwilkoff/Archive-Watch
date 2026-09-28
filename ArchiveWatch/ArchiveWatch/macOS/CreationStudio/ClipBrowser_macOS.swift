@@ -393,7 +393,10 @@ struct MarkClipView: View {
         }
         .task { await loadThumbnails() }
         .task { await loadVideo() }
-        .onDisappear { player.pause() }
+        .onDisappear {
+            player.pause()
+            loader?.invalidate()   // a closed sheet must not keep streaming its film
+        }
         .frame(width: 720, height: 740)
     }
 

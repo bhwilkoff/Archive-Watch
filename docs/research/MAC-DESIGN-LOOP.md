@@ -413,3 +413,22 @@ through Accessibility and its items pressed there (never pointer clicks).
   is reachable: count the app's connections to 207.241.224.0/24 (nettop -p)
   from launch to the first refusal, with the Home window alone first, then
   the editor — and only then decide whether anything should change.
+- v1.42.829: **the Creation Studio downloaded whole films.** Measured with
+  nettop (lsof is blind to this app's sockets — the instrument was checked
+  against curl first): an editor run whose two 11-second clips cached in
+  1.7 s and 3.9 s had, three minutes later, ONE connection to an archive.org
+  data node at 542 MB, service class VI (video). Home alone, same length:
+  78 KB and no archive.org video at all. Cause, from the code:
+  ResilientStreamLoader's chunk loop stops only when AVFoundation cancels
+  the loading request, and an AVAssetReader that finishes its window and is
+  released does not reliably cancel an open-ended request — so it streamed
+  to the end of the film, 8 MB at a time, for every clip ever cached. It is
+  also the likeliest reason archive.org refused this address within seconds
+  of every editor launch (the main host refused a probe 5 s after launch;
+  Home for 3 minutes never did). Fix: `ResilientStreamLoader.invalidate()`
+  cancels every fetch, the chunk loop also stops on its own task's
+  cancellation, and the clip cache (both paths) and the mark-in/out sheet
+  call it when done. Players are unchanged (nothing else calls it). Built
+  for macOS and iOS. NOT YET MEASURED: needs archive.org open — the check
+  is an editor run whose app total stops growing once "AWCS CACHE … reencode"
+  prints.
