@@ -27,6 +27,8 @@ struct DetailView: View {
     @State private var chosenVersionName: String?
     /// §3.5b: a long synopsis opens at four lines, with More.
     @State private var synopsisExpanded = false
+    @State private var synopsisShown: CGFloat = 0
+    @State private var synopsisFull: CGFloat = 0
     @Environment(\.dynamicTypeSize) private var dynamicTypeSize
     /// The action tiles grow with the text they carry.
     @ScaledMetric(relativeTo: .caption) private var tileHeight: CGFloat = 60
@@ -291,10 +293,19 @@ struct DetailView: View {
                     // Four lines, then More (§3.5b): the synopsis is the part
                     // everyone reads the start of and few read to the end, and
                     // at full length it pushed the cast off the first screen.
-                    let long = s.count > 240
+                    // Measured, not a character count: at the iPad's 700pt a
+                    // 240-character synopsis fits in four lines, and "More"
+                    // then offered nothing.
                     Text(s).font(.body).foregroundStyle(.primary.opacity(0.9))
-                        .lineLimit(long && !synopsisExpanded ? 4 : nil)
-                    if long {
+                        .lineLimit(synopsisExpanded ? nil : 4)
+                        .onGeometryChange(for: CGFloat.self) { $0.size.height } action: { synopsisShown = $0 }
+                        .background(alignment: .topLeading) {
+                            Text(s).font(.body)
+                                .fixedSize(horizontal: false, vertical: true)
+                                .hidden()
+                                .onGeometryChange(for: CGFloat.self) { $0.size.height } action: { synopsisFull = $0 }
+                        }
+                    if synopsisExpanded || synopsisFull > synopsisShown + 1 {
                         Button(synopsisExpanded ? "Less" : "More") {
                             withAnimation(.easeInOut(duration: 0.2)) { synopsisExpanded.toggle() }
                         }
@@ -345,6 +356,15 @@ struct DetailView: View {
                 relatedSection
     }
 
+    @ViewBuilder private var stackedHero: some View {
+        VStack(alignment: .leading, spacing: 16) {
+            DetailHero(poster: Self.upsized(item.posterURLParsed),
+                       backdrop: Self.upsized(item.backdropURLParsed))
+            VStack(alignment: .leading, spacing: 12) { identityBlock }
+                .padding(.horizontal)
+        }
+    }
+
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
@@ -353,24 +373,27 @@ struct DetailView: View {
                 // column when compact. One view, a size-class branch inside
                 // it (§6.2 forbids a second Detail).
                 if hSize == .regular {
-                    HStack(alignment: .top, spacing: 28) {
-                        DetailHero(poster: Self.upsized(item.posterURLParsed),
-                                   backdrop: Self.upsized(item.backdropURLParsed))
-                            .frame(width: 460)
-                        VStack(alignment: .leading, spacing: 12) {
-                            identityBlock
-                            DetailFacts(item: item)
-                                .padding(.top, 4)
+                    // Two columns only when the identity column keeps 360pt:
+                    // regular width alone is not enough — Stage Manager or an
+                    // 11-inch in portrait squeezed Play to ~150-350pt (§5.2).
+                    ViewThatFits(in: .horizontal) {
+                        HStack(alignment: .top, spacing: 28) {
+                            DetailHero(poster: Self.upsized(item.posterURLParsed),
+                                       backdrop: Self.upsized(item.backdropURLParsed))
+                                .frame(width: 460)
+                            VStack(alignment: .leading, spacing: 12) {
+                                identityBlock
+                                DetailFacts(item: item)
+                                    .padding(.top, 4)
+                            }
+                            .frame(minWidth: 360, maxWidth: 520, alignment: .leading)
+                            Spacer(minLength: 0)
                         }
-                        .frame(maxWidth: 520, alignment: .leading)
-                        Spacer(minLength: 0)
-                    }
-                    .padding(.horizontal)
-                } else {
-                    DetailHero(poster: Self.upsized(item.posterURLParsed),
-                               backdrop: Self.upsized(item.backdropURLParsed))
-                    VStack(alignment: .leading, spacing: 12) { identityBlock }
                         .padding(.horizontal)
+                        stackedHero
+                    }
+                } else {
+                    stackedHero
                 }
 
                 VStack(alignment: .leading, spacing: 12) { proseBlock }

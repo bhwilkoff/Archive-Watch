@@ -32,6 +32,15 @@ rule in IPAD-DESIGN.md before it ships (binding-design-doc discipline).
   the last quarter hour (a "3:0…" was cut at the edge; tvOS given the same
   guard). **Search's** empty state drops its explanation line.
 
+- v1.42.868: **Detail picks two columns by the width it has**, not by size
+  class alone (`ViewThatFits`, identity column at least 360pt): regular width
+  in Stage Manager or an 11-inch in portrait squeezed Play to ~150-350pt
+  (§5.2; code audit). Full-screen landscape still two columns (seen). **The
+  synopsis offers More only when four lines hide something** (measured, as on
+  tvOS): it offered More on any synopsis over 240 characters, which at the
+  iPad's 700pt fits whole — seen: His Girl Friday no More, The Big Parade More.
+  iPhone gets the same measured rule.
+
 ## Found, data (for the copyright/scrub work, not the iPad)
 
 - `SelfCons1951` "Self-Conscious Guy" (Coronet, 10 min) leads Home's hero with
