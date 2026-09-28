@@ -44,5 +44,19 @@ enum CreationStudioTest {
         model.playheadSeconds = 4
         model.toggleMarkerAtPlayhead()
     }
+
+    /// AW_CS_TEST=deadclip: one real clip and one whose source does not exist, so a
+    /// give-up happens while another clip HAS loaded — the case where a removal is
+    /// allowed — to see its notice and its undo (Mac loop, 2026-09-27).
+    static func populateWithDeadClip(_ model: EditorModel, _ store: AppStore) {
+        if let it = clippable(store), let url = it.videoURLParsed {
+            model.addClip(catalogItemID: it.archiveID, sourceURL: url, title: it.title,
+                          inSeconds: 30, durationSeconds: 8)
+        }
+        if let dead = URL(string: "https://archive.org/download/aw-no-such-item-0000/none.mp4") {
+            model.addClip(catalogItemID: "aw-no-such-item-0000", sourceURL: dead, title: "A clip that cannot load",
+                          inSeconds: 30, durationSeconds: 8)
+        }
+    }
 }
 #endif

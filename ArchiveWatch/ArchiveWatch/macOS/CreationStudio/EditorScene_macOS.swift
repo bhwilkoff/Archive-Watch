@@ -250,6 +250,8 @@ struct ProjectEditorView: View {
                 var t = 0; while store.randomPlayable() == nil && t < 90 { try? await Task.sleep(for: .seconds(1)); t += 1 }
                 if mode == "editor", model.project.timeline.clips.isEmpty {
                     CreationStudioTest.populate(model, store)
+                } else if mode == "deadclip", model.project.timeline.clips.isEmpty {
+                    CreationStudioTest.populateWithDeadClip(model, store)
                 } else if mode == "markclip" {
                     testMark = CreationStudioTest.clippable(store)   // presents the Add-Clip scrubber
                 } else if mode == "browser" {

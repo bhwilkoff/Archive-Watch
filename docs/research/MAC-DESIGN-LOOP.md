@@ -524,3 +524,10 @@ through Accessibility and its items pressed there (never pointer clicks).
   once the window is written (verified above). Whether the preview should
   refuse an HD derivative in favor of fetching a smaller window is a
   quality/bandwidth trade for the design doc, not a defect.
+- VERIFIED (new DEBUG door AW_CS_TEST=deadclip: one real clip, one whose
+  source does not exist): the dead clip was removed at +111 s — allowed,
+  because the other clip had loaded — and the preview said "Removed “A clip
+  that cannot load” — it could not be loaded. Undo puts it back."; Edit ›
+  Undo restored it (AX: "Clip 2 of 2, A clip that cannot load"). The
+  111 s is the editor's deliberate give-up ceiling for a source that never
+  converges; a 404 could be judged dead sooner, noted, not changed.
