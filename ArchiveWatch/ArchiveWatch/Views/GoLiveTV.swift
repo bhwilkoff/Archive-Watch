@@ -160,7 +160,7 @@ struct GoLiveTV: View {
     // column — there is nothing focusable on the left to get lost in.
     var body: some View {
         HStack(alignment: .top, spacing: 60) {
-            VStack(alignment: .leading, spacing: 32) {
+            VStack(alignment: .leading, spacing: 24) {
                 header
                 warning
                 // WHY Go live is greyed, in the reading column rather than the
@@ -320,17 +320,20 @@ struct GoLiveTV: View {
     }
 
     private var header: some View {
+        // Nothing on the left is focusable, so nothing here can scroll into
+        // view: every line is held at its full height, and the eyebrow that
+        // repeated the heading is gone to make the room.
         VStack(alignment: .leading, spacing: 10) {
-            Text("WATCH TOGETHER")
-                .font(.caption).fontWeight(.semibold).kerning(2)
-                .foregroundStyle(StudioSignInRow.signedInAccent)
             Text("Go live with the world")
                 .font(.system(size: 48, weight: .bold))
+                .fixedSize(horizontal: false, vertical: true)
             Text(film.title)
                 .font(.title2).fontWeight(.medium)
                 .foregroundStyle(.white)
+                .fixedSize(horizontal: false, vertical: true)
             if !meta.isEmpty {
                 Text(meta).font(.headline).foregroundStyle(.secondary)
+                    .fixedSize(horizontal: false, vertical: true)
             }
         }
     }
@@ -469,10 +472,13 @@ struct GoLiveTV: View {
             Button {
                 showCameraPicker = true
             } label: {
+                // The phone's name is in the caption below, not the label: a
+                // device name has no length limit and a button has one line.
                 Label(cameraPaired
-                      ? "\(pairedName ?? "iPhone") is ready — choose a different phone"
+                      ? "Choose a different phone"
                       : "Use an iPhone as camera and microphone",
                       systemImage: cameraPaired ? "checkmark.circle.fill" : "iphone")
+                    .fixedSize(horizontal: false, vertical: true)
                     .padding(.horizontal, 12)
             }
             .focused($focus, equals: .camera)
@@ -483,12 +489,13 @@ struct GoLiveTV: View {
             // rather than discovered on the stream.
             Text(cameraPaired
                  // Not "in the corner": that is one layout of several.
-                 ? "Hold your phone on its side — the camera tile is landscape."
+                 ? "\(pairedName ?? "Your iPhone") is ready. Hold it on its side — the camera tile is landscape."
                  // A refusal, not an option (owner, 2026-09-24): the film
                  // alone is on archive.org already, so a broadcast without
                  // the host adds nothing. The phone is the camera AND mic.
                  : "Going live needs you in the show — pair an iPhone as your camera and microphone.")
                 .font(.caption).foregroundStyle(.secondary)
+                .fixedSize(horizontal: false, vertical: true)
         }
         // THE SAME TREATMENT AS EVERY OTHER FOCUSABLE GROUP HERE, and the first
         // version had neither half. Owner, 2026-09-18: "the design of the go
@@ -539,15 +546,19 @@ struct GoLiveTV: View {
                     }
                 }
             }
-            Text("A camera is needed for all but the first. Pair one above.")
-                .font(.footnote)
-                .foregroundStyle(.secondary)
         }
         .focusSection()
     }
 
     private var actions: some View {
         VStack(alignment: .leading, spacing: 16) {
+            // A REFUSAL, kept: why Go live is not available yet. Above the
+            // buttons, because text below the last focusable row is never
+            // scrolled into view.
+            if !signedIn {
+                Text("Sign in above to go live.")
+                    .font(.caption).foregroundStyle(.secondary)
+            }
             HStack(spacing: 24) {
                 Button {
                     onGoLive(request())
@@ -564,11 +575,6 @@ struct GoLiveTV: View {
 
                 Button("Not now", role: .cancel) { onCancel() }
                     .focused($focus, equals: .cancel)
-            }
-            // A REFUSAL, kept: why Go live is not available yet.
-            if !signedIn {
-                Text("Sign in above to go live.")
-                    .font(.caption).foregroundStyle(.secondary)
             }
         }
         .focusSection()

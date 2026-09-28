@@ -118,10 +118,10 @@ struct StudioMixerTV: View {
     private func clamp(_ l: Double) -> Double { min(MixLevel.maximum, max(0, l)) }
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 30) {
-            Text("WATCH TOGETHER")
-                .font(.system(size: 26, weight: .semibold))
-                .foregroundStyle(accent)
+        // No ScrollView: the arrow keys belong to `.onMoveCommand`, so this
+        // screen must fit as it stands. Every sentence holds its full height;
+        // the eyebrow that repeated the title made the room.
+        VStack(alignment: .leading, spacing: 26) {
             Text("Live mixer")
                 .font(.system(size: 58, weight: .bold))
 
@@ -144,10 +144,12 @@ struct StudioMixerTV: View {
                  + "pauses the film without ending the broadcast · Menu to go back")
                 .font(.system(size: 26))
                 .foregroundStyle(.white.opacity(0.7))
+                .fixedSize(horizontal: false, vertical: true)
                 .frame(maxWidth: 1200, alignment: .leading)
             Text("8 is the level the source already has.")
                 .font(.system(size: 26))
                 .foregroundStyle(.white.opacity(0.55))
+                .fixedSize(horizontal: false, vertical: true)
                 .frame(maxWidth: 1200, alignment: .leading)
 
             if filmPaused {
@@ -155,9 +157,11 @@ struct StudioMixerTV: View {
                       systemImage: "pause.circle")
                     .font(.system(size: 28, weight: .medium))
                     .foregroundStyle(.white.opacity(0.9))
+                    .fixedSize(horizontal: false, vertical: true)
             }
         }
-        .padding(72)
+        .padding(.horizontal, 72)
+        .padding(.vertical, 56)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
         .background(.black.opacity(0.92))
         .onAppear { dial.start() }

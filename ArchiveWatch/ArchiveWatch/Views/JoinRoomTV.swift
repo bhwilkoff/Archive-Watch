@@ -33,6 +33,11 @@ struct JoinRoomTV: View {
     }()
 
     var body: some View {
+        // Scrolls because the keypad and the text above it do not always fit:
+        // a screen with no ScrollView compresses its Text, and the sentence
+        // cut is the one a guest needs. Focus drives the scroll on tvOS, so
+        // the keypad keeps everything reachable.
+        ScrollView {
         VStack(spacing: 34) {
             VStack(spacing: 10) {
                 Text("Watch Together").font(.largeTitle.bold())
@@ -48,10 +53,12 @@ struct JoinRoomTV: View {
                 Text(WatchTogetherHere.summary)
                     .font(.title3).foregroundStyle(.secondary)
                     .multilineTextAlignment(.center)
+                    .fixedSize(horizontal: false, vertical: true)
                     .frame(maxWidth: 900)
                 Text("Enter the code your host reads out.")
                     .font(.title3).foregroundStyle(.secondary)
                     .multilineTextAlignment(.center)
+                    .fixedSize(horizontal: false, vertical: true)
                     .frame(maxWidth: 900)
             }
 
@@ -72,7 +79,9 @@ struct JoinRoomTV: View {
 
             if let problem {
                 Text(problem).font(.title3).foregroundStyle(.orange)
-                    .multilineTextAlignment(.center).frame(maxWidth: 900)
+                    .multilineTextAlignment(.center)
+                    .fixedSize(horizontal: false, vertical: true)
+                    .frame(maxWidth: 900)
             }
             if working { ProgressView().scaleEffect(1.4) }
 
@@ -104,7 +113,9 @@ struct JoinRoomTV: View {
                 .padding(.top, 6)
             }
         }
+        .frame(maxWidth: .infinity)
         .padding(60)
+        }
         .onAppear { focused = "0" }
     }
 
