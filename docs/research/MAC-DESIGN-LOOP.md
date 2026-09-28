@@ -560,3 +560,14 @@ through Accessibility and its items pressed there (never pointer clicks).
   done. Its interactive editor uses an AVPlayer, whose requests AVFoundation
   cancels on release, and is unchanged. Built for iOS and macOS; NOT
   measured on the iPhone (needs a device run with nettop's equivalent).
+- FINDING for the owner, not changed (playback, Decisions 021/031/077):
+  on the Mac, 15 s of playing The General (muted) took the app's total to
+  431 MB — ~230 Mbps, this link's full rate. Closing the player stops it
+  (flat for 30 s after Close Player, so no leak there). The player asks for
+  a 300 s forward buffer (PlayerWindow_macOS:424) and the loader serves an
+  open-ended request as fast as bytes arrive; whether 431 MB is "five
+  minutes of this copy" or the loader outrunning AVFoundation's buffer is
+  NOT yet known. To answer it: bytes vs. the copy's bitrate × 300 s over a
+  2-minute play, per flow (nettop). It matters for viewers on metered links
+  and for archive.org's per-address limit; the fix, if any, is a playback
+  decision.
