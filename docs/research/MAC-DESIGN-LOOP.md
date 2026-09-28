@@ -539,3 +539,9 @@ through Accessibility and its items pressed there (never pointer clicks).
   briefly showed no clip controls until the clip was selected again —
   the snapshot restore drops the inspector's selection; minor, noted.
   With this, every check this loop left open has been run.
+- v1.42.836: undo kept the edit and lost the selection — `applyHistory`
+  set `selection = .none`, so after undoing a fade or a Look the inspector
+  went empty with the clip still there. It now keeps the selection when
+  the element still exists and deselects only one the undo removed.
+  Verified through AX: nudge Fade out 1.0 → 2.2, Undo, and the inspector
+  (not reselected) reads 1.8.

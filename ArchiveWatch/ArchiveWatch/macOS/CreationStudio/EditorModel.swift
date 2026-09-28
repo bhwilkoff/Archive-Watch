@@ -953,7 +953,10 @@ final class EditorModel {
         let inverse = project                       // re-registers as redo
         undoManager?.registerUndo(withTarget: self) { editor in editor.applyHistory(inverse) }
         project = snapshot
-        selection = .none
+        // Keep what was selected when it still exists: clearing it always left
+        // the inspector empty after an undo of a fade or a Look, with the clip
+        // right there (Mac loop, 2026-09-27). Only a removed element deselects.
+        if let id = selection.id { select(kindOf(id)) } else { selection = .none }
         bumpOverlayRevision()    // overlays may have changed → refresh the live preview
         relayout(); scheduleRebuild()
     }
