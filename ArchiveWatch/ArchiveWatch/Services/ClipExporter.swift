@@ -223,7 +223,7 @@ actor ClipExporter {
     ///
     /// The returned loader (nil for local files) MUST be retained for the
     /// asset's whole lifetime — `AVURLAsset` holds its resource-loader delegate
-    /// weakly. Callers keep it alive with `defer { withExtendedLifetime(loader) {} }`.
+    /// weakly. Callers keep it alive with `defer { withExtendedLifetime(loader) {}; loader?.invalidate() }   // done: stop fetching the rest of the film (see ResilientStreamLoader.invalidate)`.
     nonisolated static func openSource(_ url: URL) -> (asset: AVURLAsset, loader: ResilientStreamLoader?) {
         if url.isFileURL { return (AVURLAsset(url: url), nil) }
         return ResilientStreamLoader.makeAsset(for: url)
@@ -268,7 +268,7 @@ actor ClipExporter {
     @MainActor private func applyGradeAndReframe(_ spec: ClipSpec,
                                       onProgress: @escaping @Sendable (Double) -> Void) async throws -> URL {
         let (asset, loader) = Self.openSource(spec.sourceURL)
-        defer { withExtendedLifetime(loader) {} }
+        defer { withExtendedLifetime(loader) {}; loader?.invalidate() }   // done: stop fetching the rest of the film (see ResilientStreamLoader.invalidate)
         guard let srcV = try await asset.loadTracks(withMediaType: .video).first else {
             throw ClipExportError.noVideoTrack
         }
@@ -344,7 +344,7 @@ actor ClipExporter {
     @MainActor private func renderComposition(_ spec: ClipSpec,
                                    onProgress: @escaping @Sendable (Double) -> Void) async throws -> URL {
         let (asset, loader) = Self.openSource(spec.sourceURL)
-        defer { withExtendedLifetime(loader) {} }
+        defer { withExtendedLifetime(loader) {}; loader?.invalidate() }   // done: stop fetching the rest of the film (see ResilientStreamLoader.invalidate)
         guard let srcV = try await asset.loadTracks(withMediaType: .video).first else {
             throw ClipExportError.noVideoTrack
         }
@@ -445,7 +445,7 @@ actor ClipExporter {
     func exportGIF(_ spec: ClipSpec,
                    onProgress: @escaping @Sendable (Double) -> Void) async throws -> URL {
         let (asset, loader) = Self.openSource(spec.sourceURL)
-        defer { withExtendedLifetime(loader) {} }
+        defer { withExtendedLifetime(loader) {}; loader?.invalidate() }   // done: stop fetching the rest of the film (see ResilientStreamLoader.invalidate)
         guard let srcV = try await asset.loadTracks(withMediaType: .video).first else {
             throw ClipExportError.noVideoTrack
         }
@@ -528,7 +528,7 @@ actor ClipExporter {
               recognizer.isAvailable else { throw ClipExportError.speechUnavailable }
 
         let (asset, loader) = Self.openSource(sourceURL)
-        defer { withExtendedLifetime(loader) {} }
+        defer { withExtendedLifetime(loader) {}; loader?.invalidate() }   // done: stop fetching the rest of the film (see ResilientStreamLoader.invalidate)
         guard let session = AVAssetExportSession(asset: asset, presetName: AVAssetExportPresetAppleM4A) else {
             throw ClipExportError.cannotCreateExportSession
         }

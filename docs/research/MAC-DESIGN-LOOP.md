@@ -552,3 +552,11 @@ through Accessibility and its items pressed there (never pointer clicks).
   Telling "the item is gone" (a 404 from the origin, no redirect) from "this
   node is bad" would speed the rare dead clip, and touches the loader every
   player uses; not worth the risk inside this loop.
+- v1.42.837: the same whole-film leak, on the iPhone. iOS Clip Studio's
+  exporter (`Services/ClipExporter.swift`) opens the remote film through
+  the same ResilientStreamLoader and let it go with only
+  `withExtendedLifetime` — the pattern that streamed 542 MB on the Mac.
+  All five of its read/export paths now also `invalidate()` the loader when
+  done. Its interactive editor uses an AVPlayer, whose requests AVFoundation
+  cancels on release, and is unchanged. Built for iOS and macOS; NOT
+  measured on the iPhone (needs a device run with nettop's equivalent).
