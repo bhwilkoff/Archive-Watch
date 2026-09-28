@@ -61,14 +61,11 @@ because the loop was stopped mid-stride for a Claude update.
    Sabrina because archive.org's does (keep or override: yours); the Roku
    one-clock guide needs the next store package (sideloaded and verified).
 
-0-NEW-2026-09-27-C. **PLAYBACK FETCHES ~45 MINUTES AHEAD IN ITS FIRST 15 SECONDS (owner call).**
-   Measured on the Mac with nettop (docs/research/MAC-DESIGN-LOOP.md): The
-   General's 1.3 Mbps copy took +429 MB in the first 15 s of play — ~9x the
-   player's own 300 s buffer target — then ~3 Mbps steady. Closing the
-   player stops it. The shared ResilientStreamLoader serves an open-ended
-   request at line rate; this is the playback path Decisions 021/031/077
-   tuned against stalls, so a cap is yours to weigh (metered links and
-   archive.org's per-address limit vs. stall resistance).
+0-DONE-2026-09-28-C. ~~Playback fetches ~45 min ahead~~ Owner: "however we can
+   optimize playback is to our benefit", then "keep direct, research a hybrid".
+   Decision 147: iOS + macOS play uncaptioned films through the PACED loopback
+   proxy (generated captions kept; segmented HLS loses them). OPEN, next:
+   the Mac's own caption engine reads ~3 min ahead at line rate (~580 MB).
 
 0-DONE-2026-09-28. ~~Which films may the Creation Studio publish?~~ Owner: all
    titles the apps show — fair use is the Creation Studio's rule (Decision 146).

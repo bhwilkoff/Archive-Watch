@@ -2626,6 +2626,26 @@ struct PlayerScreen: View {
         tunePlaybackBuffering(item: playerItem, player: p)
         p.isMuted = muted   // #3 party play (persists across lineup advances)
         player = p
+        #if DEBUG
+        if ProcessInfo.processInfo.environment["AW_PLAY_PATH"] != nil {
+            // Near-silent in someone's bedroom; audio still renders for the OS captions.
+            if ProcessInfo.processInfo.environment["AW_MUTE"] == "quiet" { p.volume = 0.001 }
+            Task { @MainActor in
+                let offered = await SystemCaptions.waitForLegibleOption(on: p, within: 30)
+                awdiag("AWPLAYER research legibleOption=%@", offered ? "yes" : "no")
+                if let at = ProcessInfo.processInfo.environment["AW_AUTOPLAY_AT"].flatMap(Double.init) {
+                    try? await Task.sleep(for: .seconds(3))
+                    await p.seek(to: CMTime(seconds: at, preferredTimescale: 600))
+                    awdiag("AWPLAYER research at=%.0f", p.currentTime().seconds)
+                }
+                if offered {
+                    let sel = await SystemCaptions.selectIfWanted(on: p)
+                    let text = await SystemCaptions.emitsCaptions(on: p, within: 90)
+                    awdiag("AWPLAYER research selected=%@ captionText=%@", sel ? "yes" : "no", text ? "yes" : "no")
+                }
+            }
+        }
+        #endif
         // SharePlay: only ever the MAIN player. The caption scout is a second,
         // muted player running ahead at 2x (Decisions 058/069/072) and would
         // drag the whole group to 2x if it were coordinated. Re-attaching on

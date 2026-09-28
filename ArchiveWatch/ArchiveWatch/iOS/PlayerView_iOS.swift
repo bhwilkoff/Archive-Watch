@@ -27,6 +27,9 @@ final class PaddedLabel: UILabel {
 struct PlayerView: UIViewControllerRepresentable {
     let archiveID: String
     let videoURL: URL?
+    /// The film's running time from the catalog: the loopback proxy paces its
+    /// delivery by the film's bitrate (size ÷ running time; `ProxyPace`).
+    var runtimeSeconds: Double? = nil
     let queue: PlaybackQueue?
     // Shown in the title+description overlay that fades with the transport
     // controls (AVPlayerViewController shows no title on iOS, so this overlay is
@@ -76,6 +79,7 @@ struct PlayerView: UIViewControllerRepresentable {
         startOffset = startAt
         self.onPlayerReady = onPlayerReady
         archiveID = item.archiveID
+        runtimeSeconds = item.runtimeSeconds.map { Double($0) }
         // Honour the viewer's chosen copy (ArchiveVersions). Rebuilt from the
         // stored file name, so this needs no network and cannot delay playback.
         videoURL = item.videoURLParsed.map {
@@ -260,7 +264,15 @@ struct PlayerView: UIViewControllerRepresentable {
             // ever offered (measured on macOS 27, one shape per process), so the
             // resilient loader gives way here for films with no subtitles of
             // their own. `fallbackVideoURL` keeps the loader one stall away.
-            pItem = AVPlayerItem(url: url)
+            //
+            // Through the loopback proxy, PACED (Decision 147): the player still
+            // sees a plain MP4, so the system still captions it (measured on
+            // iOS 27 and tvOS 27 — segmented HLS loses the captions), but the
+            // proxy decides how far ahead it downloads. iPhone 12, Brute Force,
+            // 2 min, three runs: 36–37 MB, 0 stalls, startup 0.59–0.77 s,
+            // against 66 MB and 0.97 s direct. The plain URL if it cannot start.
+            let paced = LocalMediaServer.shared.proxyURL(for: url, durationSeconds: runtimeSeconds)
+            pItem = AVPlayerItem(url: paced ?? url)
             context.coordinator.fallbackVideoURL = url
         } else if let url = videoURL {
             let (asset, loader) = ResilientStreamLoader.makeAsset(for: url)
@@ -298,11 +310,62 @@ struct PlayerView: UIViewControllerRepresentable {
             #endif
         }()
         if let playURLOverride { pItem = AVPlayerItem(url: playURLOverride) }
+        #if DEBUG
+        // Research door (owner 2026-09-28, "keep direct, research a hybrid"):
+        // AW_PLAY_PATH=direct|proxy|hls forces the source so the OS's generated
+        // captions and the bytes can be measured per path.
+        let researchPath = ProcessInfo.processInfo.environment["AW_PLAY_PATH"]
+        if let forced = researchPath, let url = videoURL {
+            let local = forced == "hls" ? LocalMediaServer.shared.hlsURL(for: url)
+                      : forced == "proxy" ? LocalMediaServer.shared.proxyURL(for: url, durationSeconds: runtimeSeconds) : url
+            pItem = AVPlayerItem(url: local ?? url)
+            awdiag("AWPLAYER research path=%@ runtime=%.0f url=%@", forced, runtimeSeconds ?? -1, (local ?? url).absoluteString)
+        }
+        #endif
         pItem.externalMetadata = playerExternalMetadata(title: overlayTitle, subtitle: overlaySubtitle,
                                                         description: overlayDescription)
         context.coordinator.fallbackMetadata = pItem.externalMetadata
         pItem.preferredForwardBufferDuration = 300
         let player = AVPlayer(playerItem: pItem)
+        #if DEBUG
+        if researchPath != nil {
+            // The phone has no nettop: AVFoundation's own access log carries the
+            // three numbers that matter — bytes, stalls, startup — plus the buffer.
+            Task { @MainActor in
+                let t0 = Date()
+                for _ in 0..<8 {
+                    try? await Task.sleep(for: .seconds(15))
+                    guard let it = player.currentItem else { continue }
+                    let ev = it.accessLog()?.events ?? []
+                    let bytes = ev.reduce(Int64(0)) { $0 + $1.numberOfBytesTransferred }
+                    let stalls = ev.reduce(0) { $0 + $1.numberOfStalls }
+                    let startup = ev.first?.startupTime ?? -1
+                    let now = player.currentTime().seconds
+                    let ahead = it.loadedTimeRanges.map { $0.timeRangeValue }
+                        .first { $0.start.seconds <= now && now <= $0.end.seconds }
+                        .map { $0.end.seconds - now } ?? 0
+                    awdiag("AWPLAYER research +%.0fs bytes=%lldMB stalls=%d startup=%.2fs ahead=%.0fs pos=%.0f",
+                           Date().timeIntervalSince(t0), bytes >> 20, stalls, startup, ahead, now)
+                }
+            }
+            Task { @MainActor in
+                let offered = await SystemCaptions.waitForLegibleOption(on: player, within: 30)
+                awdiag("AWPLAYER research legibleOption=%@", offered ? "yes" : "no")
+                // Seek once the item is live — a seek at creation was overridden by
+                // the player's own start position (it opened on the credits).
+                if let at = ProcessInfo.processInfo.environment["AW_AUTOPLAY_AT"].flatMap(Double.init) {
+                    try? await Task.sleep(for: .seconds(3))
+                    await player.seek(to: CMTime(seconds: at, preferredTimescale: 600))
+                    awdiag("AWPLAYER research at=%.0f", player.currentTime().seconds)
+                }
+                if offered {
+                    let sel = await SystemCaptions.selectIfWanted(on: player)
+                    let text = await SystemCaptions.emitsCaptions(on: player, within: 90)
+                    awdiag("AWPLAYER research selected=%@ captionText=%@", sel ? "yes" : "no", text ? "yes" : "no")
+                }
+            }
+        }
+        #endif
         // SharePlay: main player only — never the caption scout (see
         // WatchTogether.attach). Re-attached on every build because a rebuilt
         // player carries a new coordinator.
@@ -321,6 +384,8 @@ struct PlayerView: UIViewControllerRepresentable {
             #if DEBUG
             // Harness door: a silent player for device runs (never audible at the owner).
             if ProcessInfo.processInfo.environment["AW_MUTE"] == "1" { player.isMuted = true }
+            // AW_MUTE=quiet: audio still renders, at 0.1% (caption research, 2026-09-28).
+            if ProcessInfo.processInfo.environment["AW_MUTE"] == "quiet" { player.volume = 0.001 }
             #endif
             #endif
             Task { @MainActor in

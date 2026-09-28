@@ -246,7 +246,10 @@ struct RootView: View {
                 // the only way to verify live captions in the real app (SwiftUI
                 // exposes no scriptable Play button, as noted above).
                 if ProcessInfo.processInfo.environment["AW_AUTOPLAY"] == "1" {
-                    router.play(it)
+                    // AW_AUTOPLAY_AT=<seconds>: start there (a film's opening
+                    // credits carry no dialogue for a caption probe to hear).
+                    let at = ProcessInfo.processInfo.environment["AW_AUTOPLAY_AT"].flatMap(TimeInterval.init)
+                    router.play(it, at: at)
                 }
                 // AW_STUDIO_MAC=1 arms Watch Together Studio and plays, so the
                 // §B13d readout can be SEEN without clicking — the same reason

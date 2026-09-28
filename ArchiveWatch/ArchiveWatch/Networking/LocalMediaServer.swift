@@ -61,13 +61,15 @@ final class LocalMediaServer: @unchecked Sendable {
     /// The loopback URL AVPlayer should play for `origin`. Starts the server
     /// on first use. Returns nil only if the listener cannot start at all —
     /// callers fall back to the origin URL (never a hard failure).
-    func proxyURL(for origin: URL) -> URL? {
+    func proxyURL(for origin: URL, durationSeconds: Double? = nil) -> URL? {
         queue.sync {
             startLocked()
             guard port != 0 else { return nil }
             let key = Self.key(for: origin)
             if resources[key] == nil {
-                resources[key] = MediaResource(origin: origin)
+                resources[key] = MediaResource(origin: origin, durationSeconds: durationSeconds)
+            } else if let d = durationSeconds, resources[key]?.durationSeconds == nil {
+                resources[key]?.durationSeconds = d
             }
             return URL(string: "http://127.0.0.1:\(port)/v/\(token)/\(key).mp4")
         }
@@ -374,7 +376,14 @@ final class MediaResource: @unchecked Sendable {
     private let lock = NSLock()
     private var _contentLength: Int64?
 
-    init(origin: URL) { self.origin = origin }
+    /// The film's running time, when the caller knows it — what turns a byte
+    /// count into a bitrate for pacing (see `ProxyPace`).
+    var durationSeconds: Double?
+
+    init(origin: URL, durationSeconds: Double? = nil) {
+        self.origin = origin
+        self.durationSeconds = durationSeconds
+    }
 
     var contentLength: Int64? {
         lock.lock(); defer { lock.unlock() }
@@ -715,6 +724,7 @@ private final class ConnectionHandler: @unchecked Sendable {
 
         let pump = StreamPump(origin: resource.origin, from: lo, to: hi + 1)
         self.pump = pump
+        pump.pace = ProxyPace(total: total, durationSeconds: resource.durationSeconds)
         let ok = await pump.run { [weak self] data in
             await self?.write(data) ?? false
         }
@@ -746,6 +756,56 @@ private final class ConnectionHandler: @unchecked Sendable {
     }
 }
 
+// MARK: - Pacing
+
+/// How fast one proxy response may deliver (owner 2026-09-28: "however we can
+/// optimize playback is to our benefit"). A plain-file player reads as fast as
+/// bytes arrive and does not stop at its own buffer target: measured, the
+/// direct path took ~45 minutes of a 1.3 Mbps film in its first 15 s, ~430 MB.
+/// Through the proxy the player still sees an ordinary MP4 — which is what
+/// keeps the system's generated captions (measured on iOS 27 and tvOS 27;
+/// segmented HLS loses them) — while this decides how far ahead it gets:
+///   burst  — the first `burstSeconds` of film at full speed, per response,
+///            so a start and every seek (a new range request) are immediate;
+///   then   — `multiple` × the film's own bitrate, which keeps the buffer
+///            growing at twice real time, never draining, without a download
+///            of the whole film in the first minute.
+/// Bitrate is the file's size over its running time; with no running time the
+/// floor rate applies. DEBUG: AW_PACE=off disables it, AW_PACE_X sets `multiple`.
+actor ProxyPace {
+    static let burstSeconds: Double = 60
+    static let floorBytesPerSecond: Double = 1_500_000        // ~12 Mbps, if the bitrate is unknown
+    private let enabled: Bool
+    private let rate: Double        // bytes per second after the burst
+    private let burst: Double       // bytes allowed immediately
+    private var sent: Double = 0
+    private let start = Date()
+
+    init(total: Int64, durationSeconds: Double?) {
+        var multiple = 2.0
+        var on = true
+        #if DEBUG
+        let env = ProcessInfo.processInfo.environment
+        if env["AW_PACE"] == "off" { on = false }
+        if let x = env["AW_PACE_X"].flatMap(Double.init) { multiple = x }
+        #endif
+        let bitrate = durationSeconds.flatMap { $0 > 60 ? Double(total) / $0 : nil }
+        let base = bitrate ?? Self.floorBytesPerSecond
+        enabled = on
+        rate = max(base * multiple, 250_000)
+        burst = max(base * Self.burstSeconds, 8 * 1024 * 1024)
+    }
+
+    /// Waits until `count` more bytes fit the budget.
+    func wait(beforeSending count: Int) async {
+        guard enabled else { return }
+        let allowed = burst + rate * Date().timeIntervalSince(start)
+        let over = sent + Double(count) - allowed
+        if over > 0 { try? await Task.sleep(for: .seconds(over / rate)) }
+        sent += Double(count)
+    }
+}
+
 // MARK: - Origin fetching
 
 /// Streams one byte range from archive.org with the Decisions 021/031/034
@@ -761,6 +821,10 @@ final class StreamPump: @unchecked Sendable {
     private var cancelled = false
     private let lock = NSLock()
     private var currentTask: URLSessionDataTask?
+    /// Paces BETWEEN origin requests, never inside one: a pause mid-response
+    /// left the origin read idle past the 12 s timeout and every paced chunk
+    /// ended in -1001 and a retry (measured on the Mac, 2026-09-28).
+    var pace: ProxyPace?
 
     private static let chunkSize: Int64 = 8 * 1024 * 1024
     private static let maxRetries = 6
@@ -804,6 +868,9 @@ final class StreamPump: @unchecked Sendable {
         var retries = 0
         while offset < end && !isCancelled {
             let hi = min(offset + Self.chunkSize, end)
+            if let pace { await pace.wait(beforeSending: Int(hi - offset)) }
+            if isCancelled { return false }
+            let chunkStart = Date()
             let target = Self.pins.target(for: origin)
             var req = URLRequest(url: target)
             req.setValue("bytes=\(offset)-\(hi - 1)", forHTTPHeaderField: "Range")
@@ -823,6 +890,15 @@ final class StreamPump: @unchecked Sendable {
                 if let final = stream.finalURL, final != target {
                     Self.pins.pin(final, for: origin)
                 }
+                #if DEBUG
+                // AW_LINK_MBPS: simulate a slow link (Decision 076's throttled
+                // gate) by holding each chunk to that rate — DEBUG only.
+                if let mbps = ProcessInfo.processInfo.environment["AW_LINK_MBPS"].flatMap(Double.init), mbps > 0 {
+                    let need = Double(stream.delivered) * 8 / (mbps * 1_000_000)
+                    let spent = Date().timeIntervalSince(chunkStart)
+                    if need > spent { try? await Task.sleep(for: .seconds(need - spent)) }
+                }
+                #endif
                 if stream.delivered > 0 { retries = 0 }
                 if stream.status == 416 { return true }   // past EOF: clean end
                 if stream.delivered == 0 && offset < end {

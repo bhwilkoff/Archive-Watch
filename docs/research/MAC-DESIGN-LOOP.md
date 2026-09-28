@@ -605,3 +605,10 @@ through Accessibility and its items pressed there (never pointer clicks).
   build only and it is reverted. Next: the same three paths on a device
   whose OS DOES caption (Generated Subtitles on), for the one number that
   decides it — does `hls` get caption text?
+- v1.42.839: **Decision 147 shipped in source** — iOS/iPadOS and macOS play
+  uncaptioned films through the paced loopback proxy (generated captions
+  kept on iOS 27 / tvOS 27, bytes bounded; the Mac gains the
+  network.server entitlement its proxy never had). tvOS unchanged (HLS).
+  Verified: Mac production path 66 MB by 90 s (vs ~1.08 GB/2 min direct);
+  iPhone 12 paced 36–37 MB/2 min ×3, 0 stalls; iPhone 15 Pro paced
+  captions yes; slow-link (1.2 Mbps) paced = unpaced, 0 stalls.

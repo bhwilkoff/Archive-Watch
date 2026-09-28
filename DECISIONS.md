@@ -229,6 +229,7 @@ into every session and the index alone carries every title.)
 - 144 — Channels run on one clock: the pipeline publishes the timeline, every client plays it and shows it in local time
 - 145 — The IPTV feeds carry everything the apps show, television as series, and a channel never joins a film's last scrap
 - 146 — The Creation Studio clips any title the apps show; fair use is its rule, not the broadcast tier
+- 147 — A film the system can caption plays through the loopback proxy, paced to twice its bitrate
 
 ---
 
@@ -1119,3 +1120,67 @@ browser, Supercut index or Publish. The catalog's own gates (the rights audit,
 takedowns, the mature filter) are the Creation Studio's gates. A title the
 apps hide is not clippable; a title the apps show is.
 
+
+
+
+## 147 — A film the system can caption plays through the loopback proxy, paced to twice its bitrate
+*Date: 2026-09-28*
+
+On iOS/iPadOS and macOS, a film with no subtitles of its own — the case that
+played the plain archive.org URL so the OS 27 system could generate captions —
+now plays `LocalMediaServer.proxyURL(for:durationSeconds:)` instead, and the
+proxy paces each response (`ProxyPace`): the first 60 s of film at full speed,
+then twice the film's bitrate (size ÷ the catalog's running time; a 12 Mbps
+floor when the running time is unknown). Pacing happens BETWEEN origin chunk
+requests, never inside one. The plain URL is the fallback when the listener
+cannot start. tvOS is unchanged: it stays on segmented HLS (Decision 106). The
+macOS app gains `com.apple.security.network.server`, without which its
+loopback listener was refused by the sandbox ("Operation not permitted") —
+the Mac proxy had never been able to run.
+
+**Why**: the owner — *"I want to make sure all features are as responsive and
+available as possible, so however we can optimize playback is to our benefit"*
+— then *"keep direct, research a hybrid"*, and *"you need to check if the
+generated captions work with hls on Mac, iPhone and Apple TV."* Measured
+(Brute Force, no subtitle file, 10 minutes in; the first probes used a silent
+film and a film WITH a subtitle file, both of which prove nothing about
+generated captions and were discarded):
+
+    generated captions      iPhone 15 Pro (iOS 27)   Apple TV (tvOS 27.2)
+      direct                yes (seen + probe)       yes (probe)
+      loopback proxy        yes (seen + probe)       yes (probe)
+      segmented HLS         no track offered         no track offered
+
+    bytes                   Mac (nettop)                   iPhone 12 (access log)
+      direct                435 MB in 15 s, 1.08 GB/2 min  66 MB/2 min, startup 0.97 s
+      proxy, unpaced        ~1.08 GB/2 min                 55 MB/2 min
+      proxy, paced          126 MB/105 s                   36–37 MB/2 min x3, 0 stalls,
+                                                           startup 0.59–0.77 s
+
+Then, for shipping: the PACED proxy kept the captions on the iPhone 15 Pro
+(probe: captionText=yes; 40 MB/2 min, 0 stalls, startup 0.80 s), and on a
+simulated 1.2 Mbps link (`AW_LINK_MBPS`, coarse — per 8 MB chunk) paced and
+unpaced were identical on the iPhone 12: 0 stalls, startup 0.73–0.76 s.
+
+So segmented HLS bounds the bandwidth and loses the captions; the proxy keeps
+the captions (AVFoundation still sees a plain MP4) and the pacing — which only
+the proxy can do — bounds the bandwidth. The Mac is where it mattered most: its
+player read a film at line rate. The Mac itself generated no captions on ANY
+path during the research (its speech assets read "supported", not installed),
+so its captions claim rests on the iPhone and Apple TV.
+
+**How to apply**: keep the proxy on the paths the system captions; pace in
+`StreamPump` between requests (pacing inside a response let the origin read
+idle past its 12 s timeout — every paced chunk ended in -1001 until moved).
+AirPlay is unaffected: the receiver is handed the origin URL
+(`AirPlayRouting`), never 127.0.0.1. DEBUG doors for the next measurement:
+`AW_PLAY_PATH=direct|proxy|hls` (forces the source, probes the system caption
+track), `AW_PACE=off|AW_PACE_X`, `AW_LINK_MBPS` (slow-link simulation),
+`AW_AUTOPLAY_AT`, `AW_MUTE=quiet` (0.1% volume — `isMuted` may stop the audio
+path the captions listen to).
+
+**Consequences**: Decision 082's intermittent proxy failures were tvOS's
+`mediaserverd` hop; on the iPhone the proxy started 3/3 runs, faster than
+direct. Open, separately: the Mac's OWN caption engine, which takes over when
+the system does not caption, reads ~3 minutes of film ahead at line rate
+(~580 MB on Brute Force) — the next bandwidth item, not addressed here.

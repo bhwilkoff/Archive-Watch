@@ -45,6 +45,15 @@ enum TVAssetChooser {
         if url.host == "127.0.0.1" {
             return (AVPlayerItem(asset: AVURLAsset(url: url)), nil)
         }
+        #if DEBUG
+        // Caption research door (owner 2026-09-28): AW_PLAY_PATH=direct|proxy|hls.
+        if let forced = ProcessInfo.processInfo.environment["AW_PLAY_PATH"] {
+            let local = forced == "hls" ? LocalMediaServer.shared.hlsURL(for: url)
+                      : forced == "proxy" ? LocalMediaServer.shared.proxyURL(for: url) : url
+            awdiag("AWPLAYER research path=%@ url=%@", forced, (local ?? url).absoluteString)
+            return (AVPlayerItem(url: local ?? url), nil)
+        }
+        #endif
         if ProcessInfo.processInfo.environment["AW_PLAIN_ASSET"] == "1" {
             return (AVPlayerItem(asset: AVURLAsset(url: url)), nil)
         }

@@ -44,6 +44,7 @@ struct PlayerWindow: View {
                               return (c == .automatic || c == .off) ? nil : item.subtitleHLSURL
                           }(),
                           captionsOff: CaptionChoiceSession.byItem[item.archiveID] == .off,
+                          runtimeSeconds: item.runtimeSeconds.map { Double($0) },
                           publishedVTT: item.publishedVTTURL,
                           onEnded: autoplayNext,
                           // Live, rehearsing, or ARMED for this film — the
@@ -245,6 +246,8 @@ struct PlayerSurface: View {
     let videoURL: URL?
     let subtitleHLS: URL?
     var captionsOff: Bool = false
+    /// The film's running time: the loopback proxy paces by size ÷ this (`ProxyPace`).
+    var runtimeSeconds: Double? = nil
     /// The published WebVTT, so the track can be CHECKED rather than trusted.
     var publishedVTT: URL? = nil
     var onEnded: (() -> Void)? = nil
@@ -372,6 +375,16 @@ struct PlayerSurface: View {
         }()
         if let playURLOverride {
             playerItem = AVPlayerItem(url: playURLOverride)
+        } else if let url = videoURL, let forced = awDebugPlayPath {
+            // DEBUG research door (owner 2026-09-28: "keep direct, research a
+            // hybrid"): force the loopback PROXY or its HLS segmenting, to measure
+            // bytes against direct playback and whether the OS still generates
+            // captions on a plain http://127.0.0.1 asset.
+            let local = forced == "hls" ? LocalMediaServer.shared.hlsURL(for: url)
+                      : forced == "proxy" ? LocalMediaServer.shared.proxyURL(for: url, durationSeconds: runtimeSeconds) : url
+            playerItem = AVPlayerItem(url: local ?? url)
+            usedDirectURL = true
+            awdiag("AWPLAYER research path=%@ url=%@", forced, (local ?? url).absoluteString)
         }
         // DOWNLOADED FIRST (Decision 099): a plain local file, with none of the
         // resilience machinery — a `file://` URL has no connection to lose.
@@ -405,34 +418,20 @@ struct PlayerSurface: View {
             playerItem = AVPlayerItem(asset: asset)
             loaderIsPrimary = true
         } else if let url = videoURL, !feedsProgram,
-                  let forced = awDebugPlayPath {
-            // DEBUG research door (owner 2026-09-28: "keep direct, research a
-            // hybrid"): force the loopback PROXY or its HLS segmenting, to measure
-            // bytes against direct playback and whether the OS still generates
-            // captions on a plain http://127.0.0.1 asset.
-            let local = forced == "hls" ? LocalMediaServer.shared.hlsURL(for: url)
-                      : forced == "proxy" ? LocalMediaServer.shared.proxyURL(for: url) : url
-            playerItem = AVPlayerItem(url: local ?? url)
-            usedDirectURL = true
-            awdiag("AWPLAYER research path=%@ url=%@", forced, (local ?? url).absoluteString)
-            let probePlayer = player
-            Task { @MainActor in
-                let offered = await SystemCaptions.waitForLegibleOption(on: probePlayer, within: 30)
-                awdiag("AWPLAYER research legibleOption=%@", offered ? "yes" : "no")
-                if offered {
-                    let sel = await SystemCaptions.selectIfWanted(on: probePlayer)
-                    let text = await SystemCaptions.emitsCaptions(on: probePlayer, within: 75)
-                    awdiag("AWPLAYER research selected=%@ captionText=%@", sel ? "yes" : "no", text ? "yes" : "no")
-                }
-            }
-        } else if let url = videoURL, !feedsProgram,
                   SystemCaptions.prefersDirectPlayback(hasPublishedSubtitles: false) {
             // From 27 the system captions video that carries none — but only for
             // an ordinary asset. Through `aw-stream://` no subtitle track is
             // ever offered (measured on macOS 27, one shape per process), so the
             // resilient loader gives way for films with no subtitles of their
             // own.
-            playerItem = AVPlayerItem(url: url)
+            //
+            // Through the loopback proxy, PACED (Decision 147): still a plain MP4
+            // to AVFoundation, so still eligible for the system's captions, but
+            // the Mac's player otherwise reads a film at line rate — 435 MB in
+            // the first 15 s of Brute Force direct, 126 MB by 105 s paced. The
+            // plain URL if the listener cannot start.
+            let paced = LocalMediaServer.shared.proxyURL(for: url, durationSeconds: runtimeSeconds)
+            playerItem = AVPlayerItem(url: paced ?? url)
             usedDirectURL = true
         } else if let url = videoURL {
             let (asset, l) = ResilientStreamLoader.makeAsset(for: url)
@@ -456,6 +455,9 @@ struct PlayerSurface: View {
         #if DEBUG
         // Harness door: a silent player for runs on the owner's Mac.
         if ProcessInfo.processInfo.environment["AW_MUTE"] == "1" { p.isMuted = true }
+        // AW_MUTE=quiet: audio still RENDERS, at 0.1% — isMuted may stop the path the
+        // OS's generated captions listen to (caption research, 2026-09-28).
+        if ProcessInfo.processInfo.environment["AW_MUTE"] == "quiet" { p.volume = 0.001 }
         #endif
         #if DEBUG
         // Silent from its first frame under a Studio door — registration
@@ -486,6 +488,19 @@ struct PlayerSurface: View {
         }
         p.play()
         player = p
+        if awDebugPlayPath != nil {
+            // The research probe runs on the player that now exists (it was
+            // captured before creation, so it watched nothing).
+            Task { @MainActor in
+                let offered = await SystemCaptions.waitForLegibleOption(on: p, within: 30)
+                awdiag("AWPLAYER research legibleOption=%@", offered ? "yes" : "no")
+                if offered {
+                    let sel = await SystemCaptions.selectIfWanted(on: p)
+                    let text = await SystemCaptions.emitsCaptions(on: p, within: 90)
+                    awdiag("AWPLAYER research selected=%@ captionText=%@", sel ? "yes" : "no", text ? "yes" : "no")
+                }
+            }
+        }
         // Watch Together Studio (§B13a): Detail armed the session before this
         // player existed, because the player REPLACES the split view as the
         // window root (§B2a) and Detail is gone by now. A no-op unless this is
