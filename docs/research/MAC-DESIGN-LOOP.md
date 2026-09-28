@@ -510,3 +510,8 @@ through Accessibility and its items pressed there (never pointer clicks).
   the name. A staging-then-move change written on that misreading was
   reverted uncommitted; the script now navigates to ~/Downloads first and
   prints where it saved. Test file deleted.
+- VERIFIED with archive.org open: the mark-in/out sheet loads a 1:00:53
+  film's frame strip and player (Der steinerne Reiter), and the editor's
+  clip list shows real stills. Its bytes (nettop) sat flat at 40 MB while
+  open and paused and stayed flat for 30 s after Cancel — nothing keeps
+  streaming once it is closed. archive.org answered throughout.
