@@ -225,9 +225,17 @@ rule in IPAD-DESIGN.md before it ships (binding-design-doc discipline).
   owner wants it: what iPadOS 26 uses to open a second window as a floating
   window rather than full screen — research before a fourth attempt.
 
-**Remaining (2026-09-28 13:47, updated 17:06):** code — Clip Studio Space (I/O done),
-channel-surf ↑/↓ (three routes failed; control first),  an App Intents film entity (Siri + Spotlight,
-all Apple), the Studio's Mac-only features that port to iPad (film-stall
+- v1.42.889: **Open Film** for Siri and Shortcuts on iPhone and iPad (audit
+  #33): a Film entity resolved by the catalog's own search (the shared
+  ranking), and an App Shortcut — "Open a film in Archive Watch" — that asks
+  "Which film?" and opens its page through the IntentInbox (cold-start safe,
+  as links are). Built and installed; NOT seen run: Spotlight would not open
+  under XCUITest (⌘Space, then a swipe), and Siri would speak aloud in the
+  owner's house. Spotlight indexing of the ~27k titles is not done (a larger
+  job: CSSearchableIndex from the catalog, kept current per publish).
+
+**Remaining (2026-09-28 13:47, updated 17:11):** code — Clip Studio Space (I/O done),
+channel-surf ↑/↓ (three routes failed; control first),  Spotlight indexing (Open Film for Siri is built), the Studio's Mac-only features that port to iPad (film-stall
 reason, custom card, Record); verify — picture-in-picture restore; research — a film window opening as a floating window; owner — none.
 
 ## Found, data (for the copyright/scrub work, not the iPad)
