@@ -266,8 +266,16 @@ rule in IPAD-DESIGN.md before it ships (binding-design-doc discipline).
   Delete Clip) beside the existing swipe-to-delete. Seen on the iPad Pro;
   `test_24` looks at the menu and chooses nothing (it holds Delete).
 
-**Remaining (2026-09-28 13:47, updated 17:29):** code — Clip Studio Space (I/O done),
-channel-surf ↑/↓ (three routes failed; control first),  Spotlight indexing (Open Film for Siri is built), the Studio's Record (the custom card is built; film-stall reason was already there); verify — picture-in-picture restore; research — a film window opening as a floating window; owner — none.
+- (research, no build) **Why a film window opened full screen**: iPadOS 26
+  opens `openWindow` on top of the current window, full screen when that one
+  is, and ignores `defaultSize` then (Apple Developer Forums 792596) — the
+  platform's rule; recorded as IPAD-DESIGN §9.4. The test launched the app
+  full screen, so its film window was too. **↑/↓ on the player**: no source
+  says which keys AVPlayerViewController claims on iPad; the next step is
+  still a DEBUG on-screen counter of key commands received, not a guess.
+
+**Remaining (2026-09-28 13:47, updated 17:32):** code — Clip Studio Space (I/O done),
+channel-surf ↑/↓ (three routes failed; control first),  Spotlight indexing (Open Film for Siri is built), the Studio's Record (the custom card is built; film-stall reason was already there); verify — picture-in-picture restore;  owner — none.
 
 ## Found, data (for the copyright/scrub work, not the iPad)
 

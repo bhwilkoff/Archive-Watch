@@ -285,6 +285,14 @@ stacks. The catalog store, account and SwiftData container stay app-wide.
 9.3 **Scenes are declared for iPad only** (`UIApplicationSceneManifest~ipad`
 in the shared Info.plist), so tvOS and iPhone read no change.
 
+9.4 **A film window opens as the window it came from does** (researched
+2026-09-28). iPadOS 26 opens `openWindow` ON TOP of the current window: from a
+full-screen window the new one is full screen too, and `defaultSize` is
+ignored (developer.apple.com/forums/thread/792596). So a film window is a
+floating window when Archive Watch is, and full screen when it is — the
+system's rule, not ours to override. A full-screen film window closes with ⌘W
+or the Window menu.
+
 ## §10 — The sidebar holds places, not only verbs (binding)
 
 The owner, 2026-09-28: *"a native-first iPad-centric version that works well
