@@ -235,6 +235,18 @@ titles, alert bodies, the caption label's 4 lines).
   The Go Live right column and the first-broadcast alert therefore remain
   unseen below it.
 
+- v1.42.858: **Text Size, second pass** (browsing surfaces: Home hero, poster
+  captions, Movies/TV/Collections/Surprise titles, Cartoons, poster zoom) through
+  `TVType`; fixed-size cards and the Channels guide stay at the default size
+  (tvOS-DESIGN §4.1a). Seen on Fireplace at accessibility5: Home's hero and
+  captions grow, nothing cut. **Continue Watching lost its time line**: filled
+  art of another shape set the card's stack size, so the clip cut "2h 30m left"
+  to "h 30m left" (wide art, The Big Parade) and removed the line and progress
+  bar entirely under a tall poster (Reefer Madness). The art is now sized to the
+  card; both read in full on Fireplace.
+- **Owner answered**: the microphone prompt on Fireplace -> Allow (it had
+  outlived the terminated app; memory `atv_tcc_prompt_outlives_app`).
+
 ## Queue
 
 1. Series page: the poster sits mid-hero (no rule covers series art yet)

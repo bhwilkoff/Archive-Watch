@@ -119,7 +119,12 @@ struct ContinueWatchingTile: View {
         VStack(alignment: .leading, spacing: 14) {
             Button(action: action) {
                 ZStack(alignment: .bottom) {
+                    // Sized to the card: filled art of another shape set the
+                    // stack's size, so the clip cut the time line to
+                    // "h 30m left" (wide art) or removed it (a tall poster).
                     posterArea
+                        .frame(width: 320, height: cardHeight)
+                        .clipped()
                     VStack(spacing: 0) {
                         Spacer(minLength: 0)
                         LinearGradient(
