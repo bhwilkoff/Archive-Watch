@@ -271,6 +271,20 @@ titles, alert bodies, the caption label's 4 lines).
   nothing is uploaded. Automatic captions can be wrong." (Settings swept on
   Fireplace otherwise uncut.)
 
+- **CORRECTION to v1.42.865's commit message.** It says "Checked on Fireplace:
+  nothing is drawn over an uncaptioned film." That check was void: Fireplace was
+  OFF (`power_state` -> Off), and a sleeping Apple TV answers a screenshot with a
+  valid all-black frame. The removal is certain from the code (the only drawing
+  path and both strings are gone), but it has NOT been seen on a screen. Owner:
+  "How about you check the Fireplace TV is actually on before you send a command
+  to it?" Every harness helper now refuses when its TV is off (`tvguard.sh`).
+- **Apple TV HD "Kitchen" (tvOS 26.6), measured**: installs after Xcode
+  registered it; Home in ~4 s (first launch ~10 s on the bundled seed), its
+  rebuild ~2.6 s on the main thread; a film starts in 9.1 s (tvOS 26 path).
+  An off-main build was tried and reverted: on two cores it stretched the whole
+  build to 5-12 s. Kitchen at 720p captures only the top-left 1280x720 of the
+  frame, so bottom-of-screen overlays cannot be checked there.
+
 ## Queue
 
 1. Series page: the poster sits mid-hero (no rule covers series art yet)
