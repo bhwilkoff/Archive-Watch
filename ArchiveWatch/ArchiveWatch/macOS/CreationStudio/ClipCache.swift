@@ -360,7 +360,7 @@ enum ClipCacheService {
     /// sync frame (decodable); the generous cache handle means the exact in-point is always past that
     /// first keyframe, so the visible clip is clean. Validated on real archive.org H.264 derivatives.
     private static func copyWindow(sourceURL: URL, range: CMTimeRange, to out: URL) async throws {
-        let (srcAsset, loader) = ResilientStreamLoader.makeAsset(for: sourceURL)
+        let (srcAsset, loader) = ResilientStreamLoader.makeAsset(for: sourceURL, chunkBytes: 1 << 20)   // 1 MB: a window, not a film
         defer { loader?.invalidate() }   // the window is read; stop fetching the rest of the film
         guard let srcV = try await srcAsset.loadTracks(withMediaType: .video).first else {
             throw CreationStudioError.noVideoTrack
@@ -447,7 +447,7 @@ enum ClipCacheService {
     /// AVAssetWriter does a straight decode → H.264/AAC re-encode to a clean, faststart, GOP-safe
     /// local file (passthrough copy is unsafe from an arbitrary, mid-GOP window start).
     private static func reencodeWindow(sourceURL: URL, range: CMTimeRange, to out: URL) async throws {
-        let (srcAsset, loader) = ResilientStreamLoader.makeAsset(for: sourceURL)
+        let (srcAsset, loader) = ResilientStreamLoader.makeAsset(for: sourceURL, chunkBytes: 1 << 20)   // 1 MB: a window, not a film
         defer { loader?.invalidate() }   // the window is read; stop fetching the rest of the film
 
         guard let srcV = try await srcAsset.loadTracks(withMediaType: .video).first else {

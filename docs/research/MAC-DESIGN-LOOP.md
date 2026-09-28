@@ -450,3 +450,10 @@ through Accessibility and its items pressed there (never pointer clicks).
   into the film) and then went flat. NOTED for later, not changed: that
   looks like the passthrough copy reading from the file's start rather than
   the window's, ~10x the window's own bytes. The block is left to expire.
+- v1.42.830: a clip window fetches in 1 MB ranges, not 8 MB. The stream
+  loader's chunk suits playback (long buffer, few round trips); a reader
+  after one short window paid for whole chunks — 15–17 MB per 11-second
+  clip, i.e. two 8 MB chunks. `makeAsset(for:chunkBytes:)` lets the clip
+  cache ask for 1 MB (floor 256 KB); every player keeps 8 MB. Built for
+  macOS and iOS; the per-clip bytes are re-measured when archive.org lets
+  this address back in.
