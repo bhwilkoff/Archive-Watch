@@ -161,6 +161,7 @@ final class AppStore {
             // SQLite DB (seed → downloaded full) is the source now (Decision
             // 017). This is the memory win: we never hold ~26k full items in RAM.
             featured = try CatalogLoader.loadFeatured()
+            awdiag("AWPERF featured %.3fs", Date().timeIntervalSince(bundleStart))
             print("[AppStore] featured loaded in \(String(format: "%.2fs", Date().timeIntervalSince(bundleStart)))")
             // FIRST PAINT: prefer the CACHED full catalog over the bundled seed.
             //
@@ -173,9 +174,13 @@ final class AppStore {
             // re-render from ~27k a few seconds later, and a recently-watched
             // film that is not among the seed's items pops in on the second
             // pass. The seed is for the FIRST launch, when no cache exists yet.
-            if let cached = await CatalogRefreshService.shared.cachedDatabasePath(),
+            let cachedPath = await CatalogRefreshService.shared.cachedDatabasePath()
+            awdiag("AWPERF cache lookup %.3fs found=%@", Date().timeIntervalSince(bundleStart), cachedPath == nil ? "no" : "yes")
+            if let cached = cachedPath,
                let fullDB = CatalogDB(path: cached) {
+                awdiag("AWPERF cached DB open %.3fs items=%d", Date().timeIntervalSince(bundleStart), fullDB.itemCount)
                 swapDB(fullDB, path: cached)
+                awdiag("AWPERF ready %.3fs", Date().timeIntervalSince(bundleStart))
                 print("[AppStore] cached full DB: \(fullDB.itemCount) items")
             } else if let seed = Bundle.main.path(forResource: "seed", ofType: "sqlite"),
                       let seedDB = CatalogDB(path: seed) {
@@ -287,11 +292,15 @@ final class AppStore {
     func dbByKeyword(_ keyword: String) -> [Catalog.Item] { db?.byKeyword(keyword) ?? [] }
     func dbByStudio(_ studio: String) -> [Catalog.Item] { db?.byStudio(studio) ?? [] }
     func dbItemsByIDs(_ ids: [String]) -> [Catalog.Item] { db?.itemsByIDs(ids) ?? [] }
+    func dbShelfKeys(_ shelfID: String, allowStandaloneTV: Bool = false) -> [CatalogDB.ShelfKey] {
+        db?.shelfKeys(shelfID, allowStandaloneTV: allowStandaloneTV) ?? []
+    }
     func dbHiddenGems() -> [Catalog.Item] { db?.hiddenGems() ?? [] }
     func dbTopRated() -> [Catalog.Item] { db?.topRated() ?? [] }
     func dbMostDiscussed() -> [Catalog.Item] { db?.mostDiscussed() ?? [] }
     func dbCommunityFavorites() -> [Catalog.Item] { db?.communityFavorites() ?? [] }
     func dbWatchingNow() -> [Catalog.Item] { db?.watchingNow() ?? [] }
+    func dbHeroCandidates() -> [(id: String, playable: Bool)] { db?.heroCandidates() ?? [] }
     func dbTopDirectors() -> [(name: String, count: Int)] { db?.topDirectors() ?? [] }
     func dbByDirector(_ name: String, homeOnly: Bool = false) -> [Catalog.Item] { db?.byDirector(name, homeOnly: homeOnly) ?? [] }
     func dbByPerson(_ name: String) -> [Catalog.Item] { db?.byPerson(name) ?? [] }   // #4

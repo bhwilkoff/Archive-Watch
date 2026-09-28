@@ -396,6 +396,12 @@ struct Catalog: Decodable, Sendable {
         /// back to a normalized title+year; finally the archiveID so two genuinely
         /// distinct yearless same-titled items don't collapse into one.
         var dedupKey: String {
+            Self.dedupKey(archiveID: archiveID, imdbID: imdbID, title: title, year: year)
+        }
+
+        /// The same key from bare columns, so a shelf can de-duplicate rows it
+        /// has not decoded.
+        static func dedupKey(archiveID: String, imdbID: String?, title: String, year: Int?) -> String {
             if let im = imdbID?.lowercased(), !im.isEmpty { return "imdb:" + im }
             let norm = title.lowercased()
                 .folding(options: .diacriticInsensitive, locale: nil)

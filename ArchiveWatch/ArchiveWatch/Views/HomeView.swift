@@ -52,30 +52,19 @@ struct HomeView: View {
         // hero to the same handful every launch. Draw from a much deeper window
         // so there are ~150+ backdrop-bearing candidates to shuffle through while
         // keeping the high-quality wide-art bar.
-        let base = store.filteringWatched(
-            store.dbBrowse(sort: .popular, limit: 3000, homeOnly: true)
-        ).filter { $0.hasDesignedArtwork && $0.artworkSource != "generated" }
-        // Hero must be well-composed WIDE art — a real backdrop, never a cropped 2:3 poster or a
-        // frame-grab cover. Require a backdrop; if too few qualify the hero shows fewer (or hides)
-        // rather than cropping a poster into the full-bleed banner (owner 2026-06-29).
-        // AND IT MUST BE RIGHTS-SAFE. The marquee is the one place the app
-        // SPEAKS for a film, and it was gated on artwork and playability
-        // alone — so Yojimbo, The Pink Panther and The Grapes of Wrath, all
-        // `presumed_pd` and all still owned, could carry it. Owner,
-        // 2026-09-20: "I keep seeing nazi movies, controversial films, and
-        // things with questionable public domain status."
-        // `isHeroRightsSafe` is positive evidence only; see Catalog.Item.
-        let pool = base.filter { $0.backdropURLParsed != nil && $0.isHeroRightsSafe }
+        // (The pool, its artwork, backdrop and rights gates are one SQLite query,
+        // CatalogDB.heroCandidates; only the seven shown are decoded.)
+        let hidden = store.hideWatchedOnHome ? store.completedArchiveIDs : []
+        let pool = store.dbHeroCandidates().filter { !hidden.contains($0.id) }
         // The marquee must never feature a title that doesn't play (owner:
         // "should certainly not be highlighted on the home screen"). Prefer
         // byte-verified items; fall back to the full pool while probe coverage
-        // is still climbing, so the hero can never go empty. Measured
-        // 2026-07-18: 244 of the 758 backdrop-bearing candidates are already
-        // verified — far more than the 7 the hero shows.
-        let verified = pool.filter { $0.isPlaybackVerified }
-        let heroPool = verified.count >= 7 ? verified : pool
+        // is still climbing, so the hero can never go empty.
+        let verified = pool.filter(\.playable)
+        let heroPool = (verified.count >= 7 ? verified : pool).map(\.id)
         var rng = SplitMix(seed: UInt64(heroSeed))
-        return Tonight.lead(Array(heroPool.shuffled(using: &rng).prefix(7)),
+        let picked = heroPool.shuffled(using: &rng).prefix(7).compactMap { store.dbItem($0) }
+        return Tonight.lead(picked,
                             with: Tonight.currentID.flatMap { store.dbItem($0) })
     }
 
@@ -123,8 +112,32 @@ struct HomeView: View {
             .padding(.bottom, 80)
         }
         .background(Color.black.ignoresSafeArea())
-        .task(id: "\(heroSeed)-\(store.dbGeneration)-\(store.hideWatchedOnHome)-\(store.completedArchiveIDs.count)-\(store.continueArchiveIDs.count)") {
+        .task(id: homeDataKey) {
+            // tvOS's sidebar TabView builds Home TWICE at launch (measured on
+            // an Apple TV 4K 2nd gen: a second HomeView appears ~2.5 s after
+            // the first, which is then removed). A copy built within seconds
+            // of the last one adopts its seeds and shelves instead of
+            // recomputing them and visibly reshuffling the hero.
+            if heroItems.isEmpty, let e = HomeBuildCache.entry, e.dataKey == homeDataKey,
+               Date().timeIntervalSince(e.at) < 10 {
+                heroSeed = e.heroSeed; shelfSeed = e.shelfSeed
+                heroItems = e.hero; featuredPayloads = e.featured
+                dynamicPayloads = e.dynamic; directorPayloads = e.directors
+                return
+            }
+            // The watch-history sets arrive in bursts at launch; a short settle
+            // lets a burst cancel this task before any work is done.
+            if store.dbGeneration > 0, !heroItems.isEmpty {
+                try? await Task.sleep(for: .milliseconds(300))
+                if Task.isCancelled { return }
+            }
+            let t0 = Date()
             rebuild()
+            HomeBuildCache.entry = .init(dataKey: homeDataKey, at: Date(), heroSeed: heroSeed,
+                                         shelfSeed: shelfSeed, hero: heroItems,
+                                         featured: featuredPayloads, dynamic: dynamicPayloads,
+                                         directors: directorPayloads)
+            awdiag("AWPERF home rebuild %.3fs", Date().timeIntervalSince(t0))
         }
         .task {
             if let id = await Tonight.load() {
@@ -133,7 +146,20 @@ struct HomeView: View {
         }
     }
 
-    private struct ShelfPayload: Identifiable {
+    private var homeDataKey: String {
+        "\(store.dbGeneration)-\(store.hideWatchedOnHome)-\(store.completedArchiveIDs.count)-\(store.continueArchiveIDs.count)"
+    }
+
+    @MainActor fileprivate enum HomeBuildCache {
+        struct Entry {
+            let dataKey: String, at: Date, heroSeed: Int, shelfSeed: UInt64
+            let hero: [Catalog.Item]
+            let featured: [ShelfPayload], dynamic: [ShelfPayload], directors: [ShelfPayload]
+        }
+        static var entry: Entry?
+    }
+
+    fileprivate struct ShelfPayload: Identifiable {
         let shelf: Featured.Shelf
         let items: [Catalog.Item]
         var id: String { shelf.id }
@@ -196,13 +222,24 @@ struct HomeView: View {
         }
 
         // Featured.json shelves, in priority order (per-shelf seeded shuffle).
+        // Shuffled and de-duplicated on light rows; only the tiles shown are
+        // decoded (decoding each shelf's 80 full items cost ~0.5 s a rebuild on
+        // an Apple TV 4K 2nd gen). #2: professional posters only (in the query).
+        let hidden = store.hideWatchedOnHome ? store.completedArchiveIDs : []
         featuredPayloads = homeShelves.compactMap { shelf in
-            var raw = store.filteringWatched(store.items(forShelf: shelf.id,
-                                                         allowStandaloneTV: shelf.isTV))
-                .filter { $0.hasProfessionalArtwork }   // #2: professional posters only
+            var raw = store.dbShelfKeys(shelf.id, allowStandaloneTV: shelf.isTV)
+                .filter { !hidden.contains($0.id) }
             var rng = SplitMix(seed: shelfSeed &+ UInt64(bitPattern: Int64(shelf.id.hashValue)))
             raw.shuffle(using: &rng)
-            let items = take(raw)
+            var taken: [String] = []
+            var seen = Set<String>()
+            for k in raw where !used.contains(k.dedupKey) && !seen.contains(k.dedupKey) {
+                seen.insert(k.dedupKey); taken.append(k.id)
+                if taken.count >= 24 { break }
+            }
+            guard taken.count >= minPerShelf else { return nil }
+            used.formUnion(seen)
+            let items = store.dbItemsByIDs(taken)
             return items.isEmpty ? nil : ShelfPayload(shelf: shelf, items: items)
         }
 

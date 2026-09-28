@@ -141,6 +141,27 @@ titles, alert bodies, the caption label's 4 lines).
   unfocused poster style no longer asks for a 24pt shadow at 0% opacity.
   Not yet seen on a TV.
 
+- v1.42.849: **Launch speed on the Apple TV 4K 2nd gen (Fireplace)**, measured
+  from AWPERF lines in the device's diagnostics file. The catalog opened in
+  0.03-0.09 s; what held the screen was Home rebuilding on the main thread THREE
+  times (1.9 + 1.15 + 1.15 s): the hero decoded 3,000 full items to keep seven
+  (0.5-1.0 s), each featured shelf decoded 80, and tvOS's sidebar TabView builds
+  the Home tab TWICE at launch (a second HomeView appears ~1-2.5 s after the
+  first, which is then removed; not our selection setter, which never fires).
+  Now: the hero pool is one SQLite query returning ids (backdrop read by
+  `json_extract` only for rows past the column gates; 0.04-0.19 s), shelves
+  shuffle and de-duplicate light rows and decode only the tiles shown, a copy
+  built within 10 s adopts the last build (same seeds, no reshuffle), and a
+  burst of watch-history updates settles 300 ms before rebuilding. Result: ONE
+  rebuild of ~0.9 s at launch (three runs: 0.94, 0.87, 0.97), down from ~4.2 s.
+  Side effect: the professional-art filter now runs before the 80-row cap, so
+  two shelves that used to fall under the 9-tile floor now qualify (22 vs 20).
+- **Open, found here**: at launch the SIDEBAR holds focus for several seconds
+  (seen at +4 s on Fireplace) and the hero's `@FocusState` claims read nil
+  throughout; focus reaches the content when the sidebar collapses on its own.
+  The retry of v1.42.843 does not cure it. Needs research into how a
+  `.sidebarAdaptable` TabView hands initial focus to content.
+
 ## Queue
 
 1. Series page: the poster sits mid-hero (no rule covers series art yet)

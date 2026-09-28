@@ -413,6 +413,40 @@ final class CatalogDB {
         """, [shelfID])
     }
 
+    /// A shelf's members as light rows (id + the columns `dedupKey` needs),
+    /// professional art only (`Catalog.Item.hasProfessionalArtwork` in SQL). Home
+    /// shuffles and de-duplicates these and decodes only what it shows.
+    struct ShelfKey { let id: String; let dedupKey: String }
+    func shelfKeys(_ shelfID: String, limit: Int = 80,
+                   allowStandaloneTV: Bool = false) -> [ShelfKey] {
+        let tvClause = allowStandaloneTV
+            ? "AND i.contentType != 'tv-episode'"
+            : notStandaloneTV
+        var stmt: OpaquePointer?
+        let sql = """
+            SELECT i.archiveID, i.imdbID, i.title, i.year FROM item_shelves s
+            JOIN items i USING(archiveID)
+            WHERE s.shelfID = ?1 \(adultAnd) \(homeAnd) \(notCommercial) \(tvClause) \(typeAnd) \(verifiedAnd)
+              AND COALESCE(i.hasRealArtwork, COALESCE(i.artworkSource, '') <> 'archive') = 1
+              AND COALESCE(i.artworkSource, '') <> 'generated'
+            ORDER BY s.position
+            LIMIT \(limit)
+            """
+        guard sqlite3_prepare_v2(handle, sql, -1, &stmt, nil) == SQLITE_OK else { return [] }
+        defer { sqlite3_finalize(stmt) }
+        sqlite3_bind_text(stmt, 1, shelfID, -1, SQLITE_TRANSIENT)
+        var out: [ShelfKey] = []
+        while sqlite3_step(stmt) == SQLITE_ROW {
+            let id = sqlite3_column_text(stmt, 0).map { String(cString: $0) } ?? ""
+            let imdb = sqlite3_column_text(stmt, 1).map { String(cString: $0) }
+            let title = sqlite3_column_text(stmt, 2).map { String(cString: $0) } ?? ""
+            let year: Int? = sqlite3_column_type(stmt, 3) == SQLITE_NULL ? nil : Int(sqlite3_column_int64(stmt, 3))
+            out.append(ShelfKey(id: id, dedupKey: Catalog.Item.dedupKey(
+                archiveID: id, imdbID: imdb, title: title, year: year)))
+        }
+        return out
+    }
+
     /// Curated/explicit list of archiveIDs (e.g. editor's picks from featured.json).
     func itemsByIDs(_ ids: [String]) -> [Catalog.Item] {
         guard !ids.isEmpty else { return [] }
@@ -570,6 +604,33 @@ final class CatalogDB {
                                      year: year, sort: sort, limit: limit, offset: offset,
                                      homeOnly: homeOnly, runtime: runtime)
         return items(sql, binds)
+    }
+
+    /// The hero's candidate pool as (archiveID, playable) — the same top-N
+    /// popular Home pool `browse(sort: .popular, homeOnly: true)` returns, with
+    /// the hero's own gates (designed, non-generated art; a backdrop; the
+    /// hero rights bar) applied in SQLite. Decoding 3,000 full items in Swift
+    /// to keep seven cost 0.5-1 s on an Apple TV 4K 2nd gen at every launch.
+    func heroCandidates(pool: Int = 3000) -> [(id: String, playable: Bool)] {
+        let (browse, binds) = browseSQL(contentType: nil, decade: nil, genre: nil, year: nil,
+                                        sort: .popular, limit: pool, offset: 0,
+                                        homeOnly: true, runtime: nil)
+        let inner = browse.replacingOccurrences(
+            of: "SELECT j.json FROM items i",
+            with: "SELECT i.archiveID, i.playable, i.hasRealArtwork, i.artworkSource, "
+                + "i.rightsBucket, i.year FROM items i")
+            .replacingOccurrences(of: "JOIN item_json j USING(archiveID)", with: "")
+        // The backdrop lives only in the JSON blob, so it is read LAST, for the
+        // rows every column gate has already let through.
+        let sql = """
+            SELECT i.archiveID, COALESCE(i.playable, 0) FROM (\(inner)) i
+            JOIN item_json j USING(archiveID)
+            WHERE COALESCE(i.hasRealArtwork, COALESCE(i.artworkSource, '') <> 'archive') = 1
+              AND COALESCE(i.artworkSource, '') <> 'generated'
+              \(heroRightsAnd)
+              AND COALESCE(json_extract(j.json, '$.backdropURL'), '') <> ''
+            """
+        return scalarRows(sql, binds).map { (id: $0.0, playable: $0.1 == 1) }
     }
 
     /// Raw item_json strings for a browse page — the SQLite read ONLY (fast,
