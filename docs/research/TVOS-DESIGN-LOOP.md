@@ -260,6 +260,10 @@ titles, alert bodies, the caption label's 4 lines).
   lowerBound <= upperBound`, caught from the device console). Web and Android
   rank search their own way and were not changed.
 
+- **Seen on Fireplace, no change**: the player's Info panel (AVKit) shows The
+  Big Parade's long synopsis with its own MORE and "From Beginning" — native,
+  nothing cut.
+
 ## Queue
 
 1. Series page: the poster sits mid-hero (no rule covers series art yet)

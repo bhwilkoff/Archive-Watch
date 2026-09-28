@@ -1,5 +1,41 @@
 # Archive Watch — Session Log (archive)
 
+### 2026-09-27 — Channels on one clock, collections in archive.org's words, and the owner's five answers
+
+Owner, answering five questions: one clock ("you can choose UTC, but all times
+should show as their local times"); collections "written from archive.org
+language originally" with readable titles; page wording fine; "use the Apple TVs
+whenever you want right now"; the sync prompt "seems like a bug". v1.42.752 -> .757.
+
+**Channels** (Decision 144): the pipeline publishes `channel-schedule.json`, one
+UTC timeline per channel, and every platform plays and draws it in local time;
+XMLTV at /feeds/guide.xml. Seen agreeing at 12:06-12:11 UTC on the web (LA and
+Kiritimati), Ben Bedroom, the Pixel, the Google TV, the Stick 4K and the Roku 2
+XD. Built by three forks in worktrees (Apple, Android, Roku) against one contract.
+
+**Collections**: archive.org's own descriptions and titles for the 26
+collections, the series' years for the 19 series, 13 member-list names touched
+up in `collection_touchups.json` (the weekly harvest applies it), one dropped.
+
+**The "Continue as Ben" sheet is the YOUTUBE app's**, not ours: its window
+belongs to com.google.android.youtube (task 637), floating over our task.
+Archive Watch asks Google only from Settings > Sign in. Nothing changed.
+
+**iPhone design loop** (owner: "a design iteration on every surface of the
+iPhone app", on the iPhone 12; `docs/research/IPHONE-DESIGN-LOOP.md`),
+v1.42.769 -> .779: Channels opens on an On Now list with the Guide grid a tap
+away and channel surfing in the player; Library is a list of places; Browse's
+filters are visible chips; Detail is Play + four labeled actions + More, a
+four-line synopsis and a Details disclosure; Search leads with films; titles
+from data wrap in the page; large text sizes hold; in-app picture-in-picture
+leaves the app browsable (restore not yet tapped). Shelf subtitles on EVERY
+platform now name their source instead of model-written taglines.
+
+**Seen on the Apple TV**: Tonight ("TONIGHT · The Cocoanuts") and Scenes.
+**Not seen**: iPhone 12 is behind a Screen Time "Time Limit" for the app; the
+iPad Pro was locked. **Roku**: the one-clock guide is sideloaded, not packaged;
+the Kitchen Roku 2 XD was running another session's dev build, now replaced.
+
 ### 2026-09-26 — OAuth approved, the quota screencast, and a day of loose ends closed
 
 Owner: *"the OAuth has been approved ... a new video needs to be created for

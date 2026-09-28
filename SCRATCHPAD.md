@@ -54,6 +54,18 @@ because the loop was stopped mid-stride for a Claude update.
 
 ### Open owner items (nothing else is blocked)
 
+0-NEW-2026-09-28. **FIVE OWNER CALLS FROM THE tvOS LOOP** (nothing blocked):
+   (a) the tvOS sidebar has 13 entries against tvOS-DESIGN §2.1's ceiling of 9 —
+   which of Cartoons, Party Play, Screensaver, Watch Together move to Home or
+   Settings (§2.3 says modes are not tabs); (b) a used Apple TV HD (~$30-60) to
+   verify the oldest supported box (Decision 148); (c) `Juden Ohne Maske` (1937
+   propaganda) keeps its identity under the runtime-match keep-list —
+   `exclude_hate_propaganda` or not; (d) junk uploads that carried a matched
+   film's year (a 1916 "Spectrum outage" clip) keep that year after the match
+   is cleared — null it or not; (e) SNL 1975-77 and other 1964-77 network TV
+   stay under the 1964-77 keep band (the 1978+ episodes leave on the next
+   audit that archive.org answers).
+
 0-NEW-2026-09-27. **The iPhone 12 is free again** (the Screen Time wall
    lifted; Tonight and the new Channels are seen on it). **Open**: tap the
    restore button of a picture-in-picture window once (§4.4a — the one path
@@ -704,6 +716,40 @@ keep serving it.
 
 ## Session Log
 
+### 2026-09-28 — the tvOS design loop: truncation, the 2nd-gen box, and older Apple TVs
+
+Owner: *"complete a similar design audit and feature evaluation on the tvOS
+app ... Pay particular attention to button presses that pull up additional
+information or windows, as I notice frequent truncation ... pay attention to
+speed on the slower 2nd generation Apple TV 4k ... investigate if it is
+possible for making a version of the app functional on older apple tv
+hardware"*. v1.42.840 -> .859; log `docs/research/TVOS-DESIGN-LOOP.md`.
+Fireplace is usable for testing since today ("whenever you want").
+
+**Truncation**: a 36-finding code audit, then the glass. More opens the whole
+text on its own page (proven on Fireplace with a 6,654-character synopsis);
+Choose Version (owner's last sighting) said "more than one transfer…" over a
+single copy, cut to a line; Continue Watching clipped "2h 30m left" or lost it
+under a tall poster; the Channels guide broke titles into "Episod / es in…" and
+labeled now+30 min; Join a Room showed no focus at all. All fixed and seen.
+Text Size (tvOS 27 Dynamic Type) on reading and browsing surfaces (`TVType`).
+
+**2nd gen**: Home rebuilt three times at launch (~4.2 s on the main thread: the
+hero decoded 3,000 items to keep 7, tvOS's sidebar builds Home twice); now one
+~0.9 s rebuild. Search, the Movies grid and playback start measured fine.
+Search ranking (all Apple) leads with the typed title or director: "metro" ->
+Metropolis. **Launch focus**: the system sidebar holds it ~20 s; three fixes
+failed, owner: keep the native sidebar (tvOS-DESIGN §2.1a).
+
+**Older Apple TVs** (Decision 148): the HD and 4K 1st gen already install the
+app (tvOS 26 floor, which tvOS 27 dropped them from); `test_tvos_floor.py`
+in appstore-build refuses a floor of 27. Unverified on an A8.
+
+**Also**: TV rights audit judged each episode by its show's first year (166
+late SNL etc. episodes never checked) — fixed; wrong TMDb matches by runtime
+cleared (Bomber wore Dive Bomber); Deploy Pages was red (MCP data build) —
+fixed. Fireplace's microphone: owner chose Allow (the prompt outlived the app).
+
 ### 2026-09-27 (evening) — the macOS audit loop: menus, the Creation Studio, and two real defects
 
 Owner: *"conduct a similar audit and design iteration loop on the MacOS
@@ -742,41 +788,5 @@ out sheet, the removal notice + undo, slider undo.
 **Owner, new**: which films the Creation Studio may PUBLISH as CC0 (item
 0-NEW-2026-09-27-B); playback fetching ~45 min ahead in its first 15 s
 (item 0-NEW-2026-09-27-C, measured, not changed).
-
-### 2026-09-27 — Channels on one clock, collections in archive.org's words, and the owner's five answers
-
-Owner, answering five questions: one clock ("you can choose UTC, but all times
-should show as their local times"); collections "written from archive.org
-language originally" with readable titles; page wording fine; "use the Apple TVs
-whenever you want right now"; the sync prompt "seems like a bug". v1.42.752 -> .757.
-
-**Channels** (Decision 144): the pipeline publishes `channel-schedule.json`, one
-UTC timeline per channel, and every platform plays and draws it in local time;
-XMLTV at /feeds/guide.xml. Seen agreeing at 12:06-12:11 UTC on the web (LA and
-Kiritimati), Ben Bedroom, the Pixel, the Google TV, the Stick 4K and the Roku 2
-XD. Built by three forks in worktrees (Apple, Android, Roku) against one contract.
-
-**Collections**: archive.org's own descriptions and titles for the 26
-collections, the series' years for the 19 series, 13 member-list names touched
-up in `collection_touchups.json` (the weekly harvest applies it), one dropped.
-
-**The "Continue as Ben" sheet is the YOUTUBE app's**, not ours: its window
-belongs to com.google.android.youtube (task 637), floating over our task.
-Archive Watch asks Google only from Settings > Sign in. Nothing changed.
-
-**iPhone design loop** (owner: "a design iteration on every surface of the
-iPhone app", on the iPhone 12; `docs/research/IPHONE-DESIGN-LOOP.md`),
-v1.42.769 -> .779: Channels opens on an On Now list with the Guide grid a tap
-away and channel surfing in the player; Library is a list of places; Browse's
-filters are visible chips; Detail is Play + four labeled actions + More, a
-four-line synopsis and a Details disclosure; Search leads with films; titles
-from data wrap in the page; large text sizes hold; in-app picture-in-picture
-leaves the app browsable (restore not yet tapped). Shelf subtitles on EVERY
-platform now name their source instead of model-written taglines.
-
-**Seen on the Apple TV**: Tonight ("TONIGHT · The Cocoanuts") and Scenes.
-**Not seen**: iPhone 12 is behind a Screen Time "Time Limit" for the app; the
-iPad Pro was locked. **Roku**: the one-clock guide is sideloaded, not packaged;
-the Kitchen Roku 2 XD was running another session's dev build, now replaced.
 
 Older entries: `docs/SESSION-LOG.md` (verbatim, back to 2026-04-17).
