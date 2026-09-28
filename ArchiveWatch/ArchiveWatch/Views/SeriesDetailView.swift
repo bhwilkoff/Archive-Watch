@@ -214,11 +214,9 @@ struct SeriesDetailView: View {
     private var infoSection: some View {
         VStack(alignment: .leading, spacing: 22) {
             if let overview = series?.overview ?? seriesCard.synopsis, !overview.isEmpty {
-                Text(overview)
-                    .font(.system(size: 22))
-                    .foregroundStyle(.white.opacity(0.85))
-                    .frame(maxWidth: 1400, alignment: .leading)
-                    .lineLimit(6)
+                ReadableTextBlock(text: overview, collapsedLines: 4, title: seriesCard.title)
+                    .font(.system(size: 29, weight: .regular))
+                    .frame(maxWidth: 1100, alignment: .leading)
             }
             castRow
         }
@@ -428,14 +426,14 @@ struct EpisodeCard: View {
                         .foregroundStyle(.white.opacity(0.55))
                 }
                 Text(episode.title)
-                    .font(.system(size: 21, weight: .semibold))
+                    .font(.system(size: 29, weight: .semibold))
                     .foregroundStyle(.white)
                     .lineLimit(2)
                     .multilineTextAlignment(.leading)
                     .fixedSize(horizontal: false, vertical: true)
                 if let overview = episode.overview, !overview.isEmpty {
                     Text(overview)
-                        .font(.system(size: 17))
+                        .font(.system(size: 23))
                         .foregroundStyle(.white.opacity(0.6))
                         .lineLimit(3)
                         .multilineTextAlignment(.leading)

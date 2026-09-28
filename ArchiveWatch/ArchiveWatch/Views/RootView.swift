@@ -45,6 +45,16 @@ extension RootView {
 #endif
 
 struct RootView: View {
+    #if DEBUG
+    static var harnessTypeSize: DynamicTypeSize? {
+        switch ProcessInfo.processInfo.environment["AW_TYPE_SIZE"] {
+        case "xxxLarge": .xxxLarge
+        case "accessibility2": .accessibility2
+        case "accessibility5": .accessibility5
+        default: nil
+        }
+    }
+    #endif
     @Environment(AppStore.self) private var store
     @Environment(Router.self) private var router
     @Environment(\.modelContext) private var modelContext
@@ -79,6 +89,11 @@ struct RootView: View {
         }
         .tabViewStyle(.sidebarAdaptable)
         .preferredColorScheme(.dark)
+        #if DEBUG
+        // Harness door: AW_TYPE_SIZE renders the app at that Text Size (tvOS 27
+        // Dynamic Type) without touching the television's settings.
+        .dynamicTypeSize(Self.harnessTypeSize.map { $0 ... $0 } ?? (.xSmall ... .accessibility5))
+        #endif
         .overlay { WatchedHomeSync() }
         // Keeps the Top Shelf snapshot (App Group) in sync with the
         // catalog + watch progress. No-ops until the App Group exists.

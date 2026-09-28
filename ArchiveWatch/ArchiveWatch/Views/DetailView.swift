@@ -420,9 +420,9 @@ struct DetailView: View {
                 // the scroll never brings it into view. The description was
                 // therefore unreadable past its sixth line on a television
                 // (owner, 2026-08-28: "the individual detail view … skips
-                // right over the description"). Focusing it also expands it,
-                // so the whole synopsis can be read without a control to press.
-                ReadableTextBlock(text: synopsis, collapsedLines: 6)
+                // right over the description"). A synopsis the clamp cuts opens
+                // whole on its own page.
+                ReadableTextBlock(text: synopsis, collapsedLines: 6, title: item.title)
                     .font(.system(size: 29, weight: .regular))
                     .frame(maxWidth: 1100, alignment: .leading)
                 if let prov = item.synopsisProvenance {
@@ -3090,36 +3090,44 @@ struct ShareSheet: View {   // reused by SeriesDetailView (series + episodes)
 /// focus, so scrolling past is silent.
 struct ReadableTextBlock: View {
     let text: String
-    /// nil = never clamp. Otherwise the block shows this many lines and Select
-    /// expands it — focus alone MUST NOT, because focus passes through this
-    /// block on the way down the page and a block that resizes then makes
-    /// everything below it jump (owner, 2026-09-04).
+    /// nil = never clamp. Otherwise the block shows this many lines and, when
+    /// that hides anything, Select opens the whole text on its own page.
     var collapsedLines: Int? = 6
     var dimmed: Double = 0.85
-    @State private var expanded = false
+    /// Heading for the full-text page (the film's title, a reviewer's name).
+    var title: String? = nil
+    @State private var clampedHeight: CGFloat = 0
+    @State private var fullHeight: CGFloat = 0
+    @State private var reading = false
 
-    /// Only offer the expansion when the clamp can actually be hiding
-    /// something — roughly 42 characters a line at this size and width.
-    private var canExpand: Bool {
-        guard let n = collapsedLines else { return false }
-        return text.count > n * 42
+    // Measured, not guessed: a character count missed short texts of several
+    // paragraphs and flagged long single lines that fit.
+    private var truncated: Bool {
+        collapsedLines != nil && fullHeight > clampedHeight + 1
     }
 
     var body: some View {
         Button {
-            guard canExpand else { return }
-            withAnimation(.easeInOut(duration: 0.2)) { expanded.toggle() }
+            if truncated { reading = true }
         } label: {
             VStack(alignment: .leading, spacing: 8) {
                 Text(text)
                     .foregroundStyle(.white.opacity(dimmed))
-                    .lineLimit(expanded ? nil : collapsedLines)
+                    .lineLimit(collapsedLines)
                     .multilineTextAlignment(.leading)
                     .frame(maxWidth: .infinity, alignment: .leading)
-                if canExpand {
-                    Text(expanded ? "Show less" : "Show more")
-                        .font(.caption)
-                        .foregroundStyle(.white.opacity(0.6))
+                    .onGeometryChange(for: CGFloat.self) { $0.size.height } action: { clampedHeight = $0 }
+                    .background(alignment: .topLeading) {
+                        Text(text)
+                            .fixedSize(horizontal: false, vertical: true)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .hidden()
+                            .onGeometryChange(for: CGFloat.self) { $0.size.height } action: { fullHeight = $0 }
+                    }
+                if truncated {
+                    Text("More")
+                        .font(.system(size: 23, weight: .bold))
+                        .foregroundStyle(.white.opacity(0.7))
                 }
             }
         }
@@ -3127,6 +3135,59 @@ struct ReadableTextBlock: View {
         // This file's own header rule: a custom ButtonStyle still gets tvOS's
         // default halo on top of it unless the call site disables it.
         .focusEffectDisabled()
+        .fullScreenCover(isPresented: $reading) {
+            FullTextReader(title: title, text: text)
+        }
+    }
+}
+
+/// The whole of a long text, on its own page (the Apple TV app's "More").
+/// Expanding in place could not work on a television: a block taller than the
+/// screen is ONE focusable element, so the remote had nothing to move to and
+/// its end could never be scrolled into view.
+struct FullTextReader: View {
+    let title: String?
+    let text: String
+
+    /// Paragraphs, with any that would outgrow the screen split at sentence
+    /// ends, so each focus step moves the page by a readable amount.
+    private var chunks: [String] {
+        text.components(separatedBy: .newlines)
+            .map { $0.trimmingCharacters(in: .whitespaces) }
+            .filter { !$0.isEmpty }
+            .flatMap { p -> [String] in
+                guard p.count > 600 else { return [p] }
+                var out: [String] = [], cur = ""
+                p.enumerateSubstrings(in: p.startIndex..., options: .bySentences) { s, _, _, _ in
+                    guard let s else { return }
+                    if cur.count + s.count > 600, !cur.isEmpty { out.append(cur); cur = "" }
+                    cur += s
+                }
+                if !cur.isEmpty { out.append(cur) }
+                return out
+            }
+    }
+
+    var body: some View {
+        ScrollView {
+            VStack(alignment: .leading, spacing: 28) {
+                if let title {
+                    Text(title)
+                        .font(.system(size: 57, weight: .bold, design: .serif))
+                        .fixedSize(horizontal: false, vertical: true)
+                }
+                ForEach(Array(chunks.enumerated()), id: \.offset) { _, chunk in
+                    ReadableTextBlock(text: chunk, collapsedLines: nil, dimmed: 0.9)
+                        .font(.system(size: 29, weight: .regular))
+                        .fixedSize(horizontal: false, vertical: true)
+                }
+            }
+            .frame(maxWidth: 1200, alignment: .leading)
+            .padding(.horizontal, 90)
+            .padding(.vertical, 70)
+            .frame(maxWidth: .infinity)
+        }
+        .background(Color.black.ignoresSafeArea())
     }
 }
 

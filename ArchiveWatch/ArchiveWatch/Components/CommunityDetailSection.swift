@@ -58,11 +58,20 @@ private struct ReviewCard: View {
     /// card expands it; the title stays clamped because it is an identifier,
     /// not the content.
     @State private var expanded = false
+    #if os(tvOS)
+    @State private var clampedHeight: CGFloat = 0
+    @State private var fullHeight: CGFloat = 0
+    @State private var reading = false
+    #endif
 
     /// Six lines of `.callout` is roughly this many characters at phone width.
     /// Only past that can the clamp actually be hiding something, and only
     /// then is a "More" affordance honest.
+    #if os(tvOS)
+    private var maybeTruncated: Bool { fullHeight > clampedHeight + 1 }
+    #else
     private var maybeTruncated: Bool { (review.body?.count ?? 0) > 260 }
+    #endif
 
     /// The review text itself. Selection is iOS/macOS only — tvOS has no text
     /// selection at all, and reaches the same content by focusing the card.
@@ -70,7 +79,14 @@ private struct ReviewCard: View {
         let t = Text(b).font(.callout).foregroundStyle(.secondary)
             .lineLimit(expanded ? nil : 6)
         #if os(tvOS)
-        t
+        t.onGeometryChange(for: CGFloat.self) { $0.size.height } action: { clampedHeight = $0 }
+            .background(alignment: .topLeading) {
+                Text(b).font(.callout)
+                    .fixedSize(horizontal: false, vertical: true)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .hidden()
+                    .onGeometryChange(for: CGFloat.self) { $0.size.height } action: { fullHeight = $0 }
+            }
         #else
         t.textSelection(.enabled)
         #endif
@@ -91,13 +107,18 @@ private struct ReviewCard: View {
                     }
                 }
                 if let t = review.title, !t.isEmpty {
-                    Text(t).font(.subheadline).fontWeight(.semibold).lineLimit(1)
+                    Text(t).font(.subheadline).fontWeight(.semibold).lineLimit(2)
                 }
                 Spacer(minLength: 0)
             }
             if let b = review.body, !b.isEmpty {
                 reviewBody(b)
                 if maybeTruncated {
+                    #if os(tvOS)
+                    Text("More")
+                        .font(.caption).fontWeight(.bold)
+                        .foregroundStyle(.white.opacity(0.7))
+                    #else
                     Text(expanded ? "Show less" : "Show more")
                         .font(.caption)
                         #if os(tvOS)
@@ -105,6 +126,7 @@ private struct ReviewCard: View {
                         #else
                         .foregroundStyle(.tint)
                         #endif
+                    #endif
                 }
             }
             Text(review.displayName + (review.date.map { " · \($0)" } ?? ""))
@@ -124,15 +146,17 @@ private struct ReviewCard: View {
         // should"). Now Up/Down walks review to review.
         //
         // The style changes no geometry on focus, so walking the list does not
-        // reflow the page; Select expands a long one deliberately.
+        // reflow the page; Select opens a long one whole on its own page.
         Button {
-            guard maybeTruncated else { return }
-            withAnimation(.easeInOut(duration: 0.2)) { expanded.toggle() }
+            if maybeTruncated { reading = true }
         } label: {
             cardContent
         }
         .buttonStyle(ReadingCardStyle())
         .focusEffectDisabled()
+        .fullScreenCover(isPresented: $reading) {
+            FullTextReader(title: review.title ?? review.displayName, text: review.body ?? "")
+        }
         #else
         cardContent
             .padding(12)
