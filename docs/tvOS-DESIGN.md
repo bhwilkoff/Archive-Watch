@@ -135,6 +135,7 @@ Every UI maps to exactly one. A new shape needs a new rule here first.
 3.3b **Search leads with films** (2026-09-28, iOS-DESIGN §4.2b parity): Films & Shows first, then Episodes as one row of five with "Show all N episodes" at its end; result titles wrap to two lines. Before a query the surface shows only a quiet glyph — the field's prompt already names what can be searched.
 3.4 **Detail** — hero backdrop + metadata + actions + "more like this"; Play
 auto-focused (playbook §9.4). People pages are a detail variant.
+3.4b **A series page leads with one play action** (2026-09-28): a Play button, auto-focused, that names the episode it plays — "Resume S2, E4" when the most recently watched episode was left partway, "Next S2, E5" when it was finished, otherwise "Play S1, E1" (the first playable episode). It plays in the episode player; the episode cards still open each episode's own Detail.
 3.5 **Sheet / overlay** — transient, dismissible, focus-restoring (player info,
 settings, share, skip). Never a nav push (§1.4).
 3.6 **Mode** — a full-screen lean-back takeover that replaces the shell while

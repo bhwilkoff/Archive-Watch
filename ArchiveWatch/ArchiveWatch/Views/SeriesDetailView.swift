@@ -39,6 +39,8 @@ struct SeriesDetailView: View {
     @State private var playingEpisode: Episode?
     @FocusState private var focusedEpisode: String?
     @FocusState private var focusedSeason: Int?
+    @FocusState private var playFocused: Bool
+    @State private var upNext: UpNext?
 
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
@@ -49,6 +51,9 @@ struct SeriesDetailView: View {
             }
         }
         .background(Color.black.ignoresSafeArea())
+        .onChange(of: playingEpisode) { _, now in
+            if now == nil { upNext = computeUpNext() }
+        }
         .fullScreenCover(item: $playingEpisode) { episode in
             if let series {
                 EpisodePlayerScreen(series: series, initialEpisode: episode)
@@ -76,12 +81,12 @@ struct SeriesDetailView: View {
                 loadError = true
             }
             isLoading = false
-            // Claim initial focus on the first episode once the grid has
-            // rendered (playbook §2: initial-focus views must imperatively
-            // claim focus; the yield lets the LazyVGrid build first).
-            if let first = loaded?.seasons.first?.episodes.first?.archiveID {
+            upNext = computeUpNext()
+            // Claim initial focus on Play once it has rendered (playbook §2:
+            // initial-focus views must imperatively claim focus).
+            if upNext != nil {
                 try? await Task.sleep(for: .milliseconds(60))
-                focusedEpisode = first
+                playFocused = true
             }
         }
     }
@@ -170,6 +175,7 @@ struct SeriesDetailView: View {
     @ViewBuilder
     private var seriesActions: some View {
         HStack(spacing: 16) {
+            if let upNext { playButton(upNext) }
             Button(action: toggleSeriesFavorite) {
                 Image(systemName: isSeriesFavorited ? "heart.fill" : "heart")
                     .font(.title2)
@@ -190,6 +196,70 @@ struct SeriesDetailView: View {
         }
         .padding(.top, 8)
         .focusSection()
+    }
+
+    // MARK: - Play / Resume / Next (tvOS-DESIGN §3.4b)
+
+    struct UpNext: Equatable {
+        enum Verb: String { case play = "Play", resume = "Resume", next = "Next" }
+        let verb: Verb
+        let episode: Episode
+
+        var label: String {
+            if let s = episode.seasonNumber, let e = episode.episodeNumber {
+                return "\(verb.rawValue) S\(s), E\(e)"
+            }
+            if let e = episode.episodeNumber { return "\(verb.rawValue) Episode \(e)" }
+            return verb.rawValue
+        }
+    }
+
+    /// The episode after the one most recently watched: that one again when it
+    /// was left partway, the next in order when it was finished, and the first
+    /// episode when nothing of the show has been watched.
+    private func computeUpNext() -> UpNext? {
+        let episodes = (series?.seasons ?? []).flatMap(\.episodes)
+            .filter { $0.videoURLParsed != nil }
+        guard let first = episodes.first else { return nil }
+        let ids = episodes.map(\.archiveID)
+        let seen = (try? modelContext.fetch(FetchDescriptor<WatchProgress>(
+            predicate: #Predicate { ids.contains($0.archiveID) }))) ?? []
+        guard let last = seen.max(by: { $0.lastWatchedAt < $1.lastWatchedAt }),
+              let i = episodes.firstIndex(where: { $0.archiveID == last.archiveID })
+        else { return UpNext(verb: .play, episode: first) }
+        if !last.isComplete, last.positionSeconds > 10 {
+            return UpNext(verb: .resume, episode: episodes[i])
+        }
+        if i + 1 < episodes.count { return UpNext(verb: .next, episode: episodes[i + 1]) }
+        return UpNext(verb: .play, episode: first)
+    }
+
+    private func playButton(_ upNext: UpNext) -> some View {
+        Button {
+            playingEpisode = upNext.episode
+        } label: {
+            HStack(spacing: 14) {
+                ZStack {
+                    Circle().fill(.white).frame(width: 36, height: 36)
+                    Image(systemName: "play.fill")
+                        .font(.system(size: 16, weight: .black))
+                        .foregroundStyle(store.accentColor(forCategory: "tv-series"))
+                        .offset(x: 1)
+                }
+                Text(upNext.label)
+                    .font(.title3.weight(.semibold))
+                    .foregroundStyle(.white)
+                    .lineLimit(1)
+                    .fixedSize(horizontal: true, vertical: false)
+            }
+            .padding(.leading, 10)
+            .padding(.trailing, 28)
+            .padding(.vertical, 10)
+        }
+        .buttonStyle(PrimaryCTAStyle(accent: store.accentColor(forCategory: "tv-series")))
+        .focusEffectDisabled()
+        .focused($playFocused)
+        .layoutPriority(1)
     }
 
     private var isSeriesFavorited: Bool {
