@@ -17,6 +17,7 @@ struct CartoonView: View {
     @State private var characters: [(name: String, items: [Catalog.Item])] = []
     @State private var collections: [(title: String, items: [Catalog.Item])] = []
     @State private var marathon: ChannelLineup?
+    @Environment(\.horizontalSizeClass) private var hSize
 
     var body: some View {
         ScrollView {
@@ -34,6 +35,8 @@ struct CartoonView: View {
                                 in: .rect(cornerRadius: 14))
                 }
                 .buttonStyle(.plain)
+                // IPAD-DESIGN §2.2: a primary control is capped at 480pt.
+                .frame(maxWidth: hSize == .regular ? 480 : .infinity)
                 .padding(.horizontal)
 
                 ForEach(characters, id: \.name) { group in

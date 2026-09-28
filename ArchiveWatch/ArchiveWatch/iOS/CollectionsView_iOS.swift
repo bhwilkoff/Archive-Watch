@@ -12,16 +12,26 @@ struct CollectionRef: Hashable {
 
 struct CollectionsList: View {
     @Environment(Router.self) private var router
+    @Environment(\.horizontalSizeClass) private var hSize
     private var entries: [CollectionMetadata.Entry] { CollectionMetadata.all }
+    /// IPAD-DESIGN §2.1: at regular width the rows form columns rather than
+    /// one list whose chevrons sit a thousand points from their titles.
+    private var cols: [GridItem] {
+        hSize == .regular ? [GridItem(.adaptive(minimum: 340), spacing: 28, alignment: .top)]
+                          : [GridItem(.flexible())]
+    }
 
     var body: some View {
-        LazyVStack(spacing: 4) {
+        LazyVGrid(columns: cols, spacing: 4) {
             ForEach(entries) { e in
-                Button {
-                    router.browsePath.append(CollectionRef(id: e.id, title: e.title, blurb: e.blurb))
-                } label: { CollectionCard(entry: e) }
-                .buttonStyle(.plain)
-                Divider().padding(.leading, 18)
+                VStack(spacing: 0) {
+                    Button {
+                        router.browsePath.append(CollectionRef(id: e.id, title: e.title, blurb: e.blurb))
+                    } label: { CollectionCard(entry: e) }
+                    .buttonStyle(.plain)
+                    .hoverEffect(.highlight)
+                    Divider().padding(.leading, 18)
+                }
             }
         }
         .padding(.horizontal)
@@ -54,6 +64,7 @@ struct CollectionGridView: View {
     @Environment(Router.self) private var router
     @State private var loaded: [Catalog.Item] = []
     @State private var sort: CatalogDB.Sort = .popular
+    @Environment(\.horizontalSizeClass) private var hSize
     private let cols = [GridItem(.adaptive(minimum: 110), spacing: 14)]
 
     /// iOS-DESIGN 5.1c: Browse's sort, on the collection's own grid.
@@ -64,6 +75,8 @@ struct CollectionGridView: View {
             ContentTitle(text: ref.title).padding([.horizontal, .top])
             if !ref.blurb.isEmpty {
                 Text(ref.blurb).font(.subheadline).foregroundStyle(.secondary)
+                    // IPAD-DESIGN §2.1's measure; archive.org's descriptions run long.
+                    .frame(maxWidth: hSize == .regular ? 700 : .infinity, alignment: .leading)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.horizontal).padding(.top, 4)
             }

@@ -70,6 +70,15 @@ rule in IPAD-DESIGN.md before it ships (binding-design-doc discipline).
   (Nosferatu; The Lone Ranger). tvOS NOT yet seen: Fireplace was off and
   Kitchen's 720p capture crops the right edge.
 
+- v1.42.872: **Collections** in columns at regular width (adaptive, 340 pt
+  minimum; pointer highlight on each row) instead of one list with its chevrons
+  ~1000 pt from their titles; a collection's archive.org description capped at
+  the §2.1 measure; the Cartoon Marathon button capped at 480 pt (§2.2). Seen:
+  Collections, two columns, on the iPad Pro. NOT changed, with reasons:
+  On Now at regular width (the grid's leading edge answers it, as on tvOS);
+  ↑/↓ surfing (rule 8.3 gives the player its keys, and without a keyboard on
+  the iPad whether AVKit answers ↑/↓ is unmeasured — a guess either way).
+
 ## Found, data (for the copyright/scrub work, not the iPad)
 
 - `SelfCons1951` "Self-Conscious Guy" (Coronet, 10 min) leads Home's hero with
