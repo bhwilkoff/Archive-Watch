@@ -71,6 +71,16 @@ jobs:
         # step finds independent evidence. Additive; never removes one.
         run: python tools/corroborate_licences.py | tail -2
 
+      - name: Find verifiable copyright claims (Copyright Office renewals + Wikidata)
+        # Owner, 2026-09-28: "If we have verifiable copyright claims on movies
+        # or TV shows, we should work to remove those items from the database.
+        # If we truly don't know about the copyright status, then they can
+        # stay." Marks copyrightClaimEvidence (a record a reader can open);
+        # audit_rights hides those as copyright_claim_evidence. Unknown stays.
+        # Checked titles are re-checked after 90 days, so a first run is the
+        # long one; the budget leaves the rest of the job its time.
+        run: python tools/corroborate_copyright.py --budget-min 120 | tail -2
+
       - name: Report (what WOULD be rejected) + bucket summary
         run: |
           python tools/audit_rights.py --report-rejected tools/rejected_audit.csv | tee audit.log

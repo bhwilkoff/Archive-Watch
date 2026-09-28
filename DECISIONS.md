@@ -233,6 +233,7 @@ into every session and the index alone carries every title.)
 - 148 — Older Apple TVs are served by the tvOS 26 floor, not a second app; the floor is held below 27
 - 149 — Propaganda is never recommended and always findable; "true propaganda" is the Nazi state's, on evidence a reader can open
 - 150 — A cleared match leaves nothing it filled unless something independent vouches for it
+- 151 — A title leaves the catalog on a copyright claim a reader can open; not knowing is not a claim
 
 ---
 
@@ -1317,3 +1318,52 @@ unfetched and therefore untouched. `tools/test_scrub_cleared_match.py` holds
 the cases with two controls (a no-op scrub; a scrub without siblings, which
 would null D.O.A.'s 1949 and set Father's Little Dividend to 1941), and a
 second full `remediate` pass must scrub nothing.
+
+
+## 151 — A title leaves the catalog on a copyright claim a reader can open; not knowing is not a claim
+*Date: 2026-09-28*
+
+`tools/corroborate_copyright.py` (rights-audit, after the licence step) looks
+for evidence that a title the audit KEEPS is still under US copyright, and
+records it as `copyrightClaimEvidence` (the record's URL, the registration,
+the claimant); `audit_rights` hides such a title as `copyright_claim_evidence`
+until its year passes the age line. Two sources count: a Copyright Office
+**renewal** (class RE) of a **motion picture** whose title is this title and
+whose original registration is within a year of this title's year; and a
+Wikidata "copyrighted" statement with a reference that applies to the US,
+where the same item carries no US public-domain status and no licence. A title
+with no claim found is left alone.
+
+**Why**: the owner — *"If we have verifiable copyright claims on movies or TV
+shows, we should work to remove those items from the database. If we truly
+don't know about the copyright status, then they can stay because of that
+ambiguity."* The audit's `presumed_pd` and renewal-zone buckets keep 1930-77
+films on the absence of evidence either way, which is right for the unknown
+and wrong for the films whose renewal is a public record. Measured
+2026-09-28 over 16,390 kept titles: **943 Copyright Office renewals and 4
+Wikidata claims** (947 items, 765 distinct films; 742 features, 160 cartoons —
+Columbia's Magoos, Famous Studios' Noveltoons — 41 shorts, 4 TV specials),
+13,905 with no claim, 7 unreachable. They include The Killing, The Night of the
+Hunter, The Manchurian Candidate, Invasion of the Body Snatchers, Yojimbo and
+Jason and the Argonauts, several of which had been on the marquee.
+
+**What does NOT count**, each seen that day: a post-1978 PA registration (it
+registers NEW material — Plan 9 from Outer Space's trailer and a 2007
+colorized version are registered, and Plan 9 is public domain); a renewal of
+a SONG from the film (Charade's); a renewal of another work with the same
+title in another year; a Wikidata "copyrighted" on a pre-1930 film (stale:
+Rival Romeos, 1928). Before shipping, 0 of 20 public-domain canon films
+(Night of the Living Dead, Charade, Carnival of Souls, McLintock!...) matched,
+and 3 of 3 known renewals did. Renewals of works before 1950 were filed before
+1978 and are not in the online records, so the 1930s and 1940s are checked by
+Wikidata alone.
+
+**How to apply**: a wrong match is cleared by a person, in
+`shared/editorial/copyright_evidence_overrides.json` ({archiveID: reason}),
+never by loosening the match. The hide lifts on its own when a title's year
+passes the age line (Decision 137). Checked titles are re-checked after 90
+days; a first run is the long one (~70 minutes locally). Television episodes
+in series spines are not catalog items and are judged by `audit_tv_rights`,
+not here. `tools/test_copyright_evidence.py` holds the match rules with the
+PA, song and wrong-year controls.
+

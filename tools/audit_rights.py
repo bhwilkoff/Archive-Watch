@@ -495,6 +495,16 @@ def bucket(it):
     # overrides even a bogus CC/PD claim (a studio classic has neither for real).
     if is_renewed_classic(it):
         return "renewed_copyright_classic", "hide"
+    # A VERIFIABLE copyright claim (tools/corroborate_copyright.py: a
+    # Copyright Office renewal record, or a referenced Wikidata statement that
+    # applies to the US). Owner, 2026-09-28: "If we have verifiable copyright
+    # claims on movies or TV shows, we should work to remove those items from
+    # the database. If we truly don't know about the copyright status, then
+    # they can stay." Past the age line the claim has expired, so the hide
+    # lifts on its own; a person can clear a wrong match by listing it.
+    if (it.get("copyrightClaimEvidence") and isinstance(yi, int) and yi >= PD_BY_AGE
+            and it.get("archiveID") not in copyright_overrides()):
+        return "copyright_claim_evidence", "hide"
     # 1964-77 with a real commercial footprint = a renewed studio film (copyright), NOT public
     # domain — the famous titles that leak onto Home/Hero (The Graduate, 2001, Jaws, Chinatown…).
     # Hide unless a known PD-by-defect classic. BEFORE license_rescues so a bogus uploader PD/CC
@@ -603,7 +613,20 @@ HIDE_BUCKETS = {"modern_copyright_confirmed", "modern_noyear_risk", "uploader_li
                 "commercial_modern_risk", "commercial_slop",
                 "renewed_copyright_classic", "renewal_zone_commercial",
                 "copyrighted_trailer", "wrongmatch_idyear", "wrongmatch_title",
-                "no_evidence", "uploader_cannot_dedicate", "uploader_copyright_claim"}
+                "no_evidence", "uploader_cannot_dedicate", "uploader_copyright_claim",
+                "copyright_claim_evidence"}
+
+_OVERRIDES = Path(__file__).resolve().parent.parent / "shared" / "editorial" / "copyright_evidence_overrides.json"
+
+
+def copyright_overrides():
+    """{archiveID: reason} a person wrote after judging a claim a wrong match."""
+    if not hasattr(copyright_overrides, "ids"):
+        try:
+            copyright_overrides.ids = set(json.loads(_OVERRIDES.read_text(encoding="utf-8")))
+        except (OSError, ValueError):
+            copyright_overrides.ids = set()
+    return copyright_overrides.ids
 
 
 def evidence_for(it, b):
@@ -614,6 +637,11 @@ def evidence_for(it, b):
         parts.append(f"year {y} >= {MODERN} (born copyrighted)")
         parts.append(f"archive_date={ad}" if ad is not None else "archive_date=unknown")
         parts.append(f"license={it.get('archiveLicense') or 'NONE'} (no CC0/CC dedication)")
+    elif b == "copyright_claim_evidence":
+        e = it.get("copyrightClaimEvidence") or {}
+        parts.append(f"{e.get('via', 'copyright claim')} — {e.get('source', '')}")
+        if e.get("claimant"):
+            parts.append(f"claimant {e['claimant']}")
     elif b == "commercial_modern_risk":
         parts.append(f"modern brand ad, year {y if y is not None else '?'} >= {COMMERCIAL_MODERN}")
         if y is None and modern_id(it):
