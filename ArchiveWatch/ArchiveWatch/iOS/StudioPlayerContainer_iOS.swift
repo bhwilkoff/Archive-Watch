@@ -346,7 +346,9 @@ struct StudioPlayerContainer: View {
         o.subtitle = [item.year.map(String.init), item.director]
             .compactMap { $0 }.filter { !$0.isEmpty }.joined(separator: " · ")
         if item.rightsBucket == "safe_pd_age", let y = item.year {
-            o.provenance = "Public domain — published \(y), before 1930"
+            // Decision 137: no "before 19xx" clause — it went stale on every
+            // New Year. The Mac, the television and Android already say this.
+            o.provenance = "Public domain — published \(y)"
         }
         o.showLowerThird = showLowerThird
         o.card = card
@@ -415,6 +417,27 @@ struct StudioPlayerContainer: View {
                     let problem = await StudioSession.shared.shareFilmInChat(
                         archiveID: item.archiveID, title: item.title, meta: meta)
                     awdiag("AWCHATSHARE door result=%@", problem ?? "posted")
+                }
+            }
+            // `AW_STUDIO_IOS_CARD="Heading|Message@T"`: at T s on air, raise
+            // the host's own card (§D10) through the state the controls
+            // sheet's button sets; at T+8, change the message, which must
+            // reach the audience while the card is up.
+            if let v = env["AW_STUDIO_IOS_CARD"] {
+                let parts = v.split(separator: "@", maxSplits: 1)
+                let words = (parts.first ?? "").split(separator: "|", maxSplits: 1).map(String.init)
+                if parts.count == 2, let t = Int(parts[1]) {
+                    let text = StudioCustomCardText.shared
+                    if onAirTicks == t {
+                        text.heading = words.first ?? ""
+                        text.message = words.count > 1 ? words[1] : ""
+                        card = text.card
+                        awdiag("AWCARD door raised custom card heading=%@", text.heading)
+                    } else if onAirTicks == t + 8 {
+                        text.message += " (edited)"
+                        if case .custom = card { card = text.card }
+                        awdiag("AWCARD door edited message=%@", text.message)
+                    }
                 }
             }
             if let t = env["AW_STUDIO_IOS_END"].flatMap(Int.init), onAirTicks == t {

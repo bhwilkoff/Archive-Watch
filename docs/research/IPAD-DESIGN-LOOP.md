@@ -240,7 +240,19 @@ rule in IPAD-DESIGN.md before it ships (binding-design-doc discipline).
   was already on iOS (StudioPlayerContainer_iOS) — the audit note was stale.
   Built; NOT seen: running the Studio attaches the owner's camera and mic.
 
-**Remaining (2026-09-28 13:47, updated 17:14):** code — Clip Studio Space (I/O done),
+- v1.42.892 (owner away: "you can test on any device"): **the custom card,
+  seen on the wire** — a bench broadcast from the iPad Pro (mic and film
+  muted by the door) recorded the film, then "Intermission in ten / Back at
+  nine sharp" in the card's own type at 16 s, then the edited message at
+  24 s: edits reach the audience while the card is up. Door:
+  `AW_STUDIO_IOS_CARD="Heading|Message@T"`. **Found on the same frames: the
+  iPhone/iPad on-air rights line still said "PUBLISHED 1928, BEFORE 1930"** —
+  Decision 137 fixed the Mac's StudioSession and never reached
+  StudioPlayerContainer_iOS, which builds its own overlay (Decision 133's
+  shared-type-is-not-shared-path, again). Fixed and re-recorded: "PUBLIC
+  DOMAIN — PUBLISHED 1928".
+
+**Remaining (2026-09-28 13:47, updated 17:20):** code — Clip Studio Space (I/O done),
 channel-surf ↑/↓ (three routes failed; control first),  Spotlight indexing (Open Film for Siri is built), the Studio's Record (the custom card is built; film-stall reason was already there); verify — picture-in-picture restore; research — a film window opening as a floating window; owner — none.
 
 ## Found, data (for the copyright/scrub work, not the iPad)

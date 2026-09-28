@@ -348,7 +348,7 @@ Ideally with multiple lines of different weights as the cards exist now."*
 | | |
 |---|---|
 | macOS | ✅ four lines, each with a rank (Display / Heading / Body / Caption), in the Studio's Inputs column. Rendered by `StudioOverlayRenderer` at 1920x1080 and LOOKED AT (`build/qa/studio-overlay/card-custom*.png`) — empty lines dropped, one-line and four-line cards both optically centered, same wordmark and rule as the three fixed cards |
-| iOS (iPhone, iPad) | 🚧 **BUILT v1.42.890**: "Your own card" in the Studio controls — a heading and a message (two lines; the Mac has four), live while shown, refused while empty (§D10); not yet seen on a device, because running the Studio attaches the host's camera and microphone |
+| iOS (iPhone, iPad) | ✅ **v1.42.890, seen on the wire v1.42.892**: "Your own card" in the Studio controls — a heading and a message (two lines; the Mac has four), live while shown, refused while empty (§D10). A bench broadcast from the iPad Pro recorded the card and then its edited message, as typed (`AW_STUDIO_IOS_CARD`) |
 | tvOS · Android | ⏳ the ENGINE carries it on every Apple platform (`StudioOverlay.Card.custom` is in shared Swift) and the television has no surface for it yet. Android's `Card` is a separate Kotlin enum and does not have the case at all |
 | Web | 🚫 no broadcast at all |
 
