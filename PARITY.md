@@ -56,8 +56,9 @@ macOS) since they share the Swift Core.
 
 | Verb | tvOS | iOS | macOS | Web | Android | Notes (native idiom) |
 |---|---|---|---|---|---|---|
-| Top-level nav | ✅ `TabView(.sidebarAdaptable)` | ✅ `TabView(.sidebarAdaptable)` (bottom bar iPhone → sidebar iPad) | ✅ `NavigationSplitView` sidebar (Home/Movies/TV/Channels/Collections/Surprise/Search/Library + **Create**) | ✅ top nav + hash routes (`/watch/`) | ✅ `NavigationSuiteScaffold` + sealed routes | Settings = a Mac Settings scene / a Home cog elsewhere |
+| Top-level nav | ✅ `TabView(.sidebarAdaptable)` | ✅ `TabView(.sidebarAdaptable)`: iPhone's five-tab bar; the **iPad sidebar lists places** (Browse: Films/TV/Collections · Library: Downloads/Favorites/History/Playlists/Clips · Surprise · Watch Together · Settings), customizable (IPAD-DESIGN §10) | ✅ `NavigationSplitView` sidebar (Home/Movies/TV/Channels/Collections/Surprise/Search/Library + **Create**) | ✅ top nav + hash routes (`/watch/`) | ✅ `NavigationSuiteScaffold` + sealed routes | Settings = a Mac Settings scene / a Home cog elsewhere |
 | Per-tab back stack | ✅ `NavigationStack` ×tab | ✅ `NavigationStack` ×tab + swipe-back | ✅ `NavigationStack` detail column (`AppRouter`) | ✅ hash history (browser back) | ✅ `BackHandler` route stack | |
+| iPad pointer + drag and drop | n/a | ✅ iPad: tiles lift, guide blocks highlight and name themselves on hover; a film drags as its archivewatch.org link and drops onto a playlist row or the Favorites sidebar entry (IPAD-DESIGN §11–§12) | ⏳ | n/a | n/a | iPhone unchanged (regular width only) |
 | Deep-linkable surfaces | ✅ `archivewatch://` | ✅ scheme; Universal Links UNBLOCKED — AASA live at archivewatch.org/.well-known (owner: add Associated Domains capability, Decision 030) | ✅ `archivewatch://` + Universal Links (onOpenURL; associated-domains entitlement) | ✅ archivewatch.org/item/{id} canonical + 404-forwarder | ✅ `archivewatch://item/{id}` | Web makes every surface a shareable URL |
 
 ## 2. Discover — Home

@@ -267,6 +267,50 @@ stacks. The catalog store, account and SwiftData container stay app-wide.
 9.3 **Scenes are declared for iPad only** (`UIApplicationSceneManifest~ipad`
 in the shared Info.plist), so tvOS and iPhone read no change.
 
+## §10 — The sidebar holds places, not only verbs (binding)
+
+The owner, 2026-09-28: *"a native-first iPad-centric version that works well
+for that platform."* On iPadOS the sidebar is where the Apple TV and Music apps
+put every place a person goes; the phone's five-tab bar is a compact rendering
+of the SAME `TabView(.sidebarAdaptable)`, not the design to copy.
+
+10.1 **The sidebar lists places; the tab bar keeps the phone's five.** Sidebar
+entries that the tab bar should not show carry `.defaultVisibility(.hidden,
+for: .tabBar)`; a phone-only root that the sidebar replaces with its places
+carries `.defaultVisibility(.hidden, for: .sidebar)`. The iPhone's bar is
+unchanged: Home, Browse, Channels, Search, Library.
+
+10.2 **The sidebar's sections**: Home · Browse (Films, TV, Collections — iOS-DESIGN
+§4.2a's scopes, each opening that scope with no segmented control above it) ·
+Channels · Search · Library (Downloads, Favorites, History, Playlists, Clips —
+§2.7's places, each opening that place) · Surprise · Watch Together · Settings.
+Surprise opens the Surprise page, where Cartoons, Party Play and the cover-art
+wall live (tvOS-DESIGN §2.2a — the same rule on every Apple platform, not
+sidebar entries). Watch Together opens a landing that states what this device
+can do (Decision 131) and joins a room. The iPhone keeps its Home toolbar
+buttons for Surprise and Settings.
+
+10.3 **The sidebar is customizable** (`TabViewCustomization`, persisted): a
+person may hide or reorder entries; the five tab-bar tabs cannot be hidden.
+
+## §11 — The pointer (binding)
+
+11.1 **Everything tappable answers the pointer.** Poster tiles lift
+(`.hoverEffect(.lift)`), guide blocks highlight, and a block too narrow for
+words names itself on hover (`.help`). `hoverEffect` is inert on touch, so the
+iPhone is unchanged.
+
+## §12 — Drag and drop (binding)
+
+12.1 **A film can be picked up.** Poster tiles are `.draggable` at regular
+width; the payload is the film's archivewatch.org link (`FilmTransfer`), so a
+film dropped into Notes or Mail arrives as a link a person can open.
+
+12.2 **Where a film can be put down**: a playlist row adds it to that playlist;
+the Favorites sidebar entry favorites it. A dropped archive.org or
+archivewatch.org link to a film we keep counts the same as a dragged tile; any
+other drop is refused, never guessed.
+
 ## Verified (2026-08-28)
 
 Measured on the owner's iPad Pro 12.9 (iPadOS 27, wireless) and asserted by

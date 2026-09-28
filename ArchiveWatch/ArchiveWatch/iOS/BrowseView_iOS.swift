@@ -15,6 +15,14 @@ struct BrowseView: View {
         var id: String { rawValue }
     }
     @State private var scope: Scope = .films
+    /// Set when the iPad sidebar opens one scope directly (IPAD-DESIGN §10.2):
+    /// the sidebar is the scope control, so no segmented control is drawn.
+    var fixedScope: Scope? = nil
+
+    init(fixedScope: Scope? = nil) {
+        self.fixedScope = fixedScope
+        _scope = State(initialValue: fixedScope ?? .films)
+    }
 
     // Films state
     @State private var contentType: String? = nil
@@ -44,6 +52,7 @@ struct BrowseView: View {
 
     var body: some View {
         VStack(spacing: 0) {
+            if fixedScope == nil {
             Picker("Scope", selection: $scope) {
                 ForEach(Scope.allCases) { Text($0.rawValue).tag($0) }
             }
@@ -54,6 +63,7 @@ struct BrowseView: View {
             .frame(maxWidth: hSize == .regular ? 560 : .infinity, alignment: .leading)
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(.horizontal).padding(.bottom, 8)
+            }
 
             if scope == .films { filterChips }
 
@@ -63,7 +73,7 @@ struct BrowseView: View {
             case .collections: ScrollView { CollectionsList() }
             }
         }
-        .navigationTitle("Browse")
+        .navigationTitle(fixedScope?.rawValue ?? "Browse")
         .task {
             #if DEBUG
             // Harness door: AW_BROWSE_FILTER="type=silent-film,decade=1920"

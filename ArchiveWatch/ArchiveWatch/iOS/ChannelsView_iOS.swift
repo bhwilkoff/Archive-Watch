@@ -640,6 +640,7 @@ private struct EPGGuide: View {
             )
         }
         .buttonStyle(.plain)
+        .hoverEffect(.highlight)   // IPAD-DESIGN §11.1
         .help(slot.item.title)   // with a pointer, a block too narrow for words still names itself
         .accessibilityLabel("\(slot.item.title), \(slot.start.formatted(date: .omitted, time: .shortened))")
     }

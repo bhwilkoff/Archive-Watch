@@ -127,15 +127,7 @@ struct FilteredGridView: View {
         if item.contentType == "tv-series" { push(SeriesRef(card: item)) }
         else { router.openDetail(item) }
     }
-    private func push(_ ref: SeriesRef) {
-        switch router.tab {
-        case .home: router.homePath.append(ref)
-        case .browse: router.browsePath.append(ref)
-        case .channels: router.channelsPath.append(ref)
-        case .search: router.searchPath.append(ref)
-        case .library: router.libraryPath.append(ref)
-        }
-    }
+    private func push(_ ref: SeriesRef) { router.push(ref) }
     private func fetch(offset: Int) -> [Catalog.Item] {
         store.browse(contentType: route.contentType, decade: route.decade,
                      genre: route.genre, year: route.year, sort: sort,

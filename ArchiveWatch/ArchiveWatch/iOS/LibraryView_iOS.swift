@@ -328,6 +328,19 @@ struct LibraryView: View {
         }
     }
 
+    /// Films dropped on a playlist row: only links naming a film we keep, each
+    /// added once; anything else is refused (IPAD-DESIGN §12.2).
+    private func add(_ urls: [URL], to pl: Playlist) -> Bool {
+        let ids = urls.compactMap(FilmTransfer.archiveID(from:))
+            .filter { store.item($0) != nil && !pl.archiveIDs.contains($0) }
+        guard !ids.isEmpty else { return false }
+        pl.archiveIDs.append(contentsOf: ids)
+        pl.touch()
+        try? ctx.save()
+        SyncNudge.nudge(ctx)
+        return true
+    }
+
     private func historyLine(_ w: WatchProgress) -> String {
         let date = w.lastWatchedAt.formatted(date: .abbreviated, time: .omitted)
         var parts: [String] = []
@@ -369,6 +382,8 @@ struct LibraryView: View {
                             Text("\(pl.archiveIDs.count) titles").font(.caption).foregroundStyle(.secondary)
                         }
                     }
+                    // IPAD-DESIGN §12.2: a film dropped on a playlist joins it.
+                    .dropDestination(for: URL.self) { urls, _ in add(urls, to: pl) }
                     // The playlist rides inside the link (PlaylistShare), so the
                     // person who receives it needs no account and we host nothing.
                     .contextMenu {

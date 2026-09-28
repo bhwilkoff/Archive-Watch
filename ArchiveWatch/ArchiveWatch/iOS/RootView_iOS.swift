@@ -210,6 +210,93 @@ struct RootView: View {
         }
     }
 
+    // IPAD-DESIGN §10: the phone's five tabs, then the sidebar's places. The
+    // places are hidden from the tab bar and the Browse/Library roots from the
+    // sidebar, so the iPhone's bar is exactly what it was.
+    @TabContentBuilder<Router.Tab>
+    private var phoneTabs: some TabContent<Router.Tab> {
+        @Bindable var router = router
+        Tab(Router.Tab.home.title, systemImage: Router.Tab.home.systemImage, value: Router.Tab.home) {
+            NavigationStack(path: $router.homePath) { HomeView().withItemDestination() }
+        }
+        .customizationID("home")
+        .customizationBehavior(.disabled, for: .sidebar, .tabBar)
+        Tab(Router.Tab.browse.title, systemImage: Router.Tab.browse.systemImage, value: Router.Tab.browse) {
+            NavigationStack(path: $router.browsePath) { BrowseView().withItemDestination() }
+        }
+        .customizationID("browse")
+        .defaultVisibility(.hidden, for: .sidebar)
+        Tab(Router.Tab.channels.title, systemImage: Router.Tab.channels.systemImage,
+            value: Router.Tab.channels) {
+            NavigationStack(path: $router.channelsPath) { ChannelsView().withItemDestination() }
+        }
+        .customizationID("channels")
+        Tab(Router.Tab.search.title, systemImage: Router.Tab.search.systemImage,
+            value: Router.Tab.search, role: .search) {
+            NavigationStack(path: $router.searchPath) { SearchView().withItemDestination() }
+        }
+        .customizationID("search")
+        Tab(Router.Tab.library.title, systemImage: Router.Tab.library.systemImage, value: Router.Tab.library) {
+            NavigationStack(path: $router.libraryPath) { LibraryView().withItemDestination() }
+        }
+        .customizationID("library")
+        .defaultVisibility(.hidden, for: .sidebar)
+    }
+
+    @TabContentBuilder<Router.Tab>
+    private var sidebarPlaces: some TabContent<Router.Tab> {
+        TabSection("Browse") {
+            place(.films) { BrowseView(fixedScope: .films) }
+            place(.tv) { BrowseView(fixedScope: .tv) }
+            place(.collections) { BrowseView(fixedScope: .collections) }
+        }
+        .customizationID("section.browse")
+        .defaultVisibility(.hidden, for: .tabBar)
+        TabSection("Library") {
+            place(.downloads) { LibraryView(place: .downloads) }
+            place(.favorites) { LibraryView(place: .favorites) }
+                // §12.2: a film dropped on Favorites is favorited.
+                .dropDestination(for: URL.self) { urls in addFavorites(urls) }
+            place(.history) { LibraryView(place: .history) }
+            place(.playlists) { LibraryView(place: .playlists) }
+            place(.clips) { LibraryView(place: .clips) }
+        }
+        .customizationID("section.library")
+        .defaultVisibility(.hidden, for: .tabBar)
+        place(.surprise) { SurpriseView() }
+            .defaultVisibility(.hidden, for: .tabBar)
+        place(.together) { WatchTogetherLanding() }
+            .defaultVisibility(.hidden, for: .tabBar)
+        place(.settings) { SettingsView() }
+            .defaultVisibility(.hidden, for: .tabBar)
+    }
+
+    private func place<V: View>(_ tab: Router.Tab, @ViewBuilder _ content: @escaping () -> V)
+        -> some TabContent<Router.Tab> {
+        Tab(tab.title, systemImage: tab.systemImage, value: tab) {
+            NavigationStack(path: router.path(for: tab)) { content().withItemDestination() }
+        }
+        .customizationID(tab.rawValue)
+    }
+
+    private func addFavorites(_ urls: [URL]) {
+        let ids = urls.compactMap(FilmTransfer.archiveID(from:)).filter { store.item($0) != nil }
+        guard !ids.isEmpty else { return }
+        let have = Set(((try? modelContext.fetch(FetchDescriptor<Favorite>())) ?? []).map(\.archiveID))
+        for id in ids where !have.contains(id) { modelContext.insert(Favorite(archiveID: id)) }
+        try? modelContext.save()
+        SyncNudge.nudge(modelContext)
+    }
+
+    // §10.3: people may hide and reorder sidebar entries; kept across launches.
+    @AppStorage("sidebarCustomization") private var sidebarCustomizationData = Data()
+    private var sidebarCustomization: Binding<TabViewCustomization> {
+        Binding(
+            get: { (try? JSONDecoder().decode(TabViewCustomization.self, from: sidebarCustomizationData))
+                   ?? TabViewCustomization() },
+            set: { sidebarCustomizationData = (try? JSONEncoder().encode($0)) ?? Data() })
+    }
+
     @ViewBuilder
     private var shell: some View {
         @Bindable var router = router
@@ -220,24 +307,10 @@ struct RootView: View {
             ProgressView("Loading the archive…")
         } else {
             TabView(selection: $router.tab) {
-                Tab(Router.Tab.home.title, systemImage: Router.Tab.home.systemImage, value: Router.Tab.home) {
-                    NavigationStack(path: $router.homePath) { HomeView().withItemDestination() }
-                }
-                Tab(Router.Tab.browse.title, systemImage: Router.Tab.browse.systemImage, value: Router.Tab.browse) {
-                    NavigationStack(path: $router.browsePath) { BrowseView().withItemDestination() }
-                }
-                Tab(Router.Tab.channels.title, systemImage: Router.Tab.channels.systemImage,
-                    value: Router.Tab.channels) {
-                    NavigationStack(path: $router.channelsPath) { ChannelsView().withItemDestination() }
-                }
-                Tab(Router.Tab.search.title, systemImage: Router.Tab.search.systemImage,
-                    value: Router.Tab.search, role: .search) {
-                    NavigationStack(path: $router.searchPath) { SearchView().withItemDestination() }
-                }
-                Tab(Router.Tab.library.title, systemImage: Router.Tab.library.systemImage, value: Router.Tab.library) {
-                    NavigationStack(path: $router.libraryPath) { LibraryView().withItemDestination() }
-                }
+                phoneTabs
+                sidebarPlaces
             }
+            .tabViewCustomization(sidebarCustomization)
             // Adapts per form factor: a bottom tab bar on iPhone, a sidebar on
             // iPad/regular width (the same control tvOS uses). Native idiom for
             // both without a separate NavigationSplitView code path.
