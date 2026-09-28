@@ -343,6 +343,7 @@ struct ClipStudioView: View {
     @Environment(\.dismiss) private var dismiss
     @State private var model: ClipStudioModel
     @State private var saved = false
+    @Environment(\.horizontalSizeClass) private var hSize
 
     init(source: ClipSource) { _model = State(initialValue: ClipStudioModel(source: source)) }
 
@@ -371,6 +372,8 @@ struct ClipStudioView: View {
             } message: { Text(model.errorMessage ?? "") }
         }
         .preferredColorScheme(.dark)
+        // A page, not a form sheet, on iPad: an editor needs the room.
+        .presentationSizing(.page)
         .task { if model.phase == .preparing { await model.prepare() } }
         .onDisappear { model.teardown() }
     }
@@ -394,11 +397,37 @@ struct ClipStudioView: View {
         }.frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 
-    private var editing: some View {
-        ScrollView {
-            VStack(spacing: 18) {
-                preview
-                trim
+    /// Regular width (IPAD-DESIGN §5b): the picture leads at a size worth
+    /// editing, and the settings are a column beside it rather than a stack
+    /// under a 300pt preview.
+    @ViewBuilder private var editing: some View {
+        if hSize == .regular {
+            HStack(alignment: .top, spacing: 24) {
+                ScrollView {
+                    VStack(spacing: 18) {
+                        preview
+                        trim
+                    }.padding()
+                }
+                .frame(maxWidth: .infinity)
+                ScrollView {
+                    VStack(spacing: 18) { settings }.padding()
+                }
+                .frame(width: 380)
+                .background(Color(.secondarySystemBackground).opacity(0.4))
+            }
+        } else {
+            ScrollView {
+                VStack(spacing: 18) {
+                    preview
+                    trim
+                    settings
+                }.padding()
+            }
+        }
+    }
+
+    @ViewBuilder private var settings: some View {
                 labeled("Format") {
                     Picker("Format", selection: Binding(
                         get: { model.format }, set: { model.setFormat($0) })) {
@@ -472,8 +501,6 @@ struct ClipStudioView: View {
                 .controlSize(.large).disabled(!model.canExport)
 
                 attribution
-            }.padding()
-        }
     }
 
     private var resultView: some View {
@@ -535,7 +562,7 @@ struct ClipStudioView: View {
             .onTapGesture { model.togglePlay() }
         }
         .aspectRatio(model.aspect.ratio ?? (16.0 / 9.0), contentMode: .fit)
-        .frame(maxHeight: 300)
+        .frame(maxHeight: hSize == .regular ? 560 : 300)
     }
 
     @ViewBuilder private func captionPreview(_ text: String, boxWidth: CGFloat) -> some View {

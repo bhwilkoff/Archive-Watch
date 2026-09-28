@@ -188,4 +188,25 @@ final class IPadInputUITests: XCTestCase {
         XCUIApplication(bundleIdentifier: "com.apple.springboard").activate()
         sleep(25)   // the capture is taken during this wait
     }
+
+    /// IPAD-DESIGN §5b: at regular width the Clip Studio is a page with the
+    /// picture leading and its settings in a column beside it. Cancelled
+    /// without making anything.
+    func test_16_clipStudioIsTwoColumns() {
+        launch(["AW_START_ITEM": "Nosferatu_most_complete_version_93_mins."])
+        let more = app.buttons.matching(NSPredicate(format: "label == 'More'")).firstMatch
+        XCTAssertTrue(more.waitForExistence(timeout: 20))
+        more.tap()
+        let create = app.buttons.matching(NSPredicate(format: "label == 'Create a Clip'")).firstMatch
+        XCTAssertTrue(create.waitForExistence(timeout: 5), "More has no Create a Clip")
+        create.tap()
+        let format = app.staticTexts.matching(NSPredicate(format: "label ==[c] 'Format'")).firstMatch
+        XCTAssertTrue(format.waitForExistence(timeout: 60), "the editor did not open")
+        sleep(3)
+        snap("clip studio")
+        let window = app.windows.firstMatch.frame
+        // The settings column sits in the right-hand part of the window.
+        XCTAssertGreaterThan(format.frame.minX, window.midX, "settings are not a column beside the picture")
+        app.buttons.matching(NSPredicate(format: "label == 'Cancel'")).firstMatch.tap()
+    }
 }

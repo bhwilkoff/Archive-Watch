@@ -158,6 +158,18 @@ rule in IPAD-DESIGN.md before it ships (binding-design-doc discipline).
   instead of six slivers, on the same tile. `test_98` holds the Home Screen so
   a widget can be photographed.
 
+- v1.42.882: **Clip Studio at regular width** (audit #23): a page, not a form
+  sheet; the picture (up to 560 pt) and trim lead, the settings are a 380 pt
+  column beside them. Seen on the iPad Pro; `test_16` asserts the column.
+
+**Remaining (2026-09-28 13:47):** code — Clip Studio keys (I/O, Space),
+channel-surf ↑/↓ (now testable with XCUITest), context menus on Scenes /
+More Like This / guide blocks, an App Intents film entity (Siri + Spotlight,
+all Apple), the Studio's Mac-only features that port to iPad (film-stall
+reason, custom card, Record); verify — the menu bar drawn at the top, a film
+window's close control, picture-in-picture restore; owner — whether More Like
+This shows its reason, whether an iPad Studio may open a Watch Together room.
+
 ## Found, data (for the copyright/scrub work, not the iPad)
 
 - `SelfCons1951` "Self-Conscious Guy" (Coronet, 10 min) leads Home's hero with
