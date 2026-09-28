@@ -216,10 +216,19 @@ rule in IPAD-DESIGN.md before it ships (binding-design-doc discipline).
   program is a film; seen and asserted (`test_21`). Scene frames get none —
   their tap already plays from that moment (IPAD-DESIGN §11.2).
 
-**Remaining (2026-09-28 13:47, updated 16:57):** code — Clip Studio Space (I/O done),
+- (no build) **A film window's close control — not seen, and why.** With
+  Windowed Apps on, Open in New Window opens the film FULL SCREEN, where
+  iPadOS hides a window's controls; hovering the top-left corner revealed
+  none, and a `.defaultSize` on the film WindowGroup did not change how it
+  opened (reverted — it proved nothing). The window closes with ⌘W (the
+  suite's cleanup depends on it) and from the Window menu. Next step, if the
+  owner wants it: what iPadOS 26 uses to open a second window as a floating
+  window rather than full screen — research before a fourth attempt.
+
+**Remaining (2026-09-28 13:47, updated 17:06):** code — Clip Studio Space (I/O done),
 channel-surf ↑/↓ (three routes failed; control first),  an App Intents film entity (Siri + Spotlight,
 all Apple), the Studio's Mac-only features that port to iPad (film-stall
-reason, custom card, Record); verify — a film window's close control, picture-in-picture restore; owner — none.
+reason, custom card, Record); verify — picture-in-picture restore; research — a film window opening as a floating window; owner — none.
 
 ## Found, data (for the copyright/scrub work, not the iPad)
 
