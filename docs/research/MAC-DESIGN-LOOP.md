@@ -441,3 +441,12 @@ through Accessibility and its items pressed there (never pointer clicks).
   leak — either the rest of an editor launch (27 MB in the first 20 s,
   mostly unaccounted for) or a longer penalty on an address that ran the
   leak for hours. Next: what the 27 MB is, flow by flow.
+- Flow by flow (editor run, fixed build): archive.org's main host refused a
+  probe from the FIRST sample, +5 s, before the app had fetched much — so
+  the refusal reads as a standing penalty on this address (it ran the leak
+  for hours), not as something one launch does. The app's own traffic to
+  the main host was one reused connection, 1.6 MB (metadata, thumbnails).
+  Each clip's data node flow was 15–17 MB for an 11-second window (28–39 s
+  into the film) and then went flat. NOTED for later, not changed: that
+  looks like the passthrough copy reading from the file's start rather than
+  the window's, ~10x the window's own bytes. The block is left to expire.
