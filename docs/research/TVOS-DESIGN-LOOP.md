@@ -204,6 +204,16 @@ titles, alert bodies, the caption label's 4 lines).
   "Currently playing by default"), and Detail names the button "Choose Version",
   the sheet's own title. Seen on Fireplace.
 
+- **Seen on Fireplace (v1.42.854 build)**: *The Big Parade* (6,654-character
+  uploader synopsis, a 1925 New York Times review) shows six lines and "More";
+  Select opens the full-text page with the title and the review in paragraphs,
+  Down walks to the last paragraph ("...Copyright © The New York Times page 18"),
+  and Menu returns to Detail with focus on the synopsis. The v1.42.840 fix is
+  now proven on the 2nd gen. Harness note: `flaunch.sh` launches with
+  devicectl, then `atvremote launch_app=` to foreground it (devicectl launches
+  land backgrounded about one time in four, and remote presses then drive the
+  tvOS home screen).
+
 ## Queue
 
 1. Series page: the poster sits mid-hero (no rule covers series art yet)
