@@ -59,9 +59,9 @@ because the loop was stopped mid-stride for a Claude update.
    screensaver open from Surprise as on other platforms (v1.42.862, §2.2a); ~~(b) an Apple TV HD~~ ANSWERED: "Kitchen" (Apple TV HD, tvOS 26.6) is on the
    network; pairing needs the owner at the TV; ~~(c) propaganda~~ ANSWERED: "All true propaganda should be hidden from
    recommendations, but available via search" -> Decision 149, `noRecommend`
-   (60 visible films on sourced evidence; takes effect at the next publish); (d) junk uploads that carried a matched
-   film's year (a 1916 "Spectrum outage" clip) keep that year after the match
-   is cleared — null it or not; (e) SNL 1975-77 and other 1964-77 network TV
+   (60 visible films on sourced evidence; takes effect at the next publish); ~~(d) borrowed years~~ ANSWERED: "All inaccurate information should be scrubbed
+   ... Unless it is somehow verified" -> Decision 150, `scrub_cleared_match`
+   (60 visible items; next publish); (e) SNL 1975-77 and other 1964-77 network TV
    stay under the 1964-77 keep band (the 1978+ episodes leave on the next
    audit that archive.org answers).
 
