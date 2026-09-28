@@ -69,7 +69,6 @@ final class CaptionCoordinator {
     /// state made visible where it can actually be observed. It is also the
     /// honest thing to tell a viewer: a blank screen and a recognizer that
     /// declined look identical from a sofa.
-    private var systemNote = ""
     /// Decision 070: on tvOS the subtitle FILE is rendered by this overlay —
     /// there is no native track any more (the single-segment HLS wrapper that
     /// carried one was a memory bomb on 3 GB Apple TVs). The parsed cues live
@@ -295,29 +294,9 @@ final class CaptionCoordinator {
                 // Our engine is THE captioner for uncaptioned titles here.
             }
             guard !Task.isCancelled else { return }
-            // Nothing to say and no way to say it: without models the screen
-            // stays blank, and the reason must be visible from the sofa. Only
-            // for a film with no track — a review film's subtitles are on
-            // screen and need no note.
-            if vtt == nil, await CaptionCapability.shared.resolved() == false {
-                self?.systemNote = SystemCaptions.stage == .declined
-                    ? "No subtitles: the system couldn't transcribe this film's audio."
-                    : "Subtitles unavailable — \(SystemCaptions.stage.rawValue)."
-                // Shown HERE rather than in the loop below, because on this
-                // device the engine never starts, so that loop exits at once
-                // and would never draw anything. Time-boxed: an explanation
-                // earns a few seconds over a film, not the whole running time.
-                if let l = self?.label, let note = self?.systemNote, !note.isEmpty {
-                    l.numberOfLines = 0
-                    l.text = "  \(note)  "
-                    l.isHidden = false
-                    Task { @MainActor [weak self] in
-                        try? await Task.sleep(nanoseconds: 8_000_000_000)
-                        guard self?.systemNote == note else { return }
-                        self?.label?.isHidden = true
-                    }
-                }
-            }
+            // No note over the film when this device cannot caption it (owner,
+            // 2026-09-28: those without the feature don't expect it, and those
+            // with it never see the note).
             let from = player?.currentTime() ?? .zero
             await lc.start(url: url, from: from)
             if let vtt {
