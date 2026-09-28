@@ -392,25 +392,36 @@ private struct ProgramBlock: View {
     @FocusState private var focused: Bool
 
     // #3d: a focused block expands rightward to a readable width so even very
-    // short programs (cartoons, ad breaks) reveal their full title + info.
-    private var renderWidth: CGFloat { focused ? max(width, 360) : width }
+    // short programs (cartoons, ad breaks) reveal their title + info. 460pt
+    // holds most titles in two lines at 17pt.
+    private var renderWidth: CGFloat { focused ? max(width, 460) : width }
+
+    private var metaLine: String? {
+        let year = (focused || width > 150) ? slot.item.year.map { String($0) } : nil
+        let parts = [isNow ? "ON NOW" : nil, year].compactMap { $0 }
+        return parts.isEmpty ? nil : parts.joined(separator: " · ")
+    }
 
     var body: some View {
         Button(action: action) {
+            // The block is a fixed row height (92pt), so its text must fit it:
+            // "ON NOW" and the year share ONE line, leaving room for two title
+            // lines that end in an ellipsis. The focused block used to allow
+            // four title lines plus two more lines above and below; the card
+            // shape cropped the overflow mid-glyph and the year vanished
+            // (truncation audit #14, 2026-09-28).
             VStack(alignment: .leading, spacing: 4) {
-                if isNow {
-                    Text("ON NOW").font(.system(size: 11, weight: .heavy))
-                        .foregroundStyle(focused ? .white : accent)
+                if let metaLine {
+                    Text(verbatim: metaLine).font(.system(size: 14, weight: .heavy))
+                        .foregroundStyle(focused ? .white : (isNow ? accent : .white.opacity(0.75)))
+                        .lineLimit(1)
                 }
-                Text(slot.item.title)                         // #3a: wraps, never clipped when focused
+                Text(slot.item.title)
                     .font(.system(size: 17, weight: .semibold))
                     .foregroundStyle(.white)
-                    .lineLimit(focused ? 4 : 2)
-                    .fixedSize(horizontal: false, vertical: true)
-                if focused || width > 150, let y = slot.item.year {   // year restored
-                    Text(verbatim: String(y)).font(.system(size: 14))
-                        .foregroundStyle(.white.opacity(0.75))
-                }
+                    .lineLimit(2)
+                    .truncationMode(.tail)
+                    .layoutPriority(1)
                 Spacer(minLength: 0)
             }
             .padding(.horizontal, 12).padding(.vertical, 9)

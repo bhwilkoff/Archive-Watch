@@ -12,6 +12,7 @@ struct SearchView: View {
     // (the iOS rule), and both reset when the query changes.
     @State private var typeFilter: String? = nil
     @State private var decadeFilter: Int? = nil
+    @State private var allEpisodes = false
 
     /// FTS5 search over the on-disk catalog (Decision 017) — title, cast, crew,
     /// genre, series, country, and synopsis (the broadened FTS `extra` column).
@@ -74,21 +75,31 @@ struct SearchView: View {
                             .frame(maxWidth: .infinity)
                             .padding(.top, 40)
                     }
+                    // Films and shows first, episodes after (iOS-DESIGN §4.2b,
+                    // tvOS-DESIGN §3.3b): "keaton" led with four episode cards,
+                    // one a Saturday Night Live sketch, and pushed the films
+                    // below the first screen of the television.
+                    if !filmResults.isEmpty {
+                        if !episodeResults.isEmpty {
+                            Text("Films & Shows").font(.title2.bold()).foregroundStyle(.white)
+                        }
+                        resultGrid
+                    }
                     if !episodeResults.isEmpty {
                         Text("Episodes").font(.title2.bold()).foregroundStyle(.white)
+                            .padding(.top, filmResults.isEmpty ? 0 : 12)
                         ScrollView(.horizontal, showsIndicators: false) {
-                            LazyHStack(spacing: 30) {
-                                ForEach(episodeResults) { item in
+                            LazyHStack(alignment: .top, spacing: 30) {
+                                ForEach(allEpisodes ? episodeResults : Array(episodeResults.prefix(5))) { item in
                                     EpisodeItemCard(item: item) { router.push(item) }
+                                }
+                                if episodeResults.count > 5 && !allEpisodes {
+                                    Button("Show all \(episodeResults.count) episodes") { allEpisodes = true }
+                                        .font(.callout.weight(.semibold))
+                                        .padding(.top, 60)
                                 }
                             }.padding(.vertical, 8)
                         }
-                    }
-                    if !filmResults.isEmpty {
-                        if !episodeResults.isEmpty {
-                            Text("Films & Shows").font(.title2.bold()).foregroundStyle(.white).padding(.top, 12)
-                        }
-                        resultGrid
                     }
                 }
             }
@@ -107,8 +118,16 @@ struct SearchView: View {
         .onChange(of: query) { _, _ in
             typeFilter = nil
             decadeFilter = nil
+            allEpisodes = false
             runSearch()
         }
+        #if DEBUG
+        // Harness door: AW_SEARCH=<query> types it, for the device sweep (the
+        // iOS twin). Unset in production (no-op).
+        .onAppear {
+            if query.isEmpty, let q = ProcessInfo.processInfo.environment["AW_SEARCH"] { query = q }
+        }
+        #endif
         .onChange(of: store.dbGeneration) { _, _ in runSearch() }
     }
 
@@ -150,21 +169,16 @@ struct SearchView: View {
         }
     }
 
+    // Before a query, only a quiet glyph: the field's prompt already names what
+    // can be searched, and a sentence restating it is the explanation copy the
+    // owner's essential-information rule removes (2026-09-28).
     private var placeholder: some View {
-        VStack(spacing: 14) {
-            Image(systemName: "magnifyingglass")
-                .font(.system(size: 52))
-                .foregroundStyle(.white.opacity(0.18))
-            Text("Start typing to search")
-                .font(.title2)
-                .foregroundStyle(.white.opacity(0.5))
-            Text("Searching \(store.dbSearchableCount) titles by name, cast, crew, genre, country, and synopsis.")
-                .font(.callout)
-                .foregroundStyle(.white.opacity(0.35))
-                .multilineTextAlignment(.center)
-        }
-        .frame(maxWidth: .infinity)
-        .padding(.top, 120)
+        Image(systemName: "magnifyingglass")
+            .font(.system(size: 52))
+            .foregroundStyle(.white.opacity(0.18))
+            .frame(maxWidth: .infinity)
+            .padding(.top, 120)
+            .accessibilityHidden(true)
     }
 
     private var resultGrid: some View {
@@ -195,7 +209,8 @@ private struct EpisodeItemCard: View {
             }
             .buttonStyle(.card)
             VStack(alignment: .leading, spacing: 2) {
-                Text(item.title).font(.headline).foregroundStyle(.white).lineLimit(1)
+                Text(item.title).font(.headline).foregroundStyle(.white)
+                    .lineLimit(2).fixedSize(horizontal: false, vertical: true)
                 Text([item.seriesTitle, item.episodeNumberLabel].compactMap { $0 }.joined(separator: " · "))
                     .font(.callout).foregroundStyle(.white.opacity(0.6)).lineLimit(1)
             }

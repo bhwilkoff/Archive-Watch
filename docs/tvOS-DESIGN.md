@@ -132,6 +132,7 @@ Every UI maps to exactly one. A new shape needs a new rule here first.
 3.2 **Shelf row** — horizontal, lazy, focus-reveals title (playbook §3.3, §9.3).
 3.3 **Grid** — paged/lazy browse with facets (Movies, Collections, search results).
 3.3a **Length** (2026-09-26, from the Orphaned Films research): Browse filters by how long the upload runs — *Any length · Under 60 minutes · 60 to 90 minutes · Over 90 minutes* — the same bands on every platform (Apple/Android `RuntimeBand`, web `LENGTHS`, index column 17 `minutes`). Bands were chosen from the catalog (~12% / ~60% / ~28% of features); an unknown runtime never matches. Words, never abbreviations.
+3.3b **Search leads with films** (2026-09-28, iOS-DESIGN §4.2b parity): Films & Shows first, then Episodes as one row of five with "Show all N episodes" at its end; result titles wrap to two lines. Before a query the surface shows only a quiet glyph — the field's prompt already names what can be searched.
 3.4 **Detail** — hero backdrop + metadata + actions + "more like this"; Play
 auto-focused (playbook §9.4). People pages are a detail variant.
 3.5 **Sheet / overlay** — transient, dismissible, focus-restoring (player info,
@@ -276,6 +277,8 @@ like this"; (d) never degrades quality (§1.6).
 collection / user-built from full-DB filters) realized as a continuous now/next
 lineup with a guide. The lean-in affordance is the guide + "jump to this title's
 detail."
+
+9.1b **A guide block fits its row** (2026-09-28): the row is a fixed height, so a program block carries at most one meta line ("ON NOW · 1936") and two title lines ending in an ellipsis; focus widens it (to 460pt), never lengthens it. Text taller than the block is cropped by the card shape mid-glyph, which is worse than an ellipsis.
 
 9.1a **One clock.** Owner, 2026-09-27: *"Move forward with a single clock. If you need a time zone to organize around, you can choose UTC, but all times should show as their local times when they look at channels. This should only be to sync all titles to the same time."* Preset channels play the ONE UTC timeline the
 pipeline publishes (`channel-schedule.json`, `tools/build_channel_schedule.py`),
