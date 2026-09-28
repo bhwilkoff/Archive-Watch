@@ -39,6 +39,14 @@ final class ClipThumbnailCache {
     /// universal archive.org item thumbnail — all fetched through the capped StudioNet session (so the
     /// grid never bursts the main host) and cached. nil → the caller shows an icon.
     func image(catalogItemID: String, sourceURL: URL?, atSeconds: Double, fallbackPoster: URL?) async -> NSImage? {
+        // ON DISK FIRST. These were cached in memory only, so every editor
+        // launch re-fetched every saved clip's still — a metadata request plus
+        // an image per clip, all at once — and an EMPTY editor was enough to
+        // get this address refused by archive.org within 5 s (Mac loop
+        // 2026-09-27: "pre 200 · Home 200 · empty editor +5 s 000"). A still
+        // shown once is never asked for again.
+        let frameKey = "\(catalogItemID)@\(Int(atSeconds.rounded()))"
+        if let img = Self.fromDisk(frameKey) { return img }
         if let url = sourceURL, let f = await frame(catalogItemID: catalogItemID, sourceURL: url, atSeconds: atSeconds) {
             return f
         }
@@ -71,6 +79,7 @@ final class ClipThumbnailCache {
               let data = await StudioNet.data(from: pick.url),
               let img = NSImage(data: data) else { return nil }
         images[key] = img
+        Self.toDisk(data, key)
         return img
     }
 
@@ -78,9 +87,30 @@ final class ClipThumbnailCache {
     /// capped session, so every Creation Studio grid shares the SAME bounded connection pool.
     func loadShared(_ url: URL) async -> NSImage? {
         if let img = urlImages[url] { return img }
+        if let img = Self.fromDisk(url.absoluteString) { urlImages[url] = img; return img }
         guard let data = await StudioNet.data(from: url), let img = NSImage(data: data) else { return nil }
         urlImages[url] = img
+        Self.toDisk(data, url.absoluteString)
         return img
+    }
+
+    // MARK: Disk (Caches/ClipThumbnails — the system may purge it; a miss just fetches again)
+
+    private static let directory: URL = {
+        let d = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)[0]
+            .appendingPathComponent("ClipThumbnails", isDirectory: true)
+        try? FileManager.default.createDirectory(at: d, withIntermediateDirectories: true)
+        return d
+    }()
+    private static func file(_ key: String) -> URL {
+        directory.appendingPathComponent(key.addingPercentEncoding(withAllowedCharacters: .alphanumerics) ?? key)
+    }
+    private static func fromDisk(_ key: String) -> NSImage? {
+        guard let data = try? Data(contentsOf: file(key)) else { return nil }
+        return NSImage(data: data)
+    }
+    private static func toDisk(_ data: Data, _ key: String) {
+        try? data.write(to: file(key), options: .atomic)
     }
     private func load(_ url: URL) async -> NSImage? { await loadShared(url) }
 }

@@ -459,3 +459,16 @@ through Accessibility and its items pressed there (never pointer clicks).
   Sharper now: archive.org answered a probe just before each editor launch
   and refused one 5 s after it, every time; Home alone never did in 3 min.
   So something in the editor's first seconds trips the main host.
+- v1.42.832: **opening the Creation Studio got the network refused by
+  archive.org.** Isolated one step at a time: probe 200 before launch, 200
+  with Home open, 000 five seconds after File › New Project opened an EMPTY
+  editor. The only archive.org traffic an empty editor makes is its clip
+  list's stills — per saved clip, a metadata request for the frame strip
+  and the frame (or the poster / services/img fallback) — all at once, on
+  every launch, because the cache was in memory only. It is now also on
+  disk (Caches/ClipThumbnails, keyed by clip + second and by URL): a still
+  shown once is never requested again, strip metadata included. Built.
+  To verify when archive.org is reachable: one empty-editor launch to fill
+  the cache, then a second must leave the probe at 200. (A first launch
+  with many uncached clips still bursts; pacing that is the next step if
+  the second launch passes.)
