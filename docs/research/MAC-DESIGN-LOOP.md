@@ -368,3 +368,11 @@ through Accessibility and its items pressed there (never pointer clicks).
   Clear Filters. Built, not driven (needs a query and filters set through
   the toolbar menu). The other empty states were read: each says a fact a
   viewer could not otherwise know, and stays.
+- v1.42.825: the Watch Together Studio's film chooser. Every result carried
+  its own "Use this film" button, which took half the 320 pt column: titles
+  were cut ("Nosferatu: Hutter Visits C…") and "1922 · F. W. Murnau" broke
+  across lines. The row is the button now (a chevron at its end; a refused
+  film stays a plain dimmed row with its reason), and titles wrap to three
+  lines in full. Verified: the list photographed with every title whole,
+  and AX lists each row as a button "Use <title>". Searched locally; no
+  archive.org request.

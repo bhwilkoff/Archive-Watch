@@ -2548,11 +2548,26 @@ struct StudioFilmChooser: View {
         }
     }
 
-    private func row(_ item: Catalog.Item) -> some View {
+    /// The whole row is the choice. A "Use this film" button on every row took
+    /// half the column, so titles were cut ("Nosferatu: Hutter Visits C…") and
+    /// the director broke across lines (Mac loop, 2026-09-27; no macOS label is
+    /// truncated, Decision 134). A refused film is not a button, and says why.
+    @ViewBuilder private func row(_ item: Catalog.Item) -> some View {
         let refusal = StudioRights.refusal(rightsBucket: item.rightsBucket,
                                            contentType: item.contentType,
                                            year: item.year)
-        return HStack(spacing: 10) {
+        if refusal == nil {
+            Button { onPick(item) } label: { rowContent(item, refusal: nil).contentShape(Rectangle()) }
+                .buttonStyle(.plain)
+                .help("Use this film")
+                .accessibilityLabel("Use \(item.title)")
+        } else {
+            rowContent(item, refusal: refusal)
+        }
+    }
+
+    private func rowContent(_ item: Catalog.Item, refusal: String?) -> some View {
+        HStack(spacing: 10) {
             RoundedRectangle(cornerRadius: 4).fill(.quaternary)
                 .frame(width: 44, height: 62)
                 .overlay {
@@ -2564,7 +2579,8 @@ struct StudioFilmChooser: View {
                 // clipped to its own bounds spilled over the title beside it.
                 .clipShape(RoundedRectangle(cornerRadius: 4))
             VStack(alignment: .leading, spacing: 2) {
-                Text(item.title).font(.subheadline.weight(.medium)).lineLimit(2)
+                Text(item.title).font(.subheadline.weight(.medium)).lineLimit(3)
+                    .fixedSize(horizontal: false, vertical: true)
                 if let meta = StudioMacShow.metaLine(for: item) {
                     Text(meta).font(.caption2).foregroundStyle(.secondary)
                 }
@@ -2575,7 +2591,7 @@ struct StudioFilmChooser: View {
             }
             Spacer(minLength: 6)
             if refusal == nil {
-                Button("Use this film") { onPick(item) }.fixedSize()
+                Image(systemName: "chevron.right").font(.caption).foregroundStyle(.tertiary)
             }
         }
         .opacity(refusal == nil ? 1 : 0.7)
