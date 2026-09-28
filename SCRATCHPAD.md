@@ -61,7 +61,12 @@ because the loop was stopped mid-stride for a Claude update.
    recommendations, but available via search" -> Decision 149, `noRecommend`
    (60 visible films on sourced evidence; takes effect at the next publish); ~~(d) borrowed years~~ ANSWERED: "All inaccurate information should be scrubbed
    ... Unless it is somehow verified" -> Decision 150, `scrub_cleared_match`
-   (60 visible items; next publish); (e) SNL 1975-77 and other 1964-77 network TV
+   (60 visible items; next publish); ~~copyright claims~~ ANSWERED: "If we
+   have verifiable copyright claims ... remove those items" -> Decision 151,
+   947 items (765 films: The Killing, Night of the Hunter, Yojimbo...) carry a
+   Copyright Office renewal; hidden once rights-audit run 36467063171 lands and
+   publish-db follows. A wrong match goes in copyright_evidence_overrides.json;
+   (e) SNL 1975-77 and other 1964-77 network TV
    stay under the 1964-77 keep band (the 1978+ episodes leave on the next
    audit that archive.org answers).
 
