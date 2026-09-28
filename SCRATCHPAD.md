@@ -57,9 +57,9 @@ because the loop was stopped mid-stride for a Claude update.
 0-NEW-2026-09-28. **FIVE OWNER CALLS FROM THE tvOS LOOP** (nothing blocked):
    ~~(a) the sidebar's 13 entries~~ ANSWERED: Cartoons, Party Play and the
    screensaver open from Surprise as on other platforms (v1.42.862, §2.2a); ~~(b) an Apple TV HD~~ ANSWERED: "Kitchen" (Apple TV HD, tvOS 26.6) is on the
-   network; pairing needs the owner at the TV; (c) `Juden Ohne Maske` (1937
-   propaganda) keeps its identity under the runtime-match keep-list —
-   `exclude_hate_propaganda` or not; (d) junk uploads that carried a matched
+   network; pairing needs the owner at the TV; ~~(c) propaganda~~ ANSWERED: "All true propaganda should be hidden from
+   recommendations, but available via search" -> Decision 149, `noRecommend`
+   (60 visible films on sourced evidence; takes effect at the next publish); (d) junk uploads that carried a matched
    film's year (a 1916 "Spectrum outage" clip) keep that year after the match
    is cleared — null it or not; (e) SNL 1975-77 and other 1964-77 network TV
    stay under the 1964-77 keep band (the 1978+ episodes leave on the next
