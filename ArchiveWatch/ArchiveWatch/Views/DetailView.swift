@@ -10,7 +10,7 @@ import SwiftData
 // screen.
 
 enum DetailFocusTarget: Hashable {
-    case play, favorite, watched, versions, related
+    case play, favorite, watched, versions, related, share, playlist, subtitles
 }
 
 /// Seconds of film audio to keep ahead of the picture, and the size of one
@@ -223,12 +223,22 @@ struct DetailView: View {
                 if let year = item.year { Text(String(year)) }
                 if let r = item.runtimeSeconds, r > 0 { Text(formatRuntime(r)) }
                 if !item.genres.isEmpty {
-                    Text(item.genres.prefix(3).joined(separator: " · ").capitalized)
+                    Text(item.genres.prefix(2).joined(separator: " · ").capitalized)
                 }
-                if let byline = item.byline { Text(byline) }
             }
+            // Every fact keeps its own width: squeezed into 1100pt, the row
+            // broke "Directed by / Howard Hawks" across two ragged lines.
+            .lineLimit(1)
+            .fixedSize(horizontal: true, vertical: false)
             .font(.system(size: 29, weight: .regular))
             .foregroundStyle(.white.opacity(0.85))
+
+            if let byline = item.byline {
+                Text(byline)
+                    .font(.system(size: 29, weight: .regular))
+                    .foregroundStyle(.white.opacity(0.85))
+                    .fixedSize(horizontal: false, vertical: true)
+            }
 
             HStack(spacing: 20) {
                 // Play outranks the icon buttons when the row is tight: they are
@@ -247,8 +257,28 @@ struct DetailView: View {
             // from the Related shelf below lands cleanly on Play/Fav
             // rather than bouncing through scroll-body whitespace.
             .focusSection()
+
+            // The icons carry no words, so the focused one is named here. The
+            // line is always laid out, so moving along the row never shifts
+            // the page.
+            Text(actionName ?? " ")
+                .font(.system(size: 23, weight: .semibold))
+                .foregroundStyle(.white.opacity(0.8))
+                .accessibilityHidden(true)
         }
         .frame(maxWidth: 1100, alignment: .leading)
+    }
+
+    private var actionName: String? {
+        switch focusTarget {
+        case .favorite: isFavorited ? "Remove from Favorites" : "Add to Favorites"
+        case .watched: isWatched ? "Mark as Not Watched" : "Mark as Watched"
+        case .share: "Share"
+        case .playlist: "Add to Playlist"
+        case .versions: chosenVersionName == nil ? "Choose a Copy" : "Copy Chosen"
+        case .subtitles: "Find Subtitles"
+        default: nil
+        }
     }
 
     private var playButton: some View {
@@ -371,6 +401,8 @@ struct DetailView: View {
         }
         .buttonStyle(CircleIconStyle())
         .focusEffectDisabled()
+        .focused($focusTarget, equals: .share)
+        .accessibilityLabel("Share")
         .sheet(isPresented: $showShare) { ShareSheet(item: item) }
     }
 
@@ -385,6 +417,8 @@ struct DetailView: View {
         }
         .buttonStyle(CircleIconStyle())
         .focusEffectDisabled()
+        .focused($focusTarget, equals: .subtitles)
+        .accessibilityLabel("Find Subtitles")
         .sheet(isPresented: $showGetSubtitles) { GetSubtitlesView(item: item) }
     }
 
@@ -398,6 +432,8 @@ struct DetailView: View {
         }
         .buttonStyle(CircleIconStyle())
         .focusEffectDisabled()
+        .focused($focusTarget, equals: .playlist)
+        .accessibilityLabel("Add to Playlist")
         .sheet(isPresented: $showAddPlaylist) { AddToPlaylistSheet(archiveID: item.archiveID) }
     }
 

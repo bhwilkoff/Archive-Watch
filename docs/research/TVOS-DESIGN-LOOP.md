@@ -86,13 +86,24 @@ titles, alert bodies, the caption label's 4 lines).
   each episode by its own year; 166 late episodes (143 of them SNL) are now
   checked on the next run where archive.org answers.
 
+- v1.42.841: **Detail names the focused icon** on a line under the row
+  ("Add to Favorites", "Add to Playlist"... seen on Ben Bedroom); the facts row
+  keeps each fact whole and the director gets its own line (it had wrapped as
+  "Directed by / Howard Hawks" at the default size). **Wrong matches by
+  runtime** (pipeline, `remediate_catalog` step 0b2, Decision 026's rule): a
+  match whose film runs grossly longer or shorter than the file, whose title
+  agrees with none of the film's titles and that is not a reel/part/chapter,
+  is cleared; 36 visible items (Bomber wearing Dive Bomber, The Battle wearing
+  Battle of the Bulge); 8 translated titles kept in
+  `shared/editorial/runtime_match_keep.json`. Takes effect on the next build.
+
 ## Queue
 
-1. Detail action row: six unlabeled icons; show what the focused one does
+1. Series page: no Play/Resume action; the poster sits mid-hero
 2. Dynamic Type: move the fixed sizes onto the ramp as relative fonts
 3. Sidebar budget: 13 -> 9 (owner call: which modes leave the sidebar)
 4. Search -> find -> play path, timed; SILENT badge collides with poster art
 5. 2nd-gen speed (needs a Fireplace window) and a floor rule for tvOS 26
-6. Wrong TMDb match by runtime (pipeline, agent measuring)
+6. Junk uploads carry a matched film's year (a 1916 Spectrum outage clip) — owner call
 7. Uploader-style titles (`Buster Keaton's "The Goat"`) on display
 8. Episode player's Info panel carries no description
