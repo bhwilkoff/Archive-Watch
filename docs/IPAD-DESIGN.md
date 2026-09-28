@@ -337,6 +337,16 @@ Pro."*). Party Play stays on the televisions and the Mac; the multi-clip
 Creation Studio stays Mac-exclusive (Decision 042). The iPad keeps the phone's
 single-clip Clip Studio. Neither is a gap to close: PARITY records them 🚫.
 
+## §14 — Widgets (binding)
+
+14.1 **The iPhone's widgets are the iPad's widgets** — one WidgetKit
+extension, every family both devices share. The iPad adds `.systemExtraLarge`
+to Continue Watching only: two rows, Continue Watching (plays, with resume
+bars) and From Your Favorites (opens the page), each a place the viewer
+already chose. No other widget takes the extra-large size: Pick of the Day and
+Surprise are one film each, and a single poster stretched to that size is
+decoration.
+
 ## Verified (2026-08-28)
 
 Measured on the owner's iPad Pro 12.9 (iPadOS 27, wireless) and asserted by

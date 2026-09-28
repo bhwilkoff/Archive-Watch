@@ -144,7 +144,8 @@ private var continueFamilies: [WidgetFamily] {
     #if os(macOS)
     [.systemSmall, .systemMedium, .systemLarge]
     #else
-    [.systemSmall, .systemMedium, .systemLarge, .accessoryRectangular]   // + Lock Screen
+    // + Lock Screen; + the iPad's extra-large (IPAD-DESIGN §14).
+    [.systemSmall, .systemMedium, .systemLarge, .systemExtraLarge, .accessoryRectangular]
     #endif
 }
 
@@ -161,7 +162,43 @@ struct ContinueWatchingView: View {
         case .accessoryRectangular: accessory
         #endif
         case .systemSmall: small
+        #if !os(macOS)
+        case .systemExtraLarge: extraLarge
+        #endif
         default: grid
+        }
+    }
+
+    /// The iPad's widest tile: what you were watching, and what you saved —
+    /// two rows, each a place the viewer already chose.
+    @ViewBuilder private var extraLarge: some View {
+        if items.isEmpty { empty } else {
+            VStack(alignment: .leading, spacing: 10) {
+                if !snapshot.continueWatching.isEmpty {
+                    row("CONTINUE WATCHING", snapshot.continueWatching.prefix(6), play: true)
+                }
+                if !snapshot.favorites.isEmpty {
+                    row("FROM YOUR FAVORITES", snapshot.favorites.prefix(6), play: false)
+                }
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+            .padding(14)
+            .containerBackground(.black, for: .widget)
+        }
+    }
+
+    private func row(_ heading: String, _ row: ArraySlice<WidgetItem>, play: Bool) -> some View {
+        VStack(alignment: .leading, spacing: 6) {
+            Text(heading).font(.caption2).bold().foregroundStyle(brand)
+            HStack(spacing: 8) {
+                ForEach(Array(row)) { item in
+                    Link(destination: deepLink(play ? "play/\(item.id)" : "item/\(item.id)")) {
+                        PosterCard(item: item, showProgress: play)
+                            .aspectRatio(2.0/3.0, contentMode: .fit)
+                            .clipShape(RoundedRectangle(cornerRadius: 8))
+                    }
+                }
+            }
         }
     }
 
