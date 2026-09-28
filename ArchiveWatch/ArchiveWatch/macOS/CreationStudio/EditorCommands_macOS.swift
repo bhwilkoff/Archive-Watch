@@ -125,11 +125,29 @@ struct EditorMarkCommands: Commands {
     @FocusedValue(\.editorCommands) private var editor
 
     private var model: EditorModel? { editor?.model }
+    /// A modifier-less key, only while the timeline holds the keyboard.
+    private func bare(_ key: KeyEquivalent) -> KeyboardShortcut? {
+        model?.timelineHasFocus == true ? KeyboardShortcut(key, modifiers: []) : nil
+    }
     private var hasClips: Bool { !(model?.project.timeline.clips.isEmpty ?? true) }
 
     var body: some Commands {
         CommandMenu("Mark") {
+            // The timeline's own keys, listed where a Mac lists keys. They are bound
+            // here only while the timeline has focus (`bare`), so they are shown
+            // exactly when they work and never take a letter from a text field
+            // (Mac loop, 2026-09-27: J/K/L, Space appeared nowhere in the app).
             Button(model?.isPlaying == true ? "Pause" : "Play") { model?.togglePlay() }
+                .keyboardShortcut(bare(.space))
+                .disabled(!hasClips)
+            Button("Play Backward") { model?.shuttle(forward: false) }
+                .keyboardShortcut(bare("j"))
+                .disabled(!hasClips)
+            Button("Stop") { model?.pause() }
+                .keyboardShortcut(bare("k"))
+                .disabled(!hasClips)
+            Button("Play Forward") { model?.shuttle(forward: true) }
+                .keyboardShortcut(bare("l"))
                 .disabled(!hasClips)
             Divider()
             Button("Add or Remove Marker") { model?.toggleMarkerAtPlayhead() }

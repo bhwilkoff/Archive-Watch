@@ -387,3 +387,14 @@ through Accessibility and its items pressed there (never pointer clicks).
   browser's tiles keep one line (a table column is resized, a tile is a
   grid) and show the whole text on hover, as poster cards already did.
   Built; the inspector heading was the case seen earlier in the loop.
+- v1.42.828: the timeline's single keys appear in the menu bar. J / K / L
+  and Space worked only while the timeline had focus and were written down
+  nowhere in the app. Mark gains Play Backward, Stop and Play Forward, and
+  those three plus Play/Pause carry J / K / L / Space ONLY while the
+  timeline holds the keyboard (`EditorModel.timelineHasFocus`, set by the
+  NSView's become/resignFirstResponder) — so the menu shows a key exactly
+  when it works and never takes a letter from a text field. Verified
+  through AX: with a text overlay's field focused the items have no key and
+  typing "jkl" lands in the field; with the timeline focused they read J,
+  K, L. (Space read back once as " " and once as nothing — how AX reports
+  that key, not claimed either way.)

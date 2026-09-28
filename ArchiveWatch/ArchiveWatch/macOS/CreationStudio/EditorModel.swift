@@ -19,6 +19,9 @@ final class EditorModel {
     let player = AVPlayer()
     var playheadSeconds: Double = 0
     var isPlaying = false
+    /// The timeline holds the keyboard, so its single keys (Space, J, K, L) may be
+    /// shown on the Mark menu; anywhere else they would take letters from a text field.
+    var timelineHasFocus = false
 
     /// What the inspector edits — the PRIMARY (focused) element. `.none` = the project itself.
     /// Multi-selection (⌘/⇧-click, marquee) lives in `selectedIDs`; `selection` is the primary the

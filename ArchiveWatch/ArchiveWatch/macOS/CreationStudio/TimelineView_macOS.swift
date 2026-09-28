@@ -139,7 +139,8 @@ final class TimelineContentView: NSView, NSMenuItemValidation {
 
     override var isFlipped: Bool { true }
     override var acceptsFirstResponder: Bool { true }
-    override func becomeFirstResponder() -> Bool { true }
+    override func becomeFirstResponder() -> Bool { model.timelineHasFocus = true; return true }
+    override func resignFirstResponder() -> Bool { model.timelineHasFocus = false; return true }
 
     func render(_ s: State) {
         state = s
