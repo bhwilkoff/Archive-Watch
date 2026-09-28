@@ -727,12 +727,21 @@ final class CatalogDB {
         if let id = ArchiveLink.id(from: query) { return itemsByIDs([id]) }
         let q = ftsQuery(query)
         guard !q.isEmpty else { return [] }
+        // The title (or director) the viewer typed leads, then designed art and
+        // popularity; FTS rank only breaks ties. Rank alone favored short records
+        // that merely contained the word: "metro" led with a 1896 park film, not
+        // Metropolis, and "his girl" with a cartoon (tvOS-DESIGN §3.3b).
         return items("""
             SELECT j.json FROM items_fts f
             JOIN item_json j ON j.archiveID = f.archiveID
             JOIN items i ON i.archiveID = f.archiveID
-            WHERE items_fts MATCH ? \(adultAnd) \(notCommercial) \(typeAnd)
-            ORDER BY (LOWER(i.title) = LOWER(?)) DESC, rank, i.popularityScore DESC
+            WHERE items_fts MATCH ?1 \(adultAnd) \(notCommercial) \(typeAnd)
+            ORDER BY (LOWER(i.title) = LOWER(?2)) DESC,
+              (LOWER(i.title) LIKE LOWER(?2) || '%' OR LOWER(i.title) LIKE 'the ' || LOWER(?2) || '%') DESC,
+              (instr(LOWER(i.title), LOWER(?2)) > 0
+                 OR instr(LOWER(COALESCE(i.director, '')), LOWER(?2)) > 0) DESC,
+              (i.hasRealArtwork = 1 AND COALESCE(i.artworkSource, '') <> 'generated') DESC,
+              COALESCE(i.popularityScore, 0) DESC, rank
             LIMIT \(limit)
         """, [q, query])
     }

@@ -247,6 +247,19 @@ titles, alert bodies, the caption label's 4 lines).
 - **Owner answered**: the microphone prompt on Fireplace -> Allow (it had
   outlived the terminated app; memory `atv_tcc_prompt_outlives_app`).
 
+- v1.42.859: **Search ranking** (shared `CatalogDB.search`, all Apple platforms):
+  exact title, then title prefix (or "The" + it), then title or director
+  containing the query, then designed art, then popularity; FTS rank breaks
+  ties. Measured on the real catalog over 12 queries, then seen on Fireplace:
+  "metro" -> Metropolis (was a 1896 park film), "his girl" -> His Girl Friday
+  (was a Bugs Beetle cartoon), "hitchcock" -> Shadow of a Doubt, Jamaica Inn,
+  Notorious (was a TV series and newsreels), "capra" -> It Happened One Night.
+  **Tried and dropped: native `.searchSuggestions`** — the system draws them as
+  fixed-width chips and cut the titles ("Parque Natural Metropolita…"); my first
+  version also crashed (a side effect inside a lazy filter: `Range requires
+  lowerBound <= upperBound`, caught from the device console). Web and Android
+  rank search their own way and were not changed.
+
 ## Queue
 
 1. Series page: the poster sits mid-hero (no rule covers series art yet)
