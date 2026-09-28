@@ -162,13 +162,24 @@ rule in IPAD-DESIGN.md before it ships (binding-design-doc discipline).
   sheet; the picture (up to 560 pt) and trim lead, the settings are a 380 pt
   column beside them. Seen on the iPad Pro; `test_16` asserts the column.
 
-**Remaining (2026-09-28 13:47):** code — Clip Studio keys (I/O, Space),
+- v1.42.883: **The menu bar, seen** (owner turned on Windowed Apps; "You
+  gain access to the menu by clicking on ArchiveWatch at the top of the
+  windowed app"): ArchiveWatch · File · Edit · View · Go · Film · Window ·
+  Help, and Go lists every place with its key. `test_17` opens it by clicking
+  the app's name (the small element at the top edge — the window carries the
+  same label) and asserts Films is in Go. Found: **Search was in Go twice**
+  (⌘5 as a place, ⌘F below the divider); it is once now, in its place, with ⌘F
+  as on the Mac, and Favorites is ⌘5. Owner answers recorded (IPAD-DESIGN
+  §13.2-13.4): no More Like This reason; no Watch Together room from an iPad,
+  iPhone or Apple TV Studio. Suite: 9 of 9.
+
+**Remaining (2026-09-28 13:47, updated 16:23):** code — Clip Studio keys (I/O, Space),
 channel-surf ↑/↓ (now testable with XCUITest), context menus on Scenes /
 More Like This / guide blocks, an App Intents film entity (Siri + Spotlight,
 all Apple), the Studio's Mac-only features that port to iPad (film-stall
-reason, custom card, Record); verify — the menu bar drawn at the top, a film
-window's close control, picture-in-picture restore; owner — whether More Like
-This shows its reason, whether an iPad Studio may open a Watch Together room.
+reason, custom card, Record); verify — a film window's close control, picture-in-picture restore; owner —
+the display name ("ArchiveWatch" under the icon and in the menu bar); two
+Home heroes (Check and Double Check, The Birth of a Nation).
 
 ## Found, data (for the copyright/scrub work, not the iPad)
 

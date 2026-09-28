@@ -39,24 +39,31 @@ extension FocusedValues {
     }
 }
 
-/// Go: the sidebar's places (⌘1-⌘6 on six), Search ⌘F, Back ⌘[, Surprise Me.
+/// Go: the sidebar's places (⌘1-⌘5 on five, Search ⌘F in its place, as on
+/// the Mac), Back ⌘[, Surprise Me.
 struct GoCommands_iOS: Commands {
     @FocusedValue(\.sceneRouter) private var router
 
     private static let places: [(tab: Router.Tab, key: KeyEquivalent?)] = [
         (.home, "1"), (.films, "2"), (.tv, "3"), (.collections, nil),
-        (.channels, "4"), (.search, "5"),
-        (.downloads, nil), (.favorites, "6"), (.history, nil),
+        (.channels, "4"), (.search, nil),
+        (.downloads, nil), (.favorites, "5"), (.history, nil),
         (.playlists, nil), (.clips, nil),
         (.surprise, nil), (.together, nil),
     ]
 
     var body: some Commands {
         CommandMenu("Go") {
-            // The sidebar's places in its order. ⌘1-⌘6 only on the six a
+            // The sidebar's places in its order. ⌘1-⌘5 only on the five a
             // viewer moves between most; a digit key cannot carry a tenth.
             ForEach(Self.places, id: \.tab) { place in
-                if let key = place.key {
+                if place.tab == .search {
+                    // Once, in its place, with ⌘F — it had a number here and
+                    // a second "Search" below the divider.
+                    Button("Search") { router?.tab = .search }
+                        .keyboardShortcut("f", modifiers: .command)
+                        .disabled(router == nil)
+                } else if let key = place.key {
                     Button(place.tab.title) { router?.tab = place.tab }
                         .keyboardShortcut(key, modifiers: .command)
                         .disabled(router == nil)
@@ -66,9 +73,6 @@ struct GoCommands_iOS: Commands {
                 }
             }
             Divider()
-            Button("Search") { router?.tab = .search }
-                .keyboardShortcut("f", modifiers: .command)
-                .disabled(router == nil)
             Button("Back") { router?.popActiveTab() }
                 .keyboardShortcut("[", modifiers: .command)
                 .disabled(router == nil || router?.activeTabAtRoot == true)

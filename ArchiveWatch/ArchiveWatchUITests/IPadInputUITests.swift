@@ -55,9 +55,9 @@ final class IPadInputUITests: XCTestCase {
     /// ⌘. closes it.
     func test_09_goAndSettingsShortcuts() {
         launch()
-        app.typeKey("5", modifierFlags: .command)
-        XCTAssertTrue(app.searchFields.firstMatch.waitForExistence(timeout: 5), "⌘5 did not open Search")
-        snap("cmd-5 search")
+        app.typeKey("f", modifierFlags: .command)
+        XCTAssertTrue(app.searchFields.firstMatch.waitForExistence(timeout: 5), "⌘F did not open Search")
+        snap("cmd-f search")
 
         app.typeKey("1", modifierFlags: .command)
         XCTAssertTrue(app.staticTexts["Archive Watch"].waitForExistence(timeout: 5), "⌘1 did not open Home")
@@ -114,8 +114,11 @@ final class IPadInputUITests: XCTestCase {
     /// tile and photograph it; the lift is judged on the picture.
     func test_12_pointerHover() {
         launch()
-        let tile = app.buttons.matching(NSPredicate(format: "label CONTAINS 'The Tingler'")).firstMatch
-        guard tile.waitForExistence(timeout: 10) else { return XCTFail("no tile to hover") }
+        // Whichever candidate is on Home today: Continue Watching changes as
+        // the owner watches (a fixed title failed once it left the row).
+        guard let tile = Self.dropCandidates.lazy
+            .map({ self.app.buttons.matching(NSPredicate(format: "label CONTAINS %@", $0.title)).firstMatch })
+            .first(where: { $0.waitForExistence(timeout: 3) }) else { return XCTFail("no tile to hover") }
         tile.hover()
         sleep(1)
         snap("hover tile")
@@ -137,7 +140,7 @@ final class IPadInputUITests: XCTestCase {
     /// silently and left four films in the owner's Favorites.)
     func test_13_dragPosterToFavorites() {
         launch()
-        app.typeKey("6", modifierFlags: .command)
+        app.typeKey("5", modifierFlags: .command)
         sleep(2)
         guard let pick = Self.dropCandidates.first(where: { !app.staticTexts[$0.title].exists }) else {
             return XCTFail("every candidate is already a favorite")
@@ -149,7 +152,7 @@ final class IPadInputUITests: XCTestCase {
         guard target.waitForExistence(timeout: 5) else { return XCTFail("no Favorites in the sidebar") }
         tile.press(forDuration: 1.0, thenDragTo: target)
         sleep(2)
-        app.typeKey("6", modifierFlags: .command)
+        app.typeKey("5", modifierFlags: .command)
         let landed = app.staticTexts[pick.title].waitForExistence(timeout: 5)
         snap("favorites after drop")
         XCTAssertTrue(landed, "\(pick.title) did not arrive in Favorites")
@@ -208,5 +211,48 @@ final class IPadInputUITests: XCTestCase {
         // The settings column sits in the right-hand part of the window.
         XCTAssertGreaterThan(format.frame.minX, window.midX, "settings are not a column beside the picture")
         app.buttons.matching(NSPredicate(format: "label == 'Cancel'")).firstMatch.tap()
+    }
+
+    /// §8.1 / §13.4: with Windowed Apps on, the pointer at the top edge
+    /// draws the menu bar, and it carries the Mac's menus.
+    func test_17_menuBarAtTheTop() {
+        launch()
+        // The menu bar opens from the SCREEN's top edge, over the status
+        // bar — not the window's top, which is where the first try hovered.
+        let springboard = XCUIApplication(bundleIdentifier: "com.apple.springboard")
+        // The app's name at the top of a windowed app opens the menu bar
+        // (owner: "clicking on ArchiveWatch at the top of the windowed app").
+        // Exactly "ArchiveWatch" (the bundle name): "Archive Watch" is also
+        // Home's heading, which the first try clicked instead.
+        let name = NSPredicate(format: "label == 'ArchiveWatch'")
+        // Two elements carry the name: the window itself and the small title
+        // at the screen's top edge. Take the small one.
+        let candidates = springboard.descendants(matching: .any).matching(name).allElementsBoundByIndex
+            + app.descendants(matching: .any).matching(name).allElementsBoundByIndex
+        for c in candidates { print("AWMENU candidate \(c.elementType.rawValue) \(c.frame)") }
+        let title = candidates.first { $0.frame.height < 60 && $0.frame.minY < 40 } ?? app.windows.firstMatch
+        XCTAssertTrue(title.frame.height < 60, "no app name at the top to click")
+        title.click()
+        sleep(2)
+        snap("menu bar")
+        let anyGo = NSPredicate(format: "title == 'Go' OR label == 'Go'")
+        // The bar belongs to the system: find "Go" at the top edge in either
+        // tree, and the menu's items wherever they are drawn.
+        let top = (springboard.descendants(matching: .any).matching(anyGo).allElementsBoundByIndex
+                   + app.descendants(matching: .any).matching(anyGo).allElementsBoundByIndex)
+            .first { $0.frame.minY < 40 && $0.frame.height < 60 }
+        if let go = top {
+            go.click()
+            sleep(1)
+            snap("go menu open")
+            let films = NSPredicate(format: "title == 'Films' OR label == 'Films'")
+            let inMenu = (springboard.descendants(matching: .any).matching(films).allElementsBoundByIndex
+                          + app.menuItems.matching(films).allElementsBoundByIndex)
+                .contains { $0.frame.minY < 400 && $0.frame.minX > 300 }
+            XCTAssertTrue(inMenu, "the Go menu has no Films")
+            app.typeKey(XCUIKeyboardKey.escape, modifierFlags: [])
+        } else {
+            XCTFail("no Go menu in the menu bar")
+        }
     }
 }

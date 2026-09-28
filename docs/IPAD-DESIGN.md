@@ -243,7 +243,7 @@ same `.commands` that build the Mac's menu bar build the iPad's, and a person
 with a keyboard expects to find every command there with its key.
 
 8.1 **The iPad shows the Mac's menus, in the Mac's words.** Go (the
-sidebar places (Home ⌘1, Films ⌘2, TV ⌘3, Channels ⌘4, Search ⌘5, Favorites ⌘6), Search ⌘F, Back ⌘[, Surprise Me ⇧⌘R, which opens
+sidebar places (Home ⌘1, Films ⌘2, TV ⌘3, Channels ⌘4, Favorites ⌘5; Search once, in its place, ⌘F, as on the Mac), Back ⌘[, Surprise Me ⇧⌘R, which opens
 Surprise as the Home button does), Film
 (the film in front: Play ⌘P, Add to / Remove from Favorites ⌘D, Add to
 Playlist…, Mark as Watched ⇧⌘U, Open in New Window, Copy Link ⇧⌘C, View on
@@ -336,6 +336,21 @@ other drop is refused, never guessed.
 Pro."*). Party Play stays on the televisions and the Mac; the multi-clip
 Creation Studio stays Mac-exclusive (Decision 042). The iPad keeps the phone's
 single-clip Clip Studio. Neither is a gap to close: PARITY records them 🚫.
+
+13.2 **More Like This shows no reason** for a title's place (owner,
+2026-09-28: *"There is no reason to say why a 'more like this' title is
+present."*) — Decision 139's reason stays pipeline data, never a caption.
+
+13.3 **An iPad's Studio never opens a Watch Together room** (owner,
+2026-09-28): a With-the-World show from an iPad, iPhone or Apple TV has no
+second camera or screen for a call, so its audience watches the YouTube or
+Twitch stream. A room would leave each guest alone, synced to the host rather
+than to the stream, which runs a few seconds behind the host. SHAREPLAY
+§11.13 (rooms are hosted from the Mac) stands.
+
+13.4 **The menu bar needs Windowed Apps** (iPadOS Settings > Multitasking);
+in full-screen apps iPadOS draws none, so §8's commands are reached by their
+keys and the ⌘-hold overlay there.
 
 ## §14 — Widgets (binding)
 
