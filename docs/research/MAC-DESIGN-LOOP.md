@@ -531,3 +531,11 @@ through Accessibility and its items pressed there (never pointer clicks).
   Undo restored it (AX: "Clip 2 of 2, A clip that cannot load"). The
   111 s is the editor's deliberate give-up ceiling for a source that never
   converges; a 404 could be judged dead sooner, noted, not changed.
+- VERIFIED: inspector slider undo. Fade out stepped 1.0 → 2.2 by three
+  AXIncrement actions (the keyboard/VoiceOver way to move a slider); Edit ›
+  Undo stepped back one increment at a time, 2.2 → 1.8 → … → 1.0. Each
+  discrete step is one undo, as an arrow-key press is; a mouse drag is one
+  step (onEditingChanged began). Observed: after an Undo the inspector
+  briefly showed no clip controls until the clip was selected again —
+  the snapshot restore drops the inspector's selection; minor, noted.
+  With this, every check this loop left open has been run.
