@@ -157,6 +157,72 @@ def manifest_ids() -> dict:
     return out
 
 
+def episode_year(e) -> int | None:
+    """The EPISODE's own date: its year, else the year of its air date."""
+    y = e.get("year")
+    if isinstance(y, int):
+        return y
+    m = re.match(r"(\d{4})", str(e.get("airDate") or ""))
+    return int(m.group(1)) if m else None
+
+
+def load_spines(folder: Path) -> dict:
+    spines = {}
+    for f in sorted(folder.glob("*.json")):
+        try:
+            spines[f] = json.loads(f.read_text(encoding="utf-8"))
+        except Exception:  # noqa: BLE001
+            continue
+    return spines
+
+
+def collect_need(spines: dict, episode_years: bool = True) -> tuple[dict, dict]:
+    """archiveID -> the year to judge it by, for every item that needs a
+    licence check; pre-1978 items are kept by the film audit's year rule
+    without a network call.
+
+    An episode is judged by its OWN year when it has one. The spine's
+    yearStart is the show's FIRST season, so skipping a whole show on it kept
+    143 Saturday Night Live episodes from 1978-2016 under a 1975 spine (found
+    2026-09-28 from an SNL episode in an Apple TV search). An undated episode
+    under a pre-1978 show is still kept on the show's year.
+    `episode_years=False` is the old whole-spine rule, kept for the test's
+    control."""
+    need, title_years = {}, {}
+    for d in spines.values():
+        y = spine_year(d)
+        old_show = y is not None and y < AR.MODERN
+        if old_show and not episode_years:
+            continue
+        for s in d.get("seasons") or []:
+            for e in s.get("episodes") or []:
+                aid = e.get("archiveID")
+                if not aid:
+                    continue
+                ey = episode_year(e) if episode_years else None
+                if ey is not None and ey < AR.MODERN:
+                    continue
+                if ey is None and old_show:
+                    continue
+                need.setdefault(str(aid), ey if ey is not None else y)
+                title_years.setdefault(str(aid), title_year_of(d))
+    return need, title_years
+
+
+def judge(need: dict, title_years: dict, cache: dict) -> tuple[dict, int, int]:
+    """(archiveID -> why for every REMOVE, kept, unconfirmed)."""
+    drop, kept, unconfirmed = {}, 0, 0
+    for aid, year in need.items():
+        v, why = verdict(year, cache.get(aid, {"ok": False}), title_years.get(aid))
+        if v == "remove":
+            drop[aid] = why
+        elif v == "unconfirmed":
+            unconfirmed += 1
+        else:
+            kept += 1
+    return drop, kept, unconfirmed
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(
         description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -167,27 +233,8 @@ def main() -> int:
     ap.add_argument("--limit", type=int, default=0)
     args = ap.parse_args()
 
-    spines = {}
-    for f in sorted(SERIES_DIR.glob("*.json")):
-        try:
-            spines[f] = json.loads(f.read_text(encoding="utf-8"))
-        except Exception:  # noqa: BLE001
-            continue
-
-    # Only MODERN shows need a licence check; the rest are kept by the same
-    # rule the film audit uses, without a network call.
-    need = {}
-    title_years = {}
-    for f, d in spines.items():
-        y = spine_year(d)
-        if y is not None and y < AR.MODERN:
-            continue          # judged by year alone; no network call needed
-        for s in d.get("seasons") or []:
-            for e in s.get("episodes") or []:
-                aid = e.get("archiveID")
-                if aid:
-                    need.setdefault(str(aid), y)
-                    title_years.setdefault(str(aid), title_year_of(d))
+    spines = load_spines(SERIES_DIR)
+    need, title_years = collect_need(spines)
     ids = sorted(need)
     if args.limit:
         ids = ids[: args.limit]
@@ -214,16 +261,8 @@ def main() -> int:
     CACHE.parent.mkdir(parents=True, exist_ok=True)
     CACHE.write_text(json.dumps(cache), encoding="utf-8")
 
-    removed_rows, kept, unconfirmed = [], 0, 0
-    drop_ids = {}
-    for aid, year in need.items():
-        v, why = verdict(year, cache.get(aid, {"ok": False}), title_years.get(aid))
-        if v == "remove":
-            drop_ids[aid] = why
-        elif v == "unconfirmed":
-            unconfirmed += 1
-        else:
-            kept += 1
+    removed_rows = []
+    drop_ids, kept, unconfirmed = judge(need, title_years, cache)
 
     # The verdict belongs to the ITEM, not to the spine it was matched onto.
     # One archive.org upload can sit under several spines, and a wrong match
