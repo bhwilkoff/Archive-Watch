@@ -331,7 +331,9 @@ struct PlayerSurface: View {
                         if !liveLine.isEmpty {
                             Text(liveLine)
                                 .font(.system(size: 18, weight: .medium))
-                                .lineLimit(4)   // two stacked cues, each may wrap
+                                // Unclamped, as on tvOS and iOS: stacked cues
+                                // at a large size ran past four lines.
+                                .fixedSize(horizontal: false, vertical: true)
                                 .foregroundStyle(.white)
                                 .multilineTextAlignment(.center)
                                 .padding(.horizontal, 12).padding(.vertical, 7)

@@ -247,29 +247,21 @@ struct HomeView: View {
     /// Hero pool: popular, home-eligible, designed (non-generated) art, preferring
     /// wide TMDb backdrops so the full-bleed banner isn't a blown-up poster.
     private func loadHero() -> [Catalog.Item] {
-        let base = store.filteringWatched(store.dbBrowse(sort: .popular, limit: 3000, homeOnly: true))
-            .filter { $0.hasDesignedArtwork && $0.artworkSource != "generated" }
-        // Hero must be well-composed WIDE art — a real backdrop, never a cropped 2:3 poster or a
-        // frame-grab cover. Require a backdrop; if too few qualify the hero shows fewer (or hides)
-        // rather than cropping a poster into the full-bleed banner (owner 2026-06-29).
-        // AND IT MUST BE RIGHTS-SAFE. The marquee is the one place the app
-        // SPEAKS for a film, and it was gated on artwork and playability
-        // alone — so Yojimbo, The Pink Panther and The Grapes of Wrath, all
-        // `presumed_pd` and all still owned, could carry it. Owner,
-        // 2026-09-20: "I keep seeing nazi movies, controversial films, and
-        // things with questionable public domain status."
-        // `isHeroRightsSafe` is positive evidence only; see Catalog.Item.
-        let pool = base.filter { $0.backdropURLParsed != nil && $0.isHeroRightsSafe }
+        // The pool, its artwork, backdrop, rights and recommendation gates are
+        // ONE SQLite query (CatalogDB.heroCandidates, the tvOS loop v1.42.849):
+        // only the seven shown are decoded, where this decoded 3,000 items to
+        // keep seven.
+        let hidden = store.hideWatchedOnHome ? store.completedArchiveIDs : []
+        let pool = store.dbHeroCandidates().filter { !hidden.contains($0.id) }
         // The marquee must never feature a title that doesn't play (owner:
         // "should certainly not be highlighted on the home screen"). Prefer
         // byte-verified items; fall back to the full pool while probe coverage
-        // is still climbing, so the hero can never go empty. Measured
-        // 2026-07-18: 244 of the 758 backdrop-bearing candidates are already
-        // verified — far more than the 7 the hero shows.
-        let verified = pool.filter { $0.isPlaybackVerified }
-        let heroPool = verified.count >= 7 ? verified : pool
+        // is still climbing, so the hero can never go empty.
+        let verified = pool.filter(\.playable)
+        let heroPool = (verified.count >= 7 ? verified : pool).map(\.id)
         var rng = SplitMix(seed: heroSeed)
-        return Tonight.lead(Array(heroPool.shuffled(using: &rng).prefix(7)),
+        let picked = heroPool.shuffled(using: &rng).prefix(7).compactMap { store.item($0) }
+        return Tonight.lead(picked,
                             with: Tonight.currentID.flatMap { store.item($0) })
     }
 

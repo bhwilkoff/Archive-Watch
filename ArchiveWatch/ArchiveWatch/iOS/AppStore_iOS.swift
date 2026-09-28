@@ -197,6 +197,8 @@ final class AppStore {
     func seriesCard(seriesID: String) -> Catalog.Item? { db?.seriesCard(slug: seriesID) }
     func byPerson(_ name: String) -> [Catalog.Item] { db?.byPerson(name) ?? [] }
     func item(_ id: String) -> Catalog.Item? { db?.item(id) }
+    /// The hero's candidates as one query (ids + playability), as on tvOS.
+    func dbHeroCandidates() -> [(id: String, playable: Bool)] { db?.heroCandidates() ?? [] }
     func itemsByIDs(_ ids: [String]) -> [Catalog.Item] { db?.itemsByIDs(ids) ?? [] }
     func related(to item: Catalog.Item) -> [Catalog.Item] { db?.related(to: item) ?? [] }
     func seriesCards() -> [Catalog.Item] { db?.seriesCards() ?? [] }

@@ -820,7 +820,10 @@ struct PlayerView: UIViewControllerRepresentable {
         /// looking like different features.
         private func installCaptionLabel(in vc: AVPlayerViewController) -> UILabel {
             let label = PaddedLabel()
-            label.numberOfLines = 2
+            // Unclamped (the tvOS loop, v1.42.845): stacked cues at a large system
+            // caption size ran past a fixed line count, and a caption cut short
+            // is a caption that lies. Bottom-anchored, so it grows upward.
+            label.numberOfLines = 0
             label.textAlignment = .center
             label.translatesAutoresizingMaskIntoConstraints = false
             label.isUserInteractionEnabled = false   // AVKit owns the gestures
@@ -868,7 +871,7 @@ struct PlayerView: UIViewControllerRepresentable {
                     guard let self, let player = self.player else { break }
                     let text = self.showsPublishedOverlay
                         ? subs.line(at: player.currentTime().seconds) : ""
-                    label.numberOfLines = 4
+                    label.numberOfLines = 0
                     label.text = text.isEmpty ? nil : text
                         .components(separatedBy: "\n")
                         .map { "  \($0)  " }
@@ -923,7 +926,7 @@ struct PlayerView: UIViewControllerRepresentable {
                         ? (line.isEmpty ? captions.notice : line) : ""
                     // Stacked rapid-dialogue captions are two cues, either of
                     // which may wrap once.
-                    self.captionLabel?.numberOfLines = 4
+                    self.captionLabel?.numberOfLines = 0
                     self.captionLabel?.text = text.isEmpty ? nil : text
                         .components(separatedBy: "\n")
                         .map { "  \($0)  " }
