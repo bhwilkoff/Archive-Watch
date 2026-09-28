@@ -252,7 +252,15 @@ rule in IPAD-DESIGN.md before it ships (binding-design-doc discipline).
   shared-type-is-not-shared-path, again). Fixed and re-recorded: "PUBLIC
   DOMAIN — PUBLISHED 1928".
 
-**Remaining (2026-09-28 13:47, updated 17:20):** code — Clip Studio Space (I/O done),
+- (no build) **Picture-in-picture restore — still not driven.** Three
+  XCUITest routes on the iPad: the Home press (it does not background the app
+  under Windowed Apps — seen twice today), then tapping the video to reveal
+  AVKit's controls — the accessibility tree listed the film's page and no
+  player controls at all, so there was no Picture-in-Picture button to press.
+  SCRATCHPAD already names this as the one path not automatable; it stays a
+  one-tap check for the owner. Nothing shipped; the test is removed.
+
+**Remaining (2026-09-28 13:47, updated 17:27):** code — Clip Studio Space (I/O done),
 channel-surf ↑/↓ (three routes failed; control first),  Spotlight indexing (Open Film for Siri is built), the Studio's Record (the custom card is built; film-stall reason was already there); verify — picture-in-picture restore; research — a film window opening as a floating window; owner — none.
 
 ## Found, data (for the copyright/scrub work, not the iPad)
