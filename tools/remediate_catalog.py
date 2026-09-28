@@ -285,6 +285,92 @@ def _verify_cache():
     return _VERIFY_CACHE
 
 
+_OMDB_CACHE = None
+
+
+def _omdb_cache():
+    global _OMDB_CACHE
+    if _OMDB_CACHE is None:
+        try:
+            oc = json.loads((REPO / "shared/editorial/omdb_cache.json").read_text())
+            _OMDB_CACHE = oc.get("entries", oc)
+        except Exception:
+            _OMDB_CACHE = {}
+    return _OMDB_CACHE
+
+
+# A match whose FILM runs a length the FILE cannot be is the wrong film, when
+# the item's own title does not name that film either. "Bomber" (1941), a
+# 9-minute Office for Emergency Management short, wore Warner Bros.' Dive
+# Bomber (1941, 132 min): poster, cast, studio, synopsis, and a place in the
+# Home hero. Every existing tier abstained, because the years AGREE — the
+# lookalike is a same-year film whose title contains the item's.
+#
+# Runtime alone is not the evidence: 578 visible matched items disagree
+# grossly, and most are the RIGHT film — a surviving fragment of a silent
+# feature (Tokyo March, 27 of 101 min), a serial chapter against the whole
+# serial, a preview reel. Those keep the film's title (or one of its akas),
+# or say they are a piece. So two signals must agree (the tmdb_verify_matches
+# rule): the runtime, and a title that names none of the match's titles.
+# `matchVerdict == "verified"` means the archive.org upload itself declared
+# the id (Decision 026 Tier 1), and is never overruled here.
+RUNTIME_SHORT_RATIO = 0.4
+RUNTIME_LONG_RATIO = 2.5
+RUNTIME_MIN_GAP = 1200          # seconds
+_PIECE = re.compile(r"\b(chapters?|chap|episodes?|ep|parts?|pt|reels?|r\d+|excerpts?|"
+                    r"clips?|previews?|fragments?|trailers?|outtakes?|serials?)\b", re.I)
+
+
+def _fold_title(t):
+    t = unicodedata.normalize("NFKD", t or "").encode("ascii", "ignore").decode().lower()
+    t = re.sub(r"\s*&\s*", " and ", t)
+    t = _LEAD_ARTICLE.sub("", " ".join(re.sub(r"[^a-z0-9 ]", " ", t).split()))
+    return t.replace(" ", "")
+
+
+def _own_runtime(it):
+    for k in ("trueRuntimeSeconds", "fileRuntimeSeconds"):
+        if it.get(k):
+            return it[k]
+    if it.get("runtimeSource") in ("archive_file", "measured-ffprobe"):
+        return it.get("runtimeSeconds")
+    return None
+
+
+def _matched_runtime(it):
+    rec = _omdb_cache().get(it.get("imdbID") or "")
+    if isinstance(rec, dict) and rec.get("runtime_min"):
+        return rec["runtime_min"] * 60
+    return it.get("runtimeWasSeconds")
+
+
+def runtime_contradicts_match(it):
+    """(file seconds, matched film seconds) when the match is the wrong film by
+    runtime AND title, else None. Pure; reads only the committed OMDb cache."""
+    if not (it.get("imdbID") or it.get("tmdbID")) or it.get("contentType") == "tv-series":
+        return None
+    if it.get("matchVerdict") == "verified":
+        return None
+    own, film = _own_runtime(it), _matched_runtime(it)
+    if not (own and film):
+        return None
+    r = own / film
+    if not ((r < RUNTIME_SHORT_RATIO or r > RUNTIME_LONG_RATIO) and abs(own - film) > RUNTIME_MIN_GAP):
+        return None
+    aid = re.sub(r"([a-z])([A-Z])", r"\1 \2", it.get("archiveID") or "")
+    if _PIECE.search(f"{it.get('title') or ''} {re.sub(r'[_.-]', ' ', aid)}"):
+        return None
+    theirs = [it.get("canonicalTitle"), it.get("originalTitle"),
+              (_verify_cache().get(str(it.get("tmdbID"))) or {}).get("title")]
+    theirs = {_fold_title(t) for t in theirs + list(it.get("akaTitles") or []) if t} - {""}
+    title = it.get("title") or ""
+    bare = re.sub(r"\s*[(\[][^)\]]*[)\]]\s*$", "", title)
+    mine = {_fold_title(t) for t in [title, bare] + re.split(r"\s+[-–]\s+", bare)} - {""}
+    if not theirs or mine & theirs:
+        return None
+    return own, film
+
+
 def _clear_wrong_artwork(it, new_year):
     """Strip a wrong external (TMDb/OMDb) match: drop its poster/backdrop, NULL the
     wrong identity (imdbID/tmdbID — otherwise the next enrichment cron re-fetches
@@ -340,7 +426,8 @@ _TV_RESIDUE_KINDS = {"tv-special", "tv-episode"}
 # keeping the wrong film's synopsis (223), release date (221), studios (187)
 # and vote count (121). The marker means the verifier will never revisit them,
 # so the repair has to happen here, on every build.
-_CLEARED = ("cleared_modern", "cleared_year", "cleared_bw", "cleared_era")
+_CLEARED = ("cleared_modern", "cleared_year", "cleared_bw", "cleared_era",
+            "cleared_runtime")
 _MATCH_ART = {"tmdb", "omdb", "fanart", "tvdb", "external"}
 _MATCH_FIELDS = ("imdbID", "tmdbID", "backdropURL", "tagline", "keywords",
                  "canonicalTitle", "akaTitles", "originalTitle", "imdbRating",
@@ -2974,6 +3061,17 @@ def remediate(items):
                 it["matchVerified"] = True
                 strip_unanchored_tmdb_residue(it)
                 stats["far_year_match_cleared"] += 1
+
+        # 0b2) A match whose film's runtime the file cannot be, and whose
+        # titles the item does not carry (see runtime_contradicts_match).
+        rc = runtime_contradicts_match(it)
+        if rc:
+            _clear_wrong_artwork(it, None)
+            it["matchVerdict"] = "cleared_runtime"
+            it["matchVerified"] = True
+            it["matchRuntimeConflict"] = [int(rc[0]), int(rc[1])]
+            strip_unanchored_tmdb_residue(it)
+            stats["runtime_match_cleared"] += 1
 
         # 0b) WRONG EXTERNAL MATCH (#3/#4): a modern TMDb/OMDb poster+year on a
         # vintage title. Clear the bad artwork + fix the year before anything
