@@ -289,7 +289,7 @@ final class ResilientStreamLoader: NSObject, AVAssetResourceLoaderDelegate, @unc
     // 8 MB ranges: with STREAMING delivery (bytes reach the player as they
     // arrive, not at chunk completion) a large chunk has no latency downside,
     // and it quarters how often we pay per-request time-to-first-byte.
-    private var chunkSize: Int64 = 8 * 1024 * 1024
+    private let chunkSize: Int64 = 8 * 1024 * 1024
 
     // BLOCK CACHE for small random reads (2026-08-14). A long, oddly-muxed MP4
     // makes AVFoundation page its sample tables in tiny random dataRequests —
@@ -412,13 +412,8 @@ final class ResilientStreamLoader: NSObject, AVAssetResourceLoaderDelegate, @unc
     /// Build an AVURLAsset whose loads route through this delegate. Returns a
     /// plain asset (no interception) for non-HTTP URLs so callers can use it
     /// unconditionally. The returned loader is `nil` when not intercepting.
-    /// `chunkBytes`: the size of each ranged fetch. 8 MB suits PLAYBACK (a long
-    /// buffer, fewest round trips); a reader that wants one short window pays
-    /// for whole chunks it never uses — an 11-second clip cost 15–17 MB, two
-    /// 8 MB chunks (Mac loop 2026-09-27, nettop). The clip cache asks for less.
     static func makeAsset(for url: URL,
-                          subordinate: Bool = false,
-                          chunkBytes: Int64? = nil) -> (asset: AVURLAsset, loader: ResilientStreamLoader?) {
+                          subordinate: Bool = false) -> (asset: AVURLAsset, loader: ResilientStreamLoader?) {
         guard let s = url.scheme?.lowercased(), s == "http" || s == "https",
               var comps = URLComponents(url: url, resolvingAgainstBaseURL: false) else {
             return (AVURLAsset(url: url), nil)
@@ -426,7 +421,6 @@ final class ResilientStreamLoader: NSObject, AVAssetResourceLoaderDelegate, @unc
         comps.scheme = scheme
         guard let customURL = comps.url else { return (AVURLAsset(url: url), nil) }
         let loader = ResilientStreamLoader(url: url, subordinate: subordinate)
-        if let chunkBytes { loader.chunkSize = max(256 * 1024, chunkBytes) }
         let asset = AVURLAsset(url: customURL)
         asset.resourceLoader.setDelegate(loader, queue: loader.queue)
         return (asset, loader)

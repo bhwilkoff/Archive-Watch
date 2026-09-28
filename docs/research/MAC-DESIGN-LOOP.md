@@ -450,10 +450,12 @@ through Accessibility and its items pressed there (never pointer clicks).
   into the film) and then went flat. NOTED for later, not changed: that
   looks like the passthrough copy reading from the file's start rather than
   the window's, ~10x the window's own bytes. The block is left to expire.
-- v1.42.830: a clip window fetches in 1 MB ranges, not 8 MB. The stream
-  loader's chunk suits playback (long buffer, few round trips); a reader
-  after one short window paid for whole chunks — 15–17 MB per 11-second
-  clip, i.e. two 8 MB chunks. `makeAsset(for:chunkBytes:)` lets the clip
-  cache ask for 1 MB (floor 256 KB); every player keeps 8 MB. Built for
-  macOS and iOS; the per-clip bytes are re-measured when archive.org lets
-  this address back in.
+- v1.42.830 REVERTED in .831. The theory was that 15–17 MB per 11-second
+  clip was two 8 MB loader chunks; with 1 MB chunks the same run still
+  moved 14.5–15 MB per clip, so the theory was wrong — and 1 MB chunks
+  mean ~15 requests per clip instead of 2, which is the wrong direction
+  for a host that rate-limits. Where the bytes go is still unknown (a high
+  bitrate derivative, or the read starting before the window).
+  Sharper now: archive.org answered a probe just before each editor launch
+  and refused one 5 s after it, every time; Home alone never did in 3 min.
+  So something in the editor's first seconds trips the main host.
