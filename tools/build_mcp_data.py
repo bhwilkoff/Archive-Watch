@@ -61,7 +61,11 @@ def load_cast(details_dir: Path | None) -> dict:
         return cast
     for f in details_dir.glob("*.json"):
         for aid, rec in json.loads(f.read_text(encoding="utf-8")).items():
-            names = [c[0] if isinstance(c, list) else c for c in (rec[3] or [])[:3]]
+            # Shards trim trailing empty fields, so a record may stop before
+            # its cast (Decision 116: a reader never crashes on a shape).
+            people = rec[3] if isinstance(rec, list) and len(rec) > 3 else None
+            names = [c[0] if isinstance(c, list) and c else c
+                     for c in (people or [])[:3] if c]
             if names:
                 cast[aid] = " ".join(n for n in names if n)
     return cast
