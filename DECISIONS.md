@@ -232,6 +232,7 @@ into every session and the index alone carries every title.)
 - 147 — A film the system can caption plays through the loopback proxy, paced to twice its bitrate
 - 148 — Older Apple TVs are served by the tvOS 26 floor, not a second app; the floor is held below 27
 - 149 — Propaganda is never recommended and always findable; "true propaganda" is the Nazi state's, on evidence a reader can open
+- 150 — A cleared match leaves nothing it filled unless something independent vouches for it
 
 ---
 
@@ -1262,3 +1263,57 @@ CSAM uploads that are not films, several with fabricated years — and stays an
 exclusion. `tools/test_propaganda_no_recommend.py` holds the rule and every
 pipeline gate, each with an unflagged control.
 
+
+## 150 — A cleared match leaves nothing it filled unless something independent vouches for it
+*Date: 2026-09-28*
+
+When an item's external match has been cleared and no new identity replaced
+it (`remediate_catalog.is_cleared_match`: a `cleared*` verdict,
+`modernPosterCleared` or `matchResidueCleared`, and no imdbID/tmdbID), every
+build runs `scrub_cleared_match`: the year, director and genres that match
+filled are removed unless something independent vouches for them, the decade
+and silent flag follow the year, and a `silent-film` whose year no longer
+makes it one is re-typed by `content_type.classify`. What changed is recorded
+on the item (`scrubbedFields`, `yearWas`, `contentTypeWas`).
+
+**Why**: the owner — *"All inaccurate information should be scrubbed from the
+database. Unless it is somehow verified, keeping bad info on "junk uploads"
+doesn't seem helpful to anyone."* Enrichment fills identity fields only where
+the Archive item had none (`omdb_lib.apply_identity`), so a value still
+standing after its match was cleared came from somebody else's film unless
+something says otherwise. `_clear_wrong_artwork` already dropped the match's
+art, ids, ratings and credits, and deliberately kept year, director and
+genres, because they can also arrive from the Archive or Wikidata. That left
+a two-minute cable-outage clip dated 1916 on the silent-era shelves, a *Bleach*
+recap and a game-trailer dated 1919-21, and *Robin Hood* episodes credited to
+Mikhail Romm.
+
+**What counts as vouching** (each measured against a real over-scrub before
+it was added): the Archive item's OWN metadata — its `date`/`year`, a year its
+title, id or description states, its `director`/`creator` (by surname: the
+Archive wrote "Vincent Minnelli"), its subjects for genres, its animation
+typing for "Animation"; a Wikidata identity anchored by Internet Archive id;
+an independent `yearSource`; and **another copy of the same film whose match
+is live** (`sibling_index`), which is checked BEFORE the Archive's own date
+because uploaders' dates are wrong too (*Father's Little Dividend*'s upload
+says 1941; the film and its matched sibling say 1951). The Archive's metadata
+is cached in `shared/editorial/archive_own_meta.json` by
+`tools/fetch_archive_own_meta.py` — the build has no network — and an item
+not in the cache is left alone: unknown is not wrong.
+
+**Measured on the live catalog** (593 of 594 visible cleared items judged):
+60 visible items change — 36 years (34 to none, 2 to the Archive's own), 28
+directors, 17 genre sets; 16 leave the silent era and 35 change decade.
+**It removes true facts too**, as the rule asks: *The Chinese Room* (1968),
+*The Barber of Seville* (1944) and *Send for Paul Temple*'s director are right
+and unvouched by anything in the Archive's record or a live sibling.
+
+**How to apply**: never make a scrub guess — add a WITNESS. A true fact lost
+here comes back by evidence the build can read (a sibling with a live match,
+an entry in `year_corrections.json` / `title_corrections.json`, a Wikidata
+link), not by weakening the rule. Run `tools/fetch_archive_own_meta.py` after
+a pass that clears new matches; 1,320 hidden cleared items are still
+unfetched and therefore untouched. `tools/test_scrub_cleared_match.py` holds
+the cases with two controls (a no-op scrub; a scrub without siblings, which
+would null D.O.A.'s 1949 and set Father's Little Dividend to 1941), and a
+second full `remediate` pass must scrub nothing.

@@ -44,6 +44,18 @@ idempotent, safe:
 - **Title**: strip codec/resolution/bracket junk, fix mojibake, de-shout
   ALL-CAPS; never empties the title.
 - Plus the existing year/silent/animation/adult/wrong-match/rights fixes.
+- **A cleared match leaves nothing unvouched** (`scrub_cleared_match`, Decision
+  150): an item whose external match was cleared and not replaced loses the
+  year, director and genres that match filled unless something independent
+  vouches for them: the Archive item's OWN metadata (its `date`/`year`, a year
+  its title, id or description states, its `director`/`creator` by surname, its
+  subjects for genres), a Wikidata identity anchored by Internet Archive id, or
+  another copy of the same film whose match is live (checked first — uploaders'
+  dates are wrong too). The type is re-derived when the year no longer makes it
+  silent. Evidence: `shared/editorial/archive_own_meta.json`, filled by
+  `tools/fetch_archive_own_meta.py` (the build has no network; an unfetched item
+  is left alone). Every change is recorded in `scrubbedFields` (+ `yearWas`,
+  `contentTypeWas`).
 
 ## Tier 2 — Authoritative enrichment (existing curation workflows)
 Fills gaps and replaces nulled junk from real sources, on schedule:

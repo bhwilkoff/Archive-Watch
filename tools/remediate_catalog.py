@@ -42,6 +42,7 @@ from pathlib import Path
 _sys.path.insert(0, str(Path(__file__).resolve().parent))
 import audit_metadata as _audit  # noqa: E402
 import comment_fit as _comment_fit  # noqa: E402
+import content_type as _content_type  # noqa: E402
 
 REPO = Path(__file__).resolve().parent.parent
 CATALOG = REPO / "catalog.json"
@@ -425,6 +426,138 @@ def _clear_wrong_artwork(it, new_year):
     for k in ("imdbRating", "imdbVotes", "releaseDate", "awards", "studios",
               "contentRating", "cinematographer", "composer"):
         it.pop(k, None)
+
+
+# A CLEARED MATCH LEAVES WHAT IT FILLED. Enrichment fills identity fields
+# (year, director, genres) only where the Archive item had none
+# (omdb_lib.apply_identity), so a value still standing after its match was
+# cleared came from somebody else's film unless something independent vouches
+# for it. Owner, 2026-09-28: "All inaccurate information should be scrubbed
+# from the database. Unless it is somehow verified, keeping bad info on "junk
+# uploads" doesn't seem helpful to anyone."
+#
+# The evidence is the archive.org item's OWN metadata, cached once by
+# tools/fetch_archive_own_meta.py (the build has no network). An item not in
+# that cache is unjudged and left alone: unknown is not wrong.
+_OWN_META = None
+
+
+def _own_meta():
+    global _OWN_META
+    if _OWN_META is None:
+        try:
+            _OWN_META = json.loads((REPO / "shared/editorial/archive_own_meta.json").read_text())
+        except Exception:
+            _OWN_META = {}
+    return _OWN_META
+
+
+# Year provenance that did not come from the cleared match.
+_INDEPENDENT_YEAR = {"source_naming", "sibling-runtime", "agent-reviewed", "cast-anchored-tmdb", "archive"}
+
+
+def is_cleared_match(it):
+    """The item's external match was judged wrong and no new identity replaced it."""
+    if it.get("imdbID") or it.get("tmdbID"):
+        return False
+    return bool((it.get("matchVerdict") or "").startswith("cleared")
+                or it.get("modernPosterCleared") or it.get("matchResidueCleared"))
+
+
+def _names_year(it, y):
+    return str(y) in f"{it.get('title') or ''} {it.get('archiveID') or ''}"
+
+
+def _norm_person(s):
+    return re.sub(r"[^a-z]", "", unicodedata.normalize("NFKD", s or "")
+                  .encode("ascii", "ignore").decode().lower())
+
+
+def _surname(s):
+    parts = re.findall(r"[a-z]+", unicodedata.normalize("NFKD", s or "")
+                       .encode("ascii", "ignore").decode().lower())
+    return parts[-1] if parts else ""
+
+
+def sibling_index(items):
+    """Title -> (years, director surnames) held by OTHER copies of the same
+    film whose match is live: a second, independently matched upload is a
+    witness. D.O.A.'s 1949 and Father's Little Dividend's Minnelli survive on
+    it; a cable-outage clip's borrowed 1916 has none."""
+    idx = {}
+    for o in items:
+        if not (o.get("imdbID") or o.get("tmdbID")) or \
+                (o.get("matchVerdict") or "").startswith("cleared"):
+            continue
+        key = _fold_title(o.get("title"))
+        if not key:
+            continue
+        ys, ds, gs = idx.setdefault(key, (set(), set(), set()))
+        if isinstance(o.get("year"), int):
+            ys.add(o["year"])
+        if o.get("director"):
+            ds.add(_surname(o["director"]))
+        gs.update((g or "").strip().lower() for g in (o.get("genres") or []))
+    return idx
+
+
+def scrub_cleared_match(it, own_meta=None, siblings=None):
+    """Remove what a cleared match filled and nothing independent verifies.
+    Returns the fields scrubbed (also recorded in `scrubbedFields`)."""
+    if not is_cleared_match(it):
+        return []
+    own = (own_meta if own_meta is not None else _own_meta()).get(it.get("archiveID") or "")
+    wikidata = it.get("discoverySource") == "wikidata"   # anchored by P724, the Archive id
+    sib_years, sib_dirs, sib_genres = (siblings or {}).get(_fold_title(it.get("title")),
+                                                           (set(), set(), set()))
+    done = []
+    if own is not None:
+        y, oy = it.get("year"), own.get("year")
+        verified = (y is None or y == oy or wikidata or _names_year(it, y)
+                    or y in sib_years
+                    or y in (own.get("mentioned") or [])
+                    or it.get("yearSource") in _INDEPENDENT_YEAR)
+        if not verified:
+            it["yearWas"] = y
+            it["year"] = oy
+            it["decade"] = decade_of(oy)
+            it["isSilentFilm"] = bool(oy and oy < SILENT_CUTOFF)
+            it["yearSource"] = "archive" if oy else None
+            done.append("year")
+            if it.get("contentType") == "silent-film" and not it.get("contentTypeSource") \
+                    and (oy is None or oy >= SILENT_CUTOFF):
+                it["contentTypeWas"] = "silent-film"
+                it["contentType"] = _content_type.classify(
+                    it.get("collections") or [], it.get("subjects") or [],
+                    _own_runtime(it) or it.get("runtimeSeconds"), oy)
+                done.append("contentType")
+        d = it.get("director")
+        if d and not wikidata:
+            # By surname: the Archive's own credit is often misspelled
+            # ("Vincent Minnelli").
+            credits = _norm_person(f"{own.get('director') or ''} {own.get('creator') or ''}")
+            sn = _surname(d)
+            if not (sn and (sn in credits or sn in sib_dirs)):
+                it["director"] = None
+                done.append("director")
+    # Genres: the Archive never supplies them (ingest writes []) and the
+    # Wikidata tools never write them, so on a film with no identity they are
+    # the cleared match's (or a Library of Congress record's) — kept only where
+    # a live-matched copy of the same film carries the same genre.
+    if it.get("genres") and not wikidata and it.get("discoverySource") != "loc" \
+            and it.get("contentType") not in ("tv-series", "tv-episode"):
+        # The Archive's own subjects vouch too (remediate step 5 fills from
+        # them), as does its animation typing for "Animation".
+        vouched = sib_genres | {g.lower() for g in genres_from_subjects(it)}
+        if it.get("contentType") == "animation":
+            vouched.add("animation")
+        kept = [g for g in it["genres"] if (g or "").strip().lower() in vouched]
+        if kept != it["genres"]:
+            it["genres"] = kept
+            done.append("genres")
+    if done:
+        it["scrubbedFields"] = sorted(set(it.get("scrubbedFields") or []) | set(done))
+    return done
 
 
 # A TV item carries a canonical title, keywords or a tagline ONLY from an
@@ -2939,6 +3072,7 @@ def _load_anchor_footprint():
 
 def remediate(items):
     stats = Counter()
+    siblings = sibling_index(items)
     # A later rule can null a year this pass filled (e.g. the B&W-vs-modern
     # wrong-match check); sweep any marker left without a year at the end so
     # the catalog never carries a provenance claim for a value that is gone.
@@ -3239,6 +3373,12 @@ def remediate(items):
             it["imdbRating"] = None
             it["imdbVotes"] = None
             stats["short_of_feature_cleared"] += 1
+
+        # 0h) What a cleared match filled and nothing independent verifies
+        # (scrub_cleared_match): its year, director, genres, and the type the
+        # borrowed year gave it.
+        for f in scrub_cleared_match(it, siblings=siblings):
+            stats[f"scrubbed_{f}"] += 1
 
         y = it.get("year")
         ty = title_year(it)
