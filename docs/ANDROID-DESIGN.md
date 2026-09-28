@@ -110,6 +110,9 @@ or tvOS rule, that inversion is deliberate — do not "harmonize" them.
 - **§4.2b** **Scenes** (2026-09-26, WEB-DESIGN §4.4e): on the phone Detail, between the community line and More Like This, up to 12 of archive.org's own per-minute frames of the copy that will PLAY (`ArchiveVersions.scenes`, through `preferredURL`, so a room's or a chosen copy's frames), each labeled with its time; a frame opens the player at that second (`PlaySpec.startPositionMs`). Hidden under four frames. Seen on the Pixel 8a (The General: 0:54, 8:54, 17:54...). Television Detail: not built (a focus row needs its own rule).
 - **§4.3 Search** = debounced (~180 ms) full-text search over the catalog's
   FTS5 index (`search` verb), grid results, explicit empty states.
+  Ranked like the Apple apps (tvOS-DESIGN §3.3b): `CatalogDatabase.SEARCH_ORDER` —
+  exact title, title prefix (or "the " + it), title or director containing the
+  query, designed art, popularity, then FTS rank (2026-09-28).
 - **§4.4 Detail** = backdrop header → title/meta → **tagline (italic)** → Play
   + Favorite → synopsis → **rich-metadata rows** (writer / music / cinematography
   / studio / series / awards — Decision 046, each shown only when present) → cast

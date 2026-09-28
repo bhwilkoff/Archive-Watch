@@ -38,6 +38,18 @@ class CatalogDatabase private constructor(
             RegexOption.IGNORE_CASE,
         )
 
+        /** The Apple ranking (CatalogDB.search, tvOS-DESIGN 3.3b): the title or
+         *  director typed leads, then designed art and popularity; FTS rank only
+         *  breaks ties. Rank alone put a 1896 park film above Metropolis for
+         *  "metro". ?2 is the raw query. tools/test_search_rank_parity.py runs
+         *  this string against a fixture. */
+        const val SEARCH_ORDER =
+            "(LOWER(i.title) = LOWER(?2)) DESC, " +
+            "(LOWER(i.title) LIKE LOWER(?2) || '%' OR LOWER(i.title) LIKE 'the ' || LOWER(?2) || '%') DESC, " +
+            "(instr(LOWER(i.title), LOWER(?2)) > 0 " +
+            "OR instr(LOWER(COALESCE(i.director, '')), LOWER(?2)) > 0) DESC, " +
+            "(i.hasRealArtwork = 1 AND COALESCE(i.artworkSource, '') <> 'generated') DESC, " +
+            "COALESCE(i.popularityScore, 0) DESC, rank"
         private const val liteCols =
             "i.archiveID,i.title,i.year,i.decade,i.contentType,i.posterURL," +
             "i.hasRealArtwork,i.artworkSource,i.runtimeSeconds,i.popularityScore," +
@@ -484,9 +496,9 @@ class CatalogDatabase private constructor(
         return itemsLite(
             """SELECT $liteCols FROM items_fts f
                JOIN items i ON i.archiveID = f.archiveID
-               WHERE items_fts MATCH ?$adultAnd$notCommercial$typeAnd
-               ORDER BY rank LIMIT ?""",
-            listOf(match, limit),
+               WHERE items_fts MATCH ?1$adultAnd$notCommercial$typeAnd
+               ORDER BY $SEARCH_ORDER LIMIT ?3""",
+            listOf(match, query.trim(), limit),
         )
     }
 

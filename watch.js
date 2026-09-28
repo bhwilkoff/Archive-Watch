@@ -675,6 +675,19 @@
     return (s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
   }
 
+  /** Search order, the Apple ranking (CatalogDB.search, tvOS-DESIGN 3.3b):
+   *  exact title, then a title starting with the query (or "the " + it), then
+   *  a title or director containing it, then professional art (`pro`); the
+   *  index's own order (popularity) breaks ties, since the sort is stable. */
+  function searchRank(r, fq) {
+    const t = foldText(r[1]);
+    const d = foldText(r[12]);
+    const tier = t === fq ? 0
+      : (t.startsWith(fq) || t.startsWith('the ' + fq)) ? 1
+      : (t.includes(fq) || d.includes(fq)) ? 2 : 3;
+    return tier * 2 + (r[5] ? 0 : 1);
+  }
+
   /** Up to two real genres for the Detail meta line. */
   function metaGenres(genres) {
     if (!genres) return [];
@@ -1656,11 +1669,13 @@
       }
       for (let i = 0; i < Data.rows.length; i++) {
         const hay = Data._hay[i];
-        if (terms.every(t => hay.includes(t))) {
-          hits.push(Data.rows[i]);
-          if (hits.length >= 200) break;
-        }
+        if (terms.every(t => hay.includes(t))) hits.push(Data.rows[i]);
       }
+      // Rank ALL matches before capping: stopping at the first 200 in index
+      // order left "metro" leading with a park film (see searchRank).
+      const fq = foldText(qs).trim();
+      hits.sort((a, b) => searchRank(a, fq) - searchRank(b, fq));
+      hits.length = Math.min(hits.length, 200);
 
       // People. Cast lives in the per-item detail shards, so it can never be
       // scanned client-side -- people.json is an inverted index built from

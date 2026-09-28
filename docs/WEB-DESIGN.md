@@ -223,6 +223,11 @@ separate tool with its own conventions (CLAUDE.md) — these rules govern the
   honored by adding the id to `shared/editorial/takedowns.json`; every publish
   hides it on every surface (`remediate_catalog.exclude_takedowns`,
   `tools/test_takedowns.py`).
+- **§4.3a Search ranking** (2026-09-28, the apps' rule, tvOS-DESIGN §3.3b):
+  every match is ranked before the 200 cap by `searchRank` — exact title, title
+  prefix (or "the " + it), title or director containing the query, then `pro`
+  art — with the index's popularity order breaking ties. It stopped at the first
+  200 matches in index order, so "metro" led with a park film.
 - **§4.3b archive.org addresses open here** (2026-09-26, from the Orphaned Films
   research): `archivewatch.org/details/<id>` (404.html forwards it) and an
   archive.org link pasted into search (`/details/`, `/download/`, `/embed/`)
