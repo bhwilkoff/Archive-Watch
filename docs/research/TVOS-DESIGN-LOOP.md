@@ -118,10 +118,17 @@ titles, alert bodies, the caption label's 4 lines).
   had only the title). **Captions are never clamped**: two stacked cues that
   each wrap, at a large system caption size, ran past the label's four lines.
 
+- v1.42.846: **Text Size (tvOS 27 Dynamic Type)** on the reading surfaces —
+  Detail, series page, full-text page, Subtitles, Choose Version, Add to
+  Playlist — through `TVType` tokens (tvOS-DESIGN §4.1a) that look the same at
+  the default size and scale with the ramp's text styles; at accessibility
+  sizes Detail's facts stack and the icon circles take their own row under
+  Play. Not yet seen on a TV (both asleep).
+
 ## Queue
 
 1. Series page: the poster sits mid-hero (no rule covers series art yet)
-2. Dynamic Type: move the fixed sizes onto the ramp as relative fonts
+2. Dynamic Type, second pass: shelves, tiles, Home, Channels
 3. Sidebar budget: 13 -> 9 (owner call: which modes leave the sidebar)
 4. Search -> find -> play path, timed; SILENT badge collides with poster art
 5. 2nd-gen speed (needs a Fireplace window) and a floor rule for tvOS 26
