@@ -26,12 +26,15 @@ struct VersionPickerView: View {
             VStack(alignment: .leading, spacing: 8) {
                 Text("Choose Version")
                     .scaledFont(46, weight: .bold)
-                Text("This film exists on the Internet Archive in more than one "
-                     + "transfer. Pick the one that plays best for you — it will "
-                     + "be remembered for this title on this device.")
-                    .scaledFont(24)
-                    .foregroundStyle(.white.opacity(0.65))
-                    .frame(maxWidth: 900, alignment: .leading)
+                // Only a fact the viewer cannot see from the list. The old
+                // paragraph explained the control, claimed "more than one
+                // transfer" over a single copy, and was cut to one line.
+                if !isLoading, versions.count == 1 {
+                    Text("This is the only copy on the Internet Archive.")
+                        .scaledFont(24)
+                        .foregroundStyle(.white.opacity(0.65))
+                        .fixedSize(horizontal: false, vertical: true)
+                }
             }
 
             if isLoading && versions.isEmpty {
@@ -73,14 +76,19 @@ struct VersionPickerView: View {
 
     private func row(for version: ArchiveVersions.Version) -> some View {
         HStack(spacing: 20) {
-            Image(systemName: chosen == version.choiceKey
-                  ? "checkmark.circle.fill" : "circle")
+            // The check marks what PLAYS: the viewer's choice, or with none
+            // made, the default (it showed an empty circle beside "Currently
+            // playing by default").
+            let playing = chosen.map { $0 == version.choiceKey }
+                ?? (!version.isOtherUpload && version.name == pipelineChoiceName)
+            Image(systemName: playing ? "checkmark.circle.fill" : "circle")
                 .font(.title2)
-                .foregroundStyle(chosen == version.choiceKey ? .white : .white.opacity(0.35))
+                .foregroundStyle(playing ? .white : .white.opacity(0.35))
             VStack(alignment: .leading, spacing: 4) {
                 Text(version.label)
                     .scaledFont(26, weight: .medium)
                     .foregroundStyle(.white)
+                    .fixedSize(horizontal: false, vertical: true)
                 if !version.isOtherUpload, version.name == pipelineChoiceName {
                     Text("Currently playing by default")
                         .scaledFont(20)

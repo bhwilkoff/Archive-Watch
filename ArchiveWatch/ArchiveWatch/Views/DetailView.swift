@@ -292,7 +292,7 @@ struct DetailView: View {
         case .watched: isWatched ? "Mark as Not Watched" : "Mark as Watched"
         case .share: "Share"
         case .playlist: "Add to Playlist"
-        case .versions: chosenVersionName == nil ? "Choose a Copy" : "Copy Chosen"
+        case .versions: "Choose Version"
         case .subtitles: "Find Subtitles"
         default: nil
         }

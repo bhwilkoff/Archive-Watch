@@ -195,6 +195,15 @@ titles, alert bodies, the caption label's 4 lines).
   (A backgrounded Watch Together capture caught a personal Photos screensaver
   image; deleted unviewed beyond the first look, not kept.)
 
+- v1.42.854: **Choose Version with one copy** (owner: "the last place I saw
+  truncated language"). Reproduced on Fireplace with Bomber (one file): the
+  sheet opened on "This film exists on the Internet Archive in more than one
+  transfer. Pick the one that play…" — cut to one line, and false. Now it says
+  only "This is the only copy on the Internet Archive." when that is so, row
+  labels wrap, the copy that plays is checked (it showed an empty circle beside
+  "Currently playing by default"), and Detail names the button "Choose Version",
+  the sheet's own title. Seen on Fireplace.
+
 ## Queue
 
 1. Series page: the poster sits mid-hero (no rule covers series art yet)
