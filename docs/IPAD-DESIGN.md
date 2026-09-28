@@ -325,7 +325,9 @@ iPhone is unchanged.
 11.2 **A poster has a menu** — a right-click with a pointer, a long press on
 touch, on iPhone too: Open in New Window (where windows exist), Add to /
 Remove from Favorites, Share. The Mac card's menu, not a new set. Play is not
-in it: the tile's own tap opens the page, where Play is the first thing.
+in it: the tile's own tap opens the page, where Play is the first thing. A
+Channels guide block carries the same menu (its program is a film); a scene
+frame does not — its tap already plays from that moment.
 
 ## §12 — Drag and drop (binding)
 

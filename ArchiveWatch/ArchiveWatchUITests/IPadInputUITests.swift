@@ -306,4 +306,19 @@ final class IPadInputUITests: XCTestCase {
         snap("after i and o")
         app.buttons.matching(NSPredicate(format: "label == 'Cancel'")).firstMatch.tap()
     }
+
+    /// §11.2: a Channels guide block has its film's menu. Nothing is chosen.
+    func test_21_guideBlockHasAMenu() {
+        launch(["AW_START_TAB": "channels"])
+        sleep(4)
+        // A block's label is "<title>, <time>"; take one that is on screen.
+        let block = app.buttons.matching(NSPredicate(format: "label MATCHES '.*, [0-9]{1,2}:[0-9]{2}.*'"))
+            .allElementsBoundByIndex.first { $0.isHittable && $0.frame.width > 60 }
+        guard let block else { return XCTFail("no guide block") }
+        block.press(forDuration: 1.2)
+        XCTAssertTrue(app.buttons.matching(NSPredicate(format: "label == 'Share…'")).firstMatch
+            .waitForExistence(timeout: 5), "no menu on the guide block")
+        snap("guide block menu")
+        app.typeKey(XCUIKeyboardKey.escape, modifierFlags: [])
+    }
 }

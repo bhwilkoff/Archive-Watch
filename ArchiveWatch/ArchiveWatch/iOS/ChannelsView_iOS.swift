@@ -642,6 +642,7 @@ private struct EPGGuide: View {
         .buttonStyle(.plain)
         .hoverEffect(.highlight)   // IPAD-DESIGN §11.1
         .help(slot.item.title)   // with a pointer, a block too narrow for words still names itself
+        .filmContextMenu(slot.item.archiveID)   // the poster's menu (IPAD-DESIGN §11.2)
         .accessibilityLabel("\(slot.item.title), \(slot.start.formatted(date: .omitted, time: .shortened))")
     }
 }

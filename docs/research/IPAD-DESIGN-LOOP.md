@@ -211,8 +211,13 @@ rule in IPAD-DESIGN.md before it ships (binding-design-doc discipline).
   the channel failure is the full-screen player holding the arrows, not the
   instrument. Space (play) not added: it would play the film aloud to test.
 
-**Remaining (2026-09-28 13:47, updated 16:54):** code — Clip Studio Space (I/O done),
-channel-surf ↑/↓ (three routes failed; control first), context menus on Scenes and guide blocks (posters done), an App Intents film entity (Siri + Spotlight,
+- v1.42.888: **Channels guide blocks carry the film's menu** (audit #44):
+  the same Open in New Window / Favorites / Share as a poster, since every
+  program is a film; seen and asserted (`test_21`). Scene frames get none —
+  their tap already plays from that moment (IPAD-DESIGN §11.2).
+
+**Remaining (2026-09-28 13:47, updated 16:57):** code — Clip Studio Space (I/O done),
+channel-surf ↑/↓ (three routes failed; control first),  an App Intents film entity (Siri + Spotlight,
 all Apple), the Studio's Mac-only features that port to iPad (film-stall
 reason, custom card, Record); verify — a film window's close control, picture-in-picture restore; owner — none.
 
