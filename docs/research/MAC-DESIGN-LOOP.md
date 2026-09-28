@@ -376,3 +376,8 @@ through Accessibility and its items pressed there (never pointer clicks).
   lines in full. Verified: the list photographed with every title whole,
   and AX lists each row as a button "Use <title>". Searched locally; no
   archive.org request.
+- v1.42.826: the editor's clip list cut film titles at two lines ("MIT
+  6.0002 Introduction to Comp…"); the title is how one clip is told from the
+  next, so it wraps in full. The quoted line keeps its three-line cap (a
+  supercut line can be a paragraph) and shows the whole of it on hover.
+  Seen in a new, empty project (no clip fetch).

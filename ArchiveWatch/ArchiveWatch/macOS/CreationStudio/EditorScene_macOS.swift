@@ -737,13 +737,17 @@ private struct LibraryRow: View {
                 .frame(width: 44, height: 30)
             VStack(alignment: .leading, spacing: 2) {
                 // Film title — word-wraps so longer titles read fully (owner #5).
+                // Whole, however long: it was cut at two lines ("MIT 6.0002
+                // Introduction to Comp…"), and the title is how a clip is told
+                // from its neighbors (Decision 134; Mac loop, 2026-09-27).
                 Text(clip.title.isEmpty ? clip.label : clip.title)
-                    .font(.subheadline).lineLimit(2).fixedSize(horizontal: false, vertical: true)
+                    .font(.subheadline).fixedSize(horizontal: false, vertical: true)
                 // The spoken text/dialogue in the clip (supercut cue), when present — word-wrapped.
                 if !clip.caption.isEmpty {
                     Text("“\(clip.caption)”")
                         .font(.caption).foregroundStyle(.secondary)
                         .lineLimit(3).fixedSize(horizontal: false, vertical: true)
+                        .help(clip.caption)   // three lines of a long speech; the rest on hover
                 }
                 Text(String(format: "%.1fs", max(0, clip.outSeconds - clip.inSeconds)))
                     .font(.caption2).foregroundStyle(.tertiary)
