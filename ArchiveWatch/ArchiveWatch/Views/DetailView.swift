@@ -109,13 +109,8 @@ struct DetailView: View {
                 // without us needing SwiftUI to tear down and rebuild
                 // the view. Deferred by one run-loop tick for layout
                 // to settle before we claim focus.
-                // Retried: a single claim is lost while the sidebar holds focus
-                // (a deep-linked Detail opened under the expanded sidebar).
-                for _ in 0..<20 where focusTarget == nil && !Task.isCancelled {
-                    try? await Task.sleep(for: .milliseconds(150))
-                    focusTarget = .play
-                }
-                awdiag("AWFOCUS detail settled focus=%@", String(describing: focusTarget))
+                try? await Task.sleep(for: .milliseconds(40))
+                focusTarget = .play
             }
             // The Top Shelf's Play button (archivewatch://play/{id}, tvOS-DESIGN
             // §15.5) routes here with autoplay armed. Consumed once, after the

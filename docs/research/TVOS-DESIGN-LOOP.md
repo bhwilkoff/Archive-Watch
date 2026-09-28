@@ -156,11 +156,21 @@ titles, alert bodies, the caption label's 4 lines).
   rebuild of ~0.9 s at launch (three runs: 0.94, 0.87, 0.97), down from ~4.2 s.
   Side effect: the professional-art filter now runs before the 80-row cap, so
   two shelves that used to fall under the 9-tile floor now qualify (22 vs 20).
-- **Open, found here**: at launch the SIDEBAR holds focus for several seconds
-  (seen at +4 s on Fireplace) and the hero's `@FocusState` claims read nil
-  throughout; focus reaches the content when the sidebar collapses on its own.
-  The retry of v1.42.843 does not cure it. Needs research into how a
-  `.sidebarAdaptable` TabView hands initial focus to content.
+- v1.42.850: **Launch focus, measured on Fireplace and NOT fixed; v1.42.843's
+  retry reverted.** A time series of one launch: "Loading catalog…" (captured
+  ~+6-8 s), then the sidebar open with Home focused until ~+20 s, when tvOS
+  auto-hides it. Three attempts changed nothing and were removed: the claim
+  retry (v1.42.843), a hero focusable from the first frame, and a root
+  `focusScope` + `prefersDefaultFocus` + `resetFocus(in:)` (Apple's documented
+  re-evaluation). A 7-tab control (research: FB16027712 breaks sidebar focus
+  above 7 tabs) was WORSE, not better, so the tab count is not the cause.
+  Research (scratchpad `tvos-sidebar-focus.md`): no public API collapses a
+  `.sidebarAdaptable` sidebar or hands launch focus to content; forum thread
+  772188 reports the same with no answer. Remaining options are the owner's:
+  keep the system sidebar and its launch behavior, or a hand-built sidebar
+  (playbook's original design) that gives up the system glass sidebar.
+  Confirmed on the glass (Fireplace): the series page's "Play S1, E1" takes
+  focus; Detail's Play takes focus and the director has its own line.
 
 ## Queue
 
