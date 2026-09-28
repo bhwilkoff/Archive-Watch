@@ -301,3 +301,38 @@ channel-surf ↑/↓ (three routes failed; control first),  Spotlight indexing (
 3. Sidebar `TabSection`s: Library places and Browse scopes in the sidebar
 4. Pointer hover on cards; drag and drop of films into playlists
 5. Parity table from the code audit (pending)
+
+## Cross-platform queue (2026-09-28 17:45, from a code-verified review of all four loops)
+
+Owner: *"go through all of the audits that we have done for Apple TV iPad and
+iPhone to make sure that everything that we have learned across each of those
+platforms is informing the other platforms."* Each line cites code, not docs.
+
+1. Captions never clamped — iOS PlayerView_iOS.swift:871/926 (numberOfLines 4), Mac PlayerWindow_macOS.swift:334 (lineLimit 4)
+2. Measured More — reviews on iOS use a 260-character guess (CommunityDetailSection.swift:73)
+3. Hero chosen in SQL — iOS HomeView_iOS.swift:250, Mac HomeView_macOS.swift:64 still decode dbBrowse(limit: 3000)
+4. Series page Play/Resume + Favorite — Mac SeriesDetail_macOS.swift:66-76
+5. Continue Watching time-left/progress — iOS HomeView_iOS.swift:51, Mac HomeView_macOS.swift:34
+6. Version menu checks the playing copy; one name ("Choose Version") — iOS DetailView_iOS.swift:153/163, Mac DetailView_macOS.swift:527
+7. RTMPPublisher task-group timeout waits on cancellation-blind children (Studio/RTMPPublisher.swift:931) — test with a server that never answers
+8. VoiceOver headings on iOS section titles (HomeView_iOS:361, DetailView_iOS:621/658/729, SearchView_iOS:120/133)
+9. Mac poster/guide menus lack Favorites/Share (Cards_macOS.swift:54, ChannelsView_macOS.swift:243)
+10. Mac guide titles from 48 pt (ChannelsView_macOS.swift:248)
+11. Mac cast row is a LazyHStack (DetailView_macOS.swift:632)
+12. Mac synopsis has no width cap (DetailView_macOS.swift:68)
+13. Explanatory copy / disabled-without-reason — SurpriseView_iOS:42, ChannelsView_iOS:852/876, tvOS ChannelsView:523/544/560, SearchView_macOS:45, LibraryView_iOS:422 ("Create button")
+14. iOS commercial breaks is an icon swap, not a Toggle (ChannelsView_iOS:79)
+15. Title Case / one wording — DetailView_iOS:197/160, LibraryView_iOS:393
+16. iPad Go menu: "Surprise" and "Surprise Me" open the same page (MenuCommands_iOS:52/80)
+17. iPad Film menu lacks Subtitles… and Watch Together (MenuCommands_iOS:113)
+18. tvOS collection page lacks its description; card title 1 line (BrowseView.swift:163, CollectionsView.swift:98)
+19. Open Film intent on tvOS and macOS (none on Mac at all)
+20. Mac drag of films onto playlists/Favorites — needs a macOS-DESIGN rule
+21. ▲/▼ surfing on tvOS/Mac players — OWNER CALL (Siri Remote conflicts)
+22. tvOS poster caption reserves no lines (PosterTile.swift:43)
+
+Shared-function candidates: the rights/lower-third line (5 copies), measured
+More (4), the hero pool (3), the caption overlay (3), the version menu (2),
+IntentInbox + intents (2), the Handoff type literal (4), Create Channel
+canSave (3), guide-block thresholds (3), review cards (2). Also: the Mac
+poster card is still onTapGesture (Cards_macOS.swift:47).
