@@ -515,3 +515,12 @@ through Accessibility and its items pressed there (never pointer clicks).
   clip list shows real stills. Its bytes (nettop) sat flat at 40 MB while
   open and paused and stayed flat for 30 s after Cancel — nothing keeps
   streaming once it is closed. archive.org answered throughout.
+- CLOSED, by design: 15 MB for an "11-second clip". The window cached is
+  the clip PLUS trim handles (28–39 s for a 30–38 s clip), and
+  `ProxySource` picks the smallest H.264 derivative an item has — which
+  for many items is a full-HD "h.264" derivative, and for some only the
+  original (one source was "whitetiger4k"). ~11 Mbps × 11 s ≈ 15 MB. Not a
+  read starting at the file's head, not a leak: the per-flow bytes go flat
+  once the window is written (verified above). Whether the preview should
+  refuse an HD derivative in favor of fetching a smaller window is a
+  quality/bandwidth trade for the design doc, not a defect.
