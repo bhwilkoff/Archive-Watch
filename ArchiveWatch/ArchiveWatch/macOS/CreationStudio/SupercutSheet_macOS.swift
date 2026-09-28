@@ -203,8 +203,8 @@ struct SupercutSheet: View {
                 // ⌘A select-all. Selection (cue ids) is what gets added. Replaces the one-at-a-time
                 // checkbox list that couldn't sort/filter/multi-select an undifferentiated list.
                 Table(filteredRows, selection: $selection, sortOrder: $sortOrder) {
-                    TableColumn("Line", value: \.cue.text) { Text($0.cue.text).lineLimit(1) }
-                    TableColumn("Film", value: \.cue.title) { Text($0.cue.title).lineLimit(1).foregroundStyle(.secondary) }.width(min: 90, ideal: 150)
+                    TableColumn("Line", value: \.cue.text) { Text($0.cue.text).lineLimit(1).help($0.cue.text) }
+                    TableColumn("Film", value: \.cue.title) { Text($0.cue.title).lineLimit(1).foregroundStyle(.secondary).help($0.cue.title) }.width(min: 90, ideal: 150)
                     TableColumn("Time", value: \.cue.startSeconds) { Text($0.cue.timecode).font(.caption.monospacedDigit()).foregroundStyle(.secondary) }.width(46)
                     TableColumn("Len", value: \.cue.durationSeconds) { Text(String(format: "%.1fs", $0.cue.durationSeconds)).font(.caption.monospacedDigit()).foregroundStyle(.secondary) }.width(46)
                     TableColumn("Year", value: \.sortYear) { Text($0.year.map(String.init) ?? "—").font(.caption.monospacedDigit()).foregroundStyle(.secondary) }.width(46)

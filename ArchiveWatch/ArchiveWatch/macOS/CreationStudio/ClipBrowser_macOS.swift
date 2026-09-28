@@ -200,7 +200,7 @@ private struct StockCard: View {
                         .font(.caption2).padding(3).background(.black.opacity(0.6), in: Capsule())
                         .foregroundStyle(.white).padding(4)
                 }
-            Text(shot.title).font(.caption).lineLimit(1)
+            Text(shot.title).font(.caption).lineLimit(1).help(shot.title)
             let tags = Self.cleanTags(shot.tags)
             if !tags.isEmpty {
                 HStack(spacing: 4) {
@@ -245,7 +245,7 @@ private struct BrowserCard: View {
                     }
                 }
                 .clipShape(RoundedRectangle(cornerRadius: 6))
-            Text(item.title).font(.caption).lineLimit(1)
+            Text(item.title).font(.caption).lineLimit(1).help(item.title)
         }
     }
 }

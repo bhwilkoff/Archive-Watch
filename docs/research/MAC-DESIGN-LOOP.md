@@ -381,3 +381,9 @@ through Accessibility and its items pressed there (never pointer clicks).
   next, so it wraps in full. The quoted line keeps its three-line cap (a
   supercut line can be a paragraph) and shows the whole of it on hover.
   Seen in a new, empty project (no clip fetch).
+- v1.42.827: the rest of the one-line truncations. The inspector's clip
+  heading ("Karaoğlan Geliyor Cengizhan…") and Search's episode titles wrap
+  to two lines; the Supercut table's Line and Film cells and the clip
+  browser's tiles keep one line (a table column is resized, a tile is a
+  grid) and show the whole text on hover, as poster cards already did.
+  Built; the inspector heading was the case seen earlier in the loop.

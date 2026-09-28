@@ -143,7 +143,7 @@ private struct EpisodeItemRow: View {
                 }
                 .clipShape(RoundedRectangle(cornerRadius: 6))
             VStack(alignment: .leading, spacing: 2) {
-                Text(item.title).font(.headline).lineLimit(1)
+                Text(item.title).font(.headline).lineLimit(2)
                 Text([item.seriesTitle, item.episodeNumberLabel].compactMap { $0 }.joined(separator: " · "))
                     .font(.caption).foregroundStyle(.secondary).lineLimit(1)
             }

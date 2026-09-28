@@ -891,7 +891,7 @@ private struct ProjectInspector: View {
                 }
             }
         } header: {
-            Label(clip.label, systemImage: "film").lineLimit(1)
+            Label(clip.label, systemImage: "film").lineLimit(2).help(clip.label)
         }
         Section {
             Button("Delete Clip", systemImage: "trash", role: .destructive) { model.deleteClip(clip.id) }
