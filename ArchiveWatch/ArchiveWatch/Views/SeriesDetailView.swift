@@ -23,6 +23,7 @@ struct SeriesDetailView: View {
     @Environment(\.dynamicTypeSize) private var typeSize
     @Query private var favorites: [Favorite]
     // #3: share / add-to-playlist targets (series OR a long-pressed episode).
+    @State private var heroTextWidth: CGFloat = 0
     @State private var shareTarget: ShareTarget?
     @State private var playlistTarget: PlaylistTarget?
     struct ShareTarget: Identifiable { let id: String; let title: String }
@@ -173,6 +174,9 @@ struct SeriesDetailView: View {
             // poster); only the title/metadata + actions sit on the artwork now.
             seriesActions
         }
+        // The widest of title, facts and actions: three controls alone would
+        // make a 620pt, 35-character column.
+        .onGeometryChange(for: CGFloat.self) { $0.size.width } action: { heroTextWidth = $0 }
         .frame(maxWidth: 1200, alignment: .leading)
     }
 
@@ -258,9 +262,10 @@ struct SeriesDetailView: View {
     private var infoSection: some View {
         VStack(alignment: .leading, spacing: 22) {
             if let overview = series?.overview ?? seriesCard.synopsis, !overview.isEmpty {
+                // Ends where the hero text above ends (tvOS-DESIGN §3.4c).
                 ReadableTextBlock(text: overview, collapsedLines: 4, title: seriesCard.title)
                     .scaledFont(TVType.body, weight: .regular)
-                    .frame(maxWidth: 1100, alignment: .leading)
+                    .frame(maxWidth: heroTextWidth > 0 ? min(max(heroTextWidth, 900), 1100) : 1100, alignment: .leading)
             }
             castRow
         }

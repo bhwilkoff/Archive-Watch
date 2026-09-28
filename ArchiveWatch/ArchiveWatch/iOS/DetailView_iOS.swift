@@ -363,6 +363,12 @@ struct DetailView: View {
                        backdrop: Self.upsized(item.backdropURLParsed))
             VStack(alignment: .leading, spacing: 12) { identityBlock }
                 .padding(.horizontal)
+            VStack(alignment: .leading, spacing: 12) { proseBlock }
+                // §2.1: prose is capped at 700pt so a 1366pt screen cannot
+                // stretch body copy to 115 characters a line (measured).
+                .frame(maxWidth: hSize == .regular ? 700 : .infinity,
+                       alignment: .leading)
+                .padding(.horizontal)
         }
     }
 
@@ -382,8 +388,12 @@ struct DetailView: View {
                             DetailHero(poster: Self.upsized(item.posterURLParsed),
                                        backdrop: Self.upsized(item.backdropURLParsed))
                                 .frame(width: 460)
+                            // §3.1a: the synopsis shares the column's edge
+                            // under Play rather than running on below at its
+                            // own width.
                             VStack(alignment: .leading, spacing: 12) {
                                 identityBlock
+                                proseBlock
                                 DetailFacts(item: item)
                                     .padding(.top, 4)
                             }
@@ -396,13 +406,6 @@ struct DetailView: View {
                 } else {
                     stackedHero
                 }
-
-                VStack(alignment: .leading, spacing: 12) { proseBlock }
-                    // §2.1: prose is capped at 700pt so a 1366pt screen cannot
-                    // stretch body copy to 115 characters a line (measured).
-                    .frame(maxWidth: hSize == .regular ? 700 : .infinity,
-                           alignment: .leading)
-                    .padding(.horizontal)
 
                 // §3.3: the horizontally scrolling rows keep the full width —
                 // a wide screen means more faces visible, not bigger ones.

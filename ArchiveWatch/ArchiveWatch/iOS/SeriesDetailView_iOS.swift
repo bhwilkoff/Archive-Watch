@@ -27,53 +27,101 @@ struct SeriesDetailView: View {
     /// are on the first screen.
     @State private var overviewExpanded = false
 
+    @Environment(\.horizontalSizeClass) private var hSize
+    @State private var overviewShown: CGFloat = 0
+    @State private var overviewFull: CGFloat = 0
+
+    private var artURL: URL? {
+        series?.backdropURLParsed ?? card.backdropURLParsed
+            ?? series?.posterURLParsed ?? card.posterURLParsed
+    }
+
+    /// Title, meta, Play + Favorite and the overview: one column, so the
+    /// overview shares Play's edge (IPAD-DESIGN §3.1a).
+    @ViewBuilder private var identityColumn: some View {
+        Text(series?.title ?? card.title).font(.title.bold())
+        if let meta = metaLine {
+            Text(meta).font(.subheadline).foregroundStyle(.secondary)
+        }
+        // One primary action that names the episode it plays, and
+        // Favorite beside it — the tvOS series page's pair
+        // (tvOS-DESIGN §3.4b; iOS-DESIGN §3.5d).
+        if let upNext {
+            HStack(spacing: 10) {
+                Button { playingEpisode = upNext.episode } label: {
+                    Label(upNext.label, systemImage: "play.fill")
+                        .font(.headline)
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 6)
+                }
+                .buttonStyle(.borderedProminent)
+                .tint(Brand.primary)
+                Button(action: toggleFavorite) {
+                    Label(isFavorited ? "Favorited" : "Favorite",
+                          systemImage: isFavorited ? "heart.fill" : "heart")
+                        .padding(.vertical, 6)
+                }
+                .buttonStyle(.bordered)
+            }
+            .frame(maxWidth: 480, alignment: .leading)
+        }
+        if let o = series?.overview ?? card.synopsis, !o.isEmpty {
+            // Four lines, then More — measured, as on Detail (§3.5b).
+            Text(o).font(.body).foregroundStyle(.primary.opacity(0.9))
+                .lineLimit(overviewExpanded ? nil : 4)
+                .onGeometryChange(for: CGFloat.self) { $0.size.height } action: { overviewShown = $0 }
+                .background(alignment: .topLeading) {
+                    Text(o).font(.body)
+                        .fixedSize(horizontal: false, vertical: true)
+                        .hidden()
+                        .onGeometryChange(for: CGFloat.self) { $0.size.height } action: { overviewFull = $0 }
+                }
+            if overviewExpanded || overviewFull > overviewShown + 1 {
+                Button(overviewExpanded ? "Less" : "More") {
+                    withAnimation(.easeInOut(duration: 0.2)) { overviewExpanded.toggle() }
+                }
+                .font(.subheadline.weight(.semibold))
+                .buttonStyle(.borderless)
+            }
+        }
+    }
+
+    @ViewBuilder private var stackedHeader: some View {
+        VStack(alignment: .leading, spacing: 16) {
+            PosterImage(url: artURL)
+                .aspectRatio(16/9, contentMode: .fill)
+                .frame(maxWidth: .infinity).frame(height: 220).clipped()
+            VStack(alignment: .leading, spacing: 12) { identityColumn }
+                .frame(maxWidth: hSize == .regular ? 700 : .infinity, alignment: .leading)
+                .padding(.horizontal)
+        }
+    }
+
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
-                PosterImage(url: series?.backdropURLParsed ?? card.backdropURLParsed
-                            ?? series?.posterURLParsed ?? card.posterURLParsed)
-                    .aspectRatio(16/9, contentMode: .fill)
-                    .frame(maxWidth: .infinity).frame(height: 220).clipped()
+                // IPAD-DESIGN §3.1: artwork leading, identity beside it, as on
+                // Detail — the full-width 220pt strip cropped a 16:9 backdrop
+                // to ~4.75:1 on a 12.9-inch screen.
+                if hSize == .regular {
+                    ViewThatFits(in: .horizontal) {
+                        HStack(alignment: .top, spacing: 28) {
+                            PosterImage(url: artURL)
+                                .aspectRatio(16/9, contentMode: .fill)
+                                .frame(width: 460, height: 259).clipped()
+                                .clipShape(.rect(cornerRadius: 12))
+                            VStack(alignment: .leading, spacing: 12) { identityColumn }
+                                .frame(minWidth: 360, maxWidth: 520, alignment: .leading)
+                            Spacer(minLength: 0)
+                        }
+                        .padding([.horizontal, .top])
+                        stackedHeader
+                    }
+                } else {
+                    stackedHeader
+                }
 
                 VStack(alignment: .leading, spacing: 12) {
-                    Text(series?.title ?? card.title).font(.title.bold())
-                    if let meta = metaLine {
-                        Text(meta).font(.subheadline).foregroundStyle(.secondary)
-                    }
-                    // One primary action that names the episode it plays, and
-                    // Favorite beside it — the tvOS series page's pair
-                    // (tvOS-DESIGN §3.4b; iOS-DESIGN §3.5d).
-                    if let upNext {
-                        HStack(spacing: 10) {
-                            Button { playingEpisode = upNext.episode } label: {
-                                Label(upNext.label, systemImage: "play.fill")
-                                    .font(.headline)
-                                    .frame(maxWidth: .infinity)
-                                    .padding(.vertical, 6)
-                            }
-                            .buttonStyle(.borderedProminent)
-                            .tint(Brand.primary)
-                            Button(action: toggleFavorite) {
-                                Label(isFavorited ? "Favorited" : "Favorite",
-                                      systemImage: isFavorited ? "heart.fill" : "heart")
-                                    .padding(.vertical, 6)
-                            }
-                            .buttonStyle(.bordered)
-                        }
-                        .frame(maxWidth: 480, alignment: .leading)
-                    }
-                    if let o = series?.overview ?? card.synopsis, !o.isEmpty {
-                        let long = o.count > 240
-                        Text(o).font(.body).foregroundStyle(.primary.opacity(0.9))
-                            .lineLimit(long && !overviewExpanded ? 4 : nil)
-                        if long {
-                            Button(overviewExpanded ? "Less" : "More") {
-                                withAnimation(.easeInOut(duration: 0.2)) { overviewExpanded.toggle() }
-                            }
-                            .font(.subheadline.weight(.semibold))
-                            .buttonStyle(.borderless)
-                        }
-                    }
                     if loading {
                         ProgressView().frame(maxWidth: .infinity).padding(.vertical, 24)
                     } else if shownEpisodes.isEmpty {
@@ -85,6 +133,8 @@ struct SeriesDetailView: View {
                         episodeList
                     }
                 }
+                // Ends at the identity column's edge: artwork 460 + 28 + 520.
+                .frame(maxWidth: hSize == .regular ? 1008 : .infinity, alignment: .leading)
                 .padding(.horizontal)
             }
         }

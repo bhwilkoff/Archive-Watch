@@ -373,7 +373,8 @@ struct RootView: View {
                     router.tab = t
                 }
                 if !startItemOpened, let id = env["AW_START_ITEM"],
-                   let item = store.item(id) {
+                   let item = store.item(id)
+                    ?? store.seriesCard(seriesID: id.replacingOccurrences(of: "series:", with: "")) {
                     startItemOpened = true
                     router.openDetail(item)
                 }

@@ -34,6 +34,9 @@ struct DetailView: View {
     @Query private var favorites: [Favorite]
     @Query(sort: \WatchProgress.lastWatchedAt, order: .reverse) private var allProgress: [WatchProgress]
     @State private var isPlaying = false
+    /// The action row's laid-out width: the synopsis takes it, so the text
+    /// and the row above share a right edge (tvOS-DESIGN §3.4c).
+    @State private var actionRowWidth: CGFloat = 0
     @State private var sceneStart: TimeInterval?
     @State private var scenes: [ArchiveVersions.Scene] = []
     @State private var showShare = false
@@ -269,6 +272,7 @@ struct DetailView: View {
                     if SubtitleFinder.shouldOffer(for: item) { subtitlesButton }
                 }
             }
+            .onGeometryChange(for: CGFloat.self) { $0.size.width } action: { actionRowWidth = $0 }
             .padding(.top, 8)
             // Dedicated focus section for the action row so up-arrow
             // from the Related shelf below lands cleanly on Play/Fav
@@ -456,6 +460,9 @@ struct DetailView: View {
 
     // MARK: - Metadata block
 
+    /// Prose ends where the action row ends; 1100 until the row is measured.
+    private var proseWidth: CGFloat { actionRowWidth > 0 ? actionRowWidth : 1100 }
+
     private var metadataBlock: some View {
         VStack(alignment: .leading, spacing: 20) {
             if let tagline = item.tagline, !tagline.isEmpty {
@@ -463,7 +470,7 @@ struct DetailView: View {
                     .scaledFont(26, weight: .regular, design: .serif)
                     .italic()
                     .foregroundStyle(.white.opacity(0.6))
-                    .frame(maxWidth: 1100, alignment: .leading)
+                    .frame(maxWidth: proseWidth, alignment: .leading)
             }
 
             if let synopsis = item.displaySynopsis {
@@ -477,12 +484,12 @@ struct DetailView: View {
                 // whole on its own page.
                 ReadableTextBlock(text: synopsis, collapsedLines: 6, title: item.title)
                     .scaledFont(TVType.body, weight: .regular)
-                    .frame(maxWidth: 1100, alignment: .leading)
+                    .frame(maxWidth: proseWidth, alignment: .leading)
                 if let prov = item.synopsisProvenance {
                     Text(prov)
                         .scaledFont(TVType.meta, weight: .medium)
                         .foregroundStyle(.secondary)
-                        .frame(maxWidth: 1100, alignment: .leading)
+                        .frame(maxWidth: proseWidth, alignment: .leading)
                 }
             }
 
@@ -560,7 +567,7 @@ struct DetailView: View {
                     }
                 }
             }
-            .frame(maxWidth: 1100, alignment: .leading)
+            .frame(maxWidth: proseWidth, alignment: .leading)
         }
     }
 

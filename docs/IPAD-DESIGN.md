@@ -85,10 +85,19 @@ column (§3), that space is used instead.
 ## §3 — Detail at regular width (binding)
 
 3.1 **Detail is two columns on regular width:** artwork in a leading column,
-identity and actions in a trailing column beside it, with the prose below the
-pair at the §2.1 measure. On compact width it stays the single stacked column
+identity, actions and the synopsis in a trailing column beside it (§3.1a). On compact width it stays the single stacked column
 iOS-DESIGN.md already describes. Both come from one view; there is no second
 Detail implementation.
+
+3.1a **Prose shares an edge with the controls around it** (owner, 2026-09-28:
+*"Is there a reason why the summary/description text … doesn't take up the same
+space as every other interface element?"* — answered "align to a column"). In
+the two-column layout the synopsis sits in the trailing column under Play and
+the action row, at that column's width (360–520 pt, inside the §2.1 measure),
+and the facts follow it. The series page takes the same arrangement: artwork
+leading at its own 16:9, title, Play, Favorite and overview beside it, and the
+episode list below ends at the identity column's right edge (1008 pt). The
+stacked fallback keeps prose at the §2.1 cap.
 
 3.2 **The action row never scrolls on regular width.** The `ViewThatFits`
 introduced for the iPhone (seven buttons that no longer fit 390 pt) resolves to

@@ -59,6 +59,17 @@ rule in IPAD-DESIGN.md before it ships (binding-design-doc discipline).
   Library + Search. NOT yet seen: the menu bar and new windows (no keyboard
   on the iPad), drag and drop, hover.
 
+- v1.42.871: **Prose shares an edge** (owner: *"Is there a reason why the
+  summary/description text ... doesn't take up the same space as every other
+  interface element?"*, answered "align to a column"). iPad Detail: the synopsis
+  sits in the trailing column under Play (IPAD-DESIGN §3.1a). iPad series page:
+  two columns like Detail (backdrop at its own 16:9 instead of a 4.75:1 strip),
+  a measured More, episodes ending at the column's edge. tvOS Detail: synopsis,
+  tagline and facts exactly as wide as the action row; tvOS series: as wide as
+  the hero text, 900-1100 pt (tvOS-DESIGN §3.4c). Seen on the iPad Pro
+  (Nosferatu; The Lone Ranger). tvOS NOT yet seen: Fireplace was off and
+  Kitchen's 720p capture crops the right edge.
+
 ## Found, data (for the copyright/scrub work, not the iPad)
 
 - `SelfCons1951` "Self-Conscious Guy" (Coronet, 10 min) leads Home's hero with

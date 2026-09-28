@@ -146,6 +146,7 @@ Every UI maps to exactly one. A new shape needs a new rule here first.
 3.4 **Detail** — hero backdrop + metadata + actions + "more like this"; Play
 auto-focused (playbook §9.4). People pages are a detail variant.
 3.4b **A series page leads with one play action** (2026-09-28): a Play button, auto-focused, that names the episode it plays — "Resume S2, E4" when the most recently watched episode was left partway, "Next S2, E5" when it was finished, otherwise "Play S1, E1" (the first playable episode). It plays in the episode player; the episode cards still open each episode's own Detail.
+3.4c **Prose shares an edge with what is above it** (2026-09-28, owner: *"Is there a reason why the summary/description text … doesn't take up the same space as every other interface element?"* — answered "align to a column"; IPAD-DESIGN §3.1a). On Detail the tagline, synopsis, its provenance and the facts are exactly as wide as the action row (Play and its circles, measured), so their right edge is the row's. On a series page the row is three controls (~620 pt), too narrow to read, so the overview takes the width of the hero text above it (title, facts, actions), held between 900 and 1100 pt.
 3.5 **Sheet / overlay** — transient, dismissible, focus-restoring (player info,
 settings, share, skip). Never a nav push (§1.4).
 3.6 **Mode** — a full-screen lean-back takeover that replaces the shell while
