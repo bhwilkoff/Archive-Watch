@@ -3099,7 +3099,8 @@ struct ShareSheet: View {   // reused by SeriesDetailView (series + episodes)
                 .scaledFont(TVType.heading, weight: .bold)
                 .foregroundStyle(.white)
                 .multilineTextAlignment(.center)
-                .lineLimit(2)
+                .fixedSize(horizontal: false, vertical: true)
+                .frame(maxWidth: 1300)
 
             QRCode(string: reporting ? (FilmProblem.url(archiveID: archiveID)?.absoluteString ?? webURL)
                                      : webURL)
@@ -3110,10 +3111,13 @@ struct ShareSheet: View {   // reused by SeriesDetailView (series + episodes)
                 Text(reporting ? "Scan to tell us on your phone" : "Scan to watch on archivewatch.org")
                     .scaledFont(22)
                     .foregroundStyle(.white.opacity(0.6))
-                if !reporting { Text(webURL)
+                // A playlist link carries its whole list and cannot be typed;
+                // only a link someone could type is printed under the code.
+                if !reporting, webURL.count <= 64 { Text(webURL)
                     .font(.system(.title3, design: .monospaced).weight(.semibold))
                     .foregroundStyle(Color(hex: "#FF5C35") ?? .orange)
-                    .lineLimit(1).minimumScaleFactor(0.5) }
+                    .multilineTextAlignment(.center)
+                    .fixedSize(horizontal: false, vertical: true) }
             }
 
             HStack(spacing: 24) {

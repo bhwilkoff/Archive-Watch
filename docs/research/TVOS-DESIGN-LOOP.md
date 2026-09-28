@@ -125,6 +125,15 @@ titles, alert bodies, the caption label's 4 lines).
   sizes Detail's facts stack and the icon circles take their own row under
   Play. Not yet seen on a TV (both asleep).
 
+- v1.42.847: **Share**: the title wraps instead of stopping at two lines, and a
+  link is printed under the code only when someone could type it (a playlist
+  link carries its whole list; the QR carries it). **Add to Playlist** names
+  wrap. **Poster zoom**: the title keeps its height and the poster gives way;
+  the year no longer outranks the title (38pt under 30pt).
+- Held for the glass: the first-broadcast warning (~420 characters) and the
+  rights refusal in tvOS `.alert`s — shared text on every platform, so it is
+  changed only after it is seen clipped.
+
 ## Queue
 
 1. Series page: the poster sits mid-hero (no rule covers series art yet)

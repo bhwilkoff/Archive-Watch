@@ -192,12 +192,14 @@ private struct PosterZoomView: View {
                         .font(.system(size: 30, weight: .bold))
                         .foregroundStyle(.white)
                         .multilineTextAlignment(.center)
-                        .lineLimit(2)
+                        .fixedSize(horizontal: false, vertical: true)
                     if let y = item.year {
                         Text(verbatim: String(y))
-                            .font(.title3).foregroundStyle(.white.opacity(0.6))
+                            .font(.system(size: 23)).foregroundStyle(.white.opacity(0.6))
                     }
                 }
+                // The poster gives way, never the title under it.
+                .layoutPriority(1)
             }
             .padding(60)
             // Focusable backstop so a remote press lands + exits (tvOS needs a target).
