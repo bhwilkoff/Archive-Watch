@@ -61,6 +61,15 @@ because the loop was stopped mid-stride for a Claude update.
    Sabrina because archive.org's does (keep or override: yours); the Roku
    one-clock guide needs the next store package (sideloaded and verified).
 
+0-NEW-2026-09-27-C. **PLAYBACK FETCHES ~45 MINUTES AHEAD IN ITS FIRST 15 SECONDS (owner call).**
+   Measured on the Mac with nettop (docs/research/MAC-DESIGN-LOOP.md): The
+   General's 1.3 Mbps copy took +429 MB in the first 15 s of play — ~9x the
+   player's own 300 s buffer target — then ~3 Mbps steady. Closing the
+   player stops it. The shared ResilientStreamLoader serves an open-ended
+   request at line rate; this is the playback path Decisions 021/031/077
+   tuned against stalls, so a cap is yours to weigh (metered links and
+   archive.org's per-address limit vs. stall resistance).
+
 0-NEW-2026-09-27-B. **WHICH FILMS MAY THE CREATION STUDIO PUBLISH? (owner call, nothing changed.)**
    Found in the Mac loop: Add a Clip offers The Pink Panther (1963), because
    clipping is gated on `isClippable` (any visible title whose rightsStatus is

@@ -571,3 +571,16 @@ through Accessibility and its items pressed there (never pointer clicks).
   2-minute play, per flow (nettop). It matters for viewers on metered links
   and for archive.org's per-address limit; the fix, if any, is a playback
   decision.
+- MEASURED (the finding above): The General, copy "TheGeneral720p1926"
+  (~1 GB for 107 min ≈ 1.3 Mbps), resumed mid-film, 2 minutes muted:
+  before play 23 MB; +15 s 452 MB (+429 MB); then +6 MB per 15 s (~3 Mbps)
+  to +120 s. So the FIRST 15 s fetched ~45 minutes of this copy — about 9×
+  the 300 s the player asks for (PlayerWindow_macOS:424) — at the link's
+  full rate, before settling. The loader serves the player's open-ended
+  request at line rate, and AVFoundation does not cancel it until long
+  after its own buffer target. Consequences: a viewer who watches a minute
+  costs ~450 MB; on a metered or slow link that is real; archive.org sees a
+  burst per play. NOT changed here — this is playback (Decisions
+  021/031/077 tuned the loader against real stalls); an OWNER call, with
+  these numbers. The obvious candidates: cap an open-ended request's
+  delivery ahead of the playhead, or bound it by the item's buffer target.
