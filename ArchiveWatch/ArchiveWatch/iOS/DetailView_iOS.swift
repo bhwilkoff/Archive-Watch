@@ -200,7 +200,9 @@ struct DetailView: View {
             } label: {
                 tileLabel("More", "ellipsis")
             }
-            .accessibilityLabel("More actions")
+            // The spoken name is the visible word, so Voice Control's
+            // "tap More" reaches it.
+            .accessibilityLabel("More")
         }
         .task(id: item.archiveID) {
             chosenVersionName = ArchiveVersions.chosenName(for: item.archiveID)
@@ -718,7 +720,9 @@ private struct CastRow: View {
         VStack(alignment: .leading, spacing: 8) {
             Text("Cast & Crew").font(.title3).fontWeight(.semibold)
             ScrollView(.horizontal) {
-                LazyHStack(spacing: 16) {
+                // Not lazy: at most thirteen people, and a lazy row takes its
+                // height from the first one, clipping a two-line name.
+                HStack(alignment: .top, spacing: 16) {
                     if let d = director, !d.isEmpty {
                         bubble(name: d, role: "Director", profilePath: directorProfilePath, personID: nil)
                     }
@@ -749,7 +753,10 @@ private struct CastRow: View {
                 }
                 .frame(width: 64, height: 64).clipShape(.circle)
                 .overlay(Circle().strokeBorder(.white.opacity(0.1)))
+                // Two lines, and the height to show them: in the horizontal
+                // row the name was offered one line ("John Gil…").
                 Text(name).font(.caption2).lineLimit(2)
+                    .fixedSize(horizontal: false, vertical: true)
                     .frame(width: 72).multilineTextAlignment(.center)
                     .foregroundStyle(.primary)
                 if let role, !role.isEmpty {

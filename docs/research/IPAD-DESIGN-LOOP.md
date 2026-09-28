@@ -97,6 +97,22 @@ rule in IPAD-DESIGN.md before it ships (binding-design-doc discipline).
   session's permission check, so the menu bar, shortcuts, windows and drag are
   still unverified.
 
+- v1.42.876: **Keyboard and pointer, driven and measured on the iPad Pro**
+  (owner connected the Mac's keyboard and trackpad; the owner: "The whole point
+  is for you to run the whole test"). Synthesizing keys on the Mac was refused
+  by the session's permission check, so the input comes from XCUITest inside
+  the app instead — `IPadInputUITests`, 5 of 5 on the device:
+  ⌘5 opens Search, ⌘1 Home, ⌘, Settings and Esc closes it (§8.1); ⌘[ goes
+  back (§8.1); More -> Open in New Window opens a second window and ⌘W closes
+  it (§9.1); a Home poster dragged onto the sidebar's Favorites lands first in
+  Favorites (§12.2) — and is un-favorited again, leaving the library as found;
+  a pointer hover runs (the lift is not legible in a still). Found on the way:
+  More's spoken name was "More actions" while it reads "More" (Voice Control's
+  "tap More" missed it); **cast names were cut to one line** ("John Gil…") —
+  a lazy row takes its height from its first member, so it is a plain row now
+  (iPhone too). NOT yet seen: the menu bar drawn at the top (XCUITest cannot
+  reveal it), and a new window's own close control.
+
 ## Found, data (for the copyright/scrub work, not the iPad)
 
 - `SelfCons1951` "Self-Conscious Guy" (Coronet, 10 min) leads Home's hero with
