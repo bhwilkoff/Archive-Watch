@@ -179,6 +179,13 @@ titles, alert bodies, the caption label's 4 lines).
   Madness) on the tvOS 27 HLS path. None needs a change. `AWPERF play start`
   (under AW_PLAYBACK_DIAG) keeps the last number measurable.
 
+- v1.42.852: **Owner decision**: keep the system sidebar and its launch focus
+  (tvOS-DESIGN §2.1a). **Channels guide**: time marks sit at the clock's own
+  :00/:30 (they read "10:29, 10:59…", now + 30 min), and a block under 110pt
+  shows no title until focused (slivers had broken titles into "Episod / es
+  in…" and a lone "l"); seen on Fireplace. **TV Shows** header "271 series to
+  settle into" -> "271 series" (a written tagline, CLAUDE.md's no-AI-copy rule).
+
 ## Queue
 
 1. Series page: the poster sits mid-hero (no rule covers series art yet)

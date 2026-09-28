@@ -86,6 +86,14 @@ currently holds 8. A new surface earns a tab ONLY if it owns a distinct top-leve
 verb (§1.3) AND would be buried if nested. Default to nesting. Adding a 10th tab
 requires removing or merging one first.
 
+2.1a **The sidebar is the system's, launch focus included** (owner, 2026-09-28:
+*"We want native implementations wherever possible, so a custom sidebar doesn't
+make sense."*). Measured on Fireplace: at launch tvOS gives the
+`.sidebarAdaptable` sidebar focus until it auto-hides (~20 s); a claim retry, a
+first-frame focusable hero and `resetFocus(in:)` in a root `focusScope` changed
+nothing, and no public API collapses it. Accepted as system behavior; do not
+hand-build a sidebar to change it.
+
 2.2 **The canonical tab set** (v1 target):
 Home · Movies · TV Shows · **Channels** · Collections · Search · **Library** ·
 Surprise · Settings. Changes from today: **Channels** is added (§9.1 earns a tab

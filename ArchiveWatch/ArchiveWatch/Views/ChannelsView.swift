@@ -287,23 +287,41 @@ private struct ChannelGuide: View {
         }
     }
 
-    // Half-hour tick labels aligned to the timeline (first tick = NOW).
+    // NOW at the left edge, then the clock's own :00 and :30 marks at their
+    // true positions (labels at now+30 min read "10:29, 10:59…").
     private func ruler(timelineW: CGFloat) -> some View {
-        let tickW = timelineW / CGFloat(windowMinutes / 30)
-        return HStack(spacing: 0) {
-            Color.clear.frame(width: railW)
-            ForEach(0..<Int(windowMinutes / 30), id: \.self) { i in
-                let t = now.addingTimeInterval(Double(i) * 1800)
-                Text(i == 0 ? "NOW" : t.formatted(date: .omitted, time: .shortened))
-                    .font(.system(size: 17, weight: .bold))
-                    .foregroundStyle(i == 0 ? Color(hex: "#FF5C35") ?? .orange : .white.opacity(0.6))
-                    .frame(width: tickW, alignment: .leading)
-                    .overlay(alignment: .leading) {
-                        Rectangle().fill(.white.opacity(i == 0 ? 0.35 : 0.12)).frame(width: i == 0 ? 2 : 1)
-                    }
+        let ppm = timelineW / windowMinutes
+        let cal = Calendar.current
+        let minute = cal.component(.minute, from: now)
+        let toNext = Double(30 - minute % 30) * 60
+            - Double(cal.component(.second, from: now))
+        let firstMark = now.addingTimeInterval(toNext)
+        let marks = stride(from: 0.0, to: windowMinutes * 60 - toNext, by: 1800)
+            .map { firstMark.addingTimeInterval($0) }
+        return ZStack(alignment: .topLeading) {
+            tick("NOW", strong: true)
+                .offset(x: railW)
+            ForEach(marks, id: \.self) { t in
+                let x = railW + CGFloat(t.timeIntervalSince(now) / 60) * ppm
+                // A mark too close to NOW would print over it.
+                if x - railW > 90 {
+                    tick(t.formatted(date: .omitted, time: .shortened), strong: false)
+                        .offset(x: x)
+                }
             }
         }
+        .frame(maxWidth: .infinity, alignment: .leading)
         .frame(height: 30)
+    }
+
+    private func tick(_ label: String, strong: Bool) -> some View {
+        Text(label)
+            .font(.system(size: 17, weight: .bold))
+            .foregroundStyle(strong ? Color(hex: "#FF5C35") ?? .orange : .white.opacity(0.6))
+            .padding(.leading, 6)
+            .overlay(alignment: .leading) {
+                Rectangle().fill(.white.opacity(strong ? 0.35 : 0.12)).frame(width: strong ? 2 : 1)
+            }
     }
 }
 
@@ -416,12 +434,16 @@ private struct ProgramBlock: View {
                         .foregroundStyle(focused ? .white : (isNow ? accent : .white.opacity(0.75)))
                         .lineLimit(1)
                 }
-                Text(slot.item.title)
-                    .font(.system(size: 17, weight: .semibold))
-                    .foregroundStyle(.white)
-                    .lineLimit(2)
-                    .truncationMode(.tail)
-                    .layoutPriority(1)
+                // A sliver cannot hold a word: it broke titles into
+                // "Episod / es in…". Focus widens the block and names it.
+                if focused || width >= 110 {
+                    Text(slot.item.title)
+                        .font(.system(size: 17, weight: .semibold))
+                        .foregroundStyle(.white)
+                        .lineLimit(2)
+                        .truncationMode(.tail)
+                        .layoutPriority(1)
+                }
                 Spacer(minLength: 0)
             }
             .padding(.horizontal, 12).padding(.vertical, 9)
