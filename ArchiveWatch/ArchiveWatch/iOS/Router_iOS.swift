@@ -49,6 +49,29 @@ final class Router {
 
     /// Route any catalog item to Detail from whichever tab is active.
     func openDetail(_ item: Catalog.Item) { push(item) }
+
+    /// True when the active tab shows its root (nothing to go Back to).
+    var activeTabAtRoot: Bool {
+        switch tab {
+        case .home: homePath.isEmpty
+        case .browse: browsePath.isEmpty
+        case .channels: channelsPath.isEmpty
+        case .search: searchPath.isEmpty
+        case .library: libraryPath.isEmpty
+        }
+    }
+
+    /// Back, for the menu bar's ⌘[ (IPAD-DESIGN §8.1).
+    func popActiveTab() {
+        guard !activeTabAtRoot else { return }
+        switch tab {
+        case .home: homePath.removeLast()
+        case .browse: browsePath.removeLast()
+        case .channels: channelsPath.removeLast()
+        case .search: searchPath.removeLast()
+        case .library: libraryPath.removeLast()
+        }
+    }
 }
 
 #endif

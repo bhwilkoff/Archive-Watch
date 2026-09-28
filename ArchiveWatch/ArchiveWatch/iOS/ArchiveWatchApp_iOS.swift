@@ -5,7 +5,6 @@ import SwiftData
 @main
 struct ArchiveWatchApp: App {
     @State private var store = AppStore()
-    @State private var router = Router()
     @State private var account = AccountStore()   // #11 Sign in with Apple (optional; gates sync)
     private let modelContainer: ModelContainer
 
@@ -16,9 +15,9 @@ struct ArchiveWatchApp: App {
 
     var body: some Scene {
         WindowGroup {
-            RootView()
+            // Each window owns its navigation (IPAD-DESIGN §9.2).
+            SceneRouterHost { RootView() }
                 .environment(store)
-                .environment(router)
                 .environment(account)
                 .preferredColorScheme(.dark)
                 .task { await store.load() }
@@ -51,6 +50,11 @@ struct ArchiveWatchApp: App {
                 }
         }
         .modelContainer(modelContainer)
+        .commands {
+            GoCommands_iOS()
+            FilmCommands_iOS()
+            HelpCommands_iOS()
+        }
         // The system relaunches the app in the background when a download
         // finishes; this is where SwiftUI hands that event over. Recreating the
         // session inside `handleBackgroundEvents` is what replays the delegate
@@ -59,6 +63,16 @@ struct ArchiveWatchApp: App {
         .backgroundTask(.urlSession(DownloadManager.sessionIdentifier)) {
             await DownloadManager.shared.handleBackgroundEvents()
         }
+
+        // A film in its own window (IPAD-DESIGN §9.1), opened by archiveID.
+        WindowGroup(id: FilmWindow.id, for: String.self) { $archiveID in
+            SceneRouterHost { FilmWindow(archiveID: archiveID) }
+                .environment(store)
+                .environment(account)
+                .preferredColorScheme(.dark)
+                .task { await store.load() }
+        }
+        .modelContainer(modelContainer)
     }
 
     // SwiftData store in the App Group container (shared with future widgets), then
@@ -75,6 +89,42 @@ struct ArchiveWatchApp: App {
         if let c = try? ModelContainer(for: schema, configurations: config) { return c }
         let mem = ModelConfiguration(schema: schema, isStoredInMemoryOnly: true)
         return try! ModelContainer(for: schema, configurations: mem)
+    }
+}
+
+/// Gives the window it wraps its own Router and publishes it to the menu bar.
+struct SceneRouterHost<Content: View>: View {
+    @State private var router = Router()
+    @ViewBuilder let content: () -> Content
+    var body: some View {
+        content()
+            .environment(router)
+            .focusedSceneValue(\.sceneRouter, router)
+    }
+}
+
+/// One film's Detail in a window of its own; the window is named for the film.
+struct FilmWindow: View {
+    static let id = "film"
+    let archiveID: String?
+    @Environment(AppStore.self) private var store
+    @Environment(Router.self) private var router
+
+    var body: some View {
+        @Bindable var router = router
+        NavigationStack(path: $router.homePath) {
+            Group {
+                if let archiveID, let item = store.item(archiveID) {
+                    DetailView(item: item)
+                        .navigationTitle(item.title)
+                } else if store.isReady {
+                    ContentUnavailableView("This film is not in the catalog", systemImage: "film")
+                } else {
+                    ProgressView()
+                }
+            }
+            .withItemDestination()
+        }
     }
 }
 

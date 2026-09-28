@@ -14,6 +14,8 @@ struct DetailView: View {
     // iPhone in landscape, an iPad in Split View and a Mac window are all
     // correct without a device check (§6.3 forbids one).
     @Environment(\.horizontalSizeClass) private var hSize
+    @Environment(\.openWindow) private var openWindow
+    @Environment(\.supportsMultipleWindows) private var supportsMultipleWindows
     @Query private var favorites: [Favorite]
     @State private var playing = false
     @State private var sceneStart: TimeInterval?
@@ -119,14 +121,7 @@ struct DetailView: View {
                 }
                 // Watched is a badge on tiles; this is where the viewer
                 // corrects it (tvOS parity).
-                Button {
-                    if WatchProgress.setWatched(!isWatchedState, in: ctx, archiveID: item.archiveID) {
-                        isWatchedState.toggle()
-                    }
-                    SyncNudge.nudge(ctx)
-                    if isWatchedState { store.completedArchiveIDs.insert(item.archiveID) }
-                    else { store.completedArchiveIDs.remove(item.archiveID) }
-                } label: {
+                Button { toggleWatched() } label: {
                     Label(isWatchedState ? "Mark as Not Watched" : "Mark as Watched",
                           systemImage: isWatchedState ? "checkmark.circle.fill" : "checkmark.circle")
                 }
@@ -167,6 +162,12 @@ struct DetailView: View {
                     } label: {
                         Label(chosenVersionName == nil ? "Choose a Copy" : "Choose a Copy (chosen)",
                               systemImage: "rectangle.stack")
+                    }
+                }
+                // A film in its own window (IPAD-DESIGN §9.1); never on iPhone.
+                if supportsMultipleWindows {
+                    Button { openWindow(id: FilmWindow.id, value: item.archiveID) } label: {
+                        Label("Open in New Window", systemImage: "macwindow.badge.plus")
                     }
                 }
                 Divider()
@@ -450,6 +451,7 @@ struct DetailView: View {
         } message: {
             Text(playbackError ?? "")
         }
+        .focusedSceneValue(\.filmMenuActions, menuActions)
         .sheet(isPresented: $addingToPlaylist) {
             AddToPlaylistSheet(archiveID: item.archiveID)
         }
@@ -563,6 +565,30 @@ struct DetailView: View {
         }
         out = out.replacingOccurrences(of: "_SX300", with: "_SX800")
         return URL(string: out) ?? url
+    }
+
+    private func toggleWatched() {
+        if WatchProgress.setWatched(!isWatchedState, in: ctx, archiveID: item.archiveID) {
+            isWatchedState.toggle()
+        }
+        SyncNudge.nudge(ctx)
+        if isWatchedState { store.completedArchiveIDs.insert(item.archiveID) }
+        else { store.completedArchiveIDs.remove(item.archiveID) }
+    }
+
+    /// What the menu bar's Film menu acts on (IPAD-DESIGN §8.2).
+    private var menuActions: FilmMenuActions {
+        FilmMenuActions(
+            title: item.title, isFavorite: isFav, isWatched: isWatchedState,
+            canPlay: item.videoURLParsed != nil,
+            play: { playing = true },
+            toggleFavorite: { toggleFavorite() },
+            addToPlaylist: { addingToPlaylist = true },
+            toggleWatched: { toggleWatched() },
+            openInNewWindow: supportsMultipleWindows
+                ? { openWindow(id: FilmWindow.id, value: item.archiveID) } : nil,
+            pageURL: shareURL, archiveURL: archiveOrgURL,
+            reportURL: FilmProblem.url(archiveID: item.archiveID))
     }
 
     private func toggleFavorite() {

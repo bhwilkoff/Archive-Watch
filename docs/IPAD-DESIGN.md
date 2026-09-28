@@ -225,6 +225,48 @@ stay green on the iPhone 12 after any change made for this document.
 
 ---
 
+## §8 — The menu bar and the keyboard (binding)
+
+Owner, 2026-09-28: *"a native-first iPad-centric version that works well for
+that platform."* On iPadOS 26 the menu bar is a native surface (WWDC25 "Elevate
+the design of your iPad app", session 208; "What's new in SwiftUI", 256): the
+same `.commands` that build the Mac's menu bar build the iPad's, and a person
+with a keyboard expects to find every command there with its key.
+
+8.1 **The iPad shows the Mac's menus, in the Mac's words.** Go (the five
+sidebar tabs on ⌘1–⌘5, Search ⌘F, Back ⌘[, Surprise Me ⇧⌘R, which opens
+Surprise as the Home button does), Film
+(the film in front: Play ⌘P, Add to / Remove from Favorites ⌘D, Add to
+Playlist…, Mark as Watched ⇧⌘U, Open in New Window, Copy Link ⇧⌘C, View on
+archive.org, Something Wrong with This Film?), Help (Archive Watch Help ⌘?,
+How Titles Are Vetted, Privacy Policy, Terms of Use; the Mac's Feeds &
+Integrations link is left off, the side-doors rule in CLAUDE.md). Names match `macOS/MenuCommands_macOS.swift` so a person who uses
+both reads one vocabulary.
+
+8.2 **A command for a film is published by the film's page, per window**
+(`focusedSceneValue`). With no film in front it is dimmed, never hidden (HIG,
+menus: "keep items visible and disable them").
+
+8.3 **The player's keys belong to the player.** `AVPlayerViewController`
+already answers Space and the arrow keys on iPad; the app adds no Controls menu
+that would compete with it. (The Mac has one because its player is our own
+HUD.)
+
+## §9 — Windows (binding)
+
+9.1 **A film can open in its own window** (iPadOS 26 windows are freely
+resizable, and Slide Over returned in 26.1): Open in New Window in Detail's
+More menu and in the Film menu, offered only where
+`supportsMultipleWindows` is true — never on iPhone. The window shows that
+film's Detail with its own navigation, and its title is the film's title.
+
+9.2 **Every window owns its navigation.** The `Router` is per scene, never an
+app-level singleton: two windows sharing one would move each other's tabs and
+stacks. The catalog store, account and SwiftData container stay app-wide.
+
+9.3 **Scenes are declared for iPad only** (`UIApplicationSceneManifest~ipad`
+in the shared Info.plist), so tvOS and iPhone read no change.
+
 ## Verified (2026-08-28)
 
 Measured on the owner's iPad Pro 12.9 (iPadOS 27, wireless) and asserted by
