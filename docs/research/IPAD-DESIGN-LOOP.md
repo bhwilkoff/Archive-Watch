@@ -102,7 +102,7 @@ rule in IPAD-DESIGN.md before it ships (binding-design-doc discipline).
   is for you to run the whole test"). Synthesizing keys on the Mac was refused
   by the session's permission check, so the input comes from XCUITest inside
   the app instead — `IPadInputUITests`, 5 of 5 on the device:
-  ⌘5 opens Search, ⌘1 Home, ⌘, Settings and Esc closes it (§8.1); ⌘[ goes
+  ⌘5 opens Search, ⌘1 Home, ⌘, Settings and ⌘. closes it (§8.1); ⌘[ goes
   back (§8.1); More -> Open in New Window opens a second window and ⌘W closes
   it (§9.1); a Home poster dragged onto the sidebar's Favorites lands first in
   Favorites (§12.2) — and is un-favorited again, leaving the library as found;
@@ -112,6 +112,17 @@ rule in IPAD-DESIGN.md before it ships (binding-design-doc discipline).
   a lazy row takes its height from its first member, so it is a plain row now
   (iPhone too). NOT yet seen: the menu bar drawn at the top (XCUITest cannot
   reveal it), and a new window's own close control.
+
+- v1.42.877: **CORRECTION — iPadOS's cancel key is ⌘., not Esc.** v1.42.873
+  said every sheet takes "Return and Esc"; measured, Esc never closed Settings
+  (three runs), ⌘. did. `.keyboardShortcut(.cancelAction)` is ⌘. on iPadOS;
+  an invisible Esc twin was tried and also did not fire under XCUITest, so it
+  was removed rather than shipped unproven. Close-only Done buttons (Settings,
+  Cast, Downloads, Add to Playlist) now take ⌘. instead of Return — Settings has
+  a password field whose Return must stay in the field. The v1.42.876 run's
+  single Esc pass was not reproducible and is withdrawn. `IPadInputUITests`
+  starts every test from the main window (a film window left open restores in
+  front and broke the next test) and passes **10 of 10 across two iterations**.
 
 ## Found, data (for the copyright/scrub work, not the iPad)
 

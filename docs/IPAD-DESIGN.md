@@ -252,6 +252,11 @@ How Titles Are Vetted, Privacy Policy, Terms of Use; the Mac's Feeds &
 Integrations link is left off, the side-doors rule in CLAUDE.md). Names match `macOS/MenuCommands_macOS.swift` so a person who uses
 both reads one vocabulary.
 
+8.1a **A sheet's cancel key is ⌘.** (iPadOS's `.cancelAction`), and its
+default key is Return where the sheet has one confirming action. A sheet whose
+only button closes it takes ⌘. on that button, never Return, so Return stays
+with a text field. Esc is not the iPad's cancel key (measured 2026-09-28).
+
 8.2 **A command for a film is published by the film's page, per window**
 (`focusedSceneValue`). With no film in front it is dimmed, never hidden (HIG,
 menus: "keep items visible and disable them").

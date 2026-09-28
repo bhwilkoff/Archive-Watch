@@ -143,7 +143,7 @@ struct HomeView: View {
                 SettingsView()
                     .toolbar {
                         ToolbarItem(placement: .topBarTrailing) {
-                            Button("Done") { router.showSettings = false }.keyboardShortcut(.defaultAction)
+                            Button("Done") { router.showSettings = false }.keyboardShortcut(.cancelAction)
                         }
                     }
             }

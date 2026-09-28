@@ -50,7 +50,7 @@ struct DownloadSheet: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
-                    Button("Done") { dismiss() }.keyboardShortcut(.defaultAction)
+                    Button("Done") { dismiss() }.keyboardShortcut(.cancelAction)
                 }
             }
         }

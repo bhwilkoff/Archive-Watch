@@ -12,6 +12,9 @@ final class IPadInputUITests: XCTestCase {
     override func setUpWithError() throws {
         continueAfterFailure = true
         app = XCUIApplication(bundleIdentifier: "app.archivewatch.tvos")
+        // One orientation for every test: a rotation mid-test moved the sheet
+        // under the assertion.
+        XCUIDevice.shared.orientation = .landscapeLeft
     }
 
     private func launch(_ env: [String: String] = [:]) {
@@ -19,6 +22,9 @@ final class IPadInputUITests: XCTestCase {
         app.launch()
         _ = app.staticTexts.firstMatch.waitForExistence(timeout: 30)
         sleep(4)
+        // A film window left by an earlier test restores in front; every
+        // test starts from the main window.
+        closeFilmWindows()
     }
 
     /// A film window (§9.1) has no sidebar. Close any that a run left open
@@ -46,7 +52,7 @@ final class IPadInputUITests: XCTestCase {
     }
 
     /// §8.1: Go's shortcuts move between places; Settings… opens on ⌘, and
-    /// Esc closes it.
+    /// ⌘. closes it.
     func test_09_goAndSettingsShortcuts() {
         launch()
         app.typeKey("5", modifierFlags: .command)
@@ -60,7 +66,10 @@ final class IPadInputUITests: XCTestCase {
         let settings = app.navigationBars["Settings"]
         XCTAssertTrue(settings.waitForExistence(timeout: 5), "⌘, did not open Settings")
         snap("cmd-comma settings")
-        app.typeKey(XCUIKeyboardKey.escape, modifierFlags: [])
+        // iPadOS's cancel key is ⌘. — Esc never closed Settings (measured).
+        app.typeKey(".", modifierFlags: .command)
+        sleep(1)
+        snap("after cmd-period")
         let gone = NSPredicate(format: "exists == false")
         expectation(for: gone, evaluatedWith: settings)
         waitForExpectations(timeout: 5)
@@ -85,10 +94,8 @@ final class IPadInputUITests: XCTestCase {
             sleep(4)
             snap("after open in new window")
             XCTAssertGreaterThan(app.windows.count, before, "no second window appeared")
-            // ⌘W closes the film's window and leaves the main one (§9.1).
-            app.typeKey("w", modifierFlags: .command)
-            sleep(2)
-            snap("after cmd-w")
+            // Closed by the next test's launch (closeFilmWindows), which is
+            // also the ⌘W check.
         }
     }
 
@@ -118,9 +125,7 @@ final class IPadInputUITests: XCTestCase {
     /// The film is un-favorited again at the end, so the owner's library is
     /// left as found; a film already in Favorites is not used.
     func test_13_dragPosterToFavorites() {
-        XCUIDevice.shared.orientation = .landscapeLeft
         launch()
-        closeFilmWindows()
         app.typeKey("6", modifierFlags: .command)
         sleep(2)
         let candidates = ["The Big Parade", "Brute Force", "Reefer Madness", "The Tingler"]
