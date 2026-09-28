@@ -229,9 +229,9 @@ rule in IPAD-DESIGN.md before it ships (binding-design-doc discipline).
   #33): a Film entity resolved by the catalog's own search (the shared
   ranking), and an App Shortcut — "Open a film in Archive Watch" — that asks
   "Which film?" and opens its page through the IntentInbox (cold-start safe,
-  as links are). Built and installed; NOT seen run: Spotlight would not open
-  under XCUITest (⌘Space, then a swipe), and Siri would speak aloud in the
-  owner's house. Spotlight indexing of the ~27k titles is not done (a larger
+  as links are). **Seen working by the owner** (2026-09-28: "The shortcuts
+  implementation works. I just tested it"); XCUITest could not open Spotlight
+  to drive it, and Siri would speak aloud. Spotlight indexing of the ~27k titles is not done (a larger
   job: CSSearchableIndex from the catalog, kept current per publish).
 
 - v1.42.890: **Your own card** in the iPhone/iPad Studio (Mac §D10): a
