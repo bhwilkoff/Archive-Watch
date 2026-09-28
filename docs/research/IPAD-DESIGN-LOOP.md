@@ -124,6 +124,16 @@ rule in IPAD-DESIGN.md before it ships (binding-design-doc discipline).
   starts every test from the main window (a film window left open restores in
   front and broke the next test) and passes **10 of 10 across two iterations**.
 
+- v1.42.878: **Handoff** (audit #32): the iPhone/iPad and Mac film pages
+  advertise the film (`com.bhwilkoff.archivewatch.viewing`, with its
+  archivewatch.org link), and iOS (through the IntentInbox, for a cold start)
+  and macOS continue it. Built on both; NOT seen: with the iPhone 12 on a film,
+  the Mac's Dock showed no Handoff item at all — not even the browser fallback
+  a webpage URL always gets — so Handoff itself is not active between these
+  two devices (Apple Account or setting), which says nothing about the code.
+  Also: rights-audit run 36467063171 marked **985** claims (CI); tonight's
+  publish-db applies the hide.
+
 ## Found, data (for the copyright/scrub work, not the iPad)
 
 - `SelfCons1951` "Self-Conscious Guy" (Coronet, 10 min) leads Home's hero with

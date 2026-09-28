@@ -48,6 +48,13 @@ struct ArchiveWatchApp: App {
                         IntentInbox.shared.request = .openItem(id)
                     }
                 }
+                // Handoff from another device's film page (the same inbox, for
+                // the same cold-start reason as a link).
+                .onContinueUserActivity("com.bhwilkoff.archivewatch.viewing") { activity in
+                    if let url = activity.webpageURL, let id = DeepLink.itemID(from: url) {
+                        IntentInbox.shared.request = .openItem(id)
+                    }
+                }
         }
         .modelContainer(modelContainer)
         .commands {

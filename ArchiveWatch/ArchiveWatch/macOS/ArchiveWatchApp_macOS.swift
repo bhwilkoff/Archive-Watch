@@ -122,6 +122,10 @@ struct ArchiveWatchMacApp: App {
                 .onContinueUserActivity(NSUserActivityTypeBrowsingWeb) { activity in
                     if let url = activity.webpageURL { route(url) }
                 }
+                // Handoff from an iPhone's, iPad's or Apple TV's film page.
+                .onContinueUserActivity("com.bhwilkoff.archivewatch.viewing") { activity in
+                    if let url = activity.webpageURL { route(url) }
+                }
         }
         .modelContainer(modelContainer)
         .commands {
