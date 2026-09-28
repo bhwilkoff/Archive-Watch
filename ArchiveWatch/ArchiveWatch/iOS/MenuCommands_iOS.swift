@@ -39,16 +39,31 @@ extension FocusedValues {
     }
 }
 
-/// Go: the sidebar's tabs on ⌘1–⌘5, Search ⌘F, Back ⌘[, Surprise Me.
+/// Go: the sidebar's places (⌘1-⌘6 on six), Search ⌘F, Back ⌘[, Surprise Me.
 struct GoCommands_iOS: Commands {
     @FocusedValue(\.sceneRouter) private var router
 
+    private static let places: [(tab: Router.Tab, key: KeyEquivalent?)] = [
+        (.home, "1"), (.films, "2"), (.tv, "3"), (.collections, nil),
+        (.channels, "4"), (.search, "5"),
+        (.downloads, nil), (.favorites, "6"), (.history, nil),
+        (.playlists, nil), (.clips, nil),
+        (.surprise, nil), (.together, nil),
+    ]
+
     var body: some Commands {
         CommandMenu("Go") {
-            ForEach(Array(Router.Tab.allCases.enumerated()), id: \.element) { n, tab in
-                Button(tab.title) { router?.tab = tab }
-                    .keyboardShortcut(KeyEquivalent(Character(String(n + 1))), modifiers: .command)
-                    .disabled(router == nil)
+            // The sidebar's places in its order. ⌘1-⌘6 only on the six a
+            // viewer moves between most; a digit key cannot carry a tenth.
+            ForEach(Self.places, id: \.tab) { place in
+                if let key = place.key {
+                    Button(place.tab.title) { router?.tab = place.tab }
+                        .keyboardShortcut(key, modifiers: .command)
+                        .disabled(router == nil)
+                } else {
+                    Button(place.tab.title) { router?.tab = place.tab }
+                        .disabled(router == nil)
+                }
             }
             Divider()
             Button("Search") { router?.tab = .search }
@@ -70,6 +85,22 @@ struct GoCommands_iOS: Commands {
 }
 
 /// Film: every action on the page of the film in front.
+/// Settings… (⌘,) in the app menu, where the Mac has it; it opens the same
+/// sheet as Home's gear.
+struct SettingsCommands_iOS: Commands {
+    @FocusedValue(\.sceneRouter) private var router
+    var body: some Commands {
+        CommandGroup(replacing: .appSettings) {
+            Button("Settings…") {
+                router?.tab = .home
+                router?.showSettings = true
+            }
+            .keyboardShortcut(",", modifiers: .command)
+            .disabled(router == nil)
+        }
+    }
+}
+
 struct FilmCommands_iOS: Commands {
     @FocusedValue(\.filmMenuActions) private var film
     @Environment(\.openURL) private var openURL

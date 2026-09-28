@@ -41,6 +41,24 @@ rule in IPAD-DESIGN.md before it ships (binding-design-doc discipline).
   iPad's 700pt fits whole — seen: His Girl Friday no More, The Big Parade More.
   iPhone gets the same measured rule.
 
+- v1.42.869: **Series page** Play/Resume/Next + Favorite on iPhone and iPad
+  (shared `SeriesUpNext`, the tvOS rule); a series card always opens the series
+  page (the Detail destination routes it). Seen: "Play S1, E1" on The Lone Ranger.
+- v1.42.870: **Menu bar** (Go, Film, Help in the Mac's words; Settings… ⌘,),
+  **film windows** (Open in New Window; a Router per window; the scene key
+  `UIApplicationSceneManifest~ipad` in the built plist), **sidebar places**
+  (Browse and Library sections, Surprise, Watch Together; customizable),
+  **pointer** lift on tiles, **drag and drop** of films onto playlists and
+  Favorites (IPAD-DESIGN §8-§12). Fixed on merge: the Go menu gave ⌘1..⌘16 to
+  sixteen tabs ("⌘10" traps) — now six named places; Settings left the sidebar
+  (loose entries render above sections; ⌘, and Home's gear instead); Home's
+  shuffle hidden on iPad; and **the iPhone grew a More tab** (sidebar places
+  counted toward its bar despite `.hidden, for: .tabBar`) — places now exist
+  only at regular width, and a window narrowed to compact hands a selected
+  place to its tab. Seen: iPad sidebar; iPhone 12 bar = Home, Browse, Channels,
+  Library + Search. NOT yet seen: the menu bar and new windows (no keyboard
+  on the iPad), drag and drop, hover.
+
 ## Found, data (for the copyright/scrub work, not the iPad)
 
 - `SelfCons1951` "Self-Conscious Guy" (Coronet, 10 min) leads Home's hero with

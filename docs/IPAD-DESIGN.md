@@ -233,8 +233,8 @@ the design of your iPad app", session 208; "What's new in SwiftUI", 256): the
 same `.commands` that build the Mac's menu bar build the iPad's, and a person
 with a keyboard expects to find every command there with its key.
 
-8.1 **The iPad shows the Mac's menus, in the Mac's words.** Go (the five
-sidebar tabs on ⌘1–⌘5, Search ⌘F, Back ⌘[, Surprise Me ⇧⌘R, which opens
+8.1 **The iPad shows the Mac's menus, in the Mac's words.** Go (the
+sidebar places (Home ⌘1, Films ⌘2, TV ⌘3, Channels ⌘4, Search ⌘5, Favorites ⌘6), Search ⌘F, Back ⌘[, Surprise Me ⇧⌘R, which opens
 Surprise as the Home button does), Film
 (the film in front: Play ⌘P, Add to / Remove from Favorites ⌘D, Add to
 Playlist…, Mark as Watched ⇧⌘U, Open in New Window, Copy Link ⇧⌘C, View on
@@ -283,12 +283,16 @@ unchanged: Home, Browse, Channels, Search, Library.
 10.2 **The sidebar's sections**: Home · Browse (Films, TV, Collections — iOS-DESIGN
 §4.2a's scopes, each opening that scope with no segmented control above it) ·
 Channels · Search · Library (Downloads, Favorites, History, Playlists, Clips —
-§2.7's places, each opening that place) · Surprise · Watch Together · Settings.
+§2.7's places, each opening that place) · Surprise · Watch Together.
 Surprise opens the Surprise page, where Cartoons, Party Play and the cover-art
 wall live (tvOS-DESIGN §2.2a — the same rule on every Apple platform, not
 sidebar entries). Watch Together opens a landing that states what this device
-can do (Decision 131) and joins a room. The iPhone keeps its Home toolbar
-buttons for Surprise and Settings.
+can do (Decision 131) and joins a room. **Settings is not a sidebar place**:
+the sidebar draws loose entries above its sections, so it could only sit mid-list,
+and the Apple TV and Music apps keep settings out of the sidebar. It is the app
+menu's Settings… (⌘,, §8) and Home's gear, one sheet. The iPhone keeps its Home
+toolbar buttons for Surprise and Settings; the iPad drops the Surprise button,
+which the sidebar lists.
 
 10.3 **The sidebar is customizable** (`TabViewCustomization`, persisted): a
 person may hide or reorder entries; the five tab-bar tabs cannot be hidden.

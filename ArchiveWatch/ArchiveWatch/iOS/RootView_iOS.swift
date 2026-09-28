@@ -18,6 +18,7 @@ struct RootView: View {
     #endif
     @Environment(AppStore.self) private var store
     @Environment(Router.self) private var router
+    @Environment(\.horizontalSizeClass) private var hSize
     @Environment(AccountStore.self) private var account
     @Environment(\.scenePhase) private var scenePhase
     @Environment(\.modelContext) private var modelContext
@@ -267,8 +268,6 @@ struct RootView: View {
             .defaultVisibility(.hidden, for: .tabBar)
         place(.together) { WatchTogetherLanding() }
             .defaultVisibility(.hidden, for: .tabBar)
-        place(.settings) { SettingsView() }
-            .defaultVisibility(.hidden, for: .tabBar)
     }
 
     private func place<V: View>(_ tab: Router.Tab, @ViewBuilder _ content: @escaping () -> V)
@@ -308,7 +307,21 @@ struct RootView: View {
         } else {
             TabView(selection: $router.tab) {
                 phoneTabs
-                sidebarPlaces
+                // Sidebar places only at regular width: hidden "for: .tabBar"
+                // they still counted toward the phone's bar, which grew a More
+                // tab and pushed Library into it (seen on the iPhone 12).
+                if hSize == .regular { sidebarPlaces }
+            }
+            // A window narrowed to compact width loses the sidebar places, so
+            // a selected place hands over to the tab that holds it.
+            .onChange(of: hSize) { _, size in
+                guard size != .regular else { return }
+                switch router.tab {
+                case .films, .tv, .collections: router.tab = .browse
+                case .downloads, .favorites, .history, .playlists, .clips: router.tab = .library
+                case .surprise, .together: router.tab = .home
+                default: break
+                }
             }
             .tabViewCustomization(sidebarCustomization)
             // Adapts per form factor: a bottom tab bar on iPhone, a sidebar on

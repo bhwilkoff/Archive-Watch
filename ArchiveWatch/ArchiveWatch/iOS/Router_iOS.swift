@@ -47,6 +47,8 @@ final class Router {
     }
 
     var tab: Tab = .home
+    /// Settings is a sheet over Home (the gear; the menu bar's ⌘,), not a place.
+    var showSettings = false
     var homePath = NavigationPath()
     var browsePath = NavigationPath()
     var channelsPath = NavigationPath()
@@ -83,6 +85,7 @@ final class Router {
         case .channels: channelsPath.isEmpty
         case .search: searchPath.isEmpty
         case .library: libraryPath.isEmpty
+        default: sidePaths[tab]?.isEmpty ?? true
         }
     }
 
@@ -95,6 +98,7 @@ final class Router {
         case .channels: channelsPath.removeLast()
         case .search: searchPath.removeLast()
         case .library: libraryPath.removeLast()
+        default: sidePaths[tab]?.removeLast()
         }
     }
 }

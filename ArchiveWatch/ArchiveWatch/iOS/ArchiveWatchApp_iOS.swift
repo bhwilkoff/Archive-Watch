@@ -51,6 +51,7 @@ struct ArchiveWatchApp: App {
         }
         .modelContainer(modelContainer)
         .commands {
+            SettingsCommands_iOS()
             GoCommands_iOS()
             FilmCommands_iOS()
             HelpCommands_iOS()

@@ -27,7 +27,7 @@ struct HomeView: View {
     @State private var mostDiscussed: [Catalog.Item] = []
     @State private var pdItems: [Catalog.Item] = []
     @State private var directorShelves: [(name: String, items: [Catalog.Item])] = []
-    @State private var showSettings = false
+    @Environment(\.horizontalSizeClass) private var hSize
 
     private let pdYear = Calendar.current.component(.year, from: Date()) - 95
 
@@ -102,13 +102,17 @@ struct HomeView: View {
         }
         .navigationTitle("Archive Watch")
         .toolbar {
-            ToolbarItem(placement: .topBarLeading) {
-                Button { router.push(SurpriseRoute()) } label: {
-                    Image(systemName: "shuffle").accessibilityLabel("Surprise me")
+            // The iPad sidebar lists Surprise (IPAD-DESIGN §10); the phone has
+            // no sidebar, so the button stays there.
+            if hSize != .regular {
+                ToolbarItem(placement: .topBarLeading) {
+                    Button { router.push(SurpriseRoute()) } label: {
+                        Image(systemName: "shuffle").accessibilityLabel("Surprise me")
+                    }
                 }
             }
             ToolbarItem(placement: .topBarTrailing) {
-                Button { showSettings = true } label: {
+                Button { router.showSettings = true } label: {
                     Image(systemName: "gearshape").accessibilityLabel("Settings")
                 }
             }
@@ -131,15 +135,15 @@ struct HomeView: View {
         #if DEBUG
         // Harness door: AW_OPEN_SETTINGS=1 opens Settings for the device sweep.
         .onAppear {
-            if ProcessInfo.processInfo.environment["AW_OPEN_SETTINGS"] == "1" { showSettings = true }
+            if ProcessInfo.processInfo.environment["AW_OPEN_SETTINGS"] == "1" { router.showSettings = true }
         }
         #endif
-        .sheet(isPresented: $showSettings) {
+        .sheet(isPresented: Binding(get: { router.showSettings }, set: { router.showSettings = $0 })) {
             NavigationStack {
                 SettingsView()
                     .toolbar {
                         ToolbarItem(placement: .topBarTrailing) {
-                            Button("Done") { showSettings = false }
+                            Button("Done") { router.showSettings = false }
                         }
                     }
             }
