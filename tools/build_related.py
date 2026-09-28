@@ -94,7 +94,9 @@ def compute_related(items, eligible=lambda it: True):
     `reason` is a short machine phrase: "franchise:<name>", "director:<name>",
     "cast:<name>", "writer:<name>", "keyword:<kw>" — the strongest shared link.
     Clients render it in their own words (or not at all)."""
-    pool = [it for it in items if eligible(it) and (it.get("contentType") or "") not in TV_TYPES]
+    # Decision 149: a film flagged noRecommend is never suggested under another.
+    pool = [it for it in items if eligible(it) and not it.get("noRecommend")
+            and (it.get("contentType") or "") not in TV_TYPES]
     by_id = {it["archiveID"]: it for it in pool}
     inv = defaultdict(lambda: defaultdict(list))   # kind -> key -> [aid]
     feats = {}

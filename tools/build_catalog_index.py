@@ -276,7 +276,10 @@ def main():
         # Column 15 (schema 12): a published trick-play BIF. Roku reads this
         # and nothing else does — see bif_ids() above.
         # Column 16 (schema 13): may this title carry the hero? See hero_safe.
-        hero = 1 if hero_safe(_rights_bucket(it), it.get("year")) else 0
+        # Column 18 (schema 15): never recommended (Decision 149) — searchable and
+        # browsable, but no surface may CHOOSE it for the viewer.
+        no_rec = 1 if it.get("noRecommend") else 0
+        hero = 1 if hero_safe(_rights_bucket(it), it.get("year")) and not no_rec else 0
         # Column 17 (schema 14): the upload's runtime in whole minutes, 0 when
         # unknown — Browse's length filter (2026-09-26). Minutes, not a band
         # code, so the bands stay the clients' (Apple/Android RuntimeBand).
@@ -284,7 +287,7 @@ def main():
         rows.append([aid, it.get("title") or aid, it.get("year"),
                      it.get("contentType") or "", poster, pro, search, backdrop,
                      playable, docs, rating, votes, director, genres, cm,
-                     1 if aid in bifs else 0, hero, minutes])
+                     1 if aid in bifs else 0, hero, minutes, no_rec])
         for k in keywords:
             keyword_freq[k] = keyword_freq.get(k, 0) + 1
         for s in studios:
@@ -313,7 +316,7 @@ def main():
         # The three COMMUNITY rows take the hero's evidence bar (owner,
         # 2026-09-25): they were ~90% presumed_pd studio films — Cleopatra,
         # Sabrina, The Longest Day. Top Rated keeps the Home rule.
-        community_ok = hero_safe(_rights_bucket(it), it.get("year"))
+        community_ok = hero_safe(_rights_bucket(it), it.get("year")) and not no_rec
         if pro and (it.get("imdbVotes") or 0) >= 1000 and it.get("contentType") in _FILM and community_ok:
             if (it.get("views30d") or 0) > 0:
                 community["watching-now"].append((it["views30d"], aid))
@@ -375,7 +378,7 @@ def main():
     TONIGHT_OUT.write_text(json.dumps({"tonight": tonight}, separators=(",", ":")) + "\n",
                            encoding="utf-8")
     out = {
-        "schema": 14,
+        "schema": 15,
         "updatedAt": catalog.get("updatedAt") or "",
         "count": len(rows),
         # Must list EVERY column. Rows carry 10 entries at schema 9 and this
@@ -384,7 +387,8 @@ def main():
         # were shipping, undeclared, for two schema bumps.
         "fields": ["id", "title", "year", "contentType", "poster", "pro", "search",
                    "backdrop", "playable", "documentary", "rating10", "votes",
-                   "director", "genres", "color", "bif", "heroSafe", "minutes"],
+                   "director", "genres", "color", "bif", "heroSafe", "minutes",
+                   "noRecommend"],
         "facets": facets,
         "directorRank": _director_rank(),
         "shelves": shelves,
@@ -512,7 +516,9 @@ _RIGHTS = ("i.rightsBucket IN ('safe_pd_age','safe_gov','safe_archive_license',"
            "AND NOT (i.rightsBucket = 'presumed_pd' "
            "AND i.language IS NOT NULL AND i.language <> '' "
            "AND lower(i.language) NOT IN ('en','eng','english'))")
-_TS_GATE = f"{_DESIGNED} AND {_NOT_TV_COMM} AND {_PLAYS} AND {_RIGHTS}"
+# Decision 149: a Top Shelf row CHOOSES films for the viewer.
+_NO_REC = "COALESCE(i.noRecommend, 0) = 0"
+_TS_GATE = f"{_DESIGNED} AND {_NOT_TV_COMM} AND {_PLAYS} AND {_RIGHTS} AND {_NO_REC}"
 
 # One row per named reason (§15.2 — never "For You"). Ordered by how strongly each
 # earns a slot: earlier rows get first pick of a title, since pools are made

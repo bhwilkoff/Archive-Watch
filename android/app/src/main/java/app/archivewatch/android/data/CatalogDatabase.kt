@@ -178,7 +178,7 @@ class CatalogDatabase private constructor(
      * predicate is the best available, and a Home that shows too much beats a
      * Home that shows nothing.
      */
-    private val homeAnd: String get() = if (!hasRightsBucketColumn)
+    private val homeAnd: String get() = (if (!hasRightsBucketColumn)
         " AND (i.rightsStatus IN ('public_domain','creative_commons')" +
             " OR (i.year >= 1888 AND i.year <= 1977))"
     else
@@ -186,7 +186,13 @@ class CatalogDatabase private constructor(
             "'safe_cc','presumed_pd','unknown_year')" +
         " AND NOT (i.rightsBucket = 'presumed_pd'" +
             " AND i.language IS NOT NULL AND i.language <> ''" +
-            " AND lower(i.language) NOT IN ('en','eng','english'))"
+            " AND lower(i.language) NOT IN ('en','eng','english'))") + noRecAnd
+
+    /** Decision 149: never CHOSEN for the viewer (propaganda). Every surface that
+     *  picks films carries this; Search, Detail and Browse do not. Empty on an
+     *  older DB, which has no column to test. */
+    private val noRecAnd: String get() =
+        if (hasNoRecommendColumn) " AND COALESCE(i.noRecommend, 0) = 0" else ""
     /** THE MARQUEE'S OWN GATE, which Android did not have.
      *
      *  The hero pool asked `browse(homeOnly = true)`, so it inherited HOME's
@@ -221,6 +227,12 @@ class CatalogDatabase private constructor(
 
     private val hasPlayableColumn: Boolean = try {
         queryRaw("PRAGMA table_info(items)") { it.getText(1) }.contains("playable")
+    } catch (_: Throwable) {
+        false
+    }
+
+    private val hasNoRecommendColumn: Boolean = try {
+        queryRaw("PRAGMA table_info(items)") { it.getText(1) }.contains("noRecommend")
     } catch (_: Throwable) {
         false
     }
@@ -366,10 +378,13 @@ class CatalogDatabase private constructor(
         heroOnly: Boolean = false,
         full: Boolean = false,
         runtime: RuntimeBand? = null,
+        /** Decision 149: this browse CHOOSES for the viewer (a lineup, a Home
+         *  row), so it skips films flagged noRecommend. Browse grids leave it off. */
+        recommendOnly: Boolean = false,
     ): List<CatalogItem> {
         val (ct, gn, docAnd) = docCategory(contentType, genre)
         val (where0, binds) = browseWhere(ct, decade, gn, year, homeOnly, heroOnly, runtime)
-        val where = where0 + docAnd
+        val where = where0 + docAnd + (if (recommendOnly) noRecAnd else "")
         val (joins, joinBinds) = facetJoins(gn, keyword, studio)
         // Popular = demoted ids last, designed (professional) artwork first,
         // then popularity; series cards have NULL popularityScore, so
@@ -632,7 +647,7 @@ class CatalogDatabase private constructor(
             "(CASE WHEN i.year IS NOT NULL AND ABS(i.year - $it) <= 10 THEN 1 ELSE 0 END) DESC, "
         } ?: ""
         val pool = itemsLite(
-            "$itemSelect WHERE i.contentType = ? AND i.archiveID != ?$adultAnd$typeAnd" +
+            "$itemSelect WHERE i.contentType = ? AND i.archiveID != ?$adultAnd$typeAnd$noRecAnd" +
                 " ORDER BY ${yearKey}COALESCE(i.popularityScore,0) DESC, i.imdbVotes DESC LIMIT ?",
             listOf(to.contentType, to.archiveID, limit * 3),
         )
@@ -731,7 +746,7 @@ class CatalogDatabase private constructor(
         val binds = mutableListOf<Any?>()
         var where = "i.contentType NOT IN ('tv-series','tv-special','tv-episode')"
         if (contentType != null) { where += " AND i.contentType = ?"; binds.add(contentType) }
-        where += adultAnd + typeAnd
+        where += adultAnd + typeAnd + noRecAnd
         if (contentType != "commercial") where += notCommercial
         // FULL rows, not lite: this filters on downloadURL, which the list row
         // does not carry — so every pick was null and the Surprise grid came up
@@ -748,7 +763,7 @@ class CatalogDatabase private constructor(
     suspend fun randomFeatureFilm(): CatalogItem? {
         var where = "i.contentType IN ('feature-film','silent-film') AND " +
             "(i.runtimeSeconds IS NULL OR i.runtimeSeconds >= 2400)"
-        where += adultAnd + typeAnd
+        where += adultAnd + typeAnd + noRecAnd
         // FULL rows — see randomPlayable: the downloadURL filter needs the blob.
         return items(
             "SELECT j.json FROM items i JOIN item_json j ON j.archiveID = i.archiveID" +

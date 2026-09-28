@@ -1,0 +1,32 @@
+{
+  "_about": "Evidence for remediate_catalog.flag_propaganda (Decision 149). Flagged items are never recommended (Home, hero, More Like This, channels, Top Shelf, Tonight, Surprise, social) and stay reachable by Search, Detail and Browse. Owner, 2026-09-28: \"All true propaganda should be hidden from recommendations, but avaialble via search.\" Every entry names a source a reader can open.",
+  "vorbehaltsfilme": {
+    "source": "https://de.wikipedia.org/wiki/Vorbehaltsfilm",
+    "note": "Nazi-era films the Friedrich-Wilhelm-Murnau-Stiftung releases only for supervised screenings because of their propaganda content. Matched on title and year (within two years).",
+    "titles": [
+      ["Alarm in Peking", 1937], ["Anschlag auf Baku", 1942], ["Besatzung Dora", 1943],
+      ["Blutsbrüderschaft", 1940], ["Carl Peters", 1941], ["D III 88", 1939],
+      ["Drei Unteroffiziere", 1939], ["Falschmünzer", 1940], ["Feinde", 1940],
+      ["Flucht ins Dunkel", 1939], ["Fronttheater", 1942], ["Der 5. Juni", 1942],
+      ["G.P.U.", 1942], ["Der Herrscher", 1937], ["Himmelhunde", 1942],
+      ["Himmelstürmer", 1941], ["Hitlerjunge Quex", 1933], ["Ich klage an", 1941],
+      ["Im Kampf gegen den Weltfeind", 1939], ["Jakko", 1941], ["Jud Süß", 1940],
+      ["Jungens", 1941], ["Kadetten", 1941], ["Kameraden auf See", 1938],
+      ["Kampfgeschwader Lützow", 1941], ["Kolberg", 1945], ["Kopf hoch, Johannes!", 1941],
+      ["Das Leben geht weiter", 1945], ["Legion Condor", 1939],
+      ["Mein Sohn, der Herr Minister", 1937], ["Ohm Krüger", 1941], ["Pour le Mérite", 1938],
+      ["Ritt in die Freiheit", 1936], ["Robert und Bertram", 1939], ["Die Rothschilds", 1940],
+      ["Der Stammbaum des Dr. Pistorius", 1939], ["Stukas", 1941], ["Togger", 1937],
+      ["U-Boote westwärts!", 1941], ["Unternehmen Michael", 1937],
+      ["Über alles in der Welt", 1941], ["Venus vor Gericht", 1941],
+      ["Volldampf voraus!", 1933], ["Wir seh'n uns wieder", 1945]
+    ]
+  },
+  "add": {
+    "1937-Juden-ohne-Maske": "Juden ohne Maske (1937), antisemitic propaganda film produced by the Reichspropagandaleitung der NSDAP — https://www.wikidata.org/wiki/Q134963953 ; https://de.wikipedia.org/wiki/Reichspropagandaleitung_der_NSDAP",
+    "1937-juden-ohne-maske-13m-02s-448x-336-ohne-ton": "Juden ohne Maske (1937), antisemitic propaganda film produced by the Reichspropagandaleitung der NSDAP — https://www.wikidata.org/wiki/Q134963953 ; https://de.wikipedia.org/wiki/Reichspropagandaleitung_der_NSDAP"
+  },
+  "not": {
+    "DeathMills": "Death Mills (1945) is the US War Department's film of the liberated camps (Billy Wilder) — Allied evidence, not propaganda of the regime it documents; caught only by its German-language version"
+  }
+}

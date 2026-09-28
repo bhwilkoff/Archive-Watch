@@ -2366,6 +2366,76 @@ def exclude_hate_propaganda(items, stats):
             stats["hate_propaganda_excluded"] += 1
 
 
+# --- Propaganda: never recommended, always findable (Decision 149) -----------
+# Owner, 2026-09-28: "All true propaganda should be hidden from recommendations,
+# but avaialble via search." So propaganda is NOT `excluded`: Search, Detail and
+# Browse still reach it, and every surface that CHOOSES a film for the viewer
+# (Home, the hero, More Like This, channels, Top Shelf, Tonight, Surprise,
+# social) skips `noRecommend`.
+#
+# "True propaganda" is the Nazi state's, on evidence a reader can open — a
+# plain "propaganda" tag is not enough: measured 2026-09-28 it sits on 200
+# visible items, including Battleship Potemkin, Why We Fight and the Disney
+# war cartoons. The evidence, any one of which flags:
+#   1. Germany's own restricted list (Vorbehaltsfilme), matched on title + year;
+#   2. the item's own data: German-language, 1933-1945, AND tagged propaganda
+#      (genre, keyword or archive.org subject);
+#   3. a Nazi party producer in its studios;
+#   4. an entry in shared/editorial/propaganda.json `add`, with its source.
+# `not` names the exceptions (Death Mills: Allied evidence in a German print).
+# The title-marker rule above is different in kind — modern Holocaust-denial and
+# CSAM uploads that are not films — and stays an exclusion.
+_PROPAGANDA_PATH = REPO / "shared/editorial/propaganda.json"
+_NAZI_PRODUCER = re.compile(r"nsdap|reichspropaganda", re.I)
+
+
+def _fold_title(s):
+    s = unicodedata.normalize("NFKD", (s or "").lower().replace("ß", "ss"))
+    s = "".join(c for c in s if not unicodedata.combining(c))
+    return re.sub(r"[^a-z0-9]+", "", s)
+
+
+def propaganda_evidence(it, table):
+    """The reason `it` is propaganda under Decision 149, or None."""
+    aid = it.get("archiveID") or ""
+    if aid in table.get("not", {}):
+        return None
+    if aid in table.get("add", {}):
+        return "editorial: " + table["add"][aid].split(" — ")[0]
+    title, year = _fold_title(it.get("title")), it.get("year")
+    for name, vy in table.get("vorbehaltsfilme", {}).get("titles", []):
+        n = _fold_title(name)
+        if len(n) >= 5 and (title == n or title.startswith(n)) \
+                and (not year or abs(int(year) - vy) <= 2):
+            return f"Vorbehaltsfilm: {name} ({vy})"
+    if _NAZI_PRODUCER.search(json.dumps(it.get("studios") or [], ensure_ascii=False)):
+        return "producer: Nazi party"
+    lang = (it.get("language") or "").lower()
+    tagged = any("propaganda" in json.dumps(it.get(f) or "", ensure_ascii=False).lower()
+                 for f in ("genres", "keywords", "subjects"))
+    if lang in ("de", "german", "deu", "ger") and year and 1933 <= int(year) <= 1945 and tagged:
+        return "German 1933-1945, tagged propaganda"
+    return None
+
+
+def flag_propaganda(items, stats, table=None):
+    """Set (and clear) `noRecommend` every build, so evidence added or withdrawn
+    takes effect on the next publish."""
+    if table is None:
+        table = json.loads(_PROPAGANDA_PATH.read_text()) if _PROPAGANDA_PATH.exists() else {}
+    for it in items:
+        why = propaganda_evidence(it, table)
+        if why:
+            if not it.get("noRecommend"):
+                stats["propaganda_flagged"] += 1
+            it["noRecommend"] = True
+            it["noRecommendReason"] = "propaganda — " + why
+        elif it.get("noRecommend"):
+            it.pop("noRecommend", None)
+            it.pop("noRecommendReason", None)
+            stats["propaganda_unflagged"] += 1
+
+
 # --- Trailers posing as the feature -------------------------------------------
 #
 # Owner 2026-08-09: the Serpico TRAILER was in the app carrying the full film's
@@ -3314,6 +3384,7 @@ def remediate(items):
 
     _drop_stale_year_markers()
     exclude_hate_propaganda(items, stats)
+    flag_propaganda(items, stats)
     exclude_not_films(items, stats)
     exclude_takedowns(items, stats)
     refilter_reviews(items, stats)

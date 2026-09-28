@@ -267,7 +267,7 @@ def hour_or_less(it):
 def _shelf_ids_for(it):
     """Full Home-shelf membership for an item: its stored `shelves` UNION any
     shelf whose collection: query the item's collections satisfy."""
-    if not shelf_rights_ok(it):
+    if not shelf_rights_ok(it) or it.get("noRecommend"):
         return set()
     ids = set(it.get("shelves") or [])
     a = added_at(it)
@@ -1075,7 +1075,11 @@ def create_schema(db):
       playable INTEGER,
       -- "Hidden Gems": high craft, low traffic. COMPUTED here (like isAdult)
       -- rather than as a client predicate -- see _mark_hidden_gems for why.
-      hiddenGem INTEGER
+      hiddenGem INTEGER,
+      -- Decision 149: never RECOMMENDED (Home, hero, More Like This, channels,
+      -- Top Shelf, Tonight, Surprise, social), always findable by Search,
+      -- Detail and Browse. Set by remediate_catalog.flag_propaganda.
+      noRecommend INTEGER
     );
     -- Full item as JSON in a side table so the lean `items` table stays small
     -- for scalar WHERE/ORDER scans; the app JOINs this only for the handful of
@@ -1190,8 +1194,9 @@ def populate_items(db, items, rotate_seed="0", skip_aids=frozenset()):
             it.get("views30d"),
             1 if it.get("playbackVerified") is True else 0,
             0,                      # hiddenGem — filled by _mark_hidden_gems below
+            1 if it.get("noRecommend") else 0,
         ))
-        if _gem_suppressed(it):
+        if _gem_suppressed(it) or it.get("noRecommend"):
             gem_suppressed.add(aid)
         json_rows.append((aid, json.dumps(_slim_for_blob(it), ensure_ascii=False,
                                           separators=(",", ":"))))
@@ -1257,7 +1262,7 @@ def populate_items(db, items, rotate_seed="0", skip_aids=frozenset()):
                   "rightsStatus", "rightsBucket", "contentRating", "language", "network", "director",
                   "seriesID", "yearEnd", "seasonsCount", "episodesCount", "isAdult",
                   "numFavorites", "numReviews", "avgRating", "views30d", "playable",
-                  "hiddenGem"]
+                  "hiddenGem", "noRecommend"]
     col = {name: i for i, name in enumerate(_ITEM_COLS)}
     assert len(item_rows) == 0 or len(item_rows[0]) == len(_ITEM_COLS), \
         f"items tuple has {len(item_rows[0])} fields, _ITEM_COLS has {len(_ITEM_COLS)}"
@@ -1447,6 +1452,7 @@ def populate_series(db, materialize_episode_items=True):
                     # items, not series spines); their URL comes from the spine.
                     0,
                     0,      # hiddenGem — a gem is a film claim; episodes never qualify
+                    0,      # noRecommend — Decision 149 flags catalog items only
                 ))
                 ep_json_rows.append((aid, json.dumps(_slim_for_blob(it), ensure_ascii=False,
                                                      separators=(",", ":"))))

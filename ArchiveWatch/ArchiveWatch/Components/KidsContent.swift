@@ -10,7 +10,7 @@ enum KidsContent {
     static func cartoonPool(_ store: AppStore, limit: Int = 250) -> [Catalog.Item] {
         let scary = ["horror", "war", "nightmare", "death", "ghost story", "macabre"]
         let pool = store.browse(contentType: "animation", sort: .popular, limit: 600).filter { it in
-            guard it.videoURLParsed != nil, it.hasDesignedArtwork else { return false }
+            guard it.videoURLParsed != nil, it.hasDesignedArtwork, it.isRecommendable else { return false }
             if it.isSilentFilm == true { return false }
             let blob = (it.genres + it.subjects).map { $0.lowercased() }
             if blob.contains(where: { g in scary.contains(where: g.contains) }) { return false }
@@ -56,7 +56,8 @@ enum KidsContent {
     static func characters(_ store: AppStore) -> [(name: String, items: [Catalog.Item])] {
         let scary = ["horror", "nightmare", "macabre"]
         let pool = store.browse(contentType: "animation", sort: .popular, limit: 1500).filter { it in
-            guard it.isSilentFilm != true, it.hasDesignedArtwork, it.videoURLParsed != nil else { return false }
+            guard it.isSilentFilm != true, it.hasDesignedArtwork, it.videoURLParsed != nil,
+                  it.isRecommendable else { return false }
             let g = (it.genres + it.subjects).map { $0.lowercased() }
             return !g.contains { x in scary.contains(where: x.contains) }
         }

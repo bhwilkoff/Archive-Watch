@@ -102,7 +102,7 @@ struct HomeView: View {
         for shelf in (store.featured?.orderedHomeShelves ?? []) { add(shelf.id, shelf.title, store.items(forShelf: shelf.id,
                                                    allowStandaloneTV: shelf.isTV)) }
         // Then the dynamic shelves, in tvOS order.
-        add("public-domain-day", "Public Domain Day", store.browse(year: pdYear, sort: .popular, limit: 120))
+        add("public-domain-day", "Public Domain Day", store.browse(year: pdYear, sort: .popular, limit: 120).filter(\.isRecommendable))
         add("top-rated", "Top Rated", store.topRated(), accent: .orange)
         add("watching-now", "Watching Now", store.watchingNow())
         add("community-favorites", "Community Favorites", store.communityFavorites())

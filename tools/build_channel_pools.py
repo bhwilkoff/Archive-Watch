@@ -52,8 +52,10 @@ AD_LIMIT = 60
 
 
 def visible(it):
+    # noRecommend (Decision 149): a channel CHOOSES what plays, so a film that
+    # may never be recommended never airs.
     return (not it.get("excluded") and not it.get("isAdult")
-            and it.get("downloadURL"))
+            and not it.get("noRecommend") and it.get("downloadURL"))
 
 
 # The apps' browse rules (CatalogDB.browseSQL): a genre channel carries no

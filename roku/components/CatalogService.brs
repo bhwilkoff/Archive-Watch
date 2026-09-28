@@ -111,7 +111,7 @@ sub buildParty()
     colour = []
     rest = []
     for each r in m.items
-        awSkip = (r[5] <> 1)
+        awSkip = (r[5] <> 1) or noRec(r)
         if not awSkip then awSkip = (Left(fmt(r[0]), 7) = "series:")
         if not awSkip
             t = LCase(fmt(r[3]))
@@ -159,7 +159,7 @@ end sub
 sub buildWall()
     pool = []
     for each r in m.items
-        if r[5] = 1 and r[4] <> invalid and r[4] <> "" and Left(fmt(r[0]), 7) <> "series:"
+        if r[5] = 1 and r[4] <> invalid and r[4] <> "" and Left(fmt(r[0]), 7) <> "series:" and not noRec(r)
             pool.Push(r)
         end if
     end for
@@ -192,7 +192,7 @@ sub buildCartoons()
     everything = []
 
     for each r in m.items
-        awSkip = (LCase(fmt(r[3])) <> "animation")
+        awSkip = (LCase(fmt(r[3])) <> "animation") or noRec(r)
         if not awSkip then awSkip = (r[5] <> 1)
         if not awSkip
             hay = LCase(fmt(r[1])) + " " + LCase(fmt(r[6]))
@@ -440,7 +440,7 @@ sub pickRandom(spec as String)
         end if
         ' Professional artwork only: a random pick is a RECOMMENDATION, and
         ' Decision 097 keeps frame grabs off surfaces that recommend.
-        if not awSkip then awSkip = (r[5] <> 1)
+        if not awSkip then awSkip = (r[5] <> 1) or noRec(r)
         if not awSkip then awSkip = (Left(fmt(r[0]), 7) = "series:" and not wantSeries)
         if not awSkip
             seen = seen + 1
@@ -462,7 +462,7 @@ sub moreLike(spec as Object)
     if spec.year <> invalid then year = Int(spec.year)
     hits = []
     for each r in m.items
-        awSkip = (fmt(r[0]) = spec.id)
+        awSkip = (fmt(r[0]) = spec.id) or noRec(r)
         if not awSkip then awSkip = (r[5] <> 1)
         if not awSkip then awSkip = (Left(fmt(r[0]), 7) = "series:")
         if not awSkip then awSkip = (want <> "" and LCase(fmt(r[3])) <> want)
@@ -491,7 +491,7 @@ sub moreLike(spec as Object)
         end if
         for each rid in spec.related
             r = m.rowByID[fmt(rid)]
-            if r <> invalid and r[5] = 1 and root.GetChildCount() < 12
+            if r <> invalid and r[5] = 1 and not noRec(r) and root.GetChildCount() < 12
                 appendRow(root, r)
                 ranked[fmt(rid)] = true
             end if
@@ -523,6 +523,12 @@ end sub
 
 ' Normalised for matching: letters and digits only, lower case. "Adam 12
 ' Season 1" -> "adam12season1"; the series "Adam-12" -> "adam12".
+' Decision 149: index column 18 marks a film no surface may CHOOSE for the
+' viewer (propaganda). Search and Browse still reach it. Older rows lack it.
+function noRec(r as Object) as Boolean
+    return r.Count() > 18 and r[18] = 1
+end function
+
 function normKey(t as String) as String
     out = ""
     low = LCase(t)

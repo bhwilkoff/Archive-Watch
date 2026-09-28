@@ -119,7 +119,7 @@ fun ChannelsScreen(container: AppContainer, nav: Nav) {
             // marathon).
             val pool = db.browse(
                 contentType = uc.contentType, genre = uc.genre,
-                decade = uc.decade, limit = 150, full = true,
+                decade = uc.decade, limit = 150, full = true, recommendOnly = true,
             ).filter { it.downloadURL != null }
             val slots = ChannelScheduler.schedule("user-${uc.id}", pool, nowMs)
             if (slots.isEmpty()) null

@@ -243,7 +243,7 @@ internal fun rememberHomePayload(container: AppContainer): State<HomePayload> {
                 if (films.isNotEmpty()) d to films else null
             },
             publicDomainYear = pdYear,
-            publicDomainDay = claim(db.browse(year = pdYear, limit = 120).filter { it.hasProfessionalArtwork }),
+            publicDomainDay = claim(db.browse(year = pdYear, limit = 120, recommendOnly = true).filter { it.hasProfessionalArtwork }),
             categories = categories,
             decades = db.decadeCounts(),
             loaded = true,

@@ -91,7 +91,7 @@ struct ScreensaverView: View {
         var seen = Set<String>()
         var out: [Catalog.Item] = []
         for mix in mixes {
-            for it in mix where it.posterURLParsed != nil {
+            for it in mix where it.posterURLParsed != nil && it.isRecommendable {
                 guard Self.professionalPosterSources.contains(it.artworkSource) else { continue }
                 if it.isSilentFilm == true { continue }
                 if seen.insert(it.archiveID).inserted { out.append(it) }

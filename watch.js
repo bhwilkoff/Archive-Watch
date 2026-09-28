@@ -252,6 +252,13 @@
     isFilm(row) {
       return !TV_TYPES.has(row[3]);
     },
+
+    /** Recommendable (index col 18, Decision 149). Propaganda stays findable by
+        Search and Browse, but no surface may CHOOSE it for the viewer. Older
+        rows have no column 18 and pass. */
+    rec(row) {
+      return row[18] !== 1;
+    },
     // The Documentary CATEGORY resolves by the genre flag (index col 9), not by
     // contentType — only ~8 items are typed documentary vs 1,109 carrying the
     // genre, so a contentType match would show almost nothing. Every other
@@ -968,7 +975,7 @@
   function fallbackRelated(row, limit) {
     const [id, , year, type] = row;
     return Data.rows
-      .filter(r => r[0] !== id && r[3] === type && Data.isPro(r))
+      .filter(r => r[0] !== id && r[3] === type && Data.isPro(r) && Data.rec(r))
       .map((r, idx) => ({
         r, idx,
         near: (year && r[2] && Math.abs(r[2] - year) <= 10) ? 0 : 1,
@@ -1204,7 +1211,7 @@
       // floored). Render from the index shelves map, dedup-aware like the apps.
       const indexShelf = (id, title, subtitle) => {
         const rows = (Data.shelves[id] || []).map(x => Data.byID.get(x))
-          .filter(r => r && Data.isPro(r) && Data.isFilm(r) && Data.plays(r) && !used.has(dedupKey(r))).slice(0, 16);
+          .filter(r => r && Data.isPro(r) && Data.isFilm(r) && Data.plays(r) && Data.rec(r) && !used.has(dedupKey(r))).slice(0, 16);
         if (rows.length >= 4) {
           rows.forEach(r => used.add(dedupKey(r)));
           host.append(shelfSection(title, subtitle, rows));
@@ -1230,7 +1237,7 @@
         // Index predates the shelf: fall back to the old tail shuffle so the row
         // degrades rather than disappearing.
         const tail = Data.rows.slice(Math.floor(Data.rows.length * 0.4));
-        gems = shuffle(tail.filter(r => Data.isPro(r) && Data.isFilm(r) && Data.plays(r) && !used.has(dedupKey(r)))).slice(0, 16);
+        gems = shuffle(tail.filter(r => Data.isPro(r) && Data.isFilm(r) && Data.plays(r) && Data.rec(r) && !used.has(dedupKey(r)))).slice(0, 16);
       }
       if (gems.length >= 6) {
         gems.forEach(r => used.add(dedupKey(r)));
@@ -1239,7 +1246,7 @@
       // Public Domain Day: this year's newly-free class (currentYear - 95).
       const pdYear = new Date().getFullYear() - 95;
       const pd = shuffle(Data.rows.filter(r =>
-        r[2] === pdYear && Data.isPro(r) && Data.isFilm(r) && Data.plays(r) && !used.has(dedupKey(r)))).slice(0, 16);
+        r[2] === pdYear && Data.isPro(r) && Data.isFilm(r) && Data.plays(r) && Data.rec(r) && !used.has(dedupKey(r)))).slice(0, 16);
       if (pd.length >= 6) {
         host.append(shelfSection('Public Domain Day',
           `Published in ${pdYear}, public domain since January 1`, pd));
@@ -1256,7 +1263,7 @@
       const dirFilms = new Map();
       for (const r of Data.rows) {
         const d = r[12];
-        if (!d || !Data.isPro(r) || !Data.isFilm(r) || !Data.plays(r)) continue;
+        if (!d || !Data.isPro(r) || !Data.isFilm(r) || !Data.plays(r) || !Data.rec(r)) continue;
         let list = dirFilms.get(d);
         if (!list) dirFilms.set(d, list = []);
         list.push(r);
@@ -1370,7 +1377,7 @@
       // apps refuse (2026-09-24). An older index has no column 16 and falls
       // back to the year test below.
       const heroOK = r => r.length <= 16 || r[16] === 1;
-      const filmPool = Data.rows.filter(r => Data.isPro(r) && Data.isFilm(r) && heroOK(r));
+      const filmPool = Data.rows.filter(r => Data.isPro(r) && Data.isFilm(r) && heroOK(r) && Data.rec(r));
       const wide = filmPool.filter(r => r[7]).slice(0, 300);
       const useWide = wide.length >= 4;
       let base = useWide ? wide : filmPool.slice(0, 300);
@@ -1900,7 +1907,7 @@
       // designed-art random draw, fresh on every visit/re-roll.
       const byType = {};
       for (const r of Data.rows) {
-        if (!Data.isPro(r) || !Data.isFilm(r)) continue;   // Random Film never lands on TV
+        if (!Data.isPro(r) || !Data.isFilm(r) || !Data.rec(r)) continue;   // Random Film never lands on TV
         (byType[r[3]] ??= []).push(r);
       }
       const picks = [];
@@ -1910,7 +1917,7 @@
         const pick = pool[Math.floor(Math.random() * pool.length)];
         if (pick && !seen.has(pick[0])) { seen.add(pick[0]); picks.push(pick); }
       }
-      const pro = Data.rows.filter(r => Data.isPro(r) && Data.isFilm(r) && !seen.has(r[0]));
+      const pro = Data.rows.filter(r => Data.isPro(r) && Data.isFilm(r) && Data.rec(r) && !seen.has(r[0]));
       while (picks.length < 12 && pro.length) {
         const pick = pro.splice(Math.floor(Math.random() * pro.length), 1)[0];
         seen.add(pick[0]); picks.push(pick);
@@ -2224,7 +2231,7 @@
         if (queue.length) Player.start({ ...queue[0], queue, queueIndex: 0, persist: false });
       };
       const host = $('cartoons-shelves');
-      const animation = Data.rows.filter(r => r[3] === 'animation');
+      const animation = Data.rows.filter(r => r[3] === 'animation' && Data.rec(r));
       for (const [name, terms] of CARTOON_CHARACTERS) {
         const rows = animation.filter(r =>
           terms.some(t => r[1].toLowerCase().includes(t))).slice(0, 20);

@@ -204,7 +204,7 @@ enum Modes {
             + store.dbBrowse(contentType: "short-film", sort: .popular, limit: 250)
             + store.dbBrowse(genre: "Animation", sort: .popular, limit: 120)
         for it in raw {
-            guard it.videoURLParsed != nil, it.hasDesignedArtwork else { continue }
+            guard it.videoURLParsed != nil, it.hasDesignedArtwork, it.isRecommendable else { continue }
             guard it.isSilentFilm != true, !it.isBlackAndWhite else { continue }
             if let r = it.runtimeSeconds, r > 0, r > 15 * 60 { continue }
             guard seen.insert(it.archiveID).inserted else { continue }
@@ -231,7 +231,7 @@ enum Modes {
         var seen = Set<String>()
         var out: [Catalog.Item] = []
         for mix in mixes {
-            for it in mix where it.posterURLParsed != nil && it.hasDesignedArtwork {
+            for it in mix where it.posterURLParsed != nil && it.hasDesignedArtwork && it.isRecommendable {
                 if seen.insert(it.archiveID).inserted { out.append(it) }
             }
         }

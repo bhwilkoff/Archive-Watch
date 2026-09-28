@@ -93,6 +93,7 @@ final class CatalogDB {
         hasHiddenGemColumn = Self.columnExists(h, table: "items", column: "hiddenGem")
         hasRelatedTable = Self.columnExists(h, table: "item_related", column: "related")
         hasDirectorRank = Self.columnExists(h, table: "director_rank", column: "rank")
+        hasNoRecommendColumn = Self.columnExists(h, table: "items", column: "noRecommend")
         // Fail fast if it isn't actually our schema.
         guard metaInt("itemCount") != nil else {
             sqlite3_close(h); return nil
@@ -115,6 +116,12 @@ final class CatalogDB {
     private let hasHiddenGemColumn: Bool
     private let hasRelatedTable: Bool
     private let hasDirectorRank: Bool
+    private let hasNoRecommendColumn: Bool
+
+    /// Decision 149: never CHOSEN for the viewer (propaganda). Every surface
+    /// that picks films carries this; Search, Detail and Browse do not.
+    /// Empty (no-op) on an older DB.
+    private var noRecAnd: String { hasNoRecommendColumn ? "AND COALESCE(i.noRecommend, 0) = 0" : "" }
 
     /// Restricts a surface to titles whose bytes were verified playable
     /// (tools/check_liveness.py). Applied to the most PROMINENT surfaces only —
@@ -332,7 +339,8 @@ final class CatalogDB {
     ///
     /// Home only. Browse and Search still carry the whole catalogue, and
     /// nothing is hidden: this is about what the app PUTS IN FRONT of someone.
-    private let homeAnd =
+    private var homeAnd: String { homeRightsAnd + " " + noRecAnd }
+    private let homeRightsAnd =
         "AND i.rightsBucket IN ('safe_pd_age','safe_gov','safe_archive_license'," +
         "'safe_cc','presumed_pd','unknown_year') " +
         "AND NOT (i.rightsBucket = 'presumed_pd' " +
@@ -834,7 +842,7 @@ final class CatalogDB {
         } ?? ""
         let pool = items("""
             SELECT j.json FROM items i JOIN item_json j USING(archiveID)
-            WHERE i.contentType = ? AND i.archiveID != ? \(adultAnd) \(typeAnd)
+            WHERE i.contentType = ? AND i.archiveID != ? \(adultAnd) \(typeAnd) \(noRecAnd)
             ORDER BY \(yearKey) COALESCE(i.popularityScore,0) DESC, i.imdbVotes DESC
             LIMIT \(limit * 3)
         """, [item.contentType, item.archiveID])
@@ -1024,7 +1032,7 @@ final class CatalogDB {
         if let ct = contentType { where_.append("i.contentType = ?"); binds.append(ct) }
         return items("""
             SELECT j.json FROM items i JOIN item_json j USING(archiveID)
-            WHERE \(where_.joined(separator: " AND ")) \(typeAnd)
+            WHERE \(where_.joined(separator: " AND ")) \(typeAnd) \(noRecAnd)
             ORDER BY RANDOM() LIMIT 1
         """, binds).first
     }
@@ -1039,7 +1047,7 @@ final class CatalogDB {
         if hideAdult { where_.append("i.isAdult = 0") }
         return items("""
             SELECT j.json FROM items i JOIN item_json j USING(archiveID)
-            WHERE \(where_.joined(separator: " AND ")) \(typeAnd)
+            WHERE \(where_.joined(separator: " AND ")) \(typeAnd) \(noRecAnd)
             ORDER BY RANDOM() LIMIT 1
         """).first
     }
@@ -1074,7 +1082,7 @@ final class CatalogDB {
             JOIN item_json j USING(archiveID)
             JOIN item_genres g ON g.archiveID = i.archiveID
             WHERE g.genre IN (\(placeholders)) AND i.contentType != 'tv-series'
-              \(adultAnd) \(notCommercial) \(notStandaloneTV) \(typeAnd)
+              \(adultAnd) \(notCommercial) \(notStandaloneTV) \(typeAnd) \(noRecAnd)
             ORDER BY RANDOM() LIMIT 1
         """, genres).first
     }

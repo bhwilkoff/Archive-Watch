@@ -51,7 +51,7 @@ fun TvCartoonScreen(container: AppContainer, nav: Nav) {
     ) {
         val db = container.catalog.awaitDb()
         // full = true: the marathon needs downloadURL to build a lineup.
-        val pool = db.browse(contentType = "animation", limit = 240, full = true)
+        val pool = db.browse(contentType = "animation", limit = 240, full = true, recommendOnly = true)
             .filter { it.downloadURL != null }
         val shelves = characterDefs.mapNotNull { (name, terms) ->
             val rows = pool.filter { item ->

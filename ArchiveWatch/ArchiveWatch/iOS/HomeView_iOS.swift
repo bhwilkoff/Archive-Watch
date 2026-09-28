@@ -200,7 +200,7 @@ struct HomeView: View {
         // Discussed, Hidden Gems — then Directors.
         featuredPayloads = (store.featured?.orderedHomeShelves ?? []).compactMap(featuredPayload)
         pdItems = take(store.filteringWatched(
-            store.browse(year: pdYear, sort: .popular, limit: 120).filter(\.hasProfessionalArtwork)))
+            store.browse(year: pdYear, sort: .popular, limit: 120).filter { $0.hasProfessionalArtwork && $0.isRecommendable }))
         topRated = take(store.filteringWatched(store.topRated().filter(\.hasProfessionalArtwork)))
         watchingNow = take(store.filteringWatched(store.watchingNow().filter(\.hasProfessionalArtwork)))
         communityFavorites = take(store.filteringWatched(store.communityFavorites().filter(\.hasProfessionalArtwork)))

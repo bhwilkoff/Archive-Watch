@@ -49,6 +49,7 @@ UA = "ArchiveWatch-Social/1.0 (+https://archivewatch.org)"
 I_ID, I_TITLE, I_YEAR, I_TYPE, I_POSTER, I_PRO = 0, 1, 2, 3, 4, 5
 I_SEARCH, I_BACKDROP, I_PLAYABLE, I_DOC = 6, 7, 8, 9
 I_RATING, I_VOTES, I_DIRECTOR, I_GENRES, I_COLOR = 10, 11, 12, 13, 14
+I_NO_REC = 18   # Decision 149: never recommended (index schema 15)
 
 # details shard record layout (tools/build_web_details.py).
 D_URL, D_SYNOPSIS, D_DIRECTOR, D_CAST, D_GENRES = 0, 1, 2, 3, 4
@@ -512,6 +513,8 @@ def do_not_promote(row: list) -> str | None:
     reason = (_DNP.get("ids") or {}).get(str(row[I_ID]))
     if reason:
         return reason
+    if len(row) > I_NO_REC and row[I_NO_REC] == 1:
+        return "propaganda: never recommended (Decision 149)"
     blob = (str(row[I_SEARCH]) if len(row) > I_SEARCH and row[I_SEARCH] else "").lower()
     for m in _DNP.get("subjectMarkers") or []:
         if m in blob:

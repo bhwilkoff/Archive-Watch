@@ -130,7 +130,9 @@ sub run()
         if tonightId <> "" and fmt(aid) = tonightId then tonightRow = row
         ' A director shelf recommends, so it takes professionally-presented
         ' films only (Decision 097) and never a series spine.
-        if row[5] = 1 and Left(fmt(aid), 7) <> "series:"
+        ' Decision 149: index column 18 marks a film no row may CHOOSE.
+        noRec = (row.Count() > 18 and row[18] = 1)
+        if row[5] = 1 and Left(fmt(aid), 7) <> "series:" and not noRec
             if row.Count() > 11 and row[10] <> invalid and row[11] <> invalid
                 ' The same 1,000-vote floor Browse uses: without it a single
                 ' 10/10 rating outranks Citizen Kane (Decision 050).
@@ -179,7 +181,7 @@ sub run()
                 end if
             end if
         end if
-        if row.Count() > 12 and row[12] <> invalid and row[12] <> "" and row[5] = 1
+        if row.Count() > 12 and row[12] <> invalid and row[12] <> "" and row[5] = 1 and not noRec
             if Left(fmt(aid), 7) <> "series:"
                 d = fmt(row[12])
                 if byDirector[d] = invalid then byDirector[d] = []

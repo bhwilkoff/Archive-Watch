@@ -337,7 +337,7 @@ final class AppStore {
     func kidsCartoonPool(limit: Int) -> [Catalog.Item] {
         let scary = ["horror", "war", "nightmare", "death", "ghost story", "macabre"]
         let pool = dbBrowse(contentType: "animation", sort: .popular, limit: 600).filter { it in
-            guard it.videoURLParsed != nil, it.hasDesignedArtwork else { return false }
+            guard it.videoURLParsed != nil, it.hasDesignedArtwork, it.isRecommendable else { return false }
             if it.isSilentFilm == true { return false }   // Cartoon MODE excludes silent
             let blob = (it.genres + it.subjects).map { $0.lowercased() }
             if blob.contains(where: { g in scary.contains(where: g.contains) }) { return false }
@@ -381,7 +381,7 @@ final class AppStore {
             + dbBrowse(contentType: "short-film", sort: .popular, limit: 250)
             + dbBrowse(genre: "Animation", sort: .popular, limit: 120)
         for it in raw {
-            guard it.videoURLParsed != nil, it.hasDesignedArtwork else { continue }
+            guard it.videoURLParsed != nil, it.hasDesignedArtwork, it.isRecommendable else { continue }
             guard it.isSilentFilm != true else { continue }           // color only
             guard !it.isBlackAndWhite else { continue }               // drop frame-classified B&W
             if let r = it.runtimeSeconds, r > 0, r > 15 * 60 { continue }   // short only
@@ -440,7 +440,8 @@ final class AppStore {
     func kidsCharacters() -> [(name: String, items: [Catalog.Item])] {
         let scary = ["horror", "nightmare", "macabre"]
         let pool = dbBrowse(contentType: "animation", sort: .popular, limit: 1500).filter { it in
-            guard it.isSilentFilm != true, it.hasDesignedArtwork, it.videoURLParsed != nil else { return false }
+            guard it.isSilentFilm != true, it.hasDesignedArtwork, it.videoURLParsed != nil,
+                  it.isRecommendable else { return false }
             let g = (it.genres + it.subjects).map { $0.lowercased() }
             return !g.contains { x in scary.contains(where: x.contains) }
         }

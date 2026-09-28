@@ -105,7 +105,7 @@ struct ScreensaverHomeView: View {
     private func loadPreview() {
         preview = store.dbBrowse(sort: .popular, limit: 400)
             .filter { ["tmdb", "omdb", "fanart"].contains($0.artworkSource)
-                      && $0.posterURLParsed != nil && $0.isSilentFilm != true }
+                      && $0.posterURLParsed != nil && $0.isSilentFilm != true && $0.isRecommendable }
             .shuffled().prefix(18).map { $0 }
     }
 }

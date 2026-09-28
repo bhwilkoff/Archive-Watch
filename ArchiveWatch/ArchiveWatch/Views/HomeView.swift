@@ -247,7 +247,7 @@ struct HomeView: View {
         dynamicPayloads = [
             dynShelf("public-domain-day", "Public Domain Day",
                      "Published in \(String(pdYear)), public domain since January 1",
-                     store.filteringWatched(store.dbBrowse(year: pdYear, sort: .popular, limit: 120))
+                     store.filteringWatched(store.dbBrowse(year: pdYear, sort: .popular, limit: 120)).filter(\.isRecommendable)
                         .filter { $0.hasProfessionalArtwork }),
             dynShelf("top-rated", "Top Rated", "Highest rated on IMDb",
                      store.filteringWatched(store.dbTopRated()).filter { $0.hasProfessionalArtwork }),

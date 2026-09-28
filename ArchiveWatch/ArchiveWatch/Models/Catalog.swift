@@ -244,6 +244,11 @@ struct Catalog: Decodable, Sendable {
         // unchanged.
         let playbackVerified: Bool?
 
+        /// Decision 149: never CHOSEN for the viewer (propaganda) — no shelf,
+        /// hero, lineup or random pick; Search, Detail and Browse still reach it.
+        let noRecommend: Bool?
+        var isRecommendable: Bool { noRecommend != true }
+
         // Subtitle/caption tracks (tools/enrich_subtitles.py). Additive +
         // optional. Each is a side-loadable track the players attach to the
         // progressive MP4 (archive.org's own ASR captions, OpenSubtitles, or

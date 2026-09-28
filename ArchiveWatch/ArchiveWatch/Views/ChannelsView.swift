@@ -119,7 +119,7 @@ struct ChannelsView: View {
         var number = 2
         for uc in userChannels {
             let pool = playable(store.dbBrowse(contentType: uc.contentType, decade: uc.decade,
-                                               genre: uc.genre, sort: .popular, limit: 150))
+                                               genre: uc.genre, sort: .popular, limit: 150).filter(\.isRecommendable))
             let slots = ChannelScheduler.schedule(channelID: "user-\(uc.id)", programs: pool, now: now)
             guard !slots.isEmpty else { continue }
             out.append(GuideChannel(id: "user-\(uc.id)", number: number, title: uc.name,

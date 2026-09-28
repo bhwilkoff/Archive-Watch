@@ -231,6 +231,7 @@ into every session and the index alone carries every title.)
 - 146 — The Creation Studio clips any title the apps show; fair use is its rule, not the broadcast tier
 - 147 — A film the system can caption plays through the loopback proxy, paced to twice its bitrate
 - 148 — Older Apple TVs are served by the tvOS 26 floor, not a second app; the floor is held below 27
+- 149 — Propaganda is never recommended and always findable; "true propaganda" is the Nazi state's, on evidence a reader can open
 
 ---
 
@@ -1216,4 +1217,48 @@ setting. Put new tvOS 27 APIs behind `#available(tvOS 27, *)` with a tvOS 26
 path. What the old boxes still lack is VERIFICATION: nobody has run the app on
 an A8 (no HEVC decoder, 2 GB, the ~148 MB catalog DB to open), and this project
 tests on real hardware only.
+
+
+## 149 — Propaganda is never recommended and always findable; "true propaganda" is the Nazi state's, on evidence a reader can open
+*Date: 2026-09-28*
+
+A film flagged `noRecommend` is never CHOSEN for the viewer — no Home shelf,
+hero, community or Top Rated row, Hidden Gems, More Like This, channel, Top
+Shelf, Tonight, Surprise pick, Party/Cartoon/screensaver lineup, user channel
+or social post — and stays reachable by Search, Detail, Browse grids and
+archive.org's own Collections. `remediate_catalog.flag_propaganda` sets it every
+build from `shared/editorial/propaganda.json`: a Vorbehaltsfilm (Germany's own
+restricted list, title + year), a German-language 1933-45 film the data tags
+propaganda (genre, keyword or archive.org subject), a Nazi-party producer, or a
+sourced `add` entry; `not` names exceptions. It is an items column
+(`noRecommend`), a catalog-index column (18, schema 15) and `Catalog.Item`
+/`CatalogItem` field; every client picker gates on it.
+
+**Why**: the owner, 2026-09-28 — *"All true propaganda should be hidden from
+recommendations, but avaialble via search."* The word needed a boundary before
+it could be a rule. Measured on the live catalog: a plain "propaganda" tag sits
+on 200 visible items — Battleship Potemkin, Why We Fight, the Disney and Warner
+war cartoons, Reefer Madness, Night Train to Munich — and hiding those from
+every shelf would gut the archive's history of cinema on a keyword. The case
+that raised the question was *Juden ohne Maske* (1937), an antisemitic film of
+the Nazi party's own propaganda office, which no tag caught at all. So "true
+propaganda" is the regime's: Germany restricts its worst films itself (the
+Vorbehaltsfilme), the party's producer credit is in the data, and the rest is
+the catalog's own tags inside the right country and years. Measured: 60 visible
+items (27 Vorbehaltsfilme, 22 by data, 9 by producer, 2 by source). One
+false positive was found and named — *Death Mills* (1945), the US War
+Department's film of the liberated camps, caught only through its
+German-language version.
+
+**How to apply**: never widen the rule on a keyword; add evidence to
+`propaganda.json` with a source a reader can open, and it takes effect at the
+next publish (the flag is recomputed, so removing evidence clears it). A new
+surface that picks films for the viewer must skip `noRecommend` (Apple
+`isRecommendable`/`noRecAnd`, Android `noRecAnd`/`browse(recommendOnly)`, web
+`Data.rec`, Roku `noRec()`); a surface the viewer drives (search, a browse
+filter, a collection) must not. The title-marker rule above it
+(`exclude_hate_propaganda`) is different in kind — modern Holocaust-denial and
+CSAM uploads that are not films, several with fabricated years — and stays an
+exclusion. `tools/test_propaganda_no_recommend.py` holds the rule and every
+pipeline gate, each with an unflagged control.
 
