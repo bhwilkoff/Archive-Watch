@@ -110,6 +110,24 @@ check("a same-length copy", R.runtime_contradicts_match(
 check("a short-to-short gap under twenty minutes", R.runtime_contradicts_match(
     variant(fileRuntimeSeconds=300, runtimeWasSeconds=1200, imdbID=None)) is None)
 
+keep = R._runtime_keep()
+check("the editorial keep-list loads with a reason per id",
+      len(keep) >= 8 and all(isinstance(v, str) and v for v in keep.values()), repr(keep))
+spartak = variant(archiveID="Spartak", title="Spartak", canonicalTitle="Spartacus",
+                  originalTitle="Спартак", akaTitles=None, fileRuntimeSeconds=60,
+                  runtimeWasSeconds=5760, imdbID=None)
+unkept = dict(spartak, archiveID="Spartak-not-on-the-list")
+check("a kept id is not cleared (Spartak / Spartacus)",
+      R.runtime_contradicts_match(spartak) is None)
+check("...and the same item under another id IS (the keep-list is what spares it)",
+      R.runtime_contradicts_match(unkept) is not None)
+kept_items = [copy.deepcopy(spartak)]
+R.remediate(kept_items)
+check("through remediate, a kept id keeps its match",
+      kept_items[0].get("matchVerdict") != "cleared_runtime"
+      and kept_items[0].get("canonicalTitle") == "Spartacus",
+      repr((kept_items[0].get("matchVerdict"), kept_items[0].get("canonicalTitle"))))
+
 print("\ncontrol: the same catch with the gate removed must FAIL")
 real = R.runtime_contradicts_match
 R.runtime_contradicts_match = lambda it: None

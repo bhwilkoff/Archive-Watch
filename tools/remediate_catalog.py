@@ -344,12 +344,27 @@ def _matched_runtime(it):
     return it.get("runtimeWasSeconds")
 
 
+_RUNTIME_KEEP = None
+
+
+def _runtime_keep():
+    """archiveID -> reason: a human editor judged the match right despite the
+    title check (usually a translated title the match does not carry)."""
+    global _RUNTIME_KEEP
+    if _RUNTIME_KEEP is None:
+        try:
+            _RUNTIME_KEEP = json.loads((REPO / "shared/editorial/runtime_match_keep.json").read_text())
+        except Exception:
+            _RUNTIME_KEEP = {}
+    return _RUNTIME_KEEP
+
+
 def runtime_contradicts_match(it):
     """(file seconds, matched film seconds) when the match is the wrong film by
     runtime AND title, else None. Pure; reads only the committed OMDb cache."""
     if not (it.get("imdbID") or it.get("tmdbID")) or it.get("contentType") == "tv-series":
         return None
-    if it.get("matchVerdict") == "verified":
+    if it.get("matchVerdict") == "verified" or it.get("archiveID") in _runtime_keep():
         return None
     own, film = _own_runtime(it), _matched_runtime(it)
     if not (own and film):
