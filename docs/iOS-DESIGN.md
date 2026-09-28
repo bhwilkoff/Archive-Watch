@@ -151,6 +151,11 @@ second, or the next program if it is between two, with the same commercial
 weave. The day schedule's own taps play without it (they are not live).
 Seen on the iPhone 12, muted (DEBUG doors `AW_TUNE_CHANNEL`, `AW_SURF`,
 `AW_MUTE`): Drama Theater, then Comedy Hour · The Rage of Paris, then faded.
+**The capsule is the way to change channel for everyone**, because most iPad
+users have no keyboard (owner, 2026-09-28): at regular width it is
+finger-sized — 60 pt chevrons, headline text — and a TAP on ▼ is asserted on
+the iPad Pro (`IPadInputUITests.test_25`: Drama Theater to Comedy Hour, read
+off the capsule's own Previous-channel button).
 
 2.6 **Modes are pushes on iOS, not takeovers.** Cartoon Mode, Surprise, and
 Public Domain Day are ordinary pushed screens reached from Home's shuffle

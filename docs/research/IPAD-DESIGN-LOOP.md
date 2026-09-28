@@ -274,7 +274,15 @@ rule in IPAD-DESIGN.md before it ships (binding-design-doc discipline).
   says which keys AVPlayerViewController claims on iPad; the next step is
   still a DEBUG on-screen counter of key commands received, not a guess.
 
-**Remaining (2026-09-28 13:47, updated 17:32):** code — Clip Studio Space (I/O done),
+- v1.42.894: **Touch is how channels change** (owner: "Most iPad users do
+  not use a keyboard at all ... Can we make sure that there are actual touch
+  controls"). The capsule's ▲/▼ were already there; a tap on ▼ is now
+  asserted on the iPad Pro (`test_25`, the capsule's own button as the
+  instrument), and at regular width the capsule is finger-sized: 60 pt
+  chevrons (44 on the phone), headline text. The picture behind it plays (a
+  30 s capture); earlier black frames were only the seconds before it began.
+
+**Remaining (2026-09-28 13:47, updated 17:40):** code — Clip Studio Space (I/O done),
 channel-surf ↑/↓ (three routes failed; control first),  Spotlight indexing (Open Film for Siri is built), the Studio's Record (the custom card is built; film-stall reason was already there); verify — picture-in-picture restore;  owner — none.
 
 ## Found, data (for the copyright/scrub work, not the iPad)

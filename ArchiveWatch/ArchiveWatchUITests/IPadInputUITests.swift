@@ -337,4 +337,22 @@ final class IPadInputUITests: XCTestCase {
         snap("clip menu")
         app.typeKey(XCUIKeyboardKey.escape, modifierFlags: [])
     }
+
+    /// iOS-DESIGN §2.5d: channels change by TOUCH — the strip's ▼ button
+    /// tunes the next channel. Measured on the strip's own buttons (the guide
+    /// behind the player lists every channel name). Quiet.
+    func test_25_touchChangesChannel() {
+        launch(["AW_START_TAB": "channels", "AW_TUNE_CHANNEL": "drama", "AW_MUTE": "quiet"])
+        let next = app.buttons.matching(NSPredicate(format: "label BEGINSWITH 'Next channel, '")).firstMatch
+        guard next.waitForExistence(timeout: 20) else { return XCTFail("the channel did not open") }
+        let previous = app.buttons.matching(NSPredicate(format: "label BEGINSWITH 'Previous channel, '")).firstMatch
+        XCTAssertNotEqual(previous.label, "Previous channel, Drama Theater", "control: already one channel on")
+        snap("strip before")
+        next.tap()
+        // Read at once: the strip fades four seconds after a change.
+        XCTAssertTrue(previous.waitForExistence(timeout: 2), "no strip after the tap")
+        snap("strip after next")
+        XCTAssertEqual(previous.label, "Previous channel, Drama Theater", "▼ did not tune the next channel")
+        app.terminate()
+    }
 }

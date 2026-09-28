@@ -324,6 +324,7 @@ private struct SurfPlayer: View {
     @State var index: Int
     @State private var lineup: ChannelLineup
     @State private var stripVisible = true
+    @Environment(\.horizontalSizeClass) private var hSize
     @State private var hideTask: Task<Void, Never>?
     let weave: ([Catalog.Item]) -> [Catalog.Item]
 
@@ -364,20 +365,27 @@ private struct SurfPlayer: View {
     private var strip: some View {
         let now = Date()
         let onNow = channel.slots.first { $0.contains(now) }
-        return HStack(spacing: 10) {
+        // Regular width (IPAD-DESIGN §5c): a finger-sized capsule on a 13-inch
+        // screen, where the phone's 44pt chevrons were the smallest thing on it.
+        let wide = hSize == .regular
+        let button: CGFloat = wide ? 60 : 44
+        return HStack(spacing: wide ? 16 : 10) {
             Button { surf(-1) } label: {
-                Image(systemName: "chevron.up").font(.headline).frame(width: 44, height: 44)
+                Image(systemName: "chevron.up").font(wide ? .title2.weight(.semibold) : .headline)
+                    .frame(width: button, height: button)
             }
             .accessibilityLabel("Previous channel, \(channels[(index - 1 + channels.count) % channels.count].title)")
             VStack(spacing: 2) {
-                Text(channel.title).font(.subheadline.weight(.semibold))
+                Text(channel.title).font(wide ? .headline : .subheadline.weight(.semibold))
                 if let onNow {
-                    Text(onNow.item.title).font(.caption).foregroundStyle(.secondary).lineLimit(1)
+                    Text(onNow.item.title).font(wide ? .subheadline : .caption)
+                        .foregroundStyle(.secondary).lineLimit(1)
                 }
             }
-            .frame(minWidth: 140)
+            .frame(minWidth: wide ? 220 : 140)
             Button { surf(1) } label: {
-                Image(systemName: "chevron.down").font(.headline).frame(width: 44, height: 44)
+                Image(systemName: "chevron.down").font(wide ? .title2.weight(.semibold) : .headline)
+                    .frame(width: button, height: button)
             }
             .accessibilityLabel("Next channel, \(channels[(index + 1) % channels.count].title)")
         }
