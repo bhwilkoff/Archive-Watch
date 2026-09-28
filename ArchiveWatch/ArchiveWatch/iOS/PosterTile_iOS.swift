@@ -27,6 +27,7 @@ struct PosterTile: View {
         }
         .frame(width: width, alignment: .leading)
         .iPadFilmTile(item.archiveID)   // IPAD-DESIGN §11.1, §12.1
+        .filmContextMenu(item.archiveID)   // §11.2
     }
 }
 

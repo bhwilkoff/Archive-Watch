@@ -1,5 +1,6 @@
 #if os(iOS)
 import SwiftUI
+import SwiftData
 import CoreTransferable
 
 // iPad places, pointer and drag and drop (IPAD-DESIGN §10–§12).
@@ -47,6 +48,55 @@ private struct IPadFilmTile: ViewModifier {
                 .draggable(FilmTransfer(archiveID: archiveID))
         } else {
             content
+        }
+    }
+}
+
+extension View {
+    /// Long-press (touch) or right-click (pointer) on a poster: the film's
+    /// quick actions without opening its page — the Mac card's menu
+    /// (macOS/Cards_macOS.swift), IPAD-DESIGN §11.2.
+    func filmContextMenu(_ archiveID: String) -> some View {
+        modifier(FilmContextMenu(archiveID: archiveID))
+    }
+}
+
+private struct FilmContextMenu: ViewModifier {
+    let archiveID: String
+    @Environment(\.modelContext) private var ctx
+    @Environment(\.openWindow) private var openWindow
+    @Environment(\.supportsMultipleWindows) private var supportsMultipleWindows
+
+    /// Read when the menu opens, so a grid of tiles does not each observe
+    /// every favorite.
+    private var favorite: Favorite? {
+        let id = archiveID
+        var d = FetchDescriptor<Favorite>(predicate: #Predicate { $0.archiveID == id })
+        d.fetchLimit = 1
+        return try? ctx.fetch(d).first
+    }
+
+    func body(content: Content) -> some View {
+        content.contextMenu {
+            if supportsMultipleWindows {
+                Button { openWindow(id: FilmWindow.id, value: archiveID) } label: {
+                    Label("Open in New Window", systemImage: "macwindow.badge.plus")
+                }
+            }
+            if let f = favorite {
+                Button {
+                    ctx.delete(f)
+                    SyncNudge.recordDeletion("fav:\(archiveID)", in: ctx)
+                } label: { Label("Remove from Favorites", systemImage: "heart.slash") }
+            } else {
+                Button {
+                    ctx.insert(Favorite(archiveID: archiveID)); try? ctx.save()
+                    SyncNudge.nudge(ctx)
+                } label: { Label("Add to Favorites", systemImage: "heart") }
+            }
+            if let url = URL(string: "https://archivewatch.org/item/\(archiveID)") {
+                ShareLink(item: url) { Label("Share…", systemImage: "square.and.arrow.up") }
+            }
         }
     }
 }

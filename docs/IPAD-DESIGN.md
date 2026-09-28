@@ -318,6 +318,11 @@ person may hide or reorder entries; the five tab-bar tabs cannot be hidden.
 words names itself on hover (`.help`). `hoverEffect` is inert on touch, so the
 iPhone is unchanged.
 
+11.2 **A poster has a menu** — a right-click with a pointer, a long press on
+touch, on iPhone too: Open in New Window (where windows exist), Add to /
+Remove from Favorites, Share. The Mac card's menu, not a new set. Play is not
+in it: the tile's own tap opens the page, where Play is the first thing.
+
 ## §12 — Drag and drop (binding)
 
 12.1 **A film can be picked up.** Poster tiles are `.draggable` at regular

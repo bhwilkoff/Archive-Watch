@@ -264,4 +264,23 @@ final class IPadInputUITests: XCTestCase {
             XCTFail("no Go menu in the menu bar")
         }
     }
+
+    /// §11.2: a poster has the film's menu (the same tile serves More Like
+    /// This, Home and every grid). Nothing in it is chosen, so the owner's
+    /// library is untouched.
+    func test_19_posterHasAMenu() {
+        launch(["AW_START_TAB": "films"])
+        sleep(3)
+        // A poster's label ends with its year ("Title, Title, 1922").
+        let tile = app.buttons.matching(NSPredicate(format: "label MATCHES '.*, (18|19|20)[0-9][0-9]$'"))
+            .allElementsBoundByIndex.first { $0.isHittable }
+        guard let tile else { return XCTFail("no More Like This tile") }
+        tile.press(forDuration: 1.2)
+        let share = app.buttons.matching(NSPredicate(format: "label == 'Share…'")).firstMatch
+        XCTAssertTrue(share.waitForExistence(timeout: 5), "no menu on the poster")
+        let fav = app.buttons.matching(NSPredicate(format: "label == 'Add to Favorites' OR label == 'Remove from Favorites'")).firstMatch
+        XCTAssertTrue(fav.exists, "the menu has no favorite action")
+        snap("poster menu")
+        app.typeKey(XCUIKeyboardKey.escape, modifierFlags: [])
+    }
 }

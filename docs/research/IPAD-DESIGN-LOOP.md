@@ -196,9 +196,15 @@ rule in IPAD-DESIGN.md before it ships (binding-design-doc discipline).
   that opens a full-screen player cleans windows on a plain launch first (the
   cleanup read a player as a film window and pressed ⌘W on it).
 
-**Remaining (2026-09-28 13:47, updated 16:43):** code — Clip Studio keys (I/O, Space),
-channel-surf ↑/↓ (three routes failed; control first), context menus on Scenes /
-More Like This / guide blocks, an App Intents film entity (Siri + Spotlight,
+- v1.42.886: **A poster has a menu** (audit #5, IPAD-DESIGN §11.2): right-
+  click or long press on any poster tile — Home, every grid, More Like This —
+  offers Open in New Window (where windows exist), Add to / Remove from
+  Favorites and Share…, on iPhone too. Favorite state is read when the menu
+  opens, so a grid does not observe every favorite. Seen on the iPad Pro
+  (His Girl Friday in Films) and asserted by `test_19`, which chooses nothing.
+
+**Remaining (2026-09-28 13:47, updated 16:51):** code — Clip Studio keys (I/O, Space),
+channel-surf ↑/↓ (three routes failed; control first), context menus on Scenes and guide blocks (posters done), an App Intents film entity (Siri + Spotlight,
 all Apple), the Studio's Mac-only features that port to iPad (film-stall
 reason, custom card, Record); verify — a film window's close control, picture-in-picture restore; owner — none.
 
