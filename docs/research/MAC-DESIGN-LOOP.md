@@ -398,3 +398,8 @@ through Accessibility and its items pressed there (never pointer clicks).
   typing "jkl" lands in the field; with the timeline focused they read J,
   K, L. (Space read back once as " " and once as nothing — how AX reports
   that key, not claimed either way.)
+- (no version) The music track, driven through the real Open panel with a
+  system sound (/System/Library/Sounds/Glass.aiff, nothing played): it lands
+  on the audio lane, VoiceOver reads "Music, Glass", and its inspector
+  (Name, Volume at a deliberate 50% under the film, Start, fades, Delete
+  Music) needs nothing. The unsaved test project was discarded.
