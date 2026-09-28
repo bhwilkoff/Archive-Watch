@@ -172,8 +172,20 @@ every other size scales it with the ramp level the size belongs to. Tokens:
 a fixed `.system(size:)` beside a semantic font on these surfaces — at large sizes
 the two read as different apps. What would run off the screen stacks instead
 (`isAccessibilitySize` + `AnyLayout`: the facts row, and Detail's icon circles
-under Play); a hero grows downward from its backdrop's height. Shelves, tiles,
-Home and Channels are the next pass.
+under Play); a hero grows downward from its backdrop's height.
+
+**Browsing surfaces (second pass)** scale the same way: page titles, the Home
+hero's eyebrow/title/facts, poster and episode captions under their art (Home,
+Browse, TV Shows, Continue Watching, Cartoons), shelf headers, the poster zoom and
+Cartoons' headings and Play All. Art never resizes; a caption takes its lines (a
+Cartoons caption's fixed 50pt became a minimum). **Held at the default size, on
+purpose**: text INSIDE a fixed-size card — category and decade tiles, Collections
+cards (320pt), Surprise tiles (200pt), a Continue Watching card's time-left line,
+the poster category chip — because a card that grew would break its row's grid
+and one that did not would clip; the card's subject is repeated on the page it
+opens. And the **Channels guide** (`.dynamicTypeSize(...DynamicTypeSize.large)`):
+its blocks are sized by minutes and its rows by the rail, so text cannot reflow
+into them; focus names a program in full. Icons stay fixed everywhere.
 
 4.2 **No synopsis at 10 ft on transient surfaces** (hero, shelf, channel banner).
 Synopsis lives on Detail and the player info overlay only.

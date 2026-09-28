@@ -41,7 +41,7 @@ struct PosterTile: View {
 
             VStack(alignment: .leading, spacing: 4) {
                 Text(item.title)
-                    .font(.system(size: 19, weight: .semibold))
+                    .scaledFont(19, weight: .semibold)
                     .foregroundStyle(.white)
                     .lineLimit(2)
                     .multilineTextAlignment(.leading)
@@ -55,7 +55,7 @@ struct PosterTile: View {
                         Text(formatRuntime(r))
                     }
                 }
-                .font(.system(size: 17, weight: .regular))
+                .scaledFont(17, weight: .regular)
                 .foregroundStyle(.white.opacity(0.55))
             }
             .frame(width: cardWidth, alignment: .leading)

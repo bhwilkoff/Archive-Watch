@@ -52,7 +52,7 @@ struct KidsModeView: View {
                 }
                 if characters.isEmpty && collections.isEmpty {
                     Text("Loading cartoons…")
-                        .font(.system(size: 30, weight: .bold, design: .rounded))
+                        .scaledFont(30, weight: .bold, design: .rounded)
                         .foregroundStyle(.white.opacity(0.85))
                         .padding(.horizontal, 80)
                 }
@@ -84,14 +84,14 @@ struct KidsModeView: View {
         HStack(alignment: .center, spacing: 28) {
             VStack(alignment: .leading, spacing: 6) {
                 Text("Cartoons!")
-                    .font(.system(size: 72, weight: .black, design: .rounded))
+                    .scaledFont(72, weight: .black, design: .rounded)
                     .foregroundStyle(.white)
                     .shadow(color: .black.opacity(0.25), radius: 6, y: 3)
             }
             Spacer()
             Button { playing = KidsLineup(items: store.kidsCartoonPool(limit: 300)) } label: {
                 Label("Play All", systemImage: "play.fill")
-                    .font(.system(size: 30, weight: .heavy, design: .rounded))
+                    .scaledFont(30, weight: .heavy, design: .rounded)
                     .padding(.horizontal, 44).padding(.vertical, 24)
             }
             .buttonStyle(.card)
@@ -159,7 +159,7 @@ private struct KidsRow<Content: View>: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 18) {
             Text(title)
-                .font(.system(size: 34, weight: .heavy, design: .rounded))
+                .scaledFont(34, weight: .heavy, design: .rounded)
                 .foregroundStyle(.white)
                 .padding(.horizontal, 80)
             ScrollView(.horizontal, showsIndicators: false) {
@@ -200,7 +200,7 @@ private struct KidsTile: View {
                 .shadow(color: .black.opacity(0.35), radius: 10, y: 6)
 
             Text(title)
-                .font(.system(size: 26, weight: .heavy, design: .rounded))
+                .scaledFont(26, weight: .heavy, design: .rounded)
                 .foregroundStyle(.white)
                 .lineLimit(1)
                 .minimumScaleFactor(0.7)
@@ -223,11 +223,11 @@ private struct KidsGroupView: View {
             VStack(alignment: .leading, spacing: 28) {
                 HStack(spacing: 28) {
                     Text(group.title)
-                        .font(.system(size: 54, weight: .black, design: .rounded))
+                        .scaledFont(54, weight: .black, design: .rounded)
                         .foregroundStyle(.white)
                     Button { onPlay(group.items.shuffled()) } label: {
                         Label("Play All", systemImage: "play.fill")
-                            .font(.system(size: 24, weight: .heavy, design: .rounded))
+                            .scaledFont(24, weight: .heavy, design: .rounded)
                             .padding(.horizontal, 30).padding(.vertical, 16)
                     }
                     .buttonStyle(.card)
@@ -271,12 +271,13 @@ private struct KidsPoster: View {
                 .clipShape(RoundedRectangle(cornerRadius: 18))
                 .overlay(RoundedRectangle(cornerRadius: 18).strokeBorder(.white.opacity(0.7), lineWidth: 4))
             Text(item.title)
-                .font(.system(size: 19, weight: .bold, design: .rounded))
+                .scaledFont(19, weight: .bold, design: .rounded)
                 .foregroundStyle(.white)
                 .lineLimit(2)
                 .multilineTextAlignment(.center)
                 .minimumScaleFactor(0.7)
-                .frame(width: 240, height: 50, alignment: .top)
+                .frame(width: 240)
+                .frame(minHeight: 50, alignment: .top)
         }
     }
 }

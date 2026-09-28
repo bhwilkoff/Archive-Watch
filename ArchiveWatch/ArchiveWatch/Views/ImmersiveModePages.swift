@@ -118,7 +118,7 @@ private struct ModeHeader: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             Text(title)
-                .font(.system(size: 54, weight: .heavy, design: .serif))
+                .scaledFont(54, weight: .heavy, design: .serif)
                 .foregroundStyle(.white)
         }
         .padding(.horizontal, 80)
@@ -181,13 +181,13 @@ private struct PosterZoomView: View {
                     .shadow(color: .black.opacity(0.5), radius: 20, y: 10)
                 VStack(spacing: 6) {
                     Text(item.title)
-                        .font(.system(size: 30, weight: .bold))
+                        .scaledFont(30, weight: .bold)
                         .foregroundStyle(.white)
                         .multilineTextAlignment(.center)
                         .fixedSize(horizontal: false, vertical: true)
                     if let y = item.year {
                         Text(verbatim: String(y))
-                            .font(.system(size: 23)).foregroundStyle(.white.opacity(0.6))
+                            .scaledFont(23).foregroundStyle(.white.opacity(0.6))
                     }
                 }
                 // The poster gives way, never the title under it.

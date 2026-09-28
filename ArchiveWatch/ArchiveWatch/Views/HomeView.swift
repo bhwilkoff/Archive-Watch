@@ -418,11 +418,11 @@ struct HeroBanner: View {
     private var heroOverlay: some View {
         VStack(alignment: .leading, spacing: 14) {
             Text(categoryLabel.uppercased())
-                .font(.system(size: 15, weight: .bold))
+                .scaledFont(15, weight: .bold)
                 .tracking(2.2)
                 .foregroundStyle(store.accentColor(forCategory: categoryID))
             Text(item.title)
-                .font(.system(size: 64, weight: .heavy, design: .serif))
+                .scaledFont(64, weight: .heavy, design: .serif)
                 .foregroundStyle(.white)
                 .lineLimit(2)
                 .minimumScaleFactor(0.55)
@@ -434,7 +434,7 @@ struct HeroBanner: View {
                 if let r = item.runtimeSeconds, r > 0 { Text(formatRuntime(r)) }
                 if let byline = item.byline { Text(byline) }
             }
-            .font(.system(size: 25, weight: .regular))
+            .scaledFont(25, weight: .regular)
             .foregroundStyle(.white.opacity(0.85))
         }
         .frame(maxWidth: 1200, alignment: .leading)

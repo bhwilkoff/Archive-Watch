@@ -38,7 +38,7 @@ struct CollectionsView: View {
             VStack(alignment: .leading, spacing: 32) {
                 VStack(alignment: .leading, spacing: 8) {
                     Text("Collections")
-                        .font(.system(size: 54, weight: .heavy, design: .serif))
+                        .scaledFont(54, weight: .heavy, design: .serif)
                         .foregroundStyle(.white)
                 }
                 .padding(.horizontal, 80)

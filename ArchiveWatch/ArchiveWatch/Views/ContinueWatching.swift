@@ -151,7 +151,7 @@ struct ContinueWatchingTile: View {
             .focused($isFocused)
 
             Text(item.title)
-                .font(.system(size: 19, weight: .semibold))
+                .scaledFont(19, weight: .semibold)
                 .foregroundStyle(.white)
                 .lineLimit(1)
                 .minimumScaleFactor(0.8)

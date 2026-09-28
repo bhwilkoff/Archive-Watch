@@ -64,7 +64,7 @@ struct SurpriseView: View {
     private var header: some View {
         VStack(alignment: .leading, spacing: 8) {
             Text("Surprise Me")
-                .font(.system(size: 52, weight: .heavy, design: .serif))
+                .scaledFont(52, weight: .heavy, design: .serif)
                 .foregroundStyle(.white)
         }
         .padding(.horizontal, 80)

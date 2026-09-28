@@ -115,7 +115,7 @@ struct TVShowsView: View {
         HStack(alignment: .center, spacing: 20) {
             VStack(alignment: .leading, spacing: 6) {
                 Text("TV Shows")
-                    .font(.system(size: 54, weight: .heavy, design: .serif))  // #6: match every other page
+                    .scaledFont(54, weight: .heavy, design: .serif)  // #6: match every other page
                     .foregroundStyle(.white)
                 Text("\(items.count) series")
                     .font(.title3)
@@ -158,7 +158,7 @@ struct SeriesCardTile: View {
 
             VStack(alignment: .leading, spacing: 4) {
                 Text(item.title)
-                    .font(.system(size: 20, weight: .semibold))
+                    .scaledFont(20, weight: .semibold)
                     .foregroundStyle(.white)
                     .lineLimit(2)
                     .minimumScaleFactor(0.8)
@@ -172,7 +172,7 @@ struct SeriesCardTile: View {
                         Text("\(n) episode\(n == 1 ? "" : "s")")
                     }
                 }
-                .font(.system(size: 17, weight: .regular))
+                .scaledFont(17, weight: .regular)
                 .foregroundStyle(.white.opacity(0.55))
             }
             .frame(width: cardWidth, alignment: .leading)

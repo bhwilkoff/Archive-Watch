@@ -285,6 +285,10 @@ private struct ChannelGuide: View {
                 .padding(.bottom, 40)
             }
         }
+        // A guide is a time axis: its blocks are sized by minutes and its rows
+        // by the rail, so text cannot reflow into them. Held at the default
+        // Text Size (tvOS-DESIGN §4.1a); focus names a program in full.
+        .dynamicTypeSize(...DynamicTypeSize.large)
     }
 
     // NOW at the left edge, then the clock's own :00 and :30 marks at their

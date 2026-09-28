@@ -163,7 +163,7 @@ struct BrowseView: View {
             VStack(alignment: .leading, spacing: 24) {
                 HStack(spacing: 20) {
                     Text(headline)
-                        .font(.system(size: 54, weight: .heavy, design: .serif))  // #6: match every other page
+                        .scaledFont(54, weight: .heavy, design: .serif)  // #6: match every other page
                         .foregroundStyle(.white)
                     Text("\(totalCount.formatted()) titles")
                         .font(.title3)
@@ -415,7 +415,7 @@ struct PillSelectRow<T: Hashable>: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
             Text(title)
-                .font(.system(size: 24, weight: .bold))
+                .scaledFont(24, weight: .bold)
                 .foregroundStyle(.white.opacity(0.85))
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 14) {
@@ -497,7 +497,7 @@ struct CompactTile: View {
 
             VStack(alignment: .leading, spacing: 2) {
                 Text(item.title)
-                    .font(.system(size: 19, weight: .semibold))
+                    .scaledFont(19, weight: .semibold)
                     .foregroundStyle(.white)
                     .lineLimit(2)
                     .multilineTextAlignment(.leading)
@@ -506,7 +506,7 @@ struct CompactTile: View {
                     .fixedSize(horizontal: false, vertical: true)
                 if let year = item.year {
                     Text(String(year))
-                        .font(.system(size: 17, weight: .regular))
+                        .scaledFont(17, weight: .regular)
                         .foregroundStyle(.white.opacity(0.55))
                 }
             }
