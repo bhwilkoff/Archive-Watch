@@ -363,6 +363,13 @@ Harness:
   lines with no way to read the rest ("…together they ser…", Adam-12); a tap
   opens and closes the whole text. All unanchored menus in the app are now
   checked (Search's sit in their own Column and were fine). Seen on the Pixel.
+- AQ. ✅ v1.42.969 Phone Settings walked (Subtitles, Live Caption, Sync,
+  About): working; the signed-in Drive line names the account and last sync.
+  Two captions tightened to what a viewer cannot discover: Live Caption is one
+  sentence (how to turn it on), and signed-in Sync reads "Syncing through your
+  Google Drive · <account>". The signed-out text keeps its privacy fact and the
+  TMDb notice is required attribution. Widgets are NOT placed on the owner's
+  home screen to test (that changes their launcher); code-read only.
 
 ## Queue
 

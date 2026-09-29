@@ -222,16 +222,8 @@ fun SettingsScreen(container: AppContainer, nav: Nav) {
             // point; Live Caption itself has no documented deep link, and it is
             // toggled from the volume rocker, so that is spelled out.
             Text(
-                "Films without a subtitle track can still be captioned by Android itself. " +
-                    "Live Caption transcribes anything playing on this device, offline, " +
-                    "and works on every title.",
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-            )
-            Spacer(Modifier.height(4.dp))
-            Text(
-                "Turn it on from Caption preferences, or press a volume key while a film " +
-                    "is playing and tap the Live Caption button.",
+                "Android's Live Caption captions any film, offline: press a volume key " +
+                    "while a film plays and tap the Live Caption button.",
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
@@ -567,8 +559,7 @@ private fun SyncSection() {
     SectionLabel("Sync")
     Text(
         if (status.signedIn)
-            "Your favorites, playlists, channels and watch history sync through your own Google Drive" +
-                (status.account?.let { " ($it)." } ?: ".")
+            "Syncing through your Google Drive" + (status.account?.let { " · $it" } ?: "")
         else "Sign in with Google to sync your favorites, playlists, channels and watch history " +
             "across your Android devices and archivewatch.org. Nothing leaves your own Google Drive.",
         style = MaterialTheme.typography.bodySmall,
