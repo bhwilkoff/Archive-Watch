@@ -252,6 +252,15 @@ Harness:
   n-o-i-r a letter at a time, opens on Noir, 1946).
 - Y (more): "Messe noire" shows nudity in its poster in TV search results
   with mature content hidden; the same owner call as Devil In Miss Jonas.
+- AD. ✅ v1.42.957 Library, phone and TV: Continue Watching showed no time
+  left or progress (Home has since v1.42.935); one shared
+  `continueWithProgress()` now feeds Home and both Libraries. TV Watch
+  Together: the join keypad needed ~555 dp under the tabs, which leave ~420,
+  so G-Q was cut and R-Z unseen; it is two columns now (title and slots,
+  keypad and Delete), every key reachable. And the Watch Together and empty
+  Playlists sections fell through to the grid's empty message ("Nothing in
+  progress…" under the keypad); History had borrowed that message too. Seen
+  on the Google TV and the Pixel.
 
 ## Queue
 

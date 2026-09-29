@@ -1,5 +1,6 @@
 package app.archivewatch.android.ui.tv
 
+import app.archivewatch.android.ui.screens.continueWithProgress
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -73,10 +74,12 @@ fun TvLibraryScreen(container: AppContainer, nav: Nav) {
         val db = container.catalog.awaitDb()
         value = db.itemsByIDs(container.userState.favoriteIDs())
     }
-    val continueWatching by produceState<List<CatalogItem>>(emptyList(), dbVersion, userChanges) {
-        val db = container.catalog.awaitDb()
-        value = db.itemsByIDs(container.userState.continueWatching().map { it.archiveID })
-    }
+    // With each card's progress, as on Home (time left and a bar).
+    val continueState by produceState<Pair<List<CatalogItem>, Map<String, app.archivewatch.android.data.WatchProgress>>>(
+        emptyList<CatalogItem>() to emptyMap(), dbVersion, userChanges,
+    ) { value = continueWithProgress(container) }
+    val continueWatching = continueState.first
+    val continueProgress = continueState.second
     // D078 — the durable ever-watched record, not just resumable progress.
     val history by produceState<List<CatalogItem>>(emptyList(), dbVersion, userChanges) {
         val db = container.catalog.awaitDb()
@@ -175,11 +178,15 @@ fun TvLibraryScreen(container: AppContainer, nav: Nav) {
             return@Column
         }
 
+        // Watch Together and Playlists drew their own page above; falling
+        // through, an empty grid printed Continue's message under the keypad.
+        if (section == LibSection.WatchTogether || section == LibSection.Playlists) return@Column
         if (items.isEmpty()) {
             TvEmpty(
                 when (section) {
                     LibSection.Favorites -> "No favorites yet — press Favorite on any title."
-                    else -> "Nothing in progress — playback picks up where you left off."
+                    LibSection.History -> "Nothing watched yet."
+                    else -> "Nothing in progress."
                 },
             )
             return@Column
@@ -200,6 +207,7 @@ fun TvLibraryScreen(container: AppContainer, nav: Nav) {
                 TvPosterTile(
                     item = item,
                     onClick = { nav.openItem(item.archiveID, item.seriesID, item.contentType) },
+                    progress = if (section == LibSection.Continue) continueProgress[item.archiveID] else null,
                 )
             }
         }

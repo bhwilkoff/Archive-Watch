@@ -73,10 +73,12 @@ fun LibraryScreen(container: AppContainer, nav: Nav) {
         val db = container.catalog.awaitDb()
         value = db.itemsByIDs(container.userState.favoriteIDs())
     }
-    val continueWatching by produceState<List<CatalogItem>>(emptyList(), dbVersion, userChanges) {
-        val db = container.catalog.awaitDb()
-        value = db.itemsByIDs(container.userState.continueWatching().map { it.archiveID })
-    }
+    // With each card's progress, as on Home (time left and a bar).
+    val continueState by produceState<Pair<List<CatalogItem>, Map<String, app.archivewatch.android.data.WatchProgress>>>(
+        emptyList<CatalogItem>() to emptyMap(), dbVersion, userChanges,
+    ) { value = continueWithProgress(container) }
+    val continueWatching = continueState.first
+    val continueProgress = continueState.second
     val playlists by produceState<List<UserPlaylist>>(emptyList(), userChanges) {
         value = container.userState.playlists()
     }
@@ -193,7 +195,7 @@ fun LibraryScreen(container: AppContainer, nav: Nav) {
                     items(items.uniqueBy { it.archiveID }, key = { it.archiveID }) { item ->
                         PosterTile(item, onClick = {
                             nav.openItem(item.archiveID, item.seriesID, item.contentType)
-                        })
+                        }, progress = if (tabIndex == 1) continueProgress[item.archiveID] else null)
                     }
                 }
             }

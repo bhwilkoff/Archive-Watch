@@ -97,6 +97,22 @@ private val HOME_SHELF_PRIORITY = listOf(
  * a second copy of this logic would drift. TV renders the same payload with TV
  * components; it does not re-derive it.
  */
+/** Continue Watching's cards and each one's progress, for Home and Library.
+ *  Keyed by the card that SHOWS: a record saved under a merged-away id found
+ *  its card and lost its progress (Alice in Wonderland and Caligari showed a
+ *  year on the Google TV). Newest record wins. */
+internal suspend fun continueWithProgress(
+    container: AppContainer,
+): Pair<List<CatalogItem>, Map<String, app.archivewatch.android.data.WatchProgress>> {
+    val db = container.catalog.awaitDb()
+    val cw = container.userState.continueWatching()
+    val keyed = db.itemsByIDsKeyed(cw.map { it.archiveID })
+    val items = cw.mapNotNull { keyed[it.archiveID] }.distinctBy { it.archiveID }
+    val progress = cw.mapNotNull { p -> keyed[p.archiveID]?.let { it.archiveID to p } }
+        .distinctBy { it.first }.toMap()
+    return items to progress
+}
+
 /** The last Home built, and what it was built from (see rememberHomePayload). */
 private object HomeCache {
     var key: Any? = null
@@ -164,14 +180,7 @@ internal fun rememberHomePayload(container: AppContainer): State<HomePayload> {
         }
 
         // Continue Watching claims first so its titles never resurface below.
-        val cw = container.userState.continueWatching()
-        val cwItems = db.itemsByIDsKeyed(cw.map { it.archiveID })
-        val continueWatching = cw.mapNotNull { cwItems[it.archiveID] }
-        // Keyed by the card that SHOWS: a record saved under a merged-away id
-        // found its card and lost its progress (Alice in Wonderland and
-        // Caligari showed a year on the Google TV). Newest record wins.
-        val continueProgress = cw.mapNotNull { p -> cwItems[p.archiveID]?.let { it.archiveID to p } }
-            .distinctBy { it.first }.toMap()
+        val (continueWatching, continueProgress) = continueWithProgress(container)
         continueWatching.forEach { seen.add(it.dedupKey) }
 
         // Featured shelves in the CANONICAL Apple-TV order (not featured.json file order) — owner

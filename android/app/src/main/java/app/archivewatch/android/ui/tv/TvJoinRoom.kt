@@ -106,51 +106,47 @@ fun TvJoinRoomScreen(container: AppContainer, nav: Nav) {
         }
     }
 
-    Column(
-        Modifier.fillMaxWidth().padding(horizontal = TvDims.OverscanH, vertical = TvDims.OverscanV),
-        horizontalAlignment = Alignment.CenterHorizontally,
+    // Two columns, not one: stacked, the title, the slots and a four-row
+    // keypad needed ~555 dp under the Library's tabs, which leave ~420, and
+    // the last rows ran off the screen (G-Q cut, R-Z unseen; Google TV).
+    Row(
+        Modifier.fillMaxWidth().padding(horizontal = TvDims.OverscanH, vertical = 12.dp),
+        horizontalArrangement = Arrangement.spacedBy(28.dp),
     ) {
-        Text("Join a room", fontSize = 34.sp, fontWeight = FontWeight.Bold, color = Color.White)
-        Spacer(Modifier.size(10.dp))
-        Text(
-            "Enter the code your host reads out.",
-            fontSize = 15.sp, color = Color(0xFF8A8F98), textAlign = TextAlign.Center,
-            modifier = Modifier.width(700.dp),
-        )
-        Spacer(Modifier.size(22.dp))
-
-        // The slots are DRAWN, empty ones included: from a sofa, "how many
-        // more do I type" must be answerable at a glance.
-        Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-            repeat(StudioRoom.CODE_LENGTH) { i ->
-                val ch = typed.getOrNull(i)?.toString() ?: ""
-                Box(
-                    Modifier.size(width = 64.dp, height = 80.dp)
-                        .clip(RoundedCornerShape(10.dp))
-                        .background(Color.White.copy(alpha = if (ch.isEmpty()) 0.06f else 0.14f)),
-                    contentAlignment = Alignment.Center,
-                ) {
-                    Text(ch, fontSize = 44.sp, fontWeight = FontWeight.Bold,
-                         fontFamily = FontFamily.Monospace, color = Color.White)
+        Column(Modifier.width(264.dp)) {
+            Text("Join a room", fontSize = 30.sp, fontWeight = FontWeight.Bold, color = Color.White)
+            Spacer(Modifier.size(8.dp))
+            Text("Enter the code your host reads out.", fontSize = 15.sp, color = Color(0xFF8A8F98))
+            Spacer(Modifier.size(20.dp))
+            // The slots are DRAWN, empty ones included: from a sofa, "how many
+            // more do I type" must be answerable at a glance.
+            Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+                repeat(StudioRoom.CODE_LENGTH) { i ->
+                    val ch = typed.getOrNull(i)?.toString() ?: ""
+                    Box(
+                        Modifier.size(width = 57.dp, height = 76.dp)
+                            .clip(RoundedCornerShape(10.dp))
+                            .background(Color.White.copy(alpha = if (ch.isEmpty()) 0.06f else 0.14f)),
+                        contentAlignment = Alignment.Center,
+                    ) {
+                        Text(ch, fontSize = 40.sp, fontWeight = FontWeight.Bold,
+                             fontFamily = FontFamily.Monospace, color = Color.White)
+                    }
                 }
             }
-        }
-
-        problem?.let {
-            Spacer(Modifier.size(14.dp))
-            Text(it, fontSize = 15.sp, color = Color(0xFFFFA726),
-                 textAlign = TextAlign.Center, modifier = Modifier.width(700.dp))
-        }
-        if (working) { Spacer(Modifier.size(14.dp)); Text("Joining…", color = Color.White) }
-
-        Spacer(Modifier.size(22.dp))
-        rows.forEach { row ->
-            Row(horizontalArrangement = Arrangement.spacedBy(10.dp),
-                modifier = Modifier.padding(bottom = 10.dp)) {
-                row.forEach { ch -> KeyCell(ch.toString()) { append(ch) } }
+            problem?.let {
+                Spacer(Modifier.size(14.dp))
+                Text(it, fontSize = 15.sp, color = Color(0xFFFFA726))
             }
+            if (working) { Spacer(Modifier.size(14.dp)); Text("Joining…", color = Color.White) }
         }
-        Row(horizontalArrangement = Arrangement.spacedBy(14.dp)) {
+        Column {
+            rows.forEach { row ->
+                Row(horizontalArrangement = Arrangement.spacedBy(10.dp),
+                    modifier = Modifier.padding(bottom = 10.dp)) {
+                    row.forEach { ch -> KeyCell(ch.toString()) { append(ch) } }
+                }
+            }
             KeyCell("Delete", wide = true) { if (typed.isNotEmpty()) { typed = typed.dropLast(1); problem = null } }
         }
     }
@@ -161,7 +157,7 @@ private fun KeyCell(label: String, wide: Boolean = false, onPress: () -> Unit) {
     var focused by remember { mutableStateOf(false) }
     Box(
         Modifier
-            .size(width = if (wide) 140.dp else 58.dp, height = 52.dp)
+            .size(width = if (wide) 140.dp else 50.dp, height = 48.dp)
             .clip(RoundedCornerShape(8.dp))
             .background(if (focused) Color.White else Color.White.copy(alpha = 0.10f))
             // The focus ring is the affordance on a ten-foot screen; without a
