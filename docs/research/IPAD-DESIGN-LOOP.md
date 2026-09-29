@@ -317,6 +317,13 @@ channel-surf ↑/↓ (three routes failed; control first),  Spotlight indexing (
   year_corrections.json now says 1978 (S01E01 aired 3 April 1978); the audit
   then reads modern_copyright_unconfirmed -> confirm, and the nightly confirm
   hides it (no licenseurl).
+  **It did not** (nightly audit 2026-09-29 00:47 MT): the upload is black and
+  white, so the confirm pass treats a 1978 year as a possible wrong match and
+  re-dates it to archive.org's own date — the uploader's 1975 — undoing the
+  hand correction every night. v1.42.923: the re-date skips a year a person
+  judged (yearSource agent-reviewed); test with a control. Found while
+  checking: the simulation called the real confirm_pass, which overwrote the
+  local catalog.json; restored from the catalog-source release.
 
 ## Queue
 

@@ -816,7 +816,13 @@ def confirm_pass(cat, workers, limit):
             # matched to a modern year -> wrong match. Re-date; clear a wrong
             # external poster.
             sy = it.get("year")
-            if isinstance(ayr, int) and isinstance(sy, int) and ayr < MODERN and (sy - ayr) > 2:
+            # A year a person judged (year_corrections.json, yearSource
+            # "agent-reviewed") outranks the uploader's date: Rumpole of the
+            # Bailey is the 1978-92 Thames series dated 1975 by its uploader,
+            # and this re-date put 1975 back every night.
+            hand_judged = it.get("yearSource") == "agent-reviewed"
+            if (not hand_judged and isinstance(ayr, int) and isinstance(sy, int)
+                    and ayr < MODERN and (sy - ayr) > 2):
                 if (it.get("artworkSource") or "").lower() in EXTERNAL:
                     R._clear_wrong_artwork(it, ayr)
                 else:

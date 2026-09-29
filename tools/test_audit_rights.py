@@ -221,6 +221,36 @@ def main():
     else:
         print("seed excluded-skip: OK")
 
+    # The confirm pass re-dates a 1978+ black-and-white item to archive.org's
+    # own date, but never a year a person judged: Rumpole of the Bailey (the
+    # 1978-92 series, dated 1975 by its uploader) was put back to 1975 every
+    # night. The control, with no hand mark, is re-dated exactly as before.
+    # CATALOG points at a temp file: confirm_pass writes it, and on the real
+    # path it overwrote the local catalog once (2026-09-29).
+    import copy
+    real_cat, real_fetch = A.CATALOG, A.fetch_archive
+    A.CATALOG = Path(tempfile.mkdtemp()) / "catalog.json"
+    A.fetch_archive = lambda aid: (True, None, 1975, None)
+    try:
+        rump = dict(archiveID="rump", title="Rumpole Of The Bailey", contentType="tv-special",
+                    year=1978, colorMode="bw", runtimeSeconds=6240, artworkSource="archive",
+                    collections=["classic_tv_1970s", "classic_tv", "television"])
+        hand = dict(copy.deepcopy(rump), yearSource="agent-reviewed")
+        ctrl = copy.deepcopy(rump)
+        A.confirm_pass({"items": [hand, ctrl]}, 1, 0)
+        if hand["year"] != 1978 or A.bucket(hand)[0] != "modern_copyright_confirmed":
+            fails += 1
+            print(f"  FAIL hand-judged year re-dated: {hand['year']} {A.bucket(hand)}")
+        else:
+            print("confirm keeps a hand-judged year: OK")
+        if ctrl["year"] != 1975:
+            fails += 1
+            print(f"  FAIL control not re-dated: {ctrl['year']}")
+        else:
+            print("control: an unjudged year is still re-dated: OK")
+    finally:
+        A.CATALOG, A.fetch_archive = real_cat, real_fetch
+
     print("ALL PASS" if not fails else f"{fails} FAILURES")
     return 1 if fails else 0
 
