@@ -193,6 +193,18 @@ struct BrowseView: View {
                 // sections route directional moves to the whole group).
                 .focusSection()
 
+                // A collection page leads with archive.org's own description
+                // of it (the Mac and iPhone do; tvOS showed a title and a
+                // count). Focusable, so the remote can reach and open it.
+                if let c = filter.collection,
+                   let meta = CollectionMetadata.all.first(where: { $0.id == c }),
+                   !meta.blurb.isEmpty {
+                    ReadableTextBlock(text: meta.blurb, collapsedLines: 3, title: headline)
+                        .scaledFont(TVType.body, weight: .regular)
+                        .frame(maxWidth: 1100, alignment: .leading)
+                        .padding(.horizontal, 80)
+                }
+
                 if filtersShown && !isPreFiltered {
                     FilterChipBar(filter: $filter)
                         .padding(.horizontal, 80)

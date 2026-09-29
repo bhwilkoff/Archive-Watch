@@ -191,6 +191,12 @@ struct RootView: View {
             // sidebar blind over the remote, and the standing rule here is that
             // the glass is the test — so the harness needs to reach a surface
             // without depending on focus luck. Unset in production (no-op).
+            // `AW_OPEN_COLLECTION=<id>` opens that collection's page (the iOS
+            // door's twin), for checking a collection page on the glass.
+            if let cid = ProcessInfo.processInfo.environment["AW_OPEN_COLLECTION"] {
+                router.tab = .collections
+                router.push(BrowseFilter(collection: cid))
+            }
             if let raw = ProcessInfo.processInfo.environment["AW_START_TAB"],
                let tab = Router.Tab(rawValue: raw) {
                 router.tab = tab

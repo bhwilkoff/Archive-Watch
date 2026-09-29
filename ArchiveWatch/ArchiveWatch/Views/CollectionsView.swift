@@ -93,11 +93,13 @@ struct CollectionCard: View {
                         .font(.system(size: 19, weight: .semibold))
                         .foregroundStyle(.white.opacity(0.85))
                 }
+                // Two lines, never shrunk: a long collection name was cut to
+                // one line and scaled down (the Mac and iPhone let it wrap).
                 Text(data.title)
                     .font(.system(size: 38, weight: .heavy, design: .serif))
                     .foregroundStyle(.white)
-                    .lineLimit(1)
-                    .minimumScaleFactor(0.7)
+                    .lineLimit(2)
+                    .fixedSize(horizontal: false, vertical: true)
                 Text(data.blurb)
                     .font(.system(size: 23, weight: .regular))
                     .foregroundStyle(.white.opacity(0.75))

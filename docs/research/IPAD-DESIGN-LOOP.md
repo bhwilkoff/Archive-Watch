@@ -325,7 +325,7 @@ platforms is informing the other platforms."* Each line cites code, not docs.
 15. ✅ v1.42.904 Title Case / one wording — DetailView_iOS:197/160, LibraryView_iOS:393
 16. ✅ v1.42.905 (now "Play a Surprise Film", which plays, via Router.autoplayItemID) iPad Go menu: "Surprise" and "Surprise Me" open the same page (MenuCommands_iOS:52/80)
 17. ✅ v1.42.906 built iPad Film menu lacks Subtitles… and Watch Together (MenuCommands_iOS:113)
-18. tvOS collection page lacks its description; card title 1 line (BrowseView.swift:163, CollectionsView.swift:98)
+18. ✅ v1.42.908 (seen on Kitchen: Film Noir leads with archive.org's description) tvOS collection page lacks its description; card title 1 line (BrowseView.swift:163, CollectionsView.swift:98)
 19. Open Film intent on tvOS and macOS (none on Mac at all)
 20. Mac drag of films onto playlists/Favorites — needs a macOS-DESIGN rule
 21. ▲/▼ surfing on tvOS/Mac players — OWNER CALL (Siri Remote conflicts)
