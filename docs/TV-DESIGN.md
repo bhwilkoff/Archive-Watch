@@ -82,6 +82,10 @@ Movies, TV, Channels, Collections, Search, Surprise, Library, Settings. Adding,
 removing, or renaming a top-level surface on a TV build is a change to
 tvOS-DESIGN, not a local decision.
 
+**Android TV's rail, as built** (2026-09-29): Home, Browse (Movies and TV are
+its scopes), Channels, Search, Library, Collections, Surprise, Settings.
+Cartoons and Party Play open from Surprise (tvOS-DESIGN §2.2a), never the rail.
+
 **Depth ≤ 2 from any root** (tvOS-DESIGN §1.4) binds here too and binds *harder*:
 a third push on a D-pad is a maze. Tab → row/grid → detail. A would-be third
 level becomes a scope, an overlay, or a different root.

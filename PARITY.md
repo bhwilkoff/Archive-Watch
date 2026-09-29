@@ -76,7 +76,7 @@ macOS) since they share the Swift Core.
 | Director shelves | ✅ | ✅ | ✅ | ✅ grouped on the index's `director` column | ✅ | ordered by the pipeline's popularity rank (`director_rank` / index `directorRank`, owner 2026-09-25), film count as fallback; Roku too. Web skips a director a curated shelf already covers |
 | "New to Archive Watch" shelf | ✅ | ✅ | ✅ | ✅ | ✅ | owner 2026-09-25, all platforms. `new-arrivals` in featured.json (type `computed`); membership = `addedAt` within 45 days, computed in `build_sqlite._shelf_ids_for` for every platform (D050). Second featured shelf in the canonical order; Roku by featured.json file order |
 | Continue Watching | ✅ | ✅ | ✅ progress + widget + Home shelf | ✅ | ✅ | progress store (§6) |
-| Modes row | ✅ | ➖ removed (Channels tab; modes via Surprise grid) | ➖ (Cartoon via Modes; Channels/Surprise are sidebar) | ➖ removed, as on iOS/macOS — Channels is top-level nav and the modes live on Surprise (Cartoon Mode, Party Play) | ⏳ | links to §5 |
+| Modes row | ✅ | ➖ removed (Channels tab; modes via Surprise grid) | ➖ (Cartoon via Modes; Channels/Surprise are sidebar) | ➖ removed, as on iOS/macOS — Channels is top-level nav and the modes live on Surprise (Cartoon Mode, Party Play) | ➖ as on the others — the modes open from Surprise (Cartoons on phone and TV, Party Play on TV), 2026-09-29 | links to §5 |
 | Public Domain Day section | ✅ | ✅ Home shelf + year-chip explorer | ⏳ | ✅ Home shelf | ✅ Home row | seasonal, shared |
 
 ## 3. Discover — Movies / TV / Collections / Search
@@ -428,7 +428,7 @@ same sentence that offers what it CAN do.
 | Create / user channels | ✅ synced | ✅ synced | ⏳ | ✅ local | ✅ local | |
 | Cartoon / Kids mode | ✅ | ✅ | ✅ `Modes_macOS` | ✅ | ✅ | color/B&W flags shared |
 | Commercial-break controls | ✅ | ✅ toggle | ⏳ | ✅ About → Preferences, default on (a channel without them is not a channel) | ⏳ | |
-| Party Play (muted) | ✅ | 🚫 iPhone and iPad, owner 2026-09-28 (IPAD-DESIGN §13) | ✅ `Modes_macOS` | ✅ Surprise → Party Play; muted lineup from the channel pools, never persisted | ✅ `TvPartyScreen` (TV) | ambient mode; Roku ✅ (Surprise door, whole-catalog color pool) |
+| Party Play (muted) | ✅ | 🚫 iPhone and iPad, owner 2026-09-28 (IPAD-DESIGN §13) | ✅ `Modes_macOS` | ✅ Surprise → Party Play; muted lineup from the channel pools, never persisted | ✅ Surprise → Party Play, `TvPartyScreen` (TV only) | ambient mode; Roku ✅ (Surprise door, whole-catalog color pool) |
 | Synopsis provenance caption (Decision 124) | ✅ under the synopsis | ✅ | ✅ | ✅ `.item-desc-source` | ✅ phone + TV | Roku ✅ in-line prefix for uploader text only (no caption row) |
 | Lineup player verbs: sound toggle / open title / remember | ✅ transport-bar actions (tvOS-DESIGN §9.3a) | n/a (no lineup player) | ⏳ sound is native; open/remember not yet | ⏳ sound is the native control; open/remember not yet | ✅ options panel, D-pad Up (TV-DESIGN §5.6); phone n/a | Roku ✅ Up → options (ROKU-DESIGN §6.9). Ephemeral lineups also write history-only after 60 s on tvOS + Android |
 | Cover-art screensaver | ✅ + idle trigger | 🔮 | 🔮 | 🔮 as on iOS — a web page should not take over an idle screen; the OS and browser own idle | 🔮 | 10-foot/lean-back idiom |
