@@ -1863,7 +1863,7 @@ public final class StudioSession {
                     // tvOS grew AWRING/AWMIX for exactly this; macOS is the
                     // platform where the film audio is actually broken, and it
                     // was the one with no counters.
-                    let bedM = await engine.filmAudioBed
+                    let bedM = engine.filmAudioBed
                     self.diag(String(format:
                         "[AWMACMIX] filmFrames=%d filmLevel=%.4f micLevel=%.4f "
                         + "ducking=%@ ringFill=%.2f ringOverflow=%d filmPadded=%d "

@@ -174,6 +174,10 @@ Harness:
   The Bold Caballero) had already synced to Drive, and history is a union
   with no tombstone (Decision 078), so a local delete would come back:
   asked the owner.
+  tvOS had the same defect (`WatchProgress.record` guarded `position < 60`
+  with the playhead); v1.42.946 feeds it seconds watched. Built for tvOS,
+  iOS and macOS with zero warnings (two stray `await`s fixed on the way);
+  NOT run on an Apple TV, because its history syncs to the owner's iCloud.
 
 ## Queue
 

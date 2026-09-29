@@ -497,7 +497,7 @@ struct StudioPlayerContainer: View {
             // had no line at all, so "only the first beep of a local file
             // reaches the broadcast" (2026-09-24) could not be located.
             #if DEBUG
-            let bed = await e.filmAudioBed
+            let bed = e.filmAudioBed
             let src = await e.filmAudioSourcePosition
             let buf = await e.filmAudioBuffered
             let head = filmPlayer?.currentTime().seconds ?? -1

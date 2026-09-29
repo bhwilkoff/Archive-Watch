@@ -82,6 +82,8 @@ final class WatchProgress {
                        position: Double, duration: Double?,
                        historyOnly: Bool = false) {
         guard position.isFinite, position > 0 else { return }
+        // For `historyOnly`, `position` is the seconds WATCHED, not the
+        // playhead: a channel joins its program minutes in.
         if historyOnly, position < 60 { return }   // a channel-surf is not "watched"
         let descriptor = FetchDescriptor<WatchProgress>(
             predicate: #Predicate<WatchProgress> { $0.archiveID == archiveID })

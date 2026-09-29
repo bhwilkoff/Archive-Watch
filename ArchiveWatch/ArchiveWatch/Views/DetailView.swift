@@ -1713,6 +1713,10 @@ struct PlayerScreen: View {
     // #92: seconds to seek into the FIRST program when joining a channel live.
     // Consumed once (zeroed after the first setup) so lineup advances start at 0.
     @State private var joinOffset: TimeInterval = 0
+    /// Seconds this program has actually PLAYED. A lineup's history rule is
+    /// sixty seconds watched (Decision 078), and a channel joins its program
+    /// minutes in, so the playhead recorded every tune-in at once.
+    @State private var lineupWatchedSeconds: Double = 0
     // A Scenes frame the viewer chose (§2.5c): it beats every resume position.
     @State private var sceneStartAt: TimeInterval?
     @Environment(\.dismiss) private var dismiss
@@ -2880,8 +2884,10 @@ struct PlayerScreen: View {
         joinOffset = 0
 
         let interval = CMTime(seconds: 5, preferredTimescale: 600)
+        lineupWatchedSeconds = 0
         timeObserver = p.addPeriodicTimeObserver(forInterval: interval, queue: .main) { time in
             Task { @MainActor in
+                if p.rate > 0 { lineupWatchedSeconds += 5 }
                 persistProgress(at: time.seconds, duration: p.currentItem?.duration.seconds)
             }
         }
@@ -2962,7 +2968,8 @@ struct PlayerScreen: View {
         // untouched, so Continue Watching (position > 10) never sees it.
         guard position.isFinite, position > 0 else { return }
         WatchProgress.record(in: modelContext, archiveID: activeArchiveID,
-                             position: position, duration: duration,
+                             position: ephemeralLineup ? lineupWatchedSeconds : position,
+                             duration: duration,
                              historyOnly: ephemeralLineup)
     }
 }
