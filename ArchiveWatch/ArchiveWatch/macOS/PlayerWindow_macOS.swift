@@ -329,15 +329,16 @@ struct PlayerSurface: View {
                         // Live captions for a film with no subtitle track of its
                         // own. Non-interactive so it never intercepts the HUD.
                         if !liveLine.isEmpty {
+                            let style = SystemCaptionStyle.resolved()
                             Text(liveLine)
-                                .font(.system(size: 18, weight: .medium))
+                                .font(style.font)
                                 // Unclamped, as on tvOS and iOS: stacked cues
                                 // at a large size ran past four lines.
                                 .fixedSize(horizontal: false, vertical: true)
-                                .foregroundStyle(.white)
+                                .foregroundStyle(style.foreground)
                                 .multilineTextAlignment(.center)
                                 .padding(.horizontal, 12).padding(.vertical, 7)
-                                .background(.black.opacity(0.6), in: .rect(cornerRadius: 7))
+                                .background(style.background, in: .rect(cornerRadius: 7))
                                 .padding(.bottom, 72)
                                 .frame(maxWidth: 760)
                                 .allowsHitTesting(false)

@@ -2,6 +2,8 @@
 import UIKit
 #endif
 import MediaAccessibility
+import SwiftUI
+import CoreText
 
 // Draw captions the way the VIEWER has asked for them.
 //
@@ -44,6 +46,31 @@ enum SystemCaptionStyle {
         label.clipsToBounds = true
     }
     #endif
+
+    /// The same style for a SwiftUI caption (the Mac's live captions drew a
+    /// fixed 18 pt white on black, ignoring the style iPhone, iPad and Apple TV
+    /// obey; iPad loop cross-platform pass, 2026-09-28).
+    struct Resolved {
+        let font: Font
+        let foreground: Color
+        let background: Color
+    }
+
+    static func resolved(baseSize: CGFloat = 18) -> Resolved {
+        let domain = MACaptionAppearanceDomain.user
+        let scale = CGFloat(MACaptionAppearanceGetRelativeCharacterSize(domain, nil))
+        let descriptor = MACaptionAppearanceCopyFontDescriptorForStyle(
+            domain, nil, .default).takeRetainedValue()
+        let ct = CTFontCreateWithFontDescriptor(descriptor, baseSize * max(scale, 0.5), nil)
+        let fgOpacity = Double(MACaptionAppearanceGetForegroundOpacity(domain, nil))
+        let bgOpacity = Double(MACaptionAppearanceGetBackgroundOpacity(domain, nil))
+        let fg = Color(cgColor: MACaptionAppearanceCopyForegroundColor(domain, nil).takeRetainedValue())
+        let bg = Color(cgColor: MACaptionAppearanceCopyBackgroundColor(domain, nil).takeRetainedValue())
+        return Resolved(font: Font(ct),
+                        foreground: (fgOpacity > 0 && fgOpacity < 1) ? fg.opacity(fgOpacity) : fg,
+                        // The same legibility floor as the UIKit label.
+                        background: bg.opacity(max(bgOpacity, 0.55)))
+    }
 
     /// Whether the viewer has asked that captions be shown at all.
     ///
