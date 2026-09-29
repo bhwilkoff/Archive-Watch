@@ -8,7 +8,7 @@
     <shortcut
         android:shortcutId="surprise"
         android:enabled="true"
-        android:icon="@android:drawable/ic_menu_rotate"
+        android:icon="@drawable/ic_shortcut_surprise"
         android:shortcutShortLabel="@string/shortcut_surprise">
         <intent
             android:action="android.intent.action.VIEW"
@@ -19,7 +19,7 @@
     <shortcut
         android:shortcutId="channels"
         android:enabled="true"
-        android:icon="@android:drawable/ic_menu_view"
+        android:icon="@drawable/ic_shortcut_channels"
         android:shortcutShortLabel="@string/shortcut_channels">
         <intent
             android:action="android.intent.action.VIEW"

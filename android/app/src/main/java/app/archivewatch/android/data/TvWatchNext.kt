@@ -74,12 +74,13 @@ object TvWatchNext {
         if (!context.isTelevision()) return
         runCatching {
             findRow(context, archiveID)?.let { id ->
-                context.contentResolver.delete(
+                val n = context.contentResolver.delete(
                     ContentUris.withAppendedId(
                         TvContractCompat.WatchNextPrograms.CONTENT_URI, id,
                     ),
                     null, null,
                 )
+                android.util.Log.i("AWTV", "watchNext remove $archiveID rows=$n")
             }
         }
     }

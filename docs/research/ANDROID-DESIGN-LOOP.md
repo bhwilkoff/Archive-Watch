@@ -444,6 +444,17 @@ Harness:
   targetSdk 37. The TV's own Play copy (1.42.691) crashed once on a catalog
   swap — Pulse's known build-60 defect, fixed in 1.42.692, awaiting approval.
 
+- AZ. ✅ v1.42.979 Dependencies, stage B: AGP 9.2.1 -> 9.4.1, Gradle 9.5.1 ->
+  9.8.0 (wrapper regenerated). Floor still 23; the new R8's release build
+  launches and plays on the Pixel. Also walked: a shared-list link (3 of 4
+  titles, the missing one named in a count) and both launcher shortcuts, which
+  land correctly but drew Android 2's menu glyphs (ic_menu_rotate /
+  ic_menu_view) — now adaptive icons in the brand's dark and marquee orange.
+  Watch Next publishes on the Google TV (row inserted after 17 s of play), and
+  Remove from history left that row on the launcher; it now removes it too
+  (seen: "watchNext remove … rows=1", history back to its five rows).
+  Left: OkHttp 5, targetSdk 37.
+
 ## Queue
 
 1. ✅ J — phone launch doors: one shared `Nav.collectStartDoors()` in both roots (v1.42.933); the Pixel opened Library, the TV Search

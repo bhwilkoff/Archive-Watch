@@ -4,7 +4,7 @@
 # no Ktor (OkHttp + kotlinx-serialization is enough for two JSON files).
 
 [versions]
-agp = "9.2.1"                  # AGP 9.x bundles Kotlin support; no separate kotlin.android plugin
+agp = "9.4.1"                  # AGP 9.x bundles Kotlin support; no separate kotlin.android plugin
 kotlin = "2.4.20"
 compose-bom = "2026.09.00"
 compose-material3 = "1.5.0-alpha19"   # later alphas need minSdk 24 (Decision 141 holds 23)

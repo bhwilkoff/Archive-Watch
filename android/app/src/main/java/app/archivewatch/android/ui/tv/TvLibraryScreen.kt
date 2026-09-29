@@ -72,6 +72,7 @@ fun TvLibraryScreen(container: AppContainer, nav: Nav) {
     val userChanges by container.userState.changes.collectAsState()
     var section by remember { mutableStateOf(LibSection.Favorites) }
     val scope = androidx.compose.runtime.rememberCoroutineScope()
+    val context = androidx.compose.ui.platform.LocalContext.current
     var removeFromHistory by remember { mutableStateOf<CatalogItem?>(null) }
     // Where focus goes when the question closes: the same tile on Cancel, its
     // neighbor on Remove. Left to itself it fell to the nav rail.
@@ -250,7 +251,13 @@ fun TvLibraryScreen(container: AppContainer, nav: Nav) {
                 val i = ids.indexOf(item.archiveID)
                 focusAfter = ids.getOrNull(i + 1) ?: ids.getOrNull(i - 1)
                 removeFromHistory = null
-                scope.launch { container.userState.removeFromHistory(item.archiveID) }
+                scope.launch {
+                    container.userState.removeFromHistory(item.archiveID)
+                    // And from the launcher's Continue row, which it would outlive.
+                    kotlinx.coroutines.withContext(kotlinx.coroutines.Dispatchers.IO) {
+                        app.archivewatch.android.data.TvWatchNext.remove(context, item.archiveID)
+                    }
+                }
             },
             onCancel = { focusAfter = item.archiveID; removeFromHistory = null },
         )
