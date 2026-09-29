@@ -54,6 +54,15 @@ because the loop was stopped mid-stride for a Claude update.
 
 ### Open owner items (nothing else is blocked)
 
+0-NEW-2026-09-29. **FROM THE ANDROID LOOP.** (a) **No new Android version until
+   the one in Play review is approved** (owner) — Android fixes since v1.42.932
+   are committed and wait. (b) **YouTube sign-in on Android**: the plan is
+   `docs/ANDROID-YOUTUBE-SIGNIN.md`, to start after the quota review closes
+   (~2026-10-06); its first step is choosing the Google Cloud project, because
+   Android's package + SHA-1 clients already live in `archivewatch-play`
+   (Drive sync) while YouTube's scope is verified in Archive Watch. Until then
+   Android hosts use their own stream key.
+
 0-NEW-2026-09-28. **FIVE OWNER CALLS FROM THE tvOS LOOP** (nothing blocked):
    ~~(a) the sidebar's 13 entries~~ ANSWERED: Cartoons, Party Play and the
    screensaver open from Surprise as on other platforms (v1.42.862, §2.2a); ~~(b) an Apple TV HD~~ ANSWERED: "Kitchen" (Apple TV HD, tvOS 26.6) is on the
