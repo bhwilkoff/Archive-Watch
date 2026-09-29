@@ -155,6 +155,61 @@ def score_review(review: dict) -> tuple[float, str]:
     return (fit, "keep")
 
 
+# Mojibake: UTF-8 text decoded as Latin-1/CP1252, sometimes many times over
+# ("doesnÃÂt", or a French review that became "adaptÃÂÃÂÃÂ..." — seen on the
+# iPad, 2026-09-28; 113 of 10,425 stored reviews). The reviewer's words are
+# restored where the layers undo EXACTLY; what cannot be restored is not their
+# words any more and is dropped (owner, 2026-09-28: inaccurate information is
+# scrubbed unless it can be verified).
+_MOJI = re.compile("[\u00c3\u00c2]")
+
+
+def repair_mojibake(s: str) -> str:
+    """Peel encoding layers while each one strictly reduces the garbage.
+    Genuine accented text does not round-trip through CP1252 -> UTF-8, so it
+    is left exactly as it is."""
+    if not s or not _MOJI.search(s):
+        return s
+    cur = s
+    for _ in range(12):
+        step = None
+        for enc in ("cp1252", "latin-1"):
+            try:
+                cand = cur.encode(enc).decode("utf-8")
+            except (UnicodeEncodeError, UnicodeDecodeError):
+                continue
+            if len(_MOJI.findall(cand)) < len(_MOJI.findall(cur)):
+                step = cand
+                break
+        if step is None:
+            break
+        cur = step
+    return cur
+
+
+def garbled(s: str) -> bool:
+    """Still unreadable after repair."""
+    return len(_MOJI.findall(s or "")) >= 6
+
+
+# A run of mojibake bytes. archive.org itself stores these reviews garbled
+# (checked: private_buckaroo's review reads "doesnÃÂt" in the metadata API),
+# and the control bytes that would let the layers be undone are gone — so the
+# damage cannot be REVERSED, only REMOVED. Removing adds nothing to the
+# reviewer's words; "doesnÃÂt" becomes "doesnt".
+_JUNK = re.compile("[\u00c3\u00c2][\u0080-\u00bf\u00c2\u00c3]*")
+
+
+def clean_text(s: str) -> str:
+    """Repair what can be repaired, then remove what cannot."""
+    if not s or not _MOJI.search(s):
+        return s
+    out = repair_mojibake(s)
+    if _MOJI.search(out):
+        out = re.sub(r"[ \t]{2,}", " ", _JUNK.sub("", out)).strip()
+    return out
+
+
 def keep_review(review: dict) -> bool:
     return score_review(review)[1] == "keep"
 
@@ -178,7 +233,20 @@ _SELFTEST = [
     (True, "Who Likes Horror Movies", "I for one like horror movies and i have to say that this one was pretty good. How come Elisha Cook Jr. knew so much about the house? Vincent Price gives a great performance."),
 ]
 
+_MOJIBAKE_TESTS = [
+    # (input, expected repair, expected garbled-after)
+    ("This really doesn\u00c3\u00a2\u00c2\u0080\u00c2\u0099t try", None, False),
+    ("S\u00e3o Paulo, n\u00e3o, \u00c0 bient\u00f4t", "S\u00e3o Paulo, n\u00e3o, \u00c0 bient\u00f4t", False),   # genuine: untouched
+    ("adapt" + "\u00c3\u0083\u00c2\u0082" * 20 + "\u00c3", None, True),                    # unrecoverable
+]
+
 if __name__ == "__main__":
+    for raw, want, still in _MOJIBAKE_TESTS:
+        got = repair_mojibake(raw)
+        good = (want is None or got == want) and garbled(got) == still and not (want is None and not still and _MOJI.search(got))
+        print(f"  {'OK ' if good else 'XX '} mojibake {raw[:24]!r} -> {got[:30]!r} garbled={garbled(got)}")
+        if not good:
+            raise SystemExit(1)
     ok = 0
     for expect, t, b in _SELFTEST:
         fit, verdict = score_review({"reviewtitle": t, "reviewbody": b})

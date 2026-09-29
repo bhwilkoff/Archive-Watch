@@ -2447,6 +2447,28 @@ def refilter_reviews(items, stats):
         rv = it.get("reviews")
         if not isinstance(rv, list) or not rv:
             continue
+        # Mojibake (comment_fit.clean_text): a garbled review is cleaned, and
+        # dropped only when cleaning left too little to read — the "too_short"
+        # floor every review shares. NOT the full keep_review: it is stricter
+        # today than the rule that admitted these, and applying it only to the
+        # cleaned ones would judge them harder than every other review
+        # (measured: it dropped 24 plainly genuine reviews).
+        cleaned = []
+        for r in rv:
+            if isinstance(r, dict):
+                t0, b0 = r.get("title") or "", r.get("body") or ""
+                t1, b1 = _comment_fit.clean_text(t0), _comment_fit.clean_text(b0)
+                if (t1, b1) != (t0, b0):
+                    stats["reviews_mojibake_cleaned"] += 1
+                    if _comment_fit.score_review({"reviewtitle": t1, "reviewbody": b1})[1] == "too_short":
+                        stats["reviews_mojibake_dropped"] += 1
+                        continue
+                    r = {**r, "title": t1, "body": b1}
+            cleaned.append(r)
+        if len(cleaned) != len(rv) or any(a is not b for a, b in zip(cleaned, rv)):
+            it["reviews"] = cleaned
+            it["reviewsKept"] = len(cleaned)
+        rv = cleaned
         kept = [r for r in rv if not isinstance(r, dict)
                 or not (_comment_fit.file_complaint({"reviewtitle": r.get("title") or "", "reviewbody": r.get("body") or ""})
                         or _comment_fit.not_a_review({"reviewtitle": r.get("title") or "", "reviewbody": r.get("body") or ""}))]

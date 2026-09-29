@@ -331,6 +331,15 @@ platforms is informing the other platforms."* Each line cites code, not docs.
 21. ▲/▼ surfing on tvOS/Mac players — OWNER CALL (Siri Remote conflicts)
 22. tvOS poster caption reserves no lines (PosterTile.swift:43)
 
+Found on the way (v1.42.900): **214 archive.org reviews are stored garbled**
+(mojibake — "doesnÃÂt"; one French review almost entirely "ÃÂÃÂ"),
+checked at the source: archive.org's own metadata carries the damage, and the
+bytes that would reverse it are gone. The build now removes the garbage runs
+(comment_fit.clean_text) — nothing added to the reviewer's words — and drops a
+review only when too little is left to read (the floor every review shares;
+the full keep_review was measured to drop 24 genuine reviews and rejected).
+All 214 are cleaned and kept; a second pass changes nothing.
+
 Shared-function candidates: the rights/lower-third line (5 copies), measured
 More (4), the hero pool (3), the caption overlay (3), the version menu (2),
 IntentInbox + intents (2), the Handoff type literal (4), Create Channel
