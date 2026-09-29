@@ -234,6 +234,7 @@ into every session and the index alone carries every title.)
 - 149 — Propaganda is never recommended and always findable; "true propaganda" is the Nazi state's, on evidence a reader can open
 - 150 — A cleared match leaves nothing it filled unless something independent vouches for it
 - 151 — A title leaves the catalog on a copyright claim a reader can open; not knowing is not a claim
+- 152 — Sourced evidence of a free licence outranks the popularity check
 
 ---
 
@@ -1366,4 +1367,31 @@ days; a first run is the long one (~70 minutes locally). Television episodes
 in series spines are not catalog items and are judged by `audit_tv_rights`,
 not here. `tools/test_copyright_evidence.py` holds the match rules with the
 PA, song and wrong-year controls.
+
+
+## 152 — Sourced evidence of a free licence outranks the popularity check
+*Date: 2026-09-29*
+
+A title whose archive.org licence is free-culture (CC0, CC BY, CC BY-SA) and
+which carries `rightsCorroborated` (Wikidata P275/P6216 on the item whose
+Internet Archive ID is this archiveID, or a `licence_evidence.json` entry with
+a source a reader can open) is kept as `safe_archive_license`, however many
+IMDb votes it has. `corroborate_licences.py` now also looks for evidence on
+popular free-culture titles, which it skipped before. NC/ND licences are not
+freed, and `uploader_cannot_dedicate` still runs first.
+
+**Why**: the owner, 2026-09-29 — *"Yes on letting sourced Creative Commons
+evidence beat the popularity check."* Decision 114's commercial-votes gate is
+right about uploads (a popular film wearing CC0 is usually a pirate copy:
+Lady Vengeance, Nayakan, Virus), and Decision 140 asked for evidence on the
+unpopular ones — but the popular ones were never ASKED, so a creator's own
+release could not come back whatever proved it. *Sita Sings the Blues* (Nina
+Paley, CC BY-SA 2009, CC0 2013, 5,022 votes) was hidden as copyrighted.
+Measured: of 25 popular free-culture titles, Sita alone has evidence — her
+site, and Wikidata's Q739285 naming two of its uploads — and the pirate
+uploads have none and stay hidden.
+
+**How to apply**: never loosen the vote gate itself; free a popular title by
+adding evidence. `test_audit_rights.py` holds the case with two controls (the
+same film without evidence; an NC licence with evidence).
 

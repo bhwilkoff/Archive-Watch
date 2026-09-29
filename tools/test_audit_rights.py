@@ -251,6 +251,28 @@ def main():
     finally:
         A.CATALOG, A.fetch_archive = real_cat, real_fetch
 
+    # Sourced evidence beats the popularity check (owner, 2026-09-29): a
+    # creator's own free-culture release with thousands of votes is kept when
+    # a source names it; the same film without evidence is not, and an NC
+    # licence is not freed by evidence of it.
+    sita = dict(archiveID="Sita1080pFLAC", title="Sita Sings the Blues", contentType="feature-film",
+                year=2008, imdbVotes=5022, colorMode="color",
+                archiveLicense="http://creativecommons.org/licenses/by-sa/3.0/us/")
+    ev = {"source": "https://www.sitasingstheblues.com/", "via": "curated", "at": "2026-09-29"}
+    cases = [("popular CC BY-SA with sourced evidence is kept", dict(sita, rightsCorroborated=ev), "keep"),
+             ("control: the same film without evidence is not kept", dict(sita), None),
+             ("control: an NC licence is not freed by evidence",
+              dict(sita, rightsCorroborated=ev,
+                   archiveLicense="http://creativecommons.org/licenses/by-nc/3.0/"), None)]
+    for name, it, want in cases:
+        b, act = A.bucket(it)
+        ok = (act == "keep") if want == "keep" else (act != "keep")
+        if not ok:
+            fails += 1
+            print(f"  FAIL {name}: {b} {act}")
+        else:
+            print(f"{name}: OK ({b})")
+
     print("ALL PASS" if not fails else f"{fails} FAILURES")
     return 1 if fails else 0
 

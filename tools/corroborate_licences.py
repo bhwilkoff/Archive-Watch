@@ -71,7 +71,10 @@ def main():
     dry = "--dry-run" in sys.argv
     cat = json.loads(CATALOG.read_text(encoding="utf-8"))
     targets = [it for it in cat["items"] if not it.get("rightsCorroborated")
-               and AR.license_rescues(it.get("archiveLicense"), it.get("year"), it.get("imdbVotes"))]
+               and (AR.license_rescues(it.get("archiveLicense"), it.get("year"), it.get("imdbVotes"))
+                    # a popular free-culture title too: evidence beats the
+                    # popularity check (audit_rights, owner 2026-09-29)
+                    or AR.free_culture_license(it.get("archiveLicense")))]
     curated = json.loads(EVIDENCE.read_text(encoding="utf-8")) if EVIDENCE.exists() else {}
     wd = wikidata([it["archiveID"] for it in targets])
     now = dt.date.today().isoformat()

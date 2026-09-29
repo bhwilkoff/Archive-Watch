@@ -412,6 +412,15 @@ def license_rescues(lic: str | None, year: int | None, votes: int | None = None)
     return False
 
 
+def free_culture_license(lic: str | None) -> bool:
+    """CC0, CC BY or CC BY-SA: a licence that frees the work (NC/ND do not)."""
+    l = (lic or "").lower()
+    if "publicdomain/zero" in l:
+        return True
+    m = re.search(r"creativecommons\.org/licenses/([a-z-]+)", l)
+    return bool(m) and m.group(1) in ("by", "by-sa")
+
+
 # Collections whose membership is itself the evidence: a government work or a
 # Prelinger deposit is clear by origin even when every other field is empty.
 _ORIGIN_SAFE = ("nasa", "gov", "prelinger", "usnationalarchives",
@@ -531,6 +540,14 @@ def bucket(it):
     # a rescue that runs first can never be overruled.
     if uploader_cannot_dedicate(it, yi) and it.get("archiveLicense"):
         return "uploader_cannot_dedicate", "hide"
+    # SOURCED EVIDENCE BEATS POPULARITY (owner, 2026-09-29: "Yes on letting
+    # sourced Creative Commons evidence beat the popularity check"). The
+    # commercial-votes gate in license_rescues exists because a popular film
+    # wearing a CC tag is usually a pirate upload; a creator's own release,
+    # named by a source a reader can open, is the case it cannot tell apart —
+    # Sita Sings the Blues (Nina Paley, CC BY-SA then CC0, 5,022 votes).
+    if it.get("rightsCorroborated") and free_culture_license(it.get("archiveLicense")):
+        return "safe_archive_license", "keep"
     if license_rescues(it.get("archiveLicense"), yi, it.get("imdbVotes")):
         # AN UPLOADER'S WORD IS NOT ENOUGH (owner, 2026-09-25): "Unless we have
         # evidence for CC or PD, an uploader's word is not enough." For a
