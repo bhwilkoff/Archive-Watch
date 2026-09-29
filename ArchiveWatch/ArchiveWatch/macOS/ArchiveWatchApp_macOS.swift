@@ -129,6 +129,10 @@ struct ArchiveWatchMacApp: App {
         }
         .modelContainer(modelContainer)
         .commands {
+            // Grouped because Xcode 26's CommandsBuilder takes at most 10
+            // entries (the 27 SDK takes more, which is how 12 compiled locally
+            // and failed the App Store build, 2026-09-29).
+            Group {
             SidebarCommands()
             // Show/Hide Toolbar and Customize Toolbar… (the editor's toolbar is customizable).
             ToolbarCommands()
@@ -141,11 +145,14 @@ struct ArchiveWatchMacApp: App {
             GoCommands(router: router, store: store)
             FilmCommands()
             ControlsCommands(router: router)
+            }
+            Group {
             // The Creation Studio's (Rule 7d): enabled only while an editor is key.
             EditorFileCommands()
             EditorClipCommands()
             EditorMarkCommands()
             EditorViewCommands()
+            }
             HelpCommands()
             StudioBroadcastCommands()
             // With a WindowGroup (first) + a DocumentGroup, SwiftUI binds ⌘N to the
