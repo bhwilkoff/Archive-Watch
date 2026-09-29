@@ -31,7 +31,11 @@ struct HomeView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 26) {
                 if !heroItems.isEmpty { HeroCarousel(items: heroItems) }
-                if !continueItems.isEmpty { ShelfRow(title: "Continue Watching", items: continueItems) }
+                if !continueItems.isEmpty {
+                    ShelfRow(title: "Continue Watching", items: continueItems,
+                             progressByID: Dictionary(progress.map { ($0.archiveID, $0) },
+                                                      uniquingKeysWith: { a, _ in a }))
+                }
                 CategoryTilesRow()
                 ForEach(shelves) { ShelfRow(title: $0.title, items: $0.items, accent: $0.accent) }
                 DecadeTilesRow()   // last row (tvOS/iOS parity — browse-by-era at the bottom)

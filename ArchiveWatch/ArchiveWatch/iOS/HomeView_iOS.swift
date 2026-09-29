@@ -49,7 +49,9 @@ struct HomeView: View {
                     HeroCarousel(items: heroItems)
                 }
                 if !continueItems.isEmpty {
-                    Shelf(title: "Continue Watching", subtitle: nil, items: continueItems)
+                    Shelf(title: "Continue Watching", subtitle: nil, items: continueItems,
+                          progressByID: Dictionary(progress.map { ($0.archiveID, $0) },
+                                                   uniquingKeysWith: { a, _ in a }))
                 }
                 CategoryTilesRow().id("categories")
                 // Featured shelves (canonical order), then the dynamic block in the SAME order as
@@ -345,6 +347,7 @@ private struct Shelf: View {
     let title: String
     let subtitle: String?
     let items: [Catalog.Item]
+    var progressByID: [String: WatchProgress] = [:]
     @Environment(Router.self) private var router
 
     var body: some View {
@@ -357,7 +360,9 @@ private struct Shelf: View {
             ScrollView(.horizontal) {
                 LazyHStack(spacing: 14) {
                     ForEach(items) { item in
-                        Button { router.openDetail(item) } label: { PosterTile(item: item) }
+                        Button { router.openDetail(item) } label: {
+                            PosterTile(item: item, progress: progressByID[item.archiveID])
+                        }
                             .buttonStyle(.plain)
                     }
                 }

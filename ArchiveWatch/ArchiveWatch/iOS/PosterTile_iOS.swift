@@ -6,11 +6,22 @@ import SwiftUI
 struct PosterTile: View {
     let item: Catalog.Item
     var width: CGFloat = 120
+    /// Continue Watching: a bar along the poster's foot and the time left in
+    /// place of the year (the Apple TV card's two facts, tvOS v1.42.858).
+    var progress: WatchProgress? = nil
 
     var body: some View {
         VStack(alignment: .leading, spacing: 6) {
             ResilientPosterArt(item: item)
                 .frame(width: width, height: width * 1.5)
+                .overlay(alignment: .bottom) {
+                    if let progress {
+                        ProgressView(value: progress.fraction)
+                            .tint(Brand.primary)
+                            .padding(.horizontal, 6).padding(.bottom, 6)
+                            .accessibilityHidden(true)
+                    }
+                }
                 .clipShape(.rect(cornerRadius: 10))
                 .overlay(RoundedRectangle(cornerRadius: 10).strokeBorder(.white.opacity(0.08)))
             // Reserve a uniform text block (2 title lines + 1 year line) so tiles
@@ -21,7 +32,7 @@ struct PosterTile: View {
                 .font(.caption).fontWeight(.medium)
                 .foregroundStyle(.primary)
                 .lineLimit(2, reservesSpace: true).truncationMode(.tail)
-            Text(verbatim: item.year.map(String.init) ?? " ")
+            Text(verbatim: progress?.remainingLabel ?? item.year.map(String.init) ?? " ")
                 .font(.caption2).foregroundStyle(.secondary)
                 .lineLimit(1)
         }

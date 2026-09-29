@@ -47,6 +47,17 @@ final class WatchProgress {
     }
 
     /// Treat anything past 95% as finished — hide from Continue Watching.
+    /// "49m left" / "1h 12m left" (or "12m watched" with no known length).
+    /// One wording for Continue Watching on every Apple platform.
+    var remainingLabel: String {
+        if durationSeconds > 0 {
+            let m = max(0, Int(durationSeconds - positionSeconds)) / 60
+            if m >= 60 { return "\(m / 60)h \(m % 60)m left" }
+            return "\(m)m left"
+        }
+        return "\(Int(positionSeconds) / 60)m watched"
+    }
+
     var isComplete: Bool {
         guard durationSeconds > 0 else { return false }
         return positionSeconds / durationSeconds >= 0.95

@@ -7,6 +7,9 @@ import SwiftUI
 
 struct PosterCard: View {
     let item: Catalog.Item
+    /// Continue Watching: a bar along the poster's foot and the time left in
+    /// place of the year (the Apple TV card's two facts, tvOS v1.42.858).
+    var progress: WatchProgress? = nil
     @Environment(AppRouter.self) private var router
     @State private var hovering = false
 
@@ -21,6 +24,14 @@ struct PosterCard: View {
                 .fill(.quaternary)
                 .aspectRatio(2.0 / 3.0, contentMode: .fit)
                 .overlay { RemotePoster(item: item) }
+                .overlay(alignment: .bottom) {
+                    if let progress {
+                        ProgressView(value: progress.fraction)
+                            .tint(Brand.primary)
+                            .padding(.horizontal, 6).padding(.bottom, 6)
+                            .accessibilityHidden(true)
+                    }
+                }
                 .clipShape(RoundedRectangle(cornerRadius: 8))
                 .overlay(alignment: .bottomLeading) {
                     if let r = item.imdbRatingDisplay {
@@ -37,9 +48,9 @@ struct PosterCard: View {
             // The year line is always laid out: a grid centers its cells, so a
             // card with no year sat half a line lower than its row (The Pink
             // Panther in Movies; Mac loop, 2026-09-27).
-            Text(verbatim: item.year.map(String.init) ?? " ")
+            Text(verbatim: progress?.remainingLabel ?? item.year.map(String.init) ?? " ")
                 .font(.caption2).foregroundStyle(.secondary)
-                .accessibilityHidden(item.year == nil)
+                .accessibilityHidden(progress == nil && item.year == nil)
         }
         .contentShape(Rectangle())
         .onHover { hovering = $0 }
@@ -160,14 +171,17 @@ struct ShelfRow<Trailing: View>: View {
     let title: String
     let items: [Catalog.Item]
     var accent: Color = .primary
+    var progressByID: [String: WatchProgress] = [:]
     // A visible control beside the title (a playlist's Share). A row verb
     // that lives only behind right-click cannot be found — iOS learned the
     // same lesson with a swipe, so the shelf offers the slot.
     @ViewBuilder var trailing: () -> Trailing
 
     init(title: String, items: [Catalog.Item], accent: Color = .primary,
+         progressByID: [String: WatchProgress] = [:],
          @ViewBuilder trailing: @escaping () -> Trailing) {
-        self.title = title; self.items = items; self.accent = accent; self.trailing = trailing
+        self.title = title; self.items = items; self.accent = accent
+        self.progressByID = progressByID; self.trailing = trailing
     }
 
     var body: some View {
@@ -181,7 +195,7 @@ struct ShelfRow<Trailing: View>: View {
                 }
                 ScrollView(.horizontal, showsIndicators: false) {
                     LazyHStack(spacing: 14) {
-                        ForEach(items) { PosterCard(item: $0).frame(width: 150) }
+                        ForEach(items) { PosterCard(item: $0, progress: progressByID[$0.archiveID]).frame(width: 150) }
                     }
                     .padding(.horizontal, 2)
                 }
@@ -191,8 +205,9 @@ struct ShelfRow<Trailing: View>: View {
 }
 
 extension ShelfRow where Trailing == EmptyView {
-    init(title: String, items: [Catalog.Item], accent: Color = .primary) {
-        self.init(title: title, items: items, accent: accent) { EmptyView() }
+    init(title: String, items: [Catalog.Item], accent: Color = .primary,
+         progressByID: [String: WatchProgress] = [:]) {
+        self.init(title: title, items: items, accent: accent, progressByID: progressByID) { EmptyView() }
     }
 }
 #endif

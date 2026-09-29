@@ -198,16 +198,7 @@ struct ContinueWatchingTile: View {
         }
     }
 
-    private var remainingLabel: String {
-        if progress.durationSeconds > 0 {
-            let remaining = max(0, Int(progress.durationSeconds - progress.positionSeconds))
-            let m = remaining / 60
-            if m >= 60 { return "\(m / 60)h \(m % 60)m left" }
-            return "\(m)m left"
-        }
-        let watched = Int(progress.positionSeconds) / 60
-        return "\(watched)m watched"
-    }
+    private var remainingLabel: String { progress.remainingLabel }   // shared wording (WatchProgress)
 }
 
 #endif
