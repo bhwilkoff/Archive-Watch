@@ -190,7 +190,10 @@ fun TvSeriesScreen(container: AppContainer, nav: Nav, slug: String) {
                     val meta = listOfNotNull(
                         yearRange(current.yearStart, current.yearEnd),
                         episodeCountLabel(have, current.canonicalEpisodesCount),
-                        seasons.size.takeIf { it > 0 }?.let { "$it season${if (it == 1) "" else "s"}" },
+                        // Only when every episode is held: counted from a partial run
+                        // it read "1 season" over an S3 episode (Here's Lucy).
+                        seasons.size.takeIf { it > 0 && (current.canonicalEpisodesCount ?: 0) <= have }
+                            ?.let { "$it season${if (it == 1) "" else "s"}" },
                         current.networks.firstOrNull()?.let { "Aired on $it" },
                     ).joinToString("  ·  ")
                     if (meta.isNotEmpty()) {
@@ -307,20 +310,6 @@ fun TvSeriesScreen(container: AppContainer, nav: Nav, slug: String) {
             }
         }
 
-        // When we hold only part of the canonical run, say so — it sets the
-        // expectation that the library keeps growing (tvOS partialFooter).
-        val have = current.episodesCount ?: seasons.sumOf { it.episodes.size }
-        val total = current.canonicalEpisodesCount
-        if (total != null && total > have) {
-            item(key = "partial") {
-                Text(
-                    "$have of $total episodes available — more are added as they surface in the archive.",
-                    fontSize = 14.sp,
-                    color = Color.White.copy(alpha = 0.45f),
-                    modifier = Modifier.padding(start = TvDims.OverscanH, end = TvDims.OverscanH, top = 20.dp),
-                )
-            }
-        }
     }
 
     if (showShare) {

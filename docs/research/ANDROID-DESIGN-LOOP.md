@@ -101,9 +101,13 @@ Stale records:
   PiP ✅ (seen on the Pixel: a channel pinned over the home screen, muted),
   category toggles ✅, playback options ✅, three Glance widgets ✅, Cast 🚧
   (hand-off built, never seen on a receiver). §8b sync was already right.
-- V. Background play is REAL work, not a stale cell: the player keeps playing
-  in PiP, but there is no foreground MediaSessionService, so audio alone with
-  the screen off or another app in front is the OS's to stop.
+- V. Background play, MEASURED before building: a muted channel on the Pixel,
+  another app brought to the front (the app went to PiP), audio "started" at
+  5, 30, 60 and 120 s. The case PiP does not cover is screen-off, which cannot
+  be tested here (owner: never sleep a test device), and a mediaPlayback
+  foreground service would add a Play Console FGS declaration to the next
+  release. Not built on a failure nobody has observed; PARITY stays ⏳ with
+  this reason.
 - I. ✅ v1.42.950 ANDROID-DESIGN rewritten against the code: §3.2 names all
   14 routes, §4.2b (TV Detail has Scenes), §4.5 (History tab, Join a room),
   §5.3 (channel history by seconds watched, up/down, Up Next), §7 (seven
@@ -231,6 +235,13 @@ Harness:
   Test residue: "Phone Glass Test", a playlist a 2026-09-14 test imported
   (commit e4c0030ea), was deleted through the app, so its tombstone reaches
   Drive.
+- AB. ✅ v1.42.954 TV Series (and tvOS, the same code shape): "1 season" was
+  counted from the episodes held and sat over the only one, S3 · E1 of a
+  six-season show (Here's Lucy); the count shows now only when every episode
+  is held. The footer "1 of 144 episodes available — more are added as they
+  surface in the archive." repeated the header's "1 of 144 episodes" and
+  explained itself; removed on both. Seen on the Google TV; tvOS, iOS and
+  macOS build clean, not run on an Apple TV.
 
 ## Queue
 

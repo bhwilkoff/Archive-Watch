@@ -317,7 +317,11 @@ struct SeriesDetailView: View {
         return "\(n) episode\(n == 1 ? "" : "s")"
     }
 
+    /// Only when every episode is held: counted from a partial run, "1 season"
+    /// sat over an S3 episode of a six-season show (Here's Lucy).
     private var seasonCountLabel: String? {
+        if let s = series, let total = s.canonicalEpisodesCount,
+           let have = s.episodesCount, total > have { return nil }
         let n = series?.seasons.count ?? seriesCard.seasonsCount ?? 0
         return n > 0 ? "\(n) season\(n == 1 ? "" : "s")" : nil
     }
@@ -351,25 +355,7 @@ struct SeriesDetailView: View {
             episodeGrid(
                 episodes: series.seasons[safe: selectedSeasonIndex]?.episodes ?? [],
             )
-            partialFooter(series: series)
                 .padding(.bottom, 80)
-        }
-    }
-
-    /// When we have only part of a show's canonical run, say so plainly —
-    /// it sets the expectation that the library keeps growing.
-    @ViewBuilder
-    private func partialFooter(series: Series) -> some View {
-        if let total = series.canonicalEpisodesCount,
-           let have = series.episodesCount, total > have {
-            HStack(spacing: 10) {
-                Image(systemName: "arrow.triangle.2.circlepath")
-                Text("\(have) of \(total) episodes available — more are added as they surface in the archive.")
-            }
-            .scaledFont(18, weight: .medium)
-            .foregroundStyle(.white.opacity(0.45))
-            .padding(.horizontal, 80)
-            .padding(.top, 28)
         }
     }
 
