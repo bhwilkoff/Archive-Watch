@@ -175,6 +175,8 @@ fun TvPosterGrid(
     onClick: (CatalogItem) -> Unit,
     railFocus: FocusRequester? = null,
     modifier: Modifier = Modifier,
+    /** Called as the last rows compose, for a grid that pages. */
+    onNearEnd: (() -> Unit)? = null,
 ) {
     LazyVerticalGrid(
         columns = GridCells.Fixed(TV_PAGE_COLUMNS),
@@ -188,6 +190,9 @@ fun TvPosterGrid(
         modifier = modifier.fillMaxSize(),
     ) {
         itemsIndexed(rows, key = { _, it -> it.archiveID }) { index, item ->
+            if (onNearEnd != null && index >= rows.size - 12) {
+                androidx.compose.runtime.LaunchedEffect(rows.size) { onNearEnd() }
+            }
             TvPosterTile(
                 item = item,
                 onClick = { onClick(item) },

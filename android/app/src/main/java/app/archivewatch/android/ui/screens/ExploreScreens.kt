@@ -35,6 +35,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.produceState
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
+import androidx.compose.foundation.lazy.grid.itemsIndexed
+import kotlinx.coroutines.launch
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -69,7 +76,7 @@ fun CollectionsScreen(container: AppContainer, nav: Nav) {
     val collections by produceState<List<Pair<CollectionMeta, Int>>?>(null, dbVersion) {
         val db = container.catalog.awaitDb()
         value = container.editorial.collections().mapNotNull { meta ->
-            val n = db.byCollection(meta.id, limit = 240).size
+            val n = db.collectionCount(meta.id)
             if (n >= 6) meta to n else null
         }
     }
@@ -124,7 +131,7 @@ fun CollectionsScreen(container: AppContainer, nav: Nav) {
                                      color = MaterialTheme.colorScheme.onSurfaceVariant)
                             }
                         }
-                        Text("$count", style = MaterialTheme.typography.labelMedium,
+                        Text("%,d".format(count), style = MaterialTheme.typography.labelMedium,
                              color = MaterialTheme.colorScheme.onSurfaceVariant)
                     }
                 }
@@ -133,19 +140,39 @@ fun CollectionsScreen(container: AppContainer, nav: Nav) {
     }
 }
 
+private const val COLLECTION_PAGE = 120
+
 /** One collection's grid. */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CollectionGridScreen(container: AppContainer, nav: Nav, route: Route.Collection) {
     val dbVersion by container.catalog.dbVersion.collectAsState()
-    val items by produceState<List<CatalogItem>?>(null, dbVersion) {
-        // awaitDb, not `db?` — a null db during the startup/refresh swap left
-        // `value` null forever and the grid span on a spinner (the awaitDb
-        // conversion of 2026-08-27 missed these two sites).
-        value = container.catalog.awaitDb().byCollection(route.id)
+    // Paged: the first 240 were the whole page, so Feature Films (12,104)
+    // ended at 240. awaitDb, not `db?` — a null db during the startup/refresh
+    // swap left the grid on a spinner forever (2026-08-27).
+    var items by remember { mutableStateOf<List<CatalogItem>?>(null) }
+    var endReached by remember { mutableStateOf(false) }
+    var paging by remember { mutableStateOf(false) }
+    val pageScope = rememberCoroutineScope()
+    LaunchedEffect(dbVersion) {
+        val page = container.catalog.awaitDb().byCollection(route.id, limit = COLLECTION_PAGE)
+        endReached = page.size < COLLECTION_PAGE
+        items = page
     }
     GridScaffold(title = route.title, subtitle = route.blurb, nav = nav, items = items,
-                 eyebrow = "COLLECTION")
+                 eyebrow = "COLLECTION", onNearEnd = {
+        val have = items
+        if (have != null && !endReached && !paging) {
+            paging = true
+            pageScope.launch {
+                val page = container.catalog.awaitDb()
+                    .byCollection(route.id, limit = COLLECTION_PAGE, offset = have.size)
+                if (page.size < COLLECTION_PAGE) endReached = true
+                items = have + page
+                paging = false
+            }
+        }
+    })
 }
 
 /** Person filmography — name FTS, disambiguated by TMDB person id when we have one (two
@@ -258,7 +285,8 @@ fun CartoonScreen(container: AppContainer, nav: Nav) {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun GridScaffold(title: String, subtitle: String?, nav: Nav,
-                         items: List<CatalogItem>?, eyebrow: String = "BROWSE") {
+                         items: List<CatalogItem>?, eyebrow: String = "BROWSE",
+                         onNearEnd: (() -> Unit)? = null) {
     // ONE branch fixes TWO screens: Collection and Person are the same page,
     // which is why they already shared this scaffold. The phone version puts
     // its title in a TopAppBar behind a 24dp back arrow and lays the grid out
@@ -282,6 +310,7 @@ private fun GridScaffold(title: String, subtitle: String?, nav: Nav,
                 rows = rows,
                 onClick = { nav.openItem(it.archiveID, it.seriesID, it.contentType) },
                 railFocus = LocalTvRailFocus.current,
+                onNearEnd = onNearEnd,
             )
         }
         return
@@ -319,7 +348,11 @@ private fun GridScaffold(title: String, subtitle: String?, nav: Nav,
                     horizontalArrangement = Arrangement.spacedBy(10.dp),
                     verticalArrangement = Arrangement.spacedBy(14.dp),
                 ) {
-                    items(items.uniqueBy { it.archiveID }, key = { it.archiveID }) { item ->
+                    val unique = items.uniqueBy { it.archiveID }
+                    itemsIndexed(unique, key = { _, it -> it.archiveID }) { index, item ->
+                        if (onNearEnd != null && index >= unique.size - 12) {
+                            LaunchedEffect(unique.size) { onNearEnd() }
+                        }
                         PosterTile(item, onClick = {
                             nav.openItem(item.archiveID, item.seriesID, item.contentType)
                         })

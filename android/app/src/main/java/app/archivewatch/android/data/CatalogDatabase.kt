@@ -551,13 +551,23 @@ class CatalogDatabase private constructor(
         return tokens.joinToString(" ") { "\"$it\"*" }
     }
 
-    suspend fun byCollection(collection: String, limit: Int = 240): List<CatalogItem> = itemsLite(
+    suspend fun byCollection(collection: String, limit: Int = 240, offset: Int = 0): List<CatalogItem> = itemsLite(
         """SELECT $liteCols FROM item_collections c
            JOIN items i ON i.archiveID = c.archiveID
            WHERE c.collection = ?$adultAnd
-           ORDER BY i.popularityScore DESC LIMIT ?""",
-        listOf(collection, limit),
+           ORDER BY i.popularityScore DESC, i.archiveID LIMIT ? OFFSET ?""",
+        listOf(collection, limit, offset),
     )
+
+    /** How many titles a collection holds, under the same filter as `byCollection`. */
+    suspend fun collectionCount(collection: String): Int = dbCall {
+        queryRaw(
+            """SELECT COUNT(*) FROM item_collections c
+               JOIN items i ON i.archiveID = c.archiveID
+               WHERE c.collection = ?$adultAnd""",
+            listOf(collection),
+        ) { it.getLong(0).toInt() }.firstOrNull() ?: 0
+    }
 
     /** Metadata-expansion facet filters (Decision 046) — parallel to the genre
         filter, querying the value-indexed `item_keywords` / `item_studios` join

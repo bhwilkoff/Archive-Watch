@@ -55,7 +55,7 @@ fun TvCollectionsScreen(container: AppContainer, nav: Nav) {
     val collections by produceState<List<Pair<CollectionMeta, Int>>?>(null, dbVersion) {
         val db = container.catalog.awaitDb()
         value = container.editorial.collections().mapNotNull { meta ->
-            val n = db.byCollection(meta.id, limit = 240).size
+            val n = db.collectionCount(meta.id)
             if (n >= 6) meta to n else null
         }
     }
@@ -122,7 +122,7 @@ fun TvCollectionsScreen(container: AppContainer, nav: Nav) {
                             modifier = Modifier.padding(top = 14.dp),
                         )
                         Text(
-                            "$count films",
+                            "%,d films".format(count),
                             fontSize = 19.sp,
                             color = TvAccent,
                             modifier = Modifier.padding(top = 4.dp),

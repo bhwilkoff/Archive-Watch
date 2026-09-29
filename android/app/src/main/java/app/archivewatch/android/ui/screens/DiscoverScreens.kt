@@ -53,6 +53,8 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.produceState
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.foundation.lazy.grid.itemsIndexed
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -173,6 +175,8 @@ fun EraTilesRow(decades: List<Pair<Int, Int>>, onDecade: (Int) -> Unit) {
     }
 }
 
+private const val FILTERED_PAGE = 60
+
 /** The grid a category/era tile opens (the apps' FilteredGridView). */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -189,11 +193,36 @@ fun FilteredGridScreen(container: AppContainer, nav: Nav, route: Route.Filtered)
     // the same gap on Android, and `browse()` already takes the sort, so it
     // was only ever a missing control.
     var sort by remember(route) { mutableStateOf(BrowseSort.POPULAR) }
-    val items by produceState<List<CatalogItem>?>(null, dbVersion, pdYearShown, sort) {
-        value = null                     // show the loader while re-sorting
+    // Paged like Browse, with the real count: a fixed limit of 240 told a
+    // viewer the 1930s held "240 titles" (4,576 do) and ended the grid there.
+    var items by remember { mutableStateOf<List<CatalogItem>?>(null) }
+    var total by remember { mutableStateOf<Int?>(null) }
+    var endReached by remember { mutableStateOf(false) }
+    val pageScope = rememberCoroutineScope()
+    var paging by remember { mutableStateOf(false) }
+    LaunchedEffect(dbVersion, pdYearShown, sort) {
+        items = null                     // show the loader while re-sorting
         val db = container.catalog.awaitDb()
-        value = db.browse(contentType = route.contentType, decade = route.decade,
-                          year = pdYearShown ?: route.year, sort = sort, limit = 240)
+        val year = pdYearShown ?: route.year
+        total = db.browseCount(contentType = route.contentType, decade = route.decade, year = year)
+        val page = db.browse(contentType = route.contentType, decade = route.decade,
+                             year = year, sort = sort, limit = FILTERED_PAGE)
+        endReached = page.size < FILTERED_PAGE
+        items = page
+    }
+    fun loadMore() {
+        val have = items ?: return
+        if (endReached || paging) return
+        paging = true
+        pageScope.launch {
+            val db = container.catalog.awaitDb()
+            val page = db.browse(contentType = route.contentType, decade = route.decade,
+                                 year = pdYearShown ?: route.year, sort = sort,
+                                 limit = FILTERED_PAGE, offset = have.size)
+            if (page.size < FILTERED_PAGE) endReached = true
+            items = have + page
+            paging = false
+        }
     }
     // TV: the header and the SORT are the two things the phone screen cannot
     // lend a television. Its sort is a Material DropdownMenu — a phone-sized
@@ -210,7 +239,7 @@ fun FilteredGridScreen(container: AppContainer, nav: Nav, route: Route.Filtered)
                 meta = when {
                     items == null -> "Loading…"
                     rows.isEmpty() -> "No titles match this filter in the catalog."
-                    else -> "${rows.size} ${if (rows.size == 1) "title" else "titles"}"
+                    else -> (total ?: rows.size).let { n -> "%,d %s".format(n, if (n == 1) "title" else "titles") }
                 },
                 compact = true,
             )
@@ -235,6 +264,7 @@ fun FilteredGridScreen(container: AppContainer, nav: Nav, route: Route.Filtered)
                 rows = rows,
                 onClick = { nav.openItem(it.archiveID, it.seriesID, it.contentType) },
                 railFocus = LocalTvRailFocus.current,
+                onNearEnd = { loadMore() },
             )
         }
         return
@@ -285,7 +315,9 @@ fun FilteredGridScreen(container: AppContainer, nav: Nav, route: Route.Filtered)
                     verticalArrangement = Arrangement.spacedBy(14.dp),
                     modifier = Modifier.fillMaxSize(),
                 ) {
-                    items(list.uniqueBy { it.archiveID }, key = { it.archiveID }) { item ->
+                    val unique = list.uniqueBy { it.archiveID }
+                    itemsIndexed(unique, key = { _, item -> item.archiveID }) { index, item ->
+                        if (index >= unique.size - 12) LaunchedEffect(unique.size) { loadMore() }
                         PosterTile(item, onClick = {
                             nav.openItem(item.archiveID, item.seriesID, item.contentType)
                         })

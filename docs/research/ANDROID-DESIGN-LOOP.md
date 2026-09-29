@@ -204,6 +204,18 @@ Harness:
   page restated the field's placeholder in a sentence. Checked and kept: the
   Library tab row scrolls ("Clip…" at the edge is Material's scroll cue),
   and Collections' descriptions are archive.org's own words.
+- X. ✅ v1.42.952 Capped lists shown as totals, phone and TV: the decade and
+  category grid read "1930s · 240 titles" and ENDED at 240 (4,534 exist);
+  every collection's count was a 240-capped list's size (Film Noir 559,
+  Feature Films 12,104) and its page stopped at 240. Now a COUNT for the
+  number and paging (60 / 120 at a time, as Browse does) for the grid. Seen:
+  "4,534 titles" and the TV grid past row 16; Collections' real counts on
+  both; Feature Films on the Pixel well past 120. Cartoon Mode's "240
+  cartoons" is its lineup pool, not a catalog count (left for now).
+- Y. OWNER CALL (content, Decision 027/105): "Devil In Miss Jonas" (1974,
+  a West German sex comedy by its own synopsis) is isAdult=0 and kept in the
+  1964-77 renewal band, so it shows in Feature Films with mature content
+  hidden.
 
 ## Queue
 
