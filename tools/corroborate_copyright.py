@@ -53,6 +53,13 @@ USCO = "https://api.publicrecords.copyright.gov/search_service_external/simple_s
 USCO_RECORD = "https://publicrecords.copyright.gov/detailed-record/"
 SPARQL = "https://query.wikidata.org/sparql"
 RECHECK_DAYS = 90
+# Bumped when the MATCH changes, so a title checked under an older rule is
+# checked again now rather than after RECHECK_DAYS. 2: a "; motion picture
+# photoplay" tail and the Office's own variant titles (Gentlemen Prefer
+# Blondes' RE0000094825 was missed under 1), and 100 records a page, not 25:
+# a popular title's renewal sits deep in its results (The Pink Panther's
+# RE0000523059 is record 54 of 5,525), and popular is who renewed.
+RULE = 2
 CHECKED_BUCKETS = {"presumed_pd", "renewal_zone", "renewal_zone_bw", "unknown_year",
                    "safe_archive_license", "safe_cc", "commercial_keep"}
 USCO_FIRST_YEAR = 1950     # renewals of earlier works were filed before 1978: not online
@@ -65,7 +72,7 @@ def norm_title(t):
     author/claimant tail ("Kiss me deadly.  By Parklane Pictures, Inc."),
     no leading article, letters and digits only."""
     t = (t or "").lower()
-    t = re.split(r"\s+by\s+|\s*/\s*|\s+:\s*| a motion picture", t)[0]
+    t = re.split(r"\s+by\s+|\s*/\s*|\s+:\s*|\s*;\s*| a motion picture", t)[0]
     t = re.sub(r"^(the|a|an)\s+", "", t)
     return re.sub(r"[^a-z0-9]", "", t)
 
@@ -79,7 +86,10 @@ def renewal_in(records, title, year):
         r = h.get("hit", h)
         if r.get("registration_class") != "RE" or r.get("type_of_work") != "motion_picture":
             continue
-        if norm_title(r.get("title_concatenated")) != want:
+        variants = (r.get("title_variant_title_list") or {}).get("title_variant_title") or []
+        if isinstance(variants, str):
+            variants = [variants]
+        if want not in {norm_title(t) for t in [r.get("title_concatenated"), *variants]}:
             continue
         for x in r.get("registration_number_list", []):
             if "Renewal registration for" not in (x.get("copyright_number_display_text") or ""):
@@ -96,7 +106,7 @@ def renewal_in(records, title, year):
 
 def usco_search(title):
     url = USCO + "?" + urllib.parse.urlencode({"page_number": 1, "query": title,
-                                               "field_type": "title", "records_per_page": 25})
+                                               "field_type": "title", "records_per_page": 100})
     for attempt in range(3):
         try:
             req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "application/json"})
@@ -193,7 +203,7 @@ def targets(items, today):
         if AR.bucket(it)[0] not in CHECKED_BUCKETS:
             continue
         seen = it.get("copyrightChecked")
-        if seen:
+        if seen and (it.get("copyrightRule") or 1) >= RULE:
             try:
                 if dt.date.fromisoformat(seen) >= cutoff:
                     continue
@@ -229,6 +239,7 @@ def main():
             usco_todo.append(it)
         else:
             it["copyrightChecked"] = now
+            it["copyrightRule"] = RULE
             n_none += 1
 
     def check(it):
@@ -247,6 +258,7 @@ def main():
                     n_usco += 1
                 else:
                     it["copyrightChecked"] = now
+                    it["copyrightRule"] = RULE
                     n_none += 1
             elif state == "error":
                 n_err += 1

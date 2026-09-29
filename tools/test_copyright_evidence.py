@@ -51,6 +51,26 @@ song = [record("RE", "music", "Charade.  From Charade.  w Johnny Mercer, m Henry
 check("a renewal of the film's SONG is not a claim on the film", not C.renewal_in(song, "Charade", 1963))
 check("a different title is not a match",
       not C.renewal_in([record("RE", "motion_picture", "Kiss me Kate.", 1955)], "Kiss Me Deadly", 1955))
+# Gentlemen Prefer Blondes (1953): the Office titles it "Gentlemen prefer
+# blondes; motion picture photoplay." with a variant title of the bare name;
+# rule 1 compared only the full title and missed RE0000094825.
+gpb = record("RE", "motion_picture", "Gentlemen prefer blondes; motion picture photoplay.", 1953,
+             reg="RE0000094825")
+check("a '; motion picture photoplay' tail does not hide a renewal",
+      bool(C.renewal_in([gpb], "Gentlemen Prefer Blondes", 1953)))
+gpbv = record("RE", "motion_picture", "Photoplay no. 12.", 1953, reg="RE0000094825")
+gpbv["hit"]["title_variant_title_list"] = {"title_variant_title": ["Gentlemen prefer blondes"]}
+check("the Office's own variant title is a match", bool(C.renewal_in([gpbv], "Gentlemen Prefer Blondes", 1953)))
+check("  ...but a different film behind a semicolon is not",
+      not C.renewal_in([record("RE", "motion_picture", "Gentlemen marry brunettes; motion picture photoplay.", 1953)],
+                       "Gentlemen Prefer Blondes", 1953))
+check("  ...and the dramatization (not a motion picture) still is not",
+      not C.renewal_in([record("RE", "dramatic_work", "Gentlemen prefer blondes.  Dramatization: Kristen Sergel.", 1953)],
+                       "Gentlemen Prefer Blondes", 1953))
+old_rule = {"copyrightChecked": "2026-09-28"}
+check("a title checked under rule 1 is due again under rule 2",
+      (old_rule.get("copyrightRule") or 1) < C.RULE)
+
 # Control: a matcher that accepts any registration with the title would hide
 # Plan 9 — the fixture really does discriminate.
 naive = any(C.norm_title(h["hit"]["title_concatenated"]) == C.norm_title("Plan 9 From Outer Space")
@@ -119,11 +139,13 @@ del A.copyright_overrides.ids
 items = [{**base, "archiveID": "keep"},
          {**base, "archiveID": "old", "year": 1925},
          {**base, "archiveID": "hidden", "excluded": True},
-         {**base, "archiveID": "recent", "copyrightChecked": TODAY.isoformat()},
+         {**base, "archiveID": "recent", "copyrightChecked": TODAY.isoformat(), "copyrightRule": C.RULE},
+         {**base, "archiveID": "oldrule", "copyrightChecked": TODAY.isoformat()},
          {**base, "archiveID": "stale", "copyrightChecked": "2026-01-01"},
          {**base, "archiveID": "noyear", "year": None}]
 ids = {it["archiveID"] for it in C.targets(items, TODAY)}
-check("targets: kept, past the age line, and not checked recently", ids == {"keep", "stale"})
+check("targets: kept, past the age line, and not checked recently under this rule",
+      ids == {"keep", "stale", "oldrule"})
 
 print(f"\n{'FAIL' if fails else 'PASS'}: {fails} failure(s)")
 sys.exit(1 if fails else 0)

@@ -294,6 +294,12 @@ channel-surf ↑/↓ (three routes failed; control first),  Spotlight indexing (
   photo of a couple passing an "ADULTS ONLY" sign. New
   shared/editorial/image_rejects.json names that one image; remediate clears
   it every build (tested with a control carrying another backdrop, kept).
+- **Checked 2026-09-28 (v1.42.921)**: Yojimbo left with Decision 151; The
+  Pink Panther (1963) and Gentlemen Prefer Blondes (1953) have renewals the
+  check MISSED — the Office's "; motion picture photoplay" title tail, and a
+  25-record page (Pink Panther's renewal is record 54 of 5,525). Match rule 2
+  fixes both and re-checks every title under it; 3/3 known renewals match,
+  0/17 public-domain controls do.
 - Browse shows Yojimbo (1961), The Pink Panther, Gentlemen Prefer Blondes; the
   Classic TV channel carries Monty Python's Flying Circus and Rumpole of the
   Bailey (1978-); the Documentary channel carries Triumph des Willens (the
