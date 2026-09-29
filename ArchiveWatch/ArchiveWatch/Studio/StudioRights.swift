@@ -167,6 +167,22 @@ public enum StudioRights {
         + "even though the film is not. Archive Watch checks the film's age; "
         + "it cannot check a platform's matcher."
 
+    /// The on-air rights line, ONE copy for every platform: it lived in five
+    /// and Decision 137's fix ("no 'before 19xx' clause") reached only some
+    /// (iOS still said "published 1928, before 1930", recorded 2026-09-28).
+    /// Only a film public domain BY AGE carries it, and it says only what is
+    /// true: the year it was published.
+    public static func provenanceLine(bucket: String?, year: Int?) -> String? {
+        guard bucket == "safe_pd_age", let year else { return nil }
+        return "Public domain \u{2014} published \(year)"
+    }
+
+    /// The lower third's second line: "1928 · Paul Leni".
+    public static func lowerThirdSubtitle(year: Int?, director: String?) -> String {
+        [year.map(String.init), director].compactMap { $0 }.filter { !$0.isEmpty }
+            .joined(separator: " \u{00B7} ")
+    }
+
     /// The one-line explanation of the rule itself, for the go-live sheet.
     /// A host who cannot find their film should learn WHY, not hunt.
     /// The newest publication year in the US public domain BY AGE. A work is

@@ -1086,10 +1086,9 @@ struct PlayerScreen: View {
         await engine.setLayout(studioRequest?.layout ?? .corner)
         var o = StudioOverlay()
         o.title = film.title
-        o.subtitle = [film.year.map(String.init), film.director]
-            .compactMap { $0 }.filter { !$0.isEmpty }.joined(separator: " · ")
-        if film.rightsBucket == "safe_pd_age", let y = film.year {
-            o.provenance = "Public domain — published \(y)"
+        o.subtitle = StudioRights.lowerThirdSubtitle(year: film.year, director: film.director)
+        if let line = StudioRights.provenanceLine(bucket: film.rightsBucket, year: film.year) {
+            o.provenance = line
         }
         await engine.setOverlay(o)
 

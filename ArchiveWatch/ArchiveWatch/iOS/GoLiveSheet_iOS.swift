@@ -430,10 +430,7 @@ struct GoLiveSheet: View {
     }
 
     static func provenanceLine(for film: Catalog.Item) -> String? {
-        guard film.rightsBucket == "safe_pd_age", let y = film.year else { return nil }
-        // The catalog knows the film's year, not its exact date of entry into
-        // the public domain; say only what is true.
-        return "Public domain — published \(y)"
+        StudioRights.provenanceLine(bucket: film.rightsBucket, year: film.year)
     }
 }
 

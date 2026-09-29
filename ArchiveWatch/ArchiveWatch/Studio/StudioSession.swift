@@ -732,10 +732,8 @@ public final class StudioSession {
         }
         armedFilmID = film.archiveID
         armedTitle = film.title
-        armedSubtitle = [film.year.map(String.init), film.director]
-            .compactMap { $0 }.filter { !$0.isEmpty }.joined(separator: " · ")
-        armedProvenance = (film.rightsBucket == "safe_pd_age" && film.year != nil)
-            ? "Public domain — published \(film.year!)" : nil
+        armedSubtitle = StudioRights.lowerThirdSubtitle(year: film.year, director: film.director)
+        armedProvenance = StudioRights.provenanceLine(bucket: film.rightsBucket, year: film.year)
         return true
     }
 

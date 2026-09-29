@@ -340,7 +340,7 @@ review only when too little is left to read (the floor every review shares;
 the full keep_review was measured to drop 24 genuine reviews and rejected).
 All 214 are cleaned and kept; a second pass changes nothing.
 
-Shared-function candidates: the rights/lower-third line (5 copies), measured
+Shared-function candidates: ✅ v1.42.910 the rights/lower-third line (5 copies → StudioRights.provenanceLine / lowerThirdSubtitle, pinned in test_studio_rights), measured
 More (4), the hero pool (3), the caption overlay (3), the version menu (2),
 IntentInbox + intents (2), the Handoff type literal (4), Create Channel
 canSave (3), guide-block thresholds (3), review cards (2). Also: the Mac

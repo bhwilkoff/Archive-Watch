@@ -45,6 +45,20 @@ struct RightsTest {
         expect("on 2027-01-01 1931 films enter it",
                StudioRights.lastPublicDomainYear(now: utc("2027-01-01T00:00:00Z")) == 1931, true)
 
+        // The on-air rights line: ONE function, no stale "before 19xx".
+        expect("the rights line for a 1928 film",
+               StudioRights.provenanceLine(bucket: "safe_pd_age", year: 1928) == "Public domain \u{2014} published 1928", true)
+        expect("no rights line off the by-age bucket (control)",
+               StudioRights.provenanceLine(bucket: "presumed_pd", year: 1928) == nil, true)
+        expect("no rights line without a year",
+               StudioRights.provenanceLine(bucket: "safe_pd_age", year: nil) == nil, true)
+        expect("the line never carries a \"before\" clause",
+               StudioRights.provenanceLine(bucket: "safe_pd_age", year: 1920)?.contains("before") == false, true)
+        expect("the subtitle is year · director",
+               StudioRights.lowerThirdSubtitle(year: 1928, director: "Paul Leni") == "1928 \u{00B7} Paul Leni", true)
+        expect("an empty director is dropped",
+               StudioRights.lowerThirdSubtitle(year: 1928, director: "") == "1928", true)
+
         // MUST refuse.
         expect("a \(lastPD + 1) film (one year past the line)",
                StudioRights.canGoLive(rightsBucket: "safe_pd_age", contentType: "feature-film", year: lastPD + 1), false)

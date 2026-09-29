@@ -343,12 +343,9 @@ struct StudioPlayerContainer: View {
     private func pushOverlay() async {
         var o = StudioOverlay()
         o.title = item.title
-        o.subtitle = [item.year.map(String.init), item.director]
-            .compactMap { $0 }.filter { !$0.isEmpty }.joined(separator: " · ")
-        if item.rightsBucket == "safe_pd_age", let y = item.year {
-            // Decision 137: no "before 19xx" clause — it went stale on every
-            // New Year. The Mac, the television and Android already say this.
-            o.provenance = "Public domain — published \(y)"
+        o.subtitle = StudioRights.lowerThirdSubtitle(year: item.year, director: item.director)
+        if let line = StudioRights.provenanceLine(bucket: item.rightsBucket, year: item.year) {
+            o.provenance = line
         }
         o.showLowerThird = showLowerThird
         o.card = card
