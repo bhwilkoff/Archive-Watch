@@ -320,9 +320,9 @@ platforms is informing the other platforms."* Each line cites code, not docs.
 10. ➖ no change — seen on the Mac guide: titles wrap at words ("Black / Oxen"), narrow blocks draw none; 48 pt suits the Mac's smaller caption. Mac guide titles from 48 pt (ChannelsView_macOS.swift:248)
 11. ✅ v1.42.902 Mac cast row is a LazyHStack (DetailView_macOS.swift:632)
 12. ✅ v1.42.902 (seen: The Big Parade — six lines under Play, More, cast on the first screen) Mac synopsis has no width cap (DetailView_macOS.swift:68)
-13. Explanatory copy / disabled-without-reason — SurpriseView_iOS:42, ChannelsView_iOS:852/876, tvOS ChannelsView:523/544/560, SearchView_macOS:45, LibraryView_iOS:422 ("Create button")
+13. ✅ v1.42.904 Explanatory copy / disabled-without-reason — SurpriseView_iOS:42, ChannelsView_iOS:852/876, tvOS ChannelsView:523/544/560, SearchView_macOS:45, LibraryView_iOS:422 ("Create button")
 14. iOS commercial breaks is an icon swap, not a Toggle (ChannelsView_iOS:79)
-15. Title Case / one wording — DetailView_iOS:197/160, LibraryView_iOS:393
+15. ✅ v1.42.904 Title Case / one wording — DetailView_iOS:197/160, LibraryView_iOS:393
 16. iPad Go menu: "Surprise" and "Surprise Me" open the same page (MenuCommands_iOS:52/80)
 17. iPad Film menu lacks Subtitles… and Watch Together (MenuCommands_iOS:113)
 18. tvOS collection page lacks its description; card title 1 line (BrowseView.swift:163, CollectionsView.swift:98)

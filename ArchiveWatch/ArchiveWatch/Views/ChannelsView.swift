@@ -520,8 +520,6 @@ private struct CreateChannelSheet: View {
                     Text("Create a Channel")
                         .font(.system(size: 48, weight: .heavy, design: .serif))
                         .foregroundStyle(.white)
-                    Text("Pick any mix of filters — it plays straight through, all day.")
-                        .font(.title3).foregroundStyle(.white.opacity(0.6))
                 }
 
                 PillSelectRow(title: "Genre", options: genres, label: { $0 },
@@ -541,8 +539,6 @@ private struct CreateChannelSheet: View {
                         .background(.white.opacity(0.08), in: RoundedRectangle(cornerRadius: 14))
                         .overlay(RoundedRectangle(cornerRadius: 14)
                             .strokeBorder(.white.opacity(0.12), lineWidth: 1))
-                    Text("Leave blank to use “\(autoName)”.")
-                        .font(.callout).foregroundStyle(.white.opacity(0.45))
                 }
 
                 // Uniform full-width primary + secondary buttons (#4).
@@ -558,6 +554,11 @@ private struct CreateChannelSheet: View {
                             .frame(maxWidth: .infinity)
                     }
                     .buttonStyle(.borderedProminent).disabled(!canSave)
+                    // The refusal, where Create is greyed out (the Mac's words).
+                    if !canSave {
+                        Text("Choose at least one filter.")
+                            .font(.callout).foregroundStyle(.white.opacity(0.6))
+                    }
 
                     Button { dismiss() } label: {
                         Text("Cancel").font(.title3.weight(.semibold))

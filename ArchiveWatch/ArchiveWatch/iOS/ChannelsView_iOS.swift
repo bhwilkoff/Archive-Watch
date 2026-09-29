@@ -851,7 +851,9 @@ private struct CreateChannelSheet: View {
                 } header: {
                     Text("Filters")
                 } footer: {
-                    Text("Pick any mix — your channel plays it straight through, all day.")
+                    // A refusal, the only caption this form carries: Create
+                    // is off until a filter is chosen (the Mac says the same).
+                    if !canSave { Text("Choose at least one filter.") }
                 }
                 Section("Name") {
                     TextField(autoName, text: $name)

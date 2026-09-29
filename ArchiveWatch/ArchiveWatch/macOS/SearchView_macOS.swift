@@ -40,9 +40,9 @@ struct SearchView: View {
     var body: some View {
         ScrollView {
             if query.isEmpty {
-                ContentUnavailableView("Search the archive",
-                                       systemImage: "magnifyingglass",
-                                       description: Text("Title, director, cast, genre, country, or synopsis."))
+                // The field's prompt already names what can be searched
+                // (tvOS-DESIGN §3.3b; the same quiet glyph on every platform).
+                ContentUnavailableView("Search the archive", systemImage: "magnifyingglass")
                     .padding(.top, 80)
             } else if filtered.isEmpty && !showEpisodes {
                 if filterActive && !results.isEmpty {

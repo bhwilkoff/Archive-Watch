@@ -39,9 +39,6 @@ struct SurpriseView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
-                Text("Ways to wander the archive — tap one, or tap again to re-roll.")
-                    .font(.subheadline).foregroundStyle(.secondary)
-                    .padding(.horizontal)
                 LazyVGrid(columns: cols, spacing: 14) {
                     ForEach(actions) { action in
                         Button { perform(action) } label: { SurpriseTile(action: action) }

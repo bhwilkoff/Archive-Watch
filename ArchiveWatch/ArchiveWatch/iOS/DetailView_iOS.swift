@@ -195,7 +195,7 @@ struct DetailView: View {
                 }
                 if let report = FilmProblem.url(archiveID: item.archiveID) {
                     Link(destination: report) {
-                        Label("Something wrong with this film?", systemImage: "exclamationmark.bubble")
+                        Label("Something Wrong with This Film?", systemImage: "exclamationmark.bubble")
                     }
                 }
             } label: {

@@ -390,7 +390,7 @@ struct LibraryView: View {
                     // person who receives it needs no account and we host nothing.
                     .contextMenu {
                         if let shareURL {
-                            ShareLink(item: shareURL) { Label("Share playlist", systemImage: "square.and.arrow.up") }
+                            ShareLink(item: shareURL) { Label("Share Playlist", systemImage: "square.and.arrow.up") }
                         }
                     }
                     .swipeActions(edge: .leading) {
@@ -419,7 +419,7 @@ struct LibraryView: View {
     @ViewBuilder private var clipsList: some View {
         if clips.isEmpty {
             ContentUnavailableView("No clips yet", systemImage: "scissors",
-                description: Text("Make clips and GIFs from a film's detail page (the Create button)."))
+                description: Text("Make one with Create a Clip, in a film's More menu."))
         } else {
             List {
                 ForEach(clips) { clip in
