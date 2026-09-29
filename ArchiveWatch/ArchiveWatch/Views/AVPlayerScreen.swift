@@ -489,7 +489,7 @@ final class CaptionCoordinator {
 /// Presses, not swipes: a swipe down still opens the player's info panel, and
 /// the edges' left/right keep scrubbing.
 @MainActor
-final class ChannelSurfPresses: NSObject {
+final class ChannelSurfPresses: NSObject, UIGestureRecognizerDelegate {
     private let step: (Int) -> Void
     init(step: @escaping (Int) -> Void) { self.step = step }
     @objc private func up() { step(-1) }
@@ -499,7 +499,23 @@ final class ChannelSurfPresses: NSObject {
                                 (#selector(down), UIPress.PressType.downArrow)] {
             let g = UITapGestureRecognizer(target: self, action: action)
             g.allowedPressTypes = [NSNumber(value: press.rawValue)]
+            g.delegate = self
             view.addGestureRecognizer(g)
+        }
+    }
+
+    // AVKit's own recognizers must WAIT for this one to fail. Measured on
+    // Fireplace: alone, this listener never saw an up/down press; recognizing
+    // simultaneously, a press changed channel AND opened AVKit's info panel,
+    // which then swallowed the next press (presses 1 and 3 of 4 worked, and
+    // focus sat on AVInfoMenuCell after each change).
+    // Only a recognizer that takes the SAME press waits: select (play/pause)
+    // and left/right (scrub) must never wait on a recognizer that ignores them.
+    nonisolated func gestureRecognizer(_ g: UIGestureRecognizer,
+                                       shouldBeRequiredToFailBy other: UIGestureRecognizer) -> Bool {
+        MainActor.assumeIsolated {
+            let mine = Set(g.allowedPressTypes.map(\.intValue))
+            return !mine.isDisjoint(with: other.allowedPressTypes.map(\.intValue))
         }
     }
 }

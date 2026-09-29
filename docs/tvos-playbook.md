@@ -484,6 +484,22 @@ Sources: WWDC18 #219 "Image and Graphics Best Practices"; WWDC21 "Demystify Swif
 | Clickpad center | Select focused | Select focused | Pause/resume |
 | Clickpad edges | Move focus | Move focus | Scrub / chapter nav |
 
+### 8.1a Taking a clickpad press from AVPlayerViewController (2026-09-29)
+
+To make up/down CLICKS do something in an AVPlayerViewController (channel
+surfing), add a `UITapGestureRecognizer` with `allowedPressTypes` = the press
+to `vc.view`, and give it priority: its delegate returns `true` from
+`gestureRecognizer(_:shouldBeRequiredToFailBy:)` for recognizers whose
+`allowedPressTypes` overlap its own. Two wrong turns, both measured on an
+Apple TV with pyatv presses and a log line per press OFFERED:
+- no delegate: the recognizer is never offered an up/down press — AVKit takes
+  it;
+- `shouldRecognizeSimultaneouslyWith` = true: the press is taken, AND AVKit
+  also acts on it and opens its info panel, which swallows the NEXT press —
+  every other press is lost, and focus sits on `AVInfoMenuCell`.
+Scope the priority to the same press type, or select and left/right wait on a
+recognizer that never fails. `ChannelSurfPresses` in AVPlayerScreen.swift.
+
 ### 8.2 Back button contract (App Store rejection risk if violated)
 
 - **Never override Back outside player/modal** — Guideline 4.0 treats reassignment as rejection risk.
