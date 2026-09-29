@@ -24,7 +24,7 @@ private enum FilmAudioPull {
 }
 
 struct DetailView: View {
-    static let viewingActivityType = "com.bhwilkoff.archivewatch.viewing"
+    static let viewingActivityType = ArchiveHandoff.viewing
     let item: Catalog.Item
     @Environment(AppStore.self) private var store
     @Environment(Router.self) private var router

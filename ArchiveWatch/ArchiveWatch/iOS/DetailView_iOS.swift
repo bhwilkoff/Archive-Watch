@@ -410,7 +410,7 @@ struct DetailView: View {
         .titleInContent(item.title)
         // Handoff: the film on this screen continues on the owner's other
         // devices; one without the app opens the link in a browser.
-        .userActivity("com.bhwilkoff.archivewatch.viewing") { activity in
+        .userActivity(ArchiveHandoff.viewing) { activity in
             activity.title = item.title
             activity.webpageURL = shareURL
             activity.userInfo = ["archiveID": item.archiveID]

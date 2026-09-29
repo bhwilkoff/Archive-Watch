@@ -509,7 +509,7 @@ private struct CreateChannelSheet: View {
         return parts.isEmpty ? "My Channel" : parts.joined(separator: " ")
     }
 
-    private var canSave: Bool { genre != nil || type != nil || decade != nil }
+    private var canSave: Bool { UserChannel.canCreate(genre: genre, contentType: type, decade: decade) }
 
     var body: some View {
         ScrollView {

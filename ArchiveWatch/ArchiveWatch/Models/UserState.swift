@@ -286,3 +286,19 @@ final class UserChannel {
         self.createdAt = Date()
     }
 }
+
+/// Handoff's activity type for "this film's page" — declared in every app's
+/// NSUserActivityTypes. One name, where it was a literal in four places.
+enum ArchiveHandoff {
+    static let viewing = "com.bhwilkoff.archivewatch.viewing"
+}
+
+extension UserChannel {
+    /// A channel needs at least one filter to be a channel ("Choose at least
+    /// one filter." where Create is greyed out). One rule for tvOS, iOS and
+    /// macOS, where it was written three times.
+    static func canCreate(genre: String?, contentType: String?, decade: Int?) -> Bool {
+        genre != nil || contentType != nil || decade != nil
+    }
+}
+

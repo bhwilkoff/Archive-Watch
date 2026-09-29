@@ -123,7 +123,7 @@ struct ArchiveWatchMacApp: App {
                     if let url = activity.webpageURL { route(url) }
                 }
                 // Handoff from an iPhone's, iPad's or Apple TV's film page.
-                .onContinueUserActivity("com.bhwilkoff.archivewatch.viewing") { activity in
+                .onContinueUserActivity(ArchiveHandoff.viewing) { activity in
                     if let url = activity.webpageURL { route(url) }
                 }
         }
