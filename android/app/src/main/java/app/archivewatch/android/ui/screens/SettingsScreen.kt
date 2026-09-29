@@ -549,7 +549,7 @@ private fun OpenSubtitlesSection(container: AppContainer) {
 private fun SyncSection() {
     val sync = app.archivewatch.android.sync.DriveSync
     val status by sync.status.collectAsState()
-    val activity = androidx.compose.ui.platform.LocalContext.current as? android.app.Activity
+    val activity = androidx.activity.compose.LocalActivity.current
     val consent = androidx.activity.compose.rememberLauncherForActivityResult(
         androidx.activity.result.contract.ActivityResultContracts.StartIntentSenderForResult(),
     ) { result ->

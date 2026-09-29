@@ -1,6 +1,7 @@
 package app.archivewatch.android.studio
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
@@ -34,6 +35,9 @@ class StudioBroadcastService : Service() {
 
     override fun onBind(intent: Intent?): IBinder? = null
 
+    // The service and its types are declared in the google manifest; the amazon
+    // flavor has no Studio to start (Decision 132).
+    @SuppressLint("ForegroundServiceType")
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         if (intent?.action == ACTION_END) {
             CoroutineScope(Dispatchers.Main).launch { StudioController.end() }

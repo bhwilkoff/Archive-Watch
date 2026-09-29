@@ -405,6 +405,18 @@ Harness:
   Also observed on tvOS: after a context-menu removal, focus stays on the
   next card but its focus effect is not drawn until the next press.
 
+- AW. ✅ v1.42.976 Release lint, both flavors: NewApi 0 (Decision 141 holds);
+  errors 41/44 -> 0. Real: a FocusRequester made during composition (mine, AT),
+  LocalContext cast to Activity (LocalActivity now), a literal byte-order mark
+  in OpenSubtitlesClient's trim (now an escape), and a British "initialised"
+  on the microphone's error (test_us_english now knows the family). The 27
+  opt-in errors were one cause: StudioController and StudioFilmAudioTap were
+  annotated @UnstableApi, which REQUIRES opt-in of every caller, where they
+  meant to opt in themselves. Suppressed with the reason at the site: tvprovider
+  builders (RestrictedApi on its own documented calls), and the amazon flavor's
+  camera/mic/service checks (the Studio's sources sit in main, Decision 132).
+  122 warnings remain, next.
+
 ## Queue
 
 1. ✅ J — phone launch doors: one shared `Nav.collectStartDoors()` in both roots (v1.42.933); the Pixel opened Library, the TV Search

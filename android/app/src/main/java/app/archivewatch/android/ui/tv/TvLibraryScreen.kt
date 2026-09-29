@@ -222,7 +222,8 @@ fun TvLibraryScreen(container: AppContainer, nav: Nav) {
                 TvPosterTile(
                     item = item,
                     focusRequester = if (section == LibSection.History)
-                        tileFocus.getOrPut(item.archiveID) { FocusRequester() } else null,
+                        remember(item.archiveID) { FocusRequester() }.also { tileFocus[item.archiveID] = it }
+                    else null,
                     onClick = { nav.openItem(item.archiveID, item.seriesID, item.contentType) },
                     progress = if (section == LibSection.Continue) continueProgress[item.archiveID] else null,
                     onLongClick = if (section == LibSection.History) ({ removeFromHistory = item }) else null,

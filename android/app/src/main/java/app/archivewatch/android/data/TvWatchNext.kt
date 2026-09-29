@@ -1,6 +1,12 @@
+// androidx.tvprovider's public PreviewProgram / WatchNextProgram builders
+// inherit their setters from a library-group base class, so every documented
+// call reads as RestrictedApi. These are the calls the Watch Next guide shows.
+@file:SuppressLint("RestrictedApi")
+
 package app.archivewatch.android.data
 
 import android.content.ContentUris
+import android.annotation.SuppressLint
 import android.content.Context
 import android.net.Uri
 import androidx.tvprovider.media.tv.TvContractCompat

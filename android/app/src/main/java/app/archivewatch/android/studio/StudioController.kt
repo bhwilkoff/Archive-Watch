@@ -19,7 +19,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-@UnstableApi
+@androidx.annotation.OptIn(UnstableApi::class)
 object StudioController {
 
     /** The film the host asked to broadcast, set before the player exists. */

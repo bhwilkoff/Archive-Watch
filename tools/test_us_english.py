@@ -48,6 +48,7 @@ BRITISH = {
     "travelled": "traveled", "labelled": "labeled", "signalled": "signaled",
     "catalogue": "catalog", "whilst": "while", "amongst": "among",
     "apologise": "apologize", "analyse": "analyze",
+    "initialise": "initialize", "initialised": "initialized", "initialising": "initializing",
 }
 WORD = re.compile(r"\b(" + "|".join(sorted(BRITISH, key=len, reverse=True)) + r")\b", re.I)
 

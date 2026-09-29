@@ -25,7 +25,7 @@ import java.nio.ByteBuffer
 import java.util.concurrent.atomic.AtomicInteger
 import java.util.concurrent.atomic.AtomicLong
 
-@UnstableApi
+@androidx.annotation.OptIn(UnstableApi::class)
 class StudioFilmAudioTap : TeeAudioProcessor.AudioBufferSink {
 
     /** What the film actually is, once the first buffer has been seen. */

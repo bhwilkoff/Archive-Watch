@@ -84,7 +84,7 @@ object OpenSubtitlesClient {
     /** SRT -> WebVTT; the comma decimal separator is the #1 render-nothing bug. */
     fun srtToVtt(srt: String): String {
         var body = srt.replace("\r\n", "\n").replace("\r", "\n")
-            .trim('﻿', '\n', ' ')
+            .trim('\uFEFF', '\n', ' ')
         body = body.replace(Regex("(\\d{1,2}:\\d{2}:\\d{2}),(\\d{1,3})"), "$1.$2")
         return "WEBVTT\nX-TIMESTAMP-MAP=MPEGTS:0,LOCAL:00:00:00.000\n\n" + body + "\n"
     }

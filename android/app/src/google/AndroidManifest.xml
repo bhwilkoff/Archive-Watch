@@ -8,7 +8,8 @@
   android/app/src/amazon/java/.../cast/CastSupport.kt and
   tools/audit_fire_tv_gms.py.
 -->
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <!--
       THE HOST'S CAMERA AND VOICE, google flavour ONLY.
@@ -26,7 +27,9 @@
       declared only INTERNET, which is why Android's Studio could broadcast a
       film and could not carry the host at all (WATCH-TOGETHER §9.qqqqq).
     -->
-    <uses-permission android:name="android.permission.CAMERA"/>
+    <!-- camera: uses-feature required="false" is in the main manifest -->
+    <uses-permission android:name="android.permission.CAMERA"
+        tools:ignore="PermissionImpliesUnsupportedChromeOsHardware"/>
     <uses-permission android:name="android.permission.RECORD_AUDIO"/>
 
     <!-- A live show keeps its camera and microphone when the host locks the

@@ -1,6 +1,7 @@
 package app.archivewatch.android.studio
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.pm.PackageManager
 import android.media.AudioFormat
@@ -79,6 +80,9 @@ class StudioMicAudio : VoiceSource {
      * alternative would be a resampler on the capture path, and §8.17 is a
      * fresh reminder of how badly a careless one behaves.
      */
+    // Checked above. The amazon flavor declares no RECORD_AUDIO and never reaches the
+    // Studio (Decision 132), which is the only build lint flags this in.
+    @SuppressLint("MissingPermission")
     fun start(context: Context, sampleRate: Int, filmChannels: Int): Boolean {
         if (ContextCompat.checkSelfPermission(context, Manifest.permission.RECORD_AUDIO)
             != PackageManager.PERMISSION_GRANTED) {
@@ -108,7 +112,7 @@ class StudioMicAudio : VoiceSource {
             return false
         }
         if (r.state != AudioRecord.STATE_INITIALIZED) {
-            problem = "The microphone could not be initialised."
+            problem = "The microphone could not be initialized."
             r.release(); return false
         }
 

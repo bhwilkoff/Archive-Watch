@@ -84,6 +84,7 @@ enum class ClipAspect(val label: String) {
         }
 
     /** Render canvas for a 1080-class export. ORIGINAL keeps the source size. */
+    @OptIn(UnstableApi::class)
     fun renderSize(srcW: Int, srcH: Int): Size = when (this) {
         ORIGINAL -> Size(srcW, srcH)
         VERTICAL -> Size(1080, 1920)

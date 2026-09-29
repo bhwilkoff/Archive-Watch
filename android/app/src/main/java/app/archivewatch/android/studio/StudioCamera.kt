@@ -1,6 +1,7 @@
 package app.archivewatch.android.studio
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.pm.PackageManager
 import android.graphics.SurfaceTexture
@@ -89,6 +90,9 @@ class StudioCamera {
      * Opens the front camera onto [texture]. Returns false and sets [problem]
      * rather than throwing: a show without a host's face is a normal show.
      */
+    // Checked above. The amazon flavor declares no CAMERA and never reaches the
+    // Studio (Decision 132), which is the only build lint flags this in.
+    @SuppressLint("MissingPermission")
     fun open(context: Context, texture: SurfaceTexture, preferFront: Boolean = true): Boolean {
         if (ContextCompat.checkSelfPermission(context, Manifest.permission.CAMERA)
             != PackageManager.PERMISSION_GRANTED) {
