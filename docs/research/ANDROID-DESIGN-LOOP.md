@@ -311,6 +311,25 @@ Harness:
   room — …"); it says only "Plays muted — hold Select for sound." And the page
   opened scrolled with its title off the top and no way up (a lazy list with
   two items); it is a plain Column that fits the screen. Seen on the Google TV.
+- AJ. ✅ v1.42.962 Cartoon marathon opened on "NASA eClips Video Series 360",
+  NASA's 30-minute magazine program. Two layers. The app: Android's Cartoon
+  pool took ANY animation; it is now Apple's KidsContent rule (designed art,
+  never silent, no scary genres/subjects, color-leaning; the full character
+  list) in one `CartoonMode` shared by phone and TV, read from list rows plus
+  four json_extract fields (800 full decodes had cost 9.9 s on the Google TV;
+  now 4.7 s). The data: nasa_360 wore IMDb "NASA Seals", whose Animation genre
+  typed it animation, and the cleared-match scrub (Decision 150) let the
+  TYPING vouch for the genre — circular. Only the item's own subjects or
+  collections vouch now, and a cleared match left with no animation genre is
+  re-typed by content_type.classify. Measured on the live catalog: exactly 5
+  visible items change type, all live action: The Gaucho (1928), You And Me
+  (1938, Lang), Phantom Ship, A Christmas Carol (1910), a NASA "moon" clip;
+  no genuine cartoon moves. nasa_360 is in match_rejects.json. Tests:
+  test_title_handle_and_rejects.py (+2 cases with a control),
+  test_scrub_cleared_match.py unchanged and passing. Takes effect at the
+  next publish.
+  Player Options now offers "Autoplay next" only on a film the viewer chose:
+  on a marathon, a lineup or an episode run it did nothing.
 
 ## Queue
 

@@ -833,6 +833,31 @@ class CatalogDatabase private constructor(
 
     // --- plumbing ---
 
+    /** List rows plus the four fields a pool filter needs, read by SQLite's
+     *  json_extract rather than decoding each ~4 KB blob in Kotlin (800 full
+     *  decodes held Cartoon Mode on the Google TV for 9.9 s). */
+    suspend fun withPoolFields(rows: List<CatalogItem>): List<CatalogItem> {
+        if (rows.isEmpty()) return rows
+        val extra = HashMap<String, List<String?>>()
+        for (chunk in rows.chunked(400)) {
+            val marks = chunk.joinToString(",") { "?" }
+            dbCall {
+                queryRaw(
+                    "SELECT archiveID, json_extract(json,'$.subjects'), json_extract(json,'$.genres'), " +
+                        "json_extract(json,'$.downloadURL'), json_extract(json,'$.colorMode') " +
+                        "FROM item_json WHERE archiveID IN ($marks)",
+                    chunk.map { it.archiveID },
+                ) { st -> List<String?>(5) { n -> if (st.isNull(n)) null else st.getText(n) } }
+            }.forEach { r -> extra[r[0]!!] = r }
+        }
+        fun list(text: String?): List<String> =
+            text?.let { runCatching { json.decodeFromString<List<String>>(it) }.getOrNull() } ?: emptyList()
+        return rows.map { row ->
+            val e = extra[row.archiveID] ?: return@map row
+            row.copy(subjects = list(e[1]), genres = list(e[2]), downloadURL = e[3], colorMode = e[4])
+        }
+    }
+
     private suspend fun items(sql: String, binds: List<Any?>): List<CatalogItem> = dbCall {
         queryRaw(sql, binds) { it.getText(0) }
             .mapNotNull { row ->

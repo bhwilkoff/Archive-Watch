@@ -36,5 +36,19 @@ check("cleared ids", (cleared["tmdbID"], cleared["imdbID"], cleared["posterURL"]
       (None, None, None, None))
 check("CONTROL: an unnamed item is not in the list", "TheGeneral720p1926" in rej, False)
 
+# A cleared match's animation TYPING is not evidence (The Gaucho, 1928).
+gaucho = {"archiveID": "the-gaucho_1928", "title": "The Gaucho", "year": 1928, "contentType": "animation",
+          "genres": ["Animation", "Romance"], "matchVerdict": "cleared_runtime", "collections": ["feature_films"],
+          "subjects": [], "runtimeSeconds": 5700}
+rc.scrub_cleared_match(gaucho, own_meta={}, siblings={})
+check("cleared, no own evidence -> re-typed", (gaucho["contentType"], "Animation" in gaucho["genres"]),
+      ("feature-film", False))
+felix = {"archiveID": "felix-x", "title": "Felix X", "year": 1925, "contentType": "animation",
+         "genres": ["Animation"], "matchVerdict": "cleared_runtime", "collections": ["animationandcartoons"],
+         "subjects": ["cartoon"], "runtimeSeconds": 420}
+rc.scrub_cleared_match(felix, own_meta={}, siblings={})
+check("CONTROL: its own cartoon subject keeps it animation", (felix["contentType"], felix["genres"]),
+      ("animation", ["Animation"]))
+
 print("FAILED" if fails else "ALL PASS", fails)
 sys.exit(1 if fails else 0)

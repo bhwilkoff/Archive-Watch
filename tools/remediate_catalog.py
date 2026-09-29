@@ -549,12 +549,26 @@ def scrub_cleared_match(it, own_meta=None, siblings=None):
         # The Archive's own subjects vouch too (remediate step 5 fills from
         # them), as does its animation typing for "Animation".
         vouched = sib_genres | {g.lower() for g in genres_from_subjects(it)}
-        if it.get("contentType") == "animation":
+        # Its OWN animation evidence vouches for "Animation" — not its animation
+        # TYPING, which the cleared match may have set (remediate step 3): that
+        # was circular, and The Gaucho (1928, Fairbanks) and You And Me (1938,
+        # Lang) sat in Cartoon Mode as animation.
+        if _own_animation_evidence(it):
             vouched.add("animation")
         kept = [g for g in it["genres"] if (g or "").strip().lower() in vouched]
         if kept != it["genres"]:
             it["genres"] = kept
             done.append("genres")
+    # And the typing goes with it: animation that nothing of the item's own
+    # says, and no surviving genre carries, is re-typed by the one classifier.
+    if it.get("contentType") == "animation" and not it.get("contentTypeSource") \
+            and not _own_animation_evidence(it) \
+            and not any((g or "").strip().lower() == "animation" for g in it.get("genres") or []):
+        it["contentTypeWas"] = "animation"
+        it["contentType"] = _content_type.classify(
+            it.get("collections") or [], it.get("subjects") or [],
+            _own_runtime(it) or it.get("runtimeSeconds"), it.get("year"))
+        done.append("contentType")
     if done:
         it["scrubbedFields"] = sorted(set(it.get("scrubbedFields") or []) | set(done))
     return done
@@ -575,7 +589,7 @@ _TV_RESIDUE_KINDS = {"tv-special", "tv-episode"}
 # and vote count (121). The marker means the verifier will never revisit them,
 # so the repair has to happen here, on every build.
 _CLEARED = ("cleared_modern", "cleared_year", "cleared_bw", "cleared_era",
-            "cleared_runtime")
+            "cleared_runtime", "cleared_editorial")
 _MATCH_ART = {"tmdb", "omdb", "fanart", "tvdb", "external"}
 _MATCH_FIELDS = ("imdbID", "tmdbID", "backdropURL", "tagline", "keywords",
                  "canonicalTitle", "akaTitles", "originalTitle", "imdbRating",
@@ -727,6 +741,16 @@ def strip_orphan_match_residue(item):
             item.pop(k, None)
             hit = True
     return hit
+
+
+def _own_animation_evidence(item):
+    """The archive.org item's OWN word that it is animation: a cartoon subject or
+    an animation/cartoon collection. Genres are not its own (they come from a
+    match), so they do not count here."""
+    if any(_CARTOON.search(s or "") for s in item.get("subjects") or []):
+        return True
+    cl = " ".join(item.get("collections") or []).lower()
+    return "animation" in cl or "cartoon" in cl
 
 
 def has_animation_signal(item):

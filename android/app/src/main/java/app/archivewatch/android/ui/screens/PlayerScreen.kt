@@ -1256,7 +1256,9 @@ private fun PhonePlayerOptionsSheet(
                 }
             }
 
-            if (spec.channelIndex == null) {
+            // Only where it acts: a film the viewer chose. A lineup or an
+            // episode run always advances, so the switch there did nothing.
+            if (spec.queue.isEmpty() && spec.persistProgress && spec.channelIndex == null) {
             HorizontalDivider(Modifier.padding(top = 12.dp))
             ListItem(
                 headlineContent = { Text("Autoplay next") },
@@ -1363,7 +1365,7 @@ private fun TvPlayerOptionsPanel(
                         }
                     }
                 }
-                if (spec.channelIndex == null) {
+                if (spec.queue.isEmpty() && spec.persistProgress && spec.channelIndex == null) {
                     item(key = "autoplay") {
                         TvMenuRow("Autoplay next", if (autoplay) "On" else "Off", null) {
                             scope.launch { container.settings.setAutoplayNext(!autoplay) }

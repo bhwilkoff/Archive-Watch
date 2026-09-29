@@ -203,26 +203,10 @@ fun PersonScreen(container: AppContainer, nav: Nav, name: String, tmdbPersonID: 
 @Composable
 fun CartoonScreen(container: AppContainer, nav: Nav) {
     val dbVersion by container.catalog.dbVersion.collectAsState()
-    val characterDefs = listOf(
-        "Popeye" to listOf("popeye"), "Betty Boop" to listOf("betty boop"),
-        "Porky Pig" to listOf("porky"), "Mr. Magoo" to listOf("magoo"),
-        "Looney Tunes" to listOf("looney"), "Felix the Cat" to listOf("felix"),
-        "Daffy Duck" to listOf("daffy"), "Casper" to listOf("casper"),
-        "Mighty Mouse" to listOf("mighty mouse"), "Superman" to listOf("superman"),
-    )
     val state by produceState<Pair<List<CatalogItem>, List<Pair<String, List<CatalogItem>>>>?>(
         null, dbVersion) {
         val db = container.catalog.awaitDb()
-        // full = true: the marathon needs downloadURL to build a lineup.
-        val pool = db.browse(contentType = "animation", limit = 240, full = true, recommendOnly = true)
-            .filter { it.downloadURL != null }
-        val shelves = characterDefs.mapNotNull { (name, terms) ->
-            val rows = pool.filter { item ->
-                terms.any { item.title.lowercase().contains(it) }
-            }.take(20)
-            if (rows.size >= 4) name to rows else null
-        }
-        value = pool to shelves
+        value = app.archivewatch.android.data.CartoonMode.load(db)
     }
     Scaffold(
         topBar = {
