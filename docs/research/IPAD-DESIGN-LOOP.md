@@ -324,6 +324,12 @@ channel-surf ↑/↓ (three routes failed; control first),  Spotlight indexing (
   judged (yearSource agent-reviewed); test with a control. Found while
   checking: the simulation called the real confirm_pass, which overwrote the
   local catalog.json; restored from the catalog-source release.
+  **Then all 41 hand-corrected years were checked**: 4 more were gone, wiped
+  by the silent-after-1930 and TV-before-television rules because the TYPE was
+  wrong. v1.42.924 re-types instead (test_hand_year_holds.py, with controls).
+  Live 2026-09-29 01:55 MT: Oliver Twist 1933, Svengali 1931 and Viy 1967 as
+  features; Ravished Armenia 1919 back in the catalog as a silent film;
+  Rumpole gone.
 
 ## Queue
 
