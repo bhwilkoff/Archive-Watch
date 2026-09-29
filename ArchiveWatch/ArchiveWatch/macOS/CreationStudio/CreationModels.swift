@@ -296,7 +296,7 @@ struct ClipProject: Codable, Hashable, Sendable {
     // No in-project "title" field: on macOS the document's name IS its filename (shown in the
     // window title bar, renamed natively). A separate editable title would compete with it.
     var timeline: Timeline
-    /// Burn the "archivewatch.org · Public Domain" credit into the export. Default ON
+    /// Burn the "archivewatch.org · Fair use" credit into the export. Default ON
     /// (attribution is encouraged + is the social wedge), but the user can turn it OFF
     /// for a clean export — it is NOT mandatory (owner decision 2026-06-23, amending the
     /// learning gate / Rule 5b). The archive.org source still rides in file metadata.

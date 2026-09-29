@@ -613,7 +613,7 @@ private fun EditingPhase(
         }
 
         Text(
-            "Clips carry an archivewatch.org · public-domain credit and the source link in their file metadata. Source: ${item.title}.",
+            "Clips carry an archivewatch.org credit and the source link in their file metadata. Source: ${item.title}.",
             style = MaterialTheme.typography.labelSmall,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
             textAlign = TextAlign.Center,
@@ -819,7 +819,7 @@ private fun ResultPhase(
         }
         TextButton(onClick = onMakeAnother) { Text("Make another") }
         Text(
-            "Clips carry an archivewatch.org · public-domain credit. Source: $title.",
+            "Clips carry an archivewatch.org credit. Source: $title.",
             style = MaterialTheme.typography.labelSmall,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
             textAlign = TextAlign.Center,

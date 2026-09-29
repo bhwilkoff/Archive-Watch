@@ -965,7 +965,7 @@ private struct ProjectInspector: View {
         } header: {
             Label("Project · Export", systemImage: "square.and.arrow.up")
         } footer: {
-            Text("Adds “archivewatch.org · Public Domain” to the picture.")
+            Text("Adds “archivewatch.org · Fair use” to the picture.")
                 .font(.caption).foregroundStyle(.secondary)
         }
     }

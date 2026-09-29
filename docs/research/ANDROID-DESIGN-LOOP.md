@@ -370,6 +370,11 @@ Harness:
   Google Drive · <account>". The signed-out text keeps its privacy fact and the
   TMDb notice is required attribution. Widgets are NOT placed on the owner's
   home screen to test (that changes their launcher); code-read only.
+- AR. ✅ v1.42.972 OWNER: "we can probably only claim creative commons or fair
+  use for created works with Archive Watch." Decision 153: every exported clip
+  says "archivewatch.org · Creative Commons" or "· Fair use", never Public
+  Domain, on Android, iOS and the Mac Creation Studio (credit, file
+  description, explanatory text). All five builds clean.
 
 ## Queue
 

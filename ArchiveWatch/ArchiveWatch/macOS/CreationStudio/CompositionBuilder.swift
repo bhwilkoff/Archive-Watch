@@ -479,7 +479,7 @@ enum CompositionBuilder {
                        blue: CGFloat(v & 0xFF) / 255, alpha: 1)
     }
 
-    /// The burned "archivewatch.org · Public Domain" credit, pinned bottom-center
+    /// The burned "archivewatch.org · Fair use" credit, pinned bottom-center
     /// (CALayer origin is bottom-left). A CATextLayer keeps it cross-platform — no
     /// UIKit/AppKit image rendering needed for a single text line.
     private static func addCredit(_ text: String, to parent: CALayer, size: CGSize) {
@@ -510,7 +510,7 @@ enum CompositionBuilder {
         }
         let sources = Array(Set(catalogItemIDs)).sorted()
             .map { "https://archive.org/details/\($0)" }.joined(separator: " · ")
-        let desc = "Public-domain source(s): \(sources) · Created with Archive Watch (archivewatch.org)"
+        let desc = "Source(s): \(sources) · Created with Archive Watch (archivewatch.org)"
         return [
             item(.commonIdentifierTitle, title),
             item(.commonIdentifierDescription, desc),

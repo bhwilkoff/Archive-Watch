@@ -811,7 +811,7 @@ actor ClipExporter {
             m.value = value as NSString
             return m
         }
-        let desc = "Public-domain source: \(spec.sourceDetailsURL) · Clipped with Archive Watch (archivewatch.org)"
+        let desc = "Source: \(spec.sourceDetailsURL) · Clipped with Archive Watch (archivewatch.org)"
         return [item(.commonKeyTitle, spec.title), item(.commonKeyDescription, desc)]
     }
 }

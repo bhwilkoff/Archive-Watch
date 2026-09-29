@@ -549,11 +549,11 @@ struct Catalog: Decodable, Sendable {
         }
 
         /// Burned-in provenance credit line for exported clips — the
-        /// attribution wedge (CREATE-STUDIO-PLAN §1). Public domain by default;
-        /// names a CC dedication when that's the right.
+        /// attribution wedge (CREATE-STUDIO-PLAN §1). Fair use by default, never
+        /// public domain (owner 2026-09-29); names a CC dedication when that is the right.
         var clipCreditLine: String {
             let rights = (rightsStatus ?? "").lowercased().contains("creative")
-                ? "Creative Commons" : "Public Domain"
+                ? "Creative Commons" : "Fair use"
             return "archivewatch.org · \(rights)"
         }
 

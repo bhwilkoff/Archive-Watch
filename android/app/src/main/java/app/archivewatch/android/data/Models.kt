@@ -245,13 +245,13 @@ data class CatalogItem(
 
     /**
      * Burned-in provenance credit line for exported clips — the attribution
-     * wedge (CREATE-STUDIO-PLAN §1). Public domain by default; names a CC
-     * dedication when that's the right.
+     * wedge (CREATE-STUDIO-PLAN §1). Fair use by default, never public domain
+     * (owner 2026-09-29); names a CC dedication when that is the right.
      */
     val clipCreditLine: String
         get() {
             val rights = if ((rightsStatus ?: "").lowercase().contains("creative"))
-                "Creative Commons" else "Public Domain"
+                "Creative Commons" else "Fair use"
             return "archivewatch.org · $rights"
         }
 }

@@ -478,7 +478,7 @@ class ClipExporter(
                         )
                         entries.add(mdta("com.apple.quicktime.title", spec.title))
                         entries.add(mdta("com.apple.quicktime.description",
-                            "Public-domain source: ${spec.sourceDetailsURL} · Clipped with Archive Watch (archivewatch.org)"))
+                            "Source: ${spec.sourceDetailsURL} · Clipped with Archive Watch (archivewatch.org)"))
                     })
                     .addListener(object : Transformer.Listener {
                         override fun onCompleted(composition: Composition, result: ExportResult) {

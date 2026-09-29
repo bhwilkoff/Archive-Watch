@@ -235,6 +235,7 @@ into every session and the index alone carries every title.)
 - 150 — A cleared match leaves nothing it filled unless something independent vouches for it
 - 151 — A title leaves the catalog on a copyright claim a reader can open; not knowing is not a claim
 - 152 — Sourced evidence of a free licence outranks the popularity check
+- 153 — A work made with Archive Watch claims Creative Commons or fair use, never public domain
 
 ---
 
@@ -1394,4 +1395,30 @@ uploads have none and stay hidden.
 **How to apply**: never loosen the vote gate itself; free a popular title by
 adding evidence. `test_audit_rights.py` holds the case with two controls (the
 same film without evidence; an NC licence with evidence).
+
+
+## 153 — A work made with Archive Watch claims Creative Commons or fair use, never public domain
+*Date: 2026-09-29*
+
+Every clip, GIF, montage and supercut exported from Archive Watch (Clip Studio on
+Android and iOS, the Mac Creation Studio) burns "archivewatch.org · Creative
+Commons" when its source is a Creative Commons work and "archivewatch.org · Fair
+use" otherwise; a Mac project of several sources says fair use. The file's
+description reads "Source: <archive.org link> · Clipped with Archive Watch",
+with no "Public-domain source". No surface says a clip carries a public-domain
+credit.
+
+**Why**: the owner, 2026-09-29 — *"I think that we can probably only claim
+creative commons or fair use for created works with Archive Watch. Public domain
+is not something we will be able to do because many of the videos people will
+clip will not be of public domain videos."* Decision 146 lets the Creation Studio
+clip any title the apps show on fair use, including the 1964-77 titles the rights
+audit keeps on uncertainty, while the credit line said "Public Domain" for every
+title not marked Creative Commons — a claim the app could not stand behind.
+
+**How to apply**: never print "Public Domain" on or about a created work, even
+for a title that is public domain by age; the credit describes what the clip IS
+(a CC derivative or a fair-use excerpt), not the source's status. The rights
+language for BROADCASTS (Watch Together's provenance line) is unaffected: a
+broadcast is limited to the guaranteed tier and says what that tier proves.
 

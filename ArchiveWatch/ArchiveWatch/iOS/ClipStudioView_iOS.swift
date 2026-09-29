@@ -36,7 +36,7 @@ extension Episode {
     var clipSource: ClipSource {
         ClipSource(sourceURL: videoURLParsed, archiveID: archiveID, title: title,
                    sourceDetailsURL: "https://archive.org/details/\(archiveID)",
-                   creditLine: "archivewatch.org · Public Domain")
+                   creditLine: "archivewatch.org · Fair use")
     }
 }
 
@@ -632,7 +632,7 @@ struct ClipStudioView: View {
     }
 
     private var attribution: some View {
-        Text("Clips carry an archivewatch.org · public-domain credit and the source link in their file metadata. Source: \(model.source.title).")
+        Text("Clips carry an archivewatch.org credit and the source link in their file metadata. Source: \(model.source.title).")
             .font(.caption2).foregroundStyle(.tertiary).multilineTextAlignment(.center)
     }
 

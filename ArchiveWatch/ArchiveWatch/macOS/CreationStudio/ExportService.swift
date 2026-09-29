@@ -56,7 +56,9 @@ final class ExportService {
 
     /// The standard public-domain credit. Per-item CC dedications (Catalog.Item.clipCreditLine)
     /// can override this once the real browser supplies the item — Phase 1 ships PD-only.
-    nonisolated static let defaultCredit = "archivewatch.org · Public Domain"
+    // Owner, 2026-09-29: a created work claims Creative Commons or fair use,
+    // never public domain — many clipped films are not public domain.
+    nonisolated static let defaultCredit = "archivewatch.org · Fair use"
 
     func export(_ project: ClipProject, to url: URL, format: ExportFormat = .h264) async {
         guard !project.timeline.clips.isEmpty else { phase = .failed("The timeline is empty."); return }
