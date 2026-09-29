@@ -3442,8 +3442,18 @@ def remediate(items):
             new_y = None
             stats["year_nulled_future"] += 1
         elif ct == "silent-film" and y is not None and y > SILENT_MAX and ty is None:
-            new_y = None
-            stats["year_nulled_silent"] += 1
+            if it.get("yearSource") == "agent-reviewed":
+                # A person dated it (year_corrections.json): the TYPE is what
+                # is wrong. Oliver Twist 1933, Svengali 1931 and Viy 1967 are
+                # sound films typed silent, and this rule wiped the corrected
+                # year every build.
+                rt = int(it.get("runtimeSeconds") or 0)
+                it["contentType"] = "short-film" if rt and rt < 2400 else "feature-film"
+                it["isSilentFilm"] = False
+                stats["silent_retyped_hand_year"] += 1
+            else:
+                new_y = None
+                stats["year_nulled_silent"] += 1
         if new_y != y:
             it["year"] = new_y
             it["decade"] = decade_of(new_y)
@@ -3650,6 +3660,15 @@ def clear_impossible_tv_years(items, stats):
             continue
         y = it.get("year")
         if not isinstance(y, int) or y >= _FIRST_TELEVISION_YEAR:
+            continue
+        if it.get("yearSource") == "agent-reviewed":
+            # A person dated it before television existed, so the TV TYPE is
+            # the error, not the year: Ravished Armenia (1919) was typed
+            # tv-special, lost its year here and was then hidden as undated.
+            rt = int(it.get("runtimeSeconds") or 0)
+            it["contentType"] = ("silent-film" if y < SILENT_CUTOFF else
+                                 "short-film" if rt and rt < 2400 else "feature-film")
+            it["isSilentFilm"] = y < SILENT_CUTOFF
             continue
         it["yearWas"] = y
         # The POSTER came from the same match as the impossible year, so it is
