@@ -120,7 +120,11 @@ fun SeriesDetailScreen(container: AppContainer, nav: Nav, slug: String) {
                     Modifier
                         .fillMaxSize()
                         .background(
+                            // A top scrim too: the back arrow is white, and on a bright backdrop
+                            // it was not readable (the Detail page had the same defect).
                             Brush.verticalGradient(
+                                0f to Color.Black.copy(alpha = 0.55f),
+                                0.25f to Color.Transparent,
                                 0.4f to Color.Transparent,
                                 1f to MaterialTheme.colorScheme.background,
                             ),

@@ -166,7 +166,12 @@ fun DetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
                 Modifier
                     .fillMaxSize()
                     .background(
+                        // A top scrim too: the status bar and the back arrow
+                        // are white, and on a bright backdrop (The General)
+                        // they were not readable.
                         Brush.verticalGradient(
+                            0f to Color.Black.copy(alpha = 0.55f),
+                            0.25f to Color.Transparent,
                             0.4f to Color.Transparent,
                             1f to MaterialTheme.colorScheme.background,
                         ),

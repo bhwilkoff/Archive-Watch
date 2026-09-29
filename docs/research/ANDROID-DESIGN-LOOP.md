@@ -350,6 +350,9 @@ Harness:
   key goes to the platform's documented RTMPS ingest, held in memory for the
   show and cleared by StudioController.end. Seen on the Pixel; NOT yet run
   with a real key (that needs the owner's key and is a broadcast).
+- AN. ✅ v1.42.966 Phone Detail and Series: the white status bar and back arrow
+  sat straight on the backdrop and vanished on a bright one (The General); a
+  top scrim now carries them. Seen on the Pixel.
 
 ## Queue
 
