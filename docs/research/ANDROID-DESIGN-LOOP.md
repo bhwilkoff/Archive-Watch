@@ -247,7 +247,9 @@ Harness:
   Lady"); now adaptive, three across. And the grid anchored on its first
   visible KEY as the query grew ("noi" -> "noir"), so a new search opened
   scrolled past its first results; the grid state is keyed on the query and
-  filters now. Seen on the Google TV: "noir" opens on Noir (1946).
+  filters now. Seen on the Google TV: "noir" opens on Noir (1946). The phone
+  grid had the same anchor; fixed in v1.42.956 and seen on the Pixel (typed
+  n-o-i-r a letter at a time, opens on Noir, 1946).
 - Y (more): "Messe noire" shows nudity in its poster in TV search results
   with mature content hidden; the same owner call as Devil In Miss Jonas.
 

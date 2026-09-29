@@ -147,6 +147,11 @@ fun SearchScreen(container: AppContainer, nav: Nav) {
                 searched && filtered.isEmpty() && !showEpisodes -> EmptyState("No matches with these filters — clear one to widen the net.")
                 else -> LazyVerticalGrid(
                     columns = GridCells.Adaptive(minSize = 110.dp),
+                    // A new query starts at the top (the grid otherwise keeps
+                    // the old first result's KEY on screen as the query grows).
+                    state = remember(query, typeFilter, decadeFilter) {
+                        androidx.compose.foundation.lazy.grid.LazyGridState()
+                    },
                     contentPadding = PaddingValues(16.dp),
                     horizontalArrangement = Arrangement.spacedBy(10.dp),
                     verticalArrangement = Arrangement.spacedBy(14.dp),
