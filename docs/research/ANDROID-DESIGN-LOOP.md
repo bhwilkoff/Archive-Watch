@@ -94,15 +94,21 @@ Harness:
   from its keys. The decade doors run to the 2020s and every decade has
   titles in the live index (2020s: 84), from db.decadeCounts() — kept.
 
-- L. Google TV Home: the "Silent Era" category tile draws with no background
-  while its neighbors are colored.
+- L. ✅ v1.42.937 Google TV Home: a category tile lost its background once
+  focus had passed through it (Silent Era read (24,24,24), the page). The
+  tile painted its gradient OUTSIDE tvFocusable's scaled, shadowed layer, so
+  the focused tile scaled its label and not its color, and the layer left
+  behind drew nothing. Focus now wraps the paint, as on TvPosterTile; focused
+  and after focus left, the tile stays gold (seen on the Google TV).
 - M. ✅ v1.42.936 "1m left" on Nosferatu (93 min) and Alice in Wonderland: the
   TV's user.sqlite (copied off with run-as) stores a ~2-minute duration for
   both, and for Four Horsemen (100% of it, so "watched"), all 2026-09-18 —
   written by the DEBUG `aw_play_url` door, which plays a local sync clip
   under the film's id during the Studio bench runs. The door no longer
-  writes progress. The three records are still on the Google TV (owner's
-  call whether to remove them).
+  writes progress. The three records were deleted from the Google TV's
+  user.sqlite (7 -> 4 rows, integrity ok; the TV never signed in to Drive sync,
+  so nothing restores them); Continue Watching now reads Morocco, Caligari,
+  Sherlock Jr., Battleship Potemkin.
 
 ## Queue
 

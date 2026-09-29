@@ -98,18 +98,22 @@ fun CategoryTilesRow(categories: List<FeaturedCategory>, onCategory: (FeaturedCa
                 Box(
                     modifier = Modifier
                         .size(width = 150.dp, height = 92.dp)
+                        // TV: `clickable` gives no D-pad focus (see Components.PosterTile).
+                        // Focus goes OUTSIDE the paint, as on TvPosterTile: painted
+                        // outside the scaled, shadowed layer, a tile lost its
+                        // background once focus had passed through it.
+                        .then(
+                            if (LocalIsTelevision.current) {
+                                Modifier.tvFocusable(onClick = { onCategory(cat) }, focusTag = "category:" + cat.displayName)
+                            } else Modifier,
+                        )
                         .clip(RoundedCornerShape(10.dp))
                         .background(
                             Brush.linearGradient(
                                 listOf(accent.copy(alpha = 0.95f), accent.copy(alpha = 0.55f)),
                             ),
                         )
-                        // TV: `clickable` gives no D-pad focus (see Components.PosterTile).
-                        .then(
-                            if (LocalIsTelevision.current) {
-                                Modifier.tvFocusable(onClick = { onCategory(cat) }, focusTag = "category:" + cat.displayName)
-                            } else Modifier.clickable { onCategory(cat) },
-                        )
+                        .then(if (LocalIsTelevision.current) Modifier else Modifier.clickable { onCategory(cat) })
                         .padding(12.dp),
                     contentAlignment = Alignment.BottomStart,
                 ) {
