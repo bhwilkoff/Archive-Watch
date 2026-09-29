@@ -3,6 +3,7 @@ package app.archivewatch.android.ui
 import app.archivewatch.android.ui.tv.isTelevision
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -212,12 +213,14 @@ fun AvatarImage(url: String?, name: String, modifier: Modifier = Modifier) {
  * TV-native screens use TvPosterTile; this keeps the shared fall-through
  * screens operable until each gets its own ten-foot pass.
  */
+@OptIn(androidx.compose.foundation.ExperimentalFoundationApi::class)
 @Composable
 fun PosterTile(
     item: CatalogItem,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
     progress: app.archivewatch.android.data.WatchProgress? = null,
+    onLongClick: (() -> Unit)? = null,
 ) {
     val isTv = LocalIsTelevision.current
     Column(
@@ -228,7 +231,10 @@ fun PosterTile(
                     ringColor = item.accentColor,
                     shape = RoundedCornerShape(10.dp),
                     focusTag = "tile:" + item.title.take(28),
+                    onLongClick = onLongClick,
                 )
+            } else if (onLongClick != null) {
+                Modifier.combinedClickable(onClick = onClick, onLongClick = onLongClick)
             } else {
                 Modifier.clickable(onClick = onClick)
             },

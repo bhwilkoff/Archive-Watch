@@ -232,6 +232,7 @@ private struct LineupBox: Identifiable { let id = UUID(); let items: [Catalog.It
 struct HistorySection: View {
     @Environment(AppStore.self) private var store
     @Environment(Router.self) private var router
+    @Environment(\.modelContext) private var ctx
     @Query(sort: \WatchProgress.lastWatchedAt, order: .reverse) private var progress: [WatchProgress]
 
     private var rows: [(item: Catalog.Item, record: WatchProgress)] {
@@ -252,6 +253,18 @@ struct HistorySection: View {
                         ForEach(rows, id: \.item.archiveID) { row in
                             VStack(alignment: .leading, spacing: 6) {
                                 PosterTile(item: row.item) { router.push(row.item) }
+                                    // Owner, 2026-09-29: "You should be able to remove
+                                    // items from history if you want." Long-press, as
+                                    // a playlist is deleted; the stone syncs it away.
+                                    .contextMenu {
+                                        Button(role: .destructive) {
+                                            SyncNudge.recordDeletion("wp:\(row.record.archiveID)", in: ctx)
+                                            ctx.delete(row.record)
+                                            try? ctx.save()
+                                        } label: {
+                                            Label("Remove from History", systemImage: "trash")
+                                        }
+                                    }
                                 Text(historyLine(row.record))
                                     .font(.caption2)
                                     .foregroundStyle(.white.opacity(0.55))

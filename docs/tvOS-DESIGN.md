@@ -365,6 +365,10 @@ system — extend F4 (the "fix the document, then the feature" reflex).
 Playlists/custom collections (#12), and Watched. One tab, sections — not three
 tabs (§1.4).
 
+10.1a **Remove from History** is a held Select on a History poster (owner, 2026-09-29: *"You should be able to remove items from history if you want."*), the same
+long-press idiom as a playlist's Delete. It writes the `wp:` tombstone, so the
+removal reaches every device.
+
 10.2 **Account & sync (#11, Decision 022 pending Phase 3).** Sign in with Apple
 (`AuthenticationServices`) for identity + CloudKit private DB for cross-Apple-TV
 sync of favorites, progress, and playlists. No external auth **for identity**.

@@ -108,6 +108,14 @@
       clearTombstone: (kind, id) =>
         tx('tombstones', 'readwrite', s => s.delete(kind + ':' + id)),
       removeFavoriteRaw: id => tx('favorites', 'readwrite', s => s.delete(id)),
+      // Owner, 2026-09-29: "You should be able to remove items from history if
+      // you want." "wp" is Apple's key for the same act, so it syncs everywhere;
+      // watching the title again writes a newer `at` and it returns.
+      removeFromHistory: async id => {
+        await tx('progress', 'readwrite', s => s.delete(id));
+        await DB.putTombstone('wp', id);
+      },
+      removeProgressRaw: id => tx('progress', 'readwrite', s => s.delete(id)),
       removePlaylistRaw: id => tx('playlists', 'readwrite', s => s.delete(id)),
       removeUserChannelRaw: id => tx('channels', 'readwrite', s => s.delete(id)),
       savePlaylistRaw: pl => tx('playlists', 'readwrite', s => s.put(pl)),
@@ -1884,7 +1892,32 @@
       const histAlias = await Aliases.rows(all.map(p => p.id));
       const hist = all.map(p => Data.byID.get(p.id) || histAlias.get(p.id)
         || [p.id, p.title || p.id, null, '', null]);
-      fillGrid($('library-history'), hist);
+      $('library-history').replaceChildren(...hist.map(row => {
+        const wrap = document.createElement('div');
+        wrap.className = 'hist-item';
+        const drop = document.createElement('button');
+        drop.type = 'button';
+        drop.className = 'hist-remove';
+        drop.textContent = '\u00D7';
+        drop.setAttribute('aria-label', `Remove ${row[1]} from history`);
+        const remove = async () => {
+          await DB.removeFromHistory(row[0]).catch(() => {});
+          wrap.remove();
+          const left = $('library-history').children.length;
+          $('library-history').hidden = !left;
+          $('library-history-empty').hidden = left > 0;
+        };
+        drop.onclick = () => {
+          const q = `Remove “${row[1]}” from history?`;
+          if (window.AWTV?.confirm && document.documentElement.classList.contains('tv')) {
+            window.AWTV.confirm(q, 'Remove', remove);
+            return;
+          }
+          if (confirm(q)) remove();
+        };
+        wrap.append(card(row), drop);
+        return wrap;
+      }));
       $('library-history').hidden = !hist.length;
       $('library-history-empty').hidden = hist.length > 0;
     },

@@ -92,8 +92,7 @@ window.AWCloudKitSync = (() => {
         everDone: !!p.everCompleted,
       })),
       // Apple keys are "fav:<id>" / "pl:<id>" / "ch:<id>" / "wp:<id>"; the
-      // blob carries kind + id. "wp" (a cleared progress) has no web twin
-      // and is passed through untouched below.
+      // blob carries kind + id. "wp" is a title removed from history.
       tombstones: dec(by.tombstones).map(t => {
         const i = t.key.indexOf(':');
         return { kind: t.key.slice(0, i), id: t.key.slice(i + 1), at: ms(t.deletedAt) };

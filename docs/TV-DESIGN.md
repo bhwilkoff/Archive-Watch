@@ -139,6 +139,15 @@ find something without ever opening a keyboard.
 
 ---
 
+**3.7 A held Select is a card's second verb, and a question gives focus back.**
+Holding Select on a card (Android TV's long press; tvOS's context menu) offers
+its one secondary action — Remove from History (owner, 2026-09-29: *"You should
+be able to remove items from history if you want."*). The release that ends the
+hold never also opens the card. The question that follows (`TvConfirm`) focuses
+Cancel, and when it closes focus returns to the grid: the same card on Cancel,
+its neighbor on Remove. Left to itself, focus fell to the nav rail (seen on the
+Google TV, 2026-09-29).
+
 ## §4 — Layout, type, and color (binding)
 
 **4.1 Canvas.** 1920×1080 is the design baseline for both builds. Android TV

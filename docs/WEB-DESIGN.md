@@ -256,7 +256,9 @@ separate tool with its own conventions (CLAUDE.md) — these rules govern the
      the body, never below the viewer's own films.
   2. **Continue Watching** and **History** are Home shelves (`.shelf` +
      `.shelf-row` rails, 116px cards); **Favorites** is a grid (a collection
-     you add to, not a queue); **Playlists** keep `.playlist-card`.
+     you add to, not a queue); **Playlists** keep `.playlist-card`. Each
+     History card carries a × that asks, then removes the title (owner, 2026-09-29: *"You should be able to remove items from history if you want."*)
+     — a button beside the card's link, never inside it.
   3. An empty section is ONE compact `.lib-empty` panel directly under its
      heading — no empty grid above it, so no dead gap.
   4. **Sync** closes the page, in one `.lib-card`: the Google and Apple

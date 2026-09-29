@@ -79,8 +79,11 @@ fun Modifier.tvFocusable(
     exitLeftTo: FocusRequester? = null,
     /** Label for the focus trace (see [TvFocusLogging]); defaults to the caller. */
     focusTag: String = "focusable",
+    /** A HELD Select (Android TV's long press), for a card's secondary action. */
+    onLongClick: (() -> Unit)? = null,
 ): Modifier {
     var focused by remember { mutableStateOf(false) }
+    val longFired = remember { booleanArrayOf(false) }
     val scale by animateFloatAsState(
         targetValue = if (focused) scaleWhenFocused else 1f,
         animationSpec = tween(durationMillis = 120),
@@ -122,7 +125,15 @@ fun Modifier.tvFocusable(
                 ev.type == KeyEventType.KeyDown &&
                     ev.key == Key.DirectionLeft && exitLeftTo != null ->
                     runCatching { exitLeftTo.requestFocus() }.isSuccess
-                ev.type == KeyEventType.KeyUp && ev.key in SELECT_KEYS -> { onClick(); true }
+                onLongClick != null && ev.type == KeyEventType.KeyDown && ev.key in SELECT_KEYS &&
+                    ev.nativeKeyEvent.repeatCount > 0 -> {
+                    if (!longFired[0]) { longFired[0] = true; onLongClick() }
+                    true
+                }
+                ev.type == KeyEventType.KeyUp && ev.key in SELECT_KEYS -> {
+                    if (longFired[0]) longFired[0] = false else onClick()
+                    true
+                }
                 else -> false
             }
         }

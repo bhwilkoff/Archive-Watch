@@ -49,7 +49,7 @@ import kotlin.coroutines.resume
  *   channels   [{id, name, genre, contentType, decade, createdAt}]  union minus tombstones
  *   progress   [{id, position(s), duration(s), at, firstAt, plays, everDone}]
  *              position LWW by `at`; HISTORY is a UNION (Decision 078)
- *   tombstones [{kind: fav|pl|ch, id, at}]            union; a re-add newer
+ *   tombstones [{kind: fav|pl|ch|wp, id, at}]            union; a re-add newer
  *              than its tombstone clears it
  *
  * Sign-in is optional and gates ONLY sync (per-ecosystem-sync-islands rule
@@ -387,6 +387,8 @@ object DriveSync {
             val id = p.optString("id"); if (id.isEmpty()) continue
             val mine = byId[id]
             val cAt = p.optLong("at")
+            // Removed from history on some device, and not watched since.
+            if (dead("wp", id, maxOf(cAt, mine?.updatedAt ?: 0))) continue
             val cPosMs = (p.optDouble("position", 0.0) * 1000).toLong()
             val cDurMs = (p.optDouble("duration", 0.0) * 1000).toLong()
             val first = minOf(mine?.firstWatchedAt?.takeIf { it > 0 } ?: Long.MAX_VALUE,
@@ -403,6 +405,9 @@ object DriveSync {
                 if (useCloudPos) cDurMs else mine!!.durationMs,
                 maxOf(cAt, mine?.updatedAt ?: 0), first, plays, done,
             )
+        }
+        for (w in store.history(limit = 10_000)) {
+            if (dead("wp", w.archiveID, w.updatedAt)) store.removeProgressRaw(w.archiveID)
         }
         for ((key, at) in tombs) {
             val (kind, id) = key.split(":", limit = 2)

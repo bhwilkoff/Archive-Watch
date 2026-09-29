@@ -386,6 +386,25 @@ Harness:
   Boob Tube, Maid For Pleasure...); controls in the test: "adult education",
   a burlesque parody, Haxan. Takes effect at the next publish.
 
+- AT. ✅ v1.42.975 OWNER: "You should be able to remove items from history
+  if you want." No platform could except iOS (swipe). Now: Android phone
+  long-press and TV held Select (TvConfirm), web × per card, tvOS held Select,
+  Mac right-click. One stone kind, Apple's `wp:<id>`; the Drive merges on
+  Android and the web now honor it (Apple's CloudKit pull already did). Pressed
+  on the Pixel (the three leftover test entries removed; a restart's Drive
+  merge against a cloud copy that still held them kept them gone), the Google
+  TV (Cancel returns focus to the card, Remove to its neighbor; history
+  byte-identical to before), Kitchen (tvOS) and the web (stale cloud copy stays
+  gone; a later watch returns). The Mac item is built, not clicked.
+- AU. ✅ v1.42.975 Library opened History scrolled to the middle: one grid
+  state shared across tabs anchored on the first visible KEY (Favorites' first
+  film, which sits deep in History). A state per tab, phone and TV.
+- AV. Observed, not a defect: my "Phone Glass Test" playlist was still on
+  Apple after the Android delete — Android and Apple are separate sync islands
+  bridged only by a web session signed in to both (D102). Deleted on Kitchen.
+  Also observed on tvOS: after a context-menu removal, focus stays on the
+  next card but its focus effect is not drawn until the next press.
+
 ## Queue
 
 1. ✅ J — phone launch doors: one shared `Nav.collectStartDoors()` in both roots (v1.42.933); the Pixel opened Library, the TV Search

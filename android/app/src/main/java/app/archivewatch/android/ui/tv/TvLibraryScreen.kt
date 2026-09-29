@@ -21,6 +21,8 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.produceState
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.LaunchedEffect
+import kotlinx.coroutines.launch
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusRequester
@@ -69,6 +71,12 @@ fun TvLibraryScreen(container: AppContainer, nav: Nav) {
     val dbVersion by container.catalog.dbVersion.collectAsState()
     val userChanges by container.userState.changes.collectAsState()
     var section by remember { mutableStateOf(LibSection.Favorites) }
+    val scope = androidx.compose.runtime.rememberCoroutineScope()
+    var removeFromHistory by remember { mutableStateOf<CatalogItem?>(null) }
+    // Where focus goes when the question closes: the same tile on Cancel, its
+    // neighbor on Remove. Left to itself it fell to the nav rail.
+    val tileFocus = remember { mutableMapOf<String, FocusRequester>() }
+    var focusAfter by remember { mutableStateOf<String?>(null) }
 
     val favorites by produceState<List<CatalogItem>>(emptyList(), dbVersion, userChanges) {
         val db = container.catalog.awaitDb()
@@ -100,6 +108,7 @@ fun TvLibraryScreen(container: AppContainer, nav: Nav) {
         LibSection.WatchTogether -> emptyList()
     }
 
+    Box(Modifier.fillMaxSize()) {
     Column(Modifier.fillMaxSize()) {
         Text(
             "Library",
@@ -192,8 +201,14 @@ fun TvLibraryScreen(container: AppContainer, nav: Nav) {
             return@Column
         }
 
+        // One grid state per section (a shared one anchors on the first
+        // visible key and opens a section scrolled into the middle).
+        val gridState = androidx.compose.runtime.key(section) {
+            androidx.compose.foundation.lazy.grid.rememberLazyGridState()
+        }
         LazyVerticalGrid(
             columns = GridCells.Fixed(TV_GRID_COLUMNS),
+            state = gridState,
             contentPadding = PaddingValues(
                 start = TvDims.OverscanH,
                 end = TvDims.OverscanH,
@@ -206,11 +221,39 @@ fun TvLibraryScreen(container: AppContainer, nav: Nav) {
             itemsIndexed(items.uniqueBy { it.archiveID }, key = { _, it -> it.archiveID }) { _, item ->
                 TvPosterTile(
                     item = item,
+                    focusRequester = if (section == LibSection.History)
+                        tileFocus.getOrPut(item.archiveID) { FocusRequester() } else null,
                     onClick = { nav.openItem(item.archiveID, item.seriesID, item.contentType) },
                     progress = if (section == LibSection.Continue) continueProgress[item.archiveID] else null,
+                    onLongClick = if (section == LibSection.History) ({ removeFromHistory = item }) else null,
                 )
             }
         }
+    }
+    LaunchedEffect(focusAfter, history) {
+        val id = focusAfter ?: return@LaunchedEffect
+        if (history.none { it.archiveID == id }) return@LaunchedEffect
+        repeat(12) {
+            if (runCatching { tileFocus[id]?.requestFocus() }.getOrNull() != null) { focusAfter = null; return@LaunchedEffect }
+            kotlinx.coroutines.delay(50)
+        }
+        focusAfter = null
+    }
+    removeFromHistory?.let { item ->
+        TvConfirm(
+            question = "Remove from history?",
+            detail = item.title,
+            confirmLabel = "Remove",
+            onConfirm = {
+                val ids = history.map { it.archiveID }
+                val i = ids.indexOf(item.archiveID)
+                focusAfter = ids.getOrNull(i + 1) ?: ids.getOrNull(i - 1)
+                removeFromHistory = null
+                scope.launch { container.userState.removeFromHistory(item.archiveID) }
+            },
+            onCancel = { focusAfter = item.archiveID; removeFromHistory = null },
+        )
+    }
     }
 }
 

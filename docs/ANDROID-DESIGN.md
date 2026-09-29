@@ -126,7 +126,10 @@ or tvOS rule, that inversion is deliberate — do not "harmonize" them.
   tabs over `user.sqlite`, and a Join a Watch Together room button in the top
   bar. The Clips tab lists saved Clip Studio exports
   (§4.8) and re-shares them; long-press deletes. Empty states are explicit
-  sentences, never blank space (`universal-feature-states`).
+  sentences, never blank space (`universal-feature-states`). A History poster
+  is removed by long-press, asked first (owner, 2026-09-29: *"You should be able to remove items from history if you want."*); the television's is a
+  held Select, Cancel focused, and focus returns to the grid (TV-DESIGN §3.7).
+  Each tab keeps its own grid position.
 - **§4.6 Tiles are poster + two text lines, nothing else** (density from
   removing chrome). Poster fallback chain per contract §8: `posterURL` →
   `https://archive.org/services/img/{id}`. Stable `key`s on every

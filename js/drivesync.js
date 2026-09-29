@@ -187,6 +187,8 @@ window.AWDriveSync = (() => {
     for (const p of c.progress || []) {
       if (!p?.id) continue;
       const mine = prog.get(p.id);
+      // Removed from history on some device, and not watched since.
+      if (dead('wp', p.id, Math.max(p.at || 0, mine?.at || 0))) continue;
       if (!mine) {
         prog.set(p.id, p);
         await DB.putProgressRaw(p);
@@ -201,6 +203,9 @@ window.AWDriveSync = (() => {
       }
     }
 
+    for (const [id, p] of [...prog]) {
+      if (dead('wp', id, p.at)) { prog.delete(id); await DB.removeProgressRaw(id); }
+    }
     for (const [k, at] of tombs) {
       const i = k.indexOf(':');
       await DB.putTombstone(k.slice(0, i), k.slice(i + 1), at);

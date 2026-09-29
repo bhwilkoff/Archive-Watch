@@ -52,6 +52,7 @@ fun TvPosterTile(
     exitLeftTo: FocusRequester? = null,
     onFocused: () -> Unit = {},
     progress: app.archivewatch.android.data.WatchProgress? = null,
+    onLongClick: (() -> Unit)? = null,
 ) {
     Column(modifier = modifier.width(TvDims.PosterWidth)) {
         // Focus lives on the ARTWORK only (the native card grammar): the ring
@@ -66,6 +67,7 @@ fun TvPosterTile(
                     onFocused = onFocused,
                     exitLeftTo = exitLeftTo,
                     focusTag = "tile:" + item.title.take(28),
+                    onLongClick = onLongClick,
                 )
                 .clip(RoundedCornerShape(10.dp))
                 .background(BrandSurface),

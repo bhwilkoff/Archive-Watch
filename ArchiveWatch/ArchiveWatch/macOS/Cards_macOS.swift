@@ -94,6 +94,13 @@ private struct FilmContextMenuMac: ViewModifier {
         return try? ctx.fetch(d).first
     }
 
+    private var watchRecord: WatchProgress? {
+        let id = item.archiveID
+        var d = FetchDescriptor<WatchProgress>(predicate: #Predicate { $0.archiveID == id })
+        d.fetchLimit = 1
+        return try? ctx.fetch(d).first
+    }
+
     func body(content: Content) -> some View {
         content.contextMenu {
             Button("Open") { router.openDetail(item) }
@@ -110,6 +117,15 @@ private struct FilmContextMenuMac: ViewModifier {
             } else {
                 Button("Add to Favorites") {
                     ctx.insert(Favorite(archiveID: item.archiveID))
+                    try? ctx.save()
+                }
+            }
+            // Owner, 2026-09-29: "You should be able to remove items from
+            // history if you want." The "wp" stone carries it to every device.
+            if let w = watchRecord {
+                Button("Remove from History") {
+                    SyncNudge.recordDeletion("wp:\(item.archiveID)", in: ctx)
+                    ctx.delete(w)
                     try? ctx.save()
                 }
             }

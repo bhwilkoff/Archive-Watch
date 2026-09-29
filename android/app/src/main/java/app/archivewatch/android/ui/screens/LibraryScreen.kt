@@ -68,6 +68,8 @@ fun LibraryScreen(container: AppContainer, nav: Nav) {
     val dbVersion by container.catalog.dbVersion.collectAsState()
     val userChanges by container.userState.changes.collectAsState()
     var tabIndex by androidx.compose.runtime.saveable.rememberSaveable { mutableIntStateOf(0) }
+    val scope = rememberCoroutineScope()
+    var removeFromHistory by remember { mutableStateOf<CatalogItem?>(null) }
 
     val favorites by produceState<List<CatalogItem>>(emptyList(), dbVersion, userChanges) {
         val db = container.catalog.awaitDb()
@@ -172,6 +174,22 @@ fun LibraryScreen(container: AppContainer, nav: Nav) {
                 }
                 return@Column
             }
+            removeFromHistory?.let { item ->
+                androidx.compose.material3.AlertDialog(
+                    onDismissRequest = { removeFromHistory = null },
+                    title = { Text("Remove from history?") },
+                    text = { Text(item.title) },
+                    confirmButton = {
+                        androidx.compose.material3.TextButton(onClick = {
+                            removeFromHistory = null
+                            scope.launch { container.userState.removeFromHistory(item.archiveID) }
+                        }) { Text("Remove") }
+                    },
+                    dismissButton = {
+                        androidx.compose.material3.TextButton(onClick = { removeFromHistory = null }) { Text("Cancel") }
+                    },
+                )
+            }
             val items = when (tabIndex) {
                 0 -> favorites
                 1 -> continueWatching
@@ -186,8 +204,15 @@ fun LibraryScreen(container: AppContainer, nav: Nav) {
                     },
                 )
             } else {
+                // One grid state per tab: a shared one anchors on the first
+                // visible KEY, so History opened scrolled to wherever the
+                // Favorites' first film sat in it.
+                val gridState = androidx.compose.runtime.key(tabIndex) {
+                    androidx.compose.foundation.lazy.grid.rememberLazyGridState()
+                }
                 LazyVerticalGrid(
                     columns = GridCells.Adaptive(minSize = 110.dp),
+                    state = gridState,
                     contentPadding = PaddingValues(16.dp),
                     horizontalArrangement = Arrangement.spacedBy(10.dp),
                     verticalArrangement = Arrangement.spacedBy(14.dp),
@@ -195,7 +220,8 @@ fun LibraryScreen(container: AppContainer, nav: Nav) {
                     items(items.uniqueBy { it.archiveID }, key = { it.archiveID }) { item ->
                         PosterTile(item, onClick = {
                             nav.openItem(item.archiveID, item.seriesID, item.contentType)
-                        }, progress = if (tabIndex == 1) continueProgress[item.archiveID] else null)
+                        }, progress = if (tabIndex == 1) continueProgress[item.archiveID] else null,
+                            onLongClick = if (tabIndex == 3) ({ removeFromHistory = item }) else null)
                     }
                 }
             }

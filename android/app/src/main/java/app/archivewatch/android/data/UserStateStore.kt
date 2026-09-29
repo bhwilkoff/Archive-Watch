@@ -233,6 +233,27 @@ class UserStateStore(context: Context) {
         _changes.value += 1
     }
 
+    /**
+     * Remove a title from the watch history (owner, 2026-09-29: "You should be
+     * able to remove items from history if you want"). Its resume position
+     * goes with it. The "wp" stone is Apple's key for the same act, so the
+     * removal reaches every device; watching the title again writes a newer
+     * `at` and it returns.
+     */
+    suspend fun removeFromHistory(id: String) {
+        dbCall {
+            exec("DELETE FROM progress WHERE id = ?", listOf(id))
+            exec("INSERT OR REPLACE INTO tombstones (kind, id, at) VALUES ('wp', ?, ?)",
+                 listOf(id, System.currentTimeMillis()))
+        }
+        _changes.value += 1
+    }
+
+    /** Sync's side of [removeFromHistory]: the row only. */
+    suspend fun removeProgressRaw(id: String) = dbCall {
+        exec("DELETE FROM progress WHERE id = ?", listOf(id))
+    }
+
     suspend fun progressFor(id: String): WatchProgress? = dbCall {
         query(
             "SELECT id, position, duration, at, firstAt, plays, everDone " +
