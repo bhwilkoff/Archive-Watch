@@ -489,6 +489,15 @@ struct DetailView: View {
             isWatchedState = store.completedArchiveIDs.contains(item.archiveID)
                 || WatchProgress.isWatched(archiveID: item.archiveID, in: ctx)
         }
+        // "Play a Surprise Film" (Go menu): the router names the film to play
+        // as its page opens. Consumed once; after the screen settles, since a
+        // cover presented with the push is dropped (the door's same wait).
+        .task(id: item.archiveID) {
+            guard router.autoplayItemID == item.archiveID, item.videoURLParsed != nil else { return }
+            router.autoplayItemID = nil
+            try? await Task.sleep(for: .milliseconds(400))
+            playing = true
+        }
         .task {
             // Joining a SharePlay session must actually START the film, not just
             // land on its Detail page: the group coordinates a PLAYER, so a
@@ -619,7 +628,7 @@ struct DetailView: View {
     @ViewBuilder private var scenesSection: some View {
         VStack(alignment: .leading, spacing: 8) {
             if !scenes.isEmpty {
-                Text("Scenes").font(.title3).fontWeight(.semibold)
+                Text("Scenes").font(.title3).fontWeight(.semibold).accessibilityAddTraits(.isHeader)
                 ScrollView(.horizontal) {
                     LazyHStack(spacing: 14) {
                         ForEach(scenes, id: \.seconds) { s in
@@ -656,7 +665,7 @@ struct DetailView: View {
         let related = store.related(to: item)
         if !related.isEmpty {
             VStack(alignment: .leading, spacing: 8) {
-                Text("More Like This").font(.title3).fontWeight(.semibold)
+                Text("More Like This").font(.title3).fontWeight(.semibold).accessibilityAddTraits(.isHeader)
                 ScrollView(.horizontal) {
                     LazyHStack(spacing: 14) {
                         ForEach(related) { r in
@@ -727,7 +736,7 @@ private struct CastRow: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
-            Text("Cast & Crew").font(.title3).fontWeight(.semibold)
+            Text("Cast & Crew").font(.title3).fontWeight(.semibold).accessibilityAddTraits(.isHeader)
             ScrollView(.horizontal) {
                 // Not lazy: at most thirteen people, and a lazy row takes its
                 // height from the first one, clipping a two-line name.

@@ -243,8 +243,8 @@ same `.commands` that build the Mac's menu bar build the iPad's, and a person
 with a keyboard expects to find every command there with its key.
 
 8.1 **The iPad shows the Mac's menus, in the Mac's words.** Go (the
-sidebar places (Home ⌘1, Films ⌘2, TV ⌘3, Channels ⌘4, Favorites ⌘5; Search once, in its place, ⌘F, as on the Mac), Back ⌘[, Surprise Me ⇧⌘R, which opens
-Surprise as the Home button does), Film
+sidebar places (Home ⌘1, Films ⌘2, TV ⌘3, Channels ⌘4, Favorites ⌘5; Search once, in its place, ⌘F, as on the Mac), Back ⌘[, Play a Surprise Film ⇧⌘R (it PLAYS a random
+feature, as on the Mac; "Surprise" the place opens the page)), Film
 (the film in front: Play ⌘P, Add to / Remove from Favorites ⌘D, Add to
 Playlist…, Mark as Watched ⇧⌘U, Open in New Window, Copy Link ⇧⌘C, View on
 archive.org, Something Wrong with This Film?), Help (Archive Watch Help ⌘?,

@@ -353,7 +353,7 @@ private struct Shelf: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             VStack(alignment: .leading, spacing: 2) {
-                Text(title).font(.title3).fontWeight(.semibold)
+                Text(title).font(.title3).fontWeight(.semibold).accessibilityAddTraits(.isHeader)
                 if let subtitle { Text(subtitle).font(.subheadline).foregroundStyle(.secondary) }
             }
             .padding(.horizontal)

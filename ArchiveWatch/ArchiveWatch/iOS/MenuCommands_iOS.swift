@@ -40,8 +40,9 @@ extension FocusedValues {
 }
 
 /// Go: the sidebar's places (⌘1-⌘5 on five, Search ⌘F in its place, as on
-/// the Mac), Back ⌘[, Surprise Me.
+/// the Mac), Back ⌘[, Play a Surprise Film.
 struct GoCommands_iOS: Commands {
+    let store: AppStore
     @FocusedValue(\.sceneRouter) private var router
 
     private static let places: [(tab: Router.Tab, key: KeyEquivalent?)] = [
@@ -77,10 +78,13 @@ struct GoCommands_iOS: Commands {
                 .keyboardShortcut("[", modifiers: .command)
                 .disabled(router == nil || router?.activeTabAtRoot == true)
             Divider()
-            Button("Surprise Me") {
-                guard let router else { return }
+            // Beside the sidebar's "Surprise" (a page), "Surprise Me" opened
+            // the same page — one item twice. This one PLAYS, as on the Mac.
+            Button("Play a Surprise Film") {
+                guard let router, let item = store.dbRandomFeatureFilm() else { return }
                 router.tab = .home
-                router.push(SurpriseRoute())
+                router.autoplayItemID = item.archiveID
+                router.openDetail(item)
             }
             .keyboardShortcut("r", modifiers: [.command, .shift])
             .disabled(router == nil)

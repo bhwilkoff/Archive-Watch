@@ -117,7 +117,7 @@ struct SearchView: View {
                     // the first screen of a 390pt phone.
                     if !filtered.isEmpty {
                         if showEpisodes {
-                            Text("Films & Shows").font(.title3.bold())
+                            Text("Films & Shows").font(.title3.bold()).accessibilityAddTraits(.isHeader)
                                 .frame(maxWidth: .infinity, alignment: .leading)
                                 .padding([.horizontal, .top])
                         }
@@ -130,7 +130,7 @@ struct SearchView: View {
                     }
                     if showEpisodes {
                         VStack(alignment: .leading, spacing: 6) {
-                            Text("Episodes").font(.title3.bold()).padding(.horizontal)
+                            Text("Episodes").font(.title3.bold()).padding(.horizontal).accessibilityAddTraits(.isHeader)
                             // Columns at regular width (IPAD-DESIGN §2.1): one
                             // row ran its chevron ~1000pt from its title.
                             LazyVGrid(columns: episodeColumns, alignment: .leading, spacing: 0) {

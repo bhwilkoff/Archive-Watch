@@ -59,7 +59,7 @@ struct ArchiveWatchApp: App {
         .modelContainer(modelContainer)
         .commands {
             SettingsCommands_iOS()
-            GoCommands_iOS()
+            GoCommands_iOS(store: store)
             FilmCommands_iOS()
             HelpCommands_iOS()
         }

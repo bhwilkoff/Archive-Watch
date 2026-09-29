@@ -49,6 +49,9 @@ final class Router {
     var tab: Tab = .home
     /// Settings is a sheet over Home (the gear; the menu bar's ⌘,), not a place.
     var showSettings = false
+    /// "Play a Surprise Film" (Go menu): the film page plays this id when it
+    /// opens, once, then clears it (the tvOS router's same field).
+    var autoplayItemID: String?
     var homePath = NavigationPath()
     var browsePath = NavigationPath()
     var channelsPath = NavigationPath()
