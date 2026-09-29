@@ -316,8 +316,8 @@ platforms is informing the other platforms."* Each line cites code, not docs.
 6. ✅ v1.42.901 built (NOT seen: the iPad asked for its passcode to re-enable UI Automation, the owner's to enter) Version menu checks the playing copy; one name ("Choose Version") — iOS DetailView_iOS.swift:153/163, Mac DetailView_macOS.swift:527
 7. ✅ v1.42.896 (measured: hung >20 s on a 3 s timeout; now 3.2 s) RTMPPublisher task-group timeout waits on cancellation-blind children (Studio/RTMPPublisher.swift:931) — test with a server that never answers
 8. VoiceOver headings on iOS section titles (HomeView_iOS:361, DetailView_iOS:621/658/729, SearchView_iOS:120/133)
-9. Mac poster/guide menus lack Favorites/Share (Cards_macOS.swift:54, ChannelsView_macOS.swift:243)
-10. Mac guide titles from 48 pt (ChannelsView_macOS.swift:248)
+9. ✅ v1.42.903 built (right-click not driven: no synthesized input on the owner's Mac) Mac poster/guide menus lack Favorites/Share (Cards_macOS.swift:54, ChannelsView_macOS.swift:243)
+10. ➖ no change — seen on the Mac guide: titles wrap at words ("Black / Oxen"), narrow blocks draw none; 48 pt suits the Mac's smaller caption. Mac guide titles from 48 pt (ChannelsView_macOS.swift:248)
 11. ✅ v1.42.902 Mac cast row is a LazyHStack (DetailView_macOS.swift:632)
 12. ✅ v1.42.902 (seen: The Big Parade — six lines under Play, More, cast on the first screen) Mac synopsis has no width cap (DetailView_macOS.swift:68)
 13. Explanatory copy / disabled-without-reason — SurpriseView_iOS:42, ChannelsView_iOS:852/876, tvOS ChannelsView:523/544/560, SearchView_macOS:45, LibraryView_iOS:422 ("Create button")

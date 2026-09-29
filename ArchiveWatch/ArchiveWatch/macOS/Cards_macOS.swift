@@ -1,5 +1,6 @@
 #if os(macOS)
 import SwiftUI
+import SwiftData
 
 // Reusable poster card + a generic grid. Pointer-native: hover lifts the card, click
 // opens Detail, double-click plays. (NSCollectionView migration for huge grids is a
@@ -62,13 +63,57 @@ struct PosterCard: View {
         .accessibilityLabel([item.title, item.year.map(String.init)].compactMap { $0 }.joined(separator: ", "))
         .accessibilityAddTraits(.isButton)
         .accessibilityAction { router.openDetail(item) }
-        .contextMenu {
+        .filmContextMenu(item)
+        .help(item.title)
+    }
+}
+
+extension View {
+    /// Right-click on a film anywhere it appears as a card or a guide block:
+    /// Open, Play, Favorites, Share — the menu iPhone and iPad offer on a
+    /// poster (IPAD-DESIGN §11.2), in the Mac's Title Case.
+    func filmContextMenu(_ item: Catalog.Item) -> some View {
+        modifier(FilmContextMenuMac(item: item))
+    }
+}
+
+private struct FilmContextMenuMac: ViewModifier {
+    let item: Catalog.Item
+    @Environment(AppRouter.self) private var router
+    @Environment(\.modelContext) private var ctx
+
+    /// Read when the menu opens, so a grid of cards does not each observe
+    /// every favorite.
+    private var favorite: Favorite? {
+        let id = item.archiveID
+        var d = FetchDescriptor<Favorite>(predicate: #Predicate { $0.archiveID == id })
+        d.fetchLimit = 1
+        return try? ctx.fetch(d).first
+    }
+
+    func body(content: Content) -> some View {
+        content.contextMenu {
             Button("Open") { router.openDetail(item) }
             if item.videoURLParsed != nil {
                 Button("Play") { router.play(item) }
             }
+            Divider()
+            if let f = favorite {
+                Button("Remove from Favorites") {
+                    ctx.delete(f)
+                    ctx.insert(Tombstone(key: "fav:\(item.archiveID)"))
+                    try? ctx.save()
+                }
+            } else {
+                Button("Add to Favorites") {
+                    ctx.insert(Favorite(archiveID: item.archiveID))
+                    try? ctx.save()
+                }
+            }
+            if let url = URL(string: "https://archivewatch.org/item/\(item.archiveID)") {
+                ShareLink("Share…", item: url)
+            }
         }
-        .help(item.title)
     }
 }
 

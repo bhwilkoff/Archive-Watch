@@ -276,6 +276,7 @@ struct ChannelsView: View {
         }
         .buttonStyle(.plain)
         .help("\(slot.item.title) · \(slot.start.formatted(date: .omitted, time: .shortened))")
+        .filmContextMenu(slot.item)   // the poster's menu: a program is a film
         .accessibilityLabel("\(slot.item.title), \(slot.start.formatted(date: .omitted, time: .shortened))")
     }
 
