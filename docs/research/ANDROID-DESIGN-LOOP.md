@@ -84,9 +84,12 @@ Harness:
 - J. `aw_start_tab` / `aw_start_route` are collected only by `TvAppRoot`; the
   phone can be driven only by `archivewatch://` hosts and taps.
 
-- K. **TV Search: the keyboard's sixth column is cut off** — F, L, R, X, 3
+- K. ✅ v1.42.934 (seen on the Google TV) **TV Search: the keyboard's sixth column is cut off** — F, L, R, X, 3
   and 9 sit half under the "Or browse without typing" panel (1920-wide
-  capture, so not a crop).
+  capture, so not a crop). A fixed 430 dp column left 362 dp inside the
+  overscan margin for six 58 dp keys that need 388; the column is now sized
+  from its keys. The decade doors run to the 2020s and every decade has
+  titles in the live index (2020s: 84), from db.decadeCounts() — kept.
 
 ## Queue
 

@@ -58,6 +58,10 @@ import kotlinx.coroutines.delay
  * would make Search a dead end for anyone unwilling to spell a title with a
  * remote.
  */
+private val KeySize = 58.dp
+private val KeyGap = 8.dp
+private val KeyboardWidth = KeySize * 6 + KeyGap * 5
+
 private val KEY_ROWS = listOf(
     "ABCDEF",
     "GHIJKL",
@@ -109,9 +113,13 @@ fun TvSearchScreen(container: AppContainer, nav: Nav) {
         // ---- left: the optional keyboard --------------------------------
         Column(
             Modifier
-                .width(430.dp)
                 .fillMaxHeight()
-                .padding(start = TvDims.OverscanH, top = TvDims.OverscanV, end = 20.dp),
+                .padding(start = TvDims.OverscanH, top = TvDims.OverscanV, end = 20.dp)
+                // Sized FROM the keys: a fixed 430 dp left 362 dp inside the
+                // overscan margin for six 58 dp keys that need 388, so F, L,
+                // R, X, 3 and 9 sat half under the results panel (Android loop,
+                // 2026-09-29).
+                .width(KeyboardWidth),
         ) {
             Box(
                 Modifier
@@ -130,7 +138,7 @@ fun TvSearchScreen(container: AppContainer, nav: Nav) {
 
             Column(Modifier.padding(top = 18.dp)) {
                 KEY_ROWS.forEachIndexed { rowIndex, row ->
-                    Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                    Row(horizontalArrangement = Arrangement.spacedBy(KeyGap)) {
                         row.forEachIndexed { colIndex, ch ->
                             TvKeyCap(
                                 label = ch.toString(),
@@ -355,7 +363,7 @@ private fun TvKeyCap(
                 scaleWhenFocused = 1.10f,
                 exitLeftTo = if (exitLeft) railFocus else null,
             )
-            .then(if (wide) Modifier.width(126.dp) else Modifier.size(58.dp))
+            .then(if (wide) Modifier.width(126.dp) else Modifier.size(KeySize))
             .background(Color(0xFF232323), RoundedCornerShape(8.dp)),
         contentAlignment = Alignment.Center,
     ) {
