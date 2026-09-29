@@ -6,6 +6,8 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -237,11 +239,8 @@ private fun TvRefineChips(
                 onClick = { onSort(s) },
             )
         }
-        item(key = "era-div") {
-            Box(Modifier.padding(horizontal = 6.dp)) {
-                Text("·", fontSize = 14.sp, color = Color(0xFF666666))
-            }
-        }
+        // A gap, not a mark: a "·" here read as a speck on the screen.
+        item(key = "era-div") { Spacer(Modifier.width(24.dp)) }
         item(key = "era-all") {
             TvChip(label = "All eras", selected = decade == null, onClick = { onDecade(null) })
         }

@@ -196,6 +196,14 @@ Harness:
   with the playhead); v1.42.946 feeds it seconds watched. Built for tvOS,
   iOS and macOS with zero warnings (two stray `await`s fixed on the way);
   NOT run on an Apple TV, because its history syncs to the owner's iCloud.
+- W. ✅ v1.42.951 Surface walk (phone: Browse, Library, Collections, Search;
+  TV: Browse, Library, Collections, Settings). Fixed and seen: TV Settings
+  read "SETTINGS" over "Settings", its title 48 dp in from its sections
+  (TvPageHeader's own inset doubled the column's); TV Browse drew a "·"
+  between the sort and era chips that read as a speck; phone Search's empty
+  page restated the field's placeholder in a sentence. Checked and kept: the
+  Library tab row scrolls ("Clip…" at the edge is Material's scroll cue),
+  and Collections' descriptions are archive.org's own words.
 
 ## Queue
 

@@ -141,7 +141,8 @@ fun SearchScreen(container: AppContainer, nav: Nav) {
                 )
             }
             when {
-                query.isBlank() -> EmptyState("Search the whole archive — titles, directors, cast, genres.")
+                // The field's placeholder already says what can be searched.
+                query.isBlank() -> {}
                 searched && results.isEmpty() -> EmptyState("No matches for “$query”.")
                 searched && filtered.isEmpty() && !showEpisodes -> EmptyState("No matches with these filters — clear one to widen the net.")
                 else -> LazyVerticalGrid(

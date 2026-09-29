@@ -47,7 +47,7 @@ import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.sp
-import app.archivewatch.android.ui.tv.TvPageHeader
+import androidx.compose.ui.text.font.FontWeight
 import app.archivewatch.android.ui.tv.tvFocusable
 import app.archivewatch.android.ui.tv.LocalIsTelevision
 import kotlinx.coroutines.flow.first
@@ -121,11 +121,15 @@ fun SettingsScreen(container: AppContainer, nav: Nav) {
                 ),
         ) {
             if (isTv) {
-                TvPageHeader(
-                    eyebrow = "SETTINGS",
-                    title = "Settings",
-                    meta = null,
-                    compact = true,
+                // Not TvPageHeader: its eyebrow repeated the title
+                // ("SETTINGS" / "Settings") and its own overscan inset doubled
+                // this column's, setting the title 48 dp in from its sections.
+                Text(
+                    "Settings",
+                    fontSize = 32.sp,
+                    fontWeight = FontWeight.Bold,
+                    color = Color.White,
+                    modifier = Modifier.padding(bottom = 16.dp),
                 )
             }
             SectionLabel("Content")
