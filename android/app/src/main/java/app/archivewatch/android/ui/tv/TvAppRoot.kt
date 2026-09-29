@@ -55,6 +55,7 @@ import app.archivewatch.android.data.PlaySpec
 import app.archivewatch.android.studio.StudioController
 import app.archivewatch.android.ui.DeepLinks
 import app.archivewatch.android.ui.Nav
+import app.archivewatch.android.ui.collectStartDoors
 import app.archivewatch.android.ui.Route
 import app.archivewatch.android.ui.Tab
 import app.archivewatch.android.ui.screens.CartoonScreen
@@ -125,40 +126,9 @@ fun TvAppRoot(container: AppContainer) {
         }
     }
 
-    // Verification hook (see MainActivity): jump straight to a tab so automated
-    // TV checks don't have to steer by counting D-pad presses.
-    LaunchedEffect(Unit) {
-        DeepLinks.pendingTab.collect { name ->
-            if (name != null) {
-                DeepLinks.pendingTab.value = null
-                Tab.entries.firstOrNull { it.name.equals(name, ignoreCase = true) }?.let {
-                    nav.stack.clear(); nav.tab = it
-                }
-            }
-        }
-    }
-
-    // Verification hook: jump straight to a pushed route.
-    LaunchedEffect(Unit) {
-        DeepLinks.pendingRoute.collect { name ->
-            if (name == null) return@collect
-            DeepLinks.pendingRoute.value = null
-            val route: Route? = when {
-                name == "collections" -> Route.Collections
-                name == "surprise" -> Route.Surprise
-                name == "cartoon" -> Route.Cartoon
-                name == "settings" -> Route.Settings
-                name.startsWith("series:") -> Route.Series(name.removePrefix("series:"))
-                name.startsWith("item:") -> Route.Detail(name.removePrefix("item:"))
-                name.startsWith("decade:") ->
-                    name.removePrefix("decade:").toIntOrNull()?.let {
-                        Route.Filtered(title = "" + it + "s", decade = it)
-                    }
-                else -> null
-            }
-            route?.let { nav.push(it) }
-        }
-    }
+    // Verification hooks (see MainActivity): jump straight to a tab or a
+    // pushed route, so automated checks do not steer by counting presses.
+    LaunchedEffect(Unit) { nav.collectStartDoors() }
 
     // Verification hook: arm Watch Together Studio on a film and open the
     // player (ANDROID-DESIGN §9.4). It goes through the RIGHTS GATE like any

@@ -6,7 +6,9 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.listSaver
 import androidx.compose.runtime.setValue
 import app.archivewatch.android.data.PlaySpec
+import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.launch
 
 /** Top-level content tabs (Settings rides the Home top bar gear). */
 enum class Tab(val label: String) {
@@ -196,4 +198,43 @@ object PlaybackPresence {
     val inPip = MutableStateFlow(false)
     @Volatile var aspectWidth = 16
     @Volatile var aspectHeight = 9
+}
+
+/**
+ * The launch doors (`--es aw_start_tab <tab>`, `--es aw_start_route <route>`),
+ * followed by BOTH roots so every phone and TV surface can be reached for a
+ * check without steering by taps or D-pad presses. They were TV-only until
+ * the 2026-09-29 audit, which left the phone reachable only by taps.
+ */
+suspend fun Nav.collectStartDoors() = coroutineScope {
+    launch {
+        DeepLinks.pendingTab.collect { name ->
+            if (name == null) return@collect
+            DeepLinks.pendingTab.value = null
+            Tab.entries.firstOrNull { it.name.equals(name, ignoreCase = true) }?.let {
+                stack.clear(); tab = it
+            }
+        }
+    }
+    launch {
+        DeepLinks.pendingRoute.collect { name ->
+            if (name == null) return@collect
+            DeepLinks.pendingRoute.value = null
+            val route: Route? = when {
+                name == "collections" -> Route.Collections
+                name == "surprise" -> Route.Surprise
+                name == "cartoon" -> Route.Cartoon
+                name == "party" -> Route.Party
+                name == "settings" -> Route.Settings
+                name.startsWith("series:") -> Route.Series(name.removePrefix("series:"))
+                name.startsWith("item:") -> Route.Detail(name.removePrefix("item:"))
+                name.startsWith("decade:") ->
+                    name.removePrefix("decade:").toIntOrNull()?.let {
+                        Route.Filtered(title = "" + it + "s", decade = it)
+                    }
+                else -> null
+            }
+            route?.let { push(it) }
+        }
+    }
 }

@@ -84,9 +84,13 @@ Harness:
 - J. `aw_start_tab` / `aw_start_route` are collected only by `TvAppRoot`; the
   phone can be driven only by `archivewatch://` hosts and taps.
 
+- K. **TV Search: the keyboard's sixth column is cut off** — F, L, R, X, 3
+  and 9 sit half under the "Or browse without typing" panel (1920-wide
+  capture, so not a crop).
+
 ## Queue
 
-1. J — phone launch doors (so every phone surface can be photographed)
+1. ✅ J — phone launch doors: one shared `Nav.collectStartDoors()` in both roots (v1.42.933); the Pixel opened Library, the TV Search
 2. Walk every surface on both devices; the glass decides C, E and the hero
 3. ✅ Kotlin warnings: 8 distinct (16 across both flavors) -> 0, both compile tasks re-run (v1.42.932)
 4. D, E, G, A, B; then H and I with each change; F is its own project

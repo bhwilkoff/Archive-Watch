@@ -65,6 +65,8 @@ fun AppRoot(container: AppContainer) {
             }
         }
     }
+    // Verification hooks (aw_start_tab / aw_start_route), as on TV.
+    LaunchedEffect(Unit) { nav.collectStartDoors() }
     // A playlist somebody sent as a link. No catalogue wait and no retry,
     // unlike a deep-linked ITEM: the playlist travelled inside the url, so
     // there is nothing to resolve before showing it.

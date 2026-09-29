@@ -93,6 +93,13 @@ because the loop was stopped mid-stride for a Claude update.
    went from ben@learningischange.com while Google writes to benwilkoff@gmail.com.
    Terms of Service URL on Branding (audit A9) waits until the quota review
    closes: changing Branding re-opens verification.
+   **2026-09-28 Google could not open the screencast**: both our replies
+   (09-26, and a 09-29 retry) went out through the claude.ai Gmail connector,
+   which wraps EVERY link in an expiring google.com/url redirect. Re-sent
+   2026-09-29 from Gmail's web page (ben@learningischange.com, same thread):
+   stored copy verified to link straight to youtube.com/watch?v=6QiRJhHyw3E.
+   Never send a link email through the connector (memory
+   gmail_connector_wraps_links).
 
 0-OPEN-2026-09-26. ~~Which copy does a room play?~~ **DONE same day**: owner,
    *"The host chooses the video that all Watch Together participants should be
