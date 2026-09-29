@@ -653,6 +653,21 @@ class CatalogDatabase private constructor(
     }
 
     suspend fun related(to: CatalogItem, limit: Int = 20): List<CatalogItem> {
+        // An episode's neighbours are its own series first, then ONE card per
+        // other show: the type-and-era fallback filled Lucy's row with 13
+        // Demon Street twice and 26 Men three times.
+        if (to.contentType == "tv-episode") {
+            val sid = to.seriesID
+            val own = if (sid == null) emptyList() else itemsLite(
+                "$itemSelect WHERE i.seriesID = ? AND i.archiveID != ? AND i.contentType IN ('tv-episode','tv-special')" +
+                    "$adultAnd$typeAnd ORDER BY i.archiveID LIMIT ?",
+                listOf(sid, to.archiveID, limit),
+            )
+            val others = typeEraRelated(to, limit * 3)
+                .filter { it.seriesID == null || it.seriesID != sid }
+                .distinctBy { it.seriesID ?: it.archiveID }
+            return (own + others).distinctBy { it.archiveID }.take(limit)
+        }
         val ranked = pipelineRelated(to)
         if (ranked.size >= limit) return ranked.take(limit)
         val seen = ranked.mapTo(HashSet()) { it.archiveID }

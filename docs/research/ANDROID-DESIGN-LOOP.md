@@ -261,6 +261,12 @@ Harness:
   Playlists sections fell through to the grid's empty message ("Nothing in
   progress…" under the keypad); History had borrowed that message too. Seen
   on the Google TV and the Pixel.
+- AE. ✅ v1.42.958 An episode's More Like This (phone and TV, one query) was
+  the type-and-era fallback: other shows' episodes, the same show repeated
+  (Lucy and the Little League -> 13 Demon Street x2, 26 Men x3). Now the
+  episode's own series first (its episodes and specials), then one card per
+  other show. Seen on the Google TV: three Lucy Show titles lead the row.
+  tvOS scores episodes by shared collections and was not changed.
 
 ## Queue
 
