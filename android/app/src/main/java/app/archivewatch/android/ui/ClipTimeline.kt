@@ -65,7 +65,10 @@ fun ClipTimeline(
             view.onScrub = onScrub
             view.onTrim = onTrim
             view.maxClip = maxClip
-            view.configure(duration, thumbnails)
+            // A COPY, read element by element: that read is what makes each
+            // arriving frame re-run this block. Passing the live list read
+            // only its reference, so a paused editor never drew a frame.
+            view.configure(duration, thumbnails.toList())
             view.setSelection(inSeconds, outSeconds)
             if (isPlaying) view.follow(playhead)
         },

@@ -267,6 +267,20 @@ Harness:
   episode's own series first (its episodes and specials), then one card per
   other show. Seen on the Google TV: three Lucy Show titles lead the row.
   tvOS scores episodes by shared collections and was not changed.
+- AF. ✅ v1.42.959 Clip Studio's filmstrip stayed EMPTY (Pixel, The General,
+  two minutes). Two causes. The timeline's AndroidView update read the
+  thumbnail list's reference, never its contents, so arriving frames never
+  re-ran it and a paused editor never redrew; it reads a copy now. And the
+  frames came from MediaMetadataRetriever over the remote film, one frame in
+  two minutes; they come from archive.org's own per-minute frames for that
+  file now (`ArchiveVersions.frames`, shared with Scenes), the decoder only
+  when a copy has none. Seen: the strip fills. Measured: an open costs ~30 MB
+  (the preview's buffer and the probe) and stays flat for 160 s idle.
+- AG. OWNER CALL (claim, all platforms incl. the Mac Creation Studio): an
+  exported clip burns "archivewatch.org · Public Domain" whenever the rights
+  status is not Creative Commons, and the catalog marks 1964-77
+  renewal-zone and commercial_keep titles "public_domain" too, so a
+  fair-use clip (Decision 146) of such a title would claim public domain.
 
 ## Queue
 

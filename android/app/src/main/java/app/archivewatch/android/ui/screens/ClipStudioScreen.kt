@@ -179,6 +179,7 @@ fun ClipStudioScreen(container: AppContainer, nav: Nav, archiveID: String) {
             .apply {
                 setMediaItem(MediaItem.fromUri(url))
                 playWhenReady = false
+                if (app.archivewatch.android.ui.DeepLinks.forceMute) volume = 0f
                 prepare()
             }
     }

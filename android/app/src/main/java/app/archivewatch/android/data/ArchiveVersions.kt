@@ -199,10 +199,19 @@ object ArchiveVersions {
      *  length, so another copy's frame would start at the wrong moment. */
     data class Scene(val seconds: Int, val imageURL: String)
 
-    suspend fun scenes(context: Context, archiveID: String, fallback: String): List<Scene> =
+    suspend fun scenes(context: Context, archiveID: String, fallback: String): List<Scene> {
+        val frames = frames(preferredURL(context, archiveID, fallback)).filter { it.seconds >= 30 }
+        if (frames.size < 4) return emptyList()
+        val want = minOf(12, frames.size)
+        return List(want) { k -> frames[k * frames.size / want] }
+    }
+
+    /** Every per-minute frame archive.org published for THIS file, in time
+     *  order: Scenes samples twelve; Clip Studio's filmstrip fills its slots
+     *  from them instead of decoding the remote film. */
+    suspend fun frames(url: String): List<Scene> =
         withContext(Dispatchers.IO) {
             runCatching {
-                val url = preferredURL(context, archiveID, fallback)
                 val m = Regex("^https://archive\\.org/download/([^/]+)/(.+)$").find(url) ?: return@runCatching emptyList()
                 val item = java.net.URLDecoder.decode(m.groupValues[1], "UTF-8")
                 val file = m.groupValues[2].split("/").joinToString("/") {
@@ -218,11 +227,9 @@ object ArchiveVersions {
                     if (f.optString("format") != "Thumbnail" || f.optString("original") != file) return@mapNotNull null
                     val t = Regex("_(\\d{6})\\.jpg$").find(f.optString("name"))?.groupValues?.get(1)?.toIntOrNull()
                         ?: return@mapNotNull null
-                    if (t < 30) null else Scene(t, downloadURL(item, f.optString("name")))
+                    Scene(t, downloadURL(item, f.optString("name")))
                 }.sortedBy { it.seconds }
-                if (frames.size < 4) return@runCatching emptyList()
-                val want = minOf(12, frames.size)
-                List(want) { k -> frames[k * frames.size / want] }
+                frames
             }.getOrDefault(emptyList())
         }
 

@@ -338,6 +338,24 @@ class ClipExporter(
         onFrame: (index: Int, bitmap: Bitmap) -> Unit,
     ) = withContext(Dispatchers.IO) {
         if (durationSeconds <= 0) return@withContext
+        // archive.org's own per-minute frames first: decoding the remote film
+        // read it to the end ("NuCachedSource2: caching reached eos") and drew
+        // no frame in two minutes on the Pixel 8a (The General, 106 min).
+        val published = ArchiveVersions.frames(remoteURL)
+        if (published.size >= 4) {
+            val fetched = HashMap<String, Bitmap?>()
+            for (i in 0 until count) {
+                val t = durationSeconds * (i + 0.5) / count
+                val near = published.minByOrNull { kotlin.math.abs(it.seconds - t) } ?: continue
+                val bmp = fetched.getOrPut(near.imageURL) { runCatching {
+                    okHttp.newCall(okhttp3.Request.Builder().url(near.imageURL).build()).execute().use { r ->
+                        if (!r.isSuccessful) null else android.graphics.BitmapFactory.decodeStream(r.body?.byteStream())
+                    }
+                }.getOrNull() } ?: continue
+                withContext(Dispatchers.Main) { onFrame(i, bmp) }
+            }
+            return@withContext
+        }
         val retriever = MediaMetadataRetriever()
         try {
             retriever.setDataSource(remoteURL, retrieverHeaders())
