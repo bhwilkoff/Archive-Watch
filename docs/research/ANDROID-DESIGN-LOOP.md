@@ -375,6 +375,16 @@ Harness:
   says "archivewatch.org · Creative Commons" or "· Fair use", never Public
   Domain, on Android, iOS and the Mac Creation Studio (credit, file
   description, explanatory text). All five builds clean.
+- AS. ✅ v1.42.974 OWNER: "Any 'mature movie' should be marked as such ...
+  hidden from Party Play by default unless mature items are turned on." The
+  existing `isAdult` flag already does all of that (shelves, hero, Party Play,
+  every surface: `adultAnd` in Android's `browse`, the same gate on Apple, web
+  and Roku) — what was missing was the MARKING. `is_adult_signal` now also
+  reads archive.org's whole "Adult" subject and a synopsis naming an adult
+  genre (sex comedy, softcore, sexploitation, erotic drama/comedy/thriller,
+  nudie). Measured: 22 visible titles newly marked (Messe noire, Felicia, The
+  Boob Tube, Maid For Pleasure...); controls in the test: "adult education",
+  a burlesque parody, Haxan. Takes effect at the next publish.
 
 ## Queue
 

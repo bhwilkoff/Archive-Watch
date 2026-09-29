@@ -56,5 +56,12 @@ check("sort article with period", rc._invert_sort_article("Evenings on the farm 
       "The Evenings on the farm near Dikanka")
 check("CONTROL: a comma title is left alone", rc._invert_sort_article("Hello, Dolly"), "Hello, Dolly")
 
+# Mature: a synopsis naming an adult genre, or archive.org's whole "Adult" subject.
+check("sex-comedy synopsis is mature", rc.is_adult_signal({"title": "Italian Sex", "synopsis": "An Italian sex comedy of 1973."}), True)
+check("exact Adult subject is mature", rc.is_adult_signal({"title": "Messe noire", "subjects": ["Adult", "silent"]}), True)
+check("CONTROL: 'adult education' subject is not", rc.is_adult_signal({"title": "Night Class", "subjects": ["adult education"]}), False)
+check("CONTROL: a burlesque parody is not", rc.is_adult_signal({"title": "A Burlesque on Carmen", "synopsis": "Chaplin's burlesque of the opera."}), False)
+check("CONTROL: Haxan's 'erotic film' mention is not", rc.is_adult_signal({"title": "Haxan", "synopsis": "A documentary-style erotic film about witchcraft."}), False)
+
 print("FAILED" if fails else "ALL PASS", fails)
 sys.exit(1 if fails else 0)

@@ -783,8 +783,24 @@ _ADULT_KEYWORD = re.compile(
     r"|stag films?|sexploitation|adult films?|adult movies?)\b", re.I)
 
 
+# A synopsis that NAMES an adult genre (owner, 2026-09-29: "Any 'mature movie'
+# should be marked as such. If you have knowledge that a movie is 'mature' then
+# it should be hidden from recommendations"). Genre names only: "burlesque" is
+# usually parody here (Chaplin's A Burlesque on Carmen), bare "porn" matches
+# films against it, and "erotic film" sits on Haxan (1922). Measured: 20 visible
+# titles, every one a sex comedy, erotic drama or nudie reel.
+_ADULT_SYNOPSIS = re.compile(
+    r"\b(sex comed(y|ies)|soft-?core|sexploitation|erotic (drama|comedy|thriller)s?|nudie)\b", re.I)
+
+
 def is_adult_signal(item):
     title = item.get("title") or ""
+    # archive.org's own subject tag "Adult", whole (inside a tag it is noisy:
+    # "adult education"). Messe noire (1928) carried it and was not marked.
+    if any((s or "").strip().lower() in ("adult", "adults only") for s in item.get("subjects") or []):
+        return True
+    if _ADULT_SYNOPSIS.search(item.get("synopsis") or ""):
+        return True
     if _ADULT_TITLE_START.search(title):
         return True
     kw = item.get("keywords") or []
