@@ -376,10 +376,17 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
     LaunchedEffect(spec.id) {
         if (spec.persistProgress) return@LaunchedEffect
         var recordedFor: String? = null
+        // Sixty seconds WATCHED, not a playhead past 60 s: a channel joins its
+        // program minutes in, so the playhead test recorded every tune-in
+        // within five seconds — a channel-surf entered the history.
+        var watchingID: String? = null
+        var watchedMs = 0L
         while (true) {
             delay(5_000)
             val id = player.currentMediaItem?.mediaId ?: spec.id
-            if (id != recordedFor && player.currentPosition >= 60_000L) {
+            if (id != watchingID) { watchingID = id; watchedMs = 0L }
+            if (player.isPlaying) watchedMs += 5_000L
+            if (id != recordedFor && watchedMs >= 60_000L) {
                 container.userState.recordHistory(id, player.duration.coerceAtLeast(0L))
                 recordedFor = id
             }

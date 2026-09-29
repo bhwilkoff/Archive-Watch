@@ -6,7 +6,6 @@ import androidx.compose.ui.semantics.contentDescription
 import android.content.Intent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -294,14 +293,63 @@ fun DetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
             if (showGetSubs) {
                 GetSubtitlesSheet(container, current) { showGetSubs = false }
             }
+            // Decision 134 on a phone: the actions that fit the width stay as
+            // icons, in priority order, and the rest move to the top of More
+            // with their words. The row used to SCROLL, which left Share and
+            // More off the screen behind a half-drawn icon (Pixel 8a).
+            val actions = buildList {
+                add(DetailAction(
+                    "Favorite",
+                    if (favorite) Icons.Default.Favorite else Icons.Default.FavoriteBorder,
+                    MaterialTheme.colorScheme.primary,
+                ) { scope.launch { favorite = container.userState.toggleFavorite(current.archiveID) } })
+                add(DetailAction("Add to playlist", Icons.AutoMirrored.Filled.PlaylistAdd) { showPlaylists = true })
+                // Create (Clip Studio) — rights-gated (CREATE-STUDIO-PLAN §2).
+                // Hidden, not disabled, when the item isn't clippable.
+                if (current.isClippable) {
+                    add(DetailAction("Create a clip", Icons.Default.ContentCut, MaterialTheme.colorScheme.primary) {
+                        nav.push(Route.ClipStudio(current.archiveID))
+                    })
+                }
+                add(DetailAction("Share", Icons.Default.Share, MaterialTheme.colorScheme.primary) {
+                    val send = Intent(Intent.ACTION_SEND).apply {
+                        type = "text/plain"
+                        putExtra(Intent.EXTRA_TEXT,
+                            "${current.title} — https://archivewatch.org/item/${current.archiveID}")
+                    }
+                    context.startActivity(Intent.createChooser(send, null))
+                })
+                // tvOS Detail parity: mark watched without playing.
+                add(DetailAction(
+                    if (watched) "Mark as not watched" else "Mark as watched",
+                    Icons.Default.Visibility,
+                    if (watched) MaterialTheme.colorScheme.primary else null,
+                ) {
+                    scope.launch {
+                        container.userState.setWatched(current.archiveID, !watched)
+                        watched = !watched
+                    }
+                })
+                // tvOS Detail parity: every playable copy, viewer-choosable.
+                add(DetailAction("Choose a copy", Icons.Default.Tune) { showVersions = true })
+                // iOS parity: per-film OpenSubtitles search (BYO account) for
+                // films that ship no subtitle track. IMDb-id matched, never
+                // title (Decision 026's failure class).
+                if (current.captions.isNullOrEmpty() && current.imdbID != null &&
+                    current.downloadURL != null &&
+                    app.archivewatch.android.data.OpenSubtitlesClient.isAvailable
+                ) {
+                    add(DetailAction("Get subtitles", Icons.Default.ClosedCaption) { showGetSubs = true })
+                }
+            }
+            androidx.compose.foundation.layout.BoxWithConstraints(Modifier.fillMaxWidth().padding(vertical = 12.dp)) {
+                // Play's width is its words; each icon is 48 dp and a 4 dp gap.
+                val playWidth = if (current.downloadURL != null) 116.dp else 170.dp
+                val room = ((maxWidth - playWidth - 52.dp) / 52.dp).toInt().coerceAtLeast(0)
+                val inRow = actions.take(room)
+                val inMenu = actions.drop(room)
             Row(
-                Modifier
-                    .padding(vertical = 12.dp)
-                    // Seven controls outgrow a phone width — the row scrolls
-                    // (the two newest icons were CLIPPED off-screen, measured
-                    // on the Pixel 8a).
-                    .horizontalScroll(rememberScrollState()),
-                horizontalArrangement = Arrangement.spacedBy(12.dp),
+                horizontalArrangement = Arrangement.spacedBy(4.dp),
                 verticalAlignment = Alignment.CenterVertically,
             ) {
                 Button(
@@ -335,74 +383,10 @@ fun DetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
                     Icon(Icons.Default.PlayArrow, contentDescription = null)
                     Text(if (current.downloadURL != null) "Play" else "Not playable")
                 }
-                IconButton(onClick = {
-                    scope.launch { favorite = container.userState.toggleFavorite(current.archiveID) }
-                }) {
-                    Icon(
-                        if (favorite) Icons.Default.Favorite else Icons.Default.FavoriteBorder,
-                        contentDescription = "Favorite",
-                        tint = MaterialTheme.colorScheme.primary,
-                    )
-                }
-                IconButton(onClick = { showPlaylists = true }) {
-                    Icon(
-                        Icons.AutoMirrored.Filled.PlaylistAdd,
-                        contentDescription = "Add to playlist",
-                    )
-                }
-                // tvOS Detail parity: mark watched without playing.
-                IconButton(onClick = {
-                    scope.launch {
-                        container.userState.setWatched(current.archiveID, !watched)
-                        watched = !watched
+                inRow.forEach { a ->
+                    IconButton(onClick = a.onClick) {
+                        Icon(a.icon, contentDescription = a.label, tint = a.tint ?: LocalContentColor.current)
                     }
-                }) {
-                    Icon(
-                        Icons.Default.Visibility,
-                        contentDescription = if (watched) "Mark as not watched" else "Mark as watched",
-                        tint = if (watched) MaterialTheme.colorScheme.primary
-                        else LocalContentColor.current,
-                    )
-                }
-                // tvOS Detail parity: every playable copy, viewer-choosable.
-                IconButton(onClick = { showVersions = true }) {
-                    Icon(Icons.Default.Tune, contentDescription = "Choose a copy")
-                }
-                // iOS parity: per-film OpenSubtitles search (BYO account) for
-                // films that ship no subtitle track. IMDb-id matched, never
-                // title (Decision 026's failure class).
-                if (current.captions.isNullOrEmpty() && current.imdbID != null &&
-                    current.downloadURL != null &&
-                    app.archivewatch.android.data.OpenSubtitlesClient.isAvailable
-                ) {
-                    IconButton(onClick = { showGetSubs = true }) {
-                        Icon(Icons.Default.ClosedCaption, contentDescription = "Get subtitles")
-                    }
-                }
-                // Create (Clip Studio) — rights-gated (CREATE-STUDIO-PLAN §2).
-                // Hidden, not disabled, when the item isn't clippable.
-                if (current.isClippable) {
-                    IconButton(onClick = { nav.push(Route.ClipStudio(current.archiveID)) }) {
-                        Icon(
-                            Icons.Default.ContentCut,
-                            contentDescription = "Create a clip",
-                            tint = MaterialTheme.colorScheme.primary,
-                        )
-                    }
-                }
-                IconButton(onClick = {
-                    val send = Intent(Intent.ACTION_SEND).apply {
-                        type = "text/plain"
-                        putExtra(Intent.EXTRA_TEXT,
-                            "${current.title} — https://archivewatch.org/item/${current.archiveID}")
-                    }
-                    context.startActivity(Intent.createChooser(send, null))
-                }) {
-                    Icon(
-                        Icons.Default.Share,
-                        contentDescription = "Share",
-                        tint = MaterialTheme.colorScheme.primary,
-                    )
                 }
                 // iOS parity: the More menu's "View on archive.org" — the
                 // provenance door (every film links back to its source item).
@@ -411,6 +395,13 @@ fun DetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
                         Icon(Icons.Default.MoreVert, contentDescription = "More")
                     }
                     DropdownMenu(expanded = showOverflow, onDismissRequest = { showOverflow = false }) {
+                        inMenu.forEach { a ->
+                            DropdownMenuItem(
+                                text = { Text(a.label) },
+                                leadingIcon = { Icon(a.icon, contentDescription = null) },
+                                onClick = { showOverflow = false; a.onClick() },
+                            )
+                        }
                         // ONE item, not Apple's submenu (ANDROID-DESIGN §9.2):
                         // there is no GroupActivities equivalent here, so
                         // "Watch Together" means the WORLD half only, and half
@@ -467,6 +458,7 @@ fun DetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
                         }
                     }
                 }
+            }
             }
 
             current.synopsis?.takeIf { it.isNotBlank() }?.let {
@@ -898,3 +890,11 @@ private fun GetSubtitlesSheet(
 
 private fun clock(t: Int): String =
     if (t >= 3600) "%d:%02d:%02d".format(t / 3600, t / 60 % 60, t % 60) else "%d:%02d".format(t / 60, t % 60)
+
+/** One Detail action, drawn as an icon in the row or as a More menu item. */
+private data class DetailAction(
+    val label: String,
+    val icon: androidx.compose.ui.graphics.vector.ImageVector,
+    val tint: androidx.compose.ui.graphics.Color? = null,
+    val onClick: () -> Unit,
+)

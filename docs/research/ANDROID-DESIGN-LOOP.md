@@ -156,8 +156,24 @@ Harness:
   TV row's two-line cap then cut the marked label ("Archive deri…"); the cap
   is gone. The shortened names ("and_sneezes_TNA_512kb") are by design: the
   stem is cut at a separator only when two copies would read the same.
-- T. Phone Detail: the action row runs off the right edge (a cut icon at the
-  edge on Coughs and Sneezes).
+- T. ✅ v1.42.945 Phone Detail: the action row SCROLLED, so Share and More
+  sat off the screen behind a half-drawn icon. Now Decision 134's rule: the
+  actions in priority order (Favorite, Playlist, Clip, Share, Watched, Choose
+  a copy, Get subtitles), as many as the width holds stay icons, the rest
+  head the More menu with their words. Pixel 8a: Play, Favorite, Playlist,
+  Clip, Share, More; More opens with Mark as watched, Choose a copy, Get
+  subtitles, then Watch Together, View on archive.org, Something wrong.
+- U. ✅ v1.42.945 A channel tune-in entered the watch history within five
+  seconds: the 60-second rule read the PLAYHEAD, and a channel joins its
+  program minutes in. Decision 078 says 60 seconds of viewing. It counts
+  seconds played now. Google TV: two 20 s tune-ins wrote nothing; the
+  control, 75 s on one channel, wrote its program (then removed).
+  Test residue: my runs today wrote rows to both devices' histories. The TV
+  (no sync) is restored to its four rows, byte-matched. The Pixel's rows
+  (Coughs and Sneezes, So Much for So Little, Beggars in Ermine, and a bumped
+  The Bold Caballero) had already synced to Drive, and history is a union
+  with no tombstone (Decision 078), so a local delete would come back:
+  asked the owner.
 
 ## Queue
 
