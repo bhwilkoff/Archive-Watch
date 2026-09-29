@@ -455,6 +455,18 @@ Harness:
   (seen: "watchNext remove … rows=1", history back to its five rows).
   Left: OkHttp 5, targetSdk 37.
 
+- BA. ✅ v1.42.980 MY REGRESSION, from stage A (v1.42.978): the Google TV
+  crashed opening Settings — `AbstractMethodError: CustomStyle.applyStyle`.
+  material3 was held at 1.5.0-alpha19 for the floor, but Coil 3.6.3 pulled
+  Compose foundation to 1.12.0 stable, past the 1.12.0-alpha02 alpha19 is
+  built on. Both flavors compiled; only the glass could see it. Coil and the
+  BOM are back where material3 needs them, and foundation is pinned STRICTLY,
+  so the next drift fails the build (control: Coil 3.6.3 refuses to resolve).
+  Seen: TV Settings renders; phone Settings/Surprise/Collections, no crash.
+  Owner, the same hour: floor low, modern devices not hamstrung — Decision 154.
+  OkHttp 5 (debug-verified: posters from an empty cache, playback) is held out
+  of this commit until its release build has run.
+
 ## Queue
 
 1. ✅ J — phone launch doors: one shared `Nav.collectStartDoors()` in both roots (v1.42.933); the Pixel opened Library, the TV Search

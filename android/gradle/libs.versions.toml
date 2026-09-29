@@ -6,7 +6,8 @@
 [versions]
 agp = "9.4.1"                  # AGP 9.x bundles Kotlin support; no separate kotlin.android plugin
 kotlin = "2.4.20"
-compose-bom = "2026.09.00"
+compose-bom = "2026.05.00"   # held with material3 (below): alpha19 is built against THIS foundation; a newer BOM crashed the TV (AbstractMethodError in CustomStyle.applyStyle)
+compose-foundation = "1.12.0-alpha02"   # what material3 alpha19 is built against; enforced strictly in app/build.gradle.kts
 compose-material3 = "1.5.0-alpha19"   # later alphas need minSdk 24 (Decision 141 holds 23)
 material3-adaptive = "1.3.0"
 # Compose for TV. NOTE: depend on tv-material ONLY. `tv-foundation` and every
@@ -20,7 +21,7 @@ lifecycle = "2.11.0"
 coroutines = "1.11.0"
 serialization = "1.11.0"
 datastore = "1.2.1"
-coil = "3.6.3"
+coil = "3.4.0"   # 3.5+ pulls Compose foundation 1.12 stable, past what material3 alpha19 was built on (see compose-bom)
 okhttp = "4.12.0"
 splashscreen = "1.2.0"
 media3 = "1.11.1"

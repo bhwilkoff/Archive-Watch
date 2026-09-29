@@ -198,6 +198,16 @@ android {
 }
 
 dependencies {
+    // material3 1.5.0-alpha19 (held at the Android 6 floor, Decision 141) is
+    // compiled against THIS foundation. A newer library once dragged foundation
+    // to 1.12.0 stable and the TV crashed at runtime with an AbstractMethodError
+    // (CustomStyle.applyStyle) that no compile could see; a strict version turns
+    // that into a failed build.
+    constraints {
+        implementation("androidx.compose.foundation:foundation") {
+            version { strictly(libs.versions.compose.foundation.get()) }
+        }
+    }
     implementation(platform(libs.compose.bom))
     androidTestImplementation(platform(libs.compose.bom))
     implementation(libs.bundles.compose.core)

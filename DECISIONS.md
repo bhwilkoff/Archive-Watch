@@ -236,6 +236,7 @@ into every session and the index alone carries every title.)
 - 151 — A title leaves the catalog on a copyright claim a reader can open; not knowing is not a claim
 - 152 — Sourced evidence of a free licence outranks the popularity check
 - 153 — A work made with Archive Watch claims Creative Commons or fair use, never public domain
+- 154 — The Android floor is a floor, not a ceiling: modern devices get modern features, gated by OS version
 
 ---
 
@@ -1421,4 +1422,35 @@ for a title that is public domain by age; the credit describes what the clip IS
 (a CC derivative or a fair-use excerpt), not the source's status. The rights
 language for BROADCASTS (Watch Together's provenance line) is unaffected: a
 broadcast is limited to the guaranteed tier and says what that tier proves.
+
+
+## 154 — The Android floor is a floor, not a ceiling: modern devices get modern features, gated by OS version
+*Date: 2026-09-29*
+
+Android keeps its install floor at Android 6 (Decision 141), and a device above
+it gets every capability its OS offers: a feature that needs a newer Android
+ships behind a `Build.VERSION.SDK_INT` check (PiP auto-enter from 12, typed
+foreground services from 11), never withheld from everyone because old devices
+lack it. What the floor may hold back is a LIBRARY that raises its own minSdk;
+such a library is pinned with the reason written beside it, and anything it
+was built against is pinned strictly with it.
+
+**Why**: the owner, during the dependency pass — *"Remember, you are trying to
+keep the floor low for Android, but we aren't trying to hamstring modern
+devices that are capable of doing many more things. If you have to make it so
+that certain features can only be utilized on more modern devices, that is
+okay."* The same pass showed what a pin costs when it is half-done: material3
+was held at 1.5.0-alpha19 for the floor while a newer Coil dragged Compose
+foundation to 1.12.0 stable, and the Google TV crashed at runtime
+(`AbstractMethodError` in `CustomStyle.applyStyle`) on a build that compiled
+cleanly on both flavors.
+
+**How to apply**: gate a platform capability, never a whole app, on the OS
+version. When a library that everything draws through (the UI toolkit) needs a
+higher floor and its newer version brings something users would notice, that
+is the moment to ask the owner about splitting the Play build (a modern build
+above a legacy one, as Roku and Fire TV already have) — not before, and never
+by raising the floor quietly. Keep the strict `compose-foundation` constraint in
+`app/build.gradle.kts` for as long as material3 is held: it turns the skew into
+a failed build (its control: Coil 3.6.3 refuses to resolve).
 

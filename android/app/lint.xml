@@ -4,8 +4,14 @@
          which Android TV specifies at xhdpi (320x180) and nothing else. -->
     <issue id="IconMissingDensityFolder" severity="ignore" />
     <!-- Held on purpose: material3 1.5.0-alpha20+ and play-services-auth 22+
-         require minSdk 24, and Decision 141 holds the floor at 23 (Android 6). -->
+         require minSdk 24, and Decision 141 holds the floor at 23 (Android 6).
+         The Compose BOM and Coil are held WITH material3: newer ones move Compose
+         foundation past what alpha19 was built on (a runtime AbstractMethodError;
+         app/build.gradle.kts pins foundation strictly). -->
     <issue id="GradleDependency">
-        <ignore regexp="androidx.compose.material3:material3 |play-services-auth" />
+        <ignore regexp="androidx.compose.material3:material3 |play-services-auth|compose-bom" />
+    </issue>
+    <issue id="NewerVersionAvailable">
+        <ignore regexp="io.coil-kt.coil3" />
     </issue>
 </lint>
