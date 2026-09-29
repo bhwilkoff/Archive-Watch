@@ -2,6 +2,7 @@ package app.archivewatch.android.ui.screens
 
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -234,16 +235,20 @@ private fun DecadeMenu(
     onSelect: (Int?) -> Unit,
 ) {
     var open by remember { mutableStateOf(false) }
-    TextButton(onClick = { open = true }) {
-        Text(selected?.let { "${it}s" } ?: "All decades")
-    }
-    DropdownMenu(expanded = open, onDismissRequest = { open = false }) {
-        DropdownMenuItem(text = { Text("All decades") }, onClick = { onSelect(null); open = false })
-        decades.forEach { (d, count) ->
-            DropdownMenuItem(
-                text = { Text("${d}s ($count)") },
-                onClick = { onSelect(d); open = false },
-            )
+    // Anchored: a menu that is a SIBLING of its button opens against the
+    // scrolling row's edge (the Keyword list covered the status bar at left).
+    Box {
+        TextButton(onClick = { open = true }) {
+            Text(selected?.let { "${it}s" } ?: "All decades")
+        }
+        DropdownMenu(expanded = open, onDismissRequest = { open = false }) {
+            DropdownMenuItem(text = { Text("All decades") }, onClick = { onSelect(null); open = false })
+            decades.forEach { (d, count) ->
+                DropdownMenuItem(
+                    text = { Text("${d}s ($count)") },
+                    onClick = { onSelect(d); open = false },
+                )
+            }
         }
     }
 }
@@ -254,11 +259,15 @@ private fun LengthMenu(
     onSelect: (app.archivewatch.android.data.RuntimeBand?) -> Unit,
 ) {
     var open by remember { mutableStateOf(false) }
-    TextButton(onClick = { open = true }) { Text(selected?.label ?: "Any length") }
-    DropdownMenu(expanded = open, onDismissRequest = { open = false }) {
-        DropdownMenuItem(text = { Text("Any length") }, onClick = { onSelect(null); open = false })
-        app.archivewatch.android.data.RuntimeBand.entries.forEach { b ->
-            DropdownMenuItem(text = { Text(b.label) }, onClick = { onSelect(b); open = false })
+    // Anchored: a menu that is a SIBLING of its button opens against the
+    // scrolling row's edge (the Keyword list covered the status bar at left).
+    Box {
+        TextButton(onClick = { open = true }) { Text(selected?.label ?: "Any length") }
+        DropdownMenu(expanded = open, onDismissRequest = { open = false }) {
+            DropdownMenuItem(text = { Text("Any length") }, onClick = { onSelect(null); open = false })
+            app.archivewatch.android.data.RuntimeBand.entries.forEach { b ->
+                DropdownMenuItem(text = { Text(b.label) }, onClick = { onSelect(b); open = false })
+            }
         }
     }
 }
@@ -273,11 +282,15 @@ private fun FacetMenu(
     onSelect: (String?) -> Unit,
 ) {
     var open by remember { mutableStateOf(false) }
-    TextButton(onClick = { open = true }) { Text(selected ?: label) }
-    DropdownMenu(expanded = open, onDismissRequest = { open = false }) {
-        DropdownMenuItem(text = { Text("All ${label.lowercase()}s") }, onClick = { onSelect(null); open = false })
-        choices.forEach { value ->
-            DropdownMenuItem(text = { Text(value) }, onClick = { onSelect(value); open = false })
+    // Anchored: a menu that is a SIBLING of its button opens against the
+    // scrolling row's edge (the Keyword list covered the status bar at left).
+    Box {
+        TextButton(onClick = { open = true }) { Text(selected ?: label) }
+        DropdownMenu(expanded = open, onDismissRequest = { open = false }) {
+            DropdownMenuItem(text = { Text("All ${label.lowercase()}s") }, onClick = { onSelect(null); open = false })
+            choices.forEach { value ->
+                DropdownMenuItem(text = { Text(value) }, onClick = { onSelect(value); open = false })
+            }
         }
     }
 }
@@ -285,10 +298,14 @@ private fun FacetMenu(
 @Composable
 internal fun SortMenu(selected: BrowseSort, onSelect: (BrowseSort) -> Unit) {
     var open by remember { mutableStateOf(false) }
-    TextButton(onClick = { open = true }) { Text(selected.label) }
-    DropdownMenu(expanded = open, onDismissRequest = { open = false }) {
-        BrowseSort.entries.forEach { s ->
-            DropdownMenuItem(text = { Text(s.label) }, onClick = { onSelect(s); open = false })
+    // Anchored: a menu that is a SIBLING of its button opens against the
+    // scrolling row's edge (the Keyword list covered the status bar at left).
+    Box {
+        TextButton(onClick = { open = true }) { Text(selected.label) }
+        DropdownMenu(expanded = open, onDismissRequest = { open = false }) {
+            BrowseSort.entries.forEach { s ->
+                DropdownMenuItem(text = { Text(s.label) }, onClick = { onSelect(s); open = false })
+            }
         }
     }
 }

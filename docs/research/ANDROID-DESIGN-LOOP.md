@@ -353,6 +353,10 @@ Harness:
 - AN. ✅ v1.42.966 Phone Detail and Series: the white status bar and back arrow
   sat straight on the backdrop and vanished on a bright one (The General); a
   top scrim now carries them. Seen on the Pixel.
+- AO. ✅ v1.42.967 Phone Browse: the Decade, Length, Keyword and Studio menus
+  were siblings of their buttons, so each opened against the scrolling row's
+  left edge (the Keyword list covered the status bar on the left, far from its
+  button). Each is anchored in a Box with its button now. Seen on the Pixel.
 
 ## Queue
 
