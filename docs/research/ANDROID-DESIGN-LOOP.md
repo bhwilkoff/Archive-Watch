@@ -281,6 +281,21 @@ Harness:
   status is not Creative Commons, and the catalog marks 1964-77
   renewal-zone and commercial_keep titles "public_domain" too, so a
   fair-use clip (Decision 146) of such a title would claim public domain.
+- AH. ✅ v1.42.960 Clip Studio, exported end to end on the Pixel (The
+  General, 15 s, 9:16): a valid 1080x1920 H.264 + AAC file, credit burned in.
+  Found and fixed: (1) the result page's 9:16 preview at full width was taller
+  than the phone, so Save, Share and Done were below the screen with no way
+  to scroll; the preview now takes the height left over. (2) The file said it
+  was made on 1970-01-01 and carried no source link, while the editor promised
+  "the source link in their file metadata"; the muxer now writes the creation
+  time and Apple's title + description ("Public-domain source: <details URL>
+  · Clipped with Archive Watch"), read back with ffprobe. (3) Library > Clips:
+  a long press deleted with no question and left the video file; it asks and
+  removes the file now. A clip whose cached file is gone says so on tap.
+  Rows no longer repeat the title and read "15.0 s · 9:16", not VERTICAL.
+  The empty state no longer says "public-domain title" (Decision 146).
+  Test residue: three exports landed in Clips; deleted through the dialog,
+  clips 3 -> 0 and cache/clips 3 -> 0 files (baseline 0).
 
 ## Queue
 

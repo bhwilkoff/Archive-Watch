@@ -213,8 +213,29 @@ private fun ClipsTab(container: AppContainer, clips: List<VideoClip>) {
     val scope = rememberCoroutineScope()
     val context = LocalContext.current
     if (clips.isEmpty()) {
-        EmptyState("No clips yet — open a public-domain title and tap the scissors to create one.")
+        EmptyState("No clips yet — open any title and tap the scissors.")
         return
+    }
+    // A long press ASKS, and a deleted clip takes its video file with it: it
+    // deleted on the press alone and left the file behind (Pixel 8a).
+    var confirmDelete by remember { mutableStateOf<VideoClip?>(null) }
+    confirmDelete?.let { clip ->
+        androidx.compose.material3.AlertDialog(
+            onDismissRequest = { confirmDelete = null },
+            title = { Text("Delete this clip?") },
+            confirmButton = {
+                androidx.compose.material3.TextButton(onClick = {
+                    confirmDelete = null
+                    scope.launch {
+                        container.userState.deleteClip(clip.id)
+                        runCatching { container.clipExporter.renderFile(clip.renderFilename).delete() }
+                    }
+                }) { Text("Delete") }
+            },
+            dismissButton = {
+                androidx.compose.material3.TextButton(onClick = { confirmDelete = null }) { Text("Cancel") }
+            },
+        )
     }
     LazyColumn(
         contentPadding = PaddingValues(16.dp),
@@ -237,9 +258,13 @@ private fun ClipsTab(container: AppContainer, clips: List<VideoClip>) {
                                 addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
                             }
                             context.startActivity(Intent.createChooser(send, null))
+                        } else {
+                            // Renders live in the cache, which the system may clear.
+                            android.widget.Toast.makeText(context,
+                                "This clip's video is no longer on this phone.", android.widget.Toast.LENGTH_SHORT).show()
                         }
                     },
-                    onLongClick = { scope.launch { container.userState.deleteClip(clip.id) } },
+                    onLongClick = { confirmDelete = clip },
                 ),
             ) {
                 Row(
@@ -251,8 +276,15 @@ private fun ClipsTab(container: AppContainer, clips: List<VideoClip>) {
                             clip.caption.ifBlank { clip.sourceTitle },
                             style = MaterialTheme.typography.titleSmall,
                         )
+                        val aspect = runCatching {
+                            app.archivewatch.android.data.ClipAspect.valueOf(clip.aspect).label
+                        }.getOrDefault(clip.aspect)
                         Text(
-                            "${clip.sourceTitle} · ${String.format("%.1fs", clip.durationSeconds)} · ${clip.aspect}",
+                            listOfNotNull(
+                                clip.sourceTitle.takeIf { clip.caption.isNotBlank() },
+                                String.format(java.util.Locale.US, "%.1f s", clip.durationSeconds),
+                                aspect,
+                            ).joinToString(" · "),
                             style = MaterialTheme.typography.labelSmall,
                             color = MaterialTheme.colorScheme.onSurfaceVariant,
                         )

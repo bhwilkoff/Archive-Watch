@@ -464,6 +464,22 @@ class ClipExporter(
             main.post {
                 val transformer = Transformer.Builder(context)
                     .setAssetLoaderFactory(assetLoaderFactory)
+                    // Provenance, as the Apple exporter writes it: the file said
+                    // it was made in 1970 and carried no source link, while the
+                    // editor promised "the source link in their file metadata".
+                    .setMuxerFactory(androidx.media3.transformer.InAppMp4Muxer.Factory { entries ->
+                        val now = androidx.media3.container.Mp4TimestampData
+                            .unixTimeToMp4TimeSeconds(System.currentTimeMillis())
+                        entries.removeAll { it is androidx.media3.container.Mp4TimestampData }
+                        entries.add(androidx.media3.container.Mp4TimestampData(now, now))
+                        fun mdta(key: String, value: String) = androidx.media3.container.MdtaMetadataEntry(
+                            key, value.toByteArray(Charsets.UTF_8),
+                            androidx.media3.container.MdtaMetadataEntry.TYPE_INDICATOR_STRING,
+                        )
+                        entries.add(mdta("com.apple.quicktime.title", spec.title))
+                        entries.add(mdta("com.apple.quicktime.description",
+                            "Public-domain source: ${spec.sourceDetailsURL} · Clipped with Archive Watch (archivewatch.org)"))
+                    })
                     .addListener(object : Transformer.Listener {
                         override fun onCompleted(composition: Composition, result: ExportResult) {
                             onProgress(1.0)

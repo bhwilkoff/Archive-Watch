@@ -785,10 +785,13 @@ private fun ResultPhase(
         verticalArrangement = Arrangement.spacedBy(18.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
+        // The preview takes the height LEFT OVER: at full width a 9:16 clip
+        // was taller than the phone, and Save, Share and Done sat below the
+        // screen with no way to scroll to them (Pixel 8a).
         Box(
             Modifier
-                .fillMaxWidth()
-                .aspectRatio(aspect.ratio ?: (16f / 9f))
+                .weight(1f, fill = false)
+                .aspectRatio(aspect.ratio ?: (16f / 9f), matchHeightConstraintsFirst = true)
                 .clip(RoundedCornerShape(12.dp))
                 .background(Color.Black),
             contentAlignment = Alignment.Center,
