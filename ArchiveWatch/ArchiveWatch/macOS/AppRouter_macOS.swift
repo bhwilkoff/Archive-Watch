@@ -47,6 +47,7 @@ final class AppRouter {
     var nowPlaying: Catalog.Item?          // drives the item player sheet
     var playStart: TimeInterval?           // Scenes (§B7c): start here instead of resuming
     var nowPlayingEpisode: EpisodeContext? // drives the episode player sheet
+    var nowPlayingChannel: ChannelTuneIn?  // a tuned channel, the window root (§B8b)
     var screensaverActive = false          // a full-window, full-screen poster-wall overlay
 
     // A tv-series card drills into the season/episode list, not the movie Detail.

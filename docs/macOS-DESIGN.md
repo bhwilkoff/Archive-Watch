@@ -807,18 +807,33 @@ Same rule as iOS-DESIGN 5.1c: the collection grid carries Browse's Sort picker
 hover tag and accessibility label; no fixed point sizes (the iPhone's §2.5c,
 measured on the Mac at 960pt: "1: 0…" for five-minute cartoons).
 
-## §B8b — Up and down change channel (2026-09-29)
+## §B8b — A channel plays like a film, and changes like a Mail message (2026-09-29)
 
-Owner: *"Yes on up and down for Apple TV and Mac channels players."* In a
-channel's player: bare **↑ / ↓** move one channel, taken by a local key monitor
-because AVKit's player view would otherwise see the key first (the same reason
-the Studio's scroll uses one, Decision 135); **Controls ▸ Previous Channel ⇧⌘↑ /
-Next Channel ⇧⌘↓** carry the same verbs, because §B14 keeps bare keys out of
-the menu bar (the pattern of Next / Previous Episode ⇧⌘→ / ⇧⌘←); and the
-iPad's strip — ▲, the channel and what is on, ▼ — sits over the picture on
-tune-in, after each change and whenever the pointer moves, then fades. A
-change joins the program where it is now (`GuideChannel.surf`, shared with iPad
-and Apple TV). Party Play and Cartoons are not channels and do not surf.
+Owner: *"Yes on up and down for Apple TV and Mac channels players,"* then, of
+the first build: *"It hardly seems native or well designed to me."* That build
+played a channel in a modal SHEET over the guide (a Done button in a bar
+beneath the picture) with the iPad's capsule of chevrons laid over the video —
+a sheet where §B2a makes every other player the window root, and a touch
+idiom §1 says not to port.
+
+- **A tuned channel is the window root** (`router.nowPlayingChannel`), exactly
+  as a film (§B2a): the window's own title bar and ✕ (Esc / ⌘.) are the only
+  chrome, and nothing is drawn over the picture — AVKit's floating HUD
+  (§B3a) is the transport.
+- **The title bar says what is on**: the channel as the title, the program
+  now playing as the subtitle (`navigationSubtitle`, following the engine as
+  programs and commercial breaks change).
+- **Previous / Next Channel are Mail's pair**: two chevrons (▲ ▼) in one
+  `ControlGroup` in the toolbar — the Mac's control for moving through a list,
+  which Mail uses for messages and pairs with the same arrow keys.
+- **Bare ↑ / ↓** move one channel, taken by a local key monitor because
+  AVKit's player view would otherwise see the key first (Decision 135's
+  reason); **Controls ▸ Previous / Next Channel ⇧⌘↑ / ⇧⌘↓** carry the same
+  verbs, since §B14 keeps bare keys out of the menu bar (the pattern of
+  Previous / Next Episode ⇧⌘← / ⇧⌘→).
+- A change joins the program where it is now (`GuideChannel.surf`, shared
+  with iPad and Apple TV). Party Play and Cartoons are not channels: they keep
+  their own players and do not surf.
 
 ## §B9 — Sync touch-points
 

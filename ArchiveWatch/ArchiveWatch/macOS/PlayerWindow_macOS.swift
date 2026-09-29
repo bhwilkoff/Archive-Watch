@@ -933,6 +933,11 @@ struct ChannelPlayer: View {
     let lineup: [Catalog.Item]
     let startOffset: TimeInterval
     var muted: Bool = false           // Party Play starts muted (background eye-candy)
+    /// A sheet (Party Play, Cartoons) draws its own Done and title; a channel
+    /// that is the window root (§B8b) gets both from the window instead.
+    var ownChrome: Bool = true
+    /// The program now playing, for a title bar that is not this view's.
+    var onNowTitle: ((String) -> Void)? = nil
     @Environment(\.dismiss) private var dismiss
     @State private var engine = ChannelEngine()
 
@@ -949,10 +954,13 @@ struct ChannelPlayer: View {
         }
         .onAppear { engine.start(lineup: lineup, startOffset: startOffset, muted: muted) }
         .onDisappear { engine.stop() }
+        .onChange(of: engine.nowTitle, initial: true) { _, t in onNowTitle?(t) }
         .toolbar {
-            ToolbarItem(placement: .cancellationAction) { Button("Done") { dismiss() } }
-            ToolbarItem(placement: .navigation) {
-                Text(engine.nowTitle).font(.headline).lineLimit(1)
+            if ownChrome {
+                ToolbarItem(placement: .cancellationAction) { Button("Done") { dismiss() } }
+                ToolbarItem(placement: .navigation) {
+                    Text(engine.nowTitle).font(.headline).lineLimit(1)
+                }
             }
         }
     }

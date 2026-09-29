@@ -17,6 +17,7 @@ import SwiftData
 
 struct ChannelsView: View {
     @Environment(AppStore.self) private var store
+    @Environment(AppRouter.self) private var router
     @Environment(\.modelContext) private var ctx
     @Query(sort: \UserChannel.createdAt, order: .reverse) private var userChannels: [UserChannel]
 
@@ -72,15 +73,8 @@ struct ChannelsView: View {
         .task(id: store.dbVersion) { await load() }
         .onChange(of: userChannels.count) { rebuild() }
         .sheet(item: $playing) { box in
-            Group {
-                if let cid = box.channelID, let start = guide.firstIndex(where: { $0.id == cid }) {
-                    ChannelSurfPlayer(channels: guide, index: start, first: box,
-                                      weave: weaveCommercials(into:))
-                } else {
-                    ChannelPlayer(lineup: box.items, startOffset: box.startOffset)
-                }
-            }
-            .frame(minWidth: 760, minHeight: 480)
+            ChannelPlayer(lineup: box.items, startOffset: box.startOffset)
+                .frame(minWidth: 760, minHeight: 480)
         }
         #if DEBUG
         // Harness door: AW_TUNE_CHANNEL=N tunes the guide's Nth channel where
@@ -337,8 +331,15 @@ struct ChannelsView: View {
         let programs = channel.slots.drop { $0.id != slot.id }.map(\.item)
         let now = Date()
         let offset = slot.contains(now) ? max(0, now.timeIntervalSince(slot.start)) : 0
-        playing = ChannelLineup(items: weaveCommercials(into: Array(programs)), startOffset: offset,
-                                channelID: channel.id)
+        let lineup = ChannelLineup(items: weaveCommercials(into: Array(programs)), startOffset: offset,
+                                   channelID: channel.id)
+        // A channel is the window root, like a film (§B8b, §B2a) — not a sheet.
+        if let index = guide.firstIndex(where: { $0.id == channel.id }) {
+            router.nowPlayingChannel = ChannelTuneIn(channels: guide, index: index, lineup: lineup,
+                                                     weave: weaveCommercials(into:))
+        } else {
+            playing = lineup
+        }
     }
 
     /// #89: drop a vintage PD commercial between programs (gated by the setting).
@@ -378,106 +379,83 @@ struct ChannelLineup: Identifiable {
     var channelID: String? = nil
 }
 
-// MARK: - Channel surfing (macOS-DESIGN §B8b)
+// MARK: - A tuned channel (macOS-DESIGN §B8b)
 //
-// Owner, 2026-09-29: "Yes on up and down for Apple TV and Mac channels
-// players." Bare up/down change channel while the player is in front — taken
-// by a local key monitor, which sees the press before AVKit's player view
-// can use it; the Controls menu carries the same verbs on ⇧⌘↑ / ⇧⌘↓ (Rule
-// B14 keeps bare keys out of the menu bar), and a strip over the picture shows
-// them, as on the iPad.
+// Owner, of the first build: "It hardly seems native or well designed to me."
+// That build was a sheet over the guide with the iPad's capsule over the
+// picture. Now the channel is the window root like a film (§B2a): the title bar
+// names the channel and, as its subtitle, the program; Previous / Next Channel
+// are Mail's pair of chevrons in the toolbar; bare up/down and Controls ▸
+// Previous / Next Channel (⇧⌘↑ / ⇧⌘↓) do the same; nothing covers the picture.
 
-struct ChannelSurfPlayer: View {
+struct ChannelTuneIn {
     let channels: [GuideChannel]
+    let index: Int
+    let lineup: ChannelLineup
+    let weave: ([Catalog.Item]) -> [Catalog.Item]
+}
+
+struct ChannelWindowPlayer: View {
+    @Environment(AppRouter.self) private var router
+    let channels: [GuideChannel]
+    let weave: ([Catalog.Item]) -> [Catalog.Item]
     @State private var index: Int
     @State private var lineup: ChannelLineup
-    @State private var bannerVisible = true
-    @State private var hideTask: Task<Void, Never>?
-    let weave: ([Catalog.Item]) -> [Catalog.Item]
+    @State private var program = ""
 
-    init(channels: [GuideChannel], index: Int, first: ChannelLineup,
-         weave: @escaping ([Catalog.Item]) -> [Catalog.Item]) {
-        self.channels = channels
-        _index = State(initialValue: index)
-        _lineup = State(initialValue: first)
-        self.weave = weave
+    init(tune: ChannelTuneIn) {
+        channels = tune.channels
+        weave = tune.weave
+        _index = State(initialValue: tune.index)
+        _lineup = State(initialValue: tune.lineup)
     }
 
     var body: some View {
-        ChannelPlayer(lineup: lineup.items, startOffset: lineup.startOffset)
-            .id(lineup.id)
-            .overlay(alignment: .top) {
-                if bannerVisible { strip.transition(.opacity) }
-            }
-            // The strip returns whenever the pointer moves over the picture —
-            // the way the player's own controls do.
-            .onContinuousHover { phase in
-                if case .active = phase { showBanner() }
-            }
-            .background(ArrowKeyMonitor { surf($0) })
-            .focusedSceneValue(\.channelSurfing, ChannelSurfing(previous: { surf(-1) }, next: { surf(1) }))
-            .onAppear { showBanner() }
-            #if DEBUG
-            .task {
-                let n = Int(ProcessInfo.processInfo.environment["AW_SURF"] ?? "") ?? 0
-                for _ in 0..<n {
-                    try? await Task.sleep(for: .seconds(8))
-                    surf(1)
+        NavigationStack {
+            ChannelPlayer(lineup: lineup.items, startOffset: lineup.startOffset,
+                          ownChrome: false, onNowTitle: { program = $0 })
+                .id(lineup.id)
+                .navigationTitle(channels[index].title)
+                .navigationSubtitle(program)
+                .toolbar {
+                    ToolbarItem(placement: .cancellationAction) {
+                        Button { router.nowPlayingChannel = nil } label: { Image(systemName: "xmark") }
+                            .keyboardShortcut(.cancelAction).help("Close")
+                    }
+                    ToolbarItem(placement: .navigation) {
+                        ControlGroup {
+                            Button { surf(-1) } label: {
+                                Label("Previous Channel", systemImage: "chevron.up")
+                            }
+                            .help("Previous Channel (↑)")
+                            Button { surf(1) } label: {
+                                Label("Next Channel", systemImage: "chevron.down")
+                            }
+                            .help("Next Channel (↓)")
+                        }
+                    }
                 }
-            }
-            #endif
-    }
-
-    /// The iPad's strip (iOS-DESIGN §2.5d): previous, the channel and what is
-    /// on, next.
-    private var strip: some View {
-        let channel = channels[index]
-        let onNow = channel.slots.first { $0.contains(Date()) }
-        let count = channels.count
-        return HStack(spacing: 12) {
-            Button { surf(-1) } label: {
-                Image(systemName: "chevron.up").font(.title3.weight(.semibold)).frame(width: 36, height: 36)
-            }
-            .buttonStyle(.borderless)
-            .help("Previous Channel (↑)")
-            .accessibilityLabel("Previous channel, \(channels[(index - 1 + count) % count].title)")
-            VStack(spacing: 2) {
-                Text(channel.title).font(.headline)
-                if let onNow {
-                    Text(onNow.item.title).font(.subheadline).foregroundStyle(.secondary).lineLimit(1)
-                }
-            }
-            .frame(minWidth: 200)
-            Button { surf(1) } label: {
-                Image(systemName: "chevron.down").font(.title3.weight(.semibold)).frame(width: 36, height: 36)
-            }
-            .buttonStyle(.borderless)
-            .help("Next Channel (↓)")
-            .accessibilityLabel("Next channel, \(channels[(index + 1) % count].title)")
         }
-        .padding(.horizontal, 8).padding(.vertical, 4)
-        .foregroundStyle(.white)
-        .background(.ultraThinMaterial, in: .capsule)
-        .environment(\.colorScheme, .dark)
-        .padding(.top, 16)
-    }
-
-    private func showBanner() {
-        withAnimation(.easeInOut(duration: 0.2)) { bannerVisible = true }
-        hideTask?.cancel()
-        hideTask = Task {
-            try? await Task.sleep(for: .seconds(4))
-            guard !Task.isCancelled else { return }
-            withAnimation(.easeInOut(duration: 0.3)) { bannerVisible = false }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(ArrowKeyMonitor { surf($0) })
+        .focusedSceneValue(\.channelSurfing, ChannelSurfing(previous: { surf(-1) }, next: { surf(1) }))
+        #if DEBUG
+        .task {
+            let n = Int(ProcessInfo.processInfo.environment["AW_SURF"] ?? "") ?? 0
+            for _ in 0..<n {
+                try? await Task.sleep(for: .seconds(8))
+                surf(1)
+            }
         }
+        #endif
     }
 
     private func surf(_ step: Int) {
         guard let hop = GuideChannel.surf(channels, from: index, step: step) else { return }
         index = hop.index
+        program = hop.programs.first?.title ?? ""
         lineup = ChannelLineup(items: weave(hop.programs), startOffset: hop.offset,
                                channelID: channels[hop.index].id)
-        showBanner()
     }
 }
 

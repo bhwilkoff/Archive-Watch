@@ -24,12 +24,15 @@ struct RootView: View {
                 PlayerWindow(item: item)
             } else if let ctx = router.nowPlayingEpisode {
                 EpisodePlayer(context: ctx)
+            } else if let tune = router.nowPlayingChannel {
+                ChannelWindowPlayer(tune: tune)
             } else {
                 browse
             }
         }
         // Go ▸ (Rule B14) acts only while the browsing UI, not a player, is up.
-        .focusedSceneValue(\.browseWindowIsKey, router.nowPlaying == nil && router.nowPlayingEpisode == nil)
+        .focusedSceneValue(\.browseWindowIsKey, router.nowPlaying == nil && router.nowPlayingEpisode == nil
+                                                && router.nowPlayingChannel == nil)
         // Rule B13g's GO-LIVE SHEET IS GONE (macOS-DESIGN §D9). It was
         // presented by the window root, over the player, and configured a
         // Studio that lives in a different window — which is how the owner
@@ -115,6 +118,7 @@ struct RootView: View {
             }
             router.nowPlaying = nil
             router.nowPlayingEpisode = nil
+            router.nowPlayingChannel = nil
         })
         // A SharePlay session someone else started names a film; open it and
         // start playing so the coordinator has a player to sync. Without this the
