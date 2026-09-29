@@ -251,6 +251,13 @@ object StudioController {
         // 130's Android lesson, where a reconnect supervisor passed a JVM test
         // and threw on every attempt in the app because the test called it from
         // its own thread.
+        // A pasted stream key needs no network to resolve: straight to its ingest.
+        StudioGoLive.typedDestination?.let { typed ->
+            launchEngine(e, scope, overlayWidth, overlayHeight, typed.server, typed.key)
+            beginHost(e, context, overlayWidth, overlayHeight)
+            isLive = true
+            return
+        }
         if (context != null && StudioGoLive.canGoLive(context)) {
             scope.launch(Dispatchers.IO) {
                 val resolved = runCatching {
@@ -541,5 +548,6 @@ object StudioController {
         isLive = false
         panelOpen = false
         health = StudioHealth()
+        StudioGoLive.typedDestination = null
     }
 }

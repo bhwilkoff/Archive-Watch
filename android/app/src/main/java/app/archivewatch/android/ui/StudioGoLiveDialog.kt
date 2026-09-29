@@ -27,6 +27,10 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.material3.SegmentedButton
+import androidx.compose.material3.SegmentedButtonDefaults
+import androidx.compose.material3.SingleChoiceSegmentedButtonRow
 import androidx.compose.ui.unit.dp
 import android.Manifest
 import android.content.pm.PackageManager
@@ -50,6 +54,11 @@ fun StudioGoLiveDialog(
     onDismiss: () -> Unit,
 ) {
     var signedIn by remember { mutableStateOf(false) }
+    // Decision 136: "Use my own stream key" is always offered, beside sign-in.
+    var useKey by remember { mutableStateOf(false) }
+    var keyPlatform by remember { mutableStateOf(app.archivewatch.android.studio.StudioGoLive.KeyPlatform.YOUTUBE) }
+    var typedKey by remember { mutableStateOf("") }
+    val ready = if (useKey) typedKey.isNotBlank() else signedIn
 
     // THE CAMERA AND THE MICROPHONE ARE ASKED FOR HERE, and nowhere else.
     //
@@ -87,6 +96,8 @@ fun StudioGoLiveDialog(
     val askNotify = rememberLauncherForActivityResult(
         ActivityResultContracts.RequestPermission()) { onGoLive() }
     val goLive: () -> Unit = {
+        app.archivewatch.android.studio.StudioGoLive.typedDestination =
+            if (useKey) app.archivewatch.android.studio.StudioGoLive.typedKey(keyPlatform, typedKey) else null
         if (android.os.Build.VERSION.SDK_INT >= 33 &&
             !granted(Manifest.permission.POST_NOTIFICATIONS)) {
             askNotify.launch(Manifest.permission.POST_NOTIFICATIONS)
@@ -117,8 +128,47 @@ fun StudioGoLiveDialog(
             ) {
                 Text(filmTitle, style = MaterialTheme.typography.titleMedium)
 
-                // §9.11 — the QR and the code, together. The token lands here.
-                StudioSignIn(onSignedInChange = { signedIn = it })
+                SingleChoiceSegmentedButtonRow(Modifier.fillMaxWidth()) {
+                    listOf("Sign in", "Stream key").forEachIndexed { i, label ->
+                        SegmentedButton(
+                            selected = useKey == (i == 1),
+                            onClick = { useKey = i == 1 },
+                            shape = SegmentedButtonDefaults.itemShape(i, 2),
+                        ) { Text(label) }
+                    }
+                }
+                if (!useKey) {
+                    // §9.11 — the QR and the code, together. The token lands here.
+                    StudioSignIn(onSignedInChange = { signedIn = it })
+                } else {
+                    androidx.compose.foundation.layout.Row(
+                        horizontalArrangement = Arrangement.spacedBy(8.dp),
+                    ) {
+                        app.archivewatch.android.studio.StudioGoLive.KeyPlatform.entries.forEach { p ->
+                            androidx.compose.material3.FilterChip(
+                                selected = keyPlatform == p,
+                                onClick = { keyPlatform = p },
+                                label = { Text(p.label) },
+                            )
+                        }
+                    }
+                    androidx.compose.material3.OutlinedTextField(
+                        value = typedKey,
+                        onValueChange = { typedKey = it },
+                        label = { Text("Stream key") },
+                        singleLine = true,
+                        visualTransformation = androidx.compose.ui.text.input.PasswordVisualTransformation(),
+                        keyboardOptions = androidx.compose.foundation.text.KeyboardOptions(
+                            keyboardType = androidx.compose.ui.text.input.KeyboardType.Password,
+                            autoCorrectEnabled = false,
+                        ),
+                        modifier = Modifier.fillMaxWidth(),
+                    )
+                    TextButton(onClick = {
+                        context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(keyPlatform.keyPage))
+                            .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
+                    }) { Text("Find your stream key") }
+                }
 
                 // §3.4a, every time, on the surface where Go live is pressed —
                 // the same string every platform shows, guarded sentence for
@@ -127,9 +177,9 @@ fun StudioGoLiveDialog(
                     StudioRights.hostWarning,
                     style = MaterialTheme.typography.bodySmall,
                 )
-                if (!signedIn) {
+                if (!ready) {
                     Text(
-                        "Sign in above to go live.",
+                        if (useKey) "Paste your stream key to go live." else "Sign in above to go live.",
                         style = MaterialTheme.typography.bodySmall,
                     )
                 }
@@ -164,7 +214,7 @@ fun StudioGoLiveDialog(
             }
         },
         confirmButton = {
-            TextButton(enabled = signedIn && hostOk, onClick = goLive) { Text("Go live") }
+            TextButton(enabled = ready && hostOk, onClick = goLive) { Text("Go live") }
         },
         dismissButton = {
             TextButton(onClick = onDismiss) { Text("Not now") }

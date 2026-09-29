@@ -37,6 +37,22 @@ object StudioGoLive {
         return Destination(creds.server, creds.key, creds.backupServer)
     }
 
+    /** Where a pasted stream key goes (Decision 136): each platform's documented
+     *  RTMPS ingest, the address OBS offers. The same table as Swift's
+     *  `GoLivePlatform`. Needs no sign-in and spends none of YouTube's shared
+     *  API quota, and it is the only way Android reaches YouTube at all. */
+    enum class KeyPlatform(val label: String, val ingest: String, val keyPage: String) {
+        YOUTUBE("YouTube", "rtmps://a.rtmps.youtube.com/live2", "https://studio.youtube.com"),
+        TWITCH("Twitch", "rtmps://live.twitch.tv/app", "https://dashboard.twitch.tv/settings/stream"),
+    }
+
+    /** A key the host pasted for THIS show. Memory only: never stored, never
+     *  logged, cleared when the show ends (`StudioController.end`). */
+    @Volatile var typedDestination: Destination? = null
+
+    fun typedKey(platform: KeyPlatform, key: String): Destination =
+        Destination(platform.ingest, key.trim(), null)
+
     /** Whether a real destination could be resolved at all, without asking for one. */
     fun canGoLive(context: Context): Boolean =
         StudioPlatformAuth.configurationProblem() == null &&

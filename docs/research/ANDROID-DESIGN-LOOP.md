@@ -343,6 +343,13 @@ Harness:
   and ", the." with a period never matched. Both fixed; measured on the live
   catalog: exactly 4 visible titles change, the four found. Tests added with
   a control. Next publish.
+- AM. 🚧 v1.42.965 Watch Together on the phone offered Twitch sign-in only;
+  Decision 136's "use my own stream key" was never built on Android, which
+  also left Android no route to YouTube. The go-live dialog now has "Sign in /
+  Stream key": YouTube or Twitch, a masked key, "Find your stream key"; the
+  key goes to the platform's documented RTMPS ingest, held in memory for the
+  show and cleared by StudioController.end. Seen on the Pixel; NOT yet run
+  with a real key (that needs the owner's key and is a broadcast).
 
 ## Queue
 
