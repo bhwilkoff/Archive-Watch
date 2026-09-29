@@ -80,6 +80,7 @@ fun TvSurpriseScreen(container: AppContainer, nav: Nav) {
                 exitLeftTo = railFocus,
             )
             TvActionPill(label = "Cartoons", onClick = { nav.push(Route.Cartoon) })
+            TvActionPill(label = "Party Play", onClick = { nav.push(Route.Party) })
         }
 
         TvPosterGrid(

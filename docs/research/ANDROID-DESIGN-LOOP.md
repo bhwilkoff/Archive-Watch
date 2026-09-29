@@ -72,11 +72,14 @@ Parity gaps (another platform has it, Android does not):
   under the series card's own `series:<slug>` id as on TV and tvOS, sharing
   archivewatch.org/series/<slug>. On the Pixel (The Lucy Show): the heart
   filled and favorites went 13 -> 14, and back to 13 on the second tap.
-- E. Cartoons and Party Play are TV rail entries; the owner's 2026-09-28
-  answer puts the modes in Surprise on every platform.
+- E. ✅ v1.42.939 Cartoons and Party Play leave the TV rail (now eight
+  entries) and open from Surprise, beside Re-roll, as on every platform
+  (owner 2026-09-28, tvOS-DESIGN §2.2a). On the Google TV: Party Play opened
+  from Surprise ("Mixing the party reel…") and Back returned to it.
 - F. Downloads (PARITY ⏳, six rows) — the largest gap.
-- G. TV Detail: "Something wrong with this film?" is a toggle inside Share,
-  where Apple TV gives it its own action.
+- G. Not a defect. tvOS carries the report inside its Share sheet too
+  (`ShareSheet.reporting`), and TV-DESIGN/tvOS-DESIGN say it is "never a
+  primary control". Android matches.
 
 Stale records:
 - H. PARITY cells say ⏳ for things in code: PiP, background play, autoplay,
@@ -111,6 +114,15 @@ Harness:
   user.sqlite (7 -> 4 rows, integrity ok; the TV never signed in to Drive sync,
   so nothing restores them); Continue Watching now reads Morocco, Caligari,
   Sherlock Jr., Battleship Potemkin.
+
+- N. Google TV Surprise on a cold launch reads "Opening twelve doors…" for
+  ~30 s before the grid fills. Measure where the time goes.
+- O. A title missing its first letter: "tate Speeds Case Against Hauptmann"
+  (1935), as archive.org's own title spells it; its id says "State". Fixed
+  by title_corrections.json (takes effect at the next publish). 133 visible
+  titles start lower-case, most of them an upload's id ("thegreatestquestion",
+  "md45465423", "von Sternberg, Josef" for Der blaue Engel): a catalog
+  cleanup, logged here, to be done in the pipeline.
 
 ## Queue
 
