@@ -467,6 +467,16 @@ Harness:
   OkHttp 5 (debug-verified: posters from an empty cache, playback) is held out
   of this commit until its release build has run.
 
+- BB. ✅ v1.42.981 Dependencies, stage C: OkHttp 4.12 -> 5.5 (Media3's and
+  Coil's OkHttp adapters now run on 5). Seen: posters from an emptied image
+  cache and playback in the debug build; launch and playback in the R8 release
+  build on the Pixel. TV Detail: the synopsis stop (kept so a long synopsis can
+  scroll into view) showed focus only as grey-to-white text — from the couch,
+  focus vanished between Version and the cast row. It now rings like every
+  other stop, text still aligned with the title. The "Something wrong?" form's
+  prefilled ids (film, where) match the issue template. Only targetSdk 37 is
+  left of the dependency notices.
+
 ## Queue
 
 1. ✅ J — phone launch doors: one shared `Nav.collectStartDoors()` in both roots (v1.42.933); the Pixel opened Library, the TV Search

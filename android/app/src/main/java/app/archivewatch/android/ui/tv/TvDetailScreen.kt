@@ -57,6 +57,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.foundation.focusable
+import androidx.compose.foundation.border
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.graphics.Brush
@@ -442,18 +443,27 @@ fun TvDetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
                 // cast row is skipped entirely and its tail is unreadable
                 // (owner, 2026-08-28: everything on the TV should be viewable,
                 // even without a toggle to flip). Focusing it also brightens
-                // it, so the viewer can see where they are.
+                // it — and rings it like every other stop (§3.2): a grey-to-
+                // white text change alone could not be seen from the couch,
+                // so the stop read as focus vanishing (Google TV, 2026-09-29).
+                // The 14dp inset is taken back from the outer padding, so the
+                // text stays aligned with the title above it.
                 var focused by remember { mutableStateOf(false) }
+                val shape = androidx.compose.foundation.shape.RoundedCornerShape(14.dp)
                 Text(
                     synopsis,
                     fontSize = 15.sp,
                     lineHeight = 23.sp,
                     color = if (focused) Color.White else Color(0xFFDDDDDD),
                     modifier = Modifier
-                        .padding(start = TvDims.OverscanH, end = TvDims.OverscanH, bottom = 6.dp)
-                        .fillMaxWidth(0.72f)
+                        .padding(start = TvDims.OverscanH - 14.dp, end = TvDims.OverscanH, bottom = 6.dp)
+                        .fillMaxWidth(0.74f)
                         .onFocusChanged { focused = it.isFocused }
-                        .focusable(),
+                        .focusable()
+                        .border(if (focused) TvDims.FocusRing else 0.dp,
+                                if (focused) Color.White else Color.Transparent, shape)
+                        .background(if (focused) Color(0x14FFFFFF) else Color.Transparent, shape)
+                        .padding(horizontal = 14.dp, vertical = 10.dp),
                 )
             }
             current.synopsisProvenance?.let { prov ->
