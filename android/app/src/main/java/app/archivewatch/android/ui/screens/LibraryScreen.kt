@@ -17,7 +17,7 @@ import app.archivewatch.android.ui.JoinRoomDialog
 import app.archivewatch.android.studio.StudioSyncFollower
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Tab
-import androidx.compose.material3.ScrollableTabRow
+import androidx.compose.material3.PrimaryScrollableTabRow
 import androidx.compose.material3.TabRow
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -134,7 +134,7 @@ fun LibraryScreen(container: AppContainer, nav: Nav) {
             // fixed TabRow to wrap "Playlists" / "Favorites" onto two lines
             // (owner, Pixel). A scrollable row keeps each label on one line
             // and lets the bar pan, which is the M3 idiom for 4+ tabs.
-            ScrollableTabRow(selectedTabIndex = tabIndex, edgePadding = 0.dp) {
+            PrimaryScrollableTabRow(selectedTabIndex = tabIndex, edgePadding = 0.dp) {
                 Tab(selected = tabIndex == 0, onClick = { tabIndex = 0 }, text = { Text("Favorites") })
                 Tab(selected = tabIndex == 1, onClick = { tabIndex = 1 }, text = { Text("Continue") })
                 Tab(selected = tabIndex == 2, onClick = { tabIndex = 2 }, text = { Text("Playlists") })

@@ -84,7 +84,7 @@ import app.archivewatch.android.ui.StudioReadout
 import app.archivewatch.android.BuildConfig
 import app.archivewatch.android.app.AppContainer
 import app.archivewatch.android.data.PlaySpec
-import androidx.compose.ui.platform.LocalLifecycleOwner
+import androidx.lifecycle.compose.LocalLifecycleOwner
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import app.archivewatch.android.cast.CastCaption
@@ -105,7 +105,6 @@ import app.archivewatch.android.ui.tv.TvDims
 import app.archivewatch.android.ui.tv.tvPlaybackKeys
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import java.io.IOException
 
 /** Resolve the host Activity from a Compose context (the player is a pushed route in the
  *  single Activity, so fullscreen/orientation must act on — and restore — that Activity). */
@@ -169,12 +168,9 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
                 loadErrorInfo: LoadErrorHandlingPolicy.LoadErrorInfo,
             ): Long {
                 // Network drops/resets: modest linear backoff, capped at 5s.
-                if (loadErrorInfo.exception is IOException ||
-                    loadErrorInfo.exception.cause is IOException
-                ) {
-                    return (1000L * loadErrorInfo.errorCount).coerceAtMost(5_000L)
-                }
-                return super.getRetryDelayMsFor(loadErrorInfo)
+                // Every load error arrives as an IOException, so this applies
+                // to all of them (the check that said so was always true).
+                return (1000L * loadErrorInfo.errorCount).coerceAtMost(5_000L)
             }
 
             override fun getMinimumLoadableRetryCount(dataType: Int): Int = 8

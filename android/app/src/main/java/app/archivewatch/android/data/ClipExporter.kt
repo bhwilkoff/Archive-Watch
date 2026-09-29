@@ -434,10 +434,10 @@ class ClipExporter(
         val assetLoaderFactory =
             androidx.media3.transformer.DefaultAssetLoaderFactory(
                 context,
-                androidx.media3.transformer.DefaultDecoderFactory(context),
+                androidx.media3.transformer.DefaultDecoderFactory.Builder(context).build(),
                 androidx.media3.common.util.Clock.DEFAULT,
                 DefaultMediaSourceFactory(httpFactory),
-                androidx.media3.datasource.DataSourceBitmapLoader(context),
+                androidx.media3.datasource.DataSourceBitmapLoader.Builder(context).build(),
             )
 
         suspendCancellableCoroutine { cont ->

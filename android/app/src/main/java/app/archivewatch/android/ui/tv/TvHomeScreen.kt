@@ -73,7 +73,7 @@ fun TvHomeScreen(container: AppContainer, nav: Nav) {
     if (BuildConfig.DEBUG) {
         androidx.compose.runtime.SideEffect {
             android.util.Log.i("AWHOME",
-                if (payload.loaded) "content shelves=${payload.shelves.size} hero=${payload.hero != null}"
+                if (payload.loaded) "content shelves=${payload.shelves.size} hero=${payload.hero.size}"
                 else "LOADING")
         }
     }
