@@ -136,6 +136,8 @@ object DeepLinks {
     val pendingTab = MutableStateFlow<String?>(null)
     /** Verification hook only (`--es aw_start_route <name>`); never set in normal use. */
     val pendingRoute = MutableStateFlow<String?>(null)
+    /** DEBUG `--ez aw_mute true`: every player plays at volume 0. */
+    @Volatile var forceMute = false
     /** `--es aw_studio_item <archiveID>` — arm Watch Together Studio on it. */
     val pendingStudioItem = MutableStateFlow<String?>(null)
 

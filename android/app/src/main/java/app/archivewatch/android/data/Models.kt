@@ -402,6 +402,9 @@ data class PlaySpec(
     // Party Play starts silent (muted background eye-candy); the player
     // options panel unmutes.
     val startMuted: Boolean = false,
+    // A preset or user channel tuned from the guide: its row in ChannelSurf,
+    // so the player can change channel. Null for everything else.
+    val channelIndex: Int? = null,
 )
 
 /** A viewer-facing line saying where the synopsis came from. Every source is

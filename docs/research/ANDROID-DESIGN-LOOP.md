@@ -60,8 +60,17 @@ Google TV Watch Next.
 ## Findings (tick 1)
 
 Parity gaps (another platform has it, Android does not):
-- A. Channel up/down surfing, phone and TV (PARITY ⏳); on TV, D-pad Up opens
-  the player's options panel today.
+- A. ✅ v1.42.942 Channel up/down, phone and TV (`ChannelSurf.kt`, Apple's
+  rule). TV: Up/Down and CH+/CH-, the channel named over the program, a held
+  Select or Menu opens Player Options. Phone: a ▲ channel ▼ capsule. Pressed
+  on the Google TV (down, down, up = Comedy Hour, Crime & Mystery, Comedy
+  Hour) and tapped on the Pixel, muted. The first phone tap CRASHED the app:
+  the next player's MediaSession was built before the old one was released,
+  and both took the default id; each session now has its own. Also: a
+  channel's options no longer offer "Play Next Episode" or "Autoplay next"
+  (skipping breaks the one clock), and a Party lineup's skip reads "Play
+  Next". New DEBUG door `--ez aw_mute true`: this box's volume is HDMI-owned
+  and `media_session volume --set 0` does nothing.
 - B. Commercial Breaks on/off: no setting on Android (PARITY ⏳).
 - C. ✅ v1.42.935 Continue Watching shows the time left and a progress bar on
   phone and TV, in the Apple apps' words ("1h 8m left", "43m left"). On the
@@ -130,6 +139,12 @@ Harness:
   titles start lower-case, most of them an upload's id ("thegreatestquestion",
   "md45465423", "von Sternberg, Josef" for Der blaue Engel): a catalog
   cleanup, logged here, to be done in the pipeline.
+- P. A channel program with minutes left (or a short cartoon) is drawn as a
+  sliver whose title wraps a letter a line: "I • 1" on the Google TV,
+  "P A ' T" in Cartoon Classics on the Pixel.
+- R. "Autoplay next" is read by NOTHING that plays: the switch in Settings
+  and in both options panels writes a preference no player consults. Apple's
+  MovieAutoplayQueue plays a next film when one ends.
 
 ## Queue
 

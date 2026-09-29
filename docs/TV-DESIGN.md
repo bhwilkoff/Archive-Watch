@@ -223,6 +223,15 @@ right** seek (rewind/fast-forward); dedicated media keys (`KEYCODE_MEDIA_PLAY_PA
 on Android; the registered Tizen/webOS media keys) toggle during playback. Back
 exits the player to the previous surface, never to the launcher mid-playback.
 
+**5.2a A channel changes channel** (Android TV, 2026-09-29; tvOS-DESIGN §9.1c,
+iOS-DESIGN §2.5d). While a channel from the guide plays, D-pad **Up/Down** (and
+CH+/CH− where a remote has them) step to the row above or below and join its
+program at the current second (`ChannelSurf`, Apple's `GuideChannel.surf`); the
+overlay names the channel above the program. Up no longer opens Player Options
+there, so a held **Select** opens it (the Android TV long-press), as **Menu**
+does everywhere. A channel's options offer no skip and no autoplay: the
+programs keep the one clock (Decision 144).
+
 **5.3 Title + description overlay** appears and disappears **with** the transport
 controls, per Decision 037. It is non-interactive and never blocks the controls.
 

@@ -29,8 +29,18 @@ private const val SEEK_STEP_MS = 10_000L
  * controller is hidden, which is exactly when a viewer reaches for these keys.
  */
 @Composable
-fun Modifier.tvPlaybackKeys(player: Player, onInteraction: () -> Unit = {}, onMenu: () -> Unit = {}): Modifier {
+fun Modifier.tvPlaybackKeys(
+    player: Player,
+    onInteraction: () -> Unit = {},
+    onMenu: () -> Unit = {},
+    /** A channel is playing: Up/Down (and CH+/CH-) change channel, -1 the
+     *  row above, +1 the row below, as on Apple TV. */
+    onChannel: ((Int) -> Unit)? = null,
+): Modifier {
     val requester = remember { FocusRequester() }
+    // A held Select opens the options panel (the Android TV long-press), and
+    // its release must not also toggle playback.
+    val heldSelect = remember { booleanArrayOf(false) }
 
     // §3.1 — the player surface must hold focus or the keys never arrive.
     ClaimInitialFocus(requester, key = player)
@@ -39,7 +49,21 @@ fun Modifier.tvPlaybackKeys(player: Player, onInteraction: () -> Unit = {}, onMe
         .focusRequester(requester)
         .focusable()
         .onKeyEvent { ev ->
+            val select = ev.key == Key.DirectionCenter || ev.key == Key.Enter || ev.key == Key.NumPadEnter
+            if (ev.type == KeyEventType.KeyDown && select && ev.nativeKeyEvent.repeatCount == 1) {
+                heldSelect[0] = true
+                onMenu()
+                return@onKeyEvent true
+            }
             if (ev.type != KeyEventType.KeyUp) return@onKeyEvent false
+            if (select && heldSelect[0]) { heldSelect[0] = false; return@onKeyEvent true }
+            if (onChannel != null) {
+                when (ev.key) {
+                    Key.DirectionUp, Key.ChannelDown -> { onInteraction(); onChannel(-1); return@onKeyEvent true }
+                    Key.DirectionDown, Key.ChannelUp -> { onInteraction(); onChannel(1); return@onKeyEvent true }
+                    else -> {}
+                }
+            }
             // Every handled key is an interaction — the player screen uses it
             // to show its overlay (Media3's own controller is never shown on
             // TV, so its visibility listener never fires here).

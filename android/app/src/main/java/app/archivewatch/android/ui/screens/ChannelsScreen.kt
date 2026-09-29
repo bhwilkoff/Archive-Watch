@@ -66,8 +66,8 @@ import app.archivewatch.android.app.AppContainer
 import app.archivewatch.android.data.guide
 import app.archivewatch.android.data.ChannelScheduler
 import app.archivewatch.android.data.GuideChannel
-import app.archivewatch.android.data.PlaySpec
-import app.archivewatch.android.data.QueueEntry
+import app.archivewatch.android.data.CatalogItem
+import app.archivewatch.android.data.ChannelSurf
 import app.archivewatch.android.data.ScheduledProgram
 import app.archivewatch.android.ui.EmptyState
 import app.archivewatch.android.ui.LoadingBox
@@ -241,7 +241,7 @@ fun ChannelsScreen(container: AppContainer, nav: Nav) {
                         // point, and "what's on right now" is what a viewer
                         // opening a TV guide is looking at.
                         claimInitialFocus = LocalIsTelevision.current && idx == 0,
-                        onTune = { slot -> tune(container, nav, ch, slot) },
+                        onTune = { slot -> tune(container, nav, channels, idx, slot) },
                         onDelete = if (ch.id.startsWith("user-")) ({
                             container.userState.deleteUserChannel(ch.id.removePrefix("user-"))
                         }) else null,
@@ -291,47 +291,17 @@ private fun rememberTimeFormat(): java.text.DateFormat {
 private fun timeLabel(ms: Long, fmt: java.text.DateFormat): String = fmt.format(Date(ms))
 
 private suspend fun tune(container: AppContainer, nav: Nav,
-                         channel: GuideChannel, slot: ScheduledProgram) {
-    val nowMs = System.currentTimeMillis()
-    val lineup = ChannelScheduler.lineup(channel.slots, maxOf(slot.startMs, nowMs))
-        .let { if (it.firstOrNull()?.item?.archiveID != slot.item.archiveID)
-                   listOf(slot) + it else it }
-    // Vintage commercials between programs (#89), same as the Apple apps.
-    val ads = container.catalog.db
+                         guide: List<GuideChannel>, index: Int, slot: ScheduledProgram) {
+    ChannelSurf.spec(guide, index, slot, channelAds(container))?.let { nav.push(Route.Player(it)) }
+}
+
+/** Vintage commercials between programs (#89), same as the Apple apps. */
+internal suspend fun channelAds(container: AppContainer): List<CatalogItem> =
+    container.catalog.db
         ?.browse(contentType = "commercial", limit = 60, full = true)
         ?.filter { it.downloadURL != null }
         .orEmpty()
         .shuffled()
-    val entries = ArrayList<QueueEntry>()
-    lineup.forEachIndexed { i, sched ->
-        val item = sched.item
-        item.downloadURL?.let { url ->
-            entries.add(QueueEntry(item.archiveID, item.title, channel.title, url))
-        }
-        if (ads.isNotEmpty() && i < lineup.size - 1) {
-            val ad = ads[i % ads.size]
-            ad.downloadURL?.let { url ->
-                entries.add(QueueEntry(ad.archiveID, ad.title, "Commercial break", url))
-            }
-        }
-    }
-    if (entries.isEmpty()) return
-    val joinOffset = if (slot.contains(nowMs)) maxOf(0L, nowMs - slot.startMs) else 0L
-    nav.push(
-        Route.Player(
-            PlaySpec(
-                id = entries.first().id,
-                title = entries.first().title,
-                subtitle = channel.title,
-                url = entries.first().url,
-                queue = entries,
-                queueIndex = 0,
-                startPositionMs = joinOffset,
-                persistProgress = false,   // channels never persist resume
-            ),
-        ),
-    )
-}
 
 @Composable
 private fun Ruler(startMs: Long, windowMinutes: Int, railW: androidx.compose.ui.unit.Dp,

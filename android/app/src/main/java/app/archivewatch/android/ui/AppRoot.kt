@@ -154,7 +154,7 @@ fun AppRoot(container: AppContainer) {
     val playerRoute = nav.stack.lastOrNull() as? Route.Player
     if (playerRoute != null) {
         Surface(color = androidx.compose.ui.graphics.Color.Black, modifier = Modifier.fillMaxSize()) {
-            PlayerScreen(container, nav, playerRoute.spec)
+            androidx.compose.runtime.key(playerRoute.spec) { PlayerScreen(container, nav, playerRoute.spec) }
         }
         return
     }

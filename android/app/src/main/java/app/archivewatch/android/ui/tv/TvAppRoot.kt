@@ -250,7 +250,7 @@ fun TvAppRoot(container: AppContainer) {
                         when (route) {
                             is Route.Detail -> TvDetailScreen(container, nav, route.archiveID)
                             is Route.Series -> TvSeriesScreen(container, nav, route.slug)
-                            is Route.Player -> PlayerScreen(container, nav, route.spec)
+                            is Route.Player -> androidx.compose.runtime.key(route.spec) { PlayerScreen(container, nav, route.spec) }
                             is Route.Filtered -> FilteredGridScreen(container, nav, route)
                             is Route.Playlist -> PlaylistScreen(container, nav, route.playlistID)
                             // Was the phone screen, on the argument that

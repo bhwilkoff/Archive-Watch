@@ -119,6 +119,9 @@ class MainActivity : ComponentActivity() {
         // let any app redirect a host's broadcast. The values are never
         // logged (§5).
         if (BuildConfig.DEBUG) {
+            // Every player this process builds plays at volume 0, so a test
+            // on the owner's television is silent (Apple's AW_MUTE).
+            if (intent?.getBooleanExtra("aw_mute", false) == true) DeepLinks.forceMute = true
             val roomCode = intent?.getStringExtra("aw_room_join")
             val roomFilm = intent?.getStringExtra("aw_room_film")
             if (roomCode != null && roomFilm != null) {

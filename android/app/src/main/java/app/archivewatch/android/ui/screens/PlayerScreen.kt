@@ -33,7 +33,11 @@ import androidx.compose.foundation.layout.systemBars
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.filled.KeyboardArrowDown
+import androidx.compose.material.icons.filled.KeyboardArrowUp
 import androidx.compose.material.icons.filled.MoreVert
+import androidx.compose.foundation.layout.widthIn
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.HorizontalDivider
@@ -273,7 +277,7 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
                 }
                 setMediaItems(mediaItems, spec.queueIndex.coerceIn(0, mediaItems.size - 1),
                               spec.startPositionMs)
-                if (spec.startMuted) volume = 0f
+                if (spec.startMuted || app.archivewatch.android.ui.DeepLinks.forceMute) volume = 0f
                 playWhenReady = true
                 prepare()
             }
@@ -287,7 +291,12 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
     // not a feature (docs/TV-DESIGN.md §5.4, Decision 047).
     val isTv = LocalIsTelevision.current
     val mediaSession = remember(player, isTv) {
-        if (isTv) null else MediaSession.Builder(context, player).build()
+        // Its own id: a channel change composes the next player before this
+        // one's session is released, and two sessions may not share the
+        // default id (IllegalStateException on the Pixel).
+        if (isTv) null else MediaSession.Builder(context, player)
+            .setId("player-" + System.identityHashCode(player))
+            .build()
     }
     DisposableEffect(mediaSession) { onDispose { mediaSession?.release() } }
 
@@ -688,6 +697,20 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
         onDispose { scope.launch { StudioController.end() } }
     }
 
+    // Channel up/down (iOS-DESIGN §2.5d): the next channel replaces this
+    // player route, and the roots key the player by its spec, so it rebuilds.
+    val surf: ((Int) -> Unit)? = spec.channelIndex?.let { index ->
+        { step: Int ->
+            scope.launch {
+                val next = app.archivewatch.android.data.ChannelSurf.step(index, step, channelAds(container))
+                    ?: return@launch
+                val at = nav.stack.indexOfLast { it is app.archivewatch.android.ui.Route.Player }
+                if (at >= 0) nav.stack[at] = app.archivewatch.android.ui.Route.Player(next)
+            }
+            Unit
+        }
+    }
+
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -703,6 +726,7 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
                         player,
                         onInteraction = { tvInteraction += 1 },
                         onMenu = { showTvMenu = true },
+                        onChannel = surf,
                     )
                 } else Modifier,
             ),
@@ -925,6 +949,39 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
             }
         }
 
+        if (!isTv && surf != null) {
+            AnimatedVisibility(
+                visible = overlayVisible,
+                enter = fadeIn(),
+                exit = fadeOut(),
+                modifier = Modifier
+                    .align(Alignment.TopCenter)
+                    .windowInsetsPadding(WindowInsets.systemBars)
+                    .padding(top = 56.dp),
+            ) {
+                Row(
+                    modifier = Modifier.background(Color.Black.copy(alpha = 0.6f), CircleShape),
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    IconButton(onClick = { surf(-1) }) {
+                        Icon(Icons.Default.KeyboardArrowUp, contentDescription = "Previous channel", tint = Color.White)
+                    }
+                    Text(
+                        spec.subtitle.orEmpty(),
+                        style = MaterialTheme.typography.titleSmall,
+                        color = Color.White,
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis,
+                        modifier = Modifier.widthIn(min = 96.dp, max = 220.dp),
+                        textAlign = androidx.compose.ui.text.style.TextAlign.Center,
+                    )
+                    IconButton(onClick = { surf(1) }) {
+                        Icon(Icons.Default.KeyboardArrowDown, contentDescription = "Next channel", tint = Color.White)
+                    }
+                }
+            }
+        }
+
         AnimatedVisibility(
             visible = isTv && overlayVisible,
             enter = fadeIn(),
@@ -951,6 +1008,13 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
                         vertical = if (isTv) TvDims.OverscanV else 16.dp,
                     ),
             ) {
+                if (surf != null) {
+                    Text(
+                        text = spec.subtitle.orEmpty().uppercase(),
+                        style = MaterialTheme.typography.labelLarge,
+                        color = Color.White.copy(alpha = 0.85f),
+                    )
+                }
                 Text(
                     text = nowTitle,
                     style = MaterialTheme.typography.titleLarge,
@@ -1044,9 +1108,10 @@ private fun PhonePlayerOptionsSheet(
                 .navigationBarsPadding()
                 .padding(bottom = 16.dp),
         ) {
-            if (player.hasNextMediaItem()) {
+            // A channel keeps the one clock: no skipping its programs.
+            if (spec.channelIndex == null && player.hasNextMediaItem()) {
                 ListItem(
-                    headlineContent = { Text("Play next episode") },
+                    headlineContent = { Text(if (spec.persistProgress) "Play next episode" else "Play next") },
                     modifier = Modifier.clickable { player.seekToNextMediaItem(); onDismiss() },
                 )
                 HorizontalDivider()
@@ -1153,6 +1218,7 @@ private fun PhonePlayerOptionsSheet(
                 }
             }
 
+            if (spec.channelIndex == null) {
             HorizontalDivider(Modifier.padding(top = 12.dp))
             ListItem(
                 headlineContent = { Text("Autoplay next") },
@@ -1163,6 +1229,7 @@ private fun PhonePlayerOptionsSheet(
                     )
                 },
             )
+            }
         }
     }
 }
@@ -1217,9 +1284,11 @@ private fun TvPlayerOptionsPanel(
                 modifier = Modifier.padding(bottom = 14.dp),
             )
             LazyColumn(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                if (player.hasNextMediaItem()) {
+                // A channel keeps the one clock: no skipping its programs.
+                val canSkip = spec.channelIndex == null && player.hasNextMediaItem()
+                if (canSkip) {
                     item(key = "next") {
-                        TvMenuRow("Play Next Episode", null, firstFocus) {
+                        TvMenuRow(if (spec.persistProgress) "Play Next Episode" else "Play Next", null, firstFocus) {
                             player.seekToNextMediaItem(); onDismiss()
                         }
                     }
@@ -1228,7 +1297,7 @@ private fun TvPlayerOptionsPanel(
                     TvMenuRow(
                         if (muted) "Unmute" else "Mute",
                         null,
-                        if (player.hasNextMediaItem()) null else firstFocus,
+                        if (canSkip) null else firstFocus,
                     ) {
                         muted = !muted
                         player.volume = if (muted) 0f else 1f
@@ -1256,9 +1325,11 @@ private fun TvPlayerOptionsPanel(
                         }
                     }
                 }
-                item(key = "autoplay") {
-                    TvMenuRow("Autoplay next", if (autoplay) "On" else "Off", null) {
-                        scope.launch { container.settings.setAutoplayNext(!autoplay) }
+                if (spec.channelIndex == null) {
+                    item(key = "autoplay") {
+                        TvMenuRow("Autoplay next", if (autoplay) "On" else "Off", null) {
+                            scope.launch { container.settings.setAutoplayNext(!autoplay) }
+                        }
                     }
                 }
                 if (spec.captions.isNotEmpty()) {
