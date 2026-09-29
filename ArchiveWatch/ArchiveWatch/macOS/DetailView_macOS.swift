@@ -9,6 +9,9 @@ import AppKit
 
 struct DetailView: View {
     let item: Catalog.Item
+    @State private var synopsisExpanded = false
+    @State private var synopsisShown: CGFloat = 0
+    @State private var synopsisFull: CGFloat = 0
     @Environment(AppStore.self) private var store
     @Environment(AppRouter.self) private var router
     @Environment(\.modelContext) private var ctx
@@ -65,12 +68,6 @@ struct DetailView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 22) {
                 header
-                if let s = item.displaySynopsis {
-                    Text(s).font(.body).textSelection(.enabled)
-                    if let prov = item.synopsisProvenance {
-                        Text(prov).font(.caption).foregroundStyle(.secondary)
-                    }
-                }
                 // Episode item (Decision 045): jump to the full series.
                 if item.isEpisode, let sid = item.seriesID {
                     Button {
@@ -249,9 +246,41 @@ struct DetailView: View {
                 }
                 .padding(.top, 4)
                 .frame(maxWidth: .infinity, alignment: .leading)
+                synopsis
                 Spacer()
             }
             Spacer()
+        }
+    }
+
+    /// The synopsis sits in the column under the actions, at a reading width,
+    /// six lines with a MEASURED More (IPAD-DESIGN §3.1a, tvOS §3.4c, the
+    /// owner's "align to a column"): it ran the full window, ~110 characters a
+    /// line, and never clamped (The Big Parade, seen 2026-09-28).
+    @ViewBuilder private var synopsis: some View {
+        if let s = item.displaySynopsis {
+            VStack(alignment: .leading, spacing: 6) {
+                Text(s).font(.body).textSelection(.enabled)
+                    .lineLimit(synopsisExpanded ? nil : 6)
+                    .onGeometryChange(for: CGFloat.self) { $0.size.height } action: { synopsisShown = $0 }
+                    .background(alignment: .topLeading) {
+                        Text(s).font(.body)
+                            .fixedSize(horizontal: false, vertical: true)
+                            .hidden()
+                            .onGeometryChange(for: CGFloat.self) { $0.size.height } action: { synopsisFull = $0 }
+                    }
+                if synopsisExpanded || synopsisFull > synopsisShown + 1 {
+                    Button(synopsisExpanded ? "Less" : "More") {
+                        withAnimation(.easeInOut(duration: 0.2)) { synopsisExpanded.toggle() }
+                    }
+                    .buttonStyle(.link)
+                }
+                if let prov = item.synopsisProvenance {
+                    Text(prov).font(.caption).foregroundStyle(.secondary)
+                }
+            }
+            .frame(maxWidth: 640, alignment: .leading)
+            .padding(.top, 6)
         }
     }
 
@@ -631,7 +660,10 @@ struct DetailView: View {
                 // different heights across the row (seen on the glass at 960
                 // points, 2026-09-22). The circles are the thing the eye
                 // tracks along, so it is the circles that must line up.
-                LazyHStack(alignment: .top, spacing: 16) {
+                // Not lazy: at most seventeen people, and a lazy row takes its
+                // height from its first member, clipping a longer name or role
+                // (iPad loop v1.42.876, the same row).
+                HStack(alignment: .top, spacing: 16) {
                     if let d = item.director, !d.isEmpty {
                         castBubble(name: d, role: "Director", profilePath: item.directorProfilePath, personID: nil)
                     }

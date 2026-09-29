@@ -318,8 +318,8 @@ platforms is informing the other platforms."* Each line cites code, not docs.
 8. VoiceOver headings on iOS section titles (HomeView_iOS:361, DetailView_iOS:621/658/729, SearchView_iOS:120/133)
 9. Mac poster/guide menus lack Favorites/Share (Cards_macOS.swift:54, ChannelsView_macOS.swift:243)
 10. Mac guide titles from 48 pt (ChannelsView_macOS.swift:248)
-11. Mac cast row is a LazyHStack (DetailView_macOS.swift:632)
-12. Mac synopsis has no width cap (DetailView_macOS.swift:68)
+11. ✅ v1.42.902 Mac cast row is a LazyHStack (DetailView_macOS.swift:632)
+12. ✅ v1.42.902 (seen: The Big Parade — six lines under Play, More, cast on the first screen) Mac synopsis has no width cap (DetailView_macOS.swift:68)
 13. Explanatory copy / disabled-without-reason — SurpriseView_iOS:42, ChannelsView_iOS:852/876, tvOS ChannelsView:523/544/560, SearchView_macOS:45, LibraryView_iOS:422 ("Create button")
 14. iOS commercial breaks is an icon swap, not a Toggle (ChannelsView_iOS:79)
 15. Title Case / one wording — DetailView_iOS:197/160, LibraryView_iOS:393
