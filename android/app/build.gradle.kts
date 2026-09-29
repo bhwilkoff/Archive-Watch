@@ -53,7 +53,8 @@ val marketingVersion: String = rootProject.file("../AppVersion.xcconfig")
 android {
     namespace = "app.archivewatch.android"
     // The 2026.05 Compose BOM requires API 37 to compile against;
-    // targetSdk stays 36 (runtime behavior opt-in is separate).
+    // targetSdk 37 since 2026-09-29, after walking Android 17's target-gated
+    // changes on a Pixel running 17 (docs/research/ANDROID-DESIGN-LOOP.md BC).
     compileSdk = 37
 
     defaultConfig {
@@ -66,7 +67,7 @@ android {
         // network_security_config.xml are what let Android 6.0-7.0 download
         // the catalog at all.
         minSdk = 23
-        targetSdk = 36
+        targetSdk = 37
         // Play rejects ANY previously-uploaded versionCode — bump +1 before
         // every Play upload, even if that upload was never released.
         versionCode = 65

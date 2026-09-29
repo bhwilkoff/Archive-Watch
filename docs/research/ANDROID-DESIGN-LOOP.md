@@ -477,6 +477,24 @@ Harness:
   prefilled ids (film, where) match the issue template. Only targetSdk 37 is
   left of the dependency notices.
 
+- BC. ✅ v1.42.982 Dependencies, stage D: targetSdk 36 -> 37, after reading
+  Android 17's target-gated changes against the code: no reflection
+  (MessageQueue / static final); widget posters are 300x450 (~0.5 MB each,
+  far under the RemoteViews limit); no app-owned LAN socket (Cast discovery
+  runs in Play services; the Studio sends only to YouTube/Twitch); audio plays
+  only while visible (the Studio's service carries camera/microphone types);
+  the fullscreen landscape request is merely ignored on tablets. Seen on the
+  Pixel, which RUNS Android 17: launch, playback, PiP with the audio track
+  still started, Drive sync merge, no SecurityException. The TV is Android 14.
+  Lint: the dependency notices are gone apart from the documented holds.
+- BD. OPEN — Cast has never been seen working on Android (PARITY already says
+  "on-device verification needed"). With a Google TV (mediashell running) on
+  the same subnet, the player shows no Cast button at targetSdk 36 AND 37:
+  the Cast framework loads, Play services' mDNS for _googlecast answers ("B6t"),
+  yet MediaRouter's Cast provider holds no routes. Next: observability first —
+  log the selector, route callbacks and CastState in CastSupport, and compare
+  with a known sender (YouTube) on the same phone before changing anything.
+
 ## Queue
 
 1. ✅ J — phone launch doors: one shared `Nav.collectStartDoors()` in both roots (v1.42.933); the Pixel opened Library, the TV Search
