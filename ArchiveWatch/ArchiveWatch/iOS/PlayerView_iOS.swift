@@ -896,7 +896,7 @@ struct PlayerView: UIViewControllerRepresentable {
             showsCaptionOverlay = showsImmediately
             let captions = LiveCaptions()
             liveCaptions = captions
-            let label = installCaptionLabel(in: vc)
+            _ = installCaptionLabel(in: vc)
 
             Task { @MainActor [weak self] in
                 guard let self else { return }

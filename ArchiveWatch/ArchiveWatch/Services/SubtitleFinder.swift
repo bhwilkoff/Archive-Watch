@@ -195,7 +195,7 @@ final class SubtitleFinder {
                 } catch { cont.resume(throwing: error) }
             }
             self.downloadTask = t
-            self.progressObservation = t.progress.observe(\.fractionCompleted) { p, _ in
+            self.progressObservation = t.progress.observe(\.fractionCompleted) { [weak self] p, _ in
                 Task { @MainActor [weak self] in
                     guard let self, case .downloading = self.phase else { return }
                     self.phase = .downloading(p.fractionCompleted)

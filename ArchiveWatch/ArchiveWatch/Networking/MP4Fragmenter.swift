@@ -605,7 +605,7 @@ extension MP4Fragmenter {
             // default-base-is-moof (0x020000): offsets are from the moof, which
             // is what every modern parser expects and avoids absolute offsets.
             let traf0 = fullBox("tfhd", version: 0, flags: 0x02_0000, tfhd)
-            var tfdtP = u64(ft.baseDecodeTime)
+            let tfdtP = u64(ft.baseDecodeTime)
             let traf1 = fullBox("tfdt", version: 1, flags: 0, tfdtP)
             // trun: data-offset(0x1) + duration(0x100) + size(0x200)
             //       + flags(0x400) + composition offset(0x800)
@@ -626,7 +626,7 @@ extension MP4Fragmenter {
             tfhd = Data()
         }
 
-        var mfhd = fullBox("mfhd", version: 0, flags: 0, u32(f.sequence))
+        let mfhd = fullBox("mfhd", version: 0, flags: 0, u32(f.sequence))
         var moofPayload = mfhd
         for t in trafs { moofPayload.append(t) }
         var moof = box("moof", moofPayload)

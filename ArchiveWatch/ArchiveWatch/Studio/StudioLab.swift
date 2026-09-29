@@ -318,7 +318,7 @@ enum StudioLab {
             try s.setCategory(.playback, mode: .moviePlayback, options: [.mixWithOthers])
             #else
             try s.setCategory(.playAndRecord, mode: .default,
-                              options: [.mixWithOthers, .allowBluetooth, .defaultToSpeaker])
+                              options: [.mixWithOthers, .allowBluetoothHFP, .defaultToSpeaker])
             #endif
             try s.setActive(true)
         } catch {
@@ -418,7 +418,8 @@ enum StudioLab {
         sysctlbyname("hw.machine", nil, &size, nil, 0)
         var machine = [CChar](repeating: 0, count: max(size, 1))
         sysctlbyname("hw.machine", &machine, &size, nil, 0)
-        let model = String(cString: machine)
+        let model = String(decoding: machine.prefix { $0 != 0 }.map { UInt8(bitPattern: $0) },
+                           as: UTF8.self)
         let os = ProcessInfo.processInfo.operatingSystemVersionString
         let cores = ProcessInfo.processInfo.processorCount
         let mem = ProcessInfo.processInfo.physicalMemory / 1_048_576

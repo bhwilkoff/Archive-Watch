@@ -474,8 +474,15 @@ struct GoogleTokenRefresh: Sendable {
 extension GoogleAuth: ASWebAuthenticationPresentationContextProviding {
     func presentationAnchor(for session: ASWebAuthenticationSession) -> ASPresentationAnchor {
         #if canImport(UIKit)
-        UIApplication.shared.connectedScenes
-            .compactMap { ($0 as? UIWindowScene)?.keyWindow }.first ?? ASPresentationAnchor()
+        // A sign-in is started from the app's own UI, so a window scene
+        // exists. The old fallback, ASPresentationAnchor() (UIWindow(),
+        // deprecated in iOS 26), was a detached window nobody could see.
+        let scenes = UIApplication.shared.connectedScenes.compactMap { $0 as? UIWindowScene }
+        if let key = scenes.compactMap(\.keyWindow).first { return key }
+        guard let scene = scenes.first else {
+            preconditionFailure("Google sign-in started with no window scene")
+        }
+        return UIWindow(windowScene: scene)
         #elseif canImport(AppKit)
         // On macOS `ASPresentationAnchor` IS an `NSWindow`, so the old
         // `ASPresentationAnchor()` fallback handed the session a bare,

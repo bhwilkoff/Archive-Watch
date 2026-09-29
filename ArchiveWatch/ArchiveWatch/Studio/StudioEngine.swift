@@ -1639,7 +1639,7 @@ public actor StudioEngine {
                 try? await Task.sleep(nanoseconds: 10_000_000_000)
                 guard let self, !Task.isCancelled else { return }
                 guard await self.overlay.card == nil else { continue }
-                guard let jpeg = await self.renderer.stillJPEG(width: 1280) else { return }
+                guard let jpeg = self.renderer.stillJPEG(width: 1280) else { return }
                 await StudioMoments.deliverStill(jpeg)
                 return
             }
@@ -1928,7 +1928,7 @@ public actor StudioEngine {
             // film is not, so the film goes out.
             // ALREADY SO, NOTHING TO DO: setting the same category again
             // still raised route changes under a playing film.
-            let wanted: AVAudioSession.CategoryOptions = [.mixWithOthers, .allowBluetooth, .defaultToSpeaker]
+            let wanted: AVAudioSession.CategoryOptions = [.mixWithOthers, .allowBluetoothHFP, .defaultToSpeaker]
             if s.category == .playAndRecord, s.mode == .default, s.categoryOptions == wanted {
                 health.audioSessionState = "PlayAndRecord/Default active"
                 return
@@ -2726,10 +2726,13 @@ final class H264Encoder: @unchecked Sendable {
         // path had left loose.
         VTSessionSetProperty(s, key: kVTCompressionPropertyKey_DataRateLimits,
                              value: [Int(Double(bitrate) / 8.0 * Self.dataRateCapFactor), 1] as CFArray)
-        var hwValue: CFTypeRef?
+        // A Copy returns a +1 reference: read it as Unmanaged and take it,
+        // rather than pointing the API at an Optional<AnyObject>.
+        var hwRaw: Unmanaged<CFTypeRef>?
         if VTSessionCopyProperty(s,
                 key: kVTCompressionPropertyKey_UsingHardwareAcceleratedVideoEncoder,
-                allocator: nil, valueOut: &hwValue) == noErr {
+                allocator: nil, valueOut: &hwRaw) == noErr {
+            let hwValue = hwRaw?.takeRetainedValue()
             usingHardware = (hwValue as? Bool) ?? ((hwValue as? NSNumber)?.boolValue)
         }
         VTCompressionSessionPrepareToEncodeFrames(s)

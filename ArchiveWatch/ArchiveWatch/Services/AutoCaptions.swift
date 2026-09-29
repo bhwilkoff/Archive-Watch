@@ -433,15 +433,7 @@ enum AutoCaptions {
                     let outCap = AVAudioFrameCount(Double(inBuf.frameLength) * ratio) + 1024
                     guard let outBuf = AVAudioPCMBuffer(pcmFormat: format,
                                                         frameCapacity: outCap) else { break }
-                    var err: NSError?
-                    var fed = false
-                    converter.convert(to: outBuf, error: &err) { _, status in
-                        if fed { status.pointee = .noDataNow; return nil }
-                        fed = true
-                        status.pointee = .haveData
-                        return inBuf
-                    }
-                    if err != nil { break }
+                    if converter.convertOnce(inBuf, into: outBuf).error != nil { break }
                     if outBuf.frameLength > 0 {
                         continuation.yield(AnalyzerInput(buffer: outBuf))
                     }

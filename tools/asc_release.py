@@ -146,6 +146,29 @@ def find_build(aid, number, platform):
     return next((b for b in d if not b["attributes"].get("expired")), None)
 
 
+def upload_state(aid, number, platform):
+    """What the UPLOAD record says about a build the builds list does not show.
+
+    `v1/builds` lists a build only once Apple has finished processing it, so a
+    build still processing — or one Apple failed after "Upload succeeded" —
+    read as "NOT UPLOADED" (2026-09-29: the iOS upload of 1942 sat in
+    PROCESSING for 90+ minutes while this printed NOT UPLOADED). The upload
+    record carries the state and Apple's errors."""
+    try:
+        d = call(f"v1/apps/{aid}/buildUploads?limit=50")["data"]
+    except ASCError:
+        return "NOT UPLOADED"
+    for u in d:
+        a = u["attributes"]
+        if a.get("platform") == platform and a.get("cfBundleVersion") == str(number):
+            st = a.get("state") or {}
+            errs = "; ".join(e.get("description") or e.get("code") or str(e)
+                             for e in st.get("errors") or [])
+            return f"{st.get('state', 'UNKNOWN')} (uploaded {a.get('uploadedDate')})" + (
+                f" — {errs}" if errs else "")
+    return "NOT UPLOADED"
+
+
 def attached_build(version_id):
     try:
         d = call(f"v1/appStoreVersions/{version_id}/build"
@@ -169,14 +192,21 @@ def status(aid, build=None):
         vs = versions(aid, platform)
         live = next((v for v in vs if v["attributes"]["appStoreState"] == "READY_FOR_SALE"), None)
         edit = next((v for v in vs if v["attributes"]["appStoreState"] in EDITABLE | IN_FLIGHT), None)
-        b = find_build(aid, bn, platform)
-        bstate = b["attributes"]["processingState"] if b else "NOT UPLOADED"
         inflight = (edit["attributes"]["versionString"] + " "
                     + edit["attributes"]["appStoreState"]) if edit else "-"
         print(f"  {name:5} live={live['attributes']['versionString'] if live else '-':8}"
               f" in-progress={inflight}")
+        attached = attached_build(edit["id"]) if edit else None
+        # A version already on its way is judged by the build it CARRIES, not
+        # the repo's number: a platform re-uploaded under a new number (iOS,
+        # 1943) left the others reported as missing a build they never needed.
+        if edit and attached and edit["attributes"]["appStoreState"] in IN_FLIGHT:
+            print(f"        submitted with build {attached}")
+            continue
+        b = find_build(aid, bn, platform)
+        bstate = b["attributes"]["processingState"] if b else upload_state(aid, bn, platform)
         print(f"        build {bn}: {bstate}"
-              + (f"   attached to {attached_build(edit['id'])}" if edit else ""))
+              + (f"   attached to {attached}" if edit else ""))
         if bstate != "VALID":
             pending.append(f"{name} build {bn} {bstate}")
     # A READ that read everything is a success (Decision 107). "Not uploaded"

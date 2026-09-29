@@ -226,7 +226,10 @@ struct EpisodePlayerScreen: View {
             let t = time.seconds
             let d = p.currentItem?.duration.seconds ?? 0
             let show = t < 3 || (d > 0 && d.isFinite && d - t <= 15)
-            if show != showNextPrompt { showNextPrompt = show }
+            // Delivered on the main queue (queue: .main above).
+            MainActor.assumeIsolated {
+                if show != showNextPrompt { showNextPrompt = show }
+            }
         }
 
         // Auto-advance when the current item finishes.

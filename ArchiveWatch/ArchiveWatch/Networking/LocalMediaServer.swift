@@ -1,4 +1,5 @@
 import AVFoundation
+import Synchronization
 import Foundation
 import Network
 
@@ -111,15 +112,16 @@ final class LocalMediaServer: @unchecked Sendable {
                 self?.handle(conn)
             }
             l.stateUpdateHandler = { [weak self] state in
+                let server = self   // a constant, not the captured weak var
                 switch state {
                 case .ready:
                     let p = l.port?.rawValue ?? 0
-                    self?.queue.async { self?.port = p }
+                    server?.queue.async { server?.port = p }
                     awdiag("AWPROXY listening on 127.0.0.1:%d", Int(p))
                     ready.signal()
                 case .failed(let err):
                     awdiag("AWPROXY listener failed: %@", "\(err)")
-                    self?.queue.async { self?.listener = nil; self?.port = 0 }
+                    server?.queue.async { server?.listener = nil; server?.port = 0 }
                     ready.signal()
                 default: break
                 }
@@ -266,7 +268,7 @@ final class LocalMediaServer: @unchecked Sendable {
         guard FileManager.default.createFile(atPath: url.path, contents: plan.initSegment),
               let handle = try? FileHandle(forWritingTo: url) else { return false }
         defer { try? handle.close() }
-        try? handle.seekToEnd()
+        _ = try? handle.seekToEnd()
 
         // FETCHED IN PARALLEL, MUXED SERIALLY — and the split is forced twice
         // over, once by speed and once by the compiler.
@@ -1142,14 +1144,14 @@ final class SystemCaptionProbe {
     }
 
     private final class ProbeDelegate: NSObject, AVPlayerItemLegibleOutputPushDelegate {
-        private var emitted = 0
+        private let emittedCount = Mutex(0)
         func legibleOutput(_ output: AVPlayerItemLegibleOutput,
                            didOutputAttributedStrings strings: [NSAttributedString],
                            nativeSampleBuffers nativeSamples: [Any],
                            forItemTime itemTime: CMTime) {
             let text = strings.map(\.string).joined(separator: " ").trimmingCharacters(in: .whitespacesAndNewlines)
             guard !text.isEmpty else { return }
-            emitted += 1
+            let emitted = emittedCount.withLock { $0 += 1; return $0 }
             if emitted <= 10 || emitted % 25 == 0 {
                 awdiag("AWSYSCAP EMIT #%d t=%.1f: %@", emitted, itemTime.seconds, String(text.prefix(60)))
             }

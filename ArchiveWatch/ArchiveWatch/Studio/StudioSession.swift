@@ -1173,7 +1173,7 @@ public final class StudioSession {
     /// platform never wired it.
     static func attachHostCamera(to engine: StudioEngine) async -> AVCaptureSession? {
         await shared.attachCameraIfAvailable(to: engine)
-        return await shared.capture
+        return shared.capture
     }
 
     /// The other half of `attachHostCamera`, for the platforms that run their

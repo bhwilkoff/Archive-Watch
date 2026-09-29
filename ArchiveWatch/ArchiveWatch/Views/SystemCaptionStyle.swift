@@ -20,6 +20,7 @@ enum SystemCaptionStyle {
 
     #if canImport(UIKit)
     /// Apply the viewer's caption style to a label used for live captions.
+    @MainActor
     static func apply(to label: UILabel, baseSize: CGFloat = 17) {
         let domain = MACaptionAppearanceDomain.user
 

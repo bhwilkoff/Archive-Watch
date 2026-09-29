@@ -335,7 +335,6 @@ final class CaptionCoordinator {
             var shown = ""
             var lastTrace = Date.distantPast
             var resyncTicks = 0
-            var deselectTick = 0
             var geometryPrinted = false
             while !Task.isCancelled {
                 let now = self?.observedPlayer?.currentTime() ?? .zero

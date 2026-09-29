@@ -114,6 +114,10 @@ private func fetchFeed(_ completion: @escaping (FeedPayload?) -> Void) {
     var req = URLRequest(url: kFeedURL)
     req.timeoutInterval = 8            // never make first paint wait on a slow network
     req.cachePolicy = .reloadRevalidatingCacheData
+    // The provider's completion handler is a pre-concurrency closure that may
+    // be called from any thread, and this calls it exactly once, from the
+    // task's own callback — nothing is shared with another thread.
+    nonisolated(unsafe) let completion = completion
     URLSession.shared.dataTask(with: req) { data, _, _ in
         guard let data, let payload = try? JSONDecoder().decode(FeedPayload.self, from: data) else {
             completion(nil); return

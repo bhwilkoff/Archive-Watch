@@ -28,7 +28,7 @@ struct LibraryView: View {
                 let favItems = store.itemsByIDs(favorites.map(\.archiveID))
                 ShelfRow(title: "Favorites", items: favItems)
                     // §B15: a film dropped on Favorites is favorited.
-                    .dropDestination(for: URL.self) { urls, _ in addFavorites(urls) }
+                    .dropDestination(for: URL.self) { urls, _ in _ = addFavorites(urls) }
 
                 ForEach(playlists) { pl in
                     let url = PlaylistShare.url(name: pl.name, archiveIDs: pl.archiveIDs)
@@ -47,7 +47,7 @@ struct LibraryView: View {
                         }
                     }
                         // §B15: a film dropped on a playlist joins it.
-                        .dropDestination(for: URL.self) { urls, _ in add(urls, to: pl) }
+                        .dropDestination(for: URL.self) { urls, _ in _ = add(urls, to: pl) }
                         .contextMenu {
                             if let url {
                                 ShareLink(item: url) {

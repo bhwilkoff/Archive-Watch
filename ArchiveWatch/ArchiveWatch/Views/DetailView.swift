@@ -1389,7 +1389,7 @@ struct PlayerScreen: View {
                 // level meter, and exactly what the 2026-09-19 correlation
                 // against the source film measured (~0.2 where the control
                 // scores 1.000).
-                let bedNow = await engine.filmAudioBed
+                let bedNow = engine.filmAudioBed
                 awdiag("AWRING overflowed=%d fill=%.2f buffered=%.2fs",
                        bedNow.filmRingOverflowed, bedNow.filmRingFill,
                        bedNow.bufferedSeconds)

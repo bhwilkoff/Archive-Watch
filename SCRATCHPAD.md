@@ -164,9 +164,12 @@ because the loop was stopped mid-stride for a Claude update.
    frame. The camera tile is on the wire in the STREAM preview.
 
 0-AFTER-IOS-RELEASE. **Add `/together/*` to `.well-known/apple-app-site-association`**
-   once an iOS build carrying v1.42.716 (room links handled, 2026-09-25) is LIVE
-   on the App Store — not before: a shipped app that does not handle the route
-   would swallow room links that today open the website (memory share_link_shape).
+   — NOT YET, and not for the reason this line used to give. iOS has handled
+   room links since v1.42.716 and 1.42.720 is live, but the AASA's one appID is
+   shared with the MAC app, which also claims `applinks:archivewatch.org` and
+   whose `route(_:)` has no room case: declaring the path would open the Mac
+   app on Home with the room lost (checked 2026-09-29). Order: teach the Mac's
+   router room links, ship that, then declare the path (memory share_link_shape).
 
 1. **Roku 1.0.65** was scheduled to go live 2026-09-14 5:00 PM PT. Pulse
    detects it (App Health crash logs carry an `App Version`); confirm and

@@ -236,11 +236,14 @@ final class ClipStudioModel {
         guard let p = player, timeObserver == nil else { return }
         timeObserver = p.addPeriodicTimeObserver(
             forInterval: CMTime(value: 1, timescale: 30), queue: .main) { [weak self] t in
-            guard let self, self.isPlaying else { return }
-            let s = t.seconds
-            self.playheadSeconds = s
-            if s >= self.outSeconds {
-                self.pause(); self.seek(to: self.outSeconds); self.playheadSeconds = self.outSeconds
+            // Delivered on the main queue, so the main actor is where this runs.
+            MainActor.assumeIsolated {
+                guard let self, self.isPlaying else { return }
+                let s = t.seconds
+                self.playheadSeconds = s
+                if s >= self.outSeconds {
+                    self.pause(); self.seek(to: self.outSeconds); self.playheadSeconds = self.outSeconds
+                }
             }
         }
     }

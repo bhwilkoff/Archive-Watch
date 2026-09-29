@@ -323,14 +323,7 @@ final class FilmAudioDecoder: @unchecked Sendable {
             max(2048.0, Double(Self.samplesPerPacket) * (programRate / max(sourceRate, 1)) + 1024.0))
         guard let outBuf = AVAudioPCMBuffer(pcmFormat: outFormat, frameCapacity: outCapacity)
         else { return false }
-        var supplied = false
-        var err: NSError?
-        let status = converter.convert(to: outBuf, error: &err) { _, outStatus in
-            if supplied { outStatus.pointee = .noDataNow; return nil }
-            supplied = true
-            outStatus.pointee = .haveData
-            return inBuf
-        }
+        let (status, err) = converter.convertOnce(inBuf, into: outBuf)
         if status == .error {
             lock.lock()
             lastError = err?.localizedDescription ?? "decode failed"

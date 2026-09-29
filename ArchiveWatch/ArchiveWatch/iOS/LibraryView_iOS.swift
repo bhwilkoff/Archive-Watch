@@ -385,7 +385,7 @@ struct LibraryView: View {
                         }
                     }
                     // IPAD-DESIGN §12.2: a film dropped on a playlist joins it.
-                    .dropDestination(for: URL.self) { urls, _ in add(urls, to: pl) }
+                    .dropDestination(for: URL.self) { urls, _ in _ = add(urls, to: pl) }
                     // The playlist rides inside the link (PlaylistShare), so the
                     // person who receives it needs no account and we host nothing.
                     .contextMenu {

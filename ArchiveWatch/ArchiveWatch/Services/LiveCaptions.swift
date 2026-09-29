@@ -1654,15 +1654,7 @@ final class BufferSink: @unchecked Sendable {
         let ratio = dst.sampleRate / src.sampleRate
         let cap = AVAudioFrameCount(Double(frames) * ratio) + 1024
         guard let outBuf = AVAudioPCMBuffer(pcmFormat: dst, frameCapacity: cap) else { return }
-        var err: NSError?
-        var fed = false
-        conv.convert(to: outBuf, error: &err) { _, status in
-            if fed { status.pointee = .noDataNow; return nil }
-            fed = true
-            status.pointee = .haveData
-            return inBuf
-        }
-        guard err == nil, outBuf.frameLength > 0 else { return }
+        guard conv.convertOnce(inBuf, into: outBuf).error == nil, outBuf.frameLength > 0 else { return }
 
         // A MONOTONIC clock, anchored once to the film's timeline.
         //

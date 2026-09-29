@@ -287,7 +287,7 @@ public final class StudioContinuity: NSObject {
         let previous = s.category
         do {
             try s.setCategory(.playAndRecord, mode: .default,
-                              options: [.mixWithOthers, .allowBluetooth])
+                              options: [.mixWithOthers, .allowBluetoothHFP])
             try s.setActive(true)
             awdiag("AWMIC .playAndRecord ACTIVATED")
             inputs("after-raise")
@@ -491,7 +491,7 @@ public final class StudioContinuity: NSObject {
         let s = AVAudioSession.sharedInstance()
         if previousCategory == nil { previousCategory = s.category }
         do {
-            try s.setCategory(.playAndRecord, mode: .default, options: [.mixWithOthers, .allowBluetooth])
+            try s.setCategory(.playAndRecord, mode: .default, options: [.mixWithOthers, .allowBluetoothHFP])
             try s.setActive(true)
             if let port { try s.setPreferredInput(port) }
         } catch {
