@@ -67,7 +67,7 @@ fun LibraryScreen(container: AppContainer, nav: Nav) {
     val joinScope = rememberCoroutineScope()
     val dbVersion by container.catalog.dbVersion.collectAsState()
     val userChanges by container.userState.changes.collectAsState()
-    var tabIndex by remember { mutableIntStateOf(0) }
+    var tabIndex by androidx.compose.runtime.saveable.rememberSaveable { mutableIntStateOf(0) }
 
     val favorites by produceState<List<CatalogItem>>(emptyList(), dbVersion, userChanges) {
         val db = container.catalog.awaitDb()
@@ -160,7 +160,7 @@ fun LibraryScreen(container: AppContainer, nav: Nav) {
                                 ) {
                                     Text(pl.name, Modifier.weight(1f))
                                     Text(
-                                        "${pl.archiveIDs.size} titles",
+                                        pl.archiveIDs.size.let { n -> "$n ${if (n == 1) "title" else "titles"}" },
                                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                                     )
                                 }

@@ -65,6 +65,13 @@ import kotlinx.coroutines.delay
 fun TvHomeScreen(container: AppContainer, nav: Nav) {
     val payload by rememberHomePayload(container)
     val firstTile = remember { FocusRequester() }
+    // Back from a title returns to the tile it was opened from: the list's
+    // scroll is saved by TvAppRoot's per-tab holder, and focus goes to the
+    // last tile focused here rather than the hero (a TV loses its place
+    // otherwise — measured on the Google TV, Back landed on the hero).
+    val listState = androidx.compose.foundation.lazy.rememberLazyListState()
+    val returnFocus = remember { FocusRequester() }
+    val returnID = TvHomeReturn.lastFocusedID
     val anchor = remember { FocusRequester() }
 
     // Debug-only render trace. Screenshots proved unreliable here (a stale
@@ -97,11 +104,22 @@ fun TvHomeScreen(container: AppContainer, nav: Nav) {
         delay(300)
         ambient = p
     }
-    val onItemFocused: (CatalogItem) -> Unit = { pendingAmbient = it }
+    val onItemFocused: (CatalogItem) -> Unit = {
+        pendingAmbient = it
+        TvHomeReturn.lastFocusedID = it.archiveID
+    }
+    val focusFor: (String) -> FocusRequester? = { id -> if (id == returnID) returnFocus else null }
+    val returning = returnID != null && (
+        payload.continueWatching.any { it.archiveID == returnID } ||
+            payload.shelves.any { (_, items) -> items.any { it.archiveID == returnID } } ||
+            listOf(payload.topRated, payload.watchingNow, payload.communityFavorites,
+                   payload.mostDiscussed, payload.hiddenGems, payload.publicDomainDay)
+                .any { l -> l.any { it.archiveID == returnID } } ||
+            payload.directorShelves.any { (_, films) -> films.any { it.archiveID == returnID } })
 
     // Hero carousel: Right cycles forward, Left cycles back until the first
     // item, where Left falls through to the nav rail (the tvOS hero contract).
-    var heroIndex by remember(payload.hero) { mutableIntStateOf(0) }
+    var heroIndex by androidx.compose.runtime.saveable.rememberSaveable(payload.hero.map { it.archiveID }) { mutableIntStateOf(0) }
     val heroItem = payload.hero.getOrNull(heroIndex)
     val heroFocus = remember { FocusRequester() }
 
@@ -112,7 +130,11 @@ fun TvHomeScreen(container: AppContainer, nav: Nav) {
     // caught on the Android TV emulator. Keyed on the hero POOL, not the
     // current index, or every Right press would re-claim and fight the cycle.
     ClaimInitialFocus(
-        if (heroItem != null) heroFocus else firstTile,
+        when {
+            returning -> returnFocus
+            heroItem != null -> heroFocus
+            else -> firstTile
+        },
         key = payload.hero.firstOrNull()?.archiveID ?: payload.shelves.firstOrNull()?.first,
     )
 
@@ -147,6 +169,7 @@ fun TvHomeScreen(container: AppContainer, nav: Nav) {
         }
 
         LazyColumn(
+            state = listState,
             modifier = Modifier.fillMaxSize(),
             contentPadding = androidx.compose.foundation.layout.PaddingValues(
                 bottom = TvDims.OverscanV * 2,
@@ -189,6 +212,7 @@ fun TvHomeScreen(container: AppContainer, nav: Nav) {
                         progressByID = payload.continueProgress,
                         onItem = { nav.openItem(it.archiveID, it.seriesID, it.contentType) },
                         onItemFocused = onItemFocused,
+                        focusRequesterFor = focusFor,
                     )
                 }
             }
@@ -202,6 +226,7 @@ fun TvHomeScreen(container: AppContainer, nav: Nav) {
                         onItem = { nav.openItem(it.archiveID, it.seriesID, it.contentType) },
                         firstItemFocusRequester = if (index == 0) firstTile else null,
                         onItemFocused = onItemFocused,
+                        focusRequesterFor = focusFor,
                     )
                 }
             }
@@ -209,14 +234,14 @@ fun TvHomeScreen(container: AppContainer, nav: Nav) {
             // §1.4 — these are OUR editorial + the community's own signals, each
             // with a subtitle saying where the ranking comes from. Never an opaque
             // "recommended for you" row.
-            shelf("toprated", "Top Rated", "Highest rated on IMDb", payload.topRated, nav, onItemFocused)
-            shelf("watchingnow", "Watching Now", "Most-viewed on archive.org this month", payload.watchingNow, nav, onItemFocused)
-            shelf("commfav", "Community Favorites", "Most-favorited by archive.org viewers", payload.communityFavorites, nav, onItemFocused)
-            shelf("discussed", "Most Discussed", "Most-reviewed on archive.org", payload.mostDiscussed, nav, onItemFocused)
-            shelf("gems", "Hidden Gems", "Overlooked, and worth your time", payload.hiddenGems, nav, onItemFocused)
+            shelf("toprated", "Top Rated", "Highest rated on IMDb", payload.topRated, nav, onItemFocused, focusFor)
+            shelf("watchingnow", "Watching Now", "Most-viewed on archive.org this month", payload.watchingNow, nav, onItemFocused, focusFor)
+            shelf("commfav", "Community Favorites", "Most-favorited by archive.org viewers", payload.communityFavorites, nav, onItemFocused, focusFor)
+            shelf("discussed", "Most Discussed", "Most-reviewed on archive.org", payload.mostDiscussed, nav, onItemFocused, focusFor)
+            shelf("gems", "Hidden Gems", "Overlooked, and worth your time", payload.hiddenGems, nav, onItemFocused, focusFor)
 
             payload.directorShelves.forEach { (director, films) ->
-                shelf("dir-$director", director, "Films by this director", films, nav, onItemFocused)
+                shelf("dir-$director", director, "Films by this director", films, nav, onItemFocused, focusFor)
             }
 
             if (payload.publicDomainDay.isNotEmpty()) {
@@ -227,6 +252,7 @@ fun TvHomeScreen(container: AppContainer, nav: Nav) {
                     payload.publicDomainDay,
                     nav,
                     onItemFocused,
+                    focusFor,
                 )
             }
 
@@ -242,6 +268,11 @@ fun TvHomeScreen(container: AppContainer, nav: Nav) {
     }
 }
 
+/** The Home tile focused last, so Back from a title returns focus to it. */
+internal object TvHomeReturn {
+    var lastFocusedID: String? = null
+}
+
 /** Small helper so the shelf list above reads as a list of shelves. */
 private fun androidx.compose.foundation.lazy.LazyListScope.shelf(
     key: String,
@@ -250,6 +281,7 @@ private fun androidx.compose.foundation.lazy.LazyListScope.shelf(
     items: List<CatalogItem>,
     nav: Nav,
     onItemFocused: (CatalogItem) -> Unit,
+    focusFor: (String) -> FocusRequester?,
 ) {
     if (items.isEmpty()) return
     item(key = key) {
@@ -259,6 +291,7 @@ private fun androidx.compose.foundation.lazy.LazyListScope.shelf(
             subtitle = subtitle,
             onItem = { nav.openItem(it.archiveID, it.seriesID, it.contentType) },
             onItemFocused = onItemFocused,
+            focusRequesterFor = focusFor,
         )
     }
 }
@@ -405,6 +438,8 @@ private fun TvHero(
                     focusRequester = focusRequester,
                     shape = RoundedCornerShape(12.dp),
                     scaleWhenFocused = 1f,
+                    // Opened from the hero, Back returns to the hero.
+                    onFocused = { TvHomeReturn.lastFocusedID = null },
                 ),
         )
     }

@@ -188,6 +188,7 @@ fun TvAppRoot(container: AppContainer) {
     // Left-within-a-row keeps working normally.
     val railFocus = remember { FocusRequester() }
 
+    val tabStates = androidx.compose.runtime.saveable.rememberSaveableStateHolder()
     CompositionLocalProvider(LocalTvRailFocus provides railFocus) {
     Surface(color = MaterialTheme.colorScheme.background) {
         Row(Modifier.fillMaxSize()) {
@@ -197,7 +198,9 @@ fun TvAppRoot(container: AppContainer) {
                 TvNavRail(nav, railFocus)
             }
             Box(Modifier.fillMaxSize()) {
-                if (nav.stack.isEmpty()) {
+                // Per-tab saved state (scroll positions) survives a pushed
+                // route, as on the phone: Back returns to the viewer's place.
+                if (nav.stack.isEmpty()) tabStates.SaveableStateProvider(nav.tab.name) {
                     when (nav.tab) {
                         Tab.Home -> TvHomeScreen(container, nav)
                         Tab.Browse -> TvBrowseScreen(container, nav)

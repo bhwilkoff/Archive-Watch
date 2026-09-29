@@ -485,6 +485,23 @@ fun PlaylistScreen(container: AppContainer, nav: Nav, playlistID: String) {
         }
         return
     }
+    var confirmPhoneDelete by remember { mutableStateOf(false) }
+    if (confirmPhoneDelete) {
+        androidx.compose.material3.AlertDialog(
+            onDismissRequest = { confirmPhoneDelete = false },
+            title = { Text("Delete this playlist?") },
+            confirmButton = {
+                TextButton(onClick = {
+                    confirmPhoneDelete = false
+                    scope.launch {
+                        container.userState.deletePlaylist(playlistID)
+                        nav.pop()
+                    }
+                }) { Text("Delete") }
+            },
+            dismissButton = { TextButton(onClick = { confirmPhoneDelete = false }) { Text("Cancel") } },
+        )
+    }
     Scaffold(
         topBar = {
             TopAppBar(
@@ -498,12 +515,9 @@ fun PlaylistScreen(container: AppContainer, nav: Nav, playlistID: String) {
                     IconButton(onClick = onShare) {
                         Icon(Icons.Default.Share, contentDescription = "Share playlist")
                     }
-                    IconButton(onClick = {
-                        scope.launch {
-                            container.userState.deletePlaylist(playlistID)
-                            nav.pop()
-                        }
-                    }) {
+                    // Asks first, as the TV does: one tap on a trash icon
+                    // deleted a playlist outright, on every synced device.
+                    IconButton(onClick = { confirmPhoneDelete = true }) {
                         Icon(Icons.Default.Delete, contentDescription = "Delete playlist")
                     }
                 },

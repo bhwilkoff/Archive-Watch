@@ -159,6 +159,7 @@ fun AppRoot(container: AppContainer) {
         return
     }
 
+    val tabStates = androidx.compose.runtime.saveable.rememberSaveableStateHolder()
     Surface(color = MaterialTheme.colorScheme.background) {
         NavigationSuiteScaffold(
             navigationSuiteItems = {
@@ -198,13 +199,18 @@ fun AppRoot(container: AppContainer) {
                 // Only compose the tab when nothing is pushed. Otherwise the
                 // hidden tab keeps running (Home's hero auto-advance timer, its
                 // queries) behind the full-screen route on top of it.
+                // Each tab's saveable state (scroll positions, a chosen Library
+                // tab) is kept by name while a route covers it, so Back returns
+                // to the place the viewer left, not the top.
                 if (nav.stack.isEmpty()) {
-                    when (nav.tab) {
-                        Tab.Home -> HomeScreen(container, nav)
-                        Tab.Browse -> BrowseScreen(container, nav)
-                        Tab.Channels -> ChannelsScreen(container, nav)
-                        Tab.Search -> SearchScreen(container, nav)
-                        Tab.Library -> LibraryScreen(container, nav)
+                    tabStates.SaveableStateProvider(nav.tab.name) {
+                        when (nav.tab) {
+                            Tab.Home -> HomeScreen(container, nav)
+                            Tab.Browse -> BrowseScreen(container, nav)
+                            Tab.Channels -> ChannelsScreen(container, nav)
+                            Tab.Search -> SearchScreen(container, nav)
+                            Tab.Library -> LibraryScreen(container, nav)
+                        }
                     }
                 }
                 // The pushed stack renders above the tab content; only the

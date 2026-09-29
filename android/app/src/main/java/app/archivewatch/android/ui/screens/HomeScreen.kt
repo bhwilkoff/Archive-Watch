@@ -97,6 +97,12 @@ private val HOME_SHELF_PRIORITY = listOf(
  * a second copy of this logic would drift. TV renders the same payload with TV
  * components; it does not re-derive it.
  */
+/** The last Home built, and what it was built from (see rememberHomePayload). */
+private object HomeCache {
+    var key: Any? = null
+    var payload: HomePayload? = null
+}
+
 @Composable
 internal fun rememberHomePayload(container: AppContainer): State<HomePayload> {
     val dbVersion by container.catalog.dbVersion.collectAsState()
@@ -109,9 +115,15 @@ internal fun rememberHomePayload(container: AppContainer): State<HomePayload> {
     // the app look like it had restarted. Holding the previous payload means
     // the seed's Home stays up and is replaced in place when the richer answer
     // arrives.
-    val held = remember { mutableStateOf(HomePayload()) }
+    val held = remember { mutableStateOf(HomeCache.payload ?: HomePayload()) }
+    // And it survives the screen: Home leaves composition while a title is
+    // pushed over it, and coming Back rebuilt everything (a spinner, a new
+    // hero, the scroll at the top). Same inputs, same Home.
+    val key = Triple(dbVersion, userChanges, hideWatched)
+    val cached = HomeCache.payload.takeIf { HomeCache.key == key }
 
-    return produceState(held.value, dbVersion, userChanges, hideWatched) {
+    return produceState(cached ?: held.value, dbVersion, userChanges, hideWatched) {
+        if (cached != null) return@produceState
         val qt0 = android.os.SystemClock.elapsedRealtime()
         fun qmark(what: String) {
             if (BuildConfig.DEBUG) android.util.Log.i(
@@ -258,6 +270,8 @@ internal fun rememberHomePayload(container: AppContainer): State<HomePayload> {
             loaded = true,
         )
         held.value = built
+        HomeCache.key = key
+        HomeCache.payload = built
         value = built
         qmark("producer:done")
     }
@@ -267,6 +281,8 @@ internal fun rememberHomePayload(container: AppContainer): State<HomePayload> {
 @Composable
 fun HomeScreen(container: AppContainer, nav: Nav) {
     val payload by rememberHomePayload(container)
+    // Saved by AppRoot's per-tab state holder, so Back lands where you were.
+    val listState = androidx.compose.foundation.lazy.rememberLazyListState()
 
     Scaffold(
         topBar = {
@@ -292,6 +308,7 @@ fun HomeScreen(container: AppContainer, nav: Nav) {
             return@Scaffold
         }
         LazyColumn(
+            state = listState,
             modifier = Modifier.fillMaxSize().padding(padding),
             verticalArrangement = Arrangement.spacedBy(16.dp),
         ) {

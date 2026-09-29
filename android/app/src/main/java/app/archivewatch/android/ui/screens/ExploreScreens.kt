@@ -194,7 +194,7 @@ fun PersonScreen(container: AppContainer, nav: Nav, name: String, tmdbPersonID: 
             hits
         }
     }
-    GridScaffold(title = name, subtitle = "Titles featuring $name", nav = nav, items = items,
+    GridScaffold(title = name, subtitle = null, nav = nav, items = items,
                  eyebrow = "FILMOGRAPHY")
 }
 

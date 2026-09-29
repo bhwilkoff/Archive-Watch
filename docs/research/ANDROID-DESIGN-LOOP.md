@@ -216,6 +216,21 @@ Harness:
   a West German sex comedy by its own synopsis) is isAdult=0 and kept in the
   1964-77 renewal band, so it shows in Feature Films with mature content
   hidden.
+- Z. ✅ v1.42.953 Back lost the viewer's place, phone and TV: a tab left
+  composition under a pushed title, so Home rebuilt (spinner, new hero, scroll
+  at the top) and the TV put focus back on the hero. Now a per-tab
+  SaveableStateHolder keeps scroll and tab state, Home's last payload is
+  reused for the same inputs, and the TV Home returns focus to the tile last
+  focused (the hero clears it). Seen: the Pixel came Back to Silent Hall of
+  Fame exactly; the Google TV to Carson City Kid in Popular Feature Films;
+  Library stays on Playlists.
+- AA. ✅ v1.42.953 Phone playlists: Delete removed a playlist in one tap (the
+  TV asks); it asks now (pressed Cancel on the Pixel, the playlist stayed).
+  "1 titles" -> "1 title". The Person page's "Titles featuring <name>" under
+  the name is gone (the TV header shows the count instead).
+  Test residue: "Phone Glass Test", a playlist a 2026-09-14 test imported
+  (commit e4c0030ea), was deleted through the app, so its tombstone reaches
+  Drive.
 
 ## Queue
 

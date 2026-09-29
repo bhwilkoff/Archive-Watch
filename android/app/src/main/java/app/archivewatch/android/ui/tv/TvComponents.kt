@@ -118,6 +118,8 @@ fun TvShelfRow(
     state: LazyListState = rememberLazyListState(),
     onItemFocused: ((CatalogItem) -> Unit)? = null,
     progressByID: Map<String, app.archivewatch.android.data.WatchProgress> = emptyMap(),
+    /** A requester for one particular tile (the one Back returns to). */
+    focusRequesterFor: ((String) -> FocusRequester?)? = null,
 ) {
     if (items.isEmpty()) return
     val scope = rememberCoroutineScope()
@@ -156,7 +158,8 @@ fun TvShelfRow(
                     item = item,
                     onClick = { onItem(item) },
                     progress = progressByID[item.archiveID],
-                    focusRequester = if (index == 0) firstItemFocusRequester else null,
+                    focusRequester = focusRequesterFor?.invoke(item.archiveID)
+                        ?: if (index == 0) firstItemFocusRequester else null,
                     // §3.4 — the leftmost tile is the door back to the nav rail.
                     exitLeftTo = if (index == 0) railFocus else null,
                     onFocused = {
