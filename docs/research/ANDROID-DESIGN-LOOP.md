@@ -296,6 +296,21 @@ Harness:
   The empty state no longer says "public-domain title" (Decision 146).
   Test residue: three exports landed in Clips; deleted through the dialog,
   clips 3 -> 0 and cache/clips 3 -> 0 files (baseline 0).
+- AI. ✅ v1.42.961 Party Play's mix showed "Women" (2021), a horror film's
+  poster, on a room-filling lineup. It is `Women-at-NASA`, a 4-minute NASA
+  short: the uploader-cruft rule `@\s*\S+` read "@ NASA" as a handle and cut
+  the title to "Women", and TMDb matched the 2021 film (poster, synopsis,
+  year). The rule is `@\w\S*` now (a handle has no space after its @; none of
+  the 36 catalog titles with an @ changes today); the title is restored by
+  title_corrections.json; and a new shared/editorial/match_rejects.json
+  ({archiveID: reason}) clears a match a person names wrong, through the same
+  path as the runtime rule (cleared_editorial, so the scrub drops the borrowed
+  2021 year). tools/test_title_handle_and_rejects.py holds both, with controls.
+  Takes effect at the next publish.
+  TV Party page: its header was written copy ("A silent wall of color for the
+  room — …"); it says only "Plays muted — hold Select for sound." And the page
+  opened scrolled with its title off the top and no way up (a lazy list with
+  two items); it is a plain Column that fits the screen. Seen on the Google TV.
 
 ## Queue
 

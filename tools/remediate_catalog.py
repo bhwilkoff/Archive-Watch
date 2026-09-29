@@ -1312,7 +1312,7 @@ def _strip_version_tail(t):
 _JUNK_BRACE = re.compile(
     r"\s*\{[^}]*(brego|www\.|https?://|\.com|\.net|desibbrg|xclusives)[^}]*\}", re.I)
 _SITE_TAG = re.compile(
-    r"\s*(?:@\s*\S+|\bwww\.\S+|\b\S+\.(?:com|net|org|tv|pe|me)\b|\bda\s?xclusives\b|"
+    r"\s*(?:@\w\S*|\bwww\.\S+|\b\S+\.(?:com|net|org|tv|pe|me)\b|\bda\s?xclusives\b|"
     r"\bhevcbay\b|\bamaderforum\b|\bdesibbrg\b|\bbrego\b|"
     r"\b(?:rarbg|yify|yts|ettv|eztv|galaxyrg|ntg)\b)", re.I)
 _TITLE_EXT = re.compile(r"\.\s*(avi|wmv|flv|mpg|mpeg|mov|m4v|mp4|mkv|ogv|mxf|3gp)\s*$"
@@ -3064,6 +3064,14 @@ def _load_image_rejects():
     return {k: v for k, v in json.loads(p.read_text()).items() if not k.startswith("_")}
 
 
+def _load_match_rejects():
+    """{archiveID: reason} — an external match a person has named wrong."""
+    p = REPO / "shared/editorial/match_rejects.json"
+    if not p.exists():
+        return {}
+    return {k: v for k, v in json.loads(p.read_text()).items() if not k.startswith("_")}
+
+
 def _load_title_corrections():
     p = REPO / "shared/editorial/title_corrections.json"
     if not p.exists():
@@ -3328,6 +3336,17 @@ def remediate(items):
 
         # 0b2) A match whose film's runtime the file cannot be, and whose
         # titles the item does not carry (see runtime_contradicts_match).
+        # 0b1) A match a person has named wrong, with the reason, in
+        # shared/editorial/match_rejects.json (the runtime rule cannot see a
+        # match whose film runtime the OMDb cache lacks: "Women @ NASA", a
+        # 4-minute NASA short, wore the 2021 horror film "Women").
+        if it.get("archiveID") in _load_match_rejects() and (it.get("imdbID") or it.get("tmdbID")):
+            _clear_wrong_artwork(it, None)
+            it["matchVerdict"] = "cleared_editorial"
+            it["matchVerified"] = True
+            strip_unanchored_tmdb_residue(it)
+            stats["editorial_match_cleared"] += 1
+
         rc = runtime_contradicts_match(it)
         if rc:
             _clear_wrong_artwork(it, None)

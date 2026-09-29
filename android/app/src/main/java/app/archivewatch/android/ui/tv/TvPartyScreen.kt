@@ -94,13 +94,12 @@ fun TvPartyScreen(container: AppContainer, nav: Nav) {
         return
     }
 
-    LazyColumn(
-        Modifier.fillMaxSize(),
-        contentPadding = androidx.compose.foundation.layout.PaddingValues(
-            top = TvDims.OverscanV * 2, bottom = TvDims.OverscanV * 2,
-        ),
+    // A plain Column: the header and one row fit the screen, and as a lazy
+    // list it opened scrolled down with the page title off the top (Google TV).
+    Column(
+        Modifier.fillMaxSize().padding(top = TvDims.OverscanV, bottom = TvDims.OverscanV),
     ) {
-        item(key = "head") {
+        run {
             Column(
                 Modifier.fillMaxWidth().padding(horizontal = TvDims.OverscanH),
                 horizontalAlignment = Alignment.CenterHorizontally,
@@ -110,10 +109,11 @@ fun TvPartyScreen(container: AppContainer, nav: Nav) {
                     fontSize = 32.sp, fontWeight = FontWeight.Medium, color = Color.White,
                 )
                 Text(
-                    "A silent wall of color for the room — short, bright films that read " +
-                        "well without sound. Unmute anytime from the player options.",
+                    // Only what the viewer cannot see: it starts silent, and where
+                    // the sound is (Player Options opens on a held Select).
+                    "Plays muted — hold Select for sound.",
                     fontSize = 14.sp, color = Color(0xFF9A9A9A),
-                    modifier = Modifier.padding(top = 8.dp, bottom = 22.dp),
+                    modifier = Modifier.padding(top = 6.dp, bottom = 14.dp),
                 )
                 Box(
                     Modifier
@@ -153,8 +153,8 @@ fun TvPartyScreen(container: AppContainer, nav: Nav) {
                 }
             }
         }
-        item(key = "mix") {
-            Column(Modifier.padding(top = 30.dp)) {
+        run {
+            Column(Modifier.padding(top = 12.dp)) {
                 TvShelfRow(
                     "What's in the mix",
                     items.take(18),
