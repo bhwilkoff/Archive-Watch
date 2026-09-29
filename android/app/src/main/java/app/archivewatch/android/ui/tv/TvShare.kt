@@ -1,6 +1,8 @@
 package app.archivewatch.android.ui.tv
 
 import android.graphics.Bitmap
+import androidx.core.graphics.createBitmap
+import androidx.core.graphics.set
 import android.graphics.Color as AColor
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -110,9 +112,9 @@ fun TvShareOverlay(title: String, url: String, onDone: () -> Unit, reportUrl: St
 
 internal fun qrBitmap(text: String, sizePx: Int): Bitmap? = runCatching {
     val matrix = QRCodeWriter().encode(text, BarcodeFormat.QR_CODE, sizePx, sizePx)
-    val bmp = Bitmap.createBitmap(sizePx, sizePx, Bitmap.Config.RGB_565)
+    val bmp = createBitmap(sizePx, sizePx, Bitmap.Config.RGB_565)
     for (x in 0 until sizePx) for (y in 0 until sizePx) {
-        bmp.setPixel(x, y, if (matrix.get(x, y)) AColor.BLACK else AColor.WHITE)
+        bmp[x, y] = if (matrix.get(x, y)) AColor.BLACK else AColor.WHITE
     }
     bmp
 }.getOrNull()

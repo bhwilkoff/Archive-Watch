@@ -1,6 +1,7 @@
 package app.archivewatch.android.data
 
 import android.net.Uri
+import androidx.core.net.toUri
 import app.archivewatch.android.BuildConfig
 
 /**
@@ -12,7 +13,7 @@ import app.archivewatch.android.BuildConfig
  */
 object FilmProblem {
     fun url(archiveID: String, television: Boolean): String =
-        Uri.parse("https://github.com/bhwilkoff/Archive-Watch/issues/new").buildUpon()
+        "https://github.com/bhwilkoff/Archive-Watch/issues/new".toUri().buildUpon()
             .appendQueryParameter("template", "film-problem.yml")
             .appendQueryParameter("film", archiveID)
             .appendQueryParameter("where",

@@ -393,7 +393,7 @@ class StudioEngine(
         // avcC, the AAC config) and no evidence which dominates.
         fun mark(what: String) {
             if (BuildConfig.DEBUG) android.util.Log.i("AWSTUDIOSTART",
-                String.format("%7.3f s  %s", (System.nanoTime() - showStartNanos) / 1e9, what))
+                String.format(java.util.Locale.US, "%7.3f s  %s", (System.nanoTime() - showStartNanos) / 1e9, what))
         }
         mark("run loop begins")
         var frame = 0L

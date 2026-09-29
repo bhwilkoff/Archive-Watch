@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Brand chrome tokens (shared design system; mirror ui/theme/Color.kt). -->
-    <color name="brand_primary">#FFFF5C35</color>
+    <!-- The window background before Compose draws (ui/theme/Color.kt holds the rest). -->
     <color name="brand_background">#FF0A0A0A</color>
-    <color name="brand_surface">#FF141414</color>
 </resources>

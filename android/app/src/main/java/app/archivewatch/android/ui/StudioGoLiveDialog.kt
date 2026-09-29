@@ -14,6 +14,7 @@ package app.archivewatch.android.ui
 // cannot discover afterwards.
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.core.net.toUri
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -165,7 +166,7 @@ fun StudioGoLiveDialog(
                         modifier = Modifier.fillMaxWidth(),
                     )
                     TextButton(onClick = {
-                        context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(keyPlatform.keyPage))
+                        context.startActivity(Intent(Intent.ACTION_VIEW, keyPlatform.keyPage.toUri())
                             .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
                     }) { Text("Find your stream key") }
                 }

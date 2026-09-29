@@ -10,6 +10,7 @@ package app.archivewatch.android.studio
 // about rendering, encoding and publishing stays in `StudioEngine`.
 
 import androidx.compose.runtime.getValue
+import android.annotation.SuppressLint
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.media3.common.util.UnstableApi
@@ -20,6 +21,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 @androidx.annotation.OptIn(UnstableApi::class)
+@SuppressLint("StaticFieldLeak")  // holds only the application context
 object StudioController {
 
     /** The film the host asked to broadcast, set before the player exists. */
@@ -110,8 +112,8 @@ object StudioController {
      * Both default to 8 — unity, the film's and the voice's own level — so a
      * host who never opens the panel is already where they would have set it.
      */
-    private var _filmLevel by mutableStateOf(MixLevel.UNITY)
-    private var _micLevel by mutableStateOf(MixLevel.UNITY)
+    private var _filmLevel by androidx.compose.runtime.mutableDoubleStateOf(MixLevel.UNITY)
+    private var _micLevel by androidx.compose.runtime.mutableDoubleStateOf(MixLevel.UNITY)
     private var _duck by mutableStateOf(true)
 
     /**
@@ -153,6 +155,7 @@ object StudioController {
     private var camera: StudioCamera? = null
     private var mic: StudioMicAudio? = null
     /** Kept so the microphone can be opened once the film's rate is known. */
+    @SuppressLint("StaticFieldLeak")  // the application context (beginHost)
     private var showContext: android.content.Context? = null
     /// Kept so a replacement lower third is rendered at the same size as the
     /// original — a mismatched bitmap would letterbox the caption.
@@ -298,7 +301,9 @@ object StudioController {
      */
     private fun beginHost(e: StudioEngine, context: android.content.Context?,
                           overlayWidth: Int, overlayHeight: Int) {
-        showContext = context
+        // The application context: a show outlives the Activity that started
+        // it (rotation, backgrounding), and the camera and microphone need no more.
+        showContext = context?.applicationContext
         overlayW = overlayWidth; overlayH = overlayHeight
         openHost(e, context)
         // The show survives a locked screen (A15). Started here, on every
@@ -315,6 +320,7 @@ object StudioController {
     var debugSkipForegroundService = false
 
     /** Held only to stop the service again; the application context. */
+    @SuppressLint("StaticFieldLeak")
     private var fgsContext: android.content.Context? = null
 
     /**

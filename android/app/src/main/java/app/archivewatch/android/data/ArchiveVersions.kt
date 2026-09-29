@@ -1,6 +1,7 @@
 package app.archivewatch.android.data
 
 import android.content.Context
+import androidx.core.content.edit
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import okhttp3.OkHttpClient
@@ -148,9 +149,9 @@ object ArchiveVersions {
     }
 
     fun choose(context: Context, archiveID: String, version: Version?) {
-        context.getSharedPreferences(PREFS, Context.MODE_PRIVATE).edit().apply {
+        context.getSharedPreferences(PREFS, Context.MODE_PRIVATE).edit {
             if (version == null) remove(archiveID) else putString(archiveID, version.choiceKey)
-        }.apply()
+        }
     }
 
     /** The URL to actually play: the viewer's choice when made, else the

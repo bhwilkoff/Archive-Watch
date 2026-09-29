@@ -417,6 +417,20 @@ Harness:
   camera/mic/service checks (the Studio's sources sit in main, Decision 132).
   122 warnings remain, next.
 
+- AX. ✅ v1.42.977 Lint warnings 122 -> 43, and the 43 are all dependency /
+  AGP / targetSdk / version-catalog notices (next, as their own tested pass).
+  Behavior found on the way: the Studio held the ACTIVITY statically for a
+  whole show (now the application context); the foreground-service types were
+  passed from Android 10, where they do not exist (now 11+); timecodes and
+  "Clip 15.0s" formatted in the device locale inside English text (now US);
+  PiP entered from onUserLeaveHint only — Android 12+ now auto-enters with the
+  film's own rect as the source hint (seen on the Pixel: pinned on Home);
+  ClipTimeline allocated six rects every frame. lintFix's KTX rewrite broke
+  StudioTokenStore.save's Boolean (the one-time Twitch refresh token must
+  report whether it landed) — restored by hand. Clip Studio's "Drag the
+  filmstrip to scrub…" explained the control's own behavior: cut (owner's
+  essential-information rule).
+
 ## Queue
 
 1. ✅ J — phone launch doors: one shared `Nav.collectStartDoors()` in both roots (v1.42.933); the Pixel opened Library, the TV Search

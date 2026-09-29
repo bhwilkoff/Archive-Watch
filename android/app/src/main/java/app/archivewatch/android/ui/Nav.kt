@@ -198,8 +198,12 @@ object PlaybackPresence {
      *  chrome (title overlay + transport controller) in that window: a PiP
      *  tile is ~150dp wide, and chrome drawn over it covered the film. */
     val inPip = MutableStateFlow(false)
-    @Volatile var aspectWidth = 16
-    @Volatile var aspectHeight = 9
+    /** The playing film's frame, width to height, for the PiP window. */
+    val aspect = MutableStateFlow(16 to 9)
+    /** The player view's bounds in the window; the film is fitted inside it. */
+    val viewBounds = MutableStateFlow<android.graphics.Rect?>(null)
+    val aspectWidth: Int get() = aspect.value.first
+    val aspectHeight: Int get() = aspect.value.second
 }
 
 /**

@@ -38,7 +38,7 @@ object MixLevel {
     /** An RMS reading on the FADER's scale — a linear meter reads as dead. */
     fun meterFraction(rms: Float): Double = level(rms) / MAXIMUM
 
-    fun text(level: Double): String = String.format("%.1f", level)
+    fun text(level: Double): String = String.format(java.util.Locale.US, "%.1f", level)
 }
 
 /**

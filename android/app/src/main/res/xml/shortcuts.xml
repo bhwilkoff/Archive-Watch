@@ -2,7 +2,9 @@
 <!-- App Shortcuts (long-press launcher icon) — the Android analog of the
      Siri/App Intents quick actions (PARITY §8). Each deep-links via the
      archivewatch:// scheme MainActivity already parses. -->
-<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="UnusedAttribute">
     <shortcut
         android:shortcutId="surprise"
         android:enabled="true"

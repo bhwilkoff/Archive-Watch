@@ -1,6 +1,9 @@
 package app.archivewatch.android.ui.screens
 
 import android.app.Activity
+import androidx.compose.ui.layout.boundsInWindow
+import androidx.compose.ui.layout.onGloballyPositioned
+import androidx.core.net.toUri
 import android.content.Context
 import android.content.ContextWrapper
 import android.content.pm.ActivityInfo
@@ -252,7 +255,7 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
                             // button. English (auto) defaults on.
                             .setSubtitleConfigurations(
                                 spec.captions.map { c ->
-                                    MediaItem.SubtitleConfiguration.Builder(Uri.parse(c.url))
+                                    MediaItem.SubtitleConfiguration.Builder(c.url.toUri())
                                         .setMimeType(
                                             if (c.format == "vtt") MimeTypes.TEXT_VTT
                                             else MimeTypes.APPLICATION_SUBRIP,
@@ -523,8 +526,7 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
                 // Feed the real video aspect to PiP so the window isn't 16:9-forced
                 // for a 4:3 archival film.
                 if (videoSize.width > 0 && videoSize.height > 0) {
-                    PlaybackPresence.aspectWidth = videoSize.width
-                    PlaybackPresence.aspectHeight = videoSize.height
+                    PlaybackPresence.aspect.value = videoSize.width to videoSize.height
                 }
             }
         }
@@ -593,7 +595,7 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
     // initial value forever (measured on the Google TV 2026-08-27: the title
     // overlay never faded, and a Back gated on it became a Back TRAP, §1.7).
     // Any handled key shows the overlay; it fades after 4s of playback.
-    var tvInteraction by remember { mutableStateOf(0) }
+    var tvInteraction by remember { androidx.compose.runtime.mutableIntStateOf(0) }
     var showTvMenu by remember { mutableStateOf(false) }
     var showPhoneMenu by remember { mutableStateOf(false) }
     // Picture-in-Picture: no chrome at all. The PiP tile is a thumbnail; the
@@ -910,7 +912,11 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
                     if (!wantController) view.hideController()
                 }
             },
-            modifier = Modifier.fillMaxSize(),
+            modifier = Modifier.fillMaxSize().onGloballyPositioned { c ->
+                val b = c.boundsInWindow()
+                PlaybackPresence.viewBounds.value = android.graphics.Rect(
+                    b.left.toInt(), b.top.toInt(), b.right.toInt(), b.bottom.toInt())
+            },
         )
 
         // Phone: a slim top bar that fades WITH the transport controls — back,
@@ -1122,7 +1128,7 @@ private fun PhonePlayerOptionsSheet(
     val scope = rememberCoroutineScope()
     val sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true)
     val autoplay by container.settings.autoplayNext.collectAsState(initial = false)
-    var speed by remember { mutableStateOf(player.playbackParameters.speed) }
+    var speed by remember { androidx.compose.runtime.mutableFloatStateOf(player.playbackParameters.speed) }
     var textOff by remember {
         mutableStateOf(player.trackSelectionParameters.disabledTrackTypes.contains(C.TRACK_TYPE_TEXT))
     }
@@ -1476,7 +1482,7 @@ private fun UpNextCard(
     onCancel: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    var seconds by remember(title) { mutableStateOf(8) }
+    var seconds by remember(title) { androidx.compose.runtime.mutableIntStateOf(8) }
     LaunchedEffect(title) {
         while (seconds > 0) { delay(1_000); seconds -= 1 }
         onPlay()

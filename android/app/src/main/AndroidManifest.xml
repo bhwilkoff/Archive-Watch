@@ -68,7 +68,8 @@
                 <action android:name="android.intent.action.VIEW"/>
                 <category android:name="android.intent.category.DEFAULT"/>
                 <category android:name="android.intent.category.BROWSABLE"/>
-                <data android:scheme="archivewatch" android:host="item"/>
+                <data android:scheme="archivewatch"/>
+                <data android:host="item"/>
                 <data android:host="surprise"/>
                 <data android:host="channels"/>
                 <data android:host="search"/>

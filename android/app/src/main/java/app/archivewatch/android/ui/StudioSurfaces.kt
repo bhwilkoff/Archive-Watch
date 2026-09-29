@@ -75,7 +75,7 @@ fun StudioReadout(health: StudioHealth, onOpenPanel: () -> Unit, onEnd: () -> Un
             Spacer(Modifier.width(10.dp))
             Text("${health.encodedFramesPerSecond} fps", color = Color.White, fontSize = 12.sp)
             Spacer(Modifier.width(10.dp))
-            Text(String.format("%.1f ms", health.averageRenderMillis),
+            Text(String.format(java.util.Locale.US, "%.1f ms", health.averageRenderMillis),
                  color = Color(0xFFBBBBBB), fontSize = 12.sp)
             Spacer(Modifier.width(10.dp))
             TextButton(onClick = onOpenPanel) { Text("Controls", fontSize = 12.sp) }
@@ -109,7 +109,7 @@ fun StudioPanel(health: StudioHealth, onDismiss: () -> Unit, onEnd: () -> Unit) 
             Spacer(Modifier.size(12.dp))
 
             Text("Program", fontWeight = FontWeight.SemiBold)
-            Text(String.format("%.1f ms per frame · %d fps encoded",
+            Text(String.format(java.util.Locale.US, "%.1f ms per frame · %d fps encoded",
                                health.averageRenderMillis, health.encodedFramesPerSecond))
             Text("${health.publisher.videoFramesDropped} dropped · " +
                  "film ${health.filmFramesPerSecond} fps")

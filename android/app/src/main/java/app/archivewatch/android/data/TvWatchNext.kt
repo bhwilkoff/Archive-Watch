@@ -6,6 +6,7 @@
 package app.archivewatch.android.data
 
 import android.content.ContentUris
+import androidx.core.net.toUri
 import android.annotation.SuppressLint
 import android.content.Context
 import android.net.Uri
@@ -45,8 +46,8 @@ object TvWatchNext {
                 .setLastEngagementTimeUtcMillis(System.currentTimeMillis())
                 .setLastPlaybackPositionMillis(positionMs.toInt())
                 .setDurationMillis(durationMs.toInt())
-                .setIntentUri(Uri.parse("archivewatch://item/$archiveID"))
-                .apply { posterURL?.let { setPosterArtUri(Uri.parse(it)) } }
+                .setIntentUri("archivewatch://item/$archiveID".toUri())
+                .apply { posterURL?.let { setPosterArtUri(it.toUri()) } }
                 .build()
             val existing = findRow(context, archiveID)
             if (existing != null) {

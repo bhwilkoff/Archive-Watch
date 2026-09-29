@@ -1,6 +1,7 @@
 package app.archivewatch.android.data
 
 import android.content.Context
+import androidx.core.content.edit
 import android.content.SharedPreferences
 import androidx.security.crypto.EncryptedSharedPreferences
 import androidx.security.crypto.MasterKey
@@ -43,17 +44,17 @@ class SubtitleAccountStore(context: Context) {
     suspend fun connect(username: String, password: String) {
         val s = OpenSubtitlesClient.login(username.trim(), password)
         session = s
-        prefs.edit()
-            .putString("username", username.trim())
-            .putString("password", password)
-            .putInt("quotaAllowed", s.quota?.allowed ?: 0)
-            .putInt("quotaRemaining", s.quota?.remaining ?: 0)
-            .apply()
+        prefs.edit {
+            putString("username", username.trim())
+            putString("password", password)
+            putInt("quotaAllowed", s.quota?.allowed ?: 0)
+            putInt("quotaRemaining", s.quota?.remaining ?: 0)
+        }
     }
 
     fun disconnect() {
         session = null
-        prefs.edit().clear().apply()
+        prefs.edit { clear() }
     }
 
     /** A fresh-enough token, re-logging in at most every ~20h (never per fetch). */
@@ -66,8 +67,10 @@ class SubtitleAccountStore(context: Context) {
         val s = OpenSubtitlesClient.login(u, p)
         session = s
         s.quota?.let {
-            prefs.edit().putInt("quotaAllowed", it.allowed)
-                .putInt("quotaRemaining", it.remaining).apply()
+            prefs.edit {
+                putInt("quotaAllowed", it.allowed)
+                putInt("quotaRemaining", it.remaining)
+            }
         }
         return s.token
     }

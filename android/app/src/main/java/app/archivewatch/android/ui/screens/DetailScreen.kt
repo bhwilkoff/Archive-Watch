@@ -1,6 +1,7 @@
 package app.archivewatch.android.ui.screens
 
 import app.archivewatch.android.data.ArchiveVersions
+import androidx.core.net.toUri
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.semantics.contentDescription
 import android.content.Intent
@@ -440,7 +441,7 @@ fun DetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
                                 context.startActivity(
                                     Intent(
                                         Intent.ACTION_VIEW,
-                                        android.net.Uri.parse("https://archive.org/details/" + current.archiveID),
+                                        ("https://archive.org/details/" + current.archiveID).toUri(),
                                     ),
                                 )
                             },
@@ -453,9 +454,7 @@ fun DetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
                                     context.startActivity(
                                         Intent(
                                             Intent.ACTION_VIEW,
-                                            android.net.Uri.parse(
-                                                app.archivewatch.android.data.FilmProblem.url(current.archiveID, television = false),
-                                            ),
+                                            app.archivewatch.android.data.FilmProblem.url(current.archiveID, television = false).toUri(),
                                         ),
                                     )
                                 },

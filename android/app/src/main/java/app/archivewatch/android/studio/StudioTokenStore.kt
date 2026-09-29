@@ -24,6 +24,7 @@ package app.archivewatch.android.studio
 //     session.
 
 import android.content.Context
+import androidx.core.content.edit
 import android.content.SharedPreferences
 import androidx.security.crypto.EncryptedSharedPreferences
 import androidx.security.crypto.MasterKey
@@ -68,7 +69,8 @@ object StudioTokenStore {
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
             context.deleteSharedPreferences(FILE)
         } else {
-            context.getSharedPreferences(FILE, Context.MODE_PRIVATE).edit().clear().commit()
+            // commit, not apply: the store is reopened on the next line and must be empty.
+            context.getSharedPreferences(FILE, Context.MODE_PRIVATE).edit(commit = true) { clear() }
         }
         open(context)
     }
@@ -86,6 +88,8 @@ object StudioTokenStore {
             .put("access", token.access)
             .put("refresh", token.refresh ?: JSONObject.NULL)
             .put("expires", token.expiresAtMillis ?: JSONObject.NULL)
+        // commit's Boolean is the answer: a one-time refresh token that did not land is lost.
+        @Suppress("UseKtx")
         prefs(context).edit().putString(platform, o.toString()).commit()
     }.getOrDefault(false)
 
@@ -100,7 +104,7 @@ object StudioTokenStore {
     }.getOrNull()
 
     fun clear(context: Context, platform: String) {
-        runCatching { prefs(context).edit().remove(platform).commit() }
+        runCatching { prefs(context).edit(commit = true) { remove(platform) } }
     }
 
     fun isSignedIn(context: Context, platform: String): Boolean = load(context, platform) != null

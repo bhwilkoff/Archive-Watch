@@ -8,6 +8,7 @@ package app.archivewatch.android.ui
 // offered.
 
 import android.graphics.Bitmap
+import androidx.core.net.toUri
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -147,7 +148,7 @@ fun StudioSignIn(
                                 runCatching {
                                     context.startActivity(
                                         android.content.Intent(android.content.Intent.ACTION_VIEW,
-                                            android.net.Uri.parse(p.verificationUri)))
+                                            p.verificationUri.toUri()))
                                 }
                             }) { Text("Open ${shortHost(p.verificationUri)}") }
                             Text("If it asks, enter:", style = MaterialTheme.typography.bodyMedium)

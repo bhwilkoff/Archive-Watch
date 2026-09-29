@@ -1,6 +1,7 @@
 package app.archivewatch.android.ui.screens
 
 import android.content.Intent
+import androidx.core.net.toUri
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -325,7 +326,7 @@ fun SettingsScreen(container: AppContainer, nav: Nav) {
                             // donate link must never take the app down.
                             runCatching {
                                 context.startActivity(
-                                    Intent(Intent.ACTION_VIEW, Uri.parse(DONATE_URL)),
+                                    Intent(Intent.ACTION_VIEW, DONATE_URL.toUri()),
                                 )
                             }
                         }

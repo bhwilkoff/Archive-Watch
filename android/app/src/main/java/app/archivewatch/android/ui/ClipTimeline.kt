@@ -96,6 +96,7 @@ internal class ClipTimelineView(context: Context) : View(context) {
 
     private val accent = Color.rgb(255, 92, 53)  // brand marquee orange
     private val tilePaint = Paint(Paint.FILTER_BITMAP_FLAG)
+    private val tileDst = RectF()   // reused by every tile, every frame
     private val emptyTilePaint = Paint().apply { color = Color.rgb(28, 28, 28) }
     private val bandFill = Paint().apply { color = (accent and 0x00FFFFFF) or (46 shl 24) }
     private val bandStroke = Paint(Paint.ANTI_ALIAS_FLAG).apply {
@@ -262,13 +263,12 @@ internal class ClipTimelineView(context: Context) : View(context) {
             val left = i * tileW - offsetX
             val right = left + tileW + 1
             if (right < 0 || left > width) continue
-            val dst = RectF(left, top, right, bottom)
             val bmp = thumbnails.getOrNull(i)
             if (bmp != null) {
-                val src = Rect(0, 0, bmp.width, bmp.height)
-                canvas.drawBitmap(bmp, src, dst, tilePaint)
+                tileDst.set(left, top, right, bottom)
+                canvas.drawBitmap(bmp, null, tileDst, tilePaint)
             } else {
-                canvas.drawRect(dst, emptyTilePaint)
+                canvas.drawRect(left, top, right, bottom, emptyTilePaint)
             }
         }
 
@@ -281,7 +281,7 @@ internal class ClipTimelineView(context: Context) : View(context) {
         // Selection band.
         canvas.drawRect(inX, top, outX, bottom, bandFill)
         val r = dp(6f)
-        canvas.drawRoundRect(RectF(inX, top - dp(2f), outX, bottom + dp(2f)), r, r, bandStroke)
+        canvas.drawRoundRect(inX, top - dp(2f), outX, bottom + dp(2f), r, r, bandStroke)
 
         // Handles + grips.
         drawHandle(canvas, inX, top, bottom)
@@ -289,12 +289,10 @@ internal class ClipTimelineView(context: Context) : View(context) {
 
         // Fixed center playhead (subtle dark halo for contrast over bright frames).
         val cx = width / 2f
-        canvas.drawRoundRect(
-            RectF(cx - dp(2.5f), dp(2f), cx + dp(2.5f), height - dp(2f)),
+        canvas.drawRoundRect(cx - dp(2.5f), dp(2f), cx + dp(2.5f), height - dp(2f),
             dp(2.5f), dp(2.5f), playheadHaloPaint,
         )
-        canvas.drawRoundRect(
-            RectF(cx - dp(1.5f), dp(2f), cx + dp(1.5f), height - dp(2f)),
+        canvas.drawRoundRect(cx - dp(1.5f), dp(2f), cx + dp(1.5f), height - dp(2f),
             dp(1.5f), dp(1.5f), playheadPaint,
         )
     }
@@ -302,11 +300,9 @@ internal class ClipTimelineView(context: Context) : View(context) {
     private fun drawHandle(canvas: Canvas, x: Float, top: Float, bottom: Float) {
         val hw = handleW
         val r = dp(5f)
-        canvas.drawRoundRect(
-            RectF(x - hw / 2, top - dp(4f), x + hw / 2, bottom + dp(4f)), r, r, handlePaint,
+        canvas.drawRoundRect(x - hw / 2, top - dp(4f), x + hw / 2, bottom + dp(4f), r, r, handlePaint,
         )
-        canvas.drawRoundRect(
-            RectF(x - dp(1f), (top + bottom) / 2 - dp(11f), x + dp(1f), (top + bottom) / 2 + dp(11f)),
+        canvas.drawRoundRect(x - dp(1f), (top + bottom) / 2 - dp(11f), x + dp(1f), (top + bottom) / 2 + dp(11f),
             dp(1f), dp(1f), gripPaint,
         )
     }

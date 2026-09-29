@@ -1,6 +1,8 @@
 package app.archivewatch.android.widgets
 
 import android.content.Context
+import androidx.core.graphics.scale
+import androidx.core.net.toUri
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
@@ -47,14 +49,14 @@ import java.util.Calendar
 private val http = OkHttpClient()
 
 private fun deepLink(context: Context, uri: String): Intent =
-    Intent(Intent.ACTION_VIEW, Uri.parse(uri)).setPackage(context.packageName)
+    Intent(Intent.ACTION_VIEW, uri.toUri()).setPackage(context.packageName)
 
 private fun fetchPoster(url: String?): Bitmap? = url?.let {
     runCatching {
         http.newCall(Request.Builder().url(it).build()).execute().use { r ->
             r.body?.bytes()?.let { b ->
                 BitmapFactory.decodeByteArray(b, 0, b.size)
-                    ?.let { bm -> Bitmap.createScaledBitmap(bm, 300, 450, true) }
+                    ?.let { bm -> bm.scale(300, 450) }
             }
         }
     }.getOrNull()

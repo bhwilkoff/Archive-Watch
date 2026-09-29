@@ -1,6 +1,8 @@
 package app.archivewatch.android
 
 import android.app.PictureInPictureParams
+import kotlinx.coroutines.launch
+import androidx.lifecycle.lifecycleScope
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
@@ -43,6 +45,26 @@ class MainActivity : ComponentActivity() {
         // Skipped on TV: a television is a Cast receiver, not a sender.
         if (!isTv) CastSupport.initialize(applicationContext)
 
+        // Android 12+: the system enters PiP itself as the viewer swipes home,
+        // animating from the video — onUserLeaveHint is too late for that.
+        if (!isTv && android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.S &&
+            packageManager.hasSystemFeature(PackageManager.FEATURE_PICTURE_IN_PICTURE)) {
+            lifecycleScope.launch {
+                kotlinx.coroutines.flow.combine(
+                    PlaybackPresence.active, PlaybackPresence.aspect, PlaybackPresence.viewBounds,
+                ) { a, _, v -> a to v }
+                    .collect { (playing, view) ->
+                        runCatching {
+                            val b = PictureInPictureParams.Builder()
+                                .setAspectRatio(pipAspect())
+                                .setAutoEnterEnabled(playing)
+                            filmRect(view)?.let { b.setSourceRectHint(it) }
+                            setPictureInPictureParams(b.build())
+                        }
+                    }
+            }
+        }
+
         setContent {
             ArchiveWatchTheme {
                 CompositionLocalProvider(LocalIsTelevision provides isTv) {
@@ -77,16 +99,32 @@ class MainActivity : ComponentActivity() {
         if (isTelevision()) return
         // PictureInPictureParams is API 26; the Fire TV flavor installs from 23.
         if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.O) return
+        // From Android 12 the system has already entered it (auto-enter, onCreate).
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.S) return
         if (!packageManager.hasSystemFeature(PackageManager.FEATURE_PICTURE_IN_PICTURE)) return
+        runCatching {
+            enterPictureInPictureMode(PictureInPictureParams.Builder().setAspectRatio(pipAspect()).build())
+        }
+    }
+
+    /** Where the film sits inside the player view (fitted, centered), so the
+     *  PiP window grows out of the picture rather than the letterbox. */
+    private fun filmRect(view: android.graphics.Rect?): android.graphics.Rect? {
+        if (view == null || view.isEmpty) return null
+        val ar = pipAspect().toFloat()
+        val vw = view.width().toFloat(); val vh = view.height().toFloat()
+        val (w, h) = if (vw / vh > ar) (vh * ar) to vh else vw to (vw / ar)
+        val l = view.left + ((vw - w) / 2).toInt(); val t = view.top + ((vh - h) / 2).toInt()
+        return android.graphics.Rect(l, t, l + w.toInt(), t + h.toInt())
+    }
+
+    /** Android rejects PiP aspect ratios outside [1:2.39 .. 2.39:1]; anything out
+     *  of range (or an unknown video size) falls back to 16:9. */
+    private fun pipAspect(): Rational {
         val w = PlaybackPresence.aspectWidth
         val h = PlaybackPresence.aspectHeight
-        // Android rejects PiP aspect ratios outside [1:2.39 .. 2.39:1]; fall back
-        // to 16:9 for anything out of range (or an unknown video size).
         val ratio = if (h > 0) w.toFloat() / h else 0f
-        val ar = if (ratio in 0.42f..2.39f) Rational(w, h) else Rational(16, 9)
-        runCatching {
-            enterPictureInPictureMode(PictureInPictureParams.Builder().setAspectRatio(ar).build())
-        }
+        return if (ratio in 0.42f..2.39f) Rational(w, h) else Rational(16, 9)
     }
 
     /** archivewatch://item/{id} (same scheme as tvOS/iOS) and verified App

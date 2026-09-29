@@ -467,8 +467,8 @@ private fun EditingPhase(
         Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
             Text(timecode(playhead), style = MaterialTheme.typography.labelMedium, color = Color.White)
             Text(
-                if (speed == ClipSpeed.ONE) String.format("Clip %.1fs", clipDuration)
-                else String.format("Clip %.1fs→%.1fs", clipDuration, outputDuration),
+                if (speed == ClipSpeed.ONE) String.format(java.util.Locale.US, "Clip %.1fs", clipDuration)
+                else String.format(java.util.Locale.US, "Clip %.1fs→%.1fs", clipDuration, outputDuration),
                 style = MaterialTheme.typography.labelMedium,
                 fontWeight = FontWeight.Bold,
                 color = MaterialTheme.colorScheme.primary,
@@ -496,13 +496,6 @@ private fun EditingPhase(
             OutlinedButton(onClick = onSetStart, modifier = Modifier.weight(1f)) { Text("Set Start") }
             OutlinedButton(onClick = onSetEnd, modifier = Modifier.weight(1f)) { Text("Set End") }
         }
-        Text(
-            "Drag the filmstrip to scrub · pinch to zoom · mark Set Start/End at the playhead, or drag the handles.",
-            style = MaterialTheme.typography.labelSmall,
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
-            textAlign = TextAlign.Center,
-            modifier = Modifier.fillMaxWidth(),
-        )
 
         // Frame (aspect) picker.
         LabeledSection("Frame") {
@@ -902,5 +895,5 @@ private fun shareClip(context: Context, file: File) {
 
 private fun timecode(s: Double): String {
     val total = s.toInt()
-    return String.format("%d:%02d", total / 60, total % 60)
+    return String.format(java.util.Locale.US, "%d:%02d", total / 60, total % 60)
 }

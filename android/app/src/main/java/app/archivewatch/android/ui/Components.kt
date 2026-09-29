@@ -121,9 +121,9 @@ fun PosterTitleCard(item: CatalogItem, modifier: Modifier = Modifier) {
 @Composable
 fun BackdropImage(
     url: String?,
+    modifier: Modifier = Modifier,
     contentDescription: String? = null,
     accent: Color = Color(0xFFFF5C35),
-    modifier: Modifier = Modifier,
     /** True when the image is a POSTER standing in for a backdrop. A 2:3
      *  poster crop-filled into a ~2.4:1 box is a pixelated slice of its middle
      *  (the Roku Detail lesson, 2026-09-04, and the Fire TV report before it).

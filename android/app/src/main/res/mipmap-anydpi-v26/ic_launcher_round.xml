@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+<!-- No monochrome layer: a themed icon is a one-color silhouette, and the
+     icon is the photograph and nothing else (owner rule), so a themed launcher
+     shows the photograph. -->
+<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MonochromeLauncherIcon">
     <!-- The brand icon is the photographic 1902 Méliès still (the ONLY
          icon — the illustrated vector was retired 2026-06-11). Full-bleed
          bitmap foreground; the moon sits inside the safe zone. -->

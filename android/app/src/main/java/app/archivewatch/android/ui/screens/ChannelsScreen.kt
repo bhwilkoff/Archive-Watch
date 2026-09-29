@@ -56,7 +56,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.clipToBounds
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
@@ -101,7 +100,7 @@ fun ChannelsScreen(container: AppContainer, nav: Nav) {
     val userChanges by container.userState.changes.collectAsState()
     var windowStartMs by remember { mutableStateOf<Long?>(null) }   // null = live
     var showCreate by remember { mutableStateOf(false) }
-    var retry by remember { mutableStateOf(0) }
+    var retry by remember { androidx.compose.runtime.mutableIntStateOf(0) }
     // The first slot the published schedule carries: the guide cannot shift
     // earlier than the timeline it has. Null = no schedule, so the preset
     // rows are replaced by a Retry row.
@@ -181,7 +180,9 @@ fun ChannelsScreen(container: AppContainer, nav: Nav) {
         val fmt = rememberTimeFormat()
 
         val nowMs = System.currentTimeMillis()
-        val isCompact = LocalConfiguration.current.screenWidthDp < 600
+        val isCompact = with(androidx.compose.ui.platform.LocalDensity.current) {
+            androidx.compose.ui.platform.LocalWindowInfo.current.containerSize.width.toDp()
+        } < 600.dp
         val windowMinutes = if (isCompact) 120 else 180
         val start = windowStartMs ?: nowMs
         val endMs = start + windowMinutes * 60_000L

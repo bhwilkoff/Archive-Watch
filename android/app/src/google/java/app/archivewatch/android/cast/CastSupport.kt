@@ -29,6 +29,9 @@ object CastSupport {
 
     const val IS_SUPPORTED: Boolean = true
 
+    // CastContext is the Cast SDK's own process-wide singleton (built from the
+    // application context); holding it here leaks nothing.
+    @android.annotation.SuppressLint("StaticFieldLeak")
     @Volatile
     private var context: CastContext? = null
 

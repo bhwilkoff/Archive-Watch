@@ -1,6 +1,7 @@
 package app.archivewatch.android.sync
 
 import android.app.Activity
+import androidx.core.content.edit
 import android.app.Application
 import android.content.Context
 import android.content.Intent
@@ -173,13 +174,13 @@ object DriveSync {
             return
         }
         accessToken = token
-        prefs?.edit()?.putBoolean("on", true)?.apply()
+        prefs?.edit { putBoolean("on", true) }
         _status.value = _status.value.copy(signedIn = true, lastError = null)
         syncNow()
     }
 
     fun signOut() {
-        prefs?.edit()?.clear()?.apply()
+        prefs?.edit { clear() }
         accessToken = null
         _status.value = Status()
     }
@@ -227,7 +228,7 @@ object DriveSync {
                     ?: throw IllegalStateException("Sign in again to continue syncing.")
                 accessToken = token
                 if (_status.value.account == null) whoAmI(token)?.let { email ->
-                    prefs?.edit()?.putString("account", email)?.apply()
+                    prefs?.edit { putString("account", email) }
                     _status.value = _status.value.copy(account = email)
                 }
                 val fileId = findFile(token)
@@ -235,7 +236,7 @@ object DriveSync {
                 val merged = merge(cloud, userState)
                 push(token, fileId, merged)
                 val now = System.currentTimeMillis()
-                prefs?.edit()?.putLong("at", now)?.apply()
+                prefs?.edit { putLong("at", now) }
                 _status.value = _status.value.copy(lastSyncAt = now, lastError = null)
                 true
             }.getOrElse { e ->

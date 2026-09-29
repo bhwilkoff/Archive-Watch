@@ -173,8 +173,8 @@ fun TvActionPill(
 fun TvPosterGrid(
     rows: List<CatalogItem>,
     onClick: (CatalogItem) -> Unit,
-    railFocus: FocusRequester? = null,
     modifier: Modifier = Modifier,
+    railFocus: FocusRequester? = null,
     /** Called as the last rows compose, for a grid that pages. */
     onNearEnd: (() -> Unit)? = null,
 ) {

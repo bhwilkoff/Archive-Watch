@@ -1,6 +1,9 @@
 package app.archivewatch.android.data
 
 import android.content.Context
+import androidx.core.graphics.scale
+import androidx.core.graphics.createBitmap
+import androidx.core.net.toUri
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Color
@@ -364,12 +367,7 @@ class ClipExporter(
                 val tUs = (durationSeconds * (i + 0.5) / count * 1_000_000).toLong()
                 val frame = retriever.getFrameAtTime(tUs, MediaMetadataRetriever.OPTION_CLOSEST_SYNC)
                 if (frame != null) {
-                    val scaled = Bitmap.createScaledBitmap(
-                        frame,
-                        160,
-                        (160 * frame.height / frame.width).coerceAtLeast(1),
-                        true,
-                    )
+                    val scaled = frame.scale(160, (160 * frame.height / frame.width).coerceAtLeast(1))
                     withContext(Dispatchers.Main) { onFrame(i, scaled) }
                 }
             }
@@ -401,7 +399,7 @@ class ClipExporter(
         val endMs = ((spec.inSeconds + spec.durationSeconds) * 1000).toLong()
 
         val mediaItem = MediaItem.Builder()
-            .setUri(Uri.parse(spec.sourceURL))
+            .setUri(spec.sourceURL.toUri())
             .setClippingConfiguration(
                 MediaItem.ClippingConfiguration.Builder()
                     .setStartPositionMs(startMs)
@@ -569,7 +567,7 @@ class ClipExporter(
         credit: String,
         style: CaptionStyle,
     ): Bitmap {
-        val bmp = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888)
+        val bmp = createBitmap(w, h)
         val canvas = Canvas(bmp)
 
         // Provenance credit — small, bottom-centered, always present.

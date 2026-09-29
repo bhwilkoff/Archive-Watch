@@ -67,11 +67,15 @@ class StudioBroadcastService : Service() {
             .build()
         // ONLY the types whose permission is granted: Android 14 refuses to
         // start a camera-type service without CAMERA, and throws.
+        // The camera and microphone types exist from Android 11, the first
+        // release that limits either to a typed service.
         var types = 0
-        if (granted(Manifest.permission.CAMERA)) types = types or ServiceInfo.FOREGROUND_SERVICE_TYPE_CAMERA
-        if (granted(Manifest.permission.RECORD_AUDIO)) types = types or ServiceInfo.FOREGROUND_SERVICE_TYPE_MICROPHONE
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            if (granted(Manifest.permission.CAMERA)) types = types or ServiceInfo.FOREGROUND_SERVICE_TYPE_CAMERA
+            if (granted(Manifest.permission.RECORD_AUDIO)) types = types or ServiceInfo.FOREGROUND_SERVICE_TYPE_MICROPHONE
+        }
         try {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q && types != 0) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R && types != 0) {
                 startForeground(NOTIFICATION_ID, n, types)
             } else {
                 startForeground(NOTIFICATION_ID, n)

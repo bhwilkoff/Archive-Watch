@@ -11,6 +11,8 @@ package app.archivewatch.android.studio
 // shows, and the reason a viewer can tell why this film is free to watch.
 
 import android.graphics.Bitmap
+import androidx.core.graphics.createBitmap
+import androidx.core.graphics.toColorInt
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
@@ -66,7 +68,7 @@ object StudioOverlayBitmap {
         var y = bottom
         val lineH = textSize * 1.35f
         for (line in chat.asReversed()) {
-            authorPaint.color = if (line.isEvent) Color.parseColor(MARQUEE)
+            authorPaint.color = if (line.isEvent) MARQUEE.toColorInt()
                                 else Color.rgb(115, 158, 255)
             val authorText = line.author + "  "
             val authorW = authorPaint.measureText(authorText)
@@ -145,9 +147,9 @@ object StudioOverlayBitmap {
      * and a 1080p programme look the same.
      */
     fun card(width: Int, height: Int, card: StudioCard, film: String): Bitmap {
-        val bmp = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
+        val bmp = createBitmap(width, height)
         val c = Canvas(bmp)
-        c.drawColor(Color.parseColor("#0A0A0A"))          // the card owns the frame
+        c.drawColor("#0A0A0A".toColorInt())          // the card owns the frame
         val scale = height / 1080f
 
         fun paint(size: Float, bold: Boolean, colour: Int, tracking: Float = 0f) = Paint().apply {
@@ -159,10 +161,10 @@ object StudioOverlayBitmap {
             letterSpacing = tracking
         }
 
-        val markPaint = paint(26f, true, Color.parseColor(MARQUEE), 0.18f)
+        val markPaint = paint(26f, true, MARQUEE.toColorInt(), 0.18f)
         val headPaint = paint(96f, true, Color.WHITE)
-        val filmPaint = paint(44f, false, Color.parseColor("#F2F2F2"))
-        val detPaint = paint(40f, false, Color.parseColor("#B8B8B8"))
+        val filmPaint = paint(44f, false, "#F2F2F2".toColorInt())
+        val detPaint = paint(40f, false, "#B8B8B8".toColorInt())
 
         val gap = 34f * scale
         val ruleGap = 22f * scale
@@ -177,7 +179,7 @@ object StudioOverlayBitmap {
         c.drawText("ARCHIVE WATCH", cx - markPaint.measureText("ARCHIVE WATCH") / 2f, y, markPaint)
         y += ruleGap
         c.drawRect(cx - 40f * scale, y, cx + 40f * scale, y + 3f * scale,
-                   Paint().apply { color = Color.parseColor(MARQUEE) })
+                   Paint().apply { color = MARQUEE.toColorInt() })
         y += 3f * scale + gap + 96f * scale
         c.drawText(card.headline, cx - headPaint.measureText(card.headline) / 2f, y, headPaint)
         if (showsFilm) {
@@ -191,7 +193,7 @@ object StudioOverlayBitmap {
 
     fun lowerThird(width: Int, height: Int,
                    title: String, subtitle: String, provenance: String?): Bitmap {
-        val bmp = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
+        val bmp = createBitmap(width, height)
         val c = Canvas(bmp)
 
         // Everything is sized from the frame height, so 720p and 1080p give
@@ -210,7 +212,7 @@ object StudioOverlayBitmap {
             textSize = unit * 1.6f
         }
         val provenancePaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-            color = Color.parseColor(MARQUEE)
+            color = MARQUEE.toColorInt()
             textSize = unit * 1.25f
             typeface = Typeface.create(Typeface.DEFAULT, Typeface.BOLD)
         }
@@ -229,7 +231,7 @@ object StudioOverlayBitmap {
         // The marquee rule, left of the text — the same device the Apple
         // lower third uses.
         c.drawRect(left - unit, blockTop - unit * 0.2f, left - unit * 0.7f, baseY + unit * 0.4f,
-                   Paint().apply { color = Color.parseColor(MARQUEE) })
+                   Paint().apply { color = MARQUEE.toColorInt() })
 
         var y = blockTop + unit * 1.6f
         c.drawText(title, left, y, titlePaint)

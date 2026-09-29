@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<lint>
+    <!-- The only density-specific bitmap is the Android TV launcher banner,
+         which Android TV specifies at xhdpi (320x180) and nothing else. -->
+    <issue id="IconMissingDensityFolder" severity="ignore" />
+</lint>
