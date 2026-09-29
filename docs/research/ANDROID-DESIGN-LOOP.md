@@ -139,9 +139,14 @@ Harness:
   titles start lower-case, most of them an upload's id ("thegreatestquestion",
   "md45465423", "von Sternberg, Josef" for Der blaue Engel): a catalog
   cleanup, logged here, to be done in the pipeline.
-- P. A channel program with minutes left (or a short cartoon) is drawn as a
-  sliver whose title wraps a letter a line: "I • 1" on the Google TV,
-  "P A ' T" in Cartoon Classics on the Pixel.
+- P. ✅ v1.42.947 A channel program with minutes left (or a short cartoon) was
+  a sliver whose title wrapped a letter a line ("I • 1" on the Google TV,
+  "P A ' T" in Cartoon Classics on the Pixel). Under 110 dp (TV) or 72 dp
+  (phone) a block now shows no text, as tvOS does since v1.42.852. Two more
+  on the way: the TV guide row was 64 dp while its blocks asked for 84, so a
+  two-line title ran into its time; and a block's color was painted outside
+  its focus layer (inset under the ring, the Silent Era tile's mistake). Seen
+  on both devices.
 - R. ✅ v1.42.943 "Autoplay next" was read by NOTHING that plays: the switch
   in Settings and both options panels wrote a preference no player consulted.
   Now a film chosen by the viewer that ends with it on shows an Up Next card

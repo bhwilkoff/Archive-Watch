@@ -353,7 +353,7 @@ private fun ChannelGuideRow(channel: GuideChannel, startMs: Long, endMs: Long,
         // so a plain tap doesn't read as a broken button.
         val railInteraction = remember { MutableInteractionSource() }
         Column(
-            Modifier.width(railW).height(64.dp)
+            Modifier.width(railW).height(if (isTv) 84.dp else 64.dp)
                 .then(if (onDelete != null) {
                     Modifier.combinedClickable(
                         interactionSource = railInteraction,
@@ -404,14 +404,15 @@ private fun ChannelGuideRow(channel: GuideChannel, startMs: Long, endMs: Long,
                     ?: visible.firstOrNull()
                 visible.forEach { slot ->
                     val airing = slot.contains(nowMs)
+                    androidx.compose.foundation.layout.BoxWithConstraints(propagateMinConstraints = true) {
+                    // A block too narrow for its title shows none (tvOS-DESIGN,
+                    // v1.42.852): a sliver had wrapped a title a letter a line
+                    // ("I · 1", "P A ' T"). Not even when focused: at 24 dp the
+                    // title would wrap the same way.
+                    val roomForText = maxWidth >= (if (isTv) 110.dp else 72.dp)
                     Column(
                         Modifier
                             .height(if (isTv) 84.dp else 64.dp)
-                            .clip(RoundedCornerShape(8.dp))
-                            .background(
-                                if (airing) accent
-                                else MaterialTheme.colorScheme.surfaceVariant,
-                            )
                             // `clickable` alone gives NO D-pad focus, so on a TV
                             // the entire guide was unreachable by remote — every
                             // press fell through to the nav rail (a TV-DP
@@ -433,8 +434,17 @@ private fun ChannelGuideRow(channel: GuideChannel, startMs: Long, endMs: Long,
                                     Modifier.clickable { scope.launch { onTune(slot) } }
                                 },
                             )
+                            // Painted INSIDE the focus layer, as on TvPosterTile:
+                            // outside it the focused block's color sat inset
+                            // under its ring.
+                            .clip(RoundedCornerShape(8.dp))
+                            .background(
+                                if (airing) accent
+                                else MaterialTheme.colorScheme.surfaceVariant,
+                            )
                             .padding(horizontal = if (isTv) 10.dp else 6.dp, vertical = 5.dp),
                     ) {
+                        if (roomForText) {
                         Text(
                             slot.item.title,
                             style = MaterialTheme.typography.labelMedium,
@@ -452,10 +462,14 @@ private fun ChannelGuideRow(channel: GuideChannel, startMs: Long, endMs: Long,
                             color = if (airing) Color.White.copy(alpha = 0.85f)
                                     else MaterialTheme.colorScheme.onSurfaceVariant,
                         )
+                        }
+                    }
                     }
                 }
             },
-            modifier = Modifier.weight(1f).height(64.dp).clipToBounds(),
+            // The blocks' own height: at 64 dp a TV block (84) was squeezed and
+            // a two-line title ran into its time.
+            modifier = Modifier.weight(1f).height(if (isTv) 84.dp else 64.dp).clipToBounds(),
         ) { measurables, constraints ->
             val totalW = constraints.maxWidth
             val pxPerMin = totalW.toFloat() / windowMinutes
