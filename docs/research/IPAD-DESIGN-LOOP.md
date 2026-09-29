@@ -293,6 +293,13 @@ channel-surf ↑/↓ (three routes failed; control first),  Spotlight indexing (
   Classic TV channel carries Monty Python's Flying Circus and Rumpole of the
   Bailey (1978-); the Documentary channel carries Triumph des Willens (the
   Decision 149 flag removes it from channels at the next publish).
+  **Checked 2026-09-28 (v1.42.919)**: Monty Python (1969-74) stays by the
+  1964-77 keep band. Rumpole was never television to the TV audit: one catalog
+  item (tv-special) holding all 43 Thames episodes, 1978-1992, dated 1975 by
+  its uploader (the earlier BBC play's year), so it sat in the keep band.
+  year_corrections.json now says 1978 (S01E01 aired 3 April 1978); the audit
+  then reads modern_copyright_unconfirmed -> confirm, and the nightly confirm
+  hides it (no licenseurl).
 
 ## Queue
 
