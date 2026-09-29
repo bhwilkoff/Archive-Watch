@@ -130,27 +130,10 @@ struct DetailView: View {
                 // has every reason to want a lighter transfer.
                 if item.videoURLParsed != nil {
                     Menu {
-                        if StudioRoomCopy.isActive(for: item.archiveID) {
-                            Text("In a Watch Together room, the host chooses the copy.")
-                        } else if versions.isEmpty {
-                            Text(loadingVersions ? "Loading…" : "No other copies")
-                        } else {
-                            ForEach(versions) { v in
-                                Button {
-                                    ArchiveVersions.choose(v, for: item.archiveID)
-                                    chosenVersionName = v.choiceKey
-                                } label: {
-                                    Label(v.label, systemImage:
-                                        ArchiveVersions.isPlaying(v, chosen: chosenVersionName,
-                                                  defaultURL: item.videoURLParsed)
-                            ? "checkmark.circle.fill" : "circle")
-                                }
-                            }
-                            Button(role: .destructive) {
-                                ArchiveVersions.choose(nil, for: item.archiveID)
-                                chosenVersionName = nil
-                            } label: { Label("Use the Default Copy", systemImage: "arrow.uturn.backward") }
-                        }
+                        VersionMenuContents(archiveID: item.archiveID,
+                                            defaultURL: item.videoURLParsed,
+                                            versions: versions, loading: loadingVersions,
+                                            chosenName: $chosenVersionName)
                     } label: {
                         Label("Choose Version", systemImage: "rectangle.stack")
                     }
