@@ -216,6 +216,11 @@ struct ArchiveWatchMacApp: App {
             if let item = store.randomFeatureFilm() { router.openDetail(item) }
             return
         }
+        // archivewatch://play/{id}: a widget's Continue Watching tile.
+        if host == "play", let first = parts.first, let item = store.item(first) {
+            router.play(item)
+            return
+        }
         // archivewatch://item/{id}  or  https://archivewatch.org/item/{id}
         var id: String?
         if let i = parts.firstIndex(of: "item"), i + 1 < parts.count { id = parts[i + 1] }

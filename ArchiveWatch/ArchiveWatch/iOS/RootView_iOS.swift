@@ -463,7 +463,7 @@ struct RootView: View {
             RoomJoin_iOS.shared.pendingFilm = item.archiveID
             router.tab = .home
             router.openDetail(item)
-        case .openItem(let id):
+        case .openItem(let id), .playItem(let id):
             guard let item = store.item(id) else {
                 // Not resolvable yet — keep the request for the next catalog
                 // swap rather than consuming it into nothing. A film that is
@@ -475,6 +475,8 @@ struct RootView: View {
             if item.contentType == "tv-series" {
                 router.push(SeriesRef(card: item))
             } else {
+                // Detail starts it (the hand-off Play a Surprise Film uses).
+                if case .playItem = request { router.autoplayItemID = item.archiveID }
                 router.openDetail(item)
             }
         }

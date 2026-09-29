@@ -18,6 +18,7 @@ final class IntentInbox {
         case randomFilm        // open a random playable film
         case randomCategory    // jump to Browse
         case openItem(String)  // open a specific title (deep link / widget)
+        case playItem(String)  // open AND play (a widget's Continue Watching tile)
         case openSharedList(PlaylistShare.Shared)   // a playlist someone sent as a link
         case joinRoom(code: String, film: String)   // a Watch Together room link (SHAREPLAY §11)
     }
@@ -42,6 +43,11 @@ final class IntentInbox {
         return film.isEmpty ? nil : .joinRoom(code: code, film: film)
     }
 
+    private static func id(_ url: URL) -> String? {
+        let c = url.lastPathComponent
+        return (c.isEmpty || c == "/") ? nil : c
+    }
+
     /// Parse an `archivewatch://` deep link into a request.
     static func request(for url: URL) -> Request? {
         // A SHARED PLAYLIST FIRST, and before the scheme guard on purpose: it
@@ -52,8 +58,12 @@ final class IntentInbox {
         if let room = room(from: url) { return room }
         guard url.scheme == "archivewatch" else { return nil }
         switch url.host {
-        case "item":           let id = url.lastPathComponent
-                               return id.isEmpty ? nil : .openItem(id)
+        // `lastPathComponent` of a bare "archivewatch://item/" is "/", so an
+        // id-less link parsed as the film named "/" (fixed on tvOS first).
+        // `play` is what the widgets' Continue Watching tiles emit; it had no
+        // route here, so a tapped tile opened the app and nothing else.
+        case "item":           return id(url).map { .openItem($0) }
+        case "play":           return id(url).map { .playItem($0) }
         case "surprise":       return .surprise
         case "random":         return .randomFilm
         case "randomcategory": return .randomCategory
