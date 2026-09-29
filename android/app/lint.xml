@@ -3,4 +3,9 @@
     <!-- The only density-specific bitmap is the Android TV launcher banner,
          which Android TV specifies at xhdpi (320x180) and nothing else. -->
     <issue id="IconMissingDensityFolder" severity="ignore" />
+    <!-- Held on purpose: material3 1.5.0-alpha20+ and play-services-auth 22+
+         require minSdk 24, and Decision 141 holds the floor at 23 (Android 6). -->
+    <issue id="GradleDependency">
+        <ignore regexp="androidx.compose.material3:material3 |play-services-auth" />
+    </issue>
 </lint>

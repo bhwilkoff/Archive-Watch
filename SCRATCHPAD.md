@@ -762,9 +762,13 @@ keypad ran off the screen; TV Search broke titles mid-word and opened scrolled.
 a reason), the @handle rule, inverted sort titles, and cleared-match animation
 typing (5 live-action films left Cartoon Mode).
 
-**Open for the owner**: Remove-from-history (my Pixel test entries synced to
-Drive); two mature-content titles; the "Public Domain" clip credit on presumed
-titles; YouTube sign-in on Android (a Google client, after the quota review).
+**Owner answers, built the same day**: Remove from history on every platform
+(`wp:` tombstones, v1.42.975); mature titles marked by archive.org's "Adult"
+subject and adult-genre synopses (v1.42.974, next publish); clips claim Creative
+Commons or fair use only (Decision 153). Then release lint to zero errors and the
+dependency pass (Android 6 floor held: material3 and play-services-auth pinned).
+**Still open**: YouTube sign-in on Android (`docs/ANDROID-YOUTUBE-SIGNIN.md`,
+after the quota review); no Play upload until the version in review is approved.
 
 ### 2026-09-28 — the tvOS design loop: truncation, the 2nd-gen box, and older Apple TVs
 

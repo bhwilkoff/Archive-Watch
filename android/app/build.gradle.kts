@@ -210,13 +210,13 @@ dependencies {
     implementation(libs.tv.material)
     // QR generation for the TV Share overlay (the tvOS ShareSheet QR,
     // PARITY §4). zxing:core is Apache-2, dependency-free, and tiny.
-    implementation("com.google.zxing:core:3.5.3")
+    implementation(libs.zxing.core)
     // Keychain analogue for the OpenSubtitles credentials.
-    implementation("androidx.security:security-crypto:1.1.0-alpha06")
+    implementation(libs.security.crypto)
     // Home-screen widgets (the iOS WidgetKit suite's analogue, PARITY §8).
-    implementation("androidx.glance:glance-appwidget:1.1.1")
+    implementation(libs.glance.appwidget)
     // Google TV Watch Next (home-screen Continue Watching, PARITY §8)
-    implementation("androidx.tvprovider:tvprovider:1.0.0")
+    implementation(libs.tvprovider)
 
     implementation(libs.activity.compose)
     implementation(libs.lifecycle.runtime.compose)
@@ -243,7 +243,7 @@ dependencies {
     "googleImplementation"(libs.play.services.cast.framework)
     // Drive App Data sync (google flavor only — Decision 028/047): the
     // authorization API for the appdata scope. Fire stays GMS-free.
-    "googleImplementation"("com.google.android.gms:play-services-auth:21.2.0")
+    "googleImplementation"(libs.play.services.auth)
     "googleImplementation"(libs.media3.cast)
 
     implementation(libs.splashscreen)
@@ -256,7 +256,7 @@ dependencies {
     // this app's house style for network JSON (OpenSubtitlesClient,
     // PlaylistShare, ArchiveVersions), so without this NONE of that parsing was
     // unit-testable.
-    testImplementation("org.json:json:20240303")
+    testImplementation(libs.org.json)
     testImplementation(libs.coroutines.test)
     androidTestImplementation(libs.junit.ext)
     androidTestImplementation(libs.espresso.core)

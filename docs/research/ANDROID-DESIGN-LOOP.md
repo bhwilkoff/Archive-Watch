@@ -431,6 +431,19 @@ Harness:
   filmstrip to scrub…" explained the control's own behavior: cut (owner's
   essential-information rule).
 
+- AY. ✅ v1.42.978 Dependencies, stage A: Kotlin 2.1.21 -> 2.4.20 (the build
+  was already running KGP 2.2.10 through AGP, under a catalog that said 2.1),
+  Media3 1.11.1, Compose BOM 2026.09, Coil 3.6.3, coroutines/serialization 1.11,
+  lifecycle 2.11, activity 1.13, datastore 1.2.1, sqlite 2.7.1 and the rest; the
+  six inline versions moved into the catalog. The manifest merge caught two that
+  need Android 7 — material3 1.5.0-alpha20+ and play-services-auth 22 — so both
+  are held, with the reason in lint.xml (Decision 141). Seen: the RELEASE (R8)
+  build on the Pixel launches, renders Home and plays (media session PLAYING,
+  volume restored); the debug build plays on the Google TV (AudioTrack started,
+  client-muted, ~25 fps decoding). Left: AGP 9.4 / Gradle 9.8, OkHttp 5,
+  targetSdk 37. The TV's own Play copy (1.42.691) crashed once on a catalog
+  swap — Pulse's known build-60 defect, fixed in 1.42.692, awaiting approval.
+
 ## Queue
 
 1. ✅ J — phone launch doors: one shared `Nav.collectStartDoors()` in both roots (v1.42.933); the Pixel opened Library, the TV Search
