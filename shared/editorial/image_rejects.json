@@ -1,0 +1,7 @@
+{
+  "_about": "A wrong IMAGE on a correct match, named by a person: {archiveID: {url, reason}}. remediate_catalog clears the field whose URL ends with the same file name, every build. Name the exact image, so a corrected one later is not blocked.",
+  "SelfCons1951": {
+    "url": "https://image.tmdb.org/t/p/w1280/5KdJ6tzpPaZ0NppHaQzINIelKKb.jpg",
+    "reason": "TMDb backdrop is a modern color photograph (a couple passing an 'ADULTS ONLY' sign), not a frame of this 1951 Coronet guidance film; it led Home's hero (iPad loop, 2026-09-28). The TMDb poster, the film's own title card, is right."
+  }
+}

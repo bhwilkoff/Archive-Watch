@@ -289,6 +289,11 @@ channel-surf ↑/↓ (three routes failed; control first),  Spotlight indexing (
 
 - `SelfCons1951` "Self-Conscious Guy" (Coronet, 10 min) leads Home's hero with
   a TMDb backdrop (tmdb 444546) that looks like a modern color film still.
+  **Checked 2026-09-28 (v1.42.920)**: the match is right (the TMDb poster is
+  the film's own Coronet title card) and the BACKDROP is wrong — a modern
+  photo of a couple passing an "ADULTS ONLY" sign. New
+  shared/editorial/image_rejects.json names that one image; remediate clears
+  it every build (tested with a control carrying another backdrop, kept).
 - Browse shows Yojimbo (1961), The Pink Panther, Gentlemen Prefer Blondes; the
   Classic TV channel carries Monty Python's Flying Circus and Rumpole of the
   Bailey (1978-); the Documentary channel carries Triumph des Willens (the

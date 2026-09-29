@@ -3052,6 +3052,18 @@ def _load_year_corrections():
     return {k: (int(v) if v is not None else None) for k, v in json.loads(p.read_text()).items()}
 
 
+def _load_image_rejects():
+    """{archiveID: {"url": <the rejected image's path or URL>, "reason": ...}}.
+    A correct match can still carry a wrong IMAGE (TMDb's backdrop for the
+    1951 Coronet short "Self-Conscious Guy" is a modern color photo of an
+    "ADULTS ONLY" sign). A person names the exact image; a different one on a
+    later enrichment is not blocked."""
+    p = REPO / "shared/editorial/image_rejects.json"
+    if not p.exists():
+        return {}
+    return {k: v for k, v in json.loads(p.read_text()).items() if not k.startswith("_")}
+
+
 def _load_title_corrections():
     p = REPO / "shared/editorial/title_corrections.json"
     if not p.exists():
@@ -3110,6 +3122,7 @@ def remediate(items):
     # 1936 dated 1969). The table is the record; every build re-applies it.
     year_fixes = _load_year_corrections()
     title_fixes = _load_title_corrections()
+    image_rejects = _load_image_rejects()
     # A cast anchor proves the film's IDENTITY, and the identity carries a
     # commercial footprint the rights audit already knows how to judge:
     # Eraserhead, Suspiria and A Bridge Too Far were visible with
@@ -3176,6 +3189,16 @@ def remediate(items):
                 if it.get("contentType") == "silent-film":
                     it["contentType"] = "short-film" if (it.get("runtimeSeconds") or 0) and int(it.get("runtimeSeconds") or 0) < 2400 else "feature-film"
             stats["year_corrected"] += 1
+
+        rej = image_rejects.get(it.get("archiveID"))
+        if rej and rej.get("url"):
+            for field in ("backdropURL", "posterURL"):
+                if (it.get(field) or "").endswith(rej["url"].split("/")[-1]):
+                    it[field] = None
+                    if field == "posterURL":
+                        it["hasRealArtwork"] = False
+                        it["artworkSource"] = "archive"
+                    stats["image_rejected"] += 1
 
         # 0z) FILL A MISSING YEAR from the item's own naming. source_year() is
         # the vetted extractor already used to CORRECT wrong matches (paren years
