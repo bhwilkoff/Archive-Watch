@@ -150,9 +150,12 @@ Harness:
   or live broadcast. Seen on both: Coughs and Sneezes -> So Much for So
   Little, muted; TV focus lands on Play Now. The owner's setting (Off) was
   restored on both devices and read back from the DataStore file.
-- S. Player Options > Copies: names start mid-word ("and_sneezes_TNA_512kb",
-  "sneezes_TNA_300K_512kb") and no row marks the copy that is playing
-  (Coughs and Sneezes, phone and TV).
+- S. ✅ v1.42.944 Player Options > Copies marked nothing until the viewer had
+  chosen one; the pipeline's copy is now read off the playing URL
+  (`ArchiveVersions.playingKey`) and marked, phone (radio) and TV (✓). The
+  TV row's two-line cap then cut the marked label ("Archive deri…"); the cap
+  is gone. The shortened names ("and_sneezes_TNA_512kb") are by design: the
+  stem is cut at a separator only when two copies would read the same.
 - T. Phone Detail: the action row runs off the right edge (a cut icon at the
   edge on Coughs and Sneezes).
 

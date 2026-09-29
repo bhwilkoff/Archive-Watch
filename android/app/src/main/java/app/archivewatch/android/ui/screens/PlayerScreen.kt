@@ -1126,7 +1126,7 @@ private fun PhonePlayerOptionsSheet(
         mutableStateOf<List<app.archivewatch.android.data.ArchiveVersions.Version>?>(null)
     }
     var chosenVersion by remember {
-        mutableStateOf(app.archivewatch.android.data.ArchiveVersions.chosenName(context, spec.id))
+        mutableStateOf(app.archivewatch.android.data.ArchiveVersions.playingKey(context, spec.id, spec.url))
     }
     LaunchedEffect(spec.id) {
         if (spec.queue.isEmpty()) versions = if (app.archivewatch.android.studio.StudioRoomCopy.isActive(spec.id)) null else app.archivewatch.android.data.ArchiveVersions.list(spec.id)
@@ -1286,7 +1286,7 @@ private fun TvPlayerOptionsPanel(
         mutableStateOf<List<app.archivewatch.android.data.ArchiveVersions.Version>?>(null)
     }
     var chosenVersion by remember {
-        mutableStateOf(app.archivewatch.android.data.ArchiveVersions.chosenName(context, spec.id))
+        mutableStateOf(app.archivewatch.android.data.ArchiveVersions.playingKey(context, spec.id, spec.url))
     }
     var textOff by remember {
         mutableStateOf(player.trackSelectionParameters.disabledTrackTypes.contains(C.TRACK_TYPE_TEXT))
@@ -1434,8 +1434,10 @@ private fun TvMenuRow(
             .padding(horizontal = 16.dp, vertical = 12.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
+        // No line cap: a copy's label beside its check mark ran to three
+        // lines and was cut ("Archive deri…"); the panel scrolls.
         Text(label, style = MaterialTheme.typography.bodyMedium, color = Color.White,
-            maxLines = 2, overflow = TextOverflow.Ellipsis, modifier = Modifier.weight(1f))
+            modifier = Modifier.weight(1f))
         trailing?.let {
             Text(it, style = MaterialTheme.typography.bodyMedium, color = Color(0xFFFF5C35),
                 modifier = Modifier.padding(start = 10.dp))

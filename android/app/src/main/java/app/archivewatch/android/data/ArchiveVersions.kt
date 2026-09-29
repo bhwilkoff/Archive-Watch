@@ -136,6 +136,17 @@ object ArchiveVersions {
         context.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
             .getString(archiveID, null)
 
+    /** The copy that is playing: the viewer's choice, or else the one the
+     *  pipeline picked, read off its URL — so a picker marks it either way. */
+    fun playingKey(context: Context, archiveID: String, url: String): String? {
+        chosenName(context, archiveID)?.let { return it }
+        val path = url.substringAfter("/download/", "").takeIf { it.isNotEmpty() } ?: return null
+        val item = path.substringBefore('/')
+        val name = java.net.URLDecoder.decode(path.substringAfter('/', "").replace("+", "%2B"), "UTF-8")
+        if (name.isEmpty()) return null
+        return if (item == archiveID) name else "@$item:$name"
+    }
+
     fun choose(context: Context, archiveID: String, version: Version?) {
         context.getSharedPreferences(PREFS, Context.MODE_PRIVATE).edit().apply {
             if (version == null) remove(archiveID) else putString(archiveID, version.choiceKey)
