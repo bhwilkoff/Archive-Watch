@@ -28,8 +28,7 @@ struct SeriesDetailView: View {
     @State private var overviewExpanded = false
 
     @Environment(\.horizontalSizeClass) private var hSize
-    @State private var overviewShown: CGFloat = 0
-    @State private var overviewFull: CGFloat = 0
+    @State private var overviewTruncated = false
 
     private var artURL: URL? {
         series?.backdropURLParsed ?? card.backdropURLParsed
@@ -69,14 +68,8 @@ struct SeriesDetailView: View {
             // Four lines, then More — measured, as on Detail (§3.5b).
             Text(o).font(.body).foregroundStyle(.primary.opacity(0.9))
                 .lineLimit(overviewExpanded ? nil : 4)
-                .onGeometryChange(for: CGFloat.self) { $0.size.height } action: { overviewShown = $0 }
-                .background(alignment: .topLeading) {
-                    Text(o).font(.body)
-                        .fixedSize(horizontal: false, vertical: true)
-                        .hidden()
-                        .onGeometryChange(for: CGFloat.self) { $0.size.height } action: { overviewFull = $0 }
-                }
-            if overviewExpanded || overviewFull > overviewShown + 1 {
+                .readsTruncation(of: Text(o).font(.body), into: $overviewTruncated)
+            if overviewExpanded || overviewTruncated {
                 Button(overviewExpanded ? "Less" : "More") {
                     withAnimation(.easeInOut(duration: 0.2)) { overviewExpanded.toggle() }
                 }

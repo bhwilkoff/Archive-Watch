@@ -10,8 +10,7 @@ import AppKit
 struct DetailView: View {
     let item: Catalog.Item
     @State private var synopsisExpanded = false
-    @State private var synopsisShown: CGFloat = 0
-    @State private var synopsisFull: CGFloat = 0
+    @State private var synopsisTruncated = false
     @Environment(AppStore.self) private var store
     @Environment(AppRouter.self) private var router
     @Environment(\.modelContext) private var ctx
@@ -262,14 +261,8 @@ struct DetailView: View {
             VStack(alignment: .leading, spacing: 6) {
                 Text(s).font(.body).textSelection(.enabled)
                     .lineLimit(synopsisExpanded ? nil : 6)
-                    .onGeometryChange(for: CGFloat.self) { $0.size.height } action: { synopsisShown = $0 }
-                    .background(alignment: .topLeading) {
-                        Text(s).font(.body)
-                            .fixedSize(horizontal: false, vertical: true)
-                            .hidden()
-                            .onGeometryChange(for: CGFloat.self) { $0.size.height } action: { synopsisFull = $0 }
-                    }
-                if synopsisExpanded || synopsisFull > synopsisShown + 1 {
+                    .readsTruncation(of: Text(s).font(.body), into: $synopsisTruncated)
+                if synopsisExpanded || synopsisTruncated {
                     Button(synopsisExpanded ? "Less" : "More") {
                         withAnimation(.easeInOut(duration: 0.2)) { synopsisExpanded.toggle() }
                     }

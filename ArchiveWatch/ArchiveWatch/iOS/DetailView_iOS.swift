@@ -29,8 +29,7 @@ struct DetailView: View {
     @State private var chosenVersionName: String?
     /// §3.5b: a long synopsis opens at four lines, with More.
     @State private var synopsisExpanded = false
-    @State private var synopsisShown: CGFloat = 0
-    @State private var synopsisFull: CGFloat = 0
+    @State private var synopsisTruncated = false
     @Environment(\.dynamicTypeSize) private var dynamicTypeSize
     /// The action tiles grow with the text they carry.
     @ScaledMetric(relativeTo: .caption) private var tileHeight: CGFloat = 60
@@ -293,14 +292,8 @@ struct DetailView: View {
                     // then offered nothing.
                     Text(s).font(.body).foregroundStyle(.primary.opacity(0.9))
                         .lineLimit(synopsisExpanded ? nil : 4)
-                        .onGeometryChange(for: CGFloat.self) { $0.size.height } action: { synopsisShown = $0 }
-                        .background(alignment: .topLeading) {
-                            Text(s).font(.body)
-                                .fixedSize(horizontal: false, vertical: true)
-                                .hidden()
-                                .onGeometryChange(for: CGFloat.self) { $0.size.height } action: { synopsisFull = $0 }
-                        }
-                    if synopsisExpanded || synopsisFull > synopsisShown + 1 {
+                        .readsTruncation(of: Text(s).font(.body), into: $synopsisTruncated)
+                    if synopsisExpanded || synopsisTruncated {
                         Button(synopsisExpanded ? "Less" : "More") {
                             withAnimation(.easeInOut(duration: 0.2)) { synopsisExpanded.toggle() }
                         }

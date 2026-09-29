@@ -340,8 +340,8 @@ review only when too little is left to read (the floor every review shares;
 the full keep_review was measured to drop 24 genuine reviews and rejected).
 All 214 are cleaned and kept; a second pass changes nothing.
 
-Shared-function candidates: ✅ v1.42.910 the rights/lower-third line (5 copies → StudioRights.provenanceLine / lowerThirdSubtitle, pinned in test_studio_rights), measured
-More (4), the hero pool (3), the caption overlay (3), the version menu (2),
+Shared-function candidates: ✅ v1.42.910 the rights/lower-third line (5 copies → StudioRights.provenanceLine / lowerThirdSubtitle, pinned in test_studio_rights), ✅ v1.42.912 measured
+More (4 → TruncationReader / readsTruncation; seen on the Mac synopsis and iPad reviews), the hero pool (3), the caption overlay (3), the version menu (2),
 IntentInbox + intents (2), ✅ v1.42.911 the Handoff type literal (4 → ArchiveHandoff.viewing), ✅ v1.42.911 Create Channel
 canSave (3 → UserChannel.canCreate), guide-block thresholds (3), review cards (2). Also: the Mac
 poster card is still onTapGesture (Cards_macOS.swift:47).
