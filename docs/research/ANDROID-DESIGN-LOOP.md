@@ -494,6 +494,15 @@ Harness:
   yet MediaRouter's Cast provider holds no routes. Next: observability first —
   log the selector, route callbacks and CastState in CastSupport, and compare
   with a known sender (YouTube) on the same phone before changing anything.
+  Measured 2026-09-29 17:13 (AWCAST, debug-only diagnostics in CastSupport):
+  CastState 1 (NO_DEVICES) and ZERO routes after 30 s of active scanning for
+  our receiver AND for Google's Default Media Receiver — so it is not our
+  receiver's registration. From the Mac, `dns-sd -B _googlecast._tcp` finds ONE
+  Cast device on the LAN: "Fireplace Projector" (LPU9DS, 10.0.0.148, video
+  capable); the Google TV dongle does not advertise Cast at all (mediashell runs,
+  Chromecast built-in presumably off). The Pixel pings the projector in 12 ms,
+  yet the system's own Cast provider lists no routes. Blocked on a receiver the
+  phone can discover — an owner call (see the loop's report).
 
 ## Queue
 
