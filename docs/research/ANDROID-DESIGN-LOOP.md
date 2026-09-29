@@ -337,8 +337,12 @@ Harness:
   long press with no question; it asks. Created "Comedy Feature Film" on the
   Pixel (it led the guide: A Bucket of Blood, …), deleted it through the
   dialog: channels 0 again, a `ch` tombstone written so Drive drops it too.
-- AL. (data, next pass) "Evenings on the farm near Dikanka, the." — a
-  library-style inverted article left in a title.
+- AL. ✅ v1.42.964 (data) Library sort titles left inverted ("Ravager, The",
+  "Evenings on the farm near Dikanka, the."): sanitize_title returned early
+  with an AUDITED title that was itself in sort form, skipping the inversion;
+  and ", the." with a period never matched. Both fixed; measured on the live
+  catalog: exactly 4 visible titles change, the four found. Tests added with
+  a control. Next publish.
 
 ## Queue
 

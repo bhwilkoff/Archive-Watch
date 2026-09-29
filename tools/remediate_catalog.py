@@ -1401,7 +1401,7 @@ def _underscore_filename(t):
 # "Farewell to Arms, A" -> "A Farewell to Arms"). The trailing ", The/A/An" is an
 # unambiguous library sort convention; require non-empty body so it can't empty a
 # title. 126 measured.
-_SORT_ART = re.compile(r"^(.+?)\s*,\s*(the|a|an)\s*$", re.I)
+_SORT_ART = re.compile(r"^(.+?)\s*,\s*(the|a|an)\.?\s*$", re.I)   # ", the." too (Dikanka)
 
 
 def _invert_sort_article(t):
@@ -2318,6 +2318,9 @@ def sanitize_title(it):
     # the uploader title (guarded), else fall through to the cleaning chain below for unmatched films.
     canon = _canonical_clean(it) or _audited_clean(it)
     if canon:
+        # An audited title can itself be in sort form ("Ravager, The"), and
+        # this early return skipped the inversion the chain below applies.
+        canon = _invert_sort_article(canon)
         if canon.isupper() and len(canon.split()) > 1:    # an audited title typed in caps ("EAST OF BORNEO")
             canon = _title_case(canon)
         if canon != (it.get("title") or ""):

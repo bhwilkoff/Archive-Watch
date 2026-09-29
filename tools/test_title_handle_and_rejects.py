@@ -50,5 +50,11 @@ rc.scrub_cleared_match(felix, own_meta={}, siblings={})
 check("CONTROL: its own cartoon subject keeps it animation", (felix["contentType"], felix["genres"]),
       ("animation", ["Animation"]))
 
+# A library sort title is un-inverted, with or without a closing period.
+check("sort article", rc._invert_sort_article("Ravager, The"), "The Ravager")
+check("sort article with period", rc._invert_sort_article("Evenings on the farm near Dikanka, the."),
+      "The Evenings on the farm near Dikanka")
+check("CONTROL: a comma title is left alone", rc._invert_sort_article("Hello, Dolly"), "Hello, Dolly")
+
 print("FAILED" if fails else "ALL PASS", fails)
 sys.exit(1 if fails else 0)
