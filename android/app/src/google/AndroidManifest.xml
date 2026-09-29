@@ -31,6 +31,10 @@
     <uses-permission android:name="android.permission.CAMERA"
         tools:ignore="PermissionImpliesUnsupportedChromeOsHardware"/>
     <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <!-- Android 17: Cast devices on the LAN reach the app's route list only
+         with this runtime permission (measured 2026-09-29: Play services heard
+         the receivers, and the app got no routes until it held it). -->
+    <uses-permission android:name="android.permission.ACCESS_LOCAL_NETWORK"/>
 
     <!-- A live show keeps its camera and microphone when the host locks the
          phone or switches apps (launch audit A15, StudioBroadcastService). -->
@@ -47,5 +51,11 @@
         <meta-data
             android:name="com.google.android.gms.cast.framework.OPTIONS_PROVIDER_CLASS_NAME"
             android:value="app.archivewatch.android.cast.CastOptionsProvider" />
+        <!-- Lets Android 13+ open the SYSTEM output switcher from the Cast icon
+             (CastOptions.setShowSystemOutputSwitcherOnCastIconClick); without it
+             mediarouter falls back to its in-app chooser. -->
+        <receiver
+            android:name="androidx.mediarouter.media.MediaTransferReceiver"
+            android:exported="true" />
     </application>
 </manifest>

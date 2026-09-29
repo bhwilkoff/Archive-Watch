@@ -45,34 +45,6 @@ object CastSupport {
             .isGooglePlayServicesAvailable(appContext)
         if (gms != ConnectionResult.SUCCESS) return
         context = runCatching { CastContext.getSharedInstance(appContext) }.getOrNull()
-        if (app.archivewatch.android.BuildConfig.DEBUG) diagnose(appContext)
-    }
-
-    // DEBUG ONLY, temporary (loop finding BD): why does no Cast route appear? Logs the
-    // CastState and every route MediaRouter reports for OUR receiver and for
-    // Google's Default Media Receiver (the control). Remove once answered.
-    private fun diagnose(appContext: Context) {
-        val cc = context ?: run { android.util.Log.i("AWCAST", "no CastContext"); return }
-        android.util.Log.i("AWCAST", "init state=${cc.castState} receiver=${CastOptionsProvider.RECEIVER_APP_ID}")
-        cc.addCastStateListener { android.util.Log.i("AWCAST", "state -> $it") }
-        val router = androidx.mediarouter.media.MediaRouter.getInstance(appContext)
-        for (id in listOf(CastOptionsProvider.RECEIVER_APP_ID,
-                          com.google.android.gms.cast.CastMediaControlIntent.DEFAULT_MEDIA_RECEIVER_APPLICATION_ID)) {
-            val selector = androidx.mediarouter.media.MediaRouteSelector.Builder()
-                .addControlCategory(com.google.android.gms.cast.CastMediaControlIntent.categoryForCast(id))
-                .build()
-            val cb = object : androidx.mediarouter.media.MediaRouter.Callback() {
-                override fun onRouteAdded(r: androidx.mediarouter.media.MediaRouter, route: androidx.mediarouter.media.MediaRouter.RouteInfo) =
-                    android.util.Log.i("AWCAST", "[$id] added '${route.name}' ${route.description}").let { }
-                override fun onRouteChanged(r: androidx.mediarouter.media.MediaRouter, route: androidx.mediarouter.media.MediaRouter.RouteInfo) =
-                    android.util.Log.i("AWCAST", "[$id] changed '${route.name}' enabled=${route.isEnabled}").let { }
-                override fun onRouteRemoved(r: androidx.mediarouter.media.MediaRouter, route: androidx.mediarouter.media.MediaRouter.RouteInfo) =
-                    android.util.Log.i("AWCAST", "[$id] removed '${route.name}'").let { }
-            }
-            router.addCallback(selector, cb, androidx.mediarouter.media.MediaRouter.CALLBACK_FLAG_PERFORM_ACTIVE_SCAN)
-            android.util.Log.i("AWCAST", "[$id] scanning; matching now=" +
-                router.routes.filter { it.matchesSelector(selector) }.map { it.name })
-        }
     }
 
     /** True once a receiver device is discoverable or connected. */
@@ -96,8 +68,13 @@ object CastSupport {
     fun createCastButton(ctx: Context): View? {
         if (context == null) return null
         return runCatching {
-            MediaRouteButton(ctx).also { CastButtonFactory.setUpMediaRouteButton(ctx, it) }
-        }.getOrNull()
+            // AppCompat + an opaque background: MediaRouteButton refuses anything else.
+            val themed = android.view.ContextThemeWrapper(ctx, app.archivewatch.android.R.style.Theme_ArchiveWatch_Cast)
+            MediaRouteButton(themed).also { CastButtonFactory.setUpMediaRouteButton(themed, it) }
+        // Said out loud: this exact failure ("background can not be
+        // translucent") was swallowed here and hid the Cast button on every
+        // device until 2026-09-29.
+        }.onFailure { android.util.Log.w("AWCAST", "cast button failed: $it") }.getOrNull()
     }
 
     /**

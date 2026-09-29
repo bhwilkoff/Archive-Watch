@@ -1,6 +1,7 @@
 package app.archivewatch.android.ui.screens
 
 import android.app.Activity
+import androidx.core.content.edit
 import androidx.compose.ui.layout.boundsInWindow
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.core.net.toUri
@@ -293,6 +294,25 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
     // MediaSession is phone/tablet ONLY — on TV it is a quality-review failure,
     // not a feature (docs/TV-DESIGN.md §5.4, Decision 047).
     val isTv = LocalIsTelevision.current
+    // Android 17 hands Cast devices on the LAN to an app only once it holds
+    // ACCESS_LOCAL_NETWORK; without it the Cast button never appears. Asked
+    // once, from the player (where casting happens), on a phone with Cast; a
+    // viewer who declines is not asked again (Decision 154: gated by OS version).
+    if (!isTv && CastSupport.IS_SUPPORTED && android.os.Build.VERSION.SDK_INT >= 37) {
+        val localNetwork = "android.permission.ACCESS_LOCAL_NETWORK"
+        val askLocalNetwork = androidx.activity.compose.rememberLauncherForActivityResult(
+            androidx.activity.result.contract.ActivityResultContracts.RequestPermission(),
+        ) { granted -> android.util.Log.i("AWCAST", "local network permission granted=$granted") }
+        LaunchedEffect(Unit) {
+            val prefs = context.getSharedPreferences("aw_permissions", android.content.Context.MODE_PRIVATE)
+            val held = androidx.core.content.ContextCompat.checkSelfPermission(context, localNetwork) ==
+                android.content.pm.PackageManager.PERMISSION_GRANTED
+            if (!held && !prefs.getBoolean("asked_local_network", false)) {
+                prefs.edit { putBoolean("asked_local_network", true) }
+                askLocalNetwork.launch(localNetwork)
+            }
+        }
+    }
     val mediaSession = remember(player, isTv) {
         // Its own id: a channel change composes the next player before this
         // one's session is released, and two sessions may not share the

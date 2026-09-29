@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- The Cast button's own theme (google flavor: mediarouter brings AppCompat).
+         MediaRouteButton refuses to build under a translucent colorBackground,
+         which the app theme has — "background can not be translucent: #0" —
+         and the player silently showed no Cast button on any device. AppCompat
+         also themes mediarouter's in-app chooser on Android 12 and older. -->
+    <style name="Theme.ArchiveWatch.Cast" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:colorBackground">@color/brand_background</item>
+        <item name="colorPrimary">#FFFF5C35</item>
+        <item name="colorAccent">#FFFF5C35</item>
+    </style>
+</resources>

@@ -24,7 +24,9 @@ import app.archivewatch.android.ui.tv.isTelevision
 import app.archivewatch.android.studio.StudioPlatformAuth
 
 /** Single Activity — Compose-only. */
-class MainActivity : ComponentActivity() {
+// FragmentActivity (a ComponentActivity) because the Cast button's chooser is a
+// DialogFragment; under a bare ComponentActivity every tap on it crashed.
+class MainActivity : androidx.fragment.app.FragmentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         installSplashScreen()

@@ -512,6 +512,32 @@ Harness:
   google release. Fire OS itself (Decision 115's Fire OS 7 floor) is still
   verified only by the store's device count.
 
+- BF. ✅ v1.42.985 OWNER: "Verify casting works on the android app ... I just
+  think you haven't enabled the casting feature inside the video player."
+  Right: Cast had never worked on Android, for three stacked reasons, each
+  found by a measurement rather than a guess:
+  1. Android 17 hands LAN Cast devices to an app only with ACCESS_LOCAL_NETWORK
+     (AWCAST: zero routes for our receiver AND the Default Media Receiver;
+     granted -> "Basement" and "Fireplace Projector" at once). The google
+     manifest declares it and the player asks ONCE on 17+ (system prompt seen).
+  2. MediaRouteButton threw on construction — "background can not be
+     translucent: #0" — and `runCatching` swallowed it, so the player showed an
+     empty slot on EVERY device, every Android version. The app theme now has
+     an opaque colorBackground; the button gets an AppCompat wrapper; the
+     failure is logged.
+  3. Tapping it then crashed: "The activity must be a subclass of
+     FragmentActivity". MainActivity is a FragmentActivity (fragment-ktx 1.8.9,
+     minSdk 21), and MediaTransferReceiver makes Android 13+ open the SYSTEM
+     output switcher, which the code had asked for all along.
+  Seen: output switcher lists Basement + Fireplace Projector; Basement's Cast
+  shell logged "App running: 58AF34C3 (Archive Watch)", FULL_SCREEN, "Media has
+  started", AudioTrack started; the phone's remote session PLAYING at the resume
+  point; Stop casting returned the TV to its launcher with no audio.
+  OPEN, found on the way: while casting, the phone's volume keys moved the
+  PHONE (the Cast volume stayed near max) — our MediaSession still wraps the
+  local ExoPlayer rather than the Cast session (media3-cast's CastPlayer is
+  already a dependency). Next.
+
 ## Queue
 
 1. ✅ J — phone launch doors: one shared `Nav.collectStartDoors()` in both roots (v1.42.933); the Pixel opened Library, the TV Search

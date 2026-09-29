@@ -230,6 +230,9 @@ dependencies {
     implementation(libs.tvprovider)
 
     implementation(libs.activity.compose)
+    // MainActivity is a FragmentActivity: the Cast MediaRouteButton shows its
+    // chooser as a DialogFragment and threw on every tap under ComponentActivity.
+    implementation(libs.fragment)
     implementation(libs.lifecycle.runtime.compose)
     implementation(libs.lifecycle.process)
 

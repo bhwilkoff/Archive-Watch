@@ -35,6 +35,7 @@ glance = "1.2.0"
 tvprovider = "1.1.0"
 play-services-auth = "21.4.0"   # 22.x needs minSdk 24 (Decision 141 holds 23)
 org-json = "20260814"
+fragment = "1.8.9"
 
 [libraries]
 # --- Compose BOM (pins ui / foundation / material together)
@@ -99,6 +100,8 @@ glance-appwidget = { module = "androidx.glance:glance-appwidget", version.ref = 
 tvprovider = { module = "androidx.tvprovider:tvprovider", version.ref = "tvprovider" }
 play-services-auth = { module = "com.google.android.gms:play-services-auth", version.ref = "play-services-auth" }
 org-json = { module = "org.json:json", version.ref = "org-json" }
+
+fragment = { module = "androidx.fragment:fragment-ktx", version.ref = "fragment" }
 
 # --- Splash
 splashscreen = { module = "androidx.core:core-splashscreen", version.ref = "splashscreen" }
