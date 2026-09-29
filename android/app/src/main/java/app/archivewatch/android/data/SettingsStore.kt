@@ -34,6 +34,17 @@ class SettingsStore(private val context: Context) {
         context.settingsDataStore.edit { it[autoplayKey] = value }
     }
 
+    /** Vintage commercials between a channel's programs; on by default, as on
+     *  iOS and the web (a channel without them is not a channel). */
+    private val commercialBreaksKey = booleanPreferencesKey("channelCommercialBreaks")
+
+    val channelCommercialBreaks: Flow<Boolean> =
+        context.settingsDataStore.data.map { it[commercialBreaksKey] ?: true }
+
+    suspend fun setChannelCommercialBreaks(value: Boolean) {
+        context.settingsDataStore.edit { it[commercialBreaksKey] = value }
+    }
+
     /** tvOS parity: per-category visibility (Decision 012's sibling switch).
      *  Stored as the HIDDEN set so the default (empty) shows everything. */
     private val hiddenCategoriesKey = stringSetPreferencesKey("hiddenCategories")

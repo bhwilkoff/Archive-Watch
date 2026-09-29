@@ -73,6 +73,7 @@ fun SettingsScreen(container: AppContainer, nav: Nav) {
     val hiddenCategories by container.settings.hiddenCategories.collectAsState(initial = emptySet())
     val autoplay by container.settings.autoplayNext.collectAsState(initial = false)
     val hideWatched by container.settings.hideWatchedOnHome.collectAsState(initial = false)
+    val commercialBreaks by container.settings.channelCommercialBreaks.collectAsState(initial = true)
     val isTv = LocalIsTelevision.current
 
     // WHY THIS SCREEN IS NOT A SEPARATE TvSettingsScreen, when Surprise,
@@ -130,7 +131,7 @@ fun SettingsScreen(container: AppContainer, nav: Nav) {
             SectionLabel("Content")
             ToggleRow(
                 title = "Show mature collections",
-                subtitle = "Hidden by default. Applies everywhere.",
+                subtitle = null,
                 checked = !hideAdult,
                 onCheckedChange = { show ->
                     scope.launch {
@@ -173,16 +174,24 @@ fun SettingsScreen(container: AppContainer, nav: Nav) {
 
             ToggleRow(
                 title = "Hide watched titles on Home",
-                subtitle = "Completed titles disappear from Home shelves.",
+                subtitle = null,
                 checked = hideWatched,
                 onCheckedChange = { scope.launch { container.settings.setHideWatchedOnHome(it) } },
             )
             ToggleRow(
                 title = "Autoplay next",
-                subtitle = "Keep playing when an episode or film ends.",
+                subtitle = null,
                 checked = autoplay,
                 onCheckedChange = { value ->
                     scope.launch { container.settings.setAutoplayNext(value) }
+                },
+            )
+            ToggleRow(
+                title = "Commercial breaks",
+                subtitle = null,
+                checked = commercialBreaks,
+                onCheckedChange = { value ->
+                    scope.launch { container.settings.setChannelCommercialBreaks(value) }
                 },
             )
 

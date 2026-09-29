@@ -67,6 +67,7 @@ import app.archivewatch.android.data.guide
 import app.archivewatch.android.data.ChannelScheduler
 import app.archivewatch.android.data.GuideChannel
 import app.archivewatch.android.data.CatalogItem
+import kotlinx.coroutines.flow.first
 import app.archivewatch.android.data.ChannelSurf
 import app.archivewatch.android.data.ScheduledProgram
 import app.archivewatch.android.ui.EmptyState
@@ -297,7 +298,8 @@ private suspend fun tune(container: AppContainer, nav: Nav,
 
 /** Vintage commercials between programs (#89), same as the Apple apps. */
 internal suspend fun channelAds(container: AppContainer): List<CatalogItem> =
-    container.catalog.db
+    if (!container.settings.channelCommercialBreaks.first()) emptyList()
+    else container.catalog.db
         ?.browse(contentType = "commercial", limit = 60, full = true)
         ?.filter { it.downloadURL != null }
         .orEmpty()

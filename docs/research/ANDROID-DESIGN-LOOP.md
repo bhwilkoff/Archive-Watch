@@ -71,7 +71,13 @@ Parity gaps (another platform has it, Android does not):
   (skipping breaks the one clock), and a Party lineup's skip reads "Play
   Next". New DEBUG door `--ez aw_mute true`: this box's volume is HDMI-owned
   and `media_session volume --set 0` does nothing.
-- B. Commercial Breaks on/off: no setting on Android (PARITY ⏳).
+- B. ✅ v1.42.948 Settings > Commercial breaks (default on, as iOS and the
+  web), read by the channel weave. Pixel, one channel, muted: queue 22 with
+  it off, 43 (22 programs + 21 breaks) with it on; the owner's value is back
+  on. Also cut three captions that explained their own switch ("Hidden by
+  default. Applies everywhere.", "Completed titles disappear from Home
+  shelves.", "Keep playing when an episode or film ends."), CLAUDE.md's
+  essential-information rule.
 - C. ✅ v1.42.935 Continue Watching shows the time left and a progress bar on
   phone and TV, in the Apple apps' words ("1h 8m left", "43m left"). On the
   way: progress saved under a merged-away id found its card and lost its
