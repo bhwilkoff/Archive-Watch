@@ -3,7 +3,7 @@ import SwiftUI
 import SwiftData
 
 // Reusable poster card + a generic grid. Pointer-native: hover lifts the card, click
-// opens Detail, double-click plays. (NSCollectionView migration for huge grids is a
+// opens Detail, right-click offers Play. (NSCollectionView migration for huge grids is a
 // later optimization — docs/macOS-DESIGN.md Rule 7b.)
 
 struct PosterCard: View {
@@ -15,6 +15,19 @@ struct PosterCard: View {
     @State private var hovering = false
 
     var body: some View {
+        // A Button, not a tap gesture: Keyboard Navigation (Tab) and VoiceOver
+        // reach only real controls, and a gesture reached neither (iPad loop
+        // cross-platform queue, 2026-09-28).
+        Button { router.openDetail(item) } label: { card }
+            .buttonStyle(.plain)
+            .onHover { hovering = $0 }
+            .animation(.easeOut(duration: 0.12), value: hovering)
+            .accessibilityLabel([item.title, item.year.map(String.init)].compactMap { $0 }.joined(separator: ", "))
+            .filmContextMenu(item)
+            .help(item.title)
+    }
+
+    private var card: some View {
         VStack(alignment: .leading, spacing: 6) {
             // The RoundedRectangle owns the 2:3 layout size; the poster fills via
             // .overlay so a fill-mode AsyncImage (which reports oversized "cover"
@@ -54,17 +67,6 @@ struct PosterCard: View {
                 .accessibilityHidden(progress == nil && item.year == nil)
         }
         .contentShape(Rectangle())
-        .onHover { hovering = $0 }
-        .animation(.easeOut(duration: 0.12), value: hovering)
-        .onTapGesture { router.openDetail(item) }
-        // A tap gesture is invisible to VoiceOver: the card read as loose
-        // text with nothing to press (Mac loop, 2026-09-27).
-        .accessibilityElement(children: .ignore)
-        .accessibilityLabel([item.title, item.year.map(String.init)].compactMap { $0 }.joined(separator: ", "))
-        .accessibilityAddTraits(.isButton)
-        .accessibilityAction { router.openDetail(item) }
-        .filmContextMenu(item)
-        .help(item.title)
     }
 }
 
