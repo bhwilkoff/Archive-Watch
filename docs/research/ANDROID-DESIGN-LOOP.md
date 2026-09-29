@@ -97,8 +97,13 @@ Parity gaps (another platform has it, Android does not):
   primary control". Android matches.
 
 Stale records:
-- H. PARITY cells say ⏳ for things in code: PiP, background play, autoplay,
-  category toggles, widgets; §8b sync.
+- H. ✅ v1.42.949 PARITY's Android cells rewritten from the code and the glass:
+  PiP ✅ (seen on the Pixel: a channel pinned over the home screen, muted),
+  category toggles ✅, playback options ✅, three Glance widgets ✅, Cast 🚧
+  (hand-off built, never seen on a receiver). §8b sync was already right.
+- V. Background play is REAL work, not a stale cell: the player keeps playing
+  in PiP, but there is no foreground MediaSessionService, so audio alone with
+  the screen off or another app in front is the OS's to stop.
 - I. ANDROID-DESIGN §3.2 (routes), §4.2b (TV Scenes "not built"), §4.5
   (Library), §7 (out-of-scope list contradicts the code); TV-DESIGN §2
   (Movies/TV rail entries that do not exist).
