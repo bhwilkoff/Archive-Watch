@@ -59,7 +59,7 @@ import app.archivewatch.android.data.UserPlaylist
 import app.archivewatch.android.data.VideoClip
 import kotlinx.coroutines.launch
 
-/** Library — Favorites, Continue Watching, Playlists, Clips; all user.sqlite. */
+/** Library — Favorites, Continue, Playlists, History, Clips; all user.sqlite. */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun LibraryScreen(container: AppContainer, nav: Nav) {

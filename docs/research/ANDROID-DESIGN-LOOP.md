@@ -104,9 +104,11 @@ Stale records:
 - V. Background play is REAL work, not a stale cell: the player keeps playing
   in PiP, but there is no foreground MediaSessionService, so audio alone with
   the screen off or another app in front is the OS's to stop.
-- I. ANDROID-DESIGN §3.2 (routes), §4.2b (TV Scenes "not built"), §4.5
-  (Library), §7 (out-of-scope list contradicts the code); TV-DESIGN §2
-  (Movies/TV rail entries that do not exist).
+- I. ✅ v1.42.950 ANDROID-DESIGN rewritten against the code: §3.2 names all
+  14 routes, §4.2b (TV Detail has Scenes), §4.5 (History tab, Join a room),
+  §5.3 (channel history by seconds watched, up/down, Up Next), §7 (seven
+  "next wave" items had shipped; Downloads, background audio and VHS remain).
+  TV-DESIGN §2 was done with E.
 
 Harness:
 - J. `aw_start_tab` / `aw_start_route` are collected only by `TvAppRoot`; the

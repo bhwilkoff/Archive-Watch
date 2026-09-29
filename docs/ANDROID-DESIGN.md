@@ -71,8 +71,10 @@ or tvOS rule, that inversion is deliberate — do not "harmonize" them.
   hierarchy, never forked per form factor). Settings is NOT a tab; it lives
   behind the gear in Home's top bar. A fifth tab requires amending this rule.
 - **§3.2 One route registry.** Every pushable destination is a case of the
-  sealed `Route` (`Detail`, `Series`, `Player`, `Settings`) handled in
-  `AppRoot`. New destinations extend `Route` — never a per-screen ad-hoc
+  sealed `Route` (`Detail`, `Series`, `Player`, `Filtered`, `Playlist`,
+  `SharedList`, `Collection`, `Person`, `ClipStudio`, `Collections`,
+  `Cartoon`, `Party`, `Surprise`, `Settings`) handled in `AppRoot` and
+  `TvAppRoot`. New destinations extend `Route` — never a per-screen ad-hoc
   overlay.
 - **§3.3 System back pops the stack** (`BackHandler`); tab taps clear it.
   A tv-series item always opens `Route.Series`, anything else
@@ -107,7 +109,7 @@ or tvOS rule, that inversion is deliberate — do not "harmonize" them.
   params, and `topKeywords`/`topStudios` feed the facet menus (count-floored,
   hidden when empty; not offered in the TV scope).
 - **§4.2a** **Length** (2026-09-26, from the Orphaned Films research): Browse filters by how long the upload runs — *Any length · Under 60 minutes · 60 to 90 minutes · Over 90 minutes* — the same bands on every platform (Apple/Android `RuntimeBand`, web `LENGTHS`, index column 17 `minutes`). Bands were chosen from the catalog (~12% / ~60% / ~28% of features); an unknown runtime never matches. Words, never abbreviations.
-- **§4.2b** **Scenes** (2026-09-26, WEB-DESIGN §4.4e): on the phone Detail, between the community line and More Like This, up to 12 of archive.org's own per-minute frames of the copy that will PLAY (`ArchiveVersions.scenes`, through `preferredURL`, so a room's or a chosen copy's frames), each labeled with its time; a frame opens the player at that second (`PlaySpec.startPositionMs`). Hidden under four frames. Seen on the Pixel 8a (The General: 0:54, 8:54, 17:54...). Television Detail: not built (a focus row needs its own rule).
+- **§4.2b** **Scenes** (2026-09-26, WEB-DESIGN §4.4e): on the phone Detail, between the community line and More Like This, up to 12 of archive.org's own per-minute frames of the copy that will PLAY (`ArchiveVersions.scenes`, through `preferredURL`, so a room's or a chosen copy's frames), each labeled with its time; a frame opens the player at that second (`PlaySpec.startPositionMs`). Hidden under four frames. Seen on the Pixel 8a (The General: 0:54, 8:54, 17:54...). Television Detail carries the same row (TV-DESIGN 4.6b).
 - **§4.3 Search** = debounced (~180 ms) full-text search over the catalog's
   FTS5 index (`search` verb), grid results, explicit empty states.
   Ranked like the Apple apps (tvOS-DESIGN §3.3b): `CatalogDatabase.SEARCH_ORDER` —
@@ -120,8 +122,9 @@ or tvOS rule, that inversion is deliberate — do not "harmonize" them.
   use — no Callsheet on Android) → More Like This. SeriesDetail is the variant
   with a season dropdown (null season = "More Episodes") and an episode list;
   "X of Y episodes" uses `canonicalEpisodesCount`.
-- **§4.5 Library** = Favorites / Continue Watching / Playlists / **Clips**
-  tabs over `user.sqlite`. The Clips tab lists saved Clip Studio exports
+- **§4.5 Library** = Favorites / Continue / Playlists / History / **Clips**
+  tabs over `user.sqlite`, and a Join a Watch Together room button in the top
+  bar. The Clips tab lists saved Clip Studio exports
   (§4.8) and re-shares them; long-press deletes. Empty states are explicit
   sentences, never blank space (`universal-feature-states`).
 - **§4.6 Tiles are poster + two text lines, nothing else** (density from
@@ -272,8 +275,11 @@ or tvOS rule, that inversion is deliberate — do not "harmonize" them.
 - **§5.2 Never a bitrate ceiling.** `downloadURL` is the highest-quality
   derivative, baked in at build time — no runtime derivative selection.
 - **§5.3 Progress persists every 10 s and on dispose**; resume seeks when
-  10 s < position < 95% of duration. (Channel lineups, when they arrive,
-  must NOT persist progress — iOS-DESIGN §8.4 carries over as a verb rule.)
+  10 s < position < 95% of duration. Channel and lineup playback persists no
+  position (iOS-DESIGN §8.4) and enters the history only after sixty seconds
+  WATCHED (Decision 078), never by the playhead — a channel joins minutes in.
+  A channel changes with up/down (TV-DESIGN §5.2a); a film chosen by the
+  viewer ends, with Autoplay next on, in an Up Next card.
 
 ## §6 Theme
 
@@ -296,18 +302,20 @@ implement them without a rule:
 
 - ~~Channels EPG~~ — SHIPPED 2026-06-12 (§4.6): Kotlin `ChannelScheduler`
   port + Compose proportional guide; user-created channels remain next wave.
-- **Cartoon Mode / Public Domain Day explorer** — next wave (the PD Day
-  Home shelf §4.1 is the v1 foothold; the Surprise grid SHIPPED 2026-06-11).
-- **Party Play / screensaver** — lean-back idioms; tablet-leaning at most.
-- **Home-screen widgets (Glance), App Shortcuts / App Actions** — the reach
-  wave.
-- **Google Drive App Data sync (Sign in with Google)** — the Android/Web
-  island (Decision 028 §6); requires the shared OAuth client. Never a custom
+- ~~Cartoon Mode / Public Domain Day explorer~~ — SHIPPED (Cartoons opens
+  from Surprise; the decade and category grids are `Route.Filtered`).
+- ~~Party Play~~ — SHIPPED on television, from Surprise (owner 2026-09-28);
+  the screensaver is not built on Android.
+- ~~Home-screen widgets (Glance), App Shortcuts~~ — SHIPPED (three widgets,
+  two shortcuts). App Actions are not built.
+- ~~Google Drive App Data sync~~ — SHIPPED (Decision 102). Never a custom
   sync backend, never CloudKit.
-- **Google Cast** — the AirPlay analog, with the player wave.
+- **Google Cast** — the hand-off is built (`CastSupport`), never seen on a
+  receiver.
+- ~~User-created channels~~, ~~Category visibility toggles~~ — SHIPPED.
+- **Downloads** and **background audio** (a MediaSessionService) — next.
 - **VHS effect** (AGSL `RenderEffect`) — optional polish, last.
-- **Category visibility toggles** — with the next personalization pass.
-  (Playlists + watched-hiding SHIPPED 2026-06-11 on the §2.6 store.)
+(Status checked against the code 2026-09-29.)
 
 ## §8 Parity discipline
 
