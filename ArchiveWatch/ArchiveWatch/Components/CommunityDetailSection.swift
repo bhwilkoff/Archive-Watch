@@ -58,28 +58,26 @@ private struct ReviewCard: View {
     /// card expands it; the title stays clamped because it is an identifier,
     /// not the content.
     @State private var expanded = false
-    #if os(tvOS)
     @State private var clampedHeight: CGFloat = 0
     @State private var fullHeight: CGFloat = 0
+    #if os(tvOS)
     @State private var reading = false
     #endif
 
-    /// Six lines of `.callout` is roughly this many characters at phone width.
-    /// Only past that can the clamp actually be hiding something, and only
-    /// then is a "More" affordance honest.
-    #if os(tvOS)
-    private var maybeTruncated: Bool { fullHeight > clampedHeight + 1 }
-    #else
-    private var maybeTruncated: Bool { (review.body?.count ?? 0) > 260 }
-    #endif
+    /// MEASURED on every platform (tvOS v1.42.840, iPad v1.42.868): the full
+    /// text is laid out hidden behind the clamped one, and "More" is offered
+    /// only when it is taller. A 260-character guess offered "Show more" on
+    /// short reviews at iPad width and missed short multi-paragraph ones.
+    /// Once expanded the two match, so "Show less" keeps its place.
+    private var maybeTruncated: Bool { expanded || fullHeight > clampedHeight + 1 }
 
     /// The review text itself. Selection is iOS/macOS only — tvOS has no text
     /// selection at all, and reaches the same content by focusing the card.
     @ViewBuilder private func reviewBody(_ b: String) -> some View {
         let t = Text(b).font(.callout).foregroundStyle(.secondary)
             .lineLimit(expanded ? nil : 6)
-        #if os(tvOS)
-        t.onGeometryChange(for: CGFloat.self) { $0.size.height } action: { clampedHeight = $0 }
+        let measured = t
+            .onGeometryChange(for: CGFloat.self) { $0.size.height } action: { clampedHeight = $0 }
             .background(alignment: .topLeading) {
                 Text(b).font(.callout)
                     .fixedSize(horizontal: false, vertical: true)
@@ -87,8 +85,10 @@ private struct ReviewCard: View {
                     .hidden()
                     .onGeometryChange(for: CGFloat.self) { $0.size.height } action: { fullHeight = $0 }
             }
+        #if os(tvOS)
+        measured
         #else
-        t.textSelection(.enabled)
+        measured.textSelection(.enabled)
         #endif
     }
 

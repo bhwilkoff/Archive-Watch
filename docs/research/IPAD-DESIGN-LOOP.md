@@ -309,7 +309,7 @@ iPhone to make sure that everything that we have learned across each of those
 platforms is informing the other platforms."* Each line cites code, not docs.
 
 1. ✅ v1.42.895 Captions never clamped — iOS PlayerView_iOS.swift:871/926 (numberOfLines 4), Mac PlayerWindow_macOS.swift:334 (lineLimit 4)
-2. Measured More — reviews on iOS use a 260-character guess (CommunityDetailSection.swift:73)
+2. ✅ v1.42.899 (seen: Nosferatu's first review, whole at four lines, no longer offers "Show more") Measured More — reviews on iOS use a 260-character guess (CommunityDetailSection.swift:73)
 3. ✅ v1.42.895 (seen: iPad and Mac Home, 7-film hero) Hero chosen in SQL — iOS HomeView_iOS.swift:250, Mac HomeView_macOS.swift:64 still decode dbBrowse(limit: 3000)
 4. ✅ v1.42.897 (seen on the Mac: Play S1, E1 · Favorite · More) Series page Play/Resume + Favorite — Mac SeriesDetail_macOS.swift:66-76
 5. ✅ v1.42.898 (seen on the iPad: bars + "1h 32m left"; Mac built, the row below its window's fold) Continue Watching time-left/progress — iOS HomeView_iOS.swift:51, Mac HomeView_macOS.swift:34
